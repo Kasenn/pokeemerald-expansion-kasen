@@ -1,0 +1,70 @@
+mapscripts WW_Grotto_MapScripts{}
+
+script WW_GrottoPokemon{
+    lockall
+    random(8)
+    if(var(VAR_RESULT) == 0){
+        playmoncry(SPECIES_DUNSPARCE, CRY_MODE_ENCOUNTER)
+        delay(40)
+        waitmoncry
+        setwildbattle(SPECIES_DUNSPARCE, 10)
+    }
+    if(var(VAR_RESULT) == 1){
+        playmoncry(SPECIES_HERACROSS, CRY_MODE_ENCOUNTER)
+        delay(40)
+        waitmoncry
+        setwildbattle(SPECIES_HERACROSS, 10)
+    }
+    if(var(VAR_RESULT) == 2){
+        playmoncry(SPECIES_SWABLU, CRY_MODE_ENCOUNTER)
+        delay(40)
+        waitmoncry
+        setwildbattle(SPECIES_SWABLU, 10)
+    }
+    if(var(VAR_RESULT) == 3){
+        playmoncry(SPECIES_SNEASEL, CRY_MODE_ENCOUNTER)
+        delay(40)
+        waitmoncry
+        setwildbattle(SPECIES_SNEASEL, 10)
+    }
+    if(var(VAR_RESULT) == 4){
+        playmoncry(SPECIES_BAGON, CRY_MODE_ENCOUNTER)
+        delay(40)
+        waitmoncry
+        setwildbattle(SPECIES_BAGON, 10)
+    }
+    if(var(VAR_RESULT) == 5){
+        playmoncry(SPECIES_GLIGAR, CRY_MODE_ENCOUNTER)
+        delay(40)
+        waitmoncry
+        setwildbattle(SPECIES_GLIGAR, 10)
+    }
+    if(var(VAR_RESULT) == 6){
+        playmoncry(SPECIES_ABSOL, CRY_MODE_ENCOUNTER)
+        delay(40)
+        waitmoncry
+        setwildbattle(SPECIES_ABSOL, 10)
+    }
+    if(var(VAR_RESULT) == 7){
+        playmoncry(SPECIES_SPHEAL, CRY_MODE_ENCOUNTER)
+        delay(40)
+        waitmoncry
+        setwildbattle(SPECIES_SPHEAL, 10)
+    }
+    if(var(VAR_RESULT) == 8){
+        playmoncry(SPECIES_SKORUPI, CRY_MODE_ENCOUNTER)
+        delay(40)
+        waitmoncry
+        setwildbattle(SPECIES_SKORUPI, 10)
+    }
+    dowildbattle
+    delay(20)
+    fadescreenswapbuffers(FADE_TO_BLACK)
+    removeobject(1)
+    delay(20)
+    setflag(FLAG_UNUSED_WWGROTTO)
+    fadescreenswapbuffers(FADE_FROM_BLACK)
+    delay(20)
+    release
+    end
+}

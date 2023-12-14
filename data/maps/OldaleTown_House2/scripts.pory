@@ -1,0 +1,37 @@
+mapscripts OldaleTown_House2_MapScripts{}
+
+script NotMyNectar{
+    lockall
+    applymovement(1, NectarUp)
+    waitmovement(0)
+    delay(10)
+    msgbox(NotMyNectar_Text, MSGBOX_NPC)
+    waitmessage
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, PC_Nectar)
+    waitmovement(0)
+    delay(30)
+    release
+    end
+}
+
+script NectarManiac{
+	msgbox(NectarManiac_Text, MSGBOX_NPC)
+	end
+}
+
+text NectarManiac_Text{
+    "I planted a bunch of expensive flowers\non my backyard to attract some rare\lbug type Pokémon, but instead all\lI get are these stupid birds.\pIf you could show me one of these\nbirds imprisoned inside a Poké Ball,\lI might let you access my backyard."
+}
+
+movement NectarUp{
+    face_up
+}
+
+text NotMyNectar_Text{
+    "Excuse me, but did I give you\na permission to enter my backyard?\pYou'll probably just end up trampling\nmy precious flowers."
+}
+
+movement PC_Nectar{
+    walk_down
+}

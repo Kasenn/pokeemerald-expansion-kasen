@@ -6,7 +6,7 @@ RustboroCity_PokemonCenter_1F_MapScripts::
 	.byte 0
 
 RustboroCity_PokemonCenter_1F_OnTransition:
-	setrespawn HEAL_LOCATION_RUSTBORO_CITY
+	setrespawn HEAL_LOCATION_CORALGROVE_CITY
 	call Common_EventScript_UpdateBrineyLocation
 	end
 
@@ -31,19 +31,18 @@ RustboroCity_PokemonCenter_1F_EventScript_Girl::
 	end
 
 RustboroCity_PokemonCenter_1F_Text_PokemonHavePersonalities:
-	.string "My POKéMON has a NAIVE nature, and my\n"
-	.string "friend's has a JOLLY nature.\p"
-	.string "It's fascinating how POKéMON have\n"
-	.string "personalities!$"
+	.string "Sometimes you have to get off the\n"
+	.string "beaten path to find some of the\l"
+	.string "more elusive Pokémon.$"
 
 RustboroCity_PokemonCenter_1F_Text_MaleAndFemalePokemon:
-	.string "Just like people, there are male and\n"
-	.string "female POKéMON.\p"
-	.string "But no one seems to have any idea how\n"
-	.string "they're different.$"
+	.string "They finally opened the Training Hub\n"
+	.string "upstairs.\p"
+	.string "I already went and trained my Pokémon\n"
+	.string "to their absolute limit.$"
 
 RustboroCity_PokemonCenter_1F_Text_HMCutNextDoor:
-	.string "The man next door gave me an HM!\p"
-	.string "I used it to teach my POKéMON how to\n"
-	.string "CUT down skinny trees.$"
+	.string "I really want to challenge the\n"
+	.string "Pokémon Gym but all I have are\l"
+	.string "grass Pokémon that are weak to bugs.$"
 

@@ -207,3 +207,30 @@ const u16 gMetatileAttributes_MysteryEventsHouse[] = INCBIN_U16("data/tilesets/s
 
 const u16 gMetatiles_UnionRoom[] = INCBIN_U16("data/tilesets/secondary/union_room/metatiles.bin");
 const u16 gMetatileAttributes_UnionRoom[] = INCBIN_U16("data/tilesets/secondary/union_room/metatile_attributes.bin");
+
+const u16 gMetatiles_gTileset_Birchseed[] = INCBIN_U16("data/tilesets/secondary/town_1/metatiles.bin");
+const u16 gMetatileAttributes_gTileset_Birchseed[] = INCBIN_U16("data/tilesets/secondary/town_1/metatile_attributes.bin");
+
+const u16 gMetatiles_CoralGrove[] = INCBIN_U16("data/tilesets/secondary/coral_grove/metatiles.bin");
+const u16 gMetatileAttributes_CoralGrove[] = INCBIN_U16("data/tilesets/secondary/coral_grove/metatile_attributes.bin");
+
+const u16 gMetatiles_Coralgrove[] = INCBIN_U16("data/tilesets/primary/coralgrove/metatiles.bin");
+const u16 gMetatileAttributes_Coralgrove[] = INCBIN_U16("data/tilesets/primary/coralgrove/metatile_attributes.bin");
+
+const u16 gMetatiles_Start[] = INCBIN_U16("data/tilesets/primary/start/metatiles.bin");
+const u16 gMetatileAttributes_Start[] = INCBIN_U16("data/tilesets/primary/start/metatile_attributes.bin");
+
+const u16 gMetatiles_Pearlwood[] = INCBIN_U16("data/tilesets/primary/pearlwood/metatiles.bin");
+const u16 gMetatileAttributes_Pearlwood[] = INCBIN_U16("data/tilesets/primary/pearlwood/metatile_attributes.bin");
+
+const u16 gMetatiles_Pearlwood_Secondary[] = INCBIN_U16("data/tilesets/secondary/pearlwood_secondary/metatiles.bin");
+const u16 gMetatileAttributes_Pearlwood_Secondary[] = INCBIN_U16("data/tilesets/secondary/pearlwood_secondary/metatile_attributes.bin");
+
+const u16 gMetatiles_DarkForest[] = INCBIN_U16("data/tilesets/primary/dark_forest/metatiles.bin");
+const u16 gMetatileAttributes_DarkForest[] = INCBIN_U16("data/tilesets/primary/dark_forest/metatile_attributes.bin");
+
+const u16 gMetatiles_DarkForestSec[] = INCBIN_U16("data/tilesets/secondary/dark_forest_sec/metatiles.bin");
+const u16 gMetatileAttributes_DarkForestSec[] = INCBIN_U16("data/tilesets/secondary/dark_forest_sec/metatile_attributes.bin");
+
+const u16 gMetatiles_Pearlwood_PRIMROSEFLOWERS[] = INCBIN_U16("data/tilesets/secondary/pearlwood_primroseflowers/metatiles.bin");
+const u16 gMetatileAttributes_Pearlwood_PRIMROSEFLOWERS[] = INCBIN_U16("data/tilesets/secondary/pearlwood_primroseflowers/metatile_attributes.bin");

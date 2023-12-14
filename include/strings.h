@@ -706,6 +706,16 @@ extern const u8 gText_KingsRock64BP[];
 extern const u8 gText_FocusBand64BP[];
 extern const u8 gText_ScopeLens64BP[];
 
+extern const u8 gText_MiracleSeed8BP[];
+extern const u8 gText_Charcoal8BP[];
+extern const u8 gText_MysticWater8BP[];
+extern const u8 gText_SilkScarf8BP[];
+extern const u8 gText_SharpBeak8BP[];
+extern const u8 gText_BlackBelt8BP[];
+extern const u8 gText_HardStone8BP[];
+extern const u8 gText_Magnet8BP[];
+extern const u8 gText_PoisonBarb8BP[];
+
 extern const u8 gText_EnergyPowder50[];
 extern const u8 gText_EnergyRoot80[];
 extern const u8 gText_HealPowder50[];
@@ -871,6 +881,15 @@ extern const u8 BattleFrontier_ExchangeServiceCorner_Text_ChoiceBandDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_KingsRockDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_FocusBandDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_ScopeLensDesc[];
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_MiracleSeedDesc[];
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_CharcoalDesc[];
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_MysticWaterDesc[];
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_SilkScarfDesc[];
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_SharpBeakDesc[];
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_BlackBeltDesc[];
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_HardStoneDesc[];
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_MagnetDesc[];
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_PoisonBarbDesc[];
 
 // Battle Frontier Move Tutors
 extern const u8 BattleFrontier_Lounge7_Text_SoftboiledDesc[];
@@ -3026,6 +3045,12 @@ extern const u8 gText_Summary2[];
 extern const u8 gText_PkmnForSwap[];
 extern const u8 gText_SamePkmnInPartyAlready[];
 extern const u8 gText_Cancel3[];
+extern const u8 gText_HpTraining[];
+extern const u8 gText_AtkTraining[];
+extern const u8 gText_SpAtkTraining[];
+extern const u8 gText_DefTraining[];
+extern const u8 gText_SpDefTraining[];
+extern const u8 gText_SpeedTraining[];
 
 // Naming Screen
 extern const u8 gText_MoveOkBack[];

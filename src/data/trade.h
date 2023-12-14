@@ -1047,7 +1047,55 @@ static const struct InGameTrade sIngameTrades[] =
         .otGender = FEMALE,
         .sheen = 10,
         .requestedSpecies = SPECIES_SKITTY
-    }
+    },
+    [INGAME_TRADE_MARSHTOMP] =
+    {
+        .nickname = _("Swampy"),
+        .species = SPECIES_MARSHTOMP,
+        .ivs = {10, 9, 14, 25, 9, 11},
+        .abilityNum = 0,
+        .otId = 46285,
+        .conditions = {5, 5, 5, 5, 30},
+        .personality = 0x7F,
+        .heldItem = ITEM_ORAN_BERRY,
+        .mailNum = -1,
+        .otName = _("Sophie"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_PRINPLUP
+    },
+    [INGAME_TRADE_QUILLADIN] =
+    {
+        .nickname = _("Chester"),
+        .species = SPECIES_QUILLADIN,
+        .ivs = {21, 15, 15, 4, 7, 7},
+        .abilityNum = 0,
+        .otId = 46285,
+        .conditions = {5, 5, 5, 5, 30},
+        .personality = 0x7F,
+        .heldItem = ITEM_ORAN_BERRY,
+        .mailNum = -1,
+        .otName = _("Sophie"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_DARTRIX
+    },
+    [INGAME_TRADE_TORRACAT] =
+    {
+        .nickname = _("Booker"),
+        .species = SPECIES_TORRACAT,
+        .ivs = {15, 17, 1, 3, 1, 18},
+        .abilityNum = 0,
+        .otId = 46285,
+        .conditions = {5, 5, 5, 5, 30},
+        .personality = 0x7F,
+        .heldItem = ITEM_ORAN_BERRY,
+        .mailNum = -1,
+        .otName = _("Sophie"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_COMBUSKEN
+    }  
 };
 
 static const u16 sIngameTradeMail[][MAIL_WORDS_COUNT + 1] =

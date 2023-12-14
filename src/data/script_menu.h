@@ -782,6 +782,16 @@ struct MultichoiceListStruct
     u8 count;
 };
 
+static const struct MenuAction PokeCenterIVTraining[] =
+{
+    {gText_HpTraining},
+    {gText_AtkTraining},
+    {gText_SpAtkTraining},
+    {gText_DefTraining},
+    {gText_SpDefTraining},
+    {gText_SpeedTraining},
+};
+
 static const struct MultichoiceListStruct sMultichoiceLists[] =
 {
     [MULTI_BRINEY_ON_DEWFORD]          = MULTICHOICE(MultichoiceList_BrineyOnDewford),
@@ -898,6 +908,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_SLATEPORT_TENT_RULES]       = MULTICHOICE(MultichoiceList_SlateportTentRules),
     [MULTI_FALLARBOR_TENT_RULES]       = MULTICHOICE(MultichoiceList_FallarborTentRules),
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
+    [MULTI_POKECENTER_IV_TRAINING]     = MULTICHOICE(PokeCenterIVTraining),
 };
 
 const u8 *const gStdStrings[] =

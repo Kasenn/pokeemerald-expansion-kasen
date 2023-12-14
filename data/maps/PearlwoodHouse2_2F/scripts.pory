@@ -1,0 +1,17 @@
+mapscripts PearlwoodHouse2_2F_MapScripts{}
+
+script PearlwoodHouse2_2F_Girl{
+    lockall
+    faceplayer
+    msgbox("Have you heard of the fairy type?\nFairy type Pokémon are really strong\lagainst fighting, dark, and dragon\ltype Pokémon while being very weak\lto steel and poison.")
+    waitmessage
+    closemessage
+    applymovement(1, PearlwoodHouse2_2F_Girl_face)
+    waitmovement(0)
+    release
+    end
+}
+
+movement PearlwoodHouse2_2F_Girl_face{
+    face_up
+}

@@ -1,0 +1,220 @@
+mapscripts PlayerHouse1F_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: PH1FClearFlag
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_PEARLWOOD_TOWN_STATE, 2: PlayerHouse1F_MomIntro
+        VAR_PEARLWOOD_TOWN_STATE, 5: PlayerHouse1F_BrotherApology
+    ]
+}
+
+script PlayerHouse1F_MomIntro{
+    if(flag(FLAG_UNUSED_INTROGOSSIP)){
+        end
+    }
+    else{
+        lockall
+        applymovement(1, PlayerHouse1F_face1)
+        waitmovement(0)
+        playse(SE_PIN)
+        applymovement(1, Common_Movement_ExclamationMark)
+        waitmovement(0)
+        delay(40)
+        msgbox(PlayerHouse1F_LookPlayer)
+        waitmessage
+        closemessage
+        applymovement(1, PlayerHouse1F_face2)
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerHouse1F_PlayerSitTable)
+        waitmovement(0)
+        delay(20)
+        msgbox(PlayerHouse1F_Disc1)
+        waitmessage
+        closemessage
+        fadescreen(FADE_TO_BLACK)
+        delay(80)
+        fadescreen(FADE_FROM_BLACK)
+        msgbox(PlayerHouse1F_Disc2)
+        waitmessage
+        playse(SE_PIN)
+        applymovement(1, Common_Movement_ExclamationMark)
+        waitmovement(0)
+        delay(40)
+        applymovement(1, PlayerHouse1F_face3)
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerHouse1F_face1)
+        waitmovement(0)
+        msgbox(PlayerHouse1F_Disc3)
+        waitmessage
+        closemessage
+        setflag(FLAG_UNUSED_INTROGOSSIP)
+        setflag(FLAG_UNUSED_BROTHER_PEARLFIGHT)
+        setvar(VAR_PEARLWOOD_TOWN_STATE, 3)
+        call(Player1F_Shoes)
+        applymovement(1, PlayerHouse1F_face2)
+        waitmovement(0)
+        releaseall
+        end
+    }
+}
+
+script Player1F_Shoes{
+    msgbox("Oh, and one more thing.", MSGBOX_DEFAULT)
+    playfanfare(MUS_OBTAIN_ITEM)
+    msgbox("{COLOR RED}{SHADOW LIGHT_RED}Obtained the running shoes!", MSGBOX_DEFAULT)
+    setflag(FLAG_SYS_B_DASH)
+    setflag(FLAG_RECEIVED_RUNNING_SHOES)
+    msgbox("Mom: Now you can zip around everywhere\nmuch faster!", MSGBOX_DEFAULT)
+    closemessage
+    delay(30)
+}
+
+movement PlayerHouse1F_face1{
+    face_up
+}
+
+movement PlayerHouse1F_face2{
+    face_left
+}
+
+movement PlayerHouse1F_face3{
+    face_down
+}
+
+movement PlayerHouse1F_face4{
+    face_right
+}
+
+
+text PlayerHouse1F_LookPlayer{
+    "Mom: Look, {PLAYER}!\nYour brother is back from his trip!\pCome sit by the table!"
+}
+
+movement PlayerHouse1F_PlayerSitTable{
+    walk_down * 4
+    walk_left * 3
+}
+
+text PlayerHouse1F_Disc1{
+    "Mom: So, Brandon,\nhow was your trip to Kanto?\pGo on, I want to hear everything!\pBrandon: …"
+}
+
+text PlayerHouse1F_Disc2{
+    "Brandon: In the end, that Lance's\nDragonite was simply too strong…\pMom: Well, at least you tried\nyour best.\pIt sounds like you still had fun\nin the end!\pBrandon: Anyway, mom, aren't you\nforgetting something?"
+}
+
+text PlayerHouse1F_Disc3{
+    "Mom: Oh, that's right!\pThis is supposed to be your special day,\n{PLAYER}!\pThat's right! Today is the day you get\nyour very own Pokémon!\pEvery young trainer in this town\ngets their first Pokémon from\lprofessor Birch.\pYou should go see him in his lab\n and see what he has to offer.\pThe professor's lab is just\nnorthwest from here."
+}
+
+text PlayerHouse1F_BrotherGossip{
+    "Brandon: Go get 'em, champ!"
+}
+
+script PlayerHouse1F_Brother{
+    lockall
+    faceplayer
+    msgbox(PlayerHouse1F_BrotherGossip)
+    waitmessage
+    applymovement(2, PlayerHouse1F_face4)
+    waitmovement(0)
+    release
+    end
+}
+
+script PlayerHouse1F_Mom{
+    lockall
+    faceplayer
+    if(var(VAR_PEARLWOOD_TOWN_STATE) == 3){
+        call(PlayerHouse1F_MomGossip)
+        applymovement(1, PlayerHouse1F_face2)
+        waitmovement(0)
+        release
+        end
+    }
+    elif(var(VAR_PEARLWOOD_TOWN_STATE) == 7){
+        call(PlayerHouse1F_MomGoodbye)
+        applymovement(1, PlayerHouse1F_face2)
+        waitmovement(0)
+        release
+        end
+    }
+    else{
+        goto(PlayersHouse_1F_EventScript_MomHealsParty)
+    }
+}
+
+script PlayerHouse1F_MomGossip{
+    msgbox("Mom: See you, honey!")
+    waitmessage
+    closemessage
+}
+
+script PlayerHouse1F_MomGoodbye{
+    msgbox("Mom: You're leaving on an adventure?\nWell, can't say that I'm surprised.\pYour father was like that as well\nwhen we were young.\pSpeaking of which, your father has been\nworking hard to get accepted into\lthe Pokémon League.\pMaybe one day you'll challenge him to\na Pokémon battle on League grounds.\pIf your Pokémon ever get hurt,\ncome see me and I'll help patch them up.")
+    waitmessage
+    closemessage
+    setvar(VAR_PEARLWOOD_TOWN_STATE, 8)
+}
+
+script PlayerHouse1F_BrotherApology{
+    lockall
+    playse(SE_PIN)
+    applymovement(3, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    delay(40)
+    applymovement(3, PlayerHouse1F_face1)
+    waitmovement(0)
+    delay(10)
+    applymovement(3, BrotherComesCloser)
+    waitmovement(0)
+    delay(15)
+    msgbox(PlayerHouse1F_Apology)
+    waitmessage
+    closemessage
+    applymovement(3, BrotherLeavesHouse)
+    waitmovement(0)
+    removeobject(3)
+    setflag(FLAG_UNUSED_LOSTTOBROTHER)
+    setflag(FLAG_UNUSED_BROTHER_PEARLFIGHT)
+    setvar(VAR_PEARLWOOD_TOWN_STATE, 7)
+    delay(30)
+    release
+    end
+}
+
+text PlayerHouse1F_Apology{
+"Brandon: Sorry about that.\nI knew that with my experience it was\lgoing to be an unfair fight. I hope you\ldon't take that loss too seriously…\pAnyway, have you thought about what\nyou're going to do next?\pIf you're up for it, we should totally\nsee which of us is the better trainer\lby taking on the Pokémon Gym Challenge!\pOur neighbor {RIVAL} just set out so we\nbetter get moving or we'll fall behind!\pDon't know about you but I'm not content\nwith a second place.\pCatch ya later!"
+}
+
+movement BrotherComesCloser{
+    walk_up * 2
+}
+
+movement BrotherLeavesHouse{
+    walk_down * 5
+}
+
+script PH1FClearFlag{
+    if(var(VAR_PEARLWOOD_TOWN_STATE) == 5){
+        clearflag(FLAG_UNUSED_LOSTTOBROTHER)
+    }
+    else{
+        end
+    }
+}
+
+script WooperDoll{
+    lockall
+    msgbox("It's a Wooper doll.")
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script AzurillDoll{
+    lockall
+    msgbox("It's an Azurill doll.")
+    waitmessage
+    closemessage
+    release
+    end
+}

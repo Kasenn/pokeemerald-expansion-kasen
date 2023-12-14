@@ -1,0 +1,22 @@
+mapscripts Pearlwood_House3_MapScripts{}
+
+script Pearlwood_House3_OldGuy{
+    lockall
+    faceplayer
+    if(!flag(FLAG_UNUSED_PEARLWOOD_POTION_SAMPLE)){
+        msgbox("I used to work at a Pokémon Mart\nback in the day.\lHere, I want you to have this sample.")
+        waitmessage
+        closemessage
+        giveitem(ITEM_POTION, 1)
+        setflag(FLAG_UNUSED_PEARLWOOD_POTION_SAMPLE)
+    }
+    msgbox(Pearlwood_Potion_Given)
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+text Pearlwood_Potion_Given{
+    "A potion can be used anytime, so it's\neven more useful than a Pokémon Center\lin certain situations."
+}

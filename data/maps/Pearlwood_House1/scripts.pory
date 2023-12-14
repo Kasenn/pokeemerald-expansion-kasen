@@ -1,0 +1,27 @@
+mapscripts Pearlwood_House1_MapScripts{}
+
+script Pearlwood_House1_OldLady{
+    lockall
+    faceplayer
+    msgbox("How is the professor able to present\nall the young trainers with Pokémon?\pI rarely see him leaving the village\nso he must be getting them from\lsomewhere nearby.")
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Pearlwood_House1_YoungGirl{
+    lockall
+    faceplayer
+    msgbox("Listen to this book I'm reading!\p“The Pokémon habitat can be more\ndiverse than it initially seems.\lWhile most habitats seem to be \ldominated by only a handful of\lPokémon species, one should never\lrule out the possibility of coming\lacross something unexpected.”")
+    waitmessage
+    closemessage
+    applymovement(2, Pearlwood_House1_face)
+    waitmovement(0)
+    release
+    end
+}
+
+movement Pearlwood_House1_face{
+    face_up
+}

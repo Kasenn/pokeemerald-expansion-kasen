@@ -18,5 +18,6 @@ void DrawMoneyBox(int amount, u8 x, u8 y);
 void HideMoneyBox(void);
 void AddMoneyLabelObject(u16 x, u16 y);
 void RemoveMoneyLabelObject(void);
+void AddBattlePoints(u32 pointsToAdd);
 
 #endif // GUARD_MONEY_H

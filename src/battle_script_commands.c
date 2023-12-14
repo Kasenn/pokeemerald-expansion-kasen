@@ -62,6 +62,7 @@
 #include "battle_util.h"
 #include "constants/pokemon.h"
 #include "config/battle.h"
+#include "constants/battle_frontier.h"
 
 // Helper for accessing command arguments and advancing gBattlescriptCurrInstr.
 //
@@ -6206,6 +6207,18 @@ static void Cmd_switchindataupdate(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
+// Function to add Battle Points to the player's total
+void AddBattlePoints(u32 pointsToAdd) {
+    // Assuming Battle Points are stored in gSaveBlock2Ptr->frontier.battlePoints
+    if (gSaveBlock2Ptr->frontier.battlePoints + pointsToAdd > MAX_BATTLE_FRONTIER_POINTS) {
+        // If adding the points exceeds the maximum limit, cap the Battle Points
+        gSaveBlock2Ptr->frontier.battlePoints = MAX_BATTLE_FRONTIER_POINTS;
+    } else {
+        // Otherwise, add the points to the Battle Points total
+        gSaveBlock2Ptr->frontier.battlePoints += pointsToAdd;
+    }
+}
+
 static void Cmd_switchinanim(void)
 {
     u32 battler;
@@ -7313,6 +7326,7 @@ static void Cmd_getmoneyreward(void)
     CMD_ARGS();
 
     u32 money;
+    u32 battlePoints; // Variable to store Battle Points
     u8 sPartyLevel = 1;
 
     if (gBattleOutcome == B_OUTCOME_WON)
@@ -7320,10 +7334,21 @@ static void Cmd_getmoneyreward(void)
         money = GetTrainerMoneyToGive(gTrainerBattleOpponent_A);
         if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
             money += GetTrainerMoneyToGive(gTrainerBattleOpponent_B);
+
+        // Calculate Battle Points as 1/100th of the money earned
+        battlePoints = money / 500;
+        if (battlePoints > 3)
+        battlePoints = 3;
+
+        // Add both money and Battle Points to the player
         AddMoney(&gSaveBlock1Ptr->money, money);
+        AddBattlePoints(battlePoints); // Function to add Battle Points to the player
     }
     else
     {
+        
+        // Existing code for handling other scenarios (loss, etc.)
+        // ... (remaining code remains unchanged)
         s32 i, count;
         for (i = 0; i < PARTY_SIZE; i++)
         {
@@ -7342,10 +7367,13 @@ static void Cmd_getmoneyreward(void)
         money = sWhiteOutBadgeMoney[count] * sPartyLevel;
         RemoveMoney(&gSaveBlock1Ptr->money, money);
     }
+    
 
+    // Prepare the money earned text for display
     PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, 5, money);
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
 
 // Command is never used
 static void Cmd_updatebattlermoves(void)

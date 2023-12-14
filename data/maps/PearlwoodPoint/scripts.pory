@@ -1,0 +1,250 @@
+mapscripts PearlwoodPoint_MapScripts{}
+
+script Pearlwood_Point_NoPokemon1{
+    if(flag(FLAG_UNUSED_STARTER_GET)){
+        releaseall
+        end
+    }
+    else{
+        lockall
+        applymovement(2, Pearlwood_Point_Face)
+        waitmovement(0)
+        playse(SE_PIN)
+        applymovement(2, Common_Movement_ExclamationMark)
+        waitmovement(0)
+        delay(40)
+        msgbox(Pearlwood_Point_WatchOut, MSGBOX_NPC)
+        waitmessage
+        applymovement(OBJ_EVENT_ID_PLAYER, Pearlwood_Point_PlayerFace1)
+        waitmovement(0)
+        msgbox(Pearlwood_Point_WildPokemon)
+        waitmessage
+        applymovement(OBJ_EVENT_ID_PLAYER, Pearlwood_Point_Move2)
+        waitmovement(0)
+        releaseall
+    }
+}
+
+script Pearlwood_Point_NoPokemon2{
+    if(flag(FLAG_UNUSED_STARTER_GET)){
+        releaseall
+        end
+    }
+    else{
+        lockall
+        applymovement(2, Pearlwood_Point_Face)
+        waitmovement(0)
+        playse(SE_PIN)
+        applymovement(2, Common_Movement_ExclamationMark)
+        waitmovement(0)
+        delay(40)
+        msgbox(Pearlwood_Point_WatchOut, MSGBOX_NPC)
+        waitmessage
+        applymovement(OBJ_EVENT_ID_PLAYER, Pearlwood_Point_Move1)
+        waitmovement(0)
+        msgbox(Pearlwood_Point_WildPokemon)
+        waitmessage
+        applymovement(OBJ_EVENT_ID_PLAYER, Pearlwood_Point_Move2)
+        waitmovement(0)
+        releaseall
+    }
+}
+
+movement Pearlwood_Point_Move1{
+    walk_up * 1
+}
+
+movement Pearlwood_Point_Move2{
+    walk_left * 1
+}
+
+movement Pearlwood_Point_Face{
+    face_player
+}
+
+movement Pearlwood_Point_PlayerFace1{
+    face_up
+}
+
+text Pearlwood_Point_Dangerous{
+    "It's dangerous to leave the town\nwithout your own Pokémon."
+}
+
+text Pearlwood_Point_WatchOut{
+    "Wait!"
+}
+
+text Pearlwood_Point_WildPokemon{
+    "There are a lot of wild\nPokémon living outside the town!\pIt's dangerous to leave the town\nwithout your own Pokémon."
+}
+
+script Pearlwood_Point_StopGirlTalk{
+    lockall
+    faceplayer
+    msgbox(Pearlwood_Point_Dangerous)
+    waitmessage
+    applymovement(2, Pearlwood_Point_Face2)
+    waitmovement(0)
+    release
+    end
+}
+
+movement Pearlwood_Point_Face2{
+    face_down
+}
+
+script Pearlwood_BrotherFightRight{
+    lockall
+    msgbox("{PLAYER}!")
+    waitmessage
+    closemessage
+    delay(30)
+    applymovement(3, BrotherRightMove)
+    waitmovement(0)
+    msgbox(BrotherFightIntro)
+    waitmessage
+    closemessage
+    call(Pearlwood_BrotherCombat)
+    waitmessage
+    releaseall
+}
+
+movement BrotherRightMove{
+    walk_up * 5
+}
+
+script Pearlwood_BrotherFightLeft{
+    lockall
+    msgbox("{PLAYER}!")
+    waitmessage
+    closemessage
+    delay(30)
+    applymovement(3, BrotherLeftMove)
+    waitmovement(0)
+    msgbox(BrotherFightIntro)
+    waitmessage
+    closemessage
+    call(Pearlwood_BrotherCombat)
+    releaseall
+}
+
+movement BrotherLeftMove{
+    walk_left
+    walk_up * 5
+}
+
+text BrotherFightIntro{
+    "I see you got your Pokémon from\nthe professor.\pWell? What're we waiting for?"
+}
+
+script Pearlwood_BrotherCombat{
+    if(flag(FLAG_UNUSED_0x493)){
+        call(PearlwoodBrotherRowlet)
+    }
+    if(flag(FLAG_UNUSED_0x494)){
+        call(PearlwoodBrotherTorchic)
+    }
+    if(flag(FLAG_UNUSED_0x495)){
+        call(PearlwoodBrotherPiplup)
+    }
+}
+
+script PearlwoodBrotherRowlet{
+
+	trainerbattle_single(TRAINER_BROTHER1_ROWLET, Pearlwood_Brother_Intro, Pearlwood_Brother_Outro, PearlwoodWon)
+	waitmessage
+    end
+}
+
+script PearlwoodBrotherTorchic{
+ 
+	trainerbattle_single(TRAINER_BROTHER1_TORCHIC, Pearlwood_Brother_Intro, Pearlwood_Brother_Outro, PearlwoodWon)
+	waitmessage
+    end
+}
+
+script PearlwoodBrotherPiplup{
+ 
+	trainerbattle_single(TRAINER_BROTHER1_PIPLUP, Pearlwood_Brother_Intro, Pearlwood_Brother_Outro, PearlwoodWon)
+	waitmessage
+    end
+}
+
+text Pearlwood_Brother_Intro{
+    "Let's see if it's any good\nin a Pokémon battle!\pOh, don't worry. I won't use the same\nPokémon I used during my fight against\lthe Kanto Pokémon League.\pThat would be simply unfair.\pI will however, show you a Pokémon\nyou can only find in Kanto!"
+}
+
+text Pearlwood_Brother_Outro{
+    "Of course you picked THAT one!"
+}
+
+text Pearlwood_Brother_PostBattle{
+    "NO NEED FOR THIS"
+}
+
+script PearlwoodWon{
+	msgbox(PearlwoodBrotherPrize)
+    waitmessage
+    closemessage
+    special(HealPlayerParty)
+    applymovement(3, PearlwoodBrotherLeave)
+	waitmovement(0)
+    removeobject(3)
+    setflag(FLAG_UNUSED_BROTHER_PEARLFIGHT)
+    setvar(VAR_PEARLWOOD_TOWN_STATE, 7)
+	releaseall
+	return
+}
+
+text PearlwoodBrotherPrize{
+    "Hmph… I guess I should not\nhave underestimated you.\pAnyway, have you thought about what\nyou're going to do next?\pIf you're up for it, we should totally\nsee which of us is the better trainer\lby taking on the Pokémon Gym Challenge!\pOur neighbor {RIVAL} already set out this\nmorning so we better get moving or\lwe'll fall behind!\pDon't know about you but I'm not content\nwith a second place.\pCatch ya later!"
+}
+
+movement PearlwoodBrotherLeave{
+    walk_down * 5
+}
+
+script Pearlwood_Point_FatMan{
+    lockall
+    faceplayer
+    msgbox("The weather is so calm here despite\nthe close proximity to the sea.\pMust be all the trees blocking\nthe sea breeze.")
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Pearlwood_Point_LittleGirl{
+    lockall
+    faceplayer
+    msgbox("Shh!\pI think I hear the cry of a wild\nPokémon coming from over there.")
+    waitmessage
+    closemessage
+    applymovement(4, Pearlwood_Point_LittleGirlface)
+    waitmovement(0)
+    release
+    end
+}
+
+movement Pearlwood_Point_LittleGirlface{
+    face_up
+}
+
+script Pearlwood_Sign{
+    lockall
+    msgbox("PEARLWOOD POINT\n“A town of new beginnings.”\p{LEFT_ARROW} Prof. Birch's Pokémon lab\n{RIGHT_ARROW} Route 1")
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Pearlwood_Antidote{
+    finditem(ITEM_ANTIDOTE)
+}
+
+
+// script GIVEBP
+//    buffernumberstring (STR_VAR_1, 2)
+//	  setvar(VAR_0x8004, 2)
+//    special(GiveFrontierBattlePoints)

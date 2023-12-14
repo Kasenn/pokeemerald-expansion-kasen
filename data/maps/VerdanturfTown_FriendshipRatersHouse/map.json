@@ -2,8 +2,8 @@
   "id": "MAP_VERDANTURF_TOWN_FRIENDSHIP_RATERS_HOUSE",
   "name": "VerdanturfTown_FriendshipRatersHouse",
   "layout": "LAYOUT_HOUSE2",
-  "music": "MUS_VERDANTURF",
-  "region_map_section": "MAPSEC_VERDANTURF_TOWN",
+  "music": "MUS_FORTREE",
+  "region_map_section": "MAPSEC_RUSTBORO_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -12,7 +12,7 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
@@ -46,17 +46,21 @@
       "x": 3,
       "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_VERDANTURF_TOWN",
-      "dest_warp_id": "5"
+      "dest_map": "MAP_CORALGROVE_CITY",
+      "dest_warp_id": "6"
     },
     {
       "x": 4,
       "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_VERDANTURF_TOWN",
-      "dest_warp_id": "5"
+      "dest_map": "MAP_CORALGROVE_CITY",
+      "dest_warp_id": "6"
     }
   ],
-  "coord_events": [],
-  "bg_events": []
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
 }

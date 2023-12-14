@@ -435,11 +435,12 @@ BattleFrontier_ExchangeServiceCorner_EventScript_Girl::
 	end
 
 BattleFrontier_ExchangeServiceCorner_Text_WelcomePleaseChoosePrize:
-	.string "Hello, this is the EXCHANGE SERVICE\n"
-	.string "CORNER.\p"
-	.string "We exchange the Battle Points you\n"
-	.string "have collected for lovely prizes.\p"
-	.string "Please choose a prize from this list.$"
+	.string "Welcome to the BP shop.\pHere's a list of this store's\npurchasable vitamins.$"
+//	.string "Hello, this is the EXCHANGE SERVICE\n"
+//	.string "CORNER.\p"
+//	.string "We exchange the Battle Points you\n"
+//	.string "have collected for lovely prizes.\p"
+//	.string "Please choose a prize from this list.$"
 
 @ Unused
 BattleFrontier_ExchangeServiceCorner_Text_PleaseChoosePrize:
@@ -723,3 +724,31 @@ BattleFrontier_ExchangeServiceCorner_Text_FocusBandDesc::
 BattleFrontier_ExchangeServiceCorner_Text_ScopeLensDesc::
 	.string "A hold item that raises the\n"
 	.string "critical-hit rate.$"
+
+BattleFrontier_ExchangeServiceCorner_Text_MiracleSeedDesc::
+	.string "A hold item that raises the power of\n"
+	.string "Grass-type moves.$"
+BattleFrontier_ExchangeServiceCorner_Text_CharcoalDesc::
+	.string "A hold item that raises the power of\n"
+	.string "Fire-type moves.$"
+BattleFrontier_ExchangeServiceCorner_Text_MysticWaterDesc::
+	.string "A hold item that raises the power of\n"
+	.string "Water-type moves.$"
+BattleFrontier_ExchangeServiceCorner_Text_SilkScarfDesc::
+	.string "A hold item that raises the power of\n"
+	.string "Normal-type moves.$"
+BattleFrontier_ExchangeServiceCorner_Text_SharpBeakDesc::
+	.string "A hold item that raises the power of\n"
+	.string "Flying-type moves.$"
+BattleFrontier_ExchangeServiceCorner_Text_BlackBeltDesc::
+	.string "A hold item that raises the power of\n"
+	.string "Fighting-type moves.$"
+BattleFrontier_ExchangeServiceCorner_Text_HardStoneDesc::
+	.string "A hold item that raises the power of\n"
+	.string "Rock-type moves.$"
+BattleFrontier_ExchangeServiceCorner_Text_MagnetDesc::
+	.string "A hold item that raises the power of\n"
+	.string "Electric-type moves.$"
+BattleFrontier_ExchangeServiceCorner_Text_PoisonBarbDesc::
+	.string "A hold item that raises the power of\n"
+	.string "Poison-type moves.$"

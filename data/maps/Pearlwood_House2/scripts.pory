@@ -1,0 +1,21 @@
+mapscripts Pearlwood_House2_MapScripts{}
+
+script Pearlwood_House2_OldGuy{
+    lockall
+    faceplayer
+    msgbox("Back in my day we had no idea of any\nphysical and special splits.\lFire punch was as much a special move\las fire blast.\pOh how times have changed…")
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Pearlwood_House2_Woman{
+    lockall
+    faceplayer
+    msgbox("It really feels like you're living\nat the end of a world here.\lOr, at the beginning of one.")
+    waitmessage
+    closemessage
+    release
+    end
+}

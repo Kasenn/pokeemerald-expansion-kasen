@@ -882,7 +882,7 @@ gText_UnusedNicknameReceivedPokemon::
 
 gText_PlayerWhitedOut::
 	.string "{PLAYER} is out of usable\n"
-	.string "POKéMON!\p{PLAYER} whited out!$"
+	.string "Pokémon!\p{PLAYER} whited out!$"
 
 gText_RegisteredTrainerinPokeNav::
 	.string "Registered {STR_VAR_1} {STR_VAR_2}\n"
@@ -1059,3 +1059,61 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/text/frontier_brain.inc"
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
+
+	.include "data/maps/NewBirchLab/scripts.inc"
+
+	.include "data/maps/NewRoute101/scripts.inc"
+
+	.include "data/maps/Town1House1/scripts.inc"
+
+	.include "data/maps/Lab2/scripts.inc"
+
+	.include "data/maps/PearlwoodPoint/scripts.inc"
+
+	.include "data/maps/PrimroseTown/scripts.inc"
+
+	.include "data/maps/Route2/scripts.inc"
+
+	.include "data/maps/WindyWoods/scripts.inc"
+
+	.include "data/maps/LostGlade/scripts.inc"
+
+	.include "data/maps/CoralgroveCity/scripts.inc"
+
+	.include "data/maps/CoralgroveElevator1/scripts.inc"
+
+	.include "data/maps/CoralgroveElevator2/scripts.inc"
+
+	.include "data/maps/CoralgroveHarbor/scripts.inc"
+
+	.include "data/maps/CoralgroveGym/scripts.inc"
+
+	.include "data/maps/Pearlwood_House1/scripts.inc"
+
+	.include "data/maps/Pearlwood_House2/scripts.inc"
+
+	.include "data/maps/Pearlwood_House3/scripts.inc"
+
+	.include "data/maps/PlayerHouse2F/scripts.inc"
+
+	.include "data/maps/PlayerHouse1F/scripts.inc"
+
+	.include "data/maps/PearlwoodHouse2_2F/scripts.inc"
+
+	.include "data/maps/Pearlwood_MaysHouse1F/scripts.inc"
+
+	.include "data/maps/Pearlwood_MaysHouse2F/scripts.inc"
+
+	.include "data/maps/PrimroseMeadow/scripts.inc"
+
+	.include "data/maps/CoralTradeHouse/scripts.inc"
+
+	.include "data/maps/SchoolHall/scripts.inc"
+
+	.include "data/maps/SchoolHall2F/scripts.inc"
+
+	.include "data/maps/Coralgrove_Shop/scripts.inc"
+
+	.include "data/maps/WW_Grotto/scripts.inc"
+
+	.include "data/maps/NewCoralgroveCity_Gym/scripts.inc"

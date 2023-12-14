@@ -3396,7 +3396,9 @@ static const u8 sTM88Desc[] = _( // Todo
     "?????");
 
 static const u8 sTM89Desc[] = _( // Todo
-    "?????");
+    "Switch places\n"
+    "with party Pokémon\n"
+    "after attack.");
 
 static const u8 sTM90Desc[] = _( // Todo
     "?????");
@@ -3411,7 +3413,9 @@ static const u8 sTM93Desc[] = _( // Todo
     "?????");
 
 static const u8 sTM94Desc[] = _( // Todo
-    "?????");
+    "An attack that\n"
+    "leaves the foe\n"
+    "with at least 1 HP.");
 
 static const u8 sTM95Desc[] = _( // Todo
     "?????");
@@ -3686,9 +3690,9 @@ static const u8 sOldSeaMapDesc[] = _(
     "to a certain island.");
 
 static const u8 sLetterDesc[] = _(
-    "A letter to Steven\n"
-    "from the President\n"
-    "of the Devon Corp.");
+    "A letter from\n"
+    "a Devon Corp.\n"
+    "employee.");
 
 static const u8 sDevonPartsDesc[] = _(
     "A package that\n"

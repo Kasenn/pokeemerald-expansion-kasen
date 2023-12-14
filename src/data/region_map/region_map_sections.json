@@ -2,7 +2,7 @@
   "map_sections": [
     {
       "map_section": "MAPSEC_LITTLEROOT_TOWN",
-      "name": "LITTLEROOT TOWN",
+      "name": "PEARLWOOD POINT",
       "x": 4,
       "y": 11,
       "width": 1,
@@ -10,7 +10,7 @@
     },
     {
       "map_section": "MAPSEC_OLDALE_TOWN",
-      "name": "OLDALE TOWN",
+      "name": "PRIMROSE TOWN",
       "x": 4,
       "y": 9,
       "width": 1,
@@ -82,7 +82,7 @@
     },
     {
       "map_section": "MAPSEC_RUSTBORO_CITY",
-      "name": "RUSTBORO CITY",
+      "name": "CORALGROVE CITY",
       "x": 0,
       "y": 5,
       "width": 1,
@@ -130,7 +130,7 @@
     },
     {
       "map_section": "MAPSEC_ROUTE_101",
-      "name": "ROUTE 101",
+      "name": "ROUTE 1",
       "x": 4,
       "y": 10,
       "width": 1,
@@ -138,7 +138,7 @@
     },
     {
       "map_section": "MAPSEC_ROUTE_102",
-      "name": "ROUTE 102",
+      "name": "PRIMROSE MEADOW",
       "x": 2,
       "y": 9,
       "width": 2,
@@ -146,7 +146,7 @@
     },
     {
       "map_section": "MAPSEC_ROUTE_103",
-      "name": "ROUTE 103",
+      "name": "ROUTE 2",
       "x": 4,
       "y": 8,
       "width": 4,
@@ -474,9 +474,17 @@
     },
     {
       "map_section": "MAPSEC_PETALBURG_WOODS",
-      "name": "PETALBURG WOODS",
+      "name": "WINDY WOODS",
       "x": 0,
       "y": 8,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_PETALBURG_WOODS2",
+      "name": "LOST GLADE",
+      "x": 1,
+      "y": 9,
       "width": 1,
       "height": 1
     },

@@ -452,6 +452,12 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_LUGIA                   0x1121
 #define OBJ_EVENT_PAL_TAG_RS_BRENDAN              0x1122
 #define OBJ_EVENT_PAL_TAG_RS_MAY                  0x1123
+#define OBJ_EVENT_PAL_TAG_ANABEL                  0x1124
+#define OBJ_EVENT_PAL_EXAMPLE                     0x1124
+#define OBJ_EVENT_PAL_EXAMPLE2                    0x1125
+#define OBJ_EVENT_PAL_EXAMPLE3                    0x1126
+#define OBJ_EVENT_PAL_EXAMPLE4                    0x1127
+#define OBJ_EVENT_PAL_EXAMPLE5                    0x1128
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -498,6 +504,12 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Lugia,                 OBJ_EVENT_PAL_TAG_LUGIA},
     {gObjectEventPal_RubySapphireBrendan,   OBJ_EVENT_PAL_TAG_RS_BRENDAN},
     {gObjectEventPal_RubySapphireMay,       OBJ_EVENT_PAL_TAG_RS_MAY},
+    {gObjectEventPal_Anabel,                OBJ_EVENT_PAL_TAG_ANABEL},
+    {gObjectEventPalette_Example,           OBJ_EVENT_PAL_EXAMPLE},
+    {gObjectEventPalette_Example2,          OBJ_EVENT_PAL_EXAMPLE2},
+    {gObjectEventPalette_Example3,          OBJ_EVENT_PAL_EXAMPLE3},
+    {gObjectEventPalette_Example4,          OBJ_EVENT_PAL_EXAMPLE4},
+    {gObjectEventPalette_Example5,          OBJ_EVENT_PAL_EXAMPLE5},
 #ifdef BUGFIX
     {NULL,                                  OBJ_EVENT_PAL_TAG_NONE},
 #else

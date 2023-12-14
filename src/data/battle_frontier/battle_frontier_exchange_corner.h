@@ -48,6 +48,20 @@ static const u16 sFrontierExchangeCorner_HoldItems[] =
     ITEM_LIST_END
 };
 
+static const u16 sFrontierExchangeCorner_HoldItems2[] =
+{
+    ITEM_MIRACLE_SEED,
+    ITEM_CHARCOAL,
+    ITEM_MYSTIC_WATER,
+    ITEM_SILK_SCARF,
+    ITEM_SHARP_BEAK,
+    ITEM_BLACK_BELT,
+    ITEM_HARD_STONE,
+    ITEM_MAGNET,
+    ITEM_POISON_BARB,
+    ITEM_LIST_END
+};
+
 static const u8 *const sFrontierExchangeCorner_Decor1Descriptions[] =
 {
     BattleFrontier_ExchangeServiceCorner_Text_KissPosterDesc,
@@ -95,5 +109,19 @@ static const u8 *const sFrontierExchangeCorner_HoldItemsDescriptions[] =
     BattleFrontier_ExchangeServiceCorner_Text_KingsRockDesc,
     BattleFrontier_ExchangeServiceCorner_Text_FocusBandDesc,
     BattleFrontier_ExchangeServiceCorner_Text_ScopeLensDesc,
+    gText_Exit
+};
+
+static const u8 *const sFrontierExchangeCorner_HoldItemsDescriptions2[] =
+{
+    BattleFrontier_ExchangeServiceCorner_Text_MiracleSeedDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_CharcoalDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_MysticWaterDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_SilkScarfDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_SharpBeakDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_BlackBeltDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_HardStoneDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_MagnetDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_PoisonBarbDesc,
     gText_Exit
 };

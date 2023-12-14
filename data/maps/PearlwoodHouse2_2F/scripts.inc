@@ -1,0 +1,22 @@
+PearlwoodHouse2_2F_MapScripts::
+	.byte 0
+
+
+PearlwoodHouse2_2F_Girl::
+	lockall
+	faceplayer
+	msgbox PearlwoodHouse2_2F_Girl_Text_0
+	waitmessage
+	closemessage
+	applymovement 1, PearlwoodHouse2_2F_Girl_face
+	waitmovement 0
+	release
+	end
+
+
+PearlwoodHouse2_2F_Girl_face:
+	face_up
+	step_end
+
+PearlwoodHouse2_2F_Girl_Text_0:
+	.string "Have you heard of the fairy type?\nFairy type Pokémon are really strong\lagainst fighting, dark, and dragon\ltype Pokémon while being very weak\lto steel and poison.$"

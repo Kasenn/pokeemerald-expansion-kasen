@@ -1,0 +1,70 @@
+mapscripts Pearlwood_MaysHouse2F_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: Pearlwood_MaysHouse2F_SetRival
+}
+
+script Pearlwood_MaysHouse2F_Rival{
+    lockall
+    if(!flag(FLAG_UNUSED_RIVAL_INTRO)){
+        playse(SE_PIN)
+        applymovement(3, Common_Movement_ExclamationMark)
+        waitmovement(0)
+        applymovement(3, Pearlwood_MaysHouse2F_Rival_face)
+        waitmovement(0)
+        delay(40)
+        msgbox(Pearlwood_MaysHouse2F_Intro)
+        waitmessage
+        closemessage
+        delay(20)
+        playse(SE_PIN)
+        applymovement(3, Common_Movement_ExclamationMark)
+        waitmovement(0)
+        delay(40)
+        setflag(FLAG_UNUSED_RIVAL_INTRO)
+        checkplayergender
+        if(var(VAR_RESULT) == 0){
+            msgbox(Pearlwood_MaysHouse2F_Intro2_MalePC)
+            waitmessage
+            closemessage
+        }
+        if(var(VAR_RESULT) == 1){
+            msgbox(Pearlwood_MaysHouse2F_Intro2_FemalePC)
+            waitmessage
+            closemessage
+        }
+    }
+    else{
+        msgbox(Pearlwood_MaysHouse2F_Gossip)
+    }
+    applymovement(3, Pearlwood_MaysHouse2F_Rival_face2)
+    waitmovement(0)
+    release
+    end
+}
+
+text Pearlwood_MaysHouse2F_Intro{
+    "{RIVAL}: Oh, hi {PLAYER}!\pSorry, I'm a bit busy answering to\nsome e-mail.\pI heard that my dad\nwas looking for you."
+}
+
+text Pearlwood_MaysHouse2F_Intro2_MalePC{
+    "I get it now!\nI bet it's time for you to finally\lget your own Pokémon!\lI hope you pick a cute one!\pDad's probably waiting for you\nin his lab to the northwest."
+}
+
+text Pearlwood_MaysHouse2F_Intro2_FemalePC{
+    "I get it now!\nI bet it's time for you to finally\lget your own Pokémon!\lI hope you pick a cool one!\pDad's probably waiting for you\nin his lab to the northwest."
+}
+
+text Pearlwood_MaysHouse2F_Gossip{
+    "{RIVAL}: Sorry, but I REALLY need to\nfinish writing this e-mail."
+}
+
+movement Pearlwood_MaysHouse2F_Rival_face{
+    face_player
+}
+
+movement Pearlwood_MaysHouse2F_Rival_face2{
+    face_up
+}
+
+script Pearlwood_MaysHouse2F_SetRival{
+    call(Common_EventScript_SetupRivalGfxId)
+}

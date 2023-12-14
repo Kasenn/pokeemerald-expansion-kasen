@@ -1,0 +1,203 @@
+mapscripts PrimroseMeadow_MapScripts{
+	MAP_SCRIPT_ON_TRANSITION: Pearlwood_MaysHouse2F_SetRival
+}
+
+script PrimroseMeadow_EventScript_Rival{
+    lockall
+	checkplayergender
+	goto_if_eq(VAR_RESULT, MALE, PrimroseMeadow_EventScript_RivalMay)
+	goto_if_eq(VAR_RESULT, FEMALE, PrimroseMeadow_EventScript_RivalBrendan)
+	end
+}
+
+script PrimroseMeadow_EventScript_RivalMay{
+	msgbox(PrimroseMeadow_Text_RivalPokemon, MSGBOX_DEFAULT)
+	closemessage
+	playbgm(MUS_ENCOUNTER_MAY, TRUE)
+	applymovement(1, Common_Movement_FacePlayer)
+	waitmovement(0)
+	applymovement(1, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	applymovement(1, Common_Movement_Delay48)
+	waitmovement(0)
+	msgbox(PRMeadow_Text_MayLetsBattle, MSGBOX_DEFAULT)
+    if(flag(FLAG_UNUSED_0x493)){
+        call(PRMeadow_StartMayBattleRowlet)
+    }
+    if(flag(FLAG_UNUSED_0x494)){
+        call(PRMeadow_StartMayBattleTorchic)
+    }
+    if(flag(FLAG_UNUSED_0x495)){
+        call(PRMeadow_StartMayBattlePiplup)
+    }
+	end
+}
+
+text PrimroseMeadow_Text_RivalPokemon{
+    "{RIVAL}: Let's see… The Pokémon found\nin Primrose Meadow include…"
+}
+
+text PRMeadow_Text_MayLetsBattle{
+    "Oh, hi {PLAYER}!\pI knew it!\nMy dad did give you a Pokémon!\pSince we're here, let's have a quick\nbattle!\pI'll give you a taste of what being\na trainer is like."
+}
+
+text PRMeadow_MayDefeated{
+    "Wow! That's great!\n{PLAYER}, you're pretty good!"
+}
+
+script PrimroseMeadow_EventScript_RivalBrendan{
+	msgbox(PrimroseMeadow_Text_RivalPokemon, MSGBOX_DEFAULT)
+	closemessage
+	playbgm(MUS_ENCOUNTER_BRENDAN, TRUE)
+	applymovement(1, Common_Movement_FacePlayer)
+	waitmovement(0)
+	applymovement(1, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	applymovement(1, Common_Movement_Delay48)
+	waitmovement(0)
+	msgbox(PRMeadow_Text_BrendanLetsBattle, MSGBOX_DEFAULT)
+    if(flag(FLAG_UNUSED_0x493)){
+        call(PRMeadow_StartBrendanBattleRowlet)
+    }
+    if(flag(FLAG_UNUSED_0x494)){
+        call(PRMeadow_StartBrendanBattleTorchic)
+    }
+    if(flag(FLAG_UNUSED_0x495)){
+        call(PRMeadow_StartBrendanBattlePiplup)
+    }
+	end
+}
+
+text PRMeadow_Text_BrendanLetsBattle{
+    "Hey, it's {PLAYER}!\p…Oh yeah, I knew dad was going\nto give you a Pokémon.\pSince we're here, how about a little\nbattle?\pI'll teach you what being a trainer's\nabout!"
+}
+
+text PRMeadow_BrendanDefeated{
+    "Huh, {PLAYER}, that wasn't too bad."
+}
+
+script PRMeadow_StartMayBattleRowlet{
+	trainerbattle_no_intro(TRAINER_MAY_ROUTE_103_TREECKO, PRMeadow_MayDefeated)
+	goto(PRMeadow_AfterMayBattle)
+	end}
+
+script PRMeadow_StartMayBattleTorchic{
+	trainerbattle_no_intro(TRAINER_MAY_ROUTE_103_TORCHIC, PRMeadow_MayDefeated)
+	goto(PRMeadow_AfterMayBattle)
+	end}
+
+script PRMeadow_StartMayBattlePiplup{
+	trainerbattle_no_intro(TRAINER_MAY_ROUTE_103_MUDKIP, PRMeadow_MayDefeated)
+	goto(PRMeadow_AfterMayBattle)
+	end}
+
+script PRMeadow_StartBrendanBattleRowlet{
+	trainerbattle_no_intro(TRAINER_BRENDAN_ROUTE_103_TREECKO, PRMeadow_BrendanDefeated)
+	goto(PRMeadow_AfterBrendanBattle)
+	end}
+
+script PRMeadow_StartBrendanBattleTorchic{
+	trainerbattle_no_intro(TRAINER_BRENDAN_ROUTE_103_TORCHIC, PRMeadow_BrendanDefeated)
+	goto(PRMeadow_AfterBrendanBattle)
+	end}
+
+script PRMeadow_StartBrendanBattlePiplup{
+	trainerbattle_no_intro(TRAINER_BRENDAN_ROUTE_103_MUDKIP, PRMeadow_BrendanDefeated)
+	goto(PRMeadow_AfterBrendanBattle)
+	end}
+
+script PRMeadow_AfterMayBattle{
+	msgbox(PRMeadow_MayTimeToHeadBack, MSGBOX_DEFAULT)
+	setvar(VAR_PEARLWOOD_TOWN_STATE, 9)
+	goto(PRMeadow_RivalExit)
+	end
+}
+
+text PRMeadow_MayTimeToHeadBack{
+    "{RIVAL}: You really are something,\n{PLAYER}!\pKeep filling that Pokédex and training\nyour Pokémon and I'm sure you'll\lbe able to take on the Pokémon League\lin no time!\p…What do you mean, “What Pokédex?”\p…WHAT!?\nMy dad didn't give you one!?\pOh I'll make sure he hears about this.\nCome on, let's get back to the lab!"
+}
+
+script PRMeadow_AfterBrendanBattle{
+	msgbox(PRMeadow_BrendanTimeToHeadBack, MSGBOX_DEFAULT)
+	setvar(VAR_PEARLWOOD_TOWN_STATE, 9)
+	goto(PRMeadow_RivalExit)
+	end
+}
+
+text PRMeadow_BrendanTimeToHeadBack{
+    "{RIVAL}: That was a good battle,\n{PLAYER}!\pKeep filling that Pokédex and training\nyour Pokémon and I'm sure you'll\lbe able to take on the Pokémon League\lin no time!\p…What do you mean, “What Pokédex?”\p…What?\nMy dad didn't give you one?\pOh we need to fix this.\nCome on, let's get back to the lab!"
+}
+
+script PRMeadow_RivalExit{
+	closemessage
+	if(var(VAR_FACING) == DIR_SOUTH){
+        goto(PRMeadow_RivalExitFacingSouth)
+    }
+	if(var(VAR_FACING) == DIR_NORTH){
+        goto(PRMeadow_RivalExitFacingNorth)
+    }
+	if(var(VAR_FACING) == DIR_WEST){
+        goto(PRMeadow_RivalExitFacingSouthEastorWest)
+    }
+	if(var(VAR_FACING) == DIR_EAST){
+        goto(PRMeadow_RivalExitFacingSouthEastorWest)
+    }
+	end
+}
+
+script PRMeadow_RivalExitFacingNorth{
+	applymovement(OBJ_EVENT_ID_PLAYER, PRMeadow_Movement_WatchRivalExitFacingNorth)
+	applymovement(1, PRMeadow_Movement_RivalExitFacingNorth1)
+	waitmovement(0)
+	goto(PRMeadow_RivalEnd)
+	end
+}
+
+script PRMeadow_RivalExitFacingSouthEastorWest{
+	applymovement(OBJ_EVENT_ID_PLAYER, PRMeadow_Movement_WatchRivalExitFacingEastOrWest)
+	applymovement(1, PRMeadow_Movement_RivalExit1)
+	waitmovement(0)
+	goto(PRMeadow_RivalEnd)
+	end
+}
+
+script PRMeadow_RivalExitFacingSouth{
+	applymovement(1, PRMeadow_Movement_RivalExit1)
+	waitmovement(0)
+	goto(PRMeadow_RivalEnd)
+	end
+}
+
+script PRMeadow_RivalEnd{
+	removeobject(1)
+	setflag(FLAG_DEFEATED_RIVAL_ROUTE103)
+	savebgm(MUS_DUMMY)
+	fadedefaultbgm
+	releaseall
+	end
+}
+
+
+movement PRMeadow_Movement_RivalExitFacingNorth1{
+	player_run_right
+	player_run_down * 11
+	player_run_left * 3
+}
+
+movement PRMeadow_Movement_WatchRivalExitFacingNorth{
+	delay_16
+	delay_4
+	walk_in_place_faster_right
+	delay_16
+	walk_in_place_faster_down
+}
+
+movement PRMeadow_Movement_RivalExit1{
+	player_run_down * 11
+	player_run_left * 3
+}
+
+movement PRMeadow_Movement_WatchRivalExitFacingEastOrWest{
+	delay_16
+	walk_in_place_faster_down
+}

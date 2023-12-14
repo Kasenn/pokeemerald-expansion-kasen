@@ -1,0 +1,28 @@
+mapscripts LostGlade_MapScripts{}
+
+script LostGladeShrine{
+    msgbox("A forgotten shrine for some\nforgotten deity.", MSGBOX_SIGN)
+    end
+}
+
+script LostGladeCamper{
+    if(flag(FLAG_UNUSED_GLADE)){
+        msgbox("You've been to the large puddle\nas well, haven't you?\pThere must be some clue to breaking\nthe curse on this place.", MSGBOX_NPC)
+        end
+    }
+    else{
+        msgbox("This place is weird.\pNo matter which direction I go,\nI seem to always end up back here.", MSGBOX_NPC)
+        end
+    }
+}
+
+script LostGladeFlag{
+    if(!flag(FLAG_UNUSED_GLADE)){
+        setflag(FLAG_UNUSED_GLADE)
+        setvar(VAR_OLDALE_TOWN_STATE, 2)
+        releaseall
+        end
+    }
+    releaseall
+    end
+}

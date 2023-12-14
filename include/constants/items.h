@@ -768,12 +768,12 @@
 #define ITEM_TM86 667
 #define ITEM_TM87 668
 #define ITEM_TM88 669
-#define ITEM_TM89 670
+#define ITEM_TM_U_TURN 670
 #define ITEM_TM90 671
 #define ITEM_TM91 672
 #define ITEM_TM92 673
 #define ITEM_TM93 674
-#define ITEM_TM94 675
+#define ITEM_TM_FALSE_SWIPE 675
 #define ITEM_TM95 676
 #define ITEM_TM96 677
 #define ITEM_TM97 678

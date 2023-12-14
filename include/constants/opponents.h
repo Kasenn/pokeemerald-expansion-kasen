@@ -2,21 +2,21 @@
 #define GUARD_CONSTANTS_OPPONENTS_H
 
 #define TRAINER_NONE                          0
-#define TRAINER_SAWYER_1                      1
-#define TRAINER_GRUNT_AQUA_HIDEOUT_1          2
-#define TRAINER_GRUNT_AQUA_HIDEOUT_2          3
-#define TRAINER_GRUNT_AQUA_HIDEOUT_3          4
-#define TRAINER_GRUNT_AQUA_HIDEOUT_4          5
-#define TRAINER_GRUNT_SEAFLOOR_CAVERN_1       6
-#define TRAINER_GRUNT_SEAFLOOR_CAVERN_2       7
-#define TRAINER_GRUNT_SEAFLOOR_CAVERN_3       8
-#define TRAINER_GABRIELLE_1                   9
-#define TRAINER_GRUNT_PETALBURG_WOODS        10
-#define TRAINER_MARCEL                       11
-#define TRAINER_ALBERTO                      12
-#define TRAINER_ED                           13
-#define TRAINER_GRUNT_SEAFLOOR_CAVERN_4      14
-#define TRAINER_DECLAN                       15
+#define TRAINER_BROTHER1_ROWLET               1
+#define TRAINER_BROTHER1_TORCHIC              2
+#define TRAINER_BROTHER1_PIPLUP               3
+#define TRAINER_BROTHER2_ROWLET               4
+#define TRAINER_BROTHER2_TORCHIC              5
+#define TRAINER_BROTHER2_PIPLUP               6
+#define TRAINER_BROTHER3_ROWLET               7
+#define TRAINER_BROTHER3_TORCHIC              8
+#define TRAINER_BROTHER3_PIPLUP               9
+#define TRAINER_BROTHER4_ROWLET              10
+#define TRAINER_BROTHER4_TORCHIC             11
+#define TRAINER_BROTHER4_PIPLUP              12
+#define TRAINER_BROTHER5_ROWLET              13
+#define TRAINER_BROTHER5_TORCHIC             14
+#define TRAINER_BROTHER5_PIPLUP              15
 #define TRAINER_GRUNT_RUSTURF_TUNNEL         16
 #define TRAINER_GRUNT_WEATHER_INST_1         17
 #define TRAINER_GRUNT_WEATHER_INST_2         18

@@ -1,0 +1,384 @@
+mapscripts NewCoralgroveCity_Gym_MapScripts{}
+
+script NewCoralgroveCity_Gym_Aaron_Talk{
+	if(flag(FLAG_RECEIVED_TM_U_TURN)){
+		lockall
+		faceplayer
+		msgbox(NewCoralgroveCity_Gym_Text_AaronPostBattle, MSGBOX_DEFAULT)
+		waitmessage
+		closemessage
+		release
+		end
+	}
+	else{
+		lockall
+		faceplayer
+		msgbox("Ah, a new challenger.\pGo stand on the other side of\nthe arena and we may begin." MSGBOX_DEFAULT)
+		waitmessage
+		closemessage
+		turnobject(9, DIR_WEST)
+		release
+		end
+	}
+}
+script NewCoralgroveCity_Gym_EventScript_Aaron{
+	lockall
+	delay(10)
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+	turnobject(9, DIR_WEST)
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, NewCoralgroveCity_Gym_MoveCamera)
+	waitmovement(0)
+	delay(10)
+	special(RemoveCameraObject)
+	trainerbattle_single(TRAINER_GABBY_AND_TY_1, NewCoralgroveCity_Gym_Text_AaronIntro, NewCoralgroveCity_Gym_Text_AaronDefeat, NewCoralgroveCity_Gym_EventScript_AaronDefeated, NO_MUSIC)
+	// specialvar VAR_RESULT, ShouldTryRematchBattle
+	// goto_if_eq VAR_RESULT, TRUE, NewCoralgroveCity_Gym_EventScript_AaronRematch
+	goto_if_unset(FLAG_RECEIVED_TM_U_TURN, NewCoralgroveCity_Gym_EventScript_GiveUTurn)
+	msgbox(NewCoralgroveCity_Gym_Text_AaronPostBattle, MSGBOX_DEFAULT)
+	release
+	end
+}
+movement NewCoralgroveCity_Gym_MoveCamera{
+	walk_right * 3
+}
+script NewCoralgroveCity_Gym_EventScript_AaronDefeated{
+	special(SpawnCameraObject)
+	delay(30)
+	applymovement(1, NewCoralgroveCity_Gym_MoveLeft)
+	applymovement(OBJ_EVENT_ID_PLAYER, NewCoralgroveCity_Gym_MoveRight)
+	waitmovement(0)
+	delay(15)
+	message(NewCoralgroveCity_Gym_Text_ReceivedStoneBadge)
+	waitmessage
+	call(Common_EventScript_PlayGymBadgeFanfare)
+	msgbox(NewCoralgroveCity_Gym_Text_StoneBadgeInfoTakeThis, MSGBOX_DEFAULT)
+	setflag(FLAG_DEFEATED_RUSTBORO_GYM)
+	setflag(FLAG_BADGE01_GET)
+	setvar(VAR_RUSTBORO_CITY_STATE, 1)
+	addvar(VAR_PETALBURG_GYM_STATE, 1)
+	setvar(VAR_0x8008, 1)
+	call(Common_EventScript_SetGymTrainers)
+	special(RemoveCameraObject)
+	// call_if_eq VAR_PETALBURG_GYM_STATE, 6, Common_EventScript_ReadyPetalburgGymForBattle
+	goto(NewCoralgroveCity_Gym_EventScript_GiveUTurn)
+	end
+}
+movement NewCoralgroveCity_Gym_MoveLeft{
+	walk_left * 3
+}
+movement NewCoralgroveCity_Gym_MoveRight{
+	walk_right * 3
+}
+script NewCoralgroveCity_Gym_EventScript_GiveUTurn{
+	giveitem(ITEM_TM_U_TURN)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	setflag(FLAG_RECEIVED_TM_U_TURN)
+	msgbox (NewCoralgroveCity_Gym_Text_ExplainUTurn, MSGBOX_DEFAULT)
+	release
+	end
+}
+movement NewCoralgroveCity_Gym_MoveCamera2{
+	walk_left
+}
+// NewCoralgroveCity_Gym_EventScript_AaronRematch::
+// 	trainerbattle_rematch_double TRAINER_ROXANNE_1, NewCoralgroveCity_Gym_Text_AaronPreRematch, NewCoralgroveCity_Gym_Text_AaronRematchDefeat, NewCoralgroveCity_Gym_Text_AaronRematchNeedTwoMons
+// 	msgbox NewCoralgroveCity_Gym_Text_AaronPostRematch, MSGBOX_AUTOCLOSE
+// 	end 
+
+script NewCoralgroveCity_Gym_EventScript_Maniac{
+	trainerbattle_single(TRAINER_CHIP, NewCoralgroveCity_Gym_Text_ManiacIntro, NewCoralgroveCity_Gym_Text_ManiacDefeat)
+	msgbox(NewCoralgroveCity_Gym_Text_ManiacPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+script NewCoralgroveCity_Gym_EventScript_Lass{
+	trainerbattle_single(TRAINER_FOSTER, NewCoralgroveCity_Gym_Text_LassIntro, NewCoralgroveCity_Gym_Text_LassDefeat)
+	msgbox(NewCoralgroveCity_Gym_Text_LassPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+script NewCoralgroveCity_Gym_EventScript_NinjaBoy{
+	trainerbattle_single(TRAINER_DUSTY_2, NewCoralgroveCity_Gym_Text_NinjaBoyIntro, NewCoralgroveCity_Gym_Text_NinjaBoyDefeat)
+	msgbox(NewCoralgroveCity_Gym_Text_NinjaBoyPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+script NewCoralgroveCity_Gym_EventScript_BugCatcher1{
+	trainerbattle_single(TRAINER_DUSTY_3, NewCoralgroveCity_Gym_Text_BugCatcher1Intro, NewCoralgroveCity_Gym_Text_BugCatcher1Defeat)
+	msgbox(NewCoralgroveCity_Gym_Text_BugCatcher1PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+script NewCoralgroveCity_Gym_EventScript_BugCatcher2{
+	trainerbattle_single(TRAINER_DUSTY_4, NewCoralgroveCity_Gym_Text_BugCatcher2Intro, NewCoralgroveCity_Gym_Text_BugCatcher2Defeat)
+	msgbox(NewCoralgroveCity_Gym_Text_BugCatcher2PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+script NewCoralgroveCity_Gym_EventScript_BugCatcher3{
+	trainerbattle_single(TRAINER_DUSTY_5, NewCoralgroveCity_Gym_Text_BugCatcher3Intro, NewCoralgroveCity_Gym_Text_BugCatcher3Defeat)
+	msgbox(NewCoralgroveCity_Gym_Text_BugCatcher3PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+script NewCoralgroveCity_Gym_EventScript_GymGuide{
+	lock
+	faceplayer
+	goto_if_set(FLAG_DEFEATED_RUSTBORO_GYM, NewCoralgroveCity_Gym_EventScript_GymGuidePostVictory)
+	msgbox(NewCoralgroveCity_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT)
+	release
+	end
+}
+script NewCoralgroveCity_Gym_EventScript_GymGuidePostVictory{
+	msgbox(NewCoralgroveCity_Gym_Text_GymGuidePostVictory, MSGBOX_DEFAULT)
+	release
+	end
+}
+script NewCoralgroveCity_Gym_EventScript_Statue{
+	lockall
+	goto_if_set(FLAG_BADGE01_GET, NewCoralgroveCity_Gym_EventScript_GymStatueCertified)
+	goto(NewCoralgroveCity_Gym_EventScript_GymStatue)
+	end
+}
+script NewCoralgroveCity_Gym_EventScript_GymStatueCertified{
+	msgbox(NewCoralgroveCity_Gym_Text_GymStatueCertified, MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+script NewCoralgroveCity_Gym_EventScript_GymStatue{
+	msgbox(NewCoralgroveCity_Gym_Text_GymStatue, MSGBOX_DEFAULT)
+	releaseall
+	end}
+
+// NewCoralgroveCity_Gym_EventScript_RegisterAaron::
+// 	lockall
+// 	pokenavcall NewCoralgroveCity_Gym_Text_RoxanneRegisterCall
+// 	waitmessage
+// 	delay 30
+// 	playfanfare MUS_REGISTER_MATCH_CALL
+// 	msgbox NewCoralgroveCity_Gym_Text_RegisteredAaron, MSGBOX_DEFAULT
+// 	waitfanfare
+// 	closemessage
+// 	delay 30
+// 	setflag FLAG_ENABLE_ROXANNE_MATCH_CALL
+// 	clearflag FLAG_ENABLE_ROXANNE_FIRST_CALL
+// 	releaseall
+// 	end
+
+text NewCoralgroveCity_Gym_Text_GymGuideAdvice{
+	"Yo, champ in the making!\p"
+	"Listen, my friend! This gym is\n"
+	"mostly covered by a huge thicket!\p"
+	"Luckily some of the growth is a bit\n"
+	"sparse, which lets you navigate the\l"
+	"place a bit easier.\p"
+ 	"With that said though,\n"
+	"you'll want to take some caution!\p"
+	"There are also trainers lurking in\n"
+	"the thicket, ready to pounce you\l"
+	"with their bug-type Pokémon.\p"
+	"The leader of this gym, Aaron,\n"
+	"also uses bug Pokémon.\p"
+	"Many people think that bug Pokémon\n"
+	"are weak.\p"
+	"However, you shouldn't\n"
+	"underestimate them!\p"
+	"Many of them can pack quite a punch and\n"
+	"some even apply very nasty poisons.\p"
+	"Luckily, bug Pokémon can't really\n"
+	"take the heat of fire type Pokémon.\p"
+	"Flying type Pokémon are also very good\n"
+	"at picking them off.\p"
+	"Anyway, that's enough from me.\n"
+	"Go for it, champ!"
+}
+text NewCoralgroveCity_Gym_Text_GymGuidePostVictory{
+	"Whoa! What a breathtaking victory!\n"
+	"Check your Trainer Card.\p"
+	"The Hive Badge you got should be\n"
+	"properly recorded on it.\p"
+	"In other words…\p"
+	"You've climbed the first step on\n"
+	"the stairs to the championship!\p"
+	"That's got to feel awesome!"
+}
+text NewCoralgroveCity_Gym_Text_ManiacIntro{
+	"Don't take us gym trainers lightly!\n"
+	"I'll show you why we're better!"
+}
+text NewCoralgroveCity_Gym_Text_ManiacDefeat{
+	"You were too good for me…"
+}
+text NewCoralgroveCity_Gym_Text_ManiacPostBattle{
+	"You haven't seen anything of the bug\n"
+	"type's terrifying power!"
+}
+text NewCoralgroveCity_Gym_Text_LassIntro{
+	"Not all bug Pokémon are yucky!\n"
+	"Let me show you some cute ones!"
+}
+text NewCoralgroveCity_Gym_Text_LassDefeat{
+	"My precious Pokémon!"
+}
+text NewCoralgroveCity_Gym_Text_LassPostBattle{
+	"Some people find bug Pokémon ugly\n"
+	"but there are actually a lot of\l"
+	"beautiful ones as well."
+}
+text NewCoralgroveCity_Gym_Text_NinjaBoyIntro{
+	"Hah! Bet you didn't see me sneaking\n"
+	"through the bushes!"
+}
+text NewCoralgroveCity_Gym_Text_NinjaBoyDefeat{
+	"Mission failed…"
+}
+text NewCoralgroveCity_Gym_Text_NinjaBoyPostBattle{
+	"Bushes like these are perfect hiding\n"
+	"places for bug Pokémon."
+}
+text NewCoralgroveCity_Gym_Text_BugCatcher1Intro{
+	"This is a natural bug Pokémon habitat!\n"
+	"You have no chance of winning!"
+}
+text NewCoralgroveCity_Gym_Text_BugCatcher1Defeat{
+	"But I had the terrain advantage…\n"
+}
+text NewCoralgroveCity_Gym_Text_BugCatcher1PostBattle{
+	"You may have beaten me but\p"
+	"you have no chance against Aaron!\n"
+}
+text NewCoralgroveCity_Gym_Text_BugCatcher2Intro{
+	"If you can't beat me, you won't stand\n"
+	"a chance against Aaron!"
+}
+text NewCoralgroveCity_Gym_Text_BugCatcher2Defeat{
+	"Wow! You've got some potential!"
+}
+text NewCoralgroveCity_Gym_Text_BugCatcher2PostBattle{
+	"Aaron is stronger than me by\n"
+	"several times.\p"
+	"You'd better be on your guard!"
+}
+text NewCoralgroveCity_Gym_Text_BugCatcher3Intro{
+	"Buzz buzz!\p"
+	"Hear that? That's\n"
+	"the sound of my impending victory!"
+}
+text NewCoralgroveCity_Gym_Text_BugCatcher3Defeat{
+	"Buzz buzz…"
+}
+text NewCoralgroveCity_Gym_Text_BugCatcher3PostBattle{
+	"I came here to put what I had learned\n"
+	"at the Trainers' School to the test.\p"
+	"Guess I should go back to study…"
+}
+text NewCoralgroveCity_Gym_Text_AaronIntro{
+	"Hello! I am Aaron, the Coralgrove\n"
+	"Pokémon Gym Leader.\p"
+	"I'm a huge fan of bug Pokémon.\p"
+	"Bug Pokémon are nasty-mean,\n"
+	"and yet they're beautiful too.\p"
+	"I became a gym leader so that I could\n"
+	"take on challengers and become perfect,\l"
+	"just like my bug Pokémon!\p"
+	"OK! Let me take you on!"
+}
+text NewCoralgroveCity_Gym_Text_AaronDefeat{
+	"So…\n"
+	"I lost…\p"
+	"It seems that I still have much more\n"
+	"to learn…\p"
+	"I understand.\p"
+	"The Pokémon league's rules state\n"
+	"that trainers are to be given this\l"
+	"if they defeat a gym leader.\p"
+	"Please accept the official Pokémon\n"
+	"League Hive Badge."
+}
+text NewCoralgroveCity_Gym_Text_ReceivedStoneBadge{
+	"{PLAYER} received the Hive Badge\n"
+	"from Aaron.$"
+}
+text NewCoralgroveCity_Gym_Text_StoneBadgeInfoTakeThis{
+	"The Hive Badge heightens the attack\n"
+	"power of your Pokémon.\p"
+	"It also enables them to use the HM move\n"
+	"“Cut” outside of battle.\p"
+	"Please take this with you, too."
+}
+text NewCoralgroveCity_Gym_Text_ExplainUTurn{
+	"That Technical Machine, TM89,\n"
+	"contains U-turn.\p"
+	"After making its attack, the user\n"
+	"rushes back to switch places with\l"
+	"a party Pokémon in waiting.\p"
+	"If you use a TM, it instantly teaches\n"
+	"the move to a Pokémon.\p"
+	"Remember, a TM can be used as many\n"
+	"times as you want, so feel free to\l"
+	"experiment to your heart's content."
+}
+text NewCoralgroveCity_Gym_Text_AaronPostBattle{
+	"Since you are so strong, you should\n"
+	"challenge other Gym Leaders.\p"
+	"By gaining experience, you could take\n"
+	"perfection to a whole another level."
+}
+text NewCoralgroveCity_Gym_Text_GymStatue{
+	"Coralgrove City Pokémon Gym\p"
+	"Aaron's certified trainers:\n"
+	"{RIVAL}\l"
+	"Brandon"
+}
+text NewCoralgroveCity_Gym_Text_GymStatueCertified{
+	"Coralgrove City Pokémon Gym\p"
+	"Aaron's certified trainers:\n"
+	"{RIVAL}\l"
+	"Brandon\l"
+	"{PLAYER}"
+}
+// NewCoralgroveCity_Gym_Text_AaronRegisterCall:
+// 	"… … … … … …\n"
+// 	"… … … … … Beep!\p"
+// 	"Aaron: Oh, hello, {PLAYER}?\n"
+// 	"This is Aaron of RUSTBORO CITY.\p"
+// 	"I heard from BRAWLY that you're\n"
+// 	"moving up through the ranks of\l"
+// 	"TRAINERS at an incredible clip.\p"
+// 	"Well, I'd rather not think that\n"
+// 	"I can't beat you.\p"
+// 	"I promise, I will shape up my GYM\n"
+// 	"so that you may challenge us again.\p"
+// 	"I hope you'll be looking forward to\n"
+// 	"that occasion as much as me!\p"
+// 	"… … … … … …\n"
+// 	"… … … … … Click!$"
+
+// NewCoralgroveCity_Gym_Text_RegisteredAaron:
+// 	"Registered GYM LEADER Aaron\n"
+// 	"in the POKéNAV.$"
+
+// NewCoralgroveCity_Gym_Text_AaronPreRematch:
+// 	"Aaron: I'm so glad to see you again.\n"
+// 	"I'm Aaron, the GYM LEADER here.\p"
+// 	"I'm sure we've both experienced many\n"
+// 	"battles since we last met.\p"
+// 	"I would like to see how much better\n"
+// 	"we've become. Let us battle!$"
+
+// NewCoralgroveCity_Gym_Text_AaronRematchDefeat:
+// 	"Grr…\n"
+// 	"Again, I have lost…$"
+
+// NewCoralgroveCity_Gym_Text_AaronPostRematch:
+// 	"Aaron: I still have much to learn\n"
+// 	"when it comes to battling POKéMON.\p"
+// 	"That awareness makes me love battling\n"
+// 	"all that much more!$"
+
+// NewCoralgroveCity_Gym_Text_AaronRematchNeedTwoMons:
+// 	"Aaron: I'm so glad to see you again.\n"
+// 	"I'm Aaron, the GYM LEADER here.\p"
+// 	"I'm sure we've both experienced many\n"
+// 	"battles since we last met.\p"
+// 	"I would like to see how much better\n"
+// 	"we've become…\p"
+// 	"Oh, no…\n"
+// 	"You only have one POKéMON with you?\p"
+// 	"Please return with at least one more\n"
+// 	"POKéMON.$"

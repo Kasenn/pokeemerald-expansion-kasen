@@ -1,0 +1,158 @@
+mapscripts SchoolHall_MapScripts{}
+
+script SchoolReceptionist{
+    lockall
+    faceplayer
+    msgbox("This is the Pokémon Trainers' School,\na place where many aspiring trainers\lcome to hone their skills.", MSGBOX_NPC)
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script SchoolOldMan{
+    lockall
+    faceplayer
+    msgbox("While many of the students here are\nyoung, this school will accept\lanyone who's eager to learn.", MSGBOX_NPC)
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script SchoolTeach{
+    lockall
+    faceplayer
+    if(!defeated(TRAINER_ARCHIE) || (!defeated(TRAINER_LEAH)) || (!defeated(TRAINER_DAISY)) || (!defeated(TRAINER_ROSE_1))){
+        msgbox("The students in this class room are\npracticing all sorts of strategies.\pIf you can defeat them all,\nI will give you a prize.", MSGBOX_DEFAULT)
+        waitmessage
+        closemessage
+        release
+        end
+    }
+    elif(flag(FLAG_SCHOOL_DONE)){
+        msgbox("Don't forget what you've learned.", MSGBOX_NPC)
+        closemessage
+        release
+        end
+    }
+    else{
+        msgbox("You have defeated all the students.\nAs promised, a prize for you.", MSGBOX_NPC)
+        giveitem(ITEM_TM_FALSE_SWIPE)
+        waitmessage
+        msgbox("That TM contains the move False Swipe.\pFalse Swipe makes it easier to catch\nwild Pokémon by leaving the foe with\lat least 1 HP.", MSGBOX_NPC)
+        closemessage
+        setflag(FLAG_SCHOOL_DONE)
+        release
+        end
+    }
+}
+
+script SchoolHallGirl3{
+    lockall
+    faceplayer
+    if(!defeated(TRAINER_ARCHIE)){
+        msgbox("I'm studying Baton Pass strategies.\nWould you like to have a battle?", MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES){
+            trainerbattle_no_intro(TRAINER_ARCHIE, SchoolHallGirl3Defeated)
+        }
+        else{
+            closemessage
+            release
+            end
+        }
+    }
+    else{
+        msgbox("That was fun.", MSGBOX_NPC)
+        waitmessage
+        closemessage
+        release
+        end
+    }
+}
+
+script SchoolHallKidM{
+    lockall
+    faceplayer
+    if(!defeated(TRAINER_LEAH)){
+        msgbox("I'm studying Toxic strategies.\nWould you like to have a battle?", MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES){
+            trainerbattle_no_intro(TRAINER_LEAH, SchoolHallKidMDefeated)
+        }
+        else{
+            closemessage
+            release
+            end
+        }
+    }
+    else{
+        msgbox("Clearly I need to polish my strategy.", MSGBOX_NPC)
+        waitmessage
+        closemessage
+        release
+        end
+    }
+}
+
+script SchoolHallBoy2{
+    lockall
+    faceplayer
+    if(!defeated(TRAINER_DAISY)){
+        msgbox("I'm studying Last Resort strategies.\nWould you like to have a battle?", MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES){
+            trainerbattle_no_intro(TRAINER_DAISY, SchoolHallBoy2Defeated)
+        }
+        else{
+            closemessage
+            release
+            end
+        }
+    }
+    else{
+        msgbox("Next time I'll win for sure.", MSGBOX_NPC)
+        waitmessage
+        closemessage
+        release
+        end
+    }
+}
+
+script SchoolHallGirl2{
+    lockall
+    faceplayer
+    if(!defeated(TRAINER_ROSE_1)){
+        msgbox("I'm studying Toxic Heal strategies.\nWould you like to have a battle?", MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES){
+            trainerbattle_no_intro(TRAINER_ROSE_1, SchoolHallGirl2Defeated)
+        }
+        else{
+            closemessage
+            release
+            end
+        }
+    }
+    else{
+        msgbox("I need to study more.", MSGBOX_NPC)
+        waitmessage
+        closemessage
+        release
+        end
+    }
+}
+
+text SchoolHallGirl3Defeated{
+    "Maybe next time…"
+}
+
+text SchoolHallKidMDefeated{
+    "I lost again…"
+}
+
+text SchoolHallBoy2Defeated{
+    "Clearly not the winning strategy."
+}
+
+text SchoolHallGirl2Defeated{
+    "Come on, at least give me a chance."
+}
+

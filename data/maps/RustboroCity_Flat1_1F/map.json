@@ -12,7 +12,7 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_3",
@@ -46,15 +46,15 @@
       "x": 6,
       "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_RUSTBORO_CITY",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_CORALGROVE_CITY",
+      "dest_warp_id": "6"
     },
     {
       "x": 7,
       "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_RUSTBORO_CITY",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_CORALGROVE_CITY",
+      "dest_warp_id": "6"
     },
     {
       "x": 2,
@@ -64,6 +64,10 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
-  "bg_events": []
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
 }

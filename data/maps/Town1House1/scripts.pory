@@ -1,0 +1,17 @@
+mapscripts Town1House1_MapScripts {}
+ 
+script Hiscript{
+    lockall
+    faceplayer
+    msgbox(Neighbour)
+    waitmessage
+    closemessage
+    releaseall
+}
+
+text Neighbour{
+    "Hi! You must be {PLAYER}!\p"
+    "My daughter is training on the\n"
+    "next route.\p"
+    "Why don't you go and say hi?\n"
+}

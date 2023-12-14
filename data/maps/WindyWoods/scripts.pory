@@ -1,0 +1,409 @@
+mapscripts WindyWoods_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: WWHideDadAndDog
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
+        VAR_WINDYWOODS_STATE, 0 || 1 || 2 || 3: WWHideDadAndDog
+        VAR_WINDYWOODS_STATE, 4: WW_BridgeWarp
+    ]
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_WINDYWOODS_STATE, 4: WW_BridgeScene2
+    ]
+}
+
+script WWHideDadAndDog{
+    if(var(VAR_WINDYWOODS_STATE) == 4){
+        end
+    }
+    else{
+    setflag(FLAG_UNUSED_WW_HIDEDAD)
+    hideobjectat(12, MAP_WINDY_WOODS)
+    hideobjectat(14, MAP_WINDY_WOODS)
+    end
+    }
+}
+
+script WindyWoods_ParlyzHeal{
+    finditem(ITEM_PARALYZE_HEAL)
+}
+
+script WindyWoods_Carbos{
+    finditem(ITEM_CARBOS)
+}
+
+script WindyWoods_Bugcatcher1{
+
+	trainerbattle_single(TRAINER_GRUNT_WEATHER_INST_4, WindyWoods_Bugcatcher1Intro, WindyWoods_Bugcatcher1Defeated)
+	msgbox(WindyWoods_Bugcatcher1PostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+
+text WindyWoods_Bugcatcher1Intro{
+    "This place is a bug catcher's dream!"
+}
+
+text WindyWoods_Bugcatcher1Defeated{
+    "Should've waited for my\nPokémon to evolve…"
+}
+
+text WindyWoods_Bugcatcher1PostBattle{
+    "You got lucky I didn't have time\nto fully evolve my Pokémon."
+}
+
+script WindyWoods_Girl2{
+
+	trainerbattle_single(TRAINER_GRUNT_AQUA_HIDEOUT_5, WindyWoods_Girl2Intro, WindyWoods_Girl2Defeated)
+	msgbox(WindyWoods_Girl2PostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+
+text WindyWoods_Girl2Intro{
+    "Eek!\pNo, you did not just\nsee me playing in the puddle!"
+}
+
+text WindyWoods_Girl2Defeated{
+    "Please keep this a secret…"
+}
+
+text WindyWoods_Girl2PostBattle{
+    "Please don't tell anyone that\nI'm playing in the puddle!\lI have a reputation to uphold…"
+}
+
+script WindyWoods_Bugcatcher2{
+
+	trainerbattle_single(TRAINER_GRUNT_AQUA_HIDEOUT_6, WindyWoods_Bugcatcher2Intro, WindyWoods_Bugcatcher2Defeated)
+	msgbox(WindyWoods_Bugcatcher2PostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+
+text WindyWoods_Bugcatcher2Intro{
+    "I wanna be the very best!"
+}
+
+text WindyWoods_Bugcatcher2Defeated{
+    "Should've trained harder for my cause…"
+}
+
+text WindyWoods_Bugcatcher2PostBattle{
+    "I will travel across the land,\nsearching for new bug Pokémon."
+}
+
+script WindyWoods_Camper{
+
+	trainerbattle_single(TRAINER_FREDRICK, WindyWoods_CamperIntro, WindyWoods_CamperDefeated)
+	msgbox(WindyWoods_CamperPostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+
+text WindyWoods_CamperIntro{
+    "Shoo! This is my camping spot!"
+}
+
+text WindyWoods_CamperDefeated{
+    "I relent…"
+}
+
+text WindyWoods_CamperPostBattle{
+    "I thought of setting up a camp here\nbut then this downpour started…"
+}
+
+script WindyWoods_Lass{
+
+	trainerbattle_single(TRAINER_MATT, WindyWoods_LassIntro, WindyWoods_LassDefeated)
+	msgbox(WindyWoods_LassPostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+
+text WindyWoods_LassIntro{
+    "Have you seen any hidden grottos?"
+}
+
+text WindyWoods_LassDefeated{
+    "Why can I never win!?"
+}
+
+text WindyWoods_LassPostBattle{
+    "I'm looking for a hidden grotto but\nas the name would suggest,\lit truly is hidden."
+}
+
+script WindyWoods_Youngster{
+
+	trainerbattle_single(TRAINER_ZANDER, WindyWoods_YoungsterIntro, WindyWoods_YoungsterDefeated)
+	msgbox(WindyWoods_YoungsterPostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+
+text WindyWoods_YoungsterIntro{
+    "This place is giving me the creeps…"
+}
+
+text WindyWoods_YoungsterDefeated{
+    "Fine, you win, I guess…"
+}
+
+text WindyWoods_YoungsterPostBattle{
+    "I saw this really scary looking guy\nto the northwest earlier.\pHe was dragging a Poochyena on a leash\nbut it looked reluctant to follow."
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+script WW_CoolTrainer{
+    lockall
+    faceplayer
+    if(flag(FLAG_UNUSED_WW_COOLTRAINERREWARD)){
+        msgbox("Simply spectacular.", MSGBOX_DEFAULT)
+        waitmessage
+        closemessage
+        release
+        end
+    }
+    elif(!defeated(TRAINER_GRUNT_WEATHER_INST_4) || (!defeated(TRAINER_GRUNT_AQUA_HIDEOUT_5)) || (!defeated(TRAINER_GRUNT_AQUA_HIDEOUT_6)) || (!defeated(TRAINER_FREDRICK)) || (!defeated(TRAINER_MATT)) || (!defeated(TRAINER_ZANDER))){
+        msgbox("All I see are weaklings.\pProve to me that you're not\na weakling and we'll talk.")
+        waitmessage
+        closemessage
+        release
+        end
+    }
+    else{
+        goto(WW_CoolTrainerEligible)
+    }
+}
+
+script WW_CoolTrainerEligible{
+    lockall
+    faceplayer
+    if(!flag(FLAG_UNUSED_WW_COOLTRAINER)){
+        setflag(FLAG_UNUSED_WW_COOLTRAINER)
+        msgbox("I see you're not a completely\nlost cause.\pThat means you are worthy of my time.\pCare for a Pokémon Battle?\pI warn you, I'm no weakling.", MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES){
+            msgbox("Good.")
+            trainerbattle_no_intro(TRAINER_SHELLY_WEATHER_INSTITUTE, WW_Text_CoolTrainerDefeated)
+            goto(WW_CoolTrainerPostBattle)
+	        end
+        }
+        if(var(VAR_RESULT) == NO){
+            msgbox("Then stop wasting my time.")
+            waitmessage
+            closemessage
+            release
+            end
+        }
+    }
+    else{
+        msgbox("Are you ready for a duel?", MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES){
+            msgbox("Good.")
+            trainerbattle_no_intro(TRAINER_SHELLY_WEATHER_INSTITUTE, WW_Text_CoolTrainerDefeated)
+            goto(WW_CoolTrainerPostBattle)
+	        end
+        }
+        if(var(VAR_RESULT) == NO){
+            msgbox("Then stop wasting my time.")
+            waitmessage
+            closemessage
+            release
+            end
+        }
+    }
+}
+
+text WW_Text_CoolTrainerDefeated{
+    "Maybe it was I who wasn't worth\nyour time…"
+}
+
+script WW_CoolTrainerPostBattle{
+    msgbox(WW_CoolTrainerReward, MSGBOX_DEFAULT)
+    giveitem(ITEM_EXP_SHARE)
+    msgbox("Turning on that item will grant\nall your Pokémon exp from battling,\leven the ones that never participated\lin the battle.\pI want you to have these as well.", MSGBOX_DEFAULT)
+    playfanfare(MUS_OBTAIN_B_POINTS)
+    msgbox("Earned 10 BP!", MSGBOX_DEFAULT)
+    if(!flag(FLAG_UNUSED_BP_INTRO)){
+        msgbox("These are battle points, or BP.\pThey can be used to purchase powerful\nitems at designated stores.\pMany trainers hand out BP\n as an additional reward,\lwith the amount earned increasing\las the trainers get stronger.")
+    }
+    setflag(FLAG_UNUSED_WW_COOLTRAINERREWARD)
+    setflag(FLAG_UNUSED_BP_INTRO)
+    waitmessage
+    closemessage
+    call(WW_GIVEBP)
+    release
+	end
+}
+
+text WW_CoolTrainerReward{
+    "Well, looks like I got humbled there.\nHere, you deserve this."
+}
+
+script WW_GIVEBP{
+    buffernumberstring (STR_VAR_1, 10)
+    setvar(VAR_0x8004, 10)
+    special(GiveFrontierBattlePoints)
+}
+
+script WW_HelpGirl{
+    lockall
+    applymovement(5, WW_Face)
+    waitmovement(0)
+    playse(SE_PIN)
+    applymovement(5, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    delay(40)
+    applymovement(OBJ_EVENT_ID_PLAYER, WW_PlayerFace1)
+    waitmovement(0)
+    clearflag(FLAG_UNUSED_WW_HIDEROCKET)
+    setvar(VAR_WINDYWOODS_STATE, 1)
+    msgbox(WW_Help)
+    waitmessage
+    releaseall
+}
+movement WW_Face{
+    face_player
+}
+movement WW_PlayerFace1{
+    face_up
+}
+script WW_LittleGirl{
+    if(var(VAR_WINDYWOODS_STATE) == 1){
+        msgbox(WW_Help2, MSGBOX_NPC)
+    }
+    else{
+        setvar(VAR_WINDYWOODS_STATE, 1)
+        setflag(FLAG_UNUSED_WW_HIDEDAD)
+        msgbox(WW_Help, MSGBOX_NPC)
+        clearflag(FLAG_UNUSED_WW_HIDEROCKET)
+    }
+}
+text WW_Help{
+    "Little girl: Please help!\pI was taking my daddy's Poochyena for\na walk when some mean guy stole it!\pHe ran somewhere across this bridge\nbut I have no other Pokémon so\lI'm too scared to follow…"
+}
+text WW_Help2{
+    "Please help…"
+}
+
+script WW_RocketStop1{
+    lockall
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+    msgbox("That's far enough, pal.", MSGBOX_DEFAULT)
+    setvar(VAR_WINDYWOODS_STATE, 2)
+    waitmessage
+    closemessage
+    release
+    end
+}
+script WW_RocketStop2{
+    lockall
+    msgbox("I'm warning you!", MSGBOX_DEFAULT)
+    setvar(VAR_WINDYWOODS_STATE, 3)
+    waitmessage
+    closemessage
+    release
+    end
+}
+script WW_RocketStop3{
+    lockall
+    msgbox("Okay, now you're asking for trouble!", MSGBOX_DEFAULT)
+    trainerbattle_no_intro(TRAINER_SHELLY_SEAFLOOR_CAVERN, WW_Text_RocketDefeated)
+    goto(WW_RockPostBattle)
+}
+text WW_Text_RocketDefeated{
+    "Tch…!"
+}
+script WW_RockPostBattle{
+    lockall
+    msgbox(WW_RocketReward, MSGBOX_DEFAULT)
+    waitmessage
+    closemessage
+    showobjectat(12, MAP_WINDY_WOODS)
+    showobjectat(14, MAP_WINDY_WOODS)
+    setvar(VAR_WINDYWOODS_STATE, 4)
+    clearflag(FLAG_UNUSED_WW_HIDEDAD)
+    warp(MAP_WINDY_WOODS, 27, 11)
+    waitstate
+    release
+    end
+}
+script WW_BridgeWarp{
+    clearflag(FLAG_UNUSED_WW_HIDEDAD)
+    showobjectat(14, MAP_WINDY_WOODS)
+    setobjectxy(14, 29, 11)
+    turnobject(14, DIR_WEST)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+    end
+}
+script WW_BridgeScene2{
+    lockall
+    delay(25)
+    msgbox(WW_LittleGirlReward, MSGBOX_DEFAULT)
+    waitmessage
+    closemessage
+    delay(40)
+    setobjectxy(12, 20, 12)
+    showobjectat(12, MAP_WINDY_WOODS)
+    applymovement(12, WW_DevonEnters)
+    waitmovement(0)
+    applymovement(5, WW_GirlFaceDown)
+    waitmovement(0)
+    msgbox(DevonTalk1, MSGBOX_DEFAULT)
+    applymovement(5, WW_FaceLeft)
+    waitmovement(0)
+    applymovement(12, WW_FaceLeft)
+    waitmovement(0)
+    checkplayergender
+    if(var(VAR_RESULT) == MALE){
+        msgbox("Little girl: This brave boy saved me!", MSGBOX_DEFAULT)
+    }
+    else{
+        msgbox("Little girl: This brave girl saved me!", MSGBOX_DEFAULT)
+    }
+    waitmessage
+    msgbox(WW_DevonReward, MSGBOX_DEFAULT)
+    giveitem(ITEM_LETTER)
+    msgbox(WW_DevonTalk2, MSGBOX_DEFAULT)
+    waitmessage
+    closemessage
+    fadescreenswapbuffers(FADE_TO_BLACK)
+    delay(25)
+    removeobject(5)
+    removeobject(11)
+    removeobject(12)
+    removeobject(14)
+    setflag(FLAG_UNUSED_WW_ENDEVENT)
+    setflag(FLAG_UNUSED_WW_HIDEROCKET)
+    setflag(FLAG_UNUSED_WW_HIDEDAD)
+    setvar(VAR_WINDYWOODS_STATE, 5)
+    fadescreenswapbuffers(FADE_FROM_BLACK)
+    delay(25)
+    release
+	end
+}
+text WW_RocketReward{
+    "You want the Poochyena?\nFine, take it.\pIt was too weak for me\nto care about it anyway."
+}
+movement WW_FaceRight{
+    face_right
+}
+movement WW_FaceLeft{
+    face_left
+}
+text WW_LittleGirlReward{
+    "Little girl: Thank you for getting\nPoochie back!\pI wasn't sure if I would\never see him again…"
+}
+movement WW_DevonEnters{
+    walk_right * 8
+    face_up
+}
+movement WW_GirlFaceDown{
+    face_down
+}
+text DevonTalk1{
+    "Father: Thank god you're safe, honey!"
+}
+text WW_DevonReward{
+    "Father: Thank you for helping my\ndaughter and saving our family pet.\pI don't have much to offer you\nbut here, take this."
+}
+text WW_DevonTalk2{
+    "I work for the Devon Corp.\pShow that letter to the receptionist\nat our offices in Shoreslate City and\lI'm sure they'll reward you.\pThank you again for taking care\nof the situation.\pAlthough, I am a bit concerned about\nthis person clad in dark.\pThe way you described him sounded like\nhe could be a Team Rocket member.\pHowever, Team Rocket was disbanded\nyears ago…\pAnyway, we should head back home."
+}

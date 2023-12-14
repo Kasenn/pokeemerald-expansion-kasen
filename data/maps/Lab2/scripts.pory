@@ -1,0 +1,336 @@
+mapscripts Lab2_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: Lab2_HideRival
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_PEARLWOOD_TOWN_STATE, 3: Lab2_Intro
+        VAR_PEARLWOOD_TOWN_STATE, 9: Lab2_DexGet
+    ]
+}
+
+script Lab2_HideRival{
+    call(Common_EventScript_SetupRivalGfxId)
+    if(var(VAR_PEARLWOOD_TOWN_STATE) == 9){
+        clearflag(FLAG_UNUSED_LAB_RIVAL)
+    }
+    else{
+        setflag(FLAG_UNUSED_LAB_RIVAL)
+    }
+}
+
+script Lab2_Intro{
+    if(!(flag(FLAG_UNUSED_0x493) || flag(FLAG_UNUSED_0x494) || flag(FLAG_UNUSED_0x495))){
+        applymovement(OBJ_EVENT_ID_PLAYER, Lab2_MyMove)
+        waitmovement(0)
+        msgbox(Lab2_Intro_Speech)
+        waitmessage
+        closemessage
+        delay(20)
+        applymovement(4, Lab2_TurnRight)
+        waitmovement(0)
+        delay(20)
+        msgbox(Lab2_PresentingBalls)
+        waitmessage
+        closemessage
+        delay(20)
+        setvar(VAR_PEARLWOOD_TOWN_STATE, 4)
+        releaseall
+        end
+    }
+    else{
+        end
+    }
+}
+
+script Lab2_DexGet{
+    applymovement(OBJ_EVENT_ID_PLAYER, Lab2_MyMove)
+    waitmovement(0)
+    checkplayergender
+    if(var(VAR_RESULT) == MALE){
+        msgbox(Lab2_DexTalkMay, MSGBOX_DEFAULT)
+    }
+    if(var(VAR_RESULT) == FEMALE){
+        msgbox(Lab2_DexTalkBrendan, MSGBOX_DEFAULT)
+    }
+    waitmessage
+    closemessage
+    playse(MUS_RG_OBTAIN_KEY_ITEM)
+    msgbox("Obtained the Pokédex!")
+    setflag(FLAG_SYS_POKEDEX_GET)
+	special(EnableNationalPokedex)
+    setflag(FLAG_ADVENTURE_STARTED)
+    setvar(VAR_OLDALE_TOWN_STATE, 1)
+    waitfanfare
+    applymovement(OBJ_EVENT_ID_PLAYER, Lab2_TurnRight)
+    applymovement(5, Lab2_TurnLeft)
+    waitmovement(0)
+    msgbox("{RIVAL}: Here, you can have\nthese as well.", MSGBOX_DEFAULT)
+    giveitem(ITEM_POKE_BALL, 5)
+    waitmessage
+    msgbox("{RIVAL}: Now you can start catching\nyour own Pokémon and we can see which\lof us can fill our Pokédex faster!")
+    checkplayergender
+    if(var(VAR_RESULT) == MALE){
+        msgbox("Last one out the door is a rotten egg!")
+    }
+    if(var(VAR_RESULT) == FEMALE){
+        msgbox("Come on, let's go catch some Pokémon!")
+    }
+	applymovement(OBJ_EVENT_ID_PLAYER, Lab2FaceDown)
+	applymovement(5, Lab2_Movement_RivalExit1)
+	waitmovement(0)
+    closemessage
+    delay(60)
+	goto(Lab2_RivalEnd)
+	end
+}
+
+script Lab2_RivalEnd{
+	removeobject(5)
+	setflag(FLAG_UNUSED_LAB_RIVAL)
+    setvar(VAR_PEARLWOOD_TOWN_STATE, 10)
+    clearflag(FLAG_ROUTE1_STATE)
+	savebgm(MUS_DUMMY)
+    applymovement(OBJ_EVENT_ID_PLAYER, Lab2FaceUp)
+    waitmovement(0)
+	fadedefaultbgm
+    delay(25)
+    msgbox("Prof. Birch: Sigh…\pSometimes I wonder\nwhere {RIVAL} gets all that energy…", MSGBOX_DEFAULT)
+    waitmessage
+    closemessage
+	releaseall
+	end
+}
+
+movement Lab2_TurnLeft{
+    face_left
+}
+
+movement Lab2FaceUp{
+    face_up
+}
+
+movement Lab2_Movement_RivalExit1{
+	player_run_down * 1
+	player_run_left * 1
+    player_run_down * 7
+}
+
+movement Lab2FaceDown{
+	delay_16
+	walk_in_place_faster_down
+}
+
+text Lab2_DexTalkMay{
+    "Prof. Birch: {RIVAL}, {PLAYER},\nis there something you need?\p"
+    "{RIVAL}: Oh boy, is there…\pYou gave {PLAYER} a Pokémon but\nnever gave him a Pokédex, dad!\pHow do you expect him to become\n a great trainer without one!?\p"
+    "Prof. Birch: Oh, it must've\nslipped my mind…\p"
+    "{RIVAL}: Slipped your mind!?\nYou're a Pokémon professor!\p"
+    "Surely you realize that giving one to\n{PLAYER} helps your research as well?\p"
+    "Prof. Birch: I know, I know.\nI'll get {PLAYER} one right away.\p"
+    "Now, let's see…\l… … … …\pAh, darn it.\pLooks like I don't have any extra\nlying around at this time…\p"
+    "{RIVAL}: Well we can't have {PLAYER}\nleaving empty-handed, now can we!?\p"
+    "Prof. Birch: Here, {PLAYER},\nyou can have mine.\lI'll order myself a new one.\p"
+    "{RIVAL}: Yay! Thanks, dad!\n"
+}
+
+text Lab2_DexTalkBrendan{
+    "Prof. Birch: {RIVAL}, {PLAYER},\nis there something you need?\p"
+    "{RIVAL}: As a matter of fact, there is.\nYou never gave {PLAYER} a Pokédex!\p"
+    "How do you expect her to become\n a great trainer without one?\p"
+    "Prof. Birch: Oh, it must've\nslipped my mind…\p"
+    "{RIVAL}: Slipped your mind?\nAren't you a Pokémon professor?\p"
+    "Surely giving one to {PLAYER}\nhelps your research as well.\p"
+    "Prof. Birch: I know, I know.\nI'll get {PLAYER} one right away.\p"
+    "Now, let's see…\l… … … …\pAh, darn it.\pLooks like I don't have any extra\nlying around at this time…\p"
+    "{RIVAL}: Well we can't have {PLAYER}\nleaving empty-handed, now can we?\p"
+    "Prof. Birch: Yes, I know. {PLAYER},\nyou can have mine.\lI'll order myself a new one.\p"
+    "{RIVAL}: You're the best, dad!\n"
+}
+
+movement Lab2_MyMove{
+    walk_up * 6
+}
+
+movement Lab2_TurnRight{
+    face_right
+}
+
+text Lab2_Intro_Speech{
+    "Prof. Birch: Hello!\nYou must be {PLAYER}!\pAs you may know, it is customary in\nthis town for every young person to\lbe given their very first Pokémon.\pSome people use this opportunity to\ngo on a journey of self-discovery\lwhile some are content with\lwhere they are now.\pWhat you do with your Pokémon is\nyour decision."
+}
+
+text Lab2_PresentingBalls{
+    "Over there on the table lies three\nPoké Balls. Each of them stores\lsome very rare Pokémon.\pYou may now go and choose one of them\nas your own.\pYou may only choose one so make sure\nyou decide carefully!"
+}
+
+script Lab2_Birch{
+
+    lockall
+    faceplayer
+    if(!(flag(FLAG_UNUSED_0x493) || flag(FLAG_UNUSED_0x494) || flag(FLAG_UNUSED_0x495))){
+        msgbox("Prof. Birch: Go on, pick one of the\nballs from the table.")
+    }
+    else{
+        msgbox("Prof. Birch: I hope you take\ngood care of your new companion.")
+    }
+    waitmessage
+    release
+    end
+}
+
+script Lab2_Ball1{
+
+    lockall
+    if(!(flag(FLAG_UNUSED_0x493) || flag(FLAG_UNUSED_0x494) || flag(FLAG_UNUSED_0x495))){
+        call(Lab2_Rowlet)  
+    }
+    else{
+        msgbox("You already received a Pokémon.")
+    }
+    waitmessage
+    release
+    end
+}
+ 
+script Lab2_Ball2{
+
+    lockall
+    if(!(flag(FLAG_UNUSED_0x493) || flag(FLAG_UNUSED_0x494) || flag(FLAG_UNUSED_0x495))){
+        call(Lab2_Torchic)
+    }
+    else{
+        msgbox("You already received a Pokémon.")
+    }
+    waitmessage
+    release
+    end
+}
+ 
+script Lab2_Ball3{
+
+    lockall
+    if(!(flag(FLAG_UNUSED_0x493) || flag(FLAG_UNUSED_0x494) || flag(FLAG_UNUSED_0x495))){
+        call(Lab2_Piplup)
+    }
+    else{
+        msgbox("You already received a Pokémon.")
+    }
+    waitmessage
+    release
+    end
+}
+ 
+ 
+script Lab2_Rowlet{
+
+    lockall
+    showmonpic(SPECIES_ROWLET, 10,3)
+    msgbox("Do you want to choose Rowlet?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_ROWLET, 5, 0)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("{PLAYER} received the Rowlet!")
+            removeobject(1)
+            setflag(FLAG_UNUSED_0x493)
+            call(Lab2SetFlags)
+            call(NicknamePartyMon)
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(Lab2_NotChosen)
+    }
+    waitmessage
+    release
+    end
+ 
+}
+
+script Lab2_Torchic{
+
+    lockall
+    showmonpic(SPECIES_TORCHIC, 10,3)
+    msgbox("Do you want to choose Torchic?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_TORCHIC, 5, 0)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("{PLAYER} received the Torchic!")
+            removeobject(2)
+            setflag(FLAG_UNUSED_0x494)
+            call(Lab2SetFlags)
+            call(NicknamePartyMon)
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(Lab2_NotChosen)
+    }
+    waitmessage
+    release
+    end
+ 
+}
+
+script Lab2_Piplup{
+
+    lockall
+    showmonpic(SPECIES_PIPLUP, 10,3)
+    msgbox("Do you want to choose Piplup?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_PIPLUP, 5, 0)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("{PLAYER} received the Piplup!")
+            removeobject(3)
+            setflag(FLAG_UNUSED_0x495)
+            call(Lab2SetFlags)
+            call(NicknamePartyMon)
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(Lab2_NotChosen)
+    }
+    waitmessage
+    release
+    end
+ 
+}
+ 
+script NicknamePartyMon{
+    msgbox("Do you want to give a nickname \nto your new Pokémon?", MSGBOX_YESNO)
+    hidemonpic
+    if(var(VAR_RESULT) == YES){
+        call(Common_EventScript_GetGiftMonPartySlot)
+        call(Common_EventScript_NameReceivedPartyMon)
+    }
+ 
+ 
+}
+
+text Lab2_NotChosen{
+    "Take your time."
+}
+
+script Lab2SetFlags{
+        setflag(FLAG_SYS_POKEMON_GET)
+        setflag(FLAG_UNUSED_STARTER_GET)
+        setflag(FLAG_ROUTE1_STATE)
+        clearflag(FLAG_UNUSED_BROTHER_PEARLFIGHT)
+        setvar(VAR_PEARLWOOD_TOWN_STATE, 5)
+}
+
+script Lab2_NoLeave{
+    lockall
+    msgbox("You haven't chosen a Pokémon yet!")
+    waitmessage
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, Lab2_NoLeaveMove)
+    waitmovement(0)
+    release
+    end
+}
+
+movement Lab2_NoLeaveMove{
+    walk_up
+}

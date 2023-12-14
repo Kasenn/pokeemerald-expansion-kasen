@@ -1,0 +1,34 @@
+mapscripts Pearlwood_MaysHouse1F_MapScripts{}
+
+script Pearlwood_MaysHouse1F_RivalMom{
+    lockall
+    faceplayer
+    if(var(VAR_PEARLWOOD_TOWN_STATE) == 3){
+        checkplayergender
+        if(var(VAR_RESULT) == 0){
+            msgbox(Pearlwood_MaysHouse1F_RivalMom1MalePC)
+        }
+        else{
+            msgbox(Pearlwood_MaysHouse1F_RivalMom1FemalePC)
+        }
+    }
+    else{
+        msgbox(Pearlwood_MaysHouse1F_RivalMom2)
+        }
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+text Pearlwood_MaysHouse1F_RivalMom1MalePC{
+    "Hello neighbor!\pI believe {RIVAL} was working on\nsomething in her room.\pIf you're looking for my husband,\nyou can probably find him in his lab."
+}
+
+text Pearlwood_MaysHouse1F_RivalMom1FemalePC{
+    "Hello neighbor!\pI believe {RIVAL} was working on\nsomething in his room.\pIf you're looking for my husband,\nyou can probably find him in his lab."
+}
+
+text Pearlwood_MaysHouse1F_RivalMom2{
+    "Oh, {RIVAL} went out to Primrose Meadow\njust a little while ago.\pLike father, like child.\n{RIVAL} can't stay quietly at home.\pPrimrose Meadow is just past\nthe next town."
+}

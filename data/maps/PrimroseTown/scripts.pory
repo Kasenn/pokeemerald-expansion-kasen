@@ -1,0 +1,68 @@
+mapscripts PrimroseTown_MapScripts{}
+
+script PrimroseTown_Sign{
+    msgbox(PrimroseSign, MSGBOX_SIGN)
+}
+
+text PrimroseSign{
+    "PRIMROSE TOWN\n“The town where sweet nectar flows.”\p{UP_ARROW} Route 2\n{RIGHT_ARROW} PRIMROSE MEADOW"
+}
+
+script Primrose_FlowerGirl{
+    msgbox("Look at all those pretty flowers!\pI'd like to pick a few of them but\nI'm scared I might get attacked\lby a bug Pokémon…", MSGBOX_NPC)
+    end
+}
+
+script Primrose_FatMan{
+	msgbox("This place is real pretty.\pWould be a real shame to be allergic\nto all this pollen though…\p…\lsniff…", MSGBOX_NPC)
+	end
+}
+
+script Primrose_Hiker{
+    lockall
+    msgbox("I don't like the look of that storm…", MSGBOX_DEFAULT)
+    waitmessage
+    closemessage
+    releaseall
+    end
+}
+
+script PrimroseBlocked{
+    lockall
+    applymovement(3, Primrose_FaceRight)
+    waitmovement(0)
+    playse(SE_PIN)
+    applymovement(3, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    delay(40)
+    applymovement(OBJ_EVENT_ID_PLAYER, Primrose_FaceLeft)
+    waitmovement(0)
+    msgbox(Primrose_Storm, MSGBOX_DEFAULT)
+    waitmessage
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, PrimroseWalkDown)
+    waitmovement(0)
+    applymovement(3, Primrose_FaceUp)
+    waitmovement(0)
+    releaseall
+    end
+}
+
+movement Primrose_FaceUp{
+    face_up
+}
+
+movement Primrose_FaceRight{
+    face_right
+}
+movement Primrose_FaceLeft{
+    face_left
+}
+
+movement PrimroseWalkDown{
+    walk_down
+}
+
+text Primrose_Storm{
+    "There's a massive storm raging\nabove the next island.\pIt's too dangerous to cross\nthe bridge at this moment."
+}

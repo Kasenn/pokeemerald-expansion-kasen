@@ -1,0 +1,212 @@
+mapscripts NewRoute101_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: Route1_Weather
+}
+
+script Route1_Weather{
+    if(!flag(FLAG_SYS_POKEDEX_GET)){
+        setweather(WEATHER_RAIN)
+        doweather
+    }
+    else{
+        resetweather
+    }
+}
+
+script Route1_Youngster{
+
+	trainerbattle_single(TRAINER_GRUNT_RUSTURF_TUNNEL, Route1_Text_YoungsterIntro, Route1_Text_YoungsterDefeated)
+	msgbox(Route1_Text_YoungsterPostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+
+text Route1_Text_YoungsterIntro{
+    "Have you spotted any rare Pokémon?"
+}
+
+text Route1_Text_YoungsterDefeated{
+    "I need to catch more Pokémon…"
+}
+
+text Route1_Text_YoungsterPostBattle{
+    "I'm looking for a Pichu.\lMy friend told me he saw one\non this route the other day."
+}
+
+script Route1_Tuber{
+
+	trainerbattle_single(TRAINER_GRUNT_WEATHER_INST_3, Route1_Text_TuberIntro, Route1_Text_TuberDefeated)
+	msgbox(Route1_Text_TuberPostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+
+text Route1_Text_TuberIntro{
+    "I put my Pokémon on the treadmill\nto make it the fastest in the world!"
+}
+
+text Route1_Text_TuberDefeated{
+    "I guess you need more\nthan just speed…"
+}
+
+text Route1_Text_TuberPostBattle{
+    "I will train my Piplup so hard\nthat it can punch through a wall!"
+}
+
+script Route1_BugCatcher{
+
+	trainerbattle_single(TRAINER_GRUNT_WEATHER_INST_2, Route1_Text_BugCatcherIntro, Route1_Text_BugCatcherDefeated)
+	msgbox(Route1_Text_BugCatcherPostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+
+text Route1_Text_BugCatcherIntro{
+    "I'm going to become the strongest\nbug type trainer ever!"
+}
+
+text Route1_Text_BugCatcherDefeated{
+    "Looks like I still\nhave some ways to go…"
+}
+
+text Route1_Text_BugCatcherPostBattle{
+    "I haven't seen a single\nbug type Pokémon here.\lI may need to switch a spot."
+}
+
+script Route1_CoolTrainer{
+    lockall
+    faceplayer
+    if(flag(FLAG_UNUSED_ROUTE1_COOLTRAINERREWARD)){
+        msgbox("That was a fine battle.", MSGBOX_DEFAULT)
+        waitmessage
+        closemessage
+        release
+        end
+    }
+    elif(!defeated(TRAINER_GRUNT_RUSTURF_TUNNEL) || (!defeated(TRAINER_GRUNT_WEATHER_INST_1)) || (!defeated(TRAINER_GRUNT_WEATHER_INST_2)) || (!defeated(TRAINER_GRUNT_WEATHER_INST_3))){
+        msgbox("I'm looking for strong trainers.\nOnly the best of the best will suffice.")
+        waitmessage
+        closemessage
+        release
+        end
+    }
+    else{
+        goto(Route1_CoolTrainerEligible)
+    }
+}
+
+script Route1_CoolTrainerEligible{
+    lockall
+    faceplayer
+    if(!flag(FLAG_UNUSED_ROUTE1_COOLTRAINER)){
+        setflag(FLAG_UNUSED_ROUTE1_COOLTRAINER)
+        msgbox("I see you've defeated all\nthe other trainers in this area.\pThat means you are a very strong trainer.\pWould you be interested in\na Pokémon Battle?\pI warn you, I'm no pushover.", MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES){
+            msgbox("Let's do this!")
+            trainerbattle_no_intro(TRAINER_GRUNT_MUSEUM_1, Route1_Text_CoolTrainerDefeated)
+            goto(Route1_CoolTrainerPostBattle)
+	        end
+        }
+        if(var(VAR_RESULT) == NO){
+            msgbox("I see…\pWell, let me know if you change\nyour mind.\lI'll be here.")
+            waitmessage
+            closemessage
+            release
+            end
+        }
+    }
+    else{
+        msgbox("Are you ready for a duel?", MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES){
+            msgbox("Let's do this!")
+            trainerbattle_no_intro(TRAINER_GRUNT_MUSEUM_1, Route1_Text_CoolTrainerDefeated)
+            goto(Route1_CoolTrainerPostBattle)
+	        end
+        }
+        if(var(VAR_RESULT) == NO){
+            msgbox("I see…\pWell, let me know if you change\nyour mind.\lI'll be here.")
+            waitmessage
+            closemessage
+            release
+            end
+        }
+    }
+}
+
+text Route1_Text_CoolTrainerDefeated{
+    "Truly a magnificent battle!"
+}
+
+script Route1_CoolTrainerPostBattle{
+    msgbox(Route1_CoolTrainerReward, MSGBOX_DEFAULT)
+	if(flag(FLAG_UNUSED_0x493)){
+        giveitem(ITEM_MIRACLE_SEED)
+    }
+    elif(flag(FLAG_UNUSED_0x494)){
+        giveitem(ITEM_CHARCOAL)
+    }
+    elif(flag(FLAG_UNUSED_0x495)){
+        giveitem(ITEM_MYSTIC_WATER)
+    }
+    msgbox("Give that item to your Pokémon to\nboost the power of their attacks.\pTake these as well.", MSGBOX_DEFAULT)
+    playfanfare(MUS_OBTAIN_B_POINTS)
+    msgbox("Earned 10 BP!", MSGBOX_DEFAULT)
+    if(!flag(FLAG_UNUSED_BP_INTRO)){
+        msgbox("These are battle points, or BP.\pThey can be used to purchase powerful\nitems at designated stores.\pMany trainers hand out BP\n as an additional reward,\lwith the amount earned increasing\las the trainers get stronger.")
+    }
+    setflag(FLAG_UNUSED_ROUTE1_COOLTRAINERREWARD)
+    setflag(FLAG_UNUSED_BP_INTRO)
+    waitmessage
+    closemessage
+    call(Route1_GIVEBP)
+    release
+	end
+}
+
+text Route1_CoolTrainerReward{
+    "It's rare to meet someone so strong.\nHere, I want you to have this."
+}
+
+script Route1_Fisher{
+
+	trainerbattle_single(TRAINER_GRUNT_WEATHER_INST_1, Route1_Text_FisherIntro, Route1_Text_FisherDefeated)
+	msgbox(Route1_Text_FisherPostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+
+text Route1_Text_FisherIntro{
+    "I like fishing but\nI like Pokémon battles just as much!"
+}
+
+text Route1_Text_FisherDefeated{
+    "I like to battle, but that doesn't\nmean I'm good at it…"
+}
+
+text Route1_Text_FisherPostBattle{
+    "Wait till I catch a Gyarados!"
+}
+
+script Route1_Lass{
+    lockall
+    faceplayer
+    if(flag(FLAG_ROUTE1_STATE)){
+        msgbox("Normally this place is chock-full\nof trainers.\pI guess people don't want to\ntrain in the rain.")
+    }
+    else{
+        msgbox("Looks like all the people came back\nas soon as the rain stopped.\pThese people look like some pretty\nserious trainers.")
+    }
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script Route1_TM03{
+    finditem(ITEM_TM03)
+}
+
+script Route1_GIVEBP{
+    buffernumberstring (STR_VAR_1, 10)
+    setvar(VAR_0x8004, 10)
+    special(GiveFrontierBattlePoints)
+}

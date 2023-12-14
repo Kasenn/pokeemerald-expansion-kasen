@@ -1,0 +1,112 @@
+mapscripts PlayerHouse2F_MapScripts {
+    MAP_SCRIPT_ON_LOAD: Player2F_HideMom
+    MAP_SCRIPT_ON_TRANSITION: PlayerHouse2F_Start
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_PEARLWOOD_TOWN_STATE, 0: PlayerHouse2F_MomTalk
+    ]
+}
+
+script Player2F_HideMom{
+hideobjectat(1, MAP_PLAYER_HOUSE2F)
+}
+
+script PlayerHouse2F_Start{
+    if(flag(PEARLWOOD_MOM_TALKED_TO)){
+        end
+    }
+    else{
+        setvar(VAR_PEARLWOOD_TOWN_STATE, 0)
+        setflag(FLAG_UNUSED_LOSTTOBROTHER)
+        hideobjectat(1, MAP_PLAYER_HOUSE2F)
+        setrespawn(HEAL_LOCATION_PLAYER_HOUSE2F)
+    }
+
+}
+
+script PlayerHouse2F_MomTalk{
+    if(flag(PEARLWOOD_MOM_TALKED_TO)){
+        end
+    }
+    else{
+        lock
+        clearflag(PEARLWOOD_MOM_TALKED_TO)
+        delay(120)
+        setobjectxy(1, 7, 1)
+        showobjectat(1, MAP_PLAYER_HOUSE2F)
+        delay(60)
+        applymovement(1, Player2FMomWalk)
+        waitmovement(0)
+        msgbox(Player2FMomIntro)
+        waitmessage
+        delay(30)
+        closemessage
+        applymovement(1, Player2FMomWalk2)
+        waitmovement(0)
+        hideobjectat(1, MAP_PLAYER_HOUSE2F)
+        applymovement(1, Player2FMomWalk2)
+        waitmovement(0)
+        delay(30)
+        applymovement(OBJ_EVENT_ID_PLAYER, OutOfBed)
+        waitmovement(0)
+        setflag(PEARLWOOD_MOM_TALKED_TO)
+        setvar(VAR_PEARLWOOD_TOWN_STATE, 1)
+        releaseall
+    }
+}
+
+script PlayerHouse2F_ClockReminder{
+    lockall
+    msgbox("Better set the clock before\nheading downstairs.")
+    waitmessage
+    applymovement(OBJ_EVENT_ID_PLAYER, ClockStop)
+    waitmovement(0)
+    releaseall
+}
+
+movement ClockStop{
+    walk_left
+}
+
+movement Player2FMomWalk{
+    walk_down
+    face_left
+}
+
+movement Player2FMomWalk2{
+    walk_up
+}
+
+movement OutOfBed{
+    walk_right
+}
+
+text Player2FMomIntro{
+    "Mom: Rise and shine,\n{PLAYER}!\pToday's a very special day so\nwhen you're ready, come on\ldownstairs.\pOh but first, don't forget to\nset your new clock!"
+}
+
+script Player2FSetClock{
+    goto_if_set (FLAG_SET_WALL_CLOCK, Players2FCheckClock)
+	msgbox (PlayersHouse_2F_Text_ClockIsStopped, MSGBOX_DEFAULT)
+	call (Player2FSetWallClock)
+	delay (30)
+	setvar (VAR_PEARLWOOD_TOWN_STATE, 2)
+	setflag (FLAG_SET_WALL_CLOCK)
+	releaseall
+	end
+}
+
+script Players2FCheckClock{
+	incrementgamestat (GAME_STAT_CHECKED_CLOCK)
+	fadescreen (FADE_TO_BLACK)
+	special (Special_ViewWallClock)
+	waitstate
+	releaseall
+	end
+}
+script Player2FSetWallClock{
+	fadescreen (FADE_TO_BLACK)
+	special (StartWallClock)
+	waitstate
+	return
+}
+script waitsdas{}
