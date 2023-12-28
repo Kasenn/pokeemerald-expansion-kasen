@@ -134,11 +134,11 @@ BrotherLeftMove:
 	step_end
 
 Pearlwood_BrotherCombat::
-	goto_if_set FLAG_UNUSED_0x493, Pearlwood_BrotherCombat_2
+	goto_if_set FLAG_UNUSED_PICKEDROWLET, Pearlwood_BrotherCombat_2
 Pearlwood_BrotherCombat_1:
-	goto_if_set FLAG_UNUSED_0x494, Pearlwood_BrotherCombat_5
+	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, Pearlwood_BrotherCombat_5
 Pearlwood_BrotherCombat_4:
-	goto_if_set FLAG_UNUSED_0x495, Pearlwood_BrotherCombat_7
+	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, Pearlwood_BrotherCombat_7
 	return
 
 Pearlwood_BrotherCombat_2:

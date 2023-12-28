@@ -46,8 +46,8 @@
       "x": 15,
       "y": 24,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_SKIP_GABBY_INTERVIEW"
+      "item": "ITEM_TINY_MUSHROOM",
+      "flag": "FLAG_HIDDEN_ITEM_MEADOW_TINY_MUSHROOM"
     }
   ]
 }

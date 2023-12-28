@@ -2,14 +2,14 @@
   "id": "MAP_ROUTE124_DIVING_TREASURE_HUNTERS_HOUSE",
   "name": "Route124_DivingTreasureHuntersHouse",
   "layout": "LAYOUT_ROUTE124_DIVING_TREASURE_HUNTERS_HOUSE",
-  "music": "MUS_LILYCOVE",
-  "region_map_section": "MAPSEC_ROUTE_124",
+  "music": "MUS_DEWFORD",
+  "region_map_section": "MAPSEC_TOWN_WIP1",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
-  "allow_running": false,
+  "allow_running": true,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
@@ -33,15 +33,15 @@
       "x": 3,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE124",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_COAST_TOWN",
+      "dest_warp_id": "1"
     },
     {
       "x": 4,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE124",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_COAST_TOWN",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [

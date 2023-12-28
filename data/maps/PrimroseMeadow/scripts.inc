@@ -22,11 +22,11 @@ PrimroseMeadow_EventScript_RivalMay::
 	applymovement 1, Common_Movement_Delay48
 	waitmovement 0
 	msgbox PRMeadow_Text_MayLetsBattle, MSGBOX_DEFAULT
-	goto_if_set FLAG_UNUSED_0x493, PrimroseMeadow_EventScript_RivalMay_2
+	goto_if_set FLAG_UNUSED_PICKEDROWLET, PrimroseMeadow_EventScript_RivalMay_2
 PrimroseMeadow_EventScript_RivalMay_1:
-	goto_if_set FLAG_UNUSED_0x494, PrimroseMeadow_EventScript_RivalMay_5
+	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, PrimroseMeadow_EventScript_RivalMay_5
 PrimroseMeadow_EventScript_RivalMay_4:
-	goto_if_set FLAG_UNUSED_0x495, PrimroseMeadow_EventScript_RivalMay_8
+	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, PrimroseMeadow_EventScript_RivalMay_8
 PrimroseMeadow_EventScript_RivalMay_7:
 	end
 
@@ -54,11 +54,11 @@ PrimroseMeadow_EventScript_RivalBrendan::
 	applymovement 1, Common_Movement_Delay48
 	waitmovement 0
 	msgbox PRMeadow_Text_BrendanLetsBattle, MSGBOX_DEFAULT
-	goto_if_set FLAG_UNUSED_0x493, PrimroseMeadow_EventScript_RivalBrendan_2
+	goto_if_set FLAG_UNUSED_PICKEDROWLET, PrimroseMeadow_EventScript_RivalBrendan_2
 PrimroseMeadow_EventScript_RivalBrendan_1:
-	goto_if_set FLAG_UNUSED_0x494, PrimroseMeadow_EventScript_RivalBrendan_5
+	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, PrimroseMeadow_EventScript_RivalBrendan_5
 PrimroseMeadow_EventScript_RivalBrendan_4:
-	goto_if_set FLAG_UNUSED_0x495, PrimroseMeadow_EventScript_RivalBrendan_8
+	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, PrimroseMeadow_EventScript_RivalBrendan_8
 PrimroseMeadow_EventScript_RivalBrendan_7:
 	end
 

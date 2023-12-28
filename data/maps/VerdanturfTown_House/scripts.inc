@@ -21,5 +21,5 @@ VerdanturfTown_House_Text_DefeatEliteFourInARow:
 	.string "Trainers who are on high alert\n"
 	.string "will turn towards any sign of sound\l"
 	.string "so if you want to avoid battles,\l"
-	.string "try walking past the trainers instead!"
+	.string "try walking past the trainers instead!$"
 

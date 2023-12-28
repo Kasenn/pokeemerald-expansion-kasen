@@ -1117,3 +1117,23 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/WW_Grotto/scripts.inc"
 
 	.include "data/maps/NewCoralgroveCity_Gym/scripts.inc"
+
+	.include "data/maps/CoastTown/scripts.inc"
+
+	.include "data/maps/Route3/scripts.inc"
+
+	.include "data/maps/Coast1/scripts.inc"
+
+	.include "data/maps/CoralgroveFriendshipRater/scripts.inc"
+
+	.include "data/maps/PokeRanch/scripts.inc"
+
+	.include "data/maps/CoralgroveHarvorInterior/scripts.inc"
+
+	.include "data/maps/CoralHarborHouse/scripts.inc"
+
+	.include "data/maps/CoralgroveElevatorInt/scripts.inc"
+
+	.include "data/maps/CoralgroveElevatorInt2/scripts.inc"
+
+	.include "data/maps/CoastTownHarbor/scripts.inc"

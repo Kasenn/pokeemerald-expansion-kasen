@@ -1,0 +1,39 @@
+{
+  "id": "MAP_COAST1",
+  "name": "Coast1",
+  "layout": "LAYOUT_COAST1",
+  "music": "MUS_ROUTE113",
+  "region_map_section": "MAPSEC_NEWROUTE_3",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_OCEAN_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_CORALGROVE_HARBOR",
+      "offset": 52,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_COAST_TOWN",
+      "offset": 58,
+      "direction": "right"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

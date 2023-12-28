@@ -21,13 +21,13 @@ script PrimroseMeadow_EventScript_RivalMay{
 	applymovement(1, Common_Movement_Delay48)
 	waitmovement(0)
 	msgbox(PRMeadow_Text_MayLetsBattle, MSGBOX_DEFAULT)
-    if(flag(FLAG_UNUSED_0x493)){
+    if(flag(FLAG_UNUSED_PICKEDROWLET)){
         call(PRMeadow_StartMayBattleRowlet)
     }
-    if(flag(FLAG_UNUSED_0x494)){
+    if(flag(FLAG_UNUSED_PICKEDTORCHIC)){
         call(PRMeadow_StartMayBattleTorchic)
     }
-    if(flag(FLAG_UNUSED_0x495)){
+    if(flag(FLAG_UNUSED_PICKEDPIPLUP)){
         call(PRMeadow_StartMayBattlePiplup)
     }
 	end
@@ -56,13 +56,13 @@ script PrimroseMeadow_EventScript_RivalBrendan{
 	applymovement(1, Common_Movement_Delay48)
 	waitmovement(0)
 	msgbox(PRMeadow_Text_BrendanLetsBattle, MSGBOX_DEFAULT)
-    if(flag(FLAG_UNUSED_0x493)){
+    if(flag(FLAG_UNUSED_PICKEDROWLET)){
         call(PRMeadow_StartBrendanBattleRowlet)
     }
-    if(flag(FLAG_UNUSED_0x494)){
+    if(flag(FLAG_UNUSED_PICKEDTORCHIC)){
         call(PRMeadow_StartBrendanBattleTorchic)
     }
-    if(flag(FLAG_UNUSED_0x495)){
+    if(flag(FLAG_UNUSED_PICKEDPIPLUP)){
         call(PRMeadow_StartBrendanBattlePiplup)
     }
 	end

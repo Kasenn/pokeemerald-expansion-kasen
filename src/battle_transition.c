@@ -598,7 +598,6 @@ static const TransitionStateFunc sShredSplit_Funcs[] =
 {
     ShredSplit_Init,
     ShredSplit_Main,
-    ShredSplit_BrokenCheck,
     ShredSplit_End
 };
 

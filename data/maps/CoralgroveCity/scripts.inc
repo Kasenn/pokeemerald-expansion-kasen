@@ -178,6 +178,13 @@ Coralgrove_school::
 	end
 
 
+Coralgrove_Lifthouse::
+	msgbox Coralgrove_Lifthouse_Text_0, MSGBOX_SIGN
+	waitmessage
+	closemessage
+	end
+
+
 CoralSign::
 	msgbox CoralSign_Text_0, MSGBOX_SIGN
 	waitmessage
@@ -222,6 +229,9 @@ Coralgrove_Children_Text_0:
 
 Coralgrove_school_Text_0:
 	.string "Pokémon Trainers' School$"
+
+Coralgrove_Lifthouse_Text_0:
+	.string "Elevator access to harbor area$"
 
 CoralSign_Text_0:
 	.string "CORALGROVE CITY\n“Home of many aspiring trainers.”$"

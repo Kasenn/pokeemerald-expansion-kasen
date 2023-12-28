@@ -138,13 +138,13 @@ text BrotherFightIntro{
 }
 
 script Pearlwood_BrotherCombat{
-    if(flag(FLAG_UNUSED_0x493)){
+    if(flag(FLAG_UNUSED_PICKEDROWLET)){
         call(PearlwoodBrotherRowlet)
     }
-    if(flag(FLAG_UNUSED_0x494)){
+    if(flag(FLAG_UNUSED_PICKEDTORCHIC)){
         call(PearlwoodBrotherTorchic)
     }
-    if(flag(FLAG_UNUSED_0x495)){
+    if(flag(FLAG_UNUSED_PICKEDPIPLUP)){
         call(PearlwoodBrotherPiplup)
     }
 }
