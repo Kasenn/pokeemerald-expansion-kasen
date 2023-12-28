@@ -1,0 +1,59 @@
+mapscripts CoralHarborHouse_MapScripts{}
+
+script CoralHarborHouse_EventScript_OldRodFisherman{
+	lock
+	faceplayer
+	goto_if_set(FLAG_RECEIVED_OLD_ROD, CoralHarborHouse_EventScript_HowsFishing)
+	msgbox(CoralHarborHouse_Text_GettingItchToFish, MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, YES, CoralHarborHouse_EventScript_GiveOldRod)
+	goto_if_eq(VAR_RESULT, NO, CoralHarborHouse_EventScript_NotGettingItchToFish)
+	end
+}
+script CoralHarborHouse_EventScript_GiveOldRod{
+	msgbox(CoralHarborHouse_Text_GiveYouOneOfMyRods, MSGBOX_DEFAULT)
+	giveitem(ITEM_OLD_ROD)
+	setflag(FLAG_RECEIVED_OLD_ROD)
+	msgbox(CoralHarborHouse_Text_ThrowInFishingAdvice, MSGBOX_DEFAULT)
+	release
+	end
+}
+script CoralHarborHouse_EventScript_NotGettingItchToFish{
+	msgbox(CoralHarborHouse_Text_ThatsTooBadThen, MSGBOX_DEFAULT)
+	release
+	end
+}
+script CoralHarborHouse_EventScript_HowsFishing{
+	msgbox(CoralHarborHouse_Text_HowsYourFishing, MSGBOX_NPC)
+	waitmessage
+    closemessage
+    release
+	end
+}
+
+text CoralHarborHouse_Text_GettingItchToFish{
+	"I've been planning to retire soon.\p"
+    "Say, would you be interested in one\n"
+    "of my old fishing rods?"
+}
+
+text CoralHarborHouse_Text_GiveYouOneOfMyRods{
+	"That's the spirit!"
+}
+
+text CoralHarborHouse_Text_ThrowInFishingAdvice{
+	"Even though that is an old rod,\n"
+    "It still makes use of some new tech.\p"
+    "As soon as you get a bite, the rod\n"
+    "detects this and automatically reels\l"
+    "the fish in without fail."
+}
+
+text CoralHarborHouse_Text_ThatsTooBadThen{
+	"Oh, is that so?\n"
+	"That's too bad, then."
+}
+
+text CoralHarborHouse_Text_HowsYourFishing{
+    "Now go, and become the next\n"
+    "fishing legend!"
+}

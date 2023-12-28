@@ -71,7 +71,7 @@ script Coralgrove_BPShop_MiracleSeed{
 }
 
 text Coralgrove_BPShop_TextMiracleSeed{
-    "You've chosen the Miracle Seed.\n Is that correct?"
+    "You've chosen the Miracle Seed.\nIs that correct?"
 }
 
 script Coralgrove_BPShop_Charcoal{
@@ -238,4 +238,362 @@ text Coralgrove_BPShop_Text_DontHaveSpaceToHoldIt{
 
 text Coralgrove_BPShop_Text_HereIsYourPrize{
     "Here is your item!"
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+script Coralgrove_BPShop_EventScript_MoveTutor{
+	lock
+	faceplayer
+	setvar(VAR_TEMP_C, SCROLL_MULTI_BF_MOVE_TUTOR_3)
+	goto_if_set(FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR, Coralgrove_BPShop_EventScript_AlreadyMetTutor)
+	msgbox(Coralgrove_BPShop_Text_TutorIntro, MSGBOX_DEFAULT)
+	setflag(FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR)
+	goto(Coralgrove_BPShop_EventScript_ChooseTutorMove)
+	end
+}
+script Coralgrove_BPShop_EventScript_AlreadyMetTutor{
+	msgbox(Coralgrove_BPShop_Text_TutorWelcomeBack, MSGBOX_DEFAULT)
+	goto(Coralgrove_BPShop_EventScript_ChooseTutorMove)
+	end
+}
+script Coralgrove_BPShop_EventScript_ChooseTutorMove{
+	msgbox(Coralgrove_BPShop_Text_TeachWhichMove)
+	waitmessage
+	special(ShowBattlePointsWindow)
+	setvar(VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_3)
+	setvar(VAR_0x8006, 0)
+	special(ShowScrollableMultichoice)
+	waitstate
+	copyvar(VAR_TEMP_FRONTIER_TUTOR_SELECTION, VAR_RESULT)
+	switch(var(VAR_RESULT)){
+		case 0:
+			call(Coralgrove_BPShop_EventScript_Snore)
+		case 1:
+			call(Coralgrove_BPShop_EventScript_Bind)
+		case 2:
+			call(Coralgrove_BPShop_EventScript_ShockWave)
+		case 3:
+			call(Coralgrove_BPShop_EventScript_Covet)
+		case 4:
+			call(Coralgrove_BPShop_EventScript_BugBite)
+		case 5:
+			call(Coralgrove_BPShop_EventScript_HealBell)
+		case 6:
+			call(Coralgrove_BPShop_EventScript_Electroweb)
+		case 7:
+			call(Coralgrove_BPShop_EventScript_Defog)
+		case 8:
+			call(Coralgrove_BPShop_EventScript_LowKick)
+		case 9:
+			call(Coralgrove_BPShop_EventScript_Uproar)
+		case 10:
+			call(Coralgrove_BPShop_EventScript_HelpingHand)
+		case 11:
+			call(Coralgrove_BPShop_EventScript_Block)
+		case 12:
+			call(Coralgrove_BPShop_EventScript_WorrySeed)
+		case 13:
+			call(Coralgrove_BPShop_EventScript_Snatch)
+		case 14:
+			call(Coralgrove_BPShop_EventScript_Recycle)
+		case 15:
+			call(Coralgrove_BPShop_EventScript_LastResort)
+		case 16:
+			call(Coralgrove_BPShop_EventScript_ExitTutorMoveSelect)
+		case MULTI_B_PRESSED: 
+			call(Coralgrove_BPShop_EventScript_ExitTutorMoveSelect)
+	}
+	end
+}
+script Coralgrove_BPShop_EventScript_ChooseNewTutorMove{
+	msgbox(Coralgrove_BPShop_Text_TeachWhichMove)
+	waitmessage
+	setvar(VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_3)
+	setvar(VAR_0x8006, 1)
+	special(ShowScrollableMultichoice)
+	waitstate
+	copyvar(VAR_TEMP_FRONTIER_TUTOR_SELECTION, VAR_RESULT)
+	switch(var(VAR_RESULT)){
+		case 0:
+			call(Coralgrove_BPShop_EventScript_Snore)
+		case 1:
+			call(Coralgrove_BPShop_EventScript_Bind)
+		case 2:
+			call(Coralgrove_BPShop_EventScript_ShockWave)
+		case 3:
+			call(Coralgrove_BPShop_EventScript_Covet)
+		case 4:
+			call(Coralgrove_BPShop_EventScript_BugBite)
+		case 5:
+			call(Coralgrove_BPShop_EventScript_HealBell)
+		case 6:
+			call(Coralgrove_BPShop_EventScript_Electroweb)
+		case 7:
+			call(Coralgrove_BPShop_EventScript_Defog)
+		case 8:
+			call(Coralgrove_BPShop_EventScript_LowKick)
+		case 9:
+			call(Coralgrove_BPShop_EventScript_Uproar)
+		case 10:
+			call(Coralgrove_BPShop_EventScript_HelpingHand)
+		case 11:
+			call(Coralgrove_BPShop_EventScript_Block)
+		case 12:
+			call(Coralgrove_BPShop_EventScript_WorrySeed)
+		case 13:
+			call(Coralgrove_BPShop_EventScript_Snatch)
+		case 14:
+			call(Coralgrove_BPShop_EventScript_Recycle)
+		case 15:
+			call(Coralgrove_BPShop_EventScript_LastResort)
+		case 16:
+			call(Coralgrove_BPShop_EventScript_ExitTutorMoveSelect)
+		case MULTI_B_PRESSED: 
+			call(Coralgrove_BPShop_EventScript_ExitTutorMoveSelect)
+	}
+	end
+}
+script Coralgrove_BPShop_EventScript_Snore{
+	setvar(VAR_0x8008, 4)
+	setvar(VAR_0x8005, MOVE_SNORE)
+	goto(Coralgrove_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+
+script Coralgrove_BPShop_EventScript_Bind{
+	setvar(VAR_0x8008, 4)
+	setvar(VAR_0x8005, MOVE_BIND)
+	goto(Coralgrove_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+script Coralgrove_BPShop_EventScript_ShockWave{
+	setvar(VAR_0x8008, 4)
+	setvar(VAR_0x8005, MOVE_SHOCK_WAVE)
+	goto(Coralgrove_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+script Coralgrove_BPShop_EventScript_Covet{
+	setvar(VAR_0x8008, 4)
+	setvar(VAR_0x8005, MOVE_COVET)
+	goto(Coralgrove_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+script Coralgrove_BPShop_EventScript_BugBite{
+	setvar(VAR_0x8008, 4)
+	setvar(VAR_0x8005, MOVE_BUG_BITE)
+	goto(Coralgrove_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+script Coralgrove_BPShop_EventScript_HealBell{
+	setvar(VAR_0x8008, 8)
+	setvar(VAR_0x8005, MOVE_HEAL_BELL)
+	goto(Coralgrove_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+script Coralgrove_BPShop_EventScript_Electroweb{
+	setvar(VAR_0x8008, 8)
+	setvar(VAR_0x8005, MOVE_ELECTROWEB)
+	goto(Coralgrove_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+script Coralgrove_BPShop_EventScript_Defog{
+	setvar(VAR_0x8008, 8)
+	setvar(VAR_0x8005, MOVE_DEFOG)
+	goto(Coralgrove_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+script Coralgrove_BPShop_EventScript_LowKick{
+	setvar(VAR_0x8008, 8)
+	setvar(VAR_0x8005, MOVE_LOW_KICK)
+	goto(Coralgrove_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+script Coralgrove_BPShop_EventScript_Uproar{
+	setvar(VAR_0x8008, 8)
+	setvar(VAR_0x8005, MOVE_UPROAR)
+	goto(Coralgrove_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+script Coralgrove_BPShop_EventScript_HelpingHand{
+	setvar(VAR_0x8008, 8)
+	setvar(VAR_0x8005, MOVE_HELPING_HAND)
+	goto(Coralgrove_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+script Coralgrove_BPShop_EventScript_Block{
+	setvar(VAR_0x8008, 8)
+	setvar(VAR_0x8005, MOVE_BLOCK)
+	goto(Coralgrove_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+script Coralgrove_BPShop_EventScript_WorrySeed{
+	setvar(VAR_0x8008, 8)
+	setvar(VAR_0x8005, MOVE_WORRY_SEED)
+	goto(Coralgrove_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+script Coralgrove_BPShop_EventScript_Snatch{
+	setvar(VAR_0x8008, 8)
+	setvar(VAR_0x8005, MOVE_SNATCH)
+	goto(Coralgrove_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+script Coralgrove_BPShop_EventScript_Recycle{
+	setvar(VAR_0x8008, 8)
+	setvar(VAR_0x8005, MOVE_RECYCLE)
+	goto(Coralgrove_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+script Coralgrove_BPShop_EventScript_LastResort{
+	setvar(VAR_0x8008, 12)
+	setvar(VAR_0x8005, MOVE_LAST_RESORT)
+	goto(Coralgrove_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+
+script Coralgrove_BPShop_EventScript_ExitTutorMoveSelect{
+	special(CloseBattleFrontierTutorWindow)
+	special(CloseBattlePointsWindow)
+	msgbox(Coralgrove_BPShop_Text_YouDontWantTo, MSGBOX_DEFAULT)
+	release
+	end
+}
+// VAR_0x8008 is the price
+// VAR_TEMP_C is the scroll multichoice ID
+// VAR_TEMP_FRONTIER_TUTOR_SELECTION is the move selection
+// VAR_TEMP_FRONTIER_TUTOR_ID is which move tutor was spoken to
+script Coralgrove_BPShop_EventScript_ConfirmMoveSelection{
+	special(BufferBattleFrontierTutorMoveName)
+	buffernumberstring(STR_VAR_2, VAR_0x8008)
+	msgbox(Coralgrove_BPShop_Text_MoveWillBeXBattlePoints, MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, Coralgrove_BPShop_EventScript_ChooseNewTutorMove)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	goto_if_ge(VAR_TEMP_1, VAR_0x8008, Coralgrove_BPShop_EventScript_TeachTutorMove)
+	msgbox(Coralgrove_BPShop_Text_HaventGotEnoughPoints, MSGBOX_DEFAULT)
+	goto(Coralgrove_BPShop_EventScript_ChooseNewTutorMove)
+	end
+}
+script Coralgrove_BPShop_EventScript_TeachTutorMove{
+	msgbox(Coralgrove_BPShop_Text_TeachMoveToWhichMon, MSGBOX_DEFAULT)
+	fadescreen(FADE_TO_BLACK)
+	special(CloseBattlePointsWindow)
+	special(CloseBattleFrontierTutorWindow)
+	special(ChooseMonForMoveTutor)
+	waitstate
+	goto_if_eq(VAR_RESULT, FALSE, Coralgrove_BPShop_EventScript_ChooseTutorMove)
+	msgbox(Coralgrove_BPShop_Text_IllTakeBattlePoints, MSGBOX_DEFAULT)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	special(TakeFrontierBattlePoints)
+	release
+	end
+}
+text Coralgrove_BPShop_Text_TutorIntro{
+	"Welcome to the BP shop.\p"
+	"I can train your Pokémon moves\n"
+	"in exchange for BP."
+}
+text Coralgrove_BPShop_Text_TutorWelcomeBack{
+	"Welcome back."
+}
+text Coralgrove_BPShop_Text_TeachWhichMove{
+	"Which move would you like to choose?"
+}
+text Coralgrove_BPShop_Text_MoveWillBeXBattlePoints{
+	"The move {STR_VAR_1}, is it?\n"
+	"That will be {STR_VAR_2} Battle Points."
+}
+text Coralgrove_BPShop_Text_TeachMoveToWhichMon{
+	"Which Pokémon would you like to teach\n"
+	"this move?"
+}
+text Coralgrove_BPShop_Text_HaventGotEnoughPoints{
+	"I'm so sorry…\n"
+	"You don't have enough Battle Points…"
+}
+text Coralgrove_BPShop_Text_IllTakeBattlePoints{
+	"Please come again."
+}
+text Coralgrove_BPShop_Text_YouDontWantTo{
+	"Let me know if you change your mind."
+}
+
+text Coralgrove_BPShop_Text_SnoreDesc{
+	"Can only be used\n"
+	"while asleep. May\n"
+	"cause flinching."
+}
+text Coralgrove_BPShop_Text_BindDesc{
+	"Bind and squeeze\n"
+	"the target for\n"
+	"4-5 turns."
+}
+text Coralgrove_BPShop_Text_ShockWaveDesc{
+	"A quick jolt of\n"
+	"electricity that\n"
+	"never misses."
+}
+text Coralgrove_BPShop_Text_CovetDesc{
+	"Steals the\n"
+	"target's held\n"
+	"item."
+}
+text Coralgrove_BPShop_Text_BugBiteDesc{
+	"Eats the target's\n"
+	"berry, gaining\n"
+	"its effect."
+}
+text Coralgrove_BPShop_Text_HealBellDesc{
+	"Heals the status\n"
+	"conditions of all\n"
+	"party Pokémon."
+}
+text Coralgrove_BPShop_Text_ElectrowebDesc{
+	"Electric web that\n"
+	"also reduces the\n"
+	"target's speed."
+}
+text Coralgrove_BPShop_Text_DefogDesc{
+	"Clears most\n"
+	"obstacles. Also\n"
+	"lowers evasion."
+}
+text Coralgrove_BPShop_Text_LowKickDesc{
+	"The heavier the\n"
+	"target, the\n"
+	"greater the power."
+}
+text Coralgrove_BPShop_Text_UproarDesc{
+	"3-turn attack.\n"
+	"No Pokémon can\n"
+	"sleep during it."
+}
+text Coralgrove_BPShop_Text_HelpingHandDesc{
+	"Boosts the power\n"
+	"of an ally's\n"
+	"attack."
+}
+text Coralgrove_BPShop_Text_BlockDesc{
+	"Prevents the\n"
+	"target from\n"
+	"escaping."
+}
+text Coralgrove_BPShop_Text_WorrySeedDesc{
+	"Makes the\n"
+	"target's ability\n"
+	"Insomnia."
+}
+text Coralgrove_BPShop_Text_SnatchDesc{
+	"Steals the effect\n"
+	"of most beneficial\n"
+	"status moves."
+}
+text Coralgrove_BPShop_Text_RecycleDesc{
+	"Recycles a used\n"
+	"held item."
+}
+text Coralgrove_BPShop_Text_LastResortDesc{
+	"Only usable after\n"
+	"using all other\n"
+	"moves in combat."
 }

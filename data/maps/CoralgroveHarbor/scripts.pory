@@ -1,0 +1,67 @@
+mapscripts CoralgroveHarbor_MapScripts{}
+
+script CoralgroveHarbor_Sign1{
+    msgbox("Elevator access to city area", MSGBOX_SIGN)
+    end
+}
+
+script CoralgroveHarbor_Sign2{
+    msgbox("Coralgrove Harbor", MSGBOX_SIGN)
+    waitmessage
+    closemessage
+    end
+}
+
+script CoralgroveHarbor_Sailor{
+    lockall
+    faceplayer
+    msgbox("Even though there's a perfectly\ngood ship docked at the harbor,\lsome crazy people would still rather\lcross the ocean by swimming!", MSGBOX_NPC)
+    waitmessage
+    closemessage
+    end
+}
+
+script CoralgroveHarbor_OldMan{
+    lockall
+    faceplayer
+    msgbox("I used to be a fearsome trainer.\pMaybe one day I'll be able to meet\nsomeone who will kindle that\lold flame in me.", MSGBOX_NPC)
+    waitmessage
+    closemessage
+    end
+}
+
+script CoralgroveHarbor_Woman{
+    lockall
+    faceplayer
+    msgbox("I'd really like to set up a shop here\nbut there's simply not enough room.\pDigging a hole in this cliff could\nendanger the city above.", MSGBOX_NPC)
+    waitmessage
+    closemessage
+    end
+}
+
+script CoralHarborBall{
+    finditem(ITEM_GREAT_BALL)
+}
+
+script CoralgroveHarbor_SleepingMan{
+    lockall
+    if(!flag(FLAG_UNUSED_TALKEDTOSLEEPINGGUY)){
+        msgbox("zzz…\pHwuh?\pOh, whew! For a moment I thought\nmy boss might have caught me napping.\pWill you keep this a secret\nif I give you this TM?", MSGBOX_DEFAULT)
+        waitmessage
+        giveitem(ITEM_TM_REST)
+        waitfanfare
+        msgbox("Yawn…\pSleep is essential for good health…\nSleep and regain health…", MSGBOX_DEFAULT)
+        waitmessage
+        setflag(FLAG_UNUSED_TALKEDTOSLEEPINGGUY)
+        closemessage
+        releaseall
+        end
+    }
+    else{
+        msgbox("zzz…", MSGBOX_DEFAULT)
+        waitmessage
+        closemessage
+        releaseall
+        end
+    }
+}

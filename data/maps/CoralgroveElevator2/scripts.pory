@@ -1,0 +1,311 @@
+mapscripts CoralgroveElevator2_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: Pearlwood_MaysHouse2F_SetRival
+}
+
+
+script CoralgroveElevator2_Kasen{
+    lockall
+    msgbox(Kasen, MSGBOX_DEFAULT)
+    waitmessage
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, Elevator2_MoveUp)
+    waitmovement(0)
+    release
+    end
+}
+text Kasen{
+    "Kasen here.\p"
+    "Currently this corridor is the\n"
+    "last part of the rom hack I've made.\p"
+    "The next area is still WIP so\n"
+    "I can't let you go through.\p"
+    "Sorry!"
+}
+movement Elevator2_MoveUp{
+    walk_up
+}
+
+script CoralgroveElevator2_Bail{
+    lockall
+    turnobject(1, DIR_NORTH)
+    checkplayergender
+    if(var(VAR_RESULT) == MALE){
+        msgbox(CoralgroveElevator2_Bail_Male, MSGBOX_DEFAULT)
+    }
+    else{
+        msgbox(CoralgroveElevator2_Bail_Female, MSGBOX_DEFAULT)
+    }
+    addvar(VAR_CORALGROVE_ELEVATOR, 1)
+    release
+    end
+}
+text CoralgroveElevator2_Bail_Male{
+    "{RIVAL}: Hey!\p"
+    "You're not planning to bail on me,\n"
+    "are you!?"
+}
+text CoralgroveElevator2_Bail_Female{
+    "{RIVAL}: You're not planning to bail\n"
+    "on me, are you?"
+}
+
+script CoralgroveElevator2_Trigger1{
+    lockall
+    turnobject(1, DIR_WEST)
+    playse(SE_PIN)
+    applymovement(1, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    delay(40)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+    waitmovement(0)
+    goto(CoralgroveElevator2_Rival)
+}
+script CoralgroveElevator2_Trigger2{
+    lockall
+    turnobject(1, DIR_EAST)
+    playse(SE_PIN)
+    applymovement(1, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    delay(40)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+    waitmovement(0)
+    goto(CoralgroveElevator2_Rival)
+}
+script CoralgroveElevator2_Rival{
+    lockall
+    applymovement(1, Elevator2FacePlayer)
+    waitmovement(0)
+    if(var(VAR_CORALGROVE_ELEVATOR) == 0){
+        setvar(VAR_CORALGROVE_ELEVATOR, 1)
+        checkplayergender
+        if(var(VAR_RESULT) == MALE){
+            goto(CoralgroveElevator2_Rival_May)
+        }
+        else{
+            goto(CoralgroveElevator2_Rival_Brendan)
+        }
+    }
+    else{
+        msgbox("{RIVAL}: Ready for a duel?", MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES){
+            goto(CoralgroveElevator2_Rival_BATTLECONFIG)
+        }
+        else{
+            msgbox("Let me know when you're ready." MSGBOX_DEFAULT)
+            waitmessage
+            closemessage
+            release
+            end
+        }
+    }
+}
+
+text CoralgroveElevator2_Rival_PostBattleMessage{
+    "Next time I won't lose!"
+}
+movement Elevator2FacePlayer{
+    face_player
+}
+
+script CoralgroveElevator2_Rival_May{
+    msgbox(CoralgroveElevator2_Rival_May_Speech, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        msgbox("Okay, let's go!", MSGBOX_DEFAULT)
+        goto(CoralgroveElevator2_Rival_BATTLECONFIG)
+    }
+    else{
+        msgbox("I get it, you want to prepare.\pWell, don't leave me hanging!")
+        release
+        end
+    }
+}
+text CoralgroveElevator2_Rival_May_Speech{
+    "{RIVAL}: Hello {PLAYER}!\n"
+    "I knew you'd be here soon!\p"
+    "Luckily I didn't have to wait\n"
+    "for too long.\p"
+    "Your brother also came through\n"
+    "here recently.\p"
+    "I was hoping we could all go to the\n"
+    "mainland together but he was like\l"
+    "“Can't waste time or he might catch\l"
+    "up to me.”\p"
+    "Seriously, that guy gets on my\n"
+    "nerves sometimes!\p"
+    "Anyway, I see you too obtained\n"
+    "the Hive Badge.\p"
+    "Wanna have a duel and see which of us\n"
+    "is stronger?"
+}
+
+script CoralgroveElevator2_Rival_Brendan{
+    msgbox(CoralgroveElevator2_Rival_Brendan_Speech, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        msgbox("Okay, let's go!", MSGBOX_DEFAULT)
+        goto(CoralgroveElevator2_Rival_BATTLECONFIG)
+    }
+    else{
+        msgbox("It's okay, take your time.\pI'll be waiting here.")
+        release
+        end
+    }
+}
+text CoralgroveElevator2_Rival_Brendan_Speech{
+    "{RIVAL}: Hi neighbor!\n"
+    "I hoped you'd be here soon.\p"
+    "Luckily I didn't have to wait\n"
+    "for too long.\p"
+    "Your brother also came through\n"
+    "here recently.\p"
+    "I was hoping we could all go to the\n"
+    "mainland together but he said he\n"
+    "couldn't waste time or we might\l"
+    "catch up to him.\p"
+    "I honestly don't get what goes on\n"
+    "in his mind sometimes…\p"
+    "Anyway, I see you too obtained\n"
+    "the Hive Badge.\p"
+    "Wanna have a duel and see which of us\n"
+    "is stronger?"
+}
+script CoralgroveElevator2_Rival_BATTLECONFIG{
+    checkplayergender
+    if(var(VAR_RESULT) == MALE){
+        if(flag(FLAG_UNUSED_PICKEDROWLET)){
+            call(CoralgroveElevator2_StartMayBattleRowlet)
+        }
+        if(flag(FLAG_UNUSED_PICKEDTORCHIC)){
+            call(CoralgroveElevator2_StartMayBattleTorchic)
+        }
+        if(flag(FLAG_UNUSED_PICKEDPIPLUP)){
+            call(CoralgroveElevator2_StartMayBattlePiplup)
+        }
+    }
+    else{
+        if(flag(FLAG_UNUSED_PICKEDROWLET)){
+            call(CoralgroveElevator2_StartBrendanBattleRowlet)
+        }
+        if(flag(FLAG_UNUSED_PICKEDTORCHIC)){
+            call(CoralgroveElevator2_StartBrendanBattleTorchic)
+        }
+        if(flag(FLAG_UNUSED_PICKEDPIPLUP)){
+            call(CoralgroveElevator2_StartBrendanBattlePiplup)
+        }
+    }
+}
+
+script CoralgroveElevator2_StartMayBattleRowlet{
+	trainerbattle_no_intro(TRAINER_MAY_ROUTE_110_TREECKO, CoralgroveElevator2_RivalDefeated)
+	goto(CoralgroveElevator2_AfterMayBattle)
+	end}
+
+script CoralgroveElevator2_StartMayBattleTorchic{
+	trainerbattle_no_intro(TRAINER_MAY_ROUTE_110_TORCHIC, CoralgroveElevator2_RivalDefeated)
+	goto(CoralgroveElevator2_AfterMayBattle)
+	end}
+
+script CoralgroveElevator2_StartMayBattlePiplup{
+	trainerbattle_no_intro(TRAINER_MAY_ROUTE_110_MUDKIP, CoralgroveElevator2_RivalDefeated)
+	goto(CoralgroveElevator2_AfterMayBattle)
+	end}
+
+script CoralgroveElevator2_StartBrendanBattleRowlet{
+	trainerbattle_no_intro(TRAINER_BRENDAN_ROUTE_110_TREECKO, CoralgroveElevator2_RivalDefeated)
+	goto(CoralgroveElevator2_AfterBrendanBattle)
+	end}
+
+script CoralgroveElevator2_StartBrendanBattleTorchic{
+	trainerbattle_no_intro(TRAINER_BRENDAN_ROUTE_110_TORCHIC, CoralgroveElevator2_RivalDefeated)
+	goto(CoralgroveElevator2_AfterBrendanBattle)
+	end}
+
+script CoralgroveElevator2_StartBrendanBattlePiplup{
+	trainerbattle_no_intro(TRAINER_BRENDAN_ROUTE_110_MUDKIP, CoralgroveElevator2_RivalDefeated)
+	goto(CoralgroveElevator2_AfterBrendanBattle)
+	end}
+
+text CoralgroveElevator2_RivalDefeated{
+    "Still can't defeat you, huh…"
+}
+script CoralgroveElevator2_AfterMayBattle{
+	msgbox(CoralgroveElevator2_MayContinueOn, MSGBOX_DEFAULT)
+    giveitem(ITEM_DOWSING_MACHINE)
+    addvar(VAR_CORALGROVE_ELEVATOR, 1)
+    msgbox(CoralgroveElevator2_MayDowsing)
+	goto(CoralgroveElevator2_RivalExit)
+	end
+}
+script CoralgroveElevator2_AfterBrendanBattle{
+	msgbox(CoralgroveElevator2_BrendanContinueOn, MSGBOX_DEFAULT)
+    giveitem(ITEM_DOWSING_MACHINE)
+    addvar(VAR_CORALGROVE_ELEVATOR, 1)
+    msgbox(CoralgroveElevator2_BrendanDowsing)
+	goto(CoralgroveElevator2_RivalExit)
+	end
+}
+
+text CoralgroveElevator2_MayContinueOn{
+    "I see what your brother meant by\n"
+    "you catching up to him.\p"
+    "You're making some serious\n"
+    "progress as a trainer!\p"
+    "I wouldn't be surprised if one day\n"
+    "you were taking on the actual\l"
+    "Pokémon League!\p"
+    "Anyway, I was doing some shopping\n"
+    "when I came across a pair of these.\p"
+    "I thought you might find it useful so\n"
+    "here you go!"
+}
+text CoralgroveElevator2_BrendanContinueOn{
+    "I see what your brother meant by\n"
+    "you catching up to him.\p"
+    "You're quickly becoming\n"
+    "a truly outstanding trainer!\p"
+    "If someone in your family were to one\n"
+    "day become the Pokémon League Champion,\l"
+    "it wouldn't surprise me if it was you.\p"
+    "Anyway, I was doing some shopping\n"
+    "when I came across a pair of these.\p"
+    "I thought you might find it useful so\n"
+    "here, I want you to have this."
+}
+text CoralgroveElevator2_BrendanDowsing{
+ 	"{RIVAL}: That's an Itemfinder.\p"
+	"You can use it to root around for items\n"
+	"that aren't usually visible.\p"
+	"If it senses something, it emits\n"
+	"a sound.\p"
+	"Anyway, I'm off to the mainland\n"
+	"to look for new Pokémon."
+}
+text CoralgroveElevator2_MayDowsing{
+    "{RIVAL}: That's an Itemfinder.\p"
+	"Try it out. If there is an item that's\n"
+	"not visible, it emits a sound.\p"
+	"Okay, {PLAYER}, let's meet again!\p"
+	"I know it's a little silly coming from\n"
+	"me, but I think you should train a lot\l"
+	"harder for the next time!"
+}
+
+script CoralgroveElevator2_RivalExit{
+	closemessage
+	applymovement(1, Harbor_Movement_RivalExit1)
+	waitmovement(0)
+	goto(CoralgroveElevator2_RivalEnd)
+	end
+}
+script CoralgroveElevator2_RivalEnd{
+	removeobject(1)
+	setflag(FLAG_DEFEATED_RIVAL_HARBOR)
+	savebgm(MUS_DUMMY)
+	fadedefaultbgm
+	releaseall
+	end
+}
+movement Harbor_Movement_RivalExit1{
+    walk_up * 4
+    walk_right * 3
+    walk_down
+}

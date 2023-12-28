@@ -1,17 +1,28 @@
 mapscripts CoralgroveElevator1_MapScripts{}
 
 script ElevatorBlock{
-    lockall
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
-    msgbox("I'm sorry but there has been\nan accident in the harbor area.\pAs such we cannot let the public\naccess it right now.", MSGBOX_DEFAULT)
-    waitmessage
-    closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, EleLeft)
-    waitmovement(0)
+    if(!flag(FLAG_BADGE01_GET)){
+        lockall
+        turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+        msgbox("I'm sorry but there has been\nan accident in the harbor area.\pAs such we cannot let the public\naccess it right now.", MSGBOX_DEFAULT)
+        waitmessage
+        closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, EleLeft)
+        waitmovement(0)
+    }
     releaseall
     end
 }
 
 movement EleLeft{
     walk_left
+}
+
+script CoralGrove_ElevatorEmployee{
+    lockall
+    faceplayer
+    msgbox("The situation at the harbor has been\nresolved and the public can\lonce again freely move about.\pThank you for your patience.", MSGBOX_NPC)
+    waitmessage
+    closemessage
+    end
 }

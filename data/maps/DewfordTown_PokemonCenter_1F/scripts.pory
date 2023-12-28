@@ -1,0 +1,129 @@
+raw `
+.set LOCALID_NURSE, 1
+
+DewfordTown_PokemonCenter_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, DewfordTown_PokemonCenter_1F_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
+	.byte 0
+
+DewfordTown_PokemonCenter_1F_OnTransition:
+	setrespawn HEAL_LOCATION_COAST_TOWN
+	call Common_EventScript_UpdateBrineyLocation
+	end
+
+DewfordTown_PokemonCenter_1F_EventScript_Nurse::
+	setvar VAR_0x800B, LOCALID_NURSE
+	call Common_EventScript_PkmnCenterNurse
+	waitmessage
+	waitbuttonpress
+	release
+	end
+
+DewfordTown_PokemonCenter_1F_EventScript_PokefanF::
+	msgbox DewfordTown_PokemonCenter_1F_Text_StoneCavern, MSGBOX_NPC
+	end
+
+DewfordTown_PokemonCenter_1F_EventScript_Man::
+	msgbox DewfordTown_PokemonCenter_1F_Text_FaintedMonCanUseHM, MSGBOX_NPC
+	end
+
+DewfordTown_PokemonCenter_1F_Text_StoneCavern:
+	.string "I heard there's some rare Pokémon\n"
+	.string "you can only find by fishing.\p"
+	.string "It's said that they like to\n"
+	.string "collect rare shards.$"
+
+DewfordTown_PokemonCenter_1F_Text_FaintedMonCanUseHM:
+	.string "Even if a POKéMON faints and can't\n"
+	.string "battle, it can still use a move learned\l"
+	.string "from a HIDDEN MACHINE (HM).$"
+`
+
+script DewfordTown_PokemonCenter_1F_OldMan{
+    lockall
+    faceplayer
+    if(!flag(FLAG_DFTPC1F_MAPBOUGHT)){
+        if(!flag(FLAG_DFTPC1F_MANSPOKENTO)){
+            setflag(FLAG_DFTPC1F_MANSPOKENTO)
+            msgbox(DFTPC1F_MapIntro, MSGBOX_NPC)
+            showmoneybox(0,0)
+            msgbox(DFTPC1F_Interested, MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES){
+                goto(DFTPC1F_SellMap)
+            }
+            else{
+                goto(DFTPC1F_NotInterested)
+            }
+        }
+        else{
+            showmoneybox(0,0)
+            msgbox(DFTPC1F_MapIntro2, MSGBOX_YESNO)
+            if(var(VAR_RESULT) == YES){
+                goto(DFTPC1F_SellMap)
+            }
+            else{
+                goto(DFTPC1F_NotInterested)
+            }
+        }
+    }
+    else{
+        msgbox("Enjoy your brand new map!", MSGBOX_NPC)
+        waitmessage
+        closemessage
+        releaseall
+        end
+    }
+}
+script DFTPC1F_NotInterested{
+    hidemoneybox
+    msgbox(DFTPC1F_NotInterestedText, MSGBOX_NPC)
+    waitmessage
+    closemessage
+    releaseall
+    end
+}
+
+script DFTPC1F_SellMap{
+    checkmoney(2000)
+    if(var(VAR_RESULT) == YES){
+        hidemoneybox
+        removemoney(2000)
+        setflag(FLAG_DFTPC1F_MAPBOUGHT)
+        giveitem(ITEM_TOWN_MAP)
+        waitfanfare
+        msgbox("Enjoy your brand new map!", MSGBOX_NPC)
+        waitmessage
+        closemessage
+        releaseall
+        end
+    }
+    else{
+        msgbox("Oh, you don't have enough money…", MSGBOX_NPC)
+        waitmessage
+        hidemoneybox
+        closemessage
+        releaseall
+        end
+    }
+}
+
+text DFTPC1F_MapIntro{
+    "Ah, a fresh face around these parts.\p"
+    "You must be from the\n"
+    "Coralgrove Archipelago!\p"
+    "The mainland can be scary and\n"
+    "unknown for anyone first time here\l"
+    "but I have just the cure!\p"
+    "For the low low price of ¥2000, I can\n"
+    "offer you a map of the entire region!"
+}
+text DFTPC1F_Interested{
+    "What say you, interested?"
+}
+text DFTPC1F_MapIntro2{
+    "I may still have one map\n"
+    "left if you're interested…"
+}
+text DFTPC1F_NotInterestedText{
+    "Hmph… Fine, have it your way."
+}

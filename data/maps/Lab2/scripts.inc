@@ -22,7 +22,7 @@ Lab2_HideRival_1:
 
 
 Lab2_Intro::
-	goto_if_unset FLAG_UNUSED_0x493, Lab2_Intro_3
+	goto_if_unset FLAG_UNUSED_PICKEDROWLET, Lab2_Intro_3
 Lab2_Intro_2:
 	end
 
@@ -45,11 +45,11 @@ Lab2_Intro_1:
 	end
 
 Lab2_Intro_3:
-	goto_if_unset FLAG_UNUSED_0x494, Lab2_Intro_5
+	goto_if_unset FLAG_UNUSED_PICKEDTORCHIC, Lab2_Intro_5
 	goto Lab2_Intro_2
 
 Lab2_Intro_5:
-	goto_if_unset FLAG_UNUSED_0x495, Lab2_Intro_1
+	goto_if_unset FLAG_UNUSED_PICKEDPIPLUP, Lab2_Intro_1
 	goto Lab2_Intro_2
 
 
@@ -65,11 +65,14 @@ Lab2_DexGet_1:
 Lab2_DexGet_4:
 	waitmessage
 	closemessage
-	playse MUS_RG_OBTAIN_KEY_ITEM
+	playse MUS_OBTAIN_ITEM
 	msgbox Lab2_DexGet_Text_0
+	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
 	special EnableNationalPokedex
 	setflag FLAG_ADVENTURE_STARTED
+	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
+	setvar VAR_CABLE_CLUB_TUTORIAL_STATE, 1
 	setvar VAR_OLDALE_TOWN_STATE, 1
 	waitfanfare
 	applymovement OBJ_EVENT_ID_PLAYER, Lab2_TurnRight
@@ -169,7 +172,7 @@ Lab2_TurnRight:
 Lab2_Birch::
 	lockall
 	faceplayer
-	goto_if_unset FLAG_UNUSED_0x493, Lab2_Birch_4
+	goto_if_unset FLAG_UNUSED_PICKEDROWLET, Lab2_Birch_4
 Lab2_Birch_3:
 	msgbox Lab2_Birch_Text_1
 Lab2_Birch_1:
@@ -182,17 +185,17 @@ Lab2_Birch_2:
 	goto Lab2_Birch_1
 
 Lab2_Birch_4:
-	goto_if_unset FLAG_UNUSED_0x494, Lab2_Birch_6
+	goto_if_unset FLAG_UNUSED_PICKEDTORCHIC, Lab2_Birch_6
 	goto Lab2_Birch_3
 
 Lab2_Birch_6:
-	goto_if_unset FLAG_UNUSED_0x495, Lab2_Birch_2
+	goto_if_unset FLAG_UNUSED_PICKEDPIPLUP, Lab2_Birch_2
 	goto Lab2_Birch_3
 
 
 Lab2_Ball1::
 	lockall
-	goto_if_unset FLAG_UNUSED_0x493, Lab2_Ball1_4
+	goto_if_unset FLAG_UNUSED_PICKEDROWLET, Lab2_Ball1_4
 Lab2_Ball1_3:
 	msgbox Lab2_Ball1_Text_0
 Lab2_Ball1_1:
@@ -205,17 +208,17 @@ Lab2_Ball1_2:
 	goto Lab2_Ball1_1
 
 Lab2_Ball1_4:
-	goto_if_unset FLAG_UNUSED_0x494, Lab2_Ball1_6
+	goto_if_unset FLAG_UNUSED_PICKEDTORCHIC, Lab2_Ball1_6
 	goto Lab2_Ball1_3
 
 Lab2_Ball1_6:
-	goto_if_unset FLAG_UNUSED_0x495, Lab2_Ball1_2
+	goto_if_unset FLAG_UNUSED_PICKEDPIPLUP, Lab2_Ball1_2
 	goto Lab2_Ball1_3
 
 
 Lab2_Ball2::
 	lockall
-	goto_if_unset FLAG_UNUSED_0x493, Lab2_Ball2_4
+	goto_if_unset FLAG_UNUSED_PICKEDROWLET, Lab2_Ball2_4
 Lab2_Ball2_3:
 	msgbox Lab2_Ball1_Text_0
 Lab2_Ball2_1:
@@ -228,17 +231,17 @@ Lab2_Ball2_2:
 	goto Lab2_Ball2_1
 
 Lab2_Ball2_4:
-	goto_if_unset FLAG_UNUSED_0x494, Lab2_Ball2_6
+	goto_if_unset FLAG_UNUSED_PICKEDTORCHIC, Lab2_Ball2_6
 	goto Lab2_Ball2_3
 
 Lab2_Ball2_6:
-	goto_if_unset FLAG_UNUSED_0x495, Lab2_Ball2_2
+	goto_if_unset FLAG_UNUSED_PICKEDPIPLUP, Lab2_Ball2_2
 	goto Lab2_Ball2_3
 
 
 Lab2_Ball3::
 	lockall
-	goto_if_unset FLAG_UNUSED_0x493, Lab2_Ball3_4
+	goto_if_unset FLAG_UNUSED_PICKEDROWLET, Lab2_Ball3_4
 Lab2_Ball3_3:
 	msgbox Lab2_Ball1_Text_0
 Lab2_Ball3_1:
@@ -251,11 +254,11 @@ Lab2_Ball3_2:
 	goto Lab2_Ball3_1
 
 Lab2_Ball3_4:
-	goto_if_unset FLAG_UNUSED_0x494, Lab2_Ball3_6
+	goto_if_unset FLAG_UNUSED_PICKEDTORCHIC, Lab2_Ball3_6
 	goto Lab2_Ball3_3
 
 Lab2_Ball3_6:
-	goto_if_unset FLAG_UNUSED_0x495, Lab2_Ball3_2
+	goto_if_unset FLAG_UNUSED_PICKEDPIPLUP, Lab2_Ball3_2
 	goto Lab2_Ball3_3
 
 
@@ -282,7 +285,7 @@ Lab2_Rowlet_5:
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox Lab2_Rowlet_Text_1
 	removeobject 1
-	setflag FLAG_UNUSED_0x493
+	setflag FLAG_UNUSED_PICKEDROWLET
 	call Lab2SetFlags
 	call NicknamePartyMon
 	goto Lab2_Rowlet_1
@@ -311,7 +314,7 @@ Lab2_Torchic_5:
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox Lab2_Torchic_Text_1
 	removeobject 2
-	setflag FLAG_UNUSED_0x494
+	setflag FLAG_UNUSED_PICKEDTORCHIC
 	call Lab2SetFlags
 	call NicknamePartyMon
 	goto Lab2_Torchic_1
@@ -340,7 +343,7 @@ Lab2_Piplup_5:
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox Lab2_Piplup_Text_1
 	removeobject 3
-	setflag FLAG_UNUSED_0x495
+	setflag FLAG_UNUSED_PICKEDPIPLUP
 	call Lab2SetFlags
 	call NicknamePartyMon
 	goto Lab2_Piplup_1

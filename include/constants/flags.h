@@ -45,7 +45,7 @@
 #define FLAG_UNUSED_LAB_RIVAL    0x20 // Used to show/hide rival in prof's lab
 #define FLAG_UNUSED_BP_INTRO    0x21 // Introduction to battle points
 #define FLAG_UNUSED_GLADE    0x22 // Sets the lost glade flag so the camper changes dialogue
-#define FLAG_UNUSED_0x023    0x23 // Unused Flag
+#define FLAG_DEFEATED_RIVAL_HARBOR    0x23 // Flag for defeating rival at coralgrove harbor. Also used to define whether the itemfinder has already been obtained
 #define FLAG_UNUSED_0x024    0x24 // Unused Flag
 #define FLAG_UNUSED_0x025    0x25 // Unused Flag
 #define FLAG_UNUSED_0x026    0x26 // Unused Flag
@@ -550,7 +550,7 @@
 #define FLAG_HIDDEN_ITEM_WW_RARE_CANDY                       (FLAG_HIDDEN_ITEMS_START + 0x08)
 #define FLAG_HIDDEN_ITEM_WW_ETHER                            (FLAG_HIDDEN_ITEMS_START + 0x09)
 #define FLAG_HIDDEN_ITEM_CORALGROVE_RARECANDY                (FLAG_HIDDEN_ITEMS_START + 0x0A)
-#define FLAG_HIDDEN_ITEM_UNDERWATER_124_BIG_PEARL            (FLAG_HIDDEN_ITEMS_START + 0x0B)
+#define FLAG_HIDDEN_ITEM_MEADOW_TINY_MUSHROOM            (FLAG_HIDDEN_ITEMS_START + 0x0B)
 #define FLAG_HIDDEN_ITEM_UNDERWATER_126_BLUE_SHARD           (FLAG_HIDDEN_ITEMS_START + 0x0C)
 #define FLAG_HIDDEN_ITEM_UNDERWATER_124_HEART_SCALE_1        (FLAG_HIDDEN_ITEMS_START + 0x0D)
 #define FLAG_HIDDEN_ITEM_UNDERWATER_126_HEART_SCALE          (FLAG_HIDDEN_ITEMS_START + 0x0E)
@@ -1094,8 +1094,8 @@
 #define FLAG_ITEM_WW_CARBOS                      0x415 // USED
 #define FLAG_ITEM_WW_PARLYZ                    0x416 // USED
 #define FLAG_UNUSED_CORAL_GREATBALL                          0x417 // USED
-#define FLAG_ITEM_RUSTURF_TUNNEL_POKE_BALL                          0x418
-#define FLAG_ITEM_RUSTURF_TUNNEL_MAX_ETHER                          0x419
+#define FLAG_UNUSED_HARBOR_PEARL                          0x418
+#define FLAG_UNUSED_HARBOR_GREATBALL                         0x419
 #define FLAG_ITEM_GRANITE_CAVE_1F_ESCAPE_ROPE                       0x41A
 #define FLAG_ITEM_GRANITE_CAVE_B1F_POKE_BALL                        0x41B
 #define FLAG_ITEM_MT_PYRE_5F_LAX_INCENSE                            0x41C
@@ -1218,9 +1218,9 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET                     0x491
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
-#define FLAG_UNUSED_0x493                                           0x493 // Rowlet
-#define FLAG_UNUSED_0x494                                           0x494 // Torchic
-#define FLAG_UNUSED_0x495                                           0x495 // Piplup
+#define FLAG_UNUSED_PICKEDROWLET                                           0x493 // Rowlet
+#define FLAG_UNUSED_PICKEDTORCHIC                                           0x494 // Torchic
+#define FLAG_UNUSED_PICKEDPIPLUP                                           0x495 // Piplup
 #define FLAG_UNUSED_STARTER_GET                                     0x496 // Unused Flag
 #define FLAG_UNUSED_INTROGOSSIP                                     0x497 // Gossip between mom and brother
 #define FLAG_UNUSED_BROTHER_PEARLFIGHT                              0x498 // Sets the flag for the brother fight in the 1st town
@@ -1237,19 +1237,19 @@
 #define FLAG_UNUSED_WW_HIDEROCKET                                           0x4A3 // Unused Flag
 #define FLAG_UNUSED_WW_HIDEDAD                                           0x4A4 // Unused Flag
 #define FLAG_CORALGROVE_TRADE_COMPLETED                                           0x4A5 // Unused Flag
-#define FLAG_UNUSED_0x4A6                                           0x4A6 // Unused Flag
-#define FLAG_UNUSED_0x4A7                                           0x4A7 // Unused Flag
-#define FLAG_UNUSED_0x4A8                                           0x4A8 // Unused Flag
-#define FLAG_UNUSED_0x4A9                                           0x4A9 // Unused Flag
-#define FLAG_UNUSED_0x4AA                                           0x4AA // Unused Flag
-#define FLAG_UNUSED_0x4AB                                           0x4AB // Unused Flag
-#define FLAG_UNUSED_0x4AC                                           0x4AC // Unused Flag
-#define FLAG_UNUSED_0x4AD                                           0x4AD // Unused Flag
-#define FLAG_UNUSED_0x4AE                                           0x4AE // Unused Flag
-#define FLAG_UNUSED_0x4AF                                           0x4AF // Unused Flag
-#define FLAG_UNUSED_0x4B0                                           0x4B0 // Unused Flag
-#define FLAG_UNUSED_0x4B1                                           0x4B1 // Unused Flag
-#define FLAG_UNUSED_0x4B2                                           0x4B2 // Unused Flag
+#define FLAG_UNUSED_TALKEDTOSLEEPINGGUY                                           0x4A6 // Unused Flag
+#define FLAG_RIVAL_HARBOR_ANGRY                                       0x4A7 // makes rival angry if bailed on in the elevator
+#define FLAG_DFTPC1F_MANSPOKENTO                                           0x4A8 // 1st time spoken to map seller
+#define FLAG_DFTPC1F_MAPBOUGHT                                           0x4A9 // set if map is bought
+#define FLAG_COASTTOWN_PEARL                                          0x4AA // Unused Flag
+#define FLAG_COASTTOWN_REDSHARD                                           0x4AB // Unused Flag
+#define FLAG_COASTTOWN_HEATROCK                                           0x4AC // Unused Flag
+#define FLAG_COASTTOWN_TREE1                                           0x4AD // FLAGS WHETHER COAST TOWN TREES HAVE BEEN CHECKED FOR POKEMON
+#define FLAG_COASTTOWN_TREE2                                           0x4AE // 1-3 TREES HAVE NO POKEMON
+#define FLAG_COASTTOWN_TREE3                                           0x4AF // Unused Flag
+#define FLAG_COASTTOWN_YESTREE1                                           0x4B0 // 4-6 TREES HAVE POKEMON
+#define FLAG_COASTTOWN_YESTREE2                                           0x4B1 // Unused Flag
+#define FLAG_COASTTOWN_YESTREE3                                           0x4B2 // Unused Flag
 #define FLAG_UNUSED_0x4B3                                           0x4B3 // Unused Flag
 #define FLAG_UNUSED_0x4B4                                           0x4B4 // Unused Flag
 #define FLAG_UNUSED_0x4B5                                           0x4B5 // Unused Flag

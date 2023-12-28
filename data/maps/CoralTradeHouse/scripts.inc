@@ -3,8 +3,8 @@ CoralTradeHouse_MapScripts::
 
 
 CoralgroveTradeSequence::
-	goto_if_set FLAG_UNUSED_0x493, CoralgroveTradeSequence_1
-	goto_if_set FLAG_UNUSED_0x494, CoralgroveTradeSequence_2
+	goto_if_set FLAG_UNUSED_PICKEDROWLET, CoralgroveTradeSequence_1
+	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, CoralgroveTradeSequence_2
 	goto CoralgrovePrinplupTrade
 	return
 

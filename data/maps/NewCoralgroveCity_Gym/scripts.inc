@@ -287,8 +287,8 @@ NewCoralgroveCity_Gym_Text_AaronIntro::
 NewCoralgroveCity_Gym_Text_AaronDefeat::
 	.string "So…\n"
 	.string "I lost…\p"
-	.string "It seems that I still have much more\n"
-	.string "to learn…\p"
+	.string "It seems that I\n"
+	.string "still have ways to go…\p"
 	.string "I understand.\p"
 	.string "The Pokémon league's rules state\n"
 	.string "that trainers are to be given this\l"
@@ -298,7 +298,7 @@ NewCoralgroveCity_Gym_Text_AaronDefeat::
 
 NewCoralgroveCity_Gym_Text_ReceivedStoneBadge::
 	.string "{PLAYER} received the Hive Badge\n"
-	.string "from Aaron.$"
+	.string "from Aaron!$"
 
 NewCoralgroveCity_Gym_Text_StoneBadgeInfoTakeThis::
 	.string "The Hive Badge heightens the attack\n"
@@ -313,8 +313,6 @@ NewCoralgroveCity_Gym_Text_ExplainUTurn::
 	.string "After making its attack, the user\n"
 	.string "rushes back to switch places with\l"
 	.string "a party Pokémon in waiting.\p"
-	.string "If you use a TM, it instantly teaches\n"
-	.string "the move to a Pokémon.\p"
 	.string "Remember, a TM can be used as many\n"
 	.string "times as you want, so feel free to\l"
 	.string "experiment to your heart's content.$"
@@ -328,12 +326,12 @@ NewCoralgroveCity_Gym_Text_AaronPostBattle::
 NewCoralgroveCity_Gym_Text_GymStatue::
 	.string "Coralgrove City Pokémon Gym\p"
 	.string "Aaron's certified trainers:\n"
-	.string "{RIVAL}\l"
-	.string "Brandon$"
+	.string "Thomas\l"
+	.string "{RIVAL}$"
 
 NewCoralgroveCity_Gym_Text_GymStatueCertified::
 	.string "Coralgrove City Pokémon Gym\p"
 	.string "Aaron's certified trainers:\n"
+	.string "Thomas\l"
 	.string "{RIVAL}\l"
-	.string "Brandon\l"
 	.string "{PLAYER}$"

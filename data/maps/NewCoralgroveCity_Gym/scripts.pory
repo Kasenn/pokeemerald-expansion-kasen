@@ -281,8 +281,8 @@ text NewCoralgroveCity_Gym_Text_AaronIntro{
 text NewCoralgroveCity_Gym_Text_AaronDefeat{
 	"So…\n"
 	"I lost…\p"
-	"It seems that I still have much more\n"
-	"to learn…\p"
+	"It seems that I\n"
+	"still have ways to go…\p"
 	"I understand.\p"
 	"The Pokémon league's rules state\n"
 	"that trainers are to be given this\l"
@@ -292,7 +292,7 @@ text NewCoralgroveCity_Gym_Text_AaronDefeat{
 }
 text NewCoralgroveCity_Gym_Text_ReceivedStoneBadge{
 	"{PLAYER} received the Hive Badge\n"
-	"from Aaron.$"
+	"from Aaron!$"
 }
 text NewCoralgroveCity_Gym_Text_StoneBadgeInfoTakeThis{
 	"The Hive Badge heightens the attack\n"
@@ -307,8 +307,6 @@ text NewCoralgroveCity_Gym_Text_ExplainUTurn{
 	"After making its attack, the user\n"
 	"rushes back to switch places with\l"
 	"a party Pokémon in waiting.\p"
-	"If you use a TM, it instantly teaches\n"
-	"the move to a Pokémon.\p"
 	"Remember, a TM can be used as many\n"
 	"times as you want, so feel free to\l"
 	"experiment to your heart's content."
@@ -322,14 +320,14 @@ text NewCoralgroveCity_Gym_Text_AaronPostBattle{
 text NewCoralgroveCity_Gym_Text_GymStatue{
 	"Coralgrove City Pokémon Gym\p"
 	"Aaron's certified trainers:\n"
-	"{RIVAL}\l"
-	"Brandon"
+	"Thomas\l"
+	"{RIVAL}"
 }
 text NewCoralgroveCity_Gym_Text_GymStatueCertified{
 	"Coralgrove City Pokémon Gym\p"
 	"Aaron's certified trainers:\n"
+	"Thomas\l"
 	"{RIVAL}\l"
-	"Brandon\l"
 	"{PLAYER}"
 }
 // NewCoralgroveCity_Gym_Text_AaronRegisterCall:

@@ -138,13 +138,13 @@ text Route1_Text_CoolTrainerDefeated{
 
 script Route1_CoolTrainerPostBattle{
     msgbox(Route1_CoolTrainerReward, MSGBOX_DEFAULT)
-	if(flag(FLAG_UNUSED_0x493)){
+	if(flag(FLAG_UNUSED_PICKEDROWLET)){
         giveitem(ITEM_MIRACLE_SEED)
     }
-    elif(flag(FLAG_UNUSED_0x494)){
+    elif(flag(FLAG_UNUSED_PICKEDTORCHIC)){
         giveitem(ITEM_CHARCOAL)
     }
-    elif(flag(FLAG_UNUSED_0x495)){
+    elif(flag(FLAG_UNUSED_PICKEDPIPLUP)){
         giveitem(ITEM_MYSTIC_WATER)
     }
     msgbox("Give that item to your Pokémon to\nboost the power of their attacks.\pTake these as well.", MSGBOX_DEFAULT)

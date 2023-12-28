@@ -84,7 +84,9 @@ movement PlayerHouse1F_face4{
 
 
 text PlayerHouse1F_LookPlayer{
-    "Mom: Look, {PLAYER}!\nYour brother is back from his trip!\pCome sit by the table!"
+    "Mom: Look, {PLAYER}!\n"
+    "Your brother is back from his trip!\p"
+    "Come sit by the table!"
 }
 
 movement PlayerHouse1F_PlayerSitTable{
@@ -93,19 +95,40 @@ movement PlayerHouse1F_PlayerSitTable{
 }
 
 text PlayerHouse1F_Disc1{
-    "Mom: So, Brandon,\nhow was your trip to Kanto?\pGo on, I want to hear everything!\pBrandon: …"
+    "Mom: So, Thomas,\n"
+    "how was your trip to Kanto?\p"
+    "Go on, I want to hear everything!\p"
+    "Thomas: …"
 }
 
 text PlayerHouse1F_Disc2{
-    "Brandon: In the end, that Lance's\nDragonite was simply too strong…\pMom: Well, at least you tried\nyour best.\pIt sounds like you still had fun\nin the end!\pBrandon: Anyway, mom, aren't you\nforgetting something?"
+    "Thomas: In the end, that Lance's\n"
+    "Dragonite was simply too strong…\p"
+    "Mom: Well, at least you tried\n"
+    "your best.\p"
+    "It sounds like you still had fun\n"
+    "in the end!\p"
+    "Thomas: Anyway mom, aren't you\n"
+    "forgetting something?"
 }
 
 text PlayerHouse1F_Disc3{
-    "Mom: Oh, that's right!\pThis is supposed to be your special day,\n{PLAYER}!\pThat's right! Today is the day you get\nyour very own Pokémon!\pEvery young trainer in this town\ngets their first Pokémon from\lprofessor Birch.\pYou should go see him in his lab\n and see what he has to offer.\pThe professor's lab is just\nnorthwest from here."
+    "Mom: Oh, that's right!\p"
+    "This is supposed to be your special day,\n"
+    "{PLAYER}!\p"
+    "That's right! Today is the day you get\n"
+    "your very own Pokémon!\p"
+    "Every young trainer in this town\n"
+    "gets their first Pokémon from\l"
+    "professor Birch.\p"
+    "You should go see him in his lab\n"
+    "and see what he has to offer.\p"
+    "The professor's lab is just\n"
+    "northwest from here."
 }
 
 text PlayerHouse1F_BrotherGossip{
-    "Brandon: Go get 'em, champ!"
+    "Thomas: Go get 'em, champ!"
 }
 
 script PlayerHouse1F_Brother{
@@ -181,7 +204,7 @@ script PlayerHouse1F_BrotherApology{
 }
 
 text PlayerHouse1F_Apology{
-"Brandon: Sorry about that.\nI knew that with my experience it was\lgoing to be an unfair fight. I hope you\ldon't take that loss too seriously…\pAnyway, have you thought about what\nyou're going to do next?\pIf you're up for it, we should totally\nsee which of us is the better trainer\lby taking on the Pokémon Gym Challenge!\pOur neighbor {RIVAL} just set out so we\nbetter get moving or we'll fall behind!\pDon't know about you but I'm not content\nwith a second place.\pCatch ya later!"
+"Thomas: Sorry about that.\nI knew that with my experience it was\lgoing to be an unfair fight. I hope you\ldon't take that loss too seriously…\pAnyway, have you thought about what\nyou're going to do next?\pIf you're up for it, we should totally\nsee which of us is the better trainer\lby taking on the Pokémon Gym Challenge!\pOur neighbor {RIVAL} just set out so we\nbetter get moving or we'll fall behind!\pDon't know about you but I'm not content\nwith a second place.\pCatch ya later!"
 }
 
 movement BrotherComesCloser{

@@ -3,7 +3,7 @@
   "name": "CoralgroveElevator1",
   "layout": "LAYOUT_CORALGROVE_ELEVATOR1",
   "music": "MUS_POKE_MART",
-  "region_map_section": "MAPSEC_PETALBURG_CITY",
+  "region_map_section": "MAPSEC_RUSTBORO_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "CoralGrove_ElevatorEmployee",
       "flag": "0"
     }
   ],
@@ -47,7 +47,7 @@
       "x": 11,
       "y": 1,
       "elevation": 0,
-      "dest_map": "MAP_CORALGROVE_ELEVATOR2",
+      "dest_map": "MAP_CORALGROVE_ELEVATOR_INT",
       "dest_warp_id": "0"
     }
   ],

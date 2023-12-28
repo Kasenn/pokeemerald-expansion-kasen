@@ -235,19 +235,42 @@ AzurillDoll_Text_0:
 	.string "It's an Azurill doll.$"
 
 PlayerHouse1F_LookPlayer::
-	.string "Mom: Look, {PLAYER}!\nYour brother is back from his trip!\pCome sit by the table!$"
+	.string "Mom: Look, {PLAYER}!\n"
+	.string "Your brother is back from his trip!\p"
+	.string "Come sit by the table!$"
 
 PlayerHouse1F_Disc1::
-	.string "Mom: So, Brandon,\nhow was your trip to Kanto?\pGo on, I want to hear everything!\pBrandon: …$"
+	.string "Mom: So, Thomas,\n"
+	.string "how was your trip to Kanto?\p"
+	.string "Go on, I want to hear everything!\p"
+	.string "Thomas: …$"
 
 PlayerHouse1F_Disc2::
-	.string "Brandon: In the end, that Lance's\nDragonite was simply too strong…\pMom: Well, at least you tried\nyour best.\pIt sounds like you still had fun\nin the end!\pBrandon: Anyway, mom, aren't you\nforgetting something?$"
+	.string "Thomas: In the end, that Lance's\n"
+	.string "Dragonite was simply too strong…\p"
+	.string "Mom: Well, at least you tried\n"
+	.string "your best.\p"
+	.string "It sounds like you still had fun\n"
+	.string "in the end!\p"
+	.string "Thomas: Anyway mom, aren't you\n"
+	.string "forgetting something?$"
 
 PlayerHouse1F_Disc3::
-	.string "Mom: Oh, that's right!\pThis is supposed to be your special day,\n{PLAYER}!\pThat's right! Today is the day you get\nyour very own Pokémon!\pEvery young trainer in this town\ngets their first Pokémon from\lprofessor Birch.\pYou should go see him in his lab\n and see what he has to offer.\pThe professor's lab is just\nnorthwest from here.$"
+	.string "Mom: Oh, that's right!\p"
+	.string "This is supposed to be your special day,\n"
+	.string "{PLAYER}!\p"
+	.string "That's right! Today is the day you get\n"
+	.string "your very own Pokémon!\p"
+	.string "Every young trainer in this town\n"
+	.string "gets their first Pokémon from\l"
+	.string "professor Birch.\p"
+	.string "You should go see him in his lab\n"
+	.string "and see what he has to offer.\p"
+	.string "The professor's lab is just\n"
+	.string "northwest from here.$"
 
 PlayerHouse1F_BrotherGossip::
-	.string "Brandon: Go get 'em, champ!$"
+	.string "Thomas: Go get 'em, champ!$"
 
 PlayerHouse1F_Apology::
-	.string "Brandon: Sorry about that.\nI knew that with my experience it was\lgoing to be an unfair fight. I hope you\ldon't take that loss too seriously…\pAnyway, have you thought about what\nyou're going to do next?\pIf you're up for it, we should totally\nsee which of us is the better trainer\lby taking on the Pokémon Gym Challenge!\pOur neighbor {RIVAL} just set out so we\nbetter get moving or we'll fall behind!\pDon't know about you but I'm not content\nwith a second place.\pCatch ya later!$"
+	.string "Thomas: Sorry about that.\nI knew that with my experience it was\lgoing to be an unfair fight. I hope you\ldon't take that loss too seriously…\pAnyway, have you thought about what\nyou're going to do next?\pIf you're up for it, we should totally\nsee which of us is the better trainer\lby taking on the Pokémon Gym Challenge!\pOur neighbor {RIVAL} just set out so we\nbetter get moving or we'll fall behind!\pDon't know about you but I'm not content\nwith a second place.\pCatch ya later!$"

@@ -17,7 +17,7 @@ script Lab2_HideRival{
 }
 
 script Lab2_Intro{
-    if(!(flag(FLAG_UNUSED_0x493) || flag(FLAG_UNUSED_0x494) || flag(FLAG_UNUSED_0x495))){
+    if(!(flag(FLAG_UNUSED_PICKEDROWLET) || flag(FLAG_UNUSED_PICKEDTORCHIC) || flag(FLAG_UNUSED_PICKEDPIPLUP))){
         applymovement(OBJ_EVENT_ID_PLAYER, Lab2_MyMove)
         waitmovement(0)
         msgbox(Lab2_Intro_Speech)
@@ -52,11 +52,14 @@ script Lab2_DexGet{
     }
     waitmessage
     closemessage
-    playse(MUS_RG_OBTAIN_KEY_ITEM)
+    playse(MUS_OBTAIN_ITEM)
     msgbox("Obtained the Pokédex!")
+    waitfanfare
     setflag(FLAG_SYS_POKEDEX_GET)
 	special(EnableNationalPokedex)
     setflag(FLAG_ADVENTURE_STARTED)
+    setflag(FLAG_RECEIVED_POKEDEX_FROM_BIRCH)
+	setvar(VAR_CABLE_CLUB_TUTORIAL_STATE, 1)
     setvar(VAR_OLDALE_TOWN_STATE, 1)
     waitfanfare
     applymovement(OBJ_EVENT_ID_PLAYER, Lab2_TurnRight)
@@ -165,7 +168,7 @@ script Lab2_Birch{
 
     lockall
     faceplayer
-    if(!(flag(FLAG_UNUSED_0x493) || flag(FLAG_UNUSED_0x494) || flag(FLAG_UNUSED_0x495))){
+    if(!(flag(FLAG_UNUSED_PICKEDROWLET) || flag(FLAG_UNUSED_PICKEDTORCHIC) || flag(FLAG_UNUSED_PICKEDPIPLUP))){
         msgbox("Prof. Birch: Go on, pick one of the\nballs from the table.")
     }
     else{
@@ -179,7 +182,7 @@ script Lab2_Birch{
 script Lab2_Ball1{
 
     lockall
-    if(!(flag(FLAG_UNUSED_0x493) || flag(FLAG_UNUSED_0x494) || flag(FLAG_UNUSED_0x495))){
+    if(!(flag(FLAG_UNUSED_PICKEDROWLET) || flag(FLAG_UNUSED_PICKEDTORCHIC) || flag(FLAG_UNUSED_PICKEDPIPLUP))){
         call(Lab2_Rowlet)  
     }
     else{
@@ -193,7 +196,7 @@ script Lab2_Ball1{
 script Lab2_Ball2{
 
     lockall
-    if(!(flag(FLAG_UNUSED_0x493) || flag(FLAG_UNUSED_0x494) || flag(FLAG_UNUSED_0x495))){
+    if(!(flag(FLAG_UNUSED_PICKEDROWLET) || flag(FLAG_UNUSED_PICKEDTORCHIC) || flag(FLAG_UNUSED_PICKEDPIPLUP))){
         call(Lab2_Torchic)
     }
     else{
@@ -207,7 +210,7 @@ script Lab2_Ball2{
 script Lab2_Ball3{
 
     lockall
-    if(!(flag(FLAG_UNUSED_0x493) || flag(FLAG_UNUSED_0x494) || flag(FLAG_UNUSED_0x495))){
+    if(!(flag(FLAG_UNUSED_PICKEDROWLET) || flag(FLAG_UNUSED_PICKEDTORCHIC) || flag(FLAG_UNUSED_PICKEDPIPLUP))){
         call(Lab2_Piplup)
     }
     else{
@@ -230,7 +233,7 @@ script Lab2_Rowlet{
             playfanfare(MUS_OBTAIN_ITEM)
             msgbox("{PLAYER} received the Rowlet!")
             removeobject(1)
-            setflag(FLAG_UNUSED_0x493)
+            setflag(FLAG_UNUSED_PICKEDROWLET)
             call(Lab2SetFlags)
             call(NicknamePartyMon)
         }
@@ -256,7 +259,7 @@ script Lab2_Torchic{
             playfanfare(MUS_OBTAIN_ITEM)
             msgbox("{PLAYER} received the Torchic!")
             removeobject(2)
-            setflag(FLAG_UNUSED_0x494)
+            setflag(FLAG_UNUSED_PICKEDTORCHIC)
             call(Lab2SetFlags)
             call(NicknamePartyMon)
         }
@@ -282,7 +285,7 @@ script Lab2_Piplup{
             playfanfare(MUS_OBTAIN_ITEM)
             msgbox("{PLAYER} received the Piplup!")
             removeobject(3)
-            setflag(FLAG_UNUSED_0x495)
+            setflag(FLAG_UNUSED_PICKEDPIPLUP)
             call(Lab2SetFlags)
             call(NicknamePartyMon)
         }

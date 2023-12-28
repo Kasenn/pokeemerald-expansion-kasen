@@ -114,9 +114,9 @@ Route1_CoolTrainerEligible_12:
 
 Route1_CoolTrainerPostBattle::
 	msgbox Route1_CoolTrainerReward, MSGBOX_DEFAULT
-	goto_if_set FLAG_UNUSED_0x493, Route1_CoolTrainerPostBattle_2
-	goto_if_set FLAG_UNUSED_0x494, Route1_CoolTrainerPostBattle_3
-	goto_if_set FLAG_UNUSED_0x495, Route1_CoolTrainerPostBattle_4
+	goto_if_set FLAG_UNUSED_PICKEDROWLET, Route1_CoolTrainerPostBattle_2
+	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, Route1_CoolTrainerPostBattle_3
+	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, Route1_CoolTrainerPostBattle_4
 Route1_CoolTrainerPostBattle_1:
 	msgbox Route1_CoolTrainerPostBattle_Text_0, MSGBOX_DEFAULT
 	playfanfare MUS_OBTAIN_B_POINTS

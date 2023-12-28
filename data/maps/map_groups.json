@@ -101,7 +101,13 @@
     "CoralgroveElevator1",
     "CoralgroveElevator2",
     "CoralgroveHarbor",
-    "PrimroseMeadow"
+    "PrimroseMeadow",
+    "CoastTown",
+    "Route3",
+    "Coast1",
+    "PokeRanch",
+    "CoralgroveElevatorInt",
+    "CoralgroveElevatorInt2"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -165,7 +171,8 @@
     "VerdanturfTown_WandasHouse",
     "VerdanturfTown_FriendshipRatersHouse",
     "VerdanturfTown_House",
-    "CoralTradeHouse"
+    "CoralTradeHouse",
+    "CoralgroveFriendshipRater"
   ],
   "gMapGroup_IndoorPacifidlog": [
     "PacifidlogTown_PokemonCenter_1F",
@@ -200,7 +207,10 @@
     "SlateportCity_House",
     "SlateportCity_PokemonCenter_1F",
     "SlateportCity_PokemonCenter_2F",
-    "SlateportCity_Mart"
+    "SlateportCity_Mart",
+    "CoralgroveHarvorInterior",
+    "CoralHarborHouse",
+    "CoastTownHarbor"
   ],
   "gMapGroup_IndoorMauville": [
     "MauvilleCity_Gym",

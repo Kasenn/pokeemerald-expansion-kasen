@@ -2377,6 +2377,16 @@ void ShowScrollableMultichoice(void)
         task->tKeepOpenAfterSelect = FALSE;
         task->tTaskId = taskId;
         break;
+    case SCROLL_MULTI_BF_MOVE_TUTOR_3:
+        task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+        task->tNumItems = 17;
+        task->tLeft = 15;
+        task->tTop = 1;
+        task->tWidth = 14;
+        task->tHeight = 12;
+        task->tKeepOpenAfterSelect = FALSE;
+        task->tTaskId = taskId;
+        break;
     case SCROLL_MULTI_SS_TIDAL_DESTINATION:
         task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
         task->tNumItems = 7;
@@ -2550,6 +2560,26 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_ThunderPunch48BP,
         gText_FirePunch48BP,
         gText_Exit
+    },
+    [SCROLL_MULTI_BF_MOVE_TUTOR_3] =
+    {
+        gText_Snore4BP,
+        gText_Bind4BP,
+        gText_ShockWave4BP,
+        gText_Covet4BP,
+        gText_BugBite4BP,
+        gText_HealBell8BP,
+        gText_Electroweb8BP,
+        gText_Defog8BP,
+        gText_LowKick8BP,
+        gText_Uproar8BP,
+        gText_HelpingHand8BP,
+        gText_Block8BP,
+        gText_WorrySeed8BP,
+        gText_Snatch8BP,
+        gText_Recycle8BP,
+        gText_LastResort12BP,
+        gText_Exit,
     },
     [SCROLL_MULTI_SS_TIDAL_DESTINATION] =
     {
@@ -3111,7 +3141,7 @@ static void ShowBattleFrontierTutorWindow(u8 menu, u16 selection)
         .baseBlock = 28,
     };
 
-    if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_1 || menu == SCROLL_MULTI_BF_MOVE_TUTOR_2)
+    if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_1 || menu == SCROLL_MULTI_BF_MOVE_TUTOR_2 || menu == SCROLL_MULTI_BF_MOVE_TUTOR_3)
     {
         if (gSpecialVar_0x8006 == 0)
         {
@@ -3154,11 +3184,34 @@ static void ShowBattleFrontierTutorMoveDescription(u8 menu, u16 selection)
         gText_Exit,
     };
 
-    if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_1 || menu == SCROLL_MULTI_BF_MOVE_TUTOR_2)
+    static const u8 *const sBattleFrontier_TutorMoveDescriptions3[] =
+    {
+        Coralgrove_BPShop_Text_SnoreDesc,
+        Coralgrove_BPShop_Text_BindDesc,
+        Coralgrove_BPShop_Text_ShockWaveDesc,
+        Coralgrove_BPShop_Text_CovetDesc,
+        Coralgrove_BPShop_Text_BugBiteDesc,
+        Coralgrove_BPShop_Text_HealBellDesc,
+        Coralgrove_BPShop_Text_ElectrowebDesc,
+        Coralgrove_BPShop_Text_DefogDesc,
+        Coralgrove_BPShop_Text_LowKickDesc,
+        Coralgrove_BPShop_Text_UproarDesc,
+        Coralgrove_BPShop_Text_HelpingHandDesc,
+        Coralgrove_BPShop_Text_BlockDesc,
+        Coralgrove_BPShop_Text_WorrySeedDesc,
+        Coralgrove_BPShop_Text_SnatchDesc,
+        Coralgrove_BPShop_Text_RecycleDesc,
+        Coralgrove_BPShop_Text_LastResortDesc,
+        gText_Exit,
+    };
+
+    if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_1 || menu == SCROLL_MULTI_BF_MOVE_TUTOR_2 || menu == SCROLL_MULTI_BF_MOVE_TUTOR_3)
     {
         FillWindowPixelRect(sTutorMoveAndElevatorWindowId, PIXEL_FILL(1), 0, 0, 96, 48);
         if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_2)
             AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, FONT_NORMAL, sBattleFrontier_TutorMoveDescriptions2[selection], 0, 1, 0, NULL);
+        if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_3)
+            AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, FONT_NORMAL, sBattleFrontier_TutorMoveDescriptions3[selection], 0, 1, 0, NULL);
         else
             AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, FONT_NORMAL, sBattleFrontier_TutorMoveDescriptions1[selection], 0, 1, 0, NULL);
     }

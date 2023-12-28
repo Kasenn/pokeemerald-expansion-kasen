@@ -163,6 +163,13 @@ script Coralgrove_school{
     end
 }
 
+script Coralgrove_Lifthouse{
+    msgbox("Elevator access to harbor area", MSGBOX_SIGN)
+    waitmessage
+    closemessage
+    end
+}
+
 script CoralSign{
     msgbox("CORALGROVE CITY\n“Home of many aspiring trainers.”", MSGBOX_SIGN)
     waitmessage

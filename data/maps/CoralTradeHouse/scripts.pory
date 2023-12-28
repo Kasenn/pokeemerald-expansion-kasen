@@ -1,10 +1,10 @@
 mapscripts CoralTradeHouse_MapScripts{}
 
 script CoralgroveTradeSequence{
-    if(flag(FLAG_UNUSED_0x493)){
+    if(flag(FLAG_UNUSED_PICKEDROWLET)){
         goto(CoralgroveDartrixTrade)
     }
-    elif(flag(FLAG_UNUSED_0x494)){
+    elif(flag(FLAG_UNUSED_PICKEDTORCHIC)){
         goto(CoralgroveCombuskenTrade)
     }
     else{

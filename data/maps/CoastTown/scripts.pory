@@ -1,0 +1,255 @@
+mapscripts CoastTown_MapScripts{}
+
+script CoastTown_Sign1{
+    msgbox("Azuretide Harbor", MSGBOX_SIGN)
+    end
+}
+
+script CoastTown_Sign2{
+    msgbox("Diving Treasure Hunter's house", MSGBOX_SIGN)
+    end
+}
+
+script CoastTown_Sign3{
+    msgbox("AZURETIDE TOWN\p“Where the land ends and the\nsea begins.”", MSGBOX_SIGN)
+    end
+}
+
+script CoastTown_OldWoman{
+    lockall
+    faceplayer
+    msgbox("There's been a lot of trainers coming\nhere via the ferry recently.\pShame many of them are in a hurry and\ndon't even care to say hello.", MSGBOX_NPC)
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script CoastTown_OldMan{
+    lockall
+    faceplayer
+    msgbox("For the city folk our way of living\nmay seem simple but that's\ljust the way we like it.", MSGBOX_NPC)
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script CoastTown_FatGuy{
+    lockall
+    faceplayer
+    msgbox("My friend told me she saw a wild Pokémon\nin one of these trees recently.\pI've been shaking these trees for\nhours yet I've found zilch.", MSGBOX_NPC)
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script CoastTown_LittleGirl{
+    msgbox("I'm looking for hidden treasure!\nWish I had an Itemfinder…", MSGBOX_NPC)
+    closemessage
+    end
+}
+
+script CoastTown_Triathlete{
+    msgbox("No time to talk,\nI'm practicing for a triathlon.\pRunning in sand is tough but I'm sure\nit improves my running technique.", MSGBOX_NPC)
+    closemessage
+    end
+}
+
+script CoastTown_Swimmer{
+    lockall
+    faceplayer
+    msgbox("Eek!\pSomething wriggly just touched my leg!", MSGBOX_NPC)
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script CoastTown_NoPokemonTree1{
+    lockall
+    if(flag(FLAG_COASTTOWN_TREE1)){
+        msgbox("There doesn't seem to be any\nwild Pokémon in this tree.", MSGBOX_DEFAULT)
+        closemessage
+        releaseall
+        end
+    }
+    else{
+        call(CoastTown_EmptyPokemonTree_Event)
+        if(var(VAR_RESULT) >= 6){
+            setflag(FLAG_COASTTOWN_TREE1)
+        }
+        releaseall
+        end
+    }
+}
+script CoastTown_NoPokemonTree2{
+    lockall
+    if(flag(FLAG_COASTTOWN_TREE2)){
+        msgbox("There doesn't seem to be any\nwild Pokémon in this tree.", MSGBOX_DEFAULT)
+        closemessage
+        releaseall
+        end
+    }
+    else{
+        call(CoastTown_EmptyPokemonTree_Event)
+        if(var(VAR_RESULT) >= 6){
+            setflag(FLAG_COASTTOWN_TREE2)
+        }
+        releaseall
+        end
+    }
+}
+script CoastTown_NoPokemonTree3{
+    lockall
+    if(flag(FLAG_COASTTOWN_TREE3)){
+        msgbox("There doesn't seem to be any\nwild Pokémon in this tree.", MSGBOX_DEFAULT)
+        closemessage
+        releaseall
+        end
+    }
+    else{
+        call(CoastTown_EmptyPokemonTree_Event)
+        if(var(VAR_RESULT) >= 6){
+            setflag(FLAG_COASTTOWN_TREE3)
+        }
+        releaseall
+        end
+    }
+}
+
+script CoastTown_EmptyPokemonTree_Event{
+    msgbox("There could be wild\nPokémon in this tree.\pWant to give it a shake?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        closemessage
+        playse(SE_SUDOWOODO_SHAKE)
+        waitse
+        random(9)
+        if(var(VAR_RESULT) <= 5){
+            msgbox(UnsureTreeShake, MSGBOX_DEFAULT)
+            waitmessage
+            closemessage
+            releaseall
+            end
+        }
+        if(var(VAR_RESULT) >= 6){
+            msgbox(NoPokemonTreeShake, MSGBOX_DEFAULT)
+            waitmessage
+            closemessage
+            return
+        }
+    }
+    else{
+        closemessage
+        releaseall
+        end
+    }
+}
+
+text UnsureTreeShake{
+    "You give the tree a firm shake but\nyou're not sure if it did anything."
+}
+text NoPokemonTreeShake{
+    "You give the tree a firm shake but it\nseems that this tree has no Pokémon."
+}
+
+script CoastTown_YesPokemonTree1{
+    lockall
+    if(flag(FLAG_COASTTOWN_YESTREE1)){
+        msgbox("There doesn't seem to be any\nwild Pokémon left in this tree.", MSGBOX_DEFAULT)
+        closemessage
+        releaseall
+        end
+    }
+    else{
+        call(CoastTown_YesPokemonTree_Event)
+        if(var(VAR_RESULT) >= 7){
+            setflag(FLAG_COASTTOWN_YESTREE1)
+        }
+        releaseall
+        end
+    }
+}
+script CoastTown_YesPokemonTree2{
+    lockall
+    if(flag(FLAG_COASTTOWN_YESTREE2)){
+        msgbox("There doesn't seem to be any\nwild Pokémon left in this tree.", MSGBOX_DEFAULT)
+        closemessage
+        releaseall
+        end
+    }
+    else{
+        call(CoastTown_YesPokemonTree_Event)
+        if(var(VAR_RESULT) >= 7){
+            setflag(FLAG_COASTTOWN_YESTREE2)
+        }
+        releaseall
+        end
+    }
+}
+script CoastTown_YesPokemonTree3{
+    lockall
+    if(flag(FLAG_COASTTOWN_YESTREE3)){
+        msgbox("There doesn't seem to be any\nwild Pokémon left in this tree.", MSGBOX_DEFAULT)
+        closemessage
+        releaseall
+        end
+    }
+    else{
+        call(CoastTown_YesPokemonTree_Event)
+        if(var(VAR_RESULT) >= 7){
+            setflag(FLAG_COASTTOWN_YESTREE3)
+        }
+        releaseall
+        end
+    }
+}
+
+script CoastTown_YesPokemonTree_Event{
+    msgbox("There could be wild\nPokémon in this tree.\pWant to give it a shake?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        closemessage
+        playse(SE_SUDOWOODO_SHAKE)
+        waitse
+        random(10)
+        if(var(VAR_RESULT) <= 6){
+            msgbox(UnsureTreeShake, MSGBOX_DEFAULT)
+            waitmessage
+            closemessage
+            releaseall
+            end
+        }
+        if(var(VAR_RESULT) >= 7){
+            msgbox(YesPokemonTreeShake, MSGBOX_DEFAULT)
+            random(5)
+            if(var(VAR_RESULT) == 0){
+                setwildbattle(SPECIES_BOUNSWEET, 14)
+            }
+            if(var(VAR_RESULT) == 1){
+                setwildbattle(SPECIES_SPINARAK, 14)
+            }
+            if(var(VAR_RESULT) == 2){
+                setwildbattle(SPECIES_APPLIN, 14)
+            }
+            if(var(VAR_RESULT) == 3){
+                setwildbattle(SPECIES_SKWOVET, 14)
+            }
+            if(var(VAR_RESULT) == 4){
+                setwildbattle(SPECIES_MANKEY, 14)
+            }
+            dowildbattle
+            setvar(VAR_RESULT, 8)
+            return
+        }
+    }
+    else{
+        closemessage
+        releaseall
+        end
+    }
+}
+
+text YesPokemonTreeShake{
+    "You give the tree a firm shake and\na wild Pokémon lands in front of you!"
+}
