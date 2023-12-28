@@ -24,7 +24,8 @@
 #include "constants/layouts.h"
 #include "constants/weather.h"
 
-extern const u8 EventScript_SprayWoreOff[];
+extern const u8 EventScript_RepelWoreOff[];
+extern const u8 EventScript_LureWoreOff[];
 
 #define MAX_ENCOUNTER_RATE 2880
 
@@ -384,7 +385,7 @@ static u16 GetCurrentMapWildMonHeaderId(void)
     return HEADER_NONE;
 }
 
-u8 PickWildMonNature(void)
+static u8 PickWildMonNature(void)
 {
     u8 i;
     u8 j;
@@ -417,10 +418,12 @@ u8 PickWildMonNature(void)
         }
     }
     // check synchronize for a pokemon with the same ability
-    if (OW_SYNCHRONIZE_NATURE < GEN_9
-        && !GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG)
+    if (!GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG)
         && GetMonAbility(&gPlayerParty[0]) == ABILITY_SYNCHRONIZE
-        && (OW_SYNCHRONIZE_NATURE == GEN_8 || Random() % 2 == 0))
+    #if B_SYNCHRONIZE_NATURE <= GEN_7
+        && (Random() % 2 == 0)
+    #endif
+    )
     {
         return GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY) % NUM_NATURES;
     }
@@ -434,7 +437,7 @@ static void CreateWildMon(u16 species, u8 level)
     bool32 checkCuteCharm;
 
     ZeroEnemyPartyMons();
-    checkCuteCharm = OW_CUTE_CHARM < GEN_9;
+    checkCuteCharm = TRUE;
 
     switch (gSpeciesInfo[species].genderRatio)
     {
@@ -480,33 +483,33 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
     switch (area)
     {
     case WILD_AREA_LAND:
-        if (OW_MAGNET_PULL < GEN_9 && TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_STEEL, ABILITY_MAGNET_PULL, &wildMonIndex, LAND_WILD_COUNT))
+        if (TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_STEEL, ABILITY_MAGNET_PULL, &wildMonIndex, LAND_WILD_COUNT))
             break;
-        if (OW_STATIC < GEN_9 && TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_ELECTRIC, ABILITY_STATIC, &wildMonIndex, LAND_WILD_COUNT))
+        if (TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_ELECTRIC, ABILITY_STATIC, &wildMonIndex, LAND_WILD_COUNT))
             break;
-        if (OW_LIGHTNING_ROD == GEN_8 && TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_ELECTRIC, ABILITY_LIGHTNING_ROD, &wildMonIndex, LAND_WILD_COUNT))
+        if (TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_ELECTRIC, ABILITY_LIGHTNING_ROD, &wildMonIndex, LAND_WILD_COUNT))
             break;
-        if (OW_FLASH_FIRE == GEN_8 && TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_FIRE, ABILITY_FLASH_FIRE, &wildMonIndex, LAND_WILD_COUNT))
+        if (TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_FIRE, ABILITY_FLASH_FIRE, &wildMonIndex, LAND_WILD_COUNT))
             break;
-        if (OW_HARVEST == GEN_8 && TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_GRASS, ABILITY_HARVEST, &wildMonIndex, LAND_WILD_COUNT))
+        if (TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_GRASS, ABILITY_HARVEST, &wildMonIndex, LAND_WILD_COUNT))
             break;
-        if (OW_STORM_DRAIN == GEN_8 && TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_WATER, ABILITY_STORM_DRAIN, &wildMonIndex, LAND_WILD_COUNT))
+        if (TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_WATER, ABILITY_STORM_DRAIN, &wildMonIndex, LAND_WILD_COUNT))
             break;
 
         wildMonIndex = ChooseWildMonIndex_Land();
         break;
     case WILD_AREA_WATER:
-        if (OW_MAGNET_PULL < GEN_9 && TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_STEEL, ABILITY_MAGNET_PULL, &wildMonIndex, WATER_WILD_COUNT))
+        if (TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_STEEL, ABILITY_MAGNET_PULL, &wildMonIndex, WATER_WILD_COUNT))
             break;
-        if (OW_STATIC < GEN_9 && TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_ELECTRIC, ABILITY_STATIC, &wildMonIndex, WATER_WILD_COUNT))
+        if (TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_ELECTRIC, ABILITY_STATIC, &wildMonIndex, WATER_WILD_COUNT))
             break;
-        if (OW_LIGHTNING_ROD == GEN_8 && TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_ELECTRIC, ABILITY_LIGHTNING_ROD, &wildMonIndex, WATER_WILD_COUNT))
+        if (TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_ELECTRIC, ABILITY_LIGHTNING_ROD, &wildMonIndex, WATER_WILD_COUNT))
             break;
-        if (OW_FLASH_FIRE == GEN_8 && TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_FIRE, ABILITY_FLASH_FIRE, &wildMonIndex, WATER_WILD_COUNT))
+        if (TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_FIRE, ABILITY_FLASH_FIRE, &wildMonIndex, WATER_WILD_COUNT))
             break;
-        if (OW_HARVEST == GEN_8 && TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_GRASS, ABILITY_HARVEST, &wildMonIndex, WATER_WILD_COUNT))
+        if (TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_GRASS, ABILITY_HARVEST, &wildMonIndex, WATER_WILD_COUNT))
             break;
-        if (OW_STORM_DRAIN == GEN_8 && TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_WATER, ABILITY_STORM_DRAIN, &wildMonIndex, WATER_WILD_COUNT))
+        if (TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildMonInfo->wildPokemon, TYPE_WATER, ABILITY_STORM_DRAIN, &wildMonIndex, WATER_WILD_COUNT))
             break;
 
         wildMonIndex = ChooseWildMonIndex_WaterRock();
@@ -587,7 +590,7 @@ static bool8 WildEncounterCheck(u32 encounterRate, bool8 ignoreAbility)
             encounterRate = encounterRate * 3 / 4;
         else if (ability == ABILITY_STENCH)
             encounterRate /= 2;
-        else if (ability == ABILITY_ILLUMINATE && OW_ILLUMINATE < GEN_9)
+        else if (ability == ABILITY_ILLUMINATE)
             encounterRate *= 2;
         else if (ability == ABILITY_WHITE_SMOKE)
             encounterRate /= 2;
@@ -599,10 +602,10 @@ static bool8 WildEncounterCheck(u32 encounterRate, bool8 ignoreAbility)
             encounterRate /= 2;
         else if (ability == ABILITY_QUICK_FEET)
             encounterRate /= 2;
-        else if (ability == ABILITY_INFILTRATOR && OW_INFILTRATOR == GEN_8)
+        else if (ability == ABILITY_INFILTRATOR)
             encounterRate /= 2;
         else if (ability == ABILITY_NO_GUARD)
-            encounterRate *= 2;
+            encounterRate = encounterRate * 3 / 2;
     }
     if (encounterRate > MAX_ENCOUNTER_RATE)
         encounterRate = MAX_ENCOUNTER_RATE;
@@ -969,7 +972,7 @@ bool8 UpdateRepelCounter(void)
             VarSet(VAR_REPEL_STEP_COUNT, steps);
             if (steps == 0)
             {
-                ScriptContext_SetupScript(EventScript_SprayWoreOff);
+                ScriptContext_SetupScript(EventScript_RepelWoreOff);
                 return TRUE;
             }
         }
@@ -978,7 +981,7 @@ bool8 UpdateRepelCounter(void)
             VarSet(VAR_REPEL_STEP_COUNT, steps | REPEL_LURE_MASK);
             if (steps == 0)
             {
-                ScriptContext_SetupScript(EventScript_SprayWoreOff);
+                ScriptContext_SetupScript(EventScript_LureWoreOff);
                 return TRUE;
             }
         }
@@ -1113,13 +1116,20 @@ static void ApplyCleanseTagEncounterRateMod(u32 *encRate)
 
 bool8 TryDoDoubleWildBattle(void)
 {
-    if (GetSafariZoneFlag()
-      || (B_DOUBLE_WILD_REQUIRE_2_MONS == TRUE && GetMonsStateToDoubles() != PLAYER_HAS_TWO_USABLE_MONS))
+#if B_DOUBLE_WILD_REQUIRE_2_MONS == TRUE
+    if (GetSafariZoneFlag() || GetMonsStateToDoubles() != PLAYER_HAS_TWO_USABLE_MONS)
+#else
+    if (GetSafariZoneFlag())
+#endif
         return FALSE;
-    else if (B_FLAG_FORCE_DOUBLE_WILD != 0 && FlagGet(B_FLAG_FORCE_DOUBLE_WILD))
+#if B_FLAG_FORCE_DOUBLE_WILD != 0
+    else if (FlagGet(B_FLAG_FORCE_DOUBLE_WILD))
         return TRUE;
-    else if (B_DOUBLE_WILD_CHANCE != 0 && ((Random() % 100) + 1 <= B_DOUBLE_WILD_CHANCE))
+#endif
+#if B_DOUBLE_WILD_CHANCE != 0
+    else if ((Random() % 100) + 1 <= B_DOUBLE_WILD_CHANCE)
         return TRUE;
+#endif
     return FALSE;
 }
 

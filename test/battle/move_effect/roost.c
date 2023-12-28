@@ -63,7 +63,7 @@ SINGLE_BATTLE_TEST("Roost fails if the user is under the effects of Heal Block")
 
 SINGLE_BATTLE_TEST("Roost recovers 50% of the user's Max HP")
 {
-    u16 hp;
+    s16 hp;
 
     KNOWN_FAILING; // All healing is currently rounded down
     GIVEN {
@@ -131,6 +131,7 @@ SINGLE_BATTLE_TEST("Roost, if used by a Flying/Flying type, treats the user as a
     PARAMETRIZE{ damagingMove = MOVE_DISARMING_VOICE; }
 
     GIVEN {
+        ASSUME(P_GEN_5_POKEMON == TRUE);
         ASSUME(gSpeciesInfo[SPECIES_TORNADUS].types[0] == TYPE_FLYING);
         ASSUME(gSpeciesInfo[SPECIES_TORNADUS].types[1] == TYPE_FLYING);
         PLAYER(SPECIES_TORNADUS) { HP(50); MaxHP(100); }

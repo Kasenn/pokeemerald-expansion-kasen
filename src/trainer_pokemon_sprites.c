@@ -61,14 +61,21 @@ static bool16 DecompressPic(u16 species, u32 personality, bool8 isFrontPic, u8 *
 {
     if (!isTrainer)
     {
-        LoadSpecialPokePic(dest, species, personality, isFrontPic);
+        if (isFrontPic)
+        {
+            LoadSpecialPokePic(dest, species, personality, isFrontPic);
+        }
+        else
+        {
+            LoadSpecialPokePic(dest, species, personality, isFrontPic);
+        }
     }
     else
     {
         if (isFrontPic)
-            DecompressPicFromTable(&gTrainerFrontPicTable[species], dest);
+            DecompressPicFromTable(&gTrainerFrontPicTable[species], dest, species);
         else
-            DecompressPicFromTable(&gTrainerBackPicTable[species], dest);
+            DecompressPicFromTable(&gTrainerBackPicTable[species], dest, species);
     }
     return FALSE;
 }
@@ -85,7 +92,7 @@ static void LoadPicPaletteByTagOrSlot(u16 species, u32 otId, u32 personality, u8
         else
         {
             sCreatingSpriteTemplate.paletteTag = paletteTag;
-            LoadCompressedSpritePaletteWithTag(GetMonSpritePalFromSpeciesAndPersonality(species, otId, personality), species);
+            LoadCompressedSpritePalette(GetMonSpritePalStructFromOtIdPersonality(species, otId, personality));
         }
     }
     else
@@ -181,7 +188,6 @@ u16 CreateMonPicSprite_Affine(u16 species, u32 otId, u32 personality, u8 flags, 
     u8 i;
     u8 spriteId;
     u8 type;
-    species = SanitizeSpeciesId(species);
 
     for (i = 0; i < PICS_COUNT; i++)
     {
@@ -221,7 +227,7 @@ u16 CreateMonPicSprite_Affine(u16 species, u32 otId, u32 personality, u8 flags, 
         images[j].size = MON_PIC_SIZE;
     }
     sCreatingSpriteTemplate.tileTag = TAG_NONE;
-    sCreatingSpriteTemplate.anims = gSpeciesInfo[species].frontAnimFrames;
+    sCreatingSpriteTemplate.anims = gMonFrontAnimsPtrTable[species];
     sCreatingSpriteTemplate.images = images;
     if (type == MON_PIC_AFFINE_FRONT)
     {
@@ -310,7 +316,8 @@ u16 FreeAndDestroyMonPicSprite(u16 spriteId)
     return FreeAndDestroyPicSpriteInternal(spriteId);
 }
 
-static u16 UNUSED LoadMonPicInWindow(u16 species, u32 otId, u32 personality, bool8 isFrontPic, u8 paletteSlot, u8 windowId)
+// Unused
+static u16 LoadMonPicInWindow(u16 species, u32 otId, u32 personality, bool8 isFrontPic, u8 paletteSlot, u8 windowId)
 {
     return LoadPicSpriteInWindow(species, otId, personality, isFrontPic, paletteSlot, windowId, FALSE);
 }
@@ -331,7 +338,8 @@ u16 FreeAndDestroyTrainerPicSprite(u16 spriteId)
     return FreeAndDestroyPicSpriteInternal(spriteId);
 }
 
-static u16 UNUSED LoadTrainerPicInWindow(u16 species, bool8 isFrontPic, u8 paletteSlot, u8 windowId)
+// Unused
+static u16 LoadTrainerPicInWindow(u16 species, bool8 isFrontPic, u8 paletteSlot, u8 windowId)
 {
     return LoadPicSpriteInWindow(species, 0, 0, isFrontPic, paletteSlot, windowId, TRUE);
 }

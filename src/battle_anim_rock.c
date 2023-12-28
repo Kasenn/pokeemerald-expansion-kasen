@@ -351,7 +351,8 @@ const struct SpriteTemplate gSeedFlareGreenWavesTemplate =
 
 static void AnimStealthRock(struct Sprite *sprite)
 {
-    s16 x, y;
+    u16 x;
+    u16 y;
 
     InitSpritePosToAnimAttacker(sprite, TRUE);
     SetAverageBattlerPositions(gBattleAnimTarget, FALSE, &x, &y);

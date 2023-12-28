@@ -62,6 +62,7 @@ ALIGNED(4) EWRAM_DATA u16 gPlttBufferUnfaded[PLTT_BUFFER_SIZE] = {0};
 ALIGNED(4) EWRAM_DATA u16 gPlttBufferFaded[PLTT_BUFFER_SIZE] = {0};
 static EWRAM_DATA struct PaletteStruct sPaletteStructs[NUM_PALETTE_STRUCTS] = {0};
 EWRAM_DATA struct PaletteFadeControl gPaletteFade = {0};
+static EWRAM_DATA u32 sFiller = 0;
 static EWRAM_DATA u32 sPlttBufferTransferPending = 0;
 EWRAM_DATA u8 ALIGNED(2) gPaletteDecompressionBuffer[PLTT_SIZE] = {0};
 
@@ -200,13 +201,15 @@ bool8 BeginNormalPaletteFade(u32 selectedPalettes, s8 delay, u8 startY, u8 targe
     }
 }
 
-static bool8 UNUSED BeginPlttFade(u32 selectedPalettes, u8 delay, u8 startY, u8 targetY, u16 blendColor)
+// Unused
+static bool8 BeginPlttFade(u32 selectedPalettes, u8 delay, u8 startY, u8 targetY, u16 blendColor)
 {
     ReadPlttIntoBuffers();
     return BeginNormalPaletteFade(selectedPalettes, delay, startY, targetY, blendColor);
 }
 
-static void UNUSED PaletteStruct_Run(u8 a1, u32 *unkFlags)
+// Unused
+static void PaletteStruct_Run(u8 a1, u32 *unkFlags)
 {
     u8 i;
 
@@ -379,14 +382,14 @@ void ResetPaletteFadeControl(void)
     gPaletteFade.deltaY = 2;
 }
 
-static void UNUSED PaletteStruct_SetUnusedFlag(u16 id)
+static void PaletteStruct_SetUnusedFlag(u16 id)
 {
     u8 paletteNum = PaletteStruct_GetPalNum(id);
     if (paletteNum != NUM_PALETTE_STRUCTS)
         sPaletteStructs[paletteNum].flag = TRUE;
 }
 
-static void UNUSED PaletteStruct_ClearUnusedFlag(u16 id)
+static void PaletteStruct_ClearUnusedFlag(u16 id)
 {
     u8 paletteNum = PaletteStruct_GetPalNum(id);
     if (paletteNum != NUM_PALETTE_STRUCTS)
@@ -979,7 +982,8 @@ void BlendPalettesGradually(u32 selectedPalettes, s8 delay, u8 coeff, u8 coeffTa
     gTasks[taskId].func(taskId);
 }
 
-static bool32 UNUSED IsBlendPalettesGraduallyTaskActive(u8 id)
+// Unused
+static bool32 IsBlendPalettesGraduallyTaskActive(u8 id)
 {
     int i;
 
@@ -992,7 +996,8 @@ static bool32 UNUSED IsBlendPalettesGraduallyTaskActive(u8 id)
     return FALSE;
 }
 
-static void UNUSED DestroyBlendPalettesGraduallyTask(void)
+// Unused
+static void DestroyBlendPalettesGraduallyTask(void)
 {
     u8 taskId;
 

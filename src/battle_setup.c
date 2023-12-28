@@ -1,6 +1,5 @@
 #include "global.h"
 #include "battle.h"
-#include "load_save.h"
 #include "battle_setup.h"
 #include "battle_transition.h"
 #include "main.h"
@@ -38,8 +37,6 @@
 #include "mirage_tower.h"
 #include "field_screen_effect.h"
 #include "data.h"
-#include "vs_seeker.h"
-#include "item.h"
 #include "constants/battle_frontier.h"
 #include "constants/battle_setup.h"
 #include "constants/game_stat.h"
@@ -84,8 +81,6 @@ static void TryUpdateGymLeaderRematchFromTrainer(void);
 static void CB2_GiveStarter(void);
 static void CB2_StartFirstBattle(void);
 static void CB2_EndFirstBattle(void);
-static void SaveChangesToPlayerParty(void);
-static void HandleBattleVariantEndParty(void);
 static void CB2_EndTrainerBattle(void);
 static bool32 IsPlayerDefeated(u32 battleOutcome);
 static u16 GetRematchTrainerId(u16 trainerId);
@@ -595,21 +590,18 @@ void BattleSetup_StartLegendaryBattle(void)
     {
     default:
     case SPECIES_GROUDON:
-    case SPECIES_GROUDON_PRIMAL:
+        gBattleTypeFlags |= BATTLE_TYPE_GROUDON;
         CreateBattleStartTask(B_TRANSITION_GROUDON, MUS_VS_KYOGRE_GROUDON);
         break;
     case SPECIES_KYOGRE:
-    case SPECIES_KYOGRE_PRIMAL:
+        gBattleTypeFlags |= BATTLE_TYPE_KYOGRE;
         CreateBattleStartTask(B_TRANSITION_KYOGRE, MUS_VS_KYOGRE_GROUDON);
         break;
     case SPECIES_RAYQUAZA:
-    case SPECIES_RAYQUAZA_MEGA:
+        gBattleTypeFlags |= BATTLE_TYPE_RAYQUAZA;
         CreateBattleStartTask(B_TRANSITION_RAYQUAZA, MUS_VS_RAYQUAZA);
         break;
-    case SPECIES_DEOXYS_NORMAL:
-    case SPECIES_DEOXYS_ATTACK:
-    case SPECIES_DEOXYS_DEFENSE:
-    case SPECIES_DEOXYS_SPEED:
+    case SPECIES_DEOXYS:
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_DEOXYS);
         break;
     case SPECIES_LUGIA:
@@ -631,7 +623,7 @@ void StartGroudonKyogreBattle(void)
 {
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_EndScriptedWildBattle;
-    gBattleTypeFlags = BATTLE_TYPE_LEGENDARY;
+    gBattleTypeFlags = BATTLE_TYPE_LEGENDARY | BATTLE_TYPE_KYOGRE_GROUDON;
 
     if (gGameVersion == VERSION_RUBY)
         CreateBattleStartTask(B_TRANSITION_ANGLED_WIPES, MUS_VS_KYOGRE_GROUDON); // GROUDON
@@ -651,7 +643,7 @@ void StartRegiBattle(void)
 
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_EndScriptedWildBattle;
-    gBattleTypeFlags = BATTLE_TYPE_LEGENDARY;
+    gBattleTypeFlags = BATTLE_TYPE_LEGENDARY | BATTLE_TYPE_REGI;
 
     species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
     switch (species)
@@ -677,19 +669,6 @@ void StartRegiBattle(void)
     TryUpdateGymLeaderRematchFromWild();
 }
 
-static void DowngradeBadPoison(void)
-{
-    u8 i;
-    u32 status = STATUS1_POISON;
-    if (B_TOXIC_REVERSAL < GEN_5)
-        return;
-    for(i = 0; i < PARTY_SIZE; i++)
-    {
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SANITY_HAS_SPECIES) && GetMonData(&gPlayerParty[i], MON_DATA_STATUS) == STATUS1_TOXIC_POISON)
-            SetMonData(&gPlayerParty[i], MON_DATA_STATUS, &status);
-    }
-}
-
 static void CB2_EndWildBattle(void)
 {
     CpuFill16(0, (void *)(BG_PLTT), BG_PLTT_SIZE);
@@ -702,7 +681,6 @@ static void CB2_EndWildBattle(void)
     else
     {
         SetMainCallback2(CB2_ReturnToField);
-        DowngradeBadPoison();
         gFieldCallback = FieldCB_ReturnToFieldNoScriptCheckMusic;
     }
 }
@@ -721,7 +699,6 @@ static void CB2_EndScriptedWildBattle(void)
     }
     else
     {
-        DowngradeBadPoison();
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
     }
 }
@@ -1019,7 +996,6 @@ static void CB2_StartFirstBattle(void)
 static void CB2_EndFirstBattle(void)
 {
     Overworld_ClearSavedMusic();
-    DowngradeBadPoison();
     SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
 }
 
@@ -1320,7 +1296,7 @@ static void SetBattledTrainersFlags(void)
     FlagSet(GetTrainerAFlag());
 }
 
-static void UNUSED SetBattledTrainerFlag(void)
+static void SetBattledTrainerFlag(void)
 {
     FlagSet(GetTrainerAFlag());
 }
@@ -1408,41 +1384,15 @@ void BattleSetup_StartTrainerBattle_Debug(void)
     ScriptContext_Stop();
 }
 
-static void SaveChangesToPlayerParty(void)
-{
-    u8 i = 0, j = 0;
-    u8 participatedPokemon = VarGet(B_VAR_SKY_BATTLE);
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
-        if ((participatedPokemon >> i & 1) == 1)
-        {
-            gSaveBlock1Ptr->playerParty[i] = gPlayerParty[j];
-            j++;
-        }
-    }
-}
-
-static void HandleBattleVariantEndParty(void)
-{
-    if (B_FLAG_SKY_BATTLE == 0 || !FlagGet(B_FLAG_SKY_BATTLE))
-        return;
-    SaveChangesToPlayerParty();
-    LoadPlayerParty();
-    FlagClear(B_FLAG_SKY_BATTLE);
-}
-
 static void CB2_EndTrainerBattle(void)
 {
-    HandleBattleVariantEndParty();
-
     if (gTrainerBattleOpponent_A == TRAINER_SECRET_BASE)
     {
-        DowngradeBadPoison();
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
     }
     else if (IsPlayerDefeated(gBattleOutcome) == TRUE)
     {
-        if (InBattlePyramid() || InTrainerHillChallenge() || (!NoAliveMonsForPlayer()))
+        if (InBattlePyramid() || InTrainerHillChallenge())
             SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
         else
             SetMainCallback2(CB2_WhiteOut);
@@ -1450,7 +1400,6 @@ static void CB2_EndTrainerBattle(void)
     else
     {
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
-        DowngradeBadPoison();
         if (!InBattlePyramid() && !InTrainerHillChallenge())
         {
             RegisterTrainerInMatchCall();
@@ -1463,7 +1412,6 @@ static void CB2_EndRematchBattle(void)
 {
     if (gTrainerBattleOpponent_A == TRAINER_SECRET_BASE)
     {
-        DowngradeBadPoison();
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
     }
     else if (IsPlayerDefeated(gBattleOutcome) == TRUE)
@@ -1476,7 +1424,6 @@ static void CB2_EndRematchBattle(void)
         RegisterTrainerInMatchCall();
         SetBattledTrainersFlags();
         HandleRematchVarsOnBattleEnd();
-        DowngradeBadPoison();
     }
 }
 
@@ -1656,7 +1603,7 @@ static const u8 *GetTrainerCantBattleSpeech(void)
     return ReturnEmptyStringIfNull(sTrainerCannotBattleSpeech);
 }
 
-s32 FirstBattleTrainerIdToRematchTableId(const struct RematchTrainer *table, u16 trainerId)
+static s32 FirstBattleTrainerIdToRematchTableId(const struct RematchTrainer *table, u16 trainerId)
 {
     s32 i;
 
@@ -1669,7 +1616,7 @@ s32 FirstBattleTrainerIdToRematchTableId(const struct RematchTrainer *table, u16
     return -1;
 }
 
-s32 TrainerIdToRematchTableId(const struct RematchTrainer *table, u16 trainerId)
+static s32 TrainerIdToRematchTableId(const struct RematchTrainer *table, u16 trainerId)
 {
     s32 i, j;
 
@@ -1715,42 +1662,30 @@ static void SetRematchIdForTrainer(const struct RematchTrainer *table, u32 table
     gSaveBlock1Ptr->trainerRematches[tableId] = i;
 }
 
-static bool32 DoesCurrentMapMatchRematchTrainerMap(s32 i, const struct RematchTrainer *table, u16 mapGroup, u16 mapNum)
-{
-    return table[i].mapGroup == mapGroup && table[i].mapNum == mapNum;
-}
-
-bool32 TrainerIsMatchCallRegistered(s32 i)
-{
-    return FlagGet(FLAG_MATCH_CALL_REGISTERED + i);
-}
-
 static bool32 UpdateRandomTrainerRematches(const struct RematchTrainer *table, u16 mapGroup, u16 mapNum)
 {
     s32 i;
-
-    if (CheckBagHasItem(ITEM_VS_SEEKER, 1) && I_VS_SEEKER_CHARGING != 0)
-        return FALSE;
+    bool32 ret = FALSE;
 
     for (i = 0; i <= REMATCH_SPECIAL_TRAINER_START; i++)
     {
-        if (DoesCurrentMapMatchRematchTrainerMap(i,table,mapGroup,mapNum) && !IsRematchForbidden(i))
-            continue;
-
-        if (gSaveBlock1Ptr->trainerRematches[i] != 0)
+        if (table[i].mapGroup == mapGroup && table[i].mapNum == mapNum && !IsRematchForbidden(i))
         {
-            // Trainer already wants a rematch. Don't bother updating it.
-            return TRUE;
-        }
-        else if (TrainerIsMatchCallRegistered(i) && ((Random() % 100) <= 30))
-            // 31% chance of getting a rematch.
-        {
-            SetRematchIdForTrainer(table, i);
-            return TRUE;
+            if (gSaveBlock1Ptr->trainerRematches[i] != 0)
+            {
+                // Trainer already wants a rematch. Don't bother updating it.
+                ret = TRUE;
+            }
+            else if (FlagGet(FLAG_MATCH_CALL_REGISTERED + i)
+             && (Random() % 100) <= 30)  // 31% chance of getting a rematch.
+            {
+                SetRematchIdForTrainer(table, i);
+                ret = TRUE;
+            }
         }
     }
 
-    return FALSE;
+    return ret;
 }
 
 void UpdateRematchIfDefeated(s32 rematchTableId)
@@ -1813,7 +1748,7 @@ static bool8 IsTrainerReadyForRematch_(const struct RematchTrainer *table, u16 t
     return TRUE;
 }
 
-u16 GetRematchTrainerIdFromTable(const struct RematchTrainer *table, u16 firstBattleTrainerId)
+static u16 GetRematchTrainerIdFromTable(const struct RematchTrainer *table, u16 firstBattleTrainerId)
 {
     const struct RematchTrainer *trainerEntry;
     s32 i;
@@ -1918,9 +1853,7 @@ static bool32 HasAtLeastFiveBadges(void)
 
 void IncrementRematchStepCounter(void)
 {
-    if (HasAtLeastFiveBadges()
-        && (I_VS_SEEKER_CHARGING != 0)
-        && (!CheckBagHasItem(ITEM_VS_SEEKER, 1)))
+    if (HasAtLeastFiveBadges())
     {
         if (gSaveBlock1Ptr->trainerRematchStepCounter >= STEP_COUNTER_MAX)
             gSaveBlock1Ptr->trainerRematchStepCounter = STEP_COUNTER_MAX;
@@ -1955,10 +1888,7 @@ bool32 IsRematchTrainerIn(u16 mapGroup, u16 mapNum)
 
 static u16 GetRematchTrainerId(u16 trainerId)
 {
-    if (FlagGet(I_VS_SEEKER_CHARGING) && (I_VS_SEEKER_CHARGING != 0))
-        return GetRematchTrainerIdVSSeeker(trainerId);
-    else
-        return GetRematchTrainerIdFromTable(gRematchTable, trainerId);
+    return GetRematchTrainerIdFromTable(gRematchTable, trainerId);
 }
 
 u16 GetLastBeatenRematchTrainerId(u16 trainerId)
@@ -1981,9 +1911,6 @@ bool8 IsTrainerReadyForRematch(void)
 
 static void HandleRematchVarsOnBattleEnd(void)
 {
-    if ((gBattleTypeFlags & BATTLE_TYPE_TRAINER) && (I_VS_SEEKER_CHARGING != 0))
-        ClearRematchMovementByTrainerId();
-
     ClearTrainerWantRematchState(gRematchTable, gTrainerBattleOpponent_A);
     SetBattledTrainersFlags();
 }

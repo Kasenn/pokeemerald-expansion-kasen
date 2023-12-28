@@ -21,8 +21,8 @@ SINGLE_BATTLE_TEST("Clear Amulet prevents Intimidate")
     } SCENE {
         HP_BAR(player, captureDamage: &turnOneHit);
         ABILITY_POPUP(player, ABILITY_INTIMIDATE);
-        NOT ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
-        MESSAGE("Foe Wobbuffet's Clear Amulet prevents its stats from being lowered!");
+        NONE_OF { ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player); }
+        MESSAGE("Foe Wobbuffet's Attack was not lowered!");
         HP_BAR(player, captureDamage: &turnTwoHit);
     } THEN {
         EXPECT_EQ(turnOneHit, turnTwoHit);
@@ -55,8 +55,31 @@ SINGLE_BATTLE_TEST("Clear Amulet prevents stat reducing effects")
     } WHEN {
         TURN { MOVE(player, move); }
     } SCENE {
-        NOT ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("Foe Wobbuffet's Clear Amulet prevents its stats from being lowered!");
+        NONE_OF { ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent); }
+        switch (move)
+        {
+        case MOVE_GROWL:
+            MESSAGE("Foe Wobbuffet's Attack was not lowered!");
+            break;
+        case MOVE_LEER:
+            MESSAGE("Foe Wobbuffet's Defense was not lowered!");
+            break;
+        case MOVE_CONFIDE:
+            MESSAGE("Foe Wobbuffet's Sp. Atk was not lowered!");
+            break;
+        case MOVE_FAKE_TEARS:
+            MESSAGE("Foe Wobbuffet's Sp. Def was not lowered!");
+            break;
+        case MOVE_SCARY_FACE:
+            MESSAGE("Foe Wobbuffet's Speed was not lowered!");
+            break;
+        case MOVE_SWEET_SCENT:
+            MESSAGE("Foe Wobbuffet's evasiveness was not lowered!");
+            break;
+        case MOVE_SAND_ATTACK:
+            MESSAGE("Foe Wobbuffet's accuracy was not lowered!");
+            break;
+        }
     }
 }
 
@@ -81,11 +104,8 @@ SINGLE_BATTLE_TEST("Clear Amulet prevents secondary effects that reduce stats")
         PLAYER(SPECIES_WOBBUFFET);
         OPPONENT(SPECIES_WOBBUFFET) { Item(ITEM_CLEAR_AMULET); };
     } WHEN {
-        TURN { MOVE(player, move); }
+        TURN { MOVE(player, MOVE_ROCK_SMASH); }
     } SCENE {
-        NONE_OF {
-            ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-            MESSAGE("Foe Wobbuffet's Clear Amulet prevents its stats from being lowered!");
-        }
+        NONE_OF { ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent); }
     }
 }

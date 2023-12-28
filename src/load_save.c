@@ -13,7 +13,6 @@
 #include "gba/flash_internal.h"
 #include "decoration_inventory.h"
 #include "agb_flash.h"
-#include "event_data.h"
 
 static void ApplyNewEncryptionKeyToAllEncryptedData(u32 encryptionKey);
 

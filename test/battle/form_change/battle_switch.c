@@ -4,7 +4,8 @@
 SINGLE_BATTLE_TEST("Aegislash reverts to Shield Form upon switching out")
 {
     GIVEN {
-        PLAYER(SPECIES_AEGISLASH_SHIELD);
+        ASSUME(P_GEN_6_POKEMON == TRUE);
+        PLAYER(SPECIES_AEGISLASH);
         PLAYER(SPECIES_WOBBUFFET);
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
@@ -17,6 +18,6 @@ SINGLE_BATTLE_TEST("Aegislash reverts to Shield Form upon switching out")
         MESSAGE("Aegislash used Tackle!");
         MESSAGE("Foe Wobbuffet used Celebrate!");
     } THEN {
-        EXPECT_EQ(player->species, SPECIES_AEGISLASH_SHIELD);
+        EXPECT_EQ(player->species, SPECIES_AEGISLASH);
     }
 }

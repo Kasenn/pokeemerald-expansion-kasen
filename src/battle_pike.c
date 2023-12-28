@@ -861,7 +861,10 @@ static bool8 DoesTypePreventStatus(u16 species, u32 status)
         break;
     case STATUS1_PARALYSIS:
         if (gSpeciesInfo[species].types[0] == TYPE_GROUND || gSpeciesInfo[species].types[1] == TYPE_GROUND
-            || (B_PARALYZE_ELECTRIC >= GEN_6 && (gSpeciesInfo[species].types[0] == TYPE_ELECTRIC || gSpeciesInfo[species].types[1] == TYPE_ELECTRIC)))
+        #if B_PARALYZE_ELECTRIC >= GEN_6
+            || gSpeciesInfo[species].types[0] == TYPE_ELECTRIC || gSpeciesInfo[species].types[1] == TYPE_ELECTRIC
+        #endif
+        )
             ret = TRUE;
         break;
     case STATUS1_BURN:
@@ -913,7 +916,11 @@ static bool8 TryInflictRandomStatus(void)
         if (rand < 35)
             sStatusFlags = STATUS1_TOXIC_POISON;
         else if (rand < 60)
-            sStatusFlags = B_USE_FROSTBITE ? STATUS1_FROSTBITE : STATUS1_FREEZE;
+        #if B_USE_FROSTBITE == TRUE
+            sStatusFlags = STATUS1_FROSTBITE;
+        #else
+            sStatusFlags = STATUS1_FREEZE;
+        #endif
         else if (rand < 80)
             sStatusFlags = STATUS1_PARALYSIS;
         else if (rand < 90)
@@ -1104,7 +1111,8 @@ static u16 GetNPCRoomGraphicsId(void)
     return sNPCTable[sNpcId].graphicsId;
 }
 
-static bool8 UNUSED GetInWildMonRoom(void)
+// Unused
+static u8 GetInWildMonRoom(void)
 {
     return sInWildMonRoom;
 }
