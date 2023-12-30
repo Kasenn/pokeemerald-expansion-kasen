@@ -1,0 +1,272 @@
+mapscripts Route3_MapScripts{}
+
+script Route3_Hiker{
+    trainerbattle_single(TRAINER_GABBY_AND_TY_3, Route3_HikerIntro, Route3_HikerDefeated)
+	msgbox(Route3_HikerPostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+script Route3_Lass{
+    trainerbattle_single(TRAINER_GABBY_AND_TY_4, Route3_LassIntro, Route3_LassDefeated)
+	msgbox(Route3_LassPostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+script Route3_Maniac{
+    trainerbattle_single(TRAINER_GABBY_AND_TY_5, Route3_ManiacIntro, Route3_ManiacDefeated)
+	msgbox(Route3_ManiacPostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+script Route3_BugCatcher{
+    trainerbattle_single(TRAINER_GABBY_AND_TY_6, Route3_BugCatcherIntro, Route3_BugCatcherDefeated)
+	msgbox(Route3_BugCatcherPostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+script Route3_Twin1{
+    trainerbattle_double(TRAINER_LOLA_1, Route3_Twin1Intro, Route3_Twin1Defeated, Route3_Twin1NotEnoughMons)
+	msgbox(Route3_Twin1PostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+script Route3_Twin2{
+    trainerbattle_double(TRAINER_LOLA_1, Route3_Twin2Intro, Route3_Twin2Defeated, Route3_Twin2NotEnoughMons)
+	msgbox(Route3_Twin2PostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+script Route3_Triathlete{
+    trainerbattle_single(TRAINER_GWEN, Route3_TriathleteIntro, Route3_TriathleteDefeated)
+	msgbox(Route3_TriathletePostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+script Route3_Camper{
+    trainerbattle_single(TRAINER_LOLA_2, Route3_CamperIntro, Route3_CamperDefeated)
+	msgbox(Route3_CamperPostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+script Route3_CoolF{
+    trainerbattle_single(TRAINER_LOLA_3, Route3_CoolFIntro, Route3_CoolFDefeated)
+	msgbox(Route3_CoolFPostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+script Route3_CoolM{
+    trainerbattle_single(TRAINER_LOLA_4, Route3_CoolMIntro, Route3_CoolMDefeated)
+	msgbox(Route3_CoolMPostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+script Route3_Bird1{
+    trainerbattle_single(TRAINER_LOLA_5, Route3_Bird1Intro, Route3_Bird1Defeated)
+	msgbox(Route3_Bird1PostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+script Route3_Youngster{
+    trainerbattle_single(TRAINER_RICKY_1, Route3_YoungsterIntro, Route3_YoungsterDefeated)
+	msgbox(Route3_YoungsterPostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+script Route3_Bird2{
+    trainerbattle_single(TRAINER_SIMON, Route3_Bird2Intro, Route3_Bird2Defeated)
+	msgbox(Route3_Bird2PostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+script Route3_DoubleLass{
+    trainerbattle_single(TRAINER_CHARLIE, Route3_DoubleLassIntro, Route3_DoubleLassDefeated)
+	msgbox(Route3_DoubleLassPostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+script Route3_DoubleBoy{
+    trainerbattle_single(TRAINER_RICKY_2, Route3_DoubleBoyIntro, Route3_DoubleBoyDefeated)
+	msgbox(Route3_DoubleBoyPostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+script Route3_HedgeRunner{
+    trainerbattle_single(TRAINER_RICKY_3, Route3_HedgeRunnerIntro, Route3_HedgeRunnerDefeated)
+	msgbox(Route3_HedgeRunnerPostBattle, MSGBOX_AUTOCLOSE)
+    waitmessage
+	end
+}
+
+script Route3_Antidote{
+    finditem(ITEM_ANTIDOTE)
+}
+script Route3_GigaDrain{
+    finditem(ITEM_TM_GIGA_DRAIN)
+}
+
+text Route3_HikerIntro{
+    "Behold the power of fairy!"
+}
+text Route3_HikerDefeated{
+    "My little babies!"
+}
+text Route3_HikerPostBattle{
+    "I guess there's more to\nPokémon battles than cuteness."
+}
+//
+text Route3_LassIntro{
+    "Behold the power of fairy!"
+}
+text Route3_LassDefeated{
+    "My little babies!"
+}
+text Route3_LassPostBattle{
+    "I guess there's more to\nPokémon battles than cuteness."
+}
+//
+text Route3_ManiacIntro{
+    "Behold the power of fairy!"
+}
+text Route3_ManiacDefeated{
+    "My little babies!"
+}
+text Route3_ManiacPostBattle{
+    "I guess there's more to\nPokémon battles than cuteness."
+}
+//
+text Route3_BugCatcherIntro{
+    "Behold the power of fairy!"
+}
+text Route3_BugCatcherDefeated{
+    "My little babies!"
+}
+text Route3_BugCatcherPostBattle{
+    "I guess there's more to\nPokémon battles than cuteness."
+}
+//
+text Route3_Twin1Intro{
+    "Behold the power of fairy!"
+}
+text Route3_Twin1Defeated{
+    "My little babies!"
+}
+text Route3_Twin1PostBattle{
+    "I guess there's more to\nPokémon battles than cuteness."
+}
+//
+text Route3_Twin2Intro{
+    "Behold the power of fairy!"
+}
+text Route3_Twin2Defeated{
+    "My little babies!"
+}
+text Route3_Twin2PostBattle{
+    "I guess there's more to\nPokémon battles than cuteness."
+}
+//
+text Route3_TriathleteIntro{
+    "Behold the power of fairy!"
+}
+text Route3_TriathleteDefeated{
+    "My little babies!"
+}
+text Route3_TriathletePostBattle{
+    "I guess there's more to\nPokémon battles than cuteness."
+}
+//
+text Route3_CamperIntro{
+    "Behold the power of fairy!"
+}
+text Route3_CamperDefeated{
+    "My little babies!"
+}
+text Route3_CamperPostBattle{
+    "I guess there's more to\nPokémon battles than cuteness."
+}
+//
+text Route3_CoolFIntro{
+    "Behold the power of fairy!"
+}
+text Route3_CoolFDefeated{
+    "My little babies!"
+}
+text Route3_CoolFPostBattle{
+    "I guess there's more to\nPokémon battles than cuteness."
+}
+//
+text Route3_CoolMIntro{
+    "Behold the power of fairy!"
+}
+text Route3_CoolMDefeated{
+    "My little babies!"
+}
+text Route3_CoolMPostBattle{
+    "I guess there's more to\nPokémon battles than cuteness."
+}
+//
+text Route3_Bird1Intro{
+    "Behold the power of fairy!"
+}
+text Route3_Bird1Defeated{
+    "My little babies!"
+}
+text Route3_Bird1PostBattle{
+    "I guess there's more to\nPokémon battles than cuteness."
+}
+//
+text Route3_YoungsterIntro{
+    "Behold the power of fairy!"
+}
+text Route3_YoungsterDefeated{
+    "My little babies!"
+}
+text Route3_YoungsterPostBattle{
+    "I guess there's more to\nPokémon battles than cuteness."
+}
+//
+text Route3_Bird2Intro{
+    "Behold the power of fairy!"
+}
+text Route3_Bird2Defeated{
+    "My little babies!"
+}
+text Route3_Bird2PostBattle{
+    "I guess there's more to\nPokémon battles than cuteness."
+}
+//
+text Route3_DoubleLassIntro{
+    "Behold the power of fairy!"
+}
+text Route3_DoubleLassDefeated{
+    "My little babies!"
+}
+text Route3_DoubleLassPostBattle{
+    "I guess there's more to\nPokémon battles than cuteness."
+}
+//
+text Route3_DoubleBoyIntro{
+    "Behold the power of fairy!"
+}
+text Route3_DoubleBoyDefeated{
+    "My little babies!"
+}
+text Route3_DoubleBoyPostBattle{
+    "I guess there's more to\nPokémon battles than cuteness."
+}
+//
+text Route3_HedgeRunnerIntro{
+    "Behold the power of fairy!"
+}
+text Route3_HedgeRunnerDefeated{
+    "My little babies!"
+}
+text Route3_HedgeRunnerPostBattle{
+    "I guess there's more to\nPokémon battles than cuteness."
+}
+//
+text Route3_Twin1NotEnoughMons{
+    ""
+}
+text Route3_Twin2NotEnoughMons{
+    ""
+}
