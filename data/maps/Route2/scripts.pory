@@ -54,7 +54,6 @@ text Route2_Text_FisherPostBattle{
 }
 
 script Route2_Lass{
-
 	trainerbattle_single(TRAINER_GRUNT_SPACE_CENTER_1, Route2_Text_LassIntro, Route2_Text_LassDefeated)
 	msgbox(Route2_Text_LassPostBattle, MSGBOX_AUTOCLOSE)
     waitmessage
