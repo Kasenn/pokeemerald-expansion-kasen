@@ -1059,6 +1059,9 @@ static u8 Debug_CheckToggleFlags(u8 id)
                 FlagGet(FLAG_VISITED_SOOTOPOLIS_CITY) &&
                 FlagGet(FLAG_VISITED_EVER_GRANDE_CITY) &&
                 FlagGet(FLAG_LANDMARK_POKEMON_LEAGUE) &&
+                FlagGet(FLAG_VISITED_PEARLWOOD_POINT) &&
+                FlagGet(FLAG_VISITED_AZURETIDE) &&
+                FlagGet(FLAG_VISITED_WIP_CITY1) &&
                 FlagGet(FLAG_LANDMARK_BATTLE_FRONTIER);
             break;
         case DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_BADGES_ALL:
@@ -1602,6 +1605,9 @@ static void DebugAction_Util_Fly(u8 taskId)
     FlagSet(FLAG_VISITED_EVER_GRANDE_CITY);
     FlagSet(FLAG_LANDMARK_POKEMON_LEAGUE);
     FlagSet(FLAG_LANDMARK_BATTLE_FRONTIER);
+    FlagSet(FLAG_VISITED_PEARLWOOD_POINT);
+    FlagSet(FLAG_VISITED_AZURETIDE);
+    FlagSet(FLAG_VISITED_WIP_CITY1); 
     Debug_DestroyMenu_Full(taskId);
     SetMainCallback2(CB2_OpenFlyMap);
 }
@@ -2398,6 +2404,9 @@ static void DebugAction_FlagsVars_ToggleFlyFlags(u8 taskId)
         FlagClear(FLAG_VISITED_EVER_GRANDE_CITY);
         FlagClear(FLAG_LANDMARK_POKEMON_LEAGUE);
         FlagClear(FLAG_LANDMARK_BATTLE_FRONTIER);
+        FlagClear(FLAG_VISITED_PEARLWOOD_POINT);
+        FlagClear(FLAG_VISITED_AZURETIDE);
+        FlagClear(FLAG_VISITED_WIP_CITY1);
     }
     else
     {
@@ -2421,6 +2430,9 @@ static void DebugAction_FlagsVars_ToggleFlyFlags(u8 taskId)
         FlagSet(FLAG_VISITED_EVER_GRANDE_CITY);
         FlagSet(FLAG_LANDMARK_POKEMON_LEAGUE);
         FlagSet(FLAG_LANDMARK_BATTLE_FRONTIER);
+        FlagSet(FLAG_VISITED_PEARLWOOD_POINT);
+        FlagSet(FLAG_VISITED_AZURETIDE);
+        FlagSet(FLAG_VISITED_WIP_CITY1);
     }
 }
 static void DebugAction_FlagsVars_ToggleBadgeFlags(u8 taskId)

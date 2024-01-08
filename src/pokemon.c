@@ -7613,7 +7613,7 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_LEADER:
             return MUS_VS_GYM_LEADER;
         case TRAINER_CLASS_CHAMPION:
-            return MUS_VS_CHAMPION;
+            return MUS_VS_IRIS;
         case TRAINER_CLASS_RIVAL:
             if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
                 return MUS_VS_RIVAL;
@@ -7628,8 +7628,11 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_ARENA_TYCOON:
         case TRAINER_CLASS_FACTORY_HEAD:
         case TRAINER_CLASS_PIKE_QUEEN:
-        case TRAINER_CLASS_NURSE:
+            return MUS_ALOLA_E4;
+        case TRAINER_CLASS_GYMMEMBER:
             return MUS_BWTRAINERBATTLE;
+        case TRAINER_CLASS_NURSE:
+            return MUS_MISTRAL;
         case TRAINER_CLASS_PYRAMID_KING:
             return MUS_VS_FRONTIER_BRAIN;
         default:

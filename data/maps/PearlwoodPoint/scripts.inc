@@ -1,5 +1,11 @@
 PearlwoodPoint_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Pearlwood_Visited
 	.byte 0
+
+
+Pearlwood_Visited::
+	setflag FLAG_VISITED_PEARLWOOD_POINT
+	return
 
 
 Pearlwood_Point_NoPokemon1::

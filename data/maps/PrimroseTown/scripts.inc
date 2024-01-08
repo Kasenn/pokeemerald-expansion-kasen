@@ -1,5 +1,11 @@
 PrimroseTown_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Primrose_Visited
 	.byte 0
+
+
+Primrose_Visited::
+	setflag FLAG_VISITED_OLDALE_TOWN
+	end
 
 
 PrimroseTown_Sign::

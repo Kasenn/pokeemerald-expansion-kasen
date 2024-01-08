@@ -924,3 +924,14 @@ const struct Tileset gTileset_Pearlwood_PRIMROSEFLOWERS =
     .metatileAttributes = gMetatileAttributes_Pearlwood_PRIMROSEFLOWERS,
     .callback = InitTilesetAnim_General,
 };
+
+const struct Tileset gTileset_WipCity1 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_WipCity1,
+    .palettes = gTilesetPalettes_WipCity1,
+    .metatiles = gMetatiles_WipCity1,
+    .metatileAttributes = gMetatileAttributes_WipCity1,
+    .callback = NULL,
+};

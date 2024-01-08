@@ -1,5 +1,10 @@
-mapscripts PearlwoodPoint_MapScripts{}
+mapscripts PearlwoodPoint_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: Pearlwood_Visited
+}
 
+script Pearlwood_Visited{
+    setflag(FLAG_VISITED_PEARLWOOD_POINT)
+}
 script Pearlwood_Point_NoPokemon1{
     if(flag(FLAG_UNUSED_STARTER_GET)){
         releaseall

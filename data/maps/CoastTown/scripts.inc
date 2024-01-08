@@ -1,5 +1,11 @@
 CoastTown_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, CoastTown_Visited
 	.byte 0
+
+
+CoastTown_Visited::
+	setflag FLAG_VISITED_AZURETIDE
+	end
 
 
 CoastTown_Sign1::

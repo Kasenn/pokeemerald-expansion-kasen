@@ -545,6 +545,10 @@
 #define PH_NURSE_SOLO               609
 
 #define MUS_BWTRAINERBATTLE         610
+#define MUS_TRAINER_BATTLE_BW       611
+#define MUS_VS_IRIS                 612
+#define MUS_ALOLA_E4                613
+#define MUS_MISTRAL                 614
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 

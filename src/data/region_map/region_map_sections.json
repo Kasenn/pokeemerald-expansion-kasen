@@ -1,14 +1,6 @@
 {
   "map_sections": [
     {
-      "map_section": "MAPSEC_LITTLEROOT_TOWN",
-      "name": "PEARLWOOD POINT",
-      "x": 15,
-      "y": 10,
-      "width": 1,
-      "height": 1
-    },
-    {
       "map_section": "MAPSEC_OLDALE_TOWN",
       "name": "PRIMROSE TOWN",
       "x": 16,
@@ -1122,7 +1114,7 @@
     },
     {
       "map_section": "MAPSEC_TOWN_WIP8",
-      "name": "WIP TOWN 8",
+      "name": "AMBERPINE TOWN",
       "x": 10,
       "y": 2,
       "width": 1,
@@ -1150,6 +1142,14 @@
       "x": 21,
       "y": 3,
       "width": 2,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_PEARLWOOD_POINT",
+      "name": "PEARLWOOD POINT",
+      "x": 15,
+      "y": 10,
+      "width": 1,
       "height": 1
     }
   ]

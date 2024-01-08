@@ -19,8 +19,8 @@
       "direction": "left"
     },
     {
-      "map": "MAP_LILYCOVE_CITY",
-      "offset": 12,
+      "map": "MAP_WIP_CITY1",
+      "offset": -11,
       "direction": "right"
     }
   ],

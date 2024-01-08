@@ -7,6 +7,7 @@ Coralgrove_State::
 	compare VAR_CORALGROVE_STATE, 0
 	goto_if_eq Coralgrove_State_2
 Coralgrove_State_1:
+	setflag FLAG_VISITED_RUSTBORO_CITY
 	end
 
 Coralgrove_State_2:

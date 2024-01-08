@@ -1137,3 +1137,9 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/CoralgroveElevatorInt2/scripts.inc"
 
 	.include "data/maps/CoastTownHarbor/scripts.inc"
+
+	.include "data/maps/WindplumeRidge/scripts.inc"
+
+	.include "data/maps/WipCity1/scripts.inc"
+
+	.include "data/maps/Route28/scripts.inc"

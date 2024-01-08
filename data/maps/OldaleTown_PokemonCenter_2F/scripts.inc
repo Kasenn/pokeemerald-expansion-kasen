@@ -64,6 +64,11 @@ IvTraining_6:
 	return
 
 
+ChampionIrisBattle::
+	trainerbattle_no_intro TRAINER_AUSTINA, IVTrainingDone
+	return
+
+
 LevelTraining::
 	lockall
 	msgbox LevelTraining_Text_0, MSGBOX_YESNO

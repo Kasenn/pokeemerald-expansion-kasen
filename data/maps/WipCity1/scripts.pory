@@ -1,0 +1,8 @@
+mapscripts WipCity1_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: WipCity1_Visited
+}
+
+script WipCity1_Visited{
+    setflag(FLAG_VISITED_WIP_CITY1)
+    end
+}

@@ -234,3 +234,6 @@ const u16 gMetatileAttributes_DarkForestSec[] = INCBIN_U16("data/tilesets/second
 
 const u16 gMetatiles_Pearlwood_PRIMROSEFLOWERS[] = INCBIN_U16("data/tilesets/secondary/pearlwood_primroseflowers/metatiles.bin");
 const u16 gMetatileAttributes_Pearlwood_PRIMROSEFLOWERS[] = INCBIN_U16("data/tilesets/secondary/pearlwood_primroseflowers/metatile_attributes.bin");
+
+const u16 gMetatiles_WipCity1[] = INCBIN_U16("data/tilesets/secondary/wip_city_1/metatiles.bin");
+const u16 gMetatileAttributes_WipCity1[] = INCBIN_U16("data/tilesets/secondary/wip_city_1/metatile_attributes.bin");

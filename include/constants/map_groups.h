@@ -78,6 +78,9 @@
 #define MAP_POKE_RANCH               (69 | (0 << 8))
 #define MAP_CORALGROVE_ELEVATOR_INT  (70 | (0 << 8))
 #define MAP_CORALGROVE_ELEVATOR_INT2 (71 | (0 << 8))
+#define MAP_WINDPLUME_RIDGE          (72 | (0 << 8))
+#define MAP_WIP_CITY1                (73 | (0 << 8))
+#define MAP_ROUTE28                  (74 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))

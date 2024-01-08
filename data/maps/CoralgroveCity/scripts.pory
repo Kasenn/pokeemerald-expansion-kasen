@@ -9,6 +9,7 @@ script Coralgrove_State{
         setflag(FLAG_UNUSED_0x267_CG_HIDEGHOST)
         hideobjectat(11, MAP_CORALGROVE_CITY)
     }
+    setflag(FLAG_VISITED_RUSTBORO_CITY)
     end
 }
 
