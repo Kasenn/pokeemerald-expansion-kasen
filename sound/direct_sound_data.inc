@@ -59,6 +59,14 @@ DirectSoundWaveData_sc88pro_rnd_kick::
 	.incbin "sound/direct_sound_samples/sc88pro_rnd_kick.bin"
 
 	.align 2
+violin::
+	.incbin "sound/direct_sound_samples/violin.bin"
+
+	.align 2
+orchestrahit72::
+	.incbin "sound/direct_sound_samples/orchestrahit72.bin"
+
+	.align 2
 DirectSoundWaveData_sc88pro_rnd_snare::
 	.incbin "sound/direct_sound_samples/sc88pro_rnd_snare.bin"
 

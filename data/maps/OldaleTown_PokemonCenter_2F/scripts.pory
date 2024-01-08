@@ -51,6 +51,10 @@ script IvTraining{
 	}
 }
 
+script ChampionIrisBattle{
+	trainerbattle_no_intro(TRAINER_AUSTINA, IVTrainingDone)
+}
+
 script LevelTraining{
     lockall
     msgbox("Looking for level training? The team\nin this Training Hub is set to level 5.", MSGBOX_YESNO)

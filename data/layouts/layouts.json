@@ -4800,6 +4800,36 @@
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/CoastTownHarbor/border.bin",
       "blockdata_filepath": "data/layouts/CoastTownHarbor/map.bin"
+    },
+    {
+      "id": "LAYOUT_WINDPLUME_RIDGE",
+      "name": "WindplumeRidge_Layout",
+      "width": 87,
+      "height": 41,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/WindplumeRidge/border.bin",
+      "blockdata_filepath": "data/layouts/WindplumeRidge/map.bin"
+    },
+    {
+      "id": "LAYOUT_WIP_CITY1",
+      "name": "WipCity1_Layout",
+      "width": 54,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_WipCity1",
+      "border_filepath": "data/layouts/WipCity1/border.bin",
+      "blockdata_filepath": "data/layouts/WipCity1/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE28",
+      "name": "Route28_Layout",
+      "width": 54,
+      "height": 80,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/Route28/border.bin",
+      "blockdata_filepath": "data/layouts/Route28/map.bin"
     }
   ]
 }

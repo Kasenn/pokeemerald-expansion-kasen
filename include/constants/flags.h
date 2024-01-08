@@ -1250,9 +1250,9 @@
 #define FLAG_COASTTOWN_YESTREE1                                           0x4B0 // 4-6 TREES HAVE POKEMON
 #define FLAG_COASTTOWN_YESTREE2                                           0x4B1 // Unused Flag
 #define FLAG_COASTTOWN_YESTREE3                                           0x4B2 // Unused Flag
-#define FLAG_UNUSED_0x4B3                                           0x4B3 // Unused Flag
-#define FLAG_UNUSED_0x4B4                                           0x4B4 // Unused Flag
-#define FLAG_UNUSED_0x4B5                                           0x4B5 // Unused Flag
+#define FLAG_VISITED_PEARLWOOD_POINT                                           0x4B3 // Unused Flag
+#define FLAG_VISITED_AZURETIDE                                           0x4B4 // Unused Flag
+#define FLAG_VISITED_WIP_CITY1                                           0x4B5 // Unused Flag
 #define FLAG_UNUSED_0x4B6                                           0x4B6 // Unused Flag
 #define FLAG_UNUSED_0x4B7                                           0x4B7 // Unused Flag
 #define FLAG_UNUSED_0x4B8                                           0x4B8 // Unused Flag

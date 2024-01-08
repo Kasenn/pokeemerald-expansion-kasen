@@ -636,6 +636,18 @@ $(MID_SUBDIR)/mus_encounter_hiker.s: %.s: %.mid
 $(MID_SUBDIR)/mus_bwtrainerbattle.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -V089
 
+$(MID_SUBDIR)/mus_trainer_battle_bw.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V089
+
+$(MID_SUBDIR)/mus_vs_iris.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V089
+
+$(MID_SUBDIR)/mus_mistral.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V089
+
+$(MID_SUBDIR)/mus_alola_e4.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V089
+
 $(MID_SUBDIR)/ph_choice_blend.s: %.s: %.mid
 	$(MID) $< $@ -E -G130 -P4
 

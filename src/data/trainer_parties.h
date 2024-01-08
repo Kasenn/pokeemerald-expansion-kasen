@@ -892,8 +892,28 @@ static const struct TrainerMon sParty_Lola1[] = {
 
 static const struct TrainerMon sParty_Austina[] = {
     {
-    .lvl = 26,
-    .species = SPECIES_MARILL,
+    .lvl = 81,
+    .species = SPECIES_HYDREIGON,
+    },
+    {
+    .lvl = 81,
+    .species = SPECIES_SALAMENCE,
+    },
+    {
+    .lvl = 81,
+    .species = SPECIES_ARCHEOPS,
+    },
+    {
+    .lvl = 81,
+    .species = SPECIES_AGGRON,
+    },
+    {
+    .lvl = 81,
+    .species = SPECIES_LAPRAS,
+    },
+    {
+    .lvl = 83,
+    .species = SPECIES_HAXORUS
     }
 };
 

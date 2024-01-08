@@ -1,4 +1,11 @@
-mapscripts PrimroseTown_MapScripts{}
+mapscripts PrimroseTown_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: Primrose_Visited
+}
+
+script Primrose_Visited{
+    setflag(FLAG_VISITED_OLDALE_TOWN)
+    end
+}
 
 script PrimroseTown_Sign{
     msgbox(PrimroseSign, MSGBOX_SIGN)

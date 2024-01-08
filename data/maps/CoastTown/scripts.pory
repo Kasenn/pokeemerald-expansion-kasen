@@ -1,4 +1,11 @@
-mapscripts CoastTown_MapScripts{}
+mapscripts CoastTown_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: CoastTown_Visited
+}
+
+script CoastTown_Visited{
+    setflag(FLAG_VISITED_AZURETIDE)
+    end
+}
 
 script CoastTown_Sign1{
     msgbox("Azuretide Harbor", MSGBOX_SIGN)
