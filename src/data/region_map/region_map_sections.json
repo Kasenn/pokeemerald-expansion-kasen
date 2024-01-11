@@ -1,6 +1,14 @@
 {
   "map_sections": [
     {
+      "map_section": "MAPSEC_LITTLEROOT_TOWN",
+      "name": "PEARLWOOD POINT",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
       "map_section": "MAPSEC_OLDALE_TOWN",
       "name": "PRIMROSE TOWN",
       "x": 16,
@@ -59,6 +67,14 @@
     {
       "map_section": "MAPSEC_PALLET_TOWN",
       "name": "PALLET TOWN",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_HIDDEN_GROTTO",
+      "name": "HIDDEN GROTTO",
       "x": 0,
       "y": 0,
       "width": 1,
@@ -1149,6 +1165,14 @@
       "name": "PEARLWOOD POINT",
       "x": 15,
       "y": 10,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_PETALBURG_WOODS",
+      "name": "WINDY WOODS",
+      "x": 16,
+      "y": 8,
       "width": 1,
       "height": 1
     }

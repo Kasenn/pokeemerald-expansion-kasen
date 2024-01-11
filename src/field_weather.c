@@ -100,6 +100,7 @@ static const struct WeatherCallbacks sWeatherFuncs[] =
     [WEATHER_DROUGHT]            = {Drought_InitVars,       Drought_Main,       Drought_InitAll,       Drought_Finish},
     [WEATHER_DOWNPOUR]           = {Downpour_InitVars,      Thunderstorm_Main,  Downpour_InitAll,      Thunderstorm_Finish},
     [WEATHER_UNDERWATER_BUBBLES] = {Bubbles_InitVars,       Bubbles_Main,       Bubbles_InitAll,       Bubbles_Finish},
+    [WEATHER_STRONG_WINDS]       = {Wind_InitVars,          Wind_Main,          Wind_InitAll,          Wind_Finish},
 };
 
 void (*const gWeatherPalStateFuncs[])(void) =
@@ -170,6 +171,7 @@ void StartWeather(void)
         gWeatherPtr->fogDSpritesCreated = 0;
         gWeatherPtr->sandstormSpritesCreated = 0;
         gWeatherPtr->sandstormSwirlSpritesCreated = 0;
+        gWeatherPtr->windSpritesCreated = 0;
         gWeatherPtr->bubblesSpritesCreated = 0;
         gWeatherPtr->lightenedFogSpritePalsCount = 0;
         Weather_SetBlendCoeffs(16, 0);
@@ -408,6 +410,7 @@ static void FadeInScreenWithWeather(void)
     case WEATHER_SANDSTORM:
     case WEATHER_FOG_DIAGONAL:
     case WEATHER_UNDERWATER:
+    case WEATHER_STRONG_WINDS:
     default:
         if (!gPaletteFade.active)
         {
@@ -1029,6 +1032,9 @@ static void SetFieldWeather(u8 weather)
         break;
     case COORD_EVENT_WEATHER_SANDSTORM:
         SetWeather(WEATHER_SANDSTORM);
+        break;
+    case COORD_EVENT_WEATHER_STRONG_WINDS:
+        SetWeather(WEATHER_STRONG_WINDS);
         break;
     case COORD_EVENT_WEATHER_SHADE:
         SetWeather(WEATHER_SHADE);

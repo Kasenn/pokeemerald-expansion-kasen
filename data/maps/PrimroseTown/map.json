@@ -101,7 +101,7 @@
     },
     {
       "x": 4,
-      "y": 7,
+      "y": 6,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_TOWN_HOUSE2",
       "dest_warp_id": "2"
@@ -124,32 +124,32 @@
       "x": 3,
       "y": 5,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_SKIP_GABBY_INTERVIEW"
+      "item": "ITEM_PINK_NECTAR",
+      "flag": "FLAG_DAILY_PRIMROSE_NECTAR1"
     },
     {
       "type": "hidden_item",
       "x": 4,
       "y": 4,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_SKIP_GABBY_INTERVIEW"
+      "item": "ITEM_PURPLE_NECTAR",
+      "flag": "FLAG_DAILY_PRIMROSE_NECTAR2"
     },
     {
       "type": "hidden_item",
       "x": 5,
       "y": 5,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_SKIP_GABBY_INTERVIEW"
+      "item": "ITEM_YELLOW_NECTAR",
+      "flag": "FLAG_DAILY_PRIMROSE_NECTAR3"
     },
     {
       "type": "hidden_item",
       "x": 6,
       "y": 4,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_SKIP_GABBY_INTERVIEW"
+      "item": "ITEM_RED_NECTAR",
+      "flag": "FLAG_DAILY_PRIMROSE_NECTAR4"
     },
     {
       "type": "sign",

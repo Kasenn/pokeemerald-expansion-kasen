@@ -414,6 +414,7 @@ extern const u8 BattleScript_DesolateLandActivates[];
 extern const u8 BattleScript_PrimordialSeaActivates[];
 extern const u8 BattleScript_PrimalWeatherBlocksMove[];
 extern const u8 BattleScript_DeltaStreamActivates[];
+extern const u8 BattleScript_DeltaStreamActivates2[];
 extern const u8 BattleScript_MysteriousAirCurrentBlowsOn[];
 extern const u8 BattleScript_AttackWeakenedByStrongWinds[];
 extern const u8 BattleScript_BlockedByPrimalWeatherEnd3[];

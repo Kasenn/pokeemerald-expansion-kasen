@@ -298,7 +298,7 @@ text NewCoralgroveCity_Gym_Text_StoneBadgeInfoTakeThis{
 	"The Hive Badge heightens the attack\n"
 	"power of your Pokémon.\p"
 	"It also enables them to use the HM move\n"
-	"“Cut” outside of battle.\p"
+	"“Fly” outside of battle.\p"
 	"Please take this with you, too."
 }
 text NewCoralgroveCity_Gym_Text_ExplainUTurn{

@@ -33,7 +33,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_SUDOWOODO",
       "x": 50,
-      "y": 5,
+      "y": 6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,

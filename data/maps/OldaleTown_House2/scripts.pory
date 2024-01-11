@@ -16,8 +16,29 @@ script NotMyNectar{
 }
 
 script NectarManiac{
-	msgbox(NectarManiac_Text, MSGBOX_NPC)
-	end
+    if(var(VAR_NECTAR_MANIAC_HOUSE) == 0){
+	    msgbox(NectarManiac_Text, MSGBOX_NPC)
+        specialvar(VAR_RESULT, CheckOricorio)
+        if(var(VAR_RESULT) == TRUE){
+            playse(SE_PIN)
+            applymovement(1, Common_Movement_ExclamationMark)
+            waitmovement(0)
+            delay(40)
+            msgbox(NectarManiac_OricorioFound, MSGBOX_NPC)
+            setvar(VAR_NECTAR_MANIAC_HOUSE, 1)
+        }
+	    end
+    }
+    msgbox(NectarManiac_GoRightIn, MSGBOX_NPC)
+    end
+}
+
+text NectarManiac_OricorioFound{
+    "Oh? I can see you've caught one\nof those wretched birds!\pThis means you are someone I can trust\nnot to mess up my beautiful garden!\pPlease, enjoy its peace and\ntranquility to the fullest."
+}
+
+text NectarManiac_GoRightIn{
+    "Enjoy the peace and tranquility\nof my beautiful garden."
 }
 
 text NectarManiac_Text{

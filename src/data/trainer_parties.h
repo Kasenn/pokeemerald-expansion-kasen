@@ -438,8 +438,8 @@ static const struct TrainerMon sParty_Rose1[] = {
 
 static const struct TrainerMon sParty_Felix[] = {
     {
-    .lvl = 1,
-    .species = SPECIES_PANSAGE,
+    .lvl = 19,
+    .species = SPECIES_ELECTRODE,
     .moves = {MOVE_HEALING_WISH}
     },
     {
