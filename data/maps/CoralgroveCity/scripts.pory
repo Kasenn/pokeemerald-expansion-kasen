@@ -180,3 +180,8 @@ script CoralSign{
 script CoralGreatBall{
     finditem(ITEM_GREAT_BALL)
 }
+
+script CoralGrove_EventScript_GymSign{
+	msgbox("Coralgrove City Pokémon Gym\nLeader: Aaron", MSGBOX_SIGN)
+	end
+}

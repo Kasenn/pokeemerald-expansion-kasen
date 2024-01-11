@@ -4615,6 +4615,8 @@ u32 GetBattlerTotalSpeedStatArgs(u32 battler, u32 ability, u32 holdEffect)
             speed *= 2;
         else if (ability == ABILITY_SLUSH_RUSH  && (gBattleWeather & (B_WEATHER_HAIL | B_WEATHER_SNOW)))
             speed *= 2;
+        else if (((gBattleMons[battler].type1 == TYPE_FLYING) | (gBattleMons[battler].type2 == TYPE_FLYING)) && gBattleWeather & B_WEATHER_STRONG_WINDS)
+            speed *= 2;
     }
 
     // other abilities

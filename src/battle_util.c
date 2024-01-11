@@ -1992,6 +1992,7 @@ enum
     ENDTURN_TAILWIND,
     ENDTURN_WISH,
     ENDTURN_RAIN,
+    ENDTURN_STRONG_WINDS,
     ENDTURN_SANDSTORM,
     ENDTURN_SUN,
     ENDTURN_HAIL,
@@ -2291,6 +2292,15 @@ u8 DoFieldEndTurnEffects(void)
                 }
 
                 BattleScriptExecute(BattleScript_RainContinuesOrEnds);
+                effect++;
+            }
+            gBattleStruct->turnCountersTracker++;
+            break;
+        case ENDTURN_STRONG_WINDS:
+            if (gBattleWeather & B_WEATHER_STRONG_WINDS)
+            { 
+                gBattlescriptCurrInstr = BattleScript_DeltaStreamActivates2;
+                BattleScriptExecute(gBattlescriptCurrInstr);
                 effect++;
             }
             gBattleStruct->turnCountersTracker++;
@@ -4262,6 +4272,14 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 {
                     gBattleWeather = (B_WEATHER_RAIN_TEMPORARY | B_WEATHER_RAIN_PERMANENT);
                     gBattleScripting.animArg1 = B_ANIM_RAIN_CONTINUES;
+                    effect++;
+                }
+                break;
+            case WEATHER_STRONG_WINDS:
+                if (!(gBattleWeather & B_WEATHER_STRONG_WINDS))
+                {
+                    gBattleWeather = (B_WEATHER_STRONG_WINDS);
+                    gBattleScripting.animArg1 = B_ANIM_STRONG_WINDS;
                     effect++;
                 }
                 break;
@@ -8082,12 +8100,18 @@ u8 IsMonDisobedient(void)
         if (FlagGet(FLAG_BADGE08_GET))
             return 0;
 
-        obedienceLevel = 10;
+        obedienceLevel = 15;
 
+        if (FlagGet(FLAG_BADGE01_GET))
+            obedienceLevel = 20;
         if (FlagGet(FLAG_BADGE02_GET))
             obedienceLevel = 30;
+        if (FlagGet(FLAG_BADGE03_GET))
+            obedienceLevel = 40;
         if (FlagGet(FLAG_BADGE04_GET))
             obedienceLevel = 50;
+        if (FlagGet(FLAG_BADGE05_GET))
+            obedienceLevel = 60;
         if (FlagGet(FLAG_BADGE06_GET))
             obedienceLevel = 70;
     }
@@ -9956,11 +9980,11 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
         mod = UQ_4_12(2.0);
 
     // B_WEATHER_STRONG_WINDS weakens Super Effective moves against Flying-type Pokémon
-    if (gBattleWeather & B_WEATHER_STRONG_WINDS && WEATHER_HAS_EFFECT)
-    {
-        if (defType == TYPE_FLYING && mod >= UQ_4_12(2.0))
-            mod = UQ_4_12(1.0);
-    }
+    // if (gBattleWeather & B_WEATHER_STRONG_WINDS && WEATHER_HAS_EFFECT)
+    // {
+    //     if (defType == TYPE_FLYING && mod >= UQ_4_12(2.0))
+    //         mod = UQ_4_12(1.0);
+    // }
 
     *modifier = uq4_12_multiply(*modifier, mod);
 }

@@ -2124,20 +2124,20 @@ END:
 
     // B_WEATHER_STRONG_WINDS prints a string when it's about to reduce the power
     // of a move that is Super Effective against a Flying-type Pokémon.
-    if (gBattleWeather & B_WEATHER_STRONG_WINDS)
-    {
-        if ((GetBattlerType(gBattlerTarget, 0) == TYPE_FLYING
-         && GetTypeModifier(moveType, GetBattlerType(gBattlerTarget, 0)) >= UQ_4_12(2.0))
-         || (GetBattlerType(gBattlerTarget, 1) == TYPE_FLYING
-         && GetTypeModifier(moveType, GetBattlerType(gBattlerTarget, 1)) >= UQ_4_12(2.0))
-         || (GetBattlerType(gBattlerTarget, 2) == TYPE_FLYING
-         && GetTypeModifier(moveType, GetBattlerType(gBattlerTarget, 2)) >= UQ_4_12(2.0)))
-        {
-            gBattlerAbility = gBattlerTarget;
-            BattleScriptPushCursor();
-            gBattlescriptCurrInstr = BattleScript_AttackWeakenedByStrongWinds;
-        }
-    }
+    // if (gBattleWeather & B_WEATHER_STRONG_WINDS)
+    // {
+    //     if ((GetBattlerType(gBattlerTarget, 0) == TYPE_FLYING
+    //      && GetTypeModifier(moveType, GetBattlerType(gBattlerTarget, 0)) >= UQ_4_12(2.0))
+    //      || (GetBattlerType(gBattlerTarget, 1) == TYPE_FLYING
+    //      && GetTypeModifier(moveType, GetBattlerType(gBattlerTarget, 1)) >= UQ_4_12(2.0))
+    //      || (GetBattlerType(gBattlerTarget, 2) == TYPE_FLYING
+    //      && GetTypeModifier(moveType, GetBattlerType(gBattlerTarget, 2)) >= UQ_4_12(2.0)))
+    //     {
+    //         gBattlerAbility = gBattlerTarget;
+    //         BattleScriptPushCursor();
+    //         gBattlescriptCurrInstr = BattleScript_AttackWeakenedByStrongWinds;
+    //     }
+    // }
 }
 
 static void Cmd_multihitresultmessage(void)
@@ -10126,12 +10126,12 @@ static void Cmd_various(void)
             PrepareStringBattle(STRINGID_HEAVYRAINLIFTED, battler);
             gBattleCommunication[MSG_DISPLAY] = 1;
         }
-        else if (gBattleWeather & B_WEATHER_STRONG_WINDS && !shouldNotClear)
-        {
-            gBattleWeather &= ~B_WEATHER_STRONG_WINDS;
-            PrepareStringBattle(STRINGID_STRONGWINDSDISSIPATED, battler);
-            gBattleCommunication[MSG_DISPLAY] = 1;
-        }
+        // else if (gBattleWeather & B_WEATHER_STRONG_WINDS && !shouldNotClear)
+        // {
+        //     gBattleWeather &= ~B_WEATHER_STRONG_WINDS;
+        //     PrepareStringBattle(STRINGID_STRONGWINDSDISSIPATED, battler);
+        //     gBattleCommunication[MSG_DISPLAY] = 1;
+        // }
         break;
     }
     case VARIOUS_TRY_END_NEUTRALIZING_GAS:

@@ -224,7 +224,7 @@
     },
     {
       "x": 12,
-      "y": 13,
+      "y": 11,
       "elevation": 0,
       "dest_map": "MAP_NEW_CORALGROVE_CITY_GYM",
       "dest_warp_id": "0"
@@ -329,6 +329,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Coralgrove_Lifthouse"
+    },
+    {
+      "type": "sign",
+      "x": 14,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "CoralGrove_EventScript_GymSign"
     }
   ]
 }

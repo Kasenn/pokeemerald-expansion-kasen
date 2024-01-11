@@ -18,6 +18,10 @@ RustboroCity_PokemonCenter_1F_EventScript_Nurse::
 	release
 	end
 
+RustboroCity_PokemonCenter_1F_FlagSetter::
+	setmonmetlocation 0, MAP_ROUTE103
+	end
+
 RustboroCity_PokemonCenter_1F_EventScript_Man::
 	msgbox RustboroCity_PokemonCenter_1F_Text_PokemonHavePersonalities, MSGBOX_NPC
 	end

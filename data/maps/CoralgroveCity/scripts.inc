@@ -198,6 +198,11 @@ CoralGreatBall::
 	return
 
 
+CoralGrove_EventScript_GymSign::
+	msgbox CoralGrove_EventScript_GymSign_Text_0, MSGBOX_SIGN
+	end
+
+
 Coralgrove_HauntedHouse_Text_0:
 	.string "The door is nailed shut.\nLooks like nobody lives here.$"
 
@@ -236,6 +241,9 @@ Coralgrove_Lifthouse_Text_0:
 
 CoralSign_Text_0:
 	.string "CORALGROVE CITY\n“Home of many aspiring trainers.”$"
+
+CoralGrove_EventScript_GymSign_Text_0:
+	.string "Coralgrove City Pokémon Gym\nLeader: Aaron$"
 
 Coral_Hiker_Text::
 	.string "There was landslide between\nCoralgrove City and Primrose Town.\pThere's some rocks here and there but\nmost of it has already been cleared.$"

@@ -658,11 +658,11 @@
 #define FLAG_UNUSED_0x267_CG_HIDEGHOST  0x267 // Unused Flag
 #define FLAG_UNUSED_WWGROTTO  0x268 // Hides windy woods grotto pokemon
 #define FLAG_RECEIVED_TM_U_TURN  0x269 // TM for first gym
-#define FLAG_UNUSED_0x26A  0x26A // Unused Flag
-#define FLAG_UNUSED_0x26B  0x26B // Unused Flag
-#define FLAG_UNUSED_0x26C  0x26C // Unused Flag
-#define FLAG_UNUSED_0x26D  0x26D // Unused Flag
-#define FLAG_UNUSED_0x26E  0x26E // Unused Flag
+#define FLAG_NECTARQUESTDONE  0x26A // set this flag if oricorio shown to nectar maniac
+#define FLAG_PRIMROSE_ITEM_PINK_NECTAR  0x26B // Unused Flag
+#define FLAG_PRIMROSE_ITEM_PURPLE_NECTAR  0x26C // Unused Flag
+#define FLAG_PRIMROSE_ITEM_YELLOW_NECTAR  0x26D // Unused Flag
+#define FLAG_PRIMROSE_ITEM_RED_NECTAR  0x26E // Unused Flag
 #define FLAG_UNUSED_0x26F  0x26F // Unused Flag
 #define FLAG_UNUSED_0x270  0x270 // Unused Flag
 #define FLAG_UNUSED_0x271  0x271 // Unused Flag
@@ -1569,10 +1569,10 @@
 #define FLAG_UNUSED_0x920                           (DAILY_FLAGS_START + 0x0)  // Unused Flag
 #define FLAG_DAILY_CONTEST_LOBBY_RECEIVED_BERRY     (DAILY_FLAGS_START + 0x1)
 #define FLAG_DAILY_SECRET_BASE                      (DAILY_FLAGS_START + 0x2)
-#define FLAG_UNUSED_0x923                           (DAILY_FLAGS_START + 0x3)  // Unused Flag
-#define FLAG_UNUSED_0x924                           (DAILY_FLAGS_START + 0x4)  // Unused Flag
-#define FLAG_UNUSED_0x925                           (DAILY_FLAGS_START + 0x5)  // Unused Flag
-#define FLAG_UNUSED_0x926                           (DAILY_FLAGS_START + 0x6)  // Unused Flag
+#define FLAG_DAILY_PRIMROSE_NECTAR1                 (DAILY_FLAGS_START + 0x3)  // Unused Flag
+#define FLAG_DAILY_PRIMROSE_NECTAR2                 (DAILY_FLAGS_START + 0x4)  // Unused Flag
+#define FLAG_DAILY_PRIMROSE_NECTAR3                 (DAILY_FLAGS_START + 0x5)  // Unused Flag
+#define FLAG_DAILY_PRIMROSE_NECTAR4                 (DAILY_FLAGS_START + 0x6)  // Unused Flag
 #define FLAG_UNUSED_0x927                           (DAILY_FLAGS_START + 0x7)  // Unused Flag
 #define FLAG_UNUSED_0x928                           (DAILY_FLAGS_START + 0x8)  // Unused Flag
 #define FLAG_UNUSED_0x929                           (DAILY_FLAGS_START + 0x9)  // Unused Flag

@@ -243,7 +243,8 @@
 #define MAPSEC_NEWROUTE_27                     0xEF
 #define MAPSEC_NEWROUTE_28                     0xF0
 #define MAPSEC_NEWROUTE_29                     0xF1
-#define MAPSEC_NONE                         0xF2
+#define MAPSEC_HIDDEN_GROTTO                   0xF2
+#define MAPSEC_NONE                            0xF3
 
 
 #define METLOC_SPECIAL_EGG                  0xFD
