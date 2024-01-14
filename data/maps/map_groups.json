@@ -110,7 +110,12 @@
     "CoralgroveElevatorInt2",
     "WindplumeRidge",
     "WipCity1",
-    "Route28"
+    "Route28",
+    "Route5",
+    "Town_Wip2",
+    "Route6",
+    "Route7",
+    "ShoreslateCity"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

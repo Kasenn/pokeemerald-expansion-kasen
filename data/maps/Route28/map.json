@@ -20,7 +20,7 @@
     },
     {
       "map": "MAP_WINDPLUME_RIDGE",
-      "offset": 51,
+      "offset": 58,
       "direction": "right"
     }
   ],
@@ -28,7 +28,34 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 31,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE28",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 32,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE28",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 33,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE28",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 32,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE28",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 

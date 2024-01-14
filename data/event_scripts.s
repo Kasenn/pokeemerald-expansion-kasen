@@ -1143,3 +1143,13 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/WipCity1/scripts.inc"
 
 	.include "data/maps/Route28/scripts.inc"
+
+	.include "data/maps/Route5/scripts.inc"
+
+	.include "data/maps/Town_Wip2/scripts.inc"
+
+	.include "data/maps/Route6/scripts.inc"
+
+	.include "data/maps/Route7/scripts.inc"
+
+	.include "data/maps/ShoreslateCity/scripts.inc"

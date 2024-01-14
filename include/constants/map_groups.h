@@ -81,6 +81,11 @@
 #define MAP_WINDPLUME_RIDGE          (72 | (0 << 8))
 #define MAP_WIP_CITY1                (73 | (0 << 8))
 #define MAP_ROUTE28                  (74 | (0 << 8))
+#define MAP_ROUTE5                   (75 | (0 << 8))
+#define MAP_TOWN_WIP2                (76 | (0 << 8))
+#define MAP_ROUTE6                   (77 | (0 << 8))
+#define MAP_ROUTE7                   (78 | (0 << 8))
+#define MAP_SHORESLATE_CITY          (79 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
