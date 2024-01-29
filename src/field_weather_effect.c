@@ -31,6 +31,11 @@ const u8 gWeatherRainTiles[] = INCBIN_U8("graphics/weather/rain.4bpp");
 const u8 gWeatherSandstormTiles[] = INCBIN_U8("graphics/weather/sandstorm.4bpp");
 const u8 gWeatherWindTiles[] = INCBIN_U8("graphics/weather/wind.4bpp");
 
+const struct SpritePalette sFogSpritePalette = {gFogPalette, 0x1201};
+const struct SpritePalette sCloudsSpritePalette = {gCloudsWeatherPalette, 0x1207};
+const struct SpritePalette sSandstormSpritePalette = {gSandstormWeatherPalette, 0x1204};
+const struct SpritePalette sWindSpritePalette = {gWindWeatherPalette, 0x1204};
+
 //------------------------------------------------------------------------------
 // WEATHER_SUNNY_CLOUDS
 //------------------------------------------------------------------------------
@@ -2408,7 +2413,7 @@ static void CreateWindSprites(void)
     if (!gWeatherPtr->windSpritesCreated)
     {
         LoadSpriteSheet(&sWindSpriteSheet);
-        LoadCustomWeatherSpritePalette(gWindWeatherPalette);
+        LoadCustomWeatherSpritePalette(&sWindSpritePalette);
         for (i = 0; i < NUM_WIND_SPRITES; i++)
         {
             spriteId = CreateSpriteAtEnd(&sWindSpriteTemplate, 0, (i / 5) * 64, 1);

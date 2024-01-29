@@ -2023,3 +2023,15 @@ const u32 gItemIconPalette_LustrousGlobe[] = INCBIN_U32("graphics/items/icon_pal
 
 const u32 gItemIcon_BerserkGene[] = INCBIN_U32("graphics/items/icons/berserk_gene.4bpp.lz");
 const u32 gItemIconPalette_BerserkGene[] = INCBIN_U32("graphics/items/icon_palettes/berserk_gene.gbapal.lz");
+
+const u32 gItemIcon_HerbalMix[] = INCBIN_U32("graphics/items/icons/herbal_mix.4bpp.lz");
+const u32 gItemIconPalette_HerbalMix[] = INCBIN_U32("graphics/items/icon_palettes/herbal_mix.gbapal.lz");
+
+const u32 gItemIcon_HerbalMixQuest[] = INCBIN_U32("graphics/items/icons/oaks_parcel.4bpp.lz");
+const u32 gItemIconPalette_HerbalMixQuest[] = INCBIN_U32("graphics/items/icon_palettes/oaks_parcel.gbapal.lz");
+
+const u32 gItemIcon_JasmLetter[] = INCBIN_U32("graphics/items/icons/jasm_letter.4bpp.lz");
+const u32 gItemIconPalette_JasmLetter[] = INCBIN_U32("graphics/items/icon_palettes/jasm_letter.gbapal.lz");
+
+const u32 gItemIcon_CoinPurse[] = INCBIN_U32("graphics/items/icons/coin_purse.4bpp.lz");
+const u32 gItemIconPalette_CoinPurse[] = INCBIN_U32("graphics/items/icon_palettes/coin_purse.gbapal.lz");

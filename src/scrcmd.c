@@ -1890,6 +1890,32 @@ bool8 ScrCmd_setwildbattle(struct ScriptContext *ctx)
     return FALSE;
 }
 
+bool8 ScrCmd_setwildbattlelevelrange(struct ScriptContext *ctx)
+{
+    u16 species = ScriptReadHalfword(ctx);
+    u8 level = ScriptReadByte(ctx);
+    u16 item = ScriptReadHalfword(ctx);
+    u16 species2 = ScriptReadHalfword(ctx);
+    u8 level2 = ScriptReadByte(ctx);
+    u16 item2 = ScriptReadHalfword(ctx);
+
+    u8 randomLevel = Random() % (level2 - level + 1) + level;
+    u8 randomLevel2 = Random() % (level2 - level + 1) + level;
+
+    if(species2 == SPECIES_NONE)
+    {
+        CreateScriptedWildMon(species, randomLevel, item);
+        gIsScriptedWildDouble = FALSE;
+    }
+    else
+    {
+        CreateScriptedDoubleWildMon(species, randomLevel, item, species2, randomLevel2, item2);
+        gIsScriptedWildDouble = TRUE;
+    }
+
+    return FALSE;
+}
+
 bool8 ScrCmd_dowildbattle(struct ScriptContext *ctx)
 {
     if (gIsScriptedWildDouble == FALSE)

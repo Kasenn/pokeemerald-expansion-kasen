@@ -23,6 +23,11 @@ CoastTown_Sign3::
 	end
 
 
+CoastTown_Sign4::
+	msgbox CoastTown_Sign4_Text_0, MSGBOX_SIGN
+	end
+
+
 CoastTown_OldWoman::
 	lockall
 	faceplayer
@@ -47,6 +52,37 @@ CoastTown_FatGuy::
 	lockall
 	faceplayer
 	msgbox CoastTown_FatGuy_Text_0, MSGBOX_NPC
+	waitmessage
+	closemessage
+	release
+	end
+
+
+CoastTown_FatGuy2::
+	lockall
+	faceplayer
+	goto_if_unset FLAG_COASTTOWNHONEYGET, CoastTown_FatGuy2_2
+	msgbox FatGuyHoneyGivenAlready, MSGBOX_NPC
+	waitmessage
+	closemessage
+	release
+	end
+
+CoastTown_FatGuy2_2:
+	msgbox FatGuyHoneyIntro, MSGBOX_NPC
+	checkitemspace ITEM_HONEY, 3
+	compare VAR_RESULT, TRUE
+	goto_if_eq CoastTown_FatGuy2_4
+	msgbox FatGuyNotEnoughRoom, MSGBOX_NPC
+	waitmessage
+	closemessage
+	release
+	end
+
+CoastTown_FatGuy2_4:
+	giveitem ITEM_HONEY, 3
+	msgbox FatGuyHoneyGiven, MSGBOX_NPC
+	setflag FLAG_COASTTOWNHONEYGET
 	waitmessage
 	closemessage
 	release
@@ -303,14 +339,126 @@ CoastTown_YesPokemonTree_Event_22:
 	goto CoastTown_YesPokemonTree_Event_21
 
 
+Azuretide_HoneyTree::
+	lockall
+	goto_if_unset FLAG_COASTTOWNHONEYGET, Azuretide_HoneyTree_2
+	checkitem ITEM_HONEY, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Azuretide_HoneyTree_4
+	msgbox HoneyTree_NoHoney, MSGBOX_SIGN
+	waitmessage
+	closemessage
+	release
+	end
+
+Azuretide_HoneyTree_2:
+	msgbox Azuretide_HoneyTree_Text_0, MSGBOX_DEFAULT
+	waitmessage
+	closemessage
+	release
+	end
+
+Azuretide_HoneyTree_4:
+	msgbox HoneyTree_YesHoney, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
+	goto_if_eq Azuretide_HoneyTree_7
+	waitmessage
+	closemessage
+	release
+	end
+
+Azuretide_HoneyTree_7:
+	msgbox HoneyUsedOnTree, MSGBOX_DEFAULT
+	waitmessage
+	closemessage
+	removeitem ITEM_HONEY, 1
+	random 10
+	compare VAR_RESULT, 0
+	goto_if_eq Azuretide_HoneyTree_11
+Azuretide_HoneyTree_10:
+	compare VAR_RESULT, 1
+	goto_if_eq Azuretide_HoneyTree_14
+Azuretide_HoneyTree_13:
+	compare VAR_RESULT, 2
+	goto_if_eq Azuretide_HoneyTree_17
+Azuretide_HoneyTree_16:
+	compare VAR_RESULT, 3
+	goto_if_eq Azuretide_HoneyTree_20
+Azuretide_HoneyTree_19:
+	compare VAR_RESULT, 4
+	goto_if_eq Azuretide_HoneyTree_23
+Azuretide_HoneyTree_22:
+	compare VAR_RESULT, 5
+	goto_if_eq Azuretide_HoneyTree_26
+Azuretide_HoneyTree_25:
+	compare VAR_RESULT, 6
+	goto_if_eq Azuretide_HoneyTree_29
+Azuretide_HoneyTree_28:
+	compare VAR_RESULT, 7
+	goto_if_eq Azuretide_HoneyTree_32
+Azuretide_HoneyTree_31:
+	compare VAR_RESULT, 8
+	goto_if_eq Azuretide_HoneyTree_35
+Azuretide_HoneyTree_34:
+	compare VAR_RESULT, 9
+	goto_if_eq Azuretide_HoneyTree_38
+Azuretide_HoneyTree_37:
+	dowildbattle
+	release
+	end
+
+Azuretide_HoneyTree_11:
+	setwildbattle SPECIES_BOUNSWEET, 12
+	goto Azuretide_HoneyTree_10
+
+Azuretide_HoneyTree_14:
+	setwildbattle SPECIES_BOUNSWEET, 13
+	goto Azuretide_HoneyTree_13
+
+Azuretide_HoneyTree_17:
+	setwildbattle SPECIES_BOUNSWEET, 14
+	goto Azuretide_HoneyTree_16
+
+Azuretide_HoneyTree_20:
+	setwildbattle SPECIES_SKWOVET, 11
+	goto Azuretide_HoneyTree_19
+
+Azuretide_HoneyTree_23:
+	setwildbattle SPECIES_SKWOVET, 12
+	goto Azuretide_HoneyTree_22
+
+Azuretide_HoneyTree_26:
+	setwildbattle SPECIES_SKWOVET, 13
+	goto Azuretide_HoneyTree_25
+
+Azuretide_HoneyTree_29:
+	setwildbattle SPECIES_SKWOVET, 14
+	goto Azuretide_HoneyTree_28
+
+Azuretide_HoneyTree_32:
+	setwildbattle SPECIES_APPLIN, 12
+	goto Azuretide_HoneyTree_31
+
+Azuretide_HoneyTree_35:
+	setwildbattle SPECIES_APPLIN, 14
+	goto Azuretide_HoneyTree_34
+
+Azuretide_HoneyTree_38:
+	setwildbattle SPECIES_MUNCHLAX, 14
+	goto Azuretide_HoneyTree_37
+
+
 CoastTown_Sign1_Text_0:
 	.string "Azuretide Harbor$"
 
 CoastTown_Sign2_Text_0:
-	.string "Diving Treasure Hunter's house$"
+	.string "Treasure Hunter's house$"
 
 CoastTown_Sign3_Text_0:
 	.string "AZURETIDE TOWN\p“Where the land ends and the\nsea begins.”$"
+
+CoastTown_Sign4_Text_0:
+	.string "Azuretide Herb Shop$"
 
 CoastTown_OldWoman_Text_0:
 	.string "There's been a lot of trainers coming\nhere via the ferry recently.\pShame many of them are in a hurry and\ndon't even care to say hello.$"
@@ -339,6 +487,33 @@ CoastTown_EmptyPokemonTree_Event_Text_0:
 CoastTown_YesPokemonTree1_Text_0:
 	.string "There doesn't seem to be any\nwild Pokémon left in this tree.$"
 
+Azuretide_HoneyTree_Text_0:
+	.string "It's a peculiar looking tree.$"
+
+FatGuyHoneyIntro::
+	.string "These types of trees are\n"
+	.string "known as honey trees.\p"
+	.string "By slathering some honey on its bark,\n"
+	.string "you can attract Pokémon that would\l"
+	.string "normally be too skittish to appear.\p"
+	.string "Why don't you give it a try?$"
+
+FatGuyHoneyGiven::
+	.string "Just slather some of that honey and\n"
+	.string "it should cause some Pokémon to\l"
+	.string "appear without delay.\p"
+	.string "There are more trees like this out\n"
+	.string "there in the world and many of them\l"
+	.string "should be able to attract an entirely\l"
+	.string "different set of Pokémon.$"
+
+FatGuyNotEnoughRoom::
+	.string "Oh, but you don't have enough room…$"
+
+FatGuyHoneyGivenAlready::
+	.string "Go on, try using some of\n"
+	.string "that honey on this tree.$"
+
 UnsureTreeShake::
 	.string "You give the tree a firm shake but\nyou're not sure if it did anything.$"
 
@@ -347,3 +522,16 @@ NoPokemonTreeShake::
 
 YesPokemonTreeShake::
 	.string "You give the tree a firm shake and\na wild Pokémon lands in front of you!$"
+
+HoneyUsedOnTree::
+	.string "You slather some honey on the tree…\p"
+	.string "…\p"
+	.string "…\p"
+	.string "The honey lured in a wild Pokémon!$"
+
+HoneyTree_NoHoney::
+	.string "It's a honey tree.$"
+
+HoneyTree_YesHoney::
+	.string "It's a honey tree. Would you\n"
+	.string "like to slather some honey on it?$"

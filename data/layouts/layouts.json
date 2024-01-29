@@ -4706,7 +4706,7 @@
       "name": "CoastTown_Layout",
       "width": 50,
       "height": 53,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_General2",
       "secondary_tileset": "gTileset_Lilycove",
       "border_filepath": "data/layouts/CoastTown/border.bin",
       "blockdata_filepath": "data/layouts/CoastTown/map.bin"
@@ -4747,7 +4747,7 @@
       "width": 52,
       "height": 57,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lilycove",
+      "secondary_tileset": "gTileset_Ranch",
       "border_filepath": "data/layouts/PokeRanch/border.bin",
       "blockdata_filepath": "data/layouts/PokeRanch/map.bin"
     },
@@ -4880,6 +4880,216 @@
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/ShoreslateCity/border.bin",
       "blockdata_filepath": "data/layouts/ShoreslateCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_DESERT",
+      "name": "Desert_Layout",
+      "width": 80,
+      "height": 80,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/Desert/border.bin",
+      "blockdata_filepath": "data/layouts/Desert/map.bin"
+    },
+    {
+      "id": "LAYOUT_WIP_TOWN3",
+      "name": "WipTown3_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/WipTown3/border.bin",
+      "blockdata_filepath": "data/layouts/WipTown3/map.bin"
+    },
+    {
+      "id": "LAYOUT_RANCH_BARN",
+      "name": "RanchBarn_Layout",
+      "width": 24,
+      "height": 9,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Ranch",
+      "border_filepath": "data/layouts/RanchBarn/border.bin",
+      "blockdata_filepath": "data/layouts/RanchBarn/map.bin"
+    },
+    {
+      "id": "LAYOUT_RANCH_HOUSE",
+      "name": "RanchHouse_Layout",
+      "width": 17,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/RanchHouse/border.bin",
+      "blockdata_filepath": "data/layouts/RanchHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_AZURETIDE_HOUSE1",
+      "name": "AzuretideHouse1_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/AzuretideHouse1/border.bin",
+      "blockdata_filepath": "data/layouts/AzuretideHouse1/map.bin"
+    },
+    {
+      "id": "LAYOUT_AZURETIDE_HOUSE2",
+      "name": "AzuretideHouse2_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/AzuretideHouse2/border.bin",
+      "blockdata_filepath": "data/layouts/AzuretideHouse2/map.bin"
+    },
+    {
+      "id": "LAYOUT_ALDELEAF_SMALL_HOUSE1",
+      "name": "AldeleafSmallHouse1_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/AldeleafSmallHouse1/border.bin",
+      "blockdata_filepath": "data/layouts/AldeleafSmallHouse1/map.bin"
+    },
+    {
+      "id": "LAYOUT_ALDELEAF_SMALL_HOUSE2",
+      "name": "AldeleafSmallHouse2_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/AldeleafSmallHouse2/border.bin",
+      "blockdata_filepath": "data/layouts/AldeleafSmallHouse2/map.bin"
+    },
+    {
+      "id": "LAYOUT_ALDELEAF_SMALL_HOUSE3",
+      "name": "AldeleafSmallHouse3_Layout",
+      "width": 8,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/AldeleafSmallHouse3/border.bin",
+      "blockdata_filepath": "data/layouts/AldeleafSmallHouse3/map.bin"
+    },
+    {
+      "id": "LAYOUT_ALDELEAF_BIG_HOUSE1",
+      "name": "AldeleafBigHouse1_Layout",
+      "width": 14,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/AldeleafBigHouse1/border.bin",
+      "blockdata_filepath": "data/layouts/AldeleafBigHouse1/map.bin"
+    },
+    {
+      "id": "LAYOUT_ALDELEAF_BIG_HOUSE2",
+      "name": "AldeleafBigHouse2_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/AldeleafBigHouse2/border.bin",
+      "blockdata_filepath": "data/layouts/AldeleafBigHouse2/map.bin"
+    },
+    {
+      "id": "LAYOUT_ALDELEAF_BIG_HOUSE3",
+      "name": "AldeleafBigHouse3_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/AldeleafBigHouse3/border.bin",
+      "blockdata_filepath": "data/layouts/AldeleafBigHouse3/map.bin"
+    },
+    {
+      "id": "LAYOUT_ALDELEAF_POKE_CENTER1F",
+      "name": "AldeleafPokeCenter1F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/AldeleafPokeCenter1F/border.bin",
+      "blockdata_filepath": "data/layouts/AldeleafPokeCenter1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ALDELEAF_POKE_CENTER2F",
+      "name": "AldeleafPokeCenter2F_Layout",
+      "width": 13,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/AldeleafPokeCenter2F/border.bin",
+      "blockdata_filepath": "data/layouts/AldeleafPokeCenter2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ALDELEAF_MART",
+      "name": "AldeleafMart_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/AldeleafMart/border.bin",
+      "blockdata_filepath": "data/layouts/AldeleafMart/map.bin"
+    },
+    {
+      "id": "LAYOUT_ALDELEAF_BPSHOP",
+      "name": "AldeleafBPShop_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/AldeleafBPShop/border.bin",
+      "blockdata_filepath": "data/layouts/AldeleafBPShop/map.bin"
+    },
+    {
+      "id": "LAYOUT_ALDELEAF_GYM",
+      "name": "AldeleafGym_Layout",
+      "width": 16,
+      "height": 80,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_MauvilleGym",
+      "border_filepath": "data/layouts/AldeleafGym/border.bin",
+      "blockdata_filepath": "data/layouts/AldeleafGym/map.bin"
+    },
+    {
+      "id": "LAYOUT_ALDELEAF_BIG_HOUSE1_2F",
+      "name": "AldeleafBigHouse1_2F_Layout",
+      "width": 14,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/AldeleafBigHouse1_2F/border.bin",
+      "blockdata_filepath": "data/layouts/AldeleafBigHouse1_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ALDELEAF_BIG_HOUSE2_2F",
+      "name": "AldeleafBigHouse2_2F_Layout",
+      "width": 14,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/AldeleafBigHouse2_2F/border.bin",
+      "blockdata_filepath": "data/layouts/AldeleafBigHouse2_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ALDELEAF_BIG_HOUSE3_2F",
+      "name": "AldeleafBigHouse3_2F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/AldeleafBigHouse3_2F/border.bin",
+      "blockdata_filepath": "data/layouts/AldeleafBigHouse3_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ALDELEAF_BIG_HOUSE3_3F",
+      "name": "AldeleafBigHouse3_3F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/AldeleafBigHouse3_3F/border.bin",
+      "blockdata_filepath": "data/layouts/AldeleafBigHouse3_3F/map.bin"
     }
   ]
 }

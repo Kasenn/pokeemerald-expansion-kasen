@@ -1,0 +1,32 @@
+mapscripts AzuretideHouse2_MapScripts{}
+
+script AzuretideHouse2_Pikachu{
+	lock
+	faceplayer
+    waitse
+	playmoncry(SPECIES_PIKACHU, CRY_MODE_NORMAL)
+	msgbox("Pika…", MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+
+script AzuretideHouse2_OldWoman{
+    lock
+    faceplayer
+    msgbox("It's great to see my granddaughter\nbe so passionate about training\lher Pokémon.\pI bet she'll become a great\ntrainer one day.")
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script AzuretideHouse2_Girl{
+    lock
+    faceplayer
+    msgbox("I've heard of surfing Pikachus so I\nwanted to teach mine to surf as well.\pFor some reason it doesn't seem to\nlike it…", MSGBOX_DEFAULT)
+    waitmessage
+    closemessage
+    release
+    end
+}

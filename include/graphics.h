@@ -9057,6 +9057,14 @@ extern const u32 gItemIcon_LustrousGlobe[];
 extern const u32 gItemIconPalette_LustrousGlobe[];
 extern const u32 gItemIcon_BerserkGene[];
 extern const u32 gItemIconPalette_BerserkGene[];
+extern const u32 gItemIcon_HerbalMix[];
+extern const u32 gItemIconPalette_HerbalMix[];
+extern const u32 gItemIcon_HerbalMixQuest[];
+extern const u32 gItemIconPalette_HerbalMixQuest[];
+extern const u32 gItemIcon_JasmLetter[];
+extern const u32 gItemIconPalette_JasmLetter[];
+extern const u32 gItemIcon_CoinPurse[];
+extern const u32 gItemIconPalette_CoinPurse[];
 
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];

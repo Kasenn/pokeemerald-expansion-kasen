@@ -110,4 +110,9 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
         .index = 1,
         .tilemap = gPokenavCityMap_EverGrande_1,
     },
+    {
+        .mapSecId = MAPSEC_PEARLWOOD_POINT,
+        .index = 0,
+        .tilemap = gPokenavCityMap_Pearlwood_0,
+    },
 };

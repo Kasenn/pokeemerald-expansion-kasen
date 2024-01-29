@@ -7631,8 +7631,10 @@ u16 GetBattleBGM(void)
             return MUS_ALOLA_E4;
         case TRAINER_CLASS_GYMMEMBER:
             return MUS_BWTRAINERBATTLE;
+        case TRAINER_CLASS_GYMMEMBER_DOUBLE:
+            return MUS_BWTRAINERBATTLE;
         case TRAINER_CLASS_NURSE:
-            return MUS_MISTRAL;
+            return MUS_VS_TRAINER;
         case TRAINER_CLASS_PYRAMID_KING:
             return MUS_VS_FRONTIER_BRAIN;
         default:

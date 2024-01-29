@@ -273,10 +273,10 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_DIGLETTS_CAVE",
-      "name": "DIGLETT'S CAVE",
-      "x": 0,
-      "y": 0,
+      "map_section": "MAPSEC_POKE_RANCH",
+      "name": "POKéMON RANCH",
+      "x": 21,
+      "y": 7,
       "width": 1,
       "height": 1
     },
@@ -1042,7 +1042,7 @@
     },
     {
       "map_section": "MAPSEC_CITY_WIP1",
-      "name": "WIP CITY 1",
+      "name": "ALDELEAF CITY",
       "x": 22,
       "y": 7,
       "width": 1,

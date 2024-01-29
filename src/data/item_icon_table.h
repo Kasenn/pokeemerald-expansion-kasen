@@ -714,7 +714,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_TM90] = {gItemIcon_TM, gItemIconPalette_NormalTMHM},  // Todo
     [ITEM_TM91] = {gItemIcon_TM, gItemIconPalette_NormalTMHM},  // Todo
     [ITEM_TM92] = {gItemIcon_TM, gItemIconPalette_NormalTMHM},  // Todo
-    [ITEM_TM93] = {gItemIcon_TM, gItemIconPalette_NormalTMHM},  // Todo
+    [ITEM_TM_WILD_CHARGE] = {gItemIcon_TM, gItemIconPalette_ElectricTMHM},  // Todo
     [ITEM_TM_FALSE_SWIPE] = {gItemIcon_TM, gItemIconPalette_NormalTMHM},  // Todo
     [ITEM_TM95] = {gItemIcon_TM, gItemIconPalette_NormalTMHM},  // Todo
     [ITEM_TM96] = {gItemIcon_TM, gItemIconPalette_NormalTMHM},  // Todo
@@ -844,6 +844,10 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_LINKING_CORD] = {gItemIcon_LinkingCord, gItemIconPalette_LinkingCord},
     [ITEM_PEAT_BLOCK] = {gItemIcon_PeatBlock, gItemIconPalette_PeatBlock},
     [ITEM_BERSERK_GENE] = {gItemIcon_BerserkGene, gItemIconPalette_BerserkGene},
+    [ITEM_HERBAL_MIX] = {gItemIcon_HerbalMix, gItemIconPalette_HerbalMix},
+    [ITEM_HERBAL_MIX_QUEST] = {gItemIcon_HerbalMixQuest, gItemIconPalette_HerbalMixQuest},
+    [ITEM_JASM_LETTER] = {gItemIcon_JasmLetter, gItemIconPalette_JasmLetter},
+    [ITEM_COIN_PURSE] = {gItemIcon_CoinPurse, gItemIconPalette_CoinPurse},
     // Return to field arrow
     [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

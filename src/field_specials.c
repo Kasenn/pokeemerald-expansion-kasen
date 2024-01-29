@@ -92,7 +92,6 @@ static EWRAM_DATA u8 sBattlePointsWindowId = 0;
 static EWRAM_DATA u8 sFrontierExchangeCorner_ItemIconWindowId = 0;
 static EWRAM_DATA u8 sPCBoxToSendMon = 0;
 static EWRAM_DATA u32 sBattleTowerMultiBattleTypeFlags = 0;
-static EWRAM_DATA u32 AddBattlePoints = 0;
 
 struct ListMenuTemplate gScrollableMultichoice_ListMenuTemplate;
 
@@ -612,9 +611,9 @@ static void LoadLinkPartnerObjectEventSpritePalette(u8 graphicsId, u8 localEvent
 
 static const struct UCoords8 sMauvilleGymSwitchCoords[] =
 {
-    { 0 + MAP_OFFSET, 15 + MAP_OFFSET},
-    { 4 + MAP_OFFSET, 12 + MAP_OFFSET},
-    { 3 + MAP_OFFSET,  9 + MAP_OFFSET},
+    { 1 + MAP_OFFSET, 73 + MAP_OFFSET},
+    { 12 + MAP_OFFSET, 64 + MAP_OFFSET},
+    { 2 + MAP_OFFSET,  55 + MAP_OFFSET},
     { 8 + MAP_OFFSET,  9 + MAP_OFFSET}
 };
 
@@ -627,7 +626,7 @@ void MauvilleGymPressSwitch(void)
         if (i == gSpecialVar_0x8004)
             MapGridSetMetatileIdAt(sMauvilleGymSwitchCoords[i].x, sMauvilleGymSwitchCoords[i].y, METATILE_MauvilleGym_PressedSwitch);
         else
-            MapGridSetMetatileIdAt(sMauvilleGymSwitchCoords[i].x, sMauvilleGymSwitchCoords[i].y, METATILE_MauvilleGym_RaisedSwitch);
+            break;
     }
 }
 

@@ -772,7 +772,7 @@
 #define ITEM_TM90 671
 #define ITEM_TM91 672
 #define ITEM_TM92 673
-#define ITEM_TM93 674
+#define ITEM_TM_WILD_CHARGE 674
 #define ITEM_TM_FALSE_SWIPE 675
 #define ITEM_TM95 676
 #define ITEM_TM96 677
@@ -913,8 +913,12 @@
 #define ITEM_LINKING_CORD 796
 #define ITEM_PEAT_BLOCK 797
 #define ITEM_BERSERK_GENE 798
+#define ITEM_HERBAL_MIX 799
+#define ITEM_HERBAL_MIX_QUEST 800
+#define ITEM_JASM_LETTER 801
+#define ITEM_COIN_PURSE 802
 
-#define ITEMS_COUNT 799
+#define ITEMS_COUNT 803
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations
@@ -990,6 +994,7 @@
 #define EFFECT_ITEM_REVIVE                  9
 #define EFFECT_ITEM_RESTORE_PP              10
 #define EFFECT_ITEM_INCREASE_ALL_STATS      11
+#define EFFECT_ITEM_HERBAL_MIX              12
 
 // Enigma Berry dummy constant
 #define EFFECT_ITEM_ENIGMA_BERRY_EREADER    1

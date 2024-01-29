@@ -258,6 +258,7 @@ static void (*const sMovementTypeCallbacks[])(struct Sprite *) =
     [MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_LEFT_UP_RIGHT] = MovementType_WalkSequenceDownLeftUpRight,
     [MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN] = MovementType_WalkSequenceLeftUpRightDown,
     [MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP] = MovementType_WalkSequenceRightDownLeftUp,
+    [MOVEMENT_TYPE_RUN_SEQUENCE_UP_RIGHT_DOWN_LEFT] = MovementType_RunSequenceUpRightDownLeft,
     [MOVEMENT_TYPE_COPY_PLAYER] = MovementType_CopyPlayer,
     [MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE] = MovementType_CopyPlayer,
     [MOVEMENT_TYPE_COPY_PLAYER_COUNTERCLOCKWISE] = MovementType_CopyPlayer,
@@ -322,6 +323,7 @@ static const bool8 sMovementTypeHasRange[NUM_MOVEMENT_TYPES] = {
     [MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_LEFT_UP_RIGHT] = TRUE,
     [MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN] = TRUE,
     [MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP] = TRUE,
+    [MOVEMENT_TYPE_RUN_SEQUENCE_UP_RIGHT_DOWN_LEFT] = TRUE,
     [MOVEMENT_TYPE_COPY_PLAYER] = TRUE,
     [MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE] = TRUE,
     [MOVEMENT_TYPE_COPY_PLAYER_COUNTERCLOCKWISE] = TRUE,
@@ -386,6 +388,7 @@ const u8 gInitialMovementTypeFacingDirections[] = {
     [MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_LEFT_UP_RIGHT] = DIR_SOUTH,
     [MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN] = DIR_WEST,
     [MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP] = DIR_EAST,
+    [MOVEMENT_TYPE_RUN_SEQUENCE_UP_RIGHT_DOWN_LEFT] = DIR_NORTH,
     [MOVEMENT_TYPE_COPY_PLAYER] = DIR_NORTH,
     [MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE] = DIR_SOUTH,
     [MOVEMENT_TYPE_COPY_PLAYER_COUNTERCLOCKWISE] = DIR_WEST,
@@ -512,6 +515,10 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Example4,          OBJ_EVENT_PAL_EXAMPLE4},
     {gObjectEventPalette_Example5,          OBJ_EVENT_PAL_EXAMPLE5},
     {gObjectEventPalette_Iris,              OBJ_EVENT_PAL_IRIS},
+    {gObjectEventPalette_Volkner,           OBJ_EVENT_PAL_VOLKNER},
+    {gObjectEventPalette_Jasmine,           OBJ_EVENT_PAL_JASMINE},
+    {gObjectEventPalette_Mareep,            OBJ_EVENT_PAL_MAREEP},
+    {gObjectEventPalette_RocketF,            OBJ_EVENT_PAL_ROCKET_F},
 #ifdef BUGFIX
     {NULL,                                  OBJ_EVENT_PAL_TAG_NONE},
 #else
@@ -874,6 +881,18 @@ static const u8 sRunningDirectionAnimNums[] = {
     [DIR_SOUTHEAST] = ANIM_RUN_SOUTH,
     [DIR_NORTHWEST] = ANIM_RUN_NORTH,
     [DIR_NORTHEAST] = ANIM_RUN_NORTH,
+};
+
+static const u8 sSkatingDirectionAnimNums[] = {
+    [DIR_NONE] = ANIM_SKATE_SOUTH,
+    [DIR_SOUTH] = ANIM_SKATE_SOUTH,
+    [DIR_NORTH] = ANIM_SKATE_NORTH,
+    [DIR_WEST] = ANIM_SKATE_WEST,
+    [DIR_EAST] = ANIM_SKATE_EAST,
+    [DIR_SOUTHWEST] = ANIM_SKATE_SOUTH,
+    [DIR_SOUTHEAST] = ANIM_SKATE_SOUTH,
+    [DIR_NORTHWEST] = ANIM_SKATE_NORTH,
+    [DIR_NORTHEAST] = ANIM_SKATE_NORTH,
 };
 
 const u8 gTrainerFacingDirectionMovementTypes[] = {
@@ -4154,6 +4173,18 @@ u8 MovementType_WalkSequenceLeftUpRightDown_Step1(struct ObjectEvent *objectEven
 movement_type_def(MovementType_WalkSequenceRightDownLeftUp, gMovementTypeFuncs_WalkSequenceRightDownLeftUp)
 
 u8 MovementType_WalkSequenceRightDownLeftUp_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    u8 directions[sizeof(gRightDownLeftUpDirections)];
+    memcpy(directions, gRightDownLeftUpDirections, sizeof(gRightDownLeftUpDirections));
+    if (objectEvent->directionSequenceIndex == 2 && objectEvent->initialCoords.x == objectEvent->currentCoords.x)
+        objectEvent->directionSequenceIndex = 3;
+
+    return MoveNextDirectionInSequence(objectEvent, sprite, directions);
+}
+
+movement_type_def(MovementType_RunSequenceUpRightDownLeft, gMovementTypeFuncs_RunSequenceUpRightDownLeft)
+
+u8 MovementType_RunSequenceUpRightDownLeft_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     u8 directions[sizeof(gRightDownLeftUpDirections)];
     memcpy(directions, gRightDownLeftUpDirections, sizeof(gRightDownLeftUpDirections));

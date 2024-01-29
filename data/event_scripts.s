@@ -947,8 +947,8 @@ gText_PlayerFoundOneTMHM::
 	.string "{STR_VAR_2}!$"
 
 gText_Sudowoodo_Attacked::
-	.string "The weird tree doesn't like the\n"
-	.string "WAILMER PAIL!\p"
+	.string "There's barely a scratch on\n"
+	.string "the weird tree!\p"
 	.string "The weird tree attacked!$"
 
 gText_LegendaryFlewAway::
@@ -1153,3 +1153,45 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Route7/scripts.inc"
 
 	.include "data/maps/ShoreslateCity/scripts.inc"
+
+	.include "data/maps/Desert/scripts.inc"
+
+	.include "data/maps/WipTown3/scripts.inc"
+
+	.include "data/maps/RanchBarn/scripts.inc"
+
+	.include "data/maps/RanchHouse/scripts.inc"
+
+	.include "data/maps/AzuretideHouse1/scripts.inc"
+
+	.include "data/maps/AzuretideHouse2/scripts.inc"
+
+	.include "data/maps/AldeleafSmallHouse1/scripts.inc"
+
+	.include "data/maps/AldeleafSmallHouse2/scripts.inc"
+
+	.include "data/maps/AldeleafSmallHouse3/scripts.inc"
+
+	.include "data/maps/AldeleafBigHouse1/scripts.inc"
+
+	.include "data/maps/AldeleafBigHouse2/scripts.inc"
+
+	.include "data/maps/AldeleafBigHouse3/scripts.inc"
+
+	.include "data/maps/AldeleafPokeCenter1F/scripts.inc"
+
+	.include "data/maps/AldeleafPokeCenter2F/scripts.inc"
+
+	.include "data/maps/AldeleafMart/scripts.inc"
+
+	.include "data/maps/AldeleafBPShop/scripts.inc"
+
+	.include "data/maps/AldeleafGym/scripts.inc"
+
+	.include "data/maps/AldeleafBigHouse1_2F/scripts.inc"
+
+	.include "data/maps/AldeleafBigHouse2_2F/scripts.inc"
+
+	.include "data/maps/AldeleafBigHouse3_2F/scripts.inc"
+
+	.include "data/maps/AldeleafBigHouse3_3F/scripts.inc"

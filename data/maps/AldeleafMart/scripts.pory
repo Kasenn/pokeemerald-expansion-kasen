@@ -1,0 +1,41 @@
+mapscripts AldeleafMart_MapScripts{}
+
+script Aldeleaf_Mart_EventScript_Clerk{
+	lock
+	faceplayer
+	message(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(Aldeleaf_Mart_Pokemart)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+mart Aldeleaf_Mart_Pokemart{
+	ITEM_POKE_BALL
+    ITEM_POTION
+	ITEM_SUPER_POTION
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+	ITEM_AWAKENING
+    ITEM_REPEL
+	ITEM_NONE
+}
+
+script Aldeleaf_Mart_EventScript_BlackBelt{
+	msgbox(Aldeleaf_Mart_Text_SomeItemsOnlyAtMart, MSGBOX_NPC)
+	end
+}
+script Aldeleaf_Mart_EventScript_Man{
+	msgbox(Aldeleaf_Mart_Text_GreatBallIsBetter, MSGBOX_NPC)
+	end
+}
+text Aldeleaf_Mart_Text_SomeItemsOnlyAtMart{
+	"Do you use repels?\n"
+	"They keep Pokémon away, so they're\l"
+	"useful when you're in a hurry."
+}
+text Aldeleaf_Mart_Text_GreatBallIsBetter{
+	"I was hoping to find Great Balls here\n"
+	"but it seems this mart's selection\l"
+	"is a bit limited…"
+}

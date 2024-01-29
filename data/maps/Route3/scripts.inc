@@ -114,6 +114,74 @@ Route3_HedgeRunner::
 	end
 
 
+Route3WalkDown:
+	walk_down
+	step_end
+
+TriggerGina::
+	checktrainerflag TRAINER_LOLA_1
+	goto_if 0, TriggerGina_1
+	release
+	end
+
+TriggerGina_1:
+	special HasEnoughMonsForDoubleBattle
+	compare VAR_RESULT, PLAYER_HAS_TWO_USABLE_MONS
+	goto_if_eq TriggerGina_5
+	end
+
+TriggerGina_5:
+	lockall
+	playbgm MUS_ENCOUNTER_TWINS, FALSE
+	applymovement 10, Common_Movement_ExclamationMark
+	applymovement 11, Common_Movement_ExclamationMark
+	waitmovement 10
+	waitmovement 11
+	delay 50
+	applymovement 10, Route3WalkDown
+	applymovement 11, Route3WalkDown
+	waitmovement 10
+	waitmovement 11
+	delay 10
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	msgbox Route3_Twin2Intro, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_LOLA_1, Route3_Twin1Defeated
+	waitmessage
+	end
+
+
+TriggerMia::
+	checktrainerflag TRAINER_LOLA_1
+	goto_if 0, TriggerMia_1
+	release
+	end
+
+TriggerMia_1:
+	special HasEnoughMonsForDoubleBattle
+	compare VAR_RESULT, PLAYER_HAS_TWO_USABLE_MONS
+	goto_if_eq TriggerMia_5
+	end
+
+TriggerMia_5:
+	lockall
+	playbgm MUS_ENCOUNTER_TWINS, FALSE
+	applymovement 10, Common_Movement_ExclamationMark
+	applymovement 11, Common_Movement_ExclamationMark
+	waitmovement 10
+	waitmovement 11
+	delay 50
+	applymovement 10, Route3WalkDown
+	applymovement 11, Route3WalkDown
+	waitmovement 10
+	waitmovement 11
+	delay 10
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	msgbox Route3_Twin2Intro, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_LOLA_1, Route3_Twin2Defeated
+	waitmessage
+	end
+
+
 Route3_Antidote::
 	finditem ITEM_ANTIDOTE
 	return
@@ -125,151 +193,204 @@ Route3_GigaDrain::
 
 
 Route3_HikerIntro::
-	.string "Behold the power of fairy!$"
+	.string "Hahahaha!\n"
+	.string "How about we have a battle?\l"
+	.string "You and me!\l"
+	.string "Hahahaha!$"
 
 Route3_HikerDefeated::
-	.string "My little babies!$"
+	.string "I lost!\n"
+	.string "Hahahaha!$"
 
 Route3_HikerPostBattle::
-	.string "I guess there's more to\nPokémon battles than cuteness.$"
+	.string "Hahahahaha! Something flew up my nose!\n"
+	.string "Hahahaha-hatchoo!$"
 
 Route3_LassIntro::
-	.string "Behold the power of fairy!$"
+	.string "Should I…\n"
+	.string "Or shouldn't I?\p"
+	.string "Okay, sure, I will battle!$"
 
 Route3_LassDefeated::
-	.string "My little babies!$"
+	.string "I shouldn't have battled…$"
 
 Route3_LassPostBattle::
-	.string "I guess there's more to\nPokémon battles than cuteness.$"
+	.string "If you're faced with a decision and\n"
+	.string "you let someone else choose for you,\l"
+	.string "you will regret it, however things\l"
+	.string "turn out.$"
 
 Route3_ManiacIntro::
-	.string "Behold the power of fairy!$"
+	.string "Y-you want to battle with me?\n"
+	.string "Even though I just caught my POKéMON?$"
 
 Route3_ManiacDefeated::
-	.string "My little babies!$"
+	.string "Y-you're all happy to win?\n"
+	.string "Even though it's only me?$"
 
 Route3_ManiacPostBattle::
-	.string "I guess there's more to\nPokémon battles than cuteness.$"
+	.string "Oh, so now you want to say a word to\n"
+	.string "the loser?\p"
+	.string "Aren't you just the coolest?\n"
+	.string "Humph!$"
 
 Route3_BugCatcherIntro::
-	.string "Behold the power of fairy!$"
+	.string "My bug Pokémon are tough!\n"
+	.string "Let's battle!$"
 
 Route3_BugCatcherDefeated::
-	.string "My little babies!$"
+	.string "I lost!\n"
+	.string "I thought I had you!$"
 
 Route3_BugCatcherPostBattle::
-	.string "I guess there's more to\nPokémon battles than cuteness.$"
+	.string "Bug Pokémon evolve quickly.\n"
+	.string "So they get strong quickly, too.$"
 
 Route3_Twin1Intro::
-	.string "Behold the power of fairy!$"
+	.string "Gina: Okay, let's battle with our\n"
+	.string "Pokémon!$"
 
 Route3_Twin1Defeated::
-	.string "My little babies!$"
+	.string "Gina: Losing upsets me!$"
 
 Route3_Twin1PostBattle::
-	.string "I guess there's more to\nPokémon battles than cuteness.$"
+	.string "Gina: You are strong!\n"
+	.string "We have to train lots more!$"
 
 Route3_Twin2Intro::
-	.string "Behold the power of fairy!$"
+	.string "Mia: We are twins, so we battle\n"
+	.string "Pokémon together.$"
 
 Route3_Twin2Defeated::
-	.string "My little babies!$"
+	.string "Mia: We battled together, but we\n"
+	.string "both lost…$"
 
 Route3_Twin2PostBattle::
-	.string "I guess there's more to\nPokémon battles than cuteness.$"
+	.string "Mia: We will train our Pokémon more\n"
+	.string "and be strong like you.$"
 
 Route3_TriathleteIntro::
-	.string "Behold the power of fairy!$"
+	.string "The triathlon is hard in the extreme.\p"
+	.string "You have to complete the three events\n"
+	.string "of swimming, cycling, and running.$"
 
 Route3_TriathleteDefeated::
-	.string "My little babies!$"
+	.string "Pokémon battles are hard, too!$"
 
 Route3_TriathletePostBattle::
-	.string "I guess there's more to\nPokémon battles than cuteness.$"
+	.string "I'm exhausted, so I need a break.\n"
+	.string "It's important to get proper rest.$"
 
 Route3_CamperIntro::
-	.string "Behold the power of fairy!$"
+	.string "I'll give you some of my sandwich\n"
+	.string "if you'll lose.$"
 
 Route3_CamperDefeated::
-	.string "My little babies!$"
+	.string "Tch! I thought a sandwich would be\n"
+	.string "enough of a bribe…$"
 
 Route3_CamperPostBattle::
-	.string "I guess there's more to\nPokémon battles than cuteness.$"
+	.string "My Sandshrew loves eating\n"
+	.string "my sandwiches.$"
 
 Route3_CoolFIntro::
-	.string "Behold the power of fairy!$"
+	.string "Pokémon have many special abilities.\n"
+	.string "If you want to become a first-class\l"
+	.string "trainer, learn about them.$"
 
 Route3_CoolFDefeated::
-	.string "My little babies!$"
+	.string "You're obviously thinking.$"
 
 Route3_CoolFPostBattle::
-	.string "I guess there's more to\nPokémon battles than cuteness.$"
+	.string "The special abilities of Pokémon\n"
+	.string "will make battle styles change.$"
 
 Route3_CoolMIntro::
-	.string "Behold the power of fairy!$"
+	.string "Your party Pokémon…\n"
+	.string "Do you have different types?$"
 
 Route3_CoolMDefeated::
-	.string "My little babies!$"
+	.string "I've seen your policy in action!$"
 
 Route3_CoolMPostBattle::
-	.string "I guess there's more to\nPokémon battles than cuteness.$"
+	.string "I think it's awesome you're so strong\n"
+	.string "battling with your favorite Pokémon.$"
 
 Route3_Bird1Intro::
-	.string "Behold the power of fairy!$"
+	.string "My Pokémon are strong!\n"
+	.string "How about yours?$"
 
 Route3_Bird1Defeated::
-	.string "My little babies!$"
+	.string "Your Pokémon were stronger…$"
 
 Route3_Bird1PostBattle::
-	.string "I guess there's more to\nPokémon battles than cuteness.$"
+	.string "A Pokémon that grows steadily is one\n"
+	.string "you can count on.$"
 
 Route3_YoungsterIntro::
-	.string "Behold the power of fairy!$"
+	.string "There is no stronger trainer than I!$"
 
 Route3_YoungsterDefeated::
-	.string "My little babies!$"
+	.string "This can't be!$"
 
 Route3_YoungsterPostBattle::
-	.string "I guess there's more to\nPokémon battles than cuteness.$"
+	.string "There probably is no stronger trainer\n"
+	.string "than you!$"
 
 Route3_Bird2Intro::
-	.string "Behold the power of fairy!$"
+	.string "I'll show you the true potential of me\n"
+	.string "and my bird Pokémon!$"
 
 Route3_Bird2Defeated::
-	.string "My little babies!$"
+	.string "We lacked potential…$"
 
 Route3_Bird2PostBattle::
-	.string "I guess there's more to\nPokémon battles than cuteness.$"
+	.string "Ever since I was a little kid, I always\n"
+	.string "admired bird Pokémon…$"
 
 Route3_DoubleLassIntro::
-	.string "Behold the power of fairy!$"
+	.string "Let me teach you how strong my\n"
+	.string "adorable Pokémon are!$"
 
 Route3_DoubleLassDefeated::
-	.string "My little babies!$"
+	.string "You're a notch above me…$"
 
 Route3_DoubleLassPostBattle::
-	.string "I guess there's more to\nPokémon battles than cuteness.$"
+	.string "Pokémon that possess cuteness and\n"
+	.string "power, that's ideal, I think.$"
 
 Route3_DoubleBoyIntro::
-	.string "Behold the power of fairy!$"
+	.string "To train myself, I challenge all\n"
+	.string "whom I meet!$"
 
 Route3_DoubleBoyDefeated::
-	.string "My little babies!$"
+	.string "Uncle! I give up!$"
 
 Route3_DoubleBoyPostBattle::
-	.string "I guess there's more to\nPokémon battles than cuteness.$"
+	.string "All I can do is keep training until\n"
+	.string "I can defeat strong trainers such\l"
+	.string "as yourself.$"
 
 Route3_HedgeRunnerIntro::
-	.string "Behold the power of fairy!$"
+	.string "I'll battle while I'm running!\n"
+	.string "Try to keep up with me!$"
 
 Route3_HedgeRunnerDefeated::
-	.string "My little babies!$"
+	.string "Gasp, gasp…$"
 
 Route3_HedgeRunnerPostBattle::
-	.string "I guess there's more to\nPokémon battles than cuteness.$"
+	.string "I made the mistake of trying to battle\n"
+	.string "while running!\p"
+	.string "I should take a run to calm down…$"
 
 Route3_Twin1NotEnoughMons::
-	.string "$"
+	.string "Gina: Oh? Only one Pokémon?\n"
+	.string "Then, we don't battle with you.\p"
+	.string "If there's only one Pokémon, it will\n"
+	.string "be lonesome. That's not nice.$"
 
 Route3_Twin2NotEnoughMons::
-	.string "$"
+	.string "Mia: You want to battle with us?\p"
+	.string "It's a big no-no if you don't have two\n"
+	.string "Pokémon with you.\l"
+	.string "We're too strong for you!$"

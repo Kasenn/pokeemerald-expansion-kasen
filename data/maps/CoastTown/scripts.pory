@@ -13,12 +13,17 @@ script CoastTown_Sign1{
 }
 
 script CoastTown_Sign2{
-    msgbox("Diving Treasure Hunter's house", MSGBOX_SIGN)
+    msgbox("Treasure Hunter's house", MSGBOX_SIGN)
     end
 }
 
 script CoastTown_Sign3{
     msgbox("AZURETIDE TOWN\p“Where the land ends and the\nsea begins.”", MSGBOX_SIGN)
+    end
+}
+
+script CoastTown_Sign4{
+    msgbox("Azuretide Herb Shop", MSGBOX_SIGN)
     end
 }
 
@@ -50,6 +55,64 @@ script CoastTown_FatGuy{
     closemessage
     release
     end
+}
+
+script CoastTown_FatGuy2{
+    lockall
+    faceplayer
+    if(!flag(FLAG_COASTTOWNHONEYGET)){
+        msgbox(FatGuyHoneyIntro, MSGBOX_NPC)
+        checkitemspace(ITEM_HONEY, 3)
+        if(var(VAR_RESULT) == TRUE){
+            giveitem(ITEM_HONEY, 3)
+            msgbox(FatGuyHoneyGiven, MSGBOX_NPC)
+            setflag(FLAG_COASTTOWNHONEYGET)
+            waitmessage
+            closemessage
+            release
+            end
+        }
+        else{
+            msgbox(FatGuyNotEnoughRoom, MSGBOX_NPC)
+            waitmessage
+            closemessage
+            release
+            end
+        }
+    }
+    msgbox(FatGuyHoneyGivenAlready, MSGBOX_NPC)
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+text FatGuyHoneyIntro{
+    "These types of trees are\n"
+    "known as honey trees.\p"
+    "By slathering some honey on its bark,\n"
+    "you can attract Pokémon that would\l"
+    "normally be too skittish to appear.\p"
+    "Why don't you give it a try?"
+}
+
+text FatGuyHoneyGiven{
+    "Just slather some of that honey and\n"
+    "it should cause some Pokémon to\l"
+    "appear without delay.\p"
+    "There are more trees like this out\n"
+    "there in the world and many of them\l"
+    "should be able to attract an entirely\l"
+    "different set of Pokémon."
+}
+
+text FatGuyNotEnoughRoom{
+    "Oh, but you don't have enough room…"
+}
+
+text FatGuyHoneyGivenAlready{
+    "Go on, try using some of\n"
+    "that honey on this tree."
 }
 
 script CoastTown_LittleGirl{
@@ -259,4 +322,89 @@ script CoastTown_YesPokemonTree_Event{
 
 text YesPokemonTreeShake{
     "You give the tree a firm shake and\na wild Pokémon lands in front of you!"
+}
+
+script Azuretide_HoneyTree{
+    lockall
+    if(!flag(FLAG_COASTTOWNHONEYGET)){
+        msgbox("It's a peculiar looking tree.", MSGBOX_DEFAULT)
+        waitmessage
+        closemessage
+        release
+        end
+    }
+    checkitem(ITEM_HONEY, 1)
+    if(var(VAR_RESULT) == TRUE)
+    {
+        msgbox(HoneyTree_YesHoney, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == TRUE){
+            msgbox(HoneyUsedOnTree, MSGBOX_DEFAULT)
+            waitmessage
+            closemessage
+            removeitem(ITEM_HONEY, 1)
+            random(10)
+            if(var(VAR_RESULT) == 0){
+                setwildbattle(SPECIES_BOUNSWEET, 12)
+            }
+            if(var(VAR_RESULT) == 1){
+                setwildbattle(SPECIES_BOUNSWEET, 13)
+            }
+            if(var(VAR_RESULT) == 2){
+                setwildbattle(SPECIES_BOUNSWEET, 14)
+            }
+            if(var(VAR_RESULT) == 3){
+                setwildbattle(SPECIES_SKWOVET, 11)
+            }
+            if(var(VAR_RESULT) == 4){
+                setwildbattle(SPECIES_SKWOVET, 12)
+            }
+            if(var(VAR_RESULT) == 5){
+                setwildbattle(SPECIES_SKWOVET, 13)
+            }
+            if(var(VAR_RESULT) == 6){
+                setwildbattle(SPECIES_SKWOVET, 14)
+            }
+            if(var(VAR_RESULT) == 7){
+                setwildbattle(SPECIES_APPLIN, 12)
+            }
+            if(var(VAR_RESULT) == 8){
+                setwildbattle(SPECIES_APPLIN, 14)
+            }
+            if(var(VAR_RESULT) == 9){
+                setwildbattle(SPECIES_MUNCHLAX, 14)
+            }
+            dowildbattle
+            release
+            end
+        }
+        else{
+            waitmessage
+            closemessage
+            release
+            end
+        }
+    }
+    else{
+        msgbox(HoneyTree_NoHoney, MSGBOX_SIGN)
+        waitmessage
+        closemessage
+        release
+        end
+    }
+}
+
+text HoneyUsedOnTree{
+    "You slather some honey on the tree…\p"
+    "…\p"
+    "…\p"
+    "The honey lured in a wild Pokémon!"
+}
+
+text HoneyTree_NoHoney{
+    "It's a honey tree."
+}
+
+text HoneyTree_YesHoney{
+    "It's a honey tree. Would you\n"
+    "like to slather some honey on it?"
 }

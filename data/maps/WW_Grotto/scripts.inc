@@ -4,7 +4,7 @@ WW_Grotto_MapScripts::
 
 WW_GrottoPokemon::
 	lockall
-	random 8
+	random 9
 	compare VAR_RESULT, 0
 	goto_if_eq WW_GrottoPokemon_2
 WW_GrottoPokemon_1:
@@ -37,7 +37,7 @@ WW_GrottoPokemon_25:
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject 1
 	delay 20
-	setflag FLAG_UNUSED_WWGROTTO
+	setflag FLAG_DAILY_WW_GROTTO
 	fadescreenswapbuffers FADE_FROM_BLACK
 	delay 20
 	release

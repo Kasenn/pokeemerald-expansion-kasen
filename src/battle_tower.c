@@ -40,6 +40,8 @@
 
 extern const u8 MossdeepCity_SpaceCenter_2F_EventScript_MaxieTrainer[];
 extern const u8 MossdeepCity_SpaceCenter_2F_EventScript_TabithaTrainer[];
+extern const u8 PokeRanch_RocketTrainer1[];
+extern const u8 PokeRanch_RocketTrainer2[];
 
 // EWRAM vars.
 EWRAM_DATA const struct BattleFrontierTrainer *gFacilityTrainers = NULL;
@@ -2146,6 +2148,16 @@ void DoSpecialTrainerBattle(void)
         CreateTask(Task_StartBattleAfterTransition, 1);
         PlayMapChosenOrBattleBGM(0);
         BattleTransition_StartOnField(B_TRANSITION_MAGMA);
+        break;
+    case SPECIAL_BATTLE_RANCH:
+        gBattleTypeFlags = BATTLE_TYPE_TRAINER | BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_MULTI;
+        gApproachingTrainerId = 0;
+        BattleSetup_ConfigureTrainerBattle(PokeRanch_RocketTrainer1 + 1);
+        gApproachingTrainerId = 1;
+        BattleSetup_ConfigureTrainerBattle(PokeRanch_RocketTrainer2 + 1);
+        CreateTask(Task_StartBattleAfterTransition, 1);
+        PlayMapChosenOrBattleBGM(0);
+        BattleTransition_StartOnField(B_TRANSITION_SHRED_SPLIT);
         break;
     case SPECIAL_BATTLE_MULTI:
         if (gSpecialVar_0x8005 & MULTI_BATTLE_2_VS_WILD) // Player + AI against wild mon

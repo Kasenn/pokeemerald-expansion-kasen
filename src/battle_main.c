@@ -392,6 +392,7 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_WINSTRATE, 10},
     {TRAINER_CLASS_NURSE, 0},
     {TRAINER_CLASS_GYMMEMBER, 20},
+    {TRAINER_CLASS_GYMMEMBER_DOUBLE, 30},
     {0xFF, 5}, // Any trainer class not listed above uses this
 };
 
@@ -3988,6 +3989,9 @@ u8 IsRunningFromBattleImpossible(u32 battler)
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DONT_LEAVE_BIRCH;
         return BATTLE_RUN_FORBIDDEN;
     }
+    if (FlagGet(FLAG_NO_WILD_RUNNING))
+        return BATTLE_RUN_FORBIDDEN;
+
     if (GetBattlerPosition(battler) == B_POSITION_PLAYER_RIGHT && WILD_DOUBLE_BATTLE
         && IsBattlerAlive(GetBattlerAtPosition(B_POSITION_PLAYER_LEFT))) // The second pokemon cannot run from a double wild battle, unless it's the only alive mon.
     {

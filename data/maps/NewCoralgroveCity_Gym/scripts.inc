@@ -302,7 +302,9 @@ NewCoralgroveCity_Gym_Text_ReceivedStoneBadge::
 
 NewCoralgroveCity_Gym_Text_StoneBadgeInfoTakeThis::
 	.string "The Hive Badge heightens the attack\n"
-	.string "power of your Pokémon.\p"
+	.string "power of your Pokémon and makes any\l"
+	.string "Pokémon up to level 30 obey\l"
+	.string "all of your commands.\p"
 	.string "It also enables them to use the HM move\n"
 	.string "“Fly” outside of battle.\p"
 	.string "Please take this with you, too.$"

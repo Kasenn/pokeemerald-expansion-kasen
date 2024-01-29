@@ -2,7 +2,7 @@ mapscripts WW_Grotto_MapScripts{}
 
 script WW_GrottoPokemon{
     lockall
-    random(8)
+    random(9)
     if(var(VAR_RESULT) == 0){
         playmoncry(SPECIES_DUNSPARCE, CRY_MODE_ENCOUNTER)
         delay(40)
@@ -62,7 +62,7 @@ script WW_GrottoPokemon{
     fadescreenswapbuffers(FADE_TO_BLACK)
     removeobject(1)
     delay(20)
-    setflag(FLAG_UNUSED_WWGROTTO)
+    setflag(FLAG_DAILY_WW_GROTTO)
     fadescreenswapbuffers(FADE_FROM_BLACK)
     delay(20)
     release
