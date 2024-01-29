@@ -1,0 +1,419 @@
+mapscripts RanchBarn_MapScripts{}
+
+script BarnJugOfWater{
+    msgbox("It's a jug full of water.", MSGBOX_SIGN)
+    end
+}
+
+script BarnHappyMareep{
+    lock
+    waitse
+	playmoncry(SPECIES_MAREEP, CRY_MODE_NORMAL)
+	msgbox("Baa!", MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+
+script BarnSadMareep{
+    lock
+    waitse
+	playmoncry(SPECIES_MAREEP, CRY_MODE_NORMAL)
+	msgbox("Baa…", MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+
+script BarnShearingBoy{
+    lock
+    faceplayer
+	msgbox("I'm supposed to be shearing this Mareep\nbut how can I do that when it won't\lstand still?", MSGBOX_DEFAULT)
+	waitmessage
+    closemessage
+	release
+	end
+}
+
+script BarnConcernedGirl {
+    lock
+    faceplayer
+	msgbox("This li'l fella has fallen ill so we\nhad to quarantine it while we work on\lthe other one.", MSGBOX_DEFAULT)
+	waitmessage
+    closemessage
+	release
+	end
+}
+
+script BarnSickMareep{
+    if(flag(FLAG_JASMINE_HELPED)){
+        goto(BarnHappyMareep)
+    }
+    else{
+        goto(BarnSadMareep)
+    }
+}
+
+script BarnJasmineEvent{
+    lock
+    faceplayer
+    if((flag(FLAG_JASMINE_HELPED)) && (!flag(FLAG_VOLKNER_HELPED))){
+        msgbox(BarnJasmine_VolknerNeedsHelp, MSGBOX_DEFAULT)
+    }
+    elif(flag(FLAG_RANCH_HELPED)){
+        msgbox(BarnJasmine_StayForWhile, MSGBOX_DEFAULT)
+    }
+    elif(!flag(FLAG_VOLKNER_TALKED_TO_FIRST) && (!flag(FLAG_JASMINE_MET))){
+        msgbox(JasmineBarn_FirstMeeting, MSGBOX_DEFAULT)
+        giveitem(ITEM_COIN_PURSE)
+        waitse
+        setflag(FLAG_JASMINE_QUEST_STARTED)
+        setflag(FLAG_JASMINE_MET)
+        setflag(FLAG_JASMINE_TALKED_TO_FIRST)
+        checkitem(ITEM_HERBAL_MIX)
+        if(var(VAR_RESULT) == TRUE){
+            msgbox(BarnJasmine_AlreadyCarryingMix, MSGBOX_YESNO)
+            if(var(VAR_RESULT) == TRUE){
+                removeitem(ITEM_HERBAL_MIX, 1)
+                goto(BarnJasmine_EventHealMareep)
+            }
+            else{
+                msgbox(BarnJasmine_ThatsTooBad, MSGBOX_DEFAULT)
+            }
+        }
+    }
+    elif(flag(FLAG_VOLKNER_TALKED_TO_FIRST) && (!flag(FLAG_JASMINE_MET)) && (!flag(FLAG_VOLKNER_HELPED))){
+        msgbox(JasmineBarn_MeetingAfterVolkner, MSGBOX_DEFAULT)
+        giveitem(ITEM_COIN_PURSE)
+        waitse
+        setflag(FLAG_JASMINE_QUEST_STARTED)
+        setflag(FLAG_JASMINE_MET)
+        checkitem(ITEM_HERBAL_MIX)
+        if(var(VAR_RESULT) == TRUE){
+            msgbox(BarnJasmine_AlreadyCarryingMix, MSGBOX_YESNO)
+            if(var(VAR_RESULT) == TRUE){
+                removeitem(ITEM_HERBAL_MIX, 1)
+                goto(BarnJasmine_EventHealMareep)
+            }
+            else{
+                msgbox(BarnJasmine_ThatsTooBad, MSGBOX_DEFAULT)
+            }
+        }
+    }
+    elif(flag(FLAG_VOLKNER_TALKED_TO_FIRST) && (!flag(FLAG_JASMINE_MET)) && (flag(FLAG_VOLKNER_HELPED))){
+        msgbox(JasmineBarn_MeetingAfterForest, MSGBOX_DEFAULT)
+        giveitem(ITEM_COIN_PURSE)
+        waitse
+        setflag(FLAG_JASMINE_QUEST_STARTED)
+        setflag(FLAG_JASMINE_MET)
+        checkitem(ITEM_HERBAL_MIX)
+        if(var(VAR_RESULT) == TRUE){
+            msgbox(BarnJasmine_AlreadyCarryingMix, MSGBOX_YESNO)
+            if(var(VAR_RESULT) == TRUE){
+                removeitem(ITEM_HERBAL_MIX, 1)
+                goto(BarnJasmine_EventHealMareep)
+            }
+            else{
+                msgbox(BarnJasmine_ThatsTooBad, MSGBOX_DEFAULT)
+            }
+        }
+    }
+    elif(flag(FLAG_JASMINE_QUEST_STARTED)){     // the main jasmine quest
+        if(flag(FLAG_VISITED_HERB_SHOP_2)){
+            removeitem(ITEM_HERBAL_MIX_QUEST)
+            msgbox(BarnJasmine_HeresTheMedicine, MSGBOX_DEFAULT)
+            goto(BarnJasmine_EventHealMareep)
+        }
+        elif(flag(FLAG_VISITED_HERB_SHOP)){
+            checkitem(ITEM_HERBAL_MIX)
+            if(var(VAR_RESULT) == TRUE){
+                removeitem(ITEM_HERBAL_MIX, 1)
+                msgbox(BarnJasmine_HeresTheMedicine, MSGBOX_DEFAULT)
+                goto(BarnJasmine_EventHealMareep)
+            }
+            if(var(VAR_RESULT) == FALSE){
+                msgbox(BarnJasmine_WhereHerbalMix, MSGBOX_DEFAULT)
+                giveitem(ITEM_JASM_LETTER)
+                waitse
+                msgbox(BarnJasmine_DontFail, MSGBOX_DEFAULT)
+            }
+        }
+        else{
+            checkitem(ITEM_HERBAL_MIX)
+            if(var(VAR_RESULT) == TRUE){
+                if(flag(FLAG_VISITED_HERB_SHOP)){
+                    removeitem(ITEM_HERBAL_MIX, 1)
+                    msgbox(BarnJasmine_HeresTheMedicine, MSGBOX_DEFAULT)
+                    goto(BarnJasmine_EventHealMareep)
+                }
+                else{
+                    msgbox(BarnJasmine_HaveYouChangedMind, MSGBOX_YESNO)
+                }
+                if(var(VAR_RESULT) == TRUE){
+                    removeitem(ITEM_HERBAL_MIX, 1)
+                    goto(BarnJasmine_EventHealMareep)
+                }
+                else{
+                msgbox(BarnJasmine_ThatsTooBad, MSGBOX_DEFAULT)
+                }
+            }
+            else{
+                msgbox(BarnJasmine_GoVisitHerbShop, MSGBOX_DEFAULT)
+            }
+        }
+    }
+    else{
+        waitmessage
+        closemessage
+        release
+        end
+    }
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script BarnJasmine_EventHealMareep{
+    playfanfare(MUS_OBTAIN_ITEM)
+    msgbox(BarnJasmine_HandOverHerbalMix, MSGBOX_DEFAULT)
+    waitfanfare
+    waitmessage
+    msgbox(BarnJasmine_HealingMareep, MSGBOX_DEFAULT)
+    waitmessage
+    closemessage
+    fadescreen(FADE_TO_BLACK)
+	playfanfare(MUS_HEAL)
+	waitfanfare
+	fadescreen(FADE_FROM_BLACK)
+    if(flag(FLAG_VOLKNER_HELPED)){
+        call(Ranch_QuestFlagsComplete)
+        msgbox(BarnJasmine_QuestComplete, MSGBOX_DEFAULT)
+        waitmessage
+        closemessage
+        release
+        end
+    }
+    else{
+        setflag(FLAG_JASMINE_HELPED)
+        if(flag(FLAG_VOLKNER_MET)){
+            msgbox(BarnJasmine_QuestComplete, MSGBOX_DEFAULT)
+        }
+        else{
+            msgbox(BarnJasmine_QuestComplete2, MSGBOX_DEFAULT)
+        }
+        waitmessage
+        closemessage
+        release
+        end
+    }
+}
+
+text BarnJasmine_HeresTheMedicine{
+    "Jasmine: You're back already.\n"
+    "Do you have the medicine?"
+}
+
+text BarnJasmine_HandOverHerbalMix{
+    "{PLAYER} handed the Herbal Mix\n"
+    "to Jasmine."
+}
+text BarnJasmine_HealingMareep{
+    "Jasmine: Thank you so much\n"
+    "for your help.\p"
+    "Now I just need to mix these herbs with\n"
+    "some of this guy's favorite feed and…\p"
+    "Mareep: B-Baa…!\p"
+    "Jasmine: I know, it probably\n"
+    "tastes awful…\l"
+    "But still, I need you to swallow it…"
+}
+text BarnJasmine_QuestComplete{
+    "Jasmine: The Mareep is already\n"
+    "starting to look much better.\p"
+    "Oh, I'm so relieved…\n"
+    "This is just so wonderful…\l"
+    "Thank you so very, very much.\p"
+    "Do you think you could let\n"
+    "Volkner know about our progress?\p"
+    "I still need to monitor this\n"
+    "little guy's condition.\p"
+    "Once I'm sure it's healthy,\n"
+    "I need to care after the Mareep\l"
+    "in the next stall as well."
+}
+
+text BarnJasmine_QuestComplete2{
+    "Jasmine: The Mareep is already\n"
+    "starting to look much better.\p"
+    "Oh, I'm so relieved…\n"
+    "This is just so wonderful…\l"
+    "Thank you so very, very much.\p"
+    "Do you think you could let\n"
+    "Volkner know about our progress?\p"
+    "He's a blonde guy, shouldn't be\n"
+    "too far away from the barn.\p"
+    "I still need to monitor this\n"
+    "little guy's condition.\p"
+    "Once I'm sure it's healthy,\n"
+    "I need to care after the Mareep\l"
+    "in the next stall as well."
+}
+
+text BarnJasmine_VolknerNeedsHelp{
+    "Jasmine: I need to stay here and\n"
+    "monitor this little guy's condition.\p"
+    "In the meanwhile, do you think\n"
+    "you could go help Volkner out…?"
+}
+
+text BarnJasmine_StayForWhile{
+    "Jasmine: I still need to make sure\n"
+    "this little guy is okay.\p"
+    "After that I need to move on to the\n"
+    "next patient…\p"
+    "I might be staying here for a while."
+}
+
+text JasmineBarn_FirstMeeting{
+    "Um… I'm sorry,\n"
+    "but this place is off-limits…\p"
+    "Although…\p"
+    "I guess I could use some help\n"
+    "with this case.\p"
+    "Jasmine: My name is Jasmine.\n"
+    "A friend of mine called me over to help.\p"
+    "It seems there might be problems\n"
+    "brewing here at the ranch…\p"
+    "I'm not sure I'm the best person for\n"
+    "this job but he said that my prior\l"
+    "experience could be helpful here…\p"
+    "Anyway, do you think\n"
+    "you could lend a hand?\l"
+    "This little guy has fallen ill and\l"
+    "is in need of some potent medicine\l"
+    "called the Herbal Mix…\p"
+    "The only place that sells it is\n"
+    "the herb shop in Azuretide Town.\p"
+    "I'd go myself but I need to stay here\n"
+    "and make sure this pal's condition\l"
+    "doesn't worsen…\p"
+    "Here, I attached a note on this\n"
+    "coin purse.\p"
+    "Just give it to the clerk at the herb\n"
+    "shop and he'll give you the medicine."
+}
+
+text JasmineBarn_MeetingAfterVolkner{
+    "Um… I'm sorry,\n"
+    "but this place is off-limits…\p"
+    "What's that?\n"
+    "Volkner sent you?\p"
+    "In that case, I guess I could use\n"
+    "an extra pair of hands…\p"
+    "Jasmine: My name is Jasmine.\n"
+    "Volkner called me over to help.\p"
+    "It seems there might be problems\n"
+    "brewing here at the ranch…\p"
+    "I'm not sure I'm the best person for\n"
+    "this job but he said that my prior\l"
+    "experience could be helpful here…\p"
+    "Anyway, do you think\n"
+    "you could lend a hand?\l"
+    "This little guy has fallen ill and\l"
+    "is in need of some potent medicine\l"
+    "called the Herbal Mix…\p"
+    "The only place that sells it is\n"
+    "the herb shop in Azuretide Town.\p"
+    "I'd go myself but I need to stay here\n"
+    "and make sure this pal's condition\l"
+    "doesn't worsen…\p"
+    "Here, I attached a note on this\n"
+    "coin purse.\p"
+    "Just give it to the clerk at the herb\n"
+    "shop and he'll give you the medicine."
+}
+
+text JasmineBarn_MeetingAfterForest{
+    "Um… I'm sorry,\n"
+    "but this place is off-limits…\p"
+    "Wait, you're the trainer who was\n"
+    "being harassed by Team Rocket…\p"
+    "Oh, I'm sorry.\n"
+    "Where are my manners…\p"
+    "Jasmine: My name is Jasmine.\n"
+    "Volkner called me over to help.\p"
+    "It seems there might be problems\n"
+    "brewing here at the ranch…\p"
+    "I'm not sure I'm the best person for\n"
+    "this job but he said that my prior\l"
+    "experience could be helpful here…\p"
+    "Anyway, do you think\n"
+    "you could lend a hand?\l"
+    "This little guy has fallen ill and\l"
+    "is in need of some potent medicine\l"
+    "called the Herbal Mix…\p"
+    "The only place that sells it is\n"
+    "the herb shop in Azuretide Town.\p"
+    "I'd go myself but I need to stay here\n"
+    "and make sure this pal's condition\l"
+    "doesn't worsen…\p"
+    "Here, I attached a note on this\n"
+    "coin purse.\p"
+    "Just give it to the clerk at the herb\n"
+    "shop and he'll give you the medicine."
+}
+
+text BarnJasmine_AlreadyCarryingMix{
+    "Oh, but I notice you are already\n"
+    "carrying some Herbal Mix…\p"
+    "Would you be willing to part with it\n"
+    "so I may help this Mareep at once?\p"
+    "You can still take that purse to the\n"
+    "herb shop afterwards and\l"
+    "receive a new batch in return…"
+}
+
+text BarnJasmine_ThatsTooBad{
+    "I understand…\p"
+    "Well, do let me know if you change\n"
+    "your mind or have visited\l"
+    "the herb shop to get another batch…"
+}
+
+text BarnJasmine_HaveYouChangedMind{
+    "Jasmine: I see the coin purse\n"
+    "is still full.\p"
+    "Despite it, I see you are\n"
+    "already carrying some Herbal Mix…\p"
+    "Would you be willing to part with it\n"
+    "so I may help this Mareep at once?\p"
+    "You can still take that purse to the\n"
+    "herb shop afterwards and\l"
+    "receive a new batch in return…"
+}
+
+text BarnJasmine_GoVisitHerbShop{
+    "Jasmine: I need to stay and monitor\n"
+    "this pal's condition…\p"
+    "Could you please fetch the Herbal Mix\n"
+    "from Azuretide Town's herb shop…?"
+}
+
+text BarnJasmine_WhereHerbalMix{
+    "Did you visit the herb shop?\n"
+    "What happened to the Herbal Mix?\p"
+    "Sigh…\p"
+    "This is really urgent so I wish\n"
+    "you took this more seriously…\p"
+    "… … …\p"
+    "I wrote this note that\n"
+    "explains the situation.\p"
+    "Please take it to the herb shop\n"
+    "and give it to the clerk there…"
+}
+
+text BarnJasmine_DontFail{
+    "Jasmine: Please…\n"
+    "This is really urgent…"
+}

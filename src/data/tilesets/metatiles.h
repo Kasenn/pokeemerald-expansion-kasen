@@ -28,6 +28,9 @@ const u16 gMetatileAttributes_Fortree[] = INCBIN_U16("data/tilesets/secondary/fo
 const u16 gMetatiles_Lilycove[] = INCBIN_U16("data/tilesets/secondary/lilycove/metatiles.bin");
 const u16 gMetatileAttributes_Lilycove[] = INCBIN_U16("data/tilesets/secondary/lilycove/metatile_attributes.bin");
 
+const u16 gMetatiles_Ranch[] = INCBIN_U16("data/tilesets/secondary/ranch/metatiles.bin");
+const u16 gMetatileAttributes_Ranch[] = INCBIN_U16("data/tilesets/secondary/ranch/metatile_attributes.bin");
+
 const u16 gMetatiles_Mossdeep[] = INCBIN_U16("data/tilesets/secondary/mossdeep/metatiles.bin");
 const u16 gMetatileAttributes_Mossdeep[] = INCBIN_U16("data/tilesets/secondary/mossdeep/metatile_attributes.bin");
 
@@ -237,3 +240,9 @@ const u16 gMetatileAttributes_Pearlwood_PRIMROSEFLOWERS[] = INCBIN_U16("data/til
 
 const u16 gMetatiles_WipCity1[] = INCBIN_U16("data/tilesets/secondary/wip_city_1/metatiles.bin");
 const u16 gMetatileAttributes_WipCity1[] = INCBIN_U16("data/tilesets/secondary/wip_city_1/metatile_attributes.bin");
+
+const u16 gMetatiles_CaveTiles[] = INCBIN_U16("data/tilesets/secondary/cave_tiles/metatiles.bin");
+const u16 gMetatileAttributes_CaveTiles[] = INCBIN_U16("data/tilesets/secondary/cave_tiles/metatile_attributes.bin");
+
+const u16 gMetatiles_General2[] = INCBIN_U16("data/tilesets/primary/general2/metatiles.bin");
+const u16 gMetatileAttributes_General2[] = INCBIN_U16("data/tilesets/primary/general2/metatile_attributes.bin");

@@ -8250,7 +8250,7 @@ const struct Item gItems[] =
         .secondaryId = MOVE_NONE, // Todo
     },
 
-    [ITEM_TM93] =
+    [ITEM_TM_WILD_CHARGE] =
     {
         .name = _("TM93"),
         .price = 3000,
@@ -8259,7 +8259,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_WILD_CHARGE, // Todo
     },
 
     [ITEM_TM_FALSE_SWIPE] =
@@ -8692,7 +8692,7 @@ const struct Item gItems[] =
 
     [ITEM_DOWSING_MACHINE] =
     {
-        .name = _("Dowsing MCHN"),
+        .name = _("Itemfinder"),
         .price = 0,
         .description = sDowsingMachineDesc,
         .importance = 1,
@@ -9636,5 +9636,50 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 10,
+    },
+
+    [ITEM_HERBAL_MIX] =
+    {
+        .name = _("Herbal Mix"),
+        .price = 3500,
+        .description = sHerbalMixDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = EFFECT_ITEM_HERBAL_MIX,
+        .flingPower = 30,
+    },
+
+    [ITEM_HERBAL_MIX_QUEST] =
+    {
+        .name = _("Herbal Mix"),
+        .price = 0,
+        .description = sHerbalMixQuestDesc,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_JASM_LETTER] =
+    {
+        .name = _("Written Note"),
+        .price = 0,
+        .description = sWrittenNoteDesc,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_COIN_PURSE] =
+    {
+        .name = _("Coin Purse"),
+        .price = 0,
+        .description = sCoinPurseDesc,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 };

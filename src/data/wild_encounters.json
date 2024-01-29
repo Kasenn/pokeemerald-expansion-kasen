@@ -12547,7 +12547,7 @@
               {
                 "min_level": 2,
                 "max_level": 6,
-                "species": "SPECIES_MUNCHLAX"
+                "species": "SPECIES_BUNNELBY"
               },
               {
                 "min_level": 2,
@@ -12967,7 +12967,7 @@
               {
                 "min_level": 9,
                 "max_level": 14,
-                "species": "SPECIES_KRICKETOT"
+                "species": "SPECIES_GEODUDE"
               },
               {
                 "min_level": 9,
@@ -13152,6 +13152,144 @@
                 "min_level": 10,
                 "max_level": 10,
                 "species": "SPECIES_ORICORIO"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_POKE_RANCH",
+          "base_label": "gPokeRanch0",
+          "land_mons": {
+            "encounter_rate": 25,
+            "mons": [
+              {
+                "min_level": 10,
+                "max_level": 14,
+                "species": "SPECIES_LILLIPUP"
+              },
+              {
+                "min_level": 10,
+                "max_level": 14,
+                "species": "SPECIES_PSYDUCK"
+              },
+              {
+                "min_level": 10,
+                "max_level": 14,
+                "species": "SPECIES_MUDBRAY"
+              },
+              {
+                "min_level": 10,
+                "max_level": 14,
+                "species": "SPECIES_SEWADDLE"
+              },
+              {
+                "min_level": 11,
+                "max_level": 14,
+                "species": "SPECIES_SEWADDLE"
+              },
+              {
+                "min_level": 12,
+                "max_level": 14,
+                "species": "SPECIES_LILLIPUP"
+              },
+              {
+                "min_level": 11,
+                "max_level": 14,
+                "species": "SPECIES_PSYDUCK"
+              },
+              {
+                "min_level": 11,
+                "max_level": 14,
+                "species": "SPECIES_MUDBRAY"
+              },
+              {
+                "min_level": 12,
+                "max_level": 14,
+                "species": "SPECIES_SEWADDLE"
+              },
+              {
+                "min_level": 10,
+                "max_level": 14,
+                "species": "SPECIES_PHANTUMP"
+              },
+              {
+                "min_level": 10,
+                "max_level": 14,
+                "species": "SPECIES_PHANTUMP"
+              },
+              {
+                "min_level": 13,
+                "max_level": 14,
+                "species": "SPECIES_SEWADDLE"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_ALDELEAF_GYM",
+          "base_label": "gAldeleafGym0",
+          "land_mons": {
+            "encounter_rate": 80,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 6,
+                "max_level": 6,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 7,
+                "max_level": 7,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 6,
+                "max_level": 6,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 7,
+                "max_level": 7,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 8,
+                "max_level": 8,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 9,
+                "max_level": 9,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 10,
+                "max_level": 10,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 11,
+                "max_level": 11,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 12,
+                "max_level": 12,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 13,
+                "max_level": 13,
+                "species": "SPECIES_NONE"
               }
             ]
           }

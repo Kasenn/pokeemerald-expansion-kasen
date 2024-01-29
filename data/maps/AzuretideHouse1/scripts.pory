@@ -1,0 +1,125 @@
+mapscripts AzuretideHouse1_MapScripts{}
+
+script AzuretideHouse1_HerbShop_EventScript_Clerk{
+	lock
+	faceplayer
+	if(flag(FLAG_TEMP_1)){
+		msgbox(DeliverHerbalMix, MSGBOX_DEFAULT)
+		waitmessage
+		closemessage
+		pokemart(AzuretideHouse1_HerbShop_Pokemart)
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+		release
+		end
+	}
+	checkitem(ITEM_COIN_PURSE)
+	if(var(VAR_RESULT) == TRUE){
+		msgbox(AzuretideHouse1_HerbShop_Text_WelcomeToHerbShop, MSGBOX_DEFAULT)
+		waitmessage
+		playfanfare(MUS_OBTAIN_ITEM)
+		msgbox(HerbShop_HandOverPouch)
+		waitfanfare
+		waitmessage
+		msgbox(HerbShop_GiveHerbalMix)
+		removeitem(ITEM_COIN_PURSE)
+		giveitem(ITEM_HERBAL_MIX, 1)
+		waitse
+		closemessage
+		if(!flag(FLAG_JASMINE_HELPED)){
+			setflag(FLAG_TEMP_1)
+		}
+		setflag(FLAG_VISITED_HERB_SHOP)
+		release
+		end
+	}
+	checkitem(ITEM_JASM_LETTER)
+	if(var(VAR_RESULT) == TRUE){
+		msgbox(AzuretideHouse1_HerbShop_Text_WelcomeToHerbShop, MSGBOX_DEFAULT)
+		waitmessage
+		playfanfare(MUS_OBTAIN_ITEM)
+		msgbox(HerbShop_HandOverLetter)
+		waitfanfare
+		waitmessage
+		msgbox(HerbShop_GiveHerbalMixQuest)
+		removeitem(ITEM_JASM_LETTER)
+		giveitem(ITEM_HERBAL_MIX_QUEST)
+		waitse
+		closemessage
+		if(!flag(FLAG_JASMINE_HELPED)){
+			setflag(FLAG_TEMP_1)
+		}
+		setflag(FLAG_VISITED_HERB_SHOP_2)
+		release
+		end
+	}
+	message(AzuretideHouse1_HerbShop_Text_WelcomeToHerbShop)
+	waitmessage
+	pokemart(AzuretideHouse1_HerbShop_Pokemart)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+text HerbShop_HandOverPouch{
+	"{PLAYER} handed the penny pouch\n"
+	"with the note to the store clerk."
+}
+
+text HerbShop_HandOverLetter{
+	"{PLAYER} handed the note\n"
+	"to the store clerk."
+}
+
+text HerbShop_GiveHerbalMixQuest{
+	"Store clerk: Back so soon?\n"
+	"Hm, what's this?\p"
+	"… … …\p"
+	"Yes, I see.\p"
+	"Here you go. And please,\n"
+	"be more careful with it this time…"
+}
+
+text HerbShop_GiveHerbalMix{
+	"Store clerk: What's this?\p"
+	"… … …\p"
+	"Yes, I see.\p"
+	"Here you go."
+}
+
+text DeliverHerbalMix{
+	"Store clerk: The note said this\n"
+	"delivery is urgent.\l"
+	"You should probably deliver it quickly…\p"
+	"But still, who am I to reject\n"
+	"a potential customer?\p"
+	"Welcome to the herb shop, home of\n"
+	"effective and inexpensive medicine!"
+}
+
+mart AzuretideHouse1_HerbShop_Pokemart{
+	ITEM_ENERGY_POWDER
+	ITEM_ENERGY_ROOT
+	ITEM_HEAL_POWDER
+	ITEM_REVIVAL_HERB
+    ITEM_HERBAL_MIX
+	ITEM_NONE
+}
+
+text AzuretideHouse1_HerbShop_Text_WelcomeToHerbShop{
+	"Welcome to the herb shop, home of\n"
+	"effective and inexpensive medicine!"
+}
+
+script AzuretideHouse1_HerbShop_OldLady{
+    lock
+    faceplayer
+    msgbox(AzuretideHouse1_HerbShop_Text_HerbalMedicineWorksButMonWillDislike, MSGBOX_DEFAULT)
+    release
+    end
+}
+
+text AzuretideHouse1_HerbShop_Text_HerbalMedicineWorksButMonWillDislike{
+	"Herbal medicine works impressively well.\n"
+	"But your Pokémon will dislike you for it.\l"
+	"It must be horribly bitter!"
+}

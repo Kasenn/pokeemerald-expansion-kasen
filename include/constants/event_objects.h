@@ -72,17 +72,17 @@
 #define OBJ_EVENT_GFX_REPORTER_F                  68
 #define OBJ_EVENT_GFX_BARD                        69
 #define OBJ_EVENT_GFX_ANABEL                      70
-#define OBJ_EVENT_GFX_TUCKER                      71
+#define OBJ_EVENT_GFX_EXAMPLE6                    71
 #define OBJ_EVENT_GFX_GRETA                       72
 #define OBJ_EVENT_GFX_SPENSER                     73
 #define OBJ_EVENT_GFX_NOLAND                      74
 #define OBJ_EVENT_GFX_LUCY                        75
 #define OBJ_EVENT_GFX_IRIS                        76
-#define OBJ_EVENT_GFX_UNUSED_MAGNEMITE_DOLL       77
-#define OBJ_EVENT_GFX_UNUSED_SQUIRTLE_DOLL        78
+#define OBJ_EVENT_GFX_VOLKNER                     77
+#define OBJ_EVENT_GFX_JASMINE                     78
 #define OBJ_EVENT_GFX_UNUSED_WOOPER_DOLL          79
 #define OBJ_EVENT_GFX_UNUSED_PIKACHU_DOLL         80
-#define OBJ_EVENT_GFX_UNUSED_PORYGON2_DOLL        81
+#define OBJ_EVENT_GFX_MAREEP                      81
 #define OBJ_EVENT_GFX_CUTTABLE_TREE               82
 #define OBJ_EVENT_GFX_MART_EMPLOYEE               83
 #define OBJ_EVENT_GFX_ROOFTOP_SALE_WOMAN          84
@@ -98,7 +98,7 @@
 #define OBJ_EVENT_GFX_TRUCK                       94
 #define OBJ_EVENT_GFX_EXAMPLE2                    95
 #define OBJ_EVENT_GFX_EXAMPLE3                    96
-#define OBJ_EVENT_GFX_EXAMPLE4                    97
+#define OBJ_EVENT_GFX_ROCKET_M                    97
 #define OBJ_EVENT_GFX_EXAMPLE5                    98
 #define OBJ_EVENT_GFX_ARTIST                      99
 #define OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL       100
@@ -128,7 +128,7 @@
 #define OBJ_EVENT_GFX_DRAKE                      124
 #define OBJ_EVENT_GFX_ROXANNE                    125
 #define OBJ_EVENT_GFX_BRAWLY                     126
-#define OBJ_EVENT_GFX_WATTSON                    127
+#define OBJ_EVENT_GFX_ROCKET_F                    127
 #define OBJ_EVENT_GFX_FLANNERY                   128
 #define OBJ_EVENT_GFX_NORMAN                     129
 #define OBJ_EVENT_GFX_WINONA                     130
@@ -362,6 +362,18 @@
 #define OBJ_EVENT_PAL_TAG_LUGIA                   0x1121
 #define OBJ_EVENT_PAL_TAG_RS_BRENDAN              0x1122
 #define OBJ_EVENT_PAL_TAG_RS_MAY                  0x1123
+#define OBJ_EVENT_PAL_EXAMPLE                     0x1124
+#define OBJ_EVENT_PAL_EXAMPLE2                    0x1125
+#define OBJ_EVENT_PAL_EXAMPLE3                    0x1126
+#define OBJ_EVENT_PAL_EXAMPLE4                    0x1127
+#define OBJ_EVENT_PAL_EXAMPLE5                    0x1128
+#define OBJ_EVENT_PAL_IRIS                        0x1129
+#define OBJ_EVENT_PAL_TAG_ANABEL                  0x112A
+#define OBJ_EVENT_PAL_VOLKNER                 0x112B
+#define OBJ_EVENT_PAL_JASMINE                 0x112C
+#define OBJ_EVENT_PAL_MAREEP                  0x112D
+#define OBJ_EVENT_PAL_ROCKET_F                  0x112E
+
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
 #endif  // GUARD_CONSTANTS_EVENT_OBJECTS_H

@@ -1,0 +1,26 @@
+mapscripts Desert_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: DesertVarSet
+}
+
+script DesertVarSet{
+    setvar(VAR_TEMP_DESERTRUINSFOUND, 0)
+}
+
+script Desert_RuinsFound{
+    release
+    random(200)
+    if(var(VAR_RESULT) <= 1){
+        goto(Desert_TriggerEntrance)
+    }
+    else{
+        release
+        end
+    }
+}
+
+script Desert_TriggerEntrance{
+    msgbox("triggered", MSGBOX_DEFAULT)
+    closemessage
+    release
+    end
+}

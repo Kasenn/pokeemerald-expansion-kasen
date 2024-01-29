@@ -25,7 +25,19 @@
     }
   ],
   "object_events": [
-
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HIKER",
+      "x": 20,
+      "y": 78,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    }
   ],
   "warp_events": [
     {
@@ -48,13 +60,6 @@
       "elevation": 0,
       "dest_map": "MAP_ROUTE28",
       "dest_warp_id": "3"
-    },
-    {
-      "x": 32,
-      "y": 16,
-      "elevation": 0,
-      "dest_map": "MAP_ROUTE28",
-      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

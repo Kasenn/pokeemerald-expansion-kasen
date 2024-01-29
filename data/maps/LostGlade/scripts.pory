@@ -1,4 +1,11 @@
-mapscripts LostGlade_MapScripts{}
+mapscripts LostGlade_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: GladeLandmark
+}
+
+script GladeLandmark{
+    setflag(FLAG_LANDMARK_LOST_GLADE)
+    end
+}
 
 script LostGladeShrine{
     msgbox("A forgotten shrine for some\nforgotten deity.", MSGBOX_SIGN)

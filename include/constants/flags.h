@@ -46,11 +46,11 @@
 #define FLAG_UNUSED_BP_INTRO    0x21 // Introduction to battle points
 #define FLAG_UNUSED_GLADE    0x22 // Sets the lost glade flag so the camper changes dialogue
 #define FLAG_DEFEATED_RIVAL_HARBOR    0x23 // Flag for defeating rival at coralgrove harbor. Also used to define whether the itemfinder has already been obtained
-#define FLAG_UNUSED_0x024    0x24 // Unused Flag
-#define FLAG_UNUSED_0x025    0x25 // Unused Flag
-#define FLAG_UNUSED_0x026    0x26 // Unused Flag
-#define FLAG_UNUSED_0x027    0x27 // Unused Flag
-#define FLAG_UNUSED_0x028    0x28 // Unused Flag
+#define FLAG_COASTTOWNHONEYGET    0x24 // Flag for getting honey in azuretide town
+#define FLAG_NO_CATCHING    0x25 // STOPS CATCHING WILD POKEMON
+#define FLAG_NO_WILD_RUNNING    0x26 // Unused Flag
+#define FLAG_TOGGLE_DOUBLE_WILDS    0x27 // Unused Flag
+#define FLAG_RECEIVED_TM_WILD_CHARGE    0x28 // Unused Flag
 #define FLAG_UNUSED_0x029    0x29 // Unused Flag
 #define FLAG_UNUSED_0x02A    0x2A // Unused Flag
 #define FLAG_UNUSED_0x02B    0x2B // Unused Flag
@@ -555,7 +555,7 @@
 #define FLAG_HIDDEN_ITEM_ROUTE3_REVIVE        (FLAG_HIDDEN_ITEMS_START + 0x0D)
 #define FLAG_HIDDEN_ITEM_ROUTE3_ETHER          (FLAG_HIDDEN_ITEMS_START + 0x0E)
 #define FLAG_HIDDEN_ITEM_ROUTE3_SUPERREPEL           (FLAG_HIDDEN_ITEMS_START + 0x0F)
-#define FLAG_HIDDEN_ITEM_UNDERWATER_126_STARDUST             (FLAG_HIDDEN_ITEMS_START + 0x10)
+#define FLAG_HIDDEN_ITEM_RANCH             (FLAG_HIDDEN_ITEMS_START + 0x10)
 #define FLAG_HIDDEN_ITEM_UNDERWATER_126_PEARL                (FLAG_HIDDEN_ITEMS_START + 0x11)
 #define FLAG_HIDDEN_ITEM_UNDERWATER_126_YELLOW_SHARD         (FLAG_HIDDEN_ITEMS_START + 0x12)
 #define FLAG_HIDDEN_ITEM_UNDERWATER_126_IRON                 (FLAG_HIDDEN_ITEMS_START + 0x13)
@@ -656,29 +656,29 @@
 #define FLAG_CORAL_FLAG_1  0x265 // UNLOCKS POKECENTER TRAINING
 #define FLAG_SCHOOL_DONE  0x266 // TRAINER SCHOOL DONE
 #define FLAG_UNUSED_0x267_CG_HIDEGHOST  0x267 // Unused Flag
-#define FLAG_UNUSED_WWGROTTO  0x268 // Hides windy woods grotto pokemon
+#define FLAG_UNUSED_0x268  0x268 // Unused Flag
 #define FLAG_RECEIVED_TM_U_TURN  0x269 // TM for first gym
 #define FLAG_NECTARQUESTDONE  0x26A // set this flag if oricorio shown to nectar maniac
 #define FLAG_PRIMROSE_ITEM_PINK_NECTAR  0x26B // Unused Flag
 #define FLAG_PRIMROSE_ITEM_PURPLE_NECTAR  0x26C // Unused Flag
 #define FLAG_PRIMROSE_ITEM_YELLOW_NECTAR  0x26D // Unused Flag
 #define FLAG_PRIMROSE_ITEM_RED_NECTAR  0x26E // Unused Flag
-#define FLAG_UNUSED_0x26F  0x26F // Unused Flag
-#define FLAG_UNUSED_0x270  0x270 // Unused Flag
-#define FLAG_UNUSED_0x271  0x271 // Unused Flag
-#define FLAG_UNUSED_0x272  0x272 // Unused Flag
-#define FLAG_UNUSED_0x273  0x273 // Unused Flag
-#define FLAG_UNUSED_0x274  0x274 // Unused Flag
-#define FLAG_UNUSED_0x275  0x275 // Unused Flag
-#define FLAG_UNUSED_0x276  0x276 // Unused Flag
-#define FLAG_UNUSED_0x277  0x277 // Unused Flag
-#define FLAG_UNUSED_0x278  0x278 // Unused Flag
-#define FLAG_UNUSED_0x279  0x279 // Unused Flag
-#define FLAG_UNUSED_0x27A  0x27A // Unused Flag
-#define FLAG_UNUSED_0x27B  0x27B // Unused Flag
-#define FLAG_UNUSED_0x27C  0x27C // Unused Flag
-#define FLAG_UNUSED_0x27D  0x27D // Unused Flag
-#define FLAG_UNUSED_0x27E  0x27E // Unused Flag
+#define FLAG_JASMINE_HELPED  0x26F // START OF POKE RANCH EVENT FLAGS
+#define FLAG_JASMINE_TALKED_TO_FIRST  0x270 // 
+#define FLAG_VOLKNER_TALKED_TO_FIRST  0x271 // 
+#define FLAG_VOLKNER_INFORMED  0x272 // 
+#define FLAG_HIDE_VOLKNER_2  0x273 // 
+#define FLAG_RANCH_EVENT_NPC  0x274 // 
+#define FLAG_MAREEP_NOT_RETURNED  0x275 // 
+#define FLAG_HIDE_VOLKNER_1  0x276 // 
+#define FLAG_HIDE_RANCH_OWNER  0x277 // Unused Flag
+#define FLAG_RANCH_HELPED  0x278 // Unused Flag
+#define FLAG_VOLKNER_HELPED  0x279 // Unused Flag
+#define FLAG_JASMINE_MET  0x27A // Unused Flag
+#define FLAG_JASMINE_QUEST_STARTED  0x27B // Unused Flag
+#define FLAG_VISITED_HERB_SHOP  0x27C // Unused Flag
+#define FLAG_VISITED_HERB_SHOP_2  0x27D // Unused Flag
+#define FLAG_VOLKNER_MET  0x27E // Unused Flag
 #define FLAG_UNUSED_0x27F  0x27F // Unused Flag
 #define FLAG_UNUSED_0x280  0x280 // Unused Flag
 #define FLAG_UNUSED_0x281  0x281 // Unused Flag
@@ -1253,12 +1253,12 @@
 #define FLAG_VISITED_PEARLWOOD_POINT                                           0x4B3 // Unused Flag
 #define FLAG_VISITED_AZURETIDE                                           0x4B4 // Unused Flag
 #define FLAG_VISITED_WIP_CITY1                                           0x4B5 // Unused Flag
-#define FLAG_UNUSED_0x4B6                                           0x4B6 // Unused Flag
-#define FLAG_UNUSED_0x4B7                                           0x4B7 // Unused Flag
-#define FLAG_UNUSED_0x4B8                                           0x4B8 // Unused Flag
-#define FLAG_UNUSED_0x4B9                                           0x4B9 // Unused Flag
-#define FLAG_UNUSED_0x4BA                                           0x4BA // Unused Flag
-#define FLAG_UNUSED_0x4BB                                           0x4BB // Unused Flag
+#define FLAG_ALDELEAF_SWITCH1                                           0x4B6 // aldeleaf gym switches
+#define FLAG_ALDELEAF_SWITCH2                                           0x4B7 // aldeleaf gym switches
+#define FLAG_ALDELEAF_SWITCH3                                           0x4B8 // aldeleaf gym switches
+#define FLAG_ALDELEAF_SWITCH_ALL                                           0x4B9 // aldeleaf gym switches
+#define FLAG_BP_REWARD                                           0x4BA // Unused Flag
+#define FLAG_NO_BAG                                           0x4BB // Unused Flag
 #define FLAG_UNUSED_0x4BC                                           0x4BC // Unused Flag
 #define FLAG_UNUSED_0x4BD                                           0x4BD // Unused Flag
 #define FLAG_UNUSED_0x4BE                                           0x4BE // Unused Flag
@@ -1415,8 +1415,8 @@
 #define FLAG_SYS_RIBBON_GET                         (SYSTEM_FLAGS + 0x3B)
 
 #define FLAG_LANDMARK_FLOWER_SHOP                   (SYSTEM_FLAGS + 0x3C)
-#define FLAG_LANDMARK_MR_BRINEY_HOUSE               (SYSTEM_FLAGS + 0x3D)
-#define FLAG_LANDMARK_ABANDONED_SHIP                (SYSTEM_FLAGS + 0x3E)
+#define FLAG_LANDMARK_LOST_GLADE               (SYSTEM_FLAGS + 0x3D)
+#define FLAG_LANDMARK_WINDY_WOODS               (SYSTEM_FLAGS + 0x3E)
 #define FLAG_LANDMARK_SEASHORE_HOUSE                (SYSTEM_FLAGS + 0x3F)
 #define FLAG_LANDMARK_NEW_MAUVILLE                  (SYSTEM_FLAGS + 0x40)
 #define FLAG_LANDMARK_OLD_LADY_REST_SHOP            (SYSTEM_FLAGS + 0x41)
@@ -1573,7 +1573,7 @@
 #define FLAG_DAILY_PRIMROSE_NECTAR2                 (DAILY_FLAGS_START + 0x4)  // Unused Flag
 #define FLAG_DAILY_PRIMROSE_NECTAR3                 (DAILY_FLAGS_START + 0x5)  // Unused Flag
 #define FLAG_DAILY_PRIMROSE_NECTAR4                 (DAILY_FLAGS_START + 0x6)  // Unused Flag
-#define FLAG_UNUSED_0x927                           (DAILY_FLAGS_START + 0x7)  // Unused Flag
+#define FLAG_DAILY_WW_GROTTO                           (DAILY_FLAGS_START + 0x7)  // Unused Flag
 #define FLAG_UNUSED_0x928                           (DAILY_FLAGS_START + 0x8)  // Unused Flag
 #define FLAG_UNUSED_0x929                           (DAILY_FLAGS_START + 0x9)  // Unused Flag
 #define FLAG_DAILY_PICKED_LOTO_TICKET               (DAILY_FLAGS_START + 0xA)

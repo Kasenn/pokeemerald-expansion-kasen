@@ -4433,6 +4433,14 @@ static bool32 CannotUsePartyBattleItem(u16 itemId, struct Pokemon* mon)
     {
         cannotUse++;
     }
+    // Herbal Mix
+    if (battleUsage == EFFECT_ITEM_HERBAL_MIX
+        && (hp == 0 || hp == GetMonData(mon, MON_DATA_MAX_HP))
+        && !((GetMonData(mon, MON_DATA_STATUS) & GetItemStatus1Mask(itemId))
+        || (gPartyMenu.slotId == 0 && gBattleMons[gBattlerInMenuId].status2 & GetItemStatus2Mask(itemId))))
+    {
+        cannotUse++;
+    }
     // Items that revive a party member
     if (battleUsage == EFFECT_ITEM_REVIVE && hp != 0)
     {

@@ -7334,7 +7334,7 @@ static void Cmd_getmoneyreward(void)
         if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
             money += GetTrainerMoneyToGive(gTrainerBattleOpponent_B);
 
-        // Calculate Battle Points as 1/100th of the money earned
+        // Calculate Battle Points as 1/1000th of the money earned
         battlePoints = money / 500;
         if (battlePoints > 3)
         battlePoints = 3;
@@ -7370,6 +7370,7 @@ static void Cmd_getmoneyreward(void)
 
     // Prepare the money earned text for display
     PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, 5, money);
+    PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff2, 5, battlePoints);
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 

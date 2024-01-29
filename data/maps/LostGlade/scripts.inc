@@ -1,5 +1,11 @@
 LostGlade_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, GladeLandmark
 	.byte 0
+
+
+GladeLandmark::
+	setflag FLAG_LANDMARK_LOST_GLADE
+	end
 
 
 LostGladeShrine::

@@ -28,7 +28,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
       "x": 7,
-      "y": 20,
+      "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -41,7 +41,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_TUBER_M",
       "x": 23,
-      "y": 36,
+      "y": 35,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 2,
@@ -53,8 +53,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M",
-      "x": 14,
-      "y": 32,
+      "x": 15,
+      "y": 31,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_UP_AND_DOWN",
       "movement_range_x": 0,
@@ -67,20 +67,20 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
       "x": 32,
-      "y": 29,
+      "y": 28,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CoastTown_FatGuy",
+      "script": "CoastTown_FatGuy2",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
-      "x": 34,
-      "y": 17,
+      "x": 35,
+      "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -92,8 +92,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_1",
-      "x": 36,
-      "y": 24,
+      "x": 35,
+      "y": 21,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -106,15 +106,15 @@
   ],
   "warp_events": [
     {
-      "x": 28,
+      "x": 29,
       "y": 12,
       "elevation": 0,
       "dest_map": "MAP_COAST_TOWN_HARBOR",
       "dest_warp_id": "1"
     },
     {
-      "x": 27,
-      "y": 22,
+      "x": 28,
+      "y": 20,
       "elevation": 0,
       "dest_map": "MAP_ROUTE124_DIVING_TREASURE_HUNTERS_HOUSE",
       "dest_warp_id": "0"
@@ -127,18 +127,18 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 40,
-      "y": 22,
+      "x": 41,
+      "y": 20,
       "elevation": 0,
-      "dest_map": "MAP_SLATEPORT_CITY_MART",
+      "dest_map": "MAP_AZURETIDE_HOUSE2",
       "dest_warp_id": "0"
     },
     {
       "x": 41,
-      "y": 30,
+      "y": 27,
       "elevation": 0,
-      "dest_map": "MAP_COAST_TOWN",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_AZURETIDE_HOUSE1",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [
@@ -147,103 +147,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 31,
-      "y": 29,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_NoPokemonTree1"
-    },
-    {
-      "type": "sign",
-      "x": 30,
-      "y": 29,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_NoPokemonTree1"
-    },
-    {
-      "type": "sign",
-      "x": 31,
-      "y": 28,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_NoPokemonTree1"
-    },
-    {
-      "type": "sign",
-      "x": 30,
-      "y": 28,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_NoPokemonTree1"
-    },
-    {
-      "type": "sign",
-      "x": 43,
-      "y": 35,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_NoPokemonTree2"
-    },
-    {
-      "type": "sign",
-      "x": 43,
-      "y": 34,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_NoPokemonTree2"
-    },
-    {
-      "type": "sign",
-      "x": 44,
-      "y": 34,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_NoPokemonTree2"
-    },
-    {
-      "type": "sign",
-      "x": 44,
-      "y": 35,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_NoPokemonTree2"
-    },
-    {
-      "type": "sign",
-      "x": 22,
-      "y": 20,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_NoPokemonTree3"
-    },
-    {
-      "type": "sign",
-      "x": 22,
-      "y": 19,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_NoPokemonTree3"
-    },
-    {
-      "type": "sign",
-      "x": 23,
-      "y": 19,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_NoPokemonTree3"
-    },
-    {
-      "type": "sign",
-      "x": 23,
-      "y": 20,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_NoPokemonTree3"
-    },
-    {
-      "type": "sign",
-      "x": 31,
+      "x": 32,
       "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -251,128 +155,32 @@
     },
     {
       "type": "sign",
-      "x": 31,
-      "y": 22,
+      "x": 32,
+      "y": 20,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "CoastTown_Sign2"
     },
     {
-      "type": "sign",
-      "x": 34,
-      "y": 11,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_YesPokemonTree1"
-    },
-    {
-      "type": "sign",
-      "x": 35,
-      "y": 11,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_YesPokemonTree1"
-    },
-    {
-      "type": "sign",
-      "x": 35,
-      "y": 12,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_YesPokemonTree1"
-    },
-    {
-      "type": "sign",
-      "x": 34,
-      "y": 12,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_YesPokemonTree1"
-    },
-    {
-      "type": "sign",
-      "x": 44,
-      "y": 25,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_YesPokemonTree2"
-    },
-    {
-      "type": "sign",
-      "x": 43,
-      "y": 25,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_YesPokemonTree2"
-    },
-    {
-      "type": "sign",
-      "x": 43,
-      "y": 24,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_YesPokemonTree2"
-    },
-    {
-      "type": "sign",
-      "x": 44,
-      "y": 24,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_YesPokemonTree2"
-    },
-    {
-      "type": "sign",
-      "x": 36,
-      "y": 36,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_YesPokemonTree3"
-    },
-    {
-      "type": "sign",
-      "x": 35,
-      "y": 36,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_YesPokemonTree3"
-    },
-    {
-      "type": "sign",
-      "x": 35,
-      "y": 35,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_YesPokemonTree3"
-    },
-    {
-      "type": "sign",
-      "x": 36,
-      "y": 35,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "CoastTown_YesPokemonTree3"
-    },
-    {
       "type": "hidden_item",
       "x": 28,
-      "y": 39,
+      "y": 38,
       "elevation": 0,
       "item": "ITEM_HEAT_ROCK",
       "flag": "FLAG_COASTTOWN_HEATROCK"
     },
     {
       "type": "hidden_item",
-      "x": 17,
-      "y": 32,
+      "x": 18,
+      "y": 31,
       "elevation": 0,
       "item": "ITEM_RED_SHARD",
       "flag": "FLAG_COASTTOWN_REDSHARD"
     },
     {
       "type": "hidden_item",
-      "x": 12,
-      "y": 24,
+      "x": 13,
+      "y": 23,
       "elevation": 0,
       "item": "ITEM_PEARL",
       "flag": "FLAG_COASTTOWN_PEARL"
@@ -384,6 +192,46 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "CoastTown_Sign3"
+    },
+    {
+      "type": "sign",
+      "x": 31,
+      "y": 27,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Azuretide_HoneyTree"
+    },
+    {
+      "type": "sign",
+      "x": 30,
+      "y": 27,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Azuretide_HoneyTree"
+    },
+    {
+      "type": "sign",
+      "x": 31,
+      "y": 28,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Azuretide_HoneyTree"
+    },
+    {
+      "type": "sign",
+      "x": 30,
+      "y": 28,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Azuretide_HoneyTree"
+    },
+    {
+      "type": "sign",
+      "x": 38,
+      "y": 27,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "CoastTown_Sign4"
     }
   ]
 }

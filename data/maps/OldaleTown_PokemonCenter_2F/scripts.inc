@@ -97,6 +97,20 @@ LevelTraining2_1:
 	return
 
 
+LevelTrainingAldeleaf::
+	lockall
+	msgbox LevelTrainingAldeleaf_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq LevelTrainingAldeleaf_1
+	closemessage
+	release
+	end
+
+LevelTrainingAldeleaf_1:
+	trainerbattle_no_intro TRAINER_RANDALL, IVTrainingDone
+	return
+
+
 IvTrainingIntro::
 	lockall
 	msgbox IvTrainingIntro_Text_0, MSGBOX_NPC
@@ -113,6 +127,9 @@ LevelTraining_Text_0:
 
 LevelTraining2_Text_0:
 	.string "Looking for level training? The team\nin this Training Hub is set to level 7.$"
+
+LevelTrainingAldeleaf_Text_0:
+	.string "Looking for level training? The team\nin this Training Hub is set to level 10.$"
 
 IvTrainingIntro_Text_0:
 	.string "Hello, and welcome to the\nPokémon Center PokéTraining Hub.\pHere trainers may train their Pokémon\nby battling in a controlled environment.\pThe first person to my right offers\nEV training.\pShe has 5 Pokémon, with each\ngranting 10 EV in the specified stat.\pThe next person offers level training,\nemploying a team of simple Blisseys.\pI must also inform you that we may\ncharge for this service in the future.\pWith that out of the way,\nI hope you find our services useful.$"

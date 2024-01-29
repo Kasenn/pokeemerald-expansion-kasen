@@ -3410,7 +3410,9 @@ static const u8 sTM92Desc[] = _( // Todo
     "?????");
 
 static const u8 sTM93Desc[] = _( // Todo
-    "?????");
+    "An electrical\n"
+    "tackle that also\n"
+    "hurts the user.");
 
 static const u8 sTM94Desc[] = _( // Todo
     "An attack that\n"
@@ -3922,3 +3924,22 @@ static const u8 sBerserkGene[] = _(
     "Sharply boosts\n"
     "Attack, but causes\n"
     "lasting confusion.");
+
+static const u8 sHerbalMixDesc[] = _(
+    "Incredibly bitter\n"
+    "herb mix that fully\n"
+    "heals a Pokémon.");
+    
+static const u8 sHerbalMixQuestDesc[] = _(
+    "Tightly packaged\n"
+    "batch of\n"
+    "Herbal Mix.");
+
+static const u8 sWrittenNoteDesc[] = _(
+    "Jasmine's\n"
+    "handwritten note to\n"
+    "herb shop clerk.");
+
+static const u8 sCoinPurseDesc[] = _(
+    "A small coin purse\n"
+    "with a note.");

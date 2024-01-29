@@ -1786,13 +1786,11 @@ static bool8 Fishing_ShowDots(struct Task *task)
 
     AlignFishingAnimationFrames();
     task->tFrameCounter++;
-    if (JOY_NEW(A_BUTTON))
-    {
-        task->tStep = FISHING_GOT_BITE;
+        if (JOY_NEW(B_BUTTON))
+        {
+        task->tStep = FISHING_NO_BITE;
         return FALSE;
-    }
-    else
-    {
+        }
         if (task->tFrameCounter >= 20)
         {
             task->tFrameCounter = 0;
@@ -1810,7 +1808,7 @@ static bool8 Fishing_ShowDots(struct Task *task)
             }
         }
         return FALSE;
-    }
+    
 }
 
 static bool8 Fishing_CheckForBite(struct Task *task)
@@ -1853,6 +1851,7 @@ static bool8 Fishing_CheckForBite(struct Task *task)
 
 static bool8 Fishing_GotBite(struct Task *task)
 {
+    StartSpriteAnim(&gSprites[gPlayerAvatar.spriteId], GetFishingBiteDirectionAnimNum(GetPlayerFacingDirection()));
     AlignFishingAnimationFrames();
     AddTextPrinterParameterized(0, FONT_NORMAL, gText_OhABite, 0, 17, 0, NULL);
     task->tStep++;

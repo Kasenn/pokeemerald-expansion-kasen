@@ -108,6 +108,17 @@ const struct Tileset gTileset_Lilycove =
     .callback = InitTilesetAnim_Lilycove,
 };
 
+const struct Tileset gTileset_Ranch =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Ranch,
+    .palettes = gTilesetPalettes_Ranch,
+    .metatiles = gMetatiles_Ranch,
+    .metatileAttributes = gMetatileAttributes_Ranch,
+    .callback = InitTilesetAnim_Lilycove,
+};
+
 const struct Tileset gTileset_Mossdeep =
 {
     .isCompressed = TRUE,
@@ -903,6 +914,17 @@ const struct Tileset gTileset_DarkForest =
     .callback = InitTilesetAnim_General,
 };
 
+const struct Tileset gTileset_General2 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_General2,
+    .palettes = gTilesetPalettes_General2,
+    .metatiles = gMetatiles_General2,
+    .metatileAttributes = gMetatileAttributes_General2,
+    .callback = InitTilesetAnim_General,
+};
+
 const struct Tileset gTileset_DarkForestSec =
 {
     .isCompressed = TRUE,
@@ -933,5 +955,16 @@ const struct Tileset gTileset_WipCity1 =
     .palettes = gTilesetPalettes_WipCity1,
     .metatiles = gMetatiles_WipCity1,
     .metatileAttributes = gMetatileAttributes_WipCity1,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_CaveTiles =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_CaveTiles,
+    .palettes = gTilesetPalettes_CaveTiles,
+    .metatiles = gMetatiles_CaveTiles,
+    .metatileAttributes = gMetatileAttributes_CaveTiles,
     .callback = NULL,
 };

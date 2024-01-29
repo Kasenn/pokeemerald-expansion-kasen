@@ -20,3 +20,4 @@ const u32 gPokenavCityMap_Verdanturf_0[] = INCBIN_U32("graphics/pokenav/region_m
 const u32 gPokenavCityMap_Mossdeep_1[] = INCBIN_U32("graphics/pokenav/region_map/city_maps/mossdeep_1.bin.lz");
 const u32 gPokenavCityMap_Mossdeep_0[] = INCBIN_U32("graphics/pokenav/region_map/city_maps/mossdeep_0.bin.lz");
 const u32 gPokenavCityMap_Petalburg_0[] = INCBIN_U32("graphics/pokenav/region_map/city_maps/petalburg_0.bin.lz");
+const u32 gPokenavCityMap_Pearlwood_0[] = INCBIN_U32("graphics/pokenav/region_map/city_maps/pearlwood_0.bin.lz");

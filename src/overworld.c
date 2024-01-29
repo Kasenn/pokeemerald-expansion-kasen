@@ -417,6 +417,7 @@ void Overworld_ResetStateAfterDigEscRope(void)
     FlagClear(B_SMART_WILD_AI_FLAG);
     FlagClear(B_FLAG_NO_BAG_USE);
     FlagClear(B_FLAG_NO_CATCHING);
+    FlagClear(FLAG_NO_WILD_RUNNING);
 }
 #endif
 

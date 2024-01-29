@@ -251,6 +251,11 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example3;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example4;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example5;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Iris;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Volkner;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Jasmine;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mareep;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example6;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RocketF;
 
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
@@ -325,17 +330,17 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_REPORTER_F] =               &gObjectEventGraphicsInfo_ReporterF,
     [OBJ_EVENT_GFX_BARD] =                     &gObjectEventGraphicsInfo_Bard,
     [OBJ_EVENT_GFX_ANABEL] =                   &gObjectEventGraphicsInfo_Anabel,
-    [OBJ_EVENT_GFX_TUCKER] =                   &gObjectEventGraphicsInfo_Tucker,
+    // [OBJ_EVENT_GFX_TUCKER] =                   &gObjectEventGraphicsInfo_Tucker,
     [OBJ_EVENT_GFX_GRETA] =                    &gObjectEventGraphicsInfo_Greta,
     [OBJ_EVENT_GFX_SPENSER] =                  &gObjectEventGraphicsInfo_Spenser,
     [OBJ_EVENT_GFX_NOLAND] =                   &gObjectEventGraphicsInfo_Noland,
     [OBJ_EVENT_GFX_LUCY] =                     &gObjectEventGraphicsInfo_Lucy,
     // [OBJ_EVENT_GFX_UNUSED_NATU_DOLL] =         &gObjectEventGraphicsInfo_UnusedNatuDoll,
-    [OBJ_EVENT_GFX_UNUSED_MAGNEMITE_DOLL] =    &gObjectEventGraphicsInfo_UnusedMagnemiteDoll,
-    [OBJ_EVENT_GFX_UNUSED_SQUIRTLE_DOLL] =     &gObjectEventGraphicsInfo_UnusedSquirtleDoll,
+    // [OBJ_EVENT_GFX_UNUSED_MAGNEMITE_DOLL] =    &gObjectEventGraphicsInfo_UnusedMagnemiteDoll,
+    // [OBJ_EVENT_GFX_UNUSED_SQUIRTLE_DOLL] =     &gObjectEventGraphicsInfo_UnusedSquirtleDoll,
     [OBJ_EVENT_GFX_UNUSED_WOOPER_DOLL] =       &gObjectEventGraphicsInfo_UnusedWooperDoll,
     [OBJ_EVENT_GFX_UNUSED_PIKACHU_DOLL] =      &gObjectEventGraphicsInfo_UnusedPikachuDoll,
-    [OBJ_EVENT_GFX_UNUSED_PORYGON2_DOLL] =     &gObjectEventGraphicsInfo_UnusedPorygon2Doll,
+    // [OBJ_EVENT_GFX_UNUSED_PORYGON2_DOLL] =     &gObjectEventGraphicsInfo_UnusedPorygon2Doll,
     [OBJ_EVENT_GFX_CUTTABLE_TREE] =            &gObjectEventGraphicsInfo_CuttableTree,
     [OBJ_EVENT_GFX_MART_EMPLOYEE] =            &gObjectEventGraphicsInfo_MartEmployee,
     [OBJ_EVENT_GFX_ROOFTOP_SALE_WOMAN] =       &gObjectEventGraphicsInfo_RooftopSaleWoman,
@@ -378,7 +383,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_DRAKE] =                    &gObjectEventGraphicsInfo_Drake,
     [OBJ_EVENT_GFX_ROXANNE] =                  &gObjectEventGraphicsInfo_Roxanne,
     [OBJ_EVENT_GFX_BRAWLY] =                   &gObjectEventGraphicsInfo_Brawly,
-    [OBJ_EVENT_GFX_WATTSON] =                  &gObjectEventGraphicsInfo_Wattson,
+    // [OBJ_EVENT_GFX_WATTSON] =                  &gObjectEventGraphicsInfo_Wattson,
     [OBJ_EVENT_GFX_FLANNERY] =                 &gObjectEventGraphicsInfo_Flannery,
     [OBJ_EVENT_GFX_NORMAN] =                   &gObjectEventGraphicsInfo_Norman,
     [OBJ_EVENT_GFX_WINONA] =                   &gObjectEventGraphicsInfo_Winona,
@@ -493,9 +498,14 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_EXAMPLE] =                  &gObjectEventGraphicsInfo_Example,
     [OBJ_EVENT_GFX_EXAMPLE2] =                 &gObjectEventGraphicsInfo_Example2,
     [OBJ_EVENT_GFX_EXAMPLE3] =                 &gObjectEventGraphicsInfo_Example3,
-    [OBJ_EVENT_GFX_EXAMPLE4] =                 &gObjectEventGraphicsInfo_Example4,
+    [OBJ_EVENT_GFX_ROCKET_M] =                 &gObjectEventGraphicsInfo_Example4,
     [OBJ_EVENT_GFX_EXAMPLE5] =                 &gObjectEventGraphicsInfo_Example5,
     [OBJ_EVENT_GFX_IRIS] =                     &gObjectEventGraphicsInfo_Iris,
+    [OBJ_EVENT_GFX_VOLKNER] =                     &gObjectEventGraphicsInfo_Volkner,
+    [OBJ_EVENT_GFX_JASMINE] =                     &gObjectEventGraphicsInfo_Jasmine,
+    [OBJ_EVENT_GFX_MAREEP] =                     &gObjectEventGraphicsInfo_Mareep,
+    [OBJ_EVENT_GFX_EXAMPLE6] =                 &gObjectEventGraphicsInfo_Example6,
+    [OBJ_EVENT_GFX_ROCKET_F] =                 &gObjectEventGraphicsInfo_RocketF,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

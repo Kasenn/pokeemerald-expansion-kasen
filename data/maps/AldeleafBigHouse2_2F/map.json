@@ -1,0 +1,34 @@
+{
+  "id": "MAP_ALDELEAF_BIG_HOUSE2_2F",
+  "name": "AldeleafBigHouse2_2F",
+  "layout": "LAYOUT_ALDELEAF_BIG_HOUSE2_2F",
+  "music": "MUS_RUSTBORO",
+  "region_map_section": "MAPSEC_CITY_WIP1",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 2,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_ALDELEAF_BIG_HOUSE2",
+      "dest_warp_id": "2"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

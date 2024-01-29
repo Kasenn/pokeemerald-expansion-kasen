@@ -1,0 +1,180 @@
+{
+  "id": "MAP_RANCH_BARN",
+  "name": "RanchBarn",
+  "layout": "LAYOUT_RANCH_BARN",
+  "music": "MUS_LILYCOVE",
+  "region_map_section": "MAPSEC_POKE_RANCH",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAREEP",
+      "x": 11,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BarnSadMareep",
+      "flag": "FLAG_VOLKNER_HELPED"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAREEP",
+      "x": 17,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BarnHappyMareep",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAREEP",
+      "x": 2,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BarnSickMareep",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_JASMINE",
+      "x": 1,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BarnJasmineEvent",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BOY_1",
+      "x": 16,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BarnShearingBoy",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAREEP",
+      "x": 6,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GIRL_3",
+      "x": 7,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BarnConcernedGirl",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAREEP",
+      "x": 13,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN",
+      "movement_range_x": 3,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BarnHappyMareep",
+      "flag": "FLAG_MAREEP_NOT_RETURNED"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAREEP",
+      "x": 10,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP",
+      "movement_range_x": 3,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BarnHappyMareep",
+      "flag": "FLAG_MAREEP_NOT_RETURNED"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 11,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_POKE_RANCH",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 12,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_POKE_RANCH",
+      "dest_warp_id": "4"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 20,
+      "y": 3,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "BarnJugOfWater"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 3,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "BarnJugOfWater"
+    },
+    {
+      "type": "sign",
+      "x": 23,
+      "y": 3,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "BarnJugOfWater"
+    }
+  ]
+}

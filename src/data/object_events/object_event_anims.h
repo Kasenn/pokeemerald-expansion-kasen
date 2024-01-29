@@ -379,6 +379,42 @@ static const union AnimCmd sAnim_RunEast[] =
     ANIMCMD_JUMP(0),
 };
 
+static const union AnimCmd sAnim_SkateSouth[] =
+{
+    ANIMCMD_FRAME(3, 12),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(4, 12),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_SkateNorth[] =
+{
+    ANIMCMD_FRAME(5, 12),
+    ANIMCMD_FRAME(1, 4),
+    ANIMCMD_FRAME(6, 12),
+    ANIMCMD_FRAME(1, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_SkateWest[] =
+{
+    ANIMCMD_FRAME(7, 12),
+    ANIMCMD_FRAME(2, 4),
+    ANIMCMD_FRAME(8, 12),
+    ANIMCMD_FRAME(2, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_SkateEast[] =
+{
+    ANIMCMD_FRAME(7, 12, .hFlip = TRUE),
+    ANIMCMD_FRAME(2, 4, .hFlip = TRUE),
+    ANIMCMD_FRAME(8, 12, .hFlip = TRUE),
+    ANIMCMD_FRAME(2, 4, .hFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
 static const union AnimCmd sAnim_FieldMove[] =
 {
     ANIMCMD_FRAME(0, 4),
@@ -845,6 +881,29 @@ static const union AnimCmd *const sAnimTable_Standard[] = {
     [ANIM_STD_GO_FASTEST_EAST] = sAnim_GoFastestEast,
 };
 
+static const union AnimCmd *const sAnimTable_Skating[] = {
+    [ANIM_STD_FACE_SOUTH] = sAnim_FaceSouth,
+    [ANIM_STD_FACE_NORTH] = sAnim_FaceNorth,
+    [ANIM_STD_FACE_WEST] = sAnim_FaceWest,
+    [ANIM_STD_FACE_EAST] = sAnim_FaceEast,
+    [ANIM_STD_GO_SOUTH] = sAnim_SkateSouth,
+    [ANIM_STD_GO_NORTH] = sAnim_SkateNorth,
+    [ANIM_STD_GO_WEST] = sAnim_SkateWest,
+    [ANIM_STD_GO_EAST] = sAnim_SkateEast,
+    [ANIM_STD_GO_FAST_SOUTH] = sAnim_SkateSouth,
+    [ANIM_STD_GO_FAST_NORTH] = sAnim_SkateNorth,
+    [ANIM_STD_GO_FAST_WEST] = sAnim_SkateWest,
+    [ANIM_STD_GO_FAST_EAST] = sAnim_SkateEast,
+    [ANIM_STD_GO_FASTER_SOUTH] = sAnim_GoFasterSouth,
+    [ANIM_STD_GO_FASTER_NORTH] = sAnim_GoFasterNorth,
+    [ANIM_STD_GO_FASTER_WEST] = sAnim_GoFasterWest,
+    [ANIM_STD_GO_FASTER_EAST] = sAnim_GoFasterEast,
+    [ANIM_STD_GO_FASTEST_SOUTH] = sAnim_GoFastestSouth,
+    [ANIM_STD_GO_FASTEST_NORTH] = sAnim_GoFastestNorth,
+    [ANIM_STD_GO_FASTEST_WEST] = sAnim_GoFastestWest,
+    [ANIM_STD_GO_FASTEST_EAST] = sAnim_GoFastestEast,
+};
+
 static const union AnimCmd *const sAnimTable_HoOh[] = {
     [ANIM_STD_FACE_SOUTH] = sAnim_FaceSouth,
     [ANIM_STD_FACE_NORTH] = sAnim_FaceNorth,
@@ -1151,6 +1210,10 @@ static const struct StepAnimTable sStepAnimTables[] = {
     },
     {
         .anims = sAnimTable_Standard,
+        .animPos = {1, 3, 0, 2},
+    },
+    {
+        .anims = sAnimTable_Skating,
         .animPos = {1, 3, 0, 2},
     },
     {

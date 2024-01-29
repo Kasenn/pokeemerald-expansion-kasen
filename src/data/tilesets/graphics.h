@@ -196,6 +196,28 @@ const u16 gTilesetPalettes_Lilycove[][16] =
 	INCBIN_U16("data/tilesets/secondary/lilycove/palettes/15.gbapal"),
 };
 
+const u32 gTilesetTiles_Ranch[] = INCBIN_U32("data/tilesets/secondary/ranch/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Ranch[][16] =
+{
+	INCBIN_U16("data/tilesets/secondary/ranch/palettes/00.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/ranch/palettes/01.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/ranch/palettes/02.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/ranch/palettes/03.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/ranch/palettes/04.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/ranch/palettes/05.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/ranch/palettes/06.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/ranch/palettes/07.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/ranch/palettes/08.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/ranch/palettes/09.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/ranch/palettes/10.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/ranch/palettes/11.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/ranch/palettes/12.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/ranch/palettes/13.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/ranch/palettes/14.gbapal"),
+	INCBIN_U16("data/tilesets/secondary/ranch/palettes/15.gbapal"),
+};
+
 const u32 gTilesetTiles_Mossdeep[] = INCBIN_U32("data/tilesets/secondary/mossdeep/tiles.4bpp.lz");
 
 const u16 gTilesetPalettes_Mossdeep[][16] =
@@ -1768,6 +1790,25 @@ const u16 gTilesetPalettes_DarkForest[][16] =
 
 const u32 gTilesetTiles_DarkForest[] = INCBIN_U32("data/tilesets/primary/dark_forest/tiles.4bpp.lz");
 
+const u16 gTilesetPalettes_General2[][16] =
+{
+    INCBIN_U16("data/tilesets/primary/general2/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/primary/general2/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/primary/general2/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/primary/general2/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/primary/general2/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/primary/general2/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/primary/general2/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/primary/general2/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/primary/general2/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/primary/general2/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/primary/general2/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/primary/general2/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/primary/general2/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_General2[] = INCBIN_U32("data/tilesets/primary/general2/tiles.4bpp.lz");
+
 const u16 gTilesetPalettes_DarkForestSec[][16] =
 {
     INCBIN_U16("data/tilesets/secondary/dark_forest_sec/palettes/00.gbapal"),
@@ -1824,3 +1865,22 @@ const u16 gTilesetPalettes_WipCity1[][16] =
 };
 
 const u32 gTilesetTiles_WipCity1[] = INCBIN_U32("data/tilesets/secondary/wip_city_1/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_CaveTiles[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/cave_tiles/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_tiles/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_tiles/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_tiles/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_tiles/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_tiles/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_tiles/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_tiles/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_tiles/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_tiles/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_tiles/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_tiles/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/cave_tiles/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_CaveTiles[] = INCBIN_U32("data/tilesets/secondary/cave_tiles/tiles.4bpp.lz");

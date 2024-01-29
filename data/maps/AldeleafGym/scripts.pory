@@ -1,0 +1,689 @@
+mapscripts AldeleafGym_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: AldeleafGymSetUp
+}
+
+script AldeleafGymSetUp{
+    if(flag(FLAG_BADGE02_GET)){
+        release
+        end
+    }
+    else{
+        clearflag(FLAG_ALDELEAF_SWITCH1)
+        clearflag(FLAG_ALDELEAF_SWITCH2)
+        clearflag(FLAG_ALDELEAF_SWITCH3)
+        clearflag(FLAG_ALDELEAF_SWITCH_ALL)
+        setmetatile(1, 73, 0x205, FALSE)
+        setmetatile(14, 64, 0x205, FALSE)
+        setmetatile(2, 55, 0x205, FALSE)
+    }
+}
+script AldeleafGymTriggerFlagSet{
+    setflag(FLAG_TOGGLE_DOUBLE_WILDS)
+    setflag(FLAG_NO_CATCHING)
+    setflag(FLAG_NO_WILD_RUNNING)
+    release
+    end
+}
+script AldeleafGymTriggerFlagClear{
+    clearflag(FLAG_TOGGLE_DOUBLE_WILDS)
+    clearflag(FLAG_NO_CATCHING)
+    clearflag(FLAG_NO_WILD_RUNNING)
+    release
+    end
+}
+script AldeleafGymSwitch1{
+    if(!flag(FLAG_ALDELEAF_SWITCH1)){
+        lockall
+        playse(SE_SWITCH)
+        setmetatile(1, 73, 0x206, FALSE)
+        special(DrawWholeMapView)
+        setflag(FLAG_ALDELEAF_SWITCH1)
+        if((flag(FLAG_ALDELEAF_SWITCH1)) && (flag(FLAG_ALDELEAF_SWITCH2)) && (flag(FLAG_ALDELEAF_SWITCH3))){
+            msgbox("Switch 1 activated.\nAll switches have been activated.", MSGBOX_SIGN)
+            setflag(FLAG_ALDELEAF_SWITCH_ALL)
+        }
+        else{
+            msgbox("Switch 1 activated.", MSGBOX_SIGN)
+        }
+        release
+        end
+    }
+    else{
+        release
+        end
+    }
+}
+script AldeleafGymSwitch2{
+    if(!flag(FLAG_ALDELEAF_SWITCH2)){
+        lockall
+        playse(SE_SWITCH)
+        setmetatile(14, 64, 0x206, FALSE)
+        special(DrawWholeMapView)
+        setflag(FLAG_ALDELEAF_SWITCH2)
+        if((flag(FLAG_ALDELEAF_SWITCH1)) && (flag(FLAG_ALDELEAF_SWITCH2)) && (flag(FLAG_ALDELEAF_SWITCH3))){
+            msgbox("Switch 2 activated.\nAll switches have been activated.", MSGBOX_SIGN)
+            setflag(FLAG_ALDELEAF_SWITCH_ALL)
+        }
+        else{
+            msgbox("Switch 2 activated.", MSGBOX_SIGN)
+        }
+        release
+        end
+    }
+    else{
+        release
+        end
+    }
+}
+script AldeleafGymSwitch3{
+    if(!flag(FLAG_ALDELEAF_SWITCH3)){
+        lockall
+        playse(SE_SWITCH)
+        setmetatile(2, 55, 0x206, FALSE)
+        special(DrawWholeMapView)
+        setflag(FLAG_ALDELEAF_SWITCH3)
+        if((flag(FLAG_ALDELEAF_SWITCH1)) && (flag(FLAG_ALDELEAF_SWITCH2)) && (flag(FLAG_ALDELEAF_SWITCH3))){
+            msgbox("Switch 3 activated.\nAll switches have been activated.", MSGBOX_SIGN)
+            setflag(FLAG_ALDELEAF_SWITCH_ALL)
+        }
+        else{
+            msgbox("Switch 3 activated.", MSGBOX_SIGN)
+        }
+        release
+        end
+    }
+    else{
+        release
+        end
+    }
+}
+script AldeleafGymFloor1{
+    if(!flag(FLAG_ALDELEAF_SWITCH1)){
+        goto(AldeleafGymFloorTriggered)
+    }
+    else{
+        release
+        end
+    }
+}
+script AldeleafGymFloor2{
+    if(!flag(FLAG_ALDELEAF_SWITCH2)){
+        goto(AldeleafGymFloorTriggered)
+    }
+    else{
+        release
+        end
+    }
+}
+script AldeleafGymFloor3{
+    if(!flag(FLAG_ALDELEAF_SWITCH3)){
+        goto(AldeleafGymFloorTriggered)
+    }
+    else{
+        release
+        end
+    }
+}
+script AldeleafGymFloor4{
+    if(!flag(FLAG_ALDELEAF_SWITCH_ALL)){
+        goto(AldeleafGymFloorTriggered)
+    }
+    else{
+        release
+        end
+    }
+}
+script AldeleafGymFloorTriggered{
+    if(var(VAR_ALDELEAF_GYM_STEPS) <= 1){
+        addvar(VAR_ALDELEAF_GYM_STEPS, 1)
+        release
+        end
+    }
+    else{
+        setvar(VAR_ALDELEAF_GYM_STEPS, 0)
+        random(10)
+            if(var(VAR_RESULT) <= 2){
+                release
+                end
+            }
+            if(var(VAR_RESULT) >= 3){
+                random(10)
+                if(var(VAR_RESULT) == 0){
+                    setwildbattlelevelrange(SPECIES_MAGNEMITE, 18, ITEM_NONE, SPECIES_MAGNEMITE, 21, ITEM_NONE)
+                }
+                if(var(VAR_RESULT) == 1){
+                    setwildbattlelevelrange(SPECIES_MAGNEMITE, 18, ITEM_NONE, SPECIES_VOLTORB, 21, ITEM_NONE)
+                }
+                if(var(VAR_RESULT) == 2){
+                    setwildbattlelevelrange(SPECIES_MAGNEMITE, 18, ITEM_NONE, SPECIES_HELIOPTILE, 21, ITEM_NONE)
+                }
+                if(var(VAR_RESULT) == 3){
+                    setwildbattlelevelrange(SPECIES_MAGNEMITE, 18, ITEM_NONE, SPECIES_CHARJABUG, 21, ITEM_NONE)
+                }
+                if(var(VAR_RESULT) == 4){
+                    setwildbattlelevelrange(SPECIES_VOLTORB, 18, ITEM_NONE, SPECIES_VOLTORB, 21, ITEM_NONE)
+                }
+                if(var(VAR_RESULT) == 5){
+                    setwildbattlelevelrange(SPECIES_VOLTORB, 18, ITEM_NONE, SPECIES_HELIOPTILE, 21, ITEM_NONE)
+                }
+                if(var(VAR_RESULT) == 6){
+                    setwildbattlelevelrange(SPECIES_VOLTORB, 18, ITEM_NONE, SPECIES_CHARJABUG, 21, ITEM_NONE)
+                }
+                if(var(VAR_RESULT) == 7){
+                    setwildbattlelevelrange(SPECIES_HELIOPTILE, 18, ITEM_NONE, SPECIES_HELIOPTILE, 21, ITEM_NONE)
+                }
+                if(var(VAR_RESULT) == 8){
+                    setwildbattlelevelrange(SPECIES_HELIOPTILE, 18, ITEM_NONE, SPECIES_CHARJABUG, 21, ITEM_NONE)
+                }
+                if(var(VAR_RESULT) == 9){
+                    setwildbattlelevelrange(SPECIES_CHARJABUG, 18, ITEM_NONE, SPECIES_CHARJABUG, 21, ITEM_NONE)
+                }
+                dowildbattle
+            }
+    }
+}
+script Aldeleaf_Gym_Volkner_Talk{
+    lockall
+    faceplayer
+	if(flag(FLAG_RECEIVED_TM_WILD_CHARGE)){
+		msgbox(Aldeleaf_Gym_Text_VolknerPostBattle, MSGBOX_DEFAULT)
+		waitmessage
+		closemessage
+	}
+	else{
+		msgbox("I see you've arrived.\pIf you're ready, go stand on the other\nside of the arena so we may begin." MSGBOX_DEFAULT)
+		waitmessage
+		closemessage
+		turnobject(18, DIR_WEST)
+	}
+    release
+    end
+}
+script Aldeleaf_Gym_EventScript_Volkner{
+	lockall
+	delay(10)
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+	turnobject(18, DIR_WEST)
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, Aldeleaf_Gym_MoveCamera)
+	waitmovement(0)
+	delay(10)
+	special(RemoveCameraObject)
+	trainerbattle_single(TRAINER_MARY, Aldeleaf_Gym_Text_VolknerIntro, Aldeleaf_Gym_Text_VolknerDefeat, Aldeleaf_Gym_EventScript_VolknerDefeated, NO_MUSIC)
+	goto_if_unset(FLAG_RECEIVED_TM_WILD_CHARGE, Aldeleaf_Gym_EventScript_GiveWildCharge)
+	msgbox(Aldeleaf_Gym_Text_VolknerPostBattle, MSGBOX_DEFAULT)
+	release
+	end
+}
+movement Aldeleaf_Gym_MoveCamera{
+	walk_right * 3
+}
+script Aldeleaf_Gym_EventScript_VolknerDefeated{
+	special(SpawnCameraObject)
+	delay(30)
+	applymovement(18, Aldeleaf_Gym_MoveLeft)
+	applymovement(OBJ_EVENT_ID_PLAYER, Aldeleaf_Gym_MoveRight)
+	waitmovement(0)
+	delay(15)
+	message(Aldeleaf_Gym_Text_ReceivedThunderBadge)
+	waitmessage
+	call(Common_EventScript_PlayGymBadgeFanfare)
+	msgbox(Aldeleaf_Gym_Text_ThunderBadgeInfoTakeThis, MSGBOX_DEFAULT)
+	setflag(FLAG_DEFEATED_DEWFORD_GYM)
+	setflag(FLAG_BADGE02_GET)
+	addvar(VAR_ALDELEAF_GYM_STATE, 1)
+	setvar(VAR_0x8008, 2)
+	call(Common_EventScript_SetGymTrainers)
+	special(RemoveCameraObject)
+	goto(Aldeleaf_Gym_EventScript_GiveWildCharge)
+	end
+}
+movement Aldeleaf_Gym_MoveLeft{
+	walk_left * 3
+}
+movement Aldeleaf_Gym_MoveRight{
+	walk_right * 3
+}
+script Aldeleaf_Gym_EventScript_GiveWildCharge{
+	giveitem(ITEM_TM_WILD_CHARGE)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	setflag(FLAG_RECEIVED_TM_WILD_CHARGE)
+	msgbox (Aldeleaf_Gym_Text_ExplainWildCharge, MSGBOX_DEFAULT)
+	release
+	end
+}
+movement Aldeleaf_Gym_MoveCamera2{
+	walk_left
+}
+
+text Aldeleaf_Gym_Text_VolknerIntro{
+	"Hello! I am Volkner, the Coralgrove\n"
+	"Pokémon Gym Leader.\p"
+	"I'm a huge fan of bug Pokémon.\p"
+	"Bug Pokémon are nasty-mean,\n"
+	"and yet they're beautiful too.\p"
+	"I became a gym leader so that I could\n"
+	"take on challengers and become perfect,\l"
+	"just like my bug Pokémon!\p"
+	"OK! Let me take you on!"
+}
+text Aldeleaf_Gym_Text_VolknerDefeat{
+	"So…\n"
+	"I lost…\p"
+	"It seems that I\n"
+	"still have ways to go…\p"
+	"I understand.\p"
+	"The Pokémon league's rules state\n"
+	"that trainers are to be given this\l"
+	"if they defeat a gym leader.\p"
+	"Please accept the official Pokémon\n"
+	"League Hive Badge."
+}
+text Aldeleaf_Gym_Text_ReceivedThunderBadge{
+	"{PLAYER} received the Thunder Badge\n"
+	"from Volkner!"
+}
+text Aldeleaf_Gym_Text_ThunderBadgeInfoTakeThis{
+	"The Thunder Badge makes all Pokémon\n"
+	"up to level 40, even those you get in\l"
+    "trades, obey without question.\p"
+	"It also enables them to use the HM move\n"
+	"“Cut” outside of battle.\p"
+	"Here, have this TM as well."
+}
+text Aldeleaf_Gym_Text_ExplainWildCharge{
+	"That TM contains the move Wild Charge.\p"
+	"It's a really powerful attack where\n"
+    "the user shrouds itself in electricity\l"
+    "and slams against the opponent.\p"
+    "Be careful though, as this also\n"
+    "hurts the user!"
+}
+text Aldeleaf_Gym_Text_VolknerPostBattle{
+	"After witnessing your strength here,\n"
+    "I'm starting to doubt whether you even\l"
+    "needed our help with Team Rocket\l"
+    "back at the ranch."
+}
+text Aldeleaf_Gym_Text_GymStatue{
+	"Aldeleaf City Pokémon Gym\p"
+	"Volkner's certified trainers:\n"
+	"Thomas\l"
+	"{RIVAL}"
+}
+text Aldeleaf_Gym_Text_GymStatueCertified{
+	"Aldeleaf City Pokémon Gym\p"
+	"Volkner's certified trainers:\n"
+	"Thomas\l"
+	"{RIVAL}\l"
+	"{PLAYER}"
+}
+script Aldeleaf_Gym_EventScript_GymGuide{
+	lock
+	faceplayer
+	if(flag(FLAG_DEFEATED_DEWFORD_GYM)){
+        msgbox("Aldeleaf_Gym_Text_GymGuidePostVictory", MSGBOX_DEFAULT) 
+    }
+    else{
+	    msgbox(Aldeleaf_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT)
+    }
+	release
+	end
+}
+script Aldeleaf_Gym_EventScript_Statue{
+	lockall
+	if(flag(FLAG_BADGE02_GET)){
+        msgbox(Aldeleaf_Gym_Text_GymStatueCertified, MSGBOX_SIGN)
+    }
+    else{
+        msgbox(Aldeleaf_Gym_Text_GymStatue, MSGBOX_SIGN)
+    }
+	end
+}
+text Aldeleaf_Gym_Text_GymGuideAdvice{
+	"Yo, champ in the making!\p"
+	"The leader of this gym, Volkner,\n"
+    "is an electric-type trainer.\p"
+    "Go against him with flying- or water-\n"
+    "type Pokémon and you're going to have\l"
+    "a bad time!\p"
+    "By the by, many of the trainers\n"
+    "here like to work in pairs!\l"
+    "And see those peculiar floor tiles?\p"
+    "Stepping on one might activate a trap\n"
+    "that sends a few electric-type Pokémon\l"
+    "flying your way, so you better be\l"
+    "prepared!\p"
+    "Do note that those Pokémon are\n"
+    "actually the property of the gym and\l"
+    "considered part of your gym trial.\p"
+    "As such, catching them or running away\n"
+    "from a battle is strictly prohibited!\p"
+    "If you find the going too hard,\n"
+    "there's always those pressure plates\l"
+    "in the side rooms.\l"
+    "Maybe stepping on one might\l"
+    "tamper with the floor mechanism…\p"
+    "Anyway, that's enough from me.\n"
+    "Go get 'em, Champ!"
+}
+text Aldeleaf_Gym_Text_GymGuidePostVictory{
+	"Whoa! What a shocking outcome!\n"
+    "You sure charged in and showed\l"
+    "everyone who's the boss!"
+}
+script AldeleafGym_Man{
+	msgbox(AldeleafGym_Man_Text, MSGBOX_NPC)
+	end
+}
+text AldeleafGym_Man_Text{
+    "How peculiar…\p"
+    "I don't see a plate controlling\n"
+    "this floor…"
+}
+script AldeleafGym_Trainer1{
+	trainerbattle_single(TRAINER_PARKER, AldeleafGym_Text_Trainer1Intro, AldeleafGym_Text_Trainer1Defeat)
+	msgbox(AldeleafGym_Text_Trainer1PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text AldeleafGym_Text_Trainer1Intro{
+    "I trained under Volkner!\n"
+	"There ain't no way I'll lose easily!"
+}
+text AldeleafGym_Text_Trainer1Defeat{
+    "Unplugged and turned off…"
+}
+text AldeleafGym_Text_Trainer1PostBattle{
+    "Volkner, our Gym Leader, is a really\n"
+	"experienced trainer.\p"
+	"There have been talks of him possibly\n"
+    "becoming a member of the Elite Four!"
+}
+script AldeleafGym_Trainer2{
+	trainerbattle_single(TRAINER_GEORGE, AldeleafGym_Text_Trainer2Intro, AldeleafGym_Text_Trainer2Defeat)
+	msgbox(AldeleafGym_Text_Trainer2PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text AldeleafGym_Text_Trainer2Intro{
+	"My electric soul, it'll shatter your\n"
+	"dreams whole, whoa-yeahah!"
+}
+text AldeleafGym_Text_Trainer2Defeat{
+    "That was plugged in, amped up,\n"
+	"over-driven electric, man!"
+}
+text AldeleafGym_Text_Trainer2PostBattle{
+    "Pokémon and rock, it's all about heart,\n"
+	"whoa-yeah!"
+}
+script AldeleafGym_Trainer3{
+	trainerbattle_single(TRAINER_BERKE, AldeleafGym_Text_Trainer3Intro, AldeleafGym_Text_Trainer3Defeat)
+	msgbox(AldeleafGym_Text_Trainer3PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text AldeleafGym_Text_Trainer3Intro{
+    "With my charm and my Pokémon's moves,\n"
+	"you'll be shocked!"
+}
+text AldeleafGym_Text_Trainer3Defeat{
+    "I'm shocked by your power!"
+}
+text AldeleafGym_Text_Trainer3PostBattle{
+    "I've heard that Volkner used to be\n"
+    "the leader of a gym over in Sinnoh.\p"
+    "Wonder what caused him to move over\n"
+    "here…"
+}
+script AldeleafGym_Trainer4{
+	trainerbattle_single(TRAINER_BRAXTON, AldeleafGym_Text_Trainer4Intro, AldeleafGym_Text_Trainer4Defeat)
+	msgbox(AldeleafGym_Text_Trainer4PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text AldeleafGym_Text_Trainer4Intro{
+    "I love shiny things!"
+}
+text AldeleafGym_Text_Trainer4Defeat{
+    "Oh…\n"
+	"My eyes are frazzled…"
+}
+text AldeleafGym_Text_Trainer4PostBattle{
+    "You shine brighter than anyone\n"
+    "I've seen before!"
+}
+script AldeleafGym_Trainer5{
+	trainerbattle_single(TRAINER_VINCENT, AldeleafGym_Text_Trainer5Intro, AldeleafGym_Text_Trainer5Defeat)
+	msgbox(AldeleafGym_Text_Trainer5PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text AldeleafGym_Text_Trainer5Intro{
+    "This Gym's got interesting mechanics!\n"
+	"Isn't it fun?"
+}
+text AldeleafGym_Text_Trainer5Defeat{
+    "It's no fun to lose…"
+}
+text AldeleafGym_Text_Trainer5PostBattle{
+    "Volkner is surprisingly good at\n"
+    "tinkering with technology.\p"
+    "Did you know that he personally\n"
+    "designed all those floor traps?"
+}
+script AldeleafGym_Trainer6{
+	trainerbattle_single(TRAINER_LEROY, AldeleafGym_Text_Trainer6Intro, AldeleafGym_Text_Trainer6Defeat)
+	msgbox(AldeleafGym_Text_Trainer6PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text AldeleafGym_Text_Trainer6Intro{
+    "Get ready to face the next Pokémon\n"
+    "League Champion!"
+}
+text AldeleafGym_Text_Trainer6Defeat{
+    "Did I say I'd be the next Champion?\n"
+    "I meant the one after that…"
+}
+text AldeleafGym_Text_Trainer6PostBattle{
+    "If you're goals feel unreachable,\n"
+    "don't beat yourself up for not being\l"
+    "able to reach them.\p"
+    "Sometimes it's better to lower your\n"
+    "expectations instead."
+}
+script AldeleafGym_Trainer7{
+	trainerbattle_single(TRAINER_WILTON_1, AldeleafGym_Text_Trainer7Intro, AldeleafGym_Text_Trainer7Defeat)
+	msgbox(AldeleafGym_Text_Trainer7PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text AldeleafGym_Text_Trainer7Intro{
+    "Here it comes!\n"
+    "Get ready for my trump card!"
+}
+text AldeleafGym_Text_Trainer7Defeat{
+    "Shocking… I didn't see this coming!"
+}
+text AldeleafGym_Text_Trainer7PostBattle{
+    "You've got me beat…\p"
+    "Your desire and the noble way\n"
+    "your Pokémon battled for you…\p"
+    "I even felt thrilled during our\n"
+    "match.\p"
+    "That was a very good battle."
+}
+script AldeleafGym_Trainer8{
+	trainerbattle_single(TRAINER_EDGAR, AldeleafGym_Text_Trainer8Intro, AldeleafGym_Text_Trainer8Defeat)
+	msgbox(AldeleafGym_Text_Trainer8PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text AldeleafGym_Text_Trainer8Intro{
+    "Wow! I'm surprised you've come this\n"
+    "far, but you'll have to turn back.\p"
+    "There isn't any chance that you\n"
+    "could ever beat me!"
+}
+text AldeleafGym_Text_Trainer8Defeat{
+    "What makes your Pokémon\n"
+    "so special?"
+}
+text AldeleafGym_Text_Trainer8PostBattle{
+    "As a challenger, you're one tough\n"
+    "Trainer."
+}
+script AldeleafGym_Trainer9{
+	trainerbattle_single(TRAINER_ALBERT, AldeleafGym_Text_Trainer9Intro, AldeleafGym_Text_Trainer9Defeat)
+	msgbox(AldeleafGym_Text_Trainer9PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text AldeleafGym_Text_Trainer9Intro{
+    "I want to win!"
+}
+text AldeleafGym_Text_Trainer9Defeat{
+    "I couldn't win…"
+}
+text AldeleafGym_Text_Trainer9PostBattle{
+    "Next time I'll win, for sure!"
+}
+script AldeleafGym_Trainer10{
+	trainerbattle_double(TRAINER_SAMUEL, AldeleafGym_Text_Trainer10Intro, AldeleafGym_Text_Trainer10Defeat, AldeleafGym_Text_10NotEnoughMons)
+	msgbox(AldeleafGym_Text_Trainer10PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text AldeleafGym_Text_Trainer10Intro{
+    "Teri: Yay! We're gonna battle with\n"
+    "lots of Pokémon today!"
+}
+text AldeleafGym_Text_Trainer10Defeat{
+    "Teri: Even with both of us, we lost."
+}
+text AldeleafGym_Text_Trainer10PostBattle{
+    "Teri: One day, our twin power will\n"
+    "rule the world!"
+}
+text AldeleafGym_Text_10NotEnoughMons{
+    "Teri: It's not a fair fight if\n"
+    "you only have 1 Pokémon!"
+}
+script AldeleafGym_Trainer11{
+	trainerbattle_double(TRAINER_SAMUEL, AldeleafGym_Text_Trainer11Intro, AldeleafGym_Text_Trainer11Defeat, AldeleafGym_Text_11NotEnoughMons)
+	msgbox(AldeleafGym_Text_Trainer11PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text AldeleafGym_Text_Trainer11Intro{
+    "Tia: Yay! We're gonna have a battle\n"
+    "with three Trainers!"
+}
+text AldeleafGym_Text_Trainer11Defeat{
+    "Tia: We two couldn't win."
+}
+text AldeleafGym_Text_Trainer11PostBattle{
+    "Tia: As long as we fight together,\n"
+    "we're twice as strong!"
+}
+text AldeleafGym_Text_11NotEnoughMons{
+    "Tia: You should have at least 2 Pokémon\n"
+    "to make this fair!"
+}
+script AldeleafGym_Trainer12{
+	trainerbattle_single(TRAINER_OWEN, AldeleafGym_Text_Trainer12Intro, AldeleafGym_Text_Trainer12Defeat)
+	msgbox(AldeleafGym_Text_Trainer12PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text AldeleafGym_Text_Trainer12Intro{
+    "I'm not just looking for tough\n"
+    "Trainers to battle.\p"
+    "I've been battling here because\n"
+    "I want to feel the rush!"
+}
+text AldeleafGym_Text_Trainer12Defeat{
+    "Your power is thrilling...\n"
+    "I'm thrilled down to my toes!"
+}
+text AldeleafGym_Text_Trainer12PostBattle{
+    "I'm so glad that there are Pokémon!\p"
+    "There isn't much else that gives me\n"
+    "the thrill that Pokémon do!"
+}
+script AldeleafGym_Trainer13{
+	trainerbattle_single(TRAINER_WILTON_2, AldeleafGym_Text_Trainer13Intro, AldeleafGym_Text_Trainer13Defeat)
+	msgbox(AldeleafGym_Text_Trainer13PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text AldeleafGym_Text_Trainer13Intro{
+    "My Pikachu is the strongest\n"
+    "in the world!"
+}
+text AldeleafGym_Text_Trainer13Defeat{
+    "My Pikachu…"
+}
+text AldeleafGym_Text_Trainer13PostBattle{
+    "Should I evolve my Pikachu?\n"
+    "Will it stay cute afterwards?"
+}
+script AldeleafGym_Trainer14{
+	trainerbattle_single(TRAINER_WILTON_3, AldeleafGym_Text_Trainer14Intro, AldeleafGym_Text_Trainer14Defeat)
+	msgbox(AldeleafGym_Text_Trainer1PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text AldeleafGym_Text_Trainer14Intro{
+    "I'm one of the strongest trainers\n"
+    "in this gym!\l"
+    "You better not underestimate me!"
+}
+text AldeleafGym_Text_Trainer14Defeat{
+    "Looks like I'm the one who\n"
+    "underestimated YOU."
+}
+text AldeleafGym_Text_Trainer14PostBattle{
+    "The gap between me and Volkner is\n"
+    "unimaginable.\l"
+    "I hope you're prepared."
+}
+script AldeleafGym_Trainer15{
+	trainerbattle_single(TRAINER_WILTON_4, AldeleafGym_Text_Trainer15Intro, AldeleafGym_Text_Trainer15Defeat)
+	msgbox(AldeleafGym_Text_Trainer1PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text AldeleafGym_Text_Trainer15Intro{
+    "Watch out, or I'll zap you!"
+}
+text AldeleafGym_Text_Trainer15Defeat{
+    "Couldn't create a big enough spark…"
+}
+text AldeleafGym_Text_Trainer15PostBattle{
+    "Next time I'll really zap you!"
+}
+script AldeleafGym_Trainer16{
+	trainerbattle_single(TRAINER_WILTON_5, AldeleafGym_Text_Trainer16Intro, AldeleafGym_Text_Trainer16Defeat)
+	msgbox(AldeleafGym_Text_Trainer16PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text AldeleafGym_Text_Trainer16Intro{
+    "Whether you're a Trainer or a\n"
+    "Guitarist, it takes dedication to\l"
+    "improve your mad skills!"
+}
+text AldeleafGym_Text_Trainer16Defeat{
+    "My skills seem to have let me down.\n"
+    "I must have been out of tune!"
+}
+text AldeleafGym_Text_Trainer16PostBattle{
+    "The way you battle, I can feel the\n"
+    "very heart of rock and roll.\p"
+    "Tell me, are you maybe a fan of\n"
+    "rocking out?"
+}
+script AldeleafGym_Trainer17{
+	trainerbattle_single(TRAINER_WARREN, AldeleafGym_Text_Trainer17Intro, AldeleafGym_Text_Trainer17Defeat)
+	msgbox(AldeleafGym_Text_Trainer17PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text AldeleafGym_Text_Trainer17Intro{
+    "You're not strong enough for Volkner!\n"
+    "I'll take you on instead!"
+}
+text AldeleafGym_Text_Trainer17Defeat{
+    "Okay, you are strong…"
+}
+text AldeleafGym_Text_Trainer17PostBattle{
+    "I wasn't strong enough to block\n"
+    "your way…\l"
+    "I need to train more!"
+}

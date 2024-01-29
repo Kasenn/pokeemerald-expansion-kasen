@@ -1735,6 +1735,21 @@
 	.2byte \quantity
 	.endm
 
+	@ Prepares to start a wild battle against a 'species' at 'level' holding 'item'.
+	@ If 'species2' is something other than SPECIES_NONE, then the battle is a double battle
+	@ that is also against 'species2' at 'level2' holding 'item2'.
+	@ Running this command will not affect normal wild battles. You start the prepared battle with dowildbattle.
+	@ If the player only has one Pokemon, a scripted double battle will be buggy.
+	.macro setwildbattlelevelrange species:req, level:req, item=ITEM_NONE, species2=SPECIES_NONE, level2=0, item2=ITEM_NONE
+	.byte 0xe3
+	.2byte \species
+	.byte \level
+	.2byte \item
+	.2byte \species2
+	.byte \level2
+	.2byte \item2
+	.endm
+
 
 @ Supplementary
 

@@ -1,0 +1,650 @@
+mapscripts PokeRanch_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: SetVolkner
+}
+
+script SetVolkner{
+    setflag(FLAG_RANCH_EVENT_NPC)
+    setflag(FLAG_MAREEP_NOT_RETURNED)
+    if(!flag(FLAG_RANCH_HELPED)){
+        setflag(FLAG_HIDE_RANCH_OWNER)
+    }
+    if(var(VAR_POKERANCH) == 0){
+        setflag(FLAG_HIDE_VOLKNER_2)
+    }
+}
+
+script PokeRanch_Mareep{
+    lock
+	faceplayer
+    waitse
+	playmoncry(SPECIES_MAREEP, CRY_MODE_NORMAL)
+	msgbox("Baa!", MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+
+script PokeRanch_Lass{
+    lock
+    faceplayer
+    msgbox("Mareep are so cute!\nJust being near one is causing all\lmy hair to stand up.", MSGBOX_DEFAULT)
+    waitmessage
+    release
+    end
+}
+
+script PokeRanch_Owner{
+    lock
+    msgbox("Oh, what am I to do…", MSGBOX_DEFAULT)
+    waitmessage
+    release
+    end
+}
+
+script PokeRanch_Volkner{
+    lock
+    faceplayer
+    setflag(FLAG_VOLKNER_MET)
+    if(flag(FLAG_RANCH_HELPED)){
+        msgbox(PokeRanch_VolknerReward, MSGBOX_DEFAULT)
+        giveitem(ITEM_HM01)
+        waitse
+        msgbox(Ranch_ExplainCut)
+        if(var(VAR_FACING) == DIR_SOUTH){
+        applymovement(10, PokeRanch_VolknerExit2FacingSWE)
+        }
+	    if(var(VAR_FACING) == DIR_NORTH){
+        applymovement(10, PokeRanch_VolknerExit2FacingNorth)
+        }
+	    if(var(VAR_FACING) == DIR_WEST){
+        applymovement(10, PokeRanch_VolknerExit2FacingSWE)
+        }
+        if(var(VAR_FACING) == DIR_EAST){
+        applymovement(10, PokeRanch_VolknerExit2FacingSWE)
+        }
+        waitmovement(0)
+        setflag(FLAG_HIDE_VOLKNER_1)
+        setflag(FLAG_RECEIVED_HM_CUT)
+        removeobject(10)
+        delay(20)
+        release
+        end
+    }
+    else{
+        if(var(VAR_POKERANCH) == 0){
+            msgbox(PokeRanch_VolknerInitialIntro, MSGBOX_DEFAULT)
+            waitmessage
+            closemessage
+            playse(SE_PIN)
+            applymovement(10, Common_Movement_ExclamationMark)
+            waitmovement(0)
+            delay(40)
+            msgbox(PokeRanch_VolknerIntroContinued, MSGBOX_DEFAULT)
+            waitmessage
+            closemessage
+            if(flag(FLAG_JASMINE_HELPED)){
+                msgbox(PokeRanch_JasmineAlreadyHelped, MSGBOX_DEFAULT)
+                waitmessage
+                closemessage
+            }
+            elif(flag(FLAG_JASMINE_TALKED_TO_FIRST)){
+                msgbox(PokeRanch_JasmineTalkedToFirst, MSGBOX_DEFAULT)
+                waitmessage
+                closemessage
+            }
+            else{
+                msgbox(PokeRanch_JasmineNotTalkedTo, MSGBOX_DEFAULT)
+                waitmessage
+                closemessage
+            }
+            msgbox(PokeRanch_VolknerSecondIssue, MSGBOX_DEFAULT)
+            waitmessage
+            closemessage
+            setvar(VAR_POKERANCH, 1)
+            setflag(FLAG_VOLKNER_TALKED_TO_FIRST)
+            goto(PokeRanch_VolknerMoveAfterIntro)
+        }
+        if(var(VAR_POKERANCH) == 1){
+            msgbox(PokeRanch_VolknerGossip, MSGBOX_DEFAULT)
+            if((flag(FLAG_JASMINE_HELPED)) && (!flag(FLAG_VOLKNER_INFORMED))){
+                msgbox(Volkner2_JasmineHelped, MSGBOX_DEFAULT)
+                setflag(FLAG_VOLKNER_INFORMED)
+            }
+            waitmessage
+            closemessage
+            release
+            end
+        }
+    }
+}
+
+movement PokeRanch_VolknerExit2FacingNorth{
+    walk_right
+    walk_down *8
+}
+movement PokeRanch_VolknerExit2FacingSWE{
+    walk_down * 7
+}
+
+text PokeRanch_VolknerReward{
+    "Volkner: You've been a great help\n"
+    "around the farm.\p"
+    "Honestly I'm not sure if Jasmine\n"
+    "and I could've even dealt with\l"
+    "all the problems without your help.\p"
+    "To show my gratitude,\n"
+    "I want you to have this."
+}
+
+text Volkner2_JasmineHelped{
+    "You've already helped Jasmine\n"
+    "with her task?\l"
+    "That's great!\p"
+    "That only leaves us with the case\n"
+    "of the missing Mareep."
+}
+
+text Ranch_ExplainCut{
+    "Volkner: That's a Hidden Machine,\n"
+    "or HM for short.\l"
+    "This specific HM contains the move Cut.\p"
+    "Cut allows your Pokémon to get rid of\n"
+    "certain pesky trees blocking your path.\p"
+    "Do note that HM moves can be hard to\n"
+    "get rid of and may require the help\l"
+    "of a move deleter.\p"
+    "Also, to use the move in the field,\n"
+    "you must first obtain my gym badge.\p"
+    "If you believe yourself to be ready,\n"
+    "come take on my gym challenge!"
+}
+
+script PokeRanch_VolknerMoveAfterIntro {
+    if(var(VAR_FACING) == DIR_SOUTH){
+        applymovement(10, PokeRanch_VolknerExitFacingSouth)
+    }
+	if(var(VAR_FACING) == DIR_NORTH){
+        applymovement(10, PokeRanch_VolknerExitFacingNorth)
+    }
+	if(var(VAR_FACING) == DIR_WEST){
+        applymovement(10, PokeRanch_VolknerExitFacingSouth)
+    }
+    waitmovement(0)
+    removeobject(10)
+    setflag(FLAG_HIDE_VOLKNER_1)
+    clearflag(FLAG_HIDE_VOLKNER_2)
+    delay(40)
+    release
+    end
+}
+
+movement PokeRanch_VolknerExitFacingSouth{
+    walk_down
+    walk_left * 8
+}
+
+movement PokeRanch_VolknerExitFacingNorth{
+    walk_up
+    walk_left * 8
+}
+
+text PokeRanch_VolknerInitialIntro{
+    "Sorry, but we've got a bit of\n"
+    "a situation going on here.\p"
+    "We're going to have to ask\n"
+    "the public to leave…"
+}
+
+text PokeRanch_VolknerIntroContinued{
+    "Oh but wait,\n"
+    "you seem to be a Pokémon trainer.\p"
+    "In that case,\n"
+    "maybe you could help with the case?\p"
+    "Volkner: My name is Volkner.\p"
+    "I'm the gym leader of Aldeleaf\n"
+    "City but every now and then I get\l"
+    "called to help the locals with all\l"
+    "sorts of different problems."
+}
+
+text PokeRanch_JasmineAlreadyHelped{
+    "We're dealing with two\n"
+    "big issues here.\p"
+    "First…\p"
+    "Huh?\p"
+    "You already talked to Jasmine\n"
+    "AND helped her out?\l"
+    "Wow, talk about a go-getter!"
+}
+
+text PokeRanch_JasmineTalkedToFirst{
+    "We're dealing with two\n"
+    "big issues here.\p"
+    "I noticed you went inside the barn\n"
+    "earlier so you probably already\l"
+    "talked to Jasmine?\p"
+    "Great, so I probably don't have\n"
+    "to explain that part to you.\p"
+}
+
+text PokeRanch_JasmineNotTalkedTo{
+    "We're dealing with two\n"
+    "big issues here.\p"
+    "First, some of the Mareep around\n"
+    "the ranch have fallen ill.\p"
+    "As much as I'd like to help,\n"
+    "I don't really have much experience\l"
+    "dealing with cases like this.\p"
+    "As such, I called over a friend\n"
+    "who could probably help.\p"
+    "To know more,\n"
+    "go look for her in the barn."
+}
+
+text PokeRanch_VolknerSecondIssue{
+    "The other issue we are dealing with\n"
+    "is a case of missing Mareep.\p"
+    "The ranch owner noticed earlier how\n"
+    "one of his Mareep had gone missing.\p"
+    "The Mareep are not known for wandering\n"
+    "around so something must've\l"
+    "happened to it.\p"
+    "I'm going to look around the ranch\n"
+    "for clues but any help you can offer\l"
+    "would be greatly appreciated."
+}
+
+text PokeRanch_VolknerGossip{
+    "There must be some clues here…"
+}
+
+script PokeRanch_MareepTrigger{
+    lock
+	faceplayer
+    waitse
+	playmoncry(SPECIES_MAREEP, CRY_MODE_NORMAL)
+	msgbox("Baa!", MSGBOX_DEFAULT)
+	waitmoncry
+    msgbox("This must be the missing Mareep…", MSGBOX_DEFAULT)
+    waitmessage
+    closemessage
+    clearflag(FLAG_RANCH_EVENT_NPC)
+    hideobjectat(19, MAP_POKE_RANCH)
+    delay(40)
+    msgbox("???: WE GOT YOU NOW!", MSGBOX_DEFAULT)
+    waitmessage
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark)
+    waitmovement(0)
+    delay(90)
+    applymovement(OBJ_EVENT_ID_PLAYER, RanchMovePlayer)
+    waitmovement(0)
+    playbgm(MUS_ENCOUNTER_MAGMA, TRUE)
+    setobjectxy(19, 44, 8)
+    showobjectat(19, MAP_POKE_RANCH)
+    delay(50)
+    if(flag(FLAG_UNUSED_WW_ENDEVENT)){
+        msgbox(RanchGrunt1, MSGBOX_DEFAULT)
+        waitmessage
+        closemessage
+    }
+    else{
+        msgbox(RanchGrunt2, MSGBOX_DEFAULT)
+        waitmessage
+        closemessage
+    }
+    delay(40)
+    fadeoutbgm(1)
+    msgbox("NOT SO FAST!!", MSGBOX_DEFAULT)
+    applymovement(13, Common_Movement_QuestionMark)
+    delay(10)
+    applymovement(16, Common_Movement_QuestionMark)
+    applymovement(14, Common_Movement_QuestionMark)
+    delay(20)
+    applymovement(12, TurnGrunt12)
+    delay(5)
+    applymovement(13, TurnGrunt13)
+    delay(5)
+    applymovement(14, TurnGrunt14)
+    applymovement(15, TurnGrunt15)
+    delay(5)
+    applymovement(16, TurnGrunt16)
+    delay(5)
+    applymovement(17, TurnGrunt17)
+    waitmovement(0)
+    delay(20)
+    waitmessage
+    closemessage
+    playbgm(MUS_ENCOUNTER_BRENDAN, FALSE)
+    applymovement(18, VolknerArrive)
+    applymovement(19, JasmineArrive)
+    turnobject(12, DIR_WEST)
+    turnobject(14, DIR_WEST)
+    turnobject(16, DIR_WEST)
+    turnobject(13, DIR_EAST)
+    turnobject(15, DIR_EAST)
+    turnobject(17, DIR_EAST)
+    waitmovement(18)
+    waitmovement(19)
+    if(flag(FLAG_JASMINE_MET)){
+        msgbox(VolknerRant, MSGBOX_DEFAULT)
+    }
+    else{
+        msgbox(VolknerRant2, MSGBOX_DEFAULT)
+    }
+    waitmessage
+    closemessage
+    applymovement(12, MoveGrunt12)
+    applymovement(13, MoveGrunt13)
+    applymovement(14, MoveGrunt14)
+    applymovement(15, MoveGrunt15)
+    applymovement(16, MoveGrunt16)
+    applymovement(17, MoveGrunt17)
+    waitmovement(12)
+    delay(20)
+    trainerbattle_no_intro(TRAINER_RICKY_4, PokeRanchRocket1Defeat)
+	goto(Ranch_FirstRocketWon)
+	end
+}
+
+movement TurnGrunt12{
+    walk_in_place_left
+    walk_in_place_up
+    walk_in_place_down
+    walk_in_place_right
+}
+movement TurnGrunt13{
+    walk_in_place_right
+    walk_in_place_down
+    walk_in_place_up
+    walk_in_place_left
+}
+movement TurnGrunt14{
+    walk_in_place_left
+    walk_in_place_right
+    walk_in_place_up
+    walk_in_place_down
+}
+movement TurnGrunt15{
+    walk_in_place_down
+    walk_in_place_left
+    walk_in_place_right
+    walk_in_place_up
+}
+movement TurnGrunt16{
+    walk_in_place_right
+    walk_in_place_left
+    walk_in_place_down
+    walk_in_place_up
+}
+movement TurnGrunt17{
+    walk_in_place_down
+    walk_in_place_up
+    walk_in_place_left
+    walk_in_place_right
+}
+
+script Ranch_FirstRocketWon{
+    delay(20)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+    delay(20)
+    msgbox(RanchRocket2Challenge, MSGBOX_DEFAULT)
+    waitmessage
+    closemessage
+    trainerbattle_no_intro(TRAINER_RICKY_5, PokeRanchRocket2Defeat)
+	goto(PokeRanch_SpecialBattleWon)
+	end
+}
+
+text PokeRanchRocket1Defeat{
+    "Not again…"
+}
+
+text PokeRanchRocket2Defeat{
+    "We lost!?"
+}
+
+script PokeRanch_SpecialBattleWon{
+    msgbox(Ranch_RocketEscape, MSGBOX_DEFAULT)
+    waitmessage
+    closemessage
+    fadescreenswapbuffers(FADE_TO_BLACK)
+    fadenewbgm(MUS_MUTED)
+    removeobject(12)
+    removeobject(14)
+    removeobject(15)
+    removeobject(16)
+    removeobject(17)
+    setobjectxy(18, 35, 6)
+    setobjectxy(19, 36, 6)
+    turnobject(18, DIR_SOUTH)
+    turnobject(19, DIR_SOUTH)
+    turnobject(13, DIR_NORTH)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    delay(40)
+    fadescreenswapbuffers(FADE_FROM_BLACK)
+    delay(40)
+    fadenewbgm(MUS_OLDALE)
+    savebgm(MUS_OLDALE)
+    if(flag(FLAG_JASMINE_HELPED)){
+        msgbox(Ranch_RocketEscapeFail, MSGBOX_DEFAULT)
+    }
+    else{
+        msgbox(Ranch_RocketEscapeFail2, MSGBOX_DEFAULT)
+    }
+    waitmessage
+    closemessage
+    applymovement(18, AfterBattleVolkner1)
+    waitmovement(0)
+    applymovement(13, AfterBattleRocket1)
+    waitmovement(0)
+    applymovement(18, AfterBattleVolkner2)
+    applymovement(13, AfterBattleRocket2)
+    waitmovement(0)
+    delay(10)
+    applymovement(19, AfterBattleJasmine1)
+    waitmovement(0)
+    delay(10)
+    if(flag(FLAG_JASMINE_MET)){
+        msgbox(Ranch_JasmineHeadsBack, MSGBOX_DEFAULT)
+    }
+    else{
+        msgbox(Ranch_JasmineHeadsBack2, MSGBOX_DEFAULT)
+    }
+    waitmessage
+    closemessage
+    fadescreenswapbuffers(FADE_TO_BLACK)
+    removeobject(18)
+    removeobject(19)
+    removeobject(13)
+    removeobject(7)
+    setflag(FLAG_HIDE_VOLKNER_2)
+    setflag(FLAG_RANCH_EVENT_NPC)
+    setflag(FLAG_VOLKNER_HELPED)
+    clearflag(FLAG_MAREEP_NOT_RETURNED)
+    if(flag(FLAG_JASMINE_HELPED)){
+        call(Ranch_QuestFlagsComplete)
+    }
+    fadescreenswapbuffers(FADE_FROM_BLACK)
+    delay(40)
+    release
+    end
+}
+
+script Ranch_QuestFlagsComplete{
+    setflag(FLAG_RANCH_HELPED)
+    clearflag(FLAG_HIDE_RANCH_OWNER)
+    clearflag(FLAG_HIDE_VOLKNER_1)
+    setobjectmovementtype(10, MOVEMENT_TYPE_FACE_DOWN)
+}
+
+text Ranch_RocketEscape{
+    "Rocket Grunt 6: These guys are\n"
+    "way too strong!\p"
+    "Rocket Grunt 1: This calls for\n"
+    "a tactical retreat!\l"
+    "They can't catch all of us!"
+}
+text Ranch_RocketEscapeFail{
+    "Rocket Grunt 1: Drats…\p"
+    "Volkner: The others may have escaped\n"
+    "but at least we caught someone who\l"
+    "was seemingly calling the shots here.\p"
+    "I'll head out and turn this guy in\n"
+    "to the authority.\l"
+    "Maybe we can learn more about\l"
+    "Team Rocket's plans.\p"
+    "Come see me later in front\n"
+    "of the ranch."
+}
+text Ranch_RocketEscapeFail2{
+    "Rocket Grunt 1: Drats…\p"
+    "Volkner: The others may have escaped\n"
+    "but at least we caught someone who\l"
+    "was seemingly calling the shots here.\p"
+    "I'll head out and turn this guy in\n"
+    "to the authority.\l"
+    "Maybe we can learn more about\l"
+    "Team Rocket's plans.\p"
+    "Come see me later in front\n"
+    "of the ranch.\p"
+    "It'll probably take me a while\n"
+    "to escort this guy.\l"
+    "In the meanwhile, your help at the\l"
+    "barn would be greatly appreciated."
+}
+text Ranch_JasmineHeadsBack{
+    "Jasmine: I need to head back and\n"
+    "make sure the situation at the barn\l"
+    "is under control…\p"
+    "Um, if you don't mind,\n"
+    "I'd like to take that little guy\l"
+    "hiding behind you back to the barn…"
+}
+text Ranch_JasmineHeadsBack2{
+    "???: Um, if you don't mind,\n"
+    "I'd like to take that little guy\l"
+    "hiding behind you back to the barn…"
+}
+text RanchRocket2Challenge{
+    "Don't think you're out\n"
+    "of the woods yet!"
+}
+
+movement AfterBattleVolkner1{
+    walk_up
+    walk_in_place_down
+}
+
+movement AfterBattleRocket1{
+    walk_left
+    walk_up
+}
+
+movement AfterBattleVolkner2{
+    walk_down
+    walk_left * 6
+    walk_down * 8
+
+}
+
+movement AfterBattleRocket2{
+    walk_left * 6
+    walk_down * 8
+    }
+
+movement AfterBattleJasmine1{
+    walk_down
+}
+
+movement MoveGrunt12{
+    walk_down * 3
+    walk_in_place_right
+}
+
+movement MoveGrunt13{
+    walk_down * 2
+}
+
+movement MoveGrunt14{
+    walk_left * 2
+}
+movement MoveGrunt15{
+    walk_right * 2
+}
+movement MoveGrunt16{
+    walk_left
+}
+movement MoveGrunt17{
+    walk_right
+}
+
+text VolknerRant2{
+    "???: Looks like we arrived\n"
+    "just in time…\p"
+    "Volkner: I saw some of these guys\n"
+    "skulking in the woods so I knew\l"
+    "there was trouble about.\p"
+    "You're not taking anybody's\n"
+    "Pokémon today!\p"
+    "Rocket Grunt 3: There's two\n"
+    "gym leaders here!?\p"
+    "Rocket Grunt 5: We're done for!\p"
+    "Rocket Grunt 1: CALM YOURSELF!\n"
+    "We still outnumber them two-to-one!\p"
+    "Let's do this!"
+}
+
+text VolknerRant{
+    "Jasmine: Looks like we arrived\n"
+    "just in time…\p"
+    "Volkner: I saw some of these guys\n"
+    "skulking in the woods so I knew\l"
+    "there was trouble about.\p"
+    "You're not taking anybody's\n"
+    "Pokémon today!\p"
+    "Rocket Grunt 3: There's two\n"
+    "gym leaders here!?\p"
+    "Rocket Grunt 5: We're done for!\p"
+    "Rocket Grunt 1: CALM YOURSELF!\n"
+    "We still outnumber them two-to-one!\p"
+    "Let's do this!"
+}
+
+movement VolknerArrive{
+    walk_up
+    walk_right
+    walk_up * 2
+    walk_right * 2
+    walk_up
+    walk_right
+}
+
+movement JasmineArrive{
+    walk_left * 2
+    walk_up * 2
+    walk_left * 2
+    walk_up
+    walk_left
+}
+
+movement RanchMovePlayer{
+    walk_left * 2
+    walk_up * 3
+}
+
+text RanchGrunt1{
+    "Rocket Grunt 1: Well well well,\n"
+    "looks like our trap worked perfectly!\p"
+    "Remember me from Windy Woods?\n"
+    "This time I got some backup!\p"
+    "You better hand over all your Pokémon\n"
+    "if you want to leave this place alive!"
+}
+
+text RanchGrunt2{
+    "Rocket Grunt 1: Well well well,\n"
+    "looks like our trap worked perfectly!\p"
+    "You better hand over all your Pokémon\n"
+    "if you want to leave this place alive!"
+}

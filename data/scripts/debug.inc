@@ -69,16 +69,35 @@ Debug_BoxFilledMessage::
 Debug_BoxFilledMessage_Text:
 	.string "Storage boxes filled!$"
 
+FlagsAndVarsUpdated:
+	.string "Flags and Vars updated$"
+
 Debug_Script_1::
+	setflag FLAG_LANDMARK_LOST_GLADE
+	setflag FLAG_LANDMARK_WINDY_WOODS
+	setberrytree BERRY_TREE_ROUTE_104_ORAN_1, ITEM_TO_BERRY(ITEM_ORAN_BERRY), BERRY_STAGE_BERRIES
+	setberrytree BERRY_TREE_ROUTE_103_LEPPA, ITEM_TO_BERRY(ITEM_LEPPA_BERRY), BERRY_STAGE_BERRIES
+	setberrytree BERRY_TREE_ROUTE_103_CHERI_2, ITEM_TO_BERRY(ITEM_CHERI_BERRY), BERRY_STAGE_BERRIES
+	msgbox FlagsAndVarsUpdated, MSGBOX_DEFAULT
+	waitmessage
+	closemessage
+	warp MAP_CORALGROVE_CITY, 26, 31
 	end
 
 Debug_Script_2::
+	setwildbattle SPECIES_REGISTEEL, 40
+	special StartRegiBattle
 	end
 
 Debug_Script_3::
+	fadeoutbgm 1
+	delay 180
+	fadeinbgm 1
+	fadenewbgm MUS_VS_IRIS
 	end
 
 Debug_Script_4::
+	fadenewbgm MUS_MUTED
 	end
 
 Debug_Script_5::

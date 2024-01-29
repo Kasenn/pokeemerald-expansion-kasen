@@ -388,4 +388,14 @@ const u32 gObjectEventPic_Example5[] = INCBIN_U32("graphics/object_events/pics/p
 const u16 gObjectEventPalette_Example5[] = INCBIN_U16("graphics/object_events/pics/people/example5.gbapal");
 const u32 gObjectEventPic_Iris[] = INCBIN_U32("graphics/object_events/pics/people/iris.4bpp");
 const u16 gObjectEventPalette_Iris[] = INCBIN_U16("graphics/object_events/pics/people/iris.gbapal");
+const u32 gObjectEventPic_Volkner[] = INCBIN_U32("graphics/object_events/pics/people/volkner.4bpp");
+const u16 gObjectEventPalette_Volkner[] = INCBIN_U16("graphics/object_events/pics/people/volkner.gbapal");
+const u32 gObjectEventPic_Jasmine[] = INCBIN_U32("graphics/object_events/pics/people/jasmine.4bpp");
+const u16 gObjectEventPalette_Jasmine[] = INCBIN_U16("graphics/object_events/pics/people/jasmine.gbapal");
+const u32 gObjectEventPic_Mareep[] = INCBIN_U32("graphics/object_events/pics/people/mareep.4bpp");
+const u16 gObjectEventPalette_Mareep[] = INCBIN_U16("graphics/object_events/pics/people/mareep.gbapal");
+const u32 gObjectEventPic_Example6[] = INCBIN_U32("graphics/object_events/pics/people/may/running.4bpp");
+const u32 gObjectEventPic_RocketF[] = INCBIN_U32("graphics/object_events/pics/people/rocket_f.4bpp");
+const u16 gObjectEventPalette_RocketF[] = INCBIN_U16("graphics/object_events/pics/people/rocket_f.gbapal");
+
 

@@ -17,12 +17,14 @@ WindyWoods_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 WWHideDadAndDog::
 	compare VAR_WINDYWOODS_STATE, 4
 	goto_if_eq WWHideDadAndDog_1
+	setflag FLAG_LANDMARK_WINDY_WOODS
 	setflag FLAG_UNUSED_WW_HIDEDAD
 	hideobjectat 12, MAP_WINDY_WOODS
 	hideobjectat 14, MAP_WINDY_WOODS
 	end
 
 WWHideDadAndDog_1:
+	setflag FLAG_LANDMARK_WINDY_WOODS
 	end
 
 

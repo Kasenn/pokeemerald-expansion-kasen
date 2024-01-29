@@ -1,0 +1,34 @@
+mapscripts RanchHouse_MapScripts{}
+
+script RanchHouseMan{
+    lockall
+    faceplayer
+    msgbox(RanchHouseManText, MSGBOX_DEFAULT)
+    release
+    end
+}
+
+script RanchHouseWoman{
+    lockall
+    faceplayer
+    msgbox(RanchHouseWomanText, MSGBOX_DEFAULT)
+    release
+    end
+}
+
+text RanchHouseManText{
+    "You must be the trainer who was helping\n"
+    "our farm alongside Jasmine and Volkner.\l"
+    "Thank you so much!\p"
+    "I wish I had something to offer\n"
+    "in return but it'll take us a while to\l"
+    "recover from these troubles that\l"
+    "have been plaguing us recently…"
+}
+
+text RanchHouseWomanText{
+    "Our farm has gone through\n"
+    "a lot recently.\p"
+    "Still, I'm sure the future\n"
+    "will be bright."
+}

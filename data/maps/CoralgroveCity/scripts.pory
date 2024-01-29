@@ -144,7 +144,10 @@ script Coralgrove_HIKER{
 }
 
 text Coral_Hiker_Text{
-    "There was landslide between\nCoralgrove City and Primrose Town.\pThere's some rocks here and there but\nmost of it has already been cleared."
+    "There was landslide between\n"
+    "Coralgrove City and Primrose Town.\p"
+    "There's some rocks here and there but\n"
+    "most of it has already been cleared."
 }
 
 script Coralgrove_Children{

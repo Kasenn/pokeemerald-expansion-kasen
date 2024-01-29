@@ -246,4 +246,7 @@ CoralGrove_EventScript_GymSign_Text_0:
 	.string "Coralgrove City Pokémon Gym\nLeader: Aaron$"
 
 Coral_Hiker_Text::
-	.string "There was landslide between\nCoralgrove City and Primrose Town.\pThere's some rocks here and there but\nmost of it has already been cleared.$"
+	.string "There was landslide between\n"
+	.string "Coralgrove City and Primrose Town.\p"
+	.string "There's some rocks here and there but\n"
+	.string "most of it has already been cleared.$"

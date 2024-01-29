@@ -616,7 +616,7 @@ gSongTable::
 	song mus_vs_iris, 0, 0
 	song mus_alola_e4, 0, 0
 	song mus_mistral, 0, 0
-	song mus_rg_sevii_dungeon, 0 ,0
+	song mus_muted, 0 ,0
 
 	.align 2
 dummy_song_header:

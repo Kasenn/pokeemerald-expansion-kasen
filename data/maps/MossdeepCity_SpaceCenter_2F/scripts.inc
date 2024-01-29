@@ -344,6 +344,14 @@ MossdeepCity_SpaceCenter_2F_EventScript_TabithaTrainer::
 	trainerbattle TRAINER_BATTLE_SET_TRAINER_B, TRAINER_TABITHA_MOSSDEEP, 0, MossdeepCity_SpaceCenter_Text_TabithaDefeat, MossdeepCity_SpaceCenter_Text_TabithaDefeat
 	end
 
+PokeRanch_RocketTrainer1::
+	trainerbattle TRAINER_BATTLE_SET_TRAINER_A, TRAINER_MAXIE_MOSSDEEP, 0, PokeRanchRocket1Defeat, PokeRanchRocket1Defeat
+	end
+
+PokeRanch_RocketTrainer2::
+	trainerbattle TRAINER_BATTLE_SET_TRAINER_B, TRAINER_TABITHA_MOSSDEEP, 0, PokeRanchRocket2Defeat, PokeRanchRocket2Defeat
+	end
+
 MossdeepCity_SpaceCenter_2F_EventScript_RivalRayquazaCall::
 	lockall
 	checkplayergender
