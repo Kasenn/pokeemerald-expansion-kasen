@@ -1,4 +1,5 @@
 AldeleafGym_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, AldeleafGymSetUpFromLoad
 	map_script MAP_SCRIPT_ON_TRANSITION, AldeleafGymSetUp
 	.byte 0
 
@@ -17,6 +18,27 @@ AldeleafGymSetUp::
 AldeleafGymSetUp_1:
 	release
 	end
+
+
+AldeleafGymSetUpFromLoad::
+	goto_if_set FLAG_ALDELEAF_SWITCH1, AldeleafGymSetUpFromLoad_2
+AldeleafGymSetUpFromLoad_1:
+	goto_if_set FLAG_ALDELEAF_SWITCH2, AldeleafGymSetUpFromLoad_5
+AldeleafGymSetUpFromLoad_4:
+	goto_if_set FLAG_ALDELEAF_SWITCH3, AldeleafGymSetUpFromLoad_7
+	return
+
+AldeleafGymSetUpFromLoad_2:
+	setmetatile 1, 73, 0x206, FALSE
+	goto AldeleafGymSetUpFromLoad_1
+
+AldeleafGymSetUpFromLoad_5:
+	setmetatile 14, 64, 0x206, FALSE
+	goto AldeleafGymSetUpFromLoad_4
+
+AldeleafGymSetUpFromLoad_7:
+	setmetatile 2, 55, 0x206, FALSE
+	return
 
 
 AldeleafGymTriggerFlagSet::
@@ -172,13 +194,13 @@ AldeleafGymFloor4_1:
 
 
 AldeleafGymFloorTriggered::
-	compare VAR_ALDELEAF_GYM_STEPS, 1
+	compare VAR_ALDELEAF_GYM_STEPS, 3
 	goto_if_le AldeleafGymFloorTriggered_1
 	setvar VAR_ALDELEAF_GYM_STEPS, 0
 	random 10
-	compare VAR_RESULT, 2
+	compare VAR_RESULT, 1
 	goto_if_le AldeleafGymFloorTriggered_5
-	compare VAR_RESULT, 3
+	compare VAR_RESULT, 2
 	goto_if_ge AldeleafGymFloorTriggered_7
 	return
 
@@ -507,40 +529,47 @@ AldeleafGymSwitch3_Text_1:
 	.string "Switch 3 activated.$"
 
 Aldeleaf_Gym_Volkner_Talk_Text_0:
-	.string "I see you've arrived.\pIf you're ready, go stand on the other\nside of the arena so we may begin.$"
+	.string "Volkner: I see you've arrived.\pIf you're ready, go stand on the other\nside of the arena so we may begin.$"
 
 Aldeleaf_Gym_EventScript_GymGuide_Text_0:
 	.string "Aldeleaf_Gym_Text_GymGuidePostVictory$"
 
 Aldeleaf_Gym_Text_VolknerIntro::
-	.string "Hello! I am Volkner, the Coralgrove\n"
-	.string "Pokémon Gym Leader.\p"
-	.string "I'm a huge fan of bug Pokémon.\p"
-	.string "Bug Pokémon are nasty-mean,\n"
-	.string "and yet they're beautiful too.\p"
-	.string "I became a gym leader so that I could\n"
-	.string "take on challengers and become perfect,\l"
-	.string "just like my bug Pokémon!\p"
-	.string "OK! Let me take you on!$"
+	.string "Volkner: I knew you'd be here soon.\n"
+	.string "Glad to see you did not disappoint.\p"
+	.string "Even though I'm grateful for\n"
+	.string "your help at the ranch,\l"
+	.string "I am the Leader of this Gym and\l"
+	.string "you are a challenger.\p"
+	.string "I assume you understand what\n"
+	.string "that entails…\p"
+	.string "…All right, challenger.\p"
+	.string "I'm Volkner, the Gym Leader.\p"
+	.string "It's not often, but some Trainers\n"
+	.string "manage to come and challenge me.\l"
+	.string "But they've all been boring battles.\p"
+	.string "Anyway, I guess we'd better get this\n"
+	.string "done.\p"
+	.string "I hope you're the Trainer who'll make\n"
+	.string "me remember how fun it is to battle!$"
 
 Aldeleaf_Gym_Text_VolknerDefeat::
-	.string "So…\n"
-	.string "I lost…\p"
-	.string "It seems that I\n"
-	.string "still have ways to go…\p"
-	.string "I understand.\p"
-	.string "The Pokémon league's rules state\n"
-	.string "that trainers are to be given this\l"
-	.string "if they defeat a gym leader.\p"
-	.string "Please accept the official Pokémon\n"
-	.string "League Hive Badge.$"
+	.string "…Hehehe.\p"
+	.string "Hahahah!\p"
+	.string "…That was the most fun I've had\n"
+	.string "in a battle since…I don't know when!\p"
+	.string "It's also made me excited to know\n"
+	.string "you and your team will keep battling\l"
+	.string "to greater heights!\p"
+	.string "This is your second Gym Badge.\n"
+	.string "You've earned this!$"
 
 Aldeleaf_Gym_Text_ReceivedThunderBadge::
-	.string "{PLAYER} received the Thunder Badge\n"
+	.string "{PLAYER} received the Dynamo Badge\n"
 	.string "from Volkner!$"
 
 Aldeleaf_Gym_Text_ThunderBadgeInfoTakeThis::
-	.string "The Thunder Badge makes all Pokémon\n"
+	.string "The Dynamo Badge makes all Pokémon\n"
 	.string "up to level 40, even those you get in\l"
 	.string "trades, obey without question.\p"
 	.string "It also enables them to use the HM move\n"

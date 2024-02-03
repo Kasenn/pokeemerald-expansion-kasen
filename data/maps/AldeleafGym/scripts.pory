@@ -1,4 +1,5 @@
 mapscripts AldeleafGym_MapScripts{
+    MAP_SCRIPT_ON_LOAD: AldeleafGymSetUpFromLoad
     MAP_SCRIPT_ON_TRANSITION: AldeleafGymSetUp
 }
 
@@ -15,6 +16,17 @@ script AldeleafGymSetUp{
         setmetatile(1, 73, 0x205, FALSE)
         setmetatile(14, 64, 0x205, FALSE)
         setmetatile(2, 55, 0x205, FALSE)
+    }
+}
+script AldeleafGymSetUpFromLoad{
+    if(flag(FLAG_ALDELEAF_SWITCH1)){
+        setmetatile(1, 73, 0x206, FALSE)
+    }
+    if(flag(FLAG_ALDELEAF_SWITCH2)){
+        setmetatile(14, 64, 0x206, FALSE)
+    }
+    if(flag(FLAG_ALDELEAF_SWITCH3)){
+        setmetatile(2, 55, 0x206, FALSE)
     }
 }
 script AldeleafGymTriggerFlagSet{
@@ -134,7 +146,7 @@ script AldeleafGymFloor4{
     }
 }
 script AldeleafGymFloorTriggered{
-    if(var(VAR_ALDELEAF_GYM_STEPS) <= 1){
+    if(var(VAR_ALDELEAF_GYM_STEPS) <= 3){
         addvar(VAR_ALDELEAF_GYM_STEPS, 1)
         release
         end
@@ -142,11 +154,11 @@ script AldeleafGymFloorTriggered{
     else{
         setvar(VAR_ALDELEAF_GYM_STEPS, 0)
         random(10)
-            if(var(VAR_RESULT) <= 2){
+            if(var(VAR_RESULT) <= 1){
                 release
                 end
             }
-            if(var(VAR_RESULT) >= 3){
+            if(var(VAR_RESULT) >= 2){
                 random(10)
                 if(var(VAR_RESULT) == 0){
                     setwildbattlelevelrange(SPECIES_MAGNEMITE, 18, ITEM_NONE, SPECIES_MAGNEMITE, 21, ITEM_NONE)
@@ -191,7 +203,7 @@ script Aldeleaf_Gym_Volkner_Talk{
 		closemessage
 	}
 	else{
-		msgbox("I see you've arrived.\pIf you're ready, go stand on the other\nside of the arena so we may begin." MSGBOX_DEFAULT)
+		msgbox("Volkner: I see you've arrived.\pIf you're ready, go stand on the other\nside of the arena so we may begin." MSGBOX_DEFAULT)
 		waitmessage
 		closemessage
 		turnobject(18, DIR_WEST)
@@ -257,34 +269,41 @@ movement Aldeleaf_Gym_MoveCamera2{
 }
 
 text Aldeleaf_Gym_Text_VolknerIntro{
-	"Hello! I am Volkner, the Coralgrove\n"
-	"Pokémon Gym Leader.\p"
-	"I'm a huge fan of bug Pokémon.\p"
-	"Bug Pokémon are nasty-mean,\n"
-	"and yet they're beautiful too.\p"
-	"I became a gym leader so that I could\n"
-	"take on challengers and become perfect,\l"
-	"just like my bug Pokémon!\p"
-	"OK! Let me take you on!"
+	"Volkner: I knew you'd be here soon.\n"
+    "Glad to see you did not disappoint.\p"
+    "Even though I'm grateful for\n"
+    "your help at the ranch,\l"
+    "I am the Leader of this Gym and\l"
+    "you are a challenger.\p"
+    "I assume you understand what\n"
+    "that entails…\p"
+    "…All right, challenger.\p"
+    "I'm Volkner, the Gym Leader.\p"
+    "It's not often, but some Trainers\n"
+    "manage to come and challenge me.\l"
+    "But they've all been boring battles.\p"
+    "Anyway, I guess we'd better get this\n"
+    "done.\p"
+    "I hope you're the Trainer who'll make\n"
+    "me remember how fun it is to battle!"
 }
 text Aldeleaf_Gym_Text_VolknerDefeat{
-	"So…\n"
-	"I lost…\p"
-	"It seems that I\n"
-	"still have ways to go…\p"
-	"I understand.\p"
-	"The Pokémon league's rules state\n"
-	"that trainers are to be given this\l"
-	"if they defeat a gym leader.\p"
-	"Please accept the official Pokémon\n"
-	"League Hive Badge."
+	"…Hehehe.\p"
+    "Hahahah!\p"
+    "…That was the most fun I've had\n"
+    "in a battle since…I don't know when!\p"
+    "It's also made me excited to know\n"
+    "you and your team will keep battling\l"
+    "to greater heights!\p"
+    "This is your second Gym Badge.\n"
+    "You've earned this!"
 }
 text Aldeleaf_Gym_Text_ReceivedThunderBadge{
-	"{PLAYER} received the Thunder Badge\n"
+	"{PLAYER} received the Dynamo Badge\n"
 	"from Volkner!"
 }
 text Aldeleaf_Gym_Text_ThunderBadgeInfoTakeThis{
-	"The Thunder Badge makes all Pokémon\n"
+	"The Dynamo Badge makes all Pokémon\n"
 	"up to level 40, even those you get in\l"
     "trades, obey without question.\p"
 	"It also enables them to use the HM move\n"

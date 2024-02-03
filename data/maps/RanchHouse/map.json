@@ -2,7 +2,7 @@
   "id": "MAP_RANCH_HOUSE",
   "name": "RanchHouse",
   "layout": "LAYOUT_RANCH_HOUSE",
-  "music": "MUS_LILYCOVE",
+  "music": "MUS_VERDANTURF",
   "region_map_section": "MAPSEC_POKE_RANCH",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

@@ -42,16 +42,16 @@
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
 #define NUM_TEMP_FLAGS   (TEMP_FLAGS_END - TEMP_FLAGS_START + 1)
 
-#define FLAG_UNUSED_LAB_RIVAL    0x20 // Used to show/hide rival in prof's lab
-#define FLAG_UNUSED_BP_INTRO    0x21 // Introduction to battle points
-#define FLAG_UNUSED_GLADE    0x22 // Sets the lost glade flag so the camper changes dialogue
-#define FLAG_DEFEATED_RIVAL_HARBOR    0x23 // Flag for defeating rival at coralgrove harbor. Also used to define whether the itemfinder has already been obtained
-#define FLAG_COASTTOWNHONEYGET    0x24 // Flag for getting honey in azuretide town
-#define FLAG_NO_CATCHING    0x25 // STOPS CATCHING WILD POKEMON
-#define FLAG_NO_WILD_RUNNING    0x26 // Unused Flag
-#define FLAG_TOGGLE_DOUBLE_WILDS    0x27 // Unused Flag
-#define FLAG_RECEIVED_TM_WILD_CHARGE    0x28 // Unused Flag
-#define FLAG_UNUSED_0x029    0x29 // Unused Flag
+#define FLAG_UNUSED_LAB_RIVAL                   0x20 // Used to show/hide rival in prof's lab
+#define FLAG_UNUSED_BP_INTRO                    0x21 // Introduction to battle points
+#define FLAG_UNUSED_GLADE                       0x22 // Sets the lost glade flag so the camper changes dialogue
+#define FLAG_DEFEATED_RIVAL_HARBOR              0x23 // Flag for defeating rival at coralgrove harbor. Also used to define whether the itemfinder has already been obtained
+#define FLAG_COASTTOWNHONEYGET                  0x24 // Flag for getting honey in azuretide town
+#define FLAG_NO_CATCHING                        0x25 // STOPS CATCHING WILD POKEMON
+#define FLAG_NO_WILD_RUNNING                    0x26 // Stops running from wild pokemon
+#define FLAG_TOGGLE_DOUBLE_WILDS                0x27 // Forces double wild battles
+#define FLAG_RECEIVED_TM_WILD_CHARGE            0x28 // Received wild charge from Volkner
+#define FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR2    0x29 // Aldeleaf BP Shop Move Tutor
 #define FLAG_UNUSED_0x02A    0x2A // Unused Flag
 #define FLAG_UNUSED_0x02B    0x2B // Unused Flag
 #define FLAG_UNUSED_0x02C    0x2C // Unused Flag
@@ -652,51 +652,51 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x6E)
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
-#define PEARLWOOD_MOM_TALKED_TO  0x264 // Intro, mom comes to your room
-#define FLAG_CORAL_FLAG_1  0x265 // UNLOCKS POKECENTER TRAINING
-#define FLAG_SCHOOL_DONE  0x266 // TRAINER SCHOOL DONE
-#define FLAG_UNUSED_0x267_CG_HIDEGHOST  0x267 // Unused Flag
+#define PEARLWOOD_MOM_TALKED_TO             0x264 // Intro, mom comes to your room
+#define FLAG_CORAL_FLAG_1                   0x265 // UNLOCKS POKECENTER TRAINING
+#define FLAG_SCHOOL_DONE                    0x266 // TRAINER SCHOOL DONE
+#define FLAG_UNUSED_0x267_CG_HIDEGHOST      0x267 // Used to hide the ghost in Coralgrove City
 #define FLAG_UNUSED_0x268  0x268 // Unused Flag
-#define FLAG_RECEIVED_TM_U_TURN  0x269 // TM for first gym
-#define FLAG_NECTARQUESTDONE  0x26A // set this flag if oricorio shown to nectar maniac
-#define FLAG_PRIMROSE_ITEM_PINK_NECTAR  0x26B // Unused Flag
-#define FLAG_PRIMROSE_ITEM_PURPLE_NECTAR  0x26C // Unused Flag
-#define FLAG_PRIMROSE_ITEM_YELLOW_NECTAR  0x26D // Unused Flag
-#define FLAG_PRIMROSE_ITEM_RED_NECTAR  0x26E // Unused Flag
-#define FLAG_JASMINE_HELPED  0x26F // START OF POKE RANCH EVENT FLAGS
-#define FLAG_JASMINE_TALKED_TO_FIRST  0x270 // 
-#define FLAG_VOLKNER_TALKED_TO_FIRST  0x271 // 
-#define FLAG_VOLKNER_INFORMED  0x272 // 
-#define FLAG_HIDE_VOLKNER_2  0x273 // 
-#define FLAG_RANCH_EVENT_NPC  0x274 // 
-#define FLAG_MAREEP_NOT_RETURNED  0x275 // 
-#define FLAG_HIDE_VOLKNER_1  0x276 // 
-#define FLAG_HIDE_RANCH_OWNER  0x277 // Unused Flag
-#define FLAG_RANCH_HELPED  0x278 // Unused Flag
-#define FLAG_VOLKNER_HELPED  0x279 // Unused Flag
-#define FLAG_JASMINE_MET  0x27A // Unused Flag
-#define FLAG_JASMINE_QUEST_STARTED  0x27B // Unused Flag
-#define FLAG_VISITED_HERB_SHOP  0x27C // Unused Flag
-#define FLAG_VISITED_HERB_SHOP_2  0x27D // Unused Flag
-#define FLAG_VOLKNER_MET  0x27E // Unused Flag
-#define FLAG_UNUSED_0x27F  0x27F // Unused Flag
-#define FLAG_UNUSED_0x280  0x280 // Unused Flag
-#define FLAG_UNUSED_0x281  0x281 // Unused Flag
-#define FLAG_UNUSED_0x282  0x282 // Unused Flag
-#define FLAG_UNUSED_0x283  0x283 // Unused Flag
-#define FLAG_UNUSED_0x284  0x284 // Unused Flag
-#define FLAG_UNUSED_0x285  0x285 // Unused Flag
-#define FLAG_UNUSED_0x286  0x286 // Unused Flag
-#define FLAG_UNUSED_0x287  0x287 // Unused Flag
-#define FLAG_UNUSED_0x288  0x288 // Unused Flag
-#define FLAG_UNUSED_0x289  0x289 // Unused Flag
-#define FLAG_UNUSED_0x28A  0x28A // Unused Flag
-#define FLAG_UNUSED_0x28B  0x28B // Unused Flag
-#define FLAG_UNUSED_0x28C  0x28C // Unused Flag
-#define FLAG_UNUSED_0x28D  0x28D // Unused Flag
-#define FLAG_UNUSED_0x28E  0x28E // Unused Flag
-#define FLAG_UNUSED_0x28F  0x28F // Unused Flag
-#define FLAG_UNUSED_0x290  0x290 // Unused Flag
+#define FLAG_RECEIVED_TM_U_TURN             0x269 // TM for first gym
+#define FLAG_NECTARQUESTDONE                0x26A // set this flag if oricorio shown to nectar maniac
+#define FLAG_UNUSED_0x26B  0x26B // Unused Flag
+#define FLAG_UNUSED_0x26C  0x26C // Unused Flag
+#define FLAG_UNUSED_0x26D  0x26D // Unused Flag
+#define FLAG_UNUSED_0x26E  0x26E // Unused Flag
+#define FLAG_JASMINE_HELPED                 0x26F // START OF POKE RANCH EVENT FLAGS
+#define FLAG_JASMINE_TALKED_TO_FIRST        0x270 // 
+#define FLAG_VOLKNER_TALKED_TO_FIRST        0x271 // 
+#define FLAG_VOLKNER_INFORMED               0x272 // 
+#define FLAG_HIDE_VOLKNER_2                 0x273 // 
+#define FLAG_RANCH_EVENT_NPC                0x274 // 
+#define FLAG_MAREEP_NOT_RETURNED            0x275 // 
+#define FLAG_HIDE_VOLKNER_1                 0x276 // 
+#define FLAG_HIDE_RANCH_OWNER               0x277 //  
+#define FLAG_RANCH_HELPED                   0x278 //  
+#define FLAG_VOLKNER_HELPED                 0x279 //  
+#define FLAG_JASMINE_MET                    0x27A //  
+#define FLAG_JASMINE_QUEST_STARTED          0x27B //  
+#define FLAG_VISITED_HERB_SHOP              0x27C //  
+#define FLAG_VISITED_HERB_SHOP_2            0x27D //  
+#define FLAG_VOLKNER_MET                    0x27E // END OF POKE RANCH EVENT FLAGS
+#define FLAG_HIDE3FMAN                      0x27F // Used to hide the man in Aldeleaf House 3, 3F
+#define FLAG_ANGEREDGUYINALDELEAF           0x280 // Used to stop player going back upstairs after event
+#define FLAG_TOUCHPOKEBALL                  0x281 // Interacted once with the poke ball in Aldeleaf House 3, 3F
+#define FLAG_ALDELEAF_MUSHROOM              0x282 // Hidden item in Aldeleaf
+#define FLAG_ALDELEAF_MUSHROOM2             0x283 // Hidden item in Aldeleaf
+#define FLAG_ALDELEAF_LOST_KEY              0x284 // Hidden key item in Aldeleaf
+#define FLAG_KEY_RETURNED                   0x285 // Key returned in Aldeleaf, despawns npc
+#define FLAG_WPV_FEATHER1                   0x286 // Start of Windplume Valley items
+#define FLAG_WPV_FEATHER2                   0x287 //  
+#define FLAG_WPV_FEATHER3                   0x288 //  
+#define FLAG_WPV_FEATHER4                   0x289 //  
+#define FLAG_WPV_FEATHER5                   0x28A //  
+#define FLAG_WPV_FEATHER6                   0x28B //  
+#define FLAG_WPV_HYPER_POTION               0x28C //  
+#define FLAG_WPV_ELIXIR                     0x28D //  
+#define FLAG_WPV_IRON_BALL                  0x28E // End of Windplume Valley items
+#define FLAG_LANDMARK_POKE_RANCH  0x28F // Unused Flag
+#define FLAG_LANDMARK_WINDPLUME_VALLEY  0x290 // Unused Flag
 #define FLAG_UNUSED_0x291  0x291 // Unused Flag
 #define FLAG_UNUSED_0x292  0x292 // Unused Flag
 #define FLAG_UNUSED_0x293  0x293 // Unused Flag
@@ -1218,53 +1218,53 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET                     0x491
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
-#define FLAG_UNUSED_PICKEDROWLET                                           0x493 // Rowlet
+#define FLAG_UNUSED_PICKEDROWLET                                            0x493 // Rowlet
 #define FLAG_UNUSED_PICKEDTORCHIC                                           0x494 // Torchic
-#define FLAG_UNUSED_PICKEDPIPLUP                                           0x495 // Piplup
-#define FLAG_UNUSED_STARTER_GET                                     0x496 // Unused Flag
-#define FLAG_UNUSED_INTROGOSSIP                                     0x497 // Gossip between mom and brother
-#define FLAG_UNUSED_BROTHER_PEARLFIGHT                              0x498 // Sets the flag for the brother fight in the 1st town
-#define FLAG_UNUSED_LOSTTOBROTHER                                   0x499 // Alternate scene after whiting out to 1st brother fight
-#define FLAG_UNUSED_PEARLWOOD_POTION_SAMPLE                         0x49A // Potion given by the old guy in the 1st town
-#define FLAG_UNUSED_RIVAL_INTRO                                     0x49B // Rival intro before getting a pokemon
-#define FLAG_ROUTE1_STATE                                           0x49C // Shows/Hides route 1 NPCs
-#define FLAG_UNUSED_ROUTE1_COOLTRAINER                              0x49D // Cooltrainer dialogue skip on route 1
-#define FLAG_UNUSED_ROUTE1_COOLTRAINERREWARD                        0x49E // Unused Flag
-#define FLAG_UNUSED_WW_COOLTRAINER                                  0x49F // Cooltrainer dialogue skip in windy woods
-#define FLAG_UNUSED_WW_COOLTRAINERREWARD                            0x4A0 // Unused Flag
-#define FLAG_UNUSED_I_EXP_SHARE_FLAG                                           0x4A1 // Unused Flag
-#define FLAG_UNUSED_WW_ENDEVENT                                          0x4A2 // Used to hide event stuff at Windy Woods
-#define FLAG_UNUSED_WW_HIDEROCKET                                           0x4A3 // Unused Flag
-#define FLAG_UNUSED_WW_HIDEDAD                                           0x4A4 // Unused Flag
-#define FLAG_CORALGROVE_TRADE_COMPLETED                                           0x4A5 // Unused Flag
-#define FLAG_UNUSED_TALKEDTOSLEEPINGGUY                                           0x4A6 // Unused Flag
-#define FLAG_RIVAL_HARBOR_ANGRY                                       0x4A7 // makes rival angry if bailed on in the elevator
-#define FLAG_DFTPC1F_MANSPOKENTO                                           0x4A8 // 1st time spoken to map seller
-#define FLAG_DFTPC1F_MAPBOUGHT                                           0x4A9 // set if map is bought
-#define FLAG_COASTTOWN_PEARL                                          0x4AA // Unused Flag
-#define FLAG_COASTTOWN_REDSHARD                                           0x4AB // Unused Flag
-#define FLAG_COASTTOWN_HEATROCK                                           0x4AC // Unused Flag
-#define FLAG_COASTTOWN_TREE1                                           0x4AD // FLAGS WHETHER COAST TOWN TREES HAVE BEEN CHECKED FOR POKEMON
-#define FLAG_COASTTOWN_TREE2                                           0x4AE // 1-3 TREES HAVE NO POKEMON
-#define FLAG_COASTTOWN_TREE3                                           0x4AF // Unused Flag
-#define FLAG_COASTTOWN_YESTREE1                                           0x4B0 // 4-6 TREES HAVE POKEMON
-#define FLAG_COASTTOWN_YESTREE2                                           0x4B1 // Unused Flag
-#define FLAG_COASTTOWN_YESTREE3                                           0x4B2 // Unused Flag
-#define FLAG_VISITED_PEARLWOOD_POINT                                           0x4B3 // Unused Flag
-#define FLAG_VISITED_AZURETIDE                                           0x4B4 // Unused Flag
-#define FLAG_VISITED_WIP_CITY1                                           0x4B5 // Unused Flag
-#define FLAG_ALDELEAF_SWITCH1                                           0x4B6 // aldeleaf gym switches
-#define FLAG_ALDELEAF_SWITCH2                                           0x4B7 // aldeleaf gym switches
-#define FLAG_ALDELEAF_SWITCH3                                           0x4B8 // aldeleaf gym switches
-#define FLAG_ALDELEAF_SWITCH_ALL                                           0x4B9 // aldeleaf gym switches
-#define FLAG_BP_REWARD                                           0x4BA // Unused Flag
-#define FLAG_NO_BAG                                           0x4BB // Unused Flag
-#define FLAG_UNUSED_0x4BC                                           0x4BC // Unused Flag
-#define FLAG_UNUSED_0x4BD                                           0x4BD // Unused Flag
-#define FLAG_UNUSED_0x4BE                                           0x4BE // Unused Flag
-#define FLAG_UNUSED_0x4BF                                           0x4BF // Unused Flag
-#define FLAG_UNUSED_0x4C0                                           0x4C0 // Unused Flag
-#define FLAG_UNUSED_0x4C1                                           0x4C1 // Unused Flag
+#define FLAG_UNUSED_PICKEDPIPLUP                                            0x495 // Piplup
+#define FLAG_UNUSED_STARTER_GET                                             0x496 // Set after getting starter
+#define FLAG_UNUSED_INTROGOSSIP                                             0x497 // Gossip between mom and brother
+#define FLAG_UNUSED_BROTHER_PEARLFIGHT                                      0x498 // Sets the flag for the brother fight in the 1st town
+#define FLAG_UNUSED_LOSTTOBROTHER                                           0x499 // Alternate scene after whiting out to 1st brother fight
+#define FLAG_UNUSED_PEARLWOOD_POTION_SAMPLE                                 0x49A // Potion given by the old guy in the 1st town
+#define FLAG_UNUSED_RIVAL_INTRO                                             0x49B // Rival intro before getting a pokemon
+#define FLAG_ROUTE1_STATE                                                   0x49C // Shows/Hides route 1 NPCs
+#define FLAG_UNUSED_ROUTE1_COOLTRAINER                                      0x49D // Cooltrainer dialogue skip on route 1
+#define FLAG_UNUSED_ROUTE1_COOLTRAINERREWARD                                0x49E // Reward from Cooltrainer in route 1
+#define FLAG_UNUSED_WW_COOLTRAINER                                          0x49F // Cooltrainer dialogue skip in windy woods
+#define FLAG_UNUSED_WW_COOLTRAINERREWARD                                    0x4A0 // Reward from Cooltrainer in windy woods
+#define FLAG_UNUSED_I_EXP_SHARE_FLAG                                        0x4A1 // Can be used to toggle global Exp Share
+#define FLAG_UNUSED_WW_ENDEVENT                                             0x4A2 // Used to hide event stuff at Windy Woods
+#define FLAG_UNUSED_WW_HIDEROCKET                                           0x4A3 // Hide event rocket grunt in windy woods
+#define FLAG_UNUSED_WW_HIDEDAD                                              0x4A4 // Hide event dad in windy woods
+#define FLAG_CORALGROVE_TRADE_COMPLETED                                     0x4A5 // Starter trade in Coralgrove
+#define FLAG_UNUSED_TALKEDTOSLEEPINGGUY                                     0x4A6 // TM rest in Coralgrove Harbor
+#define FLAG_RIVAL_HARBOR_ANGRY                                             0x4A7 // makes rival angry if bailed on in the elevator
+#define FLAG_DFTPC1F_MANSPOKENTO                                            0x4A8 // 1st time spoken to map seller
+#define FLAG_DFTPC1F_MAPBOUGHT                                              0x4A9 // set if map is bought
+#define FLAG_COASTTOWN_PEARL                                                0x4AA // Azuretide hidden item
+#define FLAG_COASTTOWN_REDSHARD                                             0x4AB // Azuretide hidden item
+#define FLAG_COASTTOWN_HEATROCK                                             0x4AC // Azuretide hidden item
+#define FLAG_COASTTOWN_TREE1                                        0x4AD // Unused Flag
+#define FLAG_COASTTOWN_TREE2                                        0x4AE // Unused Flag
+#define FLAG_COASTTOWN_TREE3                                        0x4AF // Unused Flag
+#define FLAG_COASTTOWN_YESTREE1                                     0x4B0 // Unused Flag
+#define FLAG_COASTTOWN_YESTREE2                                     0x4B1 // Unused Flag
+#define FLAG_COASTTOWN_YESTREE3                                     0x4B2 // Unused Flag
+#define FLAG_VISITED_PEARLWOOD_POINT                                        0x4B3 // Visited Pearlwood
+#define FLAG_VISITED_AZURETIDE                                              0x4B4 // Visited Azuretide
+#define FLAG_VISITED_WIP_CITY1                                              0x4B5 // Visited Aldeleaf
+#define FLAG_ALDELEAF_SWITCH1                                               0x4B6 // aldeleaf gym switches
+#define FLAG_ALDELEAF_SWITCH2                                               0x4B7 // aldeleaf gym switches
+#define FLAG_ALDELEAF_SWITCH3                                               0x4B8 // aldeleaf gym switches
+#define FLAG_ALDELEAF_SWITCH_ALL                                            0x4B9 // aldeleaf gym switches
+#define FLAG_BP_REWARD                                              0x4BA // Unused Flag
+#define FLAG_NO_BAG                                                         0x4BB // Disables bag
+#define FLAG_DEFEATED_SUDOWOODO2                                            0x4BC // Hide girl after sudowoodo fight in aldeleaf
+#define FLAG_SHELL_BELL_RECEIVED                                            0x4BD // Received shell bell in aldeleaf
+#define FLAG_ALDELEAF_QUICK_BALL                                            0x4BE // Received quick ball in aldeleaf
+#define FLAG_GHOST_MOVED                                                    0x4BF // Ghost moved in aldeleaf house
+#define FLAG_WHITEFLUTE_RECEIVED                                           0x4C0 // Unused Flag
+#define FLAG_RECEIVED_LAVA_COOKIE                                           0x4C1 // Unused Flag
 #define FLAG_UNUSED_0x4C2                                           0x4C2 // Unused Flag
 #define FLAG_UNUSED_0x4C3                                           0x4C3 // Unused Flag
 #define FLAG_UNUSED_0x4C4                                           0x4C4 // Unused Flag

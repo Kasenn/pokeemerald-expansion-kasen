@@ -1,5 +1,18 @@
 RanchBarn_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, BarnSetTiles
 	.byte 0
+
+
+BarnSetTiles::
+	goto_if_set FLAG_BADGE02_GET, BarnSetTiles_2
+BarnSetTiles_1:
+	end
+
+BarnSetTiles_2:
+	setmetatile 6, 6, 0x376, FALSE
+	setmetatile 7, 6, 0x373, FALSE
+	special DrawWholeMapView
+	goto BarnSetTiles_1
 
 
 BarnJugOfWater::

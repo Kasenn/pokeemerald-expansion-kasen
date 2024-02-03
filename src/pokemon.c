@@ -7073,6 +7073,7 @@ u16 ModifyStatByNature(u8 nature, u16 stat, u8 statIndex)
     ((gBattleTypeFlags & BATTLE_TYPE_TRAINER)                                           \
     && (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_ELITE_FOUR    \
      || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_LEADER        \
+     || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_ELITE        \
      || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CHAMPION))    \
 
 void AdjustFriendship(struct Pokemon *mon, u8 event)
@@ -7611,6 +7612,8 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_MAGMA_ADMIN:
             return MUS_VS_AQUA_MAGMA;
         case TRAINER_CLASS_LEADER:
+            return MUS_VS_GYM_LEADER;
+        case TRAINER_CLASS_ELITE:
             return MUS_VS_GYM_LEADER;
         case TRAINER_CLASS_CHAMPION:
             return MUS_MISTRAL;

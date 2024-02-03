@@ -1,0 +1,36 @@
+mapscripts AldeleafSmallHouse1_MapScripts{}
+
+script AldeleafSmallHouse1_Man{
+    if(flag(FLAG_WHITEFLUTE_RECEIVED)){
+        goto(AldeleafSmallHouse1_Man2)
+    }
+    lockall
+    faceplayer
+    msgbox(AldeleafSmallHouse1_Man_Text, MSGBOX_DEFAULT)
+    checkitemspace(ITEM_WHITE_FLUTE, 1)
+    if(var(VAR_RESULT) == FALSE){
+        goto(NotEnoughRoom)
+    }
+    giveitem(ITEM_WHITE_FLUTE, 1)
+    setflag(FLAG_WHITEFLUTE_RECEIVED)
+    msgbox(ExplainWhiteFlute, MSGBOX_NPC)
+    end
+}
+
+text AldeleafSmallHouse1_Man_Text{
+    "Thank you for retrieving my\nhouse key for me.\lTo show you my gratitude,\lI'd like you to have this."
+}
+
+script NotEnoughRoom{
+    msgbox("Oh, but you don't have enough room…", MSGBOX_NPC)
+    end
+}
+
+script AldeleafSmallHouse1_Man2{
+    msgbox("Thanks again for your help.", MSGBOX_NPC)
+    end
+}
+
+text ExplainWhiteFlute{
+    "Using that flute attracts wild Pokémon\naround you, making it more likely\lfor you to encounter them."
+}

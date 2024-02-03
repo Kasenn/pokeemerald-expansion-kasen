@@ -4,6 +4,7 @@ mapscripts PokeRanch_MapScripts{
 
 script SetVolkner{
     setflag(FLAG_RANCH_EVENT_NPC)
+    setflag(FLAG_LANDMARK_POKE_RANCH)
     setflag(FLAG_MAREEP_NOT_RETURNED)
     if(!flag(FLAG_RANCH_HELPED)){
         setflag(FLAG_HIDE_RANCH_OWNER)
@@ -224,7 +225,7 @@ text PokeRanch_JasmineTalkedToFirst{
     "earlier so you probably already\l"
     "talked to Jasmine?\p"
     "Great, so I probably don't have\n"
-    "to explain that part to you.\p"
+    "to explain that part to you."
 }
 
 text PokeRanch_JasmineNotTalkedTo{

@@ -3943,3 +3943,13 @@ static const u8 sWrittenNoteDesc[] = _(
 static const u8 sCoinPurseDesc[] = _(
     "A small coin purse\n"
     "with a note.");
+
+static const u8 sTalismanDesc[] = _(
+    "A paper talisman\n"
+    "used to ward off\n"
+    "evil spirits.");
+
+static const u8 sLostKeyDesc[] = _(
+    "A small key.\n"
+    "Who knows what\n"
+    "it will unlock.");

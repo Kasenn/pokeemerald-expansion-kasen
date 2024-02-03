@@ -4045,6 +4045,7 @@ static void Cmd_getexp(void)
     u32 holdEffect;
     s32 i; // also used as stringId
     u8 *expMonId = &gBattleStruct->expGetterMonId;
+    u8 trainerClass = gTrainers[gTrainerBattleOpponent_A].trainerClass;
 
     gBattlerFainted = GetBattlerForBattleScript(cmd->battler);
 
@@ -4137,7 +4138,12 @@ static void Cmd_getexp(void)
                 }
             #else
                 *exp = calculatedExp;
-                gBattleStruct->expShareExpValue = calculatedExp / 2;
+                if(trainerClass != TRAINER_CLASS_NURSE){
+                    gBattleStruct->expShareExpValue = calculatedExp / 10;
+                }
+                if(trainerClass == TRAINER_CLASS_NURSE){
+                    gBattleStruct->expShareExpValue = calculatedExp / 2;
+                }
                 if (gBattleStruct->expShareExpValue == 0)
                     gBattleStruct->expShareExpValue = 1;
             #endif
@@ -7334,10 +7340,18 @@ static void Cmd_getmoneyreward(void)
         if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
             money += GetTrainerMoneyToGive(gTrainerBattleOpponent_B);
 
-        // Calculate Battle Points as 1/1000th of the money earned
+        // Calculate Battle Points as 1/100th of the money earned
         battlePoints = money / 500;
-        if (battlePoints > 3)
-        battlePoints = 3;
+        if (!(gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)) // Skip this block for BATTLE_TYPE_MULTI
+        {
+            if (battlePoints > 3)
+                battlePoints = 3;
+        }
+        else if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
+        {
+            if (battlePoints > 6)
+                battlePoints = 6;
+        }
 
         // Add both money and Battle Points to the player
         AddMoney(&gSaveBlock1Ptr->money, money);

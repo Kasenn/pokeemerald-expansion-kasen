@@ -4,17 +4,223 @@ mapscripts WipCity1_MapScripts{
 
 script WipCity1_Visited{
     setflag(FLAG_VISITED_WIP_CITY1)
-    end
+	end
 }
 
 script AldeleafCity_BirdTrainer{
     msgbox(AldeleafCity_BirdTrainer_Text, MSGBOX_NPC)
     end
 }
+script AldeleafCity_OldMan{
+	lockall
+	msgbox(AldeleafCity_OldMan_Text, MSGBOX_DEFAULT)
+	waitmessage
+	closemessage
+	release
+	end
+}
+script AldeleafCity_OldWoman{
+	msgbox(AldeleafCity_OldWoman_Text, MSGBOX_NPC)
+	end
+}
+script AldeleafCity_Runner{
+	msgbox(AldeleafCity_Runner_Text, MSGBOX_NPC)
+	end
+}
+script AldeleafCity_Lass{
+	msgbox(AldeleafCity_Lass_Text, MSGBOX_NPC)
+	end
+}
+script AldeleafCity_Boy{
+	msgbox(AldeleafCity_Boy_Text, MSGBOX_NPC)
+	end
+}
+script AldeleafCity_Maniac{
+	lockall
+	faceplayer
+	if(!defeated(TRAINER_VITO)){
+		msgbox(AldeleafCity_Maniac_Text, MSGBOX_YESNO)
+		if(var(VAR_RESULT) == YES){
+		trainerbattle_no_intro(TRAINER_VITO, AldeleafCity_Maniac_Defeated)
+		}
+		else{
+			msgbox(AldeleafCity_Maniac_DeclineBattle, MSGBOX_NPC)
+			end
+		}
+		lockall
+		faceplayer
+		msgbox(AldeleafCity_Maniac_Continues, MSGBOX_DEFAULT)
+		checkitemspace(ITEM_SHELL_BELL, 1)
+		if(var(VAR_RESULT) == TRUE){
+			giveitem(ITEM_SHELL_BELL, 1)
+			setflag(FLAG_SHELL_BELL_RECEIVED)
+			msgbox(ExplainShellBell, MSGBOX_NPC)
+			end
+		}
+		else{
+			msgbox(NotRoomForShellBell, MSGBOX_NPC)
+			end
+		}
+	}
+	else{
+		if(flag(FLAG_SHELL_BELL_RECEIVED)){
+			msgbox(AldeleafCity_Maniac_PostBattle, MSGBOX_NPC)
+			end
+		}
+		else{
+			checkitemspace(ITEM_SHELL_BELL, 1)
+			if(var(VAR_RESULT) == TRUE){
+				msgbox(AldeleafCity_Maniac_Continues, MSGBOX_DEFAULT)
+				giveitem(ITEM_SHELL_BELL, 1)
+				setflag(FLAG_SHELL_BELL_RECEIVED)
+				msgbox(ExplainShellBell, MSGBOX_NPC)
+				end
+			}
+			else{
+			msgbox(NotRoomForShellBell, MSGBOX_NPC)
+			end
+			}
+		}
+	}
+}
+text AldeleafCity_Maniac_DeclineBattle{
+	"That's fine,\n"
+	"I would've beat you anyway."
+}
+text AldeleafCity_Maniac_Continues{
+	"Fine, I guess you win.\p"
+	"… … …\p"
+	"…What?\p"
+	"You want a reward?\n"
+	"Fine, take this…"
+}
+text ExplainShellBell{
+	"Have your Pokémon hold that and\n"
+	"any time it strikes a foe,\l"
+	"it regains a small portion of its HP."
+}
+text NotRoomForShellBell{
+	"Oh, but you don't have\n"
+	"enough room…"
+}
+text AldeleafCity_Maniac_PostBattle{
+	"Leave me alone."
+}
+script AldeleafCity_Child1{
+	msgbox(AldeleafCity_Child1_Text, MSGBOX_NPC)
+	turnobject(10, DIR_EAST)
+	end
+}
+script AldeleafCity_Child2{
+	msgbox(AldeleafCity_Child2_Text, MSGBOX_NPC)
+	turnobject(11, DIR_WEST)
+	end
+}
+script AldeleafCity_LittleGirl{
+	msgbox(AldeleafCity_LittleGirl_Text, MSGBOX_NPC)
+	end
+}
+script AldeleafCity_Woman{
+	msgbox(AldeleafCity_Woman_Text, MSGBOX_NPC)
+	end
+}
+script AldeleafCity_Youngster{
+	msgbox(AldeleafCity_Youngster_Text, MSGBOX_NPC)
+	end
+}
+script AldeleafCity_Hidden{
+	if(!flag(FLAG_ALDELEAF_QUICK_BALL)){
+		msgbox(AldeleafCity_Hidden_Text, MSGBOX_NPC)
+		checkitemspace(ITEM_QUICK_BALL, 1)
+		if(var(VAR_RESULT) == FALSE){
+			msgbox(NotRoomQuickBall, MSGBOX_NPC)
+			end
+		}
+		else{
+			giveitem(ITEM_QUICK_BALL, 1)
+			setflag(FLAG_ALDELEAF_QUICK_BALL)
+			waitmessage
+			closemessage
+			end
+		}
+	}
+	msgbox(AldeleafCity_Hidden_Text2, MSGBOX_NPC)
+	end
+}
+script AldeleafCity_KeyMan{
+	lockall
+	msgbox(AldeleafCity_KeyMan_Text, MSGBOX_DEFAULT)
+	waitmessage
+	closemessage
+	checkitem(ITEM_LOST_KEY)
+	if(var(VAR_RESULT) == TRUE){
+		applymovement(16, Common_Movement_ExclamationMark)
+		playse(SE_PIN)
+		faceplayer
+		delay(60)
+		msgbox(AldeleafCity_KeyMan_MyKey, MSGBOX_DEFAULT)
+		waitmessage
+		closemessage
+		playfanfare(MUS_OBTAIN_ITEM)
+		msgbox(AldeleafCity_KeyMan_Return, MSGBOX_DEFAULT)
+		waitfanfare
+		closemessage
+		msgbox(AldeleafCity_KeyMan_Help, MSGBOX_DEFAULT)
+		closemessage
+		delay(20)
+		removeitem(ITEM_LOST_KEY)
+		turnobject(16, DIR_NORTH)
+		delay(30)
+		opendoor(8, 37)
+		waitdooranim
+		applymovement(16, Aldeleaf_MoveUp)
+		waitmovement(0)
+		delay(5)
+		removeobject(16)
+		closedoor(8, 37)
+		setflag(FLAG_KEY_RETURNED)
+		waitdooranim
+		hideobjectat(16, MAP_WIP_CITY1)
+		setobjectxyperm(16, 0, 30)
+	}
+	release
+	end
+}
+movement Aldeleaf_MoveUp{
+	walk_up
+}
+script Aldeleaf_Sign{
+	msgbox(Aldeleaf_Sign_Text, MSGBOX_SIGN)
+	end
+}
+script Aldeleaf_Sign2{
+	msgbox(Aldeleaf_Sign2_Text, MSGBOX_SIGN)
+	end
+}
+text AldeleafCity_KeyMan_MyKey{
+	"Oh! That's my key!"
+}
+text AldeleafCity_KeyMan_Return{
+	"{PLAYER} returned the Lost Key\n"
+	"to the man."
+}
+text AldeleafCity_KeyMan_Help{
+	"Thank you for returning my key!\p"
+	"I want you to have something.\n"
+	"Just let me open this door real quick…"
+}
 
-text AldeleafCity_BirdTrainer_Text{
-    "I wanted to take on the gym but I don't\n"
-    "think my bird Pokémon stand a chance…"
+script Aldeleaf_GymUnavailable{
+	msgbox(Aldeleaf_GymUnavailable_Text, MSGBOX_NPC)
+	end
+}
+text Aldeleaf_GymUnavailable_Text{
+	"I'm sorry, but we can't currently\n"
+	"accept new challengers.\p"
+	"The Gym Leader is busy dealing with a\n"
+	"situation at the Pokémon Ranch.\l"
+	"If you'd like to help,\l"
+	"the ranch is just west of Aldeleaf."
 }
 
 script Aldeleaf_Sudowoodo{
@@ -38,10 +244,9 @@ script Aldeleaf_Sudowoodo{
         end
 	}
 }
-
 text Aldeleaf_WantToCut{
 	"There's a weird tree blocking\n"
-    "the way here.\p"
+    "the way.\p"
 	"Would you like to cut it?"
 }
 script Aldeleaf_Sudowoodo_NoCut{
@@ -83,12 +288,15 @@ script Aldeleaf_Sudowoodo_CutDown{
 	playmoncry(SPECIES_SUDOWOODO, CRY_MODE_ENCOUNTER)
 	delay(40)
 	waitmoncry
-	setwildbattle(SPECIES_SUDOWOODO, 25)
+	setwildbattle(SPECIES_SUDOWOODO, 20)
 	dowildbattle
+	delay(20)
 	fadescreenswapbuffers(FADE_TO_BLACK)
+	delay(20)
 	removeobject(VAR_LAST_TALKED)
 	fadescreenswapbuffers(FADE_FROM_BLACK)
 	setflag(FLAG_DEFEATED_SUDOWOODO)
+	delay(20)
 	release
 	end
 }
@@ -96,26 +304,136 @@ script Aldeleaf_TrainerNearSudowoodo{
 	lock
 	faceplayer
     if(flag(FLAG_DEFEATED_SUDOWOODO)){
+		setflag(FLAG_DEFEATED_SUDOWOODO2)
         msgbox(Aldeleaf_Text_OnceAnOddTreePastHere, MSGBOX_DEFAULT)
+		waitmessage
+		closemessage
+		if(var(VAR_FACING) == DIR_WEST){
+			applymovement(3, Aldeleaf_TrainerMoveLong)
+		}
+		else{
+			applymovement(3, Aldeleaf_TrainerMoveShort)
+		}
+		waitmovement(0)
+		delay(10)
+		removeobject(3)
+		delay(30)
     }
     else{
         msgbox(Aldeleaf_OddTreeHereSeemsToWiggle, MSGBOX_DEFAULT)
+		waitmessage
+		closemessage
     }
 	release
 	end
 }
-
+movement Aldeleaf_TrainerMoveLong{
+	walk_down
+	walk_right * 2
+	walk_up
+	walk_right * 7
+}
+movement Aldeleaf_TrainerMoveShort{
+	walk_right * 7
+}
 text Aldeleaf_Text_OnceAnOddTreePastHere{
-    "Excuse me, young one.\n"
-	"Have you a good memory?\p"
-	"I have this feeling there once was\n"
-	"an odd tree past here."
+    "Oh wow! So the tree was\n"
+	"a wild Pokémon!?\l"
+	"Thanks for clearing the way!"
 }
-
 text Aldeleaf_OddTreeHereSeemsToWiggle{
-	"Excuse me, young one.\n"
-	"Have you good eyesight?\p"
-	"There is an odd tree past here, and to\n"
-	"my tired eyes it seems to wiggle.$"
+	"I wanted to go train in Windplume\n"
+	"Valley but this weird tree\l"
+	"has appeared here out of nowhere!"
 }
 
+text AldeleafCity_BirdTrainer_Text{
+    "I wanted to take on the gym but I don't\n"
+    "think my bird Pokémon stand a chance…"
+}
+text AldeleafCity_OldMan_Text{
+	"There's been a lot of people\n"
+	"coming and going recently.\l"
+	"Could this be a sign of\l"
+	"something sinister…"
+}
+text AldeleafCity_OldWoman_Text{
+	"Sometimes my husband tries to\n"
+	"read too much into everything."
+}
+text AldeleafCity_Runner_Text{
+	"There's no better exercise than\n"
+	"running up and down the stairs!"
+}
+text AldeleafCity_Lass_Text{
+	"I don't see why they had to fence off\n"
+	"those floors on the upper layer.\p"
+	"They're identical to the ones\n"
+	"over here…"
+}
+text AldeleafCity_Boy_Text{
+	"I don't remember seeing you before.\n"
+	"Are you a Trainer?\p"
+	"If you're looking for the gym,\n"
+	"just head north.\l"
+	"It's impossible to miss it."
+}
+text AldeleafCity_Maniac_Text{
+	"I see you are carrying\n"
+	"some Poké Balls.\p"
+	"You know, I'm something of a\n"
+	"Pokémon Trainer myself.\l"
+	"Care to have a go?"
+}
+text AldeleafCity_Maniac_Defeated{
+	"Okay, I guess you pass…"
+}
+text AldeleafCity_Child1_Text{
+	"We're conc…condug…doing tests!\n"
+	"You're not allowed to look!"
+}
+text AldeleafCity_Child2_Text{
+	"This is super secret!\n"
+	"Go away!"
+}
+text AldeleafCity_LittleGirl_Text{
+	"Have you been to the museum?\n"
+	"There's lots of cool stuff to see!"
+}
+text AldeleafCity_Woman_Text{
+	"Have you been to the ranch?\n"
+	"They have a lot of cute Pokémon there!"
+}
+text AldeleafCity_Youngster_Text{
+	"My friend and I are playing\n"
+	"hide and seek.\l"
+	"He's really hidden himself well…"
+}
+text AldeleafCity_Hidden_Text{
+	"I'm hiding from my friend.\p"
+	"Please don't tell him you\n"
+	"found me, okay?\p"
+	"Here, I'll give you this if you\n"
+	"keep quiet."
+}
+text AldeleafCity_Hidden_Text2{
+	"I'm hiding from my friend."
+}
+text NotRoomQuickBall{
+	"Oh, but you don't have enough room\n"
+	"in your Ball Pocket…"
+}
+text AldeleafCity_KeyMan_Text{
+	"Oh no, my key…\n"
+	"Did I leave it at home?\l"
+	"No… Maybe I dropped it?"
+}
+text Aldeleaf_Sign_Text{
+	"ALDELEAF CITY\n"
+	"“The border between nature and\l"
+	"civilization.”"
+}
+text Aldeleaf_Sign2_Text{
+	"Aldeleaf City Pokémon Gym\n"
+	"Leader: Volkner"
+}

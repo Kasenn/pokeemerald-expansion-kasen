@@ -75,6 +75,9 @@ FlagsAndVarsUpdated:
 Debug_Script_1::
 	setflag FLAG_LANDMARK_LOST_GLADE
 	setflag FLAG_LANDMARK_WINDY_WOODS
+	setflag FLAG_VISITED_RUSTBORO_CITY
+	setflag FLAG_VISITED_PEARLWOOD_POINT
+	setflag FLAG_VISITED_OLDALE_TOWN
 	setberrytree BERRY_TREE_ROUTE_104_ORAN_1, ITEM_TO_BERRY(ITEM_ORAN_BERRY), BERRY_STAGE_BERRIES
 	setberrytree BERRY_TREE_ROUTE_103_LEPPA, ITEM_TO_BERRY(ITEM_LEPPA_BERRY), BERRY_STAGE_BERRIES
 	setberrytree BERRY_TREE_ROUTE_103_CHERI_2, ITEM_TO_BERRY(ITEM_CHERI_BERRY), BERRY_STAGE_BERRIES
@@ -85,8 +88,7 @@ Debug_Script_1::
 	end
 
 Debug_Script_2::
-	setwildbattle SPECIES_REGISTEEL, 40
-	special StartRegiBattle
+	call RustboroCity_DevonCorp_2F_EventScript_ReceiveLileep
 	end
 
 Debug_Script_3::
@@ -97,10 +99,12 @@ Debug_Script_3::
 	end
 
 Debug_Script_4::
-	fadenewbgm MUS_MUTED
+	setmonmetlocation 0, MAP_ROUTE3
 	end
 
 Debug_Script_5::
+	setmodernfatefulencounter 0
+	checkmodernfatefulencounter 0
 	end
 
 Debug_Script_6::
@@ -123,13 +127,24 @@ Debug_CheckSaveBlock::
 	end
 
 Debug_SaveBlock1Size::
-	.string "SaveBlock1 size: {STR_VAR_1}/{STR_VAR_2}.$"
+	.string "SaveBlock1 size: {STR_VAR_1}b/{STR_VAR_2}b.\n"
+	.string "Free space: {STR_VAR_3}b.$"
 
 Debug_SaveBlock2Size::
-	.string "SaveBlock2 size: {STR_VAR_1}/{STR_VAR_2}.$"
+	.string "SaveBlock2 size: {STR_VAR_1}b/{STR_VAR_2}b.\n"
+	.string "Free space: {STR_VAR_3}b.$"
 
 Debug_PokemonStorageSize::
-	.string "{PKMN}Storage size: {STR_VAR_1}/{STR_VAR_2}.$"
+	.string "{PKMN}Storage size: {STR_VAR_1}b/{STR_VAR_2}b.\n"
+	.string "Free space: {STR_VAR_3}b.$"
+Debug_CheckROMSpace::
+	callnative CheckROMSize
+	msgbox Debug_ROMSize, MSGBOX_DEFAULT
+	release
+	end
+Debug_ROMSize::
+	.string "ROM size: {STR_VAR_1}MB/32MB.\n"
+	.string "Free space: {STR_VAR_2}MB.$"
 
 Debug_HatchAnEgg::
 	lockall

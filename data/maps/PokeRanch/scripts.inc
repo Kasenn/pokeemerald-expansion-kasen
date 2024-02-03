@@ -5,6 +5,7 @@ PokeRanch_MapScripts::
 
 SetVolkner::
 	setflag FLAG_RANCH_EVENT_NPC
+	setflag FLAG_LANDMARK_POKE_RANCH
 	setflag FLAG_MAREEP_NOT_RETURNED
 	goto_if_unset FLAG_RANCH_HELPED, SetVolkner_2
 SetVolkner_1:
@@ -582,7 +583,7 @@ PokeRanch_MareepTrigger_Text_0:
 	.string "This must be the missing Mareep…$"
 
 PokeRanch_MareepTrigger_Text_1:
-	.string "{COLOR RED}{SHADOW LIGHT_RED}WE GOT YOU NOW!$"
+	.string "???: WE GOT YOU NOW!$"
 
 PokeRanch_MareepTrigger_Text_2:
 	.string "NOT SO FAST!!$"
@@ -650,7 +651,7 @@ PokeRanch_JasmineTalkedToFirst::
 	.string "earlier so you probably already\l"
 	.string "talked to Jasmine?\p"
 	.string "Great, so I probably don't have\n"
-	.string "to explain that part to you.\p$"
+	.string "to explain that part to you.$"
 
 PokeRanch_JasmineNotTalkedTo::
 	.string "We're dealing with two\n"

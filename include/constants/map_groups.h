@@ -670,6 +670,7 @@
 #define MAP_UNDERWATER_ROUTE129 (54 | (39 << 8))
 #define MAP_UNDERWATER_ROUTE105 (55 | (39 << 8))
 #define MAP_UNDERWATER_ROUTE125 (56 | (39 << 8))
+#define MAP_TEST_ROOM           (57 | (39 << 8))
 
 // gMapGroup_IndoorRoute124
 

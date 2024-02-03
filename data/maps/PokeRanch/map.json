@@ -2,7 +2,7 @@
   "id": "MAP_POKE_RANCH",
   "name": "PokeRanch",
   "layout": "LAYOUT_POKE_RANCH",
-  "music": "MUS_LILYCOVE",
+  "music": "MUS_VERDANTURF",
   "region_map_section": "MAPSEC_POKE_RANCH",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

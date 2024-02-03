@@ -2035,3 +2035,9 @@ const u32 gItemIconPalette_JasmLetter[] = INCBIN_U32("graphics/items/icon_palett
 
 const u32 gItemIcon_CoinPurse[] = INCBIN_U32("graphics/items/icons/coin_purse.4bpp.lz");
 const u32 gItemIconPalette_CoinPurse[] = INCBIN_U32("graphics/items/icon_palettes/coin_purse.gbapal.lz");
+
+const u32 gItemIcon_Talisman[] = INCBIN_U32("graphics/items/icons/talisman.4bpp.lz");
+const u32 gItemIconPalette_Talisman[] = INCBIN_U32("graphics/items/icon_palettes/talisman.gbapal.lz");
+
+const u32 gItemIcon_LostKey[] = INCBIN_U32("graphics/items/icons/lost_key.4bpp.lz");
+const u32 gItemIconPalette_LostKey[] = INCBIN_U32("graphics/items/icon_palettes/lost_key.gbapal.lz");

@@ -848,6 +848,8 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_HERBAL_MIX_QUEST] = {gItemIcon_HerbalMixQuest, gItemIconPalette_HerbalMixQuest},
     [ITEM_JASM_LETTER] = {gItemIcon_JasmLetter, gItemIconPalette_JasmLetter},
     [ITEM_COIN_PURSE] = {gItemIcon_CoinPurse, gItemIconPalette_CoinPurse},
+    [ITEM_TALISMAN] = {gItemIcon_Talisman, gItemIconPalette_Talisman},
+    [ITEM_LOST_KEY] = {gItemIcon_LostKey, gItemIconPalette_LostKey},
     // Return to field arrow
     [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

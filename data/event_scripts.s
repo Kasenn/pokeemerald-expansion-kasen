@@ -1195,3 +1195,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/AldeleafBigHouse3_2F/scripts.inc"
 
 	.include "data/maps/AldeleafBigHouse3_3F/scripts.inc"
+
+	.include "data/maps/TestRoom/scripts.inc"

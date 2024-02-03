@@ -1004,6 +1004,7 @@ SECTIONS {
         sound/songs/midi/mus_bwtrainerbattle.o(.rodata);
         sound/songs/midi/mus_trainer_battle_bw.o(.rodata);
         sound/songs/midi/mus_vs_iris.o(.rodata);
+        sound/songs/midi/mus_b2_mistralton_gym.o(.rodata);
         sound/songs/midi/mus_alola_e4.o(.rodata);
         sound/songs/midi/mus_mistral.o(.rodata);
         sound/songs/midi/mus_muted.o(.rodata);
@@ -1330,6 +1331,8 @@ SECTIONS {
         gflib/*.o(.rodata);
         data/*.o(.rodata);
     } = 0
+
+    __rom_end = .;
 
     /* DWARF debug sections.
        Symbols in the DWARF debugging sections are relative to the beginning

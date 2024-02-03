@@ -1,0 +1,14 @@
+mapscripts AldeleafSmallHouse3_MapScripts{}
+
+script AldeleafSmallHouse3_OldMan{
+    msgbox(AldeleafSmallHouse3_OldMan_Text, MSGBOX_NPC)
+    end
+}
+
+text AldeleafSmallHouse3_OldMan_Text{
+    "The Aldeleaf Pokémon Gym is a fairly\n"
+    "new addition to the city.\p"
+    "I heard the current Gym Leader\n"
+    "grew tired of his old life and moved\l"
+    "here in search of new challenges."
+}

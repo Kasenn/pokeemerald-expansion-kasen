@@ -1,0 +1,254 @@
+mapscripts AldeleafSmallHouse2_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: AldeleafHouseEvent
+}
+
+script AldeleafHouseEvent{
+    if(var(VAR_ALDELEAF_HOUSE) == 3){
+        setvar(VAR_ALDELEAF_HOUSE, 4)
+        setobjectxyperm(2, 0, 5)
+        end
+    }
+    if((var(VAR_ALDELEAF_HOUSE) == 4) || (var(VAR_ALDELEAF_HOUSE) == 5)){
+        setobjectxyperm(2, 0, 5)
+        end
+    }
+    if(var(VAR_ALDELEAF_HOUSE) >= 6){
+        setobjectxyperm(2, 0, 4)
+        end
+    }
+}
+
+// 0, haven't started, talk to npc
+// 1, talked to npc, talk to "doll"
+// 2, talked to doll, talk to npc again
+// 3, leave house and come back ->4
+// 4, talk to npc
+// 5, talk to doll again
+// 6, talk to npc again, move doll during talk
+// 7, talk to doll again,
+// 8, find the exorcist,
+// 9, activate doll for encounter,
+// 10, event done
+
+script AldeleafSmallHouse2_Woman{
+    if(var(VAR_ALDELEAF_HOUSE) == 0){
+        msgbox(AldeleafSmallHouse2_Woman_Intro, MSGBOX_NPC)
+        setvar(VAR_ALDELEAF_HOUSE, 1)
+        end
+    }
+    if((var(VAR_ALDELEAF_HOUSE) == 1) || (var(VAR_ALDELEAF_HOUSE) == 5) || (var(VAR_ALDELEAF_HOUSE) == 7)){
+        msgbox(AldeleafSmallHouse2_Woman_ISwear, MSGBOX_NPC)
+        end
+    }
+    if(var(VAR_ALDELEAF_HOUSE) == 2){
+        msgbox(AldeleafSmallHouse2_Woman_NotMovingNow, MSGBOX_NPC)
+        setvar(VAR_ALDELEAF_HOUSE, 3)
+        end
+    }
+    if(var(VAR_ALDELEAF_HOUSE) == 3){
+        msgbox(AldeleafSmallHouse2_Woman_NotMovingNow, MSGBOX_NPC)
+        end
+    }
+    if(var(VAR_ALDELEAF_HOUSE) == 4){
+        msgbox(AldeleafSmallHouse2_Woman_ItMovedAgain, MSGBOX_NPC)
+        setvar(VAR_ALDELEAF_HOUSE, 5)
+        end
+    }
+    if(var(VAR_ALDELEAF_HOUSE) == 6){
+        if(!flag(FLAG_GHOST_MOVED)){
+            lockall
+            setflag(FLAG_GHOST_MOVED)
+            applymovement(2, AldeleafMoveGhost)
+            delay(15)
+            turnobject(1, DIR_WEST)
+            delay(60)
+        }
+        msgbox(AldeleafSmallHouse2_Woman_ItJustMoved, MSGBOX_NPC)
+        setvar(VAR_ALDELEAF_HOUSE, 7)
+        end
+    }
+    if(var(VAR_ALDELEAF_HOUSE) == 8){
+        msgbox(AldeleafSmallHouse2_Woman_ImMoving, MSGBOX_NPC)
+        setvar(VAR_ALDELEAF_HOUSE, 9)
+        end
+    }
+    if(var(VAR_ALDELEAF_HOUSE) == 9){
+        msgbox(AldeleafSmallHouse2_Woman_ImMoving, MSGBOX_NPC)
+        end
+    }
+    if(var(VAR_ALDELEAF_HOUSE) == 10){
+        msgbox(AldeleafSmallHouse2_Woman_ImMoving, MSGBOX_NPC)
+        end
+    }
+    if(var(VAR_ALDELEAF_HOUSE) == 11){
+        msgbox(AldeleafSmallHouse2_Woman_WildPokemon, MSGBOX_NPC)
+        setvar(VAR_ALDELEAF_HOUSE, 12)
+        end
+    }
+    if(var(VAR_ALDELEAF_HOUSE) == 12){
+        msgbox(AldeleafSmallHouse2_Woman_RestEasy, MSGBOX_NPC)
+        end
+    }
+}
+
+script Aldeleaf_MoveGhost{
+    if((var(VAR_ALDELEAF_HOUSE) == 6) && (!flag(FLAG_GHOST_MOVED))){
+        setflag(FLAG_GHOST_MOVED)
+        applymovement(2, AldeleafMoveGhost)
+        delay(15)
+        turnobject(1, DIR_WEST)
+        release
+        end
+    }
+    release
+    end
+}
+
+movement AldeleafMoveGhost{
+    walk_faster_up
+}
+
+script AldeleafSmallHouse2_Doll{
+    lockall
+    if(var(VAR_ALDELEAF_HOUSE) == 0){
+        msgbox(AldeleafSmallHouse2_JustADoll, MSGBOX_DEFAULT)
+    }
+    if(var(VAR_ALDELEAF_HOUSE) == 1){
+        msgbox(AldeleafSmallHouse2_LooksLikeADoll, MSGBOX_DEFAULT)
+        setvar(VAR_ALDELEAF_HOUSE, 2)
+        waitmessage
+        closemessage
+        release
+        end
+    }
+    if((var(VAR_ALDELEAF_HOUSE) == 2) || (var(VAR_ALDELEAF_HOUSE) == 3) || (var(VAR_ALDELEAF_HOUSE) == 4)){
+        msgbox(AldeleafSmallHouse2_LooksLikeADoll, MSGBOX_DEFAULT)
+    }
+    if(var(VAR_ALDELEAF_HOUSE) == 5){
+        msgbox(AldeleafSmallHouse2_CertainlyMoved, MSGBOX_DEFAULT)
+        setvar(VAR_ALDELEAF_HOUSE, 6)
+        waitmessage
+        closemessage
+        release
+        end
+    }
+    if(var(VAR_ALDELEAF_HOUSE) == 6){
+        msgbox(AldeleafSmallHouse2_CertainlyMoved, MSGBOX_DEFAULT)
+    }
+    if(var(VAR_ALDELEAF_HOUSE) == 7){
+        msgbox(AldeleafSmallHouse2_DefinitelyMoved, MSGBOX_DEFAULT)
+        setvar(VAR_ALDELEAF_HOUSE, 8)
+        waitmessage
+        closemessage
+        release
+        end
+    }
+    if(var(VAR_ALDELEAF_HOUSE) == 8){
+        msgbox(AldeleafSmallHouse2_DefinitelyMoved, MSGBOX_DEFAULT)
+    }
+    if(var(VAR_ALDELEAF_HOUSE) == 9){
+        msgbox(AldeleafSmallHouse2_LooksLikeADoll, MSGBOX_DEFAULT)
+    }
+    if(var(VAR_ALDELEAF_HOUSE) == 10){
+        msgbox(AldeleafSmallHouse2_SpringsAlive, MSGBOX_DEFAULT)
+        waitmessage
+        closemessage
+        setwildbattle(SPECIES_MIMIKYU, 20)
+        dowildbattle
+        delay(20)
+        msgbox(AldeleafSmallHouse2_TalismanBreaks, MSGBOX_NPC)
+        removeitem(ITEM_TALISMAN)
+        setvar(VAR_ALDELEAF_HOUSE, 11)
+        waitmessage
+        closemessage
+        release
+        end
+    }
+    if(var(VAR_ALDELEAF_HOUSE) == 11){
+        msgbox(AldeleafSmallHouse2_ClearedDoll, MSGBOX_DEFAULT)
+    }
+    if(var(VAR_ALDELEAF_HOUSE) == 12){
+        msgbox(AldeleafSmallHouse2_ClearedDoll, MSGBOX_DEFAULT)
+    }
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+text AldeleafSmallHouse2_Woman_Intro{
+    "Eek!\n"
+    "That Pikachu doll is haunted!\l"
+    "I saw it move just a moment ago!"
+}
+text AldeleafSmallHouse2_Woman_ISwear{
+    "I swear I saw it move!"
+}
+text AldeleafSmallHouse2_Woman_NotMovingNow{
+    "Okay, maybe it isn't moving\n"
+    "right now.\p"
+    "But it definitely moved before\n"
+    "you got here!"
+}
+text AldeleafSmallHouse2_Woman_ItMovedAgain{
+    "It just moved again on its own!\n"
+    "I swear I'm not lying!"
+}
+text AldeleafSmallHouse2_Woman_ItJustMoved{
+    "Did you see that!?\n"
+    "It just moved!!"
+}
+text AldeleafSmallHouse2_Woman_ImMoving{
+    "Maybe the whole house is haunted!?\n"
+    "I'm definitely moving as soon as I can…"
+}
+
+text AldeleafSmallHouse2_JustADoll{
+    "It's a Pikachu doll."
+}
+text AldeleafSmallHouse2_LooksLikeADoll{
+    "It looks like any regular\n"
+    "Pikachu doll."
+}
+text AldeleafSmallHouse2_CertainlyMoved{
+    "It looks like any regular\n"
+    "Pikachu doll.\p"
+    "The doll has certainly moved\n"
+    "since your last visit."
+}
+text AldeleafSmallHouse2_DefinitelyMoved{
+    "Weird…\n"
+    "Did the doll just move on its own?"
+}
+text AldeleafSmallHouse2_BestStayClear{
+    "It looks like a regular Pikachu doll,\n"
+    "though being in its presence\l"
+    "gives you an ominous feeling.\p"
+    "Maybe it's best to stay away from it\n"
+    "for now…"
+}
+text AldeleafSmallHouse2_Woman_WildPokemon{
+    "Oh, so the doll wasn't haunted\n"
+    "and was simply being controlled\l"
+    "by a wild Pokémon?\l"
+    "That's a relief!"
+}
+text AldeleafSmallHouse2_Woman_RestEasy{
+    "I feel like I can rest easy now."
+}
+
+text AldeleafSmallHouse2_SpringsAlive{
+    "The doll starts to shake\n"
+    "as you approach it.\p"
+    "… … … …\p"
+    "Something emerges from the doll's\n"
+    "shadow and leaps towards you!"
+}
+text AldeleafSmallHouse2_TalismanBreaks{
+    "The doll has become inert.\p"
+    "You notice the talisman in your bag\n"
+    "has crumbled to dust."
+}
+text AldeleafSmallHouse2_ClearedDoll{
+    "It's a regular Pikachu doll."
+}
