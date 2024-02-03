@@ -1,0 +1,338 @@
+mapscripts AldeleafBigHouse1_MapScripts{}
+
+script AldeleafBigHouse1_Woman{
+    msgbox(AldeleafBigHouse1_Woman_Text, MSGBOX_NPC)
+    end
+}
+
+text AldeleafBigHouse1_Woman_Text{
+    "Have you heard of Pokémon\n"
+    "transformations?\l"
+    "Apparently some regions have these.\p"
+    "Over in Galar they have Dynamaxing while\n"
+    "Paldea has Terastallization.\p"
+    "I wonder if we have something similar…"
+}
+
+script AldeleafBigHouse1_2F_Man{
+    msgbox(AldeleafBigHouse1_2F_Man_Text, MSGBOX_NPC)
+    end
+}
+script AldeleafBigHouse1_2F_Woman{
+    msgbox(AldeleafBigHouse1_2F_Woman_Text, MSGBOX_NPC)
+    end
+}
+script AldeleafBigHouse1_2F_LittleGirl{
+    msgbox(AldeleafBigHouse1_2F_LittleGirl_Text, MSGBOX_NPC)
+    end
+}
+script AldeleafBigHouse1_2F_Swablu{
+    msgbox("It's a Swablu doll.", MSGBOX_SIGN)
+    end
+}
+script AldeleafBigHouse1_2F_Snorlax{
+    msgbox("It's a Clefairy doll.", MSGBOX_SIGN)
+    end
+}
+script AldeleafBigHouse1_2F_Azurill{
+    msgbox("It's an Azurill doll.", MSGBOX_SIGN)
+    end
+}
+
+text AldeleafBigHouse1_2F_Man_Text{
+    "Life here is great.\p"
+    "Sure we're far from other large\n"
+    "settlements but we have everything\l"
+    "we could possibly want right here."
+}
+text AldeleafBigHouse1_2F_Woman_Text{
+    "Aldeleaf City is sometimes also\n"
+    "called “The Crossroads”.\p"
+    "This is thanks to Aldeleaf's\n"
+    "central location,\l"
+    "causing a lot of people to pass through\l"
+    "as they travel to other cities.\p"
+    "Though for some reason the traffic\n"
+    "from the north has almost completely\l"
+    "stopped…"
+}
+text AldeleafBigHouse1_2F_LittleGirl_Text{
+    "Look at all these dolls mommy and\n"
+    "daddy got me!"
+}
+
+script AldeleafBigHouse2_Maniac{
+    msgbox(AldeleafBigHouse2_Maniac_Text, MSGBOX_NPC)
+    end
+}
+text AldeleafBigHouse2_Maniac_Text{
+    "Sometimes during a Pokémon battle,\n"
+    "A Pokémon can get really lucky and land\l"
+    "a devastating blow against the foe,\l"
+    "usually referred to as critical hit.\p"
+    "In recent years, most Pokémon have\n"
+    "started developing thicker skins,\l"
+    "making them less susceptible to\l"
+    "major harm from these strikes."
+}
+
+script AldeleafBigHouse2_2F_OldWoman{
+    lockall
+    faceplayer
+    if(flag(FLAG_RECEIVED_LAVA_COOKIE)){
+        goto(AldeleafBigHouse2_2F_OldWoman2)
+    }
+    msgbox(AldeleafBigHouse2_2F_OldWoman_Text, MSGBOX_DEFAULT)
+    giveitem(ITEM_LAVA_COOKIE)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_BagIsFull)
+    setflag(FLAG_RECEIVED_LAVA_COOKIE)
+    waitmessage
+    closemessage
+    release
+    end
+}
+script AldeleafBigHouse2_2F_OldMan{
+    msgbox(AldeleafBigHouse2_2F_OldMan_Text, MSGBOX_NPC)
+    end
+}
+text AldeleafBigHouse2_2F_OldWoman_Text{
+    "Oh, aren't you just the cutest.\n"
+    "Here, have a cookie."
+}
+text AldeleafBigHouse2_2F_OldMan_Text{
+    "Us old folk don't have much going on\n"
+    "these days so visitors are certainly\l"
+    "appreciated."
+}
+script AldeleafBigHouse2_2F_OldWoman2{
+    msgbox("Oh, aren't you just the cutest.", MSGBOX_NPC)
+    end
+}
+
+script AldeleafBigHouse3_2F_Exorcist{
+    if(var(VAR_ALDELEAF_HOUSE) == 0){
+        msgbox(AldeleafBigHouse3_2F_Exorcist_NoAura, MSGBOX_NPC)
+        end
+    }
+    if((var(VAR_ALDELEAF_HOUSE) == 8) || (var(VAR_ALDELEAF_HOUSE) == 9)){
+        msgbox(AldeleafBigHouse3_2F_Exorcist_StrongAura, MSGBOX_NPC)
+        giveitem(ITEM_TALISMAN)
+        msgbox(AldeleafBigHouse3_2F_Exorcist_StrongAuraContinued, MSGBOX_NPC)
+        setvar(VAR_ALDELEAF_HOUSE, 10)
+        end
+    }
+    if(var(VAR_ALDELEAF_HOUSE) == 10){
+        msgbox(AldeleafBigHouse3_2F_Exorcist_LeaveMe, MSGBOX_NPC)
+        end
+    }
+    if(var(VAR_ALDELEAF_HOUSE) == 11){
+        msgbox(AldeleafBigHouse3_2F_Exorcist_AuraGone, MSGBOX_NPC)
+        end
+    }
+    if(var(VAR_ALDELEAF_HOUSE) == 12){
+        msgbox(AldeleafBigHouse3_2F_Exorcist_AuraGone, MSGBOX_NPC)
+        end
+    }
+    else{
+        msgbox(AldeleafBigHouse3_2F_Exorcist_MediumAura, MSGBOX_NPC)
+        end
+    }
+}
+text AldeleafBigHouse3_2F_Exorcist_NoAura{
+    "… … … …\p"
+    "… … … …\p"
+    "You have a very clear aura…"
+}
+text AldeleafBigHouse3_2F_Exorcist_MediumAura{
+    "… … … …\p"
+    "I sense an evil aura\n"
+    "emanating from you…\p"
+    "However, I don't believe\n"
+    "you are its source…"
+}
+text AldeleafBigHouse3_2F_Exorcist_StrongAura{
+    "AAH, what an overwherlmingly\n"
+    "evil presence…!\p"
+    "… … … …\p"
+    "Oh?\p"
+    "I don't believe you are\n"
+    "the source, however…\p"
+    "Here, take this paper talisman.\n"
+    "It will protect you from evil spirits."
+}
+text AldeleafBigHouse3_2F_Exorcist_StrongAuraContinued{
+    "Carry it with you.\n"
+    "Always."
+}
+text AldeleafBigHouse3_2F_Exorcist_LeaveMe{
+    "Please leave, before the aura\n"
+    "around you overwhelms me!"
+}
+text AldeleafBigHouse3_2F_Exorcist_AuraGone{
+    "Ahh, I can no longer sense the\n"
+    "presence of the evil aura around you…"
+}
+
+script AldeleafBigHouse3_Man{
+    msgbox(AldeleafBigHouse3_Man_Text, MSGBOX_NPC)
+    end
+}
+script AldeleafBigHouse3_Ditto{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_DITTO, CRY_MODE_NORMAL)
+	msgbox(AldeleafBigHouse3_Ditto_Text, MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+text AldeleafBigHouse3_Man_Text{
+    "Do you like my Pokémon?\n"
+    "If you ask me, I'd say it's perfect."
+}
+text AldeleafBigHouse3_Ditto_Text{
+    "Dii…"
+}
+
+script AldeleafBigHouse3_3F_PokeBall{
+    if(!flag(FLAG_TOUCHPOKEBALL)){
+        msgbox(AldeleafBigHouse3_3F_PokeBall_Text, MSGBOX_SIGN)
+        setflag(FLAG_TOUCHPOKEBALL)
+        end
+    }
+    lockall
+    msgbox(AldeleafBigHouse3_3F_PokeBall_Text_Sure, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        closemessage
+        release
+        end
+    }
+    hideobjectat(1, MAP_ALDELEAF_BIG_HOUSE3_3F)
+    message(AldeleafBigHouse3_3F_PokeBall_PickedUp)
+    waitmessage
+    playfanfare(MUS_OBTAIN_ITEM)
+    waitfanfare
+    msgbox(AldeleafBigHouse3_3F_PokeBall_Name, MSGBOX_YESNO)
+    msgbox(AldeleafBigHouse3_3F_PokeBall_Stop, MSGBOX_DEFAULT)
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark)
+    closemessage
+    clearflag(FLAG_HIDE3FMAN)
+    addobject(2, MAP_ALDELEAF_BIG_HOUSE3_3F)
+    showobjectat(2, MAP_ALDELEAF_BIG_HOUSE3_3F)
+    special(DrawWholeMapView)
+    delay(30)
+    if(var(VAR_FACING) == DIR_SOUTH){
+        applymovement(2, AldeleafBigHouse3_3F_MoveLong, MAP_ALDELEAF_BIG_HOUSE3_3F)
+        turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+        setvar(VAR_TEMP_2, DIR_SOUTH)
+    }
+    if(var(VAR_FACING) == DIR_EAST){
+        applymovement(2, AldeleafBigHouse3_3F_MoveShort, MAP_ALDELEAF_BIG_HOUSE3_3F)
+        turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+        setvar(VAR_TEMP_2, DIR_EAST)
+    }
+    waitmovement(2, MAP_ALDELEAF_BIG_HOUSE3_3F)
+    delay(10)
+    msgbox(AldeleafBigHouse3_3F_PokeBall_GiveThatBack, MSGBOX_DEFAULT)
+    waitmessage
+    closemessage
+    delay(15)
+    if(var(VAR_TEMP_2) == DIR_SOUTH){
+        applymovement(2, AldeleafBigHouse3_3F_MovesToTableShort, MAP_ALDELEAF_BIG_HOUSE3_3F)
+    }
+    if(var(VAR_TEMP_2) == DIR_EAST){
+        applymovement(2, AldeleafBigHouse3_3F_MovesToTableLong, MAP_ALDELEAF_BIG_HOUSE3_3F)
+        delay(20)
+        turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    }
+    waitmovement(2)
+    showobjectat(1, MAP_ALDELEAF_BIG_HOUSE3_3F)
+    delay(60)
+    if(var(VAR_TEMP_2) == DIR_SOUTH){
+        applymovement(2, AldeleafBigHouse3_3F_UpRight, MAP_ALDELEAF_BIG_HOUSE3_3F)
+    }
+    if(var(VAR_TEMP_2) == DIR_EAST){
+        applymovement(2, AldeleafBigHouse3_3F_LeftDown, MAP_ALDELEAF_BIG_HOUSE3_3F)
+    }
+    delay(15)
+    msgbox(AldeleafBigHouse3_3F_PokeBall_GetOut, MSGBOX_NPC)
+    setflag(FLAG_ANGEREDGUYINALDELEAF)
+    warp(MAP_ALDELEAF_BIG_HOUSE3_2F, 1, 3)
+    release
+    end
+}
+movement AldeleafBigHouse3_3F_MoveLong{
+    walk_right * 5
+    walk_up * 3
+    walk_right * 3
+}
+movement AldeleafBigHouse3_3F_MoveShort{
+    walk_right * 5
+    walk_up * 2
+    walk_right * 2
+}
+movement AldeleafBigHouse3_3F_MovesToTableShort{
+    walk_down
+    walk_in_place_right
+}
+movement AldeleafBigHouse3_3F_MovesToTableLong{
+    walk_up
+    walk_right * 2
+    walk_in_place_down
+}
+movement AldeleafBigHouse3_3F_UpRight{
+    walk_up
+    walk_in_place_right
+}
+movement AldeleafBigHouse3_3F_LeftDown{
+    walk_left
+    walk_in_place_down
+}
+text AldeleafBigHouse3_3F_PokeBall_Text{
+    "Someone has left a Poké Ball here.\n"
+    "Probably best to leave it be…"
+}
+text AldeleafBigHouse3_3F_PokeBall_Text_Sure{
+    "Someone has left a Poké Ball here.\n"
+    "Are you sure you want to take it?"
+}
+text AldeleafBigHouse3_3F_PokeBall_PickedUp{
+    "{PLAYER} obtained an Eevee!"
+}
+text AldeleafBigHouse3_3F_PokeBall_Name{
+    "Do you want to give a nickname\n"
+    "to your new Pokémon?"
+}
+text AldeleafBigHouse3_3F_PokeBall_Stop{
+    "STOP!!"
+}
+text AldeleafBigHouse3_3F_PokeBall_GiveThatBack{
+    "What do you think you're doing,\n"
+    "stealing other people's Pokémon!?\l"
+    "Now give it back!"
+}
+text AldeleafBigHouse3_3F_PokeBall_GetOut{
+    "Now get out of my apartment!"
+}
+
+script AldeleafBigHouse3_2F_Hide3FMan{
+    setflag(FLAG_HIDE3FMAN)
+    if(flag(FLAG_ANGEREDGUYINALDELEAF)){
+        msgbox(AldeleafBigHouse3_3F_PokeBall_StayOut, MSGBOX_DEFAULT)
+        waitmessage
+        closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, AldeleafBigHouse3_3F_MoveDown)
+        waitmovement(0)
+    }
+    release
+    end
+}
+text AldeleafBigHouse3_3F_PokeBall_StayOut{
+    "Probably best not to\n"
+    "go upstairs again…"
+}
+
+movement AldeleafBigHouse3_3F_MoveDown{
+    walk_down
+}

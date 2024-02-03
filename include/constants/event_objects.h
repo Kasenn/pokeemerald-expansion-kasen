@@ -131,7 +131,7 @@
 #define OBJ_EVENT_GFX_ROCKET_F                    127
 #define OBJ_EVENT_GFX_FLANNERY                   128
 #define OBJ_EVENT_GFX_NORMAN                     129
-#define OBJ_EVENT_GFX_WINONA                     130
+#define OBJ_EVENT_GFX_SKYLA                     130
 #define OBJ_EVENT_GFX_LIZA                       131
 #define OBJ_EVENT_GFX_TATE                       132
 #define OBJ_EVENT_GFX_WALLACE                    133
@@ -373,6 +373,7 @@
 #define OBJ_EVENT_PAL_JASMINE                 0x112C
 #define OBJ_EVENT_PAL_MAREEP                  0x112D
 #define OBJ_EVENT_PAL_ROCKET_F                  0x112E
+#define OBJ_EVENT_PAL_SKYLA                  0x112F
 
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 

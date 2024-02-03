@@ -167,6 +167,7 @@ static EWRAM_DATA struct PokemonSummaryScreenData
         u8 sanity; // 0x35
         u8 OTName[17]; // 0x36
         u32 OTID; // 0x48
+        u32 modernFatefulEncounter;
     } summary;
     u16 bgTilemapBuffers[PSS_PAGE_COUNT][2][0x400];
     u8 mode;
@@ -3215,7 +3216,9 @@ static void BufferMonTrainerMemo(void)
             DynamicPlaceholderTextUtil_SetPlaceholderPtr(4, metLocationString);
         }
 
-        if (DoesMonOTMatchOwner() == TRUE)
+        if (sum->metLocation == METLOC_FATEFUL_ENCOUNTER)
+            text = gText_XNatureFatefulEncounter;
+        else if (DoesMonOTMatchOwner() == TRUE)
         {
             if (sum->metLevel == 0)
                 text = (sum->metLocation >= MAPSEC_NONE) ? gText_XNatureHatchedSomewhereAt : gText_XNatureHatchedAtYZ;

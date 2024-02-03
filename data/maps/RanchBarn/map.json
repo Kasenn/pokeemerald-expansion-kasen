@@ -2,7 +2,7 @@
   "id": "MAP_RANCH_BARN",
   "name": "RanchBarn",
   "layout": "LAYOUT_RANCH_BARN",
-  "music": "MUS_LILYCOVE",
+  "music": "MUS_VERDANTURF",
   "region_map_section": "MAPSEC_POKE_RANCH",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -64,7 +64,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "BarnJasmineEvent",
-      "flag": "0"
+      "flag": "FLAG_BADGE02_GET"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_1",
@@ -81,7 +81,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAREEP",
-      "x": 6,
+      "x": 7,
       "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
@@ -89,7 +89,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "BarnHappyMareep",
       "flag": "0"
     },
     {
@@ -103,7 +103,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "BarnConcernedGirl",
-      "flag": "0"
+      "flag": "FLAG_BADGE02_GET"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAREEP",

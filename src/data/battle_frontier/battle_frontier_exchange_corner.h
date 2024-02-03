@@ -62,6 +62,19 @@ static const u16 sFrontierExchangeCorner_HoldItems2[] =
     ITEM_LIST_END
 };
 
+static const u16 sFrontierExchangeCorner_HoldItems3[] =
+{
+    ITEM_DRAGON_SCALE,
+    ITEM_ELECTIRIZER,
+    ITEM_KINGS_ROCK,
+    ITEM_MAGMARIZER,
+    ITEM_METAL_COAT,
+    ITEM_PRISM_SCALE,
+    ITEM_PROTECTOR,
+    ITEM_REAPER_CLOTH,
+    ITEM_LIST_END
+};
+
 static const u8 *const sFrontierExchangeCorner_Decor1Descriptions[] =
 {
     BattleFrontier_ExchangeServiceCorner_Text_KissPosterDesc,
@@ -123,5 +136,18 @@ static const u8 *const sFrontierExchangeCorner_HoldItemsDescriptions2[] =
     BattleFrontier_ExchangeServiceCorner_Text_HardStoneDesc,
     BattleFrontier_ExchangeServiceCorner_Text_MagnetDesc,
     BattleFrontier_ExchangeServiceCorner_Text_PoisonBarbDesc,
+    gText_Exit
+};
+
+static const u8 *const sFrontierExchangeCorner_HoldItemsDescriptions3[] =
+{
+    BattleFrontier_ExchangeServiceCorner_Text_DragonScaleDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_ElectirizerDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_KingsRockDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_MagmarizerDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_MetalCoatDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_PrismScaleDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_ProtectorDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_ReaperClothDesc,
     gText_Exit
 };

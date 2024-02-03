@@ -5090,6 +5090,16 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/AldeleafBigHouse3_3F/border.bin",
       "blockdata_filepath": "data/layouts/AldeleafBigHouse3_3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_TEST_ROOM",
+      "name": "TestRoom_Layout",
+      "width": 21,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/TestRoom/border.bin",
+      "blockdata_filepath": "data/layouts/TestRoom/map.bin"
     }
   ]
 }

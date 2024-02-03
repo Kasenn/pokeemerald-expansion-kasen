@@ -1,4 +1,15 @@
-mapscripts RanchBarn_MapScripts{}
+mapscripts RanchBarn_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: BarnSetTiles
+}
+
+script BarnSetTiles{
+    if(flag(FLAG_BADGE02_GET)){
+        setmetatile(6, 6, 0x376, FALSE)
+        setmetatile(7, 6, 0x373, FALSE)
+        special(DrawWholeMapView)
+    }
+    end
+}
 
 script BarnJugOfWater{
     msgbox("It's a jug full of water.", MSGBOX_SIGN)

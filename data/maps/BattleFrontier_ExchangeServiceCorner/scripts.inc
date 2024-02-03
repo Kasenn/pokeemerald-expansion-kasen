@@ -752,3 +752,24 @@ BattleFrontier_ExchangeServiceCorner_Text_MagnetDesc::
 BattleFrontier_ExchangeServiceCorner_Text_PoisonBarbDesc::
 	.string "A hold item that raises the power of\n"
 	.string "Poison-type moves.$"
+BattleFrontier_ExchangeServiceCorner_Text_DragonScaleDesc::
+	.string "A strange scale held by Dragon-\n"
+    .string "type Pokémon.$"
+BattleFrontier_ExchangeServiceCorner_Text_ElectirizerDesc::
+	.string "Loved by a certain Pokémon. It's full\n"
+    .string "of electric energy.$"
+BattleFrontier_ExchangeServiceCorner_Text_MagmarizerDesc::
+	.string "Loved by a certain Pokémon. It's full\n"
+    .string "of magma energy.$"
+BattleFrontier_ExchangeServiceCorner_Text_MetalCoatDesc::
+	.string "A hold item that raises the power of\n"
+    .string "Steel-type moves.$"
+BattleFrontier_ExchangeServiceCorner_Text_PrismScaleDesc::
+	.string "A mysterious scale that evolves certain\n"
+    .string "Pokémon. It shines.$"
+BattleFrontier_ExchangeServiceCorner_Text_ProtectorDesc::
+	.string "Loved by a certain Pokémon. It's stiff\n"
+    .string "and heavy.$"
+BattleFrontier_ExchangeServiceCorner_Text_ReaperClothDesc::
+	.string "Loved by a certain Pokémon. Imbued with\n"
+    .string "spiritual energy.$"

@@ -128,12 +128,12 @@
 #define MAPSEC_ROUTE_24                     0x7C
 #define MAPSEC_ROUTE_25                     0x7D
 #define MAPSEC_VIRIDIAN_FOREST              0x7E
-#define MAPSEC_MT_MOON                      0x7F
+#define MAPSEC_DESERT                      0x7F
 #define MAPSEC_S_S_ANNE                     0x80
 #define MAPSEC_UNDERGROUND_PATH             0x81
 #define MAPSEC_UNDERGROUND_PATH_2           0x82
 #define MAPSEC_POKE_RANCH                0x83
-#define MAPSEC_KANTO_VICTORY_ROAD           0x84
+#define MAPSEC_WINDPLUME_VALLEY           0x84
 #define MAPSEC_ROCKET_HIDEOUT               0x85
 #define MAPSEC_SILPH_CO                     0x86
 #define MAPSEC_POKEMON_MANSION              0x87
@@ -244,7 +244,8 @@
 #define MAPSEC_NEWROUTE_28                     0xF0
 #define MAPSEC_NEWROUTE_29                     0xF1
 #define MAPSEC_HIDDEN_GROTTO                   0xF2
-#define MAPSEC_NONE                            0xF3
+#define MAPSEC_FATEFUL                         0xF3
+#define MAPSEC_NONE                            0xF4
 
 
 #define METLOC_SPECIAL_EGG                  0xFD

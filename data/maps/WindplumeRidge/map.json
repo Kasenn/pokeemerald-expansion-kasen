@@ -3,9 +3,9 @@
   "name": "WindplumeRidge",
   "layout": "LAYOUT_WINDPLUME_RIDGE",
   "music": "MUS_MISTRAL",
-  "region_map_section": "MAPSEC_CITY_WIP1",
+  "region_map_section": "MAPSEC_WINDPLUME_VALLEY",
   "requires_flash": false,
-  "weather": "WEATHER_STRONG_WINDS",
+  "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -25,15 +25,347 @@
     }
   ],
   "object_events": [
-
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GIRL_3",
+      "x": 23,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Windplume_Trainer3",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_5",
+      "x": 28,
+      "y": 29,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Windplume_Trainer5",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MANIAC",
+      "x": 35,
+      "y": 25,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Windplume_Trainer6",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
+      "x": 25,
+      "y": 27,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_LEFT_DOWN_RIGHT",
+      "movement_range_x": 5,
+      "movement_range_y": 4,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Windplume_Trainer4",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_5",
+      "x": 12,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "Windplume_Trainer1",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M",
+      "x": 24,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
+      "movement_range_x": 6,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "1",
+      "script": "Windplume_Trainer2",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_5",
+      "x": 38,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Windplume_Trainer7",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+      "x": 48,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_MOUNTAIN_DISGUISE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Windplume_Trainer8",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 48,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Windplume_IronBall",
+      "flag": "FLAG_WPV_IRON_BALL"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "x": 56,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "Windplume_Trainer9",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_5",
+      "x": 59,
+      "y": 30,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "Windplume_Trainer11",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_5",
+      "x": 78,
+      "y": 25,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "Windplume_Trainer13",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
+      "x": 72,
+      "y": 25,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "Windplume_Trainer12",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SKYLA",
+      "x": 75,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Windplume_Trainer14",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F",
+      "x": 59,
+      "y": 23,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_LEFT_DOWN_RIGHT",
+      "movement_range_x": 1,
+      "movement_range_y": 6,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "1",
+      "script": "Windplume_Trainer10",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_3",
+      "x": 7,
+      "y": 27,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Windplume_Guide",
+      "flag": "0"
+    }
   ],
   "warp_events": [
 
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 25,
+      "elevation": 0,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "WindplumeRidge_StartWind"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 24,
+      "elevation": 0,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "WindplumeRidge_StartWind"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 30,
+      "elevation": 0,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "WindplumeRidge_RemoveWind"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 31,
+      "elevation": 0,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "WindplumeRidge_RemoveWind"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 32,
+      "elevation": 0,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "WindplumeRidge_RemoveWind"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_MIXED_RECORDS",
+      "var_value": "0",
+      "script": "HideAldeleafWoman"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_MIXED_RECORDS",
+      "var_value": "0",
+      "script": "HideAldeleafWoman"
+    }
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 53,
+      "y": 33,
+      "elevation": 0,
+      "item": "ITEM_ELIXIR",
+      "flag": "FLAG_WPV_ELIXIR"
+    },
+    {
+      "type": "hidden_item",
+      "x": 34,
+      "y": 7,
+      "elevation": 0,
+      "item": "ITEM_HYPER_POTION",
+      "flag": "FLAG_WPV_HYPER_POTION"
+    },
+    {
+      "type": "hidden_item",
+      "x": 75,
+      "y": 16,
+      "elevation": 0,
+      "item": "ITEM_PRETTY_FEATHER",
+      "flag": "FLAG_WPV_FEATHER6"
+    },
+    {
+      "type": "hidden_item",
+      "x": 59,
+      "y": 12,
+      "elevation": 0,
+      "item": "ITEM_PRETTY_FEATHER",
+      "flag": "FLAG_WPV_FEATHER4"
+    },
+    {
+      "type": "hidden_item",
+      "x": 63,
+      "y": 29,
+      "elevation": 0,
+      "item": "ITEM_PRETTY_FEATHER",
+      "flag": "FLAG_WPV_FEATHER5"
+    },
+    {
+      "type": "hidden_item",
+      "x": 42,
+      "y": 8,
+      "elevation": 0,
+      "item": "ITEM_PRETTY_FEATHER",
+      "flag": "FLAG_WPV_FEATHER3"
+    },
+    {
+      "type": "hidden_item",
+      "x": 33,
+      "y": 27,
+      "elevation": 0,
+      "item": "ITEM_PRETTY_FEATHER",
+      "flag": "FLAG_WPV_FEATHER2"
+    },
+    {
+      "type": "hidden_item",
+      "x": 18,
+      "y": 11,
+      "elevation": 0,
+      "item": "ITEM_PRETTY_FEATHER",
+      "flag": "FLAG_WPV_FEATHER1"
+    }
   ]
 }

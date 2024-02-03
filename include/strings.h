@@ -716,6 +716,15 @@ extern const u8 gText_HardStone8BP[];
 extern const u8 gText_Magnet8BP[];
 extern const u8 gText_PoisonBarb8BP[];
 
+extern const u8 gText_DragonScale[];
+extern const u8 gText_Electirizer[];
+extern const u8 gText_KingsRock[];
+extern const u8 gText_Magmarizer[];
+extern const u8 gText_MetalCoat[];
+extern const u8 gText_PrismScale[];
+extern const u8 gText_Protector[];
+extern const u8 gText_ReaperCloth[];
+
 extern const u8 gText_EnergyPowder50[];
 extern const u8 gText_EnergyRoot80[];
 extern const u8 gText_HealPowder50[];
@@ -775,6 +784,18 @@ extern const u8 gText_WorrySeed8BP[];
 extern const u8 gText_Snatch8BP[];
 extern const u8 gText_Recycle8BP[];
 extern const u8 gText_LastResort12BP[];
+extern const u8 gText_DrillRun6BP[];
+extern const u8 gText_Bounce8BP[];
+extern const u8 gText_SignalBeam8BP[];
+extern const u8 gText_IronHead8BP[];
+extern const u8 gText_IronDefense8BP[];
+extern const u8 gText_MagnetRise8BP[];
+extern const u8 gText_MagicCoat8BP[];
+extern const u8 gText_KnockOff10BP[];
+extern const u8 gText_SkillSwap10BP[];
+extern const u8 gText_Synthesis10BP[];
+extern const u8 gText_StealthRock10BP[];
+extern const u8 gText_IcyWind12BP[];
 
 extern const u8 gText_SlateportCity[];
 extern const u8 gText_BattleFrontier[];
@@ -906,6 +927,13 @@ extern const u8 BattleFrontier_ExchangeServiceCorner_Text_BlackBeltDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_HardStoneDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_MagnetDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_PoisonBarbDesc[];
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_DragonScaleDesc[];
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_ElectirizerDesc[];
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_MagmarizerDesc[];
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_MetalCoatDesc[];
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_PrismScaleDesc[];
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_ProtectorDesc[];
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_ReaperClothDesc[];
 
 // Battle Frontier Move Tutors
 extern const u8 BattleFrontier_Lounge7_Text_SoftboiledDesc[];
@@ -944,6 +972,18 @@ extern const u8 Coralgrove_BPShop_Text_WorrySeedDesc[];
 extern const u8 Coralgrove_BPShop_Text_SnatchDesc[];
 extern const u8 Coralgrove_BPShop_Text_RecycleDesc[];
 extern const u8 Coralgrove_BPShop_Text_LastResortDesc[];
+extern const u8 Aldeleaf_BPShop_Text_DrillRunDesc[];
+extern const u8 Aldeleaf_BPShop_Text_BounceDesc[];
+extern const u8 Aldeleaf_BPShop_Text_SignalBeamDesc[];
+extern const u8 Aldeleaf_BPShop_Text_IronHeadDesc[];
+extern const u8 Aldeleaf_BPShop_Text_IronDefenseDesc[];
+extern const u8 Aldeleaf_BPShop_Text_MagnetRiseDesc[];
+extern const u8 Aldeleaf_BPShop_Text_MagicCoatDesc[];
+extern const u8 Aldeleaf_BPShop_Text_KnockOffDesc[];
+extern const u8 Aldeleaf_BPShop_Text_SkillSwapDesc[];
+extern const u8 Aldeleaf_BPShop_Text_SynthesisDesc[];
+extern const u8 Aldeleaf_BPShop_Text_StealthRockDesc[];
+extern const u8 Aldeleaf_BPShop_Text_IcyWindDesc[];
 
 extern const u8 gText_YourPartnerHasRetired[];
 

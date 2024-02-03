@@ -256,6 +256,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Jasmine;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mareep;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example6;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RocketF;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Skyla;
 
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
@@ -386,7 +387,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     // [OBJ_EVENT_GFX_WATTSON] =                  &gObjectEventGraphicsInfo_Wattson,
     [OBJ_EVENT_GFX_FLANNERY] =                 &gObjectEventGraphicsInfo_Flannery,
     [OBJ_EVENT_GFX_NORMAN] =                   &gObjectEventGraphicsInfo_Norman,
-    [OBJ_EVENT_GFX_WINONA] =                   &gObjectEventGraphicsInfo_Winona,
+    // [OBJ_EVENT_GFX_WINONA] =                   &gObjectEventGraphicsInfo_Winona,
     [OBJ_EVENT_GFX_LIZA] =                     &gObjectEventGraphicsInfo_Liza,
     [OBJ_EVENT_GFX_TATE] =                     &gObjectEventGraphicsInfo_Tate,
     [OBJ_EVENT_GFX_WALLACE] =                  &gObjectEventGraphicsInfo_Wallace,
@@ -506,6 +507,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MAREEP] =                     &gObjectEventGraphicsInfo_Mareep,
     [OBJ_EVENT_GFX_EXAMPLE6] =                 &gObjectEventGraphicsInfo_Example6,
     [OBJ_EVENT_GFX_ROCKET_F] =                 &gObjectEventGraphicsInfo_RocketF,
+    [OBJ_EVENT_GFX_SKYLA] =                 &gObjectEventGraphicsInfo_Skyla,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

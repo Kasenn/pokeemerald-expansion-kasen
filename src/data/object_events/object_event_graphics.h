@@ -397,5 +397,7 @@ const u16 gObjectEventPalette_Mareep[] = INCBIN_U16("graphics/object_events/pics
 const u32 gObjectEventPic_Example6[] = INCBIN_U32("graphics/object_events/pics/people/may/running.4bpp");
 const u32 gObjectEventPic_RocketF[] = INCBIN_U32("graphics/object_events/pics/people/rocket_f.4bpp");
 const u16 gObjectEventPalette_RocketF[] = INCBIN_U16("graphics/object_events/pics/people/rocket_f.gbapal");
+const u32 gObjectEventPic_Skyla[] = INCBIN_U32("graphics/object_events/pics/people/skyla.4bpp");
+const u16 gObjectEventPalette_Skyla[] = INCBIN_U16("graphics/object_events/pics/people/skyla.gbapal");
 
 

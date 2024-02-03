@@ -20,12 +20,22 @@ RustboroCity_Gym_SetGymTrainers::
 	return
 
 DewfordTown_Gym_SetGymTrainers::
-	settrainerflag TRAINER_TAKAO
-	settrainerflag TRAINER_JOCELYN
-	settrainerflag TRAINER_LAURA
-	settrainerflag TRAINER_BRENDEN
-	settrainerflag TRAINER_CRISTIAN
-	settrainerflag TRAINER_LILITH
+	settrainerflag TRAINER_PARKER
+	settrainerflag TRAINER_GEORGE
+	settrainerflag TRAINER_BERKE
+	settrainerflag TRAINER_BRAXTON
+	settrainerflag TRAINER_VINCENT
+	settrainerflag TRAINER_LEROY
+	settrainerflag TRAINER_WILTON_1
+	settrainerflag TRAINER_EDGAR
+	settrainerflag TRAINER_ALBERT
+	settrainerflag TRAINER_SAMUEL
+	settrainerflag TRAINER_OWEN
+	settrainerflag TRAINER_WILTON_2
+	settrainerflag TRAINER_WILTON_3
+	settrainerflag TRAINER_WILTON_4
+	settrainerflag TRAINER_WILTON_5
+	settrainerflag TRAINER_WARREN
 	return
 
 MauvilleCity_Gym_SetGymTrainers::
@@ -53,8 +63,8 @@ PetalburgCity_Gym_SetGymTrainers::
 	settrainerflag TRAINER_GEORGE
 	settrainerflag TRAINER_BERKE
 	settrainerflag TRAINER_MARY
-	settrainerflag TRAINER_ALEXIA
-	settrainerflag TRAINER_JODY
+	settrainerflag TRAINER_WPV_TR1_BIRDKEEPER
+	settrainerflag TRAINER_WPV_TR2_TRIATH
 	return
 
 FortreeCity_Gym_SetGymTrainers::

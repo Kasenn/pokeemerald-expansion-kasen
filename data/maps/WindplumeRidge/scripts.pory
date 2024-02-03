@@ -1,0 +1,231 @@
+mapscripts WindplumeRidge_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: SetWindPlumeFlag
+}
+script SetWindPlumeFlag{
+    setflag(FLAG_LANDMARK_WINDPLUME_VALLEY)
+    release
+    end
+}
+
+script WindplumeRidge_StartWind{
+    setweather(WEATHER_STRONG_WINDS)
+    doweather
+    end
+}
+script WindplumeRidge_RemoveWind{
+    setweather(WEATHER_SUNNY)
+    doweather
+    end
+}
+script HideAldeleafWoman{
+    setflag(FLAG_DEFEATED_SUDOWOODO2)
+    release
+    end
+}
+script Windplume_IronBall{
+    finditem(ITEM_IRON_BALL)
+}
+
+script Windplume_Guide{
+    msgbox(Windplume_Guide_Text, MSGBOX_NPC)
+    end
+}
+text Windplume_Guide_Text{
+    "Wip"
+}
+
+script Windplume_Trainer1{
+	trainerbattle_single(TRAINER_WPV_TR1_BIRDKEEPER, Windplume_Text_Trainer1Intro, Windplume_Text_Trainer1Defeat)
+	msgbox(Windplume_Text_Trainer1PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Windplume_Text_Trainer1Intro{""}
+text Windplume_Text_Trainer1Defeat{""}
+text Windplume_Text_Trainer1PostBattle{""}
+
+script Windplume_Trainer2{
+	trainerbattle_single(TRAINER_WPV_TR2_TRIATH, Windplume_Text_Trainer2Intro, Windplume_Text_Trainer2Defeat)
+	msgbox(Windplume_Text_Trainer2PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Windplume_Text_Trainer2Intro{""}
+text Windplume_Text_Trainer2Defeat{""}
+text Windplume_Text_Trainer2PostBattle{""}
+
+script Windplume_Trainer3{
+	trainerbattle_single(TRAINER_WPV_TR3_BATTLEGIRL, Windplume_Text_Trainer3Intro, Windplume_Text_Trainer3Defeat)
+	msgbox(Windplume_Text_Trainer3PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Windplume_Text_Trainer3Intro{""}
+text Windplume_Text_Trainer3Defeat{""}
+text Windplume_Text_Trainer3PostBattle{""}
+
+script Windplume_Trainer4{
+	trainerbattle_single(TRAINER_WPV_TR4_CAMPER, Windplume_Text_Trainer4Intro, Windplume_Text_Trainer4Defeat)
+	msgbox(Windplume_Text_Trainer4PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Windplume_Text_Trainer4Intro{""}
+text Windplume_Text_Trainer4Defeat{""}
+text Windplume_Text_Trainer4PostBattle{""}
+
+script Windplume_Trainer5{
+	trainerbattle_single(TRAINER_WPV_TR5_BIRDKEEPER, Windplume_Text_Trainer5Intro, Windplume_Text_Trainer5Defeat)
+	msgbox(Windplume_Text_Trainer5PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Windplume_Text_Trainer5Intro{""}
+text Windplume_Text_Trainer5Defeat{""}
+text Windplume_Text_Trainer5PostBattle{""}
+
+script Windplume_Trainer6{
+	trainerbattle_single(TRAINER_WPV_TR6_MANIAC, Windplume_Text_Trainer6Intro, Windplume_Text_Trainer6Defeat)
+	msgbox(Windplume_Text_Trainer6PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Windplume_Text_Trainer6Intro{""}
+text Windplume_Text_Trainer6Defeat{""}
+text Windplume_Text_Trainer6PostBattle{""}
+
+script Windplume_Trainer7{
+	trainerbattle_single(TRAINER_WPV_TR7_BIRDKEEPER, Windplume_Text_Trainer7Intro, Windplume_Text_Trainer7Defeat)
+	msgbox(Windplume_Text_Trainer7PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Windplume_Text_Trainer7Intro{""}
+text Windplume_Text_Trainer7Defeat{""}
+text Windplume_Text_Trainer7PostBattle{""}
+
+script Windplume_Trainer8{
+	trainerbattle_single(TRAINER_WPV_TR8_NINJABOY, Windplume_Text_Trainer8Intro, Windplume_Text_Trainer8Defeat)
+	msgbox(Windplume_Text_Trainer8PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Windplume_Text_Trainer8Intro{""}
+text Windplume_Text_Trainer8Defeat{""}
+text Windplume_Text_Trainer8PostBattle{""}
+
+script Windplume_Trainer9{
+	trainerbattle_single(TRAINER_WPV_TR9_LASS, Windplume_Text_Trainer9Intro, Windplume_Text_Trainer9Defeat)
+	msgbox(Windplume_Text_Trainer9PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Windplume_Text_Trainer9Intro{""}
+text Windplume_Text_Trainer9Defeat{""}
+text Windplume_Text_Trainer9PostBattle{""}
+
+script Windplume_Trainer10{
+	trainerbattle_single(TRAINER_WPV_TR10_TRIATH, Windplume_Text_Trainer10Intro, Windplume_Text_Trainer10Defeat)
+	msgbox(Windplume_Text_Trainer10PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Windplume_Text_Trainer10Intro{""}
+text Windplume_Text_Trainer10Defeat{""}
+text Windplume_Text_Trainer10PostBattle{""}
+
+script Windplume_Trainer11{
+	trainerbattle_single(TRAINER_WPV_TR11_BIRDKEEPER, Windplume_Text_Trainer11Intro, Windplume_Text_Trainer11Defeat)
+	msgbox(Windplume_Text_Trainer11PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Windplume_Text_Trainer11Intro{""}
+text Windplume_Text_Trainer11Defeat{""}
+text Windplume_Text_Trainer11PostBattle{""}
+
+script Windplume_Trainer12{
+	trainerbattle_single(TRAINER_WPV_TR12_BATTLEGIRL, Windplume_Text_Trainer12Intro, Windplume_Text_Trainer12Defeat)
+	msgbox(Windplume_Text_Trainer12PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Windplume_Text_Trainer12Intro{""}
+text Windplume_Text_Trainer12Defeat{""}
+text Windplume_Text_Trainer12PostBattle{""}
+
+script Windplume_Trainer13{
+	trainerbattle_single(TRAINER_WPV_TR13_BIRDKEEPER, Windplume_Text_Trainer13Intro, Windplume_Text_Trainer13Defeat)
+	msgbox(Windplume_Text_Trainer13PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Windplume_Text_Trainer13Intro{""}
+text Windplume_Text_Trainer13Defeat{""}
+text Windplume_Text_Trainer13PostBattle{""}
+
+script Windplume_Trainer14{
+    lockall
+    faceplayer
+    trainerbattle_single(TRAINER_WPV_TR14_SKYLA, Windplume_Text_Trainer14Intro, Windplume_Text_Trainer14Defeat, Windplume_Event_SkylaDefeated, NO_MUSIC)
+	msgbox(Windplume_Text_Trainer14PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+script Windplume_Event_SkylaDefeated{
+    msgbox(Windplume_Text_Trainer14Outro, MSGBOX_DEFAULT)
+    waitmessage
+    closemessage
+    giveitem(ITEM_HM02)
+    waitfanfare
+    call(SetWindPlumeTrainersDefeated)
+    msgbox(Windplume_Text_ExplainFly, MSGBOX_DEFAULT)
+    waitmessage
+    closemessage
+    release
+    end
+}
+text Windplume_Text_Trainer14Intro{
+    "Hee-hee! I've been waiting for you.\p"
+    "My name is Skyla, and I guess you\n"
+    "could consider me the “Gym Leader”\l"
+    "of this place!\p"
+    "I heard we might be having a new\n"
+    "challenger who can face the power\l"
+    "of the flying-type Pokémon and\l"
+    "not get blown off their feet!\p"
+    "I'm kinda excited about this battle!\n"
+    "Why don't you and I have some fun?"
+}
+text Windplume_Text_Trainer14Defeat{
+    "I won't forget this battle!\n"
+    "I'm glad that I could fight against you!"
+}
+text Windplume_Text_Trainer14PostBattle{
+    "Skyla: Are you and your Pokémon well?\n" 
+    "Our battle together was so much fun.\p"
+    "Now, my Pokémon and I have started\n"
+    "training again.\p"
+    "I hope one day we can have a rematch.\n"
+    "Next time I will not lose!"
+}
+
+text Windplume_Text_ExplainFly{
+    "That's a Hidden Machine, Fly!\p"
+    "When you use that move outside of\n"
+    "battle, you can easily visit towns\l"
+    "you've already visited!"
+}
+
+text Windplume_Text_Trainer14Outro{
+    "You're an amazing Pokémon Trainer.\n"
+    "My Pokémon and I are happy,\l"
+    "because for the first time in a while,\l"
+    "we could fight with our full strength.\p"
+    "I'm sure a trainer of your caliber\n"
+    "will find this tremendously helpful."
+}
+
+script SetWindPlumeTrainersDefeated{
+    settrainerflag(TRAINER_WPV_TR1_BIRDKEEPER)
+    settrainerflag(TRAINER_WPV_TR2_TRIATH)
+    settrainerflag(TRAINER_WPV_TR3_BATTLEGIRL)
+    settrainerflag(TRAINER_WPV_TR4_CAMPER)
+    settrainerflag(TRAINER_WPV_TR5_BIRDKEEPER)
+    settrainerflag(TRAINER_WPV_TR6_MANIAC)
+    settrainerflag(TRAINER_WPV_TR7_BIRDKEEPER)
+    settrainerflag(TRAINER_WPV_TR8_NINJABOY)
+    settrainerflag(TRAINER_WPV_TR9_LASS)
+    settrainerflag(TRAINER_WPV_TR10_TRIATH)
+    settrainerflag(TRAINER_WPV_TR11_BIRDKEEPER)
+    settrainerflag(TRAINER_WPV_TR12_BATTLEGIRL)
+    settrainerflag(TRAINER_WPV_TR13_BIRDKEEPER)
+    return
+}

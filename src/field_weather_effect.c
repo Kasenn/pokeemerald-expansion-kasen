@@ -34,7 +34,7 @@ const u8 gWeatherWindTiles[] = INCBIN_U8("graphics/weather/wind.4bpp");
 const struct SpritePalette sFogSpritePalette = {gFogPalette, 0x1201};
 const struct SpritePalette sCloudsSpritePalette = {gCloudsWeatherPalette, 0x1207};
 const struct SpritePalette sSandstormSpritePalette = {gSandstormWeatherPalette, 0x1204};
-const struct SpritePalette sWindSpritePalette = {gWindWeatherPalette, 0x1204};
+const struct SpritePalette sWindSpritePalette = {gWindWeatherPalette, PALTAG_WEATHER_2};
 
 //------------------------------------------------------------------------------
 // WEATHER_SUNNY_CLOUDS
