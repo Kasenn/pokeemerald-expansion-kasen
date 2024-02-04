@@ -1265,7 +1265,7 @@
 #define FLAG_GHOST_MOVED                                                    0x4BF // Ghost moved in aldeleaf house
 #define FLAG_WHITEFLUTE_RECEIVED                                           0x4C0 // Unused Flag
 #define FLAG_RECEIVED_LAVA_COOKIE                                           0x4C1 // Unused Flag
-#define FLAG_UNUSED_0x4C2                                           0x4C2 // Unused Flag
+#define FLAG_ROUTE28_DESPAWN_BROTHER                                           0x4C2 // Unused Flag
 #define FLAG_UNUSED_0x4C3                                           0x4C3 // Unused Flag
 #define FLAG_UNUSED_0x4C4                                           0x4C4 // Unused Flag
 #define FLAG_UNUSED_0x4C5                                           0x4C5 // Unused Flag
