@@ -1,0 +1,145 @@
+mapscripts Route28_MapScripts{}
+
+script Route28_BrotherTrigger_1{
+    if(flag(FLAG_ROUTE28_DESPAWN_BROTHER)){
+        release
+        end
+    }
+    else{
+        lockall
+        playbgm(MUS_ENCOUNTER_BRENDAN, FALSE)
+        applymovement(4, Route28_MoveBrother1)
+        waitmovement(4)
+        delay(15)
+        call(Route28_BrotherFight)
+        applymovement(4, Route28BrotherLeaves1)
+        goto(Route28_EndScript)
+    }
+}
+script Route28_BrotherTrigger_2{
+    if(flag(FLAG_ROUTE28_DESPAWN_BROTHER)){
+        release
+        end
+    }
+    else{
+        lockall
+        playbgm(MUS_ENCOUNTER_BRENDAN, FALSE)
+        applymovement(4, Route28_MoveBrother2)
+        waitmovement(4)
+        delay(15)
+        call(Route28_BrotherFight)
+        applymovement(4, Route28BrotherLeaves2)
+        goto(Route28_EndScript)
+    }
+}
+
+script Route28_EndScript{
+    waitmovement(4)
+    delay(15)
+    setflag(FLAG_ROUTE28_DESPAWN_BROTHER)
+    removeobject(4)
+    savebgm(MUS_DUMMY)
+	fadedefaultbgm
+    releaseall
+    end
+}
+
+movement Route28_MoveBrother1{
+    walk_down * 2
+    walk_left * 3
+    walk_down * 3
+}
+movement Route28_MoveBrother2{
+    walk_down * 2
+    walk_left * 2
+    walk_down * 3
+}
+movement Route28BrotherLeaves1{
+    walk_right
+    walk_down * 8
+}
+movement Route28BrotherLeaves2{
+    walk_left
+    walk_down * 8
+}
+
+script Route28_BrotherFight{
+    delay(10)
+    if(flag(FLAG_BADGE02_GET)){
+        msgbox(Route28_BrotherIntroAfterGym, MSGBOX_DEFAULT)
+        waitmessage
+        closemessage
+        if(flag(FLAG_UNUSED_PICKEDROWLET)){
+            trainerbattle_no_intro(TRAINER_BROTHER3_ROWLET, Route28_BrotherLost)
+        }
+        if(flag(FLAG_UNUSED_PICKEDTORCHIC)){
+            trainerbattle_no_intro(TRAINER_BROTHER3_TORCHIC, Route28_BrotherLost)
+        }
+        if(flag(FLAG_UNUSED_PICKEDPIPLUP)){
+            trainerbattle_no_intro(TRAINER_BROTHER3_PIPLUP, Route28_BrotherLost)
+        }
+    }
+    else{
+        msgbox(Route28_BrotherIntro, MSGBOX_DEFAULT)
+        waitmessage
+        closemessage
+        if(flag(FLAG_UNUSED_PICKEDROWLET)){
+            trainerbattle_no_intro(TRAINER_BROTHER2_ROWLET, Route28_BrotherLost)
+        }
+        if(flag(FLAG_UNUSED_PICKEDTORCHIC)){
+            trainerbattle_no_intro(TRAINER_BROTHER2_TORCHIC, Route28_BrotherLost)
+        }
+        if(flag(FLAG_UNUSED_PICKEDPIPLUP)){
+            trainerbattle_no_intro(TRAINER_BROTHER2_PIPLUP, Route28_BrotherLost)
+        }
+    }
+    if(flag(FLAG_BADGE02_GET)){
+        msgbox(Route28_BrotherPostBattle, MSGBOX_DEFAULT)
+    }
+    else{
+        msgbox(Route28_BrotherPostBattleNoBadge, MSGBOX_DEFAULT)
+    }
+    waitmessage
+    closemessage
+    return
+}
+
+text Route28_BrotherIntro{
+    "Thomas: Yo, {PLAYER}!\p"
+    "I see you've finally made your way\n"
+    "off the Coralgrove Islands.\p"
+    "I wanted to head north to check out\n"
+    "the Pokémon League in Snowcrest City\l"
+    "but there's been an avalanche\l"
+    "higher up the route so the way forward\l"
+    "is completely cut off.\p"
+    "In any case, I've gone and caught\n"
+    "a lot of new Pokémon.\p"
+    "Let's see if yours are any match\n"
+    "to them!"
+}
+text Route28_BrotherIntroAfterGym{
+    "Thomas: Yo, {PLAYER}!\p"
+    "I see you've finally made your way\n"
+    "off the Coralgrove Islands.\p"
+    "I wanted to head north to check out\n"
+    "the Pokémon League in Snowcrest City\l"
+    "but there's been an avalanche\l"
+    "higher up the route so the way forward\l"
+    "is completely cut off.\p"
+    "I see you've already gone and got\n"
+    "the Dynamo Badge from the Aldeleaf Gym.\l"
+    "Good, that means you're not a complete\l"
+    "newbie anymore.\p"
+    "In any case, I've gone and caught\n"
+    "a lot of new Pokémon.\p"
+    "Let's see if yours are any match\n"
+    "to them!"
+}
+text Route28_BrotherLost{
+    "I…Hm…Not quite the outcome\n"
+    "I expected…\l"
+    "Beginner's luck, maybe?"
+}
+text Route28_BrotherPostBattle{""}
+text Route28_BrotherPostBattleNoBadge{""}

@@ -487,7 +487,6 @@ static const struct FormChange sSilvallyFormChangeTable[] = {
 };
 
 static const struct FormChange sMimikyuFormChangeTable[] = {
-    {FORM_CHANGE_FAINT,         SPECIES_MIMIKYU},
     {FORM_CHANGE_END_BATTLE,    SPECIES_MIMIKYU},
     {FORM_CHANGE_TERMINATOR},
 };

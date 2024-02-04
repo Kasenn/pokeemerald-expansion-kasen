@@ -13121,7 +13121,7 @@
               {
                 "min_level": 16,
                 "max_level": 18,
-                "species": "SPECIES_ORICORIO"
+                "species": "SPECIES_FEAROW"
               },
               {
                 "min_level": 17,
@@ -13131,7 +13131,7 @@
               {
                 "min_level": 20,
                 "max_level": 20,
-                "species": "SPECIES_FEAROW"
+                "species": "SPECIES_ORICORIO"
               },
               {
                 "min_level": 17,

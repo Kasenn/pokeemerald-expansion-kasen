@@ -4825,7 +4825,7 @@
       "id": "LAYOUT_ROUTE28",
       "name": "Route28_Layout",
       "width": 54,
-      "height": 87,
+      "height": 79,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Fortree",
       "border_filepath": "data/layouts/Route28/border.bin",

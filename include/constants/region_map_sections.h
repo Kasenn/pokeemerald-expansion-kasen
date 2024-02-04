@@ -130,7 +130,7 @@
 #define MAPSEC_VIRIDIAN_FOREST              0x7E
 #define MAPSEC_DESERT                      0x7F
 #define MAPSEC_S_S_ANNE                     0x80
-#define MAPSEC_UNDERGROUND_PATH             0x81
+#define MAPSEC_NEWROUTE_28_PART2             0x81
 #define MAPSEC_UNDERGROUND_PATH_2           0x82
 #define MAPSEC_POKE_RANCH                0x83
 #define MAPSEC_WINDPLUME_VALLEY           0x84

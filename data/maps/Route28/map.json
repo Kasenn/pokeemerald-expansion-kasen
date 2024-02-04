@@ -20,50 +20,106 @@
     },
     {
       "map": "MAP_WINDPLUME_RIDGE",
-      "offset": 58,
+      "offset": 50,
       "direction": "right"
     }
   ],
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_HIKER",
-      "x": 20,
-      "y": 78,
+      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
+      "x": 39,
+      "y": 73,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BerryTreeScript",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
+      "x": 38,
+      "y": 73,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BerryTreeScript",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
+      "x": 40,
+      "y": 73,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BerryTreeScript",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EXAMPLE",
+      "x": 22,
+      "y": 45,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_ROUTE28_DESPAWN_BROTHER"
     }
   ],
   "warp_events": [
     {
-      "x": 31,
-      "y": 8,
+      "x": 25,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_ROUTE28",
       "dest_warp_id": "3"
     },
     {
-      "x": 32,
-      "y": 8,
+      "x": 26,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_ROUTE28",
       "dest_warp_id": "3"
     },
     {
-      "x": 33,
-      "y": 8,
+      "x": 27,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_ROUTE28",
       "dest_warp_id": "3"
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 51,
+      "elevation": 0,
+      "var": "VAR_TEMP_MIXED_RECORDS",
+      "var_value": "0",
+      "script": "Route28_BrotherTrigger_1"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 51,
+      "elevation": 0,
+      "var": "VAR_TEMP_MIXED_RECORDS",
+      "var_value": "0",
+      "script": "Route28_BrotherTrigger_2"
+    }
   ],
   "bg_events": [
 
