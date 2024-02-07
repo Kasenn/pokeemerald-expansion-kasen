@@ -6,16 +6,6 @@ mapscripts Lab2_MapScripts{
     ]
 }
 
-script Lab2_HideRival{
-    call(Common_EventScript_SetupRivalGfxId)
-    if(var(VAR_PEARLWOOD_TOWN_STATE) == 9){
-        clearflag(FLAG_UNUSED_LAB_RIVAL)
-    }
-    else{
-        setflag(FLAG_UNUSED_LAB_RIVAL)
-    }
-}
-
 script Lab2_Intro{
     if(!(flag(FLAG_UNUSED_PICKEDROWLET) || flag(FLAG_UNUSED_PICKEDTORCHIC) || flag(FLAG_UNUSED_PICKEDPIPLUP))){
         applymovement(OBJ_EVENT_ID_PLAYER, Lab2_MyMove)
@@ -39,7 +29,19 @@ script Lab2_Intro{
         end
     }
 }
+movement Lab2_MyMove{
+    walk_up * 6
+}
 
+script Lab2_HideRival{
+    call(Common_EventScript_SetupRivalGfxId)
+    if(var(VAR_PEARLWOOD_TOWN_STATE) == 9){
+        clearflag(FLAG_UNUSED_LAB_RIVAL)
+    }
+    else{
+        setflag(FLAG_UNUSED_LAB_RIVAL)
+    }
+}
 script Lab2_DexGet{
     applymovement(OBJ_EVENT_ID_PLAYER, Lab2_MyMove)
     waitmovement(0)
@@ -146,10 +148,6 @@ text Lab2_DexTalkBrendan{
     "{RIVAL}: Well we can't have {PLAYER}\nleaving empty-handed, now can we?\p"
     "Prof. Birch: Yes, I know. {PLAYER},\nyou can have mine.\lI'll order myself a new one.\p"
     "{RIVAL}: You're the best, dad!\n"
-}
-
-movement Lab2_MyMove{
-    walk_up * 6
 }
 
 movement Lab2_TurnRight{

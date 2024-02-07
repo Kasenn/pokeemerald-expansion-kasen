@@ -2,7 +2,7 @@
   "id": "MAP_DESERT",
   "name": "Desert",
   "layout": "LAYOUT_DESERT",
-  "music": "MUS_ROUTE113",
+  "music": "MUS_BWTRAINERBATTLE",
   "region_map_section": "MAPSEC_NEWROUTE_6",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

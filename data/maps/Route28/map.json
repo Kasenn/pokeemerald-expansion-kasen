@@ -34,7 +34,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
+      "trainer_sight_or_berry_tree_id": "10",
       "script": "BerryTreeScript",
       "flag": "0"
     },
@@ -47,7 +47,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
+      "trainer_sight_or_berry_tree_id": "8",
       "script": "BerryTreeScript",
       "flag": "0"
     },
@@ -60,7 +60,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
+      "trainer_sight_or_berry_tree_id": "11",
       "script": "BerryTreeScript",
       "flag": "0"
     },
@@ -76,6 +76,110 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "FLAG_ROUTE28_DESPAWN_BROTHER"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 16,
+      "y": 32,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route28_ItemBall",
+      "flag": "FLAG_ROUTE28_ITEMBALL"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 44,
+      "y": 58,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route28_TM",
+      "flag": "FLAG_ROUTE28_TM"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+      "x": 19,
+      "y": 33,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route28_Trainer1_BugCatcher",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HIKER",
+      "x": 38,
+      "y": 33,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "Route28_Trainer2_Hiker",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+      "x": 28,
+      "y": 20,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "6",
+      "script": "Route28_Trainer3_NinjaBoy",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M",
+      "x": 31,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Route28_Trainer4_Psychic",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+      "x": 28,
+      "y": 63,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route28_Fisher",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+      "x": 46,
+      "y": 51,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_CutTree",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -83,22 +187,22 @@
       "x": 25,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE28",
-      "dest_warp_id": "3"
+      "dest_map": "MAP_ROUTE28TUNNEL_HOUSE",
+      "dest_warp_id": "0"
     },
     {
       "x": 26,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE28",
-      "dest_warp_id": "3"
+      "dest_map": "MAP_ROUTE28TUNNEL_HOUSE",
+      "dest_warp_id": "0"
     },
     {
       "x": 27,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE28",
-      "dest_warp_id": "3"
+      "dest_map": "MAP_ROUTE28TUNNEL_HOUSE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
@@ -122,6 +226,13 @@
     }
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 27,
+      "y": 24,
+      "elevation": 0,
+      "item": "ITEM_GREAT_BALL",
+      "flag": "FLAG_ROUTE28_HIDDENBALL"
+    }
   ]
 }

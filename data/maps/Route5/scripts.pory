@@ -1,0 +1,155 @@
+mapscripts Route5_MapScripts{}
+
+script Route5_IncreaseVar{
+    addvar(VAR_ROUTE5_TRAINERCOUNT, 1)
+    release
+    end
+}
+
+script Route5_Trainer1_Fisher{
+    trainerbattle_single(TRAINER_R5_TR1_FISHER, Route5_Trainer1_Fisher_Intro, Route5_Trainer1_Fisher_Defeat, Route5_IncreaseVar)
+	msgbox(Route5_Trainer1_Fisher_PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Route5_Trainer1_Fisher_Intro{""}
+text Route5_Trainer1_Fisher_Defeat{""}
+text Route5_Trainer1_Fisher_PostBattle{""}
+
+script Route5_Trainer2_Beauty{
+    trainerbattle_single(TRAINER_R5_TR2_BEAUTY, Route5_Trainer2_Beauty_Intro, Route5_Trainer2_Beauty_Defeat, Route5_IncreaseVar)
+	msgbox(Route5_Trainer2_Beauty_PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Route5_Trainer2_Beauty_Intro{""}
+text Route5_Trainer2_Beauty_Defeat{""}
+text Route5_Trainer2_Beauty_PostBattle{""}
+
+script Route5_Trainer3_YoungCouple {
+    trainerbattle_double(TRAINER_R5_TR3_YOUNGCOUPLE, Route5_Trainer3_YoungCouple_Intro, Route5_Trainer3_YoungCouple_Defeat, Route5_Trainer3_YoungCouple_NotEnough, Route5_IncreaseVar)
+    msgbox(Route5_Trainer3_YoungCouple_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route5_Trainer3_YoungCouple_Intro{""}
+text Route5_Trainer3_YoungCouple_Defeat{""}
+text Route5_Trainer3_YoungCouple_PostBattle{""}
+text Route5_Trainer3_YoungCouple_NotEnough{""}
+
+script Route5_Trainer4_Lass1 {
+    trainerbattle_single(TRAINER_R5_TR4_LASS1, Route5_Trainer4_Lass1_Intro, Route5_Trainer4_Lass1_Defeat, Route5_IncreaseVar)
+    msgbox(Route5_Trainer4_Lass1_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route5_Trainer4_Lass1_Intro{""}
+text Route5_Trainer4_Lass1_Defeat{""}
+text Route5_Trainer4_Lass1_PostBattle{""}
+
+script Route5_Trainer5_PokeFan_F {
+    trainerbattle_single(TRAINER_R5_TR5_POKEFAN_F, Route5_Trainer5_PokeFan_F_Intro, Route5_Trainer5_PokeFan_F_Defeat, Route5_IncreaseVar)
+    msgbox(Route5_Trainer5_PokeFan_F_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route5_Trainer5_PokeFan_F_Intro{""}
+text Route5_Trainer5_PokeFan_F_Defeat{""}
+text Route5_Trainer5_PokeFan_F_PostBattle{""}
+
+script Route5_Trainer6_Lass2 {
+    trainerbattle_single(TRAINER_R5_TR6_LASS2, Route5_Trainer6_Lass2_Intro, Route5_Trainer6_Lass2_Defeat, Route5_IncreaseVar)
+    msgbox(Route5_Trainer6_Lass2_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route5_Trainer6_Lass2_Intro{""}
+text Route5_Trainer6_Lass2_Defeat{""}
+text Route5_Trainer6_Lass2_PostBattle{""}
+
+script Route5_Trainer7_Gentleman {
+    trainerbattle_single(TRAINER_R5_TR7_GENTLEMAN, Route5_Trainer7_Gentleman_Intro, Route5_Trainer7_Gentleman_Defeat, Route5_IncreaseVar)
+    msgbox(Route5_Trainer7_Gentleman_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route5_Trainer7_Gentleman_Intro{""}
+text Route5_Trainer7_Gentleman_Defeat{""}
+text Route5_Trainer7_Gentleman_PostBattle{""}
+
+script Route5_Trainer8_Youngster {
+    trainerbattle_single(TRAINER_R5_TR8_YOUNGSTER, Route5_Trainer8_Youngster_Intro, Route5_Trainer8_Youngster_Defeat, Route5_IncreaseVar)
+    msgbox(Route5_Trainer8_Youngster_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route5_Trainer8_Youngster_Intro{""}
+text Route5_Trainer8_Youngster_Defeat{""}
+text Route5_Trainer8_Youngster_PostBattle{""}
+
+script Route5_Trainer9_Triathlete {
+    trainerbattle_single(TRAINER_R5_TR9_TRIATHLETE, Route5_Trainer9_Triathlete_Intro, Route5_Trainer9_Triathlete_Defeat, Route5_IncreaseVar)
+    msgbox(Route5_Trainer9_Triathlete_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route5_Trainer9_Triathlete_Intro{""}
+text Route5_Trainer9_Triathlete_Defeat{""}
+text Route5_Trainer9_Triathlete_PostBattle{""}
+
+script Route5_Trainer10_RichBoy {
+    trainerbattle_single(TRAINER_R5_TR10_RICHBOY, Route5_Trainer10_RichBoy_Intro, Route5_Trainer10_RichBoy_Defeat, Route5_IncreaseVar)
+    msgbox(Route5_Trainer10_RichBoy_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route5_Trainer10_RichBoy_Intro{""}
+text Route5_Trainer10_RichBoy_Defeat{""}
+text Route5_Trainer10_RichBoy_PostBattle{""}
+
+script Route5_Trainer11_Man_5 {
+    trainerbattle_single(TRAINER_R5_TR11_MAN_5, Route5_Trainer11_Man_5_Intro, Route5_Trainer11_Man_5_Defeat, Route5_IncreaseVar)
+    msgbox(Route5_Trainer11_Man_5_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route5_Trainer11_Man_5_Intro{""}
+text Route5_Trainer11_Man_5_Defeat{""}
+text Route5_Trainer11_Man_5_PostBattle{""}
+
+script Route5_Trainer12_BugCatcher {
+    trainerbattle_single(TRAINER_R5_TR12_BUGCATCHER, Route5_Trainer12_BugCatcher_Intro, Route5_Trainer12_BugCatcher_Defeat, Route5_IncreaseVar)
+    msgbox(Route5_Trainer12_BugCatcher_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route5_Trainer12_BugCatcher_Intro{""}
+text Route5_Trainer12_BugCatcher_Defeat{""}
+text Route5_Trainer12_BugCatcher_PostBattle{""}
+
+script Route5_Trainer13_NinjaBoy {
+    trainerbattle_single(TRAINER_R5_TR13_NINJABOY, Route5_Trainer13_NinjaBoy_Intro, Route5_Trainer13_NinjaBoy_Defeat, Route5_IncreaseVar)
+    msgbox(Route5_Trainer13_NinjaBoy_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route5_Trainer13_NinjaBoy_Intro{""}
+text Route5_Trainer13_NinjaBoy_Defeat{""}
+text Route5_Trainer13_NinjaBoy_PostBattle{""}
+
+script Route5_Trainer14_Hiker {
+    trainerbattle_single(TRAINER_R5_TR14_HIKER, Route5_Trainer14_Hiker_Intro, Route5_Trainer14_Hiker_Defeat, Route5_IncreaseVar)
+    msgbox(Route5_Trainer14_Hiker_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route5_Trainer14_Hiker_Intro{""}
+text Route5_Trainer14_Hiker_Defeat{""}
+text Route5_Trainer14_Hiker_PostBattle{""}
+
+script Route5_Trainer15_CoolTrainer {
+    trainerbattle_single(TRAINER_R5_TR15_COOLTRAINER, Route5_Trainer15_CoolTrainer_Intro, Route5_Trainer15_CoolTrainer_Defeat, Route5_IncreaseVar)
+    msgbox(Route5_Trainer15_CoolTrainer_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route5_Trainer15_CoolTrainer_Intro{""}
+text Route5_Trainer15_CoolTrainer_Defeat{""}
+text Route5_Trainer15_CoolTrainer_PostBattle{""}
+
+script Route5_ItemBall1{
+    finditem(ITEM_SUPER_REPEL)
+}
+
+script Route5_ItemBall2{
+    finditem(ITEM_GREAT_BALL)
+}
+
+script Route5_ItemBall3{
+    finditem(ITEM_TM39)
+}

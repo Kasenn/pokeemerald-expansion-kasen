@@ -103,14 +103,25 @@ Debug_Script_4::
 	end
 
 Debug_Script_5::
-	setmodernfatefulencounter 0
-	checkmodernfatefulencounter 0
+	buffernumberstring STR_VAR_1, VAR_WEIRDCAVE_CORRECTSTEPS
+	msgbox weirdcavesteps, MSGBOX_NPC
 	end
+
+weirdcavesteps:
+	.string "{STR_VAR_1}$"
 
 Debug_Script_6::
+	getplayerxy VAR_TEMP_0, VAR_TEMP_1
+	buffernumberstring STR_VAR_1, VAR_TEMP_0
+	buffernumberstring STR_VAR_2, VAR_TEMP_1
+	msgbox weirdcaveplayerxy, MSGBOX_NPC
 	end
 
+weirdcaveplayerxy:
+	.string "{STR_VAR_1}, {STR_VAR_2}$"
+
 Debug_Script_7::
+	setvar VAR_TEMP_MIXED_RECORDS, 0
 	end
 
 Debug_Script_8::
