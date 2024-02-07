@@ -52,15 +52,15 @@
 #define FLAG_TOGGLE_DOUBLE_WILDS                0x27 // Forces double wild battles
 #define FLAG_RECEIVED_TM_WILD_CHARGE            0x28 // Received wild charge from Volkner
 #define FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR2    0x29 // Aldeleaf BP Shop Move Tutor
-#define FLAG_UNUSED_0x02A    0x2A // Unused Flag
-#define FLAG_UNUSED_0x02B    0x2B // Unused Flag
-#define FLAG_UNUSED_0x02C    0x2C // Unused Flag
-#define FLAG_UNUSED_0x02D    0x2D // Unused Flag
-#define FLAG_UNUSED_0x02E    0x2E // Unused Flag
-#define FLAG_UNUSED_0x02F    0x2F // Unused Flag
-#define FLAG_UNUSED_0x030    0x30 // Unused Flag
-#define FLAG_UNUSED_0x031    0x31 // Unused Flag
-#define FLAG_UNUSED_0x032    0x32 // Unused Flag
+#define FLAG_ROUTE5_ITEM1                       0x2A // Route 5 item flags start
+#define FLAG_ROUTE5_ITEM2                       0x2B // 
+#define FLAG_ROUTE5_ITEM3                       0x2C // 
+#define FLAG_ROUTE5_ITEM4                       0x2D // 
+#define FLAG_ROUTE5_HIDDENITEM1                 0x2E // 
+#define FLAG_ROUTE5_HIDDENITEM2                 0x2F // 
+#define FLAG_ROUTE5_HIDDENITEM3                 0x30 // 
+#define FLAG_ROUTE5_HIDDENITEM4                 0x31 //
+#define FLAG_ROUTE5_HIDDENITEM5                 0x32 // Route 5 item flags end
 #define FLAG_UNUSED_0x033    0x33 // Unused Flag
 #define FLAG_UNUSED_0x034    0x34 // Unused Flag
 #define FLAG_UNUSED_0x035    0x35 // Unused Flag
@@ -1266,12 +1266,12 @@
 #define FLAG_WHITEFLUTE_RECEIVED                                           0x4C0 // Unused Flag
 #define FLAG_RECEIVED_LAVA_COOKIE                                           0x4C1 // Unused Flag
 #define FLAG_ROUTE28_DESPAWN_BROTHER                                           0x4C2 // Unused Flag
-#define FLAG_UNUSED_0x4C3                                           0x4C3 // Unused Flag
-#define FLAG_UNUSED_0x4C4                                           0x4C4 // Unused Flag
-#define FLAG_UNUSED_0x4C5                                           0x4C5 // Unused Flag
-#define FLAG_UNUSED_0x4C6                                           0x4C6 // Unused Flag
-#define FLAG_UNUSED_0x4C7                                           0x4C7 // Unused Flag
-#define FLAG_UNUSED_0x4C8                                           0x4C8 // Unused Flag
+#define FLAG_ROUTE28_TM                                           0x4C3 // Unused Flag
+#define FLAG_ROUTE28_HIDDENBALL                                           0x4C4 // Unused Flag
+#define FLAG_ROUTE28_ITEMBALL                                          0x4C5 // Unused Flag
+#define FLAG_VISITED_WIP_TOWN2                                           0x4C6 // Unused Flag
+#define FLAG_WEIRDCAVESOLVED                                           0x4C7 // opens the antechamber in weird cave
+#define FLAG_WEIRDCAVE_STONE                                           0x4C8 // Unused Flag
 #define FLAG_UNUSED_0x4C9                                           0x4C9 // Unused Flag
 #define FLAG_UNUSED_0x4CA                                           0x4CA // Unused Flag
 #define FLAG_UNUSED_0x4CB                                           0x4CB // Unused Flag

@@ -4484,7 +4484,7 @@
     {
       "id": "LAYOUT_WINDY_WOODS",
       "name": "WindyWoods_Layout",
-      "width": 108,
+      "width": 68,
       "height": 54,
       "primary_tileset": "gTileset_DarkForest",
       "secondary_tileset": "gTileset_DarkForestSec",
@@ -4856,7 +4856,7 @@
       "name": "Route6_Layout",
       "width": 65,
       "height": 35,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_General2",
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Route6/border.bin",
       "blockdata_filepath": "data/layouts/Route6/map.bin"
@@ -5100,6 +5100,36 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/TestRoom/border.bin",
       "blockdata_filepath": "data/layouts/TestRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE28TUNNEL_HOUSE",
+      "name": "Route28TunnelHouse_Layout",
+      "width": 9,
+      "height": 22,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/Route28TunnelHouse/border.bin",
+      "blockdata_filepath": "data/layouts/Route28TunnelHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_MAP1",
+      "name": "WeirdCave_Layout",
+      "width": 15,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/WeirdCave/border.bin",
+      "blockdata_filepath": "data/layouts/WeirdCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_WEIRD_CAVE_PT2",
+      "name": "WeirdCavePt2_Layout",
+      "width": 31,
+      "height": 42,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/WeirdCavePt2/border.bin",
+      "blockdata_filepath": "data/layouts/WeirdCavePt2/map.bin"
     }
   ]
 }

@@ -60,7 +60,10 @@
     "Desert",
     "WipTown3",
     "RanchBarn",
-    "RanchHouse"
+    "RanchHouse",
+    "Route28TunnelHouse",
+    "WeirdCave",
+    "WeirdCavePt2"
   ],
   "gMapGroup_TownsAndCities": [
     "PearlwoodPoint",

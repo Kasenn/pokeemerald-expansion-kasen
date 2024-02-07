@@ -136,7 +136,7 @@
 #define OBJ_EVENT_GFX_TATE                       132
 #define OBJ_EVENT_GFX_WALLACE                    133
 #define OBJ_EVENT_GFX_STEVEN                     134
-#define OBJ_EVENT_GFX_WALLY                      135
+#define OBJ_EVENT_GFX_STONE_SPHERE                      135
 #define OBJ_EVENT_GFX_LITTLE_BOY_3               136
 #define OBJ_EVENT_GFX_BRENDAN_FISHING            137
 #define OBJ_EVENT_GFX_MAY_FISHING                138
@@ -374,6 +374,7 @@
 #define OBJ_EVENT_PAL_MAREEP                  0x112D
 #define OBJ_EVENT_PAL_ROCKET_F                  0x112E
 #define OBJ_EVENT_PAL_SKYLA                  0x112F
+#define OBJ_EVENT_PAL_STONE_SPHERE                  0x1130
 
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
