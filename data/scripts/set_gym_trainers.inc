@@ -94,12 +94,12 @@ MossdeepCity_Gym_SetGymTrainers::
 SootopolisCity_Gym_SetGymTrainers::
 	settrainerflag TRAINER_ANDREA
 	settrainerflag TRAINER_CRISSY
-	settrainerflag TRAINER_R5_TR11_MAN_5
-	settrainerflag TRAINER_R6_TR6_CAMPER_M2
-	settrainerflag TRAINER_R6_TR7_KINDLER
+	settrainerflag TRAINER_BRIANNA
+	settrainerflag TRAINER_CONNIE
+	settrainerflag TRAINER_BRIDGET
 	settrainerflag TRAINER_OLIVIA
 	settrainerflag TRAINER_TIFFANY
 	settrainerflag TRAINER_BETHANY
 	settrainerflag TRAINER_ANNIKA
-	settrainerflag TRAINER_R5_TR8_YOUNGSTER
+	settrainerflag TRAINER_DAPHNE
 	return

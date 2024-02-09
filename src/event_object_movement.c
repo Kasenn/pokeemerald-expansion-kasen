@@ -518,12 +518,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Volkner,           OBJ_EVENT_PAL_VOLKNER},
     {gObjectEventPalette_Jasmine,           OBJ_EVENT_PAL_JASMINE},
     {gObjectEventPalette_Mareep,            OBJ_EVENT_PAL_MAREEP},
-    {gObjectEventPalette_NewPikachu,            OBJ_EVENT_PAL_NEWPIKACHU},
-    {gObjectEventPalette_Crustle,            OBJ_EVENT_PAL_CRUSTLE},
     {gObjectEventPalette_RocketF,            OBJ_EVENT_PAL_ROCKET_F},
     {gObjectEventPalette_Skyla,            OBJ_EVENT_PAL_SKYLA},
-    {gObjectEventPalette_StoneSphere,            OBJ_EVENT_PAL_STONE_SPHERE},
-    
 #ifdef BUGFIX
     {NULL,                                  OBJ_EVENT_PAL_TAG_NONE},
 #else

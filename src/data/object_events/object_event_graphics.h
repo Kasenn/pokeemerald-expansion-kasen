@@ -234,7 +234,6 @@ const u32 gObjectEventPic_BigRegiceDoll[] = INCBIN_U32("graphics/object_events/p
 const u32 gObjectEventPic_BigRegisteelDoll[] = INCBIN_U32("graphics/object_events/pics/dolls/big_registeel_doll.4bpp");
 const u32 gObjectEventPic_CuttableTree[] = INCBIN_U32("graphics/object_events/pics/misc/cuttable_tree.4bpp");
 const u32 gObjectEventPic_BreakableRock[] = INCBIN_U32("graphics/object_events/pics/misc/breakable_rock.4bpp");
-const u32 gObjectEventPic_StoneSphere[] = INCBIN_U32("graphics/object_events/pics/misc/stone_sphere.4bpp");
 const u32 gObjectEventPic_PushableBoulder[] = INCBIN_U32("graphics/object_events/pics/misc/pushable_boulder.4bpp");
 const u32 gObjectEventPic_MrBrineysBoat[] = INCBIN_U32("graphics/object_events/pics/misc/mr_brineys_boat.4bpp");
 const u32 gObjectEventPic_Fossil[] = INCBIN_U32("graphics/object_events/pics/misc/fossil.4bpp");
@@ -395,15 +394,10 @@ const u32 gObjectEventPic_Jasmine[] = INCBIN_U32("graphics/object_events/pics/pe
 const u16 gObjectEventPalette_Jasmine[] = INCBIN_U16("graphics/object_events/pics/people/jasmine.gbapal");
 const u32 gObjectEventPic_Mareep[] = INCBIN_U32("graphics/object_events/pics/people/mareep.4bpp");
 const u16 gObjectEventPalette_Mareep[] = INCBIN_U16("graphics/object_events/pics/people/mareep.gbapal");
-const u32 gObjectEventPic_NewPikachu[] = INCBIN_U32("graphics/object_events/pics/people/newpikachu.4bpp");
-const u16 gObjectEventPalette_NewPikachu[] = INCBIN_U16("graphics/object_events/pics/people/newpikachu.gbapal");
-const u32 gObjectEventPic_Crustle[] = INCBIN_U32("graphics/object_events/pics/people/crustle.4bpp");
-const u16 gObjectEventPalette_Crustle[] = INCBIN_U16("graphics/object_events/pics/people/crustle.gbapal");
 const u32 gObjectEventPic_Example6[] = INCBIN_U32("graphics/object_events/pics/people/may/running.4bpp");
 const u32 gObjectEventPic_RocketF[] = INCBIN_U32("graphics/object_events/pics/people/rocket_f.4bpp");
 const u16 gObjectEventPalette_RocketF[] = INCBIN_U16("graphics/object_events/pics/people/rocket_f.gbapal");
 const u32 gObjectEventPic_Skyla[] = INCBIN_U32("graphics/object_events/pics/people/skyla.4bpp");
 const u16 gObjectEventPalette_Skyla[] = INCBIN_U16("graphics/object_events/pics/people/skyla.gbapal");
-const u16 gObjectEventPalette_StoneSphere[] = INCBIN_U16("graphics/object_events/pics/misc/stone_sphere.gbapal");
 
 

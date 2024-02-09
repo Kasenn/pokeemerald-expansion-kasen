@@ -919,9 +919,8 @@
 #define ITEM_COIN_PURSE 802
 #define ITEM_TALISMAN 803
 #define ITEM_LOST_KEY 804
-#define ITEM_STONE_SPHERE 805
 
-#define ITEMS_COUNT 806
+#define ITEMS_COUNT 805
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

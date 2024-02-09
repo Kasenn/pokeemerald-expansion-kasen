@@ -197,14 +197,6 @@ script Aldeleaf_Sign2{
 	msgbox(Aldeleaf_Sign2_Text, MSGBOX_SIGN)
 	end
 }
-script Aldeleaf_Sign3{
-	msgbox(Aldeleaf_Sign3_Text, MSGBOX_SIGN)
-	end
-}
-script Aldeleaf_Sign4{
-	msgbox(Aldeleaf_Sign4_Text, MSGBOX_SIGN)
-	end
-}
 text AldeleafCity_KeyMan_MyKey{
 	"Oh! That's my key!"
 }
@@ -444,11 +436,4 @@ text Aldeleaf_Sign_Text{
 text Aldeleaf_Sign2_Text{
 	"Aldeleaf City Pokémon Gym\n"
 	"Leader: Volkner"
-}
-text Aldeleaf_Sign3_Text{
-	"{UP_ARROW} Route 28\n"
-	"{RIGHT_ARROW} Windplume Valley"
-}
-text Aldeleaf_Sign4_Text{
-	"Aldeleaf City Museum"
 }

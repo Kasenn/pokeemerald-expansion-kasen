@@ -386,22 +386,6 @@
       "elevation": 0,
       "item": "ITEM_LOST_KEY",
       "flag": "FLAG_ALDELEAF_LOST_KEY"
-    },
-    {
-      "type": "sign",
-      "x": 23,
-      "y": 5,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Aldeleaf_Sign3"
-    },
-    {
-      "type": "sign",
-      "x": 18,
-      "y": 20,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Aldeleaf_Sign4"
     }
   ]
 }

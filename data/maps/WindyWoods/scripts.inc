@@ -178,7 +178,7 @@ WW_CoolTrainerPostBattle_1:
 	end
 
 WW_CoolTrainerPostBattle_2:
-	msgbox ExplainBP, MSGBOX_DEFAULT
+	msgbox WW_CoolTrainerPostBattle_Text_2
 	goto WW_CoolTrainerPostBattle_1
 
 
@@ -378,6 +378,9 @@ WW_CoolTrainerPostBattle_Text_0:
 
 WW_CoolTrainerPostBattle_Text_1:
 	.string "Earned 10 BP!$"
+
+WW_CoolTrainerPostBattle_Text_2:
+	.string "These are battle points, or BP.\pThey can be used to purchase powerful\nitems at designated stores.\pMany trainers hand out BP\n as an additional reward,\lwith the amount earned increasing\las the trainers get stronger.$"
 
 WW_RocketStop1_Text_0:
 	.string "That's far enough, pal.$"

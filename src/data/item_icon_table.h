@@ -850,7 +850,6 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_COIN_PURSE] = {gItemIcon_CoinPurse, gItemIconPalette_CoinPurse},
     [ITEM_TALISMAN] = {gItemIcon_Talisman, gItemIconPalette_Talisman},
     [ITEM_LOST_KEY] = {gItemIcon_LostKey, gItemIconPalette_LostKey},
-    [ITEM_STONE_SPHERE] = {gItemIcon_StoneSphere, gItemIconPalette_StoneSphere},
     // Return to field arrow
     [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

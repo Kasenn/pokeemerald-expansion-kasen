@@ -9714,15 +9714,4 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
-
-    [ITEM_STONE_SPHERE] =
-    {
-        .name = _("Stone Sphere"),
-        .price = 0,
-        .description = sStoneSphereDesc,
-        .importance = 1,
-        .pocket = POCKET_KEY_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-    },
 };
