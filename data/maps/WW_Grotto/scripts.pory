@@ -1,70 +1,112 @@
-mapscripts WW_Grotto_MapScripts{}
+mapscripts WW_Grotto_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: WW_GrottoFlags
+}
+script WW_GrottoFlags{
+    if(!flag(FLAG_DAILY_WW_GROTTO)){
+        clearflag(FLAG_WW_GROTTO_CLEARED)
+        random(100)
+        copyvar(VAR_WW_GROTTO, VAR_RESULT)
+    }
+    setflag(FLAG_DAILY_WW_GROTTO)
+    goto(WW_Grotto_SetObject)
+    end
+}
+script WW_Grotto_SetObject{
+    if(var(VAR_WW_GROTTO) <= 39){
+        setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL)
+    }
+    if(var(VAR_WW_GROTTO) >= 40){
+        setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_TRICK_HOUSE_STATUE)
+    }
+    end
+}
+script WW_GrottoInteract{
+    lockall
+    if(var(VAR_WW_GROTTO) <= 39){
+        goto(WW_GrottoItem)
+    }
+    else{
+        goto(WW_GrottoPokemon)
+    }
+    end
+}
+
+script WW_GrottoItem{
+    if((var(VAR_WW_GROTTO) <= 3)){
+        finditem(ITEM_POTION)
+    }
+    if((var(VAR_WW_GROTTO) >= 4) && (var(VAR_WW_GROTTO) <= 7)){
+        finditem(ITEM_GREAT_BALL)
+    }
+    if((var(VAR_WW_GROTTO) >= 4) && (var(VAR_WW_GROTTO) <= 7)){
+        finditem(ITEM_SUPER_REPEL)
+    }
+    if((var(VAR_WW_GROTTO) >= 8) && (var(VAR_WW_GROTTO) <= 11)){
+        finditem(ITEM_SUPER_POTION)
+    }
+    if((var(VAR_WW_GROTTO) >= 12) && (var(VAR_WW_GROTTO) <= 15)){
+        finditem(ITEM_ULTRA_BALL)
+    }
+    if((var(VAR_WW_GROTTO) >= 16) && (var(VAR_WW_GROTTO) <= 19)){
+        finditem(ITEM_FULL_HEAL)
+    }
+    if((var(VAR_WW_GROTTO) >= 20) && (var(VAR_WW_GROTTO) <= 23)){
+        finditem(ITEM_HYPER_POTION)
+    }
+    if((var(VAR_WW_GROTTO) >= 24) && (var(VAR_WW_GROTTO) <= 27)){
+        finditem(ITEM_FIRE_STONE)
+    }
+    if((var(VAR_WW_GROTTO) >= 28) && (var(VAR_WW_GROTTO) <= 31)){
+        finditem(ITEM_THUNDER_STONE)
+    }
+    if((var(VAR_WW_GROTTO) >= 32) && (var(VAR_WW_GROTTO) <= 35)){
+        finditem(ITEM_WATER_STONE)
+    }
+    if((var(VAR_WW_GROTTO) >= 36) && (var(VAR_WW_GROTTO) <= 39)){
+        finditem(ITEM_LEAF_STONE)
+    }
+    waitfanfare
+    waitmessage
+    closemessage
+    release
+    end
+}
 
 script WW_GrottoPokemon{
     lockall
-    random(9)
-    if(var(VAR_RESULT) == 0){
+    if((var(VAR_WW_GROTTO) >= 40) && (var(VAR_WW_GROTTO) <= 51)){
         playmoncry(SPECIES_DUNSPARCE, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
         setwildbattle(SPECIES_DUNSPARCE, 10)
     }
-    if(var(VAR_RESULT) == 1){
-        playmoncry(SPECIES_HERACROSS, CRY_MODE_ENCOUNTER)
-        delay(40)
-        waitmoncry
-        setwildbattle(SPECIES_HERACROSS, 10)
-    }
-    if(var(VAR_RESULT) == 2){
+    if((var(VAR_WW_GROTTO) >= 52) && (var(VAR_WW_GROTTO) <= 63)){
         playmoncry(SPECIES_SWABLU, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
         setwildbattle(SPECIES_SWABLU, 10)
     }
-    if(var(VAR_RESULT) == 3){
-        playmoncry(SPECIES_SNEASEL, CRY_MODE_ENCOUNTER)
-        delay(40)
-        waitmoncry
-        setwildbattle(SPECIES_SNEASEL, 10)
-    }
-    if(var(VAR_RESULT) == 4){
-        playmoncry(SPECIES_BAGON, CRY_MODE_ENCOUNTER)
-        delay(40)
-        waitmoncry
-        setwildbattle(SPECIES_BAGON, 10)
-    }
-    if(var(VAR_RESULT) == 5){
+    if((var(VAR_WW_GROTTO) >= 64) && (var(VAR_WW_GROTTO) <= 75)){
         playmoncry(SPECIES_GLIGAR, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
         setwildbattle(SPECIES_GLIGAR, 10)
     }
-    if(var(VAR_RESULT) == 6){
-        playmoncry(SPECIES_ABSOL, CRY_MODE_ENCOUNTER)
-        delay(40)
-        waitmoncry
-        setwildbattle(SPECIES_ABSOL, 10)
-    }
-    if(var(VAR_RESULT) == 7){
+    if((var(VAR_WW_GROTTO) >= 76) && (var(VAR_WW_GROTTO) <= 87)){
         playmoncry(SPECIES_SPHEAL, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
         setwildbattle(SPECIES_SPHEAL, 10)
     }
-    if(var(VAR_RESULT) == 8){
+    if((var(VAR_WW_GROTTO) >= 88) && (var(VAR_WW_GROTTO) <= 99)){
         playmoncry(SPECIES_SKORUPI, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
         setwildbattle(SPECIES_SKORUPI, 10)
     }
     dowildbattle
-    delay(20)
-    fadescreenswapbuffers(FADE_TO_BLACK)
     removeobject(1)
-    delay(20)
-    setflag(FLAG_DAILY_WW_GROTTO)
-    fadescreenswapbuffers(FADE_FROM_BLACK)
-    delay(20)
+    setflag(FLAG_WW_GROTTO_CLEARED)
     release
     end
 }

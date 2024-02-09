@@ -23,7 +23,7 @@
 #define MAPSEC_ROUTE_104                    0x13
 #define MAPSEC_ROUTE_105                    0x14
 #define MAPSEC_ROUTE_106                    0x15
-#define MAPSEC_ROUTE_107                    0x16
+#define MAPSEC_HIDDENGROTTO_ROUTE7                    0x16
 #define MAPSEC_ROUTE_108                    0x17
 #define MAPSEC_ROUTE_109                    0x18
 #define MAPSEC_ROUTE_110                    0x19
