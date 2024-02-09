@@ -1,0 +1,5 @@
+mapscripts Route7_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: ClearShinyFlag
+}
+
+script route7_lass{}
