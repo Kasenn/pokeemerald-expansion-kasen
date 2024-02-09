@@ -1,9 +1,30 @@
-mapscripts Route5_MapScripts{}
+mapscripts Route5_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: ClearShinyFlag
+}
 
 script Route5_IncreaseVar{
     addvar(VAR_ROUTE5_TRAINERCOUNT, 1)
     release
     end
+}
+script Route5_Youngster{
+    msgbox(Route5_Youngster_Text, MSGBOX_NPC)
+    end
+}
+text Route5_Youngster_Text{
+    "These Crustle have been sitting\n"
+    "here for hours.\l"
+    "They just refuse to budge!"
+}
+script Route5_Crustle{
+    playmoncry(SPECIES_CRUSTLE, CRY_MODE_NORMAL)
+    waitmoncry
+    msgbox(Route5_Crustle_Text, MSGBOX_NPC)
+    end
+}
+text Route5_Crustle_Text{
+    "No amount of coaxing seems to make\n"
+    "the Crustle move."
 }
 
 script Route5_Trainer1_Fisher{
@@ -11,145 +32,389 @@ script Route5_Trainer1_Fisher{
 	msgbox(Route5_Trainer1_Fisher_PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
-text Route5_Trainer1_Fisher_Intro{""}
-text Route5_Trainer1_Fisher_Defeat{""}
-text Route5_Trainer1_Fisher_PostBattle{""}
-
+text Route5_Trainer1_Fisher_Intro{
+    "Look at all the Pokémon I've obtained\n"
+    "through the power of fishing!"
+}
+text Route5_Trainer1_Fisher_Defeat{
+    "The power of fishing has let me down!"
+}
+text Route5_Trainer1_Fisher_PostBattle{
+    "I heard the western part of Sinko\n"
+    "has all sorts of different fish\l"
+    "living there.\p"
+    "I plan to check it out but my travels\n"
+    "are so slow because I just have to stop\l"
+    "and fish whenever I see a pool of water."
+}
 script Route5_Trainer2_Beauty{
     trainerbattle_single(TRAINER_R5_TR2_BEAUTY, Route5_Trainer2_Beauty_Intro, Route5_Trainer2_Beauty_Defeat, Route5_IncreaseVar)
 	msgbox(Route5_Trainer2_Beauty_PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
-text Route5_Trainer2_Beauty_Intro{""}
-text Route5_Trainer2_Beauty_Defeat{""}
-text Route5_Trainer2_Beauty_PostBattle{""}
-
-script Route5_Trainer3_YoungCouple {
+text Route5_Trainer2_Beauty_Intro{
+    "Stop! Have a good look at my precious\n"
+	"Pokémon!"
+}
+text Route5_Trainer2_Beauty_Defeat{
+    "Oh, how dare you!\n"
+	"Don't take it so seriously!"
+}
+text Route5_Trainer2_Beauty_PostBattle{
+    "I didn't expect to lose this easily…\n"
+	"I'll win next time!"
+}
+script Route5_Trainer3_YoungCouple{
     trainerbattle_double(TRAINER_R5_TR3_YOUNGCOUPLE, Route5_Trainer3_YoungCouple_Intro, Route5_Trainer3_YoungCouple_Defeat, Route5_Trainer3_YoungCouple_NotEnough, Route5_IncreaseVar)
     msgbox(Route5_Trainer3_YoungCouple_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text Route5_Trainer3_YoungCouple_Intro{""}
-text Route5_Trainer3_YoungCouple_Defeat{""}
-text Route5_Trainer3_YoungCouple_PostBattle{""}
-text Route5_Trainer3_YoungCouple_NotEnough{""}
-
+text Route5_Trainer3_YoungCouple_Intro{
+    "Ella: We always fight our\n"
+    "battles together!"
+}
+text Route5_Trainer3_YoungCouple_Defeat{
+    "Ella: I can't believe one is\n"
+    "greater than two…"
+}
+text Route5_Trainer3_YoungCouple_PostBattle{
+    "Ella: We originally began our\n"
+    "journey from Pearlwood Point in\l"
+    "Coralgrove Islands.\p"
+    "We got our ultra-rare starters\n"
+    "straight from Prof. Birch!"
+}
+text Route5_Trainer3_YoungCouple_NotEnough{
+    "Ella: You should get more Pokémon\n"
+    "or else this will be an uneven battle."
+}
+script Route5_Trainer3_YoungCouple2{
+    trainerbattle_double(TRAINER_R5_TR3_YOUNGCOUPLE, Route5_Trainer3_YoungCouple2_Intro, Route5_Trainer3_YoungCouple2_Defeat, Route5_Trainer3_YoungCouple2_NotEnough, Route5_IncreaseVar)
+    msgbox(Route5_Trainer3_YoungCouple2_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route5_Trainer3_YoungCouple2_Intro{
+    "Evan: Behold our combined strength!"
+}
+text Route5_Trainer3_YoungCouple2_PostBattle{
+    "Evan: Double battles are so\n"
+    "refreshing.\p"
+    "Unfortunately, many people seem to\n"
+    "disagree and refuse to battle us."
+}
+text Route5_Trainer3_YoungCouple2_Defeat{
+    "Evan: How can a single trainer be\n"
+    "so strong?"
+}
+text Route5_Trainer3_YoungCouple2_NotEnough{
+    "Evan: We only fight in pairs.\n"
+    "Get some more Pokémon if you want to\l"
+    "challenge us."
+}
 script Route5_Trainer4_Lass1 {
     trainerbattle_single(TRAINER_R5_TR4_LASS1, Route5_Trainer4_Lass1_Intro, Route5_Trainer4_Lass1_Defeat, Route5_IncreaseVar)
     msgbox(Route5_Trainer4_Lass1_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text Route5_Trainer4_Lass1_Intro{""}
-text Route5_Trainer4_Lass1_Defeat{""}
-text Route5_Trainer4_Lass1_PostBattle{""}
-
+text Route5_Trainer4_Lass1_Intro{
+    "I never yield to anyone!"
+}
+text Route5_Trainer4_Lass1_Defeat{
+    "I yield!"
+}
+text Route5_Trainer4_Lass1_PostBattle{
+    "I've never seen a trainer as strong\n"
+    "as you. What's your secret?"
+}
 script Route5_Trainer5_PokeFan_F {
     trainerbattle_single(TRAINER_R5_TR5_POKEFAN_F, Route5_Trainer5_PokeFan_F_Intro, Route5_Trainer5_PokeFan_F_Defeat, Route5_IncreaseVar)
     msgbox(Route5_Trainer5_PokeFan_F_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text Route5_Trainer5_PokeFan_F_Intro{""}
-text Route5_Trainer5_PokeFan_F_Defeat{""}
-text Route5_Trainer5_PokeFan_F_PostBattle{""}
-
+text Route5_Trainer5_PokeFan_F_Intro{
+    "Oh? Are you a trainer?\n"
+    "Let's have a friendly Pokémon battle."
+}
+text Route5_Trainer5_PokeFan_F_Defeat{
+    "Oh my, looks like I lost."
+}
+text Route5_Trainer5_PokeFan_F_PostBattle{
+    "Some people take battling way too\n"
+    "seriously.\l"
+    "Me? I prefer a laid-back, fun battle."
+}
 script Route5_Trainer6_Lass2 {
     trainerbattle_single(TRAINER_R5_TR6_LASS2, Route5_Trainer6_Lass2_Intro, Route5_Trainer6_Lass2_Defeat, Route5_IncreaseVar)
     msgbox(Route5_Trainer6_Lass2_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text Route5_Trainer6_Lass2_Intro{""}
-text Route5_Trainer6_Lass2_Defeat{""}
-text Route5_Trainer6_Lass2_PostBattle{""}
-
-script Route5_Trainer7_Gentleman {
+text Route5_Trainer6_Lass2_Intro{
+    "I saw you look at me funny!\n"
+    "This calls for a Pokémon battle!"
+}
+text Route5_Trainer6_Lass2_Defeat{
+    "I shouldn't have called you out…"
+}
+text Route5_Trainer6_Lass2_PostBattle{
+    "I just wanted to have a fun\n"
+    "Pokémon battle but you just\l"
+    "absolutely crushed my team…"
+}
+script Route5_Trainer7_Gentleman{
     trainerbattle_single(TRAINER_R5_TR7_GENTLEMAN, Route5_Trainer7_Gentleman_Intro, Route5_Trainer7_Gentleman_Defeat, Route5_IncreaseVar)
     msgbox(Route5_Trainer7_Gentleman_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text Route5_Trainer7_Gentleman_Intro{""}
-text Route5_Trainer7_Gentleman_Defeat{""}
-text Route5_Trainer7_Gentleman_PostBattle{""}
-
-script Route5_Trainer8_Youngster {
+text Route5_Trainer7_Gentleman_Intro{
+    "I must see how you carry\n"
+    "yourself in a battle of Pokémon!"
+}
+text Route5_Trainer7_Gentleman_Defeat{
+    "How elegant!"
+}
+text Route5_Trainer7_Gentleman_PostBattle{
+    "That battle was truly elegant!"
+}
+script Route5_Trainer8_Youngster{
     trainerbattle_single(TRAINER_R5_TR8_YOUNGSTER, Route5_Trainer8_Youngster_Intro, Route5_Trainer8_Youngster_Defeat, Route5_IncreaseVar)
     msgbox(Route5_Trainer8_Youngster_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text Route5_Trainer8_Youngster_Intro{""}
-text Route5_Trainer8_Youngster_Defeat{""}
-text Route5_Trainer8_Youngster_PostBattle{""}
-
-script Route5_Trainer9_Triathlete {
+text Route5_Trainer8_Youngster_Intro{
+    "Get ready to lose!\n"
+    "I'm not holding back my punches!"
+}
+text Route5_Trainer8_Youngster_Defeat{
+    "I let you win on purpose!"
+}
+text Route5_Trainer8_Youngster_PostBattle{
+    "You would not have stood a chance\n"
+    "had I actually used my full power!"
+}
+script Route5_Trainer9_Triathlete{
     trainerbattle_single(TRAINER_R5_TR9_TRIATHLETE, Route5_Trainer9_Triathlete_Intro, Route5_Trainer9_Triathlete_Defeat, Route5_IncreaseVar)
     msgbox(Route5_Trainer9_Triathlete_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text Route5_Trainer9_Triathlete_Intro{""}
-text Route5_Trainer9_Triathlete_Defeat{""}
-text Route5_Trainer9_Triathlete_PostBattle{""}
-
-script Route5_Trainer10_RichBoy {
+text Route5_Trainer9_Triathlete_Intro{
+    "Can you keep up with my Pokémon?"
+}
+text Route5_Trainer9_Triathlete_Defeat{
+    "I may have fallen,\n"
+    "but will rise again!"
+}
+text Route5_Trainer9_Triathlete_PostBattle{
+    "Cycling is so much fun.\n"
+    "You can get a bike of your own from\l"
+    "the Shoreslate City bike shop."
+}
+script Route5_Trainer10_RichBoy{
     trainerbattle_single(TRAINER_R5_TR10_RICHBOY, Route5_Trainer10_RichBoy_Intro, Route5_Trainer10_RichBoy_Defeat, Route5_IncreaseVar)
     msgbox(Route5_Trainer10_RichBoy_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text Route5_Trainer10_RichBoy_Intro{""}
-text Route5_Trainer10_RichBoy_Defeat{""}
-text Route5_Trainer10_RichBoy_PostBattle{""}
-
-script Route5_Trainer11_Man_5 {
+text Route5_Trainer10_RichBoy_Intro{
+    "My father brought me new Pokémon\n"
+    "from his trip to the Safari Zone.\l"
+    "Let's see if they are any good."
+}
+text Route5_Trainer10_RichBoy_Defeat{
+    "How droll…"
+}
+text Route5_Trainer10_RichBoy_PostBattle{
+    "Hmph… These Pokémon are no good.\n"
+    "I must inform father to procure\l"
+    "something even stronger."
+}
+script Route5_Trainer11_Man_5{
     trainerbattle_single(TRAINER_R5_TR11_MAN_5, Route5_Trainer11_Man_5_Intro, Route5_Trainer11_Man_5_Defeat, Route5_IncreaseVar)
     msgbox(Route5_Trainer11_Man_5_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text Route5_Trainer11_Man_5_Intro{""}
-text Route5_Trainer11_Man_5_Defeat{""}
-text Route5_Trainer11_Man_5_PostBattle{""}
-
-script Route5_Trainer12_BugCatcher {
+text Route5_Trainer11_Man_5_Intro{
+    "Can you feel the heat?"
+}
+text Route5_Trainer11_Man_5_Defeat{
+    "Looks like I'm the one who got burned…"
+}
+text Route5_Trainer11_Man_5_PostBattle{
+    "Your passion burns brighter\n"
+    "than the sun!\l"
+    "Never let anything extinguish it!"
+}
+script Route5_Trainer12_BugCatcher{
     trainerbattle_single(TRAINER_R5_TR12_BUGCATCHER, Route5_Trainer12_BugCatcher_Intro, Route5_Trainer12_BugCatcher_Defeat, Route5_IncreaseVar)
     msgbox(Route5_Trainer12_BugCatcher_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text Route5_Trainer12_BugCatcher_Intro{""}
-text Route5_Trainer12_BugCatcher_Defeat{""}
-text Route5_Trainer12_BugCatcher_PostBattle{""}
-
-script Route5_Trainer13_NinjaBoy {
+text Route5_Trainer12_BugCatcher_Intro{
+    "My bugs are all fully evolved.\n"
+    "Let's see if you can keep up!"
+}
+text Route5_Trainer12_BugCatcher_Defeat{
+    "Even with a fully evolved team,\n"
+    "I didn't stand a chance…"
+}
+text Route5_Trainer12_BugCatcher_PostBattle{
+    "I haven't seen a single bug\n"
+    "on this route.\l"
+    "Maybe I need to switch location."
+}
+script Route5_Trainer13_NinjaBoy{
     trainerbattle_single(TRAINER_R5_TR13_NINJABOY, Route5_Trainer13_NinjaBoy_Intro, Route5_Trainer13_NinjaBoy_Defeat, Route5_IncreaseVar)
     msgbox(Route5_Trainer13_NinjaBoy_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text Route5_Trainer13_NinjaBoy_Intro{""}
-text Route5_Trainer13_NinjaBoy_Defeat{""}
-text Route5_Trainer13_NinjaBoy_PostBattle{""}
-
-script Route5_Trainer14_Hiker {
+text Route5_Trainer13_NinjaBoy_Intro{
+    "My Pokémon evolved and it turned into\n"
+    "two different species!"
+}
+text Route5_Trainer13_NinjaBoy_Defeat{
+    "Even with double the Pokémon\n"
+    "I could not win…"
+}
+text Route5_Trainer13_NinjaBoy_PostBattle{
+    "What a strange Pokémon…\n"
+    "Are there more like this?"
+}
+script Route5_Trainer14_Hiker{
     trainerbattle_single(TRAINER_R5_TR14_HIKER, Route5_Trainer14_Hiker_Intro, Route5_Trainer14_Hiker_Defeat, Route5_IncreaseVar)
     msgbox(Route5_Trainer14_Hiker_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text Route5_Trainer14_Hiker_Intro{""}
-text Route5_Trainer14_Hiker_Defeat{""}
-text Route5_Trainer14_Hiker_PostBattle{""}
-
-script Route5_Trainer15_CoolTrainer {
-    trainerbattle_single(TRAINER_R5_TR15_COOLTRAINER, Route5_Trainer15_CoolTrainer_Intro, Route5_Trainer15_CoolTrainer_Defeat, Route5_IncreaseVar)
-    msgbox(Route5_Trainer15_CoolTrainer_PostBattle, MSGBOX_AUTOCLOSE)
-    end
+text Route5_Trainer14_Hiker_Intro{
+    "You've found my secret spot!\n"
+    "This calls for a battle!"
 }
-text Route5_Trainer15_CoolTrainer_Intro{""}
-text Route5_Trainer15_CoolTrainer_Defeat{""}
-text Route5_Trainer15_CoolTrainer_PostBattle{""}
-
+text Route5_Trainer14_Hiker_Defeat{
+    "What a fine show of strength!"
+}
+text Route5_Trainer14_Hiker_PostBattle{
+    "Walking down the beaten path is so boring.\n"
+    "Sometimes taking the path least traveled\l"
+    "can lead you to unexpected treasures."
+}
 script Route5_ItemBall1{
     finditem(ITEM_SUPER_REPEL)
 }
-
 script Route5_ItemBall2{
     finditem(ITEM_GREAT_BALL)
 }
-
 script Route5_ItemBall3{
     finditem(ITEM_TM39)
+}
+
+
+script Route5_Trainer15_CoolTrainer{
+    if(var(VAR_ROUTE5_TRAINERCOUNT) >= 14){
+        msgbox(Route5_CoolTrainer_PostBattle, MSGBOX_NPC)
+        end
+    }
+    elif(var(VAR_ROUTE5_TRAINERCOUNT) <= 12){
+        msgbox(Route5_CoolTrainer_DefeatMoreTrainers, MSGBOX_NPC)
+        end
+    }
+    else{
+        goto(Route5_CoolTrainerEligibleForBattle)
+    }
+}
+script Route5_CoolTrainerEligibleForBattle{
+    lockall
+    faceplayer
+    if(!flag(FLAG_TEMP_2)){
+        setflag(FLAG_TEMP_2)
+        msgbox(Route5_CoolTrainer_ReadyForBattle, MSGBOX_YESNO)
+    }
+    else{
+        msgbox(Route5_CoolTrainer_ReadyForBattleShort, MSGBOX_YESNO)
+    }
+    if(var(VAR_RESULT) == YES){
+        msgbox("Great. Let us begin!", MSGBOX_DEFAULT)
+        trainerbattle_no_intro(TRAINER_R5_TR15_COOLTRAINER, Route5_CoolTrainerDefeated)
+        goto(Route5_CoolTrainerPostBattle)
+	    end
+    }
+    if(var(VAR_RESULT) == NO){
+        msgbox(Route5_CoolTrainer_DeclineBattle, MSGBOX_NPC)
+        end
+    }
+}
+script Route5_CoolTrainerPostBattle{
+    msgbox(Route5_CoolTrainerReward, MSGBOX_DEFAULT)
+    giveitem(ITEM_EVIOLITE)
+    waitfanfare
+    msgbox(Route5_ExplainReward, MSGBOX_DEFAULT)
+    call(Route5_GiveBP)
+    setvar(VAR_ROUTE5_TRAINERCOUNT, 15)
+    playfanfare(MUS_OBTAIN_B_POINTS)
+    msgbox("Earned {STR_VAR_1} BP!", MSGBOX_DEFAULT)
+    waitfanfare
+    if(!flag(FLAG_UNUSED_BP_INTRO)){
+        msgbox(ExplainBP, MSGBOX_DEFAULT)
+        setflag(FLAG_UNUSED_BP_INTRO)
+    }
+    waitmessage
+    closemessage
+    release
+	end
+}
+script Route5_GiveBP{
+    buffernumberstring (STR_VAR_1, 20)
+    setvar(VAR_0x8004, 20)
+    special(GiveFrontierBattlePoints)
+}
+text Route5_CoolTrainer_ReadyForBattle{
+    "I heard you beat all the other\n"
+    "trainers on this route.\l"
+    "Excellent display of skill.\p"
+    "There is still one trainer remaining\n"
+    "on this route and that is me.\p"
+    "What do you say,\n"
+    "care for a Pokémon battle?\l"
+    "I must warn you,\l"
+    "I'm a league above everyone else here."
+}
+text Route5_CoolTrainer_ReadyForBattleShort{
+    "Well? Have you changed your mind?"
+}
+text Route5_CoolTrainer_DeclineBattle{
+    "Understood. Come talk to me\n"
+    "if you change your mind."
+}
+text Route5_CoolTrainer_PostBattle{
+    "I'm glad to have met you here today.\n"
+    "It's rare to see someone so young\l"
+    "yet so talented."
+}
+text Route5_CoolTrainer_DefeatMoreTrainers{
+    "If you want to challenge me, prove\n"
+    "to me that you are a skilled trainer\l"
+    "by defeating all the other trainers\l"
+    "on this route."
+}
+text Route5_CoolTrainerDefeated{
+    "Truly a magnificent display of skill!"
+}
+text Route5_CoolTrainerReward{
+    "You have more than proved yourself\n"
+    "to be a skilled trainer.\l"
+    "As a reward for your victory,\l"
+    "I want you to have this."
+}
+text Route5_ExplainReward{
+    "When you give the Eviolite to a\n"
+    "Pokémon that can still evolve,\l"
+    "its Defense and Sp. Def both rise\l"
+    "sharply!\p"
+    "I want you to take these as well."
+}
+text ExplainBP{
+    "These are Battle Points, or BP.\p"
+    "They can be used to purchase powerful\n"
+    "items at designated stores.\p"
+    "Many trainers hand out BP\n"
+    "as an additional reward,\l"
+    "with the amount earned slightly\l"
+    "increasing as the trainers\l"
+    "become stronger."
 }

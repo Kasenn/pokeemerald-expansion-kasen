@@ -42,7 +42,7 @@
 #define OBJ_EVENT_GFX_SCHOOL_KID_M                38
 #define OBJ_EVENT_GFX_MANIAC                      39
 #define OBJ_EVENT_GFX_HEX_MANIAC                  40
-#define OBJ_EVENT_GFX_RAYQUAZA_STILL              41
+#define OBJ_EVENT_GFX_CRUSTLE              41
 #define OBJ_EVENT_GFX_SWIMMER_M                   42
 #define OBJ_EVENT_GFX_SWIMMER_F                   43
 #define OBJ_EVENT_GFX_BLACK_BELT                  44
@@ -95,7 +95,7 @@
 #define OBJ_EVENT_GFX_MAY_ACRO_BIKE               91
 #define OBJ_EVENT_GFX_MAY_SURFING                 92
 #define OBJ_EVENT_GFX_MAY_FIELD_MOVE              93
-#define OBJ_EVENT_GFX_TRUCK                       94
+#define OBJ_EVENT_GFX_NEWPIKACHU                       94
 #define OBJ_EVENT_GFX_EXAMPLE2                    95
 #define OBJ_EVENT_GFX_EXAMPLE3                    96
 #define OBJ_EVENT_GFX_ROCKET_M                    97
@@ -375,6 +375,8 @@
 #define OBJ_EVENT_PAL_ROCKET_F                  0x112E
 #define OBJ_EVENT_PAL_SKYLA                  0x112F
 #define OBJ_EVENT_PAL_STONE_SPHERE                  0x1130
+#define OBJ_EVENT_PAL_CRUSTLE                   0x1131
+#define OBJ_EVENT_PAL_NEWPIKACHU                0x1132
 
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 

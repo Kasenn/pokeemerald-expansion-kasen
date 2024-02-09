@@ -7,29 +7,21 @@ mapscripts Lab2_MapScripts{
 }
 
 script Lab2_Intro{
-    if(!(flag(FLAG_UNUSED_PICKEDROWLET) || flag(FLAG_UNUSED_PICKEDTORCHIC) || flag(FLAG_UNUSED_PICKEDPIPLUP))){
-        applymovement(OBJ_EVENT_ID_PLAYER, Lab2_MyMove)
-        waitmovement(0)
-        msgbox(Lab2_Intro_Speech)
-        waitmessage
-        closemessage
-        delay(20)
-        applymovement(4, Lab2_TurnRight)
-        waitmovement(0)
-        delay(20)
-        msgbox(Lab2_PresentingBalls)
-        waitmessage
-        closemessage
-        delay(20)
-        setvar(VAR_PEARLWOOD_TOWN_STATE, 4)
-        releaseall
-        end
-    }
-    else{
-        end
-    }
+    applymovement(OBJ_EVENT_ID_PLAYER, Lab2_MovePlayerUp)
+    waitmovement(0)
+    msgbox(Lab2_Intro_Speech, MSGBOX_DEFAULT)
+    closemessage
+    delay(20)
+    turnobject(4, DIR_EAST)
+    delay(20)
+    msgbox(Lab2_PresentingBalls, MSGBOX_DEFAULT)
+    closemessage
+    delay(20)
+    setvar(VAR_PEARLWOOD_TOWN_STATE, 4)
+    releaseall
+    end
 }
-movement Lab2_MyMove{
+movement Lab2_MovePlayerUp{
     walk_up * 6
 }
 
@@ -43,7 +35,7 @@ script Lab2_HideRival{
     }
 }
 script Lab2_DexGet{
-    applymovement(OBJ_EVENT_ID_PLAYER, Lab2_MyMove)
+    applymovement(OBJ_EVENT_ID_PLAYER, Lab2_MovePlayerUp)
     waitmovement(0)
     checkplayergender
     if(var(VAR_RESULT) == MALE){

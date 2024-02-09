@@ -199,6 +199,16 @@ Aldeleaf_Sign2::
 	end
 
 
+Aldeleaf_Sign3::
+	msgbox Aldeleaf_Sign3_Text, MSGBOX_SIGN
+	end
+
+
+Aldeleaf_Sign4::
+	msgbox Aldeleaf_Sign4_Text, MSGBOX_SIGN
+	end
+
+
 Aldeleaf_GymUnavailable::
 	msgbox Aldeleaf_GymUnavailable_Text, MSGBOX_NPC
 	end
@@ -482,3 +492,10 @@ Aldeleaf_Sign_Text::
 Aldeleaf_Sign2_Text::
 	.string "Aldeleaf City Pokémon Gym\n"
 	.string "Leader: Volkner$"
+
+Aldeleaf_Sign3_Text::
+	.string "{UP_ARROW} Route 28\n"
+	.string "{RIGHT_ARROW} Windplume Valley$"
+
+Aldeleaf_Sign4_Text::
+	.string "Aldeleaf City Museum$"
