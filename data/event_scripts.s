@@ -1203,3 +1203,13 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/WeirdCave/scripts.inc"
 
 	.include "data/maps/WeirdCavePt2/scripts.inc"
+
+	.include "data/maps/SkylochHouse1/scripts.inc"
+
+	.include "data/maps/SkylochHouse2/scripts.inc"
+
+	.include "data/maps/SkylochHouse3/scripts.inc"
+
+	.include "data/maps/SkylochHouse4/scripts.inc"
+
+	.include "data/maps/Route7_Grotto/scripts.inc"

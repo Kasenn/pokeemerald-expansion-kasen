@@ -14,11 +14,6 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_CORALGROVE_CITY",
-      "offset": 4,
-      "direction": "left"
-    },
-    {
       "map": "MAP_LOST_GLADE",
       "offset": 0,
       "direction": "right"

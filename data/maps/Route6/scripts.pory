@@ -1,4 +1,11 @@
-mapscripts Route6_MapScripts{}
+mapscripts Route6_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: ClearShinyFlag
+}
+script ClearShinyFlag{
+    clearflag(FLAG_INCREASED_SHINY_ODDS)
+    release
+    end
+}
 
 script Route6_HoneyTree{
     lockall
@@ -13,31 +20,31 @@ script Route6_HoneyTree{
             removeitem(ITEM_HONEY, 1)
             random(10)
             if(var(VAR_RESULT) == 0){
-                setwildbattlelevelrange(SPECIES_BOUNSWEET, 24, ITEM_NONE, SPECIES_NONE, 28)
+                setwildbattlelevelrange(SPECIES_KOMALA, 24, ITEM_NONE, SPECIES_NONE, 28)
             }
             if(var(VAR_RESULT) == 1){
-                setwildbattlelevelrange(SPECIES_BOUNSWEET, 24, ITEM_NONE, SPECIES_NONE, 28)
+                setwildbattlelevelrange(SPECIES_KOMALA, 24, ITEM_NONE, SPECIES_NONE, 28)
             }
             if(var(VAR_RESULT) == 2){
-                setwildbattlelevelrange(SPECIES_BOUNSWEET, 24, ITEM_NONE, SPECIES_NONE, 28)
+                setwildbattlelevelrange(SPECIES_KOMALA, 24, ITEM_NONE, SPECIES_NONE, 28)
             }
             if(var(VAR_RESULT) == 3){
-                setwildbattlelevelrange(SPECIES_BOUNSWEET, 24, ITEM_NONE, SPECIES_NONE, 28)
+                setwildbattlelevelrange(SPECIES_KOMALA, 24, ITEM_NONE, SPECIES_NONE, 28)
             }
             if(var(VAR_RESULT) == 4){
-                setwildbattlelevelrange(SPECIES_SKWOVET, 24, ITEM_NONE, SPECIES_NONE, 28)
+                setwildbattlelevelrange(SPECIES_EXEGGCUTE, 24, ITEM_NONE, SPECIES_NONE, 28)
             }
             if(var(VAR_RESULT) == 5){
-                setwildbattlelevelrange(SPECIES_SKWOVET, 24, ITEM_NONE, SPECIES_NONE, 28)
+                setwildbattlelevelrange(SPECIES_EXEGGCUTE, 24, ITEM_NONE, SPECIES_NONE, 28)
             }
             if(var(VAR_RESULT) == 6){
-                setwildbattlelevelrange(SPECIES_SKWOVET, 24, ITEM_NONE, SPECIES_NONE, 28)
+                setwildbattlelevelrange(SPECIES_EXEGGCUTE, 24, ITEM_NONE, SPECIES_NONE, 28)
             }
             if(var(VAR_RESULT) == 7){
-                setwildbattlelevelrange(SPECIES_APPLIN, 24, ITEM_NONE, SPECIES_NONE, 28)
+                setwildbattlelevelrange(SPECIES_HERACROSS, 24, ITEM_NONE, SPECIES_NONE, 28)
             }
             if(var(VAR_RESULT) == 8){
-                setwildbattlelevelrange(SPECIES_APPLIN, 24, ITEM_NONE, SPECIES_NONE, 28)
+                setwildbattlelevelrange(SPECIES_HERACROSS, 24, ITEM_NONE, SPECIES_NONE, 28)
             }
             if(var(VAR_RESULT) == 9){
                 setwildbattlelevelrange(SPECIES_MUNCHLAX, 24, ITEM_NONE, SPECIES_NONE, 28)
@@ -60,4 +67,142 @@ script Route6_HoneyTree{
         release
         end
     }
+}
+
+movement Route6_Movement_PlayerFall{
+	lock_anim
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	step_end
+}
+
+script Route6_Trainer1_Ranger_M {
+    trainerbattle_single(TRAINER_R6_TR1_RANGER_M, Route6_Trainer1_Ranger_M_Intro, Route6_Trainer1_Ranger_M_Defeat)
+    msgbox(Route6_Trainer1_Ranger_M_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route6_Trainer1_Ranger_M_Intro{
+    "Are you planning to explore the desert?\n"
+    "Let me see if your Pokémon are ready!"
+}
+text Route6_Trainer1_Ranger_M_Defeat{
+    "Your Pokémon are strong.\n"
+    "You must be a great trainer."
+}
+text Route6_Trainer1_Ranger_M_PostBattle{
+    "There's a constant sandstorm raging\n"
+    "at the desert. You're going to need\l"
+    "proper equipment if you plan on\l"
+    "marching ahead."
+}
+script Route6_Trainer2_PokeFan_F {
+    trainerbattle_single(TRAINER_R6_TR2_POKEFAN_F, Route6_Trainer2_PokeFan_F_Intro, Route6_Trainer2_PokeFan_F_Defeat)
+    msgbox(Route6_Trainer2_PokeFan_F_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route6_Trainer2_PokeFan_F_Intro{
+    "Do you love Pokémon?\n"
+    "What about Pokémon battles?"
+}
+text Route6_Trainer2_PokeFan_F_Defeat{
+    "Oh my…"
+}
+text Route6_Trainer2_PokeFan_F_PostBattle{
+    "Your Pokémon are strong and healthy.\n"
+    "You must really love them."
+}
+script Route6_Trainer3_Camper_F {
+    trainerbattle_single(TRAINER_R6_TR3_CAMPER_F, Route6_Trainer3_Camper_F_Intro, Route6_Trainer3_Camper_F_Defeat)
+    msgbox(Route6_Trainer3_Camper_F_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route6_Trainer3_Camper_F_Intro{
+    "I'm full of pep!\n"
+    "And my Pokémon are peppy, too!"
+}
+text Route6_Trainer3_Camper_F_Defeat{
+    "My Pokémon lost their pep…"
+}
+text Route6_Trainer3_Camper_F_PostBattle{
+    "When I see a trainer with a lot of pep,\n"
+    "I just can't help challenging them."
+}
+script Route6_Trainer4_Camper_M1 {
+    trainerbattle_single(TRAINER_R6_TR4_CAMPER_M1, Route6_Trainer4_Camper_M1_Intro, Route6_Trainer4_Camper_M1_Defeat)
+    msgbox(Route6_Trainer4_Camper_M1_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route6_Trainer4_Camper_M1_Intro{
+    "I heard there are fossils to be found\n"
+	"in the desert. Where could they be?"
+}
+text Route6_Trainer4_Camper_M1_Defeat{
+    "I came up short…"
+}
+text Route6_Trainer4_Camper_M1_PostBattle{
+    "If they can find fossils in the desert,\n"
+    "it must have been able to support life\l"
+    "a long time ago."
+}
+script Route6_Trainer5_Hiker {
+    trainerbattle_single(TRAINER_R6_TR5_HIKER, Route6_Trainer5_Hiker_Intro, Route6_Trainer5_Hiker_Defeat)
+    msgbox(Route6_Trainer5_Hiker_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route6_Trainer5_Hiker_Intro{
+    "Show me how much you've toughened\n"
+    "your Pokémon."
+}
+text Route6_Trainer5_Hiker_Defeat{
+    "I see you've toughened them\n"
+    "considerably."
+}
+text Route6_Trainer5_Hiker_PostBattle{
+    "Pokémon and trainers learn much\n"
+	"through battling.\p"
+	"What's important is to never give up,\n"
+	"even if you lose."
+
+}
+script Route6_Trainer6_Camper_M2 {
+    trainerbattle_single(TRAINER_R6_TR6_CAMPER_M2, Route6_Trainer6_Camper_M2_Intro, Route6_Trainer6_Camper_M2_Defeat)
+    msgbox(Route6_Trainer6_Camper_M2_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route6_Trainer6_Camper_M2_Intro{
+    "I'm waiting for a friend.\n"
+    "Let's have a Pokémon battle\l"
+    "to pass the time!"
+}
+text Route6_Trainer6_Camper_M2_Defeat{
+    "Not fair! I was distracted by\n"
+    "some sand in my shoe!"
+}
+text Route6_Trainer6_Camper_M2_PostBattle{
+    "I don't like sand.\n"
+    "It's coarse, rough, irritating,\l"
+    "and it gets everywhere."
+}
+script Route6_Trainer7_Kindler {
+    trainerbattle_single(TRAINER_R6_TR7_KINDLER, Route6_Trainer7_Kindler_Intro, Route6_Trainer7_Kindler_Defeat)
+    msgbox(Route6_Trainer7_Kindler_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route6_Trainer7_Kindler_Intro{
+    "The desert sand is hot,\n"
+    "but not as hot as my Pokémon!"
+}
+text Route6_Trainer7_Kindler_Defeat{
+    "Guess I couldn't handle the heat…"
+}
+text Route6_Trainer7_Kindler_PostBattle{
+    "The desert is not great for my\n"
+    "fire-type Pokémon.\p"
+    "There are a lot of ground-types out\n"
+    "there which are very strong against\l"
+    "fire-type Pokémon."
 }

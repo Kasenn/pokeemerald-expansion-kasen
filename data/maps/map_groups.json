@@ -7,6 +7,7 @@
     "gMapGroup_IndoorCoralgroveCity",
     "gMapGroup_IndoorAzuretideTown",
     "gMapGroup_IndoorAldeleafCity",
+    "gMapGroup_IndoorSkylochVillage",
     "gMapGroup_IndoorLittleroot",
     "gMapGroup_IndoorOldale",
     "gMapGroup_IndoorDewford",
@@ -63,7 +64,8 @@
     "RanchHouse",
     "Route28TunnelHouse",
     "WeirdCave",
-    "WeirdCavePt2"
+    "WeirdCavePt2",
+    "Route7_Grotto"
   ],
   "gMapGroup_TownsAndCities": [
     "PearlwoodPoint",
@@ -138,6 +140,12 @@
     "AldeleafGym",
     "LilycoveCity_LilycoveMuseum_1F",
     "LilycoveCity_LilycoveMuseum_2F"
+  ],
+  "gMapGroup_IndoorSkylochVillage": [
+    "SkylochHouse1",
+    "SkylochHouse2",
+    "SkylochHouse3",
+    "SkylochHouse4"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

@@ -240,6 +240,7 @@ Coralgrove_BPShop_EventScript_ChooseTutorMove::
 	msgbox Coralgrove_BPShop_Text_TeachWhichMove
 	waitmessage
 	special ShowBattlePointsWindow
+	setvar VAR_TEMP_FRONTIER_TUTOR_ID, 0
 	setvar VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_3
 	setvar VAR_0x8006, 0
 	special ShowScrollableMultichoice
@@ -343,6 +344,7 @@ Coralgrove_BPShop_EventScript_ChooseTutorMove_20:
 Coralgrove_BPShop_EventScript_ChooseNewTutorMove::
 	msgbox Coralgrove_BPShop_Text_TeachWhichMove
 	waitmessage
+	setvar VAR_TEMP_FRONTIER_TUTOR_ID, 3
 	setvar VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_3
 	setvar VAR_0x8006, 1
 	special ShowScrollableMultichoice

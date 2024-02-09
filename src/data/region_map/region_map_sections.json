@@ -1018,7 +1018,7 @@
     },
     {
       "map_section": "MAPSEC_TOWN_WIP2",
-      "name": "WIP TOWN 2",
+      "name": "SKYLOCH VILLAGE",
       "x": 22,
       "y": 12,
       "width": 1,
@@ -1170,7 +1170,7 @@
     },
     {
       "map_section": "MAPSEC_DESERT",
-      "name": "WIP DESERT",
+      "name": "SCORCHED DESERT",
       "x": 24,
       "y": 11,
       "width": 3,

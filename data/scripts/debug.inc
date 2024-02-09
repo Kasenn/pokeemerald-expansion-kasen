@@ -103,7 +103,7 @@ Debug_Script_4::
 	end
 
 Debug_Script_5::
-	buffernumberstring STR_VAR_1, VAR_WEIRDCAVE_CORRECTSTEPS
+	buffernumberstring STR_VAR_1, VAR_ROUTE5_TRAINERCOUNT
 	msgbox weirdcavesteps, MSGBOX_NPC
 	end
 
@@ -121,7 +121,7 @@ weirdcaveplayerxy:
 	.string "{STR_VAR_1}, {STR_VAR_2}$"
 
 Debug_Script_7::
-	setvar VAR_TEMP_MIXED_RECORDS, 0
+	setflag FLAG_INCREASED_SHINY_ODDS
 	end
 
 Debug_Script_8::

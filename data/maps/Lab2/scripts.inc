@@ -9,6 +9,31 @@ Lab2_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 	.2byte 0
 
 
+Lab2_Intro::
+	applymovement OBJ_EVENT_ID_PLAYER, Lab2_MovePlayerUp
+	waitmovement 0
+	msgbox Lab2_Intro_Speech, MSGBOX_DEFAULT
+	closemessage
+	delay 20
+	turnobject 4, DIR_EAST
+	delay 20
+	msgbox Lab2_PresentingBalls, MSGBOX_DEFAULT
+	closemessage
+	delay 20
+	setvar VAR_PEARLWOOD_TOWN_STATE, 4
+	releaseall
+	end
+
+
+Lab2_MovePlayerUp:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
 Lab2_HideRival::
 	call Common_EventScript_SetupRivalGfxId
 	compare VAR_PEARLWOOD_TOWN_STATE, 9
@@ -21,40 +46,8 @@ Lab2_HideRival_1:
 	return
 
 
-Lab2_Intro::
-	goto_if_unset FLAG_UNUSED_PICKEDROWLET, Lab2_Intro_3
-Lab2_Intro_2:
-	end
-
-Lab2_Intro_1:
-	applymovement OBJ_EVENT_ID_PLAYER, Lab2_MyMove
-	waitmovement 0
-	msgbox Lab2_Intro_Speech
-	waitmessage
-	closemessage
-	delay 20
-	applymovement 4, Lab2_TurnRight
-	waitmovement 0
-	delay 20
-	msgbox Lab2_PresentingBalls
-	waitmessage
-	closemessage
-	delay 20
-	setvar VAR_PEARLWOOD_TOWN_STATE, 4
-	releaseall
-	end
-
-Lab2_Intro_3:
-	goto_if_unset FLAG_UNUSED_PICKEDTORCHIC, Lab2_Intro_5
-	goto Lab2_Intro_2
-
-Lab2_Intro_5:
-	goto_if_unset FLAG_UNUSED_PICKEDPIPLUP, Lab2_Intro_1
-	goto Lab2_Intro_2
-
-
 Lab2_DexGet::
-	applymovement OBJ_EVENT_ID_PLAYER, Lab2_MyMove
+	applymovement OBJ_EVENT_ID_PLAYER, Lab2_MovePlayerUp
 	waitmovement 0
 	checkplayergender
 	compare VAR_RESULT, MALE
@@ -154,15 +147,6 @@ Lab2_Movement_RivalExit1:
 Lab2FaceDown:
 	delay_16
 	walk_in_place_faster_down
-	step_end
-
-Lab2_MyMove:
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
 	step_end
 
 Lab2_TurnRight:

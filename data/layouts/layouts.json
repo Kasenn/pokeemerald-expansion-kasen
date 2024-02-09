@@ -4866,7 +4866,7 @@
       "name": "Route7_Layout",
       "width": 80,
       "height": 62,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_General2",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/Route7/border.bin",
       "blockdata_filepath": "data/layouts/Route7/map.bin"
@@ -5130,6 +5130,56 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/WeirdCavePt2/border.bin",
       "blockdata_filepath": "data/layouts/WeirdCavePt2/map.bin"
+    },
+    {
+      "id": "LAYOUT_SKYLOCH_HOUSE1",
+      "name": "SkylochHouse1_Layout",
+      "width": 8,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SkylochHouse1/border.bin",
+      "blockdata_filepath": "data/layouts/SkylochHouse1/map.bin"
+    },
+    {
+      "id": "LAYOUT_SKYLOCH_HOUSE2",
+      "name": "SkylochHouse2_Layout",
+      "width": 12,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SkylochHouse2/border.bin",
+      "blockdata_filepath": "data/layouts/SkylochHouse2/map.bin"
+    },
+    {
+      "id": "LAYOUT_SKYLOCH_HOUSE3",
+      "name": "SkylochHouse3_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SkylochHouse3/border.bin",
+      "blockdata_filepath": "data/layouts/SkylochHouse3/map.bin"
+    },
+    {
+      "id": "LAYOUT_SKYLOCH_HOUSE4",
+      "name": "SkylochHouse4_Layout",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SkylochHouse4/border.bin",
+      "blockdata_filepath": "data/layouts/SkylochHouse4/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE7_GROTTO",
+      "name": "Route7_Grotto_Layout",
+      "width": 13,
+      "height": 23,
+      "primary_tileset": "gTileset_SecretBase",
+      "secondary_tileset": "gTileset_SecretBaseShrub",
+      "border_filepath": "data/layouts/Route7_Grotto/border.bin",
+      "blockdata_filepath": "data/layouts/Route7_Grotto/map.bin"
     }
   ]
 }

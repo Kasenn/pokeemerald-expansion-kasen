@@ -61,9 +61,9 @@
 #define FLAG_ROUTE5_HIDDENITEM3                 0x30 // 
 #define FLAG_ROUTE5_HIDDENITEM4                 0x31 //
 #define FLAG_ROUTE5_HIDDENITEM5                 0x32 // Route 5 item flags end
-#define FLAG_UNUSED_0x033    0x33 // Unused Flag
-#define FLAG_UNUSED_0x034    0x34 // Unused Flag
-#define FLAG_UNUSED_0x035    0x35 // Unused Flag
+#define FLAG_INCREASED_SHINY_ODDS    0x33 // increase shiny odds
+#define FLAG_SKYLOCH_JUICE    0x34 // Unused Flag
+#define FLAG_GIVENCASTELIACONE    0x35 // Unused Flag
 #define FLAG_UNUSED_0x036    0x36 // Unused Flag
 #define FLAG_UNUSED_0x037    0x37 // Unused Flag
 #define FLAG_UNUSED_0x038    0x38 // Unused Flag
