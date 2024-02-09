@@ -392,8 +392,8 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_YOUNG_COUPLE, 8},
     {TRAINER_CLASS_WINSTRATE, 10},
     {TRAINER_CLASS_NURSE, 0},
-    {TRAINER_CLASS_GYMMEMBER, 15},
-    {TRAINER_CLASS_GYMMEMBER_DOUBLE, 20},
+    {TRAINER_CLASS_GYMMEMBER, 20},
+    {TRAINER_CLASS_GYMMEMBER_DOUBLE, 30},
     {0xFF, 5}, // Any trainer class not listed above uses this
 };
 

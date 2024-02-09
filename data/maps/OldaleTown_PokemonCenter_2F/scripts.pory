@@ -163,7 +163,7 @@ script LevelTrainingAldeleaf{
 script LevelTrainingAldeleaf_Setup{
     lockall
 	special(ShowBattlePointsWindow)
-    msgbox("This is the Level Training Service.\nEach use of the service\lcosts 2 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 12.", MSGBOX_YESNO)
+    msgbox("This is the Level Training Service.\nEach use of the service\lcosts 2 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 10.", MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES){
 		special(CloseBattlePointsWindow)
 		copyvar(VAR_0x8004, VAR_0x8008)

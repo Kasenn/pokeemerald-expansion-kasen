@@ -905,13 +905,6 @@ static const struct SpriteFrameImage sPicTable_BreakableRock[] = {
     overworld_frame(gObjectEventPic_BreakableRock, 2, 2, 3),
 };
 
-static const struct SpriteFrameImage sPicTable_StoneSphere[] = {
-    overworld_frame(gObjectEventPic_StoneSphere, 2, 2, 0),
-    overworld_frame(gObjectEventPic_StoneSphere, 2, 2, 1),
-    overworld_frame(gObjectEventPic_StoneSphere, 2, 2, 2),
-    overworld_frame(gObjectEventPic_StoneSphere, 2, 2, 3),
-};
-
 static const struct SpriteFrameImage sPicTable_PushableBoulder[] = {
     obj_frame_tiles(gObjectEventPic_PushableBoulder),
 };
@@ -2286,30 +2279,6 @@ static const struct SpriteFrameImage sPicTable_Mareep[] = {
     overworld_frame(gObjectEventPic_Mareep, 4, 4, 6),
     overworld_frame(gObjectEventPic_Mareep, 4, 4, 7),
     overworld_frame(gObjectEventPic_Mareep, 4, 4, 8),
-};
-
-static const struct SpriteFrameImage sPicTable_NewPikachu[] = {
-    overworld_frame(gObjectEventPic_NewPikachu, 4, 4, 0),
-    overworld_frame(gObjectEventPic_NewPikachu, 4, 4, 1),
-    overworld_frame(gObjectEventPic_NewPikachu, 4, 4, 2),
-    overworld_frame(gObjectEventPic_NewPikachu, 4, 4, 3),
-    overworld_frame(gObjectEventPic_NewPikachu, 4, 4, 4),
-    overworld_frame(gObjectEventPic_NewPikachu, 4, 4, 5),
-    overworld_frame(gObjectEventPic_NewPikachu, 4, 4, 6),
-    overworld_frame(gObjectEventPic_NewPikachu, 4, 4, 7),
-    overworld_frame(gObjectEventPic_NewPikachu, 4, 4, 8),
-};
-
-static const struct SpriteFrameImage sPicTable_Crustle[] = {
-    overworld_frame(gObjectEventPic_Crustle, 4, 4, 0),
-    overworld_frame(gObjectEventPic_Crustle, 4, 4, 1),
-    overworld_frame(gObjectEventPic_Crustle, 4, 4, 2),
-    overworld_frame(gObjectEventPic_Crustle, 4, 4, 3),
-    overworld_frame(gObjectEventPic_Crustle, 4, 4, 4),
-    overworld_frame(gObjectEventPic_Crustle, 4, 4, 5),
-    overworld_frame(gObjectEventPic_Crustle, 4, 4, 6),
-    overworld_frame(gObjectEventPic_Crustle, 4, 4, 7),
-    overworld_frame(gObjectEventPic_Crustle, 4, 4, 8),
 };
 
 static const struct SpriteFrameImage sPicTable_Example6[] = {

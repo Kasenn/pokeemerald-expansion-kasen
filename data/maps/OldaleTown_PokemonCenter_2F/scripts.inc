@@ -212,7 +212,7 @@ LevelTraining2_Setup_Text_0:
 	.string "This is the Level Training Service.\nEach use of the service\lcosts 2 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 7.$"
 
 LevelTrainingAldeleaf_Setup_Text_0:
-	.string "This is the Level Training Service.\nEach use of the service\lcosts 2 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 12.$"
+	.string "This is the Level Training Service.\nEach use of the service\lcosts 2 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 10.$"
 
 IvTrainingIntro_Text_0:
 	.string "Hello, and welcome to the\nPokémon Center PokéTraining Hub.\pHere trainers may train their Pokémon\nby battling in a controlled environment.\pThe first person to my right offers\nEV training.\pShe has 5 Pokémon, with each\ngranting 10 EV in the specified stat.\pThe next person offers level training,\nemploying a team of simple Blisseys.\pI must also inform you that we may\ncharge for this service in the future.\pWith that out of the way,\nI hope you find our services useful.$"

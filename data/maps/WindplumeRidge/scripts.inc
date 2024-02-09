@@ -33,14 +33,8 @@ Windplume_IronBall::
 
 
 Windplume_Guide::
-	goto_if_set FLAG_RECEIVED_HM_FLY, Windplume_Guide_2
 	msgbox Windplume_Guide_Text, MSGBOX_NPC
-Windplume_Guide_1:
 	end
-
-Windplume_Guide_2:
-	msgbox Windplume_Guide_Text_Post, MSGBOX_NPC
-	goto Windplume_Guide_1
 
 
 Windplume_Trainer1::
@@ -135,7 +129,6 @@ Windplume_Event_SkylaDefeated::
 	closemessage
 	giveitem ITEM_HM02
 	waitfanfare
-	setflag FLAG_RECEIVED_HM_FLY
 	call SetWindPlumeTrainersDefeated
 	msgbox Windplume_Text_ExplainFly, MSGBOX_DEFAULT
 	waitmessage
@@ -161,208 +154,125 @@ SetWindPlumeTrainersDefeated::
 	return
 
 
-Windplume_Guide_Text_Post::
-	.string "You're back! I assume you've taken\n"
-	.string "a victory against Skyla?\p"
-	.string "Good job! It's rare to see a trainer\n"
-	.string "that can take Skyla on like that!\p"
-	.string "With that said though, don't become\n"
-	.string "content in your victory!\l"
-	.string "Knowing Skyla, she's probably already\l"
-	.string "hard at work, training her Pokémon.\p"
-	.string "She tends to be a bit competitive\n"
-	.string "so expect to see a rematch between\l"
-	.string "you two any time soon!$"
-
 Windplume_Guide_Text::
-	.string "Oh, we have a new challenger!\p"
-	.string "This place is called the Windplume\n"
-	.string "Valley.\p"
-	.string "There's a constant wind blowing through\n"
-	.string "this valley which really makes it an\l"
-	.string "ideal place for flying-type trainers to\l"
-	.string "train their Pokémon.\p"
-	.string "The wind allows the flying-type\n"
-	.string "Pokémon to move at extraordinary speeds,\l"
-	.string "sometimes even allowing them to execute\l"
-	.string "some of their attacks faster!\p"
-	.string "Anyway, there's an elite trainer\n"
-	.string "waiting for challengers on the other\l"
-	.string "side of the valley.\p"
-	.string "If you can get there and beat them in\n"
-	.string "a Pokémon battle, you just might get\l"
-	.string "an awesome reward!\p"
-	.string "Anyway, better get to it!$"
+	.string "Wip$"
 
 Windplume_Text_Trainer1Intro::
-	.string "I have the wind on my side!\n"
-	.string "What chance do you thing you got!?$"
+	.string "$"
 
 Windplume_Text_Trainer1Defeat::
-	.string "Even with the wind on my side,\n"
-	.string "I couldn't keep up…$"
+	.string "$"
 
 Windplume_Text_Trainer1PostBattle::
-	.string "This wind is really great for my birds.\n"
-	.string "They love going fast so this place is\l"
-	.string "a paradise for them.$"
+	.string "$"
 
 Windplume_Text_Trainer2Intro::
-	.string "Gotta go fast!$"
+	.string "$"
 
 Windplume_Text_Trainer2Defeat::
-	.string "Not fast enough…$"
+	.string "$"
 
 Windplume_Text_Trainer2PostBattle::
-	.string "Maybe outspeeding your opponent\n"
-	.string "just isn't enough…$"
+	.string "$"
 
 Windplume_Text_Trainer3Intro::
-	.string "Just because I'm not a bird keeper\n"
-	.string "doesn't mean I don't have flying\l"
-	.string "Pokemon!$"
+	.string "$"
 
 Windplume_Text_Trainer3Defeat::
-	.string "Maybe I need to consider a change\n"
-	.string "in strategy…$"
+	.string "$"
 
 Windplume_Text_Trainer3PostBattle::
-	.string "This place is great for training.\n"
-	.string "If you don't try to fight the wind\l"
-	.string "and just go with it,\l"
-	.string "the feeling can be kind of liberating.$"
+	.string "$"
 
 Windplume_Text_Trainer4Intro::
-	.string "Are you here to train?\n"
-	.string "Here, let me be your training partner!$"
+	.string "$"
 
 Windplume_Text_Trainer4Defeat::
-	.string "I guess I've been slacking off…$"
+	.string "$"
 
 Windplume_Text_Trainer4PostBattle::
-	.string "Apparently this wind makes it easier\n"
-	.string "for Pokémon to execute certain wind or\l"
-	.string "flying related moves.\l"
-	.string "I hope you've come prepared.$"
+	.string "$"
 
 Windplume_Text_Trainer5Intro::
-	.string "You're looking at the next boss\n"
-	.string "of this place!$"
+	.string "$"
 
 Windplume_Text_Trainer5Defeat::
-	.string "You just got lucky, that's all!$"
+	.string "$"
 
 Windplume_Text_Trainer5PostBattle::
-	.string "While this place technically\n"
-	.string "isn't a gym, we do have a sort of\l"
-	.string "leader character we all look up to.\p"
-	.string "They were the first one to use this\n"
-	.string "place to train their Pokémon,\l"
-	.string "and as such, many regard them as\l"
-	.string "the senior trainer.$"
+	.string "$"
 
 Windplume_Text_Trainer6Intro::
-	.string "I love Pokémon!\n"
-	.string "I love Pokémon battles even more!$"
+	.string "$"
 
 Windplume_Text_Trainer6Defeat::
-	.string "I hate Pokémon battles…$"
+	.string "$"
 
 Windplume_Text_Trainer6PostBattle::
-	.string "Apparently there's a place to\n"
-	.string "catch wild Pokémon here.\l"
-	.string "Wonder where that is…$"
+	.string "$"
 
 Windplume_Text_Trainer7Intro::
-	.string "My Pokémon are stronger than the wind.\n"
-	.string "They're my pride and joy!$"
+	.string "$"
 
 Windplume_Text_Trainer7Defeat::
-	.string "My Pokémon may be stronger than\n"
-	.string "the wind, but they aren't as strong\l"
-	.string "as yours.$"
+	.string "$"
 
 Windplume_Text_Trainer7PostBattle::
-	.string "Many bird keepers come here to train.\p"
-	.string "That's why you can find feathers\n"
-	.string "strewn all over the place.$"
+	.string "$"
 
 Windplume_Text_Trainer8Intro::
-	.string "Swift as the wind, that's the\n"
-	.string "ninja way!$"
+	.string "$"
 
 Windplume_Text_Trainer8Defeat::
-	.string "I failed…$"
+	.string "$"
 
 Windplume_Text_Trainer8PostBattle::
-	.string "Ninjas are taught to be quick\n"
-	.string "and silent. But ninjas must also\l"
-	.string "possess the strength to take down\l"
-	.string "their foes.$"
+	.string "$"
 
 Windplume_Text_Trainer9Intro::
-	.string "My Pokémon may not be traditional\n"
-	.string "flying types, but that doesn't mean\l"
-	.string "you should underestimate us!$"
+	.string "$"
 
 Windplume_Text_Trainer9Defeat::
-	.string "Even with the wind on my side, I lost…$"
+	.string "$"
 
 Windplume_Text_Trainer9PostBattle::
-	.string "Have you wondered how the winds\n"
-	.string "are so strong here?\p"
-	.string "Apparently it's got something to do\n"
-	.string "with how the mountains around us\l"
-	.string "funnel it all through here.$"
+	.string "$"
 
 Windplume_Text_Trainer10Intro::
-	.string "Can't you see that I'm training here?!$"
+	.string "$"
 
 Windplume_Text_Trainer10Defeat::
-	.string "Even with all my training…$"
+	.string "$"
 
 Windplume_Text_Trainer10PostBattle::
-	.string "Please don't bother me,\n"
-	.string "I'm still in the middle of my training.$"
+	.string "$"
 
 Windplume_Text_Trainer11Intro::
-	.string "Go my birds, bring me victory!$"
+	.string "$"
 
 Windplume_Text_Trainer11Defeat::
-	.string "My Pokémon did their best.\n"
-	.string "That's all I can ask for.$"
+	.string "$"
 
 Windplume_Text_Trainer11PostBattle::
-	.string "My birds are free to fly in the air\n"
-	.string "while I'm standing here,\l"
-	.string "shackled to the ground.\p"
-	.string "I wonder, am I holding them back?$"
+	.string "$"
 
 Windplume_Text_Trainer12Intro::
-	.string "This is the final stretch!\n"
-	.string "Too bad I stand here!$"
+	.string "$"
 
 Windplume_Text_Trainer12Defeat::
-	.string "How could this be?!\n"
-	.string "I wasn't being reckless at all!$"
+	.string "$"
 
 Windplume_Text_Trainer12PostBattle::
-	.string "You've earned it,\n"
-	.string "go ahead and claim your prize.\p"
-	.string "Oh, I meant the prize of getting to\n"
-	.string "challenge the senior trainer, of course!$"
+	.string "$"
 
 Windplume_Text_Trainer13Intro::
-	.string "You're not getting past this point!$"
+	.string "$"
 
 Windplume_Text_Trainer13Defeat::
-	.string "I couldn't block your path…\n"
-	.string "You're an impressive trainer!$"
+	.string "$"
 
 Windplume_Text_Trainer13PostBattle::
-	.string "Even I didn't stand a chance\n"
-	.string "against you.\p"
-	.string "I wonder, will she?$"
+	.string "$"
 
 Windplume_Text_Trainer14Intro::
 	.string "Hee-hee! I've been waiting for you.\p"

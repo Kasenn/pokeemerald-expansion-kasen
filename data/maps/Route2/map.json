@@ -17,11 +17,6 @@
       "map": "MAP_PRIMROSE_TOWN",
       "offset": -7,
       "direction": "down"
-    },
-    {
-      "map": "MAP_CORALGROVE_CITY",
-      "offset": -6,
-      "direction": "up"
     }
   ],
   "object_events": [

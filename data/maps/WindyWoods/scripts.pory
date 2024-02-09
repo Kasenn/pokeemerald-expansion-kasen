@@ -224,7 +224,7 @@ script WW_CoolTrainerPostBattle{
     playfanfare(MUS_OBTAIN_B_POINTS)
     msgbox("Earned 10 BP!", MSGBOX_DEFAULT)
     if(!flag(FLAG_UNUSED_BP_INTRO)){
-        msgbox(ExplainBP, MSGBOX_DEFAULT)
+        msgbox("These are battle points, or BP.\pThey can be used to purchase powerful\nitems at designated stores.\pMany trainers hand out BP\n as an additional reward,\lwith the amount earned increasing\las the trainers get stronger.")
     }
     setflag(FLAG_UNUSED_WW_COOLTRAINERREWARD)
     setflag(FLAG_UNUSED_BP_INTRO)

@@ -387,7 +387,7 @@ Aldeleaf_Gym_EventScript_GymGuide_1:
 	end
 
 Aldeleaf_Gym_EventScript_GymGuide_2:
-	msgbox Aldeleaf_Gym_Text_GymGuidePostVictory, MSGBOX_DEFAULT
+	msgbox Aldeleaf_Gym_EventScript_GymGuide_Text_0, MSGBOX_DEFAULT
 	goto Aldeleaf_Gym_EventScript_GymGuide_1
 
 
@@ -530,6 +530,9 @@ AldeleafGymSwitch3_Text_1:
 
 Aldeleaf_Gym_Volkner_Talk_Text_0:
 	.string "Volkner: I see you've arrived.\pIf you're ready, go stand on the other\nside of the arena so we may begin.$"
+
+Aldeleaf_Gym_EventScript_GymGuide_Text_0:
+	.string "Aldeleaf_Gym_Text_GymGuidePostVictory$"
 
 Aldeleaf_Gym_Text_VolknerIntro::
 	.string "Volkner: I knew you'd be here soon.\n"

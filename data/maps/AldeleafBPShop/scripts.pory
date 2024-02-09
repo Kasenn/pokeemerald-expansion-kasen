@@ -228,7 +228,6 @@ script Aldeleaf_BPShop_EventScript_MoveTutor{
 	lock
 	faceplayer
 	setvar(VAR_TEMP_C, SCROLL_MULTI_BF_MOVE_TUTOR_4)
-	setvar(VAR_TEMP_FRONTIER_TUTOR_ID, 4)
 	goto_if_set(FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR2, Aldeleaf_BPShop_EventScript_AlreadyMetTutor)
 	msgbox(Aldeleaf_BPShop_Text_TutorIntro, MSGBOX_DEFAULT)
 	setflag(FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR2)
