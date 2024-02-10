@@ -9069,6 +9069,8 @@ extern const u32 gItemIcon_Talisman[];
 extern const u32 gItemIconPalette_Talisman[];
 extern const u32 gItemIcon_LostKey[];
 extern const u32 gItemIconPalette_LostKey[];
+extern const u32 gItemIcon_StoneSphere[];
+extern const u32 gItemIconPalette_StoneSphere[];
 
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];

@@ -341,7 +341,7 @@ script Aldeleaf_Gym_EventScript_GymGuide{
 	lock
 	faceplayer
 	if(flag(FLAG_DEFEATED_DEWFORD_GYM)){
-        msgbox("Aldeleaf_Gym_Text_GymGuidePostVictory", MSGBOX_DEFAULT) 
+        msgbox(Aldeleaf_Gym_Text_GymGuidePostVictory, MSGBOX_DEFAULT) 
     }
     else{
 	    msgbox(Aldeleaf_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT)
