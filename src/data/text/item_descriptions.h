@@ -3335,8 +3335,10 @@ static const u8 sTM67Desc[] = _( // Todo
 static const u8 sTM68Desc[] = _( // Todo
     "?????");
 
-static const u8 sTM69Desc[] = _( // Todo
-    "?????");
+static const u8 sTM69Desc[] = _(
+    "Polishes the body\n"
+    "to sharply\n"
+    "raise Speed.");
 
 static const u8 sTM70Desc[] = _( // Todo
     "?????");

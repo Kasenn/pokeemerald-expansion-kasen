@@ -1,0 +1,113 @@
+mapscripts Route7_Grotto_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: Route7_GrottoFlags
+}
+
+script Route7_GrottoFlags{
+    if(!flag(FLAG_DAILY_ROUTE7_GROTTO)){
+        clearflag(FLAG_ROUTE7_GROTTO_CLEARED)
+        random(100)
+        copyvar(VAR_ROUTE7_GROTTO, VAR_RESULT)
+    }
+    setflag(FLAG_DAILY_ROUTE7_GROTTO)
+    goto(ROUTE7_Grotto_SetObject)
+    end
+}
+script ROUTE7_Grotto_SetObject{
+    if(var(VAR_ROUTE7_GROTTO) <= 39){
+        setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL)
+    }
+    if(var(VAR_ROUTE7_GROTTO) >= 40){
+        setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_TRICK_HOUSE_STATUE)
+    }
+    end
+}
+script ROUTE7_GrottoInteract{
+    lockall
+    if(var(VAR_ROUTE7_GROTTO) <= 39){
+        goto(ROUTE7_GrottoItem)
+    }
+    else{
+        goto(ROUTE7_GrottoPokemon)
+    }
+    end
+}
+
+script ROUTE7_GrottoItem{
+    if((var(VAR_ROUTE7_GROTTO) <= 3)){
+        finditem(ITEM_POTION)
+    }
+    if((var(VAR_ROUTE7_GROTTO) >= 4) && (var(VAR_ROUTE7_GROTTO) <= 7)){
+        finditem(ITEM_GREAT_BALL)
+    }
+    if((var(VAR_ROUTE7_GROTTO) >= 4) && (var(VAR_ROUTE7_GROTTO) <= 7)){
+        finditem(ITEM_SUPER_REPEL)
+    }
+    if((var(VAR_ROUTE7_GROTTO) >= 8) && (var(VAR_ROUTE7_GROTTO) <= 11)){
+        finditem(ITEM_SUPER_POTION)
+    }
+    if((var(VAR_ROUTE7_GROTTO) >= 12) && (var(VAR_ROUTE7_GROTTO) <= 15)){
+        finditem(ITEM_ULTRA_BALL)
+    }
+    if((var(VAR_ROUTE7_GROTTO) >= 16) && (var(VAR_ROUTE7_GROTTO) <= 19)){
+        finditem(ITEM_FULL_HEAL)
+    }
+    if((var(VAR_ROUTE7_GROTTO) >= 20) && (var(VAR_ROUTE7_GROTTO) <= 23)){
+        finditem(ITEM_HYPER_POTION)
+    }
+    if((var(VAR_ROUTE7_GROTTO) >= 24) && (var(VAR_ROUTE7_GROTTO) <= 27)){
+        finditem(ITEM_FIRE_STONE)
+    }
+    if((var(VAR_ROUTE7_GROTTO) >= 28) && (var(VAR_ROUTE7_GROTTO) <= 31)){
+        finditem(ITEM_THUNDER_STONE)
+    }
+    if((var(VAR_ROUTE7_GROTTO) >= 32) && (var(VAR_ROUTE7_GROTTO) <= 35)){
+        finditem(ITEM_WATER_STONE)
+    }
+    if((var(VAR_ROUTE7_GROTTO) >= 36) && (var(VAR_ROUTE7_GROTTO) <= 39)){
+        finditem(ITEM_LEAF_STONE)
+    }
+    waitfanfare
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script ROUTE7_GrottoPokemon{
+    lockall
+    if((var(VAR_ROUTE7_GROTTO) >= 40) && (var(VAR_ROUTE7_GROTTO) <= 51)){
+        playmoncry(SPECIES_ABSOL, CRY_MODE_ENCOUNTER)
+        delay(40)
+        waitmoncry
+        setwildbattlelevelrange(SPECIES_ABSOL, 25, ITEM_NONE, SPECIES_NONE, 30)
+    }
+    if((var(VAR_ROUTE7_GROTTO) >= 52) && (var(VAR_ROUTE7_GROTTO) <= 63)){
+        playmoncry(SPECIES_DITTO, CRY_MODE_ENCOUNTER)
+        delay(40)
+        waitmoncry
+        setwildbattlelevelrange(SPECIES_NOSEPASS, 25, ITEM_NONE, SPECIES_NONE, 30)
+    }
+    if((var(VAR_ROUTE7_GROTTO) >= 64) && (var(VAR_ROUTE7_GROTTO) <= 75)){
+        playmoncry(SPECIES_DITTO, CRY_MODE_ENCOUNTER)
+        delay(40)
+        waitmoncry
+        setwildbattlelevelrange(SPECIES_SABLEYE, 25, ITEM_NONE, SPECIES_NONE, 30)
+    }
+    if((var(VAR_ROUTE7_GROTTO) >= 76) && (var(VAR_ROUTE7_GROTTO) <= 87)){
+        playmoncry(SPECIES_INKAY, CRY_MODE_ENCOUNTER)
+        delay(40)
+        waitmoncry
+        setwildbattlelevelrange(SPECIES_INKAY, 25, ITEM_NONE, SPECIES_NONE, 30)
+    }
+    if((var(VAR_ROUTE7_GROTTO) >= 88) && (var(VAR_ROUTE7_GROTTO) <= 99)){
+        playmoncry(SPECIES_HATENNA, CRY_MODE_ENCOUNTER)
+        delay(40)
+        waitmoncry
+        setwildbattlelevelrange(SPECIES_HATENNA, 25, ITEM_NONE, SPECIES_NONE, 30)
+    }
+    dowildbattle
+    removeobject(1)
+    setflag(FLAG_ROUTE7_GROTTO_CLEARED)
+    release
+    end
+}

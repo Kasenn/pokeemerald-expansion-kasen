@@ -52,26 +52,26 @@
 #define FLAG_TOGGLE_DOUBLE_WILDS                0x27 // Forces double wild battles
 #define FLAG_RECEIVED_TM_WILD_CHARGE            0x28 // Received wild charge from Volkner
 #define FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR2    0x29 // Aldeleaf BP Shop Move Tutor
-#define FLAG_UNUSED_0x02A    0x2A // Unused Flag
-#define FLAG_UNUSED_0x02B    0x2B // Unused Flag
-#define FLAG_UNUSED_0x02C    0x2C // Unused Flag
-#define FLAG_UNUSED_0x02D    0x2D // Unused Flag
-#define FLAG_UNUSED_0x02E    0x2E // Unused Flag
-#define FLAG_UNUSED_0x02F    0x2F // Unused Flag
-#define FLAG_UNUSED_0x030    0x30 // Unused Flag
-#define FLAG_UNUSED_0x031    0x31 // Unused Flag
-#define FLAG_UNUSED_0x032    0x32 // Unused Flag
-#define FLAG_UNUSED_0x033    0x33 // Unused Flag
-#define FLAG_UNUSED_0x034    0x34 // Unused Flag
-#define FLAG_UNUSED_0x035    0x35 // Unused Flag
-#define FLAG_UNUSED_0x036    0x36 // Unused Flag
-#define FLAG_UNUSED_0x037    0x37 // Unused Flag
-#define FLAG_UNUSED_0x038    0x38 // Unused Flag
-#define FLAG_UNUSED_0x039    0x39 // Unused Flag
-#define FLAG_UNUSED_0x03A    0x3A // Unused Flag
-#define FLAG_UNUSED_0x03B    0x3B // Unused Flag
-#define FLAG_UNUSED_0x03C    0x3C // Unused Flag
-#define FLAG_UNUSED_0x03D    0x3D // Unused Flag
+#define FLAG_ROUTE5_ITEM1                       0x2A // Route 5 item flags start
+#define FLAG_ROUTE5_ITEM2                       0x2B // 
+#define FLAG_ROUTE5_ITEM3                       0x2C // 
+#define FLAG_ROUTE5_ITEM4                       0x2D // 
+#define FLAG_ROUTE5_HIDDENITEM1                 0x2E // 
+#define FLAG_ROUTE5_HIDDENITEM2                 0x2F // 
+#define FLAG_ROUTE5_HIDDENITEM3                 0x30 // 
+#define FLAG_ROUTE5_HIDDENITEM4                 0x31 //
+#define FLAG_ROUTE5_HIDDENITEM5                 0x32 // Route 5 item flags end
+#define FLAG_INCREASED_SHINY_ODDS    0x33 // increase shiny odds
+#define FLAG_SKYLOCH_JUICE    0x34 // Unused Flag
+#define FLAG_GIVENCASTELIACONE    0x35 // Unused Flag
+#define FLAG_WW_GROTTO_CLEARED    0x36 // Used to determine whether Windy Woods grotto has been cleared
+#define FLAG_ROUTE7_GROTTO_CLEARED    0x37 // Used to determine whether Route 7 grotto has been cleared
+#define FLAG_ROUTE8_ITEM1    0x38 // Unused Flag
+#define FLAG_ROUTE8_ITEM2    0x39 // Unused Flag
+#define FLAG_ROUTE8_ITEM3    0x3A // Unused Flag
+#define FLAG_ROUTE8_ITEM4    0x3B // Unused Flag
+#define FLAG_ROUTE8_ITEM5    0x3C // Unused Flag
+#define FLAG_ROUTE8_ITEM6    0x3D // Unused Flag
 #define FLAG_UNUSED_0x03E    0x3E // Unused Flag
 #define FLAG_UNUSED_0x03F    0x3F // Unused Flag
 #define FLAG_UNUSED_0x040    0x40 // Unused Flag
@@ -1265,13 +1265,13 @@
 #define FLAG_GHOST_MOVED                                                    0x4BF // Ghost moved in aldeleaf house
 #define FLAG_WHITEFLUTE_RECEIVED                                           0x4C0 // Unused Flag
 #define FLAG_RECEIVED_LAVA_COOKIE                                           0x4C1 // Unused Flag
-#define FLAG_UNUSED_0x4C2                                           0x4C2 // Unused Flag
-#define FLAG_UNUSED_0x4C3                                           0x4C3 // Unused Flag
-#define FLAG_UNUSED_0x4C4                                           0x4C4 // Unused Flag
-#define FLAG_UNUSED_0x4C5                                           0x4C5 // Unused Flag
-#define FLAG_UNUSED_0x4C6                                           0x4C6 // Unused Flag
-#define FLAG_UNUSED_0x4C7                                           0x4C7 // Unused Flag
-#define FLAG_UNUSED_0x4C8                                           0x4C8 // Unused Flag
+#define FLAG_ROUTE28_DESPAWN_BROTHER                                           0x4C2 // Unused Flag
+#define FLAG_ROUTE28_TM                                           0x4C3 // Unused Flag
+#define FLAG_ROUTE28_HIDDENBALL                                           0x4C4 // Unused Flag
+#define FLAG_ROUTE28_ITEMBALL                                          0x4C5 // Unused Flag
+#define FLAG_VISITED_WIP_TOWN2                                           0x4C6 // Unused Flag
+#define FLAG_WEIRDCAVESOLVED                                           0x4C7 // opens the antechamber in weird cave
+#define FLAG_WEIRDCAVE_STONE                                           0x4C8 // Unused Flag
 #define FLAG_UNUSED_0x4C9                                           0x4C9 // Unused Flag
 #define FLAG_UNUSED_0x4CA                                           0x4CA // Unused Flag
 #define FLAG_UNUSED_0x4CB                                           0x4CB // Unused Flag
@@ -1574,7 +1574,7 @@
 #define FLAG_DAILY_PRIMROSE_NECTAR3                 (DAILY_FLAGS_START + 0x5)  // Unused Flag
 #define FLAG_DAILY_PRIMROSE_NECTAR4                 (DAILY_FLAGS_START + 0x6)  // Unused Flag
 #define FLAG_DAILY_WW_GROTTO                           (DAILY_FLAGS_START + 0x7)  // Unused Flag
-#define FLAG_UNUSED_0x928                           (DAILY_FLAGS_START + 0x8)  // Unused Flag
+#define FLAG_DAILY_ROUTE7_GROTTO                           (DAILY_FLAGS_START + 0x8)  // Unused Flag
 #define FLAG_UNUSED_0x929                           (DAILY_FLAGS_START + 0x9)  // Unused Flag
 #define FLAG_DAILY_PICKED_LOTO_TICKET               (DAILY_FLAGS_START + 0xA)
 #define FLAG_DAILY_ROUTE_114_RECEIVED_BERRY         (DAILY_FLAGS_START + 0xB)
