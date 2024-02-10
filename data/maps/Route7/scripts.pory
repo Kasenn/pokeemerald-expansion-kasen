@@ -1,9 +1,4 @@
 mapscripts Route7_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: ClearShinyFlag
-<<<<<<< HEAD
 }
 
-script route7_lass{}
-=======
-}
->>>>>>> parent of 6e349e1de7 (reverting reverts)
