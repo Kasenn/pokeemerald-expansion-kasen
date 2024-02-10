@@ -97,8 +97,8 @@ SootopolisCity_Gym_SetGymTrainers::
 	settrainerflag TRAINER_R5_TR11_MAN_5
 	settrainerflag TRAINER_R6_TR6_CAMPER_M2
 	settrainerflag TRAINER_R6_TR7_KINDLER
-	settrainerflag TRAINER_OLIVIA
-	settrainerflag TRAINER_TIFFANY
+	settrainerflag TRAINER_R8_TR1_PARASOLLADY
+	settrainerflag TRAINER_R8_TR2_SRJR
 	settrainerflag TRAINER_BETHANY
 	settrainerflag TRAINER_ANNIKA
 	settrainerflag TRAINER_R5_TR8_YOUNGSTER

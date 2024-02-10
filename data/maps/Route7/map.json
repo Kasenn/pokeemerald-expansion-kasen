@@ -60,7 +60,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "13",
+      "trainer_sight_or_berry_tree_id": "15",
       "script": "BerryTreeScript",
       "flag": "0"
     },
@@ -73,7 +73,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "13",
+      "trainer_sight_or_berry_tree_id": "22",
       "script": "BerryTreeScript",
       "flag": "0"
     },
@@ -86,7 +86,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "13",
+      "trainer_sight_or_berry_tree_id": "24",
       "script": "BerryTreeScript",
       "flag": "0"
     },
@@ -99,7 +99,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "13",
+      "trainer_sight_or_berry_tree_id": "33",
       "script": "BerryTreeScript",
       "flag": "0"
     },
@@ -108,12 +108,12 @@
       "x": 21,
       "y": 20,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Route8_Boy",
       "flag": "0"
     },
     {
@@ -126,7 +126,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Route8_HoneyTrader",
       "flag": "0"
     },
     {
@@ -139,8 +139,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Route8_Ball2",
+      "flag": "FLAG_ROUTE8_ITEM6"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -153,7 +153,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_ROUTE8_ITEM4"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -165,8 +165,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Route8_Ball1",
+      "flag": "FLAG_ROUTE8_ITEM2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
@@ -178,7 +178,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "1",
-      "script": "NULL",
+      "script": "Route8_Trainer10_OldCouple",
       "flag": "0"
     },
     {
@@ -191,7 +191,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "1",
-      "script": "NULL",
+      "script": "Route8_Trainer10_OldCouple2",
       "flag": "0"
     },
     {
@@ -204,7 +204,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "4",
-      "script": "NULL",
+      "script": "Route8_Trainer11_BirdKeeper",
       "flag": "0"
     },
     {
@@ -217,7 +217,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "5",
-      "script": "NULL",
+      "script": "Route8_Trainer3_AromaLady",
       "flag": "0"
     },
     {
@@ -230,7 +230,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "5",
-      "script": "NULL",
+      "script": "Route8_Trainer6_Camper_M",
       "flag": "0"
     },
     {
@@ -243,7 +243,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
-      "script": "NULL",
+      "script": "Route8_Trainer8_Gentleman",
       "flag": "0"
     },
     {
@@ -256,7 +256,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "5",
-      "script": "NULL",
+      "script": "Route8_Trainer1_ParasolLady",
       "flag": "0"
     },
     {
@@ -269,7 +269,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "5",
-      "script": "NULL",
+      "script": "Route8_Trainer5_Psychic_F",
       "flag": "0"
     },
     {
@@ -282,7 +282,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "1",
-      "script": "NULL",
+      "script": "Route8_Trainer2_SRJR2",
       "flag": "0"
     },
     {
@@ -295,7 +295,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "1",
-      "script": "NULL",
+      "script": "Route8_Trainer2_SRJR",
       "flag": "0"
     },
     {
@@ -308,7 +308,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "5",
-      "script": "NULL",
+      "script": "Route8_Trainer4_Youngster",
       "flag": "0"
     },
     {
@@ -321,7 +321,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "2",
-      "script": "NULL",
+      "script": "Route8_Trainer7_Triathlete_M",
       "flag": "0"
     },
     {
@@ -334,7 +334,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "5",
-      "script": "NULL",
+      "script": "Route8_Trainer9_Hiker",
       "flag": "0"
     }
   ],
@@ -370,23 +370,23 @@
       "x": 22,
       "y": 40,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_SKIP_GABBY_INTERVIEW"
+      "item": "ITEM_FULL_HEAL",
+      "flag": "FLAG_ROUTE8_ITEM5"
     },
     {
       "type": "hidden_item",
       "x": 32,
       "y": 24,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_SKIP_GABBY_INTERVIEW"
+      "item": "ITEM_REVIVE",
+      "flag": "FLAG_ROUTE8_ITEM3"
     },
     {
       "type": "hidden_item",
       "x": 15,
       "y": 13,
       "elevation": 0,
-      "item": "ITEM_NONE",
+      "item": "ITEM_ORAN_BERRY",
       "flag": "FLAG_TEMP_SKIP_GABBY_INTERVIEW"
     },
     {
@@ -395,7 +395,7 @@
       "y": 19,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "Route8_Sign"
     }
   ]
 }

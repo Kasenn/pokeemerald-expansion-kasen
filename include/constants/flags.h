@@ -65,13 +65,13 @@
 #define FLAG_SKYLOCH_JUICE    0x34 // Unused Flag
 #define FLAG_GIVENCASTELIACONE    0x35 // Unused Flag
 #define FLAG_WW_GROTTO_CLEARED    0x36 // Used to determine whether Windy Woods grotto has been cleared
-#define FLAG_UNUSED_0x037    0x37 // Unused Flag
-#define FLAG_UNUSED_0x038    0x38 // Unused Flag
-#define FLAG_UNUSED_0x039    0x39 // Unused Flag
-#define FLAG_UNUSED_0x03A    0x3A // Unused Flag
-#define FLAG_UNUSED_0x03B    0x3B // Unused Flag
-#define FLAG_UNUSED_0x03C    0x3C // Unused Flag
-#define FLAG_UNUSED_0x03D    0x3D // Unused Flag
+#define FLAG_ROUTE7_GROTTO_CLEARED    0x37 // Used to determine whether Route 7 grotto has been cleared
+#define FLAG_ROUTE8_ITEM1    0x38 // Unused Flag
+#define FLAG_ROUTE8_ITEM2    0x39 // Unused Flag
+#define FLAG_ROUTE8_ITEM3    0x3A // Unused Flag
+#define FLAG_ROUTE8_ITEM4    0x3B // Unused Flag
+#define FLAG_ROUTE8_ITEM5    0x3C // Unused Flag
+#define FLAG_ROUTE8_ITEM6    0x3D // Unused Flag
 #define FLAG_UNUSED_0x03E    0x3E // Unused Flag
 #define FLAG_UNUSED_0x03F    0x3F // Unused Flag
 #define FLAG_UNUSED_0x040    0x40 // Unused Flag
@@ -1574,7 +1574,7 @@
 #define FLAG_DAILY_PRIMROSE_NECTAR3                 (DAILY_FLAGS_START + 0x5)  // Unused Flag
 #define FLAG_DAILY_PRIMROSE_NECTAR4                 (DAILY_FLAGS_START + 0x6)  // Unused Flag
 #define FLAG_DAILY_WW_GROTTO                           (DAILY_FLAGS_START + 0x7)  // Unused Flag
-#define FLAG_UNUSED_0x928                           (DAILY_FLAGS_START + 0x8)  // Unused Flag
+#define FLAG_DAILY_ROUTE7_GROTTO                           (DAILY_FLAGS_START + 0x8)  // Unused Flag
 #define FLAG_UNUSED_0x929                           (DAILY_FLAGS_START + 0x9)  // Unused Flag
 #define FLAG_DAILY_PICKED_LOTO_TICKET               (DAILY_FLAGS_START + 0xA)
 #define FLAG_DAILY_ROUTE_114_RECEIVED_BERRY         (DAILY_FLAGS_START + 0xB)

@@ -2,3 +2,355 @@ mapscripts Route7_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: ClearShinyFlag
 }
 
+script Route8_Boy{
+    msgbox(Route8_Boy_Text, MSGBOX_NPC)
+    end
+}
+text Route8_Boy_Text{
+    "Why'd they have to set the flower shop\n"
+    "in the middle of nowhere.\l"
+    "I'm tired of walking all the way here…"
+}
+script Route8_HoneyTrader{
+    lock
+    faceplayer
+    if(flag(FLAG_TEMP_2)){
+        msgbox(Route8_HoneyTrader_TextShort, MSGBOX_YESNO)
+    }
+    if(!flag(FLAG_TEMP_2)){
+        msgbox(Route8_HoneyTrader_Text, MSGBOX_YESNO)
+    }
+    setflag(FLAG_TEMP_2)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(Route8_HoneyTrader_Decline, MSGBOX_NPC)
+        end
+    }
+    if(var(VAR_RESULT) == TRUE){
+        checkitem(ITEM_ORAN_BERRY, 1)
+        if(var(VAR_RESULT) == FALSE){
+            msgbox(Route8_HoneyTrader_DontHaveBerries, MSGBOX_NPC)
+            end 
+        }
+        else{
+            checkitemspace(ITEM_HONEY, 2)
+            if(var(VAR_RESULT) == FALSE){
+                msgbox(Route8_HoneyTrader_NotEnoughRoom, MSGBOX_NPC)
+                end 
+            }
+            else{
+                removeitem(ITEM_ORAN_BERRY, 1)
+                additem(ITEM_HONEY, 2)
+                playfanfare(MUS_OBTAIN_ITEM)
+                msgbox(Route8_Trade, MSGBOX_DEFAULT)
+                waitse
+                waitmessage
+                msgbox(Route8_ThanksForTrade, MSGBOX_NPC)
+                end
+            }
+        }
+    }
+}
+text Route8_HoneyTrader_Text{
+    "Hi! I'm looking for Oran Berries.\n"
+    "With the help of my Pokémon,\l"
+    "I've been able to amass a large\l"
+    "quantity of Honey.\p"
+    "Do you have any Oran Berries?\n"
+    "I'd be willing to trade 2 jars of\l"
+    "Honey for 1 Oran Berry.\p"
+    "Would you like to trade?"
+}
+text Route8_HoneyTrader_TextShort{
+    "Would you like to trade an Oran Berry\n"
+    "for Honey?"
+}
+text Route8_HoneyTrader_Decline{
+    "Oh…\p"
+    "Well, if you find any Oran Berries\n"
+    "and would like to trade,\l"
+    "you'll find me here."
+}
+text Route8_HoneyTrader_DontHaveBerries{
+    "Hm… You don't seem to be carrying\n"
+    "any Oran Berries…"
+}
+text Route8_HoneyTrader_NotEnoughRoom{
+    "Hm… You don't seem to have any room\n"
+    "to hold the honey…"
+}
+text Route8_Trade{
+    "{PLAYER} traded 1 Oran Berry\n"
+    "for 2 jars of Honey!"
+}
+text Route8_ThanksForTrade{
+    "Thanks for the trade! Come find me\n"
+    "if you'd like to trade more!"
+}
+
+script Route8_Sign{
+    msgbox(Route8_Sign_Text, MSGBOX_SIGN)
+    end
+}
+text Route8_Sign_Text{
+    "{LEFT_ARROW} Pretty Petal Flower Shop\n"
+    "{DOWN_ARROW} Shoreslate City"
+}
+script Route8_Ball1{
+    finditem(ITEM_GREAT_BALL)
+    end
+}
+script Route8_Ball2{
+    finditem(ITEM_TM69)
+    end
+}
+
+script Route8_Trainer1_ParasolLady{
+    trainerbattle_single(TRAINER_R8_TR1_PARASOLLADY, Route8_Trainer1_ParasolLady_Intro, Route8_Trainer1_ParasolLady_Defeat)
+    msgbox(Route8_Trainer1_ParasolLady_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route8_Trainer1_ParasolLady_Intro{
+    "I just bought this parasol.\n"
+	"My cuteness should be up by a third!"
+}
+text Route8_Trainer1_ParasolLady_Defeat{
+    "You're better than me by about\n"
+	"five times!"
+}
+text Route8_Trainer1_ParasolLady_PostBattle{
+    "Using accessories effectively is\n"
+	"the secret behind fashion appeal."
+}
+script Route8_Trainer2_SRJR{
+    trainerbattle_double(TRAINER_R8_TR2_SRJR, Route8_Trainer2_SRJR_Intro, Route8_Trainer2_SRJR_Defeat, Route8_Trainer2_SRJR_NotEnoughMons)
+    msgbox(Route8_Trainer2_SRJR_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route8_Trainer2_SRJR_Intro{
+    "Kate: Together, we're fearless!\n"
+	"We'll demonstrate how tough we are!"
+}
+text Route8_Trainer2_SRJR_Defeat{
+    "Kate: I blew it in front of my junior\n"
+	"student partner…"
+}
+text Route8_Trainer2_SRJR_PostBattle{
+    "Kate: When someone's relying on me,\n"
+	"I get this urge to look cool in front\l"
+	"of them…"
+}
+text Route8_Trainer2_SRJR_NotEnoughMons{
+    "Kate: If you've only got one Pokémon,\n"
+	"we can't battle with you.\p"
+	"That would be bullying."
+}
+script Route8_Trainer2_SRJR2{
+    trainerbattle_double(TRAINER_R8_TR2_SRJR, Route8_Trainer2_SRJR2_Intro, Route8_Trainer2_SRJR2_Defeat, Route8_Trainer2_SRJR2_NotEnoughMons)
+    msgbox(Route8_Trainer2_SRJR_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route8_Trainer2_SRJR2_Intro{
+    "Joy: Together, we're fearless!\n"
+	"We'll demonstrate how tough we are!"
+}
+text Route8_Trainer2_SRJR2_Defeat{
+    "Joy: Please forgive me, Kate!"
+}
+text Route8_Trainer2_SRJR2_PostBattle{
+    "Joy: Ehehe, I'll have to train with Kate,\n"
+	"my senior student partner, again."
+}
+text Route8_Trainer2_SRJR2_NotEnoughMons{
+    "Joy: You need at least two Pokémon\n"
+	"if you're going to challenge us!"
+}
+script Route8_Trainer3_AromaLady{
+    trainerbattle_single(TRAINER_R8_TR3_AROMALADY, Route8_Trainer3_AromaLady_Intro, Route8_Trainer3_AromaLady_Defeat)
+    msgbox(Route8_Trainer3_AromaLady_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route8_Trainer3_AromaLady_Intro{
+    "Oh, aren't you an adorable trainer!\n"
+	"Please, I need a romantic battle!\l"
+	"I'm somewhat decent!"
+}
+text Route8_Trainer3_AromaLady_Defeat{
+    "Oh, how strong you are!\n"
+	"You've given me quite a shock!"
+}
+text Route8_Trainer3_AromaLady_PostBattle{
+    "Are you busy right now?\n"
+	"I was thinking that maybe we can have\l"
+	"a rematch right now…\l"
+	"But it's all right if you're busy."
+}
+script Route8_Trainer4_Youngster{
+    trainerbattle_single(TRAINER_R8_TR4_YOUNGSTER, Route8_Trainer4_Youngster_Intro, Route8_Trainer4_Youngster_Defeat)
+    msgbox(Route8_Trainer4_Youngster_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route8_Trainer4_Youngster_Intro{
+    "I learned all sorts of things at the\n"
+	"Trainer's School.\p"
+	"I want to test things out for real!"
+}
+text Route8_Trainer4_Youngster_Defeat{
+    "I slacked off in school…\n"
+	"That's why I lost."
+}
+text Route8_Trainer4_Youngster_PostBattle{
+    "Maybe I need to go back to school and\n"
+    "redo some of the courses…"
+}
+script Route8_Trainer5_Psychic_F{
+    trainerbattle_single(TRAINER_R8_TR5_PSYCHIC_F, Route8_Trainer5_Psychic_F_Intro, Route8_Trainer5_Psychic_F_Defeat)
+    msgbox(Route8_Trainer5_Psychic_F_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route8_Trainer5_Psychic_F_Intro{
+    "Ahahahaha!\n"
+	"I'll dazzle you with my wonders!"
+}
+text Route8_Trainer5_Psychic_F_Defeat{
+    "I wondrously lost!"
+}
+text Route8_Trainer5_Psychic_F_PostBattle{
+    "You managed to win only because it was\n"
+	"a wonder! Yes, a wonder!\l"
+	"Don't think you can win all the time!"
+}
+script Route8_Trainer6_Camper_M{
+    trainerbattle_single(TRAINER_R8_TR6_CAMPER_M, Route8_Trainer6_Camper_M_Intro, Route8_Trainer6_Camper_M_Defeat)
+    msgbox(Route8_Trainer6_Camper_M_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route8_Trainer6_Camper_M_Intro{
+    "Camping's fun! You can fish, roast\n"
+	"marshmallows, and tell spooky stories!\p"
+	"But the best of all are the Pokémon\n"
+	"battles!"
+}
+text Route8_Trainer6_Camper_M_Defeat{
+    "Way too strong!"
+}
+text Route8_Trainer6_Camper_M_PostBattle{
+    "I think it's great that I can go\n"
+	"camping with my Pokémon."
+}
+script Route8_Trainer7_Triathlete_M{
+    trainerbattle_single(TRAINER_R8_TR7_TRIATHLETE_M, Route8_Trainer7_Triathlete_M_Intro, Route8_Trainer7_Triathlete_M_Defeat)
+    msgbox(Route8_Trainer7_Triathlete_M_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route8_Trainer7_Triathlete_M_Intro{
+    "I'm in the middle of practicing for\n"
+    "a triathlon but sure, I'll battle you!"
+}
+text Route8_Trainer7_Triathlete_M_Defeat{
+    "I ran out of energy!"
+}
+text Route8_Trainer7_Triathlete_M_PostBattle{
+	"I'm clearly not strong enough.\n"
+    "Need to keep practicing!"
+}
+script Route8_Trainer8_Gentleman{
+    trainerbattle_single(TRAINER_R8_TR8_GENTLEMAN, Route8_Trainer8_Gentleman_Intro, Route8_Trainer8_Gentleman_Defeat)
+    msgbox(Route8_Trainer8_Gentleman_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route8_Trainer8_Gentleman_Intro{
+    "Might I interest you in a\n"
+    "Pokémon battle?"
+}
+text Route8_Trainer8_Gentleman_Defeat{
+    "How splendiferous!"
+}
+text Route8_Trainer8_Gentleman_PostBattle{
+    "A fine battle that was!"
+}
+script Route8_Trainer9_Hiker{
+    trainerbattle_single(TRAINER_R8_TR9_HIKER, Route8_Trainer9_Hiker_Intro, Route8_Trainer9_Hiker_Defeat)
+    msgbox(Route8_Trainer9_Hiker_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route8_Trainer9_Hiker_Intro{
+	"We'll rock you hard!"
+}
+text Route8_Trainer9_Hiker_Defeat{
+    "No contest at all!"
+}
+text Route8_Trainer9_Hiker_PostBattle{
+    "I should try different Pokémon\n"
+	"types, that's what I ought to do."
+}	
+script Route8_Trainer10_OldCouple{
+    trainerbattle_double(TRAINER_R8_TR10_OLDCOUPLE, Route8_Trainer10_OldCouple_Intro, Route8_Trainer10_OldCouple_Defeat, Route8_Trainer10_OldCouple_NotEnoughMons)
+    msgbox(Route8_Trainer10_OldCouple_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route8_Trainer10_OldCouple_Intro{
+    "Jay: We've been married for\n"
+	"fifty years.\p"
+	"The bond we share as a couple could\n"
+	"never be broken."
+}
+text Route8_Trainer10_OldCouple_Defeat{
+    "Jay: Oh, dear.\n"
+	"We've lost, my dear husband."
+}
+text Route8_Trainer10_OldCouple_PostBattle{
+    "Jay: Fifty years of marriage…\p"
+	"If we ever argued, we always settled\n"
+	"it with a Pokémon battle…"
+}
+text Route8_Trainer10_OldCouple_NotEnoughMons{
+    "Jay: Well, well, aren't you a young\n"
+	"trainer?\p"
+	"If you'd care to battle with us, you'll\n"
+	"have to come back with more Pokémon."
+}
+script Route8_Trainer10_OldCouple2{
+    trainerbattle_double(TRAINER_R8_TR10_OLDCOUPLE, Route8_Trainer10_OldCouple2_Intro, Route8_Trainer10_OldCouple2_Defeat, Route8_Trainer10_OldCouple2_NotEnoughMons)
+    msgbox(Route8_Trainer10_OldCouple2_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route8_Trainer10_OldCouple2_Intro{
+    "John: We've always battled Pokémon\n"
+	"together as a twosome.\l"
+	"We've confidence in ourselves."
+}
+text Route8_Trainer10_OldCouple2_Defeat{
+    "John: Oh, my.\n"
+	"We've lost, dear wife."
+}
+text Route8_Trainer10_OldCouple2_PostBattle{
+    "John: We've been married for\n"
+	"fifty years.\p"
+	"Come to think of it, I've yet to beat\n"
+	"my dear wife in a battle."
+}
+text Route8_Trainer10_OldCouple2_NotEnoughMons{
+    "John: Well, well, what a young trainer!\p"
+	"Will you battle with us? If so, you'll\n"
+	"have to return with more Pokémon."
+}
+script Route8_Trainer11_BirdKeeper{
+    trainerbattle_single(TRAINER_R8_TR11_BIRDKEEPER, Route8_Trainer11_BirdKeeper_Intro, Route8_Trainer11_BirdKeeper_Defeat)
+    msgbox(Route8_Trainer11_BirdKeeper_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Route8_Trainer11_BirdKeeper_Intro{
+    "It's over for you!\n"
+    "I have the high ground!"
+}
+text Route8_Trainer11_BirdKeeper_Defeat{
+    "I was too confident and wasn't\n"
+    "able to keep level-headed…"
+}
+text Route8_Trainer11_BirdKeeper_PostBattle{
+    "The most important thing in Pokémon\n"
+    "battles is to keep your cool\l"
+    "and think straight.\p"
+    "What I did was rush you head-on\n"
+    "without thinking."
+}
