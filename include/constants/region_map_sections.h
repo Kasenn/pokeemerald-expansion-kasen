@@ -59,7 +59,7 @@
 #define MAPSEC_GRANITE_CAVE                 0x37
 #define MAPSEC_MT_CHIMNEY                   0x38
 #define MAPSEC_SAFARI_ZONE                  0x39
-#define MAPSEC_BATTLE_FRONTIER              0x3A
+// #define MAPSEC_BATTLE_FRONTIER              0x3A
 #define MAPSEC_PETALBURG_WOODS              0x3B
 #define MAPSEC_RUSTURF_TUNNEL               0x3C
 #define MAPSEC_ABANDONED_SHIP               0x3D
@@ -255,6 +255,6 @@
 #define KANTO_MAPSEC_START  MAPSEC_PALLET_TOWN
 #define KANTO_MAPSEC_END    MAPSEC_SPECIAL_AREA
 #define KANTO_MAPSEC_COUNT (KANTO_MAPSEC_END - KANTO_MAPSEC_START + 1)
-#define FLYABLE_MAPSEC_COUNT                19
+#define FLYABLE_MAPSEC_COUNT                6
 
 #endif //GUARD_REGIONMAPSEC_H

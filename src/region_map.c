@@ -110,7 +110,7 @@ static void SetFlyMapCallback(void callback(void));
 static void DrawFlyDestTextWindow(void);
 static void LoadFlyDestIcons(void);
 static void CreateFlyDestIcons(void);
-static void TryCreateRedOutlineFlyDestIcons(void);
+// static void TryCreateRedOutlineFlyDestIcons(void);
 static void SpriteCB_FlyDestIcon(struct Sprite *sprite);
 static void CB_FadeInFlyMap(void);
 static void CB_HandleFlyMapInput(void);
@@ -175,22 +175,8 @@ static const u16 sMarineCaveMapSecIds[] =
 
 static const u16 sFlyableMapSecIds[FLYABLE_MAPSEC_COUNT] =
 {
-    MAPSEC_LITTLEROOT_TOWN,
     MAPSEC_OLDALE_TOWN,
-    MAPSEC_DEWFORD_TOWN,
-    MAPSEC_LAVARIDGE_TOWN,
-    MAPSEC_FALLARBOR_TOWN,
-    MAPSEC_VERDANTURF_TOWN,
-    MAPSEC_PACIFIDLOG_TOWN,
-    MAPSEC_PETALBURG_CITY,
-    MAPSEC_SLATEPORT_CITY,
-    MAPSEC_MAUVILLE_CITY,
     MAPSEC_RUSTBORO_CITY,
-    MAPSEC_FORTREE_CITY,
-    MAPSEC_LILYCOVE_CITY,
-    MAPSEC_MOSSDEEP_CITY,
-    MAPSEC_SOOTOPOLIS_CITY,
-    MAPSEC_EVER_GRANDE_CITY,
     MAPSEC_PEARLWOOD_POINT,
     MAPSEC_TOWN_WIP1,
     MAPSEC_CITY_WIP1
@@ -198,22 +184,8 @@ static const u16 sFlyableMapSecIds[FLYABLE_MAPSEC_COUNT] =
 
 static const u16 sFlyableMapFlags[FLYABLE_MAPSEC_COUNT] =
 {
-    FLAG_VISITED_LITTLEROOT_TOWN,
     FLAG_VISITED_OLDALE_TOWN,
-    FLAG_VISITED_DEWFORD_TOWN,
-    FLAG_VISITED_LAVARIDGE_TOWN,
-    FLAG_VISITED_FALLARBOR_TOWN,
-    FLAG_VISITED_VERDANTURF_TOWN,
-    FLAG_VISITED_PACIFIDLOG_TOWN,
-    FLAG_VISITED_PETALBURG_CITY,
-    FLAG_VISITED_SLATEPORT_CITY,
-    FLAG_VISITED_MAUVILLE_CITY,
     FLAG_VISITED_RUSTBORO_CITY,
-    FLAG_VISITED_FORTREE_CITY,
-    FLAG_VISITED_LILYCOVE_CITY,
-    FLAG_VISITED_MOSSDEEP_CITY,
-    FLAG_VISITED_SOOTOPOLIS_CITY,
-    FLAG_VISITED_EVER_GRANDE_CITY,
     FLAG_VISITED_PEARLWOOD_POINT,
     FLAG_VISITED_AZURETIDE,
     FLAG_VISITED_WIP_CITY1
@@ -475,17 +447,17 @@ static const struct SpritePalette sFlyTargetIconsSpritePalette =
     .tag = TAG_FLY_ICON
 };
 
-static const u16 sRedOutlineFlyDestinations[][2] =
-{
-    {
-        FLAG_LANDMARK_BATTLE_FRONTIER,
-        MAPSEC_BATTLE_FRONTIER
-    },
-    {
-        -1,
-        MAPSEC_NONE
-    }
-};
+// static const u16 sRedOutlineFlyDestinations[][2] =
+// {
+//     {
+//         FLAG_LANDMARK_BATTLE_FRONTIER,
+//         MAPSEC_BATTLE_FRONTIER
+//     },
+//     {
+//         -1,
+//         MAPSEC_NONE
+//     }
+// };
 
 static const struct OamData sFlyDestIcon_OamData =
 {
@@ -1264,8 +1236,8 @@ static u8 GetMapsecType(u16 mapSecId)
         return FlagGet(FLAG_VISITED_SOOTOPOLIS_CITY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_EVER_GRANDE_CITY:
         return FlagGet(FLAG_VISITED_EVER_GRANDE_CITY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_BATTLE_FRONTIER:
-        return FlagGet(FLAG_LANDMARK_BATTLE_FRONTIER) ? MAPSECTYPE_BATTLE_FRONTIER : MAPSECTYPE_NONE;
+    // case MAPSEC_BATTLE_FRONTIER:
+    //     return FlagGet(FLAG_LANDMARK_BATTLE_FRONTIER) ? MAPSECTYPE_BATTLE_FRONTIER : MAPSECTYPE_NONE;
     case MAPSEC_SOUTHERN_ISLAND:
         return FlagGet(FLAG_LANDMARK_SOUTHERN_ISLAND) ? MAPSECTYPE_ROUTE : MAPSECTYPE_NONE;
     case MAPSEC_PEARLWOOD_POINT:
@@ -1891,7 +1863,7 @@ static void LoadFlyDestIcons(void)
     LoadSpriteSheet(&sheet);
     LoadSpritePalette(&sFlyTargetIconsSpritePalette);
     CreateFlyDestIcons();
-    TryCreateRedOutlineFlyDestIcons();
+    // TryCreateRedOutlineFlyDestIcons();
 }
 
 // Sprite data for SpriteCB_FlyDestIcon
@@ -1942,35 +1914,35 @@ static void CreateFlyDestIcons(void)
 
 // Draw a red outline box on the mapsec if its corresponding flag has been set
 // Only used for Battle Frontier, but set up to handle more
-static void TryCreateRedOutlineFlyDestIcons(void)
-{
-    u16 i;
-    u16 x;
-    u16 y;
-    u16 width;
-    u16 height;
-    u16 mapSecId;
-    u8 spriteId;
+// static void TryCreateRedOutlineFlyDestIcons(void)
+// {
+//     u16 i;
+//     u16 x;
+//     u16 y;
+//     u16 width;
+//     u16 height;
+//     u16 mapSecId;
+//     u8 spriteId;
 
-    for (i = 0; sRedOutlineFlyDestinations[i][1] != MAPSEC_NONE; i++)
-    {
-        if (FlagGet(sRedOutlineFlyDestinations[i][0]))
-        {
-            mapSecId = sRedOutlineFlyDestinations[i][1];
-            GetMapSecDimensions(mapSecId, &x, &y, &width, &height);
-            x = (x + MAPCURSOR_X_MIN) * 8;
-            y = (y + MAPCURSOR_Y_MIN) * 8;
-            spriteId = CreateSprite(&sFlyDestIconSpriteTemplate, x, y, 10);
-            if (spriteId != MAX_SPRITES)
-            {
-                gSprites[spriteId].oam.size = SPRITE_SIZE(16x16);
-                gSprites[spriteId].callback = SpriteCB_FlyDestIcon;
-                StartSpriteAnim(&gSprites[spriteId], FLYDESTICON_RED_OUTLINE);
-                gSprites[spriteId].sIconMapSec = mapSecId;
-            }
-        }
-    }
-}
+//     for (i = 0; sRedOutlineFlyDestinations[i][1] != MAPSEC_NONE; i++)
+//     {
+//         if (FlagGet(sRedOutlineFlyDestinations[i][0]))
+//         {
+//             mapSecId = sRedOutlineFlyDestinations[i][1];
+//             GetMapSecDimensions(mapSecId, &x, &y, &width, &height);
+//             x = (x + MAPCURSOR_X_MIN) * 8;
+//             y = (y + MAPCURSOR_Y_MIN) * 8;
+//             spriteId = CreateSprite(&sFlyDestIconSpriteTemplate, x, y, 10);
+//             if (spriteId != MAX_SPRITES)
+//             {
+//                 gSprites[spriteId].oam.size = SPRITE_SIZE(16x16);
+//                 gSprites[spriteId].callback = SpriteCB_FlyDestIcon;
+//                 StartSpriteAnim(&gSprites[spriteId], FLYDESTICON_RED_OUTLINE);
+//                 gSprites[spriteId].sIconMapSec = mapSecId;
+//             }
+//         }
+//     }
+// }
 
 // Flickers fly destination icon color (by hiding the fly icon sprite) if the cursor is currently on it
 static void SpriteCB_FlyDestIcon(struct Sprite *sprite)
@@ -2059,9 +2031,9 @@ static void CB_ExitFlyMap(void)
                 case MAPSEC_SOUTHERN_ISLAND:
                     SetWarpDestinationToHealLocation(HEAL_LOCATION_SOUTHERN_ISLAND_EXTERIOR);
                     break;
-                case MAPSEC_BATTLE_FRONTIER:
-                    SetWarpDestinationToHealLocation(HEAL_LOCATION_BATTLE_FRONTIER_OUTSIDE_EAST);
-                    break;
+                // case MAPSEC_BATTLE_FRONTIER:
+                //     SetWarpDestinationToHealLocation(HEAL_LOCATION_BATTLE_FRONTIER_OUTSIDE_EAST);
+                //     break;
                 case MAPSEC_LITTLEROOT_TOWN:
                     SetWarpDestinationToHealLocation(gSaveBlock2Ptr->playerGender == MALE ? HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE : HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE);
                     break;
