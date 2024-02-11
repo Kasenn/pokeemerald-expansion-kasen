@@ -92,11 +92,19 @@ Debug_Script_2::
 	end
 
 Debug_Script_3::
-	fadeoutbgm 1
-	delay 180
-	fadeinbgm 1
-	fadenewbgm MUS_VS_IRIS
+	goto_if_set FLAG_LANDMARK_FLOWER_SHOP, LittlerootTown_RivalHouseSign_1
+	message LittlerootTown_RivalHouseSign_Text_1
 	end
+
+LittlerootTown_RivalHouseSign_1:
+	message LittlerootTown_RivalHouseSign_Text_0
+	return
+
+LittlerootTown_RivalHouseSign_Text_0:
+	.string "true$"
+
+LittlerootTown_RivalHouseSign_Text_1:
+	.string "false$"
 
 Debug_Script_4::
 	setmonmetlocation 0, MAP_ROUTE3

@@ -85,10 +85,10 @@ script ROUTE7_GrottoPokemon{
         playmoncry(SPECIES_DITTO, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
-        setwildbattlelevelrange(SPECIES_NOSEPASS, 25, ITEM_NONE, SPECIES_NONE, 30)
+        setwildbattlelevelrange(SPECIES_DITTO, 25, ITEM_NONE, SPECIES_NONE, 30)
     }
     if((var(VAR_ROUTE7_GROTTO) >= 64) && (var(VAR_ROUTE7_GROTTO) <= 75)){
-        playmoncry(SPECIES_DITTO, CRY_MODE_ENCOUNTER)
+        playmoncry(SPECIES_SABLEYE, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
         setwildbattlelevelrange(SPECIES_SABLEYE, 25, ITEM_NONE, SPECIES_NONE, 30)

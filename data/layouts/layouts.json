@@ -4484,7 +4484,7 @@
     {
       "id": "LAYOUT_WINDY_WOODS",
       "name": "WindyWoods_Layout",
-      "width": 108,
+      "width": 68,
       "height": 54,
       "primary_tileset": "gTileset_DarkForest",
       "secondary_tileset": "gTileset_DarkForestSec",
@@ -4825,7 +4825,7 @@
       "id": "LAYOUT_ROUTE28",
       "name": "Route28_Layout",
       "width": 54,
-      "height": 87,
+      "height": 79,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Fortree",
       "border_filepath": "data/layouts/Route28/border.bin",
@@ -4856,7 +4856,7 @@
       "name": "Route6_Layout",
       "width": 65,
       "height": 35,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_General2",
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Route6/border.bin",
       "blockdata_filepath": "data/layouts/Route6/map.bin"
@@ -4866,7 +4866,7 @@
       "name": "Route7_Layout",
       "width": 80,
       "height": 62,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_General2",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/Route7/border.bin",
       "blockdata_filepath": "data/layouts/Route7/map.bin"
@@ -5100,6 +5100,196 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/TestRoom/border.bin",
       "blockdata_filepath": "data/layouts/TestRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE28TUNNEL_HOUSE",
+      "name": "Route28TunnelHouse_Layout",
+      "width": 9,
+      "height": 22,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/Route28TunnelHouse/border.bin",
+      "blockdata_filepath": "data/layouts/Route28TunnelHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_MAP1",
+      "name": "WeirdCave_Layout",
+      "width": 15,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/WeirdCave/border.bin",
+      "blockdata_filepath": "data/layouts/WeirdCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_WEIRD_CAVE_PT2",
+      "name": "WeirdCavePt2_Layout",
+      "width": 31,
+      "height": 42,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/WeirdCavePt2/border.bin",
+      "blockdata_filepath": "data/layouts/WeirdCavePt2/map.bin"
+    },
+    {
+      "id": "LAYOUT_SKYLOCH_HOUSE1",
+      "name": "SkylochHouse1_Layout",
+      "width": 8,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SkylochHouse1/border.bin",
+      "blockdata_filepath": "data/layouts/SkylochHouse1/map.bin"
+    },
+    {
+      "id": "LAYOUT_SKYLOCH_HOUSE2",
+      "name": "SkylochHouse2_Layout",
+      "width": 12,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SkylochHouse2/border.bin",
+      "blockdata_filepath": "data/layouts/SkylochHouse2/map.bin"
+    },
+    {
+      "id": "LAYOUT_SKYLOCH_HOUSE3",
+      "name": "SkylochHouse3_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SkylochHouse3/border.bin",
+      "blockdata_filepath": "data/layouts/SkylochHouse3/map.bin"
+    },
+    {
+      "id": "LAYOUT_SKYLOCH_HOUSE4",
+      "name": "SkylochHouse4_Layout",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/SkylochHouse4/border.bin",
+      "blockdata_filepath": "data/layouts/SkylochHouse4/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE7_GROTTO",
+      "name": "Route7_Grotto_Layout",
+      "width": 13,
+      "height": 23,
+      "primary_tileset": "gTileset_SecretBase",
+      "secondary_tileset": "gTileset_SecretBaseShrub",
+      "border_filepath": "data/layouts/Route7_Grotto/border.bin",
+      "blockdata_filepath": "data/layouts/Route7_Grotto/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHORESLATE_POKECENTER_1F",
+      "name": "Shoreslate_Pokecenter_1F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Shoreslate_Pokecenter_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Shoreslate_Pokecenter_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHORESLATE_POKECENTER_2F",
+      "name": "Shoreslate_Pokecenter_2F_Layout",
+      "width": 13,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Shoreslate_Pokecenter_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Shoreslate_Pokecenter_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHORESLATE_MART",
+      "name": "Shoreslate_Mart_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/Shoreslate_Mart/border.bin",
+      "blockdata_filepath": "data/layouts/Shoreslate_Mart/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHORESLATE_BP_SHOP",
+      "name": "Shoreslate_BP_Shop_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/Shoreslate_BP_Shop/border.bin",
+      "blockdata_filepath": "data/layouts/Shoreslate_BP_Shop/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHORESLATE_HARBOR",
+      "name": "Shoreslate_Harbor_Layout",
+      "width": 24,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Shoreslate_Harbor/border.bin",
+      "blockdata_filepath": "data/layouts/Shoreslate_Harbor/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHORESLATE_BIKE_SHOP",
+      "name": "Shoreslate_BikeShop_Layout",
+      "width": 12,
+      "height": 9,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BikeShop",
+      "border_filepath": "data/layouts/Shoreslate_BikeShop/border.bin",
+      "blockdata_filepath": "data/layouts/Shoreslate_BikeShop/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHORESLATE_HOUSE1",
+      "name": "Shoreslate_House1_Layout",
+      "width": 13,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Shoreslate_House1/border.bin",
+      "blockdata_filepath": "data/layouts/Shoreslate_House1/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHORESLATE_HOUSE2",
+      "name": "Shoreslate_House2_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Shoreslate_House2/border.bin",
+      "blockdata_filepath": "data/layouts/Shoreslate_House2/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHORESLATE_HOUSE3_1F",
+      "name": "Shoreslate_House3_1F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Shoreslate_House3_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Shoreslate_House3_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHORESLATE_HOUSE3_2F",
+      "name": "Shoreslate_House3_2F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Shoreslate_House3_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Shoreslate_House3_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHORESLATE_HOUSE3_3F",
+      "name": "Shoreslate_House3_3F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Shoreslate_House3_3F/border.bin",
+      "blockdata_filepath": "data/layouts/Shoreslate_House3_3F/map.bin"
     }
   ]
 }

@@ -7,6 +7,8 @@
     "gMapGroup_IndoorCoralgroveCity",
     "gMapGroup_IndoorAzuretideTown",
     "gMapGroup_IndoorAldeleafCity",
+    "gMapGroup_IndoorSkylochVillage",
+    "gMapGroup_IndoorShoreslateCity",
     "gMapGroup_IndoorLittleroot",
     "gMapGroup_IndoorOldale",
     "gMapGroup_IndoorDewford",
@@ -60,7 +62,11 @@
     "Desert",
     "WipTown3",
     "RanchBarn",
-    "RanchHouse"
+    "RanchHouse",
+    "Route28TunnelHouse",
+    "WeirdCave",
+    "WeirdCavePt2",
+    "Route7_Grotto"
   ],
   "gMapGroup_TownsAndCities": [
     "PearlwoodPoint",
@@ -135,6 +141,28 @@
     "AldeleafGym",
     "LilycoveCity_LilycoveMuseum_1F",
     "LilycoveCity_LilycoveMuseum_2F"
+  ],
+  "gMapGroup_IndoorSkylochVillage": [
+    "SkylochHouse1",
+    "SkylochHouse2",
+    "SkylochHouse3",
+    "SkylochHouse4"
+  ],
+  "gMapGroup_IndoorShoreslateCity": [
+    "Shoreslate_Pokecenter_1F",
+    "Shoreslate_Pokecenter_2F",
+    "Shoreslate_Mart",
+    "Shoreslate_BP_Shop",
+    "Shoreslate_Harbor",
+    "Shoreslate_BikeShop",
+    "Shoreslate_House1",
+    "Shoreslate_House2",
+    "Shoreslate_House3_1F",
+    "Shoreslate_House3_2F",
+    "Shoreslate_House3_3F",
+    "RustboroCity_DevonCorp_1F",
+    "RustboroCity_DevonCorp_2F",
+    "RustboroCity_DevonCorp_3F"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -228,9 +256,6 @@
     "MauvilleCity_Mart"
   ],
   "gMapGroup_IndoorRustboro": [
-    "RustboroCity_DevonCorp_1F",
-    "RustboroCity_DevonCorp_2F",
-    "RustboroCity_DevonCorp_3F",
     "RustboroCity_Gym",
     "RustboroCity_PokemonSchool",
     "RustboroCity_Flat1_1F",

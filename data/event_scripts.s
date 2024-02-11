@@ -1197,3 +1197,41 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/AldeleafBigHouse3_3F/scripts.inc"
 
 	.include "data/maps/TestRoom/scripts.inc"
+
+	.include "data/maps/Route28TunnelHouse/scripts.inc"
+
+	.include "data/maps/WeirdCave/scripts.inc"
+
+	.include "data/maps/WeirdCavePt2/scripts.inc"
+
+	.include "data/maps/SkylochHouse1/scripts.inc"
+
+	.include "data/maps/SkylochHouse2/scripts.inc"
+
+	.include "data/maps/SkylochHouse3/scripts.inc"
+
+	.include "data/maps/SkylochHouse4/scripts.inc"
+
+	.include "data/maps/Route7_Grotto/scripts.inc"
+
+	.include "data/maps/Shoreslate_Pokecenter_1F/scripts.inc"
+
+	.include "data/maps/Shoreslate_Pokecenter_2F/scripts.inc"
+
+	.include "data/maps/Shoreslate_Mart/scripts.inc"
+
+	.include "data/maps/Shoreslate_BP_Shop/scripts.inc"
+
+	.include "data/maps/Shoreslate_Harbor/scripts.inc"
+
+	.include "data/maps/Shoreslate_BikeShop/scripts.inc"
+
+	.include "data/maps/Shoreslate_House1/scripts.inc"
+
+	.include "data/maps/Shoreslate_House2/scripts.inc"
+
+	.include "data/maps/Shoreslate_House3_1F/scripts.inc"
+
+	.include "data/maps/Shoreslate_House3_2F/scripts.inc"
+
+	.include "data/maps/Shoreslate_House3_3F/scripts.inc"

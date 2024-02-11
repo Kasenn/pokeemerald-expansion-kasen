@@ -222,7 +222,7 @@ ROUTE7_GrottoPokemon_7:
 	playmoncry SPECIES_DITTO, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattlelevelrange SPECIES_NOSEPASS, 25, ITEM_NONE, SPECIES_NONE, 30
+	setwildbattlelevelrange SPECIES_DITTO, 25, ITEM_NONE, SPECIES_NONE, 30
 	goto ROUTE7_GrottoPokemon_6
 
 ROUTE7_GrottoPokemon_8:
@@ -231,7 +231,7 @@ ROUTE7_GrottoPokemon_8:
 	goto ROUTE7_GrottoPokemon_6
 
 ROUTE7_GrottoPokemon_12:
-	playmoncry SPECIES_DITTO, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_SABLEYE, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
 	setwildbattlelevelrange SPECIES_SABLEYE, 25, ITEM_NONE, SPECIES_NONE, 30

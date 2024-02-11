@@ -3,13 +3,13 @@
   "name": "RustboroCity_DevonCorp_1F",
   "layout": "LAYOUT_RUSTBORO_CITY_DEVON_CORP_1F",
   "music": "MUS_RUSTBORO",
-  "region_map_section": "MAPSEC_RUSTBORO_CITY",
+  "region_map_section": "MAPSEC_SHORESLATE_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
-  "allow_running": false,
+  "allow_running": true,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
@@ -59,15 +59,15 @@
       "x": 5,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_CORALGROVE_CITY",
+      "dest_map": "MAP_SHORESLATE_CITY",
       "dest_warp_id": "4"
     },
     {
       "x": 6,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_CORALGROVE_CITY",
-      "dest_warp_id": "4"
+      "dest_map": "MAP_SHORESLATE_CITY",
+      "dest_warp_id": "5"
     },
     {
       "x": 14,
