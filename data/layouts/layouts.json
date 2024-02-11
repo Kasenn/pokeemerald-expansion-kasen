@@ -5180,6 +5180,116 @@
       "secondary_tileset": "gTileset_SecretBaseShrub",
       "border_filepath": "data/layouts/Route7_Grotto/border.bin",
       "blockdata_filepath": "data/layouts/Route7_Grotto/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHORESLATE_POKECENTER_1F",
+      "name": "Shoreslate_Pokecenter_1F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Shoreslate_Pokecenter_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Shoreslate_Pokecenter_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHORESLATE_POKECENTER_2F",
+      "name": "Shoreslate_Pokecenter_2F_Layout",
+      "width": 13,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Shoreslate_Pokecenter_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Shoreslate_Pokecenter_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHORESLATE_MART",
+      "name": "Shoreslate_Mart_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/Shoreslate_Mart/border.bin",
+      "blockdata_filepath": "data/layouts/Shoreslate_Mart/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHORESLATE_BP_SHOP",
+      "name": "Shoreslate_BP_Shop_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/Shoreslate_BP_Shop/border.bin",
+      "blockdata_filepath": "data/layouts/Shoreslate_BP_Shop/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHORESLATE_HARBOR",
+      "name": "Shoreslate_Harbor_Layout",
+      "width": 24,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Shoreslate_Harbor/border.bin",
+      "blockdata_filepath": "data/layouts/Shoreslate_Harbor/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHORESLATE_BIKE_SHOP",
+      "name": "Shoreslate_BikeShop_Layout",
+      "width": 12,
+      "height": 9,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BikeShop",
+      "border_filepath": "data/layouts/Shoreslate_BikeShop/border.bin",
+      "blockdata_filepath": "data/layouts/Shoreslate_BikeShop/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHORESLATE_HOUSE1",
+      "name": "Shoreslate_House1_Layout",
+      "width": 13,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Shoreslate_House1/border.bin",
+      "blockdata_filepath": "data/layouts/Shoreslate_House1/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHORESLATE_HOUSE2",
+      "name": "Shoreslate_House2_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Shoreslate_House2/border.bin",
+      "blockdata_filepath": "data/layouts/Shoreslate_House2/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHORESLATE_HOUSE3_1F",
+      "name": "Shoreslate_House3_1F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Shoreslate_House3_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Shoreslate_House3_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHORESLATE_HOUSE3_2F",
+      "name": "Shoreslate_House3_2F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Shoreslate_House3_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Shoreslate_House3_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHORESLATE_HOUSE3_3F",
+      "name": "Shoreslate_House3_3F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Shoreslate_House3_3F/border.bin",
+      "blockdata_filepath": "data/layouts/Shoreslate_House3_3F/map.bin"
     }
   ]
 }

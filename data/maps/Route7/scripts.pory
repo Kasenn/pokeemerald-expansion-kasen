@@ -92,7 +92,7 @@ script Route8_Sign{
     end
 }
 text Route8_Sign_Text{
-    "{LEFT_ARROW} Pretty Petal Flower Shop\n"
+    "{LEFT_ARROW} Pretty Petal flower shop\n"
     "{DOWN_ARROW} Shoreslate City"
 }
 script Route8_Ball1{

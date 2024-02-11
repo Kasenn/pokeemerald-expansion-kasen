@@ -194,7 +194,7 @@ Route8_ThanksForTrade::
 	.string "if you'd like to trade more!$"
 
 Route8_Sign_Text::
-	.string "{LEFT_ARROW} Pretty Petal Flower Shop\n"
+	.string "{LEFT_ARROW} Pretty Petal flower shop\n"
 	.string "{DOWN_ARROW} Shoreslate City$"
 
 Route8_Trainer1_ParasolLady_Intro::

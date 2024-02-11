@@ -1213,3 +1213,25 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/SkylochHouse4/scripts.inc"
 
 	.include "data/maps/Route7_Grotto/scripts.inc"
+
+	.include "data/maps/Shoreslate_Pokecenter_1F/scripts.inc"
+
+	.include "data/maps/Shoreslate_Pokecenter_2F/scripts.inc"
+
+	.include "data/maps/Shoreslate_Mart/scripts.inc"
+
+	.include "data/maps/Shoreslate_BP_Shop/scripts.inc"
+
+	.include "data/maps/Shoreslate_Harbor/scripts.inc"
+
+	.include "data/maps/Shoreslate_BikeShop/scripts.inc"
+
+	.include "data/maps/Shoreslate_House1/scripts.inc"
+
+	.include "data/maps/Shoreslate_House2/scripts.inc"
+
+	.include "data/maps/Shoreslate_House3_1F/scripts.inc"
+
+	.include "data/maps/Shoreslate_House3_2F/scripts.inc"
+
+	.include "data/maps/Shoreslate_House3_3F/scripts.inc"

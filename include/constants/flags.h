@@ -697,7 +697,7 @@
 #define FLAG_WPV_IRON_BALL                  0x28E // End of Windplume Valley items
 #define FLAG_LANDMARK_POKE_RANCH  0x28F // Unused Flag
 #define FLAG_LANDMARK_WINDPLUME_VALLEY  0x290 // Unused Flag
-#define FLAG_UNUSED_0x291  0x291 // Unused Flag
+#define FLAG_VISITED_SHORESLATE  0x291 // Unused Flag
 #define FLAG_UNUSED_0x292  0x292 // Unused Flag
 #define FLAG_UNUSED_0x293  0x293 // Unused Flag
 #define FLAG_UNUSED_0x294  0x294 // Unused Flag
