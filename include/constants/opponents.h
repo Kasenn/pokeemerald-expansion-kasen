@@ -142,7 +142,7 @@
 #define TRAINER_R8_TR9_HIKER                      138
 #define TRAINER_R8_TR10_OLDCOUPLE                   139
 #define TRAINER_R8_TR11_BIRDKEEPER                   140
-#define TRAINER_WINSTON_4                   141
+#define TRAINER_SHORESLATE_NURSE                   141
 #define TRAINER_WINSTON_5                   142
 #define TRAINER_STEVE_1                     143
 #define TRAINER_THALIA_1                    144

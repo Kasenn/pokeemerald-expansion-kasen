@@ -199,6 +199,37 @@ IvTrainingIntro::
 	end
 
 
+LevelTrainingShoreslate::
+	lockall
+	setvar VAR_0x8008, 2
+	specialvar VAR_TEMP_1, GetFrontierBattlePoints
+	goto_if_ge VAR_TEMP_1, VAR_0x8008, LevelTrainingShoreslate_Setup
+	msgbox IVTraining_HaventGotEnoughPoints, MSGBOX_DEFAULT
+	waitmessage
+	closemessage
+	release
+	end
+
+
+LevelTrainingShoreslate_Setup::
+	lockall
+	special ShowBattlePointsWindow
+	msgbox LevelTrainingShoreslate_Setup_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq LevelTrainingShoreslate_Setup_1
+	closemessage
+	special CloseBattlePointsWindow
+	release
+	end
+
+LevelTrainingShoreslate_Setup_1:
+	special CloseBattlePointsWindow
+	copyvar VAR_0x8004, VAR_0x8008
+	special TakeFrontierBattlePoints
+	trainerbattle_no_intro TRAINER_SHORESLATE_NURSE, IVTrainingDone
+	return
+
+
 IvTraining_2_Text_0:
 	.string "This is the EV Training Service.\nEach round of training costs\l2 Battle Points.$"
 
@@ -216,6 +247,9 @@ LevelTrainingAldeleaf_Setup_Text_0:
 
 IvTrainingIntro_Text_0:
 	.string "Hello, and welcome to the\nPokémon Center PokéTraining Hub.\pHere trainers may train their Pokémon\nby battling in a controlled environment.\pThe first person to my right offers\nEV training.\pShe has 5 Pokémon, with each\ngranting 10 EV in the specified stat.\pThe next person offers level training,\nemploying a team of simple Blisseys.\pI must also inform you that we may\ncharge for this service in the future.\pWith that out of the way,\nI hope you find our services useful.$"
+
+LevelTrainingShoreslate_Setup_Text_0:
+	.string "This is the Level Training Service.\nEach use of the service\lcosts 2 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 24.$"
 
 IVTraining_HaventGotEnoughPoints::
 	.string "This service costs\n"

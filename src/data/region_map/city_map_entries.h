@@ -6,11 +6,6 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
         .tilemap = gPokenavCityMap_Littleroot_0,
     },
     {
-        .mapSecId = MAPSEC_OLDALE_TOWN,
-        .index = 0,
-        .tilemap = gPokenavCityMap_Oldale_0,
-    },
-    {
         .mapSecId = MAPSEC_DEWFORD_TOWN,
         .index = 0,
         .tilemap = gPokenavCityMap_Dewford_0,
@@ -61,16 +56,6 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
         .tilemap = gPokenavCityMap_Mauville_1,
     },
     {
-        .mapSecId = MAPSEC_RUSTBORO_CITY,
-        .index = 0,
-        .tilemap = gPokenavCityMap_Rustboro_0,
-    },
-    {
-        .mapSecId = MAPSEC_RUSTBORO_CITY,
-        .index = 1,
-        .tilemap = gPokenavCityMap_Rustboro_1,
-    },
-    {
         .mapSecId = MAPSEC_FORTREE_CITY,
         .index = 0,
         .tilemap = gPokenavCityMap_Fortree_0,
@@ -114,5 +99,45 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
         .mapSecId = MAPSEC_PEARLWOOD_POINT,
         .index = 0,
         .tilemap = gPokenavCityMap_Pearlwood_0,
+    },
+    {
+        .mapSecId = MAPSEC_OLDALE_TOWN,
+        .index = 0,
+        .tilemap = gPokenavCityMap_Primrose_0,
+    },
+    {
+        .mapSecId = MAPSEC_RUSTBORO_CITY,
+        .index = 0,
+        .tilemap = gPokenavCityMap_Coralgrove_0,
+    },
+    {
+        .mapSecId = MAPSEC_TOWN_WIP1,
+        .index = 0,
+        .tilemap = gPokenavCityMap_Azuretide_0,
+    },
+    {
+        .mapSecId = MAPSEC_CITY_WIP1,
+        .index = 0,
+        .tilemap = gPokenavCityMap_Aldeleaf_1,
+    },
+    {
+        .mapSecId = MAPSEC_CITY_WIP1,
+        .index = 1,
+        .tilemap = gPokenavCityMap_Aldeleaf_0,
+    },
+    {
+        .mapSecId = MAPSEC_TOWN_WIP2,
+        .index = 0,
+        .tilemap = gPokenavCityMap_Skyloch_0,
+    },
+    {
+        .mapSecId = MAPSEC_SHORESLATE_CITY,
+        .index = 0,
+        .tilemap = gPokenavCityMap_Shoreslate_1,
+    },
+    {
+        .mapSecId = MAPSEC_SHORESLATE_CITY,
+        .index = 1,
+        .tilemap = gPokenavCityMap_Shoreslate_0,
     },
 };

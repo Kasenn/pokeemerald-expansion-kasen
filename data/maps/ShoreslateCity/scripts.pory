@@ -1,0 +1,7 @@
+mapscripts ShoreslateCity_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: VisitedShoreslate
+}
+script VisitedShoreslate{
+    setflag(FLAG_VISITED_SHORESLATE)
+    end
+}
