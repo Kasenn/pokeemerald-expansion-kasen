@@ -1,0 +1,60 @@
+mapscripts Shoreslate_Pokecenter_1F_MapScripts{
+	MAP_SCRIPT_ON_TRANSITION: ShoreslatePokeCenter1F_OnTransition
+	MAP_SCRIPT_ON_RESUME: CableClub_OnResume
+}
+
+script ShoreslatePokeCenter1F_OnTransition{
+	setrespawn(HEAL_LOCATION_SHORESLATE_CITY)
+	call(Common_EventScript_UpdateBrineyLocation)
+	end
+}
+
+script ShoreslatePokeCenter1F_EventScript_Nurse{
+	setvar(VAR_0x800B, LOCALID_NURSE)
+	call(Common_EventScript_PkmnCenterNurse)
+	waitmessage
+	waitbuttonpress
+	release
+	end
+}
+
+script ShoreslatePokeCenter1F_OldWoman{
+	msgbox(ShoreslatePokeCenter1F_OldWoman_Text, MSGBOX_NPC)
+	end
+}
+script ShoreslatePokeCenter1F_Boy{
+	msgbox(ShoreslatePokeCenter1F_Boy_Text, MSGBOX_NPC)
+	end
+}
+script ShoreslatePokeCenter1F_LittleGirl{
+	msgbox(ShoreslatePokeCenter1F_LittleGirl_Text, MSGBOX_NPC)
+	end
+}
+
+text ShoreslatePokeCenter1F_OldWoman_Text{
+	"Have you heard of the Devon\n"
+    "Corporation?\p"
+    "They create a lot of products that many\n"
+    "Pokémon trainers use on a daily basis,\l"
+    "like Poké Balls and medicines.\p"
+    "If you'd like to know more, you can\n"
+    "actually visit their offices right here\l"
+    "in Shoreslate, just west of the\l"
+    "Pokémon Center!"
+}
+text ShoreslatePokeCenter1F_Boy_Text{
+	"Have you been to the upstairs to\n"
+    "check the training area?\p"
+    "My Pokémon grew stronger training here\n"
+    "than they did when I visited Aldeleaf!"
+}
+text ShoreslatePokeCenter1F_LittleGirl_Text{
+	"According to this book, on rare\n"
+    "occasions, a Pokémon can be born with\l"
+    "atypical coloration.\l"
+    "These types of Pokémon are commonly\l"
+    "known as “shiny” Pokémon.\p"
+    "The book also has a mention of Sinko\n"
+    "having an unusually large amount of\l"
+    "these atypical colorations."
+}

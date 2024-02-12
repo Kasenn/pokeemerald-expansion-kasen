@@ -1692,16 +1692,16 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_R8Tr11_BirdKeeper),
     },
 
-    [TRAINER_WINSTON_4] =
+    [TRAINER_SHORESLATE_NURSE] =
     {
-        .trainerClass = TRAINER_CLASS_RICH_BOY,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_RICH,
-        .trainerPic = TRAINER_PIC_RICH_BOY,
-        .trainerName = _("WINSTON"),
-        .items = {ITEM_FULL_RESTORE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .trainerClass = TRAINER_CLASS_NURSE,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+        .trainerPic = TRAINER_PIC_AROMA_LADY,
+        .trainerName = _("Mary"),
+        .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Winston4),
+        .aiFlags = AI_FLAG_ACE_POKEMON | AI_FLAG_WILL_SUICIDE | AI_FLAG_PREFER_STATUS_MOVES,
+        .party = TRAINER_PARTY(sParty_Shoreslate_Nurse),
     },
 
     [TRAINER_WINSTON_5] =

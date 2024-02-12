@@ -2584,11 +2584,42 @@ static const struct TrainerMon sParty_R8Tr11_BirdKeeper[] = {
     }
 };
 
-static const struct TrainerMon sParty_Winston4[] = {
+static const struct TrainerMon sParty_Shoreslate_Nurse[] = {
     {
-    .lvl = 33,
-    .species = SPECIES_LINOONE,
-    .heldItem = ITEM_NUGGET
+    .lvl = 24,
+    .species = SPECIES_BLISSEY,
+    .heldItem = ITEM_TOXIC_ORB,
+    .moves = {MOVE_HEALING_WISH}
+    },
+    {
+    .lvl = 24,
+    .species = SPECIES_BLISSEY,
+    .heldItem = ITEM_TOXIC_ORB,
+    .moves = {MOVE_HEALING_WISH}
+    },
+    {
+    .lvl = 24,
+    .species = SPECIES_BLISSEY,
+    .heldItem = ITEM_TOXIC_ORB,
+    .moves = {MOVE_HEALING_WISH}
+    },
+    {
+    .lvl = 24,
+    .species = SPECIES_BLISSEY,
+    .heldItem = ITEM_TOXIC_ORB,
+    .moves = {MOVE_HEALING_WISH}
+    },
+    {
+    .lvl = 24,
+    .species = SPECIES_BLISSEY,
+    .heldItem = ITEM_TOXIC_ORB,
+    .moves = {MOVE_HEALING_WISH}
+    },
+    {
+    .lvl = 24,
+    .species = SPECIES_BLISSEY,
+    .heldItem = ITEM_TOXIC_ORB,
+    .moves = {MOVE_STRUGGLE}
     }
 };
 

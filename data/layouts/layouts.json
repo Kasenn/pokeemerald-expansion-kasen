@@ -5204,7 +5204,7 @@
     {
       "id": "LAYOUT_SHORESLATE_MART",
       "name": "Shoreslate_Mart_Layout",
-      "width": 11,
+      "width": 25,
       "height": 8,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_Shop",

@@ -1,0 +1,167 @@
+mapscripts Shoreslate_Mart_MapScripts{}
+
+script Shoreslate_Mart_Secret{
+    lockall
+    msgbox(Shoreslate_Mart_Secret_Text_Beginning, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == TRUE){
+        msgbox(Shoreslate_Mart_Secret_Text, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == FALSE){
+            release
+            end
+        }
+        if(var(VAR_RESULT) == TRUE){
+            msgbox(Shoreslate_Mart_Secret_Text_2, MSGBOX_YESNO)
+            if(var(VAR_RESULT) == FALSE){
+                release
+                end
+            }
+            if(var(VAR_RESULT) == TRUE){
+                msgbox(Shoreslate_Mart_Secret_Text_3, MSGBOX_YESNO)
+                if(var(VAR_RESULT) == FALSE){
+                    release
+                    end
+                }
+                if(var(VAR_RESULT) == TRUE){
+                    msgbox(Shoreslate_Mart_Secret_Text_4, MSGBOX_DEFAULT)
+                    finditem(ITEM_RING_TARGET)
+                }
+            }
+        }
+    }
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+}
+
+text Shoreslate_Mart_Secret_Text_Beginning{
+    "There's a note attached to this item.\n"
+    "Would you like to read it?"
+}
+
+text Shoreslate_Mart_Secret_Text{
+    "The missile knows where it is at\n"
+    "all times. It knows this because\l"
+    "it knows where it isn't.\p"
+    "By subtracting where it is from where\n"
+    "it isn't, or where it isn't from\l"
+    "where it is (whichever is greater),\l"
+    "it obtains a difference, or deviation.\l"
+    "Would you like to continue reading?"
+}
+
+text Shoreslate_Mart_Secret_Text_2{
+    "The guidance subsystem uses deviations\n"
+    "to generate corrective commands\l"
+    "to drive the missile from a position\l"
+    "where it is to a position where it\l"
+    "isn't, and arriving at a position\l"
+    "where it wasn't, it now is.\p"
+    "Consequently, the position where it is,\n"
+    "is now the position that it wasn't,\l"
+    "and it follows that the position\l"
+    "that it was, is now the position\l"
+    "that it isn't.\l"
+    "Would you like to continue reading?"
+}
+
+text Shoreslate_Mart_Secret_Text_3{
+    "In the event that the position that\n"
+    "it is in is not the position that\l"
+    "it wasn't, the system has acquired\l"
+    "a variation, the variation being\l"
+    "the difference between where the\l"
+    "missile is, and where it wasn't.\p"
+    "If variation is considered to be a\n"
+    "significant factor, it too may be\l"
+    "corrected by the GEA.\p"
+    "However, the missile must also know\n"
+    "where it was.\l"
+    "Would you like to continue reading?"
+}
+
+text Shoreslate_Mart_Secret_Text_4{
+    "The missile guidance computer scenario\n"
+    "works as follows.\p"
+    "Because a variation has modified some\n"
+    "of the information the missile has\l"
+    "obtained, it is not sure just where\l"
+    "it is.\p"
+    "However, it is sure where it isn't,\n"
+    "within reason, and it knows where\l"
+    "it was.\p"
+    "It now subtracts where it should be\n"
+    "from where it wasn't, or vice-versa,\l"
+    "and by differentiating this from the\l"
+    "algebraic sum of where it shouldn't be,\l"
+    "and where it was, it is able to obtain\l"
+    "the deviation and its variation,\l"
+    "which is called error.\p"
+    "Thank you for coming to my TED talk.\p"
+    "You may now devour me."
+}
+
+script Shoreslate_Mart_EventScript_Clerk{
+	lock
+	faceplayer
+	message(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(Shoreslate_Mart_Pokemart)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+script Shoreslate_Mart_EventScript_Clerk2{
+	lock
+	faceplayer
+	message(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(Shoreslate_Mart_Pokemart2)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+mart Shoreslate_Mart_Pokemart{
+	ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_POTION
+	ITEM_SUPER_POTION
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+	ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_REPEL
+	ITEM_NONE
+}
+
+mart Shoreslate_Mart_Pokemart2{
+    ITEM_X_ACCURACY
+    ITEM_X_ATTACK
+    ITEM_X_DEFENSE
+    ITEM_X_SP_ATK
+    ITEM_X_SP_DEF
+    ITEM_X_SPEED
+    ITEM_GUARD_SPEC
+    ITEM_DIRE_HIT
+	ITEM_NONE
+}
+
+script Shoreslate_Mart_EventScript_Woman{
+	msgbox(Shoreslate_Mart_EventScript_Woman_Text, MSGBOX_NPC)
+	end
+}
+script Shoreslate_Mart_EventScript_Man{
+	msgbox(Shoreslate_Mart_EventScript_Man_Text, MSGBOX_NPC)
+	end
+}
+text Shoreslate_Mart_EventScript_Woman_Text{
+	"The market is great, but there are some\n"
+    "daily necessities you can only get\l"
+    "at a Poké Mart."
+}
+text Shoreslate_Mart_EventScript_Man_Text{
+	"I wanted to get some escape ropes but\n"
+    "I can't see them anywhere.\l"
+    "Where are they?"
+}
