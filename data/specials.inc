@@ -292,6 +292,9 @@ gSpecials::
 	def_special GetSecretBaseNearbyMapName
 	def_special CheckRelicanthWailord
 	def_special CheckOricorio
+	def_special CheckGrassStarter
+	def_special CheckFireStarter
+	def_special CheckWaterStarter
 	def_special ShouldDoBrailleRegirockEffectOld
 	def_special DoOrbEffect
 	def_special FadeOutOrbEffect

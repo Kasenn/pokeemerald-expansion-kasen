@@ -66,17 +66,17 @@
 #define FLAG_GIVENCASTELIACONE    0x35 // Unused Flag
 #define FLAG_WW_GROTTO_CLEARED    0x36 // Used to determine whether Windy Woods grotto has been cleared
 #define FLAG_ROUTE7_GROTTO_CLEARED    0x37 // Used to determine whether Route 7 grotto has been cleared
-#define FLAG_ROUTE8_ITEM1    0x38 // Unused Flag
-#define FLAG_ROUTE8_ITEM2    0x39 // Unused Flag
-#define FLAG_ROUTE8_ITEM3    0x3A // Unused Flag
-#define FLAG_ROUTE8_ITEM4    0x3B // Unused Flag
-#define FLAG_ROUTE8_ITEM5    0x3C // Unused Flag
-#define FLAG_ROUTE8_ITEM6    0x3D // Unused Flag
-#define FLAG_UNUSED_0x03E    0x3E // Unused Flag
-#define FLAG_UNUSED_0x03F    0x3F // Unused Flag
-#define FLAG_UNUSED_0x040    0x40 // Unused Flag
-#define FLAG_UNUSED_0x041    0x41 // Unused Flag
-#define FLAG_UNUSED_0x042    0x42 // Unused Flag
+#define FLAG_ROUTE8_ITEM1    0x38 // Route 8 item flags
+#define FLAG_ROUTE8_ITEM2    0x39 // 
+#define FLAG_ROUTE8_ITEM3    0x3A // 
+#define FLAG_ROUTE8_ITEM4    0x3B // 
+#define FLAG_ROUTE8_ITEM5    0x3C // 
+#define FLAG_ROUTE8_ITEM6    0x3D // 
+#define FLAG_HIDE_SHORESLATE_BOAT    0x3E // Hides shoreslate ferry until devon story is completed
+#define FLAG_HELPED_DEVON_CORP    0x3F // End flag for the shoreslate devon quest
+#define FLAG_SHORESLATE_ITEM1    0x40 // Unused Flag
+#define FLAG_GIVEN_CASTELIATOGIRL    0x41 // Unused Flag
+#define FLAG_RECEIVED_SHORESLATE_POTION    0x42 // Unused Flag
 #define FLAG_UNUSED_0x043    0x43 // Unused Flag
 #define FLAG_UNUSED_0x044    0x44 // Unused Flag
 #define FLAG_UNUSED_0x045    0x45 // Unused Flag
@@ -699,12 +699,12 @@
 #define FLAG_LANDMARK_WINDPLUME_VALLEY  0x290 // Unused Flag
 #define FLAG_VISITED_SHORESLATE  0x291 // Unused Flag
 #define FLAG_SHORESLATE_MART_SECRET  0x292 // Unused Flag
-#define FLAG_UNUSED_0x293  0x293 // Unused Flag
-#define FLAG_UNUSED_0x294  0x294 // Unused Flag
-#define FLAG_UNUSED_0x295  0x295 // Unused Flag
-#define FLAG_UNUSED_0x296  0x296 // Unused Flag
-#define FLAG_UNUSED_0x297  0x297 // Unused Flag
-#define FLAG_UNUSED_0x298  0x298 // Unused Flag
+#define FLAG_SHOWN_GRASS  0x293 // Unused Flag
+#define FLAG_SHOWN_FIRE  0x294 // Unused Flag
+#define FLAG_SHOWN_WATER  0x295 // Unused Flag
+#define FLAG_RECEIVED_CYNDAQUIL  0x296 // Unused Flag
+#define FLAG_RECEIVED_TOTODILE  0x297 // Unused Flag
+#define FLAG_RECEIVED_CHIKORITA  0x298 // Unused Flag
 #define FLAG_UNUSED_0x299  0x299 // Unused Flag
 #define FLAG_UNUSED_0x29A  0x29A // Unused Flag
 #define FLAG_UNUSED_0x29B  0x29B // Unused Flag
@@ -1566,7 +1566,7 @@
 // These flags are cleared once per day
 // The start and end are byte-aligned because the flags are cleared in byte increments
 #define DAILY_FLAGS_START                           (FLAG_UNUSED_0x91F + (8 - FLAG_UNUSED_0x91F % 8))
-#define FLAG_UNUSED_0x920                           (DAILY_FLAGS_START + 0x0)  // Unused Flag
+#define FLAG_DAILY_RESET_CASTELIACONE                           (DAILY_FLAGS_START + 0x0)  // Unused Flag
 #define FLAG_DAILY_CONTEST_LOBBY_RECEIVED_BERRY     (DAILY_FLAGS_START + 0x1)
 #define FLAG_DAILY_SECRET_BASE                      (DAILY_FLAGS_START + 0x2)
 #define FLAG_DAILY_PRIMROSE_NECTAR1                 (DAILY_FLAGS_START + 0x3)  // Unused Flag

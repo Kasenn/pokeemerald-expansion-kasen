@@ -133,7 +133,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Liza;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Tate;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Wallace;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Steven;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Wally;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_StoneSphere;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RubySapphireLittleBoy;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFishing;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFishing;
@@ -254,12 +254,16 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Iris;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Volkner;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Jasmine;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mareep;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NewPikachu;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Crustle;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example6;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RocketF;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Skyla;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_D_Decc;
 
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
+    [OBJ_EVENT_GFX_NEWPIKACHU] =                     &gObjectEventGraphicsInfo_NewPikachu,
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
     [OBJ_EVENT_GFX_BRENDAN_MACH_BIKE] =        &gObjectEventGraphicsInfo_BrendanMachBike,
     [OBJ_EVENT_GFX_BRENDAN_SURFING] =          &gObjectEventGraphicsInfo_BrendanSurfing,
@@ -301,7 +305,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SCHOOL_KID_M] =             &gObjectEventGraphicsInfo_SchoolKidM,
     [OBJ_EVENT_GFX_MANIAC] =                   &gObjectEventGraphicsInfo_Maniac,
     [OBJ_EVENT_GFX_HEX_MANIAC] =               &gObjectEventGraphicsInfo_HexManiac,
-    [OBJ_EVENT_GFX_RAYQUAZA_STILL] =           &gObjectEventGraphicsInfo_RayquazaStill,
+    // [OBJ_EVENT_GFX_RAYQUAZA_STILL] =           &gObjectEventGraphicsInfo_RayquazaStill,
     [OBJ_EVENT_GFX_SWIMMER_M] =                &gObjectEventGraphicsInfo_SwimmerM,
     [OBJ_EVENT_GFX_SWIMMER_F] =                &gObjectEventGraphicsInfo_SwimmerF,
     [OBJ_EVENT_GFX_BLACK_BELT] =               &gObjectEventGraphicsInfo_BlackBelt,
@@ -354,7 +358,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MAY_ACRO_BIKE] =            &gObjectEventGraphicsInfo_MayAcroBike,
     [OBJ_EVENT_GFX_MAY_SURFING] =              &gObjectEventGraphicsInfo_MaySurfing,
     [OBJ_EVENT_GFX_MAY_FIELD_MOVE] =           &gObjectEventGraphicsInfo_MayFieldMove,
-    [OBJ_EVENT_GFX_TRUCK] =                    &gObjectEventGraphicsInfo_Truck,
+    // [OBJ_EVENT_GFX_TRUCK] =                    &gObjectEventGraphicsInfo_Truck,
     [OBJ_EVENT_GFX_ZIGZAGOON_1] =              &gObjectEventGraphicsInfo_EnemyZigzagoon,
     [OBJ_EVENT_GFX_ARTIST] =                   &gObjectEventGraphicsInfo_Artist,
     [OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL] =     &gObjectEventGraphicsInfo_RivalBrendanNormal,
@@ -382,7 +386,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_PHOEBE] =                   &gObjectEventGraphicsInfo_Phoebe,
     [OBJ_EVENT_GFX_GLACIA] =                   &gObjectEventGraphicsInfo_Glacia,
     [OBJ_EVENT_GFX_DRAKE] =                    &gObjectEventGraphicsInfo_Drake,
-    [OBJ_EVENT_GFX_ROXANNE] =                  &gObjectEventGraphicsInfo_Roxanne,
+    // [OBJ_EVENT_GFX_ROXANNE] =                  &gObjectEventGraphicsInfo_Roxanne,
     [OBJ_EVENT_GFX_BRAWLY] =                   &gObjectEventGraphicsInfo_Brawly,
     // [OBJ_EVENT_GFX_WATTSON] =                  &gObjectEventGraphicsInfo_Wattson,
     [OBJ_EVENT_GFX_FLANNERY] =                 &gObjectEventGraphicsInfo_Flannery,
@@ -392,7 +396,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_TATE] =                     &gObjectEventGraphicsInfo_Tate,
     [OBJ_EVENT_GFX_WALLACE] =                  &gObjectEventGraphicsInfo_Wallace,
     [OBJ_EVENT_GFX_STEVEN] =                   &gObjectEventGraphicsInfo_Steven,
-    [OBJ_EVENT_GFX_WALLY] =                    &gObjectEventGraphicsInfo_Wally,
+    [OBJ_EVENT_GFX_STONE_SPHERE] =                    &gObjectEventGraphicsInfo_StoneSphere,
     [OBJ_EVENT_GFX_LITTLE_BOY_3] =             &gObjectEventGraphicsInfo_RubySapphireLittleBoy,
     [OBJ_EVENT_GFX_BRENDAN_FISHING] =          &gObjectEventGraphicsInfo_BrendanFishing,
     [OBJ_EVENT_GFX_MAY_FISHING] =              &gObjectEventGraphicsInfo_MayFishing,
@@ -505,9 +509,11 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_VOLKNER] =                     &gObjectEventGraphicsInfo_Volkner,
     [OBJ_EVENT_GFX_JASMINE] =                     &gObjectEventGraphicsInfo_Jasmine,
     [OBJ_EVENT_GFX_MAREEP] =                     &gObjectEventGraphicsInfo_Mareep,
+    [OBJ_EVENT_GFX_CRUSTLE] =                     &gObjectEventGraphicsInfo_Crustle,
     [OBJ_EVENT_GFX_EXAMPLE6] =                 &gObjectEventGraphicsInfo_Example6,
     [OBJ_EVENT_GFX_ROCKET_F] =                 &gObjectEventGraphicsInfo_RocketF,
     [OBJ_EVENT_GFX_SKYLA] =                 &gObjectEventGraphicsInfo_Skyla,
+    [OBJ_EVENT_GFX_D_DECC] =                 &gObjectEventGraphicsInfo_D_Decc,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

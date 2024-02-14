@@ -120,6 +120,46 @@ bool8 CheckOricorio(void)
     return FALSE;
 }
 
+bool8 CheckGrassStarter(void)
+{
+    if (FlagGet(FLAG_SHOWN_GRASS))
+    {   
+        return FALSE;
+    }
+    if ((GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_DECIDUEYE) ||
+        (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_CHESNAUGHT))
+    {
+        return TRUE;
+    }
+    return 2;
+}
+bool8 CheckFireStarter(void)
+{
+    if (FlagGet(FLAG_SHOWN_FIRE))
+    {   
+        return FALSE;
+    }
+    if ((GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_BLAZIKEN) ||
+        (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_INCINEROAR))
+    {
+        return TRUE;
+    }
+    return 2;
+}
+bool8 CheckWaterStarter(void)
+{
+    if (FlagGet(FLAG_SHOWN_WATER))
+    {   
+        return FALSE;
+    }
+    if ((GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_EMPOLEON) ||
+        (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_SWAMPERT))
+    {
+        return TRUE;
+    }
+    return 2;
+}
+
 
 // THEORY: this was caused by block commenting out all of the older R/S braille functions but leaving the call to it itself, which creates the nullsub.
 void ShouldDoBrailleRegirockEffectOld(void)

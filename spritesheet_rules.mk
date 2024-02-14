@@ -633,6 +633,9 @@ $(OBJEVENTGFXDIR)/people/example4.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/example5.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
+$(OBJEVENTGFXDIR)/people/d_decc.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
 $(OBJEVENTGFXDIR)/people/iris.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
@@ -752,6 +755,9 @@ $(FLDEFFGFXDIR)/secret_power_tree.4bpp: %.4bpp: %.png
 
 $(FLDEFFGFXDIR)/record_mix_lights.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 1
+
+$(FLDEFFGFXDIR)/tall_grass_autumn.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 2
 
 graphics/door_anims/battle_tower_multi_corridor.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4

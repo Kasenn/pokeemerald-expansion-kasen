@@ -92,7 +92,7 @@ const struct Item gItems[] =
     [ITEM_HEAL_BALL] =
     {
         .name = _("Heal Ball"),
-        .price = 300,
+        .price = 1000,
         .description = sHealBallDesc,
         .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_BAG_MENU,
@@ -268,7 +268,7 @@ const struct Item gItems[] =
     [ITEM_DREAM_BALL] =
     {
         .name = _("Dream Ball"),
-        .price = 0,
+        .price = 1000,
         .description = sDreamBallDesc,
         .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_BAG_MENU,
@@ -4900,7 +4900,7 @@ const struct Item gItems[] =
     [ITEM_SEA_INCENSE] =
     {
         .name = _("Sea Incense"),
-        .price = 2000,
+        .price = 9600,
         .holdEffect = HOLD_EFFECT_WATER_POWER,
         .holdEffectParam = 20,
         .description = sSeaIncenseDesc,
@@ -4913,7 +4913,7 @@ const struct Item gItems[] =
     [ITEM_LAX_INCENSE] =
     {
         .name = _("Lax Incense"),
-        .price = 5000,
+        .price = 9600,
         .holdEffect = HOLD_EFFECT_EVASION_UP,
         .holdEffectParam = 10,
         .description = sLaxIncenseDesc,
@@ -4926,7 +4926,7 @@ const struct Item gItems[] =
     [ITEM_ODD_INCENSE] =
     {
         .name = _("Odd Incense"),
-        .price = 2000,
+        .price = 9600,
         .holdEffect = HOLD_EFFECT_PSYCHIC_POWER,
         .holdEffectParam = 20,
         .description = sOddIncenseDesc,
@@ -4939,7 +4939,7 @@ const struct Item gItems[] =
     [ITEM_ROCK_INCENSE] =
     {
         .name = _("Rock Incense"),
-        .price = 2000,
+        .price = 9600,
         .holdEffect = HOLD_EFFECT_ROCK_POWER,
         .holdEffectParam = 20,
         .description = sRockIncenseDesc,
@@ -4952,7 +4952,7 @@ const struct Item gItems[] =
     [ITEM_FULL_INCENSE] =
     {
         .name = _("Full Incense"),
-        .price = 5000,
+        .price = 9600,
         .holdEffect = HOLD_EFFECT_LAGGING_TAIL,
         .holdEffectParam = 5,
         .description = sFullIncenseDesc,
@@ -4965,7 +4965,7 @@ const struct Item gItems[] =
     [ITEM_WAVE_INCENSE] =
     {
         .name = _("Wave Incense"),
-        .price = 2000,
+        .price = 9600,
         .holdEffect = HOLD_EFFECT_WATER_POWER,
         .holdEffectParam = 20,
         .description = sWaveIncenseDesc,
@@ -4978,7 +4978,7 @@ const struct Item gItems[] =
     [ITEM_ROSE_INCENSE] =
     {
         .name = _("Rose Incense"),
-        .price = 2000,
+        .price = 9600,
         .holdEffect = HOLD_EFFECT_GRASS_POWER,
         .holdEffectParam = 20,
         .description = sRoseIncenseDesc,
@@ -4991,7 +4991,7 @@ const struct Item gItems[] =
     [ITEM_LUCK_INCENSE] =
     {
         .name = _("Luck Incense"),
-        .price = 11000,
+        .price = 9600,
         .holdEffect = HOLD_EFFECT_DOUBLE_PRIZE,
         .description = sLuckIncenseDesc,
         .pocket = POCKET_ITEMS,
@@ -5003,7 +5003,7 @@ const struct Item gItems[] =
     [ITEM_PURE_INCENSE] =
     {
         .name = _("Pure Incense"),
-        .price = 6000,
+        .price = 9600,
         .holdEffect = HOLD_EFFECT_REPEL,
         .description = sPureIncenseDesc,
         .pocket = POCKET_ITEMS,

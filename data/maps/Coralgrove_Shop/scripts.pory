@@ -494,7 +494,8 @@ text Coralgrove_BPShop_Text_TutorIntro{
 	"in exchange for BP."
 }
 text Coralgrove_BPShop_Text_TutorWelcomeBack{
-	"Welcome back."
+	"Welcome to the BP shop.\n"
+	"I am this shop's move tutor."
 }
 text Coralgrove_BPShop_Text_TeachWhichMove{
 	"Which move would you like to choose?"

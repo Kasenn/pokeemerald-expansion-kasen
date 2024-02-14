@@ -1,7 +1,308 @@
 mapscripts ShoreslateCity_MapScripts{
+    MAP_SCRIPT_ON_LOAD: VisitedShoreslate
     MAP_SCRIPT_ON_TRANSITION: VisitedShoreslate
 }
 script VisitedShoreslate{
+    if(!flag(FLAG_DAILY_RESET_CASTELIACONE)){
+        setvar(VAR_CASTELIACONES_BOUGHT, 0)
+        setflag(FLAG_DAILY_RESET_CASTELIACONE)
+    }
     setflag(FLAG_VISITED_SHORESLATE)
     end
+}
+
+script Shoreslate_NinjaBoy{
+    if(!flag(FLAG_HELPED_DEVON_CORP)){
+    msgbox(Shoreslate_NinjaBoy_Text, MSGBOX_NPC)
+    }
+    else{
+        msgbox(Shoreslate_NinjaBoy_Text2, MSGBOX_NPC)
+    }
+    end
+}
+text Shoreslate_NinjaBoy_Text{
+    "I wanted to visit Devon Corp's offices\n"
+    "but there was this strange man who\l"
+    "told me to leave…"
+}
+text Shoreslate_NinjaBoy_Text2{
+    "Oh, the weird man outside was\n"
+    "a Team Rocket grunt?\l"
+    "Glad to see they were able to\l"
+    "drive him away."
+}
+script Shoreslate_OldWoman{
+    msgbox(Shoreslate_OldWoman_Text, MSGBOX_NPC)
+    end
+}
+text Shoreslate_OldWoman_Text{
+    ""
+}
+script Shoreslate_Boy1{
+    msgbox(Shoreslate_Boy1_Text, MSGBOX_NPC)
+    end
+}
+text Shoreslate_Boy1_Text{
+    "Oh, I don't believe I've seen\n"
+    "your face here before.\p"
+    "Are you here to visit or are you just\n"
+    "passing through on your way to\l"
+    "western Sinko?"
+}
+script Shoreslate_ItemBall{
+    finditem(ITEM_FULL_HEAL)
+    end
+}
+script Shoreslate_Man2{
+    msgbox(Shoreslate_Man2_Text, MSGBOX_NPC)
+    end
+}
+text Shoreslate_Man2_Text{
+    ""
+}
+script Shoreslate_Sign1{
+    msgbox("SHORESLATE CITY\n“”", MSGBOX_SIGN)
+    end
+}
+script Shoreslate_Sign2{
+    msgbox("Devon Corporation offices", MSGBOX_SIGN)
+    end
+}
+script Shoreslate_Sign3{
+    msgbox("Shoreslate Harbor", MSGBOX_SIGN)
+    end
+}
+script Shoreslate_Sign4{
+    msgbox("Shoreslate Bike Shop", MSGBOX_SIGN)
+    end
+}
+script Shoreslate_Sailor{
+    msgbox(Shoreslate_Sailor_Text, MSGBOX_NPC)
+    end
+}
+text Shoreslate_Sailor_Text{
+    ""
+}
+script Shoreslate_ExpertM{
+    lockall
+    msgbox(Shoreslate_ExpertM_Text, MSGBOX_DEFAULT)
+    waitmessage
+    closemessage
+    release
+    end
+}
+text Shoreslate_ExpertM_Text{
+    "Ah, the sea…\n"
+    "Makes you glad to be alive.\l"
+    "Just feel that salty spray."
+}
+script Shoreslate_Maniac{
+    msgbox(Shoreslate_Maniac_Text, MSGBOX_NPC)
+    end
+}
+text Shoreslate_Maniac_Text{
+    "I really want to visit the market but\n"
+    "there's just so many people there and\l"
+    "I don't do great with crowds…"
+}
+script Shoreslate_OldCoupleM{
+    msgbox(Shoreslate_OldCoupleM_Text, MSGBOX_NPC)
+    end
+}
+text Shoreslate_OldCoupleM_Text{
+    "Shoreslate is one of the oldest cities\n"
+    "in all of Sinko.\p"
+    "My wife and I were both born here and\n"
+    "even back in our youth, Shoreslate\l"
+    "was already a bustling city."
+}
+script Shoreslate_OldCoupleF{
+    msgbox(Shoreslate_OldCoupleF_Text, MSGBOX_NPC)
+    end
+}
+text Shoreslate_OldCoupleF_Text{
+    ""
+}
+script Shoreslate_Woman3{
+    msgbox(Shoreslate_Woman3_Text, MSGBOX_NPC)
+    end
+}
+text Shoreslate_Woman3_Text{
+    ""
+}
+script Shoreslate_Fisher{
+    msgbox(Shoreslate_Fisher_Text, MSGBOX_NPC)
+    end
+}
+text Shoreslate_Fisher_Text{
+    ""
+}
+script Shoreslate_Man1{
+    msgbox(Shoreslate_Man1_Text, MSGBOX_NPC)
+    end
+}
+text Shoreslate_Man1_Text{
+    ""
+}
+script Shoreslate_CasteliaGirl{
+    msgbox(Shoreslate_CasteliaGirl_Text, MSGBOX_NPC)
+    end
+}
+text Shoreslate_CasteliaGirl_Text{
+    ""
+}
+
+script Shoreslate_CasteliaVendor{
+    if(var(VAR_CASTELIACONES_BOUGHT) >= 8){
+        msgbox(Shoreslate_CasteliaVendor_OutOfCones, MSGBOX_NPC)
+        end
+    }
+    faceplayer
+    lock
+    if(var(VAR_TEMP_5) == 0){
+        showmoneybox(0, 0)
+        setvar(VAR_TEMP_5, 1)
+        msgbox(Shoreslate_CasteliaVendor_InterestInCones, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == TRUE){
+            goto(HowManyCastelias)
+            end
+        }
+        else{
+            msgbox(Shoreslate_CasteliaVendor_ThatsShame, MSGBOX_NPC)
+            hidemoneybox
+            end
+        }
+    }
+    showmoneybox(0, 0)
+    msgbox(Shoreslate_CasteliaVendor_InterestInConesShort, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == TRUE){
+            goto(HowManyCastelias)
+            end
+        }
+        else{
+            msgbox(Shoreslate_CasteliaVendor_ThatsShame, MSGBOX_NPC)
+            hidemoneybox
+            end
+        }
+}
+script HowManyCastelias{
+    message("How many Casteliacones\nwould you like to buy?")
+    multichoice(23, 0, 9, 0)
+    switch(var(VAR_RESULT)){
+        case 0:
+            goto(Buy1Castelia)
+        case 1:
+            goto(Buy4Castelia)
+        case 2:
+            goto(CancelBuyingCastelia)
+        case MULTI_B_PRESSED:
+            goto(CancelBuyingCastelia)
+    }
+}
+
+script Buy1Castelia{
+    hidemoneybox
+    checkitemspace(ITEM_CASTELIACONE, 1)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(NotRoomForCastelias, MSGBOX_NPC)
+        end
+    }
+    checkmoney(350)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(NotMoneyForCastelias, MSGBOX_NPC)
+        end
+    }
+    playfanfare(MUS_OBTAIN_ITEM)
+    message(Bought1Castelia)
+	waitfanfare
+	msgbox(Put1CasteliaInPocket, MSGBOX_DEFAULT)
+    removemoney(350)
+    additem(ITEM_CASTELIACONE, 1)
+    addvar(VAR_CASTELIACONES_BOUGHT, 1)
+    waitmessage
+    closemessage
+    msgbox("Please come again!", MSGBOX_NPC)
+    release
+    end
+}
+text Bought1Castelia{
+    "{PLAYER} bought a Casteliacone!"
+}
+text Put1CasteliaInPocket{
+    "{PLAYER} put away the Casteliacone\n"
+    "in the Items pocket."
+}
+
+script Buy4Castelia{
+    hidemoneybox
+    checkitemspace(ITEM_CASTELIACONE, 4)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(NotRoomForCastelias, MSGBOX_NPC)
+        end
+    }
+    checkmoney(1050)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(NotMoneyForCastelias, MSGBOX_NPC)
+        end
+    }
+    playfanfare(MUS_OBTAIN_ITEM)
+    message(Bought4Castelia)
+	waitfanfare
+	msgbox(Put4CasteliaInPocket, MSGBOX_DEFAULT)
+    removemoney(1050)
+    additem(ITEM_CASTELIACONE, 4)
+    addvar(VAR_CASTELIACONES_BOUGHT, 4)
+    waitmessage
+    closemessage
+    msgbox("Please come again!", MSGBOX_NPC)
+    release
+    end
+}
+text Bought4Castelia{
+    "{PLAYER} bought a pack of 4\n"
+    "Casteliacones!"
+}
+text Put4CasteliaInPocket{
+    "{PLAYER} put away the Casteliacones\n"
+    "in the Items pocket."
+}
+
+script CancelBuyingCastelia{
+    msgbox(Shoreslate_CasteliaVendor_ThatsShame, MSGBOX_NPC)
+    hidemoneybox
+    end
+}
+text Shoreslate_CasteliaVendor_OutOfCones{
+    "I'm sorry, but we have run out of\n"
+    "Casteliacones for the day.\p"
+    "We should have a new shipment\n"
+    "coming in tomorrow."
+}
+text Shoreslate_CasteliaVendor_ThatsShame{
+    "That's a shame…\p"
+    "Well, let me know if you\n"
+    "change your mind!"
+}
+text Shoreslate_CasteliaVendor_InterestInConesShort{
+    "Would you like to buy some\n"
+    "Casteliacones?\l"
+    "One cone costs ¥350 but a pack\l"
+    "of 4 costs only ¥1050!"
+}
+text Shoreslate_CasteliaVendor_InterestInCones{
+    "I have recently acquired the coolest\n"
+    "commodity all the way from Unova.\p"
+    "That's right! It's everyone's favorite\n"
+    "ice cream, the Casteliacone!\p"
+    "Might I interest you in some\n"
+    "Casteliacones?\l"
+    "One cone costs ¥350 but a pack\l"
+    "of 4 costs only ¥1050!"
+}
+text NotRoomForCastelias{
+    "I'm sorry, but you don't have room\n"
+    "to carry any more Casteliacones…"
+}
+text NotMoneyForCastelias{
+    "I'm sorry, but you can't afford that…"
 }

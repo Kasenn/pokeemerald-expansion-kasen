@@ -110,6 +110,8 @@
 #define TRAINER_PIC_LEAF                  90
 #define TRAINER_PIC_RS_BRENDAN            91
 #define TRAINER_PIC_RS_MAY                92
+#define TRAINER_PIC_AFICIONADO_M          93
+#define TRAINER_PIC_AFICIONADO_F          94
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0
@@ -356,7 +358,8 @@
 #define TRAINER_CLASS_GYMMEMBER      0x43
 #define TRAINER_CLASS_GYMMEMBER_DOUBLE      0x44
 #define TRAINER_CLASS_ELITE      0x45
-#define TRAINER_CLASS_COUNT          0x46
+#define TRAINER_CLASS_AFICIONADO    0x46
+#define TRAINER_CLASS_COUNT          0x47
 
 #define TRAINER_ENCOUNTER_MUSIC_MALE         0 // standard male encounter music
 #define TRAINER_ENCOUNTER_MUSIC_FEMALE       1 // standard female encounter music

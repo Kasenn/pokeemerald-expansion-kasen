@@ -291,12 +291,17 @@ u32 FldEff_TallGrass(void)
     s16 x;
     s16 y;
     u8 spriteId;
+    u8 metatileBehavior;
     struct Sprite *sprite;
 
     x = gFieldEffectArguments[0];
     y = gFieldEffectArguments[1];
     SetSpritePosToOffsetMapCoords(&x, &y, 8, 8);
     spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_TALL_GRASS], x, y, 0);
+    if (MetatileBehavior_IsTallGrassAutumn(metatileBehavior))
+    {
+        spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_TALL_GRASS_AUTUMN], x, y, 0);
+    }
     if (spriteId != MAX_SPRITES)
     {
         sprite = &gSprites[spriteId];
@@ -413,6 +418,7 @@ u32 FldEff_LongGrass(void)
     y = gFieldEffectArguments[1];
     SetSpritePosToOffsetMapCoords(&x, &y, 8, 8);
     spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_LONG_GRASS], x, y, 0);
+    
     if (spriteId != MAX_SPRITES)
     {
         sprite = &gSprites[spriteId];

@@ -15,16 +15,16 @@
   "connections": 0,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_BOY_2",
-      "x": 12,
-      "y": 12,
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+      "x": 19,
+      "y": 11,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CoastTownHarbor_Boy",
+      "script": "ShoreslateHarbor_Boy",
       "flag": "FLAG_HIDE_SLATEPORT_CITY_HARBOR_PATRONS"
     },
     {
@@ -37,7 +37,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CoastTownHarbor_Attendant",
+      "script": "ShoreslateHarbor_Attendant",
       "flag": "FLAG_HIDE_SLATEPORT_CITY_HARBOR_PATRONS"
     },
     {
@@ -51,19 +51,19 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
-      "flag": "0"
+      "flag": "FLAG_HIDE_SHORESLATE_BOAT"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SAILOR",
-      "x": 21,
-      "y": 8,
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
+      "x": 11,
+      "y": 11,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "CoastTownHarbor_Sailor",
+      "script": "ShoreslateHarbor_Sailor",
       "flag": "FLAG_HIDE_SLATEPORT_CITY_HARBOR_PATRONS"
     }
   ],

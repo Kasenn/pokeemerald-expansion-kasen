@@ -54,7 +54,7 @@ Shoreslate_Mart_Secret_17:
 
 Shoreslate_Mart_Secret_19:
 	msgbox Shoreslate_Mart_Secret_Text_4, MSGBOX_DEFAULT
-	finditem ITEM_RING_TARGET
+	finditem ITEM_EXP_CANDY_XS
 	goto Shoreslate_Mart_Secret_1
 
 
@@ -72,9 +72,20 @@ Shoreslate_Mart_EventScript_Clerk::
 Shoreslate_Mart_EventScript_Clerk2::
 	lock
 	faceplayer
-	message gText_HowMayIServeYou
+	message gText_HowMayIServeYou2
 	waitmessage
 	pokemart Shoreslate_Mart_Pokemart2
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+
+Shoreslate_Mart_EventScript_Clerk3::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou3
+	waitmessage
+	pokemart Shoreslate_Mart_Pokemart3
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -104,6 +115,16 @@ Shoreslate_Mart_Pokemart2:
 	.2byte ITEM_X_SPEED
 	.2byte ITEM_GUARD_SPEC
 	.2byte ITEM_DIRE_HIT
+	.2byte ITEM_NONE
+
+	.align 2
+Shoreslate_Mart_Pokemart3:
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_DREAM_BALL
 	.2byte ITEM_NONE
 
 Shoreslate_Mart_EventScript_Woman::
@@ -187,3 +208,15 @@ Shoreslate_Mart_EventScript_Man_Text::
 	.string "I wanted to get some escape ropes but\n"
 	.string "I can't see them anywhere.\l"
 	.string "Where are they?$"
+
+gText_HowMayIServeYou2::
+	.string "Stat boosting combat items for sale!\n"
+	.string "Come get your own!$"
+
+gText_HowMayIServeYou3::
+	.string "I've got a selection of interesting\n"
+	.string "Poké Balls. Take a look!$"
+
+gText_HowMayIServeYou4::
+	.string "You've never seen these things before!\n"
+	.string "My prices are incense!$"

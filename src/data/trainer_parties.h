@@ -2586,37 +2586,37 @@ static const struct TrainerMon sParty_R8Tr11_BirdKeeper[] = {
 
 static const struct TrainerMon sParty_Shoreslate_Nurse[] = {
     {
-    .lvl = 24,
+    .lvl = 20,
     .species = SPECIES_BLISSEY,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
-    .lvl = 24,
+    .lvl = 20,
     .species = SPECIES_BLISSEY,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
-    .lvl = 24,
+    .lvl = 20,
     .species = SPECIES_BLISSEY,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
-    .lvl = 24,
+    .lvl = 20,
     .species = SPECIES_BLISSEY,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
-    .lvl = 24,
+    .lvl = 20,
     .species = SPECIES_BLISSEY,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
-    .lvl = 24,
+    .lvl = 20,
     .species = SPECIES_BLISSEY,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_STRUGGLE}

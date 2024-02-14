@@ -60,6 +60,13 @@ static const struct MenuAction MultichoiceList_Bike[] =
     {gText_Acro},
 };
 
+static const struct MenuAction MultichoiceList_Castelia[] =
+{
+    {gText_Castelia1},
+    {gText_Castelia4},
+    {gText_Exit},
+};
+
 static const struct MenuAction MultichoiceList_StatusInfo[] =
 {
     {gText_Psn},
@@ -803,7 +810,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_BASE_PC_WITH_REGISTRY]      = MULTICHOICE(MultichoiceList_BasePCWithRegistry),
     [MULTI_REGISTER_MENU]              = MULTICHOICE(MultichoiceList_RegisterMenu),
     [MULTI_SSTIDAL_LILYCOVE]           = MULTICHOICE(MultichoiceList_Exit),
-    [MULTI_UNUSED_9]                   = MULTICHOICE(MultichoiceList_Exit),
+    [MULTI_CASTELIACONE]               = MULTICHOICE(MultichoiceList_Castelia),
     [MULTI_UNUSED_10]                  = MULTICHOICE(MultichoiceList_Exit),
     [MULTI_FRONTIER_PASS_INFO]         = MULTICHOICE(MultichoiceList_FrontierPassInfo),
     [MULTI_BIKE]                       = MULTICHOICE(MultichoiceList_Bike),

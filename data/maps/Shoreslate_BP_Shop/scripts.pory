@@ -1,0 +1,561 @@
+mapscripts Shoreslate_BP_Shop_MapScripts{}
+
+script ShoreslateShop_Man{
+    faceplayer
+    lockall
+    msgbox(ShoreslateShop_Man_Text, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == TRUE){
+        msgbox(ShoreslateShop_Man_TextContinued, MSGBOX_NPC)
+    }
+    waitmessage
+    closemessage
+    release
+    end
+}
+text ShoreslateShop_Man_Text{
+    "Hey, want to hear a secret?"
+}
+text ShoreslateShop_Man_TextContinued{
+    "There are certain type of trainers who\n"
+    "are colloquially known as\l"
+    "“Pokémon aficionados.”\p"
+    "These people absolutely love Pokémon\n"
+    "battles and often times even demand\l"
+    "rematches if you happen to cross their\l"
+    "path more than once.\p"
+    "If you ever find yourself short on\n"
+    "Battle Points, consider challenging\l"
+    "one of these aficionados."
+}
+script ShoreslateShop_OldMan{
+    msgbox(ShoreslateShop_OldMan_Text, MSGBOX_NPC)
+    end
+}
+text ShoreslateShop_OldMan_Text{
+    "I don't understand what half of these\n"
+    "items even do…"
+}
+
+script Shoreslate_BPShop_HoldItemClerk{
+    lock
+    faceplayer
+    setvar(VAR_TEMP_2, EXCHANGE_CORNER_HOLD_ITEM_CLERK4)
+    call(Shoreslate_BPShop_ClerkWelcome)
+    goto(Shoreslate_BPShop_ChooseHoldItem)
+    end
+}
+
+script Shoreslate_BPShop_ClerkWelcome{
+    msgbox(Shoreslate_BPShop_Text_BuySomething, MSGBOX_DEFAULT)
+    special(ShowBattlePointsWindow)
+    return
+}
+
+text Shoreslate_BPShop_Text_BuySomething{
+    "Welcome to the BP shop.\pHere's a list of this store's\npurchasable items."
+}
+
+script Shoreslate_BPShop_ChooseHoldItem{
+    setvar(VAR_0x8004, SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR4)
+    special(ShowFrontierExchangeCornerItemIconWindow)
+    special(ShowScrollableMultichoice)
+    waitstate
+    special(CloseFrontierExchangeCornerItemIconWindow)
+    switch(var(VAR_RESULT)){
+        case 0:
+            call(Shoreslate_BPShop_BrightPowder)
+        case 1:
+            call(Shoreslate_BPShop_QuickClaw)
+        case 2:
+            call(Shoreslate_BPShop_SootheBell)
+        case 3:
+            call(Shoreslate_BPShop_ScopeLens)
+        case 4:
+            call(Shoreslate_BPShop_ShellBell)
+        case 5:
+            call(Shoreslate_BPShop_MuscleBand)
+        case 6:
+            call(Shoreslate_BPShop_WiseGlasses)
+        case 7:
+            call(Shoreslate_BPShop_WideLens)
+        case 8:
+            call(Shoreslate_BPShop_ZoomLens)
+        case 9:
+            call(Shoreslate_BPShop_ClerkGoodbye)
+        case MULTI_B_PRESSED:
+            call(Shoreslate_BPShop_ClerkGoodbye)
+    }
+}
+
+script Shoreslate_BPShop_BrightPowder{
+ 	msgbox(Shoreslate_BPShop_TextBrightPowder, MSGBOX_YESNO)
+ 	goto_if_eq(VAR_RESULT, NO, Shoreslate_BPShop_ChooseHoldItem)
+ 	setvar(VAR_0x8008, 16)
+ 	setvar(VAR_0x8009, ITEM_BRIGHT_POWDER)
+ 	goto(Shoreslate_BPShop_TryPurchasePrize)
+ 	end
+}
+text Shoreslate_BPShop_TextBrightPowder{
+    "You've chosen the Bright Powder.\nIs that correct?"
+}
+
+script Shoreslate_BPShop_QuickClaw{
+ 	msgbox(Shoreslate_BPShop_TextQuickClaw, MSGBOX_YESNO)
+ 	goto_if_eq(VAR_RESULT, NO, Shoreslate_BPShop_ChooseHoldItem)
+ 	setvar(VAR_0x8008, 16)
+ 	setvar(VAR_0x8009, ITEM_QUICK_CLAW)
+ 	goto(Shoreslate_BPShop_TryPurchasePrize)
+ 	end
+}
+text Shoreslate_BPShop_TextQuickClaw{
+    "You've chosen the Quick Claw.\n Is that correct?"
+}
+
+script Shoreslate_BPShop_SootheBell{
+ 	msgbox(Shoreslate_BPShop_TextSootheBell, MSGBOX_YESNO)
+ 	goto_if_eq(VAR_RESULT, NO, Shoreslate_BPShop_ChooseHoldItem)
+ 	setvar(VAR_0x8008, 16)
+ 	setvar(VAR_0x8009, ITEM_SOOTHE_BELL)
+ 	goto(Shoreslate_BPShop_TryPurchasePrize)
+ 	end
+}
+text Shoreslate_BPShop_TextSootheBell{
+    "You've chosen the Soothe Bell.\n Is that correct?"
+}
+
+script Shoreslate_BPShop_ScopeLens{
+ 	msgbox(Shoreslate_BPShop_TextScopeLens, MSGBOX_YESNO)
+ 	goto_if_eq(VAR_RESULT, NO, Shoreslate_BPShop_ChooseHoldItem)
+ 	setvar(VAR_0x8008, 16)
+ 	setvar(VAR_0x8009, ITEM_SCOPE_LENS)
+ 	goto(Shoreslate_BPShop_TryPurchasePrize)
+ 	end
+}
+text Shoreslate_BPShop_TextScopeLens{
+    "You've chosen the Scope Lens.\n Is that correct?"
+}
+
+script Shoreslate_BPShop_ShellBell{
+ 	msgbox(Shoreslate_BPShop_TextShellBell, MSGBOX_YESNO)
+ 	goto_if_eq(VAR_RESULT, NO, Shoreslate_BPShop_ChooseHoldItem)
+ 	setvar(VAR_0x8008, 16)
+ 	setvar(VAR_0x8009, ITEM_SHELL_BELL)
+ 	goto(Shoreslate_BPShop_TryPurchasePrize)
+ 	end
+}
+text Shoreslate_BPShop_TextShellBell{
+    "You've chosen the Shell Bell.\n Is that correct?"
+}
+
+script Shoreslate_BPShop_MuscleBand{
+ 	msgbox(Shoreslate_BPShop_TextMuscleBand, MSGBOX_YESNO)
+ 	goto_if_eq(VAR_RESULT, NO, Shoreslate_BPShop_ChooseHoldItem)
+ 	setvar(VAR_0x8008, 16)
+ 	setvar(VAR_0x8009, ITEM_MUSCLE_BAND)
+ 	goto(Shoreslate_BPShop_TryPurchasePrize)
+ 	end
+}
+text Shoreslate_BPShop_TextMuscleBand{
+    "You've chosen the Muscle Band.\n Is that correct?"
+}
+
+script Shoreslate_BPShop_WiseGlasses{
+ 	msgbox(Shoreslate_BPShop_TextWiseGlasses, MSGBOX_YESNO)
+ 	goto_if_eq(VAR_RESULT, NO, Shoreslate_BPShop_ChooseHoldItem)
+ 	setvar(VAR_0x8008, 16)
+ 	setvar(VAR_0x8009, ITEM_WISE_GLASSES)
+ 	goto(Shoreslate_BPShop_TryPurchasePrize)
+ 	end
+}
+text Shoreslate_BPShop_TextWiseGlasses{
+    "You've chosen the Wise Glasses.\n Is that correct?"
+}
+
+script Shoreslate_BPShop_WideLens{
+ 	msgbox(Shoreslate_BPShop_TextWideLens, MSGBOX_YESNO)
+ 	goto_if_eq(VAR_RESULT, NO, Shoreslate_BPShop_ChooseHoldItem)
+ 	setvar(VAR_0x8008, 16)
+ 	setvar(VAR_0x8009, ITEM_WIDE_LENS)
+ 	goto(Shoreslate_BPShop_TryPurchasePrize)
+ 	end
+}
+text Shoreslate_BPShop_TextWideLens{
+    "You've chosen the Wide Lens.\n Is that correct?"
+}
+script Shoreslate_BPShop_ZoomLens{
+ 	msgbox(Shoreslate_BPShop_TextZoomLens, MSGBOX_YESNO)
+ 	goto_if_eq(VAR_RESULT, NO, Shoreslate_BPShop_ChooseHoldItem)
+ 	setvar(VAR_0x8008, 16)
+ 	setvar(VAR_0x8009, ITEM_ZOOM_LENS)
+ 	goto(Shoreslate_BPShop_TryPurchasePrize)
+ 	end
+}
+text Shoreslate_BPShop_TextZoomLens{
+    "You've chosen the Zoom Lens.\n Is that correct?"
+}
+
+script Shoreslate_BPShop_ClerkGoodbye{
+ 	msgbox(Shoreslate_BPShop_ThankYouVisitWithPoints, MSGBOX_DEFAULT)
+ 	special(CloseBattlePointsWindow)
+ 	release
+ 	end
+}
+text Shoreslate_BPShop_ThankYouVisitWithPoints{
+    "Thank you very much.\pPlease visit us when you have\nsaved up Battle Points."
+}
+
+script Shoreslate_BPShop_TryPurchasePrize{
+ 	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+ 	goto_if_ge(VAR_TEMP_1, VAR_0x8008, Shoreslate_BPShop_TryGivePrize)
+ 	msgbox(Shoreslate_BPShop_Text_DontHaveEnoughPoints, MSGBOX_DEFAULT)
+ 	goto_if_eq(VAR_TEMP_2, EXCHANGE_CORNER_DECOR1_CLERK, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseDecor1)
+ 	goto_if_eq(VAR_TEMP_2, EXCHANGE_CORNER_DECOR2_CLERK, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseDecor2)
+ 	goto_if_eq(VAR_TEMP_2, EXCHANGE_CORNER_VITAMIN_CLERK, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseVitamin)
+ 	goto(Shoreslate_BPShop_ChooseHoldItem)
+ 	end
+}
+text Shoreslate_BPShop_Text_DontHaveEnoughPoints{
+    "I'm so sorry…\nYou don't have enough Battle Points…"
+}
+script Shoreslate_BPShop_TryGivePrize{
+ 	goto_if_eq(VAR_TEMP_2, EXCHANGE_CORNER_DECOR1_CLERK, BattleFrontier_ExchangeServiceCorner_EventScript_TryGiveDecor)
+ 	goto_if_eq(VAR_TEMP_2, EXCHANGE_CORNER_DECOR2_CLERK, BattleFrontier_ExchangeServiceCorner_EventScript_TryGiveDecor)
+ 	goto(Shoreslate_BPShop_TryGiveItem)
+ 	end
+}
+script Shoreslate_BPShop_TryGiveItem{
+ 	checkitemspace(VAR_0x8009)
+ 	goto_if_eq(VAR_RESULT, FALSE, Shoreslate_BPShop_BagFull)
+ 	copyvar(VAR_0x8004, VAR_0x8008)
+ 	special(TakeFrontierBattlePoints)
+ 	additem(VAR_0x8009)
+ 	special(UpdateBattlePointsWindow)
+ 	playse(SE_SHOP)
+ 	msgbox(Shoreslate_BPShop_Text_HereIsYourPrize, MSGBOX_DEFAULT)
+ 	goto_if_eq(VAR_TEMP_2, EXCHANGE_CORNER_VITAMIN_CLERK, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseVitamin)
+ 	goto(Shoreslate_BPShop_ChooseHoldItem)
+ 	end
+}
+script Shoreslate_BPShop_BagFull{
+ 	msgbox(Shoreslate_BPShop_Text_DontHaveSpaceToHoldIt, MSGBOX_DEFAULT)
+ 	special(CloseBattlePointsWindow)
+ 	release
+ 	end
+}
+text Shoreslate_BPShop_Text_DontHaveSpaceToHoldIt{
+    "I'm so sorry…\nYou don't have space to hold it…"
+}
+text Shoreslate_BPShop_Text_HereIsYourPrize{
+    "Here is your item!"
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+script Shoreslate_BPShop_EventScript_MoveTutor{
+	lock
+	faceplayer
+	setvar(VAR_TEMP_C, SCROLL_MULTI_BF_MOVE_TUTOR_5)
+	setvar(VAR_TEMP_FRONTIER_TUTOR_ID, 5)
+	goto_if_set(FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR2, Shoreslate_BPShop_EventScript_AlreadyMetTutor)
+	msgbox(Shoreslate_BPShop_Text_TutorIntro, MSGBOX_DEFAULT)
+	setflag(FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR2)
+	goto(Shoreslate_BPShop_EventScript_ChooseTutorMove)
+	end
+}
+script Shoreslate_BPShop_EventScript_AlreadyMetTutor{
+	msgbox(Shoreslate_BPShop_Text_TutorWelcomeBack, MSGBOX_DEFAULT)
+	goto(Shoreslate_BPShop_EventScript_ChooseTutorMove)
+	end
+}
+script Shoreslate_BPShop_EventScript_ChooseTutorMove{
+	msgbox(Shoreslate_BPShop_Text_TeachWhichMove)
+	waitmessage
+	special(ShowBattlePointsWindow)
+	setvar(VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_5)
+	setvar(VAR_0x8006, 0)
+	special(ShowScrollableMultichoice)
+	waitstate
+	copyvar(VAR_TEMP_FRONTIER_TUTOR_SELECTION, VAR_RESULT)
+	switch(var(VAR_RESULT)){
+		case 0:
+			call(Shoreslate_BPShop_EventScript_WaterPulse)
+		case 1:
+			call(Shoreslate_BPShop_EventScript_FuryCutter)
+		case 2:
+			call(Shoreslate_BPShop_EventScript_MagicRoom)
+		case 3:
+			call(Shoreslate_BPShop_EventScript_MudSlap)
+		case 4:
+			call(Shoreslate_BPShop_EventScript_Swift)
+		case 5:
+			call(Shoreslate_BPShop_EventScript_FoulPlay)
+		case 6:
+			call(Shoreslate_BPShop_EventScript_GunkShot)
+		case 7:
+			call(Shoreslate_BPShop_EventScript_Trick)
+		case 8:
+			call(Shoreslate_BPShop_EventScript_ZenHeadbutt)
+		case 9:
+			call(Shoreslate_BPShop_EventScript_AncientPower)
+		case 10:
+			call(Shoreslate_BPShop_EventScript_OminousWind)
+		case 11:
+			call(Shoreslate_BPShop_EventScript_ExitTutorMoveSelect)
+		case MULTI_B_PRESSED: 
+			call(Shoreslate_BPShop_EventScript_ExitTutorMoveSelect)
+	}
+	end
+}
+script Shoreslate_BPShop_EventScript_ChooseNewTutorMove{
+	msgbox(Shoreslate_BPShop_Text_TeachWhichMove)
+	waitmessage
+	setvar(VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_5)
+	setvar(VAR_0x8006, 1)
+	special(ShowScrollableMultichoice)
+	waitstate
+	copyvar(VAR_TEMP_FRONTIER_TUTOR_SELECTION, VAR_RESULT)
+	switch(var(VAR_RESULT)){
+		case 0:
+			call(Shoreslate_BPShop_EventScript_WaterPulse)
+		case 1:
+			call(Shoreslate_BPShop_EventScript_FuryCutter)
+		case 2:
+			call(Shoreslate_BPShop_EventScript_MagicRoom)
+		case 3:
+			call(Shoreslate_BPShop_EventScript_MudSlap)
+		case 4:
+			call(Shoreslate_BPShop_EventScript_Swift)
+		case 5:
+			call(Shoreslate_BPShop_EventScript_FoulPlay)
+		case 6:
+			call(Shoreslate_BPShop_EventScript_GunkShot)
+		case 7:
+			call(Shoreslate_BPShop_EventScript_Trick)
+		case 8:
+			call(Shoreslate_BPShop_EventScript_ZenHeadbutt)
+		case 9:
+			call(Shoreslate_BPShop_EventScript_AncientPower)
+		case 10:
+			call(Shoreslate_BPShop_EventScript_OminousWind)
+		case 11:
+			call(Shoreslate_BPShop_EventScript_ExitTutorMoveSelect)
+		case MULTI_B_PRESSED: 
+			call(Shoreslate_BPShop_EventScript_ExitTutorMoveSelect)
+	}
+	end
+}
+script Shoreslate_BPShop_EventScript_WaterPulse{
+	setvar(VAR_0x8008, 6)
+	setvar(VAR_0x8005, MOVE_WATER_PULSE)
+	goto(Shoreslate_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+
+script Shoreslate_BPShop_EventScript_FuryCutter{
+	setvar(VAR_0x8008, 8)
+	setvar(VAR_0x8005, MOVE_FURY_CUTTER)
+	goto(Shoreslate_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+script Shoreslate_BPShop_EventScript_MagicRoom{
+	setvar(VAR_0x8008, 8)
+	setvar(VAR_0x8005, MOVE_MAGIC_ROOM)
+	goto(Shoreslate_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+script Shoreslate_BPShop_EventScript_MudSlap{
+	setvar(VAR_0x8008, 8)
+	setvar(VAR_0x8005, MOVE_MUD_SLAP)
+	goto(Shoreslate_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+script Shoreslate_BPShop_EventScript_Swift{
+	setvar(VAR_0x8008, 8)
+	setvar(VAR_0x8005, MOVE_SWIFT)
+	goto(Shoreslate_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+script Shoreslate_BPShop_EventScript_FoulPlay{
+	setvar(VAR_0x8008, 10)
+	setvar(VAR_0x8005, MOVE_FOUL_PLAY)
+	goto(Shoreslate_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+script Shoreslate_BPShop_EventScript_GunkShot{
+	setvar(VAR_0x8008, 10)
+	setvar(VAR_0x8005, MOVE_GUNK_SHOT)
+	goto(Shoreslate_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+script Shoreslate_BPShop_EventScript_Trick{
+	setvar(VAR_0x8008, 10)
+	setvar(VAR_0x8005, MOVE_TRICK)
+	goto(Shoreslate_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+script Shoreslate_BPShop_EventScript_ZenHeadbutt{
+	setvar(VAR_0x8008, 10)
+	setvar(VAR_0x8005, MOVE_ZEN_HEADBUTT)
+	goto(Shoreslate_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+script Shoreslate_BPShop_EventScript_AncientPower{
+	setvar(VAR_0x8008, 12)
+	setvar(VAR_0x8005, MOVE_ANCIENT_POWER)
+	goto(Shoreslate_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+script Shoreslate_BPShop_EventScript_OminousWind{
+	setvar(VAR_0x8008, 12)
+	setvar(VAR_0x8005, MOVE_OMINOUS_WIND)
+	goto(Shoreslate_BPShop_EventScript_ConfirmMoveSelection)
+	end
+}
+
+script Shoreslate_BPShop_EventScript_ExitTutorMoveSelect{
+	special(CloseBattleFrontierTutorWindow)
+	special(CloseBattlePointsWindow)
+	msgbox(Shoreslate_BPShop_Text_YouDontWantTo, MSGBOX_DEFAULT)
+	release
+	end
+}
+// VAR_0x8008 is the price
+// VAR_TEMP_C is the scroll multichoice ID
+// VAR_TEMP_FRONTIER_TUTOR_SELECTION is the move selection
+// VAR_TEMP_FRONTIER_TUTOR_ID is which move tutor was spoken to
+script Shoreslate_BPShop_EventScript_ConfirmMoveSelection{
+	special(BufferBattleFrontierTutorMoveName)
+	buffernumberstring(STR_VAR_2, VAR_0x8008)
+	msgbox(Shoreslate_BPShop_Text_MoveWillBeXBattlePoints, MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, Shoreslate_BPShop_EventScript_ChooseNewTutorMove)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	goto_if_ge(VAR_TEMP_1, VAR_0x8008, Shoreslate_BPShop_EventScript_TeachTutorMove)
+	msgbox(Shoreslate_BPShop_Text_HaventGotEnoughPoints, MSGBOX_DEFAULT)
+	goto(Shoreslate_BPShop_EventScript_ChooseNewTutorMove)
+	end
+}
+script Shoreslate_BPShop_EventScript_TeachTutorMove{
+	msgbox(Shoreslate_BPShop_Text_TeachMoveToWhichMon, MSGBOX_DEFAULT)
+	fadescreen(FADE_TO_BLACK)
+	special(CloseBattlePointsWindow)
+	special(CloseBattleFrontierTutorWindow)
+	special(ChooseMonForMoveTutor)
+	waitstate
+	goto_if_eq(VAR_RESULT, FALSE, Shoreslate_BPShop_EventScript_ChooseTutorMove)
+	msgbox(Shoreslate_BPShop_Text_IllTakeBattlePoints, MSGBOX_DEFAULT)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	special(TakeFrontierBattlePoints)
+	release
+	end
+}
+text Shoreslate_BPShop_Text_TutorIntro{
+	"Welcome to the BP shop.\p"
+	"I can train your Pokémon moves\n"
+	"in exchange for BP."
+}
+text Shoreslate_BPShop_Text_TutorWelcomeBack{
+	"Welcome to the BP shop.\n"
+	"I am this shop's move tutor."
+}
+text Shoreslate_BPShop_Text_TeachWhichMove{
+	"Which move would you like to choose?"
+}
+text Shoreslate_BPShop_Text_MoveWillBeXBattlePoints{
+	"The move {STR_VAR_1}, is it?\n"
+	"That will be {STR_VAR_2} Battle Points."
+}
+text Shoreslate_BPShop_Text_TeachMoveToWhichMon{
+	"Which Pokémon would you like to teach\n"
+	"this move?"
+}
+text Shoreslate_BPShop_Text_HaventGotEnoughPoints{
+	"I'm so sorry…\n"
+	"You don't have enough Battle Points…"
+}
+text Shoreslate_BPShop_Text_IllTakeBattlePoints{
+	"Please come again."
+}
+text Shoreslate_BPShop_Text_YouDontWantTo{
+	"Let me know if you change your mind."
+}
+
+text Shoreslate_BPShop_Text_WaterPulseDesc{
+	"An aquatic\n"
+    "attack that may\n"
+    "confuse the foe."
+}
+text Shoreslate_BPShop_Text_FuryCutterDesc{
+	"An attack that\n"
+    "intensifies on\n"
+    "successive hits."
+}
+text Shoreslate_BPShop_Text_MagicRoomDesc{
+	"Hold items lose\n"
+    "their effects\n"
+    "for 5 turns."
+}
+text Shoreslate_BPShop_Text_MudSlapDesc{
+	"Hurls mud in the\n"
+    "foe's face to\n"
+    "reduce accuracy."
+}
+text Shoreslate_BPShop_Text_SwiftDesc{
+	"Sprays star-\n"
+    "shaped rays\n"
+    "that never miss."
+}
+text Shoreslate_BPShop_Text_FoulPlayDesc{
+	"The greater the\n"
+    "foe's Attack, the\n"
+    "greater the power."
+}
+text Shoreslate_BPShop_Text_GunkShotDesc{
+	"Shoots filth\n"
+    "at the foe.\n"
+    "May also poison."
+}
+text Shoreslate_BPShop_Text_TrickDesc{
+	"Tricks the foe\n"
+    "into trading\n"
+    "held items."
+}
+text Shoreslate_BPShop_Text_ZenHeadbuttDesc{
+    "A strong head-\n"
+    "butt that may\n"
+    "cause flinching."
+}
+text Shoreslate_BPShop_Text_AncientPowerDesc{
+	"An attack that\n"
+    "may raise\n"
+    "all stats."
+}
+text Shoreslate_BPShop_Text_OminousWindDesc{
+	"A repulsive\n"
+    "attack that may\n"
+    "raise all stats."
+}
+
+text BattleFrontier_ExchangeServiceCorner_Text_SootheBellDesc{
+    "A hold item that calms spirits and\n"
+    "fosters friendship."
+}
+text BattleFrontier_ExchangeServiceCorner_Text_ShellBellDesc{
+    "A hold item that restores HP upon\n"
+    "striking the foe."
+}
+text BattleFrontier_ExchangeServiceCorner_Text_MuscleBandDesc{
+    "A headband that boosts the power of\n"
+    "physical moves."
+}
+text BattleFrontier_ExchangeServiceCorner_Text_WiseGlassesDesc{
+	"A pair of glasses that ups the power\n"
+    "of special moves."
+}
+text BattleFrontier_ExchangeServiceCorner_Text_WideLensDesc{
+    "A magnifying lens that boosts the\n"
+    "accuracy of moves."
+}
+text BattleFrontier_ExchangeServiceCorner_Text_ZoomLensDesc{
+    "If the holder moves after the foe, it'll\n"
+    "boost accuracy."
+}

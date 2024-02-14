@@ -566,7 +566,8 @@ Aldeleaf_BPShop_Text_TutorIntro::
 	.string "in exchange for BP.$"
 
 Aldeleaf_BPShop_Text_TutorWelcomeBack::
-	.string "Welcome back.$"
+	.string "Welcome to the BP shop.\n"
+	.string "I am this shop's move tutor.$"
 
 Aldeleaf_BPShop_Text_TeachWhichMove::
 	.string "Which move would you like to choose?$"

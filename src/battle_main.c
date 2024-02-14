@@ -392,8 +392,9 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_YOUNG_COUPLE, 8},
     {TRAINER_CLASS_WINSTRATE, 10},
     {TRAINER_CLASS_NURSE, 0},
-    {TRAINER_CLASS_GYMMEMBER, 20},
-    {TRAINER_CLASS_GYMMEMBER_DOUBLE, 30},
+    {TRAINER_CLASS_GYMMEMBER, 15},
+    {TRAINER_CLASS_GYMMEMBER_DOUBLE, 20},
+    {TRAINER_CLASS_AFICIONADO, 10},
     {0xFF, 5}, // Any trainer class not listed above uses this
 };
 
@@ -4087,6 +4088,7 @@ static void HandleTurnActionSelectionState(void)
             if ((gBattleTypeFlags & BATTLE_TYPE_HAS_AI || IsWildMonSmart())
                     && (BattlerHasAi(battler) && !(gBattleTypeFlags & BATTLE_TYPE_PALACE)))
             {
+                AI_DATA->mostSuitableMonId = GetMostSuitableMonToSwitchInto(battler, FALSE);
                 gBattleStruct->aiMoveOrAction[battler] = ComputeBattleAiScores(battler);
             }
             // fallthrough

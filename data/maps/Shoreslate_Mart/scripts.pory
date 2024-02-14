@@ -23,7 +23,7 @@ script Shoreslate_Mart_Secret{
                 }
                 if(var(VAR_RESULT) == TRUE){
                     msgbox(Shoreslate_Mart_Secret_Text_4, MSGBOX_DEFAULT)
-                    finditem(ITEM_RING_TARGET)
+                    finditem(ITEM_EXP_CANDY_XS)
                 }
             }
         }
@@ -114,9 +114,19 @@ script Shoreslate_Mart_EventScript_Clerk{
 script Shoreslate_Mart_EventScript_Clerk2{
 	lock
 	faceplayer
-	message(gText_HowMayIServeYou)
+	message(gText_HowMayIServeYou2)
 	waitmessage
 	pokemart(Shoreslate_Mart_Pokemart2)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+script Shoreslate_Mart_EventScript_Clerk3{
+	lock
+	faceplayer
+	message(gText_HowMayIServeYou3)
+	waitmessage
+	pokemart(Shoreslate_Mart_Pokemart3)
 	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 	release
 	end
@@ -146,6 +156,15 @@ mart Shoreslate_Mart_Pokemart2{
     ITEM_DIRE_HIT
 	ITEM_NONE
 }
+mart Shoreslate_Mart_Pokemart3{
+    ITEM_NET_BALL
+    ITEM_DIVE_BALL
+    ITEM_NEST_BALL
+    ITEM_REPEAT_BALL
+    ITEM_HEAL_BALL
+    ITEM_DREAM_BALL
+	ITEM_NONE
+}
 
 script Shoreslate_Mart_EventScript_Woman{
 	msgbox(Shoreslate_Mart_EventScript_Woman_Text, MSGBOX_NPC)
@@ -164,4 +183,19 @@ text Shoreslate_Mart_EventScript_Man_Text{
 	"I wanted to get some escape ropes but\n"
     "I can't see them anywhere.\l"
     "Where are they?"
+}
+
+text gText_HowMayIServeYou2{
+    "Stat boosting combat items for sale!\n"
+    "Come get your own!"
+}
+
+text gText_HowMayIServeYou3{
+    "I've got a selection of interesting\n"
+    "Poké Balls. Take a look!"
+}
+
+text gText_HowMayIServeYou4{
+    "You've never seen these things before!\n"
+    "My prices are incense!"
 }
