@@ -1,0 +1,386 @@
+mapscripts Shoreslate_House2_MapScripts{}
+
+script Shoreslate_Guesser{
+    if((flag(FLAG_RECEIVED_CYNDAQUIL)) && (flag(FLAG_RECEIVED_TOTODILE)) && (flag(FLAG_RECEIVED_CHIKORITA))){
+        msgbox(Shoreslate_Starter_OutOfEggs, MSGBOX_NPC)
+        end
+    }
+    lockall
+    faceplayer
+    bufferleadmonspeciesname(STR_VAR_1)
+    // THIS PART IS TO SHORTEN INTRO
+    if(var(VAR_TEMP_1) == 0){
+        msgbox(Shoreslate_Starter_Intro, MSGBOX_DEFAULT)
+    }
+    if(var(VAR_TEMP_1) == 1){
+        msgbox(Shoreslate_Starter_IntroShort, MSGBOX_DEFAULT)
+    }
+    setvar(VAR_TEMP_1, 1)
+    // THIS PART IS TO CHECK FOR GRASS STARTER
+    specialvar(VAR_RESULT, CheckGrassStarter)
+    if(var(VAR_RESULT) == TRUE){
+        msgbox(Shoreslate_Starter_Correct, MSGBOX_DEFAULT)
+        if((!flag(FLAG_RECEIVED_CYNDAQUIL)) && (!flag(FLAG_RECEIVED_TOTODILE)) && (!flag(FLAG_RECEIVED_CHIKORITA))){
+            random(3)
+            switch(var(VAR_RESULT)){
+                case 0:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_CYNDAQUIL)
+                    setflag(FLAG_RECEIVED_CYNDAQUIL)
+                case 1:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_TOTODILE)
+                    setflag(FLAG_RECEIVED_TOTODILE)
+                case 2:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_CHIKORITA)
+                    setflag(FLAG_RECEIVED_CHIKORITA)
+            }
+            msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+            setflag(FLAG_SHOWN_GRASS)
+            end
+        }
+        if((flag(FLAG_RECEIVED_CYNDAQUIL)) && (!flag(FLAG_RECEIVED_TOTODILE)) && (!flag(FLAG_RECEIVED_CHIKORITA))){
+            random(2)
+            switch(var(VAR_RESULT)){
+                case 0:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_TOTODILE)
+                    setflag(FLAG_RECEIVED_TOTODILE)
+                case 1:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_CHIKORITA)
+                    setflag(FLAG_RECEIVED_CHIKORITA)
+            }
+            msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+            setflag(FLAG_SHOWN_GRASS)
+            end
+        }
+        if((!flag(FLAG_RECEIVED_CYNDAQUIL)) && (flag(FLAG_RECEIVED_TOTODILE)) && (!flag(FLAG_RECEIVED_CHIKORITA))){
+            random(2)
+            switch(var(VAR_RESULT)){
+                case 0:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_CYNDAQUIL)
+                    setflag(FLAG_RECEIVED_CYNDAQUIL)
+                case 1:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_CHIKORITA)
+                    setflag(FLAG_RECEIVED_CHIKORITA)
+            }
+            msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+            setflag(FLAG_SHOWN_GRASS)
+            end
+        }
+        if((!flag(FLAG_RECEIVED_CYNDAQUIL)) && (!flag(FLAG_RECEIVED_TOTODILE)) && (flag(FLAG_RECEIVED_CHIKORITA))){
+            random(2)
+            switch(var(VAR_RESULT)){
+                case 0:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_CYNDAQUIL)
+                    setflag(FLAG_RECEIVED_CYNDAQUIL)
+                case 1:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_TOTODILE)
+                    setflag(FLAG_RECEIVED_TOTODILE)
+            }
+            msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+            setflag(FLAG_SHOWN_GRASS)
+            end
+        }
+        if((flag(FLAG_RECEIVED_CYNDAQUIL)) && (flag(FLAG_RECEIVED_TOTODILE)) && (!flag(FLAG_RECEIVED_CHIKORITA))){
+            call(ReceivedEggJingle)
+            giveegg(SPECIES_CHIKORITA)
+            setflag(FLAG_RECEIVED_CHIKORITA)
+        }
+        msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        setflag(FLAG_SHOWN_GRASS)
+        end
+        if((flag(FLAG_RECEIVED_CYNDAQUIL)) && (!flag(FLAG_RECEIVED_TOTODILE)) && (flag(FLAG_RECEIVED_CHIKORITA))){
+            call(ReceivedEggJingle)
+            giveegg(SPECIES_TOTODILE)
+            setflag(FLAG_RECEIVED_TOTODILE)
+        }
+        msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        setflag(FLAG_SHOWN_GRASS)
+        end
+        if((!flag(FLAG_RECEIVED_CYNDAQUIL)) && (flag(FLAG_RECEIVED_TOTODILE)) && (flag(FLAG_RECEIVED_CHIKORITA))){
+            call(ReceivedEggJingle)
+            giveegg(SPECIES_CYNDAQUIL)
+            setflag(FLAG_RECEIVED_CYNDAQUIL)
+        }
+        msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        setflag(FLAG_SHOWN_GRASS)
+        end
+    }
+    // THIS PART IS TO CHECK FOR FIRE STARTER
+    specialvar(VAR_RESULT, CheckFireStarter)
+    if(var(VAR_RESULT) == TRUE){
+        msgbox(Shoreslate_Starter_Correct, MSGBOX_DEFAULT)
+        if((!flag(FLAG_RECEIVED_CYNDAQUIL)) && (!flag(FLAG_RECEIVED_TOTODILE)) && (!flag(FLAG_RECEIVED_CHIKORITA))){
+            random(3)
+            switch(var(VAR_RESULT)){
+                case 0:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_CYNDAQUIL)
+                    setflag(FLAG_RECEIVED_CYNDAQUIL)
+                case 1:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_TOTODILE)
+                    setflag(FLAG_RECEIVED_TOTODILE)
+                case 2:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_CHIKORITA)
+                    setflag(FLAG_RECEIVED_CHIKORITA)
+            }
+            msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+            setflag(FLAG_SHOWN_FIRE)
+            end
+
+        }
+        if((flag(FLAG_RECEIVED_CYNDAQUIL)) && (!flag(FLAG_RECEIVED_TOTODILE)) && (!flag(FLAG_RECEIVED_CHIKORITA))){
+            random(2)
+            switch(var(VAR_RESULT)){
+                case 0:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_TOTODILE)
+                    setflag(FLAG_RECEIVED_TOTODILE)
+                case 1:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_CHIKORITA)
+                    setflag(FLAG_RECEIVED_CHIKORITA)
+            }
+            msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+            setflag(FLAG_SHOWN_FIRE)
+            end
+        }
+        if((!flag(FLAG_RECEIVED_CYNDAQUIL)) && (flag(FLAG_RECEIVED_TOTODILE)) && (!flag(FLAG_RECEIVED_CHIKORITA))){
+            random(2)
+            switch(var(VAR_RESULT)){
+                case 0:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_CYNDAQUIL)
+                    setflag(FLAG_RECEIVED_CYNDAQUIL)
+                case 1:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_CHIKORITA)
+                    setflag(FLAG_RECEIVED_CHIKORITA)
+            }
+            msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+            setflag(FLAG_SHOWN_FIRE)
+            end
+        }
+        if((!flag(FLAG_RECEIVED_CYNDAQUIL)) && (!flag(FLAG_RECEIVED_TOTODILE)) && (flag(FLAG_RECEIVED_CHIKORITA))){
+            random(2)
+            switch(var(VAR_RESULT)){
+                case 0:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_CYNDAQUIL)
+                    setflag(FLAG_RECEIVED_CYNDAQUIL)
+                case 1:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_TOTODILE)
+                    setflag(FLAG_RECEIVED_TOTODILE)
+            }
+            msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+            setflag(FLAG_SHOWN_FIRE)
+            end
+        }
+        if((flag(FLAG_RECEIVED_CYNDAQUIL)) && (flag(FLAG_RECEIVED_TOTODILE)) && (!flag(FLAG_RECEIVED_CHIKORITA))){
+            call(ReceivedEggJingle)
+            giveegg(SPECIES_CHIKORITA)
+            setflag(FLAG_RECEIVED_CHIKORITA)
+        }
+        msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        setflag(FLAG_SHOWN_FIRE)
+        end
+        if((flag(FLAG_RECEIVED_CYNDAQUIL)) && (!flag(FLAG_RECEIVED_TOTODILE)) && (flag(FLAG_RECEIVED_CHIKORITA))){
+            call(ReceivedEggJingle)
+            giveegg(SPECIES_TOTODILE)
+            setflag(FLAG_RECEIVED_TOTODILE)
+        }
+        msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        setflag(FLAG_SHOWN_FIRE)
+        end
+        if((!flag(FLAG_RECEIVED_CYNDAQUIL)) && (flag(FLAG_RECEIVED_TOTODILE)) && (flag(FLAG_RECEIVED_CHIKORITA))){
+            call(ReceivedEggJingle)
+            giveegg(SPECIES_CYNDAQUIL)
+            setflag(FLAG_RECEIVED_CYNDAQUIL)
+        }
+        msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        setflag(FLAG_SHOWN_FIRE)
+        end
+    }
+    // THIS PART IS TO CHECK FOR WATER STARTER
+    specialvar(VAR_RESULT, CheckWaterStarter)
+    if(var(VAR_RESULT) == TRUE){
+        msgbox(Shoreslate_Starter_Correct, MSGBOX_DEFAULT)
+        if((!flag(FLAG_RECEIVED_CYNDAQUIL)) && (!flag(FLAG_RECEIVED_TOTODILE)) && (!flag(FLAG_RECEIVED_CHIKORITA))){
+            random(3)
+            switch(var(VAR_RESULT)){
+                case 0:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_CYNDAQUIL)
+                    setflag(FLAG_RECEIVED_CYNDAQUIL)
+                case 1:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_TOTODILE)
+                    setflag(FLAG_RECEIVED_TOTODILE)
+                case 2:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_CHIKORITA)
+                    setflag(FLAG_RECEIVED_CHIKORITA)
+            }
+            msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+            setflag(FLAG_SHOWN_WATER)
+            end
+        }
+        if((flag(FLAG_RECEIVED_CYNDAQUIL)) && (!flag(FLAG_RECEIVED_TOTODILE)) && (!flag(FLAG_RECEIVED_CHIKORITA))){
+            random(2)
+            switch(var(VAR_RESULT)){
+                case 0:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_TOTODILE)
+                    setflag(FLAG_RECEIVED_TOTODILE)
+                case 1:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_CHIKORITA)
+                    setflag(FLAG_RECEIVED_CHIKORITA)
+            }
+            msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+            setflag(FLAG_SHOWN_WATER)
+            end
+        }
+        if((!flag(FLAG_RECEIVED_CYNDAQUIL)) && (flag(FLAG_RECEIVED_TOTODILE)) && (!flag(FLAG_RECEIVED_CHIKORITA))){
+            random(2)
+            switch(var(VAR_RESULT)){
+                case 0:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_CYNDAQUIL)
+                    setflag(FLAG_RECEIVED_CYNDAQUIL)
+                case 1:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_CHIKORITA)
+                    setflag(FLAG_RECEIVED_CHIKORITA)
+            }
+            msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+            setflag(FLAG_SHOWN_WATER)
+            end
+        }
+        if((!flag(FLAG_RECEIVED_CYNDAQUIL)) && (!flag(FLAG_RECEIVED_TOTODILE)) && (flag(FLAG_RECEIVED_CHIKORITA))){
+            random(2)
+            switch(var(VAR_RESULT)){
+                case 0:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_CYNDAQUIL)
+                    setflag(FLAG_RECEIVED_CYNDAQUIL)
+                case 1:
+                    call(ReceivedEggJingle)
+                    giveegg(SPECIES_TOTODILE)
+                    setflag(FLAG_RECEIVED_TOTODILE)
+            }
+            msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+            setflag(FLAG_SHOWN_WATER)
+            end
+        }
+        msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        setflag(FLAG_SHOWN_WATER)
+        end
+        if((flag(FLAG_RECEIVED_CYNDAQUIL)) && (flag(FLAG_RECEIVED_TOTODILE)) && (!flag(FLAG_RECEIVED_CHIKORITA))){
+            call(ReceivedEggJingle)
+            giveegg(SPECIES_CHIKORITA)
+            setflag(FLAG_RECEIVED_CHIKORITA)
+        }
+        if((flag(FLAG_RECEIVED_CYNDAQUIL)) && (!flag(FLAG_RECEIVED_TOTODILE)) && (flag(FLAG_RECEIVED_CHIKORITA))){
+            call(ReceivedEggJingle)
+            giveegg(SPECIES_TOTODILE)
+            setflag(FLAG_RECEIVED_TOTODILE)
+        }
+        msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        setflag(FLAG_SHOWN_WATER)
+        end
+        if((!flag(FLAG_RECEIVED_CYNDAQUIL)) && (flag(FLAG_RECEIVED_TOTODILE)) && (flag(FLAG_RECEIVED_CHIKORITA))){
+            call(ReceivedEggJingle)
+            giveegg(SPECIES_CYNDAQUIL)
+            setflag(FLAG_RECEIVED_CYNDAQUIL)
+        }
+        msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        setflag(FLAG_SHOWN_WATER)
+        end
+    }
+    msgbox(Shoreslate_Starter_Incorrect, MSGBOX_NPC)
+    end
+}
+
+
+text Shoreslate_Starter_OutOfEggs{
+    "I appreciate you sharing your\n"
+    "collection with me but I no longer\l"
+    "have any more rewards to give you.\p"
+    "I hope you take good care of the\n"
+    "eggs I gave you."
+}
+text Shoreslate_Starter_Intro{
+    "Greetings. Would you happen to have\n"
+    "any of my favorite Pokémon?\p"
+    "If you can show me one of my top three\n"
+    "Pokémon, I will give you something nice."
+}
+text Shoreslate_Starter_IntroShort{
+    "Do you have a Pokémon to show me?"
+}
+text Shoreslate_Starter_Correct{
+    "That {STR_VAR_1}…\p"
+    "Why yes, it is one of my favorite\n"
+    "Pokémon!\p"
+    "As a thank you for allowing me to see\n"
+    "it in person, you may have this egg\l"
+    "one of Pokémon was carrying."
+}
+text Shoreslate_Starter_TakeCareOfTheEgg{
+    "I hope you take good care of that egg."
+}
+text Shoreslate_Starter_Incorrect{
+    "That {STR_VAR_1}…\p"
+    "While not a bad Pokémon, I must say\n"
+    "it is not one of the Pokémon I'm\l"
+    "currently hoping to see…"
+}
+
+script ReceivedEggJingle{
+    playfanfare(MUS_OBTAIN_TMHM)
+    msgbox("{PLAYER} received a Pokémon egg\nfrom the gentleman!", MSGBOX_AUTOCLOSE)
+    waitfanfare
+    waitmessage
+    closemessage
+    return
+}
+
+script Shoreslate_SmallHouse_Woman{
+    msgbox(Shoreslate_SmallHouse_Woman_Text, MSGBOX_NPC)
+    end
+}
+
+text Shoreslate_SmallHouse_Woman_Text{
+    "Are those running shoes I see you\n"
+    "sporting?\p"
+    "They're just one of the many products\n"
+    "invented by the Devon Corporation,\l"
+    "the very same corporation whose\l"
+    "headquarters are located right here\l"
+    "in Shoreslate!"
+}
+
+script Shoreslate_SmallHouse_Man{
+    msgbox(Shoreslate_SmallHouse_Man_Text, MSGBOX_NPC)
+    end
+}
+
+text Shoreslate_SmallHouse_Man_Text{
+    "Have you been to the Devon\n"
+    "Corporation's offices?\p"
+    "Much of their product development\n"
+    "is kept secret but they do offer\l"
+    "guided tours to folks every now\l"
+    "and then."
+}

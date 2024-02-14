@@ -826,7 +826,7 @@
     },
     {
       "map_section": "MAPSEC_CITY_WIP2",
-      "name": "WIP CITY 2",
+      "name": "KAOLISLE CITY",
       "x": 13,
       "y": 13,
       "width": 1,
@@ -973,6 +973,14 @@
       "name": "ROUTE 28",
       "x": 22,
       "y": 4,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_SAFARI_ZONE",
+      "name": "",
+      "x": 26,
+      "y": 8,
       "width": 1,
       "height": 1
     }

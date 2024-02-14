@@ -705,7 +705,7 @@ BattleFrontier_ExchangeServiceCorner_Text_MentalHerbDesc::
 	.string "A hold item that snaps POKéMON out\n"
 	.string "of infatuation.$"
 
-BattleFrontier_ExchangeServiceCorner_Text_BrightpowderDesc::
+BattleFrontier_ExchangeServiceCorner_Text_BrightPowderDesc::
 	.string "A hold item that casts a glare to\n"
 	.string "reduce accuracy.$"
 
@@ -773,3 +773,4 @@ BattleFrontier_ExchangeServiceCorner_Text_ProtectorDesc::
 BattleFrontier_ExchangeServiceCorner_Text_ReaperClothDesc::
 	.string "Loved by a certain Pokémon. Imbued with\n"
     .string "spiritual energy.$"
+

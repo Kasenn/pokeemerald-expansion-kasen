@@ -75,6 +75,20 @@ static const u16 sFrontierExchangeCorner_HoldItems3[] =
     ITEM_LIST_END
 };
 
+static const u16 sFrontierExchangeCorner_HoldItems4[] =
+{
+    ITEM_BRIGHT_POWDER,
+    ITEM_QUICK_CLAW,
+    ITEM_SOOTHE_BELL,
+    ITEM_SCOPE_LENS,
+    ITEM_SHELL_BELL,
+    ITEM_MUSCLE_BAND,
+    ITEM_WISE_GLASSES,
+    ITEM_WIDE_LENS,
+    ITEM_ZOOM_LENS,
+    ITEM_LIST_END
+};
+
 static const u8 *const sFrontierExchangeCorner_Decor1Descriptions[] =
 {
     BattleFrontier_ExchangeServiceCorner_Text_KissPosterDesc,
@@ -117,7 +131,7 @@ static const u8 *const sFrontierExchangeCorner_HoldItemsDescriptions[] =
     BattleFrontier_ExchangeServiceCorner_Text_WhiteHerbDesc,
     BattleFrontier_ExchangeServiceCorner_Text_QuickClawDesc,
     BattleFrontier_ExchangeServiceCorner_Text_MentalHerbDesc,
-    BattleFrontier_ExchangeServiceCorner_Text_BrightpowderDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_BrightPowderDesc,
     BattleFrontier_ExchangeServiceCorner_Text_ChoiceBandDesc,
     BattleFrontier_ExchangeServiceCorner_Text_KingsRockDesc,
     BattleFrontier_ExchangeServiceCorner_Text_FocusBandDesc,
@@ -151,3 +165,18 @@ static const u8 *const sFrontierExchangeCorner_HoldItemsDescriptions3[] =
     BattleFrontier_ExchangeServiceCorner_Text_ReaperClothDesc,
     gText_Exit
 };
+
+static const u8 *const sFrontierExchangeCorner_HoldItemsDescriptions4[] =
+{
+    BattleFrontier_ExchangeServiceCorner_Text_BrightPowderDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_QuickClawDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_SootheBellDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_ScopeLensDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_ShellBellDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_MuscleBandDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_WiseGlassesDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_WideLensDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_ZoomLensDesc,
+    gText_Exit
+};
+

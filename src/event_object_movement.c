@@ -461,6 +461,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_RocketF,            OBJ_EVENT_PAL_ROCKET_F},
     {gObjectEventPalette_Skyla,            OBJ_EVENT_PAL_SKYLA},
     {gObjectEventPalette_StoneSphere,            OBJ_EVENT_PAL_STONE_SPHERE},
+    {gObjectEventPalette_D_Decc,          OBJ_EVENT_PAL_D_DECC},
     
 #ifdef BUGFIX
     {NULL,                                  OBJ_EVENT_PAL_TAG_NONE},
@@ -7531,7 +7532,12 @@ void GroundEffect_SpawnOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *
     gFieldEffectArguments[5] = objEvent->mapGroup;
     gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
     gFieldEffectArguments[7] = TRUE; // skip to end of anim
-    FieldEffectStart(FLDEFF_TALL_GRASS);
+    if (MetatileBehavior_IsTallGrassAutumn(objEvent->currentMetatileBehavior)){
+        FieldEffectStart(FLDEFF_TALL_GRASS_AUTUMN);
+    }
+    if (!MetatileBehavior_IsTallGrassAutumn(objEvent->currentMetatileBehavior)){
+        FieldEffectStart(FLDEFF_TALL_GRASS);
+    }
 }
 
 void GroundEffect_StepOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)
@@ -7544,7 +7550,12 @@ void GroundEffect_StepOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *s
     gFieldEffectArguments[5] = objEvent->mapGroup;
     gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
     gFieldEffectArguments[7] = FALSE; // don't skip to end of anim
-    FieldEffectStart(FLDEFF_TALL_GRASS);
+    if (MetatileBehavior_IsTallGrassAutumn(objEvent->currentMetatileBehavior)){
+        FieldEffectStart(FLDEFF_TALL_GRASS_AUTUMN);
+    }
+    if (!MetatileBehavior_IsTallGrassAutumn(objEvent->currentMetatileBehavior)){
+        FieldEffectStart(FLDEFF_TALL_GRASS);
+    }
 }
 
 void GroundEffect_SpawnOnLongGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)

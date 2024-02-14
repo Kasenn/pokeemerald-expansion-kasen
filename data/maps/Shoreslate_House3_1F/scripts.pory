@@ -1,0 +1,131 @@
+mapscripts Shoreslate_House3_1F_MapScripts{}
+
+script Shoreslate_House3_1F_BlackBelt{
+    checkplayergender
+    if(var(VAR_RESULT) == MALE){
+        msgbox(Shoreslate_House3_1F_BlackBelt_Male, MSGBOX_NPC)
+    }
+    else{
+        msgbox(Shoreslate_House3_1F_BlackBelt_Female, MSGBOX_NPC)
+    }
+    end
+}
+text Shoreslate_House3_1F_BlackBelt_Male{
+    "Are you a tough guy?\n"
+    "No, I don't think so."
+}
+text Shoreslate_House3_1F_BlackBelt_Female{
+    "Are you a tough girl?\n"
+    "No, I don't think so."
+}
+
+script Shoreslate_House3_2F_Girl{
+    if(flag(FLAG_RECEIVED_SHORESLATE_POTION)){
+        msgbox(Shoreslate_Annoy_NoMoreGames, MSGBOX_NPC)
+        end
+    }
+    switch(var(VAR_TEMP_1)){
+        case 10:
+            msgbox(Shoreslate_Annoy_10, MSGBOX_NPC)
+            checkitemspace(ITEM_SUPER_POTION)
+            if(var(VAR_RESULT) == FALSE){
+                msgbox(FatGuyNotEnoughRoom, MSGBOX_NPC)
+                end
+            }
+            giveitem(ITEM_SUPER_POTION)
+            setflag(FLAG_RECEIVED_SHORESLATE_POTION)
+            addvar(VAR_TEMP_1, 1)
+            waitmessage
+            closemessage
+        case 9:
+            msgbox(Shoreslate_Annoy_9, MSGBOX_NPC)
+            addvar(VAR_TEMP_1, 1)
+        case 8:
+            msgbox(Shoreslate_Annoy_8, MSGBOX_NPC)
+            addvar(VAR_TEMP_1, 1)
+        case 7:
+            msgbox(Shoreslate_Annoy_7, MSGBOX_NPC)
+            addvar(VAR_TEMP_1, 1)
+        case 6:
+            msgbox(Shoreslate_Annoy_6, MSGBOX_NPC)
+            addvar(VAR_TEMP_1, 1)
+        case 5:
+            msgbox(Shoreslate_Annoy_5, MSGBOX_NPC)
+            addvar(VAR_TEMP_1, 1)
+        case 4:
+            msgbox(Shoreslate_Annoy_4, MSGBOX_NPC)
+            addvar(VAR_TEMP_1, 1)
+        case 3:
+            msgbox(Shoreslate_Annoy_3, MSGBOX_NPC)
+            addvar(VAR_TEMP_1, 1)
+        case 2:
+            msgbox(Shoreslate_Annoy_2, MSGBOX_NPC)
+            addvar(VAR_TEMP_1, 1)
+        case 1:
+            msgbox(Shoreslate_Annoy_1, MSGBOX_NPC)
+            addvar(VAR_TEMP_1, 1)
+        case 0:
+            msgbox(Shoreslate_Annoy_0, MSGBOX_NPC)
+            addvar(VAR_TEMP_1, 1)
+    }
+    end
+}
+
+text Shoreslate_Annoy_0{
+    "What are you doing in my apartment?\n"
+    "Please leave."
+}
+text Shoreslate_Annoy_1{
+    "Didn't you hear what I said?\n"
+    "Shoo!"
+}
+text Shoreslate_Annoy_2{
+    "Why do you still linger?\n"
+    "Begone!"
+}
+text Shoreslate_Annoy_3{
+    "Scram!"
+}
+text Shoreslate_Annoy_4{
+    "Is this like a language barrier thing?\n"
+    "DOOR. OUT. BYE-BYE!"
+}
+text Shoreslate_Annoy_5{
+    "Why are you doing this…\n"
+    "Please, just go…"
+}
+text Shoreslate_Annoy_6{
+    "I'll just pretend you're not here.\n"
+    "You're nothing but a ghost!"
+}
+text Shoreslate_Annoy_7{
+    "Look, I'm sorry. Resorting to anger\n"
+    "was wrong of me. But please, could\l"
+    "you just go already?"
+}
+text Shoreslate_Annoy_8{
+    "Why are you still here?"
+}
+text Shoreslate_Annoy_9{
+    "Okay, this is not funny.\n"
+    "I'm sorry if I've wronged someone,\l"
+    "but please, just leave me alone already!"
+}
+text Shoreslate_Annoy_10{
+    "Fine, you win! Will you go away\n"
+    "if I give you this?"
+}
+text Shoreslate_Annoy_NoMoreGames{
+    "You got what you wanted, didn't you?\n"
+    "Now leave me alone!"
+}
+
+script Shoreslate_House3_3F_Man{
+    msgbox(Shoreslate_House3_3F_Man_Text, MSGBOX_NPC)
+    end
+}
+text Shoreslate_House3_3F_Man_Text{
+    "Yes, I'm fully aware of how barren\n"
+    "this place is but give me a break, okay?\l"
+    "I just moved in."
+}

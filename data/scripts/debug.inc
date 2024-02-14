@@ -115,7 +115,7 @@ Debug_Script_4::
 	end
 
 Debug_Script_5::
-	buffernumberstring STR_VAR_1, VAR_ROUTE5_TRAINERCOUNT
+	buffernumberstring STR_VAR_1, VAR_DEBUG
 	msgbox weirdcavesteps, MSGBOX_NPC
 	end
 

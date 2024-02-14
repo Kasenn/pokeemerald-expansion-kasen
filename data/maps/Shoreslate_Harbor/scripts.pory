@@ -1,0 +1,112 @@
+mapscripts Shoreslate_Harbor_MapScripts{
+	MAP_SCRIPT_ON_TRANSITION: ShoreslateHarborSetFlags
+}
+
+script ShoreslateHarborSetFlags{
+	if(flag(FLAG_HELPED_DEVON_CORP)){
+        end
+    }
+    setflag(FLAG_HIDE_SHORESLATE_BOAT)
+    end
+}
+
+script ShoreslateHarbor_Attendant{
+    lockall
+    faceplayer
+    if(!flag(FLAG_HELPED_DEVON_CORP)){
+        msgbox(ShoreslateHarbor_BoatJustLeft, MSGBOX_NPC)
+        end
+    }
+    else{
+        msgbox(ShoreslateHarbor_EndOfBeta, MSGBOX_NPC)
+        end
+    }
+	msgbox(ShoreslateHarbor_Text_GetAboard, MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, ShoreslateHarbor_EventScript_ComeAgain)
+	call(ShoreslateHarbor_EventScript_BoardFerry)
+	warp(MAP_CORALGROVE_HARVOR_INTERIOR, 7, 10)
+	waitstate
+	release
+	end
+}
+text ShoreslateHarbor_BoatJustLeft{
+    "I'm sorry, but the ferry to Kaolisle\n"
+    "City has just departed.\p"
+    "It will take some time before\n"
+    "the ferry returns."
+}
+text ShoreslateHarbor_EndOfBeta{
+    "I'm sorry, but this is the end\n"
+    "of the current release.\p"
+    "Please come back when the rom hack\n"
+    "creator decides to update the project."
+}
+
+script ShoreslateHarbor_EventScript_BoardFerry{
+	msgbox(ShoreslateHarbor_Text_PleaseBoardFerry, MSGBOX_DEFAULT)
+	closemessage
+	applymovement(1, Common_Movement_WalkInPlaceFasterUp)
+	waitmovement(0)
+	delay(30)
+	hideobjectat(1, MAP_SHORESLATE_HARBOR)
+	call_if_eq(VAR_FACING, DIR_NORTH, ShoreslateHarbor_EventScript_BoardFerryNorth)
+	call_if_eq(VAR_FACING, DIR_WEST,  ShoreslateHarbor_EventScript_BoardFerryWest)
+	delay(30)
+	hideobjectat(OBJ_EVENT_ID_PLAYER, 0)
+	call(Common2_EventScript_FerryDepart3)
+	return
+}
+
+script ShoreslateHarbor_EventScript_ComeAgain{
+    msgbox(ShoreslateHarbor_Text_ComeAgain, MSGBOX_DEFAULT)
+    waitmessage
+    closemessage
+    release
+    releaseall
+    end
+}
+
+ script ShoreslateHarbor_EventScript_BoardFerryWest{
+	applymovement(OBJ_EVENT_ID_PLAYER,  CoastTownHarbor_Movement_BoardFerryWest)
+	waitmovement(0)
+	return
+ }
+script  ShoreslateHarbor_EventScript_BoardFerryNorth{
+	applymovement(OBJ_EVENT_ID_PLAYER,  CoastTownHarbor_Movement_BoardFerryNorth)
+	waitmovement(0)
+	return
+}
+
+text ShoreslateHarbor_Text_GetAboard{
+    "We are just about to depart for\n"
+	"Kaolisle City.\p"
+	"Would you like to board the ferry?"
+}
+text ShoreslateHarbor_Text_ComeAgain{
+    "Let me know if you change your mind."
+}
+text ShoreslateHarbor_Text_PleaseBoardFerry{
+    "Very well.\nRight this way to the ferry."
+}
+
+script ShoreslateHarbor_Boy{
+    msgbox(ShoreslateHarbor_Boy_Text, MSGBOX_NPC)
+    end
+}
+
+script ShoreslateHarbor_Sailor{
+    msgbox(ShoreslateHarbor_Sailor_Text, MSGBOX_NPC)
+    end
+}
+
+text ShoreslateHarbor_Boy_Text{
+    "I'm on a quest to fish in every\n"
+    "unique location across Sinko.\p"
+    "I heard Kaolisle City has some of the\n"
+    "most unique species imaginable!"
+}
+text ShoreslateHarbor_Sailor_Text{
+    "Have you been to the Shoreslate Market?\n"
+    "I plan to head there myself as soon as\l"
+    "I've given my old bones a moment's rest."
+}
