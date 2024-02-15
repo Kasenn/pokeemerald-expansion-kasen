@@ -18186,6 +18186,34 @@ static const struct LevelUpMove sEnamorusLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_SPRINGTIDE_STORM),
     LEVEL_UP_END
 };
+static const struct LevelUpMove sExpBotLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_TACKLE),
+    LEVEL_UP_END
+};
+static const struct LevelUpMove sHpBotLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_TACKLE),
+    LEVEL_UP_END
+};
+static const struct LevelUpMove sAttackBotLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_TACKLE),
+    LEVEL_UP_END
+};
+static const struct LevelUpMove sDefBotLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_TACKLE),
+    LEVEL_UP_END
+};
+static const struct LevelUpMove sSpAtkBotLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_TACKLE),
+    LEVEL_UP_END
+};
+static const struct LevelUpMove sSpDefBotLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_TACKLE),
+    LEVEL_UP_END
+};
+static const struct LevelUpMove sSpeedBotLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_TACKLE),
+    LEVEL_UP_END
+};
 #endif
 
 static const struct LevelUpMove sRattataAlolanLevelUpLearnset[] = {

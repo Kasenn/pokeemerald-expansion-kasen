@@ -897,7 +897,7 @@ u8 GetTrainerBattleTransition(void)
 
     if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_AQUA_LEADER
         || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_TEAM_AQUA
-        || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_AQUA_ADMIN)
+        || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_ROCKET_ADMIN)
         return B_TRANSITION_SHRED_SPLIT;
 
     if (gTrainers[gTrainerBattleOpponent_A].doubleBattle == TRUE)

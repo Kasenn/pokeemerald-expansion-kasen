@@ -118,7 +118,7 @@
 #define OBJ_EVENT_GFX_CABLE_CAR                  114
 #define OBJ_EVENT_GFX_SCIENTIST_2                115
 #define OBJ_EVENT_GFX_DEVON_EMPLOYEE             116
-#define OBJ_EVENT_GFX_AQUA_MEMBER_M              117
+#define OBJ_EVENT_GFX_ROCKET_ADMIN_M            117
 #define OBJ_EVENT_GFX_AQUA_MEMBER_F              118
 #define OBJ_EVENT_GFX_MAGMA_MEMBER_M             119
 #define OBJ_EVENT_GFX_MAGMA_MEMBER_F             120
@@ -378,6 +378,7 @@
 #define OBJ_EVENT_PAL_CRUSTLE                   0x1131
 #define OBJ_EVENT_PAL_NEWPIKACHU                0x1132
 #define OBJ_EVENT_PAL_D_DECC                    0x1133
+#define OBJ_EVENT_PAL_ROCKET_ADMIN_M        0x1134
 
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 

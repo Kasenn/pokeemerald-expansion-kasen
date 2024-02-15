@@ -8,6 +8,7 @@ VisitedShoreslate::
 	goto_if_unset FLAG_DAILY_RESET_CASTELIACONE, VisitedShoreslate_2
 VisitedShoreslate_1:
 	setflag FLAG_VISITED_SHORESLATE
+	setflag FLAG_ROUTE28_DESPAWN_BROTHER
 	end
 
 VisitedShoreslate_2:
@@ -112,8 +113,72 @@ Shoreslate_Man1::
 
 
 Shoreslate_CasteliaGirl::
-	msgbox Shoreslate_CasteliaGirl_Text, MSGBOX_NPC
+	faceplayer
+	lockall
+	msgbox Shoreslate_CasteliaGirl_Text, MSGBOX_DEFAULT
+	waitmessage
+	closemessage
+	delay 15
+	checkitem ITEM_CASTELIACONE, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq Shoreslate_CasteliaGirl_2
+Shoreslate_CasteliaGirl_1:
+	closemessage
+	waitmessage
+	release
 	end
+
+Shoreslate_CasteliaGirl_2:
+	compare VAR_CASTELIACONES_BOUGHT, 1
+	goto_if_eq Shoreslate_CasteliaGirl_5
+	msgbox ShoreslateCheckCastelias, MSGBOX_YESNO
+Shoreslate_CasteliaGirl_4:
+	compare VAR_RESULT, TRUE
+	goto_if_eq Shoreslate_CasteliaGirl_8
+	goto Shoreslate_CasteliaGirl_1
+
+Shoreslate_CasteliaGirl_5:
+	msgbox ShoreslateCheckCastelia, MSGBOX_YESNO
+	goto Shoreslate_CasteliaGirl_4
+
+Shoreslate_CasteliaGirl_8:
+	checkitem ITEM_CASTELIACONE, 4
+	compare VAR_RESULT, FALSE
+	goto_if_eq Shoreslate_CasteliaGirl_11
+Shoreslate_CasteliaGirl_10:
+	compare VAR_RESULT, TRUE
+	goto_if_eq Shoreslate_CasteliaGirl_13
+	goto Shoreslate_CasteliaGirl_1
+
+Shoreslate_CasteliaGirl_11:
+	msgbox Shoreslate_CasteliaSecondThought, MSGBOX_NPC
+	goto Shoreslate_CasteliaGirl_10
+
+Shoreslate_CasteliaGirl_13:
+	removeitem ITEM_CASTELIACONE, 4
+	playfanfare MUS_OBTAIN_ITEM
+	message HandedOverCastelia
+	waitfanfare
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq Shoreslate_CasteliaGirl_16
+	msgbox ThankYouMsCastelia, MSGBOX_DEFAULT
+Shoreslate_CasteliaGirl_15:
+	giveitem ITEM_AIR_BALLOON
+	waitfanfare
+	msgbox GetHomeFast, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	delay 15
+	removeobject 24
+	setflag FLAG_GIVEN_CASTELIATOGIRL
+	fadescreen FADE_FROM_BLACK
+	delay 15
+	goto Shoreslate_CasteliaGirl_1
+
+Shoreslate_CasteliaGirl_16:
+	msgbox ThankYouMrCastelia, MSGBOX_DEFAULT
+	goto Shoreslate_CasteliaGirl_15
 
 
 Shoreslate_CasteliaVendor::
@@ -248,10 +313,12 @@ CancelBuyingCastelia::
 
 
 Shoreslate_Sign1_Text_0:
-	.string "SHORESLATE CITY\n“”$"
+	.string "SHORESLATE CITY\p"
+	.string "“The port where people and Pokémon\n"
+	.string "cross paths.”$"
 
 Shoreslate_Sign2_Text_0:
-	.string "Devon Corporation offices$"
+	.string "Devon Corporation Headquarters$"
 
 Shoreslate_Sign3_Text_0:
 	.string "Shoreslate Harbor$"
@@ -277,7 +344,10 @@ Shoreslate_NinjaBoy_Text2::
 	.string "drive him away.$"
 
 Shoreslate_OldWoman_Text::
-	.string "$"
+	.string "I used to be the owner of the Pretty\n"
+	.string "Petal flower shop on route 8.\l"
+	.string "Nowadays I'm retired so my daughter has\l"
+	.string "taken over the business in my stead.$"
 
 Shoreslate_Boy1_Text::
 	.string "Oh, I don't believe I've seen\n"
@@ -287,10 +357,15 @@ Shoreslate_Boy1_Text::
 	.string "western Sinko?$"
 
 Shoreslate_Man2_Text::
-	.string "$"
+	.string "Do you have the need for speed?\p"
+	.string "Then you need to visit Rydel's\n"
+	.string "bike shop!$"
 
 Shoreslate_Sailor_Text::
-	.string "$"
+	.string "Taking the ferry is a perfectly fine\n"
+	.string "option, but if you want to feel alive,\l"
+	.string "there's no better way of crossing the\l"
+	.string "ocean than on the back of a Pokémon!$"
 
 Shoreslate_ExpertM_Text::
 	.string "Ah, the sea…\n"
@@ -310,19 +385,72 @@ Shoreslate_OldCoupleM_Text::
 	.string "was already a bustling city.$"
 
 Shoreslate_OldCoupleF_Text::
-	.string "$"
+	.string "A young trainer, eh?\p"
+	.string "Don't let my looks deceive you.\n"
+	.string "In my youth, I came this close to\l"
+	.string "becoming the Pokémon League Champion\l"
+	.string "of Sinko.$"
 
 Shoreslate_Woman3_Text::
-	.string "$"
+	.string "Have you been to a BP Shop yet?\n"
+	.string "I heard this one's selection of moves\l"
+	.string "and items is completely different\l"
+	.string "compared to the one in Aldeleaf.$"
 
 Shoreslate_Fisher_Text::
-	.string "$"
+	.string "I was once fishing off the coast of\n"
+	.string "Kaolisle City when I almost caught\l"
+	.string "a Wailord!\p"
+	.string "Don't believe me?\n"
+	.string "Ask my friend!$"
 
 Shoreslate_Man1_Text::
-	.string "$"
+	.string "Everything this guy says is true!\p"
+	.string "… … … …\p"
+	.string "Okay, it was actually just a regular\n"
+	.string "Goldeen…$"
 
 Shoreslate_CasteliaGirl_Text::
-	.string "$"
+	.string "Sniff… My daddy gave me money to buy\n"
+	.string "ice cream for the whole family but\l"
+	.string "when I got here, I could no longer\l"
+	.string "find the bill in my pocket…\l"
+	.string "What do I do…$"
+
+ShoreslateCheckCastelia::
+	.string "You recall buying a Casteliacone.\n"
+	.string "Would you like to offer it to the\l"
+	.string "little girl?$"
+
+ShoreslateCheckCastelias::
+	.string "You recall buying some Casteliacones.\n"
+	.string "Would you like to offer them to the\l"
+	.string "little girl?$"
+
+Shoreslate_CasteliaSecondThought::
+	.string "On second thought, maybe you should\n"
+	.string "get some more Casteliacones first.\l"
+	.string "She did mention “the whole family.”$"
+
+HandedOverCastelia::
+	.string "{PLAYER} handed 4 Casteliacones\n"
+	.string "to the little girl.$"
+
+ThankYouMrCastelia::
+	.string "Wow! Thanks mister!\n"
+	.string "You are the best!\p"
+	.string "Umm, my hands are getting a bit full\n"
+	.string "so here, you can have this.$"
+
+ThankYouMsCastelia::
+	.string "Wow! Thanks big sis!\n"
+	.string "You are the best!\p"
+	.string "Umm, my hands are getting a bit full\n"
+	.string "so here, you can have this.$"
+
+GetHomeFast::
+	.string "I need to get back before these melt.\n"
+	.string "Thanks again!$"
 
 Bought1Castelia::
 	.string "{PLAYER} bought a Casteliacone!$"

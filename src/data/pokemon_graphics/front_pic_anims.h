@@ -12571,6 +12571,14 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_SNEASLER] = sAnims_Sneasler,
     [SPECIES_OVERQWIL] = sAnims_Overqwil,
     [SPECIES_ENAMORUS] = sAnims_Enamorus,
+    [SPECIES_EXPBOT]    = sAnims_Clefairy,
+    [SPECIES_HPBOT]    = sAnims_Clefairy,
+    [SPECIES_ATKBOT]    = sAnims_Clefairy,
+    [SPECIES_DEFBOT]    = sAnims_Clefairy,
+    [SPECIES_SPATKBOT]    = sAnims_Clefairy,
+    [SPECIES_SPDEFBOT]    = sAnims_Clefairy,
+    [SPECIES_SPEEDBOT]    = sAnims_Clefairy,
+
 #endif
     [SPECIES_VENUSAUR_MEGA] = sAnims_VenusaurMega,
     [SPECIES_CHARIZARD_MEGA_X] = sAnims_CHARIZARD_MEGA_X,

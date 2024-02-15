@@ -210,7 +210,7 @@ Shoreslate_Mart_EventScript_Man_Text::
 	.string "Where are they?$"
 
 gText_HowMayIServeYou2::
-	.string "Stat boosting combat items for sale!\n"
+	.string "Combat items for sale!\n"
 	.string "Come get your own!$"
 
 gText_HowMayIServeYou3::

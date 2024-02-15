@@ -1,5 +1,12 @@
 mapscripts Route7_MapScripts{
-    MAP_SCRIPT_ON_TRANSITION: ClearShinyFlag
+    MAP_SCRIPT_ON_TRANSITION: ClearShinyFlag2
+}
+
+script ClearShinyFlag2{
+    clearflag(FLAG_INCREASED_SHINY_ODDS)
+    cleartrainerflag(TRAINER_R8_TR6_CAMPER_M)
+    release
+    end
 }
 
 script Route8_Boy{
@@ -225,17 +232,16 @@ script Route8_Trainer6_Camper_M{
     end
 }
 text Route8_Trainer6_Camper_M_Intro{
-    "Camping's fun! You can fish, roast\n"
-	"marshmallows, and tell spooky stories!\p"
-	"But the best of all are the Pokémon\n"
-	"battles!"
+    "I love Pokémon battles so much!\n"
+    "I could do this all day!"
 }
 text Route8_Trainer6_Camper_M_Defeat{
     "Way too strong!"
 }
 text Route8_Trainer6_Camper_M_PostBattle{
-    "I think it's great that I can go\n"
-	"camping with my Pokémon."
+    "My Pokémon need a moment's rest but if\n"
+    "you're up for it, I'd like to\l"
+    "battle again soon!"
 }
 script Route8_Trainer7_Triathlete_M{
     trainerbattle_single(TRAINER_R8_TR7_TRIATHLETE_M, Route8_Trainer7_Triathlete_M_Intro, Route8_Trainer7_Triathlete_M_Defeat)

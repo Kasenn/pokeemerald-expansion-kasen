@@ -629,7 +629,7 @@ PokeRanch_VolknerIntroContinued::
 	.string "you seem to be a Pokémon trainer.\p"
 	.string "In that case,\n"
 	.string "maybe you could help with the case?\p"
-	.string "Volkner: My name is Volkner.\p"
+	.string "My name is Volkner.\p"
 	.string "I'm the gym leader of Aldeleaf\n"
 	.string "City but every now and then I get\l"
 	.string "called to help the locals with all\l"

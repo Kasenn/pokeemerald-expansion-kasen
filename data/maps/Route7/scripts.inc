@@ -1,6 +1,13 @@
 Route7_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, ClearShinyFlag
+	map_script MAP_SCRIPT_ON_TRANSITION, ClearShinyFlag2
 	.byte 0
+
+
+ClearShinyFlag2::
+	clearflag FLAG_INCREASED_SHINY_ODDS
+	cleartrainerflag TRAINER_R8_TR6_CAMPER_M
+	release
+	end
 
 
 Route8_Boy::
@@ -283,17 +290,16 @@ Route8_Trainer5_Psychic_F_PostBattle::
 	.string "Don't think you can win all the time!$"
 
 Route8_Trainer6_Camper_M_Intro::
-	.string "Camping's fun! You can fish, roast\n"
-	.string "marshmallows, and tell spooky stories!\p"
-	.string "But the best of all are the Pokémon\n"
-	.string "battles!$"
+	.string "I love Pokémon battles so much!\n"
+	.string "I could do this all day!$"
 
 Route8_Trainer6_Camper_M_Defeat::
 	.string "Way too strong!$"
 
 Route8_Trainer6_Camper_M_PostBattle::
-	.string "I think it's great that I can go\n"
-	.string "camping with my Pokémon.$"
+	.string "My Pokémon need a moment's rest but if\n"
+	.string "you're up for it, I'd like to\l"
+	.string "battle again soon!$"
 
 Route8_Trainer7_Triathlete_M_Intro::
 	.string "I'm in the middle of practicing for\n"

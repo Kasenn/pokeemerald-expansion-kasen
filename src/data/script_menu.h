@@ -793,8 +793,8 @@ static const struct MenuAction PokeCenterIVTraining[] =
 {
     {gText_HpTraining},
     {gText_AtkTraining},
-    {gText_SpAtkTraining},
     {gText_DefTraining},
+    {gText_SpAtkTraining},
     {gText_SpDefTraining},
     {gText_SpeedTraining},
 };

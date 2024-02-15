@@ -86,7 +86,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_2",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_5",
       "x": 50,
       "y": 28,
       "elevation": 0,
@@ -321,8 +321,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
-      "x": 26,
-      "y": 49,
+      "x": 30,
+      "y": 44,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,

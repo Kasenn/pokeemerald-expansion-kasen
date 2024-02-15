@@ -919,6 +919,14 @@ const struct MonCoords gMonFrontPicCoords[NUM_SPECIES + 1] =
     [SPECIES_SNEASLER]                     = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
     [SPECIES_OVERQWIL]                     = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
     [SPECIES_ENAMORUS]                     = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  0 },
+    [SPECIES_EXPBOT]                       = { .size = MON_COORDS_SIZE(40, 40), .y_offset = 2 },
+    [SPECIES_HPBOT]                        = { .size = MON_COORDS_SIZE(40, 40), .y_offset = 2 },
+    [SPECIES_ATKBOT]                       = { .size = MON_COORDS_SIZE(40, 40), .y_offset = 2 },
+    [SPECIES_DEFBOT]                       = { .size = MON_COORDS_SIZE(40, 40), .y_offset = 2 },
+    [SPECIES_SPATKBOT]                     = { .size = MON_COORDS_SIZE(40, 40), .y_offset = 2 },
+    [SPECIES_SPDEFBOT]                     = { .size = MON_COORDS_SIZE(40, 40), .y_offset = 2 },
+    [SPECIES_SPEEDBOT]                     = { .size = MON_COORDS_SIZE(40, 40), .y_offset = 2 },
+
 #endif
     // Megas
     [SPECIES_VENUSAUR_MEGA]                = { .size = MON_COORDS_SIZE(64, 64), .y_offset =  3 },

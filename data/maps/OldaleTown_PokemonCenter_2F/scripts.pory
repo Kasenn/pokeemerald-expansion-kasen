@@ -189,11 +189,11 @@ script IvTrainingIntro{
 		"by battling in a controlled environment.\p"
 		"The first person to my right offers\n"
 		"EV training.\p"
-		"She has 5 Pokémon, with each\n"
+		"She has 5 training robots, with each\n"
 		"granting 10 EV in the specified stat.\p"
 		"The next person offers level training,\n"
-		"employing a team of simple Blisseys.\l"
-		"Do note that the level of the Blisseys\l"
+		"employing a team of training robots.\l"
+		"Do note that the level of the robots\l"
 		"may vary between training hubs,\l"
 		"and the higher the level, the costlier\l"
 		"the training will become.\p"
@@ -222,7 +222,7 @@ script LevelTrainingShoreslate{
 script LevelTrainingShoreslate_Setup{
     lockall
 	special(ShowBattlePointsWindow)
-    msgbox("This is the Level Training Service.\nEach use of the service\lcosts 5 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 20.", MSGBOX_YESNO)
+    msgbox("This is the Level Training Service.\nEach use of the service\lcosts 5 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 17.", MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES){
 		special(CloseBattlePointsWindow)
 		copyvar(VAR_0x8004, VAR_0x8008)

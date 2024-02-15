@@ -2,7 +2,7 @@
   "id": "MAP_SHORESLATE_BIKE_SHOP",
   "name": "Shoreslate_BikeShop",
   "layout": "LAYOUT_SHORESLATE_BIKE_SHOP",
-  "music": "MUS_RUSTBORO",
+  "music": "MUS_SLATEPORT",
   "region_map_section": "MAPSEC_SHORESLATE_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
