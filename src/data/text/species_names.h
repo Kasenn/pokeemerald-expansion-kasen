@@ -914,6 +914,13 @@ const u8 gSpeciesNames[NUM_SPECIES][POKEMON_NAME_LENGTH + 1] = {
     [SPECIES_SNEASLER] = _("Sneasler"),
     [SPECIES_OVERQWIL] = _("Overqwil"),
     [SPECIES_ENAMORUS] = _("Enamorus"),
+    [SPECIES_EXPBOT] = _("F-00"),
+    [SPECIES_HPBOT] = _("F-01"),
+    [SPECIES_ATKBOT] = _("F-02"),
+    [SPECIES_DEFBOT] = _("F-03"),
+    [SPECIES_SPATKBOT] = _("F-04"),
+    [SPECIES_SPDEFBOT] = _("F-05"),
+    [SPECIES_SPEEDBOT] = _("F-06"),
 #endif
 
     // Megas

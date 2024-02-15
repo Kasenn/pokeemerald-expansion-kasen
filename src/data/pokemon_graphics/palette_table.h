@@ -915,6 +915,13 @@ const struct CompressedSpritePalette gMonPaletteTable[NUM_SPECIES + 1] =
     SPECIES_PAL(SNEASLER, gMonPalette_Sneasler),
     SPECIES_PAL(OVERQWIL, gMonPalette_Overqwil),
     SPECIES_PAL(ENAMORUS, gMonPalette_Enamorus),
+    SPECIES_PAL(EXPBOT, gMonPalette_ExpBot),
+    SPECIES_PAL(HPBOT, gMonPalette_HpBot),
+    SPECIES_PAL(ATKBOT, gMonPalette_AtkBot),
+    SPECIES_PAL(DEFBOT, gMonPalette_DefBot),
+    SPECIES_PAL(SPATKBOT, gMonPalette_SpAtkBot),
+    SPECIES_PAL(SPDEFBOT, gMonPalette_SpDefBot),
+    SPECIES_PAL(SPEEDBOT, gMonPalette_SpeedBot),
 #endif
     SPECIES_PAL(VENUSAUR_MEGA, gMonPalette_VenusaurMega),
     SPECIES_PAL(CHARIZARD_MEGA_X, gMonPalette_CharizardMegaX),

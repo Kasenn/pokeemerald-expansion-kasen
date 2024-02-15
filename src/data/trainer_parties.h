@@ -694,27 +694,27 @@ static const struct TrainerMon sParty_Rose1[] = {
 static const struct TrainerMon sParty_Felix[] = {
     {
     .lvl = 1,
-    .species = SPECIES_PANSAGE,
+    .species = SPECIES_HPBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_PANSAGE,
+    .species = SPECIES_HPBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_PANSAGE,
+    .species = SPECIES_HPBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_PANSAGE,
+    .species = SPECIES_HPBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_PANSAGE,
+    .species = SPECIES_HPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_STRUGGLE}
     }
@@ -723,27 +723,27 @@ static const struct TrainerMon sParty_Felix[] = {
 static const struct TrainerMon sParty_Violet[] = {
     {
     .lvl = 1,
-    .species = SPECIES_SIMISAGE,
+    .species = SPECIES_ATKBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_SIMISAGE,
+    .species = SPECIES_ATKBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_SIMISAGE,
+    .species = SPECIES_ATKBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_SIMISAGE,
+    .species = SPECIES_ATKBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_SIMISAGE,
+    .species = SPECIES_ATKBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_STRUGGLE}
     }
@@ -752,27 +752,27 @@ static const struct TrainerMon sParty_Violet[] = {
 static const struct TrainerMon sParty_Rose2[] = {
     {
     .lvl = 1,
-    .species = SPECIES_PANSEAR,
+    .species = SPECIES_DEFBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_PANSEAR,
+    .species = SPECIES_DEFBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_PANSEAR,
+    .species = SPECIES_DEFBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_PANSEAR,
+    .species = SPECIES_DEFBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_PANSEAR,
+    .species = SPECIES_DEFBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_STRUGGLE}
     }
@@ -781,27 +781,27 @@ static const struct TrainerMon sParty_Rose2[] = {
 static const struct TrainerMon sParty_Rose3[] = {
     {
     .lvl = 1,
-    .species = SPECIES_SIMISEAR,
+    .species = SPECIES_SPATKBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_SIMISEAR,
+    .species = SPECIES_SPATKBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_SIMISEAR,
+    .species = SPECIES_SPATKBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_SIMISEAR,
+    .species = SPECIES_SPATKBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_SIMISEAR,
+    .species = SPECIES_SPATKBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_STRUGGLE}
     }
@@ -810,27 +810,27 @@ static const struct TrainerMon sParty_Rose3[] = {
 static const struct TrainerMon sParty_Rose4[] = {
     {
     .lvl = 1,
-    .species = SPECIES_PANPOUR,
+    .species = SPECIES_SPDEFBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_PANPOUR,
+    .species = SPECIES_SPDEFBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_PANPOUR,
+    .species = SPECIES_SPDEFBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_PANPOUR,
+    .species = SPECIES_SPDEFBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_PANPOUR,
+    .species = SPECIES_SPDEFBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_STRUGGLE}
     }
@@ -839,27 +839,27 @@ static const struct TrainerMon sParty_Rose4[] = {
 static const struct TrainerMon sParty_Rose5[] = {
     {
     .lvl = 1,
-    .species = SPECIES_SIMIPOUR,
+    .species = SPECIES_SPEEDBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_SIMIPOUR,
+    .species = SPECIES_SPEEDBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_SIMIPOUR,
+    .species = SPECIES_SPEEDBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_SIMIPOUR,
+    .species = SPECIES_SPEEDBOT,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 1,
-    .species = SPECIES_SIMIPOUR,
+    .species = SPECIES_SPEEDBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_STRUGGLE}
     }
@@ -868,37 +868,37 @@ static const struct TrainerMon sParty_Rose5[] = {
 static const struct TrainerMon sParty_Dusty1[] = {
     {
     .lvl = 5,
-    .species = SPECIES_BLISSEY,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 5,
-    .species = SPECIES_BLISSEY,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 5,
-    .species = SPECIES_BLISSEY,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 5,
-    .species = SPECIES_BLISSEY,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 5,
-    .species = SPECIES_BLISSEY,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 5,
-    .species = SPECIES_BLISSEY,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_STRUGGLE}
     }
@@ -1024,37 +1024,37 @@ static const struct TrainerMon sParty_GabbyAndTy1[] = {
 static const struct TrainerMon sParty_GabbyAndTy2[] = {
     {
     .lvl = 7,
-    .species = SPECIES_BLISSEY,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 7,
-    .species = SPECIES_BLISSEY,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 7,
-    .species = SPECIES_BLISSEY,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 7,
-    .species = SPECIES_BLISSEY,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 7,
-    .species = SPECIES_BLISSEY,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 7,
-    .species = SPECIES_BLISSEY,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_STRUGGLE}
     }
@@ -1334,37 +1334,37 @@ static const struct TrainerMon sParty_Ricky5[] = {
 static const struct TrainerMon sParty_Randall[] = {
     {
     .lvl = 12,
-    .species = SPECIES_BLISSEY,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 12,
-    .species = SPECIES_BLISSEY,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 12,
-    .species = SPECIES_BLISSEY,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 12,
-    .species = SPECIES_BLISSEY,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 12,
-    .species = SPECIES_BLISSEY,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
     .lvl = 12,
-    .species = SPECIES_BLISSEY,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_STRUGGLE}
     }
@@ -2268,30 +2268,30 @@ static const struct TrainerMon sParty_R6Tr1_RangerM[] = {
     {
     .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
     .lvl = 27,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_ROSELIA,
     },
     {
     .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
     .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_NOSEPASS,
     },
     {
     .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
     .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_LIEPARD,
     }
 };
 
 static const struct TrainerMon sParty_R6Tr2_PokeFanF[] = {
     {
     .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 228,
-    .species = SPECIES_GEODUDE,
+    .lvl = 28,
+    .species = SPECIES_DIGGERSBY,
     },
     {
     .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
     .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_LOPUNNY,
     },
 };
 
@@ -2299,12 +2299,12 @@ static const struct TrainerMon sParty_R6Tr3_CamperF[] = {
     {
     .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
     .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_STARAVIA,
     },
     {
     .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
     .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_SANDSLASH,
     }
 };
 
@@ -2312,312 +2312,317 @@ static const struct TrainerMon sParty_R6Tr4_CamperM1[] = {
     {
     .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
     .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_BUIZEL,
     },
     {
     .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .lvl = 30,
+    .species = SPECIES_FLOATZEL,
     }
 };
 
 static const struct TrainerMon sParty_R6Tr5_Hiker[] = {
     {
     .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .lvl = 29,
+    .species = SPECIES_GRAVELER,
     },
     {
     .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .lvl = 30,
+    .species = SPECIES_ONIX,
     },
     
     {
     .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 29,
-    .species = SPECIES_GEODUDE,
+    .lvl = 31,
+    .species = SPECIES_GURDURR,
     }
 };
 
 static const struct TrainerMon sParty_R6Tr6_CamperM2[] = {
     {
     .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 27,
-    .species = SPECIES_GEODUDE,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 27,
-    .species = SPECIES_GEODUDE,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .lvl = 29,
+    .species = SPECIES_SANDILE,
     },
     {
     .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
     .lvl = 29,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_HELIOPTILE,
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
+    .lvl = 30,
+    .species = SPECIES_CACNEA,
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
+    .lvl = 31,
+    .species = SPECIES_KROKOROK,
     }
 };
 
 static const struct TrainerMon sParty_R6Tr7_Kindler[] = {
     {
     .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 29,
-    .species = SPECIES_GEODUDE,
+    .lvl = 31,
+    .species = SPECIES_HOUNDOOM,
     },
     {
     .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 30,
-    .species = SPECIES_GEODUDE,
+    .lvl = 32,
+    .species = SPECIES_FLAREON,
     },
 };
 
 static const struct TrainerMon sParty_R8Tr1_ParasolLady[] = {
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
     .lvl = 27,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_TYMPOLE,
     },
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
     .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_PALPITOAD,
     },
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
     .lvl = 29,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_FRILLISH,
     }
 };
 
 static const struct TrainerMon sParty_R8Tr2_SrJr[] = {
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
     .lvl = 27,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_CUTIEFLY,
     },
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
     .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_RALTS,
     },
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
     .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_RIBOMBEE,
     },
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
     .lvl = 29,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_KIRLIA,
     }
 };
 
 static const struct TrainerMon sParty_R8Tr3_AromaLady[] = {
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
     .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_BUDEW,
     },
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .lvl = 28,
+    .species = SPECIES_ROSELIA,
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
     .lvl = 29,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_ROSERADE,
     }
 };
 
 static const struct TrainerMon sParty_R8Tr4_Youngster[] = {
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
     .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_MEOWTH_GALARIAN,
     },
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
     .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_PERRSERKER,
     },
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
     .lvl = 29,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_RATICATE,
     }
 };
 
 static const struct TrainerMon sParty_R8Tr5_PsychicF[] = {
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 27,
-    .species = SPECIES_GEODUDE,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 28,
-    .species = SPECIES_GEODUDE,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 28,
-    .species = SPECIES_GEODUDE,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
     .lvl = 29,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_MEDITITE,
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .lvl = 29,
+    .species = SPECIES_HATTREM,
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .lvl = 29,
+    .species = SPECIES_KIRLIA,
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .lvl = 30,
+    .species = SPECIES_GIRAFARIG,
     }
 };
 
 static const struct TrainerMon sParty_R8Tr6_CamperM[] = {
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 28,
-    .species = SPECIES_GEODUDE,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 28,
-    .species = SPECIES_GEODUDE,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
     .lvl = 29,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_STEENEE,
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .lvl = 30,
+    .species = SPECIES_MUDSDALE,
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .lvl = 30,
+    .species = SPECIES_TAUROS,
     }
 };
 
 static const struct TrainerMon sParty_R8Tr7_TriathleteM[] = {
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 28,
-    .species = SPECIES_GEODUDE,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 28,
-    .species = SPECIES_GEODUDE,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
     .lvl = 29,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_VOLTORB,
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .lvl = 29,
+    .species = SPECIES_FLOATZEL,
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .lvl = 30,
+    .species = SPECIES_JOLTEON,
     }
 };
 
 static const struct TrainerMon sParty_R8Tr8_Gentleman[] = {
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .lvl = 30,
+    .species = SPECIES_PERSIAN,
     },
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 29,
-    .species = SPECIES_GEODUDE,
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .lvl = 31,
+    .species = SPECIES_PERSIAN_ALOLAN,
     }
 };
 
 static const struct TrainerMon sParty_R8Tr9_Hiker[] = {
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
     .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .species = SPECIES_GOLBAT,
     },
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .lvl = 30,
+    .species = SPECIES_ROGGENROLA,
     },
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 29,
-    .species = SPECIES_GEODUDE,
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .lvl = 31,
+    .species = SPECIES_BOLDORE,
     }
 };
 
 static const struct TrainerMon sParty_R8Tr10_OldCouple[] = {
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .lvl = 31,
+    .species = SPECIES_TIMBURR,
     },
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .lvl = 32,
+    .species = SPECIES_STUFFUL,
     },
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .lvl = 31,
+    .species = SPECIES_GURDURR,
     },
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 29,
-    .species = SPECIES_GEODUDE,
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .lvl = 32,
+    .species = SPECIES_BEWEAR,
     }
 };
 
 static const struct TrainerMon sParty_R8Tr11_BirdKeeper[] = {
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .lvl = 30,
+    .species = SPECIES_SPEAROW,
     },
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .lvl = 31,
+    .species = SPECIES_FEAROW,
     },
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 28,
-    .species = SPECIES_GEODUDE,
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .lvl = 31,
+    .species = SPECIES_FLETCHLING,
     },
     {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 29,
-    .species = SPECIES_GEODUDE,
+    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .lvl = 33,
+    .species = SPECIES_FLETCHINDER,
     }
 };
 
 static const struct TrainerMon sParty_Shoreslate_Nurse[] = {
     {
-    .lvl = 20,
-    .species = SPECIES_BLISSEY,
+    .lvl = 17,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
-    .lvl = 20,
-    .species = SPECIES_BLISSEY,
+    .lvl = 17,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
-    .lvl = 20,
-    .species = SPECIES_BLISSEY,
+    .lvl = 17,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
-    .lvl = 20,
-    .species = SPECIES_BLISSEY,
+    .lvl = 17,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
-    .lvl = 20,
-    .species = SPECIES_BLISSEY,
+    .lvl = 17,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
-    .lvl = 20,
-    .species = SPECIES_BLISSEY,
+    .lvl = 17,
+    .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_STRUGGLE}
     }

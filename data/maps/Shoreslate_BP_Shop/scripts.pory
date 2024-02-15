@@ -18,14 +18,14 @@ text ShoreslateShop_Man_Text{
 text ShoreslateShop_Man_TextContinued{
     "There are certain type of trainers who\n"
     "are colloquially known as\l"
-    "“Pokémon aficionados.”\p"
+    "“Pokémon enthusiasts.”\p"
     "These people absolutely love Pokémon\n"
     "battles and often times even demand\l"
     "rematches if you happen to cross their\l"
     "path more than once.\p"
     "If you ever find yourself short on\n"
     "Battle Points, consider challenging\l"
-    "one of these aficionados."
+    "one of these enthusiasts."
 }
 script ShoreslateShop_OldMan{
     msgbox(ShoreslateShop_OldMan_Text, MSGBOX_NPC)

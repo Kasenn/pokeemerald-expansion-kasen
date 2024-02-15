@@ -524,14 +524,14 @@ ShoreslateShop_Man_Text::
 ShoreslateShop_Man_TextContinued::
 	.string "There are certain type of trainers who\n"
 	.string "are colloquially known as\l"
-	.string "“Pokémon aficionados.”\p"
+	.string "“Pokémon enthusiasts.”\p"
 	.string "These people absolutely love Pokémon\n"
 	.string "battles and often times even demand\l"
 	.string "rematches if you happen to cross their\l"
 	.string "path more than once.\p"
 	.string "If you ever find yourself short on\n"
 	.string "Battle Points, consider challenging\l"
-	.string "one of these aficionados.$"
+	.string "one of these enthusiasts.$"
 
 ShoreslateShop_OldMan_Text::
 	.string "I don't understand what half of these\n"

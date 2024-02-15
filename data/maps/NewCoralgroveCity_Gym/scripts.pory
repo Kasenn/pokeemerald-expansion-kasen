@@ -295,10 +295,8 @@ text NewCoralgroveCity_Gym_Text_ReceivedStoneBadge{
 	"from Aaron!$"
 }
 text NewCoralgroveCity_Gym_Text_StoneBadgeInfoTakeThis{
-	"The Hive Badge heightens the attack\n"
-	"power of your Pokémon and makes any\l"
-	"Pokémon up to level 30 obey\l"
-	"all of your commands.\p"
+	"The Hive Badge makes any Pokémon up to\n"
+	"level 30 obey all of your commands.\p"
 	"It also enables them to use the HM move\n"
 	"“Fly” outside of battle.\p"
 	"Please take this with you, too."

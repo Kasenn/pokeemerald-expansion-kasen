@@ -8,6 +8,7 @@ script VisitedShoreslate{
         setflag(FLAG_DAILY_RESET_CASTELIACONE)
     }
     setflag(FLAG_VISITED_SHORESLATE)
+    setflag(FLAG_ROUTE28_DESPAWN_BROTHER)
     end
 }
 
@@ -36,7 +37,10 @@ script Shoreslate_OldWoman{
     end
 }
 text Shoreslate_OldWoman_Text{
-    ""
+    "I used to be the owner of the Pretty\n"
+    "Petal flower shop on route 8.\l"
+    "Nowadays I'm retired so my daughter has\l"
+    "taken over the business in my stead."
 }
 script Shoreslate_Boy1{
     msgbox(Shoreslate_Boy1_Text, MSGBOX_NPC)
@@ -58,14 +62,18 @@ script Shoreslate_Man2{
     end
 }
 text Shoreslate_Man2_Text{
-    ""
+    "Do you have the need for speed?\p"
+    "Then you need to visit Rydel's\n"
+    "bike shop!"
 }
 script Shoreslate_Sign1{
-    msgbox("SHORESLATE CITY\n“”", MSGBOX_SIGN)
+    msgbox("SHORESLATE CITY\p"
+    "“The port where people and Pokémon\n"
+	"cross paths.”", MSGBOX_SIGN)
     end
 }
 script Shoreslate_Sign2{
-    msgbox("Devon Corporation offices", MSGBOX_SIGN)
+    msgbox("Devon Corporation Headquarters", MSGBOX_SIGN)
     end
 }
 script Shoreslate_Sign3{
@@ -81,7 +89,10 @@ script Shoreslate_Sailor{
     end
 }
 text Shoreslate_Sailor_Text{
-    ""
+    "Taking the ferry is a perfectly fine\n"
+    "option, but if you want to feel alive,\l"
+    "there's no better way of crossing the\l"
+    "ocean than on the back of a Pokémon!"
 }
 script Shoreslate_ExpertM{
     lockall
@@ -121,35 +132,135 @@ script Shoreslate_OldCoupleF{
     end
 }
 text Shoreslate_OldCoupleF_Text{
-    ""
+    "A young trainer, eh?\p"
+    "Don't let my looks deceive you.\n"
+    "In my youth, I came this close to\l"
+    "becoming the Pokémon League Champion\l"
+    "of Sinko."
 }
 script Shoreslate_Woman3{
     msgbox(Shoreslate_Woman3_Text, MSGBOX_NPC)
     end
 }
 text Shoreslate_Woman3_Text{
-    ""
+    "Have you been to a BP Shop yet?\n"
+    "I heard this one's selection of moves\l"
+    "and items is completely different\l"
+    "compared to the one in Aldeleaf."
 }
 script Shoreslate_Fisher{
     msgbox(Shoreslate_Fisher_Text, MSGBOX_NPC)
     end
 }
 text Shoreslate_Fisher_Text{
-    ""
+    "I was once fishing off the coast of\n"
+    "Kaolisle City when I almost caught\l"
+    "a Wailord!\p"
+    "Don't believe me?\n"
+    "Ask my friend!"
 }
 script Shoreslate_Man1{
     msgbox(Shoreslate_Man1_Text, MSGBOX_NPC)
     end
 }
 text Shoreslate_Man1_Text{
-    ""
+    "Everything this guy says is true!\p"
+    "… … … …\p"
+    "Okay, it was actually just a regular\n"
+    "Goldeen…"
 }
+
 script Shoreslate_CasteliaGirl{
-    msgbox(Shoreslate_CasteliaGirl_Text, MSGBOX_NPC)
+    faceplayer
+    lockall
+    msgbox(Shoreslate_CasteliaGirl_Text, MSGBOX_DEFAULT)
+    waitmessage
+    closemessage
+    delay(15)
+    checkitem(ITEM_CASTELIACONE, 1)
+    if(var(VAR_RESULT) == TRUE){
+        if(var(VAR_CASTELIACONES_BOUGHT) == 1){
+            msgbox(ShoreslateCheckCastelia, MSGBOX_YESNO)
+        }
+        else{
+            msgbox(ShoreslateCheckCastelias, MSGBOX_YESNO)
+        }
+        if(var(VAR_RESULT) == TRUE){
+            checkitem(ITEM_CASTELIACONE, 4)
+            if(var(VAR_RESULT) == FALSE){
+                msgbox(Shoreslate_CasteliaSecondThought, MSGBOX_NPC)
+            }
+            if(var(VAR_RESULT) == TRUE){
+                removeitem(ITEM_CASTELIACONE, 4)
+                playfanfare(MUS_OBTAIN_ITEM)
+                message(HandedOverCastelia)
+                waitfanfare
+                checkplayergender
+                if(var(VAR_RESULT) == MALE){
+                    msgbox(ThankYouMrCastelia, MSGBOX_DEFAULT)
+                }
+                else{
+                    msgbox(ThankYouMsCastelia, MSGBOX_DEFAULT)
+                }
+                giveitem(ITEM_AIR_BALLOON)
+                waitfanfare
+                msgbox(GetHomeFast, MSGBOX_DEFAULT)
+                closemessage
+                fadescreen(FADE_TO_BLACK)
+                delay(15)
+                removeobject(24)
+                setflag(FLAG_GIVEN_CASTELIATOGIRL)
+                fadescreen(FADE_FROM_BLACK)
+                delay(15)
+            }
+        }
+    }
+    closemessage
+    waitmessage
+    release
     end
 }
 text Shoreslate_CasteliaGirl_Text{
-    ""
+    "Sniff… My daddy gave me money to buy\n"
+    "ice cream for the whole family but\l"
+    "when I got here, I could no longer\l"
+    "find the bill in my pocket…\l"
+    "What do I do…"
+}
+text ShoreslateCheckCastelia{
+    "You recall buying a Casteliacone.\n"
+    "Would you like to offer it to the\l"
+    "little girl?"
+}
+text ShoreslateCheckCastelias{
+    "You recall buying some Casteliacones.\n"
+    "Would you like to offer them to the\l"
+    "little girl?"
+}
+text Shoreslate_CasteliaSecondThought{
+    "On second thought, maybe you should\n"
+    "get some more Casteliacones first.\l"
+    "She did mention “the whole family.”"
+}
+text HandedOverCastelia{
+    "{PLAYER} handed 4 Casteliacones\n"
+    "to the little girl."
+}
+text ThankYouMrCastelia{
+    "Wow! Thanks mister!\n"
+    "You are the best!\p"
+    "Umm, my hands are getting a bit full\n"
+    "so here, you can have this."
+}
+text ThankYouMsCastelia{
+    "Wow! Thanks big sis!\n"
+    "You are the best!\p"
+    "Umm, my hands are getting a bit full\n"
+    "so here, you can have this."
+}
+text GetHomeFast{
+    "I need to get back before these melt.\n"
+    "Thanks again!"
 }
 
 script Shoreslate_CasteliaVendor{
@@ -199,7 +310,6 @@ script HowManyCastelias{
             goto(CancelBuyingCastelia)
     }
 }
-
 script Buy1Castelia{
     hidemoneybox
     checkitemspace(ITEM_CASTELIACONE, 1)
@@ -232,7 +342,6 @@ text Put1CasteliaInPocket{
     "{PLAYER} put away the Casteliacone\n"
     "in the Items pocket."
 }
-
 script Buy4Castelia{
     hidemoneybox
     checkitemspace(ITEM_CASTELIACONE, 4)
@@ -266,7 +375,6 @@ text Put4CasteliaInPocket{
     "{PLAYER} put away the Casteliacones\n"
     "in the Items pocket."
 }
-
 script CancelBuyingCastelia{
     msgbox(Shoreslate_CasteliaVendor_ThatsShame, MSGBOX_NPC)
     hidemoneybox

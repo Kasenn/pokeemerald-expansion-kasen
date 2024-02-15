@@ -186,7 +186,7 @@ text Shoreslate_Mart_EventScript_Man_Text{
 }
 
 text gText_HowMayIServeYou2{
-    "Stat boosting combat items for sale!\n"
+    "Combat items for sale!\n"
     "Come get your own!"
 }
 

@@ -16,8 +16,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
-      "x": 6,
-      "y": 5,
+      "x": 11,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RustboroCity_DevonCorp_2F_EventScript_TalkToPokemonScientist",
-      "flag": "0"
+      "flag": "FLAG_HIDE_SHORESLATE_BOAT"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
@@ -38,12 +38,12 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RustboroCity_DevonCorp_2F_EventScript_BallScientist",
-      "flag": "0"
+      "flag": "FLAG_HIDE_SHORESLATE_BOAT"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
       "x": 2,
-      "y": 6,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT",
       "movement_range_x": 0,
@@ -51,11 +51,11 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RustboroCity_DevonCorp_2F_EventScript_PokenavScientist",
-      "flag": "0"
+      "flag": "FLAG_HIDE_SHORESLATE_BOAT"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
-      "x": 10,
+      "x": 11,
       "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -64,11 +64,11 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RustboroCity_DevonCorp_2F_EventScript_PokemonDreamsScientist",
-      "flag": "0"
+      "flag": "FLAG_HIDE_SHORESLATE_BOAT"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
-      "x": 14,
+      "x": 15,
       "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -77,11 +77,11 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RustboroCity_DevonCorp_2F_EventScript_FossilScientist",
-      "flag": "0"
+      "flag": "FLAG_HIDE_SHORESLATE_BOAT"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
-      "x": 14,
+      "x": 15,
       "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -90,7 +90,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RustboroCity_DevonCorp_2F_EventScript_MatchCallScientist",
-      "flag": "0"
+      "flag": "FLAG_HIDE_SHORESLATE_BOAT"
     }
   ],
   "warp_events": [

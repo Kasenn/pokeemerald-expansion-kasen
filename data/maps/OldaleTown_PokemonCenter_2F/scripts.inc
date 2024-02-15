@@ -236,11 +236,11 @@ IvTrainingIntro_Text_0:
 	.string "by battling in a controlled environment.\p"
 	.string "The first person to my right offers\n"
 	.string "EV training.\p"
-	.string "She has 5 Pokémon, with each\n"
+	.string "She has 5 training robots, with each\n"
 	.string "granting 10 EV in the specified stat.\p"
 	.string "The next person offers level training,\n"
-	.string "employing a team of simple Blisseys.\l"
-	.string "Do note that the level of the Blisseys\l"
+	.string "employing a team of training robots.\l"
+	.string "Do note that the level of the robots\l"
 	.string "may vary between training hubs,\l"
 	.string "and the higher the level, the costlier\l"
 	.string "the training will become.\p"
@@ -248,7 +248,7 @@ IvTrainingIntro_Text_0:
 	.string "I hope you find our services useful.$"
 
 LevelTrainingShoreslate_Setup_Text_0:
-	.string "This is the Level Training Service.\nEach use of the service\lcosts 5 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 20.$"
+	.string "This is the Level Training Service.\nEach use of the service\lcosts 5 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 17.$"
 
 IVTraining_HaventGotEnoughPoints::
 	.string "This service costs\n"

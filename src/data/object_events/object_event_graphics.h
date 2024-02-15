@@ -409,3 +409,5 @@ const u16 gObjectEventPalette_Skyla[] = INCBIN_U16("graphics/object_events/pics/
 const u16 gObjectEventPalette_StoneSphere[] = INCBIN_U16("graphics/object_events/pics/misc/stone_sphere.gbapal");
 const u32 gObjectEventPic_D_Decc[] = INCBIN_U32("graphics/object_events/pics/people/d_decc.4bpp");
 const u16 gObjectEventPalette_D_Decc[] = INCBIN_U16("graphics/object_events/pics/people/d_decc.gbapal");
+const u32 gObjectEventPic_RocketAdmin_M[] = INCBIN_U32("graphics/object_events/pics/people/rocket_admin_m.4bpp");
+const u16 gObjectEventPalette_RocketAdmin_M[] = INCBIN_U16("graphics/object_events/pics/people/rocket_admin_m.gbapal");
