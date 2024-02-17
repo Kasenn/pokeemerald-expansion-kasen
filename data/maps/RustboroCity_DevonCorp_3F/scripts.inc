@@ -304,5 +304,5 @@ RustboroCity_DevonCorp_3F_Text_RepeatAndTimerHugelyPopular:
 
 RustboroCity_DevonCorp_3F_Text_RareRocksDisplay:
 	.string "It's a collection of rare rocks and\n"
-	.string "stones assembled by the PRESIDENT.$"
+	.string "stones assembled by the president.$"
 

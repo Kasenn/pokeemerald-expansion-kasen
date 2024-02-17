@@ -1,0 +1,413 @@
+mapscripts RustboroCity_DevonCorp_1F_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: ShoreslateHarborSetFlags
+}
+
+script RustboroCity_DevonCorp_1F_EventScript_RocksMetalDisplay{
+	msgbox(RustboroCity_DevonCorp_1F_Text_RocksMetalDisplay, MSGBOX_SIGN)
+	end
+}
+script RustboroCity_DevonCorp_1F_EventScript_ProductsDisplay{
+	msgbox(RustboroCity_DevonCorp_1F_Text_ProductDisplay, MSGBOX_SIGN)
+	end
+}
+text RustboroCity_DevonCorp_1F_Text_ThoseShoesAreOurProduct{
+	"Hey, those running shoes!\n"
+	"They're one of our products!\p"
+	"It makes me happy when I see someone\n"
+	"using something we made."
+}
+text RustboroCity_DevonCorp_1F_Text_RocksMetalDisplay{
+	"Samples of rocks and metal are\n"
+	"displayed in the glass case.\p"
+	"There's a panel with some writing\n"
+	"on it…\p"
+	"“Devon Corporation got its start as\n"
+	"a producer of stones from quarries.\p"
+	"“The company also produced iron from\n"
+	"filings in the sand.\p"
+	"“From that humble start as a producer\n"
+	"of raw materials, Devon developed.\p"
+	"“Devon is now a manufacturer of a wide\n"
+	"range of industrial products.”"
+}
+text RustboroCity_DevonCorp_1F_Text_ProductDisplay{
+	"Prototypes and test products fill\n"
+	"the glass display case.\p"
+	"There's a panel with a description…\p"
+	"“In addition to industrial products,\n"
+	"Devon now markets sundries and\l"
+	"pharmaceuticals for better lifestyles.\p"
+	"“Recently, Devon has begun marketing\n"
+	"tools for Pokémon trainers, including\l"
+	"Poké Balls and Pokénav systems.”"
+}
+
+script RustboroCity_DevonCorp_1F_EventScript_EmployeeNew{
+    if(flag(FLAG_DEVON_RESCUED)){
+        msgbox(RustboroCity_DevonCorp_1F_Text_ThoseShoesAreOurProduct, MSGBOX_NPC)
+    }
+    else{
+        msgbox(EmployeeNew_TakeTimeToRecover, MSGBOX_NPC)
+    }
+    end
+}
+text EmployeeNew_TakeTimeToRecover{
+    "It may take us a while to recover from\n"
+    "the attack and assess just how much\l"
+    "was stolen, but at least nobody was\l"
+    "seriously hurt."
+}
+script RustboroCity_DevonCorp_1F_EventScript_GreeterNew{
+    if(flag(FLAG_DEVON_RESCUED)){
+        msgbox(RustboroCity_DevonCorp_1F_Text_OurSavior, MSGBOX_NPC)
+    }
+    else{
+        msgbox(RustboroCity_DevonCorp_1F_Text_WelcomeToDevonCorp2, MSGBOX_NPC)
+    }
+    checkitem(ITEM_LETTER)
+    if(var(VAR_RESULT) == TRUE){
+        lockall
+        msgbox(GreeterHandOverLetter, MSGBOX_DEFAULT)
+        giveitem(ITEM_GO_GOGGLES)
+        removeitem(ITEM_LETTER, 1)
+        msgbox(ExplainGoGoggles, MSGBOX_NPC)
+    }
+    end
+}
+text RustboroCity_DevonCorp_1F_Text_OurSavior{
+    "Oh, you're the young trainer who drove\n"
+    "off Team Rocket, right?\l"
+    "Thank you so much!\p"
+    "Everyone's still a bit shaken\n"
+    "but we'll manage somehow."
+}
+text GreeterHandOverLetter{
+    "What's this, a letter?\p"
+    "… … … …\p"
+    "I see. this isn't the first time\n"
+    "you've had a tuffle with Team Rocket.\p"
+    "Well, we can't simply let you leave\n"
+    "empty-handed. For your heroic deeds,\l"
+    "I want you to have this."
+}
+text ExplainGoGoggles{
+    "With those Go-Goggles, you\n"
+	"should have no trouble crossing\l"
+	"the desert near Route 6."
+}
+text RustboroCity_DevonCorp_1F_Text_WelcomeToDevonCorp2{
+	"Hello and welcome to the Devon\n"
+	"Corporation.\p"
+	"We're proud producers of items and\n"
+	"medicine that enhance your life.\p"
+    "We're still not open to the public\n"
+    "but we'll always make an exception\l"
+    "for you!"
+}
+
+script RustboroCity_DevonCorp_1F_EventScript_RocketGreeter{
+    msgbox(RocketGreeter, MSGBOX_NPC)
+    end
+}
+text RocketGreeter{
+    "Huh? Wasn't there a guard posted\n"
+    "outside?\p"
+    "Anyway, the offices are closed.\n"
+    "Get out. Now."
+}
+script RustboroCity_DevonCorp_1F_Rocket1 {
+    trainerbattle_single(TRAINER_DC1F_ROCKET_1, RustboroCity_DevonCorp_1F_Rocket1_Intro, RustboroCity_DevonCorp_1F_Rocket1_Defeat)
+    msgbox(RustboroCity_DevonCorp_1F_Rocket1_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text RustboroCity_DevonCorp_1F_Rocket1_Intro{
+    "We're Team Rocket!\n"
+    "We like to cause trouble!\l"
+    "Ooh! Are you scared?"
+}
+text RustboroCity_DevonCorp_1F_Rocket1_Defeat{
+    "You think you're a hero?"
+}
+text RustboroCity_DevonCorp_1F_Rocket1_PostBattle{
+    "We're not always evil. We just do\n"
+    "whatever we like."
+}
+script RustboroCity_DevonCorp_1F_Rocket2 {
+    trainerbattle_single(TRAINER_DC1F_ROCKET_2, RustboroCity_DevonCorp_1F_Rocket2_Intro, RustboroCity_DevonCorp_1F_Rocket2_Defeat)
+    msgbox(RustboroCity_DevonCorp_1F_Rocket2_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text RustboroCity_DevonCorp_1F_Rocket2_Intro{
+    "Hey, hey! Keep out of our way!"
+}
+text RustboroCity_DevonCorp_1F_Rocket2_Defeat{
+    "Arggh. I give up."
+}
+text RustboroCity_DevonCorp_1F_Rocket2_PostBattle{
+    "Our boss has some big plan regarding\n"
+    "this place. I wonder what it is."
+}
+script RustboroCity_DevonCorp_Basement_Rocket1 {
+    trainerbattle_single(TRAINER_DC_BASEROCKET_1, RustboroCity_DevonCorp_Basement_Rocket1_Intro, RustboroCity_DevonCorp_Basement_Rocket1_Defeat)
+    msgbox(RustboroCity_DevonCorp_Basement_Rocket1_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text RustboroCity_DevonCorp_Basement_Rocket1_Intro{
+    "An unknown child wandering here?\n"
+    "Who are you?"
+}
+text RustboroCity_DevonCorp_Basement_Rocket1_Defeat{
+    "Tch! I took you too lightly!"
+}
+text RustboroCity_DevonCorp_Basement_Rocket1_PostBattle{
+    "We won't let you ruin our plans!"
+}
+script RustboroCity_DevonCorp_Basement_Rocket2 {
+    trainerbattle_single(TRAINER_DC_BASEROCKET_2, RustboroCity_DevonCorp_Basement_Rocket2_Intro, RustboroCity_DevonCorp_Basement_Rocket2_Defeat)
+    msgbox(RustboroCity_DevonCorp_Basement_Rocket2_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text RustboroCity_DevonCorp_Basement_Rocket2_Intro{
+    "It feels great ordering Pokémon to\n"
+    "commit crimes."
+}
+text RustboroCity_DevonCorp_Basement_Rocket2_Defeat{
+    "You're kidding!"
+}
+text RustboroCity_DevonCorp_Basement_Rocket2_PostBattle{
+    "I feel lousy over losing! Bah!\n"
+    "I hate useless Pokémon!"
+}
+script RustboroCity_DevonCorp_Basement_Rocket3 {
+    trainerbattle_single(TRAINER_DC_BASEROCKET_3, RustboroCity_DevonCorp_Basement_Rocket3_Intro, RustboroCity_DevonCorp_Basement_Rocket3_Defeat)
+    msgbox(RustboroCity_DevonCorp_Basement_Rocket3_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text RustboroCity_DevonCorp_Basement_Rocket3_Intro{
+    "Ha ha ha!\p"
+    "How boring. It was far too easy to\n"
+    "take over this place!\l"
+    "Come on, keep me amused!"
+}
+text RustboroCity_DevonCorp_Basement_Rocket3_Defeat{
+    "Wh-who are you?"
+}
+text RustboroCity_DevonCorp_Basement_Rocket3_PostBattle{
+    "You beat me, and I won't forget it!"
+}
+script RustboroCity_DevonCorp_Basement_Rocket4 {
+    trainerbattle_single(TRAINER_DC_BASEROCKET_4, RustboroCity_DevonCorp_Basement_Rocket4_Intro, RustboroCity_DevonCorp_Basement_Rocket4_Defeat)
+    msgbox(RustboroCity_DevonCorp_Basement_Rocket4_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text RustboroCity_DevonCorp_Basement_Rocket4_Intro{
+    "Surprise! I'm secretly a member of\n"
+    "Team Rocket!"
+}
+text RustboroCity_DevonCorp_Basement_Rocket4_Defeat{
+    "I miscalculated my odds…"
+}
+text RustboroCity_DevonCorp_Basement_Rocket4_PostBattle{
+    "I spent years infiltrating this place\n"
+    "and now my cover is blown…"
+}
+script RustboroCity_DevonCorp_2F_Rocket1 {
+    trainerbattle_single(TRAINER_DC2F_ROCKET_1, RustboroCity_DevonCorp_2F_Rocket1_Intro, RustboroCity_DevonCorp_2F_Rocket1_Defeat)
+    msgbox(RustboroCity_DevonCorp_2F_Rocket1_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text RustboroCity_DevonCorp_2F_Rocket1_Intro{
+    "I've been given strict orders.\p"
+    "I'm to crush anyone who challenges\n"
+    "Team Rocket!"
+}
+text RustboroCity_DevonCorp_2F_Rocket1_Defeat{
+    "!!!"
+}
+text RustboroCity_DevonCorp_2F_Rocket1_PostBattle{
+    "I failed in my duties…\n"
+    "I'll be docked pay for this…"
+}
+script RustboroCity_DevonCorp_2F_Rocket2 {
+    trainerbattle_single(TRAINER_DC2F_ROCKET_2, RustboroCity_DevonCorp_2F_Rocket2_Intro, RustboroCity_DevonCorp_2F_Rocket2_Defeat)
+    msgbox(RustboroCity_DevonCorp_2F_Rocket2_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text RustboroCity_DevonCorp_2F_Rocket2_Intro{
+    "How did you make it past the guards\n"
+    "downstairs?"
+}
+text RustboroCity_DevonCorp_2F_Rocket2_Defeat{
+    "Gulp! This is a bleak moment."
+}
+text RustboroCity_DevonCorp_2F_Rocket2_PostBattle{
+    "I see now how you got through…"
+}
+script RustboroCity_DevonCorp_2F_Rocket3 {
+    trainerbattle_single(TRAINER_DC2F_ROCKET_3, RustboroCity_DevonCorp_2F_Rocket3_Intro, RustboroCity_DevonCorp_2F_Rocket3_Defeat)
+    msgbox(RustboroCity_DevonCorp_2F_Rocket3_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text RustboroCity_DevonCorp_2F_Rocket3_Intro{
+    "Most excellent!\p"
+    "This place will fulfill our\n"
+    "grand design."
+}
+text RustboroCity_DevonCorp_2F_Rocket3_Defeat{
+    "Hmmm…\n"
+    "All grand plans come with snags."
+}
+text RustboroCity_DevonCorp_2F_Rocket3_PostBattle{
+    "Do you honestly believe you can stop\n"
+    "Team Rocket?"
+}
+script RustboroCity_DevonCorp_2F_Rocket4 {
+    trainerbattle_single(TRAINER_DC2F_ROCKET_4, RustboroCity_DevonCorp_2F_Rocket4_Intro, RustboroCity_DevonCorp_2F_Rocket4_Defeat)
+    msgbox(RustboroCity_DevonCorp_2F_Rocket4_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text RustboroCity_DevonCorp_2F_Rocket4_Intro{
+    "You plan to save the Devon Corp\n"
+    "president?\p"
+    "So sad that won't be possible…\n"
+    "because I'm going to beat you!"
+}
+text RustboroCity_DevonCorp_2F_Rocket4_Defeat{
+    "No! Unbelievable!"
+}
+text RustboroCity_DevonCorp_2F_Rocket4_PostBattle{
+    "I do not believe it! I was beaten!\n"
+}
+script RustboroCity_DevonCorp_2F_Rocket5 {
+    trainerbattle_single(TRAINER_DC2F_ROCKET_5, RustboroCity_DevonCorp_2F_Rocket5_Intro, RustboroCity_DevonCorp_2F_Rocket5_Defeat)
+    msgbox(RustboroCity_DevonCorp_2F_Rocket5_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text RustboroCity_DevonCorp_2F_Rocket5_Intro{
+    "This is no place for little kids!\n"
+    "Shoo!"
+}
+text RustboroCity_DevonCorp_2F_Rocket5_Defeat{
+    "WHAT are you?!"
+}
+text RustboroCity_DevonCorp_2F_Rocket5_PostBattle{
+    "Impossible…\n"
+    "To be beaten by a little kid…"
+}
+script RustboroCity_DevonCorp_3F_Rocket1 {
+    trainerbattle_single(TRAINER_DC3F_ROCKET_1, RustboroCity_DevonCorp_3F_Rocket1_Intro, RustboroCity_DevonCorp_3F_Rocket1_Defeat)
+    msgbox(RustboroCity_DevonCorp_3F_Rocket1_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text RustboroCity_DevonCorp_3F_Rocket1_Intro{
+    "Our boss is having an important meeting\n"
+    "with the president of Devon Corp.\l"
+    "I won't let you intervene!"
+}
+text RustboroCity_DevonCorp_3F_Rocket1_Defeat{
+    "I let you down, boss…"
+}
+text RustboroCity_DevonCorp_3F_Rocket1_PostBattle{
+    "Just who are you?!"
+}
+script Rustboro_Basement_Scientist1{
+    msgbox(Rustboro_Basement_Scientist1_Text, MSGBOX_NPC)
+    end
+}
+text Rustboro_Basement_Scientist1_Text{
+    "What's happening out there?\n"
+    "Is it safe?"
+}
+script Rustboro_Basement_Scientist2{
+    msgbox(Rustboro_Basement_Scientist2_Text, MSGBOX_NPC)
+    end
+}
+text Rustboro_Basement_Scientist2_Text{
+    "I was in the middle of some\n"
+    "imporant research.\l"
+    "I hope my samples haven't expired…"
+}
+script Rustboro_Basement_Scientist3{
+    msgbox(Rustboro_Basement_Scientist3_Text, MSGBOX_NPC)
+    end
+}
+text Rustboro_Basement_Scientist3_Text{
+    "I guess these crooks didn't notice\n"
+    "this laptop here.\p"
+    "I'll encrypt all the research so it'll\n"
+    "be completely useless to them!"
+}
+script Rustboro_Basement_Scientist4{
+    msgbox(Rustboro_Basement_Scientist4_Text, MSGBOX_NPC)
+    end
+}
+text Rustboro_Basement_Scientist4_Text{
+    "Who are you?\n"
+    "You don't look like one of them."
+}
+script Rustboro_Basement_Scientist5{
+    faceplayer
+    lockall
+    if(flag(FLAG_BASEMENT_SUPERPOTION)){
+        msgbox(BasementPleaseHurry, MSGBOX_NPC)
+        end
+    }
+    msgbox(Rustboro_Basement_Scientist5_Text, MSGBOX_DEFAULT)
+    giveitem(ITEM_SUPER_POTION)
+    waitmessage
+    closemessage
+    release
+    end
+}
+text Rustboro_Basement_Scientist5_Text{
+    "There's a high probability some of\n"
+    "our research is being destroyed\l"
+    "even as we speak!\p"
+    "Here, take this. Hopefully it'll help\n"
+    "you in your fight agaist them."
+}
+text BasementPleaseHurry{
+    "Please hurry!"
+}
+script Rustboro_Basement_DevonEmployee1{
+    msgbox(Rustboro_Basement_DevonEmployee1_Text, MSGBOX_NPC)
+    end
+}
+text Rustboro_Basement_DevonEmployee1_Text{
+    "These crooks forced everyone except for\n"
+    "the president to the basement when\l"
+    "they attacked.\p"
+    "I don't know what they want from him\n"
+    "but I hope he's safe…"
+}
+script Rustboro_Basement_DevonEmployee2{
+    msgbox(Rustboro_Basement_DevonEmployee2_Text, MSGBOX_NPC)
+    end
+}
+text Rustboro_Basement_DevonEmployee2_Text{
+    "This is unprecedented!\n"
+    "When we get out of this,\l"
+    "we're definitely hiring guards."
+}
+script Rustboro_Basement_DevonGreeter{
+    msgbox(Rustboro_Basement_DevonGreeter_Text, MSGBOX_NPC)
+    end
+}
+text Rustboro_Basement_DevonGreeter_Text{
+    "Everybody here seems to be unharmed.\p"
+    "If you can, please help our president.\n"
+    "Last I saw him, he was in his office\l"
+    "in the 3rd floor."
+}
+script Rustboro_Basement_Collection{
+    msgbox(Rustboro_Basement_Collection_Text, MSGBOX_SIGN)
+    end
+}
+text Rustboro_Basement_Collection_Text{
+    "It's a collection of various products\n"
+    "developed by the Devon Corporation."
+}
+script Rustboro_Basement_ItemBall{
+    finditem(ITEM_QUICK_BALL)
+    end
+}

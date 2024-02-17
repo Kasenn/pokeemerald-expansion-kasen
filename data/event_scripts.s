@@ -1235,3 +1235,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Shoreslate_House3_2F/scripts.inc"
 
 	.include "data/maps/Shoreslate_House3_3F/scripts.inc"
+
+	.include "data/maps/DevonCorpBasement/scripts.inc"

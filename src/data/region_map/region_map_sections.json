@@ -329,6 +329,14 @@
       "height": 1
     },
     {
+      "map_section": "MAPSEC_WEIRDCAVE",
+      "name": "SMALL CAVE",
+      "x": 23,
+      "y": 12,
+      "width": 1,
+      "height": 1
+    },
+    {
       "map_section": "MAPSEC_CANYON_ENTRANCE",
       "name": "CANYON ENTRANCE",
       "x": 26,
@@ -923,14 +931,6 @@
     {
       "map_section": "MAPSEC_PEARLWOOD_POINT",
       "name": "PEARLWOOD POINT",
-      "x": 15,
-      "y": 10,
-      "width": 1,
-      "height": 1
-    },
-    {
-      "map_section": "MAPSEC_FATEFUL",
-      "name": "MAPSEC_FATEFUL",
       "x": 15,
       "y": 10,
       "width": 1,

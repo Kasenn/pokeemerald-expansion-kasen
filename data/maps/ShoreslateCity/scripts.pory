@@ -9,6 +9,9 @@ script VisitedShoreslate{
     }
     setflag(FLAG_VISITED_SHORESLATE)
     setflag(FLAG_ROUTE28_DESPAWN_BROTHER)
+    if(flag(FLAG_DEVON_UNDER_ATTACK)){
+        setflag(FLAG_DEVON_RESCUED)
+    }
     end
 }
 
@@ -413,4 +416,77 @@ text NotRoomForCastelias{
 }
 text NotMoneyForCastelias{
     "I'm sorry, but you can't afford that…"
+}
+
+script Shoreslate_DevonExteriorTrigger{
+    if(!defeated(TRAINER_SHORESLATE_ROCKET)){
+        if(var(VAR_TEMP_6) == 1){
+            lockall
+            delay(5)
+            turnobject(1, DIR_SOUTH)
+            delay(5)
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+            msgbox(ShoreSlate_YouDeaf, MSGBOX_DEFAULT)
+            waitmessage
+            closemessage
+            trainerbattle_no_intro(TRAINER_SHORESLATE_ROCKET, ShoreSlateRocketDefeat)
+            release
+            end
+        }
+        lockall
+        delay(5)
+        turnobject(1, DIR_SOUTH)
+        delay(5)
+        turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+        msgbox(ShoreSlate_NotGettingThrough, MSGBOX_DEFAULT)
+        waitmessage
+        closemessage
+        setvar(VAR_TEMP_6, 1)
+        applymovement(OBJ_EVENT_ID_PLAYER, MoveRight1)
+        waitmovement(0)
+        delay(5)
+        release
+        end
+    }
+    else{
+        release
+        end
+    }
+}
+
+movement MoveRight1{
+    walk_right
+}
+
+text ShoreSlate_NotGettingThrough{
+    "Back off, pal.\n"
+    "Nobody's going through here.\l"
+    "This is your last and only warning!"
+}
+
+script Shoreslate_RocketM{
+    if(!defeated(TRAINER_SHORESLATE_ROCKET)){
+        msgbox(ShoreSlate_RocketStop, MSGBOX_NPC)
+    }
+    else{
+        msgbox(ShoreSlate_RocketWontStop, MSGBOX_NPC)
+    }
+    end
+}
+
+text ShoreSlate_RocketStop{
+    "The offices are closed. By the boss's\n"
+    "orders, nobody is allowed to enter."
+}
+text ShoreSlate_RocketWontStop{
+    "Guh…\n"
+    "How could this happen…"
+}
+text ShoreSlate_YouDeaf{
+    "I warned you!"
+}
+text ShoreSlateRocketDefeat{
+    "What do I do…\p"
+    "The boss is definitely going\n"
+    "to be mad…"
 }

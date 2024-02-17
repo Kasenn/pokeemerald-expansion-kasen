@@ -2,7 +2,7 @@
   "id": "MAP_RUSTBORO_CITY_DEVON_CORP_3F",
   "name": "RustboroCity_DevonCorp_3F",
   "layout": "LAYOUT_RUSTBORO_CITY_DEVON_CORP_3F",
-  "music": "MUS_RUSTBORO",
+  "music": "MUS_SLATEPORT",
   "region_map_section": "MAPSEC_SHORESLATE_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -38,7 +38,33 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RustboroCity_DevonCorp_3F_EventScript_Employee",
-      "flag": "FLAG_HIDE_RUSTBORO_CITY_DEVON_CORP_3F_EMPLOYEE"
+      "flag": "FLAG_HIDE_SHORESLATE_BOAT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ROCKET_ADMIN_M",
+      "x": 14,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_DEVON_UNDER_ATTACK"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ROCKET_F",
+      "x": 5,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "RustboroCity_DevonCorp_3F_Rocket1",
+      "flag": "FLAG_DEVON_UNDER_ATTACK"
     }
   ],
   "warp_events": [

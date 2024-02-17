@@ -124,6 +124,7 @@
 #define MAP_RUSTBORO_CITY_DEVON_CORP_1F (11 | (8 << 8))
 #define MAP_RUSTBORO_CITY_DEVON_CORP_2F (12 | (8 << 8))
 #define MAP_RUSTBORO_CITY_DEVON_CORP_3F (13 | (8 << 8))
+#define MAP_DEVON_CORP_BASEMENT         (14 | (8 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (9 << 8))
