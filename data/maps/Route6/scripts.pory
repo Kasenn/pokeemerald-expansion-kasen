@@ -206,3 +206,24 @@ text Route6_Trainer7_Kindler_PostBattle{
     "there which are very strong against\l"
     "fire-type Pokémon."
 }
+
+script ScorchedDesertBetaBlock{
+    lockall
+    msgbox(StillInBeta, MSGBOX_DEFAULT)
+    applymovement(OBJ_EVENT_ID_PLAYER, BetaMoveLeft)
+    waitmovement(0)
+    releaseall
+    end
+}
+
+text StillInBeta{
+    "So you got the Go-Goggles?\n"
+    "That's great!\p"
+    "Normally you'd be able to enter the\n"
+    "desert but it's nowhere close to being\l"
+    "finished so I can't let you pass."
+}
+
+movement BetaMoveLeft{
+    walk_left * 2
+}

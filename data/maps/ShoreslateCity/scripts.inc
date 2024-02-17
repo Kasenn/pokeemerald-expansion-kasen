@@ -9,12 +9,18 @@ VisitedShoreslate::
 VisitedShoreslate_1:
 	setflag FLAG_VISITED_SHORESLATE
 	setflag FLAG_ROUTE28_DESPAWN_BROTHER
+	goto_if_set FLAG_DEVON_UNDER_ATTACK, VisitedShoreslate_5
+VisitedShoreslate_4:
 	end
 
 VisitedShoreslate_2:
 	setvar VAR_CASTELIACONES_BOUGHT, 0
 	setflag FLAG_DAILY_RESET_CASTELIACONE
 	goto VisitedShoreslate_1
+
+VisitedShoreslate_5:
+	setflag FLAG_DEVON_RESCUED
+	goto VisitedShoreslate_4
 
 
 Shoreslate_NinjaBoy::
@@ -312,6 +318,60 @@ CancelBuyingCastelia::
 	end
 
 
+Shoreslate_DevonExteriorTrigger::
+	checktrainerflag TRAINER_SHORESLATE_ROCKET
+	goto_if 0, Shoreslate_DevonExteriorTrigger_1
+	release
+	end
+
+Shoreslate_DevonExteriorTrigger_1:
+	compare VAR_TEMP_6, 1
+	goto_if_eq Shoreslate_DevonExteriorTrigger_5
+	lockall
+	delay 5
+	turnobject 1, DIR_SOUTH
+	delay 5
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	msgbox ShoreSlate_NotGettingThrough, MSGBOX_DEFAULT
+	waitmessage
+	closemessage
+	setvar VAR_TEMP_6, 1
+	applymovement OBJ_EVENT_ID_PLAYER, MoveRight1
+	waitmovement 0
+	delay 5
+	release
+	end
+
+Shoreslate_DevonExteriorTrigger_5:
+	lockall
+	delay 5
+	turnobject 1, DIR_SOUTH
+	delay 5
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	msgbox ShoreSlate_YouDeaf, MSGBOX_DEFAULT
+	waitmessage
+	closemessage
+	trainerbattle_no_intro TRAINER_SHORESLATE_ROCKET, ShoreSlateRocketDefeat
+	release
+	end
+
+
+MoveRight1:
+	walk_right
+	step_end
+
+Shoreslate_RocketM::
+	checktrainerflag TRAINER_SHORESLATE_ROCKET
+	goto_if 0, Shoreslate_RocketM_2
+	msgbox ShoreSlate_RocketWontStop, MSGBOX_NPC
+Shoreslate_RocketM_1:
+	end
+
+Shoreslate_RocketM_2:
+	msgbox ShoreSlate_RocketStop, MSGBOX_NPC
+	goto Shoreslate_RocketM_1
+
+
 Shoreslate_Sign1_Text_0:
 	.string "SHORESLATE CITY\p"
 	.string "“The port where people and Pokémon\n"
@@ -500,3 +560,24 @@ NotRoomForCastelias::
 
 NotMoneyForCastelias::
 	.string "I'm sorry, but you can't afford that…$"
+
+ShoreSlate_NotGettingThrough::
+	.string "Back off, pal.\n"
+	.string "Nobody's going through here.\l"
+	.string "This is your last and only warning!$"
+
+ShoreSlate_RocketStop::
+	.string "The offices are closed. By the boss's\n"
+	.string "orders, nobody is allowed to enter.$"
+
+ShoreSlate_RocketWontStop::
+	.string "Guh…\n"
+	.string "How could this happen…$"
+
+ShoreSlate_YouDeaf::
+	.string "I warned you!$"
+
+ShoreSlateRocketDefeat::
+	.string "What do I do…\p"
+	.string "The boss is definitely going\n"
+	.string "to be mad…$"

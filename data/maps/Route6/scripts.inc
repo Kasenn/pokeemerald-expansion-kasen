@@ -162,6 +162,20 @@ Route6_Trainer7_Kindler::
 	end
 
 
+ScorchedDesertBetaBlock::
+	lockall
+	msgbox StillInBeta, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, BetaMoveLeft
+	waitmovement 0
+	releaseall
+	end
+
+
+BetaMoveLeft:
+	walk_left
+	walk_left
+	step_end
+
 Route6_Trainer1_Ranger_M_Intro::
 	.string "Are you planning to explore the desert?\n"
 	.string "Let me see if your Pokémon are ready!$"
@@ -251,3 +265,10 @@ Route6_Trainer7_Kindler_PostBattle::
 	.string "There are a lot of ground-types out\n"
 	.string "there which are very strong against\l"
 	.string "fire-type Pokémon.$"
+
+StillInBeta::
+	.string "So you got the Go-Goggles?\n"
+	.string "That's great!\p"
+	.string "Normally you'd be able to enter the\n"
+	.string "desert but it's nowhere close to being\l"
+	.string "finished so I can't let you pass.$"

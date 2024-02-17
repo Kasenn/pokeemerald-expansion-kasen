@@ -95,6 +95,7 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_RS_MAY] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_AFICIONADO_M] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_AFICIONADO_F] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_SCIENTIST] = {.size = 8, .y_offset = 1},
 };
 
 #define TRAINER_SPRITE(trainerPic, sprite, size) [TRAINER_PIC_##trainerPic] = {sprite, size, TRAINER_PIC_##trainerPic}
@@ -196,6 +197,7 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(RS_MAY, gTrainerFrontPic_RubySapphireMay, TRAINER_PIC_SIZE),
     TRAINER_SPRITE(AFICIONADO_M, gTrainerFrontPic_AficionadoM, TRAINER_PIC_SIZE),
     TRAINER_SPRITE(AFICIONADO_F, gTrainerFrontPic_AficionadoF, TRAINER_PIC_SIZE),
+    TRAINER_SPRITE(SCIENTIST, gTrainerFrontPic_Scientist, TRAINER_PIC_SIZE),
 };
 
 #define TRAINER_PAL(trainerPic, pal) [TRAINER_PIC_##trainerPic] = {pal, TRAINER_PIC_##trainerPic}
@@ -297,4 +299,5 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(RS_MAY, gTrainerPalette_RubySapphireMay),
     TRAINER_PAL(AFICIONADO_M, gTrainerPalette_AficionadoM),
     TRAINER_PAL(AFICIONADO_F, gTrainerPalette_AficionadoF),
+    TRAINER_PAL(SCIENTIST, gTrainerPalette_Scientist),
 };

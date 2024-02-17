@@ -5290,6 +5290,16 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/Shoreslate_House3_3F/border.bin",
       "blockdata_filepath": "data/layouts/Shoreslate_House3_3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEVON_CORP_BASEMENT",
+      "name": "DevonCorpBasement_Layout",
+      "width": 19,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/DevonCorpBasement/border.bin",
+      "blockdata_filepath": "data/layouts/DevonCorpBasement/map.bin"
     }
   ]
 }

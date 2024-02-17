@@ -270,7 +270,7 @@ static const struct MatchCallTrainerTextInfo sMatchCallTrainers[] =
         .differentRouteMatchCallTextId = TEXT_ID(REQ_TOPIC_DIFF_ROUTE, 8),
     },
     {
-        .trainerId = TRAINER_THALIA_1,
+        .trainerId = TRAINER_DC_BASEROCKET_1,
         .unused = 0,
         // Thalia and Sawyer are the only ones who use different msg ids for their battle topics
         .battleTopicTextIds = { TEXT_ID(B_TOPIC_WILD, 8), TEXT_ID(B_TOPIC_NEGATIVE, 10), TEXT_ID(B_TOPIC_POSITIVE, 10) },
@@ -298,7 +298,7 @@ static const struct MatchCallTrainerTextInfo sMatchCallTrainers[] =
         .differentRouteMatchCallTextId = TEXT_ID(REQ_TOPIC_DIFF_ROUTE, 4),
     },
     {
-        .trainerId = TRAINER_STEVE_1,
+        .trainerId = TRAINER_DC1F_ROCKET_2,
         .unused = 0,
         .battleTopicTextIds = BATTLE_TEXT_IDS(7),
         .generalTextId = TEXT_ID(GEN_TOPIC_PERSONAL, 13),
@@ -307,7 +307,7 @@ static const struct MatchCallTrainerTextInfo sMatchCallTrainers[] =
         .differentRouteMatchCallTextId = TEXT_ID(REQ_TOPIC_DIFF_ROUTE, 7),
     },
     {
-        .trainerId = TRAINER_TONY_1,
+        .trainerId = TRAINER_SHORESLATE_ROCKET,
         .unused = 0,
         .battleTopicTextIds = BATTLE_TEXT_IDS(5),
         .generalTextId = TEXT_ID(GEN_TOPIC_PERSONAL, 15),
