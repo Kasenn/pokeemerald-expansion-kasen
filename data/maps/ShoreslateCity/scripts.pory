@@ -9,9 +9,6 @@ script VisitedShoreslate{
     }
     setflag(FLAG_VISITED_SHORESLATE)
     setflag(FLAG_ROUTE28_DESPAWN_BROTHER)
-    if(flag(FLAG_DEVON_UNDER_ATTACK)){
-        setflag(FLAG_DEVON_RESCUED)
-    }
     end
 }
 

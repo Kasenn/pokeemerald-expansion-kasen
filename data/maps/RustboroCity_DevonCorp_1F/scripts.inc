@@ -25,7 +25,7 @@ RustboroCity_DevonCorp_1F_EventScript_EmployeeNew_2:
 
 
 RustboroCity_DevonCorp_1F_EventScript_GreeterNew::
-	goto_if_set FLAG_DEVON_RESCUED, RustboroCity_DevonCorp_1F_EventScript_GreeterNew_2
+	goto_if_set FLAG_HELPED_DEVON_CORP, RustboroCity_DevonCorp_1F_EventScript_GreeterNew_2
 	msgbox RustboroCity_DevonCorp_1F_Text_WelcomeToDevonCorp2, MSGBOX_NPC
 RustboroCity_DevonCorp_1F_EventScript_GreeterNew_1:
 	checkitem ITEM_LETTER
@@ -150,6 +150,7 @@ Rustboro_Basement_Scientist5::
 	goto_if_set FLAG_BASEMENT_SUPERPOTION, Rustboro_Basement_Scientist5_2
 	msgbox Rustboro_Basement_Scientist5_Text, MSGBOX_DEFAULT
 	giveitem ITEM_SUPER_POTION
+	setflag FLAG_BASEMENT_SUPERPOTION
 	waitmessage
 	closemessage
 	release
@@ -235,8 +236,9 @@ GreeterHandOverLetter::
 	.string "I see. this isn't the first time\n"
 	.string "you've had a tuffle with Team Rocket.\p"
 	.string "Well, we can't simply let you leave\n"
-	.string "empty-handed. For your heroic deeds,\l"
-	.string "I want you to have this.$"
+	.string "empty-handed.\p"
+	.string "For your heroic deeds, I have\n"
+	.string "been authorized to give you these.$"
 
 ExplainGoGoggles::
 	.string "With those Go-Goggles, you\n"
@@ -423,9 +425,9 @@ BasementPleaseHurry::
 	.string "Please hurry!$"
 
 Rustboro_Basement_DevonEmployee1_Text::
-	.string "These crooks forced everyone except for\n"
-	.string "the president to the basement when\l"
-	.string "they attacked.\p"
+	.string "These crooks forced everyone except\n"
+	.string "for the president to the basement\l"
+	.string "when they attacked.\p"
 	.string "I don't know what they want from him\n"
 	.string "but I hope he's safe…$"
 

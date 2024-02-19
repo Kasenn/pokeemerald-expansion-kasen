@@ -604,7 +604,7 @@
       "map_section": "MAPSEC_NEWROUTE_7",
       "name": "ROUTE 7",
       "x": 26,
-      "y": 9,
+      "y": 10,
       "width": 1,
       "height": 1
     },
@@ -828,7 +828,7 @@
       "map_section": "MAPSEC_TOWN_WIP3",
       "name": "WIP TOWN 3",
       "x": 26,
-      "y": 10,
+      "y": 9,
       "width": 1,
       "height": 1
     },

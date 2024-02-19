@@ -205,11 +205,15 @@ Aldeleaf_GymUnavailable::
 
 
 Aldeleaf_Sudowoodo::
+	checkitem ITEM_WAILMER_PAIL
+	compare VAR_RESULT, TRUE
+	goto_if_eq Aldeleaf_Sudowoodo_2
+Aldeleaf_Sudowoodo_1:
 	lockall
 	goto_if_unset FLAG_BADGE02_GET, Aldeleaf_Sudowoodo_NoCut
 	checkpartymove MOVE_CUT
 	compare VAR_RESULT, PARTY_SIZE
-	goto_if_eq Aldeleaf_Sudowoodo_1
+	goto_if_eq Aldeleaf_Sudowoodo_4
 	setfieldeffectargument 0, VAR_RESULT
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	buffermovename STR_VAR_2, MOVE_CUT
@@ -222,9 +226,26 @@ Aldeleaf_Sudowoodo::
 	goto Aldeleaf_Sudowoodo_CutDown
 	end
 
-Aldeleaf_Sudowoodo_1:
+Aldeleaf_Sudowoodo_2:
+	lock
+	msgbox WantToWaterTree, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Aldeleaf_Sudowoodo_7
+	closemessage
+	special DoWateringBerryTreeAnim
+	waitstate
+	waitse
+	goto Aldeleaf_Sudowoodo_CutDown
+	goto Aldeleaf_Sudowoodo_1
+
+Aldeleaf_Sudowoodo_4:
 	goto Aldeleaf_Sudowoodo_NoCut
 	return
+
+Aldeleaf_Sudowoodo_7:
+	closemessage
+	release
+	end
 
 
 Aldeleaf_Sudowoodo_NoCut::
@@ -261,7 +282,11 @@ Aldeleaf_Sudowoodo_CutDown::
 	playse SE_SUDOWOODO_SHAKE
 	applymovement 1, Aldeleaf_SudowoodoShake
 	waitmovement 1
+	checkitem ITEM_WAILMER_PAIL
+	compare VAR_RESULT, TRUE
+	goto_if_eq Aldeleaf_Sudowoodo_CutDown_2
 	msgbox gText_Sudowoodo_Attacked, MSGBOX_DEFAULT
+Aldeleaf_Sudowoodo_CutDown_1:
 	closemessage
 	waitse
 	playmoncry SPECIES_SUDOWOODO, CRY_MODE_ENCOUNTER
@@ -278,6 +303,10 @@ Aldeleaf_Sudowoodo_CutDown::
 	delay 20
 	release
 	end
+
+Aldeleaf_Sudowoodo_CutDown_2:
+	msgbox gText_Sudowoodo_Attacked_Watering, MSGBOX_DEFAULT
+	goto Aldeleaf_Sudowoodo_CutDown_1
 
 
 Aldeleaf_TrainerNearSudowoodo::
@@ -382,6 +411,11 @@ Aldeleaf_WantToCut::
 	.string "There's a weird tree blocking\n"
 	.string "the way.\p"
 	.string "Would you like to cut it?$"
+
+WantToWaterTree::
+	.string "There's a weird tree growing here.\p"
+	.string "Would you like to water it with your\n"
+	.string "Wailmer Pail?$"
 
 Aldeleaf_Text_OnceAnOddTreePastHere::
 	.string "Oh wow! So the tree was\n"

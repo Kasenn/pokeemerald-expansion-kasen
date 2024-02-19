@@ -951,6 +951,11 @@ gText_Sudowoodo_Attacked::
 	.string "the weird tree!\p"
 	.string "The weird tree attacked!$"
 
+gText_Sudowoodo_Attacked_Watering::
+	.string "The weird tree doesn't like the\n"
+	.string "Wailmer Pail!\p"
+	.string "The weird tree attacked!$"
+
 gText_LegendaryFlewAway::
 	.string "The {STR_VAR_1} flew away!$"
 
@@ -1237,3 +1242,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Shoreslate_House3_3F/scripts.inc"
 
 	.include "data/maps/DevonCorpBasement/scripts.inc"
+
+	.include "data/maps/Route8/scripts.inc"
+
+	.include "data/maps/UndergroundRuins/scripts.inc"

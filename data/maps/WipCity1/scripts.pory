@@ -224,6 +224,23 @@ text Aldeleaf_GymUnavailable_Text{
 }
 
 script Aldeleaf_Sudowoodo{
+	checkitem(ITEM_WAILMER_PAIL)
+	if(var(VAR_RESULT) == TRUE){
+		lock
+		msgbox(WantToWaterTree, MSGBOX_YESNO)
+		if(var(VAR_RESULT) == FALSE){
+			closemessage
+			release
+			end
+		}
+		else{
+			closemessage
+			special(DoWateringBerryTreeAnim)
+			waitstate
+			waitse
+			goto(Aldeleaf_Sudowoodo_CutDown)
+		}
+	}
     lockall
 	goto_if_unset(FLAG_BADGE02_GET, Aldeleaf_Sudowoodo_NoCut)
 	checkpartymove(MOVE_CUT)
@@ -248,6 +265,11 @@ text Aldeleaf_WantToCut{
 	"There's a weird tree blocking\n"
     "the way.\p"
 	"Would you like to cut it?"
+}
+text WantToWaterTree{
+	"There's a weird tree growing here.\p"
+	"Would you like to water it with your\n"
+	"Wailmer Pail?"
 }
 script Aldeleaf_Sudowoodo_NoCut{
 	lock
@@ -282,7 +304,13 @@ script Aldeleaf_Sudowoodo_CutDown{
 	playse(SE_SUDOWOODO_SHAKE)
 	applymovement(1, Aldeleaf_SudowoodoShake)
 	waitmovement(1)
-	msgbox(gText_Sudowoodo_Attacked, MSGBOX_DEFAULT)
+	checkitem(ITEM_WAILMER_PAIL)
+	if(var(VAR_RESULT) == TRUE){
+		msgbox(gText_Sudowoodo_Attacked_Watering, MSGBOX_DEFAULT)
+	}
+	else{
+		msgbox(gText_Sudowoodo_Attacked, MSGBOX_DEFAULT)
+	}
 	closemessage
 	waitse
 	playmoncry(SPECIES_SUDOWOODO, CRY_MODE_ENCOUNTER)

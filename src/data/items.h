@@ -8796,7 +8796,7 @@ const struct Item gItems[] =
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
-        .fieldUseFunc = ItemUseOutOfBattle_WailmerPail,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_POKE_RADAR] =

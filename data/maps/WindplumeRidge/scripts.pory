@@ -7,6 +7,21 @@ script SetWindPlumeFlag{
     end
 }
 
+script WindPlume_VarSetter{
+    if(var(VAR_WIND_SPEED) == 0){
+        msgbox("VAR_WIND_SPEED set to 1", MSGBOX_NPC)
+        setvar(VAR_WIND_SPEED, 1)
+    }
+    if(var(VAR_WIND_SPEED) == 1){
+        msgbox("VAR_WIND_SPEED set to 2", MSGBOX_NPC)
+        setvar(VAR_WIND_SPEED, 2)
+    }
+    if(var(VAR_WIND_SPEED) == 2){
+        msgbox("VAR_WIND_SPEED set back to 0", MSGBOX_NPC)
+        setvar(VAR_WIND_SPEED, 0)
+    }
+}
+
 script WindplumeRidge_StartWind{
     setweather(WEATHER_STRONG_WINDS)
     doweather

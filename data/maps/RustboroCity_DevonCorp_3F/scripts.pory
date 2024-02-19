@@ -1,0 +1,301 @@
+mapscripts RustboroCity_DevonCorp_3F_MapScripts{}
+
+script DevonCorpTrigger1{
+    if(flag(FLAG_DEVON_UNDER_ATTACK)){
+        release
+        end
+    }
+    call(DevonTurnRocket)
+    setvar(VAR_TEMP_2, 1)
+    applymovement(3, DevonRocketMove1)
+    goto(DevonCorpRocketMainEvent)
+}
+script DevonCorpTrigger2{
+    if(flag(FLAG_DEVON_UNDER_ATTACK)){
+        release
+        end
+    }
+    call(DevonTurnRocket)
+    setvar(VAR_TEMP_2, 2)
+    applymovement(3, DevonRocketMove2)
+    goto(DevonCorpRocketMainEvent)
+}
+script DevonCorpTrigger3{
+    if(flag(FLAG_DEVON_UNDER_ATTACK)){
+        release
+        end
+    }
+    call(DevonTurnRocket)
+    setvar(VAR_TEMP_2, 3)
+    applymovement(3, DevonRocketMove3)
+    goto(DevonCorpRocketMainEvent)
+}
+script DevonCorpTrigger4{
+    if(flag(FLAG_DEVON_UNDER_ATTACK)){
+        release
+        end
+    }
+    call(DevonTurnRocket)
+    setvar(VAR_TEMP_2, 4)
+    applymovement(3, DevonRocketMove4)
+    goto(DevonCorpRocketMainEvent)
+}
+movement DevonRocketMove1{
+    walk_left
+    walk_up * 3
+    walk_left
+}
+movement DevonRocketMove2{
+    walk_left
+    walk_up * 2
+    walk_left
+}
+movement DevonRocketMove3{
+    walk_left
+    walk_down * 2
+    walk_left
+}
+movement DevonRocketMove4{
+    walk_left
+    walk_down * 3
+    walk_left
+}
+script DevonTurnRocket{
+    lockall
+    playse(SE_PIN)
+    turnobject(3, DIR_WEST)
+    applymovement(3, Common_Movement_ExclamationMark)
+    delay(60)
+    return
+}
+script DevonCorpRocketMainEvent{
+    waitmovement(0)
+    delay(15)
+    playbgm(MUS_ENCOUNTER_AQUA, TRUE)
+    msgbox(DevonProtonBeforeBattle, MSGBOX_DEFAULT)
+    closemessage
+    trainerbattle_no_intro(TRAINER_DC3F_ROCKET_PROTON, DevonProtonDefeatText)
+    msgbox(DevonProtonPostBattle, MSGBOX_DEFAULT)
+    closemessage
+    fadescreen(FADE_TO_BLACK)
+    setflag(FLAG_DEVON_UNDER_ATTACK)
+    setflag(FLAG_HELPED_DEVON_CORP)
+    clearflag(FLAG_HIDE_SHORESLATE_BOAT)
+    removeobject(3)
+    removeobject(4)
+    fadenewbgm(MUS_SLATEPORT)
+    fadescreen(FADE_FROM_BLACK)
+    delay(20)
+    switch(var(VAR_TEMP_2)){
+        case 1:
+            goto(MovePrez1)
+        case 2:
+            goto(MovePrez2)
+        case 3:
+            goto(MovePrez3)
+        case 4:
+            goto(MovePrez4)
+    }
+    end
+}
+script MovePrez1{
+    applymovement(1, PrezMove1)
+    waitmovement(0)
+    goto(DevonPrezTalk)
+}
+movement PrezMove1{
+    walk_up * 2
+    walk_left * 3
+    walk_up
+    walk_left * 2
+}
+
+script MovePrez2{
+    applymovement(1, PrezMove2)
+    waitmovement(0)
+    goto(DevonPrezTalk)
+}
+movement PrezMove2{
+    walk_up * 2
+    walk_left * 5
+}
+
+script MovePrez3{
+    applymovement(1, PrezMove3)
+    waitmovement(0)
+    goto(DevonPrezTalk)
+}
+movement PrezMove3{
+    walk_down * 2
+    walk_left * 5
+}
+
+script MovePrez4{
+    applymovement(1, PrezMove4)
+    waitmovement(0)
+    goto(DevonPrezTalk)
+}
+movement PrezMove4{
+    walk_down * 2
+    walk_left * 3
+    walk_down
+    walk_left * 2
+}
+
+script DevonPrezTalk{
+    msgbox(DevonPrezCongratulations, MSGBOX_DEFAULT)
+    giveitem(ITEM_HM05)
+    msgbox(ExplainFlash, MSGBOX_NPC)
+}
+
+text DevonProtonBeforeBattle{
+    "Proton: Well well well,\n"
+    "what do we have here?\p"
+    "Some little brat who's trying to play\n"
+    "a hero and make an enemy of\l"
+    "Team Rocket?\p"
+    "All we are doing is negotiating\n"
+    "between adults and you think you can\l"
+    "just barge here and meddle in\l"
+    "Team Rocket's official business?\p"
+    "Well, it looks like I, one of the\n"
+    "Team Rocket Executives, need to teach\l"
+    "a brat like you some manners!"
+}
+text DevonProtonDefeatText{
+    "What? How?!\p"
+    "… … … …\p"
+    "Hmph… Well, not that this matters.\n"
+    "We already got what we came here for."
+}
+text DevonProtonPostBattle{
+    "Proton: Hmph…\p"
+    "You may have won a small victory today\n"
+    "but don't get cocky. A small obstacle\l"
+    "like you won't be much of a problem\l"
+    "for our mission.\p"
+    "I advise you to be very afraid of what\n"
+    "is to come!"
+}
+text DevonPrezCongratulations{
+    "Ah, you must be {PLAYER}.\n"
+    "I've heard so much about you.\p"
+    "I'm Mr. Stone, the president of\n"
+    "the Devon Corporation.\p"
+    "Thank you so much for driving that\n"
+    "pesky Team Rocket away and saving\l"
+    "our company!\p"
+    "Unfortunately, Team Rocket did not\n"
+    "leave here empty-handed.\p"
+    "They stole some of our products but\n"
+    "the thing I dread the most is the\l"
+    "Master Ball they managed to steal\l"
+    "out of my safe.\p"
+    "I dread to think what they're going to\n"
+    "do with a powerful tool like that…\p"
+    "Anywho, I don't have much to offer you\n"
+    "seeing how we just got robbed, but I do\l"
+    "have this thing from my personal\l"
+    "collection.\p"
+    "A trainer like you should find it\n"
+    "useful."
+}
+text ExplainFlash{
+    "Mr. Stone: That Hidden Machine\n"
+    "contains the move Flash.\p"
+    "Using it in battle will lower the foe's\n"
+    "accuracy, making them less likely to\l"
+    "hit with their moves.\p"
+    "It will also help you illuminate dark\n"
+    "places like certain caves.\p"
+    "Thank you once again for coming\n"
+    "to our rescue. I hope we can provide\l"
+    "more help for you in your journeys once\l"
+    "we have recovered from this attack."
+}
+script DevonPrez{
+    msgbox(PrezThanks, MSGBOX_NPC)
+    end
+}
+text PrezThanks{
+    "Thank you once again for coming\n"
+    "to our rescue. I hope we can provide\l"
+    "more help for you in your journeys once\l"
+    "we have recovered from this attack."
+}
+
+script DevonCorp_Safe{
+    msgbox(DevonCorp_Safe_Text, MSGBOX_SIGN)
+    end
+}
+text DevonCorp_Safe_Text{
+    "It's a pretty hefty looking safe."
+}
+
+text RustboroCity_DevonCorp_3F_Text_MrStoneIHaveFavor{
+	"I'm MR. STONE, the PRESIDENT of\n"
+	"the DEVON CORPORATION.\p"
+	"I'd just got word about you!\p"
+	"You saved our staff not just once,\n"
+	"but twice!\p"
+	"I have a favor to ask of an amazing\n"
+	"person like you.\p"
+	"I understand that you're delivering\n"
+	"a package to SLATEPORT's SHIPYARD.\p"
+	"Well, on the way, could you stop off in\n"
+	"DEWFORD TOWN?\p"
+	"I was hoping that you'd deliver a\n"
+	"LETTER to STEVEN in DEWFORD."
+}
+
+text RustboroCity_DevonCorp_3F_Text_MrStoneWantYouToHaveThis{
+	"MR. STONE: Now, you should know that\n"
+	"I am a great PRESIDENT.\p"
+	"So, I'd never be so cheap as to ask\n"
+	"a favor for nothing in return.\p"
+	"That's why I want you to have this!"
+}
+
+
+
+text RustboroCity_DevonCorp_3F_Text_MrStoneGoWithCautionAndCare{
+	"MR. STONE: Well, then, {PLAYER}{KUN},\n"
+	"go with caution and care!"
+}
+
+text RustboroCity_DevonCorp_3F_Text_CountingOnYou{
+	"MR. STONE: I'm counting on you!"
+}
+
+
+text RustboroCity_DevonCorp_3F_Text_NotFamiliarWithTrends{
+	"MR. STONE: Since my youth, I've immersed\n"
+	"myself in work.\p"
+	"Consequently, I'm not familiar with\n"
+	"trends and that sort of thing.\p"
+	"But do young people all want to be\n"
+	"TRAINERS in the POKéMON LEAGUE?"
+}
+
+
+text RustboroCity_DevonCorp_3F_Text_RepeatAndTimerHugelyPopular{
+	"DEVON's new products, the REPEAT BALL\n"
+	"and TIMER BALL, have become hugely\l"
+	"popular among TRAINERS."
+}
+script RustboroCity_DevonCorp_3F_EventScript_RareRocksDisplay{
+    msgbox(RustboroCity_DevonCorp_3F_Text_RareRocksDisplay, MSGBOX_SIGN)
+    end
+}
+text RustboroCity_DevonCorp_3F_Text_RareRocksDisplay{
+	"It's a collection of rare rocks and\n"
+	"stones assembled by the president."
+}
+script Devon3F_Employee{
+    msgbox(Devon3F_Employee_Text, MSGBOX_NPC)
+    end
+}
+text Devon3F_Employee_Text{
+    "I'm glad to see the president is okay.\n"
+    "We were all very worried about him."
+}

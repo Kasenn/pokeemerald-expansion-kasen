@@ -1087,6 +1087,22 @@ static bool16 IsInfiltratedWeatherInstitute(struct WarpData *warp)
         return FALSE;
 }
 
+static bool16 IsInfiltratedDevonCorp(struct WarpData *warp)
+{
+    if (FlagGet(FLAG_DEVON_UNDER_ATTACK))
+        return FALSE;
+    else if (warp->mapGroup != MAP_GROUP(RUSTBORO_CITY_DEVON_CORP_1F))
+        return FALSE;
+    else if (warp->mapNum == MAP_NUM(RUSTBORO_CITY_DEVON_CORP_1F)
+     || warp->mapNum == MAP_NUM(RUSTBORO_CITY_DEVON_CORP_1F)
+     || warp->mapNum == MAP_NUM(RUSTBORO_CITY_DEVON_CORP_2F)
+     || warp->mapNum == MAP_NUM(RUSTBORO_CITY_DEVON_CORP_3F)
+     || warp->mapNum == MAP_NUM(DEVON_CORP_BASEMENT))
+        return TRUE;
+    else
+        return FALSE;
+}
+
 static bool16 IsInflitratedSpaceCenter(struct WarpData *warp)
 {
     if (VarGet(VAR_MOSSDEEP_CITY_STATE) == 0)
@@ -1111,6 +1127,8 @@ u16 GetLocationMusic(struct WarpData *warp)
         return MUS_ENCOUNTER_MAGMA;
     else if (IsInfiltratedWeatherInstitute(warp) == TRUE)
         return MUS_MT_CHIMNEY;
+    else if (IsInfiltratedDevonCorp(warp) == TRUE)
+        return MUS_ENCOUNTER_MAGMA;
     else
         return Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music;
 }
