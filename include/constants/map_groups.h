@@ -28,6 +28,8 @@
 #define MAP_WEIRD_CAVE          (19 | (0 << 8))
 #define MAP_WEIRD_CAVE_PT2      (20 | (0 << 8))
 #define MAP_ROUTE7_GROTTO       (21 | (0 << 8))
+#define MAP_ROUTE8              (22 | (0 << 8))
+#define MAP_UNDERGROUND_RUINS   (23 | (0 << 8))
 
 // gMapGroup_TownsAndCities
 #define MAP_PEARLWOOD_POINT   (0 | (1 << 8))

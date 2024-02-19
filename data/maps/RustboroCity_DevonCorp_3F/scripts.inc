@@ -1,203 +1,313 @@
-.set LOCALID_DEVON_EMPLOYEE, 2
-
 RustboroCity_DevonCorp_3F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, RustboroCity_DevonCorp_3F_OnTransition
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, RustboroCity_DevonCorp_3F_OnWarp
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, RustboroCity_DevonCorp_3F_OnFrame
 	.byte 0
 
-RustboroCity_DevonCorp_3F_OnTransition:
-	call_if_eq VAR_DEVON_CORP_3F_STATE, 0, RustboroCity_DevonCorp_3F_EventScript_SetEmployeePos
-	end
 
-RustboroCity_DevonCorp_3F_EventScript_SetEmployeePos::
-	setobjectxyperm LOCALID_DEVON_EMPLOYEE, 3, 2
-	setobjectmovementtype LOCALID_DEVON_EMPLOYEE, MOVEMENT_TYPE_FACE_LEFT
+DevonCorpTrigger1::
+	goto_if_set FLAG_DEVON_UNDER_ATTACK, DevonCorpTrigger1_2
+	call DevonTurnRocket
+	setvar VAR_TEMP_2, 1
+	applymovement 3, DevonRocketMove1
+	goto DevonCorpRocketMainEvent
 	return
 
-RustboroCity_DevonCorp_3F_OnWarp:
-	map_script_2 VAR_DEVON_CORP_3F_STATE, 0, RustboroCity_DevonCorp_3F_EventScript_PlayerFaceEast
-	.2byte 0
-
-RustboroCity_DevonCorp_3F_EventScript_PlayerFaceEast::
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+DevonCorpTrigger1_2:
+	release
 	end
 
-RustboroCity_DevonCorp_3F_OnFrame:
-	map_script_2 VAR_DEVON_CORP_3F_STATE, 0, RustboroCity_DevonCorp_3F_EventScript_MeetPresident
-	.2byte 0
 
-RustboroCity_DevonCorp_3F_EventScript_MeetPresident::
+DevonCorpTrigger2::
+	goto_if_set FLAG_DEVON_UNDER_ATTACK, DevonCorpTrigger2_2
+	call DevonTurnRocket
+	setvar VAR_TEMP_2, 2
+	applymovement 3, DevonRocketMove2
+	goto DevonCorpRocketMainEvent
+	return
+
+DevonCorpTrigger2_2:
+	release
+	end
+
+
+DevonCorpTrigger3::
+	goto_if_set FLAG_DEVON_UNDER_ATTACK, DevonCorpTrigger3_2
+	call DevonTurnRocket
+	setvar VAR_TEMP_2, 3
+	applymovement 3, DevonRocketMove3
+	goto DevonCorpRocketMainEvent
+	return
+
+DevonCorpTrigger3_2:
+	release
+	end
+
+
+DevonCorpTrigger4::
+	goto_if_set FLAG_DEVON_UNDER_ATTACK, DevonCorpTrigger4_2
+	call DevonTurnRocket
+	setvar VAR_TEMP_2, 4
+	applymovement 3, DevonRocketMove4
+	goto DevonCorpRocketMainEvent
+	return
+
+DevonCorpTrigger4_2:
+	release
+	end
+
+
+DevonRocketMove1:
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	step_end
+
+DevonRocketMove2:
+	walk_left
+	walk_up
+	walk_up
+	walk_left
+	step_end
+
+DevonRocketMove3:
+	walk_left
+	walk_down
+	walk_down
+	walk_left
+	step_end
+
+DevonRocketMove4:
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	step_end
+
+DevonTurnRocket::
 	lockall
-	msgbox RustboroCity_DevonCorp_3F_Text_ThisIs3rdFloorWaitHere, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_DEVON_EMPLOYEE, RustboroCity_DevonCorp_3F_Movement_EmployeeWalkOffscreen
+	playse SE_PIN
+	turnobject 3, DIR_WEST
+	applymovement 3, Common_Movement_ExclamationMark
+	delay 60
+	return
+
+
+DevonCorpRocketMainEvent::
 	waitmovement 0
-	delay 80
-	applymovement LOCALID_DEVON_EMPLOYEE, RustboroCity_DevonCorp_3F_Movement_EmployeeReturnToPlayer
-	waitmovement 0
-	msgbox RustboroCity_DevonCorp_3F_Text_WordWithPresidentComeWithMe, MSGBOX_DEFAULT
+	delay 15
+	playbgm MUS_ENCOUNTER_AQUA, TRUE
+	msgbox DevonProtonBeforeBattle, MSGBOX_DEFAULT
 	closemessage
-	playbgm MUS_FOLLOW_ME, FALSE
-	applymovement LOCALID_DEVON_EMPLOYEE, RustboroCity_DevonCorp_3F_Movement_LeadPlayerToPresident
-	applymovement OBJ_EVENT_ID_PLAYER, RustboroCity_DevonCorp_3F_Movement_PlayerFollowToPresident
-	waitmovement 0
-	msgbox RustboroCity_DevonCorp_3F_Text_PleaseGoAhead, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_DC3F_ROCKET_PROTON, DevonProtonDefeatText
+	msgbox DevonProtonPostBattle, MSGBOX_DEFAULT
 	closemessage
-	fadedefaultbgm
-	applymovement LOCALID_DEVON_EMPLOYEE, RustboroCity_DevonCorp_3F_Movement_EmployeeFaceDesk
-	applymovement OBJ_EVENT_ID_PLAYER, RustboroCity_DevonCorp_3F_Movement_PlayerApproachDesk
-	waitmovement 0
-	msgbox RustboroCity_DevonCorp_3F_Text_MrStoneIHaveFavor, MSGBOX_DEFAULT
-	giveitem ITEM_LETTER
-	msgbox RustboroCity_DevonCorp_3F_Text_MrStoneWantYouToHaveThis, MSGBOX_DEFAULT
-	playfanfare MUS_OBTAIN_ITEM
-	message RustboroCity_DevonCorp_3F_Text_ReceivedPokenav
-	waitfanfare
-	setflag FLAG_SYS_POKENAV_GET
-	setflag FLAG_RECEIVED_POKENAV
-	setflag FLAG_HIDE_RUSTBORO_CITY_POKEMON_SCHOOL_SCOTT
-	msgbox RustboroCity_DevonCorp_3F_Text_MrStoneExplainPokenavRestUp, MSGBOX_DEFAULT
-	closemessage
-	call Common_EventScript_OutOfCenterPartyHeal
-	msgbox RustboroCity_DevonCorp_3F_Text_MrStoneGoWithCautionAndCare, MSGBOX_DEFAULT
-	setflag FLAG_HIDE_ROUTE_116_WANDAS_BOYFRIEND
-	clearflag FLAG_HIDE_RUSTURF_TUNNEL_WANDAS_BOYFRIEND
-	clearflag FLAG_HIDE_RUSTURF_TUNNEL_WANDA
-	clearflag FLAG_HIDE_BRINEYS_HOUSE_MR_BRINEY
-	clearflag FLAG_HIDE_BRINEYS_HOUSE_PEEKO
-	setvar VAR_BRINEY_LOCATION, 1
-	clearflag FLAG_HIDE_RUSTBORO_CITY_RIVAL
-	setvar VAR_DEVON_CORP_3F_STATE, 1
-	setvar VAR_RUSTBORO_CITY_STATE, 6
-	releaseall
+	fadescreen FADE_TO_BLACK
+	setflag FLAG_DEVON_UNDER_ATTACK
+	setflag FLAG_HELPED_DEVON_CORP
+	clearflag FLAG_HIDE_SHORESLATE_BOAT
+	removeobject 3
+	removeobject 4
+	fadenewbgm MUS_SLATEPORT
+	fadescreen FADE_FROM_BLACK
+	delay 20
+	switch VAR_TEMP_2
+	case 1, DevonCorpRocketMainEvent_3
+	case 2, DevonCorpRocketMainEvent_4
+	case 3, DevonCorpRocketMainEvent_5
+	case 4, DevonCorpRocketMainEvent_6
+DevonCorpRocketMainEvent_1:
 	end
 
-RustboroCity_DevonCorp_3F_Movement_Unused:
+DevonCorpRocketMainEvent_3:
+	goto MovePrez1
+	goto DevonCorpRocketMainEvent_1
+
+DevonCorpRocketMainEvent_4:
+	goto MovePrez2
+	goto DevonCorpRocketMainEvent_1
+
+DevonCorpRocketMainEvent_5:
+	goto MovePrez3
+	goto DevonCorpRocketMainEvent_1
+
+DevonCorpRocketMainEvent_6:
+	goto MovePrez4
+	goto DevonCorpRocketMainEvent_1
+
+
+MovePrez1::
+	applymovement 1, PrezMove1
+	waitmovement 0
+	goto DevonPrezTalk
+	return
+
+
+PrezMove1:
 	walk_up
 	walk_up
-	walk_up
-	walk_in_place_faster_left
-	step_end
-
-RustboroCity_DevonCorp_3F_Movement_LeadPlayerToPresident:
-	walk_right
-	walk_right
-	walk_right
-	walk_down
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_in_place_faster_left
-	step_end
-
-RustboroCity_DevonCorp_3F_Movement_EmployeeFaceDesk:
-	delay_16
-	walk_in_place_faster_down
-	step_end
-
-RustboroCity_DevonCorp_3F_Movement_EmployeeWalkOffscreen:
-	walk_right
-	walk_right
-	walk_right
-	walk_down
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	step_end
-
-RustboroCity_DevonCorp_3F_Movement_EmployeeReturnToPlayer:
-	walk_left
 	walk_left
 	walk_left
 	walk_left
 	walk_up
 	walk_left
 	walk_left
+	step_end
+
+MovePrez2::
+	applymovement 1, PrezMove2
+	waitmovement 0
+	goto DevonPrezTalk
+	return
+
+
+PrezMove2:
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	walk_left
 	step_end
 
-RustboroCity_DevonCorp_3F_Movement_PlayerFollowToPresident:
-	walk_right
-	walk_right
-	walk_right
-	walk_right
+MovePrez3::
+	applymovement 1, PrezMove3
+	waitmovement 0
+	goto DevonPrezTalk
+	return
+
+
+PrezMove3:
 	walk_down
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	step_end
 
-RustboroCity_DevonCorp_3F_Movement_PlayerApproachDesk:
-	delay_16
-	delay_16
+MovePrez4::
+	applymovement 1, PrezMove4
+	waitmovement 0
+	goto DevonPrezTalk
+	return
+
+
+PrezMove4:
 	walk_down
 	walk_down
-	walk_in_place_faster_right
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_left
+	walk_left
 	step_end
 
-RustboroCity_DevonCorp_3F_EventScript_MrStone::
-	lock
-	faceplayer
-	goto_if_set FLAG_RECEIVED_EXP_SHARE, RustboroCity_DevonCorp_3F_EventScript_MrStoneAfterFavor
-	goto_if_set FLAG_DELIVERED_STEVEN_LETTER, RustboroCity_DevonCorp_3F_EventScript_GiveExpShare
-	msgbox RustboroCity_DevonCorp_3F_Text_CountingOnYou, MSGBOX_DEFAULT
-	closemessage
-	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	release
+DevonPrezTalk::
+	msgbox DevonPrezCongratulations, MSGBOX_DEFAULT
+	giveitem ITEM_HM05
+	msgbox ExplainFlash, MSGBOX_NPC
+	return
+
+
+DevonPrez::
+	msgbox PrezThanks, MSGBOX_NPC
 	end
 
-RustboroCity_DevonCorp_3F_EventScript_GiveExpShare::
-	msgbox RustboroCity_DevonCorp_3F_Text_ThankYouForDeliveringLetter, MSGBOX_DEFAULT
-	giveitem ITEM_EXP_SHARE
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_EXP_SHARE
-	msgbox RustboroCity_DevonCorp_3F_Text_ExplainExpShare, MSGBOX_DEFAULT
-	closemessage
-	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	release
+
+DevonCorp_Safe::
+	msgbox DevonCorp_Safe_Text, MSGBOX_SIGN
 	end
 
-RustboroCity_DevonCorp_3F_EventScript_MrStoneAfterFavor::
-	msgbox RustboroCity_DevonCorp_3F_Text_NotFamiliarWithTrends, MSGBOX_DEFAULT
-	closemessage
-	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	release
-	end
-
-RustboroCity_DevonCorp_3F_EventScript_Employee::
-	lock
-	faceplayer
-	goto_if_set FLAG_RECEIVED_REPEAT_BALL, RustboroCity_DevonCorp_3F_EventScript_EmployeeBalls
-	msgbox RustboroCity_DevonCorp_3F_Text_VisitCaptSternShipyard, MSGBOX_DEFAULT
-	release
-	end
-
-RustboroCity_DevonCorp_3F_EventScript_EmployeeBalls::
-	msgbox RustboroCity_DevonCorp_3F_Text_RepeatAndTimerHugelyPopular, MSGBOX_DEFAULT
-	release
-	end
 
 RustboroCity_DevonCorp_3F_EventScript_RareRocksDisplay::
 	msgbox RustboroCity_DevonCorp_3F_Text_RareRocksDisplay, MSGBOX_SIGN
 	end
 
-RustboroCity_DevonCorp_3F_Text_MrStoneIHaveFavor:
+
+Devon3F_Employee::
+	msgbox Devon3F_Employee_Text, MSGBOX_NPC
+	end
+
+
+DevonProtonBeforeBattle::
+	.string "Proton: Well well well,\n"
+	.string "what do we have here?\p"
+	.string "Some little brat who's trying to play\n"
+	.string "a hero and make an enemy of\l"
+	.string "Team Rocket?\p"
+	.string "All we are doing is negotiating\n"
+	.string "between adults and you think you can\l"
+	.string "just barge here and meddle in\l"
+	.string "Team Rocket's official business?\p"
+	.string "Well, it looks like I, one of the\n"
+	.string "Team Rocket Executives, need to teach\l"
+	.string "a brat like you some manners!$"
+
+DevonProtonDefeatText::
+	.string "What? How?!\p"
+	.string "… … … …\p"
+	.string "Hmph… Well, not that this matters.\n"
+	.string "We already got what we came here for.$"
+
+DevonProtonPostBattle::
+	.string "Proton: Hmph…\p"
+	.string "You may have won a small victory today\n"
+	.string "but don't get cocky. A small obstacle\l"
+	.string "like you won't be much of a problem\l"
+	.string "for our mission.\p"
+	.string "I advise you to be very afraid of what\n"
+	.string "is to come!$"
+
+DevonPrezCongratulations::
+	.string "Ah, you must be {PLAYER}.\n"
+	.string "I've heard so much about you.\p"
+	.string "I'm Mr. Stone, the president of\n"
+	.string "the Devon Corporation.\p"
+	.string "Thank you so much for driving that\n"
+	.string "pesky Team Rocket away and saving\l"
+	.string "our company!\p"
+	.string "Unfortunately, Team Rocket did not\n"
+	.string "leave here empty-handed.\p"
+	.string "They stole some of our products but\n"
+	.string "the thing I dread the most is the\l"
+	.string "Master Ball they managed to steal\l"
+	.string "out of my safe.\p"
+	.string "I dread to think what they're going to\n"
+	.string "do with a powerful tool like that…\p"
+	.string "Anywho, I don't have much to offer you\n"
+	.string "seeing how we just got robbed, but I do\l"
+	.string "have this thing from my personal\l"
+	.string "collection.\p"
+	.string "A trainer like you should find it\n"
+	.string "useful.$"
+
+ExplainFlash::
+	.string "Mr. Stone: That Hidden Machine\n"
+	.string "contains the move Flash.\p"
+	.string "Using it in battle will lower the foe's\n"
+	.string "accuracy, making them less likely to\l"
+	.string "hit with their moves.\p"
+	.string "It will also help you illuminate dark\n"
+	.string "places like certain caves.\p"
+	.string "Thank you once again for coming\n"
+	.string "to our rescue. I hope we can provide\l"
+	.string "more help for you in your journeys once\l"
+	.string "we have recovered from this attack.$"
+
+PrezThanks::
+	.string "Thank you once again for coming\n"
+	.string "to our rescue. I hope we can provide\l"
+	.string "more help for you in your journeys once\l"
+	.string "we have recovered from this attack.$"
+
+DevonCorp_Safe_Text::
+	.string "It's a pretty hefty looking safe.$"
+
+RustboroCity_DevonCorp_3F_Text_MrStoneIHaveFavor::
 	.string "I'm MR. STONE, the PRESIDENT of\n"
 	.string "the DEVON CORPORATION.\p"
 	.string "I'd just got word about you!\p"
@@ -212,54 +322,21 @@ RustboroCity_DevonCorp_3F_Text_MrStoneIHaveFavor:
 	.string "I was hoping that you'd deliver a\n"
 	.string "LETTER to STEVEN in DEWFORD.$"
 
-RustboroCity_DevonCorp_3F_Text_MrStoneWantYouToHaveThis:
+RustboroCity_DevonCorp_3F_Text_MrStoneWantYouToHaveThis::
 	.string "MR. STONE: Now, you should know that\n"
 	.string "I am a great PRESIDENT.\p"
 	.string "So, I'd never be so cheap as to ask\n"
 	.string "a favor for nothing in return.\p"
 	.string "That's why I want you to have this!$"
 
-RustboroCity_DevonCorp_3F_Text_ReceivedPokenav:
-	.string "{PLAYER} received a POKéNAV.$"
-
-RustboroCity_DevonCorp_3F_Text_MrStoneExplainPokenavRestUp:
-	.string "MR. STONE: That device…\p"
-	.string "It's a POKéMON NAVIGATOR, or POKéNAV\n"
-	.string "for short.\p"
-	.string "It's an indispensable tool for any\n"
-	.string "TRAINER on an adventure.\p"
-	.string "It has a map of the HOENN region.\p"
-	.string "You can check the locations of\n"
-	.string "DEWFORD and SLATEPORT easily!\p"
-	.string "By the way, I've heard that sinister\n"
-	.string "criminals--MAGMA and AQUA, I believe--\l"
-	.string "have been making trouble far and wide.\p"
-	.string "I think it would be best if you rested\n"
-	.string "up before you go on your way.$"
-
-RustboroCity_DevonCorp_3F_Text_MrStoneGoWithCautionAndCare:
+RustboroCity_DevonCorp_3F_Text_MrStoneGoWithCautionAndCare::
 	.string "MR. STONE: Well, then, {PLAYER}{KUN},\n"
 	.string "go with caution and care!$"
 
-RustboroCity_DevonCorp_3F_Text_CountingOnYou:
+RustboroCity_DevonCorp_3F_Text_CountingOnYou::
 	.string "MR. STONE: I'm counting on you!$"
 
-RustboroCity_DevonCorp_3F_Text_ThankYouForDeliveringLetter:
-	.string "MR. STONE: You delivered my LETTER?\n"
-	.string "Thank you kindly!\p"
-	.string "This is my way of thanking you.\n"
-	.string "It should help you, a TRAINER.$"
-
-RustboroCity_DevonCorp_3F_Text_ExplainExpShare:
-	.string "MR. STONE: A POKéMON holding that\n"
-	.string "EXP. SHARE will be given some of the\l"
-	.string "EXP Points from battle.\p"
-	.string "It will get EXP Points even if it didn't\n"
-	.string "actually battle.\p"
-	.string "I would say EXP. SHARE is quite useful\n"
-	.string "for raising weak POKéMON.$"
-
-RustboroCity_DevonCorp_3F_Text_NotFamiliarWithTrends:
+RustboroCity_DevonCorp_3F_Text_NotFamiliarWithTrends::
 	.string "MR. STONE: Since my youth, I've immersed\n"
 	.string "myself in work.\p"
 	.string "Consequently, I'm not familiar with\n"
@@ -267,42 +344,15 @@ RustboroCity_DevonCorp_3F_Text_NotFamiliarWithTrends:
 	.string "But do young people all want to be\n"
 	.string "TRAINERS in the POKéMON LEAGUE?$"
 
-RustboroCity_DevonCorp_3F_Text_ThisIs3rdFloorWaitHere:
-	.string "This is the DEVON CORPORATION's\n"
-	.string "third floor.\p"
-	.string "Our PRESIDENT's OFFICE is on\n"
-	.string "this floor.\p"
-	.string "Anyway, I can't tell you how much I'm\n"
-	.string "grateful for what you've done.\p"
-	.string "Um… By the way, that parcel\n"
-	.string "you got back for us…\p"
-	.string "Could I get you to deliver that to\n"
-	.string "the SHIPYARD in SLATEPORT?\p"
-	.string "It would be awful if those robbers\n"
-	.string "tried to take it again.\p"
-	.string "Uh… Hehehe, so, uh, could I count\n"
-	.string "on you to do that for me?\p"
-	.string "Oh, that's right.\n"
-	.string "Could you wait here a second?$"
-
-RustboroCity_DevonCorp_3F_Text_WordWithPresidentComeWithMe:
-	.string "Our PRESIDENT would like to have\n"
-	.string "a word with you.\p"
-	.string "Please come with me.$"
-
-RustboroCity_DevonCorp_3F_Text_PleaseGoAhead:
-	.string "Please, go ahead.$"
-
-RustboroCity_DevonCorp_3F_Text_VisitCaptSternShipyard:
-	.string "If you visit the SHIPYARD in SLATEPORT,\n"
-	.string "you should go see CAPT. STERN.$"
-
-RustboroCity_DevonCorp_3F_Text_RepeatAndTimerHugelyPopular:
+RustboroCity_DevonCorp_3F_Text_RepeatAndTimerHugelyPopular::
 	.string "DEVON's new products, the REPEAT BALL\n"
 	.string "and TIMER BALL, have become hugely\l"
 	.string "popular among TRAINERS.$"
 
-RustboroCity_DevonCorp_3F_Text_RareRocksDisplay:
+RustboroCity_DevonCorp_3F_Text_RareRocksDisplay::
 	.string "It's a collection of rare rocks and\n"
 	.string "stones assembled by the president.$"
 
+Devon3F_Employee_Text::
+	.string "I'm glad to see the president is okay.\n"
+	.string "We were all very worried about him.$"

@@ -4,9 +4,15 @@ Route6_MapScripts::
 
 
 ClearShinyFlag::
+	goto_if_set FLAG_DEVON_UNDER_ATTACK, ClearShinyFlag_2
+ClearShinyFlag_1:
 	clearflag FLAG_INCREASED_SHINY_ODDS
 	release
 	end
+
+ClearShinyFlag_2:
+	setflag FLAG_DEVON_RESCUED
+	goto ClearShinyFlag_1
 
 
 Route6_HoneyTree::

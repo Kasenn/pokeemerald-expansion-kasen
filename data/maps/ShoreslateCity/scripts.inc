@@ -9,18 +9,12 @@ VisitedShoreslate::
 VisitedShoreslate_1:
 	setflag FLAG_VISITED_SHORESLATE
 	setflag FLAG_ROUTE28_DESPAWN_BROTHER
-	goto_if_set FLAG_DEVON_UNDER_ATTACK, VisitedShoreslate_5
-VisitedShoreslate_4:
 	end
 
 VisitedShoreslate_2:
 	setvar VAR_CASTELIACONES_BOUGHT, 0
 	setflag FLAG_DAILY_RESET_CASTELIACONE
 	goto VisitedShoreslate_1
-
-VisitedShoreslate_5:
-	setflag FLAG_DEVON_RESCUED
-	goto VisitedShoreslate_4
 
 
 Shoreslate_NinjaBoy::

@@ -9,6 +9,33 @@ SetWindPlumeFlag::
 	end
 
 
+WindPlume_VarSetter::
+	compare VAR_WIND_SPEED, 0
+	goto_if_eq WindPlume_VarSetter_2
+WindPlume_VarSetter_1:
+	compare VAR_WIND_SPEED, 1
+	goto_if_eq WindPlume_VarSetter_5
+WindPlume_VarSetter_4:
+	compare VAR_WIND_SPEED, 2
+	goto_if_eq WindPlume_VarSetter_7
+	return
+
+WindPlume_VarSetter_2:
+	msgbox WindPlume_VarSetter_Text_0, MSGBOX_NPC
+	setvar VAR_WIND_SPEED, 1
+	goto WindPlume_VarSetter_1
+
+WindPlume_VarSetter_5:
+	msgbox WindPlume_VarSetter_Text_1, MSGBOX_NPC
+	setvar VAR_WIND_SPEED, 2
+	goto WindPlume_VarSetter_4
+
+WindPlume_VarSetter_7:
+	msgbox WindPlume_VarSetter_Text_2, MSGBOX_NPC
+	setvar VAR_WIND_SPEED, 0
+	return
+
+
 WindplumeRidge_StartWind::
 	setweather WEATHER_STRONG_WINDS
 	doweather
@@ -160,6 +187,15 @@ SetWindPlumeTrainersDefeated::
 	settrainerflag TRAINER_WPV_TR13_BIRDKEEPER
 	return
 
+
+WindPlume_VarSetter_Text_0:
+	.string "VAR_WIND_SPEED set to 1$"
+
+WindPlume_VarSetter_Text_1:
+	.string "VAR_WIND_SPEED set to 2$"
+
+WindPlume_VarSetter_Text_2:
+	.string "VAR_WIND_SPEED set back to 0$"
 
 Windplume_Guide_Text_Post::
 	.string "You're back! I assume you've taken\n"

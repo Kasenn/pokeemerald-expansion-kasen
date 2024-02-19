@@ -3046,7 +3046,7 @@ static bool8 ShredSplit_BrokenCheck(struct Task *task)
 
 static bool8 ShredSplit_End(struct Task *task)
 {
-    DmaStop(0);
+    // DmaStop(0);
     FadeScreenBlack();
     DestroyTask(FindTaskIdByFunc(Task_ShredSplit));
     return FALSE;

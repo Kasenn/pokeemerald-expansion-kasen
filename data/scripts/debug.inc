@@ -92,12 +92,10 @@ Debug_Script_1::
 	end
 
 Debug_Script_2::
-	call RustboroCity_DevonCorp_2F_EventScript_ReceiveLileep
+	setmonmetlocation 0, MAP_ROUTE103
 	end
 
 Debug_Script_3::
-	goto_if_set FLAG_LANDMARK_FLOWER_SHOP, LittlerootTown_RivalHouseSign_1
-	message LittlerootTown_RivalHouseSign_Text_1
 	end
 
 LittlerootTown_RivalHouseSign_1:

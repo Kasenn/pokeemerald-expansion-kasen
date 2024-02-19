@@ -2,7 +2,7 @@
   "id": "MAP_SCHOOL_HALL2F",
   "name": "SchoolHall2F",
   "layout": "LAYOUT_SCHOOL_HALL2F",
-  "music": "MUS_FORTREE",
+  "music": "MUS_SCHOOL",
   "region_map_section": "MAPSEC_RUSTBORO_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
