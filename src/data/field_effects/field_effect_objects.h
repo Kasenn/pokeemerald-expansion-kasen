@@ -855,7 +855,7 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_MudPile = {
     .anims = sAnimTable_SandPile,
     .images = sPicTable_SandPile,
     .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = UpdateSandPileFieldEffect,
+    .callback = UpdateMudPileFieldEffect,
 };
 
 static const struct SpriteFrameImage sPicTable_WaterSurfacing[] = {

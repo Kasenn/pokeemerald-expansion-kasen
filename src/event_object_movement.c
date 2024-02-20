@@ -1569,6 +1569,7 @@ static void ResetObjectEventFldEffData(struct ObjectEvent *objectEvent)
     objectEvent->inShortGrass = FALSE;
     objectEvent->inShallowFlowingWater = FALSE;
     objectEvent->inSandPile = FALSE;
+    objectEvent->inMudPile = FALSE;
     objectEvent->inHotSprings = FALSE;
     ObjectEventClearHeldMovement(objectEvent);
 }
@@ -7226,10 +7227,10 @@ static void GetGroundEffectFlags_TracksMud(struct ObjectEvent *objEvent, u32 *fl
     if (MetatileBehavior_IsMud(objEvent->currentMetatileBehavior)
         && MetatileBehavior_IsMud(objEvent->previousMetatileBehavior))
     {
-        if (!objEvent->inSandPile)
+        if (!objEvent->inMudPile)
         {
-            objEvent->inSandPile = FALSE;
-            objEvent->inSandPile = TRUE;
+            objEvent->inMudPile = FALSE;
+            objEvent->inMudPile = TRUE;
             *flags |= GROUND_EFFECT_FLAG_MUD_PILE;
         }
     }
@@ -7260,10 +7261,10 @@ static void GetGroundEffectFlags_MudHeap(struct ObjectEvent *objEvent, u32 *flag
     if (MetatileBehavior_IsMud(objEvent->currentMetatileBehavior)
         && MetatileBehavior_IsMud(objEvent->previousMetatileBehavior))
     {
-        if (!objEvent->inSandPile)
+        if (!objEvent->inMudPile)
         {
-            objEvent->inSandPile = FALSE;
-            objEvent->inSandPile = TRUE;
+            objEvent->inMudPile = FALSE;
+            objEvent->inMudPile = TRUE;
             *flags |= GROUND_EFFECT_FLAG_MUD_PILE;
         }
     }
@@ -7280,7 +7281,7 @@ static void GetGroundEffectFlags_MudHeap(struct ObjectEvent *objEvent, u32 *flag
 
     else
     {
-        objEvent->inSandPile = FALSE;
+        objEvent->inMudPile = FALSE;
     }
 }
 
@@ -7896,6 +7897,7 @@ void filters_out_some_ground_effects(struct ObjectEvent *objEvent, u32 *flags)
     {
         objEvent->inShortGrass = 0;
         objEvent->inSandPile = 0;
+        objEvent->inMudPile = 0;
         objEvent->inShallowFlowingWater = 0;
         objEvent->inHotSprings = 0;
         *flags &= ~(GROUND_EFFECT_FLAG_HOT_SPRINGS

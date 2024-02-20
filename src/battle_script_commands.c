@@ -7334,7 +7334,7 @@ static void Cmd_getmoneyreward(void)
     CMD_ARGS();
 
     u32 money;
-    u32 battlePoints; // Variable to store Battle Points
+    u32 battlePoints;
     u8 sPartyLevel = 1;
 
     if (gBattleOutcome == B_OUTCOME_WON)
@@ -7343,9 +7343,8 @@ static void Cmd_getmoneyreward(void)
         if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
             money += GetTrainerMoneyToGive(gTrainerBattleOpponent_B);
 
-        // Calculate Battle Points as 1/100th of the money earned
         battlePoints = money / 500;
-        if (!(gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)) // Skip this block for BATTLE_TYPE_MULTI
+        if (!(gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS))
         {
             if (battlePoints > 3)
                 battlePoints = 3;
@@ -7355,16 +7354,11 @@ static void Cmd_getmoneyreward(void)
             if (battlePoints > 6)
                 battlePoints = 6;
         }
-
-        // Add both money and Battle Points to the player
         AddMoney(&gSaveBlock1Ptr->money, money);
-        AddBattlePoints(battlePoints); // Function to add Battle Points to the player
+        AddBattlePoints(battlePoints);
     }
     else
     {
-        
-        // Existing code for handling other scenarios (loss, etc.)
-        // ... (remaining code remains unchanged)
         s32 i, count;
         for (i = 0; i < PARTY_SIZE; i++)
         {

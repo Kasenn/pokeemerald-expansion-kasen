@@ -188,6 +188,7 @@ struct ObjectEvent
              u32 inShortGrass:1;
              u32 inShallowFlowingWater:1;
              u32 inSandPile:1;
+             u32 inMudPile:1;
              u32 inHotSprings:1;
              u32 hasShadow:1;
              u32 spriteAnimPausedBackup:1;

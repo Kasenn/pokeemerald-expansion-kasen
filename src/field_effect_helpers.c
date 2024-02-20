@@ -1235,8 +1235,6 @@ u32 FldEff_SandPile(void)
     objectEventId = GetObjectEventIdByLocalIdAndMap(gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2]);
     objectEvent = &gObjectEvents[objectEventId];
     spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_SAND_PILE], 0, 0, 0);
-    if (MetatileBehavior_IsMud(metatileBehavior))
-        spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_MUD_PILE], 0, 0, 0);
     if (spriteId != MAX_SPRITES)
     {
         graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
@@ -1292,6 +1290,35 @@ void UpdateSandPileFieldEffect(struct Sprite *sprite)
     if (TryGetObjectEventIdByLocalIdAndMap(sprite->data[0], sprite->data[1], sprite->data[2], &objectEventId) || !gObjectEvents[objectEventId].inSandPile)
     {
         FieldEffectStop(sprite, FLDEFF_SAND_PILE);
+    }
+    else
+    {
+        y = gSprites[gObjectEvents[objectEventId].spriteId].y;
+        x = gSprites[gObjectEvents[objectEventId].spriteId].x;
+        if (x != sprite->data[3] || y != sprite->data[4])
+        {
+            sprite->data[3] = x;
+            sprite->data[4] = y;
+            if (sprite->animEnded)
+            {
+                StartSpriteAnim(sprite, 0);
+            }
+        }
+        sprite->x = x;
+        sprite->y = y;
+        sprite->subpriority = gSprites[gObjectEvents[objectEventId].spriteId].subpriority;
+        UpdateObjectEventSpriteInvisibility(sprite, FALSE);
+    }
+}
+
+void UpdateMudPileFieldEffect(struct Sprite *sprite)
+{
+    u8 objectEventId;
+    s16 x;
+    s16 y;
+
+    if (TryGetObjectEventIdByLocalIdAndMap(sprite->data[0], sprite->data[1], sprite->data[2], &objectEventId) || !gObjectEvents[objectEventId].inMudPile)
+    {
         FieldEffectStop(sprite, FLDEFF_MUD_PILE);
     }
     else
@@ -1313,6 +1340,7 @@ void UpdateSandPileFieldEffect(struct Sprite *sprite)
         UpdateObjectEventSpriteInvisibility(sprite, FALSE);
     }
 }
+
 
 u32 FldEff_Bubbles(void)
 {
