@@ -603,6 +603,24 @@ u32 FldEff_DeepSandFootprints(void)
     return spriteId;
 }
 
+u32 FldEff_MudFootprints(void)
+{
+    u8 spriteId;
+    struct Sprite *sprite;
+
+    SetSpritePosToOffsetMapCoords((s16 *)&gFieldEffectArguments[0], (s16 *)&gFieldEffectArguments[1], 8, 8);
+    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_MUD_FOOTPRINTS], gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2]);
+    if (spriteId != MAX_SPRITES)
+    {
+        sprite = &gSprites[spriteId];
+        sprite->coordOffsetEnabled = TRUE;
+        sprite->oam.priority = gFieldEffectArguments[3];
+        sprite->data[7] = FLDEFF_MUD_FOOTPRINTS;
+        StartSpriteAnim(sprite, gFieldEffectArguments[4]);
+    }
+    return spriteId;
+}
+
 u32 FldEff_BikeTireTracks(void)
 {
     u8 spriteId;
@@ -1212,10 +1230,42 @@ u32 FldEff_SandPile(void)
     u8 spriteId;
     struct Sprite *sprite;
     const struct ObjectEventGraphicsInfo *graphicsInfo;
+    u8 metatileBehavior;
 
     objectEventId = GetObjectEventIdByLocalIdAndMap(gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2]);
     objectEvent = &gObjectEvents[objectEventId];
     spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_SAND_PILE], 0, 0, 0);
+    if (MetatileBehavior_IsMud(metatileBehavior))
+        spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_MUD_PILE], 0, 0, 0);
+    if (spriteId != MAX_SPRITES)
+    {
+        graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
+        sprite = &gSprites[spriteId];
+        sprite->coordOffsetEnabled = TRUE;
+        sprite->oam.priority = gSprites[objectEvent->spriteId].oam.priority;
+        sprite->data[0] = gFieldEffectArguments[0];
+        sprite->data[1] = gFieldEffectArguments[1];
+        sprite->data[2] = gFieldEffectArguments[2];
+        sprite->data[3] = gSprites[objectEvent->spriteId].x;
+        sprite->data[4] = gSprites[objectEvent->spriteId].y;
+        sprite->y2 = (graphicsInfo->height >> 1) - 2;
+        SeekSpriteAnim(sprite, 2);
+    }
+    return 0;
+}
+
+u32 FldEff_MudPile(void)
+{
+    u8 objectEventId;
+    struct ObjectEvent *objectEvent;
+    u8 spriteId;
+    struct Sprite *sprite;
+    const struct ObjectEventGraphicsInfo *graphicsInfo;
+    u8 metatileBehavior;
+
+    objectEventId = GetObjectEventIdByLocalIdAndMap(gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2]);
+    objectEvent = &gObjectEvents[objectEventId];
+    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_MUD_PILE], 0, 0, 0);
     if (spriteId != MAX_SPRITES)
     {
         graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
@@ -1242,6 +1292,7 @@ void UpdateSandPileFieldEffect(struct Sprite *sprite)
     if (TryGetObjectEventIdByLocalIdAndMap(sprite->data[0], sprite->data[1], sprite->data[2], &objectEventId) || !gObjectEvents[objectEventId].inSandPile)
     {
         FieldEffectStop(sprite, FLDEFF_SAND_PILE);
+        FieldEffectStop(sprite, FLDEFF_MUD_PILE);
     }
     else
     {

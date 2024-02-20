@@ -1,6 +1,7 @@
 const struct SpritePalette gSpritePalette_GeneralFieldEffect0 = {gFieldEffectObjectPalette0, FLDEFF_PAL_TAG_GENERAL_0};
 const struct SpritePalette gSpritePalette_GeneralFieldEffect1 = {gFieldEffectObjectPalette1, FLDEFF_PAL_TAG_GENERAL_1};
 const struct SpritePalette gSpritePalette_GeneralFieldEffect2 = {gFieldEffectObjectPalette2, FLDEFF_PAL_TAG_GENERAL_1};
+const struct SpritePalette gSpritePalette_GeneralFieldEffect3 = {gFieldEffectObjectPalette3, FLDEFF_PAL_TAG_GENERAL_3};
 
 static const union AnimCmd sAnim_Shadow[] =
 {
@@ -407,6 +408,11 @@ static const struct SpriteFrameImage sPicTable_DeepSandFootprints[] = {
     overworld_frame(gFieldEffectObjectPic_DeepSandFootprints, 2, 2, 1),
 };
 
+static const struct SpriteFrameImage sPicTable_MudFootprints[] = {
+    overworld_frame(gFieldEffectObjectPic_MudFootprints, 2, 2, 0),
+    overworld_frame(gFieldEffectObjectPic_MudFootprints, 2, 2, 1),
+};
+
 static const union AnimCmd sDeepSandFootprintsAnim_South[] =
 {
     ANIMCMD_FRAME(0, 1, .vFlip = TRUE),
@@ -446,6 +452,16 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_DeepSandFootprints = {
     .oam = &gObjectEventBaseOam_16x16,
     .anims = sAnimTable_DeepSandFootprints,
     .images = sPicTable_DeepSandFootprints,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = UpdateFootprintsTireTracksFieldEffect,
+};
+
+const struct SpriteTemplate gFieldEffectObjectTemplate_MudFootprints = {
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_3,
+    .oam = &gObjectEventBaseOam_16x16,
+    .anims = sAnimTable_DeepSandFootprints,
+    .images = sPicTable_SandFootprints,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = UpdateFootprintsTireTracksFieldEffect,
 };
@@ -825,6 +841,16 @@ static const union AnimCmd *const sAnimTable_SandPile[] =
 const struct SpriteTemplate gFieldEffectObjectTemplate_SandPile = {
     .tileTag = TAG_NONE,
     .paletteTag = FLDEFF_PAL_TAG_GENERAL_0,
+    .oam = &gObjectEventBaseOam_16x8,
+    .anims = sAnimTable_SandPile,
+    .images = sPicTable_SandPile,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = UpdateSandPileFieldEffect,
+};
+
+const struct SpriteTemplate gFieldEffectObjectTemplate_MudPile = {
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_3,
     .oam = &gObjectEventBaseOam_16x8,
     .anims = sAnimTable_SandPile,
     .images = sPicTable_SandPile,

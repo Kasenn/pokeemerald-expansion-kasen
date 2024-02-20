@@ -73,6 +73,8 @@ gFieldEffectScriptPointers::
 	.4byte gFieldEffectScript_DestroyDeoxysRock         @ FLDEFF_DESTROY_DEOXYS_ROCK
 	.4byte gFieldEffectScript_MoveDeoxysRock            @ FLDEFF_MOVE_DEOXYS_ROCK
 	.4byte gFieldEffectScript_TallGrassAutumn           @ FLDEFF_TALL_GRASS_AUTUMN
+	.4byte gFieldEffectScript_MudFootprints        @ FLDEFF_MUD_FOOTPRINTS
+	.4byte gFieldEffectScript_MudPile                  @ FLDEFF_MUD_PILE
 
 gFieldEffectScript_ExclamationMarkIcon1::
 	field_eff_callnative FldEff_ExclamationMarkIcon
@@ -172,6 +174,10 @@ gFieldEffectScript_BerryTreeGrowthSparkle::
 
 gFieldEffectScript_DeepSandFootprints::
 	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect0, FldEff_DeepSandFootprints
+	field_eff_end
+
+gFieldEffectScript_MudFootprints::
+	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect3, FldEff_MudFootprints
 	field_eff_end
 
 gFieldEffectScript_PokeCenterHeal::
@@ -347,4 +353,8 @@ gFieldEffectScript_MoveDeoxysRock::
 
 gFieldEffectScript_TallGrassAutumn::
 	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect2, FldEff_TallGrass
+	field_eff_end
+
+gFieldEffectScript_MudPile::
+	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect3, FldEff_MudPile
 	field_eff_end
