@@ -94,22 +94,22 @@ Route28BrotherLeaves2:
 
 Route28_BrotherFight::
 	delay 5
-	goto_if_set FLAG_BADGE02_GET, Route28_BrotherFight_3
-Route28_BrotherFight_1:
-	goto_if_set FLAG_BADGE02_GET, Route28_BrotherFight_9
-Route28_BrotherFight_8:
+	goto_if_set FLAG_BADGE02_GET, Route28_BrotherFight_8
+Route28_BrotherFight_6:
+	goto_if_set FLAG_BADGE02_GET, Route28_BrotherFight_5
+Route28_BrotherFight_4:
 	msgbox Route28_BrotherIntro, MSGBOX_DEFAULT
 	waitmessage
 	closemessage
-	goto_if_set FLAG_UNUSED_PICKEDROWLET, Route28_BrotherFight_23
-Route28_BrotherFight_22:
-	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, Route28_BrotherFight_32
-Route28_BrotherFight_31:
-	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, Route28_BrotherFight_38
-Route28_BrotherFight_6:
-	goto_if_set FLAG_BADGE02_GET, Route28_BrotherFight_16
+	goto_if_set FLAG_UNUSED_PICKEDROWLET, Route28_BrotherFight_22
+Route28_BrotherFight_21:
+	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, Route28_BrotherFight_31
+Route28_BrotherFight_30:
+	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, Route28_BrotherFight_37
+Route28_BrotherFight_1:
+	goto_if_set FLAG_BADGE02_GET, Route28_BrotherFight_12
 	msgbox Route28_BrotherPostBattleNoBadge, MSGBOX_DEFAULT
-Route28_BrotherFight_15:
+Route28_BrotherFight_11:
 	waitmessage
 	closemessage
 	return
@@ -118,71 +118,71 @@ Route28_BrotherFight_2:
 	msgbox Route28_BrotherIntroAfterGym, MSGBOX_DEFAULT
 	waitmessage
 	closemessage
-	goto_if_set FLAG_UNUSED_PICKEDROWLET, Route28_BrotherFight_13
-Route28_BrotherFight_12:
-	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, Route28_BrotherFight_26
-Route28_BrotherFight_25:
-	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, Route28_BrotherFight_34
+	goto_if_set FLAG_UNUSED_PICKEDROWLET, Route28_BrotherFight_16
+Route28_BrotherFight_15:
+	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, Route28_BrotherFight_25
+Route28_BrotherFight_24:
+	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, Route28_BrotherFight_33
 	goto Route28_BrotherFight_1
 
 Route28_BrotherFight_3:
-	goto_if_unset FLAG_RECEIVED_HM_FLY, Route28_BrotherFight_2
-	goto Route28_BrotherFight_1
-
-Route28_BrotherFight_7:
 	msgbox Route28_BrotherIntroAfterGym, MSGBOX_DEFAULT
 	waitmessage
 	closemessage
-	goto_if_set FLAG_UNUSED_PICKEDROWLET, Route28_BrotherFight_20
-Route28_BrotherFight_19:
-	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, Route28_BrotherFight_29
-Route28_BrotherFight_28:
-	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, Route28_BrotherFight_36
+	goto_if_set FLAG_UNUSED_PICKEDROWLET, Route28_BrotherFight_19
+Route28_BrotherFight_18:
+	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, Route28_BrotherFight_28
+Route28_BrotherFight_27:
+	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, Route28_BrotherFight_35
+	goto Route28_BrotherFight_1
+
+Route28_BrotherFight_5:
+	goto_if_set FLAG_RECEIVED_HM_FLY, Route28_BrotherFight_3
+	goto Route28_BrotherFight_4
+
+Route28_BrotherFight_8:
+	goto_if_unset FLAG_RECEIVED_HM_FLY, Route28_BrotherFight_2
 	goto Route28_BrotherFight_6
 
-Route28_BrotherFight_9:
-	goto_if_set FLAG_RECEIVED_HM_FLY, Route28_BrotherFight_7
-	goto Route28_BrotherFight_8
-
-Route28_BrotherFight_13:
-	trainerbattle_no_intro TRAINER_BROTHER3_ROWLET, Route28_BrotherLost
-	goto Route28_BrotherFight_12
+Route28_BrotherFight_12:
+	msgbox Route28_BrotherPostBattle, MSGBOX_DEFAULT
+	goto Route28_BrotherFight_11
 
 Route28_BrotherFight_16:
-	msgbox Route28_BrotherPostBattle, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_BROTHER3_ROWLET, Route28_BrotherLost
 	goto Route28_BrotherFight_15
 
-Route28_BrotherFight_20:
+Route28_BrotherFight_19:
 	trainerbattle_no_intro TRAINER_BROTHER4_ROWLET, Route28_BrotherLost
-	goto Route28_BrotherFight_19
+	goto Route28_BrotherFight_18
 
-Route28_BrotherFight_23:
+Route28_BrotherFight_22:
 	trainerbattle_no_intro TRAINER_BROTHER2_ROWLET, Route28_BrotherLost
-	goto Route28_BrotherFight_22
+	goto Route28_BrotherFight_21
 
-Route28_BrotherFight_26:
+Route28_BrotherFight_25:
 	trainerbattle_no_intro TRAINER_BROTHER3_TORCHIC, Route28_BrotherLost
-	goto Route28_BrotherFight_25
+	goto Route28_BrotherFight_24
 
-Route28_BrotherFight_29:
+Route28_BrotherFight_28:
 	trainerbattle_no_intro TRAINER_BROTHER4_TORCHIC, Route28_BrotherLost
-	goto Route28_BrotherFight_28
+	goto Route28_BrotherFight_27
 
-Route28_BrotherFight_32:
+Route28_BrotherFight_31:
 	trainerbattle_no_intro TRAINER_BROTHER2_TORCHIC, Route28_BrotherLost
-	goto Route28_BrotherFight_31
+	goto Route28_BrotherFight_30
 
-Route28_BrotherFight_34:
+Route28_BrotherFight_33:
 	trainerbattle_no_intro TRAINER_BROTHER3_PIPLUP, Route28_BrotherLost
 	goto Route28_BrotherFight_1
 
-Route28_BrotherFight_36:
+Route28_BrotherFight_35:
 	trainerbattle_no_intro TRAINER_BROTHER4_PIPLUP, Route28_BrotherLost
-	goto Route28_BrotherFight_6
+	goto Route28_BrotherFight_1
 
-Route28_BrotherFight_38:
+Route28_BrotherFight_37:
 	trainerbattle_no_intro TRAINER_BROTHER2_PIPLUP, Route28_BrotherLost
-	goto Route28_BrotherFight_6
+	goto Route28_BrotherFight_1
 
 
 Route28_TM::

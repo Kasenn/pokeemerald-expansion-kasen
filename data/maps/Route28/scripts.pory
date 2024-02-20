@@ -79,7 +79,7 @@ script Route28_BrotherFight{
             trainerbattle_no_intro(TRAINER_BROTHER3_PIPLUP, Route28_BrotherLost)
         }
     }
-    if(flag(FLAG_BADGE02_GET) && (flag(FLAG_RECEIVED_HM_FLY))){
+    elif(flag(FLAG_BADGE02_GET) && (flag(FLAG_RECEIVED_HM_FLY))){
         msgbox(Route28_BrotherIntroAfterGym, MSGBOX_DEFAULT)
         waitmessage
         closemessage
