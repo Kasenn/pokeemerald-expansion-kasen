@@ -1278,8 +1278,8 @@ gCryTable::
 	cry Cry_Applin
 	cry Cry_Flapple
 	cry Cry_Appletun
-	cry Cry_Silicobra
-	cry Cry_Sandaconda
+	cry Cry_Wooper
+	cry Cry_Quagsire
 	cry Cry_Cramorant
 	cry Cry_Arrokuda
 	cry Cry_Barraskewda
@@ -3411,8 +3411,8 @@ gCryTable_Reverse::
 	cry_reverse Cry_Applin
 	cry_reverse Cry_Flapple
 	cry_reverse Cry_Appletun
-	cry_reverse Cry_Silicobra
-	cry_reverse Cry_Sandaconda
+	cry_reverse Cry_Wooper
+	cry_reverse Cry_Quagsire
 	cry_reverse Cry_Cramorant
 	cry_reverse Cry_Arrokuda
 	cry_reverse Cry_Barraskewda

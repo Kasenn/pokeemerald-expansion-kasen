@@ -511,7 +511,7 @@ const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
     [SPECIES_CARKOL]                = {{EVO_LEVEL, 34, SPECIES_COALOSSAL}},
     [SPECIES_APPLIN]                = {{EVO_ITEM, ITEM_TART_APPLE, SPECIES_FLAPPLE},
                                        {EVO_ITEM, ITEM_SWEET_APPLE, SPECIES_APPLETUN}},
-    [SPECIES_SILICOBRA]             = {{EVO_LEVEL, 36, SPECIES_SANDACONDA}},
+    [SPECIES_SILICOBRA]             = {{EVO_LEVEL, 20, SPECIES_SANDACONDA}},
     [SPECIES_ARROKUDA]              = {{EVO_LEVEL, 26, SPECIES_BARRASKEWDA}},
     [SPECIES_TOXEL]                 = {{EVO_LEVEL_NATURE_AMPED, 30, SPECIES_TOXTRICITY},
                                        {EVO_LEVEL_NATURE_LOW_KEY, 30, SPECIES_TOXTRICITY_LOW_KEY}},

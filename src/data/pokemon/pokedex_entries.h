@@ -10127,26 +10127,26 @@ const struct PokedexEntry gPokedexEntries[] =
 
     [NATIONAL_DEX_SILICOBRA] =
     {
-        .categoryName = _("Sand Snake"),
-        .height = 22,
-        .weight = 76,
+        .categoryName = _("Poison Fish"),
+        .height = 4,
+        .weight = 110,
         .description = gSilicobraPokedexText,
-        .pokemonScale = 256,
-        .pokemonOffset = 0,
-        .trainerScale = 348,
-        .trainerOffset = 6,
+        .pokemonScale = 479,
+        .pokemonOffset = 21,
+        .trainerScale = 256,
+        .trainerOffset = 0,
     },
 
     [NATIONAL_DEX_SANDACONDA] =
     {
-        .categoryName = _("Sand Snake"),
-        .height = 38,
-        .weight = 655,
+        .categoryName = _("Spiny Fish"),
+        .height = 18,
+        .weight = 2230,
         .description = gSandacondaPokedexText,
-        .pokemonScale = 256,
-        .pokemonOffset = 0,
-        .trainerScale = 610,
-        .trainerOffset = 17,
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
     },
 
     [NATIONAL_DEX_CRAMORANT] =

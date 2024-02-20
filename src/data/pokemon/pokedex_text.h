@@ -5048,15 +5048,16 @@ const u8 gAppletunPokedexText[] = _(
     "luring in the bug Pokémon it preys on.");
 
 const u8 gSilicobraPokedexText[] = _(
-    "As it digs, it swallows sand and stores\n"
-    "it in its neck pouch. The pouch can hold\n"
-    "more than 17 pounds of sand.");
+    "After losing a territorial struggle,\n"
+    "Wooper began living on land.\n"
+    "The Pokémon changed over time, developing\n"
+    "a poisonous film to protect its body.");
 
 const u8 gSandacondaPokedexText[] = _(
-    "When it contracts its body, over 220\n"
-    "pounds of sand sprays from its nose. If\n"
-    "it ever runs out of sand, it becomes\n"
-    "disheartened.");
+    "When attacked, this Pokémon will\n"
+    "retaliate by sticking thick spines out\n"
+    "from its body. It's a risky move\n"
+    "that puts everything on the line.");
 
 const u8 gCramorantPokedexText[] = _(
     "It's so strong that it can knock out some\n"

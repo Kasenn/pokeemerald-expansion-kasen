@@ -1002,6 +1002,8 @@ static const u8 sSpeciesToBackAnimSet[NUM_SPECIES] =
     [SPECIES_DIANCIE]                      = BACK_ANIM_CIRCLE_COUNTERCLOCKWISE,
     [SPECIES_HOOPA]                        = BACK_ANIM_CONVEX_DOUBLE_ARC,
     [SPECIES_VOLCANION]                    = BACK_ANIM_SHAKE_GLOW_RED,
+    [SPECIES_SILICOBRA]                    = BACK_ANIM_V_STRETCH,
+    [SPECIES_SANDACONDA]                   = BACK_ANIM_H_SLIDE,
 
         //Gen 6 Forms
     [SPECIES_GRENINJA_ASH]                 = BACK_ANIM_SHAKE_GLOW_BLUE,
