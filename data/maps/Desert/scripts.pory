@@ -6,6 +6,15 @@ script DesertVarSet{
     setvar(VAR_TEMP_DESERTRUINSFOUND, 0)
 }
 
+script DesertEntrance{
+    msgbox("This place is still work in progress.\n"
+    "You're free to explore, though there's\l"
+    "no trainers here and even the terrain\l"
+    "is still under construction in places.\p"
+    "Wild encounters should be working.", MSGBOX_NPC)
+    end
+}
+
 script Desert_RuinsFound{
     release
     random(200)

@@ -33,9 +33,6 @@ script WW_GrottoInteract{
 
 script WW_GrottoItem{
     if((var(VAR_WW_GROTTO) <= 3)){
-        finditem(ITEM_POTION)
-    }
-    if((var(VAR_WW_GROTTO) >= 4) && (var(VAR_WW_GROTTO) <= 7)){
         finditem(ITEM_GREAT_BALL)
     }
     if((var(VAR_WW_GROTTO) >= 4) && (var(VAR_WW_GROTTO) <= 7)){

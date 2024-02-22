@@ -201,7 +201,6 @@ Route111_EventScript_ViciousSandstormTriggerRight::
 Route111_EventScript_ViciousSandstormTrigger::
 	checkitem ITEM_GO_GOGGLES
 	goto_if_eq VAR_RESULT, FALSE, Route111_EventScript_PreventRouteAccess
-	goto ScorchedDesertBetaBlock
 	setvar VAR_TEMP_3, 1
 	releaseall
 	end

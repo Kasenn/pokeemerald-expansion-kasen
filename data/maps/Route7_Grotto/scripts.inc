@@ -55,33 +55,30 @@ ROUTE7_GrottoItem_1:
 	compare VAR_ROUTE7_GROTTO, 4
 	goto_if_ge ROUTE7_GrottoItem_6
 ROUTE7_GrottoItem_4:
-	compare VAR_ROUTE7_GROTTO, 4
+	compare VAR_ROUTE7_GROTTO, 8
 	goto_if_ge ROUTE7_GrottoItem_11
 ROUTE7_GrottoItem_9:
-	compare VAR_ROUTE7_GROTTO, 8
+	compare VAR_ROUTE7_GROTTO, 12
 	goto_if_ge ROUTE7_GrottoItem_16
 ROUTE7_GrottoItem_14:
-	compare VAR_ROUTE7_GROTTO, 12
+	compare VAR_ROUTE7_GROTTO, 16
 	goto_if_ge ROUTE7_GrottoItem_21
 ROUTE7_GrottoItem_19:
-	compare VAR_ROUTE7_GROTTO, 16
+	compare VAR_ROUTE7_GROTTO, 20
 	goto_if_ge ROUTE7_GrottoItem_26
 ROUTE7_GrottoItem_24:
-	compare VAR_ROUTE7_GROTTO, 20
+	compare VAR_ROUTE7_GROTTO, 24
 	goto_if_ge ROUTE7_GrottoItem_31
 ROUTE7_GrottoItem_29:
-	compare VAR_ROUTE7_GROTTO, 24
+	compare VAR_ROUTE7_GROTTO, 28
 	goto_if_ge ROUTE7_GrottoItem_36
 ROUTE7_GrottoItem_34:
-	compare VAR_ROUTE7_GROTTO, 28
+	compare VAR_ROUTE7_GROTTO, 32
 	goto_if_ge ROUTE7_GrottoItem_41
 ROUTE7_GrottoItem_39:
-	compare VAR_ROUTE7_GROTTO, 32
+	compare VAR_ROUTE7_GROTTO, 36
 	goto_if_ge ROUTE7_GrottoItem_46
 ROUTE7_GrottoItem_44:
-	compare VAR_ROUTE7_GROTTO, 36
-	goto_if_ge ROUTE7_GrottoItem_51
-ROUTE7_GrottoItem_49:
 	waitfanfare
 	waitmessage
 	closemessage
@@ -89,11 +86,11 @@ ROUTE7_GrottoItem_49:
 	end
 
 ROUTE7_GrottoItem_2:
-	finditem ITEM_POTION
+	finditem ITEM_GREAT_BALL
 	goto ROUTE7_GrottoItem_1
 
 ROUTE7_GrottoItem_5:
-	finditem ITEM_GREAT_BALL
+	finditem ITEM_SUPER_REPEL
 	goto ROUTE7_GrottoItem_4
 
 ROUTE7_GrottoItem_6:
@@ -102,85 +99,76 @@ ROUTE7_GrottoItem_6:
 	goto ROUTE7_GrottoItem_4
 
 ROUTE7_GrottoItem_10:
-	finditem ITEM_SUPER_REPEL
+	finditem ITEM_SUPER_POTION
 	goto ROUTE7_GrottoItem_9
 
 ROUTE7_GrottoItem_11:
-	compare VAR_ROUTE7_GROTTO, 7
+	compare VAR_ROUTE7_GROTTO, 11
 	goto_if_le ROUTE7_GrottoItem_10
 	goto ROUTE7_GrottoItem_9
 
 ROUTE7_GrottoItem_15:
-	finditem ITEM_SUPER_POTION
+	finditem ITEM_ULTRA_BALL
 	goto ROUTE7_GrottoItem_14
 
 ROUTE7_GrottoItem_16:
-	compare VAR_ROUTE7_GROTTO, 11
+	compare VAR_ROUTE7_GROTTO, 15
 	goto_if_le ROUTE7_GrottoItem_15
 	goto ROUTE7_GrottoItem_14
 
 ROUTE7_GrottoItem_20:
-	finditem ITEM_ULTRA_BALL
+	finditem ITEM_FULL_HEAL
 	goto ROUTE7_GrottoItem_19
 
 ROUTE7_GrottoItem_21:
-	compare VAR_ROUTE7_GROTTO, 15
+	compare VAR_ROUTE7_GROTTO, 19
 	goto_if_le ROUTE7_GrottoItem_20
 	goto ROUTE7_GrottoItem_19
 
 ROUTE7_GrottoItem_25:
-	finditem ITEM_FULL_HEAL
+	finditem ITEM_HYPER_POTION
 	goto ROUTE7_GrottoItem_24
 
 ROUTE7_GrottoItem_26:
-	compare VAR_ROUTE7_GROTTO, 19
+	compare VAR_ROUTE7_GROTTO, 23
 	goto_if_le ROUTE7_GrottoItem_25
 	goto ROUTE7_GrottoItem_24
 
 ROUTE7_GrottoItem_30:
-	finditem ITEM_HYPER_POTION
+	finditem ITEM_FIRE_STONE
 	goto ROUTE7_GrottoItem_29
 
 ROUTE7_GrottoItem_31:
-	compare VAR_ROUTE7_GROTTO, 23
+	compare VAR_ROUTE7_GROTTO, 27
 	goto_if_le ROUTE7_GrottoItem_30
 	goto ROUTE7_GrottoItem_29
 
 ROUTE7_GrottoItem_35:
-	finditem ITEM_FIRE_STONE
+	finditem ITEM_THUNDER_STONE
 	goto ROUTE7_GrottoItem_34
 
 ROUTE7_GrottoItem_36:
-	compare VAR_ROUTE7_GROTTO, 27
+	compare VAR_ROUTE7_GROTTO, 31
 	goto_if_le ROUTE7_GrottoItem_35
 	goto ROUTE7_GrottoItem_34
 
 ROUTE7_GrottoItem_40:
-	finditem ITEM_THUNDER_STONE
+	finditem ITEM_WATER_STONE
 	goto ROUTE7_GrottoItem_39
 
 ROUTE7_GrottoItem_41:
-	compare VAR_ROUTE7_GROTTO, 31
+	compare VAR_ROUTE7_GROTTO, 35
 	goto_if_le ROUTE7_GrottoItem_40
 	goto ROUTE7_GrottoItem_39
 
 ROUTE7_GrottoItem_45:
-	finditem ITEM_WATER_STONE
+	finditem ITEM_LEAF_STONE
 	goto ROUTE7_GrottoItem_44
 
 ROUTE7_GrottoItem_46:
-	compare VAR_ROUTE7_GROTTO, 35
+	compare VAR_ROUTE7_GROTTO, 39
 	goto_if_le ROUTE7_GrottoItem_45
 	goto ROUTE7_GrottoItem_44
-
-ROUTE7_GrottoItem_50:
-	finditem ITEM_LEAF_STONE
-	goto ROUTE7_GrottoItem_49
-
-ROUTE7_GrottoItem_51:
-	compare VAR_ROUTE7_GROTTO, 39
-	goto_if_le ROUTE7_GrottoItem_50
-	goto ROUTE7_GrottoItem_49
 
 
 ROUTE7_GrottoPokemon::

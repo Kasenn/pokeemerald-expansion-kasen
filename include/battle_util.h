@@ -108,6 +108,7 @@ void HandleAction_WatchesCarefully(void);
 void HandleAction_SafariZoneBallThrow(void);
 void HandleAction_ThrowPokeblock(void);
 void HandleAction_GoNear(void);
+void HandleAction_LayLow(void);
 void HandleAction_SafariZoneRun(void);
 void HandleAction_WallyBallThrow(void);
 void HandleAction_TryFinish(void);

@@ -34,9 +34,6 @@ script ROUTE7_GrottoInteract{
 
 script ROUTE7_GrottoItem{
     if((var(VAR_ROUTE7_GROTTO) <= 3)){
-        finditem(ITEM_POTION)
-    }
-    if((var(VAR_ROUTE7_GROTTO) >= 4) && (var(VAR_ROUTE7_GROTTO) <= 7)){
         finditem(ITEM_GREAT_BALL)
     }
     if((var(VAR_ROUTE7_GROTTO) >= 4) && (var(VAR_ROUTE7_GROTTO) <= 7)){

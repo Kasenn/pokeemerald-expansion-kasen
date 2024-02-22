@@ -153,7 +153,7 @@ text Route8_Trainer2_SRJR_NotEnoughMons{
 }
 script Route8_Trainer2_SRJR2{
     trainerbattle_double(TRAINER_R8_TR2_SRJR, Route8_Trainer2_SRJR2_Intro, Route8_Trainer2_SRJR2_Defeat, Route8_Trainer2_SRJR2_NotEnoughMons)
-    msgbox(Route8_Trainer2_SRJR_PostBattle, MSGBOX_AUTOCLOSE)
+    msgbox(Route8_Trainer2_SRJR2_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
 text Route8_Trainer2_SRJR2_Intro{

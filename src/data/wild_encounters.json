@@ -2295,64 +2295,64 @@
             "encounter_rate": 25,
             "mons": [
               {
-                "min_level": 25,
-                "max_level": 25,
-                "species": "SPECIES_ODDISH"
-              },
-              {
                 "min_level": 27,
                 "max_level": 27,
                 "species": "SPECIES_ODDISH"
-              },
-              {
-                "min_level": 25,
-                "max_level": 25,
-                "species": "SPECIES_GIRAFARIG"
-              },
-              {
-                "min_level": 27,
-                "max_level": 27,
-                "species": "SPECIES_GIRAFARIG"
-              },
-              {
-                "min_level": 25,
-                "max_level": 25,
-                "species": "SPECIES_NATU"
-              },
-              {
-                "min_level": 25,
-                "max_level": 25,
-                "species": "SPECIES_DODUO"
-              },
-              {
-                "min_level": 25,
-                "max_level": 25,
-                "species": "SPECIES_GLOOM"
-              },
-              {
-                "min_level": 27,
-                "max_level": 27,
-                "species": "SPECIES_WOBBUFFET"
-              },
-              {
-                "min_level": 25,
-                "max_level": 25,
-                "species": "SPECIES_PIKACHU"
-              },
-              {
-                "min_level": 27,
-                "max_level": 27,
-                "species": "SPECIES_WOBBUFFET"
-              },
-              {
-                "min_level": 27,
-                "max_level": 27,
-                "species": "SPECIES_PIKACHU"
               },
               {
                 "min_level": 29,
                 "max_level": 29,
-                "species": "SPECIES_WOBBUFFET"
+                "species": "SPECIES_ODDISH"
+              },
+              {
+                "min_level": 27,
+                "max_level": 27,
+                "species": "SPECIES_WOOPER"
+              },
+              {
+                "min_level": 29,
+                "max_level": 29,
+                "species": "SPECIES_WOOPER"
+              },
+              {
+                "min_level": 27,
+                "max_level": 27,
+                "species": "SPECIES_TYMPOLE"
+              },
+              {
+                "min_level": 27,
+                "max_level": 27,
+                "species": "SPECIES_SKORUPI"
+              },
+              {
+                "min_level": 27,
+                "max_level": 27,
+                "species": "SPECIES_GLOOM"
+              },
+              {
+                "min_level": 29,
+                "max_level": 29,
+                "species": "SPECIES_YANMA"
+              },
+              {
+                "min_level": 27,
+                "max_level": 27,
+                "species": "SPECIES_SLIGGOO_HISUIAN"
+              },
+              {
+                "min_level": 29,
+                "max_level": 29,
+                "species": "SPECIES_YANMA"
+              },
+              {
+                "min_level": 29,
+                "max_level": 29,
+                "species": "SPECIES_SLIGGOO_HISUIAN"
+              },
+              {
+                "min_level": 31,
+                "max_level": 31,
+                "species": "SPECIES_YANMA"
               }
             ]
           }
@@ -9785,62 +9785,62 @@
               {
                 "min_level": 33,
                 "max_level": 33,
-                "species": "SPECIES_SUNKERN"
+                "species": "SPECIES_PANCHAM"
               },
               {
                 "min_level": 34,
                 "max_level": 34,
-                "species": "SPECIES_MAREEP"
+                "species": "SPECIES_MORPEKO"
               },
               {
                 "min_level": 35,
                 "max_level": 35,
-                "species": "SPECIES_SUNKERN"
+                "species": "SPECIES_PANCHAM"
               },
               {
                 "min_level": 36,
                 "max_level": 36,
-                "species": "SPECIES_MAREEP"
+                "species": "SPECIES_MORPEKO"
               },
               {
                 "min_level": 34,
                 "max_level": 34,
-                "species": "SPECIES_AIPOM"
+                "species": "SPECIES_STUFFUL"
               },
               {
                 "min_level": 33,
                 "max_level": 33,
-                "species": "SPECIES_SPINARAK"
+                "species": "SPECIES_KOMALA"
               },
               {
                 "min_level": 35,
                 "max_level": 35,
-                "species": "SPECIES_HOOTHOOT"
+                "species": "SPECIES_EXEGGCUTE"
               },
               {
                 "min_level": 34,
                 "max_level": 34,
-                "species": "SPECIES_SNUBBULL"
+                "species": "SPECIES_CHANSEY"
               },
               {
                 "min_level": 36,
                 "max_level": 36,
-                "species": "SPECIES_STANTLER"
+                "species": "SPECIES_EXEGGCUTE"
               },
               {
                 "min_level": 37,
                 "max_level": 37,
-                "species": "SPECIES_GLIGAR"
+                "species": "SPECIES_ZORUA"
               },
               {
                 "min_level": 39,
                 "max_level": 39,
-                "species": "SPECIES_STANTLER"
+                "species": "SPECIES_EXEGGCUTE"
               },
               {
                 "min_level": 40,
                 "max_level": 40,
-                "species": "SPECIES_GLIGAR"
+                "species": "SPECIES_ZORUA"
               }
             ]
           },
@@ -13886,66 +13886,135 @@
           "map": "MAP_DESERT",
           "base_label": "gDesert0",
           "land_mons": {
-            "encounter_rate": 30,
+            "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 28,
+                "max_level": 33,
+                "species": "SPECIES_TRAPINCH"
+              },
+              {
+                "min_level": 28,
+                "max_level": 33,
+                "species": "SPECIES_SANDILE"
+              },
+              {
+                "min_level": 28,
+                "max_level": 33,
+                "species": "SPECIES_CACNEA"
+              },
+              {
+                "min_level": 28,
+                "max_level": 33,
+                "species": "SPECIES_CACNEA"
+              },
+              {
+                "min_level": 28,
+                "max_level": 33,
+                "species": "SPECIES_HIPPOPOTAS"
+              },
+              {
+                "min_level": 28,
+                "max_level": 33,
+                "species": "SPECIES_SCRAGGY"
+              },
+              {
+                "min_level": 28,
+                "max_level": 33,
+                "species": "SPECIES_SCRAGGY"
+              },
+              {
+                "min_level": 28,
+                "max_level": 33,
+                "species": "SPECIES_HIPPOPOTAS"
+              },
+              {
+                "min_level": 28,
+                "max_level": 33,
+                "species": "SPECIES_RUFFLET"
+              },
+              {
+                "min_level": 28,
+                "max_level": 33,
+                "species": "SPECIES_VULLABY"
+              },
+              {
+                "min_level": 28,
+                "max_level": 33,
+                "species": "SPECIES_RUFFLET"
+              },
+              {
+                "min_level": 28,
+                "max_level": 33,
+                "species": "SPECIES_VULLABY"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_ROUTE8",
+          "base_label": "gRoute80",
+          "land_mons": {
+            "encounter_rate": 25,
+            "mons": [
+              {
+                "min_level": 29,
+                "max_level": 34,
                 "species": "SPECIES_SILICOBRA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 29,
+                "max_level": 34,
+                "species": "SPECIES_PSYDUCK"
+              },
+              {
+                "min_level": 29,
+                "max_level": 34,
+                "species": "SPECIES_CHEWTLE"
+              },
+              {
+                "min_level": 29,
+                "max_level": 34,
+                "species": "SPECIES_CROAGUNK"
+              },
+              {
+                "min_level": 29,
+                "max_level": 34,
+                "species": "SPECIES_MUDBRAY"
+              },
+              {
+                "min_level": 29,
+                "max_level": 34,
+                "species": "SPECIES_GOOMY"
+              },
+              {
+                "min_level": 29,
+                "max_level": 34,
+                "species": "SPECIES_SANDACONDA"
+              },
+              {
+                "min_level": 29,
+                "max_level": 34,
+                "species": "SPECIES_CROAGUNK"
+              },
+              {
+                "min_level": 29,
+                "max_level": 34,
+                "species": "SPECIES_MUDBRAY"
+              },
+              {
+                "min_level": 29,
+                "max_level": 34,
+                "species": "SPECIES_DREEPY"
+              },
+              {
+                "min_level": 29,
+                "max_level": 34,
                 "species": "SPECIES_SILICOBRA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_SANDACONDA"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_SANDACONDA"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_SANDACONDA"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_SANDACONDA"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_SANDACONDA"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_SANDACONDA"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_SILICOBRA"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_SILICOBRA"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_SILICOBRA"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 29,
+                "max_level": 34,
                 "species": "SPECIES_SILICOBRA"
               }
             ]

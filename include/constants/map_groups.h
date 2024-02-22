@@ -40,6 +40,7 @@
 #define MAP_WIP_CITY1         (5 | (1 << 8))
 #define MAP_TOWN_WIP2         (6 | (1 << 8))
 #define MAP_SHORESLATE_CITY   (7 | (1 << 8))
+#define MAP_MARIGORGE_TOWN    (8 | (1 << 8))
 
 // gMapGroup_IndoorPearlwoodPoint
 #define MAP_LAB2                   (0 | (2 << 8))

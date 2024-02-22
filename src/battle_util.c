@@ -786,6 +786,24 @@ void HandleAction_GoNear(void)
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
 }
 
+void HandleAction_LayLow(void)
+{
+    gBattlerAttacker = gBattlerByTurnOrder[gCurrentTurnActionNumber];
+    gBattle_BG0_X = 0;
+    gBattle_BG0_Y = 0;
+
+    gBattleStruct->safariEscapeFactor -= 1;
+    if (gBattleStruct->safariEscapeFactor < 1)
+        gBattleStruct->safariEscapeFactor = 1;
+
+    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LAY_LOW;
+
+    gBattlescriptCurrInstr = gBattlescriptsForSafariActions[4];
+    gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
+}
+
+
+
 void HandleAction_SafariZoneRun(void)
 {
     gBattlerAttacker = gBattlerByTurnOrder[gCurrentTurnActionNumber];

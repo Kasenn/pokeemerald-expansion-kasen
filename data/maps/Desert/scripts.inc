@@ -8,6 +8,11 @@ DesertVarSet::
 	return
 
 
+DesertEntrance::
+	msgbox DesertEntrance_Text_0, MSGBOX_NPC
+	end
+
+
 Desert_RuinsFound::
 	release
 	random 200
@@ -27,6 +32,13 @@ Desert_TriggerEntrance::
 	release
 	end
 
+
+DesertEntrance_Text_0:
+	.string "This place is still work in progress.\n"
+	.string "You're free to explore, though there's\l"
+	.string "no trainers here and even the terrain\l"
+	.string "is still under construction in places.\p"
+	.string "Wild encounters should be working.$"
 
 Desert_TriggerEntrance_Text_0:
 	.string "triggered$"

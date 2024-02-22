@@ -27,8 +27,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_RICH_BOY",
-      "x": 7,
-      "y": 7,
+      "x": 30,
+      "y": 28,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -41,7 +41,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
       "x": 20,
-      "y": 30,
+      "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -53,8 +53,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
-      "x": 8,
-      "y": 26,
+      "x": 14,
+      "y": 21,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -66,8 +66,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 31,
-      "y": 15,
+      "x": 8,
+      "y": 1,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -78,17 +78,30 @@
       "flag": "FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 12,
-      "y": 16,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 26,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SafariZone_Southeast_EventScript_ExpansionZoneAttendant",
-      "flag": "FLAG_HIDE_SAFARI_ZONE_SOUTH_EAST_EXPANSION"
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 28,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -100,16 +113,16 @@
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 19,
-      "y": 36,
+      "x": 17,
+      "y": 33,
       "elevation": 3,
       "item": "ITEM_PP_UP",
       "flag": "FLAG_HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_PP_UP"
     },
     {
       "type": "hidden_item",
-      "x": 32,
-      "y": 33,
+      "x": 19,
+      "y": 2,
       "elevation": 0,
       "item": "ITEM_FULL_RESTORE",
       "flag": "FLAG_HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_FULL_RESTORE"

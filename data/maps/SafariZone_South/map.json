@@ -19,11 +19,6 @@
       "direction": "up"
     },
     {
-      "map": "MAP_SAFARI_ZONE_SOUTHWEST",
-      "offset": 0,
-      "direction": "left"
-    },
-    {
       "map": "MAP_SAFARI_ZONE_SOUTHEAST",
       "offset": 0,
       "direction": "right"
@@ -32,8 +27,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 32,
-      "y": 34,
+      "x": 14,
+      "y": 33,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -45,8 +40,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_1",
-      "x": 26,
-      "y": 28,
+      "x": 9,
+      "y": 19,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -58,8 +53,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_4",
-      "x": 16,
-      "y": 6,
+      "x": 21,
+      "y": 18,
       "elevation": 5,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -71,8 +66,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 15,
-      "y": 31,
+      "x": 31,
+      "y": 24,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -83,36 +78,49 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 36,
-      "y": 16,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
+      "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
+      "x": 19,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SafariZone_South_EventScript_ConstructionWorker1",
-      "flag": "FLAG_HIDE_SAFARI_ZONE_SOUTH_CONSTRUCTION_WORKERS"
+      "script": "NULL",
+      "flag": "FLAG_TEMP_11"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 36,
-      "y": 17,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
+      "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
+      "x": 18,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SafariZone_South_EventScript_ConstructionWorker2",
-      "flag": "FLAG_HIDE_SAFARI_ZONE_SOUTH_CONSTRUCTION_WORKERS"
+      "script": "NULL",
+      "flag": "FLAG_TEMP_10"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 35,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route114_EventScript_ItemRareCandy",
+      "flag": "FLAG_ITEM_SAFARI_SOUTH_RARE_CANDY"
     }
   ],
   "warp_events": [
     {
-      "x": 32,
-      "y": 33,
+      "x": 13,
+      "y": 32,
       "elevation": 0,
       "dest_map": "MAP_ROUTE121_SAFARI_ZONE_ENTRANCE",
       "dest_warp_id": "0"

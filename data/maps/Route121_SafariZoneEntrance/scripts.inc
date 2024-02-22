@@ -16,13 +16,12 @@ Route121_SafariZoneEntrance_EventScript_ExitSafariZone::
 
 Route121_SafariZoneEntrance_Movement_ExitSafariZone:
 	walk_up
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	step_end
 
 Route121_SafariZoneEntrance_EventScript_WelcomeAttendant::
@@ -55,8 +54,6 @@ Route121_SafariZoneEntrance_EventScript_EntranceCounterTrigger::
 	end
 
 Route121_SafariZoneEntrance_EventScript_TryEnterSafariZone::
-	checkitem ITEM_POKEBLOCK_CASE
-	goto_if_eq VAR_RESULT, 0, Route121_SafariZoneEntrance_EventScript_NoPokeblockCase
 	call Route121_SafariZoneEntrance_EventScript_CheckHasRoomForPokemon
 	checkmoney 500
 	goto_if_eq VAR_RESULT, 0, Route121_SafariZoneEntrance_EventScript_NotEnoughMoney
@@ -76,7 +73,7 @@ Route121_SafariZoneEntrance_EventScript_TryEnterSafariZone::
 	special EnterSafariMode
 	setvar VAR_SAFARI_ZONE_STATE, 2
 	clearflag FLAG_GOOD_LUCK_SAFARI_ZONE
-	warp MAP_SAFARI_ZONE_SOUTH, 32, 33
+	warp MAP_SAFARI_ZONE_SOUTH, 13, 32
 	waitstate
 	end
 
@@ -111,16 +108,15 @@ Route121_SafariZoneEntrance_EventScript_MovePlayerBackFromCounter::
 	end
 
 Route121_SafariZoneEntrance_Movement_BackAwayFromCounter:
-	walk_right
+	walk_left
 	step_end
 
 Route121_SafariZoneEntrance_Movement_EnterSafariZone:
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
 	walk_down
 	delay_16
 	step_end

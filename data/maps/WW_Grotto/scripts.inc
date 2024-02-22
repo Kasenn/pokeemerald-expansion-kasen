@@ -55,33 +55,30 @@ WW_GrottoItem_1:
 	compare VAR_WW_GROTTO, 4
 	goto_if_ge WW_GrottoItem_6
 WW_GrottoItem_4:
-	compare VAR_WW_GROTTO, 4
+	compare VAR_WW_GROTTO, 8
 	goto_if_ge WW_GrottoItem_11
 WW_GrottoItem_9:
-	compare VAR_WW_GROTTO, 8
+	compare VAR_WW_GROTTO, 12
 	goto_if_ge WW_GrottoItem_16
 WW_GrottoItem_14:
-	compare VAR_WW_GROTTO, 12
+	compare VAR_WW_GROTTO, 16
 	goto_if_ge WW_GrottoItem_21
 WW_GrottoItem_19:
-	compare VAR_WW_GROTTO, 16
+	compare VAR_WW_GROTTO, 20
 	goto_if_ge WW_GrottoItem_26
 WW_GrottoItem_24:
-	compare VAR_WW_GROTTO, 20
+	compare VAR_WW_GROTTO, 24
 	goto_if_ge WW_GrottoItem_31
 WW_GrottoItem_29:
-	compare VAR_WW_GROTTO, 24
+	compare VAR_WW_GROTTO, 28
 	goto_if_ge WW_GrottoItem_36
 WW_GrottoItem_34:
-	compare VAR_WW_GROTTO, 28
+	compare VAR_WW_GROTTO, 32
 	goto_if_ge WW_GrottoItem_41
 WW_GrottoItem_39:
-	compare VAR_WW_GROTTO, 32
+	compare VAR_WW_GROTTO, 36
 	goto_if_ge WW_GrottoItem_46
 WW_GrottoItem_44:
-	compare VAR_WW_GROTTO, 36
-	goto_if_ge WW_GrottoItem_51
-WW_GrottoItem_49:
 	waitfanfare
 	waitmessage
 	closemessage
@@ -89,11 +86,11 @@ WW_GrottoItem_49:
 	end
 
 WW_GrottoItem_2:
-	finditem ITEM_POTION
+	finditem ITEM_GREAT_BALL
 	goto WW_GrottoItem_1
 
 WW_GrottoItem_5:
-	finditem ITEM_GREAT_BALL
+	finditem ITEM_SUPER_REPEL
 	goto WW_GrottoItem_4
 
 WW_GrottoItem_6:
@@ -102,85 +99,76 @@ WW_GrottoItem_6:
 	goto WW_GrottoItem_4
 
 WW_GrottoItem_10:
-	finditem ITEM_SUPER_REPEL
+	finditem ITEM_SUPER_POTION
 	goto WW_GrottoItem_9
 
 WW_GrottoItem_11:
-	compare VAR_WW_GROTTO, 7
+	compare VAR_WW_GROTTO, 11
 	goto_if_le WW_GrottoItem_10
 	goto WW_GrottoItem_9
 
 WW_GrottoItem_15:
-	finditem ITEM_SUPER_POTION
+	finditem ITEM_ULTRA_BALL
 	goto WW_GrottoItem_14
 
 WW_GrottoItem_16:
-	compare VAR_WW_GROTTO, 11
+	compare VAR_WW_GROTTO, 15
 	goto_if_le WW_GrottoItem_15
 	goto WW_GrottoItem_14
 
 WW_GrottoItem_20:
-	finditem ITEM_ULTRA_BALL
+	finditem ITEM_FULL_HEAL
 	goto WW_GrottoItem_19
 
 WW_GrottoItem_21:
-	compare VAR_WW_GROTTO, 15
+	compare VAR_WW_GROTTO, 19
 	goto_if_le WW_GrottoItem_20
 	goto WW_GrottoItem_19
 
 WW_GrottoItem_25:
-	finditem ITEM_FULL_HEAL
+	finditem ITEM_HYPER_POTION
 	goto WW_GrottoItem_24
 
 WW_GrottoItem_26:
-	compare VAR_WW_GROTTO, 19
+	compare VAR_WW_GROTTO, 23
 	goto_if_le WW_GrottoItem_25
 	goto WW_GrottoItem_24
 
 WW_GrottoItem_30:
-	finditem ITEM_HYPER_POTION
+	finditem ITEM_FIRE_STONE
 	goto WW_GrottoItem_29
 
 WW_GrottoItem_31:
-	compare VAR_WW_GROTTO, 23
+	compare VAR_WW_GROTTO, 27
 	goto_if_le WW_GrottoItem_30
 	goto WW_GrottoItem_29
 
 WW_GrottoItem_35:
-	finditem ITEM_FIRE_STONE
+	finditem ITEM_THUNDER_STONE
 	goto WW_GrottoItem_34
 
 WW_GrottoItem_36:
-	compare VAR_WW_GROTTO, 27
+	compare VAR_WW_GROTTO, 31
 	goto_if_le WW_GrottoItem_35
 	goto WW_GrottoItem_34
 
 WW_GrottoItem_40:
-	finditem ITEM_THUNDER_STONE
+	finditem ITEM_WATER_STONE
 	goto WW_GrottoItem_39
 
 WW_GrottoItem_41:
-	compare VAR_WW_GROTTO, 31
+	compare VAR_WW_GROTTO, 35
 	goto_if_le WW_GrottoItem_40
 	goto WW_GrottoItem_39
 
 WW_GrottoItem_45:
-	finditem ITEM_WATER_STONE
+	finditem ITEM_LEAF_STONE
 	goto WW_GrottoItem_44
 
 WW_GrottoItem_46:
-	compare VAR_WW_GROTTO, 35
+	compare VAR_WW_GROTTO, 39
 	goto_if_le WW_GrottoItem_45
 	goto WW_GrottoItem_44
-
-WW_GrottoItem_50:
-	finditem ITEM_LEAF_STONE
-	goto WW_GrottoItem_49
-
-WW_GrottoItem_51:
-	compare VAR_WW_GROTTO, 39
-	goto_if_le WW_GrottoItem_50
-	goto WW_GrottoItem_49
 
 
 WW_GrottoPokemon::
