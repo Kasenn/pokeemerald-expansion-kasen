@@ -968,3 +968,25 @@ const struct Tileset gTileset_CaveTiles =
     .metatileAttributes = gMetatileAttributes_CaveTiles,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_SafariPrime =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_SafariPrime,
+    .palettes = gTilesetPalettes_SafariPrime,
+    .metatiles = gMetatiles_SafariPrime,
+    .metatileAttributes = gMetatileAttributes_SafariPrime,
+    .callback = InitTilesetAnim_General,
+};
+
+const struct Tileset gTileset_SafariSec =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_SafariSec,
+    .palettes = gTilesetPalettes_SafariSec,
+    .metatiles = gMetatiles_SafariSec,
+    .metatileAttributes = gMetatileAttributes_SafariSec,
+    .callback = InitTilesetAnim_General,
+};

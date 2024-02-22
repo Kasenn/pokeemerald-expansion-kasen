@@ -2,8 +2,8 @@
   "id": "MAP_DESERT",
   "name": "Desert",
   "layout": "LAYOUT_DESERT",
-  "music": "MUS_ROUTE113",
-  "region_map_section": "MAPSEC_NEWROUTE_6",
+  "music": "MUS_DESERT",
+  "region_map_section": "MAPSEC_DESERT",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",
@@ -31,7 +31,141 @@
 
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 70,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "DesertEntrance"
+    },
+    {
+      "type": "trigger",
+      "x": 71,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "DesertEntrance"
+    },
+    {
+      "type": "trigger",
+      "x": 72,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "DesertEntrance"
+    },
+    {
+      "type": "trigger",
+      "x": 75,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "DesertEntrance"
+    },
+    {
+      "type": "trigger",
+      "x": 74,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "DesertEntrance"
+    },
+    {
+      "type": "trigger",
+      "x": 73,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "DesertEntrance"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 54,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "DesertEntrance"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 55,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "DesertEntrance"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 57,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "DesertEntrance"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 56,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "DesertEntrance"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 59,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "DesertEntrance"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 58,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "DesertEntrance"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 61,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "DesertEntrance"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 60,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "DesertEntrance"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 62,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "DesertEntrance"
+    }
   ],
   "bg_events": [
 

@@ -1246,3 +1246,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Route8/scripts.inc"
 
 	.include "data/maps/UndergroundRuins/scripts.inc"
+
+	.include "data/maps/MarigorgeTown/scripts.inc"

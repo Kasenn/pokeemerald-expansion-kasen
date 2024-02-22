@@ -673,8 +673,9 @@
 #define STRINGID_ITISWINDY                            671
 #define STRINGID_WEATHERWIND                          672
 #define STRINGID_PLAYERGOTMONEYANDBP                  673
+#define STRINGID_LAIDLOW                              674
 
-#define BATTLESTRINGS_COUNT                           674
+#define BATTLESTRINGS_COUNT                           675
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -853,6 +854,9 @@
 // gSafariGetNearStringIds
 #define B_MSG_CREPT_CLOSER    0
 #define B_MSG_CANT_GET_CLOSER 1
+
+// gSafariLayLowStringIds
+#define B_MSG_LAY_LOW 0
 
 // gSafariPokeblockResultStringIds
 #define B_MSG_MON_CURIOUS    0

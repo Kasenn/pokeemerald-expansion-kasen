@@ -2406,8 +2406,8 @@
       "name": "SafariZone_South_Layout",
       "width": 40,
       "height": 40,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lilycove",
+      "primary_tileset": "gTileset_SafariPrime",
+      "secondary_tileset": "gTileset_SafariSec",
       "border_filepath": "data/layouts/SafariZone_South/border.bin",
       "blockdata_filepath": "data/layouts/SafariZone_South/map.bin"
     },
@@ -3946,8 +3946,8 @@
       "name": "SafariZone_Southeast_Layout",
       "width": 40,
       "height": 40,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lilycove",
+      "primary_tileset": "gTileset_SafariPrime",
+      "secondary_tileset": "gTileset_SafariSec",
       "border_filepath": "data/layouts/SafariZone_Southeast/border.bin",
       "blockdata_filepath": "data/layouts/SafariZone_Southeast/map.bin"
     },
@@ -5320,6 +5320,16 @@
       "secondary_tileset": "gTileset_MirageTower",
       "border_filepath": "data/layouts/UndergroundRuins/border.bin",
       "blockdata_filepath": "data/layouts/UndergroundRuins/map.bin"
+    },
+    {
+      "id": "LAYOUT_MARIGORGE_TOWN",
+      "name": "MarigorgeTown_Layout",
+      "width": 66,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/MarigorgeTown/border.bin",
+      "blockdata_filepath": "data/layouts/MarigorgeTown/map.bin"
     }
   ]
 }

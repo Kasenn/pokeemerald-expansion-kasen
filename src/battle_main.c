@@ -437,6 +437,7 @@ static void (* const sTurnActionsFuncsTable[])(void) =
     [B_ACTION_SAFARI_BALL]            = HandleAction_SafariZoneBallThrow,
     [B_ACTION_SAFARI_POKEBLOCK]       = HandleAction_ThrowPokeblock,
     [B_ACTION_SAFARI_GO_NEAR]         = HandleAction_GoNear,
+    [B_ACTION_SAFARI_LAY_LOW]         = HandleAction_LayLow,
     [B_ACTION_SAFARI_RUN]             = HandleAction_SafariZoneRun,
     [B_ACTION_WALLY_THROW]            = HandleAction_WallyBallThrow,
     [B_ACTION_EXEC_SCRIPT]            = HandleAction_RunBattleScript,
@@ -4436,6 +4437,9 @@ static void HandleTurnActionSelectionState(void)
                         gBattleCommunication[battler] = STATE_BEFORE_ACTION_CHOSEN;
                     break;
                 case B_ACTION_SAFARI_GO_NEAR:
+                    gBattleCommunication[battler]++;
+                    break;
+                case B_ACTION_SAFARI_LAY_LOW:
                     gBattleCommunication[battler]++;
                     break;
                 case B_ACTION_SAFARI_RUN:

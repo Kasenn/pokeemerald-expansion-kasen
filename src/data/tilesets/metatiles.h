@@ -246,3 +246,9 @@ const u16 gMetatileAttributes_CaveTiles[] = INCBIN_U16("data/tilesets/secondary/
 
 const u16 gMetatiles_General2[] = INCBIN_U16("data/tilesets/primary/general2/metatiles.bin");
 const u16 gMetatileAttributes_General2[] = INCBIN_U16("data/tilesets/primary/general2/metatile_attributes.bin");
+
+const u16 gMetatiles_SafariPrime[] = INCBIN_U16("data/tilesets/primary/safari_prime/metatiles.bin");
+const u16 gMetatileAttributes_SafariPrime[] = INCBIN_U16("data/tilesets/primary/safari_prime/metatile_attributes.bin");
+
+const u16 gMetatiles_SafariSec[] = INCBIN_U16("data/tilesets/secondary/safari_sec/metatiles.bin");
+const u16 gMetatileAttributes_SafariSec[] = INCBIN_U16("data/tilesets/secondary/safari_sec/metatile_attributes.bin");

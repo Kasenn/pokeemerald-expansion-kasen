@@ -32,6 +32,7 @@ gBattlescriptsForSafariActions::
     .4byte BattleScript_ActionGetNear
     .4byte BattleScript_ActionThrowPokeblock
     .4byte BattleScript_ActionWallyThrow
+    .4byte BattleScript_ActionLayLow
 
 BattleScript_ItemEnd:
     end
@@ -228,6 +229,11 @@ BattleScript_ActionWallyThrow:
     trainerslidein BS_TARGET
     waitstate
     printstring STRINGID_YOUTHROWABALLNOWRIGHT
+    waitmessage B_WAIT_TIME_LONG
+    end2
+
+BattleScript_ActionLayLow:
+    printfromtable gSafariLayLowStringIds
     waitmessage B_WAIT_TIME_LONG
     end2
 

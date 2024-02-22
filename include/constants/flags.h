@@ -81,7 +81,7 @@
 #define FLAG_DEVON_RESCUED    0x44 // Unused Flag
 #define FLAG_DEVONCORP_BASEMENT_BALL    0x45 // Unused Flag
 #define FLAG_BASEMENT_SUPERPOTION    0x46 // Unused Flag
-#define FLAG_UNUSED_0x047    0x47 // Unused Flag
+#define FLAG_VISITED_MARIGORGE    0x47 // Unused Flag
 #define FLAG_UNUSED_0x048    0x48 // Unused Flag
 #define FLAG_UNUSED_0x049    0x49 // Unused Flag
 #define FLAG_UNUSED_0x04A    0x4A // Unused Flag
@@ -1060,7 +1060,7 @@
 #define FLAG_ITEM_ROUTE_112_NUGGET                                  0x3F3
 #define FLAG_ITEM_ROUTE_113_MAX_ETHER                               0x3F4
 #define FLAG_ITEM_ROUTE_113_SUPER_REPEL                             0x3F5
-#define FLAG_ITEM_ROUTE_114_RARE_CANDY                              0x3F6
+#define FLAG_ITEM_SAFARI_SOUTH_RARE_CANDY                              0x3F6
 #define FLAG_ITEM_ROUTE_114_PROTEIN                                 0x3F7
 #define FLAG_ITEM_ROUTE_115_SUPER_POTION                            0x3F8
 #define FLAG_ITEM_ROUTE_115_TM_FOCUS_PUNCH                          0x3F9

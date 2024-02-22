@@ -1070,6 +1070,7 @@ static u8 Debug_CheckToggleFlags(u8 id)
                 FlagGet(FLAG_VISITED_WIP_CITY1) &&
                 FlagGet(FLAG_VISITED_WIP_TOWN2) &&
                 FlagGet(FLAG_VISITED_SHORESLATE) &&
+                FlagGet(FLAG_VISITED_MARIGORGE) &&
                 FlagGet(FLAG_LANDMARK_BATTLE_FRONTIER);
             break;
         case DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_BADGES_ALL:
@@ -1618,6 +1619,7 @@ static void DebugAction_Util_Fly(u8 taskId)
     FlagSet(FLAG_VISITED_WIP_CITY1);
     FlagSet(FLAG_VISITED_WIP_TOWN2);
     FlagSet(FLAG_VISITED_SHORESLATE);
+    FlagSet(FLAG_VISITED_MARIGORGE);
     Debug_DestroyMenu_Full(taskId);
     SetMainCallback2(CB2_OpenFlyMap);
 }
@@ -2478,6 +2480,7 @@ static void DebugAction_FlagsVars_ToggleFlyFlags(u8 taskId)
         FlagClear(FLAG_VISITED_WIP_CITY1);
         FlagClear(FLAG_VISITED_WIP_TOWN2);
         FlagClear(FLAG_VISITED_SHORESLATE);
+        FlagClear(FLAG_VISITED_MARIGORGE);
     }
     else
     {
@@ -2506,6 +2509,7 @@ static void DebugAction_FlagsVars_ToggleFlyFlags(u8 taskId)
         FlagSet(FLAG_VISITED_WIP_CITY1);
         FlagSet(FLAG_VISITED_WIP_TOWN2);
         FlagSet(FLAG_VISITED_SHORESLATE);
+        FlagSet(FLAG_VISITED_MARIGORGE);
     }
 }
 static void DebugAction_FlagsVars_ToggleBadgeFlags(u8 taskId)

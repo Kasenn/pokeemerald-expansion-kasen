@@ -96,6 +96,7 @@ Debug_Script_2::
 	end
 
 Debug_Script_3::
+	trainerbattle_no_intro TRAINER_AUSTINA, LittlerootTown_RivalHouseSign_Text_0
 	end
 
 LittlerootTown_RivalHouseSign_1:
