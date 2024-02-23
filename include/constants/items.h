@@ -934,8 +934,10 @@
 #define ITEM_TALISMAN 803
 #define ITEM_LOST_KEY 804
 #define ITEM_STONE_SPHERE 805
+#define ITEM_TROPICAL_STONE 806
+#define ITEM_ANCIENT_STONE 807
 
-#define ITEMS_COUNT 806
+#define ITEMS_COUNT 808
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

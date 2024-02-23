@@ -9715,4 +9715,26 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
+
+    [ITEM_TROPICAL_STONE] =
+    {
+        .name = _("TropicalStone"),
+        .price = 3000,
+        .description = sTropicalStoneDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+        .flingPower = 80,
+    },
+
+    [ITEM_ANCIENT_STONE] =
+    {
+        .name = _("Ancient Stone"),
+        .price = 3000,
+        .description = sAncientStoneDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+        .flingPower = 80,
+    },
 };
