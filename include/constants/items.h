@@ -607,6 +607,20 @@
 #define ITEM_UTILITY_UMBRELLA 513
 
 // Berries
+#if B_CONFUSE_BERRIES_HEAL >= GEN_8
+    #define CONFUSE_BERRY_HEAL_FRACTION 3
+#elif B_CONFUSE_BERRIES_HEAL == GEN_7
+    #define CONFUSE_BERRY_HEAL_FRACTION 2
+#else
+    #define CONFUSE_BERRY_HEAL_FRACTION 8
+#endif
+
+#if B_CONFUSE_BERRIES_HEAL >= GEN_7
+    #define CONFUSE_BERRY_HP_FRACTION 4
+#else
+    #define CONFUSE_BERRY_HP_FRACTION 2
+#endif
+
 #define ITEM_CHERI_BERRY 514
 #define ITEM_CHESTO_BERRY 515
 #define ITEM_PECHA_BERRY 516
@@ -919,8 +933,11 @@
 #define ITEM_COIN_PURSE 802
 #define ITEM_TALISMAN 803
 #define ITEM_LOST_KEY 804
+#define ITEM_STONE_SPHERE 805
+#define ITEM_TROPICAL_STONE 806
+#define ITEM_ANCIENT_STONE 807
 
-#define ITEMS_COUNT 805
+#define ITEMS_COUNT 808
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

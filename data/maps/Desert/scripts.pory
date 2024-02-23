@@ -3,7 +3,7 @@ mapscripts Desert_MapScripts{
 }
 
 script DesertVarSet{
-    setvar(VAR_TEMP_DESERTRUINSFOUND, 0)
+    setflag(FLAG_DESERT_STEPS)
 }
 
 script DesertEntrance{
@@ -31,5 +31,25 @@ script Desert_TriggerEntrance{
     msgbox("triggered", MSGBOX_DEFAULT)
     closemessage
     release
+    end
+}
+
+script ScorchedDesert_TriggerQuakes{
+    random(9)
+    addvar(VAR_TEMP_3, 1)
+    switch(var(VAR_TEMP_3)){
+    case 1:
+        msgbox("you feel the sand shifting sligthly below your feet", MSGBOX_NPC)
+    case 2:
+        msgbox("the shifting of the sand is getting stronger", MSGBOX_NPC)
+    case 3:
+        msgbox("desert var is now 3", MSGBOX_NPC)
+    case 4:
+        msgbox("desert var is now 4", MSGBOX_NPC)
+    case 5:
+        msgbox("desert var is now 5", MSGBOX_NPC)
+    case 6:
+        msgbox("desert var is now 6", MSGBOX_NPC)
+    }
     end
 }

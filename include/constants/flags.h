@@ -82,7 +82,7 @@
 #define FLAG_DEVONCORP_BASEMENT_BALL    0x45 // Unused Flag
 #define FLAG_BASEMENT_SUPERPOTION    0x46 // Unused Flag
 #define FLAG_VISITED_MARIGORGE    0x47 // Unused Flag
-#define FLAG_UNUSED_0x048    0x48 // Unused Flag
+#define FLAG_DESERT_STEPS    0x48 // Used to measure steps taken in the desert
 #define FLAG_UNUSED_0x049    0x49 // Unused Flag
 #define FLAG_UNUSED_0x04A    0x4A // Unused Flag
 #define FLAG_UNUSED_0x04B    0x4B // Unused Flag

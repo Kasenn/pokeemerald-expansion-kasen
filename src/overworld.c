@@ -378,6 +378,8 @@ void Overworld_ResetStateAfterFly(void)
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagClear(FLAG_SYS_USE_FLASH);
+    FlagClear(FLAG_INCREASED_SHINY_ODDS);
+    FlagClear(FLAG_DESERT_STEPS);
 }
 
 void Overworld_ResetStateAfterTeleport(void)
@@ -388,6 +390,8 @@ void Overworld_ResetStateAfterTeleport(void)
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagClear(FLAG_SYS_USE_FLASH);
+    FlagClear(FLAG_INCREASED_SHINY_ODDS);
+    FlagClear(FLAG_DESERT_STEPS);
     RunScriptImmediately(EventScript_ResetMrBriney);
 }
 
@@ -399,6 +403,8 @@ void Overworld_ResetStateAfterDigEscRope(void)
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagClear(FLAG_SYS_USE_FLASH);
+    FlagClear(FLAG_INCREASED_SHINY_ODDS);
+    FlagClear(FLAG_DESERT_STEPS);
 }
 
 #if B_RESET_FLAGS_VARS_AFTER_WHITEOUT  == TRUE
@@ -418,6 +424,8 @@ void Overworld_ResetStateAfterDigEscRope(void)
     FlagClear(B_FLAG_NO_BAG_USE);
     FlagClear(B_FLAG_NO_CATCHING);
     FlagClear(FLAG_NO_WILD_RUNNING);
+    FlagClear(FLAG_INCREASED_SHINY_ODDS);
+    FlagClear(FLAG_DESERT_STEPS);
 }
 #endif
 
@@ -2177,11 +2185,7 @@ static void ResumeMap(bool32 a1)
     ResetAllPicSprites();
     ResetCameraUpdateInfo();
     InstallCameraPanAheadCallback();
-    if (!a1)
-        InitObjectEventPalettes(0);
-    else
-        InitObjectEventPalettes(1);
-
+    FreeAllSpritePalettes();
     FieldEffectActiveListClear();
     StartWeather();
     ResumePausedWeather();

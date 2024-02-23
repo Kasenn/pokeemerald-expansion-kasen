@@ -6,6 +6,7 @@ script ClearShinyFlag{
         setflag(FLAG_DEVON_RESCUED)
     }
     clearflag(FLAG_INCREASED_SHINY_ODDS)
+    clearflag(FLAG_DESERT_STEPS)
     release
     end
 }

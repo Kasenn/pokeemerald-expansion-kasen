@@ -3955,3 +3955,19 @@ static const u8 sLostKeyDesc[] = _(
     "A small key.\n"
     "Who knows what\n"
     "it will unlock.");
+
+static const u8 sStoneSphereDesc[] = _(
+    "A peculiar stone\n"
+    "sphere. It's\n"
+    "unusually light.");
+
+static const u8 sTropicalStoneDesc[] = _(
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
+
+static const u8 sAncientStoneDesc[] = _(
+    "Makes certain\n"
+    "species of Pokémon\n"
+    "evolve.");
+

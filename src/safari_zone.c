@@ -24,6 +24,7 @@ struct PokeblockFeeder
 #define NUM_POKEBLOCK_FEEDERS 10
 
 extern const u8 SafariZone_EventScript_TimesUp[];
+extern const u8 ScorchedDesert_TriggerQuakes[];
 extern const u8 SafariZone_EventScript_RetirePrompt[];
 extern const u8 SafariZone_EventScript_OutOfBallsMidBattle[];
 extern const u8 SafariZone_EventScript_OutOfBalls[];
@@ -56,6 +57,7 @@ void EnterSafariMode(void)
 {
     IncrementGameStat(GAME_STAT_ENTERED_SAFARI_ZONE);
     SetSafariZoneFlag();
+    FlagSet(FLAG_INCREASED_SHINY_ODDS);
     ClearAllPokeblockFeeders();
     gNumSafariBalls = 30;
     sSafariZoneStepCounter = 500;
@@ -67,6 +69,7 @@ void ExitSafariMode(void)
 {
     TryPutSafariFanClubOnAir(sSafariZoneCaughtMons, sSafariZonePkblkUses);
     ResetSafariZoneFlag();
+    FlagClear(FLAG_INCREASED_SHINY_ODDS);
     ClearAllPokeblockFeeders();
     gNumSafariBalls = 0;
     sSafariZoneStepCounter = 0;
@@ -74,6 +77,22 @@ void ExitSafariMode(void)
 
 bool8 SafariZoneTakeStep(void)
 {
+    if(FlagGet(FLAG_DESERT_STEPS))
+    {
+        if(sSafariZoneStepCounter == 0)
+        {
+            sSafariZoneStepCounter = 500;
+        }
+
+        sSafariZoneStepCounter--;
+        if (sSafariZoneStepCounter == 425)
+        {
+            sSafariZoneStepCounter = 500;
+            ScriptContext_SetupScript(ScorchedDesert_TriggerQuakes);
+            return TRUE;
+        }
+    }
+
     if (GetSafariZoneFlag() == FALSE)
     {
         return FALSE;
