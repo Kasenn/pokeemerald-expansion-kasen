@@ -5,7 +5,7 @@
   "music": "MUS_DESERT",
   "region_map_section": "MAPSEC_DESERT",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
+  "weather": "WEATHER_SANDSTORM",
   "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -25,10 +25,28 @@
     }
   ],
   "object_events": [
-
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
+      "x": 60,
+      "y": 60,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
+      "movement_range_x": 3,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    }
   ],
   "warp_events": [
-
+    {
+      "x": 31,
+      "y": 37,
+      "elevation": 0,
+      "dest_map": "MAP_UNDERGROUND_RUINS_1F",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
     {

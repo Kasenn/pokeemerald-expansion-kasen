@@ -7,6 +7,7 @@ ClearShinyFlag::
 	goto_if_set FLAG_DEVON_UNDER_ATTACK, ClearShinyFlag_2
 ClearShinyFlag_1:
 	clearflag FLAG_INCREASED_SHINY_ODDS
+	clearflag FLAG_DESERT_STEPS
 	release
 	end
 

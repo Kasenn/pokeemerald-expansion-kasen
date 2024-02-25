@@ -13,6 +13,7 @@
 #include "event_data.h"
 #include "field_door.h"
 #include "field_effect.h"
+#include "field_effect_helpers.h"
 #include "event_object_lock.h"
 #include "event_object_movement.h"
 #include "field_message_box.h"
@@ -775,6 +776,20 @@ bool8 ScrCmd_warpdoor(struct ScriptContext *ctx)
 
     SetWarpDestination(mapGroup, mapNum, warpId, x, y);
     DoDoorWarp();
+    ResetInitialPlayerAvatarState();
+    return TRUE;
+}
+
+bool8 ScrCmd_warpholexy(struct ScriptContext *ctx)
+{
+    u8 mapGroup = ScriptReadByte(ctx);
+    u8 mapNum = ScriptReadByte(ctx);
+    u8 warpId = ScriptReadByte(ctx);
+    u16 x = VarGet(ScriptReadHalfword(ctx));
+    u16 y = VarGet(ScriptReadHalfword(ctx));
+
+    SetWarpDestination(mapGroup, mapNum, warpId, x, y);
+    DoFallWarp();
     ResetInitialPlayerAvatarState();
     return TRUE;
 }
@@ -2350,3 +2365,4 @@ bool8 ScrCmd_warpwhitefade(struct ScriptContext *ctx)
     ResetInitialPlayerAvatarState();
     return TRUE;
 }
+

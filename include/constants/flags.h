@@ -83,7 +83,7 @@
 #define FLAG_BASEMENT_SUPERPOTION    0x46 // Unused Flag
 #define FLAG_VISITED_MARIGORGE    0x47 // Unused Flag
 #define FLAG_DESERT_STEPS    0x48 // Used to measure steps taken in the desert
-#define FLAG_UNUSED_0x049    0x49 // Unused Flag
+#define FLAG_DESERT_RUINS_OPENED    0x49 // Unused Flag
 #define FLAG_UNUSED_0x04A    0x4A // Unused Flag
 #define FLAG_UNUSED_0x04B    0x4B // Unused Flag
 #define FLAG_UNUSED_0x04C    0x4C // Unused Flag

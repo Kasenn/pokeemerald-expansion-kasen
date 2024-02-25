@@ -1750,6 +1750,14 @@
 	.2byte \item2
 	.endm
 
+	@ Warps the player to the specified map and plays a falling animation.
+	@ Warp commands can be given either the id of which warp location to go to on the destination map
+	@ or a pair of x/y coordinates to go to directly on the destination map.
+	.macro warpholexy map:req, a, b, c
+	.byte 0xe4
+	formatwarp \map, \a, \b, \c
+	.endm
+
 
 @ Supplementary
 

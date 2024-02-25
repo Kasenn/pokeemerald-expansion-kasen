@@ -9878,18 +9878,18 @@
             "encounter_rate": 35,
             "mons": [
               {
-                "min_level": 25,
-                "max_level": 30,
+                "min_level": 15,
+                "max_level": 25,
                 "species": "SPECIES_MAGIKARP"
               },
               {
-                "min_level": 25,
-                "max_level": 30,
+                "min_level": 15,
+                "max_level": 25,
                 "species": "SPECIES_GOLDEEN"
               },
               {
-                "min_level": 25,
-                "max_level": 30,
+                "min_level": 15,
+                "max_level": 25,
                 "species": "SPECIES_MAGIKARP"
               },
               {
@@ -13886,7 +13886,7 @@
           "map": "MAP_DESERT",
           "base_label": "gDesert0",
           "land_mons": {
-            "encounter_rate": 20,
+            "encounter_rate": 13,
             "mons": [
               {
                 "min_level": 28,
