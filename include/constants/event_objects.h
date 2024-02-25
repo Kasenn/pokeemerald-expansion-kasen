@@ -75,7 +75,7 @@
 #define OBJ_EVENT_GFX_EXAMPLE6                    71
 #define OBJ_EVENT_GFX_GRETA                       72
 #define OBJ_EVENT_GFX_SPENSER                     73
-#define OBJ_EVENT_GFX_NOLAND                      74
+#define OBJ_EVENT_GFX_VOLCARONA                      74
 #define OBJ_EVENT_GFX_LUCY                        75
 #define OBJ_EVENT_GFX_IRIS                        76
 #define OBJ_EVENT_GFX_VOLKNER                     77
@@ -379,6 +379,7 @@
 #define OBJ_EVENT_PAL_NEWPIKACHU                0x1132
 #define OBJ_EVENT_PAL_D_DECC                    0x1133
 #define OBJ_EVENT_PAL_ROCKET_ADMIN_M        0x1134
+#define OBJ_EVENT_PAL_VOLCARONA             0x1135
 
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 

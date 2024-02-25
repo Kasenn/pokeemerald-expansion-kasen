@@ -1,15 +1,16 @@
 Desert_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, DesertVarSet
 	.byte 0
 
 
-DesertVarSet::
-	compare VAR_TEMP_DESERTRUINSFOUND, 6
-	goto_if_ge DesertVarSet_2
+DesertQuakesOn::
 	setflag FLAG_DESERT_STEPS
-	return
+	release
+	end
 
-DesertVarSet_2:
+
+DesertQuakesOff::
+	clearflag FLAG_DESERT_STEPS
+	release
 	end
 
 
@@ -157,17 +158,20 @@ ScorchedDesert_FallThroughFloor::
 	waitmovement 0
 	playse SE_FALL
 	delay 60
-	compare VAR_TEMP_1 <= 31, 0
-	goto_if_ne ScorchedDesert_FallThroughFloor_15
-ScorchedDesert_FallThroughFloor_13:
-	compare VAR_TEMP_1 > 31, 0
-	goto_if_ne ScorchedDesert_FallThroughFloor_12
-ScorchedDesert_FallThroughFloor_10:
-	compare VAR_TEMP_1 <= 31, 0
-	goto_if_ne ScorchedDesert_FallThroughFloor_9
-ScorchedDesert_FallThroughFloor_7:
-	compare VAR_TEMP_1 > 31, 0
-	goto_if_ne ScorchedDesert_FallThroughFloor_6
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 31
+	goto_if_le ScorchedDesert_FallThroughFloor_16
+ScorchedDesert_FallThroughFloor_14:
+	compare VAR_TEMP_1, 31
+	goto_if_gt ScorchedDesert_FallThroughFloor_13
+ScorchedDesert_FallThroughFloor_11:
+	compare VAR_TEMP_1, 31
+	goto_if_le ScorchedDesert_FallThroughFloor_10
+ScorchedDesert_FallThroughFloor_8:
+	compare VAR_TEMP_1, 31
+	goto_if_gt ScorchedDesert_FallThroughFloor_7
+ScorchedDesert_FallThroughFloor_6:
+	msgbox ScorchedDesert_FallThroughFloor_Text_0
 ScorchedDesert_FallThroughFloor_1:
 	waitstate
 	end
@@ -177,7 +181,7 @@ ScorchedDesert_FallThroughFloor_2:
 	goto ScorchedDesert_FallThroughFloor_1
 
 ScorchedDesert_FallThroughFloor_3:
-	warpholexy MAP_UNDERGROUND_RUINS, 73, 4
+	warpholexy MAP_UNDERGROUND_RUINS, 79, 57
 	goto ScorchedDesert_FallThroughFloor_1
 
 ScorchedDesert_FallThroughFloor_4:
@@ -185,33 +189,41 @@ ScorchedDesert_FallThroughFloor_4:
 	goto ScorchedDesert_FallThroughFloor_1
 
 ScorchedDesert_FallThroughFloor_5:
-	warpholexy MAP_UNDERGROUND_RUINS, 79, 57
+	warpholexy MAP_UNDERGROUND_RUINS, 73, 4
 	goto ScorchedDesert_FallThroughFloor_1
 
-ScorchedDesert_FallThroughFloor_6:
-	compare VAR_TEMP_2 <= 37, 0
-	goto_if_ne ScorchedDesert_FallThroughFloor_5
-	goto ScorchedDesert_FallThroughFloor_1
+ScorchedDesert_FallThroughFloor_7:
+	compare VAR_TEMP_2, 37
+	goto_if_le ScorchedDesert_FallThroughFloor_5
+	goto ScorchedDesert_FallThroughFloor_6
 
-ScorchedDesert_FallThroughFloor_9:
-	compare VAR_TEMP_2 > 37, 0
-	goto_if_ne ScorchedDesert_FallThroughFloor_4
-	goto ScorchedDesert_FallThroughFloor_7
+ScorchedDesert_FallThroughFloor_10:
+	compare VAR_TEMP_2, 37
+	goto_if_gt ScorchedDesert_FallThroughFloor_4
+	goto ScorchedDesert_FallThroughFloor_8
 
-ScorchedDesert_FallThroughFloor_12:
-	compare VAR_TEMP_2 > 37, 0
-	goto_if_ne ScorchedDesert_FallThroughFloor_3
-	goto ScorchedDesert_FallThroughFloor_10
+ScorchedDesert_FallThroughFloor_13:
+	compare VAR_TEMP_2, 37
+	goto_if_gt ScorchedDesert_FallThroughFloor_3
+	goto ScorchedDesert_FallThroughFloor_11
 
-ScorchedDesert_FallThroughFloor_15:
-	compare VAR_TEMP_2 <= 37, 0
-	goto_if_ne ScorchedDesert_FallThroughFloor_2
-	goto ScorchedDesert_FallThroughFloor_13
+ScorchedDesert_FallThroughFloor_16:
+	compare VAR_TEMP_2, 37
+	goto_if_le ScorchedDesert_FallThroughFloor_2
+	goto ScorchedDesert_FallThroughFloor_14
 
 
 ScorchedDesert_FallThroughFloorMovement:
 	set_invisible
 	step_end
+
+printplayercoords::
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	buffernumberstring STR_VAR_1, VAR_TEMP_1
+	buffernumberstring STR_VAR_2, VAR_TEMP_2
+	msgbox printplayercoords_Text_0, MSGBOX_NPC
+	return
+
 
 DesertEntrance_Text_0:
 	.string "This place is still work in progress.\n"
@@ -237,3 +249,9 @@ ScorchedDesert_TriggerQuakes_Text_3:
 
 ScorchedDesert_TriggerQuakes_Text_4:
 	.string "It's an earthquake!$"
+
+ScorchedDesert_FallThroughFloor_Text_0:
+	.string "something borked$"
+
+printplayercoords_Text_0:
+	.string "{STR_VAR_1},{STR_VAR_2}$"

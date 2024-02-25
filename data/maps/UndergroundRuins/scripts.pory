@@ -1,0 +1,50 @@
+mapscripts UndergroundRuins_MapScripts{
+    MAP_SCRIPT_ON_FRAME_TABLE: CaveHole_CheckFallDownHole
+	MAP_SCRIPT_ON_TRANSITION: CaveHole_FixCrackedGround
+    MAP_SCRIPT_ON_RESUME: UndergroundRuinsSetHoleWarp
+}
+
+script UndergroundRuinsSetHoleWarp{
+    setstepcallback(STEP_CB_CRACKED_FLOOR)
+    setholewarp(MAP_UNDERGROUND_RUINS_3F)
+    setescapewarp(MAP_DESERT, 0)
+    end
+}
+
+script UndergroundRuinsLootRelic{
+    random(100)
+    if(var(VAR_RESULT) <= 65){
+        finditem(ITEM_RELIC_COPPER)
+    }
+    elif(var(VAR_RESULT) >= 94){
+        finditem(ITEM_RELIC_GOLD)
+    }
+    else{
+        finditem(ITEM_RELIC_SILVER)
+    }
+    end
+}
+
+script CheckForEscapeRope{
+    checkitem(ITEM_ESCAPE_ROPE)
+    if(var(VAR_RESULT) == FALSE){
+        lockall
+        msgbox("There's a coil of old rope here that\ncould be used to climb back out.", MSGBOX_DEFAULT)
+        finditem(ITEM_ESCAPE_ROPE)
+        release
+        end
+    }
+    release
+    end
+}
+
+script isthisadamprock{
+    if(var(VAR_ITEM_ID) == 447){
+        msgbox("that's a damp rock", MSGBOX_DEFAULT)
+    }
+    else{
+        msgbox("that's not a damp rock", MSGBOX_DEFAULT)
+    }
+}
+
+
