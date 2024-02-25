@@ -3,6 +3,9 @@ mapscripts Desert_MapScripts{
 }
 
 script DesertVarSet{
+    if(var(VAR_TEMP_DESERTRUINSFOUND) >= 6){
+        end
+    }
     setflag(FLAG_DESERT_STEPS)
 }
 
@@ -35,21 +38,120 @@ script Desert_TriggerEntrance{
 }
 
 script ScorchedDesert_TriggerQuakes{
+    lockall
     random(9)
-    addvar(VAR_TEMP_3, 1)
-    switch(var(VAR_TEMP_3)){
-    case 1:
-        msgbox("you feel the sand shifting sligthly below your feet", MSGBOX_NPC)
-    case 2:
-        msgbox("the shifting of the sand is getting stronger", MSGBOX_NPC)
-    case 3:
-        msgbox("desert var is now 3", MSGBOX_NPC)
-    case 4:
-        msgbox("desert var is now 4", MSGBOX_NPC)
-    case 5:
-        msgbox("desert var is now 5", MSGBOX_NPC)
-    case 6:
-        msgbox("desert var is now 6", MSGBOX_NPC)
+    if(flag(FLAG_DESERT_RUINS_OPENED)){
+        random(30)
     }
+    if(var(VAR_RESULT) <= 5){
+        addvar(VAR_TEMP_DESERTRUINSFOUND, 1)
+        switch(var(VAR_TEMP_DESERTRUINSFOUND)){
+        case 1:
+            message("You can feel the ground\nshaking slightly.")
+            waitmessage
+            playse(SE_SWITCH)
+            setvar(VAR_0x8004, 1)  // vertical pan
+            setvar(VAR_0x8005, 1)  // horizontal pan
+            setvar(VAR_0x8006, 6)  // num shakes
+            setvar(VAR_0x8007, 6)  // shake delay
+            special(ShakeCamera)
+            waitstate
+            delay(30)
+            closemessage
+        case 2:
+            message("The shaking seems to be growing\nin magnitude.")
+            waitmessage
+            playse(SE_SWITCH)
+            setvar(VAR_0x8004, 1)  // vertical pan
+            setvar(VAR_0x8005, 1)  // horizontal pan
+            setvar(VAR_0x8006, 10)  // num shakes
+            setvar(VAR_0x8007, 6)  // shake delay
+            special(ShakeCamera)
+            waitstate
+            delay(30)
+            closemessage
+        case 3:
+            message("You notice the sand shifting below\nyour feet as the shaking continues.")
+            waitmessage
+            playse(SE_M_STRENGTH)
+            setvar(VAR_0x8004, 1)  // vertical pan
+            setvar(VAR_0x8005, 1)  // horizontal pan
+            setvar(VAR_0x8006, 14)  // num shakes
+            setvar(VAR_0x8007, 6)  // shake delay
+            special(ShakeCamera)
+            waitstate
+            delay(30)
+            closemessage
+        case 4:
+            message("The shaking seems to be intensifying.")
+            waitmessage
+            playse(SE_M_STRENGTH)
+            setvar(VAR_0x8004, 1)  // vertical pan
+            setvar(VAR_0x8005, 1)  // horizontal pan
+            setvar(VAR_0x8006, 20)  // num shakes
+            setvar(VAR_0x8007, 4)  // shake delay
+            special(ShakeCamera)
+            waitstate
+            delay(30)
+            closemessage
+        case 5:
+            message("It's an earthquake!")
+            waitmessage
+            playse(SE_M_EARTHQUAKE)
+            setvar(VAR_0x8004, 2)  // vertical pan
+            setvar(VAR_0x8005, 2)  // horizontal pan
+            setvar(VAR_0x8006, 30)  // num shakes
+            setvar(VAR_0x8007, 3)  // shake delay
+            special(ShakeCamera)
+            waitstate
+            waitse
+            delay(30)
+            closemessage
+            delay(10)
+            playse(SE_SWITCH)
+            getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+            setmetatile(VAR_TEMP_1, VAR_TEMP_2, 0x3DF, FALSE)
+            setobjectxy(OBJ_EVENT_ID_PLAYER, VAR_TEMP_1, VAR_TEMP_2)
+            special(DrawWholeMapView)
+            goto(ScorchedDesert_FallThroughFloor)
+        }
+    }
+    releaseall
     end
+}
+
+script SpawnHoleOnPlayer{
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    setmetatile(VAR_TEMP_1, VAR_TEMP_2, 0x3DF, FALSE)
+    setobjectxy(OBJ_EVENT_ID_PLAYER, VAR_TEMP_1, VAR_TEMP_2)
+    special(DrawWholeMapView)
+    end
+}
+
+script ScorchedDesert_FallThroughFloor{
+	lockall
+	delay(20)
+	applymovement(OBJ_EVENT_ID_PLAYER, ScorchedDesert_FallThroughFloorMovement)
+	waitmovement(0)
+	playse(SE_FALL)
+	delay(60)
+    if ((var(VAR_TEMP_1 <= 31)) && (var(VAR_TEMP_2 <= 37))){
+        warpholexy(MAP_UNDERGROUND_RUINS, 5, 4)
+    }
+    elif ((var(VAR_TEMP_1 > 31)) && (var(VAR_TEMP_2 > 37))){
+        warpholexy(MAP_UNDERGROUND_RUINS, 79, 57)
+    }
+    elif ((var(VAR_TEMP_1 <= 31)) && (var(VAR_TEMP_2 > 37))){
+        warpholexy(MAP_UNDERGROUND_RUINS, 24, 63)
+    }
+    elif ((var(VAR_TEMP_1 > 31)) && (var(VAR_TEMP_2 <= 37))){
+        warpholexy(MAP_UNDERGROUND_RUINS, 73, 4)
+    }
+	waitstate
+	end
+}
+
+movement ScorchedDesert_FallThroughFloorMovement{
+	set_invisible
+	step_end
 }

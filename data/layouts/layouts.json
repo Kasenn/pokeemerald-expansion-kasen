@@ -5314,7 +5314,7 @@
     {
       "id": "LAYOUT_UNDERGROUND_RUINS",
       "name": "UndergroundRuins_Layout",
-      "width": 80,
+      "width": 85,
       "height": 80,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_MirageTower",
@@ -5330,6 +5330,86 @@
       "secondary_tileset": "gTileset_Fallarbor",
       "border_filepath": "data/layouts/MarigorgeTown/border.bin",
       "blockdata_filepath": "data/layouts/MarigorgeTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_MARIGORGE_MART",
+      "name": "Marigorge_Mart_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/Marigorge_Mart/border.bin",
+      "blockdata_filepath": "data/layouts/Marigorge_Mart/map.bin"
+    },
+    {
+      "id": "LAYOUT_MARIGORGE_POKECENTER_1F",
+      "name": "Marigorge_Pokecenter_1F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Marigorge_Pokecenter_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Marigorge_Pokecenter_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_MARIGORGE_POKECENTER_2F",
+      "name": "Marigorge_Pokecenter_2F_Layout",
+      "width": 13,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Marigorge_Pokecenter_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Marigorge_Pokecenter_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_MARIGORGE_SMALL_HOUSE1",
+      "name": "Marigorge_SmallHouse1_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Marigorge_SmallHouse1/border.bin",
+      "blockdata_filepath": "data/layouts/Marigorge_SmallHouse1/map.bin"
+    },
+    {
+      "id": "LAYOUT_MARIGORGE_SMALL_HOUSE2",
+      "name": "Marigorge_SmallHouse2_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Marigorge_SmallHouse2/border.bin",
+      "blockdata_filepath": "data/layouts/Marigorge_SmallHouse2/map.bin"
+    },
+    {
+      "id": "LAYOUT_UNDERGROUND_RUINS_1F",
+      "name": "UndergroundRuins_1F_Layout",
+      "width": 13,
+      "height": 10,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MirageTower",
+      "border_filepath": "data/layouts/UndergroundRuins_1F/border.bin",
+      "blockdata_filepath": "data/layouts/UndergroundRuins_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_UNDERGROUND_RUINS_3F",
+      "name": "UndergroundRuins_3F_Layout",
+      "width": 85,
+      "height": 80,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MirageTower",
+      "border_filepath": "data/layouts/UndergroundRuins_3F/border.bin",
+      "blockdata_filepath": "data/layouts/UndergroundRuins_3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_UNDERGROUND_RUINS_VOLCARONA_ROOM",
+      "name": "UndergroundRuins_VolcaronaRoom_Layout",
+      "width": 21,
+      "height": 25,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MirageTower",
+      "border_filepath": "data/layouts/UndergroundRuins_VolcaronaRoom/border.bin",
+      "blockdata_filepath": "data/layouts/UndergroundRuins_VolcaronaRoom/map.bin"
     }
   ]
 }

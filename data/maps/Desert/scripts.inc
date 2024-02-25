@@ -4,8 +4,13 @@ Desert_MapScripts::
 
 
 DesertVarSet::
+	compare VAR_TEMP_DESERTRUINSFOUND, 6
+	goto_if_ge DesertVarSet_2
 	setflag FLAG_DESERT_STEPS
 	return
+
+DesertVarSet_2:
+	end
 
 
 DesertEntrance::
@@ -34,42 +39,179 @@ Desert_TriggerEntrance::
 
 
 ScorchedDesert_TriggerQuakes::
+	lockall
 	random 9
-	addvar VAR_TEMP_3, 1
-	switch VAR_TEMP_3
-	case 1, ScorchedDesert_TriggerQuakes_3
-	case 2, ScorchedDesert_TriggerQuakes_4
-	case 3, ScorchedDesert_TriggerQuakes_5
-	case 4, ScorchedDesert_TriggerQuakes_6
-	case 5, ScorchedDesert_TriggerQuakes_7
-	case 6, ScorchedDesert_TriggerQuakes_8
+	goto_if_set FLAG_DESERT_RUINS_OPENED, ScorchedDesert_TriggerQuakes_2
 ScorchedDesert_TriggerQuakes_1:
+	compare VAR_RESULT, 5
+	goto_if_le ScorchedDesert_TriggerQuakes_5
+ScorchedDesert_TriggerQuakes_4:
+	releaseall
 	end
 
-ScorchedDesert_TriggerQuakes_3:
-	msgbox ScorchedDesert_TriggerQuakes_Text_0, MSGBOX_NPC
-	goto ScorchedDesert_TriggerQuakes_1
-
-ScorchedDesert_TriggerQuakes_4:
-	msgbox ScorchedDesert_TriggerQuakes_Text_1, MSGBOX_NPC
+ScorchedDesert_TriggerQuakes_2:
+	random 30
 	goto ScorchedDesert_TriggerQuakes_1
 
 ScorchedDesert_TriggerQuakes_5:
-	msgbox ScorchedDesert_TriggerQuakes_Text_2, MSGBOX_NPC
-	goto ScorchedDesert_TriggerQuakes_1
-
-ScorchedDesert_TriggerQuakes_6:
-	msgbox ScorchedDesert_TriggerQuakes_Text_3, MSGBOX_NPC
-	goto ScorchedDesert_TriggerQuakes_1
-
-ScorchedDesert_TriggerQuakes_7:
-	msgbox ScorchedDesert_TriggerQuakes_Text_4, MSGBOX_NPC
-	goto ScorchedDesert_TriggerQuakes_1
+	addvar VAR_TEMP_DESERTRUINSFOUND, 1
+	switch VAR_TEMP_DESERTRUINSFOUND
+	case 1, ScorchedDesert_TriggerQuakes_8
+	case 2, ScorchedDesert_TriggerQuakes_9
+	case 3, ScorchedDesert_TriggerQuakes_10
+	case 4, ScorchedDesert_TriggerQuakes_11
+	case 5, ScorchedDesert_TriggerQuakes_12
+	goto ScorchedDesert_TriggerQuakes_4
 
 ScorchedDesert_TriggerQuakes_8:
-	msgbox ScorchedDesert_TriggerQuakes_Text_5, MSGBOX_NPC
-	goto ScorchedDesert_TriggerQuakes_1
+	message ScorchedDesert_TriggerQuakes_Text_0
+	waitmessage
+	playse SE_SWITCH
+	setvar VAR_0x8004, 1
+	setvar VAR_0x8005, 1
+	setvar VAR_0x8006, 6
+	setvar VAR_0x8007, 6
+	special ShakeCamera
+	waitstate
+	delay 30
+	closemessage
+	goto ScorchedDesert_TriggerQuakes_4
 
+ScorchedDesert_TriggerQuakes_9:
+	message ScorchedDesert_TriggerQuakes_Text_1
+	waitmessage
+	playse SE_SWITCH
+	setvar VAR_0x8004, 1
+	setvar VAR_0x8005, 1
+	setvar VAR_0x8006, 10
+	setvar VAR_0x8007, 6
+	special ShakeCamera
+	waitstate
+	delay 30
+	closemessage
+	goto ScorchedDesert_TriggerQuakes_4
+
+ScorchedDesert_TriggerQuakes_10:
+	message ScorchedDesert_TriggerQuakes_Text_2
+	waitmessage
+	playse SE_M_STRENGTH
+	setvar VAR_0x8004, 1
+	setvar VAR_0x8005, 1
+	setvar VAR_0x8006, 14
+	setvar VAR_0x8007, 6
+	special ShakeCamera
+	waitstate
+	delay 30
+	closemessage
+	goto ScorchedDesert_TriggerQuakes_4
+
+ScorchedDesert_TriggerQuakes_11:
+	message ScorchedDesert_TriggerQuakes_Text_3
+	waitmessage
+	playse SE_M_STRENGTH
+	setvar VAR_0x8004, 1
+	setvar VAR_0x8005, 1
+	setvar VAR_0x8006, 20
+	setvar VAR_0x8007, 4
+	special ShakeCamera
+	waitstate
+	delay 30
+	closemessage
+	goto ScorchedDesert_TriggerQuakes_4
+
+ScorchedDesert_TriggerQuakes_12:
+	message ScorchedDesert_TriggerQuakes_Text_4
+	waitmessage
+	playse SE_M_EARTHQUAKE
+	setvar VAR_0x8004, 2
+	setvar VAR_0x8005, 2
+	setvar VAR_0x8006, 30
+	setvar VAR_0x8007, 3
+	special ShakeCamera
+	waitstate
+	waitse
+	delay 30
+	closemessage
+	delay 10
+	playse SE_SWITCH
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	setmetatile VAR_TEMP_1, VAR_TEMP_2, 0x3DF, FALSE
+	setobjectxy OBJ_EVENT_ID_PLAYER, VAR_TEMP_1, VAR_TEMP_2
+	special DrawWholeMapView
+	goto ScorchedDesert_FallThroughFloor
+	goto ScorchedDesert_TriggerQuakes_4
+
+
+SpawnHoleOnPlayer::
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	setmetatile VAR_TEMP_1, VAR_TEMP_2, 0x3DF, FALSE
+	setobjectxy OBJ_EVENT_ID_PLAYER, VAR_TEMP_1, VAR_TEMP_2
+	special DrawWholeMapView
+	end
+
+
+ScorchedDesert_FallThroughFloor::
+	lockall
+	delay 20
+	applymovement OBJ_EVENT_ID_PLAYER, ScorchedDesert_FallThroughFloorMovement
+	waitmovement 0
+	playse SE_FALL
+	delay 60
+	compare VAR_TEMP_1 <= 31, 0
+	goto_if_ne ScorchedDesert_FallThroughFloor_15
+ScorchedDesert_FallThroughFloor_13:
+	compare VAR_TEMP_1 > 31, 0
+	goto_if_ne ScorchedDesert_FallThroughFloor_12
+ScorchedDesert_FallThroughFloor_10:
+	compare VAR_TEMP_1 <= 31, 0
+	goto_if_ne ScorchedDesert_FallThroughFloor_9
+ScorchedDesert_FallThroughFloor_7:
+	compare VAR_TEMP_1 > 31, 0
+	goto_if_ne ScorchedDesert_FallThroughFloor_6
+ScorchedDesert_FallThroughFloor_1:
+	waitstate
+	end
+
+ScorchedDesert_FallThroughFloor_2:
+	warpholexy MAP_UNDERGROUND_RUINS, 5, 4
+	goto ScorchedDesert_FallThroughFloor_1
+
+ScorchedDesert_FallThroughFloor_3:
+	warpholexy MAP_UNDERGROUND_RUINS, 73, 4
+	goto ScorchedDesert_FallThroughFloor_1
+
+ScorchedDesert_FallThroughFloor_4:
+	warpholexy MAP_UNDERGROUND_RUINS, 24, 63
+	goto ScorchedDesert_FallThroughFloor_1
+
+ScorchedDesert_FallThroughFloor_5:
+	warpholexy MAP_UNDERGROUND_RUINS, 79, 57
+	goto ScorchedDesert_FallThroughFloor_1
+
+ScorchedDesert_FallThroughFloor_6:
+	compare VAR_TEMP_2 <= 37, 0
+	goto_if_ne ScorchedDesert_FallThroughFloor_5
+	goto ScorchedDesert_FallThroughFloor_1
+
+ScorchedDesert_FallThroughFloor_9:
+	compare VAR_TEMP_2 > 37, 0
+	goto_if_ne ScorchedDesert_FallThroughFloor_4
+	goto ScorchedDesert_FallThroughFloor_7
+
+ScorchedDesert_FallThroughFloor_12:
+	compare VAR_TEMP_2 > 37, 0
+	goto_if_ne ScorchedDesert_FallThroughFloor_3
+	goto ScorchedDesert_FallThroughFloor_10
+
+ScorchedDesert_FallThroughFloor_15:
+	compare VAR_TEMP_2 <= 37, 0
+	goto_if_ne ScorchedDesert_FallThroughFloor_2
+	goto ScorchedDesert_FallThroughFloor_13
+
+
+ScorchedDesert_FallThroughFloorMovement:
+	set_invisible
+	step_end
 
 DesertEntrance_Text_0:
 	.string "This place is still work in progress.\n"
@@ -82,19 +224,16 @@ Desert_TriggerEntrance_Text_0:
 	.string "triggered$"
 
 ScorchedDesert_TriggerQuakes_Text_0:
-	.string "you feel the sand shifting sligthly below your feet$"
+	.string "You can feel the ground\nshaking slightly.$"
 
 ScorchedDesert_TriggerQuakes_Text_1:
-	.string "the shifting of the sand is getting stronger$"
+	.string "The shaking seems to be growing\nin magnitude.$"
 
 ScorchedDesert_TriggerQuakes_Text_2:
-	.string "desert var is now 3$"
+	.string "You notice the sand shifting below\nyour feet as the shaking continues.$"
 
 ScorchedDesert_TriggerQuakes_Text_3:
-	.string "desert var is now 4$"
+	.string "The shaking seems to be intensifying.$"
 
 ScorchedDesert_TriggerQuakes_Text_4:
-	.string "desert var is now 5$"
-
-ScorchedDesert_TriggerQuakes_Text_5:
-	.string "desert var is now 6$"
+	.string "It's an earthquake!$"

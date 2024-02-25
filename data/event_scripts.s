@@ -1248,3 +1248,19 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/UndergroundRuins/scripts.inc"
 
 	.include "data/maps/MarigorgeTown/scripts.inc"
+
+	.include "data/maps/Marigorge_Mart/scripts.inc"
+
+	.include "data/maps/Marigorge_Pokecenter_1F/scripts.inc"
+
+	.include "data/maps/Marigorge_Pokecenter_2F/scripts.inc"
+
+	.include "data/maps/Marigorge_SmallHouse1/scripts.inc"
+
+	.include "data/maps/Marigorge_SmallHouse2/scripts.inc"
+
+	.include "data/maps/UndergroundRuins_1F/scripts.inc"
+
+	.include "data/maps/UndergroundRuins_3F/scripts.inc"
+
+	.include "data/maps/UndergroundRuins_VolcaronaRoom/scripts.inc"

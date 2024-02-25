@@ -9,6 +9,7 @@
     "gMapGroup_IndoorAldeleafCity",
     "gMapGroup_IndoorSkylochVillage",
     "gMapGroup_IndoorShoreslateCity",
+    "gMapGroup_IndoorMarigorgeTown",
     "gMapGroup_IndoorLittleroot",
     "gMapGroup_IndoorOldale",
     "gMapGroup_IndoorDewford",
@@ -68,7 +69,10 @@
     "WeirdCavePt2",
     "Route7_Grotto",
     "Route8",
-    "UndergroundRuins"
+    "UndergroundRuins",
+    "UndergroundRuins_1F",
+    "UndergroundRuins_3F",
+    "UndergroundRuins_VolcaronaRoom"
   ],
   "gMapGroup_TownsAndCities": [
     "PearlwoodPoint",
@@ -90,8 +94,7 @@
     "Pearlwood_House1",
     "Pearlwood_House2",
     "PearlwoodHouse2_2F",
-    "Pearlwood_House3",
-    "VerdanturfTown_House"
+    "Pearlwood_House3"
   ],
   "gMapGroup_IndoorPrimroseTown": [
     "OldaleTown_PokemonCenter_1F",
@@ -115,6 +118,7 @@
     "CoralgroveElevatorInt",
     "CoralgroveElevatorInt2",
     "CoralgroveHarvorInterior",
+    "VerdanturfTown_House",
     "CoralHarborHouse"
   ],
   "gMapGroup_IndoorAzuretideTown": [
@@ -167,6 +171,13 @@
     "RustboroCity_DevonCorp_2F",
     "RustboroCity_DevonCorp_3F",
     "DevonCorpBasement"
+  ],
+  "gMapGroup_IndoorMarigorgeTown": [
+    "Marigorge_Mart",
+    "Marigorge_Pokecenter_1F",
+    "Marigorge_Pokecenter_2F",
+    "Marigorge_SmallHouse1",
+    "Marigorge_SmallHouse2"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
