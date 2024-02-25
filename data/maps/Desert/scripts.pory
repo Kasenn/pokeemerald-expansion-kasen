@@ -1,12 +1,15 @@
 mapscripts Desert_MapScripts{
-    MAP_SCRIPT_ON_TRANSITION: DesertVarSet
 }
 
-script DesertVarSet{
-    if(var(VAR_TEMP_DESERTRUINSFOUND) >= 6){
-        end
-    }
+script DesertQuakesOn{
     setflag(FLAG_DESERT_STEPS)
+    release
+    end
+}
+script DesertQuakesOff{
+    clearflag(FLAG_DESERT_STEPS)
+    release
+    end
 }
 
 script DesertEntrance{
@@ -135,17 +138,21 @@ script ScorchedDesert_FallThroughFloor{
 	waitmovement(0)
 	playse(SE_FALL)
 	delay(60)
-    if ((var(VAR_TEMP_1 <= 31)) && (var(VAR_TEMP_2 <= 37))){
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if ((var(VAR_TEMP_1) <= 31) && (var(VAR_TEMP_2) <= 37)){
         warpholexy(MAP_UNDERGROUND_RUINS, 5, 4)
     }
-    elif ((var(VAR_TEMP_1 > 31)) && (var(VAR_TEMP_2 > 37))){
+    elif ((var(VAR_TEMP_1) > 31) && (var(VAR_TEMP_2) > 37)){
         warpholexy(MAP_UNDERGROUND_RUINS, 79, 57)
     }
-    elif ((var(VAR_TEMP_1 <= 31)) && (var(VAR_TEMP_2 > 37))){
+    elif ((var(VAR_TEMP_1) <= 31) && (var(VAR_TEMP_2) > 37)){
         warpholexy(MAP_UNDERGROUND_RUINS, 24, 63)
     }
-    elif ((var(VAR_TEMP_1 > 31)) && (var(VAR_TEMP_2 <= 37))){
+    elif ((var(VAR_TEMP_1) > 31) && (var(VAR_TEMP_2) <= 37)){
         warpholexy(MAP_UNDERGROUND_RUINS, 73, 4)
+    }
+    else{
+        msgbox("something borked")
     }
 	waitstate
 	end
@@ -154,4 +161,11 @@ script ScorchedDesert_FallThroughFloor{
 movement ScorchedDesert_FallThroughFloorMovement{
 	set_invisible
 	step_end
+}
+
+script printplayercoords{
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    buffernumberstring(STR_VAR_1, VAR_TEMP_1)
+    buffernumberstring(STR_VAR_2, VAR_TEMP_2)
+    msgbox("{STR_VAR_1},{STR_VAR_2}", MSGBOX_NPC)
 }

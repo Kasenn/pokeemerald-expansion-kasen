@@ -852,19 +852,19 @@ static const u8 sPrettyFeatherDesc[] = _(
     "does nothing.");
 
 static const u8 sRelicCopperDesc[] = _(
-    "A copper coin used\n"
-    "long ago. It sells\n"
-    "at a high price.");
+    "An ancient copper\n"
+    "coin. It is coveted\n"
+    "by collectors.");
 
 static const u8 sRelicSilverDesc[] = _(
-    "A silver coin used\n"
-    "long ago. It sells\n"
-    "at a high price.");
+    "An ancient silver\n"
+    "coin. It is coveted\n"
+    "by collectors.");
 
 static const u8 sRelicGoldDesc[] = _(
-    "A gold coin used\n"
-    "long ago. It sells\n"
-    "at a high price.");
+    "An ancient gold\n"
+    "coin. It is coveted\n"
+    "by collectors.");
 
 static const u8 sRelicVaseDesc[] = _(
     "A vase made long\n"

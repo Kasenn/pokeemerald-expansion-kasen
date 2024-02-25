@@ -114,22 +114,30 @@ Debug_Script_4::
 	end
 
 Debug_Script_5::
-	call SpawnHoleOnPlayer
-	special DrawWholeMapView
+	buffernumberstring STR_VAR_1, VAR_ITEM_ID
+	msgbox weirdcaveplayerxy, MSGBOX_NPC
 	end
 
 weirdcavesteps:
 	.string "{STR_VAR_1}$"
 
 Debug_Script_6::
-	getplayerxy VAR_TEMP_0, VAR_TEMP_1
-	buffernumberstring STR_VAR_1, VAR_TEMP_0
-	buffernumberstring STR_VAR_2, VAR_TEMP_1
-	msgbox weirdcaveplayerxy, MSGBOX_NPC
+	msgbox showmedamprock, MSGBOX_NPC
+	waitmessage
+	closemessage
+	fadescreen FADE_TO_BLACK
+	closemessage
+	special Bag_ChooseFossil
+	waitstate
+	call isthisadamprock
+	release
 	end
 
 weirdcaveplayerxy:
-	.string "{STR_VAR_1}, {STR_VAR_2}$"
+	.string "{STR_VAR_1}$"
+
+showmedamprock:
+	.string "show me damp rock.$"
 
 Debug_Script_7::
 	setflag FLAG_INCREASED_SHINY_ODDS

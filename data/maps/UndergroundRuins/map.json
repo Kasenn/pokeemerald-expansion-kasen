@@ -24,8 +24,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "UndergroundRuinsLootRelic",
+      "flag": "FLAG_UNDERGROUNDRUINS_ITEM1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -37,8 +37,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "UndergroundRuinsLootRelic",
+      "flag": "FLAG_UNDERGROUNDRUINS_ITEM6"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -50,8 +50,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "UndergroundRuinsLootRelic",
+      "flag": "FLAG_UNDERGROUNDRUINS_ITEM5"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -63,8 +63,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "UndergroundRuinsLootRelic",
+      "flag": "FLAG_UNDERGROUNDRUINS_ITEM4"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -76,8 +76,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "UndergroundRuinsLootRelic",
+      "flag": "FLAG_UNDERGROUNDRUINS_ITEM14"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -89,8 +89,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "UndergroundRuinsLootRelic",
+      "flag": "FLAG_UNDERGROUNDRUINS_ITEM13"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -102,8 +102,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "UndergroundRuinsLootRelic",
+      "flag": "FLAG_UNDERGROUNDRUINS_ITEM10"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -115,8 +115,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "UndergroundRuinsLootRelic",
+      "flag": "FLAG_UNDERGROUNDRUINS_ITEM11"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FOSSIL",
@@ -129,6 +129,45 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
+      "flag": "FLAG_DESERT_RUINS_OPENED"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 48,
+      "y": 68,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 41,
+      "y": 68,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
+      "x": 48,
+      "y": 69,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_RockSmash",
       "flag": "0"
     }
   ],
@@ -282,7 +321,150 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 12,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CheckForEscapeRope"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CheckForEscapeRope"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CheckForEscapeRope"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CheckForEscapeRope"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 55,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CheckForEscapeRope"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 56,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CheckForEscapeRope"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 57,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CheckForEscapeRope"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 56,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CheckForEscapeRope"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 55,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CheckForEscapeRope"
+    },
+    {
+      "type": "trigger",
+      "x": 70,
+      "y": 57,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CheckForEscapeRope"
+    },
+    {
+      "type": "trigger",
+      "x": 69,
+      "y": 58,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CheckForEscapeRope"
+    },
+    {
+      "type": "trigger",
+      "x": 69,
+      "y": 57,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CheckForEscapeRope"
+    },
+    {
+      "type": "trigger",
+      "x": 67,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CheckForEscapeRope"
+    },
+    {
+      "type": "trigger",
+      "x": 66,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CheckForEscapeRope"
+    },
+    {
+      "type": "trigger",
+      "x": 64,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CheckForEscapeRope"
+    },
+    {
+      "type": "trigger",
+      "x": 64,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CheckForEscapeRope"
+    }
   ],
   "bg_events": [
     {
@@ -290,64 +472,64 @@
       "x": 21,
       "y": 10,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1"
+      "item": "ITEM_RELIC_COPPER",
+      "flag": "FLAG_UNDERGROUNDRUINS_ITEM3"
     },
     {
       "type": "hidden_item",
       "x": 5,
       "y": 15,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1"
+      "item": "ITEM_RELIC_SILVER",
+      "flag": "FLAG_UNDERGROUNDRUINS_ITEM2"
     },
     {
       "type": "hidden_item",
       "x": 15,
       "y": 69,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1"
+      "item": "ITEM_RELIC_SILVER",
+      "flag": "FLAG_UNDERGROUNDRUINS_ITEM8"
     },
     {
       "type": "hidden_item",
       "x": 3,
       "y": 70,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1"
+      "item": "ITEM_RELIC_COPPER",
+      "flag": "FLAG_UNDERGROUNDRUINS_ITEM7"
     },
     {
       "type": "hidden_item",
       "x": 65,
       "y": 72,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1"
+      "item": "ITEM_RELIC_COPPER",
+      "flag": "FLAG_UNDERGROUNDRUINS_ITEM16"
     },
     {
       "type": "hidden_item",
       "x": 77,
       "y": 66,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1"
+      "item": "ITEM_RELIC_SILVER",
+      "flag": "FLAG_UNDERGROUNDRUINS_ITEM15"
     },
     {
       "type": "hidden_item",
       "x": 73,
       "y": 15,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1"
+      "item": "ITEM_RELIC_SILVER",
+      "flag": "FLAG_UNDERGROUNDRUINS_ITEM12"
     },
     {
       "type": "hidden_item",
       "x": 58,
       "y": 9,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1"
+      "item": "ITEM_RELIC_COPPER",
+      "flag": "FLAG_UNDERGROUNDRUINS_ITEM9"
     }
   ]
 }

@@ -6,3 +6,127 @@ script MariGorgeSetFlag{
     setflag(FLAG_VISITED_MARIGORGE)
     end
 }
+
+script Aldeleaf_MuseumCurator{
+    lockall
+    faceplayer
+    if(var(VAR_TEMP_1) == 1){
+        checkitem(ITEM_RELIC_COPPER)
+        if(var(VAR_RESULT) == TRUE){
+            goto(SellCopperRelic)
+        }
+        checkitem(ITEM_RELIC_SILVER)
+        if(var(VAR_RESULT) == TRUE){
+            goto(SellSilverRelic)
+        }
+        checkitem(ITEM_RELIC_GOLD)
+        if(var(VAR_RESULT) == TRUE){
+            goto(SellGoldRelic)
+        }
+    }
+    msgbox(Aldeleaf_MuseumCurator_Intro, MSGBOX_DEFAULT)
+    setvar(VAR_TEMP_1, 1)
+    checkitem(ITEM_RELIC_COPPER)
+    if(var(VAR_RESULT) == TRUE){
+        goto(SellCopperRelic)
+    }
+    checkitem(ITEM_RELIC_SILVER)
+    if(var(VAR_RESULT) == TRUE){
+        goto(SellSilverRelic)
+    }
+    checkitem(ITEM_RELIC_GOLD)
+    if(var(VAR_RESULT) == TRUE){
+        goto(SellGoldRelic)
+    }
+    release
+    end
+}
+
+script SellCopperRelic{
+    playse(SE_PIN)
+    applymovement(2, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    delay(40)
+    msgbox(YouHaveCopper, MSGBOX_DEFAULT)
+    showmoneybox(0, 0)
+    msgbox(WouldYouLikeToSellCopper, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(MuseumThatsAShame, MSGBOX_NPC)
+        end
+    }
+    else{
+        addvar(VAR_RELIC_SOLD, 1)
+        addmoney(1000)
+        playse(SE_SHOP)
+        updatemoneybox
+        removeitem(ITEM_RELIC_COPPER, 1)
+        msgbox(MuseumThanksForArtifact, MSGBOX_NPC)
+        end
+    }
+}
+
+script SellSilverRelic{
+    playse(SE_PIN)
+    applymovement(2, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    delay(40)
+    msgbox(YouHaveSilver, MSGBOX_DEFAULT)
+    showmoneybox(0, 0)
+    msgbox(WouldYouLikeToSellSilver, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(MuseumThatsAShame, MSGBOX_NPC)
+        end
+    }
+    else{
+        addvar(VAR_RELIC_SOLD, 1)
+        addmoney(5000)
+        playse(SE_SHOP)
+        updatemoneybox
+        removeitem(ITEM_RELIC_SILVER, 1)
+        msgbox(MuseumThanksForArtifact, MSGBOX_NPC)
+        end
+    }
+}
+
+script SellGoldRelic{
+    playse(SE_PIN)
+    applymovement(2, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    delay(40)
+    msgbox(YouHaveGold, MSGBOX_DEFAULT)
+    showmoneybox(0, 0)
+    msgbox(WouldYouLikeToSellGold, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(MuseumThatsAShame, MSGBOX_NPC)
+        end
+    }
+    else{
+        addvar(VAR_RELIC_SOLD, 1)
+        addmoney(10000)
+        playse(SE_SHOP)
+        updatemoneybox
+        removeitem(ITEM_RELIC_GOLD, 1)
+        msgbox(MuseumThanksForArtifact, MSGBOX_NPC)
+        end
+    }
+}
+
+text Aldeleaf_MuseumCurator_Intro{
+    "I'm the curator of this museum of\n"
+	"fine arts.\p"
+	"It's heartening to see someone so\n"
+	"young as you in our museum.\p"
+	"I bet you're curious about what\n"
+	"lies up these stairs.\p"
+	"Unfortunately we are still setting\n"
+	"things up, so I can't let you pass."
+}
+
+text YouHaveCopper{""}
+text WouldYouLikeToSellCopper{""}
+text YouHaveSilver{""}
+text WouldYouLikeToSellSilver{""}
+text YouHaveGold{""}
+text WouldYouLikeToSellGold{""}
+text MuseumThatsAShame{""}
+text MuseumThanksForArtifact{""}
