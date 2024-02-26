@@ -2,6 +2,15 @@ mapscripts UndergroundRuins_MapScripts{
     MAP_SCRIPT_ON_FRAME_TABLE: CaveHole_CheckFallDownHole
 	MAP_SCRIPT_ON_TRANSITION: CaveHole_FixCrackedGround
     MAP_SCRIPT_ON_RESUME: UndergroundRuinsSetHoleWarp
+    MAP_SCRIPT_ON_LOAD: UndergroundRuins_OnLoad
+}
+
+script UndergroundRuins_OnLoad{
+    if(flag(FLAG_DESERT_RUINS_OPENED)){
+        setmetatile(55, 49, 0x20E, FALSE)
+        setmetatile(55, 50, 0x216, FALSE)
+    }
+    end
 }
 
 script UndergroundRuinsSetHoleWarp{
@@ -38,13 +47,138 @@ script CheckForEscapeRope{
     end
 }
 
-script isthisadamprock{
-    if(var(VAR_ITEM_ID) == 447){
-        msgbox("that's a damp rock", MSGBOX_DEFAULT)
-    }
-    else{
-        msgbox("that's not a damp rock", MSGBOX_DEFAULT)
-    }
+script UndergroundSandstormTM{
+    finditem(ITEM_TM37)
+    end
 }
 
+script UndergroundRuinsFossil{
+    lockall
+    msgbox(FossilInWall, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        closemessage
+        release
+        end
+    }
+    else{
+        setflag(FLAG_DESERT_RUINS_OPENED)
+        random(11)
+        switch(var(VAR_RESULT)){
+            case 0:
+                goto(LootHelix)
+            case 1:
+                goto(LootDome)
+            case 2:
+                goto(LootOldAmber)
+            case 3:
+                goto(LootRoot)
+            case 4:
+                goto(LootClaw)
+            case 5:
+                goto(LootSkull)
+            case 6:
+                goto(LootArmor)
+            case 7:
+                goto(LootCover)
+            case 8:
+                goto(LootPlume)
+            case 9:
+                goto(LootJaw)
+            case 10:
+                goto(LootSail)
+        }
+    }
+}
+text FossilInWall{
+    "There's a fossil of a Pokémon wedged\n"
+    "in a small hole on the wall.\p"
+    "Would you like to try and pry it\n"
+    "from the wall?\l"
+    "This could affect the stability of\l"
+    "the desert around the ruins."
+}
 
+script LootHelix{
+    finditem(ITEM_HELIX_FOSSIL)
+    setflag(FLAG_OBTAINED_HELIX_FOSSIL)
+    goto(QuakeAfterFossil)
+}
+script LootDome{
+    finditem(ITEM_DOME_FOSSIL)
+    setflag(FLAG_OBTAINED_DOME_FOSSIL)
+    goto(QuakeAfterFossil)
+}
+script LootOldAmber{
+    finditem(ITEM_OLD_AMBER)
+    setflag(FLAG_OBTAINED_OLDAMBER_FOSSIL)
+    goto(QuakeAfterFossil)
+}
+script LootRoot{
+    finditem(ITEM_ROOT_FOSSIL)
+    setflag(FLAG_OBTAINED_ROOT_FOSSIL)
+    goto(QuakeAfterFossil)
+}
+script LootClaw{
+    finditem(ITEM_CLAW_FOSSIL)
+    setflag(FLAG_OBTAINED_CLAW_FOSSIL)
+    goto(QuakeAfterFossil)
+}
+script LootSkull{
+    finditem(ITEM_SKULL_FOSSIL)
+    setflag(FLAG_OBTAINED_SKULL_FOSSIL)
+    goto(QuakeAfterFossil)
+}
+script LootArmor{
+    finditem(ITEM_ARMOR_FOSSIL)
+    setflag(FLAG_OBTAINED_ARMOR_FOSSIL)
+    goto(QuakeAfterFossil)
+}
+script LootCover{
+    finditem(ITEM_COVER_FOSSIL)
+    setflag(FLAG_OBTAINED_COVER_FOSSIL)
+    goto(QuakeAfterFossil)
+}
+script LootPlume{
+    finditem(ITEM_PLUME_FOSSIL)
+    setflag(FLAG_OBTAINED_PLUME_FOSSIL)
+    goto(QuakeAfterFossil)
+}
+script LootJaw{
+    finditem(ITEM_JAW_FOSSIL)
+    setflag(FLAG_OBTAINED_JAW_FOSSIL)
+    goto(QuakeAfterFossil)
+}
+script LootSail{
+    finditem(ITEM_SAIL_FOSSIL)
+    setflag(FLAG_OBTAINED_SAIL_FOSSIL)
+    goto(QuakeAfterFossil)
+}
+
+script QuakeAfterFossil{
+    fadeoutbgm(0)
+    delay(60)
+    playse(SE_M_EARTHQUAKE)
+    setvar(VAR_0x8004, 2)  // vertical pan
+    setvar(VAR_0x8005, 2)  // horizontal pan
+    setvar(VAR_0x8006, 30)  // num shakes
+    setvar(VAR_0x8007, 3)  // shake delay
+    special(ShakeCamera)
+    waitstate
+    waitse
+    delay(120)
+    playse(SE_SWITCH)
+    setmetatile(55, 49, 0x20E, FALSE)
+    setmetatile(55, 50, 0x216, FALSE)
+    special(DrawWholeMapView)
+    setvar(VAR_0x8004, 2)  // vertical pan
+    setvar(VAR_0x8005, 2)  // horizontal pan
+    setvar(VAR_0x8006, 4)  // num shakes
+    setvar(VAR_0x8007, 3)  // shake delay
+    special(ShakeCamera)
+    waitstate
+    delay(30)
+    fadeinbgm(0)
+    delay(60)
+    release
+    end
+}

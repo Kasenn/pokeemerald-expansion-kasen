@@ -1,5 +1,4 @@
-mapscripts Desert_MapScripts{
-}
+mapscripts Desert_MapScripts{}
 
 script DesertQuakesOn{
     setflag(FLAG_DESERT_STEPS)
@@ -18,25 +17,6 @@ script DesertEntrance{
     "no trainers here and even the terrain\l"
     "is still under construction in places.\p"
     "Wild encounters should be working.", MSGBOX_NPC)
-    end
-}
-
-script Desert_RuinsFound{
-    release
-    random(200)
-    if(var(VAR_RESULT) <= 1){
-        goto(Desert_TriggerEntrance)
-    }
-    else{
-        release
-        end
-    }
-}
-
-script Desert_TriggerEntrance{
-    msgbox("triggered", MSGBOX_DEFAULT)
-    closemessage
-    release
     end
 }
 
@@ -110,6 +90,7 @@ script ScorchedDesert_TriggerQuakes{
             waitse
             delay(30)
             closemessage
+            setvar(VAR_TEMP_DESERTRUINSFOUND, 0)
             delay(10)
             playse(SE_SWITCH)
             getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
@@ -122,15 +103,6 @@ script ScorchedDesert_TriggerQuakes{
     releaseall
     end
 }
-
-script SpawnHoleOnPlayer{
-    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
-    setmetatile(VAR_TEMP_1, VAR_TEMP_2, 0x3DF, FALSE)
-    setobjectxy(OBJ_EVENT_ID_PLAYER, VAR_TEMP_1, VAR_TEMP_2)
-    special(DrawWholeMapView)
-    end
-}
-
 script ScorchedDesert_FallThroughFloor{
 	lockall
 	delay(20)
@@ -157,15 +129,170 @@ script ScorchedDesert_FallThroughFloor{
 	waitstate
 	end
 }
-
 movement ScorchedDesert_FallThroughFloorMovement{
 	set_invisible
 	step_end
 }
 
-script printplayercoords{
-    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
-    buffernumberstring(STR_VAR_1, VAR_TEMP_1)
-    buffernumberstring(STR_VAR_2, VAR_TEMP_2)
-    msgbox("{STR_VAR_1},{STR_VAR_2}", MSGBOX_NPC)
+script DesertItem1{
+    finditem(ITEM_TM49)
+    end
 }
+script DesertItem2{
+    finditem(ITEM_HEART_SCALE)
+    end
+}
+script DesertItem3{
+    finditem(ITEM_ELIXIR)
+    end
+}
+
+script Desert_Trainer1_Camper {
+    trainerbattle_single(TRAINER_DESERT_TR1_CAMPER, Desert_Trainer1_Camper_Intro, Desert_Trainer1_Camper_Defeat, DesertTrainer_IncreaseVar)
+    msgbox(Desert_Trainer1_Camper_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text Desert_Trainer1_Camper_Intro{""}
+text Desert_Trainer1_Camper_Defeat{""}
+text Desert_Trainer1_Camper_PostBattle{""}
+
+script Desert_Trainer2_Camper2 {
+    trainerbattle_single(TRAINER_DESERT_TR2_CAMPER2, Desert_Trainer2_Camper2_Intro, Desert_Trainer2_Camper2_Defeat, DesertTrainer_IncreaseVar)
+    msgbox(Desert_Trainer2_Camper2_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+
+text Desert_Trainer2_Camper2_Intro{""}
+text Desert_Trainer2_Camper2_Defeat{""}
+text Desert_Trainer2_Camper2_PostBattle{""}
+
+script Desert_Trainer3_Picnicker {
+    trainerbattle_single(TRAINER_DESERT_TR3_PICNICKER, Desert_Trainer3_Picnicker_Intro, Desert_Trainer3_Picnicker_Defeat, DesertTrainer_IncreaseVar)
+    msgbox(Desert_Trainer3_Picnicker_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+
+text Desert_Trainer3_Picnicker_Intro{""}
+text Desert_Trainer3_Picnicker_Defeat{""}
+text Desert_Trainer3_Picnicker_PostBattle{""}
+
+script Desert_Trainer4_Picnicker2 {
+    trainerbattle_single(TRAINER_DESERT_TR4_PICNICKER2, Desert_Trainer4_Picnicker2_Intro, Desert_Trainer4_Picnicker2_Defeat, DesertTrainer_IncreaseVar)
+    msgbox(Desert_Trainer4_Picnicker2_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+
+text Desert_Trainer4_Picnicker2_Intro{""}
+text Desert_Trainer4_Picnicker2_Defeat{""}
+text Desert_Trainer4_Picnicker2_PostBattle{""}
+
+script Desert_Trainer5_Hiker {
+    trainerbattle_single(TRAINER_DESERT_TR5_HIKER, Desert_Trainer5_Hiker_Intro, Desert_Trainer5_Hiker_Defeat, DesertTrainer_IncreaseVar)
+    msgbox(Desert_Trainer5_Hiker_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+
+text Desert_Trainer5_Hiker_Intro{""}
+text Desert_Trainer5_Hiker_Defeat{""}
+text Desert_Trainer5_Hiker_PostBattle{""}
+
+script Desert_Trainer6_Blackbelt {
+    trainerbattle_single(TRAINER_DESERT_TR6_BLACKBELT, Desert_Trainer6_Blackbelt_Intro, Desert_Trainer6_Blackbelt_Defeat, DesertTrainer_IncreaseVar)
+    msgbox(Desert_Trainer6_Blackbelt_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+
+text Desert_Trainer6_Blackbelt_Intro{""}
+text Desert_Trainer6_Blackbelt_Defeat{""}
+text Desert_Trainer6_Blackbelt_PostBattle{""}
+
+script Desert_Trainer7_Picnicker3 {
+    trainerbattle_single(TRAINER_DESERT_TR7_PICNICKER3, Desert_Trainer7_Picnicker3_Intro, Desert_Trainer7_Picnicker3_Defeat, DesertTrainer_IncreaseVar)
+    msgbox(Desert_Trainer7_Picnicker3_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+
+text Desert_Trainer7_Picnicker3_Intro{""}
+text Desert_Trainer7_Picnicker3_Defeat{""}
+text Desert_Trainer7_Picnicker3_PostBattle{""}
+
+script Desert_Trainer8_Hiker2 {
+    trainerbattle_single(TRAINER_DESERT_TR8_HIKER2, Desert_Trainer8_Hiker2_Intro, Desert_Trainer8_Hiker2_Defeat, DesertTrainer_IncreaseVar)
+    msgbox(Desert_Trainer8_Hiker2_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+
+text Desert_Trainer8_Hiker2_Intro{""}
+text Desert_Trainer8_Hiker2_Defeat{""}
+text Desert_Trainer8_Hiker2_PostBattle{""}
+
+script Desert_Trainer9_Hiker3 {
+    trainerbattle_single(TRAINER_DESERT_TR9_HIKER3, Desert_Trainer9_Hiker3_Intro, Desert_Trainer9_Hiker3_Defeat, DesertTrainer_IncreaseVar)
+    msgbox(Desert_Trainer9_Hiker3_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+
+text Desert_Trainer9_Hiker3_Intro{""}
+text Desert_Trainer9_Hiker3_Defeat{""}
+text Desert_Trainer9_Hiker3_PostBattle{""}
+
+script Desert_Trainer10_Firebreather {
+    trainerbattle_single(TRAINER_DESERT_TR10_FIREBREATHER, Desert_Trainer10_Firebreather_Intro, Desert_Trainer10_Firebreather_Defeat, DesertTrainer_IncreaseVar)
+    msgbox(Desert_Trainer10_Firebreather_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+
+text Desert_Trainer10_Firebreather_Intro{""}
+text Desert_Trainer10_Firebreather_Defeat{""}
+text Desert_Trainer10_Firebreather_PostBattle{""}
+
+script Desert_Trainer11_Blackbelt2 {
+    trainerbattle_single(TRAINER_DESERT_TR11_BLACKBELT2, Desert_Trainer11_Blackbelt2_Intro, Desert_Trainer11_Blackbelt2_Defeat, DesertTrainer_IncreaseVar)
+    msgbox(Desert_Trainer11_Blackbelt2_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+
+text Desert_Trainer11_Blackbelt2_Intro{""}
+text Desert_Trainer11_Blackbelt2_Defeat{""}
+text Desert_Trainer11_Blackbelt2_PostBattle{""}
+
+script Desert_Trainer12_Hiker4 {
+    trainerbattle_single(TRAINER_DESERT_TR12_HIKER4, Desert_Trainer12_Hiker4_Intro, Desert_Trainer12_Hiker4_Defeat, DesertTrainer_IncreaseVar)
+    msgbox(Desert_Trainer12_Hiker4_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+
+text Desert_Trainer12_Hiker4_Intro{""}
+text Desert_Trainer12_Hiker4_Defeat{""}
+text Desert_Trainer12_Hiker4_PostBattle{""}
+
+script Desert_Trainer13_Psychic_F {
+    trainerbattle_single(TRAINER_DESERT_TR13_PSYCHIC_F, Desert_Trainer13_Psychic_F_Intro, Desert_Trainer13_Psychic_F_Defeat, DesertTrainer_IncreaseVar)
+    msgbox(Desert_Trainer13_Psychic_F_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+
+text Desert_Trainer13_Psychic_F_Intro{""}
+text Desert_Trainer13_Psychic_F_Defeat{""}
+text Desert_Trainer13_Psychic_F_PostBattle{""}
+
+script Desert_Trainer14_Cooltrainer {
+    trainerbattle_single(TRAINER_DESERT_TR14_COOLTRAINER, Desert_Trainer14_Cooltrainer_Intro, Desert_Trainer14_Cooltrainer_Defeat, DesertTrainer_IncreaseVar)
+    msgbox(Desert_Trainer14_Cooltrainer_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+
+text Desert_Trainer14_Cooltrainer_Intro{""}
+text Desert_Trainer14_Cooltrainer_Defeat{""}
+text Desert_Trainer14_Cooltrainer_PostBattle{""}
+
+script Desert_QuakesAbout{
+    if(flag(FLAG_DESERT_RUINS_OPENED)){
+        msgbox(Desert_QuakesAbout_LessQuakes, MSGBOX_NPC)
+        end
+    }
+    msgbox(Desert_QuakesAbout_Text, MSGBOX_NPC)
+    end
+}
+text Desert_QuakesAbout_Text{""}
+text Desert_QuakesAbout_LessQuakes{""}

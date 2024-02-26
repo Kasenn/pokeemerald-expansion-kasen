@@ -705,33 +705,33 @@
 #define FLAG_RECEIVED_CYNDAQUIL  0x296 // Unused Flag
 #define FLAG_RECEIVED_TOTODILE  0x297 // Unused Flag
 #define FLAG_RECEIVED_CHIKORITA  0x298 // Unused Flag
-#define FLAG_UNUSED_0x299  0x299 // Unused Flag
-#define FLAG_UNUSED_0x29A  0x29A // Unused Flag
-#define FLAG_UNUSED_0x29B  0x29B // Unused Flag
-#define FLAG_UNUSED_0x29C  0x29C // Unused Flag
-#define FLAG_UNUSED_0x29D  0x29D // Unused Flag
-#define FLAG_UNUSED_0x29E  0x29E // Unused Flag
-#define FLAG_UNUSED_0x29F  0x29F // Unused Flag
-#define FLAG_UNUSED_0x2A0  0x2A0 // Unused Flag
-#define FLAG_UNUSED_0x2A1  0x2A1 // Unused Flag
-#define FLAG_UNUSED_0x2A2  0x2A2 // Unused Flag
-#define FLAG_UNUSED_0x2A3  0x2A3 // Unused Flag
-#define FLAG_UNUSED_0x2A4  0x2A4 // Unused Flag
-#define FLAG_UNUSED_0x2A5  0x2A5 // Unused Flag
-#define FLAG_UNUSED_0x2A6  0x2A6 // Unused Flag
-#define FLAG_UNUSED_0x2A7  0x2A7 // Unused Flag
-#define FLAG_UNUSED_0x2A8  0x2A8 // Unused Flag
-#define FLAG_UNUSED_0x2A9  0x2A9 // Unused Flag
-#define FLAG_UNUSED_0x2AA  0x2AA // Unused Flag
-#define FLAG_UNUSED_0x2AB  0x2AB // Unused Flag
-#define FLAG_UNUSED_0x2AC  0x2AC // Unused Flag
-#define FLAG_UNUSED_0x2AD  0x2AD // Unused Flag
-#define FLAG_UNUSED_0x2AE  0x2AE // Unused Flag
-#define FLAG_UNUSED_0x2AF  0x2AF // Unused Flag
-#define FLAG_UNUSED_0x2B0  0x2B0 // Unused Flag
-#define FLAG_UNUSED_0x2B1  0x2B1 // Unused Flag
-#define FLAG_UNUSED_0x2B2  0x2B2 // Unused Flag
-#define FLAG_UNUSED_0x2B3  0x2B3 // Unused Flag
+#define FLAG_VOLCARONA_FOUGHT  0x299 // Unused Flag
+#define FLAG_OBTAINED_HELIX_FOSSIL  0x29A // Unused Flag
+#define FLAG_OBTAINED_DOME_FOSSIL  0x29B // Unused Flag
+#define FLAG_OBTAINED_OLDAMBER_FOSSIL  0x29C // Unused Flag
+#define FLAG_OBTAINED_ROOT_FOSSIL  0x29D // Unused Flag
+#define FLAG_OBTAINED_CLAW_FOSSIL  0x29E // Unused Flag
+#define FLAG_OBTAINED_SKULL_FOSSIL  0x29F // Unused Flag
+#define FLAG_OBTAINED_ARMOR_FOSSIL  0x2A0 // Unused Flag
+#define FLAG_OBTAINED_COVER_FOSSIL  0x2A1 // Unused Flag
+#define FLAG_OBTAINED_PLUME_FOSSIL  0x2A2 // Unused Flag
+#define FLAG_OBTAINED_JAW_FOSSIL  0x2A3 // Unused Flag
+#define FLAG_OBTAINED_SAIL_FOSSIL  0x2A4 // Unused Flag
+#define FLAG_DESERT_ITEM1  0x2A5 // Unused Flag
+#define FLAG_DESERT_ITEM2  0x2A6 // Unused Flag
+#define FLAG_DESERT_ITEM3  0x2A7 // Unused Flag
+#define FLAG_DESERT_ITEM4  0x2A8 // Unused Flag
+#define FLAG_DESERT_ITEM5  0x2A9 // Unused Flag
+#define FLAG_DESERT_ITEM6  0x2AA // Unused Flag
+#define FLAG_DESERT_ITEM7  0x2AB // Unused Flag
+#define FLAG_DESERT_ITEM8  0x2AC // Unused Flag
+#define FLAG_DESERT_ITEM9  0x2AD // Unused Flag
+#define FLAG_DESERT_ITEM10  0x2AE // Unused Flag
+#define FLAG_ROUTE7_ITEM1  0x2AF // Unused Flag
+#define FLAG_ROUTE7_ITEM2  0x2B0 // Unused Flag
+#define FLAG_ROUTE7_ITEM3  0x2B1 // Unused Flag
+#define FLAG_ROUTE7_ITEM4  0x2B2 // Unused Flag
+#define FLAG_ROUTE7_ITEM5  0x2B3 // Unused Flag
 #define FLAG_UNUSED_0x2B4  0x2B4 // Unused Flag
 #define FLAG_UNUSED_0x2B5  0x2B5 // Unused Flag
 #define FLAG_UNUSED_0x2B6  0x2B6 // Unused Flag
@@ -1054,7 +1054,7 @@
 #define FLAG_ITEM_ROUTE_109_PP_UP                                   0x3ED
 #define FLAG_ITEM_ROUTE_110_RARE_CANDY                              0x3EE
 #define FLAG_ITEM_ROUTE_110_DIRE_HIT                                0x3EF
-#define FLAG_ITEM_ROUTE_111_TM_SANDSTORM                            0x3F0
+#define FLAG_ITEM_UNDERGROUNDRUINS_TM_SANDSTORM                            0x3F0
 #define FLAG_ITEM_ROUTE_111_STARDUST                                0x3F1
 #define FLAG_ITEM_ROUTE_111_HP_UP                                   0x3F2
 #define FLAG_ITEM_ROUTE_112_NUGGET                                  0x3F3

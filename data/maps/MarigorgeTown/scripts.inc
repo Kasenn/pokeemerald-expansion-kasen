@@ -13,135 +13,190 @@ Aldeleaf_MuseumCurator::
 	faceplayer
 	compare VAR_TEMP_1, 1
 	goto_if_eq Aldeleaf_MuseumCurator_2
-Aldeleaf_MuseumCurator_1:
 	msgbox Aldeleaf_MuseumCurator_Intro, MSGBOX_DEFAULT
-	setvar VAR_TEMP_1, 1
 	checkitem ITEM_RELIC_COPPER
 	compare VAR_RESULT, TRUE
-	goto_if_eq Aldeleaf_MuseumCurator_5
-Aldeleaf_MuseumCurator_4:
+	goto_if_eq Aldeleaf_MuseumCurator_9
+Aldeleaf_MuseumCurator_8:
 	checkitem ITEM_RELIC_SILVER
 	compare VAR_RESULT, TRUE
-	goto_if_eq Aldeleaf_MuseumCurator_11
-Aldeleaf_MuseumCurator_10:
+	goto_if_eq Aldeleaf_MuseumCurator_15
+Aldeleaf_MuseumCurator_14:
 	checkitem ITEM_RELIC_GOLD
 	compare VAR_RESULT, TRUE
-	goto_if_eq Aldeleaf_MuseumCurator_17
-Aldeleaf_MuseumCurator_16:
+	goto_if_eq Aldeleaf_MuseumCurator_20
+Aldeleaf_MuseumCurator_1:
 	release
 	end
 
 Aldeleaf_MuseumCurator_2:
 	checkitem ITEM_RELIC_COPPER
 	compare VAR_RESULT, TRUE
-	goto_if_eq Aldeleaf_MuseumCurator_8
-Aldeleaf_MuseumCurator_7:
+	goto_if_eq Aldeleaf_MuseumCurator_6
+Aldeleaf_MuseumCurator_5:
 	checkitem ITEM_RELIC_SILVER
 	compare VAR_RESULT, TRUE
-	goto_if_eq Aldeleaf_MuseumCurator_14
-Aldeleaf_MuseumCurator_13:
+	goto_if_eq Aldeleaf_MuseumCurator_12
+Aldeleaf_MuseumCurator_11:
 	checkitem ITEM_RELIC_GOLD
 	compare VAR_RESULT, TRUE
-	goto_if_eq Aldeleaf_MuseumCurator_19
-	goto Aldeleaf_MuseumCurator_1
+	goto_if_eq Aldeleaf_MuseumCurator_17
+	msgbox ThanksForContribution, MSGBOX_NPC
+	end
 
-Aldeleaf_MuseumCurator_5:
-	goto SellCopperRelic
-	goto Aldeleaf_MuseumCurator_4
+Aldeleaf_MuseumCurator_6:
+	goto SellRelicShort
+	goto Aldeleaf_MuseumCurator_5
 
-Aldeleaf_MuseumCurator_8:
-	goto SellCopperRelic
-	goto Aldeleaf_MuseumCurator_7
+Aldeleaf_MuseumCurator_9:
+	goto SellRelic
+	goto Aldeleaf_MuseumCurator_8
 
-Aldeleaf_MuseumCurator_11:
-	goto SellSilverRelic
-	goto Aldeleaf_MuseumCurator_10
+Aldeleaf_MuseumCurator_12:
+	goto SellRelicShort
+	goto Aldeleaf_MuseumCurator_11
 
-Aldeleaf_MuseumCurator_14:
-	goto SellSilverRelic
-	goto Aldeleaf_MuseumCurator_13
+Aldeleaf_MuseumCurator_15:
+	goto SellRelic
+	goto Aldeleaf_MuseumCurator_14
 
 Aldeleaf_MuseumCurator_17:
-	goto SellGoldRelic
-	goto Aldeleaf_MuseumCurator_16
+	goto SellRelicShort
+	goto Aldeleaf_MuseumCurator_1
 
-Aldeleaf_MuseumCurator_19:
-	goto SellGoldRelic
+Aldeleaf_MuseumCurator_20:
+	goto SellRelic
 	goto Aldeleaf_MuseumCurator_1
 
 
-SellCopperRelic::
+SellRelic::
 	playse SE_PIN
 	applymovement 2, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 40
-	msgbox YouHaveCopper, MSGBOX_DEFAULT
+	msgbox YouHaveARelicCoin, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq SellRelic_1
+	fadescreen FADE_TO_BLACK
+	closemessage
+	special Bag_ChooseFossil
+	waitstate
+	compare VAR_ITEM_ID, 157
+	goto_if_eq SellRelic_5
+SellRelic_4:
+	compare VAR_ITEM_ID, 158
+	goto_if_eq SellRelic_8
+SellRelic_7:
+	compare VAR_ITEM_ID, 159
+	goto_if_eq SellRelic_10
+	msgbox MuseumDontWantToSell, MSGBOX_NPC
+	end
+
+SellRelic_1:
+	msgbox MuseumThatsAShame, MSGBOX_NPC
+	end
+
+SellRelic_5:
+	goto SellCopper
+	goto SellRelic_4
+
+SellRelic_8:
+	goto SellSilver
+	goto SellRelic_7
+
+SellRelic_10:
+	goto SellGold
+	return
+
+
+SellRelicShort::
+	msgbox HereToSellMore, MSGBOX_DEFAULT
+	fadescreen FADE_TO_BLACK
+	closemessage
+	special Bag_ChooseFossil
+	waitstate
+	compare VAR_ITEM_ID, 157
+	goto_if_eq SellRelicShort_2
+SellRelicShort_1:
+	compare VAR_ITEM_ID, 158
+	goto_if_eq SellRelicShort_5
+SellRelicShort_4:
+	compare VAR_ITEM_ID, 159
+	goto_if_eq SellRelicShort_7
+	msgbox MuseumDontWantToSell, MSGBOX_NPC
+	end
+
+SellRelicShort_2:
+	goto SellCopper
+	goto SellRelicShort_1
+
+SellRelicShort_5:
+	goto SellSilver
+	goto SellRelicShort_4
+
+SellRelicShort_7:
+	goto SellGold
+	return
+
+
+SellCopper::
 	showmoneybox 0, 0
 	msgbox WouldYouLikeToSellCopper, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
-	goto_if_eq SellCopperRelic_1
+	goto_if_eq SellCopper_1
 	addvar VAR_RELIC_SOLD, 1
 	addmoney 1000
 	playse SE_SHOP
 	updatemoneybox
 	removeitem ITEM_RELIC_COPPER, 1
+	setvar VAR_TEMP_1, 1
 	msgbox MuseumThanksForArtifact, MSGBOX_NPC
+	hidemoneybox
 	end
 
-SellCopperRelic_1:
+SellCopper_1:
 	msgbox MuseumThatsAShame, MSGBOX_NPC
 	end
 
 
-SellSilverRelic::
-	playse SE_PIN
-	applymovement 2, Common_Movement_ExclamationMark
-	waitmovement 0
-	delay 40
-	msgbox YouHaveSilver, MSGBOX_DEFAULT
+SellSilver::
 	showmoneybox 0, 0
 	msgbox WouldYouLikeToSellSilver, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
-	goto_if_eq SellSilverRelic_1
+	goto_if_eq SellSilver_1
 	addvar VAR_RELIC_SOLD, 1
 	addmoney 5000
 	playse SE_SHOP
 	updatemoneybox
 	removeitem ITEM_RELIC_SILVER, 1
+	setvar VAR_TEMP_1, 1
 	msgbox MuseumThanksForArtifact, MSGBOX_NPC
+	hidemoneybox
 	end
 
-SellSilverRelic_1:
+SellSilver_1:
 	msgbox MuseumThatsAShame, MSGBOX_NPC
 	end
 
 
-SellGoldRelic::
-	playse SE_PIN
-	applymovement 2, Common_Movement_ExclamationMark
-	waitmovement 0
-	delay 40
-	msgbox YouHaveGold, MSGBOX_DEFAULT
+SellGold::
 	showmoneybox 0, 0
 	msgbox WouldYouLikeToSellGold, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
-	goto_if_eq SellGoldRelic_1
+	goto_if_eq SellGold_1
 	addvar VAR_RELIC_SOLD, 1
 	addmoney 10000
 	playse SE_SHOP
 	updatemoneybox
 	removeitem ITEM_RELIC_GOLD, 1
+	setvar VAR_TEMP_1, 1
 	msgbox MuseumThanksForArtifact, MSGBOX_NPC
+	hidemoneybox
 	end
 
-SellGoldRelic_1:
+SellGold_1:
 	msgbox MuseumThatsAShame, MSGBOX_NPC
 	end
-
-
-TestMacro6::
-	goto Apprentice_EventScript_UseWhatHeldItem
-	return
 
 
 Aldeleaf_MuseumCurator_Intro::
@@ -154,26 +209,46 @@ Aldeleaf_MuseumCurator_Intro::
 	.string "Unfortunately we are still setting\n"
 	.string "things up, so I can't let you pass.$"
 
-YouHaveCopper::
-	.string "$"
+MuseumDontWantToSell::
+	.string "Oh, so you're not looking to sell…$"
+
+YouHaveARelicCoin::
+	.string "You look like you've been to\n"
+	.string "the desert.\p"
+	.string "Have you found have any relic coins\n"
+	.string "you'd be like to contribute to\l"
+	.string "the museum?\l"
+	.string "You will be compensated, of course.$"
+
+HereToSellMore::
+	.string "Here to sell more relic coins?$"
+
+ThanksForContribution::
+	.string "Thank you for your contributions.\p"
+	.string "We hope to have our new exhibition\n"
+	.string "open as soon we have collected\l"
+	.string "enough exhibits.$"
 
 WouldYouLikeToSellCopper::
-	.string "$"
-
-YouHaveSilver::
-	.string "$"
+	.string "That's a genuine Relic Copper!\p"
+	.string "Would you like to sell it to\n"
+	.string "the museum for ¥1000?$"
 
 WouldYouLikeToSellSilver::
-	.string "$"
-
-YouHaveGold::
-	.string "$"
+	.string "That's a genuine Relic Silver!\p"
+	.string "Would you like to sell it to\n"
+	.string "the museum for ¥5000?$"
 
 WouldYouLikeToSellGold::
-	.string "$"
+	.string "That's a genuine Relic Gold!\p"
+	.string "Would you like to sell it to\n"
+	.string "the museum for ¥10000?$"
 
 MuseumThatsAShame::
-	.string "$"
+	.string "That's a shame…$"
 
 MuseumThanksForArtifact::
-	.string "$"
+	.string "The museum thanks you for your\n"
+	.string "contribution.\p"
+	.string "Let me know if you have more relics\n"
+	.string "you'd like to sell.$"

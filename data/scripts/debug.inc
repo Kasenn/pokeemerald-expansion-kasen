@@ -96,51 +96,18 @@ Debug_Script_2::
 	end
 
 Debug_Script_3::
-	trainerbattle_no_intro TRAINER_AUSTINA, LittlerootTown_RivalHouseSign_Text_0
 	end
 
-LittlerootTown_RivalHouseSign_1:
-	message LittlerootTown_RivalHouseSign_Text_0
-	return
-
-LittlerootTown_RivalHouseSign_Text_0:
-	.string "true$"
-
-LittlerootTown_RivalHouseSign_Text_1:
-	.string "false$"
-
 Debug_Script_4::
-	setmonmetlocation 0, MAP_ROUTE3
 	end
 
 Debug_Script_5::
-	buffernumberstring STR_VAR_1, VAR_ITEM_ID
-	msgbox weirdcaveplayerxy, MSGBOX_NPC
 	end
-
-weirdcavesteps:
-	.string "{STR_VAR_1}$"
 
 Debug_Script_6::
-	msgbox showmedamprock, MSGBOX_NPC
-	waitmessage
-	closemessage
-	fadescreen FADE_TO_BLACK
-	closemessage
-	special Bag_ChooseFossil
-	waitstate
-	call isthisadamprock
-	release
 	end
 
-weirdcaveplayerxy:
-	.string "{STR_VAR_1}$"
-
-showmedamprock:
-	.string "show me damp rock.$"
-
 Debug_Script_7::
-	setflag FLAG_INCREASED_SHINY_ODDS
 	end
 
 Debug_Script_8::

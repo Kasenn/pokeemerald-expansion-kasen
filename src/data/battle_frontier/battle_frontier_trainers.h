@@ -1992,7 +1992,7 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
         .speechLose = {EC_WORD_WHAT, EC_WORD_I_VE, EC_WORD_BEEN, EC_WORD_HEARING, EC_WORD_IS, EC_WORD_RIGHT},
         .monSet = gBattleFrontierTrainerMons_Emma
     },
-    [FRONTIER_TRAINER_ROLANDO] = {
+    [FRONTIER_TRAINER_DESERT_TR5_HIKERO] = {
         .facilityClass = FACILITY_CLASS_PSYCHIC_M,
         .trainerName = _("ROLANDO"),
         .speechBefore = {EC_WORD_I_AM, EC_WORD_A, EC_WORD_SUPER, EC_WORD_POKEMON, EC_WORD_HERO, EC_WORD_EXCL},
@@ -2000,7 +2000,7 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
         .speechLose = {EC_WORD_YOU, EC_WORD_SHOULD, EC_WORD_NOT, EC_WORD_BEAT, EC_WORD_A, EC_WORD_HERO},
         .monSet = gBattleFrontierTrainerMons_Rolando
     },
-    [FRONTIER_TRAINER_STANLY] = {
+    [FRONTIER_TRAINER_DESERT_TR7_PICNICKER3LY] = {
         .facilityClass = FACILITY_CLASS_PSYCHIC_M,
         .trainerName = _("STANLY"),
         .speechBefore = {EC_WORD_THIS, EC_WORD_SHOULD, EC_WORD_BE, EC_WORD_AN, EC_WORD_EASY, EC_WORD_MATCH},
