@@ -8589,7 +8589,7 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_DesertTr9_Hiker3dre),
+        .party = TRAINER_PARTY(sParty_Deandre),
     },
 
     [TRAINER_GRUNT_MAGMA_HIDEOUT_1] =

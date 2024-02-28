@@ -8,9 +8,18 @@ script Route7_Trainer1_Camper {
     end
 }
 
-text Route7_Trainer1_Camper_Intro{""}
-text Route7_Trainer1_Camper_Defeat{""}
-text Route7_Trainer1_Camper_PostBattle{""}
+text Route7_Trainer1_Camper_Intro{
+    "Only the strong can get through\n"
+    "the desert.\l"
+    "Let's see just how strong you are!"
+}
+text Route7_Trainer1_Camper_Defeat{
+    "Too strong!"
+}
+text Route7_Trainer1_Camper_PostBattle{
+    "I bet you had no trouble getting\n"
+    "through the desert."
+}
 
 script Route7_Trainer2_Picnicker {
     trainerbattle_single(TRAINER_R7_TR2_PICNICKER, Route7_Trainer2_Picnicker_Intro, Route7_Trainer2_Picnicker_Defeat)
@@ -18,9 +27,21 @@ script Route7_Trainer2_Picnicker {
     end
 }
 
-text Route7_Trainer2_Picnicker_Intro{""}
-text Route7_Trainer2_Picnicker_Defeat{""}
-text Route7_Trainer2_Picnicker_PostBattle{""}
+text Route7_Trainer2_Picnicker_Intro{
+    "I bought new boots, so I came\n"
+    "all this way to get them dirty.\p"
+    "You're right! If I have a battle,\n"
+    "they may get even dirtier!"
+}
+text Route7_Trainer2_Picnicker_Defeat{
+    "Oh! My boots got completely soaked\n"
+    "in the battle!"
+}
+text Route7_Trainer2_Picnicker_PostBattle{
+    "I hope you brought some boots as well.\n"
+    "Wading through all this mud\l"
+    "without proper gear will be a slog!"
+}
 
 script Route7_Trainer3_Ninjaboy {
     trainerbattle_single(TRAINER_R7_TR3_NINJABOY, Route7_Trainer3_Ninjaboy_Intro, Route7_Trainer3_Ninjaboy_Defeat)
@@ -28,9 +49,18 @@ script Route7_Trainer3_Ninjaboy {
     end
 }
 
-text Route7_Trainer3_Ninjaboy_Intro{""}
-text Route7_Trainer3_Ninjaboy_Defeat{""}
-text Route7_Trainer3_Ninjaboy_PostBattle{""}
+text Route7_Trainer3_Ninjaboy_Intro{
+    "Ninjas are swift as arrows!\n"
+    "No amount of mud will stop us!"
+}
+text Route7_Trainer3_Ninjaboy_Defeat{
+    "I may outmatch you in speed,\n"
+    "but not in strength…"
+}
+text Route7_Trainer3_Ninjaboy_PostBattle{
+    "Ninjas may be fast, but my Pokémon\n"
+    "clearly got slowed by the mud."
+}
 
 script Route7_Trainer4_Birdkeeper {
     trainerbattle_single(TRAINER_R7_TR4_BIRDKEEPER, Route7_Trainer4_Birdkeeper_Intro, Route7_Trainer4_Birdkeeper_Defeat)
@@ -38,9 +68,20 @@ script Route7_Trainer4_Birdkeeper {
     end
 }
 
-text Route7_Trainer4_Birdkeeper_Intro{""}
-text Route7_Trainer4_Birdkeeper_Defeat{""}
-text Route7_Trainer4_Birdkeeper_PostBattle{""}
+text Route7_Trainer4_Birdkeeper_Intro{
+    "The ground Pokémon here have no chance\n"
+    "against my flying types!\l"
+    "And neither do you!"
+}
+text Route7_Trainer4_Birdkeeper_Defeat{
+    "Spoke too soon…"
+}
+text Route7_Trainer4_Birdkeeper_PostBattle{
+    "I could use my Pokémon to fly over this\n"
+    "dreary place but I prefer doing things\l"
+    "the hard way.\l"
+    "Really builds the character."
+}
 
 script Route7_Trainer5_Blackbelt {
     trainerbattle_single(TRAINER_R7_TR5_BLACKBELT, Route7_Trainer5_Blackbelt_Intro, Route7_Trainer5_Blackbelt_Defeat)
@@ -48,9 +89,19 @@ script Route7_Trainer5_Blackbelt {
     end
 }
 
-text Route7_Trainer5_Blackbelt_Intro{""}
-text Route7_Trainer5_Blackbelt_Defeat{""}
-text Route7_Trainer5_Blackbelt_PostBattle{""}
+text Route7_Trainer5_Blackbelt_Intro{
+    "Training in the mud has made my Pokémon\n"
+    "faster than ever.\p"
+    "Here, let me show you!"
+}
+text Route7_Trainer5_Blackbelt_Defeat{
+    "I will admit my defeat gracefully…"
+}
+text Route7_Trainer5_Blackbelt_PostBattle{
+    "I can't believe I lost after\n"
+    "all my training.\p"
+    "I'm a disgrace…"
+}
 
 script Route7_Trainer6_Picnicker2 {
     trainerbattle_single(TRAINER_R7_TR6_PICNICKER2, Route7_Trainer6_Picnicker2_Intro, Route7_Trainer6_Picnicker2_Defeat)
@@ -58,9 +109,20 @@ script Route7_Trainer6_Picnicker2 {
     end
 }
 
-text Route7_Trainer6_Picnicker2_Intro{""}
-text Route7_Trainer6_Picnicker2_Defeat{""}
-text Route7_Trainer6_Picnicker2_PostBattle{""}
+text Route7_Trainer6_Picnicker2_Intro{
+    "Pokémon trainers nurture friendship\n"
+    "with their battles!"
+}
+text Route7_Trainer6_Picnicker2_Defeat{
+    "This feeling of defeat…\n"
+    "is like a bottomless swamp…"
+}
+text Route7_Trainer6_Picnicker2_PostBattle{
+    "I'm researching what kinds of\n"
+    "Pokémon live around here.\p"
+    "That way, I can plan which Pokémon\n"
+    "I should take along."
+}
 
 script Route7_Trainer7_Fisherman {
     trainerbattle_single(TRAINER_R7_TR7_FISHERMAN, Route7_Trainer7_Fisherman_Intro, Route7_Trainer7_Fisherman_Defeat)
@@ -68,9 +130,21 @@ script Route7_Trainer7_Fisherman {
     end
 }
 
-text Route7_Trainer7_Fisherman_Intro{""}
-text Route7_Trainer7_Fisherman_Defeat{""}
-text Route7_Trainer7_Fisherman_PostBattle{""}
+text Route7_Trainer7_Fisherman_Intro{
+    "I can't and will not stop fishing.\p"
+    "Though when it comes to battling,\n"
+    "I can make an exception."
+}
+text Route7_Trainer7_Fisherman_Defeat{
+    "Battling was a mistake.\n"
+    "I should just stick to fishing!"
+}
+text Route7_Trainer7_Fisherman_PostBattle{
+    "If I find water, I drop in my\n"
+    "fishing line.\p"
+    "Even with a puddle, there may be\n"
+    "Pokémon that I've never seen."
+}
 
 script Route7_Trainer8_Hiker {
     trainerbattle_single(TRAINER_R7_TR8_HIKER, Route7_Trainer8_Hiker_Intro, Route7_Trainer8_Hiker_Defeat)
@@ -78,9 +152,21 @@ script Route7_Trainer8_Hiker {
     end
 }
 
-text Route7_Trainer8_Hiker_Intro{""}
-text Route7_Trainer8_Hiker_Defeat{""}
-text Route7_Trainer8_Hiker_PostBattle{""}
+text Route7_Trainer8_Hiker_Intro{
+    "This Hiker wandering the world will\n"
+    "teach a child like you the harshness\l"
+    "of life and the difficulty of\l"
+    "Pokémon battles!"
+}
+text Route7_Trainer8_Hiker_Defeat{
+    "The teacher was schooled…\n"
+    "You're very strict, aren't you?"
+}
+text Route7_Trainer8_Hiker_PostBattle{
+    "Looks like there is really nothing\n"
+    "an old hiker like myself can teach you.\l"
+    "You are the teacher now."
+}
 
 script Route7_Trainer9_Parasollady {
     trainerbattle_single(TRAINER_R7_TR9_PARASOLLADY, Route7_Trainer9_Parasollady_Intro, Route7_Trainer9_Parasollady_Defeat)
@@ -88,9 +174,20 @@ script Route7_Trainer9_Parasollady {
     end
 }
 
-text Route7_Trainer9_Parasollady_Intro{""}
-text Route7_Trainer9_Parasollady_Defeat{""}
-text Route7_Trainer9_Parasollady_PostBattle{""}
+text Route7_Trainer9_Parasollady_Intro{
+    "Look! This is my favorite parasol!\n"
+    "Oh, and my fabulous Pokémon!"
+}
+text Route7_Trainer9_Parasollady_Defeat{
+    "You were only supposed to look…"
+}
+text Route7_Trainer9_Parasollady_PostBattle{
+    "You're probably wondering why I'm\n"
+    "carrying a parasol here.\p"
+    "When your Pokémon jumps in a puddle\n"
+    "of mud, you wish you'd have a parasol\l"
+    "in hand."
+}
 
 script Route7_Trainer10_NinjaBoy {
     trainerbattle_single(TRAINER_R7_TR10_NINJABOY, Route7_Trainer10_NinjaBoy_Intro, Route7_Trainer10_NinjaBoy_Defeat)
@@ -98,9 +195,17 @@ script Route7_Trainer10_NinjaBoy {
     end
 }
 
-text Route7_Trainer10_NinjaBoy_Intro{""}
-text Route7_Trainer10_NinjaBoy_Defeat{""}
-text Route7_Trainer10_NinjaBoy_PostBattle{""}
+text Route7_Trainer10_NinjaBoy_Intro{
+    "I shall become a real ninja when\n"
+    "I grow up!"
+}
+text Route7_Trainer10_NinjaBoy_Defeat{
+    "Excellent! Excellent!"
+}
+text Route7_Trainer10_NinjaBoy_PostBattle{
+    "So, what's a real ninja supposed to\n"
+    "do?"
+}
 
 
 script Route7_Ball1{

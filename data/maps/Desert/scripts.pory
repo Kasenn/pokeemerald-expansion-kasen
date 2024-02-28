@@ -146,9 +146,18 @@ script Desert_Trainer1_Camper {
     msgbox(Desert_Trainer1_Camper_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text Desert_Trainer1_Camper_Intro{""}
-text Desert_Trainer1_Camper_Defeat{""}
-text Desert_Trainer1_Camper_PostBattle{""}
+text Desert_Trainer1_Camper_Intro{
+    "The desert climate can be tough,\n"
+    "but I'm even tougher."
+}
+text Desert_Trainer1_Camper_Defeat{
+    "Not… tough… enough…"
+}
+text Desert_Trainer1_Camper_PostBattle{
+    "Take care when exploring the desert.\n"
+    "The sandstorm can be vicious\l"
+    "and the land treacherous."
+}
 
 script Desert_Trainer2_Camper2 {
     trainerbattle_single(TRAINER_DESERT_TR2_CAMPER2, Desert_Trainer2_Camper2_Intro, Desert_Trainer2_Camper2_Defeat, DesertTrainer_IncreaseVar)
@@ -156,9 +165,20 @@ script Desert_Trainer2_Camper2 {
     end
 }
 
-text Desert_Trainer2_Camper2_Intro{""}
-text Desert_Trainer2_Camper2_Defeat{""}
-text Desert_Trainer2_Camper2_PostBattle{""}
+text Desert_Trainer2_Camper2_Intro{
+    "I'm looking for desert treasures,\n"
+    "but looks like I found a trainer battle\l"
+    "instead!"
+}
+text Desert_Trainer2_Camper2_Defeat{
+    "I should probably stick to\n"
+    "treasure hunting…"
+}
+text Desert_Trainer2_Camper2_PostBattle{
+    "There can be all sorts of treasures\n"
+    "buried in the sand.\l"
+    "You never know what you'll find."
+}
 
 script Desert_Trainer3_Picnicker {
     trainerbattle_single(TRAINER_DESERT_TR3_PICNICKER, Desert_Trainer3_Picnicker_Intro, Desert_Trainer3_Picnicker_Defeat, DesertTrainer_IncreaseVar)
@@ -166,9 +186,18 @@ script Desert_Trainer3_Picnicker {
     end
 }
 
-text Desert_Trainer3_Picnicker_Intro{""}
-text Desert_Trainer3_Picnicker_Defeat{""}
-text Desert_Trainer3_Picnicker_PostBattle{""}
+text Desert_Trainer3_Picnicker_Intro{
+    "I'm on a patrol.\n"
+    "I'll check your strength as well!"
+}
+text Desert_Trainer3_Picnicker_Defeat{
+    "You were so strong\n"
+    "that I couldn't help falling back!"
+}
+text Desert_Trainer3_Picnicker_PostBattle{
+    "Nothing scares me\n"
+    "when I patrol with my Pokémon!"
+}
 
 script Desert_Trainer4_Picnicker2 {
     trainerbattle_single(TRAINER_DESERT_TR4_PICNICKER2, Desert_Trainer4_Picnicker2_Intro, Desert_Trainer4_Picnicker2_Defeat, DesertTrainer_IncreaseVar)
@@ -176,9 +205,20 @@ script Desert_Trainer4_Picnicker2 {
     end
 }
 
-text Desert_Trainer4_Picnicker2_Intro{""}
-text Desert_Trainer4_Picnicker2_Defeat{""}
-text Desert_Trainer4_Picnicker2_PostBattle{""}
+text Desert_Trainer4_Picnicker2_Intro{
+    "Straying off the beaten path…\n"
+    "You must be searching for a battle!"
+}
+text Desert_Trainer4_Picnicker2_Defeat{
+    "How could I lose…\n"
+    "This is ridiculous!"
+}
+text Desert_Trainer4_Picnicker2_PostBattle{
+    "The desert can be hard to navigate.\p"
+    "If you ever become lost, try to find\n"
+    "other people and follow the path\l"
+    "they're taking."
+}
 
 script Desert_Trainer5_Hiker {
     trainerbattle_single(TRAINER_DESERT_TR5_HIKER, Desert_Trainer5_Hiker_Intro, Desert_Trainer5_Hiker_Defeat, DesertTrainer_IncreaseVar)
@@ -186,9 +226,20 @@ script Desert_Trainer5_Hiker {
     end
 }
 
-text Desert_Trainer5_Hiker_Intro{""}
-text Desert_Trainer5_Hiker_Defeat{""}
-text Desert_Trainer5_Hiker_PostBattle{""}
+text Desert_Trainer5_Hiker_Intro{
+    "How tough are you?\n"
+	"We shall expose that secret!"
+}
+text Desert_Trainer5_Hiker_Defeat{
+    "Oh! Your strength!\n"
+	"It is shrouded in mystery!"
+
+}
+text Desert_Trainer5_Hiker_PostBattle{
+    "This desert hoards mysteries in\n"
+	"its shifting sands!"
+
+}
 
 script Desert_Trainer6_Blackbelt {
     trainerbattle_single(TRAINER_DESERT_TR6_BLACKBELT, Desert_Trainer6_Blackbelt_Intro, Desert_Trainer6_Blackbelt_Defeat, DesertTrainer_IncreaseVar)
@@ -196,9 +247,19 @@ script Desert_Trainer6_Blackbelt {
     end
 }
 
-text Desert_Trainer6_Blackbelt_Intro{""}
-text Desert_Trainer6_Blackbelt_Defeat{""}
-text Desert_Trainer6_Blackbelt_PostBattle{""}
+text Desert_Trainer6_Blackbelt_Intro{
+    "I will crush any who dare\n"
+    "challenge me!"
+}
+text Desert_Trainer6_Blackbelt_Defeat{
+    "My strength wanes…"
+}
+text Desert_Trainer6_Blackbelt_PostBattle{
+    "This little sandstorm doesn't\n"
+    "intimidate me.\p"
+    "Sand is just tiny rocks, and I'm\n"
+    "the master of breaking rocks."
+}
 
 script Desert_Trainer7_Picnicker3 {
     trainerbattle_single(TRAINER_DESERT_TR7_PICNICKER3, Desert_Trainer7_Picnicker3_Intro, Desert_Trainer7_Picnicker3_Defeat, DesertTrainer_IncreaseVar)
@@ -206,9 +267,19 @@ script Desert_Trainer7_Picnicker3 {
     end
 }
 
-text Desert_Trainer7_Picnicker3_Intro{""}
-text Desert_Trainer7_Picnicker3_Defeat{""}
-text Desert_Trainer7_Picnicker3_PostBattle{""}
+text Desert_Trainer7_Picnicker3_Intro{
+    "Are you here to train?\n"
+    "Care to train against me?"
+}
+text Desert_Trainer7_Picnicker3_Defeat{
+    "Good hustle."
+}
+text Desert_Trainer7_Picnicker3_PostBattle{
+    "Training here is great, just be\n"
+    "careful of the wild Trapinch.\p"
+    "They like to surprise you and\n"
+    "bite at your ankles."
+}
 
 script Desert_Trainer8_Hiker2 {
     trainerbattle_single(TRAINER_DESERT_TR8_HIKER2, Desert_Trainer8_Hiker2_Intro, Desert_Trainer8_Hiker2_Defeat, DesertTrainer_IncreaseVar)
@@ -216,9 +287,22 @@ script Desert_Trainer8_Hiker2 {
     end
 }
 
-text Desert_Trainer8_Hiker2_Intro{""}
-text Desert_Trainer8_Hiker2_Defeat{""}
-text Desert_Trainer8_Hiker2_PostBattle{""}
+text Desert_Trainer8_Hiker2_Intro{
+    "Who might you be?\p"
+	"Are you perhaps searching for\n"
+    "ancient ruins?\n"
+
+}
+text Desert_Trainer8_Hiker2_Defeat{
+    "What a disgraceful setback…"
+
+}
+text Desert_Trainer8_Hiker2_PostBattle{
+    "There's a set of small ancient ruins to\n"
+    "the northeast of us but I believe\l"
+    "the sands might be hiding even more\l"
+    "ruins beneath."
+}
 
 script Desert_Trainer9_Hiker3 {
     trainerbattle_single(TRAINER_DESERT_TR9_HIKER3, Desert_Trainer9_Hiker3_Intro, Desert_Trainer9_Hiker3_Defeat, DesertTrainer_IncreaseVar)
@@ -226,9 +310,17 @@ script Desert_Trainer9_Hiker3 {
     end
 }
 
-text Desert_Trainer9_Hiker3_Intro{""}
-text Desert_Trainer9_Hiker3_Defeat{""}
-text Desert_Trainer9_Hiker3_PostBattle{""}
+text Desert_Trainer9_Hiker3_Intro{
+    "The sand erodes mountains,\n"
+    "but my Pokémon still stand!"
+}
+text Desert_Trainer9_Hiker3_Defeat{
+    "Such power…!"
+}
+text Desert_Trainer9_Hiker3_PostBattle{
+    "I have no doubt your Pokémon could\n"
+    "withstand even a tsunami!"
+}
 
 script Desert_Trainer10_Firebreather {
     trainerbattle_single(TRAINER_DESERT_TR10_FIREBREATHER, Desert_Trainer10_Firebreather_Intro, Desert_Trainer10_Firebreather_Defeat, DesertTrainer_IncreaseVar)
@@ -236,9 +328,20 @@ script Desert_Trainer10_Firebreather {
     end
 }
 
-text Desert_Trainer10_Firebreather_Intro{""}
-text Desert_Trainer10_Firebreather_Defeat{""}
-text Desert_Trainer10_Firebreather_PostBattle{""}
+text Desert_Trainer10_Firebreather_Intro{
+    "Help, I can't see anything\n"
+    "in this storm!\l"
+    "Are you a trainer?\l"
+    "Want to have a battle?"
+}
+text Desert_Trainer10_Firebreather_Defeat{
+    "I can't see! Is it over?\n"
+    "Did we lose?"
+}
+text Desert_Trainer10_Firebreather_PostBattle{
+    "I should have never come to this\n"
+    "stinking desert without eyewear!"
+}
 
 script Desert_Trainer11_Blackbelt2 {
     trainerbattle_single(TRAINER_DESERT_TR11_BLACKBELT2, Desert_Trainer11_Blackbelt2_Intro, Desert_Trainer11_Blackbelt2_Defeat, DesertTrainer_IncreaseVar)
@@ -246,9 +349,19 @@ script Desert_Trainer11_Blackbelt2 {
     end
 }
 
-text Desert_Trainer11_Blackbelt2_Intro{""}
-text Desert_Trainer11_Blackbelt2_Defeat{""}
-text Desert_Trainer11_Blackbelt2_PostBattle{""}
+text Desert_Trainer11_Blackbelt2_Intro{
+    "A punch from my Pokémon can shift\n"
+    "even the mountains!"
+}
+text Desert_Trainer11_Blackbelt2_Defeat{
+    "Impossible!"
+}
+text Desert_Trainer11_Blackbelt2_PostBattle{
+    "We must train even harder!\n"
+    "Hundred push-ups, Hundred sit-ups,\l"
+    "Hundred squats, ten kilometer run!\l"
+    "Every day!!"
+}
 
 script Desert_Trainer12_Hiker4 {
     trainerbattle_single(TRAINER_DESERT_TR12_HIKER4, Desert_Trainer12_Hiker4_Intro, Desert_Trainer12_Hiker4_Defeat, DesertTrainer_IncreaseVar)
@@ -256,9 +369,23 @@ script Desert_Trainer12_Hiker4 {
     end
 }
 
-text Desert_Trainer12_Hiker4_Intro{""}
-text Desert_Trainer12_Hiker4_Defeat{""}
-text Desert_Trainer12_Hiker4_PostBattle{""}
+text Desert_Trainer12_Hiker4_Intro{
+    "For thirty years I have searched for\n"
+	"ancient ruins!\l"
+	"I am to be challenged?"
+
+}
+text Desert_Trainer12_Hiker4_Defeat{
+    "While I have searched for ruins,\n"
+	"I've not searched for strong Pokémon."
+
+}
+text Desert_Trainer12_Hiker4_PostBattle{
+    "For thirty years I have searched for\n"
+	"ancient ruins!\p"
+	"No, wait, was that forty years?\n"
+	"Which was it now?"
+}
 
 script Desert_Trainer13_Psychic_F {
     trainerbattle_single(TRAINER_DESERT_TR13_PSYCHIC_F, Desert_Trainer13_Psychic_F_Intro, Desert_Trainer13_Psychic_F_Defeat, DesertTrainer_IncreaseVar)
@@ -266,9 +393,19 @@ script Desert_Trainer13_Psychic_F {
     end
 }
 
-text Desert_Trainer13_Psychic_F_Intro{""}
-text Desert_Trainer13_Psychic_F_Defeat{""}
-text Desert_Trainer13_Psychic_F_PostBattle{""}
+text Desert_Trainer13_Psychic_F_Intro{
+    "I see a Pokémon battle defeat\n"
+    "in your future."
+}
+text Desert_Trainer13_Psychic_F_Defeat{
+    "I guess the defeat I saw was my own…"
+}
+text Desert_Trainer13_Psychic_F_PostBattle{
+    "I don't need goggles to see in this\n"
+    "sandstorm.\p"
+    "My mind's eye shows me all I need\n"
+    "to see."
+}
 
 script Desert_QuakesAbout{
     if(flag(FLAG_DESERT_RUINS_OPENED)){

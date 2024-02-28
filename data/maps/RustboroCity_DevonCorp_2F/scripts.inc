@@ -56,8 +56,8 @@ RustboroCity_DevonCorp_2F_EventScript_FossilScientist::
 	goto_if_unset FLAG_DEVON_RESCUED, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_2
 	lock
 	faceplayer
-	goto_if_eq VAR_FOSSIL_RESURRECTION_STATE, 2, RustboroCity_DevonCorp_2F_EventScript_FossilMonReady
-	goto_if_eq VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_StillRegenerating
+	goto_if_eq VAR_FOSSIL_RESURRECTION_STATE, 2, Devon_FossilMonReady
+	goto_if_eq VAR_FOSSIL_RESURRECTION_STATE, 1, Devon_FossilStillRegenerating
 	msgbox RustboroCity_DevonCorp_2F_Text_DevelopDeviceToResurrectFossils, MSGBOX_DEFAULT
 	goto_if_set FLAG_OBTAINED_A_FOSSIL, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_5
 RustboroCity_DevonCorp_2F_EventScript_FossilScientist_4:
@@ -149,7 +149,7 @@ RustboroCity_DevonCorp_2F_EventScript_FossilScientist_21:
 	goto RustboroCity_DevonCorp_2F_EventScript_FossilScientist_4
 
 RustboroCity_DevonCorp_2F_EventScript_FossilScientist_22:
-	goto RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil
+	goto Devon_DeclineGiveFossil
 	goto RustboroCity_DevonCorp_2F_EventScript_FossilScientist_4
 
 
@@ -160,7 +160,7 @@ NoticesAFossil::
 	return
 
 NoticesAFossil_1:
-	goto RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil
+	goto Devon_DeclineGiveFossil
 	return
 
 
@@ -170,8 +170,13 @@ GiveFossilFinish::
 	end
 
 
-RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil::
+Devon_DeclineGiveFossil::
 	msgbox RustboroCity_DevonCorp_2F_Text_OhIsThatSo, MSGBOX_NPC
+	end
+
+
+Devon_FossilStillRegenerating::
+	msgbox Devon_Text_FossilRegeneratorTakesTime, MSGBOX_NPC
 	end
 
 
@@ -263,65 +268,65 @@ GiveSailFossil::
 	return
 
 
-RustboroCity_DevonCorp_2F_EventScript_FossilMonReady::
+Devon_FossilMonReady::
 	switch VAR_WHICH_FOSSIL_REVIVED
-	case 1, RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_3
-	case 2, RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_4
-	case 3, RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_5
-	case 4, RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_6
-	case 5, RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_7
-	case 6, RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_8
-	case 7, RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_9
-	case 8, RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_10
-	case 9, RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_11
-	case 10, RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_12
-	case 11, RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_13
-RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_1:
+	case 1, Devon_FossilMonReady_3
+	case 2, Devon_FossilMonReady_4
+	case 3, Devon_FossilMonReady_5
+	case 4, Devon_FossilMonReady_6
+	case 5, Devon_FossilMonReady_7
+	case 6, Devon_FossilMonReady_8
+	case 7, Devon_FossilMonReady_9
+	case 8, Devon_FossilMonReady_10
+	case 9, Devon_FossilMonReady_11
+	case 10, Devon_FossilMonReady_12
+	case 11, Devon_FossilMonReady_13
+Devon_FossilMonReady_1:
 	end
 
-RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_3:
+Devon_FossilMonReady_3:
 	goto OmanyteReady
-	goto RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_1
+	goto Devon_FossilMonReady_1
 
-RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_4:
+Devon_FossilMonReady_4:
 	goto KabutoReady
-	goto RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_1
+	goto Devon_FossilMonReady_1
 
-RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_5:
+Devon_FossilMonReady_5:
 	goto AerodactylReady
-	goto RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_1
+	goto Devon_FossilMonReady_1
 
-RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_6:
+Devon_FossilMonReady_6:
 	goto LileepReady
-	goto RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_1
+	goto Devon_FossilMonReady_1
 
-RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_7:
+Devon_FossilMonReady_7:
 	goto AnorithReady
-	goto RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_1
+	goto Devon_FossilMonReady_1
 
-RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_8:
+Devon_FossilMonReady_8:
 	goto CranidosReady
-	goto RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_1
+	goto Devon_FossilMonReady_1
 
-RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_9:
+Devon_FossilMonReady_9:
 	goto ShieldonReady
-	goto RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_1
+	goto Devon_FossilMonReady_1
 
-RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_10:
+Devon_FossilMonReady_10:
 	goto TirtougaReady
-	goto RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_1
+	goto Devon_FossilMonReady_1
 
-RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_11:
+Devon_FossilMonReady_11:
 	goto ArchenReady
-	goto RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_1
+	goto Devon_FossilMonReady_1
 
-RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_12:
+Devon_FossilMonReady_12:
 	goto TyruntReady
-	goto RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_1
+	goto Devon_FossilMonReady_1
 
-RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_13:
+Devon_FossilMonReady_13:
 	goto AmauraReady
-	goto RustboroCity_DevonCorp_2F_EventScript_FossilMonReady_1
+	goto Devon_FossilMonReady_1
 
 
 OmanyteReady::
@@ -639,11 +644,6 @@ ReceivedFossilMonFanfare::
 	return
 
 
-RustboroCity_DevonCorp_2F_EventScript_StillRegenerating::
-	msgbox RustboroCity_DevonCorp_2F_Text_FossilRegeneratorTakesTime, MSGBOX_NPC
-	end
-
-
 ResearchIntact::
 	.string "Luckily much of my research is\n"
 	.string "still intact.\l"
@@ -684,24 +684,6 @@ NotLettingDown::
 	.string "Pokémon…\p"
 	.string "But it's not going well.$"
 
-DevonShowAFossil::
-	.string "You look like an experienced traveler.\p"
-	.string "Tell me, have you come across any\n"
-	.string "fossils you would like to show me?$"
-
-DevonShowAFossil_Decline::
-	.string "Oh, that's a shame…$"
-
-ThatsNotAFossil::
-	.string "Um… I'm not sure why you're\n"
-	.string "showing me that.\l"
-	.string "That's not a Pokémon fossil…$"
-
-FossilResearchAMess::
-	.string "All of my fossil research is\n"
-	.string "in shambles.\l"
-	.string "How am I meant to sort this out…$"
-
 FossilBroughtBackToLife::
 	.string "Thanks for waiting!\p"
 	.string "Your fossilized Pokémon has been\n"
@@ -737,10 +719,28 @@ RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher::
 	.string "{PLAYER} handed the {STR_VAR_1} to\n"
 	.string "the Devon researcher.$"
 
-RustboroCity_DevonCorp_2F_Text_FossilRegeneratorTakesTime::
+Devon_Text_FossilRegeneratorTakesTime::
 	.string "The Fossil Regenerator, which I made,\n"
 	.string "is incredible.\p"
 	.string "But it has one drawback--it takes\n"
 	.string "a long time to work.\p"
 	.string "So, uh… How about you go for a stroll\n"
 	.string "and look around for a while?$"
+
+DevonShowAFossil::
+	.string "You look like an experienced traveler.\p"
+	.string "Tell me, have you come across any\n"
+	.string "fossils you would like to show me?$"
+
+DevonShowAFossil_Decline::
+	.string "Oh, that's a shame…$"
+
+ThatsNotAFossil::
+	.string "Um… I'm not sure why you're\n"
+	.string "showing me that.\l"
+	.string "That's not a Pokémon fossil…$"
+
+FossilResearchAMess::
+	.string "All of my fossil research is\n"
+	.string "in shambles.\l"
+	.string "How am I meant to sort this out…$"
