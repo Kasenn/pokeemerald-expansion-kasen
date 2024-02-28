@@ -180,8 +180,8 @@
 #define TRAINER_R7_TR7_FISHERMAN                       176
 #define TRAINER_R7_TR8_HIKER                           177
 #define TRAINER_R7_TR9_PARASOLLADY                     178
-#define TRAINER_TAKAO                       179
-#define TRAINER_HITOSHI                     180
+#define TRAINER_R7_TR10_NINJABOY                       179
+#define TRAINER_MARIGORGE_NURSE                     180
 #define TRAINER_KIYO                        181
 #define TRAINER_KOICHI                      182
 #define TRAINER_NOB_1                       183

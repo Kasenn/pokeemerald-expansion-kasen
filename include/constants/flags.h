@@ -656,13 +656,13 @@
 #define FLAG_CORAL_FLAG_1                   0x265 // UNLOCKS POKECENTER TRAINING
 #define FLAG_SCHOOL_DONE                    0x266 // TRAINER SCHOOL DONE
 #define FLAG_UNUSED_0x267_CG_HIDEGHOST      0x267 // Used to hide the ghost in Coralgrove City
-#define FLAG_UNUSED_0x268  0x268 // Unused Flag
+#define FLAG_OBTAINED_A_FOSSIL  0x268 // Unused Flag
 #define FLAG_RECEIVED_TM_U_TURN             0x269 // TM for first gym
 #define FLAG_NECTARQUESTDONE                0x26A // set this flag if oricorio shown to nectar maniac
-#define FLAG_UNUSED_0x26B  0x26B // Unused Flag
-#define FLAG_UNUSED_0x26C  0x26C // Unused Flag
-#define FLAG_UNUSED_0x26D  0x26D // Unused Flag
-#define FLAG_UNUSED_0x26E  0x26E // Unused Flag
+#define FLAG_SAFARI_NW_ITEM1  0x26B // Unused Flag
+#define FLAG_SAFARI_NW_ITEM2  0x26C // Unused Flag
+#define FLAG_SAFARI_NW_ITEM3  0x26D // Unused Flag
+#define FLAG_SAFARI_NW_ITEM4  0x26E // Unused Flag
 #define FLAG_JASMINE_HELPED                 0x26F // START OF POKE RANCH EVENT FLAGS
 #define FLAG_JASMINE_TALKED_TO_FIRST        0x270 // 
 #define FLAG_VOLKNER_TALKED_TO_FIRST        0x271 // 
@@ -732,11 +732,11 @@
 #define FLAG_ROUTE7_ITEM3  0x2B1 // Unused Flag
 #define FLAG_ROUTE7_ITEM4  0x2B2 // Unused Flag
 #define FLAG_ROUTE7_ITEM5  0x2B3 // Unused Flag
-#define FLAG_UNUSED_0x2B4  0x2B4 // Unused Flag
-#define FLAG_UNUSED_0x2B5  0x2B5 // Unused Flag
-#define FLAG_UNUSED_0x2B6  0x2B6 // Unused Flag
-#define FLAG_UNUSED_0x2B7  0x2B7 // Unused Flag
-#define FLAG_UNUSED_0x2B8  0x2B8 // Unused Flag
+#define FLAG_RECOMMEND_LIBRARY  0x2B4 // Unused Flag
+#define FLAG_ARCHEOLOGIST_TALKED_TO  0x2B5 // Unused Flag
+#define FLAG_MARIGORGE_ITEM1  0x2B6 // Unused Flag
+#define FLAG_MARIGORGE_ITEM2  0x2B7 // Unused Flag
+#define FLAG_MARIGORGE_ITEM3  0x2B8 // Unused Flag
 #define FLAG_UNUSED_0x2B9  0x2B9 // Unused Flag
 #define FLAG_UNUSED_0x2BA  0x2BA // Unused Flag
 #define FLAG_UNUSED_0x2BB  0x2BB // Unused Flag
@@ -1575,7 +1575,7 @@
 #define FLAG_DAILY_PRIMROSE_NECTAR4                 (DAILY_FLAGS_START + 0x6)  // Unused Flag
 #define FLAG_DAILY_WW_GROTTO                           (DAILY_FLAGS_START + 0x7)  // Unused Flag
 #define FLAG_DAILY_ROUTE7_GROTTO                           (DAILY_FLAGS_START + 0x8)  // Unused Flag
-#define FLAG_UNUSED_0x929                           (DAILY_FLAGS_START + 0x9)  // Unused Flag
+#define FLAG_DAILY_SAFARIBALL_BOUGHT                           (DAILY_FLAGS_START + 0x9)  // Unused Flag
 #define FLAG_DAILY_PICKED_LOTO_TICKET               (DAILY_FLAGS_START + 0xA)
 #define FLAG_DAILY_ROUTE_114_RECEIVED_BERRY         (DAILY_FLAGS_START + 0xB)
 #define FLAG_DAILY_ROUTE_111_RECEIVED_BERRY         (DAILY_FLAGS_START + 0xC)

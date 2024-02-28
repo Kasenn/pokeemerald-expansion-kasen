@@ -1,0 +1,41 @@
+mapscripts SafariZone_Northwest_MapScripts{}
+
+script SafariZone_NW_Youngster{
+    msgbox(SafariZone_NW_Youngster_Text, MSGBOX_NPC)
+    end
+}
+text SafariZone_NW_Youngster_Text{
+    "Wonder what sort of crazy Pokémon can\n"
+    "be found on the other side of the river."
+}
+
+script SafariZone_NW_Lass{
+    msgbox(SafariZone_NW_Lass_Text, MSGBOX_NPC)
+    end
+}
+text SafariZone_NW_Lass_Text{
+    "Glad to finally be out of\n"
+    "all of that mud.\p"
+    "It's so much nicer here and the Pokémon\n"
+    "are much more interesting as well."
+}
+
+script SafariZone_NW_Man{
+    msgbox(SafariZone_NW_Man_Text, MSGBOX_NPC)
+    end
+}
+text SafariZone_NW_Man_Text{
+    "I've come all this way but I'm not sure\n"
+    "I have enough stamina left to go\l"
+    "catching Pokémon…"
+}
+
+script SafariZone_NW_Ball1{
+    finditem(ITEM_HYPER_POTION)
+}
+script SafariZone_NW_Ball2{
+    finditem(ITEM_MAX_REVIVE)
+}
+script SafariZone_NW_Ball3{
+    finditem(ITEM_GREAT_BALL)
+}

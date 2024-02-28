@@ -199,6 +199,97 @@ SellGold_1:
 	end
 
 
+Marigorge_Man::
+	msgbox Marigorge_Man_Text, MSGBOX_NPC
+	end
+
+
+MariGorge_Woman::
+	msgbox MariGorge_Woman_Text, MSGBOX_NPC
+	end
+
+
+Marigorge_Sign1::
+	msgbox Marigorge_Sign1_Text, MSGBOX_SIGN
+	end
+
+
+Marigorge_Sign2::
+	msgbox Marigorge_Sign2_Text, MSGBOX_SIGN
+	end
+
+
+MarigorgeHouse_OldWoman::
+	msgbox MarigorgeHouse_OldWoman_Text, MSGBOX_NPC
+	end
+
+
+Marigorge_Mart_Woman::
+	msgbox Marigorge_Mart_Woman_Text, MSGBOX_NPC
+	end
+
+
+Marigorge_Mart_Fisherman::
+	msgbox Marigorge_Mart_Fisherman_Text, MSGBOX_NPC
+	end
+
+
+Common_OpenBag::
+	fadescreen FADE_TO_BLACK
+	closemessage
+	special Bag_ChooseFossil
+	waitstate
+	return
+
+
+Marigorge_SusMan::
+	goto_if_set FLAG_DAILY_SAFARIBALL_BOUGHT, Marigorge_SusMan_2
+	lockall
+	faceplayer
+	msgbox Marigorge_SusMan_Text, MSGBOX_DEFAULT
+	showmoneybox 0, 0
+	msgbox Marigorge_SusMan_BuyBall, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Marigorge_SusMan_4
+	checkmoney 3000
+	compare VAR_RESULT, FALSE
+	goto_if_eq Marigorge_SusMan_8
+	checkitemspace ITEM_SAFARI_BALL, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq Marigorge_SusMan_11
+	removemoney 3000
+	playse SE_SHOP
+	updatemoneybox
+	waitse
+	msgbox Marigorge_SusMan_GaveMoney, MSGBOX_DEFAULT
+	waitmessage
+	closemessage
+	hidemoneybox
+	giveitem ITEM_SAFARI_BALL, 1
+	setflag FLAG_DAILY_SAFARIBALL_BOUGHT
+	msgbox Marigorge_SusMan_DontGoToSafari, MSGBOX_NPC
+	end
+
+Marigorge_SusMan_2:
+	msgbox Marigorge_SusMan_AlreadyBought, MSGBOX_NPC
+	end
+
+Marigorge_SusMan_4:
+	msgbox Marigorge_SusMan_YourLoss, MSGBOX_NPC
+	hidemoneybox
+	end
+
+Marigorge_SusMan_8:
+	msgbox Marigorge_SusMan_ScammingMe, MSGBOX_NPC
+	hidemoneybox
+	end
+
+Marigorge_SusMan_11:
+	msgbox NotEnoughRoom, MSGBOX_NPC
+	hidemoneybox
+	end
+
+
 Aldeleaf_MuseumCurator_Intro::
 	.string "I'm the curator of this museum of\n"
 	.string "fine arts.\p"
@@ -252,3 +343,79 @@ MuseumThanksForArtifact::
 	.string "contribution.\p"
 	.string "Let me know if you have more relics\n"
 	.string "you'd like to sell.$"
+
+Marigorge_Man_Text::
+	.string "Are you here to visit the Safari Zone?\p"
+	.string "There you can find all sorts of Pokémon\n"
+	.string "that are either rare or unavailable\l"
+	.string "in other parts of Sinko.$"
+
+MariGorge_Woman_Text::
+	.string "Thanks to the fresh water flowing in\n"
+	.string "from the mountains,\l"
+	.string "this normally arid area is teeming\l"
+	.string "with life.$"
+
+Marigorge_Sign1_Text::
+	.string "Move Deleter's house\p"
+	.string "“Unwanted Pokémon moves deleted.”$"
+
+Marigorge_Sign2_Text::
+	.string "Marigorge Town\p"
+	.string "“A beautiful oasis amidst mountains.”$"
+
+MarigorgeHouse_OldWoman_Text::
+	.string "Have you seen the huge waterfall\n"
+	.string "outside?\p"
+	.string "A legend says that a strong Pokémon\n"
+	.string "lives up that waterfall,\l"
+	.string "and that only worthy trainers are\l"
+	.string "allowed to even approach it.$"
+
+Marigorge_Mart_Woman_Text::
+	.string "I was hoping to bring some Safari Balls\n"
+	.string "as a souvenir but I guess they don't\l"
+	.string "sell them in regular Poké Marts…$"
+
+Marigorge_Mart_Fisherman_Text::
+	.string "The new BP shops are great but if\n"
+	.string "you're in need of regular everyday\l"
+	.string "supplies, you really can't go wrong\l"
+	.string "with Poké Mart!$"
+
+Marigorge_SusMan_Text::
+	.string "Psst!\p"
+	.string "I've got a special deal,\n"
+	.string "just for you.\p"
+	.string "I was able to smuggle one of the\n"
+	.string "Safari Balls out of the Safari Zone.\l"
+	.string "Don't ask me how.$"
+
+Marigorge_SusMan_BuyBall::
+	.string "Anyway, interested to buy it?\n"
+	.string "I can sell it for ¥3000.\p"
+	.string "It wasn't easy so of course the price\n"
+	.string "must reflect the risk taken.$"
+
+Marigorge_SusMan_YourLoss::
+	.string "Whatever man, your loss.$"
+
+Marigorge_SusMan_ScammingMe::
+	.string "You trying to scam me or what?\n"
+	.string "You clearly don't have enough money.$"
+
+Marigorge_SusMan_GaveMoney::
+	.string "{PLAYER} gave ¥3000 to the\n"
+	.string "suspicious man.$"
+
+Marigorge_SusMan_DontGoToSafari::
+	.string "Pleasure doing business with you.\p"
+	.string "If you're interested, I might be able\n"
+	.string "to get another one tomorrow\l"
+	.string "once the heat dies down.$"
+
+Marigorge_SusMan_AlreadyBought::
+	.string "Sorry, but that's all I managed to\n"
+	.string "smuggle out.\p"
+	.string "I can maybe get another one tomorrow\n"
+	.string "once the heat dies down.$"

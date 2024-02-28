@@ -11,7 +11,6 @@ script RustboroCity_DevonCorp_2F_EventScript_SetFossilReady{
 	return
 }
 	
-
 script RustboroCity_DevonCorp_2F_EventScript_TalkToPokemonScientist{
 	call_if_eq(VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady)
 	if(!flag(FLAG_DEVON_RESCUED)){
@@ -85,98 +84,166 @@ text NotLettingDown{
 	"But it's not going well."
 }
 
-
-
 script RustboroCity_DevonCorp_2F_EventScript_FossilScientist{
 	if(!flag(FLAG_DEVON_RESCUED)){
 		msgbox(FossilResearchAMess, MSGBOX_NPC)
-		end
+	 	end
 	}
 	lock
 	faceplayer
-	goto_if_eq(VAR_FOSSIL_RESURRECTION_STATE, 2, RustboroCity_DevonCorp_2F_EventScript_FossilMonReady)
-	goto_if_eq(VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_StillRegenerating)
+	goto_if_eq(VAR_FOSSIL_RESURRECTION_STATE, 2, Devon_FossilMonReady)
+	goto_if_eq(VAR_FOSSIL_RESURRECTION_STATE, 1, Devon_FossilStillRegenerating)
 	msgbox(RustboroCity_DevonCorp_2F_Text_DevelopDeviceToResurrectFossils, MSGBOX_DEFAULT)
-	checkitem(ITEM_ROOT_FOSSIL)
-	goto_if_eq(VAR_RESULT, TRUE, RustboroCity_DevonCorp_2F_EventScript_NoticeRootFossil)
-	checkitem(ITEM_CLAW_FOSSIL)
-	goto_if_eq(VAR_RESULT, TRUE, RustboroCity_DevonCorp_2F_EventScript_NoticeClawFossil)
+	if(flag(FLAG_OBTAINED_A_FOSSIL)){
+		msgbox(DevonShowAFossil, MSGBOX_YESNO)
+		if(var(VAR_RESULT) == FALSE){
+			msgbox(DevonShowAFossil_Decline, MSGBOX_NPC)
+			end
+		}
+		else{
+			call(Common_OpenBag)
+			switch(var(VAR_ITEM_ID)){
+				case 165:
+					call(NoticesAFossil)
+					goto(GiveHelixFossil)
+				case 166:
+					call(NoticesAFossil)
+					goto(GiveDomeFossil)
+				case 167:
+					call(NoticesAFossil)
+					goto(GiveAmberFossil)
+				case 168:
+					call(NoticesAFossil)
+					goto(GiveRootFossil)
+				case 169:
+					call(NoticesAFossil)
+					goto(GiveClawFossil)
+				case 170:
+					call(NoticesAFossil)
+					goto(GiveArmorFossil)
+				case 171:
+					call(NoticesAFossil)
+					goto(GiveSkullFossil)
+				case 172:
+					call(NoticesAFossil)
+					goto(GiveCoverFossil)
+				case 173:
+					call(NoticesAFossil)
+					goto(GivePlumeFossil)
+				case 174:
+					call(NoticesAFossil)
+					goto(GiveJawFossil)
+				case 175:
+					call(NoticesAFossil)
+					goto(GiveSailFossil)
+				case 0:
+					goto(Devon_DeclineGiveFossil)
+				default:
+					msgbox(ThatsNotAFossil, MSGBOX_NPC)
+					end
+			}
+		}
+	}
 	release
 	end
 }
-text FossilResearchAMess{
-	"All of my fossil research is\n"
-	"in shambles.\l"
-	"How am I meant to sort this out…"
-}
 
-// This whole section has needless duplication and could be condensed considerably
-script RustboroCity_DevonCorp_2F_EventScript_NoticeRootFossil{
-	closemessage
-	playse(SE_PIN)
-	applymovement(4, Common_Movement_ExclamationMark)
-	waitmovement(0)
-	applymovement(4, Common_Movement_Delay48)
-	waitmovement(0)
+script NoticesAFossil{
 	msgbox(RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife, MSGBOX_YESNO)
-	goto_if_eq(VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil)
-	checkitem(ITEM_CLAW_FOSSIL)
-	goto_if_eq(VAR_RESULT, TRUE, RustboroCity_DevonCorp_2F_EventScript_ChooseFossil)
-	goto(RustboroCity_DevonCorp_2F_EventScript_GiveRootFossil)
+	if(var(VAR_RESULT) == FALSE){
+		goto(Devon_DeclineGiveFossil)
+	}
+	else{
+		return
+	}
+}
+script GiveFossilFinish{
+	msgbox(RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher, MSGBOX_NPC)
+	setvar(VAR_FOSSIL_RESURRECTION_STATE, 1)
+	end
+}
+script Devon_DeclineGiveFossil{
+	msgbox(RustboroCity_DevonCorp_2F_Text_OhIsThatSo, MSGBOX_NPC)
+	end
+}
+script Devon_FossilStillRegenerating{
+	msgbox(Devon_Text_FossilRegeneratorTakesTime, MSGBOX_NPC)
 	end
 }
 
-script RustboroCity_DevonCorp_2F_EventScript_GiveRootFossil{
-	bufferitemname(STR_VAR_1, ITEM_ROOT_FOSSIL)
-	msgbox(RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT)
-	removeitem(ITEM_ROOT_FOSSIL)
-	setvar(VAR_FOSSIL_RESURRECTION_STATE, 1)
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+script GiveHelixFossil{
+	removeitem(ITEM_HELIX_FOSSIL)
+	bufferitemname(STR_VAR_1, ITEM_HELIX_FOSSIL)
 	setvar(VAR_WHICH_FOSSIL_REVIVED, 1)
-	release
-	end
+	goto(GiveFossilFinish)
 }
-
-script RustboroCity_DevonCorp_2F_EventScript_NoticeClawFossil{
-	closemessage
-	playse(SE_PIN)
-	applymovement(4, Common_Movement_ExclamationMark)
-	waitmovement(0)
-	applymovement(4, Common_Movement_Delay48)
-	waitmovement(0)
-	msgbox(RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife, MSGBOX_YESNO)
-	goto_if_eq(VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil)
-	checkitem(ITEM_ROOT_FOSSIL)
-	goto_if_eq(VAR_RESULT, TRUE, RustboroCity_DevonCorp_2F_EventScript_ChooseFossil)
-	goto(RustboroCity_DevonCorp_2F_EventScript_GiveClawFossil)
-	end
-}
-
-script RustboroCity_DevonCorp_2F_EventScript_GiveClawFossil{
-	bufferitemname(STR_VAR_1, ITEM_CLAW_FOSSIL)
-	msgbox(RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT)
-	removeitem(ITEM_CLAW_FOSSIL)
-	setvar(VAR_FOSSIL_RESURRECTION_STATE, 1)
+script GiveDomeFossil{
+	removeitem(ITEM_DOME_FOSSIL)
+	bufferitemname(STR_VAR_1, ITEM_DOME_FOSSIL)
 	setvar(VAR_WHICH_FOSSIL_REVIVED, 2)
-	release
-	end
+	goto(GiveFossilFinish)
 }
-
-script RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil{
-	msgbox(RustboroCity_DevonCorp_2F_Text_OhIsThatSo, MSGBOX_DEFAULT)
-	release
-	end
+script GiveAmberFossil{
+	removeitem(ITEM_OLD_AMBER)
+	bufferitemname(STR_VAR_1, ITEM_OLD_AMBER)
+	setvar(VAR_WHICH_FOSSIL_REVIVED, 3)
+	goto(GiveFossilFinish)
 }
-
-script RustboroCity_DevonCorp_2F_EventScript_StillRegenerating{
-	msgbox(RustboroCity_DevonCorp_2F_Text_FossilRegeneratorTakesTime, MSGBOX_DEFAULT)
-	release
-	end
+script GiveRootFossil{
+	removeitem(ITEM_ROOT_FOSSIL)
+	bufferitemname(STR_VAR_1, ITEM_ROOT_FOSSIL)
+	setvar(VAR_WHICH_FOSSIL_REVIVED, 4)
+	goto(GiveFossilFinish)
 }
-
+script GiveClawFossil{
+	removeitem(ITEM_CLAW_FOSSIL)
+	bufferitemname(STR_VAR_1, ITEM_CLAW_FOSSIL)
+	setvar(VAR_WHICH_FOSSIL_REVIVED, 5)
+	goto(GiveFossilFinish)
+}
+script GiveArmorFossil{
+	removeitem(ITEM_ARMOR_FOSSIL)
+	bufferitemname(STR_VAR_1, ITEM_ARMOR_FOSSIL)
+	setvar(VAR_WHICH_FOSSIL_REVIVED, 6)
+	goto(GiveFossilFinish)
+}
+script GiveSkullFossil{
+	removeitem(ITEM_SKULL_FOSSIL)
+	bufferitemname(STR_VAR_1, ITEM_SKULL_FOSSIL)
+	setvar(VAR_WHICH_FOSSIL_REVIVED, 7)
+	goto(GiveFossilFinish)
+}
+script GiveCoverFossil{
+	removeitem(ITEM_COVER_FOSSIL)
+	bufferitemname(STR_VAR_1, ITEM_COVER_FOSSIL)
+	setvar(VAR_WHICH_FOSSIL_REVIVED, 8)
+	goto(GiveFossilFinish)
+}
+script GivePlumeFossil{
+	removeitem(ITEM_PLUME_FOSSIL)
+	bufferitemname(STR_VAR_1, ITEM_PLUME_FOSSIL)
+	setvar(VAR_WHICH_FOSSIL_REVIVED, 9)
+	goto(GiveFossilFinish)
+}
+script GiveJawFossil{
+	removeitem(ITEM_JAW_FOSSIL)
+	bufferitemname(STR_VAR_1, ITEM_JAW_FOSSIL)
+	setvar(VAR_WHICH_FOSSIL_REVIVED, 10)
+	goto(GiveFossilFinish)
+}
+script GiveSailFossil{
+	removeitem(ITEM_SAIL_FOSSIL)
+	bufferitemname(STR_VAR_1, ITEM_SAIL_FOSSIL)
+	setvar(VAR_WHICH_FOSSIL_REVIVED, 11)
+	goto(GiveFossilFinish)
+}
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
-script RustboroCity_DevonCorp_2F_EventScript_FossilMonReady{
+script Devon_FossilMonReady{
 	switch(var(VAR_WHICH_FOSSIL_REVIVED)){
 		case 1: goto(OmanyteReady)
 		case 2: goto(KabutoReady)
@@ -428,23 +495,6 @@ script ReceivedFossilMonFanfare{
 ///////////////////////////////////////////////////////////////////////////
 
 
-
-script RustboroCity_DevonCorp_2F_EventScript_ChooseFossil{
-	message(RustboroCity_DevonCorp_2F_Text_TwoFossilsPickOne)
-	waitmessage
-	multichoice(17, 6, MULTI_FOSSIL, FALSE)
-	switch(var(VAR_RESULT)){
-	case 0:
-		goto(RustboroCity_DevonCorp_2F_EventScript_GiveClawFossil)
-	case 1:
-		goto(RustboroCity_DevonCorp_2F_EventScript_GiveRootFossil)
-	default:
-		release
-		end
-    }
-	end
-}
-
 text RustboroCity_DevonCorp_2F_Text_DevelopDeviceToResurrectFossils{
 	"I've been trying to develop a device\n"
 	"that resurrects Pokémon from fossils…\p"
@@ -453,26 +503,17 @@ text RustboroCity_DevonCorp_2F_Text_DevelopDeviceToResurrectFossils{
 
 text RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife{
 	"Wait! That thing you have there…\n"
-	"Is that a POKéMON fossil?\p"
-	"Would you like to bring that POKéMON\n"
+	"Is that an actual Pokémon fossil?\p"
+	"Would you like to bring that Pokémon\n"
 	"back to life?\p"
 	"I can with my newly developed\n"
-	"FOSSIL REGENERATOR."
+	"Fossil Regenerator."
 }
 
 text RustboroCity_DevonCorp_2F_Text_OhIsThatSo{
 	"Oh, is that so?\p"
-	"DEVON's technological expertise\n"
+	"Devon's technological expertise\n"
 	"is outstanding, I tell you."
-}
-
-text RustboroCity_DevonCorp_2F_Text_TwoFossilsPickOne{
-	"Oh, now that's a surprise!\n"
-	"You have not one, but two, fossils?\p"
-	"Unfortunately, my machine can only\n"
-	"regenerate one POKéMON at a time.\p"
-	"Would you like to pick one of your\n"
-	"fossils for regeneration?"
 }
 
 text RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher{
@@ -482,8 +523,8 @@ text RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher{
 	"the Devon researcher."
 }
 
-text RustboroCity_DevonCorp_2F_Text_FossilRegeneratorTakesTime{
-	"The FOSSIL REGENERATOR, which I made,\n"
+text Devon_Text_FossilRegeneratorTakesTime{
+	"The Fossil Regenerator, which I made,\n"
 	"is incredible.\p"
 	"But it has one drawback--it takes\n"
 	"a long time to work.\p"
@@ -491,6 +532,24 @@ text RustboroCity_DevonCorp_2F_Text_FossilRegeneratorTakesTime{
 	"and look around for a while?"
 }
 
+text DevonShowAFossil{
+	"You look like an experienced traveler.\p"
+	"Tell me, have you come across any\n"
+	"fossils you would like to show me?"
+}
 
+text DevonShowAFossil_Decline{
+	"Oh, that's a shame…"
+}
 
+text ThatsNotAFossil{
+	"Um… I'm not sure why you're\n"
+	"showing me that.\l"
+	"That's not a Pokémon fossil…"
+}
 
+text FossilResearchAMess{
+	"All of my fossil research is\n"
+	"in shambles.\l"
+	"How am I meant to sort this out…"
+}

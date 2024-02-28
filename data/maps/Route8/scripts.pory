@@ -92,6 +92,17 @@ text Route7_Trainer9_Parasollady_Intro{""}
 text Route7_Trainer9_Parasollady_Defeat{""}
 text Route7_Trainer9_Parasollady_PostBattle{""}
 
+script Route7_Trainer10_NinjaBoy {
+    trainerbattle_single(TRAINER_R7_TR10_NINJABOY, Route7_Trainer10_NinjaBoy_Intro, Route7_Trainer10_NinjaBoy_Defeat)
+    msgbox(Route7_Trainer10_NinjaBoy_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+
+text Route7_Trainer10_NinjaBoy_Intro{""}
+text Route7_Trainer10_NinjaBoy_Defeat{""}
+text Route7_Trainer10_NinjaBoy_PostBattle{""}
+
+
 script Route7_Ball1{
     finditem(ITEM_HP_UP)
     end
@@ -105,4 +116,9 @@ script Route8_SoMuchMud{
     msgbox(Route8_SoMuchMud_Text, MSGBOX_NPC)
     end
 }
-text Route8_SoMuchMud_Text{""}
+text Route8_SoMuchMud_Text{
+    "Ugh… Look at all this mud.\p"
+    "How is a fine lady such as myself\n"
+    "expected to get across without\l"
+    "getting my dress dirty?"
+}

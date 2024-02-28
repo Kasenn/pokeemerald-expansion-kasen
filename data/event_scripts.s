@@ -1264,3 +1264,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/UndergroundRuins_3F/scripts.inc"
 
 	.include "data/maps/UndergroundRuins_VolcaronaRoom/scripts.inc"
+
+	.include "data/maps/Route9/scripts.inc"
+
+	.include "data/maps/KaolisleCity/scripts.inc"

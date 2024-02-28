@@ -27,8 +27,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_1",
-      "x": 49,
-      "y": 14,
+      "x": 43,
+      "y": 17,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -40,8 +40,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_AZURILL",
-      "x": 49,
-      "y": 15,
+      "x": 43,
+      "y": 18,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -52,20 +52,20 @@
       "flag": "FLAG_HIDE_FALLARBOR_AZURILL"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
-      "x": 43,
-      "y": 18,
+      "graphics_id": "OBJ_EVENT_GFX_MAN_1",
+      "x": 50,
+      "y": 13,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
-      "movement_range_y": 0,
+      "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FallarborTown_EventScript_ExpertM",
+      "script": "Marigorge_Man",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
       "x": 40,
       "y": 28,
       "elevation": 3,
@@ -74,7 +74,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FallarborTown_EventScript_Gentleman",
+      "script": "MariGorge_Woman",
       "flag": "0"
     },
     {
@@ -88,6 +88,19 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
+      "flag": "FLAG_MARIGORGE_ITEM3"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MANIAC",
+      "x": 57,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Marigorge_SusMan",
       "flag": "0"
     }
   ],
@@ -138,7 +151,7 @@
       "y": 28,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "FallarborTown_EventScript_MoveTutorSign"
+      "script": "Marigorge_Sign1"
     },
     {
       "type": "sign",
@@ -146,23 +159,31 @@
       "y": 32,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "FallarborTown_EventScript_TownSign"
+      "script": "Marigorge_Sign2"
     },
     {
       "type": "hidden_item",
       "x": 27,
       "y": 20,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1"
+      "item": "ITEM_SUN_STONE",
+      "flag": "FLAG_MARIGORGE_ITEM1"
     },
     {
       "type": "hidden_item",
       "x": 14,
       "y": 24,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1"
+      "item": "ITEM_HYPER_POTION",
+      "flag": "FLAG_MARIGORGE_ITEM2"
+    },
+    {
+      "type": "sign",
+      "x": 51,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route121_EventScript_SafariZoneSign"
     }
   ]
 }

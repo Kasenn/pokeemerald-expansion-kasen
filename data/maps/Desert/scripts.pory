@@ -30,8 +30,6 @@ script ScorchedDesert_TriggerQuakes{
         addvar(VAR_TEMP_DESERTRUINSFOUND, 1)
         switch(var(VAR_TEMP_DESERTRUINSFOUND)){
         case 1:
-            message("You can feel the ground\nshaking slightly.")
-            waitmessage
             playse(SE_SWITCH)
             setvar(VAR_0x8004, 1)  // vertical pan
             setvar(VAR_0x8005, 1)  // horizontal pan
@@ -39,11 +37,10 @@ script ScorchedDesert_TriggerQuakes{
             setvar(VAR_0x8007, 6)  // shake delay
             special(ShakeCamera)
             waitstate
-            delay(30)
+            msgbox("You can feel the ground\nshaking slightly.", MSGBOX_DEFAULT)
+            waitmessage
             closemessage
         case 2:
-            message("The shaking seems to be growing\nin magnitude.")
-            waitmessage
             playse(SE_SWITCH)
             setvar(VAR_0x8004, 1)  // vertical pan
             setvar(VAR_0x8005, 1)  // horizontal pan
@@ -51,11 +48,10 @@ script ScorchedDesert_TriggerQuakes{
             setvar(VAR_0x8007, 6)  // shake delay
             special(ShakeCamera)
             waitstate
-            delay(30)
+            msgbox("The shaking seems to be growing\nin magnitude.", MSGBOX_DEFAULT)
+            waitmessage
             closemessage
         case 3:
-            message("You notice the sand shifting below\nyour feet as the shaking continues.")
-            waitmessage
             playse(SE_M_STRENGTH)
             setvar(VAR_0x8004, 1)  // vertical pan
             setvar(VAR_0x8005, 1)  // horizontal pan
@@ -63,11 +59,10 @@ script ScorchedDesert_TriggerQuakes{
             setvar(VAR_0x8007, 6)  // shake delay
             special(ShakeCamera)
             waitstate
-            delay(30)
+            msgbox("You notice the sand shifting below\nyour feet as the shaking intensifies.", MSGBOX_DEFAULT)
+            waitmessage
             closemessage
         case 4:
-            message("The shaking seems to be intensifying.")
-            waitmessage
             playse(SE_M_STRENGTH)
             setvar(VAR_0x8004, 1)  // vertical pan
             setvar(VAR_0x8005, 1)  // horizontal pan
@@ -75,11 +70,10 @@ script ScorchedDesert_TriggerQuakes{
             setvar(VAR_0x8007, 4)  // shake delay
             special(ShakeCamera)
             waitstate
-            delay(30)
+            msgbox("The shaking is getting intense.", MSGBOX_DEFAULT)
+            waitmessage
             closemessage
         case 5:
-            message("It's an earthquake!")
-            waitmessage
             playse(SE_M_EARTHQUAKE)
             setvar(VAR_0x8004, 2)  // vertical pan
             setvar(VAR_0x8005, 2)  // horizontal pan
@@ -276,16 +270,6 @@ text Desert_Trainer13_Psychic_F_Intro{""}
 text Desert_Trainer13_Psychic_F_Defeat{""}
 text Desert_Trainer13_Psychic_F_PostBattle{""}
 
-script Desert_Trainer14_Cooltrainer {
-    trainerbattle_single(TRAINER_DESERT_TR14_COOLTRAINER, Desert_Trainer14_Cooltrainer_Intro, Desert_Trainer14_Cooltrainer_Defeat, DesertTrainer_IncreaseVar)
-    msgbox(Desert_Trainer14_Cooltrainer_PostBattle, MSGBOX_AUTOCLOSE)
-    end
-}
-
-text Desert_Trainer14_Cooltrainer_Intro{""}
-text Desert_Trainer14_Cooltrainer_Defeat{""}
-text Desert_Trainer14_Cooltrainer_PostBattle{""}
-
 script Desert_QuakesAbout{
     if(flag(FLAG_DESERT_RUINS_OPENED)){
         msgbox(Desert_QuakesAbout_LessQuakes, MSGBOX_NPC)
@@ -294,5 +278,150 @@ script Desert_QuakesAbout{
     msgbox(Desert_QuakesAbout_Text, MSGBOX_NPC)
     end
 }
-text Desert_QuakesAbout_Text{""}
-text Desert_QuakesAbout_LessQuakes{""}
+text Desert_QuakesAbout_Text{
+    "There have been reports of seismic\n"
+    "activity around the desert since\l"
+    "time immemorial.\p"
+    "Some say these ruins are protected from\n"
+    "these quakes while some experts believe\l"
+    "that their presence is causing tension\l"
+    "underneath the surface, amplifying the\l"
+    "magnitude of the tremors."
+}
+text Desert_QuakesAbout_LessQuakes{
+    "Not too long ago there was a weird\n"
+    "tremor right beneath our feet.\p"
+    "Ever since then, the overall seismic\n"
+    "readings seem to have gone down\l"
+    "drastically."
+}
+
+script DesertTrainer_IncreaseVar{
+    addvar(VAR_DESERT_TRAINERS, 1)
+    release
+    end
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+script Desert_Trainer14_Cooltrainer{
+    if(var(VAR_DESERT_TRAINERS) >= 14){
+        msgbox(Desert_Trainer14_Cooltrainer_PostBattle, MSGBOX_NPC)
+        end
+    }
+    elif(var(VAR_DESERT_TRAINERS) <= 12){
+        msgbox(Desert_Trainer14_Cooltrainer_DefeatMoreTrainers, MSGBOX_NPC)
+        end
+    }
+    else{
+        goto(Desert_Trainer14_CooltrainerEligibleForBattle)
+    }
+}
+script Desert_Trainer14_CooltrainerEligibleForBattle{
+    lockall
+    faceplayer
+    if(!flag(FLAG_TEMP_5)){
+        setflag(FLAG_TEMP_5)
+        msgbox(Desert_Trainer14_Cooltrainer_ReadyForBattle, MSGBOX_YESNO)
+    }
+    else{
+        msgbox(Desert_Trainer14_Cooltrainer_ReadyForBattleShort, MSGBOX_YESNO)
+    }
+    if(var(VAR_RESULT) == YES){
+        msgbox("Yay! Let's go!", MSGBOX_DEFAULT)
+        trainerbattle_no_intro(TRAINER_DESERT_TR14_COOLTRAINER, Desert_Trainer14_CooltrainerDefeated)
+        goto(Desert_Trainer14_CooltrainerPostBattle)
+	    end
+    }
+    if(var(VAR_RESULT) == NO){
+        msgbox(Desert_Trainer14_Cooltrainer_DeclineBattle, MSGBOX_NPC)
+        end
+    }
+}
+script Desert_Trainer14_CooltrainerPostBattle{
+    msgbox(Desert_Trainer14_CooltrainerReward, MSGBOX_DEFAULT)
+    giveitem(ITEM_SAFETY_GOGGLES)
+    waitfanfare
+    msgbox(Desert_ExplainReward, MSGBOX_DEFAULT)
+    call(Desert_GiveBP)
+    setvar(VAR_DESERT_TRAINERS, 14)
+    playfanfare(MUS_OBTAIN_B_POINTS)
+    msgbox("Earned {STR_VAR_1} BP!", MSGBOX_DEFAULT)
+    waitfanfare
+    if(!flag(FLAG_UNUSED_BP_INTRO)){
+        msgbox(ExplainBP, MSGBOX_DEFAULT)
+        setflag(FLAG_UNUSED_BP_INTRO)
+    }
+    waitmessage
+    closemessage
+    release
+	end
+}
+script Desert_GiveBP{
+    buffernumberstring (STR_VAR_1, 20)
+    setvar(VAR_0x8004, 20)
+    special(GiveFrontierBattlePoints)
+}
+text Desert_Trainer14_Cooltrainer_ReadyForBattle{
+    "I'm so bored…\p"
+    "I came to the desert because I heard\n"
+    "there's a lot of strong trainers\l"
+    "training here but not one of them had\l"
+    "a chance against me.\l"
+    "You on the other hand look like someone\l"
+    "who could entertain me.\p"
+    "How about it,\n"
+    "are you up for a Pokémon battle?\p"
+    "I'm pretty strong so I hope\n"
+    "you're prepared!"
+}
+text Desert_Trainer14_Cooltrainer_ReadyForBattleShort{
+    "You're back!\n"
+    "Can we please have a Pokémon battle?"
+}
+text Desert_Trainer14_Cooltrainer_DeclineBattle{
+    "Aww…\p"
+    "Please let me know if you change your\n"
+    "mind. I'm itching for a real battle!"
+}
+text Desert_Trainer14_Cooltrainer_PostBattle{
+    "My Pokémon and I need to train now.\n"
+    "I hope we can have a rematch once we're\l"
+    "a little bit stronger!"
+}
+text Desert_Trainer14_Cooltrainer_DefeatMoreTrainers{
+    "I'm so bored…\p"
+    "I want to fight strong trainers but\n"
+    "none of the trainers here could match\l"
+    "my awesomeness…\p"
+    "You look kinda strong but I'm not\n"
+    "so sure… "
+}
+text Desert_Trainer14_CooltrainerDefeated{
+    "Even though we lost, I don't feel\n"
+    "a single bit of resentment.\p"
+    "That was a really fun battle!\n"
+    "Can we go again?"
+}
+text Desert_Trainer14_CooltrainerReward{
+    "That was awesome!\p"
+    "It's been a long time since I've met\n"
+    "anyone who could rival me!\l"
+    "I'm so pumped!\p"
+    "You know what? You were such an awesome\n"
+    "sport, I want you to take these!"
+}
+text Desert_ExplainReward{
+    "If you give those goggles to a Pokémon,\n"
+    "they will be protected from powder and\l"
+    "spore moves and will not take damage\l"
+    "from weather effects like hail or\l"
+    "sandstorm!\p"
+    "…Oh, and take these as well!"
+}
+
+script TestVarDesert{
+    buffernumberstring(STR_VAR_1, VAR_DESERT_TRAINERS)
+    msgbox("{STR_VAR_1}", MSGBOX_NPC)
+    end
+}

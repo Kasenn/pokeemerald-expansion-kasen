@@ -1,5 +1,11 @@
 mapscripts UndergroundRuins_1F_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: SetRuinsFlag
     MAP_SCRIPT_ON_LOAD: DesertRuin1FTileSet
+}
+
+script SetRuinsFlag{
+    setflag(FLAG_LANDMARK_DESERT_RUINS)
+    end
 }
 
 script DesertRuin1FTileSet{
@@ -63,7 +69,13 @@ script DesertRuin1FTileSet{
 }
 
 script RuinsEntranceMan{
+    setflag(FLAG_RECOMMEND_LIBRARY)
+    if(flag(FLAG_ARCHEOLOGIST_TALKED_TO)){
+        msgbox(RuinsEntranceMan_Text, MSGBOX_NPC)
+        end
+    }
     if(flag(FLAG_DESERT_RUINS_OPENED)){
+        setflag(FLAG_ARCHEOLOGIST_TALKED_TO)
         msgbox(RuinsEntranceMan_After, MSGBOX_NPC)
         end
     }
@@ -71,5 +83,33 @@ script RuinsEntranceMan{
     end
 }
 
-text RuinsEntranceMan_After{""}
-text RuinsEntranceMan_Text{""}
+text RuinsEntranceMan_After{
+    "What?! The wall collapsed and revealed\n"
+    "a new floor to the ruins?!\p"
+    "And what's more, there's even more\n"
+    "glyphs down there?!\p"
+    "Well, I must certainly go explore\n"
+    "downstairs as soon as I've finished\l"
+    "reading through this!"
+}
+text RuinsEntranceMan_Text{
+    "This wall documents some of the last\n"
+    "days of an ancient civilization.\l"
+    "There's a mention of the entire sky\l"
+    "turning red but nobody living has ever\l"
+    "witnessed anything like that so\l"
+    "the truth behind this phenomenon\l"
+    "remains a total mystery.\p"
+    "If you'd like to learn to read the\n"
+    "glyphs yourself, you should visit\l"
+    "Sandstone City's library and borrow\l"
+    "a book on ancient Sinko history."}
+
+script DesertRuins_WallText{
+    msgbox(DesertRuins_WallText_Text1, MSGBOX_SIGN)
+    end
+}
+text DesertRuins_WallText_Text1{
+    "The wall is covered in a bunch of\n"
+    "indecipherable glyphs."
+}

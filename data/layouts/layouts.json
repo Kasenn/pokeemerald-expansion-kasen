@@ -2376,8 +2376,8 @@
       "name": "SafariZone_Northwest_Layout",
       "width": 40,
       "height": 40,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lilycove",
+      "primary_tileset": "gTileset_SafariPrime",
+      "secondary_tileset": "gTileset_SafariSec",
       "border_filepath": "data/layouts/SafariZone_Northwest/border.bin",
       "blockdata_filepath": "data/layouts/SafariZone_Northwest/map.bin"
     },
@@ -2386,8 +2386,8 @@
       "name": "SafariZone_North_Layout",
       "width": 40,
       "height": 40,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lilycove",
+      "primary_tileset": "gTileset_SafariPrime",
+      "secondary_tileset": "gTileset_SafariSec",
       "border_filepath": "data/layouts/SafariZone_North/border.bin",
       "blockdata_filepath": "data/layouts/SafariZone_North/map.bin"
     },
@@ -3936,8 +3936,8 @@
       "name": "SafariZone_Northeast_Layout",
       "width": 40,
       "height": 40,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lilycove",
+      "primary_tileset": "gTileset_SafariPrime",
+      "secondary_tileset": "gTileset_SafariSec",
       "border_filepath": "data/layouts/SafariZone_Northeast/border.bin",
       "blockdata_filepath": "data/layouts/SafariZone_Northeast/map.bin"
     },
@@ -5410,6 +5410,26 @@
       "secondary_tileset": "gTileset_MirageTower",
       "border_filepath": "data/layouts/UndergroundRuins_VolcaronaRoom/border.bin",
       "blockdata_filepath": "data/layouts/UndergroundRuins_VolcaronaRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE9",
+      "name": "Route9_Layout",
+      "width": 200,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mossdeep",
+      "border_filepath": "data/layouts/Route9/border.bin",
+      "blockdata_filepath": "data/layouts/Route9/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_CITY",
+      "name": "KaolisleCity_Layout",
+      "width": 70,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mossdeep",
+      "border_filepath": "data/layouts/KaolisleCity/border.bin",
+      "blockdata_filepath": "data/layouts/KaolisleCity/map.bin"
     }
   ]
 }

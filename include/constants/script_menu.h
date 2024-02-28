@@ -123,6 +123,8 @@
 #define MULTI_FALLARBOR_TENT_RULES         112
 #define MULTI_TAG_MATCH_TYPE               113
 #define MULTI_POKECENTER_IV_TRAINING       114
+#define MULTI_ABRA_TELEPORT                115
+#define MULTI_YESNOQUESTIONMARK            116
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0

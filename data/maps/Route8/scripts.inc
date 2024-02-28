@@ -57,6 +57,12 @@ Route7_Trainer9_Parasollady::
 	end
 
 
+Route7_Trainer10_NinjaBoy::
+	trainerbattle_single TRAINER_R7_TR10_NINJABOY, Route7_Trainer10_NinjaBoy_Intro, Route7_Trainer10_NinjaBoy_Defeat
+	msgbox Route7_Trainer10_NinjaBoy_PostBattle, MSGBOX_AUTOCLOSE
+	end
+
+
 Route7_Ball1::
 	finditem ITEM_HP_UP
 	end
@@ -64,6 +70,11 @@ Route7_Ball1::
 
 Route7_Ball2::
 	finditem ITEM_FULL_HEAL
+	end
+
+
+Route8_SoMuchMud::
+	msgbox Route8_SoMuchMud_Text, MSGBOX_NPC
 	end
 
 
@@ -147,3 +158,18 @@ Route7_Trainer9_Parasollady_Defeat::
 
 Route7_Trainer9_Parasollady_PostBattle::
 	.string "$"
+
+Route7_Trainer10_NinjaBoy_Intro::
+	.string "$"
+
+Route7_Trainer10_NinjaBoy_Defeat::
+	.string "$"
+
+Route7_Trainer10_NinjaBoy_PostBattle::
+	.string "$"
+
+Route8_SoMuchMud_Text::
+	.string "Ugh… Look at all this mud.\p"
+	.string "How is a fine lady such as myself\n"
+	.string "expected to get across without\l"
+	.string "getting my dress dirty?$"
