@@ -799,6 +799,20 @@ static const struct MenuAction PokeCenterIVTraining[] =
     {gText_SpeedTraining},
 };
 
+static const struct MenuAction AbraTeleport[] =
+{
+    {gText_Aldeleaf},
+    {gText_Shoreslate},
+    {gText_Nevermind},
+};
+
+static const struct MenuAction YesNoQuestionMark[] =
+{
+    {gText_YesQuestion},
+    {gText_NoQuestion},
+};
+
+
 static const struct MultichoiceListStruct sMultichoiceLists[] =
 {
     [MULTI_BRINEY_ON_DEWFORD]          = MULTICHOICE(MultichoiceList_BrineyOnDewford),
@@ -916,6 +930,8 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_FALLARBOR_TENT_RULES]       = MULTICHOICE(MultichoiceList_FallarborTentRules),
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
     [MULTI_POKECENTER_IV_TRAINING]     = MULTICHOICE(PokeCenterIVTraining),
+    [MULTI_ABRA_TELEPORT]              = MULTICHOICE(AbraTeleport),
+    [MULTI_YESNOQUESTIONMARK]          = MULTICHOICE(YesNoQuestionMark),
 };
 
 const u8 *const gStdStrings[] =

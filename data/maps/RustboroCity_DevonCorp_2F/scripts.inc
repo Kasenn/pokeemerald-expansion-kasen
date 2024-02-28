@@ -59,10 +59,8 @@ RustboroCity_DevonCorp_2F_EventScript_FossilScientist::
 	goto_if_eq VAR_FOSSIL_RESURRECTION_STATE, 2, RustboroCity_DevonCorp_2F_EventScript_FossilMonReady
 	goto_if_eq VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_StillRegenerating
 	msgbox RustboroCity_DevonCorp_2F_Text_DevelopDeviceToResurrectFossils, MSGBOX_DEFAULT
-	checkitem ITEM_ROOT_FOSSIL
-	goto_if_eq VAR_RESULT, TRUE, RustboroCity_DevonCorp_2F_EventScript_NoticeRootFossil
-	checkitem ITEM_CLAW_FOSSIL
-	goto_if_eq VAR_RESULT, TRUE, RustboroCity_DevonCorp_2F_EventScript_NoticeClawFossil
+	goto_if_set FLAG_OBTAINED_A_FOSSIL, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_5
+RustboroCity_DevonCorp_2F_EventScript_FossilScientist_4:
 	release
 	end
 
@@ -70,67 +68,199 @@ RustboroCity_DevonCorp_2F_EventScript_FossilScientist_2:
 	msgbox FossilResearchAMess, MSGBOX_NPC
 	end
 
+RustboroCity_DevonCorp_2F_EventScript_FossilScientist_5:
+	msgbox DevonShowAFossil, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq RustboroCity_DevonCorp_2F_EventScript_FossilScientist_7
+	call Common_OpenBag
+	switch VAR_ITEM_ID
+	case 165, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_11
+	case 166, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_12
+	case 167, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_13
+	case 168, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_14
+	case 169, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_15
+	case 170, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_16
+	case 171, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_17
+	case 172, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_18
+	case 173, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_19
+	case 174, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_20
+	case 175, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_21
+	case 0, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_22
+	msgbox ThatsNotAFossil, MSGBOX_NPC
+	end
 
-RustboroCity_DevonCorp_2F_EventScript_NoticeRootFossil::
-	closemessage
-	playse SE_PIN
-	applymovement 4, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement 4, Common_Movement_Delay48
-	waitmovement 0
+RustboroCity_DevonCorp_2F_EventScript_FossilScientist_7:
+	msgbox DevonShowAFossil_Decline, MSGBOX_NPC
+	end
+
+RustboroCity_DevonCorp_2F_EventScript_FossilScientist_11:
+	call NoticesAFossil
+	goto GiveHelixFossil
+	goto RustboroCity_DevonCorp_2F_EventScript_FossilScientist_4
+
+RustboroCity_DevonCorp_2F_EventScript_FossilScientist_12:
+	call NoticesAFossil
+	goto GiveDomeFossil
+	goto RustboroCity_DevonCorp_2F_EventScript_FossilScientist_4
+
+RustboroCity_DevonCorp_2F_EventScript_FossilScientist_13:
+	call NoticesAFossil
+	goto GiveAmberFossil
+	goto RustboroCity_DevonCorp_2F_EventScript_FossilScientist_4
+
+RustboroCity_DevonCorp_2F_EventScript_FossilScientist_14:
+	call NoticesAFossil
+	goto GiveRootFossil
+	goto RustboroCity_DevonCorp_2F_EventScript_FossilScientist_4
+
+RustboroCity_DevonCorp_2F_EventScript_FossilScientist_15:
+	call NoticesAFossil
+	goto GiveClawFossil
+	goto RustboroCity_DevonCorp_2F_EventScript_FossilScientist_4
+
+RustboroCity_DevonCorp_2F_EventScript_FossilScientist_16:
+	call NoticesAFossil
+	goto GiveArmorFossil
+	goto RustboroCity_DevonCorp_2F_EventScript_FossilScientist_4
+
+RustboroCity_DevonCorp_2F_EventScript_FossilScientist_17:
+	call NoticesAFossil
+	goto GiveSkullFossil
+	goto RustboroCity_DevonCorp_2F_EventScript_FossilScientist_4
+
+RustboroCity_DevonCorp_2F_EventScript_FossilScientist_18:
+	call NoticesAFossil
+	goto GiveCoverFossil
+	goto RustboroCity_DevonCorp_2F_EventScript_FossilScientist_4
+
+RustboroCity_DevonCorp_2F_EventScript_FossilScientist_19:
+	call NoticesAFossil
+	goto GivePlumeFossil
+	goto RustboroCity_DevonCorp_2F_EventScript_FossilScientist_4
+
+RustboroCity_DevonCorp_2F_EventScript_FossilScientist_20:
+	call NoticesAFossil
+	goto GiveJawFossil
+	goto RustboroCity_DevonCorp_2F_EventScript_FossilScientist_4
+
+RustboroCity_DevonCorp_2F_EventScript_FossilScientist_21:
+	call NoticesAFossil
+	goto GiveSailFossil
+	goto RustboroCity_DevonCorp_2F_EventScript_FossilScientist_4
+
+RustboroCity_DevonCorp_2F_EventScript_FossilScientist_22:
+	goto RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil
+	goto RustboroCity_DevonCorp_2F_EventScript_FossilScientist_4
+
+
+NoticesAFossil::
 	msgbox RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil
-	checkitem ITEM_CLAW_FOSSIL
-	goto_if_eq VAR_RESULT, TRUE, RustboroCity_DevonCorp_2F_EventScript_ChooseFossil
-	goto RustboroCity_DevonCorp_2F_EventScript_GiveRootFossil
-	end
+	compare VAR_RESULT, FALSE
+	goto_if_eq NoticesAFossil_1
+	return
+
+NoticesAFossil_1:
+	goto RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil
+	return
 
 
-RustboroCity_DevonCorp_2F_EventScript_GiveRootFossil::
-	bufferitemname STR_VAR_1, ITEM_ROOT_FOSSIL
-	msgbox RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT
-	removeitem ITEM_ROOT_FOSSIL
+GiveFossilFinish::
+	msgbox RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher, MSGBOX_NPC
 	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
-	setvar VAR_WHICH_FOSSIL_REVIVED, 1
-	release
-	end
-
-
-RustboroCity_DevonCorp_2F_EventScript_NoticeClawFossil::
-	closemessage
-	playse SE_PIN
-	applymovement 4, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement 4, Common_Movement_Delay48
-	waitmovement 0
-	msgbox RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil
-	checkitem ITEM_ROOT_FOSSIL
-	goto_if_eq VAR_RESULT, TRUE, RustboroCity_DevonCorp_2F_EventScript_ChooseFossil
-	goto RustboroCity_DevonCorp_2F_EventScript_GiveClawFossil
-	end
-
-
-RustboroCity_DevonCorp_2F_EventScript_GiveClawFossil::
-	bufferitemname STR_VAR_1, ITEM_CLAW_FOSSIL
-	msgbox RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT
-	removeitem ITEM_CLAW_FOSSIL
-	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
-	setvar VAR_WHICH_FOSSIL_REVIVED, 2
-	release
 	end
 
 
 RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil::
-	msgbox RustboroCity_DevonCorp_2F_Text_OhIsThatSo, MSGBOX_DEFAULT
-	release
+	msgbox RustboroCity_DevonCorp_2F_Text_OhIsThatSo, MSGBOX_NPC
 	end
 
 
-RustboroCity_DevonCorp_2F_EventScript_StillRegenerating::
-	msgbox RustboroCity_DevonCorp_2F_Text_FossilRegeneratorTakesTime, MSGBOX_DEFAULT
-	release
-	end
+GiveHelixFossil::
+	removeitem ITEM_HELIX_FOSSIL
+	bufferitemname STR_VAR_1, ITEM_HELIX_FOSSIL
+	setvar VAR_WHICH_FOSSIL_REVIVED, 1
+	goto GiveFossilFinish
+	return
+
+
+GiveDomeFossil::
+	removeitem ITEM_DOME_FOSSIL
+	bufferitemname STR_VAR_1, ITEM_DOME_FOSSIL
+	setvar VAR_WHICH_FOSSIL_REVIVED, 2
+	goto GiveFossilFinish
+	return
+
+
+GiveAmberFossil::
+	removeitem ITEM_OLD_AMBER
+	bufferitemname STR_VAR_1, ITEM_OLD_AMBER
+	setvar VAR_WHICH_FOSSIL_REVIVED, 3
+	goto GiveFossilFinish
+	return
+
+
+GiveRootFossil::
+	removeitem ITEM_ROOT_FOSSIL
+	bufferitemname STR_VAR_1, ITEM_ROOT_FOSSIL
+	setvar VAR_WHICH_FOSSIL_REVIVED, 4
+	goto GiveFossilFinish
+	return
+
+
+GiveClawFossil::
+	removeitem ITEM_CLAW_FOSSIL
+	bufferitemname STR_VAR_1, ITEM_CLAW_FOSSIL
+	setvar VAR_WHICH_FOSSIL_REVIVED, 5
+	goto GiveFossilFinish
+	return
+
+
+GiveArmorFossil::
+	removeitem ITEM_ARMOR_FOSSIL
+	bufferitemname STR_VAR_1, ITEM_ARMOR_FOSSIL
+	setvar VAR_WHICH_FOSSIL_REVIVED, 6
+	goto GiveFossilFinish
+	return
+
+
+GiveSkullFossil::
+	removeitem ITEM_SKULL_FOSSIL
+	bufferitemname STR_VAR_1, ITEM_SKULL_FOSSIL
+	setvar VAR_WHICH_FOSSIL_REVIVED, 7
+	goto GiveFossilFinish
+	return
+
+
+GiveCoverFossil::
+	removeitem ITEM_COVER_FOSSIL
+	bufferitemname STR_VAR_1, ITEM_COVER_FOSSIL
+	setvar VAR_WHICH_FOSSIL_REVIVED, 8
+	goto GiveFossilFinish
+	return
+
+
+GivePlumeFossil::
+	removeitem ITEM_PLUME_FOSSIL
+	bufferitemname STR_VAR_1, ITEM_PLUME_FOSSIL
+	setvar VAR_WHICH_FOSSIL_REVIVED, 9
+	goto GiveFossilFinish
+	return
+
+
+GiveJawFossil::
+	removeitem ITEM_JAW_FOSSIL
+	bufferitemname STR_VAR_1, ITEM_JAW_FOSSIL
+	setvar VAR_WHICH_FOSSIL_REVIVED, 10
+	goto GiveFossilFinish
+	return
+
+
+GiveSailFossil::
+	removeitem ITEM_SAIL_FOSSIL
+	bufferitemname STR_VAR_1, ITEM_SAIL_FOSSIL
+	setvar VAR_WHICH_FOSSIL_REVIVED, 11
+	goto GiveFossilFinish
+	return
 
 
 RustboroCity_DevonCorp_2F_EventScript_FossilMonReady::
@@ -509,26 +639,9 @@ ReceivedFossilMonFanfare::
 	return
 
 
-RustboroCity_DevonCorp_2F_EventScript_ChooseFossil::
-	message RustboroCity_DevonCorp_2F_Text_TwoFossilsPickOne
-	waitmessage
-	multichoice 17, 6, MULTI_FOSSIL, FALSE
-	switch VAR_RESULT
-	case 0, RustboroCity_DevonCorp_2F_EventScript_ChooseFossil_3
-	case 1, RustboroCity_DevonCorp_2F_EventScript_ChooseFossil_4
-	release
+RustboroCity_DevonCorp_2F_EventScript_StillRegenerating::
+	msgbox RustboroCity_DevonCorp_2F_Text_FossilRegeneratorTakesTime, MSGBOX_NPC
 	end
-
-RustboroCity_DevonCorp_2F_EventScript_ChooseFossil_1:
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_ChooseFossil_3:
-	goto RustboroCity_DevonCorp_2F_EventScript_GiveClawFossil
-	goto RustboroCity_DevonCorp_2F_EventScript_ChooseFossil_1
-
-RustboroCity_DevonCorp_2F_EventScript_ChooseFossil_4:
-	goto RustboroCity_DevonCorp_2F_EventScript_GiveRootFossil
-	goto RustboroCity_DevonCorp_2F_EventScript_ChooseFossil_1
 
 
 ResearchIntact::
@@ -571,6 +684,19 @@ NotLettingDown::
 	.string "Pokémon…\p"
 	.string "But it's not going well.$"
 
+DevonShowAFossil::
+	.string "You look like an experienced traveler.\p"
+	.string "Tell me, have you come across any\n"
+	.string "fossils you would like to show me?$"
+
+DevonShowAFossil_Decline::
+	.string "Oh, that's a shame…$"
+
+ThatsNotAFossil::
+	.string "Um… I'm not sure why you're\n"
+	.string "showing me that.\l"
+	.string "That's not a Pokémon fossil…$"
+
 FossilResearchAMess::
 	.string "All of my fossil research is\n"
 	.string "in shambles.\l"
@@ -594,24 +720,16 @@ RustboroCity_DevonCorp_2F_Text_DevelopDeviceToResurrectFossils::
 
 RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife::
 	.string "Wait! That thing you have there…\n"
-	.string "Is that a POKéMON fossil?\p"
-	.string "Would you like to bring that POKéMON\n"
+	.string "Is that an actual Pokémon fossil?\p"
+	.string "Would you like to bring that Pokémon\n"
 	.string "back to life?\p"
 	.string "I can with my newly developed\n"
-	.string "FOSSIL REGENERATOR.$"
+	.string "Fossil Regenerator.$"
 
 RustboroCity_DevonCorp_2F_Text_OhIsThatSo::
 	.string "Oh, is that so?\p"
-	.string "DEVON's technological expertise\n"
+	.string "Devon's technological expertise\n"
 	.string "is outstanding, I tell you.$"
-
-RustboroCity_DevonCorp_2F_Text_TwoFossilsPickOne::
-	.string "Oh, now that's a surprise!\n"
-	.string "You have not one, but two, fossils?\p"
-	.string "Unfortunately, my machine can only\n"
-	.string "regenerate one POKéMON at a time.\p"
-	.string "Would you like to pick one of your\n"
-	.string "fossils for regeneration?$"
 
 RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher::
 	.string "Excellent!\n"
@@ -620,7 +738,7 @@ RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher::
 	.string "the Devon researcher.$"
 
 RustboroCity_DevonCorp_2F_Text_FossilRegeneratorTakesTime::
-	.string "The FOSSIL REGENERATOR, which I made,\n"
+	.string "The Fossil Regenerator, which I made,\n"
 	.string "is incredible.\p"
 	.string "But it has one drawback--it takes\n"
 	.string "a long time to work.\p"

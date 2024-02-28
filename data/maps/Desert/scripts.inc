@@ -45,8 +45,6 @@ ScorchedDesert_TriggerQuakes_5:
 	goto ScorchedDesert_TriggerQuakes_4
 
 ScorchedDesert_TriggerQuakes_8:
-	message ScorchedDesert_TriggerQuakes_Text_0
-	waitmessage
 	playse SE_SWITCH
 	setvar VAR_0x8004, 1
 	setvar VAR_0x8005, 1
@@ -54,13 +52,12 @@ ScorchedDesert_TriggerQuakes_8:
 	setvar VAR_0x8007, 6
 	special ShakeCamera
 	waitstate
-	delay 30
+	msgbox ScorchedDesert_TriggerQuakes_Text_0, MSGBOX_DEFAULT
+	waitmessage
 	closemessage
 	goto ScorchedDesert_TriggerQuakes_4
 
 ScorchedDesert_TriggerQuakes_9:
-	message ScorchedDesert_TriggerQuakes_Text_1
-	waitmessage
 	playse SE_SWITCH
 	setvar VAR_0x8004, 1
 	setvar VAR_0x8005, 1
@@ -68,13 +65,12 @@ ScorchedDesert_TriggerQuakes_9:
 	setvar VAR_0x8007, 6
 	special ShakeCamera
 	waitstate
-	delay 30
+	msgbox ScorchedDesert_TriggerQuakes_Text_1, MSGBOX_DEFAULT
+	waitmessage
 	closemessage
 	goto ScorchedDesert_TriggerQuakes_4
 
 ScorchedDesert_TriggerQuakes_10:
-	message ScorchedDesert_TriggerQuakes_Text_2
-	waitmessage
 	playse SE_M_STRENGTH
 	setvar VAR_0x8004, 1
 	setvar VAR_0x8005, 1
@@ -82,13 +78,12 @@ ScorchedDesert_TriggerQuakes_10:
 	setvar VAR_0x8007, 6
 	special ShakeCamera
 	waitstate
-	delay 30
+	msgbox ScorchedDesert_TriggerQuakes_Text_2, MSGBOX_DEFAULT
+	waitmessage
 	closemessage
 	goto ScorchedDesert_TriggerQuakes_4
 
 ScorchedDesert_TriggerQuakes_11:
-	message ScorchedDesert_TriggerQuakes_Text_3
-	waitmessage
 	playse SE_M_STRENGTH
 	setvar VAR_0x8004, 1
 	setvar VAR_0x8005, 1
@@ -96,13 +91,12 @@ ScorchedDesert_TriggerQuakes_11:
 	setvar VAR_0x8007, 4
 	special ShakeCamera
 	waitstate
-	delay 30
+	msgbox ScorchedDesert_TriggerQuakes_Text_3, MSGBOX_DEFAULT
+	waitmessage
 	closemessage
 	goto ScorchedDesert_TriggerQuakes_4
 
 ScorchedDesert_TriggerQuakes_12:
-	message ScorchedDesert_TriggerQuakes_Text_4
-	waitmessage
 	playse SE_M_EARTHQUAKE
 	setvar VAR_0x8004, 2
 	setvar VAR_0x8005, 2
@@ -283,9 +277,100 @@ Desert_Trainer13_Psychic_F::
 	end
 
 
+Desert_QuakesAbout::
+	goto_if_set FLAG_DESERT_RUINS_OPENED, Desert_QuakesAbout_2
+	msgbox Desert_QuakesAbout_Text, MSGBOX_NPC
+	end
+
+Desert_QuakesAbout_2:
+	msgbox Desert_QuakesAbout_LessQuakes, MSGBOX_NPC
+	end
+
+
+DesertTrainer_IncreaseVar::
+	addvar VAR_DESERT_TRAINERS, 1
+	release
+	end
+
+
 Desert_Trainer14_Cooltrainer::
-	trainerbattle_single TRAINER_DESERT_TR14_COOLTRAINER, Desert_Trainer14_Cooltrainer_Intro, Desert_Trainer14_Cooltrainer_Defeat, DesertTrainer_IncreaseVar
-	msgbox Desert_Trainer14_Cooltrainer_PostBattle, MSGBOX_AUTOCLOSE
+	compare VAR_DESERT_TRAINERS, 14
+	goto_if_ge Desert_Trainer14_Cooltrainer_1
+	compare VAR_DESERT_TRAINERS, 12
+	goto_if_le Desert_Trainer14_Cooltrainer_2
+	goto Desert_Trainer14_CooltrainerEligibleForBattle
+	return
+
+Desert_Trainer14_Cooltrainer_1:
+	msgbox Desert_Trainer14_Cooltrainer_PostBattle, MSGBOX_NPC
+	end
+
+Desert_Trainer14_Cooltrainer_2:
+	msgbox Desert_Trainer14_Cooltrainer_DefeatMoreTrainers, MSGBOX_NPC
+	end
+
+
+Desert_Trainer14_CooltrainerEligibleForBattle::
+	lockall
+	faceplayer
+	goto_if_unset FLAG_TEMP_5, Desert_Trainer14_CooltrainerEligibleForBattle_2
+	msgbox Desert_Trainer14_Cooltrainer_ReadyForBattleShort, MSGBOX_YESNO
+Desert_Trainer14_CooltrainerEligibleForBattle_1:
+	compare VAR_RESULT, YES
+	goto_if_eq Desert_Trainer14_CooltrainerEligibleForBattle_6
+	compare VAR_RESULT, NO
+	goto_if_eq Desert_Trainer14_CooltrainerEligibleForBattle_8
+	return
+
+Desert_Trainer14_CooltrainerEligibleForBattle_2:
+	setflag FLAG_TEMP_5
+	msgbox Desert_Trainer14_Cooltrainer_ReadyForBattle, MSGBOX_YESNO
+	goto Desert_Trainer14_CooltrainerEligibleForBattle_1
+
+Desert_Trainer14_CooltrainerEligibleForBattle_6:
+	msgbox Desert_Trainer14_CooltrainerEligibleForBattle_Text_0, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_DESERT_TR14_COOLTRAINER, Desert_Trainer14_CooltrainerDefeated
+	goto Desert_Trainer14_CooltrainerPostBattle
+	end
+
+Desert_Trainer14_CooltrainerEligibleForBattle_8:
+	msgbox Desert_Trainer14_Cooltrainer_DeclineBattle, MSGBOX_NPC
+	end
+
+
+Desert_Trainer14_CooltrainerPostBattle::
+	msgbox Desert_Trainer14_CooltrainerReward, MSGBOX_DEFAULT
+	giveitem ITEM_SAFETY_GOGGLES
+	waitfanfare
+	msgbox Desert_ExplainReward, MSGBOX_DEFAULT
+	call Desert_GiveBP
+	setvar VAR_DESERT_TRAINERS, 14
+	playfanfare MUS_OBTAIN_B_POINTS
+	msgbox Desert_Trainer14_CooltrainerPostBattle_Text_0, MSGBOX_DEFAULT
+	waitfanfare
+	goto_if_unset FLAG_UNUSED_BP_INTRO, Desert_Trainer14_CooltrainerPostBattle_2
+Desert_Trainer14_CooltrainerPostBattle_1:
+	waitmessage
+	closemessage
+	release
+	end
+
+Desert_Trainer14_CooltrainerPostBattle_2:
+	msgbox ExplainBP, MSGBOX_DEFAULT
+	setflag FLAG_UNUSED_BP_INTRO
+	goto Desert_Trainer14_CooltrainerPostBattle_1
+
+
+Desert_GiveBP::
+	buffernumberstring STR_VAR_1, 20
+	setvar VAR_0x8004, 20
+	special GiveFrontierBattlePoints
+	return
+
+
+TestVarDesert::
+	buffernumberstring STR_VAR_1, VAR_DESERT_TRAINERS
+	msgbox TestVarDesert_Text_0, MSGBOX_NPC
 	end
 
 
@@ -303,16 +388,22 @@ ScorchedDesert_TriggerQuakes_Text_1:
 	.string "The shaking seems to be growing\nin magnitude.$"
 
 ScorchedDesert_TriggerQuakes_Text_2:
-	.string "You notice the sand shifting below\nyour feet as the shaking continues.$"
+	.string "You notice the sand shifting below\nyour feet as the shaking intensifies.$"
 
 ScorchedDesert_TriggerQuakes_Text_3:
-	.string "The shaking seems to be intensifying.$"
-
-ScorchedDesert_TriggerQuakes_Text_4:
-	.string "It's an earthquake!$"
+	.string "The shaking is getting intense.$"
 
 ScorchedDesert_FallThroughFloor_Text_0:
 	.string "something borked$"
+
+Desert_Trainer14_CooltrainerEligibleForBattle_Text_0:
+	.string "Yay! Let's go!$"
+
+Desert_Trainer14_CooltrainerPostBattle_Text_0:
+	.string "Earned {STR_VAR_1} BP!$"
+
+TestVarDesert_Text_0:
+	.string "{STR_VAR_1}$"
 
 Desert_Trainer1_Camper_Intro::
 	.string "$"
@@ -431,11 +522,76 @@ Desert_Trainer13_Psychic_F_Defeat::
 Desert_Trainer13_Psychic_F_PostBattle::
 	.string "$"
 
-Desert_Trainer14_Cooltrainer_Intro::
-	.string "$"
+Desert_QuakesAbout_Text::
+	.string "There have been reports of seismic\n"
+	.string "activity around the desert since\l"
+	.string "time immemorial.\p"
+	.string "Some say these ruins are protected from\n"
+	.string "these quakes while some experts believe\l"
+	.string "that their presence is causing tension\l"
+	.string "underneath the surface, amplifying the\l"
+	.string "magnitude of the tremors.$"
 
-Desert_Trainer14_Cooltrainer_Defeat::
-	.string "$"
+Desert_QuakesAbout_LessQuakes::
+	.string "Not too long ago there was a weird\n"
+	.string "tremor right beneath our feet.\p"
+	.string "Ever since then, the overall seismic\n"
+	.string "readings seem to have gone down\l"
+	.string "drastically.$"
+
+Desert_Trainer14_Cooltrainer_ReadyForBattle::
+	.string "I'm so bored…\p"
+	.string "I came to the desert because I heard\n"
+	.string "there's a lot of strong trainers\l"
+	.string "training here but not one of them had\l"
+	.string "a chance against me.\l"
+	.string "You on the other hand look like someone\l"
+	.string "who could entertain me.\p"
+	.string "How about it,\n"
+	.string "are you up for a Pokémon battle?\p"
+	.string "I'm pretty strong so I hope\n"
+	.string "you're prepared!$"
+
+Desert_Trainer14_Cooltrainer_ReadyForBattleShort::
+	.string "You're back!\n"
+	.string "Can we please have a Pokémon battle?$"
+
+Desert_Trainer14_Cooltrainer_DeclineBattle::
+	.string "Aww…\p"
+	.string "Please let me know if you change your\n"
+	.string "mind. I'm itching for a real battle!$"
 
 Desert_Trainer14_Cooltrainer_PostBattle::
-	.string "$"
+	.string "My Pokémon and I need to train now.\n"
+	.string "I hope we can have a rematch once we're\l"
+	.string "a little bit stronger!$"
+
+Desert_Trainer14_Cooltrainer_DefeatMoreTrainers::
+	.string "I'm so bored…\p"
+	.string "I want to fight strong trainers but\n"
+	.string "none of the trainers here could match\l"
+	.string "my awesomeness…\p"
+	.string "You look kinda strong but I'm not\n"
+	.string "so sure… $"
+
+Desert_Trainer14_CooltrainerDefeated::
+	.string "Even though we lost, I don't feel\n"
+	.string "a single bit of resentment.\p"
+	.string "That was a really fun battle!\n"
+	.string "Can we go again?$"
+
+Desert_Trainer14_CooltrainerReward::
+	.string "That was awesome!\p"
+	.string "It's been a long time since I've met\n"
+	.string "anyone who could rival me!\l"
+	.string "I'm so pumped!\p"
+	.string "You know what? You were such an awesome\n"
+	.string "sport, I want you to take these!$"
+
+Desert_ExplainReward::
+	.string "If you give those goggles to a Pokémon,\n"
+	.string "they will be protected from powder and\l"
+	.string "spore moves and will not take damage\l"
+	.string "from weather effects like hail or\l"
+	.string "sandstorm!\p"
+	.string "…Oh, and take these as well!$"

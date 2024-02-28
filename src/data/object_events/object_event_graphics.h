@@ -415,3 +415,5 @@ const u32 gObjectEventPic_RocketAdmin_M[] = INCBIN_U32("graphics/object_events/p
 const u16 gObjectEventPalette_RocketAdmin_M[] = INCBIN_U16("graphics/object_events/pics/people/rocket_admin_m.gbapal");
 const u32 gObjectEventPic_Volcarona[] = INCBIN_U32("graphics/object_events/pics/people/volcarona.4bpp");
 const u16 gObjectEventPalette_Volcarona[] = INCBIN_U16("graphics/object_events/pics/people/volcarona.gbapal");
+const u32 gObjectEventPic_Abra[] = INCBIN_U32("graphics/object_events/pics/people/abra.4bpp");
+const u16 gObjectEventPalette_Abra[] = INCBIN_U16("graphics/object_events/pics/people/abra.gbapal");

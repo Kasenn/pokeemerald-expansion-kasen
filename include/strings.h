@@ -3165,6 +3165,11 @@ extern const u8 gText_SpAtkTraining[];
 extern const u8 gText_DefTraining[];
 extern const u8 gText_SpDefTraining[];
 extern const u8 gText_SpeedTraining[];
+extern const u8 gText_Aldeleaf[];
+extern const u8 gText_Shoreslate[];
+extern const u8 gText_Nevermind[];
+extern const u8 gText_YesQuestion[];
+extern const u8 gText_NoQuestion[];
 
 // Naming Screen
 extern const u8 gText_MoveOkBack[];

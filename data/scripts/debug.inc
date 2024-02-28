@@ -96,6 +96,7 @@ Debug_Script_2::
 	end
 
 Debug_Script_3::
+	goto RustboroCity_DevonCorp_2F_EventScript_FossilScientist
 	end
 
 Debug_Script_4::

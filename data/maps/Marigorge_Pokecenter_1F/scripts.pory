@@ -1,0 +1,105 @@
+mapscripts Marigorge_Pokecenter_1F_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: MarigorgePokeCenter1F_OnTransition
+	MAP_SCRIPT_ON_RESUME: CableClub_OnResume
+}
+
+script MarigorgePokeCenter1F_OnTransition{
+	setrespawn(HEAL_LOCATION_MARIGORGE_TOWN)
+	call(Common_EventScript_UpdateBrineyLocation)
+	end
+}
+
+script MarigorgePokeCenter1F_EventScript_Nurse{
+	setvar(VAR_0x800B, 2)
+	call(Common_EventScript_PkmnCenterNurse)
+	waitmessage
+	waitbuttonpress
+	release
+	end
+}
+
+script MarigorgePokeCenter1F_OldMan{
+    msgbox(MarigorgePokeCenter1F_OldMan_Text, MSGBOX_NPC)
+    end
+}
+text MarigorgePokeCenter1F_OldMan_Text{
+    "Many people who come to visit the\n"
+    "Safari Zone are simply too fatigued\l"
+    "to get back home after a long day\l"
+    "of exploring.\p"
+    "If you talk to my Abra over there,\n"
+    "he can teleport you to some of the\l"
+    "nearby cities, free of charge."
+}
+
+script MarigorgePokeCenter1F_Woman{
+    msgbox(MarigorgePokeCenter1F_Woman_Text, MSGBOX_NPC)
+}
+text MarigorgePokeCenter1F_Woman_Text{
+    "This place is very quiet.\n"
+    "I like it."
+}
+
+script MarigorgePokeCenter1F_Abra{
+    lockall
+    faceplayer
+    playmoncry(SPECIES_ABRA, CRY_MODE_ENCOUNTER)
+    message("Abra: Aabra?")
+    waitmessage
+    multichoice(23, 0, MULTI_ABRA_TELEPORT, 0)
+    switch(var(VAR_RESULT)){
+        case 0:
+            goto(TeleportToAldeleaf)
+        case 1:
+            goto(TeleportToShoreslate)
+        case 2:
+            goto(TeleportCancel)
+        case MULTI_B_PRESSED:
+            goto(TeleportCancel)
+    }
+}
+
+script TeleportToAldeleaf{
+    message("Abra: Aa! Aabra?")
+    multichoice(23, 0, MULTI_YESNOQUESTIONMARK, 0)
+    switch(var(VAR_RESULT)){
+        case 0:
+            msgbox("Abra: Aabra!", MSGBOX_DEFAULT)
+            waitmessage
+            closemessage
+            warpteleport(MAP_WIP_CITY1, 14, 38)
+            waitstate
+            release
+            end
+        case 1:
+            goto(TeleportCancel)
+        case MULTI_B_PRESSED:
+            goto(TeleportCancel)
+    }
+}
+
+script TeleportToShoreslate{
+    message("Abra: Aa! Aabra?")
+    multichoice(23, 0, MULTI_YESNOQUESTIONMARK, 0)
+    switch(var(VAR_RESULT)){
+        case 0:
+            msgbox("Abra: Aabra!", MSGBOX_DEFAULT)
+            waitmessage
+            closemessage
+            warpteleport(MAP_SHORESLATE_CITY, 45, 12)
+            waitstate
+            release
+            end
+        case 1:
+            goto(TeleportCancel)
+        case MULTI_B_PRESSED:
+            goto(TeleportCancel)
+    }
+}
+
+script TeleportCancel{
+    msgbox("Abra: Aabra…", MSGBOX_NPC)
+    end
+}
+
+    

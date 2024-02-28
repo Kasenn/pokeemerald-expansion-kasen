@@ -983,6 +983,14 @@
       "y": 8,
       "width": 1,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_DESERT_RUINS",
+      "name": "DESERT RUINS",
+      "x": 25,
+      "y": 11,
+      "width": 1,
+      "height": 1
     }
   ]
 }

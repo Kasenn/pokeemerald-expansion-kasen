@@ -22,12 +22,12 @@ AldeleafSmallHouse1_Man_2:
 	goto AldeleafSmallHouse1_Man_1
 
 AldeleafSmallHouse1_Man_5:
-	goto NotEnoughRoom
+	goto OldManNotEnoughRoom
 	goto AldeleafSmallHouse1_Man_4
 
 
-NotEnoughRoom::
-	msgbox NotEnoughRoom_Text_0, MSGBOX_NPC
+OldManNotEnoughRoom::
+	msgbox OldManNotEnoughRoom_Text_0, MSGBOX_NPC
 	end
 
 
@@ -36,7 +36,7 @@ AldeleafSmallHouse1_Man2::
 	end
 
 
-NotEnoughRoom_Text_0:
+OldManNotEnoughRoom_Text_0:
 	.string "Oh, but you don't have enough room…$"
 
 AldeleafSmallHouse1_Man2_Text_0:

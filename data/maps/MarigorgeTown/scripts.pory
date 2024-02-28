@@ -212,3 +212,166 @@ text MuseumThanksForArtifact{
     "Let me know if you have more relics\n"
     "you'd like to sell."
 }
+
+script Marigorge_Man{
+    msgbox(Marigorge_Man_Text, MSGBOX_NPC)
+    end
+}
+text Marigorge_Man_Text{
+    "Are you here to visit the Safari Zone?\p"
+    "There you can find all sorts of Pokémon\n"
+    "that are either rare or unavailable\l"
+    "in other parts of Sinko."
+}
+
+script MariGorge_Woman{
+    msgbox(MariGorge_Woman_Text, MSGBOX_NPC)
+    end
+}
+text MariGorge_Woman_Text{
+    "Thanks to the fresh water flowing in\n"
+    "from the mountains,\l"
+    "this normally arid area is teeming\l"
+    "with life."
+}
+
+script Marigorge_Sign1{
+    msgbox(Marigorge_Sign1_Text, MSGBOX_SIGN)
+    end
+}
+text Marigorge_Sign1_Text{
+    "Move Deleter's house\p"
+	"“Unwanted Pokémon moves deleted.”"
+}
+
+script Marigorge_Sign2{
+    msgbox(Marigorge_Sign2_Text, MSGBOX_SIGN)
+    end
+}
+text Marigorge_Sign2_Text{
+    "Marigorge Town\p"
+    "“A beautiful oasis amidst mountains.”"
+}
+
+script MarigorgeHouse_OldWoman{
+    msgbox(MarigorgeHouse_OldWoman_Text, MSGBOX_NPC)
+    end
+}
+text MarigorgeHouse_OldWoman_Text{
+    "Have you seen the huge waterfall\n"
+    "outside?\p"
+    "A legend says that a strong Pokémon\n"
+    "lives up that waterfall,\l"
+    "and that only worthy trainers are\l"
+    "allowed to even approach it."
+}
+
+script Marigorge_Mart_Woman{
+    msgbox(Marigorge_Mart_Woman_Text, MSGBOX_NPC)
+    end
+}
+text Marigorge_Mart_Woman_Text{
+    "I was hoping to bring some Safari Balls\n"
+    "as a souvenir but I guess they don't\l"
+    "sell them in regular Poké Marts…"
+}
+
+script Marigorge_Mart_Fisherman{
+    msgbox(Marigorge_Mart_Fisherman_Text, MSGBOX_NPC)
+    end
+}
+text Marigorge_Mart_Fisherman_Text{
+    "The new BP shops are great but if\n"
+    "you're in need of regular everyday\l"
+    "supplies, you really can't go wrong\l"
+    "with Poké Mart!"
+}
+
+script Common_OpenBag{
+    fadescreen(FADE_TO_BLACK)
+    closemessage
+    special(Bag_ChooseFossil)
+    waitstate
+    return
+}
+
+script Marigorge_SusMan{
+    if(flag(FLAG_DAILY_SAFARIBALL_BOUGHT)){
+        msgbox(Marigorge_SusMan_AlreadyBought, MSGBOX_NPC)
+        end
+    }
+    lockall
+    faceplayer
+    msgbox(Marigorge_SusMan_Text, MSGBOX_DEFAULT)
+    showmoneybox(0,0)
+    msgbox(Marigorge_SusMan_BuyBall, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(Marigorge_SusMan_YourLoss, MSGBOX_NPC)
+        hidemoneybox
+        end
+    }
+    else{
+        checkmoney(3000)
+        if(var(VAR_RESULT) == FALSE){
+            msgbox(Marigorge_SusMan_ScammingMe, MSGBOX_NPC)
+            hidemoneybox
+            end
+        }
+        checkitemspace(ITEM_SAFARI_BALL, 1)
+        if (var(VAR_RESULT) == FALSE){
+            msgbox(NotEnoughRoom, MSGBOX_NPC)
+            hidemoneybox
+            end
+        }
+        removemoney(3000)
+        playse(SE_SHOP)
+        updatemoneybox
+        waitse
+        msgbox(Marigorge_SusMan_GaveMoney, MSGBOX_DEFAULT)
+        waitmessage
+        closemessage
+        hidemoneybox
+        giveitem(ITEM_SAFARI_BALL, 1)
+        setflag(FLAG_DAILY_SAFARIBALL_BOUGHT)
+        msgbox(Marigorge_SusMan_DontGoToSafari, MSGBOX_NPC)
+        end
+    }
+}
+
+text Marigorge_SusMan_Text{
+    "Psst!\p"
+    "I've got a special deal,\n"
+    "just for you.\p"
+    "I was able to smuggle one of the\n"
+    "Safari Balls out of the Safari Zone.\l"
+    "Don't ask me how."
+}
+text Marigorge_SusMan_BuyBall{
+    "Anyway, interested to buy it?\n"
+    "I can sell it for ¥3000.\p"
+    "It wasn't easy so of course the price\n"
+    "must reflect the risk taken."
+}
+text Marigorge_SusMan_YourLoss{
+    "Whatever man, your loss."
+}
+text Marigorge_SusMan_ScammingMe{
+    "You trying to scam me or what?\n"
+    "You clearly don't have enough money."
+}
+text Marigorge_SusMan_GaveMoney{
+    "{PLAYER} gave ¥3000 to the\n"
+    "suspicious man."
+}
+text Marigorge_SusMan_DontGoToSafari{
+    "Pleasure doing business with you.\p"
+    "If you're interested, I might be able\n"
+    "to get another one tomorrow\l"
+    "once the heat dies down."
+}
+text Marigorge_SusMan_AlreadyBought{
+    "Sorry, but that's all I managed to\n"
+    "smuggle out.\p"
+    "I can maybe get another one tomorrow\n"
+    "once the heat dies down."
+}
