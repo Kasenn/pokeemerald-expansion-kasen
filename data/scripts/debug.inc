@@ -96,8 +96,12 @@ Debug_Script_2::
 	end
 
 Debug_Script_3::
-	goto RustboroCity_DevonCorp_2F_EventScript_FossilScientist
+	buffernumberstring STR_VAR_1, VAR_DESERT_TRAINERS
+	message DebugVar
 	end
+
+DebugVar::
+	.string "{STR_VAR_1}$"
 
 Debug_Script_4::
 	end

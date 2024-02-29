@@ -93,15 +93,15 @@ Route6_HoneyTree_17:
 	goto Route6_HoneyTree_16
 
 Route6_HoneyTree_20:
-	setwildbattlelevelrange SPECIES_EXEGGCUTE, 24, ITEM_NONE, SPECIES_NONE, 28
+	setwildbattlelevelrange SPECIES_TEDDIURSA, 24, ITEM_NONE, SPECIES_NONE, 28
 	goto Route6_HoneyTree_19
 
 Route6_HoneyTree_23:
-	setwildbattlelevelrange SPECIES_EXEGGCUTE, 24, ITEM_NONE, SPECIES_NONE, 28
+	setwildbattlelevelrange SPECIES_TEDDIURSA, 24, ITEM_NONE, SPECIES_NONE, 28
 	goto Route6_HoneyTree_22
 
 Route6_HoneyTree_26:
-	setwildbattlelevelrange SPECIES_EXEGGCUTE, 24, ITEM_NONE, SPECIES_NONE, 28
+	setwildbattlelevelrange SPECIES_TEDDIURSA, 24, ITEM_NONE, SPECIES_NONE, 28
 	goto Route6_HoneyTree_25
 
 Route6_HoneyTree_29:

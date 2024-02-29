@@ -420,10 +420,10 @@ text Desert_QuakesAbout_Text{
     "activity around the desert since\l"
     "time immemorial.\p"
     "Some say these ruins are protected from\n"
-    "these quakes while some experts believe\l"
+    "these quakes while some believe\l"
     "that their presence is causing tension\l"
-    "underneath the surface, amplifying the\l"
-    "magnitude of the tremors."
+    "underneath the surface, amplifying\l"
+    "the magnitude of the tremors."
 }
 text Desert_QuakesAbout_LessQuakes{
     "Not too long ago there was a weird\n"
