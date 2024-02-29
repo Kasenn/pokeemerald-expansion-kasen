@@ -14,6 +14,7 @@ script UndergroundRuins_OnLoad{
 }
 
 script UndergroundRuins_OnTransition{
+    clearflag(FLAG_DESERT_STEPS)
     setflag(FLAG_LANDMARK_DESERT_RUINS)
     goto(CaveHole_FixCrackedGround)
 }
@@ -43,7 +44,7 @@ script CheckForEscapeRope{
     checkitem(ITEM_ESCAPE_ROPE)
     if(var(VAR_RESULT) == FALSE){
         lockall
-        msgbox("There's a coil of old rope here that\ncould be used to climb back out.", MSGBOX_DEFAULT)
+        msgbox("You stumble upon some old rope that\ncould be used to climb back out.", MSGBOX_DEFAULT)
         finditem(ITEM_ESCAPE_ROPE)
         release
         end

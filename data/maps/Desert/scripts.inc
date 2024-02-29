@@ -580,10 +580,10 @@ Desert_QuakesAbout_Text::
 	.string "activity around the desert since\l"
 	.string "time immemorial.\p"
 	.string "Some say these ruins are protected from\n"
-	.string "these quakes while some experts believe\l"
+	.string "these quakes while some believe\l"
 	.string "that their presence is causing tension\l"
-	.string "underneath the surface, amplifying the\l"
-	.string "magnitude of the tremors.$"
+	.string "underneath the surface, amplifying\l"
+	.string "the magnitude of the tremors.$"
 
 Desert_QuakesAbout_LessQuakes::
 	.string "Not too long ago there was a weird\n"

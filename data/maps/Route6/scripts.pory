@@ -36,13 +36,13 @@ script Route6_HoneyTree{
                 setwildbattlelevelrange(SPECIES_KOMALA, 24, ITEM_NONE, SPECIES_NONE, 28)
             }
             if(var(VAR_RESULT) == 4){
-                setwildbattlelevelrange(SPECIES_EXEGGCUTE, 24, ITEM_NONE, SPECIES_NONE, 28)
+                setwildbattlelevelrange(SPECIES_TEDDIURSA, 24, ITEM_NONE, SPECIES_NONE, 28)
             }
             if(var(VAR_RESULT) == 5){
-                setwildbattlelevelrange(SPECIES_EXEGGCUTE, 24, ITEM_NONE, SPECIES_NONE, 28)
+                setwildbattlelevelrange(SPECIES_TEDDIURSA, 24, ITEM_NONE, SPECIES_NONE, 28)
             }
             if(var(VAR_RESULT) == 6){
-                setwildbattlelevelrange(SPECIES_EXEGGCUTE, 24, ITEM_NONE, SPECIES_NONE, 28)
+                setwildbattlelevelrange(SPECIES_TEDDIURSA, 24, ITEM_NONE, SPECIES_NONE, 28)
             }
             if(var(VAR_RESULT) == 7){
                 setwildbattlelevelrange(SPECIES_HERACROSS, 24, ITEM_NONE, SPECIES_NONE, 28)

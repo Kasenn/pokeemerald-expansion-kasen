@@ -94,10 +94,10 @@ text RuinsEntranceMan_After{
 }
 text RuinsEntranceMan_Text{
     "This wall documents some of the last\n"
-    "days of an ancient civilization.\l"
-    "There's a mention of the entire sky\l"
+    "days of an ancient civilization.\p"
+    "There's a mention of the entire sky\n"
     "turning red but nobody living has ever\l"
-    "witnessed anything like that so\l"
+    "witnessed anything like that, so\l"
     "the truth behind this phenomenon\l"
     "remains a total mystery.\p"
     "If you'd like to learn to read the\n"

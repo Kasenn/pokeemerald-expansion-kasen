@@ -105,10 +105,10 @@ RuinsEntranceMan_After::
 
 RuinsEntranceMan_Text::
 	.string "This wall documents some of the last\n"
-	.string "days of an ancient civilization.\l"
-	.string "There's a mention of the entire sky\l"
+	.string "days of an ancient civilization.\p"
+	.string "There's a mention of the entire sky\n"
 	.string "turning red but nobody living has ever\l"
-	.string "witnessed anything like that so\l"
+	.string "witnessed anything like that, so\l"
 	.string "the truth behind this phenomenon\l"
 	.string "remains a total mystery.\p"
 	.string "If you'd like to learn to read the\n"

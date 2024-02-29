@@ -3070,10 +3070,10 @@ static const struct TrainerMon sParty_DesertTr13_Psychic_F[] = {
 
 static const struct TrainerMon sParty_DesertTr14_Cooltrainer[] = {
     {
+    .heldItem = ITEM_SITRUS_BERRY,
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
     .ev = TRAINER_PARTY_EVS(100, 0, 100, 0, 0, 100),
     .lvl = 39,
-    .heldItem = ITEM_SITRUS_BERRY,
     .species = SPECIES_COFAGRIGUS,
     .moves = {MOVE_SHADOW_BALL, MOVE_CURSE, MOVE_WILL_O_WISP, MOVE_PROTECT},
     },
@@ -3089,7 +3089,7 @@ static const struct TrainerMon sParty_DesertTr14_Cooltrainer[] = {
     .ev = TRAINER_PARTY_EVS(100, 0, 100, 0, 0, 100),
     .lvl = 40,
     .species = SPECIES_BRONZONG,
-    .moves = {MOVE_GYRO_BALL, MOVE_CONFUSION, MOVE_CONFUSE_RAY, MOVE_HYPNOSIS},
+    .moves = {MOVE_GYRO_BALL, MOVE_FUTURE_SIGHT, MOVE_CONFUSE_RAY, MOVE_HYPNOSIS},
     },
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),

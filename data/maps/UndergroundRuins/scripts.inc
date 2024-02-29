@@ -18,6 +18,7 @@ UndergroundRuins_OnLoad_2:
 
 
 UndergroundRuins_OnTransition::
+	clearflag FLAG_DESERT_STEPS
 	setflag FLAG_LANDMARK_DESERT_RUINS
 	goto CaveHole_FixCrackedGround
 	return
@@ -332,7 +333,7 @@ QuakeAfterFossil::
 
 
 CheckForEscapeRope_Text_0:
-	.string "There's a coil of old rope here that\ncould be used to climb back out.$"
+	.string "You stumble upon some old rope that\ncould be used to climb back out.$"
 
 NotEnoughRoom_Text_0:
 	.string "You don't have enough room to\ncarry that item…$"
