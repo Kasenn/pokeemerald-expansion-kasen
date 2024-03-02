@@ -25736,6 +25736,7 @@ Move_SECRET_POWER:
 	jumpargeq 0, BATTLE_TERRAIN_WATER,          Move_SURF
 	jumpargeq 0, BATTLE_TERRAIN_POND,           Move_BUBBLE_BEAM
 	jumpargeq 0, BATTLE_TERRAIN_MOUNTAIN,       Move_ROCK_THROW
+	jumpargeq 0, BATTLE_TERRAIN_MUD,       		Move_MUD_BOMB
 	jumpargeq 0, BATTLE_TERRAIN_CAVE,           Move_BITE
 	jumpargeq 0, BATTLE_TERRAIN_BUILDING,       Move_STRENGTH
 	jumpargeq 0, BATTLE_TERRAIN_SOARING,        Move_GUST

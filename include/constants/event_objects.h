@@ -126,7 +126,7 @@
 #define OBJ_EVENT_GFX_PHOEBE                     122
 #define OBJ_EVENT_GFX_GLACIA                     123
 #define OBJ_EVENT_GFX_DRAKE                      124
-#define OBJ_EVENT_GFX_D_DECC                    125
+#define OBJ_EVENT_GFX_CLAY                    125
 #define OBJ_EVENT_GFX_BRAWLY                     126
 #define OBJ_EVENT_GFX_ROCKET_F                    127
 #define OBJ_EVENT_GFX_FLANNERY                   128
@@ -377,7 +377,7 @@
 #define OBJ_EVENT_PAL_STONE_SPHERE                  0x1130
 #define OBJ_EVENT_PAL_CRUSTLE                   0x1131
 #define OBJ_EVENT_PAL_NEWPIKACHU                0x1132
-#define OBJ_EVENT_PAL_D_DECC                    0x1133
+#define OBJ_EVENT_PAL_CLAY                    0x1133
 #define OBJ_EVENT_PAL_ROCKET_ADMIN_M        0x1134
 #define OBJ_EVENT_PAL_VOLCARONA             0x1135
 #define OBJ_EVENT_PAL_ABRA                  0x1136

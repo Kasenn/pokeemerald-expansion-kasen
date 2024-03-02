@@ -662,9 +662,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_GABBY_AND_TY_5] =
     {
-        .trainerClass = TRAINER_CLASS_BUG_MANIAC,
+        .trainerClass = TRAINER_CLASS_POKEMANIAC,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
-        .trainerPic = TRAINER_PIC_BUG_MANIAC,
+        .trainerPic = TRAINER_PIC_POKEMANIAC,
         .trainerName = _("Ross"),
         .items = {},
         .doubleBattle = FALSE,
@@ -700,7 +700,7 @@ const struct Trainer gTrainers[] = {
     {
         .trainerClass = TRAINER_CLASS_CHAMPION,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_TWINS,
-        .trainerPic = TRAINER_PIC_ARENA_TYCOON_GRETA,
+        .trainerPic = TRAINER_PIC_CLAY,
         .trainerName = _("Iris"),
         .items = {},
         .doubleBattle = FALSE,
@@ -2172,7 +2172,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_MarigorgeNurse),
     },
 
-    [TRAINER_KIYO] =
+    [TRAINER_KAOLGYM_TR1_CAMPER1] =
     {
         .trainerClass = TRAINER_CLASS_BLACK_BELT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
@@ -2184,7 +2184,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_Kiyo),
     },
 
-    [TRAINER_KOICHI] =
+    [TRAINER_KAOLGYM_TR2_PICNICKER1] =
     {
         .trainerClass = TRAINER_CLASS_BLACK_BELT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
@@ -2196,7 +2196,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_Koichi),
     },
 
-    [TRAINER_NOB_1] =
+    [TRAINER_KAOLGYM_TR3_HIKER1] =
     {
         .trainerClass = TRAINER_CLASS_BLACK_BELT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
@@ -2208,7 +2208,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_Nob1),
     },
 
-    [TRAINER_NOB_2] =
+    [TRAINER_KAOLGYM_TR4_CAMPER2] =
     {
         .trainerClass = TRAINER_CLASS_BLACK_BELT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
@@ -2220,7 +2220,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_Nob2),
     },
 
-    [TRAINER_NOB_3] =
+    [TRAINER_KAOLGYM_TR5_HIKER2] =
     {
         .trainerClass = TRAINER_CLASS_BLACK_BELT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
@@ -2232,7 +2232,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_Nob3),
     },
 
-    [TRAINER_NOB_4] =
+    [TRAINER_KAOLGYM_TR6_HIKER3] =
     {
         .trainerClass = TRAINER_CLASS_BLACK_BELT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
@@ -2244,7 +2244,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_Nob4),
     },
 
-    [TRAINER_NOB_5] =
+    [TRAINER_KAOLGYM_TR7_PICNICKER2] =
     {
         .trainerClass = TRAINER_CLASS_BLACK_BELT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
@@ -2256,7 +2256,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_Nob5),
     },
 
-    [TRAINER_YUJI] =
+    [TRAINER_KAOLGYM_TR8_CAMPER3] =
     {
         .trainerClass = TRAINER_CLASS_BLACK_BELT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
@@ -2268,7 +2268,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_Yuji),
     },
 
-    [TRAINER_DAISUKE] =
+    [TRAINER_KAOLGYM_TR9_PICNICKER3] =
     {
         .trainerClass = TRAINER_CLASS_BLACK_BELT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
@@ -2280,7 +2280,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_Daisuke),
     },
 
-    [TRAINER_ATSUSHI] =
+    [TRAINER_KAOLGYM_TR10_HIKER4] =
     {
         .trainerClass = TRAINER_CLASS_BLACK_BELT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
@@ -2292,7 +2292,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_Atsushi),
     },
 
-    [TRAINER_KIRK] =
+    [TRAINER_KAOLGYM_CLAY] =
     {
         .trainerClass = TRAINER_CLASS_GUITARIST,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,

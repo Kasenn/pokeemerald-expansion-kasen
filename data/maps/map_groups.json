@@ -10,6 +10,7 @@
     "gMapGroup_IndoorSkylochVillage",
     "gMapGroup_IndoorShoreslateCity",
     "gMapGroup_IndoorMarigorgeTown",
+    "gMapGroup_IndoorKaolisleCity",
     "gMapGroup_IndoorLittleroot",
     "gMapGroup_IndoorOldale",
     "gMapGroup_IndoorDewford",
@@ -180,6 +181,14 @@
     "Marigorge_Pokecenter_2F",
     "Marigorge_SmallHouse1",
     "Marigorge_SmallHouse2"
+  ],
+  "gMapGroup_IndoorKaolisleCity": [
+    "Kaolisle_Pokecenter_1F",
+    "Kaolisle_Pokecenter_2F",
+    "Kaolisle_Mart",
+    "Kaolisle_BP_Shop",
+    "Kaolisle_Gym",
+    "Kaolisle_Mines"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

@@ -998,6 +998,7 @@ static const u16 sNaturePowerMoves[BATTLE_TERRAIN_COUNT] =
     [BATTLE_TERRAIN_WATER]      = MOVE_HYDRO_PUMP,
     [BATTLE_TERRAIN_POND]       = MOVE_HYDRO_PUMP,
     [BATTLE_TERRAIN_MOUNTAIN]   = MOVE_EARTH_POWER,
+    [BATTLE_TERRAIN_MUD]        = MOVE_MUD_BOMB,
     [BATTLE_TERRAIN_CAVE]       = MOVE_EARTH_POWER,
     [BATTLE_TERRAIN_BUILDING]   = MOVE_TRI_ATTACK,
     [BATTLE_TERRAIN_PLAIN]      = MOVE_TRI_ATTACK,
@@ -1126,6 +1127,7 @@ static const u8 sTerrainToType[BATTLE_TERRAIN_COUNT] =
     [BATTLE_TERRAIN_ULTRA_SPACE]      = TYPE_PSYCHIC,
 #if B_CAMOUFLAGE_TYPES >= GEN_5
     [BATTLE_TERRAIN_MOUNTAIN]         = TYPE_GROUND,
+    [BATTLE_TERRAIN_MUD]         = TYPE_GROUND,
     [BATTLE_TERRAIN_PLAIN]            = TYPE_GROUND,
 #elif B_CAMOUFLAGE_TYPES == GEN_4
     [BATTLE_TERRAIN_MOUNTAIN]         = TYPE_ROCK,
@@ -4119,7 +4121,7 @@ static void Cmd_getexp(void)
             #endif
 
             if (B_TRAINER_EXP_MULTIPLIER <= GEN_7 && gBattleTypeFlags & BATTLE_TYPE_TRAINER)
-                calculatedExp = (calculatedExp * 150) / 100;
+                calculatedExp = (calculatedExp * 100) / 100;
 
             #if B_SPLIT_EXP < GEN_6
                 if (viaExpShare) // at least one mon is getting exp via exp share
@@ -14460,6 +14462,7 @@ u16 GetSecretPowerMoveEffect(void)
         case BATTLE_TERRAIN_UNDERWATER: moveEffect = MOVE_EFFECT_ATK_MINUS_1; break;
         case BATTLE_TERRAIN_POND:       moveEffect = MOVE_EFFECT_ATK_MINUS_1; break;
         case BATTLE_TERRAIN_MOUNTAIN:   moveEffect = MOVE_EFFECT_ACC_MINUS_1; break;
+        case BATTLE_TERRAIN_MUD:        moveEffect = MOVE_EFFECT_ACC_MINUS_1; break;
         case BATTLE_TERRAIN_PUDDLE:     moveEffect = MOVE_EFFECT_SPD_MINUS_1; break;
     #elif B_SECRET_POWER_EFFECT >= GEN_5
         case BATTLE_TERRAIN_GRASS:      moveEffect = MOVE_EFFECT_SLEEP; break;

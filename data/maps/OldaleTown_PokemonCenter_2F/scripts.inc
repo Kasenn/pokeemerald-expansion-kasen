@@ -279,10 +279,10 @@ IvTrainingIntro_Text_0:
 	.string "I hope you find our services useful.$"
 
 LevelTrainingShoreslate_Setup_Text_0:
-	.string "This is the Level Training Service.\nEach use of the service\lcosts 5 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 17.$"
+	.string "This is the Level Training Service.\nEach use of the service\lcosts 5 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 15.$"
 
 LevelTrainingMarigorge_Setup_Text_0:
-	.string "This is the Level Training Service.\nEach use of the service\lcosts 7 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 20.$"
+	.string "This is the Level Training Service.\nEach use of the service\lcosts 7 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 18.$"
 
 IVTraining_HaventGotEnoughPoints::
 	.string "This service costs\n"

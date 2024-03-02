@@ -274,32 +274,20 @@ script Coralgrove_BPShop_EventScript_ChooseTutorMove{
 		case 2:
 			call(Coralgrove_BPShop_EventScript_ShockWave)
 		case 3:
-			call(Coralgrove_BPShop_EventScript_Covet)
-		case 4:
 			call(Coralgrove_BPShop_EventScript_BugBite)
-		case 5:
+		case 4:
 			call(Coralgrove_BPShop_EventScript_HealBell)
-		case 6:
+		case 5:
 			call(Coralgrove_BPShop_EventScript_Electroweb)
-		case 7:
+		case 6:
 			call(Coralgrove_BPShop_EventScript_Defog)
-		case 8:
+		case 7:
 			call(Coralgrove_BPShop_EventScript_LowKick)
-		case 9:
-			call(Coralgrove_BPShop_EventScript_Uproar)
-		case 10:
+		case 8:
 			call(Coralgrove_BPShop_EventScript_HelpingHand)
-		case 11:
-			call(Coralgrove_BPShop_EventScript_Block)
-		case 12:
-			call(Coralgrove_BPShop_EventScript_WorrySeed)
-		case 13:
-			call(Coralgrove_BPShop_EventScript_Snatch)
-		case 14:
+		case 9:
 			call(Coralgrove_BPShop_EventScript_Recycle)
-		case 15:
-			call(Coralgrove_BPShop_EventScript_LastResort)
-		case 16:
+		case 10:
 			call(Coralgrove_BPShop_EventScript_ExitTutorMoveSelect)
 		case MULTI_B_PRESSED: 
 			call(Coralgrove_BPShop_EventScript_ExitTutorMoveSelect)
@@ -322,32 +310,20 @@ script Coralgrove_BPShop_EventScript_ChooseNewTutorMove{
 		case 2:
 			call(Coralgrove_BPShop_EventScript_ShockWave)
 		case 3:
-			call(Coralgrove_BPShop_EventScript_Covet)
-		case 4:
 			call(Coralgrove_BPShop_EventScript_BugBite)
-		case 5:
+		case 4:
 			call(Coralgrove_BPShop_EventScript_HealBell)
-		case 6:
+		case 5:
 			call(Coralgrove_BPShop_EventScript_Electroweb)
-		case 7:
+		case 6:
 			call(Coralgrove_BPShop_EventScript_Defog)
-		case 8:
+		case 7:
 			call(Coralgrove_BPShop_EventScript_LowKick)
-		case 9:
-			call(Coralgrove_BPShop_EventScript_Uproar)
-		case 10:
+		case 8:
 			call(Coralgrove_BPShop_EventScript_HelpingHand)
-		case 11:
-			call(Coralgrove_BPShop_EventScript_Block)
-		case 12:
-			call(Coralgrove_BPShop_EventScript_WorrySeed)
-		case 13:
-			call(Coralgrove_BPShop_EventScript_Snatch)
-		case 14:
+		case 9:
 			call(Coralgrove_BPShop_EventScript_Recycle)
-		case 15:
-			call(Coralgrove_BPShop_EventScript_LastResort)
-		case 16:
+		case 10:
 			call(Coralgrove_BPShop_EventScript_ExitTutorMoveSelect)
 		case MULTI_B_PRESSED: 
 			call(Coralgrove_BPShop_EventScript_ExitTutorMoveSelect)

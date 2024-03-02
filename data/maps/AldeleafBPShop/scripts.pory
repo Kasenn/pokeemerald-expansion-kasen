@@ -268,12 +268,8 @@ script Aldeleaf_BPShop_EventScript_ChooseTutorMove{
 		case 8:
 			call(Aldeleaf_BPShop_EventScript_SkillSwap)
 		case 9:
-			call(Aldeleaf_BPShop_EventScript_Synthesis)
-		case 10:
-			call(Aldeleaf_BPShop_EventScript_StealthRock)
-		case 11:
 			call(Aldeleaf_BPShop_EventScript_IcyWind)
-		case 12:
+		case 10:
 			call(Aldeleaf_BPShop_EventScript_ExitTutorMoveSelect)
 		case MULTI_B_PRESSED: 
 			call(Aldeleaf_BPShop_EventScript_ExitTutorMoveSelect)
@@ -308,12 +304,8 @@ script Aldeleaf_BPShop_EventScript_ChooseNewTutorMove{
 		case 8:
 			call(Aldeleaf_BPShop_EventScript_SkillSwap)
 		case 9:
-			call(Aldeleaf_BPShop_EventScript_Synthesis)
-		case 10:
-			call(Aldeleaf_BPShop_EventScript_StealthRock)
-		case 11:
 			call(Aldeleaf_BPShop_EventScript_IcyWind)
-		case 12:
+		case 10:
 			call(Aldeleaf_BPShop_EventScript_ExitTutorMoveSelect)
 		case MULTI_B_PRESSED: 
 			call(Aldeleaf_BPShop_EventScript_ExitTutorMoveSelect)

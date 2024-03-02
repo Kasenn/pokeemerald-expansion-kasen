@@ -5430,6 +5430,66 @@
       "secondary_tileset": "gTileset_Mossdeep",
       "border_filepath": "data/layouts/KaolisleCity/border.bin",
       "blockdata_filepath": "data/layouts/KaolisleCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_POKECENTER_1F",
+      "name": "Kaolisle_Pokecenter_1F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Kaolisle_Pokecenter_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_Pokecenter_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_POKECENTER_2F",
+      "name": "Kaolisle_Pokecenter_2F_Layout",
+      "width": 13,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Kaolisle_Pokecenter_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_Pokecenter_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_MART",
+      "name": "Kaolisle_Mart_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/Kaolisle_Mart/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_Mart/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_BP_SHOP",
+      "name": "Kaolisle_BP_Shop_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/Kaolisle_BP_Shop/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_BP_Shop/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_GYM",
+      "name": "Kaolisle_Gym_Layout",
+      "width": 55,
+      "height": 80,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_LavaridgeGym",
+      "border_filepath": "data/layouts/Kaolisle_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_Gym/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_MINES",
+      "name": "Kaolisle_Mines_Layout",
+      "width": 60,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Kaolisle_Mines/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_Mines/map.bin"
     }
   ]
 }

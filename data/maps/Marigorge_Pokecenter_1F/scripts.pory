@@ -19,6 +19,7 @@ script MarigorgePokeCenter1F_EventScript_Nurse{
 }
 
 script MarigorgePokeCenter1F_OldMan{
+    setflag(FLAG_INTRODUCED_TO_TELEPORT)
     msgbox(MarigorgePokeCenter1F_OldMan_Text, MSGBOX_NPC)
     end
 }
@@ -44,6 +45,10 @@ script MarigorgePokeCenter1F_Abra{
     lockall
     faceplayer
     playmoncry(SPECIES_ABRA, CRY_MODE_ENCOUNTER)
+    if(!flag(FLAG_INTRODUCED_TO_TELEPORT)){
+        msgbox("Abra: Aabra…", MSGBOX_NPC)
+        end
+    }
     message("Abra: Aabra?")
     waitmessage
     multichoice(23, 0, MULTI_ABRA_TELEPORT, 0)

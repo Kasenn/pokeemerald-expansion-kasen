@@ -344,34 +344,34 @@ script Azuretide_HoneyTree{
             removeitem(ITEM_HONEY, 1)
             random(10)
             if(var(VAR_RESULT) == 0){
-                setwildbattle(SPECIES_BOUNSWEET, 12)
+                setwildbattle(SPECIES_BOUNSWEET, 10)
             }
             if(var(VAR_RESULT) == 1){
-                setwildbattle(SPECIES_BOUNSWEET, 13)
+                setwildbattle(SPECIES_BOUNSWEET, 11)
             }
             if(var(VAR_RESULT) == 2){
-                setwildbattle(SPECIES_BOUNSWEET, 14)
+                setwildbattle(SPECIES_BOUNSWEET, 12)
             }
             if(var(VAR_RESULT) == 3){
-                setwildbattle(SPECIES_SKWOVET, 11)
+                setwildbattle(SPECIES_SKWOVET, 10)
             }
             if(var(VAR_RESULT) == 4){
-                setwildbattle(SPECIES_SKWOVET, 12)
+                setwildbattle(SPECIES_SKWOVET, 10)
             }
             if(var(VAR_RESULT) == 5){
-                setwildbattle(SPECIES_SKWOVET, 13)
+                setwildbattle(SPECIES_SKWOVET, 11)
             }
             if(var(VAR_RESULT) == 6){
-                setwildbattle(SPECIES_SKWOVET, 14)
+                setwildbattle(SPECIES_SKWOVET, 12)
             }
             if(var(VAR_RESULT) == 7){
-                setwildbattle(SPECIES_APPLIN, 12)
+                setwildbattle(SPECIES_APPLIN, 11)
             }
             if(var(VAR_RESULT) == 8){
-                setwildbattle(SPECIES_APPLIN, 14)
+                setwildbattle(SPECIES_APPLIN, 12)
             }
             if(var(VAR_RESULT) == 9){
-                setwildbattle(SPECIES_MUNCHLAX, 14)
+                setwildbattle(SPECIES_MUNCHLAX, 12)
             }
             dowildbattle
             release

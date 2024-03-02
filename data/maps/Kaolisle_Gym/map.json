@@ -1,0 +1,605 @@
+{
+  "id": "MAP_KAOLISLE_GYM",
+  "name": "Kaolisle_Gym",
+  "layout": "LAYOUT_KAOLISLE_GYM",
+  "music": "MUS_GYM",
+  "region_map_section": "MAPSEC_CITY_WIP2",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CLAY",
+      "x": 41,
+      "y": 65,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_2",
+      "x": 9,
+      "y": 66,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Aldeleaf_Gym_EventScript_GymGuide",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+      "x": 15,
+      "y": 47,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+      "x": 39,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
+      "x": 15,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
+      "x": 2,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HIKER",
+      "x": 38,
+      "y": 26,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_UP_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+      "x": 51,
+      "y": 36,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HIKER",
+      "x": 2,
+      "y": 25,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HIKER",
+      "x": 27,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
+      "x": 38,
+      "y": 46,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HIKER",
+      "x": 27,
+      "y": 36,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 4,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 14,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 16,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 26,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 28,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 38,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 40,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "8"
+    },
+    {
+      "x": 39,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "18"
+    },
+    {
+      "x": 50,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 51,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "21"
+    },
+    {
+      "x": 4,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "12"
+    },
+    {
+      "x": 3,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "22"
+    },
+    {
+      "x": 14,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "10"
+    },
+    {
+      "x": 16,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "14"
+    },
+    {
+      "x": 26,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "13"
+    },
+    {
+      "x": 28,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "17"
+    },
+    {
+      "x": 27,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "26"
+    },
+    {
+      "x": 38,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "15"
+    },
+    {
+      "x": 39,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "7"
+    },
+    {
+      "x": 40,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "20"
+    },
+    {
+      "x": 50,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "19"
+    },
+    {
+      "x": 51,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "9"
+    },
+    {
+      "x": 3,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "11"
+    },
+    {
+      "x": 3,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "32"
+    },
+    {
+      "x": 16,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "25"
+    },
+    {
+      "x": 26,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "24"
+    },
+    {
+      "x": 27,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "16"
+    },
+    {
+      "x": 28,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "29"
+    },
+    {
+      "x": 27,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "36"
+    },
+    {
+      "x": 38,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "27"
+    },
+    {
+      "x": 39,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "38"
+    },
+    {
+      "x": 51,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "41"
+    },
+    {
+      "x": 3,
+      "y": 34,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "23"
+    },
+    {
+      "x": 16,
+      "y": 36,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "35"
+    },
+    {
+      "x": 15,
+      "y": 37,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "45"
+    },
+    {
+      "x": 26,
+      "y": 36,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "33"
+    },
+    {
+      "x": 27,
+      "y": 34,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "28"
+    },
+    {
+      "x": 27,
+      "y": 37,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "48"
+    },
+    {
+      "x": 39,
+      "y": 34,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "30"
+    },
+    {
+      "x": 40,
+      "y": 36,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "40"
+    },
+    {
+      "x": 50,
+      "y": 36,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "39"
+    },
+    {
+      "x": 51,
+      "y": 34,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "31"
+    },
+    {
+      "x": 51,
+      "y": 37,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "51"
+    },
+    {
+      "x": 4,
+      "y": 47,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "44"
+    },
+    {
+      "x": 14,
+      "y": 47,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "43"
+    },
+    {
+      "x": 15,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "34"
+    },
+    {
+      "x": 16,
+      "y": 47,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "47"
+    },
+    {
+      "x": 26,
+      "y": 47,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "46"
+    },
+    {
+      "x": 27,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "37"
+    },
+    {
+      "x": 28,
+      "y": 47,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "50"
+    },
+    {
+      "x": 38,
+      "y": 47,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "49"
+    },
+    {
+      "x": 51,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "42"
+    },
+    {
+      "x": 3,
+      "y": 48,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "53"
+    },
+    {
+      "x": 8,
+      "y": 60,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "52"
+    },
+    {
+      "x": 8,
+      "y": 63,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "55"
+    },
+    {
+      "x": 26,
+      "y": 60,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_GYM",
+      "dest_warp_id": "54"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 39,
+      "y": 47,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Kaolisle_Gym_Switch1"
+    },
+    {
+      "type": "sign",
+      "x": 51,
+      "y": 25,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Kaolisle_Gym_Switch3"
+    },
+    {
+      "type": "sign",
+      "x": 3,
+      "y": 36,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Kaolisle_Gym_Switch2"
+    },
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 3,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Kaolisle_Gym_Switch4"
+    }
+  ]
+}

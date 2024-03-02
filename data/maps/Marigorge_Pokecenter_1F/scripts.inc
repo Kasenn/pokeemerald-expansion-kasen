@@ -20,6 +20,7 @@ MarigorgePokeCenter1F_EventScript_Nurse::
 
 
 MarigorgePokeCenter1F_OldMan::
+	setflag FLAG_INTRODUCED_TO_TELEPORT
 	msgbox MarigorgePokeCenter1F_OldMan_Text, MSGBOX_NPC
 	end
 
@@ -33,29 +34,34 @@ MarigorgePokeCenter1F_Abra::
 	lockall
 	faceplayer
 	playmoncry SPECIES_ABRA, CRY_MODE_ENCOUNTER
-	message MarigorgePokeCenter1F_Abra_Text_0
+	goto_if_unset FLAG_INTRODUCED_TO_TELEPORT, MarigorgePokeCenter1F_Abra_2
+	message MarigorgePokeCenter1F_Abra_Text_1
 	waitmessage
 	multichoice 23, 0, MULTI_ABRA_TELEPORT, 0
 	switch VAR_RESULT
-	case 0, MarigorgePokeCenter1F_Abra_2
-	case 1, MarigorgePokeCenter1F_Abra_3
-	case 2, MarigorgePokeCenter1F_Abra_4
-	case MULTI_B_PRESSED, MarigorgePokeCenter1F_Abra_5
+	case 0, MarigorgePokeCenter1F_Abra_5
+	case 1, MarigorgePokeCenter1F_Abra_6
+	case 2, MarigorgePokeCenter1F_Abra_7
+	case MULTI_B_PRESSED, MarigorgePokeCenter1F_Abra_8
 	return
 
 MarigorgePokeCenter1F_Abra_2:
+	msgbox MarigorgePokeCenter1F_Abra_Text_0, MSGBOX_NPC
+	end
+
+MarigorgePokeCenter1F_Abra_5:
 	goto TeleportToAldeleaf
 	return
 
-MarigorgePokeCenter1F_Abra_3:
+MarigorgePokeCenter1F_Abra_6:
 	goto TeleportToShoreslate
 	return
 
-MarigorgePokeCenter1F_Abra_4:
+MarigorgePokeCenter1F_Abra_7:
 	goto TeleportCancel
 	return
 
-MarigorgePokeCenter1F_Abra_5:
+MarigorgePokeCenter1F_Abra_8:
 	goto TeleportCancel
 	return
 
@@ -115,11 +121,14 @@ TeleportToShoreslate_4:
 
 
 TeleportCancel::
-	msgbox TeleportCancel_Text_0, MSGBOX_NPC
+	msgbox MarigorgePokeCenter1F_Abra_Text_0, MSGBOX_NPC
 	end
 
 
 MarigorgePokeCenter1F_Abra_Text_0:
+	.string "Abra: Aabra…$"
+
+MarigorgePokeCenter1F_Abra_Text_1:
 	.string "Abra: Aabra?$"
 
 TeleportToAldeleaf_Text_0:
@@ -127,9 +136,6 @@ TeleportToAldeleaf_Text_0:
 
 TeleportToAldeleaf_Text_1:
 	.string "Abra: Aabra!$"
-
-TeleportCancel_Text_0:
-	.string "Abra: Aabra…$"
 
 MarigorgePokeCenter1F_OldMan_Text::
 	.string "Many people who come to visit the\n"
