@@ -1,0 +1,476 @@
+mapscripts Kaolisle_Gym_MapScripts{
+    MAP_SCRIPT_ON_LOAD: Kaolisle_Gym_SetMetatiles
+}
+
+script Kaolisle_Gym_SetMetatiles{
+    if(flag(FLAG_KAOLISLE_GYM_SWITCH1)){
+        setmetatile(39, 46, 0x219, FALSE)
+        setmetatile(39, 47, 0x221, TRUE)
+    }
+    if(flag(FLAG_KAOLISLE_GYM_SWITCH2)){
+        setmetatile(3, 35, 0x219, FALSE)
+        setmetatile(3, 36, 0x221, TRUE)
+    }
+    if(flag(FLAG_KAOLISLE_GYM_SWITCH3)){
+        setmetatile(51, 24, 0x219, FALSE)
+        setmetatile(51, 25, 0x221, TRUE)
+    }
+    if(flag(FLAG_KAOLISLE_GYM_SWITCH4)){
+        setmetatile(15, 2, 0x219, FALSE)
+        setmetatile(15, 3, 0x221, TRUE)
+    }
+    if((flag(FLAG_KAOLISLE_GYM_SWITCH1))
+    && (flag(FLAG_KAOLISLE_GYM_SWITCH2))
+    && (flag(FLAG_KAOLISLE_GYM_SWITCH3))
+    && (flag(FLAG_KAOLISLE_GYM_SWITCH4))){
+        setmetatile(8, 63, 0x26B, FALSE)
+    }
+    end
+}
+
+script Kaolisle_Gym_Switch1{
+    if(flag(FLAG_KAOLISLE_GYM_SWITCH1)){
+        msgbox("This button has already been pressed.", MSGBOX_NPC)
+        end
+    }
+    setflag(FLAG_KAOLISLE_GYM_SWITCH1)
+    playse(SE_SWITCH)
+    setmetatile(39, 46, 0x219, FALSE)
+    setmetatile(39, 47, 0x221, TRUE)
+    special(DrawWholeMapView)
+    if((flag(FLAG_KAOLISLE_GYM_SWITCH1)) && (flag(FLAG_KAOLISLE_GYM_SWITCH2)) && (flag(FLAG_KAOLISLE_GYM_SWITCH3)) && (flag(FLAG_KAOLISLE_GYM_SWITCH4))){
+        msgbox("{PLAYER} pressed the button.\nAll buttons have been pressed.", MSGBOX_NPC)
+    }
+    else{
+        msgbox("{PLAYER} pressed the button.", MSGBOX_NPC)
+    }
+    waitse
+    release
+    end
+}
+
+script Kaolisle_Gym_Switch2{
+    if(flag(FLAG_KAOLISLE_GYM_SWITCH2)){
+        msgbox("This button has already been pressed.", MSGBOX_NPC)
+        end
+    }
+    setflag(FLAG_KAOLISLE_GYM_SWITCH2)
+    playse(SE_SWITCH)
+    setmetatile(3, 35, 0x219, FALSE)
+    setmetatile(3, 36, 0x221, TRUE)
+    special(DrawWholeMapView)
+    if((flag(FLAG_KAOLISLE_GYM_SWITCH1)) && (flag(FLAG_KAOLISLE_GYM_SWITCH2)) && (flag(FLAG_KAOLISLE_GYM_SWITCH3)) && (flag(FLAG_KAOLISLE_GYM_SWITCH4))){
+        msgbox("{PLAYER} pressed the button.\nAll buttons have been pressed.", MSGBOX_NPC)
+    }
+    else{
+        msgbox("{PLAYER} pressed the button.", MSGBOX_NPC)
+    }
+    waitse
+    release
+    end
+}
+
+script Kaolisle_Gym_Switch3{
+    if(flag(FLAG_KAOLISLE_GYM_SWITCH3)){
+        msgbox("This button has already been pressed.", MSGBOX_NPC)
+        end
+    }
+    setflag(FLAG_KAOLISLE_GYM_SWITCH3)
+    playse(SE_SWITCH)
+    setmetatile(51, 24, 0x219, FALSE)
+    setmetatile(51, 25, 0x221, TRUE)
+    special(DrawWholeMapView)
+    if((flag(FLAG_KAOLISLE_GYM_SWITCH1)) && (flag(FLAG_KAOLISLE_GYM_SWITCH2)) && (flag(FLAG_KAOLISLE_GYM_SWITCH3)) && (flag(FLAG_KAOLISLE_GYM_SWITCH4))){
+        msgbox("{PLAYER} pressed the button.\nAll buttons have been pressed.", MSGBOX_NPC)
+    }
+    else{
+        msgbox("{PLAYER} pressed the button.", MSGBOX_NPC)
+    }
+    waitse
+    release
+    end
+}
+
+script Kaolisle_Gym_Switch4{
+    if(flag(FLAG_KAOLISLE_GYM_SWITCH4)){
+        msgbox("This button has already been pressed.", MSGBOX_NPC)
+        end
+    }
+    setflag(FLAG_KAOLISLE_GYM_SWITCH4)
+    playse(SE_SWITCH)
+    setmetatile(15, 2, 0x219, FALSE)
+    setmetatile(15, 3, 0x221, TRUE)
+    special(DrawWholeMapView)
+    if((flag(FLAG_KAOLISLE_GYM_SWITCH1)) && (flag(FLAG_KAOLISLE_GYM_SWITCH2)) && (flag(FLAG_KAOLISLE_GYM_SWITCH3)) && (flag(FLAG_KAOLISLE_GYM_SWITCH4))){
+        msgbox("{PLAYER} pressed the button.\nAll buttons have been pressed.", MSGBOX_NPC)
+    }
+    else{
+        msgbox("{PLAYER} pressed the button.", MSGBOX_NPC)
+    }
+    waitse
+    release
+    end
+}
+
+script KaolisleGym_Trainer1_Camper1{
+    trainerbattle_single(TRAINER_KAOLGYM_TR1_CAMPER1, KaolisleGym_Trainer1_Camper1_Intro, KaolisleGym_Trainer1_Camper1_Defeat)
+	msgbox(KaolisleGym_Trainer1_Camper1_PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text KaolisleGym_Trainer1_Camper1_Intro{
+    ""
+}
+text KaolisleGym_Trainer1_Camper1_Defeat{
+    ""
+}
+text KaolisleGym_Trainer1_Camper1_PostBattle{
+    ""
+}
+
+script KaolisleGym_Trainer2_Picnicker1{
+    trainerbattle_single(TRAINER_KAOLGYM_TR2_PICNICKER1, KaolisleGym_Trainer2_Picnicker1_Intro, KaolisleGym_Trainer2_Picnicker1_Defeat)
+	msgbox(KaolisleGym_Trainer2_Picnicker1_PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text KaolisleGym_Trainer2_Picnicker1_Intro{
+    ""
+}
+text KaolisleGym_Trainer2_Picnicker1_Defeat{
+    ""
+}
+text KaolisleGym_Trainer2_Picnicker1_PostBattle{
+    ""
+}
+
+script KaolisleGym_Trainer3_Hiker1{
+    trainerbattle_single(TRAINER_KAOLGYM_TR3_HIKER1, KaolisleGym_Trainer3_Hiker1_Intro, KaolisleGym_Trainer3_Hiker1_Defeat)
+	msgbox(KaolisleGym_Trainer3_Hiker1_PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text KaolisleGym_Trainer3_Hiker1_Intro{
+    ""
+}
+text KaolisleGym_Trainer3_Hiker1_Defeat{
+    ""
+}
+text KaolisleGym_Trainer3_Hiker1_PostBattle{
+    ""
+}
+
+script KaolisleGym_Trainer4_Camper2{
+    trainerbattle_single(TRAINER_KAOLGYM_TR4_CAMPER2, KaolisleGym_Trainer4_Camper2_Intro, KaolisleGym_Trainer4_Camper2_Defeat)
+	msgbox(KaolisleGym_Trainer4_Camper2_PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text KaolisleGym_Trainer4_Camper2_Intro{
+    ""
+}
+text KaolisleGym_Trainer4_Camper2_Defeat{
+    ""
+}
+text KaolisleGym_Trainer4_Camper2_PostBattle{
+    ""
+}
+
+script KaolisleGym_Trainer5_Hiker2{
+    trainerbattle_single(TRAINER_KAOLGYM_TR5_HIKER2, KaolisleGym_Trainer5_Hiker2_Intro, KaolisleGym_Trainer5_Hiker2_Defeat)
+	msgbox(KaolisleGym_Trainer5_Hiker2_PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text KaolisleGym_Trainer5_Hiker2_Intro{
+    ""
+}
+text KaolisleGym_Trainer5_Hiker2_Defeat{
+    ""
+}
+text KaolisleGym_Trainer5_Hiker2_PostBattle{
+    ""
+}
+
+script KaolisleGym_Trainer6_Hiker3{
+    trainerbattle_single(TRAINER_KAOLGYM_TR6_HIKER3, KaolisleGym_Trainer6_Hiker3_Intro, KaolisleGym_Trainer6_Hiker3_Defeat)
+	msgbox(KaolisleGym_Trainer6_Hiker3_PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text KaolisleGym_Trainer6_Hiker3_Intro{
+    ""
+}
+text KaolisleGym_Trainer6_Hiker3_Defeat{
+    ""
+}
+text KaolisleGym_Trainer6_Hiker3_PostBattle{
+    ""
+}
+
+script KaolisleGym_Trainer7_Picnicker2{
+    trainerbattle_single(TRAINER_KAOLGYM_TR7_PICNICKER2, KaolisleGym_Trainer7_Picnicker2_Intro, KaolisleGym_Trainer7_Picnicker2_Defeat)
+	msgbox(KaolisleGym_Trainer7_Picnicker2_PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text KaolisleGym_Trainer7_Picnicker2_Intro{
+    ""
+}
+text KaolisleGym_Trainer7_Picnicker2_Defeat{
+    ""
+}
+text KaolisleGym_Trainer7_Picnicker2_PostBattle{
+    ""
+}
+
+script KaolisleGym_Trainer8_Camper3{
+    trainerbattle_single(TRAINER_KAOLGYM_TR8_CAMPER3, KaolisleGym_Trainer8_Camper3_Intro, KaolisleGym_Trainer8_Camper3_Defeat)
+	msgbox(KaolisleGym_Trainer8_Camper3_PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text KaolisleGym_Trainer8_Camper3_Intro{
+    ""
+}
+text KaolisleGym_Trainer8_Camper3_Defeat{
+    ""
+}
+text KaolisleGym_Trainer8_Camper3_PostBattle{
+    ""
+}
+
+script KaolisleGym_Trainer9_Picnicker3{
+    trainerbattle_single(TRAINER_KAOLGYM_TR9_PICNICKER3, KaolisleGym_Trainer9_Picnicker3_Intro, KaolisleGym_Trainer9_Picnicker3_Defeat)
+	msgbox(KaolisleGym_Trainer9_Picnicker3_PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text KaolisleGym_Trainer9_Picnicker3_Intro{
+    ""
+}
+text KaolisleGym_Trainer9_Picnicker3_Defeat{
+    ""
+}
+text KaolisleGym_Trainer9_Picnicker3_PostBattle{
+    ""
+}
+
+script KaolisleGym_Trainer10_Hiker4{
+    trainerbattle_single(TRAINER_KAOLGYM_TR10_HIKER4, KaolisleGym_Trainer10_Hiker4_Intro, KaolisleGym_Trainer10_Hiker4_Defeat)
+	msgbox(KaolisleGym_Trainer10_Hiker4_PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text KaolisleGym_Trainer10_Hiker4_Intro{
+    ""
+}
+text KaolisleGym_Trainer10_Hiker4_Defeat{
+    ""
+}
+text KaolisleGym_Trainer10_Hiker4_PostBattle{
+    ""
+}
+
+script KaolisleGym_Clay{
+    trainerbattle_single(TRAINER_KAOLGYM_CLAY, KaolisleGym_Clay_Intro, KaolisleGym_Clay_Defeat)
+	msgbox(KaolisleGym_Clay_PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text KaolisleGym_Clay_Intro{
+    ""
+}
+text KaolisleGym_Clay_Defeat{
+    ""
+}
+text KaolisleGym_Clay_PostBattle{
+    ""
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+script Aldeleaf_Gym_Volkner_Talk{
+    lockall
+    faceplayer
+	if(flag(FLAG_RECEIVED_TM_WILD_CHARGE)){
+		msgbox(Aldeleaf_Gym_Text_VolknerPostBattle, MSGBOX_DEFAULT)
+		waitmessage
+		closemessage
+	}
+	else{
+		msgbox("Volkner: I see you've arrived.\pIf you're ready, go stand on the other\nside of the arena so we may begin." MSGBOX_DEFAULT)
+		waitmessage
+		closemessage
+		turnobject(18, DIR_WEST)
+	}
+    release
+    end
+}
+script Aldeleaf_Gym_EventScript_Volkner{
+	lockall
+	delay(10)
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+	turnobject(18, DIR_WEST)
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, Aldeleaf_Gym_MoveCamera)
+	waitmovement(0)
+	delay(10)
+	special(RemoveCameraObject)
+	trainerbattle_single(TRAINER_MARY, Aldeleaf_Gym_Text_VolknerIntro, Aldeleaf_Gym_Text_VolknerDefeat, Aldeleaf_Gym_EventScript_VolknerDefeated, NO_MUSIC)
+	goto_if_unset(FLAG_RECEIVED_TM_WILD_CHARGE, Aldeleaf_Gym_EventScript_GiveWildCharge)
+	msgbox(Aldeleaf_Gym_Text_VolknerPostBattle, MSGBOX_DEFAULT)
+	release
+	end
+}
+movement Aldeleaf_Gym_MoveCamera{
+	walk_right * 3
+}
+script Aldeleaf_Gym_EventScript_VolknerDefeated{
+	special(SpawnCameraObject)
+	delay(30)
+	applymovement(18, Aldeleaf_Gym_MoveLeft)
+	applymovement(OBJ_EVENT_ID_PLAYER, Aldeleaf_Gym_MoveRight)
+	waitmovement(0)
+	delay(15)
+	message(Aldeleaf_Gym_Text_ReceivedThunderBadge)
+	waitmessage
+	call(Common_EventScript_PlayGymBadgeFanfare)
+	msgbox(Aldeleaf_Gym_Text_ThunderBadgeInfoTakeThis, MSGBOX_DEFAULT)
+	setflag(FLAG_DEFEATED_DEWFORD_GYM)
+	setflag(FLAG_BADGE02_GET)
+	addvar(VAR_ALDELEAF_GYM_STATE, 1)
+	setvar(VAR_0x8008, 2)
+	call(Common_EventScript_SetGymTrainers)
+	special(RemoveCameraObject)
+	goto(Aldeleaf_Gym_EventScript_GiveWildCharge)
+	end
+}
+movement Aldeleaf_Gym_MoveLeft{
+	walk_left * 3
+}
+movement Aldeleaf_Gym_MoveRight{
+	walk_right * 3
+}
+script Aldeleaf_Gym_EventScript_GiveWildCharge{
+	giveitem(ITEM_TM_WILD_CHARGE)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	setflag(FLAG_RECEIVED_TM_WILD_CHARGE)
+	msgbox (Aldeleaf_Gym_Text_ExplainWildCharge, MSGBOX_DEFAULT)
+	release
+	end
+}
+movement Aldeleaf_Gym_MoveCamera2{
+	walk_left
+}
+
+text Aldeleaf_Gym_Text_VolknerIntro{
+	"Volkner: I knew you'd be here soon.\n"
+    "Glad to see you did not disappoint.\p"
+    "Even though I'm grateful for\n"
+    "your help at the ranch,\l"
+    "I am the Leader of this Gym and\l"
+    "you are a challenger.\p"
+    "I assume you understand what\n"
+    "that entails…\p"
+    "…All right, challenger.\p"
+    "I'm Volkner, the Gym Leader.\p"
+    "It's not often, but some Trainers\n"
+    "manage to come and challenge me.\l"
+    "But they've all been boring battles.\p"
+    "Anyway, I guess we'd better get this\n"
+    "done.\p"
+    "I hope you're the Trainer who'll make\n"
+    "me remember how fun it is to battle!"
+}
+text Aldeleaf_Gym_Text_VolknerDefeat{
+	"…Hehehe.\p"
+    "Hahahah!\p"
+    "…That was the most fun I've had\n"
+    "in a battle since…I don't know when!\p"
+    "It's also made me excited to know\n"
+    "you and your team will keep battling\l"
+    "to greater heights!\p"
+    "This is your second Gym Badge.\n"
+    "You've earned this!"
+}
+text Aldeleaf_Gym_Text_ReceivedThunderBadge{
+	"{PLAYER} received the Dynamo Badge\n"
+	"from Volkner!"
+}
+text Aldeleaf_Gym_Text_ThunderBadgeInfoTakeThis{
+	"The Dynamo Badge makes all Pokémon\n"
+	"up to level 40, even those you get in\l"
+    "trades, obey without question.\p"
+	"It also enables them to use the HM move\n"
+	"“Cut” outside of battle.\p"
+	"Here, have this TM as well."
+}
+text Aldeleaf_Gym_Text_ExplainWildCharge{
+	"That TM contains the move Wild Charge.\p"
+	"It's a really powerful attack where\n"
+    "the user shrouds itself in electricity\l"
+    "and slams against the opponent.\p"
+    "Be careful though, as this also\n"
+    "hurts the user!"
+}
+text Aldeleaf_Gym_Text_VolknerPostBattle{
+	"After witnessing your strength here,\n"
+    "I'm starting to doubt whether you even\l"
+    "needed our help with Team Rocket\l"
+    "back at the ranch."
+}
+text Aldeleaf_Gym_Text_GymStatue{
+	"Aldeleaf City Pokémon Gym\p"
+	"Volkner's certified trainers:\n"
+	"Thomas\l"
+	"{RIVAL}"
+}
+text Aldeleaf_Gym_Text_GymStatueCertified{
+	"Aldeleaf City Pokémon Gym\p"
+	"Volkner's certified trainers:\n"
+	"Thomas\l"
+	"{RIVAL}\l"
+	"{PLAYER}"
+}
+script Aldeleaf_Gym_EventScript_GymGuide{
+	lock
+	faceplayer
+	if(flag(FLAG_DEFEATED_DEWFORD_GYM)){
+        msgbox(Aldeleaf_Gym_Text_GymGuidePostVictory, MSGBOX_DEFAULT) 
+    }
+    else{
+	    msgbox(Aldeleaf_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT)
+    }
+	release
+	end
+}
+script Aldeleaf_Gym_EventScript_Statue{
+	lockall
+	if(flag(FLAG_BADGE02_GET)){
+        msgbox(Aldeleaf_Gym_Text_GymStatueCertified, MSGBOX_SIGN)
+    }
+    else{
+        msgbox(Aldeleaf_Gym_Text_GymStatue, MSGBOX_SIGN)
+    }
+	end
+}
+text Aldeleaf_Gym_Text_GymGuideAdvice{
+	"Yo, champ in the making!\p"
+	"The leader of this gym, Volkner,\n"
+    "is an electric-type trainer.\p"
+    "Go against him with flying- or water-\n"
+    "type Pokémon and you're going to have\l"
+    "a bad time!\p"
+    "By the by, many of the trainers\n"
+    "here like to work in pairs!\l"
+    "And see those peculiar floor tiles?\p"
+    "Stepping on one might activate a trap\n"
+    "that sends a few electric-type Pokémon\l"
+    "flying your way, so you better be\l"
+    "prepared!\p"
+    "Do note that those Pokémon are\n"
+    "actually the property of the gym and\l"
+    "considered part of your gym trial.\p"
+    "As such, catching them or running away\n"
+    "from a battle is strictly prohibited!\p"
+    "If you find the going too hard,\n"
+    "there's always those pressure plates\l"
+    "in the side rooms.\l"
+    "Maybe stepping on one might\l"
+    "tamper with the floor mechanism…\p"
+    "Anyway, that's enough from me.\n"
+    "Go get 'em, Champ!"
+}
+text Aldeleaf_Gym_Text_GymGuidePostVictory{
+	"Whoa! What a shocking outcome!\n"
+    "You sure charged in and showed\l"
+    "everyone who's the boss!"
+}

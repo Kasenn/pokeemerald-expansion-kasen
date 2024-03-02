@@ -1268,3 +1268,15 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Route9/scripts.inc"
 
 	.include "data/maps/KaolisleCity/scripts.inc"
+
+	.include "data/maps/Kaolisle_Pokecenter_1F/scripts.inc"
+
+	.include "data/maps/Kaolisle_Pokecenter_2F/scripts.inc"
+
+	.include "data/maps/Kaolisle_Mart/scripts.inc"
+
+	.include "data/maps/Kaolisle_BP_Shop/scripts.inc"
+
+	.include "data/maps/Kaolisle_Gym/scripts.inc"
+
+	.include "data/maps/Kaolisle_Mines/scripts.inc"

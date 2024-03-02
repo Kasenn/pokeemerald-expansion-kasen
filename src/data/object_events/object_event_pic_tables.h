@@ -2240,16 +2240,16 @@ static const struct SpriteFrameImage sPicTable_Example5[] = {
     overworld_frame(gObjectEventPic_Example5, 2, 4, 2),
 };
 
-static const struct SpriteFrameImage sPicTable_D_Decc[] = {
-    overworld_frame(gObjectEventPic_D_Decc, 2, 4, 0),
-    overworld_frame(gObjectEventPic_D_Decc, 2, 4, 1),
-    overworld_frame(gObjectEventPic_D_Decc, 2, 4, 2),
-    overworld_frame(gObjectEventPic_D_Decc, 2, 4, 3),
-    overworld_frame(gObjectEventPic_D_Decc, 2, 4, 4),
-    overworld_frame(gObjectEventPic_D_Decc, 2, 4, 5),
-    overworld_frame(gObjectEventPic_D_Decc, 2, 4, 6),
-    overworld_frame(gObjectEventPic_D_Decc, 2, 4, 7),
-    overworld_frame(gObjectEventPic_D_Decc, 2, 4, 8),
+static const struct SpriteFrameImage sPicTable_Clay[] = {
+    overworld_frame(gObjectEventPic_Clay, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Clay, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Clay, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Clay, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Clay, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Clay, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Clay, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Clay, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Clay, 2, 4, 8),
 };
 
 static const struct SpriteFrameImage sPicTable_RocketAdmin_M[] = {

@@ -2398,7 +2398,7 @@ void ShowScrollableMultichoice(void)
         break;
     case SCROLL_MULTI_BF_MOVE_TUTOR_3:
         task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
-        task->tNumItems = 17;
+        task->tNumItems = 11;
         task->tLeft = 15;
         task->tTop = 1;
         task->tWidth = 14;
@@ -2408,7 +2408,7 @@ void ShowScrollableMultichoice(void)
         break;
     case SCROLL_MULTI_BF_MOVE_TUTOR_4:
         task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
-        task->tNumItems = 13;
+        task->tNumItems = 11;
         task->tLeft = 15;
         task->tTop = 1;
         task->tWidth = 14;
@@ -2418,7 +2418,7 @@ void ShowScrollableMultichoice(void)
         break;
     case SCROLL_MULTI_BF_MOVE_TUTOR_5:
         task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
-        task->tNumItems = 12;
+        task->tNumItems = 11;
         task->tLeft = 15;
         task->tTop = 1;
         task->tWidth = 14;
@@ -2630,19 +2630,13 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_Snore4BP,
         gText_Bind4BP,
         gText_ShockWave4BP,
-        gText_Covet4BP,
         gText_BugBite4BP,
         gText_HealBell8BP,
         gText_Electroweb8BP,
         gText_Defog8BP,
         gText_LowKick8BP,
-        gText_Uproar8BP,
         gText_HelpingHand8BP,
         gText_Block8BP,
-        gText_WorrySeed8BP,
-        gText_Snatch8BP,
-        gText_Recycle8BP,
-        gText_LastResort12BP,
         gText_Exit,
     },
     [SCROLL_MULTI_BF_MOVE_TUTOR_4] =
@@ -2656,8 +2650,6 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_MagicCoat8BP,
         gText_KnockOff10BP,
         gText_SkillSwap10BP,
-        gText_Synthesis10BP,
-        gText_StealthRock10BP,
         gText_IcyWind12BP,
         gText_Exit,
     },
@@ -2671,7 +2663,6 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_FoulPlay10BP,
         gText_GunkShot10BP,
         gText_Trick10BP,
-        gText_ZenHeadbutt10BP,
         gText_AncientPower12BP,
         gText_OminousWind12BP,
         gText_Exit,

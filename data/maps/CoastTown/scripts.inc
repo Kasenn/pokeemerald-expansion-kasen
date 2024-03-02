@@ -408,43 +408,43 @@ Azuretide_HoneyTree_37:
 	end
 
 Azuretide_HoneyTree_11:
-	setwildbattle SPECIES_BOUNSWEET, 12
+	setwildbattle SPECIES_BOUNSWEET, 10
 	goto Azuretide_HoneyTree_10
 
 Azuretide_HoneyTree_14:
-	setwildbattle SPECIES_BOUNSWEET, 13
+	setwildbattle SPECIES_BOUNSWEET, 11
 	goto Azuretide_HoneyTree_13
 
 Azuretide_HoneyTree_17:
-	setwildbattle SPECIES_BOUNSWEET, 14
+	setwildbattle SPECIES_BOUNSWEET, 12
 	goto Azuretide_HoneyTree_16
 
 Azuretide_HoneyTree_20:
-	setwildbattle SPECIES_SKWOVET, 11
+	setwildbattle SPECIES_SKWOVET, 10
 	goto Azuretide_HoneyTree_19
 
 Azuretide_HoneyTree_23:
-	setwildbattle SPECIES_SKWOVET, 12
+	setwildbattle SPECIES_SKWOVET, 10
 	goto Azuretide_HoneyTree_22
 
 Azuretide_HoneyTree_26:
-	setwildbattle SPECIES_SKWOVET, 13
+	setwildbattle SPECIES_SKWOVET, 11
 	goto Azuretide_HoneyTree_25
 
 Azuretide_HoneyTree_29:
-	setwildbattle SPECIES_SKWOVET, 14
+	setwildbattle SPECIES_SKWOVET, 12
 	goto Azuretide_HoneyTree_28
 
 Azuretide_HoneyTree_32:
-	setwildbattle SPECIES_APPLIN, 12
+	setwildbattle SPECIES_APPLIN, 11
 	goto Azuretide_HoneyTree_31
 
 Azuretide_HoneyTree_35:
-	setwildbattle SPECIES_APPLIN, 14
+	setwildbattle SPECIES_APPLIN, 12
 	goto Azuretide_HoneyTree_34
 
 Azuretide_HoneyTree_38:
-	setwildbattle SPECIES_MUNCHLAX, 14
+	setwildbattle SPECIES_MUNCHLAX, 12
 	goto Azuretide_HoneyTree_37
 
 

@@ -250,7 +250,7 @@ script Marigorge_Sign2{
 }
 text Marigorge_Sign2_Text{
     "Marigorge Town\p"
-    "“A beautiful oasis amidst mountains.”"
+    "“A peaceful oasis amidst mountains.”"
 }
 
 script MarigorgeHouse_OldWoman{

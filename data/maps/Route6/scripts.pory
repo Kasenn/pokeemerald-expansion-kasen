@@ -24,34 +24,34 @@ script Route6_HoneyTree{
             removeitem(ITEM_HONEY, 1)
             random(10)
             if(var(VAR_RESULT) == 0){
-                setwildbattlelevelrange(SPECIES_KOMALA, 24, ITEM_NONE, SPECIES_NONE, 28)
+                setwildbattlelevelrange(SPECIES_KOMALA, 21, ITEM_NONE, SPECIES_NONE, 24)
             }
             if(var(VAR_RESULT) == 1){
-                setwildbattlelevelrange(SPECIES_KOMALA, 24, ITEM_NONE, SPECIES_NONE, 28)
+                setwildbattlelevelrange(SPECIES_KOMALA, 21, ITEM_NONE, SPECIES_NONE, 24)
             }
             if(var(VAR_RESULT) == 2){
-                setwildbattlelevelrange(SPECIES_KOMALA, 24, ITEM_NONE, SPECIES_NONE, 28)
+                setwildbattlelevelrange(SPECIES_KOMALA, 21, ITEM_NONE, SPECIES_NONE, 24)
             }
             if(var(VAR_RESULT) == 3){
-                setwildbattlelevelrange(SPECIES_KOMALA, 24, ITEM_NONE, SPECIES_NONE, 28)
+                setwildbattlelevelrange(SPECIES_KOMALA, 21, ITEM_NONE, SPECIES_NONE, 24)
             }
             if(var(VAR_RESULT) == 4){
-                setwildbattlelevelrange(SPECIES_TEDDIURSA, 24, ITEM_NONE, SPECIES_NONE, 28)
+                setwildbattlelevelrange(SPECIES_TEDDIURSA, 21, ITEM_NONE, SPECIES_NONE, 24)
             }
             if(var(VAR_RESULT) == 5){
-                setwildbattlelevelrange(SPECIES_TEDDIURSA, 24, ITEM_NONE, SPECIES_NONE, 28)
+                setwildbattlelevelrange(SPECIES_TEDDIURSA, 21, ITEM_NONE, SPECIES_NONE, 24)
             }
             if(var(VAR_RESULT) == 6){
-                setwildbattlelevelrange(SPECIES_TEDDIURSA, 24, ITEM_NONE, SPECIES_NONE, 28)
+                setwildbattlelevelrange(SPECIES_TEDDIURSA, 21, ITEM_NONE, SPECIES_NONE, 24)
             }
             if(var(VAR_RESULT) == 7){
-                setwildbattlelevelrange(SPECIES_HERACROSS, 24, ITEM_NONE, SPECIES_NONE, 28)
+                setwildbattlelevelrange(SPECIES_HERACROSS, 21, ITEM_NONE, SPECIES_NONE, 24)
             }
             if(var(VAR_RESULT) == 8){
-                setwildbattlelevelrange(SPECIES_HERACROSS, 24, ITEM_NONE, SPECIES_NONE, 28)
+                setwildbattlelevelrange(SPECIES_HERACROSS, 21, ITEM_NONE, SPECIES_NONE, 24)
             }
             if(var(VAR_RESULT) == 9){
-                setwildbattlelevelrange(SPECIES_MUNCHLAX, 24, ITEM_NONE, SPECIES_NONE, 28)
+                setwildbattlelevelrange(SPECIES_MUNCHLAX, 21, ITEM_NONE, SPECIES_NONE, 24)
             }
             dowildbattle
             release

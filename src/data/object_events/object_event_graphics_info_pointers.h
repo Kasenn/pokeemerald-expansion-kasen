@@ -259,7 +259,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Crustle;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example6;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RocketF;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Skyla;
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_D_Decc;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Clay;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RocketAdmin_M;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Volcarona;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Abra;
@@ -515,7 +515,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_EXAMPLE6] =                 &gObjectEventGraphicsInfo_Example6,
     [OBJ_EVENT_GFX_ROCKET_F] =                 &gObjectEventGraphicsInfo_RocketF,
     [OBJ_EVENT_GFX_SKYLA] =                 &gObjectEventGraphicsInfo_Skyla,
-    [OBJ_EVENT_GFX_D_DECC] =                 &gObjectEventGraphicsInfo_D_Decc,
+    [OBJ_EVENT_GFX_CLAY] =                 &gObjectEventGraphicsInfo_Clay,
     [OBJ_EVENT_GFX_ROCKET_ADMIN_M] =                 &gObjectEventGraphicsInfo_RocketAdmin_M,
     [OBJ_EVENT_GFX_VOLCARONA] =                     &gObjectEventGraphicsInfo_Volcarona,
     [OBJ_EVENT_GFX_ABRA] =                     &gObjectEventGraphicsInfo_Abra,

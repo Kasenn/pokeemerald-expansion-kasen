@@ -77,43 +77,43 @@ Route6_HoneyTree_34:
 	end
 
 Route6_HoneyTree_8:
-	setwildbattlelevelrange SPECIES_KOMALA, 24, ITEM_NONE, SPECIES_NONE, 28
+	setwildbattlelevelrange SPECIES_KOMALA, 21, ITEM_NONE, SPECIES_NONE, 24
 	goto Route6_HoneyTree_7
 
 Route6_HoneyTree_11:
-	setwildbattlelevelrange SPECIES_KOMALA, 24, ITEM_NONE, SPECIES_NONE, 28
+	setwildbattlelevelrange SPECIES_KOMALA, 21, ITEM_NONE, SPECIES_NONE, 24
 	goto Route6_HoneyTree_10
 
 Route6_HoneyTree_14:
-	setwildbattlelevelrange SPECIES_KOMALA, 24, ITEM_NONE, SPECIES_NONE, 28
+	setwildbattlelevelrange SPECIES_KOMALA, 21, ITEM_NONE, SPECIES_NONE, 24
 	goto Route6_HoneyTree_13
 
 Route6_HoneyTree_17:
-	setwildbattlelevelrange SPECIES_KOMALA, 24, ITEM_NONE, SPECIES_NONE, 28
+	setwildbattlelevelrange SPECIES_KOMALA, 21, ITEM_NONE, SPECIES_NONE, 24
 	goto Route6_HoneyTree_16
 
 Route6_HoneyTree_20:
-	setwildbattlelevelrange SPECIES_TEDDIURSA, 24, ITEM_NONE, SPECIES_NONE, 28
+	setwildbattlelevelrange SPECIES_TEDDIURSA, 21, ITEM_NONE, SPECIES_NONE, 24
 	goto Route6_HoneyTree_19
 
 Route6_HoneyTree_23:
-	setwildbattlelevelrange SPECIES_TEDDIURSA, 24, ITEM_NONE, SPECIES_NONE, 28
+	setwildbattlelevelrange SPECIES_TEDDIURSA, 21, ITEM_NONE, SPECIES_NONE, 24
 	goto Route6_HoneyTree_22
 
 Route6_HoneyTree_26:
-	setwildbattlelevelrange SPECIES_TEDDIURSA, 24, ITEM_NONE, SPECIES_NONE, 28
+	setwildbattlelevelrange SPECIES_TEDDIURSA, 21, ITEM_NONE, SPECIES_NONE, 24
 	goto Route6_HoneyTree_25
 
 Route6_HoneyTree_29:
-	setwildbattlelevelrange SPECIES_HERACROSS, 24, ITEM_NONE, SPECIES_NONE, 28
+	setwildbattlelevelrange SPECIES_HERACROSS, 21, ITEM_NONE, SPECIES_NONE, 24
 	goto Route6_HoneyTree_28
 
 Route6_HoneyTree_32:
-	setwildbattlelevelrange SPECIES_HERACROSS, 24, ITEM_NONE, SPECIES_NONE, 28
+	setwildbattlelevelrange SPECIES_HERACROSS, 21, ITEM_NONE, SPECIES_NONE, 24
 	goto Route6_HoneyTree_31
 
 Route6_HoneyTree_35:
-	setwildbattlelevelrange SPECIES_MUNCHLAX, 24, ITEM_NONE, SPECIES_NONE, 28
+	setwildbattlelevelrange SPECIES_MUNCHLAX, 21, ITEM_NONE, SPECIES_NONE, 24
 	goto Route6_HoneyTree_34
 
 

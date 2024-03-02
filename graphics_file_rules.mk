@@ -166,7 +166,7 @@ $(TILESETGFXDIR)/secondary/dewford_gym/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 61 -Wnum_tiles
 
 $(TILESETGFXDIR)/secondary/lavaridge_gym/tiles.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 54 -Wnum_tiles
+	$(GFX) $< $@ -num_tiles 256 -Wnum_tiles
 
 $(TILESETGFXDIR)/secondary/petalburg_gym/tiles.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 148 -Wnum_tiles

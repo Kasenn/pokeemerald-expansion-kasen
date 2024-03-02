@@ -7374,6 +7374,7 @@ extern const u32 gTrainerFrontPic_RubySapphireMay[];
 extern const u32 gTrainerFrontPic_AficionadoM[];
 extern const u32 gTrainerFrontPic_AficionadoF[];
 extern const u32 gTrainerFrontPic_Scientist[];
+extern const u32 gTrainerFrontPic_Clay[];
 
 extern const u32 gTrainerPalette_Hiker[];
 extern const u32 gTrainerPalette_AquaGruntM[];
@@ -7471,6 +7472,7 @@ extern const u32 gTrainerPalette_RubySapphireMay[];
 extern const u32 gTrainerPalette_AficionadoM[];
 extern const u32 gTrainerPalette_AficionadoF[];
 extern const u32 gTrainerPalette_Scientist[];
+extern const u32 gTrainerPalette_Clay[];
 
 extern const u8 gTrainerBackPic_Brendan[];
 extern const u8 gTrainerBackPic_May[];
@@ -7666,6 +7668,9 @@ extern const u32 gBattleTerrainTilemap_Rock[];
 extern const u32 gBattleTerrainAnimTiles_Rock[];
 extern const u32 gBattleTerrainAnimTilemap_Rock[];
 extern const u32 gBattleTerrainPalette_Rock[];
+extern const u32 gBattleTerrainPalette_Mud[];
+extern const u32 gBattleTerrainTiles_Mud[];
+extern const u32 gBattleTerrainTilemap_Mud[];
 extern const u32 gBattleTerrainTiles_Cave[];
 extern const u32 gBattleTerrainTilemap_Cave[];
 extern const u32 gBattleTerrainAnimTiles_Cave[];

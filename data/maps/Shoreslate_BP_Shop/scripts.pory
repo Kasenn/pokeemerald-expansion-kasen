@@ -294,12 +294,10 @@ script Shoreslate_BPShop_EventScript_ChooseTutorMove{
 		case 7:
 			call(Shoreslate_BPShop_EventScript_Trick)
 		case 8:
-			call(Shoreslate_BPShop_EventScript_ZenHeadbutt)
-		case 9:
 			call(Shoreslate_BPShop_EventScript_AncientPower)
-		case 10:
+		case 9:
 			call(Shoreslate_BPShop_EventScript_OminousWind)
-		case 11:
+		case 10:
 			call(Shoreslate_BPShop_EventScript_ExitTutorMoveSelect)
 		case MULTI_B_PRESSED: 
 			call(Shoreslate_BPShop_EventScript_ExitTutorMoveSelect)
@@ -332,12 +330,10 @@ script Shoreslate_BPShop_EventScript_ChooseNewTutorMove{
 		case 7:
 			call(Shoreslate_BPShop_EventScript_Trick)
 		case 8:
-			call(Shoreslate_BPShop_EventScript_ZenHeadbutt)
-		case 9:
 			call(Shoreslate_BPShop_EventScript_AncientPower)
-		case 10:
+		case 9:
 			call(Shoreslate_BPShop_EventScript_OminousWind)
-		case 11:
+		case 10:
 			call(Shoreslate_BPShop_EventScript_ExitTutorMoveSelect)
 		case MULTI_B_PRESSED: 
 			call(Shoreslate_BPShop_EventScript_ExitTutorMoveSelect)

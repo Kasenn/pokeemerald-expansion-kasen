@@ -39,7 +39,7 @@ DewfordTown_Gym_SetGymTrainers::
 	return
 
 MauvilleCity_Gym_SetGymTrainers::
-	settrainerflag TRAINER_KIRK
+	settrainerflag TRAINER_KAOLGYM_CLAY
 	settrainerflag TRAINER_SHAWN
 	settrainerflag TRAINER_BEN
 	settrainerflag TRAINER_VIVIAN

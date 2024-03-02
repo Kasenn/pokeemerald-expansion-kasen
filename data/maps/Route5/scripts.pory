@@ -306,11 +306,11 @@ script Route5_ItemBall3{
 
 
 script Route5_Trainer15_CoolTrainer{
-    if(var(VAR_ROUTE5_TRAINERCOUNT) >= 14){
+    if(var(VAR_ROUTE5_TRAINERCOUNT) >= 15){
         msgbox(Route5_CoolTrainer_PostBattle, MSGBOX_NPC)
         end
     }
-    elif(var(VAR_ROUTE5_TRAINERCOUNT) <= 12){
+    elif(var(VAR_ROUTE5_TRAINERCOUNT) <= 13){
         msgbox(Route5_CoolTrainer_DefeatMoreTrainers, MSGBOX_NPC)
         end
     }

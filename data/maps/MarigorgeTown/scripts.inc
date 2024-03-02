@@ -362,7 +362,7 @@ Marigorge_Sign1_Text::
 
 Marigorge_Sign2_Text::
 	.string "Marigorge Town\p"
-	.string "“A beautiful oasis amidst mountains.”$"
+	.string "“A peaceful oasis amidst mountains.”$"
 
 MarigorgeHouse_OldWoman_Text::
 	.string "Have you seen the huge waterfall\n"

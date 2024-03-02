@@ -127,9 +127,9 @@ Route5_ItemBall3::
 
 
 Route5_Trainer15_CoolTrainer::
-	compare VAR_ROUTE5_TRAINERCOUNT, 14
+	compare VAR_ROUTE5_TRAINERCOUNT, 15
 	goto_if_ge Route5_Trainer15_CoolTrainer_1
-	compare VAR_ROUTE5_TRAINERCOUNT, 12
+	compare VAR_ROUTE5_TRAINERCOUNT, 13
 	goto_if_le Route5_Trainer15_CoolTrainer_2
 	goto Route5_CoolTrainerEligibleForBattle
 	return
