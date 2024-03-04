@@ -1,0 +1,199 @@
+mapscripts Kaolisle_BP_Shop_MapScripts{}
+
+script KaolisleShop_Man{
+    faceplayer
+    lockall
+    msgbox(KaolisleShop_Man_Text, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == TRUE){
+        msgbox(KaolisleShop_Man_TextContinued, MSGBOX_NPC)
+    }
+    waitmessage
+    closemessage
+    release
+    end
+}
+text KaolisleShop_Man_Text{
+    "Hey, want to hear a secret?"
+}
+text KaolisleShop_Man_TextContinued{
+    "There are certain type of trainers who\n"
+    "are colloquially known as\l"
+    "“Pokémon enthusiasts.”\p"
+    "These people absolutely love Pokémon\n"
+    "battles and often times even demand\l"
+    "rematches if you happen to cross their\l"
+    "path more than once.\p"
+    "If you ever find yourself short on\n"
+    "Battle Points, consider challenging\l"
+    "one of these enthusiasts."
+}
+script KaolisleShop_OldMan{
+    msgbox(KaolisleShop_OldMan_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleShop_OldMan_Text{
+    "I don't understand what half of these\n"
+    "items even do…"
+}
+
+script Kaolisle_BPShop_HoldItemClerk{
+	setvar(VAR_TEMP_2, EXCHANGE_CORNER_HOLD_ITEM_CLERK4)
+	setvar(VAR_TEMP_3, 5)
+	goto(BPShop_HoldItemClerk) // Edit this script when adding new shops
+}
+
+script Kaolisle_BPShop_ChooseHoldItem{
+    setvar(VAR_0x8004, SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR4)
+    call(BPShop_SetupHoldItem)
+    switch(var(VAR_RESULT)){
+        case 0:
+            setvar(VAR_0x8008, 16)
+ 			setvar(VAR_0x8009, ITEM_BRIGHT_POWDER)
+			goto(BPShop_HeldItem)
+        case 1:
+            setvar(VAR_0x8008, 16)
+ 			setvar(VAR_0x8009, ITEM_QUICK_CLAW)
+			goto(BPShop_HeldItem)
+        case 2:
+			setvar(VAR_0x8008, 16)
+ 			setvar(VAR_0x8009, ITEM_SOOTHE_BELL)
+            goto(BPShop_HeldItem)
+        case 3:
+			setvar(VAR_0x8008, 16)
+ 			setvar(VAR_0x8009, ITEM_SCOPE_LENS)
+            goto(BPShop_HeldItem)
+        case 4:
+			setvar(VAR_0x8008, 16)
+ 			setvar(VAR_0x8009, ITEM_SHELL_BELL)
+            goto(BPShop_HeldItem)
+        case 5:
+			setvar(VAR_0x8008, 16)
+ 			setvar(VAR_0x8009, ITEM_MUSCLE_BAND)
+            goto(BPShop_HeldItem)
+        case 6:
+			setvar(VAR_0x8008, 16)
+ 			setvar(VAR_0x8009, ITEM_WISE_GLASSES)
+            goto(BPShop_HeldItem)
+        case 7:
+			setvar(VAR_0x8008, 16)
+ 			setvar(VAR_0x8009, ITEM_WIDE_LENS)
+            goto(BPShop_HeldItem)
+        case 8:
+			setvar(VAR_0x8008, 16)
+ 			setvar(VAR_0x8009, ITEM_ZOOM_LENS)
+            goto(BPShop_HeldItem)
+        case 9:
+            call(BPShop_ClerkGoodbye)
+        case MULTI_B_PRESSED:
+            call(BPShop_ClerkGoodbye)
+    }
+}
+
+script Kaolisle_BPShop_MoveTutor{
+	setvar(VAR_TEMP_C, SCROLL_MULTI_BF_MOVE_TUTOR_6)
+	setvar(VAR_TEMP_5, 6)
+	goto(BPShop_MoveTutor) // Edit this script when adding new shops
+}
+
+script Kaolisle_BPShop_ChooseTutorMove{
+	setvar(VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_6)
+	call(MoveTutorSetup)
+	switch(var(VAR_RESULT)){
+		case 0:
+            setvar(VAR_0x8008, 4)
+			setvar(VAR_0x8005, MOVE_COVET)
+			goto(BPShop_ConfirmMoveSelection)
+        case 1:
+            setvar(VAR_0x8008, 4)
+			setvar(VAR_0x8005, MOVE_STRING_SHOT)
+			goto(BPShop_ConfirmMoveSelection)
+        case 2:
+            setvar(VAR_0x8008, 8)
+			setvar(VAR_0x8005, MOVE_BLOCK)
+			goto(BPShop_ConfirmMoveSelection)
+        case 3:
+            setvar(VAR_0x8008, 8)
+			setvar(VAR_0x8005, MOVE_SNATCH)
+			goto(BPShop_ConfirmMoveSelection)
+        case 4:
+            setvar(VAR_0x8008, 8)
+			setvar(VAR_0x8005, MOVE_UPROAR)
+			goto(BPShop_ConfirmMoveSelection)
+        case 5:
+            setvar(VAR_0x8008, 8)
+			setvar(VAR_0x8005, MOVE_WORRY_SEED)
+			goto(BPShop_ConfirmMoveSelection)
+        case 6:
+            setvar(VAR_0x8008, 10)
+			setvar(VAR_0x8005, MOVE_STEALTH_ROCK)
+			goto(BPShop_ConfirmMoveSelection)
+        case 7:
+            setvar(VAR_0x8008, 10)
+			setvar(VAR_0x8005, MOVE_SYNTHESIS)
+			goto(BPShop_ConfirmMoveSelection)
+        case 8:
+            setvar(VAR_0x8008, 10)
+			setvar(VAR_0x8005, MOVE_ZEN_HEADBUTT)
+			goto(BPShop_ConfirmMoveSelection)
+        case 9:
+            setvar(VAR_0x8008, 12)
+			setvar(VAR_0x8005, MOVE_LAST_RESORT)
+			goto(BPShop_ConfirmMoveSelection)
+		case 10:
+			call(BPShop_ExitTutorMoveSelect)
+		case MULTI_B_PRESSED: 
+			call(BPShop_ExitTutorMoveSelect)
+	}
+	end
+}
+
+text Kaolisle_BPShop_Text_CovetDesc{
+	"Steals the\n"
+	"target's held\n"
+	"item."
+}
+text Kaolisle_BPShop_Text_StringShotDesc{
+	"Binds the foe\n"
+	"with string to\n"
+	"reduce its Speed."
+}
+text Kaolisle_BPShop_Text_BlockDesc{
+	"Prevents the\n"
+	"target from\n"
+	"escaping."
+}
+text Kaolisle_BPShop_Text_WorrySeedDesc{
+	"Makes the\n"
+	"target's ability\n"
+	"Insomnia."
+}
+text Kaolisle_BPShop_Text_UproarDesc{
+	"3-turn attack.\n"
+	"No Pokémon can\n"
+	"sleep during it."
+}
+text Kaolisle_BPShop_Text_SnatchDesc{
+	"Steals the effect\n"
+	"of most beneficial\n"
+	"status moves."
+}
+text Kaolisle_BPShop_Text_StealthRockDesc{
+	"Sets floating\n"
+    "stones that hurt\n"
+    "a foe switching in."
+}
+text Kaolisle_BPShop_Text_SynthesisDesc{
+	"Restores HP.\n"
+    "The amount varies\n"
+    "with the weather."
+}
+text Kaolisle_BPShop_Text_ZenHeadbuttDesc{
+    "A strong head-\n"
+    "butt that may\n"
+    "cause flinching."
+}
+text Kaolisle_BPShop_Text_LastResortDesc{
+	"Only usable after\n"
+	"using all other\n"
+	"moves in combat."
+}

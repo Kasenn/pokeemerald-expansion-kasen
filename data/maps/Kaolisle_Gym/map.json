@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "KaolGym_ClayTalk",
       "flag": "0"
     },
     {
@@ -37,7 +37,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Aldeleaf_Gym_EventScript_GymGuide",
+      "script": "KaolGym_Guide",
       "flag": "0"
     },
     {
@@ -566,7 +566,15 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 65,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "KaolGym_LeaderScript"
+    }
   ],
   "bg_events": [
     {
@@ -600,6 +608,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Kaolisle_Gym_Switch4"
+    },
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 66,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "KaolGym_Statue"
+    },
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 66,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "KaolGym_Statue"
     }
   ]
 }

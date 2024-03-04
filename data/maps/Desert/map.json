@@ -275,7 +275,7 @@
       "x": 3,
       "y": 55,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -284,7 +284,7 @@
       "x": 3,
       "y": 56,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -293,7 +293,7 @@
       "x": 3,
       "y": 58,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -302,7 +302,7 @@
       "x": 3,
       "y": 57,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -311,7 +311,7 @@
       "x": 3,
       "y": 60,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -320,7 +320,7 @@
       "x": 3,
       "y": 59,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -329,7 +329,7 @@
       "x": 3,
       "y": 61,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -338,7 +338,7 @@
       "x": 27,
       "y": 41,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -347,7 +347,7 @@
       "x": 28,
       "y": 42,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -356,7 +356,7 @@
       "x": 29,
       "y": 42,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -365,7 +365,7 @@
       "x": 31,
       "y": 42,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -374,7 +374,7 @@
       "x": 30,
       "y": 42,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -383,7 +383,7 @@
       "x": 33,
       "y": 42,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -392,7 +392,7 @@
       "x": 32,
       "y": 42,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -401,7 +401,7 @@
       "x": 35,
       "y": 41,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -410,7 +410,7 @@
       "x": 34,
       "y": 41,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -419,7 +419,7 @@
       "x": 36,
       "y": 40,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -428,7 +428,7 @@
       "x": 72,
       "y": 5,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -437,7 +437,7 @@
       "x": 73,
       "y": 5,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -446,7 +446,7 @@
       "x": 74,
       "y": 5,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -455,7 +455,7 @@
       "x": 69,
       "y": 5,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -464,7 +464,7 @@
       "x": 70,
       "y": 5,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -473,7 +473,7 @@
       "x": 71,
       "y": 5,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -482,7 +482,7 @@
       "x": 32,
       "y": 32,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -491,7 +491,7 @@
       "x": 33,
       "y": 32,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -500,7 +500,7 @@
       "x": 30,
       "y": 32,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -509,7 +509,7 @@
       "x": 31,
       "y": 32,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -518,7 +518,7 @@
       "x": 28,
       "y": 33,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -527,7 +527,7 @@
       "x": 29,
       "y": 33,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -536,7 +536,7 @@
       "x": 26,
       "y": 34,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -545,7 +545,7 @@
       "x": 27,
       "y": 33,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -554,7 +554,7 @@
       "x": 35,
       "y": 33,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOn"
     },
@@ -563,7 +563,7 @@
       "x": 33,
       "y": 33,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -572,7 +572,7 @@
       "x": 34,
       "y": 33,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -581,7 +581,7 @@
       "x": 32,
       "y": 33,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -590,7 +590,7 @@
       "x": 31,
       "y": 33,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -599,7 +599,7 @@
       "x": 28,
       "y": 34,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -608,7 +608,7 @@
       "x": 27,
       "y": 34,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -617,7 +617,7 @@
       "x": 30,
       "y": 33,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -626,7 +626,7 @@
       "x": 29,
       "y": 34,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -635,7 +635,7 @@
       "x": 30,
       "y": 41,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -644,7 +644,7 @@
       "x": 28,
       "y": 41,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -653,7 +653,7 @@
       "x": 29,
       "y": 41,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -662,7 +662,7 @@
       "x": 33,
       "y": 41,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -671,7 +671,7 @@
       "x": 31,
       "y": 41,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -680,7 +680,7 @@
       "x": 32,
       "y": 41,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -689,7 +689,7 @@
       "x": 35,
       "y": 40,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -698,7 +698,7 @@
       "x": 34,
       "y": 40,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -707,7 +707,7 @@
       "x": 2,
       "y": 56,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -716,7 +716,7 @@
       "x": 2,
       "y": 55,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -725,7 +725,7 @@
       "x": 2,
       "y": 58,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -734,7 +734,7 @@
       "x": 2,
       "y": 57,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -743,7 +743,7 @@
       "x": 2,
       "y": 60,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -752,7 +752,7 @@
       "x": 2,
       "y": 59,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -761,7 +761,7 @@
       "x": 2,
       "y": 61,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -770,7 +770,7 @@
       "x": 69,
       "y": 4,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -779,7 +779,7 @@
       "x": 70,
       "y": 4,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -788,7 +788,7 @@
       "x": 72,
       "y": 4,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -797,7 +797,7 @@
       "x": 71,
       "y": 4,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -806,7 +806,7 @@
       "x": 74,
       "y": 4,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     },
@@ -815,7 +815,7 @@
       "x": 73,
       "y": 4,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
     }

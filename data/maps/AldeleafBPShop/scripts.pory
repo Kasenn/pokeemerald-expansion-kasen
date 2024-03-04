@@ -23,434 +23,110 @@ text AldeShop_OldMan_Text{
 }
 
 script Aldeleaf_BPShop_HoldItemClerk{
-    lock
-    faceplayer
-    setvar(VAR_TEMP_2, EXCHANGE_CORNER_HOLD_ITEM_CLERK3)
-    call(Aldeleaf_BPShop_ClerkWelcome)
-    goto(Aldeleaf_BPShop_ChooseHoldItem)
-    end
-}
-
-script Aldeleaf_BPShop_ClerkWelcome{
-    msgbox(Aldeleaf_BPShop_Text_BuySomething, MSGBOX_DEFAULT)
-    special(ShowBattlePointsWindow)
-    return
-}
-
-text Aldeleaf_BPShop_Text_BuySomething{
-    "Welcome to the BP shop.\pHere's a list of this store's\npurchasable items."
+	setvar(VAR_TEMP_2, EXCHANGE_CORNER_HOLD_ITEM_CLERK3)
+	setvar(VAR_TEMP_3, 3)
+	goto(BPShop_HoldItemClerk) // Edit this script when adding new shops
 }
 
 script Aldeleaf_BPShop_ChooseHoldItem{
     setvar(VAR_0x8004, SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR3)
-    special(ShowFrontierExchangeCornerItemIconWindow)
-    special(ShowScrollableMultichoice)
-    waitstate
-    special(CloseFrontierExchangeCornerItemIconWindow)
+    call(BPShop_SetupHoldItem)
     switch(var(VAR_RESULT)){
         case 0:
-            call(Aldeleaf_BPShop_DragonScale)
+            setvar(VAR_0x8008, 24)
+ 			setvar(VAR_0x8009, ITEM_DRAGON_SCALE)
+			goto(BPShop_HeldItem)
         case 1:
-            call(Aldeleaf_BPShop_Electirizer)
+            setvar(VAR_0x8008, 24)
+ 			setvar(VAR_0x8009, ITEM_ELECTIRIZER)
+			goto(BPShop_HeldItem)
         case 2:
-            call(Aldeleaf_BPShop_KingsRock)
+			setvar(VAR_0x8008, 24)
+ 			setvar(VAR_0x8009, ITEM_KINGS_ROCK)
+            goto(BPShop_HeldItem)
         case 3:
-            call(Aldeleaf_BPShop_Magmarizer)
+			setvar(VAR_0x8008, 24)
+ 			setvar(VAR_0x8009, ITEM_MAGMARIZER)
+            goto(BPShop_HeldItem)
         case 4:
-            call(Aldeleaf_BPShop_MetalCoat)
+			setvar(VAR_0x8008, 24)
+ 			setvar(VAR_0x8009, ITEM_METAL_COAT)
+            goto(BPShop_HeldItem)
         case 5:
-            call(Aldeleaf_BPShop_PrismScale)
+			setvar(VAR_0x8008, 24)
+ 			setvar(VAR_0x8009, ITEM_PRISM_SCALE)
+            goto(BPShop_HeldItem)
         case 6:
-            call(Aldeleaf_BPShop_Protector)
+			setvar(VAR_0x8008, 24)
+ 			setvar(VAR_0x8009, ITEM_PROTECTOR)
+            goto(BPShop_HeldItem)
         case 7:
-            call(Aldeleaf_BPShop_ReaperCloth)
+			setvar(VAR_0x8008, 24)
+ 			setvar(VAR_0x8009, ITEM_REAPER_CLOTH)
+            goto(BPShop_HeldItem)
         case 8:
-            call(Aldeleaf_BPShop_ClerkGoodbye)
+			call(BPShop_ClerkGoodbye)
         case MULTI_B_PRESSED:
-            call(Aldeleaf_BPShop_ClerkGoodbye)
+            call(BPShop_ClerkGoodbye)
     }
 }
 
-script Aldeleaf_BPShop_DragonScale{
- 	msgbox(Aldeleaf_BPShop_TextDragonScale, MSGBOX_YESNO)
- 	goto_if_eq(VAR_RESULT, NO, Aldeleaf_BPShop_ChooseHoldItem)
- 	setvar(VAR_0x8008, 24)
- 	setvar(VAR_0x8009, ITEM_DRAGON_SCALE)
- 	goto(Aldeleaf_BPShop_TryPurchasePrize)
- 	end
-}
-text Aldeleaf_BPShop_TextDragonScale{
-    "You've chosen the Dragon Scale.\nIs that correct?"
-}
-
-script Aldeleaf_BPShop_Electirizer{
- 	msgbox(Aldeleaf_BPShop_TextElectirizer, MSGBOX_YESNO)
- 	goto_if_eq(VAR_RESULT, NO, Aldeleaf_BPShop_ChooseHoldItem)
- 	setvar(VAR_0x8008, 24)
- 	setvar(VAR_0x8009, ITEM_ELECTIRIZER)
- 	goto(Aldeleaf_BPShop_TryPurchasePrize)
- 	end
-}
-text Aldeleaf_BPShop_TextElectirizer{
-    "You've chosen the Electirizer.\n Is that correct?"
-}
-
-script Aldeleaf_BPShop_KingsRock{
- 	msgbox(Aldeleaf_BPShop_TextKingsRock, MSGBOX_YESNO)
- 	goto_if_eq(VAR_RESULT, NO, Aldeleaf_BPShop_ChooseHoldItem)
- 	setvar(VAR_0x8008, 24)
- 	setvar(VAR_0x8009, ITEM_KINGS_ROCK)
- 	goto(Aldeleaf_BPShop_TryPurchasePrize)
- 	end
-}
-text Aldeleaf_BPShop_TextKingsRock{
-    "You've chosen the King's Rock.\n Is that correct?"
-}
-
-script Aldeleaf_BPShop_Magmarizer{
- 	msgbox(Aldeleaf_BPShop_TextMagmarizer, MSGBOX_YESNO)
- 	goto_if_eq(VAR_RESULT, NO, Aldeleaf_BPShop_ChooseHoldItem)
- 	setvar(VAR_0x8008, 24)
- 	setvar(VAR_0x8009, ITEM_MAGMARIZER)
- 	goto(Aldeleaf_BPShop_TryPurchasePrize)
- 	end
-}
-text Aldeleaf_BPShop_TextMagmarizer{
-    "You've chosen the Magmarizer.\n Is that correct?"
-}
-
-script Aldeleaf_BPShop_MetalCoat{
- 	msgbox(Aldeleaf_BPShop_TextMetalCoat, MSGBOX_YESNO)
- 	goto_if_eq(VAR_RESULT, NO, Aldeleaf_BPShop_ChooseHoldItem)
- 	setvar(VAR_0x8008, 24)
- 	setvar(VAR_0x8009, ITEM_METAL_COAT)
- 	goto(Aldeleaf_BPShop_TryPurchasePrize)
- 	end
-}
-text Aldeleaf_BPShop_TextMetalCoat{
-    "You've chosen the Metal Coat.\n Is that correct?"
-}
-
-script Aldeleaf_BPShop_PrismScale{
- 	msgbox(Aldeleaf_BPShop_TextPrismScale, MSGBOX_YESNO)
- 	goto_if_eq(VAR_RESULT, NO, Aldeleaf_BPShop_ChooseHoldItem)
- 	setvar(VAR_0x8008, 24)
- 	setvar(VAR_0x8009, ITEM_PRISM_SCALE)
- 	goto(Aldeleaf_BPShop_TryPurchasePrize)
- 	end
-}
-text Aldeleaf_BPShop_TextPrismScale{
-    "You've chosen the Prism Scale.\n Is that correct?"
-}
-
-script Aldeleaf_BPShop_Protector{
- 	msgbox(Aldeleaf_BPShop_TextProtector, MSGBOX_YESNO)
- 	goto_if_eq(VAR_RESULT, NO, Aldeleaf_BPShop_ChooseHoldItem)
- 	setvar(VAR_0x8008, 24)
- 	setvar(VAR_0x8009, ITEM_PROTECTOR)
- 	goto(Aldeleaf_BPShop_TryPurchasePrize)
- 	end
-}
-text Aldeleaf_BPShop_TextProtector{
-    "You've chosen the Protector.\n Is that correct?"
-}
-
-script Aldeleaf_BPShop_ReaperCloth{
- 	msgbox(Aldeleaf_BPShop_TextReaperCloth, MSGBOX_YESNO)
- 	goto_if_eq(VAR_RESULT, NO, Aldeleaf_BPShop_ChooseHoldItem)
- 	setvar(VAR_0x8008, 24)
- 	setvar(VAR_0x8009, ITEM_REAPER_CLOTH)
- 	goto(Aldeleaf_BPShop_TryPurchasePrize)
- 	end
-}
-text Aldeleaf_BPShop_TextReaperCloth{
-    "You've chosen the Reaper Cloth.\n Is that correct?"
-}
-
-script Aldeleaf_BPShop_ClerkGoodbye{
- 	msgbox(Aldeleaf_BPShop_ThankYouVisitWithPoints, MSGBOX_DEFAULT)
- 	special(CloseBattlePointsWindow)
- 	release
- 	end
-}
-text Aldeleaf_BPShop_ThankYouVisitWithPoints{
-    "Thank you very much.\pPlease visit us when you have\nsaved up Battle Points."
-}
-
-script Aldeleaf_BPShop_TryPurchasePrize{
- 	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
- 	goto_if_ge(VAR_TEMP_1, VAR_0x8008, Aldeleaf_BPShop_TryGivePrize)
- 	msgbox(Aldeleaf_BPShop_Text_DontHaveEnoughPoints, MSGBOX_DEFAULT)
- 	goto_if_eq(VAR_TEMP_2, EXCHANGE_CORNER_DECOR1_CLERK, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseDecor1)
- 	goto_if_eq(VAR_TEMP_2, EXCHANGE_CORNER_DECOR2_CLERK, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseDecor2)
- 	goto_if_eq(VAR_TEMP_2, EXCHANGE_CORNER_VITAMIN_CLERK, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseVitamin)
- 	goto(Aldeleaf_BPShop_ChooseHoldItem)
- 	end
-}
-text Aldeleaf_BPShop_Text_DontHaveEnoughPoints{
-    "I'm so sorry…\nYou don't have enough Battle Points…"
-}
-script Aldeleaf_BPShop_TryGivePrize{
- 	goto_if_eq(VAR_TEMP_2, EXCHANGE_CORNER_DECOR1_CLERK, BattleFrontier_ExchangeServiceCorner_EventScript_TryGiveDecor)
- 	goto_if_eq(VAR_TEMP_2, EXCHANGE_CORNER_DECOR2_CLERK, BattleFrontier_ExchangeServiceCorner_EventScript_TryGiveDecor)
- 	goto(Aldeleaf_BPShop_TryGiveItem)
- 	end
-}
-script Aldeleaf_BPShop_TryGiveItem{
- 	checkitemspace(VAR_0x8009)
- 	goto_if_eq(VAR_RESULT, FALSE, Aldeleaf_BPShop_BagFull)
- 	copyvar(VAR_0x8004, VAR_0x8008)
- 	special(TakeFrontierBattlePoints)
- 	additem(VAR_0x8009)
- 	special(UpdateBattlePointsWindow)
- 	playse(SE_SHOP)
- 	msgbox(Aldeleaf_BPShop_Text_HereIsYourPrize, MSGBOX_DEFAULT)
- 	goto_if_eq(VAR_TEMP_2, EXCHANGE_CORNER_VITAMIN_CLERK, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseVitamin)
- 	goto(Aldeleaf_BPShop_ChooseHoldItem)
- 	end
-}
-script Aldeleaf_BPShop_BagFull{
- 	msgbox(Aldeleaf_BPShop_Text_DontHaveSpaceToHoldIt, MSGBOX_DEFAULT)
- 	special(CloseBattlePointsWindow)
- 	release
- 	end
-}
-text Aldeleaf_BPShop_Text_DontHaveSpaceToHoldIt{
-    "I'm so sorry…\nYou don't have space to hold it…"
-}
-text Aldeleaf_BPShop_Text_HereIsYourPrize{
-    "Here is your item!"
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-script Aldeleaf_BPShop_EventScript_MoveTutor{
-	lock
-	faceplayer
+script Aldeleaf_BPShop_MoveTutor{
 	setvar(VAR_TEMP_C, SCROLL_MULTI_BF_MOVE_TUTOR_4)
-	goto_if_set(FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR2, Aldeleaf_BPShop_EventScript_AlreadyMetTutor)
-	msgbox(Aldeleaf_BPShop_Text_TutorIntro, MSGBOX_DEFAULT)
-	setflag(FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR2)
-	goto(Aldeleaf_BPShop_EventScript_ChooseTutorMove)
-	end
-}
-script Aldeleaf_BPShop_EventScript_AlreadyMetTutor{
-	msgbox(Aldeleaf_BPShop_Text_TutorWelcomeBack, MSGBOX_DEFAULT)
-	goto(Aldeleaf_BPShop_EventScript_ChooseTutorMove)
-	end
-}
-script Aldeleaf_BPShop_EventScript_ChooseTutorMove{
-	msgbox(Aldeleaf_BPShop_Text_TeachWhichMove)
-	waitmessage
-	special(ShowBattlePointsWindow)
-	setvar(VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_4)
-	setvar(VAR_0x8006, 0)
-	special(ShowScrollableMultichoice)
-	waitstate
-	copyvar(VAR_TEMP_FRONTIER_TUTOR_SELECTION, VAR_RESULT)
-	switch(var(VAR_RESULT)){
-		case 0:
-			call(Aldeleaf_BPShop_EventScript_DrillRun)
-		case 1:
-			call(Aldeleaf_BPShop_EventScript_Bounce)
-		case 2:
-			call(Aldeleaf_BPShop_EventScript_SignalBeam)
-		case 3:
-			call(Aldeleaf_BPShop_EventScript_IronHead)
-		case 4:
-			call(Aldeleaf_BPShop_EventScript_IronDefense)
-		case 5:
-			call(Aldeleaf_BPShop_EventScript_MagnetRise)
-		case 6:
-			call(Aldeleaf_BPShop_EventScript_MagicCoat)
-		case 7:
-			call(Aldeleaf_BPShop_EventScript_KnockOff)
-		case 8:
-			call(Aldeleaf_BPShop_EventScript_SkillSwap)
-		case 9:
-			call(Aldeleaf_BPShop_EventScript_IcyWind)
-		case 10:
-			call(Aldeleaf_BPShop_EventScript_ExitTutorMoveSelect)
-		case MULTI_B_PRESSED: 
-			call(Aldeleaf_BPShop_EventScript_ExitTutorMoveSelect)
-	}
-	end
-}
-script Aldeleaf_BPShop_EventScript_ChooseNewTutorMove{
-	msgbox(Aldeleaf_BPShop_Text_TeachWhichMove)
-	waitmessage
-	setvar(VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_4)
-	setvar(VAR_0x8006, 1)
-	special(ShowScrollableMultichoice)
-	waitstate
-	copyvar(VAR_TEMP_FRONTIER_TUTOR_SELECTION, VAR_RESULT)
-	switch(var(VAR_RESULT)){
-		case 0:
-			call(Aldeleaf_BPShop_EventScript_DrillRun)
-		case 1:
-			call(Aldeleaf_BPShop_EventScript_Bounce)
-		case 2:
-			call(Aldeleaf_BPShop_EventScript_SignalBeam)
-		case 3:
-			call(Aldeleaf_BPShop_EventScript_IronHead)
-		case 4:
-			call(Aldeleaf_BPShop_EventScript_IronDefense)
-		case 5:
-			call(Aldeleaf_BPShop_EventScript_MagnetRise)
-		case 6:
-			call(Aldeleaf_BPShop_EventScript_MagicCoat)
-		case 7:
-			call(Aldeleaf_BPShop_EventScript_KnockOff)
-		case 8:
-			call(Aldeleaf_BPShop_EventScript_SkillSwap)
-		case 9:
-			call(Aldeleaf_BPShop_EventScript_IcyWind)
-		case 10:
-			call(Aldeleaf_BPShop_EventScript_ExitTutorMoveSelect)
-		case MULTI_B_PRESSED: 
-			call(Aldeleaf_BPShop_EventScript_ExitTutorMoveSelect)
-	}
-	end
-}
-script Aldeleaf_BPShop_EventScript_DrillRun{
-	setvar(VAR_0x8008, 6)
-	setvar(VAR_0x8005, MOVE_DRILL_RUN)
-	goto(Aldeleaf_BPShop_EventScript_ConfirmMoveSelection)
-	end
+	setvar(VAR_TEMP_5, 4)
+	goto(BPShop_MoveTutor) // Edit this script when adding new shops
 }
 
-script Aldeleaf_BPShop_EventScript_Bounce{
-	setvar(VAR_0x8008, 8)
-	setvar(VAR_0x8005, MOVE_BOUNCE)
-	goto(Aldeleaf_BPShop_EventScript_ConfirmMoveSelection)
+script Aldeleaf_BPShop_ChooseTutorMove{
+	setvar(VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_4)
+	call(MoveTutorSetup)
+	switch(var(VAR_RESULT)){
+		case 0:
+            setvar(VAR_0x8008, 6)
+			setvar(VAR_0x8005, MOVE_DRILL_RUN)
+			goto(BPShop_ConfirmMoveSelection)
+        case 1:
+            setvar(VAR_0x8008, 8)
+			setvar(VAR_0x8005, MOVE_BOUNCE)
+			goto(BPShop_ConfirmMoveSelection)
+        case 2:
+            setvar(VAR_0x8008, 8)
+			setvar(VAR_0x8005, MOVE_SIGNAL_BEAM)
+			goto(BPShop_ConfirmMoveSelection)
+        case 3:
+            setvar(VAR_0x8008, 8)
+			setvar(VAR_0x8005, MOVE_IRON_HEAD)
+			goto(BPShop_ConfirmMoveSelection)
+        case 4:
+            setvar(VAR_0x8008, 8)
+			setvar(VAR_0x8005, MOVE_IRON_DEFENSE)
+			goto(BPShop_ConfirmMoveSelection)
+        case 5:
+            setvar(VAR_0x8008, 8)
+			setvar(VAR_0x8005, MOVE_MAGNET_RISE)
+			goto(BPShop_ConfirmMoveSelection)
+        case 6:
+            setvar(VAR_0x8008, 8)
+			setvar(VAR_0x8005, MOVE_MAGIC_COAT)
+			goto(BPShop_ConfirmMoveSelection)
+        case 7:
+            setvar(VAR_0x8008, 10)
+			setvar(VAR_0x8005, MOVE_KNOCK_OFF)
+			goto(BPShop_ConfirmMoveSelection)
+        case 8:
+            setvar(VAR_0x8008, 12)
+			setvar(VAR_0x8005, MOVE_SKILL_SWAP)
+			goto(BPShop_ConfirmMoveSelection)
+        case 9:
+            setvar(VAR_0x8008, 12)
+			setvar(VAR_0x8005, MOVE_ICY_WIND)
+			goto(BPShop_ConfirmMoveSelection)
+		case 10:
+			call(BPShop_ExitTutorMoveSelect)
+		case MULTI_B_PRESSED: 
+			call(BPShop_ExitTutorMoveSelect)
+	}
 	end
-}
-script Aldeleaf_BPShop_EventScript_SignalBeam{
-	setvar(VAR_0x8008, 8)
-	setvar(VAR_0x8005, MOVE_SIGNAL_BEAM)
-	goto(Aldeleaf_BPShop_EventScript_ConfirmMoveSelection)
-	end
-}
-script Aldeleaf_BPShop_EventScript_IronHead{
-	setvar(VAR_0x8008, 8)
-	setvar(VAR_0x8005, MOVE_IRON_HEAD)
-	goto(Aldeleaf_BPShop_EventScript_ConfirmMoveSelection)
-	end
-}
-script Aldeleaf_BPShop_EventScript_IronDefense{
-	setvar(VAR_0x8008, 8)
-	setvar(VAR_0x8005, MOVE_IRON_DEFENSE)
-	goto(Aldeleaf_BPShop_EventScript_ConfirmMoveSelection)
-	end
-}
-script Aldeleaf_BPShop_EventScript_MagnetRise{
-	setvar(VAR_0x8008, 8)
-	setvar(VAR_0x8005, MOVE_MAGNET_RISE)
-	goto(Aldeleaf_BPShop_EventScript_ConfirmMoveSelection)
-	end
-}
-script Aldeleaf_BPShop_EventScript_MagicCoat{
-	setvar(VAR_0x8008, 8)
-	setvar(VAR_0x8005, MOVE_MAGIC_COAT)
-	goto(Aldeleaf_BPShop_EventScript_ConfirmMoveSelection)
-	end
-}
-script Aldeleaf_BPShop_EventScript_KnockOff{
-	setvar(VAR_0x8008, 10)
-	setvar(VAR_0x8005, MOVE_KNOCK_OFF)
-	goto(Aldeleaf_BPShop_EventScript_ConfirmMoveSelection)
-	end
-}
-script Aldeleaf_BPShop_EventScript_SkillSwap{
-	setvar(VAR_0x8008, 10)
-	setvar(VAR_0x8005, MOVE_SKILL_SWAP)
-	goto(Aldeleaf_BPShop_EventScript_ConfirmMoveSelection)
-	end
-}
-script Aldeleaf_BPShop_EventScript_Synthesis{
-	setvar(VAR_0x8008, 10)
-	setvar(VAR_0x8005, MOVE_SYNTHESIS)
-	goto(Aldeleaf_BPShop_EventScript_ConfirmMoveSelection)
-	end
-}
-script Aldeleaf_BPShop_EventScript_StealthRock{
-	setvar(VAR_0x8008, 10)
-	setvar(VAR_0x8005, MOVE_STEALTH_ROCK)
-	goto(Aldeleaf_BPShop_EventScript_ConfirmMoveSelection)
-	end
-}
-script Aldeleaf_BPShop_EventScript_IcyWind{
-	setvar(VAR_0x8008, 12)
-	setvar(VAR_0x8005, MOVE_ICY_WIND)
-	goto(Aldeleaf_BPShop_EventScript_ConfirmMoveSelection)
-	end
-}
-
-script Aldeleaf_BPShop_EventScript_ExitTutorMoveSelect{
-	special(CloseBattleFrontierTutorWindow)
-	special(CloseBattlePointsWindow)
-	msgbox(Aldeleaf_BPShop_Text_YouDontWantTo, MSGBOX_DEFAULT)
-	release
-	end
-}
-// VAR_0x8008 is the price
-// VAR_TEMP_C is the scroll multichoice ID
-// VAR_TEMP_FRONTIER_TUTOR_SELECTION is the move selection
-// VAR_TEMP_FRONTIER_TUTOR_ID is which move tutor was spoken to
-script Aldeleaf_BPShop_EventScript_ConfirmMoveSelection{
-	special(BufferBattleFrontierTutorMoveName)
-	buffernumberstring(STR_VAR_2, VAR_0x8008)
-	msgbox(Aldeleaf_BPShop_Text_MoveWillBeXBattlePoints, MSGBOX_YESNO)
-	goto_if_eq(VAR_RESULT, NO, Aldeleaf_BPShop_EventScript_ChooseNewTutorMove)
-	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
-	goto_if_ge(VAR_TEMP_1, VAR_0x8008, Aldeleaf_BPShop_EventScript_TeachTutorMove)
-	msgbox(Aldeleaf_BPShop_Text_HaventGotEnoughPoints, MSGBOX_DEFAULT)
-	goto(Aldeleaf_BPShop_EventScript_ChooseNewTutorMove)
-	end
-}
-script Aldeleaf_BPShop_EventScript_TeachTutorMove{
-	msgbox(Aldeleaf_BPShop_Text_TeachMoveToWhichMon, MSGBOX_DEFAULT)
-	fadescreen(FADE_TO_BLACK)
-	special(CloseBattlePointsWindow)
-	special(CloseBattleFrontierTutorWindow)
-	special(ChooseMonForMoveTutor)
-	waitstate
-	goto_if_eq(VAR_RESULT, FALSE, Aldeleaf_BPShop_EventScript_ChooseTutorMove)
-	msgbox(Aldeleaf_BPShop_Text_IllTakeBattlePoints, MSGBOX_DEFAULT)
-	copyvar(VAR_0x8004, VAR_0x8008)
-	special(TakeFrontierBattlePoints)
-	release
-	end
-}
-text Aldeleaf_BPShop_Text_TutorIntro{
-	"Welcome to the BP shop.\p"
-	"I can train your Pokémon moves\n"
-	"in exchange for BP."
-}
-text Aldeleaf_BPShop_Text_TutorWelcomeBack{
-	"Welcome to the BP shop.\n"
-	"I am this shop's move tutor."
-}
-text Aldeleaf_BPShop_Text_TeachWhichMove{
-	"Which move would you like to choose?"
-}
-text Aldeleaf_BPShop_Text_MoveWillBeXBattlePoints{
-	"The move {STR_VAR_1}, is it?\n"
-	"That will be {STR_VAR_2} Battle Points."
-}
-text Aldeleaf_BPShop_Text_TeachMoveToWhichMon{
-	"Which Pokémon would you like to teach\n"
-	"this move?"
-}
-text Aldeleaf_BPShop_Text_HaventGotEnoughPoints{
-	"I'm so sorry…\n"
-	"You don't have enough Battle Points…"
-}
-text Aldeleaf_BPShop_Text_IllTakeBattlePoints{
-	"Please come again."
-}
-text Aldeleaf_BPShop_Text_YouDontWantTo{
-	"Let me know if you change your mind."
 }
 
 text Aldeleaf_BPShop_Text_DrillRunDesc{
@@ -498,18 +174,262 @@ text Aldeleaf_BPShop_Text_SkillSwapDesc{
     "special abilities\n"
     "with the target."
 }
-text Aldeleaf_BPShop_Text_SynthesisDesc{
-	"Restores HP.\n"
-    "The amount varies\n"
-    "with the weather."
-}
-text Aldeleaf_BPShop_Text_StealthRockDesc{
-	"Sets floating\n"
-    "stones that hurt\n"
-    "a foe switching in."
-}
 text Aldeleaf_BPShop_Text_IcyWindDesc{
 	"A chilling attack\n"
     "that lowers the\n"
     "foe's Speed."
+}
+
+
+text BPShop_Text_TutorIntro{
+	"Welcome to the BP shop.\p"
+	"I can train your Pokémon moves\n"
+	"in exchange for BP."
+}
+text BPShop_Text_TutorWelcomeBack{
+	"Welcome to the BP shop.\n"
+	"I am this shop's move tutor."
+}
+text BPShop_Text_TeachWhichMove{
+	"Which move would you like to choose?"
+}
+text BPShop_Text_MoveWillBeXBP{
+	"The move {STR_VAR_1}, is it?\n"
+	"That will be {STR_VAR_2} Battle Points."
+}
+text BPShop_Text_TeachMoveToWhichMon{
+	"Which Pokémon would you like to teach\n"
+	"this move?"
+}
+text BPShop_Text_NotEnoughPoints{
+	"I'm so sorry…\n"
+	"You don't have enough Battle Points…"
+}
+text BPShop_Text_ComeAgain{
+	"Please come again."
+}
+text BPShop_Text_YouDontWantTo{
+	"Let me know if you change your mind."
+}
+
+script BPShop_ExitTutorMoveSelect{
+	special(CloseBattleFrontierTutorWindow)
+	special(CloseBattlePointsWindow)
+	msgbox(BPShop_Text_YouDontWantTo, MSGBOX_DEFAULT)
+	release
+	end
+}
+text BPShop_NotEnoughRoom{
+    "I'm so sorry…\nYou don't have space to hold it…"
+}
+text BPShop_HereIsYourItem{
+    "Here is your item!"
+}
+text BPShop_NotEnoughPoints{
+    "I'm so sorry…\nYou don't have enough Battle Points…"
+}
+text BPShop_ThankYouVisitWithPoints{
+    "Thank you very much.\pPlease visit us when you have\nsaved up Battle Points."
+}
+
+script BPShop_ClerkWelcome{
+    msgbox(BPShop_BuySomething, MSGBOX_DEFAULT)
+    special(ShowBattlePointsWindow)
+    return
+}
+
+text BPShop_BuySomething{
+    "Welcome to the BP shop.\pHere's a list of this store's\npurchasable items."
+}
+
+script BPShop_ClerkGoodbye{
+ 	msgbox(BPShop_ThankYouVisitWithPoints, MSGBOX_DEFAULT)
+ 	special(CloseBattlePointsWindow)
+ 	release
+ 	end
+}
+
+
+
+script BPShop_ConfirmMoveSelection{
+	special(BufferBattleFrontierTutorMoveName)
+	buffernumberstring(STR_VAR_2, VAR_0x8008)
+	msgbox(BPShop_Text_MoveWillBeXBP, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO){
+		switch(var(VAR_TEMP_5)){
+		case 3:
+			goto(Coralgrove_BPShop_ChooseTutorMove)
+		case 4:
+			goto(Aldeleaf_BPShop_ChooseTutorMove)
+		case 5:
+			goto(Shoreslate_BPShop_ChooseTutorMove)
+		case 6:
+			goto(Kaolisle_BPShop_ChooseTutorMove)
+		}
+	}
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	goto_if_ge(VAR_TEMP_1, VAR_0x8008, BPShop_TeachTutorMove)
+	msgbox(BPShop_Text_NotEnoughPoints, MSGBOX_DEFAULT)
+	switch(var(VAR_TEMP_5)){
+		case 3:
+			goto(Coralgrove_BPShop_ChooseTutorMove)
+		case 4:
+			goto(Aldeleaf_BPShop_ChooseTutorMove)
+		case 5:
+			goto(Shoreslate_BPShop_ChooseTutorMove)
+		case 6:
+			goto(Kaolisle_BPShop_ChooseTutorMove)
+		}
+	end
+}
+script BPShop_TeachTutorMove{
+	msgbox(BPShop_Text_TeachMoveToWhichMon, MSGBOX_DEFAULT)
+	fadescreen(FADE_TO_BLACK)
+	special(CloseBattlePointsWindow)
+	special(CloseBattleFrontierTutorWindow)
+	special(ChooseMonForMoveTutor)
+	waitstate
+	if(var(VAR_RESULT) == FALSE){
+		switch(var(VAR_TEMP_5)){
+		case 3:
+			goto(Coralgrove_BPShop_ChooseTutorMove)
+		case 4:
+			goto(Aldeleaf_BPShop_ChooseTutorMove)
+		case 5:
+			goto(Shoreslate_BPShop_ChooseTutorMove)
+		case 6:
+			goto(Kaolisle_BPShop_ChooseTutorMove)
+		}
+	}
+	msgbox(BPShop_Text_ComeAgain, MSGBOX_DEFAULT)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	special(TakeFrontierBattlePoints)
+	release
+	end
+}
+
+
+script BPShop_HoldItemClerk{
+    lock
+    faceplayer
+    call(BPShop_ClerkWelcome)
+	switch(var(VAR_TEMP_3)){
+		case 2:
+			goto(Coralgrove_BPShop_ChooseHoldItem)
+		case 3:
+			goto(Aldeleaf_BPShop_ChooseHoldItem)
+		case 4:
+			goto(Shoreslate_BPShop_ChooseHoldItem)
+		case 5:
+			goto(Kaolisle_BPShop_ChooseHoldItem)
+	}
+    end
+}
+
+script BPShop_SetupHoldItem{
+	special(ShowFrontierExchangeCornerItemIconWindow)
+    special(ShowScrollableMultichoice)
+    waitstate
+    special(CloseFrontierExchangeCornerItemIconWindow)
+	return
+}
+
+script BPShop_HeldItem{
+	bufferitemname(STR_VAR_3, VAR_0x8009)
+ 	msgbox(BPShop_HeldItemText, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO){
+		switch(var(VAR_TEMP_3)){
+		case 2:
+			goto(Coralgrove_BPShop_ChooseHoldItem)
+		case 3:
+			goto(Aldeleaf_BPShop_ChooseHoldItem)
+		case 4:
+			goto(Shoreslate_BPShop_ChooseHoldItem)
+		case 5:
+			goto(Kaolisle_BPShop_ChooseHoldItem)
+		}
+	}
+ 	goto(BPShop_TryPurchasePrize)
+ 	end
+}
+text BPShop_HeldItemText{
+    "You've chosen the {STR_VAR_3}.\nIs that correct?"
+}
+
+script BPShop_TryPurchasePrize{
+ 	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+ 	goto_if_ge(VAR_TEMP_1, VAR_0x8008, BPShop_TryGiveItem)
+ 	msgbox(BPShop_NotEnoughPoints, MSGBOX_DEFAULT)
+ 	switch(var(VAR_TEMP_3)){
+		case 2:
+			goto(Coralgrove_BPShop_ChooseHoldItem)
+		case 3:
+			goto(Aldeleaf_BPShop_ChooseHoldItem)
+		case 4:
+			goto(Shoreslate_BPShop_ChooseHoldItem)
+		case 5:
+			goto(Kaolisle_BPShop_ChooseHoldItem)
+	}
+ 	end
+}
+
+script BPShop_TryGiveItem{
+ 	checkitemspace(VAR_0x8009)
+ 	goto_if_eq(VAR_RESULT, FALSE, BPShop_BagFull)
+ 	copyvar(VAR_0x8004, VAR_0x8008)
+ 	special(TakeFrontierBattlePoints)
+ 	additem(VAR_0x8009)
+ 	special(UpdateBattlePointsWindow)
+ 	playse(SE_SHOP)
+ 	msgbox(BPShop_HereIsYourItem, MSGBOX_DEFAULT)
+ 	switch(var(VAR_TEMP_3)){
+		case 2:
+			goto(Coralgrove_BPShop_ChooseHoldItem)
+		case 3:
+			goto(Aldeleaf_BPShop_ChooseHoldItem)
+		case 4:
+			goto(Shoreslate_BPShop_ChooseHoldItem)
+		case 5:
+			goto(Kaolisle_BPShop_ChooseHoldItem)
+	}
+ 	end
+}
+script BPShop_BagFull{
+ 	msgbox(BPShop_NotEnoughRoom, MSGBOX_DEFAULT)
+ 	special(CloseBattlePointsWindow)
+ 	release
+ 	end
+}
+
+script BPShop_MoveTutor{
+	lock
+	faceplayer
+    if(flag(FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR2)){
+        msgbox(BPShop_Text_TutorWelcomeBack, MSGBOX_DEFAULT)
+    }
+	else{
+        msgbox(BPShop_Text_TutorIntro, MSGBOX_DEFAULT)
+	    setflag(FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR2)
+    }
+	switch(var(VAR_TEMP_5)){
+		case 3:
+			goto(Coralgrove_BPShop_ChooseTutorMove)
+		case 4:
+			goto(Aldeleaf_BPShop_ChooseTutorMove)
+		case 5:
+			goto(Shoreslate_BPShop_ChooseTutorMove)
+		case 6:
+			goto(Kaolisle_BPShop_ChooseTutorMove)
+	}
+	end
+}
+
+script MoveTutorSetup{
+	msgbox(BPShop_Text_TeachWhichMove)
+	waitmessage
+	special(ShowBattlePointsWindow)
+	setvar(VAR_0x8006, 0)
+	special(ShowScrollableMultichoice)
+	waitstate
+	copyvar(VAR_TEMP_FRONTIER_TUTOR_SELECTION, VAR_RESULT)
 }

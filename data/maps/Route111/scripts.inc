@@ -258,7 +258,13 @@ Route111_EventScript_SunTrigger::
 	setvar VAR_TEMP_3, 0
 	end
 
+Route111_EventScript_SunTrigger2::
+	end
+
 Route111_EventScript_SandstormTrigger::
+	goto_if_eq VAR_FACING, DIR_WEST, Route111_EventScript_SunTrigger2
+	goto_if_eq VAR_FACING, DIR_NORTH, Route111_EventScript_SunTrigger2
+	goto_if_eq VAR_FACING, DIR_SOUTH, Route111_EventScript_SunTrigger2
 	setweather WEATHER_SANDSTORM
 	fadenewbgm MUS_DESERT
 	doweather

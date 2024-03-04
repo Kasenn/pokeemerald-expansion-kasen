@@ -5424,8 +5424,8 @@
     {
       "id": "LAYOUT_KAOLISLE_CITY",
       "name": "KaolisleCity_Layout",
-      "width": 70,
-      "height": 60,
+      "width": 80,
+      "height": 80,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mossdeep",
       "border_filepath": "data/layouts/KaolisleCity/border.bin",

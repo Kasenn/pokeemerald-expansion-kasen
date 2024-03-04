@@ -262,97 +262,48 @@ text KaolisleGym_Trainer10_Hiker4_PostBattle{
     ""
 }
 
-script KaolisleGym_Clay{
-    trainerbattle_single(TRAINER_KAOLGYM_CLAY, KaolisleGym_Clay_Intro, KaolisleGym_Clay_Defeat)
-	msgbox(KaolisleGym_Clay_PostBattle, MSGBOX_AUTOCLOSE)
-	end
-}
-text KaolisleGym_Clay_Intro{
-    ""
-}
-text KaolisleGym_Clay_Defeat{
-    ""
-}
-text KaolisleGym_Clay_PostBattle{
-    ""
-}
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-script Aldeleaf_Gym_Volkner_Talk{
-    lockall
-    faceplayer
-	if(flag(FLAG_RECEIVED_TM_WILD_CHARGE)){
-		msgbox(Aldeleaf_Gym_Text_VolknerPostBattle, MSGBOX_DEFAULT)
-		waitmessage
-		closemessage
-	}
+script KaolGym_ClayTalk{
+	if(flag(FLAG_BADGE03_GET)){
+        msgbox(KaolGym_ClayPosBat, MSGBOX_NPC)}
 	else{
-		msgbox("Volkner: I see you've arrived.\pIf you're ready, go stand on the other\nside of the arena so we may begin." MSGBOX_DEFAULT)
-		waitmessage
-		closemessage
-		turnobject(18, DIR_WEST)
-	}
-    release
+		msgbox(KaolGym_YouArrived, MSGBOX_NPC)
+		turnobject(1, DIR_WEST)}
     end
 }
-script Aldeleaf_Gym_EventScript_Volkner{
-	lockall
-	delay(10)
-	turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
-	turnobject(18, DIR_WEST)
-	special(SpawnCameraObject)
-	applymovement(OBJ_EVENT_ID_CAMERA, Aldeleaf_Gym_MoveCamera)
-	waitmovement(0)
-	delay(10)
-	special(RemoveCameraObject)
-	trainerbattle_single(TRAINER_MARY, Aldeleaf_Gym_Text_VolknerIntro, Aldeleaf_Gym_Text_VolknerDefeat, Aldeleaf_Gym_EventScript_VolknerDefeated, NO_MUSIC)
-	goto_if_unset(FLAG_RECEIVED_TM_WILD_CHARGE, Aldeleaf_Gym_EventScript_GiveWildCharge)
-	msgbox(Aldeleaf_Gym_Text_VolknerPostBattle, MSGBOX_DEFAULT)
-	release
+script KaolGym_LeaderScript{
+    if(flag(FLAG_BADGE03_GET)){
+        release
+        end
+    }
+    call(GymStartingMovement)
+	trainerbattle_single(TRAINER_KAOLGYM_CLAY, KaolGym_ClayInt, KaolGym_ClayDef, KaolGym_ClayEvent, NO_MUSIC)
 	end
-}
-movement Aldeleaf_Gym_MoveCamera{
-	walk_right * 3
-}
-script Aldeleaf_Gym_EventScript_VolknerDefeated{
-	special(SpawnCameraObject)
-	delay(30)
-	applymovement(18, Aldeleaf_Gym_MoveLeft)
-	applymovement(OBJ_EVENT_ID_PLAYER, Aldeleaf_Gym_MoveRight)
-	waitmovement(0)
-	delay(15)
-	message(Aldeleaf_Gym_Text_ReceivedThunderBadge)
-	waitmessage
-	call(Common_EventScript_PlayGymBadgeFanfare)
-	msgbox(Aldeleaf_Gym_Text_ThunderBadgeInfoTakeThis, MSGBOX_DEFAULT)
-	setflag(FLAG_DEFEATED_DEWFORD_GYM)
-	setflag(FLAG_BADGE02_GET)
-	addvar(VAR_ALDELEAF_GYM_STATE, 1)
-	setvar(VAR_0x8008, 2)
-	call(Common_EventScript_SetGymTrainers)
-	special(RemoveCameraObject)
-	goto(Aldeleaf_Gym_EventScript_GiveWildCharge)
-	end
-}
-movement Aldeleaf_Gym_MoveLeft{
-	walk_left * 3
-}
-movement Aldeleaf_Gym_MoveRight{
-	walk_right * 3
-}
-script Aldeleaf_Gym_EventScript_GiveWildCharge{
-	giveitem(ITEM_TM_WILD_CHARGE)
-	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
-	setflag(FLAG_RECEIVED_TM_WILD_CHARGE)
-	msgbox (Aldeleaf_Gym_Text_ExplainWildCharge, MSGBOX_DEFAULT)
-	release
-	end
-}
-movement Aldeleaf_Gym_MoveCamera2{
-	walk_left
 }
 
-text Aldeleaf_Gym_Text_VolknerIntro{
-	"Volkner: I knew you'd be here soon.\n"
+script KaolGym_ClayEvent{
+	call(GymMovementAfter)
+	message(KaolGym_ReceivedBadge)
+	waitmessage
+	call(Common_EventScript_PlayGymBadgeFanfare)
+	msgbox(KaolGym_TakeThis, MSGBOX_DEFAULT)
+	setflag(FLAG_BADGE03_GET)
+	setvar(VAR_0x8008, 3)
+	call(Common_EventScript_SetGymTrainers)
+	special(RemoveCameraObject)
+	giveitem(ITEM_TM_WILD_CHARGE)
+	msgbox (KaolGym_ExplainTM, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+text KaolGym_YouArrived{
+    "Clay: I see you've arrived.\p"
+    "If you're ready, go stand on the other\n"
+    "side of the arena so we may begin."
+}
+text KaolGym_ClayInt{
+	"Clay: I knew you'd be here soon.\n"
     "Glad to see you did not disappoint.\p"
     "Even though I'm grateful for\n"
     "your help at the ranch,\l"
@@ -361,7 +312,7 @@ text Aldeleaf_Gym_Text_VolknerIntro{
     "I assume you understand what\n"
     "that entails…\p"
     "…All right, challenger.\p"
-    "I'm Volkner, the Gym Leader.\p"
+    "I'm Clay, the Gym Leader.\p"
     "It's not often, but some Trainers\n"
     "manage to come and challenge me.\l"
     "But they've all been boring battles.\p"
@@ -370,7 +321,7 @@ text Aldeleaf_Gym_Text_VolknerIntro{
     "I hope you're the Trainer who'll make\n"
     "me remember how fun it is to battle!"
 }
-text Aldeleaf_Gym_Text_VolknerDefeat{
+text KaolGym_ClayDef{
 	"…Hehehe.\p"
     "Hahahah!\p"
     "…That was the most fun I've had\n"
@@ -381,19 +332,19 @@ text Aldeleaf_Gym_Text_VolknerDefeat{
     "This is your second Gym Badge.\n"
     "You've earned this!"
 }
-text Aldeleaf_Gym_Text_ReceivedThunderBadge{
-	"{PLAYER} received the Dynamo Badge\n"
-	"from Volkner!"
+text KaolGym_ReceivedBadge{
+	"{PLAYER} received the Quake Badge\n"
+	"from Clay!"
 }
-text Aldeleaf_Gym_Text_ThunderBadgeInfoTakeThis{
-	"The Dynamo Badge makes all Pokémon\n"
-	"up to level 40, even those you get in\l"
+text KaolGym_TakeThis{
+	"The Quake Badge makes all Pokémon\n"
+	"up to level 50, even those you get in\l"
     "trades, obey without question.\p"
 	"It also enables them to use the HM move\n"
 	"“Cut” outside of battle.\p"
 	"Here, have this TM as well."
 }
-text Aldeleaf_Gym_Text_ExplainWildCharge{
+text KaolGym_ExplainTM{
 	"That TM contains the move Wild Charge.\p"
 	"It's a really powerful attack where\n"
     "the user shrouds itself in electricity\l"
@@ -401,50 +352,34 @@ text Aldeleaf_Gym_Text_ExplainWildCharge{
     "Be careful though, as this also\n"
     "hurts the user!"
 }
-text Aldeleaf_Gym_Text_VolknerPostBattle{
+text KaolGym_ClayPosBat{
 	"After witnessing your strength here,\n"
     "I'm starting to doubt whether you even\l"
     "needed our help with Team Rocket\l"
     "back at the ranch."
 }
-text Aldeleaf_Gym_Text_GymStatue{
-	"Aldeleaf City Pokémon Gym\p"
-	"Volkner's certified trainers:\n"
-	"Thomas\l"
-	"{RIVAL}"
-}
-text Aldeleaf_Gym_Text_GymStatueCertified{
-	"Aldeleaf City Pokémon Gym\p"
-	"Volkner's certified trainers:\n"
-	"Thomas\l"
-	"{RIVAL}\l"
-	"{PLAYER}"
-}
-script Aldeleaf_Gym_EventScript_GymGuide{
-	lock
-	faceplayer
-	if(flag(FLAG_DEFEATED_DEWFORD_GYM)){
-        msgbox(Aldeleaf_Gym_Text_GymGuidePostVictory, MSGBOX_DEFAULT) 
+
+script KaolGym_Guide{
+	if(flag(FLAG_BADGE03_GET)){
+        msgbox(KaolGym_GuidePostVictory, MSGBOX_NPC) 
     }
     else{
-	    msgbox(Aldeleaf_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT)
-    }
-	release
-	end
-}
-script Aldeleaf_Gym_EventScript_Statue{
-	lockall
-	if(flag(FLAG_BADGE02_GET)){
-        msgbox(Aldeleaf_Gym_Text_GymStatueCertified, MSGBOX_SIGN)
-    }
-    else{
-        msgbox(Aldeleaf_Gym_Text_GymStatue, MSGBOX_SIGN)
+	    msgbox(KaolGym_GuideAdvice, MSGBOX_NPC)
     }
 	end
 }
-text Aldeleaf_Gym_Text_GymGuideAdvice{
+script KaolGym_Statue{
+	if(flag(FLAG_BADGE03_GET)){
+        msgbox(KaolGym_GymStatueCertified, MSGBOX_SIGN)
+    }
+    else{
+        msgbox(KaolGym_GymStatue, MSGBOX_SIGN)
+    }
+	end
+}
+text KaolGym_GuideAdvice{
 	"Yo, champ in the making!\p"
-	"The leader of this gym, Volkner,\n"
+	"The leader of this gym, Clay,\n"
     "is an electric-type trainer.\p"
     "Go against him with flying- or water-\n"
     "type Pokémon and you're going to have\l"
@@ -469,8 +404,52 @@ text Aldeleaf_Gym_Text_GymGuideAdvice{
     "Anyway, that's enough from me.\n"
     "Go get 'em, Champ!"
 }
-text Aldeleaf_Gym_Text_GymGuidePostVictory{
+text KaolGym_GuidePostVictory{
 	"Whoa! What a shocking outcome!\n"
     "You sure charged in and showed\l"
     "everyone who's the boss!"
+}
+text KaolGym_GymStatue{
+	"Kaolisle City Pokémon Gym\p"
+	"Clay's certified trainers:\n"
+	"Thomas\l"
+	"{RIVAL}"
+}
+text KaolGym_GymStatueCertified{
+	"Kaolisle City Pokémon Gym\p"
+	"Clay's certified trainers:\n"
+	"Thomas\l"
+	"{RIVAL}\l"
+	"{PLAYER}"
+}
+
+
+
+script GymStartingMovement{
+    lockall
+	delay(10)
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+	turnobject(1, DIR_WEST)
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, Kaolisle_Gym_MoveCamera)
+	waitmovement(0)
+	delay(10)
+	special(RemoveCameraObject)
+}
+movement Kaolisle_Gym_MoveCamera{
+	walk_right * 3
+}
+script GymMovementAfter{
+    special(SpawnCameraObject)
+	delay(30)
+	applymovement(1, Kaolisle_Gym_MoveLeft)
+	applymovement(OBJ_EVENT_ID_PLAYER, Kaolisle_Gym_MoveRight)
+	waitmovement(0)
+	delay(15)
+}
+movement Kaolisle_Gym_MoveLeft{
+	walk_left * 3
+}
+movement Kaolisle_Gym_MoveRight{
+	walk_right * 3
 }
