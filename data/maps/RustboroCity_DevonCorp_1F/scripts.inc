@@ -42,6 +42,7 @@ RustboroCity_DevonCorp_1F_EventScript_GreeterNew_6:
 	lockall
 	msgbox GreeterHandOverLetter, MSGBOX_DEFAULT
 	giveitem ITEM_GO_GOGGLES
+	setvar VAR_DESERT_BYPASS, 1
 	removeitem ITEM_LETTER, 1
 	msgbox ExplainGoGoggles, MSGBOX_NPC
 	goto RustboroCity_DevonCorp_1F_EventScript_GreeterNew_5

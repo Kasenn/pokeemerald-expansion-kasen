@@ -1226,6 +1226,7 @@ const u8 gText_Bind4BP[] = _("Bind{CLEAR_TO 0x4E}4BP");
 const u8 gText_Snore4BP[] = _("Snore{CLEAR_TO 0x4E}4BP");
 const u8 gText_ShockWave4BP[] = _("Shock Wave{CLEAR_TO 0x4E}4BP");
 const u8 gText_Covet4BP[] = _("Covet{CLEAR_TO 0x4E}4BP");
+const u8 gText_StringShot4BP[] = _("String Shot{CLEAR_TO 0x4E}4BP");
 const u8 gText_BugBite4BP[] = _("Bug Bite{CLEAR_TO 0x4E}4BP");
 const u8 gText_HealBell8BP[] = _("Heal Bell{CLEAR_TO 0x4E}8BP");
 const u8 gText_Electroweb8BP[] = _("Electroweb{CLEAR_TO 0x4E}8BP");

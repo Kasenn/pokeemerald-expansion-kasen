@@ -61,33 +61,33 @@
 #define FLAG_ROUTE5_HIDDENITEM3                 0x30 // 
 #define FLAG_ROUTE5_HIDDENITEM4                 0x31 //
 #define FLAG_ROUTE5_HIDDENITEM5                 0x32 // Route 5 item flags end
-#define FLAG_INCREASED_SHINY_ODDS    0x33 // increase shiny odds
-#define FLAG_SKYLOCH_JUICE    0x34 // Unused Flag
-#define FLAG_GIVENCASTELIACONE    0x35 // Unused Flag
-#define FLAG_WW_GROTTO_CLEARED    0x36 // Used to determine whether Windy Woods grotto has been cleared
-#define FLAG_ROUTE7_GROTTO_CLEARED    0x37 // Used to determine whether Route 7 grotto has been cleared
-#define FLAG_ROUTE8_ITEM1    0x38 // Route 8 item flags
-#define FLAG_ROUTE8_ITEM2    0x39 // 
-#define FLAG_ROUTE8_ITEM3    0x3A // 
-#define FLAG_ROUTE8_ITEM4    0x3B // 
-#define FLAG_ROUTE8_ITEM5    0x3C // 
-#define FLAG_ROUTE8_ITEM6    0x3D // 
-#define FLAG_HIDE_SHORESLATE_BOAT    0x3E // Hides shoreslate ferry until devon story is completed
-#define FLAG_HELPED_DEVON_CORP    0x3F // End flag for the shoreslate devon quest
-#define FLAG_SHORESLATE_ITEM1    0x40 // Unused Flag
-#define FLAG_GIVEN_CASTELIATOGIRL    0x41 // Unused Flag
-#define FLAG_RECEIVED_SHORESLATE_POTION    0x42 // Unused Flag
-#define FLAG_DEVON_UNDER_ATTACK    0x43 // Unused Flag
-#define FLAG_DEVON_RESCUED    0x44 // Unused Flag
-#define FLAG_DEVONCORP_BASEMENT_BALL    0x45 // Unused Flag
-#define FLAG_BASEMENT_SUPERPOTION    0x46 // Unused Flag
-#define FLAG_VISITED_MARIGORGE    0x47 // Unused Flag
-#define FLAG_DESERT_STEPS    0x48 // Used to measure steps taken in the desert
-#define FLAG_DESERT_RUINS_OPENED    0x49 // Unused Flag
-#define FLAG_KAOLISLE_GYM_SWITCH1    0x4A // Unused Flag
-#define FLAG_KAOLISLE_GYM_SWITCH2    0x4B // Unused Flag
-#define FLAG_KAOLISLE_GYM_SWITCH3    0x4C // Unused Flag
-#define FLAG_KAOLISLE_GYM_SWITCH4    0x4D // Unused Flag
+#define FLAG_INCREASED_SHINY_ODDS               0x33 // increase shiny odds
+#define FLAG_SKYLOCH_JUICE                      0x34 // Unused Flag
+#define FLAG_GIVENCASTELIACONE                  0x35 // Unused Flag
+#define FLAG_WW_GROTTO_CLEARED                  0x36 // Used to determine whether Windy Woods grotto has been cleared
+#define FLAG_ROUTE7_GROTTO_CLEARED              0x37 // Used to determine whether Route 7 grotto has been cleared
+#define FLAG_ROUTE8_ITEM1                       0x38 // Route 8 item flags
+#define FLAG_ROUTE8_ITEM2                       0x39 // 
+#define FLAG_ROUTE8_ITEM3                       0x3A // 
+#define FLAG_ROUTE8_ITEM4                       0x3B // 
+#define FLAG_ROUTE8_ITEM5                       0x3C // 
+#define FLAG_ROUTE8_ITEM6                       0x3D // 
+#define FLAG_HIDE_SHORESLATE_BOAT               0x3E // Hides shoreslate ferry until devon story is completed
+#define FLAG_HELPED_DEVON_CORP                  0x3F // End flag for the shoreslate devon quest
+#define FLAG_SHORESLATE_ITEM1                   0x40 // Unused Flag
+#define FLAG_GIVEN_CASTELIATOGIRL               0x41 // Unused Flag
+#define FLAG_RECEIVED_SHORESLATE_POTION         0x42 // Unused Flag
+#define FLAG_DEVON_UNDER_ATTACK                 0x43 // Unused Flag
+#define FLAG_DEVON_RESCUED                      0x44 // Unused Flag
+#define FLAG_DEVONCORP_BASEMENT_BALL            0x45 // Unused Flag
+#define FLAG_BASEMENT_SUPERPOTION               0x46 // Unused Flag
+#define FLAG_VISITED_MARIGORGE                  0x47 // Unused Flag
+#define FLAG_DESERT_STEPS                       0x48 // Used to measure steps taken in the desert
+#define FLAG_DESERT_RUINS_OPENED                0x49 // Unused Flag
+#define FLAG_KAOLISLE_GYM_SWITCH1               0x4A // Unused Flag
+#define FLAG_KAOLISLE_GYM_SWITCH2               0x4B // Unused Flag
+#define FLAG_KAOLISLE_GYM_SWITCH3               0x4C // Unused Flag
+#define FLAG_KAOLISLE_GYM_SWITCH4               0x4D // Unused Flag
 #define FLAG_UNUSED_0x04E    0x4E // Unused Flag
 #define FLAG_UNUSED_0x04F    0x4F // Unused Flag
 

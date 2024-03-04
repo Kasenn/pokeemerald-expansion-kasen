@@ -374,6 +374,22 @@ TestVarDesert::
 	end
 
 
+Desert_EventScript_SandstormTrigger::
+	compare VAR_FACING, DIR_WEST
+	goto_if_eq Desert_EventScript_SandstormTrigger_2
+	compare VAR_FACING, DIR_NORTH
+	goto_if_eq Desert_EventScript_SandstormTrigger_2
+	compare VAR_FACING, DIR_SOUTH
+	goto_if_eq Desert_EventScript_SandstormTrigger_2
+	setweather WEATHER_SANDSTORM
+	fadenewbgm MUS_DESERT
+	doweather
+	end
+
+Desert_EventScript_SandstormTrigger_2:
+	end
+
+
 DesertEntrance_Text_0:
 	.string "This place is still work in progress.\n"
 	.string "You're free to explore, though there's\l"

@@ -96,14 +96,17 @@ Debug_Script_2::
 	end
 
 Debug_Script_3::
-	buffernumberstring STR_VAR_1, VAR_DESERT_TRAINERS
-	message DebugVar
+	setvar VAR_DESERT_BYPASS, 1
+	setvar VAR_0x8009, ITEM_BRIGHT_POWDER
+	bufferitemname STR_VAR_1, VAR_0x8009
+	msgbox DebugVar, MSGBOX_NPC
 	end
 
 DebugVar::
 	.string "{STR_VAR_1}$"
 
 Debug_Script_4::
+	removeitem ITEM_GO_GOGGLES
 	end
 
 Debug_Script_5::

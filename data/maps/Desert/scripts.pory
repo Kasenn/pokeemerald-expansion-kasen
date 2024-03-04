@@ -562,3 +562,13 @@ script TestVarDesert{
     msgbox("{STR_VAR_1}", MSGBOX_NPC)
     end
 }
+
+script Desert_EventScript_SandstormTrigger{
+    if((var(VAR_FACING) == DIR_WEST) || (var(VAR_FACING) == DIR_NORTH) || (var(VAR_FACING) == DIR_SOUTH)){
+        end
+    }
+    setweather(WEATHER_SANDSTORM)
+	fadenewbgm(MUS_DESERT)
+	doweather
+	end
+}
