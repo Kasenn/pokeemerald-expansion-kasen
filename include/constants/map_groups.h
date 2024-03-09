@@ -142,12 +142,19 @@
 #define MAP_MARIGORGE_SMALL_HOUSE2  (4 | (9 << 8))
 
 // gMapGroup_IndoorKaolisleCity
-#define MAP_KAOLISLE_POKECENTER_1F (0 | (10 << 8))
-#define MAP_KAOLISLE_POKECENTER_2F (1 | (10 << 8))
-#define MAP_KAOLISLE_MART          (2 | (10 << 8))
-#define MAP_KAOLISLE_BP_SHOP       (3 | (10 << 8))
-#define MAP_KAOLISLE_GYM           (4 | (10 << 8))
-#define MAP_KAOLISLE_MINES         (5 | (10 << 8))
+#define MAP_KAOLISLE_POKECENTER_1F       (0 | (10 << 8))
+#define MAP_KAOLISLE_POKECENTER_2F       (1 | (10 << 8))
+#define MAP_KAOLISLE_MART                (2 | (10 << 8))
+#define MAP_KAOLISLE_BP_SHOP             (3 | (10 << 8))
+#define MAP_KAOLISLE_GYM                 (4 | (10 << 8))
+#define MAP_KAOLISLE_MINES               (5 | (10 << 8))
+#define MAP_KAOLISLE_HARBOR              (6 | (10 << 8))
+#define MAP_KAOLISLE_HOUSE1              (7 | (10 << 8))
+#define MAP_KAOLISLE_HOUSE2              (8 | (10 << 8))
+#define MAP_KAOLISLE_HOUSE3              (9 | (10 << 8))
+#define MAP_KAOLISLE_HOUSE4              (10 | (10 << 8))
+#define MAP_KAOLISLE_FISHING_ASSOCIATION (11 | (10 << 8))
+#define MAP_KAOLISLE_HOTEL_1F            (12 | (10 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (11 << 8))

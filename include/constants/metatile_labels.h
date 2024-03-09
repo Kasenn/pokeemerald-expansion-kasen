@@ -361,7 +361,10 @@
 
 // gTileset_Mossdeep
 #define METATILE_Mossdeep_Door              0x2A1
+#define METATILE_Mossdeep_Door_PokeShop     0x251
 #define METATILE_Mossdeep_Door_SpaceCenter  0x2ED
+#define METATILE_Mossdeep_Kaol_SlidingDoor  0x3C4
+#define METATILE_Mossdeep_Kaolisle_Door     0x272
 
 // gTileset_MossdeepGameCorner
 #define METATILE_MossdeepGameCorner_CounterClosed_Bottom  0x232

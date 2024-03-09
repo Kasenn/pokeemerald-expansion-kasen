@@ -5490,6 +5490,76 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Kaolisle_Mines/border.bin",
       "blockdata_filepath": "data/layouts/Kaolisle_Mines/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_HARBOR",
+      "name": "Kaolisle_Harbor_Layout",
+      "width": 24,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Kaolisle_Harbor/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_Harbor/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_HOUSE1",
+      "name": "Kaolisle_House1_Layout",
+      "width": 13,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Kaolisle_House1/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_House1/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_HOUSE2",
+      "name": "Kaolisle_House2_Layout",
+      "width": 24,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Kaolisle_House2/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_House2/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_HOUSE3",
+      "name": "Kaolisle_House3_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Kaolisle_House3/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_House3/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_HOUSE4",
+      "name": "Kaolisle_House4_Layout",
+      "width": 24,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Kaolisle_House4/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_House4/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_FISHING_ASSOCIATION",
+      "name": "Kaolisle_FishingAssociation_Layout",
+      "width": 12,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Kaolisle_FishingAssociation/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_FishingAssociation/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_HOTEL_1F",
+      "name": "Kaolisle_Hotel_1F_Layout",
+      "width": 24,
+      "height": 15,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/Kaolisle_Hotel_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_Hotel_1F/map.bin"
     }
   ]
 }

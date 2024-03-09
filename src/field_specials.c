@@ -202,16 +202,16 @@ static void DetermineCyclingRoadResults(u32 numFrames, u8 numBikeCollisions)
     }
 
     result = 0;
-    if (numBikeCollisions == 0)
-        result = 5;
-    else if (numBikeCollisions < 4)
-        result = 4;
-    else if (numBikeCollisions < 10)
-        result = 3;
-    else if (numBikeCollisions < 20)
-        result = 2;
-    else if (numBikeCollisions < 100)
-        result = 1;
+    // if (numBikeCollisions == 0)
+    //     result = 5;
+    // else if (numBikeCollisions < 4)
+    //     result = 4;
+    // else if (numBikeCollisions < 10)
+    //     result = 3;
+    // else if (numBikeCollisions < 20)
+    //     result = 2;
+    // else if (numBikeCollisions < 100)
+    //     result = 1;
 
     if (numFrames / 60 <= 10)
         result += 5;
@@ -223,6 +223,10 @@ static void DetermineCyclingRoadResults(u32 numFrames, u8 numBikeCollisions)
         result += 2;
     else if (numFrames / 60 < 60)
         result += 1;
+    else if (numFrames / 60 < 63)
+        result += 1;
+    else if (numFrames / 60 >= 100)
+        result += 20;
 
     gSpecialVar_Result = result;
 }
@@ -233,6 +237,13 @@ void FinishCyclingRoadChallenge(void)
 
     DetermineCyclingRoadResults(numFrames, gBikeCollisions);
     RecordCyclingRoadResults(numFrames, gBikeCollisions);
+}
+
+void CalcCyclingRoadChallenge(void)
+{
+    const u32 numFrames = gMain.vblankCounter1 - sBikeCyclingTimer;
+
+    DetermineCyclingRoadResults(numFrames, gBikeCollisions);
 }
 
 static void RecordCyclingRoadResults(u32 numFrames, u8 numBikeCollisions)

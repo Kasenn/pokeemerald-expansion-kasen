@@ -359,6 +359,30 @@ Kaolisle_Gym_MoveRight:
 	walk_right
 	step_end
 
+TestScript1::
+	checkpartymon SPECIES_BLAZIKEN, 1
+	compare VAR_RESULT, TRUE
+	goto_if_eq TestScript1_1
+	msgbox TestScript1_Text_1, MSGBOX_NPC
+	return
+
+TestScript1_1:
+	msgbox TestScript1_Text_0, MSGBOX_NPC
+	return
+
+
+TestScript2::
+	checkpartymon SPECIES_BLAZIKEN, 0
+	compare VAR_RESULT, TRUE
+	goto_if_eq TestScript2_1
+	msgbox TestScript1_Text_1, MSGBOX_NPC
+	return
+
+TestScript2_1:
+	msgbox TestScript1_Text_0, MSGBOX_NPC
+	return
+
+
 Kaolisle_Gym_Switch1_Text_0:
 	.string "This button has already been pressed.$"
 
@@ -367,6 +391,12 @@ Kaolisle_Gym_Switch1_Text_1:
 
 Kaolisle_Gym_Switch1_Text_2:
 	.string "{PLAYER} pressed the button.$"
+
+TestScript1_Text_0:
+	.string "True$"
+
+TestScript1_Text_1:
+	.string "False$"
 
 KaolisleGym_Trainer1_Camper1_Intro::
 	.string "$"

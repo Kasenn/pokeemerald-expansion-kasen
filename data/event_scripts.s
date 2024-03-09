@@ -1280,3 +1280,17 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Kaolisle_Gym/scripts.inc"
 
 	.include "data/maps/Kaolisle_Mines/scripts.inc"
+
+	.include "data/maps/Kaolisle_Harbor/scripts.inc"
+
+	.include "data/maps/Kaolisle_House1/scripts.inc"
+
+	.include "data/maps/Kaolisle_House2/scripts.inc"
+
+	.include "data/maps/Kaolisle_House3/scripts.inc"
+
+	.include "data/maps/Kaolisle_House4/scripts.inc"
+
+	.include "data/maps/Kaolisle_FishingAssociation/scripts.inc"
+
+	.include "data/maps/Kaolisle_Hotel_1F/scripts.inc"

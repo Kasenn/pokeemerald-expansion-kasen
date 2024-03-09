@@ -794,6 +794,32 @@ bool8 ScrCmd_warpholexy(struct ScriptContext *ctx)
     return TRUE;
 }
 
+bool8 ScrCmd_checkpartymon(struct ScriptContext *ctx)
+{
+    u16 species = ScriptReadHalfword(ctx);
+    u8 partynumber = ScriptReadByte(ctx);
+    u8 i;
+
+    if(partynumber == 1){
+        if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == species){
+            gSpecialVar_Result = TRUE;
+            return;
+        }
+    }
+    else{
+        for (i = 0; i < PARTY_SIZE; i++)
+        {
+            if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, 0) == species){
+                gSpecialVar_Result = TRUE;
+                return;
+            }
+        }
+    }
+    gSpecialVar_Result = FALSE;
+    return;
+}
+
+
 bool8 ScrCmd_warphole(struct ScriptContext *ctx)
 {
     u8 mapGroup = ScriptReadByte(ctx);
