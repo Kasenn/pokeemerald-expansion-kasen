@@ -110,9 +110,11 @@ Debug_Script_4::
 	end
 
 Debug_Script_5::
+	call TestScript1
 	end
 
 Debug_Script_6::
+	call TestScript2
 	end
 
 Debug_Script_7::

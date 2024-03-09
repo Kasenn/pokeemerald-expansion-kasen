@@ -453,3 +453,24 @@ movement Kaolisle_Gym_MoveLeft{
 movement Kaolisle_Gym_MoveRight{
 	walk_right * 3
 }
+
+script TestScript1{
+    checkpartymon(SPECIES_PIKACHU, 1)
+    if(var(VAR_RESULT) == TRUE){
+        msgbox("That's a Pikachu!", MSGBOX_NPC)
+        giveitem(ITEM_TROPICAL_STONE)
+    }
+    else{
+        msgbox("That's not a Pikachu!", MSGBOX_NPC)
+    }
+}
+
+script TestScript2{
+    checkpartymon(SPECIES_BLAZIKEN, 0)
+    if(var(VAR_RESULT) == TRUE){
+        msgbox("True", MSGBOX_NPC)
+    }
+    else{
+        msgbox("False", MSGBOX_NPC)
+    }
+}

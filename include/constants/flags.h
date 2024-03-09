@@ -88,8 +88,8 @@
 #define FLAG_KAOLISLE_GYM_SWITCH2               0x4B // Unused Flag
 #define FLAG_KAOLISLE_GYM_SWITCH3               0x4C // Unused Flag
 #define FLAG_KAOLISLE_GYM_SWITCH4               0x4D // Unused Flag
-#define FLAG_UNUSED_0x04E    0x4E // Unused Flag
-#define FLAG_UNUSED_0x04F    0x4F // Unused Flag
+#define FLAG_KAOLISLE_PLAYINGPIANO    0x4E // Unused Flag
+#define FLAG_PIANOREWARD    0x4F // Unused Flag
 
 // Scripts
 #define FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL  0x50

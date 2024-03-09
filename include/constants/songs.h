@@ -550,6 +550,8 @@
 #define MUS_ALOLA_E4                613
 #define MUS_MISTRAL                 614
 #define MUS_MUTED                   615
+#define MUS_HG_AZALEA               616
+#define MUS_UNWAVERING              617
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 

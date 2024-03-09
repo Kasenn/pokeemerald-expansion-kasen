@@ -188,7 +188,14 @@
     "Kaolisle_Mart",
     "Kaolisle_BP_Shop",
     "Kaolisle_Gym",
-    "Kaolisle_Mines"
+    "Kaolisle_Mines",
+    "Kaolisle_Harbor",
+    "Kaolisle_House1",
+    "Kaolisle_House2",
+    "Kaolisle_House3",
+    "Kaolisle_House4",
+    "Kaolisle_FishingAssociation",
+    "Kaolisle_Hotel_1F"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

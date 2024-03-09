@@ -229,6 +229,7 @@ gScriptCmdTable::
 	.4byte ScrCmd_bufferitemnameplural              @ 0xe2
 	.4byte ScrCmd_setwildbattlelevelrange           @ 0xe3
 	.4byte ScrCmd_warpholexy						@ 0xe4
+	.4byte ScrCmd_checkpartymon						@ 0xe5
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop

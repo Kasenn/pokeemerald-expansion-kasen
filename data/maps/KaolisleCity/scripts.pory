@@ -1,1 +1,211 @@
 mapscripts KaolisleCity_MapScripts{}
+
+script KaolisleCity_GymGuide{
+    msgbox(KaolisleCity_GymGuide_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_GymGuide_Text{""}
+
+script KaolisleCity_Sailor{
+    msgbox(KaolisleCity_Sailor_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_Sailor_Text{""}
+
+script KaolisleCity_NinjaBoy{
+    msgbox(KaolisleCity_NinjaBoy_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_NinjaBoy_Text{""}
+
+script KaolisleCity_Woman2{
+    msgbox(KaolisleCity_Woman2_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_Woman2_Text{""}
+
+script KaolisleCity_Boy3{
+    msgbox(KaolisleCity_Boy3_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_Boy3_Text{""}
+
+script KaolisleCity_Boy3_Couple{
+    msgbox(KaolisleCity_Boy3_Couple_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_Boy3_Couple_Text{""}
+
+script KaolisleCity_Lass_Couple{
+    msgbox(KaolisleCity_Lass_Couple_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_Lass_Couple_Text{""}
+
+script KaolisleCity_ExpertM{
+    msgbox(KaolisleCity_ExpertM_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_ExpertM_Text{""}
+
+script KaolisleCity_Zigzagoon_Child{
+    msgbox(KaolisleCity_Zigzagoon_Child_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_Zigzagoon_Child_Text{""}
+
+script KaolisleCity_OldMan{
+    msgbox(KaolisleCity_OldMan_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_OldMan_Text{""}
+
+script KaolisleCity_Gentleman{
+    msgbox(KaolisleCity_Gentleman_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_Gentleman_Text{""}
+
+script KaolisleCity_Fisher1{
+    msgbox(KaolisleCity_Fisher1_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_Fisher1_Text{""}
+
+script KaolisleCity_Fisher2{
+    msgbox(KaolisleCity_Fisher2_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_Fisher2_Text{""}
+
+script KaolisleCity_Fisher3{
+    msgbox(KaolisleCity_Fisher3_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_Fisher3_Text{""}
+
+script KaolisleCity_Fisher4{
+    msgbox(KaolisleCity_Fisher4_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_Fisher4_Text{""}
+
+script KaolisleCity_TriathleteF{
+    msgbox(KaolisleCity_TriathleteF_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_TriathleteF_Text{""}
+
+script KaolisleCity_LittleGirl{
+    msgbox(KaolisleCity_LittleGirl_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_LittleGirl_Text{""}
+
+script KaolisleCity_Sailor2{
+    msgbox(KaolisleCity_Sailor2_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_Sailor2_Text{""}
+
+script KaolisleCity_TuberChasing1{
+    msgbox(KaolisleCity_TuberChasing1_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_TuberChasing1_Text{""}
+
+script KaolisleCity_TuberChasing2{
+    msgbox(KaolisleCity_TuberChasing2_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_TuberChasing2_Text{""}
+
+script KaolisleCity_TuberTalking1{
+    msgbox(KaolisleCity_TuberTalking1_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_TuberTalking1_Text{""}
+
+script KaolisleCity_TuberTalking2{
+    msgbox(KaolisleCity_TuberTalking2_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_TuberTalking2_Text{""}
+
+script KaolisleCity_TuberLearning{
+    msgbox(KaolisleCity_TuberLearning_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_TuberLearning_Text{""}
+
+script KaolisleCity_SwimTeacher{
+    msgbox(KaolisleCity_SwimTeacher_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_SwimTeacher_Text{""}
+
+script KaolisleCity_Father{
+    msgbox(KaolisleCity_Father_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_Father_Text{""}
+
+script KaolisleCity_Mother{
+    msgbox(KaolisleCity_Mother_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_Mother_Text{""}
+
+script KaolisleCity_Swimmer{
+    msgbox(KaolisleCity_Swimmer_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_Swimmer_Text{""}
+
+script KaolisleCity_Scott{
+    msgbox(KaolisleCity_Scott_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleCity_Scott_Text{""}
+
+script KaolisleCity_Zigzagoon{
+	lock
+	faceplayer
+    waitse
+	playmoncry(SPECIES_ZIGZAGOON, CRY_MODE_NORMAL)
+	msgbox("Zigzagoon: Guguuh!", MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+
+script KaolisleCity_Item1{
+    finditem(ITEM_NONE)
+}
+
+script KaolisleCity_SignHarbor{
+    msgbox(KaolisleCity_SignHarbor_Text, MSGBOX_SIGN)
+    end
+}
+script KaolisleCity_SignGym{
+    msgbox(KaolisleCity_SignGym_Text, MSGBOX_SIGN)
+    end
+}
+script KaolisleCity_SignHotel{
+    msgbox(KaolisleCity_SignHotel_Text, MSGBOX_SIGN)
+    end
+}
+script KaolisleCity_SignFanClub{
+    msgbox(KaolisleCity_SignFanClub_Text, MSGBOX_SIGN)
+    end
+}
+script KaolisleCity_SignIntro{
+    msgbox(KaolisleCity_SignIntro_Text, MSGBOX_SIGN)
+    end
+}
+
+text KaolisleCity_SignHarbor_Text{""}
+text KaolisleCity_SignGym_Text{""}
+text KaolisleCity_SignHotel_Text{""}
+text KaolisleCity_SignFanClub_Text{""}
+text KaolisleCity_SignIntro_Text{""}

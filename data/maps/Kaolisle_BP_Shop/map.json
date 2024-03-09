@@ -72,15 +72,15 @@
       "x": 6,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_SHORESLATE_CITY",
-      "dest_warp_id": "8"
+      "dest_map": "MAP_KAOLISLE_CITY",
+      "dest_warp_id": "1"
     },
     {
       "x": 7,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_SHORESLATE_CITY",
-      "dest_warp_id": "8"
+      "dest_map": "MAP_KAOLISLE_CITY",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [

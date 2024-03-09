@@ -1,0 +1,82 @@
+mapscripts Kaolisle_House1_MapScripts{}
+
+script Kaolisle_Pianist{
+    if(flag(FLAG_PIANOREWARD)){
+        msgbox(ThankYouForListening2, MSGBOX_NPC)
+        end
+    }
+    if(flag(FLAG_KAOLISLE_PLAYINGPIANO)){
+        lockall
+        special(CalcCyclingRoadChallenge)
+        if(var(VAR_RESULT) <= 11){
+            msgbox(BetterNotDisturb, MSGBOX_DEFAULT)
+            closemessage
+            release
+            end
+        }
+        else{
+            faceplayer
+            msgbox(ThankYouForListening, MSGBOX_DEFAULT)
+            checkitemspace(ITEM_HEART_SCALE, 2)
+            if(var(VAR_RESULT) == FALSE){
+                msgbox(NotEnoughRoom, MSGBOX_NPC)
+                end
+            }
+            special(FinishCyclingRoadChallenge)
+            giveitem(ITEM_HEART_SCALE, 2)
+            clearflag(FLAG_KAOLISLE_PLAYINGPIANO)
+            setflag(FLAG_PIANOREWARD)
+            release
+            end
+        }
+    }
+    lockall
+    faceplayer
+    msgbox(ListenToMePlay, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(PianistSad, MSGBOX_NPC)
+        end
+    }
+    else{
+        turnobject(1, DIR_NORTH)
+        fadeoutbgm(1)
+        msgbox(PianistHereGoes, MSGBOX_DEFAULT)
+        release
+        special(Special_BeginCyclingRoadChallenge)
+        playbgm(MUS_UNWAVERING, FALSE)
+        setflag(FLAG_KAOLISLE_PLAYINGPIANO)
+        end
+    }
+}
+
+text ListenToMePlay{
+    "I've been learning how to play\n"
+    "the piano.\p"
+    "One day I hope to play in front of a\n"
+    "large crowd but right now I don't have\l"
+    "the self-confidence to do that.\p"
+    "I need to start with something smaller.\n"
+    "Would you like to hear me play?"
+}
+text PianistSad{
+    "Oh, okay…"
+}
+text PianistHereGoes{
+    "Okay, here goes…"
+}
+text BetterNotDisturb{
+    "Better not disturb her while she's\n"
+    "playing…"
+}
+text ThankYouForListening{
+    "Thank you for listening to my piano\n"
+    "recital.\p"
+    "I'm not sure I'm still ready to play in\n"
+    "front of a crowd but this definitely\l"
+    "gave me a huge confidence boost.\p"
+    "As a thanks for staying till the end of\n"
+    "the recital, I want you to have these."
+}
+text ThankYouForListening2{
+    "Thanks again for the confidence boost."
+    }

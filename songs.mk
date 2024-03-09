@@ -651,6 +651,12 @@ $(MID_SUBDIR)/mus_alola_e4.s: %.s: %.mid
 $(MID_SUBDIR)/mus_muted.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V000
 
+$(MID_SUBDIR)/mus_hg_azalea.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V080
+
+$(MID_SUBDIR)/mus_unwavering.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V080
+
 $(MID_SUBDIR)/ph_choice_blend.s: %.s: %.mid
 	$(MID) $< $@ -E -G130 -P4
 

@@ -1758,6 +1758,15 @@
 	formatwarp \map, \a, \b, \c
 	.endm
 
+	@ Checks the player's party for the specified 'species'.
+	@ If 'partynumber' is set to '1', checks only for the first Pokemon in the party.
+	@ Sets VAR_RESULT as TRUE/FALSE whether the 'species' is found.
+	.macro checkpartymon species:req, partynumber:req
+	.byte 0xe5
+	.2byte \species
+	.byte \partynumber
+	.endm
+
 
 @ Supplementary
 

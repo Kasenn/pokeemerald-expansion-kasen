@@ -17,6 +17,11 @@
       "map": "MAP_SHORESLATE_CITY",
       "offset": -23,
       "direction": "right"
+    },
+    {
+      "map": "MAP_KAOLISLE_CITY",
+      "offset": 0,
+      "direction": "down"
     }
   ],
   "object_events": [
