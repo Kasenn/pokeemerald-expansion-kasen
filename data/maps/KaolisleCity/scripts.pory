@@ -179,10 +179,6 @@ script KaolisleCity_Zigzagoon{
 	end
 }
 
-script KaolisleCity_Item1{
-    finditem(ITEM_NONE)
-}
-
 script KaolisleCity_SignHarbor{
     msgbox(KaolisleCity_SignHarbor_Text, MSGBOX_SIGN)
     end

@@ -569,6 +569,11 @@ extern const u8 SecretBase_EventScript_InitDecorations[];
 extern const u8 SecretBase_EventScript_PutAwayDecoration[];
 extern const u8 SecretBase_EventScript_SetDecoration[];
 
+extern const u8 Kaolisle_Gym_Switch1[];
+extern const u8 Kaolisle_Gym_Switch2[];
+extern const u8 Kaolisle_Gym_Switch3[];
+extern const u8 Kaolisle_Gym_Switch4[];
+
 // Battle Pyramid.
 extern const u8 BattlePyramid_Retire[];
 extern const u8 BattlePyramid_WarpToNextFloor[];

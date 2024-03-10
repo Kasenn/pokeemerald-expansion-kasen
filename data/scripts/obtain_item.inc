@@ -49,12 +49,22 @@ EventScript_BufferBerriesPocket::
 	call_if_eq VAR_0x8007, TRUE, EventScript_PlayFanfareObtainedItem
 	return
 
-EventScript_ObtainedItem::
+EventScript_ObtainedItem:: @ 8271B95
+	compare VAR_0x8001, TRUE
+	goto_if_eq EventScript_ObtainedItemMessage
+	buffernumberstring 0, VAR_0x8001
+	message gText_ObtainedTheItems
+	goto EventScript_ContinueObtainedItem
+EventScript_ObtainedItemMessage:
 	message gText_ObtainedTheItem
+EventScript_ContinueObtainedItem:
 	waitfanfare
 	msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
 	setvar VAR_RESULT, TRUE
 	return
+
+gText_ObtainedTheItems::
+    .string "Obtained {STR_VAR_1} {STR_VAR_2}!$"
 
 EventScript_NoRoomForItem::
 	setvar VAR_RESULT, FALSE
