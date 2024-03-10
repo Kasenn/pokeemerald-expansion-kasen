@@ -60,6 +60,7 @@ NewCoralgroveCity_Gym_EventScript_AaronDefeated::
 	setflag FLAG_DEFEATED_RUSTBORO_GYM
 	setflag FLAG_BADGE01_GET
 	setvar VAR_RUSTBORO_CITY_STATE, 1
+	setvar VAR_BADGES_OBTAINED, 1
 	addvar VAR_PETALBURG_GYM_STATE, 1
 	setvar VAR_0x8008, 1
 	call Common_EventScript_SetGymTrainers

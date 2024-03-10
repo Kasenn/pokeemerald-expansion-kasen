@@ -42,17 +42,17 @@ AldeleafGymSetUpFromLoad_7:
 
 
 AldeleafGymTriggerFlagSet::
-	setflag FLAG_TOGGLE_DOUBLE_WILDS
-	setflag FLAG_NO_CATCHING
-	setflag FLAG_NO_WILD_RUNNING
+	setflag FLAG_SYSTEM_TOGGLE_DOUBLE_WILDS
+	setflag FLAG_SYSTEM_NO_CATCHING
+	setflag FLAG_SYSTEM_NO_WILD_RUNNING
 	release
 	end
 
 
 AldeleafGymTriggerFlagClear::
-	clearflag FLAG_TOGGLE_DOUBLE_WILDS
-	clearflag FLAG_NO_CATCHING
-	clearflag FLAG_NO_WILD_RUNNING
+	clearflag FLAG_SYSTEM_TOGGLE_DOUBLE_WILDS
+	clearflag FLAG_SYSTEM_NO_CATCHING
+	clearflag FLAG_SYSTEM_NO_WILD_RUNNING
 	release
 	end
 
@@ -345,6 +345,7 @@ Aldeleaf_Gym_EventScript_VolknerDefeated::
 	setflag FLAG_DEFEATED_DEWFORD_GYM
 	setflag FLAG_BADGE02_GET
 	addvar VAR_ALDELEAF_GYM_STATE, 1
+	setvar VAR_BADGES_OBTAINED, 2
 	setvar VAR_0x8008, 2
 	call Common_EventScript_SetGymTrainers
 	special RemoveCameraObject

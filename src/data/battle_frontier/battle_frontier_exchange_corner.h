@@ -89,6 +89,19 @@ static const u16 sFrontierExchangeCorner_HoldItems4[] =
     ITEM_LIST_END
 };
 
+static const u16 sFrontierExchangeCorner_HoldItems5[] =
+{
+    ITEM_POWER_BRACER,
+    ITEM_POWER_BELT,
+    ITEM_POWER_LENS,
+    ITEM_POWER_BAND,
+    ITEM_POWER_ANKLET,
+    ITEM_POWER_WEIGHT,
+    ITEM_DESTINY_KNOT,
+    ITEM_EVERSTONE,
+    ITEM_LIST_END
+};
+
 static const u8 *const sFrontierExchangeCorner_Decor1Descriptions[] =
 {
     BattleFrontier_ExchangeServiceCorner_Text_KissPosterDesc,
@@ -177,6 +190,19 @@ static const u8 *const sFrontierExchangeCorner_HoldItemsDescriptions4[] =
     BattleFrontier_ExchangeServiceCorner_Text_WiseGlassesDesc,
     BattleFrontier_ExchangeServiceCorner_Text_WideLensDesc,
     BattleFrontier_ExchangeServiceCorner_Text_ZoomLensDesc,
+    gText_Exit
+};
+
+static const u8 *const sFrontierExchangeCorner_HoldItemsDescriptions5[] =
+{
+    Kaolisle_BPShop_PowerBracerDesc,
+    Kaolisle_BPShop_PowerBeltDesc,
+    Kaolisle_BPShop_PowerLensDesc,
+    Kaolisle_BPShop_PowerBandDesc,
+    Kaolisle_BPShop_PowerAnkletDesc,
+    Kaolisle_BPShop_PowerWeightDesc,
+    Kaolisle_BPShop_DestinyKnotDesc,
+    Kaolisle_BPShop_EverstoneDesc,
     gText_Exit
 };
 

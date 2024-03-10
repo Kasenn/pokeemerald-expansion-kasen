@@ -254,14 +254,55 @@ text SkylochInt_OldHistorian_Text{
 }
 
 script SkylochInt_PikachuWoman{
+    if(flag(FLAG_RECEIVED_LIGHTBALL)){
+        msgbox(SkylochMakeDecision, MSGBOX_NPC)
+        end
+    }
     lock
     faceplayer
+    checkpartymon(SPECIES_RAICHU, 0)
+    if(var(VAR_RESULT) == TRUE){
+        checkpartymon(SPECIES_RAICHU_ALOLAN, 0)
+        if(var(VAR_RESULT) == TRUE){
+            msgbox(SkylochInt_PikachuWoman_2Raichus, MSGBOX_DEFAULT)
+            checkitemspace(ITEM_LIGHT_BALL)
+            if(var(VAR_RESULT) == FALSE){
+                msgbox(NotEnoughRoom, MSGBOX_NPC)
+                end
+            }
+            giveitem(ITEM_LIGHT_BALL)
+            setflag(FLAG_RECEIVED_LIGHTBALL)
+            msgbox(ExplainLightBall, MSGBOX_NPC)
+            end
+        }
+    }
     msgbox(SkylochInt_PikachuWoman_Text, MSGBOX_DEFAULT)
     waitmessage
     closemessage
     release
     end
 }
+
+text SkylochMakeDecision{
+    "Even though you showed me the two\n"
+    "different species of Raichu,\l"
+    "I'm still not sure what way I want\l"
+    "to evolve all my Pikachus…"
+}
+text SkylochInt_PikachuWoman_2Raichus{
+    "Oh, you seem to have two different\n"
+    "species of Raichu!\p"
+    "This will help me a lot with my\n"
+    "decision making!\p"
+    "To show my gratitude,\n"
+    "I want you to have this!"
+}
+text ExplainLightBall{
+    "Try giving that item to a Pikachu and\n"
+    "it will greatly increase its\l"
+    "offensive capabilities!"
+}
+
 text SkylochInt_PikachuWoman_Text{
     "I really love Pikachu!\p"
     "I've thought of evolving them but\n"

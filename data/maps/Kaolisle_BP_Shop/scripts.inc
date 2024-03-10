@@ -25,14 +25,14 @@ KaolisleShop_OldMan::
 
 
 Kaolisle_BPShop_HoldItemClerk::
-	setvar VAR_TEMP_2, EXCHANGE_CORNER_HOLD_ITEM_CLERK4
+	setvar VAR_TEMP_2, EXCHANGE_CORNER_HOLD_ITEM_CLERK5
 	setvar VAR_TEMP_3, 5
 	goto BPShop_HoldItemClerk
 	return
 
 
 Kaolisle_BPShop_ChooseHoldItem::
-	setvar VAR_0x8004, SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR4
+	setvar VAR_0x8004, SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR5
 	call BPShop_SetupHoldItem
 	switch VAR_RESULT
 	case 0, Kaolisle_BPShop_ChooseHoldItem_2
@@ -44,69 +44,62 @@ Kaolisle_BPShop_ChooseHoldItem::
 	case 6, Kaolisle_BPShop_ChooseHoldItem_8
 	case 7, Kaolisle_BPShop_ChooseHoldItem_9
 	case 8, Kaolisle_BPShop_ChooseHoldItem_10
-	case 9, Kaolisle_BPShop_ChooseHoldItem_11
-	case MULTI_B_PRESSED, Kaolisle_BPShop_ChooseHoldItem_12
+	case MULTI_B_PRESSED, Kaolisle_BPShop_ChooseHoldItem_11
 	return
 
 Kaolisle_BPShop_ChooseHoldItem_2:
 	setvar VAR_0x8008, 16
-	setvar VAR_0x8009, ITEM_BRIGHT_POWDER
+	setvar VAR_0x8009, ITEM_POWER_BRACER
 	goto BPShop_HeldItem
 	return
 
 Kaolisle_BPShop_ChooseHoldItem_3:
 	setvar VAR_0x8008, 16
-	setvar VAR_0x8009, ITEM_QUICK_CLAW
+	setvar VAR_0x8009, ITEM_POWER_BELT
 	goto BPShop_HeldItem
 	return
 
 Kaolisle_BPShop_ChooseHoldItem_4:
 	setvar VAR_0x8008, 16
-	setvar VAR_0x8009, ITEM_SOOTHE_BELL
+	setvar VAR_0x8009, ITEM_POWER_LENS
 	goto BPShop_HeldItem
 	return
 
 Kaolisle_BPShop_ChooseHoldItem_5:
 	setvar VAR_0x8008, 16
-	setvar VAR_0x8009, ITEM_SCOPE_LENS
+	setvar VAR_0x8009, ITEM_POWER_BAND
 	goto BPShop_HeldItem
 	return
 
 Kaolisle_BPShop_ChooseHoldItem_6:
 	setvar VAR_0x8008, 16
-	setvar VAR_0x8009, ITEM_SHELL_BELL
+	setvar VAR_0x8009, ITEM_POWER_ANKLET
 	goto BPShop_HeldItem
 	return
 
 Kaolisle_BPShop_ChooseHoldItem_7:
 	setvar VAR_0x8008, 16
-	setvar VAR_0x8009, ITEM_MUSCLE_BAND
+	setvar VAR_0x8009, ITEM_POWER_WEIGHT
 	goto BPShop_HeldItem
 	return
 
 Kaolisle_BPShop_ChooseHoldItem_8:
-	setvar VAR_0x8008, 16
-	setvar VAR_0x8009, ITEM_WISE_GLASSES
+	setvar VAR_0x8008, 32
+	setvar VAR_0x8009, ITEM_DESTINY_KNOT
 	goto BPShop_HeldItem
 	return
 
 Kaolisle_BPShop_ChooseHoldItem_9:
-	setvar VAR_0x8008, 16
-	setvar VAR_0x8009, ITEM_WIDE_LENS
+	setvar VAR_0x8008, 32
+	setvar VAR_0x8009, ITEM_EVERSTONE
 	goto BPShop_HeldItem
 	return
 
 Kaolisle_BPShop_ChooseHoldItem_10:
-	setvar VAR_0x8008, 16
-	setvar VAR_0x8009, ITEM_ZOOM_LENS
-	goto BPShop_HeldItem
-	return
-
-Kaolisle_BPShop_ChooseHoldItem_11:
 	call BPShop_ClerkGoodbye
 	return
 
-Kaolisle_BPShop_ChooseHoldItem_12:
+Kaolisle_BPShop_ChooseHoldItem_11:
 	call BPShop_ClerkGoodbye
 	return
 
@@ -224,6 +217,38 @@ KaolisleShop_Man_TextContinued::
 KaolisleShop_OldMan_Text::
 	.string "I don't understand what half of these\n"
 	.string "items even do…$"
+
+Kaolisle_BPShop_PowerBracerDesc::
+	.string "Hold item that promotes Atk gain,\n"
+	.string "but reduces Speed.$"
+
+Kaolisle_BPShop_PowerBeltDesc::
+	.string "Hold item that promotes Def gain,\n"
+	.string "but reduces Speed.$"
+
+Kaolisle_BPShop_PowerLensDesc::
+	.string "Hold item that promotes Sp. Atk gain,\n"
+	.string "but reduces Speed.$"
+
+Kaolisle_BPShop_PowerBandDesc::
+	.string "Hold item that promotes Sp. Def gain,\n"
+	.string "but reduces Speed.$"
+
+Kaolisle_BPShop_PowerAnkletDesc::
+	.string "Hold item that promotes Spd gain,\n"
+	.string "but reduces Speed.$"
+
+Kaolisle_BPShop_PowerWeightDesc::
+	.string "A hold item that promotes HP gain,\n"
+	.string "but reduces Speed.$"
+
+Kaolisle_BPShop_DestinyKnotDesc::
+	.string "If the holder falls in love, the foe\n"
+	.string "does too.$"
+
+Kaolisle_BPShop_EverstoneDesc::
+	.string "A wondrous hold item that prevents\n"
+	.string "evolution.$"
 
 Kaolisle_BPShop_Text_CovetDesc::
 	.string "Steals the\n"

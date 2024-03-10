@@ -168,12 +168,41 @@ SkylochInt_OldHistorian::
 
 
 SkylochInt_PikachuWoman::
+	goto_if_set FLAG_RECEIVED_LIGHTBALL, SkylochInt_PikachuWoman_2
 	lock
 	faceplayer
+	checkpartymon SPECIES_RAICHU, 0
+	compare VAR_RESULT, TRUE
+	goto_if_eq SkylochInt_PikachuWoman_5
+SkylochInt_PikachuWoman_4:
 	msgbox SkylochInt_PikachuWoman_Text, MSGBOX_DEFAULT
 	waitmessage
 	closemessage
 	release
+	end
+
+SkylochInt_PikachuWoman_2:
+	msgbox SkylochMakeDecision, MSGBOX_NPC
+	end
+
+SkylochInt_PikachuWoman_5:
+	checkpartymon SPECIES_RAICHU_ALOLAN, 0
+	compare VAR_RESULT, TRUE
+	goto_if_eq SkylochInt_PikachuWoman_7
+	goto SkylochInt_PikachuWoman_4
+
+SkylochInt_PikachuWoman_7:
+	msgbox SkylochInt_PikachuWoman_2Raichus, MSGBOX_DEFAULT
+	checkitemspace ITEM_LIGHT_BALL
+	compare VAR_RESULT, FALSE
+	goto_if_eq SkylochInt_PikachuWoman_10
+	giveitem ITEM_LIGHT_BALL
+	setflag FLAG_RECEIVED_LIGHTBALL
+	msgbox ExplainLightBall, MSGBOX_NPC
+	end
+
+SkylochInt_PikachuWoman_10:
+	msgbox NotEnoughRoom, MSGBOX_NPC
 	end
 
 
@@ -303,6 +332,25 @@ SkylochInt_OldHistorian_Text::
 	.string "Not even the flora survived.\p"
 	.string "What being could cause such\n"
 	.string "destruction?$"
+
+SkylochMakeDecision::
+	.string "Even though you showed me the two\n"
+	.string "different species of Raichu,\l"
+	.string "I'm still not sure what way I want\l"
+	.string "to evolve all my Pikachus…$"
+
+SkylochInt_PikachuWoman_2Raichus::
+	.string "Oh, you seem to have two different\n"
+	.string "species of Raichu!\p"
+	.string "This will help me a lot with my\n"
+	.string "decision making!\p"
+	.string "To show my gratitude,\n"
+	.string "I want you to have this!$"
+
+ExplainLightBall::
+	.string "Try giving that item to a Pikachu and\n"
+	.string "it will greatly increase its\l"
+	.string "offensive capabilities!$"
 
 SkylochInt_PikachuWoman_Text::
 	.string "I really love Pikachu!\p"

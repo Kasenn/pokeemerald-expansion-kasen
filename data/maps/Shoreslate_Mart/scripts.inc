@@ -58,17 +58,6 @@ Shoreslate_Mart_Secret_19:
 	goto Shoreslate_Mart_Secret_1
 
 
-Shoreslate_Mart_EventScript_Clerk::
-	lock
-	faceplayer
-	message gText_HowMayIServeYou
-	waitmessage
-	pokemart Shoreslate_Mart_Pokemart
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-	release
-	end
-
-
 Shoreslate_Mart_EventScript_Clerk2::
 	lock
 	faceplayer
@@ -90,20 +79,6 @@ Shoreslate_Mart_EventScript_Clerk3::
 	release
 	end
 
-
-	.align 2
-Shoreslate_Mart_Pokemart:
-	.2byte ITEM_POKE_BALL
-	.2byte ITEM_GREAT_BALL
-	.2byte ITEM_POTION
-	.2byte ITEM_SUPER_POTION
-	.2byte ITEM_ANTIDOTE
-	.2byte ITEM_PARALYZE_HEAL
-	.2byte ITEM_AWAKENING
-	.2byte ITEM_BURN_HEAL
-	.2byte ITEM_ICE_HEAL
-	.2byte ITEM_REPEL
-	.2byte ITEM_NONE
 
 	.align 2
 Shoreslate_Mart_Pokemart2:
@@ -136,6 +111,201 @@ Shoreslate_Mart_EventScript_Man::
 	msgbox Shoreslate_Mart_EventScript_Man_Text, MSGBOX_NPC
 	end
 
+
+Kaolisle_Mart_Gentleman::
+	msgbox Kaolisle_Mart_Gentleman_Text, MSGBOX_NPC
+	end
+
+
+Kaolisle_Mart_Boy::
+	msgbox Kaolisle_Mart_Boy_Text, MSGBOX_NPC
+	end
+
+
+Mart_Clerk::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	switch VAR_BADGES_OBTAINED
+	case 0, Mart_Clerk_3
+	case 1, Mart_Clerk_4
+	case 2, Mart_Clerk_5
+	case 3, Mart_Clerk_6
+	case 4, Mart_Clerk_7
+	case 5, Mart_Clerk_8
+	case 6, Mart_Clerk_9
+	case 7, Mart_Clerk_10
+	case 8, Mart_Clerk_11
+Mart_Clerk_1:
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+Mart_Clerk_3:
+	goto_if_set FLAG_ADVENTURE_STARTED, Mart_Clerk_12
+	pokemart Mart_NoBadges
+	goto Mart_Clerk_1
+
+Mart_Clerk_4:
+	pokemart Mart_1Badges
+	goto Mart_Clerk_1
+
+Mart_Clerk_5:
+	pokemart Mart_2Badges
+	goto Mart_Clerk_1
+
+Mart_Clerk_6:
+	pokemart Mart_3Badges
+	goto Mart_Clerk_1
+
+Mart_Clerk_7:
+	pokemart Mart_3Badges
+	goto Mart_Clerk_1
+
+Mart_Clerk_8:
+	pokemart Mart_5Badges
+	goto Mart_Clerk_1
+
+Mart_Clerk_9:
+	pokemart Mart_5Badges
+	goto Mart_Clerk_1
+
+Mart_Clerk_10:
+	pokemart Mart_7Badges
+	goto Mart_Clerk_1
+
+Mart_Clerk_11:
+	pokemart Mart_8Badges
+	goto Mart_Clerk_1
+
+Mart_Clerk_12:
+	pokemart Mart_NoBadgesExpanded
+	goto Mart_Clerk_1
+
+
+	.align 2
+Mart_NoBadges:
+	.2byte ITEM_POTION
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_NONE
+
+	.align 2
+Mart_NoBadgesExpanded:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_POTION
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_NONE
+
+	.align 2
+Mart_1Badges:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_REPEL
+	.2byte ITEM_NONE
+
+	.align 2
+Mart_2Badges:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_REVIVE
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_REPEL
+	.2byte ITEM_NONE
+
+	.align 2
+Mart_3Badges:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_REVIVE
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_REPEL
+	.2byte ITEM_SUPER_REPEL
+	.2byte ITEM_NONE
+
+	.align 2
+Mart_5Badges:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_REVIVE
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_REPEL
+	.2byte ITEM_SUPER_REPEL
+	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_NONE
+
+	.align 2
+Mart_7Badges:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_MAX_POTION
+	.2byte ITEM_REVIVE
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_REPEL
+	.2byte ITEM_SUPER_REPEL
+	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_NONE
+
+	.align 2
+Mart_8Badges:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_MAX_POTION
+	.2byte ITEM_FULL_RESTORE
+	.2byte ITEM_REVIVE
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_REPEL
+	.2byte ITEM_SUPER_REPEL
+	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_NONE
 
 Shoreslate_Mart_Secret_Text_Beginning::
 	.string "There's a note attached to this item.\n"
@@ -220,3 +390,13 @@ gText_HowMayIServeYou3::
 gText_HowMayIServeYou4::
 	.string "You've never seen these things before!\n"
 	.string "My prices are incense!$"
+
+Kaolisle_Mart_Gentleman_Text::
+	.string "You can find mostly the same items\n"
+	.string "from every Poké Mart across Sinko.\p"
+	.string "By gaining more badges, you gain access\n"
+	.string "to an ever wider assortment of products.$"
+
+Kaolisle_Mart_Boy_Text::
+	.string "I can't find the products\n"
+	.string "I'm looking for…$"

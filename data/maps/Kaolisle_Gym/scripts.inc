@@ -360,7 +360,7 @@ Kaolisle_Gym_MoveRight:
 	step_end
 
 TestScript1::
-	checkpartymon SPECIES_BLAZIKEN, 1
+	checkpartymon SPECIES_PIKACHU, 1
 	compare VAR_RESULT, TRUE
 	goto_if_eq TestScript1_1
 	msgbox TestScript1_Text_1, MSGBOX_NPC
@@ -368,6 +368,7 @@ TestScript1::
 
 TestScript1_1:
 	msgbox TestScript1_Text_0, MSGBOX_NPC
+	giveitem ITEM_TROPICAL_STONE
 	return
 
 
@@ -375,11 +376,11 @@ TestScript2::
 	checkpartymon SPECIES_BLAZIKEN, 0
 	compare VAR_RESULT, TRUE
 	goto_if_eq TestScript2_1
-	msgbox TestScript1_Text_1, MSGBOX_NPC
+	msgbox TestScript2_Text_1, MSGBOX_NPC
 	return
 
 TestScript2_1:
-	msgbox TestScript1_Text_0, MSGBOX_NPC
+	msgbox TestScript2_Text_0, MSGBOX_NPC
 	return
 
 
@@ -393,9 +394,15 @@ Kaolisle_Gym_Switch1_Text_2:
 	.string "{PLAYER} pressed the button.$"
 
 TestScript1_Text_0:
-	.string "True$"
+	.string "That's a Pikachu!$"
 
 TestScript1_Text_1:
+	.string "That's not a Pikachu!$"
+
+TestScript2_Text_0:
+	.string "True$"
+
+TestScript2_Text_1:
 	.string "False$"
 
 KaolisleGym_Trainer1_Camper1_Intro::

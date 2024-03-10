@@ -735,6 +735,15 @@ extern const u8 gText_WiseGlasses[];
 extern const u8 gText_WideLens[];
 extern const u8 gText_ZoomLens[];
 
+extern const u8 gText_PowerBracer[];
+extern const u8 gText_PowerBelt[];
+extern const u8 gText_PowerLens[];
+extern const u8 gText_PowerBand[];
+extern const u8 gText_PowerAnklet[];
+extern const u8 gText_PowerWeight[];
+extern const u8 gText_DestinyKnot[];
+extern const u8 gText_Everstone[];
+
 extern const u8 gText_EnergyPowder50[];
 extern const u8 gText_EnergyRoot80[];
 extern const u8 gText_HealPowder50[];
@@ -964,6 +973,14 @@ extern const u8 BattleFrontier_ExchangeServiceCorner_Text_MuscleBandDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_WiseGlassesDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_WideLensDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_ZoomLensDesc[];
+extern const u8 Kaolisle_BPShop_PowerBracerDesc[];
+extern const u8 Kaolisle_BPShop_PowerBeltDesc[];
+extern const u8 Kaolisle_BPShop_PowerLensDesc[];
+extern const u8 Kaolisle_BPShop_PowerBandDesc[];
+extern const u8 Kaolisle_BPShop_PowerAnkletDesc[];
+extern const u8 Kaolisle_BPShop_PowerWeightDesc[];
+extern const u8 Kaolisle_BPShop_DestinyKnotDesc[];
+extern const u8 Kaolisle_BPShop_EverstoneDesc[];
 
 // Battle Frontier Move Tutors
 extern const u8 BattleFrontier_Lounge7_Text_SoftboiledDesc[];

@@ -3971,3 +3971,7 @@ static const u8 sAncientStoneDesc[] = _(
     "species of Pokémon\n"
     "evolve.");
 
+static const u8 sLostMementoDesc[] = _(
+    "An old-looking\n"
+    "pendant that\n"
+    "someone dropped.");

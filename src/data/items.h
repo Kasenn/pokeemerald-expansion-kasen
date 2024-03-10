@@ -9737,4 +9737,14 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
         .flingPower = 80,
     },
+    [ITEM_LOST_MEMENTO] =
+    {
+        .name = _("Lost Memento"),
+        .price = 0,
+        .description = sLostMementoDesc,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
 };

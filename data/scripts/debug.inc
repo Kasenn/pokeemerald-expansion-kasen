@@ -97,9 +97,7 @@ Debug_Script_2::
 
 Debug_Script_3::
 	setvar VAR_DESERT_BYPASS, 1
-	setvar VAR_0x8009, ITEM_BRIGHT_POWDER
-	bufferitemname STR_VAR_1, VAR_0x8009
-	msgbox DebugVar, MSGBOX_NPC
+	setvar VAR_BADGES_OBTAINED, 2
 	end
 
 DebugVar::
@@ -118,9 +116,14 @@ Debug_Script_6::
 	end
 
 Debug_Script_7::
+	cleartrainerflag TRAINER_WPV_TR1_BIRDKEEPER
+	setflag FLAG_SYSTEM_NOREWARDBATTLES
+	trainerbattle_single TRAINER_WPV_TR1_BIRDKEEPER, Route109_Text_AustinaIntro, Route109_Text_AustinaDefeated
+	msgbox Route109_Text_AustinaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Debug_Script_8::
+	setflag FLAG_SYSTEM_NOREWARDBATTLES
 	trainerbattle_single TRAINER_AUSTINA, Route109_Text_AustinaIntro, Route109_Text_AustinaDefeated
 	msgbox Route109_Text_AustinaPostBattle, MSGBOX_AUTOCLOSE
 	end
