@@ -104,7 +104,10 @@ DebugVar::
 	.string "{STR_VAR_1}$"
 
 Debug_Script_4::
-	removeitem ITEM_GO_GOGGLES
+    giveitem ITEM_POTION, 2
+    giveitem ITEM_ORAN_BERRY, 3
+    giveitem ITEM_POKE_BALL, 1
+	giveitem ITEM_HONEY, 3
 	end
 
 Debug_Script_5::

@@ -46,6 +46,11 @@ Route109_EventScript_ItemPotion::
 	finditem ITEM_POTION
 	end
 
+Common_EventScript_FindItem::
+	callnative GetObjectEventTrainerRangeFromTemplate
+	finditem VAR_RESULT
+	end
+
 Route110_EventScript_ItemRareCandy::
 	finditem ITEM_RARE_CANDY
 	end

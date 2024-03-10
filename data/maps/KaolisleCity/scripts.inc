@@ -153,11 +153,6 @@ KaolisleCity_Zigzagoon::
 	end
 
 
-KaolisleCity_Item1::
-	finditem ITEM_NONE
-	return
-
-
 KaolisleCity_SignHarbor::
 	msgbox KaolisleCity_SignHarbor_Text, MSGBOX_SIGN
 	end
