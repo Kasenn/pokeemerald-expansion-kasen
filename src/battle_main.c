@@ -3993,7 +3993,7 @@ u8 IsRunningFromBattleImpossible(u32 battler)
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DONT_LEAVE_BIRCH;
         return BATTLE_RUN_FORBIDDEN;
     }
-    if (FlagGet(FLAG_NO_WILD_RUNNING))
+    if (FlagGet(FLAG_SYSTEM_NO_WILD_RUNNING))
         return BATTLE_RUN_FORBIDDEN;
 
     if (GetBattlerPosition(battler) == B_POSITION_PLAYER_RIGHT && WILD_DOUBLE_BATTLE

@@ -1,0 +1,50 @@
+mapscripts Kaolisle_Pokecenter_1F_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: KaolislePokeCenter1F_OnTransition
+	MAP_SCRIPT_ON_RESUME: CableClub_OnResume
+}
+
+script KaolislePokeCenter1F_OnTransition{
+	setrespawn(HEAL_LOCATION_KAOLISLE_CITY)
+	call(Common_EventScript_UpdateBrineyLocation)
+	end
+}
+
+script KaolislePokeCenter1F_EventScript_Nurse{
+	setvar(VAR_0x800B, 3)
+	call(Common_EventScript_PkmnCenterNurse)
+	waitmessage
+	waitbuttonpress
+	release
+	end
+}
+
+script KaolislePokeCenter1F_EventScript_Man{
+    msgbox(KaolislePokeCenter1F_Text_PokemonHavePersonalities, MSGBOX_NPC)
+	end
+}
+script KaolislePokeCenter1F_EventScript_Boy{
+	msgbox(KaolislePokeCenter1F_Text_MaleAndFemalePokemon, MSGBOX_NPC)
+	end
+}
+script KaolislePokeCenter1F_EventScript_Girl{
+	msgbox(KaolislePokeCenter1F_Text_HMCutNextDoor, MSGBOX_NPC)
+	end
+}
+
+text KaolislePokeCenter1F_Text_PokemonHavePersonalities{
+	"The more you walk with your Pokémon,\n"
+    "the friendlier they grow toward you!"
+
+}
+text KaolislePokeCenter1F_Text_MaleAndFemalePokemon{
+	"Just like people, Pokémon too feel\n"
+    "better when they're healthy.\p"
+    "Try giving your Pokémon some vitamins to\n"
+    "really boost your friendship with them."
+}
+text KaolislePokeCenter1F_Text_HMCutNextDoor{
+	"I heard somewhere in this city lives\n"
+    "an old karate master.\p"
+    "They say he's willing to teach people\n"
+    "who prove their worth to him."
+}

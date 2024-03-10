@@ -4058,6 +4058,7 @@ static void Cmd_getexp(void)
     {
     case 0: // check if should receive exp at all
         if (GetBattlerSide(gBattlerFainted) != B_SIDE_OPPONENT
+            || FlagGet(FLAG_SYSTEM_NOREWARDBATTLES)
             || IsAiVsAiBattle()
             || (gBattleTypeFlags &
              (BATTLE_TYPE_LINK
@@ -7356,6 +7357,9 @@ static void Cmd_getmoneyreward(void)
             if (battlePoints > 6)
                 battlePoints = 6;
         }
+        if (FlagGet(FLAG_SYSTEM_NOREWARDBATTLES))
+            money = 0;
+            battlePoints = 0;
         AddMoney(&gSaveBlock1Ptr->money, money);
         AddBattlePoints(battlePoints);
     }
@@ -7377,6 +7381,8 @@ static void Cmd_getmoneyreward(void)
                 ++count;
         }
         money = sWhiteOutBadgeMoney[count] * sPartyLevel;
+        if (FlagGet(FLAG_SYSTEM_NOREWARDBATTLES))
+            money = 0;
         RemoveMoney(&gSaveBlock1Ptr->money, money);
     }
     

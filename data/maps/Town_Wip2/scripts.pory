@@ -1,0 +1,325 @@
+mapscripts Town_Wip2_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: Skyloch_SetFlag
+}
+script Skyloch_SetFlag{
+    setflag(FLAG_VISITED_WIP_TOWN2)
+    setflag(FLAG_INCREASED_SHINY_ODDS)
+    end
+}
+
+script Skyloch_Sign1{
+    msgbox(Skyloch_Sign1_Text, MSGBOX_SIGN)
+    end
+}
+text Skyloch_Sign1_Text{
+    "SKYLOCH VILLAGE"
+}
+script Skyloch_Sign2{
+    msgbox(Skyloch_Sign2_Text, MSGBOX_SIGN)
+    end
+}
+text Skyloch_Sign2_Text{
+    "{UP_ARROW} Route 5\n"
+    "{RIGHT_ARROW} Scorched Desert\l"
+}
+script Skyloch_Sign3{
+    msgbox(Skyloch_Sign3_Text, MSGBOX_SIGN)
+    end
+}
+text Skyloch_Sign3_Text{
+    "Skyloch Rest House"
+}
+
+script Skyloch_Azumarill{
+	lock
+	waitse
+	playmoncry(SPECIES_AZUMARILL, CRY_MODE_NORMAL)
+	msgbox(Skyloch_Azumarill_Text, MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+text Skyloch_Azumarill_Text{
+    "Azumarill: Maririroo…"
+}
+script Skyloch_Lass{
+    lock
+    msgbox(Skyloch_Lass_Text, MSGBOX_DEFAULT)
+    waitmessage
+    closemessage
+    release
+    end
+}
+text Skyloch_Lass_Text{
+    "No, we are not going back in the lake!\n"
+    "Mom and Dad are going to be angry\l"
+    "if we're late!"
+}
+
+script Skyloch_LittleBoy{
+    msgbox(Skyloch_LittleBoy_Text, MSGBOX_NPC)
+    end
+}
+text Skyloch_LittleBoy_Text{
+    "My daddy's teaching me how to fish!"
+}
+
+script Skyloch_Fisher{
+    msgbox(Skyloch_Fisher_Text, MSGBOX_NPC)
+    end
+}
+text Skyloch_Fisher_Text{
+    "Look at this sparkling lake!\p"
+    "There may not be a whole lot of\n"
+    "variety in this lake but that's\l"
+    "not stopping a true angler!\p"
+    "Who knows, maybe I'll even catch\n"
+    "a shiny Pokémon!"
+}
+script Skyloch_Man{
+    msgbox(Skyloch_Man_Text, MSGBOX_NPC)
+    end
+}
+text Skyloch_Man_Text{
+    "I saw a bunch of people clad in dark\n"
+    "heading west towards Shoreslate City.\l"
+    "They kind of looked like Team Rocket,\l"
+    "the evil organization from Kanto."
+}
+script Skyloch_OldWoman{
+    msgbox(Skyloch_OldWoman_Text, MSGBOX_NPC)
+    end
+}
+text Skyloch_OldWoman_Text{
+    "Are you visiting Skyloch or\n"
+    "simply passing through?\l"
+    "Either way, if your Pokémon are tired,\l"
+    "you should have a rest at the\l"
+    "Skyloch Rest House."
+}
+script SkylochInt_FatMan{
+    lock
+    faceplayer
+    if(!flag(FLAG_GIVENCASTELIACONE)){
+        msgbox(SkylochInt_FatMan_Text, MSGBOX_DEFAULT)
+        checkitem(ITEM_CASTELIACONE)
+        if(var(VAR_RESULT) == TRUE){
+            msgbox(SkylochInt_FatMan_TextContinued, MSGBOX_YESNO)
+            if(var(VAR_RESULT) == FALSE){
+                msgbox("Oh…", MSGBOX_NPC)
+                end
+            }
+            else{
+                removeitem(ITEM_CASTELIACONE, 1)
+                msgbox(SkylochInt_FatMan_TextThanks, MSGBOX_DEFAULT)
+                giveitem(ITEM_OCCA_BERRY, 1)
+                setflag(FLAG_GIVENCASTELIACONE)
+                waitfanfare
+                waitmessage
+                closemessage
+                release
+                end
+            }
+        }
+    }
+    else{
+        msgbox(SkylochInt_FatMan_GivenCone, MSGBOX_NPC)
+    }
+    waitmessage
+    closemessage
+    release
+    end
+}
+text SkylochInt_FatMan_Text{
+    "It's so hot…\p"
+    "I could really go for some\n"
+    "ice cream right now."
+}
+text SkylochInt_FatMan_TextContinued{
+    "Oh hey, I notice you have some\n"
+    "Casteliacone. Do you think\l"
+    "I could have one?"
+}
+text SkylochInt_FatMan_TextThanks{
+    "Thanks! Here, you can have this."
+}
+text SkylochInt_FatMan_GivenCone{
+    "Thanks for the refreshing Casteliacone!\n"
+    "I'm already feeling much better."
+}
+script SkylochInt_RestHouseOldWoman{
+    lock
+    faceplayer
+    msgbox(SkylochInt_RestHouseOldWoman_RestHere, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == TRUE){
+        goto(SkylochInt_RestHouseOldWoman_Rest)
+    }
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(SkylochInt_RestHouseOldWoman_DeclineRest, MSGBOX_DEFAULT)
+	    release
+	    end
+    }
+    end
+}
+script SkylochInt_RestHouseOldWoman_Rest{
+    msgbox(SkylochInt_RestHouseOldWoman_StartRest, MSGBOX_DEFAULT)
+    closemessage
+    call(Common_EventScript_OutOfCenterPartyHeal)
+    msgbox(SkylochInt_RestHouseOldWoman_RestDone, MSGBOX_DEFAULT)
+    waitmessage
+    closemessage
+    release
+    end
+}
+text SkylochInt_RestHouseOldWoman_RestHere{
+    "This is the Skyloch Rest House.\p"
+    "Your Pokémon must be weary.\n"
+    "Would you like to take a short rest?"
+}
+text SkylochInt_RestHouseOldWoman_StartRest{
+    "That's right.\n"
+    "Take your time and rest up."
+}
+text SkylochInt_RestHouseOldWoman_RestDone{
+    "If you or your Pokémon are\n"
+    "feeling weary, don't hesitate\l"
+    "to stop by to rest again."
+}
+text SkylochInt_RestHouseOldWoman_DeclineRest{
+    "Oh… Well, don't push yourself\n"
+    "too hard."
+}
+script SkylochInt_RestHouseWoman{
+    msgbox(SkylochInt_RestHouseWoman_Text, MSGBOX_NPC)
+    end
+}
+text SkylochInt_RestHouseWoman_Text{
+    "I'm taking my daughter to see\n"
+    "the museum exhibit in Aldeleaf City.\l"
+    "We're just stopping here to rest\l"
+    "for a while."
+}
+script SkylochInt_RestHouseGirl{
+    msgbox(SkylochInt_RestHouseGirl_Text, MSGBOX_NPC)
+    end
+}
+text SkylochInt_RestHouseGirl_Text{
+    "There's free juice in the fridge!"
+}
+script SkylochInt_RestHouseFridge{
+    if(flag(FLAG_SKYLOCH_JUICE)){
+        msgbox(SkylochInt_JuiceTaken, MSGBOX_SIGN)
+        end
+    }
+    checkitemspace(ITEM_BERRY_JUICE, 1)
+    if(var(VAR_RESULT) == TRUE){
+        giveitem(ITEM_BERRY_JUICE, 1)
+        setflag(FLAG_SKYLOCH_JUICE)
+        waitmessage
+        closemessage
+        end
+    } 
+    else{
+        msgbox(CantFitJuice, MSGBOX_SIGN)
+        end
+    }
+}
+text SkylochInt_JuiceTaken{
+    "You've already taken some berry juice.\n"
+    "Best save some for others."
+}
+text CantFitJuice{
+    "There's berry juice in the fridge.\p"
+    "You don't have enough room in\n"
+    "your bag to carry more."
+}
+script SkylochInt_OldHistorian{
+    msgbox(SkylochInt_OldHistorian_Text, MSGBOX_NPC)
+    end
+}
+text SkylochInt_OldHistorian_Text{
+    "To the east of Skyloch lies\n"
+    "the Scorched Desert.\l"
+    "According to legend, the\l"
+    "Scorched Desert isn't the result\l"
+    "of natural desertification.\p"
+    "It is said that there once used\n"
+    "to be a great kingdom there,\l"
+    "but one day in their hubris, they\l"
+    "angered a greater power that\l"
+    "wiped away their entire kingdom.\l"
+    "Not even the flora survived.\p"
+    "What being could cause such\n"
+    "destruction?"
+}
+
+script SkylochInt_PikachuWoman{
+    if(flag(FLAG_RECEIVED_LIGHTBALL)){
+        msgbox(SkylochMakeDecision, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    checkpartymon(SPECIES_RAICHU, 0)
+    if(var(VAR_RESULT) == TRUE){
+        checkpartymon(SPECIES_RAICHU_ALOLAN, 0)
+        if(var(VAR_RESULT) == TRUE){
+            msgbox(SkylochInt_PikachuWoman_2Raichus, MSGBOX_DEFAULT)
+            checkitemspace(ITEM_LIGHT_BALL)
+            if(var(VAR_RESULT) == FALSE){
+                msgbox(NotEnoughRoom, MSGBOX_NPC)
+                end
+            }
+            giveitem(ITEM_LIGHT_BALL)
+            setflag(FLAG_RECEIVED_LIGHTBALL)
+            msgbox(ExplainLightBall, MSGBOX_NPC)
+            end
+        }
+    }
+    msgbox(SkylochInt_PikachuWoman_Text, MSGBOX_DEFAULT)
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+text SkylochMakeDecision{
+    "Even though you showed me the two\n"
+    "different species of Raichu,\l"
+    "I'm still not sure what way I want\l"
+    "to evolve all my Pikachus…"
+}
+text SkylochInt_PikachuWoman_2Raichus{
+    "Oh, you seem to have two different\n"
+    "species of Raichu!\p"
+    "This will help me a lot with my\n"
+    "decision making!\p"
+    "To show my gratitude,\n"
+    "I want you to have this!"
+}
+text ExplainLightBall{
+    "Try giving that item to a Pikachu and\n"
+    "it will greatly increase its\l"
+    "offensive capabilities!"
+}
+
+text SkylochInt_PikachuWoman_Text{
+    "I really love Pikachu!\p"
+    "I've thought of evolving them but\n"
+    "I heard that Pikachu can evolve into\l"
+    "two different variations and\l"
+    "I'm not sure which one I like more.\p"
+    "Could you show me both of those\n"
+    "variations? I'll give you\l"
+    "something great in return."
+}
+script SkylochInt_Pikachu{
+    lock
+    faceplayer
+    waitse
+    playmoncry(SPECIES_PIKACHU, CRY_MODE_NORMAL)
+    msgbox("Pikachu: Pika pika!", MSGBOX_DEFAULT)
+    waitmoncry
+    release
+    end
+}

@@ -55,6 +55,35 @@ Kaolisle_Pianist_14:
 	end
 
 
+Kaolisle_Karatemaster::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_HM_ROCK_SMASH, Kaolisle_Karatemaster_2
+	msgbox LostMemento, MSGBOX_DEFAULT
+	checkitem ITEM_LOST_MEMENTO
+	compare VAR_RESULT, TRUE
+	goto_if_eq Kaolisle_Karatemaster_5
+Kaolisle_Karatemaster_4:
+	release
+	end
+
+Kaolisle_Karatemaster_2:
+	msgbox RockSmashMonComesOut_Text, MSGBOX_NPC
+	end
+
+Kaolisle_Karatemaster_5:
+	playse SE_PIN
+	applymovement 1, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 40
+	msgbox FoundMemento, MSGBOX_DEFAULT
+	giveitem ITEM_HM_ROCK_SMASH
+	setflag FLAG_RECEIVED_HM_ROCK_SMASH
+	removeitem ITEM_LOST_MEMENTO
+	msgbox ExplainRockSmash, MSGBOX_DEFAULT
+	goto Kaolisle_Karatemaster_4
+
+
 ListenToMePlay::
 	.string "I've been learning how to play\n"
 	.string "the piano.\p"
@@ -85,3 +114,15 @@ ThankYouForListening::
 
 ThankYouForListening2::
 	.string "Thanks again for the confidence boost.$"
+
+LostMemento::
+	.string "$"
+
+FoundMemento::
+	.string "$"
+
+ExplainRockSmash::
+	.string "$"
+
+RockSmashMonComesOut_Text::
+	.string "$"

@@ -79,4 +79,59 @@ text ThankYouForListening{
 }
 text ThankYouForListening2{
     "Thanks again for the confidence boost."
+}
+
+script Kaolisle_Karatemaster{
+    lock
+    faceplayer
+    if(flag(FLAG_RECEIVED_HM_ROCK_SMASH)){
+        msgbox(RockSmashMonComesOut_Text, MSGBOX_NPC)
+        end
     }
+    msgbox(LostMemento, MSGBOX_DEFAULT)
+    checkitem(ITEM_LOST_MEMENTO)
+    if(var(VAR_RESULT) == TRUE){
+        playse(SE_PIN)
+	    applymovement(1, Common_Movement_ExclamationMark)
+	    waitmovement(0)
+	    delay(40)
+        msgbox(FoundMemento, MSGBOX_DEFAULT)
+        giveitem(ITEM_HM_ROCK_SMASH)
+        setflag(FLAG_RECEIVED_HM_ROCK_SMASH)
+        removeitem(ITEM_LOST_MEMENTO)
+        msgbox(ExplainRockSmash, MSGBOX_DEFAULT)
+    }
+    release
+    end
+}
+
+text LostMemento{""}
+text FoundMemento{""}
+text ExplainRockSmash{""}
+text RockSmashMonComesOut_Text{""}
+
+// MauvilleCity_House1_Text_ImRockSmashDudeTakeThis:
+// 	.string "Woohoo!\p"
+// 	.string "I hear people call me the ROCK SMASH\n"
+// 	.string "GUY, but I find that sort of degrading.\p"
+// 	.string "I think I deserve a bit more respect,\n"
+// 	.string "like maybe the ROCK SMASH DUDE.\p"
+// 	.string "Woohoo!\p"
+// 	.string "Anyways, your POKéMON look pretty\n"
+// 	.string "strong.\p"
+// 	.string "I like that!\n"
+// 	.string "Here, take this HIDDEN MACHINE!$"
+
+// MauvilleCity_House1_Text_ExplainRockSmash:
+// 	.string "That HM contains ROCK SMASH.\p"
+// 	.string "If you come across large boulders\n"
+// 	.string "that block your path…\p"
+// 	.string "Well, use that HM move and smash\n"
+// 	.string "them right out of your way!\p"
+// 	.string "Yes, sir! Smash rocks aside, I say!\n"
+// 	.string "Woohoo!$"
+
+// MauvilleCity_House1_Text_MonCanFlyOutOfSmashedRock:
+// 	.string "Oh, yes, if you smash a rock, a POKéMON\n"
+// 	.string "could come flying out of hiding.\p"
+// 	.string "Woohoo!$"

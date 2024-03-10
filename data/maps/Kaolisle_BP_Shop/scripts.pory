@@ -37,56 +37,84 @@ text KaolisleShop_OldMan_Text{
 }
 
 script Kaolisle_BPShop_HoldItemClerk{
-	setvar(VAR_TEMP_2, EXCHANGE_CORNER_HOLD_ITEM_CLERK4)
+	setvar(VAR_TEMP_2, EXCHANGE_CORNER_HOLD_ITEM_CLERK5)
 	setvar(VAR_TEMP_3, 5)
 	goto(BPShop_HoldItemClerk) // Edit this script when adding new shops
 }
 
 script Kaolisle_BPShop_ChooseHoldItem{
-    setvar(VAR_0x8004, SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR4)
+    setvar(VAR_0x8004, SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR5)
     call(BPShop_SetupHoldItem)
     switch(var(VAR_RESULT)){
         case 0:
             setvar(VAR_0x8008, 16)
- 			setvar(VAR_0x8009, ITEM_BRIGHT_POWDER)
+ 			setvar(VAR_0x8009, ITEM_POWER_BRACER)
 			goto(BPShop_HeldItem)
         case 1:
             setvar(VAR_0x8008, 16)
- 			setvar(VAR_0x8009, ITEM_QUICK_CLAW)
+ 			setvar(VAR_0x8009, ITEM_POWER_BELT)
 			goto(BPShop_HeldItem)
         case 2:
 			setvar(VAR_0x8008, 16)
- 			setvar(VAR_0x8009, ITEM_SOOTHE_BELL)
+ 			setvar(VAR_0x8009, ITEM_POWER_LENS)
             goto(BPShop_HeldItem)
         case 3:
 			setvar(VAR_0x8008, 16)
- 			setvar(VAR_0x8009, ITEM_SCOPE_LENS)
+ 			setvar(VAR_0x8009, ITEM_POWER_BAND)
             goto(BPShop_HeldItem)
         case 4:
 			setvar(VAR_0x8008, 16)
- 			setvar(VAR_0x8009, ITEM_SHELL_BELL)
+ 			setvar(VAR_0x8009, ITEM_POWER_ANKLET)
             goto(BPShop_HeldItem)
         case 5:
 			setvar(VAR_0x8008, 16)
- 			setvar(VAR_0x8009, ITEM_MUSCLE_BAND)
+ 			setvar(VAR_0x8009, ITEM_POWER_WEIGHT)
             goto(BPShop_HeldItem)
         case 6:
-			setvar(VAR_0x8008, 16)
- 			setvar(VAR_0x8009, ITEM_WISE_GLASSES)
+			setvar(VAR_0x8008, 32)
+ 			setvar(VAR_0x8009, ITEM_DESTINY_KNOT)
             goto(BPShop_HeldItem)
         case 7:
-			setvar(VAR_0x8008, 16)
- 			setvar(VAR_0x8009, ITEM_WIDE_LENS)
+			setvar(VAR_0x8008, 32)
+ 			setvar(VAR_0x8009, ITEM_EVERSTONE)
             goto(BPShop_HeldItem)
         case 8:
-			setvar(VAR_0x8008, 16)
- 			setvar(VAR_0x8009, ITEM_ZOOM_LENS)
-            goto(BPShop_HeldItem)
-        case 9:
-            call(BPShop_ClerkGoodbye)
+			call(BPShop_ClerkGoodbye)
         case MULTI_B_PRESSED:
             call(BPShop_ClerkGoodbye)
     }
+}
+text Kaolisle_BPShop_PowerBracerDesc{
+    "Hold item that promotes Atk gain,\n"
+    "but reduces Speed."
+}
+text Kaolisle_BPShop_PowerBeltDesc{
+    "Hold item that promotes Def gain,\n"
+    "but reduces Speed."
+}
+text Kaolisle_BPShop_PowerLensDesc{
+    "Hold item that promotes Sp. Atk gain,\n"
+    "but reduces Speed."
+}
+text Kaolisle_BPShop_PowerBandDesc{
+    "Hold item that promotes Sp. Def gain,\n"
+    "but reduces Speed."
+}
+text Kaolisle_BPShop_PowerAnkletDesc{
+    "Hold item that promotes Spd gain,\n"
+    "but reduces Speed."
+}
+text Kaolisle_BPShop_PowerWeightDesc{
+    "A hold item that promotes HP gain,\n"
+    "but reduces Speed."
+}
+text Kaolisle_BPShop_DestinyKnotDesc{
+    "If the holder falls in love, the foe\n"
+    "does too."
+}
+text Kaolisle_BPShop_EverstoneDesc{
+    "A wondrous hold item that prevents\n"
+    "evolution."
 }
 
 script Kaolisle_BPShop_MoveTutor{

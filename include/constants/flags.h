@@ -47,9 +47,9 @@
 #define FLAG_UNUSED_GLADE                       0x22 // Sets the lost glade flag so the camper changes dialogue
 #define FLAG_DEFEATED_RIVAL_HARBOR              0x23 // Flag for defeating rival at coralgrove harbor. Also used to define whether the itemfinder has already been obtained
 #define FLAG_COASTTOWNHONEYGET                  0x24 // Flag for getting honey in azuretide town
-#define FLAG_NO_CATCHING                        0x25 // STOPS CATCHING WILD POKEMON
-#define FLAG_NO_WILD_RUNNING                    0x26 // Stops running from wild pokemon
-#define FLAG_TOGGLE_DOUBLE_WILDS                0x27 // Forces double wild battles
+#define FLAG_SYSTEM_NO_CATCHING                        0x25 // STOPS CATCHING WILD POKEMON
+#define FLAG_SYSTEM_NO_WILD_RUNNING                    0x26 // Stops running from wild pokemon
+#define FLAG_SYSTEM_TOGGLE_DOUBLE_WILDS                0x27 // Forces double wild battles
 #define FLAG_RECEIVED_TM_WILD_CHARGE            0x28 // Received wild charge from Volkner
 #define FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR2    0x29 // Aldeleaf BP Shop Move Tutor
 #define FLAG_ROUTE5_ITEM1                       0x2A // Route 5 item flags start
@@ -62,8 +62,8 @@
 #define FLAG_ROUTE5_HIDDENITEM4                 0x31 //
 #define FLAG_ROUTE5_HIDDENITEM5                 0x32 // Route 5 item flags end
 #define FLAG_INCREASED_SHINY_ODDS               0x33 // increase shiny odds
-#define FLAG_SKYLOCH_JUICE                      0x34 // Unused Flag
-#define FLAG_GIVENCASTELIACONE                  0x35 // Unused Flag
+#define FLAG_SKYLOCH_JUICE                      0x34 // 
+#define FLAG_GIVENCASTELIACONE                  0x35 // 
 #define FLAG_WW_GROTTO_CLEARED                  0x36 // Used to determine whether Windy Woods grotto has been cleared
 #define FLAG_ROUTE7_GROTTO_CLEARED              0x37 // Used to determine whether Route 7 grotto has been cleared
 #define FLAG_ROUTE8_ITEM1                       0x38 // Route 8 item flags
@@ -74,30 +74,30 @@
 #define FLAG_ROUTE8_ITEM6                       0x3D // 
 #define FLAG_HIDE_SHORESLATE_BOAT               0x3E // Hides shoreslate ferry until devon story is completed
 #define FLAG_HELPED_DEVON_CORP                  0x3F // End flag for the shoreslate devon quest
-#define FLAG_SHORESLATE_ITEM1                   0x40 // Unused Flag
-#define FLAG_GIVEN_CASTELIATOGIRL               0x41 // Unused Flag
-#define FLAG_RECEIVED_SHORESLATE_POTION         0x42 // Unused Flag
-#define FLAG_DEVON_UNDER_ATTACK                 0x43 // Unused Flag
-#define FLAG_DEVON_RESCUED                      0x44 // Unused Flag
-#define FLAG_DEVONCORP_BASEMENT_BALL            0x45 // Unused Flag
-#define FLAG_BASEMENT_SUPERPOTION               0x46 // Unused Flag
-#define FLAG_VISITED_MARIGORGE                  0x47 // Unused Flag
+#define FLAG_SHORESLATE_ITEM1                   0x40 // 
+#define FLAG_GIVEN_CASTELIATOGIRL               0x41 // 
+#define FLAG_RECEIVED_SHORESLATE_POTION         0x42 // 
+#define FLAG_DEVON_UNDER_ATTACK                 0x43 // 
+#define FLAG_DEVON_RESCUED                      0x44 // 
+#define FLAG_DEVONCORP_BASEMENT_BALL            0x45 // 
+#define FLAG_BASEMENT_SUPERPOTION               0x46 // 
+#define FLAG_VISITED_MARIGORGE                  0x47 // 
 #define FLAG_DESERT_STEPS                       0x48 // Used to measure steps taken in the desert
-#define FLAG_DESERT_RUINS_OPENED                0x49 // Unused Flag
-#define FLAG_KAOLISLE_GYM_SWITCH1               0x4A // Unused Flag
-#define FLAG_KAOLISLE_GYM_SWITCH2               0x4B // Unused Flag
-#define FLAG_KAOLISLE_GYM_SWITCH3               0x4C // Unused Flag
-#define FLAG_KAOLISLE_GYM_SWITCH4               0x4D // Unused Flag
-#define FLAG_KAOLISLE_PLAYINGPIANO    0x4E // Unused Flag
-#define FLAG_PIANOREWARD    0x4F // Unused Flag
+#define FLAG_DESERT_RUINS_OPENED                0x49 // 
+#define FLAG_KAOLISLE_GYM_SWITCH1               0x4A // 
+#define FLAG_KAOLISLE_GYM_SWITCH2               0x4B // 
+#define FLAG_KAOLISLE_GYM_SWITCH3               0x4C // 
+#define FLAG_KAOLISLE_GYM_SWITCH4               0x4D // 
+#define FLAG_KAOLISLE_PLAYINGPIANO              0x4E // 
+#define FLAG_PIANOREWARD                        0x4F // 
 
 // Scripts
-#define FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL  0x50
+#define FLAG_SYSTEM_NOREWARDBATTLES              0x50 // Unused Flag
 #define FLAG_SET_WALL_CLOCK                      0x51
 #define FLAG_RESCUED_BIRCH                       0x52
 #define FLAG_LEGENDARIES_IN_SOOTOPOLIS           0x53
 
-#define FLAG_UNUSED_0x054                    0x54  // Unused Flag
+#define FLAG_RECEIVED_LIGHTBALL                    0x54  // Received light ball after showing 2 raichus in skyloch village
 #define FLAG_UNUSED_0x055                    0x55  // Unused Flag
 
 #define FLAG_HIDE_CONTEST_POKE_BALL          0x56  // Always set after new game, object it hides is added directly
@@ -339,13 +339,13 @@
 #define FLAG_RECEIVED_AURORA_TICKET          0x13A
 #define FLAG_RECEIVED_MYSTIC_TICKET          0x13B
 #define FLAG_RECEIVED_OLD_SEA_MAP            0x13C
-#define FLAG_WONDER_CARD_UNUSED_1            0x13D // These Wonder Card flags are referenced but never set
-#define FLAG_WONDER_CARD_UNUSED_2            0x13E
-#define FLAG_WONDER_CARD_UNUSED_3            0x13F
-#define FLAG_WONDER_CARD_UNUSED_4            0x140
-#define FLAG_WONDER_CARD_UNUSED_5            0x141
-#define FLAG_WONDER_CARD_UNUSED_6            0x142
-#define FLAG_WONDER_CARD_UNUSED_7            0x143
+#define FLAG_KAOLISLE_ITEM1            0x13D // These Wonder Card flags are referenced but never set
+#define FLAG_KAOLISLE_ITEM2            0x13E
+#define FLAG_KAOLISLE_ITEM3            0x13F
+#define FLAG_KAOLISLE_ITEM4            0x140
+#define FLAG_KAOLISLE_ITEM5            0x141
+#define FLAG_KAOLISLE_ITEM6            0x142
+#define FLAG_KAOLISLE_ITEM7            0x143
 #define FLAG_WONDER_CARD_UNUSED_8            0x144
 #define FLAG_WONDER_CARD_UNUSED_9            0x145
 #define FLAG_WONDER_CARD_UNUSED_10           0x146

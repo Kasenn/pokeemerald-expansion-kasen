@@ -101,16 +101,6 @@ text Shoreslate_Mart_Secret_Text_4{
     "You may now devour me."
 }
 
-script Shoreslate_Mart_EventScript_Clerk{
-	lock
-	faceplayer
-	message(gText_HowMayIServeYou)
-	waitmessage
-	pokemart(Shoreslate_Mart_Pokemart)
-	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
-	release
-	end
-}
 script Shoreslate_Mart_EventScript_Clerk2{
 	lock
 	faceplayer
@@ -130,19 +120,6 @@ script Shoreslate_Mart_EventScript_Clerk3{
 	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 	release
 	end
-}
-mart Shoreslate_Mart_Pokemart{
-	ITEM_POKE_BALL
-    ITEM_GREAT_BALL
-    ITEM_POTION
-	ITEM_SUPER_POTION
-	ITEM_ANTIDOTE
-	ITEM_PARALYZE_HEAL
-	ITEM_AWAKENING
-    ITEM_BURN_HEAL
-    ITEM_ICE_HEAL
-    ITEM_REPEL
-	ITEM_NONE
 }
 
 mart Shoreslate_Mart_Pokemart2{
@@ -198,4 +175,175 @@ text gText_HowMayIServeYou3{
 text gText_HowMayIServeYou4{
     "You've never seen these things before!\n"
     "My prices are incense!"
+}
+
+script Kaolisle_Mart_Gentleman{
+    msgbox(Kaolisle_Mart_Gentleman_Text, MSGBOX_NPC)
+    end
+}
+text Kaolisle_Mart_Gentleman_Text{
+    "You can find mostly the same items\n"
+    "from every Poké Mart across Sinko.\p"
+    "By gaining more badges, you gain access\n"
+    "to an ever wider assortment of products."
+}
+
+script Kaolisle_Mart_Boy{
+    msgbox(Kaolisle_Mart_Boy_Text, MSGBOX_NPC)
+    end
+}
+text Kaolisle_Mart_Boy_Text{
+    "I can't find the products\n"
+    "I'm looking for…"
+}
+
+script Mart_Clerk{
+    lock
+	faceplayer
+	message(gText_HowMayIServeYou)
+	waitmessage
+    switch(var(VAR_BADGES_OBTAINED)){
+        case 0:
+            if(flag(FLAG_ADVENTURE_STARTED)){
+                pokemart(Mart_NoBadgesExpanded)
+            }
+            else{
+                pokemart(Mart_NoBadges)
+            }
+        case 1:
+            pokemart(Mart_1Badges)
+        case 2:
+            pokemart(Mart_2Badges)
+        case 3:
+            pokemart(Mart_3Badges)
+        case 4:
+            pokemart(Mart_3Badges)
+        case 5:
+            pokemart(Mart_5Badges)
+        case 6:
+            pokemart(Mart_5Badges)
+        case 7:
+            pokemart(Mart_7Badges)
+        case 8:
+            pokemart(Mart_8Badges)
+    }
+    msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+mart Mart_NoBadges{
+	ITEM_POTION
+	ITEM_ANTIDOTE
+	ITEM_NONE
+}
+mart Mart_NoBadgesExpanded{
+	ITEM_POKE_BALL
+	ITEM_POTION
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+	ITEM_NONE
+}
+mart Mart_1Badges{
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+	ITEM_POTION
+    ITEM_SUPER_POTION
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_REPEL
+	ITEM_NONE
+}
+mart Mart_2Badges{
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+	ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_REPEL
+	ITEM_NONE
+}
+mart Mart_3Badges{
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+	ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+	ITEM_NONE
+}
+mart Mart_5Badges{
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+	ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_FULL_HEAL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+	ITEM_NONE
+}
+mart Mart_7Badges{
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+	ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_MAX_POTION
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_FULL_HEAL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+	ITEM_NONE
+}
+mart Mart_8Badges{
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+	ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_MAX_POTION
+    ITEM_FULL_RESTORE
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_FULL_HEAL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+	ITEM_NONE
 }

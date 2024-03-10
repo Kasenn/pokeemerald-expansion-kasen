@@ -2047,3 +2047,9 @@ const u32 gItemIconPalette_Talisman[] = INCBIN_U32("graphics/items/icon_palettes
 
 const u32 gItemIcon_LostKey[] = INCBIN_U32("graphics/items/icons/lost_key.4bpp.lz");
 const u32 gItemIconPalette_LostKey[] = INCBIN_U32("graphics/items/icon_palettes/lost_key.gbapal.lz");
+
+const u32 gItemIcon_StoneSphere[] = INCBIN_U32("graphics/items/icons/stone_sphere.4bpp.lz");
+const u32 gItemIconPalette_StoneSphere[] = INCBIN_U32("graphics/items/icon_palettes/stone_sphere.gbapal.lz");
+
+const u32 gItemIcon_LostMemento[] = INCBIN_U32("graphics/items/icons/lost_memento.4bpp.lz");
+const u32 gItemIconPalette_LostMemento[] = INCBIN_U32("graphics/items/icon_palettes/lost_memento.gbapal.lz");
