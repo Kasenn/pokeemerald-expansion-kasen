@@ -73,7 +73,7 @@
 #define OBJ_EVENT_GFX_BARD                        69
 #define OBJ_EVENT_GFX_ANABEL                      70
 #define OBJ_EVENT_GFX_EXAMPLE6                    71
-#define OBJ_EVENT_GFX_GRETA                       72
+#define OBJ_EVENT_GFX_SPHEAL                       72
 #define OBJ_EVENT_GFX_ABRA                     73
 #define OBJ_EVENT_GFX_VOLCARONA                      74
 #define OBJ_EVENT_GFX_LUCY                        75
@@ -381,6 +381,7 @@
 #define OBJ_EVENT_PAL_ROCKET_ADMIN_M        0x1134
 #define OBJ_EVENT_PAL_VOLCARONA             0x1135
 #define OBJ_EVENT_PAL_ABRA                  0x1136
+#define OBJ_EVENT_PAL_SPHEAL                0x1137
 
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 

@@ -96,6 +96,7 @@ Debug_Script_2::
 	end
 
 Debug_Script_3::
+	setflag FLAG_OLDMAN_PEARLSTRING
 	setvar VAR_DESERT_BYPASS, 1
 	setvar VAR_BADGES_OBTAINED, 2
 	end

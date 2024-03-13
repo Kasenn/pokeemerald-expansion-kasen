@@ -1,172 +1,507 @@
-mapscripts KaolisleCity_MapScripts{}
+mapscripts KaolisleCity_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: RandomizeBrother
+}
 
-script KaolisleCity_GymGuide{
-    msgbox(KaolisleCity_GymGuide_Text, MSGBOX_NPC)
+script RandomizeBrother{
+    setflag(FLAG_VISITED_KAOLISLE)
+    if(flag(FLAG_BADGE03_GET)){
+        end
+    }
+    random(8)
+    copyvar(VAR_TEMP_3, VAR_RESULT)
+    switch(var(VAR_TEMP_3)){
+        case 0:
+            setobjectxyperm(30, 33, 3)
+            setobjectmovementtype(30, MOVEMENT_TYPE_FACE_UP)
+        case 1:
+            setobjectxyperm(30, 28, 26)
+            setobjectmovementtype(30, MOVEMENT_TYPE_FACE_UP)
+        case 2:
+            setobjectxyperm(30, 19, 43)
+            setobjectmovementtype(30, MOVEMENT_TYPE_FACE_UP)
+        case 3:
+            setobjectxyperm(30, 25, 51)
+            setobjectmovementtype(30, MOVEMENT_TYPE_FACE_DOWN)
+        case 4:
+            setobjectxyperm(30, 53, 52)
+            setobjectmovementtype(30, MOVEMENT_TYPE_FACE_UP)
+        case 5:
+            setobjectxyperm(30, 52, 61)
+            setobjectmovementtype(30, MOVEMENT_TYPE_FACE_RIGHT)
+        case 6:
+            setobjectxyperm(30, 18, 15)
+            setobjectmovementtype(30, MOVEMENT_TYPE_LOOK_AROUND)
+        case 7:
+            setobjectxyperm(30, 53, 25)
+            setobjectmovementtype(30, MOVEMENT_TYPE_FACE_RIGHT)
+    }
+}
+
+script Kaolisle_Brother{
+    lock
+    faceplayer
+    if(!flag(FLAG_KAOLISLE_BROTHER_INTRO)){
+        msgbox(Kaolisle_BrotherIntro, MSGBOX_DEFAULT)
+        setflag(FLAG_KAOLISLE_BROTHER_INTRO)
+    }
+    switch(var(VAR_TEMP_3)){
+        case 0:
+            turnobject(30, DIR_NORTH)
+            msgbox(KB_LookingTowardsPearlwood, MSGBOX_DEFAULT)
+        case 1:
+            msgbox(KB_VisitingGym, MSGBOX_NPC)
+        case 2:
+            msgbox(KB_PokeFanClub, MSGBOX_NPC)
+        case 3:
+            msgbox(KB_LesserBeach, MSGBOX_NPC)
+        case 4:
+            msgbox(KB_Hotel, MSGBOX_NPC)
+        case 5:
+            msgbox(KB_GreaterBeach, MSGBOX_NPC)
+        case 6:
+            msgbox(KB_BoringPlace, MSGBOX_NPC)
+        case 7:
+            turnobject(30, DIR_EAST)
+            msgbox(KB_IslandToTheEast, MSGBOX_DEFAULT)
+    }
     end
 }
-text KaolisleCity_GymGuide_Text{""}
+text Kaolisle_BrotherIntro{
+    "Thomas: Yo, {PLAYER}!\n"
+    "You finally caught up!\p"
+    "I've already defeated the Gym Leader\n"
+    "here and obtained my next badge.\p"
+    "I was going to take the ferry to\n"
+    "Rockliffe Town but apparently\l"
+    "there are some technical difficulties\l"
+    "which makes it impossible for the ferry\l"
+    "to currently dock in the harbor there.\p"
+    "To pass the time, I thought I'd tour\n"
+    "the city and see if there's anything\l"
+    "interesting going on.\p"
+    "Speaking of interesting…"
+}
+text KB_LookingTowardsPearlwood{
+    "Thomas: If I look real close, I think\n"
+    "I can see Pearlwood in the horizon.\p"
+    "We're so far away from home,\n"
+    "yet it feels like we only just left."
+}
+text KB_VisitingGym{
+    "Thomas: This is the Kaolisle City\n"
+    "Pokémon Gym.\p"
+    "I know, it doesn't look like your\n"
+    "average gym but I assure you,\l"
+    "the trainers there are no pushovers."
+}
+text KB_PokeFanClub{
+    "Thomas: Apparently this is some kind\n"
+    "of Pokémon Fan Club?\l"
+    "I don't really get the point.\p"
+    "Why coop up inside and talk about\n"
+    "Pokémon when you could be out there,\l"
+    "catching them and training them?"
+}
+text KB_LesserBeach{
+    "Thomas: This beach seems a bit\n"
+    "overgrown.\p"
+    "I don't mind it though.\p"
+    "It seems peaceful enough to\n"
+    "where you can have a relaxing time."
+}
+text KB_Hotel{
+    "Thomas: Ah, the Kaol Grand Resort.\n"
+    "Talk of the town.\p"
+    "There seem to be a lot of people here\n"
+    "this time of year.\p"
+    "I bet the prices are through the roof,\n"
+    "assuming you can even get a room."
+}
+text KB_GreaterBeach{
+    "Thomas: This looks like a nice beach.\n"
+    "Not a fan of the crowd though.\p"
+    "You know, if you have an Itemfinder,\n"
+    "it may not be a bad idea to comb through\l"
+    "the beach with it.\p"
+    "You never know what treasures the\n"
+    "ocean may have washed ashore."
+}
+text KB_BoringPlace{
+    "Thomas: I have to say, there's not\n"
+    "a whole lot going around here.\p"
+    "Sure, you can relax at the resort,\n"
+    "but where's all the fun stuff?\l"
+    "Where's all the activities?"
+}
+text KB_IslandToTheEast{
+    "Thomas: There seems to be an island\n"
+    "to the east of here with a house on it.\p"
+    "Wonder who would build a house\n"
+    "in such a hard-to-reach place…"
+}
 
 script KaolisleCity_Sailor{
     msgbox(KaolisleCity_Sailor_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_Sailor_Text{""}
+text KaolisleCity_Sailor_Text{
+    "The ocean around Kaolisle looks so huge\n"
+    "and endless, but thanks to the great\l"
+    "ferry system, you can get to the other\l"
+    "cities in no time!"
+}
 
 script KaolisleCity_NinjaBoy{
     msgbox(KaolisleCity_NinjaBoy_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_NinjaBoy_Text{""}
+text KaolisleCity_NinjaBoy_Text{
+    "You can fit absolutely anything inside\n"
+    "of a trainer's bag, huh!\p"
+    "If it was me, I'd sure like to tuck\n"
+    "myself in a bag and tag along on\l"
+    "someone's adventure!"
+
+}
 
 script KaolisleCity_Woman2{
     msgbox(KaolisleCity_Woman2_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_Woman2_Text{""}
+text KaolisleCity_Woman2_Text{
+    "Looking for the Pokémon Gym?\p"
+    "Just look for a way downstairs to the\n"
+    "giant quarry in the middle of the city.\l"
+    "You can't miss it!"
+}
 
 script KaolisleCity_Boy3{
     msgbox(KaolisleCity_Boy3_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_Boy3_Text{""}
+text KaolisleCity_Boy3_Text{
+    "If you're buying Poké Balls at a Poké\n"
+    "Mart, you should buy them in sets of 10!"
+}
 
 script KaolisleCity_Boy3_Couple{
     msgbox(KaolisleCity_Boy3_Couple_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_Boy3_Couple_Text{""}
+text KaolisleCity_Boy3_Couple_Text{
+    "I've never been that great of\n"
+    "a trainer.\p"
+    "I hope that by enrolling in the\n"
+    "Trainers' School, I can change that."
+}
 
 script KaolisleCity_Lass_Couple{
     msgbox(KaolisleCity_Lass_Couple_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_Lass_Couple_Text{""}
+text KaolisleCity_Lass_Couple_Text{
+    "Have you heard of the Coralgrove\n"
+    "Trainers' School?\p"
+    "My boyfriend and I are planning on\n"
+    "enrolling there!"
+}
 
 script KaolisleCity_ExpertM{
+    if(!flag(FLAG_REVEAL_PEARLSTRING)){
+        clearflag(FLAG_OLDMAN_PEARLSTRING)
+    }
     msgbox(KaolisleCity_ExpertM_Text, MSGBOX_NPC)
+    setflag(FLAG_REVEAL_PEARLSTRING)
     end
 }
-text KaolisleCity_ExpertM_Text{""}
+text KaolisleCity_ExpertM_Text{
+    "I think I can see Coralgrove\n"
+    "Archipelago if I squint real hard.\p"
+    "I remember I used to visit my friends\n"
+    "who lived there long time ago.\p"
+    "One summer day I found this real\n"
+    "beautiful star piece on a beach\l"
+    "at Route 1.\p"
+    "My mother told me it probably belonged\n"
+    "to someone and I should leave it there.\l"
+    "I wonder if anyone ever picked it up…"
+}
 
 script KaolisleCity_Zigzagoon_Child{
     msgbox(KaolisleCity_Zigzagoon_Child_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_Zigzagoon_Child_Text{""}
+text KaolisleCity_Zigzagoon_Child_Text{
+    "Zigzagoon is so cute!\p"
+    "I heard some places have really\n"
+    "mean-looking Zigzagoons.\l"
+    "Glad we don't have them!"
+}
 
 script KaolisleCity_OldMan{
     msgbox(KaolisleCity_OldMan_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_OldMan_Text{""}
+text KaolisleCity_OldMan_Text{
+    "As they say…\p"
+    "There are plenty of Pokémon in the sea.\p"
+    "Say, how many Pokémon do you think\n"
+    "there are in the world?"
+}
 
 script KaolisleCity_Gentleman{
     msgbox(KaolisleCity_Gentleman_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_Gentleman_Text{""}
+text KaolisleCity_Gentleman_Text{
+    "The Grand Resort attracts people\n"
+    "from all walks of life.\p"
+    "If you're patient, you might even\n"
+    "see a glimpse of someone famous!"
+}
 
 script KaolisleCity_Fisher1{
+    if(flag(FLAG_QUEST_FOR_GOOD_ROD)){
+        msgbox(KaolisleCity_Fisher1_Text2, MSGBOX_NPC)
+        end
+    }
     msgbox(KaolisleCity_Fisher1_Text, MSGBOX_NPC)
+    setflag(FLAG_QUEST_FOR_GOOD_ROD)
     end
 }
-text KaolisleCity_Fisher1_Text{""}
+text KaolisleCity_Fisher1_Text{
+    "I've been fishing here for a while but\n"
+    "so far my luck has been abysmal.\p"
+    "I bet it's because I left my lucky\n"
+    "fishing rod at home.\p"
+    "Would you do me a favor and fetch it\n"
+    "for me? I promise I'll make it worth\l"
+    "your while.\p"
+    "I live in Sandstone City, right across\n"
+    "the street from the Poké Center.\p"
+    "My wife probably won't give the rod\n"
+    "to just anyone.\p"
+    "Tell her that Clancy sent you and\n"
+    "she'll know."
+}
+text KaolisleCity_Fisher1_Text2{
+    "Again, I live in Sandstone City,\n"
+    "right across the street from\l"
+    "the Poké Center.\p"
+    "My wife probably won't give the rod\n"
+    "to just anyone.\p"
+    "Tell her that Clancy sent you and\n"
+    "she'll know."
+}
 
 script KaolisleCity_Fisher2{
     msgbox(KaolisleCity_Fisher2_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_Fisher2_Text{""}
+text KaolisleCity_Fisher2_Text{
+    "This place is swarming with\n"
+    "rare fish!\p"
+    "I hope you brought something better\n"
+    "than an Old Rod!"
+}
 
 script KaolisleCity_Fisher3{
     msgbox(KaolisleCity_Fisher3_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_Fisher3_Text{""}
+text KaolisleCity_Fisher3_Text{
+    "This is my secret spot.\p"
+    "Shoo, before you scare all the\n"
+    "fish away!"
+}
 
 script KaolisleCity_Fisher4{
     msgbox(KaolisleCity_Fisher4_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_Fisher4_Text{""}
+text KaolisleCity_Fisher4_Text{
+    "A friend of mine said they once reeled\n"
+    "in a Finizen.\p"
+    "I know there are some rare fish in\n"
+    "these waters but I don't think I've ever\l"
+    "witnessed someone actually fishing up\l"
+    "any Paldean Pokémon."
+}
 
 script KaolisleCity_TriathleteF{
     msgbox(KaolisleCity_TriathleteF_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_TriathleteF_Text{""}
+text KaolisleCity_TriathleteF_Text{
+    "There are two beaches in Kaolisle.\p"
+    "The other one is full to the brim\n"
+    "with tourists, so I'd rather jog here."
+}
 
 script KaolisleCity_LittleGirl{
     msgbox(KaolisleCity_LittleGirl_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_LittleGirl_Text{""}
+text KaolisleCity_LittleGirl_Text{
+    "Dad told me I'm not allowed in the\n"
+    "ocean so I'm stuck in this little pool…"
+}
 
 script KaolisleCity_Sailor2{
     msgbox(KaolisleCity_Sailor2_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_Sailor2_Text{""}
+text KaolisleCity_Sailor2_Text{
+    "All these rich people with their\n"
+    "yachts…\p"
+    "… … … …\p"
+    "Not going to lie,\n"
+    "I wish I could afford one…"
+}
 
 script KaolisleCity_TuberChasing1{
     msgbox(KaolisleCity_TuberChasing1_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_TuberChasing1_Text{""}
+text KaolisleCity_TuberChasing1_Text{
+    "Am I chasing my brother or is\n"
+    "my brother chasing me?\p"
+    "Who cares.\n"
+    "The main thing is to have fun."
+}
 
 script KaolisleCity_TuberChasing2{
     msgbox(KaolisleCity_TuberChasing2_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_TuberChasing2_Text{""}
+text KaolisleCity_TuberChasing2_Text{
+    "Whee!"
+}
 
 script KaolisleCity_TuberTalking1{
-    msgbox(KaolisleCity_TuberTalking1_Text, MSGBOX_NPC)
+    if(flag(FLAG_OBTAINED_BEACHBALL)){
+        msgbox(WasFunGame, MSGBOX_NPC)
+        end
+    }
+    lockall
+    faceplayer
+    if(flag(FLAG_TEMP_3)){
+        msgbox(CareToTryAgain, MSGBOX_DEFAULT)
+    }
+    else{
+        msgbox(KaolisleCity_TuberTalking1_Text, MSGBOX_DEFAULT)
+    }
+    setflag(FLAG_TEMP_3)
+    multichoice(23, 0, MULTI_WHICHONEWOULDWIN, 1)
+    if(var(VAR_RESULT) == 0){
+        waitse
+        playse(SE_FAILURE)
+        msgbox(BeachWrongAnswer, MSGBOX_NPC)
+        end
+    }
+    else{
+        waitse
+        playse(SE_SUCCESS)
+        msgbox(BeachCorrectAnswer, MSGBOX_DEFAULT)
+        giveitem(ITEM_DIVE_BALL)
+        setflag(FLAG_OBTAINED_BEACHBALL)
+    }
+    closemessage
+    release
     end
 }
-text KaolisleCity_TuberTalking1_Text{""}
+text CareToTryAgain{
+    "Want to guess again?"
+}
+text KaolisleCity_TuberTalking1_Text{
+    "We found this cool treasure\n"
+    "in the sand.\p"
+    "You can have it if you can answer\n"
+    "our question correctly.\p"
+    "The question is:\p"
+    "Which one would win in a fight:\n"
+    "Hyper Mega Ultra Dyna Charizard Z,\l"
+    "or a Wobbuffet?"
+}
+text BeachWrongAnswer{
+    "Wrong! The treasure is ours!"
+}
+text BeachCorrectAnswer{
+    "Yay, you got it right!\n"
+    "Here you go!"
+}
+text WasFunGame{
+    "Let's play again soon!"
+}
 
 script KaolisleCity_TuberTalking2{
     msgbox(KaolisleCity_TuberTalking2_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_TuberTalking2_Text{""}
+text KaolisleCity_TuberTalking2_Text{
+    "He always does this…"
+}
 
 script KaolisleCity_TuberLearning{
     msgbox(KaolisleCity_TuberLearning_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_TuberLearning_Text{""}
-
+text KaolisleCity_TuberLearning_Text{
+    "My big sister is teaching me to swim!"
+}
 script KaolisleCity_SwimTeacher{
     msgbox(KaolisleCity_SwimTeacher_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_SwimTeacher_Text{""}
+text KaolisleCity_SwimTeacher_Text{
+    "I'm teaching my little sister\n"
+    "how to swim.\l"
+    "I'd say it's going swimmingly."
+}
 
 script KaolisleCity_Father{
     msgbox(KaolisleCity_Father_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_Father_Text{""}
+text KaolisleCity_Father_Text{
+    "Children and Pokémon should always\n"
+    "be full of energy.\l"
+    "That's the way they're meant to be!"
+}
 
 script KaolisleCity_Mother{
     msgbox(KaolisleCity_Mother_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_Mother_Text{""}
+text KaolisleCity_Mother_Text{
+    "You've got a real sweet kind of face,\n"
+    "don't you?\p"
+    "I bet old ladies like to\n"
+    "give you candy."
+}
 
 script KaolisleCity_Swimmer{
     msgbox(KaolisleCity_Swimmer_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_Swimmer_Text{""}
+text KaolisleCity_Swimmer_Text{
+    "For some, holiday is a time of relaxing.\n"
+    "Not for me though!"
+}
 
 script KaolisleCity_Scott{
     msgbox(KaolisleCity_Scott_Text, MSGBOX_NPC)
     end
 }
-text KaolisleCity_Scott_Text{""}
+text KaolisleCity_Scott_Text{
+    "I'm a real man of the seas and I\n"
+    "consider it my duty to keep\l"
+    "people safe!\p"
+    "So here's my warning to you:\p"
+    "Most of the people you find swimming\n"
+    "around are trainers.\l"
+    "Stay safe and be prepared!"
+}
 
 script KaolisleCity_Zigzagoon{
 	lock
@@ -200,8 +535,20 @@ script KaolisleCity_SignIntro{
     end
 }
 
-text KaolisleCity_SignHarbor_Text{""}
-text KaolisleCity_SignGym_Text{""}
-text KaolisleCity_SignHotel_Text{""}
-text KaolisleCity_SignFanClub_Text{""}
-text KaolisleCity_SignIntro_Text{""}
+text KaolisleCity_SignHarbor_Text{
+    "Kaolisle Harbor"
+}
+text KaolisleCity_SignGym_Text{
+    "Kaolisle City Pokémon Gym\n"
+	"Leader: Clay"
+}
+text KaolisleCity_SignHotel_Text{
+    "Kaol Grand Resort"
+}
+text KaolisleCity_SignFanClub_Text{
+    "Kaolisle City Pokémon Fan Club"
+}
+text KaolisleCity_SignIntro_Text{
+    "KAOLISLE CITY\n"
+    "“The cleanest city in the world.”"
+}

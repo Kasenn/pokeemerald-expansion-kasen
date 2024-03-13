@@ -84,6 +84,21 @@ Kaolisle_Karatemaster_5:
 	goto Kaolisle_Karatemaster_4
 
 
+Kaolisle_SphealHouseLady::
+	msgbox Kaolisle_SphealHouseLady_Text, MSGBOX_NPC
+	end
+
+
+Kaolisle_House4_Man::
+	msgbox Kaolisle_House4_Man_Text, MSGBOX_NPC
+	end
+
+
+Kaolisle_House4_Woman::
+	msgbox Kaolisle_House4_Woman_Text, MSGBOX_NPC
+	end
+
+
 ListenToMePlay::
 	.string "I've been learning how to play\n"
 	.string "the piano.\p"
@@ -116,13 +131,64 @@ ThankYouForListening2::
 	.string "Thanks again for the confidence boost.$"
 
 LostMemento::
-	.string "$"
+	.string "You look like a strong trainer.\p"
+	.string "That means you must have been to\n"
+	.string "numerous places.\p"
+	.string "Tell me, have you come across any\n"
+	.string "old pendants?\p"
+	.string "A dear friend once gifted me a pendant\n"
+	.string "but I seem to have misplaced it and\l"
+	.string "have no idea where it could have gone…\p"
+	.string "Please, if you find it,\n"
+	.string "could you let me know?$"
 
 FoundMemento::
-	.string "$"
+	.string "That pendant…!\p"
+	.string "Yes, that's the pendant I “lost”!\p"
+	.string "I'm a retired karate master and\n"
+	.string "you have just passed my test!\p"
+	.string "Yes, I left that pendant at the end of\n"
+	.string "the mines on purpose to see if anyone\l"
+	.string "would be able to retrieve it for me.\p"
+	.string "The mines are definitely no pushover,\n"
+	.string "so seeing how you were able to return\l"
+	.string "with the pendant tells me you were able\l"
+	.string "to brave the dangers of that mine and\l"
+	.string "return here safely.\p"
+	.string "That means you and your Pokémon are\n"
+	.string "worthy of my teachings!\l"
+	.string "Here, have this Hidden Machine!$"
 
 ExplainRockSmash::
-	.string "$"
+	.string "That HM contains the move Rock Smash.\p"
+	.string "If you come across large boulders\n"
+	.string "that block your path…\p"
+	.string "Well, use that HM move and smash\n"
+	.string "them right out of your way!\p$"
 
 RockSmashMonComesOut_Text::
-	.string "$"
+	.string "Oh, yes, when you smash a rock,\n"
+	.string "there's a chance a Pokémon could come\l"
+	.string "flying out of hiding!\l"
+	.string "Do make sure you're prepared!$"
+
+Kaolisle_SphealHouseLady_Text::
+	.string "Seeing the spheal playing with each\n"
+	.string "other really soothes the soul.\p"
+	.string "I have places to be but I dare not\n"
+	.string "break up their play.$"
+
+Kaolisle_House4_Man_Text::
+	.string "Kaolisle is known for its holiday resort\n"
+	.string "as well as its mining operation.\p"
+	.string "The mining is handled by Pokémon and\n"
+	.string "there are zero machinery at work,\l"
+	.string "which makes the mines practically\l"
+	.string "pollution free, allowing the mines\l"
+	.string "and the resort to co-exist peacefully.$"
+
+Kaolisle_House4_Woman_Text::
+	.string "Have you noticed the white cliffs of\n"
+	.string "Kaolisle City?\p"
+	.string "There are certain minerals in the\n"
+	.string "ground that give it its unique color.$"

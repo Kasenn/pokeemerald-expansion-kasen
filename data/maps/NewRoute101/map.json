@@ -131,6 +131,14 @@
       "elevation": 0,
       "item": "ITEM_SUPER_POTION",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE1_SUPERPOTION"
+    },
+    {
+      "type": "hidden_item",
+      "x": 41,
+      "y": 19,
+      "elevation": 0,
+      "item": "ITEM_PEARL_STRING",
+      "flag": "FLAG_OLDMAN_PEARLSTRING"
     }
   ]
 }

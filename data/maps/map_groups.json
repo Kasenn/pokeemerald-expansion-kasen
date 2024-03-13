@@ -709,6 +709,7 @@
     "Route119_House"
   ],
   "gMapGroup_OldAreas": [
+    "TestRoom",
     "PetalburgCity",
     "SlateportCity",
     "MauvilleCity",
@@ -765,8 +766,7 @@
     "Underwater_Route128",
     "Underwater_Route129",
     "Underwater_Route105",
-    "Underwater_Route125",
-    "TestRoom"
+    "Underwater_Route125"
   ],
   "gMapGroup_IndoorRoute124": [
 
