@@ -1,0 +1,443 @@
+mapscripts Kaolisle_FishingAssociation_MapScripts{
+    MAP_SCRIPT_ON_LOAD: SetFanClubTrade
+    MAP_SCRIPT_ON_TRANSITION: SetFanClubTrade
+}
+
+script SetFanClubTrade{
+    if((flag(FLAG_TRADED_GROWLITHE))
+    && (flag(FLAG_TRADED_VOLTORB))
+    && (flag(FLAG_TRADED_QWILFISH))
+    && (flag(FLAG_TRADED_SNEASEL))
+    && (flag(FLAG_TRADED_ZORUA))
+    && (flag(FLAG_TRADED_BULBASAUR))
+    && (flag(FLAG_TRADED_CHARMANDER))
+    && (flag(FLAG_TRADED_SQUIRTLE))){
+        setflag(FLAG_FANCLUB_TRADESOVER)
+    }
+    if((flag(FLAG_DAILY_FANCLUBTRADE)) || (flag(FLAG_FANCLUB_TRADESOVER))){
+        end
+    }
+    random(8)
+    copyvar(VAR_FANCLUB_TRADE, VAR_RESULT)
+    setflag(FLAG_DAILY_FANCLUBTRADE)
+    call(RandomizeFanClubTrader)
+    end
+}
+
+script RandomNumberFanClub{
+    random(8)
+    copyvar(VAR_FANCLUB_TRADE, VAR_RESULT)
+    goto(RandomizeFanClubTrader)
+    end
+}
+
+script RandomizeFanClubTrader{
+    switch(var(VAR_FANCLUB_TRADE)){
+        case 0:
+            if(flag(FLAG_TRADED_GROWLITHE)){
+                goto(RandomNumberFanClub)}
+            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_POKEFAN_M)
+        case 1:
+            if(flag(FLAG_TRADED_VOLTORB)){
+                goto(RandomNumberFanClub)}
+            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAN_5)
+        case 2:
+            if(flag(FLAG_TRADED_QWILFISH)){
+                goto(RandomNumberFanClub)}
+            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MANIAC)
+        case 3:
+            if(flag(FLAG_TRADED_SNEASEL)){
+                goto(RandomNumberFanClub)}
+            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_NINJA_BOY)
+        case 4:
+            if(flag(FLAG_TRADED_ZORUA)){
+                goto(RandomNumberFanClub)}
+            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_GENTLEMAN)
+        case 5:
+            if(flag(FLAG_TRADED_BULBASAUR)){
+                goto(RandomNumberFanClub)}
+            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_WOMAN_2)
+        case 6:
+            if(flag(FLAG_TRADED_CHARMANDER)){
+                goto(RandomNumberFanClub)}
+            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_CAMPER)
+        case 7:
+            if(flag(FLAG_TRADED_SQUIRTLE)){
+                goto(RandomNumberFanClub)}
+            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_FISHERMAN)
+    }
+    return
+}
+
+script Kaolisle_FanClub_Boy{
+    msgbox(Kaolisle_FanClub_Boy_Text, MSGBOX_NPC)
+    end
+}
+text Kaolisle_FanClub_Boy_Text{
+    "Pokémon are very sensitive to\n"
+	"the feelings of their trainers.\p"
+	"If you treat your Pokémon with love\n"
+	"and care, they'll love you back."
+}
+
+script Kaolisle_FanClub_Woman{
+    msgbox(Kaolisle_FanClub_Woman_Text, MSGBOX_NPC)
+    end
+}
+text Kaolisle_FanClub_Woman_Text{
+    "Have you seen the outfit the\n"
+    "Pokémon League Champion wears?\l"
+    "It is absolutely gorgeous!"
+}
+
+script Kaolisle_FanClub_Lass{
+    msgbox(Kaolisle_FanClub_Lass_Text, MSGBOX_NPC)
+    end
+}
+text Kaolisle_FanClub_Lass_Text{
+    "I can't believe the types of Pokémon\n"
+    "some of those Pokémon League\l"
+    "Elite Four trainers use.\p"
+    "I don't think some of those have\n"
+    "ever been seen in a League before!"
+}
+
+script Kaolisle_FanClub_LittleGirl{
+    msgbox(Kaolisle_FanClub_LittleGirl_Text, MSGBOX_NPC)
+    end
+}
+text Kaolisle_FanClub_LittleGirl_Text{
+    "My Spheal is the cutest!\p"
+    "It's so round and soft and cuddly and\n"
+    "friendly and happy and huggable and…"
+}
+script Kaolisle_FanClub_Spheal{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_SPHEAL, CRY_MODE_NORMAL)
+	msgbox(Kaolisle_FanClub_Spheal_Text, MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+text Kaolisle_FanClub_Spheal_Text{
+    "Spheal: Sphen!"
+}
+script Kaolisle_FanClub_NinjaBoy{
+    msgbox(Kaolisle_FanClub_NinjaBoy_Text, MSGBOX_NPC)
+    end
+}
+text Kaolisle_FanClub_NinjaBoy_Text{
+    "That Spheal is pretty cute, but it's\n"
+    "nowhere near as cool as my Poochyena!"
+}
+script Kaolisle_FanClub_Poochyena{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_POOCHYENA, CRY_MODE_NORMAL)
+	msgbox(Kaolisle_FanClub_Poochyena_Text, MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+text Kaolisle_FanClub_Poochyena_Text{
+    "Bow! Bowwow!"
+}
+script Kaolisle_FanClub_Man{
+    msgbox(Kaolisle_FanClub_Man_Text, MSGBOX_NPC)
+    end
+}
+text Kaolisle_FanClub_Man_Text{
+    "If you keep letting a Pokémon faint\n"
+	"in battle, it'll come to resent it.\p"
+	"Soon, it will become less trusting\n"
+	"of the trainer.\p"
+	"In other words, it certainly won't\n"
+	"like you very much."
+}
+script Kaolisle_FanClub_Interviewer{
+    msgbox(Kaolisle_FanClub_Interviewer_Text, MSGBOX_NPC)
+    end
+}
+text Kaolisle_FanClub_Interviewer_Text{
+	"Do Pokémon enjoy having items used\n"
+	"on them?\p"
+	"Mine acted really happy when I gave\n"
+	"it some Protein."    
+}
+script Kaolisle_FanClub_ExpertF{
+    msgbox(Kaolisle_FanClub_ExpertF_Text, MSGBOX_NPC)
+    end
+}
+text Kaolisle_FanClub_ExpertF_Text{
+    "Welcome to the Kaolisle Pokémon\n"
+    "Fan Club.\p"
+    "Many trainers like to gather here to\n"
+    "talk about Pokémon and do all sorts of\l"
+    "Pokémon related activities.\p"
+    "One thing people here like to do is\n"
+    "trade Pokémon.\p"
+    "Almost every day there's somebody\n"
+    "different here looking to trade.\p"
+    "If you too would like to trade,\n"
+    "just talk to the person sitting\l"
+    "at the table."
+}
+
+script Kaolisle_FanClub_Trader{
+    switch(var(VAR_FANCLUB_TRADE)){
+        case 0:
+            call(TradeGrowlithe)
+        case 1:
+            call(TradeVoltorb)
+        case 2:
+            call(TradeQwilfish)
+        case 3:
+            call(TradeSneasel)
+        case 4:
+            call(TradeZorua)
+        case 5:
+            call(TradeBulbasaur)
+        case 6:
+            call(TradeCharmander)
+        case 7:
+            call(TradeSquirtle)
+    }
+}
+script FanClub_TradeSetup{
+    goto_if_eq(VAR_RESULT, NO, FanClub_TradeDecline)
+    special(ChoosePartyMon)
+	waitstate
+	goto_if_eq(VAR_0x8004, PARTY_NOTHING_CHOSEN, FanClub_TradeDecline)
+	copyvar(VAR_0x8005, VAR_0x8004)
+	specialvar(VAR_RESULT, GetTradeSpecies)
+	goto_if_ne(VAR_RESULT, VAR_0x8009, FanClub_NotRequestedMon)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	special(CreateInGameTradePokemon)
+	special(DoInGameTradeScene)
+	waitstate
+    msgbox(Fanclub_TradeThanks, MSGBOX_DEFAULT)
+    return
+}
+script TradeGrowlithe{
+    lockall
+    faceplayer
+    goto_if_set(FLAG_TRADED_GROWLITHE, FanClubTradeCompleted)
+    setvar(VAR_0x8008, INGAME_TRADE_GROWLITHE)
+    copyvar(VAR_0x8004, VAR_0x8008)
+    specialvar(VAR_0x8009, GetInGameTradeSpeciesInfo)
+    msgbox(FanClub_WantToTradeGrowlithe, MSGBOX_YESNO)
+    call(FanClub_TradeSetup)
+	setflag(FLAG_TRADED_GROWLITHE)
+	release
+	end
+}
+script TradeVoltorb{
+    lockall
+    faceplayer
+    goto_if_set(FLAG_TRADED_VOLTORB, FanClubTradeCompleted)
+    setvar(VAR_0x8008, INGAME_TRADE_VOLTORB)
+    copyvar(VAR_0x8004, VAR_0x8008)
+    specialvar(VAR_0x8009, GetInGameTradeSpeciesInfo)
+    msgbox(FanClub_WantToTradeVoltorb, MSGBOX_YESNO)
+    call(FanClub_TradeSetup)
+	setflag(FLAG_TRADED_VOLTORB)
+	release
+	end
+}
+script TradeQwilfish{
+    lockall
+    faceplayer
+    goto_if_set(FLAG_TRADED_QWILFISH, FanClubTradeCompleted)
+    setvar(VAR_0x8008, INGAME_TRADE_QWILFISH)
+    copyvar(VAR_0x8004, VAR_0x8008)
+    specialvar(VAR_0x8009, GetInGameTradeSpeciesInfo)
+    msgbox(FanClub_WantToTradeQwilfish, MSGBOX_YESNO)
+    call(FanClub_TradeSetup)
+	setflag(FLAG_TRADED_QWILFISH)
+	release
+	end
+}
+script TradeSneasel{
+    lockall
+    faceplayer
+    goto_if_set(FLAG_TRADED_SNEASEL, FanClubTradeCompleted)
+    setvar(VAR_0x8008, INGAME_TRADE_SNEASEL)
+    copyvar(VAR_0x8004, VAR_0x8008)
+    specialvar(VAR_0x8009, GetInGameTradeSpeciesInfo)
+    msgbox(FanClub_WantToTradeSneasel, MSGBOX_YESNO)
+    call(FanClub_TradeSetup)
+	setflag(FLAG_TRADED_SNEASEL)
+	release
+	end
+}
+script TradeZorua{
+    lockall
+    faceplayer
+    goto_if_set(FLAG_TRADED_ZORUA, FanClubTradeCompleted)
+    setvar(VAR_0x8008, INGAME_TRADE_ZORUA)
+    copyvar(VAR_0x8004, VAR_0x8008)
+    specialvar(VAR_0x8009, GetInGameTradeSpeciesInfo)
+    msgbox(FanClub_WantToTradeZorua, MSGBOX_YESNO)
+    call(FanClub_TradeSetup)
+	setflag(FLAG_TRADED_ZORUA)
+	release
+	end
+}
+script TradeBulbasaur{
+    lockall
+    faceplayer
+    goto_if_set(FLAG_TRADED_BULBASAUR, FanClubTradeCompleted)
+    setvar(VAR_0x8008, INGAME_TRADE_BULBASAUR)
+    copyvar(VAR_0x8004, VAR_0x8008)
+    specialvar(VAR_0x8009, GetInGameTradeSpeciesInfo)
+    msgbox(FanClub_WantToTradeBulbasaur, MSGBOX_YESNO)
+    call(FanClub_TradeSetup)
+	setflag(FLAG_TRADED_BULBASAUR)
+	release
+	end
+}
+script TradeCharmander{
+    lockall
+    faceplayer
+    goto_if_set(FLAG_TRADED_CHARMANDER, FanClubTradeCompleted)
+    setvar(VAR_0x8008, INGAME_TRADE_CHARMANDER)
+    copyvar(VAR_0x8004, VAR_0x8008)
+    specialvar(VAR_0x8009, GetInGameTradeSpeciesInfo)
+    msgbox(FanClub_WantToTradeCharmander, MSGBOX_YESNO)
+    call(FanClub_TradeSetup)
+	setflag(FLAG_TRADED_CHARMANDER)
+	release
+	end
+}
+script TradeSquirtle{
+    lockall
+    faceplayer
+    goto_if_set(FLAG_TRADED_SQUIRTLE, FanClubTradeCompleted)
+    setvar(VAR_0x8008, INGAME_TRADE_SQUIRTLE)
+    copyvar(VAR_0x8004, VAR_0x8008)
+    specialvar(VAR_0x8009, GetInGameTradeSpeciesInfo)
+    msgbox(FanClub_WantToTradeSquirtle, MSGBOX_YESNO)
+    call(FanClub_TradeSetup)
+	setflag(FLAG_TRADED_SQUIRTLE)
+	release
+	end
+}
+
+text FanClub_WantToTradeGrowlithe{
+    "Where I come from we have this\n"
+    "different breed of Growlithe,\l"
+    "often referred to as “Hisuian”\l"
+    "in other regions.\p"
+    "Say, do you have a {STR_VAR_1}?\p"
+    "Maybe you'd like to trade one\n"
+    "Growlithe for another?"
+}
+text FanClub_WantToTradeVoltorb{
+    "One day I came across this really\n"
+    "old-looking Voltorb.\p"
+    "It's almost like it's made out\n"
+    "of wood!\p"
+    "The thing is, I really wanted one with\n"
+    "a slicker and shinier look.\p"
+    "Say, do you have one of those more\n"
+    "modern looking Voltorbs?\p"
+    "Wouldn't you like to have a real\n"
+    "antique-looking one instead?"
+}
+text FanClub_WantToTradeQwilfish{
+    "I found this really weird Qwilfish\n"
+    "when I was visiting abroad.\p"
+    "I have to be frank, I'm not sure\n"
+    "I like its dark coloring.\p"
+    "Do you have a regular Qwilfish?\p"
+    "Would you like to trade it for\n"
+    "this darker, edgier looking one?"
+}
+text FanClub_WantToTradeSneasel{
+    "I was under the impression that\n"
+    "Sneasels were dark-type, but for some\l"
+    "reason mine isn't.\p"
+    "This one doesn't really fit a ninja\n"
+    "like me.\p"
+    "If you have a dark-type Sneasel,\n"
+    "I'd gladly trade you mine."
+}
+text FanClub_WantToTradeZorua{
+    "On one of my business trips,\n"
+    "I came across this peculiar Pokémon.\l"
+    "The locals called it “Hisuian Zorua.”\p"
+    "This one seems a bit rash and doesn't\n"
+    "seem to like my company so maybe it\l"
+    "would be better left in the hands of\l"
+    "a capable trainer.\p"
+    "From what I've been able to gather,\n"
+    "regular Zoruas can be found somewhere\l"
+    "here in Sinko.\p"
+    "If you've come across a regular Zorua,\n"
+    "perhaps you would like to trade it for\l"
+    "something more exquisite?"
+}
+text FanClub_WantToTradeBulbasaur{
+    "My family and I came here all the way\n"
+    "from Kanto for a holiday.\p"
+    "From what I've heard, There are many\n"
+    "Pokémon in Kanto that aren't normally\l"
+    "available in Sinko.\p"
+    "Of course, the same goes\n"
+    "the other way.\p"
+    "In any case, I've bought with me\n"
+    "a Kanto-exclusive Pokémon, Bulbasaur!\p"
+    "I've heard about this really cute bird\n"
+    "called the Rowlet.\p"
+    "Have you got one?\p"
+    "I'd happily trade my Bulbasaur for\n"
+    "a Rowlet."
+}
+text FanClub_WantToTradeCharmander{
+    "I love Torchics!\p"
+    "They're so cute and fluffy and their\n"
+    "evolution is simply way too cool!\p"
+    "Do you have a Torchic?\p"
+    "I can trade you this Charmander\p"
+    "for one."
+}
+text FanClub_WantToTradeSquirtle{
+    "For some reason this Squirtle wouldn't\n"
+    "stop following me.\p"
+    "In my frustration, I threw a Poké Ball\n"
+    "at it and ended up capturing it.\p"
+    "The thing is, I don't really want\n"
+    "a Squirtle.\p"
+    "If you want, I could trade it for some\n"
+    "other water-type Pokémon.\l"
+    "Maybe a Piplup?"
+}
+
+script FanClub_TradeDecline{
+    msgbox(FanClub_TradeDeclineText, MSGBOX_NPC)
+	end
+}
+text FanClub_TradeDeclineText{
+    "Let me know if you change your mind."
+}
+script FanClub_NotRequestedMon{
+	bufferspeciesname(STR_VAR_1, VAR_0x8009)
+	msgbox(FanClub_WrongMonText, MSGBOX_NPC)
+	end
+}
+text FanClub_WrongMonText{
+    "I'm sorry, but that's\nnot a {STR_VAR_1}."
+}
+script FanClubTradeCompleted{
+	msgbox(FanClub_TradeCompleteText, MSGBOX_NPC)
+	end
+}
+text FanClub_TradeCompleteText{
+    "Thank you for the trade!"
+}
+text Fanclub_TradeThanks{
+    "Take care of your new Pokémon!"
+}

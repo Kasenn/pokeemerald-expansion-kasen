@@ -17,14 +17,23 @@ script ShoreslateHarbor_Attendant{
         msgbox(ShoreslateHarbor_BoatJustLeft, MSGBOX_NPC)
         end
     }
-    else{
-        msgbox(ShoreslateHarbor_EndOfBeta, MSGBOX_NPC)
-        end
-    }
 	msgbox(ShoreslateHarbor_Text_GetAboard, MSGBOX_YESNO)
-	goto_if_eq(VAR_RESULT, NO, ShoreslateHarbor_EventScript_ComeAgain)
-	call(ShoreslateHarbor_EventScript_BoardFerry)
-	warp(MAP_CORALGROVE_HARVOR_INTERIOR, 7, 10)
+	goto_if_eq(VAR_RESULT, NO, Harbor_ComeAgain)
+    message("Where would you like to sail?")
+    waitmessage
+    multichoice(23, 0, MULTI_BOATFROMSHORESLATE, 0)
+    switch(var(VAR_RESULT)){
+        case 0:
+            call(Harbor_BoardFerryGoingWest)     // make sure the attendant is id 3 and boat is id 4
+	        warp(MAP_KAOLISLE_HARBOR, 7, 10)
+        case 1:
+            msgbox("This choice is not yet ready.\nSorry!", MSGBOX_NPC)
+            end
+        case 2:
+            goto(Harbor_ComeAgain)
+        case MULTI_B_PRESSED:
+            goto(Harbor_ComeAgain)
+    }
 	waitstate
 	release
 	end
@@ -35,30 +44,36 @@ text ShoreslateHarbor_BoatJustLeft{
     "It will take some time before\n"
     "the ferry returns."
 }
-text ShoreslateHarbor_EndOfBeta{
-    "I'm sorry, but this is the end\n"
-    "of the current release.\p"
-    "Please come back when the rom hack\n"
-    "creator decides to update the project."
+text ShoreslateHarbor_Text_GetAboard{
+    "This ferry travels to Kaolisle City\n"
+    "and WIP TOWN.\p"
+	"Would you like to board the ferry?"
 }
 
-script ShoreslateHarbor_EventScript_BoardFerry{
-	msgbox(ShoreslateHarbor_Text_PleaseBoardFerry, MSGBOX_DEFAULT)
+script Harbor_BoardFerryGoingWest{
+	msgbox(PleaseBoardFerry_Text, MSGBOX_DEFAULT)
 	closemessage
-	applymovement(1, Common_Movement_WalkInPlaceFasterUp)
+	applymovement(2, Common_Movement_WalkInPlaceFasterUp)
 	waitmovement(0)
 	delay(30)
-	hideobjectat(1, MAP_SHORESLATE_HARBOR)
+	hideobjectat(2, MAP_SHORESLATE_HARBOR)
 	call_if_eq(VAR_FACING, DIR_NORTH, ShoreslateHarbor_EventScript_BoardFerryNorth)
 	call_if_eq(VAR_FACING, DIR_WEST,  ShoreslateHarbor_EventScript_BoardFerryWest)
 	delay(30)
 	hideobjectat(OBJ_EVENT_ID_PLAYER, 0)
-	call(Common2_EventScript_FerryDepart3)
+	call(Common2_EventScript_FerryDepart4)
+	return
+}
+
+script Common2_EventScript_FerryDepart4{
+	delay(60)
+	applymovement(3, Movement_FerryDepart3)
+	waitmovement(0)
 	return
 }
 
 script ShoreslateHarbor_EventScript_ComeAgain{
-    msgbox(ShoreslateHarbor_Text_ComeAgain, MSGBOX_DEFAULT)
+    msgbox(Harbor_ComeAgain_Text, MSGBOX_DEFAULT)
     waitmessage
     closemessage
     release
@@ -66,28 +81,17 @@ script ShoreslateHarbor_EventScript_ComeAgain{
     end
 }
 
- script ShoreslateHarbor_EventScript_BoardFerryWest{
-	applymovement(OBJ_EVENT_ID_PLAYER,  CoastTownHarbor_Movement_BoardFerryWest)
+script ShoreslateHarbor_EventScript_BoardFerryWest{
+	applymovement(OBJ_EVENT_ID_PLAYER, CoastTownHarbor_Movement_BoardFerryWest)
 	waitmovement(0)
 	return
  }
-script  ShoreslateHarbor_EventScript_BoardFerryNorth{
-	applymovement(OBJ_EVENT_ID_PLAYER,  CoastTownHarbor_Movement_BoardFerryNorth)
+script ShoreslateHarbor_EventScript_BoardFerryNorth{
+	applymovement(OBJ_EVENT_ID_PLAYER, CoastTownHarbor_Movement_BoardFerryNorth)
 	waitmovement(0)
 	return
 }
 
-text ShoreslateHarbor_Text_GetAboard{
-    "We are just about to depart for\n"
-	"Kaolisle City.\p"
-	"Would you like to board the ferry?"
-}
-text ShoreslateHarbor_Text_ComeAgain{
-    "Let me know if you change your mind."
-}
-text ShoreslateHarbor_Text_PleaseBoardFerry{
-    "Very well.\nRight this way to the ferry."
-}
 
 script ShoreslateHarbor_Boy{
     msgbox(ShoreslateHarbor_Boy_Text, MSGBOX_NPC)

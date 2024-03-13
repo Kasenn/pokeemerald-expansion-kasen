@@ -1923,3 +1923,8 @@ const u8 gText_Shoreslate[] = _("Shoreslate City");
 const u8 gText_Nevermind[] = _("Nevermind");
 const u8 gText_YesQuestion[] = _("YES?");
 const u8 gText_NoQuestion[] = _("NO?");
+
+const u8 gText_Kaolisle[] = _("Kaolisle City");
+const u8 gText_RockliffeTown[] = _("ROCKLIFFE TOWN");
+const u8 gText_CharizardZ[] = _("HMUD Charizard Z");
+const u8 gText_Wobbuffet[] = _("Wobbuffet");

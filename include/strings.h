@@ -3189,6 +3189,10 @@ extern const u8 gText_Shoreslate[];
 extern const u8 gText_Nevermind[];
 extern const u8 gText_YesQuestion[];
 extern const u8 gText_NoQuestion[];
+extern const u8 gText_Kaolisle[];
+extern const u8 gText_RockliffeTown[];
+extern const u8 gText_CharizardZ[];
+extern const u8 gText_Wobbuffet[];
 
 // Naming Screen
 extern const u8 gText_MoveOkBack[];

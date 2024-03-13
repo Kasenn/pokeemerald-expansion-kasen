@@ -145,4 +145,9 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
         .index = 0,
         .tilemap = gPokenavCityMap_Marigorge_0,
     },
+    {
+        .mapSecId = MAPSEC_CITY_WIP2,
+        .index = 0,
+        .tilemap = gPokenavCityMap_Kaolisle_0,
+    },
 };

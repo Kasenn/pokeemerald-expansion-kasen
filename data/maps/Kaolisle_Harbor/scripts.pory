@@ -1,0 +1,118 @@
+mapscripts Kaolisle_Harbor_MapScripts{}
+
+script KaolisleHarbor_Attendant{
+    lockall
+    faceplayer
+	msgbox(KaolisleHarbor_Text_GetAboard, MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, Harbor_ComeAgain)
+    message("Where would you like to sail?")
+    waitmessage
+    multichoice(23, 0, MULTI_BOATFROMKAOLISLE, 0)
+    switch(var(VAR_RESULT)){
+        case 0:
+            call(Harbor_BoardFerryGoingEast)     // make sure the attendant is id 3 and boat is id 4
+	        warp(MAP_SHORESLATE_HARBOR, 16, 10)
+        case 1:
+            msgbox("This choice is not yet ready.\nSorry!", MSGBOX_NPC)
+            end
+        case 2:
+            goto(Harbor_ComeAgain)
+        case MULTI_B_PRESSED:
+            goto(Harbor_ComeAgain)
+    }
+	waitstate
+	release
+	end
+}
+text KaolisleHarbor_Text_GetAboard{
+    "This ferry travels to Shoreslate City\n"
+    "and WIP TOWN.\p"
+	"Would you like to board the ferry?"
+}
+
+script KaolisleHarbor_Man{
+    msgbox(KaolisleHarbor_Man_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleHarbor_Man_Text{
+    "My wife works in Shoreslate City.\p"
+    "Thanks to the ferry service, moving\n"
+    "back and forth is astoundingly easy."
+}
+
+script KaolisleHarbor_Boy{
+    msgbox(KaolisleHarbor_Boy_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleHarbor_Boy_Text{
+    "We're waiting for mom!"
+}
+
+script KaolisleHarbor_Lass{
+    msgbox(KaolisleHarbor_Lass_Text, MSGBOX_NPC)
+    end
+}
+text KaolisleHarbor_Lass_Text{
+    "I love taking the ferry!\p"
+    "Unlike riding on a Pokémon, I can just\n"
+    "stay inside all day and never have to\l"
+    "worry about the salty sea air\l"
+    "frizzing up my hair."
+}
+
+script Harbor_BoardFerryGoingEast{
+	msgbox(PleaseBoardFerry_Text, MSGBOX_DEFAULT)
+	closemessage
+	applymovement(3, Common_Movement_WalkInPlaceFasterUp)
+	waitmovement(0)
+	delay(30)
+	hideobjectat(3, MAP_KAOLISLE_HARBOR)
+    hideobjectat(3, MAP_CORALGROVE_HARVOR_INTERIOR)
+	call_if_eq(VAR_FACING, DIR_NORTH, Harbor_BoardFerryNorth)
+	call_if_eq(VAR_FACING, DIR_EAST, Harbor_BoardFerryEast)
+	delay(30)
+	hideobjectat(OBJ_EVENT_ID_PLAYER, 0)
+	call(FerryDepart_East)
+	return
+}
+script Harbor_ComeAgain{
+    msgbox(Harbor_ComeAgain_Text, MSGBOX_NPC)
+    end
+}
+text Harbor_ComeAgain_Text{
+    "Let me know if you change your mind."
+}
+text PleaseBoardFerry_Text{
+    "Very well.\n"
+    "Right this way to the ferry."
+}
+script Harbor_BoardFerryEast{
+	applymovement(OBJ_EVENT_ID_PLAYER, Movement_BoardFerryEast)
+	waitmovement(0)
+	return
+}
+movement Movement_BoardFerryEast{
+	walk_right
+	walk_in_place_faster_up
+	step_end
+}
+script Harbor_BoardFerryNorth{
+	applymovement(OBJ_EVENT_ID_PLAYER, Movement_BoardFerryNorth)
+	waitmovement(0)
+	return
+}
+movement Movement_BoardFerryNorth{
+	walk_up
+	step_end
+}
+script FerryDepart_East{
+	delay(60)
+	applymovement(4, Movement_FerryDepart_East)
+	waitmovement(0)
+	return
+}
+movement Movement_FerryDepart_East{
+	walk_slow_right * 3
+	walk_right * 4
+	step_end
+}

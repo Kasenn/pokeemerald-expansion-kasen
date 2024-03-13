@@ -417,3 +417,5 @@ const u32 gObjectEventPic_Volcarona[] = INCBIN_U32("graphics/object_events/pics/
 const u16 gObjectEventPalette_Volcarona[] = INCBIN_U16("graphics/object_events/pics/people/volcarona.gbapal");
 const u32 gObjectEventPic_Abra[] = INCBIN_U32("graphics/object_events/pics/people/abra.4bpp");
 const u16 gObjectEventPalette_Abra[] = INCBIN_U16("graphics/object_events/pics/people/abra.gbapal");
+const u32 gObjectEventPic_Spheal[] = INCBIN_U32("graphics/object_events/pics/pokemon/spheal.4bpp");
+const u16 gObjectEventPalette_Spheal[] = INCBIN_U16("graphics/object_events/pics/pokemon/spheal.gbapal");

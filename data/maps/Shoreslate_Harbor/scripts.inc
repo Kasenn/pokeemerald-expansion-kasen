@@ -16,13 +16,17 @@ ShoreslateHarbor_Attendant::
 	lockall
 	faceplayer
 	goto_if_unset FLAG_HELPED_DEVON_CORP, ShoreslateHarbor_Attendant_2
-	msgbox ShoreslateHarbor_EndOfBeta, MSGBOX_NPC
-	end
-
 	msgbox ShoreslateHarbor_Text_GetAboard, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, ShoreslateHarbor_EventScript_ComeAgain
-	call ShoreslateHarbor_EventScript_BoardFerry
-	warp MAP_CORALGROVE_HARVOR_INTERIOR, 7, 10
+	goto_if_eq VAR_RESULT, NO, Harbor_ComeAgain
+	message ShoreslateHarbor_Attendant_Text_0
+	waitmessage
+	multichoice 23, 0, MULTI_BOATFROMSHORESLATE, 0
+	switch VAR_RESULT
+	case 0, ShoreslateHarbor_Attendant_6
+	case 1, ShoreslateHarbor_Attendant_7
+	case 2, ShoreslateHarbor_Attendant_8
+	case MULTI_B_PRESSED, ShoreslateHarbor_Attendant_9
+ShoreslateHarbor_Attendant_4:
 	waitstate
 	release
 	end
@@ -31,24 +35,48 @@ ShoreslateHarbor_Attendant_2:
 	msgbox ShoreslateHarbor_BoatJustLeft, MSGBOX_NPC
 	end
 
+ShoreslateHarbor_Attendant_6:
+	call Harbor_BoardFerryGoingWest
+	warp MAP_KAOLISLE_HARBOR, 7, 10
+	goto ShoreslateHarbor_Attendant_4
 
-ShoreslateHarbor_EventScript_BoardFerry::
-	msgbox ShoreslateHarbor_Text_PleaseBoardFerry, MSGBOX_DEFAULT
+ShoreslateHarbor_Attendant_7:
+	msgbox ShoreslateHarbor_Attendant_Text_1, MSGBOX_NPC
+	end
+
+ShoreslateHarbor_Attendant_8:
+	goto Harbor_ComeAgain
+	goto ShoreslateHarbor_Attendant_4
+
+ShoreslateHarbor_Attendant_9:
+	goto Harbor_ComeAgain
+	goto ShoreslateHarbor_Attendant_4
+
+
+Harbor_BoardFerryGoingWest::
+	msgbox PleaseBoardFerry_Text, MSGBOX_DEFAULT
 	closemessage
-	applymovement 1, Common_Movement_WalkInPlaceFasterUp
+	applymovement 2, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	delay 30
-	hideobjectat 1, MAP_SHORESLATE_HARBOR
+	hideobjectat 2, MAP_SHORESLATE_HARBOR
 	call_if_eq VAR_FACING, DIR_NORTH, ShoreslateHarbor_EventScript_BoardFerryNorth
 	call_if_eq VAR_FACING, DIR_WEST, ShoreslateHarbor_EventScript_BoardFerryWest
 	delay 30
 	hideobjectat OBJ_EVENT_ID_PLAYER, 0
-	call Common2_EventScript_FerryDepart3
+	call Common2_EventScript_FerryDepart4
+	return
+
+
+Common2_EventScript_FerryDepart4::
+	delay 60
+	applymovement 3, Movement_FerryDepart3
+	waitmovement 0
 	return
 
 
 ShoreslateHarbor_EventScript_ComeAgain::
-	msgbox ShoreslateHarbor_Text_ComeAgain, MSGBOX_DEFAULT
+	msgbox Harbor_ComeAgain_Text, MSGBOX_DEFAULT
 	waitmessage
 	closemessage
 	release
@@ -78,28 +106,22 @@ ShoreslateHarbor_Sailor::
 	end
 
 
+ShoreslateHarbor_Attendant_Text_0:
+	.string "Where would you like to sail?$"
+
+ShoreslateHarbor_Attendant_Text_1:
+	.string "This choice is not yet ready.\nSorry!$"
+
 ShoreslateHarbor_BoatJustLeft::
 	.string "I'm sorry, but the ferry to Kaolisle\n"
 	.string "City has just departed.\p"
 	.string "It will take some time before\n"
 	.string "the ferry returns.$"
 
-ShoreslateHarbor_EndOfBeta::
-	.string "I'm sorry, but this is the end\n"
-	.string "of the current release.\p"
-	.string "Please come back when the rom hack\n"
-	.string "creator decides to update the project.$"
-
 ShoreslateHarbor_Text_GetAboard::
-	.string "We are just about to depart for\n"
-	.string "Kaolisle City.\p"
+	.string "This ferry travels to Kaolisle City\n"
+	.string "and WIP TOWN.\p"
 	.string "Would you like to board the ferry?$"
-
-ShoreslateHarbor_Text_ComeAgain::
-	.string "Let me know if you change your mind.$"
-
-ShoreslateHarbor_Text_PleaseBoardFerry::
-	.string "Very well.\nRight this way to the ferry.$"
 
 ShoreslateHarbor_Boy_Text::
 	.string "I'm on a quest to fish in every\n"

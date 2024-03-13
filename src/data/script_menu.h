@@ -812,6 +812,26 @@ static const struct MenuAction YesNoQuestionMark[] =
     {gText_NoQuestion},
 };
 
+static const struct MenuAction BoatFromShoreslate[] =
+{
+    {gText_Kaolisle},
+    {gText_RockliffeTown},
+    {gText_Nevermind},
+};
+
+static const struct MenuAction BoatFromKaolisle[] =
+{
+    {gText_Shoreslate},
+    {gText_RockliffeTown},
+    {gText_Nevermind},
+};
+
+static const struct MenuAction WhichOneWouldWin[] =
+{
+    {gText_CharizardZ},
+    {gText_Wobbuffet},
+};
+
 
 static const struct MultichoiceListStruct sMultichoiceLists[] =
 {
@@ -932,6 +952,9 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_POKECENTER_IV_TRAINING]     = MULTICHOICE(PokeCenterIVTraining),
     [MULTI_ABRA_TELEPORT]              = MULTICHOICE(AbraTeleport),
     [MULTI_YESNOQUESTIONMARK]          = MULTICHOICE(YesNoQuestionMark),
+    [MULTI_BOATFROMSHORESLATE]         = MULTICHOICE(BoatFromShoreslate),
+    [MULTI_BOATFROMKAOLISLE]           = MULTICHOICE(BoatFromKaolisle),
+    [MULTI_WHICHONEWOULDWIN]           = MULTICHOICE(WhichOneWouldWin),
 };
 
 const u8 *const gStdStrings[] =

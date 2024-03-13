@@ -619,6 +619,7 @@ gSongTable::
 	song mus_muted, 0 ,0
 	song mus_hg_azalea, 0, 0
 	song mus_unwavering, 0, 0
+	song mus_happy, 0, 0
 
 	.align 2
 dummy_song_header:

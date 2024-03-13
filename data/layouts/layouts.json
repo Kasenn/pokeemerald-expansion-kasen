@@ -5534,9 +5534,9 @@
     {
       "id": "LAYOUT_KAOLISLE_HOUSE4",
       "name": "Kaolisle_House4_Layout",
-      "width": 24,
-      "height": 15,
-      "primary_tileset": "gTileset_General",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/Kaolisle_House4/border.bin",
       "blockdata_filepath": "data/layouts/Kaolisle_House4/map.bin"

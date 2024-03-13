@@ -105,33 +105,81 @@ script Kaolisle_Karatemaster{
     end
 }
 
-text LostMemento{""}
-text FoundMemento{""}
-text ExplainRockSmash{""}
-text RockSmashMonComesOut_Text{""}
+text LostMemento{
+    "You look like a strong trainer.\p"
+    "That means you must have been to\n"
+    "numerous places.\p"
+    "Tell me, have you come across any\n"
+    "old pendants?\p"
+    "A dear friend once gifted me a pendant\n"
+    "but I seem to have misplaced it and\l"
+    "have no idea where it could have gone…\p"
+    "Please, if you find it,\n"
+    "could you let me know?"
+}
+text FoundMemento{
+    "That pendant…!\p"
+    "Yes, that's the pendant I “lost”!\p"
+    "I'm a retired karate master and\n"
+    "you have just passed my test!\p"
+    "Yes, I left that pendant at the end of\n"
+    "the mines on purpose to see if anyone\l"
+    "would be able to retrieve it for me.\p"
+    "The mines are definitely no pushover,\n"
+    "so seeing how you were able to return\l"
+    "with the pendant tells me you were able\l"
+    "to brave the dangers of that mine and\l"
+    "return here safely.\p"
+    "That means you and your Pokémon are\n"
+    "worthy of my teachings!\l"
+    "Here, have this Hidden Machine!"
+}
+text ExplainRockSmash{
+    "That HM contains the move Rock Smash.\p"
+    "If you come across large boulders\n"
+    "that block your path…\p"
+    "Well, use that HM move and smash\n"
+    "them right out of your way!\p"
+}
+text RockSmashMonComesOut_Text{
+    "Oh, yes, when you smash a rock,\n"
+    "there's a chance a Pokémon could come\l"
+    "flying out of hiding!\l"
+    "Do make sure you're prepared!"
+}
 
-// MauvilleCity_House1_Text_ImRockSmashDudeTakeThis:
-// 	.string "Woohoo!\p"
-// 	.string "I hear people call me the ROCK SMASH\n"
-// 	.string "GUY, but I find that sort of degrading.\p"
-// 	.string "I think I deserve a bit more respect,\n"
-// 	.string "like maybe the ROCK SMASH DUDE.\p"
-// 	.string "Woohoo!\p"
-// 	.string "Anyways, your POKéMON look pretty\n"
-// 	.string "strong.\p"
-// 	.string "I like that!\n"
-// 	.string "Here, take this HIDDEN MACHINE!$"
+script Kaolisle_SphealHouseLady{
+    msgbox(Kaolisle_SphealHouseLady_Text, MSGBOX_NPC)
+    end
+}
+text Kaolisle_SphealHouseLady_Text{
+    "Seeing the spheal playing with each\n"
+    "other really soothes the soul.\p"
+    "I have places to be but I dare not\n"
+    "break up their play."
+}
 
-// MauvilleCity_House1_Text_ExplainRockSmash:
-// 	.string "That HM contains ROCK SMASH.\p"
-// 	.string "If you come across large boulders\n"
-// 	.string "that block your path…\p"
-// 	.string "Well, use that HM move and smash\n"
-// 	.string "them right out of your way!\p"
-// 	.string "Yes, sir! Smash rocks aside, I say!\n"
-// 	.string "Woohoo!$"
+script Kaolisle_House4_Man{
+    msgbox(Kaolisle_House4_Man_Text, MSGBOX_NPC)
+    end
+}
+text Kaolisle_House4_Man_Text{
+    "Kaolisle is known for its holiday resort\n"
+    "as well as its mining operation.\p"
+    "The mining is handled by Pokémon and\n"
+    "there are zero machinery at work,\l"
+    "which makes the mines practically\l"
+    "pollution free, allowing the mines\l"
+    "and the resort to co-exist peacefully."
+}
 
-// MauvilleCity_House1_Text_MonCanFlyOutOfSmashedRock:
-// 	.string "Oh, yes, if you smash a rock, a POKéMON\n"
-// 	.string "could come flying out of hiding.\p"
-// 	.string "Woohoo!$"
+script Kaolisle_House4_Woman{
+    msgbox(Kaolisle_House4_Woman_Text, MSGBOX_NPC)
+    end
+}
+text Kaolisle_House4_Woman_Text{
+    "Have you noticed the white cliffs of\n"
+    "Kaolisle City?\p"
+    "There are certain minerals in the\n"
+    "ground that give it its unique color."
+}
