@@ -16,3 +16,21 @@ script Room504{
     msgbox("Room 504", MSGBOX_SIGN)
     end
 }
+
+script Kaolisle_Hotel_5F_BPShopBeauty{}
+script Kaolisle_Hotel_5F_Attendant{}
+script Kaolisle_Hotel_5F_Man3{}
+
+Oh, trainer. I'm so pleased that you came all the way here!\p
+I'm wondering if you would do me a favor.YESNO
+NO: I'm touched that you came all the way\nhere, yet you are being so unkind.
+YES: To be clear, I would like to\nsee a Pokémon that knows (MOVENAME).\pThank you.
+Oh, my goodness. Your [pokemon] can\nuse (movename)!
+You went to all the trouble of teaching\nit to your Pokémon? That's so touching!
+This is a small token of my appreciation.\nPlease don't hesitate to accept this.
+giveitem heartscale
+I wonder what (movename) looks like\nwhen it is actually used.\pI am sure you can use it skillfully!
+
+The previous customer left this room in a pretty abysmal state. It'll be a while before it is back in service.
+
+no idea
