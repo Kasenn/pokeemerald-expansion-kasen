@@ -76,7 +76,7 @@
 #define OBJ_EVENT_GFX_SPHEAL                       72
 #define OBJ_EVENT_GFX_ABRA                     73
 #define OBJ_EVENT_GFX_VOLCARONA                      74
-#define OBJ_EVENT_GFX_LUCY                        75
+#define OBJ_EVENT_GFX_EXCADRILL                        75
 #define OBJ_EVENT_GFX_IRIS                        76
 #define OBJ_EVENT_GFX_VOLKNER                     77
 #define OBJ_EVENT_GFX_JASMINE                     78
@@ -382,6 +382,7 @@
 #define OBJ_EVENT_PAL_VOLCARONA             0x1135
 #define OBJ_EVENT_PAL_ABRA                  0x1136
 #define OBJ_EVENT_PAL_SPHEAL                0x1137
+#define OBJ_EVENT_PAL_EXCADRILL                0x1138
 
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 

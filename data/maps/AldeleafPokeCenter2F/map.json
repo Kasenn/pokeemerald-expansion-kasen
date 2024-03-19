@@ -3,7 +3,7 @@
   "name": "AldeleafPokeCenter2F",
   "layout": "LAYOUT_ALDELEAF_POKE_CENTER2F",
   "music": "MUS_POKE_CENTER",
-  "region_map_section": "MAPSEC_CITY_WIP1",
+  "region_map_section": "MAPSEC_ALDELEAF_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

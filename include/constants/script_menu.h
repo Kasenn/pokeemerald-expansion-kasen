@@ -128,6 +128,7 @@
 #define MULTI_BOATFROMSHORESLATE           117
 #define MULTI_BOATFROMKAOLISLE             118
 #define MULTI_WHICHONEWOULDWIN             119
+#define MULTI_BUFFET                       120
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0

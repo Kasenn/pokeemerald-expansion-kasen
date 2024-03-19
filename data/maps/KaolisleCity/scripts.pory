@@ -110,7 +110,7 @@ text KB_LesserBeach{
     "where you can have a relaxing time."
 }
 text KB_Hotel{
-    "Thomas: Ah, the Kaol Grand Resort.\n"
+    "Thomas: So, this is the Grand Resort.\n"
     "Talk of the town.\p"
     "There seem to be a lot of people here\n"
     "this time of year.\p"
@@ -206,6 +206,73 @@ text KaolisleCity_Lass_Couple_Text{
     "enrolling there!"
 }
 
+script KaolisleCity_MysteryMan{
+    lock
+    if(flag(FLAG_TEMP_4)){
+        faceplayer
+        msgbox(KaolisleCity_MysteryMan_TextShort, MSGBOX_YESNO)
+    }
+    else{
+        msgbox(KaolisleCity_MysteryMan_Text, MSGBOX_DEFAULT)
+        faceplayer
+        msgbox(KaolisleCity_MysteryMan_Text2, MSGBOX_YESNO)
+    }
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(KaolisleCity_MysteryMan_Decline, MSGBOX_NPC)
+        turnobject(7, DIR_NORTH)
+        setflag(FLAG_TEMP_4)
+        end
+    }
+    if(flag(FLAG_BADGE03_GET)){
+        msgbox(KaolisleCity_MysteryMan_3Badges, MSGBOX_NPC)
+    }
+    else{
+        msgbox(KaolisleCity_MysteryMan_2Badges, MSGBOX_NPC)
+    }
+    turnobject(7, DIR_NORTH)
+    end
+}
+text KaolisleCity_MysteryMan_Text{
+    "Some days I gaze in Its direction,\n"
+    "wondering, if It still remembers us…\p"
+    "… … … …"
+}
+text KaolisleCity_MysteryMan_Text2{
+    "Oh?\p"
+    "Don't mind me, I'm just a washed-up\n"
+    "senior who still reminisces about\l"
+    "the old days.\p"
+    "I noticed you're a trainer.\n"
+    "Say, would you be interested in\l"
+    "a Pokémon battle?\p"
+    "I used to be quite a strong\n"
+    "trainer in the past."
+}
+text KaolisleCity_MysteryMan_TextShort{
+    "Say, would you be interested in\n"
+    "a Pokémon battle?\p"
+    "I used to be quite a strong\n"
+    "trainer in the past."
+}
+text KaolisleCity_MysteryMan_Decline{
+    "I understand. I won't bother you\n"
+    "any further."
+}
+text KaolisleCity_MysteryMan_2Badges{
+    "Hm…\p"
+    "I notice you only have 2 Gym Badges.\n"
+    "I don't think this would be a fair match.\p"
+    "If you can get a few more Badges,\n"
+    "I might reconsider it."
+}
+text KaolisleCity_MysteryMan_3Badges{
+    "Hm…\p"
+    "I notice you only have 3 Gym Badges.\n"
+    "I don't think this would be a fair match.\p"
+    "It's a good start but I would recommend\n"
+    "you get a couple more first."
+}
+
 script KaolisleCity_ExpertM{
     if(!flag(FLAG_REVEAL_PEARLSTRING)){
         clearflag(FLAG_OLDMAN_PEARLSTRING)
@@ -215,10 +282,11 @@ script KaolisleCity_ExpertM{
     end
 }
 text KaolisleCity_ExpertM_Text{
-    "I think I can see Coralgrove\n"
-    "Archipelago if I squint real hard.\p"
-    "I remember I used to visit my friends\n"
-    "who lived there long time ago.\p"
+    "Oh, are you a trainer from afar?\p"
+    "I bet you must've even traveled the\n"
+    "Coralgrove Archipelago!\p"
+    "Why, I remember I used to visit my\n"
+    "friends who lived there every summer.\p"
     "One summer day I found this real\n"
     "beautiful star piece on a beach\l"
     "at Route 1.\p"
@@ -543,7 +611,7 @@ text KaolisleCity_SignGym_Text{
 	"Leader: Clay"
 }
 text KaolisleCity_SignHotel_Text{
-    "Kaol Grand Resort"
+    "Kaolisle Grand Resort"
 }
 text KaolisleCity_SignFanClub_Text{
     "Kaolisle City Pokémon Fan Club"

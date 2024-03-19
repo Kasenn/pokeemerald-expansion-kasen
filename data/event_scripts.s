@@ -943,7 +943,7 @@ gText_ThankYouForAccessingMysteryGift::
 	.string "MYSTERY GIFT System.$"
 
 gText_PlayerFoundOneTMHM::
-	.string "{PLAYER} found one {STR_VAR_1}\n"
+	.string "{PLAYER} found the {STR_VAR_1},\n"
 	.string "{STR_VAR_2}!$"
 
 gText_Sudowoodo_Attacked::
@@ -1294,3 +1294,25 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Kaolisle_FishingAssociation/scripts.inc"
 
 	.include "data/maps/Kaolisle_Hotel_1F/scripts.inc"
+
+	.include "data/maps/Kaolisle_Mines_2F/scripts.inc"
+
+	.include "data/maps/Kaolisle_Mines_3F/scripts.inc"
+
+	.include "data/maps/Kaolisle_Hotel_3F/scripts.inc"
+
+	.include "data/maps/Kaolisle_Hotel_5F/scripts.inc"
+
+	.include "data/maps/Kaolisle_Hotel_3F_Rooms/scripts.inc"
+
+	.include "data/maps/Kaolisle_Hotel_5F_Rooms/scripts.inc"
+
+	.include "data/maps/Kaolisle_Hotel_Elevator/scripts.inc"
+
+	.include "data/maps/Kaolisle_Hotel_2F/scripts.inc"
+
+	.include "data/maps/Kaolisle_Hotel_4F/scripts.inc"
+
+	.include "data/maps/Kaolisle_Hotel_2F_Rooms/scripts.inc"
+
+	.include "data/maps/Kaolisle_Hotel_4F_Rooms/scripts.inc"

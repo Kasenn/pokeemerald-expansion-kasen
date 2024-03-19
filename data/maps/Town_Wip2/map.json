@@ -3,7 +3,7 @@
   "name": "Town_Wip2",
   "layout": "LAYOUT_TOWN_WIP2",
   "music": "MUS_VERDANTURF",
-  "region_map_section": "MAPSEC_TOWN_WIP2",
+  "region_map_section": "MAPSEC_SKYLOCH_VILLAGE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_TOWN",
@@ -14,14 +14,14 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ROUTE5",
-      "offset": 15,
-      "direction": "up"
-    },
-    {
       "map": "MAP_ROUTE6",
       "offset": -5,
       "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE5",
+      "offset": 15,
+      "direction": "up"
     },
     {
       "map": "MAP_ROUTE7",

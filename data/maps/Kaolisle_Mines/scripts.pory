@@ -1,0 +1,405 @@
+mapscripts Kaolisle_Mines_MapScripts{}
+
+script KaolMines_Miner1{
+    checkitem(ITEM_ESCAPE_ROPE)
+    if(var(VAR_RESULT) == FALSE){
+        lock
+        faceplayer
+        msgbox(KaolMines_Miner1_NoRope, MSGBOX_DEFAULT)
+        giveitem(ITEM_ESCAPE_ROPE)
+        msgbox(KaolMines_Miner1_IfLost, MSGBOX_NPC)
+        end
+    }
+    msgbox(KaolMines_Miner1_YesRope, MSGBOX_NPC)
+    end
+}
+text KaolMines_Miner1_IfLost{
+    "If you ever feel lost in the caves,\n"
+    "don't forget to use your Escape Rope."
+}
+text KaolMines_Miner1_NoRope{
+    "These are the Kaolisle Mines.\p"
+    "With the help of Pokémon, we mine for\n"
+    "important minerals here.\p"
+    "If you're a trainer looking to train,\n"
+    "you should head to the lower floors.\l"
+    "It's a bit dark in there but you should\l"
+    "be able to meet other trainers there.\p"
+    "If you do plan on heading deeper,\n"
+    "I recommend you take this."
+}
+text KaolMines_Miner1_YesRope{
+    "These are the Kaolisle Mines.\p"
+    "With the help of Pokémon, we mine for\n"
+    "important minerals here.\p"
+    "If you're a trainer looking to train,\n"
+    "you should head to the lower floors.\l"
+    "It's a bit dark in there but you should\l"
+    "be able to meet other trainers there.\p"
+    "If you ever feel lost in the caves,\n"
+    "don't forget to use your Escape Rope."
+}
+script KaolMines_Miner2{
+    msgbox(KaolMines_Miner2_Text, MSGBOX_NPC)
+    end
+}
+text KaolMines_Miner2_Text{
+    "Back in the day we used machinery\n"
+    "to mine, but then someone realized\l"
+    "that Pokémon are cheaper, safer,\l"
+    "and more environmentally friendly.\l"
+    "And the Pokémon like doing it too!"
+}
+script KaolMines_Miner3{
+    msgbox(KaolMines_Miner3_Text, MSGBOX_NPC)
+    end
+}
+text KaolMines_Miner3_Text{
+    "The stuff we dig up here is used for\n"
+    "all sorts of different purposes.\p"
+    "The gravel and stone are used in\n"
+    "construction while the minerals\l"
+    "are used in medicine, electronics,\l"
+    "almost everything!"
+}
+script KaolMines_Excadrill1{
+    call(KaolMines_Excadrill)
+    turnobject(13, DIR_WEST)
+    end
+}
+script KaolMines_Excadrill2{
+    call(KaolMines_Excadrill)
+    turnobject(15, DIR_SOUTH)
+    end
+}
+script KaolMines_Excadrill3{
+    call(KaolMines_Excadrill)
+    turnobject(11, DIR_NORTH)
+    end
+}
+script KaolMines_Excadrill4{
+    call(KaolMines_Excadrill)
+    turnobject(14, DIR_EAST)
+    end
+}
+
+script KaolMines_Excadrill{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_EXCADRILL, CRY_MODE_NORMAL)
+	waitmoncry
+	release
+}
+
+script FindItem_Fossil{
+    random(11)
+    switch(var(VAR_RESULT)){
+        case 0:
+            goto(LootHelixGlobal)
+        case 1:
+            goto(LootDomeGlobal)
+         case 2:
+            goto(LootOldAmberGlobal)
+        case 3:
+            goto(LootRootGlobal)
+        case 4:
+            goto(LootClawGlobal)
+        case 5:
+            goto(LootSkullGlobal)
+        case 6:
+            goto(LootArmorGlobal)
+        case 7:
+            goto(LootCoverGlobal)
+        case 8:
+            goto(LootPlumeGlobal)
+        case 9:
+            goto(LootJawGlobal)
+        case 10:
+            goto(LootSailGlobal)
+    }
+}
+
+script LootHelixGlobal{
+    if(flag(FLAG_OBTAINED_HELIX_FOSSIL)){
+        goto(FindItem_Fossil)
+    }
+    finditem(ITEM_HELIX_FOSSIL)
+    setflag(FLAG_OBTAINED_HELIX_FOSSIL)
+    goto(FossilScriptEnd)
+}
+script LootDomeGlobal{
+    if(flag(FLAG_OBTAINED_DOME_FOSSIL)){
+        goto(FindItem_Fossil)
+    }
+    finditem(ITEM_DOME_FOSSIL)
+    setflag(FLAG_OBTAINED_DOME_FOSSIL)
+    goto(FossilScriptEnd)
+}
+script LootOldAmberGlobal{
+    if(flag(FLAG_OBTAINED_OLDAMBER_FOSSIL)){
+        goto(FindItem_Fossil)
+    }
+    finditem(ITEM_OLD_AMBER)
+    setflag(FLAG_OBTAINED_OLDAMBER_FOSSIL)
+    goto(FossilScriptEnd)
+}
+script LootRootGlobal{
+    if(flag(FLAG_OBTAINED_ROOT_FOSSIL)){
+        goto(FindItem_Fossil)
+    }
+    finditem(ITEM_ROOT_FOSSIL)
+    setflag(FLAG_OBTAINED_ROOT_FOSSIL)
+    goto(FossilScriptEnd)
+}
+script LootClawGlobal{
+    if(flag(FLAG_OBTAINED_CLAW_FOSSIL)){
+        goto(FindItem_Fossil)
+    }
+    finditem(ITEM_CLAW_FOSSIL)
+    setflag(FLAG_OBTAINED_CLAW_FOSSIL)
+    goto(FossilScriptEnd)
+}
+script LootSkullGlobal{
+    if(flag(FLAG_OBTAINED_SKULL_FOSSIL)){
+        goto(FindItem_Fossil)
+    }
+    finditem(ITEM_SKULL_FOSSIL)
+    setflag(FLAG_OBTAINED_SKULL_FOSSIL)
+    goto(FossilScriptEnd)
+}
+script LootArmorGlobal{
+    if(flag(FLAG_OBTAINED_ARMOR_FOSSIL)){
+        goto(FindItem_Fossil)
+    }
+    finditem(ITEM_ARMOR_FOSSIL)
+    setflag(FLAG_OBTAINED_ARMOR_FOSSIL)
+    goto(FossilScriptEnd)
+}
+script LootCoverGlobal{
+    if(flag(FLAG_OBTAINED_COVER_FOSSIL)){
+        goto(FindItem_Fossil)
+    }
+    finditem(ITEM_COVER_FOSSIL)
+    setflag(FLAG_OBTAINED_COVER_FOSSIL)
+    goto(FossilScriptEnd)
+}
+script LootPlumeGlobal{
+    if(flag(FLAG_OBTAINED_PLUME_FOSSIL)){
+        goto(FindItem_Fossil)
+    }
+    finditem(ITEM_PLUME_FOSSIL)
+    setflag(FLAG_OBTAINED_PLUME_FOSSIL)
+    goto(FossilScriptEnd)
+}
+script LootJawGlobal{
+    if(flag(FLAG_OBTAINED_JAW_FOSSIL)){
+        goto(FindItem_Fossil)
+    }
+    finditem(ITEM_JAW_FOSSIL)
+    setflag(FLAG_OBTAINED_JAW_FOSSIL)
+    goto(FossilScriptEnd)
+}
+script LootSailGlobal{
+    if(flag(FLAG_OBTAINED_SAIL_FOSSIL)){
+        goto(FindItem_Fossil)
+    }
+    finditem(ITEM_SAIL_FOSSIL)
+    setflag(FLAG_OBTAINED_SAIL_FOSSIL)
+    goto(FossilScriptEnd)
+}
+
+script FossilScriptEnd{
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+script KaolMines_Trainer1{
+	trainerbattle_single(TRAINER_KM_TR1_PICNICKER, KaolMines_Text_Trainer1Intro, KaolMines_Text_Trainer1Defeat)
+	msgbox(KaolMines_Text_Trainer1PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text KaolMines_Text_Trainer1Intro{
+    "You never know what might come\n"
+    "charging from the darkness.\l"
+    "This time it's a trainer battle!"
+}
+text KaolMines_Text_Trainer1Defeat{
+    "I only lost because I couldn't see!"
+}
+text KaolMines_Text_Trainer1PostBattle{
+    "These caves are incredibly dark.\p"
+    "I hope you brought a flashlight or\n"
+    "have a Pokémon that knows Flash."
+}
+
+script KaolMines_Trainer2 {
+    trainerbattle_single(TRAINER_KM_TR2_BLACKBELT, KaolMines_Text_Trainer2Intro, KaolMines_Text_Trainer2Defeat)
+    msgbox(KaolMines_Text_Trainer2PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text KaolMines_Text_Trainer2Intro {
+    "My Pokémon and I have been here\n"
+    "breaking rocks for days.\p"
+    "Let me show you the result\n"
+    "of our training!"
+}
+text KaolMines_Text_Trainer2Defeat {
+    "Not enough training…"
+}
+text KaolMines_Text_Trainer2PostBattle {
+    "Sometimes a wild Pokémon may appear\n"
+    "when breaking rocks.\p"
+    "All the more training experience,\n"
+    "I say!"
+}
+
+script KaolMines_Trainer3 {
+    trainerbattle_single(TRAINER_KM_TR3_CAMPER, KaolMines_Text_Trainer3Intro, KaolMines_Text_Trainer3Defeat)
+    msgbox(KaolMines_Text_Trainer3PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text KaolMines_Text_Trainer3Intro {
+    "Ah, a fresh face! Let's have a duel!"
+}
+text KaolMines_Text_Trainer3Defeat {
+    "Maybe I should pick my fights\n"
+    "more carefully…"
+}
+text KaolMines_Text_Trainer3PostBattle {
+    "I've noticed a few items lying around\n"
+    "in these caves.\p"
+    "Are people dropping them accidentally\n"
+    "or is there somebody who's leaving them\l"
+    "here on purpose?"
+}
+
+script KaolMines_Trainer4 {
+    trainerbattle_single(TRAINER_KM_TR4_HIKER, KaolMines_Text_Trainer4Intro, KaolMines_Text_Trainer4Defeat)
+    msgbox(KaolMines_Text_Trainer4PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text KaolMines_Text_Trainer4Intro {
+    "My will is iron!\n"
+    "My conviction, steel!"
+}
+text KaolMines_Text_Trainer4Defeat {
+    "My skills, inadequate…"
+}
+text KaolMines_Text_Trainer4PostBattle {
+    "Your skills, pure titanium!"
+}
+
+script KaolMines_Trainer5 {
+    trainerbattle_single(TRAINER_KM_TR5_HIKER, KaolMines_Text_Trainer5Intro, KaolMines_Text_Trainer5Defeat)
+    msgbox(KaolMines_Text_Trainer5PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text KaolMines_Text_Trainer5Intro {
+    "This is hikers' turf!\p"
+    "You must be looking for a battle\n"
+    "to tread here so brazenly!"
+}
+text KaolMines_Text_Trainer5Defeat {
+    "I was just kidding! I yield!"
+}
+text KaolMines_Text_Trainer5PostBattle {
+    "We hikers love delving into caves.\p"
+    "It's almost as if something calls to\n"
+    "us from beneath the earth's surface."
+}
+
+script KaolMines_Trainer6 {
+    trainerbattle_single(TRAINER_KM_TR6_HIKER, KaolMines_Text_Trainer6Intro, KaolMines_Text_Trainer6Defeat)
+    msgbox(KaolMines_Text_Trainer6PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text KaolMines_Text_Trainer6Intro {
+    "You've come surprisingly far!\n"
+    "You must be a strong trainer!"
+}
+text KaolMines_Text_Trainer6Defeat {
+    "Too strong for me!"
+}
+text KaolMines_Text_Trainer6PostBattle {
+    "These caves seem to diverge in to\n"
+    "multiple directions.\l"
+    "Try not to get lost!"
+}
+
+script KaolMines_Trainer7 {
+    trainerbattle_single(TRAINER_KM_TR7_CAMPER, KaolMines_Text_Trainer7Intro, KaolMines_Text_Trainer7Defeat)
+    msgbox(KaolMines_Text_Trainer7PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text KaolMines_Text_Trainer7Intro {
+    "My Pokémon have no weaknesses.\n"
+    "Observe!"
+}
+text KaolMines_Text_Trainer7Defeat {
+    "This isn't possible!"
+}
+text KaolMines_Text_Trainer7PostBattle {
+    "I thought a Pokémon without weaknesses\n"
+    "would be undefeatable.\p"
+    "Guess there's more to Pokémon battles\n"
+    "than type advantage."
+}
+
+script KaolMines_Trainer8 {
+    trainerbattle_single(TRAINER_KM_TR8_PICNICKER, KaolMines_Text_Trainer8Intro, KaolMines_Text_Trainer8Defeat)
+    msgbox(KaolMines_Text_Trainer8PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text KaolMines_Text_Trainer8Intro {
+    "I was just about to Escape Rope out\n"
+    "of here but then I spotted you.\l"
+    "Can't let a trainer battle slip by!"
+}
+text KaolMines_Text_Trainer8Defeat {
+    "Guess I should've escaped instead…"
+}
+text KaolMines_Text_Trainer8PostBattle {
+    "These caves are so dark that I\n"
+    "honestly have no idea where I'm going.\p"
+    "Maybe I should go back the way I came\n"
+    "and forget exploring this place…"
+}
+
+script KaolMines_Trainer9 {
+    trainerbattle_single(TRAINER_KM_TR9_BLACKBELT, KaolMines_Text_Trainer9Intro, KaolMines_Text_Trainer9Defeat)
+    msgbox(KaolMines_Text_Trainer9PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text KaolMines_Text_Trainer9Intro {
+    "I am the master of my art!"
+}
+text KaolMines_Text_Trainer9Defeat {
+    "Astounding…!"
+}
+text KaolMines_Text_Trainer9PostBattle {
+    "You show great potential.\n"
+    "Have you considered picking up karate?"
+}
+
+script KaolMines_Trainer10 {
+    trainerbattle_single(TRAINER_KM_TR10_HIKER, KaolMines_Text_Trainer10Intro, KaolMines_Text_Trainer10Defeat)
+    msgbox(KaolMines_Text_Trainer10PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text KaolMines_Text_Trainer10Intro {
+    "It's taken a long time for me to\n"
+    "delve this far.\p"
+    "Any treasures that lie ahead\n"
+    "belong to me!"
+}
+text KaolMines_Text_Trainer10Defeat {
+    "You win. I forfeit!"
+}
+text KaolMines_Text_Trainer10PostBattle {
+    "Now that I think about it, many people\n"
+    "visit these mines on a daily basis.\l"
+    "Why would there be any treasures here?"
+}

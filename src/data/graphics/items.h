@@ -2053,3 +2053,6 @@ const u32 gItemIconPalette_StoneSphere[] = INCBIN_U32("graphics/items/icon_palet
 
 const u32 gItemIcon_LostMemento[] = INCBIN_U32("graphics/items/icons/lost_memento.4bpp.lz");
 const u32 gItemIconPalette_LostMemento[] = INCBIN_U32("graphics/items/icon_palettes/lost_memento.gbapal.lz");
+
+const u32 gItemIcon_SpecialSoup[] = INCBIN_U32("graphics/items/icons/special_soup.4bpp.lz");
+const u32 gItemIconPalette_SpecialSoup[] = INCBIN_U32("graphics/items/icon_palettes/special_soup.gbapal.lz");

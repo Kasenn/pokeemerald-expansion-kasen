@@ -27,7 +27,17 @@ script Kaolisle_Gym_SetMetatiles{
     }
     end
 }
-
+script KaolGymQuake{
+    msgbox("{PLAYER} pressed the button.\nAll buttons have been pressed.", MSGBOX_NPC)
+    playse(SE_SWITCH)
+    setvar(VAR_0x8004, 1)  // vertical pan
+    setvar(VAR_0x8005, 1)  // horizontal pan
+    setvar(VAR_0x8006, 10)  // num shakes
+    setvar(VAR_0x8007, 6)  // shake delay
+    special(ShakeCamera)
+    waitstate
+    return
+}
 script Kaolisle_Gym_Switch1{
     if(flag(FLAG_KAOLISLE_GYM_SWITCH1)){
         msgbox("This button has already been pressed.", MSGBOX_NPC)
@@ -39,7 +49,7 @@ script Kaolisle_Gym_Switch1{
     setmetatile(39, 47, 0x221, TRUE)
     special(DrawWholeMapView)
     if((flag(FLAG_KAOLISLE_GYM_SWITCH1)) && (flag(FLAG_KAOLISLE_GYM_SWITCH2)) && (flag(FLAG_KAOLISLE_GYM_SWITCH3)) && (flag(FLAG_KAOLISLE_GYM_SWITCH4))){
-        msgbox("{PLAYER} pressed the button.\nAll buttons have been pressed.", MSGBOX_NPC)
+        call(KaolGymQuake)
     }
     else{
         msgbox("{PLAYER} pressed the button.", MSGBOX_NPC)
@@ -60,7 +70,7 @@ script Kaolisle_Gym_Switch2{
     setmetatile(3, 36, 0x221, TRUE)
     special(DrawWholeMapView)
     if((flag(FLAG_KAOLISLE_GYM_SWITCH1)) && (flag(FLAG_KAOLISLE_GYM_SWITCH2)) && (flag(FLAG_KAOLISLE_GYM_SWITCH3)) && (flag(FLAG_KAOLISLE_GYM_SWITCH4))){
-        msgbox("{PLAYER} pressed the button.\nAll buttons have been pressed.", MSGBOX_NPC)
+        call(KaolGymQuake)
     }
     else{
         msgbox("{PLAYER} pressed the button.", MSGBOX_NPC)
@@ -81,7 +91,7 @@ script Kaolisle_Gym_Switch3{
     setmetatile(51, 25, 0x221, TRUE)
     special(DrawWholeMapView)
     if((flag(FLAG_KAOLISLE_GYM_SWITCH1)) && (flag(FLAG_KAOLISLE_GYM_SWITCH2)) && (flag(FLAG_KAOLISLE_GYM_SWITCH3)) && (flag(FLAG_KAOLISLE_GYM_SWITCH4))){
-        msgbox("{PLAYER} pressed the button.\nAll buttons have been pressed.", MSGBOX_NPC)
+        call(KaolGymQuake)
     }
     else{
         msgbox("{PLAYER} pressed the button.", MSGBOX_NPC)
@@ -102,7 +112,7 @@ script Kaolisle_Gym_Switch4{
     setmetatile(15, 3, 0x221, TRUE)
     special(DrawWholeMapView)
     if((flag(FLAG_KAOLISLE_GYM_SWITCH1)) && (flag(FLAG_KAOLISLE_GYM_SWITCH2)) && (flag(FLAG_KAOLISLE_GYM_SWITCH3)) && (flag(FLAG_KAOLISLE_GYM_SWITCH4))){
-        msgbox("{PLAYER} pressed the button.\nAll buttons have been pressed.", MSGBOX_NPC)
+        call(KaolGymQuake)
     }
     else{
         msgbox("{PLAYER} pressed the button.", MSGBOX_NPC)
@@ -118,13 +128,18 @@ script KaolisleGym_Trainer1_Camper1{
 	end
 }
 text KaolisleGym_Trainer1_Camper1_Intro{
-    ""
+    "I'm your first obstacle in this gym.\n"
+    "Don't think I'll go down easy though!"
 }
 text KaolisleGym_Trainer1_Camper1_Defeat{
-    ""
+    "You're stronger than I expected…"
 }
 text KaolisleGym_Trainer1_Camper1_PostBattle{
-    ""
+    "Here's a tip that works with any maze:\n"
+    "put your right hand on the wall\l"
+    "and never let go.\p"
+    "That way you will reach your\n"
+    "destination eventually."
 }
 
 script KaolisleGym_Trainer2_Picnicker1{
@@ -133,28 +148,48 @@ script KaolisleGym_Trainer2_Picnicker1{
 	end
 }
 text KaolisleGym_Trainer2_Picnicker1_Intro{
-    ""
+    "I'm not letting you press the button\n"
+    "so easily!"
 }
 text KaolisleGym_Trainer2_Picnicker1_Defeat{
-    ""
+    "Fine, press the button then!\n"
+    "I don't really care anymore…"
 }
 text KaolisleGym_Trainer2_Picnicker1_PostBattle{
-    ""
+    "I thought I could be clever by\n"
+    "protecting the button directly.\p"
+    "Wasn't expecting someone so strong\n"
+    "to waltz in though…"
 }
 
 script KaolisleGym_Trainer3_Hiker1{
     trainerbattle_single(TRAINER_KAOLGYM_TR3_HIKER1, KaolisleGym_Trainer3_Hiker1_Intro, KaolisleGym_Trainer3_Hiker1_Defeat)
-	msgbox(KaolisleGym_Trainer3_Hiker1_PostBattle, MSGBOX_AUTOCLOSE)
+    lockall
+    faceplayer
+	msgbox(KaolisleGym_Trainer3_Hiker1_PostBattle, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == TRUE){
+        msgbox(KaolisleGym_Trainer3_Hiker1_Secret, MSGBOX_NPC)
+    }
+    closemessage
+    release
 	end
 }
 text KaolisleGym_Trainer3_Hiker1_Intro{
-    ""
+    "My Pokémon helped dig these tunnels.\n"
+    "Let me show them to you!"
 }
 text KaolisleGym_Trainer3_Hiker1_Defeat{
-    ""
+    "Gwahaha! We've got a real\n"
+    "contender here!"
 }
 text KaolisleGym_Trainer3_Hiker1_PostBattle{
-    ""
+    "I lost fair and square.\p"
+    "Say, would you like to know a secret\n"
+    "regarding a button?"
+}
+text KaolisleGym_Trainer3_Hiker1_Secret{
+    "If you head past me to the north, you\n"
+    "will have already gone past a button."
 }
 
 script KaolisleGym_Trainer4_Camper2{
@@ -163,13 +198,17 @@ script KaolisleGym_Trainer4_Camper2{
 	end
 }
 text KaolisleGym_Trainer4_Camper2_Intro{
-    ""
+    "Your luck has ran out!\p"
+    "Bar Clay,\n"
+    "I am the strongest trainer here!"
 }
 text KaolisleGym_Trainer4_Camper2_Defeat{
-    ""
+    "What?! I lost?!"
 }
 text KaolisleGym_Trainer4_Camper2_PostBattle{
-    ""
+    "You may have beat me but Clay is miles\n"
+    "ahead of everybody else here.\l"
+    "Don't think you're in the clear just yet."
 }
 
 script KaolisleGym_Trainer5_Hiker2{
@@ -178,13 +217,18 @@ script KaolisleGym_Trainer5_Hiker2{
 	end
 }
 text KaolisleGym_Trainer5_Hiker2_Intro{
-    ""
+    "There are no buttons in this direction.\n"
+    "You better scram, kid!"
 }
 text KaolisleGym_Trainer5_Hiker2_Defeat{
-    ""
+    "I'm not sure which one got hurt worse;\n"
+    "my Pokémon, or my pride…"
 }
 text KaolisleGym_Trainer5_Hiker2_PostBattle{
-    ""
+    "Hope you didn't take that pre-battle\n"
+    "trash talk too seriously.\p"
+    "It was just friendly banter between\n"
+    "rivals. That's how us hikers roll."
 }
 
 script KaolisleGym_Trainer6_Hiker3{
@@ -193,13 +237,18 @@ script KaolisleGym_Trainer6_Hiker3{
 	end
 }
 text KaolisleGym_Trainer6_Hiker3_Intro{
-    ""
+    "You walked right into my trap.\n"
+    "Don't think you can escape!"
 }
 text KaolisleGym_Trainer6_Hiker3_Defeat{
-    ""
+    "My traps were completely ineffective!"
 }
 text KaolisleGym_Trainer6_Hiker3_PostBattle{
-    ""
+    "You should always be prepared\n"
+    "for a battle in this gym.\p"
+    "You never know when you step through\n"
+    "a door, only to be immediately\l"
+    "challenged to a battle."
 }
 
 script KaolisleGym_Trainer7_Picnicker2{
@@ -208,13 +257,21 @@ script KaolisleGym_Trainer7_Picnicker2{
 	end
 }
 text KaolisleGym_Trainer7_Picnicker2_Intro{
-    ""
+    "My Pokémon are in peak condition!\n"
+    "Let's go!"
 }
 text KaolisleGym_Trainer7_Picnicker2_Defeat{
-    ""
+    "No!\n"
+    "We can still go on!\p"
+    "Hold on, let me just…\p"
+    "No…\n"
+    "Maybe this one…?\p"
+    "No…\p"
+    "Hm…"
 }
 text KaolisleGym_Trainer7_Picnicker2_PostBattle{
-    ""
+    "You may be strong, but I'll keep honing\n"
+    "my Pokémon and one day defeat you!"
 }
 
 script KaolisleGym_Trainer8_Camper3{
@@ -223,13 +280,14 @@ script KaolisleGym_Trainer8_Camper3{
 	end
 }
 text KaolisleGym_Trainer8_Camper3_Intro{
-    ""
+    "Found any buttons yet?"
 }
 text KaolisleGym_Trainer8_Camper3_Defeat{
-    ""
+    "Not bad. Not bad at all…"
 }
 text KaolisleGym_Trainer8_Camper3_PostBattle{
-    ""
+    "I do hope that you've managed to find\n"
+    "at least one button so far."
 }
 
 script KaolisleGym_Trainer9_Picnicker3{
@@ -238,13 +296,18 @@ script KaolisleGym_Trainer9_Picnicker3{
 	end
 }
 text KaolisleGym_Trainer9_Picnicker3_Intro{
-    ""
+    "Unfortunately this is a dead end!\p"
+    "As a consolation prize,\n"
+    "you get to battle yours truly!"
 }
 text KaolisleGym_Trainer9_Picnicker3_Defeat{
-    ""
+    "No, I did not just lose!\n"
+    "In fact, I let you win!"
 }
 text KaolisleGym_Trainer9_Picnicker3_PostBattle{
-    ""
+    "Hmph…\p"
+    "Don't get cocky over one measly\n"
+    "victory!"
 }
 
 script KaolisleGym_Trainer10_Hiker4{
@@ -253,13 +316,15 @@ script KaolisleGym_Trainer10_Hiker4{
 	end
 }
 text KaolisleGym_Trainer10_Hiker4_Intro{
-    ""
+    "If you want to pass through here,\n"
+    "you must face me!"
 }
 text KaolisleGym_Trainer10_Hiker4_Defeat{
-    ""
+    "A well earned victory!"
 }
 text KaolisleGym_Trainer10_Hiker4_PostBattle{
-    ""
+    "I won't block your way any longer.\n"
+    "Go along then."
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -288,80 +353,78 @@ script KaolGym_ClayEvent{
 	call(Common_EventScript_PlayGymBadgeFanfare)
 	msgbox(KaolGym_TakeThis, MSGBOX_DEFAULT)
 	setflag(FLAG_BADGE03_GET)
+    setvar(VAR_BADGES_OBTAINED, 3)
 	setvar(VAR_0x8008, 3)
 	call(Common_EventScript_SetGymTrainers)
 	special(RemoveCameraObject)
-	giveitem(ITEM_TM_WILD_CHARGE)
+	giveitem(ITEM_TM84)
 	msgbox (KaolGym_ExplainTM, MSGBOX_DEFAULT)
 	release
 	end
 }
 
 text KaolGym_YouArrived{
-    "Clay: I see you've arrived.\p"
-    "If you're ready, go stand on the other\n"
-    "side of the arena so we may begin."
+    "Surely ya know how we do things\n"
+    "'round here. Don't ya, kid?\p"
+    "Go stand on th' other side of th'\n"
+    "arena and let's get things rollin'."
 }
 text KaolGym_ClayInt{
-	"Clay: I knew you'd be here soon.\n"
-    "Glad to see you did not disappoint.\p"
-    "Even though I'm grateful for\n"
-    "your help at the ranch,\l"
-    "I am the Leader of this Gym and\l"
-    "you are a challenger.\p"
-    "I assume you understand what\n"
-    "that entails…\p"
-    "…All right, challenger.\p"
-    "I'm Clay, the Gym Leader.\p"
-    "It's not often, but some Trainers\n"
-    "manage to come and challenge me.\l"
-    "But they've all been boring battles.\p"
-    "Anyway, I guess we'd better get this\n"
-    "done.\p"
-    "I hope you're the Trainer who'll make\n"
-    "me remember how fun it is to battle!"
+	"I'm Clay.\n"
+    "I'm the Gym Leader 'round here.\p"
+    "Don't be expectin' no warm\n"
+    "welcome, now.\p"
+    "'Round here actions speak louder than\n"
+    "words and as far I'm concerned,\l"
+    "ya have yet to show me something\l"
+    "that's worth commendin' ya for.\p"
+    "All right, no more dilly-dallyin'.\n"
+    "Time to see what ya can do!"
 }
 text KaolGym_ClayDef{
-	"…Hehehe.\p"
-    "Hahahah!\p"
-    "…That was the most fun I've had\n"
-    "in a battle since…I don't know when!\p"
-    "It's also made me excited to know\n"
-    "you and your team will keep battling\l"
-    "to greater heights!\p"
-    "This is your second Gym Badge.\n"
-    "You've earned this!"
+	"Phew…\n"
+    "You're really somethin'!\p"
+    "Li'l whippersnapper trainers\n"
+    "who pack a real punch keep\l"
+    "showin' up one after another."
 }
 text KaolGym_ReceivedBadge{
 	"{PLAYER} received the Quake Badge\n"
 	"from Clay!"
 }
 text KaolGym_TakeThis{
-	"The Quake Badge makes all Pokémon\n"
-	"up to level 50, even those you get in\l"
-    "trades, obey without question.\p"
-	"It also enables them to use the HM move\n"
-	"“Cut” outside of battle.\p"
-	"Here, have this TM as well."
+	"So this is yer third Badge, huh?\n"
+    "If that's so, Pokémon up to level 50\l"
+    "will obey ya.\p"
+    "Also, I'll give ya this TM."
 }
 text KaolGym_ExplainTM{
-	"That TM contains the move Wild Charge.\p"
-	"It's a really powerful attack where\n"
-    "the user shrouds itself in electricity\l"
-    "and slams against the opponent.\p"
-    "Be careful though, as this also\n"
-    "hurts the user!"
+	"That TM's for the move\n"
+    "Stompin' Tantrum.\p"
+	"It's a real powerful move that\n"
+    "doubles in power whenever th' user's\l"
+    "previous move fails to land."
 }
 text KaolGym_ClayPosBat{
-	"After witnessing your strength here,\n"
-    "I'm starting to doubt whether you even\l"
-    "needed our help with Team Rocket\l"
-    "back at the ranch."
+	"I don't know how much potential ya got,\n"
+    "but if ya think ya can go, go wherever,\l"
+    "and if ya think ya can do somethin',\l"
+    "keep doin' it.\p"
+    "Do things how ya want!\n"
+    "Decide yer own limits!"
 }
 
 script KaolGym_Guide{
 	if(flag(FLAG_BADGE03_GET)){
-        msgbox(KaolGym_GuidePostVictory, MSGBOX_NPC) 
+        msgbox(KaolGym_GuidePostVictory, MSGBOX_NPC)
+        end 
+    }
+    if((flag(FLAG_KAOLISLE_GYM_SWITCH1))
+    && (flag(FLAG_KAOLISLE_GYM_SWITCH2))
+    && (flag(FLAG_KAOLISLE_GYM_SWITCH3))
+    && (flag(FLAG_KAOLISLE_GYM_SWITCH4))){
+        msgbox(KaolGym_GuideHalfwayThrough, MSGBOX_NPC)
+        end
     }
     else{
 	    msgbox(KaolGym_GuideAdvice, MSGBOX_NPC)
@@ -377,49 +440,50 @@ script KaolGym_Statue{
     }
 	end
 }
+text KaolGym_GuideHalfwayThrough{
+    "Well done pressing all\n"
+    "the buttons, champ!\p"
+    "However, you're still only halfway\n"
+    "through the challenge.\p"
+    "See those stairs leading down?\p"
+    "The leader of the gym will be\n"
+    "waiting for you there.\l"
+    "Go show him who's the champ… champ!"
+}
 text KaolGym_GuideAdvice{
-	"Yo, champ in the making!\p"
-	"The leader of this gym, Clay,\n"
-    "is an electric-type trainer.\p"
-    "Go against him with flying- or water-\n"
-    "type Pokémon and you're going to have\l"
-    "a bad time!\p"
-    "By the by, many of the trainers\n"
-    "here like to work in pairs!\l"
-    "And see those peculiar floor tiles?\p"
-    "Stepping on one might activate a trap\n"
-    "that sends a few electric-type Pokémon\l"
-    "flying your way, so you better be\l"
-    "prepared!\p"
-    "Do note that those Pokémon are\n"
-    "actually the property of the gym and\l"
-    "considered part of your gym trial.\p"
-    "As such, catching them or running away\n"
-    "from a battle is strictly prohibited!\p"
-    "If you find the going too hard,\n"
-    "there's always those pressure plates\l"
-    "in the side rooms.\l"
-    "Maybe stepping on one might\l"
-    "tamper with the floor mechanism…\p"
+    "Yo, champ in the making!\p"
+    "You may have noticed this gym looking\n"
+    "a bit different from the norm,\l"
+    "but fret not, because we are\l"
+    "as legitimate as any other gym!\p"
+    "Anyway, this gym's leader, Clay,\n"
+    "uses ground-type Pokémon.\p"
+    "However, in order to reach him,\n"
+    "you must first find four buttons\l"
+    "inside the gym and press all of them.\p"
+    "To add to the challenge, the gym layout\n"
+    "can be a bit of a maze!\p"
+    "Once you've pressed all the buttons,\n"
+    "all you need to do is return here.\p"
     "Anyway, that's enough from me.\n"
     "Go get 'em, Champ!"
 }
 text KaolGym_GuidePostVictory{
-	"Whoa! What a shocking outcome!\n"
-    "You sure charged in and showed\l"
-    "everyone who's the boss!"
+	"Every now and again, I hope you look at\n"
+    "the Quake Badge you won here and\l"
+    "remember your battle with Clay!"
 }
 text KaolGym_GymStatue{
 	"Kaolisle City Pokémon Gym\p"
 	"Clay's certified trainers:\n"
-	"Thomas\l"
-	"{RIVAL}"
+    "{RIVAL}\l"
+	"Thomas"
 }
 text KaolGym_GymStatueCertified{
 	"Kaolisle City Pokémon Gym\p"
 	"Clay's certified trainers:\n"
+    "{RIVAL}\l"
 	"Thomas\l"
-	"{RIVAL}\l"
 	"{PLAYER}"
 }
 

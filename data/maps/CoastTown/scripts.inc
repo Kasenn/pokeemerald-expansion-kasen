@@ -270,6 +270,47 @@ CoastTown_YesPokemonTree3_5:
 	goto CoastTown_YesPokemonTree3_4
 
 
+AzureTide_MysteryWoman::
+	lock
+	goto_if_set FLAG_TEMP_3, AzureTide_MysteryWoman_2
+	msgbox AzureTide_MysteryWoman_Text, MSGBOX_DEFAULT
+	faceplayer
+	msgbox AzureTide_MysteryWoman_Text2, MSGBOX_YESNO
+AzureTide_MysteryWoman_1:
+	compare VAR_RESULT, FALSE
+	goto_if_eq AzureTide_MysteryWoman_6
+	goto_if_set FLAG_BADGE03_GET, AzureTide_MysteryWoman_10
+	goto_if_set FLAG_BADGE02_GET, AzureTide_MysteryWoman_13
+	goto_if_set FLAG_BADGE01_GET, AzureTide_MysteryWoman_15
+	end
+
+AzureTide_MysteryWoman_2:
+	faceplayer
+	msgbox AzureTide_MysteryWoman_TextShort, MSGBOX_YESNO
+	goto AzureTide_MysteryWoman_1
+
+AzureTide_MysteryWoman_6:
+	msgbox AzureTide_MysteryWoman_Decline, MSGBOX_NPC
+	setflag FLAG_TEMP_3
+	turnobject 7, DIR_WEST
+	end
+
+AzureTide_MysteryWoman_10:
+	msgbox AzureTide_MysteryWoman_3Badges, MSGBOX_NPC
+	turnobject 7, DIR_WEST
+	end
+
+AzureTide_MysteryWoman_13:
+	msgbox AzureTide_MysteryWoman_2Badges, MSGBOX_NPC
+	turnobject 7, DIR_WEST
+	end
+
+AzureTide_MysteryWoman_15:
+	msgbox AzureTide_MysteryWoman_1Badges, MSGBOX_NPC
+	turnobject 7, DIR_WEST
+	end
+
+
 CoastTown_YesPokemonTree_Event::
 	msgbox CoastTown_EmptyPokemonTree_Event_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, YES
@@ -519,6 +560,61 @@ UnsureTreeShake::
 
 NoPokemonTreeShake::
 	.string "You give the tree a firm shake but it\nseems that this tree has no Pokémon.$"
+
+AzureTide_MysteryWoman_Text::
+	.string "How many years has it been since\n"
+	.string "we last visited It?\p"
+	.string "I bet those old geezers completely\n"
+	.string "forgot It!\p"
+	.string "… … … …$"
+
+AzureTide_MysteryWoman_Text2::
+	.string "Oh!\p"
+	.string "Don't surprise the elderly by\n"
+	.string "sneaking up on them like that!\p"
+	.string "Wait… You are a trainer, yes?\p"
+	.string "And you just arrived from\n"
+	.string "Coralgrove Archipelago?\l"
+	.string "I wonder…\l"
+	.string "You!\l"
+	.string "Yes, you!\p"
+	.string "Would you care for a little bout?\n"
+	.string "I'm very much interested to see\l"
+	.string "how you battle.$"
+
+AzureTide_MysteryWoman_Decline::
+	.string "Hmph…\p"
+	.string "Well, I won't force you if you\n"
+	.string "don't feel like it.$"
+
+AzureTide_MysteryWoman_TextShort::
+	.string "You're back. Care for\n"
+	.string "a little bout?$"
+
+AzureTide_MysteryWoman_3Badges::
+	.string "Actually, I think we may have to\n"
+	.string "postpone the battle.\l"
+	.string "You only have 3 Gym Badges and\n"
+	.string "I'm a pretty strong trainer.\p"
+	.string "Get a couple more and then\n"
+	.string "get back to me.$"
+
+AzureTide_MysteryWoman_2Badges::
+	.string "Now that I think about it,\n"
+	.string "you're still probably a rookie.\p"
+	.string "Why, I bet you don't have more\n"
+	.string "than 2 Gym Badges.\p"
+	.string "Tell you what, get a few more\n"
+	.string "Badges and then come back to me.$"
+
+AzureTide_MysteryWoman_1Badges::
+	.string "Hm… Now that I think about it,\n"
+	.string "since you just came from Coralgrove,\l"
+	.string "you probably only have a single\l"
+	.string "Gym Badge.\p"
+	.string "I'm a pretty strong trainer so you\n"
+	.string "should work on getting some more Badges\n"
+	.string "before taking on my challenge.$"
 
 YesPokemonTreeShake::
 	.string "You give the tree a firm shake and\na wild Pokémon lands in front of you!$"

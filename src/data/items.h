@@ -8151,7 +8151,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_STOMPING_TANTRUM, // Todo
     },
 
     [ITEM_TM85] =
@@ -9746,5 +9746,15 @@ const struct Item gItems[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+    [ITEM_SPECIAL_SOUP] =
+    {
+        .name = _("Savory Soup"),
+        .price = 2000,
+        .description = sSpecialSoupDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_IncreaseFriendship,
+        .flingPower = 30,
     },
 };

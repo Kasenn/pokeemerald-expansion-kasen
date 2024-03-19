@@ -3,6 +3,7 @@
 
 Std_ObtainItem::
 	additem ITEMID, AMOUNT
+	copyvar VAR_0x8004, ITEMID
 	copyvar VAR_0x8007, VAR_RESULT
 	call EventScript_ObtainItemMessage
 	return
@@ -50,6 +51,9 @@ EventScript_BufferBerriesPocket::
 	return
 
 EventScript_ObtainedItem:: @ 8271B95
+	specialvar VAR_RESULT, BufferTMHMMoveName
+	copyvar VAR_0x8008, VAR_RESULT
+	goto_if_eq VAR_0x8008, TRUE, EventScript_ObtainedTMHM
 	compare VAR_0x8001, TRUE
 	goto_if_eq EventScript_ObtainedItemMessage
 	buffernumberstring 0, VAR_0x8001
@@ -62,6 +66,15 @@ EventScript_ContinueObtainedItem:
 	msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
 	setvar VAR_RESULT, TRUE
 	return
+
+EventScript_ObtainedTMHM::
+	bufferitemnameplural STR_VAR_1, VAR_0x8004, VAR_0x8005
+	message gText_PlayerObtainedOneTMHM
+	goto EventScript_ContinueObtainedItem
+
+gText_PlayerObtainedOneTMHM::
+	.string "Obtained the {STR_VAR_1},\n"
+	.string "{STR_VAR_2}!$"
 
 gText_ObtainedTheItems::
     .string "Obtained {STR_VAR_1} {STR_VAR_2}!$"

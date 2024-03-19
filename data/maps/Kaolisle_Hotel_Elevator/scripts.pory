@@ -1,0 +1,126 @@
+mapscripts Kaolisle_Hotel_Elevator_MapScripts{}
+
+script Hotel_Elevator_Attendant{
+    lock
+	faceplayer
+	setvar(VAR_0x8004, 0)
+	call_if_unset(FLAG_TEMP_2, HotelElevatorSetFloor)
+	copyvar(VAR_0x8005, VAR_DEPT_STORE_FLOOR)
+	special(ShowDeptStoreElevatorFloorSelect)
+	message(gText_WhichFloorWouldYouLikeHotel)
+	waitmessage
+	setvar(VAR_0x8004, 0)
+	specialvar(VAR_RESULT, GetHotelDefaultFloorChoice)
+	switch(var(VAR_RESULT)){
+	case 0:
+        multichoicedefault(0, 0, MULTI_FLOORS, 0, FALSE)
+	case 1:
+        multichoicedefault(0, 0, MULTI_FLOORS, 1, FALSE)
+    case 2:
+        multichoicedefault(0, 0, MULTI_FLOORS, 2, FALSE)
+    case 3:
+        multichoicedefault(0, 0, MULTI_FLOORS, 3, FALSE)
+    case 4:
+        multichoicedefault(0, 0, MULTI_FLOORS, 4, FALSE)
+    }
+    goto(Hotel_Elevator_ChooseFloor)
+	end
+}
+
+text gText_WhichFloorWouldYouLikeHotel{
+    "Welcome to Kaolisle Grand Resort.\p"
+	"Which floor would you like?"
+}
+
+script Hotel_Elevator_ChooseFloor{
+    switch(var(VAR_RESULT)){
+        case 0:
+            goto(Hotel_Elevator_5thFloor)
+        case 1:
+            goto(Hotel_Elevator_4thFloor)
+        case 2:
+            goto(Hotel_Elevator_3rdFloor)
+        case 3:
+            goto(Hotel_Elevator_2ndFloor)
+        case 4:
+            goto(Hotel_Elevator_1stFloor)
+        case 5:
+            goto(Hotel_Elevator_ExitFloorSelect)
+        case MULTI_B_PRESSED:
+            goto(Hotel_Elevator_ExitFloorSelect)
+    }
+    end
+}
+
+script Hotel_Elevator_1stFloor{
+    setvar(VAR_0x8006, DEPT_STORE_FLOORNUM_1F)
+	setdynamicwarp(MAP_KAOLISLE_HOTEL_1F, 18, 2)
+	goto_if_eq(VAR_DEPT_STORE_FLOOR, DEPT_STORE_FLOORNUM_1F, Hotel_Elevator_ExitFloorSelect)
+	call(Hotel_Elevator_MoveElevator)
+	setvar(VAR_DEPT_STORE_FLOOR, DEPT_STORE_FLOORNUM_1F)
+	goto(Hotel_Elevator_ExitFloorSelect)
+	end
+}
+	
+script Hotel_Elevator_2ndFloor{
+    setvar(VAR_0x8006, DEPT_STORE_FLOORNUM_2F)
+	setdynamicwarp(MAP_KAOLISLE_HOTEL_2F, 10, 5)
+	goto_if_eq(VAR_DEPT_STORE_FLOOR, DEPT_STORE_FLOORNUM_2F, Hotel_Elevator_ExitFloorSelect)
+	call(Hotel_Elevator_MoveElevator)
+	setvar(VAR_DEPT_STORE_FLOOR, DEPT_STORE_FLOORNUM_2F)
+	goto(Hotel_Elevator_ExitFloorSelect)
+	end
+}
+
+script Hotel_Elevator_3rdFloor{
+    setvar(VAR_0x8006, DEPT_STORE_FLOORNUM_3F)
+	setdynamicwarp(MAP_KAOLISLE_HOTEL_3F, 10, 5)
+	goto_if_eq(VAR_DEPT_STORE_FLOOR, DEPT_STORE_FLOORNUM_3F, Hotel_Elevator_ExitFloorSelect)
+	call(Hotel_Elevator_MoveElevator)
+	setvar(VAR_DEPT_STORE_FLOOR, DEPT_STORE_FLOORNUM_3F)
+	goto(Hotel_Elevator_ExitFloorSelect)
+	end
+}
+
+script Hotel_Elevator_4thFloor{
+    setvar(VAR_0x8006, DEPT_STORE_FLOORNUM_4F)
+	setdynamicwarp(MAP_KAOLISLE_HOTEL_4F, 10, 5)
+	goto_if_eq(VAR_DEPT_STORE_FLOOR, DEPT_STORE_FLOORNUM_4F, Hotel_Elevator_ExitFloorSelect)
+	call(Hotel_Elevator_MoveElevator)
+	setvar(VAR_DEPT_STORE_FLOOR, DEPT_STORE_FLOORNUM_4F)
+	goto(Hotel_Elevator_ExitFloorSelect)
+	end
+}
+
+script Hotel_Elevator_5thFloor{
+    setvar(VAR_0x8006, DEPT_STORE_FLOORNUM_5F)
+	setdynamicwarp(MAP_KAOLISLE_HOTEL_5F, 10, 5)
+	goto_if_eq(VAR_DEPT_STORE_FLOOR, DEPT_STORE_FLOORNUM_5F, Hotel_Elevator_ExitFloorSelect)
+	call(Hotel_Elevator_MoveElevator)
+	setvar(VAR_DEPT_STORE_FLOOR, DEPT_STORE_FLOORNUM_5F)
+	goto(Hotel_Elevator_ExitFloorSelect)
+	end
+}
+
+script Hotel_Elevator_ExitFloorSelect{
+    special(CloseDeptStoreElevatorWindow)
+	release
+	end
+}
+
+script Hotel_Elevator_MoveElevator{
+    special(CloseDeptStoreElevatorWindow)
+	closemessage
+	applymovement(VAR_LAST_TALKED, Common_Movement_WalkInPlaceFasterDown)
+	waitmovement(0)
+	waitse
+	special(MoveElevator)
+	waitstate
+	setflag(FLAG_TEMP_2)
+	return
+}
+
+script HotelElevatorSetFloor{
+	special(SetHotelFloor)
+	return
+}

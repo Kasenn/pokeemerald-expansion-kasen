@@ -92,13 +92,13 @@
 #define FLAG_PIANOREWARD                        0x4F // 
 
 // Scripts
-#define FLAG_SYSTEM_NOREWARDBATTLES              0x50 // Unused Flag
+#define FLAG_SYSTEM_NOREWARDBATTLES              0x50 // NO EXP OR MONEY FROM BATTLES, used in hotel battle buffet
 #define FLAG_SET_WALL_CLOCK                      0x51
 #define FLAG_RESCUED_BIRCH                       0x52
 #define FLAG_LEGENDARIES_IN_SOOTOPOLIS           0x53
 
 #define FLAG_RECEIVED_LIGHTBALL                    0x54  // Received light ball after showing 2 raichus in skyloch village
-#define FLAG_UNUSED_0x055                    0x55  // Unused Flag
+#define FLAG_BUFFET_COMPLETE                    0x55  // Unused Flag
 
 #define FLAG_HIDE_CONTEST_POKE_BALL          0x56  // Always set after new game, object it hides is added directly
 #define FLAG_MET_RIVAL_MOM                   0x57
@@ -1171,10 +1171,10 @@
 #define FLAG_ITEM_NEW_MAUVILLE_FULL_HEAL                            0x462
 #define FLAG_ITEM_NEW_MAUVILLE_PARALYZE_HEAL                        0x463
 #define FLAG_ITEM_AQUA_HIDEOUT_B1F_MASTER_BALL                      0x464
-#define FLAG_ITEM_OLD_MAGMA_HIDEOUT_B1F_MASTER_BALL                 0x465 // Unused Flag, leftover from the Ruby Magma hideout
-#define FLAG_ITEM_OLD_MAGMA_HIDEOUT_B1F_MAX_ELIXIR                  0x466 // Unused Flag, leftover from the Ruby Magma hideout
+#define FLAG_RECEIVED_SOUP                 0x465 // Unused Flag, leftover from the Ruby Magma hideout
+#define FLAG_HOTEL_FLYINGGEM                  0x466 // Unused Flag, leftover from the Ruby Magma hideout
 #define FLAG_ITEM_OLD_MAGMA_HIDEOUT_B2F_NEST_BALL                   0x467 // Unused Flag, leftover from the Ruby Magma hideout
-#define FLAG_UNUSED_0x468                                           0x468 // Unused Flag
+#define FLAG_HOTELLEMONADE                                           0x468 // Kaolisle hotel lemonade
 #define FLAG_ITEM_MT_PYRE_2F_ULTRA_BALL                             0x469
 #define FLAG_ITEM_MT_PYRE_4F_SEA_INCENSE                            0x46A
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_WEST_MAX_REVIVE                 0x46B
@@ -1283,20 +1283,20 @@
 #define FLAG_TRADED_CHARMANDER                                           0x4D1 // Unused Flag
 #define FLAG_TRADED_SQUIRTLE                                           0x4D2 // Unused Flag
 #define FLAG_FANCLUB_TRADESOVER                                           0x4D3 // Unused Flag
-#define FLAG_UNUSED_0x4D4                                           0x4D4 // Unused Flag
-#define FLAG_UNUSED_0x4D5                                           0x4D5 // Unused Flag
-#define FLAG_UNUSED_0x4D6                                           0x4D6 // Unused Flag
-#define FLAG_UNUSED_0x4D7                                           0x4D7 // Unused Flag
-#define FLAG_UNUSED_0x4D8                                           0x4D8 // Unused Flag
-#define FLAG_UNUSED_0x4D9                                           0x4D9 // Unused Flag
-#define FLAG_UNUSED_0x4DA                                           0x4DA // Unused Flag
-#define FLAG_UNUSED_0x4DB                                           0x4DB // Unused Flag
-#define FLAG_UNUSED_0x4DC                                           0x4DC // Unused Flag
-#define FLAG_UNUSED_0x4DD                                           0x4DD // Unused Flag
-#define FLAG_UNUSED_0x4DE                                           0x4DE // Unused Flag
-#define FLAG_UNUSED_0x4DF                                           0x4DF // Unused Flag
-#define FLAG_UNUSED_0x4E0                                           0x4E0 // Unused Flag
-#define FLAG_UNUSED_0x4E1                                           0x4E1 // Unused Flag
+#define FLAG_KAOLMINES_ITEM1                                           0x4D4 // Kaolisle Mines Item Flags Start
+#define FLAG_KAOLMINES_ITEM2                                           0x4D5 // 
+#define FLAG_KAOLMINES_ITEM3                                           0x4D6 // 
+#define FLAG_KAOLMINES_ITEM4                                           0x4D7 // 
+#define FLAG_KAOLMINES_ITEM5                                           0x4D8 // 
+#define FLAG_KAOLMINES_ITEM6                                           0x4D9 // 
+#define FLAG_KAOLMINES_ITEM7                                           0x4DA // 
+#define FLAG_KAOLMINES_ITEM8                                           0x4DB // 
+#define FLAG_KAOLMINES_ITEM9                                           0x4DC // 
+#define FLAG_KAOLMINES_ITEM10                                           0x4DD // 
+#define FLAG_KAOLMINES_ITEM11                                           0x4DE // 
+#define FLAG_KAOLMINES_ITEM12                                           0x4DF // 
+#define FLAG_KAOLMINES_ITEM13                                           0x4E0 // 
+#define FLAG_KAOLMINES_ITEM14                                           0x4E1 // Kaolisle Mines Item Flags End
 #define FLAG_UNUSED_0x4E2                                           0x4E2 // Unused Flag
 #define FLAG_UNUSED_0x4E3                                           0x4E3 // Unused Flag
 #define FLAG_UNUSED_0x4E4                                           0x4E4 // Unused Flag

@@ -264,6 +264,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RocketAdmin_M;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Volcarona;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Abra;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Spheal;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Excadrill;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_NEWPIKACHU] =                     &gObjectEventGraphicsInfo_NewPikachu,
@@ -342,7 +343,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     // [OBJ_EVENT_GFX_GRETA] =                    &gObjectEventGraphicsInfo_Greta,
     // [OBJ_EVENT_GFX_SPENSER] =                  &gObjectEventGraphicsInfo_Spenser,
     // [OBJ_EVENT_GFX_NOLAND] =                   &gObjectEventGraphicsInfo_Noland,
-    [OBJ_EVENT_GFX_LUCY] =                     &gObjectEventGraphicsInfo_Lucy,
+    // [OBJ_EVENT_GFX_LUCY] =                     &gObjectEventGraphicsInfo_Lucy,
     // [OBJ_EVENT_GFX_UNUSED_NATU_DOLL] =         &gObjectEventGraphicsInfo_UnusedNatuDoll,
     // [OBJ_EVENT_GFX_UNUSED_MAGNEMITE_DOLL] =    &gObjectEventGraphicsInfo_UnusedMagnemiteDoll,
     // [OBJ_EVENT_GFX_UNUSED_SQUIRTLE_DOLL] =     &gObjectEventGraphicsInfo_UnusedSquirtleDoll,
@@ -521,6 +522,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_VOLCARONA] =                     &gObjectEventGraphicsInfo_Volcarona,
     [OBJ_EVENT_GFX_ABRA] =                     &gObjectEventGraphicsInfo_Abra,
     [OBJ_EVENT_GFX_SPHEAL] =                     &gObjectEventGraphicsInfo_Spheal,
+    [OBJ_EVENT_GFX_EXCADRILL] =                     &gObjectEventGraphicsInfo_Excadrill,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

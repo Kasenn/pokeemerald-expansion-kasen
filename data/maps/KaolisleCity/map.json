@@ -3,7 +3,7 @@
   "name": "KaolisleCity",
   "layout": "LAYOUT_KAOLISLE_CITY",
   "music": "MUS_DEWFORD",
-  "region_map_section": "MAPSEC_CITY_WIP2",
+  "region_map_section": "MAPSEC_KAOLISLE_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_CITY",
@@ -113,7 +113,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "KaolisleCity_ExpertM",
+      "script": "KaolisleCity_MysteryMan",
       "flag": "0"
     },
     {
@@ -414,6 +414,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Kaolisle_Brother",
       "flag": "FLAG_BADGE03_GET"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
+      "x": 18,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "KaolisleCity_ExpertM",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -499,7 +512,7 @@
       "y": 48,
       "elevation": 0,
       "dest_map": "MAP_KAOLISLE_HOTEL_1F",
-      "dest_warp_id": "0"
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [

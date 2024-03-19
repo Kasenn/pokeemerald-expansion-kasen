@@ -252,3 +252,6 @@ const u16 gMetatileAttributes_SafariPrime[] = INCBIN_U16("data/tilesets/primary/
 
 const u16 gMetatiles_SafariSec[] = INCBIN_U16("data/tilesets/secondary/safari_sec/metatiles.bin");
 const u16 gMetatileAttributes_SafariSec[] = INCBIN_U16("data/tilesets/secondary/safari_sec/metatile_attributes.bin");
+
+const u16 gMetatiles_gTileset_Hotel[] = INCBIN_U16("data/tilesets/secondary/hotel/metatiles.bin");
+const u16 gMetatileAttributes_gTileset_Hotel[] = INCBIN_U16("data/tilesets/secondary/hotel/metatile_attributes.bin");

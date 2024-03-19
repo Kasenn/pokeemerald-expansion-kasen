@@ -151,6 +151,15 @@ const u8 gItemEffect_HerbalMix[10] = {
     [9] = -40, // Friendship change, high
 };
 
+const u8 gItemEffect_SpecialSoup[10] = {
+    [4] = ITEM4_HEAL_HP,
+    [5] = ITEM5_FRIENDSHIP_ALL,
+    [6] = 20, // Amount of HP to recover
+    [7] = -30, // Friendship change, low
+    [8] = -30, // Friendship change, mid
+    [9] = -40, // Friendship change, high
+};
+
 const u8 gItemEffect_Ether[7] = {
     [4] = ITEM4_HEAL_PP_ONE | ITEM4_HEAL_PP,
     [6] = 10,
@@ -490,6 +499,7 @@ const u8 *const gItemEffectTable[ITEMS_COUNT] =
     [ITEM_SWEET_HEART]        = gItemEffect_Potion,
     [ITEM_MAX_HONEY]          = gItemEffect_MaxRevive,
     [ITEM_HERBAL_MIX]         = gItemEffect_HerbalMix,
+    [ITEM_SPECIAL_SOUP]         = gItemEffect_SpecialSoup,
 
     // Regional Specialties
     [ITEM_PEWTER_CRUNCHIES]   = gItemEffect_FullHeal,

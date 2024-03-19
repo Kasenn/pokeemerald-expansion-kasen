@@ -1,0 +1,18 @@
+mapscripts Kaolisle_Hotel_5F_MapScripts{}
+
+script Room501{
+    msgbox("Room 501", MSGBOX_SIGN)
+    end
+}
+script Room502{
+    msgbox("Room 502", MSGBOX_SIGN)
+    end
+}
+script Room503{
+    msgbox("Room 503", MSGBOX_SIGN)
+    end
+}
+script Room504{
+    msgbox("Room 504", MSGBOX_SIGN)
+    end
+}

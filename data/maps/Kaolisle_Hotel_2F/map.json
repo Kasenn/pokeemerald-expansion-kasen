@@ -1,0 +1,93 @@
+{
+  "id": "MAP_KAOLISLE_HOTEL_2F",
+  "name": "Kaolisle_Hotel_2F",
+  "layout": "LAYOUT_KAOLISLE_HOTEL_2F",
+  "music": "MUS_LILYCOVE_MUSEUM",
+  "region_map_section": "MAPSEC_KAOLISLE_CITY",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 10,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_HOTEL_ELEVATOR",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_HOTEL_2F_ROOMS",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 20,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_HOTEL_2F_ROOMS",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 26,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_HOTEL_2F_ROOMS",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 32,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_HOTEL_2F_ROOMS",
+      "dest_warp_id": "6"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Room201"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Room202"
+    },
+    {
+      "type": "sign",
+      "x": 27,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Room203"
+    },
+    {
+      "type": "sign",
+      "x": 33,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Room204"
+    }
+  ]
+}

@@ -275,6 +275,97 @@ script CoastTown_YesPokemonTree3{
         end
     }
 }
+script AzureTide_MysteryWoman{
+    lock
+    if(flag(FLAG_TEMP_3)){
+        faceplayer
+        msgbox(AzureTide_MysteryWoman_TextShort, MSGBOX_YESNO)
+    }
+    else{
+        msgbox(AzureTide_MysteryWoman_Text, MSGBOX_DEFAULT)
+        faceplayer
+        msgbox(AzureTide_MysteryWoman_Text2, MSGBOX_YESNO)
+    }
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(AzureTide_MysteryWoman_Decline, MSGBOX_NPC)
+        setflag(FLAG_TEMP_3)
+        turnobject(7, DIR_WEST)
+        end
+    }
+    else{
+        if(flag(FLAG_BADGE03_GET)){
+            msgbox(AzureTide_MysteryWoman_3Badges, MSGBOX_NPC)
+            turnobject(7, DIR_WEST)
+            end
+        }
+        if(flag(FLAG_BADGE02_GET)){
+            msgbox(AzureTide_MysteryWoman_2Badges, MSGBOX_NPC)
+            turnobject(7, DIR_WEST)
+            end
+        }
+        if(flag(FLAG_BADGE01_GET)){
+            msgbox(AzureTide_MysteryWoman_1Badges, MSGBOX_NPC)
+            turnobject(7, DIR_WEST)
+            end
+        }
+    }
+    end
+}
+text AzureTide_MysteryWoman_Text{
+    "How many years has it been since\n"
+    "we last visited It?\p"
+    "I bet those old geezers completely\n"
+    "forgot It!\p"
+    "… … … …"
+}
+text AzureTide_MysteryWoman_Text2{
+    "Oh!\p"
+    "Don't surprise the elderly by\n"
+    "sneaking up on them like that!\p"
+    "Wait… You are a trainer, yes?\p"
+    "And you just arrived from\n"
+    "Coralgrove Archipelago?\l"
+    "I wonder…\l"
+    "You!\l"
+    "Yes, you!\p"
+    "Would you care for a little bout?\n"
+    "I'm very much interested to see\l"
+    "how you battle."
+}
+text AzureTide_MysteryWoman_Decline{
+    "Hmph…\p"
+    "Well, I won't force you if you\n"
+    "don't feel like it."
+}
+text AzureTide_MysteryWoman_TextShort{
+    "You're back. Care for\n"
+    "a little bout?"
+}
+text AzureTide_MysteryWoman_3Badges{
+    "Actually, I think we may have to\n"
+    "postpone the battle.\l"
+    "You only have 3 Gym Badges and\n"
+    "I'm a pretty strong trainer.\p"
+    "Get a couple more and then\n"
+    "get back to me."
+}
+text AzureTide_MysteryWoman_2Badges{
+    "Now that I think about it,\n"
+    "you're still probably a rookie.\p"
+    "Why, I bet you don't have more\n"
+    "than 2 Gym Badges.\p"
+    "Tell you what, get a few more\n"
+    "Badges and then come back to me."
+}
+text AzureTide_MysteryWoman_1Badges{
+    "Hm… Now that I think about it,\n"
+    "since you just came from Coralgrove,\l"
+    "you probably only have a single\l"
+    "Gym Badge.\p"
+    "I'm a pretty strong trainer so you\n"
+    "should work on getting some more Badges\n"
+    "before taking on my challenge."
+}
 
 script CoastTown_YesPokemonTree_Event{
     msgbox("There could be wild\nPokémon in this tree.\pWant to give it a shake?", MSGBOX_YESNO)

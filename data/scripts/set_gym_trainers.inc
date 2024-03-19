@@ -39,21 +39,27 @@ DewfordTown_Gym_SetGymTrainers::
 	return
 
 MauvilleCity_Gym_SetGymTrainers::
-	settrainerflag TRAINER_KAOLGYM_CLAY
-	settrainerflag TRAINER_SHAWN
-	settrainerflag TRAINER_BEN
-	settrainerflag TRAINER_VIVIAN
-	settrainerflag TRAINER_ANGELO
+	settrainerflag TRAINER_KAOLGYM_TR1_CAMPER1
+	settrainerflag TRAINER_KAOLGYM_TR2_PICNICKER1
+	settrainerflag TRAINER_KAOLGYM_TR3_HIKER1
+	settrainerflag TRAINER_KAOLGYM_TR4_CAMPER2
+	settrainerflag TRAINER_KAOLGYM_TR5_HIKER2
+	settrainerflag TRAINER_KAOLGYM_TR6_HIKER3
+	settrainerflag TRAINER_KAOLGYM_TR7_PICNICKER2
+	settrainerflag TRAINER_KAOLGYM_TR8_CAMPER3
+	settrainerflag TRAINER_KAOLGYM_TR9_PICNICKER3
+	settrainerflag TRAINER_KAOLGYM_TR10_HIKER4
+	settrainerflag TRAINER_KAOLGYM_CLAY     
 	return
 
 LavaridgeTown_Gym_SetGymTrainers::
-	settrainerflag TRAINER_COLE
-	settrainerflag TRAINER_AXLE
-	settrainerflag TRAINER_KEEGAN
+	settrainerflag TRAINER_KM_TR10_HIKER
+	settrainerflag TRAINER_BUFFET_2
+	settrainerflag TRAINER_BUFFET_4
 	settrainerflag TRAINER_GERALD
 	settrainerflag TRAINER_DANIELLE
-	settrainerflag TRAINER_JACE
-	settrainerflag TRAINER_JEFF
+	settrainerflag TRAINER_BUFFET_3
+	settrainerflag TRAINER_BUFFET_1
 	settrainerflag TRAINER_ELI
 	return
 

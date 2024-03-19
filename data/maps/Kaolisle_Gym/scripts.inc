@@ -53,6 +53,18 @@ Kaolisle_Gym_SetMetatiles_19:
 	goto Kaolisle_Gym_SetMetatiles_13
 
 
+KaolGymQuake::
+	msgbox KaolGymQuake_Text_0, MSGBOX_NPC
+	playse SE_SWITCH
+	setvar VAR_0x8004, 1
+	setvar VAR_0x8005, 1
+	setvar VAR_0x8006, 10
+	setvar VAR_0x8007, 6
+	special ShakeCamera
+	waitstate
+	return
+
+
 Kaolisle_Gym_Switch1::
 	goto_if_set FLAG_KAOLISLE_GYM_SWITCH1, Kaolisle_Gym_Switch1_2
 	setflag FLAG_KAOLISLE_GYM_SWITCH1
@@ -62,7 +74,7 @@ Kaolisle_Gym_Switch1::
 	special DrawWholeMapView
 	goto_if_set FLAG_KAOLISLE_GYM_SWITCH1, Kaolisle_Gym_Switch1_7
 Kaolisle_Gym_Switch1_6:
-	msgbox Kaolisle_Gym_Switch1_Text_2, MSGBOX_NPC
+	msgbox Kaolisle_Gym_Switch1_Text_1, MSGBOX_NPC
 Kaolisle_Gym_Switch1_4:
 	waitse
 	release
@@ -73,7 +85,7 @@ Kaolisle_Gym_Switch1_2:
 	end
 
 Kaolisle_Gym_Switch1_5:
-	msgbox Kaolisle_Gym_Switch1_Text_1, MSGBOX_NPC
+	call KaolGymQuake
 	goto Kaolisle_Gym_Switch1_4
 
 Kaolisle_Gym_Switch1_7:
@@ -98,7 +110,7 @@ Kaolisle_Gym_Switch2::
 	special DrawWholeMapView
 	goto_if_set FLAG_KAOLISLE_GYM_SWITCH1, Kaolisle_Gym_Switch2_7
 Kaolisle_Gym_Switch2_6:
-	msgbox Kaolisle_Gym_Switch1_Text_2, MSGBOX_NPC
+	msgbox Kaolisle_Gym_Switch1_Text_1, MSGBOX_NPC
 Kaolisle_Gym_Switch2_4:
 	waitse
 	release
@@ -109,7 +121,7 @@ Kaolisle_Gym_Switch2_2:
 	end
 
 Kaolisle_Gym_Switch2_5:
-	msgbox Kaolisle_Gym_Switch1_Text_1, MSGBOX_NPC
+	call KaolGymQuake
 	goto Kaolisle_Gym_Switch2_4
 
 Kaolisle_Gym_Switch2_7:
@@ -134,7 +146,7 @@ Kaolisle_Gym_Switch3::
 	special DrawWholeMapView
 	goto_if_set FLAG_KAOLISLE_GYM_SWITCH1, Kaolisle_Gym_Switch3_7
 Kaolisle_Gym_Switch3_6:
-	msgbox Kaolisle_Gym_Switch1_Text_2, MSGBOX_NPC
+	msgbox Kaolisle_Gym_Switch1_Text_1, MSGBOX_NPC
 Kaolisle_Gym_Switch3_4:
 	waitse
 	release
@@ -145,7 +157,7 @@ Kaolisle_Gym_Switch3_2:
 	end
 
 Kaolisle_Gym_Switch3_5:
-	msgbox Kaolisle_Gym_Switch1_Text_1, MSGBOX_NPC
+	call KaolGymQuake
 	goto Kaolisle_Gym_Switch3_4
 
 Kaolisle_Gym_Switch3_7:
@@ -170,7 +182,7 @@ Kaolisle_Gym_Switch4::
 	special DrawWholeMapView
 	goto_if_set FLAG_KAOLISLE_GYM_SWITCH1, Kaolisle_Gym_Switch4_7
 Kaolisle_Gym_Switch4_6:
-	msgbox Kaolisle_Gym_Switch1_Text_2, MSGBOX_NPC
+	msgbox Kaolisle_Gym_Switch1_Text_1, MSGBOX_NPC
 Kaolisle_Gym_Switch4_4:
 	waitse
 	release
@@ -181,7 +193,7 @@ Kaolisle_Gym_Switch4_2:
 	end
 
 Kaolisle_Gym_Switch4_5:
-	msgbox Kaolisle_Gym_Switch1_Text_1, MSGBOX_NPC
+	call KaolGymQuake
 	goto Kaolisle_Gym_Switch4_4
 
 Kaolisle_Gym_Switch4_7:
@@ -211,8 +223,19 @@ KaolisleGym_Trainer2_Picnicker1::
 
 KaolisleGym_Trainer3_Hiker1::
 	trainerbattle_single TRAINER_KAOLGYM_TR3_HIKER1, KaolisleGym_Trainer3_Hiker1_Intro, KaolisleGym_Trainer3_Hiker1_Defeat
-	msgbox KaolisleGym_Trainer3_Hiker1_PostBattle, MSGBOX_AUTOCLOSE
+	lockall
+	faceplayer
+	msgbox KaolisleGym_Trainer3_Hiker1_PostBattle, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
+	goto_if_eq KaolisleGym_Trainer3_Hiker1_2
+KaolisleGym_Trainer3_Hiker1_1:
+	closemessage
+	release
 	end
+
+KaolisleGym_Trainer3_Hiker1_2:
+	msgbox KaolisleGym_Trainer3_Hiker1_Secret, MSGBOX_NPC
+	goto KaolisleGym_Trainer3_Hiker1_1
 
 
 KaolisleGym_Trainer4_Camper2::
@@ -287,10 +310,11 @@ KaolGym_ClayEvent::
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox KaolGym_TakeThis, MSGBOX_DEFAULT
 	setflag FLAG_BADGE03_GET
+	setvar VAR_BADGES_OBTAINED, 3
 	setvar VAR_0x8008, 3
 	call Common_EventScript_SetGymTrainers
 	special RemoveCameraObject
-	giveitem ITEM_TM_WILD_CHARGE
+	giveitem ITEM_TM84
 	msgbox KaolGym_ExplainTM, MSGBOX_DEFAULT
 	release
 	end
@@ -298,13 +322,30 @@ KaolGym_ClayEvent::
 
 KaolGym_Guide::
 	goto_if_set FLAG_BADGE03_GET, KaolGym_Guide_2
+	goto_if_set FLAG_KAOLISLE_GYM_SWITCH1, KaolGym_Guide_7
+KaolGym_Guide_6:
 	msgbox KaolGym_GuideAdvice, MSGBOX_NPC
-KaolGym_Guide_1:
 	end
 
 KaolGym_Guide_2:
 	msgbox KaolGym_GuidePostVictory, MSGBOX_NPC
-	goto KaolGym_Guide_1
+	end
+
+KaolGym_Guide_5:
+	msgbox KaolGym_GuideHalfwayThrough, MSGBOX_NPC
+	end
+
+KaolGym_Guide_7:
+	goto_if_set FLAG_KAOLISLE_GYM_SWITCH2, KaolGym_Guide_9
+	goto KaolGym_Guide_6
+
+KaolGym_Guide_9:
+	goto_if_set FLAG_KAOLISLE_GYM_SWITCH3, KaolGym_Guide_11
+	goto KaolGym_Guide_6
+
+KaolGym_Guide_11:
+	goto_if_set FLAG_KAOLISLE_GYM_SWITCH4, KaolGym_Guide_5
+	goto KaolGym_Guide_6
 
 
 KaolGym_Statue::
@@ -384,13 +425,13 @@ TestScript2_1:
 	return
 
 
+KaolGymQuake_Text_0:
+	.string "{PLAYER} pressed the button.\nAll buttons have been pressed.$"
+
 Kaolisle_Gym_Switch1_Text_0:
 	.string "This button has already been pressed.$"
 
 Kaolisle_Gym_Switch1_Text_1:
-	.string "{PLAYER} pressed the button.\nAll buttons have been pressed.$"
-
-Kaolisle_Gym_Switch1_Text_2:
 	.string "{PLAYER} pressed the button.$"
 
 TestScript1_Text_0:
@@ -406,197 +447,235 @@ TestScript2_Text_1:
 	.string "False$"
 
 KaolisleGym_Trainer1_Camper1_Intro::
-	.string "$"
+	.string "I'm your first obstacle in this gym.\n"
+	.string "Don't think I'll go down easy though!$"
 
 KaolisleGym_Trainer1_Camper1_Defeat::
-	.string "$"
+	.string "You're stronger than I expected…$"
 
 KaolisleGym_Trainer1_Camper1_PostBattle::
-	.string "$"
+	.string "Here's a tip that works with any maze:\n"
+	.string "put your right hand on the wall\l"
+	.string "and never let go.\p"
+	.string "That way you will reach your\n"
+	.string "destination eventually.$"
 
 KaolisleGym_Trainer2_Picnicker1_Intro::
-	.string "$"
+	.string "I'm not letting you press the button\n"
+	.string "so easily!$"
 
 KaolisleGym_Trainer2_Picnicker1_Defeat::
-	.string "$"
+	.string "Fine, press the button then!\n"
+	.string "I don't really care anymore…$"
 
 KaolisleGym_Trainer2_Picnicker1_PostBattle::
-	.string "$"
+	.string "I thought I could be clever by\n"
+	.string "protecting the button directly.\p"
+	.string "Wasn't expecting someone so strong\n"
+	.string "to waltz in though…$"
 
 KaolisleGym_Trainer3_Hiker1_Intro::
-	.string "$"
+	.string "My Pokémon helped dig these tunnels.\n"
+	.string "Let me show them to you!$"
 
 KaolisleGym_Trainer3_Hiker1_Defeat::
-	.string "$"
+	.string "Gwahaha! We've got a real\n"
+	.string "contender here!$"
 
 KaolisleGym_Trainer3_Hiker1_PostBattle::
-	.string "$"
+	.string "I lost fair and square.\p"
+	.string "Say, would you like to know a secret\n"
+	.string "regarding a button?$"
+
+KaolisleGym_Trainer3_Hiker1_Secret::
+	.string "If you head past me to the north, you\n"
+	.string "will have already gone past a button.$"
 
 KaolisleGym_Trainer4_Camper2_Intro::
-	.string "$"
+	.string "Your luck has ran out!\p"
+	.string "Bar Clay,\n"
+	.string "I am the strongest trainer here!$"
 
 KaolisleGym_Trainer4_Camper2_Defeat::
-	.string "$"
+	.string "What?! I lost?!$"
 
 KaolisleGym_Trainer4_Camper2_PostBattle::
-	.string "$"
+	.string "You may have beat me but Clay is miles\n"
+	.string "ahead of everybody else here.\l"
+	.string "Don't think you're in the clear just yet.$"
 
 KaolisleGym_Trainer5_Hiker2_Intro::
-	.string "$"
+	.string "There are no buttons in this direction.\n"
+	.string "You better scram, kid!$"
 
 KaolisleGym_Trainer5_Hiker2_Defeat::
-	.string "$"
+	.string "I'm not sure which one got hurt worse;\n"
+	.string "my Pokémon, or my pride…$"
 
 KaolisleGym_Trainer5_Hiker2_PostBattle::
-	.string "$"
+	.string "Hope you didn't take that pre-battle\n"
+	.string "trash talk too seriously.\p"
+	.string "It was just friendly banter between\n"
+	.string "rivals. That's how us hikers roll.$"
 
 KaolisleGym_Trainer6_Hiker3_Intro::
-	.string "$"
+	.string "You walked right into my trap.\n"
+	.string "Don't think you can escape!$"
 
 KaolisleGym_Trainer6_Hiker3_Defeat::
-	.string "$"
+	.string "My traps were completely ineffective!$"
 
 KaolisleGym_Trainer6_Hiker3_PostBattle::
-	.string "$"
+	.string "You should always be prepared\n"
+	.string "for a battle in this gym.\p"
+	.string "You never know when you step through\n"
+	.string "a door, only to be immediately\l"
+	.string "challenged to a battle.$"
 
 KaolisleGym_Trainer7_Picnicker2_Intro::
-	.string "$"
+	.string "My Pokémon are in peak condition!\n"
+	.string "Let's go!$"
 
 KaolisleGym_Trainer7_Picnicker2_Defeat::
-	.string "$"
+	.string "No!\n"
+	.string "We can still go on!\p"
+	.string "Hold on, let me just…\p"
+	.string "No…\n"
+	.string "Maybe this one…?\p"
+	.string "No…\p"
+	.string "Hm…$"
 
 KaolisleGym_Trainer7_Picnicker2_PostBattle::
-	.string "$"
+	.string "You may be strong, but I'll keep honing\n"
+	.string "my Pokémon and one day defeat you!$"
 
 KaolisleGym_Trainer8_Camper3_Intro::
-	.string "$"
+	.string "Found any buttons yet?$"
 
 KaolisleGym_Trainer8_Camper3_Defeat::
-	.string "$"
+	.string "Not bad. Not bad at all…$"
 
 KaolisleGym_Trainer8_Camper3_PostBattle::
-	.string "$"
+	.string "I do hope that you've managed to find\n"
+	.string "at least one button so far.$"
 
 KaolisleGym_Trainer9_Picnicker3_Intro::
-	.string "$"
+	.string "Unfortunately this is a dead end!\p"
+	.string "As a consolation prize,\n"
+	.string "you get to battle yours truly!$"
 
 KaolisleGym_Trainer9_Picnicker3_Defeat::
-	.string "$"
+	.string "No, I did not just lose!\n"
+	.string "In fact, I let you win!$"
 
 KaolisleGym_Trainer9_Picnicker3_PostBattle::
-	.string "$"
+	.string "Hmph…\p"
+	.string "Don't get cocky over one measly\n"
+	.string "victory!$"
 
 KaolisleGym_Trainer10_Hiker4_Intro::
-	.string "$"
+	.string "If you want to pass through here,\n"
+	.string "you must face me!$"
 
 KaolisleGym_Trainer10_Hiker4_Defeat::
-	.string "$"
+	.string "A well earned victory!$"
 
 KaolisleGym_Trainer10_Hiker4_PostBattle::
-	.string "$"
+	.string "I won't block your way any longer.\n"
+	.string "Go along then.$"
 
 KaolGym_YouArrived::
-	.string "Clay: I see you've arrived.\p"
-	.string "If you're ready, go stand on the other\n"
-	.string "side of the arena so we may begin.$"
+	.string "Surely ya know how we do things\n"
+	.string "'round here. Don't ya, kid?\p"
+	.string "Go stand on th' other side of th'\n"
+	.string "arena and let's get things rollin'.$"
 
 KaolGym_ClayInt::
-	.string "Clay: I knew you'd be here soon.\n"
-	.string "Glad to see you did not disappoint.\p"
-	.string "Even though I'm grateful for\n"
-	.string "your help at the ranch,\l"
-	.string "I am the Leader of this Gym and\l"
-	.string "you are a challenger.\p"
-	.string "I assume you understand what\n"
-	.string "that entails…\p"
-	.string "…All right, challenger.\p"
-	.string "I'm Clay, the Gym Leader.\p"
-	.string "It's not often, but some Trainers\n"
-	.string "manage to come and challenge me.\l"
-	.string "But they've all been boring battles.\p"
-	.string "Anyway, I guess we'd better get this\n"
-	.string "done.\p"
-	.string "I hope you're the Trainer who'll make\n"
-	.string "me remember how fun it is to battle!$"
+	.string "I'm Clay.\n"
+	.string "I'm the Gym Leader 'round here.\p"
+	.string "Don't be expectin' no warm\n"
+	.string "welcome, now.\p"
+	.string "'Round here actions speak louder than\n"
+	.string "words and as far I'm concerned,\l"
+	.string "ya have yet to show me something\l"
+	.string "that's worth commendin' ya for.\p"
+	.string "All right, no more dilly-dallyin'.\n"
+	.string "Time to see what ya can do!$"
 
 KaolGym_ClayDef::
-	.string "…Hehehe.\p"
-	.string "Hahahah!\p"
-	.string "…That was the most fun I've had\n"
-	.string "in a battle since…I don't know when!\p"
-	.string "It's also made me excited to know\n"
-	.string "you and your team will keep battling\l"
-	.string "to greater heights!\p"
-	.string "This is your second Gym Badge.\n"
-	.string "You've earned this!$"
+	.string "Phew…\n"
+	.string "You're really somethin'!\p"
+	.string "Li'l whippersnapper trainers\n"
+	.string "who pack a real punch keep\l"
+	.string "showin' up one after another.$"
 
 KaolGym_ReceivedBadge::
 	.string "{PLAYER} received the Quake Badge\n"
 	.string "from Clay!$"
 
 KaolGym_TakeThis::
-	.string "The Quake Badge makes all Pokémon\n"
-	.string "up to level 50, even those you get in\l"
-	.string "trades, obey without question.\p"
-	.string "It also enables them to use the HM move\n"
-	.string "“Cut” outside of battle.\p"
-	.string "Here, have this TM as well.$"
+	.string "So this is yer third Badge, huh?\n"
+	.string "If that's so, Pokémon up to level 50\l"
+	.string "will obey ya.\p"
+	.string "Also, I'll give ya this TM.$"
 
 KaolGym_ExplainTM::
-	.string "That TM contains the move Wild Charge.\p"
-	.string "It's a really powerful attack where\n"
-	.string "the user shrouds itself in electricity\l"
-	.string "and slams against the opponent.\p"
-	.string "Be careful though, as this also\n"
-	.string "hurts the user!$"
+	.string "That TM's for the move\n"
+	.string "Stompin' Tantrum.\p"
+	.string "It's a real powerful move that\n"
+	.string "doubles in power whenever th' user's\l"
+	.string "previous move fails to land.$"
 
 KaolGym_ClayPosBat::
-	.string "After witnessing your strength here,\n"
-	.string "I'm starting to doubt whether you even\l"
-	.string "needed our help with Team Rocket\l"
-	.string "back at the ranch.$"
+	.string "I don't know how much potential ya got,\n"
+	.string "but if ya think ya can go, go wherever,\l"
+	.string "and if ya think ya can do somethin',\l"
+	.string "keep doin' it.\p"
+	.string "Do things how ya want!\n"
+	.string "Decide yer own limits!$"
+
+KaolGym_GuideHalfwayThrough::
+	.string "Well done pressing all\n"
+	.string "the buttons, champ!\p"
+	.string "However, you're still only halfway\n"
+	.string "through the challenge.\p"
+	.string "See those stairs leading down?\p"
+	.string "The leader of the gym will be\n"
+	.string "waiting for you there.\l"
+	.string "Go show him who's the champ… champ!$"
 
 KaolGym_GuideAdvice::
 	.string "Yo, champ in the making!\p"
-	.string "The leader of this gym, Clay,\n"
-	.string "is an electric-type trainer.\p"
-	.string "Go against him with flying- or water-\n"
-	.string "type Pokémon and you're going to have\l"
-	.string "a bad time!\p"
-	.string "By the by, many of the trainers\n"
-	.string "here like to work in pairs!\l"
-	.string "And see those peculiar floor tiles?\p"
-	.string "Stepping on one might activate a trap\n"
-	.string "that sends a few electric-type Pokémon\l"
-	.string "flying your way, so you better be\l"
-	.string "prepared!\p"
-	.string "Do note that those Pokémon are\n"
-	.string "actually the property of the gym and\l"
-	.string "considered part of your gym trial.\p"
-	.string "As such, catching them or running away\n"
-	.string "from a battle is strictly prohibited!\p"
-	.string "If you find the going too hard,\n"
-	.string "there's always those pressure plates\l"
-	.string "in the side rooms.\l"
-	.string "Maybe stepping on one might\l"
-	.string "tamper with the floor mechanism…\p"
+	.string "You may have noticed this gym looking\n"
+	.string "a bit different from the norm,\l"
+	.string "but fret not, because we are\l"
+	.string "as legitimate as any other gym!\p"
+	.string "Anyway, this gym's leader, Clay,\n"
+	.string "uses ground-type Pokémon.\p"
+	.string "However, in order to reach him,\n"
+	.string "you must first find four buttons\l"
+	.string "inside the gym and press all of them.\p"
+	.string "To add to the challenge, the gym layout\n"
+	.string "can be a bit of a maze!\p"
+	.string "Once you've pressed all the buttons,\n"
+	.string "all you need to do is return here.\p"
 	.string "Anyway, that's enough from me.\n"
 	.string "Go get 'em, Champ!$"
 
 KaolGym_GuidePostVictory::
-	.string "Whoa! What a shocking outcome!\n"
-	.string "You sure charged in and showed\l"
-	.string "everyone who's the boss!$"
+	.string "Every now and again, I hope you look at\n"
+	.string "the Quake Badge you won here and\l"
+	.string "remember your battle with Clay!$"
 
 KaolGym_GymStatue::
 	.string "Kaolisle City Pokémon Gym\p"
 	.string "Clay's certified trainers:\n"
-	.string "Thomas\l"
-	.string "{RIVAL}$"
+	.string "{RIVAL}\l"
+	.string "Thomas$"
 
 KaolGym_GymStatueCertified::
 	.string "Kaolisle City Pokémon Gym\p"
 	.string "Clay's certified trainers:\n"
-	.string "Thomas\l"
 	.string "{RIVAL}\l"
+	.string "Thomas\l"
 	.string "{PLAYER}$"

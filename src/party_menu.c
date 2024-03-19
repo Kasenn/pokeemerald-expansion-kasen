@@ -123,9 +123,9 @@ enum {
     FIELD_MOVE_ROCK_SMASH,  // FLAG_BADGE03_GET
     FIELD_MOVE_STRENGTH,    // FLAG_BADGE04_GET
     FIELD_MOVE_SURF,        // FLAG_BADGE05_GET
-    FIELD_MOVE_FLASH,        // FLAG_BADGE06_GET
     FIELD_MOVE_DIVE,        // FLAG_BADGE07_GET
     FIELD_MOVE_WATERFALL,   // FLAG_BADGE08_GET
+    FIELD_MOVE_FLASH,        // FLAG_BADGE06_GET
     FIELD_MOVE_TELEPORT,
     FIELD_MOVE_DIG,
     FIELD_MOVE_SECRET_POWER,
@@ -5105,6 +5105,33 @@ static void Task_LearnedMove(u8 taskId)
     DisplayPartyMenuMessage(gStringVar4, TRUE);
     ScheduleBgCopyTilemapToVram(2);
     gTasks[taskId].func = Task_DoLearnedMoveFanfareAfterText;
+}
+
+
+void ItemUseCB_IncreaseFriendship(u8 taskId, TaskFunc task)
+{
+    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    u16 item = gSpecialVar_ItemId;
+    u16 friendship = GetMonData(mon, MON_DATA_FRIENDSHIP);
+
+    if (friendship > 225){
+        gPartyMenuUseExitCallback = FALSE;
+        PlaySE(SE_SELECT);
+        DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
+        ScheduleBgCopyTilemapToVram(2);
+        gTasks[taskId].func = task;
+    }
+    else{
+        gPartyMenuUseExitCallback = TRUE;
+        PlaySE(SE_USE_ITEM);
+        RemoveBagItem(item, 1);
+        AdjustFriendship(mon, FRIENDSHIP_EVENT_SPECIAL_SOUP);
+        GetMonNickname(mon, gStringVar1);
+        StringExpandPlaceholders(gStringVar4, gText_PkmnAdores);
+        DisplayPartyMenuMessage(gStringVar4, TRUE);
+        ScheduleBgCopyTilemapToVram(2);
+        gTasks[taskId].func = task;
+    }
 }
 
 static void Task_DoLearnedMoveFanfareAfterText(u8 taskId)

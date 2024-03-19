@@ -5484,9 +5484,9 @@
     {
       "id": "LAYOUT_KAOLISLE_MINES",
       "name": "Kaolisle_Mines_Layout",
-      "width": 60,
-      "height": 60,
-      "primary_tileset": "gTileset_General",
+      "width": 45,
+      "height": 37,
+      "primary_tileset": "gTileset_Start",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Kaolisle_Mines/border.bin",
       "blockdata_filepath": "data/layouts/Kaolisle_Mines/map.bin"
@@ -5554,12 +5554,122 @@
     {
       "id": "LAYOUT_KAOLISLE_HOTEL_1F",
       "name": "Kaolisle_Hotel_1F_Layout",
-      "width": 24,
-      "height": 15,
+      "width": 47,
+      "height": 24,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Shop",
+      "secondary_tileset": "gTileset_gTileset_Hotel",
       "border_filepath": "data/layouts/Kaolisle_Hotel_1F/border.bin",
       "blockdata_filepath": "data/layouts/Kaolisle_Hotel_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_MINES_2F",
+      "name": "Kaolisle_Mines_Layout_2F",
+      "width": 52,
+      "height": 47,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Kaolisle_Mines_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_Mines_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_MINES_3F",
+      "name": "Kaolisle_Mines_3F_Layout",
+      "width": 68,
+      "height": 52,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Kaolisle_Mines_3F/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_Mines_3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_HOTEL_3F",
+      "name": "Kaolisle_Hotel_3F_Layout",
+      "width": 37,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/Kaolisle_Hotel_3F/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_Hotel_3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_HOTEL_5F",
+      "name": "Kaolisle_Hotel_5F_Layout",
+      "width": 37,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/Kaolisle_Hotel_5F/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_Hotel_5F/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_HOTEL_3F_ROOMS",
+      "name": "Kaolisle_Hotel_3F_Rooms_Layout",
+      "width": 54,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/Kaolisle_Hotel_3F_Rooms/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_Hotel_3F_Rooms/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_HOTEL_5F_ROOMS",
+      "name": "Kaolisle_Hotel_5F_Rooms_Layout",
+      "width": 54,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/Kaolisle_Hotel_5F_Rooms/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_Hotel_5F_Rooms/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_HOTEL_ELEVATOR",
+      "name": "Kaolisle_Hotel_Elevator_Layout",
+      "width": 5,
+      "height": 6,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleFrontier",
+      "border_filepath": "data/layouts/Kaolisle_Hotel_Elevator/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_Hotel_Elevator/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_HOTEL_2F",
+      "name": "Kaolisle_Hotel_2F_Layout",
+      "width": 37,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/Kaolisle_Hotel_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_Hotel_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_HOTEL_4F",
+      "name": "Kaolisle_Hotel_4F_Layout",
+      "width": 37,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/Kaolisle_Hotel_4F/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_Hotel_4F/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_HOTEL_2F_ROOMS",
+      "name": "Kaolisle_Hotel_2F_Rooms_Layout",
+      "width": 54,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/Kaolisle_Hotel_2F_Rooms/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_Hotel_2F_Rooms/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_HOTEL_4F_ROOMS",
+      "name": "Kaolisle_Hotel_4F_Rooms_Layout",
+      "width": 54,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/Kaolisle_Hotel_4F_Rooms/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_Hotel_4F_Rooms/map.bin"
     }
   ]
 }
