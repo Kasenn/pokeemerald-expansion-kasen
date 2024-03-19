@@ -16,3 +16,50 @@ script Room304{
     msgbox("Room 304", MSGBOX_SIGN)
     end
 }
+
+script Kaolisle_Hotel_3F_Attendant{
+    msgbox(Kaolisle_Hotel_3F_Attendant_Text, MSGBOX_NPC)
+    end
+}
+script Kaolisle_Hotel_3F_Woman1{
+    msgbox(Kaolisle_Hotel_3F_Woman1_Text, MSGBOX_NPC)
+    end
+}
+script Kaolisle_Hotel_3F_HexManiac{
+    msgbox(Kaolisle_Hotel_3F_HexManiac_Text, MSGBOX_NPC)
+    end
+}
+script Kaolisle_Hotel_3F_EchoWoman{
+    msgbox(Kaolisle_Hotel_3F_EchoWoman_Text, MSGBOX_NPC)
+    end
+}
+script Kaolisle_Hotel_3F_Man5{
+    msgbox(Kaolisle_Hotel_3F_Man5_Text, MSGBOX_NPC)
+    end
+}
+
+text Kaolisle_Hotel_3F_Attendant_Text{
+    "Giving the plants water just when they\n"
+    "need it most is the work of a pro."
+}
+text Kaolisle_Hotel_3F_Woman1_Text{
+    "I'm on a holiday with my Pokémon.\p"
+    "I considered leaving it in the Pokémon\n"
+    "Day Care, but I just couldn't do it\l"
+    "after the look it gave me."
+}
+text Kaolisle_Hotel_3F_HexManiac_Text{
+    "… … … …\p"
+    "…Don't talk to me…\p"
+    "…If you do, I won't…\n"
+    "…hear the elevator…"
+}
+
+
+
+Tra-la-la-la-laaa! {EMOJI_NOTE}
+The echo here is a bit weak. I want to sing but it sounds so muted. What about you? Won’t you sing?
+If we sang with Echoed Voice together, our power would go through the roof!
+give tm49, echoed voice
+
+Whatever type of Pokémon that your Pokémon are weak to, you should have other Pokémon on your team that are effective against that type.

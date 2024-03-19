@@ -16,3 +16,93 @@ script Room204{
     msgbox("Room 204", MSGBOX_SIGN)
     end
 }
+
+script Kaolisle_Hotel_DoorLocked{
+    msgbox(Kaolisle_Hotel_DoorLocked_Text, MSGBOX_SIGN)
+    end
+}
+script Kaolisle_Hotel_2F_Attendant{
+    msgbox(Kaolisle_Hotel_2F_Attendant_Text, MSGBOX_NPC)
+    end
+}
+script Kaolisle_Hotel_2F_Hiker{
+    msgbox(Kaolisle_Hotel_2F_Hiker_Text, MSGBOX_NPC)
+    end
+}
+script Kaolisle_Hotel_2F_Girl2{
+    msgbox(Kaolisle_Hotel_2F_Girl2_Text, MSGBOX_NPC)
+    end
+}
+script Kaolisle_Hotel_2F_Man2{
+    if(flag(FLAG_OBTAINED_TROPICALSTONE)){
+        msgbox(Kaolisle_Hotel_UseStoneCarefully, MSGBOX_NPC)
+        end
+    }
+    msgbox(Kaolisle_Hotel_2F_Man2_Text, MSGBOX_NPC)
+    checkpartymon(SPECIES_PIKACHU, 0)
+    if(var(VAR_RESULT) == TRUE){
+        bufferspeciesname(STR_VAR_1, SPECIES_PIKACHU)
+        goto(Kaolisle_Hotel_2F_Man2_MonFound)
+    }
+    checkpartymon(SPECIES_EXEGGCUTE, 0)
+    if(var(VAR_RESULT) == TRUE){
+        bufferspeciesname(STR_VAR_1, SPECIES_EXEGGCUTE)
+        goto(Kaolisle_Hotel_2F_Man2_MonFound)
+    }
+    end
+}
+script Kaolisle_Hotel_2F_Man2_MonFound{
+    lock
+    msgbox(ThatMonCouldTropical, MSGBOX_DEFAULT)
+    checkitemspace(ITEM_TROPICAL_STONE)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(NotEnoughRoom, MSGBOX_NPC)
+        end
+    }
+    waitse
+    giveitem(ITEM_TROPICAL_STONE)
+    setflag(FLAG_OBTAINED_TROPICALSTONE)
+    waitfanfare
+    closemessage
+}
+
+text Kaolisle_Hotel_DoorLocked_Text{
+    "The door is locked."
+}
+text Kaolisle_Hotel_2F_Attendant_Text{
+    "You and your party are welcome to\n"
+    "relax to the fullest here at the\l"
+    "Kaolisle Grand Resort."
+}
+text Kaolisle_Hotel_2F_Hiker_Text{
+    "So this is the Sinko region, huh…\n"
+    "Not bad…"
+}
+text Kaolisle_Hotel_2F_Girl2_Text{
+    "Have you heard of mints?\p"
+    "They are a rare plant that can\n"
+    "apparently alter a Pokémon's nature!"
+}
+
+text Kaolisle_Hotel_2F_Man2_Text{
+    "I'm an owner of a jewelry shop.\p"
+    "Part of my job is getting my hands on\n"
+    "rare stones to be used in our shop.\p"
+    "In fact, I have this rare Tropical\n"
+    "Stone right here but I'm not sure it's\l"
+    "something I should cut.\p"
+    "Tell you what, if you can show\n"
+    "me a Pokémon that can use it,\l"
+    "you can have it!"
+}
+text Kaolisle_Hotel_UseStoneCarefully{
+    "That stone is very rare.\p"
+    "Take care deciding on which Pokémon\n"
+    "you want to use it."
+}
+text ThatMonCouldTropical{
+    "Oh, I believe your {STR_VAR_1} could\n"
+    "probably use this stone!\p"
+    "A promise is a promise,\n"
+    "so here you go!"
+}

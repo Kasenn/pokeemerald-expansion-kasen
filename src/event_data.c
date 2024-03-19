@@ -52,6 +52,11 @@ void ClearDailyFlags(void)
     memset(&gSaveBlock1Ptr->flags[DAILY_FLAGS_START / 8], 0, DAILY_FLAGS_SIZE);
 }
 
+void SetHeartScaleMove(void)
+{
+    VarSet(VAR_HEARTSCALEMOVE, ((random() % 40) + 1));
+}
+
 void DisableNationalPokedex(void)
 {
     u16 *nationalDexVar = GetVarPointer(VAR_NATIONAL_DEX);

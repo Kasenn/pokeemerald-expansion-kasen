@@ -1,4 +1,14 @@
-mapscripts Kaolisle_Hotel_4F_MapScripts{}
+mapscripts Kaolisle_Hotel_4F_MapScripts{
+    MAP_SCRIPT_ON_LOAD: LockDoorAfterGym
+    MAP_SCRIPT_ON_TRANSITION: LockDoorAfterGym
+}
+
+script LockDoorAfterGym {
+    if(flag(FLAG_BADGE03_GET)){
+        setmetatile(4, 5, 0x0B3, TRUE)
+    }
+    end
+}
 
 script Room401{
     msgbox("Room 401", MSGBOX_SIGN)
@@ -13,6 +23,23 @@ script Room403{
     end
 }
 script Room404{
-    msgbox("Room 404: Reservation not found", MSGBOX_SIGN)
+    msgbox("Room 404\nReservation not found", MSGBOX_SIGN)
     end
 }
+
+script Kaolisle_Hotel_4F_Man2{}
+script Kaolisle_Hotel_4F_Woman4{}
+script Kaolisle_Hotel_4F_FinnishGuy{}
+script Kaolisle_Hotel_4F_Kirlia{}
+script Kaolisle_Hotel_4F_Jasmine{}
+script Kaolisle_Hotel_4F_Attendant{}
+script Kaolisle_Hotel_4F_Attendant2{}
+
+I'm staying at the prestigious Kaolisle Grand Resort, yet I'm stuck in my room working. Disappointing!
+Did you know this?
+It's from an article in Pokémon Pal.\p
+"Press the START Button while in a bag to sort the items. TM&HM as well as Berry pocket return to their default order when closing and re-opening your bag"
+
+Add a finnish NPC with telepathic pokemon
+Huh? Oh, I swear I wasn't slacking off! I just happened to spot some dirt in this corner!
+something about cleaning
