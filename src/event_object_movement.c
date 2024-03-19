@@ -19,6 +19,7 @@
 #include "overworld.h"
 #include "palette.h"
 #include "random.h"
+#include "sound.h"
 #include "sprite.h"
 #include "task.h"
 #include "trainer_see.h"
@@ -29,6 +30,7 @@
 #include "constants/field_effects.h"
 #include "constants/items.h"
 #include "constants/mauville_old_man.h"
+#include "constants/songs.h"
 #include "constants/trainer_types.h"
 #include "constants/union_room.h"
 
@@ -471,6 +473,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Volcarona,            OBJ_EVENT_PAL_VOLCARONA},
     {gObjectEventPalette_Abra,            OBJ_EVENT_PAL_ABRA},
     {gObjectEventPalette_Spheal,            OBJ_EVENT_PAL_SPHEAL},
+    {gObjectEventPalette_Excadrill,            OBJ_EVENT_PAL_EXCADRILL},
     
 #ifdef BUGFIX
     {NULL,                                  OBJ_EVENT_PAL_TAG_NONE},

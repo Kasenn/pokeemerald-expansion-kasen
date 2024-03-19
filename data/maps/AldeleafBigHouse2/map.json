@@ -3,7 +3,7 @@
   "name": "AldeleafBigHouse2",
   "layout": "LAYOUT_ALDELEAF_BIG_HOUSE2",
   "music": "MUS_RUSTBORO",
-  "region_map_section": "MAPSEC_CITY_WIP1",
+  "region_map_section": "MAPSEC_ALDELEAF_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

@@ -105,9 +105,9 @@
 #define MAPSEC_ROUTE_1                0x65
 #define MAPSEC_ROUTE_2                   0x66
 #define MAPSEC_ROUTE_3                   0x67
-#define MAPSEC_TOWN_WIP3                    0x68
+#define MAPSEC_MARIGORGE_TOWN                    0x68
 #define MAPSEC_SHORESLATE_CITY              0x69
-#define MAPSEC_CITY_WIP2                    0x6A
+#define MAPSEC_KAOLISLE_CITY                    0x6A
 #define MAPSEC_TOWN_WIP4                    0x6B
 #define MAPSEC_SANDSTONE_CITY               0x6C
 #define MAPSEC_CITY_WIP4                    0x6D
@@ -120,9 +120,9 @@
 #define MAPSEC_TOWN_WIP10                   0x74
 #define MAPSEC_CITY_WIP6                    0x75
 #define MAPSEC_SNOWCREST_CITY               0x76
-#define MAPSEC_TOWN_WIP1                       0x77
-#define MAPSEC_CITY_WIP1                     0x78
-#define MAPSEC_TOWN_WIP2                     0x79
+#define MAPSEC_AZURETIDE_TOWN                       0x77
+#define MAPSEC_ALDELEAF_CITY                     0x78
+#define MAPSEC_SKYLOCH_VILLAGE                     0x79
 #define MAPSEC_ROUTE_22                     0x7A
 #define MAPSEC_ROUTE_23                     0x7B
 #define MAPSEC_ROUTE_24                     0x7C
@@ -244,8 +244,9 @@
 #define MAPSEC_NEWROUTE_28                     0xF0
 #define MAPSEC_NEWROUTE_29                     0xF1
 #define MAPSEC_HIDDEN_GROTTO                   0xF2
-#define MAPSEC_WEIRDCAVE                         0xF3
-#define MAPSEC_NONE                            0xF4
+#define MAPSEC_WEIRDCAVE                       0xF3
+#define MAPSEC_KAOLISLE_MINES                  0xF4
+#define MAPSEC_NONE                            0xF5
 
 
 #define METLOC_SPECIAL_EGG                  0xFD

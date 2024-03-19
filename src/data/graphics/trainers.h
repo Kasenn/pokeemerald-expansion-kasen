@@ -289,6 +289,9 @@ const u32 gTrainerPalette_Scientist[] = INCBIN_U32("graphics/trainers/front_pics
 const u32 gTrainerFrontPic_Clay[] = INCBIN_U32("graphics/trainers/front_pics/leader_clay.4bpp.lz");
 const u32 gTrainerPalette_Clay[] = INCBIN_U32("graphics/trainers/front_pics/leader_clay.gbapal.lz");
 
+const u32 gTrainerFrontPic_Rocker[] = INCBIN_U32("graphics/trainers/front_pics/rocker.4bpp.lz");
+const u32 gTrainerPalette_Rocker[] = INCBIN_U32("graphics/trainers/front_pics/rocker.gbapal.lz");
+
 const u8 gTrainerBackPic_Brendan[] = INCBIN_U8("graphics/trainers/back_pics/brendan.4bpp");
 const u8 gTrainerBackPic_May[] = INCBIN_U8("graphics/trainers/back_pics/may.4bpp");
 const u8 gTrainerBackPic_Red[] = INCBIN_U8("graphics/trainers/back_pics/red.4bpp");

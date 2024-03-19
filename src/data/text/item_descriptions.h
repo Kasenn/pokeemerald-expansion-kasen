@@ -3383,7 +3383,9 @@ static const u8 sTM83Desc[] = _( // Todo
     "?????");
 
 static const u8 sTM84Desc[] = _( // Todo
-    "?????");
+    "Stomps around\n"
+    "angrily. Stronger\n"
+    "after a failure.");
 
 static const u8 sTM85Desc[] = _( // Todo
     "?????");
@@ -3975,3 +3977,8 @@ static const u8 sLostMementoDesc[] = _(
     "An old-looking\n"
     "pendant that\n"
     "someone dropped.");
+
+static const u8 sSpecialSoupDesc[] = _(
+    "A bowl of special\n"
+    "berry blend soup.\n"
+    "Pokémon love it.");

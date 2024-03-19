@@ -3,7 +3,7 @@
   "name": "MarigorgeTown",
   "layout": "LAYOUT_MARIGORGE_TOWN",
   "music": "MUS_FALLARBOR",
-  "region_map_section": "MAPSEC_TOWN_WIP3",
+  "region_map_section": "MAPSEC_MARIGORGE_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_TOWN",

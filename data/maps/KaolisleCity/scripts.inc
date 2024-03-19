@@ -150,6 +150,37 @@ KaolisleCity_Lass_Couple::
 	end
 
 
+KaolisleCity_MysteryMan::
+	lock
+	goto_if_set FLAG_TEMP_4, KaolisleCity_MysteryMan_2
+	msgbox KaolisleCity_MysteryMan_Text, MSGBOX_DEFAULT
+	faceplayer
+	msgbox KaolisleCity_MysteryMan_Text2, MSGBOX_YESNO
+KaolisleCity_MysteryMan_1:
+	compare VAR_RESULT, FALSE
+	goto_if_eq KaolisleCity_MysteryMan_6
+	goto_if_set FLAG_BADGE03_GET, KaolisleCity_MysteryMan_9
+	msgbox KaolisleCity_MysteryMan_2Badges, MSGBOX_NPC
+KaolisleCity_MysteryMan_8:
+	turnobject 7, DIR_NORTH
+	end
+
+KaolisleCity_MysteryMan_2:
+	faceplayer
+	msgbox KaolisleCity_MysteryMan_TextShort, MSGBOX_YESNO
+	goto KaolisleCity_MysteryMan_1
+
+KaolisleCity_MysteryMan_6:
+	msgbox KaolisleCity_MysteryMan_Decline, MSGBOX_NPC
+	turnobject 7, DIR_NORTH
+	setflag FLAG_TEMP_4
+	end
+
+KaolisleCity_MysteryMan_9:
+	msgbox KaolisleCity_MysteryMan_3Badges, MSGBOX_NPC
+	goto KaolisleCity_MysteryMan_8
+
+
 KaolisleCity_ExpertM::
 	goto_if_unset FLAG_REVEAL_PEARLSTRING, KaolisleCity_ExpertM_2
 KaolisleCity_ExpertM_1:
@@ -381,7 +412,7 @@ KB_LesserBeach::
 	.string "where you can have a relaxing time.$"
 
 KB_Hotel::
-	.string "Thomas: Ah, the Kaol Grand Resort.\n"
+	.string "Thomas: So, this is the Grand Resort.\n"
 	.string "Talk of the town.\p"
 	.string "There seem to be a lot of people here\n"
 	.string "this time of year.\p"
@@ -445,11 +476,52 @@ KaolisleCity_Lass_Couple_Text::
 	.string "My boyfriend and I are planning on\n"
 	.string "enrolling there!$"
 
+KaolisleCity_MysteryMan_Text::
+	.string "Some days I gaze in Its direction,\n"
+	.string "wondering, if It still remembers us…\p"
+	.string "… … … …$"
+
+KaolisleCity_MysteryMan_Text2::
+	.string "Oh?\p"
+	.string "Don't mind me, I'm just a washed-up\n"
+	.string "senior who still reminisces about\l"
+	.string "the old days.\p"
+	.string "I noticed you're a trainer.\n"
+	.string "Say, would you be interested in\l"
+	.string "a Pokémon battle?\p"
+	.string "I used to be quite a strong\n"
+	.string "trainer in the past.$"
+
+KaolisleCity_MysteryMan_TextShort::
+	.string "Say, would you be interested in\n"
+	.string "a Pokémon battle?\p"
+	.string "I used to be quite a strong\n"
+	.string "trainer in the past.$"
+
+KaolisleCity_MysteryMan_Decline::
+	.string "I understand. I won't bother you\n"
+	.string "any further.$"
+
+KaolisleCity_MysteryMan_2Badges::
+	.string "Hm…\p"
+	.string "I notice you only have 2 Gym Badges.\n"
+	.string "I don't think this would be a fair match.\p"
+	.string "If you can get a few more Badges,\n"
+	.string "I might reconsider it.$"
+
+KaolisleCity_MysteryMan_3Badges::
+	.string "Hm…\p"
+	.string "I notice you only have 3 Gym Badges.\n"
+	.string "I don't think this would be a fair match.\p"
+	.string "It's a good start but I would recommend\n"
+	.string "you get a couple more first.$"
+
 KaolisleCity_ExpertM_Text::
-	.string "I think I can see Coralgrove\n"
-	.string "Archipelago if I squint real hard.\p"
-	.string "I remember I used to visit my friends\n"
-	.string "who lived there long time ago.\p"
+	.string "Oh, are you a trainer from afar?\p"
+	.string "I bet you must've even traveled the\n"
+	.string "Coralgrove Archipelago!\p"
+	.string "Why, I remember I used to visit my\n"
+	.string "friends who lived there every summer.\p"
 	.string "One summer day I found this real\n"
 	.string "beautiful star piece on a beach\l"
 	.string "at Route 1.\p"
@@ -609,7 +681,7 @@ KaolisleCity_SignGym_Text::
 	.string "Leader: Clay$"
 
 KaolisleCity_SignHotel_Text::
-	.string "Kaol Grand Resort$"
+	.string "Kaolisle Grand Resort$"
 
 KaolisleCity_SignFanClub_Text::
 	.string "Kaolisle City Pokémon Fan Club$"

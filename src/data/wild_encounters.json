@@ -13623,7 +13623,7 @@
         },
         {
           "map": "MAP_TOWN_WIP2",
-          "base_label": "gTown_Wip20",
+          "base_label": "gSKYLOCH_VILLAGE0",
           "fishing_mons": {
             "encounter_rate": 40,
             "mons": [
@@ -14480,6 +14480,298 @@
                 "min_level": 5,
                 "max_level": 5,
                 "species": "SPECIES_NONE"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_KAOLISLE_MINES_3F",
+          "base_label": "gKaolisle_Mines_3F0",
+          "land_mons": {
+            "encounter_rate": 7,
+            "mons": [
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_GEODUDE"
+              },
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_ROGGENROLA"
+              },
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_DRILBUR"
+              },
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_DRILBUR"
+              },
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_ARON"
+              },
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_ONIX"
+              },
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_GRAVELER"
+              },
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_SABLEYE"
+              },
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_SABLEYE"
+              },
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_TYNAMO"
+              },
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_SABLEYE"
+              },
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_TYNAMO"
+              }
+            ]
+          },
+          "rock_smash_mons": {
+            "encounter_rate": 30,
+            "mons": [
+              {
+                "min_level": 25,
+                "max_level": 30,
+                "species": "SPECIES_GEODUDE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 30,
+                "species": "SPECIES_DWEBBLE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 30,
+                "species": "SPECIES_NOSEPASS"
+              },
+              {
+                "min_level": 25,
+                "max_level": 30,
+                "species": "SPECIES_SHUCKLE"
+              },
+              {
+                "min_level": 25,
+                "max_level": 30,
+                "species": "SPECIES_SHUCKLE"
+              }
+            ]
+          },
+          "fishing_mons": {
+            "encounter_rate": 30,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_FINNEON"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CHINCHOU"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_BARBOACH"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_KAOLISLE_MINES",
+          "base_label": "gKaolisle_Mines0",
+          "rock_smash_mons": {
+            "encounter_rate": 30,
+            "mons": [
+              {
+                "min_level": 10,
+                "max_level": 10,
+                "species": "SPECIES_GEODUDE"
+              },
+              {
+                "min_level": 11,
+                "max_level": 15,
+                "species": "SPECIES_GEODUDE"
+              },
+              {
+                "min_level": 16,
+                "max_level": 20,
+                "species": "SPECIES_GEODUDE"
+              },
+              {
+                "min_level": 15,
+                "max_level": 15,
+                "species": "SPECIES_SHUCKLE"
+              },
+              {
+                "min_level": 21,
+                "max_level": 30,
+                "species": "SPECIES_GEODUDE"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_KAOLISLE_MINES_2F",
+          "base_label": "gKaolisle_Mines_2F0",
+          "land_mons": {
+            "encounter_rate": 7,
+            "mons": [
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_ZUBAT"
+              },
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_GEODUDE"
+              },
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_DRILBUR"
+              },
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_DRILBUR"
+              },
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_ROGGENROLA"
+              },
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_ONIX"
+              },
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_GRAVELER"
+              },
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_GOLBAT"
+              },
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_MAWILE"
+              },
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_MAWILE"
+              },
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_MAWILE"
+              },
+              {
+                "min_level": 32,
+                "max_level": 36,
+                "species": "SPECIES_MAWILE"
+              }
+            ]
+          },
+          "rock_smash_mons": {
+            "encounter_rate": 30,
+            "mons": [
+              {
+                "min_level": 20,
+                "max_level": 30,
+                "species": "SPECIES_GEODUDE"
+              },
+              {
+                "min_level": 20,
+                "max_level": 30,
+                "species": "SPECIES_DWEBBLE"
+              },
+              {
+                "min_level": 20,
+                "max_level": 30,
+                "species": "SPECIES_NOSEPASS"
+              },
+              {
+                "min_level": 20,
+                "max_level": 30,
+                "species": "SPECIES_SHUCKLE"
+              },
+              {
+                "min_level": 20,
+                "max_level": 30,
+                "species": "SPECIES_SHUCKLE"
               }
             ]
           }

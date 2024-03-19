@@ -707,7 +707,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_TM81] = {gItemIcon_TM, gItemIconPalette_NormalTMHM},  // Todo
     [ITEM_TM82] = {gItemIcon_TM, gItemIconPalette_NormalTMHM},  // Todo
     [ITEM_TM83] = {gItemIcon_TM, gItemIconPalette_NormalTMHM},  // Todo
-    [ITEM_TM84] = {gItemIcon_TM, gItemIconPalette_NormalTMHM},  // Todo
+    [ITEM_TM84] = {gItemIcon_TM, gItemIconPalette_GroundTMHM},  // 
     [ITEM_TM85] = {gItemIcon_TM, gItemIconPalette_NormalTMHM},  // Todo
     [ITEM_TM86] = {gItemIcon_TM, gItemIconPalette_NormalTMHM},  // Todo
     [ITEM_TM87] = {gItemIcon_TM, gItemIconPalette_NormalTMHM},  // Todo
@@ -854,6 +854,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_LOST_KEY] = {gItemIcon_LostKey, gItemIconPalette_LostKey},
     [ITEM_STONE_SPHERE] = {gItemIcon_StoneSphere, gItemIconPalette_StoneSphere},
     [ITEM_LOST_MEMENTO] = {gItemIcon_LostMemento, gItemIconPalette_LostMemento},
+    [ITEM_SPECIAL_SOUP] = {gItemIcon_SpecialSoup, gItemIconPalette_SpecialSoup},
     // Return to field arrow
     [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

@@ -492,6 +492,7 @@ extern const u8 gText_PkmnSnappedOutOfConfusion[];
 extern const u8 gText_PkmnFriendlyBaseVar2Fell[];
 extern const u8 gText_PkmnFriendlyBaseVar2CantFall[];
 extern const u8 gText_PkmnAdoresBaseVar2Fell[];
+extern const u8 gText_PkmnAdores[];
 extern const u8 gText_PkmnAlreadyKnows[];
 extern const u8 gText_PkmnCantLearnMove[];
 extern const u8 gText_PkmnNeedsToReplaceMove[];
@@ -3193,6 +3194,9 @@ extern const u8 gText_Kaolisle[];
 extern const u8 gText_RockliffeTown[];
 extern const u8 gText_CharizardZ[];
 extern const u8 gText_Wobbuffet[];
+extern const u8 gText_DineHere[];
+extern const u8 gText_ExplainBuffetRules[];
+extern const u8 gText_ComeBackLater[];
 
 // Naming Screen
 extern const u8 gText_MoveOkBack[];

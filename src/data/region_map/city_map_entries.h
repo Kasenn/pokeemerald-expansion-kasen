@@ -111,22 +111,22 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
         .tilemap = gPokenavCityMap_Coralgrove_0,
     },
     {
-        .mapSecId = MAPSEC_TOWN_WIP1,
+        .mapSecId = MAPSEC_AZURETIDE_TOWN,
         .index = 0,
         .tilemap = gPokenavCityMap_Azuretide_0,
     },
     {
-        .mapSecId = MAPSEC_CITY_WIP1,
+        .mapSecId = MAPSEC_ALDELEAF_CITY,
         .index = 0,
         .tilemap = gPokenavCityMap_Aldeleaf_1,
     },
     {
-        .mapSecId = MAPSEC_CITY_WIP1,
+        .mapSecId = MAPSEC_ALDELEAF_CITY,
         .index = 1,
         .tilemap = gPokenavCityMap_Aldeleaf_0,
     },
     {
-        .mapSecId = MAPSEC_TOWN_WIP2,
+        .mapSecId = MAPSEC_SKYLOCH_VILLAGE,
         .index = 0,
         .tilemap = gPokenavCityMap_Skyloch_0,
     },
@@ -141,12 +141,12 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
         .tilemap = gPokenavCityMap_Shoreslate_0,
     },
     {
-        .mapSecId = MAPSEC_TOWN_WIP3,
+        .mapSecId = MAPSEC_MARIGORGE_TOWN,
         .index = 0,
         .tilemap = gPokenavCityMap_Marigorge_0,
     },
     {
-        .mapSecId = MAPSEC_CITY_WIP2,
+        .mapSecId = MAPSEC_KAOLISLE_CITY,
         .index = 0,
         .tilemap = gPokenavCityMap_Kaolisle_0,
     },

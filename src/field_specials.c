@@ -1791,6 +1791,33 @@ void SetDeptStoreFloor(void)
     VarSet(VAR_DEPT_STORE_FLOOR, deptStoreFloor);
 }
 
+void SetHotelFloor(void)
+{
+    u8 deptStoreFloor;
+    switch (gSaveBlock1Ptr->dynamicWarp.mapNum)
+    {
+    case MAP_NUM(KAOLISLE_HOTEL_1F):
+        deptStoreFloor = DEPT_STORE_FLOORNUM_1F;
+        break;
+    case MAP_NUM(KAOLISLE_HOTEL_2F):
+        deptStoreFloor = DEPT_STORE_FLOORNUM_2F;
+        break;
+    case MAP_NUM(KAOLISLE_HOTEL_3F):
+        deptStoreFloor = DEPT_STORE_FLOORNUM_3F;
+        break;
+    case MAP_NUM(KAOLISLE_HOTEL_4F):
+        deptStoreFloor = DEPT_STORE_FLOORNUM_4F;
+        break;
+    case MAP_NUM(KAOLISLE_HOTEL_5F):
+        deptStoreFloor = DEPT_STORE_FLOORNUM_5F;
+        break;
+    default:
+        deptStoreFloor = DEPT_STORE_FLOORNUM_1F;
+        break;
+    }
+    VarSet(VAR_DEPT_STORE_FLOOR, deptStoreFloor);
+}
+
 u16 GetDeptStoreDefaultFloorChoice(void)
 {
     sLilycoveDeptStore_NeverRead = 0;
@@ -1817,6 +1844,41 @@ u16 GetDeptStoreDefaultFloorChoice(void)
             sLilycoveDeptStore_DefaultFloorChoice = 3;
             break;
         case MAP_NUM(LILYCOVE_CITY_DEPARTMENT_STORE_1F):
+            sLilycoveDeptStore_NeverRead = 0;
+            sLilycoveDeptStore_DefaultFloorChoice = 4;
+            break;
+        }
+    }
+
+    return sLilycoveDeptStore_DefaultFloorChoice;
+}
+
+u16 GetHotelDefaultFloorChoice(void)
+{
+    sLilycoveDeptStore_NeverRead = 0;
+    sLilycoveDeptStore_DefaultFloorChoice = 0;
+
+    if (gSaveBlock1Ptr->dynamicWarp.mapGroup == MAP_GROUP(KAOLISLE_HOTEL_1F))
+    {
+        switch (gSaveBlock1Ptr->dynamicWarp.mapNum)
+        {
+        case MAP_NUM(KAOLISLE_HOTEL_5F):
+            sLilycoveDeptStore_NeverRead = 0;
+            sLilycoveDeptStore_DefaultFloorChoice = 0;
+            break;
+        case MAP_NUM(KAOLISLE_HOTEL_4F):
+            sLilycoveDeptStore_NeverRead = 0;
+            sLilycoveDeptStore_DefaultFloorChoice = 1;
+            break;
+        case MAP_NUM(KAOLISLE_HOTEL_3F):
+            sLilycoveDeptStore_NeverRead = 0;
+            sLilycoveDeptStore_DefaultFloorChoice = 2;
+            break;
+        case MAP_NUM(KAOLISLE_HOTEL_2F):
+            sLilycoveDeptStore_NeverRead = 0;
+            sLilycoveDeptStore_DefaultFloorChoice = 3;
+            break;
+        case MAP_NUM(KAOLISLE_HOTEL_1F):
             sLilycoveDeptStore_NeverRead = 0;
             sLilycoveDeptStore_DefaultFloorChoice = 4;
             break;

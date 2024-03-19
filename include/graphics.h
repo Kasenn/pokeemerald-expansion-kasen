@@ -7375,6 +7375,7 @@ extern const u32 gTrainerFrontPic_AficionadoM[];
 extern const u32 gTrainerFrontPic_AficionadoF[];
 extern const u32 gTrainerFrontPic_Scientist[];
 extern const u32 gTrainerFrontPic_Clay[];
+extern const u32 gTrainerFrontPic_Rocker[];
 
 extern const u32 gTrainerPalette_Hiker[];
 extern const u32 gTrainerPalette_AquaGruntM[];
@@ -7473,6 +7474,7 @@ extern const u32 gTrainerPalette_AficionadoM[];
 extern const u32 gTrainerPalette_AficionadoF[];
 extern const u32 gTrainerPalette_Scientist[];
 extern const u32 gTrainerPalette_Clay[];
+extern const u32 gTrainerPalette_Rocker[];
 
 extern const u8 gTrainerBackPic_Brendan[];
 extern const u8 gTrainerBackPic_May[];
@@ -9123,6 +9125,8 @@ extern const u32 gItemIcon_StoneSphere[];
 extern const u32 gItemIconPalette_StoneSphere[];
 extern const u32 gItemIcon_LostMemento[];
 extern const u32 gItemIconPalette_LostMemento[];
+extern const u32 gItemIcon_SpecialSoup[];
+extern const u32 gItemIconPalette_SpecialSoup[];
 
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];

@@ -1,0 +1,18 @@
+mapscripts Kaolisle_Hotel_3F_MapScripts{}
+
+script Room301{
+    msgbox("Room 301", MSGBOX_SIGN)
+    end
+}
+script Room302{
+    msgbox("Room 302", MSGBOX_SIGN)
+    end
+}
+script Room303{
+    msgbox("Room 303", MSGBOX_SIGN)
+    end
+}
+script Room304{
+    msgbox("Room 304", MSGBOX_SIGN)
+    end
+}

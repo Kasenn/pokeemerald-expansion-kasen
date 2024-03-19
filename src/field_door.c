@@ -131,6 +131,8 @@ static const u8 sDoorAnimTiles_TrainerHillLobbyElevator[] = INCBIN_U8("graphics/
 static const u16 sDoorNullPalette48[16] = {};
 static const u8 sDoorAnimTiles_TrainerHillRoofElevator[] = INCBIN_U8("graphics/door_anims/trainer_hill_roof_elevator.4bpp");
 static const u16 sDoorNullPalette49[16] = {};
+static const u8 sDoorAnimTiles_HotelElevator[] = INCBIN_U8("graphics/door_anims/hotel_elevator.4bpp");
+static const u16 sDoorNullPalette50[16] = {};
 
 static const struct DoorAnimFrame sDoorOpenAnimFrames[] =
 {
@@ -201,6 +203,8 @@ static const u8 sDoorAnimPalettes_AbandonedShip[] = {7, 7, 7, 7, 7, 7, 7, 7};
 static const u8 sDoorAnimPalettes_FallarborDarkRoof[] = {11, 11, 7, 7, 7, 7, 7, 7};
 static const u8 sDoorAnimPalettes_AbandonedShipRoom[] = {7, 7, 7, 7, 7, 7, 7, 7};
 static const u8 sDoorAnimPalettes_LilycoveDeptStoreElevator[] = {6, 6, 7, 7, 7, 7, 7, 7};
+static const u8 sDoorAnimPalettes_HotelElevator[] = {7, 7, 11, 11, 11, 11, 11, 11};
+static const u8 sDoorAnimPalettes_HotelElevator2[] = {9, 9, 7, 7, 7, 7, 7, 7};
 static const u8 sDoorAnimPalettes_BattleTowerOld[] = {9, 9, 9, 9, 9, 9, 9, 9};
 static const u8 sDoorAnimPalettes_BattleTowerElevator[] = {7, 7, 7, 7, 7, 7, 7, 7};
 static const u8 sDoorAnimPalettes_UnusedBattleFrontier[] = {9, 9, 9, 9, 9, 9, 9, 9};
@@ -262,6 +266,8 @@ static const struct DoorGraphics sDoorAnimGraphicsTable[] =
     {METATILE_Fallarbor_Door_DarkRoof,                      DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_FallarborDarkRoof, sDoorAnimPalettes_FallarborDarkRoof},
     {METATILE_InsideShip_IntactDoor_Bottom_Interior,        DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_AbandonedShipRoom, sDoorAnimPalettes_AbandonedShipRoom},
     {METATILE_Shop_Door_Elevator,                           DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_LilycoveDeptStoreElevator, sDoorAnimPalettes_LilycoveDeptStoreElevator},
+    {METATILE_Building_Door_Elevator,                       DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_HotelElevator, sDoorAnimPalettes_HotelElevator},
+    {METATILE_Hotel_Door_Elevator2,                       DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_HotelElevator, sDoorAnimPalettes_HotelElevator2},
     {METATILE_Dewford_Door_BattleTower,                     DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_BattleTowerOld, sDoorAnimPalettes_BattleTowerOld},
     {METATILE_BattleFrontier_Door_Elevator,                 DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_BattleTowerElevator, sDoorAnimPalettes_BattleTowerElevator},
     // The metatile for this door doesn't seem to correspond to a door in any Emerald tileset. Given the surrounding door animations, it was likely cut from the Battle Frontier.

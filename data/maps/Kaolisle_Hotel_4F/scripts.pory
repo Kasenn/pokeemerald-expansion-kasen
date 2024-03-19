@@ -1,0 +1,18 @@
+mapscripts Kaolisle_Hotel_4F_MapScripts{}
+
+script Room401{
+    msgbox("Room 401", MSGBOX_SIGN)
+    end
+}
+script Room402{
+    msgbox("Room 402", MSGBOX_SIGN)
+    end
+}
+script Room403{
+    msgbox("Room 403", MSGBOX_SIGN)
+    end
+}
+script Room404{
+    msgbox("Room 404: Reservation not found", MSGBOX_SIGN)
+    end
+}

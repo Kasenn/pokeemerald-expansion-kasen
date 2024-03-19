@@ -24,10 +24,17 @@ script CoralgroveHarbor_Sailor{
 script CoralgroveHarbor_OldMan{
     lockall
     faceplayer
-    msgbox("I used to be a fearsome trainer.\pMaybe one day I'll be able to meet\nsomeone who will kindle that\lold flame in me.", MSGBOX_NPC)
+    msgbox(CoralgroveHarbor_OldMan_Text, MSGBOX_NPC)
     waitmessage
     closemessage
     end
+}
+text CoralgroveHarbor_OldMan_Text{
+    "Beyond the ocean lies the town\n"
+    "of Azuretide.\p"
+    "Back in my youth I would've easily\n"
+    "swam across the ocean but nowadays\l"
+    "I am more than happy to take the ferry."
 }
 
 script CoralgroveHarbor_Woman{

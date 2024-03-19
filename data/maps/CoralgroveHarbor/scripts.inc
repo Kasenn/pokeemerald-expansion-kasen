@@ -26,7 +26,7 @@ CoralgroveHarbor_Sailor::
 CoralgroveHarbor_OldMan::
 	lockall
 	faceplayer
-	msgbox CoralgroveHarbor_OldMan_Text_0, MSGBOX_NPC
+	msgbox CoralgroveHarbor_OldMan_Text, MSGBOX_NPC
 	waitmessage
 	closemessage
 	end
@@ -77,9 +77,6 @@ CoralgroveHarbor_Sign2_Text_0:
 CoralgroveHarbor_Sailor_Text_0:
 	.string "Even though there's a perfectly\ngood ship docked at the harbor,\lsome crazy people would still rather\lcross the ocean by swimming!$"
 
-CoralgroveHarbor_OldMan_Text_0:
-	.string "I used to be a fearsome trainer.\pMaybe one day I'll be able to meet\nsomeone who will kindle that\lold flame in me.$"
-
 CoralgroveHarbor_Woman_Text_0:
 	.string "I'd really like to set up a shop here\nbut there's simply not enough room.\pDigging a hole in this cliff could\nendanger the city above.$"
 
@@ -91,3 +88,10 @@ CoralgroveHarbor_SleepingMan_Text_1:
 
 CoralgroveHarbor_SleepingMan_Text_2:
 	.string "zzz…$"
+
+CoralgroveHarbor_OldMan_Text::
+	.string "Beyond the ocean lies the town\n"
+	.string "of Azuretide.\p"
+	.string "Back in my youth I would've easily\n"
+	.string "swam across the ocean but nowadays\l"
+	.string "I am more than happy to take the ferry.$"

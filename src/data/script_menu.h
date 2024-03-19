@@ -833,6 +833,14 @@ static const struct MenuAction WhichOneWouldWin[] =
 };
 
 
+static const struct MenuAction BuffetOptions[] =
+{
+    {gText_DineHere},
+    {gText_ExplainBuffetRules},
+    {gText_ComeBackLater},
+};
+
+
 static const struct MultichoiceListStruct sMultichoiceLists[] =
 {
     [MULTI_BRINEY_ON_DEWFORD]          = MULTICHOICE(MultichoiceList_BrineyOnDewford),
@@ -955,6 +963,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_BOATFROMSHORESLATE]         = MULTICHOICE(BoatFromShoreslate),
     [MULTI_BOATFROMKAOLISLE]           = MULTICHOICE(BoatFromKaolisle),
     [MULTI_WHICHONEWOULDWIN]           = MULTICHOICE(WhichOneWouldWin),
+    [MULTI_BUFFET]                     = MULTICHOICE(BuffetOptions),
 };
 
 const u8 *const gStdStrings[] =

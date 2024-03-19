@@ -990,3 +990,14 @@ const struct Tileset gTileset_SafariSec =
     .metatileAttributes = gMetatileAttributes_SafariSec,
     .callback = InitTilesetAnim_General,
 };
+
+const struct Tileset gTileset_gTileset_Hotel =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_gTileset_Hotel,
+    .palettes = gTilesetPalettes_gTileset_Hotel,
+    .metatiles = gMetatiles_gTileset_Hotel,
+    .metatileAttributes = gMetatileAttributes_gTileset_Hotel,
+    .callback = NULL,
+};

@@ -3,7 +3,7 @@
   "name": "CoastTownHarbor",
   "layout": "LAYOUT_COAST_TOWN_HARBOR",
   "music": "MUS_SLATEPORT",
-  "region_map_section": "MAPSEC_TOWN_WIP1",
+  "region_map_section": "MAPSEC_AZURETIDE_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

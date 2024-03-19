@@ -195,7 +195,18 @@
     "Kaolisle_House3",
     "Kaolisle_House4",
     "Kaolisle_FishingAssociation",
-    "Kaolisle_Hotel_1F"
+    "Kaolisle_Mines_2F",
+    "Kaolisle_Mines_3F",
+    "Kaolisle_Hotel_1F",
+    "Kaolisle_Hotel_2F",
+    "Kaolisle_Hotel_3F",
+    "Kaolisle_Hotel_4F",
+    "Kaolisle_Hotel_5F",
+    "Kaolisle_Hotel_2F_Rooms",
+    "Kaolisle_Hotel_3F_Rooms",
+    "Kaolisle_Hotel_4F_Rooms",
+    "Kaolisle_Hotel_5F_Rooms",
+    "Kaolisle_Hotel_Elevator"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

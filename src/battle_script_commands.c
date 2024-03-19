@@ -7358,8 +7358,10 @@ static void Cmd_getmoneyreward(void)
                 battlePoints = 6;
         }
         if (FlagGet(FLAG_SYSTEM_NOREWARDBATTLES))
+        {
             money = 0;
             battlePoints = 0;
+        }
         AddMoney(&gSaveBlock1Ptr->money, money);
         AddBattlePoints(battlePoints);
     }

@@ -102,13 +102,16 @@ Debug_Script_3::
 	end
 
 DebugVar::
+	.string "äÄöÖ"
 	.string "{STR_VAR_1}$"
 
 Debug_Script_4::
-    giveitem ITEM_POTION, 2
-    giveitem ITEM_ORAN_BERRY, 3
-    giveitem ITEM_POKE_BALL, 1
-	giveitem ITEM_HONEY, 3
+    giveitem ITEM_TM_AERIAL_ACE
+	finditem ITEM_TM_AERIAL_ACE
+	giveitem ITEM_TM84
+	finditem ITEM_TM84
+	giveitem ITEM_POTION
+	finditem ITEM_POTION
 	end
 
 Debug_Script_5::

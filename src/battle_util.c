@@ -10932,6 +10932,9 @@ bool32 CanStealItem(u32 battlerStealing, u32 battlerItem, u16 item)
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_HILL)
         return FALSE;
 
+    if (FlagGet(FLAG_SYSTEM_NOREWARDBATTLES))
+        return FALSE;
+
     // Check if the battler trying to steal should be able to
     if (stealerSide == B_SIDE_OPPONENT
         && !(gBattleTypeFlags &

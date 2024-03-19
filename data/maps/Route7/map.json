@@ -14,14 +14,14 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_TOWN_WIP2",
-      "offset": 0,
-      "direction": "right"
-    },
-    {
       "map": "MAP_SHORESLATE_CITY",
       "offset": 18,
       "direction": "left"
+    },
+    {
+      "map": "MAP_TOWN_WIP2",
+      "offset": 0,
+      "direction": "right"
     }
   ],
   "object_events": [

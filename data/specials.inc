@@ -229,6 +229,7 @@ gSpecials::
 	def_special DoPCTurnOnEffect
 	def_special DoPCTurnOffEffect
 	def_special SetDeptStoreFloor
+	def_special SetHotelFloor
 	def_special DoLotteryCornerComputerEffect
 	def_special EndLotteryCornerComputerEffect
 	def_special ChooseMonForMoveRelearner
@@ -448,6 +449,7 @@ gSpecials::
 	def_special ShowDodrioBerryPickingRecords
 	def_special OffsetCameraForBattle
 	def_special GetDeptStoreDefaultFloorChoice
+	def_special GetHotelDefaultFloorChoice
 	def_special BufferVarsForIVRater
 	def_special LinkContestWaitForConnection
 	def_special GetWirelessCommType
