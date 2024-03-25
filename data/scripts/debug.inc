@@ -99,6 +99,9 @@ Debug_Script_3::
 	setflag FLAG_OLDMAN_PEARLSTRING
 	setvar VAR_DESERT_BYPASS, 1
 	setvar VAR_BADGES_OBTAINED, 2
+	msgbox FlagsAndVarsUpdated, MSGBOX_DEFAULT
+	waitmessage
+	closemessage
 	end
 
 DebugVar::
@@ -106,31 +109,19 @@ DebugVar::
 	.string "{STR_VAR_1}$"
 
 Debug_Script_4::
-    giveitem ITEM_TM_AERIAL_ACE
-	finditem ITEM_TM_AERIAL_ACE
-	giveitem ITEM_TM84
-	finditem ITEM_TM84
-	giveitem ITEM_POTION
-	finditem ITEM_POTION
 	end
 
 Debug_Script_5::
-	call TestScript1
 	end
 
 Debug_Script_6::
-	call TestScript2
 	end
 
 Debug_Script_7::
-	cleartrainerflag TRAINER_WPV_TR1_BIRDKEEPER
-	setflag FLAG_SYSTEM_NOREWARDBATTLES
-	trainerbattle_single TRAINER_WPV_TR1_BIRDKEEPER, Route109_Text_AustinaIntro, Route109_Text_AustinaDefeated
-	msgbox Route109_Text_AustinaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Debug_Script_8::
-	setflag FLAG_SYSTEM_NOREWARDBATTLES
+	settrainerflag TRAINER_AUSTINA
 	trainerbattle_single TRAINER_AUSTINA, Route109_Text_AustinaIntro, Route109_Text_AustinaDefeated
 	msgbox Route109_Text_AustinaPostBattle, MSGBOX_AUTOCLOSE
 	end

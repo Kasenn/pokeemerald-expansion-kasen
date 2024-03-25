@@ -114,7 +114,7 @@
 #define OBJ_EVENT_GFX_CAMERAMAN                  110
 #define OBJ_EVENT_GFX_BRENDAN_UNDERWATER         111
 #define OBJ_EVENT_GFX_MAY_UNDERWATER             112
-#define OBJ_EVENT_GFX_MOVING_BOX                 113
+#define OBJ_EVENT_GFX_LAND_SWIMMER_F                 113
 #define OBJ_EVENT_GFX_CABLE_CAR                  114
 #define OBJ_EVENT_GFX_SCIENTIST_2                115
 #define OBJ_EVENT_GFX_DEVON_EMPLOYEE             116
@@ -232,7 +232,7 @@
 #define OBJ_EVENT_GFX_SUDOWOODO                  228
 #define OBJ_EVENT_GFX_MEW                        229
 #define OBJ_EVENT_GFX_RED                        230
-#define OBJ_EVENT_GFX_LEAF                       231
+#define OBJ_EVENT_GFX_AMPHAROS                   231
 #define OBJ_EVENT_GFX_DEOXYS                     232
 #define OBJ_EVENT_GFX_DEOXYS_TRIANGLE            233
 #define OBJ_EVENT_GFX_BRANDON                    234
@@ -383,6 +383,9 @@
 #define OBJ_EVENT_PAL_ABRA                  0x1136
 #define OBJ_EVENT_PAL_SPHEAL                0x1137
 #define OBJ_EVENT_PAL_EXCADRILL                0x1138
+#define OBJ_EVENT_PAL_AMPHAROS                  0x1139
+#define OBJ_EVENT_PAL_ROSTE                     0x113A
+#define OBJ_EVENT_PAL_LAND_SWIMMER_F                     0x113B
 
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 

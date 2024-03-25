@@ -586,9 +586,9 @@ KaolisleCity_Fisher4_Text::
 	.string "A friend of mine said they once reeled\n"
 	.string "in a Finizen.\p"
 	.string "I know there are some rare fish in\n"
-	.string "these waters but I don't think I've ever\l"
-	.string "witnessed someone actually fishing up\l"
-	.string "any Paldean Pokémon.$"
+	.string "these waters but I don't think I've\l"
+	.string "ever witnessed someone actually\l"
+	.string "fishing up any Paldean Pokémon.$"
 
 KaolisleCity_TriathleteF_Text::
 	.string "There are two beaches in Kaolisle.\p"

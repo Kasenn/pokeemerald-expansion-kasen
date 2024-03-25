@@ -45,6 +45,8 @@ static const u8 sBerryDescriptionPart1_Lum[] = _("Slow to grow. If raised with l
 static const u8 sBerryDescriptionPart2_Lum[] = _("care, it may grow two Berries.");
 static const u8 sBerryDescriptionPart1_Sitrus[] = _("Closely related to Oran. The large");
 static const u8 sBerryDescriptionPart2_Sitrus[] = _("Berry has a well-rounded flavor.");
+static const u8 sBerryDescriptionPart1_Roste[] = _("A rejuvenating and delicious Berry");
+static const u8 sBerryDescriptionPart2_Roste[] = _("that causes sleepiness when ingested.");
 static const u8 sBerryDescriptionPart1_Figy[] = _("The Berry, which looks chewed up,");
 static const u8 sBerryDescriptionPart2_Figy[] = _("brims with spicy substances.");
 static const u8 sBerryDescriptionPart1_Wiki[] = _("The Berry is said to have grown lumpy");
@@ -1385,6 +1387,23 @@ const struct Berry gBerries[] =
         .sour = 40,
         .smoothness = 40,
     },
+    [ITEM_ROSTE_BERRY - FIRST_BERRY_INDEX] =
+    {
+        .name = _("Roste"),
+        .firmness = BERRY_FIRMNESS_VERY_SOFT,
+        .size = 25,
+        .maxYield = 4,
+        .minYield = 2,
+        .description1 = sBerryDescriptionPart1_Roste,
+        .description2 = sBerryDescriptionPart2_Roste,
+        .stageDuration = 4,
+        .spicy = 0,
+        .dry = 0,
+        .sweet = 30,
+        .bitter = 0,
+        .sour = 30,
+        .smoothness = 20,
+    },
 };
 
 const struct BerryCrushBerryData gBerryCrush_BerryData[] = {
@@ -1406,6 +1425,7 @@ const struct BerryCrushBerryData gBerryCrush_BerryData[] = {
     [ITEM_RAZZ_BERRY - FIRST_BERRY_INDEX]            = {.difficulty =  80, .powder =  70},
     [ITEM_BLUK_BERRY - FIRST_BERRY_INDEX]            = {.difficulty =  80, .powder =  70},
     [ITEM_NANAB_BERRY - FIRST_BERRY_INDEX]           = {.difficulty =  80, .powder =  70},
+    [ITEM_ROSTE_BERRY - FIRST_BERRY_INDEX]           = {.difficulty =  80, .powder =  70},
     [ITEM_WEPEAR_BERRY - FIRST_BERRY_INDEX]          = {.difficulty =  80, .powder =  70},
     [ITEM_PINAP_BERRY - FIRST_BERRY_INDEX]           = {.difficulty =  80, .powder =  70},
     [ITEM_POMEG_BERRY - FIRST_BERRY_INDEX]           = {.difficulty = 100, .powder = 100},

@@ -208,8 +208,8 @@
 #define TRAINER_BUFFET_3                        204
 #define TRAINER_BUFFET_4                      205
 #define TRAINER_HOTEL_BIRDKEEPER                    206
-#define TRAINER_BERNIE_2                    207
-#define TRAINER_BERNIE_3                    208
+#define TRAINER_HOTEL_KID1                    207
+#define TRAINER_HOTEL_KID2                    208
 #define TRAINER_BERNIE_4                    209
 #define TRAINER_BERNIE_5                    210
 #define TRAINER_DREW                        211

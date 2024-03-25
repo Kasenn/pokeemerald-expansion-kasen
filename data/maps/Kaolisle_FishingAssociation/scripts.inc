@@ -434,7 +434,7 @@ Kaolisle_FanClub_NinjaBoy_Text::
 	.string "nowhere near as cool as my Poochyena!$"
 
 Kaolisle_FanClub_Poochyena_Text::
-	.string "Bow! Bowwow!$"
+	.string "Poochyena: Bow! Bowwow!$"
 
 Kaolisle_FanClub_Man_Text::
 	.string "If you keep letting a Pokémon faint\n"
@@ -496,11 +496,11 @@ FanClub_WantToTradeQwilfish::
 
 FanClub_WantToTradeSneasel::
 	.string "I was under the impression that\n"
-	.string "Sneasels were dark-type, but for some\l"
+	.string "Sneasels were Dark-type, but for some\l"
 	.string "reason mine isn't.\p"
 	.string "This one doesn't really fit a ninja\n"
 	.string "like me.\p"
-	.string "If you have a dark-type Sneasel,\n"
+	.string "If you have a Dark-type Sneasel,\n"
 	.string "I'd gladly trade you mine.$"
 
 FanClub_WantToTradeZorua::
@@ -550,7 +550,7 @@ FanClub_WantToTradeSquirtle::
 	.string "The thing is, I don't really want\n"
 	.string "a Squirtle.\p"
 	.string "If you want, I could trade it for some\n"
-	.string "other water-type Pokémon.\l"
+	.string "other Water-type Pokémon.\l"
 	.string "Maybe a Piplup?$"
 
 FanClub_TradeDeclineText::

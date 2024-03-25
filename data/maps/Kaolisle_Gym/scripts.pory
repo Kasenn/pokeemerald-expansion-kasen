@@ -263,11 +263,8 @@ text KaolisleGym_Trainer7_Picnicker2_Intro{
 text KaolisleGym_Trainer7_Picnicker2_Defeat{
     "No!\n"
     "We can still go on!\p"
-    "Hold on, let me just…\p"
-    "No…\n"
-    "Maybe this one…?\p"
-    "No…\p"
-    "Hm…"
+    "Hold on, let me just…{PAUSE_UNTIL_PRESS} No…{PAUSE_UNTIL_PRESS}\n"
+    "Maybe this one…?{PAUSE_UNTIL_PRESS} No…{PAUSE_UNTIL_PRESS} Hm…"
 }
 text KaolisleGym_Trainer7_Picnicker2_PostBattle{
     "You may be strong, but I'll keep honing\n"
@@ -354,6 +351,8 @@ script KaolGym_ClayEvent{
 	msgbox(KaolGym_TakeThis, MSGBOX_DEFAULT)
 	setflag(FLAG_BADGE03_GET)
     setvar(VAR_BADGES_OBTAINED, 3)
+    setvar(VAR_KAOLISLE_HOTEL_STATE, 1)
+    clearflag(FLAG_HIDEJASMINE_HOTEL)
 	setvar(VAR_0x8008, 3)
 	call(Common_EventScript_SetGymTrainers)
 	special(RemoveCameraObject)
@@ -457,7 +456,7 @@ text KaolGym_GuideAdvice{
     "but fret not, because we are\l"
     "as legitimate as any other gym!\p"
     "Anyway, this gym's leader, Clay,\n"
-    "uses ground-type Pokémon.\p"
+    "uses Ground-type Pokémon.\p"
     "However, in order to reach him,\n"
     "you must first find four buttons\l"
     "inside the gym and press all of them.\p"

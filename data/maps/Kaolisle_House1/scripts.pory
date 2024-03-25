@@ -139,7 +139,7 @@ text ExplainRockSmash{
     "If you come across large boulders\n"
     "that block your path…\p"
     "Well, use that HM move and smash\n"
-    "them right out of your way!\p"
+    "them right out of your way!"
 }
 text RockSmashMonComesOut_Text{
     "Oh, yes, when you smash a rock,\n"
@@ -149,7 +149,9 @@ text RockSmashMonComesOut_Text{
 }
 
 script Kaolisle_SphealHouseLady{
-    msgbox(Kaolisle_SphealHouseLady_Text, MSGBOX_NPC)
+    faceplayer
+    msgbox(Kaolisle_SphealHouseLady_Text, MSGBOX_DEFAULT)
+    closemessage
     end
 }
 text Kaolisle_SphealHouseLady_Text{

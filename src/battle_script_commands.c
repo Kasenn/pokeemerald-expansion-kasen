@@ -7383,9 +7383,11 @@ static void Cmd_getmoneyreward(void)
                 ++count;
         }
         money = sWhiteOutBadgeMoney[count] * sPartyLevel;
-        if (FlagGet(FLAG_SYSTEM_NOREWARDBATTLES))
+        if (FlagGet(FLAG_SYSTEM_NOREWARDBATTLES)){
             money = 0;
+        }
         RemoveMoney(&gSaveBlock1Ptr->money, money);
+        RemoveBagItem(ITEM_CURRY, 1);
     }
     
 
@@ -13889,7 +13891,10 @@ static void Cmd_tryswapitems(void)
     CMD_ARGS(const u8 *failInstr);
 
     // opponent can't swap items with player in regular battles
-    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_HILL
+    if (FlagGet(FLAG_SYSTEM_NOREWARDBATTLES)){
+        gBattlescriptCurrInstr = cmd->failInstr;
+    }
+    else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER_HILL
         || (GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT
             && !(gBattleTypeFlags & (BATTLE_TYPE_LINK
                                   | BATTLE_TYPE_EREADER_TRAINER

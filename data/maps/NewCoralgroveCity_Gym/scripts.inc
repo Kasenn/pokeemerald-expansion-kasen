@@ -178,7 +178,7 @@ NewCoralgroveCity_Gym_Text_GymGuideAdvice::
 	.string "you'll want to take some caution!\p"
 	.string "There are also trainers lurking in\n"
 	.string "the thicket, ready to pounce you\l"
-	.string "with their bug-type Pokémon.\p"
+	.string "with their Bug-type Pokémon.\p"
 	.string "The leader of this gym, Aaron,\n"
 	.string "also uses bug Pokémon.\p"
 	.string "Many people think that bug Pokémon\n"

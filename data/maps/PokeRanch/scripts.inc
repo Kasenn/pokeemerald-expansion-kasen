@@ -4,20 +4,26 @@ PokeRanch_MapScripts::
 
 
 SetVolkner::
+	goto_if_unset FLAG_BADGE02_GET, SetVolkner_2
+SetVolkner_1:
 	setflag FLAG_RANCH_EVENT_NPC
 	setflag FLAG_LANDMARK_POKE_RANCH
 	setflag FLAG_MAREEP_NOT_RETURNED
-	goto_if_unset FLAG_RANCH_HELPED, SetVolkner_2
-SetVolkner_1:
+	goto_if_unset FLAG_RANCH_HELPED, SetVolkner_5
+SetVolkner_4:
 	compare VAR_POKERANCH, 0
-	goto_if_eq SetVolkner_4
+	goto_if_eq SetVolkner_7
 	return
 
 SetVolkner_2:
-	setflag FLAG_HIDE_RANCH_OWNER
+	setobjectmovementtype 3, MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP
 	goto SetVolkner_1
 
-SetVolkner_4:
+SetVolkner_5:
+	setflag FLAG_HIDE_RANCH_OWNER
+	goto SetVolkner_4
+
+SetVolkner_7:
 	setflag FLAG_HIDE_VOLKNER_2
 	return
 
@@ -28,6 +34,17 @@ PokeRanch_Mareep::
 	waitse
 	playmoncry SPECIES_MAREEP, CRY_MODE_NORMAL
 	msgbox PokeRanch_Mareep_Text_0, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+
+
+PokeRanch_Ampharos::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_AMPHAROS, CRY_MODE_NORMAL
+	msgbox PokeRanch_Ampharos_Text_0, MSGBOX_DEFAULT
 	waitmoncry
 	release
 	end
@@ -571,7 +588,10 @@ RanchMovePlayer:
 	step_end
 
 PokeRanch_Mareep_Text_0:
-	.string "Baa!$"
+	.string "Mareep: Baa!$"
+
+PokeRanch_Ampharos_Text_0:
+	.string "Ampharos: Palu!\nPalulu!$"
 
 PokeRanch_Lass_Text_0:
 	.string "Mareep are so cute!\nJust being near one is causing all\lmy hair to stand up.$"

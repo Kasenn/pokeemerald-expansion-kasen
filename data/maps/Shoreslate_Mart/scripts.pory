@@ -183,7 +183,7 @@ script Kaolisle_Mart_Gentleman{
 }
 text Kaolisle_Mart_Gentleman_Text{
     "You can find mostly the same items\n"
-    "from every Poké Mart across Sinko.\p"
+    "in every Poké Mart across Sinko.\p"
     "By gaining more badges, you gain access\n"
     "to an ever wider assortment of products."
 }
@@ -193,8 +193,8 @@ script Kaolisle_Mart_Boy{
     end
 }
 text Kaolisle_Mart_Boy_Text{
-    "I can't find the products\n"
-    "I'm looking for…"
+    "I can't find the products I'm\n"
+    "looking for…"
 }
 
 script Mart_Clerk{

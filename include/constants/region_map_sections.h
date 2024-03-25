@@ -108,7 +108,7 @@
 #define MAPSEC_MARIGORGE_TOWN                    0x68
 #define MAPSEC_SHORESLATE_CITY              0x69
 #define MAPSEC_KAOLISLE_CITY                    0x6A
-#define MAPSEC_TOWN_WIP4                    0x6B
+#define MAPSEC_ROCKLIFFE_TOWN                    0x6B
 #define MAPSEC_SANDSTONE_CITY               0x6C
 #define MAPSEC_CITY_WIP4                    0x6D
 #define MAPSEC_TOWN_WIP5                    0x6E

@@ -7731,7 +7731,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SAND_TOMB,
+        .secondaryId = MOVE_ECHOED_VOICE,
     },
 
     [ITEM_TM_OVERHEAT] =
@@ -9755,6 +9755,30 @@ const struct Item gItems[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_IncreaseFriendship,
+        .flingPower = 30,
+    },
+    [ITEM_ROSTE_BERRY] =
+    {
+        .name = _("Roste Berry"),
+        .price = 20,
+        .holdEffect = HOLD_EFFECT_SLEEP_BERRY,
+        .holdEffectParam = SLEEP_BERRY_HEAL_FULL,
+        .description = sRosteBerryDesc,
+        .pocket = POCKET_BERRIES,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+    },
+    [ITEM_CURRY] =
+    {
+        .name = _("Curry"),
+        .price = 2000,
+        .holdEffectParam = 255,
+        .description = sCurryDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = EFFECT_ITEM_HEAL_AND_CURE_STATUS,
         .flingPower = 30,
     },
 };

@@ -9736,6 +9736,22 @@ BattleScript_BerryConfuseHealEnd2_Anim:
 	seteffectprimary
 	removeitem BS_SCRIPTING
 	end2
+	
+BattleScript_BerrySleepHealEnd2::
+	goto BattleScript_BerrySleepHealEnd2_Anim
+BattleScript_BerrySleepHealEnd2_Anim:
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
+	printstring STRINGID_PKMNSITEMRESTOREDHEALTH
+	waitmessage B_WAIT_TIME_LONG
+	orword gHitMarker, HITMARKER_SKIP_DMG_TRACK | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_SCRIPTING
+	datahpupdate BS_SCRIPTING
+	printstring STRINGID_SLEEPBERRY
+	waitmessage B_WAIT_TIME_LONG
+	setmoveeffect MOVE_EFFECT_SLEEP | MOVE_EFFECT_AFFECTS_USER
+	seteffectprimary
+	removeitem BS_SCRIPTING
+	end2
 
 BattleScript_BerryConfuseHealRet::
 	jumpifability BS_SCRIPTING, ABILITY_RIPEN, BattleScript_BerryConfuseHealRet_AbilityPopup
@@ -9752,6 +9768,22 @@ BattleScript_BerryConfuseHealRet_Anim:
 	printstring STRINGID_FORXCOMMAYZ
 	waitmessage B_WAIT_TIME_LONG
 	setmoveeffect MOVE_EFFECT_CONFUSION | MOVE_EFFECT_CERTAIN
+	seteffectprimary
+	removeitem BS_TARGET
+	return
+
+BattleScript_BerrySleepHealRet::
+	goto BattleScript_BerrySleepHealRet_Anim
+BattleScript_BerrySleepHealRet_Anim:
+	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
+	printstring STRINGID_PKMNSITEMRESTOREDHEALTH
+	waitmessage B_WAIT_TIME_LONG
+	orword gHitMarker, HITMARKER_SKIP_DMG_TRACK | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_SCRIPTING
+	datahpupdate BS_SCRIPTING
+	printstring STRINGID_SLEEPBERRY
+	waitmessage B_WAIT_TIME_LONG
+	setmoveeffect MOVE_EFFECT_SLEEP | MOVE_EFFECT_CERTAIN
 	seteffectprimary
 	removeitem BS_TARGET
 	return

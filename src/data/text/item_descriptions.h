@@ -2765,6 +2765,11 @@ static const u8 sIapapaBerryDesc[] = _(
     "restores HP but\n"
     "may confuse.");
 
+static const u8 sRosteBerryDesc[] = _(
+    "A hold item that\n"
+    "restores HP but\n"
+    "causes sleepiness.");
+
 static const u8 sRazzBerryDesc[] = _(
     "{POKEBLOCK} ingredient.\n"
     "Plant in loamy soil\n"
@@ -3272,9 +3277,9 @@ static const u8 sTM48Desc[] = _(
     "turn this is used.");
 
 static const u8 sTM49Desc[] = _(
-    "Traps and hurts the\n"
-    "foe in quicksand\n"
-    "for 4-5 turns.");
+    "Does more damage\n"
+    "every turn\n"
+    "it is used.");
 
 static const u8 sTM50Desc[] = _(
     "Enables full-power\n"
@@ -3982,3 +3987,8 @@ static const u8 sSpecialSoupDesc[] = _(
     "A bowl of special\n"
     "berry blend soup.\n"
     "Pokémon love it.");
+
+static const u8 sCurryDesc[] = _(
+    "Fully restores the\n"
+    "HP and status of a\n"
+    "Pokémon.");

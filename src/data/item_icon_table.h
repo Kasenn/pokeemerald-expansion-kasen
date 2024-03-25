@@ -573,6 +573,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_RAZZ_BERRY] = {gItemIcon_RazzBerry, gItemIconPalette_RazzBerry},
     [ITEM_BLUK_BERRY] = {gItemIcon_BlukBerry, gItemIconPalette_BlukBerry},
     [ITEM_NANAB_BERRY] = {gItemIcon_NanabBerry, gItemIconPalette_NanabBerry},
+    [ITEM_ROSTE_BERRY] = {gItemIcon_RosteBerry, gItemIconPalette_RosteBerry},
     [ITEM_WEPEAR_BERRY] = {gItemIcon_WepearBerry, gItemIconPalette_WepearBerry},
     [ITEM_PINAP_BERRY] = {gItemIcon_PinapBerry, gItemIconPalette_PinapBerry},
     [ITEM_POMEG_BERRY] = {gItemIcon_PomegBerry, gItemIconPalette_PomegBerry},
@@ -672,7 +673,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_TM46] = {gItemIcon_TM, gItemIconPalette_DarkTMHM},
     [ITEM_TM47] = {gItemIcon_TM, gItemIconPalette_SteelTMHM},
     [ITEM_TM48] = {gItemIcon_TM, gItemIconPalette_PsychicTMHM},
-    [ITEM_TM49] = {gItemIcon_TM, gItemIconPalette_GroundTMHM},
+    [ITEM_TM49] = {gItemIcon_TM, gItemIconPalette_NormalTMHM},
     [ITEM_TM50] = {gItemIcon_TM, gItemIconPalette_FireTMHM},
     [ITEM_TM51] = {gItemIcon_TM, gItemIconPalette_NormalTMHM},  // Todo
     [ITEM_TM52] = {gItemIcon_TM, gItemIconPalette_NormalTMHM},  // Todo
@@ -855,6 +856,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_STONE_SPHERE] = {gItemIcon_StoneSphere, gItemIconPalette_StoneSphere},
     [ITEM_LOST_MEMENTO] = {gItemIcon_LostMemento, gItemIconPalette_LostMemento},
     [ITEM_SPECIAL_SOUP] = {gItemIcon_SpecialSoup, gItemIconPalette_SpecialSoup},
+    [ITEM_CURRY] = {gItemIcon_Curry, gItemIconPalette_Curry},
     // Return to field arrow
     [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

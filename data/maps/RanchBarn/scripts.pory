@@ -20,7 +20,7 @@ script BarnHappyMareep{
     lock
     waitse
 	playmoncry(SPECIES_MAREEP, CRY_MODE_NORMAL)
-	msgbox("Baa!", MSGBOX_DEFAULT)
+	msgbox("Mareep: Baa!", MSGBOX_DEFAULT)
 	waitmoncry
 	release
 	end
@@ -30,7 +30,7 @@ script BarnSadMareep{
     lock
     waitse
 	playmoncry(SPECIES_MAREEP, CRY_MODE_NORMAL)
-	msgbox("Baa…", MSGBOX_DEFAULT)
+	msgbox("Mareep: Baa…", MSGBOX_DEFAULT)
 	waitmoncry
 	release
 	end

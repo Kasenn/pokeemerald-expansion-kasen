@@ -143,7 +143,7 @@ script Kaolisle_FanClub_Poochyena{
 	end
 }
 text Kaolisle_FanClub_Poochyena_Text{
-    "Bow! Bowwow!"
+    "Poochyena: Bow! Bowwow!"
 }
 script Kaolisle_FanClub_Man{
     msgbox(Kaolisle_FanClub_Man_Text, MSGBOX_NPC)
@@ -358,11 +358,11 @@ text FanClub_WantToTradeQwilfish{
 }
 text FanClub_WantToTradeSneasel{
     "I was under the impression that\n"
-    "Sneasels were dark-type, but for some\l"
+    "Sneasels were Dark-type, but for some\l"
     "reason mine isn't.\p"
     "This one doesn't really fit a ninja\n"
     "like me.\p"
-    "If you have a dark-type Sneasel,\n"
+    "If you have a Dark-type Sneasel,\n"
     "I'd gladly trade you mine."
 }
 text FanClub_WantToTradeZorua{
@@ -412,7 +412,7 @@ text FanClub_WantToTradeSquirtle{
     "The thing is, I don't really want\n"
     "a Squirtle.\p"
     "If you want, I could trade it for some\n"
-    "other water-type Pokémon.\l"
+    "other Water-type Pokémon.\l"
     "Maybe a Piplup?"
 }
 

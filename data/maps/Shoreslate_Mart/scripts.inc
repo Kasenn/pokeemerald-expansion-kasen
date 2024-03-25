@@ -393,10 +393,10 @@ gText_HowMayIServeYou4::
 
 Kaolisle_Mart_Gentleman_Text::
 	.string "You can find mostly the same items\n"
-	.string "from every Poké Mart across Sinko.\p"
+	.string "in every Poké Mart across Sinko.\p"
 	.string "By gaining more badges, you gain access\n"
 	.string "to an ever wider assortment of products.$"
 
 Kaolisle_Mart_Boy_Text::
-	.string "I can't find the products\n"
-	.string "I'm looking for…$"
+	.string "I can't find the products I'm\n"
+	.string "looking for…$"

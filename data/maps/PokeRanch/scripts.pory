@@ -3,6 +3,9 @@ mapscripts PokeRanch_MapScripts{
 }
 
 script SetVolkner{
+    if(!flag(FLAG_BADGE02_GET)){
+        setobjectmovementtype(3, MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP)
+    }
     setflag(FLAG_RANCH_EVENT_NPC)
     setflag(FLAG_LANDMARK_POKE_RANCH)
     setflag(FLAG_MAREEP_NOT_RETURNED)
@@ -19,7 +22,18 @@ script PokeRanch_Mareep{
 	faceplayer
     waitse
 	playmoncry(SPECIES_MAREEP, CRY_MODE_NORMAL)
-	msgbox("Baa!", MSGBOX_DEFAULT)
+	msgbox("Mareep: Baa!", MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+
+script PokeRanch_Ampharos{
+	lock
+	faceplayer
+    waitse
+	playmoncry(SPECIES_AMPHAROS, CRY_MODE_NORMAL)
+	msgbox("Ampharos: Palu!\nPalulu!", MSGBOX_DEFAULT)
 	waitmoncry
 	release
 	end
@@ -264,7 +278,7 @@ script PokeRanch_MareepTrigger{
 	faceplayer
     waitse
 	playmoncry(SPECIES_MAREEP, CRY_MODE_NORMAL)
-	msgbox("Baa!", MSGBOX_DEFAULT)
+	msgbox("Mareep: Baa!", MSGBOX_DEFAULT)
 	waitmoncry
     msgbox("This must be the missing Mareep…", MSGBOX_DEFAULT)
     waitmessage

@@ -1,39 +1,25 @@
 mapscripts Kaolisle_BP_Shop_MapScripts{}
 
 script KaolisleShop_Man{
-    faceplayer
-    lockall
-    msgbox(KaolisleShop_Man_Text, MSGBOX_YESNO)
-    if(var(VAR_RESULT) == TRUE){
-        msgbox(KaolisleShop_Man_TextContinued, MSGBOX_NPC)
-    }
-    waitmessage
-    closemessage
-    release
+    msgbox(KaolisleShop_Man_Text, MSGBOX_NPC)
     end
 }
 text KaolisleShop_Man_Text{
-    "Hey, want to hear a secret?"
+    "Did you know? Power items can be used\n"
+    "to train your current Pokémon, or to\l"
+    "pass down some of their strongest\l"
+    "traits to their offspring."
 }
-text KaolisleShop_Man_TextContinued{
-    "There are certain type of trainers who\n"
-    "are colloquially known as\l"
-    "“Pokémon enthusiasts.”\p"
-    "These people absolutely love Pokémon\n"
-    "battles and often times even demand\l"
-    "rematches if you happen to cross their\l"
-    "path more than once.\p"
-    "If you ever find yourself short on\n"
-    "Battle Points, consider challenging\l"
-    "one of these enthusiasts."
-}
-script KaolisleShop_OldMan{
-    msgbox(KaolisleShop_OldMan_Text, MSGBOX_NPC)
+
+script KaolisleShop_Lass{
+    msgbox(KaolisleShop_Lass_Text, MSGBOX_NPC)
     end
 }
-text KaolisleShop_OldMan_Text{
-    "I don't understand what half of these\n"
-    "items even do…"
+text KaolisleShop_Lass_Text{
+    "Many of the moves taught by these\n"
+    "Move Tutors are highly technical.\p"
+    "I'm not entirely sure which ones I\n"
+    "should teach."
 }
 
 script Kaolisle_BPShop_HoldItemClerk{

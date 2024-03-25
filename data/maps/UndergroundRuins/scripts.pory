@@ -44,6 +44,10 @@ script CheckForEscapeRope{
     checkitem(ITEM_ESCAPE_ROPE)
     if(var(VAR_RESULT) == FALSE){
         lockall
+        playse(SE_PIN)
+        applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
+        waitmovement(0)
+        delay(60)
         msgbox("You stumble upon some old rope that\ncould be used to climb back out.", MSGBOX_DEFAULT)
         finditem(ITEM_ESCAPE_ROPE)
         release

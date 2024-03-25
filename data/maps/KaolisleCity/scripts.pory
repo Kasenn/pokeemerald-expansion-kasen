@@ -391,9 +391,9 @@ text KaolisleCity_Fisher4_Text{
     "A friend of mine said they once reeled\n"
     "in a Finizen.\p"
     "I know there are some rare fish in\n"
-    "these waters but I don't think I've ever\l"
-    "witnessed someone actually fishing up\l"
-    "any Paldean Pokémon."
+    "these waters but I don't think I've\l"
+    "ever witnessed someone actually\l"
+    "fishing up any Paldean Pokémon."
 }
 
 script KaolisleCity_TriathleteF{

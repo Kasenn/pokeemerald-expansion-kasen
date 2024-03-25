@@ -314,6 +314,7 @@ static void TryGiveItemOrMailToSelectedMon(u8);
 static void SwitchSelectedMons(u8);
 static void TryEnterMonForMinigame(u8, u8);
 static void Task_TryCreateSelectionWindow(u8);
+static void Task_TryCreateSelectionWindow2(u8);
 static void FinishTwoMonAction(u8);
 static void CancelParticipationPrompt(u8);
 static bool8 DisplayCancelChooseMonYesNo(u8);
@@ -350,6 +351,7 @@ static void CB2_GiveHoldItem(void);
 static void CB2_WriteMailToGiveMon(void);
 static void Task_SwitchHoldItemsPrompt(u8);
 static void Task_GiveHoldItem(u8);
+static void Task_CantHoldItem(u8);
 static void Task_SwitchItemsYesNo(u8);
 static void Task_HandleSwitchItemsYesNoInput(u8);
 static void Task_WriteMailToGiveMonAfterText(u8);
@@ -1790,6 +1792,14 @@ static void DisplayGaveHeldItemMessage(struct Pokemon *mon, u16 item, bool8 keep
     DisplayPartyMenuMessage(gStringVar4, keepOpen);
     ScheduleBgCopyTilemapToVram(2);
 }
+static void DisplayGaveHeldItemMessage2(struct Pokemon *mon, u16 item, bool8 keepOpen)
+{
+    GetMonNickname(mon, gStringVar1);
+    CopyItemName(item, gStringVar2);
+    StringExpandPlaceholders(gStringVar4, gText_PkmnWasGivenItem2);
+    DisplayPartyMenuMessage(gStringVar4, keepOpen);
+    ScheduleBgCopyTilemapToVram(2);
+}
 
 static void DisplayTookHeldItemMessage(struct Pokemon *mon, u16 item, bool8 keepOpen)
 {
@@ -2752,6 +2762,19 @@ static void Task_TryCreateSelectionWindow(u8 taskId)
         gTasks[taskId].func = Task_HandleSelectionMenuInput;
     }
 }
+static void Task_TryCreateSelectionWindow2(u8 taskId)
+{
+    u16 item;
+    item = gSpecialVar_ItemId;
+
+    if (!gPaletteFade.active)
+    {
+        DisplayGaveHeldItemMessage2(&gPlayerParty[gPartyMenu.slotId], item, FALSE);
+        gTasks[taskId].data[0] = 0xFF;
+        gTasks[taskId].func = Task_HandleSelectionMenuInput;
+        gTasks[taskId].func = Task_UpdateHeldItemSprite;
+    }
+}
 
 static void Task_HandleSelectionMenuInput(u8 taskId)
 {
@@ -3119,6 +3142,10 @@ static void CB2_GiveHoldItem(void)
     if (gSpecialVar_ItemId == ITEM_NONE)
     {
         InitPartyMenu(gPartyMenu.menuType, KEEP_PARTY_LAYOUT, gPartyMenu.action, TRUE, PARTY_MSG_NONE, Task_TryCreateSelectionWindow, gPartyMenu.exitCallback);
+    }
+    if (gSpecialVar_ItemId == ITEM_CURRY)
+    {
+        InitPartyMenu(gPartyMenu.menuType, KEEP_PARTY_LAYOUT, gPartyMenu.action, TRUE, PARTY_MSG_NONE, Task_TryCreateSelectionWindow2, gPartyMenu.exitCallback);
     }
     else
     {

@@ -30,7 +30,19 @@ script Kaolisle_Hotel_3F_HexManiac{
     end
 }
 script Kaolisle_Hotel_3F_EchoWoman{
-    msgbox(Kaolisle_Hotel_3F_EchoWoman_Text, MSGBOX_NPC)
+    if(flag(FLAG_OBTAINED_ECHOEDVOICE)){
+        msgbox(Kaolisle_Hotel_3F_EchoWoman_Text2, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    msgbox(Kaolisle_Hotel_3F_EchoWoman_Text, MSGBOX_DEFAULT)
+    waitse
+    giveitem(ITEM_TM49)
+    setflag(FLAG_OBTAINED_ECHOEDVOICE)
+    waitfanfare
+    closemessage
+    release
     end
 }
 script Kaolisle_Hotel_3F_Man5{
@@ -54,12 +66,22 @@ text Kaolisle_Hotel_3F_HexManiac_Text{
     "…If you do, I won't…\n"
     "…hear the elevator…"
 }
-
-
-
-Tra-la-la-la-laaa! {EMOJI_NOTE}
-The echo here is a bit weak. I want to sing but it sounds so muted. What about you? Won’t you sing?
-If we sang with Echoed Voice together, our power would go through the roof!
-give tm49, echoed voice
-
-Whatever type of Pokémon that your Pokémon are weak to, you should have other Pokémon on your team that are effective against that type.
+text Kaolisle_Hotel_3F_EchoWoman_Text{
+    "Tra-la-la-la-laaa! {EMOJI_NOTE}\p"
+    "… … … …\p"
+    "The echo here is a bit weak. I want to\n"
+    "sing but it sounds so muted without\l"
+    "the echo.\p"
+    "What about you? Would you\n"
+    "like to be my echo?"
+}
+text Kaolisle_Hotel_3F_EchoWoman_Text2{
+    "If we sang with Echoed Voice together,\n"
+    "our power would go through the roof!"
+}
+text Kaolisle_Hotel_3F_Man5_Text{
+    "Whatever type of Pokémon that your\n"
+    "Pokémon are weak to, you should\l"
+    "have other Pokémon on your team\l"
+    "that are effective against that type."
+}
