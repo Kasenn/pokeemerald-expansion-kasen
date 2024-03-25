@@ -60,7 +60,7 @@ text KaolMines_Miner3_Text{
     "The gravel and stone are used in\n"
     "construction while the minerals\l"
     "are used in medicine, electronics,\l"
-    "almost everything!"
+    "practically everything!"
 }
 script KaolMines_Excadrill1{
     call(KaolMines_Excadrill)

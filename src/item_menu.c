@@ -1979,26 +1979,32 @@ static void ItemMenu_Register(u8 taskId)
 static void ItemMenu_Give(u8 taskId)
 {
     RemoveContextWindow();
-    if (!IsWritingMailAllowed(gSpecialVar_ItemId))
-    {
-        DisplayItemMessage(taskId, FONT_NORMAL, gText_CantWriteMail, HandleErrorMessage);
+    if(gSpecialVar_ItemId == ITEM_CURRY){
+        PrintItemCantBeHeld(taskId);
     }
-    else if (!ItemId_GetImportance(gSpecialVar_ItemId))
-    {
-        if (CalculatePlayerPartyCount() == 0)
+    else{
+        if (!IsWritingMailAllowed(gSpecialVar_ItemId))
         {
-            PrintThereIsNoPokemon(taskId);
+            DisplayItemMessage(taskId, FONT_NORMAL, gText_CantWriteMail, HandleErrorMessage);
+        }
+        else if (!ItemId_GetImportance(gSpecialVar_ItemId))
+        {
+            if (CalculatePlayerPartyCount() == 0)
+            {
+                PrintThereIsNoPokemon(taskId);
+            }
+            else
+            {
+                gBagMenu->newScreenCallback = CB2_ChooseMonToGiveItem;
+                Task_FadeAndCloseBagMenu(taskId);
+            }
         }
         else
         {
-            gBagMenu->newScreenCallback = CB2_ChooseMonToGiveItem;
-            Task_FadeAndCloseBagMenu(taskId);
+            PrintItemCantBeHeld(taskId);
         }
     }
-    else
-    {
-        PrintItemCantBeHeld(taskId);
-    }
+    
 }
 
 static void PrintThereIsNoPokemon(u8 taskId)
@@ -2009,7 +2015,7 @@ static void PrintThereIsNoPokemon(u8 taskId)
 static void PrintItemCantBeHeld(u8 taskId)
 {
     CopyItemName(gSpecialVar_ItemId, gStringVar1);
-    StringExpandPlaceholders(gStringVar4, gText_Var1CantBeHeld);
+    StringExpandPlaceholders(gStringVar4, gText_PkmnWasGivenItem3);
     DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, HandleErrorMessage);
 }
 
@@ -2740,6 +2746,7 @@ static const u16 sItemsByType[ITEMS_COUNT] =
 
     [ITEM_POTION] = ITEM_TYPE_HEALTH_RECOVERY,
     [ITEM_FULL_RESTORE] = ITEM_TYPE_HEALTH_RECOVERY,
+    [ITEM_CURRY] = ITEM_TYPE_HEALTH_RECOVERY,
     [ITEM_MAX_POTION] = ITEM_TYPE_HEALTH_RECOVERY,
     [ITEM_HYPER_POTION] = ITEM_TYPE_HEALTH_RECOVERY,
     [ITEM_SUPER_POTION] = ITEM_TYPE_HEALTH_RECOVERY,
@@ -2754,6 +2761,7 @@ static const u16 sItemsByType[ITEMS_COUNT] =
     [ITEM_REVIVAL_HERB] = ITEM_TYPE_HEALTH_RECOVERY,
     [ITEM_BERRY_JUICE] = ITEM_TYPE_HEALTH_RECOVERY,
     [ITEM_SACRED_ASH] = ITEM_TYPE_HEALTH_RECOVERY,
+    
 
     [ITEM_ANTIDOTE] = ITEM_TYPE_STATUS_RECOVERY,
     [ITEM_BURN_HEAL] = ITEM_TYPE_STATUS_RECOVERY,

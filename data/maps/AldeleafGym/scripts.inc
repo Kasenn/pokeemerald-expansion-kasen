@@ -607,7 +607,7 @@ Aldeleaf_Gym_Text_GymStatueCertified::
 Aldeleaf_Gym_Text_GymGuideAdvice::
 	.string "Yo, champ in the making!\p"
 	.string "The leader of this gym, Volkner,\n"
-	.string "is an electric-type trainer.\p"
+	.string "is an Electric-type trainer.\p"
 	.string "Go against him with flying- or water-\n"
 	.string "type Pokémon and you're going to have\l"
 	.string "a bad time!\p"
@@ -615,7 +615,7 @@ Aldeleaf_Gym_Text_GymGuideAdvice::
 	.string "here like to work in pairs!\l"
 	.string "And see those peculiar floor tiles?\p"
 	.string "Stepping on one might activate a trap\n"
-	.string "that sends a few electric-type Pokémon\l"
+	.string "that sends a few Electric-type Pokémon\l"
 	.string "flying your way, so you better be\l"
 	.string "prepared!\p"
 	.string "Do note that those Pokémon are\n"

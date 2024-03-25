@@ -372,7 +372,7 @@ KaolMines_Miner3_Text::
 	.string "The gravel and stone are used in\n"
 	.string "construction while the minerals\l"
 	.string "are used in medicine, electronics,\l"
-	.string "almost everything!$"
+	.string "practically everything!$"
 
 KaolMines_Text_Trainer1Intro::
 	.string "You never know what might come\n"

@@ -1,5 +1,139 @@
-mapscripts Kaolisle_Hotel_1F_MapScripts{}
+mapscripts Kaolisle_Hotel_1F_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: HideJasmine
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_KAOLISLE_HOTEL_STATE, 1: JasmineLeavesHotel
+    ]
+}
 
+script JasmineLeavesHotel{
+    lock
+    delay(30)
+    turnobject(24, DIR_SOUTH)
+    playse(SE_PIN)
+	applymovement(24, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	delay(70)
+    applymovement(24, HotelWalkDown)
+    applymovement(25, HotelWalkDown)
+    waitmovement(0)
+    delay(10)
+    if(flag(FLAG_TALKED_TO_JASMINE_AT_HOTEL)){
+        msgbox(Hotel1F_JasmineGoodbye, MSGBOX_DEFAULT)
+        closemessage
+        playmoncry(SPECIES_AMPHAROS, CRY_MODE_NORMAL)
+        delay(30)
+        turnobject(24, DIR_NORTH)
+        waitmoncry
+        delay(60)
+        turnobject(24, DIR_SOUTH)
+        delay(30)
+        msgbox(AmphyAlso, MSGBOX_DEFAULT)
+    }
+    else{
+        msgbox(Hotel1F_LongTimeNoSeeGoodbye, MSGBOX_DEFAULT)
+        closemessage
+        playmoncry(SPECIES_AMPHAROS, CRY_MODE_NORMAL)
+        delay(30)
+        turnobject(24, DIR_NORTH)
+        waitmoncry
+        delay(60)
+        turnobject(24, DIR_SOUTH)
+        delay(30)
+        msgbox(MyCompanionAmphyAlso, MSGBOX_DEFAULT)
+    }
+    waitmessage
+    closemessage
+    delay(20)
+    applymovement(24, HotelJasmineLeave)
+    applymovement(25, HotelWalkDown1)
+    waitmovement(0)
+    applymovement(24, HotelWalkDown1)
+    applymovement(25, HotelJasmineLeave)
+    waitmovement(0)
+    removeobject(24)
+    applymovement(25, HotelWalkDown1)
+    waitmovement(0)
+    removeobject(25)
+    setflag(FLAG_HIDEJASMINE_HOTEL)
+    delay(20)
+    setvar(VAR_KAOLISLE_HOTEL_STATE, 2)
+    release
+    end
+}
+
+text Hotel1F_JasmineGoodbye{
+    "Jasmine: Oh, hello again, {PLAYER}.\p"
+    "I um… just finished checking out, so\n"
+    "we were about to start heading home…\p"
+    "…Oh?\p"
+    "It seems you already obtained your\n"
+    "3rd Gym Badge.\p"
+    "Er, let's see… If I'm not mistaken,\n"
+    "your next gym challenge should be\l"
+    "the one in Sandstone City…\p"
+    "I've always found that gym to be\n"
+    "a bit… weird… but, um… I don't know\l"
+    "how to say this, but good luck…"
+}
+text AmphyAlso{
+    "Jasmine: …Oh, I think Amphy is also\n"
+    "trying to cheer you on!\p"
+    "…{PAUSE_UNTIL_PRESS} …{PAUSE_UNTIL_PRESS} …\p"
+    "A-anyway, we should be heading out…\p"
+    "I fear to even imagine the amount of\n"
+    "work that has accumulated during our\l"
+    "time away…\p"
+    "Um… It was nice seeing you again…"
+}
+text Hotel1F_LongTimeNoSeeGoodbye{
+    "Jasmine: Oh, hello.\n"
+    "Um… {PLAYER}… was it?\p"
+    "I was on my way back home from the\n"
+    "ranch, but, um… the trip was so long\l"
+    "that I thought it best to have a rest\l"
+    "at this hotel…\p"
+    "Y-you look like you've grown a lot\n"
+    "as a trainer since we last met.\p"
+    "I hope your journey hasn't been\n"
+    "too arduous…\p"
+    "…Oh?\p"
+    "It seems you already obtained your\n"
+    "3rd Gym Badge.\p"
+    "Er, let's see… If I'm not mistaken,\n"
+    "your next gym challenge should be\l"
+    "the one in Sandstone City…\p"
+    "I've always found that gym to be\n"
+    "a bit… weird… but, um… I don't know\l"
+    "how to say this, but good luck…"
+}
+text MyCompanionAmphyAlso{
+    "Jasmine: …Oh, this big fella…\n"
+    "She is my traveling companion, Amphy.\p"
+    "I believe she's also trying to\n"
+    "cheer you on!\p"
+    "…{PAUSE_UNTIL_PRESS} …{PAUSE_UNTIL_PRESS} …\p"
+    "A-anyway, we should be heading out…\p"
+    "I fear to even imagine the amount of\n"
+    "work that has accumulated during our\l"
+    "time away…\p"
+    "Um… It was nice seeing you again…"
+}
+
+script HideJasmine{
+    if(!flag(FLAG_BADGE03_GET)){
+        setflag(FLAG_HIDEJASMINE_HOTEL)
+    }
+    end
+}
+movement HotelWalkDown{
+    walk_down * 2
+}
+movement HotelJasmineLeave{
+    walk_left
+}
+movement HotelWalkDown1{
+    walk_down
+}
 script Hotel_Lemonade{
     if(flag(FLAG_HOTELLEMONADE)){
         msgbox(HotelLemonade_AlreadyLooted, MSGBOX_SIGN)
@@ -12,47 +146,108 @@ text HotelLemonade_AlreadyLooted{
     "There's a sign here:\n"
     "“One lemonade per customer.”"
 }
-script Hotel_BuffetFight1{
-    if(!defeated(TRAINER_BUFFET_1)){
-        msgbox(BuffetTr1_Intro)
+
+script Hotel_Curry{
+    checkitemspace(ITEM_CURRY)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(NotEnoughRoom, MSGBOX_NPC)
+        end
     }
-    trainerbattle_no_intro(TRAINER_BUFFET_1, BuffetTr1_Lose)
+    if(flag(FLAG_HOTELCURRY)){
+        msgbox(HotelCurry_AlreadyLooted, MSGBOX_SIGN)
+        end
+    }
+    giveitem(ITEM_CURRY)
+    closemessage
+    setflag(FLAG_HOTELCURRY)
+    release
+    end
+}
+text HotelCurry_AlreadyLooted{
+    "You've already picked up\n"
+    "a plate of curry."
+}
+
+script Hotel_BuffetFight1{
+    trainerbattle_single(TRAINER_BUFFET_1, BuffetTr1_Intro, BuffetTr1_Lose, DoNothing, NO_MUSIC)
+    turnobject(8, DIR_WEST)
     msgbox(BuffetTr1_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text BuffetTr1_Intro{""}
-text BuffetTr1_Lose{""}
-text BuffetTr1_PostBattle{""}
+text BuffetTr1_Intro{
+    "Please don't look at me…\n"
+    "Let's just…{PAUSE_UNTIL_PRESS} get this out of the way…"
+}
+text BuffetTr1_Lose{
+    "… … … …"
+}
+text BuffetTr1_PostBattle{
+    "…Are we done?"
+}
 script Hotel_BuffetFight2{
-    if(!defeated(TRAINER_BUFFET_2)){
-        msgbox(BuffetTr2_Intro)
-    }
-    trainerbattle_no_intro(TRAINER_BUFFET_2, BuffetTr2_Lose)
+    trainerbattle_single(TRAINER_BUFFET_2, BuffetTr2_Intro, BuffetTr2_Lose, DoNothing, NO_MUSIC)
+    turnobject(9, DIR_EAST)
     msgbox(BuffetTr2_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text BuffetTr2_Intro{""}
-text BuffetTr2_Lose{""}
-text BuffetTr2_PostBattle{""}
+text BuffetTr2_Intro{
+    "Hope you're thirsty, because my\n"
+    "Water-type Pokémon will wash over you\l"
+    "like a tsunami!"
+}
+text BuffetTr2_Lose{
+    "My precious Pokémon!"
+}
+text BuffetTr2_PostBattle{
+    "Only reason I lost was due to terrain\n"
+    "disadvantage.\p"
+    "In water, my Pokémon are invincible!"
+}
 script Hotel_BuffetFight3{
     trainerbattle_single(TRAINER_BUFFET_3, BuffetTr3_Intro, BuffetTr3_Lose, BuffetOfferSoup, NO_MUSIC)
+    turnobject(7, DIR_WEST)
     msgbox(BuffetTr3_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text BuffetTr3_Intro{""}
-text BuffetTr3_Lose{""}
-text BuffetTr3_PostBattle{""}
+text BuffetTr3_Intro{
+    "Hope you're hungry for a beating\n"
+    "because I won't be holding back!"
+}
+text BuffetTr3_Lose{
+    "Agh! I spilled my soup!"
+}
+text BuffetTr3_PostBattle{
+    "Food tastes better when shared!\n"
+    "Enjoy the soup!"
+}
 script Hotel_BuffetFight4{
-    if(!defeated(TRAINER_BUFFET_4)){
-        msgbox(BuffetTr4_Intro)
-    }
-    trainerbattle_no_intro(TRAINER_BUFFET_4, BuffetTr4_Lose)
+    trainerbattle_single(TRAINER_BUFFET_4, BuffetTr4_Intro, BuffetTr4_Lose, DoNothing, NO_MUSIC)
+    turnobject(10, DIR_EAST)
     msgbox(BuffetTr4_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text BuffetTr4_Intro{""}
-text BuffetTr4_Lose{""}
-text BuffetTr4_PostBattle{""}
+script DoNothing{
+    end
+}
+text BuffetTr4_Intro{
+    "Alola! I traveled from far to get\n"
+    "here, so I hope you can satisfy\l"
+    "my expectations!"
+}
+text BuffetTr4_Lose{
+    "Well, you certainly didn't\n"
+    "disappoint…"
+}
+text BuffetTr4_PostBattle{
+    "When I first arrived here, I was a bit\n"
+    "crestfallen when I couldn't find any\l"
+    "place that sells Malasadas.\p"
+    "Thinking back, maybe it was\n"
+    "for the best.\p"
+    "Had I gone for the safe and familiar\n"
+    "option, I might have completely missed\l"
+    "out on all the local specialties!"
+}
 script Hotel_BuffetNPC1{
     if(defeated(TRAINER_BUFFET_1)){
         msgbox(BuffetTr1_PostBattle, MSGBOX_NPC)
@@ -63,8 +258,8 @@ script Hotel_BuffetNPC1{
     end
 }
 text BuffetNPC1_Text{
-    "I hope you can sate my hunger\n"
-    "for battle. Come, grab a seat."
+    "Please… no talking…\n"
+    "Just sit…"
 }
 script Hotel_BuffetNPC2{
     if(defeated(TRAINER_BUFFET_2)){
@@ -76,8 +271,9 @@ script Hotel_BuffetNPC2{
     end
 }
 text BuffetNPC2_Text{
-    "Are you hungry for a battle?\n"
-    "Go on, have a seat."
+    "Think you have what it takes to win\n"
+    "against me?\l"
+    "Then grab a seat and let's begin."
 }
 script Hotel_BuffetNPC3{
     if(defeated(TRAINER_BUFFET_3)){
@@ -94,13 +290,12 @@ script Hotel_BuffetNPC3{
 text BuffetNPC3_Text{
     "This place has some delicious soups!\p"
     "… … …\p"
-    "Whoa, you want to challenge me?\n"
+    "Oh, you want to challenge me?\n"
     "Then go sit on the other side of\l"
     "the table."
 }
 text HaveSomeSoup{
-    "Whoa, you really shook things up!\n"
-    "Respect!\p"
+    "You really shook things up!\n"
     "How about we celebrate with a bowl\n"
     "of special “Berry Blend Soup”?\l"
     "Your Pokémon will love it!"
@@ -132,10 +327,12 @@ script Hotel_BuffetNPC4{
     end
 }
 text BuffetNPC4_Text{
-    "Where are your table manners?\n"
-    "Sit down."
+    "Alola!\p"
+    "That's how me say “hello” where I\n"
+    "come from!\p"
+    "Feel free and take a seat whenever\n"
+    "you're ready."
 }
-
 script Hotel_BuffetTrigger{
     lockall
     turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
@@ -187,6 +384,7 @@ script BuffetDineHere{
     applymovement(OBJ_EVENT_ID_PLAYER, HotelMoveLeft)
     waitmovement(0)
     clearflag(FLAG_HOTELLEMONADE)
+    clearflag(FLAG_HOTELCURRY)
     setflag(FLAG_SYSTEM_NOREWARDBATTLES)
     release
     end
@@ -245,6 +443,9 @@ script BuffetComplete{
     buffernumberstring (STR_VAR_1, 30)
     setvar(VAR_0x8004, 30)
     special(GiveFrontierBattlePoints)
+    playfanfare(MUS_OBTAIN_B_POINTS)
+    msgbox("Earned {STR_VAR_1} BP!", MSGBOX_DEFAULT)
+    waitfanfare
     msgbox(BuffetThankYouForDining, MSGBOX_DEFAULT)
     closemessage
     setflag(FLAG_BUFFET_COMPLETE)
@@ -419,7 +620,9 @@ script Hotel_Tuber{
 }
 text Hotel_Tuber_Text{
     "We're going to the beach!\p"
-    "I've never swam before and feel a bit scared but I trust my Pokémon will keep me safe!"
+    "I've never swam before and feel a bit\n"
+    "scared but I trust my Pokémon will\l"
+    "keep me safe!"
 }
 
 script Hotel_BirdTrainer{
@@ -554,7 +757,8 @@ script Hotel_Chef{
 text Hotel_Chef_Text{
     "Our staff thanks you for partaking\n"
     "in the Battle Buffet.\p"
-    "There are complimentary lemonades\n"
-    "on the table here.\l"
-    "Feel free to take one."
+    "Feel free to grab some food and\n"
+    "drinks from the table.\p"
+    "Do note that taking the food outside\n"
+    "the buffet is prohibited."
 }

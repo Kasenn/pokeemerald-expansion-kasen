@@ -293,10 +293,10 @@ BarnJugOfWater_Text_0:
 	.string "It's a jug full of water.$"
 
 BarnHappyMareep_Text_0:
-	.string "Baa!$"
+	.string "Mareep: Baa!$"
 
 BarnSadMareep_Text_0:
-	.string "Baa…$"
+	.string "Mareep: Baa…$"
 
 BarnShearingBoy_Text_0:
 	.string "I'm supposed to be shearing this Mareep\nbut how can I do that when it won't\lstand still?$"

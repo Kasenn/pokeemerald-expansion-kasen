@@ -6535,6 +6535,35 @@ static u8 HealConfuseBerry(u32 battler, u32 itemId, u32 flavorId, bool32 end2)
     return 0;
 }
 
+static u8 HealSleepBerry(u32 battler, u32 itemId, bool32 end2)
+{
+    if (HasEnoughHpToEatBerry(battler, CONFUSE_BERRY_HP_FRACTION, itemId)
+#if B_HEAL_BLOCKING >= GEN_5
+     && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK)
+#endif
+    )
+    {
+        gBattleMoveDamage = gBattleMons[battler].maxHP / GetBattlerItemHoldEffectParam(battler, itemId);
+        if (gBattleMoveDamage == 0)
+            gBattleMoveDamage = 4;
+        gBattleMoveDamage *= -1;
+
+        gBattleScripting.battler = battler;
+        if (end2)
+        {
+            BattleScriptExecute(BattleScript_BerrySleepHealEnd2);
+        }
+        else
+        {
+            BattleScriptPushCursor();
+            gBattlescriptCurrInstr = BattleScript_BerrySleepHealRet;
+        }
+
+        return ITEM_HP_CHANGE;
+    }
+    return 0;
+}
+
 #undef CONFUSE_BERRY_HP_FRACTION
 
 static u8 StatRaiseBerry(u32 battler, u32 itemId, u32 statId, bool32 end2)
@@ -6908,6 +6937,9 @@ static u8 ItemEffectMoveEnd(u32 battler, u16 holdEffect)
     case HOLD_EFFECT_CONFUSE_SOUR:
         effect = HealConfuseBerry(battler, gLastUsedItem, FLAVOR_SOUR, FALSE);
         break;
+    case HOLD_EFFECT_SLEEP_BERRY:
+        effect = HealSleepBerry(battler, gLastUsedItem, FALSE);
+        break;
     case HOLD_EFFECT_ATTACK_UP:
         effect = StatRaiseBerry(battler, gLastUsedItem, STAT_ATK, FALSE);
         break;
@@ -7158,6 +7190,9 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
                 break;
             case HOLD_EFFECT_CONFUSE_SOUR:
                 effect = HealConfuseBerry(battler, gLastUsedItem, FLAVOR_SOUR, TRUE);
+                break;
+            case HOLD_EFFECT_SLEEP_BERRY:
+                effect = HealSleepBerry(battler, gLastUsedItem, TRUE);
                 break;
             case HOLD_EFFECT_ATTACK_UP:
                 effect = StatRaiseBerry(battler, gLastUsedItem, STAT_ATK, TRUE);
@@ -7450,6 +7485,10 @@ u8 ItemBattleEffects(u8 caseID, u32 battler, bool32 moveTurn)
             case HOLD_EFFECT_CONFUSE_SOUR:
                 if (!moveTurn)
                     effect = HealConfuseBerry(battler, gLastUsedItem, FLAVOR_SOUR, TRUE);
+                break;
+            case HOLD_EFFECT_SLEEP_BERRY:
+                if (!moveTurn)
+                    effect = HealSleepBerry(battler, gLastUsedItem, TRUE);
                 break;
             case HOLD_EFFECT_ATTACK_UP:
                 if (!moveTurn)
@@ -8533,6 +8572,7 @@ const struct TypePower gNaturalGiftTable[] =
     [ITEM_TO_BERRY(ITEM_BABIRI_BERRY)] = {TYPE_STEEL, 80},
     [ITEM_TO_BERRY(ITEM_CHILAN_BERRY)] = {TYPE_NORMAL, 80},
     [ITEM_TO_BERRY(ITEM_ROSELI_BERRY)] = {TYPE_FAIRY, 80},
+    [ITEM_TO_BERRY(ITEM_ROSTE_BERRY)] = {TYPE_NORMAL, 90},
     [ITEM_TO_BERRY(ITEM_BLUK_BERRY)] = {TYPE_FIRE, 90},
     [ITEM_TO_BERRY(ITEM_NANAB_BERRY)] = {TYPE_WATER, 90},
     [ITEM_TO_BERRY(ITEM_WEPEAR_BERRY)] = {TYPE_ELECTRIC, 90},

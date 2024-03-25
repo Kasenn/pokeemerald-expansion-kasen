@@ -1,6 +1,7 @@
 #include "global.h"
 #include "event_data.h"
 #include "pokedex.h"
+#include "random.h"
 
 #define SPECIAL_FLAGS_SIZE  (NUM_SPECIAL_FLAGS / 8)  // 8 flags per byte
 #define TEMP_FLAGS_SIZE     (NUM_TEMP_FLAGS / 8)
@@ -54,7 +55,11 @@ void ClearDailyFlags(void)
 
 void SetHeartScaleMove(void)
 {
-    VarSet(VAR_HEARTSCALEMOVE, ((random() % 40) + 1));
+    u32 rand;
+
+    rand = (Random() % 40) + 1;
+    VarSet(VAR_HEARTSCALEMOVE, rand);
+    VarSet(VAR_BPBEAUTY_STATE, 0);
 }
 
 void DisableNationalPokedex(void)

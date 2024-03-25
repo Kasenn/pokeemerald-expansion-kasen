@@ -474,6 +474,9 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Abra,            OBJ_EVENT_PAL_ABRA},
     {gObjectEventPalette_Spheal,            OBJ_EVENT_PAL_SPHEAL},
     {gObjectEventPalette_Excadrill,            OBJ_EVENT_PAL_EXCADRILL},
+    {gObjectEventPalette_Ampharos,            OBJ_EVENT_PAL_AMPHAROS},
+    {gObjectEventPalette_Roste,            OBJ_EVENT_PAL_ROSTE},
+    {gObjectEventPalette_LandSwimmerF,            OBJ_EVENT_PAL_LAND_SWIMMER_F},
     
 #ifdef BUGFIX
     {NULL,                                  OBJ_EVENT_PAL_TAG_NONE},
@@ -7614,6 +7617,8 @@ void GroundEffect_StepOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *s
     gFieldEffectArguments[5] = objEvent->mapGroup;
     gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
     gFieldEffectArguments[7] = FALSE; // don't skip to end of anim
+    if (objEvent->localId == OBJ_EVENT_ID_PLAYER)
+        PlaySE(SPECIES_HOOPA);
     if (MetatileBehavior_IsTallGrassAutumn(objEvent->currentMetatileBehavior)){
         FieldEffectStart(FLDEFF_TALL_GRASS_AUTUMN);
     }
@@ -7645,6 +7650,8 @@ void GroundEffect_StepOnLongGrass(struct ObjectEvent *objEvent, struct Sprite *s
     gFieldEffectArguments[5] = objEvent->mapGroup;
     gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
     gFieldEffectArguments[7] = 0;
+    if (objEvent->localId == OBJ_EVENT_ID_PLAYER)
+        PlaySE(SPECIES_HOOPA);
     FieldEffectStart(FLDEFF_LONG_GRASS);
 }
 

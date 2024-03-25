@@ -7376,6 +7376,7 @@ extern const u32 gTrainerFrontPic_AficionadoF[];
 extern const u32 gTrainerFrontPic_Scientist[];
 extern const u32 gTrainerFrontPic_Clay[];
 extern const u32 gTrainerFrontPic_Rocker[];
+extern const u32 gTrainerFrontPic_Gen4SwimmerF[];
 
 extern const u32 gTrainerPalette_Hiker[];
 extern const u32 gTrainerPalette_AquaGruntM[];
@@ -7475,6 +7476,8 @@ extern const u32 gTrainerPalette_AficionadoF[];
 extern const u32 gTrainerPalette_Scientist[];
 extern const u32 gTrainerPalette_Clay[];
 extern const u32 gTrainerPalette_Rocker[];
+extern const u32 gTrainerPalette_Gen4SwimmerF[];
+
 
 extern const u8 gTrainerBackPic_Brendan[];
 extern const u8 gTrainerBackPic_May[];
@@ -8793,6 +8796,8 @@ extern const u32 gItemIcon_BlukBerry[];
 extern const u32 gItemIconPalette_BlukBerry[];
 extern const u32 gItemIcon_NanabBerry[];
 extern const u32 gItemIconPalette_NanabBerry[];
+extern const u32 gItemIcon_RosteBerry[];
+extern const u32 gItemIconPalette_RosteBerry[];
 extern const u32 gItemIcon_WepearBerry[];
 extern const u32 gItemIconPalette_WepearBerry[];
 extern const u32 gItemIcon_PinapBerry[];
@@ -9127,6 +9132,8 @@ extern const u32 gItemIcon_LostMemento[];
 extern const u32 gItemIconPalette_LostMemento[];
 extern const u32 gItemIcon_SpecialSoup[];
 extern const u32 gItemIconPalette_SpecialSoup[];
+extern const u32 gItemIcon_Curry[];
+extern const u32 gItemIconPalette_Curry[];
 
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];
@@ -9262,6 +9269,7 @@ extern const u32 gBerryPic_Jaboca[];
 extern const u32 gBerryPic_Rowap[];
 extern const u32 gBerryPic_Kee[];
 extern const u32 gBerryPic_Maranga[];
+extern const u32 gBerryPic_Roste[];
 extern const u32 gBerryPalette_Cheri[];
 extern const u32 gBerryPalette_Chesto[];
 extern const u32 gBerryPalette_Pecha[];
@@ -9329,6 +9337,7 @@ extern const u32 gBerryPalette_Jaboca[];
 extern const u32 gBerryPalette_Rowap[];
 extern const u32 gBerryPalette_Kee[];
 extern const u32 gBerryPalette_Maranga[];
+extern const u32 gBerryPalette_Roste[];
 
 //pokenav
 extern const u16 gPokenavCondition_Pal[];

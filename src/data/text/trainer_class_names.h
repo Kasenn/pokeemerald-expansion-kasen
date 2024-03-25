@@ -70,6 +70,6 @@ const u8 gTrainerClassNames[][14] = {
     [TRAINER_CLASS_PIKE_QUEEN] = _("Pike queen"),
     [TRAINER_CLASS_PYRAMID_KING] = _("Pyramid king"),
     [TRAINER_CLASS_RS_PROTAG] = _("{PKMN} trainer"),
-    [TRAINER_CLASS_PAINTER] = _("Painter"),
+    [TRAINER_CLASS_PAINTER] = _("Artist"),
     [TRAINER_CLASS_DANCER] = _("Dancer"),
 };

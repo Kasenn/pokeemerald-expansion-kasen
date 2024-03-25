@@ -98,6 +98,7 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_SCIENTIST] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_CLAY] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_ROCKER] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_GEN4_SWIMMER_F] = {.size = 8, .y_offset = 1},
 };
 
 #define TRAINER_SPRITE(trainerPic, sprite, size) [TRAINER_PIC_##trainerPic] = {sprite, size, TRAINER_PIC_##trainerPic}
@@ -202,6 +203,7 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(SCIENTIST, gTrainerFrontPic_Scientist, TRAINER_PIC_SIZE),
     TRAINER_SPRITE(CLAY, gTrainerFrontPic_Clay, TRAINER_PIC_SIZE),
     TRAINER_SPRITE(ROCKER, gTrainerFrontPic_Rocker, TRAINER_PIC_SIZE),
+    TRAINER_SPRITE(GEN4_SWIMMER_F, gTrainerFrontPic_Gen4SwimmerF, TRAINER_PIC_SIZE),
 };
 
 #define TRAINER_PAL(trainerPic, pal) [TRAINER_PIC_##trainerPic] = {pal, TRAINER_PIC_##trainerPic}
@@ -306,4 +308,5 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(SCIENTIST, gTrainerPalette_Scientist),
     TRAINER_PAL(CLAY, gTrainerPalette_Clay),
     TRAINER_PAL(ROCKER, gTrainerPalette_Rocker),
+    TRAINER_PAL(GEN4_SWIMMER_F, gTrainerPalette_Gen4SwimmerF),
 };

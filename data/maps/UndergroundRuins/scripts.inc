@@ -59,6 +59,10 @@ CheckForEscapeRope::
 
 CheckForEscapeRope_2:
 	lockall
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 60
 	msgbox CheckForEscapeRope_Text_0, MSGBOX_DEFAULT
 	finditem ITEM_ESCAPE_ROPE
 	release

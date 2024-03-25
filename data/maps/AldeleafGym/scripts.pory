@@ -363,7 +363,7 @@ script Aldeleaf_Gym_EventScript_Statue{
 text Aldeleaf_Gym_Text_GymGuideAdvice{
 	"Yo, champ in the making!\p"
 	"The leader of this gym, Volkner,\n"
-    "is an electric-type trainer.\p"
+    "is an Electric-type trainer.\p"
     "Go against him with flying- or water-\n"
     "type Pokémon and you're going to have\l"
     "a bad time!\p"
@@ -371,7 +371,7 @@ text Aldeleaf_Gym_Text_GymGuideAdvice{
     "here like to work in pairs!\l"
     "And see those peculiar floor tiles?\p"
     "Stepping on one might activate a trap\n"
-    "that sends a few electric-type Pokémon\l"
+    "that sends a few Electric-type Pokémon\l"
     "flying your way, so you better be\l"
     "prepared!\p"
     "Do note that those Pokémon are\n"

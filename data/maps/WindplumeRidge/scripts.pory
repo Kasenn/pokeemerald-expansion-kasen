@@ -42,11 +42,48 @@ script Windplume_IronBall{
 }
 
 script Windplume_Guide{
-    msgbox(Windplume_Guide_Text, MSGBOX_NPC)
+    if(flag(FLAG_RECEIVED_HM_FLY)){
+        msgbox(Windplume_Guide_Text_Post, MSGBOX_NPC)
+    }
+    else{
+        msgbox(Windplume_Guide_Text, MSGBOX_NPC)
+    }
     end
 }
+
+text Windplume_Guide_Text_Post{
+    "You're back! I assume you've taken\n"
+    "a victory against Skyla?\p"
+    "Good job! It's rare to see a trainer\n"
+    "that can take Skyla on like that!\p"
+    "With that said though, don't become\n"
+    "content in your victory!\l"
+    "Knowing Skyla, she's probably already\l"
+    "hard at work, training her Pokémon.\p"
+    "She tends to be a bit competitive\n"
+    "so expect to see a rematch between\l"
+    "you two any time soon!"
+}
+
 text Windplume_Guide_Text{
-    "Wip"
+    "Oh, we have a new challenger!\p"
+    "This place is called the Windplume\n"
+    "Valley.\p"
+    "There's a constant wind blowing through\n"
+    "this valley which really makes it an\l"
+    "ideal place for Flying-type trainers to\l"
+    "train their Pokémon.\p"
+    "The wind allows the Flying-type\n"
+    "Pokémon to move at extraordinary speeds,\l"
+    "sometimes even allowing them to execute\l"
+    "some of their attacks faster!\p"
+    "Anyway, there's an elite trainer\n"
+    "waiting for challengers on the other\l"
+    "side of the valley.\p"
+    "If you can get there and beat them in\n"
+    "a Pokémon battle, you just might get\l"
+    "an awesome reward!\p"
+    "Anyway, better get to it!"
 }
 
 script Windplume_Trainer1{
@@ -54,117 +91,248 @@ script Windplume_Trainer1{
 	msgbox(Windplume_Text_Trainer1PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
-text Windplume_Text_Trainer1Intro{""}
-text Windplume_Text_Trainer1Defeat{""}
-text Windplume_Text_Trainer1PostBattle{""}
+text Windplume_Text_Trainer1Intro{
+    "I have the wind on my side!\n"
+    "What chance do you thing you got!?"
+}
+text Windplume_Text_Trainer1Defeat{
+    "Even with the wind on my side,\n"
+    "I couldn't keep up…"
+}
+text Windplume_Text_Trainer1PostBattle{
+    "This wind is really great for my birds.\n"
+    "They love going fast so this place is\l"
+    "a paradise for them."
+}
 
 script Windplume_Trainer2{
 	trainerbattle_single(TRAINER_WPV_TR2_TRIATH, Windplume_Text_Trainer2Intro, Windplume_Text_Trainer2Defeat)
 	msgbox(Windplume_Text_Trainer2PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
-text Windplume_Text_Trainer2Intro{""}
-text Windplume_Text_Trainer2Defeat{""}
-text Windplume_Text_Trainer2PostBattle{""}
+text Windplume_Text_Trainer2Intro{
+    "Gotta go fast!"
+}
+text Windplume_Text_Trainer2Defeat{
+    "Not fast enough…"
+}
+text Windplume_Text_Trainer2PostBattle{
+    "Maybe outspeeding your opponent\n"
+    "just isn't enough…"
+}
 
 script Windplume_Trainer3{
 	trainerbattle_single(TRAINER_WPV_TR3_BATTLEGIRL, Windplume_Text_Trainer3Intro, Windplume_Text_Trainer3Defeat)
 	msgbox(Windplume_Text_Trainer3PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
-text Windplume_Text_Trainer3Intro{""}
-text Windplume_Text_Trainer3Defeat{""}
-text Windplume_Text_Trainer3PostBattle{""}
+text Windplume_Text_Trainer3Intro{
+    "Just because I'm not a bird keeper\n"
+    "doesn't mean I don't have flying\l"
+    "Pokemon!"
+}
+text Windplume_Text_Trainer3Defeat{
+    "Maybe I need to consider a change\n"
+    "in strategy…"
+}
+text Windplume_Text_Trainer3PostBattle{
+    "This place is great for training.\n"
+    "If you don't try to fight the wind\l"
+    "and just go with it,\l"
+    "the feeling can be kind of liberating."
+}
 
 script Windplume_Trainer4{
 	trainerbattle_single(TRAINER_WPV_TR4_CAMPER, Windplume_Text_Trainer4Intro, Windplume_Text_Trainer4Defeat)
 	msgbox(Windplume_Text_Trainer4PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
-text Windplume_Text_Trainer4Intro{""}
-text Windplume_Text_Trainer4Defeat{""}
-text Windplume_Text_Trainer4PostBattle{""}
+text Windplume_Text_Trainer4Intro{
+    "Are you here to train?\n"
+    "Here, let me be your training partner!"
+}
+text Windplume_Text_Trainer4Defeat{
+    "I guess I've been slacking off…"
+}
+text Windplume_Text_Trainer4PostBattle{
+    "Apparently this wind makes it easier\n"
+    "for Pokémon to execute certain wind or\l"
+    "flying related moves.\l"
+    "I hope you've come prepared."
+}
 
 script Windplume_Trainer5{
 	trainerbattle_single(TRAINER_WPV_TR5_BIRDKEEPER, Windplume_Text_Trainer5Intro, Windplume_Text_Trainer5Defeat)
 	msgbox(Windplume_Text_Trainer5PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
-text Windplume_Text_Trainer5Intro{""}
-text Windplume_Text_Trainer5Defeat{""}
-text Windplume_Text_Trainer5PostBattle{""}
+text Windplume_Text_Trainer5Intro{
+    "You're looking at the next boss\n"
+    "of this place!"
+}
+text Windplume_Text_Trainer5Defeat{
+    "You just got lucky, that's all!"
+}
+text Windplume_Text_Trainer5PostBattle{
+    "While this place technically\n"
+    "isn't a gym, we do have a sort of\l"
+    "leader character we all look up to.\p"
+    "They were the first one to use this\n"
+    "place to train their Pokémon,\l"
+    "and as such, many regard them as\l"
+    "the senior trainer."
+}
 
 script Windplume_Trainer6{
 	trainerbattle_single(TRAINER_WPV_TR6_MANIAC, Windplume_Text_Trainer6Intro, Windplume_Text_Trainer6Defeat)
 	msgbox(Windplume_Text_Trainer6PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
-text Windplume_Text_Trainer6Intro{""}
-text Windplume_Text_Trainer6Defeat{""}
-text Windplume_Text_Trainer6PostBattle{""}
+text Windplume_Text_Trainer6Intro{
+    "I love Pokémon!\n"
+    "I love Pokémon battles even more!"
+}
+text Windplume_Text_Trainer6Defeat{
+    "I hate Pokémon battles…"
+}
+text Windplume_Text_Trainer6PostBattle{
+    "Apparently there's a place to\n"
+    "catch wild Pokémon here.\l"
+    "Wonder where that is…"
+}
 
 script Windplume_Trainer7{
 	trainerbattle_single(TRAINER_WPV_TR7_BIRDKEEPER, Windplume_Text_Trainer7Intro, Windplume_Text_Trainer7Defeat)
 	msgbox(Windplume_Text_Trainer7PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
-text Windplume_Text_Trainer7Intro{""}
-text Windplume_Text_Trainer7Defeat{""}
-text Windplume_Text_Trainer7PostBattle{""}
+text Windplume_Text_Trainer7Intro{
+    "My Pokémon are stronger than the wind.\n"
+    "They're my pride and joy!"
+}
+text Windplume_Text_Trainer7Defeat{
+    "My Pokémon may be stronger than\n"
+    "the wind, but they aren't as strong\l"
+    "as yours."
+}
+text Windplume_Text_Trainer7PostBattle{
+    "Many bird keepers come here to train.\p"
+    "That's why you can find feathers\n"
+    "strewn all over the place."
+}
 
 script Windplume_Trainer8{
 	trainerbattle_single(TRAINER_WPV_TR8_NINJABOY, Windplume_Text_Trainer8Intro, Windplume_Text_Trainer8Defeat)
 	msgbox(Windplume_Text_Trainer8PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
-text Windplume_Text_Trainer8Intro{""}
-text Windplume_Text_Trainer8Defeat{""}
-text Windplume_Text_Trainer8PostBattle{""}
+text Windplume_Text_Trainer8Intro{
+    "Swift as the wind, that's the\n"
+    "ninja way!"
+}
+text Windplume_Text_Trainer8Defeat{
+    "I failed…"
+}
+text Windplume_Text_Trainer8PostBattle{
+    "Ninjas are taught to be quick\n"
+    "and silent. But ninjas must also\l"
+    "possess the strength to take down\l"
+    "their foes."
+}
 
 script Windplume_Trainer9{
 	trainerbattle_single(TRAINER_WPV_TR9_LASS, Windplume_Text_Trainer9Intro, Windplume_Text_Trainer9Defeat)
 	msgbox(Windplume_Text_Trainer9PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
-text Windplume_Text_Trainer9Intro{""}
-text Windplume_Text_Trainer9Defeat{""}
-text Windplume_Text_Trainer9PostBattle{""}
+text Windplume_Text_Trainer9Intro{
+    "My Pokémon may not be traditional\n"
+    "flying types, but that doesn't mean\l"
+    "you should underestimate us!"
+}
+text Windplume_Text_Trainer9Defeat{
+    "Even with the wind on my side, I lost…"
+}
+text Windplume_Text_Trainer9PostBattle{
+    "Have you wondered how the winds\n"
+    "are so strong here?\p"
+    "Apparently it's got something to do\n"
+    "with how the mountains around us\l"
+    "funnel it all through here."
+}
 
 script Windplume_Trainer10{
 	trainerbattle_single(TRAINER_WPV_TR10_TRIATH, Windplume_Text_Trainer10Intro, Windplume_Text_Trainer10Defeat)
 	msgbox(Windplume_Text_Trainer10PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
-text Windplume_Text_Trainer10Intro{""}
-text Windplume_Text_Trainer10Defeat{""}
-text Windplume_Text_Trainer10PostBattle{""}
+text Windplume_Text_Trainer10Intro{
+    "Can't you see that I'm training here?!"
+}
+text Windplume_Text_Trainer10Defeat{
+    "Even with all my training…"
+}
+text Windplume_Text_Trainer10PostBattle{
+    "Please don't bother me,\n"
+    "I'm still in the middle of my training."
+}
 
 script Windplume_Trainer11{
 	trainerbattle_single(TRAINER_WPV_TR11_BIRDKEEPER, Windplume_Text_Trainer11Intro, Windplume_Text_Trainer11Defeat)
 	msgbox(Windplume_Text_Trainer11PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
-text Windplume_Text_Trainer11Intro{""}
-text Windplume_Text_Trainer11Defeat{""}
-text Windplume_Text_Trainer11PostBattle{""}
+text Windplume_Text_Trainer11Intro{
+    "Go my birds, bring me victory!"
+}
+text Windplume_Text_Trainer11Defeat{
+    "My Pokémon did their best.\n"
+    "That's all I can ask for."
+}
+text Windplume_Text_Trainer11PostBattle{
+    "My birds are free to fly in the air\n"
+    "while I'm standing here,\l"
+    "shackled to the ground.\p"
+    "I wonder, am I holding them back?"
+}
 
 script Windplume_Trainer12{
 	trainerbattle_single(TRAINER_WPV_TR12_BATTLEGIRL, Windplume_Text_Trainer12Intro, Windplume_Text_Trainer12Defeat)
 	msgbox(Windplume_Text_Trainer12PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
-text Windplume_Text_Trainer12Intro{""}
-text Windplume_Text_Trainer12Defeat{""}
-text Windplume_Text_Trainer12PostBattle{""}
+text Windplume_Text_Trainer12Intro{
+    "This is the final stretch!\n"
+    "Too bad I stand here!"
+}
+text Windplume_Text_Trainer12Defeat{
+    "How could this be?!\n"
+    "I wasn't being reckless at all!"
+}
+text Windplume_Text_Trainer12PostBattle{
+    "You've earned it,\n"
+    "go ahead and claim your prize.\p"
+    "Oh, I meant the prize of getting to\n"
+    "challenge the senior trainer, of course!"
+}
 
 script Windplume_Trainer13{
 	trainerbattle_single(TRAINER_WPV_TR13_BIRDKEEPER, Windplume_Text_Trainer13Intro, Windplume_Text_Trainer13Defeat)
 	msgbox(Windplume_Text_Trainer13PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
-text Windplume_Text_Trainer13Intro{""}
-text Windplume_Text_Trainer13Defeat{""}
-text Windplume_Text_Trainer13PostBattle{""}
+text Windplume_Text_Trainer13Intro{
+    "You're not getting past this point!"
+}
+text Windplume_Text_Trainer13Defeat{
+    "I couldn't block your path…\n"
+    "You're an impressive trainer!"
+}
+text Windplume_Text_Trainer13PostBattle{
+    "Even I didn't stand a chance\n"
+    "against you.\p"
+    "I wonder, will she?"
+}
 
 script Windplume_Trainer14{
     lockall
@@ -180,6 +348,7 @@ script Windplume_Event_SkylaDefeated{
     closemessage
     giveitem(ITEM_HM02)
     waitfanfare
+    setflag(FLAG_RECEIVED_HM_FLY)
     call(SetWindPlumeTrainersDefeated)
     msgbox(Windplume_Text_ExplainFly, MSGBOX_DEFAULT)
     waitmessage
@@ -194,7 +363,7 @@ text Windplume_Text_Trainer14Intro{
     "of this place!\p"
     "I heard we might be having a new\n"
     "challenger who can face the power\l"
-    "of the flying-type Pokémon and\l"
+    "of the Flying-type Pokémon and\l"
     "not get blown off their feet!\p"
     "I'm kinda excited about this battle!\n"
     "Why don't you and I have some fun?"

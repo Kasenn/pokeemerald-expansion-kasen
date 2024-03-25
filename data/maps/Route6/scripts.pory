@@ -205,10 +205,10 @@ text Route6_Trainer7_Kindler_Defeat{
 }
 text Route6_Trainer7_Kindler_PostBattle{
     "The desert is not great for my\n"
-    "fire-type Pokémon.\p"
-    "There are a lot of ground-types out\n"
+    "Fire-type Pokémon.\p"
+    "There are a lot of Ground-types out\n"
     "there which are very strong against\l"
-    "fire-type Pokémon."
+    "Fire-type Pokémon."
 }
 
 script ScorchedDesertBetaBlock{

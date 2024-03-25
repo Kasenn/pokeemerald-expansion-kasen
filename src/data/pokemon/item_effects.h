@@ -474,6 +474,7 @@ const u8 *const gItemEffectTable[ITEMS_COUNT] =
     [ITEM_HYPER_POTION]       = gItemEffect_HyperPotion,
     [ITEM_MAX_POTION]         = gItemEffect_MaxPotion,
     [ITEM_FULL_RESTORE]       = gItemEffect_FullRestore,
+    [ITEM_CURRY]       = gItemEffect_FullRestore,
     [ITEM_REVIVE]             = gItemEffect_Revive,
     [ITEM_MAX_REVIVE]         = gItemEffect_MaxRevive,
     [ITEM_FRESH_WATER]        = gItemEffect_FreshWater,

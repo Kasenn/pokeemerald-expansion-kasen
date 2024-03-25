@@ -85,7 +85,9 @@ Kaolisle_Karatemaster_5:
 
 
 Kaolisle_SphealHouseLady::
-	msgbox Kaolisle_SphealHouseLady_Text, MSGBOX_NPC
+	faceplayer
+	msgbox Kaolisle_SphealHouseLady_Text, MSGBOX_DEFAULT
+	closemessage
 	end
 
 
@@ -164,7 +166,7 @@ ExplainRockSmash::
 	.string "If you come across large boulders\n"
 	.string "that block your path…\p"
 	.string "Well, use that HM move and smash\n"
-	.string "them right out of your way!\p$"
+	.string "them right out of your way!$"
 
 RockSmashMonComesOut_Text::
 	.string "Oh, yes, when you smash a rock,\n"

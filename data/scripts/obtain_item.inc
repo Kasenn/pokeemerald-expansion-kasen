@@ -68,7 +68,7 @@ EventScript_ContinueObtainedItem:
 	return
 
 EventScript_ObtainedTMHM::
-	bufferitemnameplural STR_VAR_1, VAR_0x8004, VAR_0x8005
+	bufferitemname STR_VAR_1, VAR_0x8004
 	message gText_PlayerObtainedOneTMHM
 	goto EventScript_ContinueObtainedItem
 
@@ -151,7 +151,7 @@ EventScript_PutBattlePyramidItemInBag::
 	return
 
 EventScript_FoundTMHM::
-	bufferitemnameplural STR_VAR_1, VAR_0x8004, VAR_0x8005
+	bufferitemname STR_VAR_1, VAR_0x8004
 	message gText_PlayerFoundOneTMHM
 	return
 

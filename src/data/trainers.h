@@ -2426,10 +2426,10 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_BUFFET_1] =
     {
-        .trainerClass = TRAINER_CLASS_KINDLER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
-        .trainerPic = TRAINER_PIC_KINDLER,
-        .trainerName = _("JEFF"),
+        .trainerClass = TRAINER_CLASS_HEX_MANIAC,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_GIRL,
+        .trainerPic = TRAINER_PIC_HEX_MANIAC,
+        .trainerName = _("Tarja"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
@@ -2438,10 +2438,10 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_BUFFET_2] =
     {
-        .trainerClass = TRAINER_CLASS_KINDLER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
-        .trainerPic = TRAINER_PIC_KINDLER,
-        .trainerName = _("AXLE"),
+        .trainerClass = TRAINER_CLASS_SWIMMER_F,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_GIRL,
+        .trainerPic = TRAINER_PIC_GEN4_SWIMMER_F,
+        .trainerName = _("Gwendolyn"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
@@ -2484,28 +2484,28 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_HotelBirdKeeper),
     },
 
-    [TRAINER_BERNIE_2] =
+    [TRAINER_HOTEL_KID1] =
     {
-        .trainerClass = TRAINER_CLASS_KINDLER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
-        .trainerPic = TRAINER_PIC_KINDLER,
-        .trainerName = _("BERNIE"),
+        .trainerClass = TRAINER_CLASS_TUBER_F,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_GIRL,
+        .trainerPic = TRAINER_PIC_TUBER_F,
+        .trainerName = _("Lucy"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Bernie2),
+        .party = TRAINER_PARTY(sParty_HotelKid1),
     },
 
-    [TRAINER_BERNIE_3] =
+    [TRAINER_HOTEL_KID2] =
     {
-        .trainerClass = TRAINER_CLASS_KINDLER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
-        .trainerPic = TRAINER_PIC_KINDLER,
-        .trainerName = _("BERNIE"),
+        .trainerClass = TRAINER_CLASS_TUBER_M,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_GIRL,
+        .trainerPic = TRAINER_PIC_TUBER_M,
+        .trainerName = _("Sam"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Bernie3),
+        .party = TRAINER_PARTY(sParty_HotelKid2),
     },
 
     [TRAINER_BERNIE_4] =

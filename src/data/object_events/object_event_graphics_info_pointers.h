@@ -254,6 +254,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Iris;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Volkner;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Jasmine;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mareep;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Ampharos;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NewPikachu;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Crustle;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example6;
@@ -265,6 +266,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Volcarona;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Abra;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Spheal;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Excadrill;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LandSwimmerF;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_NEWPIKACHU] =                     &gObjectEventGraphicsInfo_NewPikachu,
@@ -378,7 +380,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_CAMERAMAN] =                &gObjectEventGraphicsInfo_Cameraman,
     [OBJ_EVENT_GFX_BRENDAN_UNDERWATER] =       &gObjectEventGraphicsInfo_BrendanUnderwater,
     [OBJ_EVENT_GFX_MAY_UNDERWATER] =           &gObjectEventGraphicsInfo_MayUnderwater,
-    [OBJ_EVENT_GFX_MOVING_BOX] =               &gObjectEventGraphicsInfo_MovingBox,
+    // [OBJ_EVENT_GFX_MOVING_BOX] =               &gObjectEventGraphicsInfo_MovingBox,
     [OBJ_EVENT_GFX_CABLE_CAR] =                &gObjectEventGraphicsInfo_CableCar,
     [OBJ_EVENT_GFX_SCIENTIST_2] =              &gObjectEventGraphicsInfo_Scientist2,
     [OBJ_EVENT_GFX_DEVON_EMPLOYEE] =           &gObjectEventGraphicsInfo_DevonEmployee,
@@ -496,7 +498,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SUDOWOODO] =                &gObjectEventGraphicsInfo_Sudowoodo,
     [OBJ_EVENT_GFX_MEW] =                      &gObjectEventGraphicsInfo_Mew,
     [OBJ_EVENT_GFX_RED] =                      &gObjectEventGraphicsInfo_Red,
-    [OBJ_EVENT_GFX_LEAF] =                     &gObjectEventGraphicsInfo_Leaf,
+    // [OBJ_EVENT_GFX_LEAF] =                     &gObjectEventGraphicsInfo_Leaf,
     [OBJ_EVENT_GFX_DEOXYS] =                   &gObjectEventGraphicsInfo_Deoxys,
     [OBJ_EVENT_GFX_DEOXYS_TRIANGLE] =          &gObjectEventGraphicsInfo_BirthIslandStone,
     [OBJ_EVENT_GFX_BRANDON] =                  &gObjectEventGraphicsInfo_Brandon,
@@ -523,6 +525,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ABRA] =                     &gObjectEventGraphicsInfo_Abra,
     [OBJ_EVENT_GFX_SPHEAL] =                     &gObjectEventGraphicsInfo_Spheal,
     [OBJ_EVENT_GFX_EXCADRILL] =                     &gObjectEventGraphicsInfo_Excadrill,
+    [OBJ_EVENT_GFX_AMPHAROS] =                     &gObjectEventGraphicsInfo_Ampharos,
+    [OBJ_EVENT_GFX_LAND_SWIMMER_F] =                     &gObjectEventGraphicsInfo_LandSwimmerF,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

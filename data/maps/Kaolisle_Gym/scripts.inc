@@ -311,6 +311,8 @@ KaolGym_ClayEvent::
 	msgbox KaolGym_TakeThis, MSGBOX_DEFAULT
 	setflag FLAG_BADGE03_GET
 	setvar VAR_BADGES_OBTAINED, 3
+	setvar VAR_KAOLISLE_HOTEL_STATE, 1
+	clearflag FLAG_HIDEJASMINE_HOTEL
 	setvar VAR_0x8008, 3
 	call Common_EventScript_SetGymTrainers
 	special RemoveCameraObject
@@ -539,11 +541,8 @@ KaolisleGym_Trainer7_Picnicker2_Intro::
 KaolisleGym_Trainer7_Picnicker2_Defeat::
 	.string "No!\n"
 	.string "We can still go on!\p"
-	.string "Hold on, let me just…\p"
-	.string "No…\n"
-	.string "Maybe this one…?\p"
-	.string "No…\p"
-	.string "Hm…$"
+	.string "Hold on, let me just…{PAUSE_UNTIL_PRESS} No…{PAUSE_UNTIL_PRESS}\n"
+	.string "Maybe this one…?{PAUSE_UNTIL_PRESS} No…{PAUSE_UNTIL_PRESS} Hm…$"
 
 KaolisleGym_Trainer7_Picnicker2_PostBattle::
 	.string "You may be strong, but I'll keep honing\n"
@@ -651,7 +650,7 @@ KaolGym_GuideAdvice::
 	.string "but fret not, because we are\l"
 	.string "as legitimate as any other gym!\p"
 	.string "Anyway, this gym's leader, Clay,\n"
-	.string "uses ground-type Pokémon.\p"
+	.string "uses Ground-type Pokémon.\p"
 	.string "However, in order to reach him,\n"
 	.string "you must first find four buttons\l"
 	.string "inside the gym and press all of them.\p"

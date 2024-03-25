@@ -449,6 +449,8 @@ extern const u8 gText_PkmnHPRestoredByVar2[];
 extern const u8 gText_CantBeUsedOnPkmn[];
 extern const u8 gText_CancelParticipation[];
 extern const u8 gText_PkmnWasGivenItem[];
+extern const u8 gText_PkmnWasGivenItem2[];
+extern const u8 gText_PkmnWasGivenItem3[];
 extern const u8 gText_ReceivedItemFromPkmn[];
 extern const u8 gText_PkmnAlreadyHoldingItemSwitch[];
 extern const u8 gText_SwitchedPkmnItem[];
@@ -1079,6 +1081,7 @@ extern const u8 gText_Gabby[];
 extern const u8 gText_Anna[];
 
 extern const u8 gText_DadsAdvice[];
+extern const u8 gText_CantAccessBag[];
 extern const u8 gText_CantDismountBike[];
 extern const u8 gText_ItemFinderNothing[];
 extern const u8 gText_ItemFinderNearby[];

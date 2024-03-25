@@ -58,5 +58,5 @@ AldeleafPokeCenter1F_Text_MaleAndFemalePokemon::
 
 AldeleafPokeCenter1F_Text_HMCutNextDoor::
 	.string "To the east of the city lies the\n"
-	.string "Windplume Valley. Many flying-type\l"
+	.string "Windplume Valley. Many Flying-type\l"
 	.string "trainers like to go there to train.$"

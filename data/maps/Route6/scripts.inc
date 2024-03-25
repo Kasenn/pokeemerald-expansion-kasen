@@ -268,10 +268,10 @@ Route6_Trainer7_Kindler_Defeat::
 
 Route6_Trainer7_Kindler_PostBattle::
 	.string "The desert is not great for my\n"
-	.string "fire-type Pokémon.\p"
-	.string "There are a lot of ground-types out\n"
+	.string "Fire-type Pokémon.\p"
+	.string "There are a lot of Ground-types out\n"
 	.string "there which are very strong against\l"
-	.string "fire-type Pokémon.$"
+	.string "Fire-type Pokémon.$"
 
 StillInBeta::
 	.string "So you got the Go-Goggles?\n"

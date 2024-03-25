@@ -3,24 +3,12 @@ Kaolisle_BP_Shop_MapScripts::
 
 
 KaolisleShop_Man::
-	faceplayer
-	lockall
-	msgbox KaolisleShop_Man_Text, MSGBOX_YESNO
-	compare VAR_RESULT, TRUE
-	goto_if_eq KaolisleShop_Man_2
-KaolisleShop_Man_1:
-	waitmessage
-	closemessage
-	release
+	msgbox KaolisleShop_Man_Text, MSGBOX_NPC
 	end
 
-KaolisleShop_Man_2:
-	msgbox KaolisleShop_Man_TextContinued, MSGBOX_NPC
-	goto KaolisleShop_Man_1
 
-
-KaolisleShop_OldMan::
-	msgbox KaolisleShop_OldMan_Text, MSGBOX_NPC
+KaolisleShop_Lass::
+	msgbox KaolisleShop_Lass_Text, MSGBOX_NPC
 	end
 
 
@@ -200,23 +188,16 @@ Kaolisle_BPShop_ChooseTutorMove_14:
 
 
 KaolisleShop_Man_Text::
-	.string "Hey, want to hear a secret?$"
+	.string "Did you know? Power items can be used\n"
+	.string "to train your current Pokémon, or to\l"
+	.string "pass down some of their strongest\l"
+	.string "traits to their offspring.$"
 
-KaolisleShop_Man_TextContinued::
-	.string "There are certain type of trainers who\n"
-	.string "are colloquially known as\l"
-	.string "“Pokémon enthusiasts.”\p"
-	.string "These people absolutely love Pokémon\n"
-	.string "battles and often times even demand\l"
-	.string "rematches if you happen to cross their\l"
-	.string "path more than once.\p"
-	.string "If you ever find yourself short on\n"
-	.string "Battle Points, consider challenging\l"
-	.string "one of these enthusiasts.$"
-
-KaolisleShop_OldMan_Text::
-	.string "I don't understand what half of these\n"
-	.string "items even do…$"
+KaolisleShop_Lass_Text::
+	.string "Many of the moves taught by these\n"
+	.string "Move Tutors are highly technical.\p"
+	.string "I'm not entirely sure which ones I\n"
+	.string "should teach.$"
 
 Kaolisle_BPShop_PowerBracerDesc::
 	.string "Hold item that promotes Atk gain,\n"

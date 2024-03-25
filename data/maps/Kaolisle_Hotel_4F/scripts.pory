@@ -27,19 +27,139 @@ script Room404{
     end
 }
 
-script Kaolisle_Hotel_4F_Man2{}
-script Kaolisle_Hotel_4F_Woman4{}
-script Kaolisle_Hotel_4F_FinnishGuy{}
-script Kaolisle_Hotel_4F_Kirlia{}
-script Kaolisle_Hotel_4F_Jasmine{}
-script Kaolisle_Hotel_4F_Attendant{}
-script Kaolisle_Hotel_4F_Attendant2{}
+script Kaolisle_Hotel_4F_Man2{
+    msgbox(Kaolisle_Hotel_4F_Man2_Text, MSGBOX_NPC)
+    end
+}
+script Kaolisle_Hotel_4F_Woman4{
+    msgbox(Kaolisle_Hotel_4F_Woman4_Text, MSGBOX_NPC)
+    end
+}
+script Kaolisle_Hotel_4F_FinnishGuy{
+    msgbox(Kaolisle_Hotel_4F_FinnishGuy_Text, MSGBOX_NPC)
+    end
+}
+script Kaolisle_Hotel_4F_Kirlia{
+	lock
+	faceplayer
+    waitse
+	playmoncry(SPECIES_KIRLIA, CRY_MODE_NORMAL)
+	msgbox(Kaolisle_Hotel_4F_Kirlia_Text, MSGBOX_DEFAULT)
+    closemessage
+	waitmoncry
+	release
+	end
+}
+script Kaolisle_Hotel_4F_Jasmine{
+    if(flag(FLAG_TALKED_TO_JASMINE_AT_HOTEL)){
+        msgbox(Kaolisle_Hotel_4F_Jasmine_Text2, MSGBOX_NPC)
+    }
+    else{
+        msgbox(Kaolisle_Hotel_4F_Jasmine_Text, MSGBOX_NPC)
+        setflag(FLAG_TALKED_TO_JASMINE_AT_HOTEL)
+    }
+    end
+}
+script Kaolisle_Hotel_4F_Attendant{
+    msgbox(Kaolisle_Hotel_4F_Attendant_Text, MSGBOX_NPC)
+    end
+}
+script Kaolisle_Hotel_4F_Attendant2{
+    msgbox(Kaolisle_Hotel_4F_Attendant2_Text, MSGBOX_NPC)
+    end
+}
 
-I'm staying at the prestigious Kaolisle Grand Resort, yet I'm stuck in my room working. Disappointing!
-Did you know this?
-It's from an article in Pokémon Pal.\p
-"Press the START Button while in a bag to sort the items. TM&HM as well as Berry pocket return to their default order when closing and re-opening your bag"
+text Kaolisle_Hotel_4F_Man2_Text{
+    "I'm staying at the prestigious\n"
+    "Kaolisle Grand Resort, yet I'm stuck\l"
+    "in my room working.\l"
+    "Disappointing!"
+}
+text Kaolisle_Hotel_4F_Woman4_Text{
+    "Did you know this?"
+    "It's from an article in Pokémon Pal.\p"
+    "“Press the START Button while in a bag\n"
+    "to sort the items.\l"
+    "TMs & HMs as well as Berries pocket\l"
+    "return to their original order when\l"
+    "closing and re-opening your bag.”"
+}
+text Kaolisle_Hotel_4F_FinnishGuy_Text{
+    "Olen tullut tänne lomailemaan,\n"
+    "mutta pakko myöntää, että paikallisten\l"
+    "kanssa keskustelu on hieman vaikeaa\l"
+    "heikon kielitaitoni vuoksi.\p"
+    "Onneksi Kirliani telepaattiset taidot\n"
+    "auttavat tulkkaamaan puhetta\l"
+    "kumpaankin suuntaan."
+}
+text Kaolisle_Hotel_4F_Kirlia_Text{
+    "“I'm here on a vacation, though I\n"
+    "have to admit, having conversations\l"
+    "with the locals is a bit difficult\l"
+    "due to my poor language skills.\p"
+    "Luckily my Kirlia's telepathic\n"
+    "abilities help with interpreting\l"
+    "speech between parties.”"
+}
+text Kaolisle_Hotel_4F_Attendant_Text{
+    "Huh?\p"
+    "Oh, I swear I wasn't slacking off!\p"
+    "I just happened to spot some dirt\n"
+    "in this corner!"
+}
+text Kaolisle_Hotel_4F_Jasmine_Text{
+    "Jasmine: Oh, hello…\n"
+    "Um… {PLAYER}… was it?\p"
+    "Y-you look like you've grown a lot\n"
+    "as a trainer since we last met.\p"
+    "I hope your journey hasn't been\n"
+    "too arduous…\p"
+    "I was on my way back home from the\n"
+    "ranch, but, um… the trip was so long\l"
+    "that I thought it best to have a rest\l"
+    "at this hotel…\p"
+    "Thankfully they still had vacant rooms\n"
+    "when I arrived…"
+}
 
-Add a finnish NPC with telepathic pokemon
-Huh? Oh, I swear I wasn't slacking off! I just happened to spot some dirt in this corner!
-something about cleaning
+text Kaolisle_Hotel_4F_Jasmine_Text2{
+    "…Oh! This big fella…\n"
+    "S-she is my traveling companion, Amphy.\p"
+    "It's been a few years but there was\n"
+    "a time when Amphy fell seriously ill…\p"
+    "T-thankfully another trainer showed up\n"
+    "and helped me rescue it… kinda like\l"
+    "what you did back at the Ranch…\p"
+    "Amphy used to operate a lighthouse in\n"
+    "the city where I used to live, but…\p"
+    "After being healed, she became much\n"
+    "more energetic and restless and would\l"
+    "often sneak out of the lighthouse to\l"
+    "come and play with me.\p"
+    "Um, so, it was eventually decided that\n"
+    "Amphy was unfit to operate the\l"
+    "lighthouse…\p"
+    "That's when I decided to bring her\n"
+    "in as a permanent member of my team\l"
+    "and she's refused to leave my side\l"
+    "ever since…"
+}
+text Kaolisle_Hotel_4F_Attendant2_Text{
+    "Here at Kaolisle Grand Resort,\n"
+    "cleanliness and customer satisfaction\l"
+    "are our top priorities.\p"
+    "That is why our staff is ever diligent,\n"
+    "never letting their attention slip!"
+}
+
+script Kaolisle_Hotel_4F_Ampharos{
+	lock
+	faceplayer
+    waitse
+	playmoncry(SPECIES_AMPHAROS, CRY_MODE_NORMAL)
+	msgbox("Amphy: Palu!\nPalulu!", MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}

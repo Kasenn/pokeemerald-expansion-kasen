@@ -129,7 +129,7 @@
 #define FLAG_RECEIVED_HM_FLY                 0x6E
 #define FLAG_GROUDON_AWAKENED_MAGMA_HIDEOUT  0x6F
 #define FLAG_TEAM_AQUA_ESCAPED_IN_SUBMARINE  0x70
-#define FLAG_UNUSED_RS_LEGENDARY_BATTLE_DONE 0x71 // Unused Flag. Used in R/S to indicate whether player defeated or caught Groudon/Kyogre in Cave of Origin.
+#define FLAG_OBTAINED_ECHOEDVOICE 0x71 // obtained hm for echoed voice on kaolisle hotel
 #define FLAG_SCOTT_CALL_BATTLE_FRONTIER      0x72 // Used in order to activate a phone call from Scott, inviting the player to the SS Tidal.
 #define FLAG_RECEIVED_METEORITE              0x73
 #define FLAG_ADVENTURE_STARTED               0x74 // RECEIVED Pokédex.
@@ -168,7 +168,7 @@
 #define FLAG_MR_BRINEY_SAILING_INTRO         0x93
 #define FLAG_DOCK_REJECTED_DEVON_GOODS       0x94
 #define FLAG_DELIVERED_DEVON_GOODS           0x95
-#define FLAG_RECEIVED_CONTEST_PASS           0x96 // Unused, leftover from R/S
+#define FLAG_HIDEJASMINE_HOTEL           0x96 // Shows Jasmine at hotel after gym badge 3
 #define FLAG_RECEIVED_CASTFORM               0x97
 #define FLAG_RECEIVED_SUPER_ROD              0x98
 #define FLAG_RUSTBORO_NPC_TRADE_COMPLETED    0x99
@@ -212,7 +212,7 @@
 #define FLAG_DEFEATED_GRUNT_SPACE_CENTER_1F  0xBF
 #define FLAG_RECEIVED_SUN_STONE_MOSSDEEP     0xC0
 #define FLAG_WALLY_SPEECH                    0xC1
-#define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_1   0xC2 // Leftover from the RS version of Puzzle Room 7, functionally unused
+#define FLAG_OBTAINED_ROSTEBERRIES   0xC2 // Leftover from the RS version of Puzzle Room 7, functionally unused
 #define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_2   0xC3 //
 #define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_3   0xC4 //
 #define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_4   0xC5 //
@@ -254,7 +254,7 @@
 #define FLAG_RECEIVED_TM_ROAR                0xE7
 #define FLAG_RECEIVED_TM_GIGA_DRAIN          0xE8
 
-#define FLAG_UNUSED_0x0E9                    0xE9 // Unused Flag
+#define FLAG_TALKED_TO_JASMINE_AT_HOTEL                    0xE9 // changes dialogue after gym if set
 
 #define FLAG_RECEIVED_TM_REST                0xEA
 #define FLAG_RECEIVED_TM_ATTRACT             0xEB
@@ -772,7 +772,7 @@
 #define FLAG_HIDE_MOSSDEEP_CITY_STEVENS_HOUSE_INVISIBLE_NINJA_BOY   0x2D7
 #define FLAG_HIDE_PETALBURG_CITY_WALLYS_MOM                         0x2D8
 
-#define FLAG_UNUSED_0x2D9                                           0x2D9 // Unused Flag
+#define FLAG_HOTELCURRY                                           0x2D9 // hotel curry during buffet
 
 #define FLAG_HIDE_LILYCOVE_FAN_CLUB_INTERVIEWER                     0x2DA
 #define FLAG_HIDE_RUSTBORO_CITY_AQUA_GRUNT                          0x2DB

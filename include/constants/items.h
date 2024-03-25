@@ -621,6 +621,12 @@
     #define CONFUSE_BERRY_HP_FRACTION 2
 #endif
 
+#if B_CONFUSE_BERRIES_HEAL >= GEN_7
+    #define SLEEP_BERRY_HEAL_FULL 1
+#else
+    #define SLEEP_BERRY_HEAL_FULL 1
+#endif
+
 #define ITEM_CHERI_BERRY 514
 #define ITEM_CHESTO_BERRY 515
 #define ITEM_PECHA_BERRY 516
@@ -637,7 +643,7 @@
 #define ITEM_AGUAV_BERRY 527
 #define ITEM_IAPAPA_BERRY 528
 #define ITEM_RAZZ_BERRY 529
-#define ITEM_BLUK_BERRY 530
+#define ITEM_ROSTE_BERRY 530
 #define ITEM_NANAB_BERRY 531
 #define ITEM_WEPEAR_BERRY 532
 #define ITEM_PINAP_BERRY 533
@@ -938,8 +944,10 @@
 #define ITEM_ANCIENT_STONE 807
 #define ITEM_LOST_MEMENTO 808
 #define ITEM_SPECIAL_SOUP 809
+#define ITEM_BLUK_BERRY 810
+#define ITEM_CURRY      811
 
-#define ITEMS_COUNT 810
+#define ITEMS_COUNT 812
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations
