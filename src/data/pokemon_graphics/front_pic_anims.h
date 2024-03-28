@@ -9748,6 +9748,30 @@ static const union AnimCmd sAnim_AbsolMega_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_EmpoleonMega_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DecidueyeMega_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_IncineroarMega_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_ChesnaughtMega_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_GlalieMega_1[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -11520,6 +11544,10 @@ SINGLE_ANIMATION(CameruptMega);
 SINGLE_ANIMATION(AltariaMega);
 SINGLE_ANIMATION(BanetteMega);
 SINGLE_ANIMATION(AbsolMega);
+SINGLE_ANIMATION(EmpoleonMega);
+SINGLE_ANIMATION(DecidueyeMega);
+SINGLE_ANIMATION(IncineroarMega);
+SINGLE_ANIMATION(ChesnaughtMega);
 SINGLE_ANIMATION(GlalieMega);
 SINGLE_ANIMATION(SalamenceMega);
 SINGLE_ANIMATION(MetagrossMega);
@@ -12615,6 +12643,10 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[NUM_SPECIES + 1] =
     [SPECIES_ALTARIA_MEGA] = sAnims_AltariaMega,
     [SPECIES_BANETTE_MEGA] = sAnims_BanetteMega,
     [SPECIES_ABSOL_MEGA] = sAnims_AbsolMega,
+    [SPECIES_EMPOLEON_MEGA] = sAnims_EmpoleonMega,
+    [SPECIES_DECIDUEYE_MEGA] = sAnims_DecidueyeMega,
+    [SPECIES_INCINEROAR_MEGA] = sAnims_IncineroarMega,
+    [SPECIES_CHESNAUGHT_MEGA] = sAnims_ChesnaughtMega,
     [SPECIES_GLALIE_MEGA] = sAnims_GlalieMega,
     [SPECIES_SALAMENCE_MEGA] = sAnims_SalamenceMega,
     [SPECIES_METAGROSS_MEGA] = sAnims_MetagrossMega,

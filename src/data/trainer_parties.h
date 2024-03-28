@@ -3877,16 +3877,28 @@ static const struct TrainerMon sParty_HotelKid2[] = {
     },
 };
 
-static const struct TrainerMon sParty_Bernie4[] = {
+static const struct TrainerMon sParty_LeaderKorrina[] = {
     {
     .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
     .lvl = 32,
-    .species = SPECIES_SLUGMA,
+    .species = SPECIES_INCINEROAR,
+    .heldItem = ITEM_INCINEROARITE,
     },
     {
     .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
     .lvl = 32,
-    .species = SPECIES_PELIPPER,
+    .species = SPECIES_MIENSHAO,
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
+    .lvl = 32,
+    .species = SPECIES_HAWLUCHA,
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
+    .lvl = 32,
+    .heldItem = ITEM_LUCARIONITE,
+    .species = SPECIES_LUCARIO,
     }
 };
 

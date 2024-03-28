@@ -292,6 +292,9 @@ const u32 gTrainerPalette_Clay[] = INCBIN_U32("graphics/trainers/front_pics/lead
 const u32 gTrainerFrontPic_Rocker[] = INCBIN_U32("graphics/trainers/front_pics/rocker.4bpp.lz");
 const u32 gTrainerPalette_Rocker[] = INCBIN_U32("graphics/trainers/front_pics/rocker.gbapal.lz");
 
+const u32 gTrainerFrontPic_Korrina[] = INCBIN_U32("graphics/trainers/front_pics/leader_korrina.4bpp.lz");
+const u32 gTrainerPalette_Korrina[] = INCBIN_U32("graphics/trainers/front_pics/leader_korrina.gbapal.lz");
+
 const u32 gTrainerFrontPic_Gen4SwimmerF[] = INCBIN_U32("graphics/trainers/front_pics/gen4swimmerf.4bpp.lz");
 const u32 gTrainerPalette_Gen4SwimmerF[] = INCBIN_U32("graphics/trainers/front_pics/gen4swimmerf.gbapal.lz");
 

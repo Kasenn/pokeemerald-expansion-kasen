@@ -493,6 +493,30 @@ static const u16 sAbsolFormSpeciesIdTable[] = {
     FORM_SPECIES_END,
 };
 
+static const u16 sEmpoleonFormSpeciesIdTable[] = {
+    SPECIES_EMPOLEON,
+    SPECIES_EMPOLEON_MEGA,
+    FORM_SPECIES_END,
+};
+
+static const u16 sDecidueyeFormSpeciesIdTable[] = {
+    SPECIES_DECIDUEYE,
+    SPECIES_DECIDUEYE_MEGA,
+    FORM_SPECIES_END,
+};
+
+static const u16 sIncineroarFormSpeciesIdTable[] = {
+    SPECIES_INCINEROAR,
+    SPECIES_INCINEROAR_MEGA,
+    FORM_SPECIES_END,
+};
+
+static const u16 sChesnaughtFormSpeciesIdTable[] = {
+    SPECIES_CHESNAUGHT,
+    SPECIES_CHESNAUGHT_MEGA,
+    FORM_SPECIES_END,
+};
+
 static const u16 sGlalieFormSpeciesIdTable[] = {
     SPECIES_GLALIE,
     SPECIES_GLALIE_MEGA,
@@ -951,11 +975,6 @@ static const u16 sHoopaFormSpeciesIdTable[] = {
 #endif
 
 #if P_GEN_7_POKEMON == TRUE
-static const u16 sDecidueyeFormSpeciesIdTable[] = {
-    SPECIES_DECIDUEYE,
-    SPECIES_DECIDUEYE_HISUIAN,
-    FORM_SPECIES_END,
-};
 
 static const u16 sOricorioFormSpeciesIdTable[] = {
     SPECIES_ORICORIO,

@@ -2062,3 +2062,15 @@ const u32 gItemIconPalette_SpecialSoup[] = INCBIN_U32("graphics/items/icon_palet
 
 const u32 gItemIcon_Curry[] = INCBIN_U32("graphics/items/icons/curry.4bpp.lz");
 const u32 gItemIconPalette_Curry[] = INCBIN_U32("graphics/items/icon_palettes/curry.gbapal.lz");
+
+const u32 gItemIcon_Empoleonite[] = INCBIN_U32("graphics/items/icons/empoleonite.4bpp.lz");
+const u32 gItemIconPalette_Empoleonite[] = INCBIN_U32("graphics/items/icon_palettes/empoleonite.gbapal.lz");
+
+const u32 gItemIcon_Decidueite[] = INCBIN_U32("graphics/items/icons/decidueite.4bpp.lz");
+const u32 gItemIconPalette_Decidueite[] = INCBIN_U32("graphics/items/icon_palettes/decidueite.gbapal.lz");
+
+const u32 gItemIcon_Incineroarite[] = INCBIN_U32("graphics/items/icons/incineroarite.4bpp.lz");
+const u32 gItemIconPalette_Incineroarite[] = INCBIN_U32("graphics/items/icon_palettes/incineroarite.gbapal.lz");
+
+const u32 gItemIcon_Chesnaughtite[] = INCBIN_U32("graphics/items/icons/chesnaughtite.4bpp.lz");
+const u32 gItemIconPalette_Chesnaughtite[] = INCBIN_U32("graphics/items/icon_palettes/chesnaughtite.gbapal.lz");

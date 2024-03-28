@@ -2573,6 +2573,7 @@ enum
     ENDTURN_PLASMA_FISTS,
     ENDTURN_CUD_CHEW,
     ENDTURN_SALT_CURE,
+    ENDTURN_MEGA_EVO,
     ENDTURN_BATTLER_COUNT
 };
 
@@ -2695,7 +2696,7 @@ u8 DoBattlerEndTurnEffects(void)
                 }
                 else
                 {
-                    gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
+                    gBattleMoveDamage = gBattleMons[battler].maxHP / 6;
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     BattleScriptExecute(BattleScript_PoisonTurnDmg);
@@ -3144,6 +3145,19 @@ u8 DoBattlerEndTurnEffects(void)
                     gBattleMoveDamage = 1;
                 PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_SALT_CURE);
                 BattleScriptExecute(BattleScript_SaltCureExtraDamage);
+                effect++;
+            }
+            gBattleStruct->turnEffectsTracker++;
+            break;
+        case ENDTURN_MEGA_EVO:
+            if (IsBattlerMegaEvolved(battler) && gBattleMons[battler].hp != 0)
+            {
+                gBattlerTarget = battler;
+                if (IsBattlerMegaEvolved(gBattlerTarget))
+                    gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 6;
+                if (gBattleMoveDamage == 0)
+                    gBattleMoveDamage = 1;
+                BattleScriptExecute(BattleScript_MegaExhaustion);
                 effect++;
             }
             gBattleStruct->turnEffectsTracker++;
@@ -9311,6 +9325,13 @@ static inline u32 CalcAttackStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 m
     case ABILITY_PURE_POWER:
         if (IS_MOVE_PHYSICAL(move))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
+        break;
+    case ABILITY_SEARING_RAGE:
+        if ((gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 2))
+        && (IS_MOVE_PHYSICAL(move)))
+        {
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        }
         break;
     case ABILITY_SLOW_START:
         if (gDisableStructs[battlerAtk].slowStartTimer != 0)

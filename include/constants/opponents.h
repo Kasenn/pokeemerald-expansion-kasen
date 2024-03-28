@@ -210,7 +210,7 @@
 #define TRAINER_HOTEL_BIRDKEEPER                    206
 #define TRAINER_HOTEL_KID1                    207
 #define TRAINER_HOTEL_KID2                    208
-#define TRAINER_BERNIE_4                    209
+#define TRAINER_LEADER_KORRINA                    209
 #define TRAINER_BERNIE_5                    210
 #define TRAINER_DREW                        211
 #define TRAINER_BEAU                        212

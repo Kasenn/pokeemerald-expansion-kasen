@@ -111,6 +111,7 @@ static void Task_Sidney(u8);
 static void Task_Sidney2(u8);
 static void Task_Skyla(u8);
 static void Task_Clay(u8);
+static void Task_Korrina(u8);
 static void Task_Volkner(u8);
 static void Task_Phoebe(u8);
 static void Task_Glacia(u8);
@@ -366,6 +367,7 @@ static const TaskFunc sTasks_Main[B_TRANSITION_COUNT] =
     [B_TRANSITION_SIDNEY2] = Task_Sidney2,
     [B_TRANSITION_SKYLA] = Task_Skyla,
     [B_TRANSITION_CLAY] = Task_Clay,
+    [B_TRANSITION_KORRINA] = Task_Korrina,
     [B_TRANSITION_VOLKNER] = Task_Volkner,
     [B_TRANSITION_PHOEBE] = Task_Phoebe,
     [B_TRANSITION_GLACIA] = Task_Glacia,
@@ -556,6 +558,7 @@ static const u8 sMugshotsTrainerPicIDsTable[MUGSHOTS_COUNT] =
     [MUGSHOT_VOLKNER]  = TRAINER_PIC_LEADER_WATTSON,
     [MUGSHOT_SKYLA]  = TRAINER_PIC_LEADER_WINONA,
     [MUGSHOT_CLAY]  = TRAINER_PIC_CLAY,
+    [MUGSHOT_KORRINA]  = TRAINER_PIC_KORRINA,
     [MUGSHOT_PHOEBE]   = TRAINER_PIC_ELITE_FOUR_PHOEBE,
     [MUGSHOT_GLACIA]   = TRAINER_PIC_ELITE_FOUR_GLACIA,
     [MUGSHOT_DRAKE]    = TRAINER_PIC_ELITE_FOUR_DRAKE,
@@ -568,6 +571,7 @@ static const s16 sMugshotsOpponentRotationScales[MUGSHOTS_COUNT][2] =
     [MUGSHOT_VOLKNER] =   {0x200, 0x200},
     [MUGSHOT_SKYLA] =   {0x200, 0x200},
     [MUGSHOT_CLAY] =   {0x200, 0x200},
+    [MUGSHOT_KORRINA] =   {0x200, 0x200},
     [MUGSHOT_PHOEBE] =   {0x200, 0x200},
     [MUGSHOT_GLACIA] =   {0x1B0, 0x1B0},
     [MUGSHOT_DRAKE] =    {0x1A0, 0x1A0},
@@ -580,6 +584,7 @@ static const s16 sMugshotsOpponentCoords[MUGSHOTS_COUNT][2] =
     [MUGSHOT_VOLKNER] =   { -8,  0},
     [MUGSHOT_SKYLA] =   { -8,  0},
     [MUGSHOT_CLAY] =   { -8,  0},
+    [MUGSHOT_KORRINA] =   { -16,  0},
     [MUGSHOT_PHOEBE] =   { 0,  0},
     [MUGSHOT_GLACIA] =   {-4,  4},
     [MUGSHOT_DRAKE] =    { 0,  5},
@@ -923,6 +928,7 @@ static const u16 *const sOpponentMugshotsPals[MUGSHOTS_COUNT] =
     [MUGSHOT_SIDNEY2] = sMugshotPal_Sidney2,
     [MUGSHOT_SKYLA] = sMugshotPal_Skyla,
     [MUGSHOT_CLAY] = sMugshotPal_Clay,
+    [MUGSHOT_KORRINA] = sMugshotPal_Clay,
     [MUGSHOT_VOLKNER] = sMugshotPal_Volkner,
     [MUGSHOT_PHOEBE] = sMugshotPal_Phoebe,
     [MUGSHOT_GLACIA] = sMugshotPal_Glacia,
@@ -2308,6 +2314,12 @@ static void Task_Skyla(u8 taskId)
 static void Task_Clay(u8 taskId)
 {
     gTasks[taskId].tMugshotId = MUGSHOT_CLAY;
+    DoMugshotTransition(taskId);
+}
+
+static void Task_Korrina(u8 taskId)
+{
+    gTasks[taskId].tMugshotId = MUGSHOT_KORRINA;
     DoMugshotTransition(taskId);
 }
 

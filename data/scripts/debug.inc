@@ -92,13 +92,19 @@ Debug_Script_1::
 	end
 
 Debug_Script_2::
-	setmonmetlocation 0, MAP_ROUTE103
+	setmonmetlocation 0, MAP_NEW_ROUTE101
+	setmonmetlocation 1, MAP_NEW_ROUTE101
+	setmonmetlocation 2, MAP_NEW_ROUTE101
+	setmonmetlocation 3, MAP_NEW_ROUTE101
+	setmonmetlocation 4, MAP_NEW_ROUTE101
+	setmonmetlocation 5, MAP_NEW_ROUTE101
 	end
 
 Debug_Script_3::
 	setflag FLAG_OLDMAN_PEARLSTRING
 	setvar VAR_DESERT_BYPASS, 1
 	setvar VAR_BADGES_OBTAINED, 2
+	clearflag FLAG_SYSTEM_NOREWARDBATTLES
 	msgbox FlagsAndVarsUpdated, MSGBOX_DEFAULT
 	waitmessage
 	closemessage
@@ -109,15 +115,27 @@ DebugVar::
 	.string "{STR_VAR_1}$"
 
 Debug_Script_4::
+	clearflag FLAG_SYSTEM_NOREWARDBATTLES
 	end
 
 Debug_Script_5::
 	end
 
 Debug_Script_6::
+	givemon SPECIES_EMPOLEON 40
+	givemon SPECIES_DECIDUEYE 40
+	givemon SPECIES_INCINEROAR 40
+	givemon SPECIES_CHESNAUGHT 40
+	giveitem ITEM_EMPOLEONITE
+	giveitem ITEM_DECIDUEITE
+	giveitem ITEM_INCINEROARITE
+	giveitem ITEM_CHESNAUGHTITE
+	giveitem ITEM_MEGA_RING
 	end
 
 Debug_Script_7::
+	trainerbattle_single TRAINER_LEADER_KORRINA, Route109_Text_AustinaIntro, Route109_Text_AustinaDefeated
+	msgbox Route109_Text_AustinaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Debug_Script_8::
