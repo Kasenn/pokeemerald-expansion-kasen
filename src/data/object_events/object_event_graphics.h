@@ -427,3 +427,5 @@ const u32 gObjectEventPic_Excadrill[] = INCBIN_U32("graphics/object_events/pics/
 const u16 gObjectEventPalette_Excadrill[] = INCBIN_U16("graphics/object_events/pics/people/excadrill.gbapal");
 const u32 gObjectEventPic_LandSwimmerF[] = INCBIN_U32("graphics/object_events/pics/people/landswimmer_f.4bpp");
 const u16 gObjectEventPalette_LandSwimmerF[] = INCBIN_U16("graphics/object_events/pics/people/landswimmer_f.gbapal");
+const u32 gObjectEventPic_Korrina[] = INCBIN_U32("graphics/object_events/pics/people/korrina.4bpp");
+const u16 gObjectEventPalette_Korrina[] = INCBIN_U16("graphics/object_events/pics/people/korrina.gbapal");

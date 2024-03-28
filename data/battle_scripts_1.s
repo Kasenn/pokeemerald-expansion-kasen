@@ -456,6 +456,12 @@ BattleScript_SaltCureExtraDamage::
 	waitmessage B_WAIT_TIME_LONG
 	end2
 
+BattleScript_MegaExhaustion::
+	printstring STRINGID_TARGETISHURTBYMEGAEXHAUSTION
+	waitmessage B_WAIT_TIME_LONG
+	call BattleScript_HurtTarget_NoString
+	end2
+
 BattleScript_HurtTarget_NoString:
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
 	healthbarupdate BS_TARGET

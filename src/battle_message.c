@@ -812,10 +812,12 @@ static const u8 sText_TeamGainedEXP[] = _("The rest of your team gained EXP.\nPo
 static const u8 sText_CurrentMoveCantSelect[] = _("{B_BUFF1} cannot be used!\p");
 static const u8 sText_TargetIsBeingSaltCured[] = _("{B_DEF_NAME_WITH_PREFIX} is being salt cured!");
 static const u8 sText_TargetIsHurtBySaltCure[] = _("{B_DEF_NAME_WITH_PREFIX} is hurt by {B_BUFF1}!");
+static const u8 sText_TargetIsHurtByMegaExhaustion[] = _("The strain caused by Mega Evolution is\ndraining {B_DEF_NAME_WITH_PREFIX}'s stamina!");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
     [STRINGID_TARGETISHURTBYSALTCURE - BATTLESTRINGS_TABLE_START] = sText_TargetIsHurtBySaltCure,
+    [STRINGID_TARGETISHURTBYMEGAEXHAUSTION - BATTLESTRINGS_TABLE_START] = sText_TargetIsHurtByMegaExhaustion,
     [STRINGID_TARGETISBEINGSALTCURED - BATTLESTRINGS_TABLE_START] = sText_TargetIsBeingSaltCured,
     [STRINGID_CURRENTMOVECANTSELECT - BATTLESTRINGS_TABLE_START] = sText_CurrentMoveCantSelect,
     [STRINGID_PKMNITEMMELTED - BATTLESTRINGS_TABLE_START] = sText_PkmnItemMelted,
@@ -3981,6 +3983,11 @@ struct TrainerSlide
     const u8 *msgBeforeFirstTurn;
 };
 
+static const u8 sText_KorrinaLastPokemon[] = _("This is my last Pokémon,\nbut it is also my strongest!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_DontGetCockyKid[] = _("Don't get cocky just because you\nmanaged to defeat one!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_NotAFairFight[] = _("Hope you weren't expecting a fair\nfight.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_HeardOfMegaEvos[] = _("Have you heard of Mega Evolution?{PAUSE_UNTIL_PRESS}");
+
 static const struct TrainerSlide sTrainerSlides[] =
 {
     /* Put any trainer slide-in messages inside this array.
@@ -4001,6 +4008,14 @@ static const struct TrainerSlide sTrainerSlides[] =
         .msgBeforeFirstTurn = sText_GravityIntensified,
     },
     */
+   {
+        .trainerId = TRAINER_LEADER_KORRINA,
+        .isFrontierTrainer = FALSE,
+        .msgLastSwitchIn = sText_KorrinaLastPokemon,
+        .msgFirstDown = sText_DontGetCockyKid,
+        .msgMegaEvolution = sText_NotAFairFight,
+        .msgBeforeFirstTurn = sText_HeardOfMegaEvos,
+    },
 };
 
 static u32 GetEnemyMonCount(u32 firstId, u32 lastId, bool32 onlyAlive)

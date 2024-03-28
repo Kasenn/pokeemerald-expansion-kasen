@@ -556,7 +556,7 @@ static const union AnimCmd sAnim_RunEast[] =
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd sAnim_SkateSouth[] =
+static const union AnimCmd sAnim_KorrinaSouth[] =
 {
     ANIMCMD_FRAME(3, 12),
     ANIMCMD_FRAME(0, 4),
@@ -565,7 +565,7 @@ static const union AnimCmd sAnim_SkateSouth[] =
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd sAnim_SkateNorth[] =
+static const union AnimCmd sAnim_KorrinaNorth[] =
 {
     ANIMCMD_FRAME(5, 12),
     ANIMCMD_FRAME(1, 4),
@@ -574,7 +574,7 @@ static const union AnimCmd sAnim_SkateNorth[] =
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd sAnim_SkateWest[] =
+static const union AnimCmd sAnim_KorrinaWest[] =
 {
     ANIMCMD_FRAME(7, 12),
     ANIMCMD_FRAME(2, 4),
@@ -583,7 +583,7 @@ static const union AnimCmd sAnim_SkateWest[] =
     ANIMCMD_JUMP(0),
 };
 
-static const union AnimCmd sAnim_SkateEast[] =
+static const union AnimCmd sAnim_KorrinaEast[] =
 {
     ANIMCMD_FRAME(7, 12, .hFlip = TRUE),
     ANIMCMD_FRAME(2, 4, .hFlip = TRUE),
@@ -1081,19 +1081,19 @@ static const union AnimCmd *const sAnimTable_Spheal[] = {
     [ANIM_STD_GO_FASTEST_EAST] = sAnim_GoEastFastestSpheal,
 };
 
-static const union AnimCmd *const sAnimTable_Skating[] = {
+static const union AnimCmd *const sAnimTable_Korrina[] = {
     [ANIM_STD_FACE_SOUTH] = sAnim_FaceSouth,
     [ANIM_STD_FACE_NORTH] = sAnim_FaceNorth,
     [ANIM_STD_FACE_WEST] = sAnim_FaceWest,
     [ANIM_STD_FACE_EAST] = sAnim_FaceEast,
-    [ANIM_STD_GO_SOUTH] = sAnim_SkateSouth,
-    [ANIM_STD_GO_NORTH] = sAnim_SkateNorth,
-    [ANIM_STD_GO_WEST] = sAnim_SkateWest,
-    [ANIM_STD_GO_EAST] = sAnim_SkateEast,
-    [ANIM_STD_GO_FAST_SOUTH] = sAnim_SkateSouth,
-    [ANIM_STD_GO_FAST_NORTH] = sAnim_SkateNorth,
-    [ANIM_STD_GO_FAST_WEST] = sAnim_SkateWest,
-    [ANIM_STD_GO_FAST_EAST] = sAnim_SkateEast,
+    [ANIM_STD_GO_SOUTH] = sAnim_KorrinaSouth,
+    [ANIM_STD_GO_NORTH] = sAnim_KorrinaNorth,
+    [ANIM_STD_GO_WEST] = sAnim_KorrinaWest,
+    [ANIM_STD_GO_EAST] = sAnim_KorrinaEast,
+    [ANIM_STD_GO_FAST_SOUTH] = sAnim_GoFastSouth,
+    [ANIM_STD_GO_FAST_NORTH] = sAnim_GoFastNorth,
+    [ANIM_STD_GO_FAST_WEST] = sAnim_GoFastWest,
+    [ANIM_STD_GO_FAST_EAST] = sAnim_GoFastEast,
     [ANIM_STD_GO_FASTER_SOUTH] = sAnim_GoFasterSouth,
     [ANIM_STD_GO_FASTER_NORTH] = sAnim_GoFasterNorth,
     [ANIM_STD_GO_FASTER_WEST] = sAnim_GoFasterWest,
@@ -1417,8 +1417,8 @@ static const struct StepAnimTable sStepAnimTables[] = {
         .animPos = {0, 0, 0, 0},
     },
     {
-        .anims = sAnimTable_Skating,
-        .animPos = {1, 3, 0, 2},
+        .anims = sAnimTable_Korrina,
+        .animPos = {1, 1, 1, 1},
     },
     {
         .anims = sAnimTable_BrendanMayNormal,

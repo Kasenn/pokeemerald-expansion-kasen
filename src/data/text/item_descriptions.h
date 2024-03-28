@@ -3992,3 +3992,23 @@ static const u8 sCurryDesc[] = _(
     "Fully restores the\n"
     "HP and status of a\n"
     "Pokémon.");
+
+static const u8 sEmpoleoniteDesc[] = _(
+    "This stone enables\n"
+    "Empoleon to Mega\n"
+    "Evolve in battle.");
+
+static const u8 sDecidueiteDesc[] = _(
+    "This stone enables\n"
+    "Decidueye to Mega\n"
+    "Evolve in battle.");
+
+static const u8 sIncineroariteDesc[] = _(
+    "This stone enables\n"
+    "Incineroar to Mega\n"
+    "Evolve in battle.");
+
+static const u8 sChesnaughtiteDesc[] = _(
+    "This stone enables\n"
+    "Chesnaught to Mega\n"
+    "Evolve in battle.");

@@ -449,6 +449,7 @@ script BuffetComplete{
     msgbox(BuffetThankYouForDining, MSGBOX_DEFAULT)
     closemessage
     setflag(FLAG_BUFFET_COMPLETE)
+    clearflag(FLAG_SYSTEM_NOREWARDBATTLES)
     applymovement(OBJ_EVENT_ID_PLAYER, HotelMoveRight)
     waitmovement(0)
     release

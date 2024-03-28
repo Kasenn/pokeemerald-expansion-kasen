@@ -2343,9 +2343,11 @@ bool8 ScrCmd_setmonmetlocation(struct ScriptContext *ctx)
 {
     u16 partyIndex = VarGet(ScriptReadHalfword(ctx));
     u8 location = ScriptReadByte(ctx);
+    u8 metLocation;
 
     if (partyIndex < PARTY_SIZE)
-        SetMonData(&gPlayerParty[partyIndex], MON_DATA_MET_LOCATION, &location);
+        metLocation = GetCurrentRegionMapSectionId();
+        SetMonData(&gPlayerParty[partyIndex], MON_DATA_MET_LOCATION, &metLocation);
     return FALSE;
 }
 

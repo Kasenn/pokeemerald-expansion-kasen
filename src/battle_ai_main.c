@@ -3413,6 +3413,11 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
                 score += 2;
                 break;
             }
+            else if (aiData->hpPercents[battlerAtk] < 40)
+            {
+                score -= 3;
+                break;
+            }
         }
 
         if (!AI_RandLessThan(100))
@@ -3430,7 +3435,7 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
         else if (aiData->hpPercents[battlerAtk] > 70 && AI_RandLessThan(200))
             break;
         else if (aiData->hpPercents[battlerAtk] < 40)
-            score -= 2;
+            score -= 3;
         break;
     case EFFECT_SPEED_UP:
     case EFFECT_SPEED_UP_2:
@@ -3438,6 +3443,10 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
         {
             if (!AI_RandLessThan(70))
                 score += 3;
+            else if (aiData->hpPercents[battlerAtk] < 40)
+            {
+                score -= 3;
+            }
         }
         else
         {
@@ -3459,6 +3468,11 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
                 score += 2;
                 break;
             }
+            else if (aiData->hpPercents[battlerAtk] < 40)
+            {
+                score -= 3;
+                break;
+            }
         }
 
         if (!AI_RandLessThan(100))
@@ -3475,14 +3489,14 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
         else if (aiData->hpPercents[battlerAtk] > 70 && AI_RandLessThan(200))
             break;
         else if (aiData->hpPercents[battlerAtk] < 40)
-            score -= 2;
+            score -= 3;
         break;
     case EFFECT_ACCURACY_UP:
     case EFFECT_ACCURACY_UP_2:
         if (gBattleMons[battlerAtk].statStages[STAT_ACC] >= 9 && !AI_RandLessThan(50))
             score -= 2;
         else if (aiData->hpPercents[battlerAtk] <= 70)
-            score -= 2;
+            score -= 3;
         else
             score++;
         break;
@@ -3503,7 +3517,7 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
         if (aiData->hpPercents[battlerAtk] < 70 || gBattleMons[battlerAtk].statStages[STAT_EVASION] == DEFAULT_STAT_STAGE)
             break;
         else if (aiData->hpPercents[battlerAtk] < 40 || aiData->hpPercents[battlerDef] < 40)
-            score -= 2;
+            score -= 3;
         else if (!AI_RandLessThan(70))
             score -= 2;
         break;

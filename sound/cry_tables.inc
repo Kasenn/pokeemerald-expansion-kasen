@@ -2087,6 +2087,10 @@ gCryTable::
 	@ Calyrex
 	cry Cry_CalyrexIceRider
 	cry Cry_CalyrexShadowRider
+	cry_reverse Cry_Empoleon
+	cry_reverse Cry_Decidueye
+	cry_reverse Cry_Incineroar
+	cry_reverse Cry_Chesnaught
 	@ Basculegion
 	cry Cry_Basculegion
 .else

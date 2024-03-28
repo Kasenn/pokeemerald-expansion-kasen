@@ -2508,16 +2508,16 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_HotelKid2),
     },
 
-    [TRAINER_BERNIE_4] =
+    [TRAINER_LEADER_KORRINA] =
     {
-        .trainerClass = TRAINER_CLASS_KINDLER,
+        .trainerClass = TRAINER_CLASS_LEADER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
-        .trainerPic = TRAINER_PIC_KINDLER,
-        .trainerName = _("BERNIE"),
+        .trainerPic = TRAINER_PIC_KORRINA,
+        .trainerName = _("Korrina"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Bernie4),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_ACE_POKEMON,
+        .party = TRAINER_PARTY(sParty_LeaderKorrina),
     },
 
     [TRAINER_BERNIE_5] =

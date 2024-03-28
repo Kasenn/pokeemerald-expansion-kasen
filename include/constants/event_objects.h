@@ -196,7 +196,7 @@
 #define OBJ_EVENT_GFX_MAY_WATERING               192
 #define OBJ_EVENT_GFX_BRENDAN_DECORATING         193
 #define OBJ_EVENT_GFX_MAY_DECORATING             194
-#define OBJ_EVENT_GFX_ARCHIE                     195
+#define OBJ_EVENT_GFX_KORRINA                     195
 #define OBJ_EVENT_GFX_MAXIE                      196
 #define OBJ_EVENT_GFX_KYOGRE_FRONT               197
 #define OBJ_EVENT_GFX_GROUDON_FRONT              198
@@ -386,6 +386,7 @@
 #define OBJ_EVENT_PAL_AMPHAROS                  0x1139
 #define OBJ_EVENT_PAL_ROSTE                     0x113A
 #define OBJ_EVENT_PAL_LAND_SWIMMER_F                     0x113B
+#define OBJ_EVENT_PAL_KORRINA                    0x113C
 
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
