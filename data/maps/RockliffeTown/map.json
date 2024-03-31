@@ -1,0 +1,39 @@
+{
+  "id": "MAP_ROCKLIFFE_TOWN",
+  "name": "RockliffeTown",
+  "layout": "LAYOUT_ROCKLIFFE_TOWN",
+  "music": "MUS_DEWFORD",
+  "region_map_section": "MAPSEC_ROCKET_WAREHOUSE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_TOWN",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_ROUTE10",
+      "offset": 23,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE11",
+      "offset": 4,
+      "direction": "left"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

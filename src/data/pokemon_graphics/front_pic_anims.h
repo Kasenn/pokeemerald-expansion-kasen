@@ -9767,7 +9767,7 @@ static const union AnimCmd sAnim_IncineroarMega_1[] =
 };
 
 static const union AnimCmd sAnim_ChesnaughtMega_1[] =
-{
+{   
     ANIMCMD_FRAME(0, 1),
     ANIMCMD_END,
 };

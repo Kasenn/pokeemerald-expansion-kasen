@@ -3881,8 +3881,14 @@ static const struct TrainerMon sParty_LeaderKorrina[] = {
     {
     .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
     .lvl = 32,
-    .species = SPECIES_INCINEROAR,
-    .heldItem = ITEM_INCINEROARITE,
+    .species = SPECIES_EMPOLEON,
+    .heldItem = ITEM_EMPOLEONITE,
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
+    .lvl = 32,
+    .species = SPECIES_DECIDUEYE,
+    .heldItem = ITEM_DECIDUEITE,
     },
     {
     .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),

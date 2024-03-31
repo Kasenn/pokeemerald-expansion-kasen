@@ -429,3 +429,7 @@ const u32 gObjectEventPic_LandSwimmerF[] = INCBIN_U32("graphics/object_events/pi
 const u16 gObjectEventPalette_LandSwimmerF[] = INCBIN_U16("graphics/object_events/pics/people/landswimmer_f.gbapal");
 const u32 gObjectEventPic_Korrina[] = INCBIN_U32("graphics/object_events/pics/people/korrina.4bpp");
 const u16 gObjectEventPalette_Korrina[] = INCBIN_U16("graphics/object_events/pics/people/korrina.gbapal");
+const u32 gObjectEventPic_AceTrainerBWM[] = INCBIN_U32("graphics/object_events/pics/people/bw_ace_trainer_m.4bpp");
+const u16 gObjectEventPalette_AceTrainerBWM[] = INCBIN_U16("graphics/object_events/pics/people/bw_ace_trainer_m.gbapal");
+const u32 gObjectEventPic_AceTrainerBWF[] = INCBIN_U32("graphics/object_events/pics/people/bw_ace_trainer_f.4bpp");
+const u16 gObjectEventPalette_AceTrainerBWF[] = INCBIN_U16("graphics/object_events/pics/people/bw_ace_trainer_f.gbapal");
