@@ -1316,3 +1316,23 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Kaolisle_Hotel_2F_Rooms/scripts.inc"
 
 	.include "data/maps/Kaolisle_Hotel_4F_Rooms/scripts.inc"
+
+	.include "data/maps/Route10/scripts.inc"
+
+	.include "data/maps/RockliffeTown/scripts.inc"
+
+	.include "data/maps/Rockliffe_Harbor/scripts.inc"
+
+	.include "data/maps/Rockliffe_Pokecenter_1F/scripts.inc"
+
+	.include "data/maps/Rockliffe_Pokecenter_2F/scripts.inc"
+
+	.include "data/maps/Rockliffe_Mart/scripts.inc"
+
+	.include "data/maps/Rockliffe_House1/scripts.inc"
+
+	.include "data/maps/Rockliffe_House2/scripts.inc"
+
+	.include "data/maps/Rockliffe_House3/scripts.inc"
+
+	.include "data/maps/Route11/scripts.inc"

@@ -5670,6 +5670,106 @@
       "secondary_tileset": "gTileset_InsideShip",
       "border_filepath": "data/layouts/Kaolisle_Hotel_4F_Rooms/border.bin",
       "blockdata_filepath": "data/layouts/Kaolisle_Hotel_4F_Rooms/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE10",
+      "name": "Route10_Layout",
+      "width": 150,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mossdeep",
+      "border_filepath": "data/layouts/Route10/border.bin",
+      "blockdata_filepath": "data/layouts/Route10/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROCKLIFFE_TOWN",
+      "name": "RockliffeTown_Layout",
+      "width": 43,
+      "height": 48,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Dewford",
+      "border_filepath": "data/layouts/RockliffeTown/border.bin",
+      "blockdata_filepath": "data/layouts/RockliffeTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROCKLIFFE_HARBOR",
+      "name": "Rockliffe_Harbor_Layout",
+      "width": 17,
+      "height": 12,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_IslandHarbor",
+      "border_filepath": "data/layouts/Rockliffe_Harbor/border.bin",
+      "blockdata_filepath": "data/layouts/Rockliffe_Harbor/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROCKLIFFE_POKECENTER_1F",
+      "name": "Rockliffe_Pokecenter_1F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Rockliffe_Pokecenter_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Rockliffe_Pokecenter_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROCKLIFFE_POKECENTER_2F",
+      "name": "Rockliffe_Pokecenter_2F_Layout",
+      "width": 13,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Rockliffe_Pokecenter_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Rockliffe_Pokecenter_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROCKLIFFE_MART",
+      "name": "Rockliffe_Mart_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/Rockliffe_Mart/border.bin",
+      "blockdata_filepath": "data/layouts/Rockliffe_Mart/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROCKLIFFE_HOUSE1",
+      "name": "Rockliffe_House1_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Rockliffe_House1/border.bin",
+      "blockdata_filepath": "data/layouts/Rockliffe_House1/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROCKLIFFE_HOUSE2",
+      "name": "Rockliffe_House2_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Rockliffe_House2/border.bin",
+      "blockdata_filepath": "data/layouts/Rockliffe_House2/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROCKLIFFE_HOUSE3",
+      "name": "Rockliffe_House3_Layout",
+      "width": 8,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Rockliffe_House3/border.bin",
+      "blockdata_filepath": "data/layouts/Rockliffe_House3/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE11",
+      "name": "Route11_Layout",
+      "width": 110,
+      "height": 35,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/Route11/border.bin",
+      "blockdata_filepath": "data/layouts/Route11/map.bin"
     }
   ]
 }

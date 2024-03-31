@@ -139,7 +139,7 @@ Debug_Script_7::
 	end
 
 Debug_Script_8::
-	settrainerflag TRAINER_AUSTINA
+	cleartrainerflag TRAINER_AUSTINA
 	trainerbattle_single TRAINER_AUSTINA, Route109_Text_AustinaIntro, Route109_Text_AustinaDefeated
 	msgbox Route109_Text_AustinaPostBattle, MSGBOX_AUTOCLOSE
 	end

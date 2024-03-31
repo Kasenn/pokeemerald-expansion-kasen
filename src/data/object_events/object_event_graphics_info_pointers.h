@@ -237,6 +237,8 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Brandon;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RubySapphireBrendan;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RubySapphireMay;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lugia;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AceTrainerBWM;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AceTrainerBWF;
 //extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HoOh;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bard;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Hipster;
@@ -387,8 +389,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_DEVON_EMPLOYEE] =           &gObjectEventGraphicsInfo_DevonEmployee,
     // [OBJ_EVENT_GFX_AQUA_MEMBER_M] =            &gObjectEventGraphicsInfo_AquaMemberM,
     [OBJ_EVENT_GFX_AQUA_MEMBER_F] =            &gObjectEventGraphicsInfo_AquaMemberF,
-    [OBJ_EVENT_GFX_MAGMA_MEMBER_M] =           &gObjectEventGraphicsInfo_MagmaMemberM,
-    [OBJ_EVENT_GFX_MAGMA_MEMBER_F] =           &gObjectEventGraphicsInfo_MagmaMemberF,
+    // [OBJ_EVENT_GFX_MAGMA_MEMBER_M] =           &gObjectEventGraphicsInfo_MagmaMemberM,
+    // [OBJ_EVENT_GFX_MAGMA_MEMBER_F] =           &gObjectEventGraphicsInfo_MagmaMemberF,
     [OBJ_EVENT_GFX_SIDNEY] =                   &gObjectEventGraphicsInfo_Sidney,
     [OBJ_EVENT_GFX_PHOEBE] =                   &gObjectEventGraphicsInfo_Phoebe,
     [OBJ_EVENT_GFX_GLACIA] =                   &gObjectEventGraphicsInfo_Glacia,
@@ -529,6 +531,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_AMPHAROS] =                     &gObjectEventGraphicsInfo_Ampharos,
     [OBJ_EVENT_GFX_LAND_SWIMMER_F] =                     &gObjectEventGraphicsInfo_LandSwimmerF,
     [OBJ_EVENT_GFX_KORRINA] =                   &gObjectEventGraphicsInfo_Korrina,
+    [OBJ_EVENT_GFX_ACE_TRAINER_M] =                   &gObjectEventGraphicsInfo_AceTrainerBWM,
+    [OBJ_EVENT_GFX_ACE_TRAINER_F] =                   &gObjectEventGraphicsInfo_AceTrainerBWF,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

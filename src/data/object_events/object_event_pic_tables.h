@@ -2264,6 +2264,30 @@ static const struct SpriteFrameImage sPicTable_Korrina[] = {
     overworld_frame(gObjectEventPic_Korrina, 2, 4, 8),
 };
 
+static const struct SpriteFrameImage sPicTable_AceTrainerBWM[] = {
+    overworld_frame(gObjectEventPic_AceTrainerBWM, 2, 4, 0),
+    overworld_frame(gObjectEventPic_AceTrainerBWM, 2, 4, 1),
+    overworld_frame(gObjectEventPic_AceTrainerBWM, 2, 4, 2),
+    overworld_frame(gObjectEventPic_AceTrainerBWM, 2, 4, 3),
+    overworld_frame(gObjectEventPic_AceTrainerBWM, 2, 4, 4),
+    overworld_frame(gObjectEventPic_AceTrainerBWM, 2, 4, 5),
+    overworld_frame(gObjectEventPic_AceTrainerBWM, 2, 4, 6),
+    overworld_frame(gObjectEventPic_AceTrainerBWM, 2, 4, 7),
+    overworld_frame(gObjectEventPic_AceTrainerBWM, 2, 4, 8),
+};
+
+static const struct SpriteFrameImage sPicTable_AceTrainerBWF[] = {
+    overworld_frame(gObjectEventPic_AceTrainerBWF, 4, 4, 0),
+    overworld_frame(gObjectEventPic_AceTrainerBWF, 4, 4, 1),
+    overworld_frame(gObjectEventPic_AceTrainerBWF, 4, 4, 2),
+    overworld_frame(gObjectEventPic_AceTrainerBWF, 4, 4, 3),
+    overworld_frame(gObjectEventPic_AceTrainerBWF, 4, 4, 4),
+    overworld_frame(gObjectEventPic_AceTrainerBWF, 4, 4, 5),
+    overworld_frame(gObjectEventPic_AceTrainerBWF, 4, 4, 6),
+    overworld_frame(gObjectEventPic_AceTrainerBWF, 4, 4, 7),
+    overworld_frame(gObjectEventPic_AceTrainerBWF, 4, 4, 8),
+};
+
 static const struct SpriteFrameImage sPicTable_RocketAdmin_M[] = {
     overworld_frame(gObjectEventPic_RocketAdmin_M, 2, 4, 0),
     overworld_frame(gObjectEventPic_RocketAdmin_M, 2, 4, 1),

@@ -251,6 +251,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_TORRENT] = 5,
     [ABILITY_TOXIC_BOOST] = 6,
     [ABILITY_TOUGH_CLAWS] = 7,
+    [ABILITY_SPIKE_BODY] = 8,
     [ABILITY_TRACE] = 6,
     [ABILITY_TRIAGE] = 7,
     [ABILITY_TRUANT] = -2,
@@ -1016,7 +1017,7 @@ u32 AI_WhichMoveBetter(u32 move1, u32 move2, u32 battlerAtk, u32 battlerDef)
     // Check if physical moves hurt.
     if (AI_DATA->holdEffects[battlerAtk] != HOLD_EFFECT_PROTECTIVE_PADS
         && (AI_DATA->holdEffects[battlerDef] == HOLD_EFFECT_ROCKY_HELMET
-        || defAbility == ABILITY_IRON_BARBS || defAbility == ABILITY_ROUGH_SKIN))
+        || defAbility == ABILITY_IRON_BARBS || defAbility == ABILITY_ROUGH_SKIN || defAbility == ABILITY_SPIKE_BODY))
     {
         if (IS_MOVE_PHYSICAL(move1) && !IS_MOVE_PHYSICAL(move2))
             return 1;
