@@ -3,7 +3,7 @@
   "name": "RockliffeTown",
   "layout": "LAYOUT_ROCKLIFFE_TOWN",
   "music": "MUS_DEWFORD",
-  "region_map_section": "MAPSEC_ROCKET_WAREHOUSE",
+  "region_map_section": "MAPSEC_ROCKLIFFE_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_TOWN",

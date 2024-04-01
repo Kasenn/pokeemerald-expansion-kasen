@@ -23,7 +23,20 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 51,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_ROCKLIFFE_HOUSE1",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 52,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_ROCKLIFFE_HOUSE1",
+      "dest_warp_id": "1"
+    }
   ],
   "coord_events": [
 
