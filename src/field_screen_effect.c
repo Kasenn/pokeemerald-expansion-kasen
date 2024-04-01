@@ -263,7 +263,7 @@ static void SetUpWarpExitTask(void)
     behavior = MapGridGetMetatileBehaviorAt(x, y);
     if (MetatileBehavior_IsDoor(behavior) == TRUE)
         func = Task_ExitDoor;
-    else if (MetatileBehavior_IsNonAnimDoor(behavior) == TRUE)
+    else if ((MetatileBehavior_IsNonAnimDoor(behavior) == TRUE) || (MetatileBehavior_IsElevatedDoor(behavior) == TRUE))
         func = Task_ExitNonAnimDoor;
     else
         func = Task_ExitNonDoor;
