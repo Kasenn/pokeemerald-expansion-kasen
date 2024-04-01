@@ -783,6 +783,7 @@ static bool8 IsWarpMetatileBehavior(u16 metatileBehavior)
      && MetatileBehavior_IsLadder(metatileBehavior) != TRUE
      && MetatileBehavior_IsEscalator(metatileBehavior) != TRUE
      && MetatileBehavior_IsNonAnimDoor(metatileBehavior) != TRUE
+     && MetatileBehavior_IsElevatedDoor(metatileBehavior) != TRUE
      && MetatileBehavior_IsLavaridgeB1FWarp(metatileBehavior) != TRUE
      && MetatileBehavior_IsLavaridge1FWarp(metatileBehavior) != TRUE
      && MetatileBehavior_IsAquaHideoutWarp(metatileBehavior) != TRUE

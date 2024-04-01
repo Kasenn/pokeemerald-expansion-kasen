@@ -1,6 +1,7 @@
 #include "global.h"
 #include "metatile_behavior.h"
 #include "constants/metatile_behaviors.h"
+#include "field_player_avatar.h"
 
 #define TILE_FLAG_HAS_ENCOUNTERS (1 << 0)
 #define TILE_FLAG_SURFABLE       (1 << 1)
@@ -273,6 +274,17 @@ bool8 MetatileBehavior_IsNonAnimDoor(u8 metatileBehavior)
     if (metatileBehavior == MB_NON_ANIMATED_DOOR
      || metatileBehavior == MB_WATER_DOOR
      || metatileBehavior == MB_DEEP_SOUTH_WARP)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsElevatedDoor(u8 metatileBehavior)
+{
+    u8 elevation;
+    elevation = PlayerGetElevation();
+    
+    if (metatileBehavior == MB_ELEVATION_3_DOOR && elevation != 4)
         return TRUE;
     else
         return FALSE;
