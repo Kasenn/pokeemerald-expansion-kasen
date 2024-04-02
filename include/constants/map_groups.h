@@ -35,6 +35,7 @@
 #define MAP_UNDERGROUND_RUINS_VOLCARONA_ROOM (26 | (0 << 8))
 #define MAP_ROUTE10                          (27 | (0 << 8))
 #define MAP_ROUTE11                          (28 | (0 << 8))
+#define MAP_ROUTE12                          (29 | (0 << 8))
 
 // gMapGroup_TownsAndCities
 #define MAP_PEARLWOOD_POINT   (0 | (1 << 8))
@@ -48,6 +49,7 @@
 #define MAP_MARIGORGE_TOWN    (8 | (1 << 8))
 #define MAP_KAOLISLE_CITY     (9 | (1 << 8))
 #define MAP_ROCKLIFFE_TOWN    (10 | (1 << 8))
+#define MAP_SANDSTONE_CITY    (11 | (1 << 8))
 
 // gMapGroup_IndoorPearlwoodPoint
 #define MAP_LAB2                   (0 | (2 << 8))

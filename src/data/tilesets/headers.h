@@ -1001,3 +1001,25 @@ const struct Tileset gTileset_gTileset_Hotel =
     .metatileAttributes = gMetatileAttributes_gTileset_Hotel,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_CyclingRoad =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_CyclingRoad,
+    .palettes = gTilesetPalettes_CyclingRoad,
+    .metatiles = gMetatiles_CyclingRoad,
+    .metatileAttributes = gMetatileAttributes_CyclingRoad,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_SandstoneCity =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_SandstoneCity,
+    .palettes = gTilesetPalettes_SandstoneCity,
+    .metatiles = gMetatiles_SandstoneCity,
+    .metatileAttributes = gMetatileAttributes_SandstoneCity,
+    .callback = NULL,
+};

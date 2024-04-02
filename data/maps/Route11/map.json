@@ -17,6 +17,11 @@
       "map": "MAP_ROCKLIFFE_TOWN",
       "offset": -4,
       "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE12",
+      "offset": -11,
+      "direction": "up"
     }
   ],
   "object_events": [

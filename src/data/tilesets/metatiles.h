@@ -255,3 +255,9 @@ const u16 gMetatileAttributes_SafariSec[] = INCBIN_U16("data/tilesets/secondary/
 
 const u16 gMetatiles_gTileset_Hotel[] = INCBIN_U16("data/tilesets/secondary/hotel/metatiles.bin");
 const u16 gMetatileAttributes_gTileset_Hotel[] = INCBIN_U16("data/tilesets/secondary/hotel/metatile_attributes.bin");
+
+const u16 gMetatiles_CyclingRoad[] = INCBIN_U16("data/tilesets/secondary/cycling_road/metatiles.bin");
+const u16 gMetatileAttributes_CyclingRoad[] = INCBIN_U16("data/tilesets/secondary/cycling_road/metatile_attributes.bin");
+
+const u16 gMetatiles_SandstoneCity[] = INCBIN_U16("data/tilesets/secondary/sandstone_city/metatiles.bin");
+const u16 gMetatileAttributes_SandstoneCity[] = INCBIN_U16("data/tilesets/secondary/sandstone_city/metatile_attributes.bin");

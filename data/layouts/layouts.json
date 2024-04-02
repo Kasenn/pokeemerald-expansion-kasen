@@ -5770,6 +5770,26 @@
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Route11/border.bin",
       "blockdata_filepath": "data/layouts/Route11/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE12",
+      "name": "Route12_Layout",
+      "width": 48,
+      "height": 82,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_CyclingRoad",
+      "border_filepath": "data/layouts/Route12/border.bin",
+      "blockdata_filepath": "data/layouts/Route12/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSTONE_CITY",
+      "name": "SandstoneCity_Layout",
+      "width": 73,
+      "height": 63,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SandstoneCity",
+      "border_filepath": "data/layouts/SandstoneCity/border.bin",
+      "blockdata_filepath": "data/layouts/SandstoneCity/map.bin"
     }
   ]
 }
