@@ -1297,7 +1297,7 @@
 #define FLAG_KAOLMINES_ITEM12                                           0x4DF // 
 #define FLAG_KAOLMINES_ITEM13                                           0x4E0 // 
 #define FLAG_KAOLMINES_ITEM14                                           0x4E1 // Kaolisle Mines Item Flags End
-#define FLAG_UNUSED_0x4E2                                           0x4E2 // Unused Flag
+#define FLAG_VISITED_SANDSTONE_CITY                                           0x4E2 //
 #define FLAG_UNUSED_0x4E3                                           0x4E3 // Unused Flag
 #define FLAG_UNUSED_0x4E4                                           0x4E4 // Unused Flag
 #define FLAG_UNUSED_0x4E5                                           0x4E5 // Unused Flag

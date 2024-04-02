@@ -76,7 +76,8 @@
     "UndergroundRuins_3F",
     "UndergroundRuins_VolcaronaRoom",
     "Route10",
-    "Route11"
+    "Route11",
+    "Route12"
   ],
   "gMapGroup_TownsAndCities": [
     "PearlwoodPoint",
@@ -89,7 +90,8 @@
     "ShoreslateCity",
     "MarigorgeTown",
     "KaolisleCity",
-    "RockliffeTown"
+    "RockliffeTown",
+    "SandstoneCity"
   ],
   "gMapGroup_IndoorPearlwoodPoint": [
     "Lab2",

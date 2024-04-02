@@ -1336,3 +1336,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Rockliffe_House3/scripts.inc"
 
 	.include "data/maps/Route11/scripts.inc"
+
+	.include "data/maps/Route12/scripts.inc"
+
+	.include "data/maps/SandstoneCity/scripts.inc"
