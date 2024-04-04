@@ -5784,12 +5784,42 @@
     {
       "id": "LAYOUT_SANDSTONE_CITY",
       "name": "SandstoneCity_Layout",
-      "width": 73,
-      "height": 63,
+      "width": 77,
+      "height": 69,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_SandstoneCity",
       "border_filepath": "data/layouts/SandstoneCity/border.bin",
       "blockdata_filepath": "data/layouts/SandstoneCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE13",
+      "name": "Route13_Layout",
+      "width": 140,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Pacifidlog",
+      "border_filepath": "data/layouts/Route13/border.bin",
+      "blockdata_filepath": "data/layouts/Route13/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE14",
+      "name": "Route14_Layout",
+      "width": 80,
+      "height": 35,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Route14/border.bin",
+      "blockdata_filepath": "data/layouts/Route14/map.bin"
+    },
+    {
+      "id": "LAYOUT_ADAMANT_TOWER_EXTERIOR",
+      "name": "AdamantTowerExterior_Layout",
+      "width": 40,
+      "height": 42,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Pacifidlog",
+      "border_filepath": "data/layouts/AdamantTowerExterior/border.bin",
+      "blockdata_filepath": "data/layouts/AdamantTowerExterior/map.bin"
     }
   ]
 }

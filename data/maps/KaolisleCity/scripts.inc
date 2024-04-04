@@ -555,20 +555,19 @@ KaolisleCity_Fisher1_Text::
 	.string "Would you do me a favor and fetch it\n"
 	.string "for me? I promise I'll make it worth\l"
 	.string "your while.\p"
-	.string "I live in Sandstone City, right across\n"
-	.string "the street from the Poké Center.\p"
+	.string "You can find my house in southern part\n"
+	.string "of Sandstone City.\p"
 	.string "My wife probably won't give the rod\n"
-	.string "to just anyone.\p"
-	.string "Tell her that Clancy sent you and\n"
+	.string "to just anyone.\l"
+	.string "Tell her that Clancy sent you and\l"
 	.string "she'll know.$"
 
 KaolisleCity_Fisher1_Text2::
-	.string "Again, I live in Sandstone City,\n"
-	.string "right across the street from\l"
-	.string "the Poké Center.\p"
+	.string "Again, You can find my house in\n"
+	.string "southern part of Sandstone City.\p"
 	.string "My wife probably won't give the rod\n"
-	.string "to just anyone.\p"
-	.string "Tell her that Clancy sent you and\n"
+	.string "to just anyone.\l"
+	.string "Tell her that Clancy sent you and\l"
 	.string "she'll know.$"
 
 KaolisleCity_Fisher2_Text::

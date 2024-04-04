@@ -77,7 +77,10 @@
     "UndergroundRuins_VolcaronaRoom",
     "Route10",
     "Route11",
-    "Route12"
+    "Route12",
+    "Route13",
+    "Route14",
+    "AdamantTowerExterior"
   ],
   "gMapGroup_TownsAndCities": [
     "PearlwoodPoint",

@@ -1,9 +1,9 @@
 {
-  "id": "MAP_ROUTE12",
-  "name": "Route12",
-  "layout": "LAYOUT_ROUTE12",
-  "music": "MUS_ROUTE110",
-  "region_map_section": "MAPSEC_NEWROUTE_12",
+  "id": "MAP_ROUTE13",
+  "name": "Route13",
+  "layout": "LAYOUT_ROUTE13",
+  "music": "MUS_ROUTE119",
+  "region_map_section": "MAPSEC_NEWROUTE_13",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",
@@ -14,14 +14,9 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ROUTE11",
-      "offset": 11,
-      "direction": "down"
-    },
-    {
       "map": "MAP_SANDSTONE_CITY",
-      "offset": -5,
-      "direction": "up"
+      "offset": -25,
+      "direction": "left"
     }
   ],
   "object_events": [

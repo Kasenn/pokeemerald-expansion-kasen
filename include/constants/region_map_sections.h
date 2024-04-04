@@ -246,7 +246,8 @@
 #define MAPSEC_HIDDEN_GROTTO                   0xF2
 #define MAPSEC_WEIRDCAVE                       0xF3
 #define MAPSEC_KAOLISLE_MINES                  0xF4
-#define MAPSEC_NONE                            0xF5
+#define MAPSEC_ADAMANT_TOWER                   0xF5
+#define MAPSEC_NONE                            0xF6
 
 
 #define METLOC_SPECIAL_EGG                  0xFD
@@ -256,6 +257,6 @@
 #define KANTO_MAPSEC_START  MAPSEC_PALLET_TOWN
 #define KANTO_MAPSEC_END    MAPSEC_SPECIAL_AREA
 #define KANTO_MAPSEC_COUNT (KANTO_MAPSEC_END - KANTO_MAPSEC_START + 1)
-#define FLYABLE_MAPSEC_COUNT                9
+#define FLYABLE_MAPSEC_COUNT                11
 
 #endif //GUARD_REGIONMAPSEC_H

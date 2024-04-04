@@ -15,8 +15,23 @@
   "connections": [
     {
       "map": "MAP_ROUTE12",
-      "offset": 2,
+      "offset": 5,
       "direction": "down"
+    },
+    {
+      "map": "MAP_ROUTE13",
+      "offset": 25,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE14",
+      "offset": 12,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_ADAMANT_TOWER_EXTERIOR",
+      "offset": 23,
+      "direction": "up"
     }
   ],
   "object_events": [
