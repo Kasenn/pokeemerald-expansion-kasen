@@ -1,9 +1,9 @@
 {
-  "id": "MAP_ROUTE12",
-  "name": "Route12",
-  "layout": "LAYOUT_ROUTE12",
-  "music": "MUS_ROUTE110",
-  "region_map_section": "MAPSEC_NEWROUTE_12",
+  "id": "MAP_ADAMANT_TOWER_EXTERIOR",
+  "name": "AdamantTowerExterior",
+  "layout": "LAYOUT_ADAMANT_TOWER_EXTERIOR",
+  "music": "MUS_MT_PYRE_EXTERIOR",
+  "region_map_section": "MAPSEC_ADAMANT_TOWER",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",
@@ -14,14 +14,9 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ROUTE11",
-      "offset": 11,
-      "direction": "down"
-    },
-    {
       "map": "MAP_SANDSTONE_CITY",
-      "offset": -5,
-      "direction": "up"
+      "offset": -23,
+      "direction": "down"
     }
   ],
   "object_events": [

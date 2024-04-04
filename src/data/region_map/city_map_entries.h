@@ -150,4 +150,19 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
         .index = 0,
         .tilemap = gPokenavCityMap_Kaolisle_0,
     },
+    {
+        .mapSecId = MAPSEC_ROCKLIFFE_TOWN,
+        .index = 0,
+        .tilemap = gPokenavCityMap_Kaolisle_0,
+    },
+    {
+        .mapSecId = MAPSEC_SANDSTONE_CITY,
+        .index = 0,
+        .tilemap = gPokenavCityMap_Shoreslate_1,
+    },
+    {
+        .mapSecId = MAPSEC_SANDSTONE_CITY,
+        .index = 1,
+        .tilemap = gPokenavCityMap_Shoreslate_0,
+    },
 };

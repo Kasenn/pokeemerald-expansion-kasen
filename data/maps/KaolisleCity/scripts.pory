@@ -345,20 +345,19 @@ text KaolisleCity_Fisher1_Text{
     "Would you do me a favor and fetch it\n"
     "for me? I promise I'll make it worth\l"
     "your while.\p"
-    "I live in Sandstone City, right across\n"
-    "the street from the Poké Center.\p"
+    "You can find my house in southern part\n"
+    "of Sandstone City.\p"
     "My wife probably won't give the rod\n"
-    "to just anyone.\p"
-    "Tell her that Clancy sent you and\n"
+    "to just anyone.\l"
+    "Tell her that Clancy sent you and\l"
     "she'll know."
 }
 text KaolisleCity_Fisher1_Text2{
-    "Again, I live in Sandstone City,\n"
-    "right across the street from\l"
-    "the Poké Center.\p"
+    "Again, You can find my house in\n"
+    "southern part of Sandstone City.\p"
     "My wife probably won't give the rod\n"
-    "to just anyone.\p"
-    "Tell her that Clancy sent you and\n"
+    "to just anyone.\l"
+    "Tell her that Clancy sent you and\l"
     "she'll know."
 }
 

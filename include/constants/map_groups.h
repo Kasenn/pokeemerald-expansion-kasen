@@ -36,6 +36,9 @@
 #define MAP_ROUTE10                          (27 | (0 << 8))
 #define MAP_ROUTE11                          (28 | (0 << 8))
 #define MAP_ROUTE12                          (29 | (0 << 8))
+#define MAP_ROUTE13                          (30 | (0 << 8))
+#define MAP_ROUTE14                          (31 | (0 << 8))
+#define MAP_ADAMANT_TOWER_EXTERIOR           (32 | (0 << 8))
 
 // gMapGroup_TownsAndCities
 #define MAP_PEARLWOOD_POINT   (0 | (1 << 8))

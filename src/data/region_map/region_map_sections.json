@@ -986,7 +986,7 @@
     },
     {
       "map_section": "MAPSEC_SAFARI_ZONE",
-      "name": "",
+      "name": "SAFARI ZONE",
       "x": 26,
       "y": 8,
       "width": 1,
@@ -997,6 +997,14 @@
       "name": "DESERT RUINS",
       "x": 25,
       "y": 11,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_ADAMANT_TOWER",
+      "name": "ADAMANT TOWER",
+      "x": 6,
+      "y": 10,
       "width": 1,
       "height": 1
     }
