@@ -28,7 +28,48 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 31,
+      "y": 36,
+      "elevation": 0,
+      "dest_map": "MAP_ROCKLIFFE_HARBOR",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 21,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_ROCKLIFFE_HOUSE1",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 31,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_ROCKLIFFE_HOUSE2",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 18,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_ROCKLIFFE_HOUSE3",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 23,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_ROCKLIFFE_POKECENTER_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 13,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_ROCKLIFFE_MART",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 

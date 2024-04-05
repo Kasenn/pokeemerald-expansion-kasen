@@ -8,7 +8,7 @@ Route110_SeasideCyclingRoadSouthEntrance_OnTransition:
 	end
 
 Route110_SeasideCyclingRoadSouthEntrance_EventScript_RestartChallenge::
-	setvar VAR_CYCLING_CHALLENGE_STATE, 1
+	setvar VAR_CYCLING_CHALLENGE_STATE, 0
 	return
 
 Route110_SeasideCyclingRoadSouthEntrance_EventScript_Clerk::
@@ -29,7 +29,7 @@ Route110_SeasideCyclingRoadSouthEntrance_EventScript_BikeCheck::
 	end
 
 Route110_SeasideCyclingRoadSouthEntrance_EventScript_OnMachBike::
-	setvar VAR_CYCLING_CHALLENGE_STATE, 1
+	setvar VAR_CYCLING_CHALLENGE_STATE, 0
 	return
 
 Route110_SeasideCyclingRoadSouthEntrance_EventScript_NoBike::
@@ -41,25 +41,23 @@ Route110_SeasideCyclingRoadSouthEntrance_EventScript_NoBike::
 	end
 
 Route110_SeasideCyclingRoadSouthEntrance_Movement_PushPlayerBackFromCounter:
-	walk_left
+	walk_right
 	step_end
 
 Route110_SeasideCyclingRoadSouthEntrance_EventScript_ClearCyclingRoad::
-	lockall
 	setvar VAR_CYCLING_CHALLENGE_STATE, 0
 	clearflag FLAG_SYS_CYCLING_ROAD
 	setvar VAR_TEMP_1, 0
-	releaseall
 	end
 
 Route110_SeasideCyclingRoadSouthEntrance_Text_GoAllOutOnCyclingRoad:
-	.string "On CYCLING ROAD, you can go all out\n"
+	.string "On Cycling Road, you can go all out\n"
 	.string "and cycle as fast as you'd like.\p"
 	.string "It feels great to go that fast, but try\n"
 	.string "not to crash into anyone!$"
 
 Route110_SeasideCyclingRoadSouthEntrance_Text_TooDangerousToWalk:
-	.string "Sorry, you can't walk on CYCLING\n"
-	.string "ROAD. It's too dangerous.\p"
-	.string "Please come back with a BIKE.$"
+	.string "Sorry, you can't walk on Cycling\n"
+	.string "Road. It's too dangerous.\p"
+	.string "Please come back with a bike.$"
 

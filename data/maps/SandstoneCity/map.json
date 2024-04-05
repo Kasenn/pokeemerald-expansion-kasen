@@ -24,14 +24,14 @@
       "direction": "right"
     },
     {
-      "map": "MAP_ROUTE14",
-      "offset": 12,
-      "direction": "left"
-    },
-    {
       "map": "MAP_ADAMANT_TOWER_EXTERIOR",
       "offset": 23,
       "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE14",
+      "offset": 21,
+      "direction": "left"
     }
   ],
   "object_events": [

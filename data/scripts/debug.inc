@@ -122,15 +122,11 @@ Debug_Script_5::
 	end
 
 Debug_Script_6::
-	givemon SPECIES_EMPOLEON 40
-	givemon SPECIES_DECIDUEYE 40
-	givemon SPECIES_INCINEROAR 40
-	givemon SPECIES_CHESNAUGHT 40
-	giveitem ITEM_EMPOLEONITE
-	giveitem ITEM_DECIDUEITE
-	giveitem ITEM_INCINEROARITE
-	giveitem ITEM_CHESNAUGHTITE
-	giveitem ITEM_MEGA_RING
+	giveitem ITEM_HM03
+	giveitem ITEM_HM04
+	giveitem ITEM_HM06
+	setflag FLAG_BADGE04_GET
+	setflag FLAG_BADGE05_GET
 	end
 
 Debug_Script_7::

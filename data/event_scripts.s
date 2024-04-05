@@ -1346,3 +1346,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Route14/scripts.inc"
 
 	.include "data/maps/AdamantTowerExterior/scripts.inc"
+
+	.include "data/maps/Route11_Cave/scripts.inc"

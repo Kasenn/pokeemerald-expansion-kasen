@@ -3,7 +3,7 @@
   "name": "Route117_PokemonDayCare",
   "layout": "LAYOUT_ROUTE117_POKEMON_DAY_CARE",
   "music": "MUS_RUSTBORO",
-  "region_map_section": "MAPSEC_ROUTE_117",
+  "region_map_section": "MAPSEC_NEWROUTE_11",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -33,15 +33,15 @@
       "x": 2,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE117",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_ROUTE11",
+      "dest_warp_id": "2"
     },
     {
       "x": 3,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE117",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_ROUTE11",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [
