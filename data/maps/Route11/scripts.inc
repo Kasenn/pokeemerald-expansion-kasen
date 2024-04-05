@@ -5,10 +5,12 @@ Route11_MapScripts::
 
 
 Route11_BrokenBridge::
-	goto_if_unset FLAG_VISITED_SANDSTONE_CITY, Route11_BrokenBridge_1
-	return
-
+	goto_if_unset FLAG_VISITED_SANDSTONE_CITY, Route11_BrokenBridge_2
 Route11_BrokenBridge_1:
+	call Route11_TryMoveDayCareMan
+	end
+
+Route11_BrokenBridge_2:
 	setmetatile 82, 8, 0x075, TRUE
 	setmetatile 83, 8, 0x075, TRUE
 	setmetatile 84, 8, 0x075, TRUE
@@ -28,7 +30,7 @@ Route11_BrokenBridge_1:
 	setmetatile 88, 9, 0x192, TRUE
 	setmetatile 89, 9, 0x073, TRUE
 	setmetatile 90, 9, 0x10E, TRUE
-	setmetatile 91, 9, 0x075, TRUE
+	setmetatile 91, 9, 0x073, TRUE
 	setmetatile 83, 10, 0x116, TRUE
 	setmetatile 84, 10, 0x10E, TRUE
 	setmetatile 85, 10, 0x190, TRUE
@@ -47,5 +49,23 @@ Route11_BrokenBridge_1:
 	setmetatile 86, 12, 0x2EA, TRUE
 	setmetatile 87, 12, 0x2EA, TRUE
 	setmetatile 88, 12, 0x2D7, TRUE
+	goto Route11_BrokenBridge_1
+
+
+Route11_UpdateDayCareMan::
+	call Route11_TryMoveDayCareMan
+	release
+	end
+
+
+Route11_TryMoveDayCareMan::
+	goto_if_unset FLAG_PENDING_DAYCARE_EGG, Route11_StopMoveDayCareMan
+	setobjectxyperm 4, 68, 6
 	return
+
+
+Route11_StopMoveDayCareMan::
+	setobjectxyperm 4, 68, 4
+	release
+	end
 

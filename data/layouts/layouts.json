@@ -5776,7 +5776,7 @@
       "name": "Route12_Layout",
       "width": 48,
       "height": 82,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_General2",
       "secondary_tileset": "gTileset_CyclingRoad",
       "border_filepath": "data/layouts/Route12/border.bin",
       "blockdata_filepath": "data/layouts/Route12/map.bin"
@@ -5804,10 +5804,10 @@
     {
       "id": "LAYOUT_ROUTE14",
       "name": "Route14_Layout",
-      "width": 80,
-      "height": 35,
+      "width": 120,
+      "height": 38,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "secondary_tileset": "gTileset_Fortree2",
       "border_filepath": "data/layouts/Route14/border.bin",
       "blockdata_filepath": "data/layouts/Route14/map.bin"
     },
@@ -5820,6 +5820,16 @@
       "secondary_tileset": "gTileset_Pacifidlog",
       "border_filepath": "data/layouts/AdamantTowerExterior/border.bin",
       "blockdata_filepath": "data/layouts/AdamantTowerExterior/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE11_CAVE",
+      "name": "Route11_Cave_Layout",
+      "width": 9,
+      "height": 12,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Route11_Cave/border.bin",
+      "blockdata_filepath": "data/layouts/Route11_Cave/map.bin"
     }
   ]
 }

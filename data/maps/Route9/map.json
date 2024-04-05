@@ -14,14 +14,14 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_SHORESLATE_CITY",
-      "offset": -23,
-      "direction": "right"
+      "map": "MAP_KAOLISLE_CITY",
+      "offset": 7,
+      "direction": "down"
     },
     {
-      "map": "MAP_KAOLISLE_CITY",
-      "offset": 9,
-      "direction": "down"
+      "map": "MAP_SHORESLATE_CITY",
+      "offset": -28,
+      "direction": "right"
     }
   ],
   "object_events": [

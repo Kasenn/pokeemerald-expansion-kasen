@@ -1023,3 +1023,14 @@ const struct Tileset gTileset_SandstoneCity =
     .metatileAttributes = gMetatileAttributes_SandstoneCity,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Fortree2 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Fortree2,
+    .palettes = gTilesetPalettes_Fortree2,
+    .metatiles = gMetatiles_Fortree2,
+    .metatileAttributes = gMetatileAttributes_Fortree2,
+    .callback = NULL,
+};
