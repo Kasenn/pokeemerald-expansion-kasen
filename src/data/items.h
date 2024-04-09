@@ -1386,7 +1386,7 @@ const struct Item gItems[] =
     [ITEM_MAX_REPEL] =
     {
         .name = _("Max Repel"),
-        .price = 900,
+        .price = 800,
         .holdEffectParam = 250,
         .description = sMaxRepelDesc,
         .pocket = POCKET_ITEMS,
@@ -7329,7 +7329,7 @@ const struct Item gItems[] =
     [ITEM_TM_LIGHT_SCREEN] =
     {
         .name = _("TM16"),
-        .price = 3000,
+        .price = 30000,
         .description = sTM16Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
@@ -7377,7 +7377,7 @@ const struct Item gItems[] =
     [ITEM_TM_SAFEGUARD] =
     {
         .name = _("TM20"),
-        .price = 3000,
+        .price = 30000,
         .description = sTM20Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
@@ -7389,7 +7389,7 @@ const struct Item gItems[] =
     [ITEM_TM_FRUSTRATION] =
     {
         .name = _("TM21"),
-        .price = 1000,
+        .price = 10000,
         .description = sTM21Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
@@ -7461,7 +7461,7 @@ const struct Item gItems[] =
     [ITEM_TM_RETURN] =
     {
         .name = _("TM27"),
-        .price = 1000,
+        .price = 10000,
         .description = sTM27Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
@@ -7533,7 +7533,7 @@ const struct Item gItems[] =
     [ITEM_TM_REFLECT] =
     {
         .name = _("TM33"),
-        .price = 3000,
+        .price = 30000,
         .description = sTM33Desc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,

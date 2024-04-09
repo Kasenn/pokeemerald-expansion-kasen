@@ -10,6 +10,9 @@
 // PC settings
 #define OW_PC_PRESS_B               GEN_LATEST // In Gen4, pressing B when holding a Pokémon is equivalent to placing it. In Gen3, it gives the "You're holding a Pokémon!" error.
 
+#define MAY_OUTFIT_CHANGE       0x881
+#define BRENDAN_OUTFIT_CHANGE   0x882
+
 // Overworld flags
 // To use the following features in scripting, replace the 0s with the flag ID you're assigning it to.
 // Eg: Replace with FLAG_UNUSED_0x264 so you can use that flag to toggle the feature.

@@ -217,11 +217,11 @@ script Mart_Clerk{
         case 3:
             pokemart(Mart_3Badges)
         case 4:
-            pokemart(Mart_3Badges)
+            pokemart(Mart_4Badges)
         case 5:
-            pokemart(Mart_5Badges)
+            pokemart(Mart_4Badges)
         case 6:
-            pokemart(Mart_5Badges)
+            pokemart(Mart_7Badges)
         case 7:
             pokemart(Mart_7Badges)
         case 8:
@@ -287,7 +287,7 @@ mart Mart_3Badges{
     ITEM_SUPER_REPEL
 	ITEM_NONE
 }
-mart Mart_5Badges{
+mart Mart_4Badges{
     ITEM_POKE_BALL
     ITEM_GREAT_BALL
     ITEM_ULTRA_BALL
@@ -346,4 +346,24 @@ mart Mart_8Badges{
     ITEM_SUPER_REPEL
     ITEM_MAX_REPEL
 	ITEM_NONE
+}
+
+script Rockliffe_TM_Mart_Clerk{
+    lock
+	faceplayer
+	message(gText_HowMayIServeYou)
+	waitmessage
+    pokemart(Mart_TM1)
+    msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+mart Mart_TM1{
+    ITEM_TM_FRUSTRATION
+    ITEM_TM_RETURN
+    ITEM_TM_LIGHT_SCREEN
+    ITEM_TM_REFLECT
+    ITEM_TM_SAFEGUARD
+    ITEM_NONE
 }

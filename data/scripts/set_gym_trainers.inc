@@ -83,9 +83,9 @@ FortreeCity_Gym_SetGymTrainers::
 	return
 
 MossdeepCity_Gym_SetGymTrainers::
-	settrainerflag TRAINER_PRESTON
-	settrainerflag TRAINER_VIRGIL
-	settrainerflag TRAINER_BLAKE
+	settrainerflag TRAINER_R11_MAY_PIPLUP
+	settrainerflag TRAINER_R11_MAY_ROWLET_ANGRY
+	settrainerflag TRAINER_R11_MAY_TORCHIC_ANGRY
 	settrainerflag TRAINER_HANNAH
 	settrainerflag TRAINER_SAMANTHA
 	settrainerflag TRAINER_MAURA

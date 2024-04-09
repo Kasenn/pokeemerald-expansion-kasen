@@ -59,6 +59,7 @@ static const u8 sTileBitAttributes[NUM_METATILE_BEHAVIORS] =
     [MB_JUMP_NORTHWEST]                  = TILE_FLAG_UNUSED,
     [MB_JUMP_SOUTHEAST]                  = TILE_FLAG_UNUSED,
     [MB_JUMP_SOUTHWEST]                  = TILE_FLAG_UNUSED,
+    [MB_JUMP_OMNI]                  = TILE_FLAG_UNUSED,
     [MB_WALK_EAST]                       = TILE_FLAG_UNUSED,
     [MB_WALK_WEST]                       = TILE_FLAG_UNUSED,
     [MB_WALK_NORTH]                      = TILE_FLAG_UNUSED,
@@ -68,8 +69,8 @@ static const u8 sTileBitAttributes[NUM_METATILE_BEHAVIORS] =
     [MB_SLIDE_NORTH]                     = TILE_FLAG_UNUSED,
     [MB_SLIDE_SOUTH]                     = TILE_FLAG_UNUSED,
     [MB_TRICK_HOUSE_PUZZLE_8_FLOOR]      = TILE_FLAG_UNUSED,
-    [MB_UNUSED_49]                       = TILE_FLAG_UNUSED,
-    [MB_UNUSED_4A]                       = TILE_FLAG_UNUSED,
+    [MB_JUMP_LEFTRIGHT]                       = TILE_FLAG_UNUSED,
+    [MB_JUMP_UPDOWN]                       = TILE_FLAG_UNUSED,
     [MB_EASTWARD_CURRENT]                = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE,
     [MB_WESTWARD_CURRENT]                = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE,
     [MB_NORTHWARD_CURRENT]               = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE,
@@ -144,7 +145,7 @@ bool8 MetatileBehavior_IsEncounterTile(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsJumpEast(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_JUMP_EAST)
+    if (metatileBehavior == MB_JUMP_EAST || metatileBehavior == MB_JUMP_OMNI || metatileBehavior == MB_JUMP_LEFTRIGHT)
         return TRUE;
     else
         return FALSE;
@@ -152,7 +153,7 @@ bool8 MetatileBehavior_IsJumpEast(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsJumpWest(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_JUMP_WEST)
+    if (metatileBehavior == MB_JUMP_WEST || metatileBehavior == MB_JUMP_OMNI || metatileBehavior == MB_JUMP_LEFTRIGHT)
         return TRUE;
     else
         return FALSE;
@@ -160,7 +161,7 @@ bool8 MetatileBehavior_IsJumpWest(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsJumpNorth(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_JUMP_NORTH)
+    if (metatileBehavior == MB_JUMP_NORTH || metatileBehavior == MB_JUMP_OMNI || metatileBehavior == MB_JUMP_UPDOWN)
         return TRUE;
     else
         return FALSE;
@@ -168,7 +169,7 @@ bool8 MetatileBehavior_IsJumpNorth(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsJumpSouth(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_JUMP_SOUTH)
+    if (metatileBehavior == MB_JUMP_SOUTH || metatileBehavior == MB_JUMP_OMNI || metatileBehavior == MB_JUMP_UPDOWN)
         return TRUE;
     else
         return FALSE;

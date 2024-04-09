@@ -13,7 +13,6 @@ Debug_CheatStart::
 	setflag FLAG_BADGE01_GET
 	setflag FLAG_BADGE02_GET
 	setflag FLAG_SYS_POKEMON_GET
-	setflag FLAG_RESCUED_BIRCH
 	setflag FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE
 	setflag FLAG_ADVENTURE_STARTED
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH
@@ -119,6 +118,7 @@ Debug_Script_4::
 	end
 
 Debug_Script_5::
+	call SetMayOutfit
 	end
 
 Debug_Script_6::

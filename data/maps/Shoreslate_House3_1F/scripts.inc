@@ -3,16 +3,62 @@ Shoreslate_House3_1F_MapScripts::
 
 
 Shoreslate_House3_1F_BlackBelt::
+	goto_if_set FLAG_OBTAINED_LUCARIONITE, Shoreslate_House3_1F_BlackBelt_2
+	goto_if_set FLAG_OBTAINED_MEGA_RING, Shoreslate_House3_1F_BlackBelt_5
 	checkplayergender
 	compare VAR_RESULT, MALE
-	goto_if_eq Shoreslate_House3_1F_BlackBelt_2
+	goto_if_eq Shoreslate_House3_1F_BlackBelt_8
 	msgbox Shoreslate_House3_1F_BlackBelt_Female, MSGBOX_NPC
-Shoreslate_House3_1F_BlackBelt_1:
+Shoreslate_House3_1F_BlackBelt_7:
 	end
 
 Shoreslate_House3_1F_BlackBelt_2:
+	msgbox LucarioniteGet, MSGBOX_NPC
+	end
+
+Shoreslate_House3_1F_BlackBelt_5:
+	checkdexmon SPECIES_LUCARIO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Shoreslate_House3_1F_BlackBelt_11
+	lock
+	faceplayer
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq Shoreslate_House3_1F_BlackBelt_19
+	msgbox Shoreslate_BlackBelt_Female_YesAura, MSGBOX_DEFAULT
+Shoreslate_House3_1F_BlackBelt_18:
+	checkitemspace ITEM_LUCARIONITE
+	compare VAR_RESULT, FALSE
+	goto_if_eq Shoreslate_House3_1F_BlackBelt_23
+	giveitem ITEM_LUCARIONITE
+	waitmessage
+	waitse
+	msgbox LucarioniteGet, MSGBOX_NPC
+	end
+
+Shoreslate_House3_1F_BlackBelt_8:
 	msgbox Shoreslate_House3_1F_BlackBelt_Male, MSGBOX_NPC
-	goto Shoreslate_House3_1F_BlackBelt_1
+	goto Shoreslate_House3_1F_BlackBelt_7
+
+Shoreslate_House3_1F_BlackBelt_11:
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq Shoreslate_House3_1F_BlackBelt_15
+	msgbox Shoreslate_BlackBelt_Female_NoAura, MSGBOX_NPC
+Shoreslate_House3_1F_BlackBelt_14:
+	end
+
+Shoreslate_House3_1F_BlackBelt_15:
+	msgbox Shoreslate_BlackBelt_Male_NoAura, MSGBOX_NPC
+	goto Shoreslate_House3_1F_BlackBelt_14
+
+Shoreslate_House3_1F_BlackBelt_19:
+	msgbox Shoreslate_BlackBelt_Male_YesAura, MSGBOX_DEFAULT
+	goto Shoreslate_House3_1F_BlackBelt_18
+
+Shoreslate_House3_1F_BlackBelt_23:
+	msgbox NotEnoughRoom, MSGBOX_NPC
+	end
 
 
 Shoreslate_House3_2F_Girl::
@@ -107,6 +153,27 @@ Shoreslate_House3_3F_Man::
 	msgbox Shoreslate_House3_3F_Man_Text, MSGBOX_NPC
 	end
 
+
+Shoreslate_BlackBelt_Male_NoAura::
+	.string "Are you a tough guy?\n"
+	.string "Maybe, but your aura is weak.$"
+
+Shoreslate_BlackBelt_Female_NoAura::
+	.string "Are you a tough girl?\n"
+	.string "Maybe, but your aura is weak.$"
+
+Shoreslate_BlackBelt_Male_YesAura::
+	.string "Are you a tough guy?\n"
+	.string "Yes, I can sense your aura.\l"
+	.string "You should take this.$"
+
+Shoreslate_BlackBelt_Female_YesAura::
+	.string "Are you a tough girl?\n"
+	.string "Yes, I can sense your aura.\l"
+	.string "You should take this.$"
+
+LucarioniteGet::
+	.string "Never let your fighting spirit die.$"
 
 Shoreslate_House3_1F_BlackBelt_Male::
 	.string "Are you a tough guy?\n"

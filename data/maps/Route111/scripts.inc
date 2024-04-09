@@ -443,7 +443,7 @@ Route111_EventScript_RockSmashTipFatMan::
 	end
 
 Route111_EventScript_Drew::
-	trainerbattle_single TRAINER_DREW, Route111_Text_DrewIntro, Route111_Text_DrewDefeat
+	trainerbattle_single TRAINER_R11_TR1_LASS, Route111_Text_DrewIntro, Route111_Text_DrewDefeat
 	msgbox Route111_Text_DrewPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -453,7 +453,7 @@ Route111_EventScript_Heidi::
 	end
 
 Route111_EventScript_Beau::
-	trainerbattle_single TRAINER_BEAU, Route111_Text_BeauIntro, Route111_Text_BeauDefeat
+	trainerbattle_single TRAINER_R11_TR2_BIRDKEEPER, Route111_Text_BeauIntro, Route111_Text_BeauDefeat
 	msgbox Route111_Text_BeauPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -484,7 +484,7 @@ Route111_EventScript_RematchDusty::
 	end
 
 Route111_EventScript_Travis::
-	trainerbattle_single TRAINER_TRAVIS, Route111_Text_TravisIntro, Route111_Text_TravisDefeat
+	trainerbattle_single TRAINER_R11_TR8_NINJABOY_2, Route111_Text_TravisIntro, Route111_Text_TravisDefeat
 	msgbox Route111_Text_TravisPostBattle, MSGBOX_AUTOCLOSE
 	end
 

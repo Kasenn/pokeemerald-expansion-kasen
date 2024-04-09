@@ -1,6 +1,44 @@
 mapscripts Shoreslate_House3_1F_MapScripts{}
 
 script Shoreslate_House3_1F_BlackBelt{
+    if(flag(FLAG_OBTAINED_LUCARIONITE)){
+        msgbox(LucarioniteGet, MSGBOX_NPC)
+        end
+    }
+    if(flag(FLAG_OBTAINED_MEGA_RING)){
+        checkdexmon(SPECIES_LUCARIO)
+        if(var(VAR_RESULT) == FALSE){
+            checkplayergender
+            if(var(VAR_RESULT) == MALE){
+                msgbox(Shoreslate_BlackBelt_Male_NoAura, MSGBOX_NPC)
+            }
+            else{
+                msgbox(Shoreslate_BlackBelt_Female_NoAura, MSGBOX_NPC)
+            }
+            end
+        }
+        else{
+            lock
+            faceplayer
+            checkplayergender
+            if(var(VAR_RESULT) == MALE){
+                msgbox(Shoreslate_BlackBelt_Male_YesAura, MSGBOX_DEFAULT)
+            }
+            else{
+                msgbox(Shoreslate_BlackBelt_Female_YesAura, MSGBOX_DEFAULT)
+            }
+            checkitemspace(ITEM_LUCARIONITE)
+            if(var(VAR_RESULT) == FALSE){
+                msgbox(NotEnoughRoom, MSGBOX_NPC)
+                end
+            }
+            giveitem(ITEM_LUCARIONITE)
+            waitmessage
+            waitse
+            msgbox(LucarioniteGet, MSGBOX_NPC)
+            end
+        }
+    }
     checkplayergender
     if(var(VAR_RESULT) == MALE){
         msgbox(Shoreslate_House3_1F_BlackBelt_Male, MSGBOX_NPC)
@@ -9,6 +47,27 @@ script Shoreslate_House3_1F_BlackBelt{
         msgbox(Shoreslate_House3_1F_BlackBelt_Female, MSGBOX_NPC)
     }
     end
+}
+text Shoreslate_BlackBelt_Male_NoAura{
+    "Are you a tough guy?\n"
+    "Maybe, but your aura is weak."
+}
+text Shoreslate_BlackBelt_Female_NoAura{
+    "Are you a tough girl?\n"
+    "Maybe, but your aura is weak."
+}
+text Shoreslate_BlackBelt_Male_YesAura{
+    "Are you a tough guy?\n"
+    "Yes, I can sense your aura.\l"
+    "You should take this."
+}
+text Shoreslate_BlackBelt_Female_YesAura{
+    "Are you a tough girl?\n"
+    "Yes, I can sense your aura.\l"
+    "You should take this."
+}
+text LucarioniteGet{
+    "Never let your fighting spirit die."
 }
 text Shoreslate_House3_1F_BlackBelt_Male{
     "Are you a tough guy?\n"

@@ -13,8 +13,16 @@ script KaolisleHarbor_Attendant{
             call(Harbor_BoardFerryGoingEast)     // make sure the attendant is id 3 and boat is id 4
 	        warp(MAP_SHORESLATE_HARBOR, 16, 10)
         case 1:
-            msgbox("This choice is not yet ready.\nSorry!", MSGBOX_NPC)
-            end
+            if(!flag(FLAG_BADGE03_GET)){
+                msgbox(SailToShoreslateInstead, MSGBOX_YESNO)
+                if(var(VAR_RESULT) == FALSE){
+                    goto(Harbor_ComeAgain)
+                }
+                call(Harbor_BoardFerryGoingEast)   
+                warp(MAP_SHORESLATE_HARBOR, 16, 10)
+            }
+            call(Harbor_BoardFerryGoingEast)     // make sure the attendant is id 3 and boat is id 4
+	        warp(MAP_ROCKLIFFE_HARBOR, 8, 3)
         case 2:
             goto(Harbor_ComeAgain)
         case MULTI_B_PRESSED:
@@ -24,9 +32,18 @@ script KaolisleHarbor_Attendant{
 	release
 	end
 }
+
+text SailToShoreslateInstead{
+    "I'm sorry, but the harbor at Rockliffe\n"
+    "Town is currently having some technical\l"
+    "difficulties, making it impossible for\l"
+    "the ferry to dock there.\p"
+    "Would you like to sail to Shoreslate\n"
+    "City instead?"
+}
 text KaolisleHarbor_Text_GetAboard{
     "This ferry travels to Shoreslate City\n"
-    "and WIP TOWN.\p"
+    "and Rockliffe Town.\p"
 	"Would you like to board the ferry?"
 }
 

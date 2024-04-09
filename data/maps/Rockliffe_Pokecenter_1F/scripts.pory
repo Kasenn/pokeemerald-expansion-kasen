@@ -1,0 +1,40 @@
+mapscripts Rockliffe_Pokecenter_1F_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: RockliffePokeCenter1F_OnTransition
+	MAP_SCRIPT_ON_RESUME: CableClub_OnResume
+}
+
+script RockliffePokeCenter1F_OnTransition{
+	setrespawn(HEAL_LOCATION_ROCKLIFFE_TOWN)
+	call(Common_EventScript_UpdateBrineyLocation)
+	end
+}
+
+script RockliffePokeCenter1F_EventScript_Nurse{
+	setvar(VAR_0x800B, 1)
+	call(Common_EventScript_PkmnCenterNurse)
+	waitmessage
+	waitbuttonpress
+	release
+	end
+}
+
+script RockliffePokeCenter1F_Man{
+    lockall
+    msgbox(RockliffePokeCenter1F_Man_Text, MSGBOX_DEFAULT)
+    release
+    end
+}
+text RockliffePokeCenter1F_Man_Text{
+    "So I'm currently there.\n"
+    "So my next step should be…"
+}
+
+script RockliffePokeCenter1F_Expert{
+    msgbox(RockliffePokeCenter1F_Expert_Text, MSGBOX_NPC)
+    end
+}
+text RockliffePokeCenter1F_Expert_Text{
+    "Back when I was a kid, we had to\n"
+    "build our own Poké Balls!\p"
+    "Kids these days sure have things easy…"
+}

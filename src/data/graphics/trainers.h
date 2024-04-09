@@ -298,6 +298,12 @@ const u32 gTrainerPalette_Korrina[] = INCBIN_U32("graphics/trainers/front_pics/l
 const u32 gTrainerFrontPic_BWAceTrainerF[] = INCBIN_U32("graphics/trainers/front_pics/bw_ace_trainer_f.4bpp.lz");
 const u32 gTrainerPalette_BWAceTrainerF[] = INCBIN_U32("graphics/trainers/front_pics/bw_ace_trainer_f.gbapal.lz");
 
+const u32 gTrainerFrontPic_MayOras[] = INCBIN_U32("graphics/trainers/front_pics/may_oras.4bpp.lz");
+const u32 gTrainerPalette_MayOras[] = INCBIN_U32("graphics/trainers/front_pics/may_oras.gbapal.lz");
+
+const u32 gTrainerFrontPic_BrendanOras[] = INCBIN_U32("graphics/trainers/front_pics/brendan_oras.4bpp.lz");
+const u32 gTrainerPalette_BrendanOras[] = INCBIN_U32("graphics/trainers/front_pics/brendan_oras.gbapal.lz");
+
 const u32 gTrainerFrontPic_BWAceTrainerM[] = INCBIN_U32("graphics/trainers/front_pics/bw_ace_trainer_m.4bpp.lz");
 const u32 gTrainerPalette_BWAceTrainerM[] = INCBIN_U32("graphics/trainers/front_pics/bw_ace_trainer_m.gbapal.lz");
 

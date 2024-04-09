@@ -166,7 +166,7 @@ Route110_EventScript_PlayerRidingAcroBike::
 	end
 
 Route110_EventScript_Edward::
-	trainerbattle_single TRAINER_EDWARD, Route110_Text_EdwardIntro, Route110_Text_EdwardDefeated
+	trainerbattle_single TRAINER_R11_MAY_TORHIC, Route110_Text_EdwardIntro, Route110_Text_EdwardDefeated
 	msgbox Route110_Text_EdwardPostBattle, MSGBOX_AUTOCLOSE
 	end
 

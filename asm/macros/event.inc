@@ -1767,6 +1767,12 @@
 	.byte \partynumber
 	.endm
 
+	@ Checks if the player has caught the specified Pokemon. Sets VAR_RESULT to TRUE if the player has
+	@ caught the mon; otherwise sets VAR_RESULT to FALSE
+	.macro checkdexmon species:req
+	.byte 0xe6
+	.2byte \species
+	.endm
 
 @ Supplementary
 

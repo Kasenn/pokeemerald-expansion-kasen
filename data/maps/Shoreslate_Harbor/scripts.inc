@@ -41,8 +41,11 @@ ShoreslateHarbor_Attendant_6:
 	goto ShoreslateHarbor_Attendant_4
 
 ShoreslateHarbor_Attendant_7:
-	msgbox ShoreslateHarbor_Attendant_Text_1, MSGBOX_NPC
-	end
+	goto_if_unset FLAG_BADGE03_GET, ShoreslateHarbor_Attendant_11
+ShoreslateHarbor_Attendant_10:
+	call Harbor_BoardFerryGoingWest
+	warp MAP_ROCKLIFFE_HARBOR, 8, 3
+	goto ShoreslateHarbor_Attendant_4
 
 ShoreslateHarbor_Attendant_8:
 	goto Harbor_ComeAgain
@@ -51,6 +54,19 @@ ShoreslateHarbor_Attendant_8:
 ShoreslateHarbor_Attendant_9:
 	goto Harbor_ComeAgain
 	goto ShoreslateHarbor_Attendant_4
+
+ShoreslateHarbor_Attendant_11:
+	msgbox SailToKaolisleInstead, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq ShoreslateHarbor_Attendant_14
+ShoreslateHarbor_Attendant_13:
+	call Harbor_BoardFerryGoingWest
+	warp MAP_KAOLISLE_HARBOR, 7, 10
+	goto ShoreslateHarbor_Attendant_10
+
+ShoreslateHarbor_Attendant_14:
+	goto Harbor_ComeAgain
+	goto ShoreslateHarbor_Attendant_13
 
 
 Harbor_BoardFerryGoingWest::
@@ -109,8 +125,13 @@ ShoreslateHarbor_Sailor::
 ShoreslateHarbor_Attendant_Text_0:
 	.string "Where would you like to sail?$"
 
-ShoreslateHarbor_Attendant_Text_1:
-	.string "This choice is not yet ready.\nSorry!$"
+SailToKaolisleInstead::
+	.string "I'm sorry, but the harbor at Rockliffe\n"
+	.string "Town is currently having some technical\l"
+	.string "difficulties, making it impossible for\l"
+	.string "the ferry to dock there.\p"
+	.string "Would you like to sail to Kaolisle\n"
+	.string "City instead?$"
 
 ShoreslateHarbor_BoatJustLeft::
 	.string "I'm sorry, but the ferry to Kaolisle\n"
@@ -120,7 +141,7 @@ ShoreslateHarbor_BoatJustLeft::
 
 ShoreslateHarbor_Text_GetAboard::
 	.string "This ferry travels to Kaolisle City\n"
-	.string "and WIP TOWN.\p"
+	.string "and Rockliffe Town.\p"
 	.string "Would you like to board the ferry?$"
 
 ShoreslateHarbor_Boy_Text::

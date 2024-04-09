@@ -160,15 +160,15 @@ Mart_Clerk_6:
 	goto Mart_Clerk_1
 
 Mart_Clerk_7:
-	pokemart Mart_3Badges
+	pokemart Mart_4Badges
 	goto Mart_Clerk_1
 
 Mart_Clerk_8:
-	pokemart Mart_5Badges
+	pokemart Mart_4Badges
 	goto Mart_Clerk_1
 
 Mart_Clerk_9:
-	pokemart Mart_5Badges
+	pokemart Mart_7Badges
 	goto Mart_Clerk_1
 
 Mart_Clerk_10:
@@ -245,7 +245,7 @@ Mart_3Badges:
 	.2byte ITEM_NONE
 
 	.align 2
-Mart_5Badges:
+Mart_4Badges:
 	.2byte ITEM_POKE_BALL
 	.2byte ITEM_GREAT_BALL
 	.2byte ITEM_ULTRA_BALL
@@ -305,6 +305,26 @@ Mart_8Badges:
 	.2byte ITEM_REPEL
 	.2byte ITEM_SUPER_REPEL
 	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_NONE
+
+Rockliffe_TM_Mart_Clerk::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart Mart_TM1
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+
+	.align 2
+Mart_TM1:
+	.2byte ITEM_TM_FRUSTRATION
+	.2byte ITEM_TM_RETURN
+	.2byte ITEM_TM_LIGHT_SCREEN
+	.2byte ITEM_TM_REFLECT
+	.2byte ITEM_TM_SAFEGUARD
 	.2byte ITEM_NONE
 
 Shoreslate_Mart_Secret_Text_Beginning::

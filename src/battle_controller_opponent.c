@@ -14,6 +14,7 @@
 #include "battle_z_move.h"
 #include "bg.h"
 #include "data.h"
+#include "event_data.h"
 #include "frontier_util.h"
 #include "item.h"
 #include "link.h"
@@ -461,6 +462,15 @@ static u32 OpponentGetTrainerPicId(u32 battlerId)
     else
     {
         trainerPicId = gTrainers[gTrainerBattleOpponent_A].trainerPic;
+    }
+
+    if ((trainerPicId == TRAINER_PIC_MAY) && (FlagGet(FLAG_MAY_COSTUME_CHANGE)))
+    {
+        trainerPicId = TRAINER_PIC_MAY_ORAS;
+    }
+    if ((trainerPicId == TRAINER_PIC_BRENDAN) && (FlagGet(FLAG_BRENDAN_COSTUME_CHANGE)))
+    {
+        trainerPicId = TRAINER_PIC_BRENDAN_ORAS;
     }
 
     return trainerPicId;

@@ -230,6 +230,7 @@ gScriptCmdTable::
 	.4byte ScrCmd_setwildbattlelevelrange           @ 0xe3
 	.4byte ScrCmd_warpholexy						@ 0xe4
 	.4byte ScrCmd_checkpartymon						@ 0xe5
+	.4byte ScrCmd_checkdexmon						@ 0xe6
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop

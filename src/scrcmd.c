@@ -31,6 +31,7 @@
 #include "mystery_event_script.h"
 #include "palette.h"
 #include "party_menu.h"
+#include "pokedex.h"
 #include "pokemon_storage_system.h"
 #include "random.h"
 #include "overworld.h"
@@ -519,6 +520,14 @@ bool8 ScrCmd_checkitem(struct ScriptContext *ctx)
     u32 quantity = VarGet(ScriptReadHalfword(ctx));
 
     gSpecialVar_Result = CheckBagHasItem(itemId, (u8)quantity);
+    return FALSE;
+}
+
+bool8 ScrCmd_checkdexmon(struct ScriptContext *ctx)
+{
+    u16 species = VarGet(ScriptReadHalfword(ctx));
+
+    gSpecialVar_Result = GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_GET_CAUGHT);
     return FALSE;
 }
 
