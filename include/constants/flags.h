@@ -94,7 +94,7 @@
 // Scripts
 #define FLAG_SYSTEM_NOREWARDBATTLES              0x50 // NO EXP OR MONEY FROM BATTLES, used in hotel battle buffet
 #define FLAG_SET_WALL_CLOCK                      0x51
-#define FLAG_RESCUED_BIRCH                       0x52
+#define FLAG_RECEIVED_METAL_COAT                       0x52
 #define FLAG_LEGENDARIES_IN_SOOTOPOLIS           0x53
 
 #define FLAG_RECEIVED_LIGHTBALL                    0x54  // Received light ball after showing 2 raichus in skyloch village
@@ -583,8 +583,8 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_123_REVIVE                    (FLAG_HIDDEN_ITEMS_START + 0x29)
 #define FLAG_HIDDEN_ITEM_ROUTE_114_REVIVE                    (FLAG_HIDDEN_ITEMS_START + 0x2A)
 #define FLAG_HIDDEN_ITEM_LILYCOVE_CITY_PP_UP                 (FLAG_HIDDEN_ITEMS_START + 0x2B)
-#define FLAG_HIDDEN_ITEM_ROUTE_104_SUPER_POTION              (FLAG_HIDDEN_ITEMS_START + 0x2C)
-#define FLAG_HIDDEN_ITEM_ROUTE_116_SUPER_POTION              (FLAG_HIDDEN_ITEMS_START + 0x2D)
+#define FLAG_ROCKLIFFE_ITEM2              (FLAG_HIDDEN_ITEMS_START + 0x2C)
+#define FLAG_ROCKLIFFE_ITEM3              (FLAG_HIDDEN_ITEMS_START + 0x2D)
 #define FLAG_HIDDEN_ITEM_ROUTE_106_STARDUST                  (FLAG_HIDDEN_ITEMS_START + 0x2E)
 #define FLAG_HIDDEN_ITEM_ROUTE_106_HEART_SCALE               (FLAG_HIDDEN_ITEMS_START + 0x2F)
 #define FLAG_HIDDEN_ITEM_GRANITE_CAVE_B2F_EVERSTONE_1        (FLAG_HIDDEN_ITEMS_START + 0x30)
@@ -737,9 +737,9 @@
 #define FLAG_MARIGORGE_ITEM1  0x2B6 // Unused Flag
 #define FLAG_MARIGORGE_ITEM2  0x2B7 // Unused Flag
 #define FLAG_MARIGORGE_ITEM3  0x2B8 // Unused Flag
-#define FLAG_UNUSED_0x2B9  0x2B9 // Unused Flag
-#define FLAG_UNUSED_0x2BA  0x2BA // Unused Flag
-#define FLAG_UNUSED_0x2BB  0x2BB // Unused Flag
+#define FLAG_ROCKLIFFE_ITEM1  0x2B9 // Unused Flag
+#define FLAG_OBTAINED_MEGA_RING  0x2BA // Unused Flag
+#define FLAG_OBTAINED_BEEDRILLITE  0x2BB // Unused Flag
 
 // Event Flags
 #define FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG                      0x2BC
@@ -1070,12 +1070,12 @@
 #define FLAG_ITEM_ROUTE_116_HP_UP                                   0x3FD
 #define FLAG_ITEM_ROUTE_117_GREAT_BALL                              0x3FE
 #define FLAG_ITEM_ROUTE_117_REVIVE                                  0x3FF
-#define FLAG_ITEM_ROUTE_119_SUPER_REPEL                             0x400
-#define FLAG_ITEM_ROUTE_119_ZINC                                    0x401
-#define FLAG_ITEM_ROUTE_119_ELIXIR_1                                0x402
-#define FLAG_ITEM_ROUTE_119_LEAF_STONE                              0x403
+#define FLAG_ITEM_ROUTE_11_SUPER_REPEL                             0x400
+#define FLAG_ITEM_ROUTE_11_ZINC                                    0x401
+#define FLAG_ITEM_ROUTE_11_ELIXIR                                0x402
+#define FLAG_ITEM_ROUTE_11_TORMENT                              0x403
 #define FLAG_ITEM_ROUTE_119_RARE_CANDY                              0x404
-#define FLAG_ITEM_ROUTE_119_HYPER_POTION_1                          0x405
+#define FLAG_ITEM_ROUTE_11_HYPER_POTION                          0x405
 #define FLAG_ITEM_ROUTE_120_NUGGET                                  0x406
 #define FLAG_ITEM_ROUTE_120_FULL_HEAL                               0x407
 #define FLAG_ITEM_ROUTE_123_CALCIUM                                 0x408
@@ -1299,7 +1299,7 @@
 #define FLAG_KAOLMINES_ITEM14                                           0x4E1 // Kaolisle Mines Item Flags End
 #define FLAG_VISITED_SANDSTONE_CITY                                           0x4E2 //
 #define FLAG_VISITED_ROCKLIFFE                                           0x4E3 // Unused Flag
-#define FLAG_UNUSED_0x4E4                                           0x4E4 // Unused Flag
+#define FLAG_OBTAINED_LUCARIONITE                                           0x4E4 // Unused Flag
 #define FLAG_UNUSED_0x4E5                                           0x4E5 // Unused Flag
 #define FLAG_UNUSED_0x4E6                                           0x4E6 // Unused Flag
 #define FLAG_UNUSED_0x4E7                                           0x4E7 // Unused Flag
@@ -1383,8 +1383,8 @@
 #define FLAG_IS_CHAMPION                            (SYSTEM_FLAGS + 0x1F) // Seems to be related to linking.
 #define FLAG_NURSE_UNION_ROOM_REMINDER              (SYSTEM_FLAGS + 0x20)
 
-#define FLAG_UNUSED_0x881                           (SYSTEM_FLAGS + 0x21) // Unused Flag
-#define FLAG_UNUSED_0x882                           (SYSTEM_FLAGS + 0x22) // Unused Flag
+#define FLAG_MAY_COSTUME_CHANGE                           (SYSTEM_FLAGS + 0x21) // Unused Flag
+#define FLAG_BRENDAN_COSTUME_CHANGE                           (SYSTEM_FLAGS + 0x22) // Unused Flag
 #define FLAG_UNUSED_0x883                           (SYSTEM_FLAGS + 0x23) // Unused Flag
 #define FLAG_UNUSED_0x884                           (SYSTEM_FLAGS + 0x24) // Unused Flag
 #define FLAG_UNUSED_0x885                           (SYSTEM_FLAGS + 0x25) // Unused Flag

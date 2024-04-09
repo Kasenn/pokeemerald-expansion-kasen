@@ -1,0 +1,83 @@
+mapscripts RockliffeTown_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: VisitedRockliffe
+}
+
+script VisitedRockliffe{
+    setflag(FLAG_VISITED_ROCKLIFFE)
+    end
+}
+
+script Rockliffe_Fisher{
+    msgbox(Rockliffe_Fisher_Text, MSGBOX_NPC)
+    end
+}
+text Rockliffe_Fisher_Text{
+    "Lots of folks seem to be passing\n"
+    "through Rockliffe.\p"
+    "Guess using the ferry beats taking\n"
+    "the long way around the north."
+}
+
+script Rockliffe_Man{
+    msgbox(Rockliffe_Man_Text, MSGBOX_NPC)
+    end
+}
+text Rockliffe_Man_Text{
+    "I heard that in the past, Rockliffe\n"
+    "used to be a huge city.\p"
+    "However, due to the erosion caused by\n"
+    "the seawater, much of what once was\l"
+    "has been washed away into the ocean."
+}
+
+script Rockliffe_Girl{
+    msgbox(Rockliffe_Girl_Text, MSGBOX_NPC)
+    end
+}
+text Rockliffe_Girl_Text{
+    "Have you heard of Pokémon Day Care?\p"
+    "It's a great way to train Pokémon that\n"
+    "would otherwise be too weak to fight."
+}
+
+script Rockliffe_Sign{
+    msgbox(Rockliffe_Sign_Text, MSGBOX_SIGN)
+    end
+}
+text Rockliffe_Sign_Text{
+    "ROCKLIFFE TOWN\n"
+    "“The busiest port town in the world.”"
+}
+
+script RockliffeHarbor_Sailor{
+    msgbox(RockliffeHarbor_Sailor_Text, MSGBOX_NPC)
+    end
+}
+text RockliffeHarbor_Sailor_Text{
+    "A fine ship, ain't it?\p"
+    "I hear it was built by the legendary\n"
+    "shipwrights of Slateport and brought\l"
+    "here all the way from Hoenn."
+}
+
+script Rockliffe_Mart_Girl{
+    msgbox(Rockliffe_Mart_Girl_Text, MSGBOX_NPC)
+    end
+}
+text Rockliffe_Mart_Girl_Text{
+    "You never know what'll happen when\n"
+    "you're on the road.\p"
+    "That's why I like to fill my bag so\n"
+    "full that trying to cram in any more\l"
+    "stuff would cause it to burst from\l"
+    "its seams."
+}
+
+script Rockliffe_Mart_Man{
+    msgbox(Rockliffe_Mart_Man_Text, MSGBOX_NPC)
+    end
+}
+text Rockliffe_Mart_Man_Text{
+    "It seems some Poké Marts stock more\n"
+    "than just your regular trainer items."
+}

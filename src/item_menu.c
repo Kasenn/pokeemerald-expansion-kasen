@@ -2356,7 +2356,7 @@ static void PrepareBagForWallyTutorial(void)
     u32 i;
 
     sTempWallyBag = AllocZeroed(sizeof(*sTempWallyBag));
-    memcpy(sTempWallyBag->bagPocket_Items, gSaveBlock1Ptr->bagPocket_Items, sizeof(gSaveBlock1Ptr->bagPocket_Items));
+    memcpy(sTempWallyBag->bagPocket_Items, gSaveBlock2Ptr->bagPocket_Items, sizeof(gSaveBlock2Ptr->bagPocket_Items));
     memcpy(sTempWallyBag->bagPocket_PokeBalls, gSaveBlock1Ptr->bagPocket_PokeBalls, sizeof(gSaveBlock1Ptr->bagPocket_PokeBalls));
     sTempWallyBag->pocket = gBagPosition.pocket;
     for (i = 0; i < POCKETS_COUNT; i++)
@@ -2364,7 +2364,7 @@ static void PrepareBagForWallyTutorial(void)
         sTempWallyBag->cursorPosition[i] = gBagPosition.cursorPosition[i];
         sTempWallyBag->scrollPosition[i] = gBagPosition.scrollPosition[i];
     }
-    ClearItemSlots(gSaveBlock1Ptr->bagPocket_Items, BAG_ITEMS_COUNT);
+    ClearItemSlots(gSaveBlock2Ptr->bagPocket_Items, BAG_ITEMS_COUNT);
     ClearItemSlots(gSaveBlock1Ptr->bagPocket_PokeBalls, BAG_POKEBALLS_COUNT);
     ResetBagScrollPositions();
 }
@@ -2373,7 +2373,7 @@ static void RestoreBagAfterWallyTutorial(void)
 {
     u32 i;
 
-    memcpy(gSaveBlock1Ptr->bagPocket_Items, sTempWallyBag->bagPocket_Items, sizeof(sTempWallyBag->bagPocket_Items));
+    memcpy(gSaveBlock2Ptr->bagPocket_Items, sTempWallyBag->bagPocket_Items, sizeof(sTempWallyBag->bagPocket_Items));
     memcpy(gSaveBlock1Ptr->bagPocket_PokeBalls, sTempWallyBag->bagPocket_PokeBalls, sizeof(sTempWallyBag->bagPocket_PokeBalls));
     gBagPosition.pocket = sTempWallyBag->pocket;
     for (i = 0; i < POCKETS_COUNT; i++)
@@ -3290,7 +3290,7 @@ static void SortItemsInBag(u8 pocket, u8 type)
     switch (pocket)
     {
     case ITEMS_POCKET:
-        itemMem = gSaveBlock1Ptr->bagPocket_Items;
+        itemMem = gSaveBlock2Ptr->bagPocket_Items;
         itemAmount = BAG_ITEMS_COUNT;
         break;
     case KEYITEMS_POCKET:

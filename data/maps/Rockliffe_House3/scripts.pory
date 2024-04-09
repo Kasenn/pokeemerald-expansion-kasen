@@ -1,0 +1,168 @@
+mapscripts Rockliffe_House3_MapScripts{}
+
+script Rockliffe_House1_OldWoman{
+    if(flag(FLAG_OBTAINED_BEEDRILLITE)){
+        msgbox(PutBeedrToGoodUse, MSGBOX_NPC)
+        end
+    }
+    lockall
+    faceplayer
+    msgbox(DoYouLikeBeedrills, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(ThatsAShame, MSGBOX_NPC)
+        end
+    }
+    checkdexmon(SPECIES_BEEDRILL)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(YouDontHaveBeedrill, MSGBOX_NPC)
+        end
+    }
+    checkflag(FLAG_OBTAINED_MEGA_RING)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(HaveBeedrillButNoRing, MSGBOX_NPC)
+        end
+    }
+    msgbox(TakeBeedrillite, MSGBOX_DEFAULT)
+    checkitemspace(ITEM_BEEDRILLITE)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(NotEnoughRoom, MSGBOX_NPC)
+        end
+    }
+    giveitem(ITEM_BEEDRILLITE)
+    setflag(FLAG_OBTAINED_BEEDRILLITE)
+    waitse
+    waitmessage
+    closemessage
+    release
+    end
+}
+
+text DoYouLikeBeedrills{
+    "I used to be a world-renowned\n"
+    "Beedrill keeper.\l"
+    "Say, do you like Beedrills?"
+}
+text ThatsAShame{
+    "That's a shame…"
+}
+text YouDontHaveBeedrill{
+    "You say you do but you don't even have\n"
+    "a Beedrill of your own.\p"
+    "I wish folks like you would stop\n"
+    "wasting my time…"
+}
+text HaveBeedrillButNoRing{
+    "Yes, I can see it in your eyes.\p"
+    "I hope you're taking good care\n"
+    "of your Beedrill."
+}
+text TakeBeedrillite{
+    "Yes, I can see it in your eyes.\p"
+    "You must be a great trainer who\n"
+    "loves their Beedrill.\p"
+    "Maybe you'll find some use for this."
+}
+text PutBeedrToGoodUse{
+    "I hope you put that thing to good use."
+}
+
+script RockliffeHouse3_Man1{
+    if(flag(FLAG_RECEIVED_METAL_COAT)){
+        msgbox(IKnewAron, MSGBOX_NPC)
+        end
+    }
+    lockall
+    faceplayer
+    msgbox(WhichWeighsMore, MSGBOX_DEFAULT)
+    checkdexmon(SPECIES_ARON)
+    if(var(VAR_RESULT) == TRUE){
+        checkdexmon(SPECIES_EXCADRILL)
+        if(var(VAR_RESULT) == TRUE){
+            goto(WeighsMoreResult)
+            end
+        }
+        msgbox(SeenAronNotExcadrill, MSGBOX_NPC)
+        end
+    }
+    checkdexmon(SPECIES_EXCADRILL)
+    if(var(VAR_RESULT) == TRUE){
+        msgbox(SeenExcadrillNotAron, MSGBOX_NPC)
+    }
+    closemessage
+    release
+    end
+}
+text WhichWeighsMore{
+    "My friend and I were having a debate\n"
+    "about which Pokémon weighs more:\l"
+    "Aron or Excadrill.\p"
+    "If you've managed to catch both of\n"
+    "them, maybe you could show me their\l"
+    "Pokédex entries?"
+}
+text SeenAronNotExcadrill{
+    "…Oh?\p"
+    "You seem to have caught an Aron but\n"
+    "no Excadrill."
+}
+text SeenExcadrillNotAron{
+    "…Oh?\p"
+    "You seem to have caught an Excadrill\n"
+    "but no Aron."
+}
+text AronWeighsMore{
+    "Hah!\p"
+    "I knew it! Aron does weigh more\n"
+    "after all!\p"
+    "Thank you for helping us end this\n"
+    "debate, buddy!\l"
+    "Here, I want you to have this."
+}
+text IKnewAron{
+    "I knew Aron just had to weigh more!"
+}
+script WeighsMoreResult{
+    msgbox(AronWeighsMore, MSGBOX_DEFAULT)
+    checkitemspace(ITEM_METAL_COAT)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(NotEnoughRoom, MSGBOX_NPC)
+        end
+    }
+    giveitem(ITEM_METAL_COAT)
+    waitse
+    waitmessage
+    setflag(FLAG_RECEIVED_METAL_COAT)
+    closemessage
+    release
+    end
+}
+
+script RockliffeHouse3_Man2{
+    msgbox(RockliffeHouse3_Man2_Text, MSGBOX_NPC)
+    end
+}
+text RockliffeHouse3_Man2_Text{
+    "Surely an Excadrill must weigh more!\n"
+    "Just look at the size difference!"
+}
+
+script RockliffeHouse2_Man{
+    msgbox(RockliffeHouse2_Man_Text, MSGBOX_NPC)
+    end
+}
+text RockliffeHouse2_Man_Text{
+    "They say the ocean between Rockliffe\n"
+    "and Kaolisle is littered with treasure.\p"
+    "Sometimes people out there use the\n"
+    "treasure they found as a bet during\l"
+    "Pokémon battles."
+}
+
+script RockliffeHouse2_Child{
+    msgbox(RockliffeHouse2_Child_Text, MSGBOX_NPC)
+    turnobject(2, DIR_NORTH)
+    end
+}
+text RockliffeHouse2_Child_Text{
+    "Can't talk, my favorite show is on."
+}

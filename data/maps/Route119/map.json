@@ -244,7 +244,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route119_EventScript_ItemSuperRepel",
-      "flag": "FLAG_ITEM_ROUTE_119_SUPER_REPEL"
+      "flag": "FLAG_ITEM_ROUTE_11_SUPER_REPEL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -257,7 +257,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route119_EventScript_ItemZinc",
-      "flag": "FLAG_ITEM_ROUTE_119_ZINC"
+      "flag": "FLAG_ITEM_ROUTE_11_ZINC"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -270,7 +270,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route119_EventScript_ItemElixir",
-      "flag": "FLAG_ITEM_ROUTE_119_ELIXIR_1"
+      "flag": "FLAG_ITEM_ROUTE_11_ELIXIR"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -283,7 +283,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route119_EventScript_ItemLeafStone",
-      "flag": "FLAG_ITEM_ROUTE_119_LEAF_STONE"
+      "flag": "FLAG_ITEM_ROUTE_11_TORMENT"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -309,7 +309,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route119_EventScript_ItemHyperPotion",
-      "flag": "FLAG_ITEM_ROUTE_119_HYPER_POTION_1"
+      "flag": "FLAG_ITEM_ROUTE_11_HYPER_POTION"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_ADMIN_M",

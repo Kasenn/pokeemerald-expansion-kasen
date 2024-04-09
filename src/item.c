@@ -64,7 +64,7 @@ void ApplyNewEncryptionKeyToBagItems_(u32 newKey) // really GF?
 
 void SetBagItemsPointers(void)
 {
-    gBagPockets[ITEMS_POCKET].itemSlots = gSaveBlock1Ptr->bagPocket_Items;
+    gBagPockets[ITEMS_POCKET].itemSlots = gSaveBlock2Ptr->bagPocket_Items;
     gBagPockets[ITEMS_POCKET].capacity = BAG_ITEMS_COUNT;
 
     gBagPockets[KEYITEMS_POCKET].itemSlots = gSaveBlock1Ptr->bagPocket_KeyItems;

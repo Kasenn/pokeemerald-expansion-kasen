@@ -245,6 +245,37 @@ LevelTrainingMarigorge_Setup_1:
 	return
 
 
+LevelTrainingRockliffe::
+	lockall
+	setvar VAR_0x8008, 9
+	specialvar VAR_TEMP_1, GetFrontierBattlePoints
+	goto_if_ge VAR_TEMP_1, VAR_0x8008, LevelTrainingRockliffe_Setup
+	msgbox IVTraining_HaventGotEnoughPoints9BP, MSGBOX_DEFAULT
+	waitmessage
+	closemessage
+	release
+	end
+
+
+LevelTrainingRockliffe_Setup::
+	lockall
+	special ShowBattlePointsWindow
+	msgbox LevelTrainingRockliffe_Setup_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq LevelTrainingRockliffe_Setup_1
+	closemessage
+	special CloseBattlePointsWindow
+	release
+	end
+
+LevelTrainingRockliffe_Setup_1:
+	special CloseBattlePointsWindow
+	copyvar VAR_0x8004, VAR_0x8008
+	special TakeFrontierBattlePoints
+	trainerbattle_no_intro TRAINER_ROCKLIFFE_NURSE, IVTrainingDone
+	return
+
+
 IvTraining_2_Text_0:
 	.string "This is the EV Training Service.\nEach round of training costs\l5 Battle Points.$"
 
@@ -284,6 +315,9 @@ LevelTrainingShoreslate_Setup_Text_0:
 LevelTrainingMarigorge_Setup_Text_0:
 	.string "This is the Level Training Service.\nEach use of the service\lcosts 7 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 18.$"
 
+LevelTrainingRockliffe_Setup_Text_0:
+	.string "This is the Level Training Service.\nEach use of the service\lcosts 9 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 23.$"
+
 IVTraining_HaventGotEnoughPoints::
 	.string "This service costs\n"
 	.string "5 Battle Points.\p"
@@ -317,6 +351,12 @@ IVTraining_HaventGotEnoughPoints5BP::
 IVTraining_HaventGotEnoughPoints7BP::
 	.string "This service costs\n"
 	.string "7 Battle Points.\p"
+	.string "I'm sorry, but you don't have enough\n"
+	.string "Battle Points…$"
+
+IVTraining_HaventGotEnoughPoints9BP::
+	.string "This service costs\n"
+	.string "9 Battle Points.\p"
 	.string "I'm sorry, but you don't have enough\n"
 	.string "Battle Points…$"
 

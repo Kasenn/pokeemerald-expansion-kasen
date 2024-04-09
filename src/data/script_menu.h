@@ -826,6 +826,14 @@ static const struct MenuAction BoatFromKaolisle[] =
     {gText_Nevermind},
 };
 
+static const struct MenuAction BoatFromRockliffe[] =
+{
+    {gText_Shoreslate},
+    {gText_Kaolisle},
+    {gText_Nevermind},
+};
+
+
 static const struct MenuAction WhichOneWouldWin[] =
 {
     {gText_CharizardZ},
@@ -962,6 +970,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_YESNOQUESTIONMARK]          = MULTICHOICE(YesNoQuestionMark),
     [MULTI_BOATFROMSHORESLATE]         = MULTICHOICE(BoatFromShoreslate),
     [MULTI_BOATFROMKAOLISLE]           = MULTICHOICE(BoatFromKaolisle),
+    [MULTI_BOATFROMROCKLIFFE]           = MULTICHOICE(BoatFromRockliffe),
     [MULTI_WHICHONEWOULDWIN]           = MULTICHOICE(WhichOneWouldWin),
     [MULTI_BUFFET]                     = MULTICHOICE(BuffetOptions),
 };
