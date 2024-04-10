@@ -57,7 +57,7 @@ Route11_BrokenBridge_2:
 Route11_UpdateDayCareMan::
 	call Route11_TryMoveDayCareMan
 	release
-	end
+	return
 
 
 Route11_TryMoveDayCareMan::
@@ -69,7 +69,7 @@ Route11_TryMoveDayCareMan::
 Route11_StopMoveDayCareMan::
 	setobjectxyperm 4, 68, 4
 	release
-	end
+	return
 
 
 Route11_CaveManiac::
@@ -561,6 +561,7 @@ R11_RivalExits_2:
 
 
 SetMayOutfit::
+	setflag FLAG_PC_CHANGE_COSTUME
 	goto_if_set FLAG_MAY_COSTUME_CHANGE, SetMayOutfit_2
 	goto_if_unset FLAG_MAY_COSTUME_CHANGE, SetMayOutfit_4
 	return

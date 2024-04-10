@@ -433,3 +433,7 @@ const u32 gObjectEventPic_AceTrainerBWM[] = INCBIN_U32("graphics/object_events/p
 const u16 gObjectEventPalette_AceTrainerBWM[] = INCBIN_U16("graphics/object_events/pics/people/bw_ace_trainer_m.gbapal");
 const u32 gObjectEventPic_AceTrainerBWF[] = INCBIN_U32("graphics/object_events/pics/people/bw_ace_trainer_f.4bpp");
 const u16 gObjectEventPalette_AceTrainerBWF[] = INCBIN_U16("graphics/object_events/pics/people/bw_ace_trainer_f.gbapal");
+const u32 gObjectEventPic_MayOras[] = INCBIN_U32("graphics/object_events/pics/people/may_oras.4bpp");
+const u16 gObjectEventPalette_MayOras[] = INCBIN_U16("graphics/object_events/pics/people/may_oras.gbapal");
+const u32 gObjectEventPic_BrendanOras[] = INCBIN_U32("graphics/object_events/pics/people/brendan_oras.4bpp");
+const u16 gObjectEventPalette_BrendanOras[] = INCBIN_U16("graphics/object_events/pics/people/brendan_oras.gbapal");

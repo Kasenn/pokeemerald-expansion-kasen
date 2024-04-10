@@ -10,6 +10,7 @@
 #include "battle_tv.h"
 #include "battle_z_move.h"
 #include "bg.h"
+#include "event_data.h"
 #include "data.h"
 #include "item.h"
 #include "item_menu.h"
@@ -1776,6 +1777,8 @@ static u32 PlayerGetTrainerBackPicId(void)
         trainerPicId = LinkPlayerGetTrainerPicId(GetMultiplayerId());
     else
         trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN;
+    if(FlagGet(FLAG_PC_CHANGE_COSTUME))
+        trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN_ORAS;
 
     return trainerPicId;
 }
@@ -2149,7 +2152,8 @@ static void PlayerHandleOneReturnValue_Duplicate(u32 battler)
 
 static void PlayerHandleIntroTrainerBallThrow(u32 battler)
 {
-    const u32 *trainerPal = gTrainerBackPicPaletteTable[gSaveBlock2Ptr->playerGender].data;
+    u32 trainerPicId = PlayerGetTrainerBackPicId();
+    const u32 *trainerPal = gTrainerBackPicPaletteTable[trainerPicId].data;
     BtlController_HandleIntroTrainerBallThrow(battler, 0xD6F8, trainerPal, 31, Intro_TryShinyAnimShowHealthbox);
 }
 

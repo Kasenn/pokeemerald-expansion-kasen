@@ -195,6 +195,8 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanDeco
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayDecorating;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Archie;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Korrina;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayOras;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanOras;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Maxie;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KyogreFront;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GroudonFront;
@@ -533,6 +535,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_KORRINA] =                   &gObjectEventGraphicsInfo_Korrina,
     [OBJ_EVENT_GFX_ACE_TRAINER_M] =                   &gObjectEventGraphicsInfo_AceTrainerBWM,
     [OBJ_EVENT_GFX_ACE_TRAINER_F] =                   &gObjectEventGraphicsInfo_AceTrainerBWF,
+    [OBJ_EVENT_GFX_MAY_ORAS] =                   &gObjectEventGraphicsInfo_MayOras,
+    [OBJ_EVENT_GFX_BRENDAN_ORAS] =                   &gObjectEventGraphicsInfo_BrendanOras,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {
