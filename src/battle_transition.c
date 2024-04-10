@@ -4,6 +4,7 @@
 #include "battle_transition_frontier.h"
 #include "bg.h"
 #include "decompress.h"
+#include "event_data.h"
 #include "event_object_movement.h"
 #include "field_camera.h"
 #include "field_effect.h"
@@ -2641,6 +2642,7 @@ static void HBlankCB_Mugshots(void)
 static void Mugshots_CreateTrainerPics(struct Task *task)
 {
     struct Sprite *opponentSprite, *playerSprite;
+    u16 trainerPicId = PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender);
 
     s16 mugshotId = task->tMugshotId;
     task->tOpponentSpriteId = CreateTrainerSprite(sMugshotsTrainerPicIDsTable[mugshotId],
@@ -2651,7 +2653,12 @@ static void Mugshots_CreateTrainerPics(struct Task *task)
                                                 DISPLAY_WIDTH + 32,
                                                 106,
                                                 0, gDecompressionBuffer);
-
+    if(FlagGet(FLAG_PC_CHANGE_COSTUME)){
+        task->tPlayerSpriteId = CreateTrainerSprite((trainerPicId + 31),
+                                                DISPLAY_WIDTH + 32,
+                                                106,
+                                                0, gDecompressionBuffer);
+    }
     opponentSprite = &gSprites[task->tOpponentSpriteId];
     playerSprite = &gSprites[task->tPlayerSpriteId];
 

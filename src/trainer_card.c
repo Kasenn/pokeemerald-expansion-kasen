@@ -1892,11 +1892,21 @@ static void CreateTrainerCardTrainerPic(void)
     }
     else
     {
-        CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(sTrainerPicFacilityClass[sData->cardType][sData->trainerCard.gender]),
+        if(FlagGet(FLAG_PC_CHANGE_COSTUME)){
+            CreateTrainerCardTrainerPicSprite((FacilityClassToPicIndex(sTrainerPicFacilityClass[sData->cardType][sData->trainerCard.gender]) + 31),
                     TRUE,
                     sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][0],
                     sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][1],
                     8,
                     WIN_TRAINER_PIC);
+        }
+        else{
+            CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(sTrainerPicFacilityClass[sData->cardType][sData->trainerCard.gender]),
+                    TRUE,
+                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][0],
+                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][1],
+                    8,
+                    WIN_TRAINER_PIC);
+        }
     }
 }

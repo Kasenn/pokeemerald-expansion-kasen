@@ -6,10 +6,20 @@ Common_EventScript_SetupRivalGfxId::
 
 EventScript_SetupRivalGfxIdFemale::
 	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL
+	goto_if_set FLAG_MAY_COSTUME_CHANGE, EventScript_SetupRivalGfxIdFemaleOras
 	return
 
 EventScript_SetupRivalGfxIdMale::
 	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL
+	goto_if_set FLAG_BRENDAN_COSTUME_CHANGE, EventScript_SetupRivalGfxIdMaleOras
+	return
+
+EventScript_SetupRivalGfxIdMaleOras::
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ORAS
+	return
+
+EventScript_SetupRivalGfxIdFemaleOras::
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ORAS
 	return
 
 Common_EventScript_SetupRivalOnBikeGfxId::

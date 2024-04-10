@@ -53,7 +53,7 @@ script Route11_BrokenBridge{
 script Route11_UpdateDayCareMan{
     call(Route11_TryMoveDayCareMan)
     release
-    end
+    return
 }
 
 script Route11_TryMoveDayCareMan{
@@ -65,7 +65,7 @@ script Route11_TryMoveDayCareMan{
 script Route11_StopMoveDayCareMan{
     setobjectxyperm(4, 68, 4)
     release
-    end
+    return
 }
 
 script Route11_CaveManiac{
@@ -696,6 +696,7 @@ text R11BrendanChallengeKorrina{
 }
 
 script SetMayOutfit{
+    setflag(FLAG_PC_CHANGE_COSTUME)
     if(flag(FLAG_MAY_COSTUME_CHANGE)){
         clearflag(FLAG_MAY_COSTUME_CHANGE)
         end
