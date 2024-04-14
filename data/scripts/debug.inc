@@ -122,11 +122,7 @@ Debug_Script_5::
 	end
 
 Debug_Script_6::
-	giveitem ITEM_HM03
-	giveitem ITEM_HM04
-	giveitem ITEM_HM06
-	setflag FLAG_BADGE04_GET
-	setflag FLAG_BADGE05_GET
+	call R11VarTest
 	end
 
 Debug_Script_7::

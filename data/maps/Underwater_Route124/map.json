@@ -40,7 +40,7 @@
       "y": 5,
       "elevation": 3,
       "item": "ITEM_CALCIUM",
-      "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_124_CALCIUM"
+      "flag": "FLAG_OLD_WORLD_FLAG"
     },
     {
       "type": "hidden_item",
@@ -48,7 +48,7 @@
       "y": 36,
       "elevation": 3,
       "item": "ITEM_HEART_SCALE",
-      "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_124_HEART_SCALE_2"
+      "flag": "FLAG_OLD_WORLD_FLAG"
     }
   ]
 }

@@ -108,217 +108,362 @@ text Route11_RepairGuy_Text{
     "In the meanwhile, you'll have to take\n"
     "the longer route through the south."
 }
-
 script Route11_Tr1_Lass{
     trainerbattle_single(TRAINER_R11_TR1_LASS, R11Tr1_Intro, R11Tr1_Lose, IncreaseR11Var)
     msgbox(R11Tr1_PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
 text R11Tr1_Intro{
-    ""
+    "If you don't pay attention,\n"
+    "you could get hurt!"
 }
 text R11Tr1_Lose{
-    ""
+    "Ouch!\n"
+    "I was the one to get hurt."
 }
 text R11Tr1_PostBattle{
-    ""
+    "I wonder… Should I evolve my Pokémon?\n"
+    "They're cute the way they are, though."
 }
-
-script Route11_Tr2_Birdkeeper {
+script Route11_Tr2_Birdkeeper{
     trainerbattle_single(TRAINER_R11_TR2_BIRDKEEPER, R11Tr2_Intro, R11Tr2_Lose, IncreaseR11Var)
     msgbox(R11Tr2_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
 text R11Tr2_Intro{
-    ""
+    "The vast sky holds untold promise!\p"
+    "Nothing can compare to the sheer\n"
+    "exhilaration of flight!"
 }
 text R11Tr2_Lose{
-    ""
+    "Down and out!"
 }
 text R11Tr2_PostBattle{
-    ""
+    "My bird Pokémon made my dreams of\n"
+    "flying come true!"
 }
-
 script Route11_Tr3_Bugcatcher {
     trainerbattle_single(TRAINER_R11_TR3_BUGCATCHER, R11Tr3_Intro, R11Tr3_Lose, IncreaseR11Var)
     msgbox(R11Tr3_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
 text R11Tr3_Intro{
-    ""
+    "Once a bug catcher!\n"
+    "And now a bug maniac!\p"
+    "But my love for Pokémon remains\n"
+    "unchanged!"
 }
 text R11Tr3_Lose{
-    ""
+    "My ineptitude also remains\n"
+    "unchanged…"
 }
 text R11Tr3_PostBattle{
-    ""
+    "All I did was follow my heart, and now\n"
+    "they call me a bug maniac\p"
+    "Still, I am an expert on bug Pokémon,\n"
+    "so it's only natural that they call me\l"
+    "a bug maniac."
 }
-
 script Route11_Tr4_Ninjaboy {
     trainerbattle_single(TRAINER_R11_TR4_NINJABOY, R11Tr4_Intro, R11Tr4_Lose, IncreaseR11Var)
     msgbox(R11Tr4_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
 text R11Tr4_Intro{
-    ""
+    "Bet you didn't see me coming!"
 }
 text R11Tr4_Lose{
-    ""
+    "Even with the element of surprise,\n"
+    "I still lost…"
 }
 text R11Tr4_PostBattle{
-    ""
+    "This tall grass perfectly hides my\n"
+    "presence. You never know what you'll\l"
+    "find in it."
 }
-
 script Route11_Tr5_Pokemaniac {
     trainerbattle_single(TRAINER_R11_TR5_POKEMANIAC, R11Tr5_Intro, R11Tr5_Lose, IncreaseR11Var)
     msgbox(R11Tr5_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
 text R11Tr5_Intro{
-    ""
+    "… … … … … …\n"
+    "… … … … … …\l"
+    "Want to battle?"
 }
 text R11Tr5_Lose{
-    ""
+    "Lost it…"
 }
 text R11Tr5_PostBattle{
-    ""
+    "… … … … … …\n"
+    "… … … … … …\l"
+    "I'll try harder…"
 }
-
 script Route11_Tr6_Triathlete_F {
     trainerbattle_single(TRAINER_R11_TR6_TRIATHLETE_F, R11Tr6_Intro, R11Tr6_Lose, IncreaseR11Var)
     msgbox(R11Tr6_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
 text R11Tr6_Intro{
-    ""
+    "Pokémon have many special abilities.\n"
+    "If you want to become a first-class\l"
+    "trainer, learn about them."
 }
 text R11Tr6_Lose{
-    ""
+    "You're obviously thinking."
 }
 text R11Tr6_PostBattle{
-    ""
+    "The special abilities of Pokémon\n"
+    "will make battle styles change."
 }
-
 script Route11_Tr7_Hiker {
     trainerbattle_single(TRAINER_R11_TR7_HIKER, R11Tr7_Intro, R11Tr7_Lose, IncreaseR11Var)
     msgbox(R11Tr7_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
 text R11Tr7_Intro{
-    ""
+    "Hohoho!\n"
+    "I like kid trainers!\l"
+    "Let's have a good one!"
 }
 text R11Tr7_Lose{
-    ""
+    "You're pretty amazing!\n"
+    "Hohoho!"
 }
 text R11Tr7_PostBattle{
-    ""
+    "Hohoho!\n"
+    "I'll try emulating trainers\l"
+    "like you!"
 }
-
 script Route11_Tr8_Ninjaboy_2 {
-    trainerbattle_single(TRAINER_R11_TR8_NINJABOY_2, R11Tr8_Intro, R11Tr8_Lose, IncreaseR11Var)
+    trainerbattle_single(TRAINER_R11_TR8_NINJABOY_2, R11Tr8_Intro, R11Tr8_Lose)
     msgbox(R11Tr8_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
 text R11Tr8_Intro{
-    ""
+    "To lurk in shadows, and live in\n"
+    "darkness… That is my destiny.\p"
+    "I emerge to challenge you!"
 }
 text R11Tr8_Lose{
-    ""
+    "I admit defeat!"
 }
 text R11Tr8_PostBattle{
-    ""
+    "Those defeated in battle withdraw\n"
+    "quietly back into the shadows.\l"
+    "That, too, is destiny…"
 }
-
 script Route11_Tr9_Ninjaboy_3 {
-    trainerbattle_single(TRAINER_R11_TR9_NINJABOY_3, R11Tr9_Intro, R11Tr9_Lose, IncreaseR11Var)
+    trainerbattle_single(TRAINER_R11_TR9_NINJABOY_3, R11Tr9_Intro, R11Tr9_Lose)
     msgbox(R11Tr9_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
 text R11Tr9_Intro{
-    ""
+    "If you're not on your guard,\n"
+    "you're in for some pain!"
 }
 text R11Tr9_Lose{
-    ""
+    "You're surprisingly good!"
 }
 text R11Tr9_PostBattle{
-    ""
+    "My surprise attack ended in\n"
+    "failure…"
 }
-
 script Route11_Tr10_Cycler_M {
     trainerbattle_single(TRAINER_R11_TR10_CYCLER_M, R11Tr10_Intro, R11Tr10_Lose, IncreaseR11Var)
     msgbox(R11Tr10_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
 text R11Tr10_Intro{
-    ""
+    "A true cycler keeps battling through\n"
+    "even the most roughest of terrains!"
 }
 text R11Tr10_Lose{
-    ""
+    "Even in defeat, I never surrender!"
 }
 text R11Tr10_PostBattle{
-    ""
+    "It's hard to cycle with all this grass\n"
+    "around, but I will prevail!"
 }
-
 script Route11_Tr11_Blackbelt {
     trainerbattle_single(TRAINER_R11_TR11_BLACKBELT, R11Tr11_Intro, R11Tr11_Lose, IncreaseR11Var)
     msgbox(R11Tr11_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
 text R11Tr11_Intro{
-    ""
+    "My Pokémon are strong!\n"
+    "How about yours?"
 }
 text R11Tr11_Lose{
-    ""
+    "Your Pokémon were stronger…"
 }
 text R11Tr11_PostBattle{
-    ""
+    "A Pokémon that grows steadily is one\n"
+    "you can count on."
 }
-
 script Route11_Tr12_Expert {
     trainerbattle_single(TRAINER_R11_TR12_EXPERT, R11Tr12_Intro, R11Tr12_Lose, IncreaseR11Var)
     msgbox(R11Tr12_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
 text R11Tr12_Intro{
-    ""
+    "With my Pokémon, I have traveled\n"
+    "to the world's four corners.\p"
+    "You might say I have some confidence\n"
+    "in my abilities."
 }
 text R11Tr12_Lose{
-    ""
+    "Ah, well played."
 }
 text R11Tr12_PostBattle{
-    ""
+    "I would like to circle the globe once\n"
+    "again with my POKéMON."
 }
-
 script Route11_Tr13_Psychic_F {
     trainerbattle_single(TRAINER_R11_TR13_PSYCHIC_F, R11Tr13_Intro, R11Tr13_Lose, IncreaseR11Var)
     msgbox(R11Tr13_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
 text R11Tr13_Intro{
-    ""
+    "So, we finally meet! My psychic\n"
+    "Pokémon will keep you company!"
 }
 text R11Tr13_Lose{
-    ""
+    "I wish we'd never met…"
 }
 text R11Tr13_PostBattle{
-    ""
+    "My third eye tried to warn me, yet I\n"
+    "didn't listen…"
 }
 
 script Route11_Tr14_Acetrainer_F {
-    trainerbattle_single(TRAINER_R11_TR14_ACETRAINER_F, R11Tr14_Intro, R11Tr14_Lose, IncreaseR11Var)
-    msgbox(R11Tr14_PostBattle, MSGBOX_AUTOCLOSE)
-    end
-}
-text R11Tr14_Intro{
-    ""
-}
-text R11Tr14_Lose{
-    ""
-}
-text R11Tr14_PostBattle{
-    ""
+    if(var(VAR_R11_TRAINERS) == 12){
+        msgbox(R11_Ace_PostBattle, MSGBOX_NPC)
+        end
+    }
+    elif((var(VAR_R11_TRAINERS) <= 10)
+      && (defeated(TRAINER_R11_TR8_NINJABOY_2))
+      && (defeated(TRAINER_R11_TR9_NINJABOY_3)))
+    {
+        msgbox(R11_Ace_DefeatMoreTrainers, MSGBOX_NPC)
+        end
+    }
+    else{
+        goto(R11_Ace_EligibleForBattle)
+    }
 }
 
+script R11_Ace_EligibleForBattle{
+    lockall
+    faceplayer
+    if(defeated(TRAINER_R11_TR14_ACETRAINER_F)){
+        goto(R11_Ace_PostBattleScript)
+    }
+    if(!flag(FLAG_TEMP_5)){
+        setflag(FLAG_TEMP_5)
+        msgbox(R11_Ace_ReadyForBattle, MSGBOX_YESNO)
+    }
+    else{
+        msgbox(R11_Ace_ReadyForBattleShort, MSGBOX_YESNO)
+    }
+    if(var(VAR_RESULT) == TRUE){
+        msgbox(R11_Ace_BeginBattle, MSGBOX_DEFAULT)
+        trainerbattle_no_intro(TRAINER_R11_TR14_ACETRAINER_F, R11_Ace_Lose)
+        goto(R11_Ace_PostBattleScript)
+    }
+    msgbox(R11_Ace_DeclineBattle, MSGBOX_NPC)
+    end
+}
+
+script R11_Ace_PostBattleScript{
+    msgbox(R11_Ace_Reward, MSGBOX_DEFAULT)
+    checkitemspace(ITEM_LUCKY_EGG)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(NotEnoughRoom, MSGBOX_NPC)
+        end
+    }
+    giveitem(ITEM_LUCKY_EGG)
+    waitfanfare
+    msgbox(R11_Ace_ExplainReward)
+    setvar(VAR_R11_TRAINERS, 12)
+    setvar(VAR_0x8004, 25)
+    call(RewardBP)
+    release
+    end
+}
+
+text R11_Ace_PostBattle{
+    "I can't believe I just lost…"
+}
+text R11_Ace_DefeatMoreTrainers{
+    "Heya! I've been looking for strong\n"
+    "trainers to challenge.\p"
+    "Think you got what it takes? Defeat all\n"
+    "the other trainers in this area first\l"
+    "and seek me out then.\p"
+    "Having issues finding everyone?\p"
+    "I heard people talking of some ninjas\n"
+    "hiding in the tall grass."
+}
+text R11_Ace_Lose{
+    "No way that just happened…"
+}
+text R11_Ace_ReadyForBattle{
+    "Heya! I've been looking for strong\n"
+    "trainers to challenge, and I think you\l"
+    "might fit the bill!\p"
+    "How about it? Feel like having\n"
+    "a Pokémon battle?"
+}
+text R11_Ace_ReadyForBattleShort{
+    "You're back!\p"
+    "How about it? Feel like having\n"
+    "a Pokémon battle?"
+}
+text R11_Ace_BeginBattle{
+    "Cool! Let's get this show\n"
+    "on the road!"
+}
+text R11_Ace_DeclineBattle{
+    "Oh…\n"
+    "Okay…\p"
+    "Well, let me know if you change\n"
+    "your mind…"
+}
+text R11_Ace_Reward{
+    "I'm still a bit shocked to find someone\n"
+    "so strong in this area.\p"
+    "Oh well…\p"
+    "You beat me fair and square so I think\n"
+    "the only course of action is for you\l"
+    "to have this."
+}
+text R11_Ace_ExplainReward{
+    "Having a Pokémon hold that Lucky Egg\n"
+    "greatly increases the experience it\l"
+    "earns from battles.\p"
+    "If you're ever trying to level up\n"
+    "a weaker Pokémon, just give that egg\l"
+    "to it and watch it grow!\p"
+    "…Oh, and before I forget, take these\n"
+    "as well."
+}
+
+
+script RewardBP{
+    buffernumberstring (STR_VAR_1, VAR_0x8004)
+    special(GiveFrontierBattlePoints)
+    playfanfare(MUS_OBTAIN_B_POINTS)
+    msgbox("Earned {STR_VAR_1} BP!", MSGBOX_DEFAULT)
+    waitfanfare
+    if(!flag(FLAG_UNUSED_BP_INTRO)){
+        msgbox(ExplainBP, MSGBOX_DEFAULT)
+        setflag(FLAG_UNUSED_BP_INTRO)
+    }
+    waitmessage
+    closemessage
+    return
+}
 script IncreaseR11Var{
     addvar(VAR_R11_TRAINERS, 1)
     end
@@ -334,7 +479,6 @@ script R11_RivalTrigger2{
     goto(R11_RivalEvent)
     end
 }
-
 script R11_RivalEvent{
     lockall
     checkplayergender
@@ -446,9 +590,13 @@ script KorrinaIntro{
     turnobject(8, DIR_WEST)
     turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
     delay(30)
-    msgbox(ThisPersonIs, MSGBOX_DEFAULT)
+    if(flag(FLAG_RIVAL_HARBOR_ANGRY)){
+        msgbox(ThisPersonIsAngry, MSGBOX_DEFAULT)
+    }
+    else{
+        msgbox(ThisPersonIs, MSGBOX_DEFAULT)
+    }
     closemessage
-    delay(20)
     applymovement(9, KorrinaMove1)
     waitmovement(0)
     delay(30)
@@ -614,95 +762,218 @@ text R11_BrendanDowsing{
 	"You can use it to root around for items\n"
 	"that aren't usually visible.\p"
 	"If it senses something, it emits\n"
-	"a sound.\p"
-	"Anyway, I'm off to the mainland\n"
-	"to look for new Pokémon."
+	"a sound."
 }
 text R11_MayDowsing{
     "{RIVAL}: That's an Itemfinder.\p"
 	"Try it out. If there is an item that's\n"
 	"not visible, it emits a sound.\p"
-	"Okay, {PLAYER}, let's meet again!\p"
-	"I know it's a little silly coming from\n"
-	"me, but I think you should train a lot\l"
-	"harder for the next time!"
 }
 
 text MayAngryIntro{
-    "{RIVAL}: I'm angry"
+    "{RIVAL}: Well, well, well.\n"
+    "Look who finally showed up!\p"
+    "I waited for you at the Coralgrove\n"
+    "Harbor and you just bailed on me!\p"
+    "Why, if we weren't in the middle\n"
+    "of something, I'd…"
 }
 text BrendanAngryIntro{
-    "{RIVAL}: I'm disappointed"
+    "{RIVAL}: Oh? Look who just\n"
+    "waltzed in.\p"
+    "You know, I'm really disappointed\n"
+    "in you, {PLAYER}.\p"
+    "I kept waiting for you at the\n"
+    "Coralgrove Harbor but you just\l"
+    "walked on me…\p"
+    "If we weren't in the middle of\n"
+    "something, I'd…"
 }
 text RivalAngry_Text{
-    "{RIVAL}: Still angry\n"
-    "Let's battle"
+    "{RIVAL}: Don't think I forgot how you\n"
+    "just left me behind at Coralgrove.\p"
+    "We were meant to have a Pokémon battle,\n"
+    "but since that never happened,\l"
+    "I'm challenging you here and now!\p"
+    "I've practiced extra hard for this so\n"
+    "I hope you haven't been slacking with\l"
+    "your training."
 }
 text MayNotAngryIntro{
-    "{RIVAL}: I'm not angry"
+    "{RIVAL}: Oh, hi, {PLAYER}! Nice to see\n"
+    "you finally caught up!\p"
+    "I hope you've been working diligently,\n"
+    "training your Pokémon and filling up\l"
+    "that Pokédex of yours!\p"
+    "Anyway, I was just having a nice\n"
+    "chat with--"
 }
 text BrendanNotAngryIntro{
-    "{RIVAL}: I'm not disappointed"
+    "{RIVAL}: Oh, hey, {PLAYER}!\n"
+    "Long time no see!\p"
+    "I hope you've been working hard,\n"
+    "training your Pokémon and filling up\l"
+    "that Pokédex my dad gave you.\p"
+    "Anyway, we were just chatting with--"
 }
 text RivalNotAngry_Text{
-    "{RIVAL}: Still not angry\n"
-    "Let's battle"
+    "{RIVAL}: Oh, I know!\n"
+    "It's been such a long time since our\l"
+    "last meeting, I want to see how much\l"
+    "you've grown.\p"
+    "You may have won our last Pokémon\n"
+    "battle, but don't think I'll be going\l"
+    "down as easy this time!"
+}
+text ThisPersonIsAngry{
+    "{RIVAL}: Oh, I just realized how rude\n"
+    "I was being to our guest.\p"
+    "This person is--"
 }
 text ThisPersonIs{
-    "{RIVAL}: This person is..."
+    "{RIVAL}: Oh, that's right. You two\n"
+    "probably haven't met before.\p"
+    "This person is--"
 }
 text KorrinaIntro_Text{
-    "Heyo! I'm Korrina!"
+    "Heyo! I'm Korrina!\p"
+    "I'm the leader of Sandstone City\n"
+    "Pokémon Gym!\l"
+    "Nice to meetcha!\p"
+    "But enough about me, you must be\n"
+    "{PLAYER}.\p"
+    "{RIVAL} had all sorts of interesting\n"
+    "things to say about you.\p"
+    "I get you two are some sort friends,\n"
+    "or rivals?\p"
+    "I don't want to butt in so I'll let\n"
+    "you two get caught up."
 }
 text KorrinaGiveRoom{
-    "Korrina: This seems fun\n"
-    "I give you 2 room"
-}
-text R11_AngryMayDefeated{
-    "{RIVAL}: I'm angry and defeated!"
+    "Korrina: Oh, this sounds like fun!\n"
+    "I deffo want to see this!\p"
+    "I'll give you two some space so\n"
+    "you can go all out."
 }
 text R11_AngryBrendanDefeated{
-    "{RIVAL}: I'm angry and disappointed!"
+    "After all the extra practice\n"
+    "I still lost…"
+}
+text R11_AngryMayDefeated{
+    "No! We practiced so hard!\n"
+    "We can't just lose like this!"
 }
 text R11_MayDefeated{
-    "{RIVAL}: I'm not angry and defeated!"
+    "We lost again! How does this\n"
+    "keep happening!?"
 }
 text R11_BrendanDefeated{
-    "{RIVAL}: I'm not angry and disappointed!"
+    "I can't believe I lost again…"
 }
 text R11_MayPostText{
-    "{RIVAL}: Wow, -kun, you're strong!"
+    "{RIVAL}: Wow, {PLAYER}!\p"
+    "I never imagined your team to have\n"
+    "grown so much!\p"
+    "Even if I lost, I still had a lot\n"
+    "of fun!"
 }
 text R11_BrendanPostText{
-    "{RIVAL}: Wow, -chan, you're strong!"
+    "{RIVAL}: What an amazing display\n"
+    "of skill, {PLAYER}!\p"
+    "I was so sure that I had it there, but\n"
+    "look who turned out to be wrong."
 }
 text KorrinaComeChallenge{
-    "Korrina: Good battle\n"
-    "Find me at my Gym"
+    "Korrina: From the way you two fought,\n"
+    "I can see both of you really care\l"
+    "for your Pokémon.\p"
+    "I like trainers like you!\p"
+    "You know, if it's cool with you two,\n"
+    "I'd like to personally witness both\l"
+    "of you in action.\p"
+    "I need to head back to the gym now,\n"
+    "but if you're ever in the area,\l"
+    "I hope you guys come and take on the\l"
+    "Sandstone City Pokémon Gym challenge!\p"
+    "Anyways, catch you guys later!"
 }
 text R11_MayGiveDowsingMchn{
-    "{RIVAL}: Was gonna give this to\n"
-    "you but then you bailed on me!"
+    "{RIVAL}: Oh, that's right! There's\n"
+    "something I was going to give to you\l"
+    "back in Coralgrove before you bailed\l"
+    "on me!\p"
+    "I guess I might as well give it to\n"
+    "you now…"
 }
 text R11_BrendanGiveDowsingMchn{
-    "{RIVAL}: Was gonna give this to\n"
-    "you but then you left me behind"
+    "{RIVAL}: Oh, that's right! There's\n"
+    "something I was going to give to you\l"
+    "before you left me behind at\l"
+    "Coralgrove.\p"
+    "Guess now's as good a time as any\n"
+    "to give it…"
 }
 text R11MayChallengeKorrina{
-    "{RIVAL}: I'm gonna go challenge Korrina!"
+    "{RIVAL}: I'm not going to lie,\n"
+    "that Korrina seemed awfully relaxed.\p"
+    "Do you think she realized watching our\n"
+    "battle that she has nothing to worry\l"
+    "about?\p"
+    "We should prepare well before taking\n"
+    "on her gym.\p"
+    "I'm going to head on ahead and make\n"
+    "sure my Pokémon are well and fit by\l"
+    "the time I take on the challenge.\p"
+    "See you again soon!"
 }
 text R11BrendanChallengeKorrina{
-    "{RIVAL}: Let's go challenge Korrina"
+    "{RIVAL}: I'm not going to lie,\n"
+    "that Korrina seemed awfully relaxed.\p"
+    "Maybe our battle made her realize the\n"
+    "power gap between us, and now she\l"
+    "thinks she has nothing to fret about?\p"
+    "If that's the case, I think we should\n"
+    "make sure to train our Pokémon and see\l"
+    "that they are well and fit before we\l"
+    "take on the gym.\p"
+    "I'm going to go ahead and make sure\n"
+    "my Pokémon get an ample amount of\l"
+    "training.\p"
+    "Hope to see you soon!"
 }
 
 script SetMayOutfit{
-    setflag(FLAG_PC_CHANGE_COSTUME)
-    if(flag(FLAG_MAY_COSTUME_CHANGE)){
-        clearflag(FLAG_MAY_COSTUME_CHANGE)
-        end
-    }
-    if(!flag(FLAG_MAY_COSTUME_CHANGE)){
+    lock
+    msgbox(SetRivalGfx, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == TRUE){
         setflag(FLAG_MAY_COSTUME_CHANGE)
-        end
+        setflag(FLAG_BRENDAN_COSTUME_CHANGE)
     }
+    else{
+        clearflag(FLAG_MAY_COSTUME_CHANGE)
+        clearflag(FLAG_BRENDAN_COSTUME_CHANGE)
+    }
+    msgbox(SetPlayerGfx, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == TRUE){
+        setflag(FLAG_PC_CHANGE_COSTUME)
+    }
+    else{
+        clearflag(FLAG_PC_CHANGE_COSTUME)
+    }
+    closemessage
+    release
+    end
+}
+
+text SetRivalGfx{
+    "Use new outfit for rival?"
+}
+text SetPlayerGfx{
+    "Use new outfit for player?"
+}
+
+script R11VarTest{
+    buffernumberstring(STR_VAR_1, VAR_R11_TRAINERS)
+    msgbox("{STR_VAR_1}", MSGBOX_NPC)
+    end
 }

@@ -1,0 +1,272 @@
+mapscripts Route12_MapScripts{}
+
+script R12_Sign{
+    msgbox(R12_Sign_Text, MSGBOX_SIGN)
+    end
+}
+text R12_Sign_Text{
+    "Cycling Road"
+}
+
+script R12_OldWoman{
+    msgbox(R12_OldWoman_Text, MSGBOX_NPC)
+    end
+}
+text R12_OldWoman_Text{
+    "I don't have a bike, so I guess I need\n"
+    "to trek through the lower route…"
+}
+
+script Route12_Tr1_Triathlete_F {
+    trainerbattle_single(TRAINER_R12_TR1_TRIATHLETE_F, R12Tr1_Intro, R12Tr1_Lose)
+    msgbox(R12Tr1_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R12Tr1_Intro{
+    ""
+}
+text R12Tr1_Lose{
+    ""
+}
+text R12Tr1_PostBattle{
+    ""
+}
+
+script Route12_Tr2_Triathlete_M {
+    trainerbattle_single(TRAINER_R12_TR2_TRIATHLETE_M, R12Tr2_Intro, R12Tr2_Lose)
+    msgbox(R12Tr2_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R12Tr2_Intro{
+    ""
+}
+text R12Tr2_Lose{
+    ""
+}
+text R12Tr2_PostBattle{
+    ""
+}
+
+script Route12_Tr3_Triathlete_F2 {
+    trainerbattle_single(TRAINER_R12_TR3_TRIATHLETE_F2, R12Tr3_Intro, R12Tr3_Lose)
+    msgbox(R12Tr3_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R12Tr3_Intro{
+    ""
+}
+text R12Tr3_Lose{
+    ""
+}
+text R12Tr3_PostBattle{
+    ""
+}
+
+script Route12_Tr4_Triathlete_M2 {
+    trainerbattle_single(TRAINER_R12_TR4_TRIATHLETE_M2, R12Tr4_Intro, R12Tr4_Lose)
+    msgbox(R12Tr4_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R12Tr4_Intro{
+    ""
+}
+text R12Tr4_Lose{
+    ""
+}
+text R12Tr4_PostBattle{
+    ""
+}
+
+script Route12_Tr5_Triathlete_M3 {
+    trainerbattle_single(TRAINER_R12_TR5_TRIATHLETE_M3, R12Tr5_Intro, R12Tr5_Lose)
+    msgbox(R12Tr5_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R12Tr5_Intro{
+    ""
+}
+text R12Tr5_Lose{
+    ""
+}
+text R12Tr5_PostBattle{
+    ""
+}
+
+script Route12_Tr6_Triathlete_F3 {
+    trainerbattle_single(TRAINER_R12_TR6_TRIATHLETE_F3, R12Tr6_Intro, R12Tr6_Lose)
+    msgbox(R12Tr6_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R12Tr6_Intro{
+    ""
+}
+text R12Tr6_Lose{
+    ""
+}
+text R12Tr6_PostBattle{
+    ""
+}
+
+script Route12_Tr7_Triathlete_M4 {
+    trainerbattle_single(TRAINER_R12_TR7_TRIATHLETE_M4, R12Tr7_Intro, R12Tr7_Lose)
+    msgbox(R12Tr7_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R12Tr7_Intro{
+    ""
+}
+text R12Tr7_Lose{
+    ""
+}
+text R12Tr7_PostBattle{
+    ""
+}
+
+script Route12_Tr8_Triathlete_F4 {
+    trainerbattle_single(TRAINER_R12_TR8_TRIATHLETE_F4, R12Tr8_Intro, R12Tr8_Lose)
+    msgbox(R12Tr8_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R12Tr8_Intro{
+    ""
+}
+text R12Tr8_Lose{
+    ""
+}
+text R12Tr8_PostBattle{
+    ""
+}
+
+script Route12_Tr9_Psychic_M {
+    trainerbattle_single(TRAINER_R12_TR9_PSYCHIC_M, R12Tr9_Intro, R12Tr9_Lose)
+    msgbox(R12Tr9_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R12Tr9_Intro{
+    ""
+}
+text R12Tr9_Lose{
+    ""
+}
+text R12Tr9_PostBattle{
+    ""
+}
+
+script Route12_Tr10_Hiker {
+    trainerbattle_single(TRAINER_R12_TR10_HIKER, R12Tr10_Intro, R12Tr10_Lose)
+    msgbox(R12Tr10_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R12Tr10_Intro{
+    ""
+}
+text R12Tr10_Lose{
+    ""
+}
+text R12Tr10_PostBattle{
+    ""
+}
+
+script Route12_Tr11_Lass {
+    trainerbattle_single(TRAINER_R12_TR11_LASS, R12Tr11_Intro, R12Tr11_Lose)
+    msgbox(R12Tr11_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R12Tr11_Intro{
+    ""
+}
+text R12Tr11_Lose{
+    ""
+}
+text R12Tr11_PostBattle{
+    ""
+}
+
+script Route12_Tr12_Bugmaniac {
+    trainerbattle_single(TRAINER_R12_TR12_BUGMANIAC, R12Tr12_Intro, R12Tr12_Lose)
+    msgbox(R12Tr12_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R12Tr12_Intro{
+    ""
+}
+text R12Tr12_Lose{
+    ""
+}
+text R12Tr12_PostBattle{
+    ""
+}
+
+script Route12_Tr13_Ninjaboy {
+    trainerbattle_single(TRAINER_R12_TR13_NINJABOY, R12Tr13_Intro, R12Tr13_Lose)
+    msgbox(R12Tr13_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R12Tr13_Intro{
+    ""
+}
+text R12Tr13_Lose{
+    ""
+}
+text R12Tr13_PostBattle{
+    ""
+}
+
+script R12_HoneyTree{
+    lockall
+    checkitem(ITEM_HONEY, 1)
+    if(var(VAR_RESULT) == TRUE)
+    {
+        msgbox(HoneyTree_YesHoney, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == TRUE){
+            msgbox(HoneyUsedOnTree, MSGBOX_DEFAULT)
+            waitmessage
+            closemessage
+            removeitem(ITEM_HONEY, 1)
+            random(10)
+            if(var(VAR_RESULT) == 0){
+                setwildbattlelevelrange(SPECIES_COMFEY, 31, ITEM_NONE, SPECIES_NONE, 24)
+            }
+            if(var(VAR_RESULT) == 1){
+                setwildbattlelevelrange(SPECIES_EMOLGA, 31, ITEM_NONE, SPECIES_NONE, 35)
+            }
+            if(var(VAR_RESULT) == 2){
+                setwildbattlelevelrange(SPECIES_EMOLGA, 31, ITEM_NONE, SPECIES_NONE, 35)
+            }
+            if(var(VAR_RESULT) == 3){
+                setwildbattlelevelrange(SPECIES_EMOLGA, 31, ITEM_NONE, SPECIES_NONE, 35)
+            }
+            if(var(VAR_RESULT) == 4){
+                setwildbattlelevelrange(SPECIES_CUTIEFLY, 31, ITEM_NONE, SPECIES_NONE, 35)
+            }
+            if(var(VAR_RESULT) == 5){
+                setwildbattlelevelrange(SPECIES_CUTIEFLY, 31, ITEM_NONE, SPECIES_NONE, 35)
+            }
+            if(var(VAR_RESULT) == 6){
+                setwildbattlelevelrange(SPECIES_RIBOMBEE, 31, ITEM_NONE, SPECIES_NONE, 35)
+            }
+            if(var(VAR_RESULT) == 7){
+                setwildbattlelevelrange(SPECIES_COMFEY, 31, ITEM_NONE, SPECIES_NONE, 35)
+            }
+            if(var(VAR_RESULT) == 8){
+                setwildbattlelevelrange(SPECIES_COMFEY, 31, ITEM_NONE, SPECIES_NONE, 35)
+            }
+            if(var(VAR_RESULT) == 9){
+                setwildbattlelevelrange(SPECIES_MUNCHLAX, 31, ITEM_NONE, SPECIES_NONE, 35)
+            }
+            dowildbattle
+            release
+            end
+        }
+        else{
+            waitmessage
+            closemessage
+            release
+            end
+        }
+    }
+    else{
+        msgbox(HoneyTree_NoHoney, MSGBOX_SIGN)
+        end
+    }
+}

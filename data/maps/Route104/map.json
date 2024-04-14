@@ -592,7 +592,7 @@
       "y": 55,
       "elevation": 3,
       "item": "ITEM_POTION",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE_104_POTION"
+      "flag": "FLAG_OLD_WORLD_FLAG"
     },
     {
       "type": "hidden_item",

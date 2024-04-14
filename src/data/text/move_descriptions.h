@@ -69,8 +69,8 @@ static const u8 sSwordsDanceDescription[] = _(
     "sharply raises Attack.");
 
 static const u8 sCutDescription[] = _(
-    "Cuts the foe with sharp\n"
-    "scythes, claws, etc.");
+    "Cuts the foe with blades\n"
+    "or claws. Always crits.");
 
 static const u8 sGustDescription[] = _(
     "Strikes the foe with a gust\n"
@@ -297,8 +297,8 @@ static const u8 sSeismicTossDescription[] = _(
     "to the user's level.");
 
 static const u8 sStrengthDescription[] = _(
-    "Builds enormous power,\n"
-    "then slams the foe.");
+    "A strong attack but lowers\n"
+    "the defensive stats.");
 
 static const u8 sAbsorbDescription[] = _(
     "An attack that absorbs\n"
@@ -609,8 +609,8 @@ static const u8 sSporeDescription[] = _(
     "that always induce sleep.");
 
 static const u8 sFlashDescription[] = _(
-    "Looses a powerful blast of\n"
-    "light that cuts accuracy.");
+    "A quick blast of light that\n"
+    "cuts accuracy and speed.");
 
 static const u8 sPsywaveDescription[] = _(
     "Attacks with a psychic\n"
@@ -1014,7 +1014,7 @@ static const u8 sFutureSightDescription[] = _(
 
 static const u8 sRockSmashDescription[] = _(
     "A rock-crushing attack\n"
-    "that may lower Defense.");
+    "that may cause flinching.");
 
 static const u8 sWhirlpoolDescription[] = _(
     "Traps and hurts the foe in\n"
