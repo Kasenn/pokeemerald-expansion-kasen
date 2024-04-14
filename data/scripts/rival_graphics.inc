@@ -15,11 +15,11 @@ EventScript_SetupRivalGfxIdMale::
 	return
 
 EventScript_SetupRivalGfxIdMaleOras::
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ORAS
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_NORMAL_ORAS
 	return
 
 EventScript_SetupRivalGfxIdFemaleOras::
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ORAS
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_NORMAL_ORAS
 	return
 
 Common_EventScript_SetupRivalOnBikeGfxId::
@@ -30,10 +30,20 @@ Common_EventScript_SetupRivalOnBikeGfxId::
 
 EventScript_SetupRivalOnBikeGfxIdFemale::
 	setvar VAR_OBJ_GFX_ID_3, OBJ_EVENT_GFX_RIVAL_MAY_MACH_BIKE
+	goto_if_set FLAG_MAY_COSTUME_CHANGE, EventScript_SetupRivalOnBikeGfxIdFemaleOras
 	return
 
 EventScript_SetupRivalOnBikeGfxIdMale::
 	setvar VAR_OBJ_GFX_ID_3, OBJ_EVENT_GFX_RIVAL_BRENDAN_MACH_BIKE
+	goto_if_set FLAG_BRENDAN_COSTUME_CHANGE, EventScript_SetupRivalOnBikeGfxIdMaleOras
+	return
+
+EventScript_SetupRivalOnBikeGfxIdMaleOras::
+	setvar VAR_OBJ_GFX_ID_3, OBJ_EVENT_GFX_BRENDAN_ACRO_BIKE_ORAS
+	return
+
+EventScript_SetupRivalOnBikeGfxIdFemaleOras::
+	setvar VAR_OBJ_GFX_ID_3, OBJ_EVENT_GFX_MAY_ACRO_BIKE_ORAS
 	return
 
 @ Unused

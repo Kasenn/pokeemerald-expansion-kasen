@@ -168,10 +168,13 @@ void Special_BeginCyclingRoadChallenge(void)
 
 u16 GetPlayerAvatarBike(void)
 {
-    if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_ACRO_BIKE))
-        return 1;
-    if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE))
-        return 2;
+    if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_BIKE))
+    {
+        if (gSaveBlock2Ptr->playerBike != MACH_BIKE)
+            return 1;
+        else
+            return 2;
+    }
     return 0;
 }
 
@@ -1367,7 +1370,7 @@ bool8 FoundAbandonedShipRoom2Key(void)
 bool8 FoundAbandonedShipRoom4Key(void)
 {
     u16 *specVar = &gSpecialVar_0x8004;
-    u16 flag = FLAG_HIDDEN_ITEM_ABANDONED_SHIP_RM_4_KEY;
+    u16 flag = FLAG_OLD_WORLD_FLAG;
     *specVar = flag;
     if (!FlagGet(flag))
         return FALSE;
@@ -1378,7 +1381,7 @@ bool8 FoundAbandonedShipRoom4Key(void)
 bool8 FoundAbandonedShipRoom6Key(void)
 {
     u16 *specVar = &gSpecialVar_0x8004;
-    u16 flag = FLAG_HIDDEN_ITEM_ABANDONED_SHIP_RM_6_KEY;
+    u16 flag = FLAG_OLD_WORLD_FLAG;
     *specVar = flag;
     if (!FlagGet(flag))
         return FALSE;

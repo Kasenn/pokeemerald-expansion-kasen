@@ -1,18 +1,44 @@
 mapscripts RanchHouse_MapScripts{}
 
 script RanchHouseMan{
-    lockall
-    faceplayer
-    msgbox(RanchHouseManText, MSGBOX_DEFAULT)
-    release
+    if(flag(FLAG_OBTAINED_MEGA_RING)){
+        if(flag(FLAG_OBTAINED_AMPHAROSITE)){
+            msgbox(RanchTakeGoodCare, MSGBOX_NPC)
+            end
+        }
+        lock
+        faceplayer
+        msgbox(RanchHouseItsYou, MSGBOX_NPC)
+        checkitemspace(ITEM_AMPHAROSITE)
+        if(var(VAR_RESULT) == FALSE){
+            msgbox(NotEnoughRoom, MSGBOX_NPC)
+            end
+        }
+        giveitem(ITEM_AMPHAROSITE)
+        waitfanfare
+        setflag(FLAG_OBTAINED_AMPHAROSITE)
+        closemessage
+        release
+        end
+    }
+    msgbox(RanchHouseManText, MSGBOX_NPC)
     end
 }
 
+text RanchHouseItsYou{
+    "Ah, it's you!\p"
+    "One of our Mareeps found this peculiar\n"
+    "stone the other day.\p"
+    "I have no idea what it does, but I\n"
+    "never got to thank you before,\l"
+    "so I hope this stone will suffice."
+}
+text RanchTakeGoodCare{
+    "Take good care now!"
+}
+
 script RanchHouseWoman{
-    lockall
-    faceplayer
-    msgbox(RanchHouseWomanText, MSGBOX_DEFAULT)
-    release
+    msgbox(RanchHouseWomanText, MSGBOX_NPC)
     end
 }
 

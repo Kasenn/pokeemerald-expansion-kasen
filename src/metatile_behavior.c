@@ -159,6 +159,14 @@ bool8 MetatileBehavior_IsJumpWest(u8 metatileBehavior)
         return FALSE;
 }
 
+bool8 MetatileBehavior_IsJumpBikeHorizontal(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_JUMP_BIKE_HORIZONTAL)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 bool8 MetatileBehavior_IsJumpNorth(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_JUMP_NORTH || metatileBehavior == MB_JUMP_OMNI || metatileBehavior == MB_JUMP_UPDOWN)

@@ -2,7 +2,7 @@
   "id": "MAP_ROCKLIFFE_HOUSE1",
   "name": "Rockliffe_House1",
   "layout": "LAYOUT_ROCKLIFFE_HOUSE1",
-  "music": "MUS_OLDALE",
+  "music": "MUS_DEWFORD",
   "region_map_section": "MAPSEC_ROCKLIFFE_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

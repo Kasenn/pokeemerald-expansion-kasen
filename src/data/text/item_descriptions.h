@@ -3447,9 +3447,9 @@ static const u8 sTM100Desc[] = _( // Todo
     "?????");
 
 static const u8 sHM01Desc[] = _(
-    "Attacks the foe\n"
-    "with sharp blades\n"
-    "or claws.");
+    "Attack using sharp\n"
+    "blades or claws.\n"
+    "Always crits.");
 
 static const u8 sHM02Desc[] = _(
     "Flies up on the\n"
@@ -3462,19 +3462,19 @@ static const u8 sHM03Desc[] = _(
     "it down on the foe.");
 
 static const u8 sHM04Desc[] = _(
-    "Builds enormous\n"
-    "power, then slams\n"
-    "the foe.");
+    "A strong attack\n"
+    "but lowers the\n"
+    "defensive stats.");
 
 static const u8 sHM05Desc[] = _(
-    "Looses a powerful\n"
-    "blast of light that\n"
-    "reduces accuracy.");
+    "A quick blast of\n"
+    "light that lowers\n"
+    "Accuracy and Speed.");
 
 static const u8 sHM06Desc[] = _(
     "A rock-crushingly\n"
     "tough attack that\n"
-    "may lower Defense.");
+    "may flinch.");
 
 static const u8 sHM07Desc[] = _(
     "Attacks the foe\n"
@@ -3582,8 +3582,8 @@ static const u8 sMachBikeDesc[] = _(
 
 static const u8 sAcroBikeDesc[] = _(
     "A folding bicycle\n"
-    "capable of jumps\n"
-    "and wheelies.");
+    "with two distinct\n"
+    "modes.");
 
 static const u8 sOldRodDesc[] = _(
     "Use by any body of\n"

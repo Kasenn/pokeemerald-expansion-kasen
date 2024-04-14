@@ -111,6 +111,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalMayFie
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Cameraman;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanUnderwater;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayUnderwater;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayUnderwaterOras;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MovingBox;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CableCar;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Scientist2;
@@ -272,6 +273,18 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Abra;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Spheal;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Excadrill;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LandSwimmerF;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanNormalOras;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanAcroBikeOras;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanSurfingOras;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFishingOras;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanWateringOras;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFieldMoveOras;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayNormalOras;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayAcroBikeOras;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MaySurfingOras;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFishingOras;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayWateringOras;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFieldMoveOras;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_NEWPIKACHU] =                     &gObjectEventGraphicsInfo_NewPikachu,
@@ -385,6 +398,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_CAMERAMAN] =                &gObjectEventGraphicsInfo_Cameraman,
     [OBJ_EVENT_GFX_BRENDAN_UNDERWATER] =       &gObjectEventGraphicsInfo_BrendanUnderwater,
     [OBJ_EVENT_GFX_MAY_UNDERWATER] =           &gObjectEventGraphicsInfo_MayUnderwater,
+    [OBJ_EVENT_GFX_MAY_UNDERWATER_ORAS] =           &gObjectEventGraphicsInfo_MayUnderwaterOras,
     // [OBJ_EVENT_GFX_MOVING_BOX] =               &gObjectEventGraphicsInfo_MovingBox,
     [OBJ_EVENT_GFX_CABLE_CAR] =                &gObjectEventGraphicsInfo_CableCar,
     [OBJ_EVENT_GFX_SCIENTIST_2] =              &gObjectEventGraphicsInfo_Scientist2,
@@ -537,6 +551,18 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ACE_TRAINER_F] =                   &gObjectEventGraphicsInfo_AceTrainerBWF,
     [OBJ_EVENT_GFX_MAY_ORAS] =                   &gObjectEventGraphicsInfo_MayOras,
     [OBJ_EVENT_GFX_BRENDAN_ORAS] =                   &gObjectEventGraphicsInfo_BrendanOras,
+    [OBJ_EVENT_GFX_BRENDAN_NORMAL_ORAS] =        &gObjectEventGraphicsInfo_BrendanNormalOras,
+    [OBJ_EVENT_GFX_BRENDAN_ACRO_BIKE_ORAS] =        &gObjectEventGraphicsInfo_BrendanAcroBikeOras,
+    [OBJ_EVENT_GFX_BRENDAN_SURFING_ORAS] =        &gObjectEventGraphicsInfo_BrendanSurfingOras,
+    [OBJ_EVENT_GFX_BRENDAN_FISHING_ORAS] =        &gObjectEventGraphicsInfo_BrendanFishingOras,
+    [OBJ_EVENT_GFX_BRENDAN_WATERING_ORAS] =        &gObjectEventGraphicsInfo_BrendanWateringOras,
+    [OBJ_EVENT_GFX_BRENDAN_FIELD_MOVE_ORAS] =        &gObjectEventGraphicsInfo_BrendanFieldMoveOras,
+    [OBJ_EVENT_GFX_MAY_NORMAL_ORAS] =        &gObjectEventGraphicsInfo_MayNormalOras,
+    [OBJ_EVENT_GFX_MAY_ACRO_BIKE_ORAS] =        &gObjectEventGraphicsInfo_MayAcroBikeOras,
+    [OBJ_EVENT_GFX_MAY_SURFING_ORAS] =        &gObjectEventGraphicsInfo_MaySurfingOras,
+    [OBJ_EVENT_GFX_MAY_FISHING_ORAS] =        &gObjectEventGraphicsInfo_MayFishingOras,
+    [OBJ_EVENT_GFX_MAY_WATERING_ORAS] =        &gObjectEventGraphicsInfo_MayWateringOras,
+    [OBJ_EVENT_GFX_MAY_FIELD_MOVE_ORAS] =        &gObjectEventGraphicsInfo_MayFieldMoveOras,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

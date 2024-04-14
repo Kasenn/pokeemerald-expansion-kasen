@@ -41,6 +41,7 @@ u8 MovementAction_Jump2Down_Step1(struct ObjectEvent *, struct Sprite *);
 u8 MovementAction_Jump2Up_Step0(struct ObjectEvent *, struct Sprite *);
 u8 MovementAction_Jump2Up_Step1(struct ObjectEvent *, struct Sprite *);
 u8 MovementAction_Jump2Left_Step0(struct ObjectEvent *, struct Sprite *);
+u8 MovementAction_Jump3Left_Step0(struct ObjectEvent *, struct Sprite *);
 u8 MovementAction_Jump2Left_Step1(struct ObjectEvent *, struct Sprite *);
 u8 MovementAction_Jump2Right_Step0(struct ObjectEvent *, struct Sprite *);
 u8 MovementAction_Jump2Right_Step1(struct ObjectEvent *, struct Sprite *);
@@ -277,6 +278,7 @@ u8 (*const gMovementActionFuncs_WalkNormalRight[])(struct ObjectEvent *, struct 
 u8 (*const gMovementActionFuncs_Jump2Down[])(struct ObjectEvent *, struct Sprite *);
 u8 (*const gMovementActionFuncs_Jump2Up[])(struct ObjectEvent *, struct Sprite *);
 u8 (*const gMovementActionFuncs_Jump2Left[])(struct ObjectEvent *, struct Sprite *);
+u8 (*const gMovementActionFuncs_Jump3Left[])(struct ObjectEvent *, struct Sprite *);
 u8 (*const gMovementActionFuncs_Jump2Right[])(struct ObjectEvent *, struct Sprite *);
 u8 (*const gMovementActionFuncs_Delay1[])(struct ObjectEvent *, struct Sprite *);
 u8 (*const gMovementActionFuncs_Delay2[])(struct ObjectEvent *, struct Sprite *);
@@ -437,6 +439,7 @@ u8 (*const *const gMovementActionFuncs[])(struct ObjectEvent *, struct Sprite *)
     [MOVEMENT_ACTION_JUMP_2_DOWN] = gMovementActionFuncs_Jump2Down,
     [MOVEMENT_ACTION_JUMP_2_UP] = gMovementActionFuncs_Jump2Up,
     [MOVEMENT_ACTION_JUMP_2_LEFT] = gMovementActionFuncs_Jump2Left,
+    [MOVEMENT_ACTION_JUMP_3_LEFT] = gMovementActionFuncs_Jump3Left,
     [MOVEMENT_ACTION_JUMP_2_RIGHT] = gMovementActionFuncs_Jump2Right,
     [MOVEMENT_ACTION_DELAY_1] = gMovementActionFuncs_Delay1,
     [MOVEMENT_ACTION_DELAY_2] = gMovementActionFuncs_Delay2,
@@ -710,11 +713,13 @@ static const s16 sJumpInitDisplacements[] = {
     [JUMP_DISTANCE_IN_PLACE] = 0,
     [JUMP_DISTANCE_NORMAL] = 1,
     [JUMP_DISTANCE_FAR] = 1,
+    [JUMP_DISTANCE_FARTHER] = 1,
 };
 static const s16 sJumpDisplacements[] = {
     [JUMP_DISTANCE_IN_PLACE] = 0,
     [JUMP_DISTANCE_NORMAL] = 0,
     [JUMP_DISTANCE_FAR] = 1,
+    [JUMP_DISTANCE_FARTHER] = 2,
 };
 
 u8 (*const gMovementActionFuncs_Jump2Down[])(struct ObjectEvent *, struct Sprite *) = {
@@ -731,6 +736,12 @@ u8 (*const gMovementActionFuncs_Jump2Up[])(struct ObjectEvent *, struct Sprite *
 
 u8 (*const gMovementActionFuncs_Jump2Left[])(struct ObjectEvent *, struct Sprite *) = {
     MovementAction_Jump2Left_Step0,
+    MovementAction_Jump2Left_Step1,
+    MovementAction_PauseSpriteAnim,
+};
+
+u8 (*const gMovementActionFuncs_Jump3Left[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementAction_Jump3Left_Step0,
     MovementAction_Jump2Left_Step1,
     MovementAction_PauseSpriteAnim,
 };
