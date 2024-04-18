@@ -1010,6 +1010,13 @@ static const struct SpriteFrameImage sPicTable_StoneSphere[] = {
     overworld_frame(gObjectEventPic_StoneSphere, 2, 2, 3),
 };
 
+static const struct SpriteFrameImage sPicTable_SteelSphere[] = {
+    overworld_frame(gObjectEventPic_SteelSphere, 2, 2, 0),
+    overworld_frame(gObjectEventPic_SteelSphere, 2, 2, 1),
+    overworld_frame(gObjectEventPic_SteelSphere, 2, 2, 2),
+    overworld_frame(gObjectEventPic_SteelSphere, 2, 2, 3),
+};
+
 static const struct SpriteFrameImage sPicTable_PushableBoulder[] = {
     obj_frame_tiles(gObjectEventPic_PushableBoulder),
 };

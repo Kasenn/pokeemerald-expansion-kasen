@@ -48,6 +48,57 @@ RustboroCity_DevonCorp_1F_EventScript_GreeterNew_6:
 	goto RustboroCity_DevonCorp_1F_EventScript_GreeterNew_5
 
 
+Update3::
+	checkitem ITEM_GO_GOGGLES
+	compare VAR_RESULT, TRUE
+	goto_if_eq Update3_2
+Update3_1:
+	clearflag FLAG_SYSTEM_NOREWARDBATTLES
+	setflag FLAG_HIDE_STONE_SPHERE_FC
+	setflag FLAG_OLDMAN_PEARLSTRING
+	setflag FLAG_LANDMARK_LOST_GLADE
+	setflag FLAG_LANDMARK_WINDY_WOODS
+	setflag FLAG_VISITED_RUSTBORO_CITY
+	setflag FLAG_VISITED_PEARLWOOD_POINT
+	setflag FLAG_VISITED_OLDALE_TOWN
+	checktrainerflag TRAINER_GABBY_AND_TY_1
+	goto_if 1, Update3_5
+Update3_4:
+	checktrainerflag TRAINER_MARY
+	goto_if 1, Update3_8
+Update3_7:
+	checktrainerflag TRAINER_KAOLGYM_CLAY
+	goto_if 1, Update3_11
+Update3_10:
+	msgbox FlagsAndVarsUpdated2, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
+	goto_if_eq Update3_14
+Update3_13:
+	closemessage
+	release
+	end
+
+Update3_2:
+	setvar VAR_DESERT_BYPASS, 1
+	goto Update3_1
+
+Update3_5:
+	setvar VAR_BADGES_OBTAINED, 1
+	goto Update3_4
+
+Update3_8:
+	setvar VAR_BADGES_OBTAINED, 2
+	goto Update3_7
+
+Update3_11:
+	setvar VAR_BADGES_OBTAINED, 3
+	goto Update3_10
+
+Update3_14:
+	warp MAP_CORALGROVE_CITY, 26, 31
+	goto Update3_13
+
+
 RustboroCity_DevonCorp_1F_EventScript_RocketGreeter::
 	msgbox RocketGreeter, MSGBOX_NPC
 	end
@@ -223,6 +274,11 @@ EmployeeNew_TakeTimeToRecover::
 	.string "the attack and assess just how much\l"
 	.string "was stolen, but at least nobody was\l"
 	.string "seriously hurt.$"
+
+FlagsAndVarsUpdated2::
+	.string "Flags and Vars updated.\p"
+	.string "Would you like to warp to Coralgrove?\n"
+	.string "(Choose YES if current area is bugged)$"
 
 RustboroCity_DevonCorp_1F_Text_OurSavior::
 	.string "Oh, you're the young trainer who drove\n"

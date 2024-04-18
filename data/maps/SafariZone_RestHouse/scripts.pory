@@ -1,0 +1,71 @@
+mapscripts SafariZone_RestHouse_MapScripts{}
+
+script SafariZone_RestHouse_Youngster{
+    msgbox(SafariZone_RestHouse_Text_Youngster2, MSGBOX_NPC)
+	end
+}
+
+script SafariZone_RestHouse_PsychicM{
+    msgbox(SafariZone_RestHouse_Text_PsychicM2, MSGBOX_NPC)
+	end
+}	
+
+script SafariZone_RestHouse_FatMan{
+    if(flag(FLAG_RESTED_AT_SAFARI)){
+        msgbox(AlreadyRestedSafari, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    msgbox(SafariZone_RestHouse_Text_FatMan2, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(GoSafari, MSGBOX_NPC)
+        end
+    }
+    else{
+        special(RestAtSafari)
+        setflag(FLAG_RESTED_AT_SAFARI)
+        fadescreen(FADE_TO_BLACK)
+	    playfanfare(MUS_HEAL)
+	    waitfanfare
+	    fadescreen(FADE_FROM_BLACK)
+        delay(15)
+        msgbox(RefreshedSafari, MSGBOX_NPC)
+        end
+    }
+	end
+}
+
+text SafariZone_RestHouse_Text_PsychicM2{
+    "Every area I've seen so far has been\n"
+    "so unique.\l"
+    "I wonder what lies further to the north."
+}
+text SafariZone_RestHouse_Text_Youngster2{
+    "I've been looking for a real rare\n"
+    "Pokémon that I could use to brag to\l"
+    "my friends but so far I haven't had\l"
+    "much luck…"
+}
+
+text SafariZone_RestHouse_Text_FatMan2{
+    "This is the Safari Zone Rest House.\p"
+    "People who rest here have more energy\n"
+    "to keep continuing their Safari Game.\p"
+    "Would you like to take a rest?"
+}
+text GoSafari{
+    "I get it.\p"
+    "You must be too excited to continue your\n"
+    "Safari Game that you simply cannot wait."
+}
+text RefreshedSafari{
+    "Doesn't it feel great to take a moment\n"
+    "of respite?\p"
+    "Enjoy the rest of your Safari Game!"
+}
+text AlreadyRestedSafari{
+    "You've already rested here once during\n"
+    "your Safari Game.\l"
+    "Go out there and enjoy the Safari!"
+}

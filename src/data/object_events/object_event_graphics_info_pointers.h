@@ -285,6 +285,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MaySurfingOras;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFishingOras;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayWateringOras;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFieldMoveOras;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SteelSphere;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_NEWPIKACHU] =                     &gObjectEventGraphicsInfo_NewPikachu,
@@ -563,6 +564,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MAY_FISHING_ORAS] =        &gObjectEventGraphicsInfo_MayFishingOras,
     [OBJ_EVENT_GFX_MAY_WATERING_ORAS] =        &gObjectEventGraphicsInfo_MayWateringOras,
     [OBJ_EVENT_GFX_MAY_FIELD_MOVE_ORAS] =        &gObjectEventGraphicsInfo_MayFieldMoveOras,
+    [OBJ_EVENT_GFX_STEEL_SPHERE] =                    &gObjectEventGraphicsInfo_SteelSphere,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

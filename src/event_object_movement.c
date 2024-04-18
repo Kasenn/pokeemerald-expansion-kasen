@@ -483,6 +483,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_AceTrainerBWF,          OBJ_EVENT_PAL_ACE_TRAINER_F},
     {gObjectEventPalette_MayOras,          OBJ_EVENT_PAL_MAY_ORAS},
     {gObjectEventPalette_BrendanOras,          OBJ_EVENT_PAL_BRENDAN_ORAS},
+    {gObjectEventPalette_SteelSphere,            OBJ_EVENT_PAL_STEEL_SPHERE},
     
 #ifdef BUGFIX
     {NULL,                                  OBJ_EVENT_PAL_TAG_NONE},

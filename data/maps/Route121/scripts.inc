@@ -75,7 +75,7 @@ Route121_EventScript_Vanessa::
 	end
 
 Route121_EventScript_Walter::
-	trainerbattle_single TRAINER_WALTER_1, Route121_Text_WalterIntro, Route121_Text_WalterDefeat, Route121_EventScript_RegisterWalter
+	trainerbattle_single TRAINER_R13_TR5_BLACKBELT, Route121_Text_WalterIntro, Route121_Text_WalterDefeat, Route121_EventScript_RegisterWalter
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route121_EventScript_RematchWalter
 	msgbox Route121_Text_WalterPostBattle, MSGBOX_DEFAULT
@@ -86,12 +86,12 @@ Route121_EventScript_RegisterWalter::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route121_Text_WalterRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_WALTER_1
+	register_matchcall TRAINER_R13_TR5_BLACKBELT
 	release
 	end
 
 Route121_EventScript_RematchWalter::
-	trainerbattle_rematch TRAINER_WALTER_1, Route121_Text_WalterRematchIntro, Route121_Text_WalterRematchDefeat
+	trainerbattle_rematch TRAINER_R13_TR5_BLACKBELT, Route121_Text_WalterRematchIntro, Route121_Text_WalterRematchDefeat
 	msgbox Route121_Text_WalterPostRematch, MSGBOX_AUTOCLOSE
 	end
 

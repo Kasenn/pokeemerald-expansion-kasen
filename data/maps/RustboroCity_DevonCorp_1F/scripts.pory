@@ -75,6 +75,44 @@ script RustboroCity_DevonCorp_1F_EventScript_GreeterNew{
     }
     end
 }
+
+script Update3{
+    checkitem(ITEM_GO_GOGGLES)
+    if(var(VAR_RESULT) == TRUE){
+        setvar(VAR_DESERT_BYPASS, 1)
+    }
+    clearflag(FLAG_SYSTEM_NOREWARDBATTLES)
+	setflag(FLAG_HIDE_STONE_SPHERE_FC)
+    setflag(FLAG_OLDMAN_PEARLSTRING)
+    setflag(FLAG_LANDMARK_LOST_GLADE)
+	setflag(FLAG_LANDMARK_WINDY_WOODS)
+	setflag(FLAG_VISITED_RUSTBORO_CITY)
+	setflag(FLAG_VISITED_PEARLWOOD_POINT)
+	setflag(FLAG_VISITED_OLDALE_TOWN)
+    if(defeated(TRAINER_GABBY_AND_TY_1)){
+        setvar(VAR_BADGES_OBTAINED, 1)
+    }
+    if(defeated(TRAINER_MARY)){
+        setvar(VAR_BADGES_OBTAINED, 2)
+    }
+    if(defeated(TRAINER_KAOLGYM_CLAY)){
+        setvar(VAR_BADGES_OBTAINED, 3)
+    }
+    msgbox(FlagsAndVarsUpdated2, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == TRUE){
+        warp(MAP_CORALGROVE_CITY, 26, 31)
+    }
+	closemessage
+    release
+    end
+}
+
+text FlagsAndVarsUpdated2{
+    "Flags and Vars updated.\p"
+    "Would you like to warp to Coralgrove?\n"
+    "(Choose YES if current area is bugged)"
+}
+
 text RustboroCity_DevonCorp_1F_Text_OurSavior{
     "Oh, you're the young trainer who drove\n"
     "off Team Rocket, right?\l"

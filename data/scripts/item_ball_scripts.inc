@@ -484,7 +484,7 @@ SafariZone_Northeast_EventScript_ItemNugget::
 	end
 
 SafariZone_Southeast_EventScript_ItemBigPearl::
-	finditem ITEM_BIG_PEARL
+	finditem ITEM_TM_SUNNY_DAY
 	end
 
 MtPyre_2F_EventScript_ItemUltraBall::

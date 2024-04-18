@@ -76,18 +76,7 @@ FlagsAndVarsUpdated:
 	.string "Flags and Vars updated$"
 
 Debug_Script_1::
-	setflag FLAG_LANDMARK_LOST_GLADE
-	setflag FLAG_LANDMARK_WINDY_WOODS
-	setflag FLAG_VISITED_RUSTBORO_CITY
-	setflag FLAG_VISITED_PEARLWOOD_POINT
-	setflag FLAG_VISITED_OLDALE_TOWN
-	setberrytree BERRY_TREE_ROUTE_104_ORAN_1, ITEM_TO_BERRY(ITEM_ORAN_BERRY), BERRY_STAGE_BERRIES
-	setberrytree BERRY_TREE_ROUTE_103_LEPPA, ITEM_TO_BERRY(ITEM_LEPPA_BERRY), BERRY_STAGE_BERRIES
-	setberrytree BERRY_TREE_ROUTE_103_CHERI_2, ITEM_TO_BERRY(ITEM_CHERI_BERRY), BERRY_STAGE_BERRIES
-	msgbox FlagsAndVarsUpdated, MSGBOX_DEFAULT
-	waitmessage
-	closemessage
-	warp MAP_CORALGROVE_CITY, 26, 31
+	call Update3
 	end
 
 Debug_Script_2::
@@ -100,29 +89,16 @@ Debug_Script_2::
 	end
 
 Debug_Script_3::
-	setflag FLAG_OLDMAN_PEARLSTRING
-	setvar VAR_DESERT_BYPASS, 1
-	setvar VAR_BADGES_OBTAINED, 2
-	clearflag FLAG_SYSTEM_NOREWARDBATTLES
-	msgbox FlagsAndVarsUpdated, MSGBOX_DEFAULT
-	waitmessage
-	closemessage
+	call SetR11RivalFight
 	end
 
-DebugVar::
-	.string "äÄöÖ"
-	.string "{STR_VAR_1}$"
-
 Debug_Script_4::
-	clearflag FLAG_SYSTEM_NOREWARDBATTLES
 	end
 
 Debug_Script_5::
-	call SetMayOutfit
 	end
 
 Debug_Script_6::
-	call R11VarTest
 	end
 
 Debug_Script_7::

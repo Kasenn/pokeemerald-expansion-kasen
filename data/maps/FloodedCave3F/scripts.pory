@@ -1,0 +1,35 @@
+mapscripts FloodedCave3F_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: FC3FSetVar
+    MAP_SCRIPT_ON_LOAD: FC3FSetVar
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_FCCAVE, 0: FC3FDoNothing
+        VAR_FCCAVE, 2: FC3FSetBGM
+    ]
+}
+
+script FC3FSetVar{
+    if(var(VAR_FCCAVE) == 3){
+        setvar(VAR_FCCAVE, 2)
+    }
+    release
+    end
+}
+script FC3FDoNothing{
+    setvar(VAR_FCCAVE, 1)
+    release
+    end
+}
+script FC3FSetBGM{
+    playbgm(MUS_SEALED_CHAMBER, TRUE)
+    setvar(VAR_FCCAVE, 3)
+    release
+    end
+}
+
+script FC3F_LootRock{
+    finditem(ITEM_STEEL_SPHERE)
+    waitmessage
+    playbgm(MUS_SEALED_CHAMBER, TRUE)
+    setvar(VAR_FCCAVE, 3)
+    end
+}

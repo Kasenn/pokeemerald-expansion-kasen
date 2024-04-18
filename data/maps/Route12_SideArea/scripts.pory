@@ -1,0 +1,35 @@
+mapscripts Route12_SideArea_MapScripts{}
+
+script StrengthWoman{
+    if(flag(FLAG_RECEIVED_HM_STRENGTH)){
+        msgbox(Need4BadgesFirst, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    msgbox(R12FoundMyHideout, MSGBOX_DEFAULT)
+    giveitem(ITEM_HM_STRENGTH)
+    setflag(FLAG_RECEIVED_HM_STRENGTH)
+    waitfanfare
+    msgbox(Need4BadgesFirst, MSGBOX_NPC)
+    end
+}
+
+text R12FoundMyHideout{
+    "I see you've managed to reach my small\n"
+    "getaway.\p"
+    "That must mean you're strong,\n"
+    "but are you strong enough for this?"
+}
+
+text Need4BadgesFirst{
+    "That Hidden Machine contains the move\n"
+    "Strength.\p"
+    "Strength packs a real punch, but be\n"
+    "careful, as it will also leave your\l"
+    "Pokémon susceptible to counter-attacks.\p"
+    "It also lets you push certain boulders\n"
+    "out of your way, but in order to use it,\l"
+    "you must first obtain the badge from\l"
+    "Sandstone City Pokémon Gym."
+}

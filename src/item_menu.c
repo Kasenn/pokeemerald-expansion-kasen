@@ -1613,8 +1613,8 @@ static void OpenContextMenu(u8 taskId)
         }
         else
         {
-            gBagMenu->contextMenuItemsPtr = sContextMenuItems_Cancel;
-            gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_Cancel);
+            gBagMenu->contextMenuItemsPtr = sContextMenuItems_Apprentice;
+            gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_Apprentice);
         }
         break;
     case ITEMMENULOCATION_FAVOR_LADY:

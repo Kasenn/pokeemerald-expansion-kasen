@@ -950,8 +950,9 @@
 #define ITEM_DECIDUEITE 813
 #define ITEM_INCINEROARITE  814
 #define ITEM_CHESNAUGHTITE  815
+#define ITEM_STEEL_SPHERE   816
 
-#define ITEMS_COUNT 816
+#define ITEMS_COUNT 817
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

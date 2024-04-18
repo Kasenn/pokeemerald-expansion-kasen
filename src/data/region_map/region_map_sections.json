@@ -649,6 +649,14 @@
       "height": 1
     },
     {
+      "map_section": "MAPSEC_FLOODED_CAVES",
+      "name": "FLOODED CAVE",
+      "x": 6,
+      "y": 13,
+      "width": 1,
+      "height": 1
+    },
+    {
       "map_section": "MAPSEC_NEWROUTE_13",
       "name": "ROUTE 13",
       "x": 7,
@@ -865,8 +873,8 @@
       "height": 2
     },
     {
-      "map_section": "MAPSEC_CITY_WIP4",
-      "name": "WIP CITY 4",
+      "map_section": "MAPSEC_GALEWIND_CITY",
+      "name": "GALEWIND CITY",
       "x": 10,
       "y": 9,
       "width": 1,

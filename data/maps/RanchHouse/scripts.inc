@@ -3,20 +3,49 @@ RanchHouse_MapScripts::
 
 
 RanchHouseMan::
-	lockall
+	goto_if_set FLAG_OBTAINED_MEGA_RING, RanchHouseMan_2
+	msgbox RanchHouseManText, MSGBOX_NPC
+	end
+
+RanchHouseMan_2:
+	goto_if_set FLAG_OBTAINED_AMPHAROSITE, RanchHouseMan_5
+	lock
 	faceplayer
-	msgbox RanchHouseManText, MSGBOX_DEFAULT
+	msgbox RanchHouseItsYou, MSGBOX_NPC
+	checkitemspace ITEM_AMPHAROSITE
+	compare VAR_RESULT, FALSE
+	goto_if_eq RanchHouseMan_8
+	giveitem ITEM_AMPHAROSITE
+	waitfanfare
+	setflag FLAG_OBTAINED_AMPHAROSITE
+	closemessage
 	release
+	end
+
+RanchHouseMan_5:
+	msgbox RanchTakeGoodCare, MSGBOX_NPC
+	end
+
+RanchHouseMan_8:
+	msgbox NotEnoughRoom, MSGBOX_NPC
 	end
 
 
 RanchHouseWoman::
-	lockall
-	faceplayer
-	msgbox RanchHouseWomanText, MSGBOX_DEFAULT
-	release
+	msgbox RanchHouseWomanText, MSGBOX_NPC
 	end
 
+
+RanchHouseItsYou::
+	.string "Ah, it's you!\p"
+	.string "One of our Mareeps found this peculiar\n"
+	.string "stone the other day.\p"
+	.string "I have no idea what it does, but I\n"
+	.string "never got to thank you before,\l"
+	.string "so I hope this stone will suffice.$"
+
+RanchTakeGoodCare::
+	.string "Take good care now!$"
 
 RanchHouseManText::
 	.string "You must be the trainer who was helping\n"

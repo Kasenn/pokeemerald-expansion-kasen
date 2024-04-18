@@ -81,7 +81,12 @@
     "Route13",
     "Route14",
     "AdamantTowerExterior",
-    "Route11_Cave"
+    "Route11_Cave",
+    "FloodedCave1F",
+    "FloodedCave2F",
+    "FloodedCave3F",
+    "Route12_SideArea",
+    "Route12_StrengthHouse"
   ],
   "gMapGroup_TownsAndCities": [
     "PearlwoodPoint",

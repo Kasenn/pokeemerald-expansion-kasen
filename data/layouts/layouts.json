@@ -2375,7 +2375,7 @@
       "id": "LAYOUT_SAFARI_ZONE_NORTHWEST",
       "name": "SafariZone_Northwest_Layout",
       "width": 40,
-      "height": 40,
+      "height": 43,
       "primary_tileset": "gTileset_SafariPrime",
       "secondary_tileset": "gTileset_SafariSec",
       "border_filepath": "data/layouts/SafariZone_Northwest/border.bin",
@@ -2394,10 +2394,10 @@
     {
       "id": "LAYOUT_SAFARI_ZONE_SOUTHWEST",
       "name": "SafariZone_Southwest_Layout",
-      "width": 40,
+      "width": 46,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lilycove",
+      "secondary_tileset": "gTileset_SafariSec",
       "border_filepath": "data/layouts/SafariZone_Southwest/border.bin",
       "blockdata_filepath": "data/layouts/SafariZone_Southwest/map.bin"
     },
@@ -3934,7 +3934,7 @@
     {
       "id": "LAYOUT_SAFARI_ZONE_NORTHEAST",
       "name": "SafariZone_Northeast_Layout",
-      "width": 40,
+      "width": 46,
       "height": 40,
       "primary_tileset": "gTileset_SafariPrime",
       "secondary_tileset": "gTileset_SafariSec",
@@ -3944,8 +3944,8 @@
     {
       "id": "LAYOUT_SAFARI_ZONE_SOUTHEAST",
       "name": "SafariZone_Southeast_Layout",
-      "width": 40,
-      "height": 40,
+      "width": 46,
+      "height": 43,
       "primary_tileset": "gTileset_SafariPrime",
       "secondary_tileset": "gTileset_SafariSec",
       "border_filepath": "data/layouts/SafariZone_Southeast/border.bin",
@@ -5830,6 +5830,56 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Route11_Cave/border.bin",
       "blockdata_filepath": "data/layouts/Route11_Cave/map.bin"
+    },
+    {
+      "id": "LAYOUT_FLOODED_CAVE1F",
+      "name": "FloodedCave1F_Layout",
+      "width": 80,
+      "height": 51,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/FloodedCave1F/border.bin",
+      "blockdata_filepath": "data/layouts/FloodedCave1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_FLOODED_CAVE2F",
+      "name": "FloodedCave2F_Layout",
+      "width": 15,
+      "height": 16,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/FloodedCave2F/border.bin",
+      "blockdata_filepath": "data/layouts/FloodedCave2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_FLOODED_CAVE3F",
+      "name": "FloodedCave3F_Layout",
+      "width": 31,
+      "height": 42,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/FloodedCave3F/border.bin",
+      "blockdata_filepath": "data/layouts/FloodedCave3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE12_SIDE_AREA",
+      "name": "Route12_SideArea_Layout",
+      "width": 41,
+      "height": 99,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_CyclingRoad",
+      "border_filepath": "data/layouts/Route12_SideArea/border.bin",
+      "blockdata_filepath": "data/layouts/Route12_SideArea/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE12_STRENGTH_HOUSE",
+      "name": "Route12_StrengthHouse_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Route12_StrengthHouse/border.bin",
+      "blockdata_filepath": "data/layouts/Route12_StrengthHouse/map.bin"
     }
   ]
 }
