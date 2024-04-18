@@ -110,7 +110,7 @@
 #define MAPSEC_KAOLISLE_CITY                    0x6A
 #define MAPSEC_ROCKLIFFE_TOWN                    0x6B
 #define MAPSEC_SANDSTONE_CITY               0x6C
-#define MAPSEC_CITY_WIP4                    0x6D
+#define MAPSEC_GALEWIND_CITY                    0x6D
 #define MAPSEC_TOWN_WIP5                    0x6E
 #define MAPSEC_TOWN_WIP6                    0x6F
 #define MAPSEC_CITY_WIP5                    0x70
@@ -247,7 +247,8 @@
 #define MAPSEC_WEIRDCAVE                       0xF3
 #define MAPSEC_KAOLISLE_MINES                  0xF4
 #define MAPSEC_ADAMANT_TOWER                   0xF5
-#define MAPSEC_NONE                            0xF6
+#define MAPSEC_FLOODED_CAVES                   0xF6
+#define MAPSEC_NONE                            0xF7
 
 
 #define METLOC_SPECIAL_EGG                  0xFD

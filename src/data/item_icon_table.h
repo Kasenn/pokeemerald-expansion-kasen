@@ -862,6 +862,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_LOST_MEMENTO] = {gItemIcon_LostMemento, gItemIconPalette_LostMemento},
     [ITEM_SPECIAL_SOUP] = {gItemIcon_SpecialSoup, gItemIconPalette_SpecialSoup},
     [ITEM_CURRY] = {gItemIcon_Curry, gItemIconPalette_Curry},
+    [ITEM_STEEL_SPHERE] = {gItemIcon_SteelSphere, gItemIconPalette_SteelSphere},
     // Return to field arrow
     [ITEMS_COUNT] = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
 };

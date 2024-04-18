@@ -283,8 +283,9 @@ SafariZone_Northeast_Text_Boy:
 	.string "decide what I should catch.$"
 
 SafariZone_Northeast_Text_Woman:
-	.string "I heard that you can see PIKACHU here.\n"
-	.string "Where might one be?$"
+	.string "The Pokémon here seem to prefer the\n"
+	.string "darker, finer terrain, rather than\l"
+	.string "the lighter, coarse ground.$"
 
 SafariZone_Northeast_Text_Girl:
 	.string "Oh, boo!\n"

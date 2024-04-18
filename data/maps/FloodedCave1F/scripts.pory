@@ -1,0 +1,95 @@
+mapscripts FloodedCave1F_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: FloodedCaveLandmark
+}
+
+script FloodedCaveLandmark{
+    setflag(FLAG_VISITED_FLOODEDCAVE)
+    end
+}
+
+script FC_Hiker{
+    msgbox(FC_Hiker_Text, MSGBOX_NPC)
+    end
+}
+text FC_Hiker_Text{
+    "I've seen people hopping on these\n"
+    "pillars but I'm worried they might not\l"
+    "support my weight."
+}
+
+script FightingClub_Tr1_Blackbelt {
+    trainerbattle_single(TRAINER_FC_TR1_BLACKBELT, FCTr1_Intro, FCTr1_Lose)
+    msgbox(FCTr1_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text FCTr1_Intro{
+    "To be able to come this far means that\n"
+    "you're not afraid of pillar jumping.\p"
+    "But are you afraid of Pokémon battles?"
+}
+text FCTr1_Lose{
+    "I admit defeat."
+}
+text FCTr1_PostBattle{
+    "Caves like these are a great place to\n"
+    "train.\p"
+    "Sometimes there's almost too many wild\n"
+    "Pokémon here."
+}
+
+script FightingClub_Tr2_Battlegirl {
+    trainerbattle_single(TRAINER_FC_TR2_BATTLEGIRL, FCTr2_Intro, FCTr2_Lose)
+    msgbox(FCTr2_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text FCTr2_Intro{
+    "I have never lost a single battle!\n"
+    "Let me prove it to you!"
+}
+text FCTr2_Lose{
+    "This one doesn't count!"
+}
+text FCTr2_PostBattle{
+    "I have never lost a single battle…\n"
+    "starting now!"
+}
+
+script FightingClub_Tr3_Camper {
+    trainerbattle_single(TRAINER_FC_TR3_CAMPER, FCTr3_Intro, FCTr3_Lose)
+    msgbox(FCTr3_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text FCTr3_Intro{
+    "Found any rare Pokémon?"
+}
+text FCTr3_Lose{
+    "Why can I never win?"
+}
+text FCTr3_PostBattle{
+    "They're usually only found in the\n"
+    "north, so you can imagine just how\l"
+    "surprised I was when I saw a Seel\l"
+    "swimming around here yesterday!"
+}
+
+script FightingClub_Tr4_Hiker {
+    trainerbattle_single(TRAINER_FC_TR4_HIKER, FCTr4_Intro, FCTr4_Lose)
+    msgbox(FCTr4_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text FCTr4_Intro{
+    "Us hikers love exploring caves.\p"
+    "But what we love even more is\n"
+    "Pokémon battles!"
+}
+text FCTr4_Lose{
+    "You know what we hikers love even more\n"
+    "than Pokémon battles?\l"
+    "Actually winning them…"
+}
+text FCTr4_PostBattle{
+    "I'm getting an uneasy feeling exploring\n"
+    "this cave.\p"
+    "It feels like there's something big\n"
+    "hidden here…"
+}

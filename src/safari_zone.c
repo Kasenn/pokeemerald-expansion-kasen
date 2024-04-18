@@ -30,7 +30,7 @@ extern const u8 SafariZone_EventScript_OutOfBallsMidBattle[];
 extern const u8 SafariZone_EventScript_OutOfBalls[];
 
 EWRAM_DATA u8 gNumSafariBalls = 0;
-EWRAM_DATA static u16 sSafariZoneStepCounter = 0;
+EWRAM_DATA u16 sSafariZoneStepCounter = 0;
 EWRAM_DATA static u8 sSafariZoneCaughtMons = 0;
 EWRAM_DATA static u8 sSafariZonePkblkUses = 0;
 EWRAM_DATA static struct PokeblockFeeder sPokeblockFeeders[NUM_POKEBLOCK_FEEDERS] = {0};
@@ -58,11 +58,21 @@ void EnterSafariMode(void)
     IncrementGameStat(GAME_STAT_ENTERED_SAFARI_ZONE);
     SetSafariZoneFlag();
     FlagSet(FLAG_INCREASED_SHINY_ODDS);
+    FlagClear(FLAG_RESTED_AT_SAFARI);
     ClearAllPokeblockFeeders();
     gNumSafariBalls = 30;
     sSafariZoneStepCounter = 500;
     sSafariZoneCaughtMons = 0;
     sSafariZonePkblkUses = 0;
+}
+
+void RestAtSafari(void)
+{
+    sSafariZoneStepCounter = sSafariZoneStepCounter + 100;
+    if(sSafariZoneStepCounter >= 500)
+    {
+        sSafariZoneStepCounter = 500;
+    }
 }
 
 void ExitSafariMode(void)
@@ -98,8 +108,11 @@ bool8 SafariZoneTakeStep(void)
         return FALSE;
     }
 
-    DecrementFeederStepCounters();
-    sSafariZoneStepCounter--;
+    if(gSaveBlock1Ptr->location.mapNum != MAP_NUM(SAFARI_ZONE_REST_HOUSE)){
+        DecrementFeederStepCounters();
+        sSafariZoneStepCounter--;
+    }
+    
     if (sSafariZoneStepCounter == 0)
     {
         ScriptContext_SetupScript(SafariZone_EventScript_TimesUp);

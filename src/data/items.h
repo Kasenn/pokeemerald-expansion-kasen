@@ -9825,4 +9825,14 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 80,
     },
+    [ITEM_STEEL_SPHERE] =
+    {
+        .name = _("Steel Sphere"),
+        .price = 0,
+        .description = sSteelSphereDesc,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
 };

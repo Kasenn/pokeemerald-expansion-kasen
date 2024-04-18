@@ -7650,7 +7650,7 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_ELITE:
             return MUS_VS_GYM_LEADER;
         case TRAINER_CLASS_CHAMPION:
-            return MUS_MISTRAL;
+            return MUS_DP_VS_LEGEND;
         case TRAINER_CLASS_RIVAL:
             if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
                 return MUS_VS_RIVAL;

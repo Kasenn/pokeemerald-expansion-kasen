@@ -24,7 +24,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SafariZone_RestHouse_EventScript_Youngster",
+      "script": "SafariZone_RestHouse_Youngster",
       "flag": "0"
     },
     {
@@ -37,7 +37,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SafariZone_RestHouse_EventScript_PsychicM",
+      "script": "SafariZone_RestHouse_PsychicM",
       "flag": "0"
     },
     {
@@ -50,7 +50,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SafariZone_RestHouse_EventScript_FatMan",
+      "script": "SafariZone_RestHouse_FatMan",
       "flag": "0"
     }
   ],
@@ -59,14 +59,14 @@
       "x": 3,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_SAFARI_ZONE_SOUTHWEST",
+      "dest_map": "MAP_SAFARI_ZONE_NORTHEAST",
       "dest_warp_id": "0"
     },
     {
       "x": 4,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_SAFARI_ZONE_SOUTHWEST",
+      "dest_map": "MAP_SAFARI_ZONE_NORTHEAST",
       "dest_warp_id": "0"
     }
   ],

@@ -1,4 +1,11 @@
-mapscripts Route12_MapScripts{}
+mapscripts Route12_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: R12_ResetTrainer
+}
+script R12_ResetTrainer{
+    cleartrainerflag(TRAINER_R12_TR12_BUGMANIAC)
+    release
+    end
+}
 
 script R12_Sign{
     msgbox(R12_Sign_Text, MSGBOX_SIGN)
@@ -17,19 +24,68 @@ text R12_OldWoman_Text{
     "to trek through the lower route…"
 }
 
+script R12_Cyclist1{
+    msgbox(R12_Cyclist1_Text, MSGBOX_NPC)
+    end
+}
+text R12_Cyclist1_Text{
+    "There have been propositions made to\n"
+    "rebuild this road and make it more\l"
+    "straight.\p"
+    "I prefer it being all twisted;\n"
+    "makes it more fun to slalom down."
+}
+
+script R12_Cyclist2{
+    if(flag(FLAG_R12_XSPEED)){
+        msgbox(R12_GottaGoFast, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    msgbox(R12_Cyclist2_Text, MSGBOX_DEFAULT)
+    checkitemspace(ITEM_X_SPEED)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(NotEnoughRoom, MSGBOX_NPC)
+        end
+    }
+    giveitem(ITEM_X_SPEED)
+    waitfanfare
+    setflag(FLAG_R12_XSPEED)
+    closemessage
+    release
+    end
+}
+text R12_Cyclist2_Text{
+    "Sometimes in Pokémon battles, speed\n"
+    "can be the determining factor between\l"
+    "a win and a lose.\p"
+    "If your Pokémon are too slow, you\n"
+    "should try using items like X Speed to\l"
+    "really give them the edge.\l"
+    "Here, try it out."
+}
+text R12_GottaGoFast{
+    "Gotta go quickly, or\n"
+    "however the saying goes."
+}
+
 script Route12_Tr1_Triathlete_F {
     trainerbattle_single(TRAINER_R12_TR1_TRIATHLETE_F, R12Tr1_Intro, R12Tr1_Lose)
     msgbox(R12Tr1_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
 text R12Tr1_Intro{
-    ""
+    "This is the Cycling Road.\p"
+    "Hope you're ready for fast-paced\n"
+    "Pokémon battles!"
 }
 text R12Tr1_Lose{
-    ""
+    "Too fast for me!"
 }
 text R12Tr1_PostBattle{
-    ""
+    "A lot of the people here are practicing\n"
+    "for the Sandstone gym challenge."
 }
 
 script Route12_Tr2_Triathlete_M {
@@ -38,13 +94,17 @@ script Route12_Tr2_Triathlete_M {
     end
 }
 text R12Tr2_Intro{
-    ""
+	"Whoa! Watch it!\n"
+	"I guess you're not used to bike racing."
 }
 text R12Tr2_Lose{
-    ""
+	"Whoa!\n"
+	"My brakes failed!"
 }
 text R12Tr2_PostBattle{
-    ""
+	"Flat tires and brake problems can\n"
+	"cause serious injury!\l"
+	"Inspect your BIKE for problems!"
 }
 
 script Route12_Tr3_Triathlete_F2 {
@@ -53,13 +113,15 @@ script Route12_Tr3_Triathlete_F2 {
     end
 }
 text R12Tr3_Intro{
-    ""
+	"Yo, you!\n"
+	"Can you keep up with my speed?"
 }
 text R12Tr3_Lose{
-    ""
+	"Crash and burn!"
 }
 text R12Tr3_PostBattle{
-    ""
+	"Speed alone won't let me win at Pokémon.\n"
+	"I need to reconsider this…"
 }
 
 script Route12_Tr4_Triathlete_M2 {
@@ -68,13 +130,15 @@ script Route12_Tr4_Triathlete_M2 {
     end
 }
 text R12Tr4_Intro{
-    ""
+	"Don't panic if your bike's going fast!"
 }
 text R12Tr4_Lose{
-    ""
+	"I shouldn't panic during Pokémon\n"
+	"battles…"
 }
 text R12Tr4_PostBattle{
-    ""
+	"There's no need to panic or stress.\n"
+	"Take it easy. There's plenty of time."
 }
 
 script Route12_Tr5_Triathlete_M3 {
@@ -83,13 +147,15 @@ script Route12_Tr5_Triathlete_M3 {
     end
 }
 text R12Tr5_Intro{
-    ""
+    "My Pokémon roll around at the speed\n"
+    "of sound. You're too slow!"
 }
 text R12Tr5_Lose{
-    ""
+    "It's no use…"
 }
 text R12Tr5_PostBattle{
-    ""
+    "My speed couldn't outmatch your\n"
+    "strength…"
 }
 
 script Route12_Tr6_Triathlete_F3 {
@@ -98,43 +164,15 @@ script Route12_Tr6_Triathlete_F3 {
     end
 }
 text R12Tr6_Intro{
-    ""
+	"I've been riding without stopping.\n"
+	"My thighs are like rocks!"
 }
 text R12Tr6_Lose{
-    ""
+	"I'm worried about muscle cramps…"
 }
 text R12Tr6_PostBattle{
-    ""
-}
-
-script Route12_Tr7_Triathlete_M4 {
-    trainerbattle_single(TRAINER_R12_TR7_TRIATHLETE_M4, R12Tr7_Intro, R12Tr7_Lose)
-    msgbox(R12Tr7_PostBattle, MSGBOX_AUTOCLOSE)
-    end
-}
-text R12Tr7_Intro{
-    ""
-}
-text R12Tr7_Lose{
-    ""
-}
-text R12Tr7_PostBattle{
-    ""
-}
-
-script Route12_Tr8_Triathlete_F4 {
-    trainerbattle_single(TRAINER_R12_TR8_TRIATHLETE_F4, R12Tr8_Intro, R12Tr8_Lose)
-    msgbox(R12Tr8_PostBattle, MSGBOX_AUTOCLOSE)
-    end
-}
-text R12Tr8_Intro{
-    ""
-}
-text R12Tr8_Lose{
-    ""
-}
-text R12Tr8_PostBattle{
-    ""
+	"Oh, you have some Gym Badges?\n"
+	"No wonder you're so strong!"
 }
 
 script Route12_Tr9_Psychic_M {
@@ -143,13 +181,16 @@ script Route12_Tr9_Psychic_M {
     end
 }
 text R12Tr9_Intro{
-    ""
+	"I have foreseen your intentions!\n"
+	"I cannot possibly lose!"
 }
 text R12Tr9_Lose{
-    ""
+	"I failed to prophesize my own demise!"
 }
 text R12Tr9_PostBattle{
-    ""
+	"I see your future…\p"
+	"Hmm…\n"
+	"I see a shining light…"
 }
 
 script Route12_Tr10_Hiker {
@@ -158,13 +199,15 @@ script Route12_Tr10_Hiker {
     end
 }
 text R12Tr10_Intro{
-    ""
+    "My rock Pokémon are more solid than\n"
+    "this bridge going over us!"
 }
 text R12Tr10_Lose{
-    ""
+    "Oh, how the rock crumbles…"
 }
 text R12Tr10_PostBattle{
-    ""
+    "I don't trust the integrity of this\n"
+    "bridge. That's why I would rather walk."
 }
 
 script Route12_Tr11_Lass {
@@ -173,13 +216,16 @@ script Route12_Tr11_Lass {
     end
 }
 text R12Tr11_Intro{
-    ""
+    "If I win, I'm going to use the victory\n"
+    "money to buy a bike!"
 }
 text R12Tr11_Lose{
-    ""
+    "Maybe one day…"
 }
 text R12Tr11_PostBattle{
-    ""
+    "I wish I could afford a bike, but I\n"
+    "can't help spending my money on\l"
+    "other things…"
 }
 
 script Route12_Tr12_Bugmaniac {
@@ -188,13 +234,17 @@ script Route12_Tr12_Bugmaniac {
     end
 }
 text R12Tr12_Intro{
-    ""
+    "I'm looking for rare Pokémon.\n"
+    "Have you seen any?"
 }
 text R12Tr12_Lose{
-    ""
+    "Maybe I should stick to catching\n"
+    "Pokémon…"
 }
 text R12Tr12_PostBattle{
-    ""
+    "I swear I saw this weird green alien\n"
+    "looking thingy the other day, but\l"
+    "everyone keeps calling me crazy!"
 }
 
 script Route12_Tr13_Ninjaboy {
@@ -203,13 +253,14 @@ script Route12_Tr13_Ninjaboy {
     end
 }
 text R12Tr13_Intro{
-    ""
+    "Fear my ninja skills!"
 }
 text R12Tr13_Lose{
-    ""
+    "Ninja vanish!"
 }
 text R12Tr13_PostBattle{
-    ""
+    "I used “ninja vanish”, so you're\n"
+    "not supposed to see me anymore."
 }
 
 script R12_HoneyTree{

@@ -1,0 +1,173 @@
+mapscripts Route13_MapScripts{}
+
+script R13_BeachSwimmer{
+    msgbox(R13_BeachSwimmer_Text, MSGBOX_NPC)
+    end
+}
+text R13_BeachSwimmer_Text{
+    "It's a long way to Galewind City.\p"
+    "Not even an experienced swimmer like\n"
+    "me would risk trying to swim there\l"
+    "without Pokémon to aid me."
+}
+
+script Route13_Tr1_Birdkeeper {
+    msgbox(Route13_Tr1_Birdkeeper_Text, MSGBOX_NPC)
+    end
+}
+text Route13_Tr1_Birdkeeper_Text{
+    "Planning to head to Galewind City?\n"
+    "I wouldn't bother, unless you have\n"
+    "surfing Pokémon or flying Pokémon\l"
+    "that can take you there directly."
+}
+
+script Route13_Tr2_Runner_M {
+    trainerbattle_single(TRAINER_R13_TR2_RUNNER_M, R13Tr2_Intro, R13Tr2_Lose)
+    msgbox(R13Tr2_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R13Tr2_Intro{
+    "I'm building stamina to eventually be\n"
+    "able to cross the ocean to Galewind.\l"
+    "Will you be my training partner?"
+}
+text R13Tr2_Lose{
+    "Our stamina wasn't enough to\n"
+    "outlast you…"
+}
+text R13Tr2_PostBattle{
+    "It was nice training with you, but\n"
+    "I think I'll stick to training solo."
+}
+
+script Route13_Tr3_ExpertcoupleMan {
+    trainerbattle_double(TRAINER_R13_TR3_EXPERTCOUPLE, R13Tr3_IntroMan, R13Tr3_LoseMan, R13Tr3_NotEnoughMan)
+    msgbox(R13Tr3_PostBattleMan, MSGBOX_AUTOCLOSE)
+    end
+}
+
+text R13Tr3_IntroMan{
+    "Hank: Our bond is unbreakable!\n"
+    "You shall witness it first-hand!"
+}
+text R13Tr3_LoseMan{
+    "Hank: You may have won, but our bond\n"
+    "still remains!"
+}
+text R13Tr3_NotEnoughMan{
+    "Hank: You seem to be carrying only\n"
+    "a single Pokémon.\l"
+    "This would not be a fair fight."
+}
+text R13Tr3_PostBattleMan{
+    "Hank: When battling with another\n"
+    "person, not only do you have to\l"
+    "consider your own actions, but you\l"
+    "must also take into account the other\l"
+    "person's actions as well."
+}
+
+script Route13_Tr3_ExpertcoupleWoman {
+    trainerbattle_double(TRAINER_R13_TR3_EXPERTCOUPLE, R13Tr3_IntroWoman, R13Tr3_LoseWoman, R13Tr3_NotEnoughWoman)
+    msgbox(R13Tr3_PostBattleWoman, MSGBOX_AUTOCLOSE)
+    end
+}
+
+text R13Tr3_IntroWoman{
+    "Hope: Through thick and thin, we will\n"
+    "prevail!"
+}
+text R13Tr3_LoseWoman{
+    "Hope: We may have lost today,\n"
+    "but we will rise again!"
+}
+text R13Tr3_NotEnoughWoman{
+    "Hope: It's good that you're bonding\n"
+    "with your one and only Pokémon,\l"
+    "but you should really get more\l"
+    "before considering challenging us."
+}
+text R13Tr3_PostBattleWoman{
+    "Hope: Double battles sure are\n"
+    "something else.\p"
+    "It can sometimes be easy to overwhelm\n"
+    "one opponent, but what then, when\l"
+    "the other opponent is left unchecked?"
+}
+
+script Route13_Tr4_Hiker {
+    trainerbattle_single(TRAINER_R13_TR4_HIKER, R13Tr4_Intro, R13Tr4_Lose)
+    msgbox(R13Tr4_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R13Tr4_Intro{
+    "On these rocky cliffs, my Pokémon\n"
+    "have a clear advantage!"
+}
+text R13Tr4_Lose{
+    "I thought we had the high ground…"
+}
+text R13Tr4_PostBattle{
+    "Perching yourself by the side of\n"
+    "a busy road is a great way to train.\p"
+    "Sometimes things may not go your way,\n"
+    "but I'd say it's still super effective."
+}
+
+script Route13_Tr5_Blackbelt {
+    trainerbattle_single(TRAINER_R13_TR5_BLACKBELT, R13Tr5_Intro, R13Tr5_Lose)
+    msgbox(R13Tr5_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R13Tr5_Intro{
+    "I have mastered the art of the fist!\n"
+    "You stand no chance!"
+}
+text R13Tr5_Lose{
+    "I may be a master, but you,\n"
+    "are a grandmaster…"
+}
+text R13Tr5_PostBattle{
+    "Have you ever wondered how those stairs\n"
+    "on the cliffs were made?\p"
+    "My ancestors used their bare fists to\n"
+    "carve them directly to the cliff face."
+}
+
+script SetR11RivalFight{
+    lock
+    msgbox(WantToSetRivalFight, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == FALSE){
+            closemessage
+            release
+            end
+        }
+        checkitem(ITEM_DOWSING_MACHINE)
+        if(var(VAR_RESULT) == TRUE){
+            msgbox(RivalNotFought, MSGBOX_NPC)
+            setflag(FLAG_RIVAL_HARBOR_ANGRY)
+            removeitem(ITEM_DOWSING_MACHINE)
+        }
+        else{
+            msgbox(RivalFought, MSGBOX_NPC)
+            clearflag(FLAG_RIVAL_HARBOR_ANGRY)
+            additem(ITEM_DOWSING_MACHINE)
+        }
+        end
+}
+
+text WantToSetRivalFight{
+    "This option will change an upcoming\n"
+    "rival event based on whether the rival\l"
+    "was fought in the Coralgrove elevator.\p"
+    "Would you like to switch the event?"
+}
+text RivalNotFought{
+    "Rival set to NOT FOUGHT.\n"
+    "Removed the Itemfinder."
+}
+text RivalFought{
+    "Rival set to FOUGHT.\n"
+    "Added the Itemfinder."
+}

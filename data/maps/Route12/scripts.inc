@@ -1,5 +1,12 @@
 Route12_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, R12_ResetTrainer
 	.byte 0
+
+
+R12_ResetTrainer::
+	cleartrainerflag TRAINER_R12_TR12_BUGMANIAC
+	release
+	end
 
 
 R12_Sign::
@@ -9,6 +16,35 @@ R12_Sign::
 
 R12_OldWoman::
 	msgbox R12_OldWoman_Text, MSGBOX_NPC
+	end
+
+
+R12_Cyclist1::
+	msgbox R12_Cyclist1_Text, MSGBOX_NPC
+	end
+
+
+R12_Cyclist2::
+	goto_if_set FLAG_R12_XSPEED, R12_Cyclist2_2
+	lock
+	faceplayer
+	msgbox R12_Cyclist2_Text, MSGBOX_DEFAULT
+	checkitemspace ITEM_X_SPEED
+	compare VAR_RESULT, FALSE
+	goto_if_eq R12_Cyclist2_5
+	giveitem ITEM_X_SPEED
+	waitfanfare
+	setflag FLAG_R12_XSPEED
+	closemessage
+	release
+	end
+
+R12_Cyclist2_2:
+	msgbox R12_GottaGoFast, MSGBOX_NPC
+	end
+
+R12_Cyclist2_5:
+	msgbox NotEnoughRoom, MSGBOX_NPC
 	end
 
 
@@ -45,18 +81,6 @@ Route12_Tr5_Triathlete_M3::
 Route12_Tr6_Triathlete_F3::
 	trainerbattle_single TRAINER_R12_TR6_TRIATHLETE_F3, R12Tr6_Intro, R12Tr6_Lose
 	msgbox R12Tr6_PostBattle, MSGBOX_AUTOCLOSE
-	end
-
-
-Route12_Tr7_Triathlete_M4::
-	trainerbattle_single TRAINER_R12_TR7_TRIATHLETE_M4, R12Tr7_Intro, R12Tr7_Lose
-	msgbox R12Tr7_PostBattle, MSGBOX_AUTOCLOSE
-	end
-
-
-Route12_Tr8_Triathlete_F4::
-	trainerbattle_single TRAINER_R12_TR8_TRIATHLETE_F4, R12Tr8_Intro, R12Tr8_Lose
-	msgbox R12Tr8_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
@@ -195,119 +219,149 @@ R12_OldWoman_Text::
 	.string "I don't have a bike, so I guess I need\n"
 	.string "to trek through the lower route…$"
 
+R12_Cyclist1_Text::
+	.string "There have been propositions made to\n"
+	.string "rebuild this road and make it more\l"
+	.string "straight.\p"
+	.string "I prefer it being all twisted;\n"
+	.string "makes it more fun to slalom down.$"
+
+R12_Cyclist2_Text::
+	.string "Sometimes in Pokémon battles, speed\n"
+	.string "can be the determining factor between\l"
+	.string "a win and a lose.\p"
+	.string "If your Pokémon are too slow, you\n"
+	.string "should try using items like X Speed to\l"
+	.string "really give them the edge.\l"
+	.string "Here, try it out.$"
+
+R12_GottaGoFast::
+	.string "Gotta go quickly, or\n"
+	.string "however the saying goes.$"
+
 R12Tr1_Intro::
-	.string "$"
+	.string "This is the Cycling Road.\p"
+	.string "Hope you're ready for fast-paced\n"
+	.string "Pokémon battles!$"
 
 R12Tr1_Lose::
-	.string "$"
+	.string "Too fast for me!$"
 
 R12Tr1_PostBattle::
-	.string "$"
+	.string "A lot of the people here are practicing\n"
+	.string "for the Sandstone gym challenge.$"
 
 R12Tr2_Intro::
-	.string "$"
+	.string "Whoa! Watch it!\n"
+	.string "I guess you're not used to bike racing.$"
 
 R12Tr2_Lose::
-	.string "$"
+	.string "Whoa!\n"
+	.string "My brakes failed!$"
 
 R12Tr2_PostBattle::
-	.string "$"
+	.string "Flat tires and brake problems can\n"
+	.string "cause serious injury!\l"
+	.string "Inspect your BIKE for problems!$"
 
 R12Tr3_Intro::
-	.string "$"
+	.string "Yo, you!\n"
+	.string "Can you keep up with my speed?$"
 
 R12Tr3_Lose::
-	.string "$"
+	.string "Crash and burn!$"
 
 R12Tr3_PostBattle::
-	.string "$"
+	.string "Speed alone won't let me win at Pokémon.\n"
+	.string "I need to reconsider this…$"
 
 R12Tr4_Intro::
-	.string "$"
+	.string "Don't panic if your bike's going fast!$"
 
 R12Tr4_Lose::
-	.string "$"
+	.string "I shouldn't panic during Pokémon\n"
+	.string "battles…$"
 
 R12Tr4_PostBattle::
-	.string "$"
+	.string "There's no need to panic or stress.\n"
+	.string "Take it easy. There's plenty of time.$"
 
 R12Tr5_Intro::
-	.string "$"
+	.string "My Pokémon roll around at the speed\n"
+	.string "of sound. You're too slow!$"
 
 R12Tr5_Lose::
-	.string "$"
+	.string "It's no use…$"
 
 R12Tr5_PostBattle::
-	.string "$"
+	.string "My speed couldn't outmatch your\n"
+	.string "strength…$"
 
 R12Tr6_Intro::
-	.string "$"
+	.string "I've been riding without stopping.\n"
+	.string "My thighs are like rocks!$"
 
 R12Tr6_Lose::
-	.string "$"
+	.string "I'm worried about muscle cramps…$"
 
 R12Tr6_PostBattle::
-	.string "$"
-
-R12Tr7_Intro::
-	.string "$"
-
-R12Tr7_Lose::
-	.string "$"
-
-R12Tr7_PostBattle::
-	.string "$"
-
-R12Tr8_Intro::
-	.string "$"
-
-R12Tr8_Lose::
-	.string "$"
-
-R12Tr8_PostBattle::
-	.string "$"
+	.string "Oh, you have some Gym Badges?\n"
+	.string "No wonder you're so strong!$"
 
 R12Tr9_Intro::
-	.string "$"
+	.string "I have foreseen your intentions!\n"
+	.string "I cannot possibly lose!$"
 
 R12Tr9_Lose::
-	.string "$"
+	.string "I failed to prophesize my own demise!$"
 
 R12Tr9_PostBattle::
-	.string "$"
+	.string "I see your future…\p"
+	.string "Hmm…\n"
+	.string "I see a shining light…$"
 
 R12Tr10_Intro::
-	.string "$"
+	.string "My rock Pokémon are more solid than\n"
+	.string "this bridge going over us!$"
 
 R12Tr10_Lose::
-	.string "$"
+	.string "Oh, how the rock crumbles…$"
 
 R12Tr10_PostBattle::
-	.string "$"
+	.string "I don't trust the integrity of this\n"
+	.string "bridge. That's why I would rather walk.$"
 
 R12Tr11_Intro::
-	.string "$"
+	.string "If I win, I'm going to use the victory\n"
+	.string "money to buy a bike!$"
 
 R12Tr11_Lose::
-	.string "$"
+	.string "Maybe one day…$"
 
 R12Tr11_PostBattle::
-	.string "$"
+	.string "I wish I could afford a bike, but I\n"
+	.string "can't help spending my money on\l"
+	.string "other things…$"
 
 R12Tr12_Intro::
-	.string "$"
+	.string "I'm looking for rare Pokémon.\n"
+	.string "Have you seen any?$"
 
 R12Tr12_Lose::
-	.string "$"
+	.string "Maybe I should stick to catching\n"
+	.string "Pokémon…$"
 
 R12Tr12_PostBattle::
-	.string "$"
+	.string "I swear I saw this weird green alien\n"
+	.string "looking thingy the other day, but\l"
+	.string "everyone keeps calling me crazy!$"
 
 R12Tr13_Intro::
-	.string "$"
+	.string "Fear my ninja skills!$"
 
 R12Tr13_Lose::
-	.string "$"
+	.string "Ninja vanish!$"
 
 R12Tr13_PostBattle::
-	.string "$"
+	.string "I used “ninja vanish”, so you're\n"
+	.string "not supposed to see me anymore.$"

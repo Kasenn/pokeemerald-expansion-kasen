@@ -40,6 +40,11 @@
 #define MAP_ROUTE14                          (31 | (0 << 8))
 #define MAP_ADAMANT_TOWER_EXTERIOR           (32 | (0 << 8))
 #define MAP_ROUTE11_CAVE                     (33 | (0 << 8))
+#define MAP_FLOODED_CAVE1F                   (34 | (0 << 8))
+#define MAP_FLOODED_CAVE2F                   (35 | (0 << 8))
+#define MAP_FLOODED_CAVE3F                   (36 | (0 << 8))
+#define MAP_ROUTE12_SIDE_AREA                (37 | (0 << 8))
+#define MAP_ROUTE12_STRENGTH_HOUSE           (38 | (0 << 8))
 
 // gMapGroup_TownsAndCities
 #define MAP_PEARLWOOD_POINT   (0 | (1 << 8))

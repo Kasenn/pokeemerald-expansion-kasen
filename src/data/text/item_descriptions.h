@@ -3968,6 +3968,11 @@ static const u8 sStoneSphereDesc[] = _(
     "sphere. It's\n"
     "unusually light.");
 
+static const u8 sSteelSphereDesc[] = _(
+    "A peculiar steel\n"
+    "sphere. It's\n"
+    "unusually light.");
+
 static const u8 sTropicalStoneDesc[] = _(
     "Makes certain\n"
     "species of Pokémon\n"

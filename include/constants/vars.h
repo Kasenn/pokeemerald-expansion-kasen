@@ -121,7 +121,7 @@
 #define VAR_ALDELEAF_GYM_STATE                              0x4065 // Unused Var
 #define VAR_ALDELEAF_HOUSE                               0x4066 // used for the aldeleaf mimikyu event
 #define VAR_ROUTE5_TRAINERCOUNT                               0x4067 // used to count the defeated trainers on route 5
-#define VAR_UNUSED_4068                               0x4068 // Unused Var
+#define VAR_FCCAVE                               0x4068 // Unused Var
 #define VAR_ROUTE110_STATE                               0x4069
 #define VAR_WEIRDCAVE_CORRECTSTEPS                               0x406A // Used to track the amount of correct steps in weird cave
 #define VAR_WEIRDCAVEROCKFORMATION                               0x406B // used to rotate the rock in weird cave Var
