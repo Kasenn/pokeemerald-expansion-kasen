@@ -21,7 +21,6 @@ sound/**/*.bin
 sound/songs/midi/*.s
 tools/agbcc
 *.map
-*.ld
 *.bat
 *.dump
 *.sa*
@@ -43,3 +42,4 @@ prefabs.json
 Stitch_From_KaolisleCity.png
 Stitch_From_KaolisleCity2.png
 Stitch_From_Route109.png
+src/data/map_group_count.h

@@ -286,6 +286,7 @@ EWRAM_DATA static bool8 sShouldProcessSpriteCopyRequests = 0;
 EWRAM_DATA static u8 sSpriteCopyRequestCount = 0;
 EWRAM_DATA static struct SpriteCopyRequest sSpriteCopyRequests[MAX_SPRITES] = {0};
 EWRAM_DATA u8 gOamLimit = 0;
+static EWRAM_DATA u8 sOamDummyIndex = 0;
 EWRAM_DATA u16 gReservedSpriteTileCount = 0;
 EWRAM_DATA static u8 sSpriteTileAllocBitmap[128] = {0};
 EWRAM_DATA s16 gSpriteCoordOffsetX = 0;
@@ -296,6 +297,7 @@ EWRAM_DATA bool8 gAffineAnimsDisabled = FALSE;
 void ResetSpriteData(void)
 {
     ResetOamRange(0, 128);
+    sOamDummyIndex = 0;
     ResetAllSprites();
     ClearSpriteCopyRequests();
     ResetAffineAnimData();
@@ -326,15 +328,105 @@ void AnimateSprites(void)
 
 void BuildOamBuffer(void)
 {
-    u8 temp;
-    UpdateOamCoords();
-    BuildSpritePriorities();
-    SortSprites();
-    temp = gMain.oamLoadDisabled;
+    bool32 oamLoadDisabled;
+    u32 i;
+    u8 oamIndex;
+
+    // All attributes which affect sorting packed into a single u32:
+    // { priority:2, subpriority:8, y:9, :5, index:8 }.
+    // Index has its own byte even though it only needs 6 bits so that
+    // we can load it with a ldrb instead of having to mask out the
+    // bottom 6 bits.
+    u32 spritePriorities[MAX_SPRITES];
+    s32 toSort = 0;
+    u8 skippedSprites[MAX_SPRITES];
+    u32 skippedSpritesN = 0;
+    u32 matrices = 0;
+
+    for (i = 0; i < MAX_SPRITES; i++)
+    {
+        // Reuse existing sSpriteOrder because we expect the order to be
+        // relatively stable between frames.
+        u32 index = sSpriteOrder[i];
+        struct Sprite *sprite = &gSprites[index];
+        s32 y;
+        if (!sprite->inUse || sprite->invisible)
+        {
+            skippedSprites[skippedSpritesN++] = index;
+            continue;
+        }
+
+        if (sprite->oam.affineMode & ST_OAM_AFFINE_ON_MASK)
+            matrices |= 1 << sprite->oam.matrixNum;
+
+        if (sprite->coordOffsetEnabled)
+        {
+            sprite->oam.x = sprite->x + sprite->x2 + sprite->centerToCornerVecX + gSpriteCoordOffsetX;
+            sprite->oam.y = sprite->y + sprite->y2 + sprite->centerToCornerVecY + gSpriteCoordOffsetY;
+        }
+        else
+        {
+            sprite->oam.x = sprite->x + sprite->x2 + sprite->centerToCornerVecX;
+            sprite->oam.y = sprite->y + sprite->y2 + sprite->centerToCornerVecY;
+        }
+
+        y = sprite->oam.y;
+        if (y >= DISPLAY_HEIGHT)
+        {
+            y -= 256;
+        }
+        else if (sprite->oam.affineMode == ST_OAM_AFFINE_DOUBLE
+              && sprite->oam.size == ST_OAM_SIZE_3)
+        {
+            u32 shape = sprite->oam.shape;
+            if (shape == ST_OAM_SQUARE || shape == ST_OAM_V_RECTANGLE)
+            {
+                if (y > 128)
+                    y -= 256;
+            }
+        }
+
+        // y in [-128...159], so (159 - y) in [0..287].
+        spritePriorities[toSort++]
+            = (sprite->oam.priority << 30)
+            | (sprite->subpriority << 22)
+            | (((159 - y) & 0x1FF) << 13)
+            | (index << 0);
+    }
+
+    SortSprites(spritePriorities, toSort);
+
+    for (i = 0; i < toSort; i++)
+        sSpriteOrder[i] = spritePriorities[i] & 0xFF;
+    for (i = 0; i < skippedSpritesN; i++)
+        sSpriteOrder[toSort + i] = skippedSprites[i];
+
+    oamLoadDisabled = gMain.oamLoadDisabled;
     gMain.oamLoadDisabled = TRUE;
-    AddSpritesToOamBuffer();
-    CopyMatricesToOamBuffer();
-    gMain.oamLoadDisabled = temp;
+
+    for (i = 0, oamIndex = 0; i < toSort; i++)
+    {
+        if (AddSpriteToOamBuffer(&gSprites[spritePriorities[i] & 0xFF], &oamIndex))
+            break;
+    }
+
+    for (i = oamIndex; i < sOamDummyIndex; i++)
+        gMain.oamBuffer[i] = gDummyOamData;
+    sOamDummyIndex = oamIndex;
+
+    for (i = 0; matrices != 0; i++, matrices >>= 1)
+    {
+        if (matrices & 1)
+        {
+            u32 base = 4 * i;
+            gMain.oamBuffer[base + 0].affineParam = gOamMatrices[i].a;
+            gMain.oamBuffer[base + 1].affineParam = gOamMatrices[i].b;
+            gMain.oamBuffer[base + 2].affineParam = gOamMatrices[i].c;
+            gMain.oamBuffer[base + 3].affineParam = gOamMatrices[i].d;
+        }
+    }
+
+    gMain.oamLoadDisabled = oamLoadDisabled;
     sShouldProcessSpriteCopyRequests = TRUE;
 }
 

@@ -42,6 +42,32 @@ Debug_CheatStart::
 	setvar VAR_BRINEY_HOUSE_STATE, 1
 	setvar VAR_ROUTE116_STATE, 2
 	setflag FLAG_HIDE_ROUTE_116_MR_BRINEY
+	setflag FLAG_BADGE01_GET
+	setflag FLAG_BADGE02_GET
+	setflag FLAG_BADGE03_GET
+	setflag FLAG_BADGE04_GET
+	setflag FLAG_BADGE05_GET
+	setflag FLAG_BADGE06_GET
+	setflag FLAG_BADGE07_GET
+	setflag FLAG_BADGE08_GET
+	setflag FLAG_VISITED_LITTLEROOT_TOWN
+	setflag FLAG_VISITED_OLDALE_TOWN
+	setflag FLAG_VISITED_DEWFORD_TOWN
+	setflag FLAG_VISITED_LAVARIDGE_TOWN
+	setflag FLAG_VISITED_FALLARBOR_TOWN
+	setflag FLAG_VISITED_VERDANTURF_TOWN
+	setflag FLAG_VISITED_PACIFIDLOG_TOWN
+	setflag FLAG_VISITED_PETALBURG_CITY
+	setflag FLAG_VISITED_SLATEPORT_CITY
+	setflag FLAG_VISITED_MAUVILLE_CITY
+	setflag FLAG_VISITED_RUSTBORO_CITY
+	setflag FLAG_VISITED_FORTREE_CITY
+	setflag FLAG_VISITED_LILYCOVE_CITY
+	setflag FLAG_VISITED_MOSSDEEP_CITY
+	setflag FLAG_VISITED_SOOTOPOLIS_CITY
+	setflag FLAG_VISITED_EVER_GRANDE_CITY
+	setflag FLAG_LANDMARK_POKEMON_LEAGUE
+	setflag FLAG_LANDMARK_BATTLE_FRONTIER
 	clearflag FLAG_HIDE_BRINEYS_HOUSE_MR_BRINEY
 	clearflag FLAG_HIDE_BRINEYS_HOUSE_PEEKO
 	release
@@ -75,11 +101,11 @@ Debug_BoxFilledMessage_Text:
 FlagsAndVarsUpdated:
 	.string "Flags and Vars updated$"
 
-Debug_Script_1::
+Debug_EventScript_Script_1::
 	call Update3
 	end
 
-Debug_Script_2::
+Debug_EventScript_Script_2::
 	setmonmetlocation 0, MAP_NEW_ROUTE101
 	setmonmetlocation 1, MAP_NEW_ROUTE101
 	setmonmetlocation 2, MAP_NEW_ROUTE101
@@ -88,25 +114,25 @@ Debug_Script_2::
 	setmonmetlocation 5, MAP_NEW_ROUTE101
 	end
 
-Debug_Script_3::
+Debug_EventScript_Script_3::
 	call SetR11RivalFight
 	end
 
-Debug_Script_4::
+Debug_EventScript_Script_4::
 	end
 
-Debug_Script_5::
+Debug_EventScript_Script_5::
 	end
 
-Debug_Script_6::
+Debug_EventScript_Script_6::
 	end
 
-Debug_Script_7::
+Debug_EventScript_Script_7::
 	trainerbattle_single TRAINER_LEADER_KORRINA, Route109_Text_AustinaIntro, Route109_Text_AustinaDefeated
 	msgbox Route109_Text_AustinaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Debug_Script_8::
+Debug_EventScript_Script_8::
 	cleartrainerflag TRAINER_AUSTINA
 	trainerbattle_single TRAINER_AUSTINA, Route109_Text_AustinaIntro, Route109_Text_AustinaDefeated
 	msgbox Route109_Text_AustinaPostBattle, MSGBOX_AUTOCLOSE
@@ -172,29 +198,52 @@ DebugScript_HatchAnEgg_Text_EmptyParty::
 
 DebugScript_HatchAnEgg_Text_NotAnEgg::
 	.string "That's not a Pokémon Egg.$"
-	
+
 DebugScript_ZeroDaycareMons::
 	msgbox DebugText_DaycareNoPokemon, MSGBOX_DEFAULT
 	releaseall
 	end
-	
+
 DebugScript_OneDaycareMons::
 	msgbox DebugText_DaycareOnePokemon, MSGBOX_DEFAULT
 	releaseall
 	end
-	
+
 DebugScript_DaycareMonsNotCompatible::
 	msgbox DebugText_DaycarePokemonNotCompatible, MSGBOX_DEFAULT
 	releaseall
 	end
-	
+
 DebugText_DaycareNoPokemon:
 	.string "You have no Pokémon at Daycare.$"
-	
+
 DebugText_DaycareOnePokemon:
 	.string "You have only one Pokémon at Daycare.$"
-	
+
 DebugText_DaycarePokemonNotCompatible:
 	.string "Your Pokémon at Daycare can't\nhave babies together!$"
 
+Debug_ShowExpansionVersion::
+	callnative BufferExpansionVersion
+	msgbox Debug_ExpansionVersion, MSGBOX_DEFAULT
+	release
+	end
+
+Debug_ExpansionVersion:
+	.string "pokeemerald-expansion {STR_VAR_1}$"
+
 .endif
+
+Debug_FlagsAndVarNotSetBattleConfigMessage::
+	lockall
+	message Debug_FlagsAndVarNotSetBattleConfigMessage_Text
+	waitmessage
+	waitbuttonpress
+	releaseall
+	end
+
+Debug_FlagsAndVarNotSetBattleConfigMessage_Text:
+	.string "Feature unavailable! Please define a\n"
+	.string "usable flag and a usable var in:\l"
+	.string "'include/config/battle.h'!$"
+
