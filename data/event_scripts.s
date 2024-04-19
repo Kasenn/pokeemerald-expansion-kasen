@@ -1358,3 +1358,33 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Route12_SideArea/scripts.inc"
 
 	.include "data/maps/Route12_StrengthHouse/scripts.inc"
+
+	.include "data/maps/Sandstone_Pokecenter_1F/scripts.inc"
+
+	.include "data/maps/Sandstone_Pokecenter_2F/scripts.inc"
+
+	.include "data/maps/Sandstone_SmallHouse1/scripts.inc"
+
+	.include "data/maps/Sandstone_SmallHouse2/scripts.inc"
+
+	.include "data/maps/Sandstone_SmallHouse3/scripts.inc"
+
+	.include "data/maps/Sandstone_SmallHouse4/scripts.inc"
+
+	.include "data/maps/Sandstone_SmallHouse5/scripts.inc"
+
+	.include "data/maps/Sandstone_BP_Shop/scripts.inc"
+
+	.include "data/maps/Sandstone_LargeHouse1_1F/scripts.inc"
+
+	.include "data/maps/Sandstone_LargeHouse1_2F/scripts.inc"
+
+	.include "data/maps/Sandstone_LargeHouse2_1F/scripts.inc"
+
+	.include "data/maps/Sandstone_LargeHouse2_2F/scripts.inc"
+
+	.include "data/maps/Sandstone_LargeHouse2_3F/scripts.inc"
+
+	.include "data/maps/Sandstone_Gym_1F/scripts.inc"
+
+	.include "data/maps/Sandstone_Gym_2F/scripts.inc"

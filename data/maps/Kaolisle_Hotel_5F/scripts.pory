@@ -189,6 +189,36 @@ script SetAndCheckHeartScaleMove{
         case 40:
             setvar(VAR_HEARTSCALEMOVE2, MOVE_LAST_RESORT)
             checkpartymove(MOVE_LAST_RESORT)
+        case 41:
+            setvar(VAR_HEARTSCALEMOVE2, MOVE_THUNDER_WAVE)
+            checkpartymove(MOVE_THUNDER_WAVE)
+        case 42:
+            setvar(VAR_HEARTSCALEMOVE2, MOVE_FIRE_PUNCH)
+            checkpartymove(MOVE_FIRE_PUNCH)
+        case 43:
+            setvar(VAR_HEARTSCALEMOVE2, MOVE_THUNDER_PUNCH)
+            checkpartymove(MOVE_THUNDER_PUNCH)
+        case 44:
+            setvar(VAR_HEARTSCALEMOVE2, MOVE_ICE_PUNCH)
+            checkpartymove(MOVE_ICE_PUNCH)
+        case 45:
+            setvar(VAR_HEARTSCALEMOVE2, MOVE_DRAIN_PUNCH)
+            checkpartymove(MOVE_DRAIN_PUNCH)
+        case 46:
+            setvar(VAR_HEARTSCALEMOVE2, MOVE_PSYCH_UP)
+            checkpartymove(MOVE_PSYCH_UP)
+        case 47:
+            setvar(VAR_HEARTSCALEMOVE2, MOVE_PAIN_SPLIT)
+            checkpartymove(MOVE_PAIN_SPLIT)
+        case 48:
+            setvar(VAR_HEARTSCALEMOVE2, MOVE_TAILWIND)
+            checkpartymove(MOVE_TAILWIND)
+        case 49:
+            setvar(VAR_HEARTSCALEMOVE2, MOVE_IRON_TAIL)
+            checkpartymove(MOVE_IRON_TAIL)
+        case 50:
+            setvar(VAR_HEARTSCALEMOVE2, MOVE_ENDEAVOR)
+            checkpartymove(MOVE_ENDEAVOR)
     }
     return
 }

@@ -317,6 +317,7 @@ BPShop_HoldItemClerk::
 	case 3, BPShop_HoldItemClerk_4
 	case 4, BPShop_HoldItemClerk_5
 	case 5, BPShop_HoldItemClerk_6
+	case 6, BPShop_HoldItemClerk_7
 BPShop_HoldItemClerk_1:
 	end
 
@@ -334,6 +335,10 @@ BPShop_HoldItemClerk_5:
 
 BPShop_HoldItemClerk_6:
 	goto Kaolisle_BPShop_ChooseHoldItem
+	goto BPShop_HoldItemClerk_1
+
+BPShop_HoldItemClerk_7:
+	goto Sandstone_BPShop_ChooseHoldItem
 	goto BPShop_HoldItemClerk_1
 
 
@@ -461,6 +466,7 @@ BPShop_MoveTutor_1:
 	case 4, BPShop_MoveTutor_8
 	case 5, BPShop_MoveTutor_9
 	case 6, BPShop_MoveTutor_10
+	case 7, BPShop_MoveTutor_11
 BPShop_MoveTutor_5:
 	end
 
@@ -482,6 +488,10 @@ BPShop_MoveTutor_9:
 
 BPShop_MoveTutor_10:
 	goto Kaolisle_BPShop_ChooseTutorMove
+	goto BPShop_MoveTutor_5
+
+BPShop_MoveTutor_11:
+	goto Sandstone_BPShop_ChooseTutorMove
 	goto BPShop_MoveTutor_5
 
 

@@ -322,6 +322,8 @@ script BPShop_HoldItemClerk{
 			goto(Shoreslate_BPShop_ChooseHoldItem)
 		case 5:
 			goto(Kaolisle_BPShop_ChooseHoldItem)
+		case 6:
+			goto(Sandstone_BPShop_ChooseHoldItem)
 	}
     end
 }
@@ -420,6 +422,8 @@ script BPShop_MoveTutor{
 			goto(Shoreslate_BPShop_ChooseTutorMove)
 		case 6:
 			goto(Kaolisle_BPShop_ChooseTutorMove)
+		case 7:
+			goto(Sandstone_BPShop_ChooseTutorMove)
 	}
 	end
 }

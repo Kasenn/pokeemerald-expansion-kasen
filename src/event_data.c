@@ -57,7 +57,7 @@ void SetHeartScaleMove(void)
 {
     u32 rand;
 
-    rand = (Random() % 40) + 1;
+    rand = (Random() % 50) + 1;
     VarSet(VAR_HEARTSCALEMOVE, rand);
     VarSet(VAR_BPBEAUTY_STATE, 0);
 }

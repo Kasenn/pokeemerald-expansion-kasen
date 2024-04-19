@@ -4944,24 +4944,40 @@ static const struct TrainerMon sParty_R12Tr13_Ninja[] = {
 
 static const struct TrainerMon Party_R13Tr1_Birdkeeper[] = {
     {
-    .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
-    .lvl = 37,
-    .species = SPECIES_PIDGEOTTO,
+    .lvl = 25,
+    .species = SPECIES_EXPBOT,
+    .heldItem = ITEM_TOXIC_ORB,
+    .moves = {MOVE_HEALING_WISH}
     },
     {
-    .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
-    .lvl = 38,
-    .species = SPECIES_PIDGEOT,
+    .lvl = 25,
+    .species = SPECIES_EXPBOT,
+    .heldItem = ITEM_TOXIC_ORB,
+    .moves = {MOVE_HEALING_WISH}
     },
     {
-    .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
-    .lvl = 37,
-    .species = SPECIES_FLETCHINDER,
+    .lvl = 25,
+    .species = SPECIES_EXPBOT,
+    .heldItem = ITEM_TOXIC_ORB,
+    .moves = {MOVE_HEALING_WISH}
     },
     {
-    .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
-    .lvl = 38,
-    .species = SPECIES_TALONFLAME,
+    .lvl = 25,
+    .species = SPECIES_EXPBOT,
+    .heldItem = ITEM_TOXIC_ORB,
+    .moves = {MOVE_HEALING_WISH}
+    },
+    {
+    .lvl = 25,
+    .species = SPECIES_EXPBOT,
+    .heldItem = ITEM_TOXIC_ORB,
+    .moves = {MOVE_HEALING_WISH}
+    },
+    {
+    .lvl = 25,
+    .species = SPECIES_EXPBOT,
+    .heldItem = ITEM_TOXIC_ORB,
+    .moves = {MOVE_STRUGGLE}
     }
 };
 
@@ -5106,39 +5122,44 @@ static const struct TrainerMon Party_FcTr4_Hiker[] = {
     },
 };
 
-static const struct TrainerMon sParty_Walter4[] = {
+static const struct TrainerMon Party_R14Tr1_RunnerF[] = {
     {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 39,
-    .species = SPECIES_LINOONE,
-    .moves = {MOVE_HEADBUTT, MOVE_SAND_ATTACK, MOVE_ODOR_SLEUTH, MOVE_FURY_SWIPES}
+    .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
+    .lvl = 38,
+    .species = SPECIES_VOLTORB,
     },
     {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
+    .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
+    .lvl = 38,
+    .species = SPECIES_ABSOL,
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
     .lvl = 39,
-    .species = SPECIES_MANECTRIC,
-    .moves = {MOVE_QUICK_ATTACK, MOVE_SPARK, MOVE_ODOR_SLEUTH, MOVE_NONE}
+    .species = SPECIES_ELECTRODE,
     }
 };
 
-static const struct TrainerMon sParty_Walter5[] = {
+static const struct TrainerMon Party_R14Tr2_Hiker[] = {
     {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 41,
-    .species = SPECIES_LINOONE,
-    .moves = {MOVE_HEADBUTT, MOVE_SAND_ATTACK, MOVE_ODOR_SLEUTH, MOVE_FURY_SWIPES}
+    .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
+    .lvl = 38,
+    .species = SPECIES_DRILBUR,
     },
     {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 41,
-    .species = SPECIES_GOLDUCK,
-    .moves = {MOVE_FURY_SWIPES, MOVE_DISABLE, MOVE_CONFUSION, MOVE_PSYCH_UP}
+    .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
+    .lvl = 39,
+    .species = SPECIES_EXCADRILL,
     },
     {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 41,
-    .species = SPECIES_MANECTRIC,
-    .moves = {MOVE_QUICK_ATTACK, MOVE_SPARK, MOVE_ODOR_SLEUTH, MOVE_ROAR}
+    .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
+    .lvl = 38,
+    .species = SPECIES_BONSLY,
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
+    .lvl = 39,
+    .species = SPECIES_SUDOWOODO,
     }
 };
 

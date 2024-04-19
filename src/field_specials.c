@@ -2451,6 +2451,16 @@ void ShowScrollableMultichoice(void)
         task->tKeepOpenAfterSelect = FALSE;
         task->tTaskId = taskId;
         break;
+    case SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR6:
+        task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+        task->tNumItems = 22;
+        task->tLeft = 14;
+        task->tTop = 1;
+        task->tWidth = 15;
+        task->tHeight = 12;
+        task->tKeepOpenAfterSelect = FALSE;
+        task->tTaskId = taskId;
+        break;
     case SCROLL_MULTI_BERRY_POWDER_VENDOR:
         task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
         task->tNumItems = 12;
@@ -2513,6 +2523,16 @@ void ShowScrollableMultichoice(void)
         task->tTaskId = taskId;
         break;
     case SCROLL_MULTI_BF_MOVE_TUTOR_6:
+        task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+        task->tNumItems = 11;
+        task->tLeft = 15;
+        task->tTop = 1;
+        task->tWidth = 14;
+        task->tHeight = 12;
+        task->tKeepOpenAfterSelect = FALSE;
+        task->tTaskId = taskId;
+        break;
+    case SCROLL_MULTI_BF_MOVE_TUTOR_7:
         task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
         task->tNumItems = 11;
         task->tLeft = 15;
@@ -2677,6 +2697,31 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_Everstone,
         gText_Exit
     },
+    [SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR6] =
+    {
+        gText_LonelyMint,
+        gText_AdamantMint,
+        gText_NaughtyMint,
+        gText_BraveMint,
+        gText_BoldMint,
+        gText_ImpishMint,
+        gText_LaxMint,
+        gText_RelaxedMint,
+        gText_ModestMint,
+        gText_MildMint,
+        gText_RashMint,
+        gText_QuietMint,
+        gText_CalmMint,
+        gText_GentleMint,
+        gText_CarefulMint,
+        gText_SassyMint,
+        gText_TimidMint,
+        gText_HastyMint,
+        gText_JollyMint,
+        gText_NaiveMint,
+        gText_SeriousMint,
+        gText_Exit
+    },
     [SCROLL_MULTI_BERRY_POWDER_VENDOR] =
     {
         gText_EnergyPowder50,
@@ -2773,6 +2818,20 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_Synthesis10BP,
         gText_ZenHeadbutt10BP,
         gText_LastResort12BP,
+        gText_Exit,
+    },
+    [SCROLL_MULTI_BF_MOVE_TUTOR_7] =
+    {
+        gText_ThunderWave6BP,
+        gText_FirePunch8BP,
+        gText_ThunderPunch8BP,
+        gText_IcePunch8BP,
+        gText_DrainPunch8BP,
+        gText_PsychUp8BP,
+        gText_PainSplit8BP,
+        gText_Tailwind10BP,
+        gText_IronTail14BP,
+        gText_Endeavor16BP,
         gText_Exit,
     },
     [SCROLL_MULTI_BF_MOVE_TUTOR_5] =
@@ -3250,7 +3309,7 @@ static void FillFrontierExchangeCornerWindowAndItemIcon(u16 menu, u16 selection)
 {
     #include "data/battle_frontier/battle_frontier_exchange_corner.h"
 
-    if (menu >= SCROLL_MULTI_BF_EXCHANGE_CORNER_DECOR_VENDOR_1 && menu <= (SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR | SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR2 | SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR3 | SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR4 | SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR5))
+    if (menu >= SCROLL_MULTI_BF_EXCHANGE_CORNER_DECOR_VENDOR_1 && menu <= (SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR | SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR2 | SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR3 | SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR4 | SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR5 | SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR6))
     {
         FillWindowPixelRect(0, PIXEL_FILL(1), 0, 0, 216, 32);
         switch (menu)
@@ -3305,6 +3364,10 @@ static void FillFrontierExchangeCornerWindowAndItemIcon(u16 menu, u16 selection)
             AddTextPrinterParameterized2(0, FONT_NORMAL, sFrontierExchangeCorner_HoldItemsDescriptions5[selection], 0, NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
             ShowFrontierExchangeCornerItemIcon(sFrontierExchangeCorner_HoldItems5[selection]);
             break;
+        case SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR6:
+            AddTextPrinterParameterized2(0, FONT_NORMAL, sFrontierExchangeCorner_HoldItemsDescriptions6[selection], 0, NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
+            ShowFrontierExchangeCornerItemIcon(sFrontierExchangeCorner_HoldItems6[selection]);
+            break;
         }
     }
 }
@@ -3337,6 +3400,7 @@ static void HideFrontierExchangeCornerItemIcon(u16 menu, u16 unused)
         case SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR3:
         case SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR4:
         case SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR5:
+        case SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR6:
             DestroySpriteAndFreeResources(&gSprites[sScrollableMultichoice_ItemSpriteId]);
             break;
         }
@@ -3367,7 +3431,8 @@ static void ShowBattleFrontierTutorWindow(u8 menu, u16 selection)
         menu == SCROLL_MULTI_BF_MOVE_TUTOR_3 ||
         menu == SCROLL_MULTI_BF_MOVE_TUTOR_4 ||
         menu == SCROLL_MULTI_BF_MOVE_TUTOR_5 ||
-        menu == SCROLL_MULTI_BF_MOVE_TUTOR_6)
+        menu == SCROLL_MULTI_BF_MOVE_TUTOR_6 ||
+        menu == SCROLL_MULTI_BF_MOVE_TUTOR_7)
     {
         if (gSpecialVar_0x8006 == 0)
         {
@@ -3470,12 +3535,28 @@ static void ShowBattleFrontierTutorMoveDescription(u8 menu, u16 selection)
         gText_Exit,
     };
 
+    static const u8 *const sBattleFrontier_TutorMoveDescriptions7[] =
+    {
+        Sandstone_BPShop_Text_ThunderWaveDesc,
+        Sandstone_BPShop_Text_FirePunchDesc,
+        Sandstone_BPShop_Text_ThunderPunchDesc,
+        Sandstone_BPShop_Text_IcePunchDesc,
+        Sandstone_BPShop_Text_DrainPunchDesc,
+        Sandstone_BPShop_Text_PsychUpDesc,
+        Sandstone_BPShop_Text_PainSplitDesc,
+        Sandstone_BPShop_Text_TailwindDesc,
+        Sandstone_BPShop_Text_IronTailDesc,
+        Sandstone_BPShop_Text_EndeavorDesc,
+        gText_Exit,
+    };
+
     if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_1 ||
         menu == SCROLL_MULTI_BF_MOVE_TUTOR_2 ||
         menu == SCROLL_MULTI_BF_MOVE_TUTOR_3 ||
         menu == SCROLL_MULTI_BF_MOVE_TUTOR_4 ||
         menu == SCROLL_MULTI_BF_MOVE_TUTOR_5 ||
-        menu == SCROLL_MULTI_BF_MOVE_TUTOR_6)
+        menu == SCROLL_MULTI_BF_MOVE_TUTOR_6 ||
+        menu == SCROLL_MULTI_BF_MOVE_TUTOR_7)
     {
         FillWindowPixelRect(sTutorMoveAndElevatorWindowId, PIXEL_FILL(1), 0, 0, 96, 48);
         if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_2)
@@ -3488,6 +3569,8 @@ static void ShowBattleFrontierTutorMoveDescription(u8 menu, u16 selection)
             AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, FONT_NORMAL, sBattleFrontier_TutorMoveDescriptions5[selection], 0, 1, 0, NULL);
         else if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_6)
             AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, FONT_NORMAL, sBattleFrontier_TutorMoveDescriptions6[selection], 0, 1, 0, NULL);
+        else if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_7)
+            AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, FONT_NORMAL, sBattleFrontier_TutorMoveDescriptions7[selection], 0, 1, 0, NULL);
         else
             AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, FONT_NORMAL, sBattleFrontier_TutorMoveDescriptions1[selection], 0, 1, 0, NULL);
     }

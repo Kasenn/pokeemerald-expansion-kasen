@@ -116,6 +116,16 @@ SetAndCheckHeartScaleMove::
 	case 38, SetAndCheckHeartScaleMove_40
 	case 39, SetAndCheckHeartScaleMove_41
 	case 40, SetAndCheckHeartScaleMove_42
+	case 41, SetAndCheckHeartScaleMove_43
+	case 42, SetAndCheckHeartScaleMove_44
+	case 43, SetAndCheckHeartScaleMove_45
+	case 44, SetAndCheckHeartScaleMove_46
+	case 45, SetAndCheckHeartScaleMove_47
+	case 46, SetAndCheckHeartScaleMove_48
+	case 47, SetAndCheckHeartScaleMove_49
+	case 48, SetAndCheckHeartScaleMove_50
+	case 49, SetAndCheckHeartScaleMove_51
+	case 50, SetAndCheckHeartScaleMove_52
 SetAndCheckHeartScaleMove_1:
 	return
 
@@ -317,6 +327,56 @@ SetAndCheckHeartScaleMove_41:
 SetAndCheckHeartScaleMove_42:
 	setvar VAR_HEARTSCALEMOVE2, MOVE_LAST_RESORT
 	checkpartymove MOVE_LAST_RESORT
+	goto SetAndCheckHeartScaleMove_1
+
+SetAndCheckHeartScaleMove_43:
+	setvar VAR_HEARTSCALEMOVE2, MOVE_THUNDER_WAVE
+	checkpartymove MOVE_THUNDER_WAVE
+	goto SetAndCheckHeartScaleMove_1
+
+SetAndCheckHeartScaleMove_44:
+	setvar VAR_HEARTSCALEMOVE2, MOVE_FIRE_PUNCH
+	checkpartymove MOVE_FIRE_PUNCH
+	goto SetAndCheckHeartScaleMove_1
+
+SetAndCheckHeartScaleMove_45:
+	setvar VAR_HEARTSCALEMOVE2, MOVE_THUNDER_PUNCH
+	checkpartymove MOVE_THUNDER_PUNCH
+	goto SetAndCheckHeartScaleMove_1
+
+SetAndCheckHeartScaleMove_46:
+	setvar VAR_HEARTSCALEMOVE2, MOVE_ICE_PUNCH
+	checkpartymove MOVE_ICE_PUNCH
+	goto SetAndCheckHeartScaleMove_1
+
+SetAndCheckHeartScaleMove_47:
+	setvar VAR_HEARTSCALEMOVE2, MOVE_DRAIN_PUNCH
+	checkpartymove MOVE_DRAIN_PUNCH
+	goto SetAndCheckHeartScaleMove_1
+
+SetAndCheckHeartScaleMove_48:
+	setvar VAR_HEARTSCALEMOVE2, MOVE_PSYCH_UP
+	checkpartymove MOVE_PSYCH_UP
+	goto SetAndCheckHeartScaleMove_1
+
+SetAndCheckHeartScaleMove_49:
+	setvar VAR_HEARTSCALEMOVE2, MOVE_PAIN_SPLIT
+	checkpartymove MOVE_PAIN_SPLIT
+	goto SetAndCheckHeartScaleMove_1
+
+SetAndCheckHeartScaleMove_50:
+	setvar VAR_HEARTSCALEMOVE2, MOVE_TAILWIND
+	checkpartymove MOVE_TAILWIND
+	goto SetAndCheckHeartScaleMove_1
+
+SetAndCheckHeartScaleMove_51:
+	setvar VAR_HEARTSCALEMOVE2, MOVE_IRON_TAIL
+	checkpartymove MOVE_IRON_TAIL
+	goto SetAndCheckHeartScaleMove_1
+
+SetAndCheckHeartScaleMove_52:
+	setvar VAR_HEARTSCALEMOVE2, MOVE_ENDEAVOR
+	checkpartymove MOVE_ENDEAVOR
 	goto SetAndCheckHeartScaleMove_1
 
 

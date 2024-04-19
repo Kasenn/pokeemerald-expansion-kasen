@@ -849,6 +849,17 @@ static const struct MenuAction BuffetOptions[] =
 };
 
 
+static const struct MenuAction TestMegaStarter[] =
+{
+    {gText_Decidueye},
+    {gText_Blaziken},
+    {gText_Empoleon},
+    {gText_Chesnaught},
+    {gText_Incineroar},
+    {gText_Swampert},
+};
+
+
 static const struct MultichoiceListStruct sMultichoiceLists[] =
 {
     [MULTI_BRINEY_ON_DEWFORD]          = MULTICHOICE(MultichoiceList_BrineyOnDewford),
@@ -970,9 +981,10 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_YESNOQUESTIONMARK]          = MULTICHOICE(YesNoQuestionMark),
     [MULTI_BOATFROMSHORESLATE]         = MULTICHOICE(BoatFromShoreslate),
     [MULTI_BOATFROMKAOLISLE]           = MULTICHOICE(BoatFromKaolisle),
-    [MULTI_BOATFROMROCKLIFFE]           = MULTICHOICE(BoatFromRockliffe),
+    [MULTI_BOATFROMROCKLIFFE]          = MULTICHOICE(BoatFromRockliffe),
     [MULTI_WHICHONEWOULDWIN]           = MULTICHOICE(WhichOneWouldWin),
     [MULTI_BUFFET]                     = MULTICHOICE(BuffetOptions),
+    [MULTI_TESTMEGASTARTER]            = MULTICHOICE(TestMegaStarter),
 };
 
 const u8 *const gStdStrings[] =

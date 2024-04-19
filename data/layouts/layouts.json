@@ -5880,6 +5880,156 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/Route12_StrengthHouse/border.bin",
       "blockdata_filepath": "data/layouts/Route12_StrengthHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSTONE_POKECENTER_1F",
+      "name": "Sandstone_Pokecenter_1F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Sandstone_Pokecenter_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Sandstone_Pokecenter_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSTONE_POKECENTER_2F",
+      "name": "Sandstone_Pokecenter_2F_Layout",
+      "width": 13,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Sandstone_Pokecenter_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Sandstone_Pokecenter_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSTONE_SMALL_HOUSE1",
+      "name": "Sandstone_SmallHouse1_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Sandstone_SmallHouse1/border.bin",
+      "blockdata_filepath": "data/layouts/Sandstone_SmallHouse1/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSTONE_SMALL_HOUSE2",
+      "name": "Sandstone_SmallHouse2_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Sandstone_SmallHouse2/border.bin",
+      "blockdata_filepath": "data/layouts/Sandstone_SmallHouse2/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSTONE_SMALL_HOUSE3",
+      "name": "Sandstone_SmallHouse3_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Sandstone_SmallHouse3/border.bin",
+      "blockdata_filepath": "data/layouts/Sandstone_SmallHouse3/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSTONE_SMALL_HOUSE4",
+      "name": "Sandstone_SmallHouse4_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Sandstone_SmallHouse4/border.bin",
+      "blockdata_filepath": "data/layouts/Sandstone_SmallHouse4/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSTONE_SMALL_HOUSE5",
+      "name": "Sandstone_SmallHouse5_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Sandstone_SmallHouse5/border.bin",
+      "blockdata_filepath": "data/layouts/Sandstone_SmallHouse5/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSTONE_BP_SHOP",
+      "name": "Sandstone_BP_Shop_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/Sandstone_BP_Shop/border.bin",
+      "blockdata_filepath": "data/layouts/Sandstone_BP_Shop/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSTONE_LARGE_HOUSE1_1F",
+      "name": "Sandstone_LargeHouse1_1F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Sandstone_LargeHouse1_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Sandstone_LargeHouse1_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSTONE_LARGE_HOUSE1_2F",
+      "name": "Sandstone_LargeHouse1_2F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Sandstone_LargeHouse1_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Sandstone_LargeHouse1_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSTONE_LARGE_HOUSE2_1F",
+      "name": "Sandstone_LargeHouse2_1F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Sandstone_LargeHouse2_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Sandstone_LargeHouse2_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSTONE_LARGE_HOUSE2_2F",
+      "name": "Sandstone_LargeHouse2_2F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Sandstone_LargeHouse2_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Sandstone_LargeHouse2_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSTONE_LARGE_HOUSE2_3F",
+      "name": "Sandstone_LargeHouse2_3F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Sandstone_LargeHouse2_3F/border.bin",
+      "blockdata_filepath": "data/layouts/Sandstone_LargeHouse2_3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSTONE_GYM_1F",
+      "name": "Sandstone_Gym_1F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_LavaridgeGym",
+      "border_filepath": "data/layouts/Sandstone_Gym_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Sandstone_Gym_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSTONE_GYM_2F",
+      "name": "Sandstone_Gym_2F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_LavaridgeGym",
+      "border_filepath": "data/layouts/Sandstone_Gym_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Sandstone_Gym_2F/map.bin"
     }
   ]
 }

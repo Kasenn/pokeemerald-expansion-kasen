@@ -2,8 +2,8 @@
   "id": "MAP_LILYCOVE_CITY_DEPARTMENT_STORE_1F",
   "name": "LilycoveCity_DepartmentStore_1F",
   "layout": "LAYOUT_LILYCOVE_CITY_DEPARTMENT_STORE_1F",
-  "music": "MUS_LILYCOVE",
-  "region_map_section": "MAPSEC_LILYCOVE_CITY",
+  "music": "MUS_RUSTBORO",
+  "region_map_section": "MAPSEC_SANDSTONE_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -98,15 +98,15 @@
       "x": 8,
       "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_LILYCOVE_CITY",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_SANDSTONE_CITY",
+      "dest_warp_id": "12"
     },
     {
       "x": 9,
       "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_LILYCOVE_CITY",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_SANDSTONE_CITY",
+      "dest_warp_id": "12"
     },
     {
       "x": 16,
