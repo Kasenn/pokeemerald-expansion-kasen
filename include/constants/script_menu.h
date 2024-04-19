@@ -130,6 +130,7 @@
 #define MULTI_BOATFROMROCKLIFFE            119
 #define MULTI_WHICHONEWOULDWIN             120
 #define MULTI_BUFFET                       121
+#define MULTI_TESTMEGASTARTER              122
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0

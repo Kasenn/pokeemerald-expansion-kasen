@@ -1,0 +1,42 @@
+mapscripts Route14_MapScripts{}
+
+script Route14_Tr1_Running_F {
+    trainerbattle_single(TRAINER_R14_TR1_RUNNING_F, R14Tr1_Intro, R14Tr1_Lose)
+    msgbox(R14Tr1_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R14Tr1_Intro{
+    "Whether it be rain or sunshine,\n"
+    "I still push on!"
+}
+text R14Tr1_Lose{
+    "I can handle any weather,\n"
+    "but I couldn't handle you…"
+}
+text R14Tr1_PostBattle{
+    "It seems to rain here on an almost\n"
+    "daily basis.\p"
+    "When you finally get a sunny day,\n"
+    "having endured all that rain really\l"
+    "makes it feel worth the wait."
+}
+
+script Route14_Tr2_Hiker {
+    trainerbattle_single(TRAINER_R14_TR2_HIKER, R14Tr2_Intro, R14Tr2_Lose)
+    msgbox(R14Tr2_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R14Tr2_Intro{
+    "The road to the next town is long\n"
+    "and arduous.\l"
+    "Let's see if you're prepared!"
+}
+text R14Tr2_Lose{
+    "Heh… Guess I'm the one who wasn't\n"
+    "prepared…"
+}
+text R14Tr2_PostBattle{
+    "You should stock up on essentials if\n"
+    "you're planning to head out this way.\l"
+    "It's a long way till the next town."
+}

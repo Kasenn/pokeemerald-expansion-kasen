@@ -1,0 +1,95 @@
+mapscripts SandstoneCity_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: VisitedSandstone
+}
+
+script VisitedSandstone{
+    setflag(FLAG_VISITED_SANDSTONE_CITY)
+    end
+}
+
+script Sandstone_Sign1{
+    msgbox(Sandstone_Sign1_Text, MSGBOX_SIGN)
+    end
+}
+script Sandstone_Sign2{
+    msgbox(Sandstone_Sign2_Text, MSGBOX_SIGN)
+    end
+}
+script Sandstone_Sign3{
+    msgbox(Sandstone_Sign3_Text, MSGBOX_SIGN)
+    end
+}
+script Sandstone_Sign4{
+    msgbox(Sandstone_Sign4_Text, MSGBOX_SIGN)
+    end
+}
+script Sandstone_Sign5{
+    msgbox(Sandstone_Sign5_Text, MSGBOX_SIGN)
+    end
+}
+script Sandstone_Sign6{
+    msgbox(Sandstone_Sign6_Text, MSGBOX_SIGN)
+    end
+}
+text Sandstone_Sign1_Text{""}
+text Sandstone_Sign2_Text{""}
+text Sandstone_Sign3_Text{""}
+text Sandstone_Sign4_Text{""}
+text Sandstone_Sign5_Text{""}
+text Sandstone_Sign6_Text{""}
+
+script Sandstone_Boy2{
+    msgbox(Sandstone_Boy2_Text, MSGBOX_NPC)
+    end
+}
+script Sandstone_Lass{
+    msgbox(Sandstone_Lass_Text, MSGBOX_NPC)
+    end
+}
+script Sandstone_OldMan{
+    msgbox(Sandstone_OldMan_Text, MSGBOX_NPC)
+    end
+}
+script Sandstone_GameboyKid1{
+    msgbox(Sandstone_GameboyKid1_Text, MSGBOX_NPC)
+    end
+}
+script Sandstone_GameboyKid2{
+    msgbox(Sandstone_GameboyKid2_Text, MSGBOX_NPC)
+    end
+}
+script Sandstone_GossipWoman1{
+    msgbox(Sandstone_GossipWoman1_Text, MSGBOX_NPC)
+    end
+}
+script Sandstone_GossipWoman2{
+    msgbox(Sandstone_GossipWoman2_Text, MSGBOX_NPC)
+    end
+}
+script Sandstone_Gentleman{
+    msgbox(Sandstone_Gentleman_Text, MSGBOX_NPC)
+    end
+}
+script Sandstone_Maniac{
+    msgbox(Sandstone_Maniac_Text, MSGBOX_NPC)
+    end
+}
+script Sandstone_Man3{
+    msgbox(Sandstone_Man3_Text, MSGBOX_NPC)
+    end
+}
+script Sandstone_Man5{
+    msgbox(Sandstone_Man5_Text, MSGBOX_NPC)
+    end
+}
+text Sandstone_Boy2_Text{""}
+text Sandstone_Lass_Text{""}
+text Sandstone_OldMan_Text{""}
+text Sandstone_GameboyKid1_Text{""}
+text Sandstone_GameboyKid2_Text{""}
+text Sandstone_GossipWoman1_Text{""}
+text Sandstone_GossipWoman2_Text{""}
+text Sandstone_Gentleman_Text{""}
+text Sandstone_Maniac_Text{""}
+text Sandstone_Man3_Text{""}
+text Sandstone_Man5_Text{""}

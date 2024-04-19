@@ -102,6 +102,32 @@ static const u16 sFrontierExchangeCorner_HoldItems5[] =
     ITEM_LIST_END
 };
 
+static const u16 sFrontierExchangeCorner_HoldItems6[] =
+{
+    ITEM_LONELY_MINT,
+    ITEM_ADAMANT_MINT,
+    ITEM_NAUGHTY_MINT,
+    ITEM_BRAVE_MINT,
+    ITEM_BOLD_MINT,
+    ITEM_IMPISH_MINT,
+    ITEM_LAX_MINT,
+    ITEM_RELAXED_MINT,
+    ITEM_MODEST_MINT,
+    ITEM_MILD_MINT,
+    ITEM_RASH_MINT,
+    ITEM_QUIET_MINT,
+    ITEM_CALM_MINT,
+    ITEM_GENTLE_MINT,
+    ITEM_CAREFUL_MINT,
+    ITEM_SASSY_MINT,
+    ITEM_TIMID_MINT,
+    ITEM_HASTY_MINT,
+    ITEM_JOLLY_MINT,
+    ITEM_NAIVE_MINT,
+    ITEM_SERIOUS_MINT,
+    ITEM_LIST_END
+};
+
 static const u8 *const sFrontierExchangeCorner_Decor1Descriptions[] =
 {
     BattleFrontier_ExchangeServiceCorner_Text_KissPosterDesc,
@@ -206,3 +232,28 @@ static const u8 *const sFrontierExchangeCorner_HoldItemsDescriptions5[] =
     gText_Exit
 };
 
+static const u8 *const sFrontierExchangeCorner_HoldItemsDescriptions6[] =
+{
+    Sandstone_BPShop_LonelyMintDesc,
+    Sandstone_BPShop_AdamantMintDesc,
+    Sandstone_BPShop_NaughtyMintDesc,
+    Sandstone_BPShop_BraveMintDesc,
+    Sandstone_BPShop_BoldMintDesc,
+    Sandstone_BPShop_ImpishMintDesc,
+    Sandstone_BPShop_LaxMintDesc,
+    Sandstone_BPShop_RelaxedMintDesc,
+    Sandstone_BPShop_ModestMintDesc,
+    Sandstone_BPShop_MildMintDesc,
+    Sandstone_BPShop_RashMintDesc,
+    Sandstone_BPShop_QuietMintDesc,
+    Sandstone_BPShop_CalmMintDesc,
+    Sandstone_BPShop_GentleMintDesc,
+    Sandstone_BPShop_CarefulMintDesc,
+    Sandstone_BPShop_SassyMintDesc,
+    Sandstone_BPShop_TimidMintDesc,
+    Sandstone_BPShop_HastyMintDesc,
+    Sandstone_BPShop_JollyMintDesc,
+    Sandstone_BPShop_NaiveMintDesc,
+    Sandstone_BPShop_SeriousMintDesc,
+    gText_Exit
+};

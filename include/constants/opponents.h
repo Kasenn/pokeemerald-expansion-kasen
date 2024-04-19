@@ -251,7 +251,7 @@
 #define TRAINER_R12_TR11_LASS                       247
 #define TRAINER_R12_TR12_BUGMANIAC                      248
 #define TRAINER_R12_TR13_NINJABOY                     249
-#define TRAINER_R13_UNUSED                     250
+#define TRAINER_SANDSTONE_NURSE                     250
 #define TRAINER_R13_TR2_RUNNER_M                     251
 #define TRAINER_R13_TR3_EXPERTCOUPLE                     252
 #define TRAINER_R13_TR4_HIKER                     253
@@ -260,8 +260,8 @@
 #define TRAINER_FC_TR2_BATTLEGIRL                      256
 #define TRAINER_FC_TR3_CAMPER                    257
 #define TRAINER_FC_TR4_HIKER                    258
-#define TRAINER_WALTER_4                    259
-#define TRAINER_WALTER_5                    260
+#define TRAINER_R14_TR1_RUNNING_F                    259
+#define TRAINER_R14_TR2_HIKER                    260
 #define TRAINER_SIDNEY                      261
 #define TRAINER_PHOEBE                      262
 #define TRAINER_GLACIA                      263
