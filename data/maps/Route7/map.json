@@ -339,7 +339,27 @@
     }
   ],
   "warp_events": [
-
+    {
+      "x": 22,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE104_PRETTY_PETAL_FLOWER_SHOP",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 33,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE7_GROTTO",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 34,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE7_GROTTO",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 

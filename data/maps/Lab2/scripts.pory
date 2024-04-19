@@ -6,6 +6,25 @@ mapscripts Lab2_MapScripts{
     ]
 }
 
+script Lab2_Intro{
+    applymovement(OBJ_EVENT_ID_PLAYER, Lab2_MovePlayerUp)
+    waitmovement(0)
+    msgbox(Lab2_Intro_Speech, MSGBOX_DEFAULT)
+    closemessage
+    delay(20)
+    turnobject(4, DIR_EAST)
+    delay(20)
+    msgbox(Lab2_PresentingBalls, MSGBOX_DEFAULT)
+    closemessage
+    delay(20)
+    setvar(VAR_PEARLWOOD_TOWN_STATE, 4)
+    releaseall
+    end
+}
+movement Lab2_MovePlayerUp{
+    walk_up * 6
+}
+
 script Lab2_HideRival{
     call(Common_EventScript_SetupRivalGfxId)
     if(var(VAR_PEARLWOOD_TOWN_STATE) == 9){
@@ -15,33 +34,8 @@ script Lab2_HideRival{
         setflag(FLAG_UNUSED_LAB_RIVAL)
     }
 }
-
-script Lab2_Intro{
-    if(!(flag(FLAG_UNUSED_PICKEDROWLET) || flag(FLAG_UNUSED_PICKEDTORCHIC) || flag(FLAG_UNUSED_PICKEDPIPLUP))){
-        applymovement(OBJ_EVENT_ID_PLAYER, Lab2_MyMove)
-        waitmovement(0)
-        msgbox(Lab2_Intro_Speech)
-        waitmessage
-        closemessage
-        delay(20)
-        applymovement(4, Lab2_TurnRight)
-        waitmovement(0)
-        delay(20)
-        msgbox(Lab2_PresentingBalls)
-        waitmessage
-        closemessage
-        delay(20)
-        setvar(VAR_PEARLWOOD_TOWN_STATE, 4)
-        releaseall
-        end
-    }
-    else{
-        end
-    }
-}
-
 script Lab2_DexGet{
-    applymovement(OBJ_EVENT_ID_PLAYER, Lab2_MyMove)
+    applymovement(OBJ_EVENT_ID_PLAYER, Lab2_MovePlayerUp)
     waitmovement(0)
     checkplayergender
     if(var(VAR_RESULT) == MALE){
@@ -146,10 +140,6 @@ text Lab2_DexTalkBrendan{
     "{RIVAL}: Well we can't have {PLAYER}\nleaving empty-handed, now can we?\p"
     "Prof. Birch: Yes, I know. {PLAYER},\nyou can have mine.\lI'll order myself a new one.\p"
     "{RIVAL}: You're the best, dad!\n"
-}
-
-movement Lab2_MyMove{
-    walk_up * 6
 }
 
 movement Lab2_TurnRight{

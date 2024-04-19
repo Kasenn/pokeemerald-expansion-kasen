@@ -23,7 +23,7 @@
 #define MAPSEC_ROUTE_104                    0x13
 #define MAPSEC_ROUTE_105                    0x14
 #define MAPSEC_ROUTE_106                    0x15
-#define MAPSEC_ROUTE_107                    0x16
+#define MAPSEC_HIDDENGROTTO_ROUTE7                    0x16
 #define MAPSEC_ROUTE_108                    0x17
 #define MAPSEC_ROUTE_109                    0x18
 #define MAPSEC_ROUTE_110                    0x19
@@ -130,7 +130,7 @@
 #define MAPSEC_VIRIDIAN_FOREST              0x7E
 #define MAPSEC_DESERT                      0x7F
 #define MAPSEC_S_S_ANNE                     0x80
-#define MAPSEC_UNDERGROUND_PATH             0x81
+#define MAPSEC_NEWROUTE_28_PART2             0x81
 #define MAPSEC_UNDERGROUND_PATH_2           0x82
 #define MAPSEC_POKE_RANCH                0x83
 #define MAPSEC_WINDPLUME_VALLEY           0x84

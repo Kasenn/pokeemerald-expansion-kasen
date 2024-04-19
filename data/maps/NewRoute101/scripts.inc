@@ -144,7 +144,7 @@ Route1_CoolTrainerPostBattle_4:
 	goto Route1_CoolTrainerPostBattle_1
 
 Route1_CoolTrainerPostBattle_9:
-	msgbox Route1_CoolTrainerPostBattle_Text_2
+	msgbox ExplainBP, MSGBOX_DEFAULT
 	goto Route1_CoolTrainerPostBattle_8
 
 
@@ -206,9 +206,6 @@ Route1_CoolTrainerPostBattle_Text_0:
 
 Route1_CoolTrainerPostBattle_Text_1:
 	.string "Earned 10 BP!$"
-
-Route1_CoolTrainerPostBattle_Text_2:
-	.string "These are battle points, or BP.\pThey can be used to purchase powerful\nitems at designated stores.\pMany trainers hand out BP\n as an additional reward,\lwith the amount earned increasing\las the trainers get stronger.$"
 
 Route1_Lass_Text_0:
 	.string "Normally this place is chock-full\nof trainers.\pI guess people don't want to\ntrain in the rain.$"
