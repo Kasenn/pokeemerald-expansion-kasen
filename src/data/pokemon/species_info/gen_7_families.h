@@ -112,29 +112,6 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
                                 {EVO_NONE, 0, SPECIES_DECIDUEYE_HISUIAN}),
     },
 
-#define DECIDUEYE_MISC_INFO                                     \
-            \
-            \
-            \
-            \
-            \
-            \
-            \
-            \
-            \
-            \
-            \
-            \
-            \
-            \
-            \
-            \
-            \
-            \
-                \
-            \
-        
-
     [SPECIES_DECIDUEYE] =
     {
         .catchRate = 45,                                    
@@ -153,8 +130,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .pokemonScale = 259,                                
         .pokemonOffset = 1,                                 
         .trainerScale = 296,                                
-        .trainerOffset = 1,                                 
-        .footprint = gMonFootprint_Decidueye,               
+        .trainerOffset = 1,                                          
         .levelUpLearnset = sDecidueyeLevelUpLearnset,       
         .teachableLearnset = sDecidueyeTeachableLearnset,   
         .formSpeciesIdTable = sDecidueyeFormSpeciesIdTable,
@@ -225,8 +201,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .pokemonScale = 259,                                
         .pokemonOffset = 1,                                 
         .trainerScale = 296,                                
-        .trainerOffset = 1,                                 
-        .footprint = gMonFootprint_Decidueye,               
+        .trainerOffset = 1,                                          
         .levelUpLearnset = sDecidueyeLevelUpLearnset,       
         .teachableLearnset = sDecidueyeTeachableLearnset,   
         .formSpeciesIdTable = sDecidueyeFormSpeciesIdTable,
