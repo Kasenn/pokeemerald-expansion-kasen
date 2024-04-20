@@ -2518,7 +2518,6 @@ static void HBlankCB_Mugshots(void)
 static void Mugshots_CreateTrainerPics(struct Task *task)
 {
     struct Sprite *opponentSprite, *playerSprite;
-    u16 trainerPicId = PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender);
 
     u8 trainerPicId = GetTrainerPicFromId(gTrainerBattleOpponent_A);
     s16 opponentRotationScales = 0;
@@ -2534,12 +2533,7 @@ static void Mugshots_CreateTrainerPics(struct Task *task)
                                                 DISPLAY_WIDTH + 32,
                                                 106,
                                                 0, gDecompressionBuffer);
-    if(FlagGet(FLAG_PC_CHANGE_COSTUME)){
-        task->tPlayerSpriteId = CreateTrainerSprite((trainerPicId + 31),
-                                                DISPLAY_WIDTH + 32,
-                                                106,
-                                                0, gDecompressionBuffer);
-    }
+
     opponentSprite = &gSprites[task->tOpponentSpriteId];
     playerSprite = &gSprites[task->tPlayerSpriteId];
 

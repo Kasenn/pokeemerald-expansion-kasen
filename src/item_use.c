@@ -1292,6 +1292,7 @@ bool32 CannotUseItemsInBattle(u16 itemId, struct Pokemon *mon)
             || (gPartyMenu.slotId == 0 && gBattleMons[gBattlerInMenuId].status2 & GetItemStatus2Mask(itemId))))
             cannotUse = TRUE;
         break;
+    case EFFECT_ITEM_HERBAL_MIX:
     case EFFECT_ITEM_HEAL_AND_CURE_STATUS:
         if ((hp == 0 || hp == GetMonData(mon, MON_DATA_MAX_HP))
             && !((GetMonData(mon, MON_DATA_STATUS) & GetItemStatus1Mask(itemId))

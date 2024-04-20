@@ -113,29 +113,51 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
     },
 
 #define DECIDUEYE_MISC_INFO                                     \
-        .catchRate = 45,                                        \
-        .expYield = 239,                                        \
-        .evYield_Attack = 3,                                    \
-        .genderRatio = PERCENT_FEMALE(12.5),                    \
-        .eggCycles = 15,                                        \
-        .friendship = STANDARD_FRIENDSHIP,                      \
-        .growthRate = GROWTH_MEDIUM_SLOW,                       \
-        .eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_FLYING },    \
-        .bodyColor = BODY_COLOR_BROWN,                          \
-        .speciesName = _("Decidueye"),                          \
-        .natDexNum = NATIONAL_DEX_DECIDUEYE,                    \
-        .categoryName = _("Arrow Quill"),                       \
-        .height = 16,                                           \
-        .pokemonScale = 259,                                    \
-        .pokemonOffset = 1,                                     \
-        .trainerScale = 296,                                    \
-        .trainerOffset = 1,                                     \
-        .footprint = gMonFootprint_Decidueye,                   \
-        LEARNSETS(Decidueye),                                   \
-        .formSpeciesIdTable = sDecidueyeFormSpeciesIdTable
+            \
+            \
+            \
+            \
+            \
+            \
+            \
+            \
+            \
+            \
+            \
+            \
+            \
+            \
+            \
+            \
+            \
+            \
+                \
+            \
+        
 
     [SPECIES_DECIDUEYE] =
     {
+        .catchRate = 45,                                    
+        .expYield = 239,                                    
+        .evYield_Attack = 3,                                
+        .genderRatio = PERCENT_FEMALE(12.5),                
+        .eggCycles = 15,                                    
+        .friendship = STANDARD_FRIENDSHIP,                  
+        .growthRate = GROWTH_MEDIUM_SLOW,                   
+        .eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_FLYING },
+        .bodyColor = BODY_COLOR_BROWN,                      
+        .speciesName = _("Decidueye"),                      
+        .natDexNum = NATIONAL_DEX_DECIDUEYE,                
+        .categoryName = _("Arrow Quill"),                   
+        .height = 16,                                       
+        .pokemonScale = 259,                                
+        .pokemonOffset = 1,                                 
+        .trainerScale = 296,                                
+        .trainerOffset = 1,                                 
+        .footprint = gMonFootprint_Decidueye,               
+        .levelUpLearnset = sDecidueyeLevelUpLearnset,       
+        .teachableLearnset = sDecidueyeTeachableLearnset,   
+        .formSpeciesIdTable = sDecidueyeFormSpeciesIdTable,
         .baseHP        = 78,
         .baseAttack    = 107,
         .baseDefense   = 75,
@@ -178,13 +200,36 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .backPicSize = MON_COORDS_SIZE(46, 62),
         .backPicYOffset = 0,
         .backAnimId = BACK_ANIM_SHRINK_GROW_VIBRATE,
-        PALETTES(Decidueye),
+        .palette = gMonPalette_Decidueye,
+        .shinyPalette = gMonShinyPalette_Decidueye,
+        .iconSprite = gMonIcon_Decidueye,
+        .iconPalIndex = 1,
+        FOOTPRINT(Decidueye)
         .formChangeTable = sDecidueyeFormChangeTable,
-        ICON(Decidueye, 1),
     },
     [SPECIES_DECIDUEYE_MEGA] =
     {
-        DECIDUEYE_MISC_INFO,
+        .catchRate = 45,                                    
+        .expYield = 239,                                    
+        .evYield_Attack = 3,                                
+        .genderRatio = PERCENT_FEMALE(12.5),                
+        .eggCycles = 15,                                    
+        .friendship = STANDARD_FRIENDSHIP,                  
+        .growthRate = GROWTH_MEDIUM_SLOW,                   
+        .eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_FLYING },
+        .bodyColor = BODY_COLOR_BROWN,                      
+        .speciesName = _("Decidueye"),                      
+        .natDexNum = NATIONAL_DEX_DECIDUEYE,                
+        .categoryName = _("Arrow Quill"),                   
+        .height = 16,                                       
+        .pokemonScale = 259,                                
+        .pokemonOffset = 1,                                 
+        .trainerScale = 296,                                
+        .trainerOffset = 1,                                 
+        .footprint = gMonFootprint_Decidueye,               
+        .levelUpLearnset = sDecidueyeLevelUpLearnset,       
+        .teachableLearnset = sDecidueyeTeachableLearnset,   
+        .formSpeciesIdTable = sDecidueyeFormSpeciesIdTable,
         .baseHP        = 78,
         .baseAttack    = 147,
         .baseDefense   = 90,
@@ -200,15 +245,20 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
             "It fires arrow quills from its wings with\n"
             "such precision, they can pierce a pebble\n"
             "at distances of over a hundred yards."),
-        FRONT_PIC(DecidueyeMega, 45, 64),
+        .frontPic = gMonFrontPic_DecidueyeMega,
+        .frontPicSize = MON_COORDS_SIZE(45, 64),
         .frontPicYOffset = 0,
         .frontAnimFrames = sAnims_DecidueyeMega,
         .frontAnimId = ANIM_SHRINK_GROW_VIBRATE_FAST,
-        BACK_PIC(DecidueyeMega, 46, 62),
+        .backPic = gMonBackPic_DecidueyeMega,
+        .backPicSize = MON_COORDS_SIZE(46, 62),
         .backPicYOffset = 0,
         .backAnimId = BACK_ANIM_SHAKE_GLOW_GREEN,
-        PALETTES(DecidueyeMega),
-        ICON(DecidueyeMega, 1),
+        .palette = gMonPalette_DecidueyeMega,
+        .shinyPalette = gMonShinyPalette_DecidueyeMega,
+        .iconSprite = gMonIcon_DecidueyeMega,
+        .iconPalIndex = 1,
+        FOOTPRINT(Decidueye)
         .formChangeTable = sDecidueyeFormChangeTable,
         .isMegaEvolution = TRUE,
     },
@@ -257,8 +307,11 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
         //.backAnimId = BACK_ANIM_NONE,
-        PALETTES(DecidueyeHisuian),
-        ICON(DecidueyeHisuian, 0),
+        .palette = gMonPalette_DecidueyeHisuian,
+        .shinyPalette = gMonShinyPalette_DecidueyeHisuian,
+        .iconSprite = gMonIcon_DecidueyeHisuian,
+        .iconPalIndex = 1,
+        FOOTPRINT(Decidueye)
         .isHisuianForm = TRUE,
         .levelUpLearnset = sDecidueyeHisuianLevelUpLearnset,
         .teachableLearnset = sDecidueyeHisuianTeachableLearnset,
@@ -398,8 +451,8 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .pokemonOffset = 2, \
         .trainerScale = 286,    \
         .trainerOffset = 1, \
-        .footprint = gMonFootprint_Incineroar,  \
-        LEARNSETS(Incineroar),  \
+        .levelUpLearnset = sTorracatLevelUpLearnset,    \
+        .teachableLearnset = sTorracatTeachableLearnset,    \
         .formSpeciesIdTable = sIncineroarFormSpeciesIdTable,  \
         .formChangeTable = sIncineroarFormChangeTable
 
@@ -414,7 +467,8 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .baseSpDefense = 90,
         .abilities = { ABILITY_BLAZE, ABILITY_NONE, ABILITY_INTIMIDATE },
         .cryId = CRY_INCINEROAR,
-        FRONT_PIC(Incineroar, 64, 64),
+        .frontPic = gMonFrontPic_Incineroar,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 0,
         .frontAnimFrames = sAnims_Incineroar,
         .frontAnimId = ANIM_V_SHAKE,
@@ -422,9 +476,11 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .backPicSize = MON_COORDS_SIZE(64, 56),
         .backPicYOffset = 4,
         //.backAnimId = BACK_ANIM_NONE,
-        PALETTES(Incineroar),
-        ICON(Incineroar, 0),
-        
+        .palette = gMonPalette_Incineroar,
+        .shinyPalette = gMonShinyPalette_Incineroar,
+        .iconSprite = gMonIcon_Incineroar,
+        .iconPalIndex = 0,
+        FOOTPRINT(Incineroar)
     },
     [SPECIES_INCINEROAR_MEGA] =
     {
@@ -437,16 +493,20 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .baseSpDefense = 80,
         .abilities = {ABILITY_SEARING_RAGE, ABILITY_SEARING_RAGE, ABILITY_SEARING_RAGE},
         .cryId = CRY_INCINEROAR_MEGA,
-        FRONT_PIC(IncineroarMega, 64, 64),
+        .frontPic = gMonFrontPic_IncineroarMega,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 0,
         .frontAnimFrames = sAnims_IncineroarMega,
         .frontAnimId = ANIM_V_SHAKE,
-        BACK_PIC(IncineroarMega, 64, 56),
+        .backPic = gMonBackPic_IncineroarMega,
+        .backPicSize = MON_COORDS_SIZE(64, 56),
         .backPicYOffset = 4,
         .backAnimId = BACK_ANIM_SHAKE_GLOW_RED,
-        PALETTES(IncineroarMega),
-        ICON(IncineroarMega, 0),
-        .isMegaEvolution = TRUE,
+        .palette = gMonPalette_IncineroarMega,
+        .shinyPalette = gMonShinyPalette_IncineroarMega,
+        .iconSprite = gMonIcon_IncineroarMega,
+        .iconPalIndex = 0,
+        FOOTPRINT(Incineroar)
     },
 #endif //P_FAMILY_LITTEN
 

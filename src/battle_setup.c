@@ -892,9 +892,9 @@ u8 GetTrainerBattleTransition(void)
         || trainerClass == TRAINER_CLASS_MAGMA_ADMIN)
         return B_TRANSITION_MAGMA;
 
-    if (trainerClass == TRAINER_CLASS_TEAM_AQUA
+    if (trainerClass == TRAINER_CLASS_TEAM_ROCKET
         || trainerClass == TRAINER_CLASS_AQUA_LEADER
-        || trainerClass == TRAINER_CLASS_AQUA_ADMIN)
+        || trainerClass == TRAINER_CLASS_ROCKET_ADMIN)
         return B_TRANSITION_AQUA;
 
     if (IsTrainerDoubleBattle(trainerId))

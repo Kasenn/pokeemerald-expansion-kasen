@@ -1292,6 +1292,20 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 7,
     },
 
+    [ABILITY_SPIKE_BODY] =
+    {
+        .name = _("Spike Body"),
+        .description = COMPOUND_STRING("Contact hurts more."),
+        .aiRating = 8,
+    },
+
+    [ABILITY_SEARING_RAGE] =
+    {
+        .name = _("Searing Rage"),
+        .description = COMPOUND_STRING("Boosts Atk at low HP."),
+        .aiRating = 5,
+    },
+
     [ABILITY_COMPETITIVE] =
     {
         .name = _("Competitive"),

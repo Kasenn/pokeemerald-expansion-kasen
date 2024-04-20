@@ -436,6 +436,17 @@ const struct TrainerSprite gTrainerSprites[] =
     TRAINER_SPRITE(LEAF, Leaf),
     TRAINER_SPRITE(RS_BRENDAN, RubySapphireBrendan),
     TRAINER_SPRITE(RS_MAY, RubySapphireMay),
+    TRAINER_SPRITE(AFICIONADO_M, AficionadoM),
+    TRAINER_SPRITE(AFICIONADO_F, AficionadoF),
+    TRAINER_SPRITE(SCIENTIST, Scientist),
+    TRAINER_SPRITE(CLAY, Clay),
+    TRAINER_SPRITE(ROCKER, Rocker),
+    TRAINER_SPRITE(GEN4_SWIMMER_F, Gen4SwimmerF),
+    TRAINER_SPRITE(KORRINA, Korrina),
+    TRAINER_SPRITE(BW_ACE_TRAINER_F, BWAceTrainerF),
+    TRAINER_SPRITE(BW_ACE_TRAINER_M, BWAceTrainerM),
+    TRAINER_SPRITE(MAY_ORAS, MayOras),
+    TRAINER_SPRITE(BRENDAN_ORAS, BrendanOras),
 };
 
 static const union AnimCmd sAnimCmd_Hoenn[] =
@@ -477,6 +488,23 @@ const struct SpriteFrameImage gTrainerBackPicTable_Brendan[] =
     {gTrainerBackPic_Brendan + TRAINER_PIC_SIZE * 2, TRAINER_PIC_SIZE},
     {gTrainerBackPic_Brendan + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE},
 };
+
+const struct SpriteFrameImage gTrainerBackPicTable_BrendanOras[] =
+{
+    {gTrainerBackPic_BrendanOras + TRAINER_PIC_SIZE * 0, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_BrendanOras + TRAINER_PIC_SIZE * 1, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_BrendanOras + TRAINER_PIC_SIZE * 2, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_BrendanOras + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE},
+};
+
+const struct SpriteFrameImage gTrainerBackPicTable_MayOras[] =
+{
+    {gTrainerBackPic_MayOras + TRAINER_PIC_SIZE * 0, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_MayOras + TRAINER_PIC_SIZE * 1, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_MayOras + TRAINER_PIC_SIZE * 2, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_MayOras + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE},
+};
+
 
 const struct SpriteFrameImage gTrainerBackPicTable_May[] =
 {

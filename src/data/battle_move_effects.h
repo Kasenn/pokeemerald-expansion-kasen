@@ -1082,6 +1082,12 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .battleTvScore = 1,
     },
 
+    [EFFECT_FLASH] =
+    {
+        .battleScript = BattleScript_EffectFlash,
+        .battleTvScore = 1,
+    },
+
     [EFFECT_COSMIC_POWER] =
     {
         .battleScript = BattleScript_EffectCosmicPower,

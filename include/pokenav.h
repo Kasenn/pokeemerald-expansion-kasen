@@ -91,6 +91,8 @@ enum
     POKENAV_MODE_NORMAL,           // Chosen from Start menu.
     POKENAV_MODE_FORCE_CALL_READY, // PokéNav tutorial before calling Mr. Stone
     POKENAV_MODE_FORCE_CALL_EXIT,  // PokéNav tutorial after calling Mr. Stone
+    POKENAV_MODE_TOWN_MAP,         // Town Map item
+    POKENAV_MODE_TOWN_MAP_EXIT,    // Town Map item exit
 };
 
 enum

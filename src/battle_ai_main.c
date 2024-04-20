@@ -1327,6 +1327,12 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
             if (!ShouldLowerStat(battlerDef, aiData->abilities[battlerDef], STAT_EVASION))
                 ADJUST_SCORE(-10);
             break;
+        case EFFECT_FLASH:
+            if (!ShouldLowerStat(battlerDef, aiData->abilities[battlerDef], STAT_ACC))
+                ADJUST_SCORE(-10);
+            else if (!ShouldLowerStat(battlerDef, aiData->abilities[battlerDef], STAT_SPEED))
+                ADJUST_SCORE(-8);
+            break;
         case EFFECT_TICKLE:
             if (!ShouldLowerStat(battlerDef, aiData->abilities[battlerDef], STAT_ATK))
                 ADJUST_SCORE(-10);
@@ -4055,6 +4061,13 @@ static u32 AI_CalcMoveScore(u32 battlerAtk, u32 battlerDef, u32 move)
         if (!HasMoveWithType(battlerAtk, TYPE_FIRE) && (HasMoveWithType(battlerDef, TYPE_FIRE)))
             ADJUST_SCORE(WEAK_EFFECT);
         break;
+    case EFFECT_FLASH:
+        if (gBattleMons[battlerDef].statStages[STAT_ACC] > 4
+         && aiData->abilities[battlerDef] != ABILITY_CONTRARY && ShouldLowerAccuracy(battlerAtk, battlerDef, aiData->abilities[battlerDef]))
+            ADJUST_SCORE(DECENT_EFFECT);
+        else if (ShouldLowerSpeed(battlerAtk, battlerDef, aiData->abilities[battlerDef]))
+            ADJUST_SCORE(DECENT_EFFECT);
+        break;
     case EFFECT_TICKLE:
         if (gBattleMons[battlerDef].statStages[STAT_DEF] > 4 && HasMoveWithCategory(battlerAtk, DAMAGE_CATEGORY_PHYSICAL)
          && aiData->abilities[battlerDef] != ABILITY_CONTRARY && ShouldLowerDefense(battlerAtk, battlerDef, aiData->abilities[battlerDef]))
@@ -4696,6 +4709,7 @@ static s32 AI_SetupFirstTurn(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
     case EFFECT_INGRAIN:
     case EFFECT_IMPRISON:
     case EFFECT_TICKLE:
+    case EFFECT_FLASH:
     case EFFECT_COSMIC_POWER:
     case EFFECT_BULK_UP:
     case EFFECT_CALM_MIND:
@@ -4975,6 +4989,7 @@ static s32 AI_HPAware(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
             case EFFECT_PSYCH_UP:
             case EFFECT_MIRROR_COAT:
             case EFFECT_TICKLE:
+            case EFFECT_FLASH:
             case EFFECT_SUNNY_DAY:
             case EFFECT_SANDSTORM:
             case EFFECT_HAIL:
@@ -5042,6 +5057,7 @@ static s32 AI_HPAware(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
             case EFFECT_PERISH_SONG:
             case EFFECT_SAFEGUARD:
             case EFFECT_TICKLE:
+            case EFFECT_FLASH:
             case EFFECT_COSMIC_POWER:
             case EFFECT_BULK_UP:
             case EFFECT_CALM_MIND:

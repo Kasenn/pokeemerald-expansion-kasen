@@ -688,6 +688,7 @@ extern const u8 BattleScript_EffectSnatch[];
 extern const u8 BattleScript_EffectHitEscape[];
 extern const u8 BattleScript_EffectMudSport[];
 extern const u8 BattleScript_EffectTickle[];
+extern const u8 BattleScript_EffectFlash[];
 extern const u8 BattleScript_EffectCosmicPower[];
 extern const u8 BattleScript_EffectSkyUppercut[];
 extern const u8 BattleScript_EffectBulkUp[];
