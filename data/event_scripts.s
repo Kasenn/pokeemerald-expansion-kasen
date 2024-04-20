@@ -947,6 +947,10 @@ gText_PlayerFoundOneTMHM::
 	.string "{PLAYER} found the {STR_VAR_1},\n"
 	.string "{STR_VAR_2}!$"
 
+gText_PlayerFoundTMHMs::
+	.string "{PLAYER} found {STR_VAR_3} {STR_VAR_1}\n"
+	.string "{STR_VAR_2}!$"
+
 gText_Sudowoodo_Attacked::
 	.string "There's barely a scratch on\n"
 	.string "the weird tree!\p"

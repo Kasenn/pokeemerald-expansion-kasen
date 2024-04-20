@@ -46,11 +46,6 @@ Route109_EventScript_ItemPotion::
 	finditem ITEM_POTION
 	end
 
-Common_EventScript_FindItem::
-	callnative GetObjectEventTrainerRangeFromTemplate
-	finditem VAR_RESULT
-	end
-
 Route110_EventScript_ItemRareCandy::
 	finditem ITEM_RARE_CANDY
 	end
@@ -661,4 +656,8 @@ MagmaHideout_4F_EventScript_ItemMaxRevive::
 
 MagmaHideout_3F_3R_EventScript_ItemEscapeRope::
 	finditem ITEM_ESCAPE_ROPE
+
+Common_EventScript_FindItem::
+	callnative GetObjectEventTrainerRangeFromTemplate
+	finditem VAR_RESULT
 	end

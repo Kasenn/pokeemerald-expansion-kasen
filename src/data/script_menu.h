@@ -778,6 +778,13 @@ static const struct MenuAction MultichoiceList_TagMatchType[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_BerryPlot[] =
+{
+    {gText_Fertilize},
+    {gText_PlantBerry},
+    {gText_Exit},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -985,6 +992,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_WHICHONEWOULDWIN]           = MULTICHOICE(WhichOneWouldWin),
     [MULTI_BUFFET]                     = MULTICHOICE(BuffetOptions),
     [MULTI_TESTMEGASTARTER]            = MULTICHOICE(TestMegaStarter),
+    [MULTI_BERRY_PLOT]                 = MULTICHOICE(MultichoiceList_BerryPlot),
 };
 
 const u8 *const gStdStrings[] =
