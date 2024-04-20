@@ -365,6 +365,7 @@ BPShop_HeldItem_2:
 	case 3, BPShop_HeldItem_6
 	case 4, BPShop_HeldItem_7
 	case 5, BPShop_HeldItem_8
+	case 6, BPShop_HeldItem_9
 	goto BPShop_HeldItem_1
 
 BPShop_HeldItem_5:
@@ -381,6 +382,10 @@ BPShop_HeldItem_7:
 
 BPShop_HeldItem_8:
 	goto Kaolisle_BPShop_ChooseHoldItem
+	goto BPShop_HeldItem_1
+
+BPShop_HeldItem_9:
+	goto Sandstone_BPShop_ChooseHoldItem
 	goto BPShop_HeldItem_1
 
 

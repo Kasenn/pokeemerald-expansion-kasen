@@ -371,8 +371,8 @@ Sandstone_BPShop_NaiveMintDesc::
 	.string "but reduces Sp. Def.$"
 
 Sandstone_BPShop_SeriousMintDesc::
-	.string "Can be smelled. It ups Speed,\n"
-	.string "but reduces Attack.$"
+	.string "Can be smelled. It makes each,\n"
+	.string "stat grow equally.$"
 
 Sandstone_BPShop_Text_ThunderWaveDesc::
 	.string "A weak jolt of\n"

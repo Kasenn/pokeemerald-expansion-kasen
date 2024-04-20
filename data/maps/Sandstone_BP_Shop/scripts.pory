@@ -223,8 +223,8 @@ text Sandstone_BPShop_NaiveMintDesc {
 }
 
 text Sandstone_BPShop_SeriousMintDesc {
-    "Can be smelled. It ups Speed,\n"
-    "but reduces Attack."
+    "Can be smelled. It makes each,\n"
+    "stat grow equally."
 }
 
 
