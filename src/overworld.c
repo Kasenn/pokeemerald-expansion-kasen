@@ -427,6 +427,8 @@ void Overworld_ResetStateAfterDigEscRope(void)
     FlagClear(FLAG_INCREASED_SHINY_ODDS);
     FlagClear(FLAG_SYSTEM_NOREWARDBATTLES);
     FlagClear(FLAG_DESERT_STEPS);
+    FlagClear(B_FLAG_DYNAMAX_BATTLE);
+    FlagClear(B_FLAG_SKY_BATTLE);
 }
 #endif
 

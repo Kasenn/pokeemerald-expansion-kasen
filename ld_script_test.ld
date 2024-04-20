@@ -109,7 +109,11 @@ SECTIONS {
 
     __rom_end = .;
 
-    __rom_end = .;
+    dacs 0x9FFC000 :
+    ALIGN(4)
+    {
+        test/*.o(.dacs);
+    } > ROM =0
 
     /* DWARF debug sections.
        Symbols in the DWARF debugging sections are relative to the beginning
