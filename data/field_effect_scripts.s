@@ -73,12 +73,12 @@ gFieldEffectScriptPointers::
 	.4byte gFieldEffectScript_RayquazaSpotlight         @ FLDEFF_RAYQUAZA_SPOTLIGHT
 	.4byte gFieldEffectScript_DestroyDeoxysRock         @ FLDEFF_DESTROY_DEOXYS_ROCK
 	.4byte gFieldEffectScript_MoveDeoxysRock            @ FLDEFF_MOVE_DEOXYS_ROCK
-	.4byte gFieldEffectScript_TallGrassAutumn           @ FLDEFF_TALL_GRASS_AUTUMN
-	.4byte gFieldEffectScript_MudFootprints        @ FLDEFF_MUD_FOOTPRINTS
-	.4byte gFieldEffectScript_MudPile                  @ FLDEFF_MUD_PILE
 	.4byte gFldEffScript_UseVsSeeker                    @ FLDEFF_USE_VS_SEEKER
 	.4byte gFldEffScript_XIcon                          @ FLDEFF_X_ICON
 	.4byte gFldEffScript_DoubleExclMarkIcon             @ FLDEFF_DOUBLE_EXCL_MARK_ICON
+	.4byte gFieldEffectScript_TallGrassAutumn           @ FLDEFF_TALL_GRASS_AUTUMN
+	.4byte gFieldEffectScript_MudFootprints        @ FLDEFF_MUD_FOOTPRINTS
+	.4byte gFieldEffectScript_MudPile                  @ FLDEFF_MUD_PILE
 
 gFieldEffectScript_ExclamationMarkIcon1::
 	field_eff_callnative FldEff_ExclamationMarkIcon

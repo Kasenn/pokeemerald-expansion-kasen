@@ -1818,11 +1818,9 @@ static u8 LoadSpritePaletteIfTagExists(const struct SpritePalette *spritePalette
     if (IndexOfSpritePaletteTag(spritePalette->tag) != 0xFF)
         return 0xFF;
 
-    if (gWeatherPtr->palProcessingState != WEATHER_PAL_STATE_SCREEN_FADING_OUT)
-        return LoadSpritePalette(spritePalette);
-    else
-        return LoadSpritePaletteUnfaded(spritePalette);
+    return LoadSpritePalette(spritePalette);
 }
+
 
 void PatchObjectPalette(u16 paletteTag, u8 paletteSlot)
 {

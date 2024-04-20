@@ -99,9 +99,39 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         LEARNSETS(Quilladin),
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_CHESNAUGHT}),
     },
+    
+    #define CHESNAUGHT_MISC_INFO    \
+        .catchRate = 45,    \
+        .expYield = 239,    \
+        .evYield_Defense = 3,   \
+        .genderRatio = PERCENT_FEMALE(12.5),    \
+        .eggCycles = 20,    \
+        .friendship = STANDARD_FRIENDSHIP,  \
+        .growthRate = GROWTH_MEDIUM_SLOW,   \
+        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },  \
+        .bodyColor = BODY_COLOR_GREEN,  \
+        .speciesName = _("Chesnaught"), \
+        .natDexNum = NATIONAL_DEX_CHESNAUGHT,   \
+        .categoryName = _("Spiny Armor"),   \
+        .height = 16,   \
+        .weight = 900,  \
+        .description = COMPOUND_STRING( \
+            "It shields its allies from danger with\n"  \
+            "its own body. When it takes a defensive\n" \
+            "posture with its fists guarding its face,\n"   \
+            "it can withstand a bomb blast."),  \
+        .pokemonScale = 259,    \
+        .pokemonOffset = 1, \
+        .trainerScale = 296,    \
+        .trainerOffset = 1, \
+        .footprint = gMonFootprint_Chesnaught,  \
+        LEARNSETS(Chesnaught),  \
+        .formSpeciesIdTable = sChesnaughtFormSpeciesIdTable,  \
+        .formChangeTable = sChesnaughtFormChangeTable
 
     [SPECIES_CHESNAUGHT] =
     {
+        CHESNAUGHT_MISC_INFO,
         .baseHP        = 88,
         .baseAttack    = 107,
         .baseDefense   = 122,
@@ -109,31 +139,8 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .baseSpAttack  = 74,
         .baseSpDefense = 75,
         .types = { TYPE_GRASS, TYPE_FIGHTING },
-        .catchRate = 45,
-        .expYield = 239,
-        .evYield_Defense = 3,
-        .genderRatio = PERCENT_FEMALE(12.5),
-        .eggCycles = 20,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_MEDIUM_SLOW,
-        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
         .abilities = { ABILITY_OVERGROW, ABILITY_NONE, ABILITY_BULLETPROOF },
-        .bodyColor = BODY_COLOR_GREEN,
-        .speciesName = _("Chesnaught"),
         .cryId = CRY_CHESNAUGHT,
-        .natDexNum = NATIONAL_DEX_CHESNAUGHT,
-        .categoryName = _("Spiny Armor"),
-        .height = 16,
-        .weight = 900,
-        .description = COMPOUND_STRING(
-            "It shields its allies from danger with\n"
-            "its own body. When it takes a defensive\n"
-            "posture with its fists guarding its face,\n"
-            "it can withstand a bomb blast."),
-        .pokemonScale = 259,
-        .pokemonOffset = 1,
-        .trainerScale = 296,
-        .trainerOffset = 1,
         FRONT_PIC(Chesnaught, 64, 64),
         .frontPicYOffset = 4,
         .frontAnimFrames = sAnims_Chesnaught,
@@ -143,8 +150,29 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .backAnimId = BACK_ANIM_V_SHAKE_LOW,
         PALETTES(Chesnaught),
         ICON(Chesnaught, 1),
-        .footprint = gMonFootprint_Chesnaught,
-        LEARNSETS(Chesnaught),
+    },
+    [SPECIES_CHESNAUGHT_MEGA] =
+    {
+        CHESNAUGHT_MISC_INFO,
+        .baseHP        = 88,
+        .baseAttack    = 127,
+        .baseDefense   = 172,
+        .baseSpeed     = 54,
+        .baseSpAttack  = 74,
+        .baseSpDefense = 115,
+        .types = { TYPE_GRASS, TYPE_STEEL },
+        .abilities = {ABILITY_SPIKE_BODY, ABILITY_SPIKE_BODY, ABILITY_SPIKE_BODY},
+        .cryId = CRY_CHESNAUGHT_MEGA,
+        FRONT_PIC(ChesnaughtMega, 64, 64),
+        .frontPicYOffset = 2,
+        .frontAnimFrames = sAnims_ChesnaughtMega,
+        .frontAnimId = ANIM_GROW_IN_STAGES,
+        BACK_PIC(ChesnaughtMega, 64, 56),
+        .backPicYOffset = 6,
+        .backAnimId = BACK_ANIM_SHAKE_GLOW_GREEN,
+        PALETTES(ChesnaughtMega),
+        ICON(ChesnaughtMega, 1),
+        .isMegaEvolution = TRUE,
     },
 #endif //P_FAMILY_CHESPIN
 

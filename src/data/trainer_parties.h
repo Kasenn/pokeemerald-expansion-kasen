@@ -3309,12 +3309,12 @@ static const struct TrainerMon sParty_KG_Tr1_Camper1[] = {
     {
     .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
     .lvl = 35,
-    .species = SPECIES_SILICOBRA,
+    .species = SPECIES_WOOPER_PALDEAN,
     },
     {
     .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
     .lvl = 36,
-    .species = SPECIES_SANDACONDA,
+    .species = SPECIES_CLODSIRE,
     }
 };
 

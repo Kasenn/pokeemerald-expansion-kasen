@@ -307,6 +307,27 @@ static const struct FormChange sAbsolFormChangeTable[] = {
 };
 #endif //P_FAMILY_ABSOL
 
+static const struct FormChange sEmpoleonFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_EMPOLEON_MEGA, ITEM_EMPOLEONITE},
+    {FORM_CHANGE_TERMINATOR},
+};
+
+static const struct FormChange sDecidueyeFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_DECIDUEYE_MEGA, ITEM_DECIDUEITE},
+    {FORM_CHANGE_TERMINATOR},
+};
+
+static const struct FormChange sIncineroarFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_INCINEROAR_MEGA, ITEM_INCINEROARITE},
+    {FORM_CHANGE_TERMINATOR},
+};
+
+static const struct FormChange sChesnaughtFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_CHESNAUGHT_MEGA, ITEM_CHESNAUGHTITE},
+    {FORM_CHANGE_TERMINATOR},
+};
+
+
 #if P_FAMILY_SNORUNT
 static const struct FormChange sGlalieFormChangeTable[] = {
     {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_GLALIE_MEGA, ITEM_GLALITITE},

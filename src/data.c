@@ -65,18 +65,18 @@ const struct SpriteFrameImage gTrainerBackPicTable_May[] =
 
 const struct SpriteFrameImage gTrainerBackPicTable_BrendanOras[] =
 {
-    gTrainerBackPic_BrendanOras + TRAINER_PIC_SIZE * 0, TRAINER_PIC_SIZE,
-    gTrainerBackPic_BrendanOras + TRAINER_PIC_SIZE * 1, TRAINER_PIC_SIZE,
-    gTrainerBackPic_BrendanOras + TRAINER_PIC_SIZE * 2, TRAINER_PIC_SIZE,
-    gTrainerBackPic_BrendanOras + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE,
+    {gTrainerBackPic_BrendanOras + TRAINER_PIC_SIZE * 0, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_BrendanOras + TRAINER_PIC_SIZE * 1, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_BrendanOras + TRAINER_PIC_SIZE * 2, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_BrendanOras + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE},
 };
 
 const struct SpriteFrameImage gTrainerBackPicTable_MayOras[] =
 {
-    gTrainerBackPic_MayOras + TRAINER_PIC_SIZE * 0, TRAINER_PIC_SIZE,
-    gTrainerBackPic_MayOras + TRAINER_PIC_SIZE * 1, TRAINER_PIC_SIZE,
-    gTrainerBackPic_MayOras + TRAINER_PIC_SIZE * 2, TRAINER_PIC_SIZE,
-    gTrainerBackPic_MayOras + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE,
+    {gTrainerBackPic_MayOras + TRAINER_PIC_SIZE * 0, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_MayOras + TRAINER_PIC_SIZE * 1, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_MayOras + TRAINER_PIC_SIZE * 2, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_MayOras + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE},
 };
 
 const struct SpriteFrameImage gTrainerBackPicTable_Red[] =

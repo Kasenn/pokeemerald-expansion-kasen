@@ -5,6 +5,7 @@
 #include "battle_anim.h"
 #include "battle_ai_util.h"
 #include "battle_ai_main.h"
+#include "battle_controllers.h"
 #include "battle_factory.h"
 #include "battle_setup.h"
 #include "battle_z_move.h"
@@ -3204,92 +3205,6 @@ static s32 AI_CompareDamagingMoves(u32 battlerAtk, u32 battlerDef, u32 currId)
     return score;
 }
 
-static s32 AI_CompareDamagingMoves(u32 battlerAtk, u32 battlerDef, u32 currId)
-{
-    u32 i;
-    u32 noOfHits[MAX_MON_MOVES];
-    s32 score = 0;
-    u16 *moves = GetMovesArray(battlerAtk);
-    bool8 isPowerfulIgnoredEffect[MAX_MON_MOVES];
-
-    for (i = 0; i < MAX_MON_MOVES; i++)
-    {
-        if (moves[i] != MOVE_NONE && gBattleMoves[moves[i]].power)
-        {
-            noOfHits[i] = GetNoOfHitsToKOBattler(battlerAtk, battlerDef, i);
-            isPowerfulIgnoredEffect[i] = IsInIgnoredPowerfulMoveEffects(gBattleMoves[moves[i]].effect);
-        }
-        else
-        {
-            noOfHits[i] = 0;
-            isPowerfulIgnoredEffect[i] = FALSE;
-        }
-    }
-
-    // if multiple moves can 0HKO, then compare the current move with the others
-    if (noOfHits[currId] == 1)
-    {
-        for (i = 0; i < MAX_MON_MOVES; i++)
-        {
-            if (noOfHits[i] != 1 || i == currId)
-                continue;
-
-            // prioritize moves without a risky secondary effect such as Overheat, Explosion or Hyper Beam
-            if (!isPowerfulIgnoredEffect[currId] && isPowerfulIgnoredEffect[i])
-                score += 2;
-            else if (isPowerfulIgnoredEffect[currId] && !isPowerfulIgnoredEffect[i])
-                score -= 2;
-
-            if (!isPowerfulIgnoredEffect[currId])
-            {
-                // prioritize moves with higher accuracy
-                switch (CompareMoveAccuracies(battlerAtk, battlerDef, currId, i))
-                {
-                case 0:
-                    score++;
-                    break;
-                case 1:
-                    score--;
-                    break;
-                }
-
-                // prioritize moves without recoil
-                if (AI_IsDamagedByRecoil(battlerAtk))
-                {
-                    if (!IS_MOVE_RECOIL(moves[currId]) && IS_MOVE_RECOIL(moves[i]))
-                        score++;
-                    else if (IS_MOVE_RECOIL(moves[currId]) && !IS_MOVE_RECOIL(moves[i]))
-                        score--;
-                }
-            }
-        }
-    }
-    else
-    {
-        // give priority to moves which can ko the target faster
-        for (i = 0; i < MAX_MON_MOVES; i++)
-        {
-            if (i != currId && noOfHits[i] < 5 && noOfHits[currId] != 1 && noOfHits[i] < noOfHits[currId])
-            {
-                if (AI_WhichMoveBetter(moves[currId], moves[i], battlerAtk, battlerDef) != 0)
-                    score--;
-            }
-        }
-
-        // If 2 moves can KO the target in the same number of turns,
-        // but one of them always hits and there is a risk the other
-        // move could miss, prioritize the move with better accuracy.
-        for (i = 0; i < MAX_MON_MOVES; i++)
-        {
-            if (i != currId && noOfHits[currId] == noOfHits[i]
-                && CompareMoveAccuracies(battlerAtk, battlerDef, currId, i))
-                score++;
-        }
-    }
-
-    return score;
-}
-
 // AI_FLAG_CHECK_VIABILITY - a weird mix of increasing and decreasing scores
 static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
 {
@@ -3312,8 +3227,6 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
     // Targeting partner, check benefits of doing that instead
     if (IS_TARGETING_PARTNER(battlerAtk, battlerDef))
         return score;
-    if (gBattleMoves[move].power)
-        score += AI_CompareDamagingMoves(battlerAtk, battlerDef, movesetIndex);
 
     if (gBattleMoves[move].power)
         score += AI_CompareDamagingMoves(battlerAtk, battlerDef, movesetIndex);
@@ -3395,11 +3308,6 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
                 ADJUST_SCORE(2);
                 break;
             }
-            else if (aiData->hpPercents[battlerAtk] < 40)
-            {
-                score -= 3;
-                break;
-            }
         }
 
         if (!AI_RandLessThan(100))
@@ -3417,7 +3325,7 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
         else if (aiData->hpPercents[battlerAtk] > 70 && AI_RandLessThan(200))
             break;
         else if (aiData->hpPercents[battlerAtk] < 40)
-            ADJUST_SCORE(-3);
+            ADJUST_SCORE(-2);
         break;
     case EFFECT_SPEED_UP:
     case EFFECT_SPEED_UP_2:
@@ -3446,11 +3354,6 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
                 ADJUST_SCORE(2);
                 break;
             }
-            else if (aiData->hpPercents[battlerAtk] < 40)
-            {
-                score -= 3;
-                break;
-            }
         }
 
         if (!AI_RandLessThan(100))
@@ -3467,14 +3370,14 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
         else if (aiData->hpPercents[battlerAtk] > 70 && AI_RandLessThan(200))
             break;
         else if (aiData->hpPercents[battlerAtk] < 40)
-            ADJUST_SCORE(-3);
+            ADJUST_SCORE(-2);
         break;
     case EFFECT_ACCURACY_UP:
     case EFFECT_ACCURACY_UP_2:
         if (gBattleMons[battlerAtk].statStages[STAT_ACC] >= 9 && !AI_RandLessThan(50))
             ADJUST_SCORE(-2);
         else if (aiData->hpPercents[battlerAtk] <= 70)
-            ADJUST_SCORE(-3);
+            ADJUST_SCORE(-2);
         else
             ADJUST_SCORE(1);
         break;
@@ -3495,7 +3398,7 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
         if (aiData->hpPercents[battlerAtk] < 70 || gBattleMons[battlerAtk].statStages[STAT_EVASION] == DEFAULT_STAT_STAGE)
             break;
         else if (aiData->hpPercents[battlerAtk] < 40 || aiData->hpPercents[battlerDef] < 40)
-            ADJUST_SCORE(-3);
+            ADJUST_SCORE(-2);
         else if (!AI_RandLessThan(70))
             ADJUST_SCORE(-2);
         break;
@@ -3862,7 +3765,7 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
             u32 newHp = (gBattleMons[battlerAtk].hp + gBattleMons[battlerDef].hp) / 2;
             u32 healthBenchmark = (gBattleMons[battlerAtk].hp * 12) / 10;
             if (newHp > healthBenchmark && ShouldAbsorb(battlerAtk, battlerDef, move, aiData->simulatedDmg[battlerAtk][battlerDef][movesetIndex]))
-                ADJUST_SCORE(3);
+                ADJUST_SCORE(2);
         }
         break;
     case EFFECT_SLEEP_TALK:
@@ -4813,7 +4716,7 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
             ADJUST_SCORE(3);
         break;
     case EFFECT_HEAL_BLOCK:
-        if (AI_WhoStrikesFirst(battlerAtk, battlerDef, move) == AI_IS_FASTER && predictedMove != MOVE_NONE && IsHealingMoveEffect(gBattleMoves[predictedMove].effect))
+        if (AI_WhoStrikesFirst(battlerAtk, battlerDef, move) == AI_IS_FASTER && predictedMove != MOVE_NONE && IsHealingMove(predictedMove))
             ADJUST_SCORE(3); // Try to cancel healing move
         else if (HasHealingEffect(battlerDef) || aiData->holdEffects[battlerDef] == HOLD_EFFECT_LEFTOVERS
           || (aiData->holdEffects[battlerDef] == HOLD_EFFECT_BLACK_SLUDGE && IS_BATTLER_OF_TYPE(battlerDef, TYPE_POISON)))

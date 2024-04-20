@@ -364,7 +364,6 @@ static void CB2_GiveHoldItem(void);
 static void CB2_WriteMailToGiveMon(void);
 static void Task_SwitchHoldItemsPrompt(u8);
 static void Task_GiveHoldItem(u8);
-static void Task_CantHoldItem(u8);
 static void Task_SwitchItemsYesNo(u8);
 static void Task_HandleSwitchItemsYesNoInput(u8);
 static void Task_WriteMailToGiveMonAfterText(u8);
@@ -5304,7 +5303,6 @@ static void Task_LearnedMove(u8 taskId)
 {
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
     s16 *move = &gPartyMenu.data1;
-    u16 item = gSpecialVar_ItemId;
 
     if (move[1] == 0)
     {

@@ -125,6 +125,14 @@ Debug_EventScript_Script_5::
 	end
 
 Debug_EventScript_Script_6::
+	giveitem ITEM_MEGA_RING
+	givemon SPECIES_DECIDUEYE, 40, ITEM_DECIDUEITE
+    givemon SPECIES_BLAZIKEN, 40, ITEM_BLAZIKENITE
+    givemon SPECIES_EMPOLEON, 40, ITEM_EMPOLEONITE
+    givemon SPECIES_CHESNAUGHT, 40, ITEM_CHESNAUGHTITE
+    givemon SPECIES_INCINEROAR, 40, ITEM_INCINEROARITE
+    givemon SPECIES_SWAMPERT, 40, ITEM_SWAMPERTITE
+	closemessage
 	end
 
 Debug_EventScript_Script_7::

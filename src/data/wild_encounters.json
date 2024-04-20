@@ -14020,7 +14020,7 @@
               {
                 "min_level": 30,
                 "max_level": 35,
-                "species": "SPECIES_SILICOBRA"
+                "species": "SPECIES_WOOPER_PALDEAN"
               },
               {
                 "min_level": 30,
@@ -14050,7 +14050,7 @@
               {
                 "min_level": 30,
                 "max_level": 35,
-                "species": "SPECIES_SANDACONDA"
+                "species": "SPECIES_CLODSIRE"
               },
               {
                 "min_level": 30,
@@ -14070,12 +14070,12 @@
               {
                 "min_level": 30,
                 "max_level": 35,
-                "species": "SPECIES_SILICOBRA"
+                "species": "SPECIES_WOOPER_PALDEAN"
               },
               {
                 "min_level": 30,
                 "max_level": 35,
-                "species": "SPECIES_SILICOBRA"
+                "species": "SPECIES_WOOPER_PALDEAN"
               }
             ]
           },

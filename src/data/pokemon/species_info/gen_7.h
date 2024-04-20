@@ -113,7 +113,6 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_FLYING },    \
         .bodyColor = BODY_COLOR_BROWN,                          \
         .speciesName = _("Decidueye"),                          \
-        .cryId = CRY_DECIDUEYE,                                 \
         .natDexNum = NATIONAL_DEX_DECIDUEYE,                    \
         .categoryName = _("Arrow Quill"),                       \
         .height = 16,                                           \
@@ -122,6 +121,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .trainerScale = 296,                                    \
         .trainerOffset = 1,                                     \
         .footprint = gMonFootprint_Decidueye,                   \
+        LEARNSETS(Decidueye),                                   \
         .formSpeciesIdTable = sDecidueyeFormSpeciesIdTable
 
     [SPECIES_DECIDUEYE] =
@@ -136,6 +136,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .types = { TYPE_GRASS, TYPE_GHOST },
         .abilities = { ABILITY_OVERGROW, ABILITY_NONE, ABILITY_LONG_REACH },
         .weight = 366,
+        .cryId = CRY_DECIDUEYE,
         .description = COMPOUND_STRING(
             "Decidueye is cool and cautious.\n"
             "It fires arrow quills from its wings with\n"
@@ -149,8 +150,38 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .backPicYOffset = 0,
         .backAnimId = BACK_ANIM_SHRINK_GROW_VIBRATE,
         PALETTES(Decidueye),
+        .formChangeTable = sDecidueyeFormChangeTable,
         ICON(Decidueye, 1),
-        LEARNSETS(Decidueye),
+    },
+    [SPECIES_DECIDUEYE_MEGA] =
+    {
+        DECIDUEYE_MISC_INFO,
+        .baseHP        = 78,
+        .baseAttack    = 147,
+        .baseDefense   = 90,
+        .baseSpeed     = 100,
+        .baseSpAttack  = 100,
+        .baseSpDefense = 115,
+        .types = { TYPE_GRASS, TYPE_GHOST },
+        .abilities = { ABILITY_LONG_REACH, ABILITY_LONG_REACH, ABILITY_LONG_REACH },
+        .weight = 366,
+        .cryId = CRY_DECIDUEYE_MEGA,
+        .description = COMPOUND_STRING(
+            "Decidueye is cool and cautious.\n"
+            "It fires arrow quills from its wings with\n"
+            "such precision, they can pierce a pebble\n"
+            "at distances of over a hundred yards."),
+        FRONT_PIC(DecidueyeMega, 45, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_DecidueyeMega,
+        .frontAnimId = ANIM_SHRINK_GROW_VIBRATE_FAST,
+        BACK_PIC(DecidueyeMega, 46, 62),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_SHAKE_GLOW_GREEN,
+        PALETTES(DecidueyeMega),
+        ICON(DecidueyeMega, 1),
+        .formChangeTable = sDecidueyeFormChangeTable,
+        .isMegaEvolution = TRUE,
     },
 
 #if P_HISUIAN_FORMS
@@ -180,7 +211,6 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         //.backAnimId = BACK_ANIM_NONE,
         PALETTES(DecidueyeHisuian),
         ICON(DecidueyeHisuian, 0),
-        LEARNSETS(DecidueyeHisuian),
         .isHisuianForm = TRUE,
     },
 #endif //P_HISUIAN_FORMS
@@ -282,41 +312,47 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         LEARNSETS(Torracat),
         .evolutions = EVOLUTION({EVO_LEVEL, 34, SPECIES_INCINEROAR}),
     },
+#define INCINEROAR_MISC_INFO    \
+        .types = { TYPE_FIRE, TYPE_DARK },  \
+        .catchRate = 45,    \
+        .expYield = 239,    \
+        .evYield_Attack = 3,    \
+        .genderRatio = PERCENT_FEMALE(12.5),    \
+        .eggCycles = 15,    \
+        .friendship = STANDARD_FRIENDSHIP,  \
+        .growthRate = GROWTH_MEDIUM_SLOW,   \
+        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },  \
+        .bodyColor = BODY_COLOR_RED,    \
+        .speciesName = _("Incineroar"), \
+        .natDexNum = NATIONAL_DEX_INCINEROAR,   \
+        .categoryName = _("Heel"),  \
+        .height = 18,   \
+        .weight = 830,  \
+        .description = COMPOUND_STRING( \
+            "This Pokémon has a violent, selfish\n" \
+            "disposition. If it's not in the mood to\n" \
+            "listen, it will ignore its Trainer's orders\n" \
+            "with complete nonchalance."),  \
+        .pokemonScale = 267,    \
+        .pokemonOffset = 2, \
+        .trainerScale = 286,    \
+        .trainerOffset = 1, \
+        .footprint = gMonFootprint_Incineroar,  \
+        LEARNSETS(Incineroar),  \
+        .formSpeciesIdTable = sIncineroarFormSpeciesIdTable,  \
+        .formChangeTable = sIncineroarFormChangeTable
 
     [SPECIES_INCINEROAR] =
     {
+        INCINEROAR_MISC_INFO,
         .baseHP        = 95,
         .baseAttack    = 115,
         .baseDefense   = 90,
         .baseSpeed     = 60,
         .baseSpAttack  = 80,
         .baseSpDefense = 90,
-        .types = { TYPE_FIRE, TYPE_DARK },
-        .catchRate = 45,
-        .expYield = 239,
-        .evYield_Attack = 3,
-        .genderRatio = PERCENT_FEMALE(12.5),
-        .eggCycles = 15,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_MEDIUM_SLOW,
-        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
         .abilities = { ABILITY_BLAZE, ABILITY_NONE, ABILITY_INTIMIDATE },
-        .bodyColor = BODY_COLOR_RED,
-        .speciesName = _("Incineroar"),
         .cryId = CRY_INCINEROAR,
-        .natDexNum = NATIONAL_DEX_INCINEROAR,
-        .categoryName = _("Heel"),
-        .height = 18,
-        .weight = 830,
-        .description = COMPOUND_STRING(
-            "This Pokémon has a violent, selfish\n"
-            "disposition. If it's not in the mood to\n"
-            "listen, it will ignore its Trainer's orders\n"
-            "with complete nonchalance."),
-        .pokemonScale = 267,
-        .pokemonOffset = 2,
-        .trainerScale = 286,
-        .trainerOffset = 1,
         FRONT_PIC(Incineroar, 64, 64),
         .frontPicYOffset = 0,
         .frontAnimFrames = sAnims_Incineroar,
@@ -326,8 +362,29 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         //.backAnimId = BACK_ANIM_NONE,
         PALETTES(Incineroar),
         ICON(Incineroar, 0),
-        .footprint = gMonFootprint_Incineroar,
-        LEARNSETS(Incineroar),
+        
+    },
+    [SPECIES_INCINEROAR_MEGA] =
+    {
+        INCINEROAR_MISC_INFO,
+        .baseHP        = 95,
+        .baseAttack    = 155,
+        .baseDefense   = 100,
+        .baseSpeed     = 100,
+        .baseSpAttack  = 80,
+        .baseSpDefense = 80,
+        .abilities = {ABILITY_SEARING_RAGE, ABILITY_SEARING_RAGE, ABILITY_SEARING_RAGE},
+        .cryId = CRY_INCINEROAR_MEGA,
+        FRONT_PIC(IncineroarMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_IncineroarMega,
+        .frontAnimId = ANIM_V_SHAKE,
+        BACK_PIC(IncineroarMega, 64, 56),
+        .backPicYOffset = 4,
+        .backAnimId = BACK_ANIM_SHAKE_GLOW_RED,
+        PALETTES(IncineroarMega),
+        ICON(IncineroarMega, 0),
+        .isMegaEvolution = TRUE,
     },
 #endif //P_FAMILY_LITTEN
 

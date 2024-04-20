@@ -1093,6 +1093,7 @@ gCryTable::
 	cry Cry_Piplup
 	cry Cry_Prinplup
 	cry Cry_Empoleon
+	cry_reverse Cry_Empoleon
 .endif @ P_FAMILY_PIPLUP
 .if P_FAMILY_STARLY == TRUE
 	cry Cry_Starly
@@ -1601,6 +1602,7 @@ gCryTable::
 	cry Cry_Chespin
 	cry Cry_Quilladin
 	cry Cry_Chesnaught
+	cry_reverse Cry_Chesnaught
 .endif @ P_FAMILY_CHESPIN
 .if P_FAMILY_FENNEKIN == TRUE
 	cry Cry_Fennekin
@@ -1755,11 +1757,13 @@ gCryTable::
 	cry Cry_Rowlet
 	cry Cry_Dartrix
 	cry Cry_Decidueye
+	cry_reverse Cry_Decidueye
 .endif @ P_FAMILY_ROWLET
 .if P_FAMILY_LITTEN == TRUE
 	cry Cry_Litten
 	cry Cry_Torracat
 	cry Cry_Incineroar
+	cry_reverse Cry_Incineroar
 .endif @ P_FAMILY_LITTEN
 .if P_FAMILY_POPPLIO == TRUE
 	cry Cry_Popplio

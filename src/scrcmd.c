@@ -1955,12 +1955,12 @@ bool8 ScrCmd_setwildbattlelevelrange(struct ScriptContext *ctx)
     if(species2 == SPECIES_NONE)
     {
         CreateScriptedWildMon(species, randomLevel, item);
-        gIsScriptedWildDouble = FALSE;
+        sIsScriptedWildDouble = FALSE;
     }
     else
     {
         CreateScriptedDoubleWildMon(species, randomLevel, item, species2, randomLevel2, item2);
-        gIsScriptedWildDouble = TRUE;
+        sIsScriptedWildDouble = TRUE;
     }
 
     return FALSE;

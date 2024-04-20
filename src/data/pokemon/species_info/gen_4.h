@@ -406,44 +406,52 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_EMPOLEON}),
     },
 
+#define EMPOLEON_MISC_INFO                                      \
+        .types = { TYPE_WATER, TYPE_STEEL },                    \
+        .catchRate = 45,                                        \
+        .evYield_SpAttack = 3,                                  \
+        .genderRatio = PERCENT_FEMALE(12.5),                    \
+        .eggCycles = 20,                                        \
+        .friendship = STANDARD_FRIENDSHIP,                      \
+        .growthRate = GROWTH_MEDIUM_SLOW,                       \
+        .eggGroups = { EGG_GROUP_WATER_1, EGG_GROUP_FIELD },    \
+        .bodyColor = BODY_COLOR_BLUE,                           \
+        .speciesName = _("Empoleon"),                           \
+        .natDexNum = NATIONAL_DEX_EMPOLEON,                     \
+        .categoryName = _("Emperor"),                           \
+        .height = 17,                                           \
+        .weight = 845,                                          \
+        .description = COMPOUND_STRING(                         \
+            "The three horns that extend from its beak\n"       \
+            "attest to its power. It avoids unnecessary\n"      \
+            "disputes, but it will decimate anything\n"         \
+            "that threatens its pride."),                       \
+        .pokemonScale = 259,                                    \
+        .pokemonOffset = 0,                                     \
+        .trainerScale = 290,                                    \
+        .trainerOffset = 1,                                     \
+        .footprint = gMonFootprint_Empoleon,                    \
+        LEARNSETS(Empoleon),                                    \
+        .formSpeciesIdTable = sEmpoleonFormSpeciesIdTable,      \
+        .formChangeTable = sEmpoleonFormChangeTable
+
+
     [SPECIES_EMPOLEON] =
     {
+        EMPOLEON_MISC_INFO,
         .baseHP        = 84,
         .baseAttack    = 86,
         .baseDefense   = 88,
         .baseSpeed     = 60,
         .baseSpAttack  = 111,
         .baseSpDefense = 101,
-        .types = { TYPE_WATER, TYPE_STEEL },
-        .catchRate = 45,
         .expYield = 239,
-        .evYield_SpAttack = 3,
-        .genderRatio = PERCENT_FEMALE(12.5),
-        .eggCycles = 20,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_MEDIUM_SLOW,
-        .eggGroups = { EGG_GROUP_WATER_1, EGG_GROUP_FIELD },
         #if P_UPDATED_ABILITIES >= GEN_9
             .abilities = { ABILITY_TORRENT, ABILITY_NONE, ABILITY_COMPETITIVE },
         #else
             .abilities = { ABILITY_TORRENT, ABILITY_NONE, ABILITY_DEFIANT },
         #endif
-        .bodyColor = BODY_COLOR_BLUE,
-        .speciesName = _("Empoleon"),
         .cryId = CRY_EMPOLEON,
-        .natDexNum = NATIONAL_DEX_EMPOLEON,
-        .categoryName = _("Emperor"),
-        .height = 17,
-        .weight = 845,
-        .description = COMPOUND_STRING(
-            "The three horns that extend from its beak\n"
-            "attest to its power. It avoids unnecessary\n"
-            "disputes, but it will decimate anything\n"
-            "that threatens its pride."),
-        .pokemonScale = 259,
-        .pokemonOffset = 0,
-        .trainerScale = 290,
-        .trainerOffset = 1,
         FRONT_PIC(Empoleon, 64, 64),
         .frontPicYOffset = 0,
         .frontAnimFrames = sAnims_Empoleon,
@@ -453,9 +461,32 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .backAnimId = BACK_ANIM_SHAKE_GLOW_BLUE,
         PALETTES(Empoleon),
         ICON(Empoleon, 0),
-        .footprint = gMonFootprint_Empoleon,
-        LEARNSETS(Empoleon),
     },
+#if P_MEGA_EVOLUTIONS
+    [SPECIES_EMPOLEON_MEGA] =
+    {
+        EMPOLEON_MISC_INFO,
+        .baseHP        = 84,
+        .baseAttack    = 86,
+        .baseDefense   = 78,
+        .baseSpeed     = 120,
+        .baseSpAttack  = 184,
+        .baseSpDefense = 78,
+        .expYield = 239,
+        .abilities = {ABILITY_COMPETITIVE, ABILITY_COMPETITIVE, ABILITY_COMPETITIVE},
+        .cryId = CRY_EMPOLEON_MEGA,
+        FRONT_PIC(EmpoleonMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_EmpoleonMega,
+        .frontAnimId = ANIM_V_STRETCH,
+        BACK_PIC(EmpoleonMega, 56, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_SHAKE_GLOW_BLUE,
+        PALETTES(EmpoleonMega),
+        ICON(EmpoleonMega, 0),
+        .isMegaEvolution = TRUE,
+    },
+#endif //P_MEGA_EVOLUTIONS
 #endif //P_FAMILY_PIPLUP
 
 #if P_FAMILY_STARLY

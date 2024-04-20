@@ -2043,61 +2043,6 @@ static void DebugAction_Util_CheckROMSpace(u8 taskId)
     ScriptContext_SetupScript(Debug_CheckROMSpace);
 }
 
-enum RoundMode
-{
-    ROUND_CEILING,
-    ROUND_NEAREST,
-    ROUND_FLOOR,
-};
-
-static u8 *ConvertQ22_10ToDecimalString(u8 *string, u32 q22_10, u32 decimalDigits, enum RoundMode roundMode)
-{
-    string = ConvertIntToDecimalStringN(string, q22_10 >> 10, STR_CONV_MODE_LEFT_ALIGN, 10);
-
-    if (decimalDigits == 0)
-        return string;
-
-    *string++ = CHAR_PERIOD;
-
-    q22_10 &= (1 << 10) - 1;
-    while (decimalDigits-- > 1)
-    {
-        q22_10 *= 10;
-        *string++ = CHAR_0 + (q22_10 >> 10);
-        q22_10 &= (1 << 10) - 1;
-    }
-
-    q22_10 *= 10;
-    switch (roundMode)
-    {
-    case ROUND_CEILING: q22_10 += (1 << 10) - 1; break;
-    case ROUND_NEAREST: q22_10 += 1 << (10 - 1); break;
-    case ROUND_FLOOR:                            break;
-    }
-    *string++ = CHAR_0 + (q22_10 >> 10);
-
-    *string++ = EOS;
-
-    return string;
-}
-
-void CheckROMSize(struct ScriptContext *ctx)
-{
-    extern u8 __rom_end[];
-    u32 currROMSizeB = __rom_end - (const u8 *)ROM_START;
-    u32 currROMSizeKB = (currROMSizeB + 1023) / 1024;
-    u32 currROMFreeKB = ((const u8 *)ROM_END - __rom_end) / 1024;
-    ConvertQ22_10ToDecimalString(gStringVar1, currROMSizeKB, 2, ROUND_CEILING);
-    ConvertQ22_10ToDecimalString(gStringVar2, currROMFreeKB, 2, ROUND_FLOOR);
-}
-
-static void DebugAction_Util_CheckROMSpace(u8 taskId)
-{
-    Debug_DestroyMenu_Full(taskId);
-    LockPlayerFieldControls();
-    ScriptContext_SetupScript(Debug_CheckROMSpace);
-}
-
 
 static const u8 sWeatherNames[22][24] = {
     [WEATHER_NONE]               = _("NONE"),

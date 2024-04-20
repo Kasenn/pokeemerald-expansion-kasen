@@ -3471,6 +3471,31 @@ static const union AnimCmd sAnim_Blaziken_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_EmpoleonMega_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_DecidueyeMega_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_IncineroarMega_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_ChesnaughtMega_1[] =
+{   
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
+
 #if P_MEGA_EVOLUTIONS
 PLACEHOLDER_ANIM_SINGLE_FRAME(BlazikenMega);
 #endif //P_MEGA_EVOLUTIONS
@@ -10964,6 +10989,10 @@ SINGLE_ANIMATION(Combusken);
 SINGLE_ANIMATION(Blaziken);
 #if P_MEGA_EVOLUTIONS
 SINGLE_ANIMATION(BlazikenMega);
+SINGLE_ANIMATION(EmpoleonMega);
+SINGLE_ANIMATION(DecidueyeMega);
+SINGLE_ANIMATION(IncineroarMega);
+SINGLE_ANIMATION(ChesnaughtMega);
 #endif //P_MEGA_EVOLUTIONS
 #endif //P_FAMILY_TORCHIC
 #if P_FAMILY_MUDKIP

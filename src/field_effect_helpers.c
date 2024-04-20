@@ -101,17 +101,26 @@ static void LoadObjectReflectionPalette(struct ObjectEvent *objectEvent, struct 
 
 void LoadSpecialReflectionPalette(struct Sprite *sprite)
 {
-    const struct ObjectEventGraphicsInfo *graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
-    if (graphicsInfo->reflectionPaletteTag != OBJ_EVENT_PAL_TAG_NONE)
-    {
-        if (graphicsInfo->paletteSlot == PALSLOT_PLAYER)
-            LoadPlayerObjectReflectionPalette(graphicsInfo->paletteTag, paletteIndex);
-        else if (graphicsInfo->paletteSlot == PALSLOT_NPC_SPECIAL)
-            LoadSpecialObjectReflectionPalette(graphicsInfo->paletteTag, paletteIndex);
-        else
-            PatchObjectPalette(GetObjectPaletteTag(paletteIndex), paletteIndex);
-        UpdateSpritePaletteWithWeather(paletteIndex);
-    }
+    u32 i;
+    u16 buffer[16];
+	struct SpritePalette reflectionPalette;
+
+	CpuCopy16(&gPlttBufferUnfaded[0x100 + sprite->oam.paletteNum * 16], buffer, 32);
+	for (i = 0; i < 16; ++i)
+	{
+        u32 red, green, blue, color;
+		color = buffer[i];
+		red = min(GET_R(color) + 8, 31);
+		green = min(GET_G(color) + 8, 31);
+		blue = min(GET_B(color) + 16, 31);
+		buffer[i] = RGB(red, green, blue);
+	}
+	reflectionPalette.data = buffer;
+	reflectionPalette.tag = GetSpritePaletteTagByPaletteNum(sprite->oam.paletteNum) + 0x1000;
+	LoadSpritePalette(&reflectionPalette);
+	sprite->oam.paletteNum = IndexOfSpritePaletteTag(reflectionPalette.tag);
+	UpdatePaletteGammaType(sprite->oam.paletteNum, GAMMA_ALT);
+	UpdateSpritePaletteWithWeather(sprite->oam.paletteNum);
 }
 
 // When walking on a bridge high above water (Route 120), the reflection is a solid dark blue color.
@@ -297,6 +306,7 @@ u32 FldEff_TallGrass(void)
     u8 spriteId;
     s16 x = gFieldEffectArguments[0];
     s16 y = gFieldEffectArguments[1];
+    u8 metatileBehavior;
     SetSpritePosToOffsetMapCoords(&x, &y, 8, 8);
     spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_TALL_GRASS], x, y, 0);
     if (MetatileBehavior_IsTallGrassAutumn(metatileBehavior))

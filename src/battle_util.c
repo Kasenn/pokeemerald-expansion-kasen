@@ -3194,7 +3194,7 @@ u8 DoBattlerEndTurnEffects(void)
             gBattleStruct->turnEffectsTracker++;
             break;
         case ENDTURN_SEA_OF_FIRE_DAMAGE:
-            if (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SEA_OF_FIRE)
+            if (IsBattlerAlive(battler) && gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_SEA_OF_FIRE)
             {
                 gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
                 BtlController_EmitStatusAnimation(battler, BUFFER_A, FALSE, STATUS1_BURN);
@@ -3202,12 +3202,14 @@ u8 DoBattlerEndTurnEffects(void)
                 BattleScriptExecute(BattleScript_HurtByTheSeaOfFire);
                 effect++;
             }
+            gBattleStruct->turnEffectsTracker++;
+            break;
         case ENDTURN_MEGA_EVO:
             if (IsBattlerMegaEvolved(battler) && gBattleMons[battler].hp != 0)
             {
                 gBattlerTarget = battler;
                 if (IsBattlerMegaEvolved(gBattlerTarget))
-                    gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 8;
+                    gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 7;
                 if (gBattleMoveDamage == 0)
                     gBattleMoveDamage = 1;
                 BattleScriptExecute(BattleScript_MegaExhaustion);
