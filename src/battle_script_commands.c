@@ -1055,6 +1055,7 @@ static const u16 sNaturePowerMoves[BATTLE_TERRAIN_COUNT] =
     [BATTLE_TERRAIN_DISTORTION_WORLD] = MOVE_TRI_ATTACK,
     [BATTLE_TERRAIN_SPACE]            = MOVE_DRACO_METEOR,
     [BATTLE_TERRAIN_ULTRA_SPACE]      = MOVE_PSYSHOCK,
+    [BATTLE_TERRAIN_MUD]              = MOVE_MUD_BOMB,
 };
 
 #define _ 0
@@ -3783,6 +3784,7 @@ void SetMoveEffect(bool32 primary, bool32 certain)
                     case BATTLE_TERRAIN_LONG_GRASS:
                         gBattleScripting.moveEffect = MOVE_EFFECT_SLEEP;
                         break;
+                    case BATTLE_TERRAIN_MUD:
                     case BATTLE_TERRAIN_SAND:
                         gBattleScripting.moveEffect = MOVE_EFFECT_ACC_MINUS_1;
                         break;

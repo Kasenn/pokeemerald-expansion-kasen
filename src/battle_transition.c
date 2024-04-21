@@ -863,6 +863,9 @@ static const u16 sMugshotPal_Brendan[] = INCBIN_U16("graphics/battle_transitions
 static const u16 sMugshotPal_May[] = INCBIN_U16("graphics/battle_transitions/may_bg.gbapal");
 static const u16 sMugshotPal_Skyla[] = INCBIN_U16("graphics/battle_transitions/skyla_bg.gbapal");
 static const u16 sMugshotPal_Clay[] = INCBIN_U16("graphics/battle_transitions/clay_bg.gbapal");
+static const u16 sMugshotPal_Sidney2[] = INCBIN_U16("graphics/battle_transitions/sidney_bg.gbapal");
+static const u16 sMugshotPal_Volkner[] = INCBIN_U16("graphics/battle_transitions/volkner_bg.gbapal");
+
 
 static const u16 *const sOpponentMugshotsPals[MUGSHOT_COLOR_COUNT] =
 {
@@ -870,7 +873,12 @@ static const u16 *const sOpponentMugshotsPals[MUGSHOT_COLOR_COUNT] =
     [MUGSHOT_COLOR_GREEN]  = sMugshotPal_Green,
     [MUGSHOT_COLOR_PINK]   = sMugshotPal_Pink,
     [MUGSHOT_COLOR_BLUE]   = sMugshotPal_Blue,
-    [MUGSHOT_COLOR_YELLOW] = sMugshotPal_Yellow
+    [MUGSHOT_COLOR_YELLOW] = sMugshotPal_Yellow,
+    [MUGSHOT_COLOR_BUG] = sMugshotPal_Sidney2,
+    [MUGSHOT_COLOR_ELECTRIC] = sMugshotPal_Volkner,
+    [MUGSHOT_COLOR_FLYING] = sMugshotPal_Skyla,
+    [MUGSHOT_COLOR_GROUND] = sMugshotPal_Clay,
+    [MUGSHOT_COLOR_FIGHTING] = sMugshotPal_Clay,
 };
 
 static const u16 *const sPlayerMugshotsPals[GENDER_COUNT] =
@@ -2524,7 +2532,7 @@ static void Mugshots_CreateTrainerPics(struct Task *task)
 
     gReservedSpritePaletteCount = 10;
     task->tOpponentSpriteId = CreateTrainerSprite(trainerPicId,
-                                                  gTrainerSprites[trainerPicId].mugshotCoords.x - 32,
+                                                  gTrainerSprites[trainerPicId].mugshotCoords.x - 59,
                                                   gTrainerSprites[trainerPicId].mugshotCoords.y + 42,
                                                   0, gDecompressionBuffer);
     gReservedSpritePaletteCount = 12;

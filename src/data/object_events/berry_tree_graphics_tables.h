@@ -388,7 +388,7 @@ static const struct SpriteFrameImage sPicTable_DurinBerryTree[] = {
     overworld_frame(gObjectEventPic_DurinBerryTree, 2, 4, 5),
 };
 
-const u8 gBerryTreePaletteTagTable_Roste[] = {3, 4, 2, 2, 2};
+const u8 gBerryTreePaletteSlotTable_Roste[] = {1, 2, 1, 1, 1};
 
 static const struct SpriteFrameImage sPicTable_RosteBerryTree[] = {
     overworld_frame(gObjectEventPic_BerryTreeDirtPile, 2, 2, 0),
@@ -786,6 +786,6 @@ const u8 *const gBerryTreePaletteSlotTablePointers[] = {
     [ITEM_ROWAP_BERRY - FIRST_BERRY_INDEX] = gBerryTreePaletteSlotTable_Rowap,
     [ITEM_KEE_BERRY - FIRST_BERRY_INDEX] = gBerryTreePaletteSlotTable_Pecha,
     [ITEM_MARANGA_BERRY - FIRST_BERRY_INDEX] = gBerryTreePaletteSlotTable_Occa,
-    [ITEM_ROSTE_BERRY - FIRST_BERRY_INDEX] = gBerryTreePaletteTagTable_Roste,
+    [ITEM_ROSTE_BERRY - FIRST_BERRY_INDEX] = gBerryTreePaletteSlotTable_Roste,
     [ITEM_ENIGMA_BERRY_E_READER - FIRST_BERRY_INDEX] = gBerryTreePaletteSlotTable_Durin,
 };

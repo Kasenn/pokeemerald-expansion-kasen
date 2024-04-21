@@ -2723,7 +2723,8 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .levelUpLearnset = sSalanditLevelUpLearnset,
         .teachableLearnset = sSalanditTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL_FEMALE, 33, SPECIES_SALAZZLE},
-                                {EVO_NONE, 0, SPECIES_SALAZZLE_TOTEM}),
+                                {EVO_NONE, 0, SPECIES_SALAZZLE_TOTEM},
+                                {EVO_LEVEL_MALE, 37, SPECIES_SALAZZLE}),
     },
 
     [SPECIES_SALAZZLE] =
