@@ -505,7 +505,6 @@ const struct SpriteFrameImage gTrainerBackPicTable_MayOras[] =
     {gTrainerBackPic_MayOras + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE},
 };
 
-
 const struct SpriteFrameImage gTrainerBackPicTable_May[] =
 {
     {gTrainerBackPic_May + TRAINER_PIC_SIZE * 0, TRAINER_PIC_SIZE},
@@ -586,4 +585,6 @@ const struct TrainerBacksprite gTrainerBacksprites[] =
     TRAINER_BACK_SPRITE(RUBY_SAPPHIRE_MAY, 4, RubySapphireMay, Palette_RubySapphireMay, Hoenn),
     TRAINER_BACK_SPRITE(WALLY, 4, Wally, Palette_Wally, Hoenn),
     TRAINER_BACK_SPRITE(STEVEN, 4, Steven, Palette_Steven, Hoenn),
+    TRAINER_BACK_SPRITE(BRENDAN_ORAS, 4, BrendanOras, Palette_BrendanOras, Hoenn),
+    TRAINER_BACK_SPRITE(MAY_ORAS, 4, MayOras, Palette_MayOras, Hoenn),
 };

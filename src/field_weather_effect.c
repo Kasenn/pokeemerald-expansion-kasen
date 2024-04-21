@@ -220,7 +220,7 @@ static void DestroyCloudSprites(void)
             DestroySprite(gWeatherPtr->sprites.s1.cloudSprites[i]);
     }
 
-    FreeSpriteTilesByTag(GFXTAG_CLOUD);
+    FreeSpriteTilesByTag(0x1207);
     gWeatherPtr->cloudSpritesCreated = FALSE;
 }
 

@@ -31,7 +31,11 @@ static void SynchroniseSurfPosition(struct ObjectEvent *, struct Sprite *);
 static void UpdateBobbingEffect(struct ObjectEvent *, struct Sprite *, struct Sprite *);
 static void SpriteCB_UnderwaterSurfBlob(struct Sprite *);
 static u32 ShowDisguiseFieldEffect(u8, u8);
+static void LoadFieldEffectPalette_(u8 fieldEffect, bool8 updateGammaType);
+
 void LoadSpecialReflectionPalette(struct Sprite *sprite);
+
+extern u16 gReflectionPaletteBuffer[];
 
 // Data used by all the field effects that share UpdateJumpImpactEffect
 #define sJumpElevation  data[0]
@@ -101,21 +105,25 @@ static void LoadObjectReflectionPalette(struct ObjectEvent *objectEvent, struct 
 
 void LoadSpecialReflectionPalette(struct Sprite *sprite)
 {
-    u32 i;
-    u16 buffer[16];
+    u32 R, G, B, i;
+	u16 color;
+	u16* pal;
 	struct SpritePalette reflectionPalette;
 
-	CpuCopy16(&gPlttBufferUnfaded[0x100 + sprite->oam.paletteNum * 16], buffer, 32);
+	CpuCopy16(&gPlttBufferUnfaded[0x100 + sprite->oam.paletteNum * 16], gReflectionPaletteBuffer, 32);
+	pal = gReflectionPaletteBuffer;
 	for (i = 0; i < 16; ++i)
 	{
-        u32 red, green, blue, color;
-		color = buffer[i];
-		red = min(GET_R(color) + 8, 31);
-		green = min(GET_G(color) + 8, 31);
-		blue = min(GET_B(color) + 16, 31);
-		buffer[i] = RGB(red, green, blue);
+		color = pal[i];
+		R = GET_R(color) + 8;
+		G = GET_G(color) + 8;
+		B = GET_B(color) + 16;
+		if (R > 31) R = 31;
+		if (G > 31) G = 31;
+		if (B > 31) B = 31;
+		pal[i] = RGB(R, G, B);
 	}
-	reflectionPalette.data = buffer;
+	reflectionPalette.data = gReflectionPaletteBuffer;
 	reflectionPalette.tag = GetSpritePaletteTagByPaletteNum(sprite->oam.paletteNum) + 0x1000;
 	LoadSpritePalette(&reflectionPalette);
 	sprite->oam.paletteNum = IndexOfSpritePaletteTag(reflectionPalette.tag);
@@ -187,6 +195,7 @@ extern const struct SpriteTemplate *const gFieldEffectObjectTemplatePointers[];
 
 u8 CreateWarpArrowSprite(void)
 {
+    LoadFieldEffectPalette_(FLDEFFOBJ_ARROW, FALSE);
     u8 spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_ARROW], 0, 0, 82);
     if (spriteId != MAX_SPRITES)
     {
@@ -247,6 +256,7 @@ u32 FldEff_Shadow(void)
 {
     u8 objectEventId = GetObjectEventIdByLocalIdAndMap(gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2]);
     const struct ObjectEventGraphicsInfo *graphicsInfo = GetObjectEventGraphicsInfo(gObjectEvents[objectEventId].graphicsId);
+    LoadFieldEffectPalette_(sShadowEffectTemplateIds[graphicsInfo->shadowSize], FALSE);
     u8 spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[sShadowEffectTemplateIds[graphicsInfo->shadowSize]], 0, 0, 148);
     if (spriteId != MAX_SPRITES)
     {
@@ -489,7 +499,7 @@ u32 FldEff_JumpLongGrass(void)
     u8 spriteId;
 
     SetSpritePosToOffsetMapCoords((s16 *)&gFieldEffectArguments[0], (s16 *)&gFieldEffectArguments[1], 8, 8);
-    LoadFieldEffectPalette(FLDEFFOBJ_SURF_BLOB, TRUE);
+    LoadFieldEffectPalette(FLDEFFOBJ_SURF_BLOB);
     spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_JUMP_LONG_GRASS], gFieldEffectArguments[0], gFieldEffectArguments[1], 0);
     if (spriteId != MAX_SPRITES)
     {
@@ -1387,14 +1397,13 @@ u32 FldEff_BerryTreeGrowthSparkle(void)
     u8 spriteId;
 
     SetSpritePosToOffsetMapCoords((s16 *)&gFieldEffectArguments[0], (s16 *)&gFieldEffectArguments[1], 8, 4);
-    LoadFieldEffectPalette(FLDEFFOBJ_SPARKLE, TRUE);
+    LoadFieldEffectPalette(FLDEFFOBJ_SPARKLE);
     spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_SPARKLE], gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2]);
     if (spriteId != MAX_SPRITES)
     {
         struct Sprite *sprite = &gSprites[spriteId];
         sprite->coordOffsetEnabled = TRUE;
         sprite->oam.priority = gFieldEffectArguments[3];
-        sprite->oam.paletteNum = 5;
         sprite->sWaitFldEff = FLDEFF_BERRY_TREE_GROWTH_SPARKLE;
     }
     return 0;
@@ -1432,7 +1441,7 @@ static u32 ShowDisguiseFieldEffect(u8 fldEff, u8 templateIdx)
         FieldEffectActiveListRemove(fldEff);
         return MAX_SPRITES;
     }
-    LoadFieldEffectPalette(templateIdx, TRUE);
+    LoadFieldEffectPalette(templateIdx);
     spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[templateIdx], 0, 0, 0);
     if (spriteId != MAX_SPRITES)
     {
@@ -1802,16 +1811,9 @@ static void LoadFieldEffectPalette_(u8 fieldEffect, bool8 updateGammaType)
     }
 }
 
-void LoadFieldEffectPalette(u32 fieldEffect, bool32 updateGammaType)
+void LoadFieldEffectPalette(u8 fieldEffect)
 {
-    const struct SpriteTemplate *spriteTemplate;
-
-    spriteTemplate = gFieldEffectObjectTemplatePointers[fieldEffect];
-    if (spriteTemplate->paletteTag == TAG_NONE) return;
-
-    LoadObjectEventPalette(spriteTemplate->paletteTag);
-    if (updateGammaType)
-        UpdatePaletteGammaType(IndexOfSpritePaletteTag(spriteTemplate->paletteTag), GAMMA_NORMAL);
+    LoadFieldEffectPalette_(fieldEffect, TRUE);
 }
 
 // Unused, duplicates of data in event_object_movement.c

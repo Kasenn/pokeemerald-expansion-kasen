@@ -248,6 +248,9 @@ static void SafariHandleDrawTrainerPic(u32 battler)
 {
     u32 trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN;
 
+    if(FlagGet(FLAG_PC_CHANGE_COSTUME))
+        trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN_ORAS;
+
     BtlController_HandleDrawTrainerPic(battler, trainerPicId, FALSE,
                                        80, 80 + 4 * (8 - gTrainerBacksprites[trainerPicId].coordinates.size),
                                        30);

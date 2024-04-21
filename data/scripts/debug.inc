@@ -167,6 +167,7 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
+	call SetMayOutfit
 	end
 
 Debug_EventScript_Script_6::
