@@ -2518,12 +2518,10 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_LEADER_KORRINA] =
     {
-        .trainerClass = TRAINER_CLASS_LEADER,
+        .trainerClass = TRAINER_CLASS_AQUA_LEADER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
         .trainerPic = TRAINER_PIC_KORRINA,
         .trainerName = _("Korrina"),
-        .mugshotEnabled = TRUE,
-        .mugshotColor = MUGSHOT_COLOR_FIGHTING,
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_ACE_POKEMON,

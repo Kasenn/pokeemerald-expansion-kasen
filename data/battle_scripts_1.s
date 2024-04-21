@@ -3782,8 +3782,21 @@ BattleScript_EffectTwoTurnsAttack::
 	tryfiretwoturnmovewithoutcharging BS_ATTACKER, BattleScript_EffectHit @ e.g. Solar Beam
 	call BattleScript_FirstChargingTurn
 	tryfiretwoturnmoveaftercharging BS_ATTACKER, BattleScript_TwoTurnMovesSecondTurn @ e.g. Electro Shot
+	jumpifmove MOVE_SKY_ATTACK, BattleScript_CheckWindEffect
+	jumpifmove MOVE_RAZOR_WIND, BattleScript_CheckWindEffect
+	jumpifmove MOVE_BOUNCE, BattleScript_CheckWindEffect
+	jumpifmove MOVE_FLY, BattleScript_CheckWindEffect
 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_POWER_HERB, BattleScript_TwoTurnMovesSecondPowerHerbActivates
 	goto BattleScript_MoveEnd
+
+BattleScript_CheckWindEffect:
+	jumpifweatheraffected BS_ATTACKER, B_WEATHER_STRONG_WINDS, BattleScript_WindActivates
+	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_POWER_HERB, BattleScript_TwoTurnMovesSecondPowerHerbActivates
+	goto BattleScript_MoveEnd
+
+BattleScript_WindActivates:
+	call BattleScript_WeatherWindActivation
+	goto BattleScript_FromTwoTurnMovesSecondTurnRet
 
 BattleScript_EffectGeomancy::
 	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_GeomancySecondTurn
