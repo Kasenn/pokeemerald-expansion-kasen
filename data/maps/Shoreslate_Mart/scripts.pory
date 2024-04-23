@@ -367,3 +367,239 @@ mart Mart_TM1{
     ITEM_TM_SAFEGUARD
     ITEM_NONE
 }
+
+script Mart_ClerkSandStoneLeft{
+    lock
+	faceplayer
+	message(gText_HowMayIServeYou)
+	waitmessage
+    switch(var(VAR_BADGES_OBTAINED)){
+        case 3:
+            pokemart(SSLeftMart_3Badges)
+        case 4:
+            pokemart(SSLeftMart_4Badges)
+        case 5:
+            pokemart(SSLeftMart_4Badges)
+        case 6:
+            pokemart(SSLeftMart_6Badges)
+        case 7:
+            pokemart(SSLeftMart_7Badges)
+        case 8:
+            pokemart(SSLeftMart_8Badges)
+    }
+    msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script Mart_ClerkSandStoneRight{
+    lock
+	faceplayer
+	message(gText_HowMayIServeYou)
+	waitmessage
+    switch(var(VAR_BADGES_OBTAINED)){
+        case 3:
+            pokemart(SSRightMart_3Badges)
+        case 4:
+            pokemart(SSRightMart_4Badges)
+        case 5:
+            pokemart(SSRightMart_4Badges)
+        case 6:
+            pokemart(SSRightMart_7Badges)
+        case 7:
+            pokemart(SSRightMart_7Badges)
+        case 8:
+            pokemart(SSRightMart_8Badges)
+    }
+    msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+mart SSLeftMart_3Badges{
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_HEAL_BALL
+    ITEM_NET_BALL
+    ITEM_REPEAT_BALL
+    ITEM_NEST_BALL
+    ITEM_DIVE_BALL
+    ITEM_DREAM_BALL
+	ITEM_NONE
+}
+mart SSLeftMart_4Badges{
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+    ITEM_HEAL_BALL
+    ITEM_NET_BALL
+    ITEM_REPEAT_BALL
+    ITEM_NEST_BALL
+    ITEM_DIVE_BALL
+    ITEM_DREAM_BALL
+    ITEM_LUXURY_BALL
+	ITEM_NONE
+}
+mart SSLeftMart_6Badges{
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+    ITEM_HEAL_BALL
+    ITEM_NET_BALL
+    ITEM_REPEAT_BALL
+    ITEM_NEST_BALL
+    ITEM_DIVE_BALL
+    ITEM_DREAM_BALL
+    ITEM_LUXURY_BALL
+    ITEM_DUSK_BALL
+	ITEM_NONE
+}
+mart SSLeftMart_7Badges{
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+    ITEM_HEAL_BALL
+    ITEM_NET_BALL
+    ITEM_REPEAT_BALL
+    ITEM_NEST_BALL
+    ITEM_DIVE_BALL
+    ITEM_DREAM_BALL
+    ITEM_LUXURY_BALL
+    ITEM_DUSK_BALL
+    ITEM_QUICK_BALL
+	ITEM_NONE
+}
+mart SSLeftMart_8Badges{
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+    ITEM_HEAL_BALL
+    ITEM_NET_BALL
+    ITEM_REPEAT_BALL
+    ITEM_NEST_BALL
+    ITEM_DIVE_BALL
+    ITEM_DREAM_BALL
+    ITEM_LUXURY_BALL
+    ITEM_DUSK_BALL
+    ITEM_QUICK_BALL
+    ITEM_TIMER_BALL
+	ITEM_NONE
+}
+
+mart SSRightMart_3Badges{
+	ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_POKE_DOLL
+	ITEM_NONE
+}
+mart SSRightMart_4Badges{
+	ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_FULL_HEAL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_POKE_DOLL
+	ITEM_NONE
+}
+mart SSRightMart_7Badges{
+	ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_MAX_POTION
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_FULL_HEAL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_POKE_DOLL
+	ITEM_NONE
+}
+mart SSRightMart_8Badges{
+	ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_MAX_POTION
+    ITEM_FULL_RESTORE
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_FULL_HEAL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_POKE_DOLL
+	ITEM_NONE
+}
+
+script StoneMart_ClerkLeft{
+    lock
+	faceplayer
+	message(gText_HowMayIServeYou)
+	waitmessage
+    pokemart(Mart_Stones1)
+    msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+mart Mart_Stones1{
+    ITEM_SHINY_STONE
+    ITEM_DUSK_STONE
+    ITEM_DAWN_STONE
+    ITEM_ICE_STONE
+    ITEM_NONE
+}
+script StoneMart_ClerkRight{
+    lock
+	faceplayer
+	message(gText_HowMayIServeYou)
+	waitmessage
+    if(var(VAR_SANDSTONEPORYGON_STATE) == 3){
+        pokemart(Mart_NoAV)
+    }
+    else{
+        pokemart(Mart_AV)
+    }
+    msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+mart Mart_NoAV{
+    ITEM_UP_GRADE
+    ITEM_DUBIOUS_DISC
+    ITEM_ROTOM_CATALOG
+    ITEM_PROCESSOR
+    ITEM_NONE
+}
+mart Mart_AV{
+    ITEM_ANTIVIRUS
+    ITEM_UP_GRADE
+    ITEM_DUBIOUS_DISC
+    ITEM_ROTOM_CATALOG
+    ITEM_PROCESSOR
+    ITEM_NONE
+}

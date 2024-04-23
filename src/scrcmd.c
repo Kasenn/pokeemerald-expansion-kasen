@@ -815,7 +815,7 @@ bool8 ScrCmd_checkpartymon(struct ScriptContext *ctx)
     if(partynumber == 1){
         if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == species){
             gSpecialVar_Result = TRUE;
-            return;
+            return TRUE;
         }
     }
     else{
@@ -823,12 +823,12 @@ bool8 ScrCmd_checkpartymon(struct ScriptContext *ctx)
         {
             if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, 0) == species){
                 gSpecialVar_Result = TRUE;
-                return;
+                return TRUE;
             }
         }
     }
     gSpecialVar_Result = FALSE;
-    return;
+    return FALSE;
 }
 
 
@@ -2436,7 +2436,6 @@ bool8 ScrCmd_warpspinenter(struct ScriptContext *ctx)
 bool8 ScrCmd_setmonmetlocation(struct ScriptContext *ctx)
 {
     u16 partyIndex = VarGet(ScriptReadHalfword(ctx));
-    u8 location = ScriptReadByte(ctx);
     u8 metLocation;
 
     if (partyIndex < PARTY_SIZE)

@@ -327,6 +327,291 @@ Mart_TM1:
 	.2byte ITEM_TM_SAFEGUARD
 	.2byte ITEM_NONE
 
+Mart_ClerkSandStoneLeft::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	switch VAR_BADGES_OBTAINED
+	case 3, Mart_ClerkSandStoneLeft_3
+	case 4, Mart_ClerkSandStoneLeft_4
+	case 5, Mart_ClerkSandStoneLeft_5
+	case 6, Mart_ClerkSandStoneLeft_6
+	case 7, Mart_ClerkSandStoneLeft_7
+	case 8, Mart_ClerkSandStoneLeft_8
+Mart_ClerkSandStoneLeft_1:
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+Mart_ClerkSandStoneLeft_3:
+	pokemart SSLeftMart_3Badges
+	goto Mart_ClerkSandStoneLeft_1
+
+Mart_ClerkSandStoneLeft_4:
+	pokemart SSLeftMart_4Badges
+	goto Mart_ClerkSandStoneLeft_1
+
+Mart_ClerkSandStoneLeft_5:
+	pokemart SSLeftMart_4Badges
+	goto Mart_ClerkSandStoneLeft_1
+
+Mart_ClerkSandStoneLeft_6:
+	pokemart SSLeftMart_6Badges
+	goto Mart_ClerkSandStoneLeft_1
+
+Mart_ClerkSandStoneLeft_7:
+	pokemart SSLeftMart_7Badges
+	goto Mart_ClerkSandStoneLeft_1
+
+Mart_ClerkSandStoneLeft_8:
+	pokemart SSLeftMart_8Badges
+	goto Mart_ClerkSandStoneLeft_1
+
+
+Mart_ClerkSandStoneRight::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	switch VAR_BADGES_OBTAINED
+	case 3, Mart_ClerkSandStoneRight_3
+	case 4, Mart_ClerkSandStoneRight_4
+	case 5, Mart_ClerkSandStoneRight_5
+	case 6, Mart_ClerkSandStoneRight_6
+	case 7, Mart_ClerkSandStoneRight_7
+	case 8, Mart_ClerkSandStoneRight_8
+Mart_ClerkSandStoneRight_1:
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+Mart_ClerkSandStoneRight_3:
+	pokemart SSRightMart_3Badges
+	goto Mart_ClerkSandStoneRight_1
+
+Mart_ClerkSandStoneRight_4:
+	pokemart SSRightMart_4Badges
+	goto Mart_ClerkSandStoneRight_1
+
+Mart_ClerkSandStoneRight_5:
+	pokemart SSRightMart_4Badges
+	goto Mart_ClerkSandStoneRight_1
+
+Mart_ClerkSandStoneRight_6:
+	pokemart SSRightMart_7Badges
+	goto Mart_ClerkSandStoneRight_1
+
+Mart_ClerkSandStoneRight_7:
+	pokemart SSRightMart_7Badges
+	goto Mart_ClerkSandStoneRight_1
+
+Mart_ClerkSandStoneRight_8:
+	pokemart SSRightMart_8Badges
+	goto Mart_ClerkSandStoneRight_1
+
+
+	.align 2
+SSLeftMart_3Badges:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_NONE
+
+	.align 2
+SSLeftMart_4Badges:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_NONE
+
+	.align 2
+SSLeftMart_6Badges:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_NONE
+
+	.align 2
+SSLeftMart_7Badges:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_QUICK_BALL
+	.2byte ITEM_NONE
+
+	.align 2
+SSLeftMart_8Badges:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_HEAL_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_REPEAT_BALL
+	.2byte ITEM_NEST_BALL
+	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_QUICK_BALL
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NONE
+
+	.align 2
+SSRightMart_3Badges:
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_REVIVE
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_REPEL
+	.2byte ITEM_SUPER_REPEL
+	.2byte ITEM_POKE_DOLL
+	.2byte ITEM_NONE
+
+	.align 2
+SSRightMart_4Badges:
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_REVIVE
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_REPEL
+	.2byte ITEM_SUPER_REPEL
+	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_POKE_DOLL
+	.2byte ITEM_NONE
+
+	.align 2
+SSRightMart_7Badges:
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_MAX_POTION
+	.2byte ITEM_REVIVE
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_REPEL
+	.2byte ITEM_SUPER_REPEL
+	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_POKE_DOLL
+	.2byte ITEM_NONE
+
+	.align 2
+SSRightMart_8Badges:
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_MAX_POTION
+	.2byte ITEM_FULL_RESTORE
+	.2byte ITEM_REVIVE
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_REPEL
+	.2byte ITEM_SUPER_REPEL
+	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_POKE_DOLL
+	.2byte ITEM_NONE
+
+StoneMart_ClerkLeft::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart Mart_Stones1
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+
+	.align 2
+Mart_Stones1:
+	.2byte ITEM_SHINY_STONE
+	.2byte ITEM_DUSK_STONE
+	.2byte ITEM_DAWN_STONE
+	.2byte ITEM_ICE_STONE
+	.2byte ITEM_NONE
+
+StoneMart_ClerkRight::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	compare VAR_SANDSTONEPORYGON_STATE, 3
+	goto_if_eq StoneMart_ClerkRight_2
+	pokemart Mart_AV
+StoneMart_ClerkRight_1:
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+StoneMart_ClerkRight_2:
+	pokemart Mart_NoAV
+	goto StoneMart_ClerkRight_1
+
+
+	.align 2
+Mart_NoAV:
+	.2byte ITEM_UP_GRADE
+	.2byte ITEM_DUBIOUS_DISC
+	.2byte ITEM_ROTOM_CATALOG
+	.2byte ITEM_PROCESSOR
+	.2byte ITEM_NONE
+
+	.align 2
+Mart_AV:
+	.2byte ITEM_ANTIVIRUS
+	.2byte ITEM_UP_GRADE
+	.2byte ITEM_DUBIOUS_DISC
+	.2byte ITEM_ROTOM_CATALOG
+	.2byte ITEM_PROCESSOR
+	.2byte ITEM_NONE
+
 Shoreslate_Mart_Secret_Text_Beginning::
 	.string "There's a note attached to this item.\n"
 	.string "Would you like to read it?$"

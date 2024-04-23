@@ -79,14 +79,18 @@ script Sandstone_SmallHouse_FisherWoman{
     }
     lock
     faceplayer
-    msgbox(Sandstone_LookingForFisher, MSGBOX_DEFAULT)
-    closemessage
+    checkitem(ITEM_LURE)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(Sandstone_LookingForFisher, MSGBOX_DEFAULT)
+        closemessage
+    }
     if(flag(FLAG_QUEST_FOR_GOOD_ROD)){
         checkitem(ITEM_LURE)
         if(var(VAR_RESULT) == TRUE){
             msgbox(TakeToClancy, MSGBOX_NPC)
             end
         }
+        playse(SE_PIN)
         applymovement(1, Common_Movement_QuestionMark)
         waitmovement(0)
         delay(30)

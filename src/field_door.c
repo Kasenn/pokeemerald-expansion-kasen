@@ -173,7 +173,7 @@ static const struct DoorAnimFrame sBigDoorCloseAnimFrames[] =
 };
 
 static const u8 sDoorAnimPalettes_General[] = {1, 1, 1, 1, 1, 1, 1, 1};
-static const u8 sDoorAnimPalettes_General2[] = {9, 9, 5, 5, 5, 5, 5, 5};
+static const u8 sDoorAnimPalettes_General2[] = {8, 8, 5, 5, 5, 5, 5, 5};
 static const u8 sDoorAnimPalettes_Sandstone[] = {11, 11, 11, 11, 5, 5, 5, 5};
 static const u8 sDoorAnimPalettes_PokeCenter[] = {1, 1, 1, 1, 1, 1, 1, 1};
 static const u8 sDoorAnimPalettes_PokeShop[] = {5, 5, 5, 5, 5, 5, 5, 5};
