@@ -589,7 +589,7 @@ static void Cmd_switchoutabilities(void);
 static void Cmd_jumpifhasnohp(void);
 static void Cmd_jumpifnotcurrentmoveargtype(void);
 static void Cmd_pickup(void);
-static void Cmd_unused3(void);
+// static void Cmd_unused3(void);
 static void Cmd_unused4(void);
 static void Cmd_settypebasedhalvers(void);
 static void Cmd_jumpifsubstituteblocks(void);
@@ -1056,7 +1056,6 @@ static const u16 sNaturePowerMoves[BATTLE_TERRAIN_COUNT] =
     [BATTLE_TERRAIN_DISTORTION_WORLD] = MOVE_TRI_ATTACK,
     [BATTLE_TERRAIN_SPACE]            = MOVE_DRACO_METEOR,
     [BATTLE_TERRAIN_ULTRA_SPACE]      = MOVE_PSYSHOCK,
-    [BATTLE_TERRAIN_MUD]              = MOVE_MUD_BOMB,
 };
 
 #define _ 0
@@ -7595,7 +7594,7 @@ static void Cmd_getmoneyreward(void)
     CMD_ARGS();
 
     u32 money;
-    u32 battlePoints;
+    u32 battlePoints = 0;
     u8 sPartyLevel = 1;
 
     if (gBattleOutcome == B_OUTCOME_WON)
@@ -14718,9 +14717,9 @@ static void Cmd_pickup(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
-static void Cmd_unused3(void)
-{
-}
+// static void Cmd_unused3(void)
+// {
+// }
 
 static void Cmd_unused4(void)
 {

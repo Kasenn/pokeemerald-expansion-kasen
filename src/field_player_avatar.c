@@ -64,7 +64,7 @@ static bool8 ForcedMovement_SlideEast(void);
 static bool8 ForcedMovement_MatJump(void);
 static bool8 ForcedMovement_MatSpin(void);
 static bool8 ForcedMovement_MuddySlope(void);
-static bool8 ForcedMovement_BikeRamp(void);
+// static bool8 ForcedMovement_BikeRamp(void);
 
 static void MovePlayerNotOnBike(u8, u16);
 static u8 CheckMovementInputNotOnBike(u8);
@@ -187,7 +187,7 @@ static bool8 (*const sForcedMovementFuncs[NUM_FORCED_MOVEMENTS + 1])(void) =
     ForcedMovement_MatJump,
     ForcedMovement_MatSpin,
     ForcedMovement_MuddySlope,
-    ForcedMovement_BikeRamp,
+    // ForcedMovement_BikeRamp,
 };
 
 static void (*const sPlayerNotOnBikeFuncs[])(u8, u16) =
@@ -579,29 +579,29 @@ static bool8 ForcedMovement_MuddySlope(void)
     }
 }
 
-static bool8 ForcedMovement_BikeRamp(void)
-{
-    struct ObjectEvent *playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+// static bool8 ForcedMovement_BikeRamp(void)
+// {
+//     struct ObjectEvent *playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
 
-    if (playerObjEvent->movementDirection == DIR_WEST && GetPlayerSpeed() == PLAYER_SPEED_FASTEST)
-    {
-        Bike_UpdateBikeCounterSpeed(1);
-        playerObjEvent->facingDirectionLocked = TRUE;
-        PlaySE(SE_LEDGE);
-        PlayerSetAnimId(GetJump3MovementAction(DIR_WEST), COPY_MOVE_JUMP2);
-    }
-    else if (playerObjEvent->movementDirection == DIR_EAST && GetPlayerSpeed() == PLAYER_SPEED_FASTEST)
-    {
-        Bike_UpdateBikeCounterSpeed(1);
-        playerObjEvent->facingDirectionLocked = TRUE;
-        PlaySE(SE_LEDGE);
-        PlayerSetAnimId(GetJump3MovementAction(DIR_EAST), COPY_MOVE_JUMP2);
-    }
-    else
-    {
-        return FALSE;
-    }
-}
+//     if (playerObjEvent->movementDirection == DIR_WEST && GetPlayerSpeed() == PLAYER_SPEED_FASTEST)
+//     {
+//         Bike_UpdateBikeCounterSpeed(1);
+//         playerObjEvent->facingDirectionLocked = TRUE;
+//         PlaySE(SE_LEDGE);
+//         PlayerSetAnimId(GetJump3MovementAction(DIR_WEST), COPY_MOVE_JUMP2);
+//     }
+//     else if (playerObjEvent->movementDirection == DIR_EAST && GetPlayerSpeed() == PLAYER_SPEED_FASTEST)
+//     {
+//         Bike_UpdateBikeCounterSpeed(1);
+//         playerObjEvent->facingDirectionLocked = TRUE;
+//         PlaySE(SE_LEDGE);
+//         PlayerSetAnimId(GetJump3MovementAction(DIR_EAST), COPY_MOVE_JUMP2);
+//     }
+//     else
+//     {
+//         return FALSE;
+//     }
+// }
 
 static void MovePlayerNotOnBike(u8 direction, u16 heldKeys)
 {
@@ -1854,11 +1854,11 @@ static bool8 Fishing_GotBite(struct Task *task)
 // We have a bite. Now, wait for the player to press A, or the timer to expire.
 static bool8 Fishing_WaitForA(struct Task *task)
 {
-    const s16 reelTimeouts[3] = {
-        [OLD_ROD]   = 36,
-        [GOOD_ROD]  = 33,
-        [SUPER_ROD] = 30
-    };
+    // const s16 reelTimeouts[3] = {
+    //     [OLD_ROD]   = 36,
+    //     [GOOD_ROD]  = 33,
+    //     [SUPER_ROD] = 30
+    // };
 
     AlignFishingAnimationFrames();
     task->tFrameCounter++;
@@ -1870,12 +1870,12 @@ static bool8 Fishing_WaitForA(struct Task *task)
 // Determine if we're going to play the dot game again
 static bool8 Fishing_CheckMoreDots(struct Task *task)
 {
-    const s16 moreDotsChance[][2] =
-    {
-        [OLD_ROD]   = {0, 0},
-        [GOOD_ROD]  = {40, 10},
-        [SUPER_ROD] = {70, 30}
-    };
+    // const s16 moreDotsChance[][2] =
+    // {
+    //     [OLD_ROD]   = {0, 0},
+    //     [GOOD_ROD]  = {40, 10},
+    //     [SUPER_ROD] = {70, 30}
+    // };
 
     AlignFishingAnimationFrames();
     task->tStep++;

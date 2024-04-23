@@ -133,15 +133,15 @@ void LoadSpecialReflectionPalette(struct Sprite *sprite)
 
 // When walking on a bridge high above water (Route 120), the reflection is a solid dark blue color.
 // This is so the sprite blends in with the dark water metatile underneath the bridge.
-static void LoadObjectHighBridgeReflectionPalette(struct ObjectEvent *objectEvent, u8 paletteNum)
-{
-    const struct ObjectEventGraphicsInfo *graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
-    if (graphicsInfo->reflectionPaletteTag != OBJ_EVENT_PAL_TAG_NONE)
-    {
-        PatchObjectPalette(graphicsInfo->reflectionPaletteTag, paletteNum);
-        UpdateSpritePaletteWithWeather(paletteNum);
-    }
-}
+// static void LoadObjectHighBridgeReflectionPalette(struct ObjectEvent *objectEvent, u8 paletteNum)
+// {
+//     const struct ObjectEventGraphicsInfo *graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
+//     if (graphicsInfo->reflectionPaletteTag != OBJ_EVENT_PAL_TAG_NONE)
+//     {
+//         PatchObjectPalette(graphicsInfo->reflectionPaletteTag, paletteNum);
+//         UpdateSpritePaletteWithWeather(paletteNum);
+//     }
+// }
 
 static void UpdateObjectReflectionSprite(struct Sprite *reflectionSprite)
 {
@@ -316,10 +316,12 @@ u32 FldEff_TallGrass(void)
     u8 spriteId;
     s16 x = gFieldEffectArguments[0];
     s16 y = gFieldEffectArguments[1];
-    u8 metatileBehavior;
+    u16 tileBehavior;
+
+    tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
     SetSpritePosToOffsetMapCoords(&x, &y, 8, 8);
     spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_TALL_GRASS], x, y, 0);
-    if (MetatileBehavior_IsTallGrassAutumn(metatileBehavior))
+    if (MetatileBehavior_IsTallGrassAutumn(tileBehavior))
     {
         spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_TALL_GRASS_AUTUMN], x, y, 0);
     }
@@ -1278,7 +1280,6 @@ u32 FldEff_MudPile(void)
     u8 spriteId;
     struct Sprite *sprite;
     const struct ObjectEventGraphicsInfo *graphicsInfo;
-    u8 metatileBehavior;
 
     objectEventId = GetObjectEventIdByLocalIdAndMap(gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2]);
     objectEvent = &gObjectEvents[objectEventId];

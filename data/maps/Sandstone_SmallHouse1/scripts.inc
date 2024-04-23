@@ -50,19 +50,27 @@ Sandstone_SmallHouse_FisherWoman::
 	goto_if_set FLAG_RECEIVED_GOOD_ROD, Sandstone_SmallHouse_FisherWoman_2
 	lock
 	faceplayer
-	msgbox Sandstone_LookingForFisher, MSGBOX_DEFAULT
-	closemessage
-	goto_if_set FLAG_QUEST_FOR_GOOD_ROD, Sandstone_SmallHouse_FisherWoman_4
+	checkitem ITEM_LURE
+	compare VAR_RESULT, FALSE
+	goto_if_eq Sandstone_SmallHouse_FisherWoman_5
+Sandstone_SmallHouse_FisherWoman_4:
+	goto_if_set FLAG_QUEST_FOR_GOOD_ROD, Sandstone_SmallHouse_FisherWoman_7
 	return
 
 Sandstone_SmallHouse_FisherWoman_2:
 	msgbox HowIsClancy, MSGBOX_NPC
 	end
 
-Sandstone_SmallHouse_FisherWoman_4:
+Sandstone_SmallHouse_FisherWoman_5:
+	msgbox Sandstone_LookingForFisher, MSGBOX_DEFAULT
+	closemessage
+	goto Sandstone_SmallHouse_FisherWoman_4
+
+Sandstone_SmallHouse_FisherWoman_7:
 	checkitem ITEM_LURE
 	compare VAR_RESULT, TRUE
-	goto_if_eq Sandstone_SmallHouse_FisherWoman_7
+	goto_if_eq Sandstone_SmallHouse_FisherWoman_10
+	playse SE_PIN
 	applymovement 1, Common_Movement_QuestionMark
 	waitmovement 0
 	delay 30
@@ -72,7 +80,7 @@ Sandstone_SmallHouse_FisherWoman_4:
 	msgbox TakeToClancy, MSGBOX_NPC
 	end
 
-Sandstone_SmallHouse_FisherWoman_7:
+Sandstone_SmallHouse_FisherWoman_10:
 	msgbox TakeToClancy, MSGBOX_NPC
 	end
 

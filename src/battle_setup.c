@@ -890,12 +890,12 @@ u8 GetTrainerBattleTransition(void)
     if (trainerClass == TRAINER_CLASS_TEAM_MAGMA
         || trainerClass == TRAINER_CLASS_MAGMA_LEADER
         || trainerClass == TRAINER_CLASS_MAGMA_ADMIN)
-        return B_TRANSITION_SHRED_SPLIT;
+        return B_TRANSITION_MAGMA;
 
     if (trainerClass == TRAINER_CLASS_TEAM_ROCKET
         || trainerClass == TRAINER_CLASS_AQUA_LEADER
         || trainerClass == TRAINER_CLASS_ROCKET_ADMIN)
-        return B_TRANSITION_SHRED_SPLIT;
+        return B_TRANSITION_MAGMA;
 
     if (IsTrainerDoubleBattle(trainerId))
         minPartyCount = 2; // double battles always at least have 2 Pokémon.
