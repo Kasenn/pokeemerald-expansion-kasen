@@ -446,7 +446,9 @@
 #define METATILE_Rustboro_Door_Tan       0x22F
 
 // gTileset_SandstoneCity
-#define METATILE_SandstoneCity_SandstoneDoor  0x379
+#define METATILE_SandstoneCity_BPShop         0x241
+#define METATILE_SandstoneCity_SSSmall        0x380
+#define METATILE_SandstoneCity_SandstoneDoor  0x381
 
 // gTileset_SecretBase
 #define METATILE_SecretBase_AttractMat_BottomLeft       0x313

@@ -9517,6 +9517,8 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
     // pokemon with unaware ignore defense stat changes while dealing damage
     if (atkAbility == ABILITY_UNAWARE)
         defStage = DEFAULT_STAT_STAGE;
+    if (atkAbility == ABILITY_DATA_BREACH)
+        defStage = DEFAULT_STAT_STAGE;
     // certain moves also ignore stat changes
     if (gMovesInfo[move].ignoresTargetDefenseEvasionStages)
         defStage = DEFAULT_STAT_STAGE;
@@ -10096,6 +10098,13 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
     else if ((moveType == TYPE_FIGHTING || moveType == TYPE_NORMAL) && defType == TYPE_GHOST
         && (abilityAtk == ABILITY_SCRAPPY || abilityAtk == ABILITY_MINDS_EYE)
         && mod == UQ_4_12(0.0))
+    {
+        mod = UQ_4_12(1.0);
+        if (recordAbilities)
+            RecordAbilityBattle(battlerAtk, abilityAtk);
+    }
+    else if (moveType == TYPE_NORMAL && defType == TYPE_GHOST
+        && abilityAtk == ABILITY_DATA_BREACH && mod == UQ_4_12(0.0))
     {
         mod = UQ_4_12(1.0);
         if (recordAbilities)

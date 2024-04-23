@@ -3492,6 +3492,12 @@ static const union AnimCmd sAnim_IncineroarMega_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_PorygonZMega_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_ChesnaughtMega_1[] =
 {   
     ANIMCMD_FRAME(0, 1),
@@ -11048,6 +11054,7 @@ SINGLE_ANIMATION(EmpoleonMega);
 SINGLE_ANIMATION(DecidueyeMega);
 SINGLE_ANIMATION(IncineroarMega);
 SINGLE_ANIMATION(ChesnaughtMega);
+SINGLE_ANIMATION(PorygonZMega);
 #endif //P_MEGA_EVOLUTIONS
 #endif //P_FAMILY_TORCHIC
 #if P_FAMILY_MUDKIP

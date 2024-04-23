@@ -373,6 +373,8 @@ script BPShop_TryPurchasePrize{
 			goto(Shoreslate_BPShop_ChooseHoldItem)
 		case 5:
 			goto(Kaolisle_BPShop_ChooseHoldItem)
+		case 6:
+			goto(Sandstone_BPShop_ChooseHoldItem)
 	}
  	end
 }
@@ -395,6 +397,8 @@ script BPShop_TryGiveItem{
 			goto(Shoreslate_BPShop_ChooseHoldItem)
 		case 5:
 			goto(Kaolisle_BPShop_ChooseHoldItem)
+		case 6:
+			goto(Sandstone_BPShop_ChooseHoldItem)
 	}
  	end
 }

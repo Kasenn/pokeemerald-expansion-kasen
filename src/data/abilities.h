@@ -1306,6 +1306,13 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 5,
     },
 
+    [ABILITY_DATA_BREACH] =
+    {
+        .name = _("Data Breach"),
+        .description = COMPOUND_STRING("Normal moves pierce all."),
+        .aiRating = 8,
+    },
+
     [ABILITY_COMPETITIVE] =
     {
         .name = _("Competitive"),

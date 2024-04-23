@@ -419,6 +419,10 @@ static const struct FormChange sChesnaughtFormChangeTable[] = {
     {FORM_CHANGE_TERMINATOR},
 };
 
+static const struct FormChange sPorygonZFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_PORYGON_Z_MEGA, ITEM_PROCESSOR},
+    {FORM_CHANGE_TERMINATOR},
+};
 
 #if P_FAMILY_SNORUNT
 static const struct FormChange sGlalieFormChangeTable[] = {

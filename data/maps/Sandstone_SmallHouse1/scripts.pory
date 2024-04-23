@@ -1,0 +1,124 @@
+mapscripts Sandstone_SmallHouse1_MapScripts{}
+
+script Sandstone_SmallHouse_Woman{
+    msgbox (Sandstone_SmallHouse_Woman_Text, MSGBOX_NPC)
+    end
+}
+script Sandstone_SmallHouse_Child{
+    if(flag(FLAG_SANDSTONE_BALLOON)){
+        msgbox(DontLetItPop, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    msgbox(Sandstone_SmallHouse_Child_TakeThis, MSGBOX_DEFAULT)
+    checkitemspace(ITEM_AIR_BALLOON)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(NotEnoughRoom, MSGBOX_NPC)
+        end
+    }
+    giveitem(ITEM_AIR_BALLOON)
+    waitfanfare
+    closemessage
+    setflag(FLAG_SANDSTONE_BALLOON)
+    release
+    end
+}
+text Sandstone_SmallHouse_Woman_Text{
+    "Good thing I managed to grab that doll\n"
+    "just before the department store ran\l"
+    "out of stock.\l"
+    "My daughter really seems to love it."
+}
+text Sandstone_SmallHouse_Child_TakeThis{
+    "I got a new doll!\p"
+    "Here, I don't need this anymore.\n"
+    "You can have it!"
+}
+text DontLetItPop{
+    "Don't let it pop!"
+}
+script Sandstone_SmallHouse_Man1{
+    msgbox (Sandstone_SmallHouse_Man1_Text, MSGBOX_NPC)
+    end
+}
+script Sandstone_SmallHouse_Woman1{
+    msgbox (Sandstone_SmallHouse_Woman1_Text, MSGBOX_NPC)
+    end
+}
+text Sandstone_SmallHouse_Man1_Text{
+    "Our living expenses have risen so much\n"
+    "ever since moving to a big city.\p"
+    "Thankfully our salaries are also\n"
+    "higher."
+}
+text Sandstone_SmallHouse_Woman1_Text{
+    "I wasn't sure if living in a big city\n"
+    "would be for me but now that we've\l"
+    "lived here for a while, I don't think\l"
+    "I could go back."
+}
+
+script Sandstone_SmallHouse_OldMan{
+    msgbox(Sandstone_SmallHouse_OldMan_Text, MSGBOX_NPC)
+    end
+}
+text Sandstone_SmallHouse_OldMan_Text{
+    "The city has tried buying my house\n"
+    "countless of times just so that they\l"
+    "can demolish it and replace it with\l"
+    "yet another soulless high-rise.\p"
+    "I tell you, for as long as I'm still\n"
+    "breathing, I will never sell!"
+}
+
+script Sandstone_SmallHouse_FisherWoman{
+    if(flag(FLAG_RECEIVED_GOOD_ROD)){
+        msgbox(HowIsClancy, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    msgbox(Sandstone_LookingForFisher, MSGBOX_DEFAULT)
+    closemessage
+    if(flag(FLAG_QUEST_FOR_GOOD_ROD)){
+        checkitem(ITEM_LURE)
+        if(var(VAR_RESULT) == TRUE){
+            msgbox(TakeToClancy, MSGBOX_NPC)
+            end
+        }
+        applymovement(1, Common_Movement_QuestionMark)
+        waitmovement(0)
+        delay(30)
+        msgbox(YouMetClancy, MSGBOX_DEFAULT)
+        giveitem(ITEM_LURE)
+        waitfanfare
+        msgbox(TakeToClancy, MSGBOX_NPC)
+        end
+    }
+}
+
+text Sandstone_LookingForFisher{
+    "Hello. Are you looking for the\n"
+    "Fishing Guru?\p"
+    "That would be my husband.\p"
+    "He can never sit still for long and is\n"
+    "probably on a beach somewhere, fishing."
+}
+text TakeToClancy{
+    "Please bring that to Clancy,\n"
+    "wherever he currently is."
+}
+text YouMetClancy{
+    "You met Clancy and he asked if you\n"
+    "could get him his lure?\p"
+    "I wish he would've come to get it\n"
+    "himself instead of sending other people\l"
+    "on errands but since you're here, you\l"
+    "may as well take this."
+}
+text HowIsClancy{
+    "I hope Clancy was doign well.\p"
+    "He sometimes gets so fixated on fishing\n"
+    "that he even forgets to eat!"
+}

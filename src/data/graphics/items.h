@@ -2110,6 +2110,9 @@ const u32 gItemIconPalette_Decidueite[] = INCBIN_U32("graphics/items/icon_palett
 const u32 gItemIcon_Incineroarite[] = INCBIN_U32("graphics/items/icons/incineroarite.4bpp.lz");
 const u32 gItemIconPalette_Incineroarite[] = INCBIN_U32("graphics/items/icon_palettes/incineroarite.gbapal.lz");
 
+const u32 gItemIcon_Processor[] = INCBIN_U32("graphics/items/icons/processor.4bpp.lz");
+const u32 gItemIconPalette_Processor[] = INCBIN_U32("graphics/items/icon_palettes/processor.gbapal.lz");
+
 const u32 gItemIcon_Chesnaughtite[] = INCBIN_U32("graphics/items/icons/chesnaughtite.4bpp.lz");
 const u32 gItemIconPalette_Chesnaughtite[] = INCBIN_U32("graphics/items/icon_palettes/chesnaughtite.gbapal.lz");
 const u32 gItemIcon_FairyFeather[] = INCBIN_U32("graphics/items/icons/fairy_feather.4bpp.lz");

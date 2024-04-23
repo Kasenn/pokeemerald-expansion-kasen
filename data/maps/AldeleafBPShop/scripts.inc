@@ -398,6 +398,7 @@ BPShop_TryPurchasePrize::
 	case 3, BPShop_TryPurchasePrize_4
 	case 4, BPShop_TryPurchasePrize_5
 	case 5, BPShop_TryPurchasePrize_6
+	case 6, BPShop_TryPurchasePrize_7
 BPShop_TryPurchasePrize_1:
 	end
 
@@ -417,6 +418,10 @@ BPShop_TryPurchasePrize_6:
 	goto Kaolisle_BPShop_ChooseHoldItem
 	goto BPShop_TryPurchasePrize_1
 
+BPShop_TryPurchasePrize_7:
+	goto Sandstone_BPShop_ChooseHoldItem
+	goto BPShop_TryPurchasePrize_1
+
 
 BPShop_TryGiveItem::
 	checkitemspace VAR_0x8009
@@ -432,6 +437,7 @@ BPShop_TryGiveItem::
 	case 3, BPShop_TryGiveItem_4
 	case 4, BPShop_TryGiveItem_5
 	case 5, BPShop_TryGiveItem_6
+	case 6, BPShop_TryGiveItem_7
 BPShop_TryGiveItem_1:
 	end
 
@@ -449,6 +455,10 @@ BPShop_TryGiveItem_5:
 
 BPShop_TryGiveItem_6:
 	goto Kaolisle_BPShop_ChooseHoldItem
+	goto BPShop_TryGiveItem_1
+
+BPShop_TryGiveItem_7:
+	goto Sandstone_BPShop_ChooseHoldItem
 	goto BPShop_TryGiveItem_1
 
 

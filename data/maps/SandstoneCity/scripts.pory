@@ -31,12 +31,28 @@ script Sandstone_Sign6{
     msgbox(Sandstone_Sign6_Text, MSGBOX_SIGN)
     end
 }
-text Sandstone_Sign1_Text{""}
-text Sandstone_Sign2_Text{""}
-text Sandstone_Sign3_Text{""}
-text Sandstone_Sign4_Text{""}
-text Sandstone_Sign5_Text{""}
-text Sandstone_Sign6_Text{""}
+text Sandstone_Sign1_Text{
+    "SANDSTONE CITY\n"
+    "“Where Pokémon and people meet.”"
+}
+text Sandstone_Sign2_Text{
+    "Fishing Guru's house"
+}
+text Sandstone_Sign3_Text{
+    "Sandstone Library"
+}
+text Sandstone_Sign4_Text{
+    "{UP_ARROW} Adamant Tower\n"
+    "{DOWN_ARROW} Route 12\l"
+    "{RIGHT_ARROW} Route 13\l"
+    "{LEFT_ARROW} Route 14"
+}
+text Sandstone_Sign5_Text{
+    "Sandstone City Pokémon Gym"
+}
+text Sandstone_Sign6_Text{
+    "Sandstone Department Store"
+}
 
 script Sandstone_Boy2{
     msgbox(Sandstone_Boy2_Text, MSGBOX_NPC)

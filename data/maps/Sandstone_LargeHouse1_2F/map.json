@@ -17,7 +17,13 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 2,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_SANDSTONE_LARGE_HOUSE1_1F",
+      "dest_warp_id": "2"
+    }
   ],
   "coord_events": [
 

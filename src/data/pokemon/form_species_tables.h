@@ -917,6 +917,12 @@ static const u16 sIncineroarFormSpeciesIdTable[] = {
     FORM_SPECIES_END,
 };
 
+static const u16 sPorygonZFormSpeciesIdTable[] = {
+    SPECIES_PORYGON_Z,
+    SPECIES_PORYGON_Z_MEGA,
+    FORM_SPECIES_END,
+};
+
 static const u16 sChesnaughtFormSpeciesIdTable[] = {
     SPECIES_CHESNAUGHT,
     SPECIES_CHESNAUGHT_MEGA,

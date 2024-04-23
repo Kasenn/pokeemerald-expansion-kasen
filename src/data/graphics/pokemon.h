@@ -7353,6 +7353,11 @@ const u8 gMonIcon_DecidueyeMega[] = INCBIN_U8("graphics/pokemon/decidueye/mega/i
 const u8 gMonIcon_IncineroarMega[] = INCBIN_U8("graphics/pokemon/incineroar/mega/icon.4bpp");
 const u8 gMonIcon_ChesnaughtMega[] = INCBIN_U8("graphics/pokemon/chesnaught/mega/icon.4bpp");
 
+const u32 gMonFrontPic_PorygonZMega[] = INCBIN_U32("graphics/pokemon/porygon_z/mega/front.4bpp.lz");
+const u32 gMonBackPic_PorygonZMega[] = INCBIN_U32("graphics/pokemon/porygon_z/mega/back.4bpp.lz");
+const u32 gMonPalette_PorygonZMega[] = INCBIN_U32("graphics/pokemon/porygon_z/mega/normal.gbapal.lz");
+const u32 gMonShinyPalette_PorygonZMega[] = INCBIN_U32("graphics/pokemon/porygon_z/mega/shiny.gbapal.lz");
+const u8 gMonIcon_PorygonZMega[] = INCBIN_U8("graphics/pokemon/porygon_z/mega/icon.4bpp");
 
 #if P_FAMILY_SANDILE
     const u32 gMonFrontPic_Sandile[] = INCBIN_U32("graphics/pokemon/sandile/anim_front.4bpp.lz");

@@ -94,22 +94,26 @@ Sandstone_Man5::
 
 
 Sandstone_Sign1_Text::
-	.string "$"
+	.string "SANDSTONE CITY\n"
+	.string "“Where Pokémon and people meet.”$"
 
 Sandstone_Sign2_Text::
-	.string "$"
+	.string "Fishing Guru's house$"
 
 Sandstone_Sign3_Text::
-	.string "$"
+	.string "Sandstone Library$"
 
 Sandstone_Sign4_Text::
-	.string "$"
+	.string "{UP_ARROW} Adamant Tower\n"
+	.string "{DOWN_ARROW} Route 12\l"
+	.string "{RIGHT_ARROW} Route 13\l"
+	.string "{LEFT_ARROW} Route 14$"
 
 Sandstone_Sign5_Text::
-	.string "$"
+	.string "Sandstone City Pokémon Gym$"
 
 Sandstone_Sign6_Text::
-	.string "$"
+	.string "Sandstone Department Store$"
 
 Sandstone_Boy2_Text::
 	.string "$"

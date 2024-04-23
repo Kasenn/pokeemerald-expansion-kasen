@@ -1230,8 +1230,9 @@
 	.byte 0xe5
 	.endm
 
-	.macro unused3
+	.macro jumpifbreachpierces jumpInstr:req
 	.byte 0xe6
+	.4byte \jumpInstr
 	.endm
 
 	.macro unused4

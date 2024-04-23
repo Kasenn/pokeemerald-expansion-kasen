@@ -42,7 +42,7 @@
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 2,
-      "movement_range_y": 2,
+      "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Sandstone_Boy2",
@@ -184,21 +184,21 @@
       "x": 30,
       "y": 48,
       "elevation": 0,
-      "dest_map": "MAP_SANDSTONE_BP_SHOP",
+      "dest_map": "MAP_SANDSTONE_SMALL_HOUSE1",
       "dest_warp_id": "0"
     },
     {
       "x": 48,
       "y": 48,
       "elevation": 0,
-      "dest_map": "MAP_SANDSTONE_CITY",
+      "dest_map": "MAP_SANDSTONE_SMALL_HOUSE3",
       "dest_warp_id": "0"
     },
     {
       "x": 43,
       "y": 48,
       "elevation": 0,
-      "dest_map": "MAP_SANDSTONE_CITY",
+      "dest_map": "MAP_SANDSTONE_SMALL_HOUSE2",
       "dest_warp_id": "0"
     },
     {
@@ -233,14 +233,14 @@
       "x": 30,
       "y": 31,
       "elevation": 0,
-      "dest_map": "MAP_SANDSTONE_CITY",
+      "dest_map": "MAP_SANDSTONE_LARGE_HOUSE1_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 18,
       "y": 31,
       "elevation": 0,
-      "dest_map": "MAP_SANDSTONE_CITY",
+      "dest_map": "MAP_SANDSTONE_LARGE_HOUSE2_1F",
       "dest_warp_id": "0"
     },
     {
@@ -261,7 +261,7 @@
       "x": 31,
       "y": 22,
       "elevation": 0,
-      "dest_map": "MAP_SANDSTONE_CITY",
+      "dest_map": "MAP_SANDSTONE_SMALL_HOUSE4",
       "dest_warp_id": "0"
     },
     {

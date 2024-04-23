@@ -593,6 +593,7 @@ static void Cmd_unused3(void);
 static void Cmd_unused4(void);
 static void Cmd_settypebasedhalvers(void);
 static void Cmd_jumpifsubstituteblocks(void);
+static void Cmd_jumpifbreachpierces(void);
 static void Cmd_tryrecycleitem(void);
 static void Cmd_settypetoterrain(void);
 static void Cmd_pursuitdoubles(void);
@@ -848,7 +849,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_jumpifhasnohp,                           //0xE3
     Cmd_jumpifnotcurrentmoveargtype,             //0xE4
     Cmd_pickup,                                  //0xE5
-    Cmd_unused3,                                 //0xE6
+    Cmd_jumpifbreachpierces,                                 //0xE6
     Cmd_unused4,                                 //0xE7
     Cmd_settypebasedhalvers,                     //0xE8
     Cmd_jumpifsubstituteblocks,                  //0xE9
@@ -11574,7 +11575,7 @@ static u32 ChangeStatBuffs(s8 statValue, u32 statId, u32 flags, const u8 *BS_ptr
     {
         if (gSideTimers[GetBattlerSide(battler)].mistTimer
             && !certain && gCurrentMove != MOVE_CURSE
-            && !(battler == gBattlerTarget && GetBattlerAbility(gBattlerAttacker) == ABILITY_INFILTRATOR))
+            && !(battler == gBattlerTarget && (GetBattlerAbility(gBattlerAttacker) == ABILITY_INFILTRATOR || GetBattlerAbility(gBattlerAttacker) == ABILITY_DATA_BREACH)))
         {
             if (flags == STAT_CHANGE_ALLOW_PTR)
             {
@@ -14785,14 +14786,30 @@ static void Cmd_settypebasedhalvers(void)
 
 bool32 DoesSubstituteBlockMove(u32 battlerAtk, u32 battlerDef, u32 move)
 {
+    u32 moveType = 0;
+    GET_MOVE_TYPE(gCurrentMove, moveType);
+
     if (!(gBattleMons[battlerDef].status2 & STATUS2_SUBSTITUTE))
         return FALSE;
     else if (gMovesInfo[move].ignoresSubstitute)
         return FALSE;
     else if (GetBattlerAbility(battlerAtk) == ABILITY_INFILTRATOR)
         return FALSE;
+    else if ((GetBattlerAbility(battlerAtk) == ABILITY_DATA_BREACH) && (moveType == TYPE_NORMAL))
+        return FALSE;
     else
         return TRUE;
+}
+
+bool32 DoesBreachPierce(u32 battlerAtk, u32 battlerDef, u32 move)
+{
+    u32 moveType = 0;
+    GET_MOVE_TYPE(gCurrentMove, moveType);
+
+    if ((GetBattlerAbility(battlerAtk) == ABILITY_DATA_BREACH) && (moveType == TYPE_NORMAL))
+        return TRUE;
+    else
+        return FALSE;
 }
 
 bool32 DoesDisguiseBlockMove(u32 battler, u32 move)
@@ -14812,6 +14829,16 @@ static void Cmd_jumpifsubstituteblocks(void)
     CMD_ARGS(const u8 *jumpInstr);
 
     if (DoesSubstituteBlockMove(gBattlerAttacker, gBattlerTarget, gCurrentMove))
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    else
+        gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+static void Cmd_jumpifbreachpierces(void)
+{
+    CMD_ARGS(const u8 *jumpInstr);
+
+    if (DoesBreachPierce(gBattlerAttacker, gBattlerTarget, gCurrentMove))
         gBattlescriptCurrInstr = cmd->jumpInstr;
     else
         gBattlescriptCurrInstr = cmd->nextInstr;

@@ -127,7 +127,7 @@
 #define VAR_WEIRDCAVEROCKFORMATION                               0x406B // used to rotate the rock in weird cave Var
 #define VAR_WEIRDCAVE_PART2                               0x406C // used to set bgm after picking up the stone sphere
 #define VAR_CASTELIACONES_BOUGHT                               0x406D // Unused Var
-#define VAR_ROUTE115_STATE                               0x406E // Unused Var
+#define VAR_SANDSTONEPORYGON_STATE                               0x406E // Unused Var
 #define VAR_ROUTE116_STATE                               0x406F
 #define VAR_DESERT_TRAINERS                               0x4070 // tracks beaten trainers at desert
 #define VAR_ROUTE118_STATE                               0x4071

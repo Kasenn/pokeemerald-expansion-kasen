@@ -1941,17 +1941,15 @@ const struct Item gItemsInfo[] =
     [ITEM_LURE] =
     {
         .name = _("Lure"),
-        .price = 400,
-        .holdEffectParam = 100,
+        .price = 0,
         .description = COMPOUND_STRING(
             "Makes Pokémon more\n"
             "likely to appear\n"
-            "for 100 steps."),
-        .pocket = POCKET_ITEMS,
+            "when fishing."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_Lure,
-        .secondaryId = 0,
-        .flingPower = 30,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_SUPER_LURE] =
@@ -12282,6 +12280,20 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
+    [ITEM_ANTIVIRUS] =
+    {
+        .name = _("Antivirus"),
+        .price = 0,
+        .description = COMPOUND_STRING(         
+            "A program\n"
+            "intended to clean\n"
+            "infected PCs."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
     [ITEM_STONE_SPHERE] =
     {
         .name = _("Stone Sphere"),
@@ -12416,6 +12428,19 @@ const struct Item gItemsInfo[] =
             "This stone enables\n"
             "Incineroar to Mega\n"
             "Evolve in battle."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+    },
+    [ITEM_PROCESSOR] =
+    {
+        .name = _("Processor"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = COMPOUND_STRING(
+            "Improves certain\n"
+            "code execution."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,

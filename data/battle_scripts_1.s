@@ -2843,6 +2843,7 @@ BattleScript_EffectSleep::
 	attackcanceler
 	attackstring
 	ppreduce
+	jumpifbreachpierces BattleScript_SleepThroughBreach
 	jumpifsubstituteblocks BattleScript_ButItFailed
 	jumpifstatus BS_TARGET, STATUS1_SLEEP, BattleScript_AlreadyAsleep
 	jumpifuproarwakes BattleScript_CantMakeAsleep
@@ -2859,10 +2860,23 @@ BattleScript_EffectSleep::
 	jumpifterrainaffected BS_TARGET, STATUS_FIELD_MISTY_TERRAIN, BattleScript_MistyTerrainPrevents
 	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
 	jumpifsafeguard BattleScript_SafeguardProtected
+BattleScript_SleepWorks::
 	attackanimation
 	waitanimation
 	seteffectprimary MOVE_EFFECT_SLEEP
 	goto BattleScript_MoveEnd
+BattleScript_SleepThroughBreach::
+	jumpifuproarwakes BattleScript_CantMakeAsleep
+	jumpifability BS_TARGET, ABILITY_INSOMNIA, BattleScript_InsomniaProtects
+	jumpifability BS_TARGET, ABILITY_VITAL_SPIRIT, BattleScript_InsomniaProtects
+	jumpifability BS_TARGET, ABILITY_COMATOSE, BattleScript_AbilityProtectsDoesntAffect
+	jumpifability BS_TARGET, ABILITY_PURIFYING_SALT, BattleScript_AbilityProtectsDoesntAffect
+	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
+	jumpifterrainaffected BS_TARGET, STATUS_FIELD_ELECTRIC_TERRAIN, BattleScript_ElectricTerrainPrevents
+	jumpifterrainaffected BS_TARGET, STATUS_FIELD_MISTY_TERRAIN, BattleScript_MistyTerrainPrevents
+	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	goto BattleScript_SleepWorks
+
 
 BattleScript_TerrainPreventsEnd2::
 	pause B_WAIT_TIME_SHORT
@@ -3580,18 +3594,26 @@ BattleScript_EffectConfuse::
 	attackcanceler
 	attackstring
 	ppreduce
+	jumpifbreachpierces BattleScript_BreachConfuse
 	jumpifability BS_TARGET, ABILITY_OWN_TEMPO, BattleScript_OwnTempoPrevents
 	jumpifsubstituteblocks BattleScript_ButItFailed
 	jumpifstatus2 BS_TARGET, STATUS2_CONFUSION, BattleScript_AlreadyConfused
 	jumpifterrainaffected BS_TARGET, STATUS_FIELD_MISTY_TERRAIN, BattleScript_MistyTerrainPrevents
 	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
 	jumpifsafeguard BattleScript_SafeguardProtected
+BattleScript_EffectConfuse2::
 	attackanimation
 	waitanimation
 	seteffectprimary MOVE_EFFECT_CONFUSION
 	resultmessage
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+BattleScript_BreachConfuse::
+	jumpifability BS_TARGET, ABILITY_OWN_TEMPO, BattleScript_OwnTempoPrevents
+	jumpifstatus2 BS_TARGET, STATUS2_CONFUSION, BattleScript_AlreadyConfused
+	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	goto BattleScript_EffectConfuse2
 
 BattleScript_AlreadyConfused::
 	setalreadystatusedmoveattempt BS_ATTACKER
@@ -3736,7 +3758,9 @@ BattleScript_BattleScript_EffectParalyzeNoTypeCalc:
 	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
 	jumpifterrainaffected BS_TARGET, STATUS_FIELD_MISTY_TERRAIN, BattleScript_MistyTerrainPrevents
 	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	jumpifbreachpierces BattleScript_BattleScript_EffectParalyzeNoTypeCalc2
 	jumpifsafeguard BattleScript_SafeguardProtected
+BattleScript_BattleScript_EffectParalyzeNoTypeCalc2:
 	bichalfword gMoveResultFlags, MOVE_RESULT_SUPER_EFFECTIVE | MOVE_RESULT_NOT_VERY_EFFECTIVE
 	attackanimation
 	waitanimation
@@ -4393,7 +4417,9 @@ BattleScript_EffectSwagger::
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_SwaggerTryConfuse:
 	jumpifability BS_TARGET, ABILITY_OWN_TEMPO, BattleScript_OwnTempoPrevents
+	jumpifbreachpierces BattleScript_SwaggerTryConfuse2
 	jumpifsafeguard BattleScript_SafeguardProtected
+BattleScript_SwaggerTryConfuse2:
 	seteffectprimary MOVE_EFFECT_CONFUSION
 	goto BattleScript_MoveEnd
 
@@ -4936,7 +4962,9 @@ BattleScript_EffectFlatter::
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_FlatterTryConfuse::
 	jumpifability BS_TARGET, ABILITY_OWN_TEMPO, BattleScript_OwnTempoPrevents
+	jumpifbreachpierces BattleScript_FlatterTryConfuse2
 	jumpifsafeguard BattleScript_SafeguardProtected
+BattleScript_FlatterTryConfuse2:
 	seteffectprimary MOVE_EFFECT_CONFUSION
 	goto BattleScript_MoveEnd
 
@@ -5235,7 +5263,9 @@ BattleScript_EffectYawn::
 	jumpifleafguardprotected BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
 	jumpifshieldsdown BS_TARGET, BattleScript_AbilityProtectsDoesntAffect
 	jumpifsubstituteblocks BattleScript_ButItFailed
+	jumpifbreachpierces BattleScript_EffectYawn2
 	jumpifsafeguard BattleScript_SafeguardProtected
+BattleScript_EffectYawn2::
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
 	jumpifuproarwakes BattleScript_ButItFailed
 	setyawn BattleScript_ButItFailed

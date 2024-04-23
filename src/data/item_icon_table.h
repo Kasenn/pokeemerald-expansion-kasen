@@ -370,6 +370,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_DECIDUEITE] = {gItemIcon_Decidueite, gItemIconPalette_Decidueite},
     [ITEM_INCINEROARITE] = {gItemIcon_Incineroarite, gItemIconPalette_Incineroarite},
     [ITEM_CHESNAUGHTITE] = {gItemIcon_Chesnaughtite, gItemIconPalette_Chesnaughtite},
+    [ITEM_PROCESSOR] = {gItemIcon_Processor, gItemIconPalette_Processor},
 
     // Gems
     [ITEM_NORMAL_GEM] = {gItemIcon_NormalGem, gItemIconPalette_NormalGem},
@@ -858,6 +859,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_COIN_PURSE] = {gItemIcon_CoinPurse, gItemIconPalette_CoinPurse},
     [ITEM_TALISMAN] = {gItemIcon_Talisman, gItemIconPalette_Talisman},
     [ITEM_LOST_KEY] = {gItemIcon_LostKey, gItemIconPalette_LostKey},
+    [ITEM_ANTIVIRUS] = {gItemIcon_TM, gItemIconPalette_NormalTMHM},
     [ITEM_STONE_SPHERE] = {gItemIcon_StoneSphere, gItemIconPalette_StoneSphere},
     [ITEM_LOST_MEMENTO] = {gItemIcon_LostMemento, gItemIconPalette_LostMemento},
     [ITEM_SPECIAL_SOUP] = {gItemIcon_SpecialSoup, gItemIconPalette_SpecialSoup},

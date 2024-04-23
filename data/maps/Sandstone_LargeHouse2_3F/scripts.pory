@@ -1,0 +1,170 @@
+mapscripts Sandstone_LargeHouse2_3F_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: ResetPorygon
+}
+
+script ResetPorygon{
+    if(var(VAR_SANDSTONEPORYGON_STATE) == 2){
+        setvar(VAR_SANDSTONEPORYGON_STATE, 1)
+    }
+    end
+}
+
+script Sandstone_BigHouse2_3F_Man{
+    if(var(VAR_SANDSTONEPORYGON_STATE) == 3){
+        msgbox(BusyAnsweringEmail, MSGBOX_NPC)
+        turnobject(1, DIR_NORTH)
+        end
+    }
+    if(var(VAR_SANDSTONEPORYGON_STATE) == 2){
+        msgbox(GoAheadInstall, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    if(var(VAR_SANDSTONEPORYGON_STATE) == 1){
+        checkitem(ITEM_ANTIVIRUS)
+        if(var(VAR_RESULT) == FALSE){
+            msgbox(INeedAntiVirus, MSGBOX_NPC)
+            end
+        }
+        msgbox(InstallAntiVirus, MSGBOX_DEFAULT)
+        closemessage
+        if(var(VAR_FACING) == DIR_NORTH){
+            applymovement(1, WalkEastToBench)
+        }
+        else{
+            applymovement(1, WalkSouthToBench)
+        }
+        setvar(VAR_SANDSTONEPORYGON_STATE, 2)
+        setobjectxyperm(1, 13, 3)
+        waitmovement(0)
+        delay(30)
+        release
+        end
+    }
+    msgbox(GetAntiVirus, MSGBOX_NPC)
+    setvar(VAR_SANDSTONEPORYGON_STATE, 1)
+    end
+}
+
+script Sandstone_BigHouse2_3F_PC{
+    lock
+    msgbox(WantToInstallAV, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        closemessage
+        release
+        end
+    }
+    msgbox(InstallingAV, MSGBOX_DEFAULT)
+    removeitem(ITEM_ANTIVIRUS)
+    setvar(VAR_SANDSTONEPORYGON_STATE, 3)
+    setwildbattle(SPECIES_PORYGON, 35)
+    dowildbattle
+    goto(PCAftermath)
+}
+
+script PCAftermath{
+    delay(30)
+    applymovement(1, Moveleftandup)
+    waitmovement(0)
+    delay(15)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+    delay(15)
+    msgbox(ItWasAPorygon, MSGBOX_DEFAULT)
+    addmoney(5000)
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, StepAway)
+    waitmovement(0)
+    applymovement(1, WalkBackToPC)
+    waitmovement(0)
+    delay(30)
+    release
+    end
+}
+
+text BusyAnsweringEmail{
+    "I'm sorry. I am indeed thankful you\n"
+    "were able to help me, but there's\l"
+    "some very important work email I\l"
+    "have to respond to…"
+}
+text GoAheadInstall{
+    "Go ahead, the PC is all yours."
+}
+text INeedAntiVirus{
+    "You should be able to get Antivirus\n"
+    "software from the department store."
+}
+text InstallAntiVirus{
+    "You brought the Antivirus?\n"
+    "That's great!\p"
+    "Sorry, I'm a bit computer-illiterate.\n"
+    "Do you think you could install it\l"
+    "for me?"
+}
+text GetAntiVirus{
+    "There seems to be something wrong with\n"
+    "my PC.\p"
+    "If it's not too much of a bother, could\n"
+    "you fetch me an Antivirus from the\l"
+    "department store?"
+}
+text WantToInstallAV{
+    "The computer stands idle. Would you\n"
+    "like to install the Antivirus?"
+}
+text InstallingAV{
+    "Installing… {PAUSE_UNTIL_PRESS}… {PAUSE_UNTIL_PRESS}… {PAUSE_UNTIL_PRESS}… {PAUSE_UNTIL_PRESS}…\p"
+    "The PC is starting to act weird…\p"
+    "… {PAUSE_UNTIL_PRESS}… {PAUSE_UNTIL_PRESS}…\p"
+    "Something leaps at you from the\n"
+    "monitor!"
+}
+text ItWasAPorygon{
+    "Oh, so the virus was a… Pokémon?\p"
+    "Huh… Can't say I've ever heard of\n"
+    "something like this happening.\p"
+    "Anyway, thank you for your help.\p"
+    "Here's ¥5000. That should cover\n"
+    "the cost of the Antivirus software.\p"
+    "Now, if you'll excuse me, I need to\n"
+    "get back to work."
+}
+
+movement WalkEastToBench{
+    walk_right
+    walk_down
+    walk_in_place_left
+}
+movement WalkSouthToBench{
+    walk_down
+    walk_right
+    walk_in_place_left
+}
+movement Moveleftandup{
+    walk_left
+    walk_in_place_up
+}
+movement StepAway{
+    face_right
+    lock_facing_direction
+    walk_left
+}
+movement WalkBackToPC{
+    walk_up
+}
+
+script Sandstone_BigHouse2_2F_FanM{
+    msgbox(Sandstone_BigHouse2_2F_FanM_Text, MSGBOX_NPC)
+    end
+}
+script Sandstone_BigHouse2_2F_FanF{
+    msgbox(Sandstone_BigHouse2_2F_FanF_Text, MSGBOX_NPC)
+    end
+}
+text Sandstone_BigHouse2_2F_FanM_Text{
+""
+}
+text Sandstone_BigHouse2_2F_FanF_Text{
+""
+}

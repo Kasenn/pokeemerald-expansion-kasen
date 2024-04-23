@@ -1637,8 +1637,9 @@
 #define SPECIES_DECIDUEYE_MEGA                          1532
 #define SPECIES_INCINEROAR_MEGA                         1533
 #define SPECIES_CHESNAUGHT_MEGA                         1534
+#define SPECIES_PORYGON_Z_MEGA                          1535
 
-#define SPECIES_EGG SPECIES_CHESNAUGHT_MEGA + 1
+#define SPECIES_EGG SPECIES_PORYGON_Z_MEGA + 1
 
 #define NUM_SPECIES SPECIES_EGG
 

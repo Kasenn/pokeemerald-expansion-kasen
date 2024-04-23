@@ -209,12 +209,31 @@ KaolisleCity_Gentleman::
 
 
 KaolisleCity_Fisher1::
-	goto_if_set FLAG_QUEST_FOR_GOOD_ROD, KaolisleCity_Fisher1_2
+	goto_if_set FLAG_RECEIVED_GOOD_ROD, KaolisleCity_Fisher1_2
+	checkitem ITEM_LURE
+	compare VAR_RESULT, TRUE
+	goto_if_eq KaolisleCity_Fisher1_5
+	goto_if_set FLAG_QUEST_FOR_GOOD_ROD, KaolisleCity_Fisher1_8
 	msgbox KaolisleCity_Fisher1_Text, MSGBOX_NPC
 	setflag FLAG_QUEST_FOR_GOOD_ROD
 	end
 
 KaolisleCity_Fisher1_2:
+	msgbox HopeYouGetAlotOfFish, MSGBOX_NPC
+	end
+
+KaolisleCity_Fisher1_5:
+	lock
+	faceplayer
+	removeitem ITEM_LURE
+	msgbox MyLure, MSGBOX_DEFAULT
+	giveitem ITEM_GOOD_ROD
+	waitfanfare
+	setflag FLAG_RECEIVED_GOOD_ROD
+	msgbox HopeYouGetAlotOfFish, MSGBOX_NPC
+	end
+
+KaolisleCity_Fisher1_8:
 	msgbox KaolisleCity_Fisher1_Text2, MSGBOX_NPC
 	end
 
@@ -551,7 +570,7 @@ KaolisleCity_Fisher1_Text::
 	.string "I've been fishing here for a while but\n"
 	.string "so far my luck has been abysmal.\p"
 	.string "I bet it's because I left my lucky\n"
-	.string "fishing rod at home.\p"
+	.string "lure at home.\p"
 	.string "Would you do me a favor and fetch it\n"
 	.string "for me? I promise I'll make it worth\l"
 	.string "your while.\p"
@@ -565,10 +584,20 @@ KaolisleCity_Fisher1_Text::
 KaolisleCity_Fisher1_Text2::
 	.string "Again, You can find my house in\n"
 	.string "southern part of Sandstone City.\p"
-	.string "My wife probably won't give the rod\n"
+	.string "My wife probably won't give the lure\n"
 	.string "to just anyone.\l"
 	.string "Tell her that Clancy sent you and\l"
 	.string "she'll know.$"
+
+MyLure::
+	.string "Ah, I see you've got the lure!\p"
+	.string "Thank you so much for bringing it\n"
+	.string "to me.\p"
+	.string "You've been such a champ.\n"
+	.string "Here, take this as your reward.$"
+
+HopeYouGetAlotOfFish::
+	.string "Hope your luck is better than mine!$"
 
 KaolisleCity_Fisher2_Text::
 	.string "This place is swarming with\n"

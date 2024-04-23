@@ -267,7 +267,7 @@ SlateportCity_EventScript_Man1SternInterview::
 SlateportCity_EventScript_Woman1::
 	lock
 	faceplayer
-	goto_if_set FLAG_DOCK_REJECTED_DEVON_GOODS, SlateportCity_EventScript_Woman1AquaGone
+	goto_if_set FLAG_SANDSTONE_BALLOON, SlateportCity_EventScript_Woman1AquaGone
 	msgbox SlateportCity_Text_WhatsLongLineOverThere, MSGBOX_DEFAULT
 	release
 	end

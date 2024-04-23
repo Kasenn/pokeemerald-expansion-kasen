@@ -329,6 +329,22 @@ text KaolisleCity_Gentleman_Text{
 }
 
 script KaolisleCity_Fisher1{
+    if(flag(FLAG_RECEIVED_GOOD_ROD)){
+        msgbox(HopeYouGetAlotOfFish, MSGBOX_NPC)
+        end
+    }
+    checkitem(ITEM_LURE)
+    if(var(VAR_RESULT) == TRUE){
+        lock
+        faceplayer
+        removeitem(ITEM_LURE)
+        msgbox(MyLure, MSGBOX_DEFAULT)
+        giveitem(ITEM_GOOD_ROD)
+        waitfanfare
+        setflag(FLAG_RECEIVED_GOOD_ROD)
+        msgbox(HopeYouGetAlotOfFish, MSGBOX_NPC)
+        end
+    }
     if(flag(FLAG_QUEST_FOR_GOOD_ROD)){
         msgbox(KaolisleCity_Fisher1_Text2, MSGBOX_NPC)
         end
@@ -341,7 +357,7 @@ text KaolisleCity_Fisher1_Text{
     "I've been fishing here for a while but\n"
     "so far my luck has been abysmal.\p"
     "I bet it's because I left my lucky\n"
-    "fishing rod at home.\p"
+    "lure at home.\p"
     "Would you do me a favor and fetch it\n"
     "for me? I promise I'll make it worth\l"
     "your while.\p"
@@ -355,10 +371,20 @@ text KaolisleCity_Fisher1_Text{
 text KaolisleCity_Fisher1_Text2{
     "Again, You can find my house in\n"
     "southern part of Sandstone City.\p"
-    "My wife probably won't give the rod\n"
+    "My wife probably won't give the lure\n"
     "to just anyone.\l"
     "Tell her that Clancy sent you and\l"
     "she'll know."
+}
+text MyLure{
+    "Ah, I see you've got the lure!\p"
+    "Thank you so much for bringing it\n"
+    "to me.\p"
+    "You've been such a champ.\n"
+    "Here, take this as your reward."
+}
+text HopeYouGetAlotOfFish{
+    "Hope your luck is better than mine!"
 }
 
 script KaolisleCity_Fisher2{

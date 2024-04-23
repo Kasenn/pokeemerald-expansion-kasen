@@ -1728,6 +1728,8 @@ extern const u32 gItemIcon_Incineroarite[];
 extern const u32 gItemIconPalette_Incineroarite[];
 extern const u32 gItemIcon_Chesnaughtite[];
 extern const u32 gItemIconPalette_Chesnaughtite[];
+extern const u32 gItemIcon_Processor[];
+extern const u32 gItemIconPalette_Processor[];
 
 extern const u32 gItemIcon_FairyFeather[];
 extern const u32 gItemIconPalette_FairyFeather[];

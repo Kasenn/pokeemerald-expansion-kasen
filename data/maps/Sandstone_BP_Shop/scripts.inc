@@ -279,16 +279,17 @@ Sandstone_BPShop_ChooseTutorMove_14:
 
 
 SandstoneShop_Man_Text::
-	.string "Did you know? Power items can be used\n"
-	.string "to train your current Pokémon, or to\l"
-	.string "pass down some of their strongest\l"
-	.string "traits to their offspring.$"
+	.string "These items are really expensive.\p"
+	.string "I'm not sure how I'm meant to\n"
+	.string "afford them…$"
 
 SandstoneShop_Lass_Text::
-	.string "Many of the moves taught by these\n"
-	.string "Move Tutors are highly technical.\p"
-	.string "I'm not entirely sure which ones I\n"
-	.string "should teach.$"
+	.string "The nature mints are wondrous herbs\n"
+	.string "that can alter the strengths and\l"
+	.string "weaknesses of a Pokémon.\p"
+	.string "Despite its name, a nature mint does\n"
+	.string "not actually change the Pokémon's\l"
+	.string "original nature.$"
 
 Sandstone_BPShop_LonelyMintDesc::
 	.string "Can be smelled. It ups Attack, but\n"

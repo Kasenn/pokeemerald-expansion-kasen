@@ -5,10 +5,9 @@ script SandstoneShop_Man{
     end
 }
 text SandstoneShop_Man_Text{
-    "Did you know? Power items can be used\n"
-    "to train your current Pokémon, or to\l"
-    "pass down some of their strongest\l"
-    "traits to their offspring."
+    "These items are really expensive.\p"
+    "I'm not sure how I'm meant to\n"
+    "afford them…"
 }
 
 script SandstoneShop_Lass{
@@ -16,10 +15,12 @@ script SandstoneShop_Lass{
     end
 }
 text SandstoneShop_Lass_Text{
-    "Many of the moves taught by these\n"
-    "Move Tutors are highly technical.\p"
-    "I'm not entirely sure which ones I\n"
-    "should teach."
+    "The nature mints are wondrous herbs\n"
+    "that can alter the strengths and\l"
+    "weaknesses of a Pokémon.\p"
+    "Despite its name, a nature mint does\n"
+    "not actually change the Pokémon's\l"
+    "original nature."
 }
 
 script Sandstone_BPShop_HoldItemClerk{

@@ -166,7 +166,7 @@
 #define FLAG_CAUGHT_LUGIA                    0x91
 #define FLAG_CAUGHT_HO_OH                    0x92
 #define FLAG_MR_BRINEY_SAILING_INTRO         0x93
-#define FLAG_DOCK_REJECTED_DEVON_GOODS       0x94
+#define FLAG_SANDSTONE_BALLOON       0x94
 #define FLAG_DELIVERED_DEVON_GOODS           0x95
 #define FLAG_HIDEJASMINE_HOTEL           0x96 // Shows Jasmine at hotel after gym badge 3
 #define FLAG_RECEIVED_CASTFORM               0x97

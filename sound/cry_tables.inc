@@ -415,6 +415,7 @@ gCryTable::
 	cry Cry_Porygon2
 .if P_GEN_4_CROSS_EVOS == TRUE
 	cry Cry_PorygonZ
+	cry_reverse Cry_PorygonZ
 .endif @ P_GEN_4_CROSS_EVOS
 .endif @ P_GEN_2_CROSS_EVOS
 .endif @ P_FAMILY_PORYGON
