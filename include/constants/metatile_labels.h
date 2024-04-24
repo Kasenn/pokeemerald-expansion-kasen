@@ -113,6 +113,7 @@
 
 // gTileset_Building
 #define METATILE_Building_Door_Elevator  0x09E
+#define METATILE_Building_DrapeDoor      0x0C6
 #define METATILE_Building_PC_Off         0x004
 #define METATILE_Building_PC_On          0x005
 #define METATILE_Building_TV_Off         0x002

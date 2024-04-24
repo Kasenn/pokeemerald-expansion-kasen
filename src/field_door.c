@@ -174,6 +174,8 @@ static const struct DoorAnimFrame sBigDoorCloseAnimFrames[] =
 
 static const u8 sDoorAnimPalettes_General[] = {1, 1, 1, 1, 1, 1, 1, 1};
 static const u8 sDoorAnimPalettes_General2[] = {8, 8, 5, 5, 5, 5, 5, 5};
+static const u8 sDoorAnimTiles_DrapeDoor[] = INCBIN_U8("graphics/door_anims/drape_doorr.4bpp");
+static const u8 sDoorAnimPalettes_DrapeDoor[] = {7, 7, 7, 7, 7, 7, 7, 7};
 static const u8 sDoorAnimPalettes_Sandstone[] = {11, 11, 11, 11, 5, 5, 5, 5};
 static const u8 sDoorAnimPalettes_PokeCenter[] = {1, 1, 1, 1, 1, 1, 1, 1};
 static const u8 sDoorAnimPalettes_PokeShop[] = {5, 5, 5, 5, 5, 5, 5, 5};
@@ -274,6 +276,7 @@ static const struct DoorGraphics sDoorAnimGraphicsTable[] =
     {METATILE_Hotel_Door_Elevator2,                       DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_HotelElevator, sDoorAnimPalettes_HotelElevator2},
     {METATILE_Dewford_Door_BattleTower,                     DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_BattleTowerOld, sDoorAnimPalettes_BattleTowerOld},
     {METATILE_BattleFrontier_Door_Elevator,                 DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_BattleTowerElevator, sDoorAnimPalettes_BattleTowerElevator},
+    {METATILE_Building_DrapeDoor,                           DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_DrapeDoor, sDoorAnimPalettes_DrapeDoor},
     // The metatile for this door doesn't seem to correspond to a door in any Emerald tileset. Given the surrounding door animations, it was likely cut from the Battle Frontier.
     // From the palettes array we know it uses palette 9, and the door's shadow looks correct using either the Battle Tent or Battle Frontier Outside's 9th palette.
     {0x3B0,                                                 DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_UnusedBattleFrontier, sDoorAnimPalettes_UnusedBattleFrontier},
