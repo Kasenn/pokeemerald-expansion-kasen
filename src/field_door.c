@@ -41,6 +41,7 @@ static const u8 sDoorAnimTiles_LilycoveWooden[] = INCBIN_U8("graphics/door_anims
 static const u16 sDoorNullPalette5[16] = {};
 static const u8 sDoorAnimTiles_General[] = INCBIN_U8("graphics/door_anims/general.4bpp");
 static const u8 sDoorAnimTiles_General2[] = INCBIN_U8("graphics/door_anims/general2.4bpp");
+static const u8 sDoorAnimTiles_DrapeDoor[] = INCBIN_U8("graphics/door_anims/drape_door.4bpp");
 static const u8 sDoorAnimTiles_General3[] = INCBIN_U8("graphics/door_anims/general3.4bpp");
 static const u16 sDoorNullPalette6[16] = {};
 static const u8 sDoorAnimTiles_PokeCenter[] = INCBIN_U8("graphics/door_anims/poke_center.4bpp");
@@ -174,8 +175,7 @@ static const struct DoorAnimFrame sBigDoorCloseAnimFrames[] =
 
 static const u8 sDoorAnimPalettes_General[] = {1, 1, 1, 1, 1, 1, 1, 1};
 static const u8 sDoorAnimPalettes_General2[] = {8, 8, 5, 5, 5, 5, 5, 5};
-static const u8 sDoorAnimTiles_DrapeDoor[] = INCBIN_U8("graphics/door_anims/drape_doorr.4bpp");
-static const u8 sDoorAnimPalettes_DrapeDoor[] = {7, 7, 7, 7, 7, 7, 7, 7};
+static const u8 sDoorAnimPalettes_DrapeDoor[] = {11, 11, 11, 11, 11, 11, 11, 11};
 static const u8 sDoorAnimPalettes_Sandstone[] = {11, 11, 11, 11, 5, 5, 5, 5};
 static const u8 sDoorAnimPalettes_PokeCenter[] = {1, 1, 1, 1, 1, 1, 1, 1};
 static const u8 sDoorAnimPalettes_PokeShop[] = {5, 5, 5, 5, 5, 5, 5, 5};
