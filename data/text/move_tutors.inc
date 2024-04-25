@@ -146,17 +146,25 @@ MoveTutor_Text_SubstituteTeach:
 	.string "Of course it's not possible.\n"
 	.string "Giggle…\p"
 	.string "I know! Would you be interested in\n"
-	.string "having a POKéMON learn SUBSTITUTE?$"
+	.string "having a Pokémon learn Substitute?\p"
+	.string "I can teach one of your Pokémon to use\n"
+	.string "it at a price of one Heart Scale.$"
+
+MoveTutor_EventScript_NoHeartScale_Text:
+	.string "Oh, but you don't have any\n"
+	.string "Heart Scales…\p"
+	.string "Do let me know if you find\n"
+	.string "any, okay?$"
 
 MoveTutor_Text_SubstituteDeclined:
 	.string "Oh, no?\p"
-	.string "A POKéMON can make a copy of\n"
+	.string "A Pokémon can make a copy of\n"
 	.string "itself using it, you know.$"
 
 MoveTutor_Text_SubstituteWhichMon:
 	.string "Giggle…\n"
-	.string "Which POKéMON do you want me to\l"
-	.string "teach SUBSTITUTE?$"
+	.string "Which Pokémon do you want me to\l"
+	.string "teach Substitute?$"
 
 MoveTutor_Text_SubstituteTaught:
 	.string "We human beings should enjoy our\n"

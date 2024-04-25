@@ -3289,6 +3289,8 @@ extern const u8 gText_Empoleon[];
 extern const u8 gText_Chesnaught[];
 extern const u8 gText_Incineroar[];
 extern const u8 gText_Swampert[];
+extern const u8 gText_Buy[];
+extern const u8 gText_Preview[];
 
 // Naming Screen
 extern const u8 gText_MoveOkBack[];

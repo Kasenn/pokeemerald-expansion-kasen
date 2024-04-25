@@ -2509,18 +2509,15 @@ void IncrementDailyBattlePoints(u16 delta)
 
 static void TryPutRandomPokeNewsOnAir(void)
 {
-    if (FlagGet(FLAG_SYS_GAME_CLEAR))
+    sCurTVShowSlot = GetFirstEmptyPokeNewsSlot(gSaveBlock1Ptr->pokeNews);
+    if (sCurTVShowSlot != -1 && rbernoulli(1, 100) != TRUE)
     {
-        sCurTVShowSlot = GetFirstEmptyPokeNewsSlot(gSaveBlock1Ptr->pokeNews);
-        if (sCurTVShowSlot != -1 && rbernoulli(1, 100) != TRUE)
+        u8 newsKind = (Random() % NUM_POKENEWS_TYPES) + 1; // +1 to skip over POKENEWS_NONE
+        if (IsAddingPokeNewsDisallowed(newsKind) != TRUE)
         {
-            u8 newsKind = (Random() % NUM_POKENEWS_TYPES) + 1; // +1 to skip over POKENEWS_NONE
-            if (IsAddingPokeNewsDisallowed(newsKind) != TRUE)
-            {
-                gSaveBlock1Ptr->pokeNews[sCurTVShowSlot].kind = newsKind;
-                gSaveBlock1Ptr->pokeNews[sCurTVShowSlot].dayCountdown = POKENEWS_COUNTDOWN;
-                gSaveBlock1Ptr->pokeNews[sCurTVShowSlot].state = POKENEWS_STATE_UPCOMING;
-            }
+            gSaveBlock1Ptr->pokeNews[sCurTVShowSlot].kind = newsKind;
+            gSaveBlock1Ptr->pokeNews[sCurTVShowSlot].dayCountdown = POKENEWS_COUNTDOWN;
+            gSaveBlock1Ptr->pokeNews[sCurTVShowSlot].state = POKENEWS_STATE_UPCOMING;
         }
     }
 }

@@ -20,8 +20,8 @@ BattleFrontier_ScottsHouse_EventScript_CheckGiveItems::
 	end
 
 BattleFrontier_ScottsHouse_EventScript_CheckGiveShield::
-	goto_if_unset FLAG_RECEIVED_SILVER_SHIELD, BattleFrontier_ScottsHouse_EventScript_CheckGiveSilverShield
-	goto_if_unset FLAG_RECEIVED_GOLD_SHIELD, BattleFrontier_ScottsHouse_EventScript_CheckGiveGoldShield
+	goto_if_unset FLAG_OLD_WORLD_FLAG, BattleFrontier_ScottsHouse_EventScript_CheckGiveSilverShield
+	goto_if_unset FLAG_OLD_WORLD_FLAG, BattleFrontier_ScottsHouse_EventScript_CheckGiveGoldShield
 	goto BattleFrontier_ScottsHouse_EventScript_RandomComment
 	end
 
@@ -100,7 +100,7 @@ BattleFrontier_ScottsHouse_EventScript_GiveSilverShield::
 	msgbox BattleFrontier_ScottsHouse_Text_Beat50TrainersInARow, MSGBOX_DEFAULT
 	givedecoration DECOR_SILVER_SHIELD
 	goto_if_eq VAR_RESULT, FALSE, BattleFrontier_ScottsHouse_EventScript_NoRoomForShield
-	setflag FLAG_RECEIVED_SILVER_SHIELD
+	setflag FLAG_OLD_WORLD_FLAG
 	setflag FLAG_TEMP_3
 	goto BattleFrontier_ScottsHouse_EventScript_GivenShield
 	end
@@ -130,7 +130,7 @@ BattleFrontier_ScottsHouse_EventScript_GiveGoldShield::
 	msgbox BattleFrontier_ScottsHouse_Text_Beat100TrainersInARow, MSGBOX_DEFAULT
 	givedecoration DECOR_GOLD_SHIELD
 	goto_if_eq VAR_RESULT, FALSE, BattleFrontier_ScottsHouse_EventScript_NoRoomForShield
-	setflag FLAG_RECEIVED_GOLD_SHIELD
+	setflag FLAG_OLD_WORLD_FLAG
 	setflag FLAG_TEMP_3
 	goto BattleFrontier_ScottsHouse_EventScript_GivenShield
 	end

@@ -126,3 +126,175 @@ text HowIsClancy{
     "He sometimes gets so fixated on fishing\n"
     "that he even forgets to eat!"
 }
+
+script WardrobeLeft{
+    call(WardrobeMain)
+    opendoor(5, 2)
+    call(WardrobeDoor)
+    closedoor(5, 2)
+    waitdooranim
+    warpsilent(MAP_LILYCOVE_CITY_DEPARTMENT_STORE_5F, 5, 2)
+    waitstate
+    end
+}
+script WardrobeRight{
+    call(WardrobeMain)
+    opendoor(7, 2)
+    call(WardrobeDoor)
+    closedoor(7, 2)
+    waitdooranim
+    warpsilent(MAP_LILYCOVE_CITY_DEPARTMENT_STORE_5F, 7, 2)
+    waitstate
+    end
+}
+
+script WardrobeMain{
+    if(!flag(FLAG_PURCHASED_OUTFIT)){
+        msgbox(ItsaChangingRoom, MSGBOX_SIGN)
+        end
+    }
+    lock
+    msgbox(ChangeOutfit, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        closemessage
+        release
+        end
+    }
+    closemessage
+    if(flag(FLAG_PC_CHANGE_COSTUME)){
+        clearflag(FLAG_PC_CHANGE_COSTUME)
+    }
+    else{
+        setflag(FLAG_PC_CHANGE_COSTUME)
+    }
+    return
+}
+
+text ItsaChangingRoom{
+    "It's a dressing room for trying on and\n"
+    "changing clothes."
+}
+
+text ChangeOutfit{
+    "It's a dressing room for trying on and\n"
+    "changing clothes.\p"
+    "Would you like to change your outfit?"
+}
+
+script WardrobeDoor{
+    waitdooranim
+    applymovement(OBJ_EVENT_ID_PLAYER, WardrobeUp)
+    waitmovement(0)
+    return
+}
+
+movement WardrobeUp{
+    walk_up
+    set_invisible
+}
+
+script LilycoveCity_Clothier{
+    if(flag(FLAG_PURCHASED_OUTFIT)){
+        msgbox(UseRoomToChange, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    msgbox(InNeedOfOutfit, MSGBOX_DEFAULT)
+    goto(ClothierMain)
+}
+
+script ClothierMain{
+    message("What would you like to do?")
+    waitmessage
+    multichoice(23, 0, MULTI_OUTFIT, 0)
+    switch(var(VAR_RESULT)){
+        case 0:
+            goto(PurchaseOutfit)
+        case 1:
+            goto(PreviewOutfit)
+        case 2:
+            goto(ThanksForShopping)
+        case MULTI_B_PRESSED:
+            goto(ThanksForShopping)
+    }
+}
+
+script PreviewOutfit{
+    checkplayergender
+    if(var(VAR_RESULT) == MALE){
+        showmonpic(SPECIES_KRABBY, 10, 3)
+    }
+    else{
+        showmonpic(SPECIES_KINGLER, 10, 3)
+    }
+    msgbox(LooksGoodOnYou, MSGBOX_DEFAULT)
+    closemessage
+    hidemonpic
+    goto(ClothierMain)
+}
+
+script ThanksForShopping{
+    hidemoneybox
+    msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+    closemessage
+	release
+	end
+}
+
+script PurchaseOutfit{
+    showmoneybox(0, 0)
+    msgbox(TotalIs25k, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        goto(ThanksForShopping)
+    }
+    checkmoney(25000)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(NotEnoughMoney, MSGBOX_NPC)
+        hidemoneybox
+        end
+    }
+    playse(SE_SHOP)
+    removemoney(25000)
+    updatemoneybox
+    msgbox(UseDressingRoom, MSGBOX_NPC)
+    hidemoneybox
+    setflag(FLAG_PURCHASED_OUTFIT)
+    end
+}
+
+text InNeedOfOutfit{
+    "Welcome!\p"
+    "This is the Sandstone Department Store\n"
+    "clothing section.\p"
+    "We are currently having a huge sale on\n"
+    "clothing and clothing apparel."
+}
+text LooksGoodOnYou{
+    "Ooh!\p"
+    "You look absolutely dashing in that\n"
+    "outfit! Wouldn't you agree?"
+}
+text TotalIs25k{
+    "With the clothing and the apparel, your\n"
+    "total comes to ¥25,000.\p"
+    "Would you like to purchase a new\n"
+    "outfit?"
+}
+text NotEnoughMoney{
+    "Oh, I'm sorry, but you can't afford\n"
+    "that outfit…"
+}
+text UseDressingRoom{
+    "Thank you for your purchase!\p"
+    "You can switch between your outfits by\n"
+    "accessing the dressing rooms located\l"
+    "right next to the elevator.\p"
+    "Please come again!"
+}
+text UseRoomToChange{
+    "You can switch between your outfits by\n"
+    "accessing the dressing rooms located\l"
+    "right next to the elevator.\p"
+    "Please come again!"
+}

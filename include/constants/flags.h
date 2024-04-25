@@ -259,8 +259,8 @@
 #define FLAG_RECEIVED_TM_REST                0xEA
 #define FLAG_RECEIVED_TM_ATTRACT             0xEB
 #define FLAG_RECEIVED_GLASS_ORNAMENT         0xEC
-#define FLAG_RECEIVED_SILVER_SHIELD          0xED
-#define FLAG_RECEIVED_GOLD_SHIELD            0xEE
+#define FLAG_PURCHASED_OUTFIT          0xED
+#define FLAG_SANDSTONE_DUSKBALLS            0xEE
 #define FLAG_USED_STORAGE_KEY                0xEF
 #define FLAG_USED_ROOM_1_KEY                 0xF0
 #define FLAG_USED_ROOM_2_KEY                 0xF1

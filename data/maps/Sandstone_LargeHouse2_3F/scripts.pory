@@ -163,8 +163,47 @@ script Sandstone_BigHouse2_2F_FanF{
     end
 }
 text Sandstone_BigHouse2_2F_FanM_Text{
-""
+"Whatever your age, you can have\n"
+"Pokémon battles if you have Pokémon\l"
+"by your side."
 }
 text Sandstone_BigHouse2_2F_FanF_Text{
-""
+"After many battles, you start to see\n"
+"more deeply and understand things.\p"
+"That's why I know exactly what my\n"
+"husband is thinking!"
+}
+
+script Sandstone_BigHouse2_1F_Maniac{
+    if(flag(FLAG_SANDSTONE_DUSKBALLS)){
+        msgbox(Sandstone_BigHouse2_1F_Maniac_Text2, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    msgbox(Sandstone_BigHouse2_1F_Maniac_Text, MSGBOX_DEFAULT)
+    checkitemspace(ITEM_DUSK_BALL, 2)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(NotEnoughRoom, MSGBOX_NPC)
+        end
+    }
+    giveitem(ITEM_DUSK_BALL, 2)
+    setflag(FLAG_SANDSTONE_DUSKBALLS)
+    waitfanfare
+    msgbox(Sandstone_BigHouse2_1F_Maniac_Text2, MSGBOX_NPC)
+    end
+}
+
+text Sandstone_BigHouse2_1F_Maniac_Text{
+    "There are times when you want to catch\n"
+    "Pokémon in dark places, right?\l"
+    "I'll share some of these with you."
+}
+text Sandstone_BigHouse2_1F_Maniac_Text2{
+    "A Dusk Ball works well at night or\n"
+    "in a cave.\p"
+    "Plus, it has a most excellent name!\n"
+    "Dusk! The Dusk Ball.\p"
+    "I believe it can even catch and control\n"
+    "the darkness found in hearts."
 }

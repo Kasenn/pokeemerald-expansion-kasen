@@ -867,6 +867,13 @@ static const struct MenuAction TestMegaStarter[] =
 };
 
 
+static const struct MenuAction MultichoiceList_Outfit[] =
+{
+    {gText_Buy},
+    {gText_Preview},
+    {gText_ComeBackLater},
+};
+
 static const struct MultichoiceListStruct sMultichoiceLists[] =
 {
     [MULTI_BRINEY_ON_DEWFORD]          = MULTICHOICE(MultichoiceList_BrineyOnDewford),
@@ -993,6 +1000,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_BUFFET]                     = MULTICHOICE(BuffetOptions),
     [MULTI_TESTMEGASTARTER]            = MULTICHOICE(TestMegaStarter),
     [MULTI_BERRY_PLOT]                 = MULTICHOICE(MultichoiceList_BerryPlot),
+    [MULTI_OUTFIT]                     = MULTICHOICE(MultichoiceList_Outfit),
 };
 
 const u8 *const gStdStrings[] =

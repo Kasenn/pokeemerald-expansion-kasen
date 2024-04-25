@@ -132,6 +132,7 @@
 #define MULTI_BUFFET                       121
 #define MULTI_TESTMEGASTARTER              122
 #define MULTI_BERRY_PLOT                   123
+#define MULTI_OUTFIT                       124
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0

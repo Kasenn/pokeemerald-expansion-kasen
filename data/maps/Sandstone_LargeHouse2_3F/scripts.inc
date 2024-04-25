@@ -137,6 +137,29 @@ Sandstone_BigHouse2_2F_FanF::
 	end
 
 
+Sandstone_BigHouse2_1F_Maniac::
+	goto_if_set FLAG_SANDSTONE_DUSKBALLS, Sandstone_BigHouse2_1F_Maniac_2
+	lock
+	faceplayer
+	msgbox Sandstone_BigHouse2_1F_Maniac_Text, MSGBOX_DEFAULT
+	checkitemspace ITEM_DUSK_BALL, 2
+	compare VAR_RESULT, FALSE
+	goto_if_eq Sandstone_BigHouse2_1F_Maniac_5
+	giveitem ITEM_DUSK_BALL, 2
+	setflag FLAG_SANDSTONE_DUSKBALLS
+	waitfanfare
+	msgbox Sandstone_BigHouse2_1F_Maniac_Text2, MSGBOX_NPC
+	end
+
+Sandstone_BigHouse2_1F_Maniac_2:
+	msgbox Sandstone_BigHouse2_1F_Maniac_Text2, MSGBOX_NPC
+	end
+
+Sandstone_BigHouse2_1F_Maniac_5:
+	msgbox NotEnoughRoom, MSGBOX_NPC
+	end
+
+
 BusyAnsweringEmail::
 	.string "I'm sorry. I am indeed thankful you\n"
 	.string "were able to help me, but there's\l"
@@ -186,7 +209,25 @@ ItWasAPorygon::
 	.string "get back to work.$"
 
 Sandstone_BigHouse2_2F_FanM_Text::
-	.string "$"
+	.string "Whatever your age, you can have\n"
+	.string "Pokémon battles if you have Pokémon\l"
+	.string "by your side.$"
 
 Sandstone_BigHouse2_2F_FanF_Text::
-	.string "$"
+	.string "After many battles, you start to see\n"
+	.string "more deeply and understand things.\p"
+	.string "That's why I know exactly what my\n"
+	.string "husband is thinking!$"
+
+Sandstone_BigHouse2_1F_Maniac_Text::
+	.string "There are times when you want to catch\n"
+	.string "Pokémon in dark places, right?\l"
+	.string "I'll share some of these with you.$"
+
+Sandstone_BigHouse2_1F_Maniac_Text2::
+	.string "A Dusk Ball works well at night or\n"
+	.string "in a cave.\p"
+	.string "Plus, it has a most excellent name!\n"
+	.string "Dusk! The Dusk Ball.\p"
+	.string "I believe it can even catch and control\n"
+	.string "the darkness found in hearts.$"

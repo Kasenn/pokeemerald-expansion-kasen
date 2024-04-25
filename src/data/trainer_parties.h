@@ -583,7 +583,7 @@ static const struct TrainerMon sParty_Matt[] = {
     },
     {
     .lvl = 9,
-    .species = SPECIES_NIDORAN_F,
+    .species = SPECIES_MARILL,
     },
     {
     .lvl = 10,

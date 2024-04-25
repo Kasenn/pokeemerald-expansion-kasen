@@ -21,28 +21,21 @@ LilycoveCity_DepartmentStoreRooftop_EventScript_SaleWoman::
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	pokemartdecoration LilycoveCity_DepartmentStoreRooftop_PokemartDecor_ClearOutSale
+	pokemart LilycoveCity_DepartmentStoreRooftop_PokemartDecor_ClearOutSale
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
 	.align 2
 LilycoveCity_DepartmentStoreRooftop_PokemartDecor_ClearOutSale:
-	.2byte DECOR_MUD_BALL
-	.2byte DECOR_FENCE_LENGTH
-	.2byte DECOR_FENCE_WIDTH
-	.2byte DECOR_TIRE
-	.2byte DECOR_BREAKABLE_DOOR
-	.2byte DECOR_SOLID_BOARD
-	.2byte DECOR_SAND_ORNAMENT
-	.2byte DECOR_STAND
-	.2byte DECOR_SLIDE
-	.2byte DECOR_TV
-	.2byte DECOR_ROUND_TV
-	.2byte DECOR_CUTE_TV
-	.2byte DECOR_WAILMER_DOLL
-	.2byte DECOR_RHYDON_DOLL
-	.2byte 0
+	.2byte ITEM_ABILITY_SHIELD
+	.2byte ITEM_CLEAR_AMULET
+	.2byte ITEM_MIRROR_HERB
+	.2byte ITEM_PUNCHING_GLOVE
+	.2byte ITEM_COVERT_CLOAK
+	.2byte ITEM_LOADED_DICE
+	.2byte ITEM_FAIRY_FEATHER
+	.2byte ITEM_NONE
 	release
 	end
 
