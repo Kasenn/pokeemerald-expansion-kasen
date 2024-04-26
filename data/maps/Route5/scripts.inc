@@ -181,7 +181,7 @@ Route5_CoolTrainerPostBattle::
 	playfanfare MUS_OBTAIN_B_POINTS
 	msgbox Route5_CoolTrainerPostBattle_Text_0, MSGBOX_DEFAULT
 	waitfanfare
-	goto_if_unset FLAG_UNUSED_BP_INTRO, Route5_CoolTrainerPostBattle_2
+	goto_if_unset FLAG_INTRO_TO_BP, Route5_CoolTrainerPostBattle_2
 Route5_CoolTrainerPostBattle_1:
 	waitmessage
 	closemessage
@@ -190,7 +190,7 @@ Route5_CoolTrainerPostBattle_1:
 
 Route5_CoolTrainerPostBattle_2:
 	msgbox ExplainBP, MSGBOX_DEFAULT
-	setflag FLAG_UNUSED_BP_INTRO
+	setflag FLAG_INTRO_TO_BP
 	goto Route5_CoolTrainerPostBattle_1
 
 

@@ -28,10 +28,10 @@ movement Lab2_MovePlayerUp{
 script Lab2_HideRival{
     call(Common_EventScript_SetupRivalGfxId)
     if(var(VAR_PEARLWOOD_TOWN_STATE) == 9){
-        clearflag(FLAG_UNUSED_LAB_RIVAL)
+        clearflag(FLAG_HIDE_LAB_RIVAL)
     }
     else{
-        setflag(FLAG_UNUSED_LAB_RIVAL)
+        setflag(FLAG_HIDE_LAB_RIVAL)
     }
 }
 script Lab2_DexGet{
@@ -81,7 +81,7 @@ script Lab2_DexGet{
 
 script Lab2_RivalEnd{
 	removeobject(5)
-	setflag(FLAG_UNUSED_LAB_RIVAL)
+	setflag(FLAG_HIDE_LAB_RIVAL)
     setvar(VAR_PEARLWOOD_TOWN_STATE, 10)
     clearflag(FLAG_ROUTE1_STATE)
 	savebgm(MUS_DUMMY)

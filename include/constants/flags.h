@@ -42,16 +42,16 @@
 #define TEMP_FLAGS_END   FLAG_TEMP_1F
 #define NUM_TEMP_FLAGS   (TEMP_FLAGS_END - TEMP_FLAGS_START + 1)
 
-#define FLAG_UNUSED_LAB_RIVAL                   0x20 // Used to show/hide rival in prof's lab
-#define FLAG_UNUSED_BP_INTRO                    0x21 // Introduction to battle points
-#define FLAG_UNUSED_GLADE                       0x22 // Sets the lost glade flag so the camper changes dialogue
+#define FLAG_HIDE_LAB_RIVAL                     0x20 // Used to show/hide rival in prof's lab
+#define FLAG_INTRO_TO_BP                        0x21 // Introduction to battle points
+#define FLAG_GLADE_PUZZLE                       0x22 // Sets the lost glade flag so the camper changes dialogue
 #define FLAG_DEFEATED_RIVAL_HARBOR              0x23 // Flag for defeating rival at coralgrove harbor. Also used to define whether the itemfinder has already been obtained
-#define FLAG_COASTTOWNHONEYGET                  0x24 // Flag for getting honey in azuretide town
-#define FLAG_SYSTEM_NO_CATCHING                        0x25 // STOPS CATCHING WILD POKEMON
-#define FLAG_SYSTEM_NO_WILD_RUNNING                    0x26 // Stops running from wild pokemon
-#define FLAG_SYSTEM_TOGGLE_DOUBLE_WILDS                0x27 // Forces double wild battles
-#define FLAG_RECEIVED_TM_WILD_CHARGE            0x28 // Received wild charge from Volkner
-#define FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR2    0x29 // Aldeleaf BP Shop Move Tutor
+#define FLAG_AZURETIDE_HONEY                    0x24 // Flag for getting honey in azuretide town
+#define FLAG_SYSTEM_NO_CATCHING                 0x25 // STOPS CATCHING WILD POKEMON
+#define FLAG_SYSTEM_NO_WILD_RUNNING             0x26 // Stops running from wild pokemon
+#define FLAG_SYSTEM_TOGGLE_DOUBLE_WILDS         0x27 // Forces double wild battles
+#define FLAG_UNUSED_0X28                        0x28 // UNUSED FLAG
+#define FLAG_MET_MOVE_TUTOR                     0x29 // Introduction to BP Shop Move Tutor
 #define FLAG_ROUTE5_ITEM1                       0x2A // Route 5 item flags start
 #define FLAG_ROUTE5_ITEM2                       0x2B // 
 #define FLAG_ROUTE5_ITEM3                       0x2C // 
@@ -63,9 +63,9 @@
 #define FLAG_ROUTE5_HIDDENITEM5                 0x32 // Route 5 item flags end
 #define FLAG_INCREASED_SHINY_ODDS               0x33 // increase shiny odds
 #define FLAG_SKYLOCH_JUICE                      0x34 // 
-#define FLAG_GIVENCASTELIACONE                  0x35 // 
-#define FLAG_WW_GROTTO_CLEARED                  0x36 // Used to determine whether Windy Woods grotto has been cleared
-#define FLAG_ROUTE7_GROTTO_CLEARED              0x37 // Used to determine whether Route 7 grotto has been cleared
+#define FLAG_SKYLOCH_CASTELIACONE               0x35 // 
+#define FLAG_UNUSED_0X36                        0x36 // UNUSED FLAG
+#define FLAG_UNUSED_0X37                        0x37 // UNUSED FLAG
 #define FLAG_ROUTE8_ITEM1                       0x38 // Route 8 item flags
 #define FLAG_ROUTE8_ITEM2                       0x39 // 
 #define FLAG_ROUTE8_ITEM3                       0x3A // 
@@ -92,34 +92,32 @@
 #define FLAG_PIANOREWARD                        0x4F // 
 
 // Scripts
-#define FLAG_SYSTEM_NOREWARDBATTLES              0x50 // NO EXP OR MONEY FROM BATTLES, used in hotel battle buffet
-#define FLAG_SET_WALL_CLOCK                      0x51
-#define FLAG_RECEIVED_METAL_COAT                       0x52
-#define FLAG_LEGENDARIES_IN_SOOTOPOLIS           0x53
+#define FLAG_SYSTEM_NOREWARDBATTLES             0x50 // NO EXP OR MONEY FROM BATTLES, used in hotel battle buffet
+#define FLAG_SET_WALL_CLOCK                     0x51
+#define FLAG_RECEIVED_METAL_COAT                0x52
+#define FLAG_UNUSED_0X53                        0x53
+#define FLAG_RECEIVED_LIGHTBALL                 0x54  // Received light ball after showing 2 raichus in skyloch village
+#define FLAG_BUFFET_COMPLETE                    0x55
 
-#define FLAG_RECEIVED_LIGHTBALL                    0x54  // Received light ball after showing 2 raichus in skyloch village
-#define FLAG_BUFFET_COMPLETE                    0x55  // Unused Flag
-
-#define FLAG_HIDE_CONTEST_POKE_BALL          0x56  // Always set after new game, object it hides is added directly
-#define FLAG_MET_RIVAL_MOM                   0x57
-#define FLAG_BIRCH_AIDE_MET                  0x58
-#define FLAG_DECLINED_BIKE                   0x59
-#define FLAG_RECEIVED_BIKE                   0x5A
-#define FLAG_WATTSON_REMATCH_AVAILABLE       0x5B
-#define FLAG_COLLECTED_ALL_SILVER_SYMBOLS    0x5C
-#define FLAG_GOOD_LUCK_SAFARI_ZONE           0x5D // Set after talking to NPC blocking Safari Zone entrance/exit once.
-#define FLAG_RECEIVED_WAILMER_PAIL           0x5E
-#define FLAG_RECEIVED_POKEBLOCK_CASE         0x5F
-#define FLAG_RECEIVED_SECRET_POWER           0x60
-#define FLAG_MET_TEAM_AQUA_HARBOR            0x61
-#define FLAG_TV_EXPLAINED                    0x62
-#define FLAG_MAUVILLE_GYM_BARRIERS_STATE     0x63
-#define FLAG_MOSSDEEP_GYM_SWITCH_1           0x64 // Leftover from the RS version of Mossdeep Gym, functionally unused
-#define FLAG_MOSSDEEP_GYM_SWITCH_2           0x65 //
-#define FLAG_MOSSDEEP_GYM_SWITCH_3           0x66 //
-#define FLAG_MOSSDEEP_GYM_SWITCH_4           0x67 //
-
-#define FLAG_OBTAINED_TROPICALSTONE                    0x68  // Tropical stone from kaolisle hotel
+#define FLAG_UNUSED_0X56                        0x56  // HAS BEEN SET IN NEW GAME, CLEAR BEFORE USING!
+#define FLAG_MET_RIVAL_MOM                      0x57
+#define FLAG_BIRCH_AIDE_MET                     0x58
+#define FLAG_DECLINED_BIKE                      0x59
+#define FLAG_RECEIVED_BIKE                      0x5A
+#define FLAG_WATTSON_REMATCH_AVAILABLE          0x5B
+#define FLAG_COLLECTED_ALL_SILVER_SYMBOLS       0x5C
+#define FLAG_GOOD_LUCK_SAFARI_ZONE              0x5D // Set after talking to NPC blocking Safari Zone entrance/exit once.
+#define FLAG_RECEIVED_WAILMER_PAIL              0x5E
+#define FLAG_RECEIVED_POKEBLOCK_CASE            0x5F
+#define FLAG_RECEIVED_SECRET_POWER              0x60
+#define FLAG_MET_TEAM_AQUA_HARBOR               0x61
+#define FLAG_TV_EXPLAINED                       0x62
+#define FLAG_MAUVILLE_GYM_BARRIERS_STATE        0x63
+#define FLAG_MOSSDEEP_GYM_SWITCH_1              0x64 // Leftover from the RS version of Mossdeep Gym, functionally unused
+#define FLAG_MOSSDEEP_GYM_SWITCH_2              0x65 //
+#define FLAG_MOSSDEEP_GYM_SWITCH_3              0x66 //
+#define FLAG_MOSSDEEP_GYM_SWITCH_4              0x67 //
+#define FLAG_OBTAINED_TROPICALSTONE             0x68  // Tropical stone from kaolisle hotel
 
 #define FLAG_OCEANIC_MUSEUM_MET_REPORTER     0x69
 #define FLAG_RECEIVED_HM_STRENGTH            0x6A
@@ -129,7 +127,7 @@
 #define FLAG_RECEIVED_HM_FLY                 0x6E
 #define FLAG_GROUDON_AWAKENED_MAGMA_HIDEOUT  0x6F
 #define FLAG_TEAM_AQUA_ESCAPED_IN_SUBMARINE  0x70
-#define FLAG_OBTAINED_ECHOEDVOICE 0x71 // obtained hm for echoed voice on kaolisle hotel
+#define FLAG_OBTAINED_ECHOEDVOICE            0x71 // obtained hm for echoed voice on kaolisle hotel
 #define FLAG_SCOTT_CALL_BATTLE_FRONTIER      0x72 // Used in order to activate a phone call from Scott, inviting the player to the SS Tidal.
 #define FLAG_RECEIVED_METEORITE              0x73
 #define FLAG_ADVENTURE_STARTED               0x74 // RECEIVED Pokédex.
@@ -261,7 +259,7 @@
 #define FLAG_RECEIVED_GLASS_ORNAMENT         0xEC
 #define FLAG_PURCHASED_OUTFIT          0xED
 #define FLAG_SANDSTONE_DUSKBALLS            0xEE
-#define FLAG_USED_STORAGE_KEY                0xEF
+#define FLAG_SANDSTONE_ULTRABALL                0xEF
 #define FLAG_USED_ROOM_1_KEY                 0xF0
 #define FLAG_USED_ROOM_2_KEY                 0xF1
 #define FLAG_USED_ROOM_4_KEY                 0xF2

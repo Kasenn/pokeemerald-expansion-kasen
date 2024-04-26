@@ -60,13 +60,13 @@ script CoastTown_FatGuy{
 script CoastTown_FatGuy2{
     lockall
     faceplayer
-    if(!flag(FLAG_COASTTOWNHONEYGET)){
+    if(!flag(FLAG_AZURETIDE_HONEY)){
         msgbox(FatGuyHoneyIntro, MSGBOX_NPC)
         checkitemspace(ITEM_HONEY, 3)
         if(var(VAR_RESULT) == TRUE){
             giveitem(ITEM_HONEY, 3)
             msgbox(FatGuyHoneyGiven, MSGBOX_NPC)
-            setflag(FLAG_COASTTOWNHONEYGET)
+            setflag(FLAG_AZURETIDE_HONEY)
             waitmessage
             closemessage
             release
@@ -417,7 +417,7 @@ text YesPokemonTreeShake{
 
 script Azuretide_HoneyTree{
     lockall
-    if(!flag(FLAG_COASTTOWNHONEYGET)){
+    if(!flag(FLAG_AZURETIDE_HONEY)){
         msgbox("It's a peculiar looking tree.", MSGBOX_DEFAULT)
         waitmessage
         closemessage

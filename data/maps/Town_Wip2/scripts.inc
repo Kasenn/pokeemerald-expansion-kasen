@@ -66,7 +66,7 @@ Skyloch_OldWoman::
 SkylochInt_FatMan::
 	lock
 	faceplayer
-	goto_if_unset FLAG_GIVENCASTELIACONE, SkylochInt_FatMan_2
+	goto_if_unset FLAG_SKYLOCH_CASTELIACONE, SkylochInt_FatMan_2
 	msgbox SkylochInt_FatMan_GivenCone, MSGBOX_NPC
 SkylochInt_FatMan_1:
 	waitmessage
@@ -88,7 +88,7 @@ SkylochInt_FatMan_5:
 	removeitem ITEM_CASTELIACONE, 1
 	msgbox SkylochInt_FatMan_TextThanks, MSGBOX_DEFAULT
 	giveitem ITEM_OCCA_BERRY, 1
-	setflag FLAG_GIVENCASTELIACONE
+	setflag FLAG_SKYLOCH_CASTELIACONE
 	waitfanfare
 	waitmessage
 	closemessage

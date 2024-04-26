@@ -25,7 +25,7 @@ text KaolisleShop_Lass_Text{
 script Kaolisle_BPShop_HoldItemClerk{
 	setvar(VAR_TEMP_2, EXCHANGE_CORNER_HOLD_ITEM_CLERK5)
 	setvar(VAR_TEMP_3, 5)
-	goto(BPShop_HoldItemClerk) // Edit this script when adding new shops
+	goto(BPShop_HoldItemClerk)
 }
 
 script Kaolisle_BPShop_ChooseHoldItem{
@@ -106,7 +106,7 @@ text Kaolisle_BPShop_EverstoneDesc{
 script Kaolisle_BPShop_MoveTutor{
 	setvar(VAR_TEMP_C, SCROLL_MULTI_BF_MOVE_TUTOR_6)
 	setvar(VAR_TEMP_5, 6)
-	goto(BPShop_MoveTutor) // Edit this script when adding new shops
+	goto(BPShop_MoveTutor)
 }
 
 script Kaolisle_BPShop_ChooseTutorMove{

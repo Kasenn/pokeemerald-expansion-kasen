@@ -62,10 +62,6 @@ script Sandstone_Lass{
     msgbox(Sandstone_Lass_Text, MSGBOX_NPC)
     end
 }
-script Sandstone_OldMan{
-    msgbox(Sandstone_OldMan_Text, MSGBOX_NPC)
-    end
-}
 script Sandstone_GameboyKid1{
     msgbox(Sandstone_GameboyKid1_Text, MSGBOX_NPC)
     end
@@ -87,7 +83,25 @@ script Sandstone_Gentleman{
     end
 }
 script Sandstone_Maniac{
-    msgbox(Sandstone_Maniac_Text, MSGBOX_NPC)
+    if(flag(FLAG_SANDSTONE_ULTRABALL)){
+        msgbox(Sandstone_Maniac_Text3, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    msgbox(Sandstone_Maniac_Text2, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(WhyTravel, MSGBOX_NPC)
+        end
+    }
+    msgbox(Sandstone_Maniac_Text, MSGBOX_DEFAULT)
+    checkitemspace(ITEM_ULTRA_BALL)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(NotEnoughRoom, MSGBOX_NPC)
+        end
+    }
+    giveitem(ITEM_ULTRA_BALL)
+    setflag(FLAG_SANDSTONE_ULTRABALL)
     end
 }
 script Sandstone_Man3{
@@ -98,14 +112,89 @@ script Sandstone_Man5{
     msgbox(Sandstone_Man5_Text, MSGBOX_NPC)
     end
 }
-text Sandstone_Boy2_Text{""}
-text Sandstone_Lass_Text{""}
-text Sandstone_OldMan_Text{""}
-text Sandstone_GameboyKid1_Text{""}
-text Sandstone_GameboyKid2_Text{""}
-text Sandstone_GossipWoman1_Text{""}
-text Sandstone_GossipWoman2_Text{""}
-text Sandstone_Gentleman_Text{""}
-text Sandstone_Maniac_Text{""}
-text Sandstone_Man3_Text{""}
-text Sandstone_Man5_Text{""}
+script Sandstone_Youngster{
+    msgbox(Sandstone_Youngster_Text, MSGBOX_NPC)
+    end
+}
+script Sandstone_Nerd{
+    msgbox(Sandstone_Nerd_Text, MSGBOX_NPC)
+    end
+}
+text Sandstone_Boy2_Text{
+    "To the north of the city lies the\n"
+    "Adamant Tower.\p"
+    "It's a real hotspot for strong\n"
+    "trainers, but in order to get in,\l"
+    "you must either earn the approval\l"
+    "of the Gym Leader, or go through\l"
+    "rigorous training at the gym."
+}
+text Sandstone_Lass_Text{
+    "I just returned from a trip to Unova.\p"
+    "You wouldn't believe some of the\n"
+    "crazy Pokémon I saw there!"
+}
+text Sandstone_GameboyKid1_Text{
+    "We just tried trading two Pokémon that\n"
+    "were meant to evolve through trading,\l"
+    "but they didn't evolve at all!"
+}
+text Sandstone_GameboyKid2_Text{
+    "Maybe the evolution method has changed…"
+}
+text Sandstone_GossipWoman1_Text{
+    "The Department Store sells everything\n"
+    "you could ever ask for!"
+}
+text Sandstone_GossipWoman2_Text{
+    "Sometimes I take my Pokémon shopping\n"
+    "with me.\p"
+    "Seeing them be amazed by all the\n"
+    "different products would put a smile\l"
+    "on anyone's face!"
+}
+text Sandstone_Gentleman_Text{
+    "As far as I can remember, Sandstone\n"
+    "has always been a massive city.\p"
+    "I wonder what it used to look like\n"
+    "before it got this big."
+}
+text Sandstone_Maniac_Text2{
+    "Do you like Pokémon?"
+}
+text Sandstone_Maniac_Text{
+    "Yes, yes, you have Pokémon with you,\n"
+    "so I'm sure you do!\p"
+    "If you want to have even more Pokémon\n"
+    "with you, you need to use one of these!"
+}
+text Sandstone_Maniac_Text3{
+    "Take care now!"
+}
+text WhyTravel{
+    "That so? Then why are you on a journey\n"
+    "with Pokémon?"
+}
+text Sandstone_Man3_Text{
+    "I still haven't defeated the Gym\n"
+    "Leader here…\p"
+    "But that's all right.\p"
+    "I'm going to become such a strong\n"
+    "trainer, she'll be the one who comes\l"
+    "looking for ME!"
+}
+text Sandstone_Man5_Text{
+    "I just bought a hundred Potions from\n"
+    "the Department Store.\p"
+    "There's no way I'll lose against\n"
+    "the Gym Leader now!"
+}
+text Sandstone_Youngster_Text{
+    "I like shorts! They're comfy\n"
+    "and easy to wear!"
+}
+text Sandstone_Nerd_Text{
+    "Want to become smart like me?\p"
+    "Then you need to head to the Sandstone\n"
+    "Library and read a few books!"
+}

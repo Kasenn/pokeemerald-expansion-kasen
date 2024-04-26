@@ -349,9 +349,9 @@ script Route5_CoolTrainerPostBattle{
     playfanfare(MUS_OBTAIN_B_POINTS)
     msgbox("Earned {STR_VAR_1} BP!", MSGBOX_DEFAULT)
     waitfanfare
-    if(!flag(FLAG_UNUSED_BP_INTRO)){
+    if(!flag(FLAG_INTRO_TO_BP)){
         msgbox(ExplainBP, MSGBOX_DEFAULT)
-        setflag(FLAG_UNUSED_BP_INTRO)
+        setflag(FLAG_INTRO_TO_BP)
     }
     waitmessage
     closemessage

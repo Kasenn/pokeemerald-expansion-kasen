@@ -106,6 +106,21 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
         .tilemap = gPokenavCityMap_Primrose_0,
     },
     {
+        .mapSecId = MAPSEC_ROCKLIFFE_TOWN,
+        .index = 0,
+        .tilemap = gPokenavCityMap_Rockliffe_0,
+    },
+    {
+        .mapSecId = MAPSEC_SANDSTONE_CITY,
+        .index = 0,
+        .tilemap = gPokenavCityMap_Sandstone_1,
+    },
+    {
+        .mapSecId = MAPSEC_SANDSTONE_CITY,
+        .index = 1,
+        .tilemap = gPokenavCityMap_Sandstone_0,
+    },
+    {
         .mapSecId = MAPSEC_RUSTBORO_CITY,
         .index = 0,
         .tilemap = gPokenavCityMap_Coralgrove_0,

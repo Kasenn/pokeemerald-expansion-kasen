@@ -100,7 +100,7 @@ text Skyloch_OldWoman_Text{
 script SkylochInt_FatMan{
     lock
     faceplayer
-    if(!flag(FLAG_GIVENCASTELIACONE)){
+    if(!flag(FLAG_SKYLOCH_CASTELIACONE)){
         msgbox(SkylochInt_FatMan_Text, MSGBOX_DEFAULT)
         checkitem(ITEM_CASTELIACONE)
         if(var(VAR_RESULT) == TRUE){
@@ -113,7 +113,7 @@ script SkylochInt_FatMan{
                 removeitem(ITEM_CASTELIACONE, 1)
                 msgbox(SkylochInt_FatMan_TextThanks, MSGBOX_DEFAULT)
                 giveitem(ITEM_OCCA_BERRY, 1)
-                setflag(FLAG_GIVENCASTELIACONE)
+                setflag(FLAG_SKYLOCH_CASTELIACONE)
                 waitfanfare
                 waitmessage
                 closemessage

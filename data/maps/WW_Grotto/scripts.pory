@@ -1,15 +1,6 @@
 mapscripts WW_Grotto_MapScripts{
-    MAP_SCRIPT_ON_TRANSITION: WW_GrottoFlags
-}
-script WW_GrottoFlags{
-    if(!flag(FLAG_DAILY_WW_GROTTO)){
-        clearflag(FLAG_WW_GROTTO_CLEARED)
-        random(100)
-        copyvar(VAR_WW_GROTTO, VAR_RESULT)
-    }
-    setflag(FLAG_DAILY_WW_GROTTO)
-    goto(WW_Grotto_SetObject)
-    end
+    MAP_SCRIPT_ON_TRANSITION: WW_Grotto_SetObject
+    MAP_SCRIPT_ON_LOAD: WW_Grotto_SetObject
 }
 script WW_Grotto_SetObject{
     if(var(VAR_WW_GROTTO) <= 39){
@@ -104,7 +95,7 @@ script WW_GrottoPokemon{
     setflag(FLAG_SYS_CTRL_OBJ_DELETE)
     dowildbattle
     clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
-    setflag(FLAG_WW_GROTTO_CLEARED)
+    setflag(FLAG_DAILY_WW_GROTTO)
 	goto(Common_EventScript_RemoveStaticPokemon)
     release
     end

@@ -167,10 +167,10 @@ WW_CoolTrainerPostBattle::
 	msgbox WW_CoolTrainerPostBattle_Text_0, MSGBOX_DEFAULT
 	playfanfare MUS_OBTAIN_B_POINTS
 	msgbox WW_CoolTrainerPostBattle_Text_1, MSGBOX_DEFAULT
-	goto_if_unset FLAG_UNUSED_BP_INTRO, WW_CoolTrainerPostBattle_2
+	goto_if_unset FLAG_INTRO_TO_BP, WW_CoolTrainerPostBattle_2
 WW_CoolTrainerPostBattle_1:
 	setflag FLAG_UNUSED_WW_COOLTRAINERREWARD
-	setflag FLAG_UNUSED_BP_INTRO
+	setflag FLAG_INTRO_TO_BP
 	waitmessage
 	closemessage
 	call WW_GIVEBP

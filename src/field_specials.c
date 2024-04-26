@@ -3435,13 +3435,13 @@ static void ShowBattleFrontierTutorWindow(u8 menu, u16 selection)
         .baseBlock = 28,
     };
 
-    if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_1 ||
-        menu == SCROLL_MULTI_BF_MOVE_TUTOR_2 ||
-        menu == SCROLL_MULTI_BF_MOVE_TUTOR_3 ||
-        menu == SCROLL_MULTI_BF_MOVE_TUTOR_4 ||
-        menu == SCROLL_MULTI_BF_MOVE_TUTOR_5 ||
-        menu == SCROLL_MULTI_BF_MOVE_TUTOR_6 ||
-        menu == SCROLL_MULTI_BF_MOVE_TUTOR_7)
+    if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_1
+    ||  menu == SCROLL_MULTI_BF_MOVE_TUTOR_2
+    ||  menu == SCROLL_MULTI_BF_MOVE_TUTOR_3
+    ||  menu == SCROLL_MULTI_BF_MOVE_TUTOR_4
+    ||  menu == SCROLL_MULTI_BF_MOVE_TUTOR_5
+    ||  menu == SCROLL_MULTI_BF_MOVE_TUTOR_6
+    ||  menu == SCROLL_MULTI_BF_MOVE_TUTOR_7)
     {
         if (gSpecialVar_0x8006 == 0)
         {
@@ -3559,20 +3559,20 @@ static void ShowBattleFrontierTutorMoveDescription(u8 menu, u16 selection)
         gText_Exit,
     };
 
-    if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_1 ||
-        menu == SCROLL_MULTI_BF_MOVE_TUTOR_2 ||
-        menu == SCROLL_MULTI_BF_MOVE_TUTOR_3 ||
-        menu == SCROLL_MULTI_BF_MOVE_TUTOR_4 ||
-        menu == SCROLL_MULTI_BF_MOVE_TUTOR_5 ||
-        menu == SCROLL_MULTI_BF_MOVE_TUTOR_6 ||
-        menu == SCROLL_MULTI_BF_MOVE_TUTOR_7)
+    if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_1
+    ||  menu == SCROLL_MULTI_BF_MOVE_TUTOR_2
+    ||  menu == SCROLL_MULTI_BF_MOVE_TUTOR_3
+    ||  menu == SCROLL_MULTI_BF_MOVE_TUTOR_4
+    ||  menu == SCROLL_MULTI_BF_MOVE_TUTOR_5
+    ||  menu == SCROLL_MULTI_BF_MOVE_TUTOR_6
+    ||  menu == SCROLL_MULTI_BF_MOVE_TUTOR_7)
     {
         FillWindowPixelRect(sTutorMoveAndElevatorWindowId, PIXEL_FILL(1), 0, 0, 96, 48);
         if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_2)
             AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, FONT_NORMAL, sBattleFrontier_TutorMoveDescriptions2[selection], 0, 1, 0, NULL);
-        if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_3)
+        else if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_3)
             AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, FONT_NORMAL, sBattleFrontier_TutorMoveDescriptions3[selection], 0, 1, 0, NULL);
-        if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_4)
+        else if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_4)
             AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, FONT_NORMAL, sBattleFrontier_TutorMoveDescriptions4[selection], 0, 1, 0, NULL);
         else if (menu == SCROLL_MULTI_BF_MOVE_TUTOR_5)
             AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, FONT_NORMAL, sBattleFrontier_TutorMoveDescriptions5[selection], 0, 1, 0, NULL);

@@ -38,11 +38,11 @@ Lab2_HideRival::
 	call Common_EventScript_SetupRivalGfxId
 	compare VAR_PEARLWOOD_TOWN_STATE, 9
 	goto_if_eq Lab2_HideRival_1
-	setflag FLAG_UNUSED_LAB_RIVAL
+	setflag FLAG_HIDE_LAB_RIVAL
 	return
 
 Lab2_HideRival_1:
-	clearflag FLAG_UNUSED_LAB_RIVAL
+	clearflag FLAG_HIDE_LAB_RIVAL
 	return
 
 
@@ -109,7 +109,7 @@ Lab2_DexGet_11:
 
 Lab2_RivalEnd::
 	removeobject 5
-	setflag FLAG_UNUSED_LAB_RIVAL
+	setflag FLAG_HIDE_LAB_RIVAL
 	setvar VAR_PEARLWOOD_TOWN_STATE, 10
 	clearflag FLAG_ROUTE1_STATE
 	savebgm MUS_DUMMY

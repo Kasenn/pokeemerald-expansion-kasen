@@ -348,7 +348,7 @@ Desert_Trainer14_CooltrainerPostBattle::
 	playfanfare MUS_OBTAIN_B_POINTS
 	msgbox Desert_Trainer14_CooltrainerPostBattle_Text_0, MSGBOX_DEFAULT
 	waitfanfare
-	goto_if_unset FLAG_UNUSED_BP_INTRO, Desert_Trainer14_CooltrainerPostBattle_2
+	goto_if_unset FLAG_INTRO_TO_BP, Desert_Trainer14_CooltrainerPostBattle_2
 Desert_Trainer14_CooltrainerPostBattle_1:
 	waitmessage
 	closemessage
@@ -357,7 +357,7 @@ Desert_Trainer14_CooltrainerPostBattle_1:
 
 Desert_Trainer14_CooltrainerPostBattle_2:
 	msgbox ExplainBP, MSGBOX_DEFAULT
-	setflag FLAG_UNUSED_BP_INTRO
+	setflag FLAG_INTRO_TO_BP
 	goto Desert_Trainer14_CooltrainerPostBattle_1
 
 

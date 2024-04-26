@@ -150,11 +150,11 @@ script Route1_CoolTrainerPostBattle{
     msgbox("Give that item to your Pokémon to\nboost the power of their attacks.\pTake these as well.", MSGBOX_DEFAULT)
     playfanfare(MUS_OBTAIN_B_POINTS)
     msgbox("Earned 10 BP!", MSGBOX_DEFAULT)
-    if(!flag(FLAG_UNUSED_BP_INTRO)){
+    if(!flag(FLAG_INTRO_TO_BP)){
         msgbox(ExplainBP, MSGBOX_DEFAULT)
     }
     setflag(FLAG_UNUSED_ROUTE1_COOLTRAINERREWARD)
-    setflag(FLAG_UNUSED_BP_INTRO)
+    setflag(FLAG_INTRO_TO_BP)
     waitmessage
     closemessage
     call(Route1_GIVEBP)

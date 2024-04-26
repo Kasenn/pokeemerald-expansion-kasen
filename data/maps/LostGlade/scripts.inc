@@ -14,7 +14,7 @@ LostGladeShrine::
 
 
 LostGladeCamper::
-	goto_if_set FLAG_UNUSED_GLADE, LostGladeCamper_1
+	goto_if_set FLAG_GLADE_PUZZLE, LostGladeCamper_1
 	msgbox LostGladeCamper_Text_1, MSGBOX_NPC
 	end
 
@@ -24,12 +24,12 @@ LostGladeCamper_1:
 
 
 LostGladeFlag::
-	goto_if_unset FLAG_UNUSED_GLADE, LostGladeFlag_2
+	goto_if_unset FLAG_GLADE_PUZZLE, LostGladeFlag_2
 	releaseall
 	end
 
 LostGladeFlag_2:
-	setflag FLAG_UNUSED_GLADE
+	setflag FLAG_GLADE_PUZZLE
 	setvar VAR_OLDALE_TOWN_STATE, 2
 	releaseall
 	end

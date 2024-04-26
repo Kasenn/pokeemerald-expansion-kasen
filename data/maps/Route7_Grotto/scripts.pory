@@ -1,17 +1,8 @@
 mapscripts Route7_Grotto_MapScripts{
-    MAP_SCRIPT_ON_TRANSITION: Route7_GrottoFlags
+    MAP_SCRIPT_ON_TRANSITION: ROUTE7_Grotto_SetObject
+    MAP_SCRIPT_ON_LOAD: ROUTE7_Grotto_SetObject
 }
 
-script Route7_GrottoFlags{
-    if(!flag(FLAG_DAILY_ROUTE7_GROTTO)){
-        clearflag(FLAG_ROUTE7_GROTTO_CLEARED)
-        random(100)
-        copyvar(VAR_ROUTE7_GROTTO, VAR_RESULT)
-    }
-    setflag(FLAG_DAILY_ROUTE7_GROTTO)
-    goto(ROUTE7_Grotto_SetObject)
-    end
-}
 script ROUTE7_Grotto_SetObject{
     if(var(VAR_ROUTE7_GROTTO) <= 39){
         setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL)
@@ -105,7 +96,7 @@ script ROUTE7_GrottoPokemon{
     setflag(FLAG_SYS_CTRL_OBJ_DELETE)
     dowildbattle
     clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
-    setflag(FLAG_ROUTE7_GROTTO_CLEARED)
+    setflag(FLAG_DAILY_ROUTE7_GROTTO)
 	goto(Common_EventScript_RemoveStaticPokemon)
     release
     end

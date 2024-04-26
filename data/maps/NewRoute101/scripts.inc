@@ -121,10 +121,10 @@ Route1_CoolTrainerPostBattle_1:
 	msgbox Route1_CoolTrainerPostBattle_Text_0, MSGBOX_DEFAULT
 	playfanfare MUS_OBTAIN_B_POINTS
 	msgbox Route1_CoolTrainerPostBattle_Text_1, MSGBOX_DEFAULT
-	goto_if_unset FLAG_UNUSED_BP_INTRO, Route1_CoolTrainerPostBattle_9
+	goto_if_unset FLAG_INTRO_TO_BP, Route1_CoolTrainerPostBattle_9
 Route1_CoolTrainerPostBattle_8:
 	setflag FLAG_UNUSED_ROUTE1_COOLTRAINERREWARD
-	setflag FLAG_UNUSED_BP_INTRO
+	setflag FLAG_INTRO_TO_BP
 	waitmessage
 	closemessage
 	call Route1_GIVEBP

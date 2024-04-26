@@ -62,6 +62,16 @@ void SetHeartScaleMove(void)
     VarSet(VAR_BPBEAUTY_STATE, 0);
 }
 
+void SetGrottoes(void)
+{
+    u32 rand;
+
+    rand = Random() % 100;
+    VarSet(VAR_WW_GROTTO, rand);
+    rand = Random() % 100;
+    VarSet(VAR_ROUTE7_GROTTO, rand);
+}
+
 void DisableNationalPokedex(void)
 {
     u16 *nationalDexVar = GetVarPointer(VAR_NATIONAL_DEX);

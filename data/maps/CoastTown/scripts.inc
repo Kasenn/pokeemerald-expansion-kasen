@@ -61,7 +61,7 @@ CoastTown_FatGuy::
 CoastTown_FatGuy2::
 	lockall
 	faceplayer
-	goto_if_unset FLAG_COASTTOWNHONEYGET, CoastTown_FatGuy2_2
+	goto_if_unset FLAG_AZURETIDE_HONEY, CoastTown_FatGuy2_2
 	msgbox FatGuyHoneyGivenAlready, MSGBOX_NPC
 	waitmessage
 	closemessage
@@ -82,7 +82,7 @@ CoastTown_FatGuy2_2:
 CoastTown_FatGuy2_4:
 	giveitem ITEM_HONEY, 3
 	msgbox FatGuyHoneyGiven, MSGBOX_NPC
-	setflag FLAG_COASTTOWNHONEYGET
+	setflag FLAG_AZURETIDE_HONEY
 	waitmessage
 	closemessage
 	release
@@ -382,7 +382,7 @@ CoastTown_YesPokemonTree_Event_22:
 
 Azuretide_HoneyTree::
 	lockall
-	goto_if_unset FLAG_COASTTOWNHONEYGET, Azuretide_HoneyTree_2
+	goto_if_unset FLAG_AZURETIDE_HONEY, Azuretide_HoneyTree_2
 	checkitem ITEM_HONEY, 1
 	compare VAR_RESULT, TRUE
 	goto_if_eq Azuretide_HoneyTree_4

@@ -180,45 +180,6 @@ text Aldeleaf_BPShop_Text_IcyWindDesc{
     "foe's Speed."
 }
 
-
-text BPShop_Text_TutorIntro{
-	"Welcome to the BP shop.\p"
-	"I can train your Pokémon moves\n"
-	"in exchange for BP."
-}
-text BPShop_Text_TutorWelcomeBack{
-	"Welcome to the BP shop.\n"
-	"I am this shop's move tutor."
-}
-text BPShop_Text_TeachWhichMove{
-	"Which move would you like to choose?"
-}
-text BPShop_Text_MoveWillBeXBP{
-	"The move {STR_VAR_1}, is it?\n"
-	"That will be {STR_VAR_2} Battle Points."
-}
-text BPShop_Text_TeachMoveToWhichMon{
-	"Which Pokémon would you like to teach\n"
-	"this move?"
-}
-text BPShop_Text_NotEnoughPoints{
-	"I'm so sorry…\n"
-	"You don't have enough Battle Points…"
-}
-text BPShop_Text_ComeAgain{
-	"Please come again."
-}
-text BPShop_Text_YouDontWantTo{
-	"Let me know if you change your mind."
-}
-
-script BPShop_ExitTutorMoveSelect{
-	special(CloseBattleFrontierTutorWindow)
-	special(CloseBattlePointsWindow)
-	msgbox(BPShop_Text_YouDontWantTo, MSGBOX_DEFAULT)
-	release
-	end
-}
 text BPShop_NotEnoughRoom{
     "I'm so sorry…\nYou don't have space to hold it…"
 }
@@ -231,84 +192,20 @@ text BPShop_NotEnoughPoints{
 text BPShop_ThankYouVisitWithPoints{
     "Thank you very much.\pPlease visit us when you have\nsaved up Battle Points."
 }
-
 script BPShop_ClerkWelcome{
     msgbox(BPShop_BuySomething, MSGBOX_DEFAULT)
     special(ShowBattlePointsWindow)
     return
 }
-
 text BPShop_BuySomething{
     "Welcome to the BP shop.\pHere's a list of this store's\npurchasable items."
 }
-
 script BPShop_ClerkGoodbye{
  	msgbox(BPShop_ThankYouVisitWithPoints, MSGBOX_DEFAULT)
  	special(CloseBattlePointsWindow)
  	release
  	end
 }
-
-
-
-script BPShop_ConfirmMoveSelection{
-	special(BufferBattleFrontierTutorMoveName)
-	buffernumberstring(STR_VAR_2, VAR_0x8008)
-	msgbox(BPShop_Text_MoveWillBeXBP, MSGBOX_YESNO)
-	if(var(VAR_RESULT) == NO){
-		switch(var(VAR_TEMP_5)){
-		case 3:
-			goto(Coralgrove_BPShop_ChooseTutorMove)
-		case 4:
-			goto(Aldeleaf_BPShop_ChooseTutorMove)
-		case 5:
-			goto(Shoreslate_BPShop_ChooseTutorMove)
-		case 6:
-			goto(Kaolisle_BPShop_ChooseTutorMove)
-		}
-	}
-	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
-	goto_if_ge(VAR_TEMP_1, VAR_0x8008, BPShop_TeachTutorMove)
-	msgbox(BPShop_Text_NotEnoughPoints, MSGBOX_DEFAULT)
-	switch(var(VAR_TEMP_5)){
-		case 3:
-			goto(Coralgrove_BPShop_ChooseTutorMove)
-		case 4:
-			goto(Aldeleaf_BPShop_ChooseTutorMove)
-		case 5:
-			goto(Shoreslate_BPShop_ChooseTutorMove)
-		case 6:
-			goto(Kaolisle_BPShop_ChooseTutorMove)
-		}
-	end
-}
-script BPShop_TeachTutorMove{
-	msgbox(BPShop_Text_TeachMoveToWhichMon, MSGBOX_DEFAULT)
-	fadescreen(FADE_TO_BLACK)
-	special(CloseBattlePointsWindow)
-	special(CloseBattleFrontierTutorWindow)
-	special(ChooseMonForMoveTutor)
-	waitstate
-	if(var(VAR_RESULT) == FALSE){
-		switch(var(VAR_TEMP_5)){
-		case 3:
-			goto(Coralgrove_BPShop_ChooseTutorMove)
-		case 4:
-			goto(Aldeleaf_BPShop_ChooseTutorMove)
-		case 5:
-			goto(Shoreslate_BPShop_ChooseTutorMove)
-		case 6:
-			goto(Kaolisle_BPShop_ChooseTutorMove)
-		}
-	}
-	msgbox(BPShop_Text_ComeAgain, MSGBOX_DEFAULT)
-	copyvar(VAR_0x8004, VAR_0x8008)
-	special(TakeFrontierBattlePoints)
-	release
-	end
-}
-
-
 script BPShop_HoldItemClerk{
     lock
     faceplayer
@@ -327,7 +224,6 @@ script BPShop_HoldItemClerk{
 	}
     end
 }
-
 script BPShop_SetupHoldItem{
 	special(ShowFrontierExchangeCornerItemIconWindow)
     special(ShowScrollableMultichoice)
@@ -335,7 +231,6 @@ script BPShop_SetupHoldItem{
     special(CloseFrontierExchangeCornerItemIconWindow)
 	return
 }
-
 script BPShop_HeldItem{
 	bufferitemname(STR_VAR_3, VAR_0x8009)
  	msgbox(BPShop_HeldItemText, MSGBOX_YESNO)
@@ -359,7 +254,6 @@ script BPShop_HeldItem{
 text BPShop_HeldItemText{
     "You've chosen the {STR_VAR_3}.\nIs that correct?"
 }
-
 script BPShop_TryPurchasePrize{
  	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
  	goto_if_ge(VAR_TEMP_1, VAR_0x8008, BPShop_TryGiveItem)
@@ -378,7 +272,6 @@ script BPShop_TryPurchasePrize{
 	}
  	end
 }
-
 script BPShop_TryGiveItem{
  	checkitemspace(VAR_0x8009)
  	goto_if_eq(VAR_RESULT, FALSE, BPShop_BagFull)
@@ -409,16 +302,7 @@ script BPShop_BagFull{
  	end
 }
 
-script BPShop_MoveTutor{
-	lock
-	faceplayer
-    if(flag(FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR2)){
-        msgbox(BPShop_Text_TutorWelcomeBack, MSGBOX_DEFAULT)
-    }
-	else{
-        msgbox(BPShop_Text_TutorIntro, MSGBOX_DEFAULT)
-	    setflag(FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR2)
-    }
+script SetCorrectBpShop{
 	switch(var(VAR_TEMP_5)){
 		case 3:
 			goto(Coralgrove_BPShop_ChooseTutorMove)
@@ -430,7 +314,20 @@ script BPShop_MoveTutor{
 			goto(Kaolisle_BPShop_ChooseTutorMove)
 		case 7:
 			goto(Sandstone_BPShop_ChooseTutorMove)
-	}
+		}
+}
+
+script BPShop_MoveTutor{
+	lock
+	faceplayer
+    if(flag(FLAG_MET_MOVE_TUTOR)){
+        msgbox(BPShop_Text_TutorWelcomeBack, MSGBOX_DEFAULT)
+    }
+	else{
+        msgbox(BPShop_Text_TutorIntro, MSGBOX_DEFAULT)
+	    setflag(FLAG_MET_MOVE_TUTOR)
+    }
+	call(SetCorrectBpShop)
 	end
 }
 
@@ -442,4 +339,74 @@ script MoveTutorSetup{
 	special(ShowScrollableMultichoice)
 	waitstate
 	copyvar(VAR_TEMP_FRONTIER_TUTOR_SELECTION, VAR_RESULT)
+}
+
+script BPShop_ConfirmMoveSelection{
+	special(BufferBattleFrontierTutorMoveName)
+	buffernumberstring(STR_VAR_2, VAR_0x8008)
+	msgbox(BPShop_Text_MoveWillBeXBP, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO){
+		call(SetCorrectBpShop)
+	}
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	goto_if_ge(VAR_TEMP_1, VAR_0x8008, BPShop_TeachTutorMove)
+	msgbox(BPShop_Text_NotEnoughPoints, MSGBOX_DEFAULT)
+	call(SetCorrectBpShop)
+	end
+}
+
+script BPShop_TeachTutorMove{
+	msgbox(BPShop_Text_TeachMoveToWhichMon, MSGBOX_DEFAULT)
+	fadescreen(FADE_TO_BLACK)
+	special(CloseBattlePointsWindow)
+	special(CloseBattleFrontierTutorWindow)
+	special(ChooseMonForMoveTutor)
+	waitstate
+	if(var(VAR_RESULT) == FALSE){
+		call(SetCorrectBpShop)
+	}
+	msgbox(BPShop_Text_ComeAgain, MSGBOX_DEFAULT)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	special(TakeFrontierBattlePoints)
+	release
+	end
+}
+
+script BPShop_ExitTutorMoveSelect{
+	special(CloseBattleFrontierTutorWindow)
+	special(CloseBattlePointsWindow)
+	msgbox(BPShop_Text_YouDontWantTo, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+text BPShop_Text_TutorIntro{
+	"Welcome to the BP shop.\p"
+	"I can train your Pokémon moves\n"
+	"in exchange for BP."
+}
+text BPShop_Text_TutorWelcomeBack{
+	"Welcome to the BP shop.\n"
+	"I am this shop's move tutor."
+}
+text BPShop_Text_TeachWhichMove{
+	"Which move would you like to choose?"
+}
+text BPShop_Text_MoveWillBeXBP{
+	"The move {STR_VAR_1}, is it?\n"
+	"That will be {STR_VAR_2} Battle Points."
+}
+text BPShop_Text_TeachMoveToWhichMon{
+	"Which Pokémon would you like to teach\n"
+	"this move?"
+}
+text BPShop_Text_NotEnoughPoints{
+	"I'm so sorry…\n"
+	"You don't have enough Battle Points…"
+}
+text BPShop_Text_ComeAgain{
+	"Please come again."
+}
+text BPShop_Text_YouDontWantTo{
+	"Let me know if you change your mind."
 }

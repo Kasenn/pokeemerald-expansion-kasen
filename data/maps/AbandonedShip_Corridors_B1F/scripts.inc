@@ -8,8 +8,8 @@ AbandonedShip_Corridors_B1F_OnResume:
 	end
 
 AbandonedShip_Corridors_B1F_OnLoad:
-	call_if_unset FLAG_USED_STORAGE_KEY, AbandonedShip_Corridors_B1F_EventScript_LockStorageRoom
-	call_if_set FLAG_USED_STORAGE_KEY, AbandonedShip_Corridors_B1F_EventScript_UnlockStorageRoom
+	call_if_unset FLAG_OLD_WORLD_FLAG, AbandonedShip_Corridors_B1F_EventScript_LockStorageRoom
+	call_if_set FLAG_OLD_WORLD_FLAG, AbandonedShip_Corridors_B1F_EventScript_UnlockStorageRoom
 	end
 
 AbandonedShip_Corridors_B1F_EventScript_LockStorageRoom::
@@ -26,13 +26,13 @@ AbandonedShip_Corridors_B1F_EventScript_TuberM::
 
 AbandonedShip_Corridors_B1F_EventScript_StorageRoomDoor::
 	lockall
-	goto_if_set FLAG_USED_STORAGE_KEY, AbandonedShip_Corridors_B1F_EventScript_DoorIsUnlocked
+	goto_if_set FLAG_OLD_WORLD_FLAG, AbandonedShip_Corridors_B1F_EventScript_DoorIsUnlocked
 	checkitem ITEM_STORAGE_KEY
 	goto_if_eq VAR_RESULT, FALSE, AbandonedShip_Corridors_B1F_EventScript_DoorIsLocked
 	msgbox AbandonedShip_Corridors_B1F_Text_InsertedStorageKey, MSGBOX_DEFAULT
 	playse SE_PIN
 	removeitem ITEM_STORAGE_KEY
-	setflag FLAG_USED_STORAGE_KEY
+	setflag FLAG_OLD_WORLD_FLAG
 	call AbandonedShip_Corridors_B1F_EventScript_UnlockStorageRoom
 	special DrawWholeMapView
 	releaseall

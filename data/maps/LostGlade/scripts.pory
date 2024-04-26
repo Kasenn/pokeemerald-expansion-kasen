@@ -13,7 +13,7 @@ script LostGladeShrine{
 }
 
 script LostGladeCamper{
-    if(flag(FLAG_UNUSED_GLADE)){
+    if(flag(FLAG_GLADE_PUZZLE)){
         msgbox("You've been to the large puddle\nas well, haven't you?\pThere must be some clue to breaking\nthe curse on this place.", MSGBOX_NPC)
         end
     }
@@ -24,8 +24,8 @@ script LostGladeCamper{
 }
 
 script LostGladeFlag{
-    if(!flag(FLAG_UNUSED_GLADE)){
-        setflag(FLAG_UNUSED_GLADE)
+    if(!flag(FLAG_GLADE_PUZZLE)){
+        setflag(FLAG_GLADE_PUZZLE)
         setvar(VAR_OLDALE_TOWN_STATE, 2)
         releaseall
         end

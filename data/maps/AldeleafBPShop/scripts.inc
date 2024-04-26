@@ -187,14 +187,6 @@ Aldeleaf_BPShop_ChooseTutorMove_14:
 	goto Aldeleaf_BPShop_ChooseTutorMove_1
 
 
-BPShop_ExitTutorMoveSelect::
-	special CloseBattleFrontierTutorWindow
-	special CloseBattlePointsWindow
-	msgbox BPShop_Text_YouDontWantTo, MSGBOX_DEFAULT
-	release
-	end
-
-
 BPShop_ClerkWelcome::
 	msgbox BPShop_BuySomething, MSGBOX_DEFAULT
 	special ShowBattlePointsWindow
@@ -206,106 +198,6 @@ BPShop_ClerkGoodbye::
 	special CloseBattlePointsWindow
 	release
 	end
-
-
-BPShop_ConfirmMoveSelection::
-	special BufferBattleFrontierTutorMoveName
-	buffernumberstring STR_VAR_2, VAR_0x8008
-	msgbox BPShop_Text_MoveWillBeXBP, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq BPShop_ConfirmMoveSelection_2
-BPShop_ConfirmMoveSelection_1:
-	specialvar VAR_TEMP_1, GetFrontierBattlePoints
-	goto_if_ge VAR_TEMP_1, VAR_0x8008, BPShop_TeachTutorMove
-	msgbox BPShop_Text_NotEnoughPoints, MSGBOX_DEFAULT
-	switch VAR_TEMP_5
-	case 3, BPShop_ConfirmMoveSelection_6
-	case 4, BPShop_ConfirmMoveSelection_7
-	case 5, BPShop_ConfirmMoveSelection_8
-	case 6, BPShop_ConfirmMoveSelection_9
-BPShop_ConfirmMoveSelection_4:
-	end
-
-BPShop_ConfirmMoveSelection_2:
-	switch VAR_TEMP_5
-	case 3, BPShop_ConfirmMoveSelection_11
-	case 4, BPShop_ConfirmMoveSelection_12
-	case 5, BPShop_ConfirmMoveSelection_13
-	case 6, BPShop_ConfirmMoveSelection_14
-	goto BPShop_ConfirmMoveSelection_1
-
-BPShop_ConfirmMoveSelection_6:
-	goto Coralgrove_BPShop_ChooseTutorMove
-	goto BPShop_ConfirmMoveSelection_4
-
-BPShop_ConfirmMoveSelection_7:
-	goto Aldeleaf_BPShop_ChooseTutorMove
-	goto BPShop_ConfirmMoveSelection_4
-
-BPShop_ConfirmMoveSelection_8:
-	goto Shoreslate_BPShop_ChooseTutorMove
-	goto BPShop_ConfirmMoveSelection_4
-
-BPShop_ConfirmMoveSelection_9:
-	goto Kaolisle_BPShop_ChooseTutorMove
-	goto BPShop_ConfirmMoveSelection_4
-
-BPShop_ConfirmMoveSelection_11:
-	goto Coralgrove_BPShop_ChooseTutorMove
-	goto BPShop_ConfirmMoveSelection_1
-
-BPShop_ConfirmMoveSelection_12:
-	goto Aldeleaf_BPShop_ChooseTutorMove
-	goto BPShop_ConfirmMoveSelection_1
-
-BPShop_ConfirmMoveSelection_13:
-	goto Shoreslate_BPShop_ChooseTutorMove
-	goto BPShop_ConfirmMoveSelection_1
-
-BPShop_ConfirmMoveSelection_14:
-	goto Kaolisle_BPShop_ChooseTutorMove
-	goto BPShop_ConfirmMoveSelection_1
-
-
-BPShop_TeachTutorMove::
-	msgbox BPShop_Text_TeachMoveToWhichMon, MSGBOX_DEFAULT
-	fadescreen FADE_TO_BLACK
-	special CloseBattlePointsWindow
-	special CloseBattleFrontierTutorWindow
-	special ChooseMonForMoveTutor
-	waitstate
-	compare VAR_RESULT, FALSE
-	goto_if_eq BPShop_TeachTutorMove_2
-BPShop_TeachTutorMove_1:
-	msgbox BPShop_Text_ComeAgain, MSGBOX_DEFAULT
-	copyvar VAR_0x8004, VAR_0x8008
-	special TakeFrontierBattlePoints
-	release
-	end
-
-BPShop_TeachTutorMove_2:
-	switch VAR_TEMP_5
-	case 3, BPShop_TeachTutorMove_5
-	case 4, BPShop_TeachTutorMove_6
-	case 5, BPShop_TeachTutorMove_7
-	case 6, BPShop_TeachTutorMove_8
-	goto BPShop_TeachTutorMove_1
-
-BPShop_TeachTutorMove_5:
-	goto Coralgrove_BPShop_ChooseTutorMove
-	goto BPShop_TeachTutorMove_1
-
-BPShop_TeachTutorMove_6:
-	goto Aldeleaf_BPShop_ChooseTutorMove
-	goto BPShop_TeachTutorMove_1
-
-BPShop_TeachTutorMove_7:
-	goto Shoreslate_BPShop_ChooseTutorMove
-	goto BPShop_TeachTutorMove_1
-
-BPShop_TeachTutorMove_8:
-	goto Kaolisle_BPShop_ChooseTutorMove
-	goto BPShop_TeachTutorMove_1
 
 
 BPShop_HoldItemClerk::
@@ -469,45 +361,49 @@ BPShop_BagFull::
 	end
 
 
+SetCorrectBpShop::
+	switch VAR_TEMP_5
+	case 3, SetCorrectBpShop_2
+	case 4, SetCorrectBpShop_3
+	case 5, SetCorrectBpShop_4
+	case 6, SetCorrectBpShop_5
+	case 7, SetCorrectBpShop_6
+	return
+
+SetCorrectBpShop_2:
+	goto Coralgrove_BPShop_ChooseTutorMove
+	return
+
+SetCorrectBpShop_3:
+	goto Aldeleaf_BPShop_ChooseTutorMove
+	return
+
+SetCorrectBpShop_4:
+	goto Shoreslate_BPShop_ChooseTutorMove
+	return
+
+SetCorrectBpShop_5:
+	goto Kaolisle_BPShop_ChooseTutorMove
+	return
+
+SetCorrectBpShop_6:
+	goto Sandstone_BPShop_ChooseTutorMove
+	return
+
+
 BPShop_MoveTutor::
 	lock
 	faceplayer
-	goto_if_set FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR2, BPShop_MoveTutor_2
+	goto_if_set FLAG_MET_MOVE_TUTOR, BPShop_MoveTutor_2
 	msgbox BPShop_Text_TutorIntro, MSGBOX_DEFAULT
-	setflag FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR2
+	setflag FLAG_MET_MOVE_TUTOR
 BPShop_MoveTutor_1:
-	switch VAR_TEMP_5
-	case 3, BPShop_MoveTutor_7
-	case 4, BPShop_MoveTutor_8
-	case 5, BPShop_MoveTutor_9
-	case 6, BPShop_MoveTutor_10
-	case 7, BPShop_MoveTutor_11
-BPShop_MoveTutor_5:
+	call SetCorrectBpShop
 	end
 
 BPShop_MoveTutor_2:
 	msgbox BPShop_Text_TutorWelcomeBack, MSGBOX_DEFAULT
 	goto BPShop_MoveTutor_1
-
-BPShop_MoveTutor_7:
-	goto Coralgrove_BPShop_ChooseTutorMove
-	goto BPShop_MoveTutor_5
-
-BPShop_MoveTutor_8:
-	goto Aldeleaf_BPShop_ChooseTutorMove
-	goto BPShop_MoveTutor_5
-
-BPShop_MoveTutor_9:
-	goto Shoreslate_BPShop_ChooseTutorMove
-	goto BPShop_MoveTutor_5
-
-BPShop_MoveTutor_10:
-	goto Kaolisle_BPShop_ChooseTutorMove
-	goto BPShop_MoveTutor_5
-
-BPShop_MoveTutor_11:
-	goto Sandstone_BPShop_ChooseTutorMove
-	goto BPShop_MoveTutor_5
 
 
 MoveTutorSetup::
@@ -519,6 +415,53 @@ MoveTutorSetup::
 	waitstate
 	copyvar VAR_TEMP_FRONTIER_TUTOR_SELECTION, VAR_RESULT
 	return
+
+
+BPShop_ConfirmMoveSelection::
+	special BufferBattleFrontierTutorMoveName
+	buffernumberstring STR_VAR_2, VAR_0x8008
+	msgbox BPShop_Text_MoveWillBeXBP, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq BPShop_ConfirmMoveSelection_2
+BPShop_ConfirmMoveSelection_1:
+	specialvar VAR_TEMP_1, GetFrontierBattlePoints
+	goto_if_ge VAR_TEMP_1, VAR_0x8008, BPShop_TeachTutorMove
+	msgbox BPShop_Text_NotEnoughPoints, MSGBOX_DEFAULT
+	call SetCorrectBpShop
+	end
+
+BPShop_ConfirmMoveSelection_2:
+	call SetCorrectBpShop
+	goto BPShop_ConfirmMoveSelection_1
+
+
+BPShop_TeachTutorMove::
+	msgbox BPShop_Text_TeachMoveToWhichMon, MSGBOX_DEFAULT
+	fadescreen FADE_TO_BLACK
+	special CloseBattlePointsWindow
+	special CloseBattleFrontierTutorWindow
+	special ChooseMonForMoveTutor
+	waitstate
+	compare VAR_RESULT, FALSE
+	goto_if_eq BPShop_TeachTutorMove_2
+BPShop_TeachTutorMove_1:
+	msgbox BPShop_Text_ComeAgain, MSGBOX_DEFAULT
+	copyvar VAR_0x8004, VAR_0x8008
+	special TakeFrontierBattlePoints
+	release
+	end
+
+BPShop_TeachTutorMove_2:
+	call SetCorrectBpShop
+	goto BPShop_TeachTutorMove_1
+
+
+BPShop_ExitTutorMoveSelect::
+	special CloseBattleFrontierTutorWindow
+	special CloseBattlePointsWindow
+	msgbox BPShop_Text_YouDontWantTo, MSGBOX_DEFAULT
+	release
+	end
 
 
 AldeShop_Man_Text::
@@ -584,6 +527,24 @@ Aldeleaf_BPShop_Text_IcyWindDesc::
 	.string "that lowers the\n"
 	.string "foe's Speed.$"
 
+BPShop_NotEnoughRoom::
+	.string "I'm so sorry…\nYou don't have space to hold it…$"
+
+BPShop_HereIsYourItem::
+	.string "Here is your item!$"
+
+BPShop_NotEnoughPoints::
+	.string "I'm so sorry…\nYou don't have enough Battle Points…$"
+
+BPShop_ThankYouVisitWithPoints::
+	.string "Thank you very much.\pPlease visit us when you have\nsaved up Battle Points.$"
+
+BPShop_BuySomething::
+	.string "Welcome to the BP shop.\pHere's a list of this store's\npurchasable items.$"
+
+BPShop_HeldItemText::
+	.string "You've chosen the {STR_VAR_3}.\nIs that correct?$"
+
 BPShop_Text_TutorIntro::
 	.string "Welcome to the BP shop.\p"
 	.string "I can train your Pokémon moves\n"
@@ -613,21 +574,3 @@ BPShop_Text_ComeAgain::
 
 BPShop_Text_YouDontWantTo::
 	.string "Let me know if you change your mind.$"
-
-BPShop_NotEnoughRoom::
-	.string "I'm so sorry…\nYou don't have space to hold it…$"
-
-BPShop_HereIsYourItem::
-	.string "Here is your item!$"
-
-BPShop_NotEnoughPoints::
-	.string "I'm so sorry…\nYou don't have enough Battle Points…$"
-
-BPShop_ThankYouVisitWithPoints::
-	.string "Thank you very much.\pPlease visit us when you have\nsaved up Battle Points.$"
-
-BPShop_BuySomething::
-	.string "Welcome to the BP shop.\pHere's a list of this store's\npurchasable items.$"
-
-BPShop_HeldItemText::
-	.string "You've chosen the {STR_VAR_3}.\nIs that correct?$"

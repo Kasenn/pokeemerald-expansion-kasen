@@ -387,7 +387,7 @@
       "y": 13,
       "elevation": 0,
       "item": "ITEM_ORAN_BERRY",
-      "flag": "FLAG_TEMP_SKIP_GABBY_INTERVIEW"
+      "flag": "FLAG_ROUTE8_ITEM1"
     },
     {
       "type": "sign",

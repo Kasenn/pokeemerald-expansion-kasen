@@ -223,11 +223,11 @@ script WW_CoolTrainerPostBattle{
     msgbox("Turning on that item will grant\nall your Pokémon exp from battling,\leven the ones that never participated\lin the battle.\pI want you to have these as well.", MSGBOX_DEFAULT)
     playfanfare(MUS_OBTAIN_B_POINTS)
     msgbox("Earned 10 BP!", MSGBOX_DEFAULT)
-    if(!flag(FLAG_UNUSED_BP_INTRO)){
+    if(!flag(FLAG_INTRO_TO_BP)){
         msgbox(ExplainBP, MSGBOX_DEFAULT)
     }
     setflag(FLAG_UNUSED_WW_COOLTRAINERREWARD)
-    setflag(FLAG_UNUSED_BP_INTRO)
+    setflag(FLAG_INTRO_TO_BP)
     waitmessage
     closemessage
     call(WW_GIVEBP)
