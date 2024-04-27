@@ -23,6 +23,10 @@ script Aldeleaf_MuseumCurator{
         if(var(VAR_RESULT) == TRUE){
             goto(SellRelicShort)
         }
+        checkitem(ITEM_RELIC_VASE)
+        if(var(VAR_RESULT) == TRUE){
+            goto(SellRelicShort)
+        }
         else{
             msgbox(ThanksForContribution, MSGBOX_NPC)
             end
@@ -41,6 +45,10 @@ script Aldeleaf_MuseumCurator{
         checkitem(ITEM_RELIC_GOLD)
         if(var(VAR_RESULT) == TRUE){
             goto(SellRelic)
+        }
+        checkitem(ITEM_RELIC_VASE)
+        if(var(VAR_RESULT) == TRUE){
+            goto(SellRelicShort)
         }
     }
     
@@ -72,6 +80,9 @@ script SellRelic{
         if(var(VAR_ITEM_ID) == 159){
             goto(SellGold)
         }
+        if(var(VAR_ITEM_ID) == 160){
+            goto(SellVase)
+        }
         else{
             msgbox(MuseumDontWantToSell, MSGBOX_NPC)
             end
@@ -93,6 +104,9 @@ script SellRelicShort{
     }
     if(var(VAR_ITEM_ID) == 159){
         goto(SellGold)
+    }
+    if(var(VAR_ITEM_ID) == 160){
+            goto(SellVase)
     }
     else{
         msgbox(MuseumDontWantToSell, MSGBOX_NPC)
@@ -157,6 +171,25 @@ script SellGold{
         end
     }
 }
+script SellVase{
+    showmoneybox(0, 0)
+    msgbox(WouldYouLikeToSellVase, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(MuseumThatsAShame, MSGBOX_NPC)
+        end
+    }
+    else{
+        addvar(VAR_RELIC_SOLD, 1)
+        addmoney(50000)
+        playse(SE_SHOP)
+        updatemoneybox
+        removeitem(ITEM_RELIC_VASE, 1)
+        setvar(VAR_TEMP_1, 1)
+        msgbox(MuseumThanksForArtifact, MSGBOX_NPC)
+        hidemoneybox
+        end
+    }
+}
 
 text Aldeleaf_MuseumCurator_Intro{
     "I'm the curator of this museum of\n"
@@ -174,13 +207,13 @@ text MuseumDontWantToSell{
 text YouHaveARelicCoin{
     "You look like you've been to\n"
     "the desert.\p"
-    "Have you found have any relic coins\n"
+    "Have you found have any relis\n"
     "you'd be like to contribute to\l"
     "the museum?\l"
     "You will be compensated, of course."
 }
 text HereToSellMore{
-    "Here to sell more relic coins?"
+    "Here to sell more relics?"
 }
 text ThanksForContribution{
     "Thank you for your contributions.\p"
@@ -202,6 +235,12 @@ text WouldYouLikeToSellGold{
     "That's a genuine Relic Gold!\p"
     "Would you like to sell it to\n"
     "the museum for ¥10000?"
+}
+text WouldYouLikeToSellVase{
+    "I can't believe my eyes!\n"
+    "That's a genuine Relic Vase!\p"
+    "Would you like to sell it to\n"
+    "the museum for ¥50000?"
 }
 text MuseumThatsAShame{
     "That's a shame…"

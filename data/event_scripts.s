@@ -1401,3 +1401,9 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Sandstone_Gym_1F/scripts.inc"
 
 	.include "data/maps/Sandstone_Gym_2F/scripts.inc"
+
+	.include "data/maps/UndergroundRuins_4F/scripts.inc"
+
+	.include "data/maps/Sandstone_Library_1F/scripts.inc"
+
+	.include "data/maps/Sandstone_Library_2F/scripts.inc"

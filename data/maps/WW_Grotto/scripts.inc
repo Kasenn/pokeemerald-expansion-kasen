@@ -1,20 +1,7 @@
 WW_Grotto_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, WW_GrottoFlags
+	map_script MAP_SCRIPT_ON_TRANSITION, WW_Grotto_SetObject
+	map_script MAP_SCRIPT_ON_LOAD, WW_Grotto_SetObject
 	.byte 0
-
-
-WW_GrottoFlags::
-	goto_if_unset FLAG_DAILY_WW_GROTTO, WW_GrottoFlags_2
-WW_GrottoFlags_1:
-	setflag FLAG_DAILY_WW_GROTTO
-	goto WW_Grotto_SetObject
-	end
-
-WW_GrottoFlags_2:
-	clearflag FLAG_WW_GROTTO_CLEARED
-	random 100
-	copyvar VAR_WW_GROTTO, VAR_RESULT
-	goto WW_GrottoFlags_1
 
 
 WW_Grotto_SetObject::
@@ -191,7 +178,7 @@ WW_GrottoPokemon_21:
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setflag FLAG_WW_GROTTO_CLEARED
+	setflag FLAG_DAILY_WW_GROTTO
 	goto Common_EventScript_RemoveStaticPokemon
 	release
 	end

@@ -551,104 +551,104 @@ void InitSecretBaseAppearance(bool8 hidePC)
 
 void InitSecretBaseDecorationSprites(void)
 {
-    u8 i;
-    u8 *decorations;
-    u8 *decorationPositions;
-    u8 objectEventId;
-    u8 metatileBehavior;
-    u8 category;
-    u8 permission;
-    u8 numDecorations;
+    // u8 i;
+    // u8 *decorations;
+    // u8 *decorationPositions;
+    // u8 objectEventId;
+    // u8 metatileBehavior;
+    // u8 category;
+    // u8 permission;
+    // u8 numDecorations;
 
-    objectEventId = 0;
-    if (!CurMapIsSecretBase())
-    {
-        decorations = gSaveBlock1Ptr->playerRoomDecorations;
-        decorationPositions = gSaveBlock1Ptr->playerRoomDecorationPositions;
-        numDecorations = DECOR_MAX_PLAYERS_HOUSE;
-    }
-    else
-    {
-        u16 secretBaseIdx = VarGet(VAR_CURRENT_SECRET_BASE);
-        decorations = gSaveBlock1Ptr->secretBases[secretBaseIdx].decorations;
-        decorationPositions = gSaveBlock1Ptr->secretBases[secretBaseIdx].decorationPositions;
-        numDecorations = DECOR_MAX_SECRET_BASE;
-    }
+    // objectEventId = 0;
+    // if (!CurMapIsSecretBase())
+    // {
+    //     decorations = gSaveBlock1Ptr->playerRoomDecorations;
+    //     decorationPositions = gSaveBlock1Ptr->playerRoomDecorationPositions;
+    //     numDecorations = DECOR_MAX_PLAYERS_HOUSE;
+    // }
+    // else
+    // {
+    //     u16 secretBaseIdx = VarGet(VAR_CURRENT_SECRET_BASE);
+    //     decorations = gSaveBlock1Ptr->secretBases[secretBaseIdx].decorations;
+    //     decorationPositions = gSaveBlock1Ptr->secretBases[secretBaseIdx].decorationPositions;
+    //     numDecorations = DECOR_MAX_SECRET_BASE;
+    // }
 
-    for (i = 0; i < numDecorations; i++)
-    {
-        if (decorations[i] == DECOR_NONE)
-            continue;
+    // for (i = 0; i < numDecorations; i++)
+    // {
+    //     if (decorations[i] == DECOR_NONE)
+    //         continue;
 
-        permission = gDecorations[decorations[i]].permission;
-        category = gDecorations[decorations[i]].category;
-        if (permission == DECORPERM_SPRITE)
-        {
-            for (objectEventId = 0; objectEventId < gMapHeader.events->objectEventCount; objectEventId++)
-            {
-                if (gMapHeader.events->objectEvents[objectEventId].flagId == FLAG_DECORATION_1 + gSpecialVar_0x8004)
-                    break;
-            }
+    //     permission = gDecorations[decorations[i]].permission;
+    //     category = gDecorations[decorations[i]].category;
+    //     if (permission == DECORPERM_SPRITE)
+    //     {
+    //         for (objectEventId = 0; objectEventId < gMapHeader.events->objectEventCount; objectEventId++)
+    //         {
+    //             if (gMapHeader.events->objectEvents[objectEventId].flagId == FLAG_OLD_WORLD_FLAG + gSpecialVar_0x8004)
+    //                 break;
+    //         }
 
-            if (objectEventId == gMapHeader.events->objectEventCount)
-                continue;
+    //         if (objectEventId == gMapHeader.events->objectEventCount)
+    //             continue;
 
-            gSpecialVar_0x8006 = decorationPositions[i] >> 4;
-            gSpecialVar_0x8007 = decorationPositions[i] & 0xF;
-            metatileBehavior = MapGridGetMetatileBehaviorAt(gSpecialVar_0x8006 + MAP_OFFSET, gSpecialVar_0x8007 + MAP_OFFSET);
-            if (MetatileBehavior_HoldsSmallDecoration(metatileBehavior) == TRUE
-             || MetatileBehavior_HoldsLargeDecoration(metatileBehavior) == TRUE)
-            {
-                gSpecialVar_Result = VAR_OBJ_GFX_ID_0 + (gMapHeader.events->objectEvents[objectEventId].graphicsId - OBJ_EVENT_GFX_VAR_0);
-                VarSet(gSpecialVar_Result, gDecorations[decorations[i]].tiles[0]);
-                gSpecialVar_Result = gMapHeader.events->objectEvents[objectEventId].localId;
-                FlagClear(FLAG_DECORATION_1 + gSpecialVar_0x8004);
-                TrySpawnObjectEvent(gSpecialVar_Result, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
-                TryMoveObjectEventToMapCoords(gSpecialVar_Result, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, gSpecialVar_0x8006, gSpecialVar_0x8007);
-                TryOverrideObjectEventTemplateCoords(gSpecialVar_Result, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
-                if (CurMapIsSecretBase() == TRUE && VarGet(VAR_CURRENT_SECRET_BASE) != 0)
-                {
-                    if (category == DECORCAT_DOLL)
-                    {
-                        OverrideSecretBaseDecorationSpriteScript(
-                            gSpecialVar_Result,
-                            gSaveBlock1Ptr->location.mapNum,
-                            gSaveBlock1Ptr->location.mapGroup,
-                            DECORCAT_DOLL);
-                    }
-                    else if (category == DECORCAT_CUSHION)
-                    {
-                        OverrideSecretBaseDecorationSpriteScript(
-                            gSpecialVar_Result,
-                            gSaveBlock1Ptr->location.mapNum,
-                            gSaveBlock1Ptr->location.mapGroup,
-                            DECORCAT_CUSHION);
-                    }
-                }
+    //         gSpecialVar_0x8006 = decorationPositions[i] >> 4;
+    //         gSpecialVar_0x8007 = decorationPositions[i] & 0xF;
+    //         metatileBehavior = MapGridGetMetatileBehaviorAt(gSpecialVar_0x8006 + MAP_OFFSET, gSpecialVar_0x8007 + MAP_OFFSET);
+    //         if (MetatileBehavior_HoldsSmallDecoration(metatileBehavior) == TRUE
+    //          || MetatileBehavior_HoldsLargeDecoration(metatileBehavior) == TRUE)
+    //         {
+    //             gSpecialVar_Result = VAR_OBJ_GFX_ID_0 + (gMapHeader.events->objectEvents[objectEventId].graphicsId - OBJ_EVENT_GFX_VAR_0);
+    //             VarSet(gSpecialVar_Result, gDecorations[decorations[i]].tiles[0]);
+    //             gSpecialVar_Result = gMapHeader.events->objectEvents[objectEventId].localId;
+    //             FlagClear(FLAG_OLD_WORLD_FLAG + gSpecialVar_0x8004);
+    //             TrySpawnObjectEvent(gSpecialVar_Result, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+    //             TryMoveObjectEventToMapCoords(gSpecialVar_Result, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, gSpecialVar_0x8006, gSpecialVar_0x8007);
+    //             TryOverrideObjectEventTemplateCoords(gSpecialVar_Result, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+    //             if (CurMapIsSecretBase() == TRUE && VarGet(VAR_CURRENT_SECRET_BASE) != 0)
+    //             {
+    //                 if (category == DECORCAT_DOLL)
+    //                 {
+    //                     OverrideSecretBaseDecorationSpriteScript(
+    //                         gSpecialVar_Result,
+    //                         gSaveBlock1Ptr->location.mapNum,
+    //                         gSaveBlock1Ptr->location.mapGroup,
+    //                         DECORCAT_DOLL);
+    //                 }
+    //                 else if (category == DECORCAT_CUSHION)
+    //                 {
+    //                     OverrideSecretBaseDecorationSpriteScript(
+    //                         gSpecialVar_Result,
+    //                         gSaveBlock1Ptr->location.mapNum,
+    //                         gSaveBlock1Ptr->location.mapGroup,
+    //                         DECORCAT_CUSHION);
+    //                 }
+    //             }
 
-                gSpecialVar_0x8004++;
-            }
-        }
-    }
+    //             gSpecialVar_0x8004++;
+    //         }
+    //     }
+    // }
 }
 
 void HideSecretBaseDecorationSprites(void)
 {
-    u8 objectEventId;
-    u16 flag;
+    // u8 objectEventId;
+    // u16 flag;
 
-    for (objectEventId = 0; objectEventId < gMapHeader.events->objectEventCount; objectEventId++)
-    {
-        flag = gMapHeader.events->objectEvents[objectEventId].flagId;
-        if (flag >= FLAG_DECORATION_1 && flag <= FLAG_DECORATION_14)
-        {
-            RemoveObjectEventByLocalIdAndMap(
-                gMapHeader.events->objectEvents[objectEventId].localId,
-                gSaveBlock1Ptr->location.mapNum,
-                gSaveBlock1Ptr->location.mapGroup);
-            FlagSet(flag);
-        }
-    }
+    // for (objectEventId = 0; objectEventId < gMapHeader.events->objectEventCount; objectEventId++)
+    // {
+    //     flag = gMapHeader.events->objectEvents[objectEventId].flagId;
+    //     if (flag >= FLAG_OLD_WORLD_FLAG && flag <= FLAG_OLD_WORLD_FLAG)
+    //     {
+    //         RemoveObjectEventByLocalIdAndMap(
+    //             gMapHeader.events->objectEvents[objectEventId].localId,
+    //             gSaveBlock1Ptr->location.mapNum,
+    //             gSaveBlock1Ptr->location.mapGroup);
+    //         FlagSet(flag);
+    //     }
+    // }
 }
 
 void SetSecretBaseOwnerGfxId(void)

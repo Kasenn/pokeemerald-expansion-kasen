@@ -6030,6 +6030,36 @@
       "secondary_tileset": "gTileset_LavaridgeGym",
       "border_filepath": "data/layouts/Sandstone_Gym_2F/border.bin",
       "blockdata_filepath": "data/layouts/Sandstone_Gym_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_UNDERGROUND_RUINS_4F",
+      "name": "UndergroundRuins_4F_Layout",
+      "width": 50,
+      "height": 73,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MirageTower",
+      "border_filepath": "data/layouts/UndergroundRuins_4F/border.bin",
+      "blockdata_filepath": "data/layouts/UndergroundRuins_4F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSTONE_LIBRARY_1F",
+      "name": "Sandstone_Library_1F_Layout",
+      "width": 30,
+      "height": 18,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Library",
+      "border_filepath": "data/layouts/Sandstone_Library_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Sandstone_Library_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSTONE_LIBRARY_2F",
+      "name": "Sandstone_Library_2F_Layout",
+      "width": 30,
+      "height": 18,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_gTileset_Hotel",
+      "border_filepath": "data/layouts/Sandstone_Library_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Sandstone_Library_2F/map.bin"
     }
   ]
 }

@@ -50,7 +50,7 @@
 #define FLAG_SYSTEM_NO_CATCHING                 0x25 // STOPS CATCHING WILD POKEMON
 #define FLAG_SYSTEM_NO_WILD_RUNNING             0x26 // Stops running from wild pokemon
 #define FLAG_SYSTEM_TOGGLE_DOUBLE_WILDS         0x27 // Forces double wild battles
-#define FLAG_UNUSED_0X28                        0x28 // UNUSED FLAG
+#define FLAG_OBTAINED_PAINTBRUSH                0x28 // 
 #define FLAG_MET_MOVE_TUTOR                     0x29 // Introduction to BP Shop Move Tutor
 #define FLAG_ROUTE5_ITEM1                       0x2A // Route 5 item flags start
 #define FLAG_ROUTE5_ITEM2                       0x2B // 
@@ -95,11 +95,11 @@
 #define FLAG_SYSTEM_NOREWARDBATTLES             0x50 // NO EXP OR MONEY FROM BATTLES, used in hotel battle buffet
 #define FLAG_SET_WALL_CLOCK                     0x51
 #define FLAG_RECEIVED_METAL_COAT                0x52
-#define FLAG_UNUSED_0X53                        0x53
+#define FLAG_SANDSTONE_LAVACOOKIE               0x53
 #define FLAG_RECEIVED_LIGHTBALL                 0x54  // Received light ball after showing 2 raichus in skyloch village
 #define FLAG_BUFFET_COMPLETE                    0x55
 
-#define FLAG_UNUSED_0X56                        0x56  // HAS BEEN SET IN NEW GAME, CLEAR BEFORE USING!
+#define FLAG_TRADED_SMEARGLE                    0x56  // HAS BEEN SET IN NEW GAME, CLEAR BEFORE USING!
 #define FLAG_MET_RIVAL_MOM                      0x57
 #define FLAG_BIRCH_AIDE_MET                     0x58
 #define FLAG_DECLINED_BIKE                      0x59
@@ -190,20 +190,20 @@
 #define FLAG_RECEIVED_TM_CALM_MIND           0xAB
 #define FLAG_RECEIVED_TM_WATER_PULSE         0xAC
 #define FLAG_HIDE_SECRET_BASE_TRAINER        0xAD
-#define FLAG_DECORATION_1                    0xAE
-#define FLAG_DECORATION_2                    0xAF
-#define FLAG_DECORATION_3                    0xB0
-#define FLAG_DECORATION_4                    0xB1
-#define FLAG_DECORATION_5                    0xB2
-#define FLAG_DECORATION_6                    0xB3
-#define FLAG_DECORATION_7                    0xB4
-#define FLAG_DECORATION_8                    0xB5
-#define FLAG_DECORATION_9                    0xB6
-#define FLAG_DECORATION_10                   0xB7
-#define FLAG_DECORATION_11                   0xB8
-#define FLAG_DECORATION_12                   0xB9
-#define FLAG_DECORATION_13                   0xBA
-#define FLAG_DECORATION_14                   0xBB
+#define FLAG_RUINS_4F_ITEM1                  0xAE
+#define FLAG_RUINS_4F_ITEM2                  0xAF
+#define FLAG_RUINS_4F_ITEM3                  0xB0
+#define FLAG_RUINS_4F_ITEM4                  0xB1
+#define FLAG_RUINS_4F_ITEM5                  0xB2
+#define FLAG_RUINS_4F_ITEM6                  0xB3
+#define FLAG_UNUSED_0XB4                     0xB4
+#define FLAG_UNUSED_0XB5                     0xB5
+#define FLAG_UNUSED_0XB6                     0xB6
+#define FLAG_UNUSED_0XB7                     0xB7
+#define FLAG_UNUSED_0XB8                     0xB8
+#define FLAG_UNUSED_0XB9                     0xB9
+#define FLAG_UNUSED_0XBA                     0xBA
+#define FLAG_UNUSED_0XBB                     0xBB
 #define FLAG_RECEIVED_POKENAV                0xBC
 #define FLAG_DELIVERED_STEVEN_LETTER         0xBD
 #define FLAG_DEFEATED_WALLY_MAUVILLE         0xBE

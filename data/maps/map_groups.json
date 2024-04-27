@@ -87,7 +87,8 @@
     "FloodedCave3F",
     "Route12_SideArea",
     "Route12_StrengthHouse",
-    "AdamantTowerExterior"
+    "AdamantTowerExterior",
+    "UndergroundRuins_4F"
   ],
   "gMapGroup_TownsAndCities": [
     "PearlwoodPoint",
@@ -254,7 +255,9 @@
     "Sandstone_LargeHouse2_2F",
     "Sandstone_LargeHouse2_3F",
     "Sandstone_Gym_1F",
-    "Sandstone_Gym_2F"
+    "Sandstone_Gym_2F",
+    "Sandstone_Library_1F",
+    "Sandstone_Library_2F"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

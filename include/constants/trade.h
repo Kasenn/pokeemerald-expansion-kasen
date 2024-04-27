@@ -20,6 +20,7 @@
 #define INGAME_TRADE_BULBASAUR 12
 #define INGAME_TRADE_CHARMANDER 13
 #define INGAME_TRADE_SQUIRTLE 14
+#define INGAME_TRADE_SMEARGLE 15
 
 
 // Return values for CanTradeSelectedMon and CanSpinTradeMon

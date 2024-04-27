@@ -1223,6 +1223,22 @@ static const struct InGameTrade sIngameTrades[] =
         .otGender = MALE,
         .sheen = 10,
         .requestedSpecies = SPECIES_PIPLUP
+    },
+    [INGAME_TRADE_SMEARGLE] =
+    {
+        .nickname = _("Hero"),
+        .species = SPECIES_SMEARGLE,
+        .ivs = {10, 28, 30, 12, 16, 9},
+        .abilityNum = 0,
+        .otId = 43768,
+        .conditions = {5, 5, 5, 5, 5},
+        .personality = 0x86,
+        .heldItem = ITEM_NONE,
+        .mailNum = -1,
+        .otName = _("Jon"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_ROCKRUFF
     }
 };
 

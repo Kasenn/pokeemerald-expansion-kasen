@@ -30,7 +30,6 @@ LilycoveCity_DepartmentStoreRooftop_EventScript_SaleWoman::
 LilycoveCity_DepartmentStoreRooftop_PokemartDecor_ClearOutSale:
 	.2byte ITEM_ABILITY_SHIELD
 	.2byte ITEM_CLEAR_AMULET
-	.2byte ITEM_MIRROR_HERB
 	.2byte ITEM_PUNCHING_GLOVE
 	.2byte ITEM_COVERT_CLOAK
 	.2byte ITEM_LOADED_DICE

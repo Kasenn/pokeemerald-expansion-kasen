@@ -6214,6 +6214,21 @@ const struct Item gItemsInfo[] =
         .flingPower = 90,
     },
 
+    [ITEM_PAINTBRUSH] =
+    {
+        .name = _("Paintbrush"),
+        .price = (I_PRICE >= GEN_7) ? 1000 : 500,
+        .holdEffect = HOLD_EFFECT_PAINTBRUSH,
+        .description = COMPOUND_STRING(
+            "A hold item that\n"
+            "greatly boosts\n"
+            "Smeargle's attacks."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 90,
+    },
+
     [ITEM_LUCKY_PUNCH] =
     {
         .name = _("Lucky Punch"),
@@ -10971,8 +10986,8 @@ const struct Item gItemsInfo[] =
         .price = 0,
         .description = COMPOUND_STRING(
             "A folding bicycle\n"
-            "capable of jumps\n"
-            "and wheelies."),
+            "with two distinct\n"
+            "cycling modes."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
@@ -12896,6 +12911,20 @@ const struct Item gItemsInfo[] =
             "in the image of a\n"
             "Pokémon. Can be sold."),
         .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_HISTORY_BOOK] =
+    {
+        .name = _("History Book"),
+        .price = 0,
+        .description = COMPOUND_STRING( 
+            "A book containing\n"
+            "information on\n"
+            "old civilizations."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },

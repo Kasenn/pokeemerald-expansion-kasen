@@ -440,6 +440,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_ADAMANT_ORB] = {gItemIcon_AdamantOrb, gItemIconPalette_AdamantOrb},
     [ITEM_LUSTROUS_ORB] = {gItemIcon_LustrousOrb, gItemIconPalette_LustrousOrb},
     [ITEM_GRISEOUS_ORB] = {gItemIcon_GriseousOrb, gItemIconPalette_GriseousOrb},
+    [ITEM_PAINTBRUSH] = {gItemIcon_Paintbrush, gItemIconPalette_Paintbrush},
     // Incenses
     [ITEM_SEA_INCENSE] = {gItemIcon_SeaIncense, gItemIconPalette_SeaIncense},
     [ITEM_LAX_INCENSE] = {gItemIcon_LaxIncense, gItemIconPalette_LaxIncense},
@@ -861,6 +862,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_LOST_KEY] = {gItemIcon_LostKey, gItemIconPalette_LostKey},
     [ITEM_ANTIVIRUS] = {gItemIcon_TM, gItemIconPalette_NormalTMHM},
     [ITEM_STONE_SPHERE] = {gItemIcon_StoneSphere, gItemIconPalette_StoneSphere},
+    [ITEM_HISTORY_BOOK] = {gItemIcon_HistoryBook, gItemIconPalette_HistoryBook},
     [ITEM_LOST_MEMENTO] = {gItemIcon_LostMemento, gItemIconPalette_LostMemento},
     [ITEM_SPECIAL_SOUP] = {gItemIcon_SpecialSoup, gItemIconPalette_SpecialSoup},
     [ITEM_CURRY] = {gItemIcon_Curry, gItemIconPalette_Curry},

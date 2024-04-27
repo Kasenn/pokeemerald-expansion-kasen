@@ -164,6 +164,7 @@
 // Gen2 hold effect
 #define HOLD_EFFECT_BERSERK_GENE        184
 #define HOLD_EFFECT_SLEEP_BERRY         185
+#define HOLD_EFFECT_PAINTBRUSH          186
 
 #define HOLD_EFFECT_CHOICE(holdEffect)((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))
 

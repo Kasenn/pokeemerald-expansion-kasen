@@ -1022,12 +1022,13 @@
 #define ITEM_POKESHI_DOLL 845
 #define ITEM_ANTIVIRUS 846
 #define ITEM_PROCESSOR 847
-
+#define ITEM_PAINTBRUSH 848
+#define ITEM_HISTORY_BOOK 849
 
 // HOPO BERRY
 // LEGEND PLATE
 
-#define ITEMS_COUNT 848
+#define ITEMS_COUNT 850
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

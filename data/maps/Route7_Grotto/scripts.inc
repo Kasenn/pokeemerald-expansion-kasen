@@ -1,20 +1,7 @@
 Route7_Grotto_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route7_GrottoFlags
+	map_script MAP_SCRIPT_ON_TRANSITION, ROUTE7_Grotto_SetObject
+	map_script MAP_SCRIPT_ON_LOAD, ROUTE7_Grotto_SetObject
 	.byte 0
-
-
-Route7_GrottoFlags::
-	goto_if_unset FLAG_DAILY_ROUTE7_GROTTO, Route7_GrottoFlags_2
-Route7_GrottoFlags_1:
-	setflag FLAG_DAILY_ROUTE7_GROTTO
-	goto ROUTE7_Grotto_SetObject
-	end
-
-Route7_GrottoFlags_2:
-	clearflag FLAG_ROUTE7_GROTTO_CLEARED
-	random 100
-	copyvar VAR_ROUTE7_GROTTO, VAR_RESULT
-	goto Route7_GrottoFlags_1
 
 
 ROUTE7_Grotto_SetObject::
@@ -191,7 +178,7 @@ ROUTE7_GrottoPokemon_21:
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setflag FLAG_ROUTE7_GROTTO_CLEARED
+	setflag FLAG_DAILY_ROUTE7_GROTTO
 	goto Common_EventScript_RemoveStaticPokemon
 	release
 	end

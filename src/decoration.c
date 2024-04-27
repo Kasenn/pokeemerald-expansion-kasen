@@ -41,7 +41,7 @@
 
 #define PLACE_DECORATION_SELECTOR_TAG 0xbe5
 #define PLACE_DECORATION_PLAYER_TAG   0x008
-#define NUM_DECORATION_FLAGS (FLAG_DECORATION_14 - FLAG_DECORATION_1 + 1)
+// #define NUM_DECORATION_FLAGS (FLAG_OLD_WORLD_FLAG - FLAG_OLD_WORLD_FLAG + 1)
 
 #define tCursorX data[0]
 #define tCursorY data[1]
@@ -1281,33 +1281,33 @@ void ShowDecorationOnMap(u16 mapX, u16 mapY, u16 decoration)
 
 void SetDecoration(void)
 {
-    u8 i;
-    u8 j;
+    // u8 i;
+    // u8 j;
 
-    for (i = 0; i < NUM_DECORATION_FLAGS; i++)
-    {
-        if (FlagGet(FLAG_DECORATION_1 + i) == TRUE)
-        {
-            FlagClear(FLAG_DECORATION_1 + i);
-            for (j = 0; j < gMapHeader.events->objectEventCount; j++)
-            {
-                if (gMapHeader.events->objectEvents[j].flagId == FLAG_DECORATION_1 + i)
-                    break;
-            }
+    // for (i = 0; i < NUM_DECORATION_FLAGS; i++)
+    // {
+    //     if (FlagGet(FLAG_OLD_WORLD_FLAG + i) == TRUE)
+    //     {
+    //         FlagClear(FLAG_OLD_WORLD_FLAG + i);
+    //         for (j = 0; j < gMapHeader.events->objectEventCount; j++)
+    //         {
+    //             if (gMapHeader.events->objectEvents[j].flagId == FLAG_OLD_WORLD_FLAG + i)
+    //                 break;
+    //         }
 
-            VarSet(
-                VAR_OBJ_GFX_ID_0 + (gMapHeader.events->objectEvents[j].graphicsId - OBJ_EVENT_GFX_VAR_0),
-                sPlaceDecorationGraphicsDataBuffer.decoration->tiles[0]);
+    //         VarSet(
+    //             VAR_OBJ_GFX_ID_0 + (gMapHeader.events->objectEvents[j].graphicsId - OBJ_EVENT_GFX_VAR_0),
+    //             sPlaceDecorationGraphicsDataBuffer.decoration->tiles[0]);
 
-            gSpecialVar_0x8005 = gMapHeader.events->objectEvents[j].localId;
-            gSpecialVar_0x8006 = sCurDecorMapX;
-            gSpecialVar_0x8007 = sCurDecorMapY;
-            TrySpawnObjectEvent(gSpecialVar_0x8005, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
-            TryMoveObjectEventToMapCoords(gSpecialVar_0x8005, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, gSpecialVar_0x8006, gSpecialVar_0x8007);
-            TryOverrideObjectEventTemplateCoords(gSpecialVar_0x8005, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
-            break;
-        }
-    }
+    //         gSpecialVar_0x8005 = gMapHeader.events->objectEvents[j].localId;
+    //         gSpecialVar_0x8006 = sCurDecorMapX;
+    //         gSpecialVar_0x8007 = sCurDecorMapY;
+    //         TrySpawnObjectEvent(gSpecialVar_0x8005, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+    //         TryMoveObjectEventToMapCoords(gSpecialVar_0x8005, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, gSpecialVar_0x8006, gSpecialVar_0x8007);
+    //         TryOverrideObjectEventTemplateCoords(gSpecialVar_0x8005, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+    //         break;
+    //     }
+    // }
 }
 
 static bool8 HasDecorationSpace(void)

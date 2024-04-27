@@ -1135,6 +1135,9 @@ const u32 gItemIconPalette_Leek[] = INCBIN_U32("graphics/items/icon_palettes/lee
 const u32 gItemIcon_ThickClub[] = INCBIN_U32("graphics/items/icons/thick_club.4bpp.lz");
 const u32 gItemIconPalette_ThickClub[] = INCBIN_U32("graphics/items/icon_palettes/thick_club.gbapal.lz");
 
+const u32 gItemIcon_Paintbrush[] = INCBIN_U32("graphics/items/icons/paintbrush.4bpp.lz");
+const u32 gItemIconPalette_Paintbrush[] = INCBIN_U32("graphics/items/icon_palettes/paintbrush.gbapal.lz");
+
 const u32 gItemIcon_LuckyPunch[] = INCBIN_U32("graphics/items/icons/lucky_punch.4bpp.lz");
 const u32 gItemIconPalette_LuckyPunch[] = INCBIN_U32("graphics/items/icon_palettes/lucky_punch.gbapal.lz");
 
@@ -2088,6 +2091,9 @@ const u32 gItemIconPalette_LostKey[] = INCBIN_U32("graphics/items/icon_palettes/
 
 const u32 gItemIcon_StoneSphere[] = INCBIN_U32("graphics/items/icons/stone_sphere.4bpp.lz");
 const u32 gItemIconPalette_StoneSphere[] = INCBIN_U32("graphics/items/icon_palettes/stone_sphere.gbapal.lz");
+
+const u32 gItemIcon_HistoryBook[] = INCBIN_U32("graphics/items/icons/history_book.4bpp.lz");
+const u32 gItemIconPalette_HistoryBook[] = INCBIN_U32("graphics/items/icon_palettes/history_book.gbapal.lz");
 
 const u32 gItemIcon_SteelSphere[] = INCBIN_U32("graphics/items/icons/steel_sphere.4bpp.lz");
 const u32 gItemIconPalette_SteelSphere[] = INCBIN_U32("graphics/items/icon_palettes/steel_sphere.gbapal.lz");

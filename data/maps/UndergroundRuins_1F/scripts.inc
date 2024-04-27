@@ -90,7 +90,107 @@ RuinsEntranceMan_5:
 
 
 DesertRuins_WallText::
+	checkitem ITEM_HISTORY_BOOK
+	compare VAR_RESULT, FALSE
+	goto_if_eq DesertRuins_WallText_1
+	lock
+	msgbox TranslateWallText1, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq DesertRuins_WallText_5
+	msgbox WallText1Translated, MSGBOX_SIGN
+	end
+
+DesertRuins_WallText_1:
 	msgbox DesertRuins_WallText_Text1, MSGBOX_SIGN
+	end
+
+DesertRuins_WallText_5:
+	closemessage
+	release
+	end
+
+
+DesertRuins_WallText2::
+	checkitem ITEM_HISTORY_BOOK
+	compare VAR_RESULT, FALSE
+	goto_if_eq DesertRuins_WallText2_1
+	lock
+	msgbox TranslateWallText1, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq DesertRuins_WallText2_5
+	msgbox WallTextTranslated2, MSGBOX_SIGN
+	end
+
+DesertRuins_WallText2_1:
+	msgbox DesertRuins_WallText_Text1, MSGBOX_SIGN
+	end
+
+DesertRuins_WallText2_5:
+	closemessage
+	release
+	end
+
+
+DesertRuins_WallText3::
+	checkitem ITEM_HISTORY_BOOK
+	compare VAR_RESULT, FALSE
+	goto_if_eq DesertRuins_WallText3_1
+	lock
+	msgbox TranslateWallText1, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq DesertRuins_WallText3_5
+	msgbox WallTextTranslated3, MSGBOX_SIGN
+	end
+
+DesertRuins_WallText3_1:
+	msgbox DesertRuins_WallText_Text1, MSGBOX_SIGN
+	end
+
+DesertRuins_WallText3_5:
+	closemessage
+	release
+	end
+
+
+DesertRuins_WallText4::
+	checkitem ITEM_HISTORY_BOOK
+	compare VAR_RESULT, FALSE
+	goto_if_eq DesertRuins_WallText4_1
+	lock
+	msgbox TranslateWallText1, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq DesertRuins_WallText4_5
+	msgbox WallTextTranslated4, MSGBOX_SIGN
+	end
+
+DesertRuins_WallText4_1:
+	msgbox DesertRuins_WallText_Text1, MSGBOX_SIGN
+	end
+
+DesertRuins_WallText4_5:
+	closemessage
+	release
+	end
+
+
+DesertRuins_WallText5::
+	checkitem ITEM_HISTORY_BOOK
+	compare VAR_RESULT, FALSE
+	goto_if_eq DesertRuins_WallText5_1
+	lock
+	msgbox TranslateWallText1, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq DesertRuins_WallText5_5
+	msgbox WallTextTranslated5, MSGBOX_SIGN
+	end
+
+DesertRuins_WallText5_1:
+	msgbox DesertRuins_WallText_Text1, MSGBOX_SIGN
+	end
+
+DesertRuins_WallText5_5:
+	closemessage
+	release
 	end
 
 
@@ -119,3 +219,69 @@ RuinsEntranceMan_Text::
 DesertRuins_WallText_Text1::
 	.string "The wall is covered in a bunch of\n"
 	.string "indecipherable glyphs.$"
+
+TranslateWallText1::
+	.string "The wall is covered in a bunch of\n"
+	.string "indecipherable glyphs.\p"
+	.string "Would you like to attempt to translate\n"
+	.string "them using the History Book?$"
+
+WallText1Translated::
+	.string "Some of the glyphs are missing, but you\n"
+	.string "can make out the following text:\p"
+	.string "“The skies ____ ______ __________ red.\p"
+	.string "King ______ promises ___ ______ that\n"
+	.string "everything ____ be _______, but I\l"
+	.string "wouldn't __ __ optimistic.\p"
+	.string "____ as I _____ this ____, I'm having\n"
+	.string "exceedingly ____ ____ staying _____.\p"
+	.string "____ folk say ____ ___ a massive\n"
+	.string "bird _____ from the g_ou__ ____\l"
+	.string "days ago.\p"
+	.string "Surely, it isn't ____ we”\p"
+	.string "The glyphs end abruptly.$"
+
+WallTextTranslated2::
+	.string "Some of the glyphs are missing, but you\n"
+	.string "can make out the following text:\p"
+	.string "“The _____ ____ been ___________ yellow\n"
+	.string "for ___ ____ few ____.\p"
+	.string "____ also _______ more wilted _____ __\n"
+	.string "the fields than __ _____ for this ____\l"
+	.string "of year.\p"
+	.string "Have we somehow ________ the wrath of\n"
+	.string "some _______ god?”$"
+
+WallTextTranslated3::
+	.string "Some of the glyphs are missing, but you\n"
+	.string "can make out the following text:\p"
+	.string "“____ noticed many of the _______\n"
+	.string "getting extraordinarily ______ lately.\l"
+	.string "_ _______ it might be the ______\l"
+	.string "taking a ____ on them.\p"
+	.string "Still, ____ amount of __________ and\n"
+	.string "lack of ____ force has me _________…”$"
+
+WallTextTranslated4::
+	.string "Some of the glyphs are missing, but you\n"
+	.string "can make out the following text:\p"
+	.string "“_________ is happening. ___ skies ____\n"
+	.string "_______ _______ unnaturally orange, and\l"
+	.string "the ______ have _____ panicking.\p"
+	.string "King ______ has ordered __ __ ___ down\n"
+	.string "the populace, and to find __ ___________\l"
+	.string "for ____ phenomenon.\p"
+	.string "Maybe it's the _______, but ____ been\n"
+	.string "_______ __ hard to stay awake lately.”$"
+
+WallTextTranslated5::
+	.string "Some of the glyphs are missing, but you\n"
+	.string "can make out the following text:"
+	.string "“The King _____ us to ____ digging\n"
+	.string "deeper, but the _______ are clearly\l"
+	.string "afraid of _________.\p"
+	.string "____ have noticed the _________ activity\n"
+	.string "increasing ___ further we delve, and\l"
+	.string "_______ something _______ might be\l"
+	.string "resting _____ ___ ______ here.\p"
+	.string "Still, everyday __ ____ forward…”$"

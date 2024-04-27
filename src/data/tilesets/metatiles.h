@@ -264,3 +264,6 @@ const u16 gMetatileAttributes_SandstoneCity[] = INCBIN_U16("data/tilesets/second
 
 const u16 gMetatiles_Fortree2[] = INCBIN_U16("data/tilesets/secondary/fortree_2/metatiles.bin");
 const u16 gMetatileAttributes_Fortree2[] = INCBIN_U16("data/tilesets/secondary/fortree_2/metatile_attributes.bin");
+
+const u16 gMetatiles_Library[] = INCBIN_U16("data/tilesets/secondary/library/metatiles.bin");
+const u16 gMetatileAttributes_Library[] = INCBIN_U16("data/tilesets/secondary/library/metatile_attributes.bin");

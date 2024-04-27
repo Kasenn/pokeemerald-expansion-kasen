@@ -45,6 +45,7 @@
 #define MAP_ROUTE12_SIDE_AREA                (36 | (0 << 8))
 #define MAP_ROUTE12_STRENGTH_HOUSE           (37 | (0 << 8))
 #define MAP_ADAMANT_TOWER_EXTERIOR           (38 | (0 << 8))
+#define MAP_UNDERGROUND_RUINS_4F             (39 | (0 << 8))
 
 // gMapGroup_TownsAndCities
 #define MAP_PEARLWOOD_POINT   (0 | (1 << 8))
@@ -212,6 +213,8 @@
 #define MAP_SANDSTONE_LARGE_HOUSE2_3F               (19 | (12 << 8))
 #define MAP_SANDSTONE_GYM_1F                        (20 | (12 << 8))
 #define MAP_SANDSTONE_GYM_2F                        (21 | (12 << 8))
+#define MAP_SANDSTONE_LIBRARY_1F                    (22 | (12 << 8))
+#define MAP_SANDSTONE_LIBRARY_2F                    (23 | (12 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (13 << 8))

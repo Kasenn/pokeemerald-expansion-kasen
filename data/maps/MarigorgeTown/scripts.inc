@@ -24,7 +24,11 @@ Aldeleaf_MuseumCurator_8:
 Aldeleaf_MuseumCurator_14:
 	checkitem ITEM_RELIC_GOLD
 	compare VAR_RESULT, TRUE
-	goto_if_eq Aldeleaf_MuseumCurator_20
+	goto_if_eq Aldeleaf_MuseumCurator_21
+Aldeleaf_MuseumCurator_20:
+	checkitem ITEM_RELIC_VASE
+	compare VAR_RESULT, TRUE
+	goto_if_eq Aldeleaf_MuseumCurator_26
 Aldeleaf_MuseumCurator_1:
 	release
 	end
@@ -40,7 +44,11 @@ Aldeleaf_MuseumCurator_5:
 Aldeleaf_MuseumCurator_11:
 	checkitem ITEM_RELIC_GOLD
 	compare VAR_RESULT, TRUE
-	goto_if_eq Aldeleaf_MuseumCurator_17
+	goto_if_eq Aldeleaf_MuseumCurator_18
+Aldeleaf_MuseumCurator_17:
+	checkitem ITEM_RELIC_VASE
+	compare VAR_RESULT, TRUE
+	goto_if_eq Aldeleaf_MuseumCurator_23
 	msgbox ThanksForContribution, MSGBOX_NPC
 	end
 
@@ -60,12 +68,20 @@ Aldeleaf_MuseumCurator_15:
 	goto SellRelic
 	goto Aldeleaf_MuseumCurator_14
 
-Aldeleaf_MuseumCurator_17:
+Aldeleaf_MuseumCurator_18:
+	goto SellRelicShort
+	goto Aldeleaf_MuseumCurator_17
+
+Aldeleaf_MuseumCurator_21:
+	goto SellRelic
+	goto Aldeleaf_MuseumCurator_20
+
+Aldeleaf_MuseumCurator_23:
 	goto SellRelicShort
 	goto Aldeleaf_MuseumCurator_1
 
-Aldeleaf_MuseumCurator_20:
-	goto SellRelic
+Aldeleaf_MuseumCurator_26:
+	goto SellRelicShort
 	goto Aldeleaf_MuseumCurator_1
 
 
@@ -88,7 +104,10 @@ SellRelic_4:
 	goto_if_eq SellRelic_8
 SellRelic_7:
 	compare VAR_ITEM_ID, 159
-	goto_if_eq SellRelic_10
+	goto_if_eq SellRelic_11
+SellRelic_10:
+	compare VAR_ITEM_ID, 160
+	goto_if_eq SellRelic_13
 	msgbox MuseumDontWantToSell, MSGBOX_NPC
 	end
 
@@ -104,8 +123,12 @@ SellRelic_8:
 	goto SellSilver
 	goto SellRelic_7
 
-SellRelic_10:
+SellRelic_11:
 	goto SellGold
+	goto SellRelic_10
+
+SellRelic_13:
+	goto SellVase
 	return
 
 
@@ -122,7 +145,10 @@ SellRelicShort_1:
 	goto_if_eq SellRelicShort_5
 SellRelicShort_4:
 	compare VAR_ITEM_ID, 159
-	goto_if_eq SellRelicShort_7
+	goto_if_eq SellRelicShort_8
+SellRelicShort_7:
+	compare VAR_ITEM_ID, 160
+	goto_if_eq SellRelicShort_10
 	msgbox MuseumDontWantToSell, MSGBOX_NPC
 	end
 
@@ -134,8 +160,12 @@ SellRelicShort_5:
 	goto SellSilver
 	goto SellRelicShort_4
 
-SellRelicShort_7:
+SellRelicShort_8:
 	goto SellGold
+	goto SellRelicShort_7
+
+SellRelicShort_10:
+	goto SellVase
 	return
 
 
@@ -195,6 +225,26 @@ SellGold::
 	end
 
 SellGold_1:
+	msgbox MuseumThatsAShame, MSGBOX_NPC
+	end
+
+
+SellVase::
+	showmoneybox 0, 0
+	msgbox WouldYouLikeToSellVase, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq SellVase_1
+	addvar VAR_RELIC_SOLD, 1
+	addmoney 50000
+	playse SE_SHOP
+	updatemoneybox
+	removeitem ITEM_RELIC_VASE, 1
+	setvar VAR_TEMP_1, 1
+	msgbox MuseumThanksForArtifact, MSGBOX_NPC
+	hidemoneybox
+	end
+
+SellVase_1:
 	msgbox MuseumThatsAShame, MSGBOX_NPC
 	end
 
@@ -306,13 +356,13 @@ MuseumDontWantToSell::
 YouHaveARelicCoin::
 	.string "You look like you've been to\n"
 	.string "the desert.\p"
-	.string "Have you found have any relic coins\n"
+	.string "Have you found have any relis\n"
 	.string "you'd be like to contribute to\l"
 	.string "the museum?\l"
 	.string "You will be compensated, of course.$"
 
 HereToSellMore::
-	.string "Here to sell more relic coins?$"
+	.string "Here to sell more relics?$"
 
 ThanksForContribution::
 	.string "Thank you for your contributions.\p"
@@ -334,6 +384,12 @@ WouldYouLikeToSellGold::
 	.string "That's a genuine Relic Gold!\p"
 	.string "Would you like to sell it to\n"
 	.string "the museum for ¥10000?$"
+
+WouldYouLikeToSellVase::
+	.string "I can't believe my eyes!\n"
+	.string "That's a genuine Relic Vase!\p"
+	.string "Would you like to sell it to\n"
+	.string "the museum for ¥50000?$"
 
 MuseumThatsAShame::
 	.string "That's a shame…$"

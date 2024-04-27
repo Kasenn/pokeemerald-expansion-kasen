@@ -292,7 +292,8 @@ AldeleafGymFloorTriggered_37:
 Aldeleaf_Gym_Volkner_Talk::
 	lockall
 	faceplayer
-	goto_if_set FLAG_RECEIVED_TM_WILD_CHARGE, Aldeleaf_Gym_Volkner_Talk_2
+	checktrainerflag TRAINER_MARY
+	goto_if 1, Aldeleaf_Gym_Volkner_Talk_2
 	msgbox Aldeleaf_Gym_Volkner_Talk_Text_0
 	waitmessage
 	closemessage
@@ -319,7 +320,7 @@ Aldeleaf_Gym_EventScript_Volkner::
 	delay 10
 	special RemoveCameraObject
 	trainerbattle_single TRAINER_MARY, Aldeleaf_Gym_Text_VolknerIntro, Aldeleaf_Gym_Text_VolknerDefeat, Aldeleaf_Gym_EventScript_VolknerDefeated, NO_MUSIC
-	goto_if_unset FLAG_RECEIVED_TM_WILD_CHARGE, Aldeleaf_Gym_EventScript_GiveWildCharge
+	goto Aldeleaf_Gym_EventScript_GiveWildCharge
 	msgbox Aldeleaf_Gym_Text_VolknerPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -368,7 +369,6 @@ Aldeleaf_Gym_MoveRight:
 Aldeleaf_Gym_EventScript_GiveWildCharge::
 	giveitem ITEM_TM_WILD_CHARGE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_TM_WILD_CHARGE
 	msgbox Aldeleaf_Gym_Text_ExplainWildCharge, MSGBOX_DEFAULT
 	release
 	end

@@ -106,10 +106,164 @@ text RuinsEntranceMan_Text{
     "a book on ancient Sinko history."}
 
 script DesertRuins_WallText{
-    msgbox(DesertRuins_WallText_Text1, MSGBOX_SIGN)
-    end
+    checkitem(ITEM_HISTORY_BOOK)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(DesertRuins_WallText_Text1, MSGBOX_SIGN)
+        end
+    }
+    else{
+        lock
+        msgbox(TranslateWallText1, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == FALSE){
+            closemessage
+            release
+            end
+        }
+        msgbox(WallText1Translated, MSGBOX_SIGN)
+        end
+    }
 }
 text DesertRuins_WallText_Text1{
     "The wall is covered in a bunch of\n"
     "indecipherable glyphs."
+}
+text TranslateWallText1{
+    "The wall is covered in a bunch of\n"
+    "indecipherable glyphs.\p"
+    "Would you like to attempt to translate\n"
+    "them using the History Book?"
+}
+script DesertRuins_WallText2{
+    checkitem(ITEM_HISTORY_BOOK)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(DesertRuins_WallText_Text1, MSGBOX_SIGN)
+        end
+    }
+    else{
+        lock
+        msgbox(TranslateWallText1, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == FALSE){
+            closemessage
+            release
+            end
+        }
+        msgbox(WallTextTranslated2, MSGBOX_SIGN)
+        end
+    }
+}
+script DesertRuins_WallText3{
+    checkitem(ITEM_HISTORY_BOOK)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(DesertRuins_WallText_Text1, MSGBOX_SIGN)
+        end
+    }
+    else{
+        lock
+        msgbox(TranslateWallText1, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == FALSE){
+            closemessage
+            release
+            end
+        }
+        msgbox(WallTextTranslated3, MSGBOX_SIGN)
+        end
+    }
+}
+script DesertRuins_WallText4{
+    checkitem(ITEM_HISTORY_BOOK)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(DesertRuins_WallText_Text1, MSGBOX_SIGN)
+        end
+    }
+    else{
+        lock
+        msgbox(TranslateWallText1, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == FALSE){
+            closemessage
+            release
+            end
+        }
+        msgbox(WallTextTranslated4, MSGBOX_SIGN)
+        end
+    }
+}
+script DesertRuins_WallText5{
+    checkitem(ITEM_HISTORY_BOOK)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(DesertRuins_WallText_Text1, MSGBOX_SIGN)
+        end
+    }
+    else{
+        lock
+        msgbox(TranslateWallText1, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == FALSE){
+            closemessage
+            release
+            end
+        }
+        msgbox(WallTextTranslated5, MSGBOX_SIGN)
+        end
+    }
+}
+
+
+text WallText1Translated{
+    "Some of the glyphs are missing, but you\n"
+    "can make out the following text:\p"
+    "“The skies ____ ______ __________ red.\p"
+    "King ______ promises ___ ______ that\n"
+    "everything ____ be _______, but I\l"
+    "wouldn't __ __ optimistic.\p"
+    "____ as I _____ this ____, I'm having\n"
+    "exceedingly ____ ____ staying _____.\p"
+    "____ folk say ____ ___ a massive\n"
+    "bird _____ from the g_ou__ ____\l"
+    "days ago.\p"
+    "Surely, it isn't ____ we”\p"
+    "The glyphs end abruptly."
+}
+text WallTextTranslated2{
+    "Some of the glyphs are missing, but you\n"
+    "can make out the following text:\p"
+    "“The _____ ____ been ___________ yellow\n"
+    "for ___ ____ few ____.\p"
+    "____ also _______ more wilted _____ __\n"
+    "the fields than __ _____ for this ____\l"
+    "of year.\p"
+    "Have we somehow ________ the wrath of\n"
+    "some _______ god?”"
+}
+text WallTextTranslated3{
+    "Some of the glyphs are missing, but you\n"
+    "can make out the following text:\p"
+    "“____ noticed many of the _______\n"
+    "getting extraordinarily ______ lately.\l"
+    "_ _______ it might be the ______\l"
+    "taking a ____ on them.\p"
+    "Still, ____ amount of __________ and\n"
+    "lack of ____ force has me _________…”"
+}
+text WallTextTranslated4{
+    "Some of the glyphs are missing, but you\n"
+    "can make out the following text:\p"
+    "“_________ is happening. ___ skies ____\n"
+    "_______ _______ unnaturally orange,\l"
+    "and the ______ have _____ panicking.\p"
+    "King ______ has ordered __ __ ___ down\n"
+    "the populace, and to find __ ___________\l"
+    "for ____ phenomenon.\p"
+    "Maybe it's the _______, but ____ been\n"
+    "_______ __ hard to stay awake lately.”"
+}
+text WallTextTranslated5{
+    "Some of the glyphs are missing, but you\n"
+    "can make out the following text:"
+    "“The King _____ us to ____ digging\n"
+    "deeper, but the _______ are clearly\l"
+    "afraid of _________.\p"
+    "____ have noticed the _________ activity\n"
+    "increasing ___ further we delve, and\l"
+    "_______ something _______ might be\l"
+    "resting _____ ___ ______ here.\p"
+    "Still, everyday __ ____ forward…”"
 }
