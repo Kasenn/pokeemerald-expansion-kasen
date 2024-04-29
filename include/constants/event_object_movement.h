@@ -247,6 +247,10 @@
 #define MOVEMENT_ACTION_EMOTE_X                         0x9E
 #define MOVEMENT_ACTION_EMOTE_DOUBLE_EXCL_MARK          0x9F
 #define MOVEMENT_ACTION_JUMP_3_LEFT                     0xA0
+#define MOVEMENT_ACTION_JUMP_LEFTDOWN                   0xA1
+#define MOVEMENT_ACTION_JUMP_LEFTUP                     0xA2
+#define MOVEMENT_ACTION_JUMP_RIGHTDOWN                  0xA3
+#define MOVEMENT_ACTION_JUMP_RIGHTUP                    0xA4
 
 #define MOVEMENT_ACTION_STEP_END 0xFE
 #define MOVEMENT_ACTION_NONE     0xFF

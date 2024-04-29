@@ -121,6 +121,89 @@ Sandstone_Nerd::
 	end
 
 
+SandstoneRival::
+	setflag FLAG_MAY_COSTUME_CHANGE
+	setflag FLAG_BRENDAN_COSTUME_CHANGE
+	call Common_EventScript_SetupRivalGfxId
+	lock
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	waitmovement 0
+	opendoor 51, 22
+	waitdooranim
+	addobject 13
+	applymovement OBJ_EVENT_ID_PLAYER, Sandstone_PushPlayerDown
+	applymovement 13, Sandstone_RivalExitStore
+	waitmovement 0
+	closedoor 51, 22
+	waitdooranim
+	checkplayergender
+	copyvar VAR_TEMP_2, VAR_RESULT
+	compare VAR_TEMP_2, MALE
+	goto_if_eq SandstoneRival_2
+	msgbox RivalBrendanLikeOutfit, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq SandstoneRival_8
+	msgbox LikeBrendansOutfit
+SandstoneRival_1:
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Sandstone_PlayerWatchRivalExit
+	applymovement 13, Sandstone_RivalExitAfterStore
+	waitmovement 0
+	removeobject 13
+	setvar VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 3
+	release
+	end
+
+SandstoneRival_2:
+	msgbox RivalMayLikeOutfit, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq SandstoneRival_5
+	msgbox LikeMaysOutfit
+	goto SandstoneRival_1
+
+SandstoneRival_5:
+	msgbox DontLikeMaysOutfit
+	clearflag FLAG_MAY_COSTUME_CHANGE
+	clearflag FLAG_BRENDAN_COSTUME_CHANGE
+	goto SandstoneRival_1
+
+SandstoneRival_8:
+	msgbox DontLikeBrendansOutfit
+	clearflag FLAG_MAY_COSTUME_CHANGE
+	clearflag FLAG_BRENDAN_COSTUME_CHANGE
+	goto SandstoneRival_1
+
+
+Sandstone_PushPlayerDown:
+	lock_facing_direction
+	walk_down
+	unlock_facing_direction
+	step_end
+
+Sandstone_PlayerWatchRivalExit:
+	delay_16
+	delay_16
+	walk_in_place_faster_left
+	step_end
+
+Sandstone_RivalExitStore:
+	delay_8
+	walk_down
+	step_end
+
+Sandstone_RivalExitAfterStore:
+	walk_left
+	walk_down
+	walk_left
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
 Sandstone_Sign1_Text::
 	.string "SANDSTONE CITY\n"
 	.string "“Where Pokémon and people meet.”$"
@@ -220,3 +303,21 @@ Sandstone_Nerd_Text::
 	.string "Want to become smart like me?\p"
 	.string "Then you need to head to the Sandstone\n"
 	.string "Library and read a few books!$"
+
+RivalMayLikeOutfit::
+	.string "hey brendan, like my outfit?$"
+
+DontLikeMaysOutfit::
+	.string "well you never knew fashion$"
+
+LikeMaysOutfit::
+	.string "i knew it!$"
+
+RivalBrendanLikeOutfit::
+	.string "hey may, like my outfit?$"
+
+DontLikeBrendansOutfit::
+	.string "oh, guess i don't fashion$"
+
+LikeBrendansOutfit::
+	.string "thanks, i knew i right choice$"

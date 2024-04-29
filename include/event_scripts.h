@@ -531,6 +531,8 @@ extern const u8 EventScript_BookShelf[];
 extern const u8 EventScript_PokemonCenterBookShelf[];
 extern const u8 EventScript_Vase[];
 extern const u8 EventScript_EmptyTrashCan[];
+extern const u8 EventScript_Bookcase1[];
+extern const u8 EventScript_Bookcase2[];
 extern const u8 EventScript_ShopShelf[];
 extern const u8 EventScript_Blueprint[];
 extern const u8 EventScript_WirelessBoxResults[];
@@ -580,6 +582,7 @@ extern const u8 BattlePyramid_Retire[];
 extern const u8 BattlePyramid_WarpToNextFloor[];
 extern const u8 BattlePyramid_TrainerBattle[];
 extern const u8 BattlePyramid_FindItemBall[];
+extern const u8 SandstoneGym_Warp[];
 
 // fldeff misc
 extern const u8 SecretBase_EventScript_CaveUseSecretPower[];

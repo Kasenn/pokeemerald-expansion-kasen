@@ -198,3 +198,99 @@ text Sandstone_Nerd_Text{
     "Then you need to head to the Sandstone\n"
     "Library and read a few books!"
 }
+
+script SandstoneRival{
+    setflag(FLAG_MAY_COSTUME_CHANGE)
+    setflag(FLAG_BRENDAN_COSTUME_CHANGE)
+    call(Common_EventScript_SetupRivalGfxId)
+    lock
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+	waitmovement(0)
+    opendoor(51, 22)
+    waitdooranim
+    addobject(13)
+    applymovement(OBJ_EVENT_ID_PLAYER, Sandstone_PushPlayerDown)
+    applymovement(13, Sandstone_RivalExitStore)
+    waitmovement(0)
+    closedoor(51, 22)
+    waitdooranim
+    checkplayergender
+    copyvar(VAR_TEMP_2, VAR_RESULT)
+    if(var(VAR_TEMP_2) == MALE){
+        msgbox(RivalMayLikeOutfit, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == FALSE){
+            msgbox(DontLikeMaysOutfit)
+            clearflag(FLAG_MAY_COSTUME_CHANGE)
+            clearflag(FLAG_BRENDAN_COSTUME_CHANGE)
+        }
+        else{
+            msgbox(LikeMaysOutfit)
+        }
+    }
+    else{
+        msgbox(RivalBrendanLikeOutfit, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == FALSE){
+            msgbox(DontLikeBrendansOutfit)
+            clearflag(FLAG_MAY_COSTUME_CHANGE)
+            clearflag(FLAG_BRENDAN_COSTUME_CHANGE)
+        }
+        else{
+            msgbox(LikeBrendansOutfit)
+        }
+    }
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, Sandstone_PlayerWatchRivalExit)
+	applymovement(13, Sandstone_RivalExitAfterStore)
+	waitmovement(0)
+	removeobject(13)
+    setvar(VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 3)
+    release
+    end
+}
+
+movement Sandstone_PushPlayerDown{
+	lock_facing_direction
+	walk_down
+	unlock_facing_direction
+	step_end
+}
+
+movement Sandstone_PlayerWatchRivalExit{
+	delay_16 * 2
+	walk_in_place_faster_left
+	step_end
+}
+
+movement Sandstone_RivalExitStore{
+	delay_8
+	walk_down
+	step_end
+}
+
+movement Sandstone_RivalExitAfterStore{
+    walk_left
+    walk_down
+    walk_left
+	walk_down
+	walk_left * 6
+	step_end
+}
+
+text RivalMayLikeOutfit{
+    "hey brendan, like my outfit?"
+}
+text DontLikeMaysOutfit{
+    "well you never knew fashion"
+}
+text LikeMaysOutfit{
+    "i knew it!"
+}
+text RivalBrendanLikeOutfit{
+    "hey may, like my outfit?"
+}
+text DontLikeBrendansOutfit{
+    "oh, guess i don't fashion"
+}
+text LikeBrendansOutfit{
+    "thanks, i knew i right choice"
+}

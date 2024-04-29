@@ -54,6 +54,7 @@ static void FortreeBridgePerStepCallback(u8);
 static void PacifidlogBridgePerStepCallback(u8);
 static void SootopolisGymIcePerStepCallback(u8);
 static void CrackedFloorPerStepCallback(u8);
+static void TeleportFloorPerStepCallback(u8);
 static void Task_MuddySlope(u8);
 
 static const TaskFunc sPerStepCallbacks[] =
@@ -65,7 +66,8 @@ static const TaskFunc sPerStepCallbacks[] =
     [STEP_CB_SOOTOPOLIS_ICE]    = SootopolisGymIcePerStepCallback,
     [STEP_CB_TRUCK]             = EndTruckSequence,
     [STEP_CB_SECRET_BASE]       = SecretBasePerStepCallback,
-    [STEP_CB_CRACKED_FLOOR]     = CrackedFloorPerStepCallback
+    [STEP_CB_CRACKED_FLOOR]     = CrackedFloorPerStepCallback,
+    [STEP_CB_TELEPORT_FLOOR]    = TeleportFloorPerStepCallback
 };
 
 // Each array has 4 pairs of data, each pair representing two metatiles of a log and their relative position.
@@ -822,6 +824,43 @@ static void CrackedFloorPerStepCallback(u8 taskId)
     tPrevX = x;
     tPrevY = y;
     if (MetatileBehavior_IsCrackedFloor(behavior))
+    {
+        if (GetPlayerSpeed() != PLAYER_SPEED_FASTEST)
+            VarSet(VAR_ICE_STEP_COUNT, 0); // this var does double duty
+
+        if (tFloor1Delay == 0)
+        {
+            tFloor1Delay = 3;
+            tFloor1X = x;
+            tFloor1Y = y;
+        }
+        else if (tFloor2Delay == 0)
+        {
+            tFloor2Delay = 3;
+            tFloor2X = x;
+            tFloor2Y = y;
+        }
+    }
+}
+
+static void TeleportFloorPerStepCallback(u8 taskId)
+{
+    s16 x, y;
+    u16 behavior;
+    s16 *data = gTasks[taskId].data;
+    PlayerGetDestCoords(&x, &y);
+    behavior = MapGridGetMetatileBehaviorAt(x, y);
+
+    if (MetatileBehavior_IsBikeWarp(behavior))
+        VarSet(VAR_ICE_STEP_COUNT, 0); // this var does double duty
+
+    // End if player hasn't moved
+    if (x == tPrevX && y == tPrevY)
+        return;
+
+    tPrevX = x;
+    tPrevY = y;
+    if (MetatileBehavior_IsBikeWarp(behavior))
     {
         if (GetPlayerSpeed() != PLAYER_SPEED_FASTEST)
             VarSet(VAR_ICE_STEP_COUNT, 0); // this var does double duty

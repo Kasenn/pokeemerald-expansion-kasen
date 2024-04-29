@@ -3680,9 +3680,9 @@ const struct Item gItemsInfo[] =
         .name = _("Dubious Disc"),
         .price = 7000,
         .description = COMPOUND_STRING(
-            "A transparent device\n"
-            "overflowing with\n"
-            "dubious data."),
+            "A transparent\n"
+            "device overflowing\n"
+            "with dubious data."),
         .pocket = POCKET_ITEMS,
         .type = EVO_HELD_ITEM_TYPE,
         .fieldUseFunc = EVO_HELD_ITEM_FIELD_FUNC,

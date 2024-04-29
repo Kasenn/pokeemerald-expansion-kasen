@@ -1033,8 +1033,28 @@ void PlayerTurnInPlace(u8 direction)
 
 void PlayerJumpLedge(u8 direction)
 {
+    s16 x, y;
+
     PlaySE(SE_LEDGE);
-    PlayerSetAnimId(GetJump2MovementAction(direction), COPY_MOVE_JUMP2);
+    if (MetatileBehavior_IsJumpNorthEast(MapGridGetMetatileBehaviorAt(x, y)))
+    {
+        PlayerSetAnimId(GetJump3MovementAction(direction), COPY_MOVE_JUMP2);
+    }
+    else if (MetatileBehavior_IsJumpNorthWest(MapGridGetMetatileBehaviorAt(x, y)))
+    {
+        PlayerSetAnimId(GetJump3MovementAction(direction), COPY_MOVE_JUMP2);
+    }
+    else if (MetatileBehavior_IsJumpSouthEast(MapGridGetMetatileBehaviorAt(x, y)))
+    {
+        PlayerSetAnimId(GetJump3MovementAction(direction), COPY_MOVE_JUMP2);
+    }
+    else if (MetatileBehavior_IsJumpSouthWest(MapGridGetMetatileBehaviorAt(x, y)))
+    {
+        PlayerSetAnimId(GetJump3MovementAction(direction), COPY_MOVE_JUMP2);
+    }
+    else{
+        PlayerSetAnimId(GetJump2MovementAction(direction), COPY_MOVE_JUMP2);
+    }
 }
 
 // Stop player on current facing direction once they're done moving and if they're not currently Acro Biking on bumpy slope

@@ -6014,10 +6014,10 @@
     {
       "id": "LAYOUT_SANDSTONE_GYM_1F",
       "name": "Sandstone_Gym_1F_Layout",
-      "width": 14,
-      "height": 9,
+      "width": 45,
+      "height": 50,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_LavaridgeGym",
+      "secondary_tileset": "gTileset_DewfordGym",
       "border_filepath": "data/layouts/Sandstone_Gym_1F/border.bin",
       "blockdata_filepath": "data/layouts/Sandstone_Gym_1F/map.bin"
     },
@@ -6044,8 +6044,8 @@
     {
       "id": "LAYOUT_SANDSTONE_LIBRARY_1F",
       "name": "Sandstone_Library_1F_Layout",
-      "width": 30,
-      "height": 18,
+      "width": 24,
+      "height": 15,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_Library",
       "border_filepath": "data/layouts/Sandstone_Library_1F/border.bin",
@@ -6054,10 +6054,10 @@
     {
       "id": "LAYOUT_SANDSTONE_LIBRARY_2F",
       "name": "Sandstone_Library_2F_Layout",
-      "width": 30,
-      "height": 18,
+      "width": 24,
+      "height": 14,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_gTileset_Hotel",
+      "secondary_tileset": "gTileset_Library",
       "border_filepath": "data/layouts/Sandstone_Library_2F/border.bin",
       "blockdata_filepath": "data/layouts/Sandstone_Library_2F/map.bin"
     }

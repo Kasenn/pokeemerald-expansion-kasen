@@ -112,7 +112,7 @@
 #define VAR_DESERT_BYPASS                          0x405C // used to deal with triggers around desert
 #define VAR_MOSSDEEP_CITY_STATE                          0x405D
 #define VAR_SOOTOPOLIS_CITY_STATE                        0x405E
-#define VAR_EVER_GRANDE_CITY_STATE                       0x405F // Unused Var
+#define VAR_SANDSTONE_GYM_CHECKPOINTS                       0x405F // Unused Var
 #define VAR_ROUTE101_STATE                               0x4060
 #define VAR_TEMP_DESERTRUINSFOUND                               0x4061 // Unused Var, UNUSED
 #define VAR_POKERANCH                              0x4062 // Unused Var

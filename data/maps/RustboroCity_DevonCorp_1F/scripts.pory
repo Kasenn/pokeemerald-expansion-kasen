@@ -81,7 +81,11 @@ script Update3{
     if(var(VAR_RESULT) == TRUE){
         setvar(VAR_DESERT_BYPASS, 1)
     }
+    clearflag(FLAG_SHOWED_BADGE)
     clearflag(FLAG_SYSTEM_NOREWARDBATTLES)
+    clearflag(FLAG_OBTAINED_PAINTBRUSH)
+    clearflag(FLAG_UNUSED_0X37)
+    clearflag(FLAG_TRADED_SMEARGLE)
 	setflag(FLAG_HIDE_STONE_SPHERE_FC)
     setflag(FLAG_OLDMAN_PEARLSTRING)
     setflag(FLAG_LANDMARK_LOST_GLADE)

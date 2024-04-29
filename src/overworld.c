@@ -927,6 +927,9 @@ void ResetInitialPlayerAvatarState(void)
 {
     sInitialPlayerAvatarState.direction = DIR_SOUTH;
     sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_ON_FOOT;
+    if(FlagGet(FLAG_SYS_CYCLING_ROAD)){
+        sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_BIKE;
+    }
 }
 
 void StoreInitialPlayerAvatarState(void)

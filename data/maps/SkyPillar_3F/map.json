@@ -3,7 +3,7 @@
   "name": "SkyPillar_3F",
   "layout": "LAYOUT_SKY_PILLAR_3F",
   "music": "MUS_MT_CHIMNEY",
-  "region_map_section": "MAPSEC_SKY_PILLAR",
+  "region_map_section": "MAPSEC_ADAMANT_TOWER",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
@@ -30,13 +30,6 @@
       "elevation": 3,
       "dest_map": "MAP_SKY_PILLAR_4F",
       "dest_warp_id": "0"
-    },
-    {
-      "x": 7,
-      "y": 1,
-      "elevation": 3,
-      "dest_map": "MAP_SKY_PILLAR_4F",
-      "dest_warp_id": "1"
     }
   ],
   "coord_events": [

@@ -1,0 +1,84 @@
+mapscripts AdamantTowerExterior_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: AdamantExteriorSetObject
+    MAP_SCRIPT_ON_LOAD: AdamantExteriorSetObject
+}
+
+script AdamantExteriorSetObject{
+    if(!flag(FLAG_SHOWED_BADGE)){
+        setobjectxyperm(1, 13, 7)
+    }
+    end
+}
+
+script AdamantExterior_Lass{
+    msgbox(AdamantExterior_Lass_Text, MSGBOX_NPC)
+    end
+}
+text AdamantExterior_Lass_Text{
+    "I really want to see what the tower\n"
+    "looks like from the inside, but they\l"
+    "won't let the public in…"
+}
+script AdamantExterior_FatMan{
+    msgbox(AdamantExterior_FatMan_Text, MSGBOX_NPC)
+}
+text AdamantExterior_FatMan_Text{
+    "I will defeat the Gym Leader and earn\n"
+    "access to that place one day.\l"
+    "You just watch me!"
+}
+script AdamantExterior_Man3{
+    if(flag(FLAG_SHOWED_BADGE)){
+        msgbox(AdamantGoIn, MSGBOX_NPC)
+        end
+    }
+    if(!flag(FLAG_BADGE04_GET)){
+        msgbox(AdamantExterior_Man3_NoAccess, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    msgbox(AdamantExterior_Man3_NoAccess)
+    closemessage
+    playse(SE_PIN)
+    applymovement(1, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    msgbox(AdamantDidntSeeBadge)
+    closemessage
+    if(var(VAR_FACING) == DIR_WEST){
+        applymovement(1, AdamantGuardStepAway2)
+        setobjectxyperm(1, 12, 7)
+    }
+    else{
+        applymovement(1, AdamantGuardStepAway)
+        setobjectxyperm(1, 14, 7)
+    }
+    waitmovement(0)
+    setflag(FLAG_SHOWED_BADGE)
+    release
+    end
+}
+text AdamantExterior_Man3_NoAccess{
+    "I'm sorry, but only people authorized\n"
+    "by the Sandstone Pokémon Gym Leader\l"
+    "are allowed to enter."
+}
+movement AdamantGuardStepAway{
+    walk_right
+    walk_in_place_down
+}
+movement AdamantGuardStepAway2{
+    walk_left
+    walk_in_place_down
+}
+
+text AdamantGoIn{
+    "There are many strong trainers training\n"
+    "in the Adamant Tower.\p"
+    "I hope you are prepared."
+}
+text AdamantDidntSeeBadge{
+    "Oh, I'm sorry, I didn't notice your\n"
+    "Gym Badge. Please, go on in."
+}

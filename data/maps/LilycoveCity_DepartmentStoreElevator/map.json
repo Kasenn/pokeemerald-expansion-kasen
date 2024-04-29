@@ -2,7 +2,7 @@
   "id": "MAP_LILYCOVE_CITY_DEPARTMENT_STORE_ELEVATOR",
   "name": "LilycoveCity_DepartmentStoreElevator",
   "layout": "LAYOUT_LILYCOVE_CITY_DEPARTMENT_STORE_ELEVATOR",
-  "music": "MUS_RUSTBORO",
+  "music": "MUS_POKE_MART",
   "region_map_section": "MAPSEC_SANDSTONE_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

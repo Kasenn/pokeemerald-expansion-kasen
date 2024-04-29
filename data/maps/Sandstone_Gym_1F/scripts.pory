@@ -1,0 +1,92 @@
+mapscripts Sandstone_Gym_1F_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: ResetCheckpoint
+    MAP_SCRIPT_ON_FRAME_TABLE: SandstoneGetPorted
+    MAP_SCRIPT_ON_RESUME: SetTeleportFloor
+}
+
+script SetTeleportFloor {
+    setstepcallback(STEP_CB_TELEPORT_FLOOR)
+    end
+}
+
+script ResetCheckpoint{
+    if(!flag(FLAG_BADGE04_GET)){
+        setvar(VAR_SANDSTONE_GYM_CHECKPOINTS, 0)
+    }
+    copyvar(VAR_ICE_STEP_COUNT, 1)
+    end
+}
+
+script SandstoneGetPorted{
+    map_script_2(VAR_ICE_STEP_COUNT, 0, SandstoneGym_Warp)
+    end
+}
+
+
+script SandstoneGym_Warp{
+    lockall
+    playse(SE_FAILURE)
+    waitse
+    delay(10)
+    switch(var(VAR_SANDSTONE_GYM_CHECKPOINTS)){
+        case 0:
+            warp(MAP_SANDSTONE_GYM_1F, 9)
+        case 1:
+            warp(MAP_SANDSTONE_GYM_1F, 10)
+        case 2:
+            warp(MAP_SANDSTONE_GYM_1F, 11)
+    }
+    waitstate
+    end
+}
+
+script SetSandstoneBike{
+	specialvar(VAR_RESULT, GetPlayerAvatarBike)
+	goto_if_eq(VAR_RESULT, 0, SandStoneNoBike)
+    setflag(FLAG_SYS_CYCLING_ROAD)
+    release
+    end
+}
+
+script SandStoneNoBike{
+    lockall
+    msgbox("You have no bike.")
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, MoveDown1)
+    waitmovement(0)
+    release
+    end
+}
+
+movement MoveDown1{
+    walk_down
+}
+
+script SandstoneCheckpoint0{
+    setdynamicwarp(MAP_SANDSTONE_GYM_1F, 8, 36)
+    release
+    end
+}
+script SandstoneCheckpoint1{
+    setdynamicwarp(MAP_SANDSTONE_GYM_1F, 21, 9)
+    if(var(VAR_SANDSTONE_GYM_CHECKPOINTS) == 0){
+        setvar(VAR_SANDSTONE_GYM_CHECKPOINTS, 1)
+    }
+    release
+    end
+}
+script SandstoneCheckpoint2{
+    setdynamicwarp(MAP_SANDSTONE_GYM_1F, 36, 17)
+    if(var(VAR_SANDSTONE_GYM_CHECKPOINTS) == 1){
+        setvar(VAR_SANDSTONE_GYM_CHECKPOINTS, 2)
+    }
+    release
+    end
+}
+
+script PrintIceStep{
+    buffernumberstring(STR_VAR_1, VAR_ICE_STEP_COUNT)
+    msgbox("{STR_VAR_1}")
+    release
+    end
+}

@@ -2,6 +2,7 @@
 #include "metatile_behavior.h"
 #include "constants/metatile_behaviors.h"
 #include "field_player_avatar.h"
+#include "bike.h"
 
 #define TILE_FLAG_HAS_ENCOUNTERS (1 << 0)
 #define TILE_FLAG_SURFABLE       (1 << 1)
@@ -142,6 +143,47 @@ bool8 MetatileBehavior_IsEncounterTile(u8 metatileBehavior)
     else
         return FALSE;
 }
+
+bool8 MetatileBehavior_IsBikeWarp(u8 metatileBehavior)
+{
+    if ((metatileBehavior == MB_BIKEWARP) && (GetPlayerSpeed() != PLAYER_SPEED_FASTEST))
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsJumpNorthEast(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_JUMP_NORTHEAST)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsJumpSouthEast(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_JUMP_SOUTHEAST)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsJumpNorthWest(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_JUMP_NORTHWEST)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsJumpSouthWest(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_JUMP_SOUTHWEST)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 
 bool8 MetatileBehavior_IsJumpEast(u8 metatileBehavior)
 {
@@ -1352,6 +1394,22 @@ bool8 MetatileBehavior_IsVase(u8 metatileBehavior)
 bool8 MetatileBehavior_IsLockedDoor(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_LOCKED_DOOR)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsBookcase1(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_BOOKCASE_1)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsBookcase2(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_BOOKCASE_2)
         return TRUE;
     else
         return FALSE;

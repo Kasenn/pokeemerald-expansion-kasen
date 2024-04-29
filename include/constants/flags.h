@@ -64,7 +64,7 @@
 #define FLAG_INCREASED_SHINY_ODDS               0x33 // increase shiny odds
 #define FLAG_SKYLOCH_JUICE                      0x34 // 
 #define FLAG_SKYLOCH_CASTELIACONE               0x35 // 
-#define FLAG_UNUSED_0X36                        0x36 // UNUSED FLAG
+#define FLAG_SHOWED_BADGE                       0x36 // Showed badge to gain entry to adamant tower
 #define FLAG_UNUSED_0X37                        0x37 // UNUSED FLAG
 #define FLAG_ROUTE8_ITEM1                       0x38 // Route 8 item flags
 #define FLAG_ROUTE8_ITEM2                       0x39 // 
@@ -791,7 +791,7 @@
 #define FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MAY                    0x2EA
 #define FLAG_HIDE_SAFARI_ZONE_SOUTH_EAST_EXPANSION                  0x2EB
 #define FLAG_HIDE_LILYCOVE_HARBOR_EVENT_TICKET_TAKER                0x2EC
-#define FLAG_HIDE_SLATEPORT_CITY_SCOTT                              0x2ED
+#define FLAG_HIDE_SANDSTONE_CITY_RIVAL                              0x2ED
 #define FLAG_HIDE_ROUTE_101_ZIGZAGOON                               0x2EE
 #define FLAG_HIDE_VICTORY_ROAD_EXIT_WALLY                           0x2EF
 #define FLAG_HIDE_LITTLEROOT_TOWN_MOM_OUTSIDE                       0x2F0

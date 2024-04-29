@@ -1,0 +1,186 @@
+mapscripts Sandstone_Library_1F_MapScripts{}
+
+script Library_Receptionist{
+    checkitem(ITEM_HISTORY_BOOK)
+    if((var(VAR_RESULT) == FALSE) && (flag(FLAG_RECOMMEND_LIBRARY))){
+        msgbox(Library_Receptionist_Text2, MSGBOX_NPC)
+        end
+    }
+    msgbox(Library_Receptionist_Text, MSGBOX_NPC)
+    end
+}
+text Library_Receptionist_Text{
+    "Hello.\n"
+    "This is the Sandstone Library.\p"
+    "Please keep quiet while you're on\n"
+    "the premises."
+}
+text Library_Receptionist_Text2{
+    "Hello.\n"
+    "This is the Sandstone Library.\p"
+    "Please keep quiet while you're on\n"
+    "the premises.\p"
+    "… … …\p"
+    "You're looking for history books?\p"
+    "You can find those in the northwest\n"
+    "corner on the second floor."
+}
+script Library_Youngster{
+    msgbox(Library_Youngster_Text, MSGBOX_NPC)
+    end
+}
+text Library_Youngster_Text{
+    "Many of the books here are all\n"
+    "too tough for me to understand…"
+}
+
+script Library_Scientist{
+    msgbox(Library_Scientist_Text, MSGBOX_NPC)
+    end
+}
+text Library_Scientist_Text{
+    "Please don't disturb me when\n"
+    "I'm doing research."
+}
+
+script Library_HexManiac{
+    msgbox(Library_HexManiac_Text, MSGBOX_NPC)
+    end
+}
+text Library_HexManiac_Text{
+    "The book…\n"
+    "I can't find the book…"
+}
+
+script Library_Woman1{
+    lock
+    msgbox(Library_Woman1_Text)
+    release
+    end
+}
+text Library_Woman1_Text{
+    "… … …"
+}
+
+script Library_FatGuy{
+    msgbox(Library_FatGuy_Text, MSGBOX_NPC)
+    turnobject(3, DIR_WEST)
+    end
+}
+text Library_FatGuy_Text{
+    "I'm reading a magazine article about\n"
+    "newly discovered Pokémon evolutions.\l"
+    "These are so cool!"
+}
+
+script Library_Book{
+    msgbox(Library_Book_Text, MSGBOX_SIGN)
+    end
+}
+text Library_Book_Text{
+    "The book looks to be some kind of\n"
+    "thriller, but it's too hard to tell\l"
+    "from this angle."
+}
+
+script Library_OldWoman{
+    lock
+    msgbox(Library_OldWoman_Text)
+    release
+    end
+}
+text Library_OldWoman_Text{
+    "Why must some of these shelves be\n"
+    "so high…"
+}
+
+script Library_Hiker{
+    msgbox(Library_Hiker_Text, MSGBOX_NPC)
+    end
+}
+text Library_Hiker_Text{
+    "I bet some of these old history books\n"
+    "reveal the secrets of the desert ruins!"
+}
+
+script Library_Mom{
+    msgbox(Library_Mom_Text, MSGBOX_NPC)
+    end
+}
+text Library_Mom_Text{
+    "My daughter doesn't know how to read\n"
+    "yet, but thankfully the library also\l"
+    "has picture books for the younglings."
+}
+
+script Library_Daughter{
+    lock
+    msgbox(Library_Daughter_Text)
+    release
+    end
+}
+text Library_Daughter_Text{
+    "Ooh!"
+}
+
+script Library_Birch{
+    msgbox(Library_Birch_Text, MSGBOX_NPC)
+    end
+}
+text Library_Birch_Text{
+    ""
+}
+
+script Library_MegaBook{
+    msgbox(Library_MegaBook_Text, MSGBOX_SIGN)
+    end
+}
+text Library_MegaBook_Text{
+    ""
+}
+
+script Library_HistoryBook{
+    checkitem(ITEM_HISTORY_BOOK)
+    if(var(VAR_RESULT) == TRUE){
+        msgbox(Library_HistoryBook_Text, MSGBOX_SIGN)
+        end
+    }
+    if(flag(FLAG_RECOMMEND_LIBRARY)){
+        msgbox(TakeHistoryBook, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == FALSE){
+            closemessage
+            release
+            end
+        }
+        finditem(ITEM_HISTORY_BOOK)
+        end
+    }
+    msgbox(Library_HistoryBook_Text, MSGBOX_SIGN)
+    end
+}
+text Library_HistoryBook_Text{
+    "The shelves are lined with books\n"
+    "about old Sinko history."
+}
+text TakeHistoryBook{
+    "The shelves are lined with books\n"
+    "about old Sinko history.\p"
+    "Loan one of the books?"
+}
+
+script EventScript_Bookcase1{
+    msgbox(EventScript_Bookcase1_Text, MSGBOX_SIGN)
+    end
+}
+text EventScript_Bookcase1_Text{
+    "The ceiling-high bookshelves are\n"
+    "crammed with books."
+}
+script EventScript_Bookcase2{
+    msgbox(EventScript_Bookcase2_Text, MSGBOX_SIGN)
+    end
+}
+text EventScript_Bookcase2_Text{
+    "The shelves are lined with books\n"
+    "worn from being read by many people."
+}

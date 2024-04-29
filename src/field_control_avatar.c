@@ -422,6 +422,10 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
         return EventScript_Vase;
     if (MetatileBehavior_IsTrashCan(metatileBehavior) == TRUE)
         return EventScript_EmptyTrashCan;
+    if (MetatileBehavior_IsBookcase1(metatileBehavior) == TRUE)
+        return EventScript_Bookcase1;
+    if (MetatileBehavior_IsBookcase2(metatileBehavior) == TRUE)
+        return EventScript_Bookcase2;
     if (MetatileBehavior_IsShopShelf(metatileBehavior) == TRUE)
         return EventScript_ShopShelf;
     if (MetatileBehavior_IsBlueprint(metatileBehavior) == TRUE)
@@ -538,6 +542,11 @@ static bool8 TryStartMiscWalkingScripts(u16 metatileBehavior)
     if (MetatileBehavior_IsCrackedFloorHole(metatileBehavior))
     {
         ScriptContext_SetupScript(EventScript_FallDownHole);
+        return TRUE;
+    }
+    else if (MetatileBehavior_IsBikeWarp(metatileBehavior))
+    {
+        ScriptContext_SetupScript(SandstoneGym_Warp);
         return TRUE;
     }
     else if (MetatileBehavior_IsBattlePyramidWarp(metatileBehavior))
@@ -740,7 +749,7 @@ static bool8 TryArrowWarp(struct MapPosition *position, u16 metatileBehavior, u8
         else if (IsDirectionalStairWarpMetatileBehavior(metatileBehavior, direction) == TRUE)
         {
             delay = 0;
-            if (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))
+            if (gPlayerAvatar.flags & (PLAYER_AVATAR_STATE_BIKE))
             {
                 SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
                 delay = 12;
