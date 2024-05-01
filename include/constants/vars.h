@@ -138,7 +138,7 @@
 #define VAR_ROUTE7_GROTTO                               0x4076 // Used to determine route 7 grotto outcome
 #define VAR_RELIC_SOLD                               0x4077 // Unused Var
 #define VAR_R11_TRAINERS                               0x4078 // Unused Var
-#define VAR_ROUTE11_STATE                               0x4079 // Unused Var
+#define VAR_GYM_TELEPORT                               0x4079 // Unused Var
 #define VAR_ROUTE127_STATE                               0x407A // Unused Var
 #define VAR_ROUTE128_STATE                               0x407B
 #define VAR_ROUTE129_STATE                               0x407C // Unused Var

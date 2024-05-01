@@ -15,16 +15,16 @@
   "connections": 0,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F",
+      "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M",
       "x": 6,
       "y": 24,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "1",
+      "script": "SandGym_Tr1_CyclistM1",
       "flag": "0"
     },
     {
@@ -35,35 +35,35 @@
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "SandGym_Tr2_CyclistF1",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F",
-      "x": 19,
+      "x": 20,
       "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "SandGym_Tr3_CyclistF2",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F",
+      "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M",
       "x": 26,
       "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "SandGym_Tr4_CyclistM2",
       "flag": "0"
     },
     {
@@ -74,35 +74,61 @@
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "SandGym_Tr5_CyclistF3",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F",
+      "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M",
       "x": 39,
       "y": 20,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "SandGym_Tr6_CyclistM3",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F",
+      "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M",
       "x": 38,
       "y": 39,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "SandGym_Tr7_CyclistM4",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_KORRINA",
+      "x": 21,
+      "y": 39,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SandGym_KorrinaTalk",
+      "flag": "FLAG_KORRINA_LEAVESGYM"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_2",
+      "x": 9,
+      "y": 46,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SandGym_Guide",
       "flag": "0"
     }
   ],
@@ -225,7 +251,7 @@
       "x": 9,
       "y": 43,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_SANDSTONE_GYM_CHECKPOINTS",
       "var_value": "0",
       "script": "SandstoneCheckpoint0"
     },
@@ -250,59 +276,92 @@
     {
       "type": "trigger",
       "x": 8,
+      "y": 45,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "SetSandstoneBike"
+    },
+    {
+      "type": "trigger",
+      "x": 28,
+      "y": 39,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "SandGym_LeaderScript"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 45,
+      "elevation": 0,
+      "var": "VAR_SANDSTONE_GYM_CHECKPOINTS",
+      "var_value": "0",
+      "script": "SandstoneCheckpoint0"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 44,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SandstoneCheckpoint0"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
       "y": 44,
       "elevation": 0,
       "var": "VAR_SANDSTONE_GYM_CHECKPOINTS",
       "var_value": "0",
-      "script": "SetSandstoneBike"
+      "script": "SandstoneCheckpoint0"
+    },
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 45,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "SandstoneCheckpoint0"
     },
     {
       "type": "trigger",
       "x": 9,
-      "y": 44,
+      "y": 48,
       "elevation": 0,
-      "var": "VAR_SANDSTONE_GYM_CHECKPOINTS",
+      "var": "VAR_TEMP_1",
       "var_value": "0",
-      "script": "SetSandstoneBike"
+      "script": "ClearSandstoneBike"
     },
     {
       "type": "trigger",
-      "x": 5,
-      "y": 43,
+      "x": 8,
+      "y": 48,
       "elevation": 0,
-      "var": "VAR_SANDSTONE_GYM_CHECKPOINTS",
+      "var": "VAR_TEMP_1",
       "var_value": "0",
-      "script": "SetSandstoneBike"
-    },
-    {
-      "type": "trigger",
-      "x": 6,
-      "y": 43,
-      "elevation": 0,
-      "var": "VAR_SANDSTONE_GYM_CHECKPOINTS",
-      "var_value": "0",
-      "script": "SetSandstoneBike"
-    },
-    {
-      "type": "trigger",
-      "x": 11,
-      "y": 43,
-      "elevation": 0,
-      "var": "VAR_SANDSTONE_GYM_CHECKPOINTS",
-      "var_value": "0",
-      "script": "SetSandstoneBike"
-    },
-    {
-      "type": "trigger",
-      "x": 12,
-      "y": 43,
-      "elevation": 0,
-      "var": "VAR_SANDSTONE_GYM_CHECKPOINTS",
-      "var_value": "0",
-      "script": "SetSandstoneBike"
+      "script": "ClearSandstoneBike"
     }
   ],
   "bg_events": [
-
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 46,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SandGym_Statue"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 46,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SandGym_Statue"
+    }
   ]
 }

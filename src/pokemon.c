@@ -5739,6 +5739,14 @@ const u8 *GetTrainerPartnerName(void)
         {
             return GetTrainerNameFromId(TRAINER_STEVEN);
         }
+        else if (gPartnerTrainerId == TRAINER_PARTNER(PARTNER_BRENDAN))
+        {
+            return GetTrainerNameFromId(TRAINER_BRENDAN_ROUTE_103_MUDKIP);
+        }
+        else if (gPartnerTrainerId == TRAINER_PARTNER(PARTNER_MAY))
+        {
+            return GetTrainerNameFromId(TRAINER_MAY_ROUTE_103_MUDKIP);
+        }
         else
         {
             GetFrontierTrainerName(gStringVar1, gPartnerTrainerId);

@@ -865,6 +865,7 @@ static const u16 sMugshotPal_Skyla[] = INCBIN_U16("graphics/battle_transitions/s
 static const u16 sMugshotPal_Clay[] = INCBIN_U16("graphics/battle_transitions/clay_bg.gbapal");
 static const u16 sMugshotPal_Sidney2[] = INCBIN_U16("graphics/battle_transitions/sidney_bg.gbapal");
 static const u16 sMugshotPal_Volkner[] = INCBIN_U16("graphics/battle_transitions/volkner_bg.gbapal");
+static const u16 sMugshotPal_Korrina[] = INCBIN_U16("graphics/battle_transitions/korrina_bg.gbapal");
 
 
 static const u16 *const sOpponentMugshotsPals[MUGSHOT_COLOR_COUNT] =
@@ -878,7 +879,7 @@ static const u16 *const sOpponentMugshotsPals[MUGSHOT_COLOR_COUNT] =
     [MUGSHOT_COLOR_ELECTRIC] = sMugshotPal_Volkner,
     [MUGSHOT_COLOR_FLYING] = sMugshotPal_Skyla,
     [MUGSHOT_COLOR_GROUND] = sMugshotPal_Clay,
-    [MUGSHOT_COLOR_FIGHTING] = sMugshotPal_Clay,
+    [MUGSHOT_COLOR_FIGHTING] = sMugshotPal_Korrina,
 };
 
 static const u16 *const sPlayerMugshotsPals[GENDER_COUNT] =

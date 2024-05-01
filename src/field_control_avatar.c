@@ -544,11 +544,11 @@ static bool8 TryStartMiscWalkingScripts(u16 metatileBehavior)
         ScriptContext_SetupScript(EventScript_FallDownHole);
         return TRUE;
     }
-    else if (MetatileBehavior_IsBikeWarp(metatileBehavior))
-    {
-        ScriptContext_SetupScript(SandstoneGym_Warp);
-        return TRUE;
-    }
+    // else if (MetatileBehavior_IsBikeWarp(metatileBehavior))
+    // {
+    //     ScriptContext_SetupScript(SandstoneGym_Warp);
+    //     return TRUE;
+    // }
     else if (MetatileBehavior_IsBattlePyramidWarp(metatileBehavior))
     {
         ScriptContext_SetupScript(BattlePyramid_WarpToNextFloor);

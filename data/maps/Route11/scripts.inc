@@ -637,7 +637,7 @@ R11_RivalExits_1:
 	delay 40
 	applymovement 28, R11RivalLeaves
 	waitmovement 0
-	setvar VAR_ROUTE11_STATE, 1
+	setvar VAR_GYM_TELEPORT, 1
 	setflag FLAG_HIDE_ROUTE_110_RIVAL_ON_BIKE
 	removeobject 9
 	removeobject 8

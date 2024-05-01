@@ -9,17 +9,28 @@ script SetTeleportFloor {
     end
 }
 
-script ResetCheckpoint{
-    if(!flag(FLAG_BADGE04_GET)){
-        setvar(VAR_SANDSTONE_GYM_CHECKPOINTS, 0)
-    }
-    copyvar(VAR_ICE_STEP_COUNT, 1)
+script SandstoneGetPorted{
+    map_script_2(VAR_GYM_TELEPORT, 0, SandstoneGym_Warp)
     end
 }
 
-script SandstoneGetPorted{
-    map_script_2(VAR_ICE_STEP_COUNT, 0, SandstoneGym_Warp)
+script ResetCheckpoint{
+    copyvar(VAR_GYM_TELEPORT, 1)
+    if(flag(FLAG_BADGE04_GET)){
+        call(RemoveSandGymWall)
+    }
+    if(!flag(FLAG_BADGE04_GET)){
+        setvar(VAR_SANDSTONE_GYM_CHECKPOINTS, 0)
+    }
     end
+}
+
+script RemoveSandGymWall{
+    setmetatile(14, 36, 0x22F, FALSE)
+    setmetatile(14, 37, 0x237, FALSE)
+    setmetatile(14, 38, 0x202, FALSE)
+    setmetatile(14, 39, 0x210, FALSE)
+    setmetatile(14, 40, 0x21A, FALSE)
 }
 
 
@@ -48,18 +59,40 @@ script SetSandstoneBike{
     end
 }
 
-script SandStoneNoBike{
-    lockall
-    msgbox("You have no bike.")
-    closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, MoveDown1)
-    waitmovement(0)
+script ClearSandstoneBike{
+    clearflag(FLAG_SYS_CYCLING_ROAD)
     release
     end
 }
 
+script SandStoneNoBike{
+    lockall
+    playse(SE_PIN)
+    turnobject(9, DIR_NORTH)
+    applymovement(9, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	applymovement(9, Common_Movement_Delay48)
+	waitmovement(0)
+    applymovement(9, TurnLeft)
+    applymovement(OBJ_EVENT_ID_PLAYER, MoveDown1)
+    waitmovement(0)
+    msgbox(YouHaveNoBike)
+    closemessage
+    release
+    end
+}
+
+text YouHaveNoBike{
+    "I'm sorry, but you must be on a bike\n"
+    "before you can proceed."
+}
+
 movement MoveDown1{
     walk_down
+    walk_in_place_fast_right
+}
+movement TurnLeft{
+    walk_in_place_fast_left
 }
 
 script SandstoneCheckpoint0{
@@ -85,8 +118,394 @@ script SandstoneCheckpoint2{
 }
 
 script PrintIceStep{
-    buffernumberstring(STR_VAR_1, VAR_ICE_STEP_COUNT)
+    buffernumberstring(STR_VAR_1, VAR_GYM_TELEPORT)
     msgbox("{STR_VAR_1}")
     release
     end
 }
+
+script SandGym_KorrinaTalk{
+	if(flag(FLAG_BADGE04_GET)){
+        msgbox(SandGym_KorrinaPosBat, MSGBOX_NPC)}
+	else{
+		msgbox(SandGym_YouArrived, MSGBOX_NPC)
+		turnobject(8, DIR_EAST)}
+    end
+}
+script SandGym_LeaderScript{
+    if(flag(FLAG_BADGE04_GET)){
+        release
+        end
+    }
+    call(GymStartingMovementWest)
+	trainerbattle_single(TRAINER_LEADER_KORRINA, SandGym_KorrinaInt, SandGym_KorrinaDef, SandGym_KorrinaEvent, NO_MUSIC)
+	end
+}
+
+script SandGym_KorrinaEvent{
+	call(GymMovementAfterWest)
+    msgbox(SandGym_JustDefeated)
+    closemessage
+	message(SandGym_ReceivedBadge)
+	waitmessage
+	call(Common_EventScript_PlayGymBadgeFanfare)
+	msgbox(SandGym_TakeThis, MSGBOX_DEFAULT)
+	setflag(FLAG_BADGE04_GET)
+    setvar(VAR_BADGES_OBTAINED, 4)
+	setvar(VAR_0x8008, 4)
+	call(Common_EventScript_SetGymTrainers)
+	special(RemoveCameraObject)
+    call(RemoveSandGymWall)
+    special(DrawWholeMapView)
+	giveitem(ITEM_TM98)
+	msgbox (SandGym_ExplainTM, MSGBOX_DEFAULT)
+    msgbox(MeetMeAtAdTower, MSGBOX_DEFAULT)
+    closemessage
+    applymovement(8, KorrinaLeavesGym)
+    waitmovement(0)
+    setflag(FLAG_KORRINA_LEAVESGYM)
+	release
+	end
+}
+movement KorrinaLeavesGym{
+    walk_fast_left * 7
+}
+
+text SandGym_JustDefeated{
+    "Lady Korrina gave a terrible display!\p"
+    "This is it. I must give up my title and\n"
+    "admit that your strength far exceeds--\p"
+    "Just teasing! But here's your Badge.\n"
+    "Boy, you'll be rolling in 'em soon!"
+}
+
+text SandGym_YouArrived{
+    "I knew you'd be here soon!\p"
+    "If you're ready, go stand on the other\n"
+    "side of the arena and let's get this\l"
+    "show on the road!"
+}
+text SandGym_KorrinaInt{
+	"Time for Lady Korrina's big appearance!\p"
+    "Haha, I'm just messing around with you!\n"
+    "I know, you're rollin' in the aisles,\l"
+    "right?\p"
+    "I haven't forgotten your battle\n"
+    "with your friend back on Route 11."
+    "I already know you're a strong Trainer,\n"
+    "so let's get this show on the road!"
+}
+text MeetMeAtAdTower{
+    "Hey, uh…\p"
+    "I was thinking of giving you something\n"
+    "cool, but I've some urgent business\l"
+    "elsewhere.\p"
+    "Could you come meet me at the top of\n"
+    "the Adamant Tower? It's just north of\l"
+    "Sandstone City.\p"
+    "Only certain people are allowed in,\n"
+    "but I'll talk to the guard there to\p"
+    "let you through. Cool?\p"
+    "Anyway, meet you there!"
+}
+
+text SandGym_KorrinaDef{
+	"Oh! I have been defeated! Alack, alay!"
+}
+text SandGym_ReceivedBadge{
+	"{PLAYER} received the Rumble Badge\n"
+	"from Korrina!"
+}
+text SandGym_TakeThis{
+	"If you've got a Rumble Badge, then\n"
+    "you can trade Pokémon up to level 60\l"
+    "with your friends and they'll be ready\l"
+    "to roll! They'll love you, all right!\p"
+    "And you'll be able to push any pesky\n"
+    "boulders out of your way using the\l"
+    "HM Strength!\p"
+    "And here, why don't you take this TM?\n"
+    "I've really been on a roll with it myself!"
+}
+text SandGym_ExplainTM{
+	"Power-Up Punch does just what it says\n"
+    "on the box!\p"
+    "The more that you use it, the tougher\n"
+    "your fists get.\p"
+    "Keep using it.\n"
+    "Your Attack will go through the roof!"
+}
+text SandGym_KorrinaPosBat{
+	"Already rarin' to go again?\n"
+    "I dunno…\p"
+    "That Mega Ring was my trump card, but\n"
+    "now that you have one as well, I doubt\l"
+    "I'd have any chance against you!"
+}
+
+script SandGym_Guide{
+    if(flag(FLAG_OBTAINED_MEGA_RING)){
+        msgbox(SandGym_GuideRing, MSGBOX_NPC)
+        end
+    }
+	if(flag(FLAG_BADGE04_GET)){
+        msgbox(SandGym_GuidePostVictory, MSGBOX_NPC)
+        end 
+    }
+	msgbox(SandGym_GuideAdvice, MSGBOX_NPC)
+	end
+}
+script SandGym_Statue{
+	if(flag(FLAG_BADGE04_GET)){
+        msgbox(SandGym_GymStatueCertified, MSGBOX_SIGN)
+    }
+    else{
+        msgbox(SandGym_GymStatue, MSGBOX_SIGN)
+    }
+	end
+}
+
+text SandGym_GuideAdvice{
+    "Yo, champ in the making!\p"
+    "The leader of this gym, Korrina,\n"
+    "really loves Fighting-type Pokémon.\p"
+    "She also really loves speed!\p"
+    "That's why she decided to design her\n"
+    "gym completely around the concept of\l"
+    "going fast.\p"
+    "If you ever hope to reach her, you need\n"
+    "to hop on your bike and navigate\l"
+    "through the precarious course.\p"
+    "That said, it won't be quite that easy!\p"
+    "There are patterned floors that send\n"
+    "you back some ways if you're not\l"
+    "crossing them at the fastest possible\l"
+    "speed.\p"
+    "However, go too fast, and you might\n"
+    "just bump into another trainer or even\l"
+    "fall of a ledge.\p"
+    "If you do fall off, there are a few\n"
+    "strategically placed pads around\l"
+    "the gym that let you get back to your\l"
+    "previous checkpoint.\p"
+    "Anyway, that's enough from me.\n"
+    "Go get 'em, Champ!"
+}
+text SandGym_GuidePostVictory{
+	"Korrina seemed to be in high spirits\n"
+    "as she flew past here.\p"
+    "That must have been one high-speed\n"
+    "battle!\p"
+    "But now, you should make haste and\n"
+    "head to the Adamant Tower north of\l"
+    "the city.\p"
+    "Korrina doesn't like staying in one\n"
+    "place for long so you might miss her\l"
+    "if you tarry!"
+}
+text SandGym_GuideRing{
+    "Oh, I see you wearing that Mega Ring!\n"
+    "Well done champ!\p"
+    "I hope it helps you reach ever new\n"
+    "heights!"
+}
+
+text SandGym_GymStatue{
+	"Sandstone City Pokémon Gym\p"
+	"Korrina's certified trainers:\n"
+    "{RIVAL}"
+}
+text SandGym_GymStatueCertified{
+	"Sandstone City Pokémon Gym\p"
+	"Korrina's certified trainers:\n"
+    "{RIVAL}\l"
+	"{PLAYER}"
+}
+
+
+
+script GymStartingMovementWest{
+    lockall
+	delay(10)
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+	turnobject(8, DIR_EAST)
+	special(SpawnCameraObject)
+	applymovement(OBJ_EVENT_ID_CAMERA, Sand_Gym_MoveCamera)
+	waitmovement(0)
+	delay(10)
+	special(RemoveCameraObject)
+}
+movement Sand_Gym_MoveCamera{
+	walk_left * 3
+}
+script GymMovementAfterWest{
+    special(SpawnCameraObject)
+	delay(30)
+	applymovement(8, Sand_Gym_MoveRight)
+	applymovement(OBJ_EVENT_ID_PLAYER, Sand_Gym_MoveLeft)
+	waitmovement(0)
+	delay(15)
+}
+movement Sand_Gym_MoveLeft{
+	walk_left * 3
+}
+movement Sand_Gym_MoveRight{
+	walk_right * 3
+    face_right
+}
+
+// Time for Lady Korrina's big appearance!
+// Haha, I'm just messing around with you!\n
+// I know, you're rollin' in the aisles, right?\c\n
+// I already know you're a strong Trainer,\n
+// so let's get this show on the road!
+// 
+// Look... I do have to apologize.\c\n
+// You'll have to make it up to the top of the\n
+// Tower of Mastery if you want the Mega Ring.\c\n
+// I'm sorry for sending you this way and that.\n
+// I swear, I'm not giving you the runaround!\c\n
+// You've done great rolling with the punches.\n
+// So great that I'd like to ask you a favor...\c\n
+// Battle me again, won't you? But this time,\n
+// it won't be just another Gym Battle...\c\n
+// I want a battle between equals! As two\n
+// Trainers who can use Mega Evolution!
+// I'll be waiting for you with Lucario at the top\n
+// of the Tower of Mastery!
+
+script SandGym_Tr1_CyclistM1{
+    trainerbattle_single(TRAINER_SANDGYM_TR1_CYCLISTM1, SandGym_Tr1_CyclistM1_Intro, SandGym_Tr1_CyclistM1_Defeat)
+    msgbox(SandGym_Tr1_CyclistM1_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text SandGym_Tr1_CyclistM1_Intro{
+    "Welcome to the high-speed gym!\n"
+    "I hope I won't disappoint!"
+}
+text SandGym_Tr1_CyclistM1_Defeat{
+    "I stood no chance…"
+}
+text SandGym_Tr1_CyclistM1_PostBattle{
+    "Sometimes bumping into another trainer\n"
+    "here could be beneficial.\p"
+    "It all depends on how good you are\n"
+    "handling your bike."
+}
+
+script SandGym_Tr2_CyclistF1{
+    trainerbattle_single(TRAINER_SANDGYM_TR2_CYCLISTF1, SandGym_Tr2_CyclistF1_Intro, SandGym_Tr2_CyclistF1_Defeat)
+    msgbox(SandGym_Tr2_CyclistF1_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text SandGym_Tr2_CyclistF1_Intro{
+    "You may think yourself lucky that I\n"
+    "was here to stop you, but this is\l"
+    "where your luck runs out!"
+}
+text SandGym_Tr2_CyclistF1_Defeat{
+    "I guess you still had some luck left…"
+}
+text SandGym_Tr2_CyclistF1_PostBattle{
+    "Sometimes using your bike's Acro Mode\n"
+    "can be beneficial so that you can\l"
+    "position yourself better for the\l"
+    "next challenge."
+}
+
+script SandGym_Tr3_CyclistF2{
+    trainerbattle_single(TRAINER_SANDGYM_TR3_CYCLISTF2, SandGym_Tr3_CyclistF2_Intro, SandGym_Tr3_CyclistF2_Defeat)
+    msgbox(SandGym_Tr3_CyclistF2_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text SandGym_Tr3_CyclistF2_Intro{
+    "You're doing well!\n"
+    "Too bad now you have to face me!"
+}
+text SandGym_Tr3_CyclistF2_Defeat{
+    "I can't believe it!"
+}
+text SandGym_Tr3_CyclistF2_PostBattle{
+    "Sometimes I wish I had roller skates\n"
+    "like Korrina, but they've really fallen\l"
+    "out of style and are kind of hard\l"
+    "to find…"
+}
+
+script SandGym_Tr4_CyclistM2{
+    trainerbattle_single(TRAINER_SANDGYM_TR4_CYCLISTM2, SandGym_Tr4_CyclistM2_Intro, SandGym_Tr4_CyclistM2_Defeat)
+    msgbox(SandGym_Tr4_CyclistM2_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text SandGym_Tr4_CyclistM2_Intro{
+    "Don't go bumping into people or\n"
+    "you'll regret it!"
+}
+text SandGym_Tr4_CyclistM2_Defeat{
+    "I regret challenging you…"
+}
+text SandGym_Tr4_CyclistM2_PostBattle{
+    "Anybody can ride a bike outdoors but\n"
+    "only the true pro can handle theirs\l"
+    "in an environment like this."
+}
+
+script SandGym_Tr5_CyclistF3{
+    trainerbattle_single(TRAINER_SANDGYM_TR5_CYCLISTF3, SandGym_Tr5_CyclistF3_Intro, SandGym_Tr5_CyclistF3_Defeat)
+    msgbox(SandGym_Tr5_CyclistF3_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text SandGym_Tr5_CyclistF3_Intro{
+    "I've got that high-speed adrenaline\n"
+    "flowing in my veins! Let's go!"
+}
+text SandGym_Tr5_CyclistF3_Defeat{
+    "I still have some energy left in me!\n"
+    "Let's go!"
+}
+text SandGym_Tr5_CyclistF3_PostBattle{
+    "I heard there's a gym in Unova that\n"
+    "uses massive fans to create wind.\p"
+    "I wish we had something like that\n"
+    "here.\p"
+    "It's hard to get pumped up when\n"
+    "there's no wind hitting your face."
+}
+
+script SandGym_Tr6_CyclistM3{
+    trainerbattle_single(TRAINER_SANDGYM_TR6_CYCLISTM3, SandGym_Tr6_CyclistM3_Intro, SandGym_Tr6_CyclistM3_Defeat)
+    msgbox(SandGym_Tr6_CyclistM3_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text SandGym_Tr6_CyclistM3_Intro{
+    "You'll regret ever facing me!"
+}
+text SandGym_Tr6_CyclistM3_Defeat{
+    "This cannot be!"
+}
+text SandGym_Tr6_CyclistM3_PostBattle{
+    "Sometimes I struggle with my identity\n"
+    "as a trainer.\p"
+    "Should I follow the Gym Leader's style\n"
+    "or go my own way?"
+}
+
+script SandGym_Tr7_CyclistM4{
+    trainerbattle_single(TRAINER_SANDGYM_TR4_CYCLISTM4, SandGym_Tr7_CyclistM4_Intro, SandGym_Tr7_CyclistM4_Defeat)
+    msgbox(SandGym_Tr7_CyclistM4_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text SandGym_Tr7_CyclistM4_Intro{
+    "You may have navigated the course,\n"
+    "but you're not in the clear yet!"
+}
+text SandGym_Tr7_CyclistM4_Defeat{
+    "I have been bested!"
+}
+text SandGym_Tr7_CyclistM4_PostBattle{
+    "I see no challenge set forth could\n"
+    "stop you.\p"
+    "But can you take home the ultimate\n"
+    "victory?"
+}
+

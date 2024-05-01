@@ -146,7 +146,7 @@ bool8 MetatileBehavior_IsEncounterTile(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsBikeWarp(u8 metatileBehavior)
 {
-    if ((metatileBehavior == MB_BIKEWARP) && (GetPlayerSpeed() != PLAYER_SPEED_FASTEST))
+    if (metatileBehavior == MB_BIKEWARP)
         return TRUE;
     else
         return FALSE;

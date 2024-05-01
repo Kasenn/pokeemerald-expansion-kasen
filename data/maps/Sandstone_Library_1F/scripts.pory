@@ -124,19 +124,113 @@ text Library_Daughter_Text{
 }
 
 script Library_Birch{
-    msgbox(Library_Birch_Text, MSGBOX_NPC)
+    lock
+    faceplayer
+    msgbox(Library_Birch_Text)
+    closemessage
+	delay(20)
+	applymovement(5, Common_Movement_WalkInPlaceFasterLeft)
+	waitmovement(0)
+	delay(10)
+	applymovement(5, Common_Movement_WalkInPlaceFasterRight)
+	waitmovement(0)
+	delay(20)
+	applymovement(5, Common_Movement_WalkInPlaceFasterDown)
+	waitmovement(0)
+	delay(30)
+    faceplayer
+    msgbox(Library_Birch_Text2)
+    closemessage
+    if(var(VAR_FACING) == DIR_EAST){
+        applymovement(5, BirchLeavesLong)
+    }
+    else{
+        applymovement(5, BirchLeavesShort)
+    }
+    waitmovement(0)
+    removeobject(5)
+    setflag(FLAG_HIDE_LIBRARY_BIRCH)
+    delay(30)
+    release
     end
 }
 text Library_Birch_Text{
-    ""
+    "Prof. Birch: Oh, {PLAYER}!\n"
+	"Imagine seeing you here!\p"
+	"And where might my {RIVAL} be?"
+}
+text Library_Birch_Text2{
+	"Oh, I see!\n"
+	"You two are running separately.\l"
+	"Well, that's fine.\p"
+	"Oh, yes, I was just gathering material\n"
+    "for a research project and I was just\l"
+    "about to head back to Pearlwood.\l"
+    "Once you're done with whatever it is\l"
+    "that you're doing here, you and {RIVAL}\l"
+    "should come visit me in my lab.\l"
+    "I'm working on something special!\p"
+    "… … … … … …\p"
+	"Well, I had better get going.\n"
+	"See you again, {PLAYER}!"
+}
+movement BirchLeavesShort{
+    walk_left * 2
+    walk_up * 4
+    walk_right * 4
+    walk_up * 2
+}
+
+movement BirchLeavesLong{
+    walk_down
+    walk_left * 2
+    walk_up * 5
+    walk_right * 4
+    walk_up * 2
 }
 
 script Library_MegaBook{
-    msgbox(Library_MegaBook_Text, MSGBOX_SIGN)
+    lock
+    msgbox(Library_MegaBook_Text, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        closemessage
+        end
+    }
+    msgbox(Library_MegaBook_Text2, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        closemessage
+        end
+    }
+    msgbox(Library_MegaBook_Text3, MSGBOX_SIGN)
     end
 }
 text Library_MegaBook_Text{
-    ""
+    "There's a magazine here that describes\n"
+    "newly discovered Pokémon abilities.\p"
+    "Would you like to read it?"
+}
+text Library_MegaBook_Text2{
+    "SEARING RAGE\p"
+    "Causes the Pokémon to enrage when below\n"
+    "half health, greatly increasing its\l"
+    "physical prowess.\p"
+    "SPIKE BODY\p"
+    "Causes immense pain to any Pokémon that\n"
+    "touches the spikes, whether it's trying\l"
+    "to attack one or be attacked by one.\p"
+    "Would you like to keep reading?"
+}
+text Library_MegaBook_Text3{
+    "DATA BREACH\n"
+    "A newly discovered ability.\p"
+    "Pokémon with Data Breach seem to break\n"
+    "the laws of nature, being able to\l"
+    "pierce many defenses like Protect and\l"
+    "Reflect, and even being able to hit\l"
+    "Ghost-type Pokémon with moves that\l"
+    "would normally not be possible.\p"
+    "The rest of the magazine seems to drag\n"
+    "on with information you already know."
 }
 
 script Library_HistoryBook{

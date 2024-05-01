@@ -53,14 +53,13 @@ MauvilleCity_Gym_SetGymTrainers::
 	return
 
 LavaridgeTown_Gym_SetGymTrainers::
-	settrainerflag TRAINER_KM_TR10_HIKER
-	settrainerflag TRAINER_BUFFET_2
-	settrainerflag TRAINER_BUFFET_4
-	settrainerflag TRAINER_GERALD
-	settrainerflag TRAINER_DANIELLE
-	settrainerflag TRAINER_BUFFET_3
-	settrainerflag TRAINER_BUFFET_1
-	settrainerflag TRAINER_ELI
+	settrainerflag TRAINER_SANDGYM_TR1_CYCLISTM1
+	settrainerflag TRAINER_SANDGYM_TR2_CYCLISTF1
+	settrainerflag TRAINER_SANDGYM_TR3_CYCLISTF2
+	settrainerflag TRAINER_SANDGYM_TR4_CYCLISTM2
+	settrainerflag TRAINER_SANDGYM_TR5_CYCLISTF3
+	settrainerflag TRAINER_SANDGYM_TR6_CYCLISTM3
+	settrainerflag TRAINER_SANDGYM_TR4_CYCLISTM4
 	return
 
 PetalburgCity_Gym_SetGymTrainers::

@@ -77,12 +77,88 @@ Library_Daughter::
 
 
 Library_Birch::
-	msgbox Library_Birch_Text, MSGBOX_NPC
+	lock
+	faceplayer
+	msgbox Library_Birch_Text
+	closemessage
+	delay 20
+	applymovement 5, Common_Movement_WalkInPlaceFasterLeft
+	waitmovement 0
+	delay 10
+	applymovement 5, Common_Movement_WalkInPlaceFasterRight
+	waitmovement 0
+	delay 20
+	applymovement 5, Common_Movement_WalkInPlaceFasterDown
+	waitmovement 0
+	delay 30
+	faceplayer
+	msgbox Library_Birch_Text2
+	closemessage
+	compare VAR_FACING, DIR_EAST
+	goto_if_eq Library_Birch_2
+	applymovement 5, BirchLeavesShort
+Library_Birch_1:
+	waitmovement 0
+	removeobject 5
+	setflag FLAG_HIDE_LIBRARY_BIRCH
+	delay 30
+	release
 	end
 
+Library_Birch_2:
+	applymovement 5, BirchLeavesLong
+	goto Library_Birch_1
+
+
+BirchLeavesShort:
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	step_end
+
+BirchLeavesLong:
+	walk_down
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	step_end
 
 Library_MegaBook::
-	msgbox Library_MegaBook_Text, MSGBOX_SIGN
+	lock
+	msgbox Library_MegaBook_Text, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Library_MegaBook_2
+	msgbox Library_MegaBook_Text2, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Library_MegaBook_5
+	msgbox Library_MegaBook_Text3, MSGBOX_SIGN
+	end
+
+Library_MegaBook_2:
+	closemessage
+	end
+
+Library_MegaBook_5:
+	closemessage
 	end
 
 
@@ -179,10 +255,52 @@ Library_Daughter_Text::
 	.string "Ooh!$"
 
 Library_Birch_Text::
-	.string "$"
+	.string "Prof. Birch: Oh, {PLAYER}!\n"
+	.string "Imagine seeing you here!\p"
+	.string "And where might my {RIVAL} be?$"
+
+Library_Birch_Text2::
+	.string "Oh, I see!\n"
+	.string "You two are running separately.\l"
+	.string "Well, that's fine.\p"
+	.string "Oh, yes, I was just gathering material\n"
+	.string "for a research project and I was just\l"
+	.string "about to head back to Pearlwood.\l"
+	.string "Once you're done with whatever it is\l"
+	.string "that you're doing here, you and {RIVAL}\l"
+	.string "should come visit me in my lab.\l"
+	.string "I'm working on something special!\p"
+	.string "… … … … … …\p"
+	.string "Well, I had better get going.\n"
+	.string "See you again, {PLAYER}!$"
 
 Library_MegaBook_Text::
-	.string "$"
+	.string "There's a magazine here that describes\n"
+	.string "newly discovered Pokémon abilities.\p"
+	.string "Would you like to read it?$"
+
+Library_MegaBook_Text2::
+	.string "SEARING RAGE\p"
+	.string "Causes the Pokémon to enrage when below\n"
+	.string "half health, greatly increasing its\l"
+	.string "physical prowess.\p"
+	.string "SPIKE BODY\p"
+	.string "Causes immense pain to any Pokémon that\n"
+	.string "touches the spikes, whether it's trying\l"
+	.string "to attack one or be attacked by one.\p"
+	.string "Would you like to keep reading?$"
+
+Library_MegaBook_Text3::
+	.string "DATA BREACH\n"
+	.string "A newly discovered ability.\p"
+	.string "Pokémon with Data Breach seem to break\n"
+	.string "the laws of nature, being able to\l"
+	.string "pierce many defenses like Protect and\l"
+	.string "Reflect, and even being able to hit\l"
+	.string "Ghost-type Pokémon with moves that\l"
+	.string "would normally not be possible.\p"
+	.string "The rest of the magazine seems to drag\n"
+	.string "on with information you already know.$"
 
 Library_HistoryBook_Text::
 	.string "The shelves are lined with books\n"

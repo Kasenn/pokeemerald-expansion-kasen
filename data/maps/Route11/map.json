@@ -507,7 +507,7 @@
       "x": 12,
       "y": 14,
       "elevation": 0,
-      "var": "VAR_ROUTE11_STATE",
+      "var": "VAR_GYM_TELEPORT",
       "var_value": "0",
       "script": "R11_RivalTrigger1"
     },
@@ -516,7 +516,7 @@
       "x": 13,
       "y": 14,
       "elevation": 0,
-      "var": "VAR_ROUTE11_STATE",
+      "var": "VAR_GYM_TELEPORT",
       "var_value": "0",
       "script": "R11_RivalTrigger2"
     }

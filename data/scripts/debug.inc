@@ -160,7 +160,7 @@ Debug_EventScript_Script_3::
 	end
 
 Debug_EventScript_Script_4::
-	call PrintIceStep 
+	call MossdeepCity_SpaceCenter_2F_EventScript_DoStevenMultiBattle 
 	end
 
 Debug_EventScript_Script_5::

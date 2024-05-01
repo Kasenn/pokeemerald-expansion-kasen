@@ -58,6 +58,8 @@ Update3_1:
 	clearflag FLAG_OBTAINED_PAINTBRUSH
 	clearflag FLAG_UNUSED_0X37
 	clearflag FLAG_TRADED_SMEARGLE
+	clearflag FLAG_KORRINA_LEAVESGYM
+	clearflag FLAG_HIDE_LIBRARY_BIRCH
 	setflag FLAG_HIDE_STONE_SPHERE_FC
 	setflag FLAG_OLDMAN_PEARLSTRING
 	setflag FLAG_LANDMARK_LOST_GLADE
@@ -79,6 +81,9 @@ Update3_10:
 	goto_if_eq Update3_14
 Update3_13:
 	closemessage
+	fadescreen FADE_TO_BLACK
+	special ChooseHalfPartyForBattle
+	waitstate
 	release
 	end
 

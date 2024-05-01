@@ -83,7 +83,7 @@ movement NewCoralgroveCity_Gym_MoveCamera2{
 	walk_left
 }
 // NewCoralgroveCity_Gym_EventScript_AaronRematch::
-// 	trainerbattle_rematch_double TRAINER_ROXANNE_1, NewCoralgroveCity_Gym_Text_AaronPreRematch, NewCoralgroveCity_Gym_Text_AaronRematchDefeat, NewCoralgroveCity_Gym_Text_AaronRematchNeedTwoMons
+// 	trainerbattle_rematch_double TRAINER_SANDGYM_TR1_CYCLISTM1, NewCoralgroveCity_Gym_Text_AaronPreRematch, NewCoralgroveCity_Gym_Text_AaronRematchDefeat, NewCoralgroveCity_Gym_Text_AaronRematchNeedTwoMons
 // 	msgbox NewCoralgroveCity_Gym_Text_AaronPostRematch, MSGBOX_AUTOCLOSE
 // 	end 
 

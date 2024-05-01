@@ -851,9 +851,6 @@ static void TeleportFloorPerStepCallback(u8 taskId)
     PlayerGetDestCoords(&x, &y);
     behavior = MapGridGetMetatileBehaviorAt(x, y);
 
-    if (MetatileBehavior_IsBikeWarp(behavior))
-        VarSet(VAR_ICE_STEP_COUNT, 0); // this var does double duty
-
     // End if player hasn't moved
     if (x == tPrevX && y == tPrevY)
         return;
@@ -863,7 +860,7 @@ static void TeleportFloorPerStepCallback(u8 taskId)
     if (MetatileBehavior_IsBikeWarp(behavior))
     {
         if (GetPlayerSpeed() != PLAYER_SPEED_FASTEST)
-            VarSet(VAR_ICE_STEP_COUNT, 0); // this var does double duty
+            VarSet(VAR_GYM_TELEPORT, 0);
 
         if (tFloor1Delay == 0)
         {

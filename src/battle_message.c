@@ -4071,7 +4071,7 @@ struct TrainerSlide
 
 static const u8 sText_KorrinaLastPokemon[] = _("This is my last Pokémon,\nbut it is also my strongest!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_DontGetCockyKid[] = _("Don't get cocky just because you\nmanaged to defeat one!{PAUSE_UNTIL_PRESS}");
-static const u8 sText_NotAFairFight[] = _("Hope you weren't expecting a fair\nfight.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_NotAFairFight[] = _("I hesitated doing this, but you've\nreally driven me into a corner here!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_HeardOfMegaEvos[] = _("Have you heard of Mega Evolution?{PAUSE_UNTIL_PRESS}");
 
 static const struct TrainerSlide sTrainerSlides[] =
@@ -4098,10 +4098,10 @@ static const struct TrainerSlide sTrainerSlides[] =
    {
         .trainerId = TRAINER_LEADER_KORRINA,
         .isFrontierTrainer = FALSE,
-        .msgLastSwitchIn = sText_KorrinaLastPokemon,
-        .msgFirstDown = sText_DontGetCockyKid,
+        // .msgLastSwitchIn = sText_KorrinaLastPokemon,
+        // .msgFirstDown = sText_DontGetCockyKid,
         .msgMegaEvolution = sText_NotAFairFight,
-        .msgBeforeFirstTurn = sText_HeardOfMegaEvos,
+        // .msgBeforeFirstTurn = sText_HeardOfMegaEvos,
     },
 };
 

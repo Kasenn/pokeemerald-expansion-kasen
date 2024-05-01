@@ -873,7 +873,13 @@ static bool8 LoadBagMenu_Graphics(void)
         gBagMenu->graphicsLoadState++;
         break;
     case 4:
+        if ((gSaveBlock2Ptr->playerGender == FEMALE) && (FlagGet(FLAG_PC_CHANGE_COSTUME)))
+    {
+        LoadCompressedSpritePalette(&gBagPaletteTableOras);
+    }
+    else{
         LoadCompressedSpritePalette(&gBagPaletteTable);
+    }
         gBagMenu->graphicsLoadState++;
         break;
     default:
