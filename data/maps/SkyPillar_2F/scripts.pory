@@ -1,0 +1,215 @@
+mapscripts SkyPillar_2F_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: SetupRivalPartner
+}
+
+script SetupRivalPartner{
+    checkplayergender
+    if(var(VAR_RESULT) == MALE){
+        if(flag(FLAG_MAY_COSTUME_CHANGE)){
+            switch(var(VAR_STARTER_MON)){
+                case 0:
+                    setvar(VAR_TOWER_PARTNER, 0)
+                case 1:
+                    setvar(VAR_TOWER_PARTNER, 1)
+                case 2:
+                    setvar(VAR_TOWER_PARTNER, 2)
+            }
+        }
+        else{
+            switch(var(VAR_STARTER_MON)){
+                case 0:
+                    setvar(VAR_TOWER_PARTNER, 3)
+                case 1:
+                    setvar(VAR_TOWER_PARTNER, 4)
+                case 2:
+                    setvar(VAR_TOWER_PARTNER, 5)
+            }
+        }
+    }
+    else{
+        if(flag(FLAG_BRENDAN_COSTUME_CHANGE)){
+            switch(var(VAR_STARTER_MON)){
+                case 0:
+                    setvar(VAR_TOWER_PARTNER, 6)
+                case 1:
+                    setvar(VAR_TOWER_PARTNER, 7)
+                case 2:
+                    setvar(VAR_TOWER_PARTNER, 8)
+            }
+        }
+        else{
+            switch(var(VAR_STARTER_MON)){
+                case 0:
+                    setvar(VAR_TOWER_PARTNER, 9)
+                case 1:
+                    setvar(VAR_TOWER_PARTNER, 10)
+                case 2:
+                    setvar(VAR_TOWER_PARTNER, 11)
+            }
+        }
+    }
+    end
+}
+
+script Tower_Tr1_LeftTrigger{
+    if(defeated(TRAINER_AT2F_MAN3)){
+        release
+        end
+    }
+    setvar(VAR_TEMP_2, 1)
+    goto(Tower_Tr1_Battle)
+}
+script Tower_Tr1_RightTrigger{
+    if(defeated(TRAINER_AT2F_MAN3)){
+        release
+        end
+    }
+    setvar(VAR_TEMP_2, 2)
+    goto(Tower_Tr1_Battle)
+}
+script Tower_Tr1_Battle{
+    lock
+    playbgm(MUS_ENCOUNTER_COOL, FALSE)
+    applymovement(1, Common_Movement_ExclamationMark)
+    waitmovement(0)
+	applymovement(1, Common_Movement_Delay48)
+	waitmovement(0)
+    if(var(VAR_TEMP_2) == 1){
+        applymovement(1, Walk2Left)
+    }
+    else{
+        applymovement(1, Walk1Left)
+    }
+    waitmovement(0)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+    msgbox(Tr1_Man3Intro)
+    closemessage
+    playbgm(MUS_ENCOUNTER_COOL, FALSE)
+    applymovement(2, Common_Movement_ExclamationMark)
+    waitmovement(0)
+	applymovement(2, Common_Movement_Delay48)
+	waitmovement(0)
+    if(var(VAR_TEMP_2) == 1){
+        applymovement(2, Walk1Right)
+    }
+    else{
+        applymovement(2, Walk2Right)
+    }
+    waitmovement(0)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+    msgbox(Tr1_Woman5Intro)
+    closemessage
+    switch(var(VAR_TOWER_PARTNER)){
+        case 0:
+            multi_2_vs_2(TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_MAY_ORAS_TORCHIC, TRAINER_BACK_PIC_MAY_ORAS)
+        case 1:
+            multi_2_vs_2(TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_MAY_ORAS_PIPLUP, TRAINER_BACK_PIC_MAY_ORAS)
+        case 2:
+            multi_2_vs_2(TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_MAY_ORAS_ROWLET, TRAINER_BACK_PIC_MAY_ORAS)
+        case 3:
+            multi_2_vs_2(TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_MAY_TORCHIC, TRAINER_BACK_PIC_MAY)
+        case 4:
+            multi_2_vs_2(TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_MAY_PIPLUP, TRAINER_BACK_PIC_MAY)
+        case 5:
+            multi_2_vs_2(TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_MAY_ROWLET, TRAINER_BACK_PIC_MAY)
+        case 6:
+            multi_2_vs_2(TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_BRENDAN_ORAS_TORCHIC, TRAINER_BACK_PIC_BRENDAN_ORAS)
+        case 7:
+            multi_2_vs_2(TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_BRENDAN_ORAS_PIPLUP, TRAINER_BACK_PIC_BRENDAN_ORAS)
+        case 8:
+            multi_2_vs_2(TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_BRENDAN_ORAS_ROWLET, TRAINER_BACK_PIC_BRENDAN_ORAS)
+        case 9:
+            multi_2_vs_2(TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_BRENDAN_TORCHIC, TRAINER_BACK_PIC_BRENDAN)
+        case 10:
+            multi_2_vs_2(TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_BRENDAN_PIPLUP, TRAINER_BACK_PIC_BRENDAN)
+        case 11:
+            multi_2_vs_2(TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_BRENDAN_ROWLET, TRAINER_BACK_PIC_BRENDAN)
+    }
+    switch(var(VAR_RESULT)){
+        case 1:
+            settrainerflag(TRAINER_AT2F_MAN3)
+            settrainerflag(TRAINER_AT2F_WOMAN5)
+            release
+            end
+    }
+	fadescreen(FADE_TO_BLACK)
+	special(SetCB2WhiteOut)
+	waitstate
+}
+
+text Tr1_Man3Intro{"I'm stronk!"}
+text Tr1_Woman5Intro{"I'm stronker!"}
+text Tr1_Man3Lost{"Me lose!"}
+text Tr1_Woman5Lost{"Me lose stronker!"}
+
+script SetUpPlayerParty{
+    fadescreen(FADE_TO_BLACK)
+	special(ChooseHalfPartyForBattle)
+	waitstate
+    setflag(FLAG_DISABLE_PARTNER_SWITCHING)
+}
+
+movement Walk1Left{
+    walk_left
+    step_end
+}
+movement Walk2Left{
+    walk_left * 2
+    step_end
+}
+movement Walk3Left{
+    walk_left * 3
+    step_end
+}
+movement Walk4Left{
+    walk_left * 4
+    step_end
+}
+movement Walk1Right{
+    walk_right
+    step_end
+}
+movement Walk2Right{
+    walk_right * 2
+    step_end
+}
+movement Walk3Right{
+    walk_right * 3
+    step_end
+}
+movement Walk4Right{
+    walk_right * 4
+    step_end
+}
+movement Walk1Up{
+    walk_up
+    step_end
+}
+movement Walk2Up{
+    walk_up * 2
+    step_end
+}
+movement Walk3Up{
+    walk_up * 3
+    step_end
+}
+movement Walk4Up{
+    walk_up * 4
+    step_end
+}
+movement Walk1Down{
+    walk_down
+    step_end
+}
+movement Walk2Down{
+    walk_down * 2
+    step_end
+}
+movement Walk3Down{
+    walk_down * 3
+    step_end
+}
+movement Walk4Down{
+    walk_down * 4
+    step_end
+}

@@ -225,7 +225,7 @@ Route28_Fisher::
 
 
 Route28_BrotherIntro::
-	.string "Thomas: Yo, {PLAYER}!\p"
+	.string "{BROTHER}: Yo, {PLAYER}!\p"
 	.string "I see you've finally made your way\n"
 	.string "off the Coralgrove Islands.\p"
 	.string "I wanted to head north to check out\n"
@@ -239,7 +239,7 @@ Route28_BrotherIntro::
 	.string "to them!$"
 
 Route28_BrotherIntroAfterGym::
-	.string "Thomas: Yo, {PLAYER}!\p"
+	.string "{BROTHER}: Yo, {PLAYER}!\p"
 	.string "I see you've finally made your way\n"
 	.string "off the Coralgrove Islands.\p"
 	.string "I wanted to head north to check out\n"

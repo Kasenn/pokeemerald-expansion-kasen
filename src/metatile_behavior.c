@@ -146,43 +146,43 @@ bool8 MetatileBehavior_IsEncounterTile(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsBikeWarp(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_BIKEWARP)
+    if ((metatileBehavior == MB_BIKEWARP) && (GetPlayerSpeed() != PLAYER_SPEED_FASTEST))
         return TRUE;
     else
         return FALSE;
 }
 
-bool8 MetatileBehavior_IsJumpNorthEast(u8 metatileBehavior)
-{
-    if (metatileBehavior == MB_JUMP_NORTHEAST)
-        return TRUE;
-    else
-        return FALSE;
-}
+// bool8 MetatileBehavior_IsJumpNorthEast(u8 metatileBehavior)
+// {
+//     if (metatileBehavior == MB_JUMP_NORTHEAST)
+//         return TRUE;
+//     else
+//         return FALSE;
+// }
 
-bool8 MetatileBehavior_IsJumpSouthEast(u8 metatileBehavior)
-{
-    if (metatileBehavior == MB_JUMP_SOUTHEAST)
-        return TRUE;
-    else
-        return FALSE;
-}
+// bool8 MetatileBehavior_IsJumpSouthEast(u8 metatileBehavior)
+// {
+//     if (metatileBehavior == MB_JUMP_SOUTHEAST)
+//         return TRUE;
+//     else
+//         return FALSE;
+// }
 
-bool8 MetatileBehavior_IsJumpNorthWest(u8 metatileBehavior)
-{
-    if (metatileBehavior == MB_JUMP_NORTHWEST)
-        return TRUE;
-    else
-        return FALSE;
-}
+// bool8 MetatileBehavior_IsJumpNorthWest(u8 metatileBehavior)
+// {
+//     if (metatileBehavior == MB_JUMP_NORTHWEST)
+//         return TRUE;
+//     else
+//         return FALSE;
+// }
 
-bool8 MetatileBehavior_IsJumpSouthWest(u8 metatileBehavior)
-{
-    if (metatileBehavior == MB_JUMP_SOUTHWEST)
-        return TRUE;
-    else
-        return FALSE;
-}
+// bool8 MetatileBehavior_IsJumpSouthWest(u8 metatileBehavior)
+// {
+//     if (metatileBehavior == MB_JUMP_SOUTHWEST)
+//         return TRUE;
+//     else
+//         return FALSE;
+// }
 
 
 bool8 MetatileBehavior_IsJumpEast(u8 metatileBehavior)

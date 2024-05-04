@@ -40,13 +40,13 @@ PlayerHouse2F_MomTalk::
 	waitmessage
 	delay 30
 	closemessage
-	applymovement 1, Player2FMomWalk2
+	applymovement 1, Walk1Up
 	waitmovement 0
 	hideobjectat 1, MAP_PLAYER_HOUSE2F
-	applymovement 1, Player2FMomWalk2
+	applymovement 1, Walk1Up
 	waitmovement 0
 	delay 30
-	applymovement OBJ_EVENT_ID_PLAYER, OutOfBed
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Right
 	waitmovement 0
 	setflag PEARLWOOD_MOM_TALKED_TO
 	setvar VAR_PEARLWOOD_TOWN_STATE, 1
@@ -61,27 +61,15 @@ PlayerHouse2F_ClockReminder::
 	lockall
 	msgbox PlayerHouse2F_ClockReminder_Text_0
 	waitmessage
-	applymovement OBJ_EVENT_ID_PLAYER, ClockStop
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Left
 	waitmovement 0
 	releaseall
 	return
 
 
-ClockStop:
-	walk_left
-	step_end
-
 Player2FMomWalk:
 	walk_down
 	face_left
-	step_end
-
-Player2FMomWalk2:
-	walk_up
-	step_end
-
-OutOfBed:
-	walk_right
 	step_end
 
 Player2FSetClock::

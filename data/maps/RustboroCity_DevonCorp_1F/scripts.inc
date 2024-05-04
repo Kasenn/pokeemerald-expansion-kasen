@@ -49,14 +49,32 @@ RustboroCity_DevonCorp_1F_EventScript_GreeterNew_6:
 
 
 Update3::
-	checkitem ITEM_GO_GOGGLES
-	compare VAR_RESULT, TRUE
+	compare VAR_DEBUG, 0
 	goto_if_eq Update3_2
 Update3_1:
+	msgbox FlagsAndVarsUpdated2, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
+	goto_if_eq Update3_5
+Update3_4:
+	closemessage
+	release
+	end
+
+Update3_2:
+	checkitem ITEM_GO_GOGGLES
+	compare VAR_RESULT, TRUE
+	goto_if_eq Update3_8
+Update3_7:
+	goto_if_set FLAG_UNUSED_PICKEDROWLET, Update3_11
+Update3_10:
+	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, Update3_14
+Update3_13:
+	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, Update3_17
+Update3_16:
 	clearflag FLAG_SHOWED_BADGE
 	clearflag FLAG_SYSTEM_NOREWARDBATTLES
 	clearflag FLAG_OBTAINED_PAINTBRUSH
-	clearflag FLAG_UNUSED_0X37
+	clearflag FLAG_DISABLE_PARTNER_SWITCHING
 	clearflag FLAG_TRADED_SMEARGLE
 	clearflag FLAG_KORRINA_LEAVESGYM
 	clearflag FLAG_HIDE_LIBRARY_BIRCH
@@ -67,45 +85,58 @@ Update3_1:
 	setflag FLAG_VISITED_RUSTBORO_CITY
 	setflag FLAG_VISITED_PEARLWOOD_POINT
 	setflag FLAG_VISITED_OLDALE_TOWN
-	checktrainerflag TRAINER_GABBY_AND_TY_1
-	goto_if 1, Update3_5
-Update3_4:
-	checktrainerflag TRAINER_MARY
-	goto_if 1, Update3_8
-Update3_7:
-	checktrainerflag TRAINER_KAOLGYM_CLAY
-	goto_if 1, Update3_11
-Update3_10:
-	msgbox FlagsAndVarsUpdated2, MSGBOX_YESNO
+	setvar VAR_DEBUG, 1
+	msgbox RenameBrother, MSGBOX_YESNO
 	compare VAR_RESULT, TRUE
-	goto_if_eq Update3_14
-Update3_13:
-	closemessage
-	fadescreen FADE_TO_BLACK
-	special ChooseHalfPartyForBattle
-	waitstate
-	release
-	end
-
-Update3_2:
-	setvar VAR_DESERT_BYPASS, 1
+	goto_if_eq Update3_20
+Update3_19:
+	checktrainerflag TRAINER_GABBY_AND_TY_1
+	goto_if 1, Update3_23
+Update3_22:
+	checktrainerflag TRAINER_MARY
+	goto_if 1, Update3_26
+Update3_25:
+	checktrainerflag TRAINER_KAOLGYM_CLAY
+	goto_if 1, Update3_28
 	goto Update3_1
 
 Update3_5:
-	setvar VAR_BADGES_OBTAINED, 1
+	warp MAP_CORALGROVE_CITY, 26, 31
 	goto Update3_4
 
 Update3_8:
-	setvar VAR_BADGES_OBTAINED, 2
+	setvar VAR_DESERT_BYPASS, 1
 	goto Update3_7
 
 Update3_11:
-	setvar VAR_BADGES_OBTAINED, 3
+	setvar VAR_STARTER_MON, 0
 	goto Update3_10
 
 Update3_14:
-	warp MAP_CORALGROVE_CITY, 26, 31
+	setvar VAR_STARTER_MON, 1
 	goto Update3_13
+
+Update3_17:
+	setvar VAR_STARTER_MON, 2
+	goto Update3_16
+
+Update3_20:
+	fadescreen FADE_TO_BLACK
+	special NameBrother
+	waitstate
+	goto Update3_19
+
+Update3_23:
+	setvar VAR_BADGES_OBTAINED, 1
+	goto Update3_22
+
+Update3_26:
+	setvar VAR_BADGES_OBTAINED, 2
+	goto Update3_25
+
+Update3_28:
+	setvar VAR_BADGES_OBTAINED, 3
+	goto Update3_1
 
 
 RustboroCity_DevonCorp_1F_EventScript_RocketGreeter::
@@ -511,3 +542,7 @@ Rustboro_Basement_DevonGreeter_Text::
 Rustboro_Basement_Collection_Text::
 	.string "It's a collection of various products\n"
 	.string "developed by the Devon Corporation.$"
+
+RenameBrother::
+	.string "Would you like to rename your brother?\n"
+	.string "(Yes if haven't seen this before!)$"

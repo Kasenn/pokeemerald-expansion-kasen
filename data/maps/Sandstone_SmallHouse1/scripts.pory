@@ -27,7 +27,7 @@ script Sandstone_SmallHouse_Child{
 text Sandstone_SmallHouse_Woman_Text{
     "Good thing I managed to grab that doll\n"
     "just before the department store ran\l"
-    "out of stock.\l"
+    "out of stock.\p"
     "My daughter really seems to love it."
 }
 text Sandstone_SmallHouse_Child_TakeThis{
@@ -116,13 +116,13 @@ text TakeToClancy{
 text YouMetClancy{
     "You met Clancy and he asked if you\n"
     "could get him his lure?\p"
-    "I wish he would've come to get it\n"
-    "himself instead of sending other people\l"
-    "on errands but since you're here, you\l"
-    "may as well take this."
+    "I wish he would've come get it himself\n"
+    "instead of sending other people on\l"
+    "errands but since you're here,\l"
+    "you may as well take this."
 }
 text HowIsClancy{
-    "I hope Clancy was doign well.\p"
+    "I hope Clancy was doing well.\p"
     "He sometimes gets so fixated on fishing\n"
     "that he even forgets to eat!"
 }

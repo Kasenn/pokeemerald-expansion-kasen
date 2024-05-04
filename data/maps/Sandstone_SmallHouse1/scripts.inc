@@ -244,7 +244,7 @@ ClothierMain_Text_0:
 Sandstone_SmallHouse_Woman_Text::
 	.string "Good thing I managed to grab that doll\n"
 	.string "just before the department store ran\l"
-	.string "out of stock.\l"
+	.string "out of stock.\p"
 	.string "My daughter really seems to love it.$"
 
 Sandstone_SmallHouse_Child_TakeThis::
@@ -289,13 +289,13 @@ TakeToClancy::
 YouMetClancy::
 	.string "You met Clancy and he asked if you\n"
 	.string "could get him his lure?\p"
-	.string "I wish he would've come to get it\n"
-	.string "himself instead of sending other people\l"
-	.string "on errands but since you're here, you\l"
-	.string "may as well take this.$"
+	.string "I wish he would've come get it himself\n"
+	.string "instead of sending other people on\l"
+	.string "errands but since you're here,\l"
+	.string "you may as well take this.$"
 
 HowIsClancy::
-	.string "I hope Clancy was doign well.\p"
+	.string "I hope Clancy was doing well.\p"
 	.string "He sometimes gets so fixated on fishing\n"
 	.string "that he even forgets to eat!$"
 

@@ -224,6 +224,7 @@ script Lab2_Rowlet{
             msgbox("{PLAYER} received the Rowlet!")
             removeobject(1)
             setflag(FLAG_UNUSED_PICKEDROWLET)
+            setvar(VAR_STARTER_MON, 0)
             call(Lab2SetFlags)
             call(NicknamePartyMon)
         }
@@ -250,6 +251,7 @@ script Lab2_Torchic{
             msgbox("{PLAYER} received the Torchic!")
             removeobject(2)
             setflag(FLAG_UNUSED_PICKEDTORCHIC)
+            setvar(VAR_STARTER_MON, 1)
             call(Lab2SetFlags)
             call(NicknamePartyMon)
         }
@@ -276,6 +278,7 @@ script Lab2_Piplup{
             msgbox("{PLAYER} received the Piplup!")
             removeobject(3)
             setflag(FLAG_UNUSED_PICKEDPIPLUP)
+            setvar(VAR_STARTER_MON, 2)
             call(Lab2SetFlags)
             call(NicknamePartyMon)
         }
@@ -318,12 +321,8 @@ script Lab2_NoLeave{
     msgbox("You haven't chosen a Pokémon yet!")
     waitmessage
     closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, Lab2_NoLeaveMove)
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Up)
     waitmovement(0)
     release
     end
-}
-
-movement Lab2_NoLeaveMove{
-    walk_up
 }

@@ -204,6 +204,41 @@ Sandstone_RivalExitAfterStore:
 	walk_left
 	step_end
 
+TestFollower::
+	lock
+	faceplayer
+	msgbox TestFollower_Text_0
+	closemessage
+	loadword 0, MakeNewTeam
+	setfollower 14, FOLLOWER_FLAG_ALL
+	release
+	end
+
+
+MakeNewTeam::
+	lock
+	facefollower
+	msgbox MakeNewTeam_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq MakeNewTeam_2
+	fadescreen FADE_TO_BLACK
+	special ChooseHalfPartyForBattle
+	waitstate
+	release
+	end
+
+MakeNewTeam_2:
+	closemessage
+	release
+	end
+
+
+TestFollower_Text_0:
+	.string "Let's go!$"
+
+MakeNewTeam_Text_0:
+	.string "Want to change team?$"
+
 Sandstone_Sign1_Text::
 	.string "SANDSTONE CITY\n"
 	.string "“Where Pokémon and people meet.”$"
@@ -246,7 +281,8 @@ Sandstone_GameboyKid1_Text::
 	.string "but they didn't evolve at all!$"
 
 Sandstone_GameboyKid2_Text::
-	.string "Maybe the evolution method has changed…$"
+	.string "Maybe the evolution method has\n"
+	.string "changed…$"
 
 Sandstone_GossipWoman1_Text::
 	.string "The Department Store sells everything\n"

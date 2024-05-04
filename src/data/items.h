@@ -1943,9 +1943,9 @@ const struct Item gItemsInfo[] =
         .name = _("Lure"),
         .price = 0,
         .description = COMPOUND_STRING(
-            "Makes Pokémon more\n"
-            "likely to appear\n"
-            "when fishing."),
+            "Used by fishers\n"
+            "to attract more\n"
+            "Pokémon."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,

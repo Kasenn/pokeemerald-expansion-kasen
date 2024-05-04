@@ -21,6 +21,11 @@ script PlayerHouse1F_MomIntro{
         msgbox(PlayerHouse1F_LookPlayer)
         waitmessage
         closemessage
+        delay(30)
+        call(IntroNameBrother)
+        msgbox(PlayerHouse1F_LookPlayer2)
+        waitmessage
+        closemessage
         applymovement(1, PlayerHouse1F_face2)
         waitmovement(0)
         applymovement(OBJ_EVENT_ID_PLAYER, PlayerHouse1F_PlayerSitTable)
@@ -55,6 +60,26 @@ script PlayerHouse1F_MomIntro{
     }
 }
 
+script IntroNameBrother{
+    fadescreen(FADE_TO_BLACK)
+    special(NameBrother)
+    waitstate
+    msgbox(SoItsBrother, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        goto(BrotherLoop)
+    }
+    closemessage
+    return
+}
+text SoItsBrother{
+    "So it's {BROTHER}?"
+}
+
+script BrotherLoop{
+    goto(IntroNameBrother)
+    end
+}
+
 script Player1F_Shoes{
     msgbox("Oh, and one more thing.", MSGBOX_DEFAULT)
     playfanfare(MUS_OBTAIN_ITEM)
@@ -85,8 +110,10 @@ movement PlayerHouse1F_face4{
 
 text PlayerHouse1F_LookPlayer{
     "Mom: Look, {PLAYER}!\n"
-    "Your brother is back from his trip!\p"
-    "Come sit by the table!"
+    "Your brother is back from his trip!"
+}
+text PlayerHouse1F_LookPlayer2{
+    "Mom: Come, come sit by the table!"
 }
 
 movement PlayerHouse1F_PlayerSitTable{
@@ -95,20 +122,20 @@ movement PlayerHouse1F_PlayerSitTable{
 }
 
 text PlayerHouse1F_Disc1{
-    "Mom: So, Thomas,\n"
+    "Mom: So, {BROTHER},\n"
     "how was your trip to Kanto?\p"
     "Go on, I want to hear everything!\p"
-    "Thomas: …"
+    "{BROTHER}: …"
 }
 
 text PlayerHouse1F_Disc2{
-    "Thomas: In the end, that Lance's\n"
+    "{BROTHER}: In the end, that Lance's\n"
     "Dragonite was simply too strong…\p"
     "Mom: Well, at least you tried\n"
     "your best.\p"
     "It sounds like you still had fun\n"
     "in the end!\p"
-    "Thomas: Anyway mom, aren't you\n"
+    "{BROTHER}: Anyway mom, aren't you\n"
     "forgetting something?"
 }
 
@@ -128,7 +155,7 @@ text PlayerHouse1F_Disc3{
 }
 
 text PlayerHouse1F_BrotherGossip{
-    "Thomas: Go get 'em, champ!"
+    "{BROTHER}: Go get 'em, champ!"
 }
 
 script PlayerHouse1F_Brother{
@@ -186,7 +213,7 @@ script PlayerHouse1F_BrotherApology{
     applymovement(3, PlayerHouse1F_face1)
     waitmovement(0)
     delay(10)
-    applymovement(3, BrotherComesCloser)
+    applymovement(3, Walk2Up)
     waitmovement(0)
     delay(15)
     msgbox(PlayerHouse1F_Apology)
@@ -204,11 +231,7 @@ script PlayerHouse1F_BrotherApology{
 }
 
 text PlayerHouse1F_Apology{
-"Thomas: Sorry about that.\nI knew that with my experience it was\lgoing to be an unfair fight. I hope you\ldon't take that loss too seriously…\pAnyway, have you thought about what\nyou're going to do next?\pIf you're up for it, we should totally\nsee which of us is the better trainer\lby taking on the Pokémon Gym Challenge!\pOur neighbor {RIVAL} just set out so we\nbetter get moving or we'll fall behind!\pDon't know about you but I'm not content\nwith a second place.\pCatch ya later!"
-}
-
-movement BrotherComesCloser{
-    walk_up * 2
+"{BROTHER}: Sorry about that.\nI knew that with my experience it was\lgoing to be an unfair fight. I hope you\ldon't take that loss too seriously…\pAnyway, have you thought about what\nyou're going to do next?\pIf you're up for it, we should totally\nsee which of us is the better trainer\lby taking on the Pokémon Gym Challenge!\pOur neighbor {RIVAL} just set out so we\nbetter get moving or we'll fall behind!\pDon't know about you but I'm not content\nwith a second place.\pCatch ya later!"
 }
 
 movement BrotherLeavesHouse{

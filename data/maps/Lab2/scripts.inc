@@ -270,6 +270,7 @@ Lab2_Rowlet_5:
 	msgbox Lab2_Rowlet_Text_1
 	removeobject 1
 	setflag FLAG_UNUSED_PICKEDROWLET
+	setvar VAR_STARTER_MON, 0
 	call Lab2SetFlags
 	call NicknamePartyMon
 	goto Lab2_Rowlet_1
@@ -299,6 +300,7 @@ Lab2_Torchic_5:
 	msgbox Lab2_Torchic_Text_1
 	removeobject 2
 	setflag FLAG_UNUSED_PICKEDTORCHIC
+	setvar VAR_STARTER_MON, 1
 	call Lab2SetFlags
 	call NicknamePartyMon
 	goto Lab2_Torchic_1
@@ -328,6 +330,7 @@ Lab2_Piplup_5:
 	msgbox Lab2_Piplup_Text_1
 	removeobject 3
 	setflag FLAG_UNUSED_PICKEDPIPLUP
+	setvar VAR_STARTER_MON, 2
 	call Lab2SetFlags
 	call NicknamePartyMon
 	goto Lab2_Piplup_1
@@ -360,15 +363,11 @@ Lab2_NoLeave::
 	msgbox Lab2_NoLeave_Text_0
 	waitmessage
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Lab2_NoLeaveMove
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Up
 	waitmovement 0
 	release
 	end
 
-
-Lab2_NoLeaveMove:
-	walk_up
-	step_end
 
 Lab2_DexGet_Text_0:
 	.string "Obtained the Pokédex!$"

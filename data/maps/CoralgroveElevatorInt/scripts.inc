@@ -17,7 +17,7 @@ CGC_ElevatorUp::
 	special MoveElevator
 	waitstate
 	waitse
-	applymovement OBJ_EVENT_ID_PLAYER, ElevatorUp_MoveDown
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Down
 	waitmovement 0
 	warp MAP_CORALGROVE_ELEVATOR2, 1, 9
 	waitstate
@@ -28,8 +28,4 @@ CGC_ElevatorUp::
 ElevatorUp_MoveUp:
 	walk_up
 	walk_in_place_down
-	step_end
-
-ElevatorUp_MoveDown:
-	walk_down
 	step_end

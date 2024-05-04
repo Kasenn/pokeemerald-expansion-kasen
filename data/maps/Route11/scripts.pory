@@ -495,7 +495,7 @@ script R11_RivalEvent{
         applymovement(OBJ_EVENT_ID_PLAYER, R11_Move1)
     }
     else{
-       applymovement(OBJ_EVENT_ID_PLAYER, R11_Move2) 
+       applymovement(OBJ_EVENT_ID_PLAYER, Walk2Up) 
     }
     waitmovement(0)
     checkplayergender
@@ -511,9 +511,6 @@ movement R11_Move1{
     walk_up
     walk_right
     walk_up
-}
-movement R11_Move2{
-    walk_up * 2
 }
 movement KorrinaMove1{
     walk_down

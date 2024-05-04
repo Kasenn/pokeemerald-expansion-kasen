@@ -155,8 +155,9 @@ Sandstone_BigHouse1_2F_Mother_Text::
 	.string "trainers when they grow up.$"
 
 Sandstone_BigHouse1_1F_Pokefan_Text::
-	.string "Back in my youth I yearned to become\n"
-	.string "the greatest Pokémon trainer there was.\p"
+	.string "Back in my youth, I yearned to become\n"
+	.string "the greatest Pokémon trainer\l"
+	.string "there ever was.\p"
 	.string "I never managed to defeat a single\n"
 	.string "Gym Leader, so I decided to become\l"
 	.string "a family man instead.$"

@@ -102,14 +102,10 @@ Movement_BoardFerryEast:
 	step_end
 
 Harbor_BoardFerryNorth::
-	applymovement OBJ_EVENT_ID_PLAYER, Movement_BoardFerryNorth
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Up
 	waitmovement 0
 	return
 
-
-Movement_BoardFerryNorth:
-	walk_up
-	step_end
 
 FerryDepart_East::
 	delay 60

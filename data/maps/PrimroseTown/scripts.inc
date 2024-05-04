@@ -45,7 +45,7 @@ PrimroseBlocked::
 	msgbox Primrose_Storm, MSGBOX_DEFAULT
 	waitmessage
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, PrimroseWalkDown
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Down
 	waitmovement 0
 	applymovement 3, Primrose_FaceUp
 	waitmovement 0
@@ -63,10 +63,6 @@ Primrose_FaceRight:
 
 Primrose_FaceLeft:
 	face_left
-	step_end
-
-PrimroseWalkDown:
-	walk_down
 	step_end
 
 Primrose_FlowerGirl_Text_0:

@@ -59,7 +59,7 @@ LavaridgeTown_Gym_SetGymTrainers::
 	settrainerflag TRAINER_SANDGYM_TR4_CYCLISTM2
 	settrainerflag TRAINER_SANDGYM_TR5_CYCLISTF3
 	settrainerflag TRAINER_SANDGYM_TR6_CYCLISTM3
-	settrainerflag TRAINER_SANDGYM_TR4_CYCLISTM4
+	settrainerflag TRAINER_SANDGYM_TR7_CYCLISTM4
 	return
 
 PetalburgCity_Gym_SetGymTrainers::

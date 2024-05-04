@@ -5442,6 +5442,7 @@ u16 GetBattleBGM(void)
             return MUS_VS_GYM_LEADER;
         case TRAINER_CLASS_CHAMPION:
             return MUS_DP_VS_LEGEND;
+        case TRAINER_CLASS_RIVAL2:
         case TRAINER_CLASS_RIVAL:
             if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
                 return MUS_VS_RIVAL;
@@ -5739,11 +5740,7 @@ const u8 *GetTrainerPartnerName(void)
         {
             return GetTrainerNameFromId(TRAINER_STEVEN);
         }
-        else if (gPartnerTrainerId == TRAINER_PARTNER(PARTNER_BRENDAN))
-        {
-            return GetTrainerNameFromId(TRAINER_BRENDAN_ROUTE_103_MUDKIP);
-        }
-        else if (gPartnerTrainerId == TRAINER_PARTNER(PARTNER_MAY))
+        else if (gPartnerTrainerId == TRAINER_PARTNER(PARTNER_MAY_ROWLET))
         {
             return GetTrainerNameFromId(TRAINER_MAY_ROUTE_103_MUDKIP);
         }

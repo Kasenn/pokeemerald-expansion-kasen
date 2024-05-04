@@ -274,9 +274,9 @@
 #define TRAINER_SANDGYM_TR4_CYCLISTM2                  268
 #define TRAINER_SANDGYM_TR5_CYCLISTF3                    269
 #define TRAINER_SANDGYM_TR6_CYCLISTM3                    270
-#define TRAINER_SANDGYM_TR4_CYCLISTM4             271
-#define TRAINER_JUAN_1                      272
-#define TRAINER_JERRY_1                     273
+#define TRAINER_SANDGYM_TR7_CYCLISTM4             271
+#define TRAINER_AT2F_MAN3                      272
+#define TRAINER_AT2F_WOMAN5                     273
 #define TRAINER_TED                         274
 #define TRAINER_PAUL                        275
 #define TRAINER_JERRY_2                     276

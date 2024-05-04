@@ -1,6 +1,31 @@
 Route6_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, ClearShinyFlag
+	map_script MAP_SCRIPT_ON_TRANSITION, ClearShinyFlag3
+	map_script MAP_SCRIPT_ON_LOAD, ClearShinyFlag3
 	.byte 0
+
+
+ClearShinyFlag3::
+	goto_if_set FLAG_DESERT_RUINS_OPENED, ClearShinyFlag3_2
+ClearShinyFlag3_1:
+	goto_if_set FLAG_DEVON_UNDER_ATTACK, ClearShinyFlag3_5
+ClearShinyFlag3_4:
+	clearflag FLAG_INCREASED_SHINY_ODDS
+	clearflag FLAG_DESERT_STEPS
+	release
+	end
+
+ClearShinyFlag3_2:
+	setmetatile 40, 13, 0x001, FALSE
+	setmetatile 41, 13, 0x001, FALSE
+	setmetatile 42, 13, 0x001, FALSE
+	setmetatile 40, 14, 0x001, FALSE
+	setmetatile 41, 14, 0x001, FALSE
+	setmetatile 42, 14, 0x001, FALSE
+	goto ClearShinyFlag3_1
+
+ClearShinyFlag3_5:
+	setflag FLAG_DEVON_RESCUED
+	goto ClearShinyFlag3_4
 
 
 ClearShinyFlag::
@@ -169,20 +194,6 @@ Route6_Trainer7_Kindler::
 	end
 
 
-ScorchedDesertBetaBlock::
-	lockall
-	msgbox StillInBeta, MSGBOX_DEFAULT
-	applymovement OBJ_EVENT_ID_PLAYER, BetaMoveLeft
-	waitmovement 0
-	releaseall
-	end
-
-
-BetaMoveLeft:
-	walk_left
-	walk_left
-	step_end
-
 Route6_Trainer1_Ranger_M_Intro::
 	.string "Are you planning to explore the desert?\n"
 	.string "Let me see if your Pokémon are ready!$"
@@ -272,10 +283,3 @@ Route6_Trainer7_Kindler_PostBattle::
 	.string "There are a lot of Ground-types out\n"
 	.string "there which are very strong against\l"
 	.string "Fire-type Pokémon.$"
-
-StillInBeta::
-	.string "So you got the Go-Goggles?\n"
-	.string "That's great!\p"
-	.string "Normally you'd be able to enter the\n"
-	.string "desert but it's nowhere close to being\l"
-	.string "finished so I can't let you pass.$"

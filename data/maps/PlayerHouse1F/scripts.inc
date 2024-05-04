@@ -21,6 +21,11 @@ PlayerHouse1F_MomIntro::
 	msgbox PlayerHouse1F_LookPlayer
 	waitmessage
 	closemessage
+	delay 30
+	call IntroNameBrother
+	msgbox PlayerHouse1F_LookPlayer2
+	waitmessage
+	closemessage
 	applymovement 1, PlayerHouse1F_face2
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerHouse1F_PlayerSitTable
@@ -54,6 +59,27 @@ PlayerHouse1F_MomIntro::
 	end
 
 PlayerHouse1F_MomIntro_1:
+	end
+
+
+IntroNameBrother::
+	fadescreen FADE_TO_BLACK
+	special NameBrother
+	waitstate
+	msgbox SoItsBrother, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq IntroNameBrother_2
+IntroNameBrother_1:
+	closemessage
+	return
+
+IntroNameBrother_2:
+	goto BrotherLoop
+	goto IntroNameBrother_1
+
+
+BrotherLoop::
+	goto IntroNameBrother
 	end
 
 
@@ -155,7 +181,7 @@ PlayerHouse1F_BrotherApology::
 	applymovement 3, PlayerHouse1F_face1
 	waitmovement 0
 	delay 10
-	applymovement 3, BrotherComesCloser
+	applymovement 3, Walk2Up
 	waitmovement 0
 	delay 15
 	msgbox PlayerHouse1F_Apology
@@ -171,11 +197,6 @@ PlayerHouse1F_BrotherApology::
 	release
 	end
 
-
-BrotherComesCloser:
-	walk_up
-	walk_up
-	step_end
 
 BrotherLeavesHouse:
 	walk_down
@@ -234,25 +255,30 @@ WooperDoll_Text_0:
 AzurillDoll_Text_0:
 	.string "It's an Azurill doll.$"
 
+SoItsBrother::
+	.string "So it's {BROTHER}?$"
+
 PlayerHouse1F_LookPlayer::
 	.string "Mom: Look, {PLAYER}!\n"
-	.string "Your brother is back from his trip!\p"
-	.string "Come sit by the table!$"
+	.string "Your brother is back from his trip!$"
+
+PlayerHouse1F_LookPlayer2::
+	.string "Mom: Come, come sit by the table!$"
 
 PlayerHouse1F_Disc1::
-	.string "Mom: So, Thomas,\n"
+	.string "Mom: So, {BROTHER},\n"
 	.string "how was your trip to Kanto?\p"
 	.string "Go on, I want to hear everything!\p"
-	.string "Thomas: …$"
+	.string "{BROTHER}: …$"
 
 PlayerHouse1F_Disc2::
-	.string "Thomas: In the end, that Lance's\n"
+	.string "{BROTHER}: In the end, that Lance's\n"
 	.string "Dragonite was simply too strong…\p"
 	.string "Mom: Well, at least you tried\n"
 	.string "your best.\p"
 	.string "It sounds like you still had fun\n"
 	.string "in the end!\p"
-	.string "Thomas: Anyway mom, aren't you\n"
+	.string "{BROTHER}: Anyway mom, aren't you\n"
 	.string "forgetting something?$"
 
 PlayerHouse1F_Disc3::
@@ -270,7 +296,7 @@ PlayerHouse1F_Disc3::
 	.string "northwest from here.$"
 
 PlayerHouse1F_BrotherGossip::
-	.string "Thomas: Go get 'em, champ!$"
+	.string "{BROTHER}: Go get 'em, champ!$"
 
 PlayerHouse1F_Apology::
-	.string "Thomas: Sorry about that.\nI knew that with my experience it was\lgoing to be an unfair fight. I hope you\ldon't take that loss too seriously…\pAnyway, have you thought about what\nyou're going to do next?\pIf you're up for it, we should totally\nsee which of us is the better trainer\lby taking on the Pokémon Gym Challenge!\pOur neighbor {RIVAL} just set out so we\nbetter get moving or we'll fall behind!\pDon't know about you but I'm not content\nwith a second place.\pCatch ya later!$"
+	.string "{BROTHER}: Sorry about that.\nI knew that with my experience it was\lgoing to be an unfair fight. I hope you\ldon't take that loss too seriously…\pAnyway, have you thought about what\nyou're going to do next?\pIf you're up for it, we should totally\nsee which of us is the better trainer\lby taking on the Pokémon Gym Challenge!\pOur neighbor {RIVAL} just set out so we\nbetter get moving or we'll fall behind!\pDon't know about you but I'm not content\nwith a second place.\pCatch ya later!$"

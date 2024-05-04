@@ -354,6 +354,7 @@ ARCHIE         = FD 0A
 MAXIE          = FD 0B
 KYOGRE         = FD 0C
 GROUDON        = FD 0D
+BROTHER        = FD 0E
 @ Like STR_VAR_X, but prepends CHAR_FIXED_CASE
 STR_VAR_1_FIXED  = FD 82
 STR_VAR_2_FIXED  = FD 83

@@ -364,66 +364,47 @@ KaolGym_Statue_2:
 GymStartingMovement::
 	lockall
 	delay 10
+	special SpawnCameraObject
+	compare VAR_BADGES_OBTAINED, 3
+	goto_if_eq GymStartingMovement_2
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	turnobject 1, DIR_WEST
-	special SpawnCameraObject
-	applymovement OBJ_EVENT_ID_CAMERA, Kaolisle_Gym_MoveCamera
+	applymovement OBJ_EVENT_ID_CAMERA, Walk3Right
+GymStartingMovement_1:
 	waitmovement 0
 	delay 10
 	special RemoveCameraObject
 	return
 
+GymStartingMovement_2:
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject 1, DIR_EAST
+	applymovement OBJ_EVENT_ID_CAMERA, Walk3Left
+	goto GymStartingMovement_1
 
-Kaolisle_Gym_MoveCamera:
-	walk_right
-	walk_right
-	walk_right
-	step_end
 
 GymMovementAfter::
 	special SpawnCameraObject
 	delay 30
-	applymovement 1, Kaolisle_Gym_MoveLeft
-	applymovement OBJ_EVENT_ID_PLAYER, Kaolisle_Gym_MoveRight
+	compare VAR_BADGES_OBTAINED, 3
+	goto_if_eq GymMovementAfter_2
+	applymovement 1, Walk3Left
+	applymovement OBJ_EVENT_ID_PLAYER, Walk3Right
+GymMovementAfter_1:
 	waitmovement 0
 	delay 15
 	return
 
-
-Kaolisle_Gym_MoveLeft:
-	walk_left
-	walk_left
-	walk_left
-	step_end
-
-Kaolisle_Gym_MoveRight:
-	walk_right
-	walk_right
-	walk_right
-	step_end
-
-TestScript1::
-	checkpartymon SPECIES_PIKACHU, 1
-	compare VAR_RESULT, TRUE
-	goto_if_eq TestScript1_1
-	msgbox TestScript1_Text_1, MSGBOX_NPC
-	return
-
-TestScript1_1:
-	msgbox TestScript1_Text_0, MSGBOX_NPC
-	giveitem ITEM_TROPICAL_STONE
-	return
+GymMovementAfter_2:
+	applymovement 1, Walk3Right
+	applymovement OBJ_EVENT_ID_PLAYER, Walk3Left
+	goto GymMovementAfter_1
 
 
-TestScript2::
-	checkpartymon SPECIES_BLAZIKEN, 0
-	compare VAR_RESULT, TRUE
-	goto_if_eq TestScript2_1
-	msgbox TestScript2_Text_1, MSGBOX_NPC
-	return
-
-TestScript2_1:
-	msgbox TestScript2_Text_0, MSGBOX_NPC
+SetBadgesAndTrainers::
+	addvar VAR_BADGES_OBTAINED, 1
+	copyvar VAR_0x8008, VAR_BADGES_OBTAINED
+	call Common_EventScript_SetGymTrainers
 	return
 
 
@@ -435,18 +416,6 @@ Kaolisle_Gym_Switch1_Text_0:
 
 Kaolisle_Gym_Switch1_Text_1:
 	.string "{PLAYER} pressed the button.$"
-
-TestScript1_Text_0:
-	.string "That's a Pikachu!$"
-
-TestScript1_Text_1:
-	.string "That's not a Pikachu!$"
-
-TestScript2_Text_0:
-	.string "True$"
-
-TestScript2_Text_1:
-	.string "False$"
 
 KaolisleGym_Trainer1_Camper1_Intro::
 	.string "I'm your first obstacle in this gym.\n"
@@ -670,11 +639,11 @@ KaolGym_GymStatue::
 	.string "Kaolisle City Pokémon Gym\p"
 	.string "Clay's certified trainers:\n"
 	.string "{RIVAL}\l"
-	.string "Thomas$"
+	.string "{BROTHER}$"
 
 KaolGym_GymStatueCertified::
 	.string "Kaolisle City Pokémon Gym\p"
 	.string "Clay's certified trainers:\n"
 	.string "{RIVAL}\l"
-	.string "Thomas\l"
+	.string "{BROTHER}\l"
 	.string "{PLAYER}$"

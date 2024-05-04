@@ -330,7 +330,7 @@ Shoreslate_DevonExteriorTrigger_1:
 	waitmessage
 	closemessage
 	setvar VAR_TEMP_6, 1
-	applymovement OBJ_EVENT_ID_PLAYER, MoveRight1
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Right
 	waitmovement 0
 	delay 5
 	release
@@ -349,10 +349,6 @@ Shoreslate_DevonExteriorTrigger_5:
 	release
 	end
 
-
-MoveRight1:
-	walk_right
-	step_end
 
 Shoreslate_RocketM::
 	checktrainerflag TRAINER_SHORESLATE_ROCKET

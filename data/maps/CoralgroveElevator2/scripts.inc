@@ -8,15 +8,11 @@ CoralgroveElevator2_Kasen::
 	msgbox Kasen, MSGBOX_DEFAULT
 	waitmessage
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Elevator2_MoveUp
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Up
 	waitmovement 0
 	release
 	end
 
-
-Elevator2_MoveUp:
-	walk_up
-	step_end
 
 CoralgroveElevator2_Bail::
 	lockall

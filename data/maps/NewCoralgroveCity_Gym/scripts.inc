@@ -29,7 +29,7 @@ NewCoralgroveCity_Gym_EventScript_Aaron::
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	turnobject 9, DIR_WEST
 	special SpawnCameraObject
-	applymovement OBJ_EVENT_ID_CAMERA, NewCoralgroveCity_Gym_MoveCamera
+	applymovement OBJ_EVENT_ID_CAMERA, Walk3Right
 	waitmovement 0
 	delay 10
 	special RemoveCameraObject
@@ -40,17 +40,11 @@ NewCoralgroveCity_Gym_EventScript_Aaron::
 	end
 
 
-NewCoralgroveCity_Gym_MoveCamera:
-	walk_right
-	walk_right
-	walk_right
-	step_end
-
 NewCoralgroveCity_Gym_EventScript_AaronDefeated::
 	special SpawnCameraObject
 	delay 30
-	applymovement 1, NewCoralgroveCity_Gym_MoveLeft
-	applymovement OBJ_EVENT_ID_PLAYER, NewCoralgroveCity_Gym_MoveRight
+	applymovement 1, Walk3Left
+	applymovement OBJ_EVENT_ID_PLAYER, Walk3Right
 	waitmovement 0
 	delay 15
 	message NewCoralgroveCity_Gym_Text_ReceivedStoneBadge
@@ -69,18 +63,6 @@ NewCoralgroveCity_Gym_EventScript_AaronDefeated::
 	end
 
 
-NewCoralgroveCity_Gym_MoveLeft:
-	walk_left
-	walk_left
-	walk_left
-	step_end
-
-NewCoralgroveCity_Gym_MoveRight:
-	walk_right
-	walk_right
-	walk_right
-	step_end
-
 NewCoralgroveCity_Gym_EventScript_GiveUTurn::
 	giveitem ITEM_TM_U_TURN
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
@@ -89,10 +71,6 @@ NewCoralgroveCity_Gym_EventScript_GiveUTurn::
 	release
 	end
 
-
-NewCoralgroveCity_Gym_MoveCamera2:
-	walk_left
-	step_end
 
 NewCoralgroveCity_Gym_EventScript_Maniac::
 	trainerbattle_single TRAINER_CHIP, NewCoralgroveCity_Gym_Text_ManiacIntro, NewCoralgroveCity_Gym_Text_ManiacDefeat
@@ -327,12 +305,12 @@ NewCoralgroveCity_Gym_Text_AaronPostBattle::
 NewCoralgroveCity_Gym_Text_GymStatue::
 	.string "Coralgrove City Pokémon Gym\p"
 	.string "Aaron's certified trainers:\n"
-	.string "Thomas\l"
+	.string "{BROTHER}\l"
 	.string "{RIVAL}$"
 
 NewCoralgroveCity_Gym_Text_GymStatueCertified::
 	.string "Coralgrove City Pokémon Gym\p"
 	.string "Aaron's certified trainers:\n"
-	.string "Thomas\l"
+	.string "{BROTHER}\l"
 	.string "{RIVAL}\l"
 	.string "{PLAYER}$"

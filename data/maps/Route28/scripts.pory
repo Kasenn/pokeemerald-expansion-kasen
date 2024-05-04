@@ -119,7 +119,7 @@ script Route28_BrotherFight{
 }
 
 text Route28_BrotherIntro{
-    "Thomas: Yo, {PLAYER}!\p"
+    "{BROTHER}: Yo, {PLAYER}!\p"
     "I see you've finally made your way\n"
     "off the Coralgrove Islands.\p"
     "I wanted to head north to check out\n"
@@ -134,7 +134,7 @@ text Route28_BrotherIntro{
 }
 
 text Route28_BrotherIntroAfterGym{
-    "Thomas: Yo, {PLAYER}!\p"
+    "{BROTHER}: Yo, {PLAYER}!\p"
     "I see you've finally made your way\n"
     "off the Coralgrove Islands.\p"
     "I wanted to head north to check out\n"

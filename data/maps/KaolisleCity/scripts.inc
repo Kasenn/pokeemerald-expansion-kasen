@@ -388,7 +388,7 @@ KaolisleCity_Zigzagoon_Text_0:
 	.string "Zigzagoon: Guguuh!$"
 
 Kaolisle_BrotherIntro::
-	.string "Thomas: Yo, {PLAYER}!\n"
+	.string "{BROTHER}: Yo, {PLAYER}!\n"
 	.string "You finally caught up!\p"
 	.string "I've already defeated the Gym Leader\n"
 	.string "here and obtained my next badge.\p"
@@ -403,20 +403,20 @@ Kaolisle_BrotherIntro::
 	.string "Speaking of interesting…$"
 
 KB_LookingTowardsPearlwood::
-	.string "Thomas: If I look real close, I think\n"
+	.string "{BROTHER}: If I look real close, I think\n"
 	.string "I can see Pearlwood in the horizon.\p"
 	.string "We're so far away from home,\n"
 	.string "yet it feels like we only just left.$"
 
 KB_VisitingGym::
-	.string "Thomas: This is the Kaolisle City\n"
+	.string "{BROTHER}: This is the Kaolisle City\n"
 	.string "Pokémon Gym.\p"
 	.string "I know, it doesn't look like your\n"
 	.string "average gym but I assure you,\l"
 	.string "the trainers there are no pushovers.$"
 
 KB_PokeFanClub::
-	.string "Thomas: Apparently this is some kind\n"
+	.string "{BROTHER}: Apparently this is some kind\n"
 	.string "of Pokémon Fan Club?\l"
 	.string "I don't really get the point.\p"
 	.string "Why coop up inside and talk about\n"
@@ -424,14 +424,14 @@ KB_PokeFanClub::
 	.string "catching them and training them?$"
 
 KB_LesserBeach::
-	.string "Thomas: This beach seems a bit\n"
+	.string "{BROTHER}: This beach seems a bit\n"
 	.string "overgrown.\p"
 	.string "I don't mind it though.\p"
 	.string "It seems peaceful enough to\n"
 	.string "where you can have a relaxing time.$"
 
 KB_Hotel::
-	.string "Thomas: So, this is the Grand Resort.\n"
+	.string "{BROTHER}: So, this is the Grand Resort.\n"
 	.string "Talk of the town.\p"
 	.string "There seem to be a lot of people here\n"
 	.string "this time of year.\p"
@@ -439,7 +439,7 @@ KB_Hotel::
 	.string "assuming you can even get a room.$"
 
 KB_GreaterBeach::
-	.string "Thomas: This looks like a nice beach.\n"
+	.string "{BROTHER}: This looks like a nice beach.\n"
 	.string "Not a fan of the crowd though.\p"
 	.string "You know, if you have an Itemfinder,\n"
 	.string "it may not be a bad idea to comb through\l"
@@ -448,14 +448,14 @@ KB_GreaterBeach::
 	.string "ocean may have washed ashore.$"
 
 KB_BoringPlace::
-	.string "Thomas: I have to say, there's not\n"
+	.string "{BROTHER}: I have to say, there's not\n"
 	.string "a whole lot going around here.\p"
 	.string "Sure, you can relax at the resort,\n"
 	.string "but where's all the fun stuff?\l"
 	.string "Where's all the activities?$"
 
 KB_IslandToTheEast::
-	.string "Thomas: There seems to be an island\n"
+	.string "{BROTHER}: There seems to be an island\n"
 	.string "to the east of here with a house on it.\p"
 	.string "Wonder who would build a house\n"
 	.string "in such a hard-to-reach place…$"

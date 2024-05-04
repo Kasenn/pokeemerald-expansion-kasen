@@ -76,7 +76,7 @@ R13_BeachSwimmer_Text::
 
 Route13_Tr1_Birdkeeper_Text::
 	.string "Planning to head to Galewind City?\n"
-	.string "I wouldn't bother, unless you have\n"
+	.string "I wouldn't bother, unless you have\l"
 	.string "surfing Pokémon or flying Pokémon\l"
 	.string "that can take you there directly.$"
 

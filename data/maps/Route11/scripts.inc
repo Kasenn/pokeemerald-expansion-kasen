@@ -307,7 +307,7 @@ R11_RivalEvent::
 	delay 70
 	compare VAR_TEMP_1, 1
 	goto_if_eq R11_RivalEvent_2
-	applymovement OBJ_EVENT_ID_PLAYER, R11_Move2
+	applymovement OBJ_EVENT_ID_PLAYER, Walk2Up
 R11_RivalEvent_1:
 	waitmovement 0
 	checkplayergender
@@ -327,11 +327,6 @@ R11_RivalEvent_5:
 R11_Move1:
 	walk_up
 	walk_right
-	walk_up
-	step_end
-
-R11_Move2:
-	walk_up
 	walk_up
 	step_end
 

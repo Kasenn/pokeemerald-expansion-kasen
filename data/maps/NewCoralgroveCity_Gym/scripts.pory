@@ -27,7 +27,7 @@ script NewCoralgroveCity_Gym_EventScript_Aaron{
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
 	turnobject(9, DIR_WEST)
 	special(SpawnCameraObject)
-	applymovement(OBJ_EVENT_ID_CAMERA, NewCoralgroveCity_Gym_MoveCamera)
+	applymovement(OBJ_EVENT_ID_CAMERA, Walk3Right)
 	waitmovement(0)
 	delay(10)
 	special(RemoveCameraObject)
@@ -39,14 +39,11 @@ script NewCoralgroveCity_Gym_EventScript_Aaron{
 	release
 	end
 }
-movement NewCoralgroveCity_Gym_MoveCamera{
-	walk_right * 3
-}
 script NewCoralgroveCity_Gym_EventScript_AaronDefeated{
 	special(SpawnCameraObject)
 	delay(30)
-	applymovement(1, NewCoralgroveCity_Gym_MoveLeft)
-	applymovement(OBJ_EVENT_ID_PLAYER, NewCoralgroveCity_Gym_MoveRight)
+	applymovement(1, Walk3Left)
+	applymovement(OBJ_EVENT_ID_PLAYER, Walk3Right)
 	waitmovement(0)
 	delay(15)
 	message(NewCoralgroveCity_Gym_Text_ReceivedStoneBadge)
@@ -65,12 +62,7 @@ script NewCoralgroveCity_Gym_EventScript_AaronDefeated{
 	goto(NewCoralgroveCity_Gym_EventScript_GiveUTurn)
 	end
 }
-movement NewCoralgroveCity_Gym_MoveLeft{
-	walk_left * 3
-}
-movement NewCoralgroveCity_Gym_MoveRight{
-	walk_right * 3
-}
+
 script NewCoralgroveCity_Gym_EventScript_GiveUTurn{
 	giveitem(ITEM_TM_U_TURN)
 	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
@@ -79,9 +71,7 @@ script NewCoralgroveCity_Gym_EventScript_GiveUTurn{
 	release
 	end
 }
-movement NewCoralgroveCity_Gym_MoveCamera2{
-	walk_left
-}
+
 // NewCoralgroveCity_Gym_EventScript_AaronRematch::
 // 	trainerbattle_rematch_double TRAINER_SANDGYM_TR1_CYCLISTM1, NewCoralgroveCity_Gym_Text_AaronPreRematch, NewCoralgroveCity_Gym_Text_AaronRematchDefeat, NewCoralgroveCity_Gym_Text_AaronRematchNeedTwoMons
 // 	msgbox NewCoralgroveCity_Gym_Text_AaronPostRematch, MSGBOX_AUTOCLOSE
@@ -321,13 +311,13 @@ text NewCoralgroveCity_Gym_Text_AaronPostBattle{
 text NewCoralgroveCity_Gym_Text_GymStatue{
 	"Coralgrove City Pokémon Gym\p"
 	"Aaron's certified trainers:\n"
-	"Thomas\l"
+	"{BROTHER}\l"
 	"{RIVAL}"
 }
 text NewCoralgroveCity_Gym_Text_GymStatueCertified{
 	"Coralgrove City Pokémon Gym\p"
 	"Aaron's certified trainers:\n"
-	"Thomas\l"
+	"{BROTHER}\l"
 	"{RIVAL}\l"
 	"{PLAYER}"
 }

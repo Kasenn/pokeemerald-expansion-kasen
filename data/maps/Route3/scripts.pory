@@ -96,10 +96,6 @@ script Route3_HedgeRunner{
     waitmessage
 	end
 }
-
-movement Route3WalkDown{
-	walk_down
-}
 script TriggerGina{
 	if(!defeated(TRAINER_LOLA_1)){
 		special(HasEnoughMonsForDoubleBattle)
@@ -111,8 +107,8 @@ script TriggerGina{
 			waitmovement(10)
 			waitmovement(11)
 			delay(50)
-			applymovement(10, Route3WalkDown)
-			applymovement(11, Route3WalkDown)
+			applymovement(10, Walk1Down)
+			applymovement(11, Walk1Down)
 			waitmovement(10)
 			waitmovement(11)
 			delay(10)
@@ -141,8 +137,8 @@ script TriggerMia{
 			waitmovement(10)
 			waitmovement(11)
 			delay(50)
-			applymovement(10, Route3WalkDown)
-			applymovement(11, Route3WalkDown)
+			applymovement(10, Walk1Down)
+			applymovement(11, Walk1Down)
 			waitmovement(10)
 			waitmovement(11)
 			delay(10)

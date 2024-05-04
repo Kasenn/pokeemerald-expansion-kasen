@@ -23,7 +23,7 @@ Pearlwood_Point_NoPokemon1::
 	waitmovement 0
 	msgbox Pearlwood_Point_WildPokemon
 	waitmessage
-	applymovement OBJ_EVENT_ID_PLAYER, Pearlwood_Point_Move2
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Left
 	waitmovement 0
 	releaseall
 	return
@@ -44,11 +44,11 @@ Pearlwood_Point_NoPokemon2::
 	delay 40
 	msgbox Pearlwood_Point_WatchOut, MSGBOX_NPC
 	waitmessage
-	applymovement OBJ_EVENT_ID_PLAYER, Pearlwood_Point_Move1
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Up
 	waitmovement 0
 	msgbox Pearlwood_Point_WildPokemon
 	waitmessage
-	applymovement OBJ_EVENT_ID_PLAYER, Pearlwood_Point_Move2
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Left
 	waitmovement 0
 	releaseall
 	return
@@ -57,14 +57,6 @@ Pearlwood_Point_NoPokemon2_1:
 	releaseall
 	end
 
-
-Pearlwood_Point_Move1:
-	walk_up
-	step_end
-
-Pearlwood_Point_Move2:
-	walk_left
-	step_end
 
 Pearlwood_Point_Face:
 	face_player

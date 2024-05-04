@@ -17,7 +17,7 @@ script Route13_Tr1_Birdkeeper {
 }
 text Route13_Tr1_Birdkeeper_Text{
     "Planning to head to Galewind City?\n"
-    "I wouldn't bother, unless you have\n"
+    "I wouldn't bother, unless you have\l"
     "surfing Pokémon or flying Pokémon\l"
     "that can take you there directly."
 }

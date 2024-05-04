@@ -173,7 +173,7 @@ script AldeleafCity_KeyMan{
 		delay(30)
 		opendoor(8, 37)
 		waitdooranim
-		applymovement(16, Aldeleaf_MoveUp)
+		applymovement(16, Walk1Up)
 		waitmovement(0)
 		delay(5)
 		removeobject(16)
@@ -185,9 +185,6 @@ script AldeleafCity_KeyMan{
 	}
 	release
 	end
-}
-movement Aldeleaf_MoveUp{
-	walk_up
 }
 script Aldeleaf_Sign{
 	msgbox(Aldeleaf_Sign_Text, MSGBOX_SIGN)

@@ -8,7 +8,7 @@ script NotMyNectar{
     msgbox(NotMyNectar_Text, MSGBOX_NPC)
     waitmessage
     closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, PC_Nectar)
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Down)
     waitmovement(0)
     delay(30)
     release
@@ -51,8 +51,4 @@ movement NectarUp{
 
 text NotMyNectar_Text{
     "Excuse me, but did I give you\na permission to enter my backyard?\pYou'll probably just end up trampling\nmy precious flowers."
-}
-
-movement PC_Nectar{
-    walk_down
 }

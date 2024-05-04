@@ -114,10 +114,6 @@ Route3_HedgeRunner::
 	end
 
 
-Route3WalkDown:
-	walk_down
-	step_end
-
 TriggerGina::
 	checktrainerflag TRAINER_LOLA_1
 	goto_if 0, TriggerGina_1
@@ -138,8 +134,8 @@ TriggerGina_5:
 	waitmovement 10
 	waitmovement 11
 	delay 50
-	applymovement 10, Route3WalkDown
-	applymovement 11, Route3WalkDown
+	applymovement 10, Walk1Down
+	applymovement 11, Walk1Down
 	waitmovement 10
 	waitmovement 11
 	delay 10
@@ -170,8 +166,8 @@ TriggerMia_5:
 	waitmovement 10
 	waitmovement 11
 	delay 50
-	applymovement 10, Route3WalkDown
-	applymovement 11, Route3WalkDown
+	applymovement 10, Walk1Down
+	applymovement 11, Walk1Down
 	waitmovement 10
 	waitmovement 11
 	delay 10

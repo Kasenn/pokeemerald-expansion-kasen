@@ -65,7 +65,7 @@
 #define FLAG_SKYLOCH_JUICE                      0x34 // 
 #define FLAG_SKYLOCH_CASTELIACONE               0x35 // 
 #define FLAG_SHOWED_BADGE                       0x36 // Showed badge to gain entry to adamant tower
-#define FLAG_UNUSED_0X37                        0x37 // UNUSED FLAG
+#define FLAG_DISABLE_PARTNER_SWITCHING                        0x37 // disable switching while followed by a partner
 #define FLAG_ROUTE8_ITEM1                       0x38 // Route 8 item flags
 #define FLAG_ROUTE8_ITEM2                       0x39 // 
 #define FLAG_ROUTE8_ITEM3                       0x3A // 

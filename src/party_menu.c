@@ -64,6 +64,7 @@
 #include "trade.h"
 #include "union_room.h"
 #include "window.h"
+#include "follow_me.h"
 #include "constants/battle.h"
 #include "constants/battle_frontier.h"
 #include "constants/field_effects.h"
@@ -1259,9 +1260,10 @@ static void CreateCancelConfirmPokeballSprites(void)
     {
         if (sPartyMenuInternal->chooseHalf)
         {
-            sPartyMenuInternal->spriteIdConfirmPokeball = CreateSmallPokeballButtonSprite(0xBF, 0x88);
+            sPartyMenuInternal->spriteIdConfirmPokeball = CreatePokeballButtonSprite(198, 148);
+            // sPartyMenuInternal->spriteIdConfirmPokeball = CreateSmallPokeballButtonSprite(0xBF, 0x88);
             DrawCancelConfirmButtons();
-            sPartyMenuInternal->spriteIdCancelPokeball = CreateSmallPokeballButtonSprite(0xBF, 0x98);
+            sPartyMenuInternal->spriteIdCancelPokeball = CreateSmallPokeballButtonSprite(-5, -5);
         }
         else
         {
@@ -1287,9 +1289,9 @@ void AnimatePartySlot(u8 slot, u8 animNum)
         return;
     case PARTY_SIZE: // Confirm
         if (animNum == 0)
-            SetBgTilemapPalette(1, 23, 16, 7, 2, 1);
+            SetBgTilemapPalette(1, 23, 17, 7, 2, 1);
         else
-            SetBgTilemapPalette(1, 23, 16, 7, 2, 2);
+            SetBgTilemapPalette(1, 23, 17, 7, 2, 2);
         spriteId = sPartyMenuInternal->spriteIdConfirmPokeball;
         break;
     case PARTY_SIZE + 1: // Cancel
@@ -1352,8 +1354,8 @@ static bool8 PartyBoxPal_ParnterOrDisqualifiedInArena(u8 slot)
 
 static void DrawCancelConfirmButtons(void)
 {
-    CopyToBgTilemapBufferRect_ChangePalette(1, sConfirmButton_Tilemap, 23, 16, 7, 2, 17);
-    CopyToBgTilemapBufferRect_ChangePalette(1, sCancelButton_Tilemap, 23, 18, 7, 2, 17);
+    CopyToBgTilemapBufferRect_ChangePalette(1, sConfirmButton_Tilemap, 23, 17, 7, 2, 17);
+    // CopyToBgTilemapBufferRect_ChangePalette(1, sCancelButton_Tilemap, 23, 18, 7, 2, 17);
     ScheduleBgCopyTilemapToVram(1);
 }
 
@@ -1565,16 +1567,21 @@ static void HandleChooseMonCancel(u8 taskId, s8 *slotPtr)
         CancelParticipationPrompt(taskId);
         break;
     default:
-        PlaySE(SE_SELECT);
-        if (DisplayCancelChooseMonYesNo(taskId) != TRUE)
-        {
-            if (!MenuHelpers_IsLinkActive())
-                gSpecialVar_0x8004 = PARTY_SIZE + 1;
-            gPartyMenuUseExitCallback = FALSE;
-            *slotPtr = PARTY_SIZE + 1;
-            Task_ClosePartyMenu(taskId);
+        if (sPartyMenuInternal->chooseHalf){
+            break;
         }
-        break;
+        else{
+            PlaySE(SE_SELECT);
+            if (DisplayCancelChooseMonYesNo(taskId) != TRUE)
+            {
+                if (!MenuHelpers_IsLinkActive())
+                    gSpecialVar_0x8004 = PARTY_SIZE + 1;
+                gPartyMenuUseExitCallback = FALSE;
+                *slotPtr = PARTY_SIZE + 1;
+                Task_ClosePartyMenu(taskId);
+            }
+            break;
+        }
     }
 }
 
@@ -1701,7 +1708,10 @@ static void UpdatePartySelectionSingleLayout(s8 *slotPtr, s8 movementDir)
     case MENU_DIR_UP:
         if (*slotPtr == 0)
         {
-            *slotPtr = PARTY_SIZE + 1;
+            if (sPartyMenuInternal->chooseHalf)
+                *slotPtr = PARTY_SIZE;
+            else
+                *slotPtr = PARTY_SIZE + 1;
         }
         else if (*slotPtr == PARTY_SIZE)
         {
@@ -1733,6 +1743,15 @@ static void UpdatePartySelectionSingleLayout(s8 *slotPtr, s8 movementDir)
                 else
                     *slotPtr = PARTY_SIZE + 1;
             }
+
+            else if (*slotPtr == PARTY_SIZE)
+            {
+                if (sPartyMenuInternal->chooseHalf)
+                    *slotPtr = 0;
+                else
+                    (*slotPtr)++;
+            }
+
             else
             {
                 (*slotPtr)++;
@@ -2271,8 +2290,8 @@ static void CreateCancelConfirmWindows(bool8 chooseHalf)
         {
             confirmWindowId = AddWindow(&sConfirmButtonWindowTemplate);
             FillWindowPixelBuffer(confirmWindowId, PIXEL_FILL(0));
-            mainOffset = GetStringCenterAlignXOffset(FONT_SMALL, gMenuText_Confirm, 48);
-            AddTextPrinterParameterized4(confirmWindowId, FONT_SMALL, mainOffset, 1, 0, 0, sFontColorTable[0], TEXT_SKIP_DRAW, gMenuText_Confirm);
+            mainOffset = GetStringCenterAlignXOffset(FONT_NORMAL, gMenuText_Confirm, 48);
+            AddTextPrinterParameterized4(confirmWindowId, FONT_NORMAL, mainOffset, 0, 0, 0, sFontColorTable[0], TEXT_SKIP_DRAW, gMenuText_Confirm);
             PutWindowTilemap(confirmWindowId);
             CopyWindowToVram(confirmWindowId, COPYWIN_GFX);
             cancelWindowId = AddWindow(&sMultiCancelButtonWindowTemplate);
@@ -2284,20 +2303,22 @@ static void CreateCancelConfirmWindows(bool8 chooseHalf)
             offset = 3;
         }
         FillWindowPixelBuffer(cancelWindowId, PIXEL_FILL(0));
-
-        // Branches are functionally identical. Second branch is never reached, Spin Trade wasnt fully implemented
-        if (gPartyMenu.menuType != PARTY_MENU_TYPE_SPIN_TRADE)
-        {
-            mainOffset = GetStringCenterAlignXOffset(FONT_SMALL, gText_Cancel, 48);
-            AddTextPrinterParameterized3(cancelWindowId, FONT_SMALL, mainOffset + offset, 1, sFontColorTable[0], TEXT_SKIP_DRAW, gText_Cancel);
+        if (chooseHalf == TRUE){}
+        else{
+            // Branches are functionally identical. Second branch is never reached, Spin Trade wasnt fully implemented
+            if (gPartyMenu.menuType != PARTY_MENU_TYPE_SPIN_TRADE)
+            {
+                mainOffset = GetStringCenterAlignXOffset(FONT_SMALL, gText_Cancel, 48);
+                AddTextPrinterParameterized3(cancelWindowId, FONT_SMALL, mainOffset + offset, 1, sFontColorTable[0], TEXT_SKIP_DRAW, gText_Cancel);
+            }
+            else
+            {
+                mainOffset = GetStringCenterAlignXOffset(FONT_SMALL, gText_Cancel2, 48);
+                AddTextPrinterParameterized3(cancelWindowId, FONT_SMALL, mainOffset + offset, 1, sFontColorTable[0], TEXT_SKIP_DRAW, gText_Cancel2);
+            }
+            PutWindowTilemap(cancelWindowId);
+            CopyWindowToVram(cancelWindowId, COPYWIN_GFX);
         }
-        else
-        {
-            mainOffset = GetStringCenterAlignXOffset(FONT_SMALL, gText_Cancel2, 48);
-            AddTextPrinterParameterized3(cancelWindowId, FONT_SMALL, mainOffset + offset, 1, sFontColorTable[0], TEXT_SKIP_DRAW, gText_Cancel2);
-        }
-        PutWindowTilemap(cancelWindowId);
-        CopyWindowToVram(cancelWindowId, COPYWIN_GFX);
         ScheduleBgCopyTilemapToVram(0);
     }
 }
@@ -3012,14 +3033,23 @@ static void CB2_ReturnToPartyMenuFromSummaryScreen(void)
 
 static void CursorCb_Switch(u8 taskId)
 {
-    PlaySE(SE_SELECT);
-    gPartyMenu.action = PARTY_ACTION_SWITCH;
-    PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
-    PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
-    DisplayPartyMenuStdMessage(PARTY_MSG_MOVE_TO_WHERE);
-    AnimatePartySlot(gPartyMenu.slotId, 1);
-    gPartyMenu.slotId2 = gPartyMenu.slotId;
-    gTasks[taskId].func = Task_HandleChooseMonInput;
+    if(FlagGet(FLAG_DISABLE_PARTNER_SWITCHING)){
+        PlaySE(SE_FAILURE);
+        PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
+        PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
+        DisplayPartyMenuStdMessage(PARTY_MSG_PARTNER);
+        gTasks[taskId].func = Task_CancelAfterAorBPress;
+    }
+    else{
+        PlaySE(SE_SELECT);
+        gPartyMenu.action = PARTY_ACTION_SWITCH;
+        PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
+        PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
+        DisplayPartyMenuStdMessage(PARTY_MSG_MOVE_TO_WHERE);
+        AnimatePartySlot(gPartyMenu.slotId, 1);
+        gPartyMenu.slotId2 = gPartyMenu.slotId;
+        gTasks[taskId].func = Task_HandleChooseMonInput;
+    }
 }
 
 #define tSlot1Left     data[0]
@@ -4080,6 +4110,9 @@ static void FieldCallback_Surf(void)
 
 static bool8 SetUpFieldMove_Surf(void)
 {
+    if (!CheckFollowerFlag(FOLLOWER_FLAG_CAN_SURF))
+        return FALSE;
+
     if (PartyHasMonWithSurf() == TRUE && IsPlayerFacingSurfableFishableWater() == TRUE)
     {
         gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
@@ -4099,6 +4132,8 @@ static void DisplayCantUseSurfMessage(void)
 
 static bool8 SetUpFieldMove_Fly(void)
 {
+    if (!CheckFollowerFlag(FOLLOWER_FLAG_CAN_LEAVE_ROUTE))
+        return FALSE;
     if (Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType) == TRUE)
         return TRUE;
     else
@@ -4119,6 +4154,8 @@ static void FieldCallback_Waterfall(void)
 static bool8 SetUpFieldMove_Waterfall(void)
 {
     s16 x, y;
+    if (!CheckFollowerFlag(FOLLOWER_FLAG_CAN_WATERFALL))
+        return FALSE;
 
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
     if (MetatileBehavior_IsWaterfall(MapGridGetMetatileBehaviorAt(x, y)) == TRUE && IsPlayerSurfingNorth() == TRUE)
@@ -4138,6 +4175,9 @@ static void FieldCallback_Dive(void)
 
 static bool8 SetUpFieldMove_Dive(void)
 {
+    if (!CheckFollowerFlag(FOLLOWER_FLAG_CAN_DIVE))
+        return FALSE;
+
     gFieldEffectArguments[1] = TrySetDiveWarp();
     if (gFieldEffectArguments[1] != 0)
     {

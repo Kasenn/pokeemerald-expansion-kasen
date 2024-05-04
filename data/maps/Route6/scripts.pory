@@ -1,5 +1,23 @@
 mapscripts Route6_MapScripts{
-    MAP_SCRIPT_ON_TRANSITION: ClearShinyFlag
+    MAP_SCRIPT_ON_TRANSITION: ClearShinyFlag3
+    MAP_SCRIPT_ON_LOAD: ClearShinyFlag3
+}
+script ClearShinyFlag3{
+    if(flag(FLAG_DESERT_RUINS_OPENED)){
+        setmetatile(40, 13, 0x001, FALSE)
+        setmetatile(41, 13, 0x001, FALSE)
+        setmetatile(42, 13, 0x001, FALSE)
+        setmetatile(40, 14, 0x001, FALSE)
+        setmetatile(41, 14, 0x001, FALSE)
+        setmetatile(42, 14, 0x001, FALSE)
+    }
+    if(flag(FLAG_DEVON_UNDER_ATTACK)){
+        setflag(FLAG_DEVON_RESCUED)
+    }
+    clearflag(FLAG_INCREASED_SHINY_ODDS)
+    clearflag(FLAG_DESERT_STEPS)
+    release
+    end
 }
 script ClearShinyFlag{
     if(flag(FLAG_DEVON_UNDER_ATTACK)){
@@ -209,25 +227,4 @@ text Route6_Trainer7_Kindler_PostBattle{
     "There are a lot of Ground-types out\n"
     "there which are very strong against\l"
     "Fire-type Pokémon."
-}
-
-script ScorchedDesertBetaBlock{
-    lockall
-    msgbox(StillInBeta, MSGBOX_DEFAULT)
-    applymovement(OBJ_EVENT_ID_PLAYER, BetaMoveLeft)
-    waitmovement(0)
-    releaseall
-    end
-}
-
-text StillInBeta{
-    "So you got the Go-Goggles?\n"
-    "That's great!\p"
-    "Normally you'd be able to enter the\n"
-    "desert but it's nowhere close to being\l"
-    "finished so I can't let you pass."
-}
-
-movement BetaMoveLeft{
-    walk_left * 2
 }

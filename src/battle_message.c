@@ -407,6 +407,7 @@ static const u8 sText_LegendaryPkmnAppeared[] = _("Wild {B_OPPONENT_MON1_NAME} a
 static const u8 sText_WildPkmnAppearedPause[] = _("Wild {B_OPPONENT_MON1_NAME} appeared!{PAUSE 127}");
 static const u8 sText_TwoWildPkmnAppeared[] = _("Wild {B_OPPONENT_MON1_NAME} and\n{B_OPPONENT_MON2_NAME} appeared!\p");
 static const u8 sText_Trainer1WantsToBattle[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME}\nwould like to battle!\p");
+static const u8 sText_BrotherWantsToBattle[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME}\nwould like to battle!\p");
 static const u8 sText_LinkTrainerWantsToBattle[] = _("{B_LINK_OPPONENT1_NAME}\nwants to battle!");
 static const u8 sText_TwoLinkTrainersWantToBattle[] = _("{B_LINK_OPPONENT1_NAME} and {B_LINK_OPPONENT2_NAME}\nwant to battle!");
 static const u8 sText_Trainer1SentOutPkmn[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout {B_OPPONENT_MON1_NAME}!");
@@ -2759,6 +2760,8 @@ void BufferStringBattle(u16 stringID, u32 battler)
     case STRINGID_INTROMSG: // first battle msg
         if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
         {
+            u32 trainerClass = GetTrainerClassFromId(gTrainerBattleOpponent_A);
+
             if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
             {
                 if (gBattleTypeFlags & BATTLE_TYPE_TOWER_LINK_MULTI)
@@ -2780,6 +2783,8 @@ void BufferStringBattle(u16 stringID, u32 battler)
                         stringPtr = sText_LinkTrainerWantsToBattlePause;
                     else
                         stringPtr = sText_LinkTrainerWantsToBattle;
+                    if (trainerClass == TRAINER_CLASS_RIVAL2)
+                        stringPtr = sText_BrotherWantsToBattle;
                 }
             }
             else
@@ -2792,6 +2797,8 @@ void BufferStringBattle(u16 stringID, u32 battler)
                     stringPtr = sText_TwoTrainersWantToBattle;
                 else
                     stringPtr = sText_Trainer1WantsToBattle;
+                if (trainerClass == TRAINER_CLASS_RIVAL2)
+                        stringPtr = sText_BrotherWantsToBattle;
             }
         }
         else
@@ -3438,6 +3445,8 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                 break;
             case B_TXT_TRAINER1_NAME: // trainer1 name
                 toCpy = BattleStringGetOpponentNameByTrainerId(gTrainerBattleOpponent_A, text, multiplayerId, GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT));
+                if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_RIVAL2)
+                        toCpy = GetExpandedPlaceholder(PLACEHOLDER_ID_BROTHER);
                 break;
             case B_TXT_LINK_PLAYER_NAME: // link player name
                 toCpy = gLinkPlayers[multiplayerId].name;
@@ -3591,6 +3600,8 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                 break;
             case B_TXT_ATK_TRAINER_NAME:
                 toCpy = BattleStringGetTrainerName(text, multiplayerId, gBattlerAttacker);
+                if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_RIVAL2)
+                        toCpy = GetExpandedPlaceholder(PLACEHOLDER_ID_BROTHER);
                 break;
             case B_TXT_ATK_TRAINER_CLASS:
                 switch (GetBattlerPosition(gBattlerAttacker))

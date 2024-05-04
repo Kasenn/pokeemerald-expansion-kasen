@@ -93,7 +93,7 @@ PCAftermath::
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, StepAway
 	waitmovement 0
-	applymovement 1, WalkBackToPC
+	applymovement 1, Walk1Up
 	waitmovement 0
 	delay 30
 	release
@@ -121,10 +121,6 @@ StepAway:
 	face_right
 	lock_facing_direction
 	walk_left
-	step_end
-
-WalkBackToPC:
-	walk_up
 	step_end
 
 Sandstone_BigHouse2_2F_FanM::

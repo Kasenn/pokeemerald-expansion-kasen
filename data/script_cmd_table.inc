@@ -233,6 +233,10 @@ gScriptCmdTable::
 	.4byte ScrCmd_checkdexmon						@ 0xe6
 	.4byte ScrCmd_dynmultichoice                    @ 0xe7
 	.4byte ScrCmd_dynmultipush                      @ 0xe8
+	.4byte ScrCmd_setfollower						@ 0xe9
+    .4byte ScrCmd_destroyfollower					@ 0xea
+    .4byte ScrCmd_facefollower						@ 0xeb
+    .4byte ScrCmd_checkfollower						@ 0xec
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop

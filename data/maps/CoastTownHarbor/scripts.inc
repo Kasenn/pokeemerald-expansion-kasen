@@ -56,7 +56,7 @@ CoastTownHarbor_EventScript_BoardFerryWest::
 
 
 CoastTownHarbor_EventScript_BoardFerryNorth::
-	applymovement OBJ_EVENT_ID_PLAYER, CoastTownHarbor_Movement_BoardFerryNorth
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Up
 	waitmovement 0
 	return
 
@@ -64,10 +64,6 @@ CoastTownHarbor_EventScript_BoardFerryNorth::
 CoastTownHarbor_Movement_BoardFerryWest:
 	walk_left
 	walk_in_place_faster_up
-	step_end
-
-CoastTownHarbor_Movement_BoardFerryNorth:
-	walk_up
 	step_end
 
 Common2_EventScript_FerryDepart3::

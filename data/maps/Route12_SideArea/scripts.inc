@@ -29,7 +29,7 @@ Need4BadgesFirst::
 	.string "Strength.\p"
 	.string "Strength packs a real punch, but be\n"
 	.string "careful, as it will also leave your\l"
-	.string "Pokémon susceptible to counter-attacks.\p"
+	.string "Pokémon weak to counter-attacks.\p"
 	.string "It also lets you push certain boulders\n"
 	.string "out of your way, but in order to use it,\l"
 	.string "you must first obtain the badge from\l"

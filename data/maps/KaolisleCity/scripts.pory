@@ -67,7 +67,7 @@ script Kaolisle_Brother{
     end
 }
 text Kaolisle_BrotherIntro{
-    "Thomas: Yo, {PLAYER}!\n"
+    "{BROTHER}: Yo, {PLAYER}!\n"
     "You finally caught up!\p"
     "I've already defeated the Gym Leader\n"
     "here and obtained my next badge.\p"
@@ -82,20 +82,20 @@ text Kaolisle_BrotherIntro{
     "Speaking of interesting…"
 }
 text KB_LookingTowardsPearlwood{
-    "Thomas: If I look real close, I think\n"
+    "{BROTHER}: If I look real close, I think\n"
     "I can see Pearlwood in the horizon.\p"
     "We're so far away from home,\n"
     "yet it feels like we only just left."
 }
 text KB_VisitingGym{
-    "Thomas: This is the Kaolisle City\n"
+    "{BROTHER}: This is the Kaolisle City\n"
     "Pokémon Gym.\p"
     "I know, it doesn't look like your\n"
     "average gym but I assure you,\l"
     "the trainers there are no pushovers."
 }
 text KB_PokeFanClub{
-    "Thomas: Apparently this is some kind\n"
+    "{BROTHER}: Apparently this is some kind\n"
     "of Pokémon Fan Club?\l"
     "I don't really get the point.\p"
     "Why coop up inside and talk about\n"
@@ -103,14 +103,14 @@ text KB_PokeFanClub{
     "catching them and training them?"
 }
 text KB_LesserBeach{
-    "Thomas: This beach seems a bit\n"
+    "{BROTHER}: This beach seems a bit\n"
     "overgrown.\p"
     "I don't mind it though.\p"
     "It seems peaceful enough to\n"
     "where you can have a relaxing time."
 }
 text KB_Hotel{
-    "Thomas: So, this is the Grand Resort.\n"
+    "{BROTHER}: So, this is the Grand Resort.\n"
     "Talk of the town.\p"
     "There seem to be a lot of people here\n"
     "this time of year.\p"
@@ -118,7 +118,7 @@ text KB_Hotel{
     "assuming you can even get a room."
 }
 text KB_GreaterBeach{
-    "Thomas: This looks like a nice beach.\n"
+    "{BROTHER}: This looks like a nice beach.\n"
     "Not a fan of the crowd though.\p"
     "You know, if you have an Itemfinder,\n"
     "it may not be a bad idea to comb through\l"
@@ -127,14 +127,14 @@ text KB_GreaterBeach{
     "ocean may have washed ashore."
 }
 text KB_BoringPlace{
-    "Thomas: I have to say, there's not\n"
+    "{BROTHER}: I have to say, there's not\n"
     "a whole lot going around here.\p"
     "Sure, you can relax at the resort,\n"
     "but where's all the fun stuff?\l"
     "Where's all the activities?"
 }
 text KB_IslandToTheEast{
-    "Thomas: There seems to be an island\n"
+    "{BROTHER}: There seems to be an island\n"
     "to the east of here with a house on it.\p"
     "Wonder who would build a house\n"
     "in such a hard-to-reach place…"

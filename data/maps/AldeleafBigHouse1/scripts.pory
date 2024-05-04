@@ -322,7 +322,7 @@ script AldeleafBigHouse3_2F_Hide3FMan{
         msgbox(AldeleafBigHouse3_3F_PokeBall_StayOut, MSGBOX_DEFAULT)
         waitmessage
         closemessage
-        applymovement(OBJ_EVENT_ID_PLAYER, AldeleafBigHouse3_3F_MoveDown)
+        applymovement(OBJ_EVENT_ID_PLAYER, Walk1Down)
         waitmovement(0)
     }
     release
@@ -331,8 +331,4 @@ script AldeleafBigHouse3_2F_Hide3FMan{
 text AldeleafBigHouse3_3F_PokeBall_StayOut{
     "Probably best not to\n"
     "go upstairs again…"
-}
-
-movement AldeleafBigHouse3_3F_MoveDown{
-    walk_down
 }

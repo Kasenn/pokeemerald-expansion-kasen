@@ -14,14 +14,10 @@ ElevatorBlock_2:
 	msgbox ElevatorBlock_Text_0, MSGBOX_DEFAULT
 	waitmessage
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, EleLeft
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Left
 	waitmovement 0
 	goto ElevatorBlock_1
 
-
-EleLeft:
-	walk_left
-	step_end
 
 CoralGrove_ElevatorEmployee::
 	lockall

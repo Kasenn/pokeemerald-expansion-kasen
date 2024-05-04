@@ -2484,8 +2484,8 @@
       "x": 4,
       "y": 15,
       "elevation": 0,
-      "var": "VAR_ALDELEAF_GYM_STATE",
-      "var_value": "0",
+      "var": "VAR_BADGES_OBTAINED",
+      "var_value": "1",
       "script": "Aldeleaf_Gym_EventScript_Volkner"
     },
     {

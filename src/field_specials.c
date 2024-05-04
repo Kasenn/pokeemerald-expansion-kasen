@@ -24,6 +24,7 @@
 #include "load_save.h"
 #include "list_menu.h"
 #include "main.h"
+#include "main_menu.h"
 #include "mystery_gift.h"
 #include "match_call.h"
 #include "menu.h"
@@ -47,6 +48,7 @@
 #include "tv.h"
 #include "wallclock.h"
 #include "window.h"
+#include "naming_screen.h"
 #include "constants/battle_frontier.h"
 #include "constants/battle_pyramid.h"
 #include "constants/battle_tower.h"
@@ -976,6 +978,12 @@ u8 GetLeadMonFriendshipScore(void)
 static void CB2_FieldShowRegionMap(void)
 {
     FieldInitRegionMap(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+}
+
+void NameBrother(void)
+{
+    NewGameBirchSpeech_SetBrotherName(1);
+    DoNamingScreen(NAMING_SCREEN_BROTHER, gSaveBlock3Ptr->brotherName, gSaveBlock3Ptr->brotherGender, 0, 0, CB2_ReturnToFieldContinueScript);
 }
 
 void FieldShowRegionMap(void)

@@ -14,7 +14,7 @@ script CGC_ElevatorDown{
     special(MoveElevator)
 	waitstate
     waitse
-    applymovement(OBJ_EVENT_ID_PLAYER, ElevatorUp_MoveDown)
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Down)
     waitmovement(0)
     warp(MAP_CORALGROVE_ELEVATOR1, 11, 1)
     waitstate

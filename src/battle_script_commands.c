@@ -2002,11 +2002,11 @@ static void Cmd_adjustdamage(void)
     CMD_ARGS();
 
     u8 holdEffect, param;
-    u32 moveType;
+    // u32 moveType;
     u32 affectionScore = GetBattlerAffectionHearts(gBattlerTarget);
     u32 rand = Random() % 100;
 
-    GET_MOVE_TYPE(gCurrentMove, moveType);
+    // GET_MOVE_TYPE(gCurrentMove, moveType);
 
     if (DoesSubstituteBlockMove(gBattlerAttacker, gBattlerTarget, gCurrentMove))
         goto END;

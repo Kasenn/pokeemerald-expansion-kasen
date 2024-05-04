@@ -12,6 +12,7 @@
 #include "battle_scripts.h"
 #include "battle_setup.h"
 #include "battle_tower.h"
+#include "script_pokemon_util.h"
 #include "battle_util.h"
 #include "berry.h"
 #include "bg.h"
@@ -21,6 +22,7 @@
 #include "dma3.h"
 #include "event_data.h"
 #include "evolution_scene.h"
+#include "event_scripts.h"
 #include "graphics.h"
 #include "gpu_regs.h"
 #include "international_string_util.h"
@@ -685,6 +687,7 @@ const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
     TRAINER_CLASS(ENTHUSIAST, "{PKMN} enthusiast", 10, ITEM_FRIEND_BALL),
     TRAINER_CLASS(PAINTER, "Artist"),
     TRAINER_CLASS(DANCER, "Dancer"),
+    TRAINER_CLASS(RIVAL2, "{PKMN} trainer", 15),
 };
 
 static void (* const sTurnActionsFuncsTable[])(void) =
@@ -846,7 +849,7 @@ static void CB2_InitBattleInternal(void)
     LoadBattleTextboxAndBackground();
     ResetSpriteData();
     ResetTasks();
-    DrawBattleEntryBackground();
+    // DrawBattleEntryBackground();
     FreeAllSpritePalettes();
     gReservedSpritePaletteCount = MAX_BATTLERS_COUNT;
     SetVBlankCallback(VBlankCB_Battle);
@@ -1674,7 +1677,7 @@ static void CB2_PreInitMultiBattle(void)
             *savedCallback = gMain.savedCallback;
             *savedBattleTypeFlags = gBattleTypeFlags;
             gMain.savedCallback = CB2_PreInitMultiBattle;
-            ShowPartyMenuToShowcaseMultiBattleParty();
+            // ShowPartyMenuToShowcaseMultiBattleParty();
         }
         break;
     case 2:
@@ -1730,7 +1733,7 @@ static void CB2_PreInitIngamePlayerPartnerBattle(void)
         *savedCallback = gMain.savedCallback;
         *savedBattleTypeFlags = gBattleTypeFlags;
         gMain.savedCallback = CB2_PreInitIngamePlayerPartnerBattle;
-        ShowPartyMenuToShowcaseMultiBattleParty();
+        // ShowPartyMenuToShowcaseMultiBattleParty();
         break;
     case 1:
         if (!gPaletteFade.active)
@@ -5715,7 +5718,6 @@ static void HandleEndTurn_MonFled(void)
 static void HandleEndTurn_FinishBattle(void)
 {
     u32 i, battler;
-
     if (gCurrentActionFuncId == B_ACTION_TRY_FINISH || gCurrentActionFuncId == B_ACTION_FINISHED)
     {
         if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK
@@ -5763,6 +5765,9 @@ static void HandleEndTurn_FinishBattle(void)
             TestRunner_Battle_AfterLastTurn();
         BeginFastPaletteFade(3);
         FadeOutMapMusic(5);
+        if(FlagGet(FLAG_DISABLE_PARTNER_SWITCHING)){
+            HealPlayerParty();
+        }
         if (B_TRAINERS_KNOCK_OFF_ITEMS == TRUE || B_RESTORE_HELD_BATTLE_ITEMS == TRUE)
             TryRestoreHeldItems();
 
@@ -5931,6 +5936,12 @@ static void ReturnFromBattleToOverworld(void)
 
     m4aSongNumStop(SE_LOW_HEALTH);
     SetMainCallback2(gMain.savedCallback);
+    
+    // if you experience the follower de-syncing with the player after battle, set POST_BATTLE_FOLLOWER_FIX to TRUE in include/constants/global.h
+    #if POST_BATTLE_FOLLOWER_FIX
+        FollowMe_WarpSetEnd();
+        gObjectEvents[GetFollowerObjectId()].invisible = TRUE;
+    #endif
 }
 
 void RunBattleScriptCommands_PopCallbacksStack(void)

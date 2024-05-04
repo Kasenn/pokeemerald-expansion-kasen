@@ -57,8 +57,9 @@ text Sandstone_BigHouse1_2F_Mother_Text{
     "trainers when they grow up."
 }
 text Sandstone_BigHouse1_1F_Pokefan_Text{
-    "Back in my youth I yearned to become\n"
-    "the greatest Pokémon trainer there was.\p"
+    "Back in my youth, I yearned to become\n"
+    "the greatest Pokémon trainer\l"
+    "there ever was.\p"
     "I never managed to defeat a single\n"
     "Gym Leader, so I decided to become\l"
     "a family man instead."

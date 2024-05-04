@@ -315,7 +315,7 @@ Aldeleaf_Gym_EventScript_Volkner::
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	turnobject 18, DIR_WEST
 	special SpawnCameraObject
-	applymovement OBJ_EVENT_ID_CAMERA, Aldeleaf_Gym_MoveCamera
+	applymovement OBJ_EVENT_ID_CAMERA, Walk3Right
 	waitmovement 0
 	delay 10
 	special RemoveCameraObject
@@ -326,17 +326,11 @@ Aldeleaf_Gym_EventScript_Volkner::
 	end
 
 
-Aldeleaf_Gym_MoveCamera:
-	walk_right
-	walk_right
-	walk_right
-	step_end
-
 Aldeleaf_Gym_EventScript_VolknerDefeated::
 	special SpawnCameraObject
 	delay 30
-	applymovement 18, Aldeleaf_Gym_MoveLeft
-	applymovement OBJ_EVENT_ID_PLAYER, Aldeleaf_Gym_MoveRight
+	applymovement 18, Walk3Left
+	applymovement OBJ_EVENT_ID_PLAYER, Walk3Right
 	waitmovement 0
 	delay 15
 	message Aldeleaf_Gym_Text_ReceivedThunderBadge
@@ -354,18 +348,6 @@ Aldeleaf_Gym_EventScript_VolknerDefeated::
 	end
 
 
-Aldeleaf_Gym_MoveLeft:
-	walk_left
-	walk_left
-	walk_left
-	step_end
-
-Aldeleaf_Gym_MoveRight:
-	walk_right
-	walk_right
-	walk_right
-	step_end
-
 Aldeleaf_Gym_EventScript_GiveWildCharge::
 	giveitem ITEM_TM_WILD_CHARGE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
@@ -373,10 +355,6 @@ Aldeleaf_Gym_EventScript_GiveWildCharge::
 	release
 	end
 
-
-Aldeleaf_Gym_MoveCamera2:
-	walk_left
-	step_end
 
 Aldeleaf_Gym_EventScript_GymGuide::
 	lock
@@ -591,13 +569,13 @@ Aldeleaf_Gym_Text_VolknerPostBattle::
 Aldeleaf_Gym_Text_GymStatue::
 	.string "Aldeleaf City Pokémon Gym\p"
 	.string "Volkner's certified trainers:\n"
-	.string "Thomas\l"
+	.string "{BROTHER}\l"
 	.string "{RIVAL}$"
 
 Aldeleaf_Gym_Text_GymStatueCertified::
 	.string "Aldeleaf City Pokémon Gym\p"
 	.string "Volkner's certified trainers:\n"
-	.string "Thomas\l"
+	.string "{BROTHER}\l"
 	.string "{RIVAL}\l"
 	.string "{PLAYER}$"
 

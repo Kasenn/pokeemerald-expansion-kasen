@@ -486,6 +486,10 @@ static const u8 *const sMalePresetNames[] = {
     gText_DefaultNameQuincy
 };
 
+static const u8 *const sBrotherPresetNames[] = {
+    gText_DefaultNameBrother
+};
+
 static const u8 *const sFemalePresetNames[] = {
     gText_DefaultNameKimmy,
     gText_DefaultNameTiara,
@@ -2121,6 +2125,19 @@ void NewGameBirchSpeech_SetDefaultPlayerName(u8 nameId)
         gSaveBlock2Ptr->playerName[i] = name[i];
     gSaveBlock2Ptr->playerName[PLAYER_NAME_LENGTH] = EOS;
 }
+
+void NewGameBirchSpeech_SetBrotherName(u8 nameId)
+{
+    const u8 *name;
+    u8 i;
+
+        name = sBrotherPresetNames[nameId];
+
+    for (i = 0; i < PLAYER_NAME_LENGTH; i++)
+        gSaveBlock3Ptr->brotherName[i] = name[i];
+    gSaveBlock3Ptr->brotherName[PLAYER_NAME_LENGTH] = EOS;
+}
+
 
 static void CreateMainMenuErrorWindow(const u8 *str)
 {

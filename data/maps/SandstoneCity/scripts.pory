@@ -140,7 +140,8 @@ text Sandstone_GameboyKid1_Text{
     "but they didn't evolve at all!"
 }
 text Sandstone_GameboyKid2_Text{
-    "Maybe the evolution method has changed…"
+    "Maybe the evolution method has\n"
+    "changed…"
 }
 text Sandstone_GossipWoman1_Text{
     "The Department Store sells everything\n"
@@ -293,4 +294,31 @@ text DontLikeBrendansOutfit{
 }
 text LikeBrendansOutfit{
     "thanks, i knew i right choice"
+}
+
+script TestFollower{
+    lock
+    faceplayer
+    msgbox("Let's go!")
+    closemessage
+    loadword(0, MakeNewTeam)
+    setfollower(14, FOLLOWER_FLAG_ALL)
+    release
+    end
+}
+
+script MakeNewTeam{
+    lock
+    facefollower
+    msgbox("Want to change team?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        closemessage
+        release
+        end
+    }
+    fadescreen(FADE_TO_BLACK)
+	special(ChooseHalfPartyForBattle)
+	waitstate
+    release
+    end
 }

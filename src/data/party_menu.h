@@ -409,11 +409,11 @@ static const struct WindowTemplate sConfirmButtonWindowTemplate =
 {
     .bg = 0,
     .tilemapLeft = 24,
-    .tilemapTop = 16,
+    .tilemapTop = 17,
     .width = 6,
     .height = 2,
     .paletteNum = 3,
-    .baseBlock = 0x1D3,
+    .baseBlock = 0x1C7,
 };
 
 static const struct WindowTemplate sDefaultPartyMsgWindowTemplate =
@@ -659,6 +659,7 @@ static const u8 *const sActionStringTable[] =
     [PARTY_MSG_ALREADY_HOLDING_ONE]    = gText_AlreadyHoldingOne,
     [PARTY_MSG_WHICH_APPLIANCE]        = gText_WhichAppliance,
     [PARTY_MSG_CHOOSE_SECOND_FUSION]   = gText_NextFusionMon,
+    [PARTY_MSG_PARTNER]          = gText_TalkToPartner,
 };
 
 static const u8 *const sDescriptionStringTable[] =

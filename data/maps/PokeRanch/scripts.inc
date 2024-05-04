@@ -322,11 +322,11 @@ PokeRanch_MareepTrigger_5:
 	waitmessage
 	closemessage
 	applymovement 12, MoveGrunt12
-	applymovement 13, MoveGrunt13
-	applymovement 14, MoveGrunt14
-	applymovement 15, MoveGrunt15
-	applymovement 16, MoveGrunt16
-	applymovement 17, MoveGrunt17
+	applymovement 13, Walk2Down
+	applymovement 14, Walk2Left
+	applymovement 15, Walk2Right
+	applymovement 16, Walk1Left
+	applymovement 17, Walk1Right
 	waitmovement 12
 	delay 20
 	trainerbattle_no_intro TRAINER_RICKY_4, PokeRanchRocket1Defeat
@@ -433,7 +433,7 @@ PokeRanch_SpecialBattleWon_1:
 	applymovement 13, AfterBattleRocket2
 	waitmovement 0
 	delay 10
-	applymovement 19, AfterBattleJasmine1
+	applymovement 19, Walk1Down
 	waitmovement 0
 	delay 10
 	goto_if_set FLAG_JASMINE_MET, PokeRanch_SpecialBattleWon_6
@@ -523,38 +523,11 @@ AfterBattleRocket2:
 	walk_down
 	step_end
 
-AfterBattleJasmine1:
-	walk_down
-	step_end
-
 MoveGrunt12:
 	walk_down
 	walk_down
 	walk_down
 	walk_in_place_right
-	step_end
-
-MoveGrunt13:
-	walk_down
-	walk_down
-	step_end
-
-MoveGrunt14:
-	walk_left
-	walk_left
-	step_end
-
-MoveGrunt15:
-	walk_right
-	walk_right
-	step_end
-
-MoveGrunt16:
-	walk_left
-	step_end
-
-MoveGrunt17:
-	walk_right
 	step_end
 
 VolknerArrive:

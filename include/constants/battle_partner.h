@@ -2,9 +2,19 @@
 #ifndef GUARD_CONSTANTS_BATTLE_PARTNERS_H
 #define GUARD_CONSTANTS_BATTLE_PARTNERS_H
 
-#define PARTNER_NONE                0
-#define PARTNER_STEVEN              1
-#define PARTNER_MAY                 2
-#define PARTNER_BRENDAN             3
+#define PARTNER_NONE                    0
+#define PARTNER_STEVEN                  1
+#define PARTNER_MAY_ROWLET              2
+#define PARTNER_MAY_TORCHIC             3
+#define PARTNER_MAY_PIPLUP              4
+#define PARTNER_MAY_ORAS_ROWLET         5
+#define PARTNER_MAY_ORAS_TORCHIC        6
+#define PARTNER_MAY_ORAS_PIPLUP         7
+#define PARTNER_BRENDAN_ROWLET          8
+#define PARTNER_BRENDAN_TORCHIC         9
+#define PARTNER_BRENDAN_PIPLUP         10
+#define PARTNER_BRENDAN_ORAS_ROWLET    11
+#define PARTNER_BRENDAN_ORAS_TORCHIC   12
+#define PARTNER_BRENDAN_ORAS_PIPLUP    13
 
 #endif  // GUARD_CONSTANTS_BATTLE_PARTNERS_H

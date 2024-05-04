@@ -173,7 +173,7 @@ AldeleafCity_KeyMan_2:
 	delay 30
 	opendoor 8, 37
 	waitdooranim
-	applymovement 16, Aldeleaf_MoveUp
+	applymovement 16, Walk1Up
 	waitmovement 0
 	delay 5
 	removeobject 16
@@ -184,10 +184,6 @@ AldeleafCity_KeyMan_2:
 	setobjectxyperm 16, 0, 30
 	goto AldeleafCity_KeyMan_1
 
-
-Aldeleaf_MoveUp:
-	walk_up
-	step_end
 
 Aldeleaf_Sign::
 	msgbox Aldeleaf_Sign_Text, MSGBOX_SIGN

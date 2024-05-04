@@ -19,20 +19,14 @@ ResetCheckpoint::
 	copyvar VAR_GYM_TELEPORT, 1
 	goto_if_set FLAG_BADGE04_GET, ResetCheckpoint_2
 ResetCheckpoint_1:
-	goto_if_unset FLAG_BADGE04_GET, ResetCheckpoint_5
-ResetCheckpoint_4:
 	end
 
 ResetCheckpoint_2:
-	call RemoveSandGymWall
+	call RemoveGymWall
 	goto ResetCheckpoint_1
 
-ResetCheckpoint_5:
-	setvar VAR_SANDSTONE_GYM_CHECKPOINTS, 0
-	goto ResetCheckpoint_4
 
-
-RemoveSandGymWall::
+RemoveGymWall::
 	setmetatile 14, 36, 0x22F, FALSE
 	setmetatile 14, 37, 0x237, FALSE
 	setmetatile 14, 38, 0x202, FALSE
@@ -69,10 +63,16 @@ SandstoneGym_Warp_5:
 
 SetSandstoneBike::
 	specialvar VAR_RESULT, GetPlayerAvatarBike
-	goto_if_eq VAR_RESULT, 0, SandStoneNoBike
+	compare VAR_RESULT, 0
+	goto_if_eq SetSandstoneBike_2
+SetSandstoneBike_1:
 	setflag FLAG_SYS_CYCLING_ROAD
 	release
 	end
+
+SetSandstoneBike_2:
+	goto SandStoneNoBike
+	goto SetSandstoneBike_1
 
 
 ClearSandstoneBike::
@@ -158,51 +158,46 @@ SandGym_KorrinaTalk_2:
 	goto SandGym_KorrinaTalk_1
 
 
-SandGym_LeaderScript::
-	goto_if_set FLAG_BADGE04_GET, SandGym_LeaderScript_2
-	call GymStartingMovementWest
-	trainerbattle_single TRAINER_LEADER_KORRINA, SandGym_KorrinaInt, SandGym_KorrinaDef, SandGym_KorrinaEvent, NO_MUSIC
-	end
-
-SandGym_LeaderScript_2:
-	release
+Korrina_GymTrigger::
+	call GymStartingMovement
+	msgbox KorrinaInt
+	trainerbattle_no_intro TRAINER_LEADER_KORRINA, KorrinaDef
+	goto Korrina_PosBatEvent
 	end
 
 
-SandGym_KorrinaEvent::
-	call GymMovementAfterWest
-	msgbox SandGym_JustDefeated
-	closemessage
-	message SandGym_ReceivedBadge
+Korrina_PosBatEvent::
+	call GymMovementAfter
+	msgbox Korrina_Defeated
+	message Korrina_ReceiveBadge
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
-	msgbox SandGym_TakeThis, MSGBOX_DEFAULT
+	msgbox Korrina_ExplainBadge, MSGBOX_DEFAULT
 	setflag FLAG_BADGE04_GET
-	setvar VAR_BADGES_OBTAINED, 4
-	setvar VAR_0x8008, 4
-	call Common_EventScript_SetGymTrainers
-	special RemoveCameraObject
-	call RemoveSandGymWall
-	special DrawWholeMapView
+	call SetBadgesAndTrainers
 	giveitem ITEM_TM98
-	msgbox SandGym_ExplainTM, MSGBOX_DEFAULT
+	msgbox Explain_PUPunch, MSGBOX_DEFAULT
 	msgbox MeetMeAtAdTower, MSGBOX_DEFAULT
 	closemessage
-	applymovement 8, KorrinaLeavesGym
+	call RemoveGymWall
+	special RemoveCameraObject
+	special DrawWholeMapView
+	applymovement 1, KorrinaLeavesGym
 	waitmovement 0
 	setflag FLAG_KORRINA_LEAVESGYM
+	removeobject 1
 	release
 	end
 
 
 KorrinaLeavesGym:
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	step_end
 
 SandGym_Guide::
@@ -230,48 +225,6 @@ SandGym_Statue_2:
 	msgbox SandGym_GymStatueCertified, MSGBOX_SIGN
 	goto SandGym_Statue_1
 
-
-GymStartingMovementWest::
-	lockall
-	delay 10
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
-	turnobject 8, DIR_EAST
-	special SpawnCameraObject
-	applymovement OBJ_EVENT_ID_CAMERA, Sand_Gym_MoveCamera
-	waitmovement 0
-	delay 10
-	special RemoveCameraObject
-	return
-
-
-Sand_Gym_MoveCamera:
-	walk_left
-	walk_left
-	walk_left
-	step_end
-
-GymMovementAfterWest::
-	special SpawnCameraObject
-	delay 30
-	applymovement 8, Sand_Gym_MoveRight
-	applymovement OBJ_EVENT_ID_PLAYER, Sand_Gym_MoveLeft
-	waitmovement 0
-	delay 15
-	return
-
-
-Sand_Gym_MoveLeft:
-	walk_left
-	walk_left
-	walk_left
-	step_end
-
-Sand_Gym_MoveRight:
-	walk_right
-	walk_right
-	walk_right
-	face_right
-	step_end
 
 SandGym_Tr1_CyclistM1::
 	trainerbattle_single TRAINER_SANDGYM_TR1_CYCLISTM1, SandGym_Tr1_CyclistM1_Intro, SandGym_Tr1_CyclistM1_Defeat
@@ -310,7 +263,7 @@ SandGym_Tr6_CyclistM3::
 
 
 SandGym_Tr7_CyclistM4::
-	trainerbattle_single TRAINER_SANDGYM_TR4_CYCLISTM4, SandGym_Tr7_CyclistM4_Intro, SandGym_Tr7_CyclistM4_Defeat
+	trainerbattle_single TRAINER_SANDGYM_TR7_CYCLISTM4, SandGym_Tr7_CyclistM4_Intro, SandGym_Tr7_CyclistM4_Defeat
 	msgbox SandGym_Tr7_CyclistM4_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -322,7 +275,7 @@ YouHaveNoBike::
 	.string "I'm sorry, but you must be on a bike\n"
 	.string "before you can proceed.$"
 
-SandGym_JustDefeated::
+Korrina_Defeated::
 	.string "Lady Korrina gave a terrible display!\p"
 	.string "This is it. I must give up my title and\n"
 	.string "admit that your strength far exceeds--\p"
@@ -335,13 +288,13 @@ SandGym_YouArrived::
 	.string "side of the arena and let's get this\l"
 	.string "show on the road!$"
 
-SandGym_KorrinaInt::
+KorrinaInt::
 	.string "Time for Lady Korrina's big appearance!\p"
 	.string "Haha, I'm just messing around with you!\n"
 	.string "I know, you're rollin' in the aisles,\l"
 	.string "right?\p"
 	.string "I haven't forgotten your battle\n"
-	.string "with your friend back on Route 11."
+	.string "with your friend back on Route 11.\p"
 	.string "I already know you're a strong Trainer,\n"
 	.string "so let's get this show on the road!$"
 
@@ -354,18 +307,18 @@ MeetMeAtAdTower::
 	.string "the Adamant Tower? It's just north of\l"
 	.string "Sandstone City.\p"
 	.string "Only certain people are allowed in,\n"
-	.string "but I'll talk to the guard there to\p"
+	.string "but I'll talk to the guard there to\l"
 	.string "let you through. Cool?\p"
 	.string "Anyway, meet you there!$"
 
-SandGym_KorrinaDef::
+KorrinaDef::
 	.string "Oh! I have been defeated! Alack, alay!$"
 
-SandGym_ReceivedBadge::
+Korrina_ReceiveBadge::
 	.string "{PLAYER} received the Rumble Badge\n"
 	.string "from Korrina!$"
 
-SandGym_TakeThis::
+Korrina_ExplainBadge::
 	.string "If you've got a Rumble Badge, then\n"
 	.string "you can trade Pokémon up to level 60\l"
 	.string "with your friends and they'll be ready\l"
@@ -376,7 +329,7 @@ SandGym_TakeThis::
 	.string "And here, why don't you take this TM?\n"
 	.string "I've really been on a roll with it myself!$"
 
-SandGym_ExplainTM::
+Explain_PUPunch::
 	.string "Power-Up Punch does just what it says\n"
 	.string "on the box!\p"
 	.string "The more that you use it, the tougher\n"
@@ -395,7 +348,9 @@ SandGym_GuideAdvice::
 	.string "Yo, champ in the making!\p"
 	.string "The leader of this gym, Korrina,\n"
 	.string "really loves Fighting-type Pokémon.\p"
-	.string "She also really loves speed!\p"
+	.string "She also really loves speed and expects\n"
+	.string "all the fellow trainers to hone their\l"
+	.string "speed to the fullest!\p"
 	.string "That's why she decided to design her\n"
 	.string "gym completely around the concept of\l"
 	.string "going fast.\p"

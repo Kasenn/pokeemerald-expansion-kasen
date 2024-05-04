@@ -107,7 +107,7 @@ ShoreslateHarbor_EventScript_BoardFerryWest::
 
 
 ShoreslateHarbor_EventScript_BoardFerryNorth::
-	applymovement OBJ_EVENT_ID_PLAYER, CoastTownHarbor_Movement_BoardFerryNorth
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Up
 	waitmovement 0
 	return
 

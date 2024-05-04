@@ -350,11 +350,11 @@ script PokeRanch_MareepTrigger{
     waitmessage
     closemessage
     applymovement(12, MoveGrunt12)
-    applymovement(13, MoveGrunt13)
-    applymovement(14, MoveGrunt14)
-    applymovement(15, MoveGrunt15)
-    applymovement(16, MoveGrunt16)
-    applymovement(17, MoveGrunt17)
+    applymovement(13, Walk2Down)
+    applymovement(14, Walk2Left)
+    applymovement(15, Walk2Right)
+    applymovement(16, Walk1Left)
+    applymovement(17, Walk1Right)
     waitmovement(12)
     delay(20)
     trainerbattle_no_intro(TRAINER_RICKY_4, PokeRanchRocket1Defeat)
@@ -457,7 +457,7 @@ script PokeRanch_SpecialBattleWon{
     applymovement(13, AfterBattleRocket2)
     waitmovement(0)
     delay(10)
-    applymovement(19, AfterBattleJasmine1)
+    applymovement(19, Walk1Down)
     waitmovement(0)
     delay(10)
     if(flag(FLAG_JASMINE_MET)){
@@ -568,30 +568,9 @@ movement AfterBattleRocket2{
     walk_down * 8
     }
 
-movement AfterBattleJasmine1{
-    walk_down
-}
-
 movement MoveGrunt12{
     walk_down * 3
     walk_in_place_right
-}
-
-movement MoveGrunt13{
-    walk_down * 2
-}
-
-movement MoveGrunt14{
-    walk_left * 2
-}
-movement MoveGrunt15{
-    walk_right * 2
-}
-movement MoveGrunt16{
-    walk_left
-}
-movement MoveGrunt17{
-    walk_right
 }
 
 text VolknerRant2{

@@ -281,14 +281,10 @@ AldeleafBigHouse3_2F_Hide3FMan_2:
 	msgbox AldeleafBigHouse3_3F_PokeBall_StayOut, MSGBOX_DEFAULT
 	waitmessage
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, AldeleafBigHouse3_3F_MoveDown
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Down
 	waitmovement 0
 	goto AldeleafBigHouse3_2F_Hide3FMan_1
 
-
-AldeleafBigHouse3_3F_MoveDown:
-	walk_down
-	step_end
 
 AldeleafBigHouse1_2F_Swablu_Text_0:
 	.string "It's a Swablu doll.$"

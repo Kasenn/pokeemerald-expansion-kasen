@@ -439,7 +439,7 @@ script Shoreslate_DevonExteriorTrigger{
         waitmessage
         closemessage
         setvar(VAR_TEMP_6, 1)
-        applymovement(OBJ_EVENT_ID_PLAYER, MoveRight1)
+        applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
         waitmovement(0)
         delay(5)
         release
@@ -449,10 +449,6 @@ script Shoreslate_DevonExteriorTrigger{
         release
         end
     }
-}
-
-movement MoveRight1{
-    walk_right
 }
 
 text ShoreSlate_NotGettingThrough{

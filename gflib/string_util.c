@@ -551,6 +551,11 @@ static const u8 *ExpandPlaceholder_Archie(void)
     return gText_ExpandedPlaceholder_Archie;
 }
 
+static const u8 *ExpandPlaceholder_Brother(void)
+{
+    return gSaveBlock3Ptr->brotherName;
+}
+
 static const u8 *ExpandPlaceholder_Maxie(void)
 {
     return gText_ExpandedPlaceholder_Maxie;
@@ -586,6 +591,7 @@ const u8 *GetExpandedPlaceholder(u32 id)
         [PLACEHOLDER_ID_MAXIE]        = ExpandPlaceholder_Maxie,
         [PLACEHOLDER_ID_KYOGRE]       = ExpandPlaceholder_Kyogre,
         [PLACEHOLDER_ID_GROUDON]      = ExpandPlaceholder_Groudon,
+        [PLACEHOLDER_ID_BROTHER]      = ExpandPlaceholder_Brother,
     };
 
     if (id >= ARRAY_COUNT(funcs))

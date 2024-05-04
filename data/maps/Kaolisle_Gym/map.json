@@ -578,8 +578,8 @@
       "x": 34,
       "y": 65,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var": "VAR_BADGES_OBTAINED",
+      "var_value": "2",
       "script": "KaolGym_LeaderScript"
     }
   ],

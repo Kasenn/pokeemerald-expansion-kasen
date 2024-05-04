@@ -10,7 +10,7 @@ NotMyNectar::
 	msgbox NotMyNectar_Text, MSGBOX_NPC
 	waitmessage
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, PC_Nectar
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Down
 	waitmovement 0
 	delay 30
 	release
@@ -43,10 +43,6 @@ NectarManiac_5:
 
 NectarUp:
 	face_up
-	step_end
-
-PC_Nectar:
-	walk_down
 	step_end
 
 NectarManiac_OricorioFound::

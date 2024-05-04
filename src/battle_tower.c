@@ -1435,7 +1435,7 @@ u8 GetFrontierOpponentClass(u16 trainerId)
     }
     else if (trainerId > TRAINER_PARTNER(PARTNER_NONE))
     {
-        trainerClass = gBattlePartners[GetTrainerClassFromId(trainerId - TRAINER_PARTNER(PARTNER_NONE))].trainerClass;
+        trainerClass = gBattlePartners[trainerId - TRAINER_PARTNER(PARTNER_NONE)].trainerClass;
     }
     else if (trainerId < FRONTIER_TRAINERS_COUNT)
     {
@@ -3056,10 +3056,8 @@ static void FillPartnerParty(u16 trainerId)
             }
             if (trainerId == TRAINER_PARTNER(PARTNER_STEVEN))
                 otID = STEVEN_OTID;
-            else if (trainerId == TRAINER_PARTNER(PARTNER_BRENDAN))
-                otID = BRENDAN_OTID;
-            else if (trainerId == TRAINER_PARTNER(PARTNER_MAY))
-                otID = MAY_OTID;
+            // else if (trainerId == TRAINER_PARTNER(PARTNER_MAY_ROWLET))
+            //     otID = MAY_OTID;
             else
                 otID = ((firstIdPart % 72) * 1000) + ((secondIdPart % 23) * 10) + (thirdIdPart % 37) % 65536;
 
