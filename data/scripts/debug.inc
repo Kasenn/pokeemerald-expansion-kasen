@@ -11,7 +11,6 @@ Debug_ShowFieldMessageStringVar4::
 
 Debug_CheatStart::
 	setflag FLAG_BADGE01_GET
-	setflag FLAG_BADGE02_GET
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE
 	setflag FLAG_ADVENTURE_STARTED
@@ -43,7 +42,6 @@ Debug_CheatStart::
 	setvar VAR_ROUTE116_STATE, 2
 	setflag FLAG_HIDE_ROUTE_116_MR_BRINEY
 	setflag FLAG_BADGE01_GET
-	setflag FLAG_BADGE02_GET
 	setflag FLAG_BADGE03_GET
 	setflag FLAG_BADGE04_GET
 	setflag FLAG_BADGE05_GET
@@ -160,7 +158,9 @@ Debug_EventScript_Script_3::
 	end
 
 Debug_EventScript_Script_4::
-	call SetUpPlayerParty 
+	fadescreen FADE_TO_BLACK
+    special NameBrother
+    waitstate 
 	end
 
 Debug_EventScript_Script_5::

@@ -356,7 +356,7 @@ MuseumDontWantToSell::
 YouHaveARelicCoin::
 	.string "You look like you've been to\n"
 	.string "the desert.\p"
-	.string "Have you found have any relis\n"
+	.string "Have you found have any relics\n"
 	.string "you'd be like to contribute to\l"
 	.string "the museum?\l"
 	.string "You will be compensated, of course.$"

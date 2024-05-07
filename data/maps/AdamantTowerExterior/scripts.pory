@@ -7,6 +7,11 @@ script AdamantExteriorSetObject{
     if(!flag(FLAG_SHOWED_BADGE)){
         setobjectxyperm(1, 13, 7)
     }
+    checkfollower
+    if(var(VAR_RESULT) == TRUE){
+        destroyfollower
+        setvar(VAR_RIVAL_AROUND_SANDSTONE, 4)
+    }
     end
 }
 

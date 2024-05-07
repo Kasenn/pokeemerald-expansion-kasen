@@ -235,7 +235,6 @@ script PreviewOutfit{
 }
 
 script ThanksForShopping{
-    hidemoneybox
     msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
     closemessage
 	release
@@ -246,6 +245,7 @@ script PurchaseOutfit{
     showmoneybox(0, 0)
     msgbox(TotalIs25k, MSGBOX_YESNO)
     if(var(VAR_RESULT) == FALSE){
+        hidemoneybox
         goto(ThanksForShopping)
     }
     checkmoney(25000)

@@ -7,11 +7,20 @@ AdamantTowerExterior_MapScripts::
 AdamantExteriorSetObject::
 	goto_if_unset FLAG_SHOWED_BADGE, AdamantExteriorSetObject_2
 AdamantExteriorSetObject_1:
+	checkfollower
+	compare VAR_RESULT, TRUE
+	goto_if_eq AdamantExteriorSetObject_5
+AdamantExteriorSetObject_4:
 	end
 
 AdamantExteriorSetObject_2:
 	setobjectxyperm 1, 13, 7
 	goto AdamantExteriorSetObject_1
+
+AdamantExteriorSetObject_5:
+	destroyfollower
+	setvar VAR_RIVAL_AROUND_SANDSTONE, 4
+	goto AdamantExteriorSetObject_4
 
 
 AdamantExterior_Lass::

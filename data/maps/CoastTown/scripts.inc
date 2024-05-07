@@ -489,6 +489,34 @@ Azuretide_HoneyTree_38:
 	goto Azuretide_HoneyTree_37
 
 
+Azuretide_Ampharos::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_AMPHAROS, CRY_MODE_NORMAL
+	waitmoncry
+	msgbox AmphyPoints, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Azuretide_Ampharos_2
+	setvar VAR_RANCH_AMPHAROS, 1
+	warp MAP_ROUTE3, 91, 16
+	waitstate
+	end
+
+Azuretide_Ampharos_2:
+	release
+	end
+
+
+AmphyLeaves:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
 CoastTown_Sign1_Text_0:
 	.string "Azuretide Harbor$"
 
@@ -631,3 +659,9 @@ HoneyTree_NoHoney::
 HoneyTree_YesHoney::
 	.string "It's a honey tree. Would you\n"
 	.string "like to slather some honey on it?$"
+
+AmphyPoints::
+	.string "The Ampharos seems to be pointing\n"
+	.string "towards the ranch and gesturing you\l"
+	.string "to follow.\p"
+	.string "Follow the Pokémon?$"

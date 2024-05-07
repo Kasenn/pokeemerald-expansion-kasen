@@ -499,3 +499,31 @@ text HoneyTree_YesHoney{
     "It's a honey tree. Would you\n"
     "like to slather some honey on it?"
 }
+
+script Azuretide_Ampharos{
+    lock
+    faceplayer
+    waitse
+	playmoncry(SPECIES_AMPHAROS, CRY_MODE_NORMAL)
+	waitmoncry
+    msgbox(AmphyPoints, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    setvar(VAR_RANCH_AMPHAROS, 1)
+    warp(MAP_ROUTE3, 91, 16)
+    waitstate
+    end
+}
+
+text AmphyPoints{
+    "The Ampharos seems to be pointing\n"
+    "towards the ranch and gesturing you\l"
+    "to follow.\p"
+    "Follow the Pokémon?"
+}
+
+movement AmphyLeaves{
+    walk_up * 6
+}

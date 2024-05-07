@@ -141,8 +141,8 @@
 #define VAR_GYM_TELEPORT                               0x4079 // Unused Var
 #define VAR_TOWER_PARTNER                               0x407A // Unused Var
 #define VAR_ROUTE128_STATE                               0x407B
-#define VAR_ROUTE129_STATE                               0x407C // Unused Var
-#define VAR_ROUTE130_STATE                               0x407D // Unused Var
+#define VAR_RANCH_AMPHAROS                               0x407C // Unused Var
+#define VAR_RIVAL_AROUND_SANDSTONE                               0x407D
 #define VAR_ROUTE131_STATE                               0x407E // Unused Var
 #define VAR_ROUTE132_STATE                               0x407F // Unused Var
 #define VAR_ROUTE133_STATE                               0x4080 // Unused Var

@@ -2,6 +2,7 @@ mapscripts Sandstone_Gym_1F_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: ResetCheckpoint
     MAP_SCRIPT_ON_FRAME_TABLE: SandstoneGetPorted
     MAP_SCRIPT_ON_RESUME: SetTeleportFloor
+    MAP_SCRIPT_ON_LOAD: RemoveGymWall2
 }
 
 script SetTeleportFloor {
@@ -15,13 +16,18 @@ script SandstoneGetPorted{
 }
 
 script ResetCheckpoint{
+    if(flag(FLAG_BADGE04_GET)){
+        call(RemoveGymWall)
+        special(DrawWholeMapView)
+    }
     copyvar(VAR_GYM_TELEPORT, 1)
+    end
+}
+script RemoveGymWall2{
     if(flag(FLAG_BADGE04_GET)){
         call(RemoveGymWall)
     }
-    end
 }
-
 script RemoveGymWall{
     setmetatile(14, 36, 0x22F, FALSE)
     setmetatile(14, 37, 0x237, FALSE)

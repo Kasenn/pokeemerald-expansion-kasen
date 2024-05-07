@@ -1,23 +1,7 @@
 AldeleafGym_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, AldeleafGymSetUpFromLoad
-	map_script MAP_SCRIPT_ON_TRANSITION, AldeleafGymSetUp
+	map_script MAP_SCRIPT_ON_TRANSITION, AldeleafGymSetUpFromLoad
 	.byte 0
-
-
-AldeleafGymSetUp::
-	goto_if_set FLAG_BADGE02_GET, AldeleafGymSetUp_1
-	clearflag FLAG_ALDELEAF_SWITCH1
-	clearflag FLAG_ALDELEAF_SWITCH2
-	clearflag FLAG_ALDELEAF_SWITCH3
-	clearflag FLAG_ALDELEAF_SWITCH_ALL
-	setmetatile 1, 73, 0x205, FALSE
-	setmetatile 14, 64, 0x205, FALSE
-	setmetatile 2, 55, 0x205, FALSE
-	return
-
-AldeleafGymSetUp_1:
-	release
-	end
 
 
 AldeleafGymSetUpFromLoad::
@@ -339,6 +323,7 @@ Aldeleaf_Gym_EventScript_VolknerDefeated::
 	msgbox Aldeleaf_Gym_Text_ThunderBadgeInfoTakeThis, MSGBOX_DEFAULT
 	setflag FLAG_DEFEATED_DEWFORD_GYM
 	setflag FLAG_BADGE02_GET
+	setflag FLAG_ALDELEAF_SWITCH_ALL
 	addvar VAR_ALDELEAF_GYM_STATE, 1
 	setvar VAR_BADGES_OBTAINED, 2
 	setvar VAR_0x8008, 2

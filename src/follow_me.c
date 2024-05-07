@@ -82,32 +82,32 @@ static const struct FollowerSpriteGraphics gFollowerAlternateSprites[] =
     [0] = 
     {
         .normalId = OBJ_EVENT_GFX_RIVAL_MAY_NORMAL,
-        .machBikeId = OBJ_EVENT_GFX_RIVAL_MAY_MACH_BIKE,
-        .acroBikeId = OBJ_EVENT_GFX_RIVAL_MAY_ACRO_BIKE,
+        .machBikeId = OBJ_EVENT_GFX_RIVAL_MAY_NORMAL,
+        .acroBikeId = OBJ_EVENT_GFX_RIVAL_MAY_NORMAL,
         .surfId = OBJ_EVENT_GFX_RIVAL_MAY_SURFING,
         .underwaterId = OBJ_EVENT_GFX_MAY_UNDERWATER,
     },
     [1] = 
     {
         .normalId = OBJ_EVENT_GFX_MAY_NORMAL_ORAS,
-        .machBikeId = OBJ_EVENT_GFX_MAY_ACRO_BIKE_ORAS,
-        .acroBikeId = OBJ_EVENT_GFX_MAY_ACRO_BIKE_ORAS,
+        .machBikeId = OBJ_EVENT_GFX_MAY_NORMAL_ORAS,
+        .acroBikeId = OBJ_EVENT_GFX_MAY_NORMAL_ORAS,
         .surfId = OBJ_EVENT_GFX_MAY_SURFING_ORAS,
         .underwaterId = OBJ_EVENT_GFX_MAY_UNDERWATER_ORAS,
     },
     [2] = 
     {
         .normalId = OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL,
-        .machBikeId = OBJ_EVENT_GFX_RIVAL_BRENDAN_MACH_BIKE,
-        .acroBikeId = OBJ_EVENT_GFX_RIVAL_BRENDAN_ACRO_BIKE,
+        .machBikeId = OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL,
+        .acroBikeId = OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL,
         .surfId = OBJ_EVENT_GFX_RIVAL_BRENDAN_SURFING,
         .underwaterId = OBJ_EVENT_GFX_BRENDAN_UNDERWATER,
     },
     [3] = 
     {
         .normalId = OBJ_EVENT_GFX_BRENDAN_NORMAL_ORAS,
-        .machBikeId = OBJ_EVENT_GFX_BRENDAN_ACRO_BIKE_ORAS,
-        .acroBikeId = OBJ_EVENT_GFX_BRENDAN_ACRO_BIKE_ORAS,
+        .machBikeId = OBJ_EVENT_GFX_BRENDAN_NORMAL_ORAS,
+        .acroBikeId = OBJ_EVENT_GFX_BRENDAN_NORMAL_ORAS,
         .surfId = OBJ_EVENT_GFX_BRENDAN_SURFING_ORAS,
         .underwaterId = OBJ_EVENT_GFX_BRENDAN_UNDERWATER,
     },

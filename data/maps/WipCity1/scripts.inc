@@ -5,6 +5,7 @@ WipCity1_MapScripts::
 
 WipCity1_Visited::
 	setflag FLAG_VISITED_WIP_CITY1
+	setflag FLAG_HIDE_AMPHAROS
 	end
 
 

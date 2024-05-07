@@ -223,9 +223,15 @@ script SandstoneRival{
             msgbox(DontLikeMaysOutfit)
             clearflag(FLAG_MAY_COSTUME_CHANGE)
             clearflag(FLAG_BRENDAN_COSTUME_CHANGE)
+            if(var(VAR_RIVAL_AROUND_SANDSTONE) == 0){
+                setvar(VAR_RIVAL_AROUND_SANDSTONE, 2)
+            }
         }
         else{
             msgbox(LikeMaysOutfit)
+            if(var(VAR_RIVAL_AROUND_SANDSTONE) == 0){
+                setvar(VAR_RIVAL_AROUND_SANDSTONE, 1)
+            }
         }
     }
     else{
@@ -234,9 +240,15 @@ script SandstoneRival{
             msgbox(DontLikeBrendansOutfit)
             clearflag(FLAG_MAY_COSTUME_CHANGE)
             clearflag(FLAG_BRENDAN_COSTUME_CHANGE)
+            if(var(VAR_RIVAL_AROUND_SANDSTONE) == 0){
+                setvar(VAR_RIVAL_AROUND_SANDSTONE, 2)
+            }
         }
         else{
             msgbox(LikeBrendansOutfit)
+            if(var(VAR_RIVAL_AROUND_SANDSTONE) == 0){
+                setvar(VAR_RIVAL_AROUND_SANDSTONE, 1)
+            }
         }
     }
     closemessage
@@ -278,47 +290,60 @@ movement Sandstone_RivalExitAfterStore{
 }
 
 text RivalMayLikeOutfit{
-    "hey brendan, like my outfit?"
+    "{RIVAL}: Oh, hi {PLAYER}!\n"
+    "Were you going shopping too?\p"
+    "I was just getting some essential items\n"
+    "when I noticed this outfit on sale.\p"
+    "Doesn't it look cute or what?"
 }
 text DontLikeMaysOutfit{
-    "well you never knew fashion"
+    "{RIVAL}: Oh… But I thought it was cute…\p"
+    "No, you know what? It IS cute!\n"
+    "You just don't understand fashion!\p"
+    "Maybe you should think about switching\n"
+    "that get-up of yours as well sometimes.\l"
+    "Being on the road for such a long time\l"
+    "has definitely left your outfit\l"
+    "worse for wear!"
 }
 text LikeMaysOutfit{
-    "i knew it!"
+    "{RIVAL}: I knew you'd like it!\p"
+    "I see your sense of fashion\n"
+    "isn't completely outdated.\p"
+    "You too should visit the clothing\n"
+    "store. Maybe you'll find something\l"
+    "you like.\p"
+    "…Anyway, I need to get going now!\p"
+    "See you!"
 }
 text RivalBrendanLikeOutfit{
-    "hey may, like my outfit?"
+    "{RIVAL}: Oh, hey {PLAYER}!\n"
+    "Planning to do a bit of shopping?\p"
+    "I was just stocking up on some\n"
+    "essential items when I happened to\l"
+    "notice this outfit on sale.\p"
+    "Does it look cool or what?"
 }
 text DontLikeBrendansOutfit{
-    "oh, guess i don't fashion"
+    "{RIVAL}: Oh… I thought you'd agree…\p"
+    "Well, if you're looking to update\n"
+    "your style, they've just opened a new\l"
+    "clothing store.\l"
+    "They're even having a sale right now!\p"
+    "…Anyway, I need to get going.\p"
+    "See you…"
 }
 text LikeBrendansOutfit{
-    "thanks, i knew i right choice"
-}
-
-script TestFollower{
-    lock
-    faceplayer
-    msgbox("Let's go!")
-    closemessage
-    loadword(0, MakeNewTeam)
-    setfollower(14, FOLLOWER_FLAG_ALL)
-    release
-    end
-}
-
-script MakeNewTeam{
-    lock
-    facefollower
-    msgbox("Want to change team?", MSGBOX_YESNO)
-    if(var(VAR_RESULT) == FALSE){
-        closemessage
-        release
-        end
-    }
-    fadescreen(FADE_TO_BLACK)
-	special(ChooseHalfPartyForBattle)
-	waitstate
-    release
-    end
+    "{RIVAL}: Thanks! Guess my sense of\n"
+    "fashion isn't completely outdated\l"
+    "after all!\p"
+    "If you're looking to change your style,\n"
+    "they just opened a new clothing store\l"
+    "here.\p"
+    "Our clothes do take quite a bit of\n"
+    "damage when we're on the road so\l"
+    "changing to a new get-up isn't such\l"
+    "a bad idea.\p"
+    "…Anyway, I need to get going now.\p"
+    "See you again soon!"
 }

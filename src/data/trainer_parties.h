@@ -1994,6 +1994,7 @@ static const struct TrainerMon sParty_R5Tr1_Fisher[] = {
     {
     .lvl = 22,
     .species = SPECIES_GYARADOS,
+    .moves = {MOVE_TACKLE, MOVE_SPLASH, MOVE_BITE, MOVE_LEER}
     }
 };
 

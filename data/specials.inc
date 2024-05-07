@@ -48,6 +48,7 @@ gSpecials::
 	def_special TryBerryBlenderLinkup
 	def_special GetLinkPartnerNames
 	def_special SpawnLinkPartnerObjectEvent
+	def_special SetPlayerParty
 	def_special SavePlayerParty
 	def_special LoadPlayerParty
 	def_special ChooseHalfPartyForBattle

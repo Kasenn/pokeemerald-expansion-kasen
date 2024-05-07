@@ -2,6 +2,7 @@ Sandstone_Gym_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, ResetCheckpoint
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, SandstoneGetPorted
 	map_script MAP_SCRIPT_ON_RESUME, SetTeleportFloor
+	map_script MAP_SCRIPT_ON_LOAD, RemoveGymWall2
 	.byte 0
 
 
@@ -16,14 +17,24 @@ SandstoneGetPorted::
 
 
 ResetCheckpoint::
-	copyvar VAR_GYM_TELEPORT, 1
 	goto_if_set FLAG_BADGE04_GET, ResetCheckpoint_2
 ResetCheckpoint_1:
+	copyvar VAR_GYM_TELEPORT, 1
 	end
 
 ResetCheckpoint_2:
 	call RemoveGymWall
+	special DrawWholeMapView
 	goto ResetCheckpoint_1
+
+
+RemoveGymWall2::
+	goto_if_set FLAG_BADGE04_GET, RemoveGymWall2_1
+	return
+
+RemoveGymWall2_1:
+	call RemoveGymWall
+	return
 
 
 RemoveGymWall::

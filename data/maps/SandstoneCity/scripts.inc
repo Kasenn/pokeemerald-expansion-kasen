@@ -144,6 +144,8 @@ SandstoneRival::
 	compare VAR_RESULT, FALSE
 	goto_if_eq SandstoneRival_8
 	msgbox LikeBrendansOutfit
+	compare VAR_RIVAL_AROUND_SANDSTONE, 0
+	goto_if_eq SandstoneRival_17
 SandstoneRival_1:
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Sandstone_PlayerWatchRivalExit
@@ -159,18 +161,40 @@ SandstoneRival_2:
 	compare VAR_RESULT, FALSE
 	goto_if_eq SandstoneRival_5
 	msgbox LikeMaysOutfit
+	compare VAR_RIVAL_AROUND_SANDSTONE, 0
+	goto_if_eq SandstoneRival_13
 	goto SandstoneRival_1
 
 SandstoneRival_5:
 	msgbox DontLikeMaysOutfit
 	clearflag FLAG_MAY_COSTUME_CHANGE
 	clearflag FLAG_BRENDAN_COSTUME_CHANGE
+	compare VAR_RIVAL_AROUND_SANDSTONE, 0
+	goto_if_eq SandstoneRival_11
 	goto SandstoneRival_1
 
 SandstoneRival_8:
 	msgbox DontLikeBrendansOutfit
 	clearflag FLAG_MAY_COSTUME_CHANGE
 	clearflag FLAG_BRENDAN_COSTUME_CHANGE
+	compare VAR_RIVAL_AROUND_SANDSTONE, 0
+	goto_if_eq SandstoneRival_15
+	goto SandstoneRival_1
+
+SandstoneRival_11:
+	setvar VAR_RIVAL_AROUND_SANDSTONE, 2
+	goto SandstoneRival_1
+
+SandstoneRival_13:
+	setvar VAR_RIVAL_AROUND_SANDSTONE, 1
+	goto SandstoneRival_1
+
+SandstoneRival_15:
+	setvar VAR_RIVAL_AROUND_SANDSTONE, 2
+	goto SandstoneRival_1
+
+SandstoneRival_17:
+	setvar VAR_RIVAL_AROUND_SANDSTONE, 1
 	goto SandstoneRival_1
 
 
@@ -203,41 +227,6 @@ Sandstone_RivalExitAfterStore:
 	walk_left
 	walk_left
 	step_end
-
-TestFollower::
-	lock
-	faceplayer
-	msgbox TestFollower_Text_0
-	closemessage
-	loadword 0, MakeNewTeam
-	setfollower 14, FOLLOWER_FLAG_ALL
-	release
-	end
-
-
-MakeNewTeam::
-	lock
-	facefollower
-	msgbox MakeNewTeam_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
-	goto_if_eq MakeNewTeam_2
-	fadescreen FADE_TO_BLACK
-	special ChooseHalfPartyForBattle
-	waitstate
-	release
-	end
-
-MakeNewTeam_2:
-	closemessage
-	release
-	end
-
-
-TestFollower_Text_0:
-	.string "Let's go!$"
-
-MakeNewTeam_Text_0:
-	.string "Want to change team?$"
 
 Sandstone_Sign1_Text::
 	.string "SANDSTONE CITY\n"
@@ -341,19 +330,59 @@ Sandstone_Nerd_Text::
 	.string "Library and read a few books!$"
 
 RivalMayLikeOutfit::
-	.string "hey brendan, like my outfit?$"
+	.string "{RIVAL}: Oh, hi {PLAYER}!\n"
+	.string "Were you going shopping too?\p"
+	.string "I was just getting some essential items\n"
+	.string "when I noticed this outfit on sale.\p"
+	.string "Doesn't it look cute or what?$"
 
 DontLikeMaysOutfit::
-	.string "well you never knew fashion$"
+	.string "{RIVAL}: Oh… But I thought it was cute…\p"
+	.string "No, you know what? It IS cute!\n"
+	.string "You just don't understand fashion!\p"
+	.string "Maybe you should think about switching\n"
+	.string "that get-up of yours as well sometimes.\l"
+	.string "Being on the road for such a long time\l"
+	.string "has definitely left your outfit\l"
+	.string "worse for wear!$"
 
 LikeMaysOutfit::
-	.string "i knew it!$"
+	.string "{RIVAL}: I knew you'd like it!\p"
+	.string "I see your sense of fashion\n"
+	.string "isn't completely outdated.\p"
+	.string "You too should visit the clothing\n"
+	.string "store. Maybe you'll find something\l"
+	.string "you like.\p"
+	.string "…Anyway, I need to get going now!\p"
+	.string "See you!$"
 
 RivalBrendanLikeOutfit::
-	.string "hey may, like my outfit?$"
+	.string "{RIVAL}: Oh, hey {PLAYER}!\n"
+	.string "Planning to do a bit of shopping?\p"
+	.string "I was just stocking up on some\n"
+	.string "essential items when I happened to\l"
+	.string "notice this outfit on sale.\p"
+	.string "Does it look cool or what?$"
 
 DontLikeBrendansOutfit::
-	.string "oh, guess i don't fashion$"
+	.string "{RIVAL}: Oh… I thought you'd agree…\p"
+	.string "Well, if you're looking to update\n"
+	.string "your style, they've just opened a new\l"
+	.string "clothing store.\l"
+	.string "They're even having a sale right now!\p"
+	.string "…Anyway, I need to get going.\p"
+	.string "See you…$"
 
 LikeBrendansOutfit::
-	.string "thanks, i knew i right choice$"
+	.string "{RIVAL}: Thanks! Guess my sense of\n"
+	.string "fashion isn't completely outdated\l"
+	.string "after all!\p"
+	.string "If you're looking to change your style,\n"
+	.string "they just opened a new clothing store\l"
+	.string "here.\p"
+	.string "Our clothes do take quite a bit of\n"
+	.string "damage when we're on the road so\l"
+	.string "changing to a new get-up isn't such\l"
+	.string "a bad idea.\p"
+	.string "…Anyway, I need to get going now.\p"
+	.string "See you again soon!$"

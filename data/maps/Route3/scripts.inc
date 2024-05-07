@@ -1,5 +1,42 @@
 Route3_MapScripts::
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, TurnR3Player2
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route3_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
+
+Route3_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_RANCH_AMPHAROS, 1, AmphyScene
+	.2byte 0
+
+
+TurnR3Player2::
+	map_script_2 VAR_RANCH_AMPHAROS, 1, TurnR3Player
+	return
+
+
+TurnR3Player::
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	end
+
+
+AmphyScene::
+	delay 24
+	playmoncry SPECIES_AMPHAROS, CRY_MODE_NORMAL
+	waitmoncry
+	delay 48
+	applymovement 23, AmphyLeaves, MAP_ROUTE3
+	waitmovement 0
+	setflag FLAG_HIDE_AMPHAROS
+	removeobject 23, MAP_ROUTE3
+	setvar VAR_RANCH_AMPHAROS, 2
+	delay 30
+	release
+	end
+
+
+HideAmphyR3::
+	setflag FLAG_HIDE_AMPHAROS
+	release
+	end
 
 
 Route3_Hiker::

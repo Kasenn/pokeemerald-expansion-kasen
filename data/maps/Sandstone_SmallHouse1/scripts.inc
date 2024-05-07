@@ -204,7 +204,6 @@ PreviewOutfit_2:
 
 
 ThanksForShopping::
-	hidemoneybox
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -229,6 +228,7 @@ PurchaseOutfit_1:
 	end
 
 PurchaseOutfit_2:
+	hidemoneybox
 	goto ThanksForShopping
 	goto PurchaseOutfit_1
 

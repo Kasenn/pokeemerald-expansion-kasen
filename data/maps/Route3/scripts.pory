@@ -1,4 +1,35 @@
-mapscripts Route3_MapScripts{}
+mapscripts Route3_MapScripts{
+	MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE: TurnR3Player2
+	MAP_SCRIPT_ON_FRAME_TABLE[
+		VAR_RANCH_AMPHAROS, 1: AmphyScene
+	]
+}
+script TurnR3Player2{
+	map_script_2(VAR_RANCH_AMPHAROS, 1, TurnR3Player)
+}
+script TurnR3Player{
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+	end
+}
+script AmphyScene{
+	delay(24)
+    playmoncry(SPECIES_AMPHAROS, CRY_MODE_NORMAL)
+	waitmoncry
+	delay(48)
+    applymovement(23, AmphyLeaves, MAP_ROUTE3)
+	waitmovement(0)
+    setflag(FLAG_HIDE_AMPHAROS)
+    removeobject(23, MAP_ROUTE3)
+	setvar(VAR_RANCH_AMPHAROS, 2)
+	delay(30)
+    release
+    end
+}
+script HideAmphyR3{
+	setflag(FLAG_HIDE_AMPHAROS)
+	release
+	end
+}
 
 script Route3_Hiker{
     trainerbattle_single(TRAINER_GABBY_AND_TY_3, Route3_HikerIntro, Route3_HikerDefeated)

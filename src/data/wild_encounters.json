@@ -9477,72 +9477,7 @@
         },
         {
           "map": "MAP_SKY_PILLAR_1F",
-          "base_label": "gSkyPillar_1F",
-          "land_mons": {
-            "encounter_rate": 10,
-            "mons": [
-              {
-                "min_level": 33,
-                "max_level": 33,
-                "species": "SPECIES_SABLEYE"
-              },
-              {
-                "min_level": 34,
-                "max_level": 34,
-                "species": "SPECIES_GOLBAT"
-              },
-              {
-                "min_level": 35,
-                "max_level": 35,
-                "species": "SPECIES_GOLBAT"
-              },
-              {
-                "min_level": 34,
-                "max_level": 34,
-                "species": "SPECIES_SABLEYE"
-              },
-              {
-                "min_level": 36,
-                "max_level": 36,
-                "species": "SPECIES_CLAYDOL"
-              },
-              {
-                "min_level": 37,
-                "max_level": 37,
-                "species": "SPECIES_BANETTE"
-              },
-              {
-                "min_level": 38,
-                "max_level": 38,
-                "species": "SPECIES_BANETTE"
-              },
-              {
-                "min_level": 36,
-                "max_level": 36,
-                "species": "SPECIES_CLAYDOL"
-              },
-              {
-                "min_level": 37,
-                "max_level": 37,
-                "species": "SPECIES_CLAYDOL"
-              },
-              {
-                "min_level": 38,
-                "max_level": 38,
-                "species": "SPECIES_CLAYDOL"
-              },
-              {
-                "min_level": 37,
-                "max_level": 37,
-                "species": "SPECIES_CLAYDOL"
-              },
-              {
-                "min_level": 38,
-                "max_level": 38,
-                "species": "SPECIES_CLAYDOL"
-              }
-            ]
-          }
+          "base_label": "gSkyPillar_1F"
         },
         {
           "map": "MAP_SOOTOPOLIS_CITY",
@@ -9642,67 +9577,67 @@
           "map": "MAP_SKY_PILLAR_3F",
           "base_label": "gSkyPillar_3F",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 9,
             "mons": [
               {
-                "min_level": 33,
-                "max_level": 33,
-                "species": "SPECIES_SABLEYE"
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_SHUPPET"
               },
               {
                 "min_level": 34,
-                "max_level": 34,
-                "species": "SPECIES_GOLBAT"
-              },
-              {
-                "min_level": 35,
-                "max_level": 35,
-                "species": "SPECIES_GOLBAT"
+                "max_level": 39,
+                "species": "SPECIES_MIENFOO"
               },
               {
                 "min_level": 34,
-                "max_level": 34,
-                "species": "SPECIES_SABLEYE"
+                "max_level": 39,
+                "species": "SPECIES_BRONZOR"
               },
               {
-                "min_level": 36,
-                "max_level": 36,
-                "species": "SPECIES_CLAYDOL"
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_BRONZOR"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_IMPIDIMP"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_IMPIDIMP"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_MORGREM"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_MISDREAVUS"
               },
               {
                 "min_level": 37,
-                "max_level": 37,
+                "max_level": 39,
                 "species": "SPECIES_BANETTE"
               },
               {
-                "min_level": 38,
-                "max_level": 38,
-                "species": "SPECIES_BANETTE"
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_DITTO"
               },
               {
-                "min_level": 36,
-                "max_level": 36,
-                "species": "SPECIES_CLAYDOL"
-              },
-              {
-                "min_level": 37,
-                "max_level": 37,
-                "species": "SPECIES_CLAYDOL"
-              },
-              {
-                "min_level": 38,
-                "max_level": 38,
-                "species": "SPECIES_CLAYDOL"
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_DITTO"
               },
               {
                 "min_level": 37,
-                "max_level": 37,
-                "species": "SPECIES_CLAYDOL"
-              },
-              {
-                "min_level": 38,
-                "max_level": 38,
-                "species": "SPECIES_CLAYDOL"
+                "max_level": 39,
+                "species": "SPECIES_SHUPPET"
               }
             ]
           }
@@ -9711,67 +9646,67 @@
           "map": "MAP_SKY_PILLAR_5F",
           "base_label": "gSkyPillar_5F",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 9,
             "mons": [
               {
-                "min_level": 33,
-                "max_level": 33,
-                "species": "SPECIES_SABLEYE"
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_SHUPPET"
               },
               {
                 "min_level": 34,
-                "max_level": 34,
-                "species": "SPECIES_GOLBAT"
-              },
-              {
-                "min_level": 35,
-                "max_level": 35,
-                "species": "SPECIES_GOLBAT"
+                "max_level": 39,
+                "species": "SPECIES_MIENFOO"
               },
               {
                 "min_level": 34,
-                "max_level": 34,
-                "species": "SPECIES_SABLEYE"
+                "max_level": 39,
+                "species": "SPECIES_BRONZOR"
               },
               {
-                "min_level": 36,
-                "max_level": 36,
-                "species": "SPECIES_CLAYDOL"
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_BRONZOR"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_IMPIDIMP"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_IMPIDIMP"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_MORGREM"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_MISDREAVUS"
               },
               {
                 "min_level": 37,
-                "max_level": 37,
+                "max_level": 39,
                 "species": "SPECIES_BANETTE"
               },
               {
-                "min_level": 38,
-                "max_level": 38,
-                "species": "SPECIES_BANETTE"
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_DITTO"
               },
               {
-                "min_level": 36,
-                "max_level": 36,
-                "species": "SPECIES_CLAYDOL"
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_DITTO"
               },
               {
                 "min_level": 37,
-                "max_level": 37,
-                "species": "SPECIES_CLAYDOL"
-              },
-              {
-                "min_level": 38,
-                "max_level": 38,
-                "species": "SPECIES_ALTARIA"
-              },
-              {
-                "min_level": 39,
                 "max_level": 39,
-                "species": "SPECIES_ALTARIA"
-              },
-              {
-                "min_level": 39,
-                "max_level": 39,
-                "species": "SPECIES_ALTARIA"
+                "species": "SPECIES_SHUPPET"
               }
             ]
           }
@@ -15575,6 +15510,144 @@
                 "min_level": 5,
                 "max_level": 5,
                 "species": "SPECIES_NONE"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_SKY_PILLAR_2F",
+          "base_label": "gSkyPillar_2F0",
+          "land_mons": {
+            "encounter_rate": 9,
+            "mons": [
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_SHUPPET"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_MIENFOO"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_BRONZOR"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_BRONZOR"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_IMPIDIMP"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_IMPIDIMP"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_MORGREM"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_MISDREAVUS"
+              },
+              {
+                "min_level": 37,
+                "max_level": 39,
+                "species": "SPECIES_BANETTE"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_DITTO"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_DITTO"
+              },
+              {
+                "min_level": 37,
+                "max_level": 39,
+                "species": "SPECIES_SHUPPET"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_SKY_PILLAR_4F",
+          "base_label": "gSkyPillar_4F0",
+          "land_mons": {
+            "encounter_rate": 9,
+            "mons": [
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_SHUPPET"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_MIENFOO"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_BRONZOR"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_BRONZOR"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_IMPIDIMP"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_IMPIDIMP"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_MORGREM"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_MISDREAVUS"
+              },
+              {
+                "min_level": 37,
+                "max_level": 39,
+                "species": "SPECIES_BANETTE"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_DITTO"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_DITTO"
+              },
+              {
+                "min_level": 37,
+                "max_level": 39,
+                "species": "SPECIES_SHUPPET"
               }
             ]
           }

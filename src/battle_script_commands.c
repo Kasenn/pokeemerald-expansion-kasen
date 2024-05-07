@@ -4424,10 +4424,10 @@ static void Cmd_getexp(void)
                     if (IsTradedMon(&gPlayerParty[*expMonId]))
                     {
                         // check if the Pokémon doesn't belong to the player
-                        if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER && *expMonId >= 3)
-                            i = STRINGID_EMPTYSTRING4;
-                        else
-                            i = STRINGID_ABOOSTED;
+                        // if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER && *expMonId >= 3)
+                        i = STRINGID_EMPTYSTRING4;
+                        // else
+                            // i = STRINGID_ABOOSTED;
                     }
                     else
                     {
@@ -16051,8 +16051,8 @@ void ApplyExperienceMultipliers(s32 *expAmount, u8 expGetterMonId, u8 faintedBat
 {
     u32 holdEffect = GetMonHoldEffect(&gPlayerParty[expGetterMonId]);
 
-    if (IsTradedMon(&gPlayerParty[expGetterMonId]))
-        *expAmount = (*expAmount * 125) / 100;
+    // if (IsTradedMon(&gPlayerParty[expGetterMonId]))
+        // *expAmount = (*expAmount * 125) / 100;
     if (holdEffect == HOLD_EFFECT_LUCKY_EGG)
         *expAmount = (*expAmount * 150) / 100;
     if (B_UNEVOLVED_EXP_MULTIPLIER >= GEN_6 && IsMonPastEvolutionLevel(&gPlayerParty[expGetterMonId]))

@@ -1,116 +1,53 @@
 SkyPillar_2F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, SetupRivalPartner
+	map_script MAP_SCRIPT_ON_TRANSITION, SetRivalTowerLoc
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, SkyPillar_2F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
+SkyPillar_2F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_RIVAL_AROUND_SANDSTONE, 0, MeetingRivalInTheTower
+	map_script_2 VAR_RIVAL_AROUND_SANDSTONE, 1, MeetingRivalInTheTower
+	map_script_2 VAR_RIVAL_AROUND_SANDSTONE, 2, MeetingRivalInTheTower
+	map_script_2 VAR_RIVAL_AROUND_SANDSTONE, 4, UnitedWithRival
+	.2byte 0
 
-SetupRivalPartner::
-	checkplayergender
-	compare VAR_RESULT, MALE
-	goto_if_eq SetupRivalPartner_2
-	goto_if_set FLAG_BRENDAN_COSTUME_CHANGE, SetupRivalPartner_8
-	switch VAR_STARTER_MON
-	case 0, SetupRivalPartner_24
-	case 1, SetupRivalPartner_25
-	case 2, SetupRivalPartner_26
-SetupRivalPartner_1:
+
+SetRivalTowerLoc::
+	compare VAR_RIVAL_AROUND_SANDSTONE, 2
+	goto_if_le SetRivalTowerLoc_2
+SetRivalTowerLoc_1:
 	end
 
-SetupRivalPartner_2:
-	goto_if_set FLAG_MAY_COSTUME_CHANGE, SetupRivalPartner_5
-	switch VAR_STARTER_MON
-	case 0, SetupRivalPartner_16
-	case 1, SetupRivalPartner_17
-	case 2, SetupRivalPartner_18
-	goto SetupRivalPartner_1
-
-SetupRivalPartner_5:
-	switch VAR_STARTER_MON
-	case 0, SetupRivalPartner_12
-	case 1, SetupRivalPartner_13
-	case 2, SetupRivalPartner_14
-	goto SetupRivalPartner_1
-
-SetupRivalPartner_8:
-	switch VAR_STARTER_MON
-	case 0, SetupRivalPartner_20
-	case 1, SetupRivalPartner_21
-	case 2, SetupRivalPartner_22
-	goto SetupRivalPartner_1
-
-SetupRivalPartner_12:
-	setvar VAR_TOWER_PARTNER, 0
-	goto SetupRivalPartner_1
-
-SetupRivalPartner_13:
-	setvar VAR_TOWER_PARTNER, 1
-	goto SetupRivalPartner_1
-
-SetupRivalPartner_14:
-	setvar VAR_TOWER_PARTNER, 2
-	goto SetupRivalPartner_1
-
-SetupRivalPartner_16:
-	setvar VAR_TOWER_PARTNER, 3
-	goto SetupRivalPartner_1
-
-SetupRivalPartner_17:
-	setvar VAR_TOWER_PARTNER, 4
-	goto SetupRivalPartner_1
-
-SetupRivalPartner_18:
-	setvar VAR_TOWER_PARTNER, 5
-	goto SetupRivalPartner_1
-
-SetupRivalPartner_20:
-	setvar VAR_TOWER_PARTNER, 6
-	goto SetupRivalPartner_1
-
-SetupRivalPartner_21:
-	setvar VAR_TOWER_PARTNER, 7
-	goto SetupRivalPartner_1
-
-SetupRivalPartner_22:
-	setvar VAR_TOWER_PARTNER, 8
-	goto SetupRivalPartner_1
-
-SetupRivalPartner_24:
-	setvar VAR_TOWER_PARTNER, 9
-	goto SetupRivalPartner_1
-
-SetupRivalPartner_25:
-	setvar VAR_TOWER_PARTNER, 10
-	goto SetupRivalPartner_1
-
-SetupRivalPartner_26:
-	setvar VAR_TOWER_PARTNER, 11
-	goto SetupRivalPartner_1
+SetRivalTowerLoc_2:
+	setobjectxyperm 6, 12, 3
+	setobjectmovementtype 6, MOVEMENT_TYPE_FACE_RIGHT
+	goto SetRivalTowerLoc_1
 
 
-Tower_Tr1_LeftTrigger::
-	checktrainerflag TRAINER_AT2F_MAN3
-	goto_if 1, Tower_Tr1_LeftTrigger_2
+AT_2F_Tr2_Left::
+	checktrainerflag TRAINER_AT_2F_TR2_MAN3
+	goto_if 1, AT_2F_Tr2_Left_2
 	setvar VAR_TEMP_2, 1
-	goto Tower_Tr1_Battle
+	goto Tower_2F_Tr2_Battle
 	return
 
-Tower_Tr1_LeftTrigger_2:
+AT_2F_Tr2_Left_2:
 	release
 	end
 
 
-Tower_Tr1_RightTrigger::
-	checktrainerflag TRAINER_AT2F_MAN3
-	goto_if 1, Tower_Tr1_RightTrigger_2
+AT_2F_Tr2_Right::
+	checktrainerflag TRAINER_AT_2F_TR2_MAN3
+	goto_if 1, AT_2F_Tr2_Right_2
 	setvar VAR_TEMP_2, 2
-	goto Tower_Tr1_Battle
+	goto Tower_2F_Tr2_Battle
 	return
 
-Tower_Tr1_RightTrigger_2:
+AT_2F_Tr2_Right_2:
 	release
 	end
 
 
-Tower_Tr1_Battle::
+Tower_2F_Tr2_Battle::
 	lock
 	playbgm MUS_ENCOUNTER_COOL, FALSE
 	applymovement 1, Common_Movement_ExclamationMark
@@ -118,12 +55,12 @@ Tower_Tr1_Battle::
 	applymovement 1, Common_Movement_Delay48
 	waitmovement 0
 	compare VAR_TEMP_2, 1
-	goto_if_eq Tower_Tr1_Battle_2
+	goto_if_eq Tower_2F_Tr2_Battle_2
 	applymovement 1, Walk1Left
-Tower_Tr1_Battle_1:
+Tower_2F_Tr2_Battle_1:
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
-	msgbox Tr1_Man3Intro
+	msgbox Tr2_2F_Man3Intro
 	closemessage
 	playbgm MUS_ENCOUNTER_COOL, FALSE
 	applymovement 2, Common_Movement_ExclamationMark
@@ -131,201 +68,534 @@ Tower_Tr1_Battle_1:
 	applymovement 2, Common_Movement_Delay48
 	waitmovement 0
 	compare VAR_TEMP_2, 1
-	goto_if_eq Tower_Tr1_Battle_6
+	goto_if_eq Tower_2F_Tr2_Battle_6
 	applymovement 2, Walk2Right
-Tower_Tr1_Battle_5:
+Tower_2F_Tr2_Battle_5:
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
-	msgbox Tr1_Woman5Intro
+	msgbox Tr2_2F_Woman5Intro
 	closemessage
 	switch VAR_TOWER_PARTNER
-	case 0, Tower_Tr1_Battle_11
-	case 1, Tower_Tr1_Battle_12
-	case 2, Tower_Tr1_Battle_13
-	case 3, Tower_Tr1_Battle_14
-	case 4, Tower_Tr1_Battle_15
-	case 5, Tower_Tr1_Battle_16
-	case 6, Tower_Tr1_Battle_17
-	case 7, Tower_Tr1_Battle_18
-	case 8, Tower_Tr1_Battle_19
-	case 9, Tower_Tr1_Battle_20
-	case 10, Tower_Tr1_Battle_21
-	case 11, Tower_Tr1_Battle_22
-Tower_Tr1_Battle_9:
+	case 0, Tower_2F_Tr2_Battle_11
+	case 1, Tower_2F_Tr2_Battle_12
+	case 2, Tower_2F_Tr2_Battle_13
+	case 3, Tower_2F_Tr2_Battle_14
+	case 4, Tower_2F_Tr2_Battle_15
+	case 5, Tower_2F_Tr2_Battle_16
+	case 6, Tower_2F_Tr2_Battle_17
+	case 7, Tower_2F_Tr2_Battle_18
+	case 8, Tower_2F_Tr2_Battle_19
+	case 9, Tower_2F_Tr2_Battle_20
+	case 10, Tower_2F_Tr2_Battle_21
+	case 11, Tower_2F_Tr2_Battle_22
+Tower_2F_Tr2_Battle_9:
 	switch VAR_RESULT
-	case 1, Tower_Tr1_Battle_25
+	case 1, Tower_2F_Tr2_Battle_25
 	fadescreen FADE_TO_BLACK
 	special SetCB2WhiteOut
 	waitstate
 	return
 
-Tower_Tr1_Battle_2:
+Tower_2F_Tr2_Battle_2:
 	applymovement 1, Walk2Left
-	goto Tower_Tr1_Battle_1
+	goto Tower_2F_Tr2_Battle_1
 
-Tower_Tr1_Battle_6:
+Tower_2F_Tr2_Battle_6:
 	applymovement 2, Walk1Right
-	goto Tower_Tr1_Battle_5
+	goto Tower_2F_Tr2_Battle_5
 
-Tower_Tr1_Battle_11:
-	multi_2_vs_2 TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_MAY_ORAS_TORCHIC, TRAINER_BACK_PIC_MAY_ORAS
-	goto Tower_Tr1_Battle_9
+Tower_2F_Tr2_Battle_11:
+	multi_2_vs_2 TRAINER_AT_2F_TR2_MAN3, Tr2_2F_Man3Lost, TRAINER_AT_2F_TR2_WOMAN5, Tr2_2F_Woman5Lost, PARTNER_MAY_ORAS_TORCHIC, TRAINER_BACK_PIC_MAY_ORAS
+	goto Tower_2F_Tr2_Battle_9
 
-Tower_Tr1_Battle_12:
-	multi_2_vs_2 TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_MAY_ORAS_PIPLUP, TRAINER_BACK_PIC_MAY_ORAS
-	goto Tower_Tr1_Battle_9
+Tower_2F_Tr2_Battle_12:
+	multi_2_vs_2 TRAINER_AT_2F_TR2_MAN3, Tr2_2F_Man3Lost, TRAINER_AT_2F_TR2_WOMAN5, Tr2_2F_Woman5Lost, PARTNER_MAY_ORAS_PIPLUP, TRAINER_BACK_PIC_MAY_ORAS
+	goto Tower_2F_Tr2_Battle_9
 
-Tower_Tr1_Battle_13:
-	multi_2_vs_2 TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_MAY_ORAS_ROWLET, TRAINER_BACK_PIC_MAY_ORAS
-	goto Tower_Tr1_Battle_9
+Tower_2F_Tr2_Battle_13:
+	multi_2_vs_2 TRAINER_AT_2F_TR2_MAN3, Tr2_2F_Man3Lost, TRAINER_AT_2F_TR2_WOMAN5, Tr2_2F_Woman5Lost, PARTNER_MAY_ORAS_ROWLET, TRAINER_BACK_PIC_MAY_ORAS
+	goto Tower_2F_Tr2_Battle_9
 
-Tower_Tr1_Battle_14:
-	multi_2_vs_2 TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_MAY_TORCHIC, TRAINER_BACK_PIC_MAY
-	goto Tower_Tr1_Battle_9
+Tower_2F_Tr2_Battle_14:
+	multi_2_vs_2 TRAINER_AT_2F_TR2_MAN3, Tr2_2F_Man3Lost, TRAINER_AT_2F_TR2_WOMAN5, Tr2_2F_Woman5Lost, PARTNER_MAY_TORCHIC, TRAINER_BACK_PIC_MAY
+	goto Tower_2F_Tr2_Battle_9
 
-Tower_Tr1_Battle_15:
-	multi_2_vs_2 TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_MAY_PIPLUP, TRAINER_BACK_PIC_MAY
-	goto Tower_Tr1_Battle_9
+Tower_2F_Tr2_Battle_15:
+	multi_2_vs_2 TRAINER_AT_2F_TR2_MAN3, Tr2_2F_Man3Lost, TRAINER_AT_2F_TR2_WOMAN5, Tr2_2F_Woman5Lost, PARTNER_MAY_PIPLUP, TRAINER_BACK_PIC_MAY
+	goto Tower_2F_Tr2_Battle_9
 
-Tower_Tr1_Battle_16:
-	multi_2_vs_2 TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_MAY_ROWLET, TRAINER_BACK_PIC_MAY
-	goto Tower_Tr1_Battle_9
+Tower_2F_Tr2_Battle_16:
+	multi_2_vs_2 TRAINER_AT_2F_TR2_MAN3, Tr2_2F_Man3Lost, TRAINER_AT_2F_TR2_WOMAN5, Tr2_2F_Woman5Lost, PARTNER_MAY_ROWLET, TRAINER_BACK_PIC_MAY
+	goto Tower_2F_Tr2_Battle_9
 
-Tower_Tr1_Battle_17:
-	multi_2_vs_2 TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_BRENDAN_ORAS_TORCHIC, TRAINER_BACK_PIC_BRENDAN_ORAS
-	goto Tower_Tr1_Battle_9
+Tower_2F_Tr2_Battle_17:
+	multi_2_vs_2 TRAINER_AT_2F_TR2_MAN3, Tr2_2F_Man3Lost, TRAINER_AT_2F_TR2_WOMAN5, Tr2_2F_Woman5Lost, PARTNER_BRENDAN_ORAS_TORCHIC, TRAINER_BACK_PIC_BRENDAN_ORAS
+	goto Tower_2F_Tr2_Battle_9
 
-Tower_Tr1_Battle_18:
-	multi_2_vs_2 TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_BRENDAN_ORAS_PIPLUP, TRAINER_BACK_PIC_BRENDAN_ORAS
-	goto Tower_Tr1_Battle_9
+Tower_2F_Tr2_Battle_18:
+	multi_2_vs_2 TRAINER_AT_2F_TR2_MAN3, Tr2_2F_Man3Lost, TRAINER_AT_2F_TR2_WOMAN5, Tr2_2F_Woman5Lost, PARTNER_BRENDAN_ORAS_PIPLUP, TRAINER_BACK_PIC_BRENDAN_ORAS
+	goto Tower_2F_Tr2_Battle_9
 
-Tower_Tr1_Battle_19:
-	multi_2_vs_2 TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_BRENDAN_ORAS_ROWLET, TRAINER_BACK_PIC_BRENDAN_ORAS
-	goto Tower_Tr1_Battle_9
+Tower_2F_Tr2_Battle_19:
+	multi_2_vs_2 TRAINER_AT_2F_TR2_MAN3, Tr2_2F_Man3Lost, TRAINER_AT_2F_TR2_WOMAN5, Tr2_2F_Woman5Lost, PARTNER_BRENDAN_ORAS_ROWLET, TRAINER_BACK_PIC_BRENDAN_ORAS
+	goto Tower_2F_Tr2_Battle_9
 
-Tower_Tr1_Battle_20:
-	multi_2_vs_2 TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_BRENDAN_TORCHIC, TRAINER_BACK_PIC_BRENDAN
-	goto Tower_Tr1_Battle_9
+Tower_2F_Tr2_Battle_20:
+	multi_2_vs_2 TRAINER_AT_2F_TR2_MAN3, Tr2_2F_Man3Lost, TRAINER_AT_2F_TR2_WOMAN5, Tr2_2F_Woman5Lost, PARTNER_BRENDAN_TORCHIC, TRAINER_BACK_PIC_BRENDAN
+	goto Tower_2F_Tr2_Battle_9
 
-Tower_Tr1_Battle_21:
-	multi_2_vs_2 TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_BRENDAN_PIPLUP, TRAINER_BACK_PIC_BRENDAN
-	goto Tower_Tr1_Battle_9
+Tower_2F_Tr2_Battle_21:
+	multi_2_vs_2 TRAINER_AT_2F_TR2_MAN3, Tr2_2F_Man3Lost, TRAINER_AT_2F_TR2_WOMAN5, Tr2_2F_Woman5Lost, PARTNER_BRENDAN_PIPLUP, TRAINER_BACK_PIC_BRENDAN
+	goto Tower_2F_Tr2_Battle_9
 
-Tower_Tr1_Battle_22:
-	multi_2_vs_2 TRAINER_AT2F_MAN3, Tr1_Man3Lost, TRAINER_AT2F_WOMAN5, Tr1_Woman5Lost, PARTNER_BRENDAN_ROWLET, TRAINER_BACK_PIC_BRENDAN
-	goto Tower_Tr1_Battle_9
+Tower_2F_Tr2_Battle_22:
+	multi_2_vs_2 TRAINER_AT_2F_TR2_MAN3, Tr2_2F_Man3Lost, TRAINER_AT_2F_TR2_WOMAN5, Tr2_2F_Woman5Lost, PARTNER_BRENDAN_ROWLET, TRAINER_BACK_PIC_BRENDAN
+	goto Tower_2F_Tr2_Battle_9
 
-Tower_Tr1_Battle_25:
-	settrainerflag TRAINER_AT2F_MAN3
-	settrainerflag TRAINER_AT2F_WOMAN5
+Tower_2F_Tr2_Battle_25:
+	settrainerflag TRAINER_AT_2F_TR2_MAN3
+	settrainerflag TRAINER_AT_2F_TR2_WOMAN5
 	release
 	end
 
 
-SetUpPlayerParty::
-	fadescreen FADE_TO_BLACK
-	special ChooseHalfPartyForBattle
-	waitstate
-	setflag FLAG_DISABLE_PARTNER_SWITCHING
+Tr2_2F_Woman5::
+	msgbox Tr2_2F_Woman5_PosBat
+	end
+
+
+Tr2_2F_Man3::
+	msgbox Tr2_2F_Man3_PosBat
+	end
+
+
+AT_2F_Tr1_Left::
+	checktrainerflag TRAINER_AT_2F_TR1_PSYCHIC
+	goto_if 1, AT_2F_Tr1_Left_2
+	setvar VAR_TEMP_2, 1
+	goto Tower_2F_Tr1_Battle
 	return
 
+AT_2F_Tr1_Left_2:
+	release
+	end
 
-Walk1Left:
+
+AT_2F_Tr1_Right::
+	checktrainerflag TRAINER_AT_2F_TR1_PSYCHIC
+	goto_if 1, AT_2F_Tr1_Right_2
+	setvar VAR_TEMP_2, 2
+	goto Tower_2F_Tr1_Battle
+	return
+
+AT_2F_Tr1_Right_2:
+	release
+	end
+
+
+Tower_2F_Tr1_Battle::
+	lock
+	playbgm MUS_ENCOUNTER_INTENSE, FALSE
+	special SavePlayerParty
+	special SetPlayerParty
+	applymovement 4, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement 4, Common_Movement_Delay48
+	waitmovement 0
+	compare VAR_TEMP_2, 1
+	goto_if_eq Tower_2F_Tr1_Battle_2
+Tower_2F_Tr1_Battle_1:
+	waitmovement 0
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	msgbox Tr1_2F_PsychicIntro
+	closemessage
+	playbgm MUS_ENCOUNTER_INTENSE, FALSE
+	applymovement 5, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement 5, Common_Movement_Delay48
+	waitmovement 0
+	compare VAR_TEMP_2, 2
+	goto_if_eq Tower_2F_Tr1_Battle_5
+Tower_2F_Tr1_Battle_4:
+	waitmovement 0
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	msgbox Tr1_2F_Man5Intro
+	closemessage
+	switch VAR_TOWER_PARTNER
+	case 0, Tower_2F_Tr1_Battle_9
+	case 1, Tower_2F_Tr1_Battle_10
+	case 2, Tower_2F_Tr1_Battle_11
+	case 3, Tower_2F_Tr1_Battle_12
+	case 4, Tower_2F_Tr1_Battle_13
+	case 5, Tower_2F_Tr1_Battle_14
+	case 6, Tower_2F_Tr1_Battle_15
+	case 7, Tower_2F_Tr1_Battle_16
+	case 8, Tower_2F_Tr1_Battle_17
+	case 9, Tower_2F_Tr1_Battle_18
+	case 10, Tower_2F_Tr1_Battle_19
+	case 11, Tower_2F_Tr1_Battle_20
+Tower_2F_Tr1_Battle_7:
+	switch VAR_RESULT
+	case 1, Tower_2F_Tr1_Battle_23
+	fadescreen FADE_TO_BLACK
+	special SetCB2WhiteOut
+	waitstate
+	return
+
+Tower_2F_Tr1_Battle_2:
+	applymovement 4, Walk1Left
+	goto Tower_2F_Tr1_Battle_1
+
+Tower_2F_Tr1_Battle_5:
+	applymovement 5, Walk1Right
+	goto Tower_2F_Tr1_Battle_4
+
+Tower_2F_Tr1_Battle_9:
+	multi_2_vs_2 TRAINER_AT_2F_TR1_PSYCHIC, Tr1_2F_PsychicLost, TRAINER_AT_2F_TR1_MAN5, Tr1_2F_Man5Lost, PARTNER_MAY_ORAS_TORCHIC, TRAINER_BACK_PIC_MAY_ORAS
+	goto Tower_2F_Tr1_Battle_7
+
+Tower_2F_Tr1_Battle_10:
+	multi_2_vs_2 TRAINER_AT_2F_TR1_PSYCHIC, Tr1_2F_PsychicLost, TRAINER_AT_2F_TR1_MAN5, Tr1_2F_Man5Lost, PARTNER_MAY_ORAS_PIPLUP, TRAINER_BACK_PIC_MAY_ORAS
+	goto Tower_2F_Tr1_Battle_7
+
+Tower_2F_Tr1_Battle_11:
+	multi_2_vs_2 TRAINER_AT_2F_TR1_PSYCHIC, Tr1_2F_PsychicLost, TRAINER_AT_2F_TR1_MAN5, Tr1_2F_Man5Lost, PARTNER_MAY_ORAS_ROWLET, TRAINER_BACK_PIC_MAY_ORAS
+	goto Tower_2F_Tr1_Battle_7
+
+Tower_2F_Tr1_Battle_12:
+	multi_2_vs_2 TRAINER_AT_2F_TR1_PSYCHIC, Tr1_2F_PsychicLost, TRAINER_AT_2F_TR1_MAN5, Tr1_2F_Man5Lost, PARTNER_MAY_TORCHIC, TRAINER_BACK_PIC_MAY
+	goto Tower_2F_Tr1_Battle_7
+
+Tower_2F_Tr1_Battle_13:
+	multi_2_vs_2 TRAINER_AT_2F_TR1_PSYCHIC, Tr1_2F_PsychicLost, TRAINER_AT_2F_TR1_MAN5, Tr1_2F_Man5Lost, PARTNER_MAY_PIPLUP, TRAINER_BACK_PIC_MAY
+	goto Tower_2F_Tr1_Battle_7
+
+Tower_2F_Tr1_Battle_14:
+	multi_2_vs_2 TRAINER_AT_2F_TR1_PSYCHIC, Tr1_2F_PsychicLost, TRAINER_AT_2F_TR1_MAN5, Tr1_2F_Man5Lost, PARTNER_MAY_ROWLET, TRAINER_BACK_PIC_MAY
+	goto Tower_2F_Tr1_Battle_7
+
+Tower_2F_Tr1_Battle_15:
+	multi_2_vs_2 TRAINER_AT_2F_TR1_PSYCHIC, Tr1_2F_PsychicLost, TRAINER_AT_2F_TR1_MAN5, Tr1_2F_Man5Lost, PARTNER_BRENDAN_ORAS_TORCHIC, TRAINER_BACK_PIC_BRENDAN_ORAS
+	goto Tower_2F_Tr1_Battle_7
+
+Tower_2F_Tr1_Battle_16:
+	multi_2_vs_2 TRAINER_AT_2F_TR1_PSYCHIC, Tr1_2F_PsychicLost, TRAINER_AT_2F_TR1_MAN5, Tr1_2F_Man5Lost, PARTNER_BRENDAN_ORAS_PIPLUP, TRAINER_BACK_PIC_BRENDAN_ORAS
+	goto Tower_2F_Tr1_Battle_7
+
+Tower_2F_Tr1_Battle_17:
+	multi_2_vs_2 TRAINER_AT_2F_TR1_PSYCHIC, Tr1_2F_PsychicLost, TRAINER_AT_2F_TR1_MAN5, Tr1_2F_Man5Lost, PARTNER_BRENDAN_ORAS_ROWLET, TRAINER_BACK_PIC_BRENDAN_ORAS
+	goto Tower_2F_Tr1_Battle_7
+
+Tower_2F_Tr1_Battle_18:
+	multi_2_vs_2 TRAINER_AT_2F_TR1_PSYCHIC, Tr1_2F_PsychicLost, TRAINER_AT_2F_TR1_MAN5, Tr1_2F_Man5Lost, PARTNER_BRENDAN_TORCHIC, TRAINER_BACK_PIC_BRENDAN
+	goto Tower_2F_Tr1_Battle_7
+
+Tower_2F_Tr1_Battle_19:
+	multi_2_vs_2 TRAINER_AT_2F_TR1_PSYCHIC, Tr1_2F_PsychicLost, TRAINER_AT_2F_TR1_MAN5, Tr1_2F_Man5Lost, PARTNER_BRENDAN_PIPLUP, TRAINER_BACK_PIC_BRENDAN
+	goto Tower_2F_Tr1_Battle_7
+
+Tower_2F_Tr1_Battle_20:
+	multi_2_vs_2 TRAINER_AT_2F_TR1_PSYCHIC, Tr1_2F_PsychicLost, TRAINER_AT_2F_TR1_MAN5, Tr1_2F_Man5Lost, PARTNER_BRENDAN_ROWLET, TRAINER_BACK_PIC_BRENDAN
+	goto Tower_2F_Tr1_Battle_7
+
+Tower_2F_Tr1_Battle_23:
+	settrainerflag TRAINER_AT_2F_TR1_PSYCHIC
+	settrainerflag TRAINER_AT_2F_TR1_MAN5
+	release
+	end
+
+
+Tr1_2F_Man5::
+	msgbox Tr1_2F_Man5_PosBat
+	end
+
+
+Tr1_2F_Psychic::
+	msgbox Tr1_2F_Psychic_PosBat
+	end
+
+
+AT_2F_DefeatedTrainer::
+	msgbox AT_2F_DefeatedTrainer_Text, MSGBOX_NPC
+	end
+
+
+TestFollower::
+	lock
+	faceplayer
+	msgbox TestFollower_Text_0
+	closemessage
+	loadword 0, MakeNewTeam
+	setfollower 6, FOLLOWER_FLAG_ALL
+	release
+	end
+
+
+MakeNewTeam::
+	lock
+	facefollower
+	msgbox KeepYouHealthy
+	closemessage
+	release
+	end
+
+
+UnitedWithRival::
+	lock
+	delay 24
+	turnobject 6, DIR_NORTH
+	playse SE_PIN
+	applymovement 6, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 48
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq UnitedWithRival_2
+	msgbox YoureBackBrendan
+UnitedWithRival_1:
+	closemessage
+	setvar VAR_RIVAL_AROUND_SANDSTONE, 3
+	loadword 0, MakeNewTeam
+	special HealPlayerParty
+	setfollower 6, FOLLOWER_FLAG_ALL
+	release
+	end
+
+UnitedWithRival_2:
+	msgbox YoureBackMay
+	goto UnitedWithRival_1
+
+
+MeetingRivalInTheTower::
+	lock
+	delay 24
+	playse SE_PIN
+	turnobject 6, DIR_WEST
+	applymovement 6, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 48
+	applymovement 6, Tower2FRival
+	waitmovement 0
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq MeetingRivalInTheTower_2
+	compare VAR_RIVAL_AROUND_SANDSTONE, 1
+	goto_if_eq MeetingRivalInTheTower_10
+	compare VAR_RIVAL_AROUND_SANDSTONE, 2
+	goto_if_eq MeetingRivalInTheTower_11
+	msgbox BrendanLongTimeNoSee
+MeetingRivalInTheTower_1:
+	closemessage
+	setvar VAR_RIVAL_AROUND_SANDSTONE, 3
+	loadword 0, MakeNewTeam
+	special HealPlayerParty
+	setfollower 6, FOLLOWER_FLAG_ALL
+	release
+	end
+
+MeetingRivalInTheTower_2:
+	compare VAR_RIVAL_AROUND_SANDSTONE, 1
+	goto_if_eq MeetingRivalInTheTower_5
+	compare VAR_RIVAL_AROUND_SANDSTONE, 2
+	goto_if_eq MeetingRivalInTheTower_6
+	msgbox MayLongTimeNoSee
+	goto MeetingRivalInTheTower_1
+
+MeetingRivalInTheTower_5:
+	msgbox MayHappyToSee
+	goto MeetingRivalInTheTower_1
+
+MeetingRivalInTheTower_6:
+	msgbox MayNotHappyToSee
+	goto MeetingRivalInTheTower_1
+
+MeetingRivalInTheTower_10:
+	msgbox BrendanHappyToSee
+	goto MeetingRivalInTheTower_1
+
+MeetingRivalInTheTower_11:
+	msgbox BrendanNotHappyToSee
+	goto MeetingRivalInTheTower_1
+
+
+Tower2FRival:
 	walk_left
-	step_end
-
-Walk2Left:
 	walk_left
-	walk_left
+	walk_in_place_faster_up
 	step_end
 
-Walk3Left:
-	walk_left
-	walk_left
-	walk_left
-	step_end
+TestFollower_Text_0:
+	.string "Let's go!$"
 
-Walk4Left:
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	step_end
+Tr2_2F_Man3Intro::
+	.string "$"
 
-Walk1Right:
-	walk_right
-	step_end
+Tr2_2F_Woman5Intro::
+	.string "$"
 
-Walk2Right:
-	walk_right
-	walk_right
-	step_end
+Tr2_2F_Man3Lost::
+	.string "$"
 
-Walk3Right:
-	walk_right
-	walk_right
-	walk_right
-	step_end
+Tr2_2F_Woman5Lost::
+	.string "$"
 
-Walk4Right:
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	step_end
+Tr2_2F_Woman5_PosBat::
+	.string "$"
 
-Walk1Up:
-	walk_up
-	step_end
+Tr2_2F_Man3_PosBat::
+	.string "$"
 
-Walk2Up:
-	walk_up
-	walk_up
-	step_end
+Tr1_2F_PsychicIntro::
+	.string "$"
 
-Walk3Up:
-	walk_up
-	walk_up
-	walk_up
-	step_end
+Tr1_2F_PsychicLost::
+	.string "$"
 
-Walk4Up:
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	step_end
+Tr1_2F_Man5Intro::
+	.string "$"
 
-Walk1Down:
-	walk_down
-	step_end
+Tr1_2F_Man5Lost::
+	.string "$"
 
-Walk2Down:
-	walk_down
-	walk_down
-	step_end
+Tr1_2F_Man5_PosBat::
+	.string "$"
 
-Walk3Down:
-	walk_down
-	walk_down
-	walk_down
-	step_end
+Tr1_2F_Psychic_PosBat::
+	.string "$"
 
-Walk4Down:
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	step_end
+AT_2F_DefeatedTrainer_Text::
+	.string "$"
 
-Tr1_Man3Intro::
-	.string "I'm stronk!$"
+KeepYouHealthy::
+	.string "{RIVAL}: Don't worry, I'll keep your\n"
+	.string "Pokémon in perfect health.$"
 
-Tr1_Woman5Intro::
-	.string "I'm stronker!$"
+MayHappyToSee::
+	.string "{RIVAL}: Oh, hi again {PLAYER}!\p"
+	.string "Didn't expect to see you here\n"
+	.string "so soon.\l"
+	.string "I assume you're here to climb the tower\n"
+	.string "under Korrina's instructions as well?\p"
+	.string "In that case, we should totally\n"
+	.string "team up!\p"
+	.string "Some of these trainers are real tough\n"
+	.string "and many of them have also teamed up,\l"
+	.string "which means that we should too.\p"
+	.string "Don't worry though.\p"
+	.string "I won't interfere with your wild\n"
+	.string "Pokémon battles so you can catch any\l"
+	.string "new Pokémon you see!\p"
+	.string "I'll also make sure that your Pokémon\n"
+	.string "are all topped up after every battle.\p"
+	.string "Okay! with that out of the way, let's\n"
+	.string "get cracking with this tower!\p"
+	.string "Lead the way!$"
 
-Tr1_Man3Lost::
-	.string "Me lose!$"
+MayNotHappyToSee::
+	.string "{RIVAL}: Oh, hey again {PLAYER}.\p"
+	.string "Didn't expect to see you here\n"
+	.string "so soon.\p"
+	.string "I assume you're here to climb the tower\n"
+	.string "under Korrina's instructions as well?\p"
+	.string "In that case, I think we should\n"
+	.string "team up.\p"
+	.string "Some of these trainers are real tough\n"
+	.string "and many of them have also teamed up,\l"
+	.string "which means that we should too.\p"
+	.string "Don't worry though.\p"
+	.string "I won't interfere with your wild\n"
+	.string "Pokémon battles so you can catch any\l"
+	.string "new Pokémon you see.\p"
+	.string "I'll also make sure that your Pokémon\n"
+	.string "are all topped up after every battle.\p"
+	.string "Here, how about you take the lead?$"
 
-Tr1_Woman5Lost::
-	.string "Me lose stronker!$"
+MayLongTimeNoSee::
+	.string "{RIVAL}: Oh, hi {PLAYER}!\p"
+	.string "Didn't expect to bump into you here.\p"
+	.string "I assume you're here to climb the tower\n"
+	.string "under Korrina's instructions as well?\p"
+	.string "In that case, we should totally\n"
+	.string "team up!\p"
+	.string "Some of these trainers are real tough\n"
+	.string "and many of them have also teamed up,\l"
+	.string "which means that we should too.\p"
+	.string "Don't worry though.\p"
+	.string "I won't interfere with your wild\n"
+	.string "Pokémon battles so you can catch any\l"
+	.string "new Pokémon you see!\p"
+	.string "I'll also make sure that your Pokémon\n"
+	.string "are all topped up after every battle.\p"
+	.string "Okay! with that out of the way, let's\n"
+	.string "get cracking with this tower!\p"
+	.string "Lead the way!$"
+
+BrendanHappyToSee::
+	.string "{RIVAL}: Oh, hey {PLAYER}!\p"
+	.string "Didn't expect to bump into you so\n"
+	.string "soon after our last reunion.\p"
+	.string "I'm guessing Korrina sent you here\n"
+	.string "to climb the tower as well?\p"
+	.string "In that case, how about we team up?\n"
+	.string "Some of these trainers are real tough\l"
+	.string "and seeing how they've teamed up,\l"
+	.string "it makes sense we do the same.\p"
+	.string "Don't worry though.\p"
+	.string "I won't get in the way of your wild\n"
+	.string "Pokémon battles so you can catch any\l"
+	.string "new Pokémon you see.\p"
+	.string "I'll also make sure that your Pokémon\n"
+	.string "are healthy after every battle.\p"
+	.string "Okay. With that out of the way,\n"
+	.string "let's get on top of this tower!\p"
+	.string "I'll follow your lead.$"
+
+BrendanNotHappyToSee::
+	.string "{RIVAL}: Oh, hey {PLAYER}.\p"
+	.string "You got here way earlier than\n"
+	.string "I expected.\p"
+	.string "I'm guessing Korrina sent you here\n"
+	.string "to climb the tower as well?\p"
+	.string "In that case, would you mind teaming\n"
+	.string "up with me?\p"
+	.string "Some of these trainers are real tough\n"
+	.string "and seeing how they've teamed up,\l"
+	.string "it makes sense we do the same.\p"
+	.string "Don't worry though.\p"
+	.string "I won't get in the way of your wild\n"
+	.string "Pokémon battles so you can catch any\l"
+	.string "new Pokémon you see.\p"
+	.string "I'll also make sure that your Pokémon\n"
+	.string "are healthy after every battle.\p"
+	.string "Okay. With that out of the way,\n"
+	.string "let's get on top of this tower!\p"
+	.string "I'll follow your lead.$"
+
+BrendanLongTimeNoSee::
+	.string "{RIVAL}: Oh, hey {PLAYER}!\p"
+	.string "Didn't expect to see you here\n"
+	.string "so soon.\p"
+	.string "I'm guessing Korrina sent you here\n"
+	.string "to climb the tower as well?\p"
+	.string "In that case, how about we team up?\n"
+	.string "Some of these trainers are real tough\l"
+	.string "and seeing how they've teamed up,\l"
+	.string "it makes sense we do the same.\p"
+	.string "Don't worry though.\p"
+	.string "I won't get in the way of your wild\n"
+	.string "Pokémon battles so you can catch any\l"
+	.string "new Pokémon you see.\p"
+	.string "I'll also make sure that your Pokémon\n"
+	.string "are healthy after every battle.\p"
+	.string "Okay. With that out of the way,\n"
+	.string "let's get on top of this tower!\p"
+	.string "I'll follow your lead.$"
+
+YoureBackMay::
+	.string "{RIVAL}: I've been waiting here like I\n"
+	.string "said I would.\p"
+	.string "Now, let's get cracking with this tower!$"
+
+YoureBackBrendan::
+	.string "{RIVAL}: You're back!\p"
+	.string "Now, let's get on top of this tower!$"

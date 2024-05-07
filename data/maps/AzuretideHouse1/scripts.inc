@@ -30,11 +30,10 @@ AzuretideHouse1_HerbShop_EventScript_Clerk_2:
 
 AzuretideHouse1_HerbShop_EventScript_Clerk_5:
 	msgbox AzuretideHouse1_HerbShop_Text_WelcomeToHerbShop, MSGBOX_DEFAULT
+	closemessage
+	message HerbShop_HandOverPouch
 	waitmessage
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox HerbShop_HandOverPouch
-	waitfanfare
-	waitmessage
+	delay 60
 	msgbox HerbShop_GiveHerbalMix
 	removeitem ITEM_COIN_PURSE
 	giveitem ITEM_HERBAL_MIX, 1
@@ -48,11 +47,10 @@ AzuretideHouse1_HerbShop_EventScript_Clerk_10:
 
 AzuretideHouse1_HerbShop_EventScript_Clerk_8:
 	msgbox AzuretideHouse1_HerbShop_Text_WelcomeToHerbShop, MSGBOX_DEFAULT
+	closemessage
+	message HerbShop_HandOverLetter
 	waitmessage
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox HerbShop_HandOverLetter
-	waitfanfare
-	waitmessage
+	delay 60
 	msgbox HerbShop_GiveHerbalMixQuest
 	removeitem ITEM_JASM_LETTER
 	giveitem ITEM_HERBAL_MIX_QUEST
@@ -66,10 +64,12 @@ AzuretideHouse1_HerbShop_EventScript_Clerk_13:
 
 AzuretideHouse1_HerbShop_EventScript_Clerk_11:
 	setflag FLAG_TEMP_1
+	clearflag FLAG_HIDE_AMPHAROS
 	goto AzuretideHouse1_HerbShop_EventScript_Clerk_10
 
 AzuretideHouse1_HerbShop_EventScript_Clerk_14:
 	setflag FLAG_TEMP_1
+	clearflag FLAG_HIDE_AMPHAROS
 	goto AzuretideHouse1_HerbShop_EventScript_Clerk_13
 
 

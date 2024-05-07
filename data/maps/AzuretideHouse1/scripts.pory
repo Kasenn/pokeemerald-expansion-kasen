@@ -15,11 +15,10 @@ script AzuretideHouse1_HerbShop_EventScript_Clerk{
 	checkitem(ITEM_COIN_PURSE)
 	if(var(VAR_RESULT) == TRUE){
 		msgbox(AzuretideHouse1_HerbShop_Text_WelcomeToHerbShop, MSGBOX_DEFAULT)
+		closemessage
+		message(HerbShop_HandOverPouch)
 		waitmessage
-		playfanfare(MUS_OBTAIN_ITEM)
-		msgbox(HerbShop_HandOverPouch)
-		waitfanfare
-		waitmessage
+		delay(60)
 		msgbox(HerbShop_GiveHerbalMix)
 		removeitem(ITEM_COIN_PURSE)
 		giveitem(ITEM_HERBAL_MIX, 1)
@@ -27,6 +26,7 @@ script AzuretideHouse1_HerbShop_EventScript_Clerk{
 		closemessage
 		if(!flag(FLAG_JASMINE_HELPED)){
 			setflag(FLAG_TEMP_1)
+			clearflag(FLAG_HIDE_AMPHAROS)
 		}
 		setflag(FLAG_VISITED_HERB_SHOP)
 		release
@@ -35,11 +35,10 @@ script AzuretideHouse1_HerbShop_EventScript_Clerk{
 	checkitem(ITEM_JASM_LETTER)
 	if(var(VAR_RESULT) == TRUE){
 		msgbox(AzuretideHouse1_HerbShop_Text_WelcomeToHerbShop, MSGBOX_DEFAULT)
+		closemessage
+		message(HerbShop_HandOverLetter)
 		waitmessage
-		playfanfare(MUS_OBTAIN_ITEM)
-		msgbox(HerbShop_HandOverLetter)
-		waitfanfare
-		waitmessage
+		delay(60)
 		msgbox(HerbShop_GiveHerbalMixQuest)
 		removeitem(ITEM_JASM_LETTER)
 		giveitem(ITEM_HERBAL_MIX_QUEST)
@@ -47,6 +46,7 @@ script AzuretideHouse1_HerbShop_EventScript_Clerk{
 		closemessage
 		if(!flag(FLAG_JASMINE_HELPED)){
 			setflag(FLAG_TEMP_1)
+			clearflag(FLAG_HIDE_AMPHAROS)
 		}
 		setflag(FLAG_VISITED_HERB_SHOP_2)
 		release

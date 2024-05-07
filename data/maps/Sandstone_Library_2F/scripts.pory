@@ -1,0 +1,214 @@
+mapscripts Sandstone_Library_2F_MapScripts{}
+
+text PutTheBookBack{
+    "{PLAYER} put the book back."
+}
+
+text Book1Intro{
+    "This book is titled “Sinnoh\n"
+    "Myth.” Want to read it?"
+}
+text Book1{
+    "“Sinnoh Myth”\p"
+    "Betray not your anger, lest ??? will\n"
+    "come.\p"
+    "Weep not with sorrow, or ??? will\n"
+    "draw near.\p"
+    "When joy and enjoyment come natural\n"
+    "as the very air, that is happiness.\p"
+    "Let such be blessed by the hand\n"
+    "of Master ???.\p"
+    "Those words were spoken often\n"
+    "as customary."
+}
+
+
+text Book2Intro{
+    "This book is titled “Sinnoh Region's\n"
+    "Mythology.” Want to read it?"
+}
+text Book2{
+    "“Sinnoh Region's Mythology”\p"
+    "Long ago, when Sinnoh had just been\n"
+    "made, Pokémon and humans led\l"
+    "separate lives.\p"
+    "That is not to say they did not help\n"
+    "each other. No, indeed they did.\p"
+    "They supplied each other with goods,\n"
+    "and supported each other.\p"
+    "A Pokémon proposed to the others\n"
+    "to always be ready to help humans.\p"
+    "It asked that Pokémon be ready to\n"
+    "appear before humans always.\p"
+    "Thus, to this day, Pokémon appear\n"
+    "to us if we venture into tall grass."
+}
+    
+
+text Book3Intro{
+    "This book is titled “Sinnoh's\n"
+    "Myth.” Want to read it?"
+}	
+text Book3{
+    "“Sinnoh's Myth”\p"
+    "Three Pokémon there were.\p"
+    "Into the lakes they dove.\n"
+    "Deep, deep, drawing no breath.\p"
+    "Deeper, deeper they dove.\n"
+    "Into suffocating depths they dove.\p"
+    "Deeper, then deepest they alight.\n"
+    "From the lake floor they rise.\p"
+    "Bearing with them the power to make\n"
+    "vast lands, they rise again."
+}
+	
+
+text Book4Intro{
+    "This book is titled “Veilstone's\n"
+    "Myth.” Want to read it?"
+}
+text Book4Part1{
+    "“Veilstone's Myth”\p"
+    "A young man, callow and foolish in\n"
+    "innocence, came to own a sword.\p"
+    "With it, he smote Pokémon, which gave\n"
+    "sustenance, with carefree abandon.\p"
+    "Those not taken as food, he\n"
+    "discarded, with no afterthought.\p"
+    "The following year, no Pokémon\n"
+    "appeared. Larders grew bare.\p"
+    "…Would you like to keep reading?"
+}
+text Book4Part2{
+    "The young man, seeking the missing\n"
+    "Pokémon, journeyed afar.\p"
+    "Long did he search. And far and wide,\n"
+    "too, until one he did find.\p"
+    "Asked he, “Why do you hide?”\n"
+    "To which the Pokémon replied…\p"
+    "“If you bear your sword to bring\n"
+    "harm upon us, with claws and\l"
+    "fangs, we will exact a toll.\p"
+    "“From your kind we will take our\n"
+    "toll, for it must be done.\p"
+    "“Done it must be to guard ourselves\n"
+    "and for it, I apologize.”\p"
+    "…Would you like to keep reading?"
+}
+text Book4Part3{
+    "To the skies, the young man shouted\n"
+    "his dismay.\p"
+    "“In having found the sword, I have\n"
+    "lost so much.\p"
+    "“Gorged with power, I grew blind\n"
+    "to Pokémon being alive.\p"
+    "“I will never fall savage again.\n"
+    "This sword I denounce and forsake.\p"
+    "“I plead for forgiveness,\n"
+    "for I was but a fool.”\p"
+    "So saying, the young man hurled the\n"
+    "sword to the ground, snapping it.\p"
+    "Seeing this, the Pokémon disappeared\n"
+    "to a place beyond seeing…"
+}
+	
+
+text Book5Intro{
+    "This ancient book is titled “The\n"
+    "Original Story.” Want to read it?"
+}
+text Book5Part1{
+    "In the beginning, there was only\n"
+    "a churning turmoil of chaos.\p"
+    "At the heart of chaos, where all\n"
+    "things became one, appeared an Egg.\p"
+    "Having tumbled from the vortex, the\n"
+    "Egg gave rise to the Original One.\p"
+    "…Would you like to keep reading?"
+}
+text Book5Part2{
+    "From itself, two beings the Original\n"
+    "One did make.\p"
+    "Time started to spin.\n"
+    "Space began to expand.\p"
+    "From itself again, three living things\n"
+    "the Original One did make.\p"
+    "…Would you like to keep reading?"
+}
+text Book5Part3{
+    "The two beings wished, and from them,\n"
+    "matter came to be.\p"
+    "The three living things wished, and\n"
+    "from them, spirit came to be.\p"
+    "The world created, the Original One\n"
+    "took to unyielding sleep…"
+}
+
+
+text Book6Intro{
+    "This book is titled “A Horrific\n"
+    "Myth.” Want to read it?"
+}
+text Book6{
+    "Look not into the Pokémon's eyes.\p"
+    "In but an instant, you'll have no\n"
+    "recollection of who you are.\p"
+    "Return home, but how?\n"
+    "When there is nothing to remember?\p"
+    "Dare not touch the Pokémon's body.\p"
+    "In but three short days, all emotions\n"
+    "will drain away.\p"
+    "Above all, above all, harm not\n"
+    "the Pokémon.\p"
+    "In a scant five days, the offender\n"
+    "will grow immobile in entirety."
+}
+
+
+text Book7Intro{
+    "This book is titled “Sinnoh Folk\n"
+    "Stories.”\p"
+}
+text Book7Story1{
+    "“Sinnoh Folk Story 1”\p"
+    "Pick clean the bones of Pokémon\n"
+    "caught in the sea or stream.\p"
+    "Thank them for the meals they\n"
+    "provide, and pick their bones clean.\p"
+    "When the bones are as clean as can\n"
+    "be, set them free in the water from\l"
+    "which they came.\p"
+    "The Pokémon will return, fully\n"
+    "fleshed, and it begins anew."
+}
+text Book7Story2{
+    "“Sinnoh Folk Story 2”\p"
+    "There lived a Pokémon in a forest.\p"
+    "In the forest, the Pokémon shed its\n"
+    "hide to sleep as a human.\p"
+    "Awakened, the human dons the\n"
+    "Pokémon hide to roam villages."
+}
+text Book7Story3{
+    "“Sinnoh Folk Story 3”\p"
+    "There once were Pokémon that\n"
+    "became very close to humans.\p"
+    "There once were humans and Pokémon\n"
+    "that ate together at the same table.\p"
+    "It was a time when there existed no\n"
+    "differences to distinguish the two."
+}
+
+
+text BooksOnThisFloor{
+    "On this floor, you will find many\n"
+    "books on the myths and legends of\l"
+    "the Sinnoh region."
+}
+
+text bookideas{
+    "book about the 3 birds looking for high perch to roost, use for shadow lugia"
+    "book about how the 3 failed their mission, after which they left the world in shame. it is said that a fragment of their spirit"
+    "remained in our world and people built a beacon in case of their potential return"
+    "book about little green men"
+}

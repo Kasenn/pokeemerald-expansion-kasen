@@ -6,6 +6,7 @@
 #include "main.h"
 #include "overworld.h"
 #include "pokemon.h"
+#include "party_menu.h"
 #include "pokemon_storage_system.h"
 #include "random.h"
 #include "save_location.h"
@@ -163,6 +164,20 @@ void SetContinueGameWarpStatusToDynamicWarp(void)
 void ClearContinueGameWarpStatus2(void)
 {
     gSaveBlock2Ptr->specialSaveWarpFlags &= ~CONTINUE_GAME_WARP;
+}
+
+void SetPlayerParty(void)
+{
+    u8 i;
+
+    for (i = 0; i < 3; i++)
+    {
+        gPartyMenu.slotId = i;
+        if (gSelectedOrderFromParty[i] == 0)
+        {
+            gSelectedOrderFromParty[i] = gPartyMenu.slotId + 1;
+        }
+    }
 }
 
 void SavePlayerParty(void)
