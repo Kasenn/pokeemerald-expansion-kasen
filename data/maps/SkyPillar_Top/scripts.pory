@@ -1,0 +1,454 @@
+mapscripts SkyPillar_Top_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: AT_Top
+}
+
+script AT_Top{
+    setvar(VAR_TEMP_6, 1)
+    end
+}
+
+script AT_Pedestal{
+    msgbox(AT_Pedestal_Text, MSGBOX_SIGN)
+    end
+}
+text AT_Pedestal_Text{
+    "It's a small pedestal, which looks\n"
+    "like it's meant to house something."
+}
+
+script AT_TopTrigger1{
+    setvar(VAR_TEMP_5, 1)
+    goto(AT_TopEvent)
+}
+script AT_TopTrigger2{
+    setvar(VAR_TEMP_5, 2)
+    goto(AT_TopEvent)
+}
+script AT_TopTrigger3{
+    setvar(VAR_TEMP_5, 3)
+    goto(AT_TopEvent)
+}
+script AT_TopTrigger4{
+    setvar(VAR_TEMP_5, 4)
+    goto(AT_TopEvent)
+}
+script AT_TopTrigger5{
+    setvar(VAR_TEMP_5, 5)
+    goto(AT_TopEvent)
+}
+script AT_TopTrigger6{
+    setvar(VAR_TEMP_5, 6)
+    goto(AT_TopEvent)
+}
+
+script AT_TopEvent{
+    lock
+    switch(var(VAR_TEMP_5)){
+        case 1:
+            applymovement(OBJ_EVENT_ID_PLAYER, AT_Top_Movement1)
+            applymovement(OBJ_EVENT_ID_FOLLOWER, AT_Top_Movement1Follower)
+        case 2:
+            applymovement(OBJ_EVENT_ID_PLAYER, AT_Top_Movement2)
+            applymovement(OBJ_EVENT_ID_FOLLOWER, AT_Top_Movement2Follower)
+        case 3:
+            applymovement(OBJ_EVENT_ID_PLAYER, Walk2Up)
+            applymovement(OBJ_EVENT_ID_FOLLOWER, AT_Top_Movement3Follower)
+        case 4:
+            applymovement(OBJ_EVENT_ID_PLAYER, AT_Top_Movement4)
+            applymovement(OBJ_EVENT_ID_FOLLOWER, AT_Top_Movement4Follower)
+        case 5:
+            applymovement(OBJ_EVENT_ID_PLAYER, AT_Top_Movement5)
+            applymovement(OBJ_EVENT_ID_FOLLOWER, AT_Top_Movement5Follower)
+        case 6:
+            applymovement(OBJ_EVENT_ID_PLAYER, AT_Top_Movement6)
+            applymovement(OBJ_EVENT_ID_FOLLOWER, AT_Top_Movement6Follower)
+    }
+    waitmovement(OBJ_EVENT_ID_PLAYER)
+    waitmovement(OBJ_EVENT_ID_FOLLOWER)
+    delay(30)
+    applymovement(2, TurnKorrina)
+    waitmovement(0)
+    msgbox(YouTwoMadeIt)
+    closemessage
+    applymovement(2, KorrinaGoesToRival)
+    waitmovement(0)
+    delay(100)
+    applymovement(2, KorrinaGoesToPlayer)
+    waitmovement(0)
+    delay(15)
+    giveitem(ITEM_MEGA_RING)
+    waitfanfare
+    closemessage
+    delay(48)
+    applymovement(2, KorrinaGoesBack)
+    waitmovement(0)
+    msgbox(IDontHaveStones)
+    msgbox(ReturnToGym)
+    closemessage
+    fadescreen(FADE_TO_BLACK)
+    delay(15)
+    removeobject(2)
+    fadescreen(FADE_FROM_BLACK)
+    applymovement(OBJ_EVENT_ID_FOLLOWER, Walk1Left)
+    waitmovement(0)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+    checkplayergender
+    if(var(VAR_RESULT) == MALE){
+        msgbox(LetsGoMeetDadBrendan)
+    }
+    else{
+        msgbox(LetsGoMeetDadMay)    
+    }
+    closemessage
+    if(flag(FLAG_HIDE_LIBRARY_BIRCH)){
+        playse(SE_PIN)
+        applymovement(OBJ_EVENT_ID_FOLLOWER, Common_Movement_ExclamationMark)
+        waitmovement(0)
+        delay(48)
+        if(var(VAR_RESULT) == MALE){
+            msgbox(YouMetDadBrendan)
+        }
+        else{
+            msgbox(YouMetDadMay)    
+        }
+        closemessage
+    }
+    checkitem(ITEM_HM02)
+    if(var(VAR_RESULT) == FALSE){
+        playse(SE_PIN)
+        applymovement(OBJ_EVENT_ID_FOLLOWER, Common_Movement_QuestionMark)
+        waitmovement(0)
+        delay(48)
+        msgbox(NotHaveFly)
+        closemessage
+    }
+    delay(10)
+    applymovement(OBJ_EVENT_ID_FOLLOWER, Common_Movement_WalkInPlaceFasterDown)
+	waitmovement(0)
+	delay(50)
+    setfieldeffectargument(0, 1)
+	dofieldeffect(FLDEFF_NPCFLY_OUT)
+	delay(15)
+	destroyfollower
+	waitfieldeffect(FLDEFF_NPCFLY_OUT)
+    delay(30)
+    setvar(VAR_RIVAL_AROUND_SANDSTONE, 5)
+    setvar(VAR_PEARLWOOD_TOWN_STATE, 11)
+    clearflag(FLAG_KORRINA_LEAVESGYM)
+    setflag(FLAG_HIDE_LIBRARY_BIRCH)
+    clearflag(FLAG_PARTNER_HEALS)
+    settrainerflag(TRAINER_AT_2F_TR2_MAN3)
+    settrainerflag(TRAINER_AT_2F_TR2_WOMAN5)
+    settrainerflag(TRAINER_AT_2F_TR1_PSYCHIC)
+    settrainerflag(TRAINER_AT_2F_TR1_MAN5)
+    settrainerflag(TRAINER_AT_3F_TR1_EXPERT_M)
+    settrainerflag(TRAINER_AT_3F_TR1_EXPERT_F)
+    settrainerflag(TRAINER_AT_3F_TR2_HEXMANIAC)
+    settrainerflag(TRAINER_AT_3F_TR2_PSYCHICF)
+    settrainerflag(TRAINER_AT_4F_TR1_BLACKBELT)
+    settrainerflag(TRAINER_AT_4F_TR1_HEXMANIAC)
+    settrainerflag(TRAINER_AT_4F_TR2_LASS)
+    settrainerflag(TRAINER_AT_4F_TR2_YOUNGSTER)
+    settrainerflag(TRAINER_AT_4F_TR3_BATTLEGIRL)
+    settrainerflag(TRAINER_AT_4F_TR3_BLACKBELT)
+    settrainerflag(TRAINER_AT_5F_COOLTRAINER_M)
+    settrainerflag(TRAINER_AT_5F_COOLTRAINER_F)
+    delay(30)
+    release
+    end
+}
+text YouTwoMadeIt{
+    "Korrina: Oh hey, you two actually\n"
+    "made it to the top!\p"
+    "Sorry about not mentioning those\n"
+    "trainers down there!\p"
+    "After our gym battles, I wanted to\n"
+    "see if you two were actually that\l"
+    "strong or if you just got lucky.\p"
+    "Glad to see it was the former!\p"
+    "Anyways, the reason I called you here\n"
+    "was so I could give you these:\l"
+    "the Mega Rings!\p"
+    "Where I come from, we have this thing\n"
+    "called “Mega Evolution,” which both of\l"
+    "you got to see me perform during our\l"
+    "battles.\p"
+    "When I see a great trainer, I like to\n"
+    "gift them with one of these.\p"
+    "This ring is the key ingredient for\n"
+    "activating the evolution.\p"
+    "The only problem is, they're kinda rare\n"
+    "here in Sinko."
+    "That's why I can only afford to give\n"
+    "them to the truly expectional trainers.\p"
+    "People like you!"
+}
+text IDontHaveStones{
+    "Korrina: Now, in order to have your\n"
+    "Pokémon Mega Evolve, they must be\l"
+    "holding onto a specific Mega Stone.\p"
+    "Unfortunately, even in Kalos, they're\n"
+    "like super rare!\p"
+    "I have no idea where one would even\l"
+    "search for one over here.\p"
+    "I hate having to do this after you've\n"
+    "come so far, but you'll need to look\l"
+    "for those stones yourself.\p"
+    "But anyways, to Mega Evolve a Pokémon,\n"
+    "once you are in battle and you're\l"
+    "deciding on which move your Pokémon\l"
+    "should use, hit the START button and\l"
+    "you should see the Mega Stone light up!\p"
+    "Boom!\n"
+    "As simple as that!\p"
+    "Be careful you don't overexert your\n"
+    "Pokémon though!\p"
+    "Mega Evolution takes a huge amount of\n"
+    "energy, causing your Pokémon to lose\l"
+    "stamina rapidly!"
+}
+text ReturnToGym{
+    "Korrina: Okay!\p"
+    "I know that introduction was kinda\n"
+    "short and fast, but I'm sure you two\l"
+    "can figure it out!\p"
+    "I am a Gym Leader after all, and you\n"
+    "never know when another challenger is\l"
+    "gonna show up at the gym, asking to\l"
+    "challenge the leader.\p"
+    "So, I must bid you two adieu!"
+}
+text LetsGoMeetDadBrendan{
+    "{RIVAL}: Hey {PLAYER}, let's go ask\n"
+    "my dad!\p"
+    "Since he's a Pokémon Professor, I'm\n"
+    "sure he must know something!"
+}
+text LetsGoMeetDadMay{
+    "{RIVAL}: Hey, {PLAYER}, maybe we ought\n"
+    "to go and ask my dad?\p"
+    "Since he's a Pokémon Professor, I bet\n"
+    "he can point us in the right direction!"
+}
+text YouMetDadBrendan{
+    "{RIVAL}: You met dad in the library?\n"
+    "And he told to come and visit?\p"
+    "Well, all the more reason I guess.\n"
+    "Come on, let's go!"
+}
+text YouMetDadMay{
+    "{RIVAL}: Oh?\p"
+    "You met him in the library?\n"
+    "And he told us to come and visit?\p"
+    "Well, what are we waiting for?\n"
+    "Let's go!"
+}
+text NotHaveFly{
+    "{RIVAL}: Wait…\p"
+    "{PLAYER}, Don't you have a Pokémon\n"
+    "that can fly you across the region?\p"
+    "… … … … …\p"
+    "Well this is a bit awkward…\n"
+    "My Pokémon can only carry one…\p"
+    "If you want your Pokémon to learn to\n"
+    "fly you around, I recommend you\l"
+    "visit Windplume Valley.\l"
+    "It's located next to Aldeleaf City.\p"
+    "Anyway, see you back at the lab!"
+}
+
+movement AT_Top_Movement1{
+    walk_up
+    walk_right * 3
+    walk_up
+    step_end
+}
+movement AT_Top_Movement2{
+    walk_up
+    walk_right * 2
+    walk_up
+    step_end
+}
+movement AT_Top_Movement4{
+    walk_up
+    walk_left * 2
+    walk_up
+    step_end
+}
+movement AT_Top_Movement5{
+    walk_up
+    walk_left * 4
+    walk_up
+    step_end
+}
+movement AT_Top_Movement6{
+    walk_up
+    walk_left * 5
+    walk_up
+    step_end
+}
+movement TurnKorrina{
+    walk_in_place_faster_down * 2
+    face_down
+}
+movement KorrinaGoesToRival{
+    walk_down
+    walk_right
+    walk_in_place_faster_down * 2
+    face_down
+}
+movement KorrinaGoesToPlayer{
+    walk_left * 2
+    walk_in_place_faster_down * 2
+    face_down
+}
+movement KorrinaGoesBack{
+    walk_right
+    walk_up
+    walk_in_place_faster_down * 2
+    face_down
+}
+
+movement AT_Top_Movement1Follower{
+    walk_up * 2
+    walk_right * 5
+    walk_up
+    step_end
+}
+movement AT_Top_Movement2Follower{
+    walk_up * 2
+    walk_right * 4
+    walk_up
+    step_end
+}
+movement AT_Top_Movement3Follower{
+    walk_up * 2
+    walk_right * 2
+    walk_up
+    step_end
+}
+movement AT_Top_Movement4Follower{
+    walk_up * 3
+    step_end
+}
+movement AT_Top_Movement5Follower{
+    walk_up * 2
+    walk_left * 2
+    walk_up
+    step_end
+}
+movement AT_Top_Movement6Follower{
+    walk_up * 2
+    walk_left * 3
+    walk_up
+    step_end
+}
+
+script AT_Custodian{
+    lock
+    faceplayer
+    if(var(VAR_SPHERES_FOUND) == 2){
+        msgbox(LookForVerdantSphere, MSGBOX_NPC)
+        end
+    }
+    if(var(VAR_SPHERES_FOUND) == 1){
+        checkitem(ITEM_STEEL_SPHERE)
+        if(var(VAR_RESULT) == FALSE){
+            msgbox(LookForSteelSphere, MSGBOX_NPC)
+            end
+        }
+        playse(SE_PIN)
+        applymovement(1, Common_Movement_ExclamationMark)
+        waitmovement(0)
+        delay(48)
+        msgbox(ThatsSteelSphere)
+        setvar(VAR_SPHERES_FOUND, 2)
+    }
+    msgbox(ImTheCaretaker)
+    closemessage
+    checkitem(ITEM_STONE_SPHERE)
+    if(var(VAR_RESULT) == TRUE){
+        playse(SE_PIN)
+        applymovement(1, Common_Movement_ExclamationMark)
+        waitmovement(0)
+        delay(48)
+        msgbox(ThatsStoneSphere)
+        setvar(VAR_SPHERES_FOUND, 1)
+    }
+    release
+    end
+}
+
+text ImTheCaretaker{
+    "I am the current caretaker of\n"
+    "this tower.\p"
+    "It is said that this tower was erected\n"
+    "by a now lost civilization, to work as\l"
+    "a beacon to guide home the Protectors."
+}
+text ThatsStoneSphere{
+    "That Stone Sphere you are carrying,\n"
+    "may I see it?\p"
+    "… … … … …\p"
+    "Yes, this is undoubtedly something\n"
+    "left behind by the Protectors!\p"
+    "Its rightful place is here on the\n"
+    "pedestals, but according to legend,\l"
+    "Its presence should allow the holder\l"
+    "to sense the location of other such\l"
+    "spheres.\p"
+    "Please, seek the other spheres!\p"
+    "Maybe one day, we will finally be able\n"
+    "to witness the Protectors in person!"
+}
+text LookForSteelSphere{
+    "Please, seek the other spheres!\p"
+    "Maybe one day, we will finally be able\n"
+    "to witness the Protectors in person!\p"
+    "I would try visiting the library.\p"
+    "There's bound to be a research paper\n"
+    "or something related to this topic."
+}
+text ThatsSteelSphere{
+    "That Steel Sphere…\p"
+    "Yes, this is undoubtedly another\n"
+    "fragment of the Protectors!\p"
+    "I don't know how you're doing it,\n"
+    "but thanks to your efforts, we are\l"
+    "closer to bringing back the Protectors\l"
+    "than ever before!\p"
+    "Please, I urge you,\n"
+    "seek the final sphere!\p"
+    "If you need more guidance, I would\n"
+    "suggest visiting the library.\p"
+    "There's bound to be a research paper\n"
+    "or something related to this topic."
+}
+text LookForVerdantSphere{
+    "Please, seek the final sphere!\p"
+    "Maybe one day, we will finally be able\n"
+    "to witness the Protectors in person!\p"
+    "I would try visiting the library.\p"
+    "There's bound to be a research paper\n"
+    "or something related to this topic."
+}
+
+script OddSensation{
+    if(flag(FLAG_STEELSPHERE_CLUE)){
+        release
+        end
+    }
+    checkitem(ITEM_STONE_SPHERE)
+    if(var(VAR_RESULT) == TRUE){
+        lock
+        msgbox(OddSensation_Text)
+        setflag(FLAG_STEELSPHERE_CLUE)
+    }
+    release
+    end
+}
+
+text OddSensation_Text{
+    "You feel an odd sensation emanating\n"
+    "from the Stone Sphere."
+}

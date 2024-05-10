@@ -137,79 +137,61 @@ R12_HoneyTree_4:
 	closemessage
 	removeitem ITEM_HONEY, 1
 	random 10
-	compare VAR_RESULT, 0
-	goto_if_eq R12_HoneyTree_8
+	switch VAR_RESULT
+	case 0, R12_HoneyTree_9
+	case 1, R12_HoneyTree_10
+	case 2, R12_HoneyTree_11
+	case 3, R12_HoneyTree_12
+	case 4, R12_HoneyTree_13
+	case 5, R12_HoneyTree_14
+	case 6, R12_HoneyTree_15
+	case 7, R12_HoneyTree_16
+	case 8, R12_HoneyTree_17
+	case 9, R12_HoneyTree_18
 R12_HoneyTree_7:
-	compare VAR_RESULT, 1
-	goto_if_eq R12_HoneyTree_11
-R12_HoneyTree_10:
-	compare VAR_RESULT, 2
-	goto_if_eq R12_HoneyTree_14
-R12_HoneyTree_13:
-	compare VAR_RESULT, 3
-	goto_if_eq R12_HoneyTree_17
-R12_HoneyTree_16:
-	compare VAR_RESULT, 4
-	goto_if_eq R12_HoneyTree_20
-R12_HoneyTree_19:
-	compare VAR_RESULT, 5
-	goto_if_eq R12_HoneyTree_23
-R12_HoneyTree_22:
-	compare VAR_RESULT, 6
-	goto_if_eq R12_HoneyTree_26
-R12_HoneyTree_25:
-	compare VAR_RESULT, 7
-	goto_if_eq R12_HoneyTree_29
-R12_HoneyTree_28:
-	compare VAR_RESULT, 8
-	goto_if_eq R12_HoneyTree_32
-R12_HoneyTree_31:
-	compare VAR_RESULT, 9
-	goto_if_eq R12_HoneyTree_35
-R12_HoneyTree_34:
 	dowildbattle
 	release
 	end
 
-R12_HoneyTree_8:
-	setwildbattlelevelrange SPECIES_COMFEY, 31, ITEM_NONE, SPECIES_NONE, 24
+R12_HoneyTree_9:
+	setwildbattlelevelrange SPECIES_COMFEY, 31, ITEM_NONE, SPECIES_NONE, 35
+	goto R12_HoneyTree_7
+
+R12_HoneyTree_10:
+	setwildbattlelevelrange SPECIES_EMOLGA, 31, ITEM_NONE, SPECIES_NONE, 35
 	goto R12_HoneyTree_7
 
 R12_HoneyTree_11:
 	setwildbattlelevelrange SPECIES_EMOLGA, 31, ITEM_NONE, SPECIES_NONE, 35
-	goto R12_HoneyTree_10
+	goto R12_HoneyTree_7
+
+R12_HoneyTree_12:
+	setwildbattlelevelrange SPECIES_EMOLGA, 31, ITEM_NONE, SPECIES_NONE, 35
+	goto R12_HoneyTree_7
+
+R12_HoneyTree_13:
+	setwildbattlelevelrange SPECIES_CUTIEFLY, 31, ITEM_NONE, SPECIES_NONE, 35
+	goto R12_HoneyTree_7
 
 R12_HoneyTree_14:
-	setwildbattlelevelrange SPECIES_EMOLGA, 31, ITEM_NONE, SPECIES_NONE, 35
-	goto R12_HoneyTree_13
+	setwildbattlelevelrange SPECIES_CUTIEFLY, 31, ITEM_NONE, SPECIES_NONE, 35
+	goto R12_HoneyTree_7
+
+R12_HoneyTree_15:
+	setwildbattlelevelrange SPECIES_RIBOMBEE, 31, ITEM_NONE, SPECIES_NONE, 35
+	goto R12_HoneyTree_7
+
+R12_HoneyTree_16:
+	setwildbattlelevelrange SPECIES_COMFEY, 31, ITEM_NONE, SPECIES_NONE, 35
+	goto R12_HoneyTree_7
 
 R12_HoneyTree_17:
-	setwildbattlelevelrange SPECIES_EMOLGA, 31, ITEM_NONE, SPECIES_NONE, 35
-	goto R12_HoneyTree_16
-
-R12_HoneyTree_20:
-	setwildbattlelevelrange SPECIES_CUTIEFLY, 31, ITEM_NONE, SPECIES_NONE, 35
-	goto R12_HoneyTree_19
-
-R12_HoneyTree_23:
-	setwildbattlelevelrange SPECIES_CUTIEFLY, 31, ITEM_NONE, SPECIES_NONE, 35
-	goto R12_HoneyTree_22
-
-R12_HoneyTree_26:
-	setwildbattlelevelrange SPECIES_RIBOMBEE, 31, ITEM_NONE, SPECIES_NONE, 35
-	goto R12_HoneyTree_25
-
-R12_HoneyTree_29:
 	setwildbattlelevelrange SPECIES_COMFEY, 31, ITEM_NONE, SPECIES_NONE, 35
-	goto R12_HoneyTree_28
+	goto R12_HoneyTree_7
 
-R12_HoneyTree_32:
-	setwildbattlelevelrange SPECIES_COMFEY, 31, ITEM_NONE, SPECIES_NONE, 35
-	goto R12_HoneyTree_31
-
-R12_HoneyTree_35:
+R12_HoneyTree_18:
 	setwildbattlelevelrange SPECIES_MUNCHLAX, 31, ITEM_NONE, SPECIES_NONE, 35
-	goto R12_HoneyTree_34
+	goto R12_HoneyTree_7
 
 
 R12_Sign_Text::
@@ -363,5 +345,5 @@ R12Tr13_Lose::
 	.string "Ninja vanish!$"
 
 R12Tr13_PostBattle::
-	.string "I used “ninja vanish”, so you're\n"
+	.string "I used “ninja vanish,” so you're\n"
 	.string "not supposed to see me anymore.$"

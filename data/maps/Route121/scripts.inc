@@ -101,12 +101,12 @@ Route121_EventScript_Tammy::
 	end
 
 Route121_EventScript_Kate::
-	trainerbattle_double TRAINER_KATE_AND_JOY, Route121_Text_KateIntro, Route121_Text_KateDefeat, Route121_Text_KateNotEnoughMons
+	trainerbattle_double TRAINER_AT_5F_COOLTRAINER_M, Route121_Text_KateIntro, Route121_Text_KateDefeat, Route121_Text_KateNotEnoughMons
 	msgbox Route121_Text_KatePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route121_EventScript_Joy::
-	trainerbattle_double TRAINER_KATE_AND_JOY, Route121_Text_JoyIntro, Route121_Text_JoyDefeat, Route121_Text_JoyNotEnoughMons
+	trainerbattle_double TRAINER_AT_5F_COOLTRAINER_M, Route121_Text_JoyIntro, Route121_Text_JoyDefeat, Route121_Text_JoyNotEnoughMons
 	msgbox Route121_Text_JoyPostBattle, MSGBOX_AUTOCLOSE
 	end
 

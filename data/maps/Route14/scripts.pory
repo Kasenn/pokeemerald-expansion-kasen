@@ -40,3 +40,17 @@ text R14Tr2_PostBattle{
     "you're planning to head out this way.\l"
     "It's a long way till the next town."
 }
+
+script BetaBlock{
+    lock
+    msgbox(EndOfBeta)
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
+    waitmovement(0)
+    release
+    end
+}
+text EndOfBeta{
+    "This is currently the end of beta.\n"
+    "Thanks for playing!"
+}

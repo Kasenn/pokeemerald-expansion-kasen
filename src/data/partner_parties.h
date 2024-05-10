@@ -29,11 +29,11 @@ static const struct TrainerMon sParty_BrendanRowletPartner[] = {
     {
         .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
         .ev = TRAINER_PARTY_EVS(100, 0, 50, 0, 0, 50),
-        .lvl = 43,
-        .species = SPECIES_DIGGERSBY,
+        .lvl = 44,
+        .species = SPECIES_MORPEKO,
+        .nature = NATURE_RASH,
+        .moves = {MOVE_BITE, MOVE_SPARK, MOVE_QUICK_ATTACK, MOVE_FOUL_PLAY},
         .gender = TRAINER_MON_MALE,
-        .nature = NATURE_IMPISH,
-        .moves = {MOVE_STOMPING_TANTRUM, MOVE_ROCK_SMASH, MOVE_BOUNCE, MOVE_CUT},
     },
     {
         .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
@@ -59,11 +59,11 @@ static const struct TrainerMon sParty_BrendanTorchicPartner[] = {
     {
         .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
         .ev = TRAINER_PARTY_EVS(100, 0, 50, 0, 0, 50),
-        .lvl = 43,
-        .species = SPECIES_DIGGERSBY,
+        .lvl = 44,
+        .species = SPECIES_MORPEKO,
+        .nature = NATURE_RASH,
+        .moves = {MOVE_BITE, MOVE_SPARK, MOVE_QUICK_ATTACK, MOVE_FOUL_PLAY},
         .gender = TRAINER_MON_MALE,
-        .nature = NATURE_IMPISH,
-        .moves = {MOVE_STOMPING_TANTRUM, MOVE_ROCK_SMASH, MOVE_BOUNCE, MOVE_CUT},
     },
     {
         .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
@@ -89,11 +89,11 @@ static const struct TrainerMon sParty_BrendanPiplupPartner[] = {
     {
         .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
         .ev = TRAINER_PARTY_EVS(100, 0, 50, 0, 0, 50),
-        .lvl = 43,
-        .species = SPECIES_DIGGERSBY,
+        .lvl = 44,
+        .species = SPECIES_MORPEKO,
+        .nature = NATURE_RASH,
+        .moves = {MOVE_BITE, MOVE_SPARK, MOVE_QUICK_ATTACK, MOVE_FOUL_PLAY},
         .gender = TRAINER_MON_MALE,
-        .nature = NATURE_IMPISH,
-        .moves = {MOVE_STOMPING_TANTRUM, MOVE_ROCK_SMASH, MOVE_BOUNCE, MOVE_CUT},
     },
     {
         .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
@@ -111,7 +111,7 @@ static const struct TrainerMon sParty_BrendanPiplupPartner[] = {
         .species = SPECIES_EMPOLEON,
         .gender = TRAINER_MON_MALE,
         .nature = NATURE_SERIOUS,
-        .moves = {MOVE_METAL_CLAW, MOVE_AQUA_JET, MOVE_SWORDS_DANCE, MOVE_SWAGGER},
+        .moves = {MOVE_METAL_CLAW, MOVE_BRINE, MOVE_AQUA_JET, MOVE_SWAGGER},
     }
 };
 
@@ -119,11 +119,11 @@ static const struct TrainerMon sParty_MayRowletPartner[] = {
     {
         .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
         .ev = TRAINER_PARTY_EVS(100, 0, 50, 0, 0, 50),
-        .lvl = 43,
-        .species = SPECIES_LOPUNNY,
-        .friendship = 255,
-        .nature = NATURE_IMPISH,
-        .moves = {MOVE_RETURN, MOVE_AGILITY, MOVE_BATON_PASS, MOVE_JUMP_KICK}
+        .lvl = 44,
+        .species = SPECIES_MORPEKO,
+        .nature = NATURE_RASH,
+        .moves = {MOVE_BITE, MOVE_SPARK, MOVE_QUICK_ATTACK, MOVE_FOUL_PLAY},
+        .gender = TRAINER_MON_FEMALE,
     },
     {
         .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
@@ -132,7 +132,7 @@ static const struct TrainerMon sParty_MayRowletPartner[] = {
         .species = SPECIES_GALLADE,
         .gender = TRAINER_MON_MALE,
         .nature = NATURE_MILD,
-        .moves = {MOVE_PSYCHO_CUT, MOVE_NIGHT_SLASH, MOVE_SWORDS_DANCE, MOVE_ROCK_SMASH}
+        .moves = {MOVE_PSYCHO_CUT, MOVE_NIGHT_SLASH, MOVE_POWER_UP_PUNCH, MOVE_ROCK_SMASH}
     },
     {
         .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
@@ -149,11 +149,11 @@ static const struct TrainerMon sParty_MayTorchicPartner[] = {
     {
         .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
         .ev = TRAINER_PARTY_EVS(100, 0, 50, 0, 0, 50),
-        .lvl = 43,
-        .species = SPECIES_LOPUNNY,
-        .friendship = 255,
-        .nature = NATURE_IMPISH,
-        .moves = {MOVE_RETURN, MOVE_AGILITY, MOVE_BATON_PASS, MOVE_JUMP_KICK}
+        .lvl = 44,
+        .species = SPECIES_MORPEKO,
+        .nature = NATURE_RASH,
+        .moves = {MOVE_BITE, MOVE_SPARK, MOVE_QUICK_ATTACK, MOVE_FOUL_PLAY},
+        .gender = TRAINER_MON_FEMALE,
     },
     {
         .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
@@ -162,7 +162,7 @@ static const struct TrainerMon sParty_MayTorchicPartner[] = {
         .species = SPECIES_GALLADE,
         .gender = TRAINER_MON_MALE,
         .nature = NATURE_MILD,
-        .moves = {MOVE_PSYCHO_CUT, MOVE_NIGHT_SLASH, MOVE_SWORDS_DANCE, MOVE_ROCK_SMASH}
+        .moves = {MOVE_PSYCHO_CUT, MOVE_NIGHT_SLASH, MOVE_POWER_UP_PUNCH, MOVE_ROCK_SMASH}
     },
     {
         .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
@@ -179,11 +179,11 @@ static const struct TrainerMon sParty_MayPiplupPartner[] = {
     {
         .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
         .ev = TRAINER_PARTY_EVS(100, 0, 50, 0, 0, 50),
-        .lvl = 43,
-        .species = SPECIES_LOPUNNY,
-        .friendship = 255,
-        .nature = NATURE_IMPISH,
-        .moves = {MOVE_RETURN, MOVE_AGILITY, MOVE_BATON_PASS, MOVE_JUMP_KICK}
+        .lvl = 44,
+        .species = SPECIES_MORPEKO,
+        .nature = NATURE_RASH,
+        .moves = {MOVE_BITE, MOVE_SPARK, MOVE_QUICK_ATTACK, MOVE_FOUL_PLAY},
+        .gender = TRAINER_MON_FEMALE,
     },
     {
         .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
@@ -192,7 +192,7 @@ static const struct TrainerMon sParty_MayPiplupPartner[] = {
         .species = SPECIES_GALLADE,
         .gender = TRAINER_MON_MALE,
         .nature = NATURE_MILD,
-        .moves = {MOVE_PSYCHO_CUT, MOVE_NIGHT_SLASH, MOVE_SWORDS_DANCE, MOVE_ROCK_SMASH}
+        .moves = {MOVE_PSYCHO_CUT, MOVE_NIGHT_SLASH, MOVE_POWER_UP_PUNCH, MOVE_ROCK_SMASH}
     },
     {
         .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
@@ -201,6 +201,6 @@ static const struct TrainerMon sParty_MayPiplupPartner[] = {
         .species = SPECIES_EMPOLEON,
         .gender = TRAINER_MON_FEMALE,
         .nature = NATURE_SERIOUS,
-        .moves = {MOVE_METAL_CLAW, MOVE_AQUA_JET, MOVE_SWORDS_DANCE, MOVE_SWAGGER},
+        .moves = {MOVE_METAL_CLAW, MOVE_BRINE, MOVE_AQUA_JET, MOVE_SWAGGER},
     }
 };

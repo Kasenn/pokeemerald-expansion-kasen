@@ -139,6 +139,8 @@ PlayerHouse1F_Mom::
 	goto_if_eq PlayerHouse1F_Mom_1
 	compare VAR_PEARLWOOD_TOWN_STATE, 7
 	goto_if_eq PlayerHouse1F_Mom_2
+	compare VAR_PEARLWOOD_TOWN_STATE, 11
+	goto_if_ge PlayerHouse1F_Mom_7
 	goto PlayersHouse_1F_EventScript_MomHealsParty
 	return
 
@@ -155,6 +157,17 @@ PlayerHouse1F_Mom_2:
 	waitmovement 0
 	release
 	end
+
+PlayerHouse1F_Mom_7:
+	goto_if_set FLAG_DAD_INTRO, PlayerHouse1F_Mom_10
+PlayerHouse1F_Mom_9:
+	msgbox MomLookWhosBack, MSGBOX_NPC
+	setflag FLAG_DAD_INTRO
+	end
+
+PlayerHouse1F_Mom_10:
+	goto PlayersHouse_1F_EventScript_MomHealsParty
+	goto PlayerHouse1F_Mom_9
 
 
 PlayerHouse1F_MomGossip::
@@ -208,12 +221,20 @@ BrotherLeavesHouse:
 
 PH1FClearFlag::
 	compare VAR_PEARLWOOD_TOWN_STATE, 5
-	goto_if_eq PH1FClearFlag_1
+	goto_if_eq PH1FClearFlag_2
+PH1FClearFlag_1:
+	compare VAR_PEARLWOOD_TOWN_STATE, 11
+	goto_if_ge PH1FClearFlag_5
+PH1FClearFlag_4:
 	end
 
-PH1FClearFlag_1:
+PH1FClearFlag_2:
 	clearflag FLAG_UNUSED_LOSTTOBROTHER
-	return
+	goto PH1FClearFlag_1
+
+PH1FClearFlag_5:
+	clearflag FLAG_HIDE_PLAYERS_HOUSE_DAD
+	goto PH1FClearFlag_4
 
 
 WooperDoll::
@@ -231,6 +252,37 @@ AzurillDoll::
 	waitmessage
 	closemessage
 	release
+	end
+
+
+PlayerHouse1F_Dad::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_CAPSULE, PlayerHouse1F_Dad_2
+	goto_if_set FLAG_TEMP_5, PlayerHouse1F_Dad_5
+	msgbox GiftFromDad
+PlayerHouse1F_Dad_4:
+	closemessage
+	checkitemspace ITEM_ABILITY_CAPSULE
+	compare VAR_RESULT, FALSE
+	goto_if_eq PlayerHouse1F_Dad_9
+	giveitem ITEM_ABILITY_CAPSULE
+	waitse
+	msgbox ExplainCapsule, MSGBOX_NPC
+	setflag FLAG_RECEIVED_CAPSULE
+	end
+
+PlayerHouse1F_Dad_2:
+	msgbox WhereBrother, MSGBOX_NPC
+	end
+
+PlayerHouse1F_Dad_5:
+	msgbox GiftFromDadShort
+	goto PlayerHouse1F_Dad_4
+
+PlayerHouse1F_Dad_9:
+	msgbox NotEnoughRoom, MSGBOX_NPC
+	setflag FLAG_TEMP_5
 	end
 
 
@@ -300,3 +352,48 @@ PlayerHouse1F_BrotherGossip::
 
 PlayerHouse1F_Apology::
 	.string "{BROTHER}: Sorry about that.\nI knew that with my experience it was\lgoing to be an unfair fight. I hope you\ldon't take that loss too seriously…\pAnyway, have you thought about what\nyou're going to do next?\pIf you're up for it, we should totally\nsee which of us is the better trainer\lby taking on the Pokémon Gym Challenge!\pOur neighbor {RIVAL} just set out so we\nbetter get moving or we'll fall behind!\pDon't know about you but I'm not content\nwith a second place.\pCatch ya later!$"
+
+GiftFromDad::
+	.string "Dad: Hm?\p"
+	.string "Well, if it isn't {PLAYER}!\p"
+	.string "I had hoped I could see you and\n"
+	.string "{BROTHER} before you flew out the door,\l"
+	.string "but the exams at the Pokémon League\l"
+	.string "have kept me incredibly busy.\p"
+	.string "Still, I can't believe how much you've\n"
+	.string "grown. You must have at least, what,\l"
+	.string "three or four Gym Badges by now?\p"
+	.string "Oh!\p"
+	.string "I almost forgot. I picked up something\n"
+	.string "during my travels that both you and\l"
+	.string "{BROTHER} would certainly find useful.\p"
+	.string "It's a shame {BROTHER} isn't here,\n"
+	.string "but you can still have yours.\p$"
+
+GiftFromDadShort::
+	.string "Dad: It's a shame {BROTHER} isn't here,\n"
+	.string "but you can still have yours.\p$"
+
+ExplainCapsule::
+	.string "Dad: That's an Ability Capsule.\p"
+	.string "Many Pokémon are born with one of two\n"
+	.string "different abilities.\p"
+	.string "Using it on a Pokémon will cause it\n"
+	.string "to adapt and change its innate ability.\p"
+	.string "Do note that the Ability Capsule can\n"
+	.string "be used only once.\l"
+	.string "Make sure you decide carefully which\l"
+	.string "Pokémon to use it on.$"
+
+WhereBrother::
+	.string "Dad: Have you seen {BROTHER} lately?\p"
+	.string "Seeing how well he managed during\n"
+	.string "the Kanto challenge, I hardly doubt\l"
+	.string "his abilities.\p"
+	.string "However, as a parent, I do still feel\n"
+	.string "a bit anxious knowing you two are\l"
+	.string "out there, traveling the world.$"
+
+MomLookWhosBack::
+	.string "Mom: Oh, great timing, honey!\n"
+	.string "Look who's back home!$"

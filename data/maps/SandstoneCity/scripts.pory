@@ -4,6 +4,9 @@ mapscripts SandstoneCity_MapScripts{
 
 script VisitedSandstone{
     setflag(FLAG_VISITED_SANDSTONE_CITY)
+    if(var(VAR_RIVAL_AROUND_SANDSTONE) == 3){
+        setvar(VAR_RIVAL_AROUND_SANDSTONE, 4)
+    }
     end
 }
 
@@ -201,6 +204,10 @@ text Sandstone_Nerd_Text{
 }
 
 script SandstoneRival{
+    if(var(VAR_RIVAL_AROUND_SANDSTONE) == 4){
+        release
+        end
+    }
     setflag(FLAG_MAY_COSTUME_CHANGE)
     setflag(FLAG_BRENDAN_COSTUME_CHANGE)
     call(Common_EventScript_SetupRivalGfxId)

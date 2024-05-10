@@ -4505,8 +4505,8 @@
       "id": "LAYOUT_CORALGROVE_CITY",
       "name": "CoralgroveCity_Layout",
       "width": 58,
-      "height": 53,
-      "primary_tileset": "gTileset_General",
+      "height": 63,
+      "primary_tileset": "gTileset_Coralgrove",
       "secondary_tileset": "gTileset_CoralGrove",
       "border_filepath": "data/layouts/CoralgroveCity/border.bin",
       "blockdata_filepath": "data/layouts/CoralgroveCity/map.bin"

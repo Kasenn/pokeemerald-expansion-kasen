@@ -95,7 +95,7 @@ Route110_TrickHousePuzzle2_EventScript_Paul::
 	end
 
 Route110_TrickHousePuzzle2_EventScript_Georgia::
-	trainerbattle_single TRAINER_GEORGIA, Route110_TrickHousePuzzle2_Text_GeorgiaIntro, Route110_TrickHousePuzzle2_Text_GeorgiaDefeat
+	trainerbattle_single TRAINER_AT_4F_TR1_HEXMANIAC, Route110_TrickHousePuzzle2_Text_GeorgiaIntro, Route110_TrickHousePuzzle2_Text_GeorgiaDefeat
 	msgbox Route110_TrickHousePuzzle2_Text_GeorgiaPostBattle, MSGBOX_AUTOCLOSE
 	end
 

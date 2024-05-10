@@ -1,15 +1,70 @@
 mapscripts CoralTradeHouse_MapScripts{}
 
 script CoralgroveTradeSequence{
-    if(flag(FLAG_UNUSED_PICKEDROWLET)){
-        goto(CoralgroveDartrixTrade)
-    }
-    elif(flag(FLAG_UNUSED_PICKEDTORCHIC)){
-        goto(CoralgroveCombuskenTrade)
+    if((flag(FLAG_CORALGROVE_TRADE_COMPLETED)) && (flag(FLAG_OBTAINED_MEGA_RING))){
+        lock
+        faceplayer
+        if(flag(FLAG_OBTAINED_STARTER_STONE)){
+            goto(CoralgroveTradeCompleted)
+        }
+        if(flag(FLAG_TEMP_3)){
+            msgbox(LookingForStoneShort)
+        }
+        else{
+            playse(SE_PIN)
+            applymovement(1, Common_Movement_QuestionMark)
+            waitmovement(0)
+            delay(24)
+            msgbox(LookingForStone)
+        }
+        closemessage
+        checkitemspace(ITEM_INCINEROARITE)
+        if(var(VAR_RESULT) == FALSE){
+            setflag(FLAG_TEMP_3)
+            msgbox(NotEnoughRoom, MSGBOX_NPC)
+            end
+        }
+        switch(var(VAR_STARTER_MON)){
+            case 0:
+                giveitem(ITEM_CHESNAUGHTITE)
+            case 1:
+                giveitem(ITEM_INCINEROARITE)
+            case 2:
+                giveitem(ITEM_SWAMPERTITE)
+        }
+        waitse
+        msgbox(HoldTightToStone, MSGBOX_NPC)
+        setflag(FLAG_OBTAINED_STARTER_STONE)
+        end
     }
     else{
-        goto(CoralgrovePrinplupTrade)
+        if(flag(FLAG_UNUSED_PICKEDROWLET)){
+            goto(CoralgroveDartrixTrade)
+        }
+        elif(flag(FLAG_UNUSED_PICKEDTORCHIC)){
+            goto(CoralgroveCombuskenTrade)
+        }
+        else{
+            goto(CoralgrovePrinplupTrade)
+        }
     }
+}
+
+text LookingForStoneShort{
+    "Here's the stone you were looking for."
+}
+text LookingForStone{
+    "You're looking for a what stone?\p"
+    "… … … … …\p"
+    "Oh yeah, I do remember that!\n"
+    "My Pokémon used to love that stone!\p"
+    "Well, if it helps making it even\n"
+    "stronger, I guess I can let go of it.\p"
+    "Here you go."
+}
+text HoldTightToStone{
+    "I hope it becomes useful during your\n"
+    "journeys!"
 }
 
 script CoralgroveDartrixTrade{

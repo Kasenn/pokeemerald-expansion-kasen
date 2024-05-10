@@ -6,7 +6,7 @@
   "region_map_section": "MAPSEC_ADAMANT_TOWER",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_UNDERGROUND",
+  "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": true,
@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "AT_3F_Tr1_DownTalk",
       "flag": "0"
     },
     {
@@ -37,7 +37,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "AT_3F_Tr1_UpTalk",
       "flag": "0"
     },
     {
@@ -50,7 +50,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "AT_3F_Tr2_LeftTalk",
       "flag": "0"
     },
     {
@@ -63,7 +63,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "AT_3F_Tr2_RightTalk",
       "flag": "0"
     }
   ],
@@ -89,9 +89,9 @@
       "x": 6,
       "y": 5,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_TEMP_1",
       "var_value": "0",
-      "script": "NULL"
+      "script": "AT_3F_Tr1_Up"
     },
     {
       "type": "trigger",
@@ -100,16 +100,16 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "AT_3F_Tr1_Down"
     },
     {
       "type": "trigger",
       "x": 10,
       "y": 13,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_TEMP_1",
       "var_value": "0",
-      "script": "NULL"
+      "script": "AT_3F_Tr2_Left"
     }
   ],
   "bg_events": [

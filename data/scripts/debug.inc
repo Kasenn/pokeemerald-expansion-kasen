@@ -158,9 +158,8 @@ Debug_EventScript_Script_3::
 	end
 
 Debug_EventScript_Script_4::
-	fadescreen FADE_TO_BLACK
-    special NameBrother
-    waitstate 
+	setflag FLAG_COLLISION_OFF
+	release
 	end
 
 Debug_EventScript_Script_5::

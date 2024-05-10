@@ -334,10 +334,17 @@ TestFollower::
 MakeNewTeam::
 	lock
 	facefollower
+	compare VAR_TEMP_6, 1
+	goto_if_eq MakeNewTeam_2
 	msgbox KeepYouHealthy
+MakeNewTeam_1:
 	closemessage
 	release
 	end
+
+MakeNewTeam_2:
+	msgbox LetsFindKorrina
+	goto MakeNewTeam_1
 
 
 UnitedWithRival::
@@ -355,6 +362,7 @@ UnitedWithRival::
 UnitedWithRival_1:
 	closemessage
 	setvar VAR_RIVAL_AROUND_SANDSTONE, 3
+	setflag FLAG_PARTNER_HEALS
 	loadword 0, MakeNewTeam
 	special HealPlayerParty
 	setfollower 6, FOLLOWER_FLAG_ALL
@@ -387,6 +395,7 @@ MeetingRivalInTheTower::
 MeetingRivalInTheTower_1:
 	closemessage
 	setvar VAR_RIVAL_AROUND_SANDSTONE, 3
+	setflag FLAG_PARTNER_HEALS
 	loadword 0, MakeNewTeam
 	special HealPlayerParty
 	setfollower 6, FOLLOWER_FLAG_ALL
@@ -428,47 +437,64 @@ TestFollower_Text_0:
 	.string "Let's go!$"
 
 Tr2_2F_Man3Intro::
-	.string "$"
+	.string "You two must be pretty good if Korrina\n"
+	.string "is letting you inside this tower.\p"
+	.string "But are you good enough to defeat us?$"
 
 Tr2_2F_Woman5Intro::
-	.string "$"
+	.string "Working together during partner battles\n"
+	.string "is essential.\p"
+	.string "Let's see how well you do!$"
 
 Tr2_2F_Man3Lost::
-	.string "$"
+	.string "Excellent teamwork!$"
 
 Tr2_2F_Woman5Lost::
-	.string "$"
+	.string "Whoa!\n"
+	.string "You two are good!$"
 
 Tr2_2F_Woman5_PosBat::
-	.string "$"
+	.string "There are still many floors left that\n"
+	.string "are sure to test your skills.\p"
+	.string "I hope you're prepared.$"
 
 Tr2_2F_Man3_PosBat::
-	.string "$"
+	.string "I see now why Korrina has decided to\n"
+	.string "grant you access.$"
 
 Tr1_2F_PsychicIntro::
-	.string "$"
+	.string "Behold the terrifying power of\n"
+	.string "Psychic Pokémon!$"
 
 Tr1_2F_PsychicLost::
-	.string "$"
+	.string "What terrifying power!$"
 
 Tr1_2F_Man5Intro::
-	.string "$"
+	.string "Let's get this show on the road!$"
 
 Tr1_2F_Man5Lost::
-	.string "$"
+	.string "Couldn't make enough noise…$"
 
 Tr1_2F_Man5_PosBat::
-	.string "$"
+	.string "Keep your spirit up!\n"
+	.string "The way forwards will be perilous.$"
 
 Tr1_2F_Psychic_PosBat::
-	.string "$"
+	.string "I can peer into people's future, but\n"
+	.string "yours is far too tumultuous to make\l"
+	.string "any heads or tails out of it.$"
 
 AT_2F_DefeatedTrainer_Text::
-	.string "$"
+	.string "This place is far too hardcore\n"
+	.string "for me…$"
 
 KeepYouHealthy::
 	.string "{RIVAL}: Don't worry, I'll keep your\n"
 	.string "Pokémon in perfect health.$"
+
+LetsFindKorrina::
+	.string "{RIVAL}: We made it to the top!\n"
+	.string "Let's go find Korrina!$"
 
 MayHappyToSee::
 	.string "{RIVAL}: Oh, hi again {PLAYER}!\p"

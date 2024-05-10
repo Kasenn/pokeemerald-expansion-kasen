@@ -858,22 +858,22 @@ void Task_DoDoorWarp(u8 taskId)
     }
 }
 
-static u8 GetPlayerFaceToDoorDirection(struct ObjectEvent* player, struct ObjectEvent* follower)
-{
-    s16 delta_x = player->currentCoords.x - follower->currentCoords.x;
+// static u8 GetPlayerFaceToDoorDirection(struct ObjectEvent* player, struct ObjectEvent* follower)
+// {
+//     s16 delta_x = player->currentCoords.x - follower->currentCoords.x;
 
-    if (delta_x < 0)
-        return DIR_EAST;
-    else if (delta_x > 0)
-        return DIR_WEST;
+//     if (delta_x < 0)
+//         return DIR_EAST;
+//     else if (delta_x > 0)
+//         return DIR_WEST;
 
-    return DIR_NORTH;
-}
+//     return DIR_NORTH;
+// }
 
 static void Task_FollowerOutOfDoor(u8 taskId)
 {
     struct ObjectEvent *follower = &gObjectEvents[GetFollowerMapObjId()];
-    struct ObjectEvent *player = &gObjectEvents[gPlayerAvatar.objectEventId];
+    // struct ObjectEvent *player = &gObjectEvents[gPlayerAvatar.objectEventId];
     struct Task *task = &gTasks[taskId];
     s16 *x = &task->data[2];
     s16 *y = &task->data[3];
@@ -881,8 +881,8 @@ static void Task_FollowerOutOfDoor(u8 taskId)
     //if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_DASH) && ObjectEventClearHeldMovementIfFinished(player))
         //SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT); //Temporarily stop running
 
-    if (ObjectEventClearHeldMovementIfFinished(player))
-        ObjectEventTurn(player, GetPlayerFaceToDoorDirection(player, follower)); //The player should face towards the follow as the exit the door
+    // if (ObjectEventClearHeldMovementIfFinished(player))
+    //     ObjectEventTurn(player, GetPlayerFaceToDoorDirection(player, follower)); //The player should face towards the follow as the exit the door
 
     switch (task->data[0])
     {

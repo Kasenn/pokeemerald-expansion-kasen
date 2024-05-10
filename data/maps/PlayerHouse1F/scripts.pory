@@ -187,6 +187,14 @@ script PlayerHouse1F_Mom{
         end
     }
     else{
+        if(var(VAR_PEARLWOOD_TOWN_STATE) >= 11){
+            if(flag(FLAG_DAD_INTRO)){
+                goto(PlayersHouse_1F_EventScript_MomHealsParty)
+            }
+            msgbox(MomLookWhosBack, MSGBOX_NPC)
+            setflag(FLAG_DAD_INTRO)
+            end
+        }
         goto(PlayersHouse_1F_EventScript_MomHealsParty)
     }
 }
@@ -242,9 +250,10 @@ script PH1FClearFlag{
     if(var(VAR_PEARLWOOD_TOWN_STATE) == 5){
         clearflag(FLAG_UNUSED_LOSTTOBROTHER)
     }
-    else{
-        end
+    if(var(VAR_PEARLWOOD_TOWN_STATE) >= 11){
+        clearflag(FLAG_HIDE_PLAYERS_HOUSE_DAD)
     }
+    end
 }
 
 script WooperDoll{
@@ -263,4 +272,78 @@ script AzurillDoll{
     closemessage
     release
     end
+}
+
+script PlayerHouse1F_Dad{
+    lock
+    faceplayer
+    if(flag(FLAG_RECEIVED_CAPSULE)){
+        msgbox(WhereBrother, MSGBOX_NPC)
+        end
+    }
+    if(flag(FLAG_TEMP_5)){
+        msgbox(GiftFromDadShort)
+    }
+    else{
+        msgbox(GiftFromDad)
+    }
+    closemessage
+    checkitemspace(ITEM_ABILITY_CAPSULE)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(NotEnoughRoom, MSGBOX_NPC)
+        setflag(FLAG_TEMP_5)
+        end
+    }
+    giveitem(ITEM_ABILITY_CAPSULE)
+    waitse
+    msgbox(ExplainCapsule, MSGBOX_NPC)
+    setflag(FLAG_RECEIVED_CAPSULE)
+    end
+}
+
+text GiftFromDad{
+    "Dad: Hm?\p"
+    "Well, if it isn't {PLAYER}!\p"
+    "I had hoped I could see you and\n"
+    "{BROTHER} before you flew out the door,\l"
+    "but the exams at the Pokémon League\l"
+    "have kept me incredibly busy.\p"
+    "Still, I can't believe how much you've\n"
+    "grown. You must have at least, what,\l"
+    "three or four Gym Badges by now?\p"
+    "Oh!\p"
+    "I almost forgot. I picked up something\n"
+    "during my travels that both you and\l"
+    "{BROTHER} would certainly find useful.\p"
+    "It's a shame {BROTHER} isn't here,\n"
+    "but you can still have yours.\p"
+}
+
+text GiftFromDadShort{
+    "Dad: It's a shame {BROTHER} isn't here,\n"
+    "but you can still have yours.\p"
+}
+text ExplainCapsule{
+    "Dad: That's an Ability Capsule.\p"
+    "Many Pokémon are born with one of two\n"
+    "different abilities.\p"
+    "Using it on a Pokémon will cause it\n"
+    "to adapt and change its innate ability.\p"
+    "Do note that the Ability Capsule can\n"
+    "be used only once.\l"
+    "Make sure you decide carefully which\l"
+    "Pokémon to use it on."
+}
+text WhereBrother{
+    "Dad: Have you seen {BROTHER} lately?\p"
+    "Seeing how well he managed during\n"
+    "the Kanto challenge, I hardly doubt\l"
+    "his abilities.\p"
+    "However, as a parent, I do still feel\n"
+    "a bit anxious knowing you two are\l"
+    "out there, traveling the world."
+}
+text MomLookWhosBack{
+    "Mom: Oh, great timing, honey!\n"
+    "Look who's back home!"
 }

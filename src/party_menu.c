@@ -394,6 +394,7 @@ static void Task_CancelAfterAorBPress(u8);
 static void DisplayFieldMoveExitAreaMessage(u8);
 static void DisplayCantUseFlashMessage(void);
 static void DisplayCantUseSurfMessage(void);
+static void DisplayCantUseFlyMessage(void);
 static void Task_FieldMoveExitAreaYesNo(u8);
 static void Task_HandleFieldMoveExitAreaYesNoInput(u8);
 static void Task_FieldMoveWaitForFade(u8);
@@ -3033,14 +3034,14 @@ static void CB2_ReturnToPartyMenuFromSummaryScreen(void)
 
 static void CursorCb_Switch(u8 taskId)
 {
-    if(FlagGet(FLAG_DISABLE_PARTNER_SWITCHING)){
-        PlaySE(SE_FAILURE);
-        PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
-        PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
-        DisplayPartyMenuStdMessage(PARTY_MSG_PARTNER);
-        gTasks[taskId].func = Task_CancelAfterAorBPress;
-    }
-    else{
+    // if(FlagGet(FLAG_PARTNER_HEALS)){
+    //     PlaySE(SE_FAILURE);
+    //     PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
+    //     PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
+    //     DisplayPartyMenuStdMessage(PARTY_MSG_PARTNER);
+    //     gTasks[taskId].func = Task_CancelAfterAorBPress;
+    // }
+    // else{
         PlaySE(SE_SELECT);
         gPartyMenu.action = PARTY_ACTION_SWITCH;
         PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
@@ -3049,7 +3050,7 @@ static void CursorCb_Switch(u8 taskId)
         AnimatePartySlot(gPartyMenu.slotId, 1);
         gPartyMenu.slotId2 = gPartyMenu.slotId;
         gTasks[taskId].func = Task_HandleChooseMonInput;
-    }
+    // }
 }
 
 #define tSlot1Left     data[0]
@@ -4003,9 +4004,16 @@ static void CursorCb_FieldMove(u8 taskId)
                 sPartyMenuInternal->data[0] = fieldMove;
                 break;
             case FIELD_MOVE_FLY:
-                gPartyMenu.exitCallback = CB2_OpenFlyMap;
-                Task_ClosePartyMenu(taskId);
-                break;
+                if(FlagGet(FLAG_PARTNER_HEALS)){
+                    DisplayCantUseFlyMessage();
+                    gTasks[taskId].func = Task_CancelAfterAorBPress;
+                    break;
+                }
+                else{
+                    gPartyMenu.exitCallback = CB2_OpenFlyMap;
+                    Task_ClosePartyMenu(taskId);
+                    break;
+                }
             default:
                 gPartyMenu.exitCallback = CB2_ReturnToField;
                 Task_ClosePartyMenu(taskId);
@@ -4128,6 +4136,11 @@ static void DisplayCantUseSurfMessage(void)
         DisplayPartyMenuStdMessage(PARTY_MSG_ALREADY_SURFING);
     else
         DisplayPartyMenuStdMessage(PARTY_MSG_CANT_SURF_HERE);
+}
+
+static void DisplayCantUseFlyMessage(void)
+{
+    DisplayPartyMenuStdMessage(PARTY_MSG_CANT_FLY_NOW);
 }
 
 static bool8 SetUpFieldMove_Fly(void)

@@ -639,6 +639,7 @@ static const u8 *const sActionStringTable[] =
     [PARTY_MSG_GIVE_TO_WHICH_MON]      = gText_GiveToWhichPokemon,
     [PARTY_MSG_NOTHING_TO_CUT]         = gText_NothingToCut,
     [PARTY_MSG_CANT_SURF_HERE]         = gText_CantSurfHere,
+    [PARTY_MSG_CANT_FLY_NOW]           = gText_CantFlyNow,
     [PARTY_MSG_ALREADY_SURFING]        = gText_AlreadySurfing,
     [PARTY_MSG_CURRENT_TOO_FAST]       = gText_CurrentIsTooFast,
     [PARTY_MSG_ENJOY_CYCLING]          = gText_EnjoyCycling,

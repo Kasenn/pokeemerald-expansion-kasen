@@ -65,7 +65,7 @@
 #define FLAG_SKYLOCH_JUICE                      0x34 // 
 #define FLAG_SKYLOCH_CASTELIACONE               0x35 // 
 #define FLAG_SHOWED_BADGE                       0x36 // Showed badge to gain entry to adamant tower
-#define FLAG_DISABLE_PARTNER_SWITCHING                        0x37 // disable switching while followed by a partner
+#define FLAG_PARTNER_HEALS                        0x37 // disable switching while followed by a partner
 #define FLAG_ROUTE8_ITEM1                       0x38 // Route 8 item flags
 #define FLAG_ROUTE8_ITEM2                       0x39 // 
 #define FLAG_ROUTE8_ITEM3                       0x3A // 
@@ -196,11 +196,11 @@
 #define FLAG_RUINS_4F_ITEM4                  0xB1
 #define FLAG_RUINS_4F_ITEM5                  0xB2
 #define FLAG_RUINS_4F_ITEM6                  0xB3
-#define FLAG_UNUSED_0XB4                     0xB4
-#define FLAG_UNUSED_0XB5                     0xB5
-#define FLAG_UNUSED_0XB6                     0xB6
-#define FLAG_UNUSED_0XB7                     0xB7
-#define FLAG_UNUSED_0XB8                     0xB8
+#define FLAG_OBTAINED_STARTER_STONE                     0xB4       
+#define FLAG_COLLISION_OFF                     0xB5
+#define FLAG_RECEIVED_CAPSULE                     0xB6       
+#define FLAG_DAD_INTRO                     0xB7
+#define FLAG_STEELSPHERE_CLUE                     0xB8
 #define FLAG_UNUSED_0XB9                     0xB9
 #define FLAG_UNUSED_0XBA                     0xBA
 #define FLAG_UNUSED_0XBB                     0xBB
@@ -909,7 +909,7 @@
 #define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_ALT_1           0x360
 #define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_ALT_2           0x361
 #define FLAG_HIDE_PETALBURG_GYM_WALLY                               0x362
-#define FLAG_UNKNOWN_0x363                                          0x363 // Set, however has no purpose.
+#define FLAG_DAD_GIFT                                          0x363 // Set, however has no purpose.
 #define FLAG_HIDE_LITTLEROOT_TOWN_FAT_MAN                           0x364
 #define FLAG_HIDE_SLATEPORT_CITY_STERNS_SHIPYARD_MR_BRINEY          0x365
 #define FLAG_HIDE_LANETTES_HOUSE_LANETTE                            0x366

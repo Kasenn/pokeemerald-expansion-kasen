@@ -74,7 +74,7 @@ Update3_16:
 	clearflag FLAG_SHOWED_BADGE
 	clearflag FLAG_SYSTEM_NOREWARDBATTLES
 	clearflag FLAG_OBTAINED_PAINTBRUSH
-	clearflag FLAG_DISABLE_PARTNER_SWITCHING
+	clearflag FLAG_PARTNER_HEALS
 	clearflag FLAG_TRADED_SMEARGLE
 	clearflag FLAG_KORRINA_LEAVESGYM
 	clearflag FLAG_HIDE_LIBRARY_BIRCH
@@ -101,7 +101,7 @@ Update3_25:
 	goto Update3_1
 
 Update3_5:
-	warp MAP_CORALGROVE_CITY, 26, 31
+	warp MAP_CORALGROVE_CITY, 26, 41
 	goto Update3_4
 
 Update3_8:

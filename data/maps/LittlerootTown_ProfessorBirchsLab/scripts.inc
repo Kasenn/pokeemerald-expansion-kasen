@@ -276,15 +276,14 @@ LittlerootTown_ProfessorBirchsLab_Movement_PlayerEnterLabForJohtoStarter:
 LittlerootTown_ProfessorBirchsLab_EventScript_Aide::
 	lock
 	faceplayer
-	goto_if_ge VAR_BIRCH_LAB_STATE, 3, LittlerootTown_ProfessorBirchsLab_EventScript_AideReceivedStarter
 	goto_if_set FLAG_BIRCH_AIDE_MET, LittlerootTown_ProfessorBirchsLab_EventScript_AideAlreadyMet
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_BirchAwayOnFieldwork, MSGBOX_DEFAULT
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_BirchIsntOneForDeskWork, MSGBOX_DEFAULT
 	setflag FLAG_BIRCH_AIDE_MET
 	release
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_AideAlreadyMet::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_BirchIsntOneForDeskWork, MSGBOX_DEFAULT
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_BirchEnjoysRivalsHelpToo, MSGBOX_DEFAULT
 	release
 	end
 
@@ -677,15 +676,15 @@ LittlerootTown_ProfessorBirchsLab_Text_BirchAwayOnFieldwork:
 	.string "things than read about them here.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BirchIsntOneForDeskWork:
-	.string "The PROF isn't one for doing desk work.\n"
+	.string "The Prof isn't one for doing desk work.\n"
 	.string "He's the type of person who would\l"
 	.string "rather go outside and experience\l"
 	.string "things than read about them here.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BirchEnjoysRivalsHelpToo:
-	.string "PROF. BIRCH is studying the habitats\n"
-	.string "and distribution of POKéMON.\p"
-	.string "The PROF enjoys {RIVAL}'s help, too.\n"
+	.string "Prof. Birch is studying the habitats\n"
+	.string "and distribution of Pokémon.\p"
+	.string "The Prof enjoys {RIVAL}'s help, too.\n"
 	.string "There's a lot of love there.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_LikeYouToHavePokemon:

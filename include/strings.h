@@ -2353,6 +2353,7 @@ extern const u8 gText_UseOnWhichPokemon[];
 extern const u8 gText_GiveToWhichPokemon[];
 extern const u8 gText_NothingToCut[];
 extern const u8 gText_CantSurfHere[];
+extern const u8 gText_CantFlyNow[];
 extern const u8 gText_AlreadySurfing[];
 extern const u8 gText_CurrentIsTooFast[];
 extern const u8 gText_EnjoyCycling[];

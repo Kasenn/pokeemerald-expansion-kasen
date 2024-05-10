@@ -198,7 +198,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 25,
+      "x": 26,
       "y": 24,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",

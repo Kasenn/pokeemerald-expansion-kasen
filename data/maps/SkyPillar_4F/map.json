@@ -6,7 +6,7 @@
   "region_map_section": "MAPSEC_ADAMANT_TOWER",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_UNDERGROUND",
+  "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": true,
@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "AT_4F_Tr3_UpTalk",
       "flag": "0"
     },
     {
@@ -37,7 +37,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "AT_4F_Tr3_DownTalk",
       "flag": "0"
     },
     {
@@ -50,7 +50,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "AT_4F_Tr2_RightTalk",
       "flag": "0"
     },
     {
@@ -63,7 +63,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "AT_4F_Tr2_LeftTalk",
       "flag": "0"
     },
     {
@@ -76,7 +76,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "AT_4F_Tr1_LeftTalk",
       "flag": "0"
     },
     {
@@ -89,7 +89,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "AT_4F_Tr1_RightTalk",
       "flag": "0"
     },
     {
@@ -101,7 +101,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
+      "trainer_sight_or_berry_tree_id": "ITEM_HYPER_POTION",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_AT_ITEM2"
     }
@@ -128,18 +128,18 @@
       "x": 1,
       "y": 7,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_TEMP_1",
       "var_value": "0",
-      "script": "NULL"
+      "script": "AT_4F_Tr3_Up"
     },
     {
       "type": "trigger",
       "x": 1,
       "y": 8,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_TEMP_1",
       "var_value": "0",
-      "script": "NULL"
+      "script": "AT_4F_Tr3_Down"
     },
     {
       "type": "trigger",
@@ -148,25 +148,25 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "AT_4F_Tr2_Left"
     },
     {
       "type": "trigger",
       "x": 4,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_TEMP_1",
       "var_value": "0",
-      "script": "NULL"
+      "script": "AT_4F_Tr2_Right"
     },
     {
       "type": "trigger",
       "x": 11,
       "y": 9,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_TEMP_1",
       "var_value": "0",
-      "script": "NULL"
+      "script": "AT_4F_Tr1"
     }
   ],
   "bg_events": [
@@ -175,7 +175,7 @@
       "x": 0,
       "y": 4,
       "elevation": 0,
-      "item": "ITEM_NONE",
+      "item": "ITEM_PP_UP",
       "flag": "FLAG_AT_ITEM3"
     }
   ]

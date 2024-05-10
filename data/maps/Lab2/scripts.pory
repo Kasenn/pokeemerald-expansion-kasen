@@ -3,7 +3,200 @@ mapscripts Lab2_MapScripts{
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_PEARLWOOD_TOWN_STATE, 3: Lab2_Intro
         VAR_PEARLWOOD_TOWN_STATE, 9: Lab2_DexGet
+        VAR_PEARLWOOD_TOWN_STATE, 11: Lab2_GetMegaStone
     ]
+}
+
+script Lab2_GetMegaStone{
+    clearflag(FLAG_HIDE_LAB_RIVAL)
+    applymovement(OBJ_EVENT_ID_PLAYER, Lab2_MovePlayerUp)
+    waitmovement(0)
+    msgbox(LabMegaStones)
+    closemessage
+    if(flag(FLAG_CORALGROVE_TRADE_COMPLETED)){
+        playse(SE_PIN)
+        applymovement(4, Common_Movement_QuestionMark)
+        waitmovement(0)
+        delay(30)
+        msgbox(TradedAwayStarter)
+        closemessage
+    }
+    checkitemspace(ITEM_DECIDUEITE)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(ComeGetYourStoneLater)
+        setvar(VAR_PEARLWOOD_TOWN_STATE, 12)
+    }
+    else{
+        switch(var(VAR_STARTER_MON)){
+            case 0:
+                giveitem(ITEM_DECIDUEITE)
+            case 1:
+                giveitem(ITEM_BLAZIKENITE)
+            case 2:
+                giveitem(ITEM_EMPOLEONITE)
+        }
+        setvar(VAR_PEARLWOOD_TOWN_STATE, 13)
+        waitse
+    }
+    delay(24)
+    applymovement(4, ProfBackAndForth)
+    waitmovement(0)
+    applymovement(5, Common_Movement_WalkInPlaceFasterLeft)
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight)
+    waitmovement(0)
+    checkplayergender
+    if(var(VAR_RESULT) == MALE){
+        if(var(VAR_PEARLWOOD_TOWN_STATE) == 12){
+            msgbox(GonnaGoAhead_May)
+            applymovement(5, Common_Movement_WalkInPlaceFasterUp)
+            waitmovement(0)
+            msgbox(ThanksDadBirch)
+        }
+        else{
+            msgbox(GonnaTakeMyLeave_May)
+            applymovement(5, Common_Movement_WalkInPlaceFasterUp)
+            waitmovement(0)
+            msgbox(ThanksDadBirch)
+        }
+    }
+    else{
+        if(var(VAR_PEARLWOOD_TOWN_STATE) == 12){
+            msgbox(GonnaGoAhead_Brendan)
+            applymovement(5, Common_Movement_WalkInPlaceFasterUp)
+            waitmovement(0)
+            msgbox(ThanksDadBirch)
+        }
+        else{
+            msgbox(GonnaTakeMyLeave_Brendan)
+            applymovement(5, Common_Movement_WalkInPlaceFasterUp)
+            waitmovement(0)
+            msgbox(ThanksDadBirch)
+        }
+    }
+    applymovement(5, RivalLeavesLab)
+    applymovement(OBJ_EVENT_ID_PLAYER, TurnPlayer)
+    waitmovement(5)
+    removeobject(5)
+    release
+    end
+}
+
+text LabMegaStones{
+    "Prof. Birch: {RIVAL}, {PLAYER},\n"
+    "what a pleasant surprise.\l"
+    "I was hoping to see you two soon.\p"
+    "Thanks to a colleague of mine, I have\n"
+    "been able to do a lot of research on\l"
+    "a phenomena called “Mega Evolution.”\p"
+    "Not much is known about it here in\n"
+    "Sinko, but thanks to Professor Sycamore\l"
+    "of Kalos, I have been able to greatly\l"
+    "further my research.\p"
+    "This is where you two come in.\p"
+    "One day, I happened upon a mysterious\n"
+    "set of stones. I believe these stones\l"
+    "to be Mega Stones, special evolution\l"
+    "stones capable of triggering a Mega\l"
+    "evolution within certain Pokémon.\p"
+    "I would like you two to test out my\n"
+    "theory, and see if your Pokémon are\l"
+    "able to somehow interact with these\l"
+    "Mega Stones.\p"
+    "I want you both to have a stone that\n"
+    "I believe is related to the Pokémon\l"
+    "I gave you."
+}
+text TradedAwayStarter{
+    "Prof. Birch: Oh, you haven't traded my\n"
+    "magnanimous gift away, have you?\p"
+    "Don't worry, I'm just kidding.\p"
+    "I can still give you the stone that's\n"
+    "associated with the Pokémon I gave you,\l"
+    "but you'll have to figure out where to\l"
+    "get the stone for the Pokémon you\l"
+    "currently have by yourself.\p"
+    "Maybe you could try checking with the\n"
+    "person who traded you it originally?\p"
+    "In any case, here you go."
+}
+text ComeGetYourStoneLater{
+    "Prof. Birch: It seems your bag is\n"
+    "currently too full to carry this stone.\p"
+    "I will give {RIVAL}'s stone to them,\n"
+    "and once you've made enough space in\l"
+    "your bag, you too can have yours."
+}
+text GonnaGoAhead_May{
+    "{RIVAL}: I can't wait to see this\n"
+    "thing in action!\p"
+    "You make sure you grab yours as well,\n"
+    "{PLAYER}!"
+    "I don't want to hear you whining that\n"
+    "you lost because you didn't have access\l"
+    "to Mega Evolution!"
+}
+text GonnaTakeMyLeave_May{
+    "{RIVAL}: I can't wait to see this\n"
+    "thing in action!\p"
+    "You better train your Pokémon to use\n"
+    "the stone, {PLAYER}!"
+    "I don't want to hear you whining that\n"
+    "you lost because you didn't have access\l"
+    "to Mega Evolution!"
+}
+text GonnaGoAhead_Brendan{
+    "{RIVAL}: I can't wait to see this\n"
+    "thing in action!\p"
+    "Make sure you grab yours before you\n"
+    "leave, {PLAYER}."
+    "I don't want to hear any complaints\n"
+    "about how you lost because you didn't\l"
+    "know how to Mega Evolve your Pokémon."
+}
+text GonnaTakeMyLeave_Brendan{
+    "{RIVAL}: I can't wait to see this\n"
+    "thing in action!\p"
+    "I hope you train your Pokémon to get\n"
+    "the most out of that stone, {PLAYER}.\p"
+    "I don't want to hear any complaints\n"
+    "about how you lost because you didn't\l"
+    "know how to Mega Evolve your Pokémon."
+}
+text ThanksDadBirch{
+    "{RIVAL}: Thanks dad! I'm going to go\n"
+    "and give this thing a try right away!"
+}
+
+movement ProfBackAndForth{
+    walk_right
+    walk_in_place_faster_down
+    delay_16 * 6
+    walk_left
+    walk_in_place_faster_down
+    step_end
+}
+movement RivalLeavesLab{
+    walk_down * 7
+}
+movement TurnPlayer{
+    walk_in_place_faster_right
+    walk_in_place_faster_down
+}
+
+text YourFatherIsInTown{
+    "Prof. Birch: Oh, I almost forgot!\n"
+    "Your father is currently in town.\p"
+    "I know he's a busy man. You may want\n"
+    "to dash on home before he leaves."
+}
+text HeresYourStoneNow{
+    "Prof. Birch: I hope you've made enough\n"
+    "space in your bag to hold this stone."
+}
+text ComeGetYourStoneLaterShort{
+    "No, looks like your bag is still full.\p"
+    "You will need to make some room in your\n"
+    "bag before I can give this to you."
 }
 
 script Lab2_Intro{
@@ -155,9 +348,39 @@ text Lab2_PresentingBalls{
 }
 
 script Lab2_Birch{
-
     lockall
     faceplayer
+    if(var(VAR_PEARLWOOD_TOWN_STATE) == 14){
+        call(ProfBirch_EventScript_RatePokedexOrRegister)
+        end
+    }
+    if(var(VAR_PEARLWOOD_TOWN_STATE) == 13){
+        msgbox(YourFatherIsInTown, MSGBOX_NPC)
+        end
+    }
+    if(var(VAR_PEARLWOOD_TOWN_STATE) == 12){
+        msgbox(HeresYourStoneNow)
+        closemessage
+        checkitemspace(ITEM_DECIDUEITE)
+        if(var(VAR_RESULT) == FALSE){
+            msgbox(ComeGetYourStoneLaterShort, MSGBOX_NPC)
+            end
+        }
+        else{
+            switch(var(VAR_STARTER_MON)){
+                case 0:
+                    giveitem(ITEM_DECIDUEITE)
+                case 1:
+                    giveitem(ITEM_BLAZIKENITE)
+                case 2:
+                    giveitem(ITEM_EMPOLEONITE)
+            }
+            setvar(VAR_PEARLWOOD_TOWN_STATE, 13)
+            waitse
+            release
+            end
+        }
+    }
     if(!(flag(FLAG_UNUSED_PICKEDROWLET) || flag(FLAG_UNUSED_PICKEDTORCHIC) || flag(FLAG_UNUSED_PICKEDPIPLUP))){
         msgbox("Prof. Birch: Go on, pick one of the\nballs from the table.")
     }

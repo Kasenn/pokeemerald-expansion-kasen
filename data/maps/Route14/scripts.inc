@@ -14,6 +14,16 @@ Route14_Tr2_Hiker::
 	end
 
 
+BetaBlock::
+	lock
+	msgbox EndOfBeta
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Right
+	waitmovement 0
+	release
+	end
+
+
 R14Tr1_Intro::
 	.string "Whether it be rain or sunshine,\n"
 	.string "I still push on!$"
@@ -42,3 +52,7 @@ R14Tr2_PostBattle::
 	.string "You should stock up on essentials if\n"
 	.string "you're planning to head out this way.\l"
 	.string "It's a long way till the next town.$"
+
+EndOfBeta::
+	.string "This is currently the end of beta.\n"
+	.string "Thanks for playing!$"

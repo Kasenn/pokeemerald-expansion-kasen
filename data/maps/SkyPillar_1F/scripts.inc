@@ -102,7 +102,7 @@ SetUpPlayerParty::
 	fadescreen FADE_TO_BLACK
 	special ChooseHalfPartyForBattle
 	waitstate
-	setflag FLAG_DISABLE_PARTNER_SWITCHING
+	setflag FLAG_PARTNER_HEALS
 	return
 
 

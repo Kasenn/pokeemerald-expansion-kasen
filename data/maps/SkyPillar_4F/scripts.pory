@@ -1,0 +1,350 @@
+mapscripts SkyPillar_4F_MapScripts{}
+
+script AT_4F_Tr1{
+    if(defeated(TRAINER_AT_4F_TR1_BLACKBELT)){
+        release
+        end
+    }
+    goto(Tower_4F_Tr1_Battle)
+}
+script AT_4F_Tr1_LeftTalk{
+    msgbox(AT_4F_Tr1_PostBatHexManiac, MSGBOX_NPC)
+    end
+}
+script AT_4F_Tr1_RightTalk{
+    msgbox(AT_4F_Tr1_PostBatBlackBelt, MSGBOX_NPC)
+    end
+}
+
+
+script Tower_4F_Tr1_Battle{
+    lock
+    special(SavePlayerParty)
+    special(SetPlayerParty)
+    playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
+    applymovement(6, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    applymovement(6, Common_Movement_Delay48)
+    waitmovement(0)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+    msgbox(Tr1_4F_BlackbeltIntro)
+    closemessage
+    playbgm(MUS_ENCOUNTER_SUSPICIOUS, FALSE)
+    applymovement(5, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    applymovement(5, Common_Movement_Delay48)
+    waitmovement(0)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+    msgbox(Tr1_4F_HexManiacIntro)
+    closemessage
+    switch(var(VAR_TOWER_PARTNER)){
+        case 0:
+            multi_2_vs_2(TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_ORAS_TORCHIC, TRAINER_BACK_PIC_MAY_ORAS)
+        case 1:
+            multi_2_vs_2(TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_ORAS_PIPLUP, TRAINER_BACK_PIC_MAY_ORAS)
+        case 2:
+            multi_2_vs_2(TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_ORAS_ROWLET, TRAINER_BACK_PIC_MAY_ORAS)
+        case 3:
+            multi_2_vs_2(TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_TORCHIC, TRAINER_BACK_PIC_MAY)
+        case 4:
+            multi_2_vs_2(TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_PIPLUP, TRAINER_BACK_PIC_MAY)
+        case 5:
+            multi_2_vs_2(TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_ROWLET, TRAINER_BACK_PIC_MAY)
+        case 6:
+            multi_2_vs_2(TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_ORAS_TORCHIC, TRAINER_BACK_PIC_BRENDAN_ORAS)
+        case 7:
+            multi_2_vs_2(TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_ORAS_PIPLUP, TRAINER_BACK_PIC_BRENDAN_ORAS)
+        case 8:
+            multi_2_vs_2(TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_ORAS_ROWLET, TRAINER_BACK_PIC_BRENDAN_ORAS)
+        case 9:
+            multi_2_vs_2(TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_TORCHIC, TRAINER_BACK_PIC_BRENDAN)
+        case 10:
+            multi_2_vs_2(TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_PIPLUP, TRAINER_BACK_PIC_BRENDAN)
+        case 11:
+            multi_2_vs_2(TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_ROWLET, TRAINER_BACK_PIC_BRENDAN)
+    }
+    switch(var(VAR_RESULT)){
+        case 1:
+            settrainerflag(TRAINER_AT_4F_TR1_BLACKBELT)
+            settrainerflag(TRAINER_AT_4F_TR1_HEXMANIAC)
+            release
+            end
+    }
+	fadescreen(FADE_TO_BLACK)
+	special(SetCB2WhiteOut)
+	waitstate
+}
+
+text AT_4F_Tr1_PostBatHexManiac{
+    "Please…\n"
+    "Leave me be…"
+}
+text AT_4F_Tr1_PostBatBlackBelt{
+    "Maybe I should go back to the gym.\n"
+    "To be defeated by newcomers so easily…"
+}
+text Tr1_4F_BlackbeltIntro{
+    "I was trained by Korrina herself.\n"
+    "You stand no chance!"
+}
+text Tr1_4F_HexManiacIntro{
+    "Please…\n"
+    "Show me your Pokémon…"
+}
+text Tr1_4F_Blackbelt_Lost{
+    "I have failed you, master!"
+}
+text Tr1_4F_HexManiac_Lost{
+    "Please…\n"
+    "Stop showing me your Pokémon…"
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+
+script AT_4F_Tr2_Right{
+    if(defeated(TRAINER_AT_4F_TR2_LASS)){
+        release
+        end
+    }
+    setvar(VAR_TEMP_2, 1)
+    goto(Tower_4F_Tr2_Battle)
+}
+script AT_4F_Tr2_RightTalk{
+    msgbox(AT_4F_Tr2_PostBatLass, MSGBOX_NPC)
+    end
+}
+script AT_4F_Tr2_Left{
+    if(defeated(TRAINER_AT_4F_TR2_LASS)){
+        release
+        end
+    }
+    setvar(VAR_TEMP_2, 2)
+    goto(Tower_4F_Tr2_Battle)
+}
+script AT_4F_Tr2_LeftTalk{
+    if(defeated(TRAINER_AT_4F_TR2_LASS)){
+        msgbox(AT_4F_Tr2_PostBatYoungster, MSGBOX_NPC)
+        end
+    }
+    setvar(VAR_TEMP_2, 3)
+    goto(Tower_4F_Tr2_Battle)
+}
+
+
+script Tower_4F_Tr2_Battle{
+    lock
+    special(SavePlayerParty)
+    special(SetPlayerParty)
+    switch(var(VAR_TEMP_2)){
+        case 1:
+            playbgm(MUS_ENCOUNTER_MALE, FALSE)
+            applymovement(3, Common_Movement_ExclamationMark)
+            waitmovement(0)
+            applymovement(3, Common_Movement_Delay48)
+            waitmovement(0)
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+            msgbox(Tr2_4F_LassIntro)
+        case 2:
+            playbgm(MUS_ENCOUNTER_FEMALE, FALSE)
+            applymovement(4, Common_Movement_ExclamationMark)
+            waitmovement(0)
+            applymovement(4, Common_Movement_Delay48)
+            waitmovement(0)
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+            msgbox(Tr2_4F_YoungsterIntro)
+        case 3:
+            playbgm(MUS_ENCOUNTER_MALE, FALSE)
+            faceplayer
+            msgbox(Tr2_4F_YoungsterIntro)
+    }
+    closemessage
+    switch(var(VAR_TOWER_PARTNER)){
+        case 0:
+            multi_2_vs_2(TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_ORAS_TORCHIC, TRAINER_BACK_PIC_MAY_ORAS)
+        case 1:
+            multi_2_vs_2(TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_ORAS_PIPLUP, TRAINER_BACK_PIC_MAY_ORAS)
+        case 2:
+            multi_2_vs_2(TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_ORAS_ROWLET, TRAINER_BACK_PIC_MAY_ORAS)
+        case 3:
+            multi_2_vs_2(TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_TORCHIC, TRAINER_BACK_PIC_MAY)
+        case 4:
+            multi_2_vs_2(TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_PIPLUP, TRAINER_BACK_PIC_MAY)
+        case 5:
+            multi_2_vs_2(TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_ROWLET, TRAINER_BACK_PIC_MAY)
+        case 6:
+            multi_2_vs_2(TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_ORAS_TORCHIC, TRAINER_BACK_PIC_BRENDAN_ORAS)
+        case 7:
+            multi_2_vs_2(TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_ORAS_PIPLUP, TRAINER_BACK_PIC_BRENDAN_ORAS)
+        case 8:
+            multi_2_vs_2(TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_ORAS_ROWLET, TRAINER_BACK_PIC_BRENDAN_ORAS)
+        case 9:
+            multi_2_vs_2(TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_TORCHIC, TRAINER_BACK_PIC_BRENDAN)
+        case 10:
+            multi_2_vs_2(TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_PIPLUP, TRAINER_BACK_PIC_BRENDAN)
+        case 11:
+            multi_2_vs_2(TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_ROWLET, TRAINER_BACK_PIC_BRENDAN)
+    }
+    switch(var(VAR_RESULT)){
+        case 1:
+            settrainerflag(TRAINER_AT_4F_TR2_LASS)
+            settrainerflag(TRAINER_AT_4F_TR2_YOUNGSTER)
+            release
+            end
+    }
+	fadescreen(FADE_TO_BLACK)
+	special(SetCB2WhiteOut)
+	waitstate
+}
+
+text AT_4F_Tr2_PostBatLass{
+    "Please don't tell anyone we're here!\p"
+    "We just wanted to catch some strong\n"
+    "Pokémon!"
+}
+text AT_4F_Tr2_PostBatYoungster{
+    "We heard there were strong Pokémon\n"
+    "here, so we snuck past the guard."
+}
+text Tr2_4F_LassIntro{
+    "Eek!\n"
+    "Not a trainer battle!"
+}
+text Tr2_4F_YoungsterIntro{
+    "I'm the luckiest guy alive.\n"
+    "Think you stand a chance?"
+}
+text Tr2_4F_Lass_Lost{
+    "Please don't tell anyone we're here!"
+}
+text Tr2_4F_Youngster_Lost{
+    "All I wanted was to catch strong\n"
+    "Pokemon…"
+}
+text LassMegaRing{
+    "No way am I fighting against someone\n"
+    "with a Mega Ring!"
+}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+
+script AT_4F_Tr3_Up{
+    if(defeated(TRAINER_AT_4F_TR3_BATTLEGIRL)){
+        release
+        end
+    }
+    setvar(VAR_TEMP_2, 1)
+    goto(Tower_4F_Tr3_Battle)
+}
+script AT_4F_Tr3_UpTalk{
+    if(defeated(TRAINER_AT_4F_TR3_BATTLEGIRL)){
+        msgbox(AT_4F_Tr3_PostBatBlackbelt, MSGBOX_NPC)
+        end
+    }
+    setvar(VAR_TEMP_2, 2)
+    goto(Tower_4F_Tr3_Battle)
+}
+script AT_4F_Tr3_Down{
+    if(defeated(TRAINER_AT_4F_TR3_BATTLEGIRL)){
+        release
+        end
+    }
+    setvar(VAR_TEMP_2, 3)
+    goto(Tower_4F_Tr3_Battle)
+}
+script AT_4F_Tr3_DownTalk{
+    msgbox(AT_4F_Tr3_PostBatBattleGirl, MSGBOX_NPC)
+    end
+}
+
+
+script Tower_4F_Tr3_Battle{
+    lock
+    special(SavePlayerParty)
+    special(SetPlayerParty)
+    playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
+    switch(var(VAR_TEMP_2)){
+        case 1:
+            applymovement(1, Common_Movement_ExclamationMark)
+            waitmovement(0)
+            applymovement(1, Common_Movement_Delay48)
+            waitmovement(0)
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+            msgbox(Tr3_4F_BlackBeltIntro)
+        case 2:
+            faceplayer
+            msgbox(Tr3_4F_BlackBeltIntro)
+        case 3:
+            applymovement(2, Common_Movement_ExclamationMark)
+            waitmovement(0)
+            applymovement(2, Common_Movement_Delay48)
+            waitmovement(0)
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+            msgbox(Tr3_4F_BattleGirlIntro)
+    }
+    closemessage
+    switch(var(VAR_TOWER_PARTNER)){
+        case 0:
+            multi_2_vs_2(TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_ORAS_TORCHIC, TRAINER_BACK_PIC_MAY_ORAS)
+        case 1:
+            multi_2_vs_2(TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_ORAS_PIPLUP, TRAINER_BACK_PIC_MAY_ORAS)
+        case 2:
+            multi_2_vs_2(TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_ORAS_ROWLET, TRAINER_BACK_PIC_MAY_ORAS)
+        case 3:
+            multi_2_vs_2(TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_TORCHIC, TRAINER_BACK_PIC_MAY)
+        case 4:
+            multi_2_vs_2(TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_PIPLUP, TRAINER_BACK_PIC_MAY)
+        case 5:
+            multi_2_vs_2(TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_ROWLET, TRAINER_BACK_PIC_MAY)
+        case 6:
+            multi_2_vs_2(TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_ORAS_TORCHIC, TRAINER_BACK_PIC_BRENDAN_ORAS)
+        case 7:
+            multi_2_vs_2(TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_ORAS_PIPLUP, TRAINER_BACK_PIC_BRENDAN_ORAS)
+        case 8:
+            multi_2_vs_2(TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_ORAS_ROWLET, TRAINER_BACK_PIC_BRENDAN_ORAS)
+        case 9:
+            multi_2_vs_2(TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_TORCHIC, TRAINER_BACK_PIC_BRENDAN)
+        case 10:
+            multi_2_vs_2(TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_PIPLUP, TRAINER_BACK_PIC_BRENDAN)
+        case 11:
+            multi_2_vs_2(TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_ROWLET, TRAINER_BACK_PIC_BRENDAN)
+    }
+    switch(var(VAR_RESULT)){
+        case 1:
+            settrainerflag(TRAINER_AT_4F_TR3_BATTLEGIRL)
+            settrainerflag(TRAINER_AT_4F_TR3_BLACKBELT)
+            release
+            end
+    }
+	fadescreen(FADE_TO_BLACK)
+	special(SetCB2WhiteOut)
+	waitstate
+}
+
+text AT_4F_Tr3_PostBatBlackbelt{
+    "You are almost to the top.\n"
+    "Keep pushing!"
+}
+text AT_4F_Tr3_PostBatBattleGirl{
+    "Next time we will win!"
+}
+text Tr3_4F_BlackBeltIntro{
+    "“The best offense is a good defense”.\n"
+    "That's how the saying goes, right?"
+}
+text Tr3_4F_BattleGirlIntro{
+    "“Strength over speed,”\n"
+    "that's my motto!"
+}
+text Tr3_4F_BattleGirl_Lost{
+    "I couldn't break your defense…"
+}
+text Tr3_4F_Blackbelt_Lost{
+    "Even together, we still lose…"
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////

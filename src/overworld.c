@@ -380,6 +380,7 @@ void Overworld_ResetStateAfterFly(void)
     FlagClear(FLAG_SYS_USE_FLASH);
     FlagClear(FLAG_INCREASED_SHINY_ODDS);
     FlagClear(FLAG_SYSTEM_NOREWARDBATTLES);
+    FlagClear(FLAG_PARTNER_HEALS);
     FlagClear(FLAG_DESERT_STEPS);
 }
 
@@ -393,6 +394,7 @@ void Overworld_ResetStateAfterTeleport(void)
     FlagClear(FLAG_SYS_USE_FLASH);
     FlagClear(FLAG_INCREASED_SHINY_ODDS);
     FlagClear(FLAG_SYSTEM_NOREWARDBATTLES);
+    FlagClear(FLAG_PARTNER_HEALS);
     FlagClear(FLAG_DESERT_STEPS);
     RunScriptImmediately(EventScript_ResetMrBriney);
 }
@@ -407,6 +409,7 @@ void Overworld_ResetStateAfterDigEscRope(void)
     FlagClear(FLAG_SYS_USE_FLASH);
     FlagClear(FLAG_INCREASED_SHINY_ODDS);
     FlagClear(FLAG_SYSTEM_NOREWARDBATTLES);
+    FlagClear(FLAG_PARTNER_HEALS);
     FlagClear(FLAG_DESERT_STEPS);
 }
 
@@ -433,6 +436,7 @@ void Overworld_ResetBattleFlagsAndVars(void)
     FlagClear(FLAG_SYSTEM_NO_WILD_RUNNING);
     FlagClear(FLAG_INCREASED_SHINY_ODDS);
     FlagClear(FLAG_SYSTEM_NOREWARDBATTLES);
+    FlagClear(FLAG_PARTNER_HEALS);
     FlagClear(FLAG_DESERT_STEPS);
     FlagClear(B_FLAG_DYNAMAX_BATTLE);
     FlagClear(B_FLAG_SKY_BATTLE);
@@ -1399,6 +1403,10 @@ static void ChooseAmbientCrySpecies(void)
         // when Mirage Island is not present
         sIsAmbientCryWaterMon = TRUE;
         sAmbientCrySpecies = GetLocalWaterMon();
+    }
+    else if( gSaveBlock1Ptr->location.mapNum == MAP_NUM(CORALGROVE_CITY))
+    {
+        sAmbientCrySpecies = SPECIES_NONE;
     }
     else
     {

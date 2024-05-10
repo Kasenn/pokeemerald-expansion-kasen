@@ -102,22 +102,42 @@ script Tower_2F_Tr2_Battle{
 	waitstate
 }
 
-text Tr2_2F_Man3Intro{""}
-text Tr2_2F_Woman5Intro{""}
-text Tr2_2F_Man3Lost{""}
-text Tr2_2F_Woman5Lost{""}
+text Tr2_2F_Man3Intro{
+    "You two must be pretty good if Korrina\n"
+    "is letting you inside this tower.\p"
+    "But are you good enough to defeat us?"
+}
+text Tr2_2F_Woman5Intro{
+    "Working together during partner battles\n"
+    "is essential.\p"
+    "Let's see how well you do!"
+}
+text Tr2_2F_Man3Lost{
+    "Excellent teamwork!"
+}
+text Tr2_2F_Woman5Lost{
+    "Whoa!\n"
+    "You two are good!"
+}
 
 script Tr2_2F_Woman5{
     msgbox(Tr2_2F_Woman5_PosBat)
     end
 }
-text Tr2_2F_Woman5_PosBat{""}
+text Tr2_2F_Woman5_PosBat{
+    "There are still many floors left that\n"
+    "are sure to test your skills.\p"
+    "I hope you're prepared."
+}
 
 script Tr2_2F_Man3{
     msgbox(Tr2_2F_Man3_PosBat)
     end
 }
-text Tr2_2F_Man3_PosBat{""}
+text Tr2_2F_Man3_PosBat{
+    "I see now why Korrina has decided to\n"
+    "grant you access."
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -205,22 +225,38 @@ script Tower_2F_Tr1_Battle{
 	waitstate
 }
 
-text Tr1_2F_PsychicIntro{""}
-text Tr1_2F_PsychicLost{""}
-text Tr1_2F_Man5Intro{""}
-text Tr1_2F_Man5Lost{""}
+text Tr1_2F_PsychicIntro{
+    "Behold the terrifying power of\n"
+    "Psychic Pokémon!"
+}
+text Tr1_2F_PsychicLost{
+    "What terrifying power!"
+}
+text Tr1_2F_Man5Intro{
+    "Let's get this show on the road!"
+}
+text Tr1_2F_Man5Lost{
+    "Couldn't make enough noise…"
+}
 
 script Tr1_2F_Man5{
     msgbox(Tr1_2F_Man5_PosBat)
     end
 }
-text Tr1_2F_Man5_PosBat{""}
+text Tr1_2F_Man5_PosBat{
+    "Keep your spirit up!\n"
+    "The way forwards will be perilous."
+}
 
 script Tr1_2F_Psychic{
     msgbox(Tr1_2F_Psychic_PosBat)
     end
 }
-text Tr1_2F_Psychic_PosBat{""}
+text Tr1_2F_Psychic_PosBat{
+    "I can peer into people's future, but\n"
+    "yours is far too tumultuous to make\l"
+    "any heads or tails out of it."
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -230,7 +266,10 @@ script AT_2F_DefeatedTrainer{
     msgbox(AT_2F_DefeatedTrainer_Text, MSGBOX_NPC)
     end
 }
-text AT_2F_DefeatedTrainer_Text{""}
+text AT_2F_DefeatedTrainer_Text{
+    "This place is far too hardcore\n"
+    "for me…"
+}
 
 
 
@@ -240,7 +279,7 @@ script TestFollower{
     // fadescreen(FADE_TO_BLACK)
 	// special(ChooseHalfPartyForBattle)
 	// waitstate
-    // setflag(FLAG_DISABLE_PARTNER_SWITCHING)
+    // setflag(FLAG_PARTNER_HEALS)
     msgbox("Let's go!")
     closemessage
     loadword(0, MakeNewTeam)
@@ -252,7 +291,12 @@ script TestFollower{
 script MakeNewTeam{
     lock
     facefollower
-    msgbox(KeepYouHealthy)
+    if(var(VAR_TEMP_6) == 1){
+        msgbox(LetsFindKorrina)
+    }
+    else{
+        msgbox(KeepYouHealthy)
+    }
     closemessage
     release
     end
@@ -260,6 +304,10 @@ script MakeNewTeam{
 text KeepYouHealthy{
     "{RIVAL}: Don't worry, I'll keep your\n"
     "Pokémon in perfect health."
+}
+text LetsFindKorrina{
+    "{RIVAL}: We made it to the top!\n"
+    "Let's go find Korrina!"
 }
 
 // VAR_RIVAL_AROUND_SANDSTONE
@@ -286,6 +334,7 @@ script UnitedWithRival{
     }
     closemessage
     setvar(VAR_RIVAL_AROUND_SANDSTONE, 3)
+    setflag(FLAG_PARTNER_HEALS)
     loadword(0, MakeNewTeam)
     special(HealPlayerParty)
     setfollower(6, FOLLOWER_FLAG_ALL)
@@ -328,6 +377,7 @@ script MeetingRivalInTheTower{
     }
     closemessage
     setvar(VAR_RIVAL_AROUND_SANDSTONE, 3)
+    setflag(FLAG_PARTNER_HEALS)
     loadword(0, MakeNewTeam)
     special(HealPlayerParty)
     setfollower(6, FOLLOWER_FLAG_ALL)

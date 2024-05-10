@@ -5,7 +5,14 @@ SandstoneCity_MapScripts::
 
 VisitedSandstone::
 	setflag FLAG_VISITED_SANDSTONE_CITY
+	compare VAR_RIVAL_AROUND_SANDSTONE, 3
+	goto_if_eq VisitedSandstone_2
+VisitedSandstone_1:
 	end
+
+VisitedSandstone_2:
+	setvar VAR_RIVAL_AROUND_SANDSTONE, 4
+	goto VisitedSandstone_1
 
 
 Sandstone_Sign1::
@@ -122,6 +129,8 @@ Sandstone_Nerd::
 
 
 SandstoneRival::
+	compare VAR_RIVAL_AROUND_SANDSTONE, 4
+	goto_if_eq SandstoneRival_2
 	setflag FLAG_MAY_COSTUME_CHANGE
 	setflag FLAG_BRENDAN_COSTUME_CHANGE
 	call Common_EventScript_SetupRivalGfxId
@@ -139,14 +148,14 @@ SandstoneRival::
 	checkplayergender
 	copyvar VAR_TEMP_2, VAR_RESULT
 	compare VAR_TEMP_2, MALE
-	goto_if_eq SandstoneRival_2
+	goto_if_eq SandstoneRival_5
 	msgbox RivalBrendanLikeOutfit, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
-	goto_if_eq SandstoneRival_8
+	goto_if_eq SandstoneRival_11
 	msgbox LikeBrendansOutfit
 	compare VAR_RIVAL_AROUND_SANDSTONE, 0
-	goto_if_eq SandstoneRival_17
-SandstoneRival_1:
+	goto_if_eq SandstoneRival_20
+SandstoneRival_4:
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Sandstone_PlayerWatchRivalExit
 	applymovement 13, Sandstone_RivalExitAfterStore
@@ -157,45 +166,49 @@ SandstoneRival_1:
 	end
 
 SandstoneRival_2:
-	msgbox RivalMayLikeOutfit, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
-	goto_if_eq SandstoneRival_5
-	msgbox LikeMaysOutfit
-	compare VAR_RIVAL_AROUND_SANDSTONE, 0
-	goto_if_eq SandstoneRival_13
-	goto SandstoneRival_1
+	release
+	end
 
 SandstoneRival_5:
+	msgbox RivalMayLikeOutfit, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq SandstoneRival_8
+	msgbox LikeMaysOutfit
+	compare VAR_RIVAL_AROUND_SANDSTONE, 0
+	goto_if_eq SandstoneRival_16
+	goto SandstoneRival_4
+
+SandstoneRival_8:
 	msgbox DontLikeMaysOutfit
 	clearflag FLAG_MAY_COSTUME_CHANGE
 	clearflag FLAG_BRENDAN_COSTUME_CHANGE
 	compare VAR_RIVAL_AROUND_SANDSTONE, 0
-	goto_if_eq SandstoneRival_11
-	goto SandstoneRival_1
+	goto_if_eq SandstoneRival_14
+	goto SandstoneRival_4
 
-SandstoneRival_8:
+SandstoneRival_11:
 	msgbox DontLikeBrendansOutfit
 	clearflag FLAG_MAY_COSTUME_CHANGE
 	clearflag FLAG_BRENDAN_COSTUME_CHANGE
 	compare VAR_RIVAL_AROUND_SANDSTONE, 0
-	goto_if_eq SandstoneRival_15
-	goto SandstoneRival_1
+	goto_if_eq SandstoneRival_18
+	goto SandstoneRival_4
 
-SandstoneRival_11:
+SandstoneRival_14:
 	setvar VAR_RIVAL_AROUND_SANDSTONE, 2
-	goto SandstoneRival_1
+	goto SandstoneRival_4
 
-SandstoneRival_13:
+SandstoneRival_16:
 	setvar VAR_RIVAL_AROUND_SANDSTONE, 1
-	goto SandstoneRival_1
+	goto SandstoneRival_4
 
-SandstoneRival_15:
+SandstoneRival_18:
 	setvar VAR_RIVAL_AROUND_SANDSTONE, 2
-	goto SandstoneRival_1
+	goto SandstoneRival_4
 
-SandstoneRival_17:
+SandstoneRival_20:
 	setvar VAR_RIVAL_AROUND_SANDSTONE, 1
-	goto SandstoneRival_1
+	goto SandstoneRival_4
 
 
 Sandstone_PushPlayerDown:

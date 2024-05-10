@@ -5765,7 +5765,7 @@ static void HandleEndTurn_FinishBattle(void)
             TestRunner_Battle_AfterLastTurn();
         BeginFastPaletteFade(3);
         FadeOutMapMusic(5);
-        if(FlagGet(FLAG_DISABLE_PARTNER_SWITCHING)){
+        if(FlagGet(FLAG_PARTNER_HEALS)){
             HealPlayerParty();
         }
         if (B_TRAINERS_KNOCK_OFF_ITEMS == TRUE || B_RESTORE_HELD_BATTLE_ITEMS >= GEN_9)
