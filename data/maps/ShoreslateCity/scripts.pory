@@ -298,6 +298,7 @@ script Shoreslate_CasteliaVendor{
 }
 script HowManyCastelias{
     message("How many Casteliacones\nwould you like to buy?")
+    waitmessage
     multichoice(23, 0, 9, 0)
     switch(var(VAR_RESULT)){
         case 0:

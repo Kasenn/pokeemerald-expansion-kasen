@@ -221,6 +221,7 @@ Shoreslate_CasteliaVendor_10:
 
 HowManyCastelias::
 	message HowManyCastelias_Text_0
+	waitmessage
 	multichoice 23, 0, 9, 0
 	switch VAR_RESULT
 	case 0, HowManyCastelias_2

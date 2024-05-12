@@ -76,13 +76,73 @@ script Coralgrove_MAN_3{
 }
 
 script Coralgrove_GENTLEMAN{
-    lockall
-    faceplayer
-    msgbox("They recently opened this new shop\nbut I have no idea what lies inside.\pI don't want to enter situations where\na person of my stature would not\lnormally be seen in so I'm deliberating\lwhether I should peek in.", MSGBOX_NPC)
-    waitmessage
-    closemessage
+    if(flag(FLAG_CORALGROVE_CUTSCENE)){
+        msgbox(Coralgrove_DroppedSomething, MSGBOX_NPC)
+    }
+    else{
+        msgbox(Coralgrove_GENTLEMAN_Text, MSGBOX_NPC)
+    }
+    turnobject(12, DIR_NORTH)
+    end
+}
+text Coralgrove_GENTLEMAN_Text{
+    "Do you ever look far into the horizon\n"
+    "and let your worries fade away?"
+}
+text Coralgrove_DroppedSomething{
+    "Did you see that?\p"
+    "I think that Pidgeot dropped\n"
+    "something in the ocean."
+}
+
+script Coralgrove_LeftBirds{
+    setvar(VAR_TEMP_3, 1)
+    goto(Coralgrove_BirdEvent)
+}
+script Coralgrove_RightBirds{
+    setvar(VAR_TEMP_3, 2)
+    goto(Coralgrove_BirdEvent)
+}
+
+script Coralgrove_BirdEvent{
+    if(flag(FLAG_CORALGROVE_CUTSCENE)){
+        release
+        end
+    }
+    lock
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, Walk3Up)
+    waitmovement(0)
+    if(var(VAR_TEMP_3) == 1){
+        applymovement(14, BirdFlyFromWest)
+        waitmovement(14)
+        playmoncry(SPECIES_PIDGEOT, CRY_MODE_NORMAL)
+        applymovement(14, BirdFlyFromWest)
+        waitmovement(14)
+    }
+    else{
+        applymovement(13, BirdFlyFromEast)
+        waitmovement(13)
+        playmoncry(SPECIES_PIDGEOT, CRY_MODE_NORMAL)
+        applymovement(13, BirdFlyFromEast)
+        waitmovement(13)
+    }
+    applymovement(OBJ_EVENT_ID_CAMERA, Walk3Down)
+    waitmovement(0)
+    special(RemoveCameraObject)
+    delay(30)
+    removeobject(13)
+    removeobject(14)
+    setflag(FLAG_CORALGROVE_CUTSCENE)
+    clearflag(FLAG_OBTAINED_PIDGEOTITE)
     release
     end
+}
+movement BirdFlyFromWest{
+    walk_right * 10
+}
+movement BirdFlyFromEast{
+    walk_left * 10
 }
 
 script Coralgrove_MartMan{

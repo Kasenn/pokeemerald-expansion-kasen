@@ -198,6 +198,10 @@ FollowerStaysBehind::
 	compare VAR_TEMP_5, 1
 	goto_if_eq FollowerStaysBehind_2
 	lock
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_FOLLOWER, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 48
 	facefollower
 	checkplayergender
 	delay 15
@@ -232,7 +236,7 @@ AdamantTower1F_Man4_Text::
 
 MaystayHere::
 	.string "{RIVAL}: You're not planning to leave\n"
-	.string "me to conquer this tower alone,\l"
+	.string "me to tackle this tower alone,\l"
 	.string "are you?\p"
 	.string "Well, if you do decide to leave,\n"
 	.string "I'm going back to the floor above us.\p"

@@ -2,109 +2,185 @@ Sandstone_Library_2F_MapScripts::
 	.byte 0
 
 
+Book1Event::
+	lock
+	msgbox Book2Intro, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Book1Event_2
+	msgbox Book2, MSGBOX_SIGN
+	end
+
+Book1Event_2:
+	msgbox PutTheBookBack, MSGBOX_SIGN
+	end
+
+
+Book2Event::
+	lock
+	msgbox Book5Intro, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Book2Event_2
+	msgbox Book5Part1, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Book2Event_5
+	msgbox Book5Part2, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Book2Event_8
+	msgbox Book5Part3, MSGBOX_SIGN
+	end
+
+Book2Event_2:
+	msgbox PutTheBookBack, MSGBOX_SIGN
+	end
+
+Book2Event_5:
+	msgbox PutTheBookBack, MSGBOX_SIGN
+	end
+
+Book2Event_8:
+	msgbox PutTheBookBack, MSGBOX_SIGN
+	end
+
+
+Book3Event::
+	lock
+	msgbox Book7Intro, MSGBOX_DEFAULT
+	message ProtectorsIntro2
+	waitmessage
+	dynmultipush Part1_Text, 0
+	dynmultipush Part2_Text, 1
+	dynmultipush Part3_Text, 2
+	dynmultipush PartExit_Text, 3
+	dynmultistack 23, 0, FALSE, 4, FALSE, 0, NULL
+	switch VAR_RESULT
+	case 0, Book3Event_3
+	case 1, Book3Event_4
+	case 2, Book3Event_5
+	case 3, Book3Event_6
+	case MULTI_B_PRESSED, Book3Event_7
+Book3Event_1:
+	end
+
+Book3Event_3:
+	msgbox Book7Story1, MSGBOX_SIGN
+	goto Book3Event_1
+
+Book3Event_4:
+	msgbox Book7Story2, MSGBOX_SIGN
+	goto Book3Event_1
+
+Book3Event_5:
+	msgbox Book7Story3, MSGBOX_SIGN
+	goto Book3Event_1
+
+Book3Event_6:
+	msgbox PutTheBookBack, MSGBOX_SIGN
+	goto Book3Event_1
+
+Book3Event_7:
+	msgbox PutTheBookBack, MSGBOX_SIGN
+	goto Book3Event_1
+
+
+Book4Event::
+	lock
+	msgbox SinkoMythIntro, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Book4Event_2
+	msgbox SinkoMyth, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Book4Event_5
+	msgbox SinkoMythPart2, MSGBOX_SIGN
+	end
+
+Book4Event_2:
+	msgbox PutTheBookBack, MSGBOX_SIGN
+	end
+
+Book4Event_5:
+	msgbox PutTheBookBack, MSGBOX_SIGN
+	end
+
+
+Book5Event::
+	lock
+	msgbox ProtectorsIntro, MSGBOX_DEFAULT
+	message ProtectorsIntro2
+	waitmessage
+	dynmultipush PartIntro_Text, 0
+	dynmultipush Part2_Text, 1
+	dynmultipush Part3_Text, 2
+	dynmultipush Part3_Text, 3
+	dynmultipush PartExit_Text, 4
+	dynmultistack 23, 0, FALSE, 5, FALSE, 0, NULL
+	switch VAR_RESULT
+	case 0, Book5Event_3
+	case 1, Book5Event_4
+	case 2, Book5Event_5
+	case 3, Book5Event_6
+	case 4, Book5Event_7
+	case MULTI_B_PRESSED, Book5Event_8
+Book5Event_1:
+	end
+
+Book5Event_3:
+	msgbox Protectors, MSGBOX_SIGN
+	goto Book5Event_1
+
+Book5Event_4:
+	msgbox YoungestProtector, MSGBOX_SIGN
+	goto Book5Event_1
+
+Book5Event_5:
+	msgbox SecondProtector, MSGBOX_SIGN
+	goto Book5Event_1
+
+Book5Event_6:
+	msgbox OldestProtector, MSGBOX_SIGN
+	goto Book5Event_1
+
+Book5Event_7:
+	msgbox PutTheBookBack, MSGBOX_SIGN
+	goto Book5Event_1
+
+Book5Event_8:
+	msgbox PutTheBookBack, MSGBOX_SIGN
+	goto Book5Event_1
+
+
+Book6Event::
+	lock
+	msgbox LittleGreenMenIntro, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Book6Event_2
+	msgbox LittleGreenMen, MSGBOX_SIGN
+	end
+
+Book6Event_2:
+	msgbox PutTheBookBack, MSGBOX_SIGN
+	end
+
+
 PutTheBookBack::
 	.string "{PLAYER} put the book back.$"
 
-Book1Intro::
-	.string "This book is titled “Sinnoh\n"
-	.string "Myth.” Want to read it?$"
-
-Book1::
-	.string "“Sinnoh Myth”\p"
-	.string "Betray not your anger, lest ??? will\n"
-	.string "come.\p"
-	.string "Weep not with sorrow, or ??? will\n"
-	.string "draw near.\p"
-	.string "When joy and enjoyment come natural\n"
-	.string "as the very air, that is happiness.\p"
-	.string "Let such be blessed by the hand\n"
-	.string "of Master ???.\p"
-	.string "Those words were spoken often\n"
-	.string "as customary.$"
-
 Book2Intro::
-	.string "This book is titled “Sinnoh Region's\n"
-	.string "Mythology.” Want to read it?$"
+	.string "This book is titled “Old Verse 19.”\n"
+	.string "Want to read it?$"
 
 Book2::
-	.string "“Sinnoh Region's Mythology”\p"
-	.string "Long ago, when Sinnoh had just been\n"
-	.string "made, Pokémon and humans led\l"
-	.string "separate lives.\p"
-	.string "That is not to say they did not help\n"
-	.string "each other. No, indeed they did.\p"
-	.string "They supplied each other with goods,\n"
-	.string "and supported each other.\p"
-	.string "A Pokémon proposed to the others\n"
-	.string "to always be ready to help humans.\p"
-	.string "It asked that Pokémon be ready to\n"
-	.string "appear before humans always.\p"
-	.string "Thus, to this day, Pokémon appear\n"
-	.string "to us if we venture into tall grass.$"
-
-Book3Intro::
-	.string "This book is titled “Sinnoh's\n"
-	.string "Myth.” Want to read it?$"
-
-Book3::
-	.string "“Sinnoh's Myth”\p"
-	.string "Three Pokémon there were.\p"
-	.string "Into the lakes they dove.\n"
-	.string "Deep, deep, drawing no breath.\p"
-	.string "Deeper, deeper they dove.\n"
-	.string "Into suffocating depths they dove.\p"
-	.string "Deeper, then deepest they alight.\n"
-	.string "From the lake floor they rise.\p"
-	.string "Bearing with them the power to make\n"
-	.string "vast lands, they rise again.$"
-
-Book4Intro::
-	.string "This book is titled “Veilstone's\n"
-	.string "Myth.” Want to read it?$"
-
-Book4Part1::
-	.string "“Veilstone's Myth”\p"
-	.string "A young man, callow and foolish in\n"
-	.string "innocence, came to own a sword.\p"
-	.string "With it, he smote Pokémon, which gave\n"
-	.string "sustenance, with carefree abandon.\p"
-	.string "Those not taken as food, he\n"
-	.string "discarded, with no afterthought.\p"
-	.string "The following year, no Pokémon\n"
-	.string "appeared. Larders grew bare.\p"
-	.string "…Would you like to keep reading?$"
-
-Book4Part2::
-	.string "The young man, seeking the missing\n"
-	.string "Pokémon, journeyed afar.\p"
-	.string "Long did he search. And far and wide,\n"
-	.string "too, until one he did find.\p"
-	.string "Asked he, “Why do you hide?”\n"
-	.string "To which the Pokémon replied…\p"
-	.string "“If you bear your sword to bring\n"
-	.string "harm upon us, with claws and\l"
-	.string "fangs, we will exact a toll.\p"
-	.string "“From your kind we will take our\n"
-	.string "toll, for it must be done.\p"
-	.string "“Done it must be to guard ourselves\n"
-	.string "and for it, I apologize.”\p"
-	.string "…Would you like to keep reading?$"
-
-Book4Part3::
-	.string "To the skies, the young man shouted\n"
-	.string "his dismay.\p"
-	.string "“In having found the sword, I have\n"
-	.string "lost so much.\p"
-	.string "“Gorged with power, I grew blind\n"
-	.string "to Pokémon being alive.\p"
-	.string "“I will never fall savage again.\n"
-	.string "This sword I denounce and forsake.\p"
-	.string "“I plead for forgiveness,\n"
-	.string "for I was but a fool.”\p"
-	.string "So saying, the young man hurled the\n"
-	.string "sword to the ground, snapping it.\p"
-	.string "Seeing this, the Pokémon disappeared\n"
-	.string "to a place beyond seeing…$"
+	.string "When first this land was formed,\n"
+	.string "man and 'mon lived happily,\l"
+	.string "sharing all that they could see,\l"
+	.string "by kind acts born and warmed.\p"
+	.string "One Pokémon then proposed\n"
+	.string "that they should always ready be\l"
+	.string "to help humans should they need,\l"
+	.string "and let their presence be disclosed.\p"
+	.string "And that is why, to this day,\n"
+	.string "not all Pokémon do flee\l"
+	.string "when a human they do see--\l"
+	.string "they leap out where tall grasses sway.$"
 
 Book5Intro::
 	.string "This ancient book is titled “The\n"
@@ -136,64 +212,174 @@ Book5Part3::
 	.string "The world created, the Original One\n"
 	.string "took to unyielding sleep…$"
 
-Book6Intro::
-	.string "This book is titled “A Horrific\n"
-	.string "Myth.” Want to read it?$"
+Part1_Text::
+	.string "Part 1$"
 
-Book6::
-	.string "Look not into the Pokémon's eyes.\p"
-	.string "In but an instant, you'll have no\n"
-	.string "recollection of who you are.\p"
-	.string "Return home, but how?\n"
-	.string "When there is nothing to remember?\p"
-	.string "Dare not touch the Pokémon's body.\p"
-	.string "In but three short days, all emotions\n"
-	.string "will drain away.\p"
-	.string "Above all, above all, harm not\n"
-	.string "the Pokémon.\p"
-	.string "In a scant five days, the offender\n"
-	.string "will grow immobile in entirety.$"
+Part2_Text::
+	.string "Part 2$"
+
+Part3_Text::
+	.string "Part 3$"
+
+PartExit_Text::
+	.string "Exit$"
 
 Book7Intro::
-	.string "This book is titled “Sinnoh Folk\n"
-	.string "Stories.”\p$"
+	.string "This book is titled “Sinko Folk\n"
+	.string "Stories.”$"
 
 Book7Story1::
-	.string "“Sinnoh Folk Story 1”\p"
-	.string "Pick clean the bones of Pokémon\n"
-	.string "caught in the sea or stream.\p"
-	.string "Thank them for the meals they\n"
-	.string "provide, and pick their bones clean.\p"
-	.string "When the bones are as clean as can\n"
-	.string "be, set them free in the water from\l"
-	.string "which they came.\p"
-	.string "The Pokémon will return, fully\n"
-	.string "fleshed, and it begins anew.$"
+	.string "“Sinko Folk Story 1”\p"
+	.string "Just as people have lords, so too\n"
+	.string "do the Pokémon.\p"
+	.string "Just as people hate other people\n"
+	.string "who trespass, so too, do these lords.\p"
+	.string "A trekker who doesn't bow and show\n"
+	.string "their utmost respect to the lord\l"
+	.string "can rest easy, knowing, that they\l"
+	.string "will never repeat said mistake again.$"
 
 Book7Story2::
-	.string "“Sinnoh Folk Story 2”\p"
-	.string "There lived a Pokémon in a forest.\p"
-	.string "In the forest, the Pokémon shed its\n"
-	.string "hide to sleep as a human.\p"
-	.string "Awakened, the human dons the\n"
-	.string "Pokémon hide to roam villages.$"
+	.string "“Sinko Folk Story 2”\p"
+	.string "There lived a Pokémon in the water.\p"
+	.string "Sometimes it resembled a human,\n"
+	.string "sometimes a rock, sometimes a branch.\p"
+	.string "Sometimes the Pokémon would hum\n"
+	.string "a tune.\p"
+	.string "The Pokémon craved for attention.\p"
+	.string "If ignored, the Pokémon would\n"
+	.string "turn malicious, attempting to carry\l"
+	.string "people away, never to be seen again.$"
 
 Book7Story3::
-	.string "“Sinnoh Folk Story 3”\p"
+	.string "“Sinko Folk Story 3”\p"
 	.string "There once were Pokémon that\n"
-	.string "became very close to humans.\p"
-	.string "There once were humans and Pokémon\n"
-	.string "that ate together at the same table.\p"
-	.string "It was a time when there existed no\n"
-	.string "differences to distinguish the two.$"
+	.string "married people.\p"
+	.string "There once were people that\n"
+	.string "married Pokémon."
+	.string "This was a common thing,\n"
+	.string "because long time ago,\l"
+	.string "people and Pokémon were\l"
+	.string "the same.$"
 
-BooksOnThisFloor::
-	.string "On this floor, you will find many\n"
-	.string "books on the myths and legends of\l"
-	.string "the Sinnoh region.$"
+SinkoMythIntro::
+	.string "This book is titled “Sinko's\n"
+	.string "Myth.” Want to read it?$"
 
-bookideas::
-	.string "book about the 3 birds looking for high perch to roost, use for shadow lugia"
-	.string "book about how the 3 failed their mission, after which they left the world in shame. it is said that a fragment of their spirit"
-	.string "remained in our world and people built a beacon in case of their potential return"
-	.string "book about little green men$"
+SinkoMyth::
+	.string "“Sinko's Myth.”\p"
+	.string "As the Nightmare grew, the Four\n"
+	.string "sought to vanquish it.\p"
+	.string "And vanquish they did.\p"
+	.string "Yet, as soon it became apparent,\n"
+	.string "this had been the Nightmare's\l"
+	.string "intention since the beginning.\p"
+	.string "As the Nightmare subsided, its\n"
+	.string "core being still remained in the\l"
+	.string "world, corrupting the strongest\l"
+	.string "of the Four.\p"
+	.string "…Would you like to keep reading?$"
+
+SinkoMythPart2::
+	.string "A great battle soon ensued.\p"
+	.string "In a last-ditch effort, the strongest\n"
+	.string "of the Four buried itself deep beneath\l"
+	.string "the earth, hoping to entomb itself and\l"
+	.string "the Nightmare, forever.\p"
+	.string "The Three, now leaderless, returned to\n"
+	.string "their roosts to recover, not realizing\l"
+	.string "that they too, had forever been\l"
+	.string "tainted by the Nightmare.$"
+
+PartIntro_Text::
+	.string "Intro$"
+
+ProtectorsIntro::
+	.string "This book is titled “The\n"
+	.string "Protectors.”$"
+
+ProtectorsIntro2::
+	.string "Which part would you like to read?$"
+
+Protectors::
+	.string "Once, this world was looked after by\n"
+	.string "the Three Protectors.\p"
+	.string "Yet, when the Calamity struck,\n"
+	.string "powerless they were to stop it.\p"
+	.string "Having failed their purpose, the Three\n"
+	.string "fled the world in shame.\p"
+	.string "However, as they departed the world,\n"
+	.string "in their place a remnant of their\l"
+	.string "former glory remained.\p"
+	.string "And so it was decreed that a gargantuan\n"
+	.string "Beacon be built to house these remnants,\l"
+	.string "so that one day, they may guide\l"
+	.string "the Protectors back home.$"
+
+YoungestProtector::
+	.string "The youngest of the Protectors was\n"
+	.string "also the friendliest.\p"
+	.string "Instead of looking after people\n"
+	.string "and Pokémon from afar, it would be\l"
+	.string "often seen visiting people, aiding\l"
+	.string "them with their problems.\p"
+	.string "After the Calamity, as the other\n"
+	.string "brothers prepared to depart,\l"
+	.string "The youngest of the Three remained\l"
+	.string "for a while, and was last seen aiding\l"
+	.string "the survivors.\p"
+	.string "Yet, one day it too fled from this\n"
+	.string "world, leaving behind but a remnant.$"
+
+SecondProtector::
+	.string "The second of the Protectors was much\n"
+	.string "more distant, avoiding human contact\l"
+	.string "unless deemed absolutely necessary.\p"
+	.string "The whereabouts of the remnant it left\n"
+	.string "behind are unknown, but it is said\l"
+	.string "that the location of the Beacon\l"
+	.string "is not too far away from its den.\p"
+	.string "The second and the youngest Protectors\l"
+	.string "are said to have shared a special\l"
+	.string "bond, and this bond is believed to\l"
+	.string "still linger between the remnants\l"
+	.string "left behind.$"
+
+OldestProtector::
+	.string "Not much is known about the eldest\n"
+	.string "of the Protectors, as it was always\l"
+	.string "the most wary.\p"
+	.string "Aware of its inability to stop the\n"
+	.string "Calamity, it was overcome by despair\l"
+	.string "and was last seen bolting towards the\l"
+	.string "north in a fit of madness.\p"
+	.string "The eldest Protector was said to have\n"
+	.string "an aura that could revitalize areas\l"
+	.string "around it.\p"
+	.string "Some people have reported seeing fresh\n"
+	.string "oak tree leaves blowing in the wind in\l"
+	.string "areas normally inhospitable to them,\l"
+	.string "believing these leaves to originate\l"
+	.string "from the grove left behind by its\l"
+	.string "remnant.$"
+
+LittleGreenMenIntro::
+	.string "This book is titled “The Little\n"
+	.string "Green Men.” Want to read it?$"
+
+LittleGreenMen::
+	.string "“The Little Green Men.”\p"
+	.string "Since time immemorial, people of Sinko\n"
+	.string "have reported seeing “little green men”\l"
+	.string "in the nature.\p"
+	.string "These beings only appear for a fraction\n"
+	.string "of a second before they're gone, and\l"
+	.string "to this day not one has been caught,\l"
+	.string "whether it be in a trap or on a film.\p"
+	.string "Many believe these could be an elusive\n"
+	.string "and rare Pokémon, but no reports of one\l"
+	.string "being caught in a Poké Ball has\l"
+	.string "ever surfaced.\p"
+	.string "Whether these beings truly exist\n"
+	.string "has been the topic of great many\l"
+	.string "conversations.$"

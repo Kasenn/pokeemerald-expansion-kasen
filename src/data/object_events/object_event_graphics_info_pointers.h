@@ -242,6 +242,9 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RubySapphir
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lugia;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AceTrainerBWM;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AceTrainerBWF;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Pidgeotto;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Pidgeot;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Flock;
 //extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HoOh;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bard;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Hipster;
@@ -548,6 +551,9 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_AMPHAROS] =                     &gObjectEventGraphicsInfo_Ampharos,
     [OBJ_EVENT_GFX_LAND_SWIMMER_F] =                     &gObjectEventGraphicsInfo_LandSwimmerF,
     [OBJ_EVENT_GFX_KORRINA] =                   &gObjectEventGraphicsInfo_Korrina,
+    [OBJ_EVENT_GFX_PIDGEOTTO] =                   &gObjectEventGraphicsInfo_Pidgeotto,
+    [OBJ_EVENT_GFX_FLOCK] =                   &gObjectEventGraphicsInfo_Flock,
+    [OBJ_EVENT_GFX_PIDGEOT] =                   &gObjectEventGraphicsInfo_Pidgeot,
     [OBJ_EVENT_GFX_ACE_TRAINER_M] =                   &gObjectEventGraphicsInfo_AceTrainerBWM,
     [OBJ_EVENT_GFX_ACE_TRAINER_F] =                   &gObjectEventGraphicsInfo_AceTrainerBWF,
     [OBJ_EVENT_GFX_MAY_ORAS] =                   &gObjectEventGraphicsInfo_MayOras,

@@ -95,14 +95,92 @@ Coralgrove_MAN_3::
 
 
 Coralgrove_GENTLEMAN::
-	lockall
-	faceplayer
-	msgbox Coralgrove_GENTLEMAN_Text_0, MSGBOX_NPC
-	waitmessage
-	closemessage
+	goto_if_set FLAG_CORALGROVE_CUTSCENE, Coralgrove_GENTLEMAN_2
+	msgbox Coralgrove_GENTLEMAN_Text, MSGBOX_NPC
+Coralgrove_GENTLEMAN_1:
+	turnobject 12, DIR_NORTH
+	end
+
+Coralgrove_GENTLEMAN_2:
+	msgbox Coralgrove_DroppedSomething, MSGBOX_NPC
+	goto Coralgrove_GENTLEMAN_1
+
+
+Coralgrove_LeftBirds::
+	setvar VAR_TEMP_3, 1
+	goto Coralgrove_BirdEvent
+	return
+
+
+Coralgrove_RightBirds::
+	setvar VAR_TEMP_3, 2
+	goto Coralgrove_BirdEvent
+	return
+
+
+Coralgrove_BirdEvent::
+	goto_if_set FLAG_CORALGROVE_CUTSCENE, Coralgrove_BirdEvent_2
+	lock
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Walk3Up
+	waitmovement 0
+	compare VAR_TEMP_3, 1
+	goto_if_eq Coralgrove_BirdEvent_5
+	applymovement 13, BirdFlyFromEast
+	waitmovement 13
+	playmoncry SPECIES_PIDGEOT, CRY_MODE_NORMAL
+	applymovement 13, BirdFlyFromEast
+	waitmovement 13
+Coralgrove_BirdEvent_4:
+	applymovement OBJ_EVENT_ID_CAMERA, Walk3Down
+	waitmovement 0
+	special RemoveCameraObject
+	delay 30
+	removeobject 13
+	removeobject 14
+	setflag FLAG_CORALGROVE_CUTSCENE
+	clearflag FLAG_OBTAINED_PIDGEOTITE
 	release
 	end
 
+Coralgrove_BirdEvent_2:
+	release
+	end
+
+Coralgrove_BirdEvent_5:
+	applymovement 14, BirdFlyFromWest
+	waitmovement 14
+	playmoncry SPECIES_PIDGEOT, CRY_MODE_NORMAL
+	applymovement 14, BirdFlyFromWest
+	waitmovement 14
+	goto Coralgrove_BirdEvent_4
+
+
+BirdFlyFromWest:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+BirdFlyFromEast:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
 
 Coralgrove_MartMan::
 	lockall
@@ -212,9 +290,6 @@ CoralHideGhost_Text_0:
 Coralgrove_MAN_3_Text_0:
 	.string "To the south lies Primrose Town.\pIf you want to go anywhere else,\nyou must take the elevator to\lthe north to access the harbor area.$"
 
-Coralgrove_GENTLEMAN_Text_0:
-	.string "They recently opened this new shop\nbut I have no idea what lies inside.\pI don't want to enter situations where\na person of my stature would not\lnormally be seen in so I'm deliberating\lwhether I should peek in.$"
-
 Coralgrove_MartMan_Text_0:
 	.string "Hello and welcome!\nThis is the Battle Shop.\pHere you can purchase useful\ncombat items and consumables.\pInstead of regular currency, everything\nin our shop is purchasable with\lBattle Points, or BP, instead!$"
 
@@ -244,6 +319,15 @@ CoralSign_Text_0:
 
 CoralGrove_EventScript_GymSign_Text_0:
 	.string "Coralgrove City Pokémon Gym\nLeader: Aaron$"
+
+Coralgrove_GENTLEMAN_Text::
+	.string "Do you ever look far into the horizon\n"
+	.string "and let your worries fade away?$"
+
+Coralgrove_DroppedSomething::
+	.string "Did you see that?\p"
+	.string "I think that Pidgeot dropped\n"
+	.string "something in the ocean.$"
 
 Coral_Hiker_Text::
 	.string "There was landslide between\n"

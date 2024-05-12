@@ -4,114 +4,142 @@ text PutTheBookBack{
     "{PLAYER} put the book back."
 }
 
-text Book1Intro{
-    "This book is titled “Sinnoh\n"
-    "Myth.” Want to read it?"
+// text Book1Intro{
+//     "This book is titled “Sinnoh\n"
+//     "Myth.” Want to read it?"
+// }
+// text Book1{
+//     "“Sinnoh Myth”\p"
+//     "Betray not your anger, lest ??? will\n"
+//     "come.\p"
+//     "Weep not with sorrow, or ??? will\n"
+//     "draw near.\p"
+//     "When joy and enjoyment come natural\n"
+//     "as the very air, that is happiness.\p"
+//     "Let such be blessed by the hand\n"
+//     "of Master ???.\p"
+//     "Those words were spoken often\n"
+//     "as customary."
+// }
+script Book1Event{
+    lock
+    msgbox(Book2Intro, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(PutTheBookBack, MSGBOX_SIGN)
+        end
+    }
+    msgbox(Book2, MSGBOX_SIGN)
+    end
 }
-text Book1{
-    "“Sinnoh Myth”\p"
-    "Betray not your anger, lest ??? will\n"
-    "come.\p"
-    "Weep not with sorrow, or ??? will\n"
-    "draw near.\p"
-    "When joy and enjoyment come natural\n"
-    "as the very air, that is happiness.\p"
-    "Let such be blessed by the hand\n"
-    "of Master ???.\p"
-    "Those words were spoken often\n"
-    "as customary."
-}
-
 
 text Book2Intro{
-    "This book is titled “Sinnoh Region's\n"
-    "Mythology.” Want to read it?"
+    "This book is titled “Old Verse 19.”\n"
+    "Want to read it?"
 }
 text Book2{
-    "“Sinnoh Region's Mythology”\p"
-    "Long ago, when Sinnoh had just been\n"
-    "made, Pokémon and humans led\l"
-    "separate lives.\p"
-    "That is not to say they did not help\n"
-    "each other. No, indeed they did.\p"
-    "They supplied each other with goods,\n"
-    "and supported each other.\p"
-    "A Pokémon proposed to the others\n"
-    "to always be ready to help humans.\p"
-    "It asked that Pokémon be ready to\n"
-    "appear before humans always.\p"
-    "Thus, to this day, Pokémon appear\n"
-    "to us if we venture into tall grass."
+    "When first this land was formed,\n"
+    "man and 'mon lived happily,\l"
+    "sharing all that they could see,\l"
+    "by kind acts born and warmed.\p"
+    "One Pokémon then proposed\n"
+    "that they should always ready be\l"
+    "to help humans should they need,\l"
+    "and let their presence be disclosed.\p"
+    "And that is why, to this day,\n"
+    "not all Pokémon do flee\l"
+    "when a human they do see--\l"
+    "they leap out where tall grasses sway."
 }
     
 
-text Book3Intro{
-    "This book is titled “Sinnoh's\n"
-    "Myth.” Want to read it?"
-}	
-text Book3{
-    "“Sinnoh's Myth”\p"
-    "Three Pokémon there were.\p"
-    "Into the lakes they dove.\n"
-    "Deep, deep, drawing no breath.\p"
-    "Deeper, deeper they dove.\n"
-    "Into suffocating depths they dove.\p"
-    "Deeper, then deepest they alight.\n"
-    "From the lake floor they rise.\p"
-    "Bearing with them the power to make\n"
-    "vast lands, they rise again."
-}
+// text Book3Intro{
+//     "This book is titled “Sinnoh's\n"
+//     "Myth.” Want to read it?"
+// }	
+// text Book3{
+//     "“Sinnoh's Myth”\p"
+//     "Three Pokémon there were.\p"
+//     "Into the lakes they dove.\n"
+//     "Deep, deep, drawing no breath.\p"
+//     "Deeper, deeper they dove.\n"
+//     "Into suffocating depths they dove.\p"
+//     "Deeper, then deepest they alight.\n"
+//     "From the lake floor they rise.\p"
+//     "Bearing with them the power to make\n"
+//     "vast lands, they rise again."
+// }
 	
 
-text Book4Intro{
-    "This book is titled “Veilstone's\n"
-    "Myth.” Want to read it?"
-}
-text Book4Part1{
-    "“Veilstone's Myth”\p"
-    "A young man, callow and foolish in\n"
-    "innocence, came to own a sword.\p"
-    "With it, he smote Pokémon, which gave\n"
-    "sustenance, with carefree abandon.\p"
-    "Those not taken as food, he\n"
-    "discarded, with no afterthought.\p"
-    "The following year, no Pokémon\n"
-    "appeared. Larders grew bare.\p"
-    "…Would you like to keep reading?"
-}
-text Book4Part2{
-    "The young man, seeking the missing\n"
-    "Pokémon, journeyed afar.\p"
-    "Long did he search. And far and wide,\n"
-    "too, until one he did find.\p"
-    "Asked he, “Why do you hide?”\n"
-    "To which the Pokémon replied…\p"
-    "“If you bear your sword to bring\n"
-    "harm upon us, with claws and\l"
-    "fangs, we will exact a toll.\p"
-    "“From your kind we will take our\n"
-    "toll, for it must be done.\p"
-    "“Done it must be to guard ourselves\n"
-    "and for it, I apologize.”\p"
-    "…Would you like to keep reading?"
-}
-text Book4Part3{
-    "To the skies, the young man shouted\n"
-    "his dismay.\p"
-    "“In having found the sword, I have\n"
-    "lost so much.\p"
-    "“Gorged with power, I grew blind\n"
-    "to Pokémon being alive.\p"
-    "“I will never fall savage again.\n"
-    "This sword I denounce and forsake.\p"
-    "“I plead for forgiveness,\n"
-    "for I was but a fool.”\p"
-    "So saying, the young man hurled the\n"
-    "sword to the ground, snapping it.\p"
-    "Seeing this, the Pokémon disappeared\n"
-    "to a place beyond seeing…"
-}
+// text Book4Intro{
+//     "This book is titled “Veilstone's\n"
+//     "Myth.” Want to read it?"
+// }
+// text Book4Part1{
+//     "“Veilstone's Myth”\p"
+//     "A young man, callow and foolish in\n"
+//     "innocence, came to own a sword.\p"
+//     "With it, he smote Pokémon, which gave\n"
+//     "sustenance, with carefree abandon.\p"
+//     "Those not taken as food, he\n"
+//     "discarded, with no afterthought.\p"
+//     "The following year, no Pokémon\n"
+//     "appeared. Larders grew bare.\p"
+//     "…Would you like to keep reading?"
+// }
+// text Book4Part2{
+//     "The young man, seeking the missing\n"
+//     "Pokémon, journeyed afar.\p"
+//     "Long did he search. And far and wide,\n"
+//     "too, until one he did find.\p"
+//     "Asked he, “Why do you hide?”\n"
+//     "To which the Pokémon replied…\p"
+//     "“If you bear your sword to bring\n"
+//     "harm upon us, with claws and\l"
+//     "fangs, we will exact a toll.\p"
+//     "“From your kind we will take our\n"
+//     "toll, for it must be done.\p"
+//     "“Done it must be to guard ourselves\n"
+//     "and for it, I apologize.”\p"
+//     "…Would you like to keep reading?"
+// }
+// text Book4Part3{
+//     "To the skies, the young man shouted\n"
+//     "his dismay.\p"
+//     "“In having found the sword, I have\n"
+//     "lost so much.\p"
+//     "“Gorged with power, I grew blind\n"
+//     "to Pokémon being alive.\p"
+//     "“I will never fall savage again.\n"
+//     "This sword I denounce and forsake.\p"
+//     "“I plead for forgiveness,\n"
+//     "for I was but a fool.”\p"
+//     "So saying, the young man hurled the\n"
+//     "sword to the ground, snapping it.\p"
+//     "Seeing this, the Pokémon disappeared\n"
+//     "to a place beyond seeing…"
+// }
 	
+
+script Book2Event{
+    lock
+    msgbox(Book5Intro, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(PutTheBookBack, MSGBOX_SIGN)
+        end
+    }
+    msgbox(Book5Part1, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(PutTheBookBack, MSGBOX_SIGN)
+        end
+    }
+    msgbox(Book5Part2, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(PutTheBookBack, MSGBOX_SIGN)
+        end
+    }
+    msgbox(Book5Part3, MSGBOX_SIGN)
+    end
+}
 
 text Book5Intro{
     "This ancient book is titled “The\n"
@@ -145,70 +173,316 @@ text Book5Part3{
 }
 
 
-text Book6Intro{
-    "This book is titled “A Horrific\n"
-    "Myth.” Want to read it?"
-}
-text Book6{
-    "Look not into the Pokémon's eyes.\p"
-    "In but an instant, you'll have no\n"
-    "recollection of who you are.\p"
-    "Return home, but how?\n"
-    "When there is nothing to remember?\p"
-    "Dare not touch the Pokémon's body.\p"
-    "In but three short days, all emotions\n"
-    "will drain away.\p"
-    "Above all, above all, harm not\n"
-    "the Pokémon.\p"
-    "In a scant five days, the offender\n"
-    "will grow immobile in entirety."
+// text Book6Intro{
+//     "This book is titled “A Horrific\n"
+//     "Myth.” Want to read it?"
+// }
+// text Book6{
+//     "Look not into the Pokémon's eyes.\p"
+//     "In but an instant, you'll have no\n"
+//     "recollection of who you are.\p"
+//     "Return home, but how?\n"
+//     "When there is nothing to remember?\p"
+//     "Dare not touch the Pokémon's body.\p"
+//     "In but three short days, all emotions\n"
+//     "will drain away.\p"
+//     "Above all, above all, harm not\n"
+//     "the Pokémon.\p"
+//     "In a scant five days, the offender\n"
+//     "will grow immobile in entirety."
+// }
+
+script Book3Event{
+    lock
+    msgbox(Book7Intro, MSGBOX_DEFAULT)
+    message(ProtectorsIntro2)
+    waitmessage
+    dynmultipush(Part1_Text, 0)
+    dynmultipush(Part2_Text, 1)
+    dynmultipush(Part3_Text, 2)
+    dynmultipush(PartExit_Text, 3)
+    dynmultistack(23, 0, FALSE, 4, FALSE, 0, NULL)
+	switch(var(VAR_RESULT)){
+        case 0:
+            msgbox(Book7Story1, MSGBOX_SIGN)
+        case 1:
+            msgbox(Book7Story2, MSGBOX_SIGN)
+        case 2:
+            msgbox(Book7Story3, MSGBOX_SIGN)
+        case 3:
+            msgbox(PutTheBookBack, MSGBOX_SIGN)
+        case MULTI_B_PRESSED:
+            msgbox(PutTheBookBack, MSGBOX_SIGN)
+    }
+    end
 }
 
+text Part1_Text{
+    "Part 1"
+}
+text Part2_Text{
+    "Part 2"
+}
+text Part3_Text{
+    "Part 3"
+}
+text PartExit_Text{
+    "Exit"
+}
 
 text Book7Intro{
-    "This book is titled “Sinnoh Folk\n"
-    "Stories.”\p"
+    "This book is titled “Sinko Folk\n"
+    "Stories.”"
 }
 text Book7Story1{
-    "“Sinnoh Folk Story 1”\p"
-    "Pick clean the bones of Pokémon\n"
-    "caught in the sea or stream.\p"
-    "Thank them for the meals they\n"
-    "provide, and pick their bones clean.\p"
-    "When the bones are as clean as can\n"
-    "be, set them free in the water from\l"
-    "which they came.\p"
-    "The Pokémon will return, fully\n"
-    "fleshed, and it begins anew."
+    "“Sinko Folk Story 1”\p"
+    "Just as people have lords, so too\n"
+    "do the Pokémon.\p"
+    "Just as people hate other people\n"
+    "who trespass, so too, do these lords.\p"
+    "A trekker who doesn't bow and show\n"
+    "their utmost respect to the lord\l"
+    "can rest easy, knowing, that they\l"
+    "will never repeat said mistake again."
 }
 text Book7Story2{
-    "“Sinnoh Folk Story 2”\p"
-    "There lived a Pokémon in a forest.\p"
-    "In the forest, the Pokémon shed its\n"
-    "hide to sleep as a human.\p"
-    "Awakened, the human dons the\n"
-    "Pokémon hide to roam villages."
+    "“Sinko Folk Story 2”\p"
+    "There lived a Pokémon in the water.\p"
+    "Sometimes it resembled a human,\n"
+    "sometimes a rock, sometimes a branch.\p"
+    "Sometimes the Pokémon would hum\n"
+    "a tune.\p"
+    "The Pokémon craved for attention.\p"
+    "If ignored, the Pokémon would\n"
+    "turn malicious, attempting to carry\l"
+    "people away, never to be seen again."
 }
 text Book7Story3{
-    "“Sinnoh Folk Story 3”\p"
+    "“Sinko Folk Story 3”\p"
     "There once were Pokémon that\n"
-    "became very close to humans.\p"
-    "There once were humans and Pokémon\n"
-    "that ate together at the same table.\p"
-    "It was a time when there existed no\n"
-    "differences to distinguish the two."
+    "married people.\p"
+    "There once were people that\n"
+    "married Pokémon."
+    "This was a common thing,\n"
+    "because long time ago,\l"
+    "people and Pokémon were\l"
+    "the same."
 }
 
 
-text BooksOnThisFloor{
-    "On this floor, you will find many\n"
-    "books on the myths and legends of\l"
-    "the Sinnoh region."
+// text BooksOnThisFloor{
+//     "On this floor, you will find many\n"
+//     "books on the myths and legends of\l"
+//     "the Sinnoh region."
+// }
+
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+
+script Book4Event{
+    lock
+    msgbox(SinkoMythIntro, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(PutTheBookBack, MSGBOX_SIGN)
+        end
+    }
+    msgbox(SinkoMyth, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(PutTheBookBack, MSGBOX_SIGN)
+        end
+    }
+    msgbox(SinkoMythPart2, MSGBOX_SIGN)
+    end
 }
 
-text bookideas{
-    "book about the 3 birds looking for high perch to roost, use for shadow lugia"
-    "book about how the 3 failed their mission, after which they left the world in shame. it is said that a fragment of their spirit"
-    "remained in our world and people built a beacon in case of their potential return"
-    "book about little green men"
+text SinkoMythIntro{
+    "This book is titled “Sinko's\n"
+    "Myth.” Want to read it?"
 }
+text SinkoMyth{
+    "“Sinko's Myth.”\p"
+    "As the Nightmare grew, the Four\n"
+    "sought to vanquish it.\p"
+    "And vanquish they did.\p"
+    "Yet, as soon it became apparent,\n"
+    "this had been the Nightmare's\l"
+    "intention since the beginning.\p"
+    "As the Nightmare subsided, its\n"
+    "core being still remained in the\l"
+    "world, corrupting the strongest\l"
+    "of the Four.\p"
+    "…Would you like to keep reading?"
+}
+text SinkoMythPart2{
+    "A great battle soon ensued.\p"
+    "In a last-ditch effort, the strongest\n"
+    "of the Four buried itself deep beneath\l"
+    "the earth, hoping to entomb itself and\l"
+    "the Nightmare, forever.\p"
+    "The Three, now leaderless, returned to\n"
+    "their roosts to recover, not realizing\l"
+    "that they too, had forever been\l"
+    "tainted by the Nightmare."
+}
+
+// "Following their leader, the three confronted the nightmare. They believed the nightmare vanquished, yet did the nightmare grow in shadows\n"
+//     "as the nightmare vanquished their leader, the three escaped and went into hiding. Leader consumed by the nightmare attacked them.\n"
+//     "With the last strains of its sanity, the leader entombed itself with the nightmare, saving his juniors.\n"
+//     "They took to the highest perches of the world to heal, forever mutated by the nightmare"
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+
+script Book5Event{
+    lock
+    msgbox(ProtectorsIntro, MSGBOX_DEFAULT)
+    message(ProtectorsIntro2)
+    waitmessage
+    dynmultipush(PartIntro_Text, 0)
+    dynmultipush(Part2_Text, 1)
+    dynmultipush(Part3_Text, 2)
+    dynmultipush(Part3_Text, 3)
+    dynmultipush(PartExit_Text, 4)
+    dynmultistack(23, 0, FALSE, 5, FALSE, 0, NULL)
+	switch(var(VAR_RESULT)){
+        case 0:
+            msgbox(Protectors, MSGBOX_SIGN)
+        case 1:
+            msgbox(YoungestProtector, MSGBOX_SIGN)
+        case 2:
+            msgbox(SecondProtector, MSGBOX_SIGN)
+        case 3:
+            msgbox(OldestProtector, MSGBOX_SIGN)
+        case 4:
+            msgbox(PutTheBookBack, MSGBOX_SIGN)
+        case MULTI_B_PRESSED:
+            msgbox(PutTheBookBack, MSGBOX_SIGN)
+    }
+    end
+}
+
+text PartIntro_Text{
+    "Intro"
+}
+text ProtectorsIntro{
+    "This book is titled “The\n"
+    "Protectors.”"
+}
+text ProtectorsIntro2{
+    "Which part would you like to read?"
+}
+text Protectors{
+    "Once, this world was looked after by\n"
+    "the Three Protectors.\p"
+    "Yet, when the Calamity struck,\n"
+    "powerless they were to stop it.\p"
+    "Having failed their purpose, the Three\n"
+    "fled the world in shame.\p"
+    "However, as they departed the world,\n"
+    "in their place a remnant of their\l"
+    "former glory remained.\p"
+    "And so it was decreed that a gargantuan\n"
+    "Beacon be built to house these remnants,\l"
+    "so that one day, they may guide\l"
+    "the Protectors back home."
+}
+text YoungestProtector{
+    "The youngest of the Protectors was\n"
+    "also the friendliest.\p"
+    "Instead of looking after people\n"
+    "and Pokémon from afar, it would be\l"
+    "often seen visiting people, aiding\l"
+    "them with their problems.\p"
+    "After the Calamity, as the other\n"
+    "brothers prepared to depart,\l"
+    "The youngest of the Three remained\l"
+    "for a while, and was last seen aiding\l"
+    "the survivors.\p"
+    "Yet, one day it too fled from this\n"
+    "world, leaving behind but a remnant."
+}
+text SecondProtector{
+    "The second of the Protectors was much\n"
+    "more distant, avoiding human contact\l"
+    "unless deemed absolutely necessary.\p"
+    "The whereabouts of the remnant it left\n"
+    "behind are unknown, but it is said\l"
+    "that the location of the Beacon\l"
+    "is not too far away from its den.\p"
+    "The second and the youngest Protectors\l"
+    "are said to have shared a special\l"
+    "bond, and this bond is believed to\l"
+    "still linger between the remnants\l"
+    "left behind."
+}
+text OldestProtector{
+    "Not much is known about the eldest\n"
+    "of the Protectors, as it was always\l"
+    "the most wary.\p"
+    "Aware of its inability to stop the\n"
+    "Calamity, it was overcome by despair\l"
+    "and was last seen bolting towards the\l"
+    "north in a fit of madness.\p"
+    "The eldest Protector was said to have\n"
+    "an aura that could revitalize areas\l"
+    "around it.\p"
+    "Some people have reported seeing fresh\n"
+    "oak tree leaves blowing in the wind in\l"
+    "areas normally inhospitable to them,\l"
+    "believing these leaves to originate\l"
+    "from the grove left behind by its\l"
+    "remnant."
+}
+// "seen bolting around the region in despair. Its exact time of departure remains a mystery, but the last reports of its whereabouts come from\n"
+// "far to the north. The oldest Protector's aura was said to be so strong, that it could revitalize the forests around it. Some people have\n"
+// "reported seeing perfect healthy oak tree leaves blowing in the wind in areas that would normally not be hospitable to them. It is believe that\n"
+// "these leaves originate from the grove of the oldest Protector."
+
+
+
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+
+script Book6Event{
+    lock
+    msgbox(LittleGreenMenIntro, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(PutTheBookBack, MSGBOX_SIGN)
+        end
+    }
+    msgbox(LittleGreenMen, MSGBOX_SIGN)
+    end
+}
+
+text LittleGreenMenIntro{
+    "This book is titled “The Little\n"
+    "Green Men.” Want to read it?"
+}
+text LittleGreenMen{
+    "“The Little Green Men.”\p"
+    "Since time immemorial, people of Sinko\n"
+    "have reported seeing “little green men”\l"
+    "in the nature.\p"
+    "These beings only appear for a fraction\n"
+    "of a second before they're gone, and\l"
+    "to this day not one has been caught,\l"
+    "whether it be in a trap or on a film.\p"
+    "Many believe these could be an elusive\n"
+    "and rare Pokémon, but no reports of one\l"
+    "being caught in a Poké Ball has\l"
+    "ever surfaced.\p"
+    "Whether these beings truly exist\n"
+    "has been the topic of great many\l"
+    "conversations."
+}
+
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////

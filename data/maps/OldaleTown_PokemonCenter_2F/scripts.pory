@@ -6,6 +6,7 @@ script IvTraining_2{
 	closemessage
 	special(ShowBattlePointsWindow)
     message("Which type of training would\nyou like to have?")
+	waitmessage
     multichoice(21, 0, 114, 0)
     closemessage
 	if(var(VAR_RESULT) == 0){

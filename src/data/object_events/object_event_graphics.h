@@ -468,3 +468,10 @@ const u32 gObjectEventPic_MayOras[] = INCBIN_U32("graphics/object_events/pics/pe
 const u16 gObjectEventPalette_MayOras[] = INCBIN_U16("graphics/object_events/pics/people/mayoras/may.gbapal");
 const u32 gObjectEventPic_BrendanOras[] = INCBIN_U32("graphics/object_events/pics/people/brendan_oras.4bpp");
 const u16 gObjectEventPalette_BrendanOras[] = INCBIN_U16("graphics/object_events/pics/people/brendan_oras.gbapal");
+const u32 gObjectEventPic_Pidgeotto[] = INCBIN_U32("graphics/object_events/pics/pokemon/pidgeotto.4bpp");
+const u16 gObjectEventPalette_Pidgeotto[] = INCBIN_U16("graphics/object_events/pics/pokemon/pidgeotto.gbapal");
+const u32 gObjectEventPic_Pidgeot[] = INCBIN_U32("graphics/object_events/pics/pokemon/pidgeot.4bpp");
+const u16 gObjectEventPalette_Pidgeot[] = INCBIN_U16("graphics/object_events/pics/pokemon/pidgeot.gbapal");
+const u32 gObjectEventPic_Flock[] = INCBIN_U32("graphics/object_events/pics/pokemon/flock.4bpp");
+const u16 gObjectEventPalette_Flock[] = INCBIN_U16("graphics/object_events/pics/pokemon/flock.gbapal");
+

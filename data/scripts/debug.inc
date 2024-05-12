@@ -158,35 +158,18 @@ Debug_EventScript_Script_3::
 	end
 
 Debug_EventScript_Script_4::
-	setflag FLAG_COLLISION_OFF
-	release
 	end
 
 Debug_EventScript_Script_5::
-	call SetMayOutfit
 	end
 
 Debug_EventScript_Script_6::
-	giveitem ITEM_MEGA_RING
-	givemon SPECIES_DECIDUEYE, 40, ITEM_DECIDUEITE
-    givemon SPECIES_BLAZIKEN, 40, ITEM_BLAZIKENITE
-    givemon SPECIES_EMPOLEON, 40, ITEM_EMPOLEONITE
-    givemon SPECIES_CHESNAUGHT, 40, ITEM_CHESNAUGHTITE
-    givemon SPECIES_INCINEROAR, 40, ITEM_INCINEROARITE
-    givemon SPECIES_SWAMPERT, 40, ITEM_SWAMPERTITE
-	givemon SPECIES_PORYGON_Z, 40, ITEM_PROCESSOR
-	closemessage
 	end
 
 Debug_EventScript_Script_7::
-	trainerbattle_single TRAINER_LEADER_KORRINA, Route109_Text_AustinaIntro, Route109_Text_AustinaDefeated
-	msgbox Route109_Text_AustinaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Debug_EventScript_Script_8::
-	cleartrainerflag TRAINER_AUSTINA
-	trainerbattle_single TRAINER_AUSTINA, Route109_Text_AustinaIntro, Route109_Text_AustinaDefeated
-	msgbox Route109_Text_AustinaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Debug_CheckSaveBlock::

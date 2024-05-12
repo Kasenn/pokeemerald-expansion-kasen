@@ -123,9 +123,13 @@ script Update3{
             setvar(VAR_BADGES_OBTAINED, 3)
         }
     }
+    if(var(VAR_DEBUG) == 1){
+        setflag(FLAG_OBTAINED_PIDGEOTITE)
+        setvar(VAR_DEBUG, 2)
+    }
     msgbox(FlagsAndVarsUpdated2, MSGBOX_YESNO)
     if(var(VAR_RESULT) == TRUE){
-        warp(MAP_CORALGROVE_CITY, 26, 41)
+        warp(MAP_CORALGROVE_CITY, 26, 44)
     }
 	closemessage
     release

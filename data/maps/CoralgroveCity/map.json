@@ -28,7 +28,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
       "x": 22,
-      "y": 47,
+      "y": 50,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -41,7 +41,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 18,
-      "y": 44,
+      "y": 47,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -54,7 +54,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_3",
       "x": 17,
-      "y": 37,
+      "y": 40,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -67,7 +67,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
       "x": 21,
-      "y": 33,
+      "y": 36,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -80,7 +80,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
       "x": 22,
-      "y": 33,
+      "y": 36,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -93,7 +93,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
       "x": 19,
-      "y": 23,
+      "y": 26,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 1,
@@ -106,7 +106,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
       "x": 26,
-      "y": 29,
+      "y": 32,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -119,7 +119,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
       "x": 9,
-      "y": 44,
+      "y": 47,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -132,7 +132,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_TWIN",
       "x": 9,
-      "y": 45,
+      "y": 48,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -145,7 +145,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 10,
-      "y": 32,
+      "y": 35,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -158,7 +158,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_EXAMPLE5",
       "x": 46,
-      "y": 25,
+      "y": 28,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -167,96 +167,135 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "FLAG_UNUSED_0x267_CG_HIDEGHOST"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+      "x": 23,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Coralgrove_GENTLEMAN",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_FLOCK",
+      "x": 33,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_CORALGROVE_CUTSCENE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_FLOCK",
+      "x": 13,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_CORALGROVE_CUTSCENE"
     }
   ],
   "warp_events": [
     {
       "x": 41,
-      "y": 44,
+      "y": 47,
       "elevation": 0,
       "dest_map": "MAP_WINDY_WOODS",
       "dest_warp_id": "2"
     },
     {
       "x": 41,
-      "y": 43,
+      "y": 46,
       "elevation": 0,
       "dest_map": "MAP_WINDY_WOODS",
       "dest_warp_id": "3"
     },
     {
       "x": 26,
-      "y": 11,
+      "y": 14,
       "elevation": 0,
       "dest_map": "MAP_CORALGROVE_ELEVATOR1",
       "dest_warp_id": "0"
     },
     {
       "x": 26,
-      "y": 40,
+      "y": 43,
       "elevation": 0,
       "dest_map": "MAP_RUSTBORO_CITY_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 34,
-      "y": 40,
+      "y": 43,
       "elevation": 0,
       "dest_map": "MAP_CORAL_TRADE_HOUSE",
       "dest_warp_id": "0"
     },
     {
       "x": 33,
-      "y": 32,
+      "y": 35,
       "elevation": 0,
       "dest_map": "MAP_RUSTBORO_CITY_MART",
       "dest_warp_id": "0"
     },
     {
       "x": 13,
-      "y": 34,
+      "y": 37,
       "elevation": 0,
       "dest_map": "MAP_CORALGROVE_FRIENDSHIP_RATER",
       "dest_warp_id": "0"
     },
     {
       "x": 26,
-      "y": 26,
+      "y": 29,
       "elevation": 0,
       "dest_map": "MAP_VERDANTURF_TOWN_HOUSE",
       "dest_warp_id": "0"
     },
     {
       "x": 18,
-      "y": 22,
+      "y": 25,
       "elevation": 0,
       "dest_map": "MAP_CORALGROVE_SHOP",
       "dest_warp_id": "0"
     },
     {
       "x": 12,
-      "y": 21,
+      "y": 24,
       "elevation": 0,
       "dest_map": "MAP_NEW_CORALGROVE_CITY_GYM",
       "dest_warp_id": "0"
     },
     {
       "x": 10,
-      "y": 41,
+      "y": 44,
       "elevation": 0,
       "dest_map": "MAP_SCHOOL_HALL",
       "dest_warp_id": "0"
     },
     {
       "x": 25,
-      "y": 56,
+      "y": 59,
       "elevation": 0,
       "dest_map": "MAP_ROUTE2",
       "dest_warp_id": "3"
     },
     {
       "x": 26,
-      "y": 56,
+      "y": 59,
       "elevation": 0,
       "dest_map": "MAP_ROUTE2",
       "dest_warp_id": "4"
@@ -266,7 +305,7 @@
     {
       "type": "trigger",
       "x": 45,
-      "y": 28,
+      "y": 31,
       "elevation": 0,
       "var": "VAR_CORALGROVE_STATE",
       "var_value": "3",
@@ -275,7 +314,7 @@
     {
       "type": "trigger",
       "x": 41,
-      "y": 29,
+      "y": 32,
       "elevation": 0,
       "var": "VAR_CORALGROVE_STATE",
       "var_value": "2",
@@ -284,7 +323,7 @@
     {
       "type": "trigger",
       "x": 44,
-      "y": 28,
+      "y": 31,
       "elevation": 0,
       "var": "VAR_CORALGROVE_STATE",
       "var_value": "3",
@@ -293,18 +332,36 @@
     {
       "type": "trigger",
       "x": 36,
-      "y": 28,
+      "y": 31,
       "elevation": 0,
       "var": "VAR_CORALGROVE_STATE",
       "var_value": "1",
       "script": "CoralHideGhost2"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Coralgrove_LeftBirds"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "Coralgrove_RightBirds"
     }
   ],
   "bg_events": [
     {
       "type": "hidden_item",
       "x": 7,
-      "y": 40,
+      "y": 43,
       "elevation": 0,
       "item": "ITEM_RARE_CANDY",
       "flag": "FLAG_HIDDEN_ITEM_CORALGROVE_RARECANDY"
@@ -312,7 +369,7 @@
     {
       "type": "sign",
       "x": 11,
-      "y": 42,
+      "y": 45,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Coralgrove_school"
@@ -320,7 +377,7 @@
     {
       "type": "sign",
       "x": 23,
-      "y": 32,
+      "y": 35,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "CoralSign"
@@ -328,7 +385,7 @@
     {
       "type": "sign",
       "x": 46,
-      "y": 25,
+      "y": 28,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Coralgrove_HauntedHouse"
@@ -336,7 +393,7 @@
     {
       "type": "sign",
       "x": 24,
-      "y": 12,
+      "y": 15,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Coralgrove_Lifthouse"
@@ -344,7 +401,7 @@
     {
       "type": "sign",
       "x": 14,
-      "y": 23,
+      "y": 26,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "CoralGrove_EventScript_GymSign"

@@ -856,7 +856,7 @@ const struct Tileset gTileset_CoralGrove =
     .palettes = gTilesetPalettes_CoralGrove,
     .metatiles = gMetatiles_CoralGrove,
     .metatileAttributes = gMetatileAttributes_CoralGrove,
-    .callback = NULL,
+    .callback = InitTilesetAnim_Mauville,
 };
 
 const struct Tileset gTileset_Coralgrove =
@@ -867,7 +867,7 @@ const struct Tileset gTileset_Coralgrove =
     .palettes = gTilesetPalettes_Coralgrove,
     .metatiles = gMetatiles_Coralgrove,
     .metatileAttributes = gMetatileAttributes_Coralgrove,
-    .callback = NULL,
+    .callback = InitTilesetAnim_General,
 };
 
 const struct Tileset gTileset_Start =

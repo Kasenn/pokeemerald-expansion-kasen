@@ -66,6 +66,7 @@ script MarigorgePokeCenter1F_Abra{
 
 script TeleportToAldeleaf{
     message("Abra: Aa! Aabra?")
+    waitmessage
     multichoice(23, 0, MULTI_YESNOQUESTIONMARK, 0)
     switch(var(VAR_RESULT)){
         case 0:
@@ -85,6 +86,7 @@ script TeleportToAldeleaf{
 
 script TeleportToShoreslate{
     message("Abra: Aa! Aabra?")
+    waitmessage
     multichoice(23, 0, MULTI_YESNOQUESTIONMARK, 0)
     switch(var(VAR_RESULT)){
         case 0:

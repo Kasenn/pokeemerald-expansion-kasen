@@ -152,6 +152,10 @@ script FollowerStaysBehind{
         end
     }
     lock
+    playse(SE_PIN)
+    applymovement(OBJ_EVENT_ID_FOLLOWER, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    delay(48)
     facefollower
     checkplayergender
     delay(15)
@@ -168,7 +172,7 @@ script FollowerStaysBehind{
 }
 text MaystayHere{
     "{RIVAL}: You're not planning to leave\n"
-    "me to conquer this tower alone,\l"
+    "me to tackle this tower alone,\l"
     "are you?\p"
     "Well, if you do decide to leave,\n"
     "I'm going back to the floor above us.\p"

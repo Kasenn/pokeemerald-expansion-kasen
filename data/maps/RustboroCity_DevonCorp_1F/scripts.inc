@@ -52,10 +52,13 @@ Update3::
 	compare VAR_DEBUG, 0
 	goto_if_eq Update3_2
 Update3_1:
-	msgbox FlagsAndVarsUpdated2, MSGBOX_YESNO
-	compare VAR_RESULT, TRUE
+	compare VAR_DEBUG, 1
 	goto_if_eq Update3_5
 Update3_4:
+	msgbox FlagsAndVarsUpdated2, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
+	goto_if_eq Update3_11
+Update3_10:
 	closemessage
 	release
 	end
@@ -65,12 +68,12 @@ Update3_2:
 	compare VAR_RESULT, TRUE
 	goto_if_eq Update3_8
 Update3_7:
-	goto_if_set FLAG_UNUSED_PICKEDROWLET, Update3_11
-Update3_10:
-	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, Update3_14
+	goto_if_set FLAG_UNUSED_PICKEDROWLET, Update3_14
 Update3_13:
-	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, Update3_17
+	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, Update3_17
 Update3_16:
+	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, Update3_20
+Update3_19:
 	clearflag FLAG_SHOWED_BADGE
 	clearflag FLAG_SYSTEM_NOREWARDBATTLES
 	clearflag FLAG_OBTAINED_PAINTBRUSH
@@ -88,20 +91,21 @@ Update3_16:
 	setvar VAR_DEBUG, 1
 	msgbox RenameBrother, MSGBOX_YESNO
 	compare VAR_RESULT, TRUE
-	goto_if_eq Update3_20
-Update3_19:
-	checktrainerflag TRAINER_GABBY_AND_TY_1
-	goto_if 1, Update3_23
+	goto_if_eq Update3_23
 Update3_22:
-	checktrainerflag TRAINER_MARY
+	checktrainerflag TRAINER_GABBY_AND_TY_1
 	goto_if 1, Update3_26
 Update3_25:
+	checktrainerflag TRAINER_MARY
+	goto_if 1, Update3_29
+Update3_28:
 	checktrainerflag TRAINER_KAOLGYM_CLAY
-	goto_if 1, Update3_28
+	goto_if 1, Update3_31
 	goto Update3_1
 
 Update3_5:
-	warp MAP_CORALGROVE_CITY, 26, 41
+	setflag FLAG_OBTAINED_PIDGEOTITE
+	setvar VAR_DEBUG, 2
 	goto Update3_4
 
 Update3_8:
@@ -109,32 +113,36 @@ Update3_8:
 	goto Update3_7
 
 Update3_11:
-	setvar VAR_STARTER_MON, 0
+	warp MAP_CORALGROVE_CITY, 26, 44
 	goto Update3_10
 
 Update3_14:
-	setvar VAR_STARTER_MON, 1
+	setvar VAR_STARTER_MON, 0
 	goto Update3_13
 
 Update3_17:
-	setvar VAR_STARTER_MON, 2
+	setvar VAR_STARTER_MON, 1
 	goto Update3_16
 
 Update3_20:
-	fadescreen FADE_TO_BLACK
-	special NameBrother
-	waitstate
+	setvar VAR_STARTER_MON, 2
 	goto Update3_19
 
 Update3_23:
-	setvar VAR_BADGES_OBTAINED, 1
+	fadescreen FADE_TO_BLACK
+	special NameBrother
+	waitstate
 	goto Update3_22
 
 Update3_26:
-	setvar VAR_BADGES_OBTAINED, 2
+	setvar VAR_BADGES_OBTAINED, 1
 	goto Update3_25
 
-Update3_28:
+Update3_29:
+	setvar VAR_BADGES_OBTAINED, 2
+	goto Update3_28
+
+Update3_31:
 	setvar VAR_BADGES_OBTAINED, 3
 	goto Update3_1
 

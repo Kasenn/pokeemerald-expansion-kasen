@@ -201,8 +201,8 @@
 #define FLAG_RECEIVED_CAPSULE                     0xB6       
 #define FLAG_DAD_INTRO                     0xB7
 #define FLAG_STEELSPHERE_CLUE                     0xB8
-#define FLAG_UNUSED_0XB9                     0xB9
-#define FLAG_UNUSED_0XBA                     0xBA
+#define FLAG_CORALGROVE_CUTSCENE                     0xB9
+#define FLAG_OBTAINED_PIDGEOTITE                     0xBA
 #define FLAG_UNUSED_0XBB                     0xBB
 #define FLAG_RECEIVED_POKENAV                0xBC
 #define FLAG_DELIVERED_STEVEN_LETTER         0xBD
