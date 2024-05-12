@@ -238,7 +238,7 @@ BattleScript_ActionWallyThrow:
 	end2
 
 BattleScript_ActionLayLow:
-    printfromtable gSafariLayLowStringIds
+    printfromtable gSafariGetNearStringIds
     waitmessage B_WAIT_TIME_LONG
     end2
 

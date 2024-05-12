@@ -8,6 +8,7 @@ IvTraining_2::
 	closemessage
 	special ShowBattlePointsWindow
 	message IvTraining_2_Text_1
+	waitmessage
 	multichoice 21, 0, 114, 0
 	closemessage
 	compare VAR_RESULT, 0

@@ -227,7 +227,12 @@ script SandstoneRival{
     if(var(VAR_TEMP_2) == MALE){
         msgbox(RivalMayLikeOutfit, MSGBOX_YESNO)
         if(var(VAR_RESULT) == FALSE){
-            msgbox(DontLikeMaysOutfit)
+            if(flag(FLAG_PC_CHANGE_COSTUME)){
+                msgbox(DontLikeMaysOutfitV2)
+            }
+            else{
+                msgbox(DontLikeMaysOutfit)
+            }
             clearflag(FLAG_MAY_COSTUME_CHANGE)
             clearflag(FLAG_BRENDAN_COSTUME_CHANGE)
             if(var(VAR_RIVAL_AROUND_SANDSTONE) == 0){
@@ -235,7 +240,12 @@ script SandstoneRival{
             }
         }
         else{
-            msgbox(LikeMaysOutfit)
+            if(flag(FLAG_PC_CHANGE_COSTUME)){
+                msgbox(LikeMaysOutfitV2)
+            }
+            else{
+                msgbox(LikeMaysOutfit)
+            }
             if(var(VAR_RIVAL_AROUND_SANDSTONE) == 0){
                 setvar(VAR_RIVAL_AROUND_SANDSTONE, 1)
             }
@@ -244,7 +254,12 @@ script SandstoneRival{
     else{
         msgbox(RivalBrendanLikeOutfit, MSGBOX_YESNO)
         if(var(VAR_RESULT) == FALSE){
-            msgbox(DontLikeBrendansOutfit)
+            if(flag(FLAG_PC_CHANGE_COSTUME)){
+                msgbox(DontLikeBrendansOutfitV2)
+            }
+            else{
+                msgbox(DontLikeBrendansOutfit)
+            }
             clearflag(FLAG_MAY_COSTUME_CHANGE)
             clearflag(FLAG_BRENDAN_COSTUME_CHANGE)
             if(var(VAR_RIVAL_AROUND_SANDSTONE) == 0){
@@ -252,7 +267,12 @@ script SandstoneRival{
             }
         }
         else{
-            msgbox(LikeBrendansOutfit)
+            if(flag(FLAG_PC_CHANGE_COSTUME)){
+                msgbox(LikeBrendansOutfitV2)
+            }
+            else{
+                msgbox(LikeBrendansOutfit)
+            }
             if(var(VAR_RIVAL_AROUND_SANDSTONE) == 0){
                 setvar(VAR_RIVAL_AROUND_SANDSTONE, 1)
             }
@@ -351,6 +371,46 @@ text LikeBrendansOutfit{
     "damage when we're on the road so\l"
     "changing to a new get-up isn't such\l"
     "a bad idea.\p"
+    "…Anyway, I need to get going now.\p"
+    "See you again soon!"
+}
+
+text DontLikeMaysOutfitV2{
+    "{RIVAL}: Oh… But I thought it was cute…\p"
+    "No, you know what? It IS cute!\n"
+    "You just don't understand fashion!\p"
+    "Maybe you should think about\n"
+    "switching that get-up of yours\l"
+    "as well sometimes--\p"
+    "…Oh wait, you already have…\p"
+    "Well, whatever!"
+}
+text LikeMaysOutfitV2{
+    "{RIVAL}: I knew you'd like it!\p"
+    "I see your sense of fashion\n"
+    "isn't completely outdated.\p"
+    "…Oh wait, I see you've already\n"
+    "got some fancy new style!\p"
+    "And here I thought I got to\n"
+    "surprise you first.\p"
+    "…Anyway, I need to get going now!\p"
+    "See you!"
+}
+text DontLikeBrendansOutfitV2{
+    "{RIVAL}: Oh… I thought you'd agree…\p"
+    "Um, I think your outfit looks\n"
+    "good on you though…\p"
+    "…Anyway, I need to get going.\p"
+    "See you…"
+}
+text LikeBrendansOutfitV2{
+    "{RIVAL}: Thanks! Guess my sense of\n"
+    "fashion isn't completely outdated\l"
+    "after all!\p"
+    "Looks like you've already found\n"
+    "the new clothing store.\p"
+    "I have to say, that outfit of yours\n"
+    "looks good too!\p"
     "…Anyway, I need to get going now.\p"
     "See you again soon!"
 }

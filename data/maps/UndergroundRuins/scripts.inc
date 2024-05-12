@@ -346,6 +346,4 @@ FossilInWall::
 	.string "There's a fossil of a Pokémon wedged\n"
 	.string "in a small hole on the wall.\p"
 	.string "Would you like to try and pry it\n"
-	.string "from the wall?\l"
-	.string "This could affect the stability of\l"
-	.string "the desert around the ruins.$"
+	.string "from the hole?$"

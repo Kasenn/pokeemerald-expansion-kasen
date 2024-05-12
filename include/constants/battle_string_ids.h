@@ -878,9 +878,7 @@
 // gSafariGetNearStringIds
 #define B_MSG_CREPT_CLOSER    0
 #define B_MSG_CANT_GET_CLOSER 1
-
-// gSafariLayLowStringIds
-#define B_MSG_LAY_LOW 0
+#define B_MSG_LAY_LOW         2
 
 // gSafariPokeblockResultStringIds
 #define B_MSG_MON_CURIOUS    0

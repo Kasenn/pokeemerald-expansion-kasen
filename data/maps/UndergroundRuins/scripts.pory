@@ -116,9 +116,7 @@ text FossilInWall{
     "There's a fossil of a Pokémon wedged\n"
     "in a small hole on the wall.\p"
     "Would you like to try and pry it\n"
-    "from the wall?\l"
-    "This could affect the stability of\l"
-    "the desert around the ruins."
+    "from the hole?"
 }
 
 script LootHelix{

@@ -152,9 +152,11 @@ SandstoneRival::
 	msgbox RivalBrendanLikeOutfit, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
 	goto_if_eq SandstoneRival_11
+	goto_if_set FLAG_PC_CHANGE_COSTUME, SandstoneRival_27
 	msgbox LikeBrendansOutfit
+SandstoneRival_26:
 	compare VAR_RIVAL_AROUND_SANDSTONE, 0
-	goto_if_eq SandstoneRival_20
+	goto_if_eq SandstoneRival_36
 SandstoneRival_4:
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Sandstone_PlayerWatchRivalExit
@@ -173,40 +175,62 @@ SandstoneRival_5:
 	msgbox RivalMayLikeOutfit, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
 	goto_if_eq SandstoneRival_8
+	goto_if_set FLAG_PC_CHANGE_COSTUME, SandstoneRival_19
 	msgbox LikeMaysOutfit
+SandstoneRival_18:
 	compare VAR_RIVAL_AROUND_SANDSTONE, 0
-	goto_if_eq SandstoneRival_16
+	goto_if_eq SandstoneRival_32
 	goto SandstoneRival_4
 
 SandstoneRival_8:
+	goto_if_set FLAG_PC_CHANGE_COSTUME, SandstoneRival_15
 	msgbox DontLikeMaysOutfit
+SandstoneRival_14:
 	clearflag FLAG_MAY_COSTUME_CHANGE
 	clearflag FLAG_BRENDAN_COSTUME_CHANGE
 	compare VAR_RIVAL_AROUND_SANDSTONE, 0
-	goto_if_eq SandstoneRival_14
+	goto_if_eq SandstoneRival_30
 	goto SandstoneRival_4
 
 SandstoneRival_11:
+	goto_if_set FLAG_PC_CHANGE_COSTUME, SandstoneRival_23
 	msgbox DontLikeBrendansOutfit
+SandstoneRival_22:
 	clearflag FLAG_MAY_COSTUME_CHANGE
 	clearflag FLAG_BRENDAN_COSTUME_CHANGE
 	compare VAR_RIVAL_AROUND_SANDSTONE, 0
-	goto_if_eq SandstoneRival_18
+	goto_if_eq SandstoneRival_34
 	goto SandstoneRival_4
 
-SandstoneRival_14:
+SandstoneRival_15:
+	msgbox DontLikeMaysOutfitV2
+	goto SandstoneRival_14
+
+SandstoneRival_19:
+	msgbox LikeMaysOutfitV2
+	goto SandstoneRival_18
+
+SandstoneRival_23:
+	msgbox DontLikeBrendansOutfitV2
+	goto SandstoneRival_22
+
+SandstoneRival_27:
+	msgbox LikeBrendansOutfitV2
+	goto SandstoneRival_26
+
+SandstoneRival_30:
 	setvar VAR_RIVAL_AROUND_SANDSTONE, 2
 	goto SandstoneRival_4
 
-SandstoneRival_16:
+SandstoneRival_32:
 	setvar VAR_RIVAL_AROUND_SANDSTONE, 1
 	goto SandstoneRival_4
 
-SandstoneRival_18:
+SandstoneRival_34:
 	setvar VAR_RIVAL_AROUND_SANDSTONE, 2
 	goto SandstoneRival_4
 
-SandstoneRival_20:
+SandstoneRival_36:
 	setvar VAR_RIVAL_AROUND_SANDSTONE, 1
 	goto SandstoneRival_4
 
@@ -397,5 +421,44 @@ LikeBrendansOutfit::
 	.string "damage when we're on the road so\l"
 	.string "changing to a new get-up isn't such\l"
 	.string "a bad idea.\p"
+	.string "…Anyway, I need to get going now.\p"
+	.string "See you again soon!$"
+
+DontLikeMaysOutfitV2::
+	.string "{RIVAL}: Oh… But I thought it was cute…\p"
+	.string "No, you know what? It IS cute!\n"
+	.string "You just don't understand fashion!\p"
+	.string "Maybe you should think about\n"
+	.string "switching that get-up of yours\l"
+	.string "as well sometimes--\p"
+	.string "…Oh wait, you already have…\p"
+	.string "Well, whatever!$"
+
+LikeMaysOutfitV2::
+	.string "{RIVAL}: I knew you'd like it!\p"
+	.string "I see your sense of fashion\n"
+	.string "isn't completely outdated.\p"
+	.string "…Oh wait, I see you've already\n"
+	.string "got some fancy new style!\p"
+	.string "And here I thought I got to\n"
+	.string "surprise you first.\p"
+	.string "…Anyway, I need to get going now!\p"
+	.string "See you!$"
+
+DontLikeBrendansOutfitV2::
+	.string "{RIVAL}: Oh… I thought you'd agree…\p"
+	.string "Um, I think your outfit looks\n"
+	.string "good on you though…\p"
+	.string "…Anyway, I need to get going.\p"
+	.string "See you…$"
+
+LikeBrendansOutfitV2::
+	.string "{RIVAL}: Thanks! Guess my sense of\n"
+	.string "fashion isn't completely outdated\l"
+	.string "after all!\p"
+	.string "Looks like you've already found\n"
+	.string "the new clothing store.\p"
+	.string "I have to say, that outfit of yours\n"
+	.string "looks good too!\p"
 	.string "…Anyway, I need to get going now.\p"
 	.string "See you again soon!$"

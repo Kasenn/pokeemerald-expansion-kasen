@@ -68,6 +68,7 @@ MarigorgePokeCenter1F_Abra_8:
 
 TeleportToAldeleaf::
 	message TeleportToAldeleaf_Text_0
+	waitmessage
 	multichoice 23, 0, MULTI_YESNOQUESTIONMARK, 0
 	switch VAR_RESULT
 	case 0, TeleportToAldeleaf_2
@@ -95,6 +96,7 @@ TeleportToAldeleaf_4:
 
 TeleportToShoreslate::
 	message TeleportToAldeleaf_Text_0
+	waitmessage
 	multichoice 23, 0, MULTI_YESNOQUESTIONMARK, 0
 	switch VAR_RESULT
 	case 0, TeleportToShoreslate_2

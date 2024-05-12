@@ -1967,12 +1967,8 @@ const u16 gInobedientStringIds[] =
 const u16 gSafariGetNearStringIds[] =
 {
     [B_MSG_CREPT_CLOSER]    = STRINGID_CREPTCLOSER,
-    [B_MSG_CANT_GET_CLOSER] = STRINGID_CANTGETCLOSER
-};
-
-const u16 gSafariLayLowStringIds[] =
-{
-    [B_MSG_LAY_LOW]    = STRINGID_LAIDLOW
+    [B_MSG_CANT_GET_CLOSER] = STRINGID_CANTGETCLOSER,
+    [B_MSG_LAY_LOW]         = STRINGID_LAIDLOW
 };
 
 const u16 gSafariPokeblockResultStringIds[] =
