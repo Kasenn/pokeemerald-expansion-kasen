@@ -499,7 +499,7 @@ LetsFindKorrina::
 MayHappyToSee::
 	.string "{RIVAL}: Oh, hi again {PLAYER}!\p"
 	.string "Didn't expect to see you here\n"
-	.string "so soon.\l"
+	.string "so soon.\p"
 	.string "I assume you're here to climb the tower\n"
 	.string "under Korrina's instructions as well?\p"
 	.string "In that case, we should totally\n"

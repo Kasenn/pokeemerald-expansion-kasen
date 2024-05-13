@@ -3245,7 +3245,7 @@ static const struct TrainerMon sParty_Route7Tr9_Parasollady[] = {
     {
     .iv = TRAINER_PARTY_IVS(13, 13, 13, 13, 13, 13),
     .lvl = 34,
-    .species = SPECIES_SANDACONDA,
+    .species = SPECIES_CLODSIRE,
     }
 };
 
@@ -3454,7 +3454,7 @@ static const struct TrainerMon sParty_KG_Tr8_Camper3[] = {
     {
     .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
     .lvl = 36,
-    .species = SPECIES_SANDACONDA,
+    .species = SPECIES_CLODSIRE,
     }
 };
 
@@ -3507,7 +3507,7 @@ static const struct TrainerMon sParty_KG_Clay[] = {
     {
     .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
     .lvl = 38,
-    .species = SPECIES_SANDACONDA,
+    .species = SPECIES_CLODSIRE,
     .moves = {MOVE_YAWN, MOVE_POISON_JAB, MOVE_STOMPING_TANTRUM, MOVE_AMNESIA},
     },
     {

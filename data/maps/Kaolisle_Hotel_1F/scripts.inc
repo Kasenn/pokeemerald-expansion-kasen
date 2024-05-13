@@ -66,6 +66,7 @@ JasmineLeavesHotel_2:
 
 
 HideJasmine::
+	setvar VAR_TEMP_5, 0
 	goto_if_unset FLAG_BADGE03_GET, HideJasmine_2
 HideJasmine_1:
 	end

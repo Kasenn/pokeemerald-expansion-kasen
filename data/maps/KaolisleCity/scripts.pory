@@ -48,6 +48,8 @@ script Kaolisle_Brother{
         case 0:
             turnobject(30, DIR_NORTH)
             msgbox(KB_LookingTowardsPearlwood, MSGBOX_DEFAULT)
+            closemessage
+            release
         case 1:
             msgbox(KB_VisitingGym, MSGBOX_NPC)
         case 2:
@@ -63,6 +65,8 @@ script Kaolisle_Brother{
         case 7:
             turnobject(30, DIR_EAST)
             msgbox(KB_IslandToTheEast, MSGBOX_DEFAULT)
+            closemessage
+            release
     }
     end
 }

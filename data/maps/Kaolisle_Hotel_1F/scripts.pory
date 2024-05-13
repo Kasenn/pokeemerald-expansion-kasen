@@ -120,6 +120,7 @@ text MyCompanionAmphyAlso{
 }
 
 script HideJasmine{
+    setvar(VAR_TEMP_5, 0)
     if(!flag(FLAG_BADGE03_GET)){
         setflag(FLAG_HIDEJASMINE_HOTEL)
     }

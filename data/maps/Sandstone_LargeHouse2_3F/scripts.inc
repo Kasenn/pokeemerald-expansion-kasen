@@ -67,6 +67,12 @@ Sandstone_BigHouse2_3F_PC::
 	msgbox WantToInstallAV, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
 	goto_if_eq Sandstone_BigHouse2_3F_PC_2
+	message Av2
+	waitmessage
+	message Av3
+	waitmessage
+	message Av4
+	waitmessage
 	msgbox InstallingAV, MSGBOX_DEFAULT
 	removeitem ITEM_ANTIVIRUS
 	setvar VAR_SANDSTONEPORYGON_STATE, 3
@@ -187,10 +193,16 @@ WantToInstallAV::
 	.string "The computer stands idle. Would you\n"
 	.string "like to install the Antivirus?$"
 
+Av2::
+	.string "Installing{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…$"
+
+Av3::
+	.string "The PC is starting to act weird…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}$"
+
+Av4::
+	.string "…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}$"
+
 InstallingAV::
-	.string "Installing… {PAUSE_UNTIL_PRESS}… {PAUSE_UNTIL_PRESS}… {PAUSE_UNTIL_PRESS}… {PAUSE_UNTIL_PRESS}…\p"
-	.string "The PC is starting to act weird…\p"
-	.string "… {PAUSE_UNTIL_PRESS}… {PAUSE_UNTIL_PRESS}…\p"
 	.string "Something leaps at you from the\n"
 	.string "monitor!$"
 

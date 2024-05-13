@@ -388,7 +388,7 @@ script MeetingRivalInTheTower{
 text MayHappyToSee{
     "{RIVAL}: Oh, hi again {PLAYER}!\p"
     "Didn't expect to see you here\n"
-    "so soon.\l"
+    "so soon.\p"
     "I assume you're here to climb the tower\n"
     "under Korrina's instructions as well?\p"
     "In that case, we should totally\n"

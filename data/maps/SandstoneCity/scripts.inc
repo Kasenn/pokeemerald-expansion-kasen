@@ -93,6 +93,7 @@ Sandstone_Maniac::
 	goto_if_eq Sandstone_Maniac_8
 	giveitem ITEM_ULTRA_BALL
 	setflag FLAG_SANDSTONE_ULTRABALL
+	release
 	end
 
 Sandstone_Maniac_2:

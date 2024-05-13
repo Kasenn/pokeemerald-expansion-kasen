@@ -110,7 +110,7 @@ Book5Event::
 	dynmultipush PartIntro_Text, 0
 	dynmultipush Part2_Text, 1
 	dynmultipush Part3_Text, 2
-	dynmultipush Part3_Text, 3
+	dynmultipush Part4_Text, 3
 	dynmultipush PartExit_Text, 4
 	dynmultistack 23, 0, FALSE, 5, FALSE, 0, NULL
 	switch VAR_RESULT
@@ -221,6 +221,9 @@ Part2_Text::
 Part3_Text::
 	.string "Part 3$"
 
+Part4_Text::
+	.string "Part 4$"
+
 PartExit_Text::
 	.string "Exit$"
 
@@ -256,11 +259,10 @@ Book7Story3::
 	.string "There once were Pokémon that\n"
 	.string "married people.\p"
 	.string "There once were people that\n"
-	.string "married Pokémon."
+	.string "married Pokémon.\p"
 	.string "This was a common thing,\n"
 	.string "because long time ago,\l"
-	.string "people and Pokémon were\l"
-	.string "the same.$"
+	.string "people and Pokémon were the same.$"
 
 SinkoMythIntro::
 	.string "This book is titled “Sinko's\n"
@@ -296,7 +298,7 @@ PartIntro_Text::
 
 ProtectorsIntro::
 	.string "This book is titled “The\n"
-	.string "Protectors.”$"
+	.string "Three Protectors.”$"
 
 ProtectorsIntro2::
 	.string "Which part would you like to read?$"
@@ -311,8 +313,8 @@ Protectors::
 	.string "However, as they departed the world,\n"
 	.string "in their place a remnant of their\l"
 	.string "former glory remained.\p"
-	.string "And so it was decreed that a gargantuan\n"
-	.string "Beacon be built to house these remnants,\l"
+	.string "And so it was decreed that a Beacon\n"
+	.string "be built to house these remnants,\l"
 	.string "so that one day, they may guide\l"
 	.string "the Protectors back home.$"
 
@@ -339,11 +341,11 @@ SecondProtector::
 	.string "behind are unknown, but it is said\l"
 	.string "that the location of the Beacon\l"
 	.string "is not too far away from its den.\p"
-	.string "The second and the youngest Protectors\l"
-	.string "are said to have shared a special\l"
-	.string "bond, and this bond is believed to\l"
-	.string "still linger between the remnants\l"
-	.string "left behind.$"
+	.string "The second and the youngest\n"
+	.string "Protector are said to have shared\l"
+	.string "a special bond, and this bond is\l"
+	.string "believed to still linger between\l"
+	.string "the remnants left behind.$"
 
 OldestProtector::
 	.string "Not much is known about the eldest\n"
@@ -370,15 +372,15 @@ LittleGreenMenIntro::
 LittleGreenMen::
 	.string "“The Little Green Men.”\p"
 	.string "Since time immemorial, people of Sinko\n"
-	.string "have reported seeing “little green men”\l"
-	.string "in the nature.\p"
+	.string "have reported seeing “little green\l"
+	.string "men” in the nature.\p"
 	.string "These beings only appear for a fraction\n"
 	.string "of a second before they're gone, and\l"
 	.string "to this day not one has been caught,\l"
 	.string "whether it be in a trap or on a film.\p"
 	.string "Many believe these could be an elusive\n"
-	.string "and rare Pokémon, but no reports of one\l"
-	.string "being caught in a Poké Ball has\l"
+	.string "and rare Pokémon, but no reports of\l"
+	.string "one being caught in a Poké Ball has\l"
 	.string "ever surfaced.\p"
 	.string "Whether these beings truly exist\n"
 	.string "has been the topic of great many\l"

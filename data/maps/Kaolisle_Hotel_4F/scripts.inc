@@ -116,7 +116,7 @@ Kaolisle_Hotel_4F_Man2_Text::
 	.string "Disappointing!$"
 
 Kaolisle_Hotel_4F_Woman4_Text::
-	.string "Did you know this?"
+	.string "Did you know this?\n"
 	.string "It's from an article in Pokémon Pal.\p"
 	.string "“Press the START Button while in a bag\n"
 	.string "to sort the items.\l"

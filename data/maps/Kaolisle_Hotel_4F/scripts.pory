@@ -76,7 +76,7 @@ text Kaolisle_Hotel_4F_Man2_Text{
     "Disappointing!"
 }
 text Kaolisle_Hotel_4F_Woman4_Text{
-    "Did you know this?"
+    "Did you know this?\n"
     "It's from an article in Pokémon Pal.\p"
     "“Press the START Button while in a bag\n"
     "to sort the items.\l"

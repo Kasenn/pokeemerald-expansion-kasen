@@ -55,6 +55,12 @@ script Sandstone_BigHouse2_3F_PC{
         release
         end
     }
+    message(Av2)
+    waitmessage
+    message(Av3)
+    waitmessage
+    message(Av4)
+    waitmessage
     msgbox(InstallingAV, MSGBOX_DEFAULT)
     removeitem(ITEM_ANTIVIRUS)
     setvar(VAR_SANDSTONEPORYGON_STATE, 3)
@@ -113,10 +119,16 @@ text WantToInstallAV{
     "The computer stands idle. Would you\n"
     "like to install the Antivirus?"
 }
+text Av2{
+    "Installing{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…"
+}
+text Av3{
+    "The PC is starting to act weird…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}"
+}
+text Av4{
+    "…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}"
+}
 text InstallingAV{
-    "Installing… {PAUSE_UNTIL_PRESS}… {PAUSE_UNTIL_PRESS}… {PAUSE_UNTIL_PRESS}… {PAUSE_UNTIL_PRESS}…\p"
-    "The PC is starting to act weird…\p"
-    "… {PAUSE_UNTIL_PRESS}… {PAUSE_UNTIL_PRESS}…\p"
     "Something leaps at you from the\n"
     "monitor!"
 }

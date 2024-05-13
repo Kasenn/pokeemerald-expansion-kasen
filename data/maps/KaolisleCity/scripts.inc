@@ -88,6 +88,8 @@ Kaolisle_Brother_2:
 Kaolisle_Brother_6:
 	turnobject 30, DIR_NORTH
 	msgbox KB_LookingTowardsPearlwood, MSGBOX_DEFAULT
+	closemessage
+	release
 	goto Kaolisle_Brother_4
 
 Kaolisle_Brother_7:
@@ -117,6 +119,8 @@ Kaolisle_Brother_12:
 Kaolisle_Brother_13:
 	turnobject 30, DIR_EAST
 	msgbox KB_IslandToTheEast, MSGBOX_DEFAULT
+	closemessage
+	release
 	goto Kaolisle_Brother_4
 
 

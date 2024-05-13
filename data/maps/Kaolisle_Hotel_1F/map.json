@@ -376,7 +376,7 @@
       "x": 13,
       "y": 7,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_TEMP_5",
       "var_value": "0",
       "script": "Hotel_BuffetTrigger"
     },
@@ -385,7 +385,7 @@
       "x": 33,
       "y": 7,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_TEMP_5",
       "var_value": "0",
       "script": "Hotel_PrivateParty"
     }

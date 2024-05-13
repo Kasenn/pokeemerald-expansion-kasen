@@ -105,6 +105,7 @@ script Sandstone_Maniac{
     }
     giveitem(ITEM_ULTRA_BALL)
     setflag(FLAG_SANDSTONE_ULTRABALL)
+    release
     end
 }
 script Sandstone_Man3{

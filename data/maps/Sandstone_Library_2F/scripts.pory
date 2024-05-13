@@ -226,6 +226,9 @@ text Part2_Text{
 text Part3_Text{
     "Part 3"
 }
+text Part4_Text{
+    "Part 4"
+}
 text PartExit_Text{
     "Exit"
 }
@@ -262,11 +265,10 @@ text Book7Story3{
     "There once were Pokémon that\n"
     "married people.\p"
     "There once were people that\n"
-    "married Pokémon."
+    "married Pokémon.\p"
     "This was a common thing,\n"
     "because long time ago,\l"
-    "people and Pokémon were\l"
-    "the same."
+    "people and Pokémon were the same."
 }
 
 
@@ -342,7 +344,7 @@ script Book5Event{
     dynmultipush(PartIntro_Text, 0)
     dynmultipush(Part2_Text, 1)
     dynmultipush(Part3_Text, 2)
-    dynmultipush(Part3_Text, 3)
+    dynmultipush(Part4_Text, 3)
     dynmultipush(PartExit_Text, 4)
     dynmultistack(23, 0, FALSE, 5, FALSE, 0, NULL)
 	switch(var(VAR_RESULT)){
@@ -367,7 +369,7 @@ text PartIntro_Text{
 }
 text ProtectorsIntro{
     "This book is titled “The\n"
-    "Protectors.”"
+    "Three Protectors.”"
 }
 text ProtectorsIntro2{
     "Which part would you like to read?"
@@ -382,8 +384,8 @@ text Protectors{
     "However, as they departed the world,\n"
     "in their place a remnant of their\l"
     "former glory remained.\p"
-    "And so it was decreed that a gargantuan\n"
-    "Beacon be built to house these remnants,\l"
+    "And so it was decreed that a Beacon\n"
+    "be built to house these remnants,\l"
     "so that one day, they may guide\l"
     "the Protectors back home."
 }
@@ -410,11 +412,11 @@ text SecondProtector{
     "behind are unknown, but it is said\l"
     "that the location of the Beacon\l"
     "is not too far away from its den.\p"
-    "The second and the youngest Protectors\l"
-    "are said to have shared a special\l"
-    "bond, and this bond is believed to\l"
-    "still linger between the remnants\l"
-    "left behind."
+    "The second and the youngest\n"
+    "Protector are said to have shared\l"
+    "a special bond, and this bond is\l"
+    "believed to still linger between\l"
+    "the remnants left behind."
 }
 text OldestProtector{
     "Not much is known about the eldest\n"
@@ -463,15 +465,15 @@ text LittleGreenMenIntro{
 text LittleGreenMen{
     "“The Little Green Men.”\p"
     "Since time immemorial, people of Sinko\n"
-    "have reported seeing “little green men”\l"
-    "in the nature.\p"
+    "have reported seeing “little green\l"
+    "men” in the nature.\p"
     "These beings only appear for a fraction\n"
     "of a second before they're gone, and\l"
     "to this day not one has been caught,\l"
     "whether it be in a trap or on a film.\p"
     "Many believe these could be an elusive\n"
-    "and rare Pokémon, but no reports of one\l"
-    "being caught in a Poké Ball has\l"
+    "and rare Pokémon, but no reports of\l"
+    "one being caught in a Poké Ball has\l"
     "ever surfaced.\p"
     "Whether these beings truly exist\n"
     "has been the topic of great many\l"
