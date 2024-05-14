@@ -298,6 +298,9 @@ script PlayerHouse1F_Dad{
     waitse
     msgbox(ExplainCapsule, MSGBOX_NPC)
     setflag(FLAG_RECEIVED_CAPSULE)
+    if(var(VAR_PEARLWOOD_TOWN_STATE) == 13){
+        setvar(VAR_PEARLWOOD_TOWN_STATE, 14)
+    }
     end
 }
 
@@ -316,7 +319,7 @@ text GiftFromDad{
     "during my travels that both you and\l"
     "{BROTHER} would certainly find useful.\p"
     "It's a shame {BROTHER} isn't here,\n"
-    "but you can still have yours.\p"
+    "but you can still have yours."
 }
 
 text GiftFromDadShort{

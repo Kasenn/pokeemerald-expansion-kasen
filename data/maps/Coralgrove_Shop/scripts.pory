@@ -1,3 +1,7 @@
+raw`
+@ special ChooseMonForMoveTutor
+`
+
 mapscripts Coralgrove_Shop_MapScripts{}
 
 script CGShop_Lass{

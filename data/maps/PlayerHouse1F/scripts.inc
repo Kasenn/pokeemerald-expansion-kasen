@@ -270,6 +270,9 @@ PlayerHouse1F_Dad_4:
 	waitse
 	msgbox ExplainCapsule, MSGBOX_NPC
 	setflag FLAG_RECEIVED_CAPSULE
+	compare VAR_PEARLWOOD_TOWN_STATE, 13
+	goto_if_eq PlayerHouse1F_Dad_12
+PlayerHouse1F_Dad_11:
 	end
 
 PlayerHouse1F_Dad_2:
@@ -284,6 +287,10 @@ PlayerHouse1F_Dad_9:
 	msgbox NotEnoughRoom, MSGBOX_NPC
 	setflag FLAG_TEMP_5
 	end
+
+PlayerHouse1F_Dad_12:
+	setvar VAR_PEARLWOOD_TOWN_STATE, 14
+	goto PlayerHouse1F_Dad_11
 
 
 Player1F_Shoes_Text_0:
@@ -368,7 +375,7 @@ GiftFromDad::
 	.string "during my travels that both you and\l"
 	.string "{BROTHER} would certainly find useful.\p"
 	.string "It's a shame {BROTHER} isn't here,\n"
-	.string "but you can still have yours.\p$"
+	.string "but you can still have yours.$"
 
 GiftFromDadShort::
 	.string "Dad: It's a shame {BROTHER} isn't here,\n"

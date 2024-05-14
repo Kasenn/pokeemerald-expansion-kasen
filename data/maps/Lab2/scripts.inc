@@ -30,6 +30,7 @@ Lab2_GetMegaStone_12:
 	waitse
 Lab2_GetMegaStone_4:
 	delay 24
+	closemessage
 	applymovement 4, ProfBackAndForth
 	waitmovement 0
 	applymovement 5, Common_Movement_WalkInPlaceFasterLeft
@@ -45,6 +46,7 @@ Lab2_GetMegaStone_4:
 	waitmovement 0
 	msgbox ThanksDadBirch
 Lab2_GetMegaStone_8:
+	closemessage
 	applymovement 5, RivalLeavesLab
 	applymovement OBJ_EVENT_ID_PLAYER, TurnPlayer
 	waitmovement 5
@@ -283,10 +285,10 @@ Lab2_Birch::
 	goto_if_eq Lab2_Birch_5
 	compare VAR_PEARLWOOD_TOWN_STATE, 12
 	goto_if_eq Lab2_Birch_8
-	goto_if_unset FLAG_UNUSED_PICKEDROWLET, Lab2_Birch_13
-Lab2_Birch_12:
+	goto_if_unset FLAG_UNUSED_PICKEDROWLET, Lab2_Birch_16
+Lab2_Birch_15:
 	msgbox Lab2_Birch_Text_1
-Lab2_Birch_10:
+Lab2_Birch_13:
 	waitmessage
 	release
 	end
@@ -296,6 +298,7 @@ Lab2_Birch_2:
 	end
 
 Lab2_Birch_5:
+	goto_if_set FLAG_RECEIVED_CAPSULE, Lab2_Birch_11
 	msgbox YourFatherIsInTown, MSGBOX_NPC
 	end
 
@@ -304,44 +307,48 @@ Lab2_Birch_8:
 	closemessage
 	checkitemspace ITEM_DECIDUEITE
 	compare VAR_RESULT, FALSE
-	goto_if_eq Lab2_Birch_18
+	goto_if_eq Lab2_Birch_21
 	switch VAR_STARTER_MON
-	case 0, Lab2_Birch_23
-	case 1, Lab2_Birch_24
-	case 2, Lab2_Birch_25
-Lab2_Birch_21:
+	case 0, Lab2_Birch_26
+	case 1, Lab2_Birch_27
+	case 2, Lab2_Birch_28
+Lab2_Birch_24:
 	setvar VAR_PEARLWOOD_TOWN_STATE, 13
 	waitse
 	release
 	end
 
 Lab2_Birch_11:
+	call ProfBirch_EventScript_RatePokedexOrRegister
+	end
+
+Lab2_Birch_14:
 	msgbox Lab2_Birch_Text_0
-	goto Lab2_Birch_10
+	goto Lab2_Birch_13
 
-Lab2_Birch_13:
-	goto_if_unset FLAG_UNUSED_PICKEDTORCHIC, Lab2_Birch_15
-	goto Lab2_Birch_12
-
-Lab2_Birch_15:
-	goto_if_unset FLAG_UNUSED_PICKEDPIPLUP, Lab2_Birch_11
-	goto Lab2_Birch_12
+Lab2_Birch_16:
+	goto_if_unset FLAG_UNUSED_PICKEDTORCHIC, Lab2_Birch_18
+	goto Lab2_Birch_15
 
 Lab2_Birch_18:
+	goto_if_unset FLAG_UNUSED_PICKEDPIPLUP, Lab2_Birch_14
+	goto Lab2_Birch_15
+
+Lab2_Birch_21:
 	msgbox ComeGetYourStoneLaterShort, MSGBOX_NPC
 	end
 
-Lab2_Birch_23:
+Lab2_Birch_26:
 	giveitem ITEM_DECIDUEITE
-	goto Lab2_Birch_21
+	goto Lab2_Birch_24
 
-Lab2_Birch_24:
+Lab2_Birch_27:
 	giveitem ITEM_BLAZIKENITE
-	goto Lab2_Birch_21
+	goto Lab2_Birch_24
 
-Lab2_Birch_25:
+Lab2_Birch_28:
 	giveitem ITEM_EMPOLEONITE
-	goto Lab2_Birch_21
+	goto Lab2_Birch_24
 
 
 Lab2_Ball1::
@@ -595,22 +602,22 @@ LabMegaStones::
 	.string "been able to do a lot of research on\l"
 	.string "a phenomena called “Mega Evolution.”\p"
 	.string "Not much is known about it here in\n"
-	.string "Sinko, but thanks to Professor Sycamore\l"
-	.string "of Kalos, I have been able to greatly\l"
-	.string "further my research.\p"
+	.string "Sinko, but thanks to Professor\l"
+	.string "Sycamore of Kalos, I have been\l"
+	.string "able to greatly further my research.\p"
 	.string "This is where you two come in.\p"
 	.string "One day, I happened upon a mysterious\n"
 	.string "set of stones. I believe these stones\l"
 	.string "to be Mega Stones, special evolution\l"
 	.string "stones capable of triggering a Mega\l"
-	.string "evolution within certain Pokémon.\p"
+	.string "Evolution within certain Pokémon.\p"
 	.string "I would like you two to test out my\n"
 	.string "theory, and see if your Pokémon are\l"
 	.string "able to somehow interact with these\l"
 	.string "Mega Stones.\p"
 	.string "I want you both to have a stone that\n"
 	.string "I believe is related to the Pokémon\l"
-	.string "I gave you.$"
+	.string "I have given you.$"
 
 TradedAwayStarter::
 	.string "Prof. Birch: Oh, you haven't traded my\n"
@@ -636,25 +643,25 @@ GonnaGoAhead_May::
 	.string "{RIVAL}: I can't wait to see this\n"
 	.string "thing in action!\p"
 	.string "You make sure you grab yours as well,\n"
-	.string "{PLAYER}!"
+	.string "{PLAYER}!\p"
 	.string "I don't want to hear you whining that\n"
-	.string "you lost because you didn't have access\l"
-	.string "to Mega Evolution!$"
+	.string "you lost because you didn't know how\l"
+	.string "to use Mega Evolution!$"
 
 GonnaTakeMyLeave_May::
 	.string "{RIVAL}: I can't wait to see this\n"
 	.string "thing in action!\p"
 	.string "You better train your Pokémon to use\n"
-	.string "the stone, {PLAYER}!"
+	.string "the stone, {PLAYER}!\p"
 	.string "I don't want to hear you whining that\n"
-	.string "you lost because you didn't have access\l"
-	.string "to Mega Evolution!$"
+	.string "you lost because you didn't know how\l"
+	.string "to use Mega Evolution!$"
 
 GonnaGoAhead_Brendan::
 	.string "{RIVAL}: I can't wait to see this\n"
 	.string "thing in action!\p"
 	.string "Make sure you grab yours before you\n"
-	.string "leave, {PLAYER}."
+	.string "leave, {PLAYER}.\p"
 	.string "I don't want to hear any complaints\n"
 	.string "about how you lost because you didn't\l"
 	.string "know how to Mega Evolve your Pokémon.$"

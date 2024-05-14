@@ -5651,6 +5651,7 @@ static const struct TrainerMon sParty_AT4F_Tr1_HexManiac[] = {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
     .lvl = 46,
     .species = SPECIES_MISMAGIUS,
+    .moves = {MOVE_PERISH_SONG, MOVE_SHADOW_BALL, MOVE_PAYBACK, MOVE_PAIN_SPLIT}
     }
 };
 
@@ -5730,6 +5731,7 @@ static const struct TrainerMon sParty_AT5F_CoolTrainer_M[] = {
     .lvl = 47,
     .species = SPECIES_WHIMSICOTT,
     .ev = TRAINER_PARTY_EVS(52, 52, 52, 52, 52, 52),
+    .moves = {MOVE_ENDEAVOR, MOVE_SUNNY_DAY, MOVE_ENERGY_BALL, MOVE_FAIRY_WIND}
     }
 };
 
@@ -5739,12 +5741,14 @@ static const struct TrainerMon sParty_AT5F_CoolTrainer_F[] = {
     .lvl = 45,
     .species = SPECIES_MISMAGIUS,
     .ev = TRAINER_PARTY_EVS(52, 52, 52, 52, 52, 52),
+    .moves = {MOVE_PERISH_SONG, MOVE_SHADOW_BALL, MOVE_PAYBACK, MOVE_PAIN_SPLIT}
     },
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
     .lvl = 46,
     .species = SPECIES_UMBREON,
     .ev = TRAINER_PARTY_EVS(52, 52, 52, 52, 52, 52),
+    .moves = {MOVE_FEINT_ATTACK, MOVE_MOONLIGHT, MOVE_SCREECH, MOVE_PURSUIT}
     },
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),

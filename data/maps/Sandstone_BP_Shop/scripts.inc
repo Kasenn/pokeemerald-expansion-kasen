@@ -1,3 +1,5 @@
+@ special ChooseMonForMoveTutor
+
 Sandstone_BP_Shop_MapScripts::
 	.byte 0
 

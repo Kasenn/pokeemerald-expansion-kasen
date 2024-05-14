@@ -1,3 +1,5 @@
+@ special ChooseMonForMoveTutor
+
 Coralgrove_Shop_MapScripts::
 	.byte 0
 

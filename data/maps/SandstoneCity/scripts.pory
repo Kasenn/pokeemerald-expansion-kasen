@@ -209,6 +209,10 @@ script SandstoneRival{
         release
         end
     }
+    if(var(VAR_PEARLWOOD_TOWN_STATE) == 11){
+        release
+        end
+    }
     setflag(FLAG_MAY_COSTUME_CHANGE)
     setflag(FLAG_BRENDAN_COSTUME_CHANGE)
     call(Common_EventScript_SetupRivalGfxId)

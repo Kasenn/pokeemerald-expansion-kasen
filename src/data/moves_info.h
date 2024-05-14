@@ -467,7 +467,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
             "Cuts the foe with blades\n"
             "or claws. Always crits."),
         .effect = EFFECT_HIT,
-        .power = 45,
+        .power = 55,
         .type = TYPE_NORMAL,
         .accuracy = 95,
         .pp = 30,

@@ -85,6 +85,7 @@ AT_TopEvent_1:
 	delay 15
 	removeobject 2
 	fadescreen FADE_FROM_BLACK
+	delay 48
 	applymovement OBJ_EVENT_ID_FOLLOWER, Walk1Left
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
@@ -401,16 +402,14 @@ YouTwoMadeIt::
 	.string "Anyways, the reason I called you here\n"
 	.string "was so I could give you these:\l"
 	.string "the Mega Rings!\p"
-	.string "Where I come from, we have this thing\n"
-	.string "called “Mega Evolution,” which both of\l"
-	.string "you got to see me perform during our\l"
-	.string "battles.\p"
-	.string "When I see a great trainer, I like to\n"
-	.string "gift them with one of these.\p"
-	.string "This ring is the key ingredient for\n"
-	.string "activating the evolution.\p"
+	.string "These rings are the key ingredient to\n"
+	.string "a phenomena called “Mega Evolution,”\l"
+	.string "which both of you got to see me\l"
+	.string "perform during our battles.\p"
+	.string "When I see a great trainer, I like\n"
+	.string "to gift them with one of these.\p"
 	.string "The only problem is, they're kinda rare\n"
-	.string "here in Sinko."
+	.string "here in Sinko.\p"
 	.string "That's why I can only afford to give\n"
 	.string "them to the truly expectional trainers.\p"
 	.string "People like you!$"
@@ -454,7 +453,7 @@ LetsGoMeetDadBrendan::
 	.string "{RIVAL}: Hey {PLAYER}, let's go ask\n"
 	.string "my dad!\p"
 	.string "Since he's a Pokémon Professor, I'm\n"
-	.string "sure he must know something!$"
+	.string "sure he knows something about this!$"
 
 LetsGoMeetDadMay::
 	.string "{RIVAL}: Hey, {PLAYER}, maybe we ought\n"

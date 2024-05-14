@@ -39,6 +39,7 @@ script Lab2_GetMegaStone{
         waitse
     }
     delay(24)
+    closemessage
     applymovement(4, ProfBackAndForth)
     waitmovement(0)
     applymovement(5, Common_Movement_WalkInPlaceFasterLeft)
@@ -73,6 +74,7 @@ script Lab2_GetMegaStone{
             msgbox(ThanksDadBirch)
         }
     }
+    closemessage
     applymovement(5, RivalLeavesLab)
     applymovement(OBJ_EVENT_ID_PLAYER, TurnPlayer)
     waitmovement(5)
@@ -89,22 +91,22 @@ text LabMegaStones{
     "been able to do a lot of research on\l"
     "a phenomena called “Mega Evolution.”\p"
     "Not much is known about it here in\n"
-    "Sinko, but thanks to Professor Sycamore\l"
-    "of Kalos, I have been able to greatly\l"
-    "further my research.\p"
+    "Sinko, but thanks to Professor\l"
+    "Sycamore of Kalos, I have been\l"
+    "able to greatly further my research.\p"
     "This is where you two come in.\p"
     "One day, I happened upon a mysterious\n"
     "set of stones. I believe these stones\l"
     "to be Mega Stones, special evolution\l"
     "stones capable of triggering a Mega\l"
-    "evolution within certain Pokémon.\p"
+    "Evolution within certain Pokémon.\p"
     "I would like you two to test out my\n"
     "theory, and see if your Pokémon are\l"
     "able to somehow interact with these\l"
     "Mega Stones.\p"
     "I want you both to have a stone that\n"
     "I believe is related to the Pokémon\l"
-    "I gave you."
+    "I have given you."
 }
 text TradedAwayStarter{
     "Prof. Birch: Oh, you haven't traded my\n"
@@ -130,25 +132,25 @@ text GonnaGoAhead_May{
     "{RIVAL}: I can't wait to see this\n"
     "thing in action!\p"
     "You make sure you grab yours as well,\n"
-    "{PLAYER}!"
+    "{PLAYER}!\p"
     "I don't want to hear you whining that\n"
-    "you lost because you didn't have access\l"
-    "to Mega Evolution!"
+    "you lost because you didn't know how\l"
+    "to use Mega Evolution!"
 }
 text GonnaTakeMyLeave_May{
     "{RIVAL}: I can't wait to see this\n"
     "thing in action!\p"
     "You better train your Pokémon to use\n"
-    "the stone, {PLAYER}!"
+    "the stone, {PLAYER}!\p"
     "I don't want to hear you whining that\n"
-    "you lost because you didn't have access\l"
-    "to Mega Evolution!"
+    "you lost because you didn't know how\l"
+    "to use Mega Evolution!"
 }
 text GonnaGoAhead_Brendan{
     "{RIVAL}: I can't wait to see this\n"
     "thing in action!\p"
     "Make sure you grab yours before you\n"
-    "leave, {PLAYER}."
+    "leave, {PLAYER}.\p"
     "I don't want to hear any complaints\n"
     "about how you lost because you didn't\l"
     "know how to Mega Evolve your Pokémon."
@@ -355,6 +357,10 @@ script Lab2_Birch{
         end
     }
     if(var(VAR_PEARLWOOD_TOWN_STATE) == 13){
+        if(flag(FLAG_RECEIVED_CAPSULE)){
+            call(ProfBirch_EventScript_RatePokedexOrRegister)
+            end
+        }
         msgbox(YourFatherIsInTown, MSGBOX_NPC)
         end
     }

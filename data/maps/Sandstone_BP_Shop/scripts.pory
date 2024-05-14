@@ -1,3 +1,7 @@
+raw`
+@ special ChooseMonForMoveTutor
+`
+
 mapscripts Sandstone_BP_Shop_MapScripts{}
 
 script SandstoneShop_Man{

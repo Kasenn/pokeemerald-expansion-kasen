@@ -89,6 +89,7 @@ script AT_TopEvent{
     delay(15)
     removeobject(2)
     fadescreen(FADE_FROM_BLACK)
+    delay(48)
     applymovement(OBJ_EVENT_ID_FOLLOWER, Walk1Left)
     waitmovement(0)
     turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
@@ -169,16 +170,14 @@ text YouTwoMadeIt{
     "Anyways, the reason I called you here\n"
     "was so I could give you these:\l"
     "the Mega Rings!\p"
-    "Where I come from, we have this thing\n"
-    "called “Mega Evolution,” which both of\l"
-    "you got to see me perform during our\l"
-    "battles.\p"
-    "When I see a great trainer, I like to\n"
-    "gift them with one of these.\p"
-    "This ring is the key ingredient for\n"
-    "activating the evolution.\p"
+    "These rings are the key ingredient to\n"
+    "a phenomena called “Mega Evolution,”\l"
+    "which both of you got to see me\l"
+    "perform during our battles.\p"
+    "When I see a great trainer, I like\n"
+    "to gift them with one of these.\p"
     "The only problem is, they're kinda rare\n"
-    "here in Sinko."
+    "here in Sinko.\p"
     "That's why I can only afford to give\n"
     "them to the truly expectional trainers.\p"
     "People like you!"
@@ -222,7 +221,7 @@ text LetsGoMeetDadBrendan{
     "{RIVAL}: Hey {PLAYER}, let's go ask\n"
     "my dad!\p"
     "Since he's a Pokémon Professor, I'm\n"
-    "sure he must know something!"
+    "sure he knows something about this!"
 }
 text LetsGoMeetDadMay{
     "{RIVAL}: Hey, {PLAYER}, maybe we ought\n"

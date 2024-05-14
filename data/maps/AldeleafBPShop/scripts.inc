@@ -1,3 +1,5 @@
+@ special ChooseMonForMoveTutor
+
 AldeleafBPShop_MapScripts::
 	.byte 0
 

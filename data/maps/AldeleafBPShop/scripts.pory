@@ -1,3 +1,7 @@
+raw`
+@ special ChooseMonForMoveTutor
+`
+
 mapscripts AldeleafBPShop_MapScripts{}
 
 script AldeShop_Man{
