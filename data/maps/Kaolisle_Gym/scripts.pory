@@ -356,7 +356,7 @@ script KaolGym_ClayEvent{
 	setvar(VAR_0x8008, 3)
 	call(Common_EventScript_SetGymTrainers)
 	special(RemoveCameraObject)
-	giveitem(ITEM_TM84)
+	giveitem(ITEM_TM_STOMPING_TANTRUM)
 	msgbox (KaolGym_ExplainTM, MSGBOX_DEFAULT)
 	release
 	end

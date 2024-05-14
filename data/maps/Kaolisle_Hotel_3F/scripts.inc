@@ -43,7 +43,7 @@ Kaolisle_Hotel_3F_EchoWoman::
 	faceplayer
 	msgbox Kaolisle_Hotel_3F_EchoWoman_Text, MSGBOX_DEFAULT
 	waitse
-	giveitem ITEM_TM49
+	giveitem ITEM_TM_ECHOED_VOICE
 	setflag FLAG_OBTAINED_ECHOEDVOICE
 	waitfanfare
 	closemessage

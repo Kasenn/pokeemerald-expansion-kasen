@@ -186,7 +186,7 @@ Korrina_PosBatEvent::
 	msgbox Korrina_ExplainBadge, MSGBOX_DEFAULT
 	setflag FLAG_BADGE04_GET
 	call SetBadgesAndTrainers
-	giveitem ITEM_TM98
+	giveitem ITEM_TM_STOMPING_TANTRUM
 	msgbox Explain_PUPunch, MSGBOX_DEFAULT
 	msgbox MeetMeAtAdTower, MSGBOX_DEFAULT
 	closemessage
