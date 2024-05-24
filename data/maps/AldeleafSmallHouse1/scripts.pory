@@ -11,7 +11,7 @@ script AldeleafSmallHouse1_Man{
     if(var(VAR_RESULT) == FALSE){
         goto(OldManNotEnoughRoom)
     }
-    giveitem(ITEM_WHITE_FLUTE, 1)
+    giveitem(ITEM_BLACK_FLUTE, 1)
     setflag(FLAG_WHITEFLUTE_RECEIVED)
     msgbox(ExplainWhiteFlute, MSGBOX_NPC)
     end
@@ -32,5 +32,5 @@ script AldeleafSmallHouse1_Man2{
 }
 
 text ExplainWhiteFlute{
-    "Using that flute attracts wild Pokémon\naround you, making it more likely\lfor you to encounter them."
+    "Using that flute repels wild Pokémon\naround you, making it less likely\lfor you to encounter them."
 }

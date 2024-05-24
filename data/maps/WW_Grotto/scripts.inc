@@ -187,7 +187,7 @@ WW_GrottoPokemon_2:
 	playmoncry SPECIES_DUNSPARCE, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_DUNSPARCE, 9
+	setwildbattle SPECIES_DUNSPARCE, 7
 	goto WW_GrottoPokemon_1
 
 WW_GrottoPokemon_3:
@@ -199,7 +199,7 @@ WW_GrottoPokemon_7:
 	playmoncry SPECIES_SWABLU, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_SWABLU, 9
+	setwildbattle SPECIES_SWABLU, 7
 	goto WW_GrottoPokemon_6
 
 WW_GrottoPokemon_8:
@@ -211,7 +211,7 @@ WW_GrottoPokemon_12:
 	playmoncry SPECIES_GLIGAR, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_GLIGAR, 9
+	setwildbattle SPECIES_GLIGAR, 7
 	goto WW_GrottoPokemon_11
 
 WW_GrottoPokemon_13:
@@ -223,7 +223,7 @@ WW_GrottoPokemon_17:
 	playmoncry SPECIES_SPHEAL, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_SPHEAL, 9
+	setwildbattle SPECIES_SPHEAL, 7
 	goto WW_GrottoPokemon_16
 
 WW_GrottoPokemon_18:
@@ -235,7 +235,7 @@ WW_GrottoPokemon_22:
 	playmoncry SPECIES_SKORUPI, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_SKORUPI, 9
+	setwildbattle SPECIES_SKORUPI, 7
 	goto WW_GrottoPokemon_21
 
 WW_GrottoPokemon_23:

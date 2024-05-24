@@ -20,7 +20,7 @@
     },
     {
       "map": "MAP_WINDY_WOODS",
-      "offset": -4,
+      "offset": 12,
       "direction": "right"
     }
   ],

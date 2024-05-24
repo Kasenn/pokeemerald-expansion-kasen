@@ -7624,7 +7624,7 @@ static u32 GetTrainerMoneyToGive(u16 trainerId)
 
 static void Cmd_getmoneyreward(void)
 {
-    CMD_ARGS();
+    CMD_ARGS(const u8 *jumpInstr);
 
     u32 money;
     u32 battlePoints = 0;
@@ -7680,11 +7680,16 @@ static void Cmd_getmoneyreward(void)
         RemoveBagItem(ITEM_CURRY, 1);
     }
     
-
     // Prepare the money earned text for display
     PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, 5, money);
     PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff2, 5, battlePoints);
-    gBattlescriptCurrInstr = cmd->nextInstr;
+    if (battlePoints != 0)
+    {
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    }
+    else{
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
 }
 
 

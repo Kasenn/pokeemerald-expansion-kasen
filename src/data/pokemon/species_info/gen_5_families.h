@@ -2989,15 +2989,15 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
 
     [SPECIES_EXPBOT] =
     {
-        .baseHP        = 20,
-        .baseAttack    = 20,
-        .baseDefense   = 20,
-        .baseSpeed     = 20,
-        .baseSpAttack  = 20,
-        .baseSpDefense = 20,
+        .baseHP        = 1,
+        .baseAttack    = 10,
+        .baseDefense   = 10,
+        .baseSpeed     = 10,
+        .baseSpAttack  = 10,
+        .baseSpDefense = 10,
         .types = { TYPE_NORMAL, TYPE_NORMAL},
         .catchRate = 190,
-        .expYield = 608,
+        .expYield = 300,
         .evYield_HP = 0,
         .genderRatio = PERCENT_FEMALE(12.5),
         .eggCycles = 20,

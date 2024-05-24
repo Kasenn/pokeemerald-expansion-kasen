@@ -17,8 +17,7 @@ script Rockliffe_House1_OldWoman{
         msgbox(YouDontHaveBeedrill, MSGBOX_NPC)
         end
     }
-    checkflag(FLAG_OBTAINED_MEGA_RING)
-    if(var(VAR_RESULT) == FALSE){
+    if(!flag(FLAG_OBTAINED_MEGA_RING)){
         msgbox(HaveBeedrillButNoRing, MSGBOX_NPC)
         end
     }
@@ -52,9 +51,9 @@ text YouDontHaveBeedrill{
     "wasting my time…"
 }
 text HaveBeedrillButNoRing{
-    "Yes, I can see it in your eyes.\p"
-    "I hope you're taking good care\n"
-    "of your Beedrill."
+    "Yes, I can see it in your eyes,\n"
+    "but I think your Beedrill could\l"
+    "still use some training."
 }
 text TakeBeedrillite{
     "Yes, I can see it in your eyes.\p"

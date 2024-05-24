@@ -17,11 +17,11 @@ AldeleafGymSetUpFromLoad_2:
 	goto AldeleafGymSetUpFromLoad_1
 
 AldeleafGymSetUpFromLoad_5:
-	setmetatile 14, 64, 0x206, FALSE
+	setmetatile 1, 64, 0x206, FALSE
 	goto AldeleafGymSetUpFromLoad_4
 
 AldeleafGymSetUpFromLoad_7:
-	setmetatile 2, 55, 0x206, FALSE
+	setmetatile 1, 55, 0x206, FALSE
 	return
 
 
@@ -81,7 +81,7 @@ AldeleafGymSwitch2::
 AldeleafGymSwitch2_1:
 	lockall
 	playse SE_SWITCH
-	setmetatile 14, 64, 0x206, FALSE
+	setmetatile 1, 64, 0x206, FALSE
 	special DrawWholeMapView
 	setflag FLAG_ALDELEAF_SWITCH2
 	goto_if_set FLAG_ALDELEAF_SWITCH1, AldeleafGymSwitch2_7
@@ -113,7 +113,7 @@ AldeleafGymSwitch3::
 AldeleafGymSwitch3_1:
 	lockall
 	playse SE_SWITCH
-	setmetatile 2, 55, 0x206, FALSE
+	setmetatile 1, 55, 0x206, FALSE
 	special DrawWholeMapView
 	setflag FLAG_ALDELEAF_SWITCH3
 	goto_if_set FLAG_ALDELEAF_SWITCH1, AldeleafGymSwitch3_7
@@ -233,43 +233,43 @@ AldeleafGymFloorTriggered_36:
 	return
 
 AldeleafGymFloorTriggered_10:
-	setwildbattlelevelrange SPECIES_MAGNEMITE, 18, ITEM_NONE, SPECIES_MAGNEMITE, 21, ITEM_NONE
+	setwildbattlelevelrange SPECIES_MAGNEMITE, 11, ITEM_NONE, SPECIES_MAGNEMITE, 14, ITEM_NONE
 	goto AldeleafGymFloorTriggered_9
 
 AldeleafGymFloorTriggered_13:
-	setwildbattlelevelrange SPECIES_MAGNEMITE, 18, ITEM_NONE, SPECIES_VOLTORB, 21, ITEM_NONE
+	setwildbattlelevelrange SPECIES_MAGNEMITE, 11, ITEM_NONE, SPECIES_VOLTORB, 14, ITEM_NONE
 	goto AldeleafGymFloorTriggered_12
 
 AldeleafGymFloorTriggered_16:
-	setwildbattlelevelrange SPECIES_MAGNEMITE, 18, ITEM_NONE, SPECIES_HELIOPTILE, 21, ITEM_NONE
+	setwildbattlelevelrange SPECIES_MAGNEMITE, 11, ITEM_NONE, SPECIES_HELIOPTILE, 14, ITEM_NONE
 	goto AldeleafGymFloorTriggered_15
 
 AldeleafGymFloorTriggered_19:
-	setwildbattlelevelrange SPECIES_MAGNEMITE, 18, ITEM_NONE, SPECIES_CHARJABUG, 21, ITEM_NONE
+	setwildbattlelevelrange SPECIES_MAGNEMITE, 11, ITEM_NONE, SPECIES_CHARJABUG, 14, ITEM_NONE
 	goto AldeleafGymFloorTriggered_18
 
 AldeleafGymFloorTriggered_22:
-	setwildbattlelevelrange SPECIES_VOLTORB, 18, ITEM_NONE, SPECIES_VOLTORB, 21, ITEM_NONE
+	setwildbattlelevelrange SPECIES_VOLTORB, 11, ITEM_NONE, SPECIES_VOLTORB, 14, ITEM_NONE
 	goto AldeleafGymFloorTriggered_21
 
 AldeleafGymFloorTriggered_25:
-	setwildbattlelevelrange SPECIES_VOLTORB, 18, ITEM_NONE, SPECIES_HELIOPTILE, 21, ITEM_NONE
+	setwildbattlelevelrange SPECIES_VOLTORB, 11, ITEM_NONE, SPECIES_HELIOPTILE, 14, ITEM_NONE
 	goto AldeleafGymFloorTriggered_24
 
 AldeleafGymFloorTriggered_28:
-	setwildbattlelevelrange SPECIES_VOLTORB, 18, ITEM_NONE, SPECIES_CHARJABUG, 21, ITEM_NONE
+	setwildbattlelevelrange SPECIES_VOLTORB, 11, ITEM_NONE, SPECIES_CHARJABUG, 14, ITEM_NONE
 	goto AldeleafGymFloorTriggered_27
 
 AldeleafGymFloorTriggered_31:
-	setwildbattlelevelrange SPECIES_HELIOPTILE, 18, ITEM_NONE, SPECIES_HELIOPTILE, 21, ITEM_NONE
+	setwildbattlelevelrange SPECIES_HELIOPTILE, 11, ITEM_NONE, SPECIES_HELIOPTILE, 14, ITEM_NONE
 	goto AldeleafGymFloorTriggered_30
 
 AldeleafGymFloorTriggered_34:
-	setwildbattlelevelrange SPECIES_HELIOPTILE, 18, ITEM_NONE, SPECIES_CHARJABUG, 21, ITEM_NONE
+	setwildbattlelevelrange SPECIES_HELIOPTILE, 11, ITEM_NONE, SPECIES_CHARJABUG, 14, ITEM_NONE
 	goto AldeleafGymFloorTriggered_33
 
 AldeleafGymFloorTriggered_37:
-	setwildbattlelevelrange SPECIES_CHARJABUG, 18, ITEM_NONE, SPECIES_CHARJABUG, 21, ITEM_NONE
+	setwildbattlelevelrange SPECIES_CHARJABUG, 11, ITEM_NONE, SPECIES_CHARJABUG, 14, ITEM_NONE
 	goto AldeleafGymFloorTriggered_36
 
 

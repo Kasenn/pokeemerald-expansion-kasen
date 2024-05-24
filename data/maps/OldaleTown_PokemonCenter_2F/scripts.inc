@@ -98,7 +98,7 @@ LevelTraining::
 LevelTraining_Setup::
 	lockall
 	special ShowBattlePointsWindow
-	msgbox LevelTraining_Setup_Text_0, MSGBOX_YESNO
+	msgbox Level4Team, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq LevelTraining_Setup_1
 	closemessage
@@ -129,7 +129,7 @@ LevelTraining2::
 LevelTraining2_Setup::
 	lockall
 	special ShowBattlePointsWindow
-	msgbox LevelTraining2_Setup_Text_0, MSGBOX_YESNO
+	msgbox Level5Team, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq LevelTraining2_Setup_1
 	closemessage
@@ -147,7 +147,7 @@ LevelTraining2_Setup_1:
 
 LevelTrainingAldeleaf::
 	lockall
-	setvar VAR_0x8008, 4
+	setvar VAR_0x8008, 3
 	specialvar VAR_TEMP_1, GetFrontierBattlePoints
 	goto_if_ge VAR_TEMP_1, VAR_0x8008, LevelTrainingAldeleaf_Setup
 	msgbox IVTraining_HaventGotEnoughPoints4BP, MSGBOX_DEFAULT
@@ -160,7 +160,7 @@ LevelTrainingAldeleaf::
 LevelTrainingAldeleaf_Setup::
 	lockall
 	special ShowBattlePointsWindow
-	msgbox LevelTrainingAldeleaf_Setup_Text_0, MSGBOX_YESNO
+	msgbox Level9Team, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq LevelTrainingAldeleaf_Setup_1
 	closemessage
@@ -304,7 +304,7 @@ LevelTrainingSandstone_Setup_1:
 	special CloseBattlePointsWindow
 	copyvar VAR_0x8004, VAR_0x8008
 	special TakeFrontierBattlePoints
-	trainerbattle_no_intro TRAINER_ROCKLIFFE_NURSE, IVTrainingDone
+	trainerbattle_no_intro TRAINER_SANDSTONE_NURSE, IVTrainingDone
 	return
 
 
@@ -313,15 +313,6 @@ IvTraining_2_Text_0:
 
 IvTraining_2_Text_1:
 	.string "Which type of training would\nyou like to have?$"
-
-LevelTraining_Setup_Text_0:
-	.string "This is the Level Training Service.\nEach use of the service\lcosts 2 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 5.$"
-
-LevelTraining2_Setup_Text_0:
-	.string "This is the Level Training Service.\nEach use of the service\lcosts 3 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 7.$"
-
-LevelTrainingAldeleaf_Setup_Text_0:
-	.string "This is the Level Training Service.\nEach use of the service\lcosts 4 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 12.$"
 
 IvTrainingIntro_Text_0:
 	.string "Hello, and welcome to the\n"
@@ -400,6 +391,33 @@ IVTraining_HaventGotEnoughPoints10BP::
 	.string "10 Battle Points.\p"
 	.string "I'm sorry, but you don't have enough\n"
 	.string "Battle Points…$"
+
+Level4Team::
+	.string "This is the Level Training Service.\p"
+	.string "The team in this Training Hub is set to\n"
+	.string "level 4 and is generally recommended\l"
+	.string "for teams up to level 12.\p"
+	.string "Would you like to use the service?\p"
+	.string "Each use of the service costs\n"
+	.string "2 Battle Points.$"
+
+Level5Team::
+	.string "This is the Level Training Service.\p"
+	.string "The team in this Training Hub is set to\n"
+	.string "level 5 and is generally recommended\l"
+	.string "for teams up to level 14.\p"
+	.string "Would you like to use the service?\p"
+	.string "Each use of the service costs\n"
+	.string "3 Battle Points.$"
+
+Level9Team::
+	.string "This is the Level Training Service.\p"
+	.string "The team in this Training Hub is set to\n"
+	.string "level 11 and is generally recommended\l"
+	.string "for teams up to level 21.\p"
+	.string "Would you like to use the service?\p"
+	.string "Each use of the service costs\n"
+	.string "3 Battle Points.$"
 
 IVTrainingDone::
 	.string "Thank you, please come again.$"

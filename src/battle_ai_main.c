@@ -3223,10 +3223,20 @@ static u32 AI_CalcMoveScore(u32 battlerAtk, u32 battlerDef, u32 move)
         IncreaseStatUpScore(battlerAtk, battlerDef, STAT_CHANGE_DEF_2, &score);
         break;
     case EFFECT_SPEED_UP:
-        IncreaseStatUpScore(battlerAtk, battlerDef, STAT_CHANGE_SPEED, &score);
+        if (AI_GetWeather(aiData) & B_WEATHER_STRONG_WINDS){
+            ADJUST_SCORE(-20);
+        }
+        else{
+            IncreaseStatUpScore(battlerAtk, battlerDef, STAT_CHANGE_SPEED, &score);
+        }
         break;
     case EFFECT_SPEED_UP_2:
-        IncreaseStatUpScore(battlerAtk, battlerDef, STAT_CHANGE_SPEED_2, &score);
+        if (AI_GetWeather(aiData) & B_WEATHER_STRONG_WINDS){
+            ADJUST_SCORE(-20);
+        }
+        else{
+            IncreaseStatUpScore(battlerAtk, battlerDef, STAT_CHANGE_SPEED_2, &score);
+        }
         break;
     case EFFECT_SPECIAL_ATTACK_UP:
         IncreaseStatUpScore(battlerAtk, battlerDef, STAT_CHANGE_SPATK, &score);

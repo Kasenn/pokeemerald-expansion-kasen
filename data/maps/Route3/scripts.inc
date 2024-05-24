@@ -10,7 +10,13 @@ Route3_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 
 TurnR3Player2::
 	map_script_2 VAR_RANCH_AMPHAROS, 1, TurnR3Player
+	map_script_2 VAR_TEMP_5, 0, EndScript
 	return
+
+
+EndScript::
+	setvar VAR_TEMP_5, 1
+	end
 
 
 TurnR3Player::
@@ -177,7 +183,7 @@ TriggerGina_5:
 	waitmovement 11
 	delay 10
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	msgbox Route3_Twin2Intro, MSGBOX_DEFAULT
+	msgbox Route3_Twin1Intro, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_LOLA_1, Route3_Twin1Defeated
 	waitmessage
 	end
@@ -221,7 +227,7 @@ Route3_Antidote::
 
 
 Route3_GigaDrain::
-	finditem ITEM_TM_GIGA_DRAIN
+	finditem ITEM_TM_GRASS_KNOT
 	return
 
 

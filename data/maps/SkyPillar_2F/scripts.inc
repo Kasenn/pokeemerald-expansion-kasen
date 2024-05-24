@@ -160,12 +160,12 @@ Tower_2F_Tr2_Battle_25:
 
 
 Tr2_2F_Woman5::
-	msgbox Tr2_2F_Woman5_PosBat
+	msgbox Tr2_2F_Woman5_PosBat, MSGBOX_NPC
 	end
 
 
 Tr2_2F_Man3::
-	msgbox Tr2_2F_Man3_PosBat
+	msgbox Tr2_2F_Man3_PosBat, MSGBOX_NPC
 	end
 
 
@@ -306,12 +306,12 @@ Tower_2F_Tr1_Battle_23:
 
 
 Tr1_2F_Man5::
-	msgbox Tr1_2F_Man5_PosBat
+	msgbox Tr1_2F_Man5_PosBat, MSGBOX_NPC
 	end
 
 
 Tr1_2F_Psychic::
-	msgbox Tr1_2F_Psychic_PosBat
+	msgbox Tr1_2F_Psychic_PosBat, MSGBOX_NPC
 	end
 
 

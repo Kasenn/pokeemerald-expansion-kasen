@@ -12,9 +12,7 @@ Rockliffe_House1_OldWoman::
 	checkdexmon SPECIES_BEEDRILL
 	compare VAR_RESULT, FALSE
 	goto_if_eq Rockliffe_House1_OldWoman_8
-	checkflag FLAG_OBTAINED_MEGA_RING
-	compare VAR_RESULT, FALSE
-	goto_if_eq Rockliffe_House1_OldWoman_11
+	goto_if_unset FLAG_OBTAINED_MEGA_RING, Rockliffe_House1_OldWoman_11
 	msgbox TakeBeedrillite, MSGBOX_DEFAULT
 	checkitemspace ITEM_BEEDRILLITE
 	compare VAR_RESULT, FALSE
@@ -133,9 +131,9 @@ YouDontHaveBeedrill::
 	.string "wasting my time…$"
 
 HaveBeedrillButNoRing::
-	.string "Yes, I can see it in your eyes.\p"
-	.string "I hope you're taking good care\n"
-	.string "of your Beedrill.$"
+	.string "Yes, I can see it in your eyes,\n"
+	.string "but I think your Beedrill could\l"
+	.string "still use some training.$"
 
 TakeBeedrillite::
 	.string "Yes, I can see it in your eyes.\p"

@@ -14,8 +14,8 @@ mapscripts AldeleafGym_MapScripts{
 //         clearflag(FLAG_ALDELEAF_SWITCH3)
 //         clearflag(FLAG_ALDELEAF_SWITCH_ALL)
 //         setmetatile(1, 73, 0x205, FALSE)
-//         setmetatile(14, 64, 0x205, FALSE)
-//         setmetatile(2, 55, 0x205, FALSE)
+//         setmetatile(1, 64, 0x205, FALSE)
+//         setmetatile(1, 55, 0x205, FALSE)
 //     }
 // }
 script AldeleafGymSetUpFromLoad{
@@ -23,10 +23,10 @@ script AldeleafGymSetUpFromLoad{
         setmetatile(1, 73, 0x206, FALSE)
     }
     if(flag(FLAG_ALDELEAF_SWITCH2)){
-        setmetatile(14, 64, 0x206, FALSE)
+        setmetatile(1, 64, 0x206, FALSE)
     }
     if(flag(FLAG_ALDELEAF_SWITCH3)){
-        setmetatile(2, 55, 0x206, FALSE)
+        setmetatile(1, 55, 0x206, FALSE)
     }
 }
 script AldeleafGymTriggerFlagSet{
@@ -69,7 +69,7 @@ script AldeleafGymSwitch2{
     if(!flag(FLAG_ALDELEAF_SWITCH2)){
         lockall
         playse(SE_SWITCH)
-        setmetatile(14, 64, 0x206, FALSE)
+        setmetatile(1, 64, 0x206, FALSE)
         special(DrawWholeMapView)
         setflag(FLAG_ALDELEAF_SWITCH2)
         if((flag(FLAG_ALDELEAF_SWITCH1)) && (flag(FLAG_ALDELEAF_SWITCH2)) && (flag(FLAG_ALDELEAF_SWITCH3))){
@@ -91,7 +91,7 @@ script AldeleafGymSwitch3{
     if(!flag(FLAG_ALDELEAF_SWITCH3)){
         lockall
         playse(SE_SWITCH)
-        setmetatile(2, 55, 0x206, FALSE)
+        setmetatile(1, 55, 0x206, FALSE)
         special(DrawWholeMapView)
         setflag(FLAG_ALDELEAF_SWITCH3)
         if((flag(FLAG_ALDELEAF_SWITCH1)) && (flag(FLAG_ALDELEAF_SWITCH2)) && (flag(FLAG_ALDELEAF_SWITCH3))){
@@ -161,34 +161,34 @@ script AldeleafGymFloorTriggered{
             if(var(VAR_RESULT) >= 2){
                 random(10)
                 if(var(VAR_RESULT) == 0){
-                    setwildbattlelevelrange(SPECIES_MAGNEMITE, 18, ITEM_NONE, SPECIES_MAGNEMITE, 21, ITEM_NONE)
+                    setwildbattlelevelrange(SPECIES_MAGNEMITE, 11, ITEM_NONE, SPECIES_MAGNEMITE, 14, ITEM_NONE)
                 }
                 if(var(VAR_RESULT) == 1){
-                    setwildbattlelevelrange(SPECIES_MAGNEMITE, 18, ITEM_NONE, SPECIES_VOLTORB, 21, ITEM_NONE)
+                    setwildbattlelevelrange(SPECIES_MAGNEMITE, 11, ITEM_NONE, SPECIES_VOLTORB, 14, ITEM_NONE)
                 }
                 if(var(VAR_RESULT) == 2){
-                    setwildbattlelevelrange(SPECIES_MAGNEMITE, 18, ITEM_NONE, SPECIES_HELIOPTILE, 21, ITEM_NONE)
+                    setwildbattlelevelrange(SPECIES_MAGNEMITE, 11, ITEM_NONE, SPECIES_HELIOPTILE, 14, ITEM_NONE)
                 }
                 if(var(VAR_RESULT) == 3){
-                    setwildbattlelevelrange(SPECIES_MAGNEMITE, 18, ITEM_NONE, SPECIES_CHARJABUG, 21, ITEM_NONE)
+                    setwildbattlelevelrange(SPECIES_MAGNEMITE, 11, ITEM_NONE, SPECIES_CHARJABUG, 14, ITEM_NONE)
                 }
                 if(var(VAR_RESULT) == 4){
-                    setwildbattlelevelrange(SPECIES_VOLTORB, 18, ITEM_NONE, SPECIES_VOLTORB, 21, ITEM_NONE)
+                    setwildbattlelevelrange(SPECIES_VOLTORB, 11, ITEM_NONE, SPECIES_VOLTORB, 14, ITEM_NONE)
                 }
                 if(var(VAR_RESULT) == 5){
-                    setwildbattlelevelrange(SPECIES_VOLTORB, 18, ITEM_NONE, SPECIES_HELIOPTILE, 21, ITEM_NONE)
+                    setwildbattlelevelrange(SPECIES_VOLTORB, 11, ITEM_NONE, SPECIES_HELIOPTILE, 14, ITEM_NONE)
                 }
                 if(var(VAR_RESULT) == 6){
-                    setwildbattlelevelrange(SPECIES_VOLTORB, 18, ITEM_NONE, SPECIES_CHARJABUG, 21, ITEM_NONE)
+                    setwildbattlelevelrange(SPECIES_VOLTORB, 11, ITEM_NONE, SPECIES_CHARJABUG, 14, ITEM_NONE)
                 }
                 if(var(VAR_RESULT) == 7){
-                    setwildbattlelevelrange(SPECIES_HELIOPTILE, 18, ITEM_NONE, SPECIES_HELIOPTILE, 21, ITEM_NONE)
+                    setwildbattlelevelrange(SPECIES_HELIOPTILE, 11, ITEM_NONE, SPECIES_HELIOPTILE, 14, ITEM_NONE)
                 }
                 if(var(VAR_RESULT) == 8){
-                    setwildbattlelevelrange(SPECIES_HELIOPTILE, 18, ITEM_NONE, SPECIES_CHARJABUG, 21, ITEM_NONE)
+                    setwildbattlelevelrange(SPECIES_HELIOPTILE, 11, ITEM_NONE, SPECIES_CHARJABUG, 14, ITEM_NONE)
                 }
                 if(var(VAR_RESULT) == 9){
-                    setwildbattlelevelrange(SPECIES_CHARJABUG, 18, ITEM_NONE, SPECIES_CHARJABUG, 21, ITEM_NONE)
+                    setwildbattlelevelrange(SPECIES_CHARJABUG, 11, ITEM_NONE, SPECIES_CHARJABUG, 14, ITEM_NONE)
                 }
                 dowildbattle
             }

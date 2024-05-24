@@ -22,10 +22,15 @@ SafariZone_South_EventScript_EnterSafariZone::
 
 SafariZone_South_OnTransition:
 	call_if_eq VAR_SAFARI_ZONE_STATE, 2, SafariZone_South_EventScript_SetExitAttendantAside
+	call_if_eq VAR_SAFARI_ZONE_STATE, 0, SafariZone_South_EventScript_SetExitAttendantAside2
 	end
 
 SafariZone_South_EventScript_SetExitAttendantAside::
 	setobjectxyperm LOCALID_ATTENDANT, 14, 33
+	return
+
+SafariZone_South_EventScript_SetExitAttendantAside2::
+	setobjectxyperm LOCALID_ATTENDANT, 13, 33
 	return
 
 SafariZone_South_Movement_PlayerEnter:

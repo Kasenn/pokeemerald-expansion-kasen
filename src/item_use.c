@@ -168,6 +168,12 @@ void DisplayDadsAdviceCannotUseItemMessage(u8 taskId, bool8 isUsingRegisteredKey
     DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_DadsAdvice);
 }
 
+void DisplayZygardeCubeItemMessage(u8 taskId, bool8 isUsingRegisteredKeyItemOnField)
+{
+    DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_ZygardeCells);
+}
+
+
 static void DisplayCannotDismountBikeMessage(u8 taskId, bool8 isUsingRegisteredKeyItemOnField)
 {
     DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_CantDismountBike);
@@ -1458,7 +1464,8 @@ void ItemUseOutOfBattle_ZygardeCube(u8 taskId)
     else
     {
         // TODO: handle key items with callbacks to menus allow to be used by registering them.
-        DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+        ConvertIntToDecimalStringN(gStringVar1, VAR_ZYGARDE_CELLS, STR_CONV_MODE_LEFT_ALIGN, 4);
+        DisplayZygardeCubeItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
     }
 }
 

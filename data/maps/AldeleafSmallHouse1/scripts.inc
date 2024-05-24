@@ -12,7 +12,7 @@ AldeleafSmallHouse1_Man_1:
 	compare VAR_RESULT, FALSE
 	goto_if_eq AldeleafSmallHouse1_Man_5
 AldeleafSmallHouse1_Man_4:
-	giveitem ITEM_WHITE_FLUTE, 1
+	giveitem ITEM_BLACK_FLUTE, 1
 	setflag FLAG_WHITEFLUTE_RECEIVED
 	msgbox ExplainWhiteFlute, MSGBOX_NPC
 	end
@@ -46,4 +46,4 @@ AldeleafSmallHouse1_Man_Text::
 	.string "Thank you for retrieving my\nhouse key for me.\lTo show you my gratitude,\lI'd like you to have this.$"
 
 ExplainWhiteFlute::
-	.string "Using that flute attracts wild Pokémon\naround you, making it more likely\lfor you to encounter them.$"
+	.string "Using that flute repels wild Pokémon\naround you, making it less likely\lfor you to encounter them.$"

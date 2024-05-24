@@ -10426,12 +10426,15 @@ const struct Item gItemsInfo[] =
     {
         .name = _("TM86"),
         .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .description = COMPOUND_STRING(
+            "A snare attack that\n"
+            "does more damage\n"
+            "to heavier foes."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_GRASS_KNOT, // Not In-Game Yet
+        .secondaryId = MOVE_GRASS_KNOT,
     },
 
     [ITEM_TM_SWAGGER] =

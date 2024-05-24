@@ -124,8 +124,22 @@ script Update3{
         }
     }
     if(var(VAR_DEBUG) == 1){
-        setflag(FLAG_OBTAINED_PIDGEOTITE)
+        if(!flag(FLAG_CORALGROVE_CUTSCENE)){
+            setflag(FLAG_OBTAINED_PIDGEOTITE)
+        }
         setvar(VAR_DEBUG, 2)
+    }
+    checkitem(ITEM_WHITE_FLUTE)
+    if(var(VAR_RESULT) == TRUE){
+        msgbox(ReplacedFlute)
+        removeitem(ITEM_WHITE_FLUTE)
+        additem(ITEM_BLACK_FLUTE)
+    }
+    checkitem(ITEM_TM_GIGA_DRAIN)
+    if(var(VAR_RESULT) == TRUE){
+        msgbox(ReplacedGrassKnot)
+        removeitem(ITEM_TM_GIGA_DRAIN)
+        additem(ITEM_TM_GRASS_KNOT)
     }
     msgbox(FlagsAndVarsUpdated2, MSGBOX_YESNO)
     if(var(VAR_RESULT) == TRUE){
@@ -134,6 +148,72 @@ script Update3{
 	closemessage
     release
     end
+}
+text ReplacedFlute{
+    "Your White Flute has been replaced\n"
+    "with a Black Flute."
+}
+text ReplacedGrassKnot{
+    "Your TM for Giga Drain has been\n"
+    "replaced with a TM for Grass Knot."
+}
+
+script SetTeamLevel{
+    lock
+    msgbox(LevelSetIntro, MSGBOX_DEFAULT)
+    message(WhichLevelToSet)
+    waitmessage
+    dynmultipush("Gym 1 (Level 14)", 0)
+    dynmultipush("Gym 2 (Level 22)", 1)
+    dynmultipush("Windplume Valley (Level 24)", 2)
+    dynmultipush("Story Event (Level 34, WIP)", 3)
+    dynmultipush("Gym 3 (Level 40, WIP)", 4)
+    dynmultipush("Gym 4 (Level 47, WIP)", 5)
+    dynmultipush("Cancel", 6)
+    dynmultistack(23, 0, FALSE, 5, FALSE, 0, NULL)
+	switch(var(VAR_RESULT)){
+        case 0:
+            msgbox("Team set to level 14.")
+            setpartylevel(14)
+        case 1:
+            msgbox("Team set to level 22.")
+            setpartylevel(22)
+        case 2:
+            msgbox("Team set to level 24.")
+            setpartylevel(24)
+        case 3:
+            msgbox("Team set to level 34.")
+            setpartylevel(34)
+        case 4:
+            msgbox("Team set to level 40.")
+            setpartylevel(40)
+        case 5:
+            msgbox("Team set to level 47.")
+            setpartylevel(47)
+        case 6:
+            closemessage
+        case MULTI_B_PRESSED:
+            closemessage
+    }
+    release
+    end
+}
+
+text LevelSetIntro{
+    "This option will set the level of your\n"
+    "entire team to the specified level.\p"
+    "This is meant for testing purposes so\n"
+    "I'd prefer you didn't exploit this for\l"
+    "no reason.\p"
+    "Do note that this does NOT\n"
+    "evolve/de-evolve your Pokémon,\l"
+    "nor does it add or remove moves.\p"
+    "The team's stats will be recalculated.\n"
+    "EVs earned will remain unchanged."
+}
+text WhichLevelToSet{
+    "Which level would you like to set\n"
+    "your team?"
 }
 
 text FlagsAndVarsUpdated2{

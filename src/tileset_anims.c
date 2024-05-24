@@ -468,11 +468,15 @@ const u16 *const gTilesetAnims_EliteFour_FloorLight[] = {
 
 const u16 gTilesetAnims_MauvilleGym_ElectricGates_Frame0[] = INCBIN_U16("data/tilesets/secondary/mauville_gym/anim/electric_gates/0.4bpp");
 const u16 gTilesetAnims_MauvilleGym_ElectricGates_Frame1[] = INCBIN_U16("data/tilesets/secondary/mauville_gym/anim/electric_gates/1.4bpp");
+const u16 gTilesetAnims_MauvilleGym_ElectricGates_Frame2[] = INCBIN_U16("data/tilesets/secondary/mauville_gym/anim/electric_gates/2.4bpp");
+const u16 gTilesetAnims_MauvilleGym_ElectricGates_Frame3[] = INCBIN_U16("data/tilesets/secondary/mauville_gym/anim/electric_gates/3.4bpp");
 const u16 tileset_anims_space_6[16] = {};
 
 const u16 *const gTilesetAnims_MauvilleGym_ElectricGates[] = {
     gTilesetAnims_MauvilleGym_ElectricGates_Frame0,
-    gTilesetAnims_MauvilleGym_ElectricGates_Frame1
+    gTilesetAnims_MauvilleGym_ElectricGates_Frame1,
+    gTilesetAnims_MauvilleGym_ElectricGates_Frame2,
+    gTilesetAnims_MauvilleGym_ElectricGates_Frame3
 };
 
 const u16 gTilesetAnims_BikeShop_BlinkingLights_Frame0[] = INCBIN_U16("data/tilesets/secondary/bike_shop/anim/blinking_lights/0.4bpp");
@@ -1065,8 +1069,8 @@ static void QueueAnimTiles_Slateport_Balloons(u16 timer)
 
 static void TilesetAnim_MauvilleGym(u16 timer)
 {
-    if (timer % 2 == 0)
-        QueueAnimTiles_MauvilleGym_ElectricGates(timer / 2);
+    if (timer % 1 == 0)
+        QueueAnimTiles_MauvilleGym_ElectricGates(timer / 1);
 }
 
 static void TilesetAnim_SootopolisGym(u16 timer)

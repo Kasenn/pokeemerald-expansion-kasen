@@ -276,12 +276,12 @@ WallTextTranslated4::
 
 WallTextTranslated5::
 	.string "Some of the glyphs are missing, but you\n"
-	.string "can make out the following text:"
+	.string "can make out the following text:\p"
 	.string "“The King _____ us to ____ digging\n"
 	.string "deeper, but the _______ are clearly\l"
 	.string "afraid of _________.\p"
-	.string "____ have noticed the _________ activity\n"
-	.string "increasing ___ further we delve, and\l"
-	.string "_______ something _______ might be\l"
-	.string "resting _____ ___ ______ here.\p"
+	.string "____ have noticed the _________\n"
+	.string "activity increasing ___ further we\l"
+	.string "delve, and _______ something _______\l"
+	.string "might be resting _____ ___ ______ here.\p"
 	.string "Still, everyday __ ____ forward…”$"

@@ -559,8 +559,9 @@
 	.byte \battler
 	.endm
 
-	.macro getmoneyreward
+	.macro getmoneyreward jumpInstr:req
 	.byte 0x5d
+	.4byte \jumpInstr
 	.endm
 
 	.macro updatebattlermoves battler:req

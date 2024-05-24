@@ -469,6 +469,21 @@ void ScrCmd_givemon(struct ScriptContext *ctx)
 
 #undef PARSE_FLAG
 
+void ScrCmd_setpartylevel(struct ScriptContext *ctx)
+{
+    u8 level = VarGet(ScriptReadHalfword(ctx));
+    s32 i;
+
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {   
+        u32 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
+
+        SetMonData(&gPlayerParty[i], MON_DATA_LEVEL, &level);
+        SetMonData(&gPlayerParty[i], MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[species].growthRate][level]);
+        CalculateMonStats(&gPlayerParty[i]);
+    }
+}
+
 void Script_GetChosenMonOffensiveEVs(void)
 {
     ConvertIntToDecimalStringN(gStringVar1, GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_EV), STR_CONV_MODE_LEFT_ALIGN, 3);

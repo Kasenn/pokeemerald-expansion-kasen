@@ -47,48 +47,48 @@ AldeleafCity_Maniac::
 	lockall
 	faceplayer
 	checktrainerflag TRAINER_VITO
-	goto_if 0, AldeleafCity_Maniac_1
-	goto_if_set FLAG_SHELL_BELL_RECEIVED, AldeleafCity_Maniac_8
-	checkitemspace ITEM_SHELL_BELL, 1
-	compare VAR_RESULT, TRUE
-	goto_if_eq AldeleafCity_Maniac_14
-	msgbox NotRoomForShellBell, MSGBOX_NPC
-	end
-
-AldeleafCity_Maniac_1:
+	goto_if 1, AldeleafCity_Maniac_1
 	msgbox AldeleafCity_Maniac_Text, MSGBOX_YESNO
 	compare VAR_RESULT, YES
-	goto_if_eq AldeleafCity_Maniac_5
+	goto_if_eq AldeleafCity_Maniac_8
 	msgbox AldeleafCity_Maniac_DeclineBattle, MSGBOX_NPC
 	end
 
-AldeleafCity_Maniac_4:
-	lockall
-	faceplayer
-	msgbox AldeleafCity_Maniac_Continues, MSGBOX_DEFAULT
-	checkitemspace ITEM_SHELL_BELL, 1
+AldeleafCity_Maniac_1:
+	goto_if_set FLAG_SHELL_BELL_RECEIVED, AldeleafCity_Maniac_4
+	checkitemspace ITEM_SHELL_BELL
 	compare VAR_RESULT, TRUE
 	goto_if_eq AldeleafCity_Maniac_11
 	msgbox NotRoomForShellBell, MSGBOX_NPC
 	end
 
-AldeleafCity_Maniac_5:
-	trainerbattle_no_intro TRAINER_VITO, AldeleafCity_Maniac_Defeated
-	goto AldeleafCity_Maniac_4
-
-AldeleafCity_Maniac_8:
+AldeleafCity_Maniac_4:
 	msgbox AldeleafCity_Maniac_PostBattle, MSGBOX_NPC
 	end
 
+AldeleafCity_Maniac_7:
+	lockall
+	faceplayer
+	msgbox AldeleafCity_Maniac_Continues, MSGBOX_DEFAULT
+	checkitemspace ITEM_SHELL_BELL
+	compare VAR_RESULT, TRUE
+	goto_if_eq AldeleafCity_Maniac_14
+	msgbox NotRoomForShellBell, MSGBOX_NPC
+	end
+
+AldeleafCity_Maniac_8:
+	trainerbattle_no_intro TRAINER_VITO, AldeleafCity_Maniac_Defeated
+	goto AldeleafCity_Maniac_7
+
 AldeleafCity_Maniac_11:
-	giveitem ITEM_SHELL_BELL, 1
+	msgbox AldeleafCity_Maniac_Continues, MSGBOX_DEFAULT
+	giveitem ITEM_SHELL_BELL
 	setflag FLAG_SHELL_BELL_RECEIVED
 	msgbox ExplainShellBell, MSGBOX_NPC
 	end
 
 AldeleafCity_Maniac_14:
-	msgbox AldeleafCity_Maniac_Continues, MSGBOX_DEFAULT
-	giveitem ITEM_SHELL_BELL, 1
+	giveitem ITEM_SHELL_BELL
 	setflag FLAG_SHELL_BELL_RECEIVED
 	msgbox ExplainShellBell, MSGBOX_NPC
 	end
@@ -119,6 +119,116 @@ AldeleafCity_Woman::
 AldeleafCity_Youngster::
 	msgbox AldeleafCity_Youngster_Text, MSGBOX_NPC
 	end
+
+
+DangerousOutside::
+	msgbox DangerousOutside_Text, MSGBOX_NPC
+	return
+
+
+AldeleafTrigger1::
+	setvar VAR_TEMP_5, 1
+	goto AldeleafTriggerMain
+	return
+
+
+AldeleafTrigger2::
+	setvar VAR_TEMP_5, 2
+	goto AldeleafTriggerMain
+	return
+
+
+AldeleafTrigger3::
+	setvar VAR_TEMP_5, 3
+	goto AldeleafTriggerMain
+	return
+
+
+AldeleafTriggerMain::
+	goto_if_set FLAG_BADGE02_GET, AldeleafTriggerMain_2
+	lock
+	playse SE_PIN
+	turnobject 18, DIR_WEST
+	applymovement 18, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 48
+	switch VAR_TEMP_5
+	case 1, AldeleafTriggerMain_6
+	case 2, AldeleafTriggerMain_7
+	case 3, AldeleafTriggerMain_8
+AldeleafTriggerMain_4:
+	waitmovement 0
+	delay 10
+	msgbox DangerousOutside_Text
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Down
+	waitmovement 0
+	delay 10
+	release
+	end
+
+AldeleafTriggerMain_2:
+	release
+	end
+
+AldeleafTriggerMain_6:
+	applymovement OBJ_EVENT_ID_PLAYER, Walk2Right
+	goto AldeleafTriggerMain_4
+
+AldeleafTriggerMain_7:
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Right
+	goto AldeleafTriggerMain_4
+
+AldeleafTriggerMain_8:
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceRight
+	goto AldeleafTriggerMain_4
+
+
+AldeleafTrigger4::
+	setvar VAR_TEMP_5, 4
+	goto AldeleafTriggerMain2
+	return
+
+
+AldeleafTrigger5::
+	setvar VAR_TEMP_5, 5
+	goto AldeleafTriggerMain2
+	return
+
+
+AldeleafTriggerMain2::
+	goto_if_set FLAG_BADGE02_GET, AldeleafTriggerMain2_2
+	lock
+	playse SE_PIN
+	turnobject 19, DIR_EAST
+	applymovement 19, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 48
+	switch VAR_TEMP_5
+	case 4, AldeleafTriggerMain2_6
+	case 5, AldeleafTriggerMain2_7
+AldeleafTriggerMain2_4:
+	waitmovement 0
+	delay 10
+	msgbox DangerousOutside_Text
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Up
+	waitmovement 0
+	delay 10
+	release
+	end
+
+AldeleafTriggerMain2_2:
+	release
+	end
+
+AldeleafTriggerMain2_6:
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceLeft
+	goto AldeleafTriggerMain2_4
+
+AldeleafTriggerMain2_7:
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Left
+	goto AldeleafTriggerMain2_4
 
 
 AldeleafCity_Hidden::
@@ -299,7 +409,7 @@ Aldeleaf_Sudowoodo_CutDown_1:
 	playmoncry SPECIES_SUDOWOODO, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_SUDOWOODO, 20
+	setwildbattle SPECIES_SUDOWOODO, 18
 	dowildbattle
 	delay 20
 	fadescreenswapbuffers FADE_TO_BLACK
@@ -394,6 +504,12 @@ NotRoomForShellBell::
 AldeleafCity_Maniac_PostBattle::
 	.string "Leave me alone.$"
 
+DangerousOutside_Text::
+	.string "There's a lot of dangerous Pokémon\n"
+	.string "this way.\p"
+	.string "I don't think you should head outside\n"
+	.string "unless you've beaten the local gym.$"
+
 AldeleafCity_KeyMan_MyKey::
 	.string "Oh! That's my key!$"
 
@@ -432,7 +548,9 @@ Aldeleaf_Text_OnceAnOddTreePastHere::
 Aldeleaf_OddTreeHereSeemsToWiggle::
 	.string "I wanted to go train in Windplume\n"
 	.string "Valley but this weird tree\l"
-	.string "has appeared here out of nowhere!$"
+	.string "has appeared here out of nowhere!\p"
+	.string "Wonder if we should call a lumberjack\n"
+	.string "to come and cut it down…$"
 
 AldeleafCity_BirdTrainer_Text::
 	.string "I wanted to take on the gym but I don't\n"

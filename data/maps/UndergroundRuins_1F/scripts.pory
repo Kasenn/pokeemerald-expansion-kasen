@@ -257,13 +257,13 @@ text WallTextTranslated4{
 }
 text WallTextTranslated5{
     "Some of the glyphs are missing, but you\n"
-    "can make out the following text:"
+    "can make out the following text:\p"
     "“The King _____ us to ____ digging\n"
     "deeper, but the _______ are clearly\l"
     "afraid of _________.\p"
-    "____ have noticed the _________ activity\n"
-    "increasing ___ further we delve, and\l"
-    "_______ something _______ might be\l"
-    "resting _____ ___ ______ here.\p"
+    "____ have noticed the _________\n"
+    "activity increasing ___ further we\l"
+    "delve, and _______ something _______\l"
+    "might be resting _____ ___ ______ here.\p"
     "Still, everyday __ ____ forward…”"
 }

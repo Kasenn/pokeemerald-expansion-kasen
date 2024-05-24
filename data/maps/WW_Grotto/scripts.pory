@@ -66,31 +66,31 @@ script WW_GrottoPokemon{
         playmoncry(SPECIES_DUNSPARCE, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
-        setwildbattle(SPECIES_DUNSPARCE, 9)
+        setwildbattle(SPECIES_DUNSPARCE, 7)
     }
     if((var(VAR_WW_GROTTO) >= 52) && (var(VAR_WW_GROTTO) <= 63)){
         playmoncry(SPECIES_SWABLU, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
-        setwildbattle(SPECIES_SWABLU, 9)
+        setwildbattle(SPECIES_SWABLU, 7)
     }
     if((var(VAR_WW_GROTTO) >= 64) && (var(VAR_WW_GROTTO) <= 75)){
         playmoncry(SPECIES_GLIGAR, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
-        setwildbattle(SPECIES_GLIGAR, 9)
+        setwildbattle(SPECIES_GLIGAR, 7)
     }
     if((var(VAR_WW_GROTTO) >= 76) && (var(VAR_WW_GROTTO) <= 87)){
         playmoncry(SPECIES_SPHEAL, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
-        setwildbattle(SPECIES_SPHEAL, 9)
+        setwildbattle(SPECIES_SPHEAL, 7)
     }
     if((var(VAR_WW_GROTTO) >= 88) && (var(VAR_WW_GROTTO) <= 99)){
         playmoncry(SPECIES_SKORUPI, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
-        setwildbattle(SPECIES_SKORUPI, 9)
+        setwildbattle(SPECIES_SKORUPI, 7)
     }
     setflag(FLAG_SYS_CTRL_OBJ_DELETE)
     dowildbattle

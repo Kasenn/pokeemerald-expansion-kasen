@@ -93,7 +93,8 @@
     "SkyPillar_3F",
     "SkyPillar_4F",
     "SkyPillar_5F",
-    "UndergroundRuins_4F"
+    "UndergroundRuins_4F",
+    "Route15"
   ],
   "gMapGroup_TownsAndCities": [
     "PearlwoodPoint",
@@ -152,7 +153,8 @@
     "SlateportCity_Mart",
     "Route124_DivingTreasureHuntersHouse",
     "AzuretideHouse1",
-    "AzuretideHouse2"
+    "AzuretideHouse2",
+    "AzuretideMart"
   ],
   "gMapGroup_IndoorAldeleafCity": [
     "AldeleafSmallHouse1",

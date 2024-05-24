@@ -51,6 +51,7 @@
 #define MAP_SKY_PILLAR_4F                    (42 | (0 << 8))
 #define MAP_SKY_PILLAR_5F                    (43 | (0 << 8))
 #define MAP_UNDERGROUND_RUINS_4F             (44 | (0 << 8))
+#define MAP_ROUTE15                          (45 | (0 << 8))
 
 // gMapGroup_TownsAndCities
 #define MAP_PEARLWOOD_POINT   (0 | (1 << 8))
@@ -110,6 +111,7 @@
 #define MAP_ROUTE124_DIVING_TREASURE_HUNTERS_HOUSE (4 | (5 << 8))
 #define MAP_AZURETIDE_HOUSE1                       (5 | (5 << 8))
 #define MAP_AZURETIDE_HOUSE2                       (6 | (5 << 8))
+#define MAP_AZURETIDE_MART                         (7 | (5 << 8))
 
 // gMapGroup_IndoorAldeleafCity
 #define MAP_ALDELEAF_SMALL_HOUSE1            (0 | (6 << 8))

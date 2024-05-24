@@ -47,6 +47,17 @@ script CoastTown_OldMan{
     end
 }
 
+script Azuretide_Mart_OldWoman{
+    msgbox(Azuretide_Mart_OldWoman_Text, MSGBOX_NPC)
+}
+text Azuretide_Mart_OldWoman_Text{
+    "Make sure you're always stocked up\n"
+    "on Antidotes.\p"
+    "Nothing feels worse than running back\n"
+    "to a Pokémon Center because your\l"
+    "Pokémon got poisoned."
+}
+
 script CoastTown_FatGuy{
     lockall
     faceplayer
@@ -435,34 +446,34 @@ script Azuretide_HoneyTree{
             removeitem(ITEM_HONEY, 1)
             random(10)
             if(var(VAR_RESULT) == 0){
-                setwildbattle(SPECIES_BOUNSWEET, 10)
+                setwildbattle(SPECIES_BOUNSWEET, 7)
             }
             if(var(VAR_RESULT) == 1){
-                setwildbattle(SPECIES_BOUNSWEET, 11)
+                setwildbattle(SPECIES_BOUNSWEET, 7)
             }
             if(var(VAR_RESULT) == 2){
-                setwildbattle(SPECIES_BOUNSWEET, 12)
+                setwildbattle(SPECIES_BOUNSWEET, 8)
             }
             if(var(VAR_RESULT) == 3){
-                setwildbattle(SPECIES_SKWOVET, 10)
+                setwildbattle(SPECIES_SKWOVET, 7)
             }
             if(var(VAR_RESULT) == 4){
-                setwildbattle(SPECIES_SKWOVET, 10)
+                setwildbattle(SPECIES_SKWOVET, 7)
             }
             if(var(VAR_RESULT) == 5){
-                setwildbattle(SPECIES_SKWOVET, 11)
+                setwildbattle(SPECIES_SKWOVET, 8)
             }
             if(var(VAR_RESULT) == 6){
-                setwildbattle(SPECIES_SKWOVET, 12)
+                setwildbattle(SPECIES_SKWOVET, 8)
             }
             if(var(VAR_RESULT) == 7){
-                setwildbattle(SPECIES_APPLIN, 11)
+                setwildbattle(SPECIES_APPLIN, 7)
             }
             if(var(VAR_RESULT) == 8){
-                setwildbattle(SPECIES_APPLIN, 12)
+                setwildbattle(SPECIES_APPLIN, 8)
             }
             if(var(VAR_RESULT) == 9){
-                setwildbattle(SPECIES_MUNCHLAX, 12)
+                setwildbattle(SPECIES_MUNCHLAX, 8)
             }
             dowildbattle
             release

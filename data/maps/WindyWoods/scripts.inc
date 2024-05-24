@@ -163,12 +163,15 @@ WW_CoolTrainerEligible_12:
 
 WW_CoolTrainerPostBattle::
 	msgbox WW_CoolTrainerReward, MSGBOX_DEFAULT
-	giveitem ITEM_EXP_SHARE
+	goto_if_set FLAG_UNUSED_PICKEDROWLET, WW_CoolTrainerPostBattle_2
+	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, WW_CoolTrainerPostBattle_3
+	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, WW_CoolTrainerPostBattle_4
+WW_CoolTrainerPostBattle_1:
 	msgbox WW_CoolTrainerPostBattle_Text_0, MSGBOX_DEFAULT
 	playfanfare MUS_OBTAIN_B_POINTS
 	msgbox WW_CoolTrainerPostBattle_Text_1, MSGBOX_DEFAULT
-	goto_if_unset FLAG_INTRO_TO_BP, WW_CoolTrainerPostBattle_2
-WW_CoolTrainerPostBattle_1:
+	goto_if_unset FLAG_INTRO_TO_BP, WW_CoolTrainerPostBattle_9
+WW_CoolTrainerPostBattle_8:
 	setflag FLAG_UNUSED_WW_COOLTRAINERREWARD
 	setflag FLAG_INTRO_TO_BP
 	waitmessage
@@ -178,8 +181,20 @@ WW_CoolTrainerPostBattle_1:
 	end
 
 WW_CoolTrainerPostBattle_2:
-	msgbox ExplainBP, MSGBOX_DEFAULT
+	giveitem ITEM_MIRACLE_SEED
 	goto WW_CoolTrainerPostBattle_1
+
+WW_CoolTrainerPostBattle_3:
+	giveitem ITEM_CHARCOAL
+	goto WW_CoolTrainerPostBattle_1
+
+WW_CoolTrainerPostBattle_4:
+	giveitem ITEM_MYSTIC_WATER
+	goto WW_CoolTrainerPostBattle_1
+
+WW_CoolTrainerPostBattle_9:
+	msgbox ExplainBP, MSGBOX_DEFAULT
+	goto WW_CoolTrainerPostBattle_8
 
 
 WW_GIVEBP::
@@ -374,7 +389,7 @@ WW_CoolTrainerEligible_Text_3:
 	.string "Are you ready for a duel?$"
 
 WW_CoolTrainerPostBattle_Text_0:
-	.string "Turning on that item will grant\nall your Pokémon exp from battling,\leven the ones that never participated\lin the battle.\pI want you to have these as well.$"
+	.string "Give that item to your Pokémon to\nboost the power of their attacks.\pTake these as well.$"
 
 WW_CoolTrainerPostBattle_Text_1:
 	.string "Earned 10 BP!$"
@@ -450,6 +465,13 @@ WindyWoods_YoungsterPostBattle::
 
 WW_Text_CoolTrainerDefeated::
 	.string "Maybe it was I who wasn't worth\nyour time…$"
+
+WW_CoolTrainerExplainReward::
+	.string "Turning on that item will grant\n"
+	.string "all your Pokémon exp from battling,\l"
+	.string "even the ones that never participated\l"
+	.string "in the battle.\p"
+	.string "I want you to have these as well.$"
 
 WW_CoolTrainerReward::
 	.string "Well, looks like I got humbled there.\nHere, you deserve this.$"

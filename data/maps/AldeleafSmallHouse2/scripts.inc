@@ -231,7 +231,7 @@ AldeleafSmallHouse2_Doll_30:
 	msgbox AldeleafSmallHouse2_SpringsAlive, MSGBOX_DEFAULT
 	waitmessage
 	closemessage
-	setwildbattle SPECIES_MIMIKYU, 20
+	setwildbattle SPECIES_MIMIKYU, 15
 	dowildbattle
 	delay 20
 	msgbox AldeleafSmallHouse2_TalismanBreaks, MSGBOX_NPC

@@ -114,15 +114,12 @@ Route1_CoolTrainerEligible_12:
 
 Route1_CoolTrainerPostBattle::
 	msgbox Route1_CoolTrainerReward, MSGBOX_DEFAULT
-	goto_if_set FLAG_UNUSED_PICKEDROWLET, Route1_CoolTrainerPostBattle_2
-	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, Route1_CoolTrainerPostBattle_3
-	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, Route1_CoolTrainerPostBattle_4
-Route1_CoolTrainerPostBattle_1:
-	msgbox Route1_CoolTrainerPostBattle_Text_0, MSGBOX_DEFAULT
+	giveitem ITEM_EXP_SHARE
+	msgbox WW_CoolTrainerExplainReward, MSGBOX_DEFAULT
 	playfanfare MUS_OBTAIN_B_POINTS
-	msgbox Route1_CoolTrainerPostBattle_Text_1, MSGBOX_DEFAULT
-	goto_if_unset FLAG_INTRO_TO_BP, Route1_CoolTrainerPostBattle_9
-Route1_CoolTrainerPostBattle_8:
+	msgbox Route1_CoolTrainerPostBattle_Text_0, MSGBOX_DEFAULT
+	goto_if_unset FLAG_INTRO_TO_BP, Route1_CoolTrainerPostBattle_2
+Route1_CoolTrainerPostBattle_1:
 	setflag FLAG_UNUSED_ROUTE1_COOLTRAINERREWARD
 	setflag FLAG_INTRO_TO_BP
 	waitmessage
@@ -132,20 +129,8 @@ Route1_CoolTrainerPostBattle_8:
 	end
 
 Route1_CoolTrainerPostBattle_2:
-	giveitem ITEM_MIRACLE_SEED
-	goto Route1_CoolTrainerPostBattle_1
-
-Route1_CoolTrainerPostBattle_3:
-	giveitem ITEM_CHARCOAL
-	goto Route1_CoolTrainerPostBattle_1
-
-Route1_CoolTrainerPostBattle_4:
-	giveitem ITEM_MYSTIC_WATER
-	goto Route1_CoolTrainerPostBattle_1
-
-Route1_CoolTrainerPostBattle_9:
 	msgbox ExplainBP, MSGBOX_DEFAULT
-	goto Route1_CoolTrainerPostBattle_8
+	goto Route1_CoolTrainerPostBattle_1
 
 
 Route1_Fisher::
@@ -202,9 +187,6 @@ Route1_CoolTrainerEligible_Text_3:
 	.string "Are you ready for a duel?$"
 
 Route1_CoolTrainerPostBattle_Text_0:
-	.string "Give that item to your Pokémon to\nboost the power of their attacks.\pTake these as well.$"
-
-Route1_CoolTrainerPostBattle_Text_1:
 	.string "Earned 10 BP!$"
 
 Route1_Lass_Text_0:

@@ -127,7 +127,7 @@ script LevelTraining{
 script LevelTraining_Setup{
     lockall
 	special(ShowBattlePointsWindow)
-    msgbox("This is the Level Training Service.\nEach use of the service\lcosts 2 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 5.", MSGBOX_YESNO)
+    msgbox(Level4Team, MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES){
 		special(CloseBattlePointsWindow)
 		copyvar(VAR_0x8004, VAR_0x8008)
@@ -140,6 +140,15 @@ script LevelTraining_Setup{
 		release
 		end
 	}
+}
+text Level4Team{
+	"This is the Level Training Service.\p"
+	"The team in this Training Hub is set to\n"
+	"level 4 and is generally recommended\l"
+	"for teams up to level 12.\p"
+	"Would you like to use the service?\p"
+	"Each use of the service costs\n"
+	"2 Battle Points."
 }
 
 script LevelTraining2{
@@ -156,7 +165,7 @@ script LevelTraining2{
 script LevelTraining2_Setup{
     lockall
 	special(ShowBattlePointsWindow)
-    msgbox("This is the Level Training Service.\nEach use of the service\lcosts 3 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 7.", MSGBOX_YESNO)
+    msgbox(Level5Team, MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES){
 		special(CloseBattlePointsWindow)
 		copyvar(VAR_0x8004, VAR_0x8008)
@@ -170,10 +179,19 @@ script LevelTraining2_Setup{
 		end
 	}
 }
+text Level5Team{
+	"This is the Level Training Service.\p"
+	"The team in this Training Hub is set to\n"
+	"level 5 and is generally recommended\l"
+	"for teams up to level 14.\p"
+	"Would you like to use the service?\p"
+	"Each use of the service costs\n"
+	"3 Battle Points."
+}
 
 script LevelTrainingAldeleaf{
 	lockall
-	setvar(VAR_0x8008, 4)
+	setvar(VAR_0x8008, 3)
 	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
 	goto_if_ge(VAR_TEMP_1, VAR_0x8008, LevelTrainingAldeleaf_Setup)
 	msgbox(IVTraining_HaventGotEnoughPoints4BP, MSGBOX_DEFAULT)
@@ -185,7 +203,7 @@ script LevelTrainingAldeleaf{
 script LevelTrainingAldeleaf_Setup{
     lockall
 	special(ShowBattlePointsWindow)
-    msgbox("This is the Level Training Service.\nEach use of the service\lcosts 4 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 12.", MSGBOX_YESNO)
+    msgbox(Level9Team, MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES){
 		special(CloseBattlePointsWindow)
 		copyvar(VAR_0x8004, VAR_0x8008)
@@ -198,6 +216,15 @@ script LevelTrainingAldeleaf_Setup{
 		release
 		end
 	}
+}
+text Level9Team{
+	"This is the Level Training Service.\p"
+	"The team in this Training Hub is set to\n"
+	"level 11 and is generally recommended\l"
+	"for teams up to level 21.\p"
+	"Would you like to use the service?\p"
+	"Each use of the service costs\n"
+	"3 Battle Points."
 }
 
 script IvTrainingIntro{
@@ -334,7 +361,7 @@ script LevelTrainingSandstone_Setup{
 		special(CloseBattlePointsWindow)
 		copyvar(VAR_0x8004, VAR_0x8008)
 		special(TakeFrontierBattlePoints)
-		trainerbattle_no_intro(TRAINER_ROCKLIFFE_NURSE, IVTrainingDone)
+		trainerbattle_no_intro(TRAINER_SANDSTONE_NURSE, IVTrainingDone)
 	}
 	else{
 		closemessage

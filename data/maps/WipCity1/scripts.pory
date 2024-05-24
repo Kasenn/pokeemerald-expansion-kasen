@@ -39,7 +39,27 @@ script AldeleafCity_Boy{
 script AldeleafCity_Maniac{
 	lockall
 	faceplayer
-	if(!defeated(TRAINER_VITO)){
+	if(defeated(TRAINER_VITO)){
+		if(flag(FLAG_SHELL_BELL_RECEIVED)){
+			msgbox(AldeleafCity_Maniac_PostBattle, MSGBOX_NPC)
+			end
+		}
+		else{
+			checkitemspace(ITEM_SHELL_BELL)
+			if(var(VAR_RESULT) == TRUE){
+				msgbox(AldeleafCity_Maniac_Continues, MSGBOX_DEFAULT)
+				giveitem(ITEM_SHELL_BELL)
+				setflag(FLAG_SHELL_BELL_RECEIVED)
+				msgbox(ExplainShellBell, MSGBOX_NPC)
+				end
+			}
+			else{
+			msgbox(NotRoomForShellBell, MSGBOX_NPC)
+			end
+			}
+		}
+	}
+	else{
 		msgbox(AldeleafCity_Maniac_Text, MSGBOX_YESNO)
 		if(var(VAR_RESULT) == YES){
 		trainerbattle_no_intro(TRAINER_VITO, AldeleafCity_Maniac_Defeated)
@@ -51,9 +71,9 @@ script AldeleafCity_Maniac{
 		lockall
 		faceplayer
 		msgbox(AldeleafCity_Maniac_Continues, MSGBOX_DEFAULT)
-		checkitemspace(ITEM_SHELL_BELL, 1)
+		checkitemspace(ITEM_SHELL_BELL)
 		if(var(VAR_RESULT) == TRUE){
-			giveitem(ITEM_SHELL_BELL, 1)
+			giveitem(ITEM_SHELL_BELL)
 			setflag(FLAG_SHELL_BELL_RECEIVED)
 			msgbox(ExplainShellBell, MSGBOX_NPC)
 			end
@@ -61,26 +81,6 @@ script AldeleafCity_Maniac{
 		else{
 			msgbox(NotRoomForShellBell, MSGBOX_NPC)
 			end
-		}
-	}
-	else{
-		if(flag(FLAG_SHELL_BELL_RECEIVED)){
-			msgbox(AldeleafCity_Maniac_PostBattle, MSGBOX_NPC)
-			end
-		}
-		else{
-			checkitemspace(ITEM_SHELL_BELL, 1)
-			if(var(VAR_RESULT) == TRUE){
-				msgbox(AldeleafCity_Maniac_Continues, MSGBOX_DEFAULT)
-				giveitem(ITEM_SHELL_BELL, 1)
-				setflag(FLAG_SHELL_BELL_RECEIVED)
-				msgbox(ExplainShellBell, MSGBOX_NPC)
-				end
-			}
-			else{
-			msgbox(NotRoomForShellBell, MSGBOX_NPC)
-			end
-			}
 		}
 	}
 }
@@ -129,6 +129,92 @@ script AldeleafCity_Youngster{
 	msgbox(AldeleafCity_Youngster_Text, MSGBOX_NPC)
 	end
 }
+script DangerousOutside{
+	msgbox(DangerousOutside_Text, MSGBOX_NPC)
+}
+text DangerousOutside_Text{
+	"There's a lot of dangerous Pokémon\n"
+	"this way.\p"
+	"I don't think you should head outside\n"
+	"unless you've beaten the local gym."
+}
+script AldeleafTrigger1{
+	setvar(VAR_TEMP_5, 1)
+	goto(AldeleafTriggerMain)
+}
+script AldeleafTrigger2{
+	setvar(VAR_TEMP_5, 2)
+	goto(AldeleafTriggerMain)
+}
+script AldeleafTrigger3{
+	setvar(VAR_TEMP_5, 3)
+	goto(AldeleafTriggerMain)
+}
+script AldeleafTriggerMain{
+	if(flag(FLAG_BADGE02_GET)){
+		release
+		end
+	}
+	lock
+	playse(SE_PIN)
+	turnobject(18, DIR_WEST)
+	applymovement(18, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	delay(48)
+	switch(var(VAR_TEMP_5)){
+		case 1:
+			applymovement(OBJ_EVENT_ID_PLAYER, Walk2Right)
+		case 2:
+			applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
+		case 3:
+			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceRight)
+	}
+	waitmovement(0)
+	delay(10)
+	msgbox(DangerousOutside_Text)
+	closemessage
+	applymovement(OBJ_EVENT_ID_PLAYER, Walk1Down)
+	waitmovement(0)
+	delay(10)
+	release
+	end
+}
+script AldeleafTrigger4{
+	setvar(VAR_TEMP_5, 4)
+	goto(AldeleafTriggerMain2)
+}
+script AldeleafTrigger5{
+	setvar(VAR_TEMP_5, 5)
+	goto(AldeleafTriggerMain2)
+}
+script AldeleafTriggerMain2{
+	if(flag(FLAG_BADGE02_GET)){
+		release
+		end
+	}
+	lock
+	playse(SE_PIN)
+	turnobject(19, DIR_EAST)
+	applymovement(19, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	delay(48)
+	switch(var(VAR_TEMP_5)){
+		case 4:
+			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceLeft)
+		case 5:
+			applymovement(OBJ_EVENT_ID_PLAYER, Walk1Left)
+	}
+	waitmovement(0)
+	delay(10)
+	msgbox(DangerousOutside_Text)
+	closemessage
+	applymovement(OBJ_EVENT_ID_PLAYER, Walk1Up)
+	waitmovement(0)
+	delay(10)
+	release
+	end
+}
+
 script AldeleafCity_Hidden{
 	if(!flag(FLAG_ALDELEAF_QUICK_BALL)){
 		msgbox(AldeleafCity_Hidden_Text, MSGBOX_NPC)
@@ -322,7 +408,7 @@ script Aldeleaf_Sudowoodo_CutDown{
 	playmoncry(SPECIES_SUDOWOODO, CRY_MODE_ENCOUNTER)
 	delay(40)
 	waitmoncry
-	setwildbattle(SPECIES_SUDOWOODO, 20)
+	setwildbattle(SPECIES_SUDOWOODO, 18)
 	dowildbattle
 	delay(20)
 	fadescreenswapbuffers(FADE_TO_BLACK)
@@ -378,7 +464,9 @@ text Aldeleaf_Text_OnceAnOddTreePastHere{
 text Aldeleaf_OddTreeHereSeemsToWiggle{
 	"I wanted to go train in Windplume\n"
 	"Valley but this weird tree\l"
-	"has appeared here out of nowhere!"
+	"has appeared here out of nowhere!\p"
+	"Wonder if we should call a lumberjack\n"
+	"to come and cut it down…"
 }
 
 text AldeleafCity_BirdTrainer_Text{

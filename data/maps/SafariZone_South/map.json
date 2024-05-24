@@ -92,7 +92,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EventScript_RockSmash",
       "flag": "FLAG_TEMP_11"
     },
     {
@@ -105,21 +105,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EventScript_RockSmash",
       "flag": "FLAG_TEMP_10"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 35,
-      "y": 9,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route114_EventScript_ItemRareCandy",
-      "flag": "FLAG_ITEM_SAFARI_SOUTH_RARE_CANDY"
     }
   ],
   "warp_events": [
@@ -135,6 +122,13 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 34,
+      "y": 12,
+      "elevation": 0,
+      "item": "ITEM_RARE_CANDY",
+      "flag": "FLAG_ITEM_SAFARI_SOUTH_RARE_CANDY"
+    }
   ]
 }

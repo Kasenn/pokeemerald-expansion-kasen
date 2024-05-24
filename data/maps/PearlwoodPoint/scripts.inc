@@ -266,4 +266,4 @@ Pearlwood_Brother_PostBattle::
 	.string "NO NEED FOR THIS$"
 
 PearlwoodBrotherPrize::
-	.string "Hmph… I guess I should not\nhave underestimated you.\pAnyway, have you thought about what\nyou're going to do next?\pIf you're up for it, we should totally\nsee which of us is the better trainer\lby taking on the Pokémon Gym Challenge!\pOur neighbor {RIVAL} already set out this\nmorning so we better get moving or\lwe'll fall behind!\pDon't know about you but I'm not content\nwith a second place.\pCatch ya later!$"
+	.string "Hmph… I guess I should not\nhave underestimated you.\pAnyway, have you thought about what\nyou're going to do next?\pIf you're up for it, we should totally\nsee which of us is the better trainer\lby taking on the Pokémon Gym Challenge!\pOur neighbor {RIVAL} just set out this\nmorning so we better get moving or\lwe'll fall behind!\pDon't know about you but I'm not content\nwith a second place.\pCatch ya later!$"

@@ -5805,7 +5805,7 @@
       "id": "LAYOUT_ROUTE14",
       "name": "Route14_Layout",
       "width": 120,
-      "height": 38,
+      "height": 44,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Fortree2",
       "border_filepath": "data/layouts/Route14/border.bin",
@@ -6060,6 +6060,26 @@
       "secondary_tileset": "gTileset_Library",
       "border_filepath": "data/layouts/Sandstone_Library_2F/border.bin",
       "blockdata_filepath": "data/layouts/Sandstone_Library_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE15",
+      "name": "Route15_Layout",
+      "width": 47,
+      "height": 150,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree2",
+      "border_filepath": "data/layouts/Route15/border.bin",
+      "blockdata_filepath": "data/layouts/Route15/map.bin"
+    },
+    {
+      "id": "LAYOUT_AZURETIDE_MART",
+      "name": "AzuretideMart_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/AzuretideMart/border.bin",
+      "blockdata_filepath": "data/layouts/AzuretideMart/map.bin"
     }
   ]
 }

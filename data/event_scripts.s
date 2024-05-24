@@ -1409,3 +1409,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Sandstone_Library_1F/scripts.inc"
 
 	.include "data/maps/Sandstone_Library_2F/scripts.inc"
+
+	.include "data/maps/Route15/scripts.inc"
+
+	.include "data/maps/AzuretideMart/scripts.inc"

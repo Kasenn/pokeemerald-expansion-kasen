@@ -138,16 +138,8 @@ text Route1_Text_CoolTrainerDefeated{
 
 script Route1_CoolTrainerPostBattle{
     msgbox(Route1_CoolTrainerReward, MSGBOX_DEFAULT)
-	if(flag(FLAG_UNUSED_PICKEDROWLET)){
-        giveitem(ITEM_MIRACLE_SEED)
-    }
-    elif(flag(FLAG_UNUSED_PICKEDTORCHIC)){
-        giveitem(ITEM_CHARCOAL)
-    }
-    elif(flag(FLAG_UNUSED_PICKEDPIPLUP)){
-        giveitem(ITEM_MYSTIC_WATER)
-    }
-    msgbox("Give that item to your Pokémon to\nboost the power of their attacks.\pTake these as well.", MSGBOX_DEFAULT)
+	giveitem(ITEM_EXP_SHARE)
+    msgbox(WW_CoolTrainerExplainReward, MSGBOX_DEFAULT)
     playfanfare(MUS_OBTAIN_B_POINTS)
     msgbox("Earned 10 BP!", MSGBOX_DEFAULT)
     if(!flag(FLAG_INTRO_TO_BP)){

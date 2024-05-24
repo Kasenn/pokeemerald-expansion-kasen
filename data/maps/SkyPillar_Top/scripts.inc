@@ -326,7 +326,6 @@ AT_Custodian::
 	goto_if_eq AT_Custodian_2
 	compare VAR_SPHERES_FOUND, 1
 	goto_if_eq AT_Custodian_5
-AT_Custodian_4:
 	msgbox ImTheCaretaker
 	closemessage
 	checkitem ITEM_STONE_SPHERE
@@ -350,7 +349,9 @@ AT_Custodian_5:
 	delay 48
 	msgbox ThatsSteelSphere
 	setvar VAR_SPHERES_FOUND, 2
-	goto AT_Custodian_4
+	release
+	closemessage
+	end
 
 AT_Custodian_8:
 	playse SE_PIN

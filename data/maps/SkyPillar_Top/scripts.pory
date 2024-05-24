@@ -362,6 +362,9 @@ script AT_Custodian{
         delay(48)
         msgbox(ThatsSteelSphere)
         setvar(VAR_SPHERES_FOUND, 2)
+        release
+        closemessage
+        end
     }
     msgbox(ImTheCaretaker)
     closemessage

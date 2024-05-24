@@ -667,58 +667,58 @@
     {
       "map_section": "MAPSEC_NEWROUTE_14",
       "name": "ROUTE 14",
-      "x": 1,
+      "x": 2,
       "y": 11,
-      "width": 5,
+      "width": 4,
       "height": 1
     },
     {
       "map_section": "MAPSEC_NEWROUTE_15",
       "name": "ROUTE 15",
       "x": 1,
-      "y": 12,
+      "y": 9,
       "width": 1,
-      "height": 2
+      "height": 5
     },
     {
       "map_section": "MAPSEC_NEWROUTE_16",
       "name": "ROUTE 16",
-      "x": 1,
-      "y": 9,
-      "width": 1,
-      "height": 2
-    },
-    {
-      "map_section": "MAPSEC_NEWROUTE_17",
-      "name": "ROUTE 17",
       "x": 1,
       "y": 3,
       "width": 1,
       "height": 5
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_18",
-      "name": "ROUTE 18",
+      "map_section": "MAPSEC_NEWROUTE_17",
+      "name": "ROUTE 17",
       "x": 2,
       "y": 0,
       "width": 1,
       "height": 3
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_19",
-      "name": "ROUTE 19",
+      "map_section": "MAPSEC_NEWROUTE_18",
+      "name": "ROUTE 18",
       "x": 3,
       "y": 0,
       "width": 3,
       "height": 1
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_20",
-      "name": "ROUTE 20",
+      "map_section": "MAPSEC_NEWROUTE_19",
+      "name": "ROUTE 19",
       "x": 7,
       "y": 0,
-      "width": 4,
+      "width": 3,
       "height": 2
+    },
+    {
+      "map_section": "MAPSEC_NEWROUTE_20",
+      "name": "ROUTE 20",
+      "x": 10,
+      "y": 1,
+      "width": 1,
+      "height": 1
     },
     {
       "map_section": "MAPSEC_NEWROUTE_21",

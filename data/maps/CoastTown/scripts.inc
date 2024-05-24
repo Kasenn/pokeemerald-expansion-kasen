@@ -48,6 +48,11 @@ CoastTown_OldMan::
 	end
 
 
+Azuretide_Mart_OldWoman::
+	msgbox Azuretide_Mart_OldWoman_Text, MSGBOX_NPC
+	return
+
+
 CoastTown_FatGuy::
 	lockall
 	faceplayer
@@ -449,43 +454,43 @@ Azuretide_HoneyTree_37:
 	end
 
 Azuretide_HoneyTree_11:
-	setwildbattle SPECIES_BOUNSWEET, 10
+	setwildbattle SPECIES_BOUNSWEET, 7
 	goto Azuretide_HoneyTree_10
 
 Azuretide_HoneyTree_14:
-	setwildbattle SPECIES_BOUNSWEET, 11
+	setwildbattle SPECIES_BOUNSWEET, 7
 	goto Azuretide_HoneyTree_13
 
 Azuretide_HoneyTree_17:
-	setwildbattle SPECIES_BOUNSWEET, 12
+	setwildbattle SPECIES_BOUNSWEET, 8
 	goto Azuretide_HoneyTree_16
 
 Azuretide_HoneyTree_20:
-	setwildbattle SPECIES_SKWOVET, 10
+	setwildbattle SPECIES_SKWOVET, 7
 	goto Azuretide_HoneyTree_19
 
 Azuretide_HoneyTree_23:
-	setwildbattle SPECIES_SKWOVET, 10
+	setwildbattle SPECIES_SKWOVET, 7
 	goto Azuretide_HoneyTree_22
 
 Azuretide_HoneyTree_26:
-	setwildbattle SPECIES_SKWOVET, 11
+	setwildbattle SPECIES_SKWOVET, 8
 	goto Azuretide_HoneyTree_25
 
 Azuretide_HoneyTree_29:
-	setwildbattle SPECIES_SKWOVET, 12
+	setwildbattle SPECIES_SKWOVET, 8
 	goto Azuretide_HoneyTree_28
 
 Azuretide_HoneyTree_32:
-	setwildbattle SPECIES_APPLIN, 11
+	setwildbattle SPECIES_APPLIN, 7
 	goto Azuretide_HoneyTree_31
 
 Azuretide_HoneyTree_35:
-	setwildbattle SPECIES_APPLIN, 12
+	setwildbattle SPECIES_APPLIN, 8
 	goto Azuretide_HoneyTree_34
 
 Azuretide_HoneyTree_38:
-	setwildbattle SPECIES_MUNCHLAX, 12
+	setwildbattle SPECIES_MUNCHLAX, 8
 	goto Azuretide_HoneyTree_37
 
 
@@ -558,6 +563,13 @@ CoastTown_YesPokemonTree1_Text_0:
 
 Azuretide_HoneyTree_Text_0:
 	.string "It's a peculiar looking tree.$"
+
+Azuretide_Mart_OldWoman_Text::
+	.string "Make sure you're always stocked up\n"
+	.string "on Antidotes.\p"
+	.string "Nothing feels worse than running back\n"
+	.string "to a Pokémon Center because your\l"
+	.string "Pokémon got poisoned.$"
 
 FatGuyHoneyIntro::
 	.string "These types of trees are\n"

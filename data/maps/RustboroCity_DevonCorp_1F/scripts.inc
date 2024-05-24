@@ -55,10 +55,18 @@ Update3_1:
 	compare VAR_DEBUG, 1
 	goto_if_eq Update3_5
 Update3_4:
-	msgbox FlagsAndVarsUpdated2, MSGBOX_YESNO
+	checkitem ITEM_WHITE_FLUTE
 	compare VAR_RESULT, TRUE
 	goto_if_eq Update3_11
 Update3_10:
+	checkitem ITEM_TM_GIGA_DRAIN
+	compare VAR_RESULT, TRUE
+	goto_if_eq Update3_20
+Update3_19:
+	msgbox FlagsAndVarsUpdated2, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
+	goto_if_eq Update3_26
+Update3_25:
 	closemessage
 	release
 	end
@@ -68,12 +76,12 @@ Update3_2:
 	compare VAR_RESULT, TRUE
 	goto_if_eq Update3_8
 Update3_7:
-	goto_if_set FLAG_UNUSED_PICKEDROWLET, Update3_14
-Update3_13:
-	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, Update3_17
+	goto_if_set FLAG_UNUSED_PICKEDROWLET, Update3_17
 Update3_16:
-	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, Update3_20
-Update3_19:
+	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, Update3_23
+Update3_22:
+	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, Update3_29
+Update3_28:
 	clearflag FLAG_SHOWED_BADGE
 	clearflag FLAG_SYSTEM_NOREWARDBATTLES
 	clearflag FLAG_OBTAINED_PAINTBRUSH
@@ -91,20 +99,21 @@ Update3_19:
 	setvar VAR_DEBUG, 1
 	msgbox RenameBrother, MSGBOX_YESNO
 	compare VAR_RESULT, TRUE
-	goto_if_eq Update3_23
-Update3_22:
+	goto_if_eq Update3_32
+Update3_31:
 	checktrainerflag TRAINER_GABBY_AND_TY_1
-	goto_if 1, Update3_26
-Update3_25:
+	goto_if 1, Update3_35
+Update3_34:
 	checktrainerflag TRAINER_MARY
-	goto_if 1, Update3_29
-Update3_28:
+	goto_if 1, Update3_38
+Update3_37:
 	checktrainerflag TRAINER_KAOLGYM_CLAY
-	goto_if 1, Update3_31
+	goto_if 1, Update3_40
 	goto Update3_1
 
 Update3_5:
-	setflag FLAG_OBTAINED_PIDGEOTITE
+	goto_if_unset FLAG_CORALGROVE_CUTSCENE, Update3_14
+Update3_13:
 	setvar VAR_DEBUG, 2
 	goto Update3_4
 
@@ -113,38 +122,119 @@ Update3_8:
 	goto Update3_7
 
 Update3_11:
-	warp MAP_CORALGROVE_CITY, 26, 44
+	msgbox ReplacedFlute
+	removeitem ITEM_WHITE_FLUTE
+	additem ITEM_BLACK_FLUTE
 	goto Update3_10
 
 Update3_14:
-	setvar VAR_STARTER_MON, 0
+	setflag FLAG_OBTAINED_PIDGEOTITE
 	goto Update3_13
 
 Update3_17:
-	setvar VAR_STARTER_MON, 1
+	setvar VAR_STARTER_MON, 0
 	goto Update3_16
 
 Update3_20:
-	setvar VAR_STARTER_MON, 2
+	msgbox ReplacedGrassKnot
+	removeitem ITEM_TM_GIGA_DRAIN
+	additem ITEM_TM_GRASS_KNOT
 	goto Update3_19
 
 Update3_23:
-	fadescreen FADE_TO_BLACK
-	special NameBrother
-	waitstate
+	setvar VAR_STARTER_MON, 1
 	goto Update3_22
 
 Update3_26:
-	setvar VAR_BADGES_OBTAINED, 1
+	warp MAP_CORALGROVE_CITY, 26, 44
 	goto Update3_25
 
 Update3_29:
-	setvar VAR_BADGES_OBTAINED, 2
+	setvar VAR_STARTER_MON, 2
 	goto Update3_28
 
-Update3_31:
+Update3_32:
+	fadescreen FADE_TO_BLACK
+	special NameBrother
+	waitstate
+	goto Update3_31
+
+Update3_35:
+	setvar VAR_BADGES_OBTAINED, 1
+	goto Update3_34
+
+Update3_38:
+	setvar VAR_BADGES_OBTAINED, 2
+	goto Update3_37
+
+Update3_40:
 	setvar VAR_BADGES_OBTAINED, 3
 	goto Update3_1
+
+
+SetTeamLevel::
+	lock
+	msgbox LevelSetIntro, MSGBOX_DEFAULT
+	message WhichLevelToSet
+	waitmessage
+	dynmultipush SetTeamLevel_Text_0, 0
+	dynmultipush SetTeamLevel_Text_1, 1
+	dynmultipush SetTeamLevel_Text_2, 2
+	dynmultipush SetTeamLevel_Text_3, 3
+	dynmultipush SetTeamLevel_Text_4, 4
+	dynmultipush SetTeamLevel_Text_5, 5
+	dynmultipush SetTeamLevel_Text_6, 6
+	dynmultistack 23, 0, FALSE, 5, FALSE, 0, NULL
+	switch VAR_RESULT
+	case 0, SetTeamLevel_3
+	case 1, SetTeamLevel_4
+	case 2, SetTeamLevel_5
+	case 3, SetTeamLevel_6
+	case 4, SetTeamLevel_7
+	case 5, SetTeamLevel_8
+	case 6, SetTeamLevel_9
+	case MULTI_B_PRESSED, SetTeamLevel_10
+SetTeamLevel_1:
+	release
+	end
+
+SetTeamLevel_3:
+	msgbox SetTeamLevel_Text_7
+	setpartylevel 14
+	goto SetTeamLevel_1
+
+SetTeamLevel_4:
+	msgbox SetTeamLevel_Text_8
+	setpartylevel 22
+	goto SetTeamLevel_1
+
+SetTeamLevel_5:
+	msgbox SetTeamLevel_Text_9
+	setpartylevel 24
+	goto SetTeamLevel_1
+
+SetTeamLevel_6:
+	msgbox SetTeamLevel_Text_10
+	setpartylevel 34
+	goto SetTeamLevel_1
+
+SetTeamLevel_7:
+	msgbox SetTeamLevel_Text_11
+	setpartylevel 40
+	goto SetTeamLevel_1
+
+SetTeamLevel_8:
+	msgbox SetTeamLevel_Text_12
+	setpartylevel 47
+	goto SetTeamLevel_1
+
+SetTeamLevel_9:
+	closemessage
+	goto SetTeamLevel_1
+
+SetTeamLevel_10:
+	closemessage
+	goto SetTeamLevel_1
 
 
 RustboroCity_DevonCorp_1F_EventScript_RocketGreeter::
@@ -286,6 +376,45 @@ Rustboro_Basement_ItemBall::
 	end
 
 
+SetTeamLevel_Text_0:
+	.string "Gym 1 (Level 14)$"
+
+SetTeamLevel_Text_1:
+	.string "Gym 2 (Level 22)$"
+
+SetTeamLevel_Text_2:
+	.string "Windplume Valley (Level 24)$"
+
+SetTeamLevel_Text_3:
+	.string "Story Event (Level 34, WIP)$"
+
+SetTeamLevel_Text_4:
+	.string "Gym 3 (Level 40, WIP)$"
+
+SetTeamLevel_Text_5:
+	.string "Gym 4 (Level 47, WIP)$"
+
+SetTeamLevel_Text_6:
+	.string "Cancel$"
+
+SetTeamLevel_Text_7:
+	.string "Team set to level 14.$"
+
+SetTeamLevel_Text_8:
+	.string "Team set to level 22.$"
+
+SetTeamLevel_Text_9:
+	.string "Team set to level 24.$"
+
+SetTeamLevel_Text_10:
+	.string "Team set to level 34.$"
+
+SetTeamLevel_Text_11:
+	.string "Team set to level 40.$"
+
+SetTeamLevel_Text_12:
+	.string "Team set to level 47.$"
+
 RustboroCity_DevonCorp_1F_Text_ThoseShoesAreOurProduct::
 	.string "Hey, those running shoes!\n"
 	.string "They're one of our products!\p"
@@ -322,6 +451,30 @@ EmployeeNew_TakeTimeToRecover::
 	.string "the attack and assess just how much\l"
 	.string "was stolen, but at least nobody was\l"
 	.string "seriously hurt.$"
+
+ReplacedFlute::
+	.string "Your White Flute has been replaced\n"
+	.string "with a Black Flute.$"
+
+ReplacedGrassKnot::
+	.string "Your TM for Giga Drain has been\n"
+	.string "replaced with a TM for Grass Knot.$"
+
+LevelSetIntro::
+	.string "This option will set the level of your\n"
+	.string "entire team to the specified level.\p"
+	.string "This is meant for testing purposes so\n"
+	.string "I'd prefer you didn't exploit this for\l"
+	.string "no reason.\p"
+	.string "Do note that this does NOT\n"
+	.string "evolve/de-evolve your Pokémon,\l"
+	.string "nor does it add or remove moves.\p"
+	.string "The team's stats will be recalculated.\n"
+	.string "EVs earned will remain unchanged.$"
+
+WhichLevelToSet::
+	.string "Which level would you like to set\n"
+	.string "your team?$"
 
 FlagsAndVarsUpdated2::
 	.string "Flags and Vars updated.\p"

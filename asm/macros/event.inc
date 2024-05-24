@@ -1874,6 +1874,12 @@
     .byte 0xec
     .endm
 
+	@ Sets the player team to level specified by the argument
+	.macro setpartylevel level:req
+	callnative ScrCmd_setpartylevel
+	.2byte \level
+	.endm
+
 
 @ Supplementary
 

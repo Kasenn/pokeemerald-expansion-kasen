@@ -16,7 +16,7 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
-      "x": 4,
+      "x": 2,
       "y": 54,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -42,7 +42,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MANIAC",
-      "x": 13,
+      "x": 2,
       "y": 63,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -68,7 +68,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
-      "x": 13,
+      "x": 2,
       "y": 65,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -94,7 +94,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 4,
+      "x": 2,
       "y": 56,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -121,7 +121,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_4",
       "x": 6,
-      "y": 37,
+      "y": 32,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -134,7 +134,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 9,
-      "y": 37,
+      "y": 32,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -146,14 +146,14 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_1",
-      "x": 7,
+      "x": 10,
       "y": 42,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
       "movement_range_x": 5,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
+      "trainer_sight_or_berry_tree_id": "5",
       "script": "AldeleafGym_Trainer8",
       "flag": "0"
     },
@@ -166,7 +166,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
+      "trainer_sight_or_berry_tree_id": "3",
       "script": "AldeleafGym_Trainer9",
       "flag": "0"
     },
@@ -179,13 +179,13 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
+      "trainer_sight_or_berry_tree_id": "3",
       "script": "AldeleafGym_Trainer7",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TWIN",
-      "x": 4,
+      "x": 7,
       "y": 38,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -198,7 +198,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TWIN",
-      "x": 5,
+      "x": 8,
       "y": 38,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -247,32 +247,6 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Aldeleaf_Gym_Volkner_Talk",
       "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY_3",
-      "x": 9,
-      "y": 27,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "2",
-      "script": "AldeleafGym_Trainer15",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 6,
-      "y": 27,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "2",
-      "script": "AldeleafGym_Trainer14",
-      "flag": "0"
     }
   ],
   "warp_events": [
@@ -303,7 +277,7 @@
     },
     {
       "type": "trigger",
-      "x": 14,
+      "x": 1,
       "y": 64,
       "elevation": 0,
       "var": "VAR_TEMP_MIXED_RECORDS",
@@ -312,7 +286,7 @@
     },
     {
       "type": "trigger",
-      "x": 2,
+      "x": 1,
       "y": 55,
       "elevation": 0,
       "var": "VAR_TEMP_MIXED_RECORDS",
@@ -321,7 +295,7 @@
     },
     {
       "type": "trigger",
-      "x": 11,
+      "x": 7,
       "y": 62,
       "elevation": 0,
       "var": "VAR_TEMP_MIXED_RECORDS",
@@ -384,7 +358,7 @@
     },
     {
       "type": "trigger",
-      "x": 11,
+      "x": 7,
       "y": 61,
       "elevation": 0,
       "var": "VAR_TEMP_MIXED_RECORDS",
@@ -420,7 +394,7 @@
     },
     {
       "type": "trigger",
-      "x": 11,
+      "x": 7,
       "y": 60,
       "elevation": 0,
       "var": "VAR_TEMP_MIXED_RECORDS",
@@ -456,7 +430,7 @@
     },
     {
       "type": "trigger",
-      "x": 11,
+      "x": 7,
       "y": 59,
       "elevation": 0,
       "var": "VAR_TEMP_MIXED_RECORDS",
@@ -492,7 +466,7 @@
     },
     {
       "type": "trigger",
-      "x": 11,
+      "x": 7,
       "y": 58,
       "elevation": 0,
       "var": "VAR_TEMP_MIXED_RECORDS",
@@ -528,7 +502,7 @@
     },
     {
       "type": "trigger",
-      "x": 11,
+      "x": 7,
       "y": 57,
       "elevation": 0,
       "var": "VAR_TEMP_MIXED_RECORDS",
@@ -915,24 +889,6 @@
     },
     {
       "type": "trigger",
-      "x": 8,
-      "y": 43,
-      "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
-      "var_value": "0",
-      "script": "AldeleafGymFloor4"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 43,
-      "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
-      "var_value": "0",
-      "script": "AldeleafGymFloor4"
-    },
-    {
-      "type": "trigger",
       "x": 6,
       "y": 43,
       "elevation": 0,
@@ -979,24 +935,6 @@
     {
       "type": "trigger",
       "x": 9,
-      "y": 42,
-      "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
-      "var_value": "0",
-      "script": "AldeleafGymFloor4"
-    },
-    {
-      "type": "trigger",
-      "x": 8,
-      "y": 42,
-      "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
-      "var_value": "0",
-      "script": "AldeleafGymFloor4"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
       "y": 42,
       "elevation": 0,
       "var": "VAR_TEMP_MIXED_RECORDS",
@@ -1104,15 +1042,6 @@
     },
     {
       "type": "trigger",
-      "x": 10,
-      "y": 40,
-      "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
-      "var_value": "0",
-      "script": "AldeleafGymFloor4"
-    },
-    {
-      "type": "trigger",
       "x": 9,
       "y": 40,
       "elevation": 0,
@@ -1149,42 +1078,6 @@
     },
     {
       "type": "trigger",
-      "x": 5,
-      "y": 40,
-      "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
-      "var_value": "0",
-      "script": "AldeleafGymFloor4"
-    },
-    {
-      "type": "trigger",
-      "x": 11,
-      "y": 40,
-      "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
-      "var_value": "0",
-      "script": "AldeleafGymFloor4"
-    },
-    {
-      "type": "trigger",
-      "x": 4,
-      "y": 40,
-      "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
-      "var_value": "0",
-      "script": "AldeleafGymFloor4"
-    },
-    {
-      "type": "trigger",
-      "x": 10,
-      "y": 39,
-      "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
-      "var_value": "0",
-      "script": "AldeleafGymFloor4"
-    },
-    {
-      "type": "trigger",
       "x": 9,
       "y": 39,
       "elevation": 0,
@@ -1213,33 +1106,6 @@
     {
       "type": "trigger",
       "x": 6,
-      "y": 39,
-      "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
-      "var_value": "0",
-      "script": "AldeleafGymFloor4"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 39,
-      "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
-      "var_value": "0",
-      "script": "AldeleafGymFloor4"
-    },
-    {
-      "type": "trigger",
-      "x": 11,
-      "y": 39,
-      "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
-      "var_value": "0",
-      "script": "AldeleafGymFloor4"
-    },
-    {
-      "type": "trigger",
-      "x": 4,
       "y": 39,
       "elevation": 0,
       "var": "VAR_TEMP_MIXED_RECORDS",
@@ -1402,24 +1268,6 @@
     {
       "type": "trigger",
       "x": 9,
-      "y": 36,
-      "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
-      "var_value": "0",
-      "script": "AldeleafGymFloor4"
-    },
-    {
-      "type": "trigger",
-      "x": 8,
-      "y": 36,
-      "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
-      "var_value": "0",
-      "script": "AldeleafGymFloor4"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
       "y": 36,
       "elevation": 0,
       "var": "VAR_TEMP_MIXED_RECORDS",
@@ -1474,24 +1322,6 @@
     {
       "type": "trigger",
       "x": 9,
-      "y": 35,
-      "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
-      "var_value": "0",
-      "script": "AldeleafGymFloor4"
-    },
-    {
-      "type": "trigger",
-      "x": 8,
-      "y": 35,
-      "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
-      "var_value": "0",
-      "script": "AldeleafGymFloor4"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
       "y": 35,
       "elevation": 0,
       "var": "VAR_TEMP_MIXED_RECORDS",

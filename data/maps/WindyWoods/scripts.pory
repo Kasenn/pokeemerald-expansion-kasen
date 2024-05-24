@@ -219,8 +219,16 @@ text WW_Text_CoolTrainerDefeated{
 
 script WW_CoolTrainerPostBattle{
     msgbox(WW_CoolTrainerReward, MSGBOX_DEFAULT)
-    giveitem(ITEM_EXP_SHARE)
-    msgbox("Turning on that item will grant\nall your Pokémon exp from battling,\leven the ones that never participated\lin the battle.\pI want you to have these as well.", MSGBOX_DEFAULT)
+    if(flag(FLAG_UNUSED_PICKEDROWLET)){
+        giveitem(ITEM_MIRACLE_SEED)
+    }
+    elif(flag(FLAG_UNUSED_PICKEDTORCHIC)){
+        giveitem(ITEM_CHARCOAL)
+    }
+    elif(flag(FLAG_UNUSED_PICKEDPIPLUP)){
+        giveitem(ITEM_MYSTIC_WATER)
+    }
+    msgbox("Give that item to your Pokémon to\nboost the power of their attacks.\pTake these as well.", MSGBOX_DEFAULT)
     playfanfare(MUS_OBTAIN_B_POINTS)
     msgbox("Earned 10 BP!", MSGBOX_DEFAULT)
     if(!flag(FLAG_INTRO_TO_BP)){
@@ -234,7 +242,13 @@ script WW_CoolTrainerPostBattle{
     release
 	end
 }
-
+text WW_CoolTrainerExplainReward{
+    "Turning on that item will grant\n"
+    "all your Pokémon exp from battling,\l"
+    "even the ones that never participated\l"
+    "in the battle.\p"
+    "I want you to have these as well."
+}
 text WW_CoolTrainerReward{
     "Well, looks like I got humbled there.\nHere, you deserve this."
 }

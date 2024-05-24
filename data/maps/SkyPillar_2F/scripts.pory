@@ -121,7 +121,7 @@ text Tr2_2F_Woman5Lost{
 }
 
 script Tr2_2F_Woman5{
-    msgbox(Tr2_2F_Woman5_PosBat)
+    msgbox(Tr2_2F_Woman5_PosBat, MSGBOX_NPC)
     end
 }
 text Tr2_2F_Woman5_PosBat{
@@ -131,7 +131,7 @@ text Tr2_2F_Woman5_PosBat{
 }
 
 script Tr2_2F_Man3{
-    msgbox(Tr2_2F_Man3_PosBat)
+    msgbox(Tr2_2F_Man3_PosBat, MSGBOX_NPC)
     end
 }
 text Tr2_2F_Man3_PosBat{
@@ -240,7 +240,7 @@ text Tr1_2F_Man5Lost{
 }
 
 script Tr1_2F_Man5{
-    msgbox(Tr1_2F_Man5_PosBat)
+    msgbox(Tr1_2F_Man5_PosBat, MSGBOX_NPC)
     end
 }
 text Tr1_2F_Man5_PosBat{
@@ -249,7 +249,7 @@ text Tr1_2F_Man5_PosBat{
 }
 
 script Tr1_2F_Psychic{
-    msgbox(Tr1_2F_Psychic_PosBat)
+    msgbox(Tr1_2F_Psychic_PosBat, MSGBOX_NPC)
     end
 }
 text Tr1_2F_Psychic_PosBat{
