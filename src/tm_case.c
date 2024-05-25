@@ -124,8 +124,10 @@ static void InitSelectedTMSpriteData(u8 a0, u16 itemId);
 static void SpriteCB_MoveTMSpriteInCase(struct Sprite * sprite);
 static void LoadTMTypePalettes(void);
 static void DrawPartyMonIcons(void);
-static void TintPartyMonIcons(u8 tm);
+static void TintPartyMonIcons(u16 tm);
 static void DestroyPartyMonIcons(void);
+
+extern const struct SpritePalette gMonIconPaletteTable[6];
 
 static const struct BgTemplate sBGTemplates[] = {
     {
@@ -533,7 +535,7 @@ static void GetTMNumberAndMoveString(u8 * dest, u16 itemId)
     }
     StringAppend(gStringVar4, sText_SingleSpace);
     StringAppend(gStringVar4, gText_FontShort);
-    StringAppend(gStringVar4, gMoveNames[ItemIdToBattleMoveId(itemId)]);
+    StringAppend(gStringVar4, GetMoveName(ItemIdToBattleMoveId(itemId)));
     StringCopy(dest, gStringVar4);
 }
 
@@ -566,8 +568,10 @@ static void TMCase_ItemPrintFunc(u8 windowId, u32 itemId, u8 y)
             // AddTextPrinterParameterized_ColorByIndex(windowId, 0, gStringVar4, 0x7E, y, 0, 0, 0xFF, 1);
         }
         else
-        {
-            PlaceHMTileInWindow(windowId, 8, y);
+        {   
+            if (BagGetItemIdByPocketPosition(POCKET_TM_HM, itemId) >= ITEM_HM01){
+                PlaceHMTileInWindow(windowId, 8, y);
+            }
         }
     }
 }
@@ -588,7 +592,7 @@ static void TMCase_MoveCursor_UpdatePrintedDescription(s32 itemIndex)
     AddTextPrinterParameterized_ColorByIndex(1, 2, str, 2, 3, 1, 0, 0, 0);
 
     // update icons
-    TintPartyMonIcons(itemId - ITEM_TM01);
+    TintPartyMonIcons(itemId);
 }
 
 static void FillBG2RowWithPalette_2timesNplus1(s32 a0)
@@ -797,7 +801,7 @@ static void Task_SelectTMAction_FromFieldBag(u8 taskId)
     PrintMenuActionTexts(sTMCaseDynamicResources->contextMenuWindowId, 2, GetMenuCursorDimensionByFont(2, 0), 2, 0, GetFontAttribute(2, 1) + 2, sTMCaseDynamicResources->numMenuActions, sMenuActions_UseGiveExit, sTMCaseDynamicResources->menuActionIndices);
     // context menu cursor
     InitMenuInUpperLeftCornerNormal(sTMCaseDynamicResources->contextMenuWindowId, sTMCaseDynamicResources->numMenuActions, 0);
-    
+
     //"Move xyz is selected" text and window (no shoing the right palette)
     TMCase_SetWindowBorder3(2); // context window border style
     strbuf = Alloc(256);
@@ -807,7 +811,7 @@ static void Task_SelectTMAction_FromFieldBag(u8 taskId)
     Free(strbuf);
 
     //show HM icon
-    if (ItemId_GetImportance(gSpecialVar_ItemId))
+    if (gSpecialVar_ItemId >= ITEM_HM01)
     {
         PlaceHMTileInWindow(2, 0, 2);
         CopyWindowToVram(2, 2);
@@ -1027,24 +1031,24 @@ static void TMCase_MoveCursor_UpdatePrintedTMInfo(u16 itemId)
     else
     {
         move = ItemIdToBattleMoveId(itemId);
-        BlitMenuInfoIcon(5, gBattleMoves[move].type + 1, 0, 0);
-        if (gBattleMoves[move].power < 2)
+        BlitMenuInfoIcon(5, gMovesInfo[move].type + 1, 0, 0);
+        if (gMovesInfo[move].power < 2)
             str = gText_ThreeDashes;
         else
         {
-            ConvertIntToDecimalStringN(gStringVar1, gBattleMoves[move].power, STR_CONV_MODE_RIGHT_ALIGN, 3);
+            ConvertIntToDecimalStringN(gStringVar1, gMovesInfo[move].power, STR_CONV_MODE_RIGHT_ALIGN, 3);
             str = gStringVar1;
         }
         AddTextPrinterParameterized_ColorByIndex(5, 3, str, 7, 12, 0, 0, 0xFF, 3);
-        if (gBattleMoves[move].accuracy == 0)
+        if (gMovesInfo[move].accuracy == 0)
             str = gText_ThreeDashes;
         else
         {
-            ConvertIntToDecimalStringN(gStringVar1, gBattleMoves[move].accuracy, STR_CONV_MODE_RIGHT_ALIGN, 3);
+            ConvertIntToDecimalStringN(gStringVar1, gMovesInfo[move].accuracy, STR_CONV_MODE_RIGHT_ALIGN, 3);
             str = gStringVar1;
         }
         AddTextPrinterParameterized_ColorByIndex(5, 3, str, 7, 24, 0, 0, 0xFF, 3);
-        ConvertIntToDecimalStringN(gStringVar1, gBattleMoves[move].pp, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        ConvertIntToDecimalStringN(gStringVar1, gMovesInfo[move].pp, STR_CONV_MODE_RIGHT_ALIGN, 3);
         AddTextPrinterParameterized_ColorByIndex(5, 3, gStringVar1, 7, 36, 0, 0, 0xFF, 3);
         CopyWindowToVram(5, 2);
     }
@@ -1107,7 +1111,7 @@ void LoadMonIconPalettesTinted(void)
         TintPalette_GrayScale2(&gPlttBufferUnfaded[0x170 + i*16], 16);
     }
 }
-        
+
 
 static void DrawPartyMonIcons(void)
 {
@@ -1146,7 +1150,7 @@ static void DrawPartyMonIcons(void)
             icon_y = i < 3 ? MON_ICON_START_Y : MON_ICON_START_Y + MON_ICON_PADDING;
         }
         //get species
-        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG);
 
         //create icon sprite
         #ifndef POKEMON_EXPANSION
@@ -1162,24 +1166,26 @@ static void DrawPartyMonIcons(void)
     }
 }
 
-static void TintPartyMonIcons(u8 tm)
+static void TintPartyMonIcons(u16 tm)
 {
     u8 i;
     u16 species;
 
     for (i = 0; i < gPlayerPartyCount; i++)
     {
-        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
-        if (!CanSpeciesLearnTMHM(species, tm))
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG);
+        SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_ALL);
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(7, 11));
+        if (!CanLearnTeachableMove(species, ItemIdToBattleMoveId(tm))) 
         {
-            gSprites[spriteIdData[i]].oam.paletteNum = 7 + spriteIdPalette[i];
+            gSprites[spriteIdData[i]].oam.objMode = ST_OAM_OBJ_BLEND;
         }
         else
         {
-            gSprites[spriteIdData[i]].oam.paletteNum = spriteIdPalette[i];//gMonIconPaletteIndices[species];
+            gSprites[spriteIdData[i]].oam.objMode = ST_OAM_OBJ_NORMAL;//gMonIconPaletteIndices[species];
         }
     }
-    
+
 }
 
 static void DestroyPartyMonIcons(void)

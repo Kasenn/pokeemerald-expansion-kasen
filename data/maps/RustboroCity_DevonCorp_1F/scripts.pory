@@ -135,6 +135,10 @@ script Update3{
         removeitem(ITEM_WHITE_FLUTE)
         additem(ITEM_BLACK_FLUTE)
     }
+    checkitem(ITEM_TM_CASE)
+    if(var(VAR_RESULT) == FALSE){
+        giveitem(ITEM_TM_CASE)
+    }
     checkitem(ITEM_TM_GIGA_DRAIN)
     if(var(VAR_RESULT) == TRUE){
         msgbox(ReplacedGrassKnot)
