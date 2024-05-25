@@ -67,31 +67,31 @@ script ROUTE7_GrottoPokemon{
         playmoncry(SPECIES_ABSOL, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
-        setwildbattlelevelrange(SPECIES_ABSOL, 20, ITEM_NONE, SPECIES_NONE, 25)
+        setwildbattlelevelrange(SPECIES_ABSOL, 15, ITEM_NONE, SPECIES_NONE, 19)
     }
     if((var(VAR_ROUTE7_GROTTO) >= 52) && (var(VAR_ROUTE7_GROTTO) <= 63)){
         playmoncry(SPECIES_DITTO, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
-        setwildbattlelevelrange(SPECIES_DITTO, 20, ITEM_NONE, SPECIES_NONE, 25)
+        setwildbattlelevelrange(SPECIES_DITTO, 15, ITEM_NONE, SPECIES_NONE, 19)
     }
     if((var(VAR_ROUTE7_GROTTO) >= 64) && (var(VAR_ROUTE7_GROTTO) <= 75)){
         playmoncry(SPECIES_SABLEYE, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
-        setwildbattlelevelrange(SPECIES_SABLEYE, 20, ITEM_NONE, SPECIES_NONE, 25)
+        setwildbattlelevelrange(SPECIES_SABLEYE, 15, ITEM_NONE, SPECIES_NONE, 19)
     }
     if((var(VAR_ROUTE7_GROTTO) >= 76) && (var(VAR_ROUTE7_GROTTO) <= 87)){
         playmoncry(SPECIES_INKAY, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
-        setwildbattlelevelrange(SPECIES_INKAY, 20, ITEM_NONE, SPECIES_NONE, 25)
+        setwildbattlelevelrange(SPECIES_INKAY, 15, ITEM_NONE, SPECIES_NONE, 19)
     }
     if((var(VAR_ROUTE7_GROTTO) >= 88) && (var(VAR_ROUTE7_GROTTO) <= 99)){
         playmoncry(SPECIES_HATENNA, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
-        setwildbattlelevelrange(SPECIES_HATENNA, 20, ITEM_NONE, SPECIES_NONE, 25)
+        setwildbattlelevelrange(SPECIES_HATENNA, 15, ITEM_NONE, SPECIES_NONE, 19)
     }
     setflag(FLAG_SYS_CTRL_OBJ_DELETE)
     dowildbattle

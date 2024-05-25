@@ -187,7 +187,7 @@ ROUTE7_GrottoPokemon_2:
 	playmoncry SPECIES_ABSOL, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattlelevelrange SPECIES_ABSOL, 20, ITEM_NONE, SPECIES_NONE, 25
+	setwildbattlelevelrange SPECIES_ABSOL, 15, ITEM_NONE, SPECIES_NONE, 19
 	goto ROUTE7_GrottoPokemon_1
 
 ROUTE7_GrottoPokemon_3:
@@ -199,7 +199,7 @@ ROUTE7_GrottoPokemon_7:
 	playmoncry SPECIES_DITTO, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattlelevelrange SPECIES_DITTO, 20, ITEM_NONE, SPECIES_NONE, 25
+	setwildbattlelevelrange SPECIES_DITTO, 15, ITEM_NONE, SPECIES_NONE, 19
 	goto ROUTE7_GrottoPokemon_6
 
 ROUTE7_GrottoPokemon_8:
@@ -211,7 +211,7 @@ ROUTE7_GrottoPokemon_12:
 	playmoncry SPECIES_SABLEYE, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattlelevelrange SPECIES_SABLEYE, 20, ITEM_NONE, SPECIES_NONE, 25
+	setwildbattlelevelrange SPECIES_SABLEYE, 15, ITEM_NONE, SPECIES_NONE, 19
 	goto ROUTE7_GrottoPokemon_11
 
 ROUTE7_GrottoPokemon_13:
@@ -223,7 +223,7 @@ ROUTE7_GrottoPokemon_17:
 	playmoncry SPECIES_INKAY, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattlelevelrange SPECIES_INKAY, 20, ITEM_NONE, SPECIES_NONE, 25
+	setwildbattlelevelrange SPECIES_INKAY, 15, ITEM_NONE, SPECIES_NONE, 19
 	goto ROUTE7_GrottoPokemon_16
 
 ROUTE7_GrottoPokemon_18:
@@ -235,7 +235,7 @@ ROUTE7_GrottoPokemon_22:
 	playmoncry SPECIES_HATENNA, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattlelevelrange SPECIES_HATENNA, 20, ITEM_NONE, SPECIES_NONE, 25
+	setwildbattlelevelrange SPECIES_HATENNA, 15, ITEM_NONE, SPECIES_NONE, 19
 	goto ROUTE7_GrottoPokemon_21
 
 ROUTE7_GrottoPokemon_23:
