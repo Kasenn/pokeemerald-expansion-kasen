@@ -125,8 +125,6 @@
 #define NUM_FLAG_BYTES ROUND_BITS_TO_BYTES(FLAGS_COUNT)
 #define NUM_TRENDY_SAYING_BYTES ROUND_BITS_TO_BYTES(NUM_TRENDY_SAYINGS)
 
-//tx_registered_items_menu
-#define REGISTERED_ITEMS_MAX 10
 
 // This produces an error at compile-time if expr is zero.
 // It looks like file.c:line: size of array `id' is negative

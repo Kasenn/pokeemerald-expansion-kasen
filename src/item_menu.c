@@ -309,13 +309,13 @@ static const u8 sMenuText_L[] = _("List");
 static const struct MenuAction sItemMenuActions[] = {
     [ACTION_USE]               = {gMenuText_Use,      {ItemMenu_UseOutOfBattle}},
     [ACTION_TOSS]              = {gMenuText_Toss,     {ItemMenu_Toss}},
-    [ACTION_REGISTER]          = {gMenuText_Register, {ItemMenu_Register}},
+    [ACTION_REGISTER]          = {gMenuText_Register, {ItemMenu_RegisterList}},
     [ACTION_GIVE]              = {gMenuText_Give,     {ItemMenu_Give}},
     [ACTION_CANCEL]            = {gText_Cancel2,      {ItemMenu_Cancel}},
     [ACTION_BATTLE_USE]        = {gMenuText_Use,      {ItemMenu_UseInBattle}},
     [ACTION_CHECK]             = {gMenuText_Check,    {ItemMenu_UseOutOfBattle}},
     [ACTION_WALK]              = {gMenuText_Walk,     {ItemMenu_UseOutOfBattle}},
-    [ACTION_DESELECT]          = {gMenuText_Deselect, {ItemMenu_Register}},
+    [ACTION_DESELECT]          = {gMenuText_Deselect, {ItemMenu_Deselect}},
     [ACTION_CHECK_TAG]         = {gMenuText_CheckTag, {ItemMenu_CheckTag}},
     [ACTION_CONFIRM]           = {gMenuText_Confirm,  {Task_FadeAndCloseBagMenu}},
     [ACTION_SHOW]              = {gMenuText_Show,     {ItemMenu_Show}},
@@ -324,8 +324,8 @@ static const struct MenuAction sItemMenuActions[] = {
     [ACTION_BY_NAME]           = {sMenuText_ByName,   {ItemMenu_SortByName}},
     [ACTION_BY_TYPE]           = {sMenuText_ByType,   {ItemMenu_SortByType}},
     [ACTION_BY_AMOUNT]         = {sMenuText_ByAmount, {ItemMenu_SortByAmount}},
-    [ACTION_SELECT_BUTTON]     = {sMenuText_Select,   ItemMenu_RegisterSelect},
-    [ACTION_L_BUTTON]          = {sMenuText_L,        ItemMenu_RegisterList},
+    [ACTION_SELECT_BUTTON]     = {sMenuText_Select,   {ItemMenu_RegisterSelect}},
+    [ACTION_L_BUTTON]          = {sMenuText_L,        {ItemMenu_RegisterList}},
     [ACTION_DUMMY]             = {gText_EmptyString2, NULL}
 };
 
@@ -610,7 +610,7 @@ static EWRAM_DATA struct TempWallyBag *sTempWallyBag = 0;
 
 //tx_registered_items_menu
 static EWRAM_DATA bool8 sRegisterSubMenu = FALSE;
-static EWRAM_DATA u8 sRegisteredItemsMenuIcon = 0xFF;
+static EWRAM_DATA u8 sRegisteredItemsMenuIcon = 0;
 extern const u8 EventScript_SelectWithoutRegisteredItem[];
 
 void ResetBagScrollPositions(void)
@@ -1071,7 +1071,7 @@ static void BagMenu_ItemPrintCallback(u8 windowId, u32 itemIndex, u8 y)
             if (TxRegItemsMenu_CheckRegisteredHasItem(itemId))
             {
                 if (gSaveBlock2Ptr->optionsButtonMode != 2)
-                    BlitBitmapToWindow(windowId, sLButtonGfx, 96, y - 1, 24, 16);
+                    BlitBitmapToWindow(windowId, sRegisteredSelect_Gfx, 96, y - 1, 24, 16);
                 else
                     BlitBitmapToWindow(windowId, sRButtonGfx, 96, y - 1, 24, 16);
             }
