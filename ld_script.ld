@@ -362,7 +362,6 @@ SECTIONS {
         src/expansion_intro.o(.text);
         src/follow_me.o(.text);
         src/tm_case.o(.text);
-        src/tx_registered_items_menu.o(.text);
     } > ROM =0
 
     script_data :
@@ -732,7 +731,6 @@ SECTIONS {
         src/expansion_intro.o(.rodata);
         src/follow_me.o(.rodata);
         src/tm_case.o(.rodata);
-        src/tx_registered_items_menu.o(.rodata);
     } > ROM =0
 
     song_data :
