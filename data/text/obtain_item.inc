@@ -8,6 +8,10 @@ gText_PutItemInPocket::
 	.string "{PLAYER} put away the {STR_VAR_2}\n"
 	.string "in the {STR_VAR_3} pocket.$"
 
+gText_PutTmInCase::
+	.string "{PLAYER} put away the {STR_VAR_2}\n"
+	.string "in the TM Case.$"
+
 gText_PlayerFoundOneItem::
 	.string "{PLAYER} found one {STR_VAR_2}!$"
 

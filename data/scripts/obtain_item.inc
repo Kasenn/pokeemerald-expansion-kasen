@@ -41,6 +41,7 @@ EventScript_BufferPokeballsPocket::
 	return
 
 EventScript_BufferTMHMsPocket::
+	setflag FLAG_TEMP_1F
 	bufferstdstring STR_VAR_3, STDSTRING_TMHMS
 	call_if_eq VAR_0x8007, TRUE, EventScript_PlayFanfareObtainedTMHM
 	return
@@ -62,15 +63,22 @@ EventScript_ObtainedItem:: @ 8271B95
 EventScript_ObtainedItemMessage:
 	message gText_ObtainedTheItem
 EventScript_ContinueObtainedItem:
+	goto_if_set FLAG_TEMP_1F, EventScript_ContinueObtainedTm
 	waitfanfare
 	msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
+	setvar VAR_RESULT, TRUE
+	return
+EventScript_ContinueObtainedTm:
+	waitfanfare
+	msgbox gText_PutTmInCase, MSGBOX_DEFAULT
+	clearflag FLAG_TEMP_1F
 	setvar VAR_RESULT, TRUE
 	return
 
 EventScript_ObtainedTMHM::
 	bufferitemname STR_VAR_1, VAR_0x8004
 	message gText_PlayerObtainedOneTMHM
-	goto EventScript_ContinueObtainedItem
+	goto EventScript_ContinueObtainedTm
 
 gText_PlayerObtainedOneTMHM::
 	.string "Obtained the {STR_VAR_1},\n"
@@ -143,7 +151,13 @@ EventScript_PickUpItem::
 	bufferitemnameplural STR_VAR_2, VAR_0x8004, VAR_0x8005
 	pyramid_inchallenge
 	goto_if_eq VAR_RESULT, TRUE, EventScript_PutBattlePyramidItemInBag
+	goto_if_set FLAG_TEMP_1F, EventScript_ContinueObtainedTm
 	msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
+	return
+
+EventScript_PutTmInCase::
+	msgbox gText_PutTmInCase, MSGBOX_DEFAULT
+	clearflag FLAG_TEMP_1F
 	return
 
 EventScript_PutBattlePyramidItemInBag::
@@ -207,9 +221,18 @@ EventScript_PutHiddenItemInPocket::
 	waitfanfare
 	bufferitemnameplural STR_VAR_2, VAR_0x8004, 1
 	copyvar VAR_0x8004, VAR_0x8008
+	goto_if_set FLAG_TEMP_1F, EventScript_ContinueObtainedTm
 	msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
 	special TryPutTreasureInvestigatorsOnAir
 	special SetHiddenItemFlag
+	releaseall
+	end
+
+EventScript_PutHiddenTmInCase::
+	msgbox gText_PutTmInCase, MSGBOX_DEFAULT
+	special TryPutTreasureInvestigatorsOnAir
+	special SetHiddenItemFlag
+	clearflag FLAG_TEMP_1F
 	releaseall
 	end
 
