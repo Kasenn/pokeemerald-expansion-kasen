@@ -167,10 +167,17 @@ struct UCoords32
     u32 y;
 };
 
+struct ItemSlot
+{
+    u16 itemId;
+    u16 quantity;
+};
+
 struct SaveBlock3
 {
     /*0x00*/ u8 brotherName[PLAYER_NAME_LENGTH + 1];
     /*0x08*/ u8 brotherGender; // MALE, FEMALE
+    /*0x0B*/ struct ItemSlot bagPocket_Medicine[BAG_MEDICINE_COUNT];
 };
 
 extern struct SaveBlock3 *gSaveBlock3Ptr;
@@ -490,12 +497,6 @@ struct RankingHall2P
     u8 name2[PLAYER_NAME_LENGTH + 1];
     u8 language;
     //u8 padding;
-};
-
-struct ItemSlot
-{
-    u16 itemId;
-    u16 quantity;
 };
 
 // follow me
