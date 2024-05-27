@@ -56,7 +56,6 @@ SECTIONS {
         /* COMMON starts at 0x30022A8 */
         INCLUDE "sym_common.ld"
         *libc.a:sbrkr.o(COMMON);
-        gStackBase = .;
     } > IWRAM
 
     /* BEGIN ROM DATA */
@@ -1368,8 +1367,6 @@ SECTIONS {
         __ewram_lma = .;
         . = . + (__ewram_end - __ewram_start);
     } > ROM = 0
-
-    __rom_end = .;
 
     __rom_end = .;
 

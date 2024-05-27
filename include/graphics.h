@@ -1690,6 +1690,9 @@ extern const u32 gItemIconPalette_DragonTeraShard[];
 extern const u32 gItemIconPalette_SteelTeraShard[];
 extern const u32 gItemIconPalette_FairyTeraShard[];
 
+extern const u32 gItemIcon_StellarTeraShard[];
+extern const u32 gItemIconPalette_StellarTeraShard[];
+
 extern const u32 gItemIcon_AdamantCrystal[];
 extern const u32 gItemIconPalette_AdamantCrystal[];
 extern const u32 gItemIcon_GriseousCore[];

@@ -77,9 +77,6 @@
 #define CHAR_DOWN_ARROW        0x7A
 #define CHAR_LEFT_ARROW        0x7B
 #define CHAR_RIGHT_ARROW       0x7C
-// Case-fixing characters
-#define CHAR_FIXED_CASE        0x7D
-#define CHAR_UNFIX_CASE        0x7E
 //
 #define CHAR_SUPER_E           0x84
 #define CHAR_LESS_THAN         0x85

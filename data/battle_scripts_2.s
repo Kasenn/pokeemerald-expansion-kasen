@@ -58,7 +58,11 @@ BattleScript_ItemRestoreHPRet:
 
 BattleScript_ItemRestoreHP::
 	call BattleScript_UseItemMessage
-	itemrestorehp BattleScript_ItemRestoreHPEnd
+	itemrestorehp BattleScript_ItemRestoreHPEnd, BattleScript_ItemRestoreHP_Battler
+	call BattleScript_ItemRestoreHP_Party
+	goto BattleScript_ItemRestoreHPEnd
+
+BattleScript_ItemRestoreHP_Battler::
 	call BattleScript_ItemRestoreHPRet
 BattleScript_ItemRestoreHPEnd:
 	end
@@ -68,7 +72,7 @@ BattleScript_ItemRestoreHP_Party::
 	bichalfword gMoveResultFlags, MOVE_RESULT_NO_EFFECT
 	printstring STRINGID_ITEMRESTOREDSPECIESHEALTH
 	waitmessage B_WAIT_TIME_LONG
-	end
+	return
 
 BattleScript_ItemRestoreHP_SendOutRevivedBattler:
 	switchinanim BS_SCRIPTING, FALSE
@@ -88,8 +92,13 @@ BattleScript_ItemCureStatusEnd:
 
 BattleScript_ItemHealAndCureStatus::
 	call BattleScript_UseItemMessage
-	itemrestorehp BattleScript_ItemCureStatusAfterItemMsg
+	itemrestorehp BattleScript_ItemCureStatusAfterItemMsg, BattleScript_ItemHealAndCureStatus_Battler
+	call BattleScript_ItemRestoreHP_Party
+	goto BattleScript_ItemHealAndCureStatusEnd
+
+BattleScript_ItemHealAndCureStatus_Battler::
 	call BattleScript_ItemRestoreHPRet
+BattleScript_ItemHealAndCureStatusEnd::
 	goto BattleScript_ItemCureStatusAfterItemMsg
 
 BattleScript_ItemIncreaseStat::
@@ -114,7 +123,7 @@ BattleScript_ItemSetMist::
 BattleScript_ItemSetFocusEnergy::
 	call BattleScript_UseItemMessage
 	jumpifstatus2 BS_ATTACKER, STATUS2_FOCUS_ENERGY_ANY, BattleScript_ButItFailed
-	setfocusenergy
+	setfocusenergy BS_ATTACKER
 	playmoveanimation BS_ATTACKER, MOVE_FOCUS_ENERGY
 	waitanimation
 	copybyte sBATTLER, gBattlerAttacker
