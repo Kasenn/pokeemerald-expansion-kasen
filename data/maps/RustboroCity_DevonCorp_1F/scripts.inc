@@ -223,7 +223,7 @@ SetTeamLevel_5:
 
 SetTeamLevel_6:
 	msgbox SetTeamLevel_Text_10
-	setpartylevel 34
+	setpartylevel 29
 	goto SetTeamLevel_1
 
 SetTeamLevel_7:
@@ -391,10 +391,10 @@ SetTeamLevel_Text_1:
 	.string "Gym 2 (Level 22)$"
 
 SetTeamLevel_Text_2:
-	.string "Windplume Valley (Level 24)$"
+	.string "Windplume (Level 24)$"
 
 SetTeamLevel_Text_3:
-	.string "Story Event (Level 34, WIP)$"
+	.string "Story 1 (Level 29)$"
 
 SetTeamLevel_Text_4:
 	.string "Gym 3 (Level 40, WIP)$"
@@ -415,7 +415,7 @@ SetTeamLevel_Text_9:
 	.string "Team set to level 24.$"
 
 SetTeamLevel_Text_10:
-	.string "Team set to level 34.$"
+	.string "Team set to level 29.$"
 
 SetTeamLevel_Text_11:
 	.string "Team set to level 40.$"
@@ -706,7 +706,7 @@ Rustboro_Basement_DevonGreeter_Text::
 	.string "Everybody here seems to be unharmed.\p"
 	.string "If you can, please help our president.\n"
 	.string "Last I saw him, he was in his office\l"
-	.string "in the 3rd floor.$"
+	.string "on the 3rd floor.$"
 
 Rustboro_Basement_Collection_Text::
 	.string "It's a collection of various products\n"

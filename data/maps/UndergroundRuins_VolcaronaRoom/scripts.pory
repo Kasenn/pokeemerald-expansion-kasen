@@ -4,7 +4,7 @@ script VolcaronaBattle{
     playmoncry(SPECIES_VOLCARONA, CRY_MODE_ENCOUNTER)
     delay(40)
     waitmoncry
-    setwildbattle(SPECIES_VOLCARONA, 35, ITEM_SILVER_POWDER)
+    setwildbattle(SPECIES_VOLCARONA, 30, ITEM_SILVER_POWDER)
     setflag(FLAG_SYS_CTRL_OBJ_DELETE)
     dowildbattle
     clearflag(FLAG_SYS_CTRL_OBJ_DELETE)

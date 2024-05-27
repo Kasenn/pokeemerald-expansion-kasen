@@ -169,8 +169,8 @@ script SetTeamLevel{
     waitmessage
     dynmultipush("Gym 1 (Level 14)", 0)
     dynmultipush("Gym 2 (Level 22)", 1)
-    dynmultipush("Windplume Valley (Level 24)", 2)
-    dynmultipush("Story Event (Level 34, WIP)", 3)
+    dynmultipush("Windplume (Level 24)", 2)
+    dynmultipush("Story 1 (Level 29)", 3)
     dynmultipush("Gym 3 (Level 40, WIP)", 4)
     dynmultipush("Gym 4 (Level 47, WIP)", 5)
     dynmultipush("Cancel", 6)
@@ -186,8 +186,8 @@ script SetTeamLevel{
             msgbox("Team set to level 24.")
             setpartylevel(24)
         case 3:
-            msgbox("Team set to level 34.")
-            setpartylevel(34)
+            msgbox("Team set to level 29.")
+            setpartylevel(29)
         case 4:
             msgbox("Team set to level 40.")
             setpartylevel(40)
@@ -551,7 +551,7 @@ text Rustboro_Basement_DevonGreeter_Text{
     "Everybody here seems to be unharmed.\p"
     "If you can, please help our president.\n"
     "Last I saw him, he was in his office\l"
-    "in the 3rd floor."
+    "on the 3rd floor."
 }
 script Rustboro_Basement_Collection{
     msgbox(Rustboro_Basement_Collection_Text, MSGBOX_SIGN)

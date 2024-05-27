@@ -107,11 +107,28 @@ LevelTraining_Setup::
 	end
 
 LevelTraining_Setup_1:
+	checkpartylevel 12
+	compare VAR_RESULT, PARTY_SIZE
+	goto_if_eq LevelTraining_Setup_5
+LevelTraining_Setup_4:
+	setvar VAR_POKECENTER_TRAINING, 1
 	special CloseBattlePointsWindow
 	copyvar VAR_0x8004, VAR_0x8008
 	special TakeFrontierBattlePoints
 	trainerbattle_no_intro TRAINER_DUSTY_1, IVTrainingDone
+	setvar VAR_POKECENTER_TRAINING, 0
 	return
+
+LevelTraining_Setup_5:
+	msgbox YourPokemonIsAboveLevel, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq LevelTraining_Setup_7
+	goto LevelTraining_Setup_4
+
+LevelTraining_Setup_7:
+	release
+	special CloseBattlePointsWindow
+	end
 
 
 LevelTraining2::
@@ -138,11 +155,28 @@ LevelTraining2_Setup::
 	end
 
 LevelTraining2_Setup_1:
+	checkpartylevel 14
+	compare VAR_RESULT, PARTY_SIZE
+	goto_if_eq LevelTraining2_Setup_5
+LevelTraining2_Setup_4:
+	setvar VAR_POKECENTER_TRAINING, 2
 	special CloseBattlePointsWindow
 	copyvar VAR_0x8004, VAR_0x8008
 	special TakeFrontierBattlePoints
 	trainerbattle_no_intro TRAINER_GABBY_AND_TY_2, IVTrainingDone
+	setvar VAR_POKECENTER_TRAINING, 0
 	return
+
+LevelTraining2_Setup_5:
+	msgbox YourPokemonIsAboveLevel, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq LevelTraining2_Setup_7
+	goto LevelTraining2_Setup_4
+
+LevelTraining2_Setup_7:
+	release
+	special CloseBattlePointsWindow
+	end
 
 
 LevelTrainingAldeleaf::
@@ -169,11 +203,28 @@ LevelTrainingAldeleaf_Setup::
 	end
 
 LevelTrainingAldeleaf_Setup_1:
+	checkpartylevel 22
+	compare VAR_RESULT, PARTY_SIZE
+	goto_if_eq LevelTrainingAldeleaf_Setup_5
+LevelTrainingAldeleaf_Setup_4:
+	setvar VAR_POKECENTER_TRAINING, 3
 	special CloseBattlePointsWindow
 	copyvar VAR_0x8004, VAR_0x8008
 	special TakeFrontierBattlePoints
 	trainerbattle_no_intro TRAINER_RANDALL, IVTrainingDone
+	setvar VAR_POKECENTER_TRAINING, 0
 	return
+
+LevelTrainingAldeleaf_Setup_5:
+	msgbox YourPokemonIsAboveLevel, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq LevelTrainingAldeleaf_Setup_7
+	goto LevelTrainingAldeleaf_Setup_4
+
+LevelTrainingAldeleaf_Setup_7:
+	release
+	special CloseBattlePointsWindow
+	end
 
 
 IvTrainingIntro::
@@ -199,7 +250,7 @@ LevelTrainingShoreslate::
 LevelTrainingShoreslate_Setup::
 	lockall
 	special ShowBattlePointsWindow
-	msgbox LevelTrainingShoreslate_Setup_Text_0, MSGBOX_YESNO
+	msgbox Level18Team, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq LevelTrainingShoreslate_Setup_1
 	closemessage
@@ -208,11 +259,28 @@ LevelTrainingShoreslate_Setup::
 	end
 
 LevelTrainingShoreslate_Setup_1:
+	checkpartylevel 29
+	compare VAR_RESULT, PARTY_SIZE
+	goto_if_eq LevelTrainingShoreslate_Setup_5
+LevelTrainingShoreslate_Setup_4:
+	setvar VAR_POKECENTER_TRAINING, 4
 	special CloseBattlePointsWindow
 	copyvar VAR_0x8004, VAR_0x8008
 	special TakeFrontierBattlePoints
 	trainerbattle_no_intro TRAINER_SHORESLATE_NURSE, IVTrainingDone
+	setvar VAR_POKECENTER_TRAINING, 0
 	return
+
+LevelTrainingShoreslate_Setup_5:
+	msgbox YourPokemonIsAboveLevel, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq LevelTrainingShoreslate_Setup_7
+	goto LevelTrainingShoreslate_Setup_4
+
+LevelTrainingShoreslate_Setup_7:
+	release
+	special CloseBattlePointsWindow
+	end
 
 
 LevelTrainingMarigorge::
@@ -332,9 +400,6 @@ IvTrainingIntro_Text_0:
 	.string "With that out of the way,\n"
 	.string "I hope you find our services useful.$"
 
-LevelTrainingShoreslate_Setup_Text_0:
-	.string "This is the Level Training Service.\nEach use of the service\lcosts 5 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 15.$"
-
 LevelTrainingMarigorge_Setup_Text_0:
 	.string "This is the Level Training Service.\nEach use of the service\lcosts 7 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 18.$"
 
@@ -394,30 +459,45 @@ IVTraining_HaventGotEnoughPoints10BP::
 
 Level4Team::
 	.string "This is the Level Training Service.\p"
-	.string "The team in this Training Hub is set to\n"
-	.string "level 4 and is generally recommended\l"
-	.string "for teams up to level 12.\p"
+	.string "The team in this Training Hub is set\n"
+	.string "to level 6 and is intended for teams\l"
+	.string "up to level 11.\p"
 	.string "Would you like to use the service?\p"
 	.string "Each use of the service costs\n"
 	.string "2 Battle Points.$"
 
 Level5Team::
 	.string "This is the Level Training Service.\p"
-	.string "The team in this Training Hub is set to\n"
-	.string "level 5 and is generally recommended\l"
-	.string "for teams up to level 14.\p"
+	.string "The team in this Training Hub is set\n"
+	.string "to level 8 and is intended for teams\l"
+	.string "up to level 13.\p"
 	.string "Would you like to use the service?\p"
 	.string "Each use of the service costs\n"
 	.string "3 Battle Points.$"
 
 Level9Team::
 	.string "This is the Level Training Service.\p"
-	.string "The team in this Training Hub is set to\n"
-	.string "level 11 and is generally recommended\l"
-	.string "for teams up to level 21.\p"
+	.string "The team in this Training Hub is set\n"
+	.string "to level 16 and is intended for teams\l"
+	.string "up to level 21.\p"
 	.string "Would you like to use the service?\p"
 	.string "Each use of the service costs\n"
 	.string "3 Battle Points.$"
 
 IVTrainingDone::
 	.string "Thank you, please come again.$"
+
+YourPokemonIsAboveLevel::
+	.string "You have Pokémon that are above the\n"
+	.string "level cap of this Training Hub and\l"
+	.string "thus do not gain any experience.\p"
+	.string "Are you sure you want to continue?$"
+
+Level18Team::
+	.string "This is the Level Training Service.\p"
+	.string "The team in this Training Hub is set\n"
+	.string "to level 25 and is intended for teams\l"
+	.string "up to level 28.\p"
+	.string "Would you like to use the service?\p"
+	.string "Each use of the service costs\n"
+	.string "5 Battle Points.$"

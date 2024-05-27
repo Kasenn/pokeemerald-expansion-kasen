@@ -5441,10 +5441,10 @@ u16 GetBattleBGM(void)
         {
         case TRAINER_CLASS_AQUA_LEADER:
         case TRAINER_CLASS_MAGMA_LEADER:
+        case TRAINER_CLASS_ROCKET_ADMIN:
             return MUS_VS_AQUA_MAGMA_LEADER;
         case TRAINER_CLASS_TEAM_ROCKET:
         case TRAINER_CLASS_TEAM_MAGMA:
-        case TRAINER_CLASS_ROCKET_ADMIN:
         case TRAINER_CLASS_MAGMA_ADMIN:
             return MUS_VS_AQUA_MAGMA;
         case TRAINER_CLASS_LEADER:
@@ -5565,7 +5565,7 @@ bool8 IsMoveHM(u16 move)
     while (sHMMoves[i] != HM_MOVES_END)
     {
         if (sHMMoves[i++] == move)
-            return TRUE;
+            return FALSE;
     }
     return FALSE;
 }
@@ -5594,6 +5594,48 @@ bool8 IsTradedMon(struct Pokemon *mon)
     GetMonData(mon, MON_DATA_OT_NAME, otName);
     otId = GetMonData(mon, MON_DATA_OT_ID, 0);
     return IsOtherTrainer(otId, otName);
+}
+
+bool8 IsLevelCapped(struct Pokemon *mon)
+{
+    u8 level = GetMonData(mon, MON_DATA_LEVEL, NULL);
+
+    if(VarGet(VAR_POKECENTER_TRAINING) == 0){
+        return FALSE;
+    }
+    if(VarGet(VAR_POKECENTER_TRAINING) == 1){
+        if(level >= 12){
+            return TRUE;
+        }
+        else{
+            return FALSE;
+        }
+    }
+    if(VarGet(VAR_POKECENTER_TRAINING) == 2){
+        if(level >= 14){
+            return TRUE;
+        }
+        else{
+            return FALSE;
+        }
+    }
+    if(VarGet(VAR_POKECENTER_TRAINING) == 3){
+        if(level >= 22){
+            return TRUE;
+        }
+        else{
+            return FALSE;
+        }
+    }
+    if(VarGet(VAR_POKECENTER_TRAINING) == 4){
+        if(level >= 29){
+            return TRUE;
+        }
+        else{
+            return FALSE;
+        }
+    }
+    return 0;
 }
 
 bool8 IsOtherTrainer(u32 otId, u8 *otName)

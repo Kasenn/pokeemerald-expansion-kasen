@@ -4384,7 +4384,7 @@ static void Cmd_getexp(void)
                     gBattleStruct->expShareExpValue = calculatedExp / 10;
                 }
                 if(trainerClass == TRAINER_CLASS_NURSE){
-                    gBattleStruct->expShareExpValue = calculatedExp / 2;
+                    gBattleStruct->expShareExpValue = calculatedExp;
                 }
                 if (gBattleStruct->expShareExpValue == 0)
                     gBattleStruct->expShareExpValue = 1;
@@ -16077,6 +16077,8 @@ void ApplyExperienceMultipliers(s32 *expAmount, u8 expGetterMonId, u8 faintedBat
 
     // if (IsTradedMon(&gPlayerParty[expGetterMonId]))
         // *expAmount = (*expAmount * 125) / 100;
+    if (IsLevelCapped(&gPlayerParty[expGetterMonId]))
+        *expAmount = 0;
     if (holdEffect == HOLD_EFFECT_LUCKY_EGG)
         *expAmount = (*expAmount * 150) / 100;
     if (B_UNEVOLVED_EXP_MULTIPLIER >= GEN_6 && IsMonPastEvolutionLevel(&gPlayerParty[expGetterMonId]))

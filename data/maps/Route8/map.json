@@ -196,7 +196,13 @@
     }
   ],
   "warp_events": [
-
+    {
+      "x": 75,
+      "y": 34,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE114_LANETTES_HOUSE",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 

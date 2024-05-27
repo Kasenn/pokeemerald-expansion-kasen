@@ -3898,7 +3898,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         FOOTPRINT(Sandile)
         .levelUpLearnset = sSandileLevelUpLearnset,
         .teachableLearnset = sSandileTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 26, SPECIES_KROKOROK}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 25, SPECIES_KROKOROK}),
     },
 
     [SPECIES_KROKOROK] =
@@ -3952,7 +3952,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         FOOTPRINT(Krokorok)
         .levelUpLearnset = sKrokorokLevelUpLearnset,
         .teachableLearnset = sKrokorokTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 37, SPECIES_KROOKODILE}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_KROOKODILE}),
     },
 
     [SPECIES_KROOKODILE] =
@@ -4561,7 +4561,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         FOOTPRINT(Scraggy)
         .levelUpLearnset = sScraggyLevelUpLearnset,
         .teachableLearnset = sScraggyTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 34, SPECIES_SCRAFTY}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 32, SPECIES_SCRAFTY}),
     },
 
     [SPECIES_SCRAFTY] =
@@ -6969,7 +6969,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         FOOTPRINT(Frillish)
         .levelUpLearnset = sFrillishLevelUpLearnset,
         .teachableLearnset = sFrillishTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 38, SPECIES_JELLICENT}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 34, SPECIES_JELLICENT}),
     },
 
     [SPECIES_JELLICENT] =
@@ -7138,7 +7138,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         FOOTPRINT(Joltik)
         .levelUpLearnset = sJoltikLevelUpLearnset,
         .teachableLearnset = sJoltikTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_GALVANTULA}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 27, SPECIES_GALVANTULA}),
     },
 
     [SPECIES_GALVANTULA] =
@@ -7523,7 +7523,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .tmIlliterate = TRUE,
         .levelUpLearnset = sTynamoLevelUpLearnset,
         .teachableLearnset = sTynamoTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 27, SPECIES_EELEKTRIK}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 23, SPECIES_EELEKTRIK}),
     },
 
     [SPECIES_EELEKTRIK] =
@@ -8509,7 +8509,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         FOOTPRINT(Mienfoo)
         .levelUpLearnset = sMienfooLevelUpLearnset,
         .teachableLearnset = sMienfooTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 40, SPECIES_MIENSHAO}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_MIENSHAO}),
     },
 
     [SPECIES_MIENSHAO] =
@@ -8782,7 +8782,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         FOOTPRINT(Pawniard)
         .levelUpLearnset = sPawniardLevelUpLearnset,
         .teachableLearnset = sPawniardTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 38, SPECIES_BISHARP}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 34, SPECIES_BISHARP}),
     },
 
     [SPECIES_BISHARP] =
@@ -8998,7 +8998,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         FOOTPRINT(Rufflet)
         .levelUpLearnset = sRuffletLevelUpLearnset,
         .teachableLearnset = sRuffletTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 40, SPECIES_BRAVIARY},
+        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_BRAVIARY},
                                 {EVO_NONE, 0, SPECIES_BRAVIARY_HISUIAN}),
     },
 
@@ -9164,7 +9164,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         FOOTPRINT(Vullaby)
         .levelUpLearnset = sVullabyLevelUpLearnset,
         .teachableLearnset = sVullabyTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 40, SPECIES_MANDIBUZZ}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_MANDIBUZZ}),
     },
 
     [SPECIES_MANDIBUZZ] =
@@ -9540,7 +9540,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         FOOTPRINT(Larvesta)
         .levelUpLearnset = sLarvestaLevelUpLearnset,
         .teachableLearnset = sLarvestaTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 45, SPECIES_VOLCARONA}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 40, SPECIES_VOLCARONA}),
     },
 
     [SPECIES_VOLCARONA] =

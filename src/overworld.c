@@ -382,6 +382,7 @@ void Overworld_ResetStateAfterFly(void)
     FlagClear(FLAG_SYSTEM_NOREWARDBATTLES);
     FlagClear(FLAG_PARTNER_HEALS);
     FlagClear(FLAG_DESERT_STEPS);
+    VarSet(VAR_POKECENTER_TRAINING, 0);
 }
 
 void Overworld_ResetStateAfterTeleport(void)
@@ -396,6 +397,7 @@ void Overworld_ResetStateAfterTeleport(void)
     FlagClear(FLAG_SYSTEM_NOREWARDBATTLES);
     FlagClear(FLAG_PARTNER_HEALS);
     FlagClear(FLAG_DESERT_STEPS);
+    VarSet(VAR_POKECENTER_TRAINING, 0);
     RunScriptImmediately(EventScript_ResetMrBriney);
 }
 
@@ -411,6 +413,7 @@ void Overworld_ResetStateAfterDigEscRope(void)
     FlagClear(FLAG_SYSTEM_NOREWARDBATTLES);
     FlagClear(FLAG_PARTNER_HEALS);
     FlagClear(FLAG_DESERT_STEPS);
+    VarSet(VAR_POKECENTER_TRAINING, 0);
 }
 
 #if B_RESET_FLAGS_VARS_AFTER_WHITEOUT  == TRUE
@@ -440,6 +443,7 @@ void Overworld_ResetBattleFlagsAndVars(void)
     FlagClear(FLAG_DESERT_STEPS);
     FlagClear(B_FLAG_DYNAMAX_BATTLE);
     FlagClear(B_FLAG_SKY_BATTLE);
+    VarSet(VAR_POKECENTER_TRAINING, 0);
 }
 #endif
 

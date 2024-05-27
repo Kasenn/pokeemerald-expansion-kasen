@@ -1866,6 +1866,38 @@ bool8 ScrCmd_checkpartymove(struct ScriptContext *ctx)
     return FALSE;
 }
 
+bool8 ScrCmd_checkpartylevel(struct ScriptContext *ctx)
+{
+    u8 i;
+    u16 monLevel = ScriptReadHalfword(ctx);
+    u8 above = 0;
+
+    gSpecialVar_Result = 0;
+    gSpecialVar_0x8004 = 0;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
+        if (!species)
+            break;
+        if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && GetMonData(&gPlayerParty[i], MON_DATA_LEVEL) >= monLevel)
+        {
+            gSpecialVar_0x8004 = species;
+            gSpecialVar_Result = PARTY_SIZE;
+            above = 1;
+            break;
+        }
+    }
+
+    if (above != 1)
+    {
+        gSpecialVar_Result = 0;
+    }
+
+    return FALSE;
+}
+
+
 bool8 ScrCmd_addmoney(struct ScriptContext *ctx)
 {
     u32 amount = ScriptReadWord(ctx);
