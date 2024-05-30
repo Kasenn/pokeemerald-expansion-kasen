@@ -447,7 +447,7 @@ KaolisleGym_Trainer2_Picnicker1_PostBattle::
 
 KaolisleGym_Trainer3_Hiker1_Intro::
 	.string "My Pokémon helped dig these tunnels.\n"
-	.string "Let me show them to you!$"
+	.string "Let me show it to you!$"
 
 KaolisleGym_Trainer3_Hiker1_Defeat::
 	.string "Gwahaha! We've got a real\n"

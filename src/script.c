@@ -513,3 +513,8 @@ u8* ReadWord(u8 index)
 
     return (T1_READ_PTR(&ctx->data[index]));
 }
+
+void AddVarToVar(void)
+{
+    VarSet(VAR_MUD_BAD_LUCK_PROTECTION, (VarGet(VAR_MUD_BAD_LUCK_PROTECTION) + VarGet(VAR_TEMP_7)));
+}

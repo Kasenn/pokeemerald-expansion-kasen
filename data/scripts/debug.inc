@@ -162,6 +162,10 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
+	giveitem ITEM_FOSSILIZED_BIRD 
+	giveitem ITEM_FOSSILIZED_FISH 
+	giveitem ITEM_FOSSILIZED_DRAKE
+	giveitem ITEM_FOSSILIZED_DINO 
 	end
 
 Debug_EventScript_Script_6::

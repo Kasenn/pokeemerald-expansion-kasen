@@ -120,9 +120,9 @@ Kaolisle_Hotel_4F_Woman4_Text::
 	.string "It's from an article in Pokémon Pal.\p"
 	.string "“Press the START Button while in a bag\n"
 	.string "to sort the items.\l"
-	.string "TMs & HMs as well as Berries pocket\l"
-	.string "return to their original order when\l"
-	.string "closing and re-opening your bag.”$"
+	.string "The Berry pocket will return to\l"
+	.string "its original order when closing and\l"
+	.string "re-opening your bag.”$"
 
 Kaolisle_Hotel_4F_FinnishGuy_Text::
 	.string "Olen tullut tänne lomailemaan,\n"

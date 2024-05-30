@@ -136,6 +136,11 @@ script RustboroCity_DevonCorp_2F_EventScript_FossilScientist{
 				case 175:
 					call(NoticesAFossil)
 					goto(GiveSailFossil)
+				case 176:
+				case 177:
+				case 178:
+				case 179:
+					goto(GalarFossil)
 				case 0:
 					goto(Devon_DeclineGiveFossil)
 				default:
@@ -148,6 +153,90 @@ script RustboroCity_DevonCorp_2F_EventScript_FossilScientist{
 	end
 }
 
+script GalarFossil{
+	copyvar(VAR_TEMP_5, VAR_ITEM_ID)
+	msgbox(FirstHalf)
+	call(Common_OpenBag)
+	if((var(VAR_TEMP_5) == 176) && (var(VAR_ITEM_ID) == 178)){
+		goto(CreateDracozolt)
+	}
+	if((var(VAR_TEMP_5) == 178) && (var(VAR_ITEM_ID) == 176)){
+		goto(CreateDracozolt)
+	}
+	if((var(VAR_TEMP_5) == 176) && (var(VAR_ITEM_ID) == 179)){
+		goto(CreateArctozolt)
+	}
+	if((var(VAR_TEMP_5) == 179) && (var(VAR_ITEM_ID) == 176)){
+		goto(CreateArctozolt)
+	}
+	if((var(VAR_TEMP_5) == 177) && (var(VAR_ITEM_ID) == 178)){
+		goto(CreateDracovish)
+	}
+	if((var(VAR_TEMP_5) == 178) && (var(VAR_ITEM_ID) == 177)){
+		goto(CreateDracovish)
+	}
+	if((var(VAR_TEMP_5) == 177) && (var(VAR_ITEM_ID) == 179)){
+		goto(CreateArctovish)
+	}
+	if((var(VAR_TEMP_5) == 179) && (var(VAR_ITEM_ID) == 177)){
+		goto(CreateArctovish)
+	}
+	if((var(VAR_TEMP_5) == 176) && (var(VAR_ITEM_ID) == 176)){
+		msgbox(SameArtifactTwice, MSGBOX_NPC)
+		end
+	}
+	if((var(VAR_TEMP_5) == 177) && (var(VAR_ITEM_ID) == 177)){
+		msgbox(SameArtifactTwice, MSGBOX_NPC)
+		end
+	}
+	if((var(VAR_TEMP_5) == 178) && (var(VAR_ITEM_ID) == 178)){
+		msgbox(SameArtifactTwice, MSGBOX_NPC)
+		end
+	}
+	if((var(VAR_TEMP_5) == 179) && (var(VAR_ITEM_ID) == 179)){
+		msgbox(SameArtifactTwice, MSGBOX_NPC)
+		end
+	}
+	msgbox(NotSureWhatToMake, MSGBOX_NPC)
+	end
+}
+
+text SameArtifactTwice{
+	"It appears you have shown me the same\n"
+	"fossil twice.\p"
+	"I'm sorry, but I can't work like\n"
+	"this."
+}
+
+script CreateDracozolt{
+	call(NoticesAGalarFossil)
+	goto(GiveDracozoltFossils)
+}
+script CreateArctozolt{
+	call(NoticesAGalarFossil)
+	goto(GiveArctozoltFossils)
+}
+script CreateDracovish{
+	call(NoticesAGalarFossil)
+	goto(GiveDracovishFossils)
+}
+script CreateArctovish{
+	call(NoticesAGalarFossil)
+	goto(GiveArctovishFossils)
+}
+
+text FirstHalf{
+	"That fossil looks to be one half\n"
+	"of a complete fossil.\p"
+	"If you can provide me with the other\n"
+	"half, I believe we may be able to\l"
+	"create something out of this."
+}
+text NotSureWhatToMake{
+	"I'm sorry, but these two don't\n"
+	"seem to match."
+}
+
 script NoticesAFossil{
 	msgbox(RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife, MSGBOX_YESNO)
 	if(var(VAR_RESULT) == FALSE){
@@ -157,8 +246,22 @@ script NoticesAFossil{
 		return
 	}
 }
+script NoticesAGalarFossil{
+	msgbox(RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife2, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == FALSE){
+		goto(Devon_DeclineGiveFossil)
+	}
+	else{
+		return
+	}
+}
 script GiveFossilFinish{
 	msgbox(RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher, MSGBOX_NPC)
+	setvar(VAR_FOSSIL_RESURRECTION_STATE, 1)
+	end
+}
+script GiveGalarFossilFinish{
+	msgbox(RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcherGalar, MSGBOX_NPC)
 	setvar(VAR_FOSSIL_RESURRECTION_STATE, 1)
 	end
 }
@@ -240,6 +343,38 @@ script GiveSailFossil{
 	setvar(VAR_WHICH_FOSSIL_REVIVED, 11)
 	goto(GiveFossilFinish)
 }
+script GiveDracozoltFossils{
+	removeitem(ITEM_FOSSILIZED_BIRD)
+	removeitem(ITEM_FOSSILIZED_DRAKE)
+	bufferitemname(STR_VAR_1, ITEM_FOSSILIZED_BIRD)
+	bufferitemname(STR_VAR_2, ITEM_FOSSILIZED_DRAKE)
+	setvar(VAR_WHICH_FOSSIL_REVIVED, 12)
+	goto(GiveGalarFossilFinish)
+}
+script GiveArctozoltFossils{
+	removeitem(ITEM_FOSSILIZED_BIRD)
+	removeitem(ITEM_FOSSILIZED_DINO)
+	bufferitemname(STR_VAR_1, ITEM_FOSSILIZED_BIRD)
+	bufferitemname(STR_VAR_2, ITEM_FOSSILIZED_DINO)
+	setvar(VAR_WHICH_FOSSIL_REVIVED, 13)
+	goto(GiveGalarFossilFinish)
+}
+script GiveDracovishFossils{
+	removeitem(ITEM_FOSSILIZED_FISH)
+	removeitem(ITEM_FOSSILIZED_DRAKE)
+	bufferitemname(STR_VAR_1, ITEM_FOSSILIZED_FISH)
+	bufferitemname(STR_VAR_2, ITEM_FOSSILIZED_DRAKE)
+	setvar(VAR_WHICH_FOSSIL_REVIVED, 14)
+	goto(GiveGalarFossilFinish)
+}
+script GiveArctovishFossils{
+	removeitem(ITEM_FOSSILIZED_FISH)
+	removeitem(ITEM_FOSSILIZED_DRAKE)
+	bufferitemname(STR_VAR_1, ITEM_FOSSILIZED_FISH)
+	bufferitemname(STR_VAR_2, ITEM_FOSSILIZED_DRAKE)
+	setvar(VAR_WHICH_FOSSIL_REVIVED, 15)
+	goto(GiveGalarFossilFinish)
+}
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
@@ -256,6 +391,10 @@ script Devon_FossilMonReady{
 		case 9: goto(ArchenReady)
 		case 10: goto(TyruntReady)
 		case 11: goto(AmauraReady)
+		case 12: goto(DracozoltReady)
+		case 13: goto(ArctozoltReady)
+		case 14: goto(DracovishReady)
+		case 15: goto(ArctovishReady)
 	}
 	end
 }
@@ -458,6 +597,75 @@ script AmauraReady{
     end
 }
 ///////////////////////////////////////////////////////////////////////////
+script DracozoltReady{
+    bufferspeciesname(STR_VAR_2, SPECIES_DRACOZOLT)
+    msgbox(FossilBroughtBackToLife, MSGBOX_DEFAULT)
+    setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_DRACOZOLT)
+    givemon(SPECIES_DRACOZOLT, 20)
+	bufferspeciesname(STR_VAR_1, SPECIES_DRACOZOLT)
+	call(ReceivedFossilMonFanfare)
+    if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+        goto(ReceiveFossilParty)
+    }
+    if(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+        goto(ReceiveFossilPC)
+    }
+    goto(Common_EventScript_NoMoreRoomForPokemon)
+    end
+}
+///////////////////////////////////////////////////////////////////////////
+script ArctozoltReady{
+    bufferspeciesname(STR_VAR_2, SPECIES_ARCTOZOLT)
+    msgbox(FossilBroughtBackToLife, MSGBOX_DEFAULT)
+    setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ARCTOZOLT)
+    givemon(SPECIES_ARCTOZOLT, 20)
+	bufferspeciesname(STR_VAR_1, SPECIES_ARCTOZOLT)
+	call(ReceivedFossilMonFanfare)
+    if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+        goto(ReceiveFossilParty)
+    }
+    if(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+        goto(ReceiveFossilPC)
+    }
+    goto(Common_EventScript_NoMoreRoomForPokemon)
+    end
+}
+///////////////////////////////////////////////////////////////////////////
+script DracovishReady{
+    bufferspeciesname(STR_VAR_2, SPECIES_DRACOVISH)
+    msgbox(FossilBroughtBackToLife, MSGBOX_DEFAULT)
+    setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_DRACOVISH)
+    givemon(SPECIES_DRACOVISH, 20)
+	bufferspeciesname(STR_VAR_1, SPECIES_DRACOVISH)
+	call(ReceivedFossilMonFanfare)
+    if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+        goto(ReceiveFossilParty)
+    }
+    if(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+        goto(ReceiveFossilPC)
+    }
+    goto(Common_EventScript_NoMoreRoomForPokemon)
+    end
+}
+///////////////////////////////////////////////////////////////////////////
+script ArctovishReady{
+    bufferspeciesname(STR_VAR_2, SPECIES_ARCTOVISH)
+    msgbox(FossilBroughtBackToLife, MSGBOX_DEFAULT)
+    setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ARCTOVISH)
+    givemon(SPECIES_ARCTOVISH, 20)
+	bufferspeciesname(STR_VAR_1, SPECIES_ARCTOVISH)
+	call(ReceivedFossilMonFanfare)
+    if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+        goto(ReceiveFossilParty)
+    }
+    if(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+        goto(ReceiveFossilPC)
+    }
+    goto(Common_EventScript_NoMoreRoomForPokemon)
+    end
+}
+///////////////////////////////////////////////////////////////////////////
+
 script ReceiveFossilParty{
 	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
 	goto_if_eq(VAR_RESULT, NO, FinishReceivingFossilMon)
@@ -509,6 +717,15 @@ text RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife{
 	"I can with my newly developed\n"
 	"Fossil Regenerator."
 }
+text RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife2{
+	"Wait! Those things you have there…\n"
+	"These might actually be a whole fossil\l"
+	"of a Pokémon!\p"
+	"Would you like to bring that Pokémon\n"
+	"back to life?\p"
+	"I can with my newly developed\n"
+	"Fossil Regenerator."
+}
 
 text RustboroCity_DevonCorp_2F_Text_OhIsThatSo{
 	"Oh, is that so?\p"
@@ -521,6 +738,12 @@ text RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher{
 	"Let's do this right away.\p"
 	"{PLAYER} handed the {STR_VAR_1} to\n"
 	"the Devon researcher."
+}
+text RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcherGalar{
+	"Excellent!\n"
+	"Let's do this right away.\p"
+	"{PLAYER} handed the {STR_VAR_1} and\n"
+	"{STR_VAR_2} to the Devon researcher."
 }
 
 text Devon_Text_FossilRegeneratorTakesTime{

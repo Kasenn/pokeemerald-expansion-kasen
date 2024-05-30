@@ -577,8 +577,11 @@ const u32 gItemIconPalette_DawnStone[] = INCBIN_U32("graphics/items/icon_palette
 const u32 gItemIcon_TropicalStone[] = INCBIN_U32("graphics/items/icons/tropical_stone.4bpp.lz");
 const u32 gItemIconPalette_TropicalStone[] = INCBIN_U32("graphics/items/icon_palettes/tropical_stone.gbapal.lz");
 
-const u32 gItemIcon_AncientStone[] = INCBIN_U32("graphics/items/icons/tropical_stone.4bpp.lz");
-const u32 gItemIconPalette_AncientStone[] = INCBIN_U32("graphics/items/icon_palettes/tropical_stone.gbapal.lz");
+const u32 gItemIcon_AncientStone[] = INCBIN_U32("graphics/items/icons/ancient_stone.4bpp.lz");
+const u32 gItemIconPalette_AncientStone[] = INCBIN_U32("graphics/items/icon_palettes/ancient_stone.gbapal.lz");
+
+const u32 gItemIcon_SampleBox[] = INCBIN_U32("graphics/items/icons/sample_box.4bpp.lz");
+const u32 gItemIconPalette_SampleBox[] = INCBIN_U32("graphics/items/icon_palettes/sample_box.gbapal.lz");
 
 const u32 gItemIcon_SweetApple[] = INCBIN_U32("graphics/items/icons/sweet_apple.4bpp.lz");
 const u32 gItemIconPalette_SweetApple[] = INCBIN_U32("graphics/items/icon_palettes/sweet_apple.gbapal.lz");

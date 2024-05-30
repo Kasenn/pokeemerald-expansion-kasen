@@ -85,7 +85,11 @@ RustboroCity_DevonCorp_2F_EventScript_FossilScientist_5:
 	case 173, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_19
 	case 174, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_20
 	case 175, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_21
-	case 0, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_22
+	case 176, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_22
+	case 177, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_22
+	case 178, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_22
+	case 179, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_22
+	case 0, RustboroCity_DevonCorp_2F_EventScript_FossilScientist_23
 	msgbox ThatsNotAFossil, MSGBOX_NPC
 	end
 
@@ -149,8 +153,188 @@ RustboroCity_DevonCorp_2F_EventScript_FossilScientist_21:
 	goto RustboroCity_DevonCorp_2F_EventScript_FossilScientist_4
 
 RustboroCity_DevonCorp_2F_EventScript_FossilScientist_22:
+	goto GalarFossil
+	goto RustboroCity_DevonCorp_2F_EventScript_FossilScientist_4
+
+RustboroCity_DevonCorp_2F_EventScript_FossilScientist_23:
 	goto Devon_DeclineGiveFossil
 	goto RustboroCity_DevonCorp_2F_EventScript_FossilScientist_4
+
+
+GalarFossil::
+	copyvar VAR_TEMP_5, VAR_ITEM_ID
+	msgbox FirstHalf
+	call Common_OpenBag
+	compare VAR_TEMP_5, 176
+	goto_if_eq GalarFossil_3
+GalarFossil_1:
+	compare VAR_TEMP_5, 178
+	goto_if_eq GalarFossil_8
+GalarFossil_6:
+	compare VAR_TEMP_5, 176
+	goto_if_eq GalarFossil_13
+GalarFossil_11:
+	compare VAR_TEMP_5, 179
+	goto_if_eq GalarFossil_18
+GalarFossil_16:
+	compare VAR_TEMP_5, 177
+	goto_if_eq GalarFossil_23
+GalarFossil_21:
+	compare VAR_TEMP_5, 178
+	goto_if_eq GalarFossil_28
+GalarFossil_26:
+	compare VAR_TEMP_5, 177
+	goto_if_eq GalarFossil_33
+GalarFossil_31:
+	compare VAR_TEMP_5, 179
+	goto_if_eq GalarFossil_38
+GalarFossil_36:
+	compare VAR_TEMP_5, 176
+	goto_if_eq GalarFossil_43
+GalarFossil_41:
+	compare VAR_TEMP_5, 177
+	goto_if_eq GalarFossil_48
+GalarFossil_46:
+	compare VAR_TEMP_5, 178
+	goto_if_eq GalarFossil_53
+GalarFossil_51:
+	compare VAR_TEMP_5, 179
+	goto_if_eq GalarFossil_58
+GalarFossil_56:
+	msgbox NotSureWhatToMake, MSGBOX_NPC
+	end
+
+GalarFossil_2:
+	goto CreateDracozolt
+	goto GalarFossil_1
+
+GalarFossil_3:
+	compare VAR_ITEM_ID, 178
+	goto_if_eq GalarFossil_2
+	goto GalarFossil_1
+
+GalarFossil_7:
+	goto CreateDracozolt
+	goto GalarFossil_6
+
+GalarFossil_8:
+	compare VAR_ITEM_ID, 176
+	goto_if_eq GalarFossil_7
+	goto GalarFossil_6
+
+GalarFossil_12:
+	goto CreateArctozolt
+	goto GalarFossil_11
+
+GalarFossil_13:
+	compare VAR_ITEM_ID, 179
+	goto_if_eq GalarFossil_12
+	goto GalarFossil_11
+
+GalarFossil_17:
+	goto CreateArctozolt
+	goto GalarFossil_16
+
+GalarFossil_18:
+	compare VAR_ITEM_ID, 176
+	goto_if_eq GalarFossil_17
+	goto GalarFossil_16
+
+GalarFossil_22:
+	goto CreateDracovish
+	goto GalarFossil_21
+
+GalarFossil_23:
+	compare VAR_ITEM_ID, 178
+	goto_if_eq GalarFossil_22
+	goto GalarFossil_21
+
+GalarFossil_27:
+	goto CreateDracovish
+	goto GalarFossil_26
+
+GalarFossil_28:
+	compare VAR_ITEM_ID, 177
+	goto_if_eq GalarFossil_27
+	goto GalarFossil_26
+
+GalarFossil_32:
+	goto CreateArctovish
+	goto GalarFossil_31
+
+GalarFossil_33:
+	compare VAR_ITEM_ID, 179
+	goto_if_eq GalarFossil_32
+	goto GalarFossil_31
+
+GalarFossil_37:
+	goto CreateArctovish
+	goto GalarFossil_36
+
+GalarFossil_38:
+	compare VAR_ITEM_ID, 177
+	goto_if_eq GalarFossil_37
+	goto GalarFossil_36
+
+GalarFossil_42:
+	msgbox SameArtifactTwice, MSGBOX_NPC
+	end
+
+GalarFossil_43:
+	compare VAR_ITEM_ID, 176
+	goto_if_eq GalarFossil_42
+	goto GalarFossil_41
+
+GalarFossil_47:
+	msgbox SameArtifactTwice, MSGBOX_NPC
+	end
+
+GalarFossil_48:
+	compare VAR_ITEM_ID, 177
+	goto_if_eq GalarFossil_47
+	goto GalarFossil_46
+
+GalarFossil_52:
+	msgbox SameArtifactTwice, MSGBOX_NPC
+	end
+
+GalarFossil_53:
+	compare VAR_ITEM_ID, 178
+	goto_if_eq GalarFossil_52
+	goto GalarFossil_51
+
+GalarFossil_57:
+	msgbox SameArtifactTwice, MSGBOX_NPC
+	end
+
+GalarFossil_58:
+	compare VAR_ITEM_ID, 179
+	goto_if_eq GalarFossil_57
+	goto GalarFossil_56
+
+
+CreateDracozolt::
+	call NoticesAGalarFossil
+	goto GiveDracozoltFossils
+	return
+
+
+CreateArctozolt::
+	call NoticesAGalarFossil
+	goto GiveArctozoltFossils
+	return
+
+
+CreateDracovish::
+	call NoticesAGalarFossil
+	goto GiveDracovishFossils
+	return
+
+
+CreateArctovish::
+	call NoticesAGalarFossil
+	goto GiveArctovishFossils
+	return
 
 
 NoticesAFossil::
@@ -164,8 +348,25 @@ NoticesAFossil_1:
 	return
 
 
+NoticesAGalarFossil::
+	msgbox RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife2, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq NoticesAGalarFossil_1
+	return
+
+NoticesAGalarFossil_1:
+	goto Devon_DeclineGiveFossil
+	return
+
+
 GiveFossilFinish::
 	msgbox RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher, MSGBOX_NPC
+	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
+	end
+
+
+GiveGalarFossilFinish::
+	msgbox RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcherGalar, MSGBOX_NPC
 	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
 	end
 
@@ -268,6 +469,46 @@ GiveSailFossil::
 	return
 
 
+GiveDracozoltFossils::
+	removeitem ITEM_FOSSILIZED_BIRD
+	removeitem ITEM_FOSSILIZED_DRAKE
+	bufferitemname STR_VAR_1, ITEM_FOSSILIZED_BIRD
+	bufferitemname STR_VAR_2, ITEM_FOSSILIZED_DRAKE
+	setvar VAR_WHICH_FOSSIL_REVIVED, 12
+	goto GiveGalarFossilFinish
+	return
+
+
+GiveArctozoltFossils::
+	removeitem ITEM_FOSSILIZED_BIRD
+	removeitem ITEM_FOSSILIZED_DINO
+	bufferitemname STR_VAR_1, ITEM_FOSSILIZED_BIRD
+	bufferitemname STR_VAR_2, ITEM_FOSSILIZED_DINO
+	setvar VAR_WHICH_FOSSIL_REVIVED, 13
+	goto GiveGalarFossilFinish
+	return
+
+
+GiveDracovishFossils::
+	removeitem ITEM_FOSSILIZED_FISH
+	removeitem ITEM_FOSSILIZED_DRAKE
+	bufferitemname STR_VAR_1, ITEM_FOSSILIZED_FISH
+	bufferitemname STR_VAR_2, ITEM_FOSSILIZED_DRAKE
+	setvar VAR_WHICH_FOSSIL_REVIVED, 14
+	goto GiveGalarFossilFinish
+	return
+
+
+GiveArctovishFossils::
+	removeitem ITEM_FOSSILIZED_FISH
+	removeitem ITEM_FOSSILIZED_DRAKE
+	bufferitemname STR_VAR_1, ITEM_FOSSILIZED_FISH
+	bufferitemname STR_VAR_2, ITEM_FOSSILIZED_DRAKE
+	setvar VAR_WHICH_FOSSIL_REVIVED, 15
+	goto GiveGalarFossilFinish
+	return
+
+
 Devon_FossilMonReady::
 	switch VAR_WHICH_FOSSIL_REVIVED
 	case 1, Devon_FossilMonReady_3
@@ -281,6 +522,10 @@ Devon_FossilMonReady::
 	case 9, Devon_FossilMonReady_11
 	case 10, Devon_FossilMonReady_12
 	case 11, Devon_FossilMonReady_13
+	case 12, Devon_FossilMonReady_14
+	case 13, Devon_FossilMonReady_15
+	case 14, Devon_FossilMonReady_16
+	case 15, Devon_FossilMonReady_17
 Devon_FossilMonReady_1:
 	end
 
@@ -326,6 +571,22 @@ Devon_FossilMonReady_12:
 
 Devon_FossilMonReady_13:
 	goto AmauraReady
+	goto Devon_FossilMonReady_1
+
+Devon_FossilMonReady_14:
+	goto DracozoltReady
+	goto Devon_FossilMonReady_1
+
+Devon_FossilMonReady_15:
+	goto ArctozoltReady
+	goto Devon_FossilMonReady_1
+
+Devon_FossilMonReady_16:
+	goto DracovishReady
+	goto Devon_FossilMonReady_1
+
+Devon_FossilMonReady_17:
+	goto ArctovishReady
 	goto Devon_FossilMonReady_1
 
 
@@ -604,6 +865,106 @@ AmauraReady_5:
 	goto AmauraReady_4
 
 
+DracozoltReady::
+	bufferspeciesname STR_VAR_2, SPECIES_DRACOZOLT
+	msgbox FossilBroughtBackToLife, MSGBOX_DEFAULT
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_DRACOZOLT
+	givemon SPECIES_DRACOZOLT, 20
+	bufferspeciesname STR_VAR_1, SPECIES_DRACOZOLT
+	call ReceivedFossilMonFanfare
+	compare VAR_RESULT, MON_GIVEN_TO_PARTY
+	goto_if_eq DracozoltReady_2
+DracozoltReady_1:
+	compare VAR_RESULT, MON_GIVEN_TO_PC
+	goto_if_eq DracozoltReady_5
+DracozoltReady_4:
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+DracozoltReady_2:
+	goto ReceiveFossilParty
+	goto DracozoltReady_1
+
+DracozoltReady_5:
+	goto ReceiveFossilPC
+	goto DracozoltReady_4
+
+
+ArctozoltReady::
+	bufferspeciesname STR_VAR_2, SPECIES_ARCTOZOLT
+	msgbox FossilBroughtBackToLife, MSGBOX_DEFAULT
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ARCTOZOLT
+	givemon SPECIES_ARCTOZOLT, 20
+	bufferspeciesname STR_VAR_1, SPECIES_ARCTOZOLT
+	call ReceivedFossilMonFanfare
+	compare VAR_RESULT, MON_GIVEN_TO_PARTY
+	goto_if_eq ArctozoltReady_2
+ArctozoltReady_1:
+	compare VAR_RESULT, MON_GIVEN_TO_PC
+	goto_if_eq ArctozoltReady_5
+ArctozoltReady_4:
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+ArctozoltReady_2:
+	goto ReceiveFossilParty
+	goto ArctozoltReady_1
+
+ArctozoltReady_5:
+	goto ReceiveFossilPC
+	goto ArctozoltReady_4
+
+
+DracovishReady::
+	bufferspeciesname STR_VAR_2, SPECIES_DRACOVISH
+	msgbox FossilBroughtBackToLife, MSGBOX_DEFAULT
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_DRACOVISH
+	givemon SPECIES_DRACOVISH, 20
+	bufferspeciesname STR_VAR_1, SPECIES_DRACOVISH
+	call ReceivedFossilMonFanfare
+	compare VAR_RESULT, MON_GIVEN_TO_PARTY
+	goto_if_eq DracovishReady_2
+DracovishReady_1:
+	compare VAR_RESULT, MON_GIVEN_TO_PC
+	goto_if_eq DracovishReady_5
+DracovishReady_4:
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+DracovishReady_2:
+	goto ReceiveFossilParty
+	goto DracovishReady_1
+
+DracovishReady_5:
+	goto ReceiveFossilPC
+	goto DracovishReady_4
+
+
+ArctovishReady::
+	bufferspeciesname STR_VAR_2, SPECIES_ARCTOVISH
+	msgbox FossilBroughtBackToLife, MSGBOX_DEFAULT
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ARCTOVISH
+	givemon SPECIES_ARCTOVISH, 20
+	bufferspeciesname STR_VAR_1, SPECIES_ARCTOVISH
+	call ReceivedFossilMonFanfare
+	compare VAR_RESULT, MON_GIVEN_TO_PARTY
+	goto_if_eq ArctovishReady_2
+ArctovishReady_1:
+	compare VAR_RESULT, MON_GIVEN_TO_PC
+	goto_if_eq ArctovishReady_5
+ArctovishReady_4:
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+ArctovishReady_2:
+	goto ReceiveFossilParty
+	goto ArctovishReady_1
+
+ArctovishReady_5:
+	goto ReceiveFossilPC
+	goto ArctovishReady_4
+
+
 ReceiveFossilParty::
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, FinishReceivingFossilMon
@@ -684,6 +1045,23 @@ NotLettingDown::
 	.string "Pokémon…\p"
 	.string "But it's not going well.$"
 
+SameArtifactTwice::
+	.string "It appears you have shown me the same\n"
+	.string "fossil twice.\p"
+	.string "I'm sorry, but I can't work like\n"
+	.string "this.$"
+
+FirstHalf::
+	.string "That fossil looks to be one half\n"
+	.string "of a complete fossil.\p"
+	.string "If you can provide me with the other\n"
+	.string "half, I believe we may be able to\l"
+	.string "create something out of this.$"
+
+NotSureWhatToMake::
+	.string "I'm sorry, but these two don't\n"
+	.string "seem to match.$"
+
 FossilBroughtBackToLife::
 	.string "Thanks for waiting!\p"
 	.string "Your fossilized Pokémon has been\n"
@@ -708,6 +1086,15 @@ RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife::
 	.string "I can with my newly developed\n"
 	.string "Fossil Regenerator.$"
 
+RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife2::
+	.string "Wait! Those things you have there…\n"
+	.string "These might actually be a whole fossil\l"
+	.string "of a Pokémon!\p"
+	.string "Would you like to bring that Pokémon\n"
+	.string "back to life?\p"
+	.string "I can with my newly developed\n"
+	.string "Fossil Regenerator.$"
+
 RustboroCity_DevonCorp_2F_Text_OhIsThatSo::
 	.string "Oh, is that so?\p"
 	.string "Devon's technological expertise\n"
@@ -718,6 +1105,12 @@ RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher::
 	.string "Let's do this right away.\p"
 	.string "{PLAYER} handed the {STR_VAR_1} to\n"
 	.string "the Devon researcher.$"
+
+RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcherGalar::
+	.string "Excellent!\n"
+	.string "Let's do this right away.\p"
+	.string "{PLAYER} handed the {STR_VAR_1} and\n"
+	.string "{STR_VAR_2} to the Devon researcher.$"
 
 Devon_Text_FossilRegeneratorTakesTime::
 	.string "The Fossil Regenerator, which I made,\n"

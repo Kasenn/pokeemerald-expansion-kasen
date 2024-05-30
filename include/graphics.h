@@ -731,6 +731,8 @@ extern const u32 gItemIcon_DawnStone[];
 extern const u32 gItemIconPalette_DawnStone[];
 extern const u32 gItemIcon_TropicalStone[];
 extern const u32 gItemIconPalette_TropicalStone[];
+extern const u32 gItemIcon_SampleBox[];
+extern const u32 gItemIconPalette_SampleBox[];
 extern const u32 gItemIcon_AncientStone[];
 extern const u32 gItemIconPalette_AncientStone[];
 extern const u32 gItemIcon_SweetApple[];

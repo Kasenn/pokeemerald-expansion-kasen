@@ -521,6 +521,7 @@ extern const u8 EventScript_HiddenItemScript[];
 extern const u8 EventScript_TV[];
 extern const u8 EventScript_ClosedSootopolisDoor[];
 extern const u8 SkyPillar_Outside_EventScript_ClosedDoor[];
+extern const u8 Route8_MudPile[];
 extern const u8 EventScript_CableBoxResults[];
 extern const u8 EventScript_PokeBlockFeeder[];
 extern const u8 Route110_TrickHousePuzzle_EventScript_Door[];

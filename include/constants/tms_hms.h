@@ -93,7 +93,7 @@
     F(U_TURN) \
     F(SPIKES) \
     F(FLASH_CANNON) \
-    F(IMPRISON) \
+    F(MYSTICAL_FIRE) \
     F(WILD_CHARGE) \
     F(FALSE_SWIPE) \
     F(SNARL) \

@@ -1,5 +1,544 @@
 mapscripts Route8_MapScripts{
-    MAP_SCRIPT_ON_TRANSITION: ClearShinyFlag
+    MAP_SCRIPT_ON_TRANSITION: InitRoute8
+    MAP_SCRIPT_ON_LOAD: LoadMudTile
+}
+
+script InitRoute8{
+    if(flag(FLAG_DEVON_UNDER_ATTACK)){
+        setflag(FLAG_DEVON_RESCUED)
+    }
+    clearflag(FLAG_INCREASED_SHINY_ODDS)
+    clearflag(FLAG_DESERT_STEPS)
+    checkitem(ITEM_SAMPLE_BOX)
+    end
+}
+
+script LoadMudTile{
+    checkitem(ITEM_SAMPLE_BOX)
+    if((var(VAR_MUD_X) == 0) && (var(VAR_RESULT) == TRUE)){
+        call(RandomizeMudTile)
+    }
+    setmetatile(VAR_MUD_X, VAR_MUD_Y, 0x344, FALSE)
+}
+
+script RandomizeMudTile{
+    random(155)
+    switch(var(VAR_RESULT)){
+        case 0:
+            setvar(VAR_MUD_X, 48)
+            setvar(VAR_MUD_Y, 9)
+        case 1:
+            setvar(VAR_MUD_X, 45)
+            setvar(VAR_MUD_Y, 15)
+        case 2:
+            setvar(VAR_MUD_X, 36)
+            setvar(VAR_MUD_Y, 18)
+        case 3:
+            setvar(VAR_MUD_X, 46)
+            setvar(VAR_MUD_Y, 6)
+        case 4:
+            setvar(VAR_MUD_X, 37)
+            setvar(VAR_MUD_Y, 8)
+        case 6:
+            setvar(VAR_MUD_X, 38)
+            setvar(VAR_MUD_Y, 8)
+        case 7:
+            setvar(VAR_MUD_X, 45)
+            setvar(VAR_MUD_Y, 6)
+        case 8:
+            setvar(VAR_MUD_X, 46)
+            setvar(VAR_MUD_Y, 6)
+        case 9:
+            setvar(VAR_MUD_X, 46)
+            setvar(VAR_MUD_Y, 7)
+        case 10:
+            setvar(VAR_MUD_X, 47)
+            setvar(VAR_MUD_Y, 7)
+        case 11:
+            setvar(VAR_MUD_X, 48)
+            setvar(VAR_MUD_Y, 9)
+        case 12:
+            setvar(VAR_MUD_X, 46)
+            setvar(VAR_MUD_Y, 13)
+        case 13:
+            setvar(VAR_MUD_X, 47)
+            setvar(VAR_MUD_Y, 13)
+        case 14:
+            setvar(VAR_MUD_X, 45)
+            setvar(VAR_MUD_Y, 14)
+        case 15:
+            setvar(VAR_MUD_X, 46)
+            setvar(VAR_MUD_Y, 14)
+        case 16:
+            setvar(VAR_MUD_X, 47)
+            setvar(VAR_MUD_Y, 14)
+        case 17:
+            setvar(VAR_MUD_X, 45)
+            setvar(VAR_MUD_Y, 15)
+        case 18:
+            setvar(VAR_MUD_X, 46)
+            setvar(VAR_MUD_Y, 15)
+        case 19:
+            setvar(VAR_MUD_X, 47)
+            setvar(VAR_MUD_Y, 15)
+        case 20:
+            setvar(VAR_MUD_X, 44)
+            setvar(VAR_MUD_Y, 16)
+        case 21:
+            setvar(VAR_MUD_X, 45)
+            setvar(VAR_MUD_Y, 16)
+        case 22:
+            setvar(VAR_MUD_X, 46)
+            setvar(VAR_MUD_Y, 16)
+        case 23:
+            setvar(VAR_MUD_X, 47)
+            setvar(VAR_MUD_Y, 16)
+        case 24:
+            setvar(VAR_MUD_X, 44)
+            setvar(VAR_MUD_Y, 17)
+        case 25:
+            setvar(VAR_MUD_X, 45)
+            setvar(VAR_MUD_Y, 17)
+        case 26:
+            setvar(VAR_MUD_X, 46)
+            setvar(VAR_MUD_Y, 17)
+        case 27:
+            setvar(VAR_MUD_X, 36)
+            setvar(VAR_MUD_Y, 16)
+        case 28:
+            setvar(VAR_MUD_X, 37)
+            setvar(VAR_MUD_Y, 16)
+        case 29:
+            setvar(VAR_MUD_X, 38)
+            setvar(VAR_MUD_Y, 16)
+        case 30:
+            setvar(VAR_MUD_X, 36)
+            setvar(VAR_MUD_Y, 17)
+        case 31:
+            setvar(VAR_MUD_X, 37)
+            setvar(VAR_MUD_Y, 17)
+        case 32:
+            setvar(VAR_MUD_X, 38)
+            setvar(VAR_MUD_Y, 17)
+        case 33:
+            setvar(VAR_MUD_X, 39)
+            setvar(VAR_MUD_Y, 17)
+        case 34:
+            setvar(VAR_MUD_X, 36)
+            setvar(VAR_MUD_Y, 18)
+        case 35:
+            setvar(VAR_MUD_X, 37)
+            setvar(VAR_MUD_Y, 18)
+        case 36:
+            setvar(VAR_MUD_X, 38)
+            setvar(VAR_MUD_Y, 18)
+        case 37:
+            setvar(VAR_MUD_X, 35)
+            setvar(VAR_MUD_Y, 19)
+        case 38:
+            setvar(VAR_MUD_X, 36)
+            setvar(VAR_MUD_Y, 19)
+        case 39:
+            setvar(VAR_MUD_X, 20)
+            setvar(VAR_MUD_Y, 14)
+        case 40:
+            setvar(VAR_MUD_X, 21)
+            setvar(VAR_MUD_Y, 14)
+        case 41:
+            setvar(VAR_MUD_X, 20)
+            setvar(VAR_MUD_Y, 15)
+        case 42:
+            setvar(VAR_MUD_X, 19)
+            setvar(VAR_MUD_Y, 16)
+        case 43:
+            setvar(VAR_MUD_X, 34)
+            setvar(VAR_MUD_Y, 34)
+        case 44:
+            setvar(VAR_MUD_X, 35)
+            setvar(VAR_MUD_Y, 34)
+        case 45:
+            setvar(VAR_MUD_X, 34)
+            setvar(VAR_MUD_Y, 35)
+        case 46:
+            setvar(VAR_MUD_X, 35)
+            setvar(VAR_MUD_Y, 35)
+        case 47:
+            setvar(VAR_MUD_X, 35)
+            setvar(VAR_MUD_Y, 36)
+        case 48:
+            setvar(VAR_MUD_X, 36)
+            setvar(VAR_MUD_Y, 36)
+        case 49:
+            setvar(VAR_MUD_X, 48)
+            setvar(VAR_MUD_Y, 31)
+        case 50:
+            setvar(VAR_MUD_X, 49)
+            setvar(VAR_MUD_Y, 31)
+        case 51:
+            setvar(VAR_MUD_X, 50)
+            setvar(VAR_MUD_Y, 31)
+        case 52:
+            setvar(VAR_MUD_X, 47)
+            setvar(VAR_MUD_Y, 32)
+        case 53:
+            setvar(VAR_MUD_X, 48)
+            setvar(VAR_MUD_Y, 32)
+        case 54:
+            setvar(VAR_MUD_X, 49)
+            setvar(VAR_MUD_Y, 32)
+        case 55:
+            setvar(VAR_MUD_X, 50)
+            setvar(VAR_MUD_Y, 32)
+        case 56:
+            setvar(VAR_MUD_X, 51)
+            setvar(VAR_MUD_Y, 32)
+        case 57:
+            setvar(VAR_MUD_X, 55)
+            setvar(VAR_MUD_Y, 37)
+        case 58:
+            setvar(VAR_MUD_X, 56)
+            setvar(VAR_MUD_Y, 37)
+        case 59:
+            setvar(VAR_MUD_X, 57)
+            setvar(VAR_MUD_Y, 37)
+        case 60:
+            setvar(VAR_MUD_X, 48)
+            setvar(VAR_MUD_Y, 46)
+        case 61:
+            setvar(VAR_MUD_X, 49)
+            setvar(VAR_MUD_Y, 46)
+        case 62:
+            setvar(VAR_MUD_X, 19)
+            setvar(VAR_MUD_Y, 20)
+        case 63:
+            setvar(VAR_MUD_X, 20)
+            setvar(VAR_MUD_Y, 20)
+        case 64:
+            setvar(VAR_MUD_X, 21)
+            setvar(VAR_MUD_Y, 20)
+        case 65:
+            setvar(VAR_MUD_X, 18)
+            setvar(VAR_MUD_Y, 21)
+        case 66:
+            setvar(VAR_MUD_X, 19)
+            setvar(VAR_MUD_Y, 21)
+        case 67:
+            setvar(VAR_MUD_X, 20)
+            setvar(VAR_MUD_Y, 21)
+        case 68:
+            setvar(VAR_MUD_X, 21)
+            setvar(VAR_MUD_Y, 21)
+        case 69:
+            setvar(VAR_MUD_X, 20)
+            setvar(VAR_MUD_Y, 22)
+        case 70:
+            setvar(VAR_MUD_X, 21)
+            setvar(VAR_MUD_Y, 24)
+        case 71:
+            setvar(VAR_MUD_X, 46)
+            setvar(VAR_MUD_Y, 33)
+        case 72:
+            setvar(VAR_MUD_X, 47)
+            setvar(VAR_MUD_Y, 33)
+        case 73:
+            setvar(VAR_MUD_X, 48)
+            setvar(VAR_MUD_Y, 33)
+        case 74:
+            setvar(VAR_MUD_X, 49)
+            setvar(VAR_MUD_Y, 33)
+        case 75:
+            setvar(VAR_MUD_X, 50)
+            setvar(VAR_MUD_Y, 33)
+        case 76:
+            setvar(VAR_MUD_X, 51)
+            setvar(VAR_MUD_Y, 33)
+        case 77:
+            setvar(VAR_MUD_X, 22)
+            setvar(VAR_MUD_Y, 41)
+        case 78:
+            setvar(VAR_MUD_X, 23)
+            setvar(VAR_MUD_Y, 41)
+        case 79:
+            setvar(VAR_MUD_X, 24)
+            setvar(VAR_MUD_Y, 41)
+        case 80:
+            setvar(VAR_MUD_X, 25)
+            setvar(VAR_MUD_Y, 41)
+        case 81:
+            setvar(VAR_MUD_X, 26)
+            setvar(VAR_MUD_Y, 41)
+        case 82:
+            setvar(VAR_MUD_X, 27)
+            setvar(VAR_MUD_Y, 41)
+        case 83:
+            setvar(VAR_MUD_X, 28)
+            setvar(VAR_MUD_Y, 41)
+        case 84:
+            setvar(VAR_MUD_X, 29)
+            setvar(VAR_MUD_Y, 41)
+        case 85:
+            setvar(VAR_MUD_X, 30)
+            setvar(VAR_MUD_Y, 41)
+        case 86:
+            setvar(VAR_MUD_X, 61)
+            setvar(VAR_MUD_Y, 35)
+        case 87:
+            setvar(VAR_MUD_X, 61)
+            setvar(VAR_MUD_Y, 36)
+        case 88:
+            setvar(VAR_MUD_X, 61)
+            setvar(VAR_MUD_Y, 37)
+        case 89:
+            setvar(VAR_MUD_X, 61)
+            setvar(VAR_MUD_Y, 38)
+        case 90:
+            setvar(VAR_MUD_X, 17)
+            setvar(VAR_MUD_Y, 29)
+        case 91:
+            setvar(VAR_MUD_X, 18)
+            setvar(VAR_MUD_Y, 29)
+        case 92:
+            setvar(VAR_MUD_X, 19)
+            setvar(VAR_MUD_Y, 29)
+        case 93:
+            setvar(VAR_MUD_X, 46)
+            setvar(VAR_MUD_Y, 34)
+        case 94:
+            setvar(VAR_MUD_X, 47)
+            setvar(VAR_MUD_Y, 34)
+        case 95:
+            setvar(VAR_MUD_X, 48)
+            setvar(VAR_MUD_Y, 34)
+        case 96:
+            setvar(VAR_MUD_X, 49)
+            setvar(VAR_MUD_Y, 34)
+        case 97:
+            setvar(VAR_MUD_X, 50)
+            setvar(VAR_MUD_Y, 34)
+        case 98:
+            setvar(VAR_MUD_X, 51)
+            setvar(VAR_MUD_Y, 34)
+        case 99:
+            setvar(VAR_MUD_X, 62)
+            setvar(VAR_MUD_Y, 35)
+        case 101:
+            setvar(VAR_MUD_X, 62)
+            setvar(VAR_MUD_Y, 37)
+        case 102:
+            setvar(VAR_MUD_X, 62)
+            setvar(VAR_MUD_Y, 38)
+        case 103:
+            setvar(VAR_MUD_X, 62)
+            setvar(VAR_MUD_Y, 39)
+        case 104:
+            setvar(VAR_MUD_X, 26)
+            setvar(VAR_MUD_Y, 16)
+        case 105:
+            setvar(VAR_MUD_X, 27)
+            setvar(VAR_MUD_Y, 16)
+        case 106:
+            setvar(VAR_MUD_X, 28)
+            setvar(VAR_MUD_Y, 16)
+        case 107:
+            setvar(VAR_MUD_X, 26)
+            setvar(VAR_MUD_Y, 17)
+        case 108:
+            setvar(VAR_MUD_X, 27)
+            setvar(VAR_MUD_Y, 17)
+        case 109:
+            setvar(VAR_MUD_X, 28)
+            setvar(VAR_MUD_Y, 17)
+        case 100:
+            setvar(VAR_MUD_X, 42)
+            setvar(VAR_MUD_Y, 33)
+        case 110:
+            setvar(VAR_MUD_X, 41)
+            setvar(VAR_MUD_Y, 34)
+        case 111:
+            setvar(VAR_MUD_X, 42)
+            setvar(VAR_MUD_Y, 34)
+        case 112:
+            setvar(VAR_MUD_X, 41)
+            setvar(VAR_MUD_Y, 35)
+        case 113:
+            setvar(VAR_MUD_X, 42)
+            setvar(VAR_MUD_Y, 35)
+        case 114:
+            setvar(VAR_MUD_X, 18)
+            setvar(VAR_MUD_Y, 30)
+        case 115:
+            setvar(VAR_MUD_X, 19)
+            setvar(VAR_MUD_Y, 30)
+        case 116:
+            setvar(VAR_MUD_X, 20)
+            setvar(VAR_MUD_Y, 30)
+        case 117:
+            setvar(VAR_MUD_X, 17)
+            setvar(VAR_MUD_Y, 39)
+        case 118:
+            setvar(VAR_MUD_X, 18)
+            setvar(VAR_MUD_Y, 39)
+        case 119:
+            setvar(VAR_MUD_X, 19)
+            setvar(VAR_MUD_Y, 39)
+        case 120:
+            setvar(VAR_MUD_X, 17)
+            setvar(VAR_MUD_Y, 40)
+        case 121:
+            setvar(VAR_MUD_X, 18)
+            setvar(VAR_MUD_Y, 40)
+        case 122:
+            setvar(VAR_MUD_X, 19)
+            setvar(VAR_MUD_Y, 40)
+        case 123:
+            setvar(VAR_MUD_X, 48)
+            setvar(VAR_MUD_Y, 45)
+        case 124:
+            setvar(VAR_MUD_X, 49)
+            setvar(VAR_MUD_Y, 45)
+        case 125:
+            setvar(VAR_MUD_X, 50)
+            setvar(VAR_MUD_Y, 45)
+        case 126:
+            setvar(VAR_MUD_X, 54)
+            setvar(VAR_MUD_Y, 36)
+        case 127:
+            setvar(VAR_MUD_X, 55)
+            setvar(VAR_MUD_Y, 36)
+        case 128:
+            setvar(VAR_MUD_X, 56)
+            setvar(VAR_MUD_Y, 36)
+        case 129:
+            setvar(VAR_MUD_X, 57)
+            setvar(VAR_MUD_Y, 36)
+        case 130:
+            setvar(VAR_MUD_X, 22)
+            setvar(VAR_MUD_Y, 40)
+        case 131:
+            setvar(VAR_MUD_X, 23)
+            setvar(VAR_MUD_Y, 40)
+        case 132:
+            setvar(VAR_MUD_X, 24)
+            setvar(VAR_MUD_Y, 40)
+        case 133:
+            setvar(VAR_MUD_X, 25)
+            setvar(VAR_MUD_Y, 40)
+        case 134:
+            setvar(VAR_MUD_X, 26)
+            setvar(VAR_MUD_Y, 40)
+        case 135:
+            setvar(VAR_MUD_X, 55)
+            setvar(VAR_MUD_Y, 38)
+        case 136:
+            setvar(VAR_MUD_X, 56)
+            setvar(VAR_MUD_Y, 38)
+        case 137:
+            setvar(VAR_MUD_X, 57)
+            setvar(VAR_MUD_Y, 38)
+        case 138:
+            setvar(VAR_MUD_X, 27)
+            setvar(VAR_MUD_Y, 15)
+        case 139:
+            setvar(VAR_MUD_X, 29)
+            setvar(VAR_MUD_Y, 15)
+        case 140:
+            setvar(VAR_MUD_X, 18)
+            setvar(VAR_MUD_Y, 41)
+        case 141:
+            setvar(VAR_MUD_X, 19)
+            setvar(VAR_MUD_Y, 41)
+        case 142:
+            setvar(VAR_MUD_X, 20)
+            setvar(VAR_MUD_Y, 41)
+        case 143:
+            setvar(VAR_MUD_X, 55)
+            setvar(VAR_MUD_Y, 31)
+        case 144:
+            setvar(VAR_MUD_X, 56)
+            setvar(VAR_MUD_Y, 31)
+        case 145:
+            setvar(VAR_MUD_X, 57)
+            setvar(VAR_MUD_Y, 31)
+        case 146:
+            setvar(VAR_MUD_X, 23)
+            setvar(VAR_MUD_Y, 39)
+        case 147:
+            setvar(VAR_MUD_X, 24)
+            setvar(VAR_MUD_Y, 39)
+        case 148:
+            setvar(VAR_MUD_X, 25)
+            setvar(VAR_MUD_Y, 39)
+        case 149:
+            setvar(VAR_MUD_X, 46)
+            setvar(VAR_MUD_Y, 35)
+        case 150:
+            setvar(VAR_MUD_X, 47)
+            setvar(VAR_MUD_Y, 35)
+        case 151:
+            setvar(VAR_MUD_X, 63)
+            setvar(VAR_MUD_Y, 39)
+        case 152:
+            setvar(VAR_MUD_X, 63)
+            setvar(VAR_MUD_Y, 40)
+        case 153:
+            setvar(VAR_MUD_X, 26)
+            setvar(VAR_MUD_Y, 42)
+        case 154:
+            setvar(VAR_MUD_X, 50)
+            setvar(VAR_MUD_Y, 35)
+        default:
+            setvar(VAR_MUD_X, 50)
+            setvar(VAR_MUD_Y, 35)
+    }
+    return
+}
+
+text SampleBoxFull{
+    "Too bad!\n"
+	"The Sample Box is full…"
+}
+
+script Route8_MudPile{
+    if(var(VAR_MUD_SAMPLES) == 30){
+        lock
+        msgbox(ObtainedMud)
+        msgbox(SampleBoxFull)
+        release
+        end
+    }
+    playse(SE_SELECT)
+    waitse
+    setmetatile(VAR_MUD_X, VAR_MUD_Y, 0x291, FALSE)
+    special(DrawWholeMapView)
+    playfanfare(MUS_OBTAIN_ITEM)
+    message(ObtainedMud)
+    waitfanfare
+    msgbox(PutMudAway)
+    addvar(VAR_MUD_SAMPLES, 1)
+    copyvar(VAR_TEMP_A, VAR_MUD_X)
+    copyvar(VAR_TEMP_B, VAR_MUD_X)
+    copyvar(VAR_TEMP_C, VAR_MUD_Y)
+    copyvar(VAR_TEMP_D, VAR_MUD_Y)
+    addvar(VAR_TEMP_A, 9)   // x+9
+    subvar(VAR_TEMP_B, 9)   // x-9
+    addvar(VAR_TEMP_C, 7)   // y+7
+    subvar(VAR_TEMP_D, 7)   // y-7
+    while(((var(VAR_MUD_X) <= VAR_TEMP_A) && (var(VAR_MUD_X) >= VAR_TEMP_B))
+       && ((var(VAR_MUD_Y) <= VAR_TEMP_C) && (var(VAR_MUD_Y) >= VAR_TEMP_D))){
+        call(RandomizeMudTile)
+    }
+    setmetatile(VAR_MUD_X, VAR_MUD_Y, 0x344, FALSE)
+    special(DrawWholeMapView)
+    release
+    end
+}
+
+text ObtainedMud{
+    "{PLAYER} obtained a sample of mud!"
+}
+text PutMudAway{
+    "{PLAYER} put away the sample of mud\n"
+    "in the Sample Box."
 }
 
 script Route7_Trainer1_Camper {
@@ -70,7 +609,7 @@ script Route7_Trainer4_Birdkeeper {
 
 text Route7_Trainer4_Birdkeeper_Intro{
     "The ground Pokémon here have no chance\n"
-    "against my flying types!\l"
+    "against my flying Pokémon!\l"
     "And neither do you!"
 }
 text Route7_Trainer4_Birdkeeper_Defeat{

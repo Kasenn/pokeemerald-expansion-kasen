@@ -147,7 +147,7 @@
 #define FLAG_ENABLE_ROXANNE_FIRST_CALL       0x80 // Set after defeating Brawly. This will activate a call with Roxanne in order to register her.
 #define FLAG_KYOGRE_ESCAPED_SEAFLOOR_CAVERN  0x81
 #define FLAG_DEFEATED_RIVAL_ROUTE103         0x82
-#define FLAG_RECEIVED_DOLL_LANETTE           0x83
+#define FLAG_MUD_REWARD_WAITING           0x83 
 #define FLAG_RECEIVED_POTION_OLDALE          0x84
 #define FLAG_RECEIVED_AMULET_COIN            0x85
 #define FLAG_PENDING_DAYCARE_EGG             0x86
@@ -346,12 +346,12 @@
 #define FLAG_KAOLISLE_ITEM7            0x143
 #define FLAG_OBTAINED_AMPHAROSITE            0x144
 #define FLAG_R12_XSPEED            0x145
-#define FLAG_WONDER_CARD_UNUSED_10           0x146
-#define FLAG_WONDER_CARD_UNUSED_11           0x147
-#define FLAG_WONDER_CARD_UNUSED_12           0x148
-#define FLAG_WONDER_CARD_UNUSED_13           0x149
-#define FLAG_WONDER_CARD_UNUSED_14           0x14A
-#define FLAG_WONDER_CARD_UNUSED_15           0x14B
+#define FLAG_MUD_INTRO           0x146
+#define FLAG_MUD_WEAK_PRIZE           0x147
+#define FLAG_MUD_MID_PRIZE           0x148
+#define FLAG_MUD_GRAND_PRIZE           0x149
+#define FLAG_MUD_EXTRA_PRIZE           0x14A
+#define FLAG_OBTAINED_AERODACTYLITE           0x14B
 #define FLAG_WONDER_CARD_UNUSED_16           0x14C
 #define FLAG_WONDER_CARD_UNUSED_17           0x14D
 #define NUM_WONDER_CARD_FLAGS                (1 + FLAG_WONDER_CARD_UNUSED_17 - FLAG_RECEIVED_AURORA_TICKET)

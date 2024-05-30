@@ -1,0 +1,586 @@
+mapscripts Route114_LanettesHouse_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: SetMudBallLoc
+    // MAP_SCRIPT_ON_FRAME_TABLE[
+    //     VAR_TEMP_A, 1: CanceledFabrication
+    // ]
+}
+
+script CanceledFabrication{
+    msgbox(CanceledFabrication_Text, MSGBOX_SIGN)
+    end
+}
+text CanceledFabrication_Text{
+    "The game was not properly saved after\n"
+    "starting the item fabrication process.\p"
+    "The mud samples have been discarded."
+}
+
+script SetMudBallLoc{
+    checkitem(ITEM_SAMPLE_BOX)
+    if(var(VAR_RESULT) == FALSE){
+        setflag(FLAG_MUD_REWARD_WAITING)
+    }
+    if(!flag(FLAG_MUD_REWARD_WAITING)){
+        setobjectxyperm(2, 5, 2)
+    }
+    clearflag(FLAG_MUD_WEAK_PRIZE)
+    clearflag(FLAG_MUD_MID_PRIZE)
+    clearflag(FLAG_MUD_GRAND_PRIZE)
+    clearflag(FLAG_MUD_EXTRA_PRIZE)
+}
+
+text WeakPrize{
+    "Huh…\p"
+    "I don't think that output was the best\n"
+    "we can expect from the machine.\p"
+    "But worry not, my data shows that the\n"
+    "machine has stored up some minerals\l"
+    "and is preparing to fabricate\l"
+    "something great!"
+}
+text MidPrize{
+    "Hmm…\p"
+    "That wasn't bad, but I don't think\n"
+    "it's the pinnacle of what this\l"
+    "machine is able to fabricate.\p"
+    "But worry not, my data shows that the\n"
+    "machine has stored up some minerals\l"
+    "and is preparing to fabricate\l"
+    "something great!"
+}
+text GrandPrize{
+    "Oh my!\p"
+    "Now that is something worth\n"
+    "celebrating!\p"
+    "However, my data would suggest that\n"
+    "this was a fluke and that any\l"
+    "residue minerals from previous\l"
+    "attempts are still stored inside\l"
+    "the machine."
+}
+text GrandPrizeFirstTime{
+    "Oh my!\p"
+    "Now that is something worth\n"
+    "celebrating!\p"
+    "I never expected to see two\n"
+    "back-to-back fine items like that!"
+}
+text ExtraPrize{
+    "Oh my!\p"
+    "Looking at the data produced by the\n"
+    "machine, I believe that outcome to be\l"
+    "something fabricated from the piled-up\l"
+    "minerals the machine had been saving.\p"
+    "Even if it did take a few attempts to\n"
+    "get there, I still believe this to be\l"
+    "a great outcome!"
+}
+text GiveASpin{
+    "Looks like you've collected enough\n"
+    "mud samples.\p"
+    "How about giving the machine a spin?"
+}
+text MudSamplesFull{
+    "Looks like your Sample Box is full\n"
+    "of mud samples.\p"
+    "I don't think you can fit any more\n"
+    "mud samples in it until you give\l"
+    "the machine a spin."
+}
+text NotEnoughMudSamples{
+    "Looks like you don't have enough mud\n"
+    "samples to fabricate any more items.\p"
+    "If you want to give the machine a spin,\n"
+    "I suggest heading out there and\l"
+    "searching for more clumps of mud.\p"
+    "If you want to know how many mud\n"
+    "samples you have, you can always check\l"
+    "the Sample Box in your bag."
+}
+
+script LanettesHouse_Scientist{
+    buffernumberstring(STR_VAR_1, VAR_MUD_BAD_LUCK_PROTECTION)
+    if(flag(FLAG_MUD_WEAK_PRIZE)){
+        msgbox(WeakPrize, MSGBOX_NPC)
+        clearflag(FLAG_MUD_WEAK_PRIZE)
+        end
+    }
+    if(flag(FLAG_MUD_MID_PRIZE)){
+        msgbox(MidPrize, MSGBOX_NPC)
+        clearflag(FLAG_MUD_MID_PRIZE)
+        end
+    }
+    if(flag(FLAG_MUD_GRAND_PRIZE)){
+        if(var(VAR_MUD_BAD_LUCK_PROTECTION) == 0){
+            msgbox(GrandPrizeFirstTime, MSGBOX_NPC)
+        }
+        else{
+            msgbox(GrandPrize, MSGBOX_NPC)
+        }
+        clearflag(FLAG_MUD_GRAND_PRIZE)
+        end
+    }
+    if(flag(FLAG_MUD_EXTRA_PRIZE)){
+        msgbox(ExtraPrize, MSGBOX_NPC)
+        clearflag(FLAG_MUD_EXTRA_PRIZE)
+        end
+    }
+
+    if(var(VAR_MUD_REWARD) == 999){
+        msgbox(FirstMudBall, MSGBOX_NPC)
+        setvar(VAR_MUD_REWARD, 0)
+        end
+    }
+    checkitem(ITEM_SAMPLE_BOX)
+    if(var(VAR_RESULT) == FALSE){
+        lock
+        faceplayer
+        msgbox(SampleBoxIntro)
+        giveitem(ITEM_SAMPLE_BOX)
+        msgbox(SampleBoxIntro2, MSGBOX_DEFAULT)
+        closemessage
+        playse(SE_PIN)
+        applymovement(1, Common_Movement_ExclamationMark)
+        waitmovement(0)
+        delay(48)
+        msgbox(SampleBoxIntro3, MSGBOX_NPC)
+        end
+    }
+    buffernumberstring(STR_VAR_2, VAR_MUD_SAMPLES)
+    if(!flag(FLAG_MUD_REWARD_WAITING)){
+        msgbox(MudBallWaiting, MSGBOX_NPC)
+        end
+    }
+    if(var(VAR_MUD_SAMPLES) == 30){
+        msgbox(MudSamplesFull, MSGBOX_NPC)
+        end
+    }
+    if(var(VAR_MUD_SAMPLES) <= 2){
+        msgbox(NotEnoughMudSamples, MSGBOX_NPC)
+        end
+    }
+    msgbox(GiveASpin, MSGBOX_NPC)
+}
+script LanettesHouse_Extractinator{
+    checkmoney(500)
+    if((var(VAR_RESULT) == FALSE) || (var(VAR_MUD_SAMPLES) <= 2)){
+        msgbox(Extractinator_Idle, MSGBOX_SIGN)
+        end
+    }
+    if(!flag(FLAG_MUD_REWARD_WAITING)){
+        msgbox(Extractinator_PickUpTreasure, MSGBOX_SIGN)
+        end
+    }
+
+    lock
+    showmoneybox(0, 0)
+    buffernumberstring(STR_VAR_1, VAR_MUD_SAMPLES)
+    msgbox(ReadyToFabricate, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        hidemoneybox
+        release
+        end
+    }
+    playse(SE_SHOP)
+    removemoney(500)
+    updatemoneybox
+    subvar(VAR_MUD_SAMPLES, 3)
+    setobjectxyperm(2, 5, 1)
+    clearflag(FLAG_MUD_REWARD_WAITING)
+    addobject(2)
+    message(BeginFabrication)
+    waitmessage
+    delay(80)
+    hidemoneybox
+    message(Fabricating)
+    random(100)
+    copyvar(VAR_MUD_REWARD, VAR_RESULT)
+    delay(30)
+    waitmessage
+    closemessage
+    applymovement(2, Walk1Down)
+    waitmovement(0)
+    msgbox(PleaseRemoveItemFromTray)
+    release
+    end
+}
+
+    // call(Common_EventScript_SaveGame)
+	// goto_if_eq(VAR_RESULT, 0, FallarborTown_BattleTentLobby_EventScript_CancelChallengeSaveFailed)
+
+text FirstMudBall{
+    "A pretty good first item you got\n"
+    "there, I'd say!\p"
+    "There's no telling what will come out\n"
+    "of the machine next so we better keep\l"
+    "feeding it more mud samples!\p"
+    "Sometimes the machine may give out\n"
+    "items that are of inferior quality,\l"
+    "but that's only because it's saving\l"
+    "the truly exquisite minerals for\l"
+    "something grander.\p"
+    "If you keep using the machine, I'm\n"
+    "sure it will fabricate something\l"
+    "great eventually!"
+}
+text MudBallWaiting{
+    "Looks like the machine successfully\n"
+    "fabricated an item.\p"
+    "As promised, it's all yours.\n"
+    "go ahead and pick it up!"
+}
+text PleaseRemoveItemFromTray{
+    "Your item is now ready to be\n"
+    "picked up.\p"
+    "Please clear the table before\n"
+    "fabricating again."
+}
+text Fabricating{
+    "{PLAY_SE SE_ELEVATOR}Fabricating…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PLAY_SE SE_ELEVATOR}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}\n"
+    "{PLAY_SE SE_DING_DONG}Fabrication completed.{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}"
+}
+text BeginFabrication{
+    "Initializing item fabrication…"
+}
+text ReadyToFabricate{
+    "It's a machine used to fabricate\n"
+    "items from mud samples.\p"
+    "You have {STR_VAR_1} mud samples.\p"
+    "Insert 3 mud samples and\n"
+    "¥500 into the machine?"
+}
+text Extractinator_Idle{
+    "The machine stands idle."
+}
+text Extractinator_PickUpTreasure{
+    "Please clear the table before\n"
+    "fabricating again."
+}
+
+script LanettesHouse_PC{
+    msgbox(LanettesHouse_PC_Text, MSGBOX_SIGN)
+}
+text LanettesHouse_PC_Text{
+    "The screen is full of all sorts of\n"
+    "research data.\p"
+    "…Better leave it be."
+}
+
+text SampleBoxIntro{
+    "Oh?\p"
+    "I see a fine explorer has stumbled\n"
+    "upon my humble abode!\p"
+    "Welcome, welcome!\p"
+    "Not many people know this, but the\n"
+    "mud out there, it's full of riches!\p"
+    "That is why I've been developing\n"
+    "a machine that extracts the rich\l"
+    "minerals from the mud and uses\l"
+    "those to fabricate all kinds of\l"
+    "items of interest.\p"
+    "Here, why don't you give it a try?"
+}
+text SampleBoxIntro2{
+    "When you're exploring Route 7, you\n"
+    "may come across clumps of mud.\p"
+    "All you need to do is scoop them up\n"
+    "and place the mud samples in that box.\p"
+    "I'm sure there has to always be at\n"
+    "least one clump somewhere!\p"
+    "Once you have at least 3 samples\n"
+    "of mud, come back here and insert\l"
+    "the samples in the machine on that\l"
+    "wall over there.\p"
+    "There's a small fee to use the machine\n"
+    "but I promise that anything you find\l"
+    "is yours to keep!"
+}
+text SampleBoxIntro3{
+    "Oh, and one more thing!\p"
+    "That box can only hold up to 30\n"
+    "samples of mud so you should come\l"
+    "and use the machine every now and then\l"
+    "or you'll be just wasting resources!"
+}
+
+script ExtractBall{
+    if(var(VAR_MUD_BAD_LUCK_PROTECTION) >= 100){
+        call(GrandPrizeRandomization)
+        setvar(VAR_MUD_BAD_LUCK_PROTECTION, 0)
+        setflag(FLAG_MUD_EXTRA_PRIZE)
+        end
+    }
+    if(!flag(FLAG_MUD_INTRO)){
+        finditem(ITEM_ANCIENT_STONE)
+        setvar(VAR_MUD_REWARD, 999)
+        setflag(FLAG_MUD_INTRO)
+        end
+    }
+    random(15)
+    copyvar(VAR_TEMP_7, VAR_RESULT)
+    addvar(VAR_TEMP_7, 20)
+    switch(var(VAR_MUD_REWARD)){
+        case 0:
+        case 1:
+            finditem(ITEM_NORMAL_GEM, 2)
+            addvartovar
+            setflag(FLAG_MUD_WEAK_PRIZE)
+        case 2:
+        case 3:
+            finditem(ITEM_FIRE_GEM, 2)
+            addvartovar
+            setflag(FLAG_MUD_WEAK_PRIZE)
+        case 4:
+        case 5:
+            finditem(ITEM_WATER_GEM, 2)
+            addvartovar
+            setflag(FLAG_MUD_WEAK_PRIZE)
+        case 6:
+        case 7:
+            finditem(ITEM_ELECTRIC_GEM, 2)
+            addvartovar
+            setflag(FLAG_MUD_WEAK_PRIZE)
+        case 8:
+        case 9:
+            finditem(ITEM_GRASS_GEM, 2)
+            addvartovar
+            setflag(FLAG_MUD_WEAK_PRIZE)
+        case 10:
+        case 11:
+            finditem(ITEM_ICE_GEM, 2)
+            addvartovar
+            setflag(FLAG_MUD_WEAK_PRIZE)
+        case 12:
+        case 13:
+            finditem(ITEM_FIGHTING_GEM, 2)
+            addvartovar
+            setflag(FLAG_MUD_WEAK_PRIZE)
+        case 14:
+        case 15:
+            finditem(ITEM_POISON_GEM, 2)
+            addvartovar
+            setflag(FLAG_MUD_WEAK_PRIZE)
+        case 16:
+        case 17:
+            finditem(ITEM_GROUND_GEM, 2)
+            addvartovar
+            setflag(FLAG_MUD_WEAK_PRIZE)
+        case 18:
+        case 19:
+            finditem(ITEM_FLYING_GEM, 2)
+            addvartovar
+            setflag(FLAG_MUD_WEAK_PRIZE)
+        case 20:
+        case 21:
+            finditem(ITEM_PSYCHIC_GEM, 2)
+            addvartovar
+            setflag(FLAG_MUD_WEAK_PRIZE)
+        case 22:
+        case 23:
+            finditem(ITEM_BUG_GEM, 2)
+            addvartovar
+            setflag(FLAG_MUD_WEAK_PRIZE)
+        case 24:
+        case 25:
+            finditem(ITEM_ROCK_GEM, 2)
+            addvartovar
+            setflag(FLAG_MUD_WEAK_PRIZE)
+        case 26:
+        case 27:
+            finditem(ITEM_GHOST_GEM, 2)
+            addvartovar
+            setflag(FLAG_MUD_WEAK_PRIZE)
+        case 28:
+        case 29:
+            finditem(ITEM_DRAGON_GEM, 2)
+            addvartovar
+            setflag(FLAG_MUD_WEAK_PRIZE)
+        case 30:
+        case 31:
+            finditem(ITEM_DARK_GEM, 2)
+            addvartovar
+            setflag(FLAG_MUD_WEAK_PRIZE)
+        case 32:
+        case 33:
+            finditem(ITEM_STEEL_GEM, 2)
+            addvartovar
+            setflag(FLAG_MUD_WEAK_PRIZE)
+        case 34:
+        case 35:
+            finditem(ITEM_FAIRY_GEM, 2)
+            addvartovar
+            setflag(FLAG_MUD_WEAK_PRIZE)
+        case 36:
+        case 37:
+        case 38:
+        case 39:
+            finditem(ITEM_NUGGET)
+            addvartovar
+            setflag(FLAG_MUD_MID_PRIZE)
+        case 40:
+        case 41:
+        case 42:
+        case 43:
+            finditem(ITEM_PEARL, 2)
+            addvartovar
+            setflag(FLAG_MUD_MID_PRIZE)
+        case 44:
+        case 45:
+        case 46:
+        case 47:
+            finditem(ITEM_RARE_BONE)
+            addvartovar
+            setflag(FLAG_MUD_MID_PRIZE)
+        case 48:
+        case 49:
+        case 50:
+        case 51:
+            finditem(ITEM_RELIC_COPPER, 3)
+            addvartovar
+            setflag(FLAG_MUD_MID_PRIZE)
+        case 52:
+        case 53:
+        case 54:
+        case 55:
+            finditem(ITEM_RELIC_SILVER)
+            addvartovar
+            setflag(FLAG_MUD_MID_PRIZE)
+        case 56:
+        case 57:
+        case 58:
+        case 59:
+            finditem(ITEM_HEART_SCALE)
+            addvartovar
+            setflag(FLAG_MUD_MID_PRIZE)
+        case 60:
+        case 61:
+        case 62:
+        case 63:
+            finditem(ITEM_BIG_NUGGET)
+            addvartovar
+            setflag(FLAG_MUD_MID_PRIZE)
+        case 64:
+        case 65:
+        case 66:
+        case 67:
+            finditem(ITEM_BIG_PEARL)
+            addvartovar
+            setflag(FLAG_MUD_MID_PRIZE)
+        case 68:
+        case 69:
+        case 70:
+        case 71:
+            finditem(ITEM_RED_SHARD)
+            addvartovar
+            setflag(FLAG_MUD_MID_PRIZE)
+        case 72:
+        case 73:
+        case 74:
+        case 75:
+            finditem(ITEM_BLUE_SHARD)
+            addvartovar
+            setflag(FLAG_MUD_MID_PRIZE)
+        case 76:
+        case 77:
+        case 78:
+        case 79:
+            finditem(ITEM_YELLOW_SHARD)
+            addvartovar
+            setflag(FLAG_MUD_MID_PRIZE)
+        case 80:
+        case 81:
+        case 82:
+        case 83:
+            finditem(ITEM_GREEN_SHARD)
+            addvartovar
+            setflag(FLAG_MUD_MID_PRIZE)
+        case 84:
+            finditem(ITEM_BIG_PEARL)
+            addvartovar
+            setflag(FLAG_MUD_MID_PRIZE)
+        case 85:
+            finditem(ITEM_RED_SHARD)
+            addvartovar
+            setflag(FLAG_MUD_MID_PRIZE)
+        case 86:
+            finditem(ITEM_BLUE_SHARD)
+            addvartovar
+            setflag(FLAG_MUD_MID_PRIZE)
+        case 87:
+            finditem(ITEM_YELLOW_SHARD)
+            addvartovar
+            setflag(FLAG_MUD_MID_PRIZE)
+        case 88:
+        case 89:
+            finditem(ITEM_GREEN_SHARD)
+            addvartovar
+            setflag(FLAG_MUD_MID_PRIZE)
+        case 90:
+        case 91:
+        case 92:
+        case 93:
+        case 94:
+        case 95:
+        case 96:
+        case 97:
+        case 98:
+        case 99:
+            call(GrandPrizeRandomization)
+            setflag(FLAG_MUD_GRAND_PRIZE)
+    }
+}
+
+script GrandPrizeRandomization{
+    if((flag(FLAG_OBTAINED_MEGA_RING)) && (!flag(FLAG_OBTAINED_AERODACTYLITE))){
+        finditem(ITEM_AERODACTYLITE)
+        return
+    }
+    checkitem(ITEM_ANCIENT_STONE, 3)
+    if(var(VAR_RESULT) == TRUE){
+        checkitem(ITEM_FOSSILIZED_BIRD)
+        if(var(VAR_RESULT) == TRUE){
+            checkitem(ITEM_FOSSILIZED_DINO)
+            if(var(VAR_RESULT) == TRUE){
+                checkitem(ITEM_FOSSILIZED_DRAKE)
+                if(var(VAR_RESULT) == TRUE){
+                    checkitem(ITEM_FOSSILIZED_FISH)
+                    if(var(VAR_RESULT) == TRUE){
+                        finditem(ITEM_BIG_NUGGET, 2)
+                        return
+                    }
+                }
+            }
+        }
+    }
+    random(5)
+    copyvar(VAR_TEMP_6, VAR_RESULT)
+    switch(var(VAR_TEMP_6)){
+        case 0:
+            checkitem(ITEM_FOSSILIZED_BIRD)
+            if(var(VAR_RESULT) == TRUE){
+                addvar(VAR_TEMP_6, 1)
+            }
+            finditem(ITEM_FOSSILIZED_BIRD)
+        case 1:
+            checkitem(ITEM_FOSSILIZED_DINO)
+            if(var(VAR_RESULT) == TRUE){
+                addvar(VAR_TEMP_6, 1)
+            }
+            finditem(ITEM_FOSSILIZED_DINO)
+        case 2:
+            checkitem(ITEM_FOSSILIZED_DRAKE)
+            if(var(VAR_RESULT) == TRUE){
+                addvar(VAR_TEMP_6, 1)
+            }
+            finditem(ITEM_FOSSILIZED_DRAKE)
+        case 3:
+            checkitem(ITEM_FOSSILIZED_FISH)
+            if(var(VAR_RESULT) == TRUE){
+                addvar(VAR_TEMP_6, 1)
+            }
+            finditem(ITEM_FOSSILIZED_FISH)
+        case 4:
+            finditem(ITEM_ANCIENT_STONE)
+    }
+    return
+}

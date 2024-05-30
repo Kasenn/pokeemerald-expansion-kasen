@@ -1,332 +1,83 @@
 mapscripts OldaleTown_PokemonCenter_2F_MapScripts{}
 
-script IvTraining_2{
-	msgbox("This is the EV Training Service.\nEach round of training costs\l5 Battle Points.", MSGBOX_DEFAULT)
-	waitmessage
-	closemessage
+script IvTraining{
+	lockall
+	setvar(VAR_0x8008, 5) // BP Cost
+	buffernumberstring(STR_VAR_1, VAR_0x8008)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	goto_if_ge(VAR_TEMP_1, VAR_0x8008, EvTraining_Setup)
+	msgbox(Training_NotEnoughPoints)
+	release
+	end
+}
+
+script EvTraining_Setup{
+	msgbox(EVTraining_Intro)
 	special(ShowBattlePointsWindow)
-    message("Which type of training would\nyou like to have?")
+    message(EVTraining_Type)
 	waitmessage
     multichoice(21, 0, 114, 0)
     closemessage
+	special(CloseBattlePointsWindow)
+	copyvar(VAR_0x8004, VAR_0x8008)
 	if(var(VAR_RESULT) == 0){
-		special(CloseBattlePointsWindow)
-		copyvar(VAR_0x8004, VAR_0x8008)
 		special(TakeFrontierBattlePoints)
-		trainerbattle_no_intro(TRAINER_FELIX, IVTrainingDone)
+		trainerbattle_no_intro(TRAINER_FELIX, TrainingFinished)
 	}
 	elif(var(VAR_RESULT) == 1){
-		special(CloseBattlePointsWindow)
-		copyvar(VAR_0x8004, VAR_0x8008)
 		special(TakeFrontierBattlePoints)
-		trainerbattle_no_intro(TRAINER_VIOLET, IVTrainingDone)
+		trainerbattle_no_intro(TRAINER_VIOLET, TrainingFinished)
 	}
 	elif(var(VAR_RESULT) == 2){
-		special(CloseBattlePointsWindow)
-		copyvar(VAR_0x8004, VAR_0x8008)
 		special(TakeFrontierBattlePoints)
-		trainerbattle_no_intro(TRAINER_ROSE_2, IVTrainingDone)
+		trainerbattle_no_intro(TRAINER_ROSE_2, TrainingFinished)
 	}
 	elif(var(VAR_RESULT) == 3){
-		special(CloseBattlePointsWindow)
-		copyvar(VAR_0x8004, VAR_0x8008)
 		special(TakeFrontierBattlePoints)
-		trainerbattle_no_intro(TRAINER_ROSE_3, IVTrainingDone)
+		trainerbattle_no_intro(TRAINER_ROSE_3, TrainingFinished)
 	}
 	elif(var(VAR_RESULT) == 4){
-		special(CloseBattlePointsWindow)
-		copyvar(VAR_0x8004, VAR_0x8008)
 		special(TakeFrontierBattlePoints)
-		trainerbattle_no_intro(TRAINER_ROSE_4, IVTrainingDone)
+		trainerbattle_no_intro(TRAINER_ROSE_4, TrainingFinished)
 	}
 	elif(var(VAR_RESULT) == 5){
-		special(CloseBattlePointsWindow)
-		copyvar(VAR_0x8004, VAR_0x8008)
 		special(TakeFrontierBattlePoints)
-		trainerbattle_no_intro(TRAINER_ROSE_5, IVTrainingDone)
+		trainerbattle_no_intro(TRAINER_ROSE_5, TrainingFinished)
 	}
 	else{
-		special(CloseBattlePointsWindow)
-		closemessage
 		release
 		end
 	}
 }
 
-script IvTraining{
-	lockall
-	setvar(VAR_0x8008, 5)
-	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
-	goto_if_ge(VAR_TEMP_1, VAR_0x8008, IvTraining_2)
-	msgbox(IVTraining_HaventGotEnoughPoints, MSGBOX_DEFAULT)
-	waitmessage
-	closemessage
-	release
-	end
+text EVTraining_Intro{
+	"This is the EV Training Service.\n"
+	"Each round of training costs\l"
+	"5 Battle Points."
 }
-text IVTraining_HaventGotEnoughPoints{
-	"This service costs\n"
-	"5 Battle Points.\p"
-	"I'm sorry, but you don't have enough\n"
-	"Battle Points…"
-}
-text IVTraining_HaventGotEnoughPoints2BP{
-	"This service costs\n"
-	"2 Battle Points.\p"
-	"I'm sorry, but you don't have enough\n"
-	"Battle Points…"
-}
-text IVTraining_HaventGotEnoughPoints3BP{
-	"This service costs\n"
-	"3 Battle Points.\p"
-	"I'm sorry, but you don't have enough\n"
-	"Battle Points…"
-}
-text IVTraining_HaventGotEnoughPoints4BP{
-	"This service costs\n"
-	"4 Battle Points.\p"
-	"I'm sorry, but you don't have enough\n"
-	"Battle Points…"
-}
-text IVTraining_HaventGotEnoughPoints5BP{
-	"This service costs\n"
-	"5 Battle Points.\p"
-	"I'm sorry, but you don't have enough\n"
-	"Battle Points…"
-}
-text IVTraining_HaventGotEnoughPoints7BP{
-	"This service costs\n"
-	"7 Battle Points.\p"
-	"I'm sorry, but you don't have enough\n"
-	"Battle Points…"
-}
-text IVTraining_HaventGotEnoughPoints9BP{
-	"This service costs\n"
-	"9 Battle Points.\p"
-	"I'm sorry, but you don't have enough\n"
-	"Battle Points…"
-}
-text IVTraining_HaventGotEnoughPoints10BP{
-	"This service costs\n"
-	"10 Battle Points.\p"
-	"I'm sorry, but you don't have enough\n"
-	"Battle Points…"
+text EVTraining_Type{
+	"Which type of training would\n"
+	"you like to have?"
 }
 
-script LevelTraining{
-	lockall
-	setvar(VAR_0x8008, 2)
-	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
-	goto_if_ge(VAR_TEMP_1, VAR_0x8008, LevelTraining_Setup)
-	msgbox(IVTraining_HaventGotEnoughPoints2BP, MSGBOX_DEFAULT)
-	waitmessage
-	closemessage
-	release
-	end
-}
-script LevelTraining_Setup{
-    lockall
-	special(ShowBattlePointsWindow)
-    msgbox(Level4Team, MSGBOX_YESNO)
-	if(var(VAR_RESULT) == YES){
-		checkpartylevel(12)
-		if(var(VAR_RESULT) == PARTY_SIZE){
-			msgbox(YourPokemonIsAboveLevel, MSGBOX_YESNO)
-			if(var(VAR_RESULT) == FALSE){
-				release
-				special(CloseBattlePointsWindow)
-				end
-			}
-		}
-		setvar(VAR_POKECENTER_TRAINING, 1)
-		special(CloseBattlePointsWindow)
-		copyvar(VAR_0x8004, VAR_0x8008)
-		special(TakeFrontierBattlePoints)
-		trainerbattle_no_intro(TRAINER_DUSTY_1, IVTrainingDone)
-		setvar(VAR_POKECENTER_TRAINING, 0)
-	}
-	else{
-		closemessage
-		special(CloseBattlePointsWindow)
-		release
-		end
-	}
-}
-text Level4Team{
-	"This is the Level Training Service.\p"
-	"The team in this Training Hub is set\n"
-	"to level 6 and is intended for teams\l"
-	"up to level 11.\p"
-	"Would you like to use the service?\p"
-	"Each use of the service costs\n"
-	"2 Battle Points."
-}
-
-script LevelTraining2{
-	lockall
-	setvar(VAR_0x8008, 3)
-	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
-	goto_if_ge(VAR_TEMP_1, VAR_0x8008, LevelTraining2_Setup)
-	msgbox(IVTraining_HaventGotEnoughPoints3BP, MSGBOX_DEFAULT)
-	waitmessage
-	closemessage
-	release
-	end
-}
-script LevelTraining2_Setup{
-    lockall
-	special(ShowBattlePointsWindow)
-    msgbox(Level5Team, MSGBOX_YESNO)
-	if(var(VAR_RESULT) == YES){
-		checkpartylevel(14)
-		if(var(VAR_RESULT) == PARTY_SIZE){
-			msgbox(YourPokemonIsAboveLevel, MSGBOX_YESNO)
-			if(var(VAR_RESULT) == FALSE){
-				release
-				special(CloseBattlePointsWindow)
-				end
-			}
-		}
-		setvar(VAR_POKECENTER_TRAINING, 2)
-		special(CloseBattlePointsWindow)
-		copyvar(VAR_0x8004, VAR_0x8008)
-		special(TakeFrontierBattlePoints)
-		trainerbattle_no_intro(TRAINER_GABBY_AND_TY_2, IVTrainingDone)
-		setvar(VAR_POKECENTER_TRAINING, 0)
-	}
-	else{
-		closemessage
-		special(CloseBattlePointsWindow)
-		release
-		end
-	}
-}
-text Level5Team{
-	"This is the Level Training Service.\p"
-	"The team in this Training Hub is set\n"
-	"to level 8 and is intended for teams\l"
-	"up to level 13.\p"
-	"Would you like to use the service?\p"
-	"Each use of the service costs\n"
-	"3 Battle Points."
-}
-
-script LevelTrainingAldeleaf{
-	lockall
-	setvar(VAR_0x8008, 3)
-	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
-	goto_if_ge(VAR_TEMP_1, VAR_0x8008, LevelTrainingAldeleaf_Setup)
-	msgbox(IVTraining_HaventGotEnoughPoints4BP, MSGBOX_DEFAULT)
-	waitmessage
-	closemessage
-	release
-	end
-}
-script LevelTrainingAldeleaf_Setup{
-    lockall
-	special(ShowBattlePointsWindow)
-    msgbox(Level9Team, MSGBOX_YESNO)
-	if(var(VAR_RESULT) == YES){
-		checkpartylevel(22)
-		if(var(VAR_RESULT) == PARTY_SIZE){
-			msgbox(YourPokemonIsAboveLevel, MSGBOX_YESNO)
-			if(var(VAR_RESULT) == FALSE){
-				release
-				special(CloseBattlePointsWindow)
-				end
-			}
-		}
-		setvar(VAR_POKECENTER_TRAINING, 3)
-		special(CloseBattlePointsWindow)
-		copyvar(VAR_0x8004, VAR_0x8008)
-		special(TakeFrontierBattlePoints)
-		trainerbattle_no_intro(TRAINER_RANDALL, IVTrainingDone)
-		setvar(VAR_POKECENTER_TRAINING, 0)
-	}
-	else{
-		closemessage
-		special(CloseBattlePointsWindow)
-		release
-		end
-	}
-}
-text Level9Team{
-	"This is the Level Training Service.\p"
-	"The team in this Training Hub is set\n"
-	"to level 16 and is intended for teams\l"
-	"up to level 21.\p"
-	"Would you like to use the service?\p"
-	"Each use of the service costs\n"
-	"3 Battle Points."
-}
-
-script IvTrainingIntro{
-	lockall
-	msgbox("Hello, and welcome to the\n"
-		"Pokémon Center PokéTraining Hub.\p"
-		"Here trainers may train their Pokémon\n"
-		"by battling in a controlled environment.\p"
-		"The first person to my right offers\n"
-		"EV training.\p"
-		"She has 5 training robots, with each\n"
-		"granting 10 EV in the specified stat.\p"
-		"The next person offers level training,\n"
-		"employing a team of training robots.\l"
-		"Do note that the level of the robots\l"
-		"may vary between training hubs,\l"
-		"and the higher the level, the costlier\l"
-		"the training will become.\p"
-		"With that out of the way,\n"
-		"I hope you find our services useful.", MSGBOX_NPC)
-	closemessage
-	release
-	end
-}
-
-text IVTrainingDone{
+text TrainingFinished{
 	"Thank you, please come again."
 }
-
-script LevelTrainingShoreslate{
-	lockall
-	setvar(VAR_0x8008, 5)
-	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
-	goto_if_ge(VAR_TEMP_1, VAR_0x8008, LevelTrainingShoreslate_Setup)
-	msgbox(IVTraining_HaventGotEnoughPoints5BP, MSGBOX_DEFAULT)
-	waitmessage
-	closemessage
-	release
-	end
+text Training_NotEnoughPoints{
+	"This service costs\n"
+	"{STR_VAR_1} Battle Points.\p"
+	"I'm sorry, but you don't have enough\n"
+	"Battle Points…"
 }
-script LevelTrainingShoreslate_Setup{
-    lockall
-	special(ShowBattlePointsWindow)
-    msgbox(Level18Team, MSGBOX_YESNO)
-	if(var(VAR_RESULT) == YES){
-		checkpartylevel(29)
-		if(var(VAR_RESULT) == PARTY_SIZE){
-			msgbox(YourPokemonIsAboveLevel, MSGBOX_YESNO)
-			if(var(VAR_RESULT) == FALSE){
-				release
-				special(CloseBattlePointsWindow)
-				end
-			}
-		}
-		setvar(VAR_POKECENTER_TRAINING, 4)
-		special(CloseBattlePointsWindow)
-		copyvar(VAR_0x8004, VAR_0x8008)
-		special(TakeFrontierBattlePoints)
-		trainerbattle_no_intro(TRAINER_SHORESLATE_NURSE, IVTrainingDone)
-		setvar(VAR_POKECENTER_TRAINING, 0)
-	}
-	else{
-		closemessage
-		special(CloseBattlePointsWindow)
-		release
-		end
-	}
+text RecommendedLevel{
+	"This is the Level Training Service.\p"
+	"The team in this Training Hub is set\n"
+	"to level {STR_VAR_3} and is intended for teams\l"
+	"up to level {STR_VAR_2}.\p"
+	"Would you like to use the service?\p"
+	"Each use of the service costs\n"
+	"{STR_VAR_1} Battle Points."
 }
-
 text YourPokemonIsAboveLevel{
 	"You have Pokémon that are above the\n"
 	"level cap of this Training Hub and\l"
@@ -334,100 +85,154 @@ text YourPokemonIsAboveLevel{
 	"Are you sure you want to continue?"
 }
 
-text Level18Team{
-	"This is the Level Training Service.\p"
-	"The team in this Training Hub is set\n"
-	"to level 25 and is intended for teams\l"
-	"up to level 28.\p"
-	"Would you like to use the service?\p"
-	"Each use of the service costs\n"
-	"5 Battle Points."
+script LevelTraining1{
+	setvar(VAR_POKECENTER_TRAINING, 1)
+	setvar(VAR_0x8008, 2)
+	goto(LevelTrainingCheck)
 }
-
-script LevelTrainingMarigorge{
-	lockall
+script LevelTraining2{
+	setvar(VAR_POKECENTER_TRAINING, 2)
+	setvar(VAR_0x8008, 3)
+	goto(LevelTrainingCheck)
+}
+script LevelTraining3{
+	setvar(VAR_POKECENTER_TRAINING, 3)
+	setvar(VAR_0x8008, 3)
+	goto(LevelTrainingCheck)
+}
+script LevelTraining4{
+	setvar(VAR_POKECENTER_TRAINING, 4)
+	setvar(VAR_0x8008, 5)
+	goto(LevelTrainingCheck)
+}
+script LevelTraining5{
+	setvar(VAR_POKECENTER_TRAINING, 5)
 	setvar(VAR_0x8008, 7)
-	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
-	goto_if_ge(VAR_TEMP_1, VAR_0x8008, LevelTrainingMarigorge_Setup)
-	msgbox(IVTraining_HaventGotEnoughPoints7BP, MSGBOX_DEFAULT)
-	waitmessage
-	closemessage
-	release
-	end
+	goto(LevelTrainingCheck)
 }
-script LevelTrainingMarigorge_Setup{
-    lockall
-	special(ShowBattlePointsWindow)
-    msgbox("This is the Level Training Service.\nEach use of the service\lcosts 7 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 18.", MSGBOX_YESNO)
-	if(var(VAR_RESULT) == YES){
-		special(CloseBattlePointsWindow)
-		copyvar(VAR_0x8004, VAR_0x8008)
-		special(TakeFrontierBattlePoints)
-		trainerbattle_no_intro(TRAINER_MARIGORGE_NURSE, IVTrainingDone)
-	}
-	else{
-		closemessage
-		special(CloseBattlePointsWindow)
-		release
-		end
-	}
-}
-
-
-script LevelTrainingRockliffe{
-	lockall
+script LevelTraining6{
+	setvar(VAR_POKECENTER_TRAINING, 6)
 	setvar(VAR_0x8008, 9)
+	goto(LevelTrainingCheck)
+}
+script LevelTraining7{
+	setvar(VAR_POKECENTER_TRAINING, 7)
+	setvar(VAR_0x8008, 10)
+	goto(LevelTrainingCheck)
+}
+
+
+script LevelTrainingCheck{
+	lock
+	buffernumberstring(STR_VAR_1, VAR_0x8008)
 	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
-	goto_if_ge(VAR_TEMP_1, VAR_0x8008, LevelTrainingRockliffe_Setup)
-	msgbox(IVTraining_HaventGotEnoughPoints9BP, MSGBOX_DEFAULT)
-	waitmessage
-	closemessage
+	goto_if_ge(VAR_TEMP_1, VAR_0x8008, LevelTrainingMain)
+	msgbox(Training_NotEnoughPoints, MSGBOX_DEFAULT)
+	setvar(VAR_POKECENTER_TRAINING, 0)
 	release
 	end
 }
-script LevelTrainingRockliffe_Setup{
-    lockall
+script LevelTrainingMain{
 	special(ShowBattlePointsWindow)
-    msgbox("This is the Level Training Service.\nEach use of the service\lcosts 9 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 23.", MSGBOX_YESNO)
+	switch(var(VAR_POKECENTER_TRAINING)){
+		case 1:									// Primrose Town
+			buffernumberstring(STR_VAR_3, 6)			// Level of team
+			buffernumberstring(STR_VAR_2, 11)			// Recommended level
+		case 2:									// Coralgrove City & Azuretide Town
+			buffernumberstring(STR_VAR_3, 8)
+			buffernumberstring(STR_VAR_2, 13)									
+		case 3:									// Aldeleaf City
+			buffernumberstring(STR_VAR_3, 16)
+			buffernumberstring(STR_VAR_2, 21)
+		case 4:									// Shoreslate City
+			buffernumberstring(STR_VAR_3, 25)
+			buffernumberstring(STR_VAR_2, 28)
+		case 5:									// Marigorge Town & Kaolisle City
+			buffernumberstring(STR_VAR_3, 30)
+			buffernumberstring(STR_VAR_2, 33)
+		case 6:									// Rockliffe Town
+			buffernumberstring(STR_VAR_3, 100)
+			buffernumberstring(STR_VAR_2, 100)
+		case 7:									// Sandstone City
+			buffernumberstring(STR_VAR_3, 100)
+			buffernumberstring(STR_VAR_2, 100)
+	}
+    msgbox(RecommendedLevel, MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES){
+		switch(var(VAR_POKECENTER_TRAINING)){
+			case 1:
+				checkpartylevel(12)
+			case 2:
+				checkpartylevel(14)
+			case 3:
+				checkpartylevel(22)
+			case 4:
+				checkpartylevel(29)
+			case 5:
+				checkpartylevel(34)
+			case 6:
+				checkpartylevel(100)
+			case 7:
+				checkpartylevel(100)
+		}
+		if(var(VAR_RESULT) == PARTY_SIZE){
+			msgbox(YourPokemonIsAboveLevel, MSGBOX_YESNO)
+			if(var(VAR_RESULT) == FALSE){
+				setvar(VAR_POKECENTER_TRAINING, 0)
+				release
+				special(CloseBattlePointsWindow)
+				end
+			}
+		}
 		special(CloseBattlePointsWindow)
 		copyvar(VAR_0x8004, VAR_0x8008)
 		special(TakeFrontierBattlePoints)
-		trainerbattle_no_intro(TRAINER_ROCKLIFFE_NURSE, IVTrainingDone)
+		switch(var(VAR_POKECENTER_TRAINING)){
+			case 1:
+				trainerbattle_no_intro(TRAINER_DUSTY_1, TrainingFinished)
+			case 2:
+				trainerbattle_no_intro(TRAINER_GABBY_AND_TY_2, TrainingFinished)
+			case 3:
+				trainerbattle_no_intro(TRAINER_RANDALL, TrainingFinished)
+			case 4:
+				trainerbattle_no_intro(TRAINER_SHORESLATE_NURSE, TrainingFinished)
+			case 5:
+				trainerbattle_no_intro(TRAINER_MARIGORGE_NURSE, TrainingFinished)
+			case 6:
+				trainerbattle_no_intro(TRAINER_ROCKLIFFE_NURSE, TrainingFinished)
+			case 7:
+				trainerbattle_no_intro(TRAINER_SANDSTONE_NURSE, TrainingFinished)
+		}
+		setvar(VAR_POKECENTER_TRAINING, 0)
+		end
 	}
 	else{
-		closemessage
+		setvar(VAR_POKECENTER_TRAINING, 0)
 		special(CloseBattlePointsWindow)
 		release
 		end
 	}
 }
 
-script LevelTrainingSandstone{
-	lockall
-	setvar(VAR_0x8008, 10)
-	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
-	goto_if_ge(VAR_TEMP_1, VAR_0x8008, LevelTrainingSandstone_Setup)
-	msgbox(IVTraining_HaventGotEnoughPoints10BP, MSGBOX_DEFAULT)
-	waitmessage
-	closemessage
-	release
-	end
+script IvTrainingIntro{
+	msgbox(IvTrainingIntro_Text, MSGBOX_NPC)
 }
-script LevelTrainingSandstone_Setup{
-    lockall
-	special(ShowBattlePointsWindow)
-    msgbox("This is the Level Training Service.\nEach use of the service\lcosts 10 Battle Points.\pWould you like to use the service?\nThe team in this Training Hub is\lset to level 25.", MSGBOX_YESNO)
-	if(var(VAR_RESULT) == YES){
-		special(CloseBattlePointsWindow)
-		copyvar(VAR_0x8004, VAR_0x8008)
-		special(TakeFrontierBattlePoints)
-		trainerbattle_no_intro(TRAINER_SANDSTONE_NURSE, IVTrainingDone)
-	}
-	else{
-		closemessage
-		special(CloseBattlePointsWindow)
-		release
-		end
-	}
+
+text IvTrainingIntro_Text{
+	"Hello, and welcome to the\n"
+	"Pokémon Center PokéTraining Hub.\p"
+	"Here trainers may train their Pokémon\n"
+	"by battling in a controlled environment.\p"
+	"The first person to my right offers\n"
+	"EV training.\p"
+	"She has 5 training robots, with each\n"
+	"granting 10 EV in the specified stat.\p"
+	"The next person offers level training,\n"
+	"employing a team of training robots.\l"
+	"Do note that the level of the robots\l"
+	"may vary between training hubs,\l"
+	"and the higher the level, the costlier\l"
+	"the training will become.\p"
+	"With that out of the way,\n"
+	"I hope you find our services useful."
 }

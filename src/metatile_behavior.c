@@ -251,7 +251,8 @@ bool8 MetatileBehavior_IsDeepSand(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsMud(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_MUD)
+    if (metatileBehavior == MB_MUD
+     || metatileBehavior == MB_MUD_TREASURE)
         return TRUE;
     else
         return FALSE;
@@ -1147,6 +1148,14 @@ bool8 MetatileBehavior_IsClosedSootopolisDoor(u8 metatileBehavior)
         return FALSE;
 }
 
+bool8 MetatileBehavior_IsMudTreasure(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_MUD_TREASURE)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 bool8 MetatileBehavior_IsSkyPillarClosedDoor(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_SKY_PILLAR_CLOSED_DOOR)
@@ -1333,6 +1342,7 @@ bool8 MetatileBehavior_IsRunningDisallowed(u8 metatileBehavior)
      || metatileBehavior == MB_LONG_GRASS
      || metatileBehavior == MB_HOT_SPRINGS
      || metatileBehavior == MB_MUD
+     || metatileBehavior == MB_MUD_TREASURE
      || MetatileBehavior_IsPacifidlogLog(metatileBehavior) != FALSE)
         return TRUE;
     else

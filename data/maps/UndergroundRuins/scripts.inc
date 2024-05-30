@@ -54,19 +54,19 @@ CheckForEscapeRope::
 	checkitem ITEM_ESCAPE_ROPE
 	compare VAR_RESULT, FALSE
 	goto_if_eq CheckForEscapeRope_2
+CheckForEscapeRope_1:
 	release
 	end
 
 CheckForEscapeRope_2:
-	lockall
+	lock
 	playse SE_PIN
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 60
-	msgbox CheckForEscapeRope_Text_0, MSGBOX_DEFAULT
+	msgbox FoundRope
 	finditem ITEM_ESCAPE_ROPE
-	release
-	end
+	goto CheckForEscapeRope_1
 
 
 UndergroundSandstormTM::
@@ -336,11 +336,12 @@ QuakeAfterFossil::
 	end
 
 
-CheckForEscapeRope_Text_0:
-	.string "You stumble upon some old rope that\ncould be used to climb back out.$"
-
 NotEnoughRoom_Text_0:
 	.string "You don't have enough room to\ncarry that item…$"
+
+FoundRope::
+	.string "You stumble upon some old rope that\n"
+	.string "could be used to climb back out.$"
 
 FossilInWall::
 	.string "There's a fossil of a Pokémon wedged\n"

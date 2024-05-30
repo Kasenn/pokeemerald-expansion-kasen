@@ -1,4 +1,10 @@
-mapscripts Kaolisle_Mines_MapScripts{}
+mapscripts Kaolisle_Mines_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: KaolisleEscape
+}
+
+script KaolisleEscape{
+    setescapewarp(MAP_KAOLISLE_CITY, 28, 33)
+}
 
 script KaolMines_Miner1{
     checkitem(ITEM_ESCAPE_ROPE)

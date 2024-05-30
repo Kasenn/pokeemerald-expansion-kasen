@@ -129,7 +129,7 @@ movement ScorchedDesert_FallThroughFloorMovement{
 }
 
 script DesertItem1{
-    finditem(ITEM_TM49)
+    finditem(ITEM_TM_ROCK_SLIDE)
     end
 }
 script DesertItem2{
@@ -564,11 +564,15 @@ script TestVarDesert{
 }
 
 script Desert_EventScript_SandstormTrigger{
-    if((var(VAR_FACING) == DIR_WEST) || (var(VAR_FACING) == DIR_NORTH) || (var(VAR_FACING) == DIR_SOUTH)){
-        end
-    }
+    goto_if_eq(VAR_FACING, DIR_WEST, Desert_EventScript_SandstormTrigger2)
+	goto_if_eq(VAR_FACING, DIR_NORTH, Desert_EventScript_SandstormTrigger2)
+	goto_if_eq(VAR_FACING, DIR_SOUTH, Desert_EventScript_SandstormTrigger2)
     setweather(WEATHER_SANDSTORM)
 	fadenewbgm(MUS_DESERT)
 	doweather
 	end
+}
+
+script Desert_EventScript_SandstormTrigger2{
+    end
 }

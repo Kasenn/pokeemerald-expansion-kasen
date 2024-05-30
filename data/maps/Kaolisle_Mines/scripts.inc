@@ -1,5 +1,11 @@
 Kaolisle_Mines_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, KaolisleEscape
 	.byte 0
+
+
+KaolisleEscape::
+	setescapewarp MAP_KAOLISLE_CITY, 28, 33
+	return
 
 
 KaolMines_Miner1::

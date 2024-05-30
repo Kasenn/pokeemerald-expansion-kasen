@@ -43,18 +43,21 @@ script UndergroundRuinsLootRelic{
 script CheckForEscapeRope{
     checkitem(ITEM_ESCAPE_ROPE)
     if(var(VAR_RESULT) == FALSE){
-        lockall
+        lock
         playse(SE_PIN)
         applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
         waitmovement(0)
         delay(60)
-        msgbox("You stumble upon some old rope that\ncould be used to climb back out.", MSGBOX_DEFAULT)
+        msgbox(FoundRope)
         finditem(ITEM_ESCAPE_ROPE)
-        release
-        end
     }
     release
     end
+}
+
+text FoundRope{
+    "You stumble upon some old rope that\n"
+    "could be used to climb back out."
 }
 
 script UndergroundSandstormTM{

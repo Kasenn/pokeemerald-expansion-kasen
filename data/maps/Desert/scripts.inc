@@ -185,7 +185,7 @@ ScorchedDesert_FallThroughFloorMovement:
 	step_end
 
 DesertItem1::
-	finditem ITEM_TM49
+	finditem ITEM_TM_ROCK_SLIDE
 	end
 
 
@@ -375,18 +375,16 @@ TestVarDesert::
 
 
 Desert_EventScript_SandstormTrigger::
-	compare VAR_FACING, DIR_WEST
-	goto_if_eq Desert_EventScript_SandstormTrigger_2
-	compare VAR_FACING, DIR_NORTH
-	goto_if_eq Desert_EventScript_SandstormTrigger_2
-	compare VAR_FACING, DIR_SOUTH
-	goto_if_eq Desert_EventScript_SandstormTrigger_2
+	goto_if_eq VAR_FACING, DIR_WEST, Desert_EventScript_SandstormTrigger2
+	goto_if_eq VAR_FACING, DIR_NORTH, Desert_EventScript_SandstormTrigger2
+	goto_if_eq VAR_FACING, DIR_SOUTH, Desert_EventScript_SandstormTrigger2
 	setweather WEATHER_SANDSTORM
 	fadenewbgm MUS_DESERT
 	doweather
 	end
 
-Desert_EventScript_SandstormTrigger_2:
+
+Desert_EventScript_SandstormTrigger2::
 	end
 
 

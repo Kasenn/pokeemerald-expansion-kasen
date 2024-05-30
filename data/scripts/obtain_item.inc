@@ -131,7 +131,6 @@ EventScript_NoRoomForDecor::
 
 Std_FindItem::
 	lock
-	faceplayer
 	waitse
 	copyvar VAR_0x8004, ITEMID
 	copyvar VAR_0x8005, AMOUNT

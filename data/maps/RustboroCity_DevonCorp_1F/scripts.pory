@@ -135,6 +135,11 @@ script Update3{
         removeitem(ITEM_WHITE_FLUTE)
         additem(ITEM_BLACK_FLUTE)
     }
+    checkitem(ITEM_TM49, 2)
+    if(var(VAR_RESULT) == TRUE){
+        removeitem(ITEM_TM49, 1)
+        giveitem(ITEM_TM_ROCK_SLIDE)
+    }
     checkitem(ITEM_TM_CASE)
     if(var(VAR_RESULT) == FALSE){
         giveitem(ITEM_TM_CASE)
@@ -171,7 +176,7 @@ script SetTeamLevel{
     dynmultipush("Gym 2 (Level 22)", 1)
     dynmultipush("Windplume (Level 24)", 2)
     dynmultipush("Story 1 (Level 29)", 3)
-    dynmultipush("Gym 3 (Level 40, WIP)", 4)
+    dynmultipush("Gym 3 (Level 34)", 4)
     dynmultipush("Gym 4 (Level 47, WIP)", 5)
     dynmultipush("Cancel", 6)
     dynmultistack(23, 0, FALSE, 5, FALSE, 0, NULL)
@@ -189,8 +194,8 @@ script SetTeamLevel{
             msgbox("Team set to level 29.")
             setpartylevel(29)
         case 4:
-            msgbox("Team set to level 40.")
-            setpartylevel(40)
+            msgbox("Team set to level 34.")
+            setpartylevel(34)
         case 5:
             msgbox("Team set to level 47.")
             setpartylevel(47)

@@ -176,7 +176,7 @@ script KaolisleGym_Trainer3_Hiker1{
 }
 text KaolisleGym_Trainer3_Hiker1_Intro{
     "My Pokémon helped dig these tunnels.\n"
-    "Let me show them to you!"
+    "Let me show it to you!"
 }
 text KaolisleGym_Trainer3_Hiker1_Defeat{
     "Gwahaha! We've got a real\n"

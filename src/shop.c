@@ -606,6 +606,16 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
             description = ItemId_GetDescription(item);
         else
             description = gDecorations[item].description;
+        if(item == ITEM_TM_FRUSTRATION)
+            description = gText_FrustrationTM;
+        if(item == ITEM_TM_RETURN)
+            description = gText_ReturnTM;
+        if(item == ITEM_TM_LIGHT_SCREEN)
+            description = gText_LightScreenTM;
+        if(item == ITEM_TM_REFLECT)
+            description = gText_ReflectTM;
+        if(item == ITEM_TM_SAFEGUARD)
+            description = gText_SafeguardTM;
     }
     else
     {

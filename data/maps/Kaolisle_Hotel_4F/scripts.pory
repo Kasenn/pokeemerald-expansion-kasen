@@ -80,9 +80,9 @@ text Kaolisle_Hotel_4F_Woman4_Text{
     "It's from an article in Pokémon Pal.\p"
     "“Press the START Button while in a bag\n"
     "to sort the items.\l"
-    "TMs & HMs as well as Berries pocket\l"
-    "return to their original order when\l"
-    "closing and re-opening your bag.”"
+    "The Berry pocket will return to\l"
+    "its original order when closing and\l"
+    "re-opening your bag.”"
 }
 text Kaolisle_Hotel_4F_FinnishGuy_Text{
     "Olen tullut tänne lomailemaan,\n"

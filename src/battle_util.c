@@ -9626,7 +9626,18 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
         break;
     case HOLD_EFFECT_EVIOLITE:
-        if (CanEvolve(gBattleMons[battlerDef].species))
+        if ((CanEvolve(gBattleMons[battlerDef].species))
+        && ((gBattleMons[battlerDef].species != SPECIES_ARCANINE)
+        || (gBattleMons[battlerDef].species != SPECIES_ELECTRODE)
+        || (gBattleMons[battlerDef].species != SPECIES_TYPHLOSION)
+        || (gBattleMons[battlerDef].species != SPECIES_QWILFISH)
+        || (gBattleMons[battlerDef].species != SPECIES_SAMUROTT)
+        || (gBattleMons[battlerDef].species != SPECIES_LILLIGANT)
+        || (gBattleMons[battlerDef].species != SPECIES_ZOROARK)
+        || (gBattleMons[battlerDef].species != SPECIES_BRAVIARY)
+        || (gBattleMons[battlerDef].species != SPECIES_GOODRA)
+        || (gBattleMons[battlerDef].species != SPECIES_DECIDUEYE)
+        || (gBattleMons[battlerDef].species != SPECIES_AVALUGG)))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
     case HOLD_EFFECT_ASSAULT_VEST:

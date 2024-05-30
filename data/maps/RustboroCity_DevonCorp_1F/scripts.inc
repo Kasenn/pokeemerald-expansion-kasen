@@ -59,18 +59,22 @@ Update3_4:
 	compare VAR_RESULT, TRUE
 	goto_if_eq Update3_11
 Update3_10:
-	checkitem ITEM_TM_CASE
-	compare VAR_RESULT, FALSE
+	checkitem ITEM_TM49, 2
+	compare VAR_RESULT, TRUE
 	goto_if_eq Update3_20
 Update3_19:
-	checkitem ITEM_TM_GIGA_DRAIN
-	compare VAR_RESULT, TRUE
+	checkitem ITEM_TM_CASE
+	compare VAR_RESULT, FALSE
 	goto_if_eq Update3_26
 Update3_25:
-	msgbox FlagsAndVarsUpdated2, MSGBOX_YESNO
+	checkitem ITEM_TM_GIGA_DRAIN
 	compare VAR_RESULT, TRUE
 	goto_if_eq Update3_32
 Update3_31:
+	msgbox FlagsAndVarsUpdated2, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
+	goto_if_eq Update3_38
+Update3_37:
 	closemessage
 	release
 	end
@@ -106,13 +110,13 @@ Update3_28:
 	goto_if_eq Update3_35
 Update3_34:
 	checktrainerflag TRAINER_GABBY_AND_TY_1
-	goto_if 1, Update3_38
-Update3_37:
-	checktrainerflag TRAINER_MARY
 	goto_if 1, Update3_41
 Update3_40:
+	checktrainerflag TRAINER_MARY
+	goto_if 1, Update3_44
+Update3_43:
 	checktrainerflag TRAINER_KAOLGYM_CLAY
-	goto_if 1, Update3_43
+	goto_if 1, Update3_46
 	goto Update3_1
 
 Update3_5:
@@ -140,7 +144,8 @@ Update3_17:
 	goto Update3_16
 
 Update3_20:
-	giveitem ITEM_TM_CASE
+	removeitem ITEM_TM49, 1
+	giveitem ITEM_TM_ROCK_SLIDE
 	goto Update3_19
 
 Update3_23:
@@ -148,9 +153,7 @@ Update3_23:
 	goto Update3_22
 
 Update3_26:
-	msgbox ReplacedGrassKnot
-	removeitem ITEM_TM_GIGA_DRAIN
-	additem ITEM_TM_GRASS_KNOT
+	giveitem ITEM_TM_CASE
 	goto Update3_25
 
 Update3_29:
@@ -158,7 +161,9 @@ Update3_29:
 	goto Update3_28
 
 Update3_32:
-	warp MAP_CORALGROVE_CITY, 26, 44
+	msgbox ReplacedGrassKnot
+	removeitem ITEM_TM_GIGA_DRAIN
+	additem ITEM_TM_GRASS_KNOT
 	goto Update3_31
 
 Update3_35:
@@ -168,14 +173,18 @@ Update3_35:
 	goto Update3_34
 
 Update3_38:
-	setvar VAR_BADGES_OBTAINED, 1
+	warp MAP_CORALGROVE_CITY, 26, 44
 	goto Update3_37
 
 Update3_41:
-	setvar VAR_BADGES_OBTAINED, 2
+	setvar VAR_BADGES_OBTAINED, 1
 	goto Update3_40
 
-Update3_43:
+Update3_44:
+	setvar VAR_BADGES_OBTAINED, 2
+	goto Update3_43
+
+Update3_46:
 	setvar VAR_BADGES_OBTAINED, 3
 	goto Update3_1
 
@@ -228,7 +237,7 @@ SetTeamLevel_6:
 
 SetTeamLevel_7:
 	msgbox SetTeamLevel_Text_11
-	setpartylevel 40
+	setpartylevel 34
 	goto SetTeamLevel_1
 
 SetTeamLevel_8:
@@ -397,7 +406,7 @@ SetTeamLevel_Text_3:
 	.string "Story 1 (Level 29)$"
 
 SetTeamLevel_Text_4:
-	.string "Gym 3 (Level 40, WIP)$"
+	.string "Gym 3 (Level 34)$"
 
 SetTeamLevel_Text_5:
 	.string "Gym 4 (Level 47, WIP)$"
@@ -418,7 +427,7 @@ SetTeamLevel_Text_10:
 	.string "Team set to level 29.$"
 
 SetTeamLevel_Text_11:
-	.string "Team set to level 40.$"
+	.string "Team set to level 34.$"
 
 SetTeamLevel_Text_12:
 	.string "Team set to level 47.$"
