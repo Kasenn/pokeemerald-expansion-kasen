@@ -35,7 +35,7 @@ script RandomizeMudTile{
             setvar(VAR_MUD_Y, 18)
         case 3:
             setvar(VAR_MUD_X, 46)
-            setvar(VAR_MUD_Y, 6)
+            setvar(VAR_MUD_Y, 7)
         case 4:
             setvar(VAR_MUD_X, 37)
             setvar(VAR_MUD_Y, 8)
@@ -44,10 +44,10 @@ script RandomizeMudTile{
             setvar(VAR_MUD_Y, 8)
         case 7:
             setvar(VAR_MUD_X, 45)
-            setvar(VAR_MUD_Y, 6)
+            setvar(VAR_MUD_Y, 7)
         case 8:
             setvar(VAR_MUD_X, 46)
-            setvar(VAR_MUD_Y, 6)
+            setvar(VAR_MUD_Y, 7)
         case 9:
             setvar(VAR_MUD_X, 46)
             setvar(VAR_MUD_Y, 7)

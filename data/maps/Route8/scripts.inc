@@ -214,7 +214,7 @@ RandomizeMudTile_5:
 
 RandomizeMudTile_6:
 	setvar VAR_MUD_X, 46
-	setvar VAR_MUD_Y, 6
+	setvar VAR_MUD_Y, 7
 	goto RandomizeMudTile_1
 
 RandomizeMudTile_7:
@@ -229,12 +229,12 @@ RandomizeMudTile_8:
 
 RandomizeMudTile_9:
 	setvar VAR_MUD_X, 45
-	setvar VAR_MUD_Y, 6
+	setvar VAR_MUD_Y, 7
 	goto RandomizeMudTile_1
 
 RandomizeMudTile_10:
 	setvar VAR_MUD_X, 46
-	setvar VAR_MUD_Y, 6
+	setvar VAR_MUD_Y, 7
 	goto RandomizeMudTile_1
 
 RandomizeMudTile_11:

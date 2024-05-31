@@ -274,7 +274,6 @@ LootSailGlobal_2:
 
 FossilScriptEnd::
 	waitmessage
-	closemessage
 	release
 	end
 

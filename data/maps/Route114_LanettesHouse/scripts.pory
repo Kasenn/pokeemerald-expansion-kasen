@@ -236,7 +236,7 @@ text PleaseRemoveItemFromTray{
     "fabricating again."
 }
 text Fabricating{
-    "{PLAY_SE SE_ELEVATOR}Fabricating…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PLAY_SE SE_ELEVATOR}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}\n"
+    "{PLAY_SE SE_ELEVATOR}Fabricating…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}\n"
     "{PLAY_SE SE_DING_DONG}Fabrication completed.{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}"
 }
 text BeginFabrication{
@@ -304,6 +304,10 @@ text SampleBoxIntro3{
 }
 
 script ExtractBall{
+    clearflag(FLAG_MUD_WEAK_PRIZE)
+    clearflag(FLAG_MUD_MID_PRIZE)
+    clearflag(FLAG_MUD_GRAND_PRIZE)
+    clearflag(FLAG_MUD_EXTRA_PRIZE)
     if(var(VAR_MUD_BAD_LUCK_PROTECTION) >= 100){
         call(GrandPrizeRandomization)
         setvar(VAR_MUD_BAD_LUCK_PROTECTION, 0)

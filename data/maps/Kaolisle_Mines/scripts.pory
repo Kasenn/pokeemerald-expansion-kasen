@@ -217,7 +217,6 @@ script LootSailGlobal{
 
 script FossilScriptEnd{
     waitmessage
-    closemessage
     release
     end
 }

@@ -165,6 +165,10 @@ LanettesHouse_PC::
 
 
 ExtractBall::
+	clearflag FLAG_MUD_WEAK_PRIZE
+	clearflag FLAG_MUD_MID_PRIZE
+	clearflag FLAG_MUD_GRAND_PRIZE
+	clearflag FLAG_MUD_EXTRA_PRIZE
 	compare VAR_MUD_BAD_LUCK_PROTECTION, 100
 	goto_if_ge ExtractBall_2
 	goto_if_unset FLAG_MUD_INTRO, ExtractBall_5
@@ -710,7 +714,7 @@ PleaseRemoveItemFromTray::
 	.string "fabricating again.$"
 
 Fabricating::
-	.string "{PLAY_SE SE_ELEVATOR}Fabricating…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PLAY_SE SE_ELEVATOR}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}\n"
+	.string "{PLAY_SE SE_ELEVATOR}Fabricating…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}\n"
 	.string "{PLAY_SE SE_DING_DONG}Fabrication completed.{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}$"
 
 BeginFabrication::
