@@ -347,10 +347,10 @@
 #define FLAG_OBTAINED_AMPHAROSITE            0x144
 #define FLAG_R12_XSPEED            0x145
 #define FLAG_MUD_INTRO           0x146
-#define FLAG_MUD_WEAK_PRIZE           0x147
-#define FLAG_MUD_MID_PRIZE           0x148
-#define FLAG_MUD_GRAND_PRIZE           0x149
-#define FLAG_MUD_EXTRA_PRIZE           0x14A
+#define FLAG_UNUSED_147           0x147
+#define FLAG_UNUSED_148           0x148
+#define FLAG_UNUSED_149           0x149
+#define FLAG_UNUSED_14A           0x14A
 #define FLAG_OBTAINED_AERODACTYLITE           0x14B
 #define FLAG_WONDER_CARD_UNUSED_16           0x14C
 #define FLAG_WONDER_CARD_UNUSED_17           0x14D

@@ -13,29 +13,29 @@ SetMudBallLoc::
 	compare VAR_RESULT, FALSE
 	goto_if_eq SetMudBallLoc_2
 SetMudBallLoc_1:
-	goto_if_unset FLAG_MUD_REWARD_WAITING, SetMudBallLoc_5
-SetMudBallLoc_4:
-	clearflag FLAG_MUD_WEAK_PRIZE
-	clearflag FLAG_MUD_MID_PRIZE
-	clearflag FLAG_MUD_GRAND_PRIZE
-	clearflag FLAG_MUD_EXTRA_PRIZE
+	goto_if_unset FLAG_MUD_REWARD_WAITING, SetMudBallLoc_4
+	setvar VAR_MUD_REWARD, 0
 	return
 
 SetMudBallLoc_2:
 	setflag FLAG_MUD_REWARD_WAITING
 	goto SetMudBallLoc_1
 
-SetMudBallLoc_5:
+SetMudBallLoc_4:
 	setobjectxyperm 2, 5, 2
-	goto SetMudBallLoc_4
+	return
 
 
 LanettesHouse_Scientist::
 	buffernumberstring STR_VAR_1, VAR_MUD_BAD_LUCK_PROTECTION
-	goto_if_set FLAG_MUD_WEAK_PRIZE, LanettesHouse_Scientist_2
-	goto_if_set FLAG_MUD_MID_PRIZE, LanettesHouse_Scientist_5
-	goto_if_set FLAG_MUD_GRAND_PRIZE, LanettesHouse_Scientist_8
-	goto_if_set FLAG_MUD_EXTRA_PRIZE, LanettesHouse_Scientist_11
+	compare VAR_MUD_REWARD, 1000
+	goto_if_eq LanettesHouse_Scientist_2
+	compare VAR_MUD_REWARD, 1001
+	goto_if_eq LanettesHouse_Scientist_5
+	compare VAR_MUD_REWARD, 1002
+	goto_if_eq LanettesHouse_Scientist_8
+	compare VAR_MUD_REWARD, 1003
+	goto_if_eq LanettesHouse_Scientist_11
 	compare VAR_MUD_REWARD, 999
 	goto_if_eq LanettesHouse_Scientist_18
 	checkitem ITEM_SAMPLE_BOX
@@ -52,12 +52,12 @@ LanettesHouse_Scientist::
 
 LanettesHouse_Scientist_2:
 	msgbox WeakPrize, MSGBOX_NPC
-	clearflag FLAG_MUD_WEAK_PRIZE
+	setvar VAR_MUD_REWARD, 0
 	end
 
 LanettesHouse_Scientist_5:
 	msgbox MidPrize, MSGBOX_NPC
-	clearflag FLAG_MUD_MID_PRIZE
+	setvar VAR_MUD_REWARD, 0
 	end
 
 LanettesHouse_Scientist_8:
@@ -65,12 +65,12 @@ LanettesHouse_Scientist_8:
 	goto_if_eq LanettesHouse_Scientist_14
 	msgbox GrandPrize, MSGBOX_NPC
 LanettesHouse_Scientist_13:
-	clearflag FLAG_MUD_GRAND_PRIZE
+	setvar VAR_MUD_REWARD, 0
 	end
 
 LanettesHouse_Scientist_11:
 	msgbox ExtraPrize, MSGBOX_NPC
-	clearflag FLAG_MUD_EXTRA_PRIZE
+	setvar VAR_MUD_REWARD, 0
 	end
 
 LanettesHouse_Scientist_14:
@@ -165,10 +165,6 @@ LanettesHouse_PC::
 
 
 ExtractBall::
-	clearflag FLAG_MUD_WEAK_PRIZE
-	clearflag FLAG_MUD_MID_PRIZE
-	clearflag FLAG_MUD_GRAND_PRIZE
-	clearflag FLAG_MUD_EXTRA_PRIZE
 	compare VAR_MUD_BAD_LUCK_PROTECTION, 100
 	goto_if_ge ExtractBall_2
 	goto_if_unset FLAG_MUD_INTRO, ExtractBall_5
@@ -281,7 +277,7 @@ ExtractBall::
 ExtractBall_2:
 	call GrandPrizeRandomization
 	setvar VAR_MUD_BAD_LUCK_PROTECTION, 0
-	setflag FLAG_MUD_EXTRA_PRIZE
+	setvar VAR_MUD_REWARD, 1003
 	end
 
 ExtractBall_5:
@@ -293,216 +289,216 @@ ExtractBall_5:
 ExtractBall_8:
 	finditem ITEM_NORMAL_GEM, 2
 	addvartovar
-	setflag FLAG_MUD_WEAK_PRIZE
+	setvar VAR_MUD_REWARD, 1000
 	return
 
 ExtractBall_9:
 	finditem ITEM_FIRE_GEM, 2
 	addvartovar
-	setflag FLAG_MUD_WEAK_PRIZE
+	setvar VAR_MUD_REWARD, 1000
 	return
 
 ExtractBall_10:
 	finditem ITEM_WATER_GEM, 2
 	addvartovar
-	setflag FLAG_MUD_WEAK_PRIZE
+	setvar VAR_MUD_REWARD, 1000
 	return
 
 ExtractBall_11:
 	finditem ITEM_ELECTRIC_GEM, 2
 	addvartovar
-	setflag FLAG_MUD_WEAK_PRIZE
+	setvar VAR_MUD_REWARD, 1000
 	return
 
 ExtractBall_12:
 	finditem ITEM_GRASS_GEM, 2
 	addvartovar
-	setflag FLAG_MUD_WEAK_PRIZE
+	setvar VAR_MUD_REWARD, 1000
 	return
 
 ExtractBall_13:
 	finditem ITEM_ICE_GEM, 2
 	addvartovar
-	setflag FLAG_MUD_WEAK_PRIZE
+	setvar VAR_MUD_REWARD, 1000
 	return
 
 ExtractBall_14:
 	finditem ITEM_FIGHTING_GEM, 2
 	addvartovar
-	setflag FLAG_MUD_WEAK_PRIZE
+	setvar VAR_MUD_REWARD, 1000
 	return
 
 ExtractBall_15:
 	finditem ITEM_POISON_GEM, 2
 	addvartovar
-	setflag FLAG_MUD_WEAK_PRIZE
+	setvar VAR_MUD_REWARD, 1000
 	return
 
 ExtractBall_16:
 	finditem ITEM_GROUND_GEM, 2
 	addvartovar
-	setflag FLAG_MUD_WEAK_PRIZE
+	setvar VAR_MUD_REWARD, 1000
 	return
 
 ExtractBall_17:
 	finditem ITEM_FLYING_GEM, 2
 	addvartovar
-	setflag FLAG_MUD_WEAK_PRIZE
+	setvar VAR_MUD_REWARD, 1000
 	return
 
 ExtractBall_18:
 	finditem ITEM_PSYCHIC_GEM, 2
 	addvartovar
-	setflag FLAG_MUD_WEAK_PRIZE
+	setvar VAR_MUD_REWARD, 1000
 	return
 
 ExtractBall_19:
 	finditem ITEM_BUG_GEM, 2
 	addvartovar
-	setflag FLAG_MUD_WEAK_PRIZE
+	setvar VAR_MUD_REWARD, 1000
 	return
 
 ExtractBall_20:
 	finditem ITEM_ROCK_GEM, 2
 	addvartovar
-	setflag FLAG_MUD_WEAK_PRIZE
+	setvar VAR_MUD_REWARD, 1000
 	return
 
 ExtractBall_21:
 	finditem ITEM_GHOST_GEM, 2
 	addvartovar
-	setflag FLAG_MUD_WEAK_PRIZE
+	setvar VAR_MUD_REWARD, 1000
 	return
 
 ExtractBall_22:
 	finditem ITEM_DRAGON_GEM, 2
 	addvartovar
-	setflag FLAG_MUD_WEAK_PRIZE
+	setvar VAR_MUD_REWARD, 1000
 	return
 
 ExtractBall_23:
 	finditem ITEM_DARK_GEM, 2
 	addvartovar
-	setflag FLAG_MUD_WEAK_PRIZE
+	setvar VAR_MUD_REWARD, 1000
 	return
 
 ExtractBall_24:
 	finditem ITEM_STEEL_GEM, 2
 	addvartovar
-	setflag FLAG_MUD_WEAK_PRIZE
+	setvar VAR_MUD_REWARD, 1000
 	return
 
 ExtractBall_25:
 	finditem ITEM_FAIRY_GEM, 2
 	addvartovar
-	setflag FLAG_MUD_WEAK_PRIZE
+	setvar VAR_MUD_REWARD, 1000
 	return
 
 ExtractBall_26:
 	finditem ITEM_NUGGET
 	addvartovar
-	setflag FLAG_MUD_MID_PRIZE
+	setvar VAR_MUD_REWARD, 1001
 	return
 
 ExtractBall_27:
 	finditem ITEM_PEARL, 2
 	addvartovar
-	setflag FLAG_MUD_MID_PRIZE
+	setvar VAR_MUD_REWARD, 1001
 	return
 
 ExtractBall_28:
 	finditem ITEM_RARE_BONE
 	addvartovar
-	setflag FLAG_MUD_MID_PRIZE
+	setvar VAR_MUD_REWARD, 1001
 	return
 
 ExtractBall_29:
 	finditem ITEM_RELIC_COPPER, 3
 	addvartovar
-	setflag FLAG_MUD_MID_PRIZE
+	setvar VAR_MUD_REWARD, 1001
 	return
 
 ExtractBall_30:
 	finditem ITEM_RELIC_SILVER
 	addvartovar
-	setflag FLAG_MUD_MID_PRIZE
+	setvar VAR_MUD_REWARD, 1001
 	return
 
 ExtractBall_31:
 	finditem ITEM_HEART_SCALE
 	addvartovar
-	setflag FLAG_MUD_MID_PRIZE
+	setvar VAR_MUD_REWARD, 1001
 	return
 
 ExtractBall_32:
 	finditem ITEM_BIG_NUGGET
 	addvartovar
-	setflag FLAG_MUD_MID_PRIZE
+	setvar VAR_MUD_REWARD, 1001
 	return
 
 ExtractBall_33:
 	finditem ITEM_BIG_PEARL
 	addvartovar
-	setflag FLAG_MUD_MID_PRIZE
+	setvar VAR_MUD_REWARD, 1001
 	return
 
 ExtractBall_34:
 	finditem ITEM_RED_SHARD
 	addvartovar
-	setflag FLAG_MUD_MID_PRIZE
+	setvar VAR_MUD_REWARD, 1001
 	return
 
 ExtractBall_35:
 	finditem ITEM_BLUE_SHARD
 	addvartovar
-	setflag FLAG_MUD_MID_PRIZE
+	setvar VAR_MUD_REWARD, 1001
 	return
 
 ExtractBall_36:
 	finditem ITEM_YELLOW_SHARD
 	addvartovar
-	setflag FLAG_MUD_MID_PRIZE
+	setvar VAR_MUD_REWARD, 1001
 	return
 
 ExtractBall_37:
 	finditem ITEM_GREEN_SHARD
 	addvartovar
-	setflag FLAG_MUD_MID_PRIZE
+	setvar VAR_MUD_REWARD, 1001
 	return
 
 ExtractBall_38:
 	finditem ITEM_BIG_PEARL
 	addvartovar
-	setflag FLAG_MUD_MID_PRIZE
+	setvar VAR_MUD_REWARD, 1001
 	return
 
 ExtractBall_39:
 	finditem ITEM_RED_SHARD
 	addvartovar
-	setflag FLAG_MUD_MID_PRIZE
+	setvar VAR_MUD_REWARD, 1001
 	return
 
 ExtractBall_40:
 	finditem ITEM_BLUE_SHARD
 	addvartovar
-	setflag FLAG_MUD_MID_PRIZE
+	setvar VAR_MUD_REWARD, 1001
 	return
 
 ExtractBall_41:
 	finditem ITEM_YELLOW_SHARD
 	addvartovar
-	setflag FLAG_MUD_MID_PRIZE
+	setvar VAR_MUD_REWARD, 1001
 	return
 
 ExtractBall_42:
 	finditem ITEM_GREEN_SHARD
 	addvartovar
-	setflag FLAG_MUD_MID_PRIZE
+	setvar VAR_MUD_REWARD, 1001
 	return
 
 ExtractBall_43:
 	call GrandPrizeRandomization
-	setflag FLAG_MUD_GRAND_PRIZE
+	setvar VAR_MUD_REWARD, 1002
 	return
 
 
@@ -581,19 +577,19 @@ GrandPrizeRandomization_16:
 	goto GrandPrizeRandomization_6
 
 GrandPrizeRandomization_19:
-	addvar VAR_TEMP_6, 1
+	goto GrandPrizeLoop
 	goto GrandPrizeRandomization_18
 
 GrandPrizeRandomization_22:
-	addvar VAR_TEMP_6, 1
+	goto GrandPrizeLoop
 	goto GrandPrizeRandomization_21
 
 GrandPrizeRandomization_25:
-	addvar VAR_TEMP_6, 1
+	goto GrandPrizeLoop
 	goto GrandPrizeRandomization_24
 
 GrandPrizeRandomization_28:
-	addvar VAR_TEMP_6, 1
+	goto GrandPrizeLoop
 	goto GrandPrizeRandomization_27
 
 GrandPrizeRandomization_30:
@@ -610,6 +606,11 @@ GrandPrizeRandomization_32:
 
 GrandPrizeRandomization_34:
 	finditem ITEM_BIG_NUGGET, 2
+	return
+
+
+GrandPrizeLoop::
+	goto GrandPrizeRandomization
 	return
 
 

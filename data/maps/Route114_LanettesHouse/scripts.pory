@@ -23,10 +23,9 @@ script SetMudBallLoc{
     if(!flag(FLAG_MUD_REWARD_WAITING)){
         setobjectxyperm(2, 5, 2)
     }
-    clearflag(FLAG_MUD_WEAK_PRIZE)
-    clearflag(FLAG_MUD_MID_PRIZE)
-    clearflag(FLAG_MUD_GRAND_PRIZE)
-    clearflag(FLAG_MUD_EXTRA_PRIZE)
+    else{
+        setvar(VAR_MUD_REWARD, 0)
+    }
 }
 
 text WeakPrize{
@@ -100,29 +99,29 @@ text NotEnoughMudSamples{
 
 script LanettesHouse_Scientist{
     buffernumberstring(STR_VAR_1, VAR_MUD_BAD_LUCK_PROTECTION)
-    if(flag(FLAG_MUD_WEAK_PRIZE)){
+    if(var(VAR_MUD_REWARD) == 1000){
         msgbox(WeakPrize, MSGBOX_NPC)
-        clearflag(FLAG_MUD_WEAK_PRIZE)
+        setvar(VAR_MUD_REWARD, 0)
         end
     }
-    if(flag(FLAG_MUD_MID_PRIZE)){
+    if(var(VAR_MUD_REWARD) == 1001){
         msgbox(MidPrize, MSGBOX_NPC)
-        clearflag(FLAG_MUD_MID_PRIZE)
+        setvar(VAR_MUD_REWARD, 0)
         end
     }
-    if(flag(FLAG_MUD_GRAND_PRIZE)){
+    if(var(VAR_MUD_REWARD) == 1002){
         if(var(VAR_MUD_BAD_LUCK_PROTECTION) == 0){
             msgbox(GrandPrizeFirstTime, MSGBOX_NPC)
         }
         else{
             msgbox(GrandPrize, MSGBOX_NPC)
         }
-        clearflag(FLAG_MUD_GRAND_PRIZE)
+        setvar(VAR_MUD_REWARD, 0)
         end
     }
-    if(flag(FLAG_MUD_EXTRA_PRIZE)){
+    if(var(VAR_MUD_REWARD) == 1003){
         msgbox(ExtraPrize, MSGBOX_NPC)
-        clearflag(FLAG_MUD_EXTRA_PRIZE)
+        setvar(VAR_MUD_REWARD, 0)
         end
     }
 
@@ -304,14 +303,10 @@ text SampleBoxIntro3{
 }
 
 script ExtractBall{
-    clearflag(FLAG_MUD_WEAK_PRIZE)
-    clearflag(FLAG_MUD_MID_PRIZE)
-    clearflag(FLAG_MUD_GRAND_PRIZE)
-    clearflag(FLAG_MUD_EXTRA_PRIZE)
     if(var(VAR_MUD_BAD_LUCK_PROTECTION) >= 100){
         call(GrandPrizeRandomization)
         setvar(VAR_MUD_BAD_LUCK_PROTECTION, 0)
-        setflag(FLAG_MUD_EXTRA_PRIZE)
+        setvar(VAR_MUD_REWARD, 1003)
         end
     }
     if(!flag(FLAG_MUD_INTRO)){
@@ -328,197 +323,197 @@ script ExtractBall{
         case 1:
             finditem(ITEM_NORMAL_GEM, 2)
             addvartovar
-            setflag(FLAG_MUD_WEAK_PRIZE)
+            setvar(VAR_MUD_REWARD, 1000)
         case 2:
         case 3:
             finditem(ITEM_FIRE_GEM, 2)
             addvartovar
-            setflag(FLAG_MUD_WEAK_PRIZE)
+            setvar(VAR_MUD_REWARD, 1000)
         case 4:
         case 5:
             finditem(ITEM_WATER_GEM, 2)
             addvartovar
-            setflag(FLAG_MUD_WEAK_PRIZE)
+            setvar(VAR_MUD_REWARD, 1000)
         case 6:
         case 7:
             finditem(ITEM_ELECTRIC_GEM, 2)
             addvartovar
-            setflag(FLAG_MUD_WEAK_PRIZE)
+            setvar(VAR_MUD_REWARD, 1000)
         case 8:
         case 9:
             finditem(ITEM_GRASS_GEM, 2)
             addvartovar
-            setflag(FLAG_MUD_WEAK_PRIZE)
+            setvar(VAR_MUD_REWARD, 1000)
         case 10:
         case 11:
             finditem(ITEM_ICE_GEM, 2)
             addvartovar
-            setflag(FLAG_MUD_WEAK_PRIZE)
+            setvar(VAR_MUD_REWARD, 1000)
         case 12:
         case 13:
             finditem(ITEM_FIGHTING_GEM, 2)
             addvartovar
-            setflag(FLAG_MUD_WEAK_PRIZE)
+            setvar(VAR_MUD_REWARD, 1000)
         case 14:
         case 15:
             finditem(ITEM_POISON_GEM, 2)
             addvartovar
-            setflag(FLAG_MUD_WEAK_PRIZE)
+            setvar(VAR_MUD_REWARD, 1000)
         case 16:
         case 17:
             finditem(ITEM_GROUND_GEM, 2)
             addvartovar
-            setflag(FLAG_MUD_WEAK_PRIZE)
+            setvar(VAR_MUD_REWARD, 1000)
         case 18:
         case 19:
             finditem(ITEM_FLYING_GEM, 2)
             addvartovar
-            setflag(FLAG_MUD_WEAK_PRIZE)
+            setvar(VAR_MUD_REWARD, 1000)
         case 20:
         case 21:
             finditem(ITEM_PSYCHIC_GEM, 2)
             addvartovar
-            setflag(FLAG_MUD_WEAK_PRIZE)
+            setvar(VAR_MUD_REWARD, 1000)
         case 22:
         case 23:
             finditem(ITEM_BUG_GEM, 2)
             addvartovar
-            setflag(FLAG_MUD_WEAK_PRIZE)
+            setvar(VAR_MUD_REWARD, 1000)
         case 24:
         case 25:
             finditem(ITEM_ROCK_GEM, 2)
             addvartovar
-            setflag(FLAG_MUD_WEAK_PRIZE)
+            setvar(VAR_MUD_REWARD, 1000)
         case 26:
         case 27:
             finditem(ITEM_GHOST_GEM, 2)
             addvartovar
-            setflag(FLAG_MUD_WEAK_PRIZE)
+            setvar(VAR_MUD_REWARD, 1000)
         case 28:
         case 29:
             finditem(ITEM_DRAGON_GEM, 2)
             addvartovar
-            setflag(FLAG_MUD_WEAK_PRIZE)
+            setvar(VAR_MUD_REWARD, 1000)
         case 30:
         case 31:
             finditem(ITEM_DARK_GEM, 2)
             addvartovar
-            setflag(FLAG_MUD_WEAK_PRIZE)
+            setvar(VAR_MUD_REWARD, 1000)
         case 32:
         case 33:
             finditem(ITEM_STEEL_GEM, 2)
             addvartovar
-            setflag(FLAG_MUD_WEAK_PRIZE)
+            setvar(VAR_MUD_REWARD, 1000)
         case 34:
         case 35:
             finditem(ITEM_FAIRY_GEM, 2)
             addvartovar
-            setflag(FLAG_MUD_WEAK_PRIZE)
+            setvar(VAR_MUD_REWARD, 1000)
         case 36:
         case 37:
         case 38:
         case 39:
             finditem(ITEM_NUGGET)
             addvartovar
-            setflag(FLAG_MUD_MID_PRIZE)
+            setvar(VAR_MUD_REWARD, 1001)
         case 40:
         case 41:
         case 42:
         case 43:
             finditem(ITEM_PEARL, 2)
             addvartovar
-            setflag(FLAG_MUD_MID_PRIZE)
+            setvar(VAR_MUD_REWARD, 1001)
         case 44:
         case 45:
         case 46:
         case 47:
             finditem(ITEM_RARE_BONE)
             addvartovar
-            setflag(FLAG_MUD_MID_PRIZE)
+            setvar(VAR_MUD_REWARD, 1001)
         case 48:
         case 49:
         case 50:
         case 51:
             finditem(ITEM_RELIC_COPPER, 3)
             addvartovar
-            setflag(FLAG_MUD_MID_PRIZE)
+            setvar(VAR_MUD_REWARD, 1001)
         case 52:
         case 53:
         case 54:
         case 55:
             finditem(ITEM_RELIC_SILVER)
             addvartovar
-            setflag(FLAG_MUD_MID_PRIZE)
+            setvar(VAR_MUD_REWARD, 1001)
         case 56:
         case 57:
         case 58:
         case 59:
             finditem(ITEM_HEART_SCALE)
             addvartovar
-            setflag(FLAG_MUD_MID_PRIZE)
+            setvar(VAR_MUD_REWARD, 1001)
         case 60:
         case 61:
         case 62:
         case 63:
             finditem(ITEM_BIG_NUGGET)
             addvartovar
-            setflag(FLAG_MUD_MID_PRIZE)
+            setvar(VAR_MUD_REWARD, 1001)
         case 64:
         case 65:
         case 66:
         case 67:
             finditem(ITEM_BIG_PEARL)
             addvartovar
-            setflag(FLAG_MUD_MID_PRIZE)
+            setvar(VAR_MUD_REWARD, 1001)
         case 68:
         case 69:
         case 70:
         case 71:
             finditem(ITEM_RED_SHARD)
             addvartovar
-            setflag(FLAG_MUD_MID_PRIZE)
+            setvar(VAR_MUD_REWARD, 1001)
         case 72:
         case 73:
         case 74:
         case 75:
             finditem(ITEM_BLUE_SHARD)
             addvartovar
-            setflag(FLAG_MUD_MID_PRIZE)
+            setvar(VAR_MUD_REWARD, 1001)
         case 76:
         case 77:
         case 78:
         case 79:
             finditem(ITEM_YELLOW_SHARD)
             addvartovar
-            setflag(FLAG_MUD_MID_PRIZE)
+            setvar(VAR_MUD_REWARD, 1001)
         case 80:
         case 81:
         case 82:
         case 83:
             finditem(ITEM_GREEN_SHARD)
             addvartovar
-            setflag(FLAG_MUD_MID_PRIZE)
+            setvar(VAR_MUD_REWARD, 1001)
         case 84:
             finditem(ITEM_BIG_PEARL)
             addvartovar
-            setflag(FLAG_MUD_MID_PRIZE)
+            setvar(VAR_MUD_REWARD, 1001)
         case 85:
             finditem(ITEM_RED_SHARD)
             addvartovar
-            setflag(FLAG_MUD_MID_PRIZE)
+            setvar(VAR_MUD_REWARD, 1001)
         case 86:
             finditem(ITEM_BLUE_SHARD)
             addvartovar
-            setflag(FLAG_MUD_MID_PRIZE)
+            setvar(VAR_MUD_REWARD, 1001)
         case 87:
             finditem(ITEM_YELLOW_SHARD)
             addvartovar
-            setflag(FLAG_MUD_MID_PRIZE)
+            setvar(VAR_MUD_REWARD, 1001)
         case 88:
         case 89:
             finditem(ITEM_GREEN_SHARD)
             addvartovar
-            setflag(FLAG_MUD_MID_PRIZE)
+            setvar(VAR_MUD_REWARD, 1001)
         case 90:
         case 91:
         case 92:
@@ -530,7 +525,7 @@ script ExtractBall{
         case 98:
         case 99:
             call(GrandPrizeRandomization)
-            setflag(FLAG_MUD_GRAND_PRIZE)
+            setvar(VAR_MUD_REWARD, 1002)
     }
 }
 
@@ -562,29 +557,33 @@ script GrandPrizeRandomization{
         case 0:
             checkitem(ITEM_FOSSILIZED_BIRD)
             if(var(VAR_RESULT) == TRUE){
-                addvar(VAR_TEMP_6, 1)
+                goto(GrandPrizeLoop)
             }
             finditem(ITEM_FOSSILIZED_BIRD)
         case 1:
             checkitem(ITEM_FOSSILIZED_DINO)
             if(var(VAR_RESULT) == TRUE){
-                addvar(VAR_TEMP_6, 1)
+                goto(GrandPrizeLoop)
             }
             finditem(ITEM_FOSSILIZED_DINO)
         case 2:
             checkitem(ITEM_FOSSILIZED_DRAKE)
             if(var(VAR_RESULT) == TRUE){
-                addvar(VAR_TEMP_6, 1)
+                goto(GrandPrizeLoop)
             }
             finditem(ITEM_FOSSILIZED_DRAKE)
         case 3:
             checkitem(ITEM_FOSSILIZED_FISH)
             if(var(VAR_RESULT) == TRUE){
-                addvar(VAR_TEMP_6, 1)
+                goto(GrandPrizeLoop)
             }
             finditem(ITEM_FOSSILIZED_FISH)
         case 4:
             finditem(ITEM_ANCIENT_STONE)
     }
     return
+}
+
+script GrandPrizeLoop{
+    goto(GrandPrizeRandomization)
 }
