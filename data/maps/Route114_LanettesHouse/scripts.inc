@@ -567,13 +567,17 @@ GrandPrizeRandomization_27:
 	goto GrandPrizeRandomization_9
 
 GrandPrizeRandomization_15:
+	checkitem ITEM_ANCIENT_STONE, 3
+	compare VAR_RESULT, TRUE
+	goto_if_eq GrandPrizeRandomization_31
+GrandPrizeRandomization_30:
 	finditem ITEM_ANCIENT_STONE
 	goto GrandPrizeRandomization_9
 
 GrandPrizeRandomization_16:
 	checkitem ITEM_FOSSILIZED_DINO
 	compare VAR_RESULT, TRUE
-	goto_if_eq GrandPrizeRandomization_30
+	goto_if_eq GrandPrizeRandomization_33
 	goto GrandPrizeRandomization_6
 
 GrandPrizeRandomization_19:
@@ -592,21 +596,33 @@ GrandPrizeRandomization_28:
 	goto GrandPrizeLoop
 	goto GrandPrizeRandomization_27
 
-GrandPrizeRandomization_30:
+GrandPrizeRandomization_31:
+	goto GrandPrizeLoop
+	goto GrandPrizeRandomization_30
+
+GrandPrizeRandomization_33:
 	checkitem ITEM_FOSSILIZED_DRAKE
 	compare VAR_RESULT, TRUE
-	goto_if_eq GrandPrizeRandomization_32
+	goto_if_eq GrandPrizeRandomization_35
 	goto GrandPrizeRandomization_6
 
-GrandPrizeRandomization_32:
+GrandPrizeRandomization_35:
 	checkitem ITEM_FOSSILIZED_FISH
 	compare VAR_RESULT, TRUE
-	goto_if_eq GrandPrizeRandomization_34
+	goto_if_eq GrandPrizeRandomization_37
 	goto GrandPrizeRandomization_6
 
-GrandPrizeRandomization_34:
-	finditem ITEM_BIG_NUGGET, 2
+GrandPrizeRandomization_37:
+	random 10
+	compare VAR_RESULT, 2
+	goto_if_ge GrandPrizeRandomization_40
+	finditem ITEM_ANCIENT_STONE
+GrandPrizeRandomization_39:
 	return
+
+GrandPrizeRandomization_40:
+	finditem ITEM_BIG_NUGGET, 2
+	goto GrandPrizeRandomization_39
 
 
 GrandPrizeLoop::

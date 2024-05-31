@@ -544,7 +544,13 @@ script GrandPrizeRandomization{
                 if(var(VAR_RESULT) == TRUE){
                     checkitem(ITEM_FOSSILIZED_FISH)
                     if(var(VAR_RESULT) == TRUE){
-                        finditem(ITEM_BIG_NUGGET, 2)
+                        random(10)
+                        if(var(VAR_RESULT) >= 2){
+                            finditem(ITEM_BIG_NUGGET, 2)
+                        }
+                        else{
+                            finditem(ITEM_ANCIENT_STONE)
+                        }
                         return
                     }
                 }
@@ -579,6 +585,10 @@ script GrandPrizeRandomization{
             }
             finditem(ITEM_FOSSILIZED_FISH)
         case 4:
+            checkitem(ITEM_ANCIENT_STONE, 3)
+            if(var(VAR_RESULT) == TRUE){
+                goto(GrandPrizeLoop)
+            }
             finditem(ITEM_ANCIENT_STONE)
     }
     return
