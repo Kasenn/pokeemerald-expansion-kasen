@@ -76,7 +76,7 @@ Sandstone_BigHouse2_3F_PC::
 	msgbox InstallingAV, MSGBOX_DEFAULT
 	removeitem ITEM_ANTIVIRUS
 	setvar VAR_SANDSTONEPORYGON_STATE, 3
-	setwildbattle SPECIES_PORYGON, 35
+	setwildbattle SPECIES_PORYGON, 30
 	dowildbattle
 	goto PCAftermath
 	return

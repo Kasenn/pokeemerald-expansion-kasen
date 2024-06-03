@@ -5648,6 +5648,22 @@ bool8 IsLevelCapped(struct Pokemon *mon)
             return FALSE;
         }
     }
+    if(VarGet(VAR_POKECENTER_TRAINING) == 6){
+        if(level >= 34){
+            return TRUE;
+        }
+        else{
+            return FALSE;
+        }
+    }
+    if(VarGet(VAR_POKECENTER_TRAINING) == 7){
+        if(level >= 38){
+            return TRUE;
+        }
+        else{
+            return FALSE;
+        }
+    }
     return 0;
 }
 

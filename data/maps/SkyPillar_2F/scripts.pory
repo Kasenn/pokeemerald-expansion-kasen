@@ -291,15 +291,123 @@ script TestFollower{
 script MakeNewTeam{
     lock
     facefollower
-    if(var(VAR_TEMP_6) == 1){
-        msgbox(LetsFindKorrina)
+    switch(var(VAR_FIRST_MON)){
+        case 0:
+            bufferspeciesname(STR_VAR_1, SPECIES_STARAPTOR)
+        case 1:
+            checkplayergender
+            if(var(VAR_RESULT) == MALE){
+                bufferspeciesname(STR_VAR_1, SPECIES_GALLADE)
+            }
+            else{
+                bufferspeciesname(STR_VAR_1, SPECIES_GARDEVOIR)
+            }
+        case 2:
+            bufferspeciesname(STR_VAR_1, SPECIES_CLODSIRE)
+        case 3:
+            bufferspeciesname(STR_VAR_1, SPECIES_CRUSTLE)
+        case 4:
+            switch(var(VAR_STARTER_MON)){
+                case 0:
+                    bufferspeciesname(STR_VAR_1, SPECIES_BLAZIKEN)
+                case 1:
+                    bufferspeciesname(STR_VAR_1, SPECIES_EMPOLEON)
+                case 2:
+                    bufferspeciesname(STR_VAR_1, SPECIES_DECIDUEYE)
+            }
     }
-    else{
-        msgbox(KeepYouHealthy)
+    switch(var(VAR_SECOND_MON)){
+        case 0:
+            bufferspeciesname(STR_VAR_2, SPECIES_STARAPTOR)
+        case 1:
+            checkplayergender
+            if(var(VAR_RESULT) == MALE){
+                bufferspeciesname(STR_VAR_2, SPECIES_GALLADE)
+            }
+            else{
+                bufferspeciesname(STR_VAR_2, SPECIES_GARDEVOIR)
+            }
+        case 2:
+            bufferspeciesname(STR_VAR_2, SPECIES_CLODSIRE)
+        case 3:
+            bufferspeciesname(STR_VAR_2, SPECIES_CRUSTLE)
+        case 4:
+            switch(var(VAR_STARTER_MON)){
+                case 0:
+                    bufferspeciesname(STR_VAR_2, SPECIES_BLAZIKEN)
+                case 1:
+                    bufferspeciesname(STR_VAR_2, SPECIES_EMPOLEON)
+                case 2:
+                    bufferspeciesname(STR_VAR_2, SPECIES_DECIDUEYE)
+            }
     }
-    closemessage
+    switch(var(VAR_THIRD_MON)){
+        case 0:
+            bufferspeciesname(STR_VAR_3, SPECIES_STARAPTOR)
+        case 1:
+            checkplayergender
+            if(var(VAR_RESULT) == MALE){
+                bufferspeciesname(STR_VAR_3, SPECIES_GALLADE)
+            }
+            else{
+                bufferspeciesname(STR_VAR_3, SPECIES_GARDEVOIR)
+            }
+        case 2:
+            bufferspeciesname(STR_VAR_3, SPECIES_CLODSIRE)
+        case 3:
+            bufferspeciesname(STR_VAR_3, SPECIES_CRUSTLE)
+        case 4:
+            switch(var(VAR_STARTER_MON)){
+                case 0:
+                    bufferspeciesname(STR_VAR_3, SPECIES_BLAZIKEN)
+                case 1:
+                    bufferspeciesname(STR_VAR_3, SPECIES_EMPOLEON)
+                case 2:
+                    bufferspeciesname(STR_VAR_3, SPECIES_DECIDUEYE)
+            }
+    }
+    msgbox(CurrentlyUsing, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox("{RIVAL}: Okay.\nLet's go then!", MSGBOX_NPC)
+        end
+    }
+    goto(MakeNewTeam_Setup)
+}
+script BeginPartnerSetupLoop2{
+    goto(MakeNewTeam_Setup)
+}
+script MakeNewTeam_Setup{
+    setvar(VAR_FIRST_MON, 10)
+    setvar(VAR_SECOND_MON, 11)
+    setvar(VAR_THIRD_MON, 12)
+    message("Which Pokémon should I\nlead with?")
+    waitmessage
+    call(RivalFirstPokemon)
+    message("Which one should be my\nsecond Pokémon?")
+    waitmessage
+    call(RivalSecondPokemon)
+    message("And which one should I pick\nas my third Pokémon?")
+    waitmessage
+    call(RivalThirdPokemon)
+    msgbox(WantMeToUse, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        goto(BeginPartnerSetupLoop2)
+    }
+    msgbox(OkayRivalLetsGo, MSGBOX_NPC)
     release
     end
+}
+text OkayRivalLetsGo{
+    "Okay then, let's go!"
+}
+text WantMeToUse{
+    "So, you want me to use {STR_VAR_1},\n"
+    "{STR_VAR_2}, and {STR_VAR_3}?"
+}
+text CurrentlyUsing{
+    "{RIVAL}: My current team is {STR_VAR_1},\n"
+    "{STR_VAR_2}, and {STR_VAR_3}.\p"
+    "Want me to change Pokémon?"
 }
 text KeepYouHealthy{
     "{RIVAL}: Don't worry, I'll keep your\n"
@@ -376,13 +484,304 @@ script MeetingRivalInTheTower{
         }
     }
     closemessage
+    setvar(VAR_TEMP_3, 1)
     setvar(VAR_RIVAL_AROUND_SANDSTONE, 3)
     setflag(FLAG_PARTNER_HEALS)
     loadword(0, MakeNewTeam)
     special(HealPlayerParty)
     setfollower(6, FOLLOWER_FLAG_ALL)
+    msgbox(InitialPartnerSetup)
+    goto(BeginPartnerSetup)
+}
+
+script BeginPartnerSetup{
+    setvar(VAR_FIRST_MON, 10)
+    setvar(VAR_SECOND_MON, 11)
+    setvar(VAR_THIRD_MON, 12)
+    message(WhichShouldRivalChooseFirst)
+    waitmessage
+    call(RivalFirstPokemon)
+    message(WhichShouldRivalChooseSecond)
+    waitmessage
+    call(RivalSecondPokemon)
+    message(WhichShouldRivalChooseThird)
+    waitmessage
+    call(RivalThirdPokemon)
+    msgbox(RivalUses, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        goto(BeginPartnerSetupLoop)
+    }
+    checkplayergender
+    if(var(VAR_RESULT) == MALE){
+        msgbox(SpeakToMayAgain)
+    }
+    else{
+        msgbox(SpeakToBrendanAgain)
+    }
+    setvar(VAR_TEMP_3, 0)
     release
     end
+}
+script BeginPartnerSetupLoop{
+    goto(BeginPartnerSetup)
+}
+
+script RivalFirstPokemon{
+    call(DynMultiPartner)
+    dynmultistack(23, 0, TRUE, 5, FALSE, 0, NULL)
+	switch(var(VAR_RESULT)){
+        case 0:
+            setvar(VAR_FIRST_MON, 0)
+            bufferspeciesname(STR_VAR_1, SPECIES_STARAPTOR)
+        case 1:
+            checkplayergender
+            setvar(VAR_FIRST_MON, 1)
+            if(var(VAR_RESULT) == MALE){
+                bufferspeciesname(STR_VAR_1, SPECIES_GALLADE)
+            }
+            else{
+                bufferspeciesname(STR_VAR_1, SPECIES_GARDEVOIR)
+            }
+        case 2:
+            setvar(VAR_FIRST_MON, 2)
+            bufferspeciesname(STR_VAR_1, SPECIES_CLODSIRE)
+        case 3:
+            setvar(VAR_FIRST_MON, 3)
+            bufferspeciesname(STR_VAR_1, SPECIES_CRUSTLE)
+        case 4:
+            setvar(VAR_FIRST_MON, 4)
+            switch(var(VAR_STARTER_MON)){
+                case 0:
+                    bufferspeciesname(STR_VAR_1, SPECIES_BLAZIKEN)
+                case 1:
+                    bufferspeciesname(STR_VAR_1, SPECIES_EMPOLEON)
+                case 2:
+                    bufferspeciesname(STR_VAR_1, SPECIES_DECIDUEYE)
+            }
+    }
+    return
+}
+
+script RivalSecondPokemon{
+    call(DynMultiPartner)
+    dynmultistack(23, 0, TRUE, 5, FALSE, 0, NULL)
+	switch(var(VAR_RESULT)){
+        case 0:
+            setvar(VAR_SECOND_MON, 0)
+            bufferspeciesname(STR_VAR_2, SPECIES_STARAPTOR)
+        case 1:
+            checkplayergender
+            setvar(VAR_SECOND_MON, 1)
+            if(var(VAR_RESULT) == MALE){
+                bufferspeciesname(STR_VAR_2, SPECIES_GALLADE)
+            }
+            else{
+                bufferspeciesname(STR_VAR_2, SPECIES_GARDEVOIR)
+            }
+        case 2:
+            setvar(VAR_SECOND_MON, 2)
+            bufferspeciesname(STR_VAR_2, SPECIES_CLODSIRE)
+        case 3:
+            setvar(VAR_SECOND_MON, 3)
+            bufferspeciesname(STR_VAR_2, SPECIES_CRUSTLE)
+        case 4:
+            setvar(VAR_SECOND_MON, 4)
+            switch(var(VAR_STARTER_MON)){
+                case 0:
+                    bufferspeciesname(STR_VAR_2, SPECIES_BLAZIKEN)
+                case 1:
+                    bufferspeciesname(STR_VAR_2, SPECIES_EMPOLEON)
+                case 2:
+                    bufferspeciesname(STR_VAR_2, SPECIES_DECIDUEYE)
+            }
+    }
+    if(var(VAR_FIRST_MON) == VAR_SECOND_MON){
+        goto(InvalidSecondMon)
+    }
+    return
+}
+
+script InvalidSecondMon{
+    if(var(VAR_TEMP_3) == 1){
+        waitse
+        playse(SE_FAILURE)
+        msgbox(MonAlreadyChosen)
+        message(WhichShouldRivalChooseSecond)
+    }
+    else{
+        msgbox(RivalMonChosen)
+        message(WhichOneIChooseSecond)
+    }
+    waitmessage
+    goto(RivalSecondPokemon)
+}
+
+script RivalThirdPokemon{
+    call(DynMultiPartner)
+    dynmultistack(23, 0, TRUE, 5, FALSE, 0, NULL)
+	switch(var(VAR_RESULT)){
+        case 0:
+            setvar(VAR_THIRD_MON, 0)
+            bufferspeciesname(STR_VAR_3, SPECIES_STARAPTOR)
+        case 1:
+            checkplayergender
+            setvar(VAR_THIRD_MON, 1)
+            if(var(VAR_RESULT) == MALE){
+                bufferspeciesname(STR_VAR_3, SPECIES_GALLADE)
+            }
+            else{
+                bufferspeciesname(STR_VAR_3, SPECIES_GARDEVOIR)
+            }
+        case 2:
+            setvar(VAR_THIRD_MON, 2)
+            bufferspeciesname(STR_VAR_3, SPECIES_CLODSIRE)
+        case 3:
+            setvar(VAR_THIRD_MON, 3)
+            bufferspeciesname(STR_VAR_3, SPECIES_CRUSTLE)
+        case 4:
+            setvar(VAR_THIRD_MON, 4)
+            switch(var(VAR_STARTER_MON)){
+                case 0:
+                    bufferspeciesname(STR_VAR_3, SPECIES_BLAZIKEN)
+                case 1:
+                    bufferspeciesname(STR_VAR_3, SPECIES_EMPOLEON)
+                case 2:
+                    bufferspeciesname(STR_VAR_3, SPECIES_DECIDUEYE)
+            }
+    }
+    if((var(VAR_FIRST_MON) == VAR_THIRD_MON) || (var(VAR_SECOND_MON) == VAR_THIRD_MON)){
+        goto(InvalidThirdMon)
+    }
+    return
+}
+script InvalidThirdMon{
+    if(var(VAR_TEMP_3) == 1){
+        waitse
+        playse(SE_FAILURE)
+        msgbox(MonAlreadyChosen)
+        message(WhichShouldRivalChooseThird)
+    }
+    else{
+        msgbox(RivalMonChosen)
+        message(WhichOneIChooseThird)
+    }
+    waitmessage
+    goto(RivalThirdPokemon)
+}
+
+script DynMultiPartner{
+        if((var(VAR_FIRST_MON) == 0) || (var(VAR_SECOND_MON) == 0)){
+        dynmultipush("{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}Staraptor", 0)
+    }
+    else{
+        dynmultipush("Staraptor", 0)
+    }
+    checkplayergender
+    if(var(VAR_RESULT) == MALE){
+        if((var(VAR_FIRST_MON) == 1) || (var(VAR_SECOND_MON) == 1)){
+            dynmultipush("{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}Gallade", 1)
+        }
+        else{
+            dynmultipush("Gallade", 1)
+        }
+    }
+    else{
+        if((var(VAR_FIRST_MON) == 1) || (var(VAR_SECOND_MON) == 1)){
+            dynmultipush("{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}Gardevoir", 1)
+        }
+        else{
+            dynmultipush("Gardevoir", 1)
+        }
+    }
+    if((var(VAR_FIRST_MON) == 2) || (var(VAR_SECOND_MON) == 2)){
+        dynmultipush("{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}Clodsire", 2)
+    }
+    else{
+        dynmultipush("Clodsire", 2)
+    }
+    if((var(VAR_FIRST_MON) == 3) || (var(VAR_SECOND_MON) == 3)){
+        dynmultipush("{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}Crustle", 3)
+    }
+    else{
+        dynmultipush("Crustle", 3)
+    }
+    switch(var(VAR_STARTER_MON)){
+        case 0:
+            if((var(VAR_FIRST_MON) == 4) || (var(VAR_SECOND_MON) == 4)){
+                dynmultipush("{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}Blaziken", 4)
+            }
+            else{
+                dynmultipush("Blaziken", 4)
+            }
+        case 1:
+            if((var(VAR_FIRST_MON) == 4) || (var(VAR_SECOND_MON) == 4)){
+                dynmultipush("{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}Empoleon", 4)
+            }
+            else{
+                dynmultipush("Empoleon", 4)
+            }
+        case 2:
+            if((var(VAR_FIRST_MON) == 4) || (var(VAR_SECOND_MON) == 4)){
+                dynmultipush("{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}Decidueye", 4)
+            }
+            else{
+                dynmultipush("Decidueye", 4)
+            }
+    }
+    return
+}
+
+text RivalMonChosen{
+    "You already picked that Pokémon once!\n"
+    "I can't use it twice."
+}
+text WhichOneIChooseSecond{
+    "Which one should be my\n"
+    "second Pokémon?"
+}
+text WhichOneIChooseThird{
+    "Which one should be my\n"
+    "third Pokémon?"
+}
+text InitialPartnerSetup{
+    "{COLOR RED}{SHADOW LIGHT_RED}While inside the tower, all trainer\n"
+    "battles are partner battles.\p"
+    "You will each use 3 Pokémon from your\n"
+    "team, with your party consisting of\l"
+    "the first 3 Pokémon in your team.\p"
+    "Before you begin, you must choose\n"
+    "a party for {RIVAL}."
+}
+text RivalUses{
+    "{COLOR RED}{SHADOW LIGHT_RED}{RIVAL} currently uses {STR_VAR_1},\n"
+    "{STR_VAR_2}, and {STR_VAR_3}.\p"
+    "Is this correct?"
+}
+
+text SpeakToMayAgain{
+    "{COLOR RED}{SHADOW LIGHT_RED}You may speak with {RIVAL} anytime to\n"
+    "change her current team."
+}
+text SpeakToBrendanAgain{
+    "{COLOR RED}{SHADOW LIGHT_RED}You may speak with {RIVAL} anytime to\n"
+    "change his current team."
+}
+
+text WhichShouldRivalChooseFirst{
+    "{COLOR RED}{SHADOW LIGHT_RED}What should {RIVAL}'s first\n"
+    "Pokémon be?"
+}
+text WhichShouldRivalChooseSecond{
+    "{COLOR RED}{SHADOW LIGHT_RED}What should {RIVAL}'s second\n"
+    "Pokémon be?"
+}
+text WhichShouldRivalChooseThird{
+    "{COLOR RED}{SHADOW LIGHT_RED}What should {RIVAL}'s third\n"
+    "Pokémon be?"
+}
+text MonAlreadyChosen{
+    "{COLOR RED}{SHADOW LIGHT_RED}That Pokémon has already been\n"
+    "chosen."
 }
 
 text MayHappyToSee{

@@ -154,43 +154,43 @@ R12_HoneyTree_7:
 	end
 
 R12_HoneyTree_9:
-	setwildbattlelevelrange SPECIES_COMFEY, 31, ITEM_NONE, SPECIES_NONE, 35
+	setwildbattlelevelrange SPECIES_COMFEY, 23, ITEM_NONE, SPECIES_NONE, 26
 	goto R12_HoneyTree_7
 
 R12_HoneyTree_10:
-	setwildbattlelevelrange SPECIES_EMOLGA, 31, ITEM_NONE, SPECIES_NONE, 35
+	setwildbattlelevelrange SPECIES_EMOLGA, 23, ITEM_NONE, SPECIES_NONE, 26
 	goto R12_HoneyTree_7
 
 R12_HoneyTree_11:
-	setwildbattlelevelrange SPECIES_EMOLGA, 31, ITEM_NONE, SPECIES_NONE, 35
+	setwildbattlelevelrange SPECIES_EMOLGA, 23, ITEM_NONE, SPECIES_NONE, 26
 	goto R12_HoneyTree_7
 
 R12_HoneyTree_12:
-	setwildbattlelevelrange SPECIES_EMOLGA, 31, ITEM_NONE, SPECIES_NONE, 35
+	setwildbattlelevelrange SPECIES_EMOLGA, 23, ITEM_NONE, SPECIES_NONE, 26
 	goto R12_HoneyTree_7
 
 R12_HoneyTree_13:
-	setwildbattlelevelrange SPECIES_CUTIEFLY, 31, ITEM_NONE, SPECIES_NONE, 35
+	setwildbattlelevelrange SPECIES_CUTIEFLY, 23, ITEM_NONE, SPECIES_NONE, 26
 	goto R12_HoneyTree_7
 
 R12_HoneyTree_14:
-	setwildbattlelevelrange SPECIES_CUTIEFLY, 31, ITEM_NONE, SPECIES_NONE, 35
+	setwildbattlelevelrange SPECIES_CUTIEFLY, 23, ITEM_NONE, SPECIES_NONE, 26
 	goto R12_HoneyTree_7
 
 R12_HoneyTree_15:
-	setwildbattlelevelrange SPECIES_RIBOMBEE, 31, ITEM_NONE, SPECIES_NONE, 35
+	setwildbattlelevelrange SPECIES_CUTIEFLY, 23, ITEM_NONE, SPECIES_NONE, 26
 	goto R12_HoneyTree_7
 
 R12_HoneyTree_16:
-	setwildbattlelevelrange SPECIES_COMFEY, 31, ITEM_NONE, SPECIES_NONE, 35
+	setwildbattlelevelrange SPECIES_COMFEY, 23, ITEM_NONE, SPECIES_NONE, 26
 	goto R12_HoneyTree_7
 
 R12_HoneyTree_17:
-	setwildbattlelevelrange SPECIES_COMFEY, 31, ITEM_NONE, SPECIES_NONE, 35
+	setwildbattlelevelrange SPECIES_COMFEY, 23, ITEM_NONE, SPECIES_NONE, 26
 	goto R12_HoneyTree_7
 
 R12_HoneyTree_18:
-	setwildbattlelevelrange SPECIES_MUNCHLAX, 31, ITEM_NONE, SPECIES_NONE, 35
+	setwildbattlelevelrange SPECIES_MUNCHLAX, 23, ITEM_NONE, SPECIES_NONE, 26
 	goto R12_HoneyTree_7
 
 

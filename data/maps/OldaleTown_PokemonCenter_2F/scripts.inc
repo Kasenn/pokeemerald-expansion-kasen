@@ -105,14 +105,14 @@ LevelTraining5::
 
 LevelTraining6::
 	setvar VAR_POKECENTER_TRAINING, 6
-	setvar VAR_0x8008, 9
+	setvar VAR_0x8008, 7
 	goto LevelTrainingCheck
 	return
 
 
 LevelTraining7::
 	setvar VAR_POKECENTER_TRAINING, 7
-	setvar VAR_0x8008, 10
+	setvar VAR_0x8008, 9
 	goto LevelTrainingCheck
 	return
 
@@ -173,13 +173,13 @@ LevelTrainingMain_7:
 	goto LevelTrainingMain_1
 
 LevelTrainingMain_8:
-	buffernumberstring STR_VAR_3, 100
-	buffernumberstring STR_VAR_2, 100
+	buffernumberstring STR_VAR_3, 30
+	buffernumberstring STR_VAR_2, 33
 	goto LevelTrainingMain_1
 
 LevelTrainingMain_9:
-	buffernumberstring STR_VAR_3, 100
-	buffernumberstring STR_VAR_2, 100
+	buffernumberstring STR_VAR_3, 33
+	buffernumberstring STR_VAR_2, 37
 	goto LevelTrainingMain_1
 
 LevelTrainingMain_10:
@@ -231,11 +231,11 @@ LevelTrainingMain_19:
 	goto LevelTrainingMain_13
 
 LevelTrainingMain_20:
-	checkpartylevel 100
+	checkpartylevel 34
 	goto LevelTrainingMain_13
 
 LevelTrainingMain_21:
-	checkpartylevel 100
+	checkpartylevel 38
 	goto LevelTrainingMain_13
 
 LevelTrainingMain_23:

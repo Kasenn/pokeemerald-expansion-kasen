@@ -239,9 +239,9 @@
 #define VAR_UNUSED_0x40DB                                0x40DB // Unused Var
 #define VAR_UNUSED_0x40DC                                0x40DC // Unused Var
 #define VAR_GIFT_PICHU_SLOT                              0x40DD
-#define VAR_GIFT_UNUSED_1                                0x40DE // Var is written to, but never read
-#define VAR_GIFT_UNUSED_2                                0x40DF // Var is written to, but never read
-#define VAR_GIFT_UNUSED_3                                0x40E0 // Var is written to, but never read
+#define VAR_FIRST_MON                                0x40DE // Var is written to, but never read
+#define VAR_SECOND_MON                                0x40DF // Var is written to, but never read
+#define VAR_THIRD_MON                                0x40E0 // Var is written to, but never read
 #define VAR_MUD_BAD_LUCK_PROTECTION                                0x40E1 // Var is written to, but never read
 #define VAR_MUD_X                                0x40E2
 #define VAR_MUD_Y                                0x40E3

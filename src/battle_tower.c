@@ -3016,7 +3016,7 @@ void TryHideBattleTowerReporter(void)
 
 static void FillPartnerParty(u16 trainerId)
 {
-    s32 i, j, k;
+    s32 i, j, k, l;
     u32 firstIdPart = 0, secondIdPart = 0, thirdIdPart = 0;
     u32 ivs, level, personality;
     u32 friendship;
@@ -3062,50 +3062,56 @@ static void FillPartnerParty(u16 trainerId)
                 otID = ((firstIdPart % 72) * 1000) + ((secondIdPart % 23) * 10) + (thirdIdPart % 37) % 65536;
 
             personality = Random32();
-            if (partyData[i].gender == TRAINER_MON_MALE)
-                personality = (personality & 0xFFFFFF00) | GeneratePersonalityForGender(MON_MALE, partyData[i].species);
-            else if (partyData[i].gender == TRAINER_MON_FEMALE)
-                personality = (personality & 0xFFFFFF00) | GeneratePersonalityForGender(MON_FEMALE, partyData[i].species);
-            if (partyData[i].nature != 0)
-                ModifyPersonalityForNature(&personality, partyData[i].nature - 1);
+            if (i == 0)
+                l = VarGet(VAR_FIRST_MON);
+            if (i == 1)
+                l = VarGet(VAR_SECOND_MON);
+            if (i == 2)
+                l = VarGet(VAR_THIRD_MON);
+            if (partyData[l].gender == TRAINER_MON_MALE)
+                personality = (personality & 0xFFFFFF00) | GeneratePersonalityForGender(MON_MALE, partyData[l].species);
+            else if (partyData[l].gender == TRAINER_MON_FEMALE)
+                personality = (personality & 0xFFFFFF00) | GeneratePersonalityForGender(MON_FEMALE, partyData[l].species);
+            if (partyData[l].nature != 0)
+                ModifyPersonalityForNature(&personality, partyData[l].nature - 1);
 
-            CreateMon(&gPlayerParty[i + 3], partyData[i].species, partyData[i].lvl, 0, TRUE, personality, OT_ID_PRESET, otID);
-            j = partyData[i].isShiny;
+            CreateMon(&gPlayerParty[i + 3], partyData[l].species, partyData[l].lvl, 0, TRUE, personality, OT_ID_PRESET, otID);
+            j = partyData[l].isShiny;
             SetMonData(&gPlayerParty[i + 3], MON_DATA_IS_SHINY, &j);
-            SetMonData(&gPlayerParty[i + 3], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
-            CustomTrainerPartyAssignMoves(&gPlayerParty[i + 3], &partyData[i]);
+            SetMonData(&gPlayerParty[i + 3], MON_DATA_HELD_ITEM, &partyData[l].heldItem);
+            CustomTrainerPartyAssignMoves(&gPlayerParty[i + 3], &partyData[l]);
 
-            SetMonData(&gPlayerParty[i + 3], MON_DATA_IVS, &(partyData[i].iv));
-            if (partyData[i].ev != NULL)
+            SetMonData(&gPlayerParty[i + 3], MON_DATA_IVS, &(partyData[l].iv));
+            if (partyData[l].ev != NULL)
             {
-                SetMonData(&gPlayerParty[i + 3], MON_DATA_HP_EV, &(partyData[i].ev[0]));
-                SetMonData(&gPlayerParty[i + 3], MON_DATA_ATK_EV, &(partyData[i].ev[1]));
-                SetMonData(&gPlayerParty[i + 3], MON_DATA_DEF_EV, &(partyData[i].ev[2]));
-                SetMonData(&gPlayerParty[i + 3], MON_DATA_SPATK_EV, &(partyData[i].ev[3]));
-                SetMonData(&gPlayerParty[i + 3], MON_DATA_SPDEF_EV, &(partyData[i].ev[4]));
-                SetMonData(&gPlayerParty[i + 3], MON_DATA_SPEED_EV, &(partyData[i].ev[5]));
+                SetMonData(&gPlayerParty[i + 3], MON_DATA_HP_EV, &(partyData[l].ev[0]));
+                SetMonData(&gPlayerParty[i + 3], MON_DATA_ATK_EV, &(partyData[l].ev[1]));
+                SetMonData(&gPlayerParty[i + 3], MON_DATA_DEF_EV, &(partyData[l].ev[2]));
+                SetMonData(&gPlayerParty[i + 3], MON_DATA_SPATK_EV, &(partyData[l].ev[3]));
+                SetMonData(&gPlayerParty[i + 3], MON_DATA_SPDEF_EV, &(partyData[l].ev[4]));
+                SetMonData(&gPlayerParty[i + 3], MON_DATA_SPEED_EV, &(partyData[l].ev[5]));
             }
-            if (partyData[i].ability != ABILITY_NONE)
+            if (partyData[l].ability != ABILITY_NONE)
             {
-                const struct SpeciesInfo *speciesInfo = &gSpeciesInfo[partyData[i].species];
+                const struct SpeciesInfo *speciesInfo = &gSpeciesInfo[partyData[l].species];
                 u32 maxAbilities = ARRAY_COUNT(speciesInfo->abilities);
                 for (j = 0; j < maxAbilities; j++)
                 {
-                    if (speciesInfo->abilities[j] == partyData[i].ability)
+                    if (speciesInfo->abilities[j] == partyData[l].ability)
                         break;
                 }
                 if (j < maxAbilities)
                     SetMonData(&gPlayerParty[i + 3], MON_DATA_ABILITY_NUM, &j);
             }
-            SetMonData(&gPlayerParty[i + 3], MON_DATA_FRIENDSHIP, &(partyData[i].friendship));
-            if (partyData[i].ball != ITEM_NONE)
+            SetMonData(&gPlayerParty[i + 3], MON_DATA_FRIENDSHIP, &(partyData[l].friendship));
+            if (partyData[l].ball != ITEM_NONE)
             {
-                ball = partyData[i].ball;
+                ball = partyData[l].ball;
                 SetMonData(&gPlayerParty[i + 3], MON_DATA_POKEBALL, &ball);
             }
-            if (partyData[i].nickname != NULL)
+            if (partyData[l].nickname != NULL)
             {
-                SetMonData(&gPlayerParty[i + 3], MON_DATA_NICKNAME, partyData[i].nickname);
+                SetMonData(&gPlayerParty[i + 3], MON_DATA_NICKNAME, partyData[l].nickname);
             }
             CalculateMonStats(&gPlayerParty[i + 3]);
 

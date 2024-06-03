@@ -9,7 +9,7 @@ Rockliffe_House1_OldWoman::
 	msgbox DoYouLikeBeedrills, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
 	goto_if_eq Rockliffe_House1_OldWoman_5
-	checkdexmon SPECIES_BEEDRILL
+	checkpartymon SPECIES_BEEDRILL, 0
 	compare VAR_RESULT, FALSE
 	goto_if_eq Rockliffe_House1_OldWoman_8
 	goto_if_unset FLAG_OBTAINED_MEGA_RING, Rockliffe_House1_OldWoman_11

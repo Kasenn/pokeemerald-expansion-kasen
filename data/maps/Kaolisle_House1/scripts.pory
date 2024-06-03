@@ -155,7 +155,7 @@ script Kaolisle_SphealHouseLady{
     end
 }
 text Kaolisle_SphealHouseLady_Text{
-    "Seeing the spheal playing with each\n"
+    "Seeing the Spheal playing with each\n"
     "other really soothes the soul.\p"
     "I have places to be but I dare not\n"
     "break up their play."

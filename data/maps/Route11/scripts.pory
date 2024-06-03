@@ -413,7 +413,9 @@ text R11_Ace_ReadyForBattle{
     "trainers to challenge, and I think you\l"
     "might fit the bill!\p"
     "How about it? Feel like having\n"
-    "a Pokémon battle?"
+    "a Pokémon battle?\p"
+    "My canine companions are getting\n"
+    "restless."
 }
 text R11_Ace_ReadyForBattleShort{
     "You're back!\p"

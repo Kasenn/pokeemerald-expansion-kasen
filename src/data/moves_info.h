@@ -7274,13 +7274,13 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
     {
         .name = COMPOUND_STRING("Blaze Kick"),
         .description = COMPOUND_STRING(
-            "A kick with a high critical-\n"
-            "hit ratio. May cause a burn."),
+            
+            "A flaming kick that may\n"
+            "leave the foe with a burn."),
         .effect = EFFECT_HIT,
         .power = 85,
         .type = TYPE_FIRE,
-        .accuracy = 90,
-        .criticalHitStage = 1,
+        .accuracy = 100,
         .pp = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -7288,7 +7288,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .makesContact = TRUE,
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_BURN,
-            .chance = 10,
+            .chance = 20,
         }),
         .contestEffect = CONTEST_EFFECT_HIGHLY_APPEALING,
         .contestCategory = CONTEST_CATEGORY_BEAUTY,
@@ -13394,6 +13394,31 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .argument = TYPE_FLYING,
         .makesContact = TRUE,
         .minimizeDoubleDamage = TRUE,
+        .gravityBanned = TRUE,
+        .skyBattleBanned = TRUE,
+        .contestEffect = CONTEST_EFFECT_HIGHLY_APPEALING,
+        .contestCategory = CONTEST_CATEGORY_COOL,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0}
+    },
+
+    [MOVE_RAZOR_GALE] =
+    {
+        .name = COMPOUND_STRING("Razor Gale"),
+        .description = COMPOUND_STRING(
+            "This attack does Steel\n"
+            "and Flying-type damage."),
+        .effect = EFFECT_TWO_TYPED_MOVE,
+        .power = B_UPDATED_MOVE_DATA >= GEN_7 ? 85 : 85,
+        .type = TYPE_STEEL,
+        .accuracy = 100,
+        .pp = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .zMove = { .powerOverride = 170 },
+        .argument = TYPE_FLYING,
+        .makesContact = FALSE,
         .gravityBanned = TRUE,
         .skyBattleBanned = TRUE,
         .contestEffect = CONTEST_EFFECT_HIGHLY_APPEALING,

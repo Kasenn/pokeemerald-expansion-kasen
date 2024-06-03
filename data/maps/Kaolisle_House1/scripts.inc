@@ -175,7 +175,7 @@ RockSmashMonComesOut_Text::
 	.string "Do make sure you're prepared!$"
 
 Kaolisle_SphealHouseLady_Text::
-	.string "Seeing the spheal playing with each\n"
+	.string "Seeing the Spheal playing with each\n"
 	.string "other really soothes the soul.\p"
 	.string "I have places to be but I dare not\n"
 	.string "break up their play.$"

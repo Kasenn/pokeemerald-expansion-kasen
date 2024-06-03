@@ -112,12 +112,12 @@ script LevelTraining5{
 }
 script LevelTraining6{
 	setvar(VAR_POKECENTER_TRAINING, 6)
-	setvar(VAR_0x8008, 9)
+	setvar(VAR_0x8008, 7)
 	goto(LevelTrainingCheck)
 }
 script LevelTraining7{
 	setvar(VAR_POKECENTER_TRAINING, 7)
-	setvar(VAR_0x8008, 10)
+	setvar(VAR_0x8008, 9)
 	goto(LevelTrainingCheck)
 }
 
@@ -151,11 +151,11 @@ script LevelTrainingMain{
 			buffernumberstring(STR_VAR_3, 30)
 			buffernumberstring(STR_VAR_2, 33)
 		case 6:									// Rockliffe Town
-			buffernumberstring(STR_VAR_3, 100)
-			buffernumberstring(STR_VAR_2, 100)
+			buffernumberstring(STR_VAR_3, 30)
+			buffernumberstring(STR_VAR_2, 33)
 		case 7:									// Sandstone City
-			buffernumberstring(STR_VAR_3, 100)
-			buffernumberstring(STR_VAR_2, 100)
+			buffernumberstring(STR_VAR_3, 33)
+			buffernumberstring(STR_VAR_2, 37)
 	}
     msgbox(RecommendedLevel, MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES){
@@ -171,9 +171,9 @@ script LevelTrainingMain{
 			case 5:
 				checkpartylevel(34)
 			case 6:
-				checkpartylevel(100)
+				checkpartylevel(34)
 			case 7:
-				checkpartylevel(100)
+				checkpartylevel(38)
 		}
 		if(var(VAR_RESULT) == PARTY_SIZE){
 			msgbox(YourPokemonIsAboveLevel, MSGBOX_YESNO)

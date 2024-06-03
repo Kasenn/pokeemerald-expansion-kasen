@@ -162,10 +162,10 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
-	giveitem ITEM_FOSSILIZED_BIRD 
-	giveitem ITEM_FOSSILIZED_FISH 
-	giveitem ITEM_FOSSILIZED_DRAKE
-	giveitem ITEM_FOSSILIZED_DINO 
+	givemon SPECIES_STOUTLAND, 1
+	givemon SPECIES_ARCANINE, 1
+	givemon SPECIES_GRANBULL, 1
+	givemon SPECIES_LUXRAY, 1
 	end
 
 Debug_EventScript_Script_6::

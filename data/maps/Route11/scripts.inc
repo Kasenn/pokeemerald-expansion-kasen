@@ -885,7 +885,9 @@ R11_Ace_ReadyForBattle::
 	.string "trainers to challenge, and I think you\l"
 	.string "might fit the bill!\p"
 	.string "How about it? Feel like having\n"
-	.string "a Pokémon battle?$"
+	.string "a Pokémon battle?\p"
+	.string "My canine companions are getting\n"
+	.string "restless.$"
 
 R11_Ace_ReadyForBattleShort::
 	.string "You're back!\p"

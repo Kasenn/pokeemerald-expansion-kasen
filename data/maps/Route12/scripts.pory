@@ -277,25 +277,25 @@ script R12_HoneyTree{
             random(10)
             switch(var(VAR_RESULT)){
                 case 0:
-                    setwildbattlelevelrange(SPECIES_COMFEY, 31, ITEM_NONE, SPECIES_NONE, 35)
+                    setwildbattlelevelrange(SPECIES_COMFEY, 23, ITEM_NONE, SPECIES_NONE, 26)
                 case 1:
-                    setwildbattlelevelrange(SPECIES_EMOLGA, 31, ITEM_NONE, SPECIES_NONE, 35)
+                    setwildbattlelevelrange(SPECIES_EMOLGA, 23, ITEM_NONE, SPECIES_NONE, 26)
                 case 2:
-                    setwildbattlelevelrange(SPECIES_EMOLGA, 31, ITEM_NONE, SPECIES_NONE, 35)
+                    setwildbattlelevelrange(SPECIES_EMOLGA, 23, ITEM_NONE, SPECIES_NONE, 26)
                 case 3:
-                    setwildbattlelevelrange(SPECIES_EMOLGA, 31, ITEM_NONE, SPECIES_NONE, 35)
+                    setwildbattlelevelrange(SPECIES_EMOLGA, 23, ITEM_NONE, SPECIES_NONE, 26)
                 case 4:
-                    setwildbattlelevelrange(SPECIES_CUTIEFLY, 31, ITEM_NONE, SPECIES_NONE, 35)
+                    setwildbattlelevelrange(SPECIES_CUTIEFLY, 23, ITEM_NONE, SPECIES_NONE, 26)
                 case 5:
-                    setwildbattlelevelrange(SPECIES_CUTIEFLY, 31, ITEM_NONE, SPECIES_NONE, 35)
+                    setwildbattlelevelrange(SPECIES_CUTIEFLY, 23, ITEM_NONE, SPECIES_NONE, 26)
                 case 6:
-                    setwildbattlelevelrange(SPECIES_RIBOMBEE, 31, ITEM_NONE, SPECIES_NONE, 35)
+                    setwildbattlelevelrange(SPECIES_CUTIEFLY, 23, ITEM_NONE, SPECIES_NONE, 26)
                 case 7:
-                    setwildbattlelevelrange(SPECIES_COMFEY, 31, ITEM_NONE, SPECIES_NONE, 35)
+                    setwildbattlelevelrange(SPECIES_COMFEY, 23, ITEM_NONE, SPECIES_NONE, 26)
                 case 8:
-                    setwildbattlelevelrange(SPECIES_COMFEY, 31, ITEM_NONE, SPECIES_NONE, 35)
+                    setwildbattlelevelrange(SPECIES_COMFEY, 23, ITEM_NONE, SPECIES_NONE, 26)
                 case 9:
-                    setwildbattlelevelrange(SPECIES_MUNCHLAX, 31, ITEM_NONE, SPECIES_NONE, 35)
+                    setwildbattlelevelrange(SPECIES_MUNCHLAX, 23, ITEM_NONE, SPECIES_NONE, 26)
             }
             dowildbattle
             release

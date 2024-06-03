@@ -12,7 +12,7 @@ script Rockliffe_House1_OldWoman{
         msgbox(ThatsAShame, MSGBOX_NPC)
         end
     }
-    checkdexmon(SPECIES_BEEDRILL)
+    checkpartymon(SPECIES_BEEDRILL, 0)
     if(var(VAR_RESULT) == FALSE){
         msgbox(YouDontHaveBeedrill, MSGBOX_NPC)
         end
