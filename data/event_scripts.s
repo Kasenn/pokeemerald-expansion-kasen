@@ -1413,3 +1413,11 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Route15/scripts.inc"
 
 	.include "data/maps/AzuretideMart/scripts.inc"
+
+	.include "data/maps/PlayerHouse2F_May/scripts.inc"
+
+	.include "data/maps/PlayerHouse1F_May/scripts.inc"
+
+	.include "data/maps/RivalHouse1F_Brendan/scripts.inc"
+
+	.include "data/maps/RivalHouse2F_Brendan/scripts.inc"

@@ -15,14 +15,22 @@ Player2F_HideMom::
 
 
 PlayerHouse2F_Start::
-	goto_if_set PEARLWOOD_MOM_TALKED_TO, PlayerHouse2F_Start_1
+	checkplayergender
+	compare VAR_RESULT, FEMALE
+	goto_if_eq PlayerHouse2F_Start_2
+PlayerHouse2F_Start_1:
+	goto_if_set PEARLWOOD_MOM_TALKED_TO, PlayerHouse2F_Start_4
 	setvar VAR_PEARLWOOD_TOWN_STATE, 0
 	setflag FLAG_UNUSED_LOSTTOBROTHER
 	hideobjectat 1, MAP_PLAYER_HOUSE2F
 	setrespawn HEAL_LOCATION_PLAYER_HOUSE2F
 	return
 
-PlayerHouse2F_Start_1:
+PlayerHouse2F_Start_2:
+	setmaplayoutindex LAYOUT_PLAYER_HOUSE2F_MAY
+	goto PlayerHouse2F_Start_1
+
+PlayerHouse2F_Start_4:
 	end
 
 
@@ -84,12 +92,21 @@ Player2FSetClock::
 
 
 Players2FCheckClock::
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq Players2FCheckClock_2
+	setvar VAR_0x8004, FEMALE
+Players2FCheckClock_1:
 	incrementgamestat GAME_STAT_CHECKED_CLOCK
 	fadescreen FADE_TO_BLACK
 	special Special_ViewWallClock
 	waitstate
 	releaseall
 	end
+
+Players2FCheckClock_2:
+	setvar VAR_0x8004, MALE
+	goto Players2FCheckClock_1
 
 
 Player2FSetWallClock::

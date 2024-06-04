@@ -66,5 +66,9 @@ movement Pearlwood_MaysHouse2F_Rival_face2{
 }
 
 script Pearlwood_MaysHouse2F_SetRival{
+    checkplayergender
+    if(var(VAR_RESULT) == FEMALE){
+        setmaplayoutindex(LAYOUT_RIVAL_HOUSE2F_BRENDAN)
+    }
     call(Common_EventScript_SetupRivalGfxId)
 }

@@ -320,8 +320,6 @@
 #define METATILE_Mauville_MirageTower_Tile7     0x3E9
 #define METATILE_Mauville_MirageTower_Tile8     0x3EA
 #define METATILE_Mauville_MirageTower_Tile9     0x3F0
-#define METATILE_Mauville_MirageTower_TileA     0x3F1
-#define METATILE_Mauville_MirageTower_TileB     0x3F2
 #define METATILE_Mauville_MirageTower_TileC     0x3DB
 #define METATILE_Mauville_MirageTower_TileD     0x3DC
 #define METATILE_Mauville_MirageTower_TileE     0x3DD

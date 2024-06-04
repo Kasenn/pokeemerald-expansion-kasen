@@ -119,7 +119,11 @@
     "Pearlwood_House1",
     "Pearlwood_House2",
     "PearlwoodHouse2_2F",
-    "Pearlwood_House3"
+    "Pearlwood_House3",
+    "PlayerHouse2F_May",
+    "PlayerHouse1F_May",
+    "RivalHouse1F_Brendan",
+    "RivalHouse2F_Brendan"
   ],
   "gMapGroup_IndoorPrimroseTown": [
     "OldaleTown_PokemonCenter_1F",

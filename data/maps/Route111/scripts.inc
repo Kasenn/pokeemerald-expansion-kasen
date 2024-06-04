@@ -35,8 +35,6 @@ Route111_EventScript_ShowTemporaryMirageTower::
 	setmetatile 19, 55, METATILE_Mauville_MirageTower_Tile7, FALSE
 	setmetatile 20, 55, METATILE_Mauville_MirageTower_Tile8, FALSE
 	setmetatile 18, 56, METATILE_Mauville_MirageTower_Tile9, FALSE
-	setmetatile 19, 56, METATILE_Mauville_MirageTower_TileA, FALSE
-	setmetatile 20, 56, METATILE_Mauville_MirageTower_TileB, FALSE
 	setmetatile 18, 57, METATILE_Mauville_MirageTower_TileC, FALSE
 	setmetatile 19, 57, METATILE_Mauville_MirageTower_TileD, FALSE
 	setmetatile 20, 57, METATILE_Mauville_MirageTower_TileE, FALSE

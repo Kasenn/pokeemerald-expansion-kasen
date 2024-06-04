@@ -5662,7 +5662,12 @@ static void HandleEndTurn_BattleLost(void)
     }
     else
     {
-        gBattlescriptCurrInstr = BattleScript_LocalBattleLost;
+        if(FlagGet(FLAG_CONTINUE_AFTER_WHITEOUT)){
+            gBattlescriptCurrInstr = BattleScript_LocalBattleLost2;
+        }
+        else{
+            gBattlescriptCurrInstr = BattleScript_LocalBattleLost;
+        }
     }
 
     gBattleMainFunc = HandleEndTurn_FinishBattle;

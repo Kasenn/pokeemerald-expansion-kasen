@@ -5113,13 +5113,13 @@
     },
     {
       "id": "LAYOUT_NEW_MAP1",
-      "name": "WeirdCave_Layout",
+      "name": "NewMap1_Layout",
       "width": 15,
       "height": 20,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
-      "border_filepath": "data/layouts/WeirdCave/border.bin",
-      "blockdata_filepath": "data/layouts/WeirdCave/map.bin"
+      "border_filepath": "data/layouts/NewMap1/border.bin",
+      "blockdata_filepath": "data/layouts/NewMap1/map.bin"
     },
     {
       "id": "LAYOUT_WEIRD_CAVE_PT2",
@@ -6080,6 +6080,46 @@
       "secondary_tileset": "gTileset_Shop",
       "border_filepath": "data/layouts/AzuretideMart/border.bin",
       "blockdata_filepath": "data/layouts/AzuretideMart/map.bin"
+    },
+    {
+      "id": "LAYOUT_PLAYER_HOUSE2F_MAY",
+      "name": "PlayerHouse2F_May_Layout",
+      "width": 14,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/PlayerHouse2F_May/border.bin",
+      "blockdata_filepath": "data/layouts/PlayerHouse2F_May/map.bin"
+    },
+    {
+      "id": "LAYOUT_PLAYER_HOUSE1F_MAY",
+      "name": "PlayerHouse1F_May_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/PlayerHouse1F_May/border.bin",
+      "blockdata_filepath": "data/layouts/PlayerHouse1F_May/map.bin"
+    },
+    {
+      "id": "LAYOUT_RIVAL_HOUSE1F_BRENDAN",
+      "name": "RivalHouse1F_Brendan_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/RivalHouse1F_Brendan/border.bin",
+      "blockdata_filepath": "data/layouts/RivalHouse1F_Brendan/map.bin"
+    },
+    {
+      "id": "LAYOUT_RIVAL_HOUSE2F_BRENDAN",
+      "name": "RivalHouse2F_Brendan_Layout",
+      "width": 9,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/RivalHouse2F_Brendan/border.bin",
+      "blockdata_filepath": "data/layouts/RivalHouse2F_Brendan/map.bin"
     }
   ]
 }

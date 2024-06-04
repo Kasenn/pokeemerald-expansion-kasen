@@ -132,6 +132,7 @@ BrotherLeftMove:
 	step_end
 
 Pearlwood_BrotherCombat::
+	setflag FLAG_CONTINUE_AFTER_WHITEOUT
 	goto_if_set FLAG_UNUSED_PICKEDROWLET, Pearlwood_BrotherCombat_2
 Pearlwood_BrotherCombat_1:
 	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, Pearlwood_BrotherCombat_5
@@ -171,9 +172,13 @@ PearlwoodBrotherPiplup::
 
 
 PearlwoodWon::
-	msgbox PearlwoodBrotherPrize
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq PearlwoodWon_2
+	msgbox PlayerHouse1F_Apology
+PearlwoodWon_1:
 	waitmessage
 	closemessage
+	clearflag FLAG_CONTINUE_AFTER_WHITEOUT
 	special HealPlayerParty
 	applymovement 3, PearlwoodBrotherLeave
 	waitmovement 0
@@ -182,6 +187,10 @@ PearlwoodWon::
 	setvar VAR_PEARLWOOD_TOWN_STATE, 7
 	releaseall
 	return
+
+PearlwoodWon_2:
+	msgbox PearlwoodBrotherPrize
+	goto PearlwoodWon_1
 
 
 PearlwoodBrotherLeave:
@@ -233,7 +242,7 @@ Pearlwood_Antidote::
 
 
 Pearlwood_BrotherFightRight_Text_0:
-	.string "{PLAYER}!$"
+	.string "???: {PLAYER}!$"
 
 Pearlwood_Point_FatMan_Text_0:
 	.string "The weather is so calm here despite\nthe close proximity to the sea.\pMust be all the trees blocking\nthe sea breeze.$"
@@ -254,10 +263,17 @@ Pearlwood_Point_WildPokemon::
 	.string "There are a lot of wild\nPokémon living outside the town!\pIt's dangerous to leave the town\nwithout your own Pokémon.$"
 
 BrotherFightIntro::
-	.string "I see you got your Pokémon from\nthe professor.\pWell? What're we waiting for?$"
+	.string "{BROTHER}: I see you got your Pokémon\nfrom the professor.\pWell? What're we waiting for?$"
 
 Pearlwood_Brother_Intro::
-	.string "Let's see if it's any good\nin a Pokémon battle!\pOh, don't worry. I won't use the same\nPokémon I used during my fight against\lthe Kanto Pokémon League.\pThat would be simply unfair.\pI will however, show you a Pokémon\nyou can only find in Kanto!$"
+	.string "Let's see if it's any good\n"
+	.string "in a Pokémon battle!\p"
+	.string "Oh, don't worry. I won't use the same\n"
+	.string "Pokémon I used during my fight against\l"
+	.string "the Kanto Pokémon League.\p"
+	.string "That would be simply unfair.\p"
+	.string "However, don't expect any mercy from\n"
+	.string "me either!$"
 
 Pearlwood_Brother_Outro::
 	.string "Of course you picked THAT one!$"

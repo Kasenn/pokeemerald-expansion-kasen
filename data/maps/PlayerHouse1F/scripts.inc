@@ -220,21 +220,29 @@ BrotherLeavesHouse:
 	step_end
 
 PH1FClearFlag::
-	compare VAR_PEARLWOOD_TOWN_STATE, 5
+	checkplayergender
+	compare VAR_RESULT, FEMALE
 	goto_if_eq PH1FClearFlag_2
 PH1FClearFlag_1:
-	compare VAR_PEARLWOOD_TOWN_STATE, 11
-	goto_if_ge PH1FClearFlag_5
+	compare VAR_PEARLWOOD_TOWN_STATE, 5
+	goto_if_eq PH1FClearFlag_5
 PH1FClearFlag_4:
+	compare VAR_PEARLWOOD_TOWN_STATE, 11
+	goto_if_ge PH1FClearFlag_8
+PH1FClearFlag_7:
 	end
 
 PH1FClearFlag_2:
-	clearflag FLAG_UNUSED_LOSTTOBROTHER
+	setmaplayoutindex LAYOUT_PLAYER_HOUSE1F_MAY
 	goto PH1FClearFlag_1
 
 PH1FClearFlag_5:
-	clearflag FLAG_HIDE_PLAYERS_HOUSE_DAD
+	clearflag FLAG_UNUSED_LOSTTOBROTHER
 	goto PH1FClearFlag_4
+
+PH1FClearFlag_8:
+	clearflag FLAG_HIDE_PLAYERS_HOUSE_DAD
+	goto PH1FClearFlag_7
 
 
 WooperDoll::

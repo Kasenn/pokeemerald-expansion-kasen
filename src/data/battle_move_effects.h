@@ -559,6 +559,13 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .encourageEncore = TRUE,
     },
 
+    [EFFECT_FOREST_CURSE] =
+    {
+        .battleScript = BattleScript_EffectForestCurse,
+        .battleTvScore = 2,
+        .encourageEncore = TRUE,
+    },
+
     [EFFECT_HEALING_WISH] =
     {
         .battleScript = BattleScript_EffectHealingWish,

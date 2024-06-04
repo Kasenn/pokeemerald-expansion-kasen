@@ -247,6 +247,10 @@ movement BrotherLeavesHouse{
 }
 
 script PH1FClearFlag{
+    checkplayergender
+    if(var(VAR_RESULT) == FEMALE){
+        setmaplayoutindex(LAYOUT_PLAYER_HOUSE1F_MAY)
+    }
     if(var(VAR_PEARLWOOD_TOWN_STATE) == 5){
         clearflag(FLAG_UNUSED_LOSTTOBROTHER)
     }

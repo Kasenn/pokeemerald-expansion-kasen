@@ -7687,7 +7687,8 @@ static void Cmd_getmoneyreward(void)
                 ++count;
         }
         money = sWhiteOutBadgeMoney[count] * sPartyLevel;
-        if (FlagGet(FLAG_SYSTEM_NOREWARDBATTLES)){
+        if (FlagGet(FLAG_SYSTEM_NOREWARDBATTLES)
+        ||  FlagGet(FLAG_CONTINUE_AFTER_WHITEOUT)){
             money = 0;
         }
         RemoveMoney(&gSaveBlock1Ptr->money, money);
@@ -13270,10 +13271,14 @@ static void Cmd_cursetarget(void)
     else
     {
         gBattleMons[gBattlerTarget].status2 |= STATUS2_CURSED;
-        gBattleMoveDamage = GetNonDynamaxMaxHP(gBattlerAttacker) / 2;
+        if (gCurrentMove == MOVE_FORESTS_CURSE){
+            gBattleMoveDamage = GetNonDynamaxMaxHP(gBattlerAttacker) / 4;
+        }
+        else{
+            gBattleMoveDamage = GetNonDynamaxMaxHP(gBattlerAttacker) / 2;
+        }
         if (gBattleMoveDamage == 0)
             gBattleMoveDamage = 1;
-
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
 }

@@ -616,6 +616,28 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
             description = gText_ReflectTM;
         if(item == ITEM_TM_SAFEGUARD)
             description = gText_SafeguardTM;
+        if(item == ITEM_TM_FOCUS_PUNCH)
+            description = gText_FocusPunchTm;
+        if(item == ITEM_TM_BLIZZARD)
+            description = gText_BlizzardTm;
+        if(item == ITEM_TM_HYPER_BEAM)
+            description = gText_HyperBeamTm;
+        if(item == ITEM_TM_SOLAR_BEAM)
+            description = gText_SolarBeamTm;
+        if(item == ITEM_TM_THUNDER)
+            description = gText_ThunderTm;
+        if(item == ITEM_TM_FIRE_BLAST)
+            description = gText_FireBlastTm;
+        if(item == ITEM_TM_CALM_MIND)
+            description = gText_CalmMindTm;
+        if(item == ITEM_TM_ROAR)
+            description = gText_RoarTm;
+        if(item == ITEM_TM_BULK_UP)
+            description = gText_BulkUpTm;
+        if(item == ITEM_TM_PROTECT)
+            description = gText_ProtectTm;
+        if(item == ITEM_TM_ATTRACT)
+            description = gText_AttractTm;
     }
     else
     {

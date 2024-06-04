@@ -855,6 +855,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 case EFFECT_LEECH_SEED:
                     ADJUST_SCORE(-5);
                     break;
+                case EFFECT_FOREST_CURSE:
                 case EFFECT_CURSE:
                     if (IS_BATTLER_OF_TYPE(battlerAtk, TYPE_GHOST)) // Don't use Curse if you're a ghost type vs a Magic Guard user, they'll take no damage.
                         ADJUST_SCORE(-5);
@@ -2409,6 +2410,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
               && GetBattlerType(battlerDef, 2) == TYPE_MYSTERY))
                 ADJUST_SCORE(-10);    // target is already water-only
             break;
+        case EFFECT_FOREST_CURSE:
         case EFFECT_THIRD_TYPE:
             switch (move)
             {
@@ -2420,6 +2422,14 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 if (IS_BATTLER_OF_TYPE(battlerDef, TYPE_GRASS) || PartnerMoveIsSameAsAttacker(BATTLE_PARTNER(battlerAtk), battlerDef, move, aiData->partnerMove))
                     ADJUST_SCORE(-10);
                 break;
+                if (IS_BATTLER_OF_TYPE(battlerAtk, TYPE_GHOST))
+                {
+                    if (gBattleMons[battlerDef].status2 & STATUS2_CURSED
+                    || DoesPartnerHaveSameMoveEffect(BATTLE_PARTNER(battlerAtk), battlerDef, move, aiData->partnerMove))
+                        ADJUST_SCORE(-10);
+                    else if (aiData->hpPercents[battlerAtk] <= 50)
+                        ADJUST_SCORE(-6);
+                }
             }
             break;
         case EFFECT_HEAL_PULSE: // and floral healing
@@ -3632,6 +3642,22 @@ static u32 AI_CalcMoveEffectScore(u32 battlerAtk, u32 battlerDef, u32 move)
         if (ShouldUseWishAromatherapy(battlerAtk, battlerDef, move))
             ADJUST_SCORE(DECENT_EFFECT);
         break;
+    case EFFECT_FOREST_CURSE:
+        if (aiData->abilities[battlerDef] == ABILITY_WONDER_GUARD)
+            ADJUST_SCORE(DECENT_EFFECT); // Give target more weaknesses
+        if (IS_BATTLER_OF_TYPE(battlerAtk, TYPE_GHOST))
+        {
+            if (IsBattlerTrapped(battlerDef, TRUE))
+                ADJUST_SCORE(GOOD_EFFECT);
+            else
+                ADJUST_SCORE(WEAK_EFFECT);
+        }
+        else
+        {
+            IncreaseStatUpScore(battlerAtk, battlerDef, STAT_CHANGE_ATK, &score);
+            IncreaseStatUpScore(battlerAtk, battlerDef, STAT_CHANGE_DEF, &score);
+        }
+        break;
     case EFFECT_CURSE:
         if (IS_BATTLER_OF_TYPE(battlerAtk, TYPE_GHOST))
         {
@@ -4795,6 +4821,7 @@ static s32 AI_SetupFirstTurn(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
     case EFFECT_SUBSTITUTE:
     case EFFECT_LEECH_SEED:
     case EFFECT_MINIMIZE:
+    case EFFECT_FOREST_CURSE:
     case EFFECT_CURSE:
     case EFFECT_SWAGGER:
     case EFFECT_CAMOUFLAGE:

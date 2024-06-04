@@ -1,4 +1,12 @@
-mapscripts Pearlwood_MaysHouse1F_MapScripts{}
+mapscripts Pearlwood_MaysHouse1F_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: LoadBrendanHouse1F
+}
+script LoadBrendanHouse1F{
+    checkplayergender
+    if(var(VAR_RESULT) == FEMALE){
+        setmaplayoutindex(LAYOUT_RIVAL_HOUSE1F_BRENDAN)
+    }
+}
 
 script Pearlwood_MaysHouse1F_RivalMom{
     lockall

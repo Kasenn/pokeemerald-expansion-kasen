@@ -16,6 +16,7 @@ text CanceledFabrication_Text{
 }
 
 script SetMudBallLoc{
+    setflag(FLAG_LANDMARK_LANETTES_HOUSE)
     checkitem(ITEM_SAMPLE_BOX)
     if(var(VAR_RESULT) == FALSE){
         setflag(FLAG_MUD_REWARD_WAITING)
@@ -531,6 +532,7 @@ script ExtractBall{
 
 script GrandPrizeRandomization{
     if((flag(FLAG_OBTAINED_MEGA_RING)) && (!flag(FLAG_OBTAINED_AERODACTYLITE))){
+        setflag(FLAG_OBTAINED_AERODACTYLITE)
         finditem(ITEM_AERODACTYLITE)
         return
     }

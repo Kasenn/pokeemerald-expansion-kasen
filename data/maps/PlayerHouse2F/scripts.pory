@@ -11,6 +11,10 @@ hideobjectat(1, MAP_PLAYER_HOUSE2F)
 }
 
 script PlayerHouse2F_Start{
+    checkplayergender
+    if(var(VAR_RESULT) == FEMALE){
+        setmaplayoutindex(LAYOUT_PLAYER_HOUSE2F_MAY)
+    }
     if(flag(PEARLWOOD_MOM_TALKED_TO)){
         end
     }
@@ -84,6 +88,13 @@ script Player2FSetClock{
 }
 
 script Players2FCheckClock{
+    checkplayergender
+    if(var(VAR_RESULT) == MALE){
+        setvar(VAR_0x8004, MALE)
+    }
+    else{
+        setvar(VAR_0x8004, FEMALE)
+    }
 	incrementgamestat (GAME_STAT_CHECKED_CLOCK)
 	fadescreen (FADE_TO_BLACK)
 	special (Special_ViewWallClock)

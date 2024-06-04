@@ -60,7 +60,7 @@ static const struct SpriteSheet sCloudSpriteSheet =
     .tag = GFXTAG_CLOUD
 };
 
-static const struct OamData sCloudSpriteOamData =
+static const struct OamData sCloudSpriteOamData = //wip
 {
     .y = 0,
     .affineMode = ST_OAM_AFFINE_OFF,

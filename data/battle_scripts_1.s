@@ -4224,6 +4224,36 @@ BattleScript_DoGhostCurse::
 	tryfaintmon BS_ATTACKER
 	goto BattleScript_MoveEnd
 
+BattleScript_EffectForestCurse::
+	jumpiftype BS_ATTACKER, TYPE_GHOST, BattleScript_ForestGhostCurse
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifstat BS_ATTACKER, CMP_GREATER_THAN, STAT_SPEED, MIN_STAT_STAGE, BattleScript_CurseTrySpeed
+	jumpifstat BS_ATTACKER, CMP_NOT_EQUAL, STAT_ATK, MAX_STAT_STAGE, BattleScript_CurseTrySpeed
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_DEF, MAX_STAT_STAGE, BattleScript_ButItFailed
+	goto BattleScript_CurseTrySpeed
+BattleScript_ForestGhostCurse::
+	jumpifbytenotequal gBattlerAttacker, gBattlerTarget, BattleScript_DoForestGhostCurse
+	getmovetarget BS_ATTACKER
+BattleScript_DoForestGhostCurse::
+	attackcanceler
+	attackstring
+	ppreduce
+	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
+	trysetthirdtype BS_TARGET, BattleScript_ButItFailed
+	cursetarget BattleScript_ButItFailed
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	setbyte sB_ANIM_TURN, 0
+	attackanimation
+	waitanimation
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	printstring STRINGID_FORESTCURSE
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_ATTACKER
+	goto BattleScript_MoveEnd
+
 BattleScript_EffectMatBlock::
 	attackcanceler
 	jumpifnotfirstturn BattleScript_FailedFromAtkString
@@ -5626,7 +5656,10 @@ BattleScript_PayDayMoneyAndPickUpItems::
 	givepaydaymoney
 	pickup
 	end2
-
+	BattleScript_LocalBattleLost2::
+	printstring STRINGID_NOWHITEOUT
+	waitmessage B_WAIT_TIME_LONG
+	end2
 BattleScript_LocalBattleLost::
 	jumpifbattletype BATTLE_TYPE_INGAME_PARTNER, BattleScript_LocalBattleLostPrintWhiteOut
 	jumpifbattletype BATTLE_TYPE_DOME, BattleScript_CheckDomeDrew

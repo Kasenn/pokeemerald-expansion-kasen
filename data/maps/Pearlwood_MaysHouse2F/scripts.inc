@@ -59,8 +59,16 @@ Pearlwood_MaysHouse2F_Rival_face2:
 	step_end
 
 Pearlwood_MaysHouse2F_SetRival::
+	checkplayergender
+	compare VAR_RESULT, FEMALE
+	goto_if_eq Pearlwood_MaysHouse2F_SetRival_2
+Pearlwood_MaysHouse2F_SetRival_1:
 	call Common_EventScript_SetupRivalGfxId
 	return
+
+Pearlwood_MaysHouse2F_SetRival_2:
+	setmaplayoutindex LAYOUT_RIVAL_HOUSE2F_BRENDAN
+	goto Pearlwood_MaysHouse2F_SetRival_1
 
 
 Pearlwood_MaysHouse2F_Intro::

@@ -181,8 +181,9 @@ Lab2_DexGet_1:
 Lab2_DexGet_4:
 	waitmessage
 	closemessage
-	playse MUS_OBTAIN_ITEM
-	msgbox Lab2_DexGet_Text_0
+	playfanfare MUS_OBTAIN_TMHM
+	message Lab2_DexGet_Text_0
+	waitmessage
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
 	special EnableNationalPokedex
@@ -190,7 +191,6 @@ Lab2_DexGet_4:
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
 	setvar VAR_CABLE_CLUB_TUTORIAL_STATE, 1
 	setvar VAR_OLDALE_TOWN_STATE, 1
-	waitfanfare
 	applymovement OBJ_EVENT_ID_PLAYER, Lab2_TurnRight
 	applymovement 5, Lab2_TurnLeft
 	waitmovement 0

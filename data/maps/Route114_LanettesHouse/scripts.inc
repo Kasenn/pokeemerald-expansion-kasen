@@ -9,6 +9,7 @@ CanceledFabrication::
 
 
 SetMudBallLoc::
+	setflag FLAG_LANDMARK_LANETTES_HOUSE
 	checkitem ITEM_SAMPLE_BOX
 	compare VAR_RESULT, FALSE
 	goto_if_eq SetMudBallLoc_2
@@ -521,6 +522,7 @@ GrandPrizeRandomization_9:
 	return
 
 GrandPrizeRandomization_2:
+	setflag FLAG_OBTAINED_AERODACTYLITE
 	finditem ITEM_AERODACTYLITE
 	return
 

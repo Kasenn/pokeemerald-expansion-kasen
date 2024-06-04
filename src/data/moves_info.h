@@ -13677,9 +13677,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
     {
         .name = HANDLE_EXPANDED_MOVE_NAME("Forest'sCurs", "Forest's Curse"),
         .description = COMPOUND_STRING(
-            "Puts a curse on the foe\n"
-            "making the foe Grass-type."),
-        .effect = EFFECT_THIRD_TYPE,
+            "Curses the foe.\n"
+            "Also makes it Grass-type."),
+        .effect = EFFECT_FOREST_CURSE,
         .power = 0,
         .type = TYPE_GRASS,
         .accuracy = 100,
@@ -13690,6 +13690,13 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .argument = TYPE_GRASS,
         .zMove = { .effect = Z_EFFECT_ALL_STATS_UP_1 },
         .magicCoatAffected = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .metronomeBanned = TRUE,
+        .mimicBanned = TRUE,
+        .copycatBanned = TRUE,
+        .sleepTalkBanned = TRUE,
+        .instructBanned = TRUE,
+        .assistBanned = TRUE,
         .contestEffect = CONTEST_EFFECT_WORSEN_CONDITION_OF_PREV_MONS,
         .contestCategory = CONTEST_CATEGORY_SMART,
         .contestComboStarterId = 0,

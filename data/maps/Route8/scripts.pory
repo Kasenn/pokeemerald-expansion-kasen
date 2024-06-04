@@ -510,11 +510,41 @@ script Route8_MudPile{
     waitse
     setmetatile(VAR_MUD_X, VAR_MUD_Y, 0x291, FALSE)
     special(DrawWholeMapView)
-    playfanfare(MUS_OBTAIN_ITEM)
-    message(ObtainedMud)
-    waitfanfare
+    random(10)
+    switch(var(VAR_RESULT)){
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            bufferstring(STR_VAR_1, "sample")
+            addvar(VAR_MUD_SAMPLES, 1)
+            playfanfare(MUS_OBTAIN_ITEM)
+            message(ObtainedMud)
+            waitfanfare
+        case 6:
+        case 7:
+        case 8:
+            bufferstring(STR_VAR_1, "samples")
+            addvar(VAR_MUD_SAMPLES, 2)
+            playfanfare(MUS_OBTAIN_ITEM)
+            message(Obtained2Mud)
+            waitfanfare
+            if(var(VAR_MUD_SAMPLES) >= 30){
+                setvar(VAR_MUD_SAMPLES, 30)
+            }
+        case 9:
+            bufferstring(STR_VAR_1, "samples")
+            addvar(VAR_MUD_SAMPLES, 3)
+            playfanfare(MUS_OBTAIN_ITEM)
+            message(Obtained3Mud)
+            waitfanfare
+            if(var(VAR_MUD_SAMPLES) >= 30){
+                setvar(VAR_MUD_SAMPLES, 30)
+            }
+    }
     msgbox(PutMudAway)
-    addvar(VAR_MUD_SAMPLES, 1)
     copyvar(VAR_TEMP_A, VAR_MUD_X)
     copyvar(VAR_TEMP_B, VAR_MUD_X)
     copyvar(VAR_TEMP_C, VAR_MUD_Y)
@@ -536,8 +566,14 @@ script Route8_MudPile{
 text ObtainedMud{
     "{PLAYER} obtained a sample of mud!"
 }
+text Obtained2Mud{
+    "{PLAYER} obtained 2 samples of mud!"
+}
+text Obtained3Mud{
+    "{PLAYER} obtained 3 samples of mud!"
+}
 text PutMudAway{
-    "{PLAYER} put away the sample of mud\n"
+    "{PLAYER} put away the {STR_VAR_1} of mud\n"
     "in the Sample Box."
 }
 

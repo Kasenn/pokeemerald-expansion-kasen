@@ -1430,7 +1430,12 @@ static void CB2_EndTrainerBattle(void)
         if (InBattlePyramid() || InTrainerHillChallenge() || (!NoAliveMonsForPlayer()))
             SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
         else
-            SetMainCallback2(CB2_WhiteOut);
+            if(FlagGet(FLAG_CONTINUE_AFTER_WHITEOUT)){
+                SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+            }
+            else{
+                SetMainCallback2(CB2_WhiteOut);
+            }
     }
     else
     {

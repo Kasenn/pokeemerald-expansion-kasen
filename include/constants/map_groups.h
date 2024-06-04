@@ -77,6 +77,10 @@
 #define MAP_PEARLWOOD_HOUSE2       (6 | (2 << 8))
 #define MAP_PEARLWOOD_HOUSE2_2F    (7 | (2 << 8))
 #define MAP_PEARLWOOD_HOUSE3       (8 | (2 << 8))
+#define MAP_PLAYER_HOUSE2F_MAY     (9 | (2 << 8))
+#define MAP_PLAYER_HOUSE1F_MAY     (10 | (2 << 8))
+#define MAP_RIVAL_HOUSE1F_BRENDAN  (11 | (2 << 8))
+#define MAP_RIVAL_HOUSE2F_BRENDAN  (12 | (2 << 8))
 
 // gMapGroup_IndoorPrimroseTown
 #define MAP_OLDALE_TOWN_POKEMON_CENTER_1F (0 | (3 << 8))

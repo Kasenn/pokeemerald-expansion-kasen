@@ -1,5 +1,17 @@
 Pearlwood_MaysHouse1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, LoadBrendanHouse1F
 	.byte 0
+
+
+LoadBrendanHouse1F::
+	checkplayergender
+	compare VAR_RESULT, FEMALE
+	goto_if_eq LoadBrendanHouse1F_1
+	return
+
+LoadBrendanHouse1F_1:
+	setmaplayoutindex LAYOUT_RIVAL_HOUSE1F_BRENDAN
+	return
 
 
 Pearlwood_MaysHouse1F_RivalMom::

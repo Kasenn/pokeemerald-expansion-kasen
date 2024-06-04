@@ -53,9 +53,18 @@ LittlerootTown_BrendansHouse_2F_EventScript_WallClock::
 
 LittlerootTown_MaysHouse_2F_EventScript_WallClock::
 	lockall
-	setvar VAR_0x8004, FEMALE
+	checkplayergender
+	call_if_eq VAR_RESULT, MALE, SetFemaleClock
+	call_if_eq VAR_RESULT, FEMALE, SetMaleClock
 	goto PlayersHouse_2F_EventScript_WallClock
 	end
+
+SetFemaleClock:
+	setvar VAR_0x8004, FEMALE
+	return
+SetMaleClock:
+	setvar VAR_0x8004, MALE
+	return
 
 PlayersHouse_2F_EventScript_WallClock::
 	goto_if_set FLAG_SET_WALL_CLOCK, PlayersHouse_2F_EventScript_CheckWallClock

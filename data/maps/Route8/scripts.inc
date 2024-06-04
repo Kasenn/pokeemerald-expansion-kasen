@@ -975,11 +975,20 @@ Route8_MudPile::
 	waitse
 	setmetatile VAR_MUD_X, VAR_MUD_Y, 0x291, FALSE
 	special DrawWholeMapView
-	playfanfare MUS_OBTAIN_ITEM
-	message ObtainedMud
-	waitfanfare
+	random 10
+	switch VAR_RESULT
+	case 0, Route8_MudPile_6
+	case 1, Route8_MudPile_6
+	case 2, Route8_MudPile_6
+	case 3, Route8_MudPile_6
+	case 4, Route8_MudPile_6
+	case 5, Route8_MudPile_6
+	case 6, Route8_MudPile_7
+	case 7, Route8_MudPile_7
+	case 8, Route8_MudPile_7
+	case 9, Route8_MudPile_8
+Route8_MudPile_4:
 	msgbox PutMudAway
-	addvar VAR_MUD_SAMPLES, 1
 	copyvar VAR_TEMP_A, VAR_MUD_X
 	copyvar VAR_TEMP_B, VAR_MUD_X
 	copyvar VAR_TEMP_C, VAR_MUD_Y
@@ -988,10 +997,10 @@ Route8_MudPile::
 	subvar VAR_TEMP_B, 9
 	addvar VAR_TEMP_C, 7
 	subvar VAR_TEMP_D, 7
-Route8_MudPile_5:
+Route8_MudPile_10:
 	compare VAR_MUD_X, VAR_TEMP_A
-	goto_if_le Route8_MudPile_8
-Route8_MudPile_4:
+	goto_if_le Route8_MudPile_13
+Route8_MudPile_9:
 	setmetatile VAR_MUD_X, VAR_MUD_Y, 0x344, FALSE
 	special DrawWholeMapView
 	release
@@ -1005,22 +1014,58 @@ Route8_MudPile_2:
 	end
 
 Route8_MudPile_6:
-	call RandomizeMudTile
-	goto Route8_MudPile_5
+	bufferstring STR_VAR_1, Route8_MudPile_Text_0
+	addvar VAR_MUD_SAMPLES, 1
+	playfanfare MUS_OBTAIN_ITEM
+	message ObtainedMud
+	waitfanfare
+	goto Route8_MudPile_4
 
 Route8_MudPile_7:
-	compare VAR_MUD_Y, VAR_TEMP_C
-	goto_if_le Route8_MudPile_11
+	bufferstring STR_VAR_1, Route8_MudPile_Text_1
+	addvar VAR_MUD_SAMPLES, 2
+	playfanfare MUS_OBTAIN_ITEM
+	message Obtained2Mud
+	waitfanfare
+	compare VAR_MUD_SAMPLES, 30
+	goto_if_ge Route8_MudPile_19
 	goto Route8_MudPile_4
 
 Route8_MudPile_8:
-	compare VAR_MUD_X, VAR_TEMP_B
-	goto_if_ge Route8_MudPile_7
+	bufferstring STR_VAR_1, Route8_MudPile_Text_1
+	addvar VAR_MUD_SAMPLES, 3
+	playfanfare MUS_OBTAIN_ITEM
+	message Obtained3Mud
+	waitfanfare
+	compare VAR_MUD_SAMPLES, 30
+	goto_if_ge Route8_MudPile_21
 	goto Route8_MudPile_4
 
 Route8_MudPile_11:
+	call RandomizeMudTile
+	goto Route8_MudPile_10
+
+Route8_MudPile_12:
+	compare VAR_MUD_Y, VAR_TEMP_C
+	goto_if_le Route8_MudPile_16
+	goto Route8_MudPile_9
+
+Route8_MudPile_13:
+	compare VAR_MUD_X, VAR_TEMP_B
+	goto_if_ge Route8_MudPile_12
+	goto Route8_MudPile_9
+
+Route8_MudPile_16:
 	compare VAR_MUD_Y, VAR_TEMP_D
-	goto_if_ge Route8_MudPile_6
+	goto_if_ge Route8_MudPile_11
+	goto Route8_MudPile_9
+
+Route8_MudPile_19:
+	setvar VAR_MUD_SAMPLES, 30
+	goto Route8_MudPile_4
+
+Route8_MudPile_21:
+	setvar VAR_MUD_SAMPLES, 30
 	goto Route8_MudPile_4
 
 
@@ -1099,6 +1144,12 @@ Route8_SoMuchMud::
 	end
 
 
+Route8_MudPile_Text_0:
+	.string "sample$"
+
+Route8_MudPile_Text_1:
+	.string "samples$"
+
 SampleBoxFull::
 	.string "Too bad!\n"
 	.string "The Sample Box is full…$"
@@ -1106,8 +1157,14 @@ SampleBoxFull::
 ObtainedMud::
 	.string "{PLAYER} obtained a sample of mud!$"
 
+Obtained2Mud::
+	.string "{PLAYER} obtained 2 samples of mud!$"
+
+Obtained3Mud::
+	.string "{PLAYER} obtained 3 samples of mud!$"
+
 PutMudAway::
-	.string "{PLAYER} put away the sample of mud\n"
+	.string "{PLAYER} put away the {STR_VAR_1} of mud\n"
 	.string "in the Sample Box.$"
 
 Route7_Trainer1_Camper_Intro::

@@ -419,7 +419,7 @@ SetTeamLevel_Text_5:
 	.string "Gym 4 (Level 38)$"
 
 SetTeamLevel_Text_6:
-	.string "Post-Gym 4 (Level 40)$"
+	.string "End of Beta (Level 40)$"
 
 SetTeamLevel_Text_7:
 	.string "Cancel$"
