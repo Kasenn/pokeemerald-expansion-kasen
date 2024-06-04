@@ -1,5 +1,5 @@
 mapscripts CoralgroveElevator2_MapScripts{
-    MAP_SCRIPT_ON_TRANSITION: Pearlwood_MaysHouse2F_SetRival
+    MAP_SCRIPT_ON_TRANSITION: Common_EventScript_SetupRivalGfxId
 }
 
 
@@ -168,24 +168,22 @@ text CoralgroveElevator2_Rival_Brendan_Speech{
 script CoralgroveElevator2_Rival_BATTLECONFIG{
     checkplayergender
     if(var(VAR_RESULT) == MALE){
-        if(flag(FLAG_UNUSED_PICKEDROWLET)){
+        switch(var(VAR_STARTER_MON)){
+        case 0:
             call(CoralgroveElevator2_StartMayBattleRowlet)
-        }
-        if(flag(FLAG_UNUSED_PICKEDTORCHIC)){
+        case 1:
             call(CoralgroveElevator2_StartMayBattleTorchic)
-        }
-        if(flag(FLAG_UNUSED_PICKEDPIPLUP)){
+        case 2:
             call(CoralgroveElevator2_StartMayBattlePiplup)
         }
     }
     else{
-        if(flag(FLAG_UNUSED_PICKEDROWLET)){
+        switch(var(VAR_STARTER_MON)){
+        case 0:
             call(CoralgroveElevator2_StartBrendanBattleRowlet)
-        }
-        if(flag(FLAG_UNUSED_PICKEDTORCHIC)){
+        case 1:
             call(CoralgroveElevator2_StartBrendanBattleTorchic)
-        }
-        if(flag(FLAG_UNUSED_PICKEDPIPLUP)){
+        case 2:
             call(CoralgroveElevator2_StartBrendanBattlePiplup)
         }
     }

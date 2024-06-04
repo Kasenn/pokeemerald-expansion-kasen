@@ -1,5 +1,4 @@
 PlayerHouse2F_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, Player2F_HideMom
 	map_script MAP_SCRIPT_ON_TRANSITION, PlayerHouse2F_Start
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, PlayerHouse2F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
@@ -9,119 +8,98 @@ PlayerHouse2F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 	.2byte 0
 
 
-Player2F_HideMom::
-	hideobjectat 1, MAP_PLAYER_HOUSE2F
-	return
-
-
 PlayerHouse2F_Start::
 	checkplayergender
 	compare VAR_RESULT, FEMALE
-	goto_if_eq PlayerHouse2F_Start_2
-PlayerHouse2F_Start_1:
-	goto_if_set PEARLWOOD_MOM_TALKED_TO, PlayerHouse2F_Start_4
-	setvar VAR_PEARLWOOD_TOWN_STATE, 0
-	setflag FLAG_UNUSED_LOSTTOBROTHER
-	hideobjectat 1, MAP_PLAYER_HOUSE2F
-	setrespawn HEAL_LOCATION_PLAYER_HOUSE2F
+	goto_if_eq PlayerHouse2F_Start_1
 	return
 
-PlayerHouse2F_Start_2:
+PlayerHouse2F_Start_1:
 	setmaplayoutindex LAYOUT_PLAYER_HOUSE2F_MAY
-	goto PlayerHouse2F_Start_1
-
-PlayerHouse2F_Start_4:
-	end
+	return
 
 
 PlayerHouse2F_MomTalk::
-	goto_if_set PEARLWOOD_MOM_TALKED_TO, PlayerHouse2F_MomTalk_1
 	lock
-	clearflag PEARLWOOD_MOM_TALKED_TO
-	delay 120
+	delay 60
 	setobjectxy 1, 7, 1
 	showobjectat 1, MAP_PLAYER_HOUSE2F
 	delay 60
-	applymovement 1, Player2FMomWalk
+	applymovement 1, Walk1Down
 	waitmovement 0
+	turnobject 1, DIR_WEST
+	delay 10
 	msgbox Player2FMomIntro
-	waitmessage
-	delay 30
 	closemessage
+	delay 30
 	applymovement 1, Walk1Up
 	waitmovement 0
-	hideobjectat 1, MAP_PLAYER_HOUSE2F
-	applymovement 1, Walk1Up
-	waitmovement 0
+	removeobject 1
 	delay 30
 	applymovement OBJ_EVENT_ID_PLAYER, Walk1Right
 	waitmovement 0
-	setflag PEARLWOOD_MOM_TALKED_TO
+	setflag FLAG_PEARLWOOD_MOM_TALKED_TO
 	setvar VAR_PEARLWOOD_TOWN_STATE, 1
-	releaseall
+	setrespawn HEAL_LOCATION_PLAYER_HOUSE2F
+	release
 	return
-
-PlayerHouse2F_MomTalk_1:
-	end
 
 
 PlayerHouse2F_ClockReminder::
+	goto_if_set FLAG_SET_WALL_CLOCK, PlayerHouse2F_ClockReminder_2
 	lockall
-	msgbox PlayerHouse2F_ClockReminder_Text_0
-	waitmessage
+	msgbox PlayerHouse2F_ClockReminder_Text
+	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Walk1Left
 	waitmovement 0
-	releaseall
+	release
 	return
 
-
-Player2FMomWalk:
-	walk_down
-	face_left
-	step_end
-
-Player2FSetClock::
-	goto_if_set FLAG_SET_WALL_CLOCK, Players2FCheckClock
-	msgbox PlayersHouse_2F_Text_ClockIsStopped, MSGBOX_DEFAULT
-	call Player2FSetWallClock
-	delay 30
-	setvar VAR_PEARLWOOD_TOWN_STATE, 2
-	setflag FLAG_SET_WALL_CLOCK
-	releaseall
+PlayerHouse2F_ClockReminder_2:
+	release
 	end
 
 
-Players2FCheckClock::
+Player2FSetClock::
 	checkplayergender
 	compare VAR_RESULT, MALE
-	goto_if_eq Players2FCheckClock_2
+	goto_if_eq Player2FSetClock_2
 	setvar VAR_0x8004, FEMALE
-Players2FCheckClock_1:
+Player2FSetClock_1:
+	goto_if_set FLAG_SET_WALL_CLOCK, Players2FCheckClock
+	msgbox PlayersHouse_2F_Text_ClockIsStopped, MSGBOX_DEFAULT
+	fadescreen FADE_TO_BLACK
+	special StartWallClock
+	waitstate
+	delay 30
+	setvar VAR_PEARLWOOD_TOWN_STATE, 1
+	setflag FLAG_SET_WALL_CLOCK
+	release
+	return
+
+Player2FSetClock_2:
+	setvar VAR_0x8004, MALE
+	goto Player2FSetClock_1
+
+
+Players2FCheckClock::
 	incrementgamestat GAME_STAT_CHECKED_CLOCK
 	fadescreen FADE_TO_BLACK
 	special Special_ViewWallClock
 	waitstate
-	releaseall
-	end
-
-Players2FCheckClock_2:
-	setvar VAR_0x8004, MALE
-	goto Players2FCheckClock_1
-
-
-Player2FSetWallClock::
-	fadescreen FADE_TO_BLACK
-	special StartWallClock
-	waitstate
+	release
 	return
 
 
-waitsdas::
-	return
-
-
-PlayerHouse2F_ClockReminder_Text_0:
-	.string "Better set the clock before\nheading downstairs.$"
+PlayerHouse2F_ClockReminder_Text::
+	.string "Better set the clock before\n"
+	.string "heading downstairs.$"
 
 Player2FMomIntro::
-	.string "Mom: Rise and shine,\n{PLAYER}!\pToday's a very special day so\nwhen you're ready, come on\ldownstairs.\pOh but first, don't forget to\nset your new clock!$"
+	.string "Mom: Rise and shine,\n"
+	.string "{PLAYER}!\p"
+	.string "Today's a very special day so\n"
+	.string "when you're ready, come on\l"
+	.string "downstairs.\p"
+	.string "Oh but first, don't forget to\n"
+	.string "set your new clock!$"

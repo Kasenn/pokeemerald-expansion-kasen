@@ -172,6 +172,23 @@ Walk4Up:
 	walk_up
 	step_end
 
+Walk5Up:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+Walk6Up:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
 Walk1Down:
 	walk_down
 	step_end
@@ -188,6 +205,14 @@ Walk3Down:
 	step_end
 
 Walk4Down:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+Walk5Down:
+	walk_down
 	walk_down
 	walk_down
 	walk_down

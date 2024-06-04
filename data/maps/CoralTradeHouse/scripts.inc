@@ -5,9 +5,10 @@ CoralTradeHouse_MapScripts::
 CoralgroveTradeSequence::
 	goto_if_set FLAG_CORALGROVE_TRADE_COMPLETED, CoralgroveTradeSequence_3
 CoralgroveTradeSequence_2:
-	goto_if_set FLAG_UNUSED_PICKEDROWLET, CoralgroveTradeSequence_9
-	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, CoralgroveTradeSequence_10
-	goto CoralgrovePrinplupTrade
+	switch VAR_STARTER_MON
+	case 0, CoralgroveTradeSequence_10
+	case 1, CoralgroveTradeSequence_11
+	case 2, CoralgroveTradeSequence_12
 	return
 
 CoralgroveTradeSequence_1:
@@ -15,22 +16,22 @@ CoralgroveTradeSequence_1:
 	faceplayer
 	goto_if_set FLAG_OBTAINED_STARTER_STONE, CoralgroveTradeSequence_7
 CoralgroveTradeSequence_6:
-	goto_if_set FLAG_TEMP_3, CoralgroveTradeSequence_15
+	goto_if_set FLAG_TEMP_3, CoralgroveTradeSequence_14
 	playse SE_PIN
 	applymovement 1, Common_Movement_QuestionMark
 	waitmovement 0
 	delay 24
 	msgbox LookingForStone
-CoralgroveTradeSequence_14:
+CoralgroveTradeSequence_13:
 	closemessage
 	checkitemspace ITEM_INCINEROARITE
 	compare VAR_RESULT, FALSE
-	goto_if_eq CoralgroveTradeSequence_19
+	goto_if_eq CoralgroveTradeSequence_18
 	switch VAR_STARTER_MON
-	case 0, CoralgroveTradeSequence_23
-	case 1, CoralgroveTradeSequence_24
-	case 2, CoralgroveTradeSequence_25
-CoralgroveTradeSequence_21:
+	case 0, CoralgroveTradeSequence_22
+	case 1, CoralgroveTradeSequence_23
+	case 2, CoralgroveTradeSequence_24
+CoralgroveTradeSequence_20:
 	waitse
 	msgbox HoldTightToStone, MSGBOX_NPC
 	setflag FLAG_OBTAINED_STARTER_STONE
@@ -44,34 +45,38 @@ CoralgroveTradeSequence_7:
 	goto CoralgroveTradeCompleted
 	goto CoralgroveTradeSequence_6
 
-CoralgroveTradeSequence_9:
+CoralgroveTradeSequence_10:
 	goto CoralgroveDartrixTrade
 	return
 
-CoralgroveTradeSequence_10:
+CoralgroveTradeSequence_11:
 	goto CoralgroveCombuskenTrade
 	return
 
-CoralgroveTradeSequence_15:
-	msgbox LookingForStoneShort
-	goto CoralgroveTradeSequence_14
+CoralgroveTradeSequence_12:
+	goto CoralgrovePrinplupTrade
+	return
 
-CoralgroveTradeSequence_19:
+CoralgroveTradeSequence_14:
+	msgbox LookingForStoneShort
+	goto CoralgroveTradeSequence_13
+
+CoralgroveTradeSequence_18:
 	setflag FLAG_TEMP_3
 	msgbox NotEnoughRoom, MSGBOX_NPC
 	end
 
-CoralgroveTradeSequence_23:
+CoralgroveTradeSequence_22:
 	giveitem ITEM_CHESNAUGHTITE
-	goto CoralgroveTradeSequence_21
+	goto CoralgroveTradeSequence_20
+
+CoralgroveTradeSequence_23:
+	giveitem ITEM_INCINEROARITE
+	goto CoralgroveTradeSequence_20
 
 CoralgroveTradeSequence_24:
-	giveitem ITEM_INCINEROARITE
-	goto CoralgroveTradeSequence_21
-
-CoralgroveTradeSequence_25:
 	giveitem ITEM_SWAMPERTITE
-	goto CoralgroveTradeSequence_21
+	goto CoralgroveTradeSequence_20
 
 
 CoralgroveDartrixTrade::

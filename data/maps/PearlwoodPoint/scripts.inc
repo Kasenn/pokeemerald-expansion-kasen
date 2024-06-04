@@ -9,166 +9,96 @@ Pearlwood_Visited::
 
 
 Pearlwood_Point_NoPokemon1::
-	goto_if_set FLAG_UNUSED_STARTER_GET, Pearlwood_Point_NoPokemon1_1
-	lockall
-	applymovement 2, Pearlwood_Point_Face
-	waitmovement 0
-	playse SE_PIN
-	applymovement 2, Common_Movement_ExclamationMark
-	waitmovement 0
-	delay 40
-	msgbox Pearlwood_Point_WatchOut, MSGBOX_NPC
-	waitmessage
-	applymovement OBJ_EVENT_ID_PLAYER, Pearlwood_Point_PlayerFace1
-	waitmovement 0
-	msgbox Pearlwood_Point_WildPokemon
-	waitmessage
-	applymovement OBJ_EVENT_ID_PLAYER, Walk1Left
-	waitmovement 0
-	releaseall
+	setvar VAR_TEMP_1, 1
+	goto Pearlwood_Point_NoPokemon
 	return
-
-Pearlwood_Point_NoPokemon1_1:
-	releaseall
-	end
 
 
 Pearlwood_Point_NoPokemon2::
-	goto_if_set FLAG_UNUSED_STARTER_GET, Pearlwood_Point_NoPokemon2_1
-	lockall
-	applymovement 2, Pearlwood_Point_Face
-	waitmovement 0
+	setvar VAR_TEMP_1, 2
+	goto Pearlwood_Point_NoPokemon
+	return
+
+
+Pearlwood_Point_NoPokemon::
+	lock
+	turnobject 2, DIR_SOUTH
 	playse SE_PIN
 	applymovement 2, Common_Movement_ExclamationMark
 	waitmovement 0
-	delay 40
-	msgbox Pearlwood_Point_WatchOut, MSGBOX_NPC
-	waitmessage
+	delay 48
+	msgbox Pearlwood_Point_WatchOut
+	closemessage
+	compare VAR_TEMP_1, 1
+	goto_if_eq Pearlwood_Point_NoPokemon_2
 	applymovement OBJ_EVENT_ID_PLAYER, Walk1Up
 	waitmovement 0
+Pearlwood_Point_NoPokemon_1:
 	msgbox Pearlwood_Point_WildPokemon
-	waitmessage
+	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Walk1Left
 	waitmovement 0
-	releaseall
+	release
 	return
 
-Pearlwood_Point_NoPokemon2_1:
-	releaseall
-	end
+Pearlwood_Point_NoPokemon_2:
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	goto Pearlwood_Point_NoPokemon_1
 
-
-Pearlwood_Point_Face:
-	face_player
-	step_end
-
-Pearlwood_Point_PlayerFace1:
-	face_up
-	step_end
 
 Pearlwood_Point_StopGirlTalk::
-	lockall
-	faceplayer
-	msgbox Pearlwood_Point_Dangerous
-	waitmessage
-	applymovement 2, Pearlwood_Point_Face2
-	waitmovement 0
-	release
-	end
+	msgbox Pearlwood_Point_Dangerous, MSGBOX_NPC
+	turnobject 2, DIR_SOUTH
+	return
 
-
-Pearlwood_Point_Face2:
-	face_down
-	step_end
 
 Pearlwood_BrotherFightRight::
-	lockall
-	msgbox Pearlwood_BrotherFightRight_Text_0
-	waitmessage
-	closemessage
-	delay 30
-	applymovement 3, BrotherRightMove
-	waitmovement 0
-	msgbox BrotherFightIntro
-	waitmessage
-	closemessage
-	call Pearlwood_BrotherCombat
-	waitmessage
-	releaseall
+	setvar VAR_TEMP_2, 1
+	goto Pearlwood_BrotherFightMain
 	return
 
-
-BrotherRightMove:
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	step_end
 
 Pearlwood_BrotherFightLeft::
-	lockall
-	msgbox Pearlwood_BrotherFightRight_Text_0
-	waitmessage
+	setvar VAR_TEMP_2, 2
+	goto Pearlwood_BrotherFightMain
+	return
+
+
+Pearlwood_BrotherFightMain::
+	lock
+	msgbox Pearlwood_BrotherFightMain_Text_0
 	closemessage
 	delay 30
-	applymovement 3, BrotherLeftMove
+	compare VAR_TEMP_2, 1
+	goto_if_eq Pearlwood_BrotherFightMain_2
+	applymovement 3, Walk1Left
+	waitmovement 0
+	applymovement 3, Walk5Up
+Pearlwood_BrotherFightMain_1:
 	waitmovement 0
 	msgbox BrotherFightIntro
-	waitmessage
-	closemessage
-	call Pearlwood_BrotherCombat
-	releaseall
-	return
-
-
-BrotherLeftMove:
-	walk_left
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	step_end
-
-Pearlwood_BrotherCombat::
 	setflag FLAG_CONTINUE_AFTER_WHITEOUT
-	goto_if_set FLAG_UNUSED_PICKEDROWLET, Pearlwood_BrotherCombat_2
-Pearlwood_BrotherCombat_1:
-	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, Pearlwood_BrotherCombat_5
-Pearlwood_BrotherCombat_4:
-	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, Pearlwood_BrotherCombat_7
+	switch VAR_STARTER_MON
+	case 0, Pearlwood_BrotherFightMain_6
+	case 1, Pearlwood_BrotherFightMain_7
+	case 2, Pearlwood_BrotherFightMain_8
 	return
 
-Pearlwood_BrotherCombat_2:
-	call PearlwoodBrotherRowlet
-	goto Pearlwood_BrotherCombat_1
+Pearlwood_BrotherFightMain_2:
+	applymovement 3, Walk5Up
+	goto Pearlwood_BrotherFightMain_1
 
-Pearlwood_BrotherCombat_5:
-	call PearlwoodBrotherTorchic
-	goto Pearlwood_BrotherCombat_4
-
-Pearlwood_BrotherCombat_7:
-	call PearlwoodBrotherPiplup
-	return
-
-
-PearlwoodBrotherRowlet::
+Pearlwood_BrotherFightMain_6:
 	trainerbattle_single TRAINER_BROTHER1_ROWLET, Pearlwood_Brother_Intro, Pearlwood_Brother_Outro, PearlwoodWon
-	waitmessage
-	end
+	return
 
-
-PearlwoodBrotherTorchic::
+Pearlwood_BrotherFightMain_7:
 	trainerbattle_single TRAINER_BROTHER1_TORCHIC, Pearlwood_Brother_Intro, Pearlwood_Brother_Outro, PearlwoodWon
-	waitmessage
-	end
+	return
 
-
-PearlwoodBrotherPiplup::
+Pearlwood_BrotherFightMain_8:
 	trainerbattle_single TRAINER_BROTHER1_PIPLUP, Pearlwood_Brother_Intro, Pearlwood_Brother_Outro, PearlwoodWon
-	waitmessage
-	end
+	return
 
 
 PearlwoodWon::
@@ -176,16 +106,14 @@ PearlwoodWon::
 	goto_if_eq PearlwoodWon_2
 	msgbox PlayerHouse1F_Apology
 PearlwoodWon_1:
-	waitmessage
 	closemessage
 	clearflag FLAG_CONTINUE_AFTER_WHITEOUT
 	special HealPlayerParty
-	applymovement 3, PearlwoodBrotherLeave
+	applymovement 3, Walk5Down
 	waitmovement 0
 	removeobject 3
-	setflag FLAG_UNUSED_BROTHER_PEARLFIGHT
-	setvar VAR_PEARLWOOD_TOWN_STATE, 7
-	releaseall
+	setvar VAR_PEARLWOOD_TOWN_STATE, 6
+	release
 	return
 
 PearlwoodWon_2:
@@ -193,77 +121,42 @@ PearlwoodWon_2:
 	goto PearlwoodWon_1
 
 
-PearlwoodBrotherLeave:
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	step_end
-
 Pearlwood_Point_FatMan::
-	lockall
-	faceplayer
-	msgbox Pearlwood_Point_FatMan_Text_0
-	waitmessage
-	closemessage
-	release
-	end
-
-
-Pearlwood_Point_LittleGirl::
-	lockall
-	faceplayer
-	msgbox Pearlwood_Point_LittleGirl_Text_0
-	waitmessage
-	closemessage
-	applymovement 4, Pearlwood_Point_LittleGirlface
-	waitmovement 0
-	release
-	end
-
-
-Pearlwood_Point_LittleGirlface:
-	face_up
-	step_end
-
-Pearlwood_Sign::
-	lockall
-	msgbox Pearlwood_Sign_Text_0
-	waitmessage
-	closemessage
-	release
-	end
-
-
-Pearlwood_Antidote::
-	finditem ITEM_ANTIDOTE
+	msgbox Pearlwood_Point_FatMan_Text, MSGBOX_NPC
 	return
 
 
-Pearlwood_BrotherFightRight_Text_0:
+Pearlwood_Point_LittleGirl::
+	msgbox Pearlwood_Point_LittleGirl_Text, MSGBOX_NPC
+	turnobject 4, DIR_NORTH
+	return
+
+
+Pearlwood_Sign::
+	msgbox Pearlwood_Sign_Text, MSGBOX_SIGN
+	return
+
+
+Pearlwood_BrotherFightMain_Text_0:
 	.string "???: {PLAYER}!$"
-
-Pearlwood_Point_FatMan_Text_0:
-	.string "The weather is so calm here despite\nthe close proximity to the sea.\pMust be all the trees blocking\nthe sea breeze.$"
-
-Pearlwood_Point_LittleGirl_Text_0:
-	.string "Shh!\pI think I hear the cry of a wild\nPokémon coming from over there.$"
-
-Pearlwood_Sign_Text_0:
-	.string "PEARLWOOD POINT\n“A town of new beginnings.”\p{LEFT_ARROW} Prof. Birch's Pokémon lab\n{RIGHT_ARROW} Route 1$"
-
-Pearlwood_Point_Dangerous::
-	.string "It's dangerous to leave the town\nwithout your own Pokémon.$"
 
 Pearlwood_Point_WatchOut::
 	.string "Wait!$"
 
 Pearlwood_Point_WildPokemon::
-	.string "There are a lot of wild\nPokémon living outside the town!\pIt's dangerous to leave the town\nwithout your own Pokémon.$"
+	.string "There are a lot of wild\n"
+	.string "Pokémon living outside the town!\p"
+	.string "It's dangerous to leave the town\n"
+	.string "without your own Pokémon.$"
+
+Pearlwood_Point_Dangerous::
+	.string "It's dangerous to leave the town\n"
+	.string "without your own Pokémon.$"
 
 BrotherFightIntro::
-	.string "{BROTHER}: I see you got your Pokémon\nfrom the professor.\pWell? What're we waiting for?$"
+	.string "{BROTHER}: I see you got your Pokémon\n"
+	.string "from the professor.\p"
+	.string "Well? What're we waiting for?$"
 
 Pearlwood_Brother_Intro::
 	.string "Let's see if it's any good\n"
@@ -278,8 +171,34 @@ Pearlwood_Brother_Intro::
 Pearlwood_Brother_Outro::
 	.string "Of course you picked THAT one!$"
 
-Pearlwood_Brother_PostBattle::
-	.string "NO NEED FOR THIS$"
-
 PearlwoodBrotherPrize::
-	.string "Hmph… I guess I should not\nhave underestimated you.\pAnyway, have you thought about what\nyou're going to do next?\pIf you're up for it, we should totally\nsee which of us is the better trainer\lby taking on the Pokémon Gym Challenge!\pOur neighbor {RIVAL} just set out this\nmorning so we better get moving or\lwe'll fall behind!\pDon't know about you but I'm not content\nwith a second place.\pCatch ya later!$"
+	.string "Hmph… I guess I should not\n"
+	.string "have underestimated you.\p"
+	.string "Anyway, have you thought about what\n"
+	.string "you're going to do next?\p"
+	.string "If you're up for it, we should totally\n"
+	.string "see which of us is the better trainer\l"
+	.string "by taking on the Pokémon Gym Challenge!\p"
+	.string "Our neighbor {RIVAL} just set out this\n"
+	.string "morning so we better get moving or\l"
+	.string "we'll fall behind!\p"
+	.string "Don't know about you but I'm not\n"
+	.string "content with a second place.\p"
+	.string "Catch ya later!$"
+
+Pearlwood_Point_FatMan_Text::
+	.string "The weather is so calm here despite\n"
+	.string "the close proximity to the sea.\p"
+	.string "Must be all the trees blocking\n"
+	.string "the sea breeze.$"
+
+Pearlwood_Point_LittleGirl_Text::
+	.string "Shh!\p"
+	.string "I think I hear the cry of a wild\n"
+	.string "Pokémon coming from over there.$"
+
+Pearlwood_Sign_Text::
+	.string "PEARLWOOD POINT\n"
+	.string "“A town of new beginnings.”\p"
+	.string "{LEFT_ARROW} Prof. Birch's Pokémon lab\n"
+	.string "{RIGHT_ARROW} Route 1$"

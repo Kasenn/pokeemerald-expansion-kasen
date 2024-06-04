@@ -1,5 +1,5 @@
 CoralgroveElevator2_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Pearlwood_MaysHouse2F_SetRival
+	map_script MAP_SCRIPT_ON_TRANSITION, Common_EventScript_SetupRivalGfxId
 	.byte 0
 
 
@@ -125,42 +125,40 @@ CoralgroveElevator2_Rival_BATTLECONFIG::
 	checkplayergender
 	compare VAR_RESULT, MALE
 	goto_if_eq CoralgroveElevator2_Rival_BATTLECONFIG_1
-	goto_if_set FLAG_UNUSED_PICKEDROWLET, CoralgroveElevator2_Rival_BATTLECONFIG_8
-CoralgroveElevator2_Rival_BATTLECONFIG_7:
-	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, CoralgroveElevator2_Rival_BATTLECONFIG_14
-CoralgroveElevator2_Rival_BATTLECONFIG_13:
-	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, CoralgroveElevator2_Rival_BATTLECONFIG_18
+	switch VAR_STARTER_MON
+	case 0, CoralgroveElevator2_Rival_BATTLECONFIG_9
+	case 1, CoralgroveElevator2_Rival_BATTLECONFIG_10
+	case 2, CoralgroveElevator2_Rival_BATTLECONFIG_11
 	return
 
 CoralgroveElevator2_Rival_BATTLECONFIG_1:
-	goto_if_set FLAG_UNUSED_PICKEDROWLET, CoralgroveElevator2_Rival_BATTLECONFIG_5
-CoralgroveElevator2_Rival_BATTLECONFIG_4:
-	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, CoralgroveElevator2_Rival_BATTLECONFIG_11
-CoralgroveElevator2_Rival_BATTLECONFIG_10:
-	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, CoralgroveElevator2_Rival_BATTLECONFIG_16
+	switch VAR_STARTER_MON
+	case 0, CoralgroveElevator2_Rival_BATTLECONFIG_5
+	case 1, CoralgroveElevator2_Rival_BATTLECONFIG_6
+	case 2, CoralgroveElevator2_Rival_BATTLECONFIG_7
 	return
 
 CoralgroveElevator2_Rival_BATTLECONFIG_5:
 	call CoralgroveElevator2_StartMayBattleRowlet
-	goto CoralgroveElevator2_Rival_BATTLECONFIG_4
+	return
 
-CoralgroveElevator2_Rival_BATTLECONFIG_8:
-	call CoralgroveElevator2_StartBrendanBattleRowlet
-	goto CoralgroveElevator2_Rival_BATTLECONFIG_7
-
-CoralgroveElevator2_Rival_BATTLECONFIG_11:
+CoralgroveElevator2_Rival_BATTLECONFIG_6:
 	call CoralgroveElevator2_StartMayBattleTorchic
-	goto CoralgroveElevator2_Rival_BATTLECONFIG_10
+	return
 
-CoralgroveElevator2_Rival_BATTLECONFIG_14:
-	call CoralgroveElevator2_StartBrendanBattleTorchic
-	goto CoralgroveElevator2_Rival_BATTLECONFIG_13
-
-CoralgroveElevator2_Rival_BATTLECONFIG_16:
+CoralgroveElevator2_Rival_BATTLECONFIG_7:
 	call CoralgroveElevator2_StartMayBattlePiplup
 	return
 
-CoralgroveElevator2_Rival_BATTLECONFIG_18:
+CoralgroveElevator2_Rival_BATTLECONFIG_9:
+	call CoralgroveElevator2_StartBrendanBattleRowlet
+	return
+
+CoralgroveElevator2_Rival_BATTLECONFIG_10:
+	call CoralgroveElevator2_StartBrendanBattleTorchic
+	return
+
+CoralgroveElevator2_Rival_BATTLECONFIG_11:
 	call CoralgroveElevator2_StartBrendanBattlePiplup
 	return
 

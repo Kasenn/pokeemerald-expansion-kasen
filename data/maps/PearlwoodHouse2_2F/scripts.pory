@@ -1,17 +1,13 @@
 mapscripts PearlwoodHouse2_2F_MapScripts{}
 
 script PearlwoodHouse2_2F_Girl{
-    lockall
-    faceplayer
-    msgbox("Have you heard of the fairy type?\nFairy type Pokémon are really strong\lagainst fighting, dark, and dragon\ltype Pokémon while being very weak\lto steel and poison.")
-    waitmessage
-    closemessage
-    applymovement(1, PearlwoodHouse2_2F_Girl_face)
-    waitmovement(0)
-    release
-    end
+    msgbox(PearlwoodHouse2_2F_Girl_Text, MSGBOX_NPC)
+    turnobject(1, DIR_NORTH)
 }
-
-movement PearlwoodHouse2_2F_Girl_face{
-    face_up
+text PearlwoodHouse2_2F_Girl_Text{
+    "Have you heard of the Fairy type?\n"
+    "Fairy type Pokémon are really strong\l"
+    "against Fighting, Dark, and Dragon\l"
+    "type Pokémon while being very weak\l"
+    "to Steel and Poison."
 }

@@ -1,63 +1,47 @@
 mapscripts PlayerHouse1F_MapScripts {
     MAP_SCRIPT_ON_TRANSITION: PH1FClearFlag
     MAP_SCRIPT_ON_FRAME_TABLE [
-        VAR_PEARLWOOD_TOWN_STATE, 2: PlayerHouse1F_MomIntro
-        VAR_PEARLWOOD_TOWN_STATE, 5: PlayerHouse1F_BrotherApology
+        VAR_PEARLWOOD_TOWN_STATE, 1: PlayerHouse1F_MomIntro
     ]
 }
 
 script PlayerHouse1F_MomIntro{
-    if(flag(FLAG_UNUSED_INTROGOSSIP)){
-        end
-    }
-    else{
-        lockall
-        applymovement(1, PlayerHouse1F_face1)
-        waitmovement(0)
-        playse(SE_PIN)
-        applymovement(1, Common_Movement_ExclamationMark)
-        waitmovement(0)
-        delay(40)
-        msgbox(PlayerHouse1F_LookPlayer)
-        waitmessage
-        closemessage
-        delay(30)
-        call(IntroNameBrother)
-        msgbox(PlayerHouse1F_LookPlayer2)
-        waitmessage
-        closemessage
-        applymovement(1, PlayerHouse1F_face2)
-        waitmovement(0)
-        applymovement(OBJ_EVENT_ID_PLAYER, PlayerHouse1F_PlayerSitTable)
-        waitmovement(0)
-        delay(20)
-        msgbox(PlayerHouse1F_Disc1)
-        waitmessage
-        closemessage
-        fadescreen(FADE_TO_BLACK)
-        delay(80)
-        fadescreen(FADE_FROM_BLACK)
-        msgbox(PlayerHouse1F_Disc2)
-        waitmessage
-        playse(SE_PIN)
-        applymovement(1, Common_Movement_ExclamationMark)
-        waitmovement(0)
-        delay(40)
-        applymovement(1, PlayerHouse1F_face3)
-        applymovement(OBJ_EVENT_ID_PLAYER, PlayerHouse1F_face1)
-        waitmovement(0)
-        msgbox(PlayerHouse1F_Disc3)
-        waitmessage
-        closemessage
-        setflag(FLAG_UNUSED_INTROGOSSIP)
-        setflag(FLAG_UNUSED_BROTHER_PEARLFIGHT)
-        setvar(VAR_PEARLWOOD_TOWN_STATE, 3)
-        call(Player1F_Shoes)
-        applymovement(1, PlayerHouse1F_face2)
-        waitmovement(0)
-        releaseall
-        end
-    }
+    lock
+    turnobject(1, DIR_NORTH)
+    playse(SE_PIN)
+    applymovement(1, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    msgbox(PlayerHouse1F_LookPlayer)
+    closemessage
+    delay(30)
+    call(IntroNameBrother)
+    msgbox(PlayerHouse1F_LookPlayer2)
+    closemessage
+    turnobject(1, DIR_WEST)
+    applymovement(OBJ_EVENT_ID_PLAYER, PlayerHouse1F_PlayerSitTable)
+    waitmovement(0)
+    delay(20)
+    msgbox(PlayerHouse1F_Disc1)
+    closemessage
+    fadescreen(FADE_TO_BLACK)
+    delay(80)
+    fadescreen(FADE_FROM_BLACK)
+    msgbox(PlayerHouse1F_Disc2)
+    closemessage
+    playse(SE_PIN)
+    applymovement(1, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    turnobject(1, DIR_SOUTH)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    msgbox(PlayerHouse1F_Disc3)
+    closemessage
+    setflag(FLAG_UNUSED_BROTHER_PEARLFIGHT)
+    setvar(VAR_PEARLWOOD_TOWN_STATE, 2)
+    call(Player1F_Shoes)
+    turnobject(1, DIR_WEST)
+    release
 }
 
 script IntroNameBrother{
@@ -74,39 +58,22 @@ script IntroNameBrother{
 text SoItsBrother{
     "So it's {BROTHER}?"
 }
-
 script BrotherLoop{
     goto(IntroNameBrother)
-    end
 }
 
 script Player1F_Shoes{
-    msgbox("Oh, and one more thing.", MSGBOX_DEFAULT)
+    msgbox("Oh, and one more thing.")
     playfanfare(MUS_OBTAIN_ITEM)
-    msgbox("{COLOR RED}{SHADOW LIGHT_RED}Obtained the running shoes!", MSGBOX_DEFAULT)
+    message("{COLOR RED}{SHADOW LIGHT_RED}Obtained the running shoes!")
+    waitfanfare
+    waitmessage
     setflag(FLAG_SYS_B_DASH)
     setflag(FLAG_RECEIVED_RUNNING_SHOES)
-    msgbox("Mom: Now you can zip around everywhere\nmuch faster!", MSGBOX_DEFAULT)
+    msgbox("Mom: Now you can zip around everywhere\nmuch faster!")
     closemessage
     delay(30)
 }
-
-movement PlayerHouse1F_face1{
-    face_up
-}
-
-movement PlayerHouse1F_face2{
-    face_left
-}
-
-movement PlayerHouse1F_face3{
-    face_down
-}
-
-movement PlayerHouse1F_face4{
-    face_right
-}
-
 
 text PlayerHouse1F_LookPlayer{
     "Mom: Look, {PLAYER}!\n"
@@ -159,35 +126,24 @@ text PlayerHouse1F_BrotherGossip{
 }
 
 script PlayerHouse1F_Brother{
-    lockall
-    faceplayer
-    msgbox(PlayerHouse1F_BrotherGossip)
-    waitmessage
-    applymovement(2, PlayerHouse1F_face4)
-    waitmovement(0)
-    release
-    end
+    msgbox(PlayerHouse1F_BrotherGossip, MSGBOX_NPC)
+    turnobject(2, DIR_EAST)
 }
 
 script PlayerHouse1F_Mom{
     lockall
     faceplayer
-    if(var(VAR_PEARLWOOD_TOWN_STATE) == 3){
-        call(PlayerHouse1F_MomGossip)
-        applymovement(1, PlayerHouse1F_face2)
-        waitmovement(0)
-        release
-        end
+    if(var(VAR_PEARLWOOD_TOWN_STATE) == 2){
+        msgbox(MomSeeYou, MSGBOX_NPC)
+        turnobject(1, DIR_WEST)
     }
-    elif(var(VAR_PEARLWOOD_TOWN_STATE) == 7){
-        call(PlayerHouse1F_MomGoodbye)
-        applymovement(1, PlayerHouse1F_face2)
-        waitmovement(0)
-        release
-        end
+    elif(var(VAR_PEARLWOOD_TOWN_STATE) == 6){
+        msgbox(PlayerHouse1F_MomGoodbye_Text, MSGBOX_NPC)
+        setvar(VAR_PEARLWOOD_TOWN_STATE, 7)
+        turnobject(1, DIR_WEST)
     }
     else{
-        if(var(VAR_PEARLWOOD_TOWN_STATE) >= 11){
+        if(var(VAR_PEARLWOOD_TOWN_STATE) >= 10){
             if(flag(FLAG_DAD_INTRO)){
                 goto(PlayersHouse_1F_EventScript_MomHealsParty)
             }
@@ -199,51 +155,38 @@ script PlayerHouse1F_Mom{
     }
 }
 
-script PlayerHouse1F_MomGossip{
-    msgbox("Mom: See you, honey!")
-    waitmessage
-    closemessage
+text MomSeeYou{
+    "Mom: See you, honey!"
 }
-
-script PlayerHouse1F_MomGoodbye{
-    msgbox("Mom: You're leaving on an adventure?\nWell, can't say that I'm surprised.\pYour father was like that as well\nwhen we were young.\pSpeaking of which, your father has been\nworking hard to get accepted into\lthe Pokémon League.\pMaybe one day you'll challenge him to\na Pokémon battle on League grounds.\pIf your Pokémon ever get hurt,\ncome see me and I'll help patch them up.")
-    waitmessage
-    closemessage
-    setvar(VAR_PEARLWOOD_TOWN_STATE, 8)
-}
-
-script PlayerHouse1F_BrotherApology{
-    lockall
-    playse(SE_PIN)
-    applymovement(3, Common_Movement_ExclamationMark)
-    waitmovement(0)
-    delay(40)
-    applymovement(3, PlayerHouse1F_face1)
-    waitmovement(0)
-    delay(10)
-    applymovement(3, Walk2Up)
-    waitmovement(0)
-    delay(15)
-    msgbox(PlayerHouse1F_Apology)
-    waitmessage
-    closemessage
-    applymovement(3, BrotherLeavesHouse)
-    waitmovement(0)
-    removeobject(3)
-    setflag(FLAG_UNUSED_LOSTTOBROTHER)
-    setflag(FLAG_UNUSED_BROTHER_PEARLFIGHT)
-    setvar(VAR_PEARLWOOD_TOWN_STATE, 7)
-    delay(30)
-    release
-    end
+text PlayerHouse1F_MomGoodbye_Text{
+    "Mom: You're leaving on an adventure?\n"
+    "Well, can't say that I'm surprised.\p"
+    "Your father was like that as well\n"
+    "when we were young.\p"
+    "Speaking of which, your father has been\n"
+    "working hard to get accepted into\l"
+    "the Pokémon League.\p"
+    "Maybe one day you'll challenge him to\n"
+    "a Pokémon battle on League grounds.\p"
+    "If your Pokémon ever get hurt,\n"
+    "come see me and I'll help patch them up."
 }
 
 text PlayerHouse1F_Apology{
-"{BROTHER}: Sorry about that.\nI knew that with my experience it was\lgoing to be an unfair fight. I hope you\ldon't take that loss too seriously…\pAnyway, have you thought about what\nyou're going to do next?\pIf you're up for it, we should totally\nsee which of us is the better trainer\lby taking on the Pokémon Gym Challenge!\pOur neighbor {RIVAL} just set out so we\nbetter get moving or we'll fall behind!\pDon't know about you but I'm not content\nwith a second place.\pCatch ya later!"
-}
-
-movement BrotherLeavesHouse{
-    walk_down * 5
+    "{BROTHER}: Sorry about that.\n"
+    "I knew that with my experience it was\l"
+    "going to be an unfair fight. I hope you\l"
+    "don't take that loss too seriously…\p"
+    "Anyway, have you thought about what\n"
+    "you're going to do next?\p"
+    "If you're up for it, we should totally\n"
+    "see which of us is the better trainer\l"
+    "by taking on the Pokémon Gym Challenge!\p"
+    "Our neighbor {RIVAL} just set out so we\n"
+    "better get moving or we'll fall behind!\p"
+    "Don't know about you but I'm not content\n"
+    "with a second place.\p"
+    "Catch ya later!"
 }
 
 script PH1FClearFlag{
@@ -251,31 +194,17 @@ script PH1FClearFlag{
     if(var(VAR_RESULT) == FEMALE){
         setmaplayoutindex(LAYOUT_PLAYER_HOUSE1F_MAY)
     }
-    if(var(VAR_PEARLWOOD_TOWN_STATE) == 5){
-        clearflag(FLAG_UNUSED_LOSTTOBROTHER)
-    }
-    if(var(VAR_PEARLWOOD_TOWN_STATE) >= 11){
+    if(var(VAR_PEARLWOOD_TOWN_STATE) >= 10){
         clearflag(FLAG_HIDE_PLAYERS_HOUSE_DAD)
     }
     end
 }
 
 script WooperDoll{
-    lockall
-    msgbox("It's a Wooper doll.")
-    waitmessage
-    closemessage
-    release
-    end
+    msgbox("It's a Wooper doll.", MSGBOX_SIGN)
 }
-
 script AzurillDoll{
-    lockall
-    msgbox("It's an Azurill doll.")
-    waitmessage
-    closemessage
-    release
-    end
+    msgbox("It's an Azurill doll.", MSGBOX_SIGN)
 }
 
 script PlayerHouse1F_Dad{
@@ -302,8 +231,8 @@ script PlayerHouse1F_Dad{
     waitse
     msgbox(ExplainCapsule, MSGBOX_NPC)
     setflag(FLAG_RECEIVED_CAPSULE)
-    if(var(VAR_PEARLWOOD_TOWN_STATE) == 13){
-        setvar(VAR_PEARLWOOD_TOWN_STATE, 14)
+    if(var(VAR_PEARLWOOD_TOWN_STATE) == 12){
+        setvar(VAR_PEARLWOOD_TOWN_STATE, 13)
     }
     end
 }

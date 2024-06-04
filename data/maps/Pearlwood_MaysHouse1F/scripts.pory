@@ -9,34 +9,34 @@ script LoadBrendanHouse1F{
 }
 
 script Pearlwood_MaysHouse1F_RivalMom{
-    lockall
-    faceplayer
-    if(var(VAR_PEARLWOOD_TOWN_STATE) == 3){
+    if(var(VAR_PEARLWOOD_TOWN_STATE) <= 3){
         checkplayergender
-        if(var(VAR_RESULT) == 0){
-            msgbox(Pearlwood_MaysHouse1F_RivalMom1MalePC)
+        if(var(VAR_RESULT) == MALE){
+            bufferstring(STR_VAR_1, "her")
         }
         else{
-            msgbox(Pearlwood_MaysHouse1F_RivalMom1FemalePC)
+            bufferstring(STR_VAR_1, "his")
         }
+        msgbox(Pearlwood_MaysHouse1F_RivalMom1, MSGBOX_NPC)
     }
     else{
-        msgbox(Pearlwood_MaysHouse1F_RivalMom2)
+        msgbox(Pearlwood_MaysHouse1F_RivalMom2, MSGBOX_NPC)
         }
-    waitmessage
-    closemessage
-    release
-    end
 }
 
-text Pearlwood_MaysHouse1F_RivalMom1MalePC{
-    "Hello neighbor!\pI believe {RIVAL} was working on\nsomething in her room.\pIf you're looking for my husband,\nyou can probably find him in his lab."
-}
-
-text Pearlwood_MaysHouse1F_RivalMom1FemalePC{
-    "Hello neighbor!\pI believe {RIVAL} was working on\nsomething in his room.\pIf you're looking for my husband,\nyou can probably find him in his lab."
+text Pearlwood_MaysHouse1F_RivalMom1{
+    "Hello neighbor!\p"
+    "I believe {RIVAL} was working on\n"
+    "something in {STR_VAR_1} room.\p"
+    "If you're looking for my husband,\n"
+    "you can probably find him in his lab."
 }
 
 text Pearlwood_MaysHouse1F_RivalMom2{
-    "Oh, {RIVAL} went out to Primrose Meadow\njust a little while ago.\pLike father, like child.\n{RIVAL} can't stay quietly at home.\pPrimrose Meadow is just past\nthe next town."
+    "Oh, {RIVAL} went out to Primrose Meadow\n"
+    "just a little while ago.\p"
+    "Like father, like child.\n"
+    "{RIVAL} can't stay quietly at home.\p"
+    "Primrose Meadow is just past\n"
+    "the next town."
 }

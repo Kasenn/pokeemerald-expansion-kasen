@@ -83,13 +83,13 @@ script Update3{
         if(var(VAR_RESULT) == TRUE){
             setvar(VAR_DESERT_BYPASS, 1)
         }
-        if(flag(FLAG_UNUSED_PICKEDROWLET)){
+        if(flag(FLAG_UNUSED_493)){
             setvar(VAR_STARTER_MON, 0)
         }
-        if(flag(FLAG_UNUSED_PICKEDTORCHIC)){
+        if(flag(FLAG_UNUSED_494)){
             setvar(VAR_STARTER_MON, 1)
         }
-        if(flag(FLAG_UNUSED_PICKEDPIPLUP)){
+        if(flag(FLAG_UNUSED_495)){
             setvar(VAR_STARTER_MON, 2)
         }
         clearflag(FLAG_SHOWED_BADGE)
@@ -129,12 +129,39 @@ script Update3{
         }
         setvar(VAR_DEBUG, 2)
     }
-    checkitem(ITEM_WHITE_FLUTE)
-    if(var(VAR_RESULT) == TRUE){
-        msgbox(ReplacedFlute)
-        removeitem(ITEM_WHITE_FLUTE)
-        additem(ITEM_BLACK_FLUTE)
+    if(var(VAR_DEBUG) == 2){
+        checkitem(ITEM_WHITE_FLUTE)
+        if(var(VAR_RESULT) == TRUE){
+            msgbox(ReplacedFlute)
+            removeitem(ITEM_WHITE_FLUTE)
+            additem(ITEM_BLACK_FLUTE)
+        }
+        clearflag(FLAG_UNUSED_496)
+        clearflag(FLAG_UNUSED_497)
+        clearflag(FLAG_UNUSED_499)
+        clearflag(FLAG_UNUSED_49B)
+        clearflag(FLAG_UNUSED_74)
+        if(flag(FLAG_UNUSED_493)){
+            clearflag(FLAG_UNUSED_493)
+        }
+        if(flag(FLAG_UNUSED_494)){
+            clearflag(FLAG_UNUSED_494)
+        }
+        if(flag(FLAG_UNUSED_495)){
+            clearflag(FLAG_UNUSED_495)
+        }
+        setvar(VAR_DEBUG, 3)
     }
+    call(UpdateItemCheck)
+    msgbox(FlagsAndVarsUpdated2, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == TRUE){
+        warp(MAP_CORALGROVE_CITY, 26, 44)
+    }
+	closemessage
+    release
+    end
+}
+script UpdateItemCheck{
     checkitem(ITEM_TM49, 2)
     if(var(VAR_RESULT) == TRUE){
         removeitem(ITEM_TM49, 1)
@@ -150,13 +177,6 @@ script Update3{
         removeitem(ITEM_TM_GIGA_DRAIN)
         additem(ITEM_TM_GRASS_KNOT)
     }
-    msgbox(FlagsAndVarsUpdated2, MSGBOX_YESNO)
-    if(var(VAR_RESULT) == TRUE){
-        warp(MAP_CORALGROVE_CITY, 26, 44)
-    }
-	closemessage
-    release
-    end
 }
 text ReplacedFlute{
     "Your White Flute has been replaced\n"

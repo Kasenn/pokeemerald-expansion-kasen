@@ -4,15 +4,16 @@ Lab2_MapScripts::
 	.byte 0
 
 Lab2_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_PEARLWOOD_TOWN_STATE, 2, Lab2_Intro
 	map_script_2 VAR_PEARLWOOD_TOWN_STATE, 3, Lab2_Intro
-	map_script_2 VAR_PEARLWOOD_TOWN_STATE, 9, Lab2_DexGet
-	map_script_2 VAR_PEARLWOOD_TOWN_STATE, 11, Lab2_GetMegaStone
+	map_script_2 VAR_PEARLWOOD_TOWN_STATE, 8, Lab2_DexGet
+	map_script_2 VAR_PEARLWOOD_TOWN_STATE, 10, Lab2_GetMegaStone
 	.2byte 0
 
 
 Lab2_GetMegaStone::
 	clearflag FLAG_HIDE_LAB_RIVAL
-	applymovement OBJ_EVENT_ID_PLAYER, Lab2_MovePlayerUp
+	applymovement OBJ_EVENT_ID_PLAYER, Walk6Up
 	waitmovement 0
 	msgbox LabMegaStones
 	closemessage
@@ -26,7 +27,7 @@ Lab2_GetMegaStone_1:
 	case 1, Lab2_GetMegaStone_15
 	case 2, Lab2_GetMegaStone_16
 Lab2_GetMegaStone_12:
-	setvar VAR_PEARLWOOD_TOWN_STATE, 13
+	setvar VAR_PEARLWOOD_TOWN_STATE, 12
 	waitse
 Lab2_GetMegaStone_4:
 	delay 24
@@ -39,7 +40,7 @@ Lab2_GetMegaStone_4:
 	checkplayergender
 	compare VAR_RESULT, MALE
 	goto_if_eq Lab2_GetMegaStone_9
-	compare VAR_PEARLWOOD_TOWN_STATE, 12
+	compare VAR_PEARLWOOD_TOWN_STATE, 11
 	goto_if_eq Lab2_GetMegaStone_20
 	msgbox GonnaTakeMyLeave_Brendan
 	applymovement 5, Common_Movement_WalkInPlaceFasterUp
@@ -65,11 +66,11 @@ Lab2_GetMegaStone_2:
 
 Lab2_GetMegaStone_5:
 	msgbox ComeGetYourStoneLater
-	setvar VAR_PEARLWOOD_TOWN_STATE, 12
+	setvar VAR_PEARLWOOD_TOWN_STATE, 11
 	goto Lab2_GetMegaStone_4
 
 Lab2_GetMegaStone_9:
-	compare VAR_PEARLWOOD_TOWN_STATE, 12
+	compare VAR_PEARLWOOD_TOWN_STATE, 11
 	goto_if_eq Lab2_GetMegaStone_17
 	msgbox GonnaTakeMyLeave_May
 	applymovement 5, Common_Movement_WalkInPlaceFasterUp
@@ -133,44 +134,56 @@ TurnPlayer:
 	step_end
 
 Lab2_Intro::
-	applymovement OBJ_EVENT_ID_PLAYER, Lab2_MovePlayerUp
+	applymovement OBJ_EVENT_ID_PLAYER, Walk6Up
 	waitmovement 0
-	msgbox Lab2_Intro_Speech, MSGBOX_DEFAULT
+	msgbox Lab2_Intro_Speech
 	closemessage
 	delay 20
 	turnobject 4, DIR_EAST
 	delay 20
-	msgbox Lab2_PresentingBalls, MSGBOX_DEFAULT
+	msgbox Lab2_PresentingBalls
 	closemessage
 	delay 20
 	setvar VAR_PEARLWOOD_TOWN_STATE, 4
-	releaseall
-	end
+	release
+	return
 
-
-Lab2_MovePlayerUp:
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	step_end
 
 Lab2_HideRival::
 	call Common_EventScript_SetupRivalGfxId
-	compare VAR_PEARLWOOD_TOWN_STATE, 9
-	goto_if_eq Lab2_HideRival_1
+	goto_if_set FLAG_SYS_POKEMON_GET, Lab2_HideRival_2
+Lab2_HideRival_1:
+	compare VAR_PEARLWOOD_TOWN_STATE, 8
+	goto_if_eq Lab2_HideRival_4
 	setflag FLAG_HIDE_LAB_RIVAL
 	return
 
-Lab2_HideRival_1:
+Lab2_HideRival_2:
+	switch VAR_STARTER_MON
+	case 0, Lab2_HideRival_8
+	case 1, Lab2_HideRival_9
+	case 2, Lab2_HideRival_10
+	goto Lab2_HideRival_1
+
+Lab2_HideRival_4:
 	clearflag FLAG_HIDE_LAB_RIVAL
 	return
 
+Lab2_HideRival_8:
+	setobjectxyperm 1, 20, 0
+	goto Lab2_HideRival_1
+
+Lab2_HideRival_9:
+	setobjectxyperm 2, 20, 0
+	goto Lab2_HideRival_1
+
+Lab2_HideRival_10:
+	setobjectxyperm 3, 20, 0
+	goto Lab2_HideRival_1
+
 
 Lab2_DexGet::
-	applymovement OBJ_EVENT_ID_PLAYER, Lab2_MovePlayerUp
+	applymovement OBJ_EVENT_ID_PLAYER, Walk6Up
 	waitmovement 0
 	checkplayergender
 	compare VAR_RESULT, MALE
@@ -179,7 +192,6 @@ Lab2_DexGet_1:
 	compare VAR_RESULT, FEMALE
 	goto_if_eq Lab2_DexGet_5
 Lab2_DexGet_4:
-	waitmessage
 	closemessage
 	playfanfare MUS_OBTAIN_TMHM
 	message Lab2_DexGet_Text_0
@@ -187,16 +199,13 @@ Lab2_DexGet_4:
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
 	special EnableNationalPokedex
-	setflag FLAG_ADVENTURE_STARTED
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
 	setvar VAR_CABLE_CLUB_TUTORIAL_STATE, 1
 	setvar VAR_OLDALE_TOWN_STATE, 1
-	applymovement OBJ_EVENT_ID_PLAYER, Lab2_TurnRight
-	applymovement 5, Lab2_TurnLeft
-	waitmovement 0
-	msgbox Lab2_DexGet_Text_1, MSGBOX_DEFAULT
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	turnobject 5, DIR_WEST
+	msgbox Lab2_DexGet_Text_1
 	giveitem ITEM_POKE_BALL, 5
-	waitmessage
 	msgbox Lab2_DexGet_Text_2
 	checkplayergender
 	compare VAR_RESULT, MALE
@@ -205,20 +214,28 @@ Lab2_DexGet_7:
 	compare VAR_RESULT, FEMALE
 	goto_if_eq Lab2_DexGet_11
 Lab2_DexGet_10:
+	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Lab2FaceDown
 	applymovement 5, Lab2_Movement_RivalExit1
 	waitmovement 0
-	closemessage
 	delay 60
-	goto Lab2_RivalEnd
-	end
+	removeobject 5
+	setvar VAR_PEARLWOOD_TOWN_STATE, 9
+	clearflag FLAG_ROUTE1_STATE
+	savebgm MUS_DUMMY
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	fadedefaultbgm
+	delay 25
+	msgbox Lab2_DexGet_Text_5, MSGBOX_DEFAULT
+	release
+	return
 
 Lab2_DexGet_2:
-	msgbox Lab2_DexTalkMay, MSGBOX_DEFAULT
+	msgbox Lab2_DexTalkMay
 	goto Lab2_DexGet_1
 
 Lab2_DexGet_5:
-	msgbox Lab2_DexTalkBrendan, MSGBOX_DEFAULT
+	msgbox Lab2_DexTalkBrendan
 	goto Lab2_DexGet_4
 
 Lab2_DexGet_8:
@@ -229,31 +246,6 @@ Lab2_DexGet_11:
 	msgbox Lab2_DexGet_Text_4
 	goto Lab2_DexGet_10
 
-
-Lab2_RivalEnd::
-	removeobject 5
-	setflag FLAG_HIDE_LAB_RIVAL
-	setvar VAR_PEARLWOOD_TOWN_STATE, 10
-	clearflag FLAG_ROUTE1_STATE
-	savebgm MUS_DUMMY
-	applymovement OBJ_EVENT_ID_PLAYER, Lab2FaceUp
-	waitmovement 0
-	fadedefaultbgm
-	delay 25
-	msgbox Lab2_RivalEnd_Text_0, MSGBOX_DEFAULT
-	waitmessage
-	closemessage
-	releaseall
-	end
-
-
-Lab2_TurnLeft:
-	face_left
-	step_end
-
-Lab2FaceUp:
-	face_up
-	step_end
 
 Lab2_Movement_RivalExit1:
 	player_run_down
@@ -272,21 +264,16 @@ Lab2FaceDown:
 	walk_in_place_faster_down
 	step_end
 
-Lab2_TurnRight:
-	face_right
-	step_end
-
 Lab2_Birch::
 	lockall
 	faceplayer
-	compare VAR_PEARLWOOD_TOWN_STATE, 14
-	goto_if_eq Lab2_Birch_2
 	compare VAR_PEARLWOOD_TOWN_STATE, 13
-	goto_if_eq Lab2_Birch_5
+	goto_if_eq Lab2_Birch_2
 	compare VAR_PEARLWOOD_TOWN_STATE, 12
+	goto_if_eq Lab2_Birch_5
+	compare VAR_PEARLWOOD_TOWN_STATE, 11
 	goto_if_eq Lab2_Birch_8
-	goto_if_unset FLAG_UNUSED_PICKEDROWLET, Lab2_Birch_16
-Lab2_Birch_15:
+	goto_if_unset FLAG_SYS_POKEMON_GET, Lab2_Birch_14
 	msgbox Lab2_Birch_Text_1
 Lab2_Birch_13:
 	waitmessage
@@ -307,13 +294,13 @@ Lab2_Birch_8:
 	closemessage
 	checkitemspace ITEM_DECIDUEITE
 	compare VAR_RESULT, FALSE
-	goto_if_eq Lab2_Birch_21
+	goto_if_eq Lab2_Birch_17
 	switch VAR_STARTER_MON
-	case 0, Lab2_Birch_26
-	case 1, Lab2_Birch_27
-	case 2, Lab2_Birch_28
-Lab2_Birch_24:
-	setvar VAR_PEARLWOOD_TOWN_STATE, 13
+	case 0, Lab2_Birch_22
+	case 1, Lab2_Birch_23
+	case 2, Lab2_Birch_24
+Lab2_Birch_20:
+	setvar VAR_PEARLWOOD_TOWN_STATE, 12
 	waitse
 	release
 	end
@@ -326,221 +313,110 @@ Lab2_Birch_14:
 	msgbox Lab2_Birch_Text_0
 	goto Lab2_Birch_13
 
-Lab2_Birch_16:
-	goto_if_unset FLAG_UNUSED_PICKEDTORCHIC, Lab2_Birch_18
-	goto Lab2_Birch_15
-
-Lab2_Birch_18:
-	goto_if_unset FLAG_UNUSED_PICKEDPIPLUP, Lab2_Birch_14
-	goto Lab2_Birch_15
-
-Lab2_Birch_21:
+Lab2_Birch_17:
 	msgbox ComeGetYourStoneLaterShort, MSGBOX_NPC
 	end
 
-Lab2_Birch_26:
+Lab2_Birch_22:
 	giveitem ITEM_DECIDUEITE
-	goto Lab2_Birch_24
+	goto Lab2_Birch_20
 
-Lab2_Birch_27:
+Lab2_Birch_23:
 	giveitem ITEM_BLAZIKENITE
-	goto Lab2_Birch_24
+	goto Lab2_Birch_20
 
-Lab2_Birch_28:
+Lab2_Birch_24:
 	giveitem ITEM_EMPOLEONITE
-	goto Lab2_Birch_24
+	goto Lab2_Birch_20
 
 
 Lab2_Ball1::
-	lockall
-	goto_if_unset FLAG_UNUSED_PICKEDROWLET, Lab2_Ball1_4
-Lab2_Ball1_3:
-	msgbox Lab2_Ball1_Text_0
-Lab2_Ball1_1:
-	waitmessage
-	release
-	end
-
-Lab2_Ball1_2:
-	call Lab2_Rowlet
-	goto Lab2_Ball1_1
-
-Lab2_Ball1_4:
-	goto_if_unset FLAG_UNUSED_PICKEDTORCHIC, Lab2_Ball1_6
-	goto Lab2_Ball1_3
-
-Lab2_Ball1_6:
-	goto_if_unset FLAG_UNUSED_PICKEDPIPLUP, Lab2_Ball1_2
-	goto Lab2_Ball1_3
+	setvar VAR_TEMP_3, SPECIES_ROWLET
+	goto Lab_BallMain
+	return
 
 
 Lab2_Ball2::
-	lockall
-	goto_if_unset FLAG_UNUSED_PICKEDROWLET, Lab2_Ball2_4
-Lab2_Ball2_3:
-	msgbox Lab2_Ball1_Text_0
-Lab2_Ball2_1:
-	waitmessage
-	release
-	end
-
-Lab2_Ball2_2:
-	call Lab2_Torchic
-	goto Lab2_Ball2_1
-
-Lab2_Ball2_4:
-	goto_if_unset FLAG_UNUSED_PICKEDTORCHIC, Lab2_Ball2_6
-	goto Lab2_Ball2_3
-
-Lab2_Ball2_6:
-	goto_if_unset FLAG_UNUSED_PICKEDPIPLUP, Lab2_Ball2_2
-	goto Lab2_Ball2_3
+	setvar VAR_TEMP_3, SPECIES_TORCHIC
+	goto Lab_BallMain
+	return
 
 
 Lab2_Ball3::
-	lockall
-	goto_if_unset FLAG_UNUSED_PICKEDROWLET, Lab2_Ball3_4
-Lab2_Ball3_3:
-	msgbox Lab2_Ball1_Text_0
-Lab2_Ball3_1:
-	waitmessage
-	release
-	end
-
-Lab2_Ball3_2:
-	call Lab2_Piplup
-	goto Lab2_Ball3_1
-
-Lab2_Ball3_4:
-	goto_if_unset FLAG_UNUSED_PICKEDTORCHIC, Lab2_Ball3_6
-	goto Lab2_Ball3_3
-
-Lab2_Ball3_6:
-	goto_if_unset FLAG_UNUSED_PICKEDPIPLUP, Lab2_Ball3_2
-	goto Lab2_Ball3_3
-
-
-Lab2_Rowlet::
-	lockall
-	showmonpic SPECIES_ROWLET, 10, 3
-	msgbox Lab2_Rowlet_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Lab2_Rowlet_2
-	hidemonpic
-	msgbox Lab2_NotChosen
-Lab2_Rowlet_1:
-	waitmessage
-	release
-	end
-
-Lab2_Rowlet_2:
-	givemon SPECIES_ROWLET, 5, 0
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq Lab2_Rowlet_5
-	goto Lab2_Rowlet_1
-
-Lab2_Rowlet_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox Lab2_Rowlet_Text_1
-	removeobject 1
-	setflag FLAG_UNUSED_PICKEDROWLET
-	setvar VAR_STARTER_MON, 0
-	call Lab2SetFlags
-	call NicknamePartyMon
-	goto Lab2_Rowlet_1
-
-
-Lab2_Torchic::
-	lockall
-	showmonpic SPECIES_TORCHIC, 10, 3
-	msgbox Lab2_Torchic_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Lab2_Torchic_2
-	hidemonpic
-	msgbox Lab2_NotChosen
-Lab2_Torchic_1:
-	waitmessage
-	release
-	end
-
-Lab2_Torchic_2:
-	givemon SPECIES_TORCHIC, 5, 0
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq Lab2_Torchic_5
-	goto Lab2_Torchic_1
-
-Lab2_Torchic_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox Lab2_Torchic_Text_1
-	removeobject 2
-	setflag FLAG_UNUSED_PICKEDTORCHIC
-	setvar VAR_STARTER_MON, 1
-	call Lab2SetFlags
-	call NicknamePartyMon
-	goto Lab2_Torchic_1
-
-
-Lab2_Piplup::
-	lockall
-	showmonpic SPECIES_PIPLUP, 10, 3
-	msgbox Lab2_Piplup_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq Lab2_Piplup_2
-	hidemonpic
-	msgbox Lab2_NotChosen
-Lab2_Piplup_1:
-	waitmessage
-	release
-	end
-
-Lab2_Piplup_2:
-	givemon SPECIES_PIPLUP, 5, 0
-	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq Lab2_Piplup_5
-	goto Lab2_Piplup_1
-
-Lab2_Piplup_5:
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox Lab2_Piplup_Text_1
-	removeobject 3
-	setflag FLAG_UNUSED_PICKEDPIPLUP
-	setvar VAR_STARTER_MON, 2
-	call Lab2SetFlags
-	call NicknamePartyMon
-	goto Lab2_Piplup_1
-
-
-NicknamePartyMon::
-	msgbox NicknamePartyMon_Text_0, MSGBOX_YESNO
-	hidemonpic
-	compare VAR_RESULT, YES
-	goto_if_eq NicknamePartyMon_1
-	return
-
-NicknamePartyMon_1:
-	call Common_EventScript_GetGiftMonPartySlot
-	call Common_EventScript_NameReceivedPartyMon
+	setvar VAR_TEMP_3, SPECIES_PIPLUP
+	goto Lab_BallMain
 	return
 
 
-Lab2SetFlags::
+Lab_BallMain::
+	goto_if_set FLAG_SYS_POKEMON_GET, Lab_BallMain_2
+	lock
+	showmonpic VAR_TEMP_3, 10, 3
+	bufferspeciesname STR_VAR_1, VAR_TEMP_3
+	msgbox Lab_BallMain_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Lab_BallMain_5
+	givemon VAR_TEMP_3, 5
+	playfanfare MUS_OBTAIN_ITEM
+	message Lab_BallMain_Text_2
+	waitmessage
+	waitfanfare
+	setobjectxy VAR_LAST_TALKED, 20, 0
+	setobjectxyperm VAR_LAST_TALKED, 20, 0
+	applymovement VAR_LAST_TALKED, Walk1Up
+	switch VAR_TEMP_3
+	case SPECIES_ROWLET, Lab_BallMain_9
+	case SPECIES_TORCHIC, Lab_BallMain_10
+	case SPECIES_PIPLUP, Lab_BallMain_11
+Lab_BallMain_7:
 	setflag FLAG_SYS_POKEMON_GET
-	setflag FLAG_UNUSED_STARTER_GET
 	setflag FLAG_ROUTE1_STATE
 	clearflag FLAG_UNUSED_BROTHER_PEARLFIGHT
 	setvar VAR_PEARLWOOD_TOWN_STATE, 5
+	msgbox Lab_BallMain_Text_3, MSGBOX_YESNO
+	hidemonpic
+	compare VAR_RESULT, YES
+	goto_if_eq Lab_BallMain_13
+Lab_BallMain_12:
+	release
 	return
+
+Lab_BallMain_2:
+	msgbox Lab_BallMain_Text_0, MSGBOX_SIGN
+	end
+
+Lab_BallMain_5:
+	hidemonpic
+	msgbox Lab2_NotChosen
+	release
+	end
+
+Lab_BallMain_9:
+	setvar VAR_STARTER_MON, 0
+	goto Lab_BallMain_7
+
+Lab_BallMain_10:
+	setvar VAR_STARTER_MON, 1
+	goto Lab_BallMain_7
+
+Lab_BallMain_11:
+	setvar VAR_STARTER_MON, 2
+	goto Lab_BallMain_7
+
+Lab_BallMain_13:
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto Lab_BallMain_12
 
 
 Lab2_NoLeave::
-	lockall
+	lock
 	msgbox Lab2_NoLeave_Text_0
-	waitmessage
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Walk1Up
 	waitmovement 0
 	release
-	end
+	return
 
 
 Lab2_DexGet_Text_0:
@@ -558,7 +434,7 @@ Lab2_DexGet_Text_3:
 Lab2_DexGet_Text_4:
 	.string "Come on, let's go catch some Pokémon!$"
 
-Lab2_RivalEnd_Text_0:
+Lab2_DexGet_Text_5:
 	.string "Prof. Birch: Sigh…\pSometimes I wonder\nwhere {RIVAL} gets all that energy…$"
 
 Lab2_Birch_Text_0:
@@ -567,32 +443,20 @@ Lab2_Birch_Text_0:
 Lab2_Birch_Text_1:
 	.string "Prof. Birch: I hope you take\ngood care of your new companion.$"
 
-Lab2_Ball1_Text_0:
+Lab_BallMain_Text_0:
 	.string "You already received a Pokémon.$"
 
-Lab2_Rowlet_Text_0:
-	.string "Do you want to choose Rowlet?$"
+Lab_BallMain_Text_1:
+	.string "Do you want to choose {STR_VAR_1}?$"
 
-Lab2_Rowlet_Text_1:
-	.string "{PLAYER} received the Rowlet!$"
+Lab_BallMain_Text_2:
+	.string "{PLAYER} received the {STR_VAR_1}!$"
 
-Lab2_Torchic_Text_0:
-	.string "Do you want to choose Torchic?$"
-
-Lab2_Torchic_Text_1:
-	.string "{PLAYER} received the Torchic!$"
-
-Lab2_Piplup_Text_0:
-	.string "Do you want to choose Piplup?$"
-
-Lab2_Piplup_Text_1:
-	.string "{PLAYER} received the Piplup!$"
-
-NicknamePartyMon_Text_0:
-	.string "Do you want to give a nickname \nto your new Pokémon?$"
+Lab_BallMain_Text_3:
+	.string "Do you want to give a nickname\nto your new Pokémon?$"
 
 Lab2_NoLeave_Text_0:
-	.string "You haven't chosen a Pokémon yet!$"
+	.string "{COLOR RED}{SHADOW LIGHT_RED}You haven't chosen a Pokémon yet!$"
 
 LabMegaStones::
 	.string "Prof. Birch: {RIVAL}, {PLAYER},\n"
@@ -720,10 +584,26 @@ Lab2_DexTalkBrendan::
 	.string "{RIVAL}: You're the best, dad!\n$"
 
 Lab2_Intro_Speech::
-	.string "Prof. Birch: Hello!\nYou must be {PLAYER}!\pAs you may know, it is customary in\nthis town for every young person to\lbe given their very first Pokémon.\pSome people use this opportunity to\ngo on a journey of self-discovery\lwhile some are content with\lwhere they are now.\pWhat you do with your Pokémon is\nyour decision.$"
+	.string "Prof. Birch: Hello!\n"
+	.string "You must be {PLAYER}!\p"
+	.string "As you may know, it is customary in\n"
+	.string "this town for every young person to\l"
+	.string "be given their very first Pokémon.\p"
+	.string "Some people use this opportunity to\n"
+	.string "go on a journey of self-discovery\l"
+	.string "while some are content with\l"
+	.string "where they are now.\p"
+	.string "What you do with your Pokémon is\n"
+	.string "your decision.$"
 
 Lab2_PresentingBalls::
-	.string "Over there on the table lies three\nPoké Balls. Each of them stores\lsome very rare Pokémon.\pYou may now go and choose one of them\nas your own.\pYou may only choose one so make sure\nyou decide carefully!$"
+	.string "Over there on the table lies three\n"
+	.string "Poké Balls. Each of them stores\l"
+	.string "some very rare Pokémon.\p"
+	.string "You may now go and choose one of them\n"
+	.string "as your own.\p"
+	.string "You may only choose one so make sure\n"
+	.string "you decide carefully!$"
 
 Lab2_NotChosen::
 	.string "Take your time.$"

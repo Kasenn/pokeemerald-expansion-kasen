@@ -5,167 +5,97 @@ mapscripts PearlwoodPoint_MapScripts{
 script Pearlwood_Visited{
     setflag(FLAG_VISITED_PEARLWOOD_POINT)
 }
+
 script Pearlwood_Point_NoPokemon1{
-    if(flag(FLAG_UNUSED_STARTER_GET)){
-        releaseall
-        end
-    }
-    else{
-        lockall
-        applymovement(2, Pearlwood_Point_Face)
-        waitmovement(0)
-        playse(SE_PIN)
-        applymovement(2, Common_Movement_ExclamationMark)
-        waitmovement(0)
-        delay(40)
-        msgbox(Pearlwood_Point_WatchOut, MSGBOX_NPC)
-        waitmessage
-        applymovement(OBJ_EVENT_ID_PLAYER, Pearlwood_Point_PlayerFace1)
-        waitmovement(0)
-        msgbox(Pearlwood_Point_WildPokemon)
-        waitmessage
-        applymovement(OBJ_EVENT_ID_PLAYER, Walk1Left)
-        waitmovement(0)
-        releaseall
-    }
+    setvar(VAR_TEMP_1, 1)
+    goto(Pearlwood_Point_NoPokemon)
 }
 
 script Pearlwood_Point_NoPokemon2{
-    if(flag(FLAG_UNUSED_STARTER_GET)){
-        releaseall
-        end
+    setvar(VAR_TEMP_1, 2)
+    goto(Pearlwood_Point_NoPokemon)
+}
+
+script Pearlwood_Point_NoPokemon{
+    lock
+    turnobject(2, DIR_SOUTH)
+    playse(SE_PIN)
+    applymovement(2, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    msgbox(Pearlwood_Point_WatchOut)
+    closemessage
+    if(var(VAR_TEMP_1) == 1){
+        turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
     }
     else{
-        lockall
-        applymovement(2, Pearlwood_Point_Face)
-        waitmovement(0)
-        playse(SE_PIN)
-        applymovement(2, Common_Movement_ExclamationMark)
-        waitmovement(0)
-        delay(40)
-        msgbox(Pearlwood_Point_WatchOut, MSGBOX_NPC)
-        waitmessage
         applymovement(OBJ_EVENT_ID_PLAYER, Walk1Up)
         waitmovement(0)
-        msgbox(Pearlwood_Point_WildPokemon)
-        waitmessage
-        applymovement(OBJ_EVENT_ID_PLAYER, Walk1Left)
-        waitmovement(0)
-        releaseall
     }
+    msgbox(Pearlwood_Point_WildPokemon)
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Left)
+    waitmovement(0)
+    release
 }
-
-movement Pearlwood_Point_Face{
-    face_player
-}
-
-movement Pearlwood_Point_PlayerFace1{
-    face_up
-}
-
-text Pearlwood_Point_Dangerous{
-    "It's dangerous to leave the town\nwithout your own Pokémon."
-}
-
 text Pearlwood_Point_WatchOut{
     "Wait!"
 }
-
 text Pearlwood_Point_WildPokemon{
-    "There are a lot of wild\nPokémon living outside the town!\pIt's dangerous to leave the town\nwithout your own Pokémon."
+    "There are a lot of wild\n"
+    "Pokémon living outside the town!\p"
+    "It's dangerous to leave the town\n"
+    "without your own Pokémon."
 }
 
 script Pearlwood_Point_StopGirlTalk{
-    lockall
-    faceplayer
-    msgbox(Pearlwood_Point_Dangerous)
-    waitmessage
-    applymovement(2, Pearlwood_Point_Face2)
-    waitmovement(0)
-    release
-    end
+    msgbox(Pearlwood_Point_Dangerous, MSGBOX_NPC)
+    turnobject(2, DIR_SOUTH)
 }
-
-movement Pearlwood_Point_Face2{
-    face_down
+text Pearlwood_Point_Dangerous{
+    "It's dangerous to leave the town\n"
+    "without your own Pokémon."
 }
 
 script Pearlwood_BrotherFightRight{
-    lockall
-    msgbox("???: {PLAYER}!")
-    waitmessage
-    closemessage
-    delay(30)
-    applymovement(3, BrotherRightMove)
-    waitmovement(0)
-    msgbox(BrotherFightIntro)
-    waitmessage
-    closemessage
-    call(Pearlwood_BrotherCombat)
-    waitmessage
-    releaseall
+    setvar(VAR_TEMP_2, 1)
+    goto(Pearlwood_BrotherFightMain)
 }
-
-movement BrotherRightMove{
-    walk_up * 5
-}
-
 script Pearlwood_BrotherFightLeft{
-    lockall
-    msgbox("???: {PLAYER}!")
-    waitmessage
-    closemessage
-    delay(30)
-    applymovement(3, BrotherLeftMove)
-    waitmovement(0)
-    msgbox(BrotherFightIntro)
-    waitmessage
-    closemessage
-    call(Pearlwood_BrotherCombat)
-    releaseall
+    setvar(VAR_TEMP_2, 2)
+    goto(Pearlwood_BrotherFightMain)
 }
 
-movement BrotherLeftMove{
-    walk_left
-    walk_up * 5
+script Pearlwood_BrotherFightMain{
+    lock
+    msgbox("???: {PLAYER}!")
+    closemessage
+    delay(30)
+    if(var(VAR_TEMP_2) == 1){
+        applymovement(3, Walk5Up)
+    }
+    else{
+        applymovement(3, Walk1Left)
+        waitmovement(0)
+        applymovement(3, Walk5Up)
+    }
+    waitmovement(0)
+    msgbox(BrotherFightIntro)
+    setflag(FLAG_CONTINUE_AFTER_WHITEOUT)
+    switch(var(VAR_STARTER_MON)){
+        case 0:
+            trainerbattle_single(TRAINER_BROTHER1_ROWLET, Pearlwood_Brother_Intro, Pearlwood_Brother_Outro, PearlwoodWon)
+        case 1:
+            trainerbattle_single(TRAINER_BROTHER1_TORCHIC, Pearlwood_Brother_Intro, Pearlwood_Brother_Outro, PearlwoodWon)
+        case 2:
+            trainerbattle_single(TRAINER_BROTHER1_PIPLUP, Pearlwood_Brother_Intro, Pearlwood_Brother_Outro, PearlwoodWon)
+    }
 }
 
 text BrotherFightIntro{
-    "{BROTHER}: I see you got your Pokémon\nfrom the professor.\pWell? What're we waiting for?"
-}
-
-script Pearlwood_BrotherCombat{
-    setflag(FLAG_CONTINUE_AFTER_WHITEOUT)
-    if(flag(FLAG_UNUSED_PICKEDROWLET)){
-        call(PearlwoodBrotherRowlet)
-    }
-    if(flag(FLAG_UNUSED_PICKEDTORCHIC)){
-        call(PearlwoodBrotherTorchic)
-    }
-    if(flag(FLAG_UNUSED_PICKEDPIPLUP)){
-        call(PearlwoodBrotherPiplup)
-    }
-}
-
-script PearlwoodBrotherRowlet{
-
-	trainerbattle_single(TRAINER_BROTHER1_ROWLET, Pearlwood_Brother_Intro, Pearlwood_Brother_Outro, PearlwoodWon)
-	waitmessage
-    end
-}
-
-script PearlwoodBrotherTorchic{
- 
-	trainerbattle_single(TRAINER_BROTHER1_TORCHIC, Pearlwood_Brother_Intro, Pearlwood_Brother_Outro, PearlwoodWon)
-	waitmessage
-    end
-}
-
-script PearlwoodBrotherPiplup{
- 
-	trainerbattle_single(TRAINER_BROTHER1_PIPLUP, Pearlwood_Brother_Intro, Pearlwood_Brother_Outro, PearlwoodWon)
-	waitmessage
-    end
+    "{BROTHER}: I see you got your Pokémon\n"
+    "from the professor.\p"
+    "Well? What're we waiting for?"
 }
 
 text Pearlwood_Brother_Intro{
@@ -183,10 +113,6 @@ text Pearlwood_Brother_Outro{
     "Of course you picked THAT one!"
 }
 
-text Pearlwood_Brother_PostBattle{
-    "NO NEED FOR THIS"
-}
-
 script PearlwoodWon{
     if(var(VAR_RESULT) == B_OUTCOME_WON){
         msgbox(PearlwoodBrotherPrize)
@@ -194,68 +120,58 @@ script PearlwoodWon{
 	else{
         msgbox(PlayerHouse1F_Apology)
     }
-    waitmessage
     closemessage
     clearflag(FLAG_CONTINUE_AFTER_WHITEOUT)
     special(HealPlayerParty)
-    applymovement(3, PearlwoodBrotherLeave)
+    applymovement(3, Walk5Down)
 	waitmovement(0)
     removeobject(3)
-    setflag(FLAG_UNUSED_BROTHER_PEARLFIGHT)
-    setvar(VAR_PEARLWOOD_TOWN_STATE, 7)
-	releaseall
-	return
+    setvar(VAR_PEARLWOOD_TOWN_STATE, 6)
+	release
 }
 
 text PearlwoodBrotherPrize{
-    "Hmph… I guess I should not\nhave underestimated you.\pAnyway, have you thought about what\nyou're going to do next?\pIf you're up for it, we should totally\nsee which of us is the better trainer\lby taking on the Pokémon Gym Challenge!\pOur neighbor {RIVAL} just set out this\nmorning so we better get moving or\lwe'll fall behind!\pDon't know about you but I'm not content\nwith a second place.\pCatch ya later!"
-}
-
-movement PearlwoodBrotherLeave{
-    walk_down * 5
+    "Hmph… I guess I should not\n"
+    "have underestimated you.\p"
+    "Anyway, have you thought about what\n"
+    "you're going to do next?\p"
+    "If you're up for it, we should totally\n"
+    "see which of us is the better trainer\l"
+    "by taking on the Pokémon Gym Challenge!\p"
+    "Our neighbor {RIVAL} just set out this\n"
+    "morning so we better get moving or\l"
+    "we'll fall behind!\p"
+    "Don't know about you but I'm not\n"
+    "content with a second place.\p"
+    "Catch ya later!"
 }
 
 script Pearlwood_Point_FatMan{
-    lockall
-    faceplayer
-    msgbox("The weather is so calm here despite\nthe close proximity to the sea.\pMust be all the trees blocking\nthe sea breeze.")
-    waitmessage
-    closemessage
-    release
-    end
+    msgbox(Pearlwood_Point_FatMan_Text, MSGBOX_NPC)
+}
+text Pearlwood_Point_FatMan_Text{
+    "The weather is so calm here despite\n"
+    "the close proximity to the sea.\p"
+    "Must be all the trees blocking\n"
+    "the sea breeze."
 }
 
 script Pearlwood_Point_LittleGirl{
-    lockall
-    faceplayer
-    msgbox("Shh!\pI think I hear the cry of a wild\nPokémon coming from over there.")
-    waitmessage
-    closemessage
-    applymovement(4, Pearlwood_Point_LittleGirlface)
-    waitmovement(0)
-    release
-    end
+    msgbox(Pearlwood_Point_LittleGirl_Text, MSGBOX_NPC)
+    turnobject(4, DIR_NORTH)
 }
-
-movement Pearlwood_Point_LittleGirlface{
-    face_up
+text Pearlwood_Point_LittleGirl_Text{
+    "Shh!\p"
+    "I think I hear the cry of a wild\n"
+    "Pokémon coming from over there."
 }
 
 script Pearlwood_Sign{
-    lockall
-    msgbox("PEARLWOOD POINT\n“A town of new beginnings.”\p{LEFT_ARROW} Prof. Birch's Pokémon lab\n{RIGHT_ARROW} Route 1")
-    waitmessage
-    closemessage
-    release
-    end
+    msgbox(Pearlwood_Sign_Text, MSGBOX_SIGN)
 }
-
-script Pearlwood_Antidote{
-    finditem(ITEM_ANTIDOTE)
+text Pearlwood_Sign_Text{
+    "PEARLWOOD POINT\n"
+    "“A town of new beginnings.”\p"
+    "{LEFT_ARROW} Prof. Birch's Pokémon lab\n"
+    "{RIGHT_ARROW} Route 1"
 }
-
-
-// script GIVEBP
-//    buffernumberstring (STR_VAR_1, 2)
-//	  setvar(VAR_0x8004, 2)
-//    special(GiveFrontierBattlePoints)

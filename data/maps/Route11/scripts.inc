@@ -467,99 +467,91 @@ KorrinaMovesBack::
 
 
 R11_AngryMayBattleSetup::
-	goto_if_set FLAG_UNUSED_PICKEDROWLET, R11_AngryMayBattleSetup_2
+	switch VAR_STARTER_MON
+	case 0, R11_AngryMayBattleSetup_3
+	case 1, R11_AngryMayBattleSetup_4
+	case 2, R11_AngryMayBattleSetup_5
 R11_AngryMayBattleSetup_1:
-	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, R11_AngryMayBattleSetup_5
-R11_AngryMayBattleSetup_4:
-	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, R11_AngryMayBattleSetup_7
+	goto R11_RivalPostBattle
 	return
 
-R11_AngryMayBattleSetup_2:
+R11_AngryMayBattleSetup_3:
 	trainerbattle_no_intro TRAINER_R11_MAY_ROWLET_ANGRY, R11_AngryMayDefeated
-	goto R11_RivalPostBattle
+	goto R11_AngryMayBattleSetup_1
+
+R11_AngryMayBattleSetup_4:
+	trainerbattle_no_intro TRAINER_R11_MAY_TORCHIC_ANGRY, R11_AngryMayDefeated
 	goto R11_AngryMayBattleSetup_1
 
 R11_AngryMayBattleSetup_5:
-	trainerbattle_no_intro TRAINER_R11_MAY_TORCHIC_ANGRY, R11_AngryMayDefeated
-	goto R11_RivalPostBattle
-	goto R11_AngryMayBattleSetup_4
-
-R11_AngryMayBattleSetup_7:
 	trainerbattle_no_intro TRAINER_R11_MAY_PIPLUP_ANGRY, R11_AngryMayDefeated
-	goto R11_RivalPostBattle
-	return
+	goto R11_AngryMayBattleSetup_1
 
 
 R11_AngryBrendanBattleSetup::
-	goto_if_set FLAG_UNUSED_PICKEDROWLET, R11_AngryBrendanBattleSetup_2
+	switch VAR_STARTER_MON
+	case 0, R11_AngryBrendanBattleSetup_3
+	case 1, R11_AngryBrendanBattleSetup_4
+	case 2, R11_AngryBrendanBattleSetup_5
 R11_AngryBrendanBattleSetup_1:
-	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, R11_AngryBrendanBattleSetup_5
-R11_AngryBrendanBattleSetup_4:
-	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, R11_AngryBrendanBattleSetup_7
+	goto R11_RivalPostBattle
 	return
 
-R11_AngryBrendanBattleSetup_2:
+R11_AngryBrendanBattleSetup_3:
 	trainerbattle_no_intro TRAINER_R11_BRENDAN_ROWLET_ANGRY, R11_AngryBrendanDefeated
-	goto R11_RivalPostBattle
+	goto R11_AngryBrendanBattleSetup_1
+
+R11_AngryBrendanBattleSetup_4:
+	trainerbattle_no_intro TRAINER_R11_BRENDAN_TORCHIC_ANGRY, R11_AngryBrendanDefeated
 	goto R11_AngryBrendanBattleSetup_1
 
 R11_AngryBrendanBattleSetup_5:
-	trainerbattle_no_intro TRAINER_R11_BRENDAN_TORCHIC_ANGRY, R11_AngryBrendanDefeated
-	goto R11_RivalPostBattle
-	goto R11_AngryBrendanBattleSetup_4
-
-R11_AngryBrendanBattleSetup_7:
 	trainerbattle_no_intro TRAINER_R11_BRENDAN_PIPLUP_ANGRY, R11_AngryBrendanDefeated
-	goto R11_RivalPostBattle
-	return
+	goto R11_AngryBrendanBattleSetup_1
 
 
 R11_MayBattleSetup::
-	goto_if_set FLAG_UNUSED_PICKEDROWLET, R11_MayBattleSetup_2
+	switch VAR_STARTER_MON
+	case 0, R11_MayBattleSetup_3
+	case 1, R11_MayBattleSetup_4
+	case 2, R11_MayBattleSetup_5
 R11_MayBattleSetup_1:
-	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, R11_MayBattleSetup_5
-R11_MayBattleSetup_4:
-	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, R11_MayBattleSetup_7
+	goto R11_RivalPostBattle
 	return
 
-R11_MayBattleSetup_2:
+R11_MayBattleSetup_3:
 	trainerbattle_no_intro TRAINER_R11_MAY_ROWLET, R11_MayDefeated
-	goto R11_RivalPostBattle
+	goto R11_MayBattleSetup_1
+
+R11_MayBattleSetup_4:
+	trainerbattle_no_intro TRAINER_R11_MAY_TORHIC, R11_MayDefeated
 	goto R11_MayBattleSetup_1
 
 R11_MayBattleSetup_5:
-	trainerbattle_no_intro TRAINER_R11_MAY_TORHIC, R11_MayDefeated
-	goto R11_RivalPostBattle
-	goto R11_MayBattleSetup_4
-
-R11_MayBattleSetup_7:
 	trainerbattle_no_intro TRAINER_R11_MAY_PIPLUP, R11_MayDefeated
-	goto R11_RivalPostBattle
-	return
+	goto R11_MayBattleSetup_1
 
 
 R11_BrendanBattleSetup::
-	goto_if_set FLAG_UNUSED_PICKEDROWLET, R11_BrendanBattleSetup_2
+	switch VAR_STARTER_MON
+	case 0, R11_BrendanBattleSetup_3
+	case 1, R11_BrendanBattleSetup_4
+	case 2, R11_BrendanBattleSetup_5
 R11_BrendanBattleSetup_1:
-	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, R11_BrendanBattleSetup_5
-R11_BrendanBattleSetup_4:
-	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, R11_BrendanBattleSetup_7
+	goto R11_RivalPostBattle
 	return
 
-R11_BrendanBattleSetup_2:
+R11_BrendanBattleSetup_3:
 	trainerbattle_no_intro TRAINER_R11_BRENDAN_ROWLET, R11_BrendanDefeated
-	goto R11_RivalPostBattle
+	goto R11_BrendanBattleSetup_1
+
+R11_BrendanBattleSetup_4:
+	trainerbattle_no_intro TRAINER_R11_BRENDAN_TORCHIC, R11_BrendanDefeated
 	goto R11_BrendanBattleSetup_1
 
 R11_BrendanBattleSetup_5:
-	trainerbattle_no_intro TRAINER_R11_BRENDAN_TORCHIC, R11_BrendanDefeated
-	goto R11_RivalPostBattle
-	goto R11_BrendanBattleSetup_4
-
-R11_BrendanBattleSetup_7:
 	trainerbattle_no_intro TRAINER_R11_BRENDAN_PIPLUP, R11_BrendanDefeated
-	goto R11_RivalPostBattle
-	return
+	goto R11_BrendanBattleSetup_1
 
 
 R11_RivalPostBattle::

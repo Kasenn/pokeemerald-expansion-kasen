@@ -1,27 +1,33 @@
 static const struct TrainerMon sParty_Sawyer1[] = {
     {
-    .lvl = 10,
+    .lvl = 5,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(4, 252, 252, 0, 0 ,0), 
+    .nature = NATURE_ADAMANT,
     .species = SPECIES_SQUIRTLE,
     .gender = TRAINER_MON_MALE,
-    .nature = NATURE_DOCILE,
     }
 };
 
 static const struct TrainerMon sParty_GruntAquaHideout1[] = {
     {
-    .lvl = 10,
+    .lvl = 5,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(4, 252, 252, 0, 0 ,0), 
+    .nature = NATURE_ADAMANT,
     .species = SPECIES_BULBASAUR,
     .gender = TRAINER_MON_MALE,
-    .nature = NATURE_HASTY,
     }
 };
 
 static const struct TrainerMon sParty_GruntAquaHideout2[] = {
     {
-    .lvl = 10,
+    .lvl = 5,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(4, 252, 252, 0, 0 ,0), 
+    .nature = NATURE_ADAMANT,
     .species = SPECIES_CHARMANDER,
     .gender = TRAINER_MON_MALE,
-    .nature = NATURE_DOCILE,
     }
 };
 

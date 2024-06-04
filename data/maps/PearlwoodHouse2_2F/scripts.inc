@@ -3,20 +3,14 @@ PearlwoodHouse2_2F_MapScripts::
 
 
 PearlwoodHouse2_2F_Girl::
-	lockall
-	faceplayer
-	msgbox PearlwoodHouse2_2F_Girl_Text_0
-	waitmessage
-	closemessage
-	applymovement 1, PearlwoodHouse2_2F_Girl_face
-	waitmovement 0
-	release
-	end
+	msgbox PearlwoodHouse2_2F_Girl_Text, MSGBOX_NPC
+	turnobject 1, DIR_NORTH
+	return
 
 
-PearlwoodHouse2_2F_Girl_face:
-	face_up
-	step_end
-
-PearlwoodHouse2_2F_Girl_Text_0:
-	.string "Have you heard of the fairy type?\nFairy type Pokémon are really strong\lagainst fighting, dark, and dragon\ltype Pokémon while being very weak\lto steel and poison.$"
+PearlwoodHouse2_2F_Girl_Text::
+	.string "Have you heard of the Fairy type?\n"
+	.string "Fairy type Pokémon are really strong\l"
+	.string "against Fighting, Dark, and Dragon\l"
+	.string "type Pokémon while being very weak\l"
+	.string "to Steel and Poison.$"

@@ -209,7 +209,7 @@ script SandstoneRival{
         release
         end
     }
-    if(var(VAR_PEARLWOOD_TOWN_STATE) == 11){
+    if(var(VAR_PEARLWOOD_TOWN_STATE) == 10){
         release
         end
     }

@@ -624,60 +624,48 @@ script KorrinaMovesBack{
 }
 
 script R11_AngryMayBattleSetup{
-    if(flag(FLAG_UNUSED_PICKEDROWLET)){
-        trainerbattle_no_intro(TRAINER_R11_MAY_ROWLET_ANGRY, R11_AngryMayDefeated)
-	    goto(R11_RivalPostBattle)
+    switch(var(VAR_STARTER_MON)){
+        case 0:
+            trainerbattle_no_intro(TRAINER_R11_MAY_ROWLET_ANGRY, R11_AngryMayDefeated)
+        case 1:
+            trainerbattle_no_intro(TRAINER_R11_MAY_TORCHIC_ANGRY, R11_AngryMayDefeated)
+        case 2:
+            trainerbattle_no_intro(TRAINER_R11_MAY_PIPLUP_ANGRY, R11_AngryMayDefeated)
     }
-    if(flag(FLAG_UNUSED_PICKEDTORCHIC)){
-        trainerbattle_no_intro(TRAINER_R11_MAY_TORCHIC_ANGRY, R11_AngryMayDefeated)
-	    goto(R11_RivalPostBattle)
-    }
-    if(flag(FLAG_UNUSED_PICKEDPIPLUP)){
-        trainerbattle_no_intro(TRAINER_R11_MAY_PIPLUP_ANGRY, R11_AngryMayDefeated)
-	    goto(R11_RivalPostBattle)
-    }
+    goto(R11_RivalPostBattle)
 }
 script R11_AngryBrendanBattleSetup{
-    if(flag(FLAG_UNUSED_PICKEDROWLET)){
-        trainerbattle_no_intro(TRAINER_R11_BRENDAN_ROWLET_ANGRY, R11_AngryBrendanDefeated)
-	    goto(R11_RivalPostBattle)
+    switch(var(VAR_STARTER_MON)){
+        case 0:
+            trainerbattle_no_intro(TRAINER_R11_BRENDAN_ROWLET_ANGRY, R11_AngryBrendanDefeated)
+        case 1:
+            trainerbattle_no_intro(TRAINER_R11_BRENDAN_TORCHIC_ANGRY, R11_AngryBrendanDefeated)
+        case 2:
+            trainerbattle_no_intro(TRAINER_R11_BRENDAN_PIPLUP_ANGRY, R11_AngryBrendanDefeated)
     }
-    if(flag(FLAG_UNUSED_PICKEDTORCHIC)){
-        trainerbattle_no_intro(TRAINER_R11_BRENDAN_TORCHIC_ANGRY, R11_AngryBrendanDefeated)
-	    goto(R11_RivalPostBattle)
-    }
-    if(flag(FLAG_UNUSED_PICKEDPIPLUP)){
-        trainerbattle_no_intro(TRAINER_R11_BRENDAN_PIPLUP_ANGRY, R11_AngryBrendanDefeated)
-	    goto(R11_RivalPostBattle)
-    }
+    goto(R11_RivalPostBattle)
 }
 script R11_MayBattleSetup{
-    if(flag(FLAG_UNUSED_PICKEDROWLET)){
-        trainerbattle_no_intro(TRAINER_R11_MAY_ROWLET, R11_MayDefeated)
-	    goto(R11_RivalPostBattle)
+    switch(var(VAR_STARTER_MON)){
+        case 0:
+            trainerbattle_no_intro(TRAINER_R11_MAY_ROWLET, R11_MayDefeated)
+        case 1:
+            trainerbattle_no_intro(TRAINER_R11_MAY_TORHIC, R11_MayDefeated)
+        case 2:
+            trainerbattle_no_intro(TRAINER_R11_MAY_PIPLUP, R11_MayDefeated)
     }
-    if(flag(FLAG_UNUSED_PICKEDTORCHIC)){
-        trainerbattle_no_intro(TRAINER_R11_MAY_TORHIC, R11_MayDefeated)
-	    goto(R11_RivalPostBattle)
-    }
-    if(flag(FLAG_UNUSED_PICKEDPIPLUP)){
-        trainerbattle_no_intro(TRAINER_R11_MAY_PIPLUP, R11_MayDefeated)
-	    goto(R11_RivalPostBattle)
-    }
+    goto(R11_RivalPostBattle)
 }
 script R11_BrendanBattleSetup{
-    if(flag(FLAG_UNUSED_PICKEDROWLET)){
-        trainerbattle_no_intro(TRAINER_R11_BRENDAN_ROWLET, R11_BrendanDefeated)
-	    goto(R11_RivalPostBattle)
+    switch(var(VAR_STARTER_MON)){
+        case 0:
+            trainerbattle_no_intro(TRAINER_R11_BRENDAN_ROWLET, R11_BrendanDefeated)
+        case 1:
+            trainerbattle_no_intro(TRAINER_R11_BRENDAN_TORCHIC, R11_BrendanDefeated)
+        case 2:
+            trainerbattle_no_intro(TRAINER_R11_BRENDAN_PIPLUP, R11_BrendanDefeated)
     }
-    if(flag(FLAG_UNUSED_PICKEDTORCHIC)){
-        trainerbattle_no_intro(TRAINER_R11_BRENDAN_TORCHIC, R11_BrendanDefeated)
-	    goto(R11_RivalPostBattle)
-    }
-    if(flag(FLAG_UNUSED_PICKEDPIPLUP)){
-        trainerbattle_no_intro(TRAINER_R11_BRENDAN_PIPLUP, R11_BrendanDefeated)
-	    goto(R11_RivalPostBattle)
-    }
+    goto(R11_RivalPostBattle)
 }
 
 script R11_RivalPostBattle{

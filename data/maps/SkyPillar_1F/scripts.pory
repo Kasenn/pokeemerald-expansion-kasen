@@ -129,6 +129,14 @@ movement Walk4Up{
     walk_up * 4
     step_end
 }
+movement Walk5Up{
+    walk_up * 5
+    step_end
+}
+movement Walk6Up{
+    walk_up * 6
+    step_end
+}
 movement Walk1Down{
     walk_down
     step_end
@@ -143,6 +151,10 @@ movement Walk3Down{
 }
 movement Walk4Down{
     walk_down * 4
+    step_end
+}
+movement Walk5Down{
+    walk_down * 5
     step_end
 }
 

@@ -163,15 +163,16 @@ WW_CoolTrainerEligible_12:
 
 WW_CoolTrainerPostBattle::
 	msgbox WW_CoolTrainerReward, MSGBOX_DEFAULT
-	goto_if_set FLAG_UNUSED_PICKEDROWLET, WW_CoolTrainerPostBattle_2
-	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, WW_CoolTrainerPostBattle_3
-	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, WW_CoolTrainerPostBattle_4
+	switch VAR_STARTER_MON
+	case 0, WW_CoolTrainerPostBattle_3
+	case 1, WW_CoolTrainerPostBattle_4
+	case 2, WW_CoolTrainerPostBattle_5
 WW_CoolTrainerPostBattle_1:
 	msgbox WW_CoolTrainerPostBattle_Text_0, MSGBOX_DEFAULT
 	playfanfare MUS_OBTAIN_B_POINTS
 	msgbox WW_CoolTrainerPostBattle_Text_1, MSGBOX_DEFAULT
-	goto_if_unset FLAG_INTRO_TO_BP, WW_CoolTrainerPostBattle_9
-WW_CoolTrainerPostBattle_8:
+	goto_if_unset FLAG_INTRO_TO_BP, WW_CoolTrainerPostBattle_7
+WW_CoolTrainerPostBattle_6:
 	setflag FLAG_UNUSED_WW_COOLTRAINERREWARD
 	setflag FLAG_INTRO_TO_BP
 	waitmessage
@@ -180,21 +181,21 @@ WW_CoolTrainerPostBattle_8:
 	release
 	end
 
-WW_CoolTrainerPostBattle_2:
+WW_CoolTrainerPostBattle_3:
 	giveitem ITEM_MIRACLE_SEED
 	goto WW_CoolTrainerPostBattle_1
 
-WW_CoolTrainerPostBattle_3:
+WW_CoolTrainerPostBattle_4:
 	giveitem ITEM_CHARCOAL
 	goto WW_CoolTrainerPostBattle_1
 
-WW_CoolTrainerPostBattle_4:
+WW_CoolTrainerPostBattle_5:
 	giveitem ITEM_MYSTIC_WATER
 	goto WW_CoolTrainerPostBattle_1
 
-WW_CoolTrainerPostBattle_9:
+WW_CoolTrainerPostBattle_7:
 	msgbox ExplainBP, MSGBOX_DEFAULT
-	goto WW_CoolTrainerPostBattle_8
+	goto WW_CoolTrainerPostBattle_6
 
 
 WW_GIVEBP::

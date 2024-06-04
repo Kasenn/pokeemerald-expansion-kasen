@@ -204,7 +204,7 @@ script Mart_Clerk{
 	waitmessage
     switch(var(VAR_BADGES_OBTAINED)){
         case 0:
-            if(flag(FLAG_ADVENTURE_STARTED)){
+            if(flag(FLAG_SYS_POKEDEX_GET)){
                 pokemart(Mart_NoBadgesExpanded)
             }
             else{

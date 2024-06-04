@@ -4,62 +4,48 @@ PlayerHouse1F_MapScripts::
 	.byte 0
 
 PlayerHouse1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
-	map_script_2 VAR_PEARLWOOD_TOWN_STATE, 2, PlayerHouse1F_MomIntro
-	map_script_2 VAR_PEARLWOOD_TOWN_STATE, 5, PlayerHouse1F_BrotherApology
+	map_script_2 VAR_PEARLWOOD_TOWN_STATE, 1, PlayerHouse1F_MomIntro
 	.2byte 0
 
 
 PlayerHouse1F_MomIntro::
-	goto_if_set FLAG_UNUSED_INTROGOSSIP, PlayerHouse1F_MomIntro_1
-	lockall
-	applymovement 1, PlayerHouse1F_face1
-	waitmovement 0
+	lock
+	turnobject 1, DIR_NORTH
 	playse SE_PIN
 	applymovement 1, Common_Movement_ExclamationMark
 	waitmovement 0
-	delay 40
+	delay 48
 	msgbox PlayerHouse1F_LookPlayer
-	waitmessage
 	closemessage
 	delay 30
 	call IntroNameBrother
 	msgbox PlayerHouse1F_LookPlayer2
-	waitmessage
 	closemessage
-	applymovement 1, PlayerHouse1F_face2
-	waitmovement 0
+	turnobject 1, DIR_WEST
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerHouse1F_PlayerSitTable
 	waitmovement 0
 	delay 20
 	msgbox PlayerHouse1F_Disc1
-	waitmessage
 	closemessage
 	fadescreen FADE_TO_BLACK
 	delay 80
 	fadescreen FADE_FROM_BLACK
 	msgbox PlayerHouse1F_Disc2
-	waitmessage
+	closemessage
 	playse SE_PIN
 	applymovement 1, Common_Movement_ExclamationMark
 	waitmovement 0
-	delay 40
-	applymovement 1, PlayerHouse1F_face3
-	applymovement OBJ_EVENT_ID_PLAYER, PlayerHouse1F_face1
-	waitmovement 0
+	delay 48
+	turnobject 1, DIR_SOUTH
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	msgbox PlayerHouse1F_Disc3
-	waitmessage
 	closemessage
-	setflag FLAG_UNUSED_INTROGOSSIP
 	setflag FLAG_UNUSED_BROTHER_PEARLFIGHT
-	setvar VAR_PEARLWOOD_TOWN_STATE, 3
+	setvar VAR_PEARLWOOD_TOWN_STATE, 2
 	call Player1F_Shoes
-	applymovement 1, PlayerHouse1F_face2
-	waitmovement 0
-	releaseall
-	end
-
-PlayerHouse1F_MomIntro_1:
-	end
+	turnobject 1, DIR_WEST
+	release
+	return
 
 
 IntroNameBrother::
@@ -80,36 +66,22 @@ IntroNameBrother_2:
 
 BrotherLoop::
 	goto IntroNameBrother
-	end
+	return
 
 
 Player1F_Shoes::
-	msgbox Player1F_Shoes_Text_0, MSGBOX_DEFAULT
+	msgbox Player1F_Shoes_Text_0
 	playfanfare MUS_OBTAIN_ITEM
-	msgbox Player1F_Shoes_Text_1, MSGBOX_DEFAULT
+	message Player1F_Shoes_Text_1
+	waitfanfare
+	waitmessage
 	setflag FLAG_SYS_B_DASH
 	setflag FLAG_RECEIVED_RUNNING_SHOES
-	msgbox Player1F_Shoes_Text_2, MSGBOX_DEFAULT
+	msgbox Player1F_Shoes_Text_2
 	closemessage
 	delay 30
 	return
 
-
-PlayerHouse1F_face1:
-	face_up
-	step_end
-
-PlayerHouse1F_face2:
-	face_left
-	step_end
-
-PlayerHouse1F_face3:
-	face_down
-	step_end
-
-PlayerHouse1F_face4:
-	face_right
-	step_end
 
 PlayerHouse1F_PlayerSitTable:
 	walk_down
@@ -122,41 +94,33 @@ PlayerHouse1F_PlayerSitTable:
 	step_end
 
 PlayerHouse1F_Brother::
-	lockall
-	faceplayer
-	msgbox PlayerHouse1F_BrotherGossip
-	waitmessage
-	applymovement 2, PlayerHouse1F_face4
-	waitmovement 0
-	release
-	end
+	msgbox PlayerHouse1F_BrotherGossip, MSGBOX_NPC
+	turnobject 2, DIR_EAST
+	return
 
 
 PlayerHouse1F_Mom::
 	lockall
 	faceplayer
-	compare VAR_PEARLWOOD_TOWN_STATE, 3
+	compare VAR_PEARLWOOD_TOWN_STATE, 2
 	goto_if_eq PlayerHouse1F_Mom_1
-	compare VAR_PEARLWOOD_TOWN_STATE, 7
+	compare VAR_PEARLWOOD_TOWN_STATE, 6
 	goto_if_eq PlayerHouse1F_Mom_2
-	compare VAR_PEARLWOOD_TOWN_STATE, 11
+	compare VAR_PEARLWOOD_TOWN_STATE, 10
 	goto_if_ge PlayerHouse1F_Mom_7
 	goto PlayersHouse_1F_EventScript_MomHealsParty
 	return
 
 PlayerHouse1F_Mom_1:
-	call PlayerHouse1F_MomGossip
-	applymovement 1, PlayerHouse1F_face2
-	waitmovement 0
-	release
-	end
+	msgbox MomSeeYou, MSGBOX_NPC
+	turnobject 1, DIR_WEST
+	return
 
 PlayerHouse1F_Mom_2:
-	call PlayerHouse1F_MomGoodbye
-	applymovement 1, PlayerHouse1F_face2
-	waitmovement 0
-	release
-	end
+	msgbox PlayerHouse1F_MomGoodbye_Text, MSGBOX_NPC
+	setvar VAR_PEARLWOOD_TOWN_STATE, 7
+	turnobject 1, DIR_WEST
+	return
 
 PlayerHouse1F_Mom_7:
 	goto_if_set FLAG_DAD_INTRO, PlayerHouse1F_Mom_10
@@ -170,66 +134,14 @@ PlayerHouse1F_Mom_10:
 	goto PlayerHouse1F_Mom_9
 
 
-PlayerHouse1F_MomGossip::
-	msgbox PlayerHouse1F_MomGossip_Text_0
-	waitmessage
-	closemessage
-	return
-
-
-PlayerHouse1F_MomGoodbye::
-	msgbox PlayerHouse1F_MomGoodbye_Text_0
-	waitmessage
-	closemessage
-	setvar VAR_PEARLWOOD_TOWN_STATE, 8
-	return
-
-
-PlayerHouse1F_BrotherApology::
-	lockall
-	playse SE_PIN
-	applymovement 3, Common_Movement_ExclamationMark
-	waitmovement 0
-	delay 40
-	applymovement 3, PlayerHouse1F_face1
-	waitmovement 0
-	delay 10
-	applymovement 3, Walk2Up
-	waitmovement 0
-	delay 15
-	msgbox PlayerHouse1F_Apology
-	waitmessage
-	closemessage
-	applymovement 3, BrotherLeavesHouse
-	waitmovement 0
-	removeobject 3
-	setflag FLAG_UNUSED_LOSTTOBROTHER
-	setflag FLAG_UNUSED_BROTHER_PEARLFIGHT
-	setvar VAR_PEARLWOOD_TOWN_STATE, 7
-	delay 30
-	release
-	end
-
-
-BrotherLeavesHouse:
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	step_end
-
 PH1FClearFlag::
 	checkplayergender
 	compare VAR_RESULT, FEMALE
 	goto_if_eq PH1FClearFlag_2
 PH1FClearFlag_1:
-	compare VAR_PEARLWOOD_TOWN_STATE, 5
-	goto_if_eq PH1FClearFlag_5
+	compare VAR_PEARLWOOD_TOWN_STATE, 10
+	goto_if_ge PH1FClearFlag_5
 PH1FClearFlag_4:
-	compare VAR_PEARLWOOD_TOWN_STATE, 11
-	goto_if_ge PH1FClearFlag_8
-PH1FClearFlag_7:
 	end
 
 PH1FClearFlag_2:
@@ -237,30 +149,18 @@ PH1FClearFlag_2:
 	goto PH1FClearFlag_1
 
 PH1FClearFlag_5:
-	clearflag FLAG_UNUSED_LOSTTOBROTHER
-	goto PH1FClearFlag_4
-
-PH1FClearFlag_8:
 	clearflag FLAG_HIDE_PLAYERS_HOUSE_DAD
-	goto PH1FClearFlag_7
+	goto PH1FClearFlag_4
 
 
 WooperDoll::
-	lockall
-	msgbox WooperDoll_Text_0
-	waitmessage
-	closemessage
-	release
-	end
+	msgbox WooperDoll_Text_0, MSGBOX_SIGN
+	return
 
 
 AzurillDoll::
-	lockall
-	msgbox AzurillDoll_Text_0
-	waitmessage
-	closemessage
-	release
-	end
+	msgbox AzurillDoll_Text_0, MSGBOX_SIGN
+	return
 
 
 PlayerHouse1F_Dad::
@@ -278,7 +178,7 @@ PlayerHouse1F_Dad_4:
 	waitse
 	msgbox ExplainCapsule, MSGBOX_NPC
 	setflag FLAG_RECEIVED_CAPSULE
-	compare VAR_PEARLWOOD_TOWN_STATE, 13
+	compare VAR_PEARLWOOD_TOWN_STATE, 12
 	goto_if_eq PlayerHouse1F_Dad_12
 PlayerHouse1F_Dad_11:
 	end
@@ -297,7 +197,7 @@ PlayerHouse1F_Dad_9:
 	end
 
 PlayerHouse1F_Dad_12:
-	setvar VAR_PEARLWOOD_TOWN_STATE, 14
+	setvar VAR_PEARLWOOD_TOWN_STATE, 13
 	goto PlayerHouse1F_Dad_11
 
 
@@ -309,12 +209,6 @@ Player1F_Shoes_Text_1:
 
 Player1F_Shoes_Text_2:
 	.string "Mom: Now you can zip around everywhere\nmuch faster!$"
-
-PlayerHouse1F_MomGossip_Text_0:
-	.string "Mom: See you, honey!$"
-
-PlayerHouse1F_MomGoodbye_Text_0:
-	.string "Mom: You're leaving on an adventure?\nWell, can't say that I'm surprised.\pYour father was like that as well\nwhen we were young.\pSpeaking of which, your father has been\nworking hard to get accepted into\lthe Pokémon League.\pMaybe one day you'll challenge him to\na Pokémon battle on League grounds.\pIf your Pokémon ever get hurt,\ncome see me and I'll help patch them up.$"
 
 WooperDoll_Text_0:
 	.string "It's a Wooper doll.$"
@@ -365,8 +259,37 @@ PlayerHouse1F_Disc3::
 PlayerHouse1F_BrotherGossip::
 	.string "{BROTHER}: Go get 'em, champ!$"
 
+MomSeeYou::
+	.string "Mom: See you, honey!$"
+
+PlayerHouse1F_MomGoodbye_Text::
+	.string "Mom: You're leaving on an adventure?\n"
+	.string "Well, can't say that I'm surprised.\p"
+	.string "Your father was like that as well\n"
+	.string "when we were young.\p"
+	.string "Speaking of which, your father has been\n"
+	.string "working hard to get accepted into\l"
+	.string "the Pokémon League.\p"
+	.string "Maybe one day you'll challenge him to\n"
+	.string "a Pokémon battle on League grounds.\p"
+	.string "If your Pokémon ever get hurt,\n"
+	.string "come see me and I'll help patch them up.$"
+
 PlayerHouse1F_Apology::
-	.string "{BROTHER}: Sorry about that.\nI knew that with my experience it was\lgoing to be an unfair fight. I hope you\ldon't take that loss too seriously…\pAnyway, have you thought about what\nyou're going to do next?\pIf you're up for it, we should totally\nsee which of us is the better trainer\lby taking on the Pokémon Gym Challenge!\pOur neighbor {RIVAL} just set out so we\nbetter get moving or we'll fall behind!\pDon't know about you but I'm not content\nwith a second place.\pCatch ya later!$"
+	.string "{BROTHER}: Sorry about that.\n"
+	.string "I knew that with my experience it was\l"
+	.string "going to be an unfair fight. I hope you\l"
+	.string "don't take that loss too seriously…\p"
+	.string "Anyway, have you thought about what\n"
+	.string "you're going to do next?\p"
+	.string "If you're up for it, we should totally\n"
+	.string "see which of us is the better trainer\l"
+	.string "by taking on the Pokémon Gym Challenge!\p"
+	.string "Our neighbor {RIVAL} just set out so we\n"
+	.string "better get moving or we'll fall behind!\p"
+	.string "Don't know about you but I'm not content\n"
+	.string "with a second place.\p"
+	.string "Catch ya later!$"
 
 GiftFromDad::
 	.string "Dad: Hm?\p"

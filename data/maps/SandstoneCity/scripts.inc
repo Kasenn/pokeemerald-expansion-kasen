@@ -132,7 +132,7 @@ Sandstone_Nerd::
 SandstoneRival::
 	compare VAR_RIVAL_AROUND_SANDSTONE, 4
 	goto_if_eq SandstoneRival_2
-	compare VAR_PEARLWOOD_TOWN_STATE, 11
+	compare VAR_PEARLWOOD_TOWN_STATE, 10
 	goto_if_eq SandstoneRival_5
 	setflag FLAG_MAY_COSTUME_CHANGE
 	setflag FLAG_BRENDAN_COSTUME_CHANGE

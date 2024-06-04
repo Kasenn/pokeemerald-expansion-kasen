@@ -219,14 +219,13 @@ text WW_Text_CoolTrainerDefeated{
 
 script WW_CoolTrainerPostBattle{
     msgbox(WW_CoolTrainerReward, MSGBOX_DEFAULT)
-    if(flag(FLAG_UNUSED_PICKEDROWLET)){
-        giveitem(ITEM_MIRACLE_SEED)
-    }
-    elif(flag(FLAG_UNUSED_PICKEDTORCHIC)){
-        giveitem(ITEM_CHARCOAL)
-    }
-    elif(flag(FLAG_UNUSED_PICKEDPIPLUP)){
-        giveitem(ITEM_MYSTIC_WATER)
+    switch(var(VAR_STARTER_MON)){
+        case 0:
+            giveitem(ITEM_MIRACLE_SEED)
+        case 1:
+            giveitem(ITEM_CHARCOAL)
+        case 2:
+            giveitem(ITEM_MYSTIC_WATER)
     }
     msgbox("Give that item to your Pokémon to\nboost the power of their attacks.\pTake these as well.", MSGBOX_DEFAULT)
     playfanfare(MUS_OBTAIN_B_POINTS)

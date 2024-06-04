@@ -134,7 +134,7 @@ script AT_TopEvent{
 	waitfieldeffect(FLDEFF_NPCFLY_OUT)
     delay(30)
     setvar(VAR_RIVAL_AROUND_SANDSTONE, 5)
-    setvar(VAR_PEARLWOOD_TOWN_STATE, 11)
+    setvar(VAR_PEARLWOOD_TOWN_STATE, 10)
     clearflag(FLAG_KORRINA_LEAVESGYM)
     setflag(FLAG_HIDE_LIBRARY_BIRCH)
     clearflag(FLAG_PARTNER_HEALS)

@@ -130,7 +130,7 @@
 #define FLAG_OBTAINED_ECHOEDVOICE            0x71 // obtained hm for echoed voice on kaolisle hotel
 #define FLAG_SCOTT_CALL_BATTLE_FRONTIER      0x72 // Used in order to activate a phone call from Scott, inviting the player to the SS Tidal.
 #define FLAG_RECEIVED_METEORITE              0x73
-#define FLAG_ADVENTURE_STARTED               0x74 // RECEIVED Pokédex.
+#define FLAG_UNUSED_74               0x74 // unused flag
 #define FLAG_DEFEATED_MAGMA_SPACE_CENTER     0x75 // Set when Team Magma is defeated at Mossdeep's Space Center.
 #define FLAG_MET_HIDDEN_POWER_GIVER          0x76
 
@@ -650,7 +650,7 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x6E)
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
-#define PEARLWOOD_MOM_TALKED_TO             0x264 // Intro, mom comes to your room
+#define FLAG_PEARLWOOD_MOM_TALKED_TO             0x264 // Intro, mom comes to your room
 #define FLAG_CORAL_FLAG_1                   0x265 // UNLOCKS POKECENTER TRAINING
 #define FLAG_SCHOOL_DONE                    0x266 // TRAINER SCHOOL DONE
 #define FLAG_UNUSED_0x267_CG_HIDEGHOST      0x267 // Used to hide the ghost in Coralgrove City
@@ -1216,15 +1216,15 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET                     0x491
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
-#define FLAG_UNUSED_PICKEDROWLET                                            0x493 // Rowlet
-#define FLAG_UNUSED_PICKEDTORCHIC                                           0x494 // Torchic
-#define FLAG_UNUSED_PICKEDPIPLUP                                            0x495 // Piplup
-#define FLAG_UNUSED_STARTER_GET                                             0x496 // Set after getting starter
-#define FLAG_UNUSED_INTROGOSSIP                                             0x497 // Gossip between mom and brother
+#define FLAG_UNUSED_493                                            0x493 // unused flag
+#define FLAG_UNUSED_494                                           0x494 // unused flag
+#define FLAG_UNUSED_495                                            0x495 // unused flag
+#define FLAG_UNUSED_496                                             0x496 // unused flag
+#define FLAG_UNUSED_497                                             0x497 // unused flag
 #define FLAG_UNUSED_BROTHER_PEARLFIGHT                                      0x498 // Sets the flag for the brother fight in the 1st town
-#define FLAG_UNUSED_LOSTTOBROTHER                                           0x499 // Alternate scene after whiting out to 1st brother fight
+#define FLAG_UNUSED_499                                          0x499 // unused flag
 #define FLAG_UNUSED_PEARLWOOD_POTION_SAMPLE                                 0x49A // Potion given by the old guy in the 1st town
-#define FLAG_UNUSED_RIVAL_INTRO                                             0x49B // Rival intro before getting a pokemon
+#define FLAG_UNUSED_49B                                             0x49B // unused flag
 #define FLAG_ROUTE1_STATE                                                   0x49C // Shows/Hides route 1 NPCs
 #define FLAG_UNUSED_ROUTE1_COOLTRAINER                                      0x49D // Cooltrainer dialogue skip on route 1
 #define FLAG_UNUSED_ROUTE1_COOLTRAINERREWARD                                0x49E // Reward from Cooltrainer in route 1

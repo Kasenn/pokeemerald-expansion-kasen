@@ -55,26 +55,14 @@ Update3_1:
 	compare VAR_DEBUG, 1
 	goto_if_eq Update3_5
 Update3_4:
-	checkitem ITEM_WHITE_FLUTE
-	compare VAR_RESULT, TRUE
+	compare VAR_DEBUG, 2
 	goto_if_eq Update3_11
 Update3_10:
-	checkitem ITEM_TM49, 2
+	call UpdateItemCheck
+	msgbox FlagsAndVarsUpdated2, MSGBOX_YESNO
 	compare VAR_RESULT, TRUE
 	goto_if_eq Update3_20
 Update3_19:
-	checkitem ITEM_TM_CASE
-	compare VAR_RESULT, FALSE
-	goto_if_eq Update3_26
-Update3_25:
-	checkitem ITEM_TM_GIGA_DRAIN
-	compare VAR_RESULT, TRUE
-	goto_if_eq Update3_32
-Update3_31:
-	msgbox FlagsAndVarsUpdated2, MSGBOX_YESNO
-	compare VAR_RESULT, TRUE
-	goto_if_eq Update3_38
-Update3_37:
 	closemessage
 	release
 	end
@@ -84,12 +72,12 @@ Update3_2:
 	compare VAR_RESULT, TRUE
 	goto_if_eq Update3_8
 Update3_7:
-	goto_if_set FLAG_UNUSED_PICKEDROWLET, Update3_17
+	goto_if_set FLAG_UNUSED_493, Update3_17
 Update3_16:
-	goto_if_set FLAG_UNUSED_PICKEDTORCHIC, Update3_23
-Update3_22:
-	goto_if_set FLAG_UNUSED_PICKEDPIPLUP, Update3_29
-Update3_28:
+	goto_if_set FLAG_UNUSED_494, Update3_26
+Update3_25:
+	goto_if_set FLAG_UNUSED_495, Update3_32
+Update3_31:
 	clearflag FLAG_SHOWED_BADGE
 	clearflag FLAG_SYSTEM_NOREWARDBATTLES
 	clearflag FLAG_OBTAINED_PAINTBRUSH
@@ -107,16 +95,16 @@ Update3_28:
 	setvar VAR_DEBUG, 1
 	msgbox RenameBrother, MSGBOX_YESNO
 	compare VAR_RESULT, TRUE
-	goto_if_eq Update3_35
-Update3_34:
+	goto_if_eq Update3_38
+Update3_37:
 	checktrainerflag TRAINER_GABBY_AND_TY_1
-	goto_if 1, Update3_41
-Update3_40:
-	checktrainerflag TRAINER_MARY
 	goto_if 1, Update3_44
 Update3_43:
+	checktrainerflag TRAINER_MARY
+	goto_if 1, Update3_47
+Update3_46:
 	checktrainerflag TRAINER_KAOLGYM_CLAY
-	goto_if 1, Update3_46
+	goto_if 1, Update3_49
 	goto Update3_1
 
 Update3_5:
@@ -130,9 +118,22 @@ Update3_8:
 	goto Update3_7
 
 Update3_11:
-	msgbox ReplacedFlute
-	removeitem ITEM_WHITE_FLUTE
-	additem ITEM_BLACK_FLUTE
+	checkitem ITEM_WHITE_FLUTE
+	compare VAR_RESULT, TRUE
+	goto_if_eq Update3_23
+Update3_22:
+	clearflag FLAG_UNUSED_496
+	clearflag FLAG_UNUSED_497
+	clearflag FLAG_UNUSED_499
+	clearflag FLAG_UNUSED_49B
+	clearflag FLAG_UNUSED_74
+	goto_if_set FLAG_UNUSED_493, Update3_29
+Update3_28:
+	goto_if_set FLAG_UNUSED_494, Update3_35
+Update3_34:
+	goto_if_set FLAG_UNUSED_495, Update3_41
+Update3_40:
+	setvar VAR_DEBUG, 3
 	goto Update3_10
 
 Update3_14:
@@ -144,49 +145,82 @@ Update3_17:
 	goto Update3_16
 
 Update3_20:
-	removeitem ITEM_TM49, 1
-	giveitem ITEM_TM_ROCK_SLIDE
+	warp MAP_CORALGROVE_CITY, 26, 44
 	goto Update3_19
 
 Update3_23:
-	setvar VAR_STARTER_MON, 1
+	msgbox ReplacedFlute
+	removeitem ITEM_WHITE_FLUTE
+	additem ITEM_BLACK_FLUTE
 	goto Update3_22
 
 Update3_26:
-	giveitem ITEM_TM_CASE
+	setvar VAR_STARTER_MON, 1
 	goto Update3_25
 
 Update3_29:
-	setvar VAR_STARTER_MON, 2
+	clearflag FLAG_UNUSED_493
 	goto Update3_28
 
 Update3_32:
-	msgbox ReplacedGrassKnot
-	removeitem ITEM_TM_GIGA_DRAIN
-	additem ITEM_TM_GRASS_KNOT
+	setvar VAR_STARTER_MON, 2
 	goto Update3_31
 
 Update3_35:
-	fadescreen FADE_TO_BLACK
-	special NameBrother
-	waitstate
+	clearflag FLAG_UNUSED_494
 	goto Update3_34
 
 Update3_38:
-	warp MAP_CORALGROVE_CITY, 26, 44
+	fadescreen FADE_TO_BLACK
+	special NameBrother
+	waitstate
 	goto Update3_37
 
 Update3_41:
-	setvar VAR_BADGES_OBTAINED, 1
+	clearflag FLAG_UNUSED_495
 	goto Update3_40
 
 Update3_44:
-	setvar VAR_BADGES_OBTAINED, 2
+	setvar VAR_BADGES_OBTAINED, 1
 	goto Update3_43
 
-Update3_46:
+Update3_47:
+	setvar VAR_BADGES_OBTAINED, 2
+	goto Update3_46
+
+Update3_49:
 	setvar VAR_BADGES_OBTAINED, 3
 	goto Update3_1
+
+
+UpdateItemCheck::
+	checkitem ITEM_TM49, 2
+	compare VAR_RESULT, TRUE
+	goto_if_eq UpdateItemCheck_2
+UpdateItemCheck_1:
+	checkitem ITEM_TM_CASE
+	compare VAR_RESULT, FALSE
+	goto_if_eq UpdateItemCheck_5
+UpdateItemCheck_4:
+	checkitem ITEM_TM_GIGA_DRAIN
+	compare VAR_RESULT, TRUE
+	goto_if_eq UpdateItemCheck_7
+	return
+
+UpdateItemCheck_2:
+	removeitem ITEM_TM49, 1
+	giveitem ITEM_TM_ROCK_SLIDE
+	goto UpdateItemCheck_1
+
+UpdateItemCheck_5:
+	giveitem ITEM_TM_CASE
+	goto UpdateItemCheck_4
+
+UpdateItemCheck_7:
+	msgbox ReplacedGrassKnot
+	removeitem ITEM_TM_GIGA_DRAIN
+	additem ITEM_TM_GRASS_KNOT
+	return
 
 
 SetTeamLevel::

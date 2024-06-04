@@ -15,34 +15,42 @@ LoadBrendanHouse1F_1:
 
 
 Pearlwood_MaysHouse1F_RivalMom::
-	lockall
-	faceplayer
 	compare VAR_PEARLWOOD_TOWN_STATE, 3
-	goto_if_eq Pearlwood_MaysHouse1F_RivalMom_2
-	msgbox Pearlwood_MaysHouse1F_RivalMom2
-Pearlwood_MaysHouse1F_RivalMom_1:
-	waitmessage
-	closemessage
-	release
-	end
+	goto_if_le Pearlwood_MaysHouse1F_RivalMom_1
+	msgbox Pearlwood_MaysHouse1F_RivalMom2, MSGBOX_NPC
+	return
 
-Pearlwood_MaysHouse1F_RivalMom_2:
+Pearlwood_MaysHouse1F_RivalMom_1:
 	checkplayergender
-	compare VAR_RESULT, 0
+	compare VAR_RESULT, MALE
 	goto_if_eq Pearlwood_MaysHouse1F_RivalMom_5
-	msgbox Pearlwood_MaysHouse1F_RivalMom1FemalePC
-	goto Pearlwood_MaysHouse1F_RivalMom_1
+	bufferstring STR_VAR_1, Pearlwood_MaysHouse1F_RivalMom_Text_1
+Pearlwood_MaysHouse1F_RivalMom_4:
+	msgbox Pearlwood_MaysHouse1F_RivalMom1, MSGBOX_NPC
+	return
 
 Pearlwood_MaysHouse1F_RivalMom_5:
-	msgbox Pearlwood_MaysHouse1F_RivalMom1MalePC
-	goto Pearlwood_MaysHouse1F_RivalMom_1
+	bufferstring STR_VAR_1, Pearlwood_MaysHouse1F_RivalMom_Text_0
+	goto Pearlwood_MaysHouse1F_RivalMom_4
 
 
-Pearlwood_MaysHouse1F_RivalMom1MalePC::
-	.string "Hello neighbor!\pI believe {RIVAL} was working on\nsomething in her room.\pIf you're looking for my husband,\nyou can probably find him in his lab.$"
+Pearlwood_MaysHouse1F_RivalMom_Text_0:
+	.string "her$"
 
-Pearlwood_MaysHouse1F_RivalMom1FemalePC::
-	.string "Hello neighbor!\pI believe {RIVAL} was working on\nsomething in his room.\pIf you're looking for my husband,\nyou can probably find him in his lab.$"
+Pearlwood_MaysHouse1F_RivalMom_Text_1:
+	.string "his$"
+
+Pearlwood_MaysHouse1F_RivalMom1::
+	.string "Hello neighbor!\p"
+	.string "I believe {RIVAL} was working on\n"
+	.string "something in {STR_VAR_1} room.\p"
+	.string "If you're looking for my husband,\n"
+	.string "you can probably find him in his lab.$"
 
 Pearlwood_MaysHouse1F_RivalMom2::
-	.string "Oh, {RIVAL} went out to Primrose Meadow\njust a little while ago.\pLike father, like child.\n{RIVAL} can't stay quietly at home.\pPrimrose Meadow is just past\nthe next town.$"
+	.string "Oh, {RIVAL} went out to Primrose Meadow\n"
+	.string "just a little while ago.\p"
+	.string "Like father, like child.\n"
+	.string "{RIVAL} can't stay quietly at home.\p"
+	.string "Primrose Meadow is just past\n"
+	.string "the next town.$"

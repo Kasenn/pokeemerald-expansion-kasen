@@ -143,7 +143,7 @@ Mart_Clerk_1:
 	end
 
 Mart_Clerk_3:
-	goto_if_set FLAG_ADVENTURE_STARTED, Mart_Clerk_12
+	goto_if_set FLAG_SYS_POKEDEX_GET, Mart_Clerk_12
 	pokemart Mart_NoBadges
 	goto Mart_Clerk_1
 

@@ -38,13 +38,12 @@ script CoralgroveTradeSequence{
         end
     }
     else{
-        if(flag(FLAG_UNUSED_PICKEDROWLET)){
+        switch(var(VAR_STARTER_MON)){
+        case 0:
             goto(CoralgroveDartrixTrade)
-        }
-        elif(flag(FLAG_UNUSED_PICKEDTORCHIC)){
+        case 1:
             goto(CoralgroveCombuskenTrade)
-        }
-        else{
+        case 2:
             goto(CoralgrovePrinplupTrade)
         }
     }
