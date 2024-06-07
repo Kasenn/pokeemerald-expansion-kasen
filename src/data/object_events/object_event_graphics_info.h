@@ -5257,7 +5257,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Skyla = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanNormalOras = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
+    .paletteTag = OBJ_EVENT_PAL_BRENDAN_ORAS,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 512,
     .width = 16,
@@ -5276,7 +5276,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanNormalOras 
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanAcroBikeOras = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
+    .paletteTag = OBJ_EVENT_PAL_BRENDAN_ORAS,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 512,
     .width = 32,
@@ -5295,7 +5295,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanAcroBikeOra
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanSurfingOras = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
+    .paletteTag = OBJ_EVENT_PAL_BRENDAN_ORAS,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 32,
@@ -5314,7 +5314,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanSurfingOras
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFieldMoveOras = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
+    .paletteTag = OBJ_EVENT_PAL_BRENDAN_ORAS,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 512,
     .width = 32,
@@ -5333,7 +5333,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFieldMoveOr
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFishingOras = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
+    .paletteTag = OBJ_EVENT_PAL_BRENDAN_ORAS,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 512,
     .width = 32,
@@ -5352,7 +5352,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFishingOras
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanWateringOras = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
+    .paletteTag = OBJ_EVENT_PAL_BRENDAN_ORAS,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 512,
     .width = 32,

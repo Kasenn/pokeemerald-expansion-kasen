@@ -23,7 +23,7 @@ script Shoreslate_Mart_Secret{
                 }
                 if(var(VAR_RESULT) == TRUE){
                     msgbox(Shoreslate_Mart_Secret_Text_4, MSGBOX_DEFAULT)
-                    finditem(ITEM_EXP_CANDY_XS)
+                    finditem(ITEM_MASTER_BALL)
                 }
             }
         }

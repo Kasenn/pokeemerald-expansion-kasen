@@ -16,8 +16,8 @@ JasmineLeavesHotel::
 	applymovement 24, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 70
-	applymovement 24, HotelWalkDown
-	applymovement 25, HotelWalkDown
+	applymovement 24, HotelWalkDown2
+	applymovement 25, HotelWalkDown2
 	waitmovement 0
 	delay 10
 	goto_if_set FLAG_TALKED_TO_JASMINE_AT_HOTEL, JasmineLeavesHotel_2
@@ -35,11 +35,11 @@ JasmineLeavesHotel_1:
 	waitmessage
 	closemessage
 	delay 20
-	applymovement 24, HotelJasmineLeave
+	applymovement 24, HotelWalkLeft1
 	applymovement 25, HotelWalkDown1
 	waitmovement 0
 	applymovement 24, HotelWalkDown1
-	applymovement 25, HotelJasmineLeave
+	applymovement 25, HotelWalkLeft1
 	waitmovement 0
 	removeobject 24
 	applymovement 25, HotelWalkDown1
@@ -76,12 +76,12 @@ HideJasmine_2:
 	goto HideJasmine_1
 
 
-HotelWalkDown:
+HotelWalkDown2:
 	walk_down
 	walk_down
 	step_end
 
-HotelJasmineLeave:
+HotelWalkLeft1:
 	walk_left
 	step_end
 
@@ -89,163 +89,65 @@ HotelWalkDown1:
 	walk_down
 	step_end
 
-Hotel_Lemonade::
-	goto_if_set FLAG_HOTELLEMONADE, Hotel_Lemonade_2
-	finditem ITEM_LEMONADE
-	setflag FLAG_HOTELLEMONADE
+EatDeliciousMeal::
+	call Common_EventScript_OutOfCenterPartyHeal
+	setflag FLAG_TEMP_4
+	delay 30
 	return
-
-Hotel_Lemonade_2:
-	msgbox HotelLemonade_AlreadyLooted, MSGBOX_SIGN
-	end
-
-
-Hotel_Curry::
-	checkitemspace ITEM_CURRY
-	compare VAR_RESULT, FALSE
-	goto_if_eq Hotel_Curry_2
-	goto_if_set FLAG_HOTELCURRY, Hotel_Curry_5
-	giveitem ITEM_CURRY
-	closemessage
-	setflag FLAG_HOTELCURRY
-	release
-	end
-
-Hotel_Curry_2:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
-
-Hotel_Curry_5:
-	msgbox HotelCurry_AlreadyLooted, MSGBOX_SIGN
-	end
-
-
-Hotel_BuffetFight1::
-	trainerbattle_single TRAINER_BUFFET_1, BuffetTr1_Intro, BuffetTr1_Lose, DoNothing, NO_MUSIC
-	turnobject 8, DIR_WEST
-	msgbox BuffetTr1_PostBattle, MSGBOX_AUTOCLOSE
-	end
-
-
-Hotel_BuffetFight2::
-	trainerbattle_single TRAINER_BUFFET_2, BuffetTr2_Intro, BuffetTr2_Lose, DoNothing, NO_MUSIC
-	turnobject 9, DIR_EAST
-	msgbox BuffetTr2_PostBattle, MSGBOX_AUTOCLOSE
-	end
-
-
-Hotel_BuffetFight3::
-	trainerbattle_single TRAINER_BUFFET_3, BuffetTr3_Intro, BuffetTr3_Lose, BuffetOfferSoup, NO_MUSIC
-	turnobject 7, DIR_WEST
-	msgbox BuffetTr3_PostBattle, MSGBOX_AUTOCLOSE
-	end
-
-
-Hotel_BuffetFight4::
-	trainerbattle_single TRAINER_BUFFET_4, BuffetTr4_Intro, BuffetTr4_Lose, DoNothing, NO_MUSIC
-	turnobject 10, DIR_EAST
-	msgbox BuffetTr4_PostBattle, MSGBOX_AUTOCLOSE
-	end
-
-
-DoNothing::
-	end
-
-
-Hotel_BuffetNPC1::
-	checktrainerflag TRAINER_BUFFET_1
-	goto_if 1, Hotel_BuffetNPC1_2
-	msgbox BuffetNPC1_Text, MSGBOX_NPC
-	turnobject 8, DIR_WEST
-	end
-
-Hotel_BuffetNPC1_2:
-	msgbox BuffetTr1_PostBattle, MSGBOX_NPC
-	end
-
-
-Hotel_BuffetNPC2::
-	checktrainerflag TRAINER_BUFFET_2
-	goto_if 1, Hotel_BuffetNPC2_2
-	msgbox BuffetNPC2_Text, MSGBOX_NPC
-	turnobject 9, DIR_EAST
-	end
-
-Hotel_BuffetNPC2_2:
-	msgbox BuffetTr2_PostBattle, MSGBOX_NPC
-	end
-
-
-Hotel_BuffetNPC3::
-	checktrainerflag TRAINER_BUFFET_3
-	goto_if 1, Hotel_BuffetNPC3_2
-	msgbox BuffetNPC3_Text, MSGBOX_NPC
-	turnobject 7, DIR_WEST
-	end
-
-Hotel_BuffetNPC3_2:
-	goto_if_unset FLAG_RECEIVED_SOUP, Hotel_BuffetNPC3_5
-Hotel_BuffetNPC3_4:
-	msgbox BuffetTr3_PostBattle, MSGBOX_NPC
-	end
-
-Hotel_BuffetNPC3_5:
-	goto BuffetOfferSoup
-	goto Hotel_BuffetNPC3_4
 
 
 BuffetOfferSoup::
 	goto_if_set FLAG_RECEIVED_SOUP, BuffetOfferSoup_2
 	msgbox HaveSomeSoup, MSGBOX_DEFAULT
-	checkitemspace ITEM_SPECIAL_SOUP
-	compare VAR_RESULT, FALSE
-	goto_if_eq BuffetOfferSoup_5
 	giveitem ITEM_SPECIAL_SOUP
 	waitse
 	waitmessage
 	setflag FLAG_RECEIVED_SOUP
-	release
-	end
+	return
 
 BuffetOfferSoup_2:
 	return
-
-BuffetOfferSoup_5:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
-
-
-Hotel_BuffetNPC4::
-	checktrainerflag TRAINER_BUFFET_4
-	goto_if 1, Hotel_BuffetNPC4_2
-	msgbox BuffetNPC4_Text, MSGBOX_NPC
-	turnobject 10, DIR_EAST
-	end
-
-Hotel_BuffetNPC4_2:
-	msgbox BuffetTr4_PostBattle, MSGBOX_NPC
-	end
 
 
 Hotel_BuffetTrigger::
 	lockall
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	delay 20
-	goto_if_set FLAG_BUFFET_COMPLETE, Hotel_BuffetTrigger_2
+	checktrainerflag TRAINER_BUFFET_1
+	goto_if 1, Hotel_BuffetTrigger_3
 Hotel_BuffetTrigger_1:
-	goto_if_set FLAG_SYSTEM_NOREWARDBATTLES, Hotel_BuffetTrigger_5
-Hotel_BuffetTrigger_4:
+	goto_if_set FLAG_BUFFET_COMPLETE, Hotel_BuffetTrigger_13
+Hotel_BuffetTrigger_12:
 	msgbox BuffetIntro, MSGBOX_DEFAULT
 	goto BuffetMultiChoice
 	end
 
 Hotel_BuffetTrigger_2:
-	goto BuffetAlreadyCompleted
+	goto BuffetComplete
+	goto Hotel_BuffetTrigger_1
+
+Hotel_BuffetTrigger_3:
+	checktrainerflag TRAINER_BUFFET_2
+	goto_if 1, Hotel_BuffetTrigger_5
 	goto Hotel_BuffetTrigger_1
 
 Hotel_BuffetTrigger_5:
-	goto Hotel_BuffetFromOtherSide
-	goto Hotel_BuffetTrigger_4
+	checktrainerflag TRAINER_BUFFET_3
+	goto_if 1, Hotel_BuffetTrigger_7
+	goto Hotel_BuffetTrigger_1
+
+Hotel_BuffetTrigger_7:
+	checktrainerflag TRAINER_BUFFET_4
+	goto_if 1, Hotel_BuffetTrigger_9
+	goto Hotel_BuffetTrigger_1
+
+Hotel_BuffetTrigger_9:
+	goto_if_unset FLAG_BUFFET_COMPLETE, Hotel_BuffetTrigger_2
+	goto Hotel_BuffetTrigger_1
+
+Hotel_BuffetTrigger_13:
+	goto BuffetAlreadyCompleted
+	goto Hotel_BuffetTrigger_12
 
 
 BuffetMultiChoice::
@@ -262,7 +164,7 @@ BuffetMultiChoice_1:
 	end
 
 BuffetMultiChoice_3:
-	msgbox ThatWillBe1400, MSGBOX_YESNO
+	msgbox ThatWillBe1000, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
 	goto_if_eq BuffetMultiChoice_8
 BuffetMultiChoice_7:
@@ -287,89 +189,146 @@ BuffetMultiChoice_8:
 
 
 BuffetDineHere::
-	checkmoney 1400
+	checkmoney 1000
 	compare VAR_RESULT, FALSE
 	goto_if_eq BuffetDineHere_2
 BuffetDineHere_1:
 	waitse
-	removemoney 1400
+	removemoney 1000
 	playse SE_SHOP
 	updatemoneybox
 	waitse
 	msgbox EnjoyYourBuffet, MSGBOX_DEFAULT
 	closemessage
 	hidemoneybox
-	applymovement OBJ_EVENT_ID_PLAYER, HotelMoveLeft
-	waitmovement 0
-	clearflag FLAG_HOTELLEMONADE
-	clearflag FLAG_HOTELCURRY
+	cleartrainerflag TRAINER_BUFFET_1
+	cleartrainerflag TRAINER_BUFFET_2
+	cleartrainerflag TRAINER_BUFFET_3
+	cleartrainerflag TRAINER_BUFFET_4
 	setflag FLAG_SYSTEM_NOREWARDBATTLES
-	release
-	end
+	goto WalkToFirstTable
+	return
 
 BuffetDineHere_2:
 	goto BuffetNotEnoughMoney
 	goto BuffetDineHere_1
 
 
-ExplainBuffetRules::
-	hidemoneybox
-	msgbox ExplainBuffetRules_Text, MSGBOX_DEFAULT
-	goto BuffetMultiChoice
+WalkToFirstTable::
+	applymovement OBJ_EVENT_ID_PLAYER, WalkTo1stTable
+	waitmovement 0
+	msgbox BuffetTr1_Intro
+	trainerbattle_no_intro TRAINER_BUFFET_1, BuffetTr1_Lose
+	goto WalkToSecondTable
 	return
 
 
-BuffetComeBackLater::
-	hidemoneybox
-	msgbox BuffetPleaseComeAgain, MSGBOX_DEFAULT
-	waitmessage
+WalkToSecondTable::
+	msgbox BuffetTr1_PostBattle
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, HotelMoveRight
+	applymovement OBJ_EVENT_ID_PLAYER, WalkTo2ndTable
 	waitmovement 0
-	release
-	end
-
-
-Hotel_BuffetFromOtherSide::
-	checktrainerflag TRAINER_BUFFET_1
-	goto_if 1, Hotel_BuffetFromOtherSide_3
-Hotel_BuffetFromOtherSide_1:
-	msgbox BuffetNoEscape, MSGBOX_DEFAULT
+	msgbox EatMeal, MSGBOX_YESNO
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, HotelMoveLeft
-	waitmovement 0
-	release
-	end
+	compare VAR_RESULT, TRUE
+	goto_if_eq WalkToSecondTable_2
+WalkToSecondTable_1:
+	msgbox BuffetTr2_Intro
+	trainerbattle_no_intro TRAINER_BUFFET_2, BuffetTr2_Lose
+	goto WalkToThirdTable
+	return
 
-Hotel_BuffetFromOtherSide_2:
+WalkToSecondTable_2:
+	call EatDeliciousMeal
+	goto WalkToSecondTable_1
+
+
+WalkToThirdTable::
+	msgbox BuffetTr2_PostBattle
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, WalkTo3rdTable
+	waitmovement 0
+	goto_if_unset FLAG_TEMP_4, WalkToThirdTable_2
+WalkToThirdTable_1:
+	msgbox BuffetTr3_Intro
+	trainerbattle_no_intro TRAINER_BUFFET_3, BuffetTr3_Lose
+	goto WalkToFourthTable
+	return
+
+WalkToThirdTable_2:
+	msgbox EatMeal, MSGBOX_YESNO
+	closemessage
+	compare VAR_RESULT, TRUE
+	goto_if_eq WalkToThirdTable_4
+	goto WalkToThirdTable_1
+
+WalkToThirdTable_4:
+	call EatDeliciousMeal
+	goto WalkToThirdTable_1
+
+
+WalkToFourthTable::
+	call BuffetOfferSoup
+	msgbox BuffetTr3_PostBattle
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, WalkTo2ndTable
+	waitmovement 0
+	goto_if_unset FLAG_TEMP_4, WalkToFourthTable_2
+WalkToFourthTable_1:
+	msgbox BuffetTr4_Intro
+	trainerbattle_no_intro TRAINER_BUFFET_4, BuffetTr4_Lose
+	goto BuffetFinale
+	return
+
+WalkToFourthTable_2:
+	msgbox EatMeal, MSGBOX_YESNO
+	closemessage
+	compare VAR_RESULT, TRUE
+	goto_if_eq WalkToFourthTable_4
+	goto WalkToFourthTable_1
+
+WalkToFourthTable_4:
+	call EatDeliciousMeal
+	goto WalkToFourthTable_1
+
+
+BuffetFinale::
+	fadescreen FADE_TO_BLACK
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	setobjectxy OBJ_EVENT_ID_PLAYER, 13, 7
+	delay 30
+	fadescreen FADE_FROM_BLACK
+	delay 60
 	goto BuffetComplete
-	goto Hotel_BuffetFromOtherSide_1
-
-Hotel_BuffetFromOtherSide_3:
-	checktrainerflag TRAINER_BUFFET_2
-	goto_if 1, Hotel_BuffetFromOtherSide_5
-	goto Hotel_BuffetFromOtherSide_1
-
-Hotel_BuffetFromOtherSide_5:
-	checktrainerflag TRAINER_BUFFET_3
-	goto_if 1, Hotel_BuffetFromOtherSide_7
-	goto Hotel_BuffetFromOtherSide_1
-
-Hotel_BuffetFromOtherSide_7:
-	checktrainerflag TRAINER_BUFFET_4
-	goto_if 1, Hotel_BuffetFromOtherSide_2
-	goto Hotel_BuffetFromOtherSide_1
+	return
 
 
-BuffetNotEnoughMoney::
-	msgbox BuffetNotEnoughMoney_Text, MSGBOX_DEFAULT
-	closemessage
-	hidemoneybox
-	applymovement OBJ_EVENT_ID_PLAYER, HotelMoveRight
-	waitmovement 0
-	release
-	end
+WalkTo1stTable:
+	walk_left
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_in_place_faster_right
+	step_end
 
+WalkTo2ndTable:
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	step_end
+
+WalkTo3rdTable:
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	step_end
 
 BuffetComplete::
 	msgbox BuffetCompleted, MSGBOX_DEFAULT
@@ -388,15 +347,43 @@ BuffetComplete::
 	closemessage
 	setflag FLAG_BUFFET_COMPLETE
 	clearflag FLAG_SYSTEM_NOREWARDBATTLES
-	applymovement OBJ_EVENT_ID_PLAYER, HotelMoveRight
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Right
 	waitmovement 0
 	release
 	end
 
 BuffetComplete_2:
-	msgbox NotEnoughRoom, MSGBOX_DEFAULT
+	msgbox NotEnoughRoomLeftovers, MSGBOX_DEFAULT
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, HotelMoveLeft
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Right
+	waitmovement 0
+	clearflag FLAG_SYSTEM_NOREWARDBATTLES
+	release
+	end
+
+
+ExplainBuffetRules::
+	hidemoneybox
+	msgbox ExplainBuffetRules_Text, MSGBOX_DEFAULT
+	goto BuffetMultiChoice
+	return
+
+
+BuffetComeBackLater::
+	hidemoneybox
+	msgbox BuffetPleaseComeAgain, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Right
+	waitmovement 0
+	release
+	end
+
+
+BuffetNotEnoughMoney::
+	msgbox BuffetNotEnoughMoney_Text, MSGBOX_DEFAULT
+	closemessage
+	hidemoneybox
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Right
 	waitmovement 0
 	release
 	end
@@ -405,53 +392,17 @@ BuffetComplete_2:
 BuffetAlreadyCompleted::
 	msgbox BuffetAlreadyCompleted_Text, MSGBOX_DEFAULT
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, HotelMoveRight
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Right
 	waitmovement 0
-	release
-	end
-
-
-Hotel_BuffetAttendant::
-	checktrainerflag TRAINER_BUFFET_1
-	goto_if 1, Hotel_BuffetAttendant_3
-Hotel_BuffetAttendant_1:
-	msgbox Buffet_EnjoyBuffet, MSGBOX_NPC
-	turnobject 2, DIR_SOUTH
-	end
-
-Hotel_BuffetAttendant_2:
-	goto BuffetMakeItOfficial
-	goto Hotel_BuffetAttendant_1
-
-Hotel_BuffetAttendant_3:
-	checktrainerflag TRAINER_BUFFET_2
-	goto_if 1, Hotel_BuffetAttendant_5
-	goto Hotel_BuffetAttendant_1
-
-Hotel_BuffetAttendant_5:
-	checktrainerflag TRAINER_BUFFET_3
-	goto_if 1, Hotel_BuffetAttendant_7
-	goto Hotel_BuffetAttendant_1
-
-Hotel_BuffetAttendant_7:
-	checktrainerflag TRAINER_BUFFET_4
-	goto_if 1, Hotel_BuffetAttendant_2
-	goto Hotel_BuffetAttendant_1
-
-
-BuffetMakeItOfficial::
-	lockall
-	faceplayer
-	msgbox Buffet_LetsMakeItOfficial, MSGBOX_DEFAULT
-	waitmessage
-	closemessage
-	turnobject 2, DIR_SOUTH
 	release
 	end
 
 
 Hotel_BuffetAttempt::
 	msgbox Hotel_BuffetAttempt_Text, MSGBOX_NPC
+	warpsilent MAP_KAOLISLE_HOTEL_1F, 13, 7
+	waitstate
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	end
 
 
@@ -541,19 +492,11 @@ Hotel_PrivateParty::
 	delay 20
 	msgbox Hotel_PrivateParty_Text, MSGBOX_DEFAULT
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, HotelMoveLeft
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Left
 	waitmovement 0
 	release
 	end
 
-
-HotelMoveLeft:
-	walk_left
-	step_end
-
-HotelMoveRight:
-	walk_right
-	step_end
 
 Hotel_Chef::
 	msgbox Hotel_Chef_Text, MSGBOX_NPC
@@ -580,7 +523,7 @@ Hotel1F_JasmineGoodbye::
 AmphyAlso::
 	.string "Jasmine: …Oh, I think Amphy is also\n"
 	.string "trying to cheer you on!\p"
-	.string "…{PAUSE_UNTIL_PRESS} …{PAUSE_UNTIL_PRESS} …\p"
+	.string "…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F} …{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F} …{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}\n"
 	.string "A-anyway, we should be heading out…\p"
 	.string "I fear to even imagine the amount of\n"
 	.string "work that has accumulated during our\l"
@@ -613,20 +556,12 @@ MyCompanionAmphyAlso::
 	.string "She is my traveling companion, Amphy.\p"
 	.string "I believe she's also trying to\n"
 	.string "cheer you on!\p"
-	.string "…{PAUSE_UNTIL_PRESS} …{PAUSE_UNTIL_PRESS} …\p"
+	.string "…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F} …{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F} …{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}\n"
 	.string "A-anyway, we should be heading out…\p"
 	.string "I fear to even imagine the amount of\n"
 	.string "work that has accumulated during our\l"
 	.string "time away…\p"
 	.string "Um… It was nice seeing you again…$"
-
-HotelLemonade_AlreadyLooted::
-	.string "There's a sign here:\n"
-	.string "“One lemonade per customer.”$"
-
-HotelCurry_AlreadyLooted::
-	.string "You've already picked up\n"
-	.string "a plate of curry.$"
 
 BuffetTr1_Intro::
 	.string "Please don't look at me…\n"
@@ -681,34 +616,21 @@ BuffetTr4_PostBattle::
 	.string "option, I might have completely missed\l"
 	.string "out on all the local specialties!$"
 
-BuffetNPC1_Text::
-	.string "Please… no talking…\n"
-	.string "Just sit…$"
-
-BuffetNPC2_Text::
-	.string "Think you have what it takes to win\n"
-	.string "against me?\l"
-	.string "Then grab a seat and let's begin.$"
-
-BuffetNPC3_Text::
-	.string "This place has some delicious soups!\p"
-	.string "… … …\p"
-	.string "Oh, you want to challenge me?\n"
-	.string "Then go sit on the other side of\l"
-	.string "the table.$"
-
 HaveSomeSoup::
 	.string "You really shook things up!\n"
-	.string "How about we celebrate with a bowl\n"
+	.string "How about we celebrate with a bowl\l"
 	.string "of special “Berry Blend Soup”?\l"
 	.string "Your Pokémon will love it!$"
 
-BuffetNPC4_Text::
-	.string "Alola!\p"
-	.string "That's how me say “hello” where I\n"
-	.string "come from!\p"
-	.string "Feel free and take a seat whenever\n"
-	.string "you're ready.$"
+EatMeal::
+	.string "Would you like to enjoy a meal with\n"
+	.string "your Pokémon, healing the entire team?\p"
+	.string "This can be done only once per attempt.$"
+
+NotEnoughRoomLeftovers::
+	.string "I'm sorry, but it looks like you don't\n"
+	.string "have enough room in your bag.\p"
+	.string "You need to clear some room first…$"
 
 BuffetIntro::
 	.string "Hello and welcome to the Battle\n"
@@ -736,7 +658,7 @@ ExplainBuffetRules_Text::
 	.string "here and if you manage to beat all\l"
 	.string "of them, you'll get a fabulous prize!\p"
 	.string "As this is a light-hearted and friendly\n"
-	.string "competition, there are 3 special rules\l"
+	.string "competition, there are 4 special rules\l"
 	.string "in play here:\p"
 	.string "1. No trading of currency!\p"
 	.string "That means that battlers here won't\n"
@@ -752,17 +674,19 @@ ExplainBuffetRules_Text::
 	.string "You must keep going until you either\n"
 	.string "win or you team whites out.\l"
 	.string "There is no forfeiting during\l"
-	.string "the challenge!$"
+	.string "the challenge!\p"
+	.string "4. No stopping!\p"
+	.string "Once the challenge has been started,\n"
+	.string "you can no longer stop to heal your\l"
+	.string "pokemon or switch party composition.\p"
+	.string "You are however, allowed to have\n"
+	.string "a meal to completely heal your team.\p"
+	.string "Do note that this meal is available\n"
+	.string "only once per attempt.$"
 
 BuffetPleaseComeAgain::
 	.string "Thank you very much!\n"
 	.string "Please come again!$"
-
-BuffetNoEscape::
-	.string "I'm sorry, but you still have\n"
-	.string "trainers left to defeat.\p"
-	.string "As stated in the rules, there is\n"
-	.string "no forfeiting during the challenge.$"
 
 BuffetThankYouForDining::
 	.string "Thank you for partaking in the\n"
@@ -785,19 +709,12 @@ BuffetAlreadyCompleted_Text::
 	.string "It may take a while until we find\n"
 	.string "new and stronger opponents for you.$"
 
-ThatWillBe1400::
-	.string "That'll be ¥1400.\n"
-	.string "Would you like to enter?$"
-
-Buffet_EnjoyBuffet::
-	.string "We hope you enjoy your\n"
-	.string "Battle Buffet experience!$"
-
-Buffet_LetsMakeItOfficial::
-	.string "Are you finished with the Battle\n"
-	.string "Buffet?\p"
-	.string "In that case, come stand in front of\n"
-	.string "the lectern for your celebrations!$"
+ThatWillBe1000::
+	.string "Before you enter, I must warn you\n"
+	.string "that the trainers here are extremely\l"
+	.string "powerful.\p"
+	.string "Would you still like to enter the\n"
+	.string "dining hall? An entry costs ¥1000.$"
 
 Hotel_BuffetAttempt_Text::
 	.string "I tried challenging the Battle\n"

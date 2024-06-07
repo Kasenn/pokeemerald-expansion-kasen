@@ -770,7 +770,7 @@
 #define FLAG_HIDE_MOSSDEEP_CITY_STEVENS_HOUSE_INVISIBLE_NINJA_BOY   0x2D7
 #define FLAG_HIDE_PETALBURG_CITY_WALLYS_MOM                         0x2D8
 
-#define FLAG_HOTELCURRY                                           0x2D9 // hotel curry during buffet
+#define FLAG_UNUSED_2D9                                           0x2D9 // unused flag
 
 #define FLAG_HIDE_LILYCOVE_FAN_CLUB_INTERVIEWER                     0x2DA
 #define FLAG_HIDE_RUSTBORO_CITY_AQUA_GRUNT                          0x2DB
@@ -1172,7 +1172,7 @@
 #define FLAG_RECEIVED_SOUP                 0x465 // Unused Flag, leftover from the Ruby Magma hideout
 #define FLAG_HOTEL_FLYINGGEM                  0x466 // Unused Flag, leftover from the Ruby Magma hideout
 #define FLAG_ITEM_OLD_MAGMA_HIDEOUT_B2F_NEST_BALL                   0x467 // Unused Flag, leftover from the Ruby Magma hideout
-#define FLAG_HOTELLEMONADE                                           0x468 // Kaolisle hotel lemonade
+#define FLAG_UNUSED_468                                           0x468 // unused flag
 #define FLAG_ITEM_MT_PYRE_2F_ULTRA_BALL                             0x469
 #define FLAG_ITEM_MT_PYRE_4F_SEA_INCENSE                            0x46A
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_WEST_MAX_REVIVE                 0x46B

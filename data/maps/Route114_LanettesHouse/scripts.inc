@@ -135,8 +135,6 @@ LanettesHouse_Extractinator::
 	delay 80
 	hidemoneybox
 	message Fabricating
-	random 100
-	copyvar VAR_MUD_REWARD, VAR_RESULT
 	delay 30
 	waitmessage
 	closemessage
@@ -172,107 +170,128 @@ ExtractBall::
 	random 15
 	copyvar VAR_TEMP_7, VAR_RESULT
 	addvar VAR_TEMP_7, 20
+	compare VAR_MUD_REWARD_1, 0
+	goto_if_ne ExtractBall_8
+	compare VAR_MUD_REWARD_2, 0
+	goto_if_ne ExtractBall_9
+	compare VAR_MUD_REWARD_3, 0
+	goto_if_ne ExtractBall_10
+	compare VAR_MUD_REWARD_4, 0
+	goto_if_ne ExtractBall_11
+	compare VAR_MUD_REWARD_5, 0
+	goto_if_ne ExtractBall_12
+	compare VAR_MUD_REWARD_6, 0
+	goto_if_ne ExtractBall_13
+	compare VAR_MUD_REWARD_7, 0
+	goto_if_ne ExtractBall_14
+	compare VAR_MUD_REWARD_8, 0
+	goto_if_ne ExtractBall_15
+	compare VAR_MUD_REWARD_9, 0
+	goto_if_ne ExtractBall_16
+	compare VAR_MUD_REWARD_10, 0
+	goto_if_ne ExtractBall_17
+ExtractBall_7:
 	switch VAR_MUD_REWARD
-	case 0, ExtractBall_8
-	case 1, ExtractBall_8
-	case 2, ExtractBall_9
-	case 3, ExtractBall_9
-	case 4, ExtractBall_10
-	case 5, ExtractBall_10
-	case 6, ExtractBall_11
-	case 7, ExtractBall_11
-	case 8, ExtractBall_12
-	case 9, ExtractBall_12
-	case 10, ExtractBall_13
-	case 11, ExtractBall_13
-	case 12, ExtractBall_14
-	case 13, ExtractBall_14
-	case 14, ExtractBall_15
-	case 15, ExtractBall_15
-	case 16, ExtractBall_16
-	case 17, ExtractBall_16
-	case 18, ExtractBall_17
-	case 19, ExtractBall_17
-	case 20, ExtractBall_18
-	case 21, ExtractBall_18
-	case 22, ExtractBall_19
-	case 23, ExtractBall_19
-	case 24, ExtractBall_20
-	case 25, ExtractBall_20
-	case 26, ExtractBall_21
-	case 27, ExtractBall_21
-	case 28, ExtractBall_22
-	case 29, ExtractBall_22
-	case 30, ExtractBall_23
-	case 31, ExtractBall_23
-	case 32, ExtractBall_24
-	case 33, ExtractBall_24
-	case 34, ExtractBall_25
-	case 35, ExtractBall_25
-	case 36, ExtractBall_26
-	case 37, ExtractBall_26
-	case 38, ExtractBall_26
-	case 39, ExtractBall_26
-	case 40, ExtractBall_27
-	case 41, ExtractBall_27
-	case 42, ExtractBall_27
-	case 43, ExtractBall_27
-	case 44, ExtractBall_28
-	case 45, ExtractBall_28
-	case 46, ExtractBall_28
-	case 47, ExtractBall_28
-	case 48, ExtractBall_29
-	case 49, ExtractBall_29
-	case 50, ExtractBall_29
-	case 51, ExtractBall_29
-	case 52, ExtractBall_30
-	case 53, ExtractBall_30
-	case 54, ExtractBall_30
-	case 55, ExtractBall_30
-	case 56, ExtractBall_31
-	case 57, ExtractBall_31
-	case 58, ExtractBall_31
-	case 59, ExtractBall_31
-	case 60, ExtractBall_32
-	case 61, ExtractBall_32
-	case 62, ExtractBall_32
-	case 63, ExtractBall_32
-	case 64, ExtractBall_33
-	case 65, ExtractBall_33
-	case 66, ExtractBall_33
-	case 67, ExtractBall_33
-	case 68, ExtractBall_34
-	case 69, ExtractBall_34
-	case 70, ExtractBall_34
-	case 71, ExtractBall_34
-	case 72, ExtractBall_35
-	case 73, ExtractBall_35
-	case 74, ExtractBall_35
-	case 75, ExtractBall_35
-	case 76, ExtractBall_36
-	case 77, ExtractBall_36
-	case 78, ExtractBall_36
-	case 79, ExtractBall_36
-	case 80, ExtractBall_37
-	case 81, ExtractBall_37
-	case 82, ExtractBall_37
-	case 83, ExtractBall_37
-	case 84, ExtractBall_38
-	case 85, ExtractBall_39
-	case 86, ExtractBall_40
-	case 87, ExtractBall_41
-	case 88, ExtractBall_42
-	case 89, ExtractBall_42
-	case 90, ExtractBall_43
-	case 91, ExtractBall_43
-	case 92, ExtractBall_43
-	case 93, ExtractBall_43
-	case 94, ExtractBall_43
-	case 95, ExtractBall_43
-	case 96, ExtractBall_43
-	case 97, ExtractBall_43
-	case 98, ExtractBall_43
-	case 99, ExtractBall_43
+	case 0, ExtractBall_29
+	case 1, ExtractBall_29
+	case 2, ExtractBall_30
+	case 3, ExtractBall_30
+	case 4, ExtractBall_31
+	case 5, ExtractBall_31
+	case 6, ExtractBall_32
+	case 7, ExtractBall_32
+	case 8, ExtractBall_33
+	case 9, ExtractBall_33
+	case 10, ExtractBall_34
+	case 11, ExtractBall_34
+	case 12, ExtractBall_35
+	case 13, ExtractBall_35
+	case 14, ExtractBall_36
+	case 15, ExtractBall_36
+	case 16, ExtractBall_37
+	case 17, ExtractBall_37
+	case 18, ExtractBall_38
+	case 19, ExtractBall_38
+	case 20, ExtractBall_39
+	case 21, ExtractBall_39
+	case 22, ExtractBall_40
+	case 23, ExtractBall_40
+	case 24, ExtractBall_41
+	case 25, ExtractBall_41
+	case 26, ExtractBall_42
+	case 27, ExtractBall_42
+	case 28, ExtractBall_43
+	case 29, ExtractBall_43
+	case 30, ExtractBall_44
+	case 31, ExtractBall_44
+	case 32, ExtractBall_45
+	case 33, ExtractBall_45
+	case 34, ExtractBall_46
+	case 35, ExtractBall_46
+	case 36, ExtractBall_47
+	case 37, ExtractBall_47
+	case 38, ExtractBall_47
+	case 39, ExtractBall_47
+	case 40, ExtractBall_48
+	case 41, ExtractBall_48
+	case 42, ExtractBall_48
+	case 43, ExtractBall_48
+	case 44, ExtractBall_49
+	case 45, ExtractBall_49
+	case 46, ExtractBall_49
+	case 47, ExtractBall_49
+	case 48, ExtractBall_50
+	case 49, ExtractBall_50
+	case 50, ExtractBall_50
+	case 51, ExtractBall_50
+	case 52, ExtractBall_51
+	case 53, ExtractBall_51
+	case 54, ExtractBall_51
+	case 55, ExtractBall_51
+	case 56, ExtractBall_52
+	case 57, ExtractBall_52
+	case 58, ExtractBall_52
+	case 59, ExtractBall_52
+	case 60, ExtractBall_53
+	case 61, ExtractBall_53
+	case 62, ExtractBall_53
+	case 63, ExtractBall_53
+	case 64, ExtractBall_54
+	case 65, ExtractBall_54
+	case 66, ExtractBall_54
+	case 67, ExtractBall_54
+	case 68, ExtractBall_55
+	case 69, ExtractBall_55
+	case 70, ExtractBall_55
+	case 71, ExtractBall_55
+	case 72, ExtractBall_56
+	case 73, ExtractBall_56
+	case 74, ExtractBall_56
+	case 75, ExtractBall_56
+	case 76, ExtractBall_57
+	case 77, ExtractBall_57
+	case 78, ExtractBall_57
+	case 79, ExtractBall_57
+	case 80, ExtractBall_58
+	case 81, ExtractBall_58
+	case 82, ExtractBall_58
+	case 83, ExtractBall_58
+	case 84, ExtractBall_59
+	case 85, ExtractBall_60
+	case 86, ExtractBall_61
+	case 87, ExtractBall_62
+	case 88, ExtractBall_63
+	case 89, ExtractBall_63
+	case 90, ExtractBall_64
+	case 91, ExtractBall_64
+	case 92, ExtractBall_64
+	case 93, ExtractBall_64
+	case 94, ExtractBall_64
+	case 95, ExtractBall_64
+	case 96, ExtractBall_64
+	case 97, ExtractBall_64
+	case 98, ExtractBall_64
+	case 99, ExtractBall_64
 	return
 
 ExtractBall_2:
@@ -288,216 +307,266 @@ ExtractBall_5:
 	end
 
 ExtractBall_8:
+	copyvar VAR_MUD_REWARD, VAR_MUD_REWARD_1
+	setvar VAR_MUD_REWARD_1, 0
+	goto ExtractBall_7
+
+ExtractBall_9:
+	copyvar VAR_MUD_REWARD, VAR_MUD_REWARD_2
+	setvar VAR_MUD_REWARD_2, 0
+	goto ExtractBall_7
+
+ExtractBall_10:
+	copyvar VAR_MUD_REWARD, VAR_MUD_REWARD_3
+	setvar VAR_MUD_REWARD_3, 0
+	goto ExtractBall_7
+
+ExtractBall_11:
+	copyvar VAR_MUD_REWARD, VAR_MUD_REWARD_4
+	setvar VAR_MUD_REWARD_4, 0
+	goto ExtractBall_7
+
+ExtractBall_12:
+	copyvar VAR_MUD_REWARD, VAR_MUD_REWARD_5
+	setvar VAR_MUD_REWARD_5, 0
+	goto ExtractBall_7
+
+ExtractBall_13:
+	copyvar VAR_MUD_REWARD, VAR_MUD_REWARD_6
+	setvar VAR_MUD_REWARD_6, 0
+	goto ExtractBall_7
+
+ExtractBall_14:
+	copyvar VAR_MUD_REWARD, VAR_MUD_REWARD_7
+	setvar VAR_MUD_REWARD_7, 0
+	goto ExtractBall_7
+
+ExtractBall_15:
+	copyvar VAR_MUD_REWARD, VAR_MUD_REWARD_8
+	setvar VAR_MUD_REWARD_8, 0
+	goto ExtractBall_7
+
+ExtractBall_16:
+	copyvar VAR_MUD_REWARD, VAR_MUD_REWARD_9
+	setvar VAR_MUD_REWARD_9, 0
+	goto ExtractBall_7
+
+ExtractBall_17:
+	copyvar VAR_MUD_REWARD, VAR_MUD_REWARD_10
+	setvar VAR_MUD_REWARD_10, 0
+	goto ExtractBall_7
+
+ExtractBall_29:
 	finditem ITEM_NORMAL_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
 	return
 
-ExtractBall_9:
+ExtractBall_30:
 	finditem ITEM_FIRE_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
 	return
 
-ExtractBall_10:
+ExtractBall_31:
 	finditem ITEM_WATER_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
 	return
 
-ExtractBall_11:
+ExtractBall_32:
 	finditem ITEM_ELECTRIC_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
 	return
 
-ExtractBall_12:
+ExtractBall_33:
 	finditem ITEM_GRASS_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
 	return
 
-ExtractBall_13:
+ExtractBall_34:
 	finditem ITEM_ICE_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
 	return
 
-ExtractBall_14:
+ExtractBall_35:
 	finditem ITEM_FIGHTING_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
 	return
 
-ExtractBall_15:
+ExtractBall_36:
 	finditem ITEM_POISON_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
 	return
 
-ExtractBall_16:
+ExtractBall_37:
 	finditem ITEM_GROUND_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
 	return
 
-ExtractBall_17:
+ExtractBall_38:
 	finditem ITEM_FLYING_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
 	return
 
-ExtractBall_18:
+ExtractBall_39:
 	finditem ITEM_PSYCHIC_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
 	return
 
-ExtractBall_19:
+ExtractBall_40:
 	finditem ITEM_BUG_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
 	return
 
-ExtractBall_20:
+ExtractBall_41:
 	finditem ITEM_ROCK_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
 	return
 
-ExtractBall_21:
+ExtractBall_42:
 	finditem ITEM_GHOST_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
 	return
 
-ExtractBall_22:
+ExtractBall_43:
 	finditem ITEM_DRAGON_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
 	return
 
-ExtractBall_23:
+ExtractBall_44:
 	finditem ITEM_DARK_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
 	return
 
-ExtractBall_24:
+ExtractBall_45:
 	finditem ITEM_STEEL_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
 	return
 
-ExtractBall_25:
+ExtractBall_46:
 	finditem ITEM_FAIRY_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
 	return
 
-ExtractBall_26:
+ExtractBall_47:
 	finditem ITEM_NUGGET
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
 	return
 
-ExtractBall_27:
+ExtractBall_48:
 	finditem ITEM_PEARL, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
 	return
 
-ExtractBall_28:
+ExtractBall_49:
 	finditem ITEM_RARE_BONE
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
 	return
 
-ExtractBall_29:
+ExtractBall_50:
 	finditem ITEM_RELIC_COPPER, 3
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
 	return
 
-ExtractBall_30:
+ExtractBall_51:
 	finditem ITEM_RELIC_SILVER
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
 	return
 
-ExtractBall_31:
+ExtractBall_52:
 	finditem ITEM_HEART_SCALE
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
 	return
 
-ExtractBall_32:
+ExtractBall_53:
 	finditem ITEM_BIG_NUGGET
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
 	return
 
-ExtractBall_33:
+ExtractBall_54:
 	finditem ITEM_BIG_PEARL
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
 	return
 
-ExtractBall_34:
+ExtractBall_55:
 	finditem ITEM_RED_SHARD
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
 	return
 
-ExtractBall_35:
+ExtractBall_56:
 	finditem ITEM_BLUE_SHARD
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
 	return
 
-ExtractBall_36:
+ExtractBall_57:
 	finditem ITEM_YELLOW_SHARD
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
 	return
 
-ExtractBall_37:
+ExtractBall_58:
 	finditem ITEM_GREEN_SHARD
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
 	return
 
-ExtractBall_38:
+ExtractBall_59:
 	finditem ITEM_BIG_PEARL
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
 	return
 
-ExtractBall_39:
+ExtractBall_60:
 	finditem ITEM_RED_SHARD
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
 	return
 
-ExtractBall_40:
+ExtractBall_61:
 	finditem ITEM_BLUE_SHARD
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
 	return
 
-ExtractBall_41:
+ExtractBall_62:
 	finditem ITEM_YELLOW_SHARD
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
 	return
 
-ExtractBall_42:
+ExtractBall_63:
 	finditem ITEM_GREEN_SHARD
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
 	return
 
-ExtractBall_43:
+ExtractBall_64:
 	call GrandPrizeRandomization
 	setvar VAR_MUD_REWARD, 1002
 	return

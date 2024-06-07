@@ -193,8 +193,6 @@ script LanettesHouse_Extractinator{
     delay(80)
     hidemoneybox
     message(Fabricating)
-    random(100)
-    copyvar(VAR_MUD_REWARD, VAR_RESULT)
     delay(30)
     waitmessage
     closemessage
@@ -204,9 +202,6 @@ script LanettesHouse_Extractinator{
     release
     end
 }
-
-    // call(Common_EventScript_SaveGame)
-	// goto_if_eq(VAR_RESULT, 0, FallarborTown_BattleTentLobby_EventScript_CancelChallengeSaveFailed)
 
 text FirstMudBall{
     "A pretty good first item you got\n"
@@ -319,6 +314,46 @@ script ExtractBall{
     random(15)
     copyvar(VAR_TEMP_7, VAR_RESULT)
     addvar(VAR_TEMP_7, 20)
+    if(var(VAR_MUD_REWARD_1) != 0){
+        copyvar(VAR_MUD_REWARD, VAR_MUD_REWARD_1)
+        setvar(VAR_MUD_REWARD_1, 0)
+    }
+    elif(var(VAR_MUD_REWARD_2) != 0){
+        copyvar(VAR_MUD_REWARD, VAR_MUD_REWARD_2)
+        setvar(VAR_MUD_REWARD_2, 0)
+    }
+    elif(var(VAR_MUD_REWARD_3) != 0){
+        copyvar(VAR_MUD_REWARD, VAR_MUD_REWARD_3)
+        setvar(VAR_MUD_REWARD_3, 0)
+    }
+    elif(var(VAR_MUD_REWARD_4) != 0){
+        copyvar(VAR_MUD_REWARD, VAR_MUD_REWARD_4)
+        setvar(VAR_MUD_REWARD_4, 0)
+    }
+    elif(var(VAR_MUD_REWARD_5) != 0){
+        copyvar(VAR_MUD_REWARD, VAR_MUD_REWARD_5)
+        setvar(VAR_MUD_REWARD_5, 0)
+    }
+    elif(var(VAR_MUD_REWARD_6) != 0){
+        copyvar(VAR_MUD_REWARD, VAR_MUD_REWARD_6)
+        setvar(VAR_MUD_REWARD_6, 0)
+    }
+    elif(var(VAR_MUD_REWARD_7) != 0){
+        copyvar(VAR_MUD_REWARD, VAR_MUD_REWARD_7)
+        setvar(VAR_MUD_REWARD_7, 0)
+    }
+    elif(var(VAR_MUD_REWARD_8) != 0){
+        copyvar(VAR_MUD_REWARD, VAR_MUD_REWARD_8)
+        setvar(VAR_MUD_REWARD_8, 0)
+    }
+    elif(var(VAR_MUD_REWARD_9) != 0){
+        copyvar(VAR_MUD_REWARD, VAR_MUD_REWARD_9)
+        setvar(VAR_MUD_REWARD_9, 0)
+    }
+    elif(var(VAR_MUD_REWARD_10) != 0){
+        copyvar(VAR_MUD_REWARD, VAR_MUD_REWARD_10)
+        setvar(VAR_MUD_REWARD_10, 0)
+    }
     switch(var(VAR_MUD_REWARD)){
         case 0:
         case 1:

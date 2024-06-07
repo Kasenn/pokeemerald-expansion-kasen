@@ -13,8 +13,8 @@ script JasmineLeavesHotel{
 	applymovement(24, Common_Movement_ExclamationMark)
 	waitmovement(0)
 	delay(70)
-    applymovement(24, HotelWalkDown)
-    applymovement(25, HotelWalkDown)
+    applymovement(24, HotelWalkDown2)
+    applymovement(25, HotelWalkDown2)
     waitmovement(0)
     delay(10)
     if(flag(FLAG_TALKED_TO_JASMINE_AT_HOTEL)){
@@ -44,11 +44,11 @@ script JasmineLeavesHotel{
     waitmessage
     closemessage
     delay(20)
-    applymovement(24, HotelJasmineLeave)
+    applymovement(24, HotelWalkLeft1)
     applymovement(25, HotelWalkDown1)
     waitmovement(0)
     applymovement(24, HotelWalkDown1)
-    applymovement(25, HotelJasmineLeave)
+    applymovement(25, HotelWalkLeft1)
     waitmovement(0)
     removeobject(24)
     applymovement(25, HotelWalkDown1)
@@ -60,7 +60,6 @@ script JasmineLeavesHotel{
     release
     end
 }
-
 text Hotel1F_JasmineGoodbye{
     "Jasmine: Oh, hello again, {PLAYER}.\p"
     "I um… just finished checking out, so\n"
@@ -78,7 +77,7 @@ text Hotel1F_JasmineGoodbye{
 text AmphyAlso{
     "Jasmine: …Oh, I think Amphy is also\n"
     "trying to cheer you on!\p"
-    "…{PAUSE_UNTIL_PRESS} …{PAUSE_UNTIL_PRESS} …\p"
+    "…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F} …{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F} …{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}\n"
     "A-anyway, we should be heading out…\p"
     "I fear to even imagine the amount of\n"
     "work that has accumulated during our\l"
@@ -111,14 +110,13 @@ text MyCompanionAmphyAlso{
     "She is my traveling companion, Amphy.\p"
     "I believe she's also trying to\n"
     "cheer you on!\p"
-    "…{PAUSE_UNTIL_PRESS} …{PAUSE_UNTIL_PRESS} …\p"
+    "…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F} …{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F} …{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}\n"
     "A-anyway, we should be heading out…\p"
     "I fear to even imagine the amount of\n"
     "work that has accumulated during our\l"
     "time away…\p"
     "Um… It was nice seeing you again…"
 }
-
 script HideJasmine{
     setvar(VAR_TEMP_5, 0)
     if(!flag(FLAG_BADGE03_GET)){
@@ -126,55 +124,17 @@ script HideJasmine{
     }
     end
 }
-movement HotelWalkDown{
+movement HotelWalkDown2{
     walk_down * 2
 }
-movement HotelJasmineLeave{
+movement HotelWalkLeft1{
     walk_left
 }
 movement HotelWalkDown1{
     walk_down
 }
-script Hotel_Lemonade{
-    if(flag(FLAG_HOTELLEMONADE)){
-        msgbox(HotelLemonade_AlreadyLooted, MSGBOX_SIGN)
-        end
-    }
-    finditem(ITEM_LEMONADE)
-    setflag(FLAG_HOTELLEMONADE)
-}
-text HotelLemonade_AlreadyLooted{
-    "There's a sign here:\n"
-    "“One lemonade per customer.”"
-}
 
-script Hotel_Curry{
-    checkitemspace(ITEM_CURRY)
-    if(var(VAR_RESULT) == FALSE){
-        msgbox(NotEnoughRoom, MSGBOX_NPC)
-        end
-    }
-    if(flag(FLAG_HOTELCURRY)){
-        msgbox(HotelCurry_AlreadyLooted, MSGBOX_SIGN)
-        end
-    }
-    giveitem(ITEM_CURRY)
-    closemessage
-    setflag(FLAG_HOTELCURRY)
-    release
-    end
-}
-text HotelCurry_AlreadyLooted{
-    "You've already picked up\n"
-    "a plate of curry."
-}
 
-script Hotel_BuffetFight1{
-    trainerbattle_single(TRAINER_BUFFET_1, BuffetTr1_Intro, BuffetTr1_Lose, DoNothing, NO_MUSIC)
-    turnobject(8, DIR_WEST)
-    msgbox(BuffetTr1_PostBattle, MSGBOX_AUTOCLOSE)
-    end
-}
 text BuffetTr1_Intro{
     "Please don't look at me…\n"
     "Let's just…{PAUSE_UNTIL_PRESS} get this out of the way…"
@@ -185,12 +145,7 @@ text BuffetTr1_Lose{
 text BuffetTr1_PostBattle{
     "…Are we done?"
 }
-script Hotel_BuffetFight2{
-    trainerbattle_single(TRAINER_BUFFET_2, BuffetTr2_Intro, BuffetTr2_Lose, DoNothing, NO_MUSIC)
-    turnobject(9, DIR_EAST)
-    msgbox(BuffetTr2_PostBattle, MSGBOX_AUTOCLOSE)
-    end
-}
+////
 text BuffetTr2_Intro{
     "Hope you're thirsty, because my\n"
     "Water-type Pokémon will wash over you\l"
@@ -204,12 +159,7 @@ text BuffetTr2_PostBattle{
     "disadvantage.\p"
     "In water, my Pokémon are invincible!"
 }
-script Hotel_BuffetFight3{
-    trainerbattle_single(TRAINER_BUFFET_3, BuffetTr3_Intro, BuffetTr3_Lose, BuffetOfferSoup, NO_MUSIC)
-    turnobject(7, DIR_WEST)
-    msgbox(BuffetTr3_PostBattle, MSGBOX_AUTOCLOSE)
-    end
-}
+////
 text BuffetTr3_Intro{
     "Hope you're hungry for a beating\n"
     "because I won't be holding back!"
@@ -221,15 +171,7 @@ text BuffetTr3_PostBattle{
     "Food tastes better when shared!\n"
     "Enjoy the soup!"
 }
-script Hotel_BuffetFight4{
-    trainerbattle_single(TRAINER_BUFFET_4, BuffetTr4_Intro, BuffetTr4_Lose, DoNothing, NO_MUSIC)
-    turnobject(10, DIR_EAST)
-    msgbox(BuffetTr4_PostBattle, MSGBOX_AUTOCLOSE)
-    end
-}
-script DoNothing{
-    end
-}
+////
 text BuffetTr4_Intro{
     "Alola! I traveled from far to get\n"
     "here, so I hope you can satisfy\l"
@@ -249,100 +191,50 @@ text BuffetTr4_PostBattle{
     "option, I might have completely missed\l"
     "out on all the local specialties!"
 }
-script Hotel_BuffetNPC1{
-    if(defeated(TRAINER_BUFFET_1)){
-        msgbox(BuffetTr1_PostBattle, MSGBOX_NPC)
-        end
-    }
-    msgbox(BuffetNPC1_Text, MSGBOX_NPC)
-    turnobject(8, DIR_WEST)
-    end
-}
-text BuffetNPC1_Text{
-    "Please… no talking…\n"
-    "Just sit…"
-}
-script Hotel_BuffetNPC2{
-    if(defeated(TRAINER_BUFFET_2)){
-        msgbox(BuffetTr2_PostBattle, MSGBOX_NPC)
-        end
-    }
-    msgbox(BuffetNPC2_Text, MSGBOX_NPC)
-    turnobject(9, DIR_EAST)
-    end
-}
-text BuffetNPC2_Text{
-    "Think you have what it takes to win\n"
-    "against me?\l"
-    "Then grab a seat and let's begin."
-}
-script Hotel_BuffetNPC3{
-    if(defeated(TRAINER_BUFFET_3)){
-        if(!flag(FLAG_RECEIVED_SOUP)){
-            goto(BuffetOfferSoup)
-        }
-        msgbox(BuffetTr3_PostBattle, MSGBOX_NPC)
-        end
-    }
-    msgbox(BuffetNPC3_Text, MSGBOX_NPC)
-    turnobject(7, DIR_WEST)
-    end
-}
-text BuffetNPC3_Text{
-    "This place has some delicious soups!\p"
-    "… … …\p"
-    "Oh, you want to challenge me?\n"
-    "Then go sit on the other side of\l"
-    "the table."
-}
+
 text HaveSomeSoup{
     "You really shook things up!\n"
-    "How about we celebrate with a bowl\n"
+    "How about we celebrate with a bowl\l"
     "of special “Berry Blend Soup”?\l"
     "Your Pokémon will love it!"
+}
+
+text EatMeal{
+    "Would you like to enjoy a meal with\n"
+    "your Pokémon, healing the entire team?\p"
+    "This can be done only once per attempt."
+}
+script EatDeliciousMeal{
+    call(Common_EventScript_OutOfCenterPartyHeal)
+    setflag(FLAG_TEMP_4)
+    delay(30)
+    return
 }
 script BuffetOfferSoup{
     if(flag(FLAG_RECEIVED_SOUP)){
         return
     }
     msgbox(HaveSomeSoup, MSGBOX_DEFAULT)
-    checkitemspace(ITEM_SPECIAL_SOUP)
-    if(var(VAR_RESULT) == FALSE){
-        msgbox(NotEnoughRoom, MSGBOX_NPC)
-        end
-    }
     giveitem(ITEM_SPECIAL_SOUP)
     waitse
     waitmessage
     setflag(FLAG_RECEIVED_SOUP)
-    release
-    end
+    return
 }
-script Hotel_BuffetNPC4{
-    if(defeated(TRAINER_BUFFET_4)){
-        msgbox(BuffetTr4_PostBattle, MSGBOX_NPC)
-        end
-    }
-    msgbox(BuffetNPC4_Text, MSGBOX_NPC)
-    turnobject(10, DIR_EAST)
-    end
-}
-text BuffetNPC4_Text{
-    "Alola!\p"
-    "That's how me say “hello” where I\n"
-    "come from!\p"
-    "Feel free and take a seat whenever\n"
-    "you're ready."
-}
+
 script Hotel_BuffetTrigger{
     lockall
     turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
     delay(20)
+    if((defeated(TRAINER_BUFFET_1))
+    &&(defeated(TRAINER_BUFFET_2))
+    &&(defeated(TRAINER_BUFFET_3))
+    &&(defeated(TRAINER_BUFFET_4))
+    &&(!flag(FLAG_BUFFET_COMPLETE))){
+        goto(BuffetComplete)
+    }
     if(flag(FLAG_BUFFET_COMPLETE)){
         goto(BuffetAlreadyCompleted)
-    }
-    if(flag(FLAG_SYSTEM_NOREWARDBATTLES)){
-        goto(Hotel_BuffetFromOtherSide)
     }
     msgbox(BuffetIntro, MSGBOX_DEFAULT)
     goto(BuffetMultiChoice)
@@ -355,7 +247,7 @@ script BuffetMultiChoice{
     multichoice(23, 0, MULTI_BUFFET, 0)
     switch(var(VAR_RESULT)){
         case 0:
-            msgbox(ThatWillBe1400, MSGBOX_YESNO)
+            msgbox(ThatWillBe1000, MSGBOX_YESNO)
             if(var(VAR_RESULT) == FALSE){
                 goto(BuffetComeBackLater)
             }
@@ -370,72 +262,117 @@ script BuffetMultiChoice{
     end
 }
 script BuffetDineHere{
-    checkmoney(1400)
+    checkmoney(1000)
     if(var(VAR_RESULT) == FALSE){
         goto(BuffetNotEnoughMoney)
     }
     waitse
-    removemoney(1400)
+    removemoney(1000)
     playse(SE_SHOP)
     updatemoneybox
     waitse
     msgbox(EnjoyYourBuffet, MSGBOX_DEFAULT)
     closemessage
     hidemoneybox
-    applymovement(OBJ_EVENT_ID_PLAYER, HotelMoveLeft)
-    waitmovement(0)
-    clearflag(FLAG_HOTELLEMONADE)
-    clearflag(FLAG_HOTELCURRY)
+    cleartrainerflag(TRAINER_BUFFET_1)
+    cleartrainerflag(TRAINER_BUFFET_2)
+    cleartrainerflag(TRAINER_BUFFET_3)
+    cleartrainerflag(TRAINER_BUFFET_4)
     setflag(FLAG_SYSTEM_NOREWARDBATTLES)
-    release
-    end
+    goto(WalkToFirstTable)
 }
-script ExplainBuffetRules{
-    hidemoneybox
-    msgbox(ExplainBuffetRules_Text, MSGBOX_DEFAULT)
-    goto(BuffetMultiChoice)
-}
-script BuffetComeBackLater{
-    hidemoneybox
-    msgbox(BuffetPleaseComeAgain, MSGBOX_DEFAULT)
-    waitmessage
-    closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, HotelMoveRight)
+script WalkToFirstTable{
+    applymovement(OBJ_EVENT_ID_PLAYER, WalkTo1stTable)
     waitmovement(0)
-    release
-    end
+    msgbox(BuffetTr1_Intro)
+    trainerbattle_no_intro(TRAINER_BUFFET_1, BuffetTr1_Lose)
+    goto(WalkToSecondTable)
 }
-script Hotel_BuffetFromOtherSide{
-    if((defeated(TRAINER_BUFFET_1))
-    && (defeated(TRAINER_BUFFET_2))
-    && (defeated(TRAINER_BUFFET_3))
-    && (defeated(TRAINER_BUFFET_4))){
-        goto(BuffetComplete)
+script WalkToSecondTable{
+    msgbox(BuffetTr1_PostBattle)
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, WalkTo2ndTable)
+    waitmovement(0)
+    msgbox(EatMeal, MSGBOX_YESNO)
+    closemessage
+    if(var(VAR_RESULT) == TRUE){
+        call(EatDeliciousMeal)
     }
-    msgbox(BuffetNoEscape, MSGBOX_DEFAULT)
-    closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, HotelMoveLeft)
-    waitmovement(0)
-    release
-    end
+    msgbox(BuffetTr2_Intro)
+    trainerbattle_no_intro(TRAINER_BUFFET_2, BuffetTr2_Lose)
+    goto(WalkToThirdTable)
 }
-script BuffetNotEnoughMoney{
-    msgbox(BuffetNotEnoughMoney_Text, MSGBOX_DEFAULT)
+script WalkToThirdTable{
+    msgbox(BuffetTr2_PostBattle)
     closemessage
-    hidemoneybox
-    applymovement(OBJ_EVENT_ID_PLAYER, HotelMoveRight)
+    applymovement(OBJ_EVENT_ID_PLAYER, WalkTo3rdTable)
     waitmovement(0)
-    release
-    end
+    if(!flag(FLAG_TEMP_4)){
+        msgbox(EatMeal, MSGBOX_YESNO)
+        closemessage
+        if(var(VAR_RESULT) == TRUE){
+            call(EatDeliciousMeal)
+        }
+    }
+    msgbox(BuffetTr3_Intro)
+    trainerbattle_no_intro(TRAINER_BUFFET_3, BuffetTr3_Lose)
+    goto(WalkToFourthTable)
 }
+script WalkToFourthTable{
+    call(BuffetOfferSoup)
+    msgbox(BuffetTr3_PostBattle)
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, WalkTo2ndTable)
+    waitmovement(0)
+    if(!flag(FLAG_TEMP_4)){
+        msgbox(EatMeal, MSGBOX_YESNO)
+        closemessage
+        if(var(VAR_RESULT) == TRUE){
+            call(EatDeliciousMeal)
+        }
+    }
+    msgbox(BuffetTr4_Intro)
+    trainerbattle_no_intro(TRAINER_BUFFET_4, BuffetTr4_Lose)
+    goto(BuffetFinale)
+}
+script BuffetFinale{
+    fadescreen(FADE_TO_BLACK)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    setobjectxy(OBJ_EVENT_ID_PLAYER, 13, 7)
+    delay(30)
+    fadescreen(FADE_FROM_BLACK)
+    delay(60)
+    goto(BuffetComplete)
+}
+
+movement WalkTo1stTable{
+    walk_left
+    walk_up
+    walk_left * 5
+    walk_down
+    walk_in_place_faster_right
+    step_end
+}
+movement WalkTo2ndTable{
+    walk_down * 3
+    walk_left * 2
+    step_end
+}
+movement WalkTo3rdTable{
+    walk_down * 2
+    walk_right * 2
+    step_end
+}
+
 script BuffetComplete{
     msgbox(BuffetCompleted, MSGBOX_DEFAULT)
     checkitemspace(ITEM_LEFTOVERS)
     if(var(VAR_RESULT) == FALSE){
-        msgbox(NotEnoughRoom, MSGBOX_DEFAULT)
+        msgbox(NotEnoughRoomLeftovers, MSGBOX_DEFAULT)
         closemessage
-        applymovement(OBJ_EVENT_ID_PLAYER, HotelMoveLeft)
+        applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
         waitmovement(0)
+        clearflag(FLAG_SYSTEM_NOREWARDBATTLES)
         release
         end
     }
@@ -451,7 +388,36 @@ script BuffetComplete{
     closemessage
     setflag(FLAG_BUFFET_COMPLETE)
     clearflag(FLAG_SYSTEM_NOREWARDBATTLES)
-    applymovement(OBJ_EVENT_ID_PLAYER, HotelMoveRight)
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
+    waitmovement(0)
+    release
+    end
+}
+text NotEnoughRoomLeftovers{
+    "I'm sorry, but it looks like you don't\n"
+    "have enough room in your bag.\p"
+    "You need to clear some room first…"
+}
+
+script ExplainBuffetRules{
+    hidemoneybox
+    msgbox(ExplainBuffetRules_Text, MSGBOX_DEFAULT)
+    goto(BuffetMultiChoice)
+}
+script BuffetComeBackLater{
+    hidemoneybox
+    msgbox(BuffetPleaseComeAgain, MSGBOX_DEFAULT)
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
+    waitmovement(0)
+    release
+    end
+}
+script BuffetNotEnoughMoney{
+    msgbox(BuffetNotEnoughMoney_Text, MSGBOX_DEFAULT)
+    closemessage
+    hidemoneybox
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
     waitmovement(0)
     release
     end
@@ -459,7 +425,7 @@ script BuffetComplete{
 script BuffetAlreadyCompleted{
     msgbox(BuffetAlreadyCompleted_Text, MSGBOX_DEFAULT)
     closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, HotelMoveRight)
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
     waitmovement(0)
     release
     end
@@ -490,7 +456,7 @@ text ExplainBuffetRules_Text{
     "here and if you manage to beat all\l"
     "of them, you'll get a fabulous prize!\p"
     "As this is a light-hearted and friendly\n"
-    "competition, there are 3 special rules\l"
+    "competition, there are 4 special rules\l"
     "in play here:\p"
     "1. No trading of currency!\p"
     "That means that battlers here won't\n"
@@ -506,17 +472,19 @@ text ExplainBuffetRules_Text{
     "You must keep going until you either\n"
     "win or you team whites out.\l"
     "There is no forfeiting during\l"
-    "the challenge!"
+    "the challenge!\p"
+    "4. No stopping!\p"
+    "Once the challenge has been started,\n"
+    "you can no longer stop to heal your\l"
+    "pokemon or switch party composition.\p"
+    "You are however, allowed to have\n"
+    "a meal to completely heal your team.\p"
+    "Do note that this meal is available\n"
+    "only once per attempt."
 }
 text BuffetPleaseComeAgain{
     "Thank you very much!\n"
     "Please come again!"
-}
-text BuffetNoEscape{
-    "I'm sorry, but you still have\n"
-    "trainers left to defeat.\p"
-    "As stated in the rules, there is\n"
-    "no forfeiting during the challenge."
 }
 text BuffetThankYouForDining{
     "Thank you for partaking in the\n"
@@ -539,43 +507,19 @@ text BuffetAlreadyCompleted_Text{
     "It may take a while until we find\n"
     "new and stronger opponents for you."
 }
-text ThatWillBe1400{
-    "That'll be ¥1400.\n"
-    "Would you like to enter?"
+text ThatWillBe1000{
+    "Before you enter, I must warn you\n"
+    "that the trainers here are extremely\l"
+    "powerful.\p"
+    "Would you still like to enter the\n"
+    "dining hall? An entry costs ¥1000."
 }
-script Hotel_BuffetAttendant{
-    if((defeated(TRAINER_BUFFET_1))
-    && (defeated(TRAINER_BUFFET_2))
-    && (defeated(TRAINER_BUFFET_3))
-    && (defeated(TRAINER_BUFFET_4))){
-        goto(BuffetMakeItOfficial)
-    }
-    msgbox(Buffet_EnjoyBuffet, MSGBOX_NPC)
-    turnobject(2, DIR_SOUTH)
-    end
-}
-script BuffetMakeItOfficial{
-    lockall
-    faceplayer
-    msgbox(Buffet_LetsMakeItOfficial, MSGBOX_DEFAULT)
-    waitmessage
-    closemessage
-    turnobject(2, DIR_SOUTH)
-    release
-    end
-}
-text Buffet_EnjoyBuffet{
-    "We hope you enjoy your\n"
-    "Battle Buffet experience!"
-}
-text Buffet_LetsMakeItOfficial{
-    "Are you finished with the Battle\n"
-    "Buffet?\p"
-    "In that case, come stand in front of\n"
-    "the lectern for your celebrations!"
-}
+
 script Hotel_BuffetAttempt{
     msgbox(Hotel_BuffetAttempt_Text, MSGBOX_NPC)
+    warpsilent(MAP_KAOLISLE_HOTEL_1F, 13, 7)
+    waitstate
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
     end
 }
 text Hotel_BuffetAttempt_Text{
@@ -626,7 +570,6 @@ text Hotel_Tuber_Text{
     "scared but I trust my Pokémon will\l"
     "keep me safe!"
 }
-
 script Hotel_BirdTrainer{
     if(flag(FLAG_HOTEL_FLYINGGEM)){
         msgbox(Hotel_BirdTrainer_PostBattle, MSGBOX_NPC)
@@ -706,7 +649,6 @@ text Hotel_BirdTrainer_Reward{
     "Pokémon hold on to this Flying Gem?\l"
     "It could make your moves even stronger!"
 }
-
 script Hotel_Drinker{
     msgbox(Hotel_Drinker_Text, MSGBOX_NPC)
     end
@@ -737,7 +679,7 @@ script Hotel_PrivateParty{
     delay(20)
     msgbox(Hotel_PrivateParty_Text, MSGBOX_DEFAULT)
     closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, HotelMoveLeft)
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Left)
     waitmovement(0)
     release
     end
@@ -745,12 +687,6 @@ script Hotel_PrivateParty{
 text Hotel_PrivateParty_Text{
     "I'm sorry, but this room\n"
     "is reserved for a private party."
-}
-movement HotelMoveLeft{
-    walk_left
-}
-movement HotelMoveRight{
-    walk_right
 }
 script Hotel_Chef{
     msgbox(Hotel_Chef_Text, MSGBOX_NPC)

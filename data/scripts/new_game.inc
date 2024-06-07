@@ -113,7 +113,7 @@ EventScript_ResetAllBerries::
 	return
 
 EventScript_ResetAllMapFlags::
-	setvar VAR_DEBUG, 3
+	setvar VAR_DEBUG, 5
 	setflag FLAG_HIDE_AMPHAROS
 	setflag FLAG_OLDMAN_PEARLSTRING
 	setflag FLAG_OBTAINED_PIDGEOTITE

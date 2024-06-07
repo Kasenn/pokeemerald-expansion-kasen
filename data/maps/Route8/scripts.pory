@@ -499,6 +499,7 @@ text SampleBoxFull{
 }
 
 script Route8_MudPile{
+    call(RandomizeMudRewards)
     if(var(VAR_MUD_SAMPLES) == 30){
         lock
         msgbox(ObtainedMud)
@@ -561,6 +562,50 @@ script Route8_MudPile{
     special(DrawWholeMapView)
     release
     end
+}
+
+script RandomizeMudRewards{
+    if(var(VAR_MUD_REWARD_1) == 0){
+        random(100)
+        copyvar(VAR_MUD_REWARD_1, VAR_RESULT)
+    }
+    if(var(VAR_MUD_REWARD_2) == 0){
+        random(100)
+        copyvar(VAR_MUD_REWARD_2, VAR_RESULT)
+    }
+    if(var(VAR_MUD_REWARD_3) == 0){
+        random(100)
+        copyvar(VAR_MUD_REWARD_3, VAR_RESULT)
+    }
+    if(var(VAR_MUD_REWARD_4) == 0){
+        random(100)
+        copyvar(VAR_MUD_REWARD_4, VAR_RESULT)
+    }
+    if(var(VAR_MUD_REWARD_5) == 0){
+        random(100)
+        copyvar(VAR_MUD_REWARD_5, VAR_RESULT)
+    }
+    if(var(VAR_MUD_REWARD_6) == 0){
+        random(100)
+        copyvar(VAR_MUD_REWARD_6, VAR_RESULT)
+    }
+    if(var(VAR_MUD_REWARD_7) == 0){
+        random(100)
+        copyvar(VAR_MUD_REWARD_7, VAR_RESULT)
+    }
+    if(var(VAR_MUD_REWARD_8) == 0){
+        random(100)
+        copyvar(VAR_MUD_REWARD_8, VAR_RESULT)
+    }
+    if(var(VAR_MUD_REWARD_9) == 0){
+        random(100)
+        copyvar(VAR_MUD_REWARD_9, VAR_RESULT)
+    }
+    if(var(VAR_MUD_REWARD_10) == 0){
+        random(100)
+        copyvar(VAR_MUD_REWARD_10, VAR_RESULT)
+    }
+    return
 }
 
 text ObtainedMud{

@@ -969,6 +969,7 @@ RandomizeMudTile_156:
 
 
 Route8_MudPile::
+	call RandomizeMudRewards
 	compare VAR_MUD_SAMPLES, 30
 	goto_if_eq Route8_MudPile_2
 	playse SE_SELECT
@@ -1067,6 +1068,90 @@ Route8_MudPile_19:
 Route8_MudPile_21:
 	setvar VAR_MUD_SAMPLES, 30
 	goto Route8_MudPile_4
+
+
+RandomizeMudRewards::
+	compare VAR_MUD_REWARD_1, 0
+	goto_if_eq RandomizeMudRewards_2
+RandomizeMudRewards_1:
+	compare VAR_MUD_REWARD_2, 0
+	goto_if_eq RandomizeMudRewards_5
+RandomizeMudRewards_4:
+	compare VAR_MUD_REWARD_3, 0
+	goto_if_eq RandomizeMudRewards_8
+RandomizeMudRewards_7:
+	compare VAR_MUD_REWARD_4, 0
+	goto_if_eq RandomizeMudRewards_11
+RandomizeMudRewards_10:
+	compare VAR_MUD_REWARD_5, 0
+	goto_if_eq RandomizeMudRewards_14
+RandomizeMudRewards_13:
+	compare VAR_MUD_REWARD_6, 0
+	goto_if_eq RandomizeMudRewards_17
+RandomizeMudRewards_16:
+	compare VAR_MUD_REWARD_7, 0
+	goto_if_eq RandomizeMudRewards_20
+RandomizeMudRewards_19:
+	compare VAR_MUD_REWARD_8, 0
+	goto_if_eq RandomizeMudRewards_23
+RandomizeMudRewards_22:
+	compare VAR_MUD_REWARD_9, 0
+	goto_if_eq RandomizeMudRewards_26
+RandomizeMudRewards_25:
+	compare VAR_MUD_REWARD_10, 0
+	goto_if_eq RandomizeMudRewards_29
+RandomizeMudRewards_28:
+	return
+
+RandomizeMudRewards_2:
+	random 100
+	copyvar VAR_MUD_REWARD_1, VAR_RESULT
+	goto RandomizeMudRewards_1
+
+RandomizeMudRewards_5:
+	random 100
+	copyvar VAR_MUD_REWARD_2, VAR_RESULT
+	goto RandomizeMudRewards_4
+
+RandomizeMudRewards_8:
+	random 100
+	copyvar VAR_MUD_REWARD_3, VAR_RESULT
+	goto RandomizeMudRewards_7
+
+RandomizeMudRewards_11:
+	random 100
+	copyvar VAR_MUD_REWARD_4, VAR_RESULT
+	goto RandomizeMudRewards_10
+
+RandomizeMudRewards_14:
+	random 100
+	copyvar VAR_MUD_REWARD_5, VAR_RESULT
+	goto RandomizeMudRewards_13
+
+RandomizeMudRewards_17:
+	random 100
+	copyvar VAR_MUD_REWARD_6, VAR_RESULT
+	goto RandomizeMudRewards_16
+
+RandomizeMudRewards_20:
+	random 100
+	copyvar VAR_MUD_REWARD_7, VAR_RESULT
+	goto RandomizeMudRewards_19
+
+RandomizeMudRewards_23:
+	random 100
+	copyvar VAR_MUD_REWARD_8, VAR_RESULT
+	goto RandomizeMudRewards_22
+
+RandomizeMudRewards_26:
+	random 100
+	copyvar VAR_MUD_REWARD_9, VAR_RESULT
+	goto RandomizeMudRewards_25
+
+RandomizeMudRewards_29:
+	random 100
+	copyvar VAR_MUD_REWARD_10, VAR_RESULT
+	goto RandomizeMudRewards_28
 
 
 Route7_Trainer1_Camper::

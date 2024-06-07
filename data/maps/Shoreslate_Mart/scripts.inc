@@ -54,7 +54,7 @@ Shoreslate_Mart_Secret_17:
 
 Shoreslate_Mart_Secret_19:
 	msgbox Shoreslate_Mart_Secret_Text_4, MSGBOX_DEFAULT
-	finditem ITEM_EXP_CANDY_XS
+	finditem ITEM_MASTER_BALL
 	goto Shoreslate_Mart_Secret_1
 
 

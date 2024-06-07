@@ -24,7 +24,7 @@ LittlerootTown_MapScripts::
 	@ 6: Set clock
 	@ 7: Told to go meet rival
 
-	@ State descriptions for VAR_LITTLEROOT_HOUSES_STATE_MAY
+	@ State descriptions for VAR_UNUSED_VAR
 	@                    and VAR_LITTLEROOT_HOUSES_STATE_BRENDAN
 	@ 1: On Truck (and is corresponding gender)
 	@ 2: Met Rival's Mom (and is corresponding gender)
@@ -45,7 +45,7 @@ LittlerootTown_OnTransition:
 	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_MoveMomToMaysDoor
 	call_if_unset FLAG_RECEIVED_METAL_COAT, LittlerootTown_EventScript_SetTwinPos
 	call_if_eq VAR_LITTLEROOT_TOWN_STATE, 3, LittlerootTown_EventScript_SetMomStandingInFrontOfDoorPos
-	call_if_eq VAR_LITTLEROOT_HOUSES_STATE_MAY, 4, LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent
+	call_if_eq VAR_UNUSED_VAR, 4, LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent
 	call_if_eq VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 4, LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent
 	call_if_eq VAR_OLDALE_RIVAL_STATE, 1, LittlerootTown_EventScript_MoveRivalFromOldale
 	call_if_eq VAR_LITTLEROOT_RIVAL_STATE, 3, LittlerootTown_EventScript_SetRivalLeftForRoute103
@@ -71,7 +71,7 @@ LittlerootTown_EventScript_MoveRivalFromOldale::
 	return
 
 LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent::
-	setvar VAR_LITTLEROOT_HOUSES_STATE_MAY, 5
+	setvar VAR_UNUSED_VAR, 5
 	setvar VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 5
 	return
 

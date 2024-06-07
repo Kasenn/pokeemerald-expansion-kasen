@@ -3159,8 +3159,6 @@ static const struct TrainerMon sParty_BuffetTrainer1[] = {
     .species = SPECIES_MIMIKYU,
     .ball = ITEM_DUSK_BALL,
     .heldItem = ITEM_LIFE_ORB,
-    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .ev = TRAINER_PARTY_EVS(0, 200, 0, 0, 0, 0),
     .lvl = 35,
     .moves = {MOVE_SWORDS_DANCE, MOVE_SHADOW_CLAW, MOVE_PLAY_ROUGH, MOVE_SHADOW_SNEAK},
     .nature = NATURE_ADAMANT,
@@ -3169,8 +3167,6 @@ static const struct TrainerMon sParty_BuffetTrainer1[] = {
     .species = SPECIES_FROSLASS,
     .ball = ITEM_DUSK_BALL,
     .heldItem = ITEM_FOCUS_SASH,
-    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 200, 0),
     .lvl = 35,
     .moves = {MOVE_SHADOW_BALL, MOVE_ICE_BEAM, MOVE_DRAINING_KISS, MOVE_THUNDERBOLT},
     .nature = NATURE_MODEST,
@@ -3180,8 +3176,6 @@ static const struct TrainerMon sParty_BuffetTrainer1[] = {
     .ball = ITEM_DUSK_BALL,
     .ability = ABILITY_TRACE,
     .heldItem = ITEM_CHOICE_SPECS,
-    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 200, 0),
     .lvl = 35,
     .moves = {MOVE_ENERGY_BALL, MOVE_MOONBLAST, MOVE_PSYCHIC, MOVE_MYSTICAL_FIRE},
     .nature = NATURE_MODEST,
@@ -3193,8 +3187,6 @@ static const struct TrainerMon sParty_BuffetTrainer2[] = {
     .species = SPECIES_PRIMARINA,
     .ball = ITEM_DIVE_BALL,
     .heldItem = ITEM_ASSAULT_VEST,
-    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .ev = TRAINER_PARTY_EVS(56, 0, 44, 0, 100, 0),
     .lvl = 35,
     .moves = {MOVE_SCALD, MOVE_HYPER_VOICE, MOVE_ENERGY_BALL, MOVE_ICE_BEAM},
     .nature = NATURE_MODEST,
@@ -3205,8 +3197,6 @@ static const struct TrainerMon sParty_BuffetTrainer2[] = {
     .species = SPECIES_GYARADOS,
     .ball = ITEM_DIVE_BALL,
     .heldItem = ITEM_WACAN_BERRY,
-    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .ev = TRAINER_PARTY_EVS(56, 0, 0, 100, 0, 48),
     .lvl = 35,
     .moves = {MOVE_WATERFALL, MOVE_EARTHQUAKE, MOVE_POWER_WHIP, MOVE_DRAGON_DANCE},
     .nature = NATURE_JOLLY,
@@ -3217,8 +3207,6 @@ static const struct TrainerMon sParty_BuffetTrainer2[] = {
     .species = SPECIES_SLOWBRO,
     .ball = ITEM_DIVE_BALL,
     .heldItem = ITEM_LEFTOVERS,
-    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .ev = TRAINER_PARTY_EVS(0, 0, 100, 0, 0, 100),
     .lvl = 35,
     .moves = {MOVE_SCALD, MOVE_PSYCHIC, MOVE_BODY_PRESS, MOVE_SLACK_OFF},
     .nature = NATURE_RELAXED,
@@ -3229,8 +3217,6 @@ static const struct TrainerMon sParty_BuffetTrainer2[] = {
 
 static const struct TrainerMon sParty_BuffetTrainer3[] = {
     {
-    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 200, 0),
     .lvl = 35,
     .ball = ITEM_PREMIER_BALL,
     .species = SPECIES_MAGNEZONE,
@@ -3240,8 +3226,6 @@ static const struct TrainerMon sParty_BuffetTrainer3[] = {
     .moves = {MOVE_THUNDERBOLT, MOVE_VOLT_SWITCH, MOVE_FLASH_CANNON, MOVE_EXPLOSION}
     },
     {
-    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .ev = TRAINER_PARTY_EVS(0, 200, 0, 0, 0, 0),
     .lvl = 35,
     .ball = ITEM_PREMIER_BALL,
     .species = SPECIES_MAMOSWINE,
@@ -3251,8 +3235,6 @@ static const struct TrainerMon sParty_BuffetTrainer3[] = {
     .moves = {MOVE_ICICLE_CRASH, MOVE_EARTHQUAKE, MOVE_STONE_EDGE, MOVE_BODY_SLAM}
     },
     {
-    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .ev = TRAINER_PARTY_EVS(100, 0, 50, 0, 50, 0),
     .lvl = 35,
     .ball = ITEM_PREMIER_BALL,
     .species = SPECIES_QUAGSIRE,
@@ -3265,8 +3247,6 @@ static const struct TrainerMon sParty_BuffetTrainer3[] = {
 
 static const struct TrainerMon sParty_BuffetTrainer4[] = {
     {
-    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .ev = TRAINER_PARTY_EVS(0, 0, 0, 200, 0, 0),
     .heldItem = ITEM_FLAME_ORB,
     .ability = ABILITY_GUTS,
     .friendship = 255,
@@ -3277,8 +3257,6 @@ static const struct TrainerMon sParty_BuffetTrainer4[] = {
     .moves = {MOVE_BATON_PASS, MOVE_FACADE, MOVE_BRAVE_BIRD, MOVE_REVERSAL}
     },
     {
-    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .ev = TRAINER_PARTY_EVS(10, 0, 0, 100, 90, 0),
     .heldItem = ITEM_LIFE_ORB,
     .ability = ABILITY_OWN_TEMPO,
     .friendship = 255,
@@ -3289,8 +3267,6 @@ static const struct TrainerMon sParty_BuffetTrainer4[] = {
     .moves = {MOVE_FAKE_OUT, MOVE_ICE_BEAM, MOVE_SURF, MOVE_GRASS_KNOT}
     },
     {
-    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .ev = TRAINER_PARTY_EVS(0, 0, 0, 200, 0, 0),
     .heldItem = ITEM_THICK_CLUB,
     .ability = ABILITY_LIGHTNING_ROD,
     .friendship = 255,

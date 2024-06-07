@@ -143,14 +143,14 @@
 #define VAR_ROUTE128_STATE                               0x407B
 #define VAR_RANCH_AMPHAROS                               0x407C // Unused Var
 #define VAR_RIVAL_AROUND_SANDSTONE                               0x407D
-#define VAR_ROUTE131_STATE                               0x407E // Unused Var
-#define VAR_ROUTE132_STATE                               0x407F // Unused Var
-#define VAR_ROUTE133_STATE                               0x4080 // Unused Var
-#define VAR_ROUTE134_STATE                               0x4081 // Unused Var
-#define VAR_LITTLEROOT_HOUSES_STATE_MAY                  0x4082
-#define VAR_UNUSED_0x4083                                0x4083 // Unused Var
-#define VAR_BIRCH_LAB_STATE                              0x4084
-#define VAR_PETALBURG_GYM_STATE                          0x4085 // 0-1: Wally tutorial, 2-6: 0-4 badges, 7: Defeated Norman, 8: Rematch Norman
+#define VAR_MUD_REWARD_1                                 0x407E // MUD REWARD
+#define VAR_MUD_REWARD_2                                 0x407F // MUD REWARD
+#define VAR_MUD_REWARD_3                                 0x4080 // MUD REWARD
+#define VAR_MUD_REWARD_4                                 0x4081 // MUD REWARD
+#define VAR_MUD_REWARD_5                                 0x4082 // MUD REWARD
+#define VAR_MUD_REWARD_6                                 0x4083 // MUD REWARD
+#define VAR_MUD_REWARD_7                                 0x4084 // MUD REWARD
+#define VAR_MUD_REWARD_8                                 0x4085 // MUD REWARD
 #define VAR_CONTEST_HALL_STATE                           0x4086
 #define VAR_CABLE_CLUB_STATE                             0x4087
 #define VAR_CONTEST_TYPE                                 0x4088
@@ -162,7 +162,7 @@
 #define VAR_BOARD_BRINEY_BOAT_STATE                      0x408E
 #define VAR_DEVON_CORP_3F_STATE                          0x408F
 #define VAR_BRINEY_HOUSE_STATE                           0x4090
-#define VAR_UNUSED_0x4091                                0x4091 // Unused Var
+#define VAR_MUD_REWARD_9                                0x4091 // Unused Var
 #define VAR_LITTLEROOT_INTRO_STATE                       0x4092
 #define VAR_MAUVILLE_GYM_STATE                           0x4093
 #define VAR_LILYCOVE_MUSEUM_2F_STATE                     0x4094
@@ -199,7 +199,7 @@
 #define VAR_WEATHER_INSTITUTE_STATE                      0x40B3
 #define VAR_SS_TIDAL_STATE                               0x40B4
 #define VAR_TRICK_HOUSE_ENTER_FROM_CORRIDOR              0x40B5
-#define VAR_TRICK_HOUSE_PUZZLE_7_STATE_2                 0x40B6 // Leftover from RS, never set
+#define VAR_MUD_REWARD_10                                0x40B6 // MUD_REWARD
 #define VAR_SLATEPORT_FAN_CLUB_STATE                     0x40B7
 #define VAR_ZYGARDE_CELLS                                0x40B8 // Unused Var   VAR_ZYGARDE_CELLS
 #define VAR_MT_PYRE_STATE                                0x40B9
@@ -272,7 +272,7 @@
 #define VAR_UNUSED_0x40FC                                0x40FC // Unused Var
 #define VAR_UNUSED_0x40FD                                0x40FD // Unused Var
 #define VAR_UNUSED_0x40FE                                0x40FE // Unused Var
-#define VAR_UNUSED_0x40FF                                0x40FF // Unused Var
+#define VAR_UNUSED_VAR                                0x40FF // Unused Var
 
 #define VARS_END                                         0x40FF
 #define VARS_COUNT                                       (VARS_END - VARS_START + 1)
