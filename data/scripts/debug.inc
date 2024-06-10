@@ -158,10 +158,9 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
-	givemon SPECIES_STOUTLAND, 1
-	givemon SPECIES_ARCANINE, 1
-	givemon SPECIES_GRANBULL, 1
-	givemon SPECIES_LUXRAY, 1
+	giveitem ITEM_HM03
+	setflag FLAG_BADGE05_GET
+	release
 	end
 
 Debug_EventScript_Script_6::

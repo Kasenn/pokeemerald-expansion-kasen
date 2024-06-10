@@ -923,8 +923,8 @@ static void TilesetAnim_EverGrande(u16 timer)
 
 static void TilesetAnim_Pacifidlog(u16 timer)
 {
-    if (timer % 16 == 0)
-        QueueAnimTiles_Pacifidlog_LogBridges(timer / 16);
+    // if (timer % 16 == 0)
+    //     QueueAnimTiles_Pacifidlog_LogBridges(timer / 16);
     if (timer % 16 == 1)
         QueueAnimTiles_Pacifidlog_WaterCurrents(timer / 16);
 }

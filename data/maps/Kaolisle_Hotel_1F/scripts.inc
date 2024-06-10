@@ -1,11 +1,25 @@
 Kaolisle_Hotel_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, HideJasmine
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Kaolisle_Hotel_1F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, Kaolisle_Hotel_1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
+Kaolisle_Hotel_1F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE:
+	map_script_2 VAR_KAOLISLE_HOTEL_STATE, 5, SetPlayerPosAfterBuffet
+	map_script_2 VAR_KAOLISLE_HOTEL_STATE, 9, SetPlayerPosAfterBuffet
+	.2byte 0
+
 Kaolisle_Hotel_1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 	map_script_2 VAR_KAOLISLE_HOTEL_STATE, 1, JasmineLeavesHotel
+	map_script_2 VAR_KAOLISLE_HOTEL_STATE, 6, BuffetLost2
+	map_script_2 VAR_KAOLISLE_HOTEL_STATE, 10, BuffetComplete
 	.2byte 0
+
+
+SetPlayerPosAfterBuffet::
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	addvar VAR_KAOLISLE_HOTEL_STATE, 1
+	return
 
 
 JasmineLeavesHotel::
@@ -201,6 +215,7 @@ BuffetDineHere_1:
 	msgbox EnjoyYourBuffet, MSGBOX_DEFAULT
 	closemessage
 	hidemoneybox
+	setflag FLAG_CONTINUE_AFTER_WHITEOUT
 	cleartrainerflag TRAINER_BUFFET_1
 	cleartrainerflag TRAINER_BUFFET_2
 	cleartrainerflag TRAINER_BUFFET_3
@@ -219,8 +234,15 @@ WalkToFirstTable::
 	waitmovement 0
 	msgbox BuffetTr1_Intro
 	trainerbattle_no_intro TRAINER_BUFFET_1, BuffetTr1_Lose
-	goto WalkToSecondTable
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq WalkToFirstTable_2
+WalkToFirstTable_1:
+	goto BuffetLost
 	return
+
+WalkToFirstTable_2:
+	goto WalkToSecondTable
+	goto WalkToFirstTable_1
 
 
 WalkToSecondTable::
@@ -235,12 +257,19 @@ WalkToSecondTable::
 WalkToSecondTable_1:
 	msgbox BuffetTr2_Intro
 	trainerbattle_no_intro TRAINER_BUFFET_2, BuffetTr2_Lose
-	goto WalkToThirdTable
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq WalkToSecondTable_5
+WalkToSecondTable_4:
+	goto BuffetLost
 	return
 
 WalkToSecondTable_2:
 	call EatDeliciousMeal
 	goto WalkToSecondTable_1
+
+WalkToSecondTable_5:
+	goto WalkToThirdTable
+	goto WalkToSecondTable_4
 
 
 WalkToThirdTable::
@@ -252,17 +281,24 @@ WalkToThirdTable::
 WalkToThirdTable_1:
 	msgbox BuffetTr3_Intro
 	trainerbattle_no_intro TRAINER_BUFFET_3, BuffetTr3_Lose
-	goto WalkToFourthTable
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq WalkToThirdTable_5
+WalkToThirdTable_4:
+	goto BuffetLost
 	return
 
 WalkToThirdTable_2:
 	msgbox EatMeal, MSGBOX_YESNO
 	closemessage
 	compare VAR_RESULT, TRUE
-	goto_if_eq WalkToThirdTable_4
+	goto_if_eq WalkToThirdTable_7
 	goto WalkToThirdTable_1
 
-WalkToThirdTable_4:
+WalkToThirdTable_5:
+	goto WalkToFourthTable
+	goto WalkToThirdTable_4
+
+WalkToThirdTable_7:
 	call EatDeliciousMeal
 	goto WalkToThirdTable_1
 
@@ -277,29 +313,47 @@ WalkToFourthTable::
 WalkToFourthTable_1:
 	msgbox BuffetTr4_Intro
 	trainerbattle_no_intro TRAINER_BUFFET_4, BuffetTr4_Lose
-	goto BuffetFinale
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq WalkToFourthTable_5
+WalkToFourthTable_4:
+	goto BuffetLost
 	return
 
 WalkToFourthTable_2:
 	msgbox EatMeal, MSGBOX_YESNO
 	closemessage
 	compare VAR_RESULT, TRUE
-	goto_if_eq WalkToFourthTable_4
+	goto_if_eq WalkToFourthTable_7
 	goto WalkToFourthTable_1
 
-WalkToFourthTable_4:
+WalkToFourthTable_5:
+	goto BuffetFinale
+	goto WalkToFourthTable_4
+
+WalkToFourthTable_7:
 	call EatDeliciousMeal
 	goto WalkToFourthTable_1
 
 
 BuffetFinale::
-	fadescreen FADE_TO_BLACK
+	msgbox BuffetTr4_PostBattle
+	closemessage
+	playse SE_DING_DONG
+	waitse
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	setobjectxy OBJ_EVENT_ID_PLAYER, 13, 7
-	delay 30
-	fadescreen FADE_FROM_BLACK
-	delay 60
-	goto BuffetComplete
+	delay 20
+	msgbox WinnerComeForward
+	closemessage
+	delay 20
+	setvar VAR_KAOLISLE_HOTEL_STATE, 9
+	warpsilent MAP_KAOLISLE_HOTEL_1F, 13, 7
+	return
+
+
+BuffetLost::
+	delay 50
+	setvar VAR_KAOLISLE_HOTEL_STATE, 5
+	warpsilent MAP_KAOLISLE_HOTEL_1F, 13, 7
 	return
 
 
@@ -332,6 +386,7 @@ WalkTo3rdTable:
 
 BuffetComplete::
 	msgbox BuffetCompleted, MSGBOX_DEFAULT
+	setvar VAR_KAOLISLE_HOTEL_STATE, 11
 	checkitemspace ITEM_LEFTOVERS
 	compare VAR_RESULT, FALSE
 	goto_if_eq BuffetComplete_2
@@ -341,8 +396,9 @@ BuffetComplete::
 	setvar VAR_0x8004, 30
 	special GiveFrontierBattlePoints
 	playfanfare MUS_OBTAIN_B_POINTS
-	msgbox BuffetComplete_Text_0, MSGBOX_DEFAULT
+	message BuffetComplete_Text_0
 	waitfanfare
+	waitmessage
 	msgbox BuffetThankYouForDining, MSGBOX_DEFAULT
 	closemessage
 	setflag FLAG_BUFFET_COMPLETE
@@ -358,6 +414,19 @@ BuffetComplete_2:
 	applymovement OBJ_EVENT_ID_PLAYER, Walk1Right
 	waitmovement 0
 	clearflag FLAG_SYSTEM_NOREWARDBATTLES
+	release
+	end
+
+
+BuffetLost2::
+	msgbox BuffetLost_Text, MSGBOX_DEFAULT
+	closemessage
+	special HealPlayerParty
+	clearflag FLAG_CONTINUE_AFTER_WHITEOUT
+	clearflag FLAG_SYSTEM_NOREWARDBATTLES
+	setvar VAR_KAOLISLE_HOTEL_STATE, 7
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Right
+	waitmovement 0
 	release
 	end
 
@@ -400,10 +469,7 @@ BuffetAlreadyCompleted::
 
 Hotel_BuffetAttempt::
 	msgbox Hotel_BuffetAttempt_Text, MSGBOX_NPC
-	warpsilent MAP_KAOLISLE_HOTEL_1F, 13, 7
-	waitstate
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	end
+	return
 
 
 Hotel_FatMan::
@@ -565,7 +631,7 @@ MyCompanionAmphyAlso::
 
 BuffetTr1_Intro::
 	.string "Please don't look at me…\n"
-	.string "Let's just…{PAUSE_UNTIL_PRESS} get this out of the way…$"
+	.string "Let's just…{PAUSE 0x0F}{PAUSE 0x0F} get this out of the way…$"
 
 BuffetTr1_Lose::
 	.string "… … … …$"
@@ -610,11 +676,9 @@ BuffetTr4_PostBattle::
 	.string "When I first arrived here, I was a bit\n"
 	.string "crestfallen when I couldn't find any\l"
 	.string "place that sells Malasadas.\p"
-	.string "Thinking back, maybe it was\n"
-	.string "for the best.\p"
 	.string "Had I gone for the safe and familiar\n"
 	.string "option, I might have completely missed\l"
-	.string "out on all the local specialties!$"
+	.string "out on this great buffet!$"
 
 HaveSomeSoup::
 	.string "You really shook things up!\n"
@@ -627,10 +691,20 @@ EatMeal::
 	.string "your Pokémon, healing the entire team?\p"
 	.string "This can be done only once per attempt.$"
 
+WinnerComeForward::
+	.string "Will our latest challenger please\n"
+	.string "come to the entrance?$"
+
 NotEnoughRoomLeftovers::
 	.string "I'm sorry, but it looks like you don't\n"
 	.string "have enough room in your bag.\p"
 	.string "You need to clear some room first…$"
+
+BuffetLost_Text::
+	.string "Thank you for participating in the\n"
+	.string "Battle Buffet!\p"
+	.string "We await your challenge on\n"
+	.string "another occasion!$"
 
 BuffetIntro::
 	.string "Hello and welcome to the Battle\n"

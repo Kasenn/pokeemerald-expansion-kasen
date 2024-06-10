@@ -418,3 +418,14 @@ text Route3_Twin2NotEnoughMons{
 	"Pokémon with you.\l"
 	"We're too strong for you!"
 }
+script MultiRegisterSign{
+	msgbox(MultiRegisterSign_Text, MSGBOX_SIGN)
+}
+text MultiRegisterSign_Text{
+	"Trainer Tips\p"
+	"Key Items in your bag can be\n"
+	"registered as SELECT for quick and\l"
+	"convenient use.\p"
+	"Up to 3 Key Items can be registered\n"
+	"this way."
+}

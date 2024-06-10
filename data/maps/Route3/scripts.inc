@@ -231,6 +231,11 @@ Route3_GigaDrain::
 	return
 
 
+MultiRegisterSign::
+	msgbox MultiRegisterSign_Text, MSGBOX_SIGN
+	return
+
+
 Route3_HikerIntro::
 	.string "Hahahaha!\n"
 	.string "How about we have a battle?\l"
@@ -433,3 +438,11 @@ Route3_Twin2NotEnoughMons::
 	.string "It's a big no-no if you don't have two\n"
 	.string "Pokémon with you.\l"
 	.string "We're too strong for you!$"
+
+MultiRegisterSign_Text::
+	.string "Trainer Tips\p"
+	.string "Key Items in your bag can be\n"
+	.string "registered as SELECT for quick and\l"
+	.string "convenient use.\p"
+	.string "Up to 3 Key Items can be registered\n"
+	.string "this way.$"

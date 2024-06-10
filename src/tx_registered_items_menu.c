@@ -80,7 +80,7 @@ static void TxRegItemsMenu_MoveCursor(s32 id, bool8 b, struct ListMenu *thisMenu
 static void TxRegItemsMenu_PrintFunc(u8 windowId, u32 id, u8 yOffset);
 static void TxRegItemsMenu_PrintItemIcon(u16 itemId);
 static void TxRegItemsMenu_DoItemSwap(u8 taskId, bool8 a);
-static void TxRegItemsMenu_StartScrollIndicator(void);
+// static void TxRegItemsMenu_StartScrollIndicator(void);
 static void TxRegItemsMenu_UpdateSwapLinePos(u8 y);
 static void TxRegItemsMenu_CopyItemName(u8 *string, u16 itemId);
 static void TxRegItemsMenu_PrintSwappingCursor(u8 y, u8 b, u8 speed);
@@ -202,7 +202,7 @@ static void TxRegItemsMenu_InitDataAndCreateListMenu(u8 taskId)
     TxRegItemsMenu_CalcCursorPos(); //calc cursor pos
     TxRegItemsMenu_RefreshListMenu();
     data[5] = ListMenuInit(&gMultiuseListMenuTemplate, TxRegItemsMenuItemPageInfo.itemsAbove, TxRegItemsMenuItemPageInfo.cursorPos);
-    TxRegItemsMenu_StartScrollIndicator();
+    // TxRegItemsMenu_StartScrollIndicator();
     ScheduleBgCopyTilemapToVram(0);
     gTasks[taskId].func = TxRegItemsMenu_ProcessInput;
 }
@@ -354,7 +354,7 @@ static void TxRegItemsMenu_CalculateUsedSlots(void) //calculate used slots
 
 static void TxRegItemsMenu_CalcCursorPos(void) //calc cursor pos
 {
-    SetCursorWithinListBounds(&(TxRegItemsMenuItemPageInfo.itemsAbove), &(TxRegItemsMenuItemPageInfo.cursorPos), TxRegItemsMenuItemPageInfo.pageItems, TxRegItemsMenuItemPageInfo.count); //fine
+    SetCursorWithinListBounds(&(TxRegItemsMenuItemPageInfo.itemsAbove), &(TxRegItemsMenuItemPageInfo.cursorPos), TxRegItemsMenuItemPageInfo.pageItems, gMultiuseListMenuTemplate.totalItems); //fine
 }
 
 static void TxRegItemsMenu_RefreshListMenu(void)
@@ -375,7 +375,7 @@ static void TxRegItemsMenu_RefreshListMenu(void)
     gTxRegItemsMenu->listItems[i].id = -2;
     gMultiuseListMenuTemplate = gTxRegItemsMenu_List;
     gMultiuseListMenuTemplate.windowId = windowId;
-    gMultiuseListMenuTemplate.totalItems = TxRegItemsMenuItemPageInfo.count;
+    gMultiuseListMenuTemplate.totalItems = TxRegItemsMenuItemPageInfo.count - 1;
     gMultiuseListMenuTemplate.items = gTxRegItemsMenu->listItems;
     gMultiuseListMenuTemplate.maxShowed = 3;//TxRegItemsMenuItemPageInfo.pageItems;
 }
@@ -486,11 +486,11 @@ static void TxRegItemsMenu_DoItemSwap(u8 taskId, bool8 a)
     gTasks[taskId].func = TxRegItemsMenu_ProcessInput;
 }
 
-static void TxRegItemsMenu_StartScrollIndicator(void)
-{
-    if (TxRegItemsMenuItemPageInfo.scrollIndicatorTaskId == TASK_NONE)
-        TxRegItemsMenuItemPageInfo.scrollIndicatorTaskId = AddScrollIndicatorArrowPairParameterized(SCROLL_ARROW_UP, 28, 110, 148, TxRegItemsMenuItemPageInfo.count - TxRegItemsMenuItemPageInfo.pageItems, TILE_TAG_INDICATOR_ARROWS, TAG_INDICATOR_ARROWS, &(TxRegItemsMenuItemPageInfo.itemsAbove)); //176, 12, 148 x, y1, y2
-}
+// static void TxRegItemsMenu_StartScrollIndicator(void)
+// {
+//     if (TxRegItemsMenuItemPageInfo.scrollIndicatorTaskId == TASK_NONE)
+//         TxRegItemsMenuItemPageInfo.scrollIndicatorTaskId = AddScrollIndicatorArrowPairParameterized(SCROLL_ARROW_UP, 28, 110, 148, TxRegItemsMenuItemPageInfo.count - TxRegItemsMenuItemPageInfo.pageItems, TILE_TAG_INDICATOR_ARROWS, TAG_INDICATOR_ARROWS, &(TxRegItemsMenuItemPageInfo.itemsAbove)); //176, 12, 148 x, y1, y2
+// }
 
 static void TxRegItemsMenu_UpdateSwapLinePos(u8 y)
 {

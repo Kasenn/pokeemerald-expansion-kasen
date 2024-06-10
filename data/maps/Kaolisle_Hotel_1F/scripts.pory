@@ -1,8 +1,18 @@
 mapscripts Kaolisle_Hotel_1F_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: HideJasmine
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
+        VAR_KAOLISLE_HOTEL_STATE, 5: SetPlayerPosAfterBuffet
+        VAR_KAOLISLE_HOTEL_STATE, 9: SetPlayerPosAfterBuffet
+    ]
     MAP_SCRIPT_ON_FRAME_TABLE[
         VAR_KAOLISLE_HOTEL_STATE, 1: JasmineLeavesHotel
+        VAR_KAOLISLE_HOTEL_STATE, 6: BuffetLost2
+        VAR_KAOLISLE_HOTEL_STATE, 10: BuffetComplete
     ]
+}
+script SetPlayerPosAfterBuffet{
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    addvar(VAR_KAOLISLE_HOTEL_STATE, 1)
 }
 
 script JasmineLeavesHotel{
@@ -137,7 +147,7 @@ movement HotelWalkDown1{
 
 text BuffetTr1_Intro{
     "Please don't look at me…\n"
-    "Let's just…{PAUSE_UNTIL_PRESS} get this out of the way…"
+    "Let's just…{PAUSE 0x0F}{PAUSE 0x0F} get this out of the way…"
 }
 text BuffetTr1_Lose{
     "… … … …"
@@ -185,11 +195,9 @@ text BuffetTr4_PostBattle{
     "When I first arrived here, I was a bit\n"
     "crestfallen when I couldn't find any\l"
     "place that sells Malasadas.\p"
-    "Thinking back, maybe it was\n"
-    "for the best.\p"
     "Had I gone for the safe and familiar\n"
     "option, I might have completely missed\l"
-    "out on all the local specialties!"
+    "out on this great buffet!"
 }
 
 text HaveSomeSoup{
@@ -274,6 +282,7 @@ script BuffetDineHere{
     msgbox(EnjoyYourBuffet, MSGBOX_DEFAULT)
     closemessage
     hidemoneybox
+    setflag(FLAG_CONTINUE_AFTER_WHITEOUT)
     cleartrainerflag(TRAINER_BUFFET_1)
     cleartrainerflag(TRAINER_BUFFET_2)
     cleartrainerflag(TRAINER_BUFFET_3)
@@ -286,7 +295,10 @@ script WalkToFirstTable{
     waitmovement(0)
     msgbox(BuffetTr1_Intro)
     trainerbattle_no_intro(TRAINER_BUFFET_1, BuffetTr1_Lose)
-    goto(WalkToSecondTable)
+    if(var(VAR_RESULT) == B_OUTCOME_WON){
+        goto(WalkToSecondTable)
+    }
+    goto(BuffetLost)
 }
 script WalkToSecondTable{
     msgbox(BuffetTr1_PostBattle)
@@ -300,7 +312,10 @@ script WalkToSecondTable{
     }
     msgbox(BuffetTr2_Intro)
     trainerbattle_no_intro(TRAINER_BUFFET_2, BuffetTr2_Lose)
-    goto(WalkToThirdTable)
+    if(var(VAR_RESULT) == B_OUTCOME_WON){
+        goto(WalkToThirdTable)
+    }
+    goto(BuffetLost)
 }
 script WalkToThirdTable{
     msgbox(BuffetTr2_PostBattle)
@@ -316,7 +331,10 @@ script WalkToThirdTable{
     }
     msgbox(BuffetTr3_Intro)
     trainerbattle_no_intro(TRAINER_BUFFET_3, BuffetTr3_Lose)
-    goto(WalkToFourthTable)
+    if(var(VAR_RESULT) == B_OUTCOME_WON){
+        goto(WalkToFourthTable)
+    }
+    goto(BuffetLost)
 }
 script WalkToFourthTable{
     call(BuffetOfferSoup)
@@ -333,18 +351,33 @@ script WalkToFourthTable{
     }
     msgbox(BuffetTr4_Intro)
     trainerbattle_no_intro(TRAINER_BUFFET_4, BuffetTr4_Lose)
-    goto(BuffetFinale)
+    if(var(VAR_RESULT) == B_OUTCOME_WON){
+        goto(BuffetFinale)
+    }
+    goto(BuffetLost)
 }
 script BuffetFinale{
-    fadescreen(FADE_TO_BLACK)
+    msgbox(BuffetTr4_PostBattle)
+    closemessage
+    playse(SE_DING_DONG)
+    waitse
     turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
-    setobjectxy(OBJ_EVENT_ID_PLAYER, 13, 7)
-    delay(30)
-    fadescreen(FADE_FROM_BLACK)
-    delay(60)
-    goto(BuffetComplete)
+    delay(20)
+    msgbox(WinnerComeForward)
+    closemessage
+    delay(20)
+    setvar(VAR_KAOLISLE_HOTEL_STATE, 9)
+    warpsilent(MAP_KAOLISLE_HOTEL_1F, 13, 7)
 }
-
+script BuffetLost{
+    delay(50)
+    setvar(VAR_KAOLISLE_HOTEL_STATE, 5)
+    warpsilent(MAP_KAOLISLE_HOTEL_1F, 13, 7)
+}
+text WinnerComeForward{
+    "Will our latest challenger please\n"
+    "come to the entrance?"
+}
 movement WalkTo1stTable{
     walk_left
     walk_up
@@ -366,6 +399,7 @@ movement WalkTo3rdTable{
 
 script BuffetComplete{
     msgbox(BuffetCompleted, MSGBOX_DEFAULT)
+    setvar(VAR_KAOLISLE_HOTEL_STATE, 11)
     checkitemspace(ITEM_LEFTOVERS)
     if(var(VAR_RESULT) == FALSE){
         msgbox(NotEnoughRoomLeftovers, MSGBOX_DEFAULT)
@@ -382,8 +416,9 @@ script BuffetComplete{
     setvar(VAR_0x8004, 30)
     special(GiveFrontierBattlePoints)
     playfanfare(MUS_OBTAIN_B_POINTS)
-    msgbox("Earned {STR_VAR_1} BP!", MSGBOX_DEFAULT)
+    message("Earned {STR_VAR_1} BP!")
     waitfanfare
+    waitmessage
     msgbox(BuffetThankYouForDining, MSGBOX_DEFAULT)
     closemessage
     setflag(FLAG_BUFFET_COMPLETE)
@@ -398,6 +433,25 @@ text NotEnoughRoomLeftovers{
     "have enough room in your bag.\p"
     "You need to clear some room first…"
 }
+script BuffetLost2{
+    msgbox(BuffetLost_Text, MSGBOX_DEFAULT)
+    closemessage
+    special(HealPlayerParty)
+    clearflag(FLAG_CONTINUE_AFTER_WHITEOUT)
+    clearflag(FLAG_SYSTEM_NOREWARDBATTLES)
+    setvar(VAR_KAOLISLE_HOTEL_STATE, 7)
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
+    waitmovement(0)
+    release
+    end
+}
+text BuffetLost_Text{
+    "Thank you for participating in the\n"
+    "Battle Buffet!\p"
+    "We await your challenge on\n"
+	"another occasion!"
+}
+
 
 script ExplainBuffetRules{
     hidemoneybox
@@ -517,10 +571,6 @@ text ThatWillBe1000{
 
 script Hotel_BuffetAttempt{
     msgbox(Hotel_BuffetAttempt_Text, MSGBOX_NPC)
-    warpsilent(MAP_KAOLISLE_HOTEL_1F, 13, 7)
-    waitstate
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
-    end
 }
 text Hotel_BuffetAttempt_Text{
     "I tried challenging the Battle\n"

@@ -4706,7 +4706,7 @@
       "name": "CoastTown_Layout",
       "width": 50,
       "height": 53,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Lilycove",
       "border_filepath": "data/layouts/CoastTown/border.bin",
       "blockdata_filepath": "data/layouts/CoastTown/map.bin"
@@ -4856,7 +4856,7 @@
       "name": "Route6_Layout",
       "width": 65,
       "height": 35,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Route6/border.bin",
       "blockdata_filepath": "data/layouts/Route6/map.bin"
@@ -4866,7 +4866,7 @@
       "name": "Route7_Layout",
       "width": 80,
       "height": 62,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/Route7/border.bin",
       "blockdata_filepath": "data/layouts/Route7/map.bin"
@@ -5424,8 +5424,8 @@
     {
       "id": "LAYOUT_KAOLISLE_CITY",
       "name": "KaolisleCity_Layout",
-      "width": 80,
-      "height": 80,
+      "width": 87,
+      "height": 85,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mossdeep",
       "border_filepath": "data/layouts/KaolisleCity/border.bin",
@@ -5776,7 +5776,7 @@
       "name": "Route12_Layout",
       "width": 48,
       "height": 82,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_CyclingRoad",
       "border_filepath": "data/layouts/Route12/border.bin",
       "blockdata_filepath": "data/layouts/Route12/map.bin"
@@ -6120,6 +6120,86 @@
       "secondary_tileset": "gTileset_BrendansMaysHouse",
       "border_filepath": "data/layouts/RivalHouse2F_Brendan/border.bin",
       "blockdata_filepath": "data/layouts/RivalHouse2F_Brendan/map.bin"
+    },
+    {
+      "id": "LAYOUT_WINDPLUME_PEAK",
+      "name": "WindplumePeak_Layout",
+      "width": 40,
+      "height": 48,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/WindplumePeak/border.bin",
+      "blockdata_filepath": "data/layouts/WindplumePeak/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE10_CAVE1",
+      "name": "Route10_Cave1_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mossdeep",
+      "border_filepath": "data/layouts/Route10_Cave1/border.bin",
+      "blockdata_filepath": "data/layouts/Route10_Cave1/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE10_CAVE2",
+      "name": "Route10_Cave2_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mossdeep",
+      "border_filepath": "data/layouts/Route10_Cave2/border.bin",
+      "blockdata_filepath": "data/layouts/Route10_Cave2/map.bin"
+    },
+    {
+      "id": "LAYOUT_BERRY_FIELDS",
+      "name": "BerryFields_Layout",
+      "width": 40,
+      "height": 31,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree2",
+      "border_filepath": "data/layouts/BerryFields/border.bin",
+      "blockdata_filepath": "data/layouts/BerryFields/map.bin"
+    },
+    {
+      "id": "LAYOUT_FISHING_VILLAGE",
+      "name": "FishingVillage_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree2",
+      "border_filepath": "data/layouts/FishingVillage/border.bin",
+      "blockdata_filepath": "data/layouts/FishingVillage/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE23",
+      "name": "Route23_Layout",
+      "width": 160,
+      "height": 44,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Route23/border.bin",
+      "blockdata_filepath": "data/layouts/Route23/map.bin"
+    },
+    {
+      "id": "LAYOUT_DRISLEDGE_TOWN",
+      "name": "DrisledgeTown_Layout",
+      "width": 40,
+      "height": 32,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/DrisledgeTown/border.bin",
+      "blockdata_filepath": "data/layouts/DrisledgeTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_FISH_VILLAGE_FILLER",
+      "name": "FishVIllageFIller_Layout",
+      "width": 10,
+      "height": 10,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/FishVIllageFIller/border.bin",
+      "blockdata_filepath": "data/layouts/FishVIllageFIller/map.bin"
     }
   ]
 }

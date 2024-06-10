@@ -22,6 +22,11 @@
       "map": "MAP_SAFARI_ZONE_SOUTH",
       "offset": 51,
       "direction": "up"
+    },
+    {
+      "map": "MAP_WINDPLUME_PEAK",
+      "offset": 8,
+      "direction": "up"
     }
   ],
   "object_events": [

@@ -5656,7 +5656,7 @@ BattleScript_PayDayMoneyAndPickUpItems::
 	givepaydaymoney
 	pickup
 	end2
-	BattleScript_LocalBattleLost2::
+BattleScript_LocalBattleLost2::
 	printstring STRINGID_NOWHITEOUT
 	waitmessage B_WAIT_TIME_LONG
 	end2

@@ -17,6 +17,16 @@
       "map": "MAP_ROUTE14",
       "offset": 65,
       "direction": "right"
+    },
+    {
+      "map": "MAP_BERRY_FIELDS",
+      "offset": 109,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_FISHING_VILLAGE",
+      "offset": 9,
+      "direction": "up"
     }
   ],
   "object_events": [

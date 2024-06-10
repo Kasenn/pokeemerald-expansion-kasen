@@ -127,7 +127,7 @@ const struct Tileset gTileset_Mossdeep =
     .palettes = gTilesetPalettes_Mossdeep,
     .metatiles = gMetatiles_Mossdeep,
     .metatileAttributes = gMetatileAttributes_Mossdeep,
-    .callback = InitTilesetAnim_Mossdeep,
+    .callback = InitTilesetAnim_Pacifidlog,
 };
 
 const struct Tileset gTileset_EverGrande =

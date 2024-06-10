@@ -1421,3 +1421,19 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/RivalHouse1F_Brendan/scripts.inc"
 
 	.include "data/maps/RivalHouse2F_Brendan/scripts.inc"
+
+	.include "data/maps/WindplumePeak/scripts.inc"
+
+	.include "data/maps/Route10_Cave1/scripts.inc"
+
+	.include "data/maps/Route10_Cave2/scripts.inc"
+
+	.include "data/maps/BerryFields/scripts.inc"
+
+	.include "data/maps/FishingVillage/scripts.inc"
+
+	.include "data/maps/Route23/scripts.inc"
+
+	.include "data/maps/DrisledgeTown/scripts.inc"
+
+	.include "data/maps/FishVIllageFIller/scripts.inc"

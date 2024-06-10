@@ -22,6 +22,11 @@
       "map": "MAP_ROUTE28",
       "offset": -50,
       "direction": "left"
+    },
+    {
+      "map": "MAP_WINDPLUME_PEAK",
+      "offset": -9,
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -276,15 +281,6 @@
     },
     {
       "type": "trigger",
-      "x": 7,
-      "y": 32,
-      "elevation": 0,
-      "var": "TRIGGER_RUN_IMMEDIATELY",
-      "var_value": "0",
-      "script": "WindplumeRidge_RemoveWind"
-    },
-    {
-      "type": "trigger",
       "x": 9,
       "y": 16,
       "elevation": 0,
@@ -300,6 +296,15 @@
       "var": "VAR_TEMP_MIXED_RECORDS",
       "var_value": "0",
       "script": "HideAldeleafWoman"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 32,
+      "elevation": 0,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "WindplumeRidge_RemoveWind"
     }
   ],
   "bg_events": [

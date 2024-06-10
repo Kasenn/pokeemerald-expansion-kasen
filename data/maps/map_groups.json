@@ -94,7 +94,13 @@
     "SkyPillar_4F",
     "SkyPillar_5F",
     "UndergroundRuins_4F",
-    "Route15"
+    "Route15",
+    "WindplumePeak",
+    "Route10_Cave1",
+    "Route10_Cave2",
+    "BerryFields",
+    "Route23",
+    "DrisledgeTown"
   ],
   "gMapGroup_TownsAndCities": [
     "PearlwoodPoint",
@@ -108,7 +114,9 @@
     "MarigorgeTown",
     "KaolisleCity",
     "RockliffeTown",
-    "SandstoneCity"
+    "SandstoneCity",
+    "FishingVillage",
+    "FishVIllageFIller"
   ],
   "gMapGroup_IndoorPearlwoodPoint": [
     "Lab2",
