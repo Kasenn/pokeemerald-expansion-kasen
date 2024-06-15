@@ -28,7 +28,7 @@ SSTidalRooms_EventScript_Bed::
 	end
 
 SSTidalRooms_EventScript_Colton::
-	trainerbattle_single TRAINER_COLTON, SSTidalRooms_Text_ColtonIntro, SSTidalRooms_Text_ColtonDefeat
+	trainerbattle_single TRAINER_R15_TR1_BIRDKEEPER, SSTidalRooms_Text_ColtonIntro, SSTidalRooms_Text_ColtonDefeat
 	msgbox SSTidalRooms_Text_ColtonPostBattle, MSGBOX_AUTOCLOSE
 	end
 

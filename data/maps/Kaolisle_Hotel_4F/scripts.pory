@@ -93,6 +93,13 @@ text Kaolisle_Hotel_4F_FinnishGuy_Text{
     "auttavat tulkkaamaan puhetta\l"
     "kumpaankin suuntaan."
 }
+text Kaolisle_Hotel_4F_FinnishGuy_Text2{
+    "Oon tääl lomal mut pakko myöntää et\n"
+    "paikallisten kans puhumine o hieman vaikeet\l"
+    "heikon kielitaidon vuoks.\p"
+    "Onneks Kirlian telepaattiset taidot\n"
+    "auttaa tulkkaa puhetta kumpaanki suuntaa."
+}
 text Kaolisle_Hotel_4F_Kirlia_Text{
     "“I'm here on a vacation, though I\n"
     "have to admit, having conversations\l"

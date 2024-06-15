@@ -705,7 +705,7 @@ static void UpdateFriendshipStepCounter(void)
 
 void ClearPoisonStepCounter(void)
 {
-    VarSet(VAR_POISON_STEP_COUNTER, 0);
+    // VarSet(VAR_POISON_STEP_COUNTER, 0);
 }
 
 #if OW_POISON_DAMAGE < GEN_5

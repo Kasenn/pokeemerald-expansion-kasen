@@ -259,7 +259,7 @@ Route110_EventScript_AbigailRematch::
 	end
 
 Route110_EventScript_Isabel::
-	trainerbattle_single TRAINER_ISABEL_1, Route110_Text_IsabelIntro, Route110_Text_IsabelDefeated, Route110_EventScript_IsabelRegisterMatchCallAfterBattle
+	trainerbattle_single TRAINER_R15_TR9_BEAUTY, Route110_Text_IsabelIntro, Route110_Text_IsabelDefeated, Route110_EventScript_IsabelRegisterMatchCallAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route110_EventScript_IsabelRematch
 	msgbox Route110_Text_IsabelPostBattle, MSGBOX_DEFAULT
@@ -270,12 +270,12 @@ Route110_EventScript_IsabelRegisterMatchCallAfterBattle::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route110_Text_IsabelRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_ISABEL_1
+	register_matchcall TRAINER_R15_TR9_BEAUTY
 	release
 	end
 
 Route110_EventScript_IsabelRematch::
-	trainerbattle_rematch TRAINER_ISABEL_1, Route110_Text_IsabelRematchIntro, Route110_Text_IsabelRematchDefeated
+	trainerbattle_rematch TRAINER_R15_TR9_BEAUTY, Route110_Text_IsabelRematchIntro, Route110_Text_IsabelRematchDefeated
 	msgbox Route110_Text_IsabelRematchPostBattle, MSGBOX_AUTOCLOSE
 	end
 

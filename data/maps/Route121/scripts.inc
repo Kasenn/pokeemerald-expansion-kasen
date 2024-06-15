@@ -70,7 +70,7 @@ Route121_Movement_Grunt3Exit:
 	step_end
 
 Route121_EventScript_Vanessa::
-	trainerbattle_single TRAINER_VANESSA, Route121_Text_VanessaIntro, Route121_Text_VanessaDefeat
+	trainerbattle_single TRAINER_R15_TR7_BUGCATCHER, Route121_Text_VanessaIntro, Route121_Text_VanessaDefeat
 	msgbox Route121_Text_VanessaPostBattle, MSGBOX_AUTOCLOSE
 	end
 

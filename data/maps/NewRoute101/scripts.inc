@@ -38,7 +38,7 @@ Route1_BugCatcher::
 Route1_CoolTrainer::
 	lockall
 	faceplayer
-	goto_if_set FLAG_UNUSED_ROUTE1_COOLTRAINERREWARD, Route1_CoolTrainer_1
+	goto_if_set FLAG_ROUTE1_COOLTRAINERREWARD, Route1_CoolTrainer_1
 	checktrainerflag TRAINER_GRUNT_RUSTURF_TUNNEL
 	goto_if 0, Route1_CoolTrainer_2
 	checktrainerflag TRAINER_GRUNT_WEATHER_INST_1
@@ -68,7 +68,7 @@ Route1_CoolTrainer_2:
 Route1_CoolTrainerEligible::
 	lockall
 	faceplayer
-	goto_if_unset FLAG_UNUSED_ROUTE1_COOLTRAINER, Route1_CoolTrainerEligible_1
+	goto_if_unset FLAG_ROUTE1_COOLTRAINER, Route1_CoolTrainerEligible_1
 	msgbox Route1_CoolTrainerEligible_Text_3, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq Route1_CoolTrainerEligible_8
@@ -77,7 +77,7 @@ Route1_CoolTrainerEligible::
 	return
 
 Route1_CoolTrainerEligible_1:
-	setflag FLAG_UNUSED_ROUTE1_COOLTRAINER
+	setflag FLAG_ROUTE1_COOLTRAINER
 	msgbox Route1_CoolTrainerEligible_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq Route1_CoolTrainerEligible_5
@@ -120,7 +120,7 @@ Route1_CoolTrainerPostBattle::
 	msgbox Route1_CoolTrainerPostBattle_Text_0, MSGBOX_DEFAULT
 	goto_if_unset FLAG_INTRO_TO_BP, Route1_CoolTrainerPostBattle_2
 Route1_CoolTrainerPostBattle_1:
-	setflag FLAG_UNUSED_ROUTE1_COOLTRAINERREWARD
+	setflag FLAG_ROUTE1_COOLTRAINERREWARD
 	setflag FLAG_INTRO_TO_BP
 	waitmessage
 	closemessage

@@ -442,7 +442,7 @@ script Lab_BallMain{
     }
     setflag(FLAG_SYS_POKEMON_GET)
     setflag(FLAG_ROUTE1_STATE)
-    clearflag(FLAG_UNUSED_BROTHER_PEARLFIGHT)
+    clearflag(FLAG_BROTHER_PEARLFIGHT)
     setvar(VAR_PEARLWOOD_TOWN_STATE, 5)
     msgbox("Do you want to give a nickname\nto your new Pokémon?", MSGBOX_YESNO)
     hidemonpic

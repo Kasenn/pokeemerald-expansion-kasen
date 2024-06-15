@@ -18,7 +18,7 @@ WWHideDadAndDog::
 	compare VAR_WINDYWOODS_STATE, 4
 	goto_if_eq WWHideDadAndDog_1
 	setflag FLAG_LANDMARK_WINDY_WOODS
-	setflag FLAG_UNUSED_WW_HIDEDAD
+	setflag FLAG_WW_HIDEDAD
 	hideobjectat 12, MAP_WINDY_WOODS
 	hideobjectat 14, MAP_WINDY_WOODS
 	end
@@ -83,7 +83,7 @@ WindyWoods_Youngster::
 WW_CoolTrainer::
 	lockall
 	faceplayer
-	goto_if_set FLAG_UNUSED_WW_COOLTRAINERREWARD, WW_CoolTrainer_1
+	goto_if_set FLAG_WW_COOLTRAINERREWARD, WW_CoolTrainer_1
 	checktrainerflag TRAINER_GRUNT_WEATHER_INST_4
 	goto_if 0, WW_CoolTrainer_2
 	checktrainerflag TRAINER_GRUNT_AQUA_HIDEOUT_5
@@ -117,7 +117,7 @@ WW_CoolTrainer_2:
 WW_CoolTrainerEligible::
 	lockall
 	faceplayer
-	goto_if_unset FLAG_UNUSED_WW_COOLTRAINER, WW_CoolTrainerEligible_1
+	goto_if_unset FLAG_WW_COOLTRAINER, WW_CoolTrainerEligible_1
 	msgbox WW_CoolTrainerEligible_Text_3, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq WW_CoolTrainerEligible_8
@@ -126,7 +126,7 @@ WW_CoolTrainerEligible::
 	return
 
 WW_CoolTrainerEligible_1:
-	setflag FLAG_UNUSED_WW_COOLTRAINER
+	setflag FLAG_WW_COOLTRAINER
 	msgbox WW_CoolTrainerEligible_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq WW_CoolTrainerEligible_5
@@ -173,7 +173,7 @@ WW_CoolTrainerPostBattle_1:
 	msgbox WW_CoolTrainerPostBattle_Text_1, MSGBOX_DEFAULT
 	goto_if_unset FLAG_INTRO_TO_BP, WW_CoolTrainerPostBattle_7
 WW_CoolTrainerPostBattle_6:
-	setflag FLAG_UNUSED_WW_COOLTRAINERREWARD
+	setflag FLAG_WW_COOLTRAINERREWARD
 	setflag FLAG_INTRO_TO_BP
 	waitmessage
 	closemessage
@@ -215,7 +215,7 @@ WW_HelpGirl::
 	delay 40
 	applymovement OBJ_EVENT_ID_PLAYER, WW_PlayerFace1
 	waitmovement 0
-	clearflag FLAG_UNUSED_WW_HIDEROCKET
+	clearflag FLAG_WW_HIDEROCKET
 	setvar VAR_WINDYWOODS_STATE, 1
 	msgbox WW_Help
 	waitmessage
@@ -235,9 +235,9 @@ WW_LittleGirl::
 	compare VAR_WINDYWOODS_STATE, 1
 	goto_if_eq WW_LittleGirl_1
 	setvar VAR_WINDYWOODS_STATE, 1
-	setflag FLAG_UNUSED_WW_HIDEDAD
+	setflag FLAG_WW_HIDEDAD
 	msgbox WW_Help, MSGBOX_NPC
-	clearflag FLAG_UNUSED_WW_HIDEROCKET
+	clearflag FLAG_WW_HIDEROCKET
 	return
 
 WW_LittleGirl_1:
@@ -282,7 +282,7 @@ WW_RockPostBattle::
 	showobjectat 12, MAP_WINDY_WOODS
 	showobjectat 14, MAP_WINDY_WOODS
 	setvar VAR_WINDYWOODS_STATE, 4
-	clearflag FLAG_UNUSED_WW_HIDEDAD
+	clearflag FLAG_WW_HIDEDAD
 	warp MAP_WINDY_WOODS, 27, 11
 	waitstate
 	release
@@ -290,7 +290,7 @@ WW_RockPostBattle::
 
 
 WW_BridgeWarp::
-	clearflag FLAG_UNUSED_WW_HIDEDAD
+	clearflag FLAG_WW_HIDEDAD
 	showobjectat 14, MAP_WINDY_WOODS
 	setobjectxy 14, 29, 11
 	turnobject 14, DIR_WEST
@@ -333,9 +333,9 @@ WW_BridgeScene2_1:
 	removeobject 11
 	removeobject 12
 	removeobject 14
-	setflag FLAG_UNUSED_WW_ENDEVENT
-	setflag FLAG_UNUSED_WW_HIDEROCKET
-	setflag FLAG_UNUSED_WW_HIDEDAD
+	setflag FLAG_WW_ENDEVENT
+	setflag FLAG_WW_HIDEROCKET
+	setflag FLAG_WW_HIDEDAD
 	setvar VAR_WINDYWOODS_STATE, 5
 	fadescreenswapbuffers FADE_FROM_BLACK
 	delay 25

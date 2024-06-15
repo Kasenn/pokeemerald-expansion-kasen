@@ -75,7 +75,7 @@ text Route1_Text_BugCatcherPostBattle{
 script Route1_CoolTrainer{
     lockall
     faceplayer
-    if(flag(FLAG_UNUSED_ROUTE1_COOLTRAINERREWARD)){
+    if(flag(FLAG_ROUTE1_COOLTRAINERREWARD)){
         msgbox("That was a fine battle.", MSGBOX_DEFAULT)
         waitmessage
         closemessage
@@ -97,8 +97,8 @@ script Route1_CoolTrainer{
 script Route1_CoolTrainerEligible{
     lockall
     faceplayer
-    if(!flag(FLAG_UNUSED_ROUTE1_COOLTRAINER)){
-        setflag(FLAG_UNUSED_ROUTE1_COOLTRAINER)
+    if(!flag(FLAG_ROUTE1_COOLTRAINER)){
+        setflag(FLAG_ROUTE1_COOLTRAINER)
         msgbox("I see you've defeated all\nthe other trainers in this area.\pThat means you are a very strong trainer.\pWould you be interested in\na Pokémon Battle?\pI warn you, I'm no pushover.", MSGBOX_YESNO)
         if(var(VAR_RESULT) == YES){
             msgbox("Let's do this!")
@@ -145,7 +145,7 @@ script Route1_CoolTrainerPostBattle{
     if(!flag(FLAG_INTRO_TO_BP)){
         msgbox(ExplainBP, MSGBOX_DEFAULT)
     }
-    setflag(FLAG_UNUSED_ROUTE1_COOLTRAINERREWARD)
+    setflag(FLAG_ROUTE1_COOLTRAINERREWARD)
     setflag(FLAG_INTRO_TO_BP)
     waitmessage
     closemessage

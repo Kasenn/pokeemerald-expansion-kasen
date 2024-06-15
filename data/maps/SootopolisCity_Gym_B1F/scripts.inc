@@ -37,7 +37,7 @@ SootopolisCity_Gym_B1F_EventScript_Tiffany::
 	end
 
 SootopolisCity_Gym_B1F_EventScript_Bethany::
-	trainerbattle_single TRAINER_BETHANY, SootopolisCity_Gym_B1F_Text_BethanyIntro, SootopolisCity_Gym_B1F_Text_BethanyDefeat
+	trainerbattle_single TRAINER_R15_TR8_BUGCATCHER2, SootopolisCity_Gym_B1F_Text_BethanyIntro, SootopolisCity_Gym_B1F_Text_BethanyDefeat
 	msgbox SootopolisCity_Gym_B1F_Text_BethanyPostBattle, MSGBOX_AUTOCLOSE
 	end
 

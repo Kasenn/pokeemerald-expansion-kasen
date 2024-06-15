@@ -3,7 +3,7 @@ Pearlwood_House3_MapScripts::
 
 
 Pearlwood_House3_OldGuy::
-	goto_if_unset FLAG_UNUSED_PEARLWOOD_POTION_SAMPLE, Pearlwood_House3_OldGuy_1
+	goto_if_unset FLAG_PEARLWOOD_POTION_SAMPLE, Pearlwood_House3_OldGuy_1
 	msgbox Pearlwood_Potion_Given, MSGBOX_NPC
 	return
 
@@ -12,7 +12,7 @@ Pearlwood_House3_OldGuy_1:
 	faceplayer
 	msgbox Pearlwood_House3_OldGuy_Text
 	giveitem ITEM_POTION, 1
-	setflag FLAG_UNUSED_PEARLWOOD_POTION_SAMPLE
+	setflag FLAG_PEARLWOOD_POTION_SAMPLE
 	release
 	return
 

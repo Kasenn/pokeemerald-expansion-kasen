@@ -40,7 +40,7 @@ PlayerHouse1F_MomIntro::
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	msgbox PlayerHouse1F_Disc3
 	closemessage
-	setflag FLAG_UNUSED_BROTHER_PEARLFIGHT
+	setflag FLAG_BROTHER_PEARLFIGHT
 	setvar VAR_PEARLWOOD_TOWN_STATE, 2
 	call Player1F_Shoes
 	turnobject 1, DIR_WEST

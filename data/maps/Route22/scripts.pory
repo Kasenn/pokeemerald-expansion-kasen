@@ -1,0 +1,9 @@
+mapscripts Route22_MapScripts {}
+
+script Route22_Sign1{
+    msgbox(Route22_Sign1_Text, MSGBOX_SIGN)
+}
+text Route22_Sign1_Text{
+    "Route 22\n"
+	"{DOWN_ARROW} Drisledge town"
+}

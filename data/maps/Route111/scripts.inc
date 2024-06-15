@@ -85,8 +85,8 @@ Route111_EventScript_SetWinstratesNotDefeated::
 	setflag FLAG_HIDE_ROUTE_111_VICTORIA_WINSTRATE
 	setflag FLAG_HIDE_ROUTE_111_VIVI_WINSTRATE
 	setflag FLAG_HIDE_ROUTE_111_VICKY_WINSTRATE
-	cleartrainerflag TRAINER_VICTOR
-	cleartrainerflag TRAINER_VICTORIA
+	cleartrainerflag TRAINER_R14_TR7_ROCKER
+	cleartrainerflag TRAINER_R15_TR6_NINJABOY2
 	cleartrainerflag TRAINER_VIVI
 	end
 
@@ -280,7 +280,7 @@ Route111_EventScript_Victor::
 
 Route111_EventScript_BattleWinstrates::
 	msgbox Route111_Text_VictorIntro, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_VICTOR, Route111_Text_VictorDefeat
+	trainerbattle_no_intro TRAINER_R14_TR7_ROCKER, Route111_Text_VictorDefeat
 	applymovement LOCALID_VICTOR, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	call Route111_EventScript_OpenWinstrateDoor
@@ -298,7 +298,7 @@ Route111_EventScript_BattleWinstrates::
 	waitmovement 0
 	call Route111_EventScript_CloseWinstrateDoor
 	msgbox Route111_Text_VictoriaIntro, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_VICTORIA, Route111_Text_VictoriaDefeat
+	trainerbattle_no_intro TRAINER_R15_TR6_NINJABOY2, Route111_Text_VictoriaDefeat
 	applymovement LOCALID_VICTORIA, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	call Route111_EventScript_OpenWinstrateDoor

@@ -133,6 +133,13 @@ Kaolisle_Hotel_4F_FinnishGuy_Text::
 	.string "auttavat tulkkaamaan puhetta\l"
 	.string "kumpaankin suuntaan.$"
 
+Kaolisle_Hotel_4F_FinnishGuy_Text2::
+	.string "Oon tääl lomal mut pakko myöntää et\n"
+	.string "paikallisten kans puhumine o hieman vaikeet\l"
+	.string "heikon kielitaidon vuoks.\p"
+	.string "Onneks Kirlian telepaattiset taidot\n"
+	.string "auttaa tulkkaa puhetta kumpaanki suuntaa.$"
+
 Kaolisle_Hotel_4F_Kirlia_Text::
 	.string "“I'm here on a vacation, though I\n"
 	.string "have to admit, having conversations\l"

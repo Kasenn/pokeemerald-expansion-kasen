@@ -687,6 +687,7 @@ const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
     TRAINER_CLASS(PAINTER, "Artist"),
     TRAINER_CLASS(DANCER, "Dancer"),
     TRAINER_CLASS(RIVAL2, "{PKMN} trainer", 15),
+    TRAINER_CLASS(SCIENTIST, "Scientist", 8),
 };
 
 static void (* const sTurnActionsFuncsTable[])(void) =

@@ -371,7 +371,7 @@ Lab_BallMain::
 Lab_BallMain_7:
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_ROUTE1_STATE
-	clearflag FLAG_UNUSED_BROTHER_PEARLFIGHT
+	clearflag FLAG_BROTHER_PEARLFIGHT
 	setvar VAR_PEARLWOOD_TOWN_STATE, 5
 	msgbox Lab_BallMain_Text_3, MSGBOX_YESNO
 	hidemonpic

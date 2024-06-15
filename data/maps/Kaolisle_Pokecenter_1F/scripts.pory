@@ -1,6 +1,6 @@
 mapscripts Kaolisle_Pokecenter_1F_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: KaolislePokeCenter1F_OnTransition
-	MAP_SCRIPT_ON_RESUME: CableClub_OnResume
+	// MAP_SCRIPT_ON_RESUME: CableClub_OnResume
 }
 
 script KaolislePokeCenter1F_OnTransition{

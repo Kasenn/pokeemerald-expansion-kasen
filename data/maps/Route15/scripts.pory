@@ -1,0 +1,309 @@
+mapscripts Route15_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: R15_FlagControl
+    MAP_SCRIPT_ON_LOAD: R15_ClearBlockade
+}
+script R15_FlagControl{
+    special(SetRoute123Weather)
+    switch(var(VAR_ROUTE14_ROCKET_EVENT)){
+        case 4:
+        case 5:
+            setflag(FLAG_TEMP_2)
+            setflag(FLAG_TEMP_1)
+        case 6:
+            setflag(FLAG_TEMP_4)
+            setflag(FLAG_TEMP_3)
+            setflag(FLAG_TEMP_2)
+            setflag(FLAG_TEMP_1)
+    }
+}
+script R15_ClearBlockade{
+    if(var(VAR_ROUTE14_ROCKET_EVENT) == 6){
+        setmetatile(34, 44, 0x001, FALSE)
+        setmetatile(35, 44, 0x001, FALSE)
+        setmetatile(34, 45, 0x001, FALSE)
+        setmetatile(35, 45, 0x001, FALSE)
+    }
+}
+
+script R15_Acerola{
+    if(flag(FLAG_TEMP_5)){
+        msgbox(AcerolaThatWay, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    checkplayergender
+    if(var(VAR_RESULT) == MALE){
+        bufferstring(STR_VAR_1, "mister")
+    }
+    else{
+        bufferstring(STR_VAR_1, "miss")
+    }
+    msgbox(R15_Acerola_Text, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == TRUE){
+        msgbox(AcerolaBusy)
+    }
+    else{
+        msgbox(AcerolaNotBusy)
+        closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark)
+        if(var(VAR_FACING) == DIR_NORTH){
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+            waitmovement(0)
+            delay(48)
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+        }
+        if(var(VAR_FACING) == DIR_SOUTH){
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+            waitmovement(0)
+            delay(48)
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+        }
+        if(var(VAR_FACING) == DIR_EAST){
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+            waitmovement(0)
+            delay(48)
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+        }
+        else{
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+            waitmovement(0)
+            delay(48)
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+        }
+        delay(48)
+        msgbox(AcerolaThatWay)
+    }
+    setflag(FLAG_TEMP_5)
+    release
+    end
+}
+text AcerolaThatWay{
+    "If you're looking for the guy in black\n"
+    "clothes, I saw him heading south\l"
+    "towards Amberock Town."
+}
+text AcerolaBusy{
+    "You must be looking for the guy\n"
+    "dressed in black, yes?\p"
+    "I saw him running south towards\n"
+    "Amberock Town."
+}
+text AcerolaNotBusy{
+    "Oh, really? The person behind you\n"
+    "seems to disagree."
+}
+text R15_Acerola_Text{
+    "Hiya, {STR_VAR_1}!\n"
+    "Tell me, are you busy right now?"
+}
+script Route15_Sign1{
+    msgbox(Route15_Sign1_Text, MSGBOX_SIGN)
+}
+text Route15_Sign1_Text{
+    ""
+}
+script Route15_Sign2{
+    msgbox(Route15_Sign2_Text, MSGBOX_SIGN)
+}
+text Route15_Sign2_Text{
+    "Route 15\n"
+    "{UP_ARROW} Fishing Village\l"
+    "{DOWN_ARROW} Amberock Town\l"
+}
+script Route15_Sign3{
+    msgbox(Route15_Sign3_Text, MSGBOX_SIGN)
+}
+text Route15_Sign3_Text{
+    "Route 15\n"
+    "{UP_ARROW} Fishing Village\l"
+    "{DOWN_ARROW} Amberock Town\l"
+    "{RIGHT_ARROW} Berry Fields"
+}
+script R15_RockBlock{
+    msgbox(R15_RockBlock_Text, MSGBOX_NPC)
+    turnobject(2, DIR_NORTH)
+}
+text R15_RockBlock_Text{
+    "As a Pokémon Ranger, it is my duty to\n"
+    "clear this path as fast as possible!"
+}
+script R15_RR_Escapes{
+    lock
+    setvar(VAR_ROUTE14_ROCKET_EVENT, 4)
+    turnobject(19, DIR_NORTH)
+    playse(SE_PIN)
+    applymovement(19, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    applymovement(19, R15_GruntEscapes)
+    waitmovement(0)
+    removeobject(19)
+    removeobject(23)
+    release
+}
+movement R15_GruntEscapes{
+    walk_fast_right * 13
+}
+
+script Route15_Tr1_Birdkeeper {
+    trainerbattle_single(TRAINER_R15_TR1_BIRDKEEPER, R15Tr1_Intro, R15Tr1_Lose)
+    msgbox(R15Tr1_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R15Tr1_Intro{""}
+text R15Tr1_Lose{""}
+text R15Tr1_PostBattle{""}
+
+script Route15_Tr2_RangerF {
+    trainerbattle_single(TRAINER_R15_TR2_RANGERF, R15Tr2_Intro, R15Tr2_Lose)
+    msgbox(R15Tr2_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R15Tr2_Intro{""}
+text R15Tr2_Lose{""}
+text R15Tr2_PostBattle{""}
+
+script Route15_Tr3_RangerM {
+    trainerbattle_single(TRAINER_R15_TR3_RANGERM, R15Tr3_Intro, R15Tr3_Lose)
+    msgbox(R15Tr3_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R15Tr3_Intro{""}
+text R15Tr3_Lose{""}
+text R15Tr3_PostBattle{""}
+
+script Route15_Tr4_Gentleman {
+    trainerbattle_single(TRAINER_R15_TR4_GENTLEMAN, R15Tr4_Intro, R15Tr4_Lose)
+    msgbox(R15Tr4_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R15Tr4_Intro{""}
+text R15Tr4_Lose{""}
+text R15Tr4_PostBattle{""}
+
+script Route15_Tr5_Ninjaboy1 {
+    trainerbattle_single(TRAINER_R15_TR5_NINJABOY1, R15Tr5_Intro, R15Tr5_Lose)
+    msgbox(R15Tr5_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R15Tr5_Intro{""}
+text R15Tr5_Lose{""}
+text R15Tr5_PostBattle{""}
+
+script Route15_Tr6_Ninjaboy2 {
+    trainerbattle_single(TRAINER_R15_TR6_NINJABOY2, R15Tr6_Intro, R15Tr6_Lose)
+    msgbox(R15Tr6_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R15Tr6_Intro{""}
+text R15Tr6_Lose{""}
+text R15Tr6_PostBattle{""}
+
+script Route15_Tr7_Bugcatcher {
+    trainerbattle_single(TRAINER_R15_TR7_BUGCATCHER, R15Tr7_Intro, R15Tr7_Lose)
+    msgbox(R15Tr7_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R15Tr7_Intro{""}
+text R15Tr7_Lose{""}
+text R15Tr7_PostBattle{""}
+
+script Route15_Tr8_Bugcatcher2 {
+    trainerbattle_single(TRAINER_R15_TR8_BUGCATCHER2, R15Tr8_Intro, R15Tr8_Lose)
+    msgbox(R15Tr8_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R15Tr8_Intro{""}
+text R15Tr8_Lose{""}
+text R15Tr8_PostBattle{""}
+
+script Route15_Tr9_Beauty {
+    trainerbattle_single(TRAINER_R15_TR9_BEAUTY, R15Tr9_Intro, R15Tr9_Lose)
+    msgbox(R15Tr9_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R15Tr9_Intro{""}
+text R15Tr9_Lose{""}
+text R15Tr9_PostBattle{""}
+
+script Route15_Tr10_Fisher {
+    trainerbattle_single(TRAINER_R15_TR10_FISHER, R15Tr10_Intro, R15Tr10_Lose)
+    msgbox(R15Tr10_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R15Tr10_Intro{""}
+text R15Tr10_Lose{""}
+text R15Tr10_PostBattle{""}
+
+script Route15_Tr11_CyclingM {
+    trainerbattle_single(TRAINER_R15_TR11_CYCLINGM, R15Tr11_Intro, R15Tr11_Lose)
+    msgbox(R15Tr11_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R15Tr11_Intro{""}
+text R15Tr11_Lose{""}
+text R15Tr11_PostBattle{""}
+
+script Route15_Tr12_CyclingF {
+    trainerbattle_single(TRAINER_R15_TR12_CYCLINGF, R15Tr12_Intro, R15Tr12_Lose)
+    msgbox(R15Tr12_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R15Tr12_Intro{""}
+text R15Tr12_Lose{""}
+text R15Tr12_PostBattle{""}
+
+script Route15_Tr13_Cooltrainer {
+    trainerbattle_single(TRAINER_R15_TR13_COOLTRAINER, R15Tr13_Intro, R15Tr13_Lose)
+    msgbox(R15Tr13_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R15Tr13_Intro{""}
+text R15Tr13_Lose{""}
+text R15Tr13_PostBattle{""}
+
+script Route15_Tr14_Lass {
+    trainerbattle_single(TRAINER_R15_TR14_LASS, R15Tr14_Intro, R15Tr14_Lose)
+    msgbox(R15Tr14_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R15Tr14_Intro{""}
+text R15Tr14_Lose{""}
+text R15Tr14_PostBattle{""}
+
+script Route15_Tr15_Scientist {
+    trainerbattle_single(TRAINER_R15_TR15_SCIENTIST, R15Tr15_Intro, R15Tr15_Lose)
+    msgbox(R15Tr15_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R15Tr15_Intro{""}
+text R15Tr15_Lose{""}
+text R15Tr15_PostBattle{""}
+
+script Route15_Tr16_Aromalady {
+    trainerbattle_single(TRAINER_R15_TR16_AROMALADY, R15Tr16_Intro, R15Tr16_Lose)
+    msgbox(R15Tr16_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R15Tr16_Intro{""}
+text R15Tr16_Lose{""}
+text R15Tr16_PostBattle{""}
+
+script Route15_Tr17_Ninjaboy3 {
+    trainerbattle_single(TRAINER_R15_TR17_NINJABOY3, R15Tr17_Intro, R15Tr17_Lose)
+    msgbox(R15Tr17_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R15Tr17_Intro{""}
+text R15Tr17_Lose{""}
+text R15Tr17_PostBattle{""}
+
+script Route15_Tr18_BerryRocket {
+    trainerbattle_single(TRAINER_R15_TR18_BERRYROCKET, R15Tr18_Intro, R15Tr18_Lose)
+    msgbox(R15Tr18_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R15Tr18_Intro{""}
+text R15Tr18_Lose{""}
+text R15Tr18_PostBattle{""}

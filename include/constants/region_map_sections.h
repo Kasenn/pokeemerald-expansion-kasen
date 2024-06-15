@@ -24,8 +24,8 @@
 #define MAPSEC_ROUTE_105                    0x14
 #define MAPSEC_ROUTE_106                    0x15
 #define MAPSEC_HIDDENGROTTO_ROUTE7                    0x16
-#define MAPSEC_ROUTE_108                    0x17
-#define MAPSEC_ROUTE_109                    0x18
+#define MAPSEC_HIDDENGROTTO_ROUTE14                    0x17
+#define MAPSEC_BERRY_FIELDS                    0x18    
 #define MAPSEC_ROUTE_110                    0x19
 #define MAPSEC_ROUTE_111                    0x1A
 #define MAPSEC_ROUTE_112                    0x1B
@@ -258,6 +258,6 @@
 #define KANTO_MAPSEC_START  MAPSEC_PALLET_TOWN
 #define KANTO_MAPSEC_END    MAPSEC_SPECIAL_AREA
 #define KANTO_MAPSEC_COUNT (KANTO_MAPSEC_END - KANTO_MAPSEC_START + 1)
-#define FLYABLE_MAPSEC_COUNT                11
+#define FLYABLE_MAPSEC_COUNT                14
 
 #endif //GUARD_REGIONMAPSEC_H

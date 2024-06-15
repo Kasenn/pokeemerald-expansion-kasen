@@ -1308,7 +1308,7 @@ u8 GetPokeblockNameByMonNature(void)
 
 void GetSecretBaseNearbyMapName(void)
 {
-    GetMapName(gStringVar1, VarGet(VAR_SECRET_BASE_MAP), 0);
+    // GetMapName(gStringVar1, VarGet(VAR_SECRET_BASE_MAP), 0);
 }
 
 u16 GetBattleTowerSinglesStreak(void)

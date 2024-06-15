@@ -13,6 +13,8 @@
     "gMapGroup_IndoorKaolisleCity",
     "gMapGroup_IndoorRockliffeTown",
     "gMapGroup_IndoorSandstoneCity",
+    "gMapGroup_IndoorFishingVillage",
+    "gMapGroup_IndoorDrisledgeTown",
     "gMapGroup_IndoorLittleroot",
     "gMapGroup_IndoorOldale",
     "gMapGroup_IndoorDewford",
@@ -100,7 +102,10 @@
     "Route10_Cave2",
     "BerryFields",
     "Route23",
-    "DrisledgeTown"
+    "DrisledgeTown",
+    "Route22",
+    "Route14_Grotto",
+    "BerryFieldHouse"
   ],
   "gMapGroup_TownsAndCities": [
     "PearlwoodPoint",
@@ -116,7 +121,8 @@
     "RockliffeTown",
     "SandstoneCity",
     "FishingVillage",
-    "FishVIllageFIller"
+    "FishVIllageFIller",
+    "AmberockTown"
   ],
   "gMapGroup_IndoorPearlwoodPoint": [
     "Lab2",
@@ -277,6 +283,19 @@
     "Sandstone_Gym_2F",
     "Sandstone_Library_1F",
     "Sandstone_Library_2F"
+  ],
+  "gMapGroup_IndoorFishingVillage": [
+    "FishingVillage_House1",
+    "FishingVillage_House2",
+    "FishingVillage_House3"
+  ],
+  "gMapGroup_IndoorDrisledgeTown": [
+    "Drisledge_Pokecenter_1F",
+    "Drisledge_Pokecenter_2F",
+    "Drisledge_Mart",
+    "Drisledge_House1",
+    "Drisledge_House2",
+    "Drisledge_Gym"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

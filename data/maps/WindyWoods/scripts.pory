@@ -16,7 +16,7 @@ script WWHideDadAndDog{
     }
     else{
     setflag(FLAG_LANDMARK_WINDY_WOODS)
-    setflag(FLAG_UNUSED_WW_HIDEDAD)
+    setflag(FLAG_WW_HIDEDAD)
     hideobjectat(12, MAP_WINDY_WOODS)
     hideobjectat(14, MAP_WINDY_WOODS)
     end
@@ -156,7 +156,7 @@ text WindyWoods_YoungsterPostBattle{
 script WW_CoolTrainer{
     lockall
     faceplayer
-    if(flag(FLAG_UNUSED_WW_COOLTRAINERREWARD)){
+    if(flag(FLAG_WW_COOLTRAINERREWARD)){
         msgbox("Simply spectacular.", MSGBOX_DEFAULT)
         waitmessage
         closemessage
@@ -178,8 +178,8 @@ script WW_CoolTrainer{
 script WW_CoolTrainerEligible{
     lockall
     faceplayer
-    if(!flag(FLAG_UNUSED_WW_COOLTRAINER)){
-        setflag(FLAG_UNUSED_WW_COOLTRAINER)
+    if(!flag(FLAG_WW_COOLTRAINER)){
+        setflag(FLAG_WW_COOLTRAINER)
         msgbox("I see you're not a completely\nlost cause.\pThat means you are worthy of my time.\pCare for a Pokémon Battle?\pI warn you, I'm no weakling.", MSGBOX_YESNO)
         if(var(VAR_RESULT) == YES){
             msgbox("Good.")
@@ -233,7 +233,7 @@ script WW_CoolTrainerPostBattle{
     if(!flag(FLAG_INTRO_TO_BP)){
         msgbox(ExplainBP, MSGBOX_DEFAULT)
     }
-    setflag(FLAG_UNUSED_WW_COOLTRAINERREWARD)
+    setflag(FLAG_WW_COOLTRAINERREWARD)
     setflag(FLAG_INTRO_TO_BP)
     waitmessage
     closemessage
@@ -268,7 +268,7 @@ script WW_HelpGirl{
     delay(40)
     applymovement(OBJ_EVENT_ID_PLAYER, WW_PlayerFace1)
     waitmovement(0)
-    clearflag(FLAG_UNUSED_WW_HIDEROCKET)
+    clearflag(FLAG_WW_HIDEROCKET)
     setvar(VAR_WINDYWOODS_STATE, 1)
     msgbox(WW_Help)
     waitmessage
@@ -286,9 +286,9 @@ script WW_LittleGirl{
     }
     else{
         setvar(VAR_WINDYWOODS_STATE, 1)
-        setflag(FLAG_UNUSED_WW_HIDEDAD)
+        setflag(FLAG_WW_HIDEDAD)
         msgbox(WW_Help, MSGBOX_NPC)
-        clearflag(FLAG_UNUSED_WW_HIDEROCKET)
+        clearflag(FLAG_WW_HIDEROCKET)
     }
 }
 text WW_Help{
@@ -334,14 +334,14 @@ script WW_RockPostBattle{
     showobjectat(12, MAP_WINDY_WOODS)
     showobjectat(14, MAP_WINDY_WOODS)
     setvar(VAR_WINDYWOODS_STATE, 4)
-    clearflag(FLAG_UNUSED_WW_HIDEDAD)
+    clearflag(FLAG_WW_HIDEDAD)
     warp(MAP_WINDY_WOODS, 27, 11)
     waitstate
     release
     end
 }
 script WW_BridgeWarp{
-    clearflag(FLAG_UNUSED_WW_HIDEDAD)
+    clearflag(FLAG_WW_HIDEDAD)
     showobjectat(14, MAP_WINDY_WOODS)
     setobjectxy(14, 29, 11)
     turnobject(14, DIR_WEST)
@@ -385,9 +385,9 @@ script WW_BridgeScene2{
     removeobject(11)
     removeobject(12)
     removeobject(14)
-    setflag(FLAG_UNUSED_WW_ENDEVENT)
-    setflag(FLAG_UNUSED_WW_HIDEROCKET)
-    setflag(FLAG_UNUSED_WW_HIDEDAD)
+    setflag(FLAG_WW_ENDEVENT)
+    setflag(FLAG_WW_HIDEROCKET)
+    setflag(FLAG_WW_HIDEDAD)
     setvar(VAR_WINDYWOODS_STATE, 5)
     fadescreenswapbuffers(FADE_FROM_BLACK)
     delay(25)

@@ -5,7 +5,7 @@
   "music": "MUS_ROUTE113",
   "region_map_section": "MAPSEC_NEWROUTE_23",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
+  "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -20,7 +20,7 @@
     },
     {
       "map": "MAP_DRISLEDGE_TOWN",
-      "offset": 131,
+      "offset": 129,
       "direction": "up"
     }
   ],
@@ -31,7 +31,251 @@
 
   ],
   "coord_events": [
-
+    {
+      "type": "weather",
+      "x": 10,
+      "y": 15,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN"
+    },
+    {
+      "type": "weather",
+      "x": 11,
+      "y": 16,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN"
+    },
+    {
+      "type": "weather",
+      "x": 11,
+      "y": 17,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN"
+    },
+    {
+      "type": "weather",
+      "x": 10,
+      "y": 18,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN"
+    },
+    {
+      "type": "weather",
+      "x": 9,
+      "y": 19,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN"
+    },
+    {
+      "type": "weather",
+      "x": 8,
+      "y": 20,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN"
+    },
+    {
+      "type": "weather",
+      "x": 0,
+      "y": 15,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 1,
+      "y": 16,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 2,
+      "y": 17,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 2,
+      "y": 18,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 3,
+      "y": 19,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 3,
+      "y": 20,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 3,
+      "y": 21,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 35,
+      "y": 12,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN_THUNDERSTORM"
+    },
+    {
+      "type": "weather",
+      "x": 34,
+      "y": 11,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN_THUNDERSTORM"
+    },
+    {
+      "type": "weather",
+      "x": 33,
+      "y": 11,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN_THUNDERSTORM"
+    },
+    {
+      "type": "weather",
+      "x": 36,
+      "y": 19,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN_THUNDERSTORM"
+    },
+    {
+      "type": "weather",
+      "x": 35,
+      "y": 20,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN_THUNDERSTORM"
+    },
+    {
+      "type": "weather",
+      "x": 34,
+      "y": 21,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN_THUNDERSTORM"
+    },
+    {
+      "type": "weather",
+      "x": 142,
+      "y": 0,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN"
+    },
+    {
+      "type": "weather",
+      "x": 141,
+      "y": 0,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN"
+    },
+    {
+      "type": "weather",
+      "x": 140,
+      "y": 0,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN"
+    },
+    {
+      "type": "weather",
+      "x": 139,
+      "y": 0,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN"
+    },
+    {
+      "type": "weather",
+      "x": 143,
+      "y": 0,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN"
+    },
+    {
+      "type": "weather",
+      "x": 144,
+      "y": 0,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN"
+    },
+    {
+      "type": "weather",
+      "x": 145,
+      "y": 0,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN"
+    },
+    {
+      "type": "weather",
+      "x": 146,
+      "y": 0,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN"
+    },
+    {
+      "type": "weather",
+      "x": 147,
+      "y": 0,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN"
+    },
+    {
+      "type": "weather",
+      "x": 148,
+      "y": 0,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN"
+    },
+    {
+      "type": "weather",
+      "x": 140,
+      "y": 7,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN_THUNDERSTORM"
+    },
+    {
+      "type": "weather",
+      "x": 141,
+      "y": 8,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN_THUNDERSTORM"
+    },
+    {
+      "type": "weather",
+      "x": 142,
+      "y": 9,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN_THUNDERSTORM"
+    },
+    {
+      "type": "weather",
+      "x": 143,
+      "y": 10,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN_THUNDERSTORM"
+    },
+    {
+      "type": "weather",
+      "x": 144,
+      "y": 11,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN_THUNDERSTORM"
+    },
+    {
+      "type": "weather",
+      "x": 145,
+      "y": 11,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN_THUNDERSTORM"
+    }
   ],
   "bg_events": [
 

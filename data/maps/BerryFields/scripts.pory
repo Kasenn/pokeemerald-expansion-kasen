@@ -1,0 +1,129 @@
+mapscripts BerryFields_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: BerryFields_FlagControl
+}
+
+script BerryFields_FlagControl{
+    if(var(VAR_ROUTE14_ROCKET_EVENT) >= 5){
+        setflag(FLAG_TEMP_1)
+    }
+}
+
+script BerryFields_Rocket{
+    lock
+    faceplayer
+    playbgm(MUS_ENCOUNTER_AQUA, FALSE)
+	msgbox(BerryFields_GruntIntro)
+	trainerbattle_no_intro(TRAINER_R15_TR18_BERRYROCKET, BerryFields_GruntDefeat)
+    msgbox(IWasDecoy)
+    closemessage
+    if(var(VAR_FACING) == DIR_SOUTH){
+        applymovement(OBJ_EVENT_ID_PLAYER, BerryFields_PushPlayerAsideForGrunt)
+        applymovement(13, GruntEscapesNorth)
+    }
+    elif(var(VAR_FACING) == DIR_EAST){
+        applymovement(OBJ_EVENT_ID_PLAYER, BerryFields_PushPlayerAsideForGrunt)
+        applymovement(13, GruntEscapesNorth)
+    }
+    else{
+        applymovement(OBJ_EVENT_ID_PLAYER, BerryFields_PushPlayerAsideForGrunt2)
+        applymovement(13, GruntEscapesNorth)
+    }
+    waitmovement(0)
+    removeobject(13)
+    removeobject(14)
+    setvar(VAR_ROUTE14_ROCKET_EVENT, 5)
+    release
+}
+movement BerryFields_PushPlayerAsideForGrunt{
+	face_right
+	lock_facing_direction
+	walk_left
+	unlock_facing_direction
+	step_end
+}
+movement BerryFields_PushPlayerAsideForGrunt2{
+	face_left
+	lock_facing_direction
+	walk_right
+	unlock_facing_direction
+    walk_in_place_faster_up
+    walk_in_place_faster_right
+	step_end
+}
+
+text BerryFields_GruntIntro{
+    "How did you find me?!\p"
+    "Grr, it doesn't matter!\p"
+    "I'll teach you not to meddle in other\n"
+    "people's business!"
+}
+text BerryFields_GruntDefeat{
+    "No!\n"
+    "This isn't possible!"
+}
+text IWasDecoy{
+    "Hahaha!\p"
+    "Jokes on you, but I was merely\n"
+    "a decoy!\p"
+    "See? I have nothing on me!\p"
+    "If you're looking for the real culprit,\n"
+    "then I'm sorry to disappoint you\l"
+    "because they've already made their\l"
+    "way to Amberock Town.\p"
+    "You'll never find them in there!"
+}
+
+movement GruntEscapesNorth{
+    walk_fast_up
+    walk_fast_right * 11
+}
+
+script Berryfields_Poochyena{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_POOCHYENA, CRY_MODE_NORMAL)
+	msgbox(BerryFields_Poochyena_Text, MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+
+text BerryFields_Poochyena_Text{
+    "Poochyena: Bow! Bowwow!\p"
+    "… … … …\p"
+    "Looks like the Poochyena isn't letting\n"
+    "anyone through…"
+}
+
+script Berryfields_Blockade1{
+    setvar(VAR_TEMP_1, 1)
+    goto(Berryfields_Blockade)
+}
+script Berryfields_Blockade2{
+    setvar(VAR_TEMP_1, 2)
+    goto(Berryfields_Blockade)
+}
+script Berryfields_Blockade{
+    lock
+    if(var(VAR_TEMP_1) == 1){
+        turnobject(14, DIR_WEST)
+    }
+    else{
+        turnobject(14, DIR_EAST)
+    }
+    playse(SE_PIN)
+    applymovement(14, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    waitse
+	playmoncry(SPECIES_POOCHYENA, CRY_MODE_NORMAL)
+	msgbox(BerryFields_Poochyena_Text, MSGBOX_DEFAULT)
+    closemessage
+	waitmoncry
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Up)
+    waitmovement(0)
+    turnobject(14, DIR_NORTH)
+	release
+	end
+}

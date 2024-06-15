@@ -70,6 +70,8 @@ void SetGrottoes(void)
     VarSet(VAR_WW_GROTTO, rand);
     rand = Random() % 100;
     VarSet(VAR_ROUTE7_GROTTO, rand);
+    rand = Random() % 100;
+    VarSet(VAR_ROUTE14_GROTTO, rand);
 }
 
 void DisableNationalPokedex(void)

@@ -1,0 +1,6 @@
+mapscripts BerryFieldHouse_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: SetBerryFieldLandmark
+}
+script SetBerryFieldLandmark{
+    setflag(FLAG_LANDMARK_BERRY_MASTERS_HOUSE)
+}

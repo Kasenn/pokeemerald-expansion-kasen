@@ -1045,3 +1045,14 @@ const struct Tileset gTileset_Library =
     .metatileAttributes = gMetatileAttributes_Library,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Drisledge =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Drisledge,
+    .palettes = gTilesetPalettes_Drisledge,
+    .metatiles = gMetatiles_Drisledge,
+    .metatileAttributes = gMetatileAttributes_Drisledge,
+    .callback = NULL,
+};

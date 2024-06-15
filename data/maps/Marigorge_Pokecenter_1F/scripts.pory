@@ -1,6 +1,6 @@
 mapscripts Marigorge_Pokecenter_1F_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: MarigorgePokeCenter1F_OnTransition
-	MAP_SCRIPT_ON_RESUME: CableClub_OnResume
+	// MAP_SCRIPT_ON_RESUME: CableClub_OnResume
 }
 
 script MarigorgePokeCenter1F_OnTransition{

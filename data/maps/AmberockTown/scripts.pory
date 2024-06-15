@@ -1,0 +1,153 @@
+mapscripts AmberockTown_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: Amberock_FlagControl
+    MAP_SCRIPT_ON_LOAD: Amberock_PaperVisibility
+}
+
+script Amberock_FlagControl{
+    setflag(FLAG_TEMP_3)
+    setflag(FLAG_TEMP_2)
+    if(var(VAR_ROUTE14_ROCKET_EVENT) == 6){
+        setflag(FLAG_TEMP_1)
+    }
+}
+script Amberock_PaperVisibility{
+    if(var(VAR_ROUTE14_ROCKET_EVENT) == 6){
+        setmetatile(27, 10, 0x128, FALSE)
+    }
+}
+
+script Amberock_Papers{
+    lock
+    msgbox(PapersOnGround)
+    removeobject(3)
+    setmetatile(27, 10, 0x128, FALSE)
+    special(DrawWholeMapView)
+    closemessage
+    clearflag(FLAG_TEMP_2)
+    clearflag(FLAG_TEMP_3)
+    addobject(1)
+    addobject(2)
+    delay(60)
+    switch(var(VAR_FACING)){
+        case DIR_SOUTH:
+            applymovement(1, MoveScientist2)
+        case DIR_WEST:
+            setobjectxy(1, 28, 4)
+            applymovement(1, Walk5Down)
+        case DIR_EAST:
+            setobjectxy(1, 28, 4)
+            applymovement(1, MoveScientist1)
+    }
+    waitmovement(0)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    delay(24)
+    msgbox(OurPapers)
+    closemessage
+    switch(var(VAR_FACING)){
+        case DIR_SOUTH:
+            applymovement(1, ScientistLeave2)
+        case DIR_WEST:
+            applymovement(1, Walk5Up)
+        case DIR_EAST:
+            applymovement(1, ScientistLeave1)
+    }
+    waitmovement(0)
+    delay(60)
+    switch(var(VAR_FACING)){
+        case DIR_SOUTH:
+            applymovement(2, MoveScientist2)
+        case DIR_WEST:
+            setobjectxy(2, 28, 4)
+            applymovement(2, Walk5Down)
+        case DIR_EAST:
+            setobjectxy(2, 28, 4)
+            applymovement(2, MoveScientist1)
+    }
+    waitmovement(0)
+    delay(15)
+    checkplayergender
+    if(var(VAR_RESULT) == MALE){
+        bufferstring(STR_VAR_1, "mister")
+    }
+    else{
+        bufferstring(STR_VAR_1, "miss")
+    }
+    msgbox(AcerolaVisitGym)
+    closemessage
+    switch(var(VAR_FACING)){
+        case DIR_SOUTH:
+            applymovement(2, ScientistLeave2)
+        case DIR_WEST:
+            applymovement(2, Walk5Up)
+        case DIR_EAST:
+            applymovement(2, ScientistLeave1)
+    }
+    waitmovement(0)
+    setvar(VAR_ROUTE14_ROCKET_EVENT, 6)
+    removeobject(1)
+    removeobject(2)
+    delay(15)
+    release
+}
+text PapersOnGround{
+    "There seems to be some papers on\n"
+    "the ground here.\p"
+    "{PLAYER} picked up the papers."
+}
+text OurPapers{
+    "Can I see those papers?\p"
+    "{PLAYER} handed the papers to the\n"
+    "scientist.\p"
+    "… … … …\p"
+    "Yes, these are definitely some of\n"
+    "the papers that were stolen.\p"
+    "The culprit must have fled to Amberock\n"
+    "Town and cut the bridge behind him,\l"
+    "giving him ample time to hide.\p"
+    "That scoundrel!\p"
+    "It would take too long to wait for\n"
+    "the bridge to be repaired.\p"
+    "You should prepare your team for\n"
+    "what lies ahead.\p"
+    "In the meantime, I'll try to get my\n"
+    "hands on a Hidden Machine that can\l"
+    "teach your Pokémon how to carry people\l"
+    "across water.\p"
+    "I'll meet you back here once we're\n"
+    "both ready."
+}
+text AcerolaVisitGym{
+    "I couldn't help but hear parts of\n"
+    "your conversation.\p"
+    "If you're looking to strengthen your\n"
+    "Pokémon, you should totally check the\l"
+    "Pokémon Gym over in Drisledge Town!\p"
+    "I hear it's one of the best gyms in\n"
+    "all of Sinko!\p"
+    "Anyway, I need to head back home now.\n"
+    "See you again, {STR_VAR_1}!"
+}
+movement MoveScientist1{
+    walk_down * 2
+    walk_left * 2
+    walk_down * 3
+    step_end
+}
+movement MoveScientist2{
+    walk_down * 2
+    walk_left
+    walk_down * 3
+    step_end
+}
+movement ScientistLeave2{
+    walk_up * 2
+    walk_right
+    walk_up * 3
+    step_end
+}
+movement ScientistLeave1{
+    walk_up * 2
+    walk_right * 2
+    walk_up * 3
+    step_end
+}

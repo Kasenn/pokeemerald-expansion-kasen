@@ -48,7 +48,7 @@ CoralHarborBall::
 
 CoralgroveHarbor_SleepingMan::
 	lockall
-	goto_if_unset FLAG_UNUSED_TALKEDTOSLEEPINGGUY, CoralgroveHarbor_SleepingMan_1
+	goto_if_unset FLAG_TALKEDTOSLEEPINGGUY, CoralgroveHarbor_SleepingMan_1
 	msgbox CoralgroveHarbor_SleepingMan_Text_2, MSGBOX_DEFAULT
 	waitmessage
 	closemessage
@@ -62,7 +62,7 @@ CoralgroveHarbor_SleepingMan_1:
 	waitfanfare
 	msgbox CoralgroveHarbor_SleepingMan_Text_1, MSGBOX_DEFAULT
 	waitmessage
-	setflag FLAG_UNUSED_TALKEDTOSLEEPINGGUY
+	setflag FLAG_TALKEDTOSLEEPINGGUY
 	closemessage
 	releaseall
 	end

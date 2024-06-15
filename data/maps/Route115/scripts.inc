@@ -32,7 +32,7 @@ Route115_EventScript_MeteorFallsSign::
 	end
 
 Route115_EventScript_Timothy::
-	trainerbattle_single TRAINER_TIMOTHY_1, Route115_Text_TimothyIntro, Route115_Text_TimothyDefeat, Route115_EventScript_RegisterTimothy
+	trainerbattle_single TRAINER_R15_TR14_LASS, Route115_Text_TimothyIntro, Route115_Text_TimothyDefeat, Route115_EventScript_RegisterTimothy
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route115_EventScript_RematchTimothy
 	msgbox Route115_Text_TimothyPostBattle, MSGBOX_DEFAULT
@@ -43,12 +43,12 @@ Route115_EventScript_RegisterTimothy::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route115_Text_TimothyRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_TIMOTHY_1
+	register_matchcall TRAINER_R15_TR14_LASS
 	release
 	end
 
 Route115_EventScript_RematchTimothy::
-	trainerbattle_rematch TRAINER_TIMOTHY_1, Route115_Text_TimothyRematchIntro, Route115_Text_TimothyRematchDefeat
+	trainerbattle_rematch TRAINER_R15_TR14_LASS, Route115_Text_TimothyRematchIntro, Route115_Text_TimothyRematchDefeat
 	msgbox Route115_Text_TimothyPostRematch, MSGBOX_AUTOCLOSE
 	end
 

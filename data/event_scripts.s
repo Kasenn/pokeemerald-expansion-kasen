@@ -1437,3 +1437,29 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/DrisledgeTown/scripts.inc"
 
 	.include "data/maps/FishVIllageFIller/scripts.inc"
+
+	.include "data/maps/Route22/scripts.inc"
+
+	.include "data/maps/AmberockTown/scripts.inc"
+
+	.include "data/maps/Route14_Grotto/scripts.inc"
+
+	.include "data/maps/BerryFieldHouse/scripts.inc"
+
+	.include "data/maps/FishingVillage_House1/scripts.inc"
+
+	.include "data/maps/FishingVillage_House2/scripts.inc"
+
+	.include "data/maps/FishingVillage_House3/scripts.inc"
+
+	.include "data/maps/Drisledge_Pokecenter_1F/scripts.inc"
+
+	.include "data/maps/Drisledge_Pokecenter_2F/scripts.inc"
+
+	.include "data/maps/Drisledge_Mart/scripts.inc"
+
+	.include "data/maps/Drisledge_House1/scripts.inc"
+
+	.include "data/maps/Drisledge_House2/scripts.inc"
+
+	.include "data/maps/Drisledge_Gym/scripts.inc"

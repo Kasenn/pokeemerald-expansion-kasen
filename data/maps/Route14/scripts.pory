@@ -1,4 +1,24 @@
-mapscripts Route14_MapScripts{}
+mapscripts Route14_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: R14_ControlFlags
+}
+
+script R14_ControlFlags{
+    special(SetRoute119Weather)
+    switch(var(VAR_ROUTE14_ROCKET_EVENT)){
+        case 0:
+        case 1:
+            setflag(FLAG_TEMP_1)
+            setflag(FLAG_TEMP_2)
+        case 2:
+            setflag(FLAG_TEMP_1)
+            setflag(FLAG_TEMP_2)
+            setflag(FLAG_TEMP_3)
+        default:
+            setflag(FLAG_TEMP_2)
+            setflag(FLAG_TEMP_3)
+            setflag(FLAG_TEMP_4)
+    }
+}
 
 script Route14_Tr1_Running_F {
     trainerbattle_single(TRAINER_R14_TR1_RUNNING_F, R14Tr1_Intro, R14Tr1_Lose)
@@ -41,16 +61,233 @@ text R14Tr2_PostBattle{
     "It's a long way till the next town."
 }
 
-script BetaBlock{
+script R14_Sign1{
+    msgbox(R14_Sign1_Text, MSGBOX_SIGN)
+}
+text R14_Sign1_Text{
+    "Legendary Pokémon Research Center"
+}
+script R14_RR_Event_Trigger1{
     lock
-    msgbox(EndOfBeta)
-    closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
+    msgbox(R14_RR_Event_Trigger1Stop, MSGBOX_DEFAULT)
+	closemessage
+	playbgm(MUS_ENCOUNTER_AQUA, FALSE)
+    clearflag(FLAG_TEMP_2)
+    addobject(14)
+    delay(30)
+    applymovement(14, R14_GruntEscapes)
     waitmovement(0)
+    removeobject(14)
+    applymovement(15, R14_ChaseGrunt1)
+    waitmovement(0)
+    msgbox(R14_DontTakeResearch)
+    closemessage
+    applymovement(15, R14_ChaseGrunt2)
+    waitmovement(0)
+    fadedefaultbgm
+    setobjectxyperm(15, 41, 13)
+    setobjectxy(15, 41, 13)
+    setvar(VAR_ROUTE14_ROCKET_EVENT, 1)
     release
     end
 }
-text EndOfBeta{
-    "This is currently the end of beta.\n"
-    "Thanks for playing!"
+
+text R14_RR_Event_Trigger1Stop{
+    "Wait!\n"
+    "Stop!"
 }
+movement R14_GruntEscapes{
+    walk_fast_down * 2
+    walk_fast_left * 13
+    step_end
+}
+movement R14_GruntEscapes2{
+    walk_fast_left * 7
+    step_end
+}
+movement R14_ChaseGrunt1{
+    walk_down * 4
+    walk_left * 4
+    step_end
+}
+movement R14_ChaseGrunt2{
+    walk_left * 9
+}
+text R14_DontTakeResearch{
+    "Please don't take our important\n"
+    "research!"
+}
+
+script R14_BlockAccessToFacility{
+    if(var(VAR_ROUTE14_ROCKET_EVENT) == 1){
+        msgbox(R14_BlockAccessToFacility_Text)
+    }
+    else{
+        msgbox(R14_BlockAccessToFacility_Text2)
+    }
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Down)
+    waitmovement(0)
+    release
+}
+text R14_BlockAccessToFacility_Text{
+    "Better see what the commotion\n"
+    "is about…"
+}
+text R14_BlockAccessToFacility_Text2{
+    "Better retrieve the stolen research\n"
+    "first…"
+}
+script R14_Scientist{
+    msgbox(R14_Scientist_Text, MSGBOX_NPC)
+}
+text R14_Scientist_Text{
+    "Please chase them down and recover\n"
+    "our important research papers!\p"
+    "I'll find another way around and catch\n"
+    "up with you as soon as I can."
+}
+script R14_Bouncer{
+    msgbox(R14_Bouncer_Text, MSGBOX_NPC)
+    turnobject(17, DIR_SOUTH)
+}
+text R14_Bouncer_Text{
+    "I'm sorry, but we don't take visitors\n"
+    "at this time."
+}
+
+
+script R14_HelpScientist1{
+    setvar(VAR_TEMP_1, 1)
+    goto(R14_HelpScientist)
+}
+script R14_HelpScientist2{
+    setvar(VAR_TEMP_1, 2)
+    goto(R14_HelpScientist)
+}
+script R14_HelpScientist3{
+    setvar(VAR_TEMP_1, 3)
+    goto(R14_HelpScientist)
+}
+script R14_HelpScientist{
+    lock
+    switch(var(VAR_TEMP_1)){
+        case 1:
+            applymovement(15, Common_Movement_WalkInPlaceFasterLeft)
+        case 2:
+            applymovement(15, Common_Movement_WalkInPlaceFasterUp)
+        case 3:
+            applymovement(15, Common_Movement_WalkInPlaceFasterRight)
+    }
+    waitmovement(0)
+    playse(SE_PIN)
+    applymovement(15, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    switch(var(VAR_TEMP_1)){
+        case 1:
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+        case 2:
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+        case 3:
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+    }
+    delay(15)
+    msgbox(R14_Robbed)
+    setvar(VAR_ROUTE14_ROCKET_EVENT, 2)
+    release
+}
+
+script R14_ChaseAfterRocket1{
+    setvar(VAR_TEMP_1, 1)
+    goto(R14_ChaseAfterRocket)
+}
+script R14_ChaseAfterRocket2{
+    setvar(VAR_TEMP_1, 2)
+    goto(R14_ChaseAfterRocket)
+}
+script R14_ChaseAfterRocket{
+    lock
+    if(var(VAR_TEMP_1) == 1){
+        turnobject(17, DIR_NORTH)
+    }
+    else{
+        turnobject(17, DIR_EAST)
+    }
+    playse(SE_PIN)
+    applymovement(17, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    applymovement(17, R14_GruntEscapes2)
+    waitmovement(0)
+    removeobject(17)
+    release
+    setvar(VAR_ROUTE14_ROCKET_EVENT, 3)
+}
+
+text R14_Robbed{
+    "You! You look like a strong trainer!\p"
+    "Please! Our important research was\n"
+    "just stolen by Team Rocket!\p"
+    "I saw them crossing this gap by\n"
+    "jumping on the stone pillars.\p"
+    "I would follow them myself but I don't\n"
+    "have the dexterity to do that.\p"
+    "Can you please chase them down and\n"
+    "recover our important research papers?\p"
+    "I'll find another way around and catch\n"
+    "up with you as soon as I can."
+}
+script Route14_Tr3_ParasolLady {
+    trainerbattle_single(TRAINER_R14_TR3_PARASOLLADY, R14Tr3_Intro, R14Tr3_Lose)
+    msgbox(R14Tr3_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R14Tr3_Intro{""}
+text R14Tr3_Lose{""}
+text R14Tr3_PostBattle{""}
+
+script Route14_Tr4_Fisher {
+    trainerbattle_single(TRAINER_R14_TR4_FISHER, R14Tr4_Intro, R14Tr4_Lose)
+    msgbox(R14Tr4_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R14Tr4_Intro{""}
+text R14Tr4_Lose{""}
+text R14Tr4_PostBattle{""}
+
+script Route14_Tr5_ParasolLady2 {
+    trainerbattle_single(TRAINER_R14_TR5_PARASOLLADY2, R14Tr5_Intro, R14Tr5_Lose)
+    msgbox(R14Tr5_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R14Tr5_Intro{""}
+text R14Tr5_Lose{""}
+text R14Tr5_PostBattle{""}
+
+script Route14_Tr6_NinjaBoy {
+    trainerbattle_single(TRAINER_R14_TR6_NINJABOY, R14Tr6_Intro, R14Tr6_Lose)
+    msgbox(R14Tr6_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R14Tr6_Intro{""}
+text R14Tr6_Lose{""}
+text R14Tr6_PostBattle{""}
+
+script Route14_Tr7_Rocker {
+    trainerbattle_single(TRAINER_R14_TR7_ROCKER, R14Tr7_Intro, R14Tr7_Lose)
+    msgbox(R14Tr7_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R14Tr7_Intro{""}
+text R14Tr7_Lose{""}
+text R14Tr7_PostBattle{""}
+
+script Route14_Tr8_Maniac {
+    trainerbattle_single(TRAINER_R14_TR8_MANIAC, R14Tr8_Intro, R14Tr8_Lose)
+    msgbox(R14Tr8_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R14Tr8_Intro{""}
+text R14Tr8_Lose{""}
+text R14Tr8_PostBattle{""}

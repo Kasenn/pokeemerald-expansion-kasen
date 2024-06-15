@@ -13,7 +13,7 @@ Coralgrove_State_1:
 Coralgrove_State_2:
 	setvar VAR_CORALGROVE_STATE, 1
 	setflag FLAG_CORAL_FLAG_1
-	setflag FLAG_UNUSED_0x267_CG_HIDEGHOST
+	setflag FLAG_0x267_CG_HIDEGHOST
 	hideobjectat 11, MAP_CORALGROVE_CITY
 	goto Coralgrove_State_1
 
@@ -53,7 +53,7 @@ CoralShowGhost::
 
 CoralShowGhost_1:
 	setvar VAR_CORALGROVE_STATE, 3
-	clearflag FLAG_UNUSED_0x267_CG_HIDEGHOST
+	clearflag FLAG_0x267_CG_HIDEGHOST
 	showobjectat 11, MAP_CORALGROVE_CITY
 	return
 
@@ -72,7 +72,7 @@ CoralHideGhost_2:
 	waitmessage
 	closemessage
 	fadescreenspeed FADE_TO_WHITE, 2
-	setflag FLAG_UNUSED_0x267_CG_HIDEGHOST
+	setflag FLAG_0x267_CG_HIDEGHOST
 	setvar VAR_CORALGROVE_STATE, 4
 	hideobjectat 11, MAP_CORALGROVE_CITY
 	delay 30

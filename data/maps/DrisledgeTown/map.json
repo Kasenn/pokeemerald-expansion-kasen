@@ -2,10 +2,10 @@
   "id": "MAP_DRISLEDGE_TOWN",
   "name": "DrisledgeTown",
   "layout": "LAYOUT_DRISLEDGE_TOWN",
-  "music": "MUS_ROUTE113",
+  "music": "MUS_SOOTOPOLIS",
   "region_map_section": "MAPSEC_TOWN_WIP9",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
+  "weather": "WEATHER_RAIN",
   "map_type": "MAP_TYPE_TOWN",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -15,8 +15,13 @@
   "connections": [
     {
       "map": "MAP_ROUTE23",
-      "offset": -131,
+      "offset": -129,
       "direction": "down"
+    },
+    {
+      "map": "MAP_ROUTE22",
+      "offset": 8,
+      "direction": "up"
     }
   ],
   "object_events": [

@@ -1,12 +1,12 @@
 mapscripts Pearlwood_House3_MapScripts{}
 
 script Pearlwood_House3_OldGuy{
-    if(!flag(FLAG_UNUSED_PEARLWOOD_POTION_SAMPLE)){
+    if(!flag(FLAG_PEARLWOOD_POTION_SAMPLE)){
         lock
         faceplayer
         msgbox(Pearlwood_House3_OldGuy_Text)
         giveitem(ITEM_POTION, 1)
-        setflag(FLAG_UNUSED_PEARLWOOD_POTION_SAMPLE)
+        setflag(FLAG_PEARLWOOD_POTION_SAMPLE)
         release
     }
     else{

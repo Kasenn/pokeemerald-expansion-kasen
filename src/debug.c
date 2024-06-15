@@ -1294,6 +1294,9 @@ static u8 Debug_CheckToggleFlags(u8 id)
                 FlagGet(FLAG_VISITED_KAOLISLE) &&
                 FlagGet(FLAG_VISITED_ROCKLIFFE) &&
                 FlagGet(FLAG_VISITED_SANDSTONE_CITY) &&
+                FlagGet(FLAG_VISITED_FISHING_VILLAGE) &&
+                FlagGet(FLAG_VISITED_DRISLEDGE) &&
+                FlagGet(FLAG_VISITED_AMBEROCK) &&
                 FlagGet(FLAG_LANDMARK_BATTLE_FRONTIER);
             break;
         case DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_BADGES_ALL:
@@ -1916,7 +1919,10 @@ static void DebugAction_Util_Fly(u8 taskId)
     FlagSet(FLAG_VISITED_MARIGORGE);
     FlagSet(FLAG_VISITED_KAOLISLE);
     FlagSet(FLAG_VISITED_ROCKLIFFE);
+    FlagSet(FLAG_VISITED_FISHING_VILLAGE);
+    FlagSet(FLAG_VISITED_DRISLEDGE);
     FlagSet(FLAG_VISITED_SANDSTONE_CITY);
+    FlagSet(FLAG_VISITED_AMBEROCK);
     Debug_DestroyMenu_Full(taskId);
     SetMainCallback2(CB2_OpenFlyMap);
 }
@@ -2831,6 +2837,9 @@ static void DebugAction_FlagsVars_ToggleFlyFlags(u8 taskId)
         FlagClear(FLAG_VISITED_SHORESLATE);
         FlagClear(FLAG_VISITED_MARIGORGE);
         FlagClear(FLAG_VISITED_KAOLISLE);
+        FlagClear(FLAG_VISITED_FISHING_VILLAGE);
+        FlagClear(FLAG_VISITED_DRISLEDGE);
+        FlagClear(FLAG_VISITED_AMBEROCK);
         FlagClear(FLAG_VISITED_ROCKLIFFE);
         FlagClear(FLAG_VISITED_SANDSTONE_CITY);
     }
@@ -2863,7 +2872,10 @@ static void DebugAction_FlagsVars_ToggleFlyFlags(u8 taskId)
         FlagSet(FLAG_VISITED_MARIGORGE);
         FlagSet(FLAG_VISITED_KAOLISLE);
         FlagSet(FLAG_VISITED_ROCKLIFFE);
+        FlagSet(FLAG_VISITED_FISHING_VILLAGE);
+        FlagSet(FLAG_VISITED_DRISLEDGE);
         FlagSet(FLAG_VISITED_SANDSTONE_CITY);
+        FlagSet(FLAG_VISITED_AMBEROCK);
     }
 }
 

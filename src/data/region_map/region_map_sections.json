@@ -874,7 +874,7 @@
     },
     {
       "map_section": "MAPSEC_TOWN_WIP5",
-      "name": "WIP TOWN 5",
+      "name": "AMBEROCK TOWN",
       "x": 1,
       "y": 14,
       "width": 1,
@@ -882,7 +882,7 @@
     },
     {
       "map_section": "MAPSEC_TOWN_WIP6",
-      "name": "WIP TOWN 6",
+      "name": "FISHING VILLAGE",
       "x": 1,
       "y": 8,
       "width": 1,
@@ -906,7 +906,7 @@
     },
     {
       "map_section": "MAPSEC_TOWN_WIP8",
-      "name": "AMBERPINE TOWN",
+      "name": "CRYSTALPINE TOWN",
       "x": 10,
       "y": 2,
       "width": 1,
@@ -914,7 +914,7 @@
     },
     {
       "map_section": "MAPSEC_TOWN_WIP9",
-      "name": "WIP TOWN 9",
+      "name": "DRISLEDGE TOWN",
       "x": 6,
       "y": 7,
       "width": 1,
@@ -1013,6 +1013,22 @@
       "name": "ROUTE 2",
       "x": 16,
       "y": 8,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_HIDDENGROTTO_ROUTE14",
+      "name": "HIDDEN GROTTO",
+      "x": 2,
+      "y": 11,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_BERRY_FIELDS",
+      "name": "BERRY FIELDS",
+      "x": 1,
+      "y": 12,
       "width": 1,
       "height": 1
     }

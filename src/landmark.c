@@ -46,7 +46,7 @@ static const u8 LandmarkName_LanettesHouse[] = _("MUD SCIENTIST");
 static const u8 LandmarkName_FieryPath[] = _("FIERY PATH");
 static const u8 LandmarkName_JaggedPass[] = _("JAGGED PASS");
 static const u8 LandmarkName_SkyPillar[] = _("SKY PILLAR");
-static const u8 LandmarkName_BerryMastersHouse[] = _("BERRY MASTER'S HOUSE");
+static const u8 LandmarkName_BerryMastersHouse[] = _("BERRY FIELDS");
 static const u8 LandmarkName_IslandCave[] = _("ISLAND CAVE");
 static const u8 LandmarkName_DesertRuins[] = _("DESERT RUINS");
 static const u8 LandmarkName_ScorchedSlab[] = _("SCORCHED SLAB");
@@ -397,12 +397,11 @@ static const struct LandmarkList sLandmarkLists[] =
     {MAPSEC_NEWROUTE_8, 0, Landmarks_Route8_0},
     {MAPSEC_NEWROUTE_11, 1, Landmarks_Route11_0},
     {MAPSEC_NEWROUTE_12, 0, Landmarks_Route12_0},
+    {MAPSEC_NEWROUTE_15, 3, Landmarks_Route123_0},
     {MAPSEC_NEWROUTE_28, 0, Landmarks_Route28_0},
     {MAPSEC_ROUTE_104, 1, Landmarks_Route104_1},
     {MAPSEC_ROUTE_105, 0, Landmarks_Route105_0},
     {MAPSEC_ROUTE_106, 1, Landmarks_Route106_1},
-    {MAPSEC_ROUTE_108, 0, Landmarks_Route108_0},
-    {MAPSEC_ROUTE_109, 0, Landmarks_Route109_0},
     {MAPSEC_ROUTE_110, 0, Landmarks_Route110_0},
     {MAPSEC_ROUTE_110, 1, Landmarks_Route110_1},
     {MAPSEC_ROUTE_110, 2, Landmarks_Route110_2},
@@ -427,7 +426,6 @@ static const struct LandmarkList sLandmarkLists[] =
     {MAPSEC_ROUTE_120, 2, Landmarks_Route120_2},
     {MAPSEC_ROUTE_121, 2, Landmarks_Route121_2},
     {MAPSEC_ROUTE_122, 0, Landmarks_Route122_0},
-    {MAPSEC_ROUTE_123, 0, Landmarks_Route123_0},
     {MAPSEC_ROUTE_122, 1, Landmarks_Route122_0},
     {MAPSEC_ROUTE_124, 7, Landmarks_Route124_7},
     {MAPSEC_ROUTE_125, 2, Landmarks_Route125_2},

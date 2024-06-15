@@ -47,18 +47,18 @@
 #define VAR_OBJ_GFX_ID_F           0x401F
 
 // general purpose vars
-#define VAR_RECYCLE_GOODS                                0x4020
+#define VAR_UNUSED4020                                0x4020
 #define VAR_REPEL_STEP_COUNT                             0x4021
 #define VAR_ICE_STEP_COUNT                               0x4022
 #define VAR_STARTER_MON                                  0x4023 // 0=Treecko, 1=Torchic, 2=Mudkip
 #define VAR_MIRAGE_RND_H                                 0x4024
 #define VAR_MIRAGE_RND_L                                 0x4025
-#define VAR_SECRET_BASE_MAP                              0x4026
+#define VAR_UNUSED4026                              0x4026
 #define VAR_CYCLING_ROAD_RECORD_COLLISIONS               0x4027
 #define VAR_CYCLING_ROAD_RECORD_TIME_L                   0x4028
 #define VAR_CYCLING_ROAD_RECORD_TIME_H                   0x4029
 #define VAR_FRIENDSHIP_STEP_COUNTER                      0x402A
-#define VAR_POISON_STEP_COUNTER                          0x402B
+#define VAR_UNUSED402B                          0x402B
 #define VAR_RESET_RTC_ENABLE                             0x402C
 #define VAR_ENIGMA_BERRY_AVAILABLE                       0x402D
 #define VAR_WONDER_NEWS_STEP_COUNTER                     0x402E
@@ -106,42 +106,42 @@
 #define VAR_CORALGROVE_STATE                        0x4056 // Used for Coralgrove City events
 #define VAR_PETALBURG_CITY_STATE                         0x4057
 #define VAR_SLATEPORT_CITY_STATE                         0x4058
-#define VAR_CORALGROVE_ELEVATOR                          0x4059 // Unused Var
+#define VAR_CORALGROVE_ELEVATOR                          0x4059
 #define VAR_RUSTBORO_CITY_STATE                          0x405A
 #define VAR_WIND_SPEED                           0x405B // used to set the wind speed
 #define VAR_DESERT_BYPASS                          0x405C // used to deal with triggers around desert
 #define VAR_MOSSDEEP_CITY_STATE                          0x405D
 #define VAR_SOOTOPOLIS_CITY_STATE                        0x405E
-#define VAR_SANDSTONE_GYM_CHECKPOINTS                       0x405F // Unused Var
+#define VAR_SANDSTONE_GYM_CHECKPOINTS                       0x405F
 #define VAR_ROUTE101_STATE                               0x4060
-#define VAR_TEMP_DESERTRUINSFOUND                               0x4061 // Unused Var, UNUSED
-#define VAR_POKERANCH                              0x4062 // Unused Var
+#define VAR_TEMP_DESERTRUINSFOUND                               0x4061
+#define VAR_POKERANCH                              0x4062
 #define VAR_ROUTE104_STATE                               0x4063
-#define VAR_ALDELEAF_GYM_STEPS                               0x4064 // Unused Var
-#define VAR_ALDELEAF_GYM_STATE                              0x4065 // Unused Var
+#define VAR_ALDELEAF_GYM_STEPS                               0x4064
+#define VAR_ALDELEAF_GYM_STATE                              0x4065
 #define VAR_ALDELEAF_HOUSE                               0x4066 // used for the aldeleaf mimikyu event
 #define VAR_ROUTE5_TRAINERCOUNT                               0x4067 // used to count the defeated trainers on route 5
-#define VAR_FCCAVE                               0x4068 // Unused Var
+#define VAR_FCCAVE                               0x4068 
 #define VAR_ROUTE110_STATE                               0x4069
 #define VAR_WEIRDCAVE_CORRECTSTEPS                               0x406A // Used to track the amount of correct steps in weird cave
 #define VAR_WEIRDCAVEROCKFORMATION                               0x406B // used to rotate the rock in weird cave Var
 #define VAR_WEIRDCAVE_PART2                               0x406C // used to set bgm after picking up the stone sphere
-#define VAR_CASTELIACONES_BOUGHT                               0x406D // Unused Var
-#define VAR_SANDSTONEPORYGON_STATE                               0x406E // Unused Var
+#define VAR_CASTELIACONES_BOUGHT                               0x406D // 
+#define VAR_SANDSTONEPORYGON_STATE                               0x406E // 
 #define VAR_ROUTE116_STATE                               0x406F
 #define VAR_DESERT_TRAINERS                               0x4070 // tracks beaten trainers at desert
 #define VAR_ROUTE118_STATE                               0x4071
 #define VAR_ROUTE119_STATE                               0x4072
-#define VAR_DEBUG                               0x4073 // Unused Var
+#define VAR_DEBUG                               0x4073 //
 #define VAR_ROUTE121_STATE                               0x4074
 #define VAR_WW_GROTTO                               0x4075 // Used to determine windy woods grotto outcome
 #define VAR_ROUTE7_GROTTO                               0x4076 // Used to determine route 7 grotto outcome
-#define VAR_RELIC_SOLD                               0x4077 // Unused Var
-#define VAR_R11_TRAINERS                               0x4078 // Unused Var
-#define VAR_GYM_TELEPORT                               0x4079 // Unused Var
-#define VAR_TOWER_PARTNER                               0x407A // Unused Var
+#define VAR_RELIC_SOLD                               0x4077 // 
+#define VAR_R11_TRAINERS                               0x4078 // 
+#define VAR_GYM_TELEPORT                               0x4079 //
+#define VAR_TOWER_PARTNER                               0x407A // 
 #define VAR_ROUTE128_STATE                               0x407B
-#define VAR_RANCH_AMPHAROS                               0x407C // Unused Var
+#define VAR_RANCH_AMPHAROS                               0x407C //
 #define VAR_RIVAL_AROUND_SANDSTONE                               0x407D
 #define VAR_MUD_REWARD_1                                 0x407E // MUD REWARD
 #define VAR_MUD_REWARD_2                                 0x407F // MUD REWARD
@@ -156,13 +156,13 @@
 #define VAR_CONTEST_TYPE                                 0x4088
 #define VAR_SECRET_BASE_INITIALIZED                      0x4089
 #define VAR_CONTEST_PRIZE_PICKUP                         0x408A
-#define VAR_BADGES_OBTAINED                                0x408B // Unused Var
+#define VAR_BADGES_OBTAINED                                0x408B 
 #define VAR_LITTLEROOT_HOUSES_STATE_BRENDAN              0x408C
 #define VAR_LITTLEROOT_RIVAL_STATE                       0x408D
 #define VAR_BOARD_BRINEY_BOAT_STATE                      0x408E
 #define VAR_DEVON_CORP_3F_STATE                          0x408F
 #define VAR_BRINEY_HOUSE_STATE                           0x4090
-#define VAR_MUD_REWARD_9                                0x4091 // Unused Var
+#define VAR_MUD_REWARD_9                                0x4091 
 #define VAR_LITTLEROOT_INTRO_STATE                       0x4092
 #define VAR_MAUVILLE_GYM_STATE                           0x4093
 #define VAR_LILYCOVE_MUSEUM_2F_STATE                     0x4094
@@ -172,20 +172,20 @@
 #define VAR_PETALBURG_WOODS_STATE                        0x4098
 #define VAR_LILYCOVE_CONTEST_LOBBY_STATE                 0x4099
 #define VAR_RUSTURF_TUNNEL_STATE                         0x409A
-#define VAR_UNUSED_0x409B                                0x409B // Unused Var
+#define VAR_ROUTE14_GROTTO                                0x409B 
 #define VAR_ELITE_4_STATE                                0x409C
-#define VAR_UNUSED_0x409D                                0x409D // Unused Var
+#define VAR_UNUSED_0x409D                                0x409D
 #define VAR_MOSSDEEP_SPACE_CENTER_STAIR_GUARD_STATE      0x409E
 #define VAR_MOSSDEEP_SPACE_CENTER_STATE                  0x409F
 #define VAR_SLATEPORT_HARBOR_STATE                       0x40A0
-#define VAR_UNUSED_0x40A1                                0x40A1 // Unused var
+#define VAR_UNUSED_0x40A1                                0x40A1
 #define VAR_SEAFLOOR_CAVERN_STATE                        0x40A2
 #define VAR_CABLE_CAR_STATION_STATE                      0x40A3
 #define VAR_SAFARI_ZONE_STATE                            0x40A4  // 0: In or out of SZ, 1: Player exiting SZ, 2: Player entering SZ
 #define VAR_TRICK_HOUSE_BEING_WATCHED_STATE              0x40A5
 #define VAR_TRICK_HOUSE_FOUND_TRICK_MASTER               0x40A6
 #define VAR_TRICK_HOUSE_ENTRANCE_STATE                   0x40A7
-#define VAR_FANCLUB_TRADE                                0x40A8 // Unused Var
+#define VAR_FANCLUB_TRADE                                0x40A8 
 #define VAR_CYCLING_CHALLENGE_STATE                      0x40A9
 #define VAR_SLATEPORT_MUSEUM_1F_STATE                    0x40AA
 #define VAR_TRICK_HOUSE_PUZZLE_1_STATE                   0x40AB
@@ -201,10 +201,10 @@
 #define VAR_TRICK_HOUSE_ENTER_FROM_CORRIDOR              0x40B5
 #define VAR_MUD_REWARD_10                                0x40B6 // MUD_REWARD
 #define VAR_SLATEPORT_FAN_CLUB_STATE                     0x40B7
-#define VAR_ZYGARDE_CELLS                                0x40B8 // Unused Var   VAR_ZYGARDE_CELLS
+#define VAR_ZYGARDE_CELLS                                0x40B8 //  VAR_ZYGARDE_CELLS
 #define VAR_MT_PYRE_STATE                                0x40B9
 #define VAR_NEW_MAUVILLE_STATE                           0x40BA
-#define VAR_POKECENTER_TRAINING                                0x40BB // Unused Var
+#define VAR_POKECENTER_TRAINING                                0x40BB 
 #define VAR_BRAVO_TRAINER_BATTLE_TOWER_ON                0x40BC
 #define VAR_JAGGED_PASS_ASH_WEATHER                      0x40BD
 #define VAR_GLASS_WORKSHOP_STATE                         0x40BE
@@ -236,8 +236,8 @@
 #define VAR_SOOTOPOLIS_WALLACE_STATE                     0x40D8
 #define VAR_HAS_TALKED_TO_SEAFLOOR_CAVERN_ENTRANCE_GRUNT 0x40D9
 #define VAR_REGISTER_BIRCH_STATE                         0x40DA
-#define VAR_UNUSED_0x40DB                                0x40DB // Unused Var
-#define VAR_UNUSED_0x40DC                                0x40DC // Unused Var
+#define VAR_UNUSED_0x40DB                                0x40DB 
+#define VAR_UNUSED_0x40DC                                0x40DC 
 #define VAR_GIFT_PICHU_SLOT                              0x40DD
 #define VAR_FIRST_MON                                0x40DE // Var is written to, but never read
 #define VAR_SECOND_MON                                0x40DF // Var is written to, but never read
@@ -267,12 +267,12 @@
 #define VAR_HEARTSCALEMOVE                                0x40F7 // Used to determine the move the woman in hotel asks to see
 #define VAR_KAOLISLE_HOTEL_STATE                              0x40F8 // used for an event at hotel
 #define VAR_BPBEAUTY_STATE                                0x40F9 // States for the heart scale beauty
-#define VAR_HEARTSCALEMOVE2                                0x40FA // Unused Var
-#define VAR_SPHERES_FOUND                                0x40FB // Unused Var
-#define VAR_UNUSED_0x40FC                                0x40FC // Unused Var
-#define VAR_UNUSED_0x40FD                                0x40FD // Unused Var
-#define VAR_UNUSED_0x40FE                                0x40FE // Unused Var
-#define VAR_UNUSED_VAR                                0x40FF // Unused Var
+#define VAR_HEARTSCALEMOVE2                                0x40FA
+#define VAR_SPHERES_FOUND                                0x40FB
+#define VAR_ROUTE14_ROCKET_EVENT                                0x40FC
+#define VAR_UNUSED_0x40FD                                0x40FD // 
+#define VAR_UNUSED_0x40FE                                0x40FE // 
+#define VAR_UNUSED_VAR                                0x40FF // 
 
 #define VARS_END                                         0x40FF
 #define VARS_COUNT                                       (VARS_END - VARS_START + 1)

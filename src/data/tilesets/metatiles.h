@@ -267,3 +267,6 @@ const u16 gMetatileAttributes_Fortree2[] = INCBIN_U16("data/tilesets/secondary/f
 
 const u16 gMetatiles_Library[] = INCBIN_U16("data/tilesets/secondary/library/metatiles.bin");
 const u16 gMetatileAttributes_Library[] = INCBIN_U16("data/tilesets/secondary/library/metatile_attributes.bin");
+
+const u16 gMetatiles_Drisledge[] = INCBIN_U16("data/tilesets/secondary/drisledge/metatiles.bin");
+const u16 gMetatileAttributes_Drisledge[] = INCBIN_U16("data/tilesets/secondary/drisledge/metatile_attributes.bin");

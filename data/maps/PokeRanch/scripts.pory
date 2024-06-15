@@ -298,7 +298,7 @@ script PokeRanch_MareepTrigger{
     setobjectxy(19, 44, 8)
     showobjectat(19, MAP_POKE_RANCH)
     delay(50)
-    if(flag(FLAG_UNUSED_WW_ENDEVENT)){
+    if(flag(FLAG_WW_ENDEVENT)){
         msgbox(RanchGrunt1, MSGBOX_DEFAULT)
         waitmessage
         closemessage

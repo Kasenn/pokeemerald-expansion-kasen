@@ -1,7 +1,7 @@
 
 mapscripts AldeleafPokeCenter1F_MapScripts{
 	MAP_SCRIPT_ON_TRANSITION: AldeleafPokeCenter1F_OnTransition
-	MAP_SCRIPT_ON_RESUME: CableClub_OnResume
+	// MAP_SCRIPT_ON_RESUME: CableClub_OnResume
 }
 
 script AldeleafPokeCenter1F_OnTransition{

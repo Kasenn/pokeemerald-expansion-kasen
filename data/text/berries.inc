@@ -91,7 +91,7 @@ LilycoveCity_Text_PokeblocksSuitPokemon:
 	.string "{POKEBLOCK}S perfectly suit POKéMON.$"
 
 Route123_BerryMastersHouse_Text_YoureDeservingOfBerry:
-	.string "You may call me the berry master.\p"
+	.string "You may call me the Berry Master.\p"
 	.string "I dream of filling the world with\n"
 	.string "beautiful flowers, so I raise berries\l"
 	.string "and hand them out to everyone.\p"
@@ -114,9 +114,7 @@ Route123_BerryMastersHouse_Text_DoneForToday:
 Route123_BerryMastersHouse_Text_HeardAGoodSayingLately:
 	.string "The way my husband grows berries,\n"
 	.string "oh, he's the best in the world.\p"
-	.string "He makes me proud, that he does.\p"
-	.string "Incidentally, child, have you heard\n"
-	.string "a good saying lately?$"
+	.string "He makes me proud, that he does.$"
 
 Route123_BerryMastersHouse_Text_InspirationalTakeThis:
 	.string "Ah! What a remarkable saying!\n"

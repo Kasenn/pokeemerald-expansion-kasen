@@ -259,6 +259,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example3;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example4;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example5;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Acerola;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Iris;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Volkner;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Jasmine;
@@ -533,6 +534,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_EXAMPLE2] =                 &gObjectEventGraphicsInfo_Example2,
     [OBJ_EVENT_GFX_EXAMPLE3] =                 &gObjectEventGraphicsInfo_Example3,
     [OBJ_EVENT_GFX_ROCKET_M] =                 &gObjectEventGraphicsInfo_Example4,
+    [OBJ_EVENT_GFX_ACEROLA] =                 &gObjectEventGraphicsInfo_Acerola,
     [OBJ_EVENT_GFX_EXAMPLE5] =                 &gObjectEventGraphicsInfo_Example5,
     [OBJ_EVENT_GFX_IRIS] =                     &gObjectEventGraphicsInfo_Iris,
     [OBJ_EVENT_GFX_VOLKNER] =                     &gObjectEventGraphicsInfo_Volkner,

@@ -64,11 +64,14 @@ Update3_19:
 	compare VAR_DEBUG, 4
 	goto_if_eq Update3_29
 Update3_28:
+	compare VAR_DEBUG, 5
+	goto_if_eq Update3_41
+Update3_40:
 	call UpdateItemCheck
 	msgbox FlagsAndVarsUpdated2, MSGBOX_YESNO
 	compare VAR_RESULT, TRUE
-	goto_if_eq Update3_41
-Update3_40:
+	goto_if_eq Update3_52
+Update3_51:
 	closemessage
 	release
 	end
@@ -104,13 +107,13 @@ Update3_37:
 	goto_if_eq Update3_49
 Update3_48:
 	checktrainerflag TRAINER_GABBY_AND_TY_1
-	goto_if 1, Update3_55
-Update3_54:
-	checktrainerflag TRAINER_MARY
 	goto_if 1, Update3_58
 Update3_57:
+	checktrainerflag TRAINER_MARY
+	goto_if 1, Update3_61
+Update3_60:
 	checktrainerflag TRAINER_KAOLGYM_CLAY
-	goto_if 1, Update3_60
+	goto_if 1, Update3_63
 	goto Update3_1
 
 Update3_5:
@@ -132,13 +135,13 @@ Update3_22:
 	clearflag FLAG_UNUSED_497
 	clearflag FLAG_UNUSED_499
 	clearflag FLAG_UNUSED_49B
-	clearflag FLAG_UNUSED_74
+	clearflag FLAG_R14_ITEM3
 	goto_if_set FLAG_UNUSED_493, Update3_35
 Update3_34:
 	goto_if_set FLAG_UNUSED_494, Update3_46
 Update3_45:
-	goto_if_set FLAG_UNUSED_495, Update3_52
-Update3_51:
+	goto_if_set FLAG_UNUSED_495, Update3_55
+Update3_54:
 	setvar VAR_DEBUG, 3
 	goto Update3_10
 
@@ -188,7 +191,16 @@ Update3_38:
 	goto Update3_37
 
 Update3_41:
-	warp MAP_CORALGROVE_CITY, 26, 44
+	setberrytree BERRY_TREE_ROUTE_123_GREPA_5, ITEM_TO_BERRY ( ITEM_GREPA_BERRY ), BERRY_STAGE_BERRIES
+	setberrytree BERRY_TREE_ROUTE_123_POMEG_5, ITEM_TO_BERRY ( ITEM_POMEG_BERRY ), BERRY_STAGE_BERRIES
+	setberrytree BERRY_TREE_ROUTE_123_QUALOT_5, ITEM_TO_BERRY ( ITEM_QUALOT_BERRY ), BERRY_STAGE_BERRIES
+	setberrytree BERRY_TREE_ROUTE_123_GREPA_6, ITEM_TO_BERRY ( ITEM_GREPA_BERRY ), BERRY_STAGE_BERRIES
+	setberrytree BERRY_TREE_ROUTE_123_POMEG_6, ITEM_TO_BERRY ( ITEM_POMEG_BERRY ), BERRY_STAGE_BERRIES
+	setberrytree BERRY_TREE_ROUTE_123_QUALOT_6, ITEM_TO_BERRY ( ITEM_QUALOT_BERRY ), BERRY_STAGE_BERRIES
+	setberrytree BERRY_TREE_ROUTE_123_GREPA_7, ITEM_TO_BERRY ( ITEM_GREPA_BERRY ), BERRY_STAGE_BERRIES
+	setberrytree BERRY_TREE_ROUTE_123_POMEG_7, ITEM_TO_BERRY ( ITEM_POMEG_BERRY ), BERRY_STAGE_BERRIES
+	setberrytree BERRY_TREE_ROUTE_123_QUALOT_7, ITEM_TO_BERRY ( ITEM_QUALOT_BERRY ), BERRY_STAGE_BERRIES
+	setvar VAR_DEBUG, 6
 	goto Update3_40
 
 Update3_43:
@@ -206,18 +218,22 @@ Update3_49:
 	goto Update3_48
 
 Update3_52:
-	clearflag FLAG_UNUSED_495
+	warp MAP_CORALGROVE_CITY, 26, 44
 	goto Update3_51
 
 Update3_55:
-	setvar VAR_BADGES_OBTAINED, 1
+	clearflag FLAG_UNUSED_495
 	goto Update3_54
 
 Update3_58:
-	setvar VAR_BADGES_OBTAINED, 2
+	setvar VAR_BADGES_OBTAINED, 1
 	goto Update3_57
 
-Update3_60:
+Update3_61:
+	setvar VAR_BADGES_OBTAINED, 2
+	goto Update3_60
+
+Update3_63:
 	setvar VAR_BADGES_OBTAINED, 3
 	goto Update3_1
 

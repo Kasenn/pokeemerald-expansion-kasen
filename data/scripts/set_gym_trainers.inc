@@ -104,7 +104,7 @@ SootopolisCity_Gym_SetGymTrainers::
 	settrainerflag TRAINER_R6_TR7_KINDLER
 	settrainerflag TRAINER_R8_TR1_PARASOLLADY
 	settrainerflag TRAINER_R8_TR2_SRJR
-	settrainerflag TRAINER_BETHANY
+	settrainerflag TRAINER_R15_TR8_BUGCATCHER2
 	settrainerflag TRAINER_ANNIKA
 	settrainerflag TRAINER_R5_TR8_YOUNGSTER
 	return

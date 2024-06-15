@@ -67,7 +67,7 @@
       "width": 80,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mossdeep",
+      "secondary_tileset": "gTileset_Drisledge",
       "border_filepath": "data/layouts/MossdeepCity/border.bin",
       "blockdata_filepath": "data/layouts/MossdeepCity/map.bin"
     },
@@ -6154,7 +6154,7 @@
     {
       "id": "LAYOUT_BERRY_FIELDS",
       "name": "BerryFields_Layout",
-      "width": 40,
+      "width": 45,
       "height": 31,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Fortree2",
@@ -6167,7 +6167,7 @@
       "width": 40,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fortree2",
+      "secondary_tileset": "gTileset_Drisledge",
       "border_filepath": "data/layouts/FishingVillage/border.bin",
       "blockdata_filepath": "data/layouts/FishingVillage/map.bin"
     },
@@ -6177,7 +6177,7 @@
       "width": 160,
       "height": 44,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "secondary_tileset": "gTileset_Drisledge",
       "border_filepath": "data/layouts/Route23/border.bin",
       "blockdata_filepath": "data/layouts/Route23/map.bin"
     },
@@ -6187,7 +6187,7 @@
       "width": 40,
       "height": 32,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "secondary_tileset": "gTileset_Drisledge",
       "border_filepath": "data/layouts/DrisledgeTown/border.bin",
       "blockdata_filepath": "data/layouts/DrisledgeTown/map.bin"
     },
@@ -6200,6 +6200,136 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/FishVIllageFIller/border.bin",
       "blockdata_filepath": "data/layouts/FishVIllageFIller/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE22",
+      "name": "Route22_Layout",
+      "width": 40,
+      "height": 80,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Drisledge",
+      "border_filepath": "data/layouts/Route22/border.bin",
+      "blockdata_filepath": "data/layouts/Route22/map.bin"
+    },
+    {
+      "id": "LAYOUT_AMBEROCK_TOWN",
+      "name": "AmberockTown_Layout",
+      "width": 55,
+      "height": 45,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/AmberockTown/border.bin",
+      "blockdata_filepath": "data/layouts/AmberockTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE14_GROTTO",
+      "name": "Route14_Grotto_Layout",
+      "width": 13,
+      "height": 23,
+      "primary_tileset": "gTileset_SecretBase",
+      "secondary_tileset": "gTileset_SecretBaseShrub",
+      "border_filepath": "data/layouts/Route14_Grotto/border.bin",
+      "blockdata_filepath": "data/layouts/Route14_Grotto/map.bin"
+    },
+    {
+      "id": "LAYOUT_BERRY_FIELD_HOUSE",
+      "name": "BerryFieldHouse_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/BerryFieldHouse/border.bin",
+      "blockdata_filepath": "data/layouts/BerryFieldHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_FISHING_VILLAGE_HOUSE1",
+      "name": "FishingVillage_House1_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FishingVillage_House1/border.bin",
+      "blockdata_filepath": "data/layouts/FishingVillage_House1/map.bin"
+    },
+    {
+      "id": "LAYOUT_FISHING_VILLAGE_HOUSE2",
+      "name": "FishingVillage_House2_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FishingVillage_House2/border.bin",
+      "blockdata_filepath": "data/layouts/FishingVillage_House2/map.bin"
+    },
+    {
+      "id": "LAYOUT_FISHING_VILLAGE_HOUSE3",
+      "name": "FishingVillage_House3_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FishingVillage_House3/border.bin",
+      "blockdata_filepath": "data/layouts/FishingVillage_House3/map.bin"
+    },
+    {
+      "id": "LAYOUT_DRISLEDGE_POKECENTER_1F",
+      "name": "Drisledge_Pokecenter_1F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Drisledge_Pokecenter_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Drisledge_Pokecenter_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_DRISLEDGE_POKECENTER_2F",
+      "name": "Drisledge_Pokecenter_2F_Layout",
+      "width": 13,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Drisledge_Pokecenter_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Drisledge_Pokecenter_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_DRISLEDGE_MART",
+      "name": "Drisledge_Mart_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/Drisledge_Mart/border.bin",
+      "blockdata_filepath": "data/layouts/Drisledge_Mart/map.bin"
+    },
+    {
+      "id": "LAYOUT_DRISLEDGE_HOUSE1",
+      "name": "Drisledge_House1_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Drisledge_House1/border.bin",
+      "blockdata_filepath": "data/layouts/Drisledge_House1/map.bin"
+    },
+    {
+      "id": "LAYOUT_DRISLEDGE_HOUSE2",
+      "name": "Drisledge_House2_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Drisledge_House2/border.bin",
+      "blockdata_filepath": "data/layouts/Drisledge_House2/map.bin"
+    },
+    {
+      "id": "LAYOUT_DRISLEDGE_GYM",
+      "name": "Drisledge_Gym_Layout",
+      "width": 40,
+      "height": 50,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Drisledge_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/Drisledge_Gym/map.bin"
     }
   ]
 }
