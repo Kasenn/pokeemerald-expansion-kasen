@@ -1,0 +1,7 @@
+mapscripts FishingVillage_House3_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: FishingVillageRespawn
+}
+
+script FishingVillageRespawn{
+    setrespawn(HEAL_LOCATION_FISHING_VILLAGE)
+}

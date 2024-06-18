@@ -10,6 +10,7 @@ script R15_FlagControl{
             setflag(FLAG_TEMP_2)
             setflag(FLAG_TEMP_1)
         case 6:
+        case 7:
             setflag(FLAG_TEMP_4)
             setflag(FLAG_TEMP_3)
             setflag(FLAG_TEMP_2)
@@ -17,7 +18,7 @@ script R15_FlagControl{
     }
 }
 script R15_ClearBlockade{
-    if(var(VAR_ROUTE14_ROCKET_EVENT) == 6){
+    if(var(VAR_ROUTE14_ROCKET_EVENT) >= 6){
         setmetatile(34, 44, 0x001, FALSE)
         setmetatile(35, 44, 0x001, FALSE)
         setmetatile(34, 45, 0x001, FALSE)
@@ -101,7 +102,7 @@ script Route15_Sign1{
     msgbox(Route15_Sign1_Text, MSGBOX_SIGN)
 }
 text Route15_Sign1_Text{
-    ""
+    "Move Reminder's House"
 }
 script Route15_Sign2{
     msgbox(Route15_Sign2_Text, MSGBOX_SIGN)
@@ -131,14 +132,14 @@ text R15_RockBlock_Text{
 script R15_RR_Escapes{
     lock
     setvar(VAR_ROUTE14_ROCKET_EVENT, 4)
-    turnobject(19, DIR_NORTH)
+    turnobject(18, DIR_NORTH)
     playse(SE_PIN)
-    applymovement(19, Common_Movement_ExclamationMark)
+    applymovement(18, Common_Movement_ExclamationMark)
     waitmovement(0)
     delay(48)
-    applymovement(19, R15_GruntEscapes)
+    applymovement(18, R15_GruntEscapes)
     waitmovement(0)
-    removeobject(19)
+    removeobject(18)
     removeobject(23)
     release
 }
@@ -151,63 +152,126 @@ script Route15_Tr1_Birdkeeper {
     msgbox(R15Tr1_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text R15Tr1_Intro{""}
-text R15Tr1_Lose{""}
-text R15Tr1_PostBattle{""}
+text R15Tr1_Intro{
+    "My Pokémon have so much room to\n"
+    "move here.\l"
+    "There's nowhere your Pokémon can hide!"
+}
+text R15Tr1_Lose{
+    "We got too ambitious…"
+}
+text R15Tr1_PostBattle{
+    "My Pokémon have been scouting the\n"
+    "nearby trees.\p"
+    "They seem to be drawn towards\n"
+    "something in the southeast."
+}
 
 script Route15_Tr2_RangerF {
     trainerbattle_single(TRAINER_R15_TR2_RANGERF, R15Tr2_Intro, R15Tr2_Lose)
     msgbox(R15Tr2_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text R15Tr2_Intro{""}
-text R15Tr2_Lose{""}
-text R15Tr2_PostBattle{""}
+text R15Tr2_Intro{
+    "We haven't had any real challenge\n"
+    "in a while.\l"
+    "Let's see if you can provide one!"
+}
+text R15Tr2_Lose{
+    "Yep, I'd say you were adequate…"
+}
+text R15Tr2_PostBattle{
+    "Us Pokémon Rangers keep routes\n"
+    "safe from harm.\p"
+    "That's why we must keep our Pokémon\n"
+    "alert and prepared for anything."
+}
 
 script Route15_Tr3_RangerM {
     trainerbattle_single(TRAINER_R15_TR3_RANGERM, R15Tr3_Intro, R15Tr3_Lose)
     msgbox(R15Tr3_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text R15Tr3_Intro{""}
-text R15Tr3_Lose{""}
-text R15Tr3_PostBattle{""}
+text R15Tr3_Intro{
+    "You know it, I know it,\n"
+    "there's nothing more to be said.\p"
+    "Let's go!"
+}
+text R15Tr3_Lose{
+    "Guh…"
+}
+text R15Tr3_PostBattle{
+    "There's no need for words.\p"
+    "The way you carry yourself in battle\n"
+    "says more than any words ever could."
+}
 
 script Route15_Tr4_Gentleman {
     trainerbattle_single(TRAINER_R15_TR4_GENTLEMAN, R15Tr4_Intro, R15Tr4_Lose)
     msgbox(R15Tr4_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text R15Tr4_Intro{""}
-text R15Tr4_Lose{""}
-text R15Tr4_PostBattle{""}
+text R15Tr4_Intro{
+    "You there!\n"
+    "How about a friendly competition?"
+}
+text R15Tr4_Lose{
+    "Good show!"
+}
+text R15Tr4_PostBattle{
+    "There's nothing more invigorating than\n"
+    "a friendly competition!"
+}
 
 script Route15_Tr5_Ninjaboy1 {
     trainerbattle_single(TRAINER_R15_TR5_NINJABOY1, R15Tr5_Intro, R15Tr5_Lose)
     msgbox(R15Tr5_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text R15Tr5_Intro{""}
-text R15Tr5_Lose{""}
-text R15Tr5_PostBattle{""}
+text R15Tr5_Intro{
+    "Go ninja go!"
+}
+text R15Tr5_Lose{
+    "My Pokémon were supposed to be the\n"
+    "world's most fearsome fighting team!"
+}
+text R15Tr5_PostBattle{
+    "Gimme a break."
+}
 
 script Route15_Tr6_Ninjaboy2 {
     trainerbattle_single(TRAINER_R15_TR6_NINJABOY2, R15Tr6_Intro, R15Tr6_Lose)
     msgbox(R15Tr6_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text R15Tr6_Intro{""}
-text R15Tr6_Lose{""}
-text R15Tr6_PostBattle{""}
+text R15Tr6_Intro{
+    "I crush anyone who stands against me!"
+}
+text R15Tr6_Lose{
+    "Um, forget what I said before\n"
+    "the battle…"
+}
+text R15Tr6_PostBattle{
+    "Can we just pretend we never met?"
+}
 
 script Route15_Tr7_Bugcatcher {
     trainerbattle_single(TRAINER_R15_TR7_BUGCATCHER, R15Tr7_Intro, R15Tr7_Lose)
     msgbox(R15Tr7_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text R15Tr7_Intro{""}
-text R15Tr7_Lose{""}
-text R15Tr7_PostBattle{""}
+text R15Tr7_Intro{
+    "Let me show you just how awesome bugs\n"
+    "can be!"
+}
+text R15Tr7_Lose{
+    "This loss is entirely my and not\n"
+    "my bugs' fault."
+}
+text R15Tr7_PostBattle{
+    "Bugs are still cool!\n"
+    "Even if I'm not…"
+}
 
 script Route15_Tr8_Bugcatcher2 {
     trainerbattle_single(TRAINER_R15_TR8_BUGCATCHER2, R15Tr8_Intro, R15Tr8_Lose)
@@ -223,87 +287,399 @@ script Route15_Tr9_Beauty {
     msgbox(R15Tr9_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text R15Tr9_Intro{""}
-text R15Tr9_Lose{""}
-text R15Tr9_PostBattle{""}
+text R15Tr9_Intro{
+    "Think your Pokémon can outshine mine?"
+}
+text R15Tr9_Lose{
+    "Outshone and outmaneuvered…"
+}
+text R15Tr9_PostBattle{
+    "Your Pokémon shine like no other.\n"
+    "Never stop cherishing them."
+}
 
 script Route15_Tr10_Fisher {
     trainerbattle_single(TRAINER_R15_TR10_FISHER, R15Tr10_Intro, R15Tr10_Lose)
     msgbox(R15Tr10_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text R15Tr10_Intro{""}
-text R15Tr10_Lose{""}
-text R15Tr10_PostBattle{""}
-
-script Route15_Tr11_CyclingM {
-    trainerbattle_single(TRAINER_R15_TR11_CYCLINGM, R15Tr11_Intro, R15Tr11_Lose)
-    msgbox(R15Tr11_PostBattle, MSGBOX_AUTOCLOSE)
-    end
+text R15Tr10_Intro{
+    "I'm having no luck when it comes to\n"
+    "fishing.\p"
+    "Maybe I'll have more luck in a Pokémon\n"
+    "battle!"
 }
-text R15Tr11_Intro{""}
-text R15Tr11_Lose{""}
-text R15Tr11_PostBattle{""}
-
-script Route15_Tr12_CyclingF {
-    trainerbattle_single(TRAINER_R15_TR12_CYCLINGF, R15Tr12_Intro, R15Tr12_Lose)
-    msgbox(R15Tr12_PostBattle, MSGBOX_AUTOCLOSE)
-    end
+text R15Tr10_Lose{
+    "Still no luck…"
 }
-text R15Tr12_Intro{""}
-text R15Tr12_Lose{""}
-text R15Tr12_PostBattle{""}
+text R15Tr10_PostBattle{
+    "I wanted to try fishing here but\n"
+    "this cliff is so high that my lure\l"
+    "doesn't even reach the ocean."
+}
+
+// script Route15_Tr11_CyclingM {
+//     trainerbattle_single(TRAINER_R15_ACETRAINER_F, R15Tr11_Intro, R15Tr11_Lose)
+//     msgbox(R15Tr11_PostBattle, MSGBOX_AUTOCLOSE)
+//     end
+// }
+// text R15Tr11_Intro{
+//     "I'm having a short breather but that\n"
+//     "doesn't mean I don't have the energy\l"
+//     "to battle!"
+// }
+// text R15Tr11_Lose{
+//     "I'm all winded now…"
+// }
+// text R15Tr11_PostBattle{
+//     "Not a lot of people come this way.\p"
+//     "There are no commercial boats leaving\n"
+//     "from the Fishing Village and Drisledge\l"
+//     "is so dreary that it's practically a\l"
+//     "deserted ghost town."
+// }
 
 script Route15_Tr13_Cooltrainer {
     trainerbattle_single(TRAINER_R15_TR13_COOLTRAINER, R15Tr13_Intro, R15Tr13_Lose)
     msgbox(R15Tr13_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text R15Tr13_Intro{""}
-text R15Tr13_Lose{""}
-text R15Tr13_PostBattle{""}
+text R15Tr13_Intro{
+    "You look like a strong trainer.\n"
+    "Are you?"
+}
+text R15Tr13_Lose{
+    "I have been outmatched.\n"
+    "Well fought."
+}
+text R15Tr13_PostBattle{
+    "Sometimes you can guess how strong\n"
+    "a trainer is just by looking at them.\p"
+    "I could tell that you were probably\n"
+    "stronger than me, but I couldn't just\l"
+    "back down from the challenge."
+}
 
 script Route15_Tr14_Lass {
     trainerbattle_single(TRAINER_R15_TR14_LASS, R15Tr14_Intro, R15Tr14_Lose)
     msgbox(R15Tr14_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text R15Tr14_Intro{""}
-text R15Tr14_Lose{""}
-text R15Tr14_PostBattle{""}
+text R15Tr14_Intro{
+    "You seem like you'd enjoy a relaxing\n"
+    "Pokémon battle!"
+}
+text R15Tr14_Lose{
+    "Even if I lost, I still had fun!"
+}
+text R15Tr14_PostBattle{
+    "I saw some creepy looking people come\n"
+    "through this way recently.\l"
+    "They were headed south."
+}
 
 script Route15_Tr15_Scientist {
     trainerbattle_single(TRAINER_R15_TR15_SCIENTIST, R15Tr15_Intro, R15Tr15_Lose)
     msgbox(R15Tr15_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text R15Tr15_Intro{""}
-text R15Tr15_Lose{""}
-text R15Tr15_PostBattle{""}
+text R15Tr15_Intro{
+    "You are ruining my research!"
+}
+text R15Tr15_Lose{
+    "My samples…\n"
+    "in shambles…"
+}
+text R15Tr15_PostBattle{
+    "I'm out here collecting water samples\n"
+    "for analysis.\p"
+    "I'm hoping to find a connection\n"
+    "between water quality and the type of\l"
+    "Pokémon habitat it attracts."
+}
 
 script Route15_Tr16_Aromalady {
     trainerbattle_single(TRAINER_R15_TR16_AROMALADY, R15Tr16_Intro, R15Tr16_Lose)
     msgbox(R15Tr16_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text R15Tr16_Intro{""}
-text R15Tr16_Lose{""}
-text R15Tr16_PostBattle{""}
+text R15Tr16_Intro{
+    "Please, allow me to evaluate if you\n"
+	"have raised your Pokémon properly."
+}
+text R15Tr16_Lose{
+    "Yes, they are growing properly."
+}
+text R15Tr16_PostBattle{
+    "Try raising Pokémon with more\n"
+	"attention to their character traits."
+}
 
 script Route15_Tr17_Ninjaboy3 {
     trainerbattle_single(TRAINER_R15_TR17_NINJABOY3, R15Tr17_Intro, R15Tr17_Lose)
     msgbox(R15Tr17_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text R15Tr17_Intro{""}
-text R15Tr17_Lose{""}
-text R15Tr17_PostBattle{""}
+text R15Tr17_Intro{
+    "I do my triathlon training with Pokémon,\n"
+	"so I'm pretty confident about my speed."
+}
+text R15Tr17_Lose{
+    "I need to get more practices in,\n"
+	"I guess."
 
-script Route15_Tr18_BerryRocket {
-    trainerbattle_single(TRAINER_R15_TR18_BERRYROCKET, R15Tr18_Intro, R15Tr18_Lose)
-    msgbox(R15Tr18_PostBattle, MSGBOX_AUTOCLOSE)
+}
+text R15Tr17_PostBattle{
+    "Training is meaningful only if you\n"
+	"keep it up regularly.\p"
+	"Okay! I'll resume my training!\n"
+	"Tomorrow!"
+}
+
+script R15_AceTrainerF{
+    setvar(VAR_TEMP_1, FEMALE)
+    goto(R15_AceTrainerInteraction)
+    
+    
+}
+script R15_AceTrainerM{
+    setvar(VAR_TEMP_1, MALE)
+    goto(R15_AceTrainerInteraction)
+}
+
+script R15_AceTrainerInteraction{
+    if((defeated(TRAINER_R15_ACETRAINER_M)) || (defeated(TRAINER_R15_ACETRAINER_F))){
+        goto(R15_AceTrainerPostBattle)
+    }
+    elif((defeated(TRAINER_R15_TR1_BIRDKEEPER))
+    && (defeated(TRAINER_R15_TR2_RANGERF))
+    && (defeated(TRAINER_R15_TR3_RANGERM))
+    && (defeated(TRAINER_R15_TR4_GENTLEMAN))
+    && (defeated(TRAINER_R15_TR5_NINJABOY1))
+    && (defeated(TRAINER_R15_TR6_NINJABOY2))
+    && (defeated(TRAINER_R15_TR7_BUGCATCHER))
+    && (defeated(TRAINER_R15_TR8_BUGCATCHER2))
+    && (defeated(TRAINER_R15_TR9_BEAUTY))
+    && (defeated(TRAINER_R15_TR10_FISHER))
+    && (defeated(TRAINER_R15_TR13_COOLTRAINER))
+    && (defeated(TRAINER_R15_TR14_LASS))
+    && (defeated(TRAINER_R15_TR15_SCIENTIST))
+    && (defeated(TRAINER_R15_TR16_AROMALADY))
+    && (defeated(TRAINER_R15_TR17_NINJABOY3))){
+        goto(R15_AceTrainerBattle)
+    }
+    else{
+        goto(R15_AceTrainerNotEligible)
+    }
+}
+
+script R15_AceTrainerPostBattle{
+    if(var(VAR_ROUTE14_ROCKET_EVENT) == 7){
+        if(var(VAR_TEMP_1) == MALE){
+            msgbox(R15_Ace_PostBattleMale, MSGBOX_NPC)
+        }
+        else{
+            msgbox(R15_Ace_PostBattleFemale, MSGBOX_NPC)
+        }
+        turnobject(27, DIR_WEST)
+        turnobject(28, DIR_WEST)
+        end
+    }
+    if(var(VAR_TEMP_1) == MALE){
+        msgbox(R15_Ace_RewardMale, MSGBOX_DEFAULT)
+    }
+    else{
+        msgbox(R15_Ace_RewardFemale, MSGBOX_DEFAULT)
+    }
+    checkitemspace(ITEM_ROCKY_HELMET)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(NotEnoughRoom, MSGBOX_NPC)
+        turnobject(27, DIR_WEST)
+        turnobject(28, DIR_WEST)
+        end
+    }
+    giveitem(ITEM_ROCKY_HELMET)
+    waitfanfare
+    msgbox(R15_Ace_ExplainReward)
+    setvar(VAR_ROUTE14_ROCKET_EVENT, 7)
+    setvar(VAR_0x8004, 25)
+    call(RewardBP)
+    release
     end
 }
-text R15Tr18_Intro{""}
-text R15Tr18_Lose{""}
-text R15Tr18_PostBattle{""}
+
+text R15_Ace_PostBattleMale{
+    "That was a great battle.\p"
+    "Keep growing and I bet you can even\n"
+    "take on the Pokémon League!"
+}
+text R15_Ace_PostBattleFemale{
+    "I can't believe we lost even though\n"
+    "it was a two against one battle."
+}
+text R15_Ace_ExplainReward{
+    "The Rocky Helmet causes any Pokémon\n"
+    "that comes in contact with the Pokémon\l"
+    "wearing it to take damage.\p"
+    "It's especially great if the enemy is\n"
+    "using multi-hit moves or the Pokémon\l"
+    "wearing the helmet is especially bulky.\p"
+    "In addition to that,\n"
+    "I want you to have these."
+}
+text R15_Ace_RewardMale{
+    "That was a great battle!\p"
+    "Despite going against two opponents,\n"
+    "you still managed to secure a victory.\p"
+    "Such great skill has to be rewarded!"
+}
+text R15_Ace_RewardFemale{
+    "I'm shocked!\n"
+    "I thought our combos were unbeatable!\p"
+    "This feat of strength will not go\n"
+    "unrewarded.\l"
+    "Here, have this."
+}
+
+
+script R15_AceTrainerBattle{
+    special(HasEnoughMonsForDoubleBattle)
+    if(var(VAR_RESULT) == PLAYER_HAS_TWO_USABLE_MONS){
+        goto(R15_AceTrainerBattleEnoughMons)
+    }
+    checkplayergender
+    if(var(VAR_RESULT) == MALE){
+        bufferstring(STR_VAR_1, "lad")
+    }
+    else{
+        bufferstring(STR_VAR_1, "lass")
+    }
+    if(var(VAR_TEMP_1) == MALE){
+        msgbox(R15GetMoreMonsMale, MSGBOX_NPC)
+    }
+    else{
+        msgbox(R15GetMoreMonsFemale, MSGBOX_NPC)
+    }
+}
+text R15GetMoreMonsMale{
+    "I've seen you battling the other\n"
+    "trainers around here and there's\l"
+    "no doubt you're strong,\l"
+    "but we only fight in pairs.\p"
+    "You'll need to have at least 2 Pokémon\n"
+    "that are ready for battle."
+}
+text R15GetMoreMonsFemale{
+    "You seem like a nice {STR_VAR_1} and you're\n"
+    "more than capable of defeating every\l"
+    "other trainer on this route,\l"
+    "but we always fight in pairs.\p"
+    "It would be too unfair if we fought\n"
+    "you while you only had 1 Pokémon\l"
+    "that was ready for battle."
+}
+
+
+script R15_AceTrainerBattleEnoughMons{
+    lock
+    faceplayer
+     if(!flag(FLAG_TEMP_8)){
+        setflag(FLAG_TEMP_8)
+        if(var(VAR_TEMP_1) == MALE){
+            msgbox(R11_Ace_ReadyForBattleMale, MSGBOX_YESNO)
+        }
+        else{
+            msgbox(R11_Ace_ReadyForBattleFemale, MSGBOX_YESNO)
+        }
+    }
+    else{
+        if(var(VAR_TEMP_1) == MALE){
+            msgbox(R11_Ace_ReadyForBattleMaleShort, MSGBOX_YESNO)
+        }
+        else{
+            msgbox(R11_Ace_ReadyForBattleFemaleShort, MSGBOX_YESNO)
+        }
+    }
+    if(var(VAR_RESULT) == TRUE){
+        msgbox(R15_Ace_BeginBattle, MSGBOX_DEFAULT)
+        trainerbattle_two_trainers(TRAINER_R15_ACETRAINER_M, R15_AceM_Lose, TRAINER_R15_ACETRAINER_F, R15_AceF_Lose)
+        goto(R15_AceTrainerPostBattle)
+    }
+    if(var(VAR_TEMP_1) == MALE){
+        msgbox(R15_Ace_DeclineBattleMale, MSGBOX_NPC)
+    }
+    else{
+        msgbox(R15_Ace_DeclineBattleFemale, MSGBOX_NPC)
+    }
+    turnobject(27, DIR_WEST)
+    turnobject(28, DIR_WEST)
+    end
+}
+text R11_Ace_ReadyForBattleMale{
+    "I've seen the ease with which you\n"
+    "defeated other trainers around here.\p"
+    "Would you care to challenge us?\p"
+    "This will be a double battle so you\n"
+    "need at least two healthy Pokémon."
+}
+text R11_Ace_ReadyForBattleFemale{
+    "I saw the way you took out every\n"
+    "other trainer in this area.\p"
+    "You seem pretty strong.\p"
+    "Would you like to try your hand at\n"
+    "a double battle?\p"
+    "I warn you, our teamwork is\n"
+    "second to none."
+}
+text R11_Ace_ReadyForBattleMaleShort{
+    "Have you changed your mind?"
+}
+text R11_Ace_ReadyForBattleFemaleShort{
+    "You're back!\p"
+    "That must mean you've changed your\n"
+    "mind, correct?"
+}
+text R15_Ace_BeginBattle{
+    "Okay then, let's begin!"
+}
+text R15_AceM_Lose{
+    "Even against two opponents, you\n"
+    "still kept your cool…\l"
+    "Amazing!"
+}
+text R15_AceF_Lose{
+    "Even with our combined strength,\n"
+    "we lost…"
+}
+text R15_Ace_DeclineBattleMale{
+    "Well, if you change your mind,\n"
+    "you can find us here."
+}
+text R15_Ace_DeclineBattleFemale{
+    "Oh…\p"
+    "Well, do let us know if you change\n"
+    "your mind, okay?"
+}
+
+script R15_AceTrainerNotEligible{
+    if(var(VAR_TEMP_1) == FEMALE){
+        msgbox(R15DefeatMoreTrainersFemale, MSGBOX_NPC)
+    }
+    else{
+        msgbox(R15DefeatMoreTrainersMale, MSGBOX_NPC)
+    }
+    turnobject(27, DIR_WEST)
+    turnobject(28, DIR_WEST)
+    end
+}
+text R15DefeatMoreTrainersFemale{
+    "I'm sorry, but we don't really care\n"
+    "to fight against anyone who hasn't\l"
+    "proven themself yet.\p"
+    "Try defeating more trainers first."
+}
+text R15DefeatMoreTrainersMale{
+    "You want a REAL battle?\p"
+    "Prove that you're not a weakling first\n"
+    "and only then come and talk to us."
+}

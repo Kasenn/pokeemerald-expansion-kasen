@@ -105,7 +105,9 @@
     "DrisledgeTown",
     "Route22",
     "Route14_Grotto",
-    "BerryFieldHouse"
+    "BerryFieldHouse",
+    "Route15_MoveReminder",
+    "MtChimney"
   ],
   "gMapGroup_TownsAndCities": [
     "PearlwoodPoint",
@@ -518,7 +520,6 @@
     "GraniteCave_B2F",
     "GraniteCave_StevensRoom",
     "PetalburgWoods",
-    "MtChimney",
     "JaggedPass",
     "FieryPath",
     "MtPyre_1F",

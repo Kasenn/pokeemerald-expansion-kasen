@@ -1,0 +1,157 @@
+mapscripts Route15_MoveReminder_MapScripts{}
+
+script Route15_MoveReminder{
+    lock
+    faceplayer
+    message(HowMayIHelp)
+    waitmessage
+    if(flag(FLAG_MET_MOVE_REMINDER)){
+        dynmultipush("Teach a move", 0)
+        dynmultipush("Who are you?", 1)
+        dynmultipush("Why live here?", 2)
+        dynmultipush("Goodbye", 3)
+        dynmultistack(23, 0, FALSE, 5, FALSE, 0, NULL)
+        switch(var(VAR_RESULT)){
+        case 0:
+            goto(ReminderTeachMove)
+        case 1:
+            goto(ReminderWhoAreYou)
+        case 2:
+            goto(ReminderWhyLiveHere)
+        case 3:
+            goto(ReminderGoodbye)
+        case MULTI_B_PRESSED:
+            goto(ReminderGoodbye)
+        }
+    }
+    else{
+        dynmultipush("Who are you?", 0)
+        dynmultipush("Why live here?", 1)
+        dynmultipush("Goodbye", 2)
+        dynmultistack(23, 0, FALSE, 5, FALSE, 0, NULL)
+        switch(var(VAR_RESULT)){
+        case 0:
+            goto(ReminderWhoAreYou)
+        case 1:
+            goto(ReminderWhyLiveHere)
+        case 2:
+            goto(ReminderGoodbye)
+        case MULTI_B_PRESSED:
+            goto(ReminderGoodbye)
+        }
+    }
+}
+
+script ReminderTeachMove{
+    checkitem(ITEM_HEART_SCALE)
+    if(var(VAR_RESULT) == FALSE){
+        goto(ComeBackWithHeartScale)
+    }
+    msgbox(HaveScaleWantMeToTeachMove, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        goto(ComeBackWithHeartScale)
+    }
+    goto(MoveReminder_ChooseMon)
+}
+script ReminderWhoAreYou{
+    msgbox(R15_ImTheMoveTutor)
+    setflag(FLAG_MET_MOVE_REMINDER)
+    goto(Route15_MoveReminder)
+}
+script ReminderWhyLiveHere{
+    msgbox(WhyILiveHere)
+    goto(Route15_MoveReminder)
+}
+script ReminderGoodbye{
+    msgbox(ReminderGoodbye_Text)
+    release
+}
+
+script MoveReminder_ChooseMon{
+    msgbox(TutorWhichMon)
+	special(ChooseMonForMoveRelearner)
+	waitstate
+	goto_if_eq(VAR_0x8004, PARTY_NOTHING_CHOSEN, ComeBackWithHeartScale)
+	special(IsSelectedMonEgg)
+	goto_if_eq(VAR_RESULT, TRUE, CantTeachEgg)
+	goto_if_eq(VAR_0x8005, 0, NoMoveToTeachMon)
+	goto(ChooseMoveToTeach)
+}
+
+script ChooseMoveToTeach{
+    msgbox(TeachWhichMove)
+	special(TeachMoveRelearnerMove)
+	waitstate
+	goto_if_eq(VAR_0x8004, 0, MoveReminder_ChooseMon)
+	msgbox(HandedOverHeartScale)
+	removeitem(ITEM_HEART_SCALE)
+	goto(ComeBackWithHeartScale)
+}
+
+script NoMoveToTeachMon{
+    msgbox(DontHaveMoveToTeachPokemon)
+	goto(MoveReminder_ChooseMon)
+}
+script CantTeachEgg{
+    msgbox(CantTeachEgg_Text)
+    goto(MoveReminder_ChooseMon)
+}
+script ComeBackWithHeartScale{
+    msgbox(ComeBackWithHeartScale_Text)
+    release
+    end
+}
+
+text HowMayIHelp{
+    "How may I help?"
+}
+text HaveScaleWantMeToTeachMove{
+    "Oh! That's it! That's an honest to\n"
+	"goodness Heart Scale!\p"
+	"Let me guess, you want me to teach\n"
+	"a move?"
+}
+text R15_ImTheMoveTutor{
+    "I'm the Move Reminder.\p"
+	"I know all the moves that Pokémon\n"
+	"learn--every one of them--and I can\l"
+	"teach Pokémon those moves.\p"
+	"I can teach a move to a Pokémon\n"
+	"of yours if you'd like.\p"
+	"I'll do it for a Heart Scale.\n"
+	"I'm collecting those now."
+}
+text WhyILiveHere{
+    "I used to live in Sandstone City, but\n"
+    "over time the big city life grew\l"
+    "too hectic for me.\p"
+    "I much prefer the fresh air that\n"
+    "living next to the ocean provides."
+}
+text ReminderGoodbye_Text{
+    "Okay then.\n"
+    "Have a nice day."
+}
+text TutorWhichMon{
+    "Which Pokémon needs tutoring?"
+}
+text TeachWhichMove{
+    "Which move should I teach?"
+}
+text HandedOverHeartScale{
+    "{PLAYER} handed over one Heart Scale\n"
+	"in exchange."
+}
+text DontHaveMoveToTeachPokemon{
+    "Sorry…\p"
+	"It doesn't appear as if I have any move\n"
+	"I can teach that Pokémon."
+}
+text CantTeachEgg_Text{
+    "Hunh? There isn't a single move that\n"
+	"I can teach an egg."
+}
+text ComeBackWithHeartScale_Text{
+    "If your Pokémon need to learn a move,\n"
+	"come back with a Heart Scale."
+}

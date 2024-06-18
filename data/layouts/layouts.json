@@ -6165,7 +6165,7 @@
       "id": "LAYOUT_FISHING_VILLAGE",
       "name": "FishingVillage_Layout",
       "width": 40,
-      "height": 40,
+      "height": 42,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Drisledge",
       "border_filepath": "data/layouts/FishingVillage/border.bin",
@@ -6244,8 +6244,8 @@
     {
       "id": "LAYOUT_FISHING_VILLAGE_HOUSE1",
       "name": "FishingVillage_House1_Layout",
-      "width": 11,
-      "height": 8,
+      "width": 10,
+      "height": 9,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/FishingVillage_House1/border.bin",
@@ -6254,7 +6254,7 @@
     {
       "id": "LAYOUT_FISHING_VILLAGE_HOUSE2",
       "name": "FishingVillage_House2_Layout",
-      "width": 11,
+      "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
@@ -6264,7 +6264,7 @@
     {
       "id": "LAYOUT_FISHING_VILLAGE_HOUSE3",
       "name": "FishingVillage_House3_Layout",
-      "width": 11,
+      "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
@@ -6330,6 +6330,16 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/Drisledge_Gym/border.bin",
       "blockdata_filepath": "data/layouts/Drisledge_Gym/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE15_MOVE_REMINDER",
+      "name": "Route15_MoveReminder_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Route15_MoveReminder/border.bin",
+      "blockdata_filepath": "data/layouts/Route15_MoveReminder/map.bin"
     }
   ]
 }

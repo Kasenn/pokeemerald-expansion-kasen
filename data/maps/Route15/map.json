@@ -206,29 +206,16 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F",
-      "x": 22,
-      "y": 10,
+      "x": 0,
+      "y": 0,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "5",
-      "script": "Route15_Tr12_CyclingF",
+      "script": "NULL",
       "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M",
-      "x": 22,
-      "y": 11,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route15_Tr11_CyclingM",
-      "flag": "5"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
@@ -304,18 +291,18 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "5",
+      "trainer_sight_or_berry_tree_id": "4",
       "script": "Route15_Tr16_Aromalady",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
-      "x": 27,
+      "graphics_id": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F",
+      "x": 25,
       "y": 137,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_UP_DOWN_LEFT",
+      "movement_range_x": 1,
+      "movement_range_y": 5,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "5",
       "script": "Route15_Tr17_Ninjaboy3",
@@ -343,9 +330,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_HYPER_POTION",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ROUTE15_ITEM2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -356,9 +343,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_SUN_STONE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ROUTE15_ITEM5"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_EXCADRILL",
@@ -372,10 +359,55 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "KaolMines_Excadrill3",
       "flag": "FLAG_TEMP_3"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M",
+      "x": 0,
+      "y": 0,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
+      "x": 23,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "R15_AceTrainerF",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
+      "x": 23,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "R15_AceTrainerM",
+      "flag": "0"
     }
   ],
   "warp_events": [
-
+    {
+      "x": 10,
+      "y": 84,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE15_MOVE_REMINDER",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
     {
@@ -855,14 +887,6 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 13,
-      "y": 84,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route15_Sign1"
-    },
-    {
-      "type": "sign",
       "x": 19,
       "y": 86,
       "elevation": 0,
@@ -882,40 +906,40 @@
       "x": 21,
       "y": 76,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1"
+      "item": "ITEM_HYPER_POTION",
+      "flag": "FLAG_ROUTE15_ITEM4"
     },
     {
       "type": "hidden_item",
       "x": 29,
       "y": 49,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1"
+      "item": "ITEM_MAX_REPEL",
+      "flag": "FLAG_ROUTE15_ITEM3"
     },
     {
       "type": "hidden_item",
       "x": 15,
       "y": 10,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1"
+      "item": "ITEM_ZINC",
+      "flag": "FLAG_ROUTE15_ITEM1"
     },
     {
       "type": "hidden_item",
       "x": 36,
       "y": 141,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1"
+      "item": "ITEM_BIG_MUSHROOM",
+      "flag": "FLAG_ROUTE15_ITEM7"
     },
     {
-      "type": "sign",
+      "type": "hidden_item",
       "x": 37,
       "y": 136,
       "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "item": "ITEM_TINY_MUSHROOM",
+      "flag": "FLAG_ROUTE15_ITEM6"
     }
   ]
 }

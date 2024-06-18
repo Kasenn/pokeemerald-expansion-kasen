@@ -1,0 +1,389 @@
+mapscripts FishingVillage_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: FishingVillage_DespawnBrother
+}
+
+script FishingVillage_DespawnBrother{
+    if(defeated(TRAINER_BROTHER5_ROWLET) || defeated(TRAINER_BROTHER5_TORCHIC) || defeated(TRAINER_BROTHER5_PIPLUP)){
+        setflag(FLAG_TEMP_1)
+        setvar(VAR_TEMP_1, 1)
+    }
+}
+
+script FishVillage_Brother1{
+    setvar(VAR_TEMP_2, 1)
+    goto(FishVillage_Brother)
+}
+script FishVillage_Brother2{
+    setvar(VAR_TEMP_2, 2)
+    goto(FishVillage_Brother)
+}
+script FishVillage_Brother3{
+    setvar(VAR_TEMP_2, 3)
+    goto(FishVillage_Brother)
+}
+
+script FishVillage_Brother{
+    lock
+    turnobject(1, DIR_SOUTH)
+    playse(SE_PIN)
+    applymovement(1, ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    playbgm(MUS_ENCOUNTER_BRENDAN, TRUE)
+    switch(var(VAR_TEMP_2)){
+        case 1:
+            applymovement(1, MoveFishBrother1)
+        case 2:
+            applymovement(1, Walk2Down)
+        case 3:
+            applymovement(1, MoveFishBrother3)
+    }
+    waitmovement(0)
+    if(flag(FLAG_KAOLISLE_BROTHER_INTRO)){
+        addvar(VAR_TEMP_3, 1)
+    }
+    if(defeated(TRAINER_BROTHER2_ROWLET)
+    || defeated(TRAINER_BROTHER3_ROWLET)
+    || defeated(TRAINER_BROTHER4_ROWLET)
+    || defeated(TRAINER_BROTHER2_TORCHIC)
+    || defeated(TRAINER_BROTHER3_TORCHIC)
+    || defeated(TRAINER_BROTHER4_TORCHIC)
+    || defeated(TRAINER_BROTHER2_PIPLUP)
+    || defeated(TRAINER_BROTHER3_PIPLUP)
+    || defeated(TRAINER_BROTHER4_PIPLUP)){
+        addvar(VAR_TEMP_3, 2)
+    }
+    switch(var(VAR_TEMP_3)){
+        case 0:
+            msgbox(LastMetInPearlwood)
+        case 1:
+            msgbox(LastMetInKaolisleNoFight)
+        case 2:
+            msgbox(LastMetInRoute28)
+        case 3:
+            msgbox(LastMetInKaolisleHaveFought)
+    }
+    switch(var(VAR_STARTER_MON)){
+        case 0:
+            trainerbattle_no_intro(TRAINER_BROTHER5_ROWLET, FishingVillage_BrotherLost)
+        case 1:
+            trainerbattle_no_intro(TRAINER_BROTHER5_TORCHIC, FishingVillage_BrotherLost)
+        case 2:
+            trainerbattle_no_intro(TRAINER_BROTHER5_PIPLUP, FishingVillage_BrotherLost)
+    }
+    msgbox(FishingVillageBrotherLeaves)
+    closemessage
+    switch(var(VAR_TEMP_2)){
+        case 1:
+            applymovement(1, LeaveFishBrotherRight)
+            applymovement(OBJ_EVENT_ID_PLAYER, FishPlayerTurnRight)
+        case 2:
+            applymovement(1, LeaveFishBrotherLeft)
+            applymovement(OBJ_EVENT_ID_PLAYER, FishPlayerTurnLeft)
+        case 3:
+            applymovement(1, LeaveFishBrotherLeft)
+            applymovement(OBJ_EVENT_ID_PLAYER, FishPlayerTurnLeft)
+    }
+    waitmovement(1)
+    removeobject(1)
+    setvar(VAR_TEMP_1, 1)
+    delay(45)
+    savebgm(MUS_DUMMY)
+	fadedefaultbgm
+    release
+}
+text FishingVillageBrotherLeaves{
+    "i leave. bye"
+}
+text FishingVillage_BrotherLost{
+    "i lost"
+}
+text LastMetInPearlwood{
+    "was the last time really in\n"
+    "pearlwood?"
+}
+text LastMetInKaolisleNoFight{
+    "we haven't fought"
+}
+text LastMetInRoute28{
+    "last fought at route 28"
+}
+text LastMetInKaolisleHaveFought{
+    "this is the default"
+}
+
+movement FishPlayerTurnRight{
+    delay_16
+    walk_in_place_fast_right
+    delay_16 * 2
+    walk_in_place_fast_down
+}
+movement FishPlayerTurnLeft{
+    delay_16
+    walk_in_place_fast_left
+    delay_16 * 2
+    walk_in_place_fast_down
+}
+movement LeaveFishBrotherRight{
+    walk_right
+    walk_down * 7
+}
+movement LeaveFishBrotherLeft{
+    walk_left
+    walk_down * 7
+}
+
+script FishVillage_Sign1{
+    msgbox(FishVillage_Sign1_Text, MSGBOX_SIGN)
+}
+script FishVillage_Sign2{
+    msgbox(FishVillage_Sign2_Text, MSGBOX_SIGN)
+}
+script FishVillage_Sign3{
+    msgbox(FishVillage_Sign3_Text, MSGBOX_SIGN)
+}
+script FishVillage_Woman2{
+    msgbox(FishVillage_Woman2_Text, MSGBOX_NPC)
+}
+script FishVillage_Fisherman1{
+    if(flag(FLAG_TEMP_3)){
+        msgbox(FishVillage_Fisherman1_Text2, MSGBOX_NPC)
+    }
+    else{
+        msgbox(FishVillage_Fisherman1_Text, MSGBOX_NPC)
+    }
+    turnobject(3, DIR_NORTH)
+}
+script FishVillage_Fisherman2{
+    msgbox(FishVillage_Fisherman2_Text, MSGBOX_NPC)
+    turnobject(5, DIR_NORTH)
+}
+script FishVillage_Man1{
+    if(flag(FLAG_TEMP_3)){
+        lock
+        faceplayer
+        msgbox(CaughtGyarados)
+        closemessage
+        switch(var(VAR_FACING)){
+            case DIR_EAST:
+            case DIR_NORTH:
+                applymovement(6, MoveElderDirNorth)
+            case DIR_WEST:
+                applymovement(6, MoveElderDirWest)
+        }
+        waitmovement(0)
+        setflag(FLAG_FISHINGVILLAGE_GYARADOS_REWARD)
+        removeobject(6)
+        release
+        end
+    }
+    msgbox(FishVillage_Man1_Text, MSGBOX_NPC)
+    turnobject(6, DIR_NORTH)
+}
+script FishVillage_Woman5{
+    msgbox(FishVillage_Woman5_Text, MSGBOX_NPC)
+    turnobject(4, DIR_NORTH)
+}
+
+text CaughtGyarados{
+    "Oh, I saw you reeling in that\n"
+    "Gyarados.\p"
+    "Seeing such an aspiring angler has\n"
+    "unlocked a memory in my brain from\l"
+    "long time ago.\p"
+    "There's something I need to fetch\n"
+    "from my house.\p"
+    "I want you to come meet me there when\n"
+    "you have the time.\p"
+    "I live in the house on the western\n"
+    "side of the village."
+}
+movement MoveElderDirNorth{
+    walk_right * 2
+    walk_down * 8
+}
+movement MoveElderDirWest{
+    walk_down
+    walk_right * 2
+    walk_down * 6
+}
+
+text FishVillage_Sign1_Text{
+    "Fishing Guru's House"
+}
+text FishVillage_Sign2_Text{
+    "Rest House"
+}
+text FishVillage_Sign3_Text{
+    "{UP_ARROW} Fishing Village\n"
+    "{RIGHT_ARROW} Route 23\l"
+    "{DOWN_ARROW} Route 15"
+}
+text FishVillage_Woman2_Text{
+    "The Fishing Village is a small\n"
+    "community that attracts people from\l"
+    "around the world.\p"
+    "You wouldn't believe the things some\n"
+    "people are able to fish up!"
+}
+text FishVillage_Fisherman1_Text{
+    "I've heard some people say they've\n"
+    "managed to fish up even Gyarados here!\p"
+    "If you ask me, I say all those\n"
+    "people are liars."
+}
+text FishVillage_Fisherman1_Text2{
+    "No way did you fish up a Gyarados!\p"
+    "You should let the eldest in the\n"
+    "village know.\p"
+    "I believe he's fishing on the\n"
+    "middle pier."
+}
+text FishVillage_Fisherman2_Text{
+    "Some think fishing is boring.\n"
+    "I could not disagree more."
+}
+text FishVillage_Man1_Text{
+    "I believe there is something in these\n"
+    "waters, something no man has witnessed\l"
+    "in ages.\p"
+    "I plan to find what that is."
+}
+text FishVillage_Woman5_Text{
+    "Can't a girl fish in peace?"
+}
+
+script FishingVillage_OldWoman{
+    msgbox(FishingVillage_OldWoman_Text, MSGBOX_NPC)
+}
+text FishingVillage_OldWoman_Text{
+    "There's not a whole lot going around\n"
+    "in these parts of the region.\p"
+    "There's no boat connection to the\n"
+    "north and from what I've heard,\l"
+    "Drisledge Town to the east is\l"
+    "practically a ghost town."
+}
+
+movement ExclamationMark{
+    emote_exclamation_mark
+	step_end
+}
+movement MoveFishBrother1{
+    walk_down
+    walk_left
+    walk_down
+    step_end
+}
+movement MoveFishBrother3{
+    walk_down
+    walk_right
+    walk_down
+    step_end
+}
+
+script FishingVillage_FishingGuru{
+    lock
+    faceplayer
+    checkitem(ITEM_SUPER_ROD)
+    if(var(VAR_RESULT) == TRUE){
+        msgbox(EnjoySuperRod, MSGBOX_NPC)
+        end
+    }
+    checkitem(ITEM_TITANIUM_LINE)
+    if(var(VAR_RESULT) == TRUE){
+        goto(SuperRodQuestStarted)
+    }
+    msgbox(ImFishingGuru, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(GuruHonest, MSGBOX_NPC)
+        end
+    }
+    checkitem(ITEM_OLD_ROD)
+    if(var(VAR_RESULT) == FALSE){
+        checkitem(ITEM_GOOD_ROD)
+        if(var(VAR_RESULT) == FALSE){
+            msgbox(NoFishingRod, MSGBOX_NPC)
+            end
+        }
+    }
+    msgbox(FisherOfSomeRenown)
+    giveitem(ITEM_TITANIUM_LINE)
+    msgbox(FishInLava)
+    release
+}
+
+script SuperRodQuestStarted{
+    checkpartymon(SPECIES_SLUGMA, 0)
+    if(var(VAR_RESULT) == TRUE){
+        goto(SuperRodReward)
+    }
+    if(flag(FLAG_TEMP_1)){
+        msgbox(DontHaveSlugma, MSGBOX_NPC)
+    }
+    else{
+        msgbox(FishInLava, MSGBOX_NPC)
+    }
+}
+
+text ImFishingGuru{
+    "People call me the Fishing Guru.\p"
+    "Let me guess, you are interested in\n"
+    "one of my fishing rods?"
+}
+text GuruHonest{
+    "Understandable. Fishing isn't for\n"
+    "everyone."
+}
+text NoFishingRod{
+    "You don't even have a fishing rod\n"
+    "of your own.\p"
+    "Do you expect me to give out one of\n"
+    "my superb rods to someone who shows\l"
+    "zero interest towards fishing?\l"
+    "Please leave."
+}
+text FisherOfSomeRenown{
+    "I notice you are carrying a fishing\n"
+    "rod of sorts.\l"
+    "That's good.\p"
+    "However, if you want one of my superb\n"
+    "rods, you must first show your\l"
+    "dedication to this art."
+}
+text FishInLava{
+    "On the island to the north, one can\n"
+    "occasionally find pools of lava.\p"
+    "I know this might sound crazy,\n"
+    "but there are Pokémon living in\l"
+    "those pools!\p"
+    "I want you to take that Titanium Line\n"
+    "and use it to fish from one of those\l"
+    "pools.\p"
+    "Bring me back whatever you catch,\n"
+    "and only then will I consider you\l"
+    "a worthy angler."
+}
+text DontHaveSlugma{
+    "Have you been to the north yet?\p"
+    "I don't see any Pokémon with you that\n"
+    "could be seen living in the lava pools."
+}
+text YouHaveSlugma{
+    "Ah, that Slugma!\p"
+    "Yes, you have done exactly as\n"
+    "I asked!\p"
+    "You are truly a worthwhile angler.\n"
+    "Here, I want you to have this!"
+}
+text EnjoySuperRod{
+    "The world is your Cloyster.\p"
+    "Go out there, and discover the secrets\n"
+    "of the deep abyss!"
+}
+
+script SuperRodReward{
+    msgbox(YouHaveSlugma)
+    giveitem(ITEM_SUPER_ROD)
+    msgbox(EnjoySuperRod, MSGBOX_NPC)
+}

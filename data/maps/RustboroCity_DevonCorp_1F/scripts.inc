@@ -72,6 +72,7 @@ Update3_40:
 	compare VAR_RESULT, TRUE
 	goto_if_eq Update3_52
 Update3_51:
+	call FlagTesting
 	closemessage
 	release
 	end
@@ -81,11 +82,11 @@ Update3_2:
 	compare VAR_RESULT, TRUE
 	goto_if_eq Update3_8
 Update3_7:
-	goto_if_set FLAG_UNUSED_493, Update3_17
+	goto_if_set FLAG_ROUTE15_ITEM1, Update3_17
 Update3_16:
-	goto_if_set FLAG_UNUSED_494, Update3_26
+	goto_if_set FLAG_ROUTE15_ITEM2, Update3_26
 Update3_25:
-	goto_if_set FLAG_UNUSED_495, Update3_38
+	goto_if_set FLAG_ROUTE15_ITEM3, Update3_38
 Update3_37:
 	clearflag FLAG_SHOWED_BADGE
 	clearflag FLAG_SYSTEM_NOREWARDBATTLES
@@ -131,16 +132,16 @@ Update3_11:
 	compare VAR_RESULT, TRUE
 	goto_if_eq Update3_23
 Update3_22:
-	clearflag FLAG_UNUSED_496
-	clearflag FLAG_UNUSED_497
-	clearflag FLAG_UNUSED_499
-	clearflag FLAG_UNUSED_49B
+	clearflag FLAG_ROUTE15_ITEM4
+	clearflag FLAG_ROUTE15_ITEM5
+	clearflag FLAG_ROUTE15_ITEM6
+	clearflag FLAG_ROUTE15_ITEM7
 	clearflag FLAG_R14_ITEM3
-	goto_if_set FLAG_UNUSED_493, Update3_35
+	goto_if_set FLAG_ROUTE15_ITEM1, Update3_35
 Update3_34:
-	goto_if_set FLAG_UNUSED_494, Update3_46
+	goto_if_set FLAG_ROUTE15_ITEM2, Update3_46
 Update3_45:
-	goto_if_set FLAG_UNUSED_495, Update3_55
+	goto_if_set FLAG_ROUTE15_ITEM3, Update3_55
 Update3_54:
 	setvar VAR_DEBUG, 3
 	goto Update3_10
@@ -173,7 +174,7 @@ Update3_26:
 
 Update3_29:
 	clearflag FLAG_UNUSED_2D9
-	clearflag FLAG_UNUSED_468
+	clearflag FLAG_BERRYFIELDS_ITEM
 	setvar VAR_DEBUG, 5
 	goto Update3_28
 
@@ -183,7 +184,7 @@ Update3_32:
 	goto Update3_31
 
 Update3_35:
-	clearflag FLAG_UNUSED_493
+	clearflag FLAG_ROUTE15_ITEM1
 	goto Update3_34
 
 Update3_38:
@@ -208,7 +209,7 @@ Update3_43:
 	goto Update3_31
 
 Update3_46:
-	clearflag FLAG_UNUSED_494
+	clearflag FLAG_ROUTE15_ITEM2
 	goto Update3_45
 
 Update3_49:
@@ -222,7 +223,7 @@ Update3_52:
 	goto Update3_51
 
 Update3_55:
-	clearflag FLAG_UNUSED_495
+	clearflag FLAG_ROUTE15_ITEM3
 	goto Update3_54
 
 Update3_58:
@@ -236,6 +237,16 @@ Update3_61:
 Update3_63:
 	setvar VAR_BADGES_OBTAINED, 3
 	goto Update3_1
+
+
+FlagTesting::
+	return
+
+
+FindFishingWire::
+	finditem ITEM_TITANIUM_LINE
+	setflag FLAG_RECEIVED_TITANIUM_LINE
+	return
 
 
 UpdateItemCheck::

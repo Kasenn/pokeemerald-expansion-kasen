@@ -1,0 +1,7 @@
+mapscripts SkylochHouse2_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: SetSkylochRespawn
+}
+
+script SetSkylochRespawn{
+    setrespawn(HEAL_LOCATION_SKYLOCH_VILLAGE)
+}

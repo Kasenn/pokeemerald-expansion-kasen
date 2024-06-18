@@ -13017,4 +13017,17 @@ const struct Item gItemsInfo[] =
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
+
+    [ITEM_TITANIUM_LINE] =
+    {
+        .name = _("Titanium Line"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Allows fishing\n"
+            "from lava pools."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
 };

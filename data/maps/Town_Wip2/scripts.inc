@@ -283,7 +283,6 @@ SkylochInt_FatMan_GivenCone::
 	.string "I'm already feeling much better.$"
 
 SkylochInt_RestHouseOldWoman_RestHere::
-	.string "This is the Skyloch Rest House.\p"
 	.string "Your Pokémon must be weary.\n"
 	.string "Would you like to take a short rest?$"
 

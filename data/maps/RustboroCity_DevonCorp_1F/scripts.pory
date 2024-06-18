@@ -83,13 +83,13 @@ script Update3{
         if(var(VAR_RESULT) == TRUE){
             setvar(VAR_DESERT_BYPASS, 1)
         }
-        if(flag(FLAG_UNUSED_493)){
+        if(flag(FLAG_ROUTE15_ITEM1)){
             setvar(VAR_STARTER_MON, 0)
         }
-        if(flag(FLAG_UNUSED_494)){
+        if(flag(FLAG_ROUTE15_ITEM2)){
             setvar(VAR_STARTER_MON, 1)
         }
-        if(flag(FLAG_UNUSED_495)){
+        if(flag(FLAG_ROUTE15_ITEM3)){
             setvar(VAR_STARTER_MON, 2)
         }
         clearflag(FLAG_SHOWED_BADGE)
@@ -136,19 +136,19 @@ script Update3{
             removeitem(ITEM_WHITE_FLUTE)
             additem(ITEM_BLACK_FLUTE)
         }
-        clearflag(FLAG_UNUSED_496)
-        clearflag(FLAG_UNUSED_497)
-        clearflag(FLAG_UNUSED_499)
-        clearflag(FLAG_UNUSED_49B)
+        clearflag(FLAG_ROUTE15_ITEM4)
+        clearflag(FLAG_ROUTE15_ITEM5)
+        clearflag(FLAG_ROUTE15_ITEM6)
+        clearflag(FLAG_ROUTE15_ITEM7)
         clearflag(FLAG_R14_ITEM3)
-        if(flag(FLAG_UNUSED_493)){
-            clearflag(FLAG_UNUSED_493)
+        if(flag(FLAG_ROUTE15_ITEM1)){
+            clearflag(FLAG_ROUTE15_ITEM1)
         }
-        if(flag(FLAG_UNUSED_494)){
-            clearflag(FLAG_UNUSED_494)
+        if(flag(FLAG_ROUTE15_ITEM2)){
+            clearflag(FLAG_ROUTE15_ITEM2)
         }
-        if(flag(FLAG_UNUSED_495)){
-            clearflag(FLAG_UNUSED_495)
+        if(flag(FLAG_ROUTE15_ITEM3)){
+            clearflag(FLAG_ROUTE15_ITEM3)
         }
         setvar(VAR_DEBUG, 3)
     }
@@ -163,7 +163,7 @@ script Update3{
     }
     if(var(VAR_DEBUG) == 4){
         clearflag(FLAG_UNUSED_2D9)
-        clearflag(FLAG_UNUSED_468)
+        clearflag(FLAG_BERRYFIELDS_ITEM)
         setvar(VAR_DEBUG, 5)
     }
     if(var(VAR_DEBUG) == 5){
@@ -183,10 +183,78 @@ script Update3{
     if(var(VAR_RESULT) == TRUE){
         warp(MAP_CORALGROVE_CITY, 26, 44)
     }
+    call(FlagTesting)
 	closemessage
     release
     end
 }
+
+script FlagTesting{
+    // if(!flag(FLAG_TEMP_10)){
+    //     call(RustboroCity_EventScript_ScientistAddMatchCall)
+    // }
+    // setflag(FLAG_TEMP_10)
+    // setflag(FLAG_SYS_POKENAV_GET)
+    // setflag(FLAG_MATCH_CALL_REGISTERED)
+    // setflag(FLAG_REMATCH_ROSE)
+    // clearflag(FLAG_SHELL_BELL_RECEIVED)
+    // clearflag(FLAG_GHOST_MOVED)
+    // clearflag(FLAG_WHITEFLUTE_RECEIVED)
+    // clearflag(FLAG_REMATCH_SIDNEY)
+    // clearflag(FLAG_REMATCH_GLACIA)
+    // clearflag(FLAG_REMATCH_DRAKE)
+    // if(flag(FLAG_REMATCH_SIDNEY)){
+    //     msgbox("true")
+    // }
+    // else{
+    //     msgbox("false")
+    // }
+    // if(flag(FLAG_REMATCH_GLACIA)){
+    //     msgbox("true")
+    // }
+    // else{
+    //     msgbox("false")
+    // }
+    // if(flag(FLAG_REMATCH_DRAKE)){
+    //     msgbox("true")
+    // }
+    // else{
+    //     msgbox("false")
+    // }
+
+    // setflag(FLAG_SHELL_BELL_RECEIVED)
+    // setflag(FLAG_GHOST_MOVED)
+    // setflag(FLAG_WHITEFLUTE_RECEIVED)
+    // if(flag(FLAG_REMATCH_SIDNEY)){
+    //     msgbox("true")
+    // }
+    // else{
+    //     msgbox("false")
+    // }
+    // if(flag(FLAG_REMATCH_GLACIA)){
+    //     msgbox("true")
+    // }
+    // else{
+    //     msgbox("false")
+    // }
+    // if(flag(FLAG_REMATCH_DRAKE)){
+    //     msgbox("true")
+    // }
+    // else{
+    //     msgbox("false")
+    // }
+    // setflag(FLAG_REMATCH_SIDNEY)
+    // setflag(FLAG_REMATCH_GLACIA)
+    // setflag(FLAG_REMATCH_DRAKE)
+    // closemessage
+    return
+}
+
+script FindFishingWire{
+    finditem(ITEM_TITANIUM_LINE)
+    setflag(FLAG_RECEIVED_TITANIUM_LINE)
+}
+
 script UpdateItemCheck{
     checkitem(ITEM_TM49, 2)
     if(var(VAR_RESULT) == TRUE){

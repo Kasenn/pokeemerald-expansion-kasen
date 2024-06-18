@@ -228,12 +228,18 @@ SandGym_Guide_5:
 
 SandGym_Statue::
 	goto_if_set FLAG_BADGE04_GET, SandGym_Statue_2
+	compare VAR_ROUTE14_ROCKET_EVENT, 4
+	goto_if_ge SandGym_Statue_3
 	msgbox SandGym_GymStatue, MSGBOX_SIGN
 SandGym_Statue_1:
 	end
 
 SandGym_Statue_2:
 	msgbox SandGym_GymStatueCertified, MSGBOX_SIGN
+	goto SandGym_Statue_1
+
+SandGym_Statue_3:
+	msgbox SandGym_GymStatueCertified2, MSGBOX_SIGN
 	goto SandGym_Statue_1
 
 
@@ -411,6 +417,13 @@ SandGym_GymStatueCertified::
 	.string "Korrina's certified trainers:\n"
 	.string "{RIVAL}\l"
 	.string "{PLAYER}$"
+
+SandGym_GymStatueCertified2::
+	.string "Sandstone City Pokémon Gym\p"
+	.string "Korrina's certified trainers:\n"
+	.string "{RIVAL}\l"
+	.string "{PLAYER}\l"
+	.string "{BROTHER}$"
 
 SandGym_Tr1_CyclistM1_Intro::
 	.string "Welcome to the high-speed gym!\n"

@@ -106,7 +106,7 @@ RustboroCity_EventScript_MatchCallTutorial::
 	setvar VAR_RUSTBORO_CITY_STATE, 7
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
 	releaseall
-	end
+	return
 
 RustboroCity_Movement_ScientistWalkInPlaceDown:
 	walk_in_place_down

@@ -259,6 +259,10 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example3;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example4;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example5;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FishermanNorth;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FishermanWest;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FishermanEast;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FishermanSouth;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Acerola;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Iris;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Volkner;
@@ -573,6 +577,10 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MAY_WATERING_ORAS] =        &gObjectEventGraphicsInfo_MayWateringOras,
     [OBJ_EVENT_GFX_MAY_FIELD_MOVE_ORAS] =        &gObjectEventGraphicsInfo_MayFieldMoveOras,
     [OBJ_EVENT_GFX_STEEL_SPHERE] =                    &gObjectEventGraphicsInfo_SteelSphere,
+    [OBJ_EVENT_GFX_FISHERMAN_NORTH] =          &gObjectEventGraphicsInfo_FishermanNorth,
+    [OBJ_EVENT_GFX_FISHERMAN_WEST] =           &gObjectEventGraphicsInfo_FishermanWest,
+    [OBJ_EVENT_GFX_FISHERMAN_SOUTH] =          &gObjectEventGraphicsInfo_FishermanSouth,
+    [OBJ_EVENT_GFX_FISHERMAN_EAST] =           &gObjectEventGraphicsInfo_FishermanEast,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

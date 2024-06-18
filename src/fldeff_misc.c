@@ -1249,6 +1249,7 @@ static void Task_WateringBerryTreeAnim_Start(u8 taskId)
 {
     struct ObjectEvent *playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
 
+    playerObjEvent->previousElevation += 1;
     if (!ObjectEventIsMovementOverridden(playerObjEvent)
         || ObjectEventClearHeldMovementIfFinished(playerObjEvent))
     {
@@ -1277,6 +1278,8 @@ static void Task_WateringBerryTreeAnim_Continue(u8 taskId)
 
 static void Task_WateringBerryTreeAnim_End(u8 taskId)
 {
+    struct ObjectEvent *playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+    playerObjEvent->previousElevation -= 1;
     SetPlayerAvatarTransitionFlags(GetPlayerAvatarFlags());
     DestroyTask(taskId);
     ScriptContext_Enable();

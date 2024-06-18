@@ -238,56 +238,115 @@ text R14_Robbed{
     "I'll find another way around and catch\n"
     "up with you as soon as I can."
 }
+
 script Route14_Tr3_ParasolLady {
     trainerbattle_single(TRAINER_R14_TR3_PARASOLLADY, R14Tr3_Intro, R14Tr3_Lose)
     msgbox(R14Tr3_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text R14Tr3_Intro{""}
-text R14Tr3_Lose{""}
-text R14Tr3_PostBattle{""}
+text R14Tr3_Intro{
+    "Why am I carrying this parasol?\p"
+	"I'll tell you if you can win against me."}
+text R14Tr3_Lose{
+    "A parasol can't ward off Pokémon\n"
+	"attacks…"
+}
+text R14Tr3_PostBattle{
+    "I don't think strong sunlight is good\n"
+	"for my Pokémon.\l"
+	"So I shield them with my parasol."
+}
 
 script Route14_Tr4_Fisher {
     trainerbattle_single(TRAINER_R14_TR4_FISHER, R14Tr4_Intro, R14Tr4_Lose)
     msgbox(R14Tr4_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text R14Tr4_Intro{""}
-text R14Tr4_Lose{""}
-text R14Tr4_PostBattle{""}
+text R14Tr4_Intro{
+    "I like it when my opponents struggle!"
+}
+text R14Tr4_Lose{
+    "Looks like I'm the one struggling…"
+}
+text R14Tr4_PostBattle{
+    "Whether it's fishing or training your\n"
+    "Pokémon, the most important thing is\l"
+    "to have patience."
+}
 
 script Route14_Tr5_ParasolLady2 {
     trainerbattle_single(TRAINER_R14_TR5_PARASOLLADY2, R14Tr5_Intro, R14Tr5_Lose)
     msgbox(R14Tr5_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text R14Tr5_Intro{""}
-text R14Tr5_Lose{""}
-text R14Tr5_PostBattle{""}
+text R14Tr5_Intro{
+    "Splish splash splish splash!\p"
+    "Oh, a trainer! Let's see if your\n"
+    "Pokémon can make a splash!"
+}
+text R14Tr5_Lose{
+    "You're no fun…"
+}
+text R14Tr5_PostBattle{
+    "I love being in a rain with my\n"
+    "Pokémon!\p"
+    "The sound of rain can be so calming,\n"
+    "and my Pokémon like it too!"
+}
 
 script Route14_Tr6_NinjaBoy {
     trainerbattle_single(TRAINER_R14_TR6_NINJABOY, R14Tr6_Intro, R14Tr6_Lose)
     msgbox(R14Tr6_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text R14Tr6_Intro{""}
-text R14Tr6_Lose{""}
-text R14Tr6_PostBattle{""}
+text R14Tr6_Intro{
+    "My last target may have escaped,\n"
+    "but you won't!"
+}
+text R14Tr6_Lose{
+    "Target too strong!\n"
+    "Retreat!"
+}
+text R14Tr6_PostBattle{
+    "Please leave me be!\p"
+    "I promise I won't prey on the\n"
+    "weak again!"
+}
 
 script Route14_Tr7_Rocker {
     trainerbattle_single(TRAINER_R14_TR7_ROCKER, R14Tr7_Intro, R14Tr7_Lose)
     msgbox(R14Tr7_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text R14Tr7_Intro{""}
-text R14Tr7_Lose{""}
-text R14Tr7_PostBattle{""}
+text R14Tr7_Intro{
+    "My bird is the strongest in the world!\n"
+    "Behold!"
+}
+text R14Tr7_Lose{
+    "This failure is on me,\n"
+    "not on my Pokémon…"
+}
+text R14Tr7_PostBattle{
+    "Most birds don't like flying in\n"
+    "the rain.\l"
+    "My bird isn't like most birds."
+}
 
 script Route14_Tr8_Maniac {
     trainerbattle_single(TRAINER_R14_TR8_MANIAC, R14Tr8_Intro, R14Tr8_Lose)
     msgbox(R14Tr8_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text R14Tr8_Intro{""}
-text R14Tr8_Lose{""}
-text R14Tr8_PostBattle{""}
+text R14Tr8_Intro{
+    "Ufufufufufu…\n"
+    "Want to battle against my Pokémon…?"
+}
+text R14Tr8_Lose{
+    "M-My Pokémon…"
+}
+text R14Tr8_PostBattle{
+    "A big body that's all lumpy and hard,\n"
+	"enormous horns, and vicious fangs…\p"
+	"Ufufufufu…\n"
+	"I wish I had a Pokémon… like that…"
+}

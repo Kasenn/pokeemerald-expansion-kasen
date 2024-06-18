@@ -307,8 +307,8 @@
 #define TRAINER_R15_TR8_BUGCATCHER2                     301
 #define TRAINER_R15_TR9_BEAUTY                    302
 #define TRAINER_R15_TR10_FISHER                    303
-#define TRAINER_R15_TR11_CYCLINGM                    304
-#define TRAINER_R15_TR12_CYCLINGF                    305
+#define TRAINER_R15_ACETRAINER_F                    304
+#define TRAINER_R15_ACETRAINER_M                    305
 #define TRAINER_R15_TR13_COOLTRAINER                    306
 #define TRAINER_R15_TR14_LASS                   307
 #define TRAINER_R15_TR15_SCIENTIST                   308

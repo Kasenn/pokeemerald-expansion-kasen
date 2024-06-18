@@ -172,7 +172,6 @@ script SkylochInt_RestHouseOldWoman_Rest{
     end
 }
 text SkylochInt_RestHouseOldWoman_RestHere{
-    "This is the Skyloch Rest House.\p"
     "Your Pokémon must be weary.\n"
     "Would you like to take a short rest?"
 }

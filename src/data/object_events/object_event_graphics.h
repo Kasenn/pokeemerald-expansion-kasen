@@ -422,6 +422,7 @@ const u16 gObjectEventPalette_Example4[] = INCBIN_U16("graphics/object_events/pi
 const u32 gObjectEventPic_Acerola[] = INCBIN_U32("graphics/object_events/pics/people/acerola.4bpp");
 const u16 gObjectEventPalette_Acerola[] = INCBIN_U16("graphics/object_events/pics/people/acerola.gbapal");
 const u32 gObjectEventPic_Example5[] = INCBIN_U32("graphics/object_events/pics/people/example5.4bpp");
+const u32 gObjectEventPic_Fisherman2[] = INCBIN_U32("graphics/object_events/pics/people/fisherman2.4bpp");
 const u16 gObjectEventPalette_Example5[] = INCBIN_U16("graphics/object_events/pics/people/example5.gbapal");
 const u32 gObjectEventPic_Iris[] = INCBIN_U32("graphics/object_events/pics/people/iris.4bpp");
 const u16 gObjectEventPalette_Iris[] = INCBIN_U16("graphics/object_events/pics/people/iris.gbapal");

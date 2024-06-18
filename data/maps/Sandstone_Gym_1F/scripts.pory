@@ -261,6 +261,9 @@ script SandGym_Statue{
 	if(flag(FLAG_BADGE04_GET)){
         msgbox(SandGym_GymStatueCertified, MSGBOX_SIGN)
     }
+    elif(var(VAR_ROUTE14_ROCKET_EVENT) >= 4){
+        msgbox(SandGym_GymStatueCertified2, MSGBOX_SIGN)
+    }
     else{
         msgbox(SandGym_GymStatue, MSGBOX_SIGN)
     }
@@ -324,6 +327,13 @@ text SandGym_GymStatueCertified{
 	"Korrina's certified trainers:\n"
     "{RIVAL}\l"
 	"{PLAYER}"
+}
+text SandGym_GymStatueCertified2{
+	"Sandstone City Pokémon Gym\p"
+	"Korrina's certified trainers:\n"
+    "{RIVAL}\l"
+	"{PLAYER}\l"
+    "{BROTHER}"
 }
 
 // Time for Lady Korrina's big appearance!

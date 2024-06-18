@@ -354,55 +354,78 @@ R14_Robbed::
 	.string "up with you as soon as I can.$"
 
 R14Tr3_Intro::
-	.string "$"
+	.string "Why am I carrying this parasol?\p"
+	.string "I'll tell you if you can win against me.$"
 
 R14Tr3_Lose::
-	.string "$"
+	.string "A parasol can't ward off Pokémon\n"
+	.string "attacks…$"
 
 R14Tr3_PostBattle::
-	.string "$"
+	.string "I don't think strong sunlight is good\n"
+	.string "for my Pokémon.\l"
+	.string "So I shield them with my parasol.$"
 
 R14Tr4_Intro::
-	.string "$"
+	.string "I like it when my opponents struggle!$"
 
 R14Tr4_Lose::
-	.string "$"
+	.string "Looks like I'm the one struggling…$"
 
 R14Tr4_PostBattle::
-	.string "$"
+	.string "Whether it's fishing or training your\n"
+	.string "Pokémon, the most important thing is\l"
+	.string "to have patience.$"
 
 R14Tr5_Intro::
-	.string "$"
+	.string "Splish splash splish splash!\p"
+	.string "Oh, a trainer! Let's see if your\n"
+	.string "Pokémon can make a splash!$"
 
 R14Tr5_Lose::
-	.string "$"
+	.string "You're no fun…$"
 
 R14Tr5_PostBattle::
-	.string "$"
+	.string "I love being in a rain with my\n"
+	.string "Pokémon!\p"
+	.string "The sound of rain can be so calming,\n"
+	.string "and my Pokémon like it too!$"
 
 R14Tr6_Intro::
-	.string "$"
+	.string "My last target may have escaped,\n"
+	.string "but you won't!$"
 
 R14Tr6_Lose::
-	.string "$"
+	.string "Target too strong!\n"
+	.string "Retreat!$"
 
 R14Tr6_PostBattle::
-	.string "$"
+	.string "Please leave me be!\p"
+	.string "I promise I won't prey on the\n"
+	.string "weak again!$"
 
 R14Tr7_Intro::
-	.string "$"
+	.string "My bird is the strongest in the world!\n"
+	.string "Behold!$"
 
 R14Tr7_Lose::
-	.string "$"
+	.string "This failure is on me,\n"
+	.string "not on my Pokémon…$"
 
 R14Tr7_PostBattle::
-	.string "$"
+	.string "Most birds don't like flying in\n"
+	.string "the rain.\l"
+	.string "My bird isn't like most birds.$"
 
 R14Tr8_Intro::
-	.string "$"
+	.string "Ufufufufufu…\n"
+	.string "Want to battle against my Pokémon…?$"
 
 R14Tr8_Lose::
-	.string "$"
+	.string "M-My Pokémon…$"
 
 R14Tr8_PostBattle::
-	.string "$"
+	.string "A big body that's all lumpy and hard,\n"
+	.string "enormous horns, and vicious fangs…\p"
+	.string "Ufufufufu…\n"
+	.string "I wish I had a Pokémon… like that…$"

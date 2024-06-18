@@ -1,0 +1,10 @@
+mapscripts FishingVillage_House2_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: FishingGuruFlag
+}
+
+script FishingGuruFlag{
+    checkitem(ITEM_TITANIUM_LINE)
+    if(var(VAR_RESULT) == TRUE){
+        setflag(FLAG_TEMP_1)
+    }
+}

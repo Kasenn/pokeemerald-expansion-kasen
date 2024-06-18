@@ -1243,6 +1243,13 @@ bool8 MetatileBehavior_IsMossdeepGymWarp(u8 metatileBehavior)
         return FALSE;
 }
 
+bool8 MetatileBehavior_IsFishableLava(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_LAVA)
+        return TRUE;
+    else
+        return FALSE;
+}
 
 bool8 MetatileBehavior_IsSurfableFishableWater(u8 metatileBehavior)
 {

@@ -1,0 +1,50 @@
+mapscripts FishingVillage_House1_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION: HideGyaradosite
+}
+
+script HideGyaradosite{
+    if(!flag(FLAG_FISHINGVILLAGE_GYARADOS_REWARD)){
+        setflag(FLAG_TEMP_1)
+    }
+    if(flag(FLAG_RECEIVED_GYARADOSITE)){
+        setobjectmovementtype(2, MOVEMENT_TYPE_FACE_RIGHT)
+        setobjectxyperm(2, 6, 5)
+    }
+}
+
+script OldManGyaradosite{
+    if(flag(FLAG_RECEIVED_GYARADOSITE)){
+        msgbox(TakeCareOfGyaradosite, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    msgbox(GiveGyaradosite)
+    checkitemspace(ITEM_GYARADOSITE)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(NotEnoughRoom, MSGBOX_NPC)
+        end
+    }
+    giveitem(ITEM_GYARADOSITE)
+    setflag(FLAG_RECEIVED_GYARADOSITE)
+    release
+}
+
+text GiveGyaradosite{
+    "When I saw you reeling in that\n"
+    "Gyarados, an old memory surfaced\l"
+    "in my mind.\p"
+    "One day when walking on the beach,\n"
+    "I found this peculiar stone.\p"
+    "It reminded me of the sea, and my\n"
+    "plan was to give it to a truly\l"
+    "remarkable angler one day.\p"
+    "After what I witnessed earlier,\n"
+    "I believe you fit that description.\p"
+    "Here, I want you to have this."
+}
+text TakeCareOfGyaradosite{
+    "Keep your angler spirit strong!\p"
+    "Who knows what other great things\n"
+    "you may fish up in the future."
+}

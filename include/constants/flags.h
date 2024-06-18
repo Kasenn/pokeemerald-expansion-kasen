@@ -347,8 +347,8 @@
 #define FLAG_OBTAINED_AMPHAROSITE            0x144
 #define FLAG_R12_XSPEED            0x145
 #define FLAG_MUD_INTRO           0x146
-#define FLAG_UNUSED_147           0x147
-#define FLAG_UNUSED_148           0x148
+#define FLAG_FISHINGVILLAGE_GYARADOS_REWARD           0x147
+#define FLAG_RECEIVED_GYARADOSITE           0x148 
 #define FLAG_UNUSED_149           0x149
 #define FLAG_UNUSED_14A           0x14A
 #define FLAG_OBTAINED_AERODACTYLITE           0x14B
@@ -370,7 +370,7 @@
 #define FLAG_MET_BATTLE_FRONTIER_GAMBLER     0x157
 #define FLAG_ENABLE_MR_STONE_POKENAV         0x158
 #define FLAG_NURSE_MENTIONS_GOLD_CARD        0x159
-#define FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR  0x15A
+#define FLAG_MET_MOVE_REMINDER  0x15A
 #define FLAG_MET_FRONTIER_SWIMMER_MOVE_TUTOR 0x15B
 
 // Trainer Rematch Flags
@@ -1172,7 +1172,7 @@
 #define FLAG_RECEIVED_SOUP                 0x465 // , leftover from the Ruby Magma hideout
 #define FLAG_HOTEL_FLYINGGEM                  0x466 // , leftover from the Ruby Magma hideout
 #define FLAG_ITEM_OLD_MAGMA_HIDEOUT_B2F_NEST_BALL                   0x467 // , leftover from the Ruby Magma hideout
-#define FLAG_UNUSED_468                                           0x468 // 
+#define FLAG_BERRYFIELDS_ITEM                                           0x468 // 
 #define FLAG_ITEM_MT_PYRE_2F_ULTRA_BALL                             0x469
 #define FLAG_ITEM_MT_PYRE_4F_SEA_INCENSE                            0x46A
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_WEST_MAX_REVIVE                 0x46B
@@ -1216,15 +1216,15 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET                     0x491
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
-#define FLAG_UNUSED_493                                            0x493 // 
-#define FLAG_UNUSED_494                                           0x494 // 
-#define FLAG_UNUSED_495                                            0x495 // 
-#define FLAG_UNUSED_496                                             0x496 // 
-#define FLAG_UNUSED_497                                             0x497 // 
+#define FLAG_ROUTE15_ITEM1                                            0x493 // 
+#define FLAG_ROUTE15_ITEM2                                           0x494 // 
+#define FLAG_ROUTE15_ITEM3                                            0x495 // 
+#define FLAG_ROUTE15_ITEM4                                             0x496 // 
+#define FLAG_ROUTE15_ITEM5                                             0x497 // 
 #define FLAG_BROTHER_PEARLFIGHT                                      0x498 // Sets the flag for the brother fight in the 1st town
-#define FLAG_UNUSED_499                                          0x499 // 
+#define FLAG_ROUTE15_ITEM6                                          0x499 // 
 #define FLAG_PEARLWOOD_POTION_SAMPLE                                 0x49A // Potion given by the old guy in the 1st town
-#define FLAG_UNUSED_49B                                             0x49B // 
+#define FLAG_ROUTE15_ITEM7                                             0x49B // 
 #define FLAG_ROUTE1_STATE                                                   0x49C // Shows/Hides route 1 NPCs
 #define FLAG_ROUTE1_COOLTRAINER                                      0x49D // Cooltrainer dialogue skip on route 1
 #define FLAG_ROUTE1_COOLTRAINERREWARD                                0x49E // Reward from Cooltrainer in route 1
@@ -1344,7 +1344,7 @@
 #define FLAG_SYS_POKEMON_GET                         (SYSTEM_FLAGS + 0x0) // FLAG_0x860
 #define FLAG_SYS_POKEDEX_GET                         (SYSTEM_FLAGS + 0x1)
 #define FLAG_SYS_POKENAV_GET                         (SYSTEM_FLAGS + 0x2)
-#define FLAG_UNUSED_0x863                            (SYSTEM_FLAGS + 0x3) // 
+#define FLAG_RECEIVED_TITANIUM_LINE                            (SYSTEM_FLAGS + 0x3) // 
 #define FLAG_SYS_GAME_CLEAR                          (SYSTEM_FLAGS + 0x4)
 #define FLAG_SYS_CHAT_USED                           (SYSTEM_FLAGS + 0x5)
 #define FLAG_UNLOCKED_TRENDY_SAYINGS                 (SYSTEM_FLAGS + 0x6)

@@ -47,6 +47,7 @@ static const u8 LandmarkName_FieryPath[] = _("FIERY PATH");
 static const u8 LandmarkName_JaggedPass[] = _("JAGGED PASS");
 static const u8 LandmarkName_SkyPillar[] = _("SKY PILLAR");
 static const u8 LandmarkName_BerryMastersHouse[] = _("BERRY FIELDS");
+static const u8 LandmarkName_MoveRemindersHouse[] = _("MOVE REMINDER");
 static const u8 LandmarkName_IslandCave[] = _("ISLAND CAVE");
 static const u8 LandmarkName_DesertRuins[] = _("DESERT RUINS");
 static const u8 LandmarkName_ScorchedSlab[] = _("SCORCHED SLAB");
@@ -94,6 +95,7 @@ static const struct Landmark Landmark_LanettesHouse = {LandmarkName_LanettesHous
 static const struct Landmark Landmark_FieryPath = {LandmarkName_FieryPath, FLAG_LANDMARK_FIERY_PATH};
 static const struct Landmark Landmark_JaggedPass = {LandmarkName_JaggedPass, -1};
 static const struct Landmark Landmark_BerryMastersHouse = {LandmarkName_BerryMastersHouse, FLAG_LANDMARK_BERRY_MASTERS_HOUSE};
+static const struct Landmark Landmark_MoveRemindersHouse = {LandmarkName_MoveRemindersHouse, FLAG_MET_MOVE_REMINDER};
 static const struct Landmark Landmark_IslandCave = {LandmarkName_IslandCave, FLAG_LANDMARK_ISLAND_CAVE};
 static const struct Landmark Landmark_DesertRuins = {LandmarkName_DesertRuins, FLAG_LANDMARK_DESERT_RUINS};
 static const struct Landmark Landmark_ScorchedSlab = {LandmarkName_ScorchedSlab, FLAG_LANDMARK_SCORCHED_SLAB};
@@ -339,6 +341,12 @@ static const struct Landmark *const Landmarks_Route123_0[]  =
     NULL,
 };
 
+static const struct Landmark *const Landmarks_Route123_1[]  =
+{
+    &Landmark_MoveRemindersHouse,
+    NULL,
+};
+
 static const struct Landmark *const Landmarks_Route124_7[]  =
 {
     &Landmark_HuntersHouse,
@@ -397,6 +405,7 @@ static const struct LandmarkList sLandmarkLists[] =
     {MAPSEC_NEWROUTE_8, 0, Landmarks_Route8_0},
     {MAPSEC_NEWROUTE_11, 1, Landmarks_Route11_0},
     {MAPSEC_NEWROUTE_12, 0, Landmarks_Route12_0},
+    {MAPSEC_NEWROUTE_15, 2, Landmarks_Route123_1},
     {MAPSEC_NEWROUTE_15, 3, Landmarks_Route123_0},
     {MAPSEC_NEWROUTE_28, 0, Landmarks_Route28_0},
     {MAPSEC_ROUTE_104, 1, Landmarks_Route104_1},

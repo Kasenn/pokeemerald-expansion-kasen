@@ -172,6 +172,17 @@ static bool8 CheckFeebas(void)
     return FALSE;
 }
 
+static bool8 CheckFishingVillage(void)
+{
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(FISHING_VILLAGE)
+     && gSaveBlock1Ptr->location.mapNum == MAP_NUM(FISHING_VILLAGE))
+    {
+        if (Random() % 100 < 5)
+            return TRUE;
+    }
+    return FALSE;
+}
+
 static u16 FeebasRandom(void)
 {
     sFeebasRngValue = ISO_RANDOMIZE2(sFeebasRngValue);
@@ -878,6 +889,14 @@ void FishingWildEncounter(u8 rod)
 
         species = sWildFeebas.species;
         CreateWildMon(species, level);
+    }
+    else if (CheckFishingVillage() == TRUE)
+    {
+        u8 level = (30 + (Random() % 4));
+
+        species = SPECIES_GYARADOS;
+        CreateWildMon(species, level);
+        FlagSet(FLAG_TEMP_3);
     }
     else
     {

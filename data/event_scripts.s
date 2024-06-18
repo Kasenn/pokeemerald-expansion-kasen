@@ -1463,3 +1463,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Drisledge_House2/scripts.inc"
 
 	.include "data/maps/Drisledge_Gym/scripts.inc"
+
+	.include "data/maps/Route15_MoveReminder/scripts.inc"

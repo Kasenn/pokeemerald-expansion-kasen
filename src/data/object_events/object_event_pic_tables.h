@@ -490,6 +490,47 @@ static const struct SpriteFrameImage sPicTable_Truck[] = {
     obj_frame_tiles(gObjectEventPic_Truck),
 };
 
+static const struct SpriteFrameImage sPicTable_FishermanNorth[] = {
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 0),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 1),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 2),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 3),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 4),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 5),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 6),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 7),
+};
+static const struct SpriteFrameImage sPicTable_FishermanSouth[] = {
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 0),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 1),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 2),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 3),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 4),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 5),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 6),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 7),
+};
+static const struct SpriteFrameImage sPicTable_FishermanWest[] = {
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 0),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 1),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 2),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 3),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 4),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 5),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 6),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 7),
+};
+static const struct SpriteFrameImage sPicTable_FishermanEast[] = {
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 0),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 1),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 2),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 3),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 4),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 5),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 6),
+    overworld_frame(gObjectEventPic_Fisherman2, 6, 6, 7),
+};
+
 static const struct SpriteFrameImage sPicTable_VigorothCarryingBox[] = {
     overworld_frame(gObjectEventPic_Vigoroth, 4, 4, 0),
     overworld_frame(gObjectEventPic_Vigoroth, 4, 4, 0),
