@@ -3,6 +3,8 @@ mapscripts FishingVillage_MapScripts{
 }
 
 script FishingVillage_DespawnBrother{
+    setflag(FLAG_TEMP_A)
+    setflag(FLAG_TEMP_B)
     if(defeated(TRAINER_BROTHER5_ROWLET) || defeated(TRAINER_BROTHER5_TORCHIC) || defeated(TRAINER_BROTHER5_PIPLUP)){
         setflag(FLAG_TEMP_1)
         setvar(VAR_TEMP_1, 1)
@@ -143,7 +145,7 @@ script FishVillage_Sign3{
     msgbox(FishVillage_Sign3_Text, MSGBOX_SIGN)
 }
 script FishVillage_Woman2{
-    msgbox(FishVillage_Woman2_Text, MSGBOX_NPC)
+    msgbox("hello", MSGBOX_NPC)
 }
 script FishVillage_Fisherman1{
     if(flag(FLAG_TEMP_3)){
@@ -386,4 +388,25 @@ script SuperRodReward{
     msgbox(YouHaveSlugma)
     giveitem(ITEM_SUPER_ROD)
     msgbox(EnjoySuperRod, MSGBOX_NPC)
+}
+
+script FishVillage_Woman3{
+    hideobjectat(9, MAP_FISHING_VILLAGE)
+    hideobjectat(10, MAP_FISHING_VILLAGE)
+    clearflag(FLAG_TEMP_A)
+    addobject(14)
+    applymovement(14, Common_Movement_FacePlayer)
+    msgbox("hello", MSGBOX_NPC)
+}
+script FishVillage_Woman4{
+    hideobjectat(8, MAP_FISHING_VILLAGE)
+    msgbox("hello", MSGBOX_NPC)
+}
+script FishVillage_Woman6{
+    hideobjectat(13, MAP_FISHING_VILLAGE)
+    hideobjectat(12, MAP_FISHING_VILLAGE)
+    clearflag(FLAG_TEMP_B)
+    addobject(15)
+    applymovement(15, Common_Movement_FacePlayer)
+    msgbox("hello", MSGBOX_NPC)
 }

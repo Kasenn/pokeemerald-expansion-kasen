@@ -896,6 +896,8 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
                 totalRerolls += I_SHINY_CHARM_ADDITIONAL_ROLLS;
             if (LURE_STEP_COUNT != 0)
                 totalRerolls += 1;
+            if (FlagGet(FLAG_INCREASED_SHINY_ODDS))
+                totalRerolls += 4;
 
             while (GET_SHINY_VALUE(value, personality) >= SHINY_ODDS && totalRerolls > 0)
             {
@@ -5658,6 +5660,14 @@ bool8 IsLevelCapped(struct Pokemon *mon)
     }
     if(VarGet(VAR_POKECENTER_TRAINING) == 7){
         if(level >= 38){
+            return TRUE;
+        }
+        else{
+            return FALSE;
+        }
+    }
+    if(VarGet(VAR_POKECENTER_TRAINING) == 8){
+        if(level >= 45){
             return TRUE;
         }
         else{

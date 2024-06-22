@@ -604,9 +604,9 @@
     {
       "id": "LAYOUT_POKEMON_CENTER_1F",
       "name": "PokemonCenter_1F_Layout",
-      "width": 14,
-      "height": 9,
-      "primary_tileset": "gTileset_Building",
+      "width": 13,
+      "height": 16,
+      "primary_tileset": "gTileset_Building2",
       "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/PokemonCenter_1F/border.bin",
       "blockdata_filepath": "data/layouts/PokemonCenter_1F/map.bin"
@@ -5004,9 +5004,9 @@
     {
       "id": "LAYOUT_ALDELEAF_POKE_CENTER1F",
       "name": "AldeleafPokeCenter1F_Layout",
-      "width": 14,
-      "height": 9,
-      "primary_tileset": "gTileset_Building",
+      "width": 13,
+      "height": 16,
+      "primary_tileset": "gTileset_Building2",
       "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/AldeleafPokeCenter1F/border.bin",
       "blockdata_filepath": "data/layouts/AldeleafPokeCenter1F/map.bin"
@@ -5184,9 +5184,9 @@
     {
       "id": "LAYOUT_SHORESLATE_POKECENTER_1F",
       "name": "Shoreslate_Pokecenter_1F_Layout",
-      "width": 14,
-      "height": 9,
-      "primary_tileset": "gTileset_Building",
+      "width": 13,
+      "height": 16,
+      "primary_tileset": "gTileset_Building2",
       "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/Shoreslate_Pokecenter_1F/border.bin",
       "blockdata_filepath": "data/layouts/Shoreslate_Pokecenter_1F/map.bin"
@@ -5344,9 +5344,9 @@
     {
       "id": "LAYOUT_MARIGORGE_POKECENTER_1F",
       "name": "Marigorge_Pokecenter_1F_Layout",
-      "width": 14,
-      "height": 9,
-      "primary_tileset": "gTileset_Building",
+      "width": 13,
+      "height": 16,
+      "primary_tileset": "gTileset_Building2",
       "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/Marigorge_Pokecenter_1F/border.bin",
       "blockdata_filepath": "data/layouts/Marigorge_Pokecenter_1F/map.bin"
@@ -5434,9 +5434,9 @@
     {
       "id": "LAYOUT_KAOLISLE_POKECENTER_1F",
       "name": "Kaolisle_Pokecenter_1F_Layout",
-      "width": 14,
-      "height": 9,
-      "primary_tileset": "gTileset_Building",
+      "width": 13,
+      "height": 16,
+      "primary_tileset": "gTileset_Building2",
       "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/Kaolisle_Pokecenter_1F/border.bin",
       "blockdata_filepath": "data/layouts/Kaolisle_Pokecenter_1F/map.bin"
@@ -5704,9 +5704,9 @@
     {
       "id": "LAYOUT_ROCKLIFFE_POKECENTER_1F",
       "name": "Rockliffe_Pokecenter_1F_Layout",
-      "width": 14,
-      "height": 9,
-      "primary_tileset": "gTileset_Building",
+      "width": 13,
+      "height": 16,
+      "primary_tileset": "gTileset_Building2",
       "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/Rockliffe_Pokecenter_1F/border.bin",
       "blockdata_filepath": "data/layouts/Rockliffe_Pokecenter_1F/map.bin"
@@ -5884,9 +5884,9 @@
     {
       "id": "LAYOUT_SANDSTONE_POKECENTER_1F",
       "name": "Sandstone_Pokecenter_1F_Layout",
-      "width": 14,
-      "height": 9,
-      "primary_tileset": "gTileset_Building",
+      "width": 13,
+      "height": 16,
+      "primary_tileset": "gTileset_Building2",
       "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/Sandstone_Pokecenter_1F/border.bin",
       "blockdata_filepath": "data/layouts/Sandstone_Pokecenter_1F/map.bin"
@@ -6274,9 +6274,9 @@
     {
       "id": "LAYOUT_DRISLEDGE_POKECENTER_1F",
       "name": "Drisledge_Pokecenter_1F_Layout",
-      "width": 14,
-      "height": 9,
-      "primary_tileset": "gTileset_Building",
+      "width": 13,
+      "height": 16,
+      "primary_tileset": "gTileset_Building2",
       "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/Drisledge_Pokecenter_1F/border.bin",
       "blockdata_filepath": "data/layouts/Drisledge_Pokecenter_1F/map.bin"
@@ -6304,7 +6304,7 @@
     {
       "id": "LAYOUT_DRISLEDGE_HOUSE1",
       "name": "Drisledge_House1_Layout",
-      "width": 11,
+      "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
@@ -6314,8 +6314,8 @@
     {
       "id": "LAYOUT_DRISLEDGE_HOUSE2",
       "name": "Drisledge_House2_Layout",
-      "width": 11,
-      "height": 8,
+      "width": 10,
+      "height": 9,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/Drisledge_House2/border.bin",
@@ -6324,10 +6324,10 @@
     {
       "id": "LAYOUT_DRISLEDGE_GYM",
       "name": "Drisledge_Gym_Layout",
-      "width": 40,
-      "height": 50,
+      "width": 62,
+      "height": 52,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_DrisledgeGym",
       "border_filepath": "data/layouts/Drisledge_Gym/border.bin",
       "blockdata_filepath": "data/layouts/Drisledge_Gym/map.bin"
     },

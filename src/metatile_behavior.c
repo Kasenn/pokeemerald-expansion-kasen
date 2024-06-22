@@ -1136,9 +1136,11 @@ bool8 MetatileBehavior_IsTrickHousePuzzleDoor(u8 metatileBehavior)
         return FALSE;
 }
 
-bool8 MetatileBehavior_IsRegionMap(u8 metatileBehavior)
+bool8 MetatileBehavior_IsRegionMap(u8 metatileBehavior, u8 playerDir)
 {
-    if (metatileBehavior == MB_REGION_MAP)
+    if (playerDir != DIR_NORTH)
+        return FALSE;
+    else if (metatileBehavior == MB_REGION_MAP)
         return TRUE;
     else
         return FALSE;
@@ -1283,6 +1285,14 @@ bool8 MetatileBehavior_IsCrackedFloorHole(u8 metatileBehavior)
         return FALSE;
 }
 
+bool8 MetatileBehavior_IsNoFloor(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_NO_FLOOR)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 bool8 MetatileBehavior_IsCrackedFloor(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_CRACKED_FLOOR)
@@ -1396,9 +1406,11 @@ bool8 MetatileBehavior_IsBookShelf(u8 metatileBehavior)
         return FALSE;
 }
 
-bool8 MetatileBehavior_IsPokeCenterBookShelf(u8 metatileBehavior)
+bool8 MetatileBehavior_IsPokeCenterBookShelf(u8 metatileBehavior, u8 playerDir)
 {
-    if (metatileBehavior == MB_POKEMON_CENTER_BOOKSHELF)
+    if (playerDir != DIR_NORTH)
+        return FALSE;
+    else if (metatileBehavior == MB_POKEMON_CENTER_BOOKSHELF)
         return TRUE;
     else
         return FALSE;

@@ -578,9 +578,10 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MAY_FIELD_MOVE_ORAS] =        &gObjectEventGraphicsInfo_MayFieldMoveOras,
     [OBJ_EVENT_GFX_STEEL_SPHERE] =                    &gObjectEventGraphicsInfo_SteelSphere,
     [OBJ_EVENT_GFX_FISHERMAN_NORTH] =          &gObjectEventGraphicsInfo_FishermanNorth,
-    [OBJ_EVENT_GFX_FISHERMAN_WEST] =           &gObjectEventGraphicsInfo_FishermanWest,
     [OBJ_EVENT_GFX_FISHERMAN_SOUTH] =          &gObjectEventGraphicsInfo_FishermanSouth,
-    [OBJ_EVENT_GFX_FISHERMAN_EAST] =           &gObjectEventGraphicsInfo_FishermanEast,
+    [OBJ_EVENT_GFX_FISHERMAN_SOUTH_ROD] =          &gObjectEventGraphicsInfo_FishermanSouthRod,
+    [OBJ_EVENT_GFX_FISHERMAN_HORIZONTAL] =          &gObjectEventGraphicsInfo_FishermanHorizontal,
+    [OBJ_EVENT_GFX_FISHERMAN_HORIZONTAL_ROD] =          &gObjectEventGraphicsInfo_FishermanHorizontalRod,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

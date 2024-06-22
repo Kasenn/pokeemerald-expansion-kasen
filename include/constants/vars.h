@@ -270,7 +270,7 @@
 #define VAR_HEARTSCALEMOVE2                                0x40FA
 #define VAR_SPHERES_FOUND                                0x40FB
 #define VAR_ROUTE14_ROCKET_EVENT                                0x40FC
-#define VAR_UNUSED_0x40FD                                0x40FD // 
+#define VAR_DRISLEDGE_TOWN_STATE                                0x40FD // 
 #define VAR_UNUSED_0x40FE                                0x40FE // 
 #define VAR_UNUSED_VAR                                0x40FF // 
 

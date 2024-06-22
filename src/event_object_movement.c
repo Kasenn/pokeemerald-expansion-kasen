@@ -214,6 +214,7 @@ static void (*const sMovementTypeCallbacks[])(struct Sprite *) =
     [MOVEMENT_TYPE_FACE_DOWN] = MovementType_FaceDirection,
     [MOVEMENT_TYPE_FACE_LEFT] = MovementType_FaceDirection,
     [MOVEMENT_TYPE_FACE_RIGHT] = MovementType_FaceDirection,
+    [MOVEMENT_TYPE_FISH_DOWN] = MovementType_FaceDirection,
     [MOVEMENT_TYPE_PLAYER] = MovementType_Player,
     [MOVEMENT_TYPE_BERRY_TREE_GROWTH] = MovementType_BerryTreeGrowth,
     [MOVEMENT_TYPE_FACE_DOWN_AND_UP] = MovementType_FaceDownAndUp,
@@ -415,6 +416,7 @@ const u8 gInitialMovementTypeFacingDirections[] = {
     [MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_UP] = DIR_NORTH,
     [MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_LEFT] = DIR_WEST,
     [MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_RIGHT] = DIR_EAST,
+    [MOVEMENT_TYPE_FISH_DOWN] = DIR_SOUTH,
 };
 
 #include "data/field_effects/field_effect_object_template_pointers.h"
@@ -1278,6 +1280,9 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
     sprite->centerToCornerVecY = -(graphicsInfo->height >> 1);
     sprite->x += 8;
     sprite->y += 16 + sprite->centerToCornerVecY;
+    if (objectEvent->movementType == MOVEMENT_TYPE_FISH_DOWN){
+        sprite->y += 8;
+    }
     sprite->oam.paletteNum = IndexOfSpritePaletteTag(spriteTemplate->paletteTag);
     sprite->coordOffsetEnabled = TRUE;
     sprite->sObjEventId = objectEventId;
@@ -1576,6 +1581,9 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
         sprite->centerToCornerVecY = -(graphicsInfo->height >> 1);
         sprite->x += 8;
         sprite->y += 16 + sprite->centerToCornerVecY;
+        if (objectEvent->movementType == MOVEMENT_TYPE_FISH_DOWN){
+            sprite->y += 8;
+        }
         sprite->images = graphicsInfo->images;
         if (objectEvent->movementType == MOVEMENT_TYPE_PLAYER)
         {

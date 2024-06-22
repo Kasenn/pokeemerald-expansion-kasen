@@ -59,7 +59,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN_NORTH",
       "x": 9,
-      "y": 12,
+      "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -85,7 +85,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN_NORTH",
       "x": 26,
-      "y": 14,
+      "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -109,9 +109,35 @@
       "flag": "FLAG_FISHINGVILLAGE_GYARADOS_REWARD"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN_EAST",
-      "x": 16,
-      "y": 15,
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN_SOUTH",
+      "x": 8,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FISH_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FishVillage_Woman4",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN_HORIZONTAL",
+      "x": 9,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FishVillage_Woman3",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN_NORTH",
+      "x": 8,
+      "y": 1,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -122,43 +148,43 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN_EAST",
-      "x": 16,
-      "y": 19,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "FishVillage_Woman2",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN_EAST",
-      "x": 14,
-      "y": 17,
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN_HORIZONTAL",
+      "x": 7,
+      "y": 2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FishVillage_Woman2",
+      "script": "FishVillage_Woman6",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN_EAST",
-      "x": 18,
-      "y": 17,
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+      "x": 9,
+      "y": 2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FishVillage_Woman2",
-      "flag": "0"
+      "script": "FishVillage_Woman3",
+      "flag": "FLAG_TEMP_A"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+      "x": 7,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FishVillage_Woman6",
+      "flag": "FLAG_TEMP_B"
     }
   ],
   "warp_events": [

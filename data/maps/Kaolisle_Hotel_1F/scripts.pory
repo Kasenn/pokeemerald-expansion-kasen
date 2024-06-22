@@ -1,8 +1,8 @@
 mapscripts Kaolisle_Hotel_1F_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: HideJasmine
     MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
-        VAR_KAOLISLE_HOTEL_STATE, 5: SetPlayerPosAfterBuffet
-        VAR_KAOLISLE_HOTEL_STATE, 9: SetPlayerPosAfterBuffet
+        VAR_KAOLISLE_HOTEL_STATE, 5: SetPlayerDirAfterBuffet
+        VAR_KAOLISLE_HOTEL_STATE, 9: SetPlayerDirAfterBuffet
     ]
     MAP_SCRIPT_ON_FRAME_TABLE[
         VAR_KAOLISLE_HOTEL_STATE, 1: JasmineLeavesHotel
@@ -10,7 +10,7 @@ mapscripts Kaolisle_Hotel_1F_MapScripts{
         VAR_KAOLISLE_HOTEL_STATE, 10: BuffetComplete
     ]
 }
-script SetPlayerPosAfterBuffet{
+script SetPlayerDirAfterBuffet{
     turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
     addvar(VAR_KAOLISLE_HOTEL_STATE, 1)
 }

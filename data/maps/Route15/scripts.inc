@@ -49,9 +49,9 @@ R15_Acerola::
 	bufferstring STR_VAR_1, R15_Acerola_Text_1
 R15_Acerola_4:
 	msgbox R15_Acerola_Text, MSGBOX_YESNO
-	compare VAR_RESULT, TRUE
+	compare VAR_RESULT, FALSE
 	goto_if_eq R15_Acerola_9
-	msgbox AcerolaNotBusy
+	msgbox AcerolaYouMustBeBusy
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
 	compare VAR_FACING, DIR_NORTH
@@ -83,7 +83,7 @@ R15_Acerola_5:
 	goto R15_Acerola_4
 
 R15_Acerola_9:
-	msgbox AcerolaBusy
+	msgbox AcerolaShame
 	goto R15_Acerola_8
 
 R15_Acerola_13:
@@ -500,13 +500,13 @@ AcerolaThatWay::
 	.string "clothes, I saw him heading south\l"
 	.string "towards Amberock Town.$"
 
-AcerolaBusy::
+AcerolaShame::
 	.string "You must be looking for the guy\n"
 	.string "dressed in black, yes?\p"
 	.string "I saw him running south towards\n"
 	.string "Amberock Town.$"
 
-AcerolaNotBusy::
+AcerolaYouMustBeBusy::
 	.string "Oh, really? The person behind you\n"
 	.string "seems to disagree.$"
 

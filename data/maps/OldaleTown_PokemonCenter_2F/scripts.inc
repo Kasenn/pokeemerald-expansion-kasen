@@ -3,6 +3,7 @@ OldaleTown_PokemonCenter_2F_MapScripts::
 
 
 IvTraining::
+	goto_if_unset FLAG_CORAL_FLAG_1, IvTraining_2
 	lockall
 	setvar VAR_0x8008, 5
 	buffernumberstring STR_VAR_1, VAR_0x8008
@@ -10,6 +11,10 @@ IvTraining::
 	goto_if_ge VAR_TEMP_1, VAR_0x8008, EvTraining_Setup
 	msgbox Training_NotEnoughPoints
 	release
+	end
+
+IvTraining_2:
+	msgbox OldaleTown_PokemonCenter_1F_Text_Train, MSGBOX_NPC
 	end
 
 
@@ -69,10 +74,15 @@ EvTraining_Setup_6:
 
 
 LevelTraining1::
+	goto_if_unset FLAG_CORAL_FLAG_1, LevelTraining1_2
 	setvar VAR_POKECENTER_TRAINING, 1
 	setvar VAR_0x8008, 2
 	goto LevelTrainingCheck
 	return
+
+LevelTraining1_2:
+	msgbox OldaleTown_PokemonCenter_1F_Text_Train, MSGBOX_NPC
+	end
 
 
 LevelTraining2::
@@ -117,6 +127,13 @@ LevelTraining7::
 	return
 
 
+LevelTraining8::
+	setvar VAR_POKECENTER_TRAINING, 8
+	setvar VAR_0x8008, 10
+	goto LevelTrainingCheck
+	return
+
+
 LevelTrainingCheck::
 	lock
 	buffernumberstring STR_VAR_1, VAR_0x8008
@@ -138,10 +155,11 @@ LevelTrainingMain::
 	case 5, LevelTrainingMain_7
 	case 6, LevelTrainingMain_8
 	case 7, LevelTrainingMain_9
+	case 8, LevelTrainingMain_10
 LevelTrainingMain_1:
 	msgbox RecommendedLevel, MSGBOX_YESNO
 	compare VAR_RESULT, YES
-	goto_if_eq LevelTrainingMain_10
+	goto_if_eq LevelTrainingMain_11
 	setvar VAR_POKECENTER_TRAINING, 0
 	special CloseBattlePointsWindow
 	release
@@ -183,96 +201,111 @@ LevelTrainingMain_9:
 	goto LevelTrainingMain_1
 
 LevelTrainingMain_10:
+	buffernumberstring STR_VAR_3, 100
+	buffernumberstring STR_VAR_2, 100
+	goto LevelTrainingMain_1
+
+LevelTrainingMain_11:
 	switch VAR_POKECENTER_TRAINING
-	case 1, LevelTrainingMain_15
-	case 2, LevelTrainingMain_16
-	case 3, LevelTrainingMain_17
-	case 4, LevelTrainingMain_18
-	case 5, LevelTrainingMain_19
-	case 6, LevelTrainingMain_20
-	case 7, LevelTrainingMain_21
-LevelTrainingMain_13:
+	case 1, LevelTrainingMain_16
+	case 2, LevelTrainingMain_17
+	case 3, LevelTrainingMain_18
+	case 4, LevelTrainingMain_19
+	case 5, LevelTrainingMain_20
+	case 6, LevelTrainingMain_21
+	case 7, LevelTrainingMain_22
+	case 8, LevelTrainingMain_23
+LevelTrainingMain_14:
 	compare VAR_RESULT, PARTY_SIZE
-	goto_if_eq LevelTrainingMain_23
-LevelTrainingMain_22:
+	goto_if_eq LevelTrainingMain_25
+LevelTrainingMain_24:
 	special CloseBattlePointsWindow
 	copyvar VAR_0x8004, VAR_0x8008
 	special TakeFrontierBattlePoints
 	switch VAR_POKECENTER_TRAINING
-	case 1, LevelTrainingMain_27
-	case 2, LevelTrainingMain_28
-	case 3, LevelTrainingMain_29
-	case 4, LevelTrainingMain_30
-	case 5, LevelTrainingMain_31
-	case 6, LevelTrainingMain_32
-	case 7, LevelTrainingMain_33
-LevelTrainingMain_25:
+	case 1, LevelTrainingMain_29
+	case 2, LevelTrainingMain_30
+	case 3, LevelTrainingMain_31
+	case 4, LevelTrainingMain_32
+	case 5, LevelTrainingMain_33
+	case 6, LevelTrainingMain_34
+	case 7, LevelTrainingMain_35
+	case 8, LevelTrainingMain_36
+LevelTrainingMain_27:
 	setvar VAR_POKECENTER_TRAINING, 0
 	end
 
-LevelTrainingMain_15:
-	checkpartylevel 12
-	goto LevelTrainingMain_13
-
 LevelTrainingMain_16:
-	checkpartylevel 14
-	goto LevelTrainingMain_13
+	checkpartylevel 12
+	goto LevelTrainingMain_14
 
 LevelTrainingMain_17:
-	checkpartylevel 22
-	goto LevelTrainingMain_13
+	checkpartylevel 14
+	goto LevelTrainingMain_14
 
 LevelTrainingMain_18:
-	checkpartylevel 29
-	goto LevelTrainingMain_13
+	checkpartylevel 22
+	goto LevelTrainingMain_14
 
 LevelTrainingMain_19:
-	checkpartylevel 34
-	goto LevelTrainingMain_13
+	checkpartylevel 29
+	goto LevelTrainingMain_14
 
 LevelTrainingMain_20:
 	checkpartylevel 34
-	goto LevelTrainingMain_13
+	goto LevelTrainingMain_14
 
 LevelTrainingMain_21:
+	checkpartylevel 34
+	goto LevelTrainingMain_14
+
+LevelTrainingMain_22:
 	checkpartylevel 38
-	goto LevelTrainingMain_13
+	goto LevelTrainingMain_14
 
 LevelTrainingMain_23:
+	checkpartylevel 100
+	goto LevelTrainingMain_14
+
+LevelTrainingMain_25:
 	msgbox YourPokemonIsAboveLevel, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
-	goto_if_eq LevelTrainingMain_34
-	goto LevelTrainingMain_22
-
-LevelTrainingMain_27:
-	trainerbattle_no_intro TRAINER_DUSTY_1, TrainingFinished
-	goto LevelTrainingMain_25
-
-LevelTrainingMain_28:
-	trainerbattle_no_intro TRAINER_GABBY_AND_TY_2, TrainingFinished
-	goto LevelTrainingMain_25
+	goto_if_eq LevelTrainingMain_37
+	goto LevelTrainingMain_24
 
 LevelTrainingMain_29:
-	trainerbattle_no_intro TRAINER_RANDALL, TrainingFinished
-	goto LevelTrainingMain_25
+	trainerbattle_no_intro TRAINER_DUSTY_1, TrainingFinished
+	goto LevelTrainingMain_27
 
 LevelTrainingMain_30:
-	trainerbattle_no_intro TRAINER_SHORESLATE_NURSE, TrainingFinished
-	goto LevelTrainingMain_25
+	trainerbattle_no_intro TRAINER_GABBY_AND_TY_2, TrainingFinished
+	goto LevelTrainingMain_27
 
 LevelTrainingMain_31:
-	trainerbattle_no_intro TRAINER_MARIGORGE_NURSE, TrainingFinished
-	goto LevelTrainingMain_25
+	trainerbattle_no_intro TRAINER_RANDALL, TrainingFinished
+	goto LevelTrainingMain_27
 
 LevelTrainingMain_32:
-	trainerbattle_no_intro TRAINER_ROCKLIFFE_NURSE, TrainingFinished
-	goto LevelTrainingMain_25
+	trainerbattle_no_intro TRAINER_SHORESLATE_NURSE, TrainingFinished
+	goto LevelTrainingMain_27
 
 LevelTrainingMain_33:
-	trainerbattle_no_intro TRAINER_SANDSTONE_NURSE, TrainingFinished
-	goto LevelTrainingMain_25
+	trainerbattle_no_intro TRAINER_MARIGORGE_NURSE, TrainingFinished
+	goto LevelTrainingMain_27
 
 LevelTrainingMain_34:
+	trainerbattle_no_intro TRAINER_ROCKLIFFE_NURSE, TrainingFinished
+	goto LevelTrainingMain_27
+
+LevelTrainingMain_35:
+	trainerbattle_no_intro TRAINER_SANDSTONE_NURSE, TrainingFinished
+	goto LevelTrainingMain_27
+
+LevelTrainingMain_36:
+	trainerbattle_no_intro TRAINER_DRISLEDGE_NURSE, TrainingFinished
+	goto LevelTrainingMain_27
+
+LevelTrainingMain_37:
 	setvar VAR_POKECENTER_TRAINING, 0
 	release
 	special CloseBattlePointsWindow
@@ -280,8 +313,13 @@ LevelTrainingMain_34:
 
 
 IvTrainingIntro::
+	goto_if_unset FLAG_CORAL_FLAG_1, IvTrainingIntro_2
 	msgbox IvTrainingIntro_Text, MSGBOX_NPC
 	return
+
+IvTrainingIntro_2:
+	msgbox OldaleTown_PokemonCenter_1F_Text_Train, MSGBOX_NPC
+	end
 
 
 EVTraining_Intro::
@@ -304,7 +342,7 @@ Training_NotEnoughPoints::
 
 RecommendedLevel::
 	.string "This is the Level Training Service.\p"
-	.string "The team in this Training Hub is set\n"
+	.string "The team in this Training Club is set\n"
 	.string "to level {STR_VAR_3} and is intended for teams\l"
 	.string "up to level {STR_VAR_2}.\p"
 	.string "Would you like to use the service?\p"
@@ -313,13 +351,13 @@ RecommendedLevel::
 
 YourPokemonIsAboveLevel::
 	.string "You have Pokémon that are above the\n"
-	.string "level cap of this Training Hub and\l"
+	.string "level cap of this Training Club and\l"
 	.string "thus do not gain any experience.\p"
 	.string "Are you sure you want to continue?$"
 
 IvTrainingIntro_Text::
 	.string "Hello, and welcome to the\n"
-	.string "Pokémon Center PokéTraining Hub.\p"
+	.string "Pokémon Center PokéTraining Club.\p"
 	.string "Here trainers may train their Pokémon\n"
 	.string "by battling in a controlled environment.\p"
 	.string "The first person to my right offers\n"
@@ -329,7 +367,7 @@ IvTrainingIntro_Text::
 	.string "The next person offers level training,\n"
 	.string "employing a team of training robots.\l"
 	.string "Do note that the level of the robots\l"
-	.string "may vary between training hubs,\l"
+	.string "may vary between training clubs,\l"
 	.string "and the higher the level, the costlier\l"
 	.string "the training will become.\p"
 	.string "With that out of the way,\n"

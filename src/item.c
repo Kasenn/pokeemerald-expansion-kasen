@@ -1,4 +1,5 @@
 #include "global.h"
+#include "battle.h"
 #include "item.h"
 #include "berry.h"
 #include "string_util.h"
@@ -311,6 +312,9 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
 {
     u8 i;
     u16 totalQuantity = 0;
+
+    if (ItemId_GetPocket(itemId) == POCKET_POKE_BALLS && (gBattleTypeFlags & BATTLE_TYPE_GHOST))
+        return FALSE;
 
     if (ItemId_GetPocket(itemId) == POCKET_NONE || itemId == ITEM_NONE)
         return FALSE;

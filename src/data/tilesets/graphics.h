@@ -2036,3 +2036,41 @@ const u16 gTilesetPalettes_Drisledge[][16] =
 };
 
 const u32 gTilesetTiles_Drisledge[] = INCBIN_U32("data/tilesets/secondary/drisledge/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Building2[][16] =
+{
+    INCBIN_U16("data/tilesets/primary/building_2/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_2/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_2/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_2/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_2/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_2/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_2/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_2/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_2/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_2/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_2/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_2/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_2/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Building2[] = INCBIN_U32("data/tilesets/primary/building_2/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_DrisledgeGym[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/drisledge_gym/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/drisledge_gym/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/drisledge_gym/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/drisledge_gym/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/drisledge_gym/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/drisledge_gym/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/drisledge_gym/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/drisledge_gym/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/drisledge_gym/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/drisledge_gym/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/drisledge_gym/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/drisledge_gym/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/drisledge_gym/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_DrisledgeGym[] = INCBIN_U32("data/tilesets/secondary/drisledge_gym/tiles.4bpp.lz");

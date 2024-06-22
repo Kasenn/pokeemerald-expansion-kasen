@@ -41,11 +41,11 @@ script R15_Acerola{
         bufferstring(STR_VAR_1, "miss")
     }
     msgbox(R15_Acerola_Text, MSGBOX_YESNO)
-    if(var(VAR_RESULT) == TRUE){
-        msgbox(AcerolaBusy)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(AcerolaShame)
     }
     else{
-        msgbox(AcerolaNotBusy)
+        msgbox(AcerolaYouMustBeBusy)
         closemessage
         applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark)
         if(var(VAR_FACING) == DIR_NORTH){
@@ -84,13 +84,13 @@ text AcerolaThatWay{
     "clothes, I saw him heading south\l"
     "towards Amberock Town."
 }
-text AcerolaBusy{
+text AcerolaShame{
     "You must be looking for the guy\n"
     "dressed in black, yes?\p"
     "I saw him running south towards\n"
     "Amberock Town."
 }
-text AcerolaNotBusy{
+text AcerolaYouMustBeBusy{
     "Oh, really? The person behind you\n"
     "seems to disagree."
 }

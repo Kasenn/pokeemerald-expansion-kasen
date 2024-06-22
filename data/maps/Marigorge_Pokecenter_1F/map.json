@@ -16,8 +16,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_1",
-      "x": 10,
-      "y": 6,
+      "x": 9,
+      "y": 13,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
@@ -29,8 +29,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_NURSE",
-      "x": 7,
-      "y": 2,
+      "x": 6,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -42,8 +42,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
-      "x": 5,
-      "y": 4,
+      "x": 4,
+      "y": 10,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -55,8 +55,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ABRA",
-      "x": 4,
-      "y": 4,
+      "x": 3,
+      "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -65,26 +65,65 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MarigorgePokeCenter1F_Abra",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MYSTERY_GIFT_MAN",
+      "x": 6,
+      "y": 2,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "IvTrainingIntro",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_TEALA",
+      "x": 4,
+      "y": 2,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "IvTraining",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_TEALA",
+      "x": 8,
+      "y": 2,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "LevelTraining5",
+      "flag": "0"
     }
   ],
   "warp_events": [
     {
-      "x": 1,
-      "y": 6,
-      "elevation": 0,
-      "dest_map": "MAP_MARIGORGE_POKECENTER_2F",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 7,
-      "y": 8,
+      "x": 6,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_MARIGORGE_TOWN",
       "dest_warp_id": "1"
     },
     {
-      "x": 6,
-      "y": 8,
+      "x": 5,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_MARIGORGE_TOWN",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 7,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_MARIGORGE_TOWN",
       "dest_warp_id": "1"

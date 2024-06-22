@@ -384,7 +384,7 @@ const u16 DecorGfx_POWDER_SNOW_MAT[] = {
 const u16 DecorGfx_ATTRACT_MAT[] = {
     DECOR_TILE(AttractMat_TopLeft),
     DECOR_TILE(AttractMat_TopMid),
-    DECOR_TILE(AttractMat_TopRight),
+    // DECOR_TILE(AttractMat_TopRight),
     DECOR_TILE(AttractMat_MidLeft),
     DECOR_TILE(AttractMat_Center),
     DECOR_TILE(AttractMat_MidRight),

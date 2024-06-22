@@ -809,6 +809,9 @@ static void UpdateFeetInFlowingWaterFieldEffect(struct Sprite *sprite)
         struct Sprite *linkedSprite = &gSprites[objectEvent->spriteId];
         sprite->x = linkedSprite->x;
         sprite->y = linkedSprite->y;
+        if (objectEvent->movementType == MOVEMENT_TYPE_FISH_DOWN){
+            sprite->y -= 8;
+        }
         sprite->subpriority = linkedSprite->subpriority;
         UpdateObjectEventSpriteInvisibility(sprite, FALSE);
         if (objectEvent->currentCoords.x != sprite->sPrevX || objectEvent->currentCoords.y != sprite->sPrevY)

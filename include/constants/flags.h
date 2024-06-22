@@ -349,10 +349,10 @@
 #define FLAG_MUD_INTRO           0x146
 #define FLAG_FISHINGVILLAGE_GYARADOS_REWARD           0x147
 #define FLAG_RECEIVED_GYARADOSITE           0x148 
-#define FLAG_UNUSED_149           0x149
-#define FLAG_UNUSED_14A           0x14A
+#define FLAG_ROUTE23_ITEM1           0x149
+#define FLAG_ROUTE23_ITEM2           0x14A
 #define FLAG_OBTAINED_AERODACTYLITE           0x14B
-#define FLAG_WONDER_CARD_UNUSED_16           0x14C
+#define FLAG_ROUTE23_ITEM3           0x14C
 #define FLAG_WONDER_CARD_UNUSED_17           0x14D
 #define NUM_WONDER_CARD_FLAGS                (1 + FLAG_WONDER_CARD_UNUSED_17 - FLAG_RECEIVED_AURORA_TICKET)
 
@@ -770,7 +770,7 @@
 #define FLAG_HIDE_MOSSDEEP_CITY_STEVENS_HOUSE_INVISIBLE_NINJA_BOY   0x2D7
 #define FLAG_HIDE_PETALBURG_CITY_WALLYS_MOM                         0x2D8
 
-#define FLAG_UNUSED_2D9                                           0x2D9 // 
+#define FLAG_ROUTE23_ITEM4                                           0x2D9 // 
 
 #define FLAG_HIDE_LILYCOVE_FAN_CLUB_INTERVIEWER                     0x2DA
 #define FLAG_HIDE_RUSTBORO_CITY_AQUA_GRUNT                          0x2DB
@@ -867,7 +867,7 @@
 #define FLAG_HIDE_AQUA_HIDEOUT_1F_GRUNT_2_BLOCKING_ENTRANCE         0x336
 #define FLAG_HIDE_MOSSDEEP_CITY_TEAM_MAGMA                          0x337
 #define FLAG_HIDE_PETALBURG_GYM_WALLYS_DAD                          0x338
-#define FLAG_HIDE_LEGEND_MON_CAVE_OF_ORIGIN                         0x339 // Unused, leftover from R/S
+#define FLAG_OBTAINED_CHOICE_SCARF                         0x339
 #define FLAG_HIDE_SOOTOPOLIS_CITY_ARCHIE                            0x33A
 #define FLAG_HIDE_SOOTOPOLIS_CITY_MAXIE                             0x33B
 #define FLAG_HIDE_SEAFLOOR_CAVERN_ROOM_9_ARCHIE                     0x33C
@@ -1328,7 +1328,7 @@
 #define FLAG_DEFEATED_ELITE_4_GLACIA                                0x4FD
 #define FLAG_DEFEATED_ELITE_4_DRAKE                                 0x4FE
 
-#define FLAG_UNUSED_0x4FF                                           0x4FF // 
+#define FLAG_DRISLEDGE_ITEM1                                           0x4FF //  
 
 // Trainer Flags
 // Trainer flags occupy 0x500 - 0x85F, the last 9 of which are unused

@@ -1,6 +1,10 @@
 mapscripts OldaleTown_PokemonCenter_2F_MapScripts{}
 
 script IvTraining{
+	if(!flag(FLAG_CORAL_FLAG_1)){
+		msgbox(OldaleTown_PokemonCenter_1F_Text_Train, MSGBOX_NPC)
+		end
+	}
 	lockall
 	setvar(VAR_0x8008, 5) // BP Cost
 	buffernumberstring(STR_VAR_1, VAR_0x8008)
@@ -71,7 +75,7 @@ text Training_NotEnoughPoints{
 }
 text RecommendedLevel{
 	"This is the Level Training Service.\p"
-	"The team in this Training Hub is set\n"
+	"The team in this Training Club is set\n"
 	"to level {STR_VAR_3} and is intended for teams\l"
 	"up to level {STR_VAR_2}.\p"
 	"Would you like to use the service?\p"
@@ -80,12 +84,16 @@ text RecommendedLevel{
 }
 text YourPokemonIsAboveLevel{
 	"You have Pokémon that are above the\n"
-	"level cap of this Training Hub and\l"
+	"level cap of this Training Club and\l"
 	"thus do not gain any experience.\p"
 	"Are you sure you want to continue?"
 }
 
 script LevelTraining1{
+	if(!flag(FLAG_CORAL_FLAG_1)){
+		msgbox(OldaleTown_PokemonCenter_1F_Text_Train, MSGBOX_NPC)
+		end
+	}
 	setvar(VAR_POKECENTER_TRAINING, 1)
 	setvar(VAR_0x8008, 2)
 	goto(LevelTrainingCheck)
@@ -118,6 +126,11 @@ script LevelTraining6{
 script LevelTraining7{
 	setvar(VAR_POKECENTER_TRAINING, 7)
 	setvar(VAR_0x8008, 9)
+	goto(LevelTrainingCheck)
+}
+script LevelTraining8{
+	setvar(VAR_POKECENTER_TRAINING, 8)
+	setvar(VAR_0x8008, 10)
 	goto(LevelTrainingCheck)
 }
 
@@ -156,6 +169,9 @@ script LevelTrainingMain{
 		case 7:									// Sandstone City
 			buffernumberstring(STR_VAR_3, 33)
 			buffernumberstring(STR_VAR_2, 37)
+		case 8:
+			buffernumberstring(STR_VAR_3, 100)
+			buffernumberstring(STR_VAR_2, 100)
 	}
     msgbox(RecommendedLevel, MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES){
@@ -174,6 +190,8 @@ script LevelTrainingMain{
 				checkpartylevel(34)
 			case 7:
 				checkpartylevel(38)
+			case 8:
+				checkpartylevel(100)
 		}
 		if(var(VAR_RESULT) == PARTY_SIZE){
 			msgbox(YourPokemonIsAboveLevel, MSGBOX_YESNO)
@@ -202,6 +220,8 @@ script LevelTrainingMain{
 				trainerbattle_no_intro(TRAINER_ROCKLIFFE_NURSE, TrainingFinished)
 			case 7:
 				trainerbattle_no_intro(TRAINER_SANDSTONE_NURSE, TrainingFinished)
+			case 8:
+				trainerbattle_no_intro(TRAINER_DRISLEDGE_NURSE, TrainingFinished)
 		}
 		setvar(VAR_POKECENTER_TRAINING, 0)
 		end
@@ -215,12 +235,16 @@ script LevelTrainingMain{
 }
 
 script IvTrainingIntro{
+	if(!flag(FLAG_CORAL_FLAG_1)){
+		msgbox(OldaleTown_PokemonCenter_1F_Text_Train, MSGBOX_NPC)
+		end
+	}
 	msgbox(IvTrainingIntro_Text, MSGBOX_NPC)
 }
 
 text IvTrainingIntro_Text{
 	"Hello, and welcome to the\n"
-	"Pokémon Center PokéTraining Hub.\p"
+	"Pokémon Center PokéTraining Club.\p"
 	"Here trainers may train their Pokémon\n"
 	"by battling in a controlled environment.\p"
 	"The first person to my right offers\n"
@@ -230,7 +254,7 @@ text IvTrainingIntro_Text{
 	"The next person offers level training,\n"
 	"employing a team of training robots.\l"
 	"Do note that the level of the robots\l"
-	"may vary between training hubs,\l"
+	"may vary between training clubs,\l"
 	"and the higher the level, the costlier\l"
 	"the training will become.\p"
 	"With that out of the way,\n"

@@ -146,6 +146,7 @@
 #define METATILE_Dewford_Door_BattleTower  0x25D
 
 // gTileset_Drisledge
+#define METATILE_Drisledge_DrisledgeDoor                      0x305
 #define METATILE_Drisledge_METATILE_General_TallGrass_TreeUp  0x204
 
 // gTileset_EliteFour

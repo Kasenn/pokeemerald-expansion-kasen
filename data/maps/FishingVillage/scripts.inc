@@ -4,6 +4,8 @@ FishingVillage_MapScripts::
 
 
 FishingVillage_DespawnBrother::
+	setflag FLAG_TEMP_A
+	setflag FLAG_TEMP_B
 	checktrainerflag TRAINER_BROTHER5_ROWLET
 	goto_if 1, FishingVillage_DespawnBrother_1
 	checktrainerflag TRAINER_BROTHER5_TORCHIC
@@ -216,7 +218,7 @@ FishVillage_Sign3::
 
 
 FishVillage_Woman2::
-	msgbox FishVillage_Woman2_Text, MSGBOX_NPC
+	msgbox FishVillage_Woman2_Text_0, MSGBOX_NPC
 	return
 
 
@@ -391,6 +393,35 @@ SuperRodReward::
 	msgbox EnjoySuperRod, MSGBOX_NPC
 	return
 
+
+FishVillage_Woman3::
+	hideobjectat 9, MAP_FISHING_VILLAGE
+	hideobjectat 10, MAP_FISHING_VILLAGE
+	clearflag FLAG_TEMP_A
+	addobject 14
+	applymovement 14, Common_Movement_FacePlayer
+	msgbox FishVillage_Woman2_Text_0, MSGBOX_NPC
+	return
+
+
+FishVillage_Woman4::
+	hideobjectat 8, MAP_FISHING_VILLAGE
+	msgbox FishVillage_Woman2_Text_0, MSGBOX_NPC
+	return
+
+
+FishVillage_Woman6::
+	hideobjectat 13, MAP_FISHING_VILLAGE
+	hideobjectat 12, MAP_FISHING_VILLAGE
+	clearflag FLAG_TEMP_B
+	addobject 15
+	applymovement 15, Common_Movement_FacePlayer
+	msgbox FishVillage_Woman2_Text_0, MSGBOX_NPC
+	return
+
+
+FishVillage_Woman2_Text_0:
+	.string "hello$"
 
 FishingVillageBrotherLeaves::
 	.string "i leave. bye$"

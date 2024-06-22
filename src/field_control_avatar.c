@@ -436,7 +436,7 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
         return EventScript_PokeBlockFeeder;
     if (MetatileBehavior_IsTrickHousePuzzleDoor(metatileBehavior) == TRUE)
         return Route110_TrickHousePuzzle_EventScript_Door;
-    if (MetatileBehavior_IsRegionMap(metatileBehavior) == TRUE)
+    if (MetatileBehavior_IsRegionMap(metatileBehavior, direction) == TRUE)
         return EventScript_RegionMap;
     if (MetatileBehavior_IsRunningShoesManual(metatileBehavior) == TRUE)
         return EventScript_RunningShoesManual;
@@ -444,7 +444,7 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
         return EventScript_PictureBookShelf;
     if (MetatileBehavior_IsBookShelf(metatileBehavior) == TRUE)
         return EventScript_BookShelf;
-    if (MetatileBehavior_IsPokeCenterBookShelf(metatileBehavior) == TRUE)
+    if (MetatileBehavior_IsPokeCenterBookShelf(metatileBehavior, direction) == TRUE)
         return EventScript_PokemonCenterBookShelf;
     if (MetatileBehavior_IsVase(metatileBehavior) == TRUE)
         return EventScript_Vase;
@@ -574,6 +574,11 @@ static bool8 TryStartMiscWalkingScripts(u16 metatileBehavior)
     if (MetatileBehavior_IsCrackedFloorHole(metatileBehavior))
     {
         ScriptContext_SetupScript(EventScript_FallDownHole);
+        return TRUE;
+    }
+    if(MetatileBehavior_IsNoFloor(metatileBehavior))
+    {
+        ScriptContext_SetupScript(EventScript_FallDownDrisledgeGym);
         return TRUE;
     }
     else if (MetatileBehavior_IsBikeWarp(metatileBehavior))

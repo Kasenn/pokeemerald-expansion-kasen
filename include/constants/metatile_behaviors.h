@@ -87,7 +87,7 @@
 #define MB_SOUTHWARD_CURRENT 0x53
 #define MB_ELEVATION_3_DOOR 0x54
 #define MB_LAVA 0x55
-#define MB_UNUSED_56 0x56
+#define MB_NO_FLOOR 0x56
 #define MB_UNUSED_57 0x57
 #define MB_UNUSED_58 0x58
 #define MB_UNUSED_59 0x59

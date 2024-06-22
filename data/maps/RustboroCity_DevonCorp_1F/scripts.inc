@@ -173,7 +173,7 @@ Update3_26:
 	goto Update3_25
 
 Update3_29:
-	clearflag FLAG_UNUSED_2D9
+	clearflag FLAG_ROUTE23_ITEM4
 	clearflag FLAG_BERRYFIELDS_ITEM
 	setvar VAR_DEBUG, 5
 	goto Update3_28

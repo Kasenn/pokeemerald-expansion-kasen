@@ -270,3 +270,9 @@ const u16 gMetatileAttributes_Library[] = INCBIN_U16("data/tilesets/secondary/li
 
 const u16 gMetatiles_Drisledge[] = INCBIN_U16("data/tilesets/secondary/drisledge/metatiles.bin");
 const u16 gMetatileAttributes_Drisledge[] = INCBIN_U16("data/tilesets/secondary/drisledge/metatile_attributes.bin");
+
+const u16 gMetatiles_Building2[] = INCBIN_U16("data/tilesets/primary/building_2/metatiles.bin");
+const u16 gMetatileAttributes_Building2[] = INCBIN_U16("data/tilesets/primary/building_2/metatile_attributes.bin");
+
+const u16 gMetatiles_DrisledgeGym[] = INCBIN_U16("data/tilesets/secondary/drisledge_gym/metatiles.bin");
+const u16 gMetatileAttributes_DrisledgeGym[] = INCBIN_U16("data/tilesets/secondary/drisledge_gym/metatile_attributes.bin");

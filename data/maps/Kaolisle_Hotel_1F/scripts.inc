@@ -5,8 +5,8 @@ Kaolisle_Hotel_1F_MapScripts::
 	.byte 0
 
 Kaolisle_Hotel_1F_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE:
-	map_script_2 VAR_KAOLISLE_HOTEL_STATE, 5, SetPlayerPosAfterBuffet
-	map_script_2 VAR_KAOLISLE_HOTEL_STATE, 9, SetPlayerPosAfterBuffet
+	map_script_2 VAR_KAOLISLE_HOTEL_STATE, 5, SetPlayerDirAfterBuffet
+	map_script_2 VAR_KAOLISLE_HOTEL_STATE, 9, SetPlayerDirAfterBuffet
 	.2byte 0
 
 Kaolisle_Hotel_1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
@@ -16,7 +16,7 @@ Kaolisle_Hotel_1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 	.2byte 0
 
 
-SetPlayerPosAfterBuffet::
+SetPlayerDirAfterBuffet::
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	addvar VAR_KAOLISLE_HOTEL_STATE, 1
 	return

@@ -1,0 +1,194 @@
+mapscripts DrisledgeTown_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: DespawnDrisledgeNPCs
+}
+
+script DespawnDrisledgeNPCs{
+    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 7){
+        setflag(FLAG_TEMP_1)
+    }
+}
+
+script Drisledge_Sign1{
+    msgbox(Drisledge_Sign1_Text, MSGBOX_SIGN)
+}
+text Drisledge_Sign1_Text{
+    "DRISLEDGE TOWN\n"
+    "“The happiest town in the world.”"
+}
+
+script Drisledge_Sign2{
+    msgbox(Drisledge_Sign2_Text, MSGBOX_SIGN)
+}
+text Drisledge_Sign2_Text{
+    "Drisledge Town Pokémon Gym"
+}
+
+script DrisledgeMart_OldMan{
+    lock
+    msgbox(DrisledgeMart_OldMan_Text)
+    call(SetDrisledgeOldPersonVar)
+    release
+}
+text DrisledgeMart_OldMan_Text{
+    "I feel like the products here are\n"
+    "constantly changing locations.\l"
+    "I can never find what I want."
+}
+
+script Drisledge_LittleGirl{
+    msgbox(Drisledge_LittleGirl_Text, MSGBOX_NPC)
+    if((var(VAR_DRISLEDGE_TOWN_STATE) != 1)
+    || (var(VAR_DRISLEDGE_TOWN_STATE) != 3)
+    || (var(VAR_DRISLEDGE_TOWN_STATE) != 5)
+    || (var(VAR_DRISLEDGE_TOWN_STATE) != 7))
+    {
+        addvar(VAR_DRISLEDGE_TOWN_STATE, 1)
+    }
+}
+text Drisledge_LittleGirl_Text{
+    "The adults hate the rain so there's\n"
+    "nobody to ruin our fun out here!"
+}
+script Drisledge_LittleGirl2{
+    msgbox(Drisledge_LittleGirl_Text2, MSGBOX_NPC)
+    if((var(VAR_DRISLEDGE_TOWN_STATE) != 2)
+    || (var(VAR_DRISLEDGE_TOWN_STATE) != 3)
+    || (var(VAR_DRISLEDGE_TOWN_STATE) != 6)
+    || (var(VAR_DRISLEDGE_TOWN_STATE) != 7))
+    {
+        addvar(VAR_DRISLEDGE_TOWN_STATE, 2)
+    }
+}
+text Drisledge_LittleGirl_Text2{
+    "Whee!"
+}
+script SetDrisledgeOldPersonVar{
+    if((var(VAR_DRISLEDGE_TOWN_STATE) != 4)
+    || (var(VAR_DRISLEDGE_TOWN_STATE) != 5)
+    || (var(VAR_DRISLEDGE_TOWN_STATE) != 6)
+    || (var(VAR_DRISLEDGE_TOWN_STATE) != 7))
+    {
+        addvar(VAR_DRISLEDGE_TOWN_STATE, 4)
+    }
+}
+
+script DrisledgeTown_House2_ExpertM{
+    lock
+    msgbox(DrisledgeTown_House2_ExpertM_Text)
+    call(SetDrisledgeOldPersonVar)
+    release
+}
+script DrisledgeTown_House2_ExpertF{
+    msgbox(DrisledgeTown_House2_ExpertF_Text, MSGBOX_NPC)
+    call(SetDrisledgeOldPersonVar)
+}
+text DrisledgeTown_House2_ExpertM_Text{
+    "Another rainy day…\n"
+    "Splendid…"
+}
+text DrisledgeTown_House2_ExpertF_Text{
+    "There's not much to do in a town\n"
+    "where it never stops raining.\p"
+    "At least the sound of raindrops\n"
+    "hitting the roof is relaxing, I guess…"
+}
+
+script Drisledge_House1_OldWoman{
+    call(SetDrisledgeOldPersonVar)
+    msgbox(Drisledge_House1_OldWoman_Text, MSGBOX_NPC)
+}
+text Drisledge_House1_OldWoman_Text{
+    "Do you like my dolls?\p"
+    "Sometimes it can be a bit noisy when\n"
+    "everybody starts talking at the same\l"
+    "time, but other than that, they tend to\l"
+    "be very well-behaved."
+}
+
+script DrisledgeDoll1{
+    bufferspeciesname(STR_VAR_1, SPECIES_SEEDOT)
+    goto(DrisledgeDollMain)
+}
+script DrisledgeDoll2{
+    bufferspeciesname(STR_VAR_1, SPECIES_SMOOCHUM)
+    goto(DrisledgeDollMain)
+}
+script DrisledgeDoll3{
+    bufferspeciesname(STR_VAR_1, SPECIES_GULPIN)
+    goto(DrisledgeDollMain)
+}
+script DrisledgeDoll4{
+    bufferspeciesname(STR_VAR_1, SPECIES_CLEFAIRY)
+    goto(DrisledgeDollMain)
+}
+script DrisledgeDoll5{
+    bufferspeciesname(STR_VAR_1, SPECIES_DUSKULL)
+    goto(DrisledgeDollMain)
+}
+script DrisledgeDoll6{
+    bufferspeciesname(STR_VAR_1, SPECIES_JIGGLYPUFF)
+    goto(DrisledgeDollMain)
+}
+script DrisledgeDoll7{
+    bufferspeciesname(STR_VAR_1, SPECIES_AZURILL)
+    goto(DrisledgeDollMain)
+}
+script DrisledgeDoll8{
+    bufferspeciesname(STR_VAR_1, SPECIES_WYNAUT)
+    goto(DrisledgeDollMain)
+}
+script DrisledgeDoll9{
+    bufferspeciesname(STR_VAR_1, SPECIES_DITTO)
+    goto(DrisledgeDollMain)
+}
+script DrisledgeDoll10{
+    bufferspeciesname(STR_VAR_1, SPECIES_KECLEON)
+    goto(DrisledgeDollMain)
+}
+script DrisledgeDoll11{
+    bufferspeciesname(STR_VAR_1, SPECIES_LOTAD)
+    goto(DrisledgeDollMain)
+}
+script DrisledgeDoll12{
+    bufferspeciesname(STR_VAR_1, SPECIES_MEOWTH)
+    goto(DrisledgeDollMain)
+}
+script DrisledgeDoll13{
+    bufferspeciesname(STR_VAR_1, SPECIES_WOOPER)
+    goto(DrisledgeDollMain)
+}
+script DrisledgeDoll14{
+    bufferspeciesname(STR_VAR_1, SPECIES_TOGEPI)
+    goto(DrisledgeDollMain)
+}
+script DrisledgeDollMain{
+    msgbox(DrisledgeDollMain_Text, MSGBOX_SIGN)
+}
+text DrisledgeDollMain_Text{
+    "It's a regular {STR_VAR_1} doll."
+}
+
+script Drisledge_Pokecenter_Boy3{
+    msgbox(Drisledge_Pokecenter_Boy3_Text, MSGBOX_NPC)
+}
+script Drisledge_Pokecenter_Man1{
+    msgbox(Drisledge_Pokecenter_Man1_Text, MSGBOX_NPC)
+}
+script Drisledge_Pokecenter_Girl2{
+    msgbox(Drisledge_Pokecenter_Girl2_Text, MSGBOX_NPC)
+}
+text Drisledge_Pokecenter_Boy3_Text{
+    "Is it just me or are the locals\n"
+    "a bit weird?"
+}
+text Drisledge_Pokecenter_Man1_Text{
+    "I was afraid we might get drenched\n"
+    "on our way here.\p"
+    "Thankfully my Pokémon was holding\n"
+    "a Utility Umbrella and was able to\l"
+    "keep us dry through the rain."
+}
+text Drisledge_Pokecenter_Girl2_Text{
+    "I hate the rain.\n"
+    "I hope it stops soon."
+}

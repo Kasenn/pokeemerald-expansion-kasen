@@ -1,0 +1,360 @@
+mapscripts Route23_MapScripts {
+    
+}
+
+script R23_Girl1{
+    msgbox(R23_Girl1_Text, MSGBOX_NPC)
+}
+text R23_Girl1_Text{
+    "This place looks so dreary.\p"
+    "I need to get to Crystalpine Town,\n"
+    "but I think I'll find another route…"
+}
+
+
+script Route23_Tr1_Breeder_M {
+    trainerbattle_single(TRAINER_R23_TR1_BREEDER_M, R23Tr1_Intro, R23Tr1_Lose)
+    msgbox(R23Tr1_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R23Tr1_Intro{
+    "My Pokémon aren't fans of this\n"
+    "weather, but they'll battle you\l"
+    "either way!"
+}
+text R23Tr1_Lose{
+    "Should've listened to my gut and\n"
+    "not fought…"
+}
+text R23Tr1_PostBattle{
+    "Certain Pokémon like certain weathers\n"
+    "more than the other.\p"
+    "Water Pokémon generally do great\n"
+    "in rain."
+}
+
+script Route23_Tr2_Maniac {
+    trainerbattle_single(TRAINER_R23_TR2_MANIAC, R23Tr2_Intro, R23Tr2_Lose)
+    msgbox(R23Tr2_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R23Tr2_Intro{
+    "This is the perfect weather for an\n"
+    "epic battle! Come, face me!"
+}
+text R23Tr2_Lose{
+    "Truly, this battle will go down in\n"
+    "history!"
+}
+text R23Tr2_PostBattle{
+    "I love the weather here.\p"
+    "It's dreadful and tempestuous,\n"
+    "just like my soul."
+}
+
+script Route23_Tr3_Twin1 {
+    trainerbattle_double(TRAINER_R23_TR3_TWINS, R23Tr3_Intro, R23Tr3_Lose, R23Tr3_NotEnoughMons)
+    msgbox(R23Tr3_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R23Tr3_Intro{
+    "Belle: Come play with us!"
+}
+text R23Tr3_Lose{
+    "Belle: You're no fun…"
+}
+text R23Tr3_PostBattle{
+    "Belle: We are so in sync with each\n"
+    "other, we often say the same thing!"
+}
+text R23Tr3_NotEnoughMons{
+    "Belle: Come play with us!\p"
+    "…Oh, but you don't have enough\n"
+    "Pokémon…"
+}
+
+script Route23_Tr3_Twin2 {
+    trainerbattle_double(TRAINER_R23_TR3_TWINS, R23Tr3_Intro2, R23Tr3_Lose2, R23Tr3_NotEnoughMons2)
+    msgbox(R23Tr3_PostBattle2, MSGBOX_AUTOCLOSE)
+    end
+}
+text R23Tr3_Intro2{
+    "Bella: Come play with us!"
+}
+text R23Tr3_Lose2{
+    "Bella: You're no fun…"
+}
+text R23Tr3_PostBattle2{
+    "Bella: We are so in sync with each\n"
+    "other, we often say the same thing!"
+}
+text R23Tr3_NotEnoughMons2{
+    "Bella: Come play with us!\p"
+    "…Oh, but you don't have enough\n"
+    "Pokémon…"
+}
+
+script Route23_Tr4_Breeder_F {
+    trainerbattle_single(TRAINER_R23_TR4_BREEDER_F, R23Tr4_Intro, R23Tr4_Lose)
+    msgbox(R23Tr4_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R23Tr4_Intro{
+    "Strength in numbers!"
+}
+text R23Tr4_Lose{
+    "Looks like quality trumps quantity…"
+}
+text R23Tr4_PostBattle{
+    "Having many Pokémon is great for\n"
+    "variety, but it doesn't help if you\l"
+    "forget to train everyone equally."
+}
+
+script Route23_Tr5_Hexmaniac_1 {
+    trainerbattle_single(TRAINER_R23_TR5_HEXMANIAC_1, R23Tr5_Intro, R23Tr5_Lose)
+    msgbox(R23Tr5_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R23Tr5_Intro{
+    "Why do you disturb me?"
+}
+text R23Tr5_Lose{
+    "Is it finally over?"
+}
+text R23Tr5_PostBattle{
+    "Why do you still disturb me?"
+}
+
+script Route23_Tr6_Psychic_M {
+    trainerbattle_single(TRAINER_R23_TR6_PSYCHIC_M, R23Tr6_Intro, R23Tr6_Lose)
+    msgbox(R23Tr6_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R23Tr6_Intro{
+    "The route ahead is cursed!\p"
+    "I will stop you from going further!"
+}
+text R23Tr6_Lose{
+    "Maybe you have what it takes to\n"
+    "withstand the curse…"
+}
+text R23Tr6_PostBattle{
+    "I sense a strong presence slumbering\n"
+    "nearby. I advise going any further."
+}
+
+script Route23_Tr7_Hexmaniac_2 {
+    trainerbattle_single(TRAINER_R23_TR7_HEXMANIAC_2, R23Tr7_Intro, R23Tr7_Lose)
+    msgbox(R23Tr7_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R23Tr7_Intro{
+    "You seem like you have interesting\n"
+    "Pokémon.\l"
+    "Can you show them to me?"
+}
+text R23Tr7_Lose{
+    "Interesting…"
+}
+text R23Tr7_PostBattle{
+    "You have interesting Pokémon.\p"
+    "I hope I can study them more\n"
+    "sometime soon."
+}
+
+script Route23_Tr8_Triathlete_F {
+    trainerbattle_single(TRAINER_R23_TR8_TRIATHLETE_F, R23Tr8_Intro, R23Tr8_Lose)
+    msgbox(R23Tr8_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R23Tr8_Intro{
+    "You! Battle! Now!"
+}
+text R23Tr8_Lose{
+    "No more battling.\n"
+    "Must train more!"
+}
+text R23Tr8_PostBattle{
+    "I'm running in water.\p"
+    "That means I'm practicing for\n"
+    "two sports at the same time!"
+}
+
+script Route23_Tr9_Fisherman {
+    trainerbattle_single(TRAINER_R23_TR9_FISHERMAN, R23Tr9_Intro, R23Tr9_Lose)
+    msgbox(R23Tr9_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R23Tr9_Intro{
+    "With my companions beside me, I'm not\n"
+    "afraid of a small thunderstorm.\l"
+    "Here, let me introduce you to them!"
+}
+text R23Tr9_Lose{
+    "A small setback, but we recover."
+}
+text R23Tr9_PostBattle{
+    "Fishing in a thunderstorm can be\n"
+    "dangerous, but thanks to my Pokémon,\l"
+    "I never have to fear a thing."
+}
+
+script Route23_Tr10_Battlegirl {
+    trainerbattle_single(TRAINER_R23_TR10_BATTLEGIRL, R23Tr10_Intro, R23Tr10_Lose)
+    msgbox(R23Tr10_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R23Tr10_Intro{
+    "Are you here to train as well?\n"
+    "Great, let's be training partners!"
+}
+text R23Tr10_Lose{
+    "Good hustle!"
+}
+text R23Tr10_PostBattle{
+    "We will keep training until my Pokémon\n"
+    "is able to punch a Ghost Pokémon!"
+}
+
+script Route23_Tr11_Ninjaboy {
+    trainerbattle_single(TRAINER_R23_TR11_NINJABOY, R23Tr11_Intro, R23Tr11_Lose)
+    msgbox(R23Tr11_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R23Tr11_Intro{
+    "I lay in ambush, and a trainer has\n"
+	"landed in my trap!"
+}
+text R23Tr11_Lose{
+    "If you don't lose, how am I supposed\n"
+	"to have fun playing ninja?"
+}
+text R23Tr11_PostBattle{
+    "I'm going to ambush a weaker-looking\n"
+	"trainer next time."
+}
+
+script Route23_Tr12_Acetrainer {
+    if(defeated(TRAINER_R23_TR12_ACETRAINER)){
+        goto(R23_Ace_PostBattle)
+    }
+    elif(defeated(TRAINER_R23_TR1_BREEDER_M)
+      && defeated(TRAINER_R23_TR2_MANIAC)
+      && defeated(TRAINER_R23_TR3_TWINS)
+      && defeated(TRAINER_R23_TR4_BREEDER_F)
+      && defeated(TRAINER_R23_TR5_HEXMANIAC_1)
+      && defeated(TRAINER_R23_TR6_PSYCHIC_M)
+      && defeated(TRAINER_R23_TR7_HEXMANIAC_2)
+      && defeated(TRAINER_R23_TR8_TRIATHLETE_F)
+      && defeated(TRAINER_R23_TR9_FISHERMAN)
+      && defeated(TRAINER_R23_TR10_BATTLEGIRL))
+    {
+        goto(R23_Ace_EligibleForBattle)
+    }
+    else{
+        msgbox(R23_Ace_NotEligible, MSGBOX_NPC)
+        end
+    }
+}
+
+script R23_Ace_EligibleForBattle{
+    lockall
+    faceplayer
+    if(!flag(FLAG_TEMP_5)){
+        setflag(FLAG_TEMP_5)
+        msgbox(R23_Ace_ReadyForBattle, MSGBOX_YESNO)
+    }
+    else{
+        msgbox(R23_Ace_ReadyForBattleShort, MSGBOX_YESNO)
+    }
+    if(var(VAR_RESULT) == TRUE){
+        msgbox(R23_Ace_BeginBattle, MSGBOX_DEFAULT)
+        trainerbattle_no_intro(TRAINER_R23_TR12_ACETRAINER, R23_Ace_Lose)
+        goto(R23_Ace_PostBattle)
+    }
+    msgbox(R23_Ace_DeclineBattle, MSGBOX_NPC)
+    end
+}
+
+script R23_Ace_PostBattle{
+    lock
+    faceplayer
+    if(flag(FLAG_OBTAINED_CHOICE_SCARF)){
+        msgbox(R23_Ace_PostBattle_Text, MSGBOX_NPC)
+        end
+    }
+    msgbox(R23_Ace_Reward, MSGBOX_DEFAULT)
+    checkitemspace(ITEM_CHOICE_SCARF)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(NotEnoughRoom, MSGBOX_NPC)
+        end
+    }
+    giveitem(ITEM_CHOICE_SCARF)
+    waitfanfare
+    msgbox(R23_Ace_ExplainReward)
+    setflag(FLAG_OBTAINED_CHOICE_SCARF)
+    setvar(VAR_0x8004, 30)
+    call(RewardBP)
+    release
+    end
+}
+
+text R23_Ace_PostBattle_Text{
+    "I can't believe I just lost…"
+}
+text R23_Ace_NotEligible{
+    "Heya! I've been looking for strong\n"
+    "trainers to challenge.\p"
+    "Think you got what it takes? Defeat all\n"
+    "the other trainers in this area first\l"
+    "and seek me out then.\p"
+    "Having issues finding everyone?\p"
+    "I heard people talking of some ninjas\n"
+    "hiding in the tall grass."
+}
+text R23_Ace_Lose{
+    "No way that just happened…"
+}
+text R23_Ace_ReadyForBattle{
+    "Heya! I've been looking for strong\n"
+    "trainers to challenge, and I think you\l"
+    "might fit the bill!\p"
+    "How about it? Feel like having\n"
+    "a Pokémon battle?\p"
+    "My canine companions are getting\n"
+    "restless."
+}
+text R23_Ace_ReadyForBattleShort{
+    "You're back!\p"
+    "How about it? Feel like having\n"
+    "a Pokémon battle?"
+}
+text R23_Ace_BeginBattle{
+    "Cool! Let's get this show\n"
+    "on the road!"
+}
+text R23_Ace_DeclineBattle{
+    "Oh…\n"
+    "Okay…\p"
+    "Well, let me know if you change\n"
+    "your mind…"
+}
+text R23_Ace_Reward{
+    "I'm still a bit shocked to find someone\n"
+    "so strong in this area.\p"
+    "Oh well…\p"
+    "You beat me fair and square so I think\n"
+    "the only course of action is for you\l"
+    "to have this."
+}
+text R23_Ace_ExplainReward{
+    "Having a Pokémon hold that Lucky Egg\n"
+    "greatly increases the experience it\l"
+    "earns from battles.\p"
+    "If you're ever trying to level up\n"
+    "a weaker Pokémon, just give that egg\l"
+    "to it and watch it grow!\p"
+    "…Oh, and before I forget, take these\n"
+    "as well."
+}
