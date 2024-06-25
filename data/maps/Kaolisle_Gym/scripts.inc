@@ -367,6 +367,8 @@ GymStartingMovement::
 	special SpawnCameraObject
 	compare VAR_BADGES_OBTAINED, 3
 	goto_if_eq GymStartingMovement_2
+	compare VAR_BADGES_OBTAINED, 4
+	goto_if_eq GymStartingMovement_3
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	turnobject 1, DIR_WEST
 	applymovement OBJ_EVENT_ID_CAMERA, Walk3Right
@@ -382,12 +384,20 @@ GymStartingMovement_2:
 	applymovement OBJ_EVENT_ID_CAMERA, Walk3Left
 	goto GymStartingMovement_1
 
+GymStartingMovement_3:
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject 20, DIR_EAST
+	applymovement OBJ_EVENT_ID_CAMERA, Walk3Left
+	goto GymStartingMovement_1
+
 
 GymMovementAfter::
 	special SpawnCameraObject
 	delay 30
 	compare VAR_BADGES_OBTAINED, 3
 	goto_if_eq GymMovementAfter_2
+	compare VAR_BADGES_OBTAINED, 4
+	goto_if_eq GymMovementAfter_3
 	applymovement 1, Walk3Left
 	applymovement OBJ_EVENT_ID_PLAYER, Walk3Right
 GymMovementAfter_1:
@@ -397,6 +407,11 @@ GymMovementAfter_1:
 
 GymMovementAfter_2:
 	applymovement 1, Walk3Right
+	applymovement OBJ_EVENT_ID_PLAYER, Walk3Left
+	goto GymMovementAfter_1
+
+GymMovementAfter_3:
+	applymovement 20, Walk3Right
 	applymovement OBJ_EVENT_ID_PLAYER, Walk3Left
 	goto GymMovementAfter_1
 

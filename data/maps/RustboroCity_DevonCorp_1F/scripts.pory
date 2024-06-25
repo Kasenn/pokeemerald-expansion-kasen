@@ -183,6 +183,7 @@ script Update3{
     if(var(VAR_RESULT) == TRUE){
         warp(MAP_CORALGROVE_CITY, 26, 44)
     }
+    // trainerbattle_no_intro(TRAINER_LEADER_ACEROLA, AcerolaDefeated)
     call(FlagTesting)
 	closemessage
     release

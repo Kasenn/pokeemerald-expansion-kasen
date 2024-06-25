@@ -4648,6 +4648,12 @@ static void HandleTurnActionSelectionState(void)
                     BattleScriptExecute(BattleScript_PrintCantRunFromTrainer);
                     gBattleCommunication[battler] = STATE_BEFORE_ACTION_CHOSEN;
                 }
+                else if (gBattleTypeFlags & BATTLE_TYPE_GHOST
+                         && gBattleResources->bufferB[battler][1] == B_ACTION_RUN)
+                {
+                    BattleScriptExecute(BattleScript_PrintCantRunFromGhost);
+                    gBattleCommunication[battler] = STATE_BEFORE_ACTION_CHOSEN;
+                }
                 else if (IsRunningFromBattleImpossible(battler) != BATTLE_RUN_SUCCESS
                          && gBattleResources->bufferB[battler][1] == B_ACTION_RUN)
                 {

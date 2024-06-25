@@ -259,6 +259,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example2;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example3;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example4;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example5;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mimikyu;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FishermanNorth;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FishermanWest;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FishermanEast;
@@ -541,6 +542,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ACEROLA] =                 &gObjectEventGraphicsInfo_Acerola,
     [OBJ_EVENT_GFX_EXAMPLE5] =                 &gObjectEventGraphicsInfo_Example5,
     [OBJ_EVENT_GFX_IRIS] =                     &gObjectEventGraphicsInfo_Iris,
+    [OBJ_EVENT_GFX_MIMIKYU] =                 &gObjectEventGraphicsInfo_Mimikyu,
     [OBJ_EVENT_GFX_VOLKNER] =                     &gObjectEventGraphicsInfo_Volkner,
     [OBJ_EVENT_GFX_JASMINE] =                     &gObjectEventGraphicsInfo_Jasmine,
     [OBJ_EVENT_GFX_MAREEP] =                     &gObjectEventGraphicsInfo_Mareep,

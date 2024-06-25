@@ -128,6 +128,25 @@ Walk4Left:
 	walk_left
 	step_end
 
+Walk6Left:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+Walk7Left:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
 Walk1Right:
 	walk_right
 	step_end
@@ -144,6 +163,15 @@ Walk3Right:
 	step_end
 
 Walk4Right:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Walk6Right:
+	walk_right
+	walk_right
 	walk_right
 	walk_right
 	walk_right
@@ -212,6 +240,15 @@ Walk4Down:
 	step_end
 
 Walk5Down:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+Walk6Down:
+	walk_down
 	walk_down
 	walk_down
 	walk_down

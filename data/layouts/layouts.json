@@ -6327,7 +6327,7 @@
       "width": 62,
       "height": 52,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_DrisledgeGym",
+      "secondary_tileset": "gTileset_BattlePyramid",
       "border_filepath": "data/layouts/Drisledge_Gym/border.bin",
       "blockdata_filepath": "data/layouts/Drisledge_Gym/map.bin"
     },

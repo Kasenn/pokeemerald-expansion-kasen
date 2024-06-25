@@ -64,7 +64,7 @@ R15_Acerola_15:
 	goto_if_eq R15_Acerola_19
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	waitmovement 0
-	delay 48
+	delay 100
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
 R15_Acerola_18:
 	delay 48
@@ -89,21 +89,21 @@ R15_Acerola_9:
 R15_Acerola_13:
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
 	waitmovement 0
-	delay 48
+	delay 100
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	goto R15_Acerola_12
 
 R15_Acerola_16:
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	waitmovement 0
-	delay 48
+	delay 100
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
 	goto R15_Acerola_15
 
 R15_Acerola_19:
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
 	waitmovement 0
-	delay 48
+	delay 100
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	goto R15_Acerola_18
 
@@ -496,23 +496,27 @@ R15_AceTrainerBattle_Text_1:
 	.string "lass$"
 
 AcerolaThatWay::
-	.string "If you're looking for the guy in black\n"
-	.string "clothes, I saw him heading south\l"
-	.string "towards Amberock Town.$"
+	.string "Acerola: If you're looking for the guy\n"
+	.string "in black clothes, I saw him heading\l"
+	.string "south towards Amberock Town.$"
 
 AcerolaShame::
-	.string "You must be looking for the guy\n"
-	.string "dressed in black, yes?\p"
+	.string "Aww, that's a shame…\p"
+	.string "Oh, I get it! You must be playing tag\n"
+	.string "with the guy in black, right?\p"
 	.string "I saw him running south towards\n"
 	.string "Amberock Town.$"
 
 AcerolaYouMustBeBusy::
-	.string "Oh, really? The person behind you\n"
-	.string "seems to disagree.$"
+	.string "Hee hee, so many new friends to\n"
+	.string "play with!\p"
+	.string "…Oh?\p"
+	.string "The person behind you is saying that\n"
+	.string "you're busy chasing down a bad guy…$"
 
 R15_Acerola_Text::
 	.string "Hiya, {STR_VAR_1}!\n"
-	.string "Tell me, are you busy right now?$"
+	.string "Are you here to play with Acerola?$"
 
 Route15_Sign1_Text::
 	.string "Move Reminder's House$"
@@ -520,7 +524,7 @@ Route15_Sign1_Text::
 Route15_Sign2_Text::
 	.string "Route 15\n"
 	.string "{UP_ARROW} Fishing Village\l"
-	.string "{DOWN_ARROW} Amberock Town\l$"
+	.string "{DOWN_ARROW} Amberock Town$"
 
 Route15_Sign3_Text::
 	.string "Route 15\n"
@@ -534,7 +538,7 @@ R15_RockBlock_Text::
 
 R15Tr1_Intro::
 	.string "My Pokémon have so much room to\n"
-	.string "move here.\l"
+	.string "move here.\p"
 	.string "There's nowhere your Pokémon can hide!$"
 
 R15Tr1_Lose::
@@ -617,13 +621,16 @@ R15Tr7_PostBattle::
 	.string "Even if I'm not…$"
 
 R15Tr8_Intro::
-	.string "$"
+	.string "My bugs have reached their peak.\n"
+	.string "Think you have a chance?$"
 
 R15Tr8_Lose::
-	.string "$"
+	.string "Even at our peak, we still lost…$"
 
 R15Tr8_PostBattle::
-	.string "$"
+	.string "Many people look down on Bug Pokémon.\n"
+	.string "They just haven't found any of the\l"
+	.string "good ones.$"
 
 R15Tr9_Intro::
 	.string "Think your Pokémon can outshine mine?$"

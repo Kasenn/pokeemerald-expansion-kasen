@@ -118,6 +118,10 @@ script RandomizeFossil{
 text FossilInWall{
     "There's a fossil of a Pokémon wedged\n"
     "in a small hole on the wall.\p"
+    "Removing the fossil could release\n"
+    "pressure from the walls, helping\l"
+    "stabilize the nearby desert and\l"
+    "reducing the amount of earthquakes.\p"
     "Would you like to try and pry it\n"
     "from the hole?"
 }

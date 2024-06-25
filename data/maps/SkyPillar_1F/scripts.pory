@@ -97,6 +97,14 @@ movement Walk4Left{
     walk_left * 4
     step_end
 }
+movement Walk6Left{
+    walk_left * 6
+    step_end
+}
+movement Walk7Left{
+    walk_left * 7
+    step_end
+}
 movement Walk1Right{
     walk_right
     step_end
@@ -111,6 +119,10 @@ movement Walk3Right{
 }
 movement Walk4Right{
     walk_right * 4
+    step_end
+}
+movement Walk6Right{
+    walk_right * 6
     step_end
 }
 movement Walk1Up{
@@ -155,6 +167,10 @@ movement Walk4Down{
 }
 movement Walk5Down{
     walk_down * 5
+    step_end
+}
+movement Walk6Down{
+    walk_down * 6
     step_end
 }
 

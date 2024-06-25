@@ -134,7 +134,7 @@ script SandGym_KorrinaTalk{
         msgbox(SandGym_KorrinaPosBat, MSGBOX_NPC)}
 	else{
 		msgbox(SandGym_YouArrived, MSGBOX_NPC)
-		turnobject(8, DIR_EAST)}
+		turnobject(1, DIR_EAST)}
     end
 }
 script Korrina_GymTrigger{
@@ -261,7 +261,7 @@ script SandGym_Statue{
 	if(flag(FLAG_BADGE04_GET)){
         msgbox(SandGym_GymStatueCertified, MSGBOX_SIGN)
     }
-    elif(var(VAR_ROUTE14_ROCKET_EVENT) >= 4){
+    elif(flag(FLAG_BADGE05_GET)){
         msgbox(SandGym_GymStatueCertified2, MSGBOX_SIGN)
     }
     else{

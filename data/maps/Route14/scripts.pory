@@ -291,7 +291,7 @@ text R14Tr5_PostBattle{
     "I love being in a rain with my\n"
     "Pokémon!\p"
     "The sound of rain can be so calming,\n"
-    "and my Pokémon like it too!"
+    "and my Pokémon likes it too!"
 }
 
 script Route14_Tr6_NinjaBoy {

@@ -51,25 +51,25 @@ script R15_Acerola{
         if(var(VAR_FACING) == DIR_NORTH){
             turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
             waitmovement(0)
-            delay(48)
+            delay(100)
             turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
         }
         if(var(VAR_FACING) == DIR_SOUTH){
             turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
             waitmovement(0)
-            delay(48)
+            delay(100)
             turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
         }
         if(var(VAR_FACING) == DIR_EAST){
             turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
             waitmovement(0)
-            delay(48)
+            delay(100)
             turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
         }
         else{
             turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
             waitmovement(0)
-            delay(48)
+            delay(100)
             turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
         }
         delay(48)
@@ -80,23 +80,27 @@ script R15_Acerola{
     end
 }
 text AcerolaThatWay{
-    "If you're looking for the guy in black\n"
-    "clothes, I saw him heading south\l"
-    "towards Amberock Town."
+    "Acerola: If you're looking for the guy\n"
+    "in black clothes, I saw him heading\l"
+    "south towards Amberock Town."
 }
 text AcerolaShame{
-    "You must be looking for the guy\n"
-    "dressed in black, yes?\p"
+    "Aww, that's a shame…\p"
+    "Oh, I get it! You must be playing tag\n"
+    "with the guy in black, right?\p"
     "I saw him running south towards\n"
     "Amberock Town."
 }
 text AcerolaYouMustBeBusy{
-    "Oh, really? The person behind you\n"
-    "seems to disagree."
+    "Hee hee, so many new friends to\n"
+    "play with!\p"
+    "…Oh?\p"
+    "The person behind you is saying that\n"
+    "you're busy chasing down a bad guy…"
 }
 text R15_Acerola_Text{
     "Hiya, {STR_VAR_1}!\n"
-    "Tell me, are you busy right now?"
+    "Are you here to play with Acerola?"
 }
 script Route15_Sign1{
     msgbox(Route15_Sign1_Text, MSGBOX_SIGN)
@@ -110,7 +114,7 @@ script Route15_Sign2{
 text Route15_Sign2_Text{
     "Route 15\n"
     "{UP_ARROW} Fishing Village\l"
-    "{DOWN_ARROW} Amberock Town\l"
+    "{DOWN_ARROW} Amberock Town"
 }
 script Route15_Sign3{
     msgbox(Route15_Sign3_Text, MSGBOX_SIGN)
@@ -154,7 +158,7 @@ script Route15_Tr1_Birdkeeper {
 }
 text R15Tr1_Intro{
     "My Pokémon have so much room to\n"
-    "move here.\l"
+    "move here.\p"
     "There's nowhere your Pokémon can hide!"
 }
 text R15Tr1_Lose{
@@ -278,9 +282,18 @@ script Route15_Tr8_Bugcatcher2 {
     msgbox(R15Tr8_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
-text R15Tr8_Intro{""}
-text R15Tr8_Lose{""}
-text R15Tr8_PostBattle{""}
+text R15Tr8_Intro{
+    "My bugs have reached their peak.\n"
+    "Think you have a chance?"
+}
+text R15Tr8_Lose{
+    "Even at our peak, we still lost…"
+}
+text R15Tr8_PostBattle{
+    "Many people look down on Bug Pokémon.\n"
+    "They just haven't found any of the\l"
+    "good ones."
+}
 
 script Route15_Tr9_Beauty {
     trainerbattle_single(TRAINER_R15_TR9_BEAUTY, R15Tr9_Intro, R15Tr9_Lose)

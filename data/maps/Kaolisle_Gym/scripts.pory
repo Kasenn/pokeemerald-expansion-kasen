@@ -497,6 +497,11 @@ script GymStartingMovement{
         turnobject(1, DIR_EAST)
         applymovement(OBJ_EVENT_ID_CAMERA, Walk3Left)
     }
+    elif(var(VAR_BADGES_OBTAINED) == 4){
+        turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+        turnobject(20, DIR_EAST)
+        applymovement(OBJ_EVENT_ID_CAMERA, Walk3Left)
+    }
     else{
         turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
         turnobject(1, DIR_WEST)
@@ -513,6 +518,10 @@ script GymMovementAfter{
 	delay(30)
     if(var(VAR_BADGES_OBTAINED) == 3){
         applymovement(1, Walk3Right)
+        applymovement(OBJ_EVENT_ID_PLAYER, Walk3Left)
+    }
+    elif(var(VAR_BADGES_OBTAINED) == 4){
+        applymovement(20, Walk3Right)
         applymovement(OBJ_EVENT_ID_PLAYER, Walk3Left)
     }
     else{

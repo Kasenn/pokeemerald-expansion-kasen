@@ -8794,8 +8794,12 @@ static void HandleScriptMegaPrimalBurst(u32 caseId, u32 battler, u32 type)
         UpdateHealthboxAttribute(gHealthboxSpriteIds[battler], mon, HEALTHBOX_ALL);
         if (side == B_SIDE_OPPONENT)
             SetBattlerShadowSpriteCallback(battler, gBattleMons[battler].species);
-        if (type == HANDLE_TYPE_MEGA_EVOLUTION)
+        if (type == HANDLE_TYPE_MEGA_EVOLUTION){
+            if (GetTrainerClassFromId(gTrainerBattleOpponent_A) == TRAINER_CLASS_RIVAL2){
+                FlagSet(FLAG_TEMP_A);
+            }
             gBattleStruct->mega.alreadyEvolved[position] = TRUE;
+        }
         if (type == HANDLE_TYPE_ULTRA_BURST)
             gBattleStruct->burst.alreadyBursted[position] = TRUE;
     }

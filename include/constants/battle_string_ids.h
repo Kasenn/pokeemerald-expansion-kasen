@@ -714,7 +714,8 @@
 #define STRINGID_SLEEPBERRY                           712
 #define STRINGID_TARGETISHURTBYMEGAEXHAUSTION         713
 #define STRINGID_FORESTCURSE                          714
-#define STRINGID_NOWHITEOUT                      715
+#define STRINGID_NOWHITEOUT                           715
+#define STRINGID_NORUNNINGFROMGHOST                   716
 
 #define BATTLESTRINGS_COUNT                           717
 

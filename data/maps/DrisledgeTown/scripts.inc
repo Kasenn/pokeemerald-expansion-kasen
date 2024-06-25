@@ -33,50 +33,66 @@ DrisledgeMart_OldMan::
 
 Drisledge_LittleGirl::
 	msgbox Drisledge_LittleGirl_Text, MSGBOX_NPC
+	compare VAR_DRISLEDGE_TOWN_STATE, 10
+	goto_if_ge Drisledge_LittleGirl_2
 	compare VAR_DRISLEDGE_TOWN_STATE, 1
-	goto_if_ne Drisledge_LittleGirl_1
+	goto_if_ne Drisledge_LittleGirl_4
 	compare VAR_DRISLEDGE_TOWN_STATE, 3
-	goto_if_ne Drisledge_LittleGirl_1
+	goto_if_ne Drisledge_LittleGirl_4
 	compare VAR_DRISLEDGE_TOWN_STATE, 5
-	goto_if_ne Drisledge_LittleGirl_1
+	goto_if_ne Drisledge_LittleGirl_4
 	compare VAR_DRISLEDGE_TOWN_STATE, 7
-	goto_if_ne Drisledge_LittleGirl_1
+	goto_if_ne Drisledge_LittleGirl_4
 	return
 
-Drisledge_LittleGirl_1:
+Drisledge_LittleGirl_2:
+	end
+
+Drisledge_LittleGirl_4:
 	addvar VAR_DRISLEDGE_TOWN_STATE, 1
 	return
 
 
 Drisledge_LittleGirl2::
 	msgbox Drisledge_LittleGirl_Text2, MSGBOX_NPC
+	compare VAR_DRISLEDGE_TOWN_STATE, 10
+	goto_if_ge Drisledge_LittleGirl2_2
 	compare VAR_DRISLEDGE_TOWN_STATE, 2
-	goto_if_ne Drisledge_LittleGirl2_1
+	goto_if_ne Drisledge_LittleGirl2_4
 	compare VAR_DRISLEDGE_TOWN_STATE, 3
-	goto_if_ne Drisledge_LittleGirl2_1
+	goto_if_ne Drisledge_LittleGirl2_4
 	compare VAR_DRISLEDGE_TOWN_STATE, 6
-	goto_if_ne Drisledge_LittleGirl2_1
+	goto_if_ne Drisledge_LittleGirl2_4
 	compare VAR_DRISLEDGE_TOWN_STATE, 7
-	goto_if_ne Drisledge_LittleGirl2_1
+	goto_if_ne Drisledge_LittleGirl2_4
 	return
 
-Drisledge_LittleGirl2_1:
+Drisledge_LittleGirl2_2:
+	end
+
+Drisledge_LittleGirl2_4:
 	addvar VAR_DRISLEDGE_TOWN_STATE, 2
 	return
 
 
 SetDrisledgeOldPersonVar::
+	compare VAR_DRISLEDGE_TOWN_STATE, 10
+	goto_if_ge SetDrisledgeOldPersonVar_2
 	compare VAR_DRISLEDGE_TOWN_STATE, 4
-	goto_if_ne SetDrisledgeOldPersonVar_1
+	goto_if_ne SetDrisledgeOldPersonVar_4
 	compare VAR_DRISLEDGE_TOWN_STATE, 5
-	goto_if_ne SetDrisledgeOldPersonVar_1
+	goto_if_ne SetDrisledgeOldPersonVar_4
 	compare VAR_DRISLEDGE_TOWN_STATE, 6
-	goto_if_ne SetDrisledgeOldPersonVar_1
+	goto_if_ne SetDrisledgeOldPersonVar_4
 	compare VAR_DRISLEDGE_TOWN_STATE, 7
-	goto_if_ne SetDrisledgeOldPersonVar_1
+	goto_if_ne SetDrisledgeOldPersonVar_4
 	return
 
-SetDrisledgeOldPersonVar_1:
+SetDrisledgeOldPersonVar_2:
+	release
+	end
+
+SetDrisledgeOldPersonVar_4:
 	addvar VAR_DRISLEDGE_TOWN_STATE, 4
 	return
 
@@ -96,8 +112,8 @@ DrisledgeTown_House2_ExpertF::
 
 
 Drisledge_House1_OldWoman::
-	call SetDrisledgeOldPersonVar
 	msgbox Drisledge_House1_OldWoman_Text, MSGBOX_NPC
+	call SetDrisledgeOldPersonVar
 	return
 
 

@@ -211,8 +211,8 @@ OurPapers::
 	.string "both ready.$"
 
 AcerolaVisitGym::
-	.string "I couldn't help but hear parts of\n"
-	.string "your conversation.\p"
+	.string "Acerola: I couldn't help overhearing\n"
+	.string "parts of your conversation.\p"
 	.string "If you're looking to strengthen your\n"
 	.string "Pokémon, you should totally check the\l"
 	.string "Pokémon Gym over in Drisledge Town!\p"

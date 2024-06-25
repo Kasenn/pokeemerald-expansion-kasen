@@ -119,7 +119,8 @@
 #define TRAINER_PIC_BW_ACE_TRAINER_M      101
 #define TRAINER_PIC_BRENDAN_ORAS          102
 #define TRAINER_PIC_MAY_ORAS              103
-#define TRAINER_PIC_COUNT                 104
+#define TRAINER_PIC_ACEROLA               104
+#define TRAINER_PIC_COUNT                 105
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0

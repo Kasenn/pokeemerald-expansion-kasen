@@ -160,7 +160,7 @@ PrintIceStep::
 SandGym_KorrinaTalk::
 	goto_if_set FLAG_BADGE04_GET, SandGym_KorrinaTalk_2
 	msgbox SandGym_YouArrived, MSGBOX_NPC
-	turnobject 8, DIR_EAST
+	turnobject 1, DIR_EAST
 SandGym_KorrinaTalk_1:
 	end
 
@@ -228,8 +228,7 @@ SandGym_Guide_5:
 
 SandGym_Statue::
 	goto_if_set FLAG_BADGE04_GET, SandGym_Statue_2
-	compare VAR_ROUTE14_ROCKET_EVENT, 4
-	goto_if_ge SandGym_Statue_3
+	goto_if_set FLAG_BADGE05_GET, SandGym_Statue_3
 	msgbox SandGym_GymStatue, MSGBOX_SIGN
 SandGym_Statue_1:
 	end

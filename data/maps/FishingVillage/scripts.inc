@@ -4,8 +4,7 @@ FishingVillage_MapScripts::
 
 
 FishingVillage_DespawnBrother::
-	setflag FLAG_TEMP_A
-	setflag FLAG_TEMP_B
+	setflag FLAG_VISITED_FISHING_VILLAGE
 	checktrainerflag TRAINER_BROTHER5_ROWLET
 	goto_if 1, FishingVillage_DespawnBrother_1
 	checktrainerflag TRAINER_BROTHER5_TORCHIC
@@ -79,18 +78,41 @@ FishVillage_Brother_9:
 	case 2, FishVillage_Brother_32
 	case 3, FishVillage_Brother_33
 FishVillage_Brother_28:
+	checktrainerflag TRAINER_BROTHER2_ROWLET
+	goto_if 1, FishVillage_Brother_35
+	checktrainerflag TRAINER_BROTHER3_ROWLET
+	goto_if 1, FishVillage_Brother_35
+	checktrainerflag TRAINER_BROTHER4_ROWLET
+	goto_if 1, FishVillage_Brother_35
+	checktrainerflag TRAINER_BROTHER2_TORCHIC
+	goto_if 1, FishVillage_Brother_35
+	checktrainerflag TRAINER_BROTHER3_TORCHIC
+	goto_if 1, FishVillage_Brother_35
+	checktrainerflag TRAINER_BROTHER4_TORCHIC
+	goto_if 1, FishVillage_Brother_35
+	checktrainerflag TRAINER_BROTHER2_PIPLUP
+	goto_if 1, FishVillage_Brother_35
+	checktrainerflag TRAINER_BROTHER3_PIPLUP
+	goto_if 1, FishVillage_Brother_35
+	checktrainerflag TRAINER_BROTHER4_PIPLUP
+	goto_if 1, FishVillage_Brother_35
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq FishVillage_Brother_62
 	switch VAR_STARTER_MON
-	case 0, FishVillage_Brother_36
-	case 1, FishVillage_Brother_37
-	case 2, FishVillage_Brother_38
+	case 0, FishVillage_Brother_75
+	case 1, FishVillage_Brother_76
+	case 2, FishVillage_Brother_77
 FishVillage_Brother_34:
+	goto_if_set FLAG_TEMP_A, FishVillage_Brother_55
 	msgbox FishingVillageBrotherLeaves
+FishVillage_Brother_54:
 	closemessage
 	switch VAR_TEMP_2
-	case 1, FishVillage_Brother_41
-	case 2, FishVillage_Brother_42
-	case 3, FishVillage_Brother_43
-FishVillage_Brother_39:
+	case 1, FishVillage_Brother_67
+	case 2, FishVillage_Brother_68
+	case 3, FishVillage_Brother_69
+FishVillage_Brother_65:
 	waitmovement 1
 	removeobject 1
 	setvar VAR_TEMP_1, 1
@@ -136,32 +158,74 @@ FishVillage_Brother_33:
 	msgbox LastMetInKaolisleHaveFought
 	goto FishVillage_Brother_28
 
-FishVillage_Brother_36:
+FishVillage_Brother_35:
+	switch VAR_STARTER_MON
+	case 0, FishVillage_Brother_59
+	case 1, FishVillage_Brother_60
+	case 2, FishVillage_Brother_61
+	goto FishVillage_Brother_34
+
+FishVillage_Brother_55:
+	msgbox FishingVillageBrotherLeavesAfterMegaEvo
+	goto FishVillage_Brother_54
+
+FishVillage_Brother_59:
 	trainerbattle_no_intro TRAINER_BROTHER5_ROWLET, FishingVillage_BrotherLost
 	goto FishVillage_Brother_34
 
-FishVillage_Brother_37:
+FishVillage_Brother_60:
 	trainerbattle_no_intro TRAINER_BROTHER5_TORCHIC, FishingVillage_BrotherLost
 	goto FishVillage_Brother_34
 
-FishVillage_Brother_38:
+FishVillage_Brother_61:
 	trainerbattle_no_intro TRAINER_BROTHER5_PIPLUP, FishingVillage_BrotherLost
 	goto FishVillage_Brother_34
 
-FishVillage_Brother_41:
+FishVillage_Brother_62:
+	switch VAR_STARTER_MON
+	case 0, FishVillage_Brother_71
+	case 1, FishVillage_Brother_72
+	case 2, FishVillage_Brother_73
+	goto FishVillage_Brother_34
+
+FishVillage_Brother_67:
 	applymovement 1, LeaveFishBrotherRight
 	applymovement OBJ_EVENT_ID_PLAYER, FishPlayerTurnRight
-	goto FishVillage_Brother_39
+	goto FishVillage_Brother_65
 
-FishVillage_Brother_42:
+FishVillage_Brother_68:
 	applymovement 1, LeaveFishBrotherLeft
 	applymovement OBJ_EVENT_ID_PLAYER, FishPlayerTurnLeft
-	goto FishVillage_Brother_39
+	goto FishVillage_Brother_65
 
-FishVillage_Brother_43:
+FishVillage_Brother_69:
 	applymovement 1, LeaveFishBrotherLeft
 	applymovement OBJ_EVENT_ID_PLAYER, FishPlayerTurnLeft
-	goto FishVillage_Brother_39
+	goto FishVillage_Brother_65
+
+FishVillage_Brother_71:
+	trainerbattle_no_intro TRAINER_BROTHER5_ROWLET, FishingVillage_BrotherLostFirstTimeAgainstMale
+	goto FishVillage_Brother_34
+
+FishVillage_Brother_72:
+	trainerbattle_no_intro TRAINER_BROTHER5_TORCHIC, FishingVillage_BrotherLostFirstTimeAgainstMale
+	goto FishVillage_Brother_34
+
+FishVillage_Brother_73:
+	trainerbattle_no_intro TRAINER_BROTHER5_PIPLUP, FishingVillage_BrotherLostFirstTimeAgainstMale
+	goto FishVillage_Brother_34
+
+FishVillage_Brother_75:
+	trainerbattle_no_intro TRAINER_BROTHER5_ROWLET, FishingVillage_BrotherLostFirstTime
+	goto FishVillage_Brother_34
+
+FishVillage_Brother_76:
+	trainerbattle_no_intro TRAINER_BROTHER5_TORCHIC, FishingVillage_BrotherLostFirstTime
+	goto FishVillage_Brother_34
+
+FishVillage_Brother_77:
+	trainerbattle_no_intro TRAINER_BROTHER5_PIPLUP, FishingVillage_BrotherLostFirstTime
+	goto FishVillage_Brother_34
 
 
 FishPlayerTurnRight:
@@ -218,18 +282,23 @@ FishVillage_Sign3::
 
 
 FishVillage_Woman2::
-	msgbox FishVillage_Woman2_Text_0, MSGBOX_NPC
+	msgbox FishVillage_Woman2_Text, MSGBOX_NPC
 	return
 
 
 FishVillage_Fisherman1::
-	goto_if_set FLAG_TEMP_3, FishVillage_Fisherman1_2
+	goto_if_set FLAG_RECEIVED_GYARADOSITE, FishVillage_Fisherman1_2
+	goto_if_set FLAG_TEMP_3, FishVillage_Fisherman1_3
 	msgbox FishVillage_Fisherman1_Text, MSGBOX_NPC
 FishVillage_Fisherman1_1:
 	turnobject 3, DIR_NORTH
 	return
 
 FishVillage_Fisherman1_2:
+	msgbox StillCantBelieveIt, MSGBOX_NPC
+	goto FishVillage_Fisherman1_1
+
+FishVillage_Fisherman1_3:
 	msgbox FishVillage_Fisherman1_Text2, MSGBOX_NPC
 	goto FishVillage_Fisherman1_1
 
@@ -394,53 +463,106 @@ SuperRodReward::
 	return
 
 
-FishVillage_Woman3::
-	hideobjectat 9, MAP_FISHING_VILLAGE
-	hideobjectat 10, MAP_FISHING_VILLAGE
-	clearflag FLAG_TEMP_A
-	addobject 14
-	applymovement 14, Common_Movement_FacePlayer
-	msgbox FishVillage_Woman2_Text_0, MSGBOX_NPC
-	return
-
-
-FishVillage_Woman4::
-	hideobjectat 8, MAP_FISHING_VILLAGE
-	msgbox FishVillage_Woman2_Text_0, MSGBOX_NPC
-	return
-
-
-FishVillage_Woman6::
-	hideobjectat 13, MAP_FISHING_VILLAGE
-	hideobjectat 12, MAP_FISHING_VILLAGE
-	clearflag FLAG_TEMP_B
-	addobject 15
-	applymovement 15, Common_Movement_FacePlayer
-	msgbox FishVillage_Woman2_Text_0, MSGBOX_NPC
-	return
-
-
-FishVillage_Woman2_Text_0:
-	.string "hello$"
-
 FishingVillageBrotherLeaves::
-	.string "i leave. bye$"
+	.string "{BROTHER}: Okay, I must admit,\n"
+	.string "that was pretty good.\p"
+	.string "Looks like I have to take it up\n"
+	.string "a notch the next time we meet.\p"
+	.string "In fact, I recently heard about a way\n"
+	.string "to elevate your Pokémon to a whole new\l"
+	.string "level.\p"
+	.string "I hope you keep up your training,\n"
+	.string "because the next time we meet, it's\l"
+	.string "going to be a whole another story.\p"
+	.string "Later!$"
+
+FishingVillageBrotherLeavesAfterMegaEvo::
+	.string "{BROTHER}: No way did your Pokémon\n"
+	.string "just Mega Evolve!\p"
+	.string "Hmph, looks like I'm the one\n"
+	.string "lagging behind here.\p"
+	.string "Unfortunately for you, I too heard\n"
+	.string "about Mega Evolution recently.\p"
+	.string "I hope you keep training your Pokémon,\n"
+	.string "because if you don't, there's no way\l"
+	.string "you will have any chance against me\l"
+	.string "after I get my Mega Ring!\p"
+	.string "Later!$"
 
 FishingVillage_BrotherLost::
-	.string "i lost$"
+	.string "I can't believe I lost yet again!\n"
+	.string "What a terrible role model I am…$"
+
+FishingVillage_BrotherLostFirstTimeAgainstMale::
+	.string "I can't believe I actually lost\n"
+	.string "against my little brother.\l"
+	.string "What a terrible role model I am…$"
+
+FishingVillage_BrotherLostFirstTime::
+	.string "I can't believe I actually lost\n"
+	.string "against my little sister.\l"
+	.string "What a terrible role model I am…$"
 
 LastMetInPearlwood::
-	.string "was the last time really in\n"
-	.string "pearlwood?$"
+	.string "{BROTHER}: Yo, {PLAYER}!\n"
+	.string "Long time no see!\p"
+	.string "How are your Pokémon doing?\n"
+	.string "Last time we spoke was in I believe…\p"
+	.string "Wait…\p"
+	.string "Have we really not met once since we\n"
+	.string "left Pearlwood? Man, that's crazy!\p"
+	.string "Man, now I'm really curious to see\n"
+	.string "how you've grown!\p"
+	.string "Let's see if you've been training\n"
+	.string "your Pokémon properly!$"
 
 LastMetInKaolisleNoFight::
-	.string "we haven't fought$"
+	.string "{BROTHER}: Yo, {PLAYER}!\n"
+	.string "Long time no see!\p"
+	.string "How are your Pokémon doing?\n"
+	.string "Last time we spoke was in I believe…\p"
+	.string "Oh yeah!\n"
+	.string "We met in Kaolisle City, right?\p"
+	.string "Now that I think about it, we only met\n"
+	.string "there briefly, so I never got to see\l"
+	.string "how much you've grown as a trainer.\p"
+	.string "In that case, what better time to\n"
+	.string "do it than now!\p"
+	.string "Let's see what kind of crazy Pokémon\n"
+	.string "you have caught!$"
 
 LastMetInRoute28::
-	.string "last fought at route 28$"
+	.string "{BROTHER}: Yo, {PLAYER}!\n"
+	.string "Long time no see!\p"
+	.string "How are your Pokémon doing?\n"
+	.string "Last time we met was in I believe…\p"
+	.string "Oh yeah!\p"
+	.string "We met at Route 28, right?\n"
+	.string "The one north of Aldeleaf City!\p"
+	.string "Man, it sure has been a while.\p"
+	.string "You know, I remember being really\n"
+	.string "impressed with your team back then.\p"
+	.string "How about you let me have a look at\n"
+	.string "your Pokémon once more?\p"
+	.string "I hope you've kept up with your\n"
+	.string "training regimen because I won't be\l"
+	.string "holding back!$"
 
 LastMetInKaolisleHaveFought::
-	.string "this is the default$"
+	.string "{BROTHER}: Yo, {PLAYER}!\n"
+	.string "Long time no see!\p"
+	.string "How are your Pokémon doing?\n"
+	.string "Last time we met was in I believe…\p"
+	.string "Oh yeah!\n"
+	.string "We met in Kaolisle City, right?\p"
+	.string "I forgot to mention it back then,\n"
+	.string "but I was actually quite impressed\l"
+	.string "by your team back when we battled\l"
+	.string "just north of Aldeleaf.\p"
+	.string "I'd like to see if you've been keeping\n"
+	.string "up with your training regimen.\p"
+	.string "I hope you haven't been slacking off,\n"
+	.string "because I won't be going easy on you!$"
 
 CaughtGyarados::
 	.string "Oh, I saw you reeling in that\n"
@@ -483,8 +605,13 @@ FishVillage_Fisherman1_Text2::
 	.string "No way did you fish up a Gyarados!\p"
 	.string "You should let the eldest in the\n"
 	.string "village know.\p"
-	.string "I believe he's fishing on the\n"
+	.string "He's right over there, on the\n"
 	.string "middle pier.$"
+
+StillCantBelieveIt::
+	.string "Had I not seen you reel that Gyarados\n"
+	.string "with my own eyes, I would probably\l"
+	.string "still believe it all to be a big lie.$"
 
 FishVillage_Fisherman2_Text::
 	.string "Some think fishing is boring.\n"

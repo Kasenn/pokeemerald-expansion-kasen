@@ -346,5 +346,9 @@ FoundRope::
 FossilInWall::
 	.string "There's a fossil of a Pokémon wedged\n"
 	.string "in a small hole on the wall.\p"
+	.string "Removing the fossil could release\n"
+	.string "pressure from the walls, helping\l"
+	.string "stabilize the nearby desert and\l"
+	.string "reducing the amount of earthquakes.\p"
 	.string "Would you like to try and pry it\n"
 	.string "from the hole?$"

@@ -37,6 +37,9 @@ text DrisledgeMart_OldMan_Text{
 
 script Drisledge_LittleGirl{
     msgbox(Drisledge_LittleGirl_Text, MSGBOX_NPC)
+    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 10){
+        end
+    }
     if((var(VAR_DRISLEDGE_TOWN_STATE) != 1)
     || (var(VAR_DRISLEDGE_TOWN_STATE) != 3)
     || (var(VAR_DRISLEDGE_TOWN_STATE) != 5)
@@ -51,6 +54,9 @@ text Drisledge_LittleGirl_Text{
 }
 script Drisledge_LittleGirl2{
     msgbox(Drisledge_LittleGirl_Text2, MSGBOX_NPC)
+    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 10){
+        end
+    }
     if((var(VAR_DRISLEDGE_TOWN_STATE) != 2)
     || (var(VAR_DRISLEDGE_TOWN_STATE) != 3)
     || (var(VAR_DRISLEDGE_TOWN_STATE) != 6)
@@ -63,6 +69,10 @@ text Drisledge_LittleGirl_Text2{
     "Whee!"
 }
 script SetDrisledgeOldPersonVar{
+    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 10){
+        release
+        end
+    }
     if((var(VAR_DRISLEDGE_TOWN_STATE) != 4)
     || (var(VAR_DRISLEDGE_TOWN_STATE) != 5)
     || (var(VAR_DRISLEDGE_TOWN_STATE) != 6)
@@ -94,8 +104,8 @@ text DrisledgeTown_House2_ExpertF_Text{
 }
 
 script Drisledge_House1_OldWoman{
-    call(SetDrisledgeOldPersonVar)
     msgbox(Drisledge_House1_OldWoman_Text, MSGBOX_NPC)
+    call(SetDrisledgeOldPersonVar)
 }
 text Drisledge_House1_OldWoman_Text{
     "Do you like my dolls?\p"

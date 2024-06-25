@@ -3929,18 +3929,18 @@ bool8 AbnormalWeatherHasExpired(void)
         VarSet(VAR_ABNORMAL_WEATHER_STEP_COUNTER, 0);
         if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(UNDERWATER_MARINE_CAVE))
         {
-            switch (gSaveBlock1Ptr->location.mapNum)
-            {
-            case MAP_NUM(UNDERWATER_MARINE_CAVE):
-            case MAP_NUM(MARINE_CAVE_ENTRANCE):
-            case MAP_NUM(MARINE_CAVE_END):
-            case MAP_NUM(TERRA_CAVE_ENTRANCE):
-            case MAP_NUM(TERRA_CAVE_END):
-                VarSet(VAR_SHOULD_END_ABNORMAL_WEATHER, 1);
-                return FALSE;
-            default:
-                break;
-            }
+            // switch (gSaveBlock1Ptr->location.mapNum)
+            // {
+            // case MAP_NUM(UNDERWATER_MARINE_CAVE):
+            // case MAP_NUM(MARINE_CAVE_ENTRANCE):
+            // case MAP_NUM(MARINE_CAVE_END):
+            // case MAP_NUM(TERRA_CAVE_ENTRANCE):
+            // case MAP_NUM(TERRA_CAVE_END):
+            //     VarSet(VAR_SHOULD_END_ABNORMAL_WEATHER, 1);
+            //     return FALSE;
+            // default:
+            //     break;
+            // }
         }
 
         if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(UNDERWATER_ROUTE127))

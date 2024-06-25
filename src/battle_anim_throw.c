@@ -57,9 +57,9 @@ static void AnimTask_ThrowBall_StandingTrainer_Step(u8);
 static void Task_PlayerThrow_Wait(u8);
 static void SpriteCB_Ball_Arc(struct Sprite *);
 static void SpriteCB_Ball_Block(struct Sprite *);
-static void GhostBallDodge(struct Sprite *sprite);
-static void GhostBallDodge2(struct Sprite *sprite);
-static void BattleAnimObj_SignalEnd(struct Sprite *);
+// static void GhostBallDodge(struct Sprite *sprite);
+// static void GhostBallDodge2(struct Sprite *sprite);
+// static void BattleAnimObj_SignalEnd(struct Sprite *);
 static void SpriteCB_Ball_MonShrink(struct Sprite *);
 static void SpriteCB_Ball_MonShrink_Step(struct Sprite *);
 static void SpriteCB_Ball_Bounce(struct Sprite *);
@@ -1036,48 +1036,48 @@ void AnimTask_ThrowBall(u8 taskId)
     gTasks[taskId].func = AnimTask_ThrowBall_Step;
 }
 
-static void GhostBallDodge(struct Sprite *sprite)
-{
-    sprite->x += sprite->x2;
-    sprite->y += sprite->y2;
-    sprite->x2 = sprite->y2 = 0;
-    sprite->data[0] = 0x22;
-    sprite->data[1] = sprite->x;
-    sprite->data[2] = sprite->x - 8;
-    sprite->data[3] = sprite->y;
-    sprite->data[4] = 0x90;
-    sprite->data[5] = 0x20;
-    InitAnimArcTranslation(sprite);
-    TranslateAnimHorizontalArc(sprite);
-    sprite->callback = GhostBallDodge2;
-}
+// static void GhostBallDodge(struct Sprite *sprite)
+// {
+//     sprite->x += sprite->x2;
+//     sprite->y += sprite->y2;
+//     sprite->x2 = sprite->y2 = 0;
+//     sprite->data[0] = 0x22;
+//     sprite->data[1] = sprite->x;
+//     sprite->data[2] = sprite->x - 8;
+//     sprite->data[3] = sprite->y;
+//     sprite->data[4] = 0x90;
+//     sprite->data[5] = 0x20;
+//     InitAnimArcTranslation(sprite);
+//     TranslateAnimHorizontalArc(sprite);
+//     sprite->callback = GhostBallDodge2;
+// }
 
-static void GhostBallDodge2(struct Sprite *sprite)
-{
-    if (!TranslateAnimHorizontalArc(sprite))
-    {
-        if ((sprite->y + sprite->y2) < 65)
-            return;
-    }
+// static void GhostBallDodge2(struct Sprite *sprite)
+// {
+//     if (!TranslateAnimHorizontalArc(sprite))
+//     {
+//         if ((sprite->y + sprite->y2) < 65)
+//             return;
+//     }
     
-    sprite->data[0] = 0;
-    sprite->callback = BattleAnimObj_SignalEnd;
-    gDoingBattleAnim = FALSE;
-    UpdateOamPriorityInAllHealthboxes(1, FALSE);
-}
+//     sprite->data[0] = 0;
+//     sprite->callback = BattleAnimObj_SignalEnd;
+//     gDoingBattleAnim = FALSE;
+//     UpdateOamPriorityInAllHealthboxes(1, FALSE);
+// }
 
-static void BattleAnimObj_SignalEnd(struct Sprite *sprite)
-{
-    if (sprite->data[0] == 0)
-    {
-        sprite->data[0] = -1;
-    }
-    else
-    {
-        FreeSpriteOamMatrix(sprite);
-        DestroySprite(sprite);
-    }
-}
+// static void BattleAnimObj_SignalEnd(struct Sprite *sprite)
+// {
+//     if (sprite->data[0] == 0)
+//     {
+//         sprite->data[0] = -1;
+//     }
+//     else
+//     {
+//         FreeSpriteOamMatrix(sprite);
+//         DestroySprite(sprite);
+//     }
+// }
 
 static void AnimTask_ThrowBall_Step(u8 taskId)
 {

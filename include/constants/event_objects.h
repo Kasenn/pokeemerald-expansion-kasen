@@ -266,6 +266,7 @@
 #define OBJ_EVENT_GFX_FISHERMAN_SOUTH_ROD                262
 #define OBJ_EVENT_GFX_FISHERMAN_HORIZONTAL                 263
 #define OBJ_EVENT_GFX_FISHERMAN_HORIZONTAL_ROD                264
+#define OBJ_EVENT_GFX_MIMIKYU                265
 
 // NOTE: By default, the max value for NUM_OBJ_EVENT_GFX is 239.
 //
@@ -276,7 +277,7 @@
 // object graphics that can be removed. If more graphics are needed, anything that
 // stores graphics ids will need to be increased in size. See wiki entry below:
 // https://github.com/pret/pokeemerald/wiki/Feature-Branches#overworld-expansion
-#define NUM_OBJ_EVENT_GFX                        265
+#define NUM_OBJ_EVENT_GFX                        266
 
 
 // These are dynamic object gfx ids.
@@ -422,6 +423,7 @@
 #define OBJ_EVENT_PAL_PIDGEOT                0x1143
 #define OBJ_EVENT_PAL_FLOCK                0x1144
 #define OBJ_EVENT_PAL_ACEROLA                    0x1145
+#define OBJ_EVENT_PAL_MIMIKYU                   0x1146
 
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 

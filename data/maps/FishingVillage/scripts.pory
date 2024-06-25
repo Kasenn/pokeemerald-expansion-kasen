@@ -3,8 +3,7 @@ mapscripts FishingVillage_MapScripts{
 }
 
 script FishingVillage_DespawnBrother{
-    setflag(FLAG_TEMP_A)
-    setflag(FLAG_TEMP_B)
+    setflag(FLAG_VISITED_FISHING_VILLAGE)
     if(defeated(TRAINER_BROTHER5_ROWLET) || defeated(TRAINER_BROTHER5_TORCHIC) || defeated(TRAINER_BROTHER5_PIPLUP)){
         setflag(FLAG_TEMP_1)
         setvar(VAR_TEMP_1, 1)
@@ -65,15 +64,53 @@ script FishVillage_Brother{
         case 3:
             msgbox(LastMetInKaolisleHaveFought)
     }
-    switch(var(VAR_STARTER_MON)){
+    if(defeated(TRAINER_BROTHER2_ROWLET)
+    || defeated(TRAINER_BROTHER3_ROWLET)
+    || defeated(TRAINER_BROTHER4_ROWLET)
+    || defeated(TRAINER_BROTHER2_TORCHIC)
+    || defeated(TRAINER_BROTHER3_TORCHIC)
+    || defeated(TRAINER_BROTHER4_TORCHIC)
+    || defeated(TRAINER_BROTHER2_PIPLUP)
+    || defeated(TRAINER_BROTHER3_PIPLUP)
+    || defeated(TRAINER_BROTHER4_PIPLUP)){
+        switch(var(VAR_STARTER_MON)){
         case 0:
             trainerbattle_no_intro(TRAINER_BROTHER5_ROWLET, FishingVillage_BrotherLost)
         case 1:
             trainerbattle_no_intro(TRAINER_BROTHER5_TORCHIC, FishingVillage_BrotherLost)
         case 2:
             trainerbattle_no_intro(TRAINER_BROTHER5_PIPLUP, FishingVillage_BrotherLost)
+        }
     }
-    msgbox(FishingVillageBrotherLeaves)
+    else{
+        checkplayergender
+        if(var(VAR_RESULT) == MALE){
+            switch(var(VAR_STARTER_MON)){
+            case 0:
+                trainerbattle_no_intro(TRAINER_BROTHER5_ROWLET, FishingVillage_BrotherLostFirstTimeAgainstMale)
+            case 1:
+                trainerbattle_no_intro(TRAINER_BROTHER5_TORCHIC, FishingVillage_BrotherLostFirstTimeAgainstMale)
+            case 2:
+                trainerbattle_no_intro(TRAINER_BROTHER5_PIPLUP, FishingVillage_BrotherLostFirstTimeAgainstMale)
+            }
+        }
+        else{
+            switch(var(VAR_STARTER_MON)){
+            case 0:
+                trainerbattle_no_intro(TRAINER_BROTHER5_ROWLET, FishingVillage_BrotherLostFirstTime)
+            case 1:
+                trainerbattle_no_intro(TRAINER_BROTHER5_TORCHIC, FishingVillage_BrotherLostFirstTime)
+            case 2:
+                trainerbattle_no_intro(TRAINER_BROTHER5_PIPLUP, FishingVillage_BrotherLostFirstTime)
+            }
+        }
+    }
+    if(flag(FLAG_TEMP_A)){
+        msgbox(FishingVillageBrotherLeavesAfterMegaEvo)
+    }
+    else{
+        msgbox(FishingVillageBrotherLeaves)
+    }
     closemessage
     switch(var(VAR_TEMP_2)){
         case 1:
@@ -95,23 +132,105 @@ script FishVillage_Brother{
     release
 }
 text FishingVillageBrotherLeaves{
-    "i leave. bye"
+    "{BROTHER}: Okay, I must admit,\n"
+    "that was pretty good.\p"
+    "Looks like I have to take it up\n"
+    "a notch the next time we meet.\p"
+    "In fact, I recently heard about a way\n"
+    "to elevate your Pokémon to a whole new\l"
+    "level.\p"
+    "I hope you keep up your training,\n"
+    "because the next time we meet, it's\l"
+    "going to be a whole another story.\p"
+    "Later!"
+}
+text FishingVillageBrotherLeavesAfterMegaEvo{
+    "{BROTHER}: No way did your Pokémon\n"
+    "just Mega Evolve!\p"
+    "Hmph, looks like I'm the one\n"
+    "lagging behind here.\p"
+    "Unfortunately for you, I too heard\n"
+    "about Mega Evolution recently.\p"
+    "I hope you keep training your Pokémon,\n"
+    "because if you don't, there's no way\l"
+    "you will have any chance against me\l"
+    "after I get my Mega Ring!\p"
+    "Later!"
 }
 text FishingVillage_BrotherLost{
-    "i lost"
+    "I can't believe I lost yet again!\n"
+    "What a terrible role model I am…"
+}
+text FishingVillage_BrotherLostFirstTimeAgainstMale{
+    "I can't believe I actually lost\n"
+    "against my little brother.\l"
+    "What a terrible role model I am…"
+}
+text FishingVillage_BrotherLostFirstTime{
+    "I can't believe I actually lost\n"
+    "against my little sister.\l"
+    "What a terrible role model I am…"
 }
 text LastMetInPearlwood{
-    "was the last time really in\n"
-    "pearlwood?"
+    "{BROTHER}: Yo, {PLAYER}!\n"
+    "Long time no see!\p"
+    "How are your Pokémon doing?\n"
+    "Last time we spoke was in I believe…\p"
+    "Wait…\p"
+    "Have we really not met once since we\n"
+    "left Pearlwood? Man, that's crazy!\p"
+    "Man, now I'm really curious to see\n"
+    "how you've grown!\p"
+    "Let's see if you've been training\n"
+    "your Pokémon properly!"
 }
 text LastMetInKaolisleNoFight{
-    "we haven't fought"
+    "{BROTHER}: Yo, {PLAYER}!\n"
+    "Long time no see!\p"
+    "How are your Pokémon doing?\n"
+    "Last time we spoke was in I believe…\p"
+    "Oh yeah!\n"
+    "We met in Kaolisle City, right?\p"
+    "Now that I think about it, we only met\n"
+    "there briefly, so I never got to see\l"
+    "how much you've grown as a trainer.\p"
+    "In that case, what better time to\n"
+    "do it than now!\p"
+    "Let's see what kind of crazy Pokémon\n"
+    "you have caught!"
 }
 text LastMetInRoute28{
-    "last fought at route 28"
+    "{BROTHER}: Yo, {PLAYER}!\n"
+    "Long time no see!\p"
+    "How are your Pokémon doing?\n"
+    "Last time we met was in I believe…\p"
+    "Oh yeah!\p"
+    "We met at Route 28, right?\n"
+    "The one north of Aldeleaf City!\p"
+    "Man, it sure has been a while.\p"
+    "You know, I remember being really\n"
+    "impressed with your team back then.\p"
+    "How about you let me have a look at\n"
+    "your Pokémon once more?\p"
+    "I hope you've kept up with your\n"
+    "training regimen because I won't be\l"
+    "holding back!"
 }
 text LastMetInKaolisleHaveFought{
-    "this is the default"
+    "{BROTHER}: Yo, {PLAYER}!\n"
+    "Long time no see!\p"
+    "How are your Pokémon doing?\n"
+    "Last time we met was in I believe…\p"
+    "Oh yeah!\n"
+    "We met in Kaolisle City, right?\p"
+    "I forgot to mention it back then,\n"
+    "but I was actually quite impressed\l"
+    "by your team back when we battled\l"
+    "just north of Aldeleaf.\p"
+    "I'd like to see if you've been keeping\n"
+    "up with your training regimen.\p"
+    "I hope you haven't been slacking off,\n"
+    "because I won't be going easy on you!"
 }
 
 movement FishPlayerTurnRight{
@@ -145,10 +264,13 @@ script FishVillage_Sign3{
     msgbox(FishVillage_Sign3_Text, MSGBOX_SIGN)
 }
 script FishVillage_Woman2{
-    msgbox("hello", MSGBOX_NPC)
+    msgbox(FishVillage_Woman2_Text, MSGBOX_NPC)
 }
 script FishVillage_Fisherman1{
-    if(flag(FLAG_TEMP_3)){
+    if(flag(FLAG_RECEIVED_GYARADOSITE)){
+        msgbox(StillCantBelieveIt, MSGBOX_NPC)
+    }
+    elif(flag(FLAG_TEMP_3)){
         msgbox(FishVillage_Fisherman1_Text2, MSGBOX_NPC)
     }
     else{
@@ -238,8 +360,13 @@ text FishVillage_Fisherman1_Text2{
     "No way did you fish up a Gyarados!\p"
     "You should let the eldest in the\n"
     "village know.\p"
-    "I believe he's fishing on the\n"
+    "He's right over there, on the\n"
     "middle pier."
+}
+text StillCantBelieveIt{
+    "Had I not seen you reel that Gyarados\n"
+    "with my own eyes, I would probably\l"
+    "still believe it all to be a big lie."
 }
 text FishVillage_Fisherman2_Text{
     "Some think fishing is boring.\n"
@@ -388,25 +515,4 @@ script SuperRodReward{
     msgbox(YouHaveSlugma)
     giveitem(ITEM_SUPER_ROD)
     msgbox(EnjoySuperRod, MSGBOX_NPC)
-}
-
-script FishVillage_Woman3{
-    hideobjectat(9, MAP_FISHING_VILLAGE)
-    hideobjectat(10, MAP_FISHING_VILLAGE)
-    clearflag(FLAG_TEMP_A)
-    addobject(14)
-    applymovement(14, Common_Movement_FacePlayer)
-    msgbox("hello", MSGBOX_NPC)
-}
-script FishVillage_Woman4{
-    hideobjectat(8, MAP_FISHING_VILLAGE)
-    msgbox("hello", MSGBOX_NPC)
-}
-script FishVillage_Woman6{
-    hideobjectat(13, MAP_FISHING_VILLAGE)
-    hideobjectat(12, MAP_FISHING_VILLAGE)
-    clearflag(FLAG_TEMP_B)
-    addobject(15)
-    applymovement(15, Common_Movement_FacePlayer)
-    msgbox("hello", MSGBOX_NPC)
 }

@@ -389,7 +389,7 @@ R14Tr5_PostBattle::
 	.string "I love being in a rain with my\n"
 	.string "Pokémon!\p"
 	.string "The sound of rain can be so calming,\n"
-	.string "and my Pokémon like it too!$"
+	.string "and my Pokémon likes it too!$"
 
 R14Tr6_Intro::
 	.string "My last target may have escaped,\n"

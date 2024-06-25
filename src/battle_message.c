@@ -68,7 +68,7 @@ static const u8 sText_TryToLearnMove3[] = _("Delete a move to make\nroom for {B_
 static const u8 sText_PkmnForgotMove[] = _("{B_BUFF1} forgot\n{B_BUFF2}.\p");
 static const u8 sText_StopLearningMove[] = _("{PAUSE 32}Stop learning\n{B_BUFF2}?");
 static const u8 sText_DidNotLearnMove[] = _("{B_BUFF1} did not learn\n{B_BUFF2}.\p");
-static const u8 sText_UseNextPkmn[] = _("Use next POKéMON?");
+static const u8 sText_UseNextPkmn[] = _("Use next Pokémon?");
 static const u8 sText_AttackMissed[] = _("{B_ATK_NAME_WITH_PREFIX}'s\nattack missed!");
 static const u8 sText_PkmnProtectedItself[] = _("{B_DEF_NAME_WITH_PREFIX}\nprotected itself!");
 static const u8 sText_AvoidedDamage[] = _("{B_DEF_NAME_WITH_PREFIX} avoided\ndamage with {B_DEF_ABILITY}!");
@@ -350,6 +350,7 @@ static const u8 sText_PlayerBattledToDrawVsTwo[] = _("Player battled to a draw a
 static const u8 sText_WildFled[] = _("{PLAY_SE SE_FLEE}{B_LINK_OPPONENT1_NAME} fled!");
 static const u8 sText_TwoWildFled[] = _("{PLAY_SE SE_FLEE}{B_LINK_OPPONENT1_NAME} and\n{B_LINK_OPPONENT2_NAME} fled!");
 static const u8 sText_NoRunningFromTrainers[] = _("No! There's no running\nfrom a trainer battle!\p");
+static const u8 sText_NoRunningFromGhost[] = _("A strange force beckons you to stay.\nThere's no running from this battle!\p");
 static const u8 sText_CantEscape[] = _("Can't escape!\p");
 static const u8 sText_DontLeaveBirch[] = _("PROF. BIRCH: Don't leave me like this!\p");
 static const u8 sText_ButNothingHappened[] = _("But nothing happened!");
@@ -1216,6 +1217,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_GOTAWAYSAFELY - BATTLESTRINGS_TABLE_START] = sText_GotAwaySafely,
     [STRINGID_WILDPKMNFLED - BATTLESTRINGS_TABLE_START] = sText_WildPkmnFled,
     [STRINGID_NORUNNINGFROMTRAINERS - BATTLESTRINGS_TABLE_START] = sText_NoRunningFromTrainers,
+    [STRINGID_NORUNNINGFROMGHOST - BATTLESTRINGS_TABLE_START] = sText_NoRunningFromGhost,
     [STRINGID_CANTESCAPE - BATTLESTRINGS_TABLE_START] = sText_CantEscape,
     [STRINGID_DONTLEAVEBIRCH - BATTLESTRINGS_TABLE_START] = sText_DontLeaveBirch,
     [STRINGID_BUTNOTHINGHAPPENED - BATTLESTRINGS_TABLE_START] = sText_ButNothingHappened,
@@ -3594,7 +3596,8 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                 break;
             case B_TXT_ATK_TRAINER_NAME:
                 toCpy = BattleStringGetTrainerName(text, multiplayerId, gBattlerAttacker);
-                if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_RIVAL2)
+                if ((gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_RIVAL2)
+                    && (GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT))
                         toCpy = GetExpandedPlaceholder(PLACEHOLDER_ID_BROTHER);
                 break;
             case B_TXT_ATK_TRAINER_CLASS:
@@ -4092,11 +4095,11 @@ static const struct TrainerSlide sTrainerSlides[] =
         .msgMegaEvolution = sText_NotAFairFight,
         // .msgBeforeFirstTurn = sText_HeardOfMegaEvos,
     },
-    {
-        .trainerId = TRAINER_R15_ACETRAINER_M,
-        .isFrontierTrainer = FALSE,
-        .msgMegaEvolution = sText_HopeYoureReady,
-    },
+    // {
+    //     .trainerId = TRAINER_R15_ACETRAINER_M,
+    //     .isFrontierTrainer = FALSE,
+    //     .msgMegaEvolution = sText_HopeYoureReady,
+    // },
 };
 
 static u32 GetEnemyMonCount(u32 firstId, u32 lastId, bool32 onlyAlive)
