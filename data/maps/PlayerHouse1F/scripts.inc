@@ -102,36 +102,50 @@ PlayerHouse1F_Brother::
 PlayerHouse1F_Mom::
 	lockall
 	faceplayer
-	compare VAR_PEARLWOOD_TOWN_STATE, 2
-	goto_if_eq PlayerHouse1F_Mom_1
-	compare VAR_PEARLWOOD_TOWN_STATE, 6
-	goto_if_eq PlayerHouse1F_Mom_2
-	compare VAR_PEARLWOOD_TOWN_STATE, 10
+	compare VAR_PEARLWOOD_TOWN_STATE, 15
 	goto_if_ge PlayerHouse1F_Mom_7
+PlayerHouse1F_Mom_6:
+	compare VAR_PEARLWOOD_TOWN_STATE, 2
+	goto_if_eq PlayerHouse1F_Mom_2
+	compare VAR_PEARLWOOD_TOWN_STATE, 6
+	goto_if_eq PlayerHouse1F_Mom_3
+	compare VAR_PEARLWOOD_TOWN_STATE, 10
+	goto_if_ge PlayerHouse1F_Mom_11
 	goto PlayersHouse_1F_EventScript_MomHealsParty
 	return
 
 PlayerHouse1F_Mom_1:
+	msgbox DadLeftAGift, MSGBOX_NPC
+	setflag FLAG_DAD_INTRO
+	setflag FLAG_RECEIVED_CAPSULE
+	clearflag FLAG_DAD_GIFT
+	end
+
+PlayerHouse1F_Mom_2:
 	msgbox MomSeeYou, MSGBOX_NPC
 	turnobject 1, DIR_WEST
 	return
 
-PlayerHouse1F_Mom_2:
+PlayerHouse1F_Mom_3:
 	msgbox PlayerHouse1F_MomGoodbye_Text, MSGBOX_NPC
 	setvar VAR_PEARLWOOD_TOWN_STATE, 7
 	turnobject 1, DIR_WEST
 	return
 
 PlayerHouse1F_Mom_7:
-	goto_if_set FLAG_DAD_INTRO, PlayerHouse1F_Mom_10
-PlayerHouse1F_Mom_9:
+	goto_if_unset FLAG_RECEIVED_CAPSULE, PlayerHouse1F_Mom_1
+	goto PlayerHouse1F_Mom_6
+
+PlayerHouse1F_Mom_11:
+	goto_if_set FLAG_DAD_INTRO, PlayerHouse1F_Mom_14
+PlayerHouse1F_Mom_13:
 	msgbox MomLookWhosBack, MSGBOX_NPC
 	setflag FLAG_DAD_INTRO
 	end
 
-PlayerHouse1F_Mom_10:
+PlayerHouse1F_Mom_14:
 	goto PlayersHouse_1F_EventScript_MomHealsParty
-	goto PlayerHouse1F_Mom_9
+	goto PlayerHouse1F_Mom_13
 
 
 PH1FClearFlag::
@@ -142,6 +156,12 @@ PH1FClearFlag_1:
 	compare VAR_PEARLWOOD_TOWN_STATE, 10
 	goto_if_ge PH1FClearFlag_5
 PH1FClearFlag_4:
+	compare VAR_PEARLWOOD_TOWN_STATE, 15
+	goto_if_ge PH1FClearFlag_8
+PH1FClearFlag_7:
+	compare VAR_PEARLWOOD_TOWN_STATE, 20
+	goto_if_ge PH1FClearFlag_11
+PH1FClearFlag_10:
 	end
 
 PH1FClearFlag_2:
@@ -151,6 +171,14 @@ PH1FClearFlag_2:
 PH1FClearFlag_5:
 	clearflag FLAG_HIDE_PLAYERS_HOUSE_DAD
 	goto PH1FClearFlag_4
+
+PH1FClearFlag_8:
+	setflag FLAG_HIDE_PLAYERS_HOUSE_DAD
+	goto PH1FClearFlag_7
+
+PH1FClearFlag_11:
+	setflag FLAG_DAD_INTRO
+	goto PH1FClearFlag_10
 
 
 WooperDoll::
@@ -335,3 +363,11 @@ WhereBrother::
 MomLookWhosBack::
 	.string "Mom: Oh, great timing, honey!\n"
 	.string "Look who's back home!$"
+
+DadLeftAGift::
+	.string "Mom: Oh, hi honey!\p"
+	.string "It's a shame you two just missed each\n"
+	.string "other, but dad came to visit while\l"
+	.string "you were away!\p"
+	.string "I believe he left a gift for you in\n"
+	.string "your room. You should go have a look!$"

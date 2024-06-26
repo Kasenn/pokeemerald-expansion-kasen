@@ -14,6 +14,7 @@
 #include "constants/field_effects.h"
 #include "constants/songs.h"
 #include "constants/rgb.h"
+#include "constants/event_objects.h"
 
 #define OBJ_EVENT_PAL_TAG_NONE 0x11FF // duplicate of define in event_object_movement.c
 
@@ -790,6 +791,9 @@ u32 FldEff_FeetInFlowingWater(void)
         sprite->sPrevX = -1;
         sprite->sPrevY = -1;
         sprite->y2 = (graphicsInfo->height >> 1) - 4;
+        if (objectEvent->graphicsId == OBJ_EVENT_GFX_FISHERMAN_SOUTH){
+            sprite->y2 -= 8;
+        }
         StartSpriteAnim(sprite, 1);
     }
     return 0;
@@ -809,9 +813,9 @@ static void UpdateFeetInFlowingWaterFieldEffect(struct Sprite *sprite)
         struct Sprite *linkedSprite = &gSprites[objectEvent->spriteId];
         sprite->x = linkedSprite->x;
         sprite->y = linkedSprite->y;
-        if (objectEvent->movementType == MOVEMENT_TYPE_FISH_DOWN){
-            sprite->y -= 8;
-        }
+        // if (objectEvent->movementType == MOVEMENT_TYPE_FISH_DOWN){
+        //     sprite->y -= 8;
+        // }
         sprite->subpriority = linkedSprite->subpriority;
         UpdateObjectEventSpriteInvisibility(sprite, FALSE);
         if (objectEvent->currentCoords.x != sprite->sPrevX || objectEvent->currentCoords.y != sprite->sPrevY)

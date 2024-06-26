@@ -279,6 +279,10 @@ static const struct SpriteFrameImage sPicTable_Woman5[] = {
     overworld_ascending_frames(gObjectEventPic_Woman5, 2, 4),
 };
 
+static const struct SpriteFrameImage sPicTable_Woman6[] = {
+    overworld_ascending_frames(gObjectEventPic_Woman6, 2, 4),
+};
+
 static const struct SpriteFrameImage sPicTable_Youngster[] = {
     overworld_ascending_frames(gObjectEventPic_Youngster, 2, 4),
 };
@@ -533,6 +537,17 @@ static const struct SpriteFrameImage sPicTable_FishermanHorizontal[] = {
     overworld_frame(gObjectEventPic_Fisherman_Horizontal, 6, 6, 2),
     overworld_frame(gObjectEventPic_Fisherman_Horizontal, 6, 6, 3),
     overworld_frame(gObjectEventPic_Fisherman_Horizontal, 6, 6, 0),
+};
+static const struct SpriteFrameImage sPicTable_FisherXl[] = {
+    overworld_frame(gObjectEventPic_FisherXl, 6, 6, 0),
+    overworld_frame(gObjectEventPic_FisherXl, 6, 6, 1),
+    overworld_frame(gObjectEventPic_FisherXl, 6, 6, 2),
+    overworld_frame(gObjectEventPic_FisherXl, 6, 6, 0),
+    overworld_frame(gObjectEventPic_FisherXl, 6, 6, 1),
+    overworld_frame(gObjectEventPic_FisherXl, 6, 6, 2),
+    overworld_frame(gObjectEventPic_FisherXl, 6, 6, 0),
+    overworld_frame(gObjectEventPic_FisherXl, 6, 6, 1),
+    overworld_frame(gObjectEventPic_FisherXl, 6, 6, 2),
 };
 static const struct SpriteFrameImage sPicTable_FishermanHorizontalRod[] = {
     overworld_frame(gObjectEventPic_Fisherman_HorizontalRod, 2, 4, 0),

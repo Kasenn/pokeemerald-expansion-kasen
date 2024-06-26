@@ -247,7 +247,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_3",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_4",
       "x": 17,
       "y": 18,
       "elevation": 0,
@@ -509,35 +509,35 @@
     {
       "type": "weather",
       "x": 140,
-      "y": 7,
+      "y": 6,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_RAIN_THUNDERSTORM"
     },
     {
       "type": "weather",
       "x": 141,
-      "y": 8,
+      "y": 7,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_RAIN_THUNDERSTORM"
     },
     {
       "type": "weather",
       "x": 142,
-      "y": 9,
+      "y": 8,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_RAIN_THUNDERSTORM"
     },
     {
       "type": "weather",
       "x": 143,
-      "y": 10,
+      "y": 9,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_RAIN_THUNDERSTORM"
     },
     {
       "type": "weather",
       "x": 144,
-      "y": 11,
+      "y": 10,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_RAIN_THUNDERSTORM"
     },

@@ -1,0 +1,9 @@
+mapscripts Drisledge_Pokecenter_1F_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: DrisledgePokeCenter1F_OnTransition
+}
+
+script DrisledgePokeCenter1F_OnTransition{
+	setrespawn(HEAL_LOCATION_DRISLEDGE_TOWN)
+	call(Common_EventScript_UpdateBrineyLocation)
+	end
+}

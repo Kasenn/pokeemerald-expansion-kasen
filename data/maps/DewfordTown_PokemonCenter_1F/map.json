@@ -100,20 +100,6 @@
       "elevation": 3,
       "dest_map": "MAP_COAST_TOWN",
       "dest_warp_id": "2"
-    },
-    {
-      "x": 5,
-      "y": 15,
-      "elevation": 3,
-      "dest_map": "MAP_COAST_TOWN",
-      "dest_warp_id": "2"
-    },
-    {
-      "x": 7,
-      "y": 15,
-      "elevation": 3,
-      "dest_map": "MAP_COAST_TOWN",
-      "dest_warp_id": "2"
     }
   ],
   "coord_events": [

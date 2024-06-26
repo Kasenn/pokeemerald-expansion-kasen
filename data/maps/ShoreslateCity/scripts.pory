@@ -149,6 +149,8 @@ text Shoreslate_Woman3_Text{
     "compared to the one in Aldeleaf."
 }
 script Shoreslate_Fisher{
+    hideobjectat(12, MAP_SHORESLATE_CITY)
+    applymovement(25, WW_Face)
     msgbox(Shoreslate_Fisher_Text, MSGBOX_NPC)
     end
 }

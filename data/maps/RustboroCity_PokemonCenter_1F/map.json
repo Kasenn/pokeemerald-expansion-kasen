@@ -113,20 +113,6 @@
       "elevation": 3,
       "dest_map": "MAP_CORALGROVE_CITY",
       "dest_warp_id": "3"
-    },
-    {
-      "x": 5,
-      "y": 15,
-      "elevation": 3,
-      "dest_map": "MAP_CORALGROVE_CITY",
-      "dest_warp_id": "3"
-    },
-    {
-      "x": 7,
-      "y": 15,
-      "elevation": 3,
-      "dest_map": "MAP_CORALGROVE_CITY",
-      "dest_warp_id": "3"
     }
   ],
   "coord_events": [

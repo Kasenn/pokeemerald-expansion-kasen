@@ -314,13 +314,73 @@ LevelTrainingMain_37:
 
 IvTrainingIntro::
 	goto_if_unset FLAG_CORAL_FLAG_1, IvTrainingIntro_2
-	msgbox IvTrainingIntro_Text, MSGBOX_NPC
+	lock
+	msgbox WelcomeToTrainingClub
+	goto TrainingClubNpc
 	return
 
 IvTrainingIntro_2:
 	msgbox OldaleTown_PokemonCenter_1F_Text_Train, MSGBOX_NPC
 	end
 
+
+TrainingClubNpc::
+	message TrainingClubMessage
+	waitmessage
+	dynmultipush TrainingClubNpc_Text_0, 0
+	dynmultipush TrainingClubNpc_Text_1, 1
+	dynmultipush TrainingClubNpc_Text_2, 2
+	dynmultistack 23, 0, FALSE, 3, FALSE, 0, NULL
+	switch VAR_RESULT
+	case 0, TrainingClubNpc_2
+	case 1, TrainingClubNpc_3
+	case 2, TrainingClubNpc_4
+	case MULTI_B_PRESSED, TrainingClubNpc_5
+	return
+
+TrainingClubNpc_2:
+	goto EVTrainingDescription
+	return
+
+TrainingClubNpc_3:
+	goto LevelTrainingDescription
+	return
+
+TrainingClubNpc_4:
+	goto TrainingClubGoodbye
+	return
+
+TrainingClubNpc_5:
+	goto TrainingClubGoodbye
+	return
+
+
+EVTrainingDescription::
+	msgbox EVTrainingDescription_Text
+	goto TrainingClubNpc
+	return
+
+
+LevelTrainingDescription::
+	msgbox LevelTrainingDescription_Text
+	goto TrainingClubNpc
+	return
+
+
+TrainingClubGoodbye::
+	msgbox TrainingClubGoodbye_Text
+	release
+	return
+
+
+TrainingClubNpc_Text_0:
+	.string "EV Training$"
+
+TrainingClubNpc_Text_1:
+	.string "Level Training$"
+
+TrainingClubNpc_Text_2:
+	.string "Nevermind$"
 
 EVTraining_Intro::
 	.string "This is the EV Training Service.\n"
@@ -355,20 +415,39 @@ YourPokemonIsAboveLevel::
 	.string "thus do not gain any experience.\p"
 	.string "Are you sure you want to continue?$"
 
-IvTrainingIntro_Text::
+WelcomeToTrainingClub::
 	.string "Hello, and welcome to the\n"
 	.string "Pokémon Center PokéTraining Club.\p"
 	.string "Here trainers may train their Pokémon\n"
-	.string "by battling in a controlled environment.\p"
-	.string "The first person to my right offers\n"
+	.string "by battling in a controlled environment.$"
+
+TrainingClubMessage::
+	.string "Would you like to know more about\n"
+	.string "our services?$"
+
+EVTrainingDescription_Text::
+	.string "The person to my left offers\n"
 	.string "EV training.\p"
-	.string "She has 5 training robots, with each\n"
+	.string "She has 5 training bots, with each\n"
 	.string "granting 10 EV in the specified stat.\p"
-	.string "The next person offers level training,\n"
-	.string "employing a team of training robots.\l"
-	.string "Do note that the level of the robots\l"
+	.string "The cost of this service and the\n"
+	.string "quality of the bots is consistent\l"
+	.string "between every training club, so you're\l"
+	.string "free to use the service as you see fit.$"
+
+LevelTrainingDescription_Text::
+	.string "The person to my right offers\n"
+	.string "level training, employing a team\l"
+	.string "of bots that are tuned for quickly\l"
+	.string "training your weaker party members.\p"
+	.string "Do note that the level of the robots\n"
 	.string "may vary between training clubs,\l"
 	.string "and the higher the level, the costlier\l"
 	.string "the training will become.\p"
-	.string "With that out of the way,\n"
+	.string "Every training club also has a limit\n"
+	.string "on how far it is able to train your\l"
+	.string "Pokémon, so you may need to visit\l"
+	.string "another training club to progress.$"
+
+TrainingClubGoodbye_Text::
 	.string "I hope you find our services useful.$"

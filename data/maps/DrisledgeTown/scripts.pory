@@ -3,6 +3,7 @@ mapscripts DrisledgeTown_MapScripts {
 }
 
 script DespawnDrisledgeNPCs{
+    setflag(FLAG_VISITED_DRISLEDGE)
     if(var(VAR_DRISLEDGE_TOWN_STATE) >= 7){
         setflag(FLAG_TEMP_1)
     }

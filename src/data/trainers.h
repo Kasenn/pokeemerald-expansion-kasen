@@ -3926,7 +3926,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("???"),
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_Katelynn),
+        .party = TRAINER_PARTY(sParty_DRISLEDGEGYM_TRAINER1),
     },
 
     [TRAINER_DRISLEDGEGYM_TRAINER2] =
@@ -3937,7 +3937,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("???"),
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_Jaylen),
+        .party = TRAINER_PARTY(sParty_DRISLEDGEGYM_TRAINER2),
     },
 
     [TRAINER_DRISLEDGEGYM_TRAINER3] =
@@ -3948,7 +3948,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("???"),
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_Dillon),
+        .party = TRAINER_PARTY(sParty_DRISLEDGEGYM_TRAINER3),
     },
 
     [TRAINER_DRISLEDGEGYM_TRAINER4] =
@@ -3959,7 +3959,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("???"),
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_Calvin2),
+        .party = TRAINER_PARTY(sParty_DRISLEDGEGYM_TRAINER4),
     },
 
     [TRAINER_DRISLEDGEGYM_TRAINER5] =
@@ -3970,7 +3970,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("???"),
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_Calvin3),
+        .party = TRAINER_PARTY(sParty_DRISLEDGEGYM_TRAINER5),
     },
 
     [TRAINER_DRISLEDGEGYM_TRAINER6] =
@@ -3981,21 +3981,21 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("???"),
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_Calvin4),
+        .party = TRAINER_PARTY(sParty_DRISLEDGEGYM_TRAINER6),
     },
 
     [TRAINER_LEADER_ACEROLA] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .trainerPic = TRAINER_PIC_ACEROLA,
         .trainerName = _("Acerola"),
-        .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},
+        .items = {ITEM_FULL_RESTORE},
         .doubleBattle = FALSE,
         .mugshotEnabled = TRUE,
         .mugshotColor = MUGSHOT_COLOR_GHOST,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_ACE_POKEMON,
-        .party = TRAINER_PARTY(sParty_Calvin5),
+        .party = TRAINER_PARTY(sParty_TRAINER_LEADER_ACEROLA),
     },
 
     [TRAINER_EDDIE] =

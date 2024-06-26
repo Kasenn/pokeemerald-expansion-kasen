@@ -4,6 +4,7 @@ DrisledgeTown_MapScripts::
 
 
 DespawnDrisledgeNPCs::
+	setflag FLAG_VISITED_DRISLEDGE
 	compare VAR_DRISLEDGE_TOWN_STATE, 7
 	goto_if_ge DespawnDrisledgeNPCs_1
 	return

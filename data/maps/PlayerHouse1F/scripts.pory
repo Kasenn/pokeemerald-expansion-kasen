@@ -133,7 +133,15 @@ script PlayerHouse1F_Brother{
 script PlayerHouse1F_Mom{
     lockall
     faceplayer
-    if(var(VAR_PEARLWOOD_TOWN_STATE) == 2){
+    if((var(VAR_PEARLWOOD_TOWN_STATE) >= 15)
+    && (!flag(FLAG_RECEIVED_CAPSULE))){
+        msgbox(DadLeftAGift, MSGBOX_NPC)
+        setflag(FLAG_DAD_INTRO)
+        setflag(FLAG_RECEIVED_CAPSULE)
+        clearflag(FLAG_DAD_GIFT)
+        end
+    }
+    elif(var(VAR_PEARLWOOD_TOWN_STATE) == 2){
         msgbox(MomSeeYou, MSGBOX_NPC)
         turnobject(1, DIR_WEST)
     }
@@ -196,6 +204,12 @@ script PH1FClearFlag{
     }
     if(var(VAR_PEARLWOOD_TOWN_STATE) >= 10){
         clearflag(FLAG_HIDE_PLAYERS_HOUSE_DAD)
+    }
+    if(var(VAR_PEARLWOOD_TOWN_STATE) >= 15){
+        setflag(FLAG_HIDE_PLAYERS_HOUSE_DAD)
+    }
+    if(var(VAR_PEARLWOOD_TOWN_STATE) >= 20){
+        setflag(FLAG_DAD_INTRO)
     }
     end
 }
@@ -282,4 +296,12 @@ text WhereBrother{
 text MomLookWhosBack{
     "Mom: Oh, great timing, honey!\n"
     "Look who's back home!"
+}
+text DadLeftAGift{
+    "Mom: Oh, hi honey!\p"
+    "It's a shame you two just missed each\n"
+    "other, but dad came to visit while\l"
+    "you were away!\p"
+    "I believe he left a gift for you in\n"
+    "your room. You should go have a look!"
 }

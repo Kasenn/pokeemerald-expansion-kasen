@@ -1281,7 +1281,7 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
     sprite->centerToCornerVecY = -(graphicsInfo->height >> 1);
     sprite->x += 8;
     sprite->y += 16 + sprite->centerToCornerVecY;
-    if (objectEvent->movementType == MOVEMENT_TYPE_FISH_DOWN){
+    if (objectEvent->graphicsId == OBJ_EVENT_GFX_FISHERMAN_SOUTH){
         sprite->y += 8;
     }
     sprite->oam.paletteNum = IndexOfSpritePaletteTag(spriteTemplate->paletteTag);
@@ -1582,7 +1582,7 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
         sprite->centerToCornerVecY = -(graphicsInfo->height >> 1);
         sprite->x += 8;
         sprite->y += 16 + sprite->centerToCornerVecY;
-        if (objectEvent->movementType == MOVEMENT_TYPE_FISH_DOWN){
+        if (objectEvent->graphicsId == OBJ_EVENT_GFX_FISHERMAN_SOUTH){
             sprite->y += 8;
         }
         sprite->images = graphicsInfo->images;

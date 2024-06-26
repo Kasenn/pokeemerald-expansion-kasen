@@ -5,9 +5,42 @@ mapscripts Lab2_MapScripts{
         VAR_PEARLWOOD_TOWN_STATE, 3: Lab2_Intro
         VAR_PEARLWOOD_TOWN_STATE, 8: Lab2_DexGet
         VAR_PEARLWOOD_TOWN_STATE, 10: Lab2_GetMegaStone
+        VAR_PEARLWOOD_TOWN_STATE, 15: Lab2_GetMegaStoneWithoutRival
     ]
 }
-
+script Lab2_GetMegaStoneWithoutRival{
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk6Up)
+    waitmovement(0)
+    msgbox(LabMegaStonesWithoutRival)
+    closemessage
+    if(flag(FLAG_CORALGROVE_TRADE_COMPLETED)){
+        playse(SE_PIN)
+        applymovement(4, Common_Movement_QuestionMark)
+        waitmovement(0)
+        delay(30)
+        msgbox(TradedAwayStarter)
+        closemessage
+    }
+    checkitemspace(ITEM_DECIDUEITE)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(ComeGetYourStoneLaterWithoutRival)
+        setvar(VAR_PEARLWOOD_TOWN_STATE, 16)
+    }
+    else{
+        switch(var(VAR_STARTER_MON)){
+            case 0:
+                giveitem(ITEM_DECIDUEITE)
+            case 1:
+                giveitem(ITEM_BLAZIKENITE)
+            case 2:
+                giveitem(ITEM_EMPOLEONITE)
+        }
+        setvar(VAR_PEARLWOOD_TOWN_STATE, 20)
+        waitse
+    }
+    release
+    end
+}
 script Lab2_GetMegaStone{
     clearflag(FLAG_HIDE_LAB_RIVAL)
     applymovement(OBJ_EVENT_ID_PLAYER, Walk6Up)
@@ -109,6 +142,33 @@ text LabMegaStones{
     "I believe is related to the Pokémon\l"
     "I have given you."
 }
+text LabMegaStonesWithoutRival{
+    "Prof. Birch: Oh, hello, {PLAYER}.\n"
+    "what a pleasant surprise.\p"
+    "I must say, I was expecting to see\n"
+    "you here a bit earlier, but I digress.\p"
+    "Thanks to a colleague of mine, I have\n"
+    "been able to do a lot of research on\l"
+    "a phenomena called “Mega Evolution.”\p"
+    "Not much is known about it here in\n"
+    "Sinko, but thanks to Professor\l"
+    "Sycamore of Kalos, I have been\l"
+    "able to greatly further my research.\p"
+    "This is where you and {RIVAL} come in.\p"
+    "One day, I happened upon a mysterious\n"
+    "set of stones. I believe these stones\l"
+    "to be Mega Stones, special evolution\l"
+    "stones capable of triggering a Mega\l"
+    "Evolution within certain Pokémon.\p"
+    "I would like you to test out my\n"
+    "theory, and see if your Pokémon is\l"
+    "able to somehow interact with one of\l"
+    "these Mega Stones.\p"
+    "I already gave {RIVAL} a stone, and\n"
+    "I want you to also have a stone that\n"
+    "I believe is related to the Pokémon\l"
+    "I have given you."
+}
 text TradedAwayStarter{
     "Prof. Birch: Oh, you haven't traded my\n"
     "magnanimous gift away, have you?\p"
@@ -128,6 +188,12 @@ text ComeGetYourStoneLater{
     "I will give {RIVAL}'s stone to them,\n"
     "and once you've made enough space in\l"
     "your bag, you too can have yours."
+}
+text ComeGetYourStoneLaterWithoutRival{
+    "Prof. Birch: It seems your bag is\n"
+    "currently too full to carry this stone.\p"
+    "You will need to clear some space in\n"
+    "your bag before I can give this to you."
 }
 text GonnaGoAhead_May{
     "{RIVAL}: I can't wait to see this\n"
@@ -350,7 +416,8 @@ text Lab2_PresentingBalls{
 script Lab2_Birch{
     lockall
     faceplayer
-    if(var(VAR_PEARLWOOD_TOWN_STATE) == 13){
+    if((var(VAR_PEARLWOOD_TOWN_STATE) == 13)
+    || (var(VAR_PEARLWOOD_TOWN_STATE) == 20)){
         call(ProfBirch_EventScript_RatePokedexOrRegister)
         end
     }
@@ -362,7 +429,8 @@ script Lab2_Birch{
         msgbox(YourFatherIsInTown, MSGBOX_NPC)
         end
     }
-    if(var(VAR_PEARLWOOD_TOWN_STATE) == 11){
+    if((var(VAR_PEARLWOOD_TOWN_STATE) == 11)
+    || (var(VAR_PEARLWOOD_TOWN_STATE) == 16)){
         msgbox(HeresYourStoneNow)
         closemessage
         checkitemspace(ITEM_DECIDUEITE)
@@ -379,7 +447,12 @@ script Lab2_Birch{
                 case 2:
                     giveitem(ITEM_EMPOLEONITE)
             }
-            setvar(VAR_PEARLWOOD_TOWN_STATE, 12)
+            if(var(VAR_PEARLWOOD_TOWN_STATE) == 16){
+                setvar(VAR_PEARLWOOD_TOWN_STATE, 20)
+            }
+            else{
+                setvar(VAR_PEARLWOOD_TOWN_STATE, 12)
+            }
             waitse
             release
             end

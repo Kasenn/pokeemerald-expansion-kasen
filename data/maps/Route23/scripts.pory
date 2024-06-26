@@ -141,7 +141,8 @@ text R23Tr6_Lose{
 }
 text R23Tr6_PostBattle{
     "I sense a strong presence slumbering\n"
-    "nearby. I advise going any further."
+    "nearby.\l"
+    "I advise against going any further."
 }
 
 script Route23_Tr7_Hexmaniac_2 {
@@ -301,60 +302,68 @@ script R23_Ace_PostBattle{
 }
 
 text R23_Ace_PostBattle_Text{
-    "I can't believe I just lost…"
+    "Even if we lost, my Pokémon and I\n"
+    "are satisfied."
 }
 text R23_Ace_NotEligible{
-    "Heya! I've been looking for strong\n"
-    "trainers to challenge.\p"
-    "Think you got what it takes? Defeat all\n"
-    "the other trainers in this area first\l"
-    "and seek me out then.\p"
-    "Having issues finding everyone?\p"
-    "I heard people talking of some ninjas\n"
-    "hiding in the tall grass."
+    "My Pokémon absolutely adore this\n"
+    "weather.\p"
+    "The issue is, they are getting a bit\n"
+    "frustrated because there's no-one\l"
+    "around that's strong enough to stand\l"
+    "against them in battle.\p"
+    "Do you think you might stand\n"
+    "a chance?\p"
+    "Prove it to us by defeating the other\n"
+    "trainers in this area first."
 }
 text R23_Ace_Lose{
-    "No way that just happened…"
+    "Even with the weather on our side,\n"
+    "we still lost…"
 }
 text R23_Ace_ReadyForBattle{
-    "Heya! I've been looking for strong\n"
-    "trainers to challenge, and I think you\l"
-    "might fit the bill!\p"
-    "How about it? Feel like having\n"
-    "a Pokémon battle?\p"
-    "My canine companions are getting\n"
-    "restless."
+    "My Pokémon absolutely adore this\n"
+    "weather.\p"
+    "The issue is, they are getting a bit\n"
+    "frustrated because there's no-one\l"
+    "around that's strong enough to stand\l"
+    "against them in battle.\p"
+    "You look like someone who could\n"
+    "pose a challenge.\p"
+    "Care for a Pokémon battle in this\n"
+    "high-intensity weather?"
 }
 text R23_Ace_ReadyForBattleShort{
-    "You're back!\p"
-    "How about it? Feel like having\n"
-    "a Pokémon battle?"
+    "I see you're back.\p"
+    "My Pokémon are anxiously waiting for\n"
+    "a challenge.\p"
+    "Will you be that challenge?"
 }
 text R23_Ace_BeginBattle{
-    "Cool! Let's get this show\n"
-    "on the road!"
+    "Great! Let's have some fun!"
 }
 text R23_Ace_DeclineBattle{
-    "Oh…\n"
-    "Okay…\p"
-    "Well, let me know if you change\n"
-    "your mind…"
+    "That's a shame. My Pokémon and I were\n"
+    "actually getting a bit excited.\p"
+    "Let me know if you change your mind."
 }
 text R23_Ace_Reward{
-    "I'm still a bit shocked to find someone\n"
-    "so strong in this area.\p"
-    "Oh well…\p"
-    "You beat me fair and square so I think\n"
-    "the only course of action is for you\l"
-    "to have this."
+    "Thanks to this beneficial weather,\n"
+    "I thought we had this in the bag.\p"
+    "That was a fun battle.\p"
+    "To commemorate it, I want you to\n"
+    "have this."
 }
 text R23_Ace_ExplainReward{
-    "Having a Pokémon hold that Lucky Egg\n"
-    "greatly increases the experience it\l"
-    "earns from battles.\p"
-    "If you're ever trying to level up\n"
-    "a weaker Pokémon, just give that egg\l"
-    "to it and watch it grow!\p"
-    "…Oh, and before I forget, take these\n"
+    "Having a Pokémon hold that Choice\n"
+    "Scarf will give a massive boost to\l"
+    "its speed.\p"
+    "The downside is, it makes it able to\n"
+    "only focus on using a single move.\p"
+    "I considered using it myself, but I\n"
+    "didn't see the need after witnessing\l"
+    "just how fast all my Pokémon were in\l"
+    "this weather.\p"
+    "Anyway, I want you to have these\n"
     "as well."
 }

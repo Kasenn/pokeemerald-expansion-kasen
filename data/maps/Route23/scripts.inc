@@ -285,7 +285,8 @@ R23Tr6_Lose::
 
 R23Tr6_PostBattle::
 	.string "I sense a strong presence slumbering\n"
-	.string "nearby. I advise going any further.$"
+	.string "nearby.\l"
+	.string "I advise against going any further.$"
 
 R23Tr7_Intro::
 	.string "You seem like you have interesting\n"
@@ -349,59 +350,67 @@ R23Tr11_PostBattle::
 	.string "trainer next time.$"
 
 R23_Ace_PostBattle_Text::
-	.string "I can't believe I just lost…$"
+	.string "Even if we lost, my Pokémon and I\n"
+	.string "are satisfied.$"
 
 R23_Ace_NotEligible::
-	.string "Heya! I've been looking for strong\n"
-	.string "trainers to challenge.\p"
-	.string "Think you got what it takes? Defeat all\n"
-	.string "the other trainers in this area first\l"
-	.string "and seek me out then.\p"
-	.string "Having issues finding everyone?\p"
-	.string "I heard people talking of some ninjas\n"
-	.string "hiding in the tall grass.$"
+	.string "My Pokémon absolutely adore this\n"
+	.string "weather.\p"
+	.string "The issue is, they are getting a bit\n"
+	.string "frustrated because there's no-one\l"
+	.string "around that's strong enough to stand\l"
+	.string "against them in battle.\p"
+	.string "Do you think you might stand\n"
+	.string "a chance?\p"
+	.string "Prove it to us by defeating the other\n"
+	.string "trainers in this area first.$"
 
 R23_Ace_Lose::
-	.string "No way that just happened…$"
+	.string "Even with the weather on our side,\n"
+	.string "we still lost…$"
 
 R23_Ace_ReadyForBattle::
-	.string "Heya! I've been looking for strong\n"
-	.string "trainers to challenge, and I think you\l"
-	.string "might fit the bill!\p"
-	.string "How about it? Feel like having\n"
-	.string "a Pokémon battle?\p"
-	.string "My canine companions are getting\n"
-	.string "restless.$"
+	.string "My Pokémon absolutely adore this\n"
+	.string "weather.\p"
+	.string "The issue is, they are getting a bit\n"
+	.string "frustrated because there's no-one\l"
+	.string "around that's strong enough to stand\l"
+	.string "against them in battle.\p"
+	.string "You look like someone who could\n"
+	.string "pose a challenge.\p"
+	.string "Care for a Pokémon battle in this\n"
+	.string "high-intensity weather?$"
 
 R23_Ace_ReadyForBattleShort::
-	.string "You're back!\p"
-	.string "How about it? Feel like having\n"
-	.string "a Pokémon battle?$"
+	.string "I see you're back.\p"
+	.string "My Pokémon are anxiously waiting for\n"
+	.string "a challenge.\p"
+	.string "Will you be that challenge?$"
 
 R23_Ace_BeginBattle::
-	.string "Cool! Let's get this show\n"
-	.string "on the road!$"
+	.string "Great! Let's have some fun!$"
 
 R23_Ace_DeclineBattle::
-	.string "Oh…\n"
-	.string "Okay…\p"
-	.string "Well, let me know if you change\n"
-	.string "your mind…$"
+	.string "That's a shame. My Pokémon and I were\n"
+	.string "actually getting a bit excited.\p"
+	.string "Let me know if you change your mind.$"
 
 R23_Ace_Reward::
-	.string "I'm still a bit shocked to find someone\n"
-	.string "so strong in this area.\p"
-	.string "Oh well…\p"
-	.string "You beat me fair and square so I think\n"
-	.string "the only course of action is for you\l"
-	.string "to have this.$"
+	.string "Thanks to this beneficial weather,\n"
+	.string "I thought we had this in the bag.\p"
+	.string "That was a fun battle.\p"
+	.string "To commemorate it, I want you to\n"
+	.string "have this.$"
 
 R23_Ace_ExplainReward::
-	.string "Having a Pokémon hold that Lucky Egg\n"
-	.string "greatly increases the experience it\l"
-	.string "earns from battles.\p"
-	.string "If you're ever trying to level up\n"
-	.string "a weaker Pokémon, just give that egg\l"
-	.string "to it and watch it grow!\p"
-	.string "…Oh, and before I forget, take these\n"
+	.string "Having a Pokémon hold that Choice\n"
+	.string "Scarf will give a massive boost to\l"
+	.string "its speed.\p"
+	.string "The downside is, it makes it able to\n"
+	.string "only focus on using a single move.\p"
+	.string "I considered using it myself, but I\n"
+	.string "didn't see the need after witnessing\l"
+	.string "just how fast all my Pokémon were in\l"
+	.string "this weather.\p"
+	.string "Anyway, I want you to have these\n"
 	.string "as well.$"

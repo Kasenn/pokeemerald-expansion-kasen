@@ -248,11 +248,15 @@ KaolisleCity_Fisher2::
 
 
 KaolisleCity_Fisher3::
+	hideobjectat 15, MAP_KAOLISLE_CITY
+	applymovement 33, WW_Face
 	msgbox KaolisleCity_Fisher3_Text, MSGBOX_NPC
 	end
 
 
 KaolisleCity_Fisher4::
+	hideobjectat 16, MAP_KAOLISLE_CITY
+	applymovement 32, WW_Face
 	msgbox KaolisleCity_Fisher4_Text, MSGBOX_NPC
 	end
 

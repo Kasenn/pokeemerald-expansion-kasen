@@ -63,9 +63,17 @@ R14_RR_Event_Trigger1::
 	fadedefaultbgm
 	setobjectxyperm 15, 41, 13
 	setobjectxy 15, 41, 13
+	compare VAR_PEARLWOOD_TOWN_STATE, 10
+	goto_if_eq R14_RR_Event_Trigger1_2
+	setvar VAR_PEARLWOOD_TOWN_STATE, 20
+R14_RR_Event_Trigger1_1:
 	setvar VAR_ROUTE14_ROCKET_EVENT, 1
 	release
 	end
+
+R14_RR_Event_Trigger1_2:
+	setvar VAR_PEARLWOOD_TOWN_STATE, 15
+	goto R14_RR_Event_Trigger1_1
 
 
 R14_GruntEscapes:
