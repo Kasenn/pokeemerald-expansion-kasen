@@ -17,9 +17,9 @@ Debug_CheatStart::
 	setflag FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG
 	setvar VAR_ROUTE101_STATE, 3
 	giveitem ITEM_HM02
-	givemon SPECIES_TREECKO, 20, ITEM_NONE
-	givemon SPECIES_TORCHIC, 20, ITEM_NONE
-	givemon SPECIES_MUDKIP, 20, ITEM_NONE
+	givemon SPECIES_SCEPTILE, 42, ITEM_NONE
+	givemon SPECIES_BLAZIKEN, 42, ITEM_NONE
+	givemon SPECIES_SWAMPERT, 42, ITEM_NONE
 	givemon SPECIES_PIDGEOT, 20, ITEM_NONE
 	setflag FLAG_SYS_POKEDEX_GET
 	special SetUnlockedPokedexFlags
@@ -158,8 +158,10 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
-	giveitem ITEM_HM03
-	setflag FLAG_BADGE05_GET
+	givemon SPECIES_GENGAR, 1
+	givemon SPECIES_BANETTE, 1
+	givemon SPECIES_TREVENANT, 1
+	givemon SPECIES_MIMIKYU, 1
 	release
 	end
 

@@ -2991,7 +2991,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
     [SPECIES_EXPBOT] =
     {
         .baseHP        = 1,
-        .baseAttack    = 10,
+        .baseAttack    = 1,
         .baseDefense   = 10,
         .baseSpeed     = 10,
         .baseSpAttack  = 10,

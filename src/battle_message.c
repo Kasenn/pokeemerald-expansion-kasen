@@ -4065,6 +4065,7 @@ static const u8 sText_DontGetCockyKid[] = _("Don't get cocky just because you\nm
 static const u8 sText_NotAFairFight[] = _("I hesitated doing this, but you've\nreally driven me into a corner here!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_HeardOfMegaEvos[] = _("Have you heard of Mega Evolution?{PAUSE_UNTIL_PRESS}");
 static const u8 sText_HopeYoureReady[] = _("You're doing great, but this is where\nyour luck runs out!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_LetsHaveFun[] = _("Let's have some real fun!{PAUSE_UNTIL_PRESS}");
 
 static const struct TrainerSlide sTrainerSlides[] =
 {
@@ -4100,6 +4101,14 @@ static const struct TrainerSlide sTrainerSlides[] =
     //     .isFrontierTrainer = FALSE,
     //     .msgMegaEvolution = sText_HopeYoureReady,
     // },
+    {
+        .trainerId = TRAINER_LEADER_ACEROLA,
+        .isFrontierTrainer = FALSE,
+        // .msgLastSwitchIn = sText_KorrinaLastPokemon,
+        // .msgFirstDown = sText_DontGetCockyKid,
+        .msgMegaEvolution = sText_LetsHaveFun,
+        // .msgBeforeFirstTurn = sText_HeardOfMegaEvos,
+    },
 };
 
 static u32 GetEnemyMonCount(u32 firstId, u32 lastId, bool32 onlyAlive)

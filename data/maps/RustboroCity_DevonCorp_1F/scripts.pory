@@ -293,8 +293,9 @@ script SetTeamLevel{
     dynmultipush("Story 1 (Level 29)", 3)
     dynmultipush("Gym 3 (Level 34)", 4)
     dynmultipush("Gym 4 (Level 38)", 5)
-    dynmultipush("End of Beta (Level 40)", 6)
-    dynmultipush("Cancel", 7)
+    dynmultipush("Post-Gym 4 (Level 40)", 6)
+    dynmultipush("Gym 5 (Level 45)", 7)
+    dynmultipush("Cancel", 8)
     dynmultistack(23, 0, FALSE, 5, FALSE, 0, NULL)
 	switch(var(VAR_RESULT)){
         case 0:
@@ -319,6 +320,9 @@ script SetTeamLevel{
             msgbox("Team set to level 40.")
             setpartylevel(40)
         case 7:
+            msgbox("Team set to level 45.")
+            setpartylevel(45)
+        case 8:
             closemessage
         case MULTI_B_PRESSED:
             closemessage

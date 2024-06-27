@@ -167,6 +167,9 @@ static void UpdateObjectReflectionSprite(struct Sprite *reflectionSprite)
         reflectionSprite->centerToCornerVecY = mainSprite->centerToCornerVecY;
         reflectionSprite->x2 = mainSprite->x2;
         reflectionSprite->y2 = -mainSprite->y2;
+        if (objectEvent->graphicsId == OBJ_EVENT_GFX_FISHERMAN_SOUTH){
+            reflectionSprite->y2 -= 16;
+        }
         reflectionSprite->coordOffsetEnabled = mainSprite->coordOffsetEnabled;
 
         if (objectEvent->hideReflection == TRUE)

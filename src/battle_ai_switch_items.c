@@ -1009,6 +1009,10 @@ bool32 ShouldSwitch(u32 battler, bool32 emitResult)
             return FALSE;
     }
 
+        // Bad Switching AI never switches
+    if (AI_THINKING_STRUCT->aiFlags[battler] & AI_FLAG_BAD_SWITCHING)
+        return FALSE;
+
     //NOTE: The sequence of the below functions matter! Do not change unless you have carefully considered the outcome.
     //Since the order is sequencial, and some of these functions prompt switch to specific party members.
 
@@ -1915,6 +1919,26 @@ static u32 GetBestMonIntegrated(struct Pokemon *party, int firstId, int lastId, 
     return PARTY_SIZE;
 }
 
+static u32 GetNextMonInParty(struct Pokemon *party, int firstId, int lastId, u8 battlerIn1, u8 battlerIn2)
+{
+    u32 i;
+    // Iterate through mons
+    for (i = firstId; i < lastId; i++)
+    {
+        // Check mon validity
+        if (!IsValidForBattle(&party[i])
+            || gBattlerPartyIndexes[battlerIn1] == i
+            || gBattlerPartyIndexes[battlerIn2] == i
+            || i == gBattleStruct->monToSwitchIntoId[battlerIn1]
+            || i == gBattleStruct->monToSwitchIntoId[battlerIn2])
+        {
+            continue;
+        }
+        return i;
+    }
+    return PARTY_SIZE;
+}
+
 u8 GetMostSuitableMonToSwitchInto(u32 battler, bool32 switchAfterMonKOd)
 {
     u32 opposingBattler = 0;
@@ -1960,6 +1984,12 @@ u8 GetMostSuitableMonToSwitchInto(u32 battler, bool32 switchAfterMonKOd)
     if (AI_THINKING_STRUCT->aiFlags[battler] & AI_FLAG_SMART_MON_CHOICES && !(gBattleTypeFlags & BATTLE_TYPE_DOUBLE)) // Double Battles aren't included in AI_FLAG_SMART_MON_CHOICE. Defaults to regular switch in logic
     {
         bestMonId = GetBestMonIntegrated(party, firstId, lastId, battler, opposingBattler, battlerIn1, battlerIn2, switchAfterMonKOd);
+        return bestMonId;
+    }
+
+    else if (AI_THINKING_STRUCT->aiFlags[battler] & AI_FLAG_BAD_SWITCHING)
+    {
+        bestMonId = GetNextMonInParty(party, firstId, lastId, battlerIn1, battlerIn2);
         return bestMonId;
     }
 

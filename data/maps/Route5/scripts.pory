@@ -248,12 +248,11 @@ script Route5_Trainer12_BugCatcher{
     end
 }
 text Route5_Trainer12_BugCatcher_Intro{
-    "My bugs are all fully evolved.\n"
+    "My bugs are raring to go.\n"
     "Let's see if you can keep up!"
 }
 text Route5_Trainer12_BugCatcher_Defeat{
-    "Even with a fully evolved team,\n"
-    "I didn't stand a chance…"
+    "We never stood a chance…"
 }
 text Route5_Trainer12_BugCatcher_PostBattle{
     "I haven't seen a single bug\n"

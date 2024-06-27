@@ -372,12 +372,11 @@ Route5_Trainer11_Man_5_PostBattle::
 	.string "Never let anything extinguish it!$"
 
 Route5_Trainer12_BugCatcher_Intro::
-	.string "My bugs are all fully evolved.\n"
+	.string "My bugs are raring to go.\n"
 	.string "Let's see if you can keep up!$"
 
 Route5_Trainer12_BugCatcher_Defeat::
-	.string "Even with a fully evolved team,\n"
-	.string "I didn't stand a chance…$"
+	.string "We never stood a chance…$"
 
 Route5_Trainer12_BugCatcher_PostBattle::
 	.string "I haven't seen a single bug\n"

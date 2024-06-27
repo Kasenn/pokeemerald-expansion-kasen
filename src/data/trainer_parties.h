@@ -909,7 +909,7 @@ static const struct TrainerMon sParty_Dusty1[] = {
     .lvl = 6,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_STRUGGLE}
     }
 };
 
@@ -1032,7 +1032,7 @@ static const struct TrainerMon sParty_GabbyAndTy2[] = {
     .lvl = 8,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_STRUGGLE}
     }
 };
 
@@ -1298,7 +1298,7 @@ static const struct TrainerMon sParty_Randall[] = {
     .lvl = 16,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_STRUGGLE}
     }
 };
 
@@ -2335,7 +2335,7 @@ static const struct TrainerMon sParty_Shoreslate_Nurse[] = {
     .lvl = 25,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_STRUGGLE}
     }
 };
 
@@ -2877,7 +2877,7 @@ static const struct TrainerMon sParty_MarigorgeNurse[] = {
     .lvl = 30,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_STRUGGLE}
     }
 };
 
@@ -3403,7 +3403,7 @@ static const struct TrainerMon sParty_RockliffeNurse[] = {
     .lvl = 30,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_STRUGGLE}
     }
 };
 
@@ -4227,7 +4227,7 @@ static const struct TrainerMon Party_Sandstone_Nurse[] = {
     .lvl = 33,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_STRUGGLE}
     }
 };
 
@@ -5305,29 +5305,28 @@ static const struct TrainerMon sParty_TRAINER_R23_TR11_NINJABOY[] = {
 static const struct TrainerMon sParty_TRAINER_R23_TR12_ACETRAINER[] = {
     {
     .iv = TRAINER_PARTY_IVS(13, 13, 13, 13, 13, 13),
-    .ev = TRAINER_PARTY_EVS(0, 0, 100, 0, 0, 100),
-    .lvl = 44,
+    .ev = TRAINER_PARTY_EVS(0, 0, 50, 0, 0, 50),
+    .lvl = 43,
     .species = SPECIES_LUDICOLO,
     .moves = {MOVE_GIGA_DRAIN, MOVE_ZEN_HEADBUTT, MOVE_FAKE_OUT, MOVE_BUBBLE_BEAM},
     },
     {
     .iv = TRAINER_PARTY_IVS(13, 13, 13, 13, 13, 13),
-    .ev = TRAINER_PARTY_EVS(0, 0, 100, 0, 0, 100),
-    .lvl = 45,
+    .ev = TRAINER_PARTY_EVS(0, 0, 50, 0, 0, 50),
+    .lvl = 44,
     .species = SPECIES_SEISMITOAD,
     .moves = {MOVE_DRAIN_PUNCH, MOVE_MUDDY_WATER, MOVE_MUD_SHOT, MOVE_ACID},
     },
     // {
     // .iv = TRAINER_PARTY_IVS(13, 13, 13, 13, 13, 13),
-    // .ev = TRAINER_PARTY_EVS(0, 0, 100, 0, 0, 100),
+    // .ev = TRAINER_PARTY_EVS(0, 0, 50, 0, 0, 50),
     // .lvl = 45,
-    // .species = SPECIES_SEAKING,
-    // .moves = {MOVE_MEGAHORN, MOVE_POISON_JAB, MOVE_SCALD, MOVE_FLAIL},
+    // .species = SPECIES_FLOATZEL,
     // },
     {
     .iv = TRAINER_PARTY_IVS(13, 13, 13, 13, 13, 13),
-    .ev = TRAINER_PARTY_EVS(0, 0, 100, 0, 0, 100),
-    .lvl = 46,
+    .ev = TRAINER_PARTY_EVS(0, 0, 50, 0, 0, 50),
+    .lvl = 45,
     .species = SPECIES_RAICHU_ALOLAN,
     .moves = {MOVE_PSYCHIC, MOVE_THUNDER, MOVE_NUZZLE},
     },
@@ -5343,47 +5342,47 @@ static const struct TrainerMon sParty_TRAINER_R23_TR12_ACETRAINER[] = {
 
 static const struct TrainerMon sParty_DRISLEDGE_NURSE[] = {
     {
-    .lvl = 37,
+    .lvl = 40,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
-    .lvl = 37,
+    .lvl = 40,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
-    .lvl = 37,
+    .lvl = 40,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
-    .lvl = 37,
+    .lvl = 40,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
-    .lvl = 37,
+    .lvl = 40,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_HEALING_WISH}
     },
     {
-    .lvl = 37,
+    .lvl = 40,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_STRUGGLE}
     }
 };
 
 static const struct TrainerMon sParty_DRISLEDGEGYM_TRAINER1[] = {
     {
     .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
-    .lvl = 37,
+    .lvl = 38,
     .species = SPECIES_SABLEYE,
     .moves = {MOVE_CONFUSE_RAY, MOVE_ZEN_HEADBUTT, MOVE_POWER_GEM, MOVE_SHADOW_CLAW}
     }
@@ -5392,13 +5391,13 @@ static const struct TrainerMon sParty_DRISLEDGEGYM_TRAINER1[] = {
 static const struct TrainerMon sParty_DRISLEDGEGYM_TRAINER2[] = {
     {
     .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
-    .lvl = 36,
+    .lvl = 37,
     .species = SPECIES_SHUPPET,
     .moves = {MOVE_SHADOW_BALL, MOVE_CURSE, MOVE_HEX, MOVE_FEINT_ATTACK}
     },
     {
     .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
-    .lvl = 37,
+    .lvl = 38,
     .species = SPECIES_BANETTE,
     .moves = {MOVE_SHADOW_BALL, MOVE_CURSE, MOVE_HEX, MOVE_FEINT_ATTACK}
     }
@@ -5407,7 +5406,7 @@ static const struct TrainerMon sParty_DRISLEDGEGYM_TRAINER2[] = {
 static const struct TrainerMon sParty_DRISLEDGEGYM_TRAINER3[] = {
     {
     .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
-    .lvl = 37,
+    .lvl = 38,
     .species = SPECIES_TREVENANT,
     .moves = {MOVE_SHADOW_CLAW, MOVE_FORESTS_CURSE, MOVE_STRENGTH_SAP, MOVE_WILL_O_WISP}
     }
@@ -5416,13 +5415,12 @@ static const struct TrainerMon sParty_DRISLEDGEGYM_TRAINER3[] = {
 static const struct TrainerMon sParty_DRISLEDGEGYM_TRAINER4[] = {
     {
     .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
-    .lvl = 36,
+    .lvl = 37,
     .species = SPECIES_MISDREAVUS,
-    .moves = {MOVE_SKILL_SWAP, MOVE_PSYCHIC, MOVE_THUNDERBOLT, MOVE_CALM_MIND}
     },
     {
     .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
-    .lvl = 38,
+    .lvl = 39,
     .species = SPECIES_MISMAGIUS,
     .moves = {MOVE_PHANTOM_FORCE, MOVE_PAIN_SPLIT, MOVE_MEAN_LOOK, MOVE_PSYBEAM}
     }
@@ -5431,7 +5429,7 @@ static const struct TrainerMon sParty_DRISLEDGEGYM_TRAINER4[] = {
 static const struct TrainerMon sParty_DRISLEDGEGYM_TRAINER5[] = {
     {
     .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
-    .lvl = 38,
+    .lvl = 39,
     .species = SPECIES_COFAGRIGUS,
     .moves = {MOVE_SHADOW_CLAW, MOVE_CURSE, MOVE_MEAN_LOOK, MOVE_WILL_O_WISP}
     }
@@ -5440,12 +5438,12 @@ static const struct TrainerMon sParty_DRISLEDGEGYM_TRAINER5[] = {
 static const struct TrainerMon sParty_DRISLEDGEGYM_TRAINER6[] = {
     {
     .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
-    .lvl = 37,
+    .lvl = 38,
     .species = SPECIES_MIMIKYU,
     },
     {
     .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
-    .lvl = 38,
+    .lvl = 39,
     .species = SPECIES_GENGAR,
     .moves = {MOVE_SHADOW_BALL, MOVE_SUCKER_PUNCH, MOVE_CURSE, MOVE_MEAN_LOOK}
     }
@@ -5455,24 +5453,28 @@ static const struct TrainerMon sParty_TRAINER_LEADER_ACEROLA[] = {
     {
     .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
     .lvl = 42,
-    .species = SPECIES_BANETTE,
+    .species = SPECIES_MIMIKYU,
+    .isShiny = TRUE,
+    .moves = {MOVE_HONE_CLAWS, MOVE_SHADOW_CLAW, MOVE_DRAIN_PUNCH, MOVE_WOOD_HAMMER}
     },
     {
     .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
     .lvl = 43,
-    .species = SPECIES_MIMIKYU,
-    .isShiny = TRUE,
+    .species = SPECIES_BANETTE,
+    .moves = {MOVE_SUCKER_PUNCH, MOVE_CURSE, MOVE_SHADOW_CLAW, MOVE_GUNK_SHOT}
     },
     {
     .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
     .lvl = 43,
     .species = SPECIES_TREVENANT,
+    .moves = {MOVE_DESTINY_BOND, MOVE_SHADOW_CLAW, MOVE_FORESTS_CURSE, MOVE_STRENGTH_SAP}
     },
     {
     .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
-    .lvl = 46,
+    .lvl = 45,
     .species = SPECIES_GENGAR,
     .heldItem = ITEM_GENGARITE,
+    .moves = {MOVE_DARK_PULSE, MOVE_SHADOW_BALL, MOVE_GUNK_SHOT, MOVE_DREAM_EATER}
     },
 };
 

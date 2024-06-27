@@ -273,7 +273,7 @@ DrisledgeGym_Mimikyu1::
 	playmoncry SPECIES_MIMIKYU, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_MIMIKYU, 35
+	setwildbattle SPECIES_MIMIKYU, 37
 	dowildbattle
 	delay 20
 	playmoncry SPECIES_MIMIKYU, CRY_MODE_ENCOUNTER
@@ -292,7 +292,7 @@ DrisledgeGym_Mimikyu2::
 	playmoncry SPECIES_MIMIKYU, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_MIMIKYU, 35
+	setwildbattle SPECIES_MIMIKYU, 37
 	dowildbattle
 	delay 20
 	playmoncry SPECIES_MIMIKYU, CRY_MODE_ENCOUNTER
@@ -311,7 +311,7 @@ DrisledgeGym_Mimikyu3::
 	playmoncry SPECIES_MIMIKYU, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_MIMIKYU, 36
+	setwildbattle SPECIES_MIMIKYU, 37
 	dowildbattle
 	delay 20
 	playmoncry SPECIES_MIMIKYU, CRY_MODE_ENCOUNTER
@@ -330,7 +330,7 @@ DrisledgeGym_Mimikyu4::
 	playmoncry SPECIES_MIMIKYU, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_MIMIKYU, 36
+	setwildbattle SPECIES_MIMIKYU, 37
 	dowildbattle
 	delay 20
 	playmoncry SPECIES_MIMIKYU, CRY_MODE_ENCOUNTER
@@ -349,7 +349,7 @@ DrisledgeGym_Mimikyu5::
 	playmoncry SPECIES_MIMIKYU, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_MIMIKYU, 36
+	setwildbattle SPECIES_MIMIKYU, 37
 	dowildbattle
 	delay 20
 	playmoncry SPECIES_MIMIKYU, CRY_MODE_ENCOUNTER
