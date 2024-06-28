@@ -1,0 +1,82 @@
+mapscripts Drisledge_Pokecenter_BackRoom_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: Backroom_SetFlags
+}
+
+script Backroom_SetFlags{
+    gettime
+    copyvar(VAR_TEMP_0, VAR_0x8000)
+    if(var(VAR_TEMP_0) <= 6 || var(VAR_TEMP_0) >= 18){
+        if(!flag(FLAG_OBTAINED_GENGARITE)){
+            setvar(VAR_TEMP_1, 3)
+            clearflag(FLAG_TEMP_1)
+            clearflag(FLAG_TEMP_2)
+            if(var(VAR_DRISLEDGE_TOWN_STATE) == 32){
+                setflag(FLAG_TEMP_2)
+                setvar(VAR_TEMP_1, 4)
+            }
+        }
+        else{
+            setvar(VAR_TEMP_1, 4)
+            setflag(FLAG_TEMP_1)
+            setflag(FLAG_TEMP_2)
+        }
+    }
+    else{
+        setflag(FLAG_TEMP_1)
+        setflag(FLAG_TEMP_2)
+        setvar(VAR_TEMP_1, 1)
+        if(var(VAR_DRISLEDGE_TOWN_STATE) >= 31){
+                setvar(VAR_TEMP_1, 2)
+            }
+        if(flag(FLAG_OBTAINED_GENGARITE)){
+            setvar(VAR_TEMP_1, 2)
+        }
+    }
+}
+
+script TriggerWeirdPresence{
+    lock
+    msgbox(FeelaWeirdPresence)
+    setvar(VAR_TEMP_1, 2)
+    setvar(VAR_DRISLEDGE_TOWN_STATE, 31)
+    release
+}
+text FeelaWeirdPresence{
+    "You feel as if something, or\n"
+    "someone, is watching you."
+}
+
+script TriggerGengariteEvent{
+    lock
+    turnobject(2, DIR_SOUTH)
+    turnobject(3, DIR_SOUTH)
+    turnobject(4, DIR_SOUTH)
+    playse(SE_PIN)
+    applymovement(2, ExclamationMark)
+    applymovement(3, ExclamationMark)
+    applymovement(4, ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    applymovement(2, RunFastRight2)
+    applymovement(3, RunFastUp)
+    applymovement(4, RunFastLeft2)
+    waitmovement(0)
+    removeobject(2)
+    removeobject(3)
+    removeobject(4)
+    setvar(VAR_TEMP_1, 4)
+    setvar(VAR_DRISLEDGE_TOWN_STATE, 32)
+    release
+}
+
+movement RunFastLeft2{
+    walk_fast_left * 8
+}
+movement RunFastRight2{
+    walk_fast_right * 8
+}
+
+script FindGengarite{
+    finditem(ITEM_GENGARITE)
+    setflag(FLAG_OBTAINED_GENGARITE)
+}

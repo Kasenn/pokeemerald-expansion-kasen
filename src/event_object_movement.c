@@ -498,6 +498,16 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Flock,            OBJ_EVENT_PAL_FLOCK},
     {gObjectEventPalette_Acerola,          OBJ_EVENT_PAL_ACEROLA},
     {gObjectEventPalette_Mimikyu,          OBJ_EVENT_PAL_MIMIKYU},
+    {gObjectEventPalette_Banette,                  OBJ_EVENT_PAL_BANETTE},
+    {gObjectEventPalette_Gastly,                  OBJ_EVENT_PAL_GASTLY},
+    {gObjectEventPalette_Gengar,                  OBJ_EVENT_PAL_GENGAR},
+    {gObjectEventPalette_Haunter,                  OBJ_EVENT_PAL_HAUNTER},
+    {gObjectEventPalette_Litwick,                  OBJ_EVENT_PAL_LITWICK},
+    {gObjectEventPalette_Misdreavus,                  OBJ_EVENT_PAL_MISDREAVUS},
+    {gObjectEventPalette_Mismagius,                  OBJ_EVENT_PAL_MISMAGIUS},
+    {gObjectEventPalette_Phantump,                  OBJ_EVENT_PAL_PHANTUMP},
+    {gObjectEventPalette_Sableye,                  OBJ_EVENT_PAL_SABLEYE},
+    {gObjectEventPalette_Shuppet,                  OBJ_EVENT_PAL_SHUPPET},
     
 #ifdef BUGFIX
     {NULL,                                  OBJ_EVENT_PAL_TAG_NONE},
@@ -7422,9 +7432,17 @@ static void GetGroundEffectFlags_Puddle(struct ObjectEvent *objEvent, u32 *flags
 
 static void GetGroundEffectFlags_Ripple(struct ObjectEvent *objEvent, u32 *flags)
 {
-    if (MetatileBehavior_HasRipples(objEvent->currentMetatileBehavior))
+    if (objEvent->graphicsId == OBJ_EVENT_GFX_GASTLY
+    || objEvent->graphicsId == OBJ_EVENT_GFX_HAUNTER
+    || objEvent->graphicsId == OBJ_EVENT_GFX_MISDREAVUS
+    || objEvent->graphicsId == OBJ_EVENT_GFX_MISMAGIUS
+    || objEvent->graphicsId == OBJ_EVENT_GFX_PHANTUMP
+    || objEvent->graphicsId == OBJ_EVENT_GFX_SHUPPET){}
+    else{
+        if (MetatileBehavior_HasRipples(objEvent->currentMetatileBehavior))
         *flags |= GROUND_EFFECT_FLAG_RIPPLES;
-}
+    }
+}    
 
 static void GetGroundEffectFlags_ShortGrass(struct ObjectEvent *objEvent, u32 *flags)
 {

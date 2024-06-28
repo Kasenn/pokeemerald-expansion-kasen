@@ -12,11 +12,11 @@ script PlayerHouse1F_MomIntro{
     applymovement(1, Common_Movement_ExclamationMark)
     waitmovement(0)
     delay(48)
+    // msgbox(PlayerHouse1F_LookPlayer)
+    // closemessage
+    // delay(30)
+    // call(IntroNameBrother)
     msgbox(PlayerHouse1F_LookPlayer)
-    closemessage
-    delay(30)
-    call(IntroNameBrother)
-    msgbox(PlayerHouse1F_LookPlayer2)
     closemessage
     turnobject(1, DIR_WEST)
     applymovement(OBJ_EVENT_ID_PLAYER, PlayerHouse1F_PlayerSitTable)
@@ -44,23 +44,23 @@ script PlayerHouse1F_MomIntro{
     release
 }
 
-script IntroNameBrother{
-    fadescreen(FADE_TO_BLACK)
-    special(NameBrother)
-    waitstate
-    msgbox(SoItsBrother, MSGBOX_YESNO)
-    if(var(VAR_RESULT) == FALSE){
-        goto(BrotherLoop)
-    }
-    closemessage
-    return
-}
-text SoItsBrother{
-    "So it's {BROTHER}?"
-}
-script BrotherLoop{
-    goto(IntroNameBrother)
-}
+// script IntroNameBrother{
+//     fadescreen(FADE_TO_BLACK)
+//     special(NameBrother)
+//     waitstate
+//     msgbox(SoItsBrother, MSGBOX_YESNO)
+//     if(var(VAR_RESULT) == FALSE){
+//         goto(BrotherLoop)
+//     }
+//     closemessage
+//     return
+// }
+// text SoItsBrother{
+//     "So it's {BROTHER}?"
+// }
+// script BrotherLoop{
+//     goto(IntroNameBrother)
+// }
 
 script Player1F_Shoes{
     msgbox("Oh, and one more thing.")
@@ -77,7 +77,8 @@ script Player1F_Shoes{
 
 text PlayerHouse1F_LookPlayer{
     "Mom: Look, {PLAYER}!\n"
-    "Your brother is back from his trip!"
+    "Your brother is back from his trip!\p"
+    "Come, come sit by the table!"
 }
 text PlayerHouse1F_LookPlayer2{
     "Mom: Come, come sit by the table!"

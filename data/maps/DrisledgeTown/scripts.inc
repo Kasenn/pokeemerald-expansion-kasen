@@ -4,14 +4,35 @@ DrisledgeTown_MapScripts::
 
 
 DespawnDrisledgeNPCs::
+	compare VAR_DRISLEDGE_TOWN_STATE, 30
+	goto_if_ge DespawnDrisledgeNPCs_2
+	setflag FLAG_TEMP_2
+	setdynamicwarp MAP_DRISLEDGE_GYM, 0
+DespawnDrisledgeNPCs_1:
 	setflag FLAG_VISITED_DRISLEDGE
 	compare VAR_DRISLEDGE_TOWN_STATE, 7
-	goto_if_ge DespawnDrisledgeNPCs_1
+	goto_if_ge DespawnDrisledgeNPCs_5
 	return
 
-DespawnDrisledgeNPCs_1:
+DespawnDrisledgeNPCs_2:
+	setdynamicwarp MAP_DRISLEDGE_GYM_HOUSE, 0
+	setmaplayoutindex LAYOUT_DRISLEDGE_TOWN_BROKEN
+	gettime
+	copyvar VAR_TEMP_0, VAR_0x8000
+	compare VAR_TEMP_0, 6
+	goto_if_le DespawnDrisledgeNPCs_7
+	compare VAR_TEMP_0, 18
+	goto_if_ge DespawnDrisledgeNPCs_7
+	goto DespawnDrisledgeNPCs_1
+
+DespawnDrisledgeNPCs_5:
 	setflag FLAG_TEMP_1
 	return
+
+DespawnDrisledgeNPCs_7:
+	clearflag FLAG_TEMP_2
+	setweather WEATHER_SHADE
+	goto DespawnDrisledgeNPCs_1
 
 
 Drisledge_Sign1::
@@ -222,6 +243,138 @@ Drisledge_Pokecenter_Girl2::
 	return
 
 
+DrisledgeGymToggle::
+	compare VAR_DRISLEDGE_TOWN_STATE, 30
+	goto_if_eq DrisledgeGymToggle_1
+	setvar VAR_DRISLEDGE_TOWN_STATE, 30
+	msgbox DrisledgeGymToggle_Text_0, MSGBOX_SIGN
+	return
+
+DrisledgeGymToggle_1:
+	setvar VAR_DRISLEDGE_TOWN_STATE, 1
+	msgbox DrisledgeGymToggle_Text_0, MSGBOX_SIGN
+	return
+
+
+Drisledge_BerryGastly::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_GASTLY, CRY_MODE_NORMAL
+	msgbox DrisledgeGastly_Text, MSGBOX_DEFAULT
+	waitmoncry
+	goto_if_unset FLAG_DRISLEDGE_ITEM2, Drisledge_BerryGastly_2
+Drisledge_BerryGastly_1:
+	release
+	end
+
+Drisledge_BerryGastly_2:
+	giveitem ITEM_ORAN_BERRY
+	setflag FLAG_DRISLEDGE_ITEM2
+	goto Drisledge_BerryGastly_1
+
+
+Drisledge_Haunter::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_HAUNTER, CRY_MODE_NORMAL
+	msgbox DrisledgeHaunter_Text, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+
+
+DrisledgeBanette::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_BANETTE, CRY_MODE_NORMAL
+	msgbox DrisledgeBanette_Text, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+
+
+DrisledgeBanette1::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_BANETTE, CRY_MODE_NORMAL
+	msgbox DrisledgeBanette_Text, MSGBOX_DEFAULT
+	waitmoncry
+	goto_if_unset FLAG_DRISLEDGE_ITEM3, DrisledgeBanette1_2
+DrisledgeBanette1_1:
+	release
+	end
+
+DrisledgeBanette1_2:
+	giveitem ITEM_COLBUR_BERRY
+	setflag FLAG_DRISLEDGE_ITEM3
+	goto DrisledgeBanette1_1
+
+
+Drisledge_Acerola::
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq Drisledge_Acerola_2
+	bufferstring STR_VAR_1, Drisledge_Acerola_Text_1
+Drisledge_Acerola_1:
+	goto_if_set FLAG_RECEIVED_HM_SURF, Drisledge_Acerola_5
+	msgbox AcerolaCheckWithScientist, MSGBOX_NPC
+	return
+
+Drisledge_Acerola_2:
+	bufferstring STR_VAR_1, Drisledge_Acerola_Text_0
+	goto Drisledge_Acerola_1
+
+Drisledge_Acerola_5:
+	msgbox AcerolaYoureBack, MSGBOX_NPC
+	return
+
+
+Drisledge_Gengar::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_GENGAR, CRY_MODE_NORMAL
+	msgbox DrisledgeGengar_Text, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+
+
+Drisledge_Mismagius::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_MISMAGIUS, CRY_MODE_NORMAL
+	msgbox DrisledgeMisdreavus_Text, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+
+
+Drisledge_Mimikyu::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_MIMIKYU, CRY_MODE_NORMAL
+	msgbox DrisledgeMimikyu_Text, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+
+
+DrisledgeGymToggle_Text_0:
+	.string "Town state changed.$"
+
+Drisledge_Acerola_Text_0:
+	.string "mister$"
+
+Drisledge_Acerola_Text_1:
+	.string "miss$"
+
 Drisledge_Sign1_Text::
 	.string "DRISLEDGE TOWN\n"
 	.string "“The happiest town in the world.”$"
@@ -275,3 +428,31 @@ Drisledge_Pokecenter_Man1_Text::
 Drisledge_Pokecenter_Girl2_Text::
 	.string "I hate the rain.\n"
 	.string "I hope it stops soon.$"
+
+DrisledgeHaunter_Text::
+	.string "Haaan!$"
+
+DrisledgeBanette_Text::
+	.string "Baaan!$"
+
+AcerolaYoureBack::
+	.string "Hiya, {STR_VAR_1}!\p"
+	.string "I'm just having some fun with\n"
+	.string "my friends.\p"
+	.string "If you don't have anything else in\n"
+	.string "your mind, would you like to join us?\p"
+	.string "We can keep dancing until our legs no\n"
+	.string "longer have the energy to carry us!$"
+
+AcerolaCheckWithScientist::
+	.string "Hiya, {STR_VAR_1}!\p"
+	.string "I'm just having some fun with\n"
+	.string "my friends.\p"
+	.string "Did you already visit your friend\n"
+	.string "near Amberock Town?$"
+
+DrisledgeGengar_Text::
+	.string "Gen gen!$"
+
+DrisledgeMimikyu_Text::
+	.string "Mii-mii!$"

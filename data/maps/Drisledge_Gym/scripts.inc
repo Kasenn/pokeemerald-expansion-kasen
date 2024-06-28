@@ -20,7 +20,7 @@ SetDrisledgeGymTiles_10:
 	compare VAR_DRISLEDGE_TOWN_STATE, 22
 	goto_if_ge SetDrisledgeGymTiles_14
 SetDrisledgeGymTiles_13:
-	compare VAR_DRISLEDGE_TOWN_STATE, 30
+	compare VAR_DRISLEDGE_TOWN_STATE, 29
 	goto_if_ge SetDrisledgeGymTiles_16
 	return
 
@@ -150,7 +150,7 @@ SetupDrisledgeGym::
 	setflag FLAG_TEMP_3
 	setflag FLAG_TEMP_4
 	setflag FLAG_TEMP_5
-	compare VAR_DRISLEDGE_TOWN_STATE, 30
+	compare VAR_DRISLEDGE_TOWN_STATE, 29
 	goto_if_ge SetupDrisledgeGym_2
 	setflashlevel 1
 SetupDrisledgeGym_1:
@@ -213,7 +213,7 @@ RemoveHexManiac_10:
 	compare VAR_DRISLEDGE_TOWN_STATE, 22
 	goto_if_ge RemoveHexManiac_14
 RemoveHexManiac_13:
-	compare VAR_DRISLEDGE_TOWN_STATE, 30
+	compare VAR_DRISLEDGE_TOWN_STATE, 29
 	goto_if_ge RemoveHexManiac_17
 RemoveHexManiac_16:
 	return
@@ -625,7 +625,7 @@ DrisledgeGym_Trainer6_PostScript::
 	setflashlevel 0
 	applymovement 21, Walk7Left
 	call DrisledgeMetatiles6
-	setvar VAR_DRISLEDGE_TOWN_STATE, 30
+	setvar VAR_DRISLEDGE_TOWN_STATE, 29
 	waitmovement 0
 	removeobject 21
 	release
@@ -799,26 +799,49 @@ RunFastRight:
 	step_end
 
 DrisledgeGym_AcerolaTalk::
-	goto_if_set FLAG_BADGE05_GET, DrisledgeGym_AcerolaTalk_1
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq DrisledgeGym_AcerolaTalk_2
+	bufferstring STR_VAR_1, DrisledgeGym_AcerolaTalk_Text_1
+DrisledgeGym_AcerolaTalk_1:
+	goto_if_set FLAG_BADGE05_GET, DrisledgeGym_AcerolaTalk_5
 	msgbox DrisGym_YouArrived, MSGBOX_NPC
 	turnobject 20, DIR_EAST
 	return
 
-DrisledgeGym_AcerolaTalk_1:
+DrisledgeGym_AcerolaTalk_2:
+	bufferstring STR_VAR_1, DrisledgeGym_AcerolaTalk_Text_0
+	goto DrisledgeGym_AcerolaTalk_1
+
+DrisledgeGym_AcerolaTalk_5:
 	msgbox DrisGym_AcerolaPosBat, MSGBOX_NPC
 	return
 
 
 DrisledgeGym_AcerolaTrigger::
 	call GymStartingMovement
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq DrisledgeGym_AcerolaTrigger_2
+	bufferstring STR_VAR_1, DrisledgeGym_AcerolaTalk_Text_1
+DrisledgeGym_AcerolaTrigger_1:
 	msgbox AcerolaIntro
 	trainerbattle_no_intro TRAINER_LEADER_ACEROLA, AcerolaDefeated
 	goto Acerola_PosBatEvent
 	return
 
+DrisledgeGym_AcerolaTrigger_2:
+	bufferstring STR_VAR_1, DrisledgeGym_AcerolaTalk_Text_0
+	goto DrisledgeGym_AcerolaTrigger_1
+
 
 Acerola_PosBatEvent::
 	call GymMovementAfter
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq Acerola_PosBatEvent_2
+	bufferstring STR_VAR_1, DrisledgeGym_AcerolaTalk_Text_1
+Acerola_PosBatEvent_1:
 	msgbox Acerola_AfterDefeat
 	message Acerola_ReceiveBadge
 	waitmessage
@@ -827,17 +850,28 @@ Acerola_PosBatEvent::
 	setflag FLAG_BADGE05_GET
 	addvar VAR_BADGES_OBTAINED, 1
 	giveitem ITEM_TM_SHADOW_CLAW
+	setvar VAR_DRISLEDGE_TOWN_STATE, 30
 	msgbox Explain_ShadowClaw, MSGBOX_DEFAULT
 	closemessage
 	special RemoveCameraObject
 	release
 	end
 
+Acerola_PosBatEvent_2:
+	bufferstring STR_VAR_1, DrisledgeGym_AcerolaTalk_Text_0
+	goto Acerola_PosBatEvent_1
+
 
 DrisledgeGym_Statue::
 	msgbox DrisledgeGym_Statue_Text, MSGBOX_NPC
 	return
 
+
+DrisledgeGym_AcerolaTalk_Text_0:
+	.string "mister$"
+
+DrisledgeGym_AcerolaTalk_Text_1:
+	.string "miss$"
 
 KeepUpWithReal::
 	.string "…Think you can keep up with the\n"
@@ -879,61 +913,75 @@ DrisledgeGym_Trainer6_Intro::
 DrisledgeGym_Trainer6_Lose::
 	.string "I failed…$"
 
-Acerola_AfterDefeat::
-	.string "Lady Korrina gave a terrible display!\p"
-	.string "This is it. I must give up my title and\n"
-	.string "admit that your strength far exceeds--\p"
-	.string "Just teasing! But here's your Badge.\n"
-	.string "Boy, you'll be rolling in 'em soon!$"
-
 DrisGym_YouArrived::
-	.string "I knew you'd be here soon!\p"
-	.string "If you're ready, go stand on the other\n"
-	.string "side of the arena and let's get this\l"
-	.string "show on the road!$"
+	.string "Hiya, {STR_VAR_1}!\p"
+	.string "I knew I could count on you showing up\n"
+	.string "sooner or later.\p"
+	.string "If you're ready to play, take a stand\n"
+	.string "on the other side of the arena.$"
 
 AcerolaIntro::
-	.string "Time for Lady Korrina's big appearance!\p"
-	.string "Haha, I'm just messing around with you!\n"
-	.string "I know, you're rollin' in the aisles,\l"
-	.string "right?\p"
-	.string "I haven't forgotten your battle\n"
-	.string "with your friend back on Route 11.\p"
-	.string "I already know you're a strong Trainer,\n"
-	.string "so let's get this show on the road!$"
+	.string "Hiya, {STR_VAR_1}!\n"
+	.string "Are you surprised to see me here?\p"
+	.string "That's right! I'm the Gym Leader\n"
+	.string "around here!\p"
+	.string "I hope you didn't have too much\n"
+	.string "trouble getting here.\l"
+	.string "I know the weather can be a bit\l"
+	.string "cruddy at times.\p"
+	.string "It's nice to finally have some\n"
+	.string "human company around here.\p"
+	.string "Don't get me wrong, Pokémon are\n"
+	.string "good pals, but people are just so\l"
+	.string "much more complex and interesting.\p"
+	.string "That said, how about we have some fun?\p"
+	.string "I wanna see just how complex your\n"
+	.string "mind can be!$"
 
 AcerolaDefeated::
-	.string "Oh! I have been defeated! Alack, alay!$"
+	.string "Aww…\p"
+	.string "Guess the playtime's over…$"
 
 Acerola_ReceiveBadge::
 	.string "{PLAYER} received the Phantom Badge\n"
 	.string "from Acerola!$"
 
-Acerola_ExplainBadge::
-	.string "If you've got a Rumble Badge, then\n"
-	.string "you can trade Pokémon up to level 60\l"
-	.string "with your friends and they'll be ready\l"
-	.string "to roll! They'll love you, all right!\p"
-	.string "And you'll be able to push any pesky\n"
-	.string "boulders out of your way using the\l"
-	.string "HM Strength!\p"
-	.string "And here, why don't you take this TM?\n"
-	.string "I've really been on a roll with it myself!$"
-
 Explain_ShadowClaw::
-	.string "Power-Up Punch does just what it says\n"
-	.string "on the box!\p"
-	.string "The more that you use it, the tougher\n"
-	.string "your fists get.\p"
-	.string "Keep using it.\n"
-	.string "Your Attack will go through the roof!$"
+	.string "Shadow Claw is a real simple move.\p"
+	.string "You just give the foe a real nasty\n"
+	.string "scratch, nothing more, nothing less.\p"
+	.string "Oh, I guess Pokémon using it tend to\n"
+	.string "be a bit luckier with the amount of\l"
+	.string "damage they deal to their foes.$"
+
+Acerola_AfterDefeat::
+	.string "Looks like my friends are all tired\n"
+	.string "from playing.\p"
+	.string "That was fun, {STR_VAR_1}!\p"
+	.string "Since this is a Pokémon Gym after all,\n"
+	.string "I guess there's something I need to\l"
+	.string "give the winner.$"
+
+Acerola_ExplainBadge::
+	.string "Now that you have the Phantom Badge,\n"
+	.string "all traded Pokémon up to level 70\l"
+	.string "should be following your commands.\p"
+	.string "Not only that, but now you'll be able\n"
+	.string "to ride across water on your Pokémon,\l"
+	.string "assuming you teach them to surf first.\p"
+	.string "I think I remember your scientist\n"
+	.string "pal mentioning something about that.\l"
+	.string "Maybe check on him near Amberock?\p"
+	.string "Oh, but before that, I was also\n"
+	.string "supposed to give you this TM!$"
 
 DrisGym_AcerolaPosBat::
-	.string "Already rarin' to go again?\n"
-	.string "I dunno…\p"
-	.string "That Mega Ring was my trump card, but\n"
-	.string "now that you have one as well, I doubt\l"
-	.string "I'd have any chance against you!$"
+	.string "I remember your scientist friend\n"
+	.string "mentioning something about teaching\l"
+	.string "your Pokémon how to surf.\p"
+	.string "If you've got nothing better to do,\n"
+	.string "maybe now's a good time to go check\l"
+	.string "on him near Amberock Town?$"
 
 DrisledgeGym_Statue_Text::
 	.string "There are only indecipherable sketches\n"

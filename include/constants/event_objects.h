@@ -269,6 +269,16 @@
 #define OBJ_EVENT_GFX_MIMIKYU                265
 #define OBJ_EVENT_GFX_WOMAN_6                     266
 #define OBJ_EVENT_GFX_FISHERXL                 267
+#define OBJ_EVENT_GFX_BANETTE                 268
+#define OBJ_EVENT_GFX_GASTLY                 269
+#define OBJ_EVENT_GFX_GENGAR                 270
+#define OBJ_EVENT_GFX_HAUNTER                 271
+#define OBJ_EVENT_GFX_LITWICK                 272
+#define OBJ_EVENT_GFX_MISDREAVUS                 273
+#define OBJ_EVENT_GFX_MISMAGIUS                 274
+#define OBJ_EVENT_GFX_PHANTUMP                 275
+#define OBJ_EVENT_GFX_SABLEYE                 276
+#define OBJ_EVENT_GFX_SHUPPET                 277
 
 // NOTE: By default, the max value for NUM_OBJ_EVENT_GFX is 239.
 //
@@ -279,7 +289,7 @@
 // object graphics that can be removed. If more graphics are needed, anything that
 // stores graphics ids will need to be increased in size. See wiki entry below:
 // https://github.com/pret/pokeemerald/wiki/Feature-Branches#overworld-expansion
-#define NUM_OBJ_EVENT_GFX                        268
+#define NUM_OBJ_EVENT_GFX                        278
 
 
 // These are dynamic object gfx ids.
@@ -426,6 +436,16 @@
 #define OBJ_EVENT_PAL_FLOCK                0x1144
 #define OBJ_EVENT_PAL_ACEROLA                    0x1145
 #define OBJ_EVENT_PAL_MIMIKYU                   0x1146
+#define OBJ_EVENT_PAL_BANETTE                   0x1147
+#define OBJ_EVENT_PAL_GASTLY                    0x1148
+#define OBJ_EVENT_PAL_GENGAR                    0x1149
+#define OBJ_EVENT_PAL_HAUNTER                   0x114A
+#define OBJ_EVENT_PAL_LITWICK                   0x114B
+#define OBJ_EVENT_PAL_MISDREAVUS                0x114C
+#define OBJ_EVENT_PAL_MISMAGIUS                 0x114D
+#define OBJ_EVENT_PAL_PHANTUMP                  0x114E
+#define OBJ_EVENT_PAL_SABLEYE                   0x114F
+#define OBJ_EVENT_PAL_SHUPPET                   0x1150
 
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 

@@ -3,6 +3,20 @@ mapscripts DrisledgeTown_MapScripts {
 }
 
 script DespawnDrisledgeNPCs{
+    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 30){
+        setdynamicwarp(MAP_DRISLEDGE_GYM_HOUSE, 0)
+        setmaplayoutindex(LAYOUT_DRISLEDGE_TOWN_BROKEN)
+        gettime
+        copyvar(VAR_TEMP_0, VAR_0x8000)
+        if(var(VAR_TEMP_0) <= 6 || var(VAR_TEMP_0) >= 18){
+            clearflag(FLAG_TEMP_2)
+            setweather(WEATHER_SHADE)
+        }
+    }
+    else{
+        setflag(FLAG_TEMP_2)
+        setdynamicwarp(MAP_DRISLEDGE_GYM, 0)
+    }
     setflag(FLAG_VISITED_DRISLEDGE)
     if(var(VAR_DRISLEDGE_TOWN_STATE) >= 7){
         setflag(FLAG_TEMP_1)
@@ -202,4 +216,141 @@ text Drisledge_Pokecenter_Man1_Text{
 text Drisledge_Pokecenter_Girl2_Text{
     "I hate the rain.\n"
     "I hope it stops soon."
+}
+
+script DrisledgeGymToggle{
+    if(var(VAR_DRISLEDGE_TOWN_STATE) == 30){
+        setvar(VAR_DRISLEDGE_TOWN_STATE, 1)
+        msgbox("Town state changed.", MSGBOX_SIGN)
+    }
+    else{
+        setvar(VAR_DRISLEDGE_TOWN_STATE, 30)
+        msgbox("Town state changed.", MSGBOX_SIGN) 
+    }
+}
+
+script Drisledge_BerryGastly{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_GASTLY, CRY_MODE_NORMAL)
+	msgbox(DrisledgeGastly_Text, MSGBOX_DEFAULT)
+	waitmoncry
+    if(!flag(FLAG_DRISLEDGE_ITEM2)){
+        giveitem(ITEM_ORAN_BERRY)
+        setflag(FLAG_DRISLEDGE_ITEM2)
+    }
+	release
+	end
+}
+script Drisledge_Haunter{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_HAUNTER, CRY_MODE_NORMAL)
+	msgbox(DrisledgeHaunter_Text, MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+text DrisledgeHaunter_Text{
+    "Haaan!"
+}
+
+script DrisledgeBanette{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_BANETTE, CRY_MODE_NORMAL)
+	msgbox(DrisledgeBanette_Text, MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+script DrisledgeBanette1{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_BANETTE, CRY_MODE_NORMAL)
+	msgbox(DrisledgeBanette_Text, MSGBOX_DEFAULT)
+	waitmoncry
+    if(!flag(FLAG_DRISLEDGE_ITEM3)){
+        giveitem(ITEM_COLBUR_BERRY)
+        setflag(FLAG_DRISLEDGE_ITEM3)
+    }
+	release
+	end
+}
+text DrisledgeBanette_Text{
+    "Baaan!"
+}
+
+script Drisledge_Acerola{
+    checkplayergender
+    if(var(VAR_RESULT) == MALE){
+        bufferstring(STR_VAR_1, "mister")
+    }
+    else{
+        bufferstring(STR_VAR_1, "miss")
+    }
+    if(flag(FLAG_RECEIVED_HM_SURF)){
+        msgbox(AcerolaYoureBack, MSGBOX_NPC)
+    }
+    else{
+        msgbox(AcerolaCheckWithScientist, MSGBOX_NPC)
+    }
+}
+text AcerolaYoureBack{
+    "Hiya, {STR_VAR_1}!\p"
+    "I'm just having some fun with\n"
+    "my friends.\p"
+    "If you don't have anything else in\n"
+    "your mind, would you like to join us?\p"
+    "We can keep dancing until our legs no\n"
+    "longer have the energy to carry us!"
+}
+text AcerolaCheckWithScientist{
+    "Hiya, {STR_VAR_1}!\p"
+    "I'm just having some fun with\n"
+    "my friends.\p"
+    "Did you already visit your friend\n"
+    "near Amberock Town?"
+}
+script Drisledge_Gengar{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_GENGAR, CRY_MODE_NORMAL)
+	msgbox(DrisledgeGengar_Text, MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+text DrisledgeGengar_Text{
+    "Gen gen!"
+}
+script Drisledge_Mismagius{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_MISMAGIUS, CRY_MODE_NORMAL)
+	msgbox(DrisledgeMisdreavus_Text, MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+
+script Drisledge_Mimikyu{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_MIMIKYU, CRY_MODE_NORMAL)
+	msgbox(DrisledgeMimikyu_Text, MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+
+text DrisledgeMimikyu_Text{
+    "Mii-mii!"
 }

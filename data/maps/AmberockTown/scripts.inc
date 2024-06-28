@@ -8,23 +8,94 @@ Amberock_FlagControl::
 	setflag FLAG_TEMP_3
 	setflag FLAG_TEMP_2
 	compare VAR_ROUTE14_ROCKET_EVENT, 6
-	goto_if_eq Amberock_FlagControl_1
+	goto_if_ge Amberock_FlagControl_2
+Amberock_FlagControl_1:
+	goto_if_set FLAG_BADGE05_GET, Amberock_FlagControl_5
 	return
 
-Amberock_FlagControl_1:
+Amberock_FlagControl_2:
 	setflag FLAG_TEMP_1
+	goto Amberock_FlagControl_1
+
+Amberock_FlagControl_4:
+	setobjectxyperm 1, 33, 11
+	clearflag FLAG_TEMP_2
+	return
+
+Amberock_FlagControl_5:
+	goto_if_unset FLAG_RECEIVED_HM_SURF, Amberock_FlagControl_4
 	return
 
 
 Amberock_PaperVisibility::
 	compare VAR_ROUTE14_ROCKET_EVENT, 6
-	goto_if_eq Amberock_PaperVisibility_1
+	goto_if_ge Amberock_PaperVisibility_1
 	return
 
 Amberock_PaperVisibility_1:
 	setmetatile 27, 10, 0x128, FALSE
+	setmetatile 27, 12, 0x189, FALSE
+	setmetatile 26, 12, 0x189, FALSE
+	setmetatile 25, 13, 0x170, FALSE
+	setmetatile 24, 13, 0x170, FALSE
+	setmetatile 23, 13, 0x170, FALSE
 	return
 
+
+Amberock_SurfScientist::
+	lock
+	faceplayer
+	msgbox HereIsSurfHM
+	giveitem ITEM_HM03
+	msgbox GoGetBackPapers
+	closemessage
+	compare VAR_FACING, DIR_SOUTH
+	goto_if_eq Amberock_SurfScientist_2
+	applymovement 1, ScientistLeavesStraight
+Amberock_SurfScientist_1:
+	waitmovement 0
+	removeobject 1
+	setflag FLAG_RECEIVED_HM_SURF
+	release
+	return
+
+Amberock_SurfScientist_2:
+	applymovement 1, ScientistLeavesDetour
+	goto Amberock_SurfScientist_1
+
+
+ScientistLeavesDetour:
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	step_end
+
+ScientistLeavesStraight:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	step_end
 
 Amberock_Papers::
 	lock
@@ -182,6 +253,30 @@ Amberock_Papers_Text_0:
 
 Amberock_Papers_Text_1:
 	.string "miss$"
+
+HereIsSurfHM::
+	.string "Ah, perfect timing!\p"
+	.string "I was able to get my hands on the\n"
+	.string "perfect Hidden Machine for this job.\p"
+	.string "Here, you should take it.$"
+
+GoGetBackPapers::
+	.string "As much as I would like to help you on\n"
+	.string "this, I'm just a scientist after all.\p"
+	.string "I mean, I don't even have my own\n"
+	.string "Pokémon!\p"
+	.string "I know this is a lot to ask from\n"
+	.string "someone you barely even know,\l"
+	.string "but please, recover our research\l"
+	.string "material from Team Rocket!\p"
+	.string "I had a talk with my colleagues and we\n"
+	.string "have unanimously decided that if you\l"
+	.string "do this, we'll reward you with\l"
+	.string "something special.\p"
+	.string "With that said, I need to get back to\n"
+	.string "my research.\p"
+	.string "When you're done, come meet me back at\n"
+	.string "the research center on Route 14.$"
 
 PapersOnGround::
 	.string "There seems to be some papers on\n"

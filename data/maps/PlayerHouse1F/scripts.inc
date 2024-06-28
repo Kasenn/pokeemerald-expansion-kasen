@@ -17,10 +17,6 @@ PlayerHouse1F_MomIntro::
 	delay 48
 	msgbox PlayerHouse1F_LookPlayer
 	closemessage
-	delay 30
-	call IntroNameBrother
-	msgbox PlayerHouse1F_LookPlayer2
-	closemessage
 	turnobject 1, DIR_WEST
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerHouse1F_PlayerSitTable
 	waitmovement 0
@@ -45,27 +41,6 @@ PlayerHouse1F_MomIntro::
 	call Player1F_Shoes
 	turnobject 1, DIR_WEST
 	release
-	return
-
-
-IntroNameBrother::
-	fadescreen FADE_TO_BLACK
-	special NameBrother
-	waitstate
-	msgbox SoItsBrother, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
-	goto_if_eq IntroNameBrother_2
-IntroNameBrother_1:
-	closemessage
-	return
-
-IntroNameBrother_2:
-	goto BrotherLoop
-	goto IntroNameBrother_1
-
-
-BrotherLoop::
-	goto IntroNameBrother
 	return
 
 
@@ -244,12 +219,10 @@ WooperDoll_Text_0:
 AzurillDoll_Text_0:
 	.string "It's an Azurill doll.$"
 
-SoItsBrother::
-	.string "So it's {BROTHER}?$"
-
 PlayerHouse1F_LookPlayer::
 	.string "Mom: Look, {PLAYER}!\n"
-	.string "Your brother is back from his trip!$"
+	.string "Your brother is back from his trip!\p"
+	.string "Come, come sit by the table!$"
 
 PlayerHouse1F_LookPlayer2::
 	.string "Mom: Come, come sit by the table!$"

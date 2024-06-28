@@ -1,0 +1,148 @@
+mapscripts Drisledge_Mart_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: DrisMartFlagControl
+    MAP_SCRIPT_ON_LOAD: SetMartDoor
+}
+
+script SetMartDoor{
+    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 30){
+        setmetatile(1, 0, 0x327, TRUE)
+        setmetatile(1, 1, 0x251, FALSE)
+    }
+}
+
+script DrisMartFlagControl{
+    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 30){
+        setweather(WEATHER_SHADE)
+        playbgm(MUS_NONE, TRUE)
+        setflag(FLAG_TEMP_1)
+        clearflag(FLAG_TEMP_2)
+    }
+    else{
+        setflag(FLAG_TEMP_2)
+    }
+}
+
+script MartCounterHop1{
+    lock
+    if(var(VAR_FACING) == DIR_WEST){
+        msgbox(MartCounterEmpty, MSGBOX_YESNO)
+    }
+    else{
+        msgbox(DrisledgeMart_Return, MSGBOX_YESNO)
+    }
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    closemessage
+    waitse
+    playse(SE_LEDGE)
+    if(var(VAR_FACING) == DIR_WEST){
+        applymovement(OBJ_EVENT_ID_PLAYER, HopOverLedgeToWest)
+    }
+    else{
+        applymovement(OBJ_EVENT_ID_PLAYER, HopOverLedgeToEast)
+    }
+    waitmovement(0)
+    release
+}
+script MartCounterHop2{
+    lock
+    if(var(VAR_FACING) == DIR_NORTH){
+        msgbox(MartCounterEmpty, MSGBOX_YESNO)
+    }
+    else{
+        msgbox(DrisledgeMart_Return, MSGBOX_YESNO)
+    }
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    closemessage
+    waitse
+    playse(SE_LEDGE)
+    if(var(VAR_FACING) == DIR_NORTH){
+        setmetatile(1, 3, 0x329, FALSE)
+        special(DrawWholeMapView)
+        applymovement(OBJ_EVENT_ID_PLAYER, HopOverLedgeToNorthMart)
+        delay(22)
+        setmetatile(1, 3, 0x239, FALSE)
+        setmetatile(1, 4, 0x331, TRUE)
+        special(DrawWholeMapView)
+    }
+    else{
+        applymovement(OBJ_EVENT_ID_PLAYER, HopOverLedgeToSouth)
+        delay(8)
+        setmetatile(1, 3, 0x329, FALSE)
+        setmetatile(1, 4, 0x241, TRUE)
+        special(DrawWholeMapView)
+    }
+    waitmovement(0)
+    setmetatile(1, 3, 0x239, FALSE)
+    setmetatile(1, 4, 0x241, TRUE)
+    special(DrawWholeMapView)
+    release
+}
+script MartCounterHop3{
+    lock
+    if(var(VAR_FACING) == DIR_NORTH){
+        msgbox(MartCounterEmpty, MSGBOX_YESNO)
+    }
+    else{
+        msgbox(DrisledgeMart_Return, MSGBOX_YESNO)
+    }
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    closemessage
+    waitse
+    playse(SE_LEDGE)
+    if(var(VAR_FACING) == DIR_NORTH){
+        setmetatile(0, 3, 0x328, FALSE)
+        special(DrawWholeMapView)
+        applymovement(OBJ_EVENT_ID_PLAYER, HopOverLedgeToNorthMart)
+        delay(22)
+        setmetatile(0, 3, 0x238, FALSE)
+        setmetatile(0, 4, 0x330, TRUE)
+        special(DrawWholeMapView)
+    }
+    else{
+        applymovement(OBJ_EVENT_ID_PLAYER, HopOverLedgeToSouth)
+        delay(8)
+        setmetatile(0, 3, 0x328, FALSE)
+        setmetatile(0, 4, 0x240, TRUE)
+        special(DrawWholeMapView)
+    }
+    waitmovement(0)
+    setmetatile(0, 4, 0x240, TRUE)
+    setmetatile(0, 3, 0x238, FALSE)
+    special(DrawWholeMapView)
+    release
+}
+
+text MartCounterEmpty{
+    "There's nobody behind the counter.\p"
+    "Jump over the counter?"
+}
+text DrisledgeMart_Return{
+    "Jump back over the counter?"
+}
+
+movement HopOverLedgeToWest{
+    jump_2_left
+	delay_16
+    step_end
+}
+
+movement HopOverLedgeToEast{
+    jump_2_right
+	delay_16
+    step_end
+}
+
+movement HopOverLedgeToNorthMart{
+    jump_2_up
+	delay_16
+    step_end
+}

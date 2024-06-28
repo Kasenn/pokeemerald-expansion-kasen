@@ -698,6 +698,16 @@ u32 FldEff_Splash(void)
     u8 objectEventId = GetObjectEventIdByLocalIdAndMap(gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2]);
     struct ObjectEvent *objectEvent = &gObjectEvents[objectEventId];
     u8 spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_SPLASH], 0, 0, 0);
+
+    if (objectEvent->graphicsId == OBJ_EVENT_GFX_GASTLY
+    || objectEvent->graphicsId == OBJ_EVENT_GFX_HAUNTER
+    || objectEvent->graphicsId == OBJ_EVENT_GFX_MISDREAVUS
+    || objectEvent->graphicsId == OBJ_EVENT_GFX_MISMAGIUS
+    || objectEvent->graphicsId == OBJ_EVENT_GFX_PHANTUMP
+    || objectEvent->graphicsId == OBJ_EVENT_GFX_SHUPPET){
+        return 0;
+    }
+
     if (spriteId != MAX_SPRITES)
     {
         struct Sprite *linkedSprite;

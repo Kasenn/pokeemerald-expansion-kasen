@@ -1,9 +1,283 @@
 mapscripts Drisledge_Pokecenter_1F_MapScripts {
     MAP_SCRIPT_ON_TRANSITION: DrisledgePokeCenter1F_OnTransition
+    MAP_SCRIPT_ON_LOAD: DrisledgeCenter_SetTiles
 }
 
 script DrisledgePokeCenter1F_OnTransition{
+    setflag(FLAG_TEMP_3)
+    setflag(FLAG_TEMP_2)
 	setrespawn(HEAL_LOCATION_DRISLEDGE_TOWN)
 	call(Common_EventScript_UpdateBrineyLocation)
+    gettime
+    copyvar(VAR_TEMP_0, VAR_0x8000)
+    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 30){
+        setflag(FLAG_TEMP_1)
+        if(var(VAR_TEMP_0) <= 6 || var(VAR_TEMP_0) >= 18){
+            setweather(WEATHER_SHADE)
+            clearflag(FLAG_TEMP_2)
+        }
+        else{
+            clearflag(FLAG_TEMP_3)
+            setweather(WEATHER_SHADE)
+            playbgm(MUS_NONE, TRUE)
+            doweather
+        }
+    }    
 	end
+}
+
+script DrisledgeCenter_SetTiles{
+    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 30){
+        setmetatile(5, 2, 0x051, FALSE)
+        setmetatile(6, 2, 0x21E, FALSE)
+        setmetatile(7, 2, 0x052, FALSE)
+        setmetatile(5, 3, 0x059, TRUE)
+        setmetatile(6, 3, 0x23C, FALSE)
+        setmetatile(7, 3, 0x05A, TRUE)
+        setmetatile(6, 4, 0x225, FALSE)
+        setmetatile(7, 4, 0x267, FALSE)
+    }
+}
+
+script DrisledgePokeCenter1F_NurseGengar{
+    call(Drisledge_NurseGengar)
+	waitmessage
+	waitbuttonpress
+	release
+	end
+}
+
+script Drisledge_NurseGengar{
+    lock
+	faceplayer
+	msgbox(GengarBehindCounter, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == TRUE){
+        goto(Gengar_HealPkmn)
+    }
+	release
+    end
+}
+script Gengar_HealPkmn{
+    incrementgamestat(GAME_STAT_USED_POKECENTER)
+    message(GengarTakesPokemon)
+	waitmessage
+	call(Gengar_TakeAndHealPkmn)
+	call(Gengar_ReturnPkmn)
+    release
+	end
+}
+script Gengar_TakeAndHealPkmn{
+    applymovement (8, Common_Movement_WalkInPlaceFasterLeft)
+	waitmovement (0)
+	dofieldeffect (FLDEFF_POKECENTER_HEAL)
+	waitfieldeffect (FLDEFF_POKECENTER_HEAL)
+	applymovement (8, Common_Movement_WalkInPlaceFasterDown)
+	waitmovement (0)
+	special (HealPlayerParty)
+	return
+}
+script Gengar_ReturnPkmn{
+    message(GengarRestoredPkmnToFull)
+	waitmessage
+	applymovement (8, GengarSpin)
+	waitmovement (0)
+	message (GengarHappy)
+    waitmessage
+    waitbuttonpress
+	return
+}
+
+text GengarBehindCounter{
+    "There seems to be a Gengar\n"
+    "behind the counter.\p"
+    "Give your Pokémon to the Gengar?"
+}
+text GengarTakesPokemon{
+    "The Gengar takes your Pokémon\n"
+    "for a few seconds."
+}
+text GengarRestoredPkmnToFull{
+    "The Gengar has restored\n"
+    "your Pokémon to full health."
+}
+text GengarHappy{
+    "The Gengar seems happy to serve, and\n"
+    "probably hopes to see you again soon."
+}
+
+movement GengarSpin{
+    walk_in_place_faster_left
+    walk_in_place_faster_up
+    walk_in_place_faster_right
+    walk_in_place_faster_down
+    walk_in_place_faster_left
+    walk_in_place_faster_up
+    walk_in_place_faster_right
+    walk_in_place_faster_down
+    walk_in_place_faster_left
+    walk_in_place_faster_up
+    walk_in_place_faster_right
+    walk_in_place_faster_down
+    walk_in_place_faster_left
+    walk_in_place_faster_up
+    walk_in_place_faster_right
+    walk_in_place_faster_down
+    walk_in_place_faster_left
+    walk_in_place_faster_up
+    walk_in_place_faster_right
+    walk_in_place_faster_down
+    step_end
+}
+
+script DrisledgeCenter_Misdreavus{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_MISDREAVUS, CRY_MODE_NORMAL)
+	msgbox(DrisledgeMisdreavus_Text, MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+script DrisledgeCenter_Sableye{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_SABLEYE, CRY_MODE_NORMAL)
+	msgbox(DrisledgeSableye_Text, MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+script DrisledgeCenter_Gastly{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_GASTLY, CRY_MODE_NORMAL)
+	msgbox(DrisledgeGastly_Text, MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+script DrisledgeCenter_Gastly1{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_GASTLY, CRY_MODE_NORMAL)
+	msgbox(DrisledgeGastly_Text, MSGBOX_DEFAULT)
+	waitmoncry
+	release
+    turnobject(11, DIR_WEST)
+	end
+}
+script DrisledgeCenter_Gastly2{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_GASTLY, CRY_MODE_NORMAL)
+	msgbox(DrisledgeGastly_Text, MSGBOX_DEFAULT)
+	waitmoncry
+	release
+    turnobject(12, DIR_EAST)
+	end
+}
+script DrisledgeCenter_Shuppet{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_SHUPPET, CRY_MODE_NORMAL)
+	msgbox(DrisledgeShuppet_Text, MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+script DrisledgeCenter_Phantump{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_PHANTUMP, CRY_MODE_NORMAL)
+	msgbox(DrisledgePhantump_Text, MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+text DrisledgeMisdreavus_Text{
+    "Mi-mii!"
+}
+text DrisledgeSableye_Text{
+    "Shaaa…"
+}
+text DrisledgeGastly_Text{
+    "Ghaa!"
+}
+text DrisledgeShuppet_Text{
+    "Sha-shaa…"
+}
+text DrisledgePhantump_Text{
+    "Fa-fa!"
+}
+
+script DrisledgeCenter_NoNurse{
+    lock
+    msgbox(NobodyBehindCenterCounter, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == TRUE){
+        closemessage
+        goto(Solo_HealPkmn)
+    }
+    release
+    end
+}
+
+script Solo_HealPkmn{
+    special(SpawnCameraObject)
+    incrementgamestat(GAME_STAT_USED_POKECENTER)
+    playse(SE_LEDGE)
+    setmetatile(6, 8, 0x053, TRUE)
+    special(DrawWholeMapView)
+    applymovement(OBJ_EVENT_ID_PLAYER, HopOverLedgeToNorth)
+    delay(22)
+    setmetatile(6, 8, 0x036, TRUE)
+    setmetatile(6, 9, 0x054, TRUE)
+    special(DrawWholeMapView)
+    waitmovement(0)
+    dofieldeffect (FLDEFF_POKECENTER_HEAL)
+	waitfieldeffect (FLDEFF_POKECENTER_HEAL)
+    message(SoloPkmnHealed)
+    waitmessage
+    waitbuttonpress
+    closemessage
+    delay(20)
+    playse(SE_LEDGE)
+    applymovement(OBJ_EVENT_ID_PLAYER, HopOverLedgeToSouth)
+    delay(8)
+    setmetatile(6, 8, 0x053, TRUE)
+    setmetatile(6, 9, 0x205, TRUE)
+    special(DrawWholeMapView)
+    waitmovement(0)
+    special(RemoveCameraObject)
+    special (HealPlayerParty)
+    release
+}
+
+movement HopOverLedgeToNorth{
+    jump_2_up
+	delay_16
+    walk_in_place_fast_left
+    step_end
+}
+movement HopOverLedgeToSouth{
+    jump_2_down
+	delay_16
+    step_end
+}
+
+text NobodyBehindCenterCounter{
+    "There's nobody behind the counter,\n"
+    "but the machine looks operational.\p"
+    "Jump over the counter and heal\n"
+    "your Pokémon?"
+}
+text SoloPkmnHealed{
+    "Your Pokémon have been restored\n"
+    "to full health."
 }

@@ -35,6 +35,11 @@ gText_Birch_BoyOrGirl::
 	.string "Are you a boy?\n"
 	.string "Or are you a girl?$"
 
+gText_Birch_Brother::
+	.string "And I believe you also have\n"
+	.string "an older brother?\l"
+	.string "What was his name again?$"
+
 gText_Birch_WhatsYourName::
 	.string "All right.\n"
 	.string "What's your name?$"
@@ -42,10 +47,15 @@ gText_Birch_WhatsYourName::
 gText_Birch_SoItsPlayer::
 	.string "So it's {PLAYER}{KUN}?$"
 
+gText_Birch_SoItsBrother::
+	.string "So it's {BROTHER}?$"
+
 gText_Birch_YourePlayer::
 	.string "Ah, okay!\p"
-	.string "You're {PLAYER}{KUN} who's my neighbor\n"
-	.string "in the town of Pearlwood Point.\l"
+	.string "So, {PLAYER} and {BROTHER}…\n"
+	.string "Ah, that's right!\p"
+	.string "You're my neighbors in the\n"
+	.string "town of Pearlwood Point!\l"
 	.string "I remember now!\p"
 	.string "$"
 

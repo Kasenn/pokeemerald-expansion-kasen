@@ -219,7 +219,7 @@ static void TxRegItemsMenu_ProcessInput(u8 taskId)
         if ((TxRegItemsMenuItemPageInfo.itemsAbove + TxRegItemsMenuItemPageInfo.cursorPos) != (TxRegItemsMenuItemPageInfo.count - 1))
         {
             PlaySE(SE_SELECT);
-            TxRegItemsMenu_ItemSwapChoosePrompt(taskId);
+            TxRegItemsMenu_DoItemAction(taskId);
         }
     }
     else

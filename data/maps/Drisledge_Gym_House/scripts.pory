@@ -1,0 +1,26 @@
+mapscripts Drisledge_Gym_House_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: GymHouseFlag    
+}
+
+script GymHouseFlag{
+    gettime
+    copyvar(VAR_TEMP_0, VAR_0x8000)
+    if(var(VAR_TEMP_0) <= 6 || var(VAR_TEMP_0) >= 18){
+        clearflag(FLAG_TEMP_1)
+    }
+}
+
+script GymHouse_Haunter{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_HAUNTER, CRY_MODE_NORMAL)
+	msgbox(DrisledgeHaunter_Text, MSGBOX_DEFAULT)
+	waitmoncry
+    if(!flag(FLAG_DRISLEDGE_ITEM4)){
+        giveitem(ITEM_SPELL_TAG)
+        setflag(FLAG_DRISLEDGE_ITEM4)
+    }
+	release
+	end
+}

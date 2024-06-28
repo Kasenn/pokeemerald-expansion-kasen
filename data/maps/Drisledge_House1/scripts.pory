@@ -1,0 +1,16 @@
+mapscripts Drisledge_House1_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: DrisHouse1_FlagControl
+}
+
+script DrisHouse1_FlagControl{
+    setflag(FLAG_TEMP_3)
+    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 30){
+        setflag(FLAG_TEMP_2)
+        setweather(WEATHER_SHADE)
+    }
+    gettime
+    copyvar(VAR_TEMP_0, VAR_0x8000)
+    if(var(VAR_TEMP_0) <= 6 || var(VAR_TEMP_0) >= 18){
+        clearflag(FLAG_TEMP_3)
+    }
+}

@@ -891,16 +891,16 @@
     {
       "map_section": "MAPSEC_CITY_WIP5",
       "name": "WIP CITY 5",
-      "x": 1,
-      "y": 2,
+      "x": 6,
+      "y": 0,
       "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_TOWN_WIP7",
       "name": "WIP TOWN 7",
-      "x": 6,
-      "y": 0,
+      "x": 1,
+      "y": 2,
       "width": 1,
       "height": 1
     },

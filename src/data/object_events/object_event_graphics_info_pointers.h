@@ -261,6 +261,16 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example3;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example4;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example5;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mimikyu;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Banette;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Gastly;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Gengar;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Haunter;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Litwick;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Misdreavus;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mismagius;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Phantump;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sableye;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Shuppet;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FishermanNorth;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FishermanWest;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FishermanEast;
@@ -547,6 +557,16 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_EXAMPLE5] =                 &gObjectEventGraphicsInfo_Example5,
     [OBJ_EVENT_GFX_IRIS] =                     &gObjectEventGraphicsInfo_Iris,
     [OBJ_EVENT_GFX_MIMIKYU] =                 &gObjectEventGraphicsInfo_Mimikyu,
+    [OBJ_EVENT_GFX_BANETTE] =                   &gObjectEventGraphicsInfo_Banette,
+    [OBJ_EVENT_GFX_GASTLY] =                    &gObjectEventGraphicsInfo_Gastly ,
+    [OBJ_EVENT_GFX_GENGAR] =                    &gObjectEventGraphicsInfo_Gengar,
+    [OBJ_EVENT_GFX_HAUNTER] =                   &gObjectEventGraphicsInfo_Haunter,
+    [OBJ_EVENT_GFX_LITWICK] =                   &gObjectEventGraphicsInfo_Litwick,
+    [OBJ_EVENT_GFX_MISDREAVUS] =                &gObjectEventGraphicsInfo_Misdreavus,
+    [OBJ_EVENT_GFX_MISMAGIUS] =                 &gObjectEventGraphicsInfo_Mismagius,
+    [OBJ_EVENT_GFX_PHANTUMP] =                  &gObjectEventGraphicsInfo_Phantump,            
+    [OBJ_EVENT_GFX_SABLEYE] =                   &gObjectEventGraphicsInfo_Sableye,
+    [OBJ_EVENT_GFX_SHUPPET] =                   &gObjectEventGraphicsInfo_Shuppet,
     [OBJ_EVENT_GFX_VOLKNER] =                     &gObjectEventGraphicsInfo_Volkner,
     [OBJ_EVENT_GFX_JASMINE] =                     &gObjectEventGraphicsInfo_Jasmine,
     [OBJ_EVENT_GFX_MAREEP] =                     &gObjectEventGraphicsInfo_Mareep,

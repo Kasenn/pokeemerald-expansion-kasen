@@ -1465,3 +1465,11 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Drisledge_Gym/scripts.inc"
 
 	.include "data/maps/Route15_MoveReminder/scripts.inc"
+
+	.include "data/maps/Drisledge_Pokecenter_BackRoom/scripts.inc"
+
+	.include "data/maps/DrisledgeTown_Broken/scripts.inc"
+
+	.include "data/maps/Drisledge_Gym_House/scripts.inc"
+
+	.include "data/maps/Drisledge_Mart_Backroom/scripts.inc"

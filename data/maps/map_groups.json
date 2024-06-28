@@ -298,7 +298,11 @@
     "Drisledge_Mart",
     "Drisledge_House1",
     "Drisledge_House2",
-    "Drisledge_Gym"
+    "Drisledge_Gym",
+    "Drisledge_Pokecenter_BackRoom",
+    "DrisledgeTown_Broken",
+    "Drisledge_Gym_House",
+    "Drisledge_Mart_Backroom"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

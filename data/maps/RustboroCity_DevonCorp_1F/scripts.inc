@@ -292,6 +292,7 @@ SetTeamLevel::
 	dynmultipush SetTeamLevel_Text_5, 5
 	dynmultipush SetTeamLevel_Text_6, 6
 	dynmultipush SetTeamLevel_Text_7, 7
+	dynmultipush SetTeamLevel_Text_8, 8
 	dynmultistack 23, 0, FALSE, 5, FALSE, 0, NULL
 	switch VAR_RESULT
 	case 0, SetTeamLevel_3
@@ -302,51 +303,57 @@ SetTeamLevel::
 	case 5, SetTeamLevel_8
 	case 6, SetTeamLevel_9
 	case 7, SetTeamLevel_10
-	case MULTI_B_PRESSED, SetTeamLevel_11
+	case 8, SetTeamLevel_11
+	case MULTI_B_PRESSED, SetTeamLevel_12
 SetTeamLevel_1:
 	release
 	end
 
 SetTeamLevel_3:
-	msgbox SetTeamLevel_Text_8
+	msgbox SetTeamLevel_Text_9
 	setpartylevel 14
 	goto SetTeamLevel_1
 
 SetTeamLevel_4:
-	msgbox SetTeamLevel_Text_9
+	msgbox SetTeamLevel_Text_10
 	setpartylevel 22
 	goto SetTeamLevel_1
 
 SetTeamLevel_5:
-	msgbox SetTeamLevel_Text_10
+	msgbox SetTeamLevel_Text_11
 	setpartylevel 24
 	goto SetTeamLevel_1
 
 SetTeamLevel_6:
-	msgbox SetTeamLevel_Text_11
+	msgbox SetTeamLevel_Text_12
 	setpartylevel 29
 	goto SetTeamLevel_1
 
 SetTeamLevel_7:
-	msgbox SetTeamLevel_Text_12
+	msgbox SetTeamLevel_Text_13
 	setpartylevel 34
 	goto SetTeamLevel_1
 
 SetTeamLevel_8:
-	msgbox SetTeamLevel_Text_13
+	msgbox SetTeamLevel_Text_14
 	setpartylevel 38
 	goto SetTeamLevel_1
 
 SetTeamLevel_9:
-	msgbox SetTeamLevel_Text_14
+	msgbox SetTeamLevel_Text_15
 	setpartylevel 40
 	goto SetTeamLevel_1
 
 SetTeamLevel_10:
-	closemessage
+	msgbox SetTeamLevel_Text_16
+	setpartylevel 45
 	goto SetTeamLevel_1
 
 SetTeamLevel_11:
+	closemessage
+	goto SetTeamLevel_1
+
+SetTeamLevel_12:
 	closemessage
 	goto SetTeamLevel_1
 
@@ -509,31 +516,37 @@ SetTeamLevel_Text_5:
 	.string "Gym 4 (Level 38)$"
 
 SetTeamLevel_Text_6:
-	.string "End of Beta (Level 40)$"
+	.string "Post-Gym 4 (Level 40)$"
 
 SetTeamLevel_Text_7:
-	.string "Cancel$"
+	.string "Gym 5 (Level 45)$"
 
 SetTeamLevel_Text_8:
-	.string "Team set to level 14.$"
+	.string "Cancel$"
 
 SetTeamLevel_Text_9:
-	.string "Team set to level 22.$"
+	.string "Team set to level 14.$"
 
 SetTeamLevel_Text_10:
-	.string "Team set to level 24.$"
+	.string "Team set to level 22.$"
 
 SetTeamLevel_Text_11:
-	.string "Team set to level 29.$"
+	.string "Team set to level 24.$"
 
 SetTeamLevel_Text_12:
-	.string "Team set to level 34.$"
+	.string "Team set to level 29.$"
 
 SetTeamLevel_Text_13:
-	.string "Team set to level 38.$"
+	.string "Team set to level 34.$"
 
 SetTeamLevel_Text_14:
+	.string "Team set to level 38.$"
+
+SetTeamLevel_Text_15:
 	.string "Team set to level 40.$"
+
+SetTeamLevel_Text_16:
+	.string "Team set to level 45.$"
 
 RustboroCity_DevonCorp_1F_Text_ThoseShoesAreOurProduct::
 	.string "Hey, those running shoes!\n"

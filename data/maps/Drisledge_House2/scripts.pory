@@ -1,0 +1,32 @@
+mapscripts Drisledge_House2_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: DrisHouse2_FlagControl
+}
+
+script DrisHouse2_FlagControl{
+    setflag(FLAG_TEMP_2)
+    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 30){
+        setweather(WEATHER_SHADE)
+        setflag(FLAG_TEMP_1)
+        gettime
+        copyvar(VAR_TEMP_0, VAR_0x8000)
+        if(var(VAR_TEMP_0) <= 6 || var(VAR_TEMP_0) >= 18){
+            clearflag(FLAG_TEMP_2)
+        }
+    }
+
+}
+
+script Drisledge_Mismagius1{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_MISMAGIUS, CRY_MODE_NORMAL)
+	msgbox(DrisledgeMisdreavus_Text, MSGBOX_DEFAULT)
+	waitmoncry
+    if(!flag(FLAG_DRISLEDGE_ITEM5)){
+        giveitem(ITEM_KASIB_BERRY)
+        setflag(FLAG_DRISLEDGE_ITEM5)
+    }
+	release
+	end
+}

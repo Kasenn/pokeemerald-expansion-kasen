@@ -5474,7 +5474,7 @@ static const struct TrainerMon sParty_TRAINER_LEADER_ACEROLA[] = {
     .lvl = 45,
     .species = SPECIES_GENGAR,
     .heldItem = ITEM_GENGARITE,
-    .moves = {MOVE_DARK_PULSE, MOVE_SHADOW_BALL, MOVE_GUNK_SHOT, MOVE_DREAM_EATER}
+    .moves = {MOVE_DARK_PULSE, MOVE_SHADOW_BALL, MOVE_HYPNOSIS, MOVE_DREAM_EATER}
     },
 };
 

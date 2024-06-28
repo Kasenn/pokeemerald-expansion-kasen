@@ -248,12 +248,16 @@
 #define MAP_FISHING_VILLAGE_HOUSE3 (2 | (14 << 8))
 
 // gMapGroup_IndoorDrisledgeTown
-#define MAP_DRISLEDGE_POKECENTER_1F (0 | (15 << 8))
-#define MAP_DRISLEDGE_POKECENTER_2F (1 | (15 << 8))
-#define MAP_DRISLEDGE_MART          (2 | (15 << 8))
-#define MAP_DRISLEDGE_HOUSE1        (3 | (15 << 8))
-#define MAP_DRISLEDGE_HOUSE2        (4 | (15 << 8))
-#define MAP_DRISLEDGE_GYM           (5 | (15 << 8))
+#define MAP_DRISLEDGE_POKECENTER_1F        (0 | (15 << 8))
+#define MAP_DRISLEDGE_POKECENTER_2F        (1 | (15 << 8))
+#define MAP_DRISLEDGE_MART                 (2 | (15 << 8))
+#define MAP_DRISLEDGE_HOUSE1               (3 | (15 << 8))
+#define MAP_DRISLEDGE_HOUSE2               (4 | (15 << 8))
+#define MAP_DRISLEDGE_GYM                  (5 | (15 << 8))
+#define MAP_DRISLEDGE_POKECENTER_BACK_ROOM (6 | (15 << 8))
+#define MAP_DRISLEDGE_TOWN_BROKEN          (7 | (15 << 8))
+#define MAP_DRISLEDGE_GYM_HOUSE            (8 | (15 << 8))
+#define MAP_DRISLEDGE_MART_BACKROOM        (9 | (15 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (16 << 8))

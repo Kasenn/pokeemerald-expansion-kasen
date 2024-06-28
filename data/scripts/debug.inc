@@ -158,10 +158,7 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
-	givemon SPECIES_GENGAR, 1
-	givemon SPECIES_BANETTE, 1
-	givemon SPECIES_TREVENANT, 1
-	givemon SPECIES_MIMIKYU, 1
+	setvar VAR_DRISLEDGE_TOWN_STATE, 30
 	release
 	end
 

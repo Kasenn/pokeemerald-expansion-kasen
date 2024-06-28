@@ -70,7 +70,7 @@ script SetDrisledgeGymTiles{
         setmetatile(45, 7, 0x2B3, FALSE)
         setmetatile(49, 11, 0x2B3, FALSE)
     }
-    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 30){
+    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 29){
         setmetatile(31, 11, 0x2B3, FALSE)
         setmetatile(30, 11, 0x2B3, FALSE)
         setmetatile(30, 9, 0x2BE, FALSE)
@@ -123,7 +123,7 @@ script SetupDrisledgeGym{
     setflag(FLAG_TEMP_3)
     setflag(FLAG_TEMP_4)
     setflag(FLAG_TEMP_5)
-    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 30){
+    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 29){
         setflashlevel(0)
     }
     else{
@@ -163,7 +163,7 @@ script RemoveHexManiac{
     if(var(VAR_DRISLEDGE_TOWN_STATE) >= 22){
         setflag(FLAG_TEMP_14)
     }
-    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 30){
+    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 29){
         setflag(FLAG_TEMP_F)
     }
     return
@@ -558,7 +558,7 @@ script DrisledgeGym_Trainer6_PostScript{
     setflashlevel(0)
     applymovement(21, Walk7Left)
     call(DrisledgeMetatiles6)
-    setvar(VAR_DRISLEDGE_TOWN_STATE, 30)
+    setvar(VAR_DRISLEDGE_TOWN_STATE, 29)
     waitmovement(0)
     removeobject(21)
     release
@@ -696,6 +696,13 @@ movement RunFastRight{
 }
 
 script DrisledgeGym_AcerolaTalk{
+    checkplayergender
+    if(var(VAR_RESULT) == MALE){
+        bufferstring(STR_VAR_1, "mister")
+    }
+    else{
+        bufferstring(STR_VAR_1, "miss")
+    }
     if(flag(FLAG_BADGE05_GET)){
         msgbox(DrisGym_AcerolaPosBat, MSGBOX_NPC)}
 	else{
@@ -704,6 +711,13 @@ script DrisledgeGym_AcerolaTalk{
 }
 script DrisledgeGym_AcerolaTrigger{
     call(GymStartingMovement)
+    checkplayergender
+    if(var(VAR_RESULT) == MALE){
+        bufferstring(STR_VAR_1, "mister")
+    }
+    else{
+        bufferstring(STR_VAR_1, "miss")
+    }
     msgbox(AcerolaIntro)
     trainerbattle_no_intro(TRAINER_LEADER_ACEROLA, AcerolaDefeated)
     goto(Acerola_PosBatEvent)
@@ -711,6 +725,13 @@ script DrisledgeGym_AcerolaTrigger{
 
 script Acerola_PosBatEvent{
 	call(GymMovementAfter)
+    checkplayergender
+    if(var(VAR_RESULT) == MALE){
+        bufferstring(STR_VAR_1, "mister")
+    }
+    else{
+        bufferstring(STR_VAR_1, "miss")
+    }
     msgbox(Acerola_AfterDefeat)
 	message(Acerola_ReceiveBadge)
 	waitmessage
@@ -719,6 +740,7 @@ script Acerola_PosBatEvent{
 	setflag(FLAG_BADGE05_GET)
     addvar(VAR_BADGES_OBTAINED, 1)
 	giveitem(ITEM_TM_SHADOW_CLAW)
+    setvar(VAR_DRISLEDGE_TOWN_STATE, 30)
 	msgbox (Explain_ShadowClaw, MSGBOX_DEFAULT)
     closemessage
     special(RemoveCameraObject)
@@ -726,62 +748,76 @@ script Acerola_PosBatEvent{
 	end
 }
 
-text Acerola_AfterDefeat{
-    "Lady Korrina gave a terrible display!\p"
-    "This is it. I must give up my title and\n"
-    "admit that your strength far exceeds--\p"
-    "Just teasing! But here's your Badge.\n"
-    "Boy, you'll be rolling in 'em soon!"
-}
-
 text DrisGym_YouArrived{
-    "I knew you'd be here soon!\p"
-    "If you're ready, go stand on the other\n"
-    "side of the arena and let's get this\l"
-    "show on the road!"
+    "Hiya, {STR_VAR_1}!\p"
+    "I knew I could count on you showing up\n"
+    "sooner or later.\p"
+    "If you're ready to play, take a stand\n"
+    "on the other side of the arena."
 }
 text AcerolaIntro{
-	"Time for Lady Korrina's big appearance!\p"
-    "Haha, I'm just messing around with you!\n"
-    "I know, you're rollin' in the aisles,\l"
-    "right?\p"
-    "I haven't forgotten your battle\n"
-    "with your friend back on Route 11.\p"
-    "I already know you're a strong Trainer,\n"
-    "so let's get this show on the road!"
+	"Hiya, {STR_VAR_1}!\n"
+    "Are you surprised to see me here?\p"
+    "That's right! I'm the Gym Leader\n"
+    "around here!\p"
+    "I hope you didn't have too much\n"
+    "trouble getting here.\l"
+    "I know the weather can be a bit\l"
+    "cruddy at times.\p"
+    "It's nice to finally have some\n"
+    "human company around here.\p"
+    "Don't get me wrong, Pokémon are\n"
+    "good pals, but people are just so\l"
+    "much more complex and interesting.\p"
+    "That said, how about we have some fun?\p"
+    "I wanna see just how complex your\n"
+    "mind can be!"
 }
 text AcerolaDefeated{
-	"Oh! I have been defeated! Alack, alay!"
+	"Aww…\p"
+    "Guess the playtime's over…"
 }
 text Acerola_ReceiveBadge{
 	"{PLAYER} received the Phantom Badge\n"
 	"from Acerola!"
 }
-text Acerola_ExplainBadge{
-	"If you've got a Rumble Badge, then\n"
-    "you can trade Pokémon up to level 60\l"
-    "with your friends and they'll be ready\l"
-    "to roll! They'll love you, all right!\p"
-    "And you'll be able to push any pesky\n"
-    "boulders out of your way using the\l"
-    "HM Strength!\p"
-    "And here, why don't you take this TM?\n"
-    "I've really been on a roll with it myself!"
-}
 text Explain_ShadowClaw{
-	"Power-Up Punch does just what it says\n"
-    "on the box!\p"
-    "The more that you use it, the tougher\n"
-    "your fists get.\p"
-    "Keep using it.\n"
-    "Your Attack will go through the roof!"
+	"Shadow Claw is a real simple move.\p"
+    "You just give the foe a real nasty\n"
+    "scratch, nothing more, nothing less.\p"
+    "Oh, I guess Pokémon using it tend to\n"
+    "be a bit luckier with the amount of\l"
+    "damage they deal to their foes."
+}
+
+text Acerola_AfterDefeat{
+    "Looks like my friends are all tired\n"
+    "from playing.\p"
+    "That was fun, {STR_VAR_1}!\p"
+    "Since this is a Pokémon Gym after all,\n"
+    "I guess there's something I need to\l"
+    "give the winner."
+}
+text Acerola_ExplainBadge{
+    "Now that you have the Phantom Badge,\n"
+    "all traded Pokémon up to level 70\l"
+    "should be following your commands.\p"
+    "Not only that, but now you'll be able\n"
+    "to ride across water on your Pokémon,\l"
+    "assuming you teach them to surf first.\p"
+    "I think I remember your scientist\n"
+    "pal mentioning something about that.\l"
+    "Maybe check on him near Amberock?\p"
+    "Oh, but before that, I was also\n"
+    "supposed to give you this TM!"
 }
 text DrisGym_AcerolaPosBat{
-	"Already rarin' to go again?\n"
-    "I dunno…\p"
-    "That Mega Ring was my trump card, but\n"
-    "now that you have one as well, I doubt\l"
-    "I'd have any chance against you!"
+	"I remember your scientist friend\n"
+    "mentioning something about teaching\l"
+    "your Pokémon how to surf.\p"
+    "If you've got nothing better to do,\n"
+    "maybe now's a good time to go check\l"
+    "on him near Amberock Town?"
 }
 
 script DrisledgeGym_Statue{

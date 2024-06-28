@@ -63,7 +63,8 @@ void CheckForFlashMemory(void)
 
 void ClearSav3(void)
 {
-    CpuFill16(0, &gSaveblock3, sizeof(struct SaveBlock3));
+    memset(&gSaveBlock3Ptr->bagPocket_Medicine, 0, sizeof(gSaveBlock3Ptr->bagPocket_Medicine));
+    // CpuFill16(0, &gSaveblock3, sizeof(struct SaveBlock3));
 }
 
 void ClearSav2(void)

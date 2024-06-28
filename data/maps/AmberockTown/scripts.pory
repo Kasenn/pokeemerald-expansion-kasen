@@ -6,14 +6,80 @@ mapscripts AmberockTown_MapScripts{
 script Amberock_FlagControl{
     setflag(FLAG_TEMP_3)
     setflag(FLAG_TEMP_2)
-    if(var(VAR_ROUTE14_ROCKET_EVENT) == 6){
+    if(var(VAR_ROUTE14_ROCKET_EVENT) >= 6){
         setflag(FLAG_TEMP_1)
+    }
+    if(flag(FLAG_BADGE05_GET) && !flag(FLAG_RECEIVED_HM_SURF)){
+        setobjectxyperm(1, 33, 11)
+        clearflag(FLAG_TEMP_2)
     }
 }
 script Amberock_PaperVisibility{
-    if(var(VAR_ROUTE14_ROCKET_EVENT) == 6){
+    if(var(VAR_ROUTE14_ROCKET_EVENT) >= 6){
         setmetatile(27, 10, 0x128, FALSE)
+        setmetatile(27, 12, 0x189, FALSE)
+        setmetatile(26, 12, 0x189, FALSE)
+        setmetatile(25, 13, 0x170, FALSE)
+        setmetatile(24, 13, 0x170, FALSE)
+        setmetatile(23, 13, 0x170, FALSE)
     }
+}
+
+script Amberock_SurfScientist{
+    lock
+    faceplayer
+    msgbox(HereIsSurfHM)
+    giveitem(ITEM_HM03)
+    msgbox(GoGetBackPapers)
+    closemessage
+    if(var(VAR_FACING) == DIR_SOUTH){
+        applymovement(1, ScientistLeavesDetour)
+    }
+    else{
+        applymovement(1, ScientistLeavesStraight)
+    }
+    waitmovement(0)
+    removeobject(1)
+    setflag(FLAG_RECEIVED_HM_SURF)
+    release
+}
+text HereIsSurfHM{
+    "Ah, perfect timing!\p"
+    "I was able to get my hands on the\n"
+    "perfect Hidden Machine for this job.\p"
+    "Here, you should take it."
+}
+text GoGetBackPapers{
+    "As much as I would like to help you on\n"
+    "this, I'm just a scientist after all.\p"
+    "I mean, I don't even have my own\n"
+    "Pokémon!\p"
+    "I know this is a lot to ask from\n"
+    "someone you barely even know,\l"
+    "but please, recover our research\l"
+    "material from Team Rocket!\p"
+    "I had a talk with my colleagues and we\n"
+    "have unanimously decided that if you\l"
+    "do this, we'll reward you with\l"
+    "something special.\p"
+    "With that said, I need to get back to\n"
+    "my research.\p"
+    "When you're done, come meet me back at\n"
+    "the research center on Route 14."
+}
+
+movement ScientistLeavesDetour{
+    walk_right
+    walk_up * 4
+    walk_left
+    walk_up * 2
+    walk_left * 5
+    walk_up * 2
+}
+movement ScientistLeavesStraight{
+    walk_up * 5
+    walk_left * 5
+    walk_up * 2
 }
 
 script Amberock_Papers{

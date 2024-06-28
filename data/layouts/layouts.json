@@ -6340,6 +6340,46 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/Route15_MoveReminder/border.bin",
       "blockdata_filepath": "data/layouts/Route15_MoveReminder/map.bin"
+    },
+    {
+      "id": "LAYOUT_DRISLEDGE_POKECENTER_BACK_ROOM",
+      "name": "Drisledge_Pokecenter_BackRoom_Layout",
+      "width": 19,
+      "height": 12,
+      "primary_tileset": "gTileset_Building2",
+      "secondary_tileset": "gTileset_UnionRoom",
+      "border_filepath": "data/layouts/Drisledge_Pokecenter_BackRoom/border.bin",
+      "blockdata_filepath": "data/layouts/Drisledge_Pokecenter_BackRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_DRISLEDGE_TOWN_BROKEN",
+      "name": "DrisledgeTown_Broken_Layout",
+      "width": 40,
+      "height": 32,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Drisledge",
+      "border_filepath": "data/layouts/DrisledgeTown_Broken/border.bin",
+      "blockdata_filepath": "data/layouts/DrisledgeTown_Broken/map.bin"
+    },
+    {
+      "id": "LAYOUT_DRISLEDGE_GYM_HOUSE",
+      "name": "Drisledge_Gym_House_Layout",
+      "width": 9,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattlePyramid",
+      "border_filepath": "data/layouts/Drisledge_Gym_House/border.bin",
+      "blockdata_filepath": "data/layouts/Drisledge_Gym_House/map.bin"
+    },
+    {
+      "id": "LAYOUT_DRISLEDGE_MART_BACKROOM",
+      "name": "Drisledge_Mart_Backroom_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/Drisledge_Mart_Backroom/border.bin",
+      "blockdata_filepath": "data/layouts/Drisledge_Mart_Backroom/map.bin"
     }
   ]
 }
