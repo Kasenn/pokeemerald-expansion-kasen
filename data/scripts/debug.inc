@@ -158,7 +158,8 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
-	setvar VAR_DRISLEDGE_TOWN_STATE, 30
+	call Common_OpenBag
+	givemon SPECIES_LITWICK, 5, ITEM_NONE, VAR_ITEM_ID
 	release
 	end
 

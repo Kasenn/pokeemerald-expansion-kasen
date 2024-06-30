@@ -25,7 +25,6 @@ DrisledgePokeCenter1F_OnTransition_2:
 	clearflag FLAG_TEMP_3
 	setweather WEATHER_SHADE
 	playbgm MUS_NONE, TRUE
-	doweather
 	goto DrisledgePokeCenter1F_OnTransition_1
 
 DrisledgePokeCenter1F_OnTransition_4:
@@ -36,10 +35,17 @@ DrisledgePokeCenter1F_OnTransition_4:
 
 DrisledgeCenter_SetTiles::
 	compare VAR_DRISLEDGE_TOWN_STATE, 30
-	goto_if_ge DrisledgeCenter_SetTiles_1
+	goto_if_ge DrisledgeCenter_SetTiles_2
+DrisledgeCenter_SetTiles_1:
+	setflag FLAG_TEMP_3
+	setflag FLAG_TEMP_2
+	gettime
+	copyvar VAR_TEMP_0, VAR_0x8000
+	compare VAR_DRISLEDGE_TOWN_STATE, 30
+	goto_if_ge DrisledgeCenter_SetTiles_4
 	return
 
-DrisledgeCenter_SetTiles_1:
+DrisledgeCenter_SetTiles_2:
 	setmetatile 5, 2, 0x051, FALSE
 	setmetatile 6, 2, 0x21E, FALSE
 	setmetatile 7, 2, 0x052, FALSE
@@ -48,6 +54,22 @@ DrisledgeCenter_SetTiles_1:
 	setmetatile 7, 3, 0x05A, TRUE
 	setmetatile 6, 4, 0x225, FALSE
 	setmetatile 7, 4, 0x267, FALSE
+	goto DrisledgeCenter_SetTiles_1
+
+DrisledgeCenter_SetTiles_4:
+	setflag FLAG_TEMP_1
+	compare VAR_TEMP_0, 6
+	goto_if_le DrisledgeCenter_SetTiles_6
+	compare VAR_TEMP_0, 18
+	goto_if_ge DrisledgeCenter_SetTiles_6
+	clearflag FLAG_TEMP_3
+	setweather WEATHER_SHADE
+	playbgm MUS_NONE, TRUE
+	return
+
+DrisledgeCenter_SetTiles_6:
+	setweather WEATHER_SHADE
+	clearflag FLAG_TEMP_2
 	return
 
 

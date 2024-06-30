@@ -20,7 +20,6 @@ script DrisledgePokeCenter1F_OnTransition{
             clearflag(FLAG_TEMP_3)
             setweather(WEATHER_SHADE)
             playbgm(MUS_NONE, TRUE)
-            doweather
         }
     }    
 	end
@@ -36,6 +35,22 @@ script DrisledgeCenter_SetTiles{
         setmetatile(7, 3, 0x05A, TRUE)
         setmetatile(6, 4, 0x225, FALSE)
         setmetatile(7, 4, 0x267, FALSE)
+    }
+    setflag(FLAG_TEMP_3)
+    setflag(FLAG_TEMP_2)
+    gettime
+    copyvar(VAR_TEMP_0, VAR_0x8000)
+    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 30){
+        setflag(FLAG_TEMP_1)
+        if(var(VAR_TEMP_0) <= 6 || var(VAR_TEMP_0) >= 18){
+            setweather(WEATHER_SHADE)
+            clearflag(FLAG_TEMP_2)
+        }
+        else{
+            clearflag(FLAG_TEMP_3)
+            setweather(WEATHER_SHADE)
+            playbgm(MUS_NONE, TRUE)
+        }
     }
 }
 

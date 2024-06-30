@@ -427,5 +427,9 @@ text MultiRegisterSign_Text{
 	"registered as SELECT for quick and\l"
 	"convenient use.\p"
 	"Up to 3 Key Items can be registered\n"
-	"this way."
+	"this way.\p"
+	"Tapping SELECT while the select menu\n"
+	"is already open causes the item to be\l"
+	"used instead of activating the typical\l"
+	"sort menu option."
 }

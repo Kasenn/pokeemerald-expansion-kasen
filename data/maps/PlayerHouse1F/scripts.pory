@@ -184,8 +184,9 @@ text PlayerHouse1F_MomGoodbye_Text{
 text PlayerHouse1F_Apology{
     "{BROTHER}: Sorry about that.\n"
     "I knew that with my experience it was\l"
-    "going to be an unfair fight. I hope you\l"
-    "don't take that loss too seriously…\p"
+    "going to be an unfair fight.\p"
+    "I hope you don't take that loss too\n"
+    "seriously…\p"
     "Anyway, have you thought about what\n"
     "you're going to do next?\p"
     "If you're up for it, we should totally\n"
@@ -193,8 +194,8 @@ text PlayerHouse1F_Apology{
     "by taking on the Pokémon Gym Challenge!\p"
     "Our neighbor {RIVAL} just set out so we\n"
     "better get moving or we'll fall behind!\p"
-    "Don't know about you but I'm not content\n"
-    "with a second place.\p"
+    "Don't know about you but I'm not\n"
+    "content with a second place.\p"
     "Catch ya later!"
 }
 

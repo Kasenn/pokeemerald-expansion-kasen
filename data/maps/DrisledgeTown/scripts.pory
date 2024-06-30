@@ -1,14 +1,17 @@
 mapscripts DrisledgeTown_MapScripts {
     MAP_SCRIPT_ON_TRANSITION: DespawnDrisledgeNPCs
+    MAP_SCRIPT_ON_LOAD: DespawnDrisledgeNPCs
 }
 
 script DespawnDrisledgeNPCs{
     if(var(VAR_DRISLEDGE_TOWN_STATE) >= 30){
+        setflag(FLAG_TEMP_2)
         setdynamicwarp(MAP_DRISLEDGE_GYM_HOUSE, 0)
         setmaplayoutindex(LAYOUT_DRISLEDGE_TOWN_BROKEN)
         gettime
         copyvar(VAR_TEMP_0, VAR_0x8000)
         if(var(VAR_TEMP_0) <= 6 || var(VAR_TEMP_0) >= 18){
+            setmaplayoutindex(LAYOUT_DRISLEDGE_TOWN_BROKEN2)
             clearflag(FLAG_TEMP_2)
             setweather(WEATHER_SHADE)
         }

@@ -42,6 +42,7 @@ static void TilesetAnim_EliteFour(u16);
 static void TilesetAnim_MauvilleGym(u16);
 static void TilesetAnim_BikeShop(u16);
 static void TilesetAnim_BattlePyramid(u16);
+static void TilesetAnim_Drisledge(u16);
 static void TilesetAnim_BattleDome(u16);
 static void QueueAnimTiles_General_Flower(u16);
 static void QueueAnimTiles_General_Water(u16);
@@ -56,6 +57,7 @@ static void QueueAnimTiles_Slateport_Balloons(u16);
 static void QueueAnimTiles_Mauville_Flowers(u16, u8);
 static void QueueAnimTiles_BikeShop_BlinkingLights(u16);
 static void QueueAnimTiles_BattlePyramid_Torch(u16);
+static void QueueAnimTiles_Drisledge_Wisp(u16);
 static void QueueAnimTiles_BattlePyramid_StatueShadow(u16);
 static void BlendAnimPalette_BattleDome_FloorLights(u16);
 static void BlendAnimPalette_BattleDome_FloorLightsNoBlend(u16);
@@ -529,10 +531,21 @@ const u16 tileset_anims_space_11[224] = {};
 
 const u16 gTilesetAnims_Unused2_Frame1[] = INCBIN_U16("data/tilesets/secondary/unused_2/1.4bpp");
 
+const u16 gTilesetAnims_Drisledge_Wisp_Frame0[] = INCBIN_U16("data/tilesets/secondary/drisledge/anim/fire/10.4bpp");
+const u16 gTilesetAnims_Drisledge_Wisp_Frame1[] = INCBIN_U16("data/tilesets/secondary/drisledge/anim/fire/11.4bpp");
+const u16 gTilesetAnims_Drisledge_Wisp_Frame2[] = INCBIN_U16("data/tilesets/secondary/drisledge/anim/fire/12.4bpp");
+const u16 tileset_anims_space_12[32] = {};
+
 const u16 *const gTilesetAnims_BattlePyramid_Torch[] = {
     gTilesetAnims_BattlePyramid_Torch_Frame0,
     gTilesetAnims_BattlePyramid_Torch_Frame1,
     gTilesetAnims_BattlePyramid_Torch_Frame2
+};
+
+const u16 *const gTilesetAnims_Drisledge_Wisp[] = {
+    gTilesetAnims_Drisledge_Wisp_Frame0,
+    gTilesetAnims_Drisledge_Wisp_Frame1,
+    gTilesetAnims_Drisledge_Wisp_Frame2
 };
 
 const u16 *const gTilesetAnims_BattlePyramid_StatueShadow[] = {
@@ -831,6 +844,13 @@ void InitTilesetAnim_BattlePyramid(void)
     sSecondaryTilesetAnimCallback = TilesetAnim_BattlePyramid;
 }
 
+void InitTilesetAnim_Drisledge(void)
+{
+    sSecondaryTilesetAnimCounter = 0;
+    sSecondaryTilesetAnimCounterMax = sPrimaryTilesetAnimCounterMax;
+    sSecondaryTilesetAnimCallback = TilesetAnim_Drisledge;
+}
+
 void InitTilesetAnim_BattleDome(void)
 {
     sSecondaryTilesetAnimCounter = 0;
@@ -1064,7 +1084,7 @@ static void QueueAnimTiles_BattleFrontierOutsideEast_Flag(u16 timer)
 static void QueueAnimTiles_Slateport_Balloons(u16 timer)
 {
     u16 i = timer % ARRAY_COUNT(gTilesetAnims_Slateport_Balloons);
-    AppendTilesetAnimToBuffer(gTilesetAnims_Slateport_Balloons[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 224)), 4 * TILE_SIZE_4BPP);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Slateport_Balloons[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 238)), 4 * TILE_SIZE_4BPP);
 }
 
 static void TilesetAnim_MauvilleGym(u16 timer)
@@ -1099,6 +1119,14 @@ static void TilesetAnim_BattlePyramid(u16 timer)
     {
         QueueAnimTiles_BattlePyramid_Torch(timer / 8);
         QueueAnimTiles_BattlePyramid_StatueShadow(timer / 8);
+    }
+}
+
+static void TilesetAnim_Drisledge(u16 timer)
+{
+    if (timer % 8 == 0)
+    {
+        QueueAnimTiles_Drisledge_Wisp(timer / 8);
     }
 }
 
@@ -1161,6 +1189,12 @@ static void QueueAnimTiles_BattlePyramid_Torch(u16 timer)
 {
     u16 i = timer % ARRAY_COUNT(gTilesetAnims_BattlePyramid_Torch);
     AppendTilesetAnimToBuffer(gTilesetAnims_BattlePyramid_Torch[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 151)), 16 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_Drisledge_Wisp(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Drisledge_Wisp);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Drisledge_Wisp[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 240)), 8 * TILE_SIZE_4BPP);
 }
 
 static void QueueAnimTiles_BattlePyramid_StatueShadow(u16 timer)

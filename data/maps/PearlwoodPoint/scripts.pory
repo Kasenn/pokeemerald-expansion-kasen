@@ -68,6 +68,7 @@ script Pearlwood_BrotherFightLeft{
 
 script Pearlwood_BrotherFightMain{
     lock
+    playse(SE_PIN)
     msgbox("???: {PLAYER}!")
     closemessage
     delay(30)

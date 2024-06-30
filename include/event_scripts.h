@@ -578,6 +578,8 @@ extern const u8 Kaolisle_Gym_Switch1[];
 extern const u8 Kaolisle_Gym_Switch2[];
 extern const u8 Kaolisle_Gym_Switch3[];
 extern const u8 Kaolisle_Gym_Switch4[];
+extern const u8 LitwickChase_2[];
+extern const u8 LitwickChase_3[];
 
 // Battle Pyramid.
 extern const u8 BattlePyramid_Retire[];

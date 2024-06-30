@@ -1500,15 +1500,15 @@
 
 #define FLAG_RECEIVED_POKEDEX_FROM_BIRCH            (SYSTEM_FLAGS + 0x84)
 
-#define FLAG_UNUSED_0x8E5                           (SYSTEM_FLAGS + 0x85) // 
-#define FLAG_UNUSED_0x8E6                           (SYSTEM_FLAGS + 0x86) // 
-#define FLAG_UNUSED_0x8E7                           (SYSTEM_FLAGS + 0x87) // 
-#define FLAG_UNUSED_0x8E8                           (SYSTEM_FLAGS + 0x88) // 
-#define FLAG_UNUSED_0x8E9                           (SYSTEM_FLAGS + 0x89) // 
-#define FLAG_UNUSED_0x8EA                           (SYSTEM_FLAGS + 0x8A) // 
-#define FLAG_UNUSED_0x8EB                           (SYSTEM_FLAGS + 0x8B) // 
-#define FLAG_UNUSED_0x8EC                           (SYSTEM_FLAGS + 0x8C) // 
-#define FLAG_UNUSED_0x8ED                           (SYSTEM_FLAGS + 0x8D) // 
+#define FLAG_VISITED_BASALPEAK                           (SYSTEM_FLAGS + 0x85) // 
+#define FLAG_VISITED_FROSTFIRE                          (SYSTEM_FLAGS + 0x86) // 
+#define FLAG_VISITED_CRYSTALPINE                           (SYSTEM_FLAGS + 0x87) // 
+#define FLAG_VISITED_EVERFROST                           (SYSTEM_FLAGS + 0x88) // 
+#define FLAG_VISITED_ICEPERCH                           (SYSTEM_FLAGS + 0x89) // 
+#define FLAG_VISITED_SNOWCREST                           (SYSTEM_FLAGS + 0x8A) // 
+#define FLAG_VISITED_GALEWIND                           (SYSTEM_FLAGS + 0x8B) // 
+#define FLAG_LITWICK_TAG_COMPLETE                           (SYSTEM_FLAGS + 0x8C) // 
+#define FLAG_LITWICK_CAUGHT                           (SYSTEM_FLAGS + 0x8D) // 
 #define FLAG_UNUSED_0x8EE                           (SYSTEM_FLAGS + 0x8E) // 
 #define FLAG_UNUSED_0x8EF                           (SYSTEM_FLAGS + 0x8F) // 
 #define FLAG_UNUSED_0x8F0                           (SYSTEM_FLAGS + 0x90) // 

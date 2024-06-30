@@ -28,7 +28,7 @@ const struct Tileset gTileset_Rustboro =
     .palettes = gTilesetPalettes_Rustboro,
     .metatiles = gMetatiles_Rustboro,
     .metatileAttributes = gMetatileAttributes_Rustboro,
-    .callback = InitTilesetAnim_Rustboro,
+    .callback = InitTilesetAnim_Slateport,
 };
 
 const struct Tileset gTileset_Dewford =
@@ -1054,7 +1054,7 @@ const struct Tileset gTileset_Drisledge =
     .palettes = gTilesetPalettes_Drisledge,
     .metatiles = gMetatiles_Drisledge,
     .metatileAttributes = gMetatileAttributes_Drisledge,
-    .callback = NULL,
+    .callback = InitTilesetAnim_Drisledge,
 };
 
 const struct Tileset gTileset_Building2 =

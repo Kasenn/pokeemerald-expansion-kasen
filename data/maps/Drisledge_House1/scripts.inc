@@ -1,5 +1,6 @@
 Drisledge_House1_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, DrisHouse1_FlagControl
+	map_script MAP_SCRIPT_ON_LOAD, DrisHouse1_FlagControl
 	.byte 0
 
 

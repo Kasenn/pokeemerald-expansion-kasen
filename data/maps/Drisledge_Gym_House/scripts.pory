@@ -1,8 +1,10 @@
 mapscripts Drisledge_Gym_House_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION: GymHouseFlag    
+    MAP_SCRIPT_ON_TRANSITION: GymHouseFlag
+    MAP_SCRIPT_ON_LOAD: GymHouseFlag
 }
 
 script GymHouseFlag{
+    setflag(FLAG_TEMP_1)
     gettime
     copyvar(VAR_TEMP_0, VAR_0x8000)
     if(var(VAR_TEMP_0) <= 6 || var(VAR_TEMP_0) >= 18){

@@ -6376,10 +6376,90 @@
       "name": "Drisledge_Mart_Backroom_Layout",
       "width": 20,
       "height": 20,
-      "primary_tileset": "gTileset_Building",
+      "primary_tileset": "gTileset_Building2",
       "secondary_tileset": "gTileset_Shop",
       "border_filepath": "data/layouts/Drisledge_Mart_Backroom/border.bin",
       "blockdata_filepath": "data/layouts/Drisledge_Mart_Backroom/map.bin"
+    },
+    {
+      "id": "LAYOUT_DRISLEDGE_TOWN_BROKEN2",
+      "name": "DrisledgeTown_Broken2_Layout",
+      "width": 40,
+      "height": 32,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Drisledge",
+      "border_filepath": "data/layouts/DrisledgeTown_Broken2/border.bin",
+      "blockdata_filepath": "data/layouts/DrisledgeTown_Broken2/map.bin"
+    },
+    {
+      "id": "LAYOUT_BASALUFF_TOWN",
+      "name": "BasaluffTown_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/BasaluffTown/border.bin",
+      "blockdata_filepath": "data/layouts/BasaluffTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_EVERFROST_TOWN",
+      "name": "EverfrostTown_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/EverfrostTown/border.bin",
+      "blockdata_filepath": "data/layouts/EverfrostTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_FROSTFIRE_CITY",
+      "name": "FrostfireCity_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/FrostfireCity/border.bin",
+      "blockdata_filepath": "data/layouts/FrostfireCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_CRYSTALPINE_TWON",
+      "name": "CrystalpineTwon_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/CrystalpineTwon/border.bin",
+      "blockdata_filepath": "data/layouts/CrystalpineTwon/map.bin"
+    },
+    {
+      "id": "LAYOUT_ICEPERCH_CITY",
+      "name": "IceperchCity_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/IceperchCity/border.bin",
+      "blockdata_filepath": "data/layouts/IceperchCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_SNOWCREST_CITY",
+      "name": "SnowcrestCity_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/SnowcrestCity/border.bin",
+      "blockdata_filepath": "data/layouts/SnowcrestCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_GALEWIND_CITY",
+      "name": "GalewindCity_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/GalewindCity/border.bin",
+      "blockdata_filepath": "data/layouts/GalewindCity/map.bin"
     }
   ]
 }

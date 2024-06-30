@@ -1,9 +1,11 @@
 Drisledge_Gym_House_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, GymHouseFlag
+	map_script MAP_SCRIPT_ON_LOAD, GymHouseFlag
 	.byte 0
 
 
 GymHouseFlag::
+	setflag FLAG_TEMP_1
 	gettime
 	copyvar VAR_TEMP_0, VAR_0x8000
 	compare VAR_TEMP_0, 6

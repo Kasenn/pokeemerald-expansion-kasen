@@ -890,7 +890,7 @@
     },
     {
       "map_section": "MAPSEC_CITY_WIP5",
-      "name": "WIP CITY 5",
+      "name": "FROSTFIRE CITY",
       "x": 6,
       "y": 0,
       "width": 1,
@@ -898,7 +898,7 @@
     },
     {
       "map_section": "MAPSEC_TOWN_WIP7",
-      "name": "WIP TOWN 7",
+      "name": "BASALPEAK TOWN",
       "x": 1,
       "y": 2,
       "width": 1,
@@ -922,7 +922,7 @@
     },
     {
       "map_section": "MAPSEC_TOWN_WIP10",
-      "name": "WIP TOWN 10",
+      "name": "EVERFROST TOWN",
       "x": 15,
       "y": 3,
       "width": 1,

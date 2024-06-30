@@ -1297,6 +1297,13 @@ static u8 Debug_CheckToggleFlags(u8 id)
                 FlagGet(FLAG_VISITED_FISHING_VILLAGE) &&
                 FlagGet(FLAG_VISITED_DRISLEDGE) &&
                 FlagGet(FLAG_VISITED_AMBEROCK) &&
+                FlagGet(FLAG_VISITED_BASALPEAK) &&
+                FlagGet(FLAG_VISITED_FROSTFIRE) &&
+                FlagGet(FLAG_VISITED_CRYSTALPINE) &&
+                FlagGet(FLAG_VISITED_EVERFROST) &&
+                FlagGet(FLAG_VISITED_ICEPERCH) &&
+                FlagGet(FLAG_VISITED_SNOWCREST) &&
+                FlagGet(FLAG_VISITED_GALEWIND) &&
                 FlagGet(FLAG_LANDMARK_BATTLE_FRONTIER);
             break;
         case DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_BADGES_ALL:
@@ -1923,6 +1930,13 @@ static void DebugAction_Util_Fly(u8 taskId)
     FlagSet(FLAG_VISITED_DRISLEDGE);
     FlagSet(FLAG_VISITED_SANDSTONE_CITY);
     FlagSet(FLAG_VISITED_AMBEROCK);
+    FlagSet(FLAG_VISITED_BASALPEAK);
+    FlagSet(FLAG_VISITED_FROSTFIRE);
+    FlagSet(FLAG_VISITED_CRYSTALPINE);
+    FlagSet(FLAG_VISITED_EVERFROST);
+    FlagSet(FLAG_VISITED_ICEPERCH);
+    FlagSet(FLAG_VISITED_SNOWCREST);
+    FlagSet(FLAG_VISITED_GALEWIND);
     Debug_DestroyMenu_Full(taskId);
     SetMainCallback2(CB2_OpenFlyMap);
 }
@@ -2842,6 +2856,13 @@ static void DebugAction_FlagsVars_ToggleFlyFlags(u8 taskId)
         FlagClear(FLAG_VISITED_AMBEROCK);
         FlagClear(FLAG_VISITED_ROCKLIFFE);
         FlagClear(FLAG_VISITED_SANDSTONE_CITY);
+        FlagClear(FLAG_VISITED_BASALPEAK);
+        FlagClear(FLAG_VISITED_FROSTFIRE);
+        FlagClear(FLAG_VISITED_CRYSTALPINE);
+        FlagClear(FLAG_VISITED_EVERFROST);
+        FlagClear(FLAG_VISITED_ICEPERCH);
+        FlagClear(FLAG_VISITED_SNOWCREST);
+        FlagClear(FLAG_VISITED_GALEWIND);
     }
     else
     {
@@ -2876,6 +2897,13 @@ static void DebugAction_FlagsVars_ToggleFlyFlags(u8 taskId)
         FlagSet(FLAG_VISITED_DRISLEDGE);
         FlagSet(FLAG_VISITED_SANDSTONE_CITY);
         FlagSet(FLAG_VISITED_AMBEROCK);
+        FlagSet(FLAG_VISITED_BASALPEAK);
+        FlagSet(FLAG_VISITED_FROSTFIRE);
+        FlagSet(FLAG_VISITED_CRYSTALPINE);
+        FlagSet(FLAG_VISITED_EVERFROST);
+        FlagSet(FLAG_VISITED_ICEPERCH);
+        FlagSet(FLAG_VISITED_SNOWCREST);
+        FlagSet(FLAG_VISITED_GALEWIND);
     }
 }
 

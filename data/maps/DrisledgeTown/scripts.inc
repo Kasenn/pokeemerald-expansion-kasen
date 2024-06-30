@@ -1,5 +1,6 @@
 DrisledgeTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, DespawnDrisledgeNPCs
+	map_script MAP_SCRIPT_ON_LOAD, DespawnDrisledgeNPCs
 	.byte 0
 
 
@@ -15,6 +16,7 @@ DespawnDrisledgeNPCs_1:
 	return
 
 DespawnDrisledgeNPCs_2:
+	setflag FLAG_TEMP_2
 	setdynamicwarp MAP_DRISLEDGE_GYM_HOUSE, 0
 	setmaplayoutindex LAYOUT_DRISLEDGE_TOWN_BROKEN
 	gettime
@@ -30,6 +32,7 @@ DespawnDrisledgeNPCs_5:
 	return
 
 DespawnDrisledgeNPCs_7:
+	setmaplayoutindex LAYOUT_DRISLEDGE_TOWN_BROKEN2
 	clearflag FLAG_TEMP_2
 	setweather WEATHER_SHADE
 	goto DespawnDrisledgeNPCs_1

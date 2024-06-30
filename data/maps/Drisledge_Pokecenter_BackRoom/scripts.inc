@@ -1,5 +1,6 @@
 Drisledge_Pokecenter_BackRoom_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Backroom_SetFlags
+	map_script MAP_SCRIPT_ON_LOAD, Backroom_SetFlags
 	.byte 0
 
 

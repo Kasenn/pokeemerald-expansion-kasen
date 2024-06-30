@@ -66,6 +66,7 @@ Pearlwood_BrotherFightLeft::
 
 Pearlwood_BrotherFightMain::
 	lock
+	playse SE_PIN
 	msgbox Pearlwood_BrotherFightMain_Text_0
 	closemessage
 	delay 30

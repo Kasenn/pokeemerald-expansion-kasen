@@ -88,7 +88,14 @@
     "FishVIllageFIller",
     "AmberockTown",
     "Desert",
-    "DrisledgeTown"
+    "DrisledgeTown",
+    "BasaluffTown",
+    "EverfrostTown",
+    "FrostfireCity",
+    "CrystalpineTwon",
+    "IceperchCity",
+    "SnowcrestCity",
+    "GalewindCity"
   ],
   "gMapGroup_RouteInteriors": [
     "RanchBarn",
@@ -302,7 +309,8 @@
     "Drisledge_Pokecenter_BackRoom",
     "DrisledgeTown_Broken",
     "Drisledge_Gym_House",
-    "Drisledge_Mart_Backroom"
+    "Drisledge_Mart_Backroom",
+    "DrisledgeTown_Broken2"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

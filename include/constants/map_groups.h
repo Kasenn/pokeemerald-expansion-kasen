@@ -44,6 +44,13 @@
 #define MAP_AMBEROCK_TOWN       (35 | (0 << 8))
 #define MAP_DESERT              (36 | (0 << 8))
 #define MAP_DRISLEDGE_TOWN      (37 | (0 << 8))
+#define MAP_BASALUFF_TOWN       (38 | (0 << 8))
+#define MAP_EVERFROST_TOWN      (39 | (0 << 8))
+#define MAP_FROSTFIRE_CITY      (40 | (0 << 8))
+#define MAP_CRYSTALPINE_TWON    (41 | (0 << 8))
+#define MAP_ICEPERCH_CITY       (42 | (0 << 8))
+#define MAP_SNOWCREST_CITY      (43 | (0 << 8))
+#define MAP_GALEWIND_CITY       (44 | (0 << 8))
 
 // gMapGroup_RouteInteriors
 #define MAP_RANCH_BARN             (0 | (1 << 8))
@@ -258,6 +265,7 @@
 #define MAP_DRISLEDGE_TOWN_BROKEN          (7 | (15 << 8))
 #define MAP_DRISLEDGE_GYM_HOUSE            (8 | (15 << 8))
 #define MAP_DRISLEDGE_MART_BACKROOM        (9 | (15 << 8))
+#define MAP_DRISLEDGE_TOWN_BROKEN2         (10 | (15 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (16 << 8))

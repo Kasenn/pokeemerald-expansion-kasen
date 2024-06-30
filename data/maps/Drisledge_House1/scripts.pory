@@ -1,5 +1,6 @@
 mapscripts Drisledge_House1_MapScripts {
     MAP_SCRIPT_ON_TRANSITION: DrisHouse1_FlagControl
+    MAP_SCRIPT_ON_LOAD: DrisHouse1_FlagControl
 }
 
 script DrisHouse1_FlagControl{

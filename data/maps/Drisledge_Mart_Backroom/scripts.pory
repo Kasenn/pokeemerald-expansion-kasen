@@ -1,0 +1,247 @@
+mapscripts Drisledge_Mart_Backroom_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: MartBackroomFlag
+}
+script MartBackroomFlag{
+    setflag(FLAG_TEMP_1)
+    if(flag(FLAG_LITWICK_TAG_COMPLETE)){
+        setobjectxyperm(1, 14, 13) // comment!
+        clearflag(FLAG_TEMP_1)
+        setflag(FLAG_TEMP_2)
+    }
+    if(flag(FLAG_LITWICK_CAUGHT)){
+        setflag(FLAG_TEMP_1)
+    }
+}
+script Drisledge_Litwick{
+    if(flag(FLAG_LITWICK_TAG_COMPLETE)){
+        goto(LitwickMain)
+    }
+    if(var(VAR_TEMP_1) == 2){
+        goto(LitwickChase_2)
+    }
+    if(var(VAR_TEMP_1) == 3){
+        goto(LitwickChase_3)
+    }
+}
+script DrisledgeMart_Box{
+    msgbox(CharredBox, MSGBOX_SIGN)
+    if(flag(FLAG_LITWICK_CAUGHT)){
+        end
+    }
+    gettime
+    copyvar(VAR_TEMP_0, VAR_0x8000)
+    if(var(VAR_TEMP_0) <= 6 || var(VAR_TEMP_0) >= 18){
+        if(var(VAR_TEMP_1) == 0){
+            setvar(VAR_TEMP_1, 1)
+            clearflag(FLAG_TEMP_1)
+        }
+    }
+}
+text CharredBox{
+    "It's an empty crate.\p"
+    "The interior of the crate appears\n"
+    "to be slightly charred."
+}
+
+script LitwickChase_1_Left{
+    setvar(VAR_TEMP_3, 1)
+    goto(LitwickChase_1_Main)
+}
+script LitwickChase_1_Right{
+    goto(LitwickChase_1_Main)
+}
+script LitwickChase_1_Main{
+    lock
+    playse(SE_PIN)
+    if(var(VAR_TEMP_3) == 1){
+        turnobject(1, DIR_WEST)
+    }
+    applymovement(1, ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    applymovement(1, LitwickEscape1)
+    waitmovement(0)
+    setobjectxyperm(1, 14, 4)
+    turnobject(1, DIR_SOUTH)
+    setvar(VAR_TEMP_1, 2)
+    release
+}
+movement LitwickEscape1{
+    walk_fast_up * 2
+    walk_fast_left * 2
+}
+script LitwickChase_2{
+    lock
+    faceplayer
+    playse(SE_PIN)
+    applymovement(1, ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    if(var(VAR_FACING) == DIR_EAST){
+        applymovement(1, LitwickEscape2North)
+    }
+    else{
+        applymovement(1, LitwickEscape2)
+    }
+    waitmovement(0)
+    setobjectxyperm(1, 3, 4)
+    turnobject(1, DIR_SOUTH)
+    setvar(VAR_TEMP_1, 3)
+    release
+}
+
+movement LitwickEscape2North{
+    walk_fast_up
+    walk_fast_left * 11
+    walk_fast_down
+}
+movement LitwickEscape2{
+    walk_fast_left * 11
+}
+
+script LitwickChase_3{
+    lock
+    faceplayer
+    playse(SE_PIN)
+    applymovement(1, ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    if(var(VAR_FACING) == DIR_EAST){
+        applymovement(1, LitwickEscape3North)
+    }
+    else{
+        applymovement(1, LitwickEscape3)
+    }
+    waitmovement(0)
+    setobjectxy(1, 14, 13)
+    setobjectxyperm(1, 14, 13)
+    turnobject(1, DIR_SOUTH)
+    removeobject(2)
+    setvar(VAR_TEMP_1, 4)
+    setflag(FLAG_TEMP_2)
+    setflag(FLAG_LITWICK_TAG_COMPLETE)
+    release
+}
+movement LitwickEscape3North{
+    walk_fast_up
+    walk_fast_left * 2
+    walk_fast_down * 4
+    walk_fast_right * 11
+}
+movement LitwickEscape3{
+    walk_fast_left
+    walk_fast_down * 3
+    walk_fast_right * 11
+}
+
+script LitwickMain{
+    lock
+    faceplayer
+    if(flag(FLAG_TEMP_A)){
+        msgbox(LitwickStaresAtYouShort, MSGBOX_YESNO)
+    }
+    else{
+        msgbox(LitwickStaresAtYou, MSGBOX_YESNO)
+    }
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(LitwickFrowns, MSGBOX_NPC)
+        setflag(FLAG_TEMP_A)
+        end
+    }
+    call(Common_OpenBag)
+    switch(var(VAR_ITEM_ID)){
+        case ITEM_NONE:
+            msgbox(LitwickFrowns, MSGBOX_NPC)
+            setflag(VAR_TEMP_A)
+            end
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+        case 8:
+        case 9:
+        case 10:
+        case 11:
+        case 12:
+        case 13:
+        case 14:
+        case 15:
+        case 16:
+        case 17:
+        case 18:
+        case 19:
+        case 20:
+        case 21:
+        case 22:
+        case 23:
+        case 24:
+        case 25:
+        case 26:
+        case 27:
+            goto(LitwickEligibleBall)
+        default:
+            msgbox(ThatsNotaBall, MSGBOX_NPC)
+            setflag(VAR_TEMP_A)
+            end
+    }
+}
+
+script LitwickEligibleBall{
+    msgbox(LitwickGetsInsideBall)
+    removeobject(1)
+    setflag(FLAG_LITWICK_CAUGHT)
+    setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_LITWICK)
+    playfanfare(MUS_OBTAIN_ITEM)
+    givemon(SPECIES_LITWICK, 5, ITEM_NONE, VAR_ITEM_ID)
+    removeitem(VAR_ITEM_ID, 1)
+    call(GiveMon_Script)
+    release
+    clearflag(FLAG_TEMP_2)
+    addobject(2)
+}
+
+text LitwickStaresAtYouShort{
+    "litwick stares at you short"
+}
+text LitwickStaresAtYou{
+    "litwick stares at you long"
+}
+text LitwickFrowns{
+    "litwick frowns"
+}
+text ThatsNotaBall{
+    "that's not a ball!"
+}
+text LitwickGetsInsideBall{
+    "litwick gets inside the ball"
+}
+
+script GiveMon_Script{
+    bufferspeciesname(STR_VAR_1, VAR_TEMP_TRANSFERRED_SPECIES)
+    bufferspeciesname(STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES)
+    message("{PLAYER} received the {STR_VAR_2}!")
+    waitmessage
+    waitfanfare
+    if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+        msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == FALSE){
+            return
+        }
+        call(Common_EventScript_GetGiftMonPartySlot)
+        call(Common_EventScript_NameReceivedPartyMon)
+        return
+    }
+    if(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+        msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	    if(var(VAR_RESULT) == FALSE){
+            call(Common_EventScript_TransferredToPC)
+            return
+	    }
+        call(Common_EventScript_NameReceivedBoxMon)
+        call(Common_EventScript_TransferredToPC)
+        return
+    }
+}
