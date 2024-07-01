@@ -356,3 +356,16 @@ text R14Tr8_PostBattle{
 	"Ufufufufu…\n"
 	"I wish I had a Pokémon… like that…"
 }
+
+script Route14_Grotto_Entrance{
+    lock
+    msgbox(GoInsideGrotto, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    warp(MAP_ROUTE14_GROTTO, 6, 19)
+    waitstate
+    release
+}
+

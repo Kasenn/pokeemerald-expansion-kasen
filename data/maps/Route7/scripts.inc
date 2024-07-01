@@ -159,6 +159,21 @@ Route8_Trainer11_BirdKeeper::
 	end
 
 
+Route7_Grotto_Entrance::
+	lock
+	msgbox GoInsideGrotto, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Route7_Grotto_Entrance_2
+	warp MAP_ROUTE7_GROTTO, 6, 19
+	waitstate
+	release
+	return
+
+Route7_Grotto_Entrance_2:
+	release
+	end
+
+
 Route8_Boy_Text::
 	.string "Why'd they have to set the flower shop\n"
 	.string "in the middle of nowhere.\l"

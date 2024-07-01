@@ -1,6 +1,6 @@
 Drisledge_House2_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, DrisMartFlagControl
-	map_script MAP_SCRIPT_ON_LOAD, SetMartDoor
+	map_script MAP_SCRIPT_ON_TRANSITION, DrisHouse2_FlagControl
+	map_script MAP_SCRIPT_ON_LOAD, DrisHouse2_FlagControl
 	.byte 0
 
 

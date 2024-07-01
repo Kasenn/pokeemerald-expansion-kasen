@@ -498,28 +498,28 @@ Rustboro_Basement_ItemBall::
 
 
 SetTeamLevel_Text_0:
-	.string "Gym 1 (Level 14)$"
+	.string "Gym 1 (lvl 14)$"
 
 SetTeamLevel_Text_1:
-	.string "Gym 2 (Level 22)$"
+	.string "Gym 2 (lvl 22)$"
 
 SetTeamLevel_Text_2:
-	.string "Windplume (Level 24)$"
+	.string "Side area (lvl 24)$"
 
 SetTeamLevel_Text_3:
-	.string "Story 1 (Level 29)$"
+	.string "Story 1 (lvl 29)$"
 
 SetTeamLevel_Text_4:
-	.string "Gym 3 (Level 34)$"
+	.string "Gym 3 (lvl 34)$"
 
 SetTeamLevel_Text_5:
-	.string "Gym 4 (Level 38)$"
+	.string "Gym 4 (lvl 38)$"
 
 SetTeamLevel_Text_6:
-	.string "Post-Gym 4 (Level 40)$"
+	.string "Post-Gym 4 (lvl 40)$"
 
 SetTeamLevel_Text_7:
-	.string "Gym 5 (Level 45)$"
+	.string "Gym 5 (lvl 45)$"
 
 SetTeamLevel_Text_8:
 	.string "Cancel$"

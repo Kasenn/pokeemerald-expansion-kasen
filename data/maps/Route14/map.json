@@ -261,8 +261,8 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 7,
-      "y": 8,
+      "x": 9,
+      "y": 6,
       "elevation": 0,
       "dest_map": "MAP_ROUTE14_GROTTO",
       "dest_warp_id": "0"
@@ -579,6 +579,22 @@
       "elevation": 0,
       "item": "ITEM_BIG_MUSHROOM",
       "flag": "FLAG_R14_ITEM4"
+    },
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route14_Grotto_Entrance"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route14_Grotto_Entrance"
     }
   ]
 }

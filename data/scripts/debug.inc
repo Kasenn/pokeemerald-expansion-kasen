@@ -158,9 +158,10 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
-	call Common_OpenBag
-	givemon SPECIES_LITWICK, 5, ITEM_NONE, VAR_ITEM_ID
-	release
+	setvar VAR_WINDYWOODS_STATE, 0
+	clearflag FLAG_WW_HIDEDAD
+	clearflag FLAG_WW_ENDEVENT
+	clearflag FLAG_WW_HIDEROCKET
 	end
 
 Debug_EventScript_Script_6::

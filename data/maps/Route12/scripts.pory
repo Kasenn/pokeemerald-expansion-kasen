@@ -285,11 +285,11 @@ script R12_HoneyTree{
                 case 3:
                     setwildbattlelevelrange(SPECIES_EMOLGA, 23, ITEM_NONE, SPECIES_NONE, 26)
                 case 4:
-                    setwildbattlelevelrange(SPECIES_CUTIEFLY, 23, ITEM_NONE, SPECIES_NONE, 26)
+                    setwildbattlelevelrange(SPECIES_NINCADA, 23, ITEM_NONE, SPECIES_NONE, 26)
                 case 5:
-                    setwildbattlelevelrange(SPECIES_CUTIEFLY, 23, ITEM_NONE, SPECIES_NONE, 26)
+                    setwildbattlelevelrange(SPECIES_NINCADA, 23, ITEM_NONE, SPECIES_NONE, 26)
                 case 6:
-                    setwildbattlelevelrange(SPECIES_CUTIEFLY, 23, ITEM_NONE, SPECIES_NONE, 26)
+                    setwildbattlelevelrange(SPECIES_NINCADA, 23, ITEM_NONE, SPECIES_NONE, 26)
                 case 7:
                     setwildbattlelevelrange(SPECIES_COMFEY, 23, ITEM_NONE, SPECIES_NONE, 26)
                 case 8:

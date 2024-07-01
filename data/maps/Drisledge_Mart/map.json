@@ -82,14 +82,14 @@
   ],
   "warp_events": [
     {
-      "x": 4,
+      "x": 3,
       "y": 7,
       "elevation": 0,
       "dest_map": "MAP_DRISLEDGE_TOWN",
       "dest_warp_id": "4"
     },
     {
-      "x": 3,
+      "x": 4,
       "y": 7,
       "elevation": 0,
       "dest_map": "MAP_DRISLEDGE_TOWN",

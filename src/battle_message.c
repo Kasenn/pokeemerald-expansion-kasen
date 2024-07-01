@@ -4062,10 +4062,10 @@ struct TrainerSlide
 
 static const u8 sText_KorrinaLastPokemon[] = _("This is my last Pokémon,\nbut it is also my strongest!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_DontGetCockyKid[] = _("Don't get cocky just because you\nmanaged to defeat one!{PAUSE_UNTIL_PRESS}");
-static const u8 sText_NotAFairFight[] = _("I hesitated doing this, but you've\nreally driven me into a corner here!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_NotAFairFight[] = _("I hesitated doing this, but you've\nreally driven me into a corner here!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}");
 static const u8 sText_HeardOfMegaEvos[] = _("Have you heard of Mega Evolution?{PAUSE_UNTIL_PRESS}");
 static const u8 sText_HopeYoureReady[] = _("You're doing great, but this is where\nyour luck runs out!{PAUSE_UNTIL_PRESS}");
-static const u8 sText_LetsHaveFun[] = _("Let's have some real fun!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_LetsHaveFun[] = _("Let's have some real fun!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}");
 
 static const struct TrainerSlide sTrainerSlides[] =
 {

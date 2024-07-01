@@ -25,7 +25,6 @@ DrisMartFlagControl_1:
 	setweather WEATHER_SHADE
 	playbgm MUS_NONE, TRUE
 	setflag FLAG_TEMP_1
-	clearflag FLAG_TEMP_2
 	return
 
 

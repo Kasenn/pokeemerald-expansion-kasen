@@ -10203,12 +10203,16 @@ const struct Item gItemsInfo[] =
     {
         .name = _("TM65"),
         .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .description = COMPOUND_STRING(
+            "The user slashes with\n"
+            "a sharp claw made from\n"
+            "shadows. Critical hits\n"
+            "land more easily."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SHADOW_CLAW, // Not In-Game Yet
+        .secondaryId = MOVE_SHADOW_CLAW,
     },
 
     [ITEM_TM_PAYBACK] =
@@ -10363,12 +10367,16 @@ const struct Item gItemsInfo[] =
     {
         .name = _("TM78"),
         .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .description = COMPOUND_STRING(
+            "If it is the opposite gender\n"
+            "of the user, the foe is\n"
+            "charmed into sharply\n"
+            "lowering its Sp. Atk stat."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_CAPTIVATE, // Not In-Game Yet
+        .secondaryId = MOVE_CAPTIVATE,
     },
 
     [ITEM_TM_FROST_BREATH] =

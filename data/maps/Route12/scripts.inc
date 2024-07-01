@@ -170,15 +170,15 @@ R12_HoneyTree_12:
 	goto R12_HoneyTree_7
 
 R12_HoneyTree_13:
-	setwildbattlelevelrange SPECIES_CUTIEFLY, 23, ITEM_NONE, SPECIES_NONE, 26
+	setwildbattlelevelrange SPECIES_NINCADA, 23, ITEM_NONE, SPECIES_NONE, 26
 	goto R12_HoneyTree_7
 
 R12_HoneyTree_14:
-	setwildbattlelevelrange SPECIES_CUTIEFLY, 23, ITEM_NONE, SPECIES_NONE, 26
+	setwildbattlelevelrange SPECIES_NINCADA, 23, ITEM_NONE, SPECIES_NONE, 26
 	goto R12_HoneyTree_7
 
 R12_HoneyTree_15:
-	setwildbattlelevelrange SPECIES_CUTIEFLY, 23, ITEM_NONE, SPECIES_NONE, 26
+	setwildbattlelevelrange SPECIES_NINCADA, 23, ITEM_NONE, SPECIES_NONE, 26
 	goto R12_HoneyTree_7
 
 R12_HoneyTree_16:

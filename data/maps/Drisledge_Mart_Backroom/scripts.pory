@@ -10,6 +10,7 @@ script MartBackroomFlag{
     }
     if(flag(FLAG_LITWICK_CAUGHT)){
         setflag(FLAG_TEMP_1)
+        clearflag(FLAG_TEMP_2)
     }
 }
 script Drisledge_Litwick{
@@ -30,6 +31,7 @@ script DrisledgeMart_Box{
     }
     gettime
     copyvar(VAR_TEMP_0, VAR_0x8000)
+    // setvar(VAR_TEMP_0, 4) //debug
     if(var(VAR_TEMP_0) <= 6 || var(VAR_TEMP_0) >= 18){
         if(var(VAR_TEMP_1) == 0){
             setvar(VAR_TEMP_1, 1)
@@ -137,6 +139,9 @@ movement LitwickEscape3{
 script LitwickMain{
     lock
     faceplayer
+    waitse
+	playmoncry(SPECIES_LITWICK, CRY_MODE_NORMAL)
+	waitmoncry
     if(flag(FLAG_TEMP_A)){
         msgbox(LitwickStaresAtYouShort, MSGBOX_YESNO)
     }
@@ -144,14 +149,36 @@ script LitwickMain{
         msgbox(LitwickStaresAtYou, MSGBOX_YESNO)
     }
     if(var(VAR_RESULT) == FALSE){
-        msgbox(LitwickFrowns, MSGBOX_NPC)
+        msgbox(LitwickFrowns)
+        switch(var(VAR_FACING)){
+            case DIR_NORTH:
+                turnobject(1, DIR_NORTH)
+            case DIR_SOUTH:
+                turnobject(1, DIR_SOUTH)
+            case DIR_WEST:
+                turnobject(1, DIR_WEST)
+            case DIR_EAST:
+                turnobject(1, DIR_EAST)
+            }
+        release
         setflag(FLAG_TEMP_A)
         end
     }
     call(Common_OpenBag)
     switch(var(VAR_ITEM_ID)){
         case ITEM_NONE:
-            msgbox(LitwickFrowns, MSGBOX_NPC)
+            msgbox(LitwickFrowns)
+            switch(var(VAR_FACING)){
+                case DIR_NORTH:
+                    turnobject(1, DIR_NORTH)
+                case DIR_SOUTH:
+                    turnobject(1, DIR_SOUTH)
+                case DIR_WEST:
+                    turnobject(1, DIR_WEST)
+                case DIR_EAST:
+                    turnobject(1, DIR_EAST)
+            }
+            release
             setflag(VAR_TEMP_A)
             end
         case 1:
@@ -190,6 +217,7 @@ script LitwickMain{
 }
 
 script LitwickEligibleBall{
+    bufferitemname(STR_VAR_1, VAR_ITEM_ID)
     msgbox(LitwickGetsInsideBall)
     removeobject(1)
     setflag(FLAG_LITWICK_CAUGHT)
@@ -204,19 +232,29 @@ script LitwickEligibleBall{
 }
 
 text LitwickStaresAtYouShort{
-    "litwick stares at you short"
+    "Offer the Pokémon a Poké Ball\n"
+    "from your bag?"
 }
 text LitwickStaresAtYou{
-    "litwick stares at you long"
+    "The Pokémon seems to have gotten\n"
+    "comfortable with your presence\l"
+    "after your little game of tag.\p"
+    "It seems to be living here\n"
+    "all alone.\p"
+    "Offer it a Poké Ball from your bag?"
 }
 text LitwickFrowns{
-    "litwick frowns"
+    "The Pokémon looks at you\n"
+    "expectantly, but then turns\l"
+    "to minding its own business."
 }
 text ThatsNotaBall{
-    "that's not a ball!"
+    "That's not a Poké Ball!"
 }
 text LitwickGetsInsideBall{
-    "litwick gets inside the ball"
+    "You place the {STR_VAR_1} on\n"
+    "the ground, and the Pokémon\l"
+    "gently taps the ball."
 }
 
 script GiveMon_Script{

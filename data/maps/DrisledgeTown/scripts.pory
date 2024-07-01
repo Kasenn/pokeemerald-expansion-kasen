@@ -6,10 +6,11 @@ mapscripts DrisledgeTown_MapScripts {
 script DespawnDrisledgeNPCs{
     if(var(VAR_DRISLEDGE_TOWN_STATE) >= 30){
         setflag(FLAG_TEMP_2)
-        setdynamicwarp(MAP_DRISLEDGE_GYM_HOUSE, 0)
+        setdynamicwarp(MAP_DRISLEDGE_GYM_HOUSE, 4, 8)
         setmaplayoutindex(LAYOUT_DRISLEDGE_TOWN_BROKEN)
         gettime
         copyvar(VAR_TEMP_0, VAR_0x8000)
+        // setvar(VAR_TEMP_0, 4) //debug
         if(var(VAR_TEMP_0) <= 6 || var(VAR_TEMP_0) >= 18){
             setmaplayoutindex(LAYOUT_DRISLEDGE_TOWN_BROKEN2)
             clearflag(FLAG_TEMP_2)
@@ -18,7 +19,7 @@ script DespawnDrisledgeNPCs{
     }
     else{
         setflag(FLAG_TEMP_2)
-        setdynamicwarp(MAP_DRISLEDGE_GYM, 0)
+        setdynamicwarp(MAP_DRISLEDGE_GYM, 5, 51)
     }
     setflag(FLAG_VISITED_DRISLEDGE)
     if(var(VAR_DRISLEDGE_TOWN_STATE) >= 7){
@@ -297,12 +298,102 @@ script Drisledge_Acerola{
         bufferstring(STR_VAR_1, "miss")
     }
     if(flag(FLAG_RECEIVED_HM_SURF)){
+        if(flag(FLAG_ACEROLA_ITEM)){
+            msgbox(AcerolaWithFriends, MSGBOX_NPC)
+            end
+        }
+        if(var(VAR_TEMP_3) == 1){
+            msgbox(AcerolaLetsDance, MSGBOX_NPC)
+            end
+        }
         msgbox(AcerolaYoureBack, MSGBOX_NPC)
+        if(!flag(FLAG_ACEROLA_ITEM)){
+            setvar(VAR_TEMP_3, 1)   //starts dance event
+        }
     }
     else{
         msgbox(AcerolaCheckWithScientist, MSGBOX_NPC)
     }
 }
+text AcerolaWithFriends{
+    "If you're not busy, you\n"
+    "could stay here forever!\p"
+    "We can keep dancing and having\n"
+    "fun with friends!"
+}
+script AcerolaDanceTriggerCorner{
+    addvar(VAR_TEMP_4, 1)
+    release
+}
+script AcerolaDanceTriggerWest{
+    setvar(VAR_TEMP_5, 1)
+    goto(AcerolaDanceTriggerMain)
+}
+script AcerolaDanceTriggerNorth{
+    setvar(VAR_TEMP_5, 2)
+    goto(AcerolaDanceTriggerMain)
+}
+script AcerolaDanceTriggerEast{
+    setvar(VAR_TEMP_5, 3)
+    goto(AcerolaDanceTriggerMain)
+}
+script AcerolaDanceTriggerSouth{
+    setvar(VAR_TEMP_5, 4)
+    goto(AcerolaDanceTriggerMain)
+}
+script AcerolaDanceTriggerMain{
+    addvar(VAR_TEMP_4, 1)
+    if(var(VAR_TEMP_4) < 50){
+        release
+        end
+    }
+    checkitemspace(ITEM_BUG_TERA_SHARD)
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    lock
+    applymovement(6, WW_Face)
+    waitmovement(0)
+    playse(SE_PIN)
+    applymovement(6, ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    switch(var(VAR_TEMP_5)){
+        case 1:
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+        case 2:
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+        case 3:
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+        case 4:
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    }
+    delay(15)
+    checkplayergender
+    if(var(VAR_RESULT) == MALE){
+        bufferstring(STR_VAR_1, "mister")
+    }
+    else{
+        bufferstring(STR_VAR_1, "miss")
+    }
+    msgbox(AcerolaGoodDancer)
+    giveitem(ITEM_TM_CAPTIVATE)
+    setflag(FLAG_ACEROLA_ITEM)
+    setvar(VAR_TEMP_3, 0)
+    release
+}
+text AcerolaLetsDance{
+    "Yay! Now we've got a real\n"
+    "dance party going!"
+}
+text AcerolaGoodDancer{
+    "Wow, {STR_VAR_1}, you're\n"
+    "a really good dancer!\p"
+    "One of my friends was so impressed\n"
+    "that they wanted you to have this."
+}
+
 text AcerolaYoureBack{
     "Hiya, {STR_VAR_1}!\p"
     "I'm just having some fun with\n"
@@ -316,8 +407,8 @@ text AcerolaCheckWithScientist{
     "Hiya, {STR_VAR_1}!\p"
     "I'm just having some fun with\n"
     "my friends.\p"
-    "Did you already visit your friend\n"
-    "near Amberock Town?"
+    "Did you already visit yours near\n"
+    "Amberock Town?"
 }
 script Drisledge_Gengar{
     lock

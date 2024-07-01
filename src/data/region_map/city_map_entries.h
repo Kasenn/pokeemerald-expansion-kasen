@@ -180,4 +180,14 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
         .index = 1,
         .tilemap = gPokenavCityMap_Shoreslate_0,
     },
+    {
+        .mapSecId = MAPSEC_TOWN_WIP6,
+        .index = 0,
+        .tilemap = gPokenavCityMap_FishingVillage,
+    },
+    {
+        .mapSecId = MAPSEC_TOWN_WIP9,
+        .index = 0,
+        .tilemap = gPokenavCityMap_Drisledge,
+    },
 };

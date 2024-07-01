@@ -360,3 +360,15 @@ text Route8_Trainer11_BirdKeeper_PostBattle{
     "What I did was rush you head-on\n"
     "without thinking."
 }
+
+script Route7_Grotto_Entrance{
+    lock
+    msgbox(GoInsideGrotto, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    warp(MAP_ROUTE7_GROTTO, 6, 19)
+    waitstate
+    release
+}

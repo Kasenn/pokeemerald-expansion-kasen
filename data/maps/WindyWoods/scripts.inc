@@ -283,7 +283,7 @@ WW_RockPostBattle::
 	showobjectat 14, MAP_WINDY_WOODS
 	setvar VAR_WINDYWOODS_STATE, 4
 	clearflag FLAG_WW_HIDEDAD
-	warp MAP_WINDY_WOODS, 27, 11
+	warp MAP_WINDY_WOODS, 27, 13
 	waitstate
 	release
 	end
@@ -292,7 +292,7 @@ WW_RockPostBattle::
 WW_BridgeWarp::
 	clearflag FLAG_WW_HIDEDAD
 	showobjectat 14, MAP_WINDY_WOODS
-	setobjectxy 14, 29, 11
+	setobjectxy 14, 29, 13
 	turnobject 14, DIR_WEST
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	end
@@ -305,7 +305,7 @@ WW_BridgeScene2::
 	waitmessage
 	closemessage
 	delay 40
-	setobjectxy 12, 20, 12
+	setobjectxy 12, 20, 14
 	showobjectat 12, MAP_WINDY_WOODS
 	applymovement 12, WW_DevonEnters
 	waitmovement 0
@@ -370,6 +370,21 @@ WW_DevonEnters:
 WW_GirlFaceDown:
 	face_down
 	step_end
+
+WW_Grotto_Entrance::
+	lock
+	msgbox GoInsideGrotto, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq WW_Grotto_Entrance_2
+	warp MAP_WW_GROTTO, 6, 19
+	waitstate
+	release
+	return
+
+WW_Grotto_Entrance_2:
+	release
+	end
+
 
 WW_CoolTrainer_Text_0:
 	.string "Simply spectacular.$"
@@ -478,7 +493,7 @@ WW_CoolTrainerReward::
 	.string "Well, looks like I got humbled there.\nHere, you deserve this.$"
 
 WW_Help::
-	.string "Little girl: Please help!\pI was taking my daddy's Poochyena for\na walk when some mean guy stole it!\pHe ran somewhere across this bridge\nbut I have no other Pokémon so\lI'm too scared to follow…$"
+	.string "Please help!\pI was taking my daddy's Poochyena for\na walk when some mean guy stole it!\pHe ran somewhere across this bridge\nbut I have no other Pokémon so\lI'm too scared to follow…$"
 
 WW_Help2::
 	.string "Please help…$"
@@ -500,3 +515,8 @@ WW_DevonReward::
 
 WW_DevonTalk2::
 	.string "I work for the Devon Corp.\pShow that letter to the receptionist\nat our offices in Shoreslate City and\lI'm sure they'll reward you.\pThank you again for taking care\nof the situation.\pAlthough, I am a bit concerned about\nthis person clad in dark.\pThe way you described him sounded like\nhe could be a Team Rocket member.\pHowever, Team Rocket was disbanded\nyears ago…\pAnyway, we should head back home.$"
+
+GoInsideGrotto::
+	.string "There looks to be a narrow path\n"
+	.string "between the trees!\p"
+	.string "Follow the path?$"

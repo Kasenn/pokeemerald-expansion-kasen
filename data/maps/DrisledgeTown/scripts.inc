@@ -8,7 +8,7 @@ DespawnDrisledgeNPCs::
 	compare VAR_DRISLEDGE_TOWN_STATE, 30
 	goto_if_ge DespawnDrisledgeNPCs_2
 	setflag FLAG_TEMP_2
-	setdynamicwarp MAP_DRISLEDGE_GYM, 0
+	setdynamicwarp MAP_DRISLEDGE_GYM, 5, 51
 DespawnDrisledgeNPCs_1:
 	setflag FLAG_VISITED_DRISLEDGE
 	compare VAR_DRISLEDGE_TOWN_STATE, 7
@@ -17,7 +17,7 @@ DespawnDrisledgeNPCs_1:
 
 DespawnDrisledgeNPCs_2:
 	setflag FLAG_TEMP_2
-	setdynamicwarp MAP_DRISLEDGE_GYM_HOUSE, 0
+	setdynamicwarp MAP_DRISLEDGE_GYM_HOUSE, 4, 8
 	setmaplayoutindex LAYOUT_DRISLEDGE_TOWN_BROKEN
 	gettime
 	copyvar VAR_TEMP_0, VAR_0x8000
@@ -332,8 +332,116 @@ Drisledge_Acerola_2:
 	goto Drisledge_Acerola_1
 
 Drisledge_Acerola_5:
+	goto_if_set FLAG_ACEROLA_ITEM, Drisledge_Acerola_9
+	compare VAR_TEMP_3, 1
+	goto_if_eq Drisledge_Acerola_12
 	msgbox AcerolaYoureBack, MSGBOX_NPC
+	goto_if_unset FLAG_ACEROLA_ITEM, Drisledge_Acerola_14
 	return
+
+Drisledge_Acerola_9:
+	msgbox AcerolaWithFriends, MSGBOX_NPC
+	end
+
+Drisledge_Acerola_12:
+	msgbox AcerolaLetsDance, MSGBOX_NPC
+	end
+
+Drisledge_Acerola_14:
+	setvar VAR_TEMP_3, 1
+	return
+
+
+AcerolaDanceTriggerCorner::
+	addvar VAR_TEMP_4, 1
+	release
+	return
+
+
+AcerolaDanceTriggerWest::
+	setvar VAR_TEMP_5, 1
+	goto AcerolaDanceTriggerMain
+	return
+
+
+AcerolaDanceTriggerNorth::
+	setvar VAR_TEMP_5, 2
+	goto AcerolaDanceTriggerMain
+	return
+
+
+AcerolaDanceTriggerEast::
+	setvar VAR_TEMP_5, 3
+	goto AcerolaDanceTriggerMain
+	return
+
+
+AcerolaDanceTriggerSouth::
+	setvar VAR_TEMP_5, 4
+	goto AcerolaDanceTriggerMain
+	return
+
+
+AcerolaDanceTriggerMain::
+	addvar VAR_TEMP_4, 1
+	compare VAR_TEMP_4, 50
+	goto_if_lt AcerolaDanceTriggerMain_2
+	checkitemspace ITEM_BUG_TERA_SHARD
+	compare VAR_RESULT, FALSE
+	goto_if_eq AcerolaDanceTriggerMain_5
+	lock
+	applymovement 6, WW_Face
+	waitmovement 0
+	playse SE_PIN
+	applymovement 6, ExclamationMark
+	waitmovement 0
+	delay 48
+	switch VAR_TEMP_5
+	case 1, AcerolaDanceTriggerMain_9
+	case 2, AcerolaDanceTriggerMain_10
+	case 3, AcerolaDanceTriggerMain_11
+	case 4, AcerolaDanceTriggerMain_12
+AcerolaDanceTriggerMain_7:
+	delay 15
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq AcerolaDanceTriggerMain_14
+	bufferstring STR_VAR_1, Drisledge_Acerola_Text_1
+AcerolaDanceTriggerMain_13:
+	msgbox AcerolaGoodDancer
+	giveitem ITEM_TM_CAPTIVATE
+	setflag FLAG_ACEROLA_ITEM
+	setvar VAR_TEMP_3, 0
+	release
+	return
+
+AcerolaDanceTriggerMain_2:
+	release
+	end
+
+AcerolaDanceTriggerMain_5:
+	release
+	end
+
+AcerolaDanceTriggerMain_9:
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	goto AcerolaDanceTriggerMain_7
+
+AcerolaDanceTriggerMain_10:
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
+	goto AcerolaDanceTriggerMain_7
+
+AcerolaDanceTriggerMain_11:
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	goto AcerolaDanceTriggerMain_7
+
+AcerolaDanceTriggerMain_12:
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	goto AcerolaDanceTriggerMain_7
+
+AcerolaDanceTriggerMain_14:
+	bufferstring STR_VAR_1, Drisledge_Acerola_Text_0
+	goto AcerolaDanceTriggerMain_13
 
 
 Drisledge_Gengar::
@@ -438,6 +546,22 @@ DrisledgeHaunter_Text::
 DrisledgeBanette_Text::
 	.string "Baaan!$"
 
+AcerolaWithFriends::
+	.string "If you're not busy, you\n"
+	.string "could stay here forever!\p"
+	.string "We can keep dancing and having\n"
+	.string "fun with friends!$"
+
+AcerolaLetsDance::
+	.string "Yay! Now we've got a real\n"
+	.string "dance party going!$"
+
+AcerolaGoodDancer::
+	.string "Wow, {STR_VAR_1}, you're\n"
+	.string "a really good dancer!\p"
+	.string "One of my friends was so impressed\n"
+	.string "that they wanted you to have this.$"
+
 AcerolaYoureBack::
 	.string "Hiya, {STR_VAR_1}!\p"
 	.string "I'm just having some fun with\n"
@@ -451,8 +575,8 @@ AcerolaCheckWithScientist::
 	.string "Hiya, {STR_VAR_1}!\p"
 	.string "I'm just having some fun with\n"
 	.string "my friends.\p"
-	.string "Did you already visit your friend\n"
-	.string "near Amberock Town?$"
+	.string "Did you already visit yours near\n"
+	.string "Amberock Town?$"
 
 DrisledgeGengar_Text::
 	.string "Gen gen!$"

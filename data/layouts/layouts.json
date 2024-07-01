@@ -4485,7 +4485,7 @@
       "id": "LAYOUT_WINDY_WOODS",
       "name": "WindyWoods_Layout",
       "width": 68,
-      "height": 54,
+      "height": 56,
       "primary_tileset": "gTileset_DarkForest",
       "secondary_tileset": "gTileset_DarkForestSec",
       "border_filepath": "data/layouts/WindyWoods/border.bin",

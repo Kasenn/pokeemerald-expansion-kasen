@@ -18,6 +18,7 @@ MartBackroomFlag_2:
 
 MartBackroomFlag_4:
 	setflag FLAG_TEMP_1
+	clearflag FLAG_TEMP_2
 	return
 
 
@@ -231,6 +232,9 @@ LitwickEscape3:
 LitwickMain::
 	lock
 	faceplayer
+	waitse
+	playmoncry SPECIES_LITWICK, CRY_MODE_NORMAL
+	waitmoncry
 	goto_if_set FLAG_TEMP_A, LitwickMain_2
 	msgbox LitwickStaresAtYou, MSGBOX_YESNO
 LitwickMain_1:
@@ -275,12 +279,26 @@ LitwickMain_2:
 	goto LitwickMain_1
 
 LitwickMain_6:
-	msgbox LitwickFrowns, MSGBOX_NPC
+	msgbox LitwickFrowns
+	switch VAR_FACING
+	case DIR_NORTH, LitwickMain_14
+	case DIR_SOUTH, LitwickMain_15
+	case DIR_WEST, LitwickMain_16
+	case DIR_EAST, LitwickMain_17
+LitwickMain_12:
+	release
 	setflag FLAG_TEMP_A
 	end
 
 LitwickMain_9:
-	msgbox LitwickFrowns, MSGBOX_NPC
+	msgbox LitwickFrowns
+	switch VAR_FACING
+	case DIR_NORTH, LitwickMain_20
+	case DIR_SOUTH, LitwickMain_21
+	case DIR_WEST, LitwickMain_22
+	case DIR_EAST, LitwickMain_23
+LitwickMain_18:
+	release
 	setflag VAR_TEMP_A
 	end
 
@@ -288,8 +306,41 @@ LitwickMain_10:
 	goto LitwickEligibleBall
 	return
 
+LitwickMain_14:
+	turnobject 1, DIR_NORTH
+	goto LitwickMain_12
+
+LitwickMain_15:
+	turnobject 1, DIR_SOUTH
+	goto LitwickMain_12
+
+LitwickMain_16:
+	turnobject 1, DIR_WEST
+	goto LitwickMain_12
+
+LitwickMain_17:
+	turnobject 1, DIR_EAST
+	goto LitwickMain_12
+
+LitwickMain_20:
+	turnobject 1, DIR_NORTH
+	goto LitwickMain_18
+
+LitwickMain_21:
+	turnobject 1, DIR_SOUTH
+	goto LitwickMain_18
+
+LitwickMain_22:
+	turnobject 1, DIR_WEST
+	goto LitwickMain_18
+
+LitwickMain_23:
+	turnobject 1, DIR_EAST
+	goto LitwickMain_18
+
 
 LitwickEligibleBall::
+	bufferitemname STR_VAR_1, VAR_ITEM_ID
 	msgbox LitwickGetsInsideBall
 	removeobject 1
 	setflag FLAG_LITWICK_CAUGHT
@@ -349,16 +400,26 @@ CharredBox::
 	.string "to be slightly charred.$"
 
 LitwickStaresAtYouShort::
-	.string "litwick stares at you short$"
+	.string "Offer the Pokémon a Poké Ball\n"
+	.string "from your bag?$"
 
 LitwickStaresAtYou::
-	.string "litwick stares at you long$"
+	.string "The Pokémon seems to have gotten\n"
+	.string "comfortable with your presence\l"
+	.string "after your little game of tag.\p"
+	.string "It seems to be living here\n"
+	.string "all alone.\p"
+	.string "Offer it a Poké Ball from your bag?$"
 
 LitwickFrowns::
-	.string "litwick frowns$"
+	.string "The Pokémon looks at you\n"
+	.string "expectantly, but then turns\l"
+	.string "to minding its own business.$"
 
 ThatsNotaBall::
-	.string "that's not a ball!$"
+	.string "That's not a Poké Ball!$"
 
 LitwickGetsInsideBall::
-	.string "litwick gets inside the ball$"
+	.string "You place the {STR_VAR_1} on\n"
+	.string "the ground, and the Pokémon\l"
+	.string "gently taps the ball.$"
