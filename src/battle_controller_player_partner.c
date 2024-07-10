@@ -432,19 +432,14 @@ static void PlayerPartnerHandleHealthBarUpdate(u32 battler)
 
 static void PlayerPartnerHandleIntroTrainerBallThrow(u32 battler)
 {
-    u32 trainerPicId;
+    const u32 *trainerPal;
 
-    trainerPicId = gBattlePartners[gPartnerTrainerId - TRAINER_PARTNER(PARTNER_NONE)].trainerPic;
-    const u32 *trainerPal = gTrainerBacksprites[trainerPicId].palette.data;
-    
-    // const u32 *trainerPal;
-
-    // if (gPartnerTrainerId > TRAINER_PARTNER(PARTNER_NONE))
-    //     trainerPal = gTrainerBacksprites[gPartnerSpriteId].palette.data;
-    // else if (IsAiVsAiBattle())
-    //     trainerPal = gTrainerSprites[GetTrainerPicFromId(gPartnerTrainerId)].palette.data;
-    // else
-    //     trainerPal = gTrainerSprites[GetFrontierTrainerFrontSpriteId(gPartnerTrainerId)].palette.data; // 2 vs 2 multi battle in Battle Frontier, load front sprite and pal.
+    if (gPartnerTrainerId > TRAINER_PARTNER(PARTNER_NONE))
+        trainerPal = gTrainerBacksprites[gBattlePartners[gPartnerTrainerId - TRAINER_PARTNER(PARTNER_NONE)].trainerPic].palette.data;
+    else if (IsAiVsAiBattle())
+        trainerPal = gTrainerSprites[GetTrainerPicFromId(gPartnerTrainerId)].palette.data;
+    else
+        trainerPal = gTrainerSprites[GetFrontierTrainerFrontSpriteId(gPartnerTrainerId)].palette.data; // 2 vs 2 multi battle in Battle Frontier, load front sprite and pal.
 
     BtlController_HandleIntroTrainerBallThrow(battler, 0xD6F9, trainerPal, 24, Controller_PlayerPartnerShowIntroHealthbox);
 }
