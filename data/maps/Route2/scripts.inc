@@ -8,13 +8,13 @@ R2ClearLandslide::
 	end
 
 R2ClearLandslide_1:
-	setmetatile 19, 7, 0x0CF, FALSE
+	setmetatile 19, 7, 0x0AF, FALSE
 	setmetatile 20, 7, 0x0CF, FALSE
 	setmetatile 19, 8, 0x071, FALSE
-	setmetatile 19, 9, 0x0CF, FALSE
+	setmetatile 19, 9, 0x0AF, FALSE
 	setmetatile 20, 9, 0x0CF, FALSE
 	setmetatile 20, 10, 0x071, FALSE
-	setmetatile 19, 11, 0x0CF, FALSE
+	setmetatile 19, 11, 0x0AF, FALSE
 	setmetatile 20, 11, 0x0CF, FALSE
 	setmetatile 20, 12, 0x071, FALSE
 	end
@@ -70,6 +70,56 @@ Route2_Girl3::
 	end
 
 
+Route2_Sign::
+	msgbox Route2_Sign_Text, MSGBOX_SIGN
+	return
+
+
+WindyWoods_Sign::
+	msgbox WindyWoods_Sign_Text, MSGBOX_SIGN
+	return
+
+
+Primrose_Sign2::
+	msgbox Primrose_Sign2_Text, MSGBOX_SIGN
+	return
+
+
+Route3_Sign2::
+	msgbox Route3_Sign2_Text, MSGBOX_SIGN
+	return
+
+
+Route5_Sign::
+	msgbox Route5_Sign_Text, MSGBOX_SIGN
+	return
+
+
+Route7_Sign::
+	msgbox Route7_Sign_Text, MSGBOX_SIGN
+	return
+
+
+Desert_Sign::
+	msgbox Desert_Sign_Text, MSGBOX_SIGN
+	return
+
+
+Route11_Sign::
+	msgbox Route11_Sign_Text, MSGBOX_SIGN
+	return
+
+
+Route15_Sign4::
+	msgbox Route15_Sign4_Text, MSGBOX_SIGN
+	return
+
+
+Route23_Sign::
+	msgbox Route23_Sign_Text, MSGBOX_SIGN
+	return
+
+
 Route2_Landslide_Text_0:
 	.string "Looks like the route to Coralgrove City\nis buried under a landslide.\pI guess I need to take the detour\nthrough Windy Woods…$"
 
@@ -117,3 +167,78 @@ Route2_Text_Girl3Defeated::
 
 Route2_Text_Girl3PostBattle::
 	.string "As long as I learned something,\nthis was still a positive experience.$"
+
+Route2_Sign_Text::
+	.string "{UP_ARROW} Coralgrove City\n"
+	.string "{RIGHT_ARROW} Windy Woods\l"
+	.string "{DOWN_ARROW} Primrose Town$"
+
+WindyWoods_Sign_Text::
+	.string "Trainer Tips\p"
+	.string "To quickly throw a Poké Ball\n"
+	.string "in battle, press the R button.\p"
+	.string "To change which Poké Ball is thrown,\n"
+	.string "hold the R button and press left or\l"
+	.string "right on the D-Pad.$"
+
+Primrose_Sign2_Text::
+	.string "{UP_ARROW} Route 2\n"
+	.string "{RIGHT_ARROW} Primrose Meadow\l"
+	.string "{DOWN_ARROW} Route 1$"
+
+Route3_Sign2_Text::
+	.string "{UP_ARROW} Pokémon Ranch\n"
+	.string "{RIGHT_ARROW} Aldeleaf City\l"
+	.string "{LEFT_ARROW} Azuretide Town$"
+
+Route5_Sign_Text::
+	.string "Trainer Tips\p"
+	.string "Making Pokémon battle weaker opponents\n"
+	.string "makes it grow slower than normal.\p"
+	.string "Conversely, having a Pokémon battle\n"
+	.string "opponents that are stronger than it\l"
+	.string "will grant the Pokémon extra experience.$"
+
+Route7_Sign_Text::
+	.string "Trainer Tips\p"
+	.string "Running causes a lot of ruckus,\n"
+	.string "making you the center of attention.\p"
+	.string "If you want to avoid the\n"
+	.string "attention of other trainers,\l"
+	.string "consider slowing down your pace.$"
+
+Desert_Sign_Text::
+	.string "Trainer Tips\p"
+	.string "Some Pokémon have strong trapping\n"
+	.string "abilities that stop trainers from\l"
+	.string "fleeing against them.\p"
+	.string "Some Marts carry Poké Dolls that\n"
+	.string "can be used to distract these Pokémon\l"
+	.string "for long enough to allow escape.$"
+
+Route11_Sign_Text::
+	.string "Trainer Tips\p"
+	.string "Pokémon with the move Cut can\n"
+	.string "cut down long grass, making\l"
+	.string "a trek through wilderness safer.\p"
+	.string "Pokémon with the ability Hyper\n"
+	.string "Cutter can cut an even wider area\l"
+	.string "of grass at a time.$"
+
+Route15_Sign4_Text::
+	.string "Trainer Tips\p"
+	.string "Pokémon can only know up to\n"
+	.string "4 different moves.\p"
+	.string "When teaching new moves to a Pokémon,\n"
+	.string "any previous one can be replaced.\l"
+	.string "Even HM moves!$"
+
+Route23_Sign_Text::
+	.string "Trainer Tips\p"
+	.string "Some Pokémon like to make their\n"
+	.string "home in small hidden grottos\l"
+	.string "between the trees.\p"
+	.string "If the grotto is left empty,\n"
+	.string "a new Pokémon may make it its home\l"
+	.string "after the grotto has been left\l"
+	.string "undisturbed for some time.$"

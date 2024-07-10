@@ -4655,9 +4655,9 @@
       "id": "LAYOUT_SCHOOL_HALL",
       "name": "SchoolHall_Layout",
       "width": 26,
-      "height": 12,
+      "height": 13,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Shop",
+      "secondary_tileset": "gTileset_PokemonSchool",
       "border_filepath": "data/layouts/SchoolHall/border.bin",
       "blockdata_filepath": "data/layouts/SchoolHall/map.bin"
     },
@@ -4665,9 +4665,9 @@
       "id": "LAYOUT_SCHOOL_HALL2F",
       "name": "SchoolHall2F_Layout",
       "width": 16,
-      "height": 8,
+      "height": 9,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Shop",
+      "secondary_tileset": "gTileset_PokemonSchool",
       "border_filepath": "data/layouts/SchoolHall2F/border.bin",
       "blockdata_filepath": "data/layouts/SchoolHall2F/map.bin"
     },
@@ -6460,6 +6460,16 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/GalewindCity/border.bin",
       "blockdata_filepath": "data/layouts/GalewindCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE15_GROTTO",
+      "name": "Route15_Grotto_Layout",
+      "width": 13,
+      "height": 23,
+      "primary_tileset": "gTileset_SecretBase",
+      "secondary_tileset": "gTileset_SecretBaseShrub",
+      "border_filepath": "data/layouts/Route15_Grotto/border.bin",
+      "blockdata_filepath": "data/layouts/Route15_Grotto/map.bin"
     }
   ]
 }

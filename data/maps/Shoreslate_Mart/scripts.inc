@@ -80,6 +80,23 @@ Shoreslate_Mart_EventScript_Clerk3::
 	end
 
 
+Shoreslate_AppleMerchant::
+	lock
+	faceplayer
+	message gText_FreshApples
+	waitmessage
+	pokemart Shoreslate_AppleMerchant_Shop
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+
+	.align 2
+Shoreslate_AppleMerchant_Shop:
+	.2byte ITEM_SWEET_APPLE
+	.2byte ITEM_TART_APPLE
+	.2byte ITEM_NONE
+
 	.align 2
 Shoreslate_Mart_Pokemart2:
 	.2byte ITEM_X_ACCURACY
@@ -242,6 +259,7 @@ Mart_3Badges:
 	.2byte ITEM_ICE_HEAL
 	.2byte ITEM_REPEL
 	.2byte ITEM_SUPER_REPEL
+	.2byte ITEM_POKE_DOLL
 	.2byte ITEM_NONE
 
 	.align 2
@@ -262,6 +280,7 @@ Mart_4Badges:
 	.2byte ITEM_REPEL
 	.2byte ITEM_SUPER_REPEL
 	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_POKE_DOLL
 	.2byte ITEM_NONE
 
 	.align 2
@@ -283,6 +302,7 @@ Mart_7Badges:
 	.2byte ITEM_REPEL
 	.2byte ITEM_SUPER_REPEL
 	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_POKE_DOLL
 	.2byte ITEM_NONE
 
 	.align 2
@@ -305,6 +325,7 @@ Mart_8Badges:
 	.2byte ITEM_REPEL
 	.2byte ITEM_SUPER_REPEL
 	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_POKE_DOLL
 	.2byte ITEM_NONE
 
 Rockliffe_TM_Mart_Clerk::
@@ -673,6 +694,9 @@ Shoreslate_Mart_Secret_Text_4::
 	.string "which is called error.\p"
 	.string "Thank you for coming to my TED talk.\p"
 	.string "You may now devour me.$"
+
+gText_FreshApples::
+	.string "Fresh apples for sale!$"
 
 Shoreslate_Mart_EventScript_Woman_Text::
 	.string "The market is great, but there are some\n"

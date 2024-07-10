@@ -176,7 +176,7 @@ script CoralGrove_OLD_WOMAN{
 script CoralGrove_OLD_MAN{
     lockall
     faceplayer
-    msgbox("My wife is mesmerized by flowers.\pI don't really care about flowers\nbut better not let her catch on…", MSGBOX_NPC)
+    msgbox("My wife often gets mesmerized\nby flowers.\pI don't really care about flowers\nbut better not let her catch on…", MSGBOX_NPC)
     waitmessage
     closemessage
     release

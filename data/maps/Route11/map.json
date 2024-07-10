@@ -566,6 +566,14 @@
       "elevation": 0,
       "item": "ITEM_RARE_CANDY",
       "flag": "FLAG_ROUTE11_RARECANDY"
+    },
+    {
+      "type": "sign",
+      "x": 97,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route11_Sign"
     }
   ]
 }

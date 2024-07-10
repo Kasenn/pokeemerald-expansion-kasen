@@ -158,6 +158,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Skyloch_Sign3"
+    },
+    {
+      "type": "sign",
+      "x": 42,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Skyloch_Sign2"
     }
   ]
 }

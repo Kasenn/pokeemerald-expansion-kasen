@@ -424,6 +424,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "MultiRegisterSign"
+    },
+    {
+      "type": "sign",
+      "x": 88,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route3_Sign2"
     }
   ]
 }

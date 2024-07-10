@@ -178,6 +178,15 @@ script Update3{
         setberrytree(BERRY_TREE_ROUTE_123_QUALOT_7, ITEM_TO_BERRY(ITEM_QUALOT_BERRY), BERRY_STAGE_BERRIES)
         setvar(VAR_DEBUG, 6)
     }
+    if(var(VAR_DEBUG) == 6){
+        clearflag(FLAG_SYS_NATIONAL_DEX)
+        setflag(FLAG_SYS_POKEDEX_GET)
+        setvar(VAR_DEBUG, 7)
+    }
+    if(var(VAR_DEBUG) == 7){
+        setvar(VAR_GROTTO_STEP_COUNT, 256)
+        setvar(VAR_DEBUG, 8)
+    }
     call(UpdateItemCheck)
     msgbox(FlagsAndVarsUpdated2, MSGBOX_YESNO)
     if(var(VAR_RESULT) == TRUE){

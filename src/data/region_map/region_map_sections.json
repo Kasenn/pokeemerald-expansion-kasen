@@ -595,7 +595,7 @@
     {
       "map_section": "MAPSEC_NEWROUTE_7",
       "name": "ROUTE 7",
-      "x": 26,
+      "x": 25,
       "y": 10,
       "width": 1,
       "height": 1
@@ -827,7 +827,7 @@
     {
       "map_section": "MAPSEC_MARIGORGE_TOWN",
       "name": "MARIGORGE TOWN",
-      "x": 26,
+      "x": 25,
       "y": 9,
       "width": 1,
       "height": 1
@@ -973,7 +973,7 @@
       "name": "SCORCHED DESERT",
       "x": 24,
       "y": 11,
-      "width": 3,
+      "width": 2,
       "height": 2
     },
     {
@@ -987,7 +987,7 @@
     {
       "map_section": "MAPSEC_SAFARI_ZONE",
       "name": "SAFARI ZONE",
-      "x": 26,
+      "x": 25,
       "y": 8,
       "width": 1,
       "height": 1

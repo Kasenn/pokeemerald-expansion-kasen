@@ -121,6 +121,25 @@ script Shoreslate_Mart_EventScript_Clerk3{
 	release
 	end
 }
+script Shoreslate_AppleMerchant{
+    lock
+    faceplayer
+    message(gText_FreshApples)
+    waitmessage
+    pokemart(Shoreslate_AppleMerchant_Shop)
+    msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+text gText_FreshApples{
+    "Fresh apples for sale!"
+}
+
+mart Shoreslate_AppleMerchant_Shop{
+    ITEM_SWEET_APPLE
+    ITEM_TART_APPLE
+    ITEM_NONE
+}
 
 mart Shoreslate_Mart_Pokemart2{
     ITEM_X_ACCURACY
@@ -285,6 +304,7 @@ mart Mart_3Badges{
     ITEM_ICE_HEAL
     ITEM_REPEL
     ITEM_SUPER_REPEL
+    ITEM_POKE_DOLL
 	ITEM_NONE
 }
 mart Mart_4Badges{
@@ -304,6 +324,7 @@ mart Mart_4Badges{
     ITEM_REPEL
     ITEM_SUPER_REPEL
     ITEM_MAX_REPEL
+    ITEM_POKE_DOLL
 	ITEM_NONE
 }
 mart Mart_7Badges{
@@ -324,6 +345,7 @@ mart Mart_7Badges{
     ITEM_REPEL
     ITEM_SUPER_REPEL
     ITEM_MAX_REPEL
+    ITEM_POKE_DOLL
 	ITEM_NONE
 }
 mart Mart_8Badges{
@@ -345,6 +367,7 @@ mart Mart_8Badges{
     ITEM_REPEL
     ITEM_SUPER_REPEL
     ITEM_MAX_REPEL
+    ITEM_POKE_DOLL
 	ITEM_NONE
 }
 

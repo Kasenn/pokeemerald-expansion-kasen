@@ -102,19 +102,19 @@ Route6_HoneyTree_34:
 	end
 
 Route6_HoneyTree_8:
-	setwildbattlelevelrange SPECIES_KOMALA, 13, ITEM_NONE, SPECIES_NONE, 17
+	setwildbattlelevelrange SPECIES_AIPOM, 13, ITEM_NONE, SPECIES_NONE, 17
 	goto Route6_HoneyTree_7
 
 Route6_HoneyTree_11:
-	setwildbattlelevelrange SPECIES_KOMALA, 13, ITEM_NONE, SPECIES_NONE, 17
+	setwildbattlelevelrange SPECIES_AIPOM, 13, ITEM_NONE, SPECIES_NONE, 17
 	goto Route6_HoneyTree_10
 
 Route6_HoneyTree_14:
-	setwildbattlelevelrange SPECIES_KOMALA, 13, ITEM_NONE, SPECIES_NONE, 17
+	setwildbattlelevelrange SPECIES_AIPOM, 13, ITEM_NONE, SPECIES_NONE, 17
 	goto Route6_HoneyTree_13
 
 Route6_HoneyTree_17:
-	setwildbattlelevelrange SPECIES_KOMALA, 13, ITEM_NONE, SPECIES_NONE, 17
+	setwildbattlelevelrange SPECIES_AIPOM, 13, ITEM_NONE, SPECIES_NONE, 17
 	goto Route6_HoneyTree_16
 
 Route6_HoneyTree_20:

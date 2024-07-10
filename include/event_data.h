@@ -5,7 +5,7 @@ void InitEventData(void);
 void ClearTempFieldEventData(void);
 void ClearDailyFlags(void);
 void SetHeartScaleMove(void);
-void SetGrottoes(void);
+void SetGrottos(void);
 void DisableNationalPokedex(void);
 void EnableNationalPokedex(void);
 bool32 IsNationalPokedexEnabled(void);

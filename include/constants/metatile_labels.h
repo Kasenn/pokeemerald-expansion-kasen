@@ -370,7 +370,7 @@
 #define METATILE_Mossdeep_Door              0x2A1
 #define METATILE_Mossdeep_Door_PokeShop     0x251
 #define METATILE_Mossdeep_Door_SpaceCenter  0x2ED
-#define METATILE_Mossdeep_Kaol_SlidingDoor  0x3C4
+#define METATILE_Mossdeep_Kaol_SlidingDoor  0x3ED
 #define METATILE_Mossdeep_Kaolisle_Door     0x272
 
 // gTileset_MossdeepGameCorner
@@ -399,6 +399,11 @@
 #define METATILE_Pacifidlog_SubmergedLogs_HorizontalRight      0x255
 #define METATILE_Pacifidlog_SubmergedLogs_VerticalBottom       0x262
 #define METATILE_Pacifidlog_SubmergedLogs_VerticalTop          0x25A
+
+// gTileset_Pearlwood
+#define METATILE_Pearlwood_Secondary_Pearlwood_TallGrass           0x295
+#define METATILE_Pearlwood_Secondary_Pearlwood_TallGrassTreeLeft   0x296
+#define METATILE_Pearlwood_Secondary_Pearlwood_TallGrassTreeRight  0x297
 
 // gTileset_Petalburg
 #define METATILE_Petalburg_Door_BirchsLab   0x249
@@ -797,7 +802,8 @@
 #define METATILE_Underwater_RockWall     0x21E
 
 // gTileset_WipCity1
-#define METATILE_WipCity1_Door_PokeShop  0x2D9
+#define METATILE_WipCity1_AldeleafSlidingDoor  0x30D
+#define METATILE_WipCity1_Door_PokeShop        0x2D9
 
 // gTileset_gTileset_Hotel
 #define METATILE_Hotel_Door_Elevator   0x285

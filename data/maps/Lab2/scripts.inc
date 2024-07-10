@@ -247,7 +247,7 @@ Lab2_DexGet_4:
 	waitmessage
 	waitfanfare
 	setflag FLAG_SYS_POKEDEX_GET
-	special EnableNationalPokedex
+	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
 	setvar VAR_CABLE_CLUB_TUTORIAL_STATE, 1
 	setvar VAR_OLDALE_TOWN_STATE, 1

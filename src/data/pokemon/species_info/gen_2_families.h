@@ -2451,7 +2451,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
 #endif //P_FAMILY_YANMA
 
 #if P_FAMILY_WOOPER
-    [SPECIES_WOOPER] =
+    [SPECIES_WOOPER_PALDEAN] =
     {
         .baseHP        = 55,
         .baseAttack    = 45,
@@ -2566,7 +2566,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
     },
 
 #if P_PALDEAN_FORMS
-    [SPECIES_WOOPER_PALDEAN] =
+    [SPECIES_WOOPER] =
     {
         .baseHP        = 55,
         .baseAttack    = 45,
@@ -5366,6 +5366,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
         .abilities = { ABILITY_EARLY_BIRD, ABILITY_FLASH_FIRE, ABILITY_UNNERVE },
         .bodyColor = BODY_COLOR_BLACK,
+        .itemRare = ITEM_RAZOR_FANG,
         .speciesName = _("Houndour"),
         .cryId = CRY_HOUNDOUR,
         .natDexNum = NATIONAL_DEX_HOUNDOUR,
@@ -5421,6 +5422,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .bodyColor = BODY_COLOR_BLACK,
         .speciesName = _("Houndoom"),
         .cryId = CRY_HOUNDOOM,
+        .itemCommon = ITEM_RAZOR_FANG,
         .natDexNum = NATIONAL_DEX_HOUNDOOM,
         .categoryName = _("Dark"),
         .height = 14,

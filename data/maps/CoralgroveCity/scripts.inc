@@ -300,7 +300,7 @@ CoralGrove_OLD_WOMAN_Text_0:
 	.string "Such pretty flowers…$"
 
 CoralGrove_OLD_MAN_Text_0:
-	.string "My wife is mesmerized by flowers.\pI don't really care about flowers\nbut better not let her catch on…$"
+	.string "My wife often gets mesmerized\nby flowers.\pI don't really care about flowers\nbut better not let her catch on…$"
 
 Coralgrove_LASS_Text_0:
 	.string "Can you even call this place a city?\pThere's the Trainers' School and\nthe Pokémon Gym but apart from those\lthere's very little to do here.$"

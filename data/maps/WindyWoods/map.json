@@ -333,6 +333,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "WW_Grotto_Entrance"
+    },
+    {
+      "type": "sign",
+      "x": 50,
+      "y": 42,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "WindyWoods_Sign"
     }
   ]
 }

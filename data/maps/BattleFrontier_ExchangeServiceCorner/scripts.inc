@@ -770,7 +770,7 @@ BattleFrontier_ExchangeServiceCorner_Text_PrismScaleDesc::
 BattleFrontier_ExchangeServiceCorner_Text_ProtectorDesc::
 	.string "Loved by a certain Pokémon. It's stiff\n"
     .string "and heavy.$"
-BattleFrontier_ExchangeServiceCorner_Text_ReaperClothDesc::
-	.string "Loved by a certain Pokémon. Imbued with\n"
-    .string "spiritual energy.$"
+BattleFrontier_ExchangeServiceCorner_Text_OvalStoneDesc::
+	.string "Loved by a certain Pokémon. It is\n"
+    .string "shaped like an egg.$"
 

@@ -29,7 +29,7 @@ text Route1_Text_YoungsterDefeated{
 }
 
 text Route1_Text_YoungsterPostBattle{
-    "I'm looking for a Pichu.\lMy friend told me he saw one\non this route the other day."
+    "I'm looking for a Pichu.\pMy friend told me he saw one\non this route the other day."
 }
 
 script Route1_Tuber{

@@ -117,10 +117,12 @@ LanettesHouse_Extractinator::
 	compare VAR_MUD_SAMPLES, 2
 	goto_if_le LanettesHouse_Extractinator_2
 	goto_if_unset FLAG_MUD_REWARD_WAITING, LanettesHouse_Extractinator_7
+	call TurnExtractinatorOn
 	lock
-	showmoneybox 0, 0
 	buffernumberstring STR_VAR_1, VAR_MUD_SAMPLES
-	msgbox ReadyToFabricate, MSGBOX_YESNO
+	msgbox ReadyToFabricate
+	showmoneybox 0, 0
+	msgbox ReadyToFabricate2, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
 	goto_if_eq LanettesHouse_Extractinator_10
 	playse SE_SHOP
@@ -141,21 +143,51 @@ LanettesHouse_Extractinator::
 	applymovement 2, Walk1Down
 	waitmovement 0
 	msgbox PleaseRemoveItemFromTray
+	delay 6
+	setmetatile 3, 1, 0x2A1, TRUE
+	special DrawWholeMapView
 	release
 	end
 
 LanettesHouse_Extractinator_2:
+	playse SE_SELECT
 	msgbox Extractinator_Idle, MSGBOX_SIGN
 	end
 
 LanettesHouse_Extractinator_7:
+	playse SE_SELECT
 	msgbox Extractinator_PickUpTreasure, MSGBOX_SIGN
 	end
 
 LanettesHouse_Extractinator_10:
+	playse SE_PC_OFF
+	delay 6
+	setmetatile 3, 1, 0x2A1, TRUE
+	special DrawWholeMapView
 	hidemoneybox
 	release
 	end
+
+
+TurnExtractinatorOn::
+	playse SE_PC_ON
+	delay 6
+	setmetatile 3, 1, 0x2B1, TRUE
+	special DrawWholeMapView
+	delay 6
+	setmetatile 3, 1, 0x2A1, TRUE
+	special DrawWholeMapView
+	delay 6
+	setmetatile 3, 1, 0x2B1, TRUE
+	special DrawWholeMapView
+	delay 6
+	setmetatile 3, 1, 0x2A1, TRUE
+	special DrawWholeMapView
+	delay 6
+	delay 6
+	setmetatile 3, 1, 0x2B1, TRUE
+	special DrawWholeMapView
+	return
 
 
 LanettesHouse_PC::
@@ -811,7 +843,9 @@ BeginFabrication::
 ReadyToFabricate::
 	.string "It's a machine used to fabricate\n"
 	.string "items from mud samples.\p"
-	.string "You have {STR_VAR_1} mud samples.\p"
+	.string "You have {STR_VAR_1} mud samples.$"
+
+ReadyToFabricate2::
 	.string "Insert 3 mud samples and\n"
 	.string "¥500 into the machine?$"
 

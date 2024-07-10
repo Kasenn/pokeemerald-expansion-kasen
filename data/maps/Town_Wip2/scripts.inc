@@ -227,8 +227,9 @@ Skyloch_Sign1_Text::
 	.string "SKYLOCH VILLAGE$"
 
 Skyloch_Sign2_Text::
-	.string "{UP_ARROW} Route 5\n"
-	.string "{RIGHT_ARROW} Scorched Desert\l$"
+	.string "{UP_ARROW} Route 5 and Aldeleaf City\n"
+	.string "{RIGHT_ARROW} Route 6 and Scorched Desert\l"
+	.string "{LEFT_ARROW} Route 8 and Shoreslate City$"
 
 Skyloch_Sign3_Text::
 	.string "Skyloch Rest House$"

@@ -67,11 +67,17 @@ Update3_28:
 	compare VAR_DEBUG, 5
 	goto_if_eq Update3_41
 Update3_40:
+	compare VAR_DEBUG, 6
+	goto_if_eq Update3_52
+Update3_51:
+	compare VAR_DEBUG, 7
+	goto_if_eq Update3_61
+Update3_60:
 	call UpdateItemCheck
 	msgbox FlagsAndVarsUpdated2, MSGBOX_YESNO
 	compare VAR_RESULT, TRUE
-	goto_if_eq Update3_52
-Update3_51:
+	goto_if_eq Update3_67
+Update3_66:
 	call FlagTesting
 	closemessage
 	release
@@ -111,10 +117,10 @@ Update3_48:
 	goto_if 1, Update3_58
 Update3_57:
 	checktrainerflag TRAINER_MARY
-	goto_if 1, Update3_61
-Update3_60:
+	goto_if 1, Update3_64
+Update3_63:
 	checktrainerflag TRAINER_KAOLGYM_CLAY
-	goto_if 1, Update3_63
+	goto_if 1, Update3_69
 	goto Update3_1
 
 Update3_5:
@@ -219,7 +225,9 @@ Update3_49:
 	goto Update3_48
 
 Update3_52:
-	warp MAP_CORALGROVE_CITY, 26, 44
+	clearflag FLAG_SYS_NATIONAL_DEX
+	setflag FLAG_SYS_POKEDEX_GET
+	setvar VAR_DEBUG, 7
 	goto Update3_51
 
 Update3_55:
@@ -231,10 +239,19 @@ Update3_58:
 	goto Update3_57
 
 Update3_61:
-	setvar VAR_BADGES_OBTAINED, 2
+	setvar VAR_GROTTO_STEP_COUNT, 256
+	setvar VAR_DEBUG, 8
 	goto Update3_60
 
-Update3_63:
+Update3_64:
+	setvar VAR_BADGES_OBTAINED, 2
+	goto Update3_63
+
+Update3_67:
+	warp MAP_CORALGROVE_CITY, 26, 44
+	goto Update3_66
+
+Update3_69:
 	setvar VAR_BADGES_OBTAINED, 3
 	goto Update3_1
 

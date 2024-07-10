@@ -483,6 +483,21 @@ R15_AceTrainerNotEligible_2:
 	goto R15_AceTrainerNotEligible_1
 
 
+Route15_Grotto_Entrance::
+	lock
+	msgbox GoInsideGrotto, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Route15_Grotto_Entrance_2
+	warp MAP_ROUTE15_GROTTO, 6, 19
+	waitstate
+	release
+	return
+
+Route15_Grotto_Entrance_2:
+	release
+	end
+
+
 R15_Acerola_Text_0:
 	.string "mister$"
 

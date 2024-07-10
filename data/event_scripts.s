@@ -1489,3 +1489,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/SnowcrestCity/scripts.inc"
 
 	.include "data/maps/GalewindCity/scripts.inc"
+
+	.include "data/maps/Route15_Grotto/scripts.inc"

@@ -100,6 +100,7 @@ script Route8_Sign{
 }
 text Route8_Sign_Text{
     "{LEFT_ARROW} Pretty Petal flower shop\n"
+    "{RIGHT_ARROW} Skyloch Village\l"
     "{DOWN_ARROW} Shoreslate City"
 }
 script Route8_Ball1{

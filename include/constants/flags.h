@@ -1571,8 +1571,8 @@
 #define FLAG_DAILY_PRIMROSE_NECTAR2                 (DAILY_FLAGS_START + 0x4)  // 
 #define FLAG_DAILY_PRIMROSE_NECTAR3                 (DAILY_FLAGS_START + 0x5)  // 
 #define FLAG_DAILY_PRIMROSE_NECTAR4                 (DAILY_FLAGS_START + 0x6)  // 
-#define FLAG_DAILY_WW_GROTTO                           (DAILY_FLAGS_START + 0x7)  // 
-#define FLAG_DAILY_ROUTE7_GROTTO                           (DAILY_FLAGS_START + 0x8)  // 
+#define FLAG_DAILY_GROTTO_1                           (DAILY_FLAGS_START + 0x7)  // 
+#define FLAG_DAILY_GROTTO_2                           (DAILY_FLAGS_START + 0x8)  // 
 #define FLAG_DAILY_SAFARIBALL_BOUGHT                           (DAILY_FLAGS_START + 0x9)  // 
 #define FLAG_DAILY_PICKED_LOTO_TICKET               (DAILY_FLAGS_START + 0xA)
 #define FLAG_DAILY_ROUTE_114_RECEIVED_BERRY         (DAILY_FLAGS_START + 0xB)
@@ -1586,8 +1586,8 @@
 #define FLAG_DAILY_FANCLUBTRADE                           (DAILY_FLAGS_START + 0x13) // 
 #define FLAG_DAILY_APPRENTICE_LEAVES                (DAILY_FLAGS_START + 0x14)
 
-#define FLAG_DAILY_ROUTE14_GROTTO                           (DAILY_FLAGS_START + 0x15) // 
-#define FLAG_UNUSED_0x936                           (DAILY_FLAGS_START + 0x16) // 
+#define FLAG_DAILY_GROTTO_3                           (DAILY_FLAGS_START + 0x15) // 
+#define FLAG_DAILY_GROTTO_4                           (DAILY_FLAGS_START + 0x16) // 
 #define FLAG_UNUSED_0x937                           (DAILY_FLAGS_START + 0x17) // 
 #define FLAG_UNUSED_0x938                           (DAILY_FLAGS_START + 0x18) // 
 #define FLAG_UNUSED_0x939                           (DAILY_FLAGS_START + 0x19) // 

@@ -4,13 +4,13 @@ mapscripts Route2_MapScripts{
 
 script R2ClearLandslide{
     if(flag(FLAG_CORAL_FLAG_1)){
-        setmetatile(19,7,0x0CF,FALSE)
+        setmetatile(19,7,0x0AF,FALSE)
         setmetatile(20,7,0x0CF,FALSE)
         setmetatile(19,8,0x071,FALSE)
-        setmetatile(19,9,0x0CF,FALSE)
+        setmetatile(19,9,0x0AF,FALSE)
         setmetatile(20,9,0x0CF,FALSE)
         setmetatile(20,10,0x071,FALSE)
-        setmetatile(19,11,0x0CF,FALSE)
+        setmetatile(19,11,0x0AF,FALSE)
         setmetatile(20,11,0x0CF,FALSE)
         setmetatile(20,12,0x071,FALSE)
         end
@@ -130,4 +130,117 @@ text Route2_Text_Girl3Defeated{
 
 text Route2_Text_Girl3PostBattle{
     "As long as I learned something,\nthis was still a positive experience."
+}
+
+script Route2_Sign{
+    msgbox(Route2_Sign_Text, MSGBOX_SIGN)
+}
+text Route2_Sign_Text{
+    "{UP_ARROW} Coralgrove City\n"
+    "{RIGHT_ARROW} Windy Woods\l"
+    "{DOWN_ARROW} Primrose Town"
+}
+script WindyWoods_Sign{
+    msgbox(WindyWoods_Sign_Text, MSGBOX_SIGN)
+}
+text WindyWoods_Sign_Text{
+    "Trainer Tips\p"
+    "To quickly throw a Poké Ball\n"
+    "in battle, press the R button.\p"
+    "To change which Poké Ball is thrown,\n"
+    "hold the R button and press left or\l"
+    "right on the D-Pad."
+}
+script Primrose_Sign2{
+    msgbox(Primrose_Sign2_Text, MSGBOX_SIGN)
+}
+text Primrose_Sign2_Text{
+    "{UP_ARROW} Route 2\n"
+    "{RIGHT_ARROW} Primrose Meadow\l"
+    "{DOWN_ARROW} Route 1"
+}
+
+script Route3_Sign2{
+    msgbox(Route3_Sign2_Text, MSGBOX_SIGN)
+}
+text Route3_Sign2_Text{
+    "{UP_ARROW} Pokémon Ranch\n"
+    "{RIGHT_ARROW} Aldeleaf City\l"
+    "{LEFT_ARROW} Azuretide Town"
+}
+
+script Route5_Sign{
+    msgbox(Route5_Sign_Text, MSGBOX_SIGN)
+}
+text Route5_Sign_Text{
+    "Trainer Tips\p"
+    "Making Pokémon battle weaker opponents\n"
+    "makes it grow slower than normal.\p"
+    "Conversely, having a Pokémon battle\n"
+    "opponents that are stronger than it\l"
+    "will grant the Pokémon extra experience."
+}
+
+script Route7_Sign{
+    msgbox(Route7_Sign_Text, MSGBOX_SIGN)
+}
+text Route7_Sign_Text{
+    "Trainer Tips\p"
+    "Running causes a lot of ruckus,\n"
+    "making you the center of attention.\p"
+    "If you want to avoid the\n"
+    "attention of other trainers,\l"
+    "consider slowing down your pace."
+}
+
+script Desert_Sign{
+    msgbox(Desert_Sign_Text, MSGBOX_SIGN)
+}
+text Desert_Sign_Text{
+    "Trainer Tips\p"
+    "Some Pokémon have strong trapping\n"
+    "abilities that stop trainers from\l"
+    "fleeing against them.\p"
+    "Some Marts carry Poké Dolls that\n"
+    "can be used to distract these Pokémon\l"
+    "for long enough to allow escape."
+}
+
+script Route11_Sign{
+    msgbox(Route11_Sign_Text, MSGBOX_SIGN)
+}
+text Route11_Sign_Text{
+    "Trainer Tips\p"
+    "Pokémon with the move Cut can\n"
+    "cut down long grass, making\l"
+    "a trek through wilderness safer.\p"
+    "Pokémon with the ability Hyper\n"
+    "Cutter can cut an even wider area\l"
+    "of grass at a time."
+}
+
+script Route15_Sign4{
+    msgbox(Route15_Sign4_Text, MSGBOX_SIGN)
+}
+text Route15_Sign4_Text{
+    "Trainer Tips\p"
+    "Pokémon can only know up to\n"
+    "4 different moves.\p"
+    "When teaching new moves to a Pokémon,\n"
+    "any previous one can be replaced.\l"
+    "Even HM moves!"
+}
+
+script Route23_Sign{
+    msgbox(Route23_Sign_Text, MSGBOX_SIGN)
+}
+text Route23_Sign_Text{
+    "Trainer Tips\p"
+    "Some Pokémon like to make their\n"
+    "home in small hidden grottos\l"
+    "between the trees.\p"
+    "If the grotto is left empty,\n"
+    "a new Pokémon may make it its home\l"
+    "after the grotto has been left\l"
+    "undisturbed for some time."
 }

@@ -446,13 +446,13 @@ script Azuretide_HoneyTree{
             removeitem(ITEM_HONEY, 1)
             random(10)
             if(var(VAR_RESULT) == 0){
-                setwildbattle(SPECIES_BOUNSWEET, 7)
+                setwildbattle(SPECIES_VENONAT, 7)
             }
             if(var(VAR_RESULT) == 1){
-                setwildbattle(SPECIES_BOUNSWEET, 7)
+                setwildbattle(SPECIES_VENONAT, 7)
             }
             if(var(VAR_RESULT) == 2){
-                setwildbattle(SPECIES_BOUNSWEET, 8)
+                setwildbattle(SPECIES_VENONAT, 8)
             }
             if(var(VAR_RESULT) == 3){
                 setwildbattle(SPECIES_SKWOVET, 7)

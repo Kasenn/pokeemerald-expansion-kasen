@@ -202,7 +202,7 @@ Route1_Text_YoungsterDefeated::
 	.string "I need to catch more Pokémon…$"
 
 Route1_Text_YoungsterPostBattle::
-	.string "I'm looking for a Pichu.\lMy friend told me he saw one\non this route the other day.$"
+	.string "I'm looking for a Pichu.\pMy friend told me he saw one\non this route the other day.$"
 
 Route1_Text_TuberIntro::
 	.string "I put my Pokémon on the treadmill\nto make it the fastest in the world!$"

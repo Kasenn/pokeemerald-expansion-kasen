@@ -17,7 +17,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
       "x": 2,
-      "y": 2,
+      "y": 3,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -31,7 +31,7 @@
   "warp_events": [
     {
       "x": 5,
-      "y": 1,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_SCHOOL_HALL",
       "dest_warp_id": "2"
@@ -44,7 +44,7 @@
     {
       "type": "sign",
       "x": 11,
-      "y": 5,
+      "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "School2F_Door"

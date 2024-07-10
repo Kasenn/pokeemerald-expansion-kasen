@@ -53,7 +53,7 @@
 #define VAR_STARTER_MON                                  0x4023 // 0=Treecko, 1=Torchic, 2=Mudkip
 #define VAR_MIRAGE_RND_H                                 0x4024
 #define VAR_MIRAGE_RND_L                                 0x4025
-#define VAR_UNUSED4026                              0x4026
+#define VAR_GROTTO_STEP_COUNT                              0x4026
 #define VAR_CYCLING_ROAD_RECORD_COLLISIONS               0x4027
 #define VAR_CYCLING_ROAD_RECORD_TIME_L                   0x4028
 #define VAR_CYCLING_ROAD_RECORD_TIME_H                   0x4029
@@ -134,8 +134,8 @@
 #define VAR_ROUTE119_STATE                               0x4072
 #define VAR_DEBUG                               0x4073 //
 #define VAR_ROUTE121_STATE                               0x4074
-#define VAR_WW_GROTTO                               0x4075 // Used to determine windy woods grotto outcome
-#define VAR_ROUTE7_GROTTO                               0x4076 // Used to determine route 7 grotto outcome
+#define VAR_GROTTO_1                               0x4075 // Used to determine windy woods grotto outcome
+#define VAR_GROTTO_2                               0x4076 // Used to determine route 7 grotto outcome
 #define VAR_RELIC_SOLD                               0x4077 // 
 #define VAR_R11_TRAINERS                               0x4078 // 
 #define VAR_GYM_TELEPORT                               0x4079 //
@@ -172,9 +172,9 @@
 #define VAR_PETALBURG_WOODS_STATE                        0x4098
 #define VAR_LILYCOVE_CONTEST_LOBBY_STATE                 0x4099
 #define VAR_RUSTURF_TUNNEL_STATE                         0x409A
-#define VAR_ROUTE14_GROTTO                                0x409B 
+#define VAR_GROTTO_3                                0x409B 
 #define VAR_ELITE_4_STATE                                0x409C
-#define VAR_UNUSED_0x409D                                0x409D
+#define VAR_GROTTO_4                                0x409D
 #define VAR_MOSSDEEP_SPACE_CENTER_STAIR_GUARD_STATE      0x409E
 #define VAR_MOSSDEEP_SPACE_CENTER_STATE                  0x409F
 #define VAR_SLATEPORT_HARBOR_STATE                       0x40A0

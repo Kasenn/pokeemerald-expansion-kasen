@@ -366,6 +366,15 @@ static void SetCutGrassMetatile(s16 x, s16 y)
     case METATILE_Mauville_MountainAndGrassRoot:
         MapGridSetMetatileIdAt(x, y, 0x3B9);
         break;
+    case METATILE_Pearlwood_Secondary_Pearlwood_TallGrass:
+        MapGridSetMetatileIdAt(x, y, 0x001);
+        break;
+    case METATILE_Pearlwood_Secondary_Pearlwood_TallGrassTreeLeft:
+        MapGridSetMetatileIdAt(x, y, 0x1CE);
+        break;
+    case METATILE_Pearlwood_Secondary_Pearlwood_TallGrassTreeRight:
+        MapGridSetMetatileIdAt(x, y, 0x1CF);
+        break;
     case METATILE_Mauville_TreeAndGrassRoot: 
         MapGridSetMetatileIdAt(x, y, METATILE_General_Grass_TreeUp);
         break;   

@@ -454,15 +454,15 @@ Azuretide_HoneyTree_37:
 	end
 
 Azuretide_HoneyTree_11:
-	setwildbattle SPECIES_BOUNSWEET, 7
+	setwildbattle SPECIES_VENONAT, 7
 	goto Azuretide_HoneyTree_10
 
 Azuretide_HoneyTree_14:
-	setwildbattle SPECIES_BOUNSWEET, 7
+	setwildbattle SPECIES_VENONAT, 7
 	goto Azuretide_HoneyTree_13
 
 Azuretide_HoneyTree_17:
-	setwildbattle SPECIES_BOUNSWEET, 8
+	setwildbattle SPECIES_VENONAT, 8
 	goto Azuretide_HoneyTree_16
 
 Azuretide_HoneyTree_20:

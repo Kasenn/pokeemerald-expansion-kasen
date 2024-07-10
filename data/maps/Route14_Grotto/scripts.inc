@@ -5,10 +5,10 @@ Route14_Grotto_MapScripts::
 
 
 ROUTE14_Grotto_SetObject::
-	compare VAR_ROUTE14_GROTTO, 39
+	compare VAR_GROTTO_3, 39
 	goto_if_le ROUTE14_Grotto_SetObject_2
 ROUTE14_Grotto_SetObject_1:
-	compare VAR_ROUTE14_GROTTO, 40
+	compare VAR_GROTTO_3, 40
 	goto_if_ge ROUTE14_Grotto_SetObject_5
 ROUTE14_Grotto_SetObject_4:
 	end
@@ -24,7 +24,7 @@ ROUTE14_Grotto_SetObject_5:
 
 ROUTE14_GrottoInteract::
 	lockall
-	compare VAR_ROUTE14_GROTTO, 39
+	compare VAR_GROTTO_3, 39
 	goto_if_le ROUTE14_GrottoInteract_2
 	goto ROUTE14_GrottoPokemon
 ROUTE14_GrottoInteract_1:
@@ -36,38 +36,40 @@ ROUTE14_GrottoInteract_2:
 
 
 ROUTE14_GrottoItem::
-	compare VAR_ROUTE14_GROTTO, 3
+	compare VAR_GROTTO_3, 3
 	goto_if_le ROUTE14_GrottoItem_2
-ROUTE14_GrottoItem_1:
-	compare VAR_ROUTE14_GROTTO, 4
-	goto_if_ge ROUTE14_GrottoItem_6
-ROUTE14_GrottoItem_4:
-	compare VAR_ROUTE14_GROTTO, 8
-	goto_if_ge ROUTE14_GrottoItem_11
-ROUTE14_GrottoItem_9:
-	compare VAR_ROUTE14_GROTTO, 12
-	goto_if_ge ROUTE14_GrottoItem_16
-ROUTE14_GrottoItem_14:
-	compare VAR_ROUTE14_GROTTO, 16
-	goto_if_ge ROUTE14_GrottoItem_21
-ROUTE14_GrottoItem_19:
-	compare VAR_ROUTE14_GROTTO, 20
-	goto_if_ge ROUTE14_GrottoItem_26
-ROUTE14_GrottoItem_24:
-	compare VAR_ROUTE14_GROTTO, 24
+	compare VAR_GROTTO_3, 4
+	goto_if_ge ROUTE14_GrottoItem_37
+ROUTE14_GrottoItem_35:
+	compare VAR_GROTTO_3, 8
+	goto_if_ge ROUTE14_GrottoItem_34
+ROUTE14_GrottoItem_32:
+	compare VAR_GROTTO_3, 12
 	goto_if_ge ROUTE14_GrottoItem_31
 ROUTE14_GrottoItem_29:
-	compare VAR_ROUTE14_GROTTO, 28
-	goto_if_ge ROUTE14_GrottoItem_36
-ROUTE14_GrottoItem_34:
-	compare VAR_ROUTE14_GROTTO, 32
-	goto_if_ge ROUTE14_GrottoItem_41
-ROUTE14_GrottoItem_39:
-	compare VAR_ROUTE14_GROTTO, 36
-	goto_if_ge ROUTE14_GrottoItem_46
-ROUTE14_GrottoItem_44:
+	compare VAR_GROTTO_3, 16
+	goto_if_ge ROUTE14_GrottoItem_28
+ROUTE14_GrottoItem_26:
+	compare VAR_GROTTO_3, 20
+	goto_if_ge ROUTE14_GrottoItem_25
+ROUTE14_GrottoItem_23:
+	compare VAR_GROTTO_3, 24
+	goto_if_ge ROUTE14_GrottoItem_22
+ROUTE14_GrottoItem_20:
+	compare VAR_GROTTO_3, 28
+	goto_if_ge ROUTE14_GrottoItem_19
+ROUTE14_GrottoItem_17:
+	compare VAR_GROTTO_3, 32
+	goto_if_ge ROUTE14_GrottoItem_16
+ROUTE14_GrottoItem_14:
+	compare VAR_GROTTO_3, 36
+	goto_if_ge ROUTE14_GrottoItem_13
+ROUTE14_GrottoItem_12:
+	finditem ITEM_NUGGET
+ROUTE14_GrottoItem_1:
 	waitfanfare
 	waitmessage
+	setvar VAR_GROTTO_3, 0
 	closemessage
 	release
 	end
@@ -76,109 +78,107 @@ ROUTE14_GrottoItem_2:
 	finditem ITEM_GREAT_BALL
 	goto ROUTE14_GrottoItem_1
 
-ROUTE14_GrottoItem_5:
+ROUTE14_GrottoItem_3:
 	finditem ITEM_SUPER_REPEL
-	goto ROUTE14_GrottoItem_4
+	goto ROUTE14_GrottoItem_1
+
+ROUTE14_GrottoItem_4:
+	finditem ITEM_SUPER_POTION
+	goto ROUTE14_GrottoItem_1
+
+ROUTE14_GrottoItem_5:
+	finditem ITEM_ULTRA_BALL
+	goto ROUTE14_GrottoItem_1
 
 ROUTE14_GrottoItem_6:
-	compare VAR_ROUTE14_GROTTO, 7
-	goto_if_le ROUTE14_GrottoItem_5
-	goto ROUTE14_GrottoItem_4
+	finditem ITEM_FULL_HEAL
+	goto ROUTE14_GrottoItem_1
+
+ROUTE14_GrottoItem_7:
+	finditem ITEM_HYPER_POTION
+	goto ROUTE14_GrottoItem_1
+
+ROUTE14_GrottoItem_8:
+	finditem ITEM_FIRE_STONE
+	goto ROUTE14_GrottoItem_1
+
+ROUTE14_GrottoItem_9:
+	finditem ITEM_THUNDER_STONE
+	goto ROUTE14_GrottoItem_1
 
 ROUTE14_GrottoItem_10:
-	finditem ITEM_SUPER_POTION
-	goto ROUTE14_GrottoItem_9
+	finditem ITEM_WATER_STONE
+	goto ROUTE14_GrottoItem_1
 
 ROUTE14_GrottoItem_11:
-	compare VAR_ROUTE14_GROTTO, 11
-	goto_if_le ROUTE14_GrottoItem_10
-	goto ROUTE14_GrottoItem_9
+	finditem ITEM_LEAF_STONE
+	goto ROUTE14_GrottoItem_1
 
-ROUTE14_GrottoItem_15:
-	finditem ITEM_ULTRA_BALL
-	goto ROUTE14_GrottoItem_14
+ROUTE14_GrottoItem_13:
+	compare VAR_GROTTO_3, 39
+	goto_if_le ROUTE14_GrottoItem_11
+	goto ROUTE14_GrottoItem_12
 
 ROUTE14_GrottoItem_16:
-	compare VAR_ROUTE14_GROTTO, 15
-	goto_if_le ROUTE14_GrottoItem_15
+	compare VAR_GROTTO_3, 35
+	goto_if_le ROUTE14_GrottoItem_10
 	goto ROUTE14_GrottoItem_14
 
-ROUTE14_GrottoItem_20:
-	finditem ITEM_FULL_HEAL
-	goto ROUTE14_GrottoItem_19
+ROUTE14_GrottoItem_19:
+	compare VAR_GROTTO_3, 31
+	goto_if_le ROUTE14_GrottoItem_9
+	goto ROUTE14_GrottoItem_17
 
-ROUTE14_GrottoItem_21:
-	compare VAR_ROUTE14_GROTTO, 19
-	goto_if_le ROUTE14_GrottoItem_20
-	goto ROUTE14_GrottoItem_19
+ROUTE14_GrottoItem_22:
+	compare VAR_GROTTO_3, 27
+	goto_if_le ROUTE14_GrottoItem_8
+	goto ROUTE14_GrottoItem_20
 
 ROUTE14_GrottoItem_25:
-	finditem ITEM_HYPER_POTION
-	goto ROUTE14_GrottoItem_24
+	compare VAR_GROTTO_3, 23
+	goto_if_le ROUTE14_GrottoItem_7
+	goto ROUTE14_GrottoItem_23
 
-ROUTE14_GrottoItem_26:
-	compare VAR_ROUTE14_GROTTO, 23
-	goto_if_le ROUTE14_GrottoItem_25
-	goto ROUTE14_GrottoItem_24
-
-ROUTE14_GrottoItem_30:
-	finditem ITEM_FIRE_STONE
-	goto ROUTE14_GrottoItem_29
+ROUTE14_GrottoItem_28:
+	compare VAR_GROTTO_3, 19
+	goto_if_le ROUTE14_GrottoItem_6
+	goto ROUTE14_GrottoItem_26
 
 ROUTE14_GrottoItem_31:
-	compare VAR_ROUTE14_GROTTO, 27
-	goto_if_le ROUTE14_GrottoItem_30
+	compare VAR_GROTTO_3, 15
+	goto_if_le ROUTE14_GrottoItem_5
 	goto ROUTE14_GrottoItem_29
 
-ROUTE14_GrottoItem_35:
-	finditem ITEM_THUNDER_STONE
-	goto ROUTE14_GrottoItem_34
+ROUTE14_GrottoItem_34:
+	compare VAR_GROTTO_3, 11
+	goto_if_le ROUTE14_GrottoItem_4
+	goto ROUTE14_GrottoItem_32
 
-ROUTE14_GrottoItem_36:
-	compare VAR_ROUTE14_GROTTO, 31
-	goto_if_le ROUTE14_GrottoItem_35
-	goto ROUTE14_GrottoItem_34
-
-ROUTE14_GrottoItem_40:
-	finditem ITEM_WATER_STONE
-	goto ROUTE14_GrottoItem_39
-
-ROUTE14_GrottoItem_41:
-	compare VAR_ROUTE14_GROTTO, 35
-	goto_if_le ROUTE14_GrottoItem_40
-	goto ROUTE14_GrottoItem_39
-
-ROUTE14_GrottoItem_45:
-	finditem ITEM_LEAF_STONE
-	goto ROUTE14_GrottoItem_44
-
-ROUTE14_GrottoItem_46:
-	compare VAR_ROUTE14_GROTTO, 39
-	goto_if_le ROUTE14_GrottoItem_45
-	goto ROUTE14_GrottoItem_44
+ROUTE14_GrottoItem_37:
+	compare VAR_GROTTO_3, 7
+	goto_if_le ROUTE14_GrottoItem_3
+	goto ROUTE14_GrottoItem_35
 
 
 ROUTE14_GrottoPokemon::
 	lockall
-	compare VAR_ROUTE14_GROTTO, 40
+	compare VAR_GROTTO_3, 40
 	goto_if_ge ROUTE14_GrottoPokemon_3
 ROUTE14_GrottoPokemon_1:
-	compare VAR_ROUTE14_GROTTO, 52
+	compare VAR_GROTTO_3, 55
 	goto_if_ge ROUTE14_GrottoPokemon_8
 ROUTE14_GrottoPokemon_6:
-	compare VAR_ROUTE14_GROTTO, 64
+	compare VAR_GROTTO_3, 70
 	goto_if_ge ROUTE14_GrottoPokemon_13
 ROUTE14_GrottoPokemon_11:
-	compare VAR_ROUTE14_GROTTO, 76
+	compare VAR_GROTTO_3, 85
 	goto_if_ge ROUTE14_GrottoPokemon_18
 ROUTE14_GrottoPokemon_16:
-	compare VAR_ROUTE14_GROTTO, 88
-	goto_if_ge ROUTE14_GrottoPokemon_23
-ROUTE14_GrottoPokemon_21:
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	setflag FLAG_DAILY_ROUTE14_GROTTO
+	setflag FLAG_DAILY_GROTTO_3
+	setvar VAR_GROTTO_3, 0
 	goto Common_EventScript_RemoveStaticPokemon
 	release
 	end
@@ -191,7 +191,7 @@ ROUTE14_GrottoPokemon_2:
 	goto ROUTE14_GrottoPokemon_1
 
 ROUTE14_GrottoPokemon_3:
-	compare VAR_ROUTE14_GROTTO, 51
+	compare VAR_GROTTO_3, 54
 	goto_if_le ROUTE14_GrottoPokemon_2
 	goto ROUTE14_GrottoPokemon_1
 
@@ -203,43 +203,31 @@ ROUTE14_GrottoPokemon_7:
 	goto ROUTE14_GrottoPokemon_6
 
 ROUTE14_GrottoPokemon_8:
-	compare VAR_ROUTE14_GROTTO, 63
+	compare VAR_GROTTO_3, 69
 	goto_if_le ROUTE14_GrottoPokemon_7
 	goto ROUTE14_GrottoPokemon_6
 
 ROUTE14_GrottoPokemon_12:
-	playmoncry SPECIES_TOGEPI, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_CUBCHOO, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattlelevelrange SPECIES_TOGEPI, 30, ITEM_NONE, SPECIES_NONE, 33
+	setwildbattlelevelrange SPECIES_CUBCHOO, 30, ITEM_NONE, SPECIES_NONE, 33
 	goto ROUTE14_GrottoPokemon_11
 
 ROUTE14_GrottoPokemon_13:
-	compare VAR_ROUTE14_GROTTO, 75
+	compare VAR_GROTTO_3, 84
 	goto_if_le ROUTE14_GrottoPokemon_12
 	goto ROUTE14_GrottoPokemon_11
 
 ROUTE14_GrottoPokemon_17:
-	playmoncry SPECIES_INKAY, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_SNEASEL, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattlelevelrange SPECIES_INKAY, 30, ITEM_NONE, SPECIES_NONE, 33
+	setwildbattlelevelrange SPECIES_SNEASEL, 30, ITEM_NONE, SPECIES_NONE, 33
 	goto ROUTE14_GrottoPokemon_16
 
 ROUTE14_GrottoPokemon_18:
-	compare VAR_ROUTE14_GROTTO, 87
+	compare VAR_GROTTO_3, 99
 	goto_if_le ROUTE14_GrottoPokemon_17
 	goto ROUTE14_GrottoPokemon_16
-
-ROUTE14_GrottoPokemon_22:
-	playmoncry SPECIES_DRAMPA, CRY_MODE_ENCOUNTER
-	delay 40
-	waitmoncry
-	setwildbattlelevelrange SPECIES_DRAMPA, 30, ITEM_NONE, SPECIES_NONE, 33
-	goto ROUTE14_GrottoPokemon_21
-
-ROUTE14_GrottoPokemon_23:
-	compare VAR_ROUTE14_GROTTO, 99
-	goto_if_le ROUTE14_GrottoPokemon_22
-	goto ROUTE14_GrottoPokemon_21
 

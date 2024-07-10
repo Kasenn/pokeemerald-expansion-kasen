@@ -62,16 +62,26 @@ void SetHeartScaleMove(void)
     VarSet(VAR_BPBEAUTY_STATE, 0);
 }
 
-void SetGrottoes(void)
+void SetGrottos(void)
 {
     u32 rand;
 
     rand = Random() % 100;
-    VarSet(VAR_WW_GROTTO, rand);
+    if(VarGet(VAR_GROTTO_1) == 0)
+        VarSet(VAR_GROTTO_1, rand);
     rand = Random() % 100;
-    VarSet(VAR_ROUTE7_GROTTO, rand);
+    if(VarGet(VAR_GROTTO_2) == 0)
+        VarSet(VAR_GROTTO_2, rand);
     rand = Random() % 100;
-    VarSet(VAR_ROUTE14_GROTTO, rand);
+    if(VarGet(VAR_GROTTO_3) == 0)
+        VarSet(VAR_GROTTO_3, rand);
+    rand = Random() % 100;
+    if(VarGet(VAR_GROTTO_4) == 0)
+        VarSet(VAR_GROTTO_4, rand);
+    FlagClear(FLAG_DAILY_GROTTO_2);
+    FlagClear(FLAG_DAILY_GROTTO_3);
+    FlagClear(FLAG_DAILY_GROTTO_4);
+    FlagClear(FLAG_DAILY_GROTTO_1);
 }
 
 void DisableNationalPokedex(void)

@@ -88,6 +88,7 @@
 #define MAP_SKY_PILLAR_5F                    (21 | (2 << 8))
 #define MAP_UNDERGROUND_RUINS_4F             (22 | (2 << 8))
 #define MAP_WINDPLUME_PEAK                   (23 | (2 << 8))
+#define MAP_ROUTE15_GROTTO                   (24 | (2 << 8))
 
 // gMapGroup_IndoorPearlwoodPoint
 #define MAP_LAB2                   (0 | (3 << 8))

@@ -263,6 +263,14 @@
       "elevation": 0,
       "item": "ITEM_HARD_STONE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE2_HARDSTONE"
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route2_Sign"
     }
   ]
 }

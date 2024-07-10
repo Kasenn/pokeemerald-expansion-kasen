@@ -19,8 +19,9 @@ script Skyloch_Sign2{
     end
 }
 text Skyloch_Sign2_Text{
-    "{UP_ARROW} Route 5\n"
-    "{RIGHT_ARROW} Scorched Desert\l"
+    "{UP_ARROW} Route 5 and Aldeleaf City\n"
+    "{RIGHT_ARROW} Route 6 and Scorched Desert\l"
+    "{LEFT_ARROW} Route 8 and Shoreslate City"
 }
 script Skyloch_Sign3{
     msgbox(Skyloch_Sign3_Text, MSGBOX_SIGN)

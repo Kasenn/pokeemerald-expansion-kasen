@@ -1625,7 +1625,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #endif //P_FAMILY_PIDGEY
 
 #if P_FAMILY_RATTATA
-    [SPECIES_RATTATA] =
+    [SPECIES_RATTATA_ALOLAN] =
     {
         .baseHP        = 30,
         .baseAttack    = 56,
@@ -1683,7 +1683,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_RATICATE}),
     },
 
-    [SPECIES_RATICATE] =
+    [SPECIES_RATICATE_ALOLAN] =
     {
         .baseHP        = 55,
         .baseAttack    = 81,
@@ -1741,7 +1741,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     },
 
 #if P_ALOLAN_FORMS
-    [SPECIES_RATTATA_ALOLAN] =
+    [SPECIES_RATTATA] =
     {
         .baseHP        = 30,
         .baseAttack    = 56,
@@ -1798,7 +1798,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
                                 {EVO_NONE, 0, SPECIES_RATICATE_ALOLAN_TOTEM}),
     },
 
-    [SPECIES_RATICATE_ALOLAN] =
+    [SPECIES_RATICATE] =
     {
         .baseHP        = 75,
         .baseAttack    = 71,
@@ -5323,7 +5323,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #endif //P_FAMILY_DIGLETT
 
 #if P_FAMILY_MEOWTH
-    [SPECIES_MEOWTH] =
+    [SPECIES_MEOWTH_ALOLAN] =
     {
         .baseHP        = 40,
         .baseAttack    = 45,
@@ -5380,7 +5380,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .evolutions = EVOLUTION({EVO_LEVEL, 28, SPECIES_PERSIAN}),
     },
 
-    [SPECIES_PERSIAN] =
+    [SPECIES_PERSIAN_ALOLAN] =
     {
         .baseHP        = 65,
         .baseAttack    = 70,
@@ -5436,7 +5436,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     },
 
 #if P_ALOLAN_FORMS
-    [SPECIES_MEOWTH_ALOLAN] =
+    [SPECIES_MEOWTH] =
     {
         .baseHP        = 40,
         .baseAttack    = 35,
@@ -5492,7 +5492,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .evolutions = EVOLUTION({EVO_FRIENDSHIP, 0, SPECIES_PERSIAN_ALOLAN}),
     },
 
-    [SPECIES_PERSIAN_ALOLAN] =
+    [SPECIES_PERSIAN] =
     {
         .baseHP        = 65,
         .baseAttack    = 60,
@@ -14945,7 +14945,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #endif //P_FAMILY_SNORLAX
 
 #if P_FAMILY_ARTICUNO
-    [SPECIES_ARTICUNO] =
+    [SPECIES_ARTICUNO_GALARIAN] =
     {
         .baseHP        = 90,
         .baseAttack    = 85,
@@ -15006,7 +15006,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     },
 
 #if P_GALARIAN_FORMS
-    [SPECIES_ARTICUNO_GALARIAN] =
+    [SPECIES_ARTICUNO] =
     {
         .baseHP        = 90,
         .baseAttack    = 85,
@@ -15065,7 +15065,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #endif //P_FAMILY_ARTICUNO
 
 #if P_FAMILY_ZAPDOS
-    [SPECIES_ZAPDOS] =
+    [SPECIES_ZAPDOS_GALARIAN] =
     {
         .baseHP        = 90,
         .baseAttack    = 90,
@@ -15131,7 +15131,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     },
 
 #if P_GALARIAN_FORMS
-    [SPECIES_ZAPDOS_GALARIAN] =
+    [SPECIES_ZAPDOS] =
     {
         .baseHP        = 90,
         .baseAttack    = 125,
@@ -15189,7 +15189,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #endif //P_FAMILY_ZAPDOS
 
 #if P_FAMILY_MOLTRES
-    [SPECIES_MOLTRES] =
+    [SPECIES_MOLTRES_GALARIAN] =
     {
         .baseHP        = 90,
         .baseAttack    = 100,
@@ -15250,7 +15250,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     },
 
 #if P_GALARIAN_FORMS
-    [SPECIES_MOLTRES_GALARIAN] =
+    [SPECIES_MOLTRES] =
     {
         .baseHP        = 90,
         .baseAttack    = 85,

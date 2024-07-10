@@ -217,6 +217,7 @@ Route8_ThanksForTrade::
 
 Route8_Sign_Text::
 	.string "{LEFT_ARROW} Pretty Petal flower shop\n"
+	.string "{RIGHT_ARROW} Skyloch Village\l"
 	.string "{DOWN_ARROW} Shoreslate City$"
 
 Route8_Trainer1_ParasolLady_Intro::

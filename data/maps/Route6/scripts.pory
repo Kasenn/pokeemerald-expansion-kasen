@@ -42,16 +42,16 @@ script Route6_HoneyTree{
             removeitem(ITEM_HONEY, 1)
             random(10)
             if(var(VAR_RESULT) == 0){
-                setwildbattlelevelrange(SPECIES_KOMALA, 13, ITEM_NONE, SPECIES_NONE, 17)
+                setwildbattlelevelrange(SPECIES_AIPOM, 13, ITEM_NONE, SPECIES_NONE, 17)
             }
             if(var(VAR_RESULT) == 1){
-                setwildbattlelevelrange(SPECIES_KOMALA, 13, ITEM_NONE, SPECIES_NONE, 17)
+                setwildbattlelevelrange(SPECIES_AIPOM, 13, ITEM_NONE, SPECIES_NONE, 17)
             }
             if(var(VAR_RESULT) == 2){
-                setwildbattlelevelrange(SPECIES_KOMALA, 13, ITEM_NONE, SPECIES_NONE, 17)
+                setwildbattlelevelrange(SPECIES_AIPOM, 13, ITEM_NONE, SPECIES_NONE, 17)
             }
             if(var(VAR_RESULT) == 3){
-                setwildbattlelevelrange(SPECIES_KOMALA, 13, ITEM_NONE, SPECIES_NONE, 17)
+                setwildbattlelevelrange(SPECIES_AIPOM, 13, ITEM_NONE, SPECIES_NONE, 17)
             }
             if(var(VAR_RESULT) == 4){
                 setwildbattlelevelrange(SPECIES_TEDDIURSA, 13, ITEM_NONE, SPECIES_NONE, 17)

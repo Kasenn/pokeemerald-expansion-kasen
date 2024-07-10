@@ -1005,7 +1005,7 @@ extern const u8 BattleFrontier_ExchangeServiceCorner_Text_MagmarizerDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_MetalCoatDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_PrismScaleDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_ProtectorDesc[];
-extern const u8 BattleFrontier_ExchangeServiceCorner_Text_ReaperClothDesc[];
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_OvalStoneDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_BrightPowderDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_QuickClawDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_SootheBellDesc[];

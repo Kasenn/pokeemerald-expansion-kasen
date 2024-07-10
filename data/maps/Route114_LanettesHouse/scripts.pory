@@ -164,19 +164,26 @@ script LanettesHouse_Scientist{
 script LanettesHouse_Extractinator{
     checkmoney(500)
     if((var(VAR_RESULT) == FALSE) || (var(VAR_MUD_SAMPLES) <= 2)){
+        playse(SE_SELECT)
         msgbox(Extractinator_Idle, MSGBOX_SIGN)
         end
     }
     if(!flag(FLAG_MUD_REWARD_WAITING)){
+        playse(SE_SELECT)
         msgbox(Extractinator_PickUpTreasure, MSGBOX_SIGN)
         end
     }
-
+    call(TurnExtractinatorOn)
     lock
-    showmoneybox(0, 0)
     buffernumberstring(STR_VAR_1, VAR_MUD_SAMPLES)
-    msgbox(ReadyToFabricate, MSGBOX_YESNO)
+    msgbox(ReadyToFabricate)
+    showmoneybox(0, 0)
+    msgbox(ReadyToFabricate2, MSGBOX_YESNO)
     if(var(VAR_RESULT) == FALSE){
+        playse(SE_PC_OFF)
+        delay(6)
+        setmetatile(3, 1, 0x2A1, TRUE)
+        special(DrawWholeMapView)
         hidemoneybox
         release
         end
@@ -199,8 +206,31 @@ script LanettesHouse_Extractinator{
     applymovement(2, Walk1Down)
     waitmovement(0)
     msgbox(PleaseRemoveItemFromTray)
+    delay(6)
+    setmetatile(3, 1, 0x2A1, TRUE)
+    special(DrawWholeMapView)
     release
     end
+}
+script TurnExtractinatorOn{
+    playse (SE_PC_ON)
+    delay(6)
+    setmetatile(3, 1, 0x2B1, TRUE)
+    special(DrawWholeMapView)
+    delay(6)
+    setmetatile(3, 1, 0x2A1, TRUE)
+    special(DrawWholeMapView)
+    delay(6)
+    setmetatile(3, 1, 0x2B1, TRUE)
+    special(DrawWholeMapView)
+    delay(6)
+    setmetatile(3, 1, 0x2A1, TRUE)
+    special(DrawWholeMapView)
+    delay(6)
+    delay(6)
+    setmetatile(3, 1, 0x2B1, TRUE)
+    special(DrawWholeMapView)
+    return
 }
 
 text FirstMudBall{
@@ -240,7 +270,9 @@ text BeginFabrication{
 text ReadyToFabricate{
     "It's a machine used to fabricate\n"
     "items from mud samples.\p"
-    "You have {STR_VAR_1} mud samples.\p"
+    "You have {STR_VAR_1} mud samples."
+}
+text ReadyToFabricate2{
     "Insert 3 mud samples and\n"
     "¥500 into the machine?"
 }

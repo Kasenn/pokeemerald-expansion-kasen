@@ -81,7 +81,7 @@ Aldeleaf_BPShop_ChooseHoldItem_8:
 
 Aldeleaf_BPShop_ChooseHoldItem_9:
 	setvar VAR_0x8008, 24
-	setvar VAR_0x8009, ITEM_REAPER_CLOTH
+	setvar VAR_0x8009, ITEM_OVAL_STONE
 	goto BPShop_HeldItem
 	return
 

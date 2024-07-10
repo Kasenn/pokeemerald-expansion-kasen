@@ -170,6 +170,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     {
         IncrementGameStat(GAME_STAT_STEPS);
         IncrementBirthIslandRockStepCount();
+        UpdateGrottos();
         if (TryStartStepBasedScript(&position, metatileBehavior, playerDirection) == TRUE)
             return TRUE;
     }
@@ -282,6 +283,7 @@ static bool8 TryStartInteractionScript(struct MapPosition *position, u16 metatil
      && script != Kaolisle_Gym_Switch4
      && script != LitwickChase_2
      && script != LitwickChase_3
+     && script != LanettesHouse_Extractinator
      && script != EventScript_PC)
         PlaySE(SE_SELECT);
 

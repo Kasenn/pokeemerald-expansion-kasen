@@ -696,3 +696,15 @@ text R15DefeatMoreTrainersMale{
     "Prove that you're not a weakling first\n"
     "and only then come and talk to us."
 }
+
+script Route15_Grotto_Entrance{
+    lock
+    msgbox(GoInsideGrotto, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    warp(MAP_ROUTE15_GROTTO, 6, 19)
+    waitstate
+    release
+}
