@@ -1905,6 +1905,7 @@ static void Task_NewGameBirchSpeech_StartBrotherNamingScreen(u8 taskId)
     if (!gPaletteFade.active)
     {
         FreeAllWindowBuffers();
+        NewGameBirchSpeech_SetBrotherName(1);
         FreeAndDestroyMonPicSprite(gTasks[taskId].tLotadSpriteId);
         DestroyTask(taskId);
         DoNamingScreen(NAMING_SCREEN_BROTHER, gSaveBlock3Ptr->brotherName, 0, 0, 0, CB2_NewGameBirchSpeech_ReturnFromNamingScreenBrother);
