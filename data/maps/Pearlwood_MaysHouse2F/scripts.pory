@@ -13,6 +13,7 @@ script Pearlwood_MaysHouse2F_SetRival{
 script Pearlwood_MaysHouse2F_Rival{
     lock
     if(var(VAR_PEARLWOOD_TOWN_STATE) == 2){
+        waitse
         playse(SE_PIN)
         applymovement(3, Common_Movement_ExclamationMark)
         waitmovement(0)

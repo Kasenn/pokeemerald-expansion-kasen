@@ -271,6 +271,7 @@ text ComeGetYourStoneLaterShort{
 script Lab2_Intro{
     applymovement(OBJ_EVENT_ID_PLAYER, Walk6Up)
     waitmovement(0)
+    lockall
     msgbox(Lab2_Intro_Speech)
     closemessage
     delay(20)
@@ -408,17 +409,18 @@ text Lab2_PresentingBalls{
     "Over there on the table lies three\n"
     "Poké Balls. Each of them stores\l"
     "some very rare Pokémon.\p"
-    "You may now go and choose one of them\n"
-    "as your own.\p"
-    "You may only choose one so make sure\n"
-    "you decide carefully!"
+    "You may now go and choose one of\n"
+    "them as your own.\p"
+    "You may only choose one so make\n"
+    "sure you decide carefully!"
 }
 
 script Lab2_Birch{
     lockall
     faceplayer
     if((var(VAR_PEARLWOOD_TOWN_STATE) == 13)
-    || (var(VAR_PEARLWOOD_TOWN_STATE) == 20)){
+    || (var(VAR_PEARLWOOD_TOWN_STATE) == 20)
+    || (var(VAR_PEARLWOOD_TOWN_STATE) == 9)){
         call(ProfBirch_EventScript_RatePokedexOrRegister)
         end
     }
@@ -489,7 +491,9 @@ script Lab_BallMain{
         end
     }
     lock
+    playmoncry(VAR_TEMP_3, CRY_MODE_NORMAL)
     showmonpic(VAR_TEMP_3, 10, 3)
+    waitmoncry
     bufferspeciesname(STR_VAR_1, VAR_TEMP_3)
     msgbox("Do you want to choose {STR_VAR_1}?", MSGBOX_YESNO)
     if(var(VAR_RESULT) == FALSE){

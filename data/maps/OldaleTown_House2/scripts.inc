@@ -35,7 +35,7 @@ NectarManiac_5:
 	playse SE_PIN
 	applymovement 1, Common_Movement_ExclamationMark
 	waitmovement 0
-	delay 40
+	delay 48
 	msgbox NectarManiac_OricorioFound, MSGBOX_NPC
 	setvar VAR_NECTAR_MANIAC_HOUSE, 1
 	goto NectarManiac_4

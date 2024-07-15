@@ -27,6 +27,7 @@ Pearlwood_MaysHouse2F_Rival_1:
 	return
 
 Pearlwood_MaysHouse2F_Rival_2:
+	waitse
 	playse SE_PIN
 	applymovement 3, Common_Movement_ExclamationMark
 	waitmovement 0

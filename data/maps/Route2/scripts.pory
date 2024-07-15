@@ -65,11 +65,12 @@ text Route2_Text_LassIntro{
 }
 
 text Route2_Text_LassDefeated{
-    "My little babies!"
+    "My little baby!"
 }
 
 text Route2_Text_LassPostBattle{
-    "I guess there's more to\nPokémon battles than cuteness."
+    "You're mean! You didn't\n"
+    "have to battle so seriously!"
 }
 
 script Route2_BlackBelt{

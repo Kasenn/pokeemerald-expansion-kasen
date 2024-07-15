@@ -276,23 +276,6 @@ PlayerHouse1F_MomGoodbye_Text::
 	.string "If your Pokémon ever get hurt,\n"
 	.string "come see me and I'll help patch them up.$"
 
-PlayerHouse1F_Apology::
-	.string "{BROTHER}: Sorry about that.\n"
-	.string "I knew that with my experience it was\l"
-	.string "going to be an unfair fight.\p"
-	.string "I hope you don't take that loss too\n"
-	.string "seriously…\p"
-	.string "Anyway, have you thought about what\n"
-	.string "you're going to do next?\p"
-	.string "If you're up for it, we should totally\n"
-	.string "see which of us is the better trainer\l"
-	.string "by taking on the Pokémon Gym Challenge!\p"
-	.string "Our neighbor {RIVAL} just set out so we\n"
-	.string "better get moving or we'll fall behind!\p"
-	.string "Don't know about you but I'm not\n"
-	.string "content with a second place.\p"
-	.string "Catch ya later!$"
-
 GiftFromDad::
 	.string "Dad: Hm?\p"
 	.string "Well, if it isn't {PLAYER}!\p"

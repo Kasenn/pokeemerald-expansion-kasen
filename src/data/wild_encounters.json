@@ -12309,7 +12309,7 @@
               {
                 "min_level": 4,
                 "max_level": 6,
-                "species": "SPECIES_PIDGEY"
+                "species": "SPECIES_STARLY"
               },
               {
                 "min_level": 4,
@@ -12542,7 +12542,7 @@
               {
                 "min_level": 3,
                 "max_level": 4,
-                "species": "SPECIES_BIDOOF"
+                "species": "SPECIES_STARLY"
               },
               {
                 "min_level": 3,
@@ -13198,7 +13198,7 @@
                 "species": "SPECIES_MUDBRAY"
               },
               {
-                "min_level": 8,
+                "min_level": 9,
                 "max_level": 11,
                 "species": "SPECIES_SPEWPA"
               },
@@ -13213,7 +13213,7 @@
                 "species": "SPECIES_PHANTUMP"
               },
               {
-                "min_level": 8,
+                "min_level": 9,
                 "max_level": 11,
                 "species": "SPECIES_SPEWPA"
               }

@@ -136,10 +136,11 @@ Route2_Text_LassIntro::
 	.string "Behold the power of fairy!$"
 
 Route2_Text_LassDefeated::
-	.string "My little babies!$"
+	.string "My little baby!$"
 
 Route2_Text_LassPostBattle::
-	.string "I guess there's more to\nPokémon battles than cuteness.$"
+	.string "You're mean! You didn't\n"
+	.string "have to battle so seriously!$"
 
 Route2_Text_BlackBeltIntro::
 	.string "You are getting in the way\nof my training regimen!$"

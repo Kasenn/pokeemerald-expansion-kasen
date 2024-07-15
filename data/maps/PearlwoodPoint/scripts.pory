@@ -102,10 +102,11 @@ text BrotherFightIntro{
 text Pearlwood_Brother_Intro{
     "Let's see if it's any good\n"
     "in a Pokémon battle!\p"
-    "Oh, don't worry. I won't use the same\n"
-    "Pokémon I used during my fight against\l"
+    "Oh, don't worry.\p"
+    "I won't use the same Pokémon I\n"
+    "used during my fight against\l"
     "the Kanto Pokémon League.\p"
-    "That would be simply unfair.\p"
+    "That would be simply too unfair.\p"
     "However, don't expect any mercy from\n"
     "me either!"
 }
@@ -115,10 +116,41 @@ text Pearlwood_Brother_Outro{
 }
 
 script PearlwoodWon{
+    // switch(var(VAR_RESULT)){
+    //     case B_OUTCOME_WON:
+    //         msgbox("Won")
+    //     case B_OUTCOME_LOST:
+    //         msgbox("Lost")
+    //     case B_OUTCOME_DREW:
+    //         msgbox("Drew")
+    //     case B_OUTCOME_RAN:
+    //         msgbox("Ran")
+    //     case B_OUTCOME_PLAYER_TELEPORTED:
+    //         msgbox("Player teleported")
+    //     case B_OUTCOME_MON_FLED:
+    //         msgbox("Fled")
+    //     case B_OUTCOME_CAUGHT:
+    //         msgbox("Caught")
+    //     case B_OUTCOME_NO_SAFARI_BALLS:
+    //         msgbox("No safari balls")
+    //     case B_OUTCOME_FORFEITED:
+    //         msgbox("Forfeited")
+    //     case B_OUTCOME_MON_TELEPORTED:
+    //         msgbox("Mon teleported")
+    //     case B_OUTCOME_LINK_BATTLE_RAN:
+    //         msgbox("Link battle ran")
+    // }
     if(var(VAR_RESULT) == B_OUTCOME_WON){
         msgbox(PearlwoodBrotherPrize)
     }
 	else{
+        checkplayergender
+        if(var(VAR_RESULT) == MALE){
+            bufferstring(STR_VAR_1, "she")
+        }
+        else{
+            bufferstring(STR_VAR_1, "he")
+        }
         msgbox(PlayerHouse1F_Apology)
     }
     closemessage
@@ -128,7 +160,30 @@ script PearlwoodWon{
 	waitmovement(0)
     removeobject(3)
     setvar(VAR_PEARLWOOD_TOWN_STATE, 6)
+    delay(30)
 	release
+}
+
+text PlayerHouse1F_Apology{
+    "{BROTHER}: Sorry about that.\n"
+    "I knew that with my experience it was\l"
+    "going to be an unfair fight.\p"
+    "I hope you don't take that loss\n"
+    "too seriously…\p"
+    "Anyway, have you thought about\n"
+    "what you're going to do next?\p"
+    "I talked with our neighbor {RIVAL}\n"
+    "and {STR_VAR_1} mentioned {STR_VAR_1} was going to\l"
+    "take on the Pokémon Gym Challenge.\p"
+    "We should take part on the challenge\n"
+    "as well and see which of us three\l"
+    "is the best trainer!\p"
+    "{RIVAL} set out just a few moments\n"
+    "ago, so we better get moving as well\l"
+    "or we'll fall behind!\p"
+    "Don't know about you but I'm not\n"
+    "content with a second place.\p"
+    "Catch ya later!"
 }
 
 text PearlwoodBrotherPrize{

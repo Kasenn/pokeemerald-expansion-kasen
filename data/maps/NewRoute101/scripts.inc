@@ -175,7 +175,7 @@ Route1_CoolTrainer_Text_1:
 	.string "I'm looking for strong trainers.\nOnly the best of the best will suffice.$"
 
 Route1_CoolTrainerEligible_Text_0:
-	.string "I see you've defeated all\nthe other trainers in this area.\pThat means you are a very strong trainer.\pWould you be interested in\na Pokémon Battle?\pI warn you, I'm no pushover.$"
+	.string "I see you've defeated all\nthe other trainers in this area.\pThat means you are a very\nstrong trainer.\pWould you be interested in\na Pokémon Battle?\pI warn you, I'm no pushover.$"
 
 Route1_CoolTrainerEligible_Text_1:
 	.string "Let's do this!$"

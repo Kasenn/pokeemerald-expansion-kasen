@@ -284,9 +284,10 @@ AzureTide_MysteryWoman::
 AzureTide_MysteryWoman_1:
 	compare VAR_RESULT, FALSE
 	goto_if_eq AzureTide_MysteryWoman_6
-	goto_if_set FLAG_BADGE03_GET, AzureTide_MysteryWoman_10
-	goto_if_set FLAG_BADGE02_GET, AzureTide_MysteryWoman_13
-	goto_if_set FLAG_BADGE01_GET, AzureTide_MysteryWoman_15
+	goto_if_set FLAG_BADGE04_GET, AzureTide_MysteryWoman_10
+	goto_if_set FLAG_BADGE03_GET, AzureTide_MysteryWoman_13
+	goto_if_set FLAG_BADGE02_GET, AzureTide_MysteryWoman_16
+	goto_if_set FLAG_BADGE01_GET, AzureTide_MysteryWoman_18
 	end
 
 AzureTide_MysteryWoman_2:
@@ -301,16 +302,21 @@ AzureTide_MysteryWoman_6:
 	end
 
 AzureTide_MysteryWoman_10:
-	msgbox AzureTide_MysteryWoman_3Badges, MSGBOX_NPC
+	msgbox AzureTide_MysteryWoman_Get6Badges, MSGBOX_NPC
 	turnobject 7, DIR_WEST
 	end
 
 AzureTide_MysteryWoman_13:
+	msgbox AzureTide_MysteryWoman_3Badges, MSGBOX_NPC
+	turnobject 7, DIR_WEST
+	end
+
+AzureTide_MysteryWoman_16:
 	msgbox AzureTide_MysteryWoman_2Badges, MSGBOX_NPC
 	turnobject 7, DIR_WEST
 	end
 
-AzureTide_MysteryWoman_15:
+AzureTide_MysteryWoman_18:
 	msgbox AzureTide_MysteryWoman_1Badges, MSGBOX_NPC
 	turnobject 7, DIR_WEST
 	end
@@ -631,9 +637,16 @@ AzureTide_MysteryWoman_TextShort::
 	.string "You're back. Care for\n"
 	.string "a little bout?$"
 
+AzureTide_MysteryWoman_Get6Badges::
+	.string "I know you're probably curious to see\n"
+	.string "just how strong of a trainer I am.\p"
+	.string "However, to even stand a chance\n"
+	.string "against me, I'd say you need\l"
+	.string "around 6 badges!$"
+
 AzureTide_MysteryWoman_3Badges::
 	.string "Actually, I think we may have to\n"
-	.string "postpone the battle.\l"
+	.string "postpone the battle.\p"
 	.string "You only have 3 Gym Badges and\n"
 	.string "I'm a pretty strong trainer.\p"
 	.string "Get a couple more and then\n"
@@ -653,7 +666,7 @@ AzureTide_MysteryWoman_1Badges::
 	.string "you probably only have a single\l"
 	.string "Gym Badge.\p"
 	.string "I'm a pretty strong trainer so you\n"
-	.string "should work on getting some more Badges\n"
+	.string "should work on getting more Badges\l"
 	.string "before taking on my challenge.$"
 
 YesPokemonTreeShake::

@@ -1544,7 +1544,7 @@ static const struct LevelUpMove sArcanineHisuianLevelUpLearnset[] = {
 #if P_FAMILY_POLIWAG
 static const struct LevelUpMove sPoliwagLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_WATER_SPORT),
-    LEVEL_UP_MOVE( 5, MOVE_WATER_GUN),
+    LEVEL_UP_MOVE( 4, MOVE_WATER_GUN),
     LEVEL_UP_MOVE( 8, MOVE_HYPNOSIS),
     LEVEL_UP_MOVE(11, MOVE_BUBBLE),
     LEVEL_UP_MOVE(15, MOVE_DOUBLE_SLAP),

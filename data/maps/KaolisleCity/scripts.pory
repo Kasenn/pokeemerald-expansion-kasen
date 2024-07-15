@@ -227,7 +227,10 @@ script KaolisleCity_MysteryMan{
         setflag(FLAG_TEMP_4)
         end
     }
-    if(flag(FLAG_BADGE03_GET)){
+    if(flag(FLAG_BADGE04_GET)){
+        msgbox(KaolisleCity_MysteryMan_4Badges, MSGBOX_NPC)
+    }
+    elif(flag(FLAG_BADGE03_GET)){
         msgbox(KaolisleCity_MysteryMan_3Badges, MSGBOX_NPC)
     }
     else{
@@ -275,6 +278,12 @@ text KaolisleCity_MysteryMan_3Badges{
     "I don't think this would be a fair match.\p"
     "It's a good start but I would recommend\n"
     "you get a couple more first."
+}
+text KaolisleCity_MysteryMan_4Badges{
+    "Hm…\p"
+    "You seem pretty strong, but I would\n"
+    "suggest you get at least 6 badges\l"
+    "before trying to challenge me."
 }
 
 script KaolisleCity_ExpertM{

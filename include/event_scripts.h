@@ -580,6 +580,9 @@ extern const u8 Kaolisle_Gym_Switch3[];
 extern const u8 Kaolisle_Gym_Switch4[];
 extern const u8 LitwickChase_2[];
 extern const u8 LitwickChase_3[];
+extern const u8 Lab2_Ball1[];
+extern const u8 Lab2_Ball2[];
+extern const u8 Lab2_Ball3[];
 extern const u8 LanettesHouse_Extractinator[];
 
 // Battle Pyramid.

@@ -304,6 +304,11 @@ script AzureTide_MysteryWoman{
         end
     }
     else{
+        if(flag(FLAG_BADGE04_GET)){
+            msgbox(AzureTide_MysteryWoman_Get6Badges, MSGBOX_NPC)
+            turnobject(7, DIR_WEST)
+            end
+        }
         if(flag(FLAG_BADGE03_GET)){
             msgbox(AzureTide_MysteryWoman_3Badges, MSGBOX_NPC)
             turnobject(7, DIR_WEST)
@@ -352,9 +357,16 @@ text AzureTide_MysteryWoman_TextShort{
     "You're back. Care for\n"
     "a little bout?"
 }
+text AzureTide_MysteryWoman_Get6Badges{
+    "I know you're probably curious to see\n"
+    "just how strong of a trainer I am.\p"
+    "However, to even stand a chance\n"
+    "against me, I'd say you need\l"
+    "around 6 badges!"
+}
 text AzureTide_MysteryWoman_3Badges{
     "Actually, I think we may have to\n"
-    "postpone the battle.\l"
+    "postpone the battle.\p"
     "You only have 3 Gym Badges and\n"
     "I'm a pretty strong trainer.\p"
     "Get a couple more and then\n"
@@ -374,7 +386,7 @@ text AzureTide_MysteryWoman_1Badges{
     "you probably only have a single\l"
     "Gym Badge.\p"
     "I'm a pretty strong trainer so you\n"
-    "should work on getting some more Badges\n"
+    "should work on getting more Badges\l"
     "before taking on my challenge."
 }
 

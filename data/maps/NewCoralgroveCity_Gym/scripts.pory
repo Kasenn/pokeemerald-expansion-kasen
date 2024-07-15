@@ -16,7 +16,7 @@ script NewCoralgroveCity_Gym_Aaron_Talk{
 		msgbox("Ah, a new challenger.\pGo stand on the other side of\nthe arena and we may begin." MSGBOX_DEFAULT)
 		waitmessage
 		closemessage
-		turnobject(9, DIR_WEST)
+		turnobject(1, DIR_WEST)
 		release
 		end
 	}
@@ -25,7 +25,7 @@ script NewCoralgroveCity_Gym_EventScript_Aaron{
 	lockall
 	delay(10)
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
-	turnobject(9, DIR_WEST)
+	turnobject(1, DIR_WEST)
 	special(SpawnCameraObject)
 	applymovement(OBJ_EVENT_ID_CAMERA, Walk3Right)
 	waitmovement(0)
@@ -82,12 +82,12 @@ script NewCoralgroveCity_Gym_EventScript_Maniac{
 	end
 }
 script NewCoralgroveCity_Gym_EventScript_Lass{
-	trainerbattle_single(TRAINER_FOSTER, NewCoralgroveCity_Gym_Text_LassIntro, NewCoralgroveCity_Gym_Text_LassDefeat)
+	trainerbattle_single(TRAINER_DUSTY_2, NewCoralgroveCity_Gym_Text_LassIntro, NewCoralgroveCity_Gym_Text_LassDefeat)
 	msgbox(NewCoralgroveCity_Gym_Text_LassPostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
 script NewCoralgroveCity_Gym_EventScript_NinjaBoy{
-	trainerbattle_single(TRAINER_DUSTY_2, NewCoralgroveCity_Gym_Text_NinjaBoyIntro, NewCoralgroveCity_Gym_Text_NinjaBoyDefeat)
+	trainerbattle_single(TRAINER_FOSTER, NewCoralgroveCity_Gym_Text_NinjaBoyIntro, NewCoralgroveCity_Gym_Text_NinjaBoyDefeat)
 	msgbox(NewCoralgroveCity_Gym_Text_NinjaBoyPostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
@@ -263,10 +263,11 @@ text NewCoralgroveCity_Gym_Text_AaronIntro{
 	"I'm a huge fan of bug Pokémon.\p"
 	"Bug Pokémon are nasty-mean,\n"
 	"and yet they're beautiful too.\p"
-	"I became a gym leader so that I could\n"
-	"take on challengers and become perfect,\l"
-	"just like my bug Pokémon!\p"
-	"OK! Let me take you on!"
+	"I became a gym leader so that\n"
+	"I could take on challengers and\l"
+	"become perfect, just like my bugs!\p"
+	"OK! Without further ado,\n"
+	"let me take you on!"
 }
 text NewCoralgroveCity_Gym_Text_AaronDefeat{
 	"So…\n"

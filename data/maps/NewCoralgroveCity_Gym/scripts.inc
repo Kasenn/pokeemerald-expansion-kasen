@@ -9,7 +9,7 @@ NewCoralgroveCity_Gym_Aaron_Talk::
 	msgbox NewCoralgroveCity_Gym_Aaron_Talk_Text_0
 	waitmessage
 	closemessage
-	turnobject 9, DIR_WEST
+	turnobject 1, DIR_WEST
 	release
 	end
 
@@ -27,7 +27,7 @@ NewCoralgroveCity_Gym_EventScript_Aaron::
 	lockall
 	delay 10
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
-	turnobject 9, DIR_WEST
+	turnobject 1, DIR_WEST
 	special SpawnCameraObject
 	applymovement OBJ_EVENT_ID_CAMERA, Walk3Right
 	waitmovement 0
@@ -55,7 +55,6 @@ NewCoralgroveCity_Gym_EventScript_AaronDefeated::
 	setflag FLAG_BADGE01_GET
 	setvar VAR_RUSTBORO_CITY_STATE, 1
 	setvar VAR_BADGES_OBTAINED, 1
-	addvar VAR_UNUSED_VAR, 1
 	setvar VAR_0x8008, 1
 	call Common_EventScript_SetGymTrainers
 	special RemoveCameraObject
@@ -79,13 +78,13 @@ NewCoralgroveCity_Gym_EventScript_Maniac::
 
 
 NewCoralgroveCity_Gym_EventScript_Lass::
-	trainerbattle_single TRAINER_FOSTER, NewCoralgroveCity_Gym_Text_LassIntro, NewCoralgroveCity_Gym_Text_LassDefeat
+	trainerbattle_single TRAINER_DUSTY_2, NewCoralgroveCity_Gym_Text_LassIntro, NewCoralgroveCity_Gym_Text_LassDefeat
 	msgbox NewCoralgroveCity_Gym_Text_LassPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 NewCoralgroveCity_Gym_EventScript_NinjaBoy::
-	trainerbattle_single TRAINER_DUSTY_2, NewCoralgroveCity_Gym_Text_NinjaBoyIntro, NewCoralgroveCity_Gym_Text_NinjaBoyDefeat
+	trainerbattle_single TRAINER_FOSTER, NewCoralgroveCity_Gym_Text_NinjaBoyIntro, NewCoralgroveCity_Gym_Text_NinjaBoyDefeat
 	msgbox NewCoralgroveCity_Gym_Text_NinjaBoyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -258,10 +257,11 @@ NewCoralgroveCity_Gym_Text_AaronIntro::
 	.string "I'm a huge fan of bug Pokémon.\p"
 	.string "Bug Pokémon are nasty-mean,\n"
 	.string "and yet they're beautiful too.\p"
-	.string "I became a gym leader so that I could\n"
-	.string "take on challengers and become perfect,\l"
-	.string "just like my bug Pokémon!\p"
-	.string "OK! Let me take you on!$"
+	.string "I became a gym leader so that\n"
+	.string "I could take on challengers and\l"
+	.string "become perfect, just like my bugs!\p"
+	.string "OK! Without further ado,\n"
+	.string "let me take you on!$"
 
 NewCoralgroveCity_Gym_Text_AaronDefeat::
 	.string "So…\n"

@@ -105,6 +105,11 @@ Pearlwood_BrotherFightMain_8:
 PearlwoodWon::
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq PearlwoodWon_2
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq PearlwoodWon_6
+	bufferstring STR_VAR_1, PearlwoodWon_Text_1
+PearlwoodWon_5:
 	msgbox PlayerHouse1F_Apology
 PearlwoodWon_1:
 	closemessage
@@ -114,12 +119,17 @@ PearlwoodWon_1:
 	waitmovement 0
 	removeobject 3
 	setvar VAR_PEARLWOOD_TOWN_STATE, 6
+	delay 30
 	release
 	return
 
 PearlwoodWon_2:
 	msgbox PearlwoodBrotherPrize
 	goto PearlwoodWon_1
+
+PearlwoodWon_6:
+	bufferstring STR_VAR_1, PearlwoodWon_Text_0
+	goto PearlwoodWon_5
 
 
 Pearlwood_Point_FatMan::
@@ -140,6 +150,12 @@ Pearlwood_Sign::
 
 Pearlwood_BrotherFightMain_Text_0:
 	.string "???: {PLAYER}!$"
+
+PearlwoodWon_Text_0:
+	.string "she$"
+
+PearlwoodWon_Text_1:
+	.string "he$"
 
 Pearlwood_Point_WatchOut::
 	.string "Wait!$"
@@ -162,15 +178,37 @@ BrotherFightIntro::
 Pearlwood_Brother_Intro::
 	.string "Let's see if it's any good\n"
 	.string "in a Pokémon battle!\p"
-	.string "Oh, don't worry. I won't use the same\n"
-	.string "Pokémon I used during my fight against\l"
+	.string "Oh, don't worry.\p"
+	.string "I won't use the same Pokémon I\n"
+	.string "used during my fight against\l"
 	.string "the Kanto Pokémon League.\p"
-	.string "That would be simply unfair.\p"
+	.string "That would be simply too unfair.\p"
 	.string "However, don't expect any mercy from\n"
 	.string "me either!$"
 
 Pearlwood_Brother_Outro::
 	.string "Of course you picked THAT one!$"
+
+PlayerHouse1F_Apology::
+	.string "{BROTHER}: Sorry about that.\n"
+	.string "I knew that with my experience it was\l"
+	.string "going to be an unfair fight.\p"
+	.string "I hope you don't take that loss\n"
+	.string "too seriously…\p"
+	.string "Anyway, have you thought about\n"
+	.string "what you're going to do next?\p"
+	.string "I talked with our neighbor {RIVAL}\n"
+	.string "and {STR_VAR_1} mentioned {STR_VAR_1} was going to\l"
+	.string "take on the Pokémon Gym Challenge.\p"
+	.string "We should take part on the challenge\n"
+	.string "as well and see which of us three\l"
+	.string "is the best trainer!\p"
+	.string "{RIVAL} set out just a few moments\n"
+	.string "ago, so we better get moving as well\l"
+	.string "or we'll fall behind!\p"
+	.string "Don't know about you but I'm not\n"
+	.string "content with a second place.\p"
+	.string "Catch ya later!$"
 
 PearlwoodBrotherPrize::
 	.string "Hmph… I guess I should not\n"

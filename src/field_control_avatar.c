@@ -283,6 +283,9 @@ static bool8 TryStartInteractionScript(struct MapPosition *position, u16 metatil
      && script != Kaolisle_Gym_Switch4
      && script != LitwickChase_2
      && script != LitwickChase_3
+     && script != Lab2_Ball1
+     && script != Lab2_Ball2
+     && script != Lab2_Ball3
      && script != LanettesHouse_Extractinator
      && script != EventScript_PC)
         PlaySE(SE_SELECT);

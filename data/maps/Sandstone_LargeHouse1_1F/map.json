@@ -2,7 +2,7 @@
   "id": "MAP_SANDSTONE_LARGE_HOUSE1_1F",
   "name": "Sandstone_LargeHouse1_1F",
   "layout": "LAYOUT_SANDSTONE_LARGE_HOUSE1_1F",
-  "music": "MUS_RUSTBORO",
+  "music": "MUS_PETALBURG",
   "region_map_section": "MAPSEC_SANDSTONE_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

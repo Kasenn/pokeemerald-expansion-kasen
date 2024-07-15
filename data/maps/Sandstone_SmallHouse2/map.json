@@ -2,7 +2,7 @@
   "id": "MAP_SANDSTONE_SMALL_HOUSE2",
   "name": "Sandstone_SmallHouse2",
   "layout": "LAYOUT_SANDSTONE_SMALL_HOUSE2",
-  "music": "MUS_RUSTBORO",
+  "music": "MUS_PETALBURG",
   "region_map_section": "MAPSEC_SANDSTONE_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

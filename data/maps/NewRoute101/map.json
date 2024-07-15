@@ -129,7 +129,7 @@
       "x": 28,
       "y": 21,
       "elevation": 0,
-      "item": "ITEM_SUPER_POTION",
+      "item": "ITEM_POTION",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE1_SUPERPOTION"
     },
     {

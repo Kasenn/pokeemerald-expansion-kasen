@@ -99,7 +99,7 @@ script Route1_CoolTrainerEligible{
     faceplayer
     if(!flag(FLAG_ROUTE1_COOLTRAINER)){
         setflag(FLAG_ROUTE1_COOLTRAINER)
-        msgbox("I see you've defeated all\nthe other trainers in this area.\pThat means you are a very strong trainer.\pWould you be interested in\na Pokémon Battle?\pI warn you, I'm no pushover.", MSGBOX_YESNO)
+        msgbox("I see you've defeated all\nthe other trainers in this area.\pThat means you are a very\nstrong trainer.\pWould you be interested in\na Pokémon Battle?\pI warn you, I'm no pushover.", MSGBOX_YESNO)
         if(var(VAR_RESULT) == YES){
             msgbox("Let's do this!")
             trainerbattle_no_intro(TRAINER_GRUNT_MUSEUM_1, Route1_Text_CoolTrainerDefeated)

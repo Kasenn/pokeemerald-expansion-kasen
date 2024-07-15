@@ -7731,17 +7731,12 @@ static void Cmd_getmoneyreward(void)
     if (gBattleOutcome == B_OUTCOME_WON)
     {
         money = GetTrainerMoneyToGive(gTrainerBattleOpponent_A);
-        if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
-            money += GetTrainerMoneyToGive(gTrainerBattleOpponent_B);
-
         battlePoints = money / 500;
-        if (!(gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS))
-        {
-            if (battlePoints > 3)
-                battlePoints = 3;
-        }
-        else if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
-        {
+        if (battlePoints > 3)
+            battlePoints = 3;
+        if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS){
+            money += GetTrainerMoneyToGive(gTrainerBattleOpponent_B);
+            battlePoints += (GetTrainerMoneyToGive(gTrainerBattleOpponent_B) / 500);
             if (battlePoints > 6)
                 battlePoints = 6;
         }
@@ -7776,7 +7771,6 @@ static void Cmd_getmoneyreward(void)
             money = 0;
         }
         RemoveMoney(&gSaveBlock1Ptr->money, money);
-        RemoveBagItem(ITEM_CURRY, 1);
     }
     
     // Prepare the money earned text for display

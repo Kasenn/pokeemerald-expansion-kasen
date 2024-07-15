@@ -185,6 +185,7 @@ TurnPlayer:
 Lab2_Intro::
 	applymovement OBJ_EVENT_ID_PLAYER, Walk6Up
 	waitmovement 0
+	lockall
 	msgbox Lab2_Intro_Speech
 	closemessage
 	delay 20
@@ -320,15 +321,17 @@ Lab2_Birch::
 	goto_if_eq Lab2_Birch_2
 	compare VAR_PEARLWOOD_TOWN_STATE, 20
 	goto_if_eq Lab2_Birch_2
+	compare VAR_PEARLWOOD_TOWN_STATE, 9
+	goto_if_eq Lab2_Birch_2
 	compare VAR_PEARLWOOD_TOWN_STATE, 12
-	goto_if_eq Lab2_Birch_7
+	goto_if_eq Lab2_Birch_9
 	compare VAR_PEARLWOOD_TOWN_STATE, 11
-	goto_if_eq Lab2_Birch_10
+	goto_if_eq Lab2_Birch_12
 	compare VAR_PEARLWOOD_TOWN_STATE, 16
-	goto_if_eq Lab2_Birch_10
-	goto_if_unset FLAG_SYS_POKEMON_GET, Lab2_Birch_18
+	goto_if_eq Lab2_Birch_12
+	goto_if_unset FLAG_SYS_POKEMON_GET, Lab2_Birch_20
 	msgbox Lab2_Birch_Text_1
-Lab2_Birch_17:
+Lab2_Birch_19:
 	waitmessage
 	release
 	end
@@ -337,57 +340,57 @@ Lab2_Birch_2:
 	call ProfBirch_EventScript_RatePokedexOrRegister
 	end
 
-Lab2_Birch_7:
-	goto_if_set FLAG_RECEIVED_CAPSULE, Lab2_Birch_15
+Lab2_Birch_9:
+	goto_if_set FLAG_RECEIVED_CAPSULE, Lab2_Birch_17
 	msgbox YourFatherIsInTown, MSGBOX_NPC
 	end
 
-Lab2_Birch_10:
+Lab2_Birch_12:
 	msgbox HeresYourStoneNow
 	closemessage
 	checkitemspace ITEM_DECIDUEITE
 	compare VAR_RESULT, FALSE
-	goto_if_eq Lab2_Birch_21
+	goto_if_eq Lab2_Birch_23
 	switch VAR_STARTER_MON
-	case 0, Lab2_Birch_26
-	case 1, Lab2_Birch_27
-	case 2, Lab2_Birch_28
-Lab2_Birch_24:
+	case 0, Lab2_Birch_28
+	case 1, Lab2_Birch_29
+	case 2, Lab2_Birch_30
+Lab2_Birch_26:
 	compare VAR_PEARLWOOD_TOWN_STATE, 16
-	goto_if_eq Lab2_Birch_30
+	goto_if_eq Lab2_Birch_32
 	setvar VAR_PEARLWOOD_TOWN_STATE, 12
-Lab2_Birch_29:
+Lab2_Birch_31:
 	waitse
 	release
 	end
 
-Lab2_Birch_15:
+Lab2_Birch_17:
 	call ProfBirch_EventScript_RatePokedexOrRegister
 	end
 
-Lab2_Birch_18:
+Lab2_Birch_20:
 	msgbox Lab2_Birch_Text_0
-	goto Lab2_Birch_17
+	goto Lab2_Birch_19
 
-Lab2_Birch_21:
+Lab2_Birch_23:
 	msgbox ComeGetYourStoneLaterShort, MSGBOX_NPC
 	end
 
-Lab2_Birch_26:
-	giveitem ITEM_DECIDUEITE
-	goto Lab2_Birch_24
-
-Lab2_Birch_27:
-	giveitem ITEM_BLAZIKENITE
-	goto Lab2_Birch_24
-
 Lab2_Birch_28:
-	giveitem ITEM_EMPOLEONITE
-	goto Lab2_Birch_24
+	giveitem ITEM_DECIDUEITE
+	goto Lab2_Birch_26
+
+Lab2_Birch_29:
+	giveitem ITEM_BLAZIKENITE
+	goto Lab2_Birch_26
 
 Lab2_Birch_30:
+	giveitem ITEM_EMPOLEONITE
+	goto Lab2_Birch_26
+
+Lab2_Birch_32:
 	setvar VAR_PEARLWOOD_TOWN_STATE, 20
-	goto Lab2_Birch_29
+	goto Lab2_Birch_31
 
 
 Lab2_Ball1::
@@ -411,7 +414,9 @@ Lab2_Ball3::
 Lab_BallMain::
 	goto_if_set FLAG_SYS_POKEMON_GET, Lab_BallMain_2
 	lock
+	playmoncry VAR_TEMP_3, CRY_MODE_NORMAL
 	showmonpic VAR_TEMP_3, 10, 3
+	waitmoncry
 	bufferspeciesname STR_VAR_1, VAR_TEMP_3
 	msgbox Lab_BallMain_Text_1, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
@@ -693,10 +698,10 @@ Lab2_PresentingBalls::
 	.string "Over there on the table lies three\n"
 	.string "Poké Balls. Each of them stores\l"
 	.string "some very rare Pokémon.\p"
-	.string "You may now go and choose one of them\n"
-	.string "as your own.\p"
-	.string "You may only choose one so make sure\n"
-	.string "you decide carefully!$"
+	.string "You may now go and choose one of\n"
+	.string "them as your own.\p"
+	.string "You may only choose one so make\n"
+	.string "sure you decide carefully!$"
 
 Lab2_NotChosen::
 	.string "Take your time.$"

@@ -1,6 +1,10 @@
 mapscripts Pearlwood_House3_MapScripts{}
 
 script Pearlwood_House3_OldGuy{
+    if(!flag(FLAG_SYS_POKEMON_GET)){
+        msgbox(GetYourPokemon, MSGBOX_NPC)
+        end
+    }
     if(!flag(FLAG_PEARLWOOD_POTION_SAMPLE)){
         lock
         faceplayer
@@ -23,4 +27,12 @@ text Pearlwood_Potion_Given{
     "A potion can be used anytime, so it's\n"
     "even more useful than a Pokémon Center\l"
     "in certain situations."
+}
+text GetYourPokemon{
+    "Oh?\p"
+    "You look like the age where you're\n"
+    "supposed to get your first Pokémon.\p"
+    "If you're looking for the Professor's\n"
+    "lab, you can find it on the opposite\l"
+    "end of the town."
 }

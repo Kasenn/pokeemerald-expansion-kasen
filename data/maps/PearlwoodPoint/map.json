@@ -188,14 +188,6 @@
   ],
   "bg_events": [
     {
-      "type": "hidden_item",
-      "x": 29,
-      "y": 26,
-      "elevation": 0,
-      "item": "ITEM_POTION",
-      "flag": "FLAG_HIDDEN_ITEM_PEARLWOOD_POTION"
-    },
-    {
       "type": "sign",
       "x": 8,
       "y": 11,
