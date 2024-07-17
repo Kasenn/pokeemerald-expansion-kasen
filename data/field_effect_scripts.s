@@ -77,8 +77,9 @@ gFieldEffectScriptPointers::
 	.4byte gFldEffScript_XIcon                          @ FLDEFF_X_ICON
 	.4byte gFldEffScript_DoubleExclMarkIcon             @ FLDEFF_DOUBLE_EXCL_MARK_ICON
 	.4byte gFieldEffectScript_TallGrassAutumn           @ FLDEFF_TALL_GRASS_AUTUMN
-	.4byte gFieldEffectScript_MudFootprints        @ FLDEFF_MUD_FOOTPRINTS
-	.4byte gFieldEffectScript_MudPile                  @ FLDEFF_MUD_PILE
+	.4byte gFieldEffectScript_MudFootprints             @ FLDEFF_MUD_FOOTPRINTS
+	.4byte gFieldEffectScript_MudPile                   @ FLDEFF_MUD_PILE
+	.4byte gFieldEffectScript_UseRockClimb              @ FLDEFF_USE_ROCK_CLIMB
 
 gFieldEffectScript_ExclamationMarkIcon1::
 	field_eff_callnative FldEff_ExclamationMarkIcon
@@ -259,6 +260,10 @@ gFieldEffectScript_HotSpringsWater::
 
 gFieldEffectScript_UseWaterfall::
 	field_eff_callnative FldEff_UseWaterfall
+	field_eff_end
+
+gFieldEffectScript_UseRockClimb::
+	field_eff_callnative FldEff_UseRockClimb
 	field_eff_end
 
 gFieldEffectScript_UseDive::

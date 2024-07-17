@@ -35,6 +35,11 @@ const u32 gObjectEventPic_MayNormalRunning[] = INCBIN_U32("graphics/object_event
 const u16 gObjectEventPal_May[] = INCBIN_U16("graphics/object_events/palettes/may.gbapal");
 const u16 gObjectEventPal_MayReflection[] = INCBIN_U16("graphics/object_events/palettes/may_reflection.gbapal");
 
+const u32 gObjectEventPic_BrendanRockClimbing[] = INCBIN_U32("graphics/object_events/pics/people/brendan/rock_climbing.4bpp");
+const u32 gObjectEventPic_MayRockClimbing[] = INCBIN_U32("graphics/object_events/pics/people/may/rock_climbing.4bpp");
+const u32 gObjectEventPic_BrendanRockClimbingOras[] = INCBIN_U32("graphics/object_events/pics/people/brendanoras/rock_climbing.4bpp");
+const u32 gObjectEventPic_MayRockClimbingOras[] = INCBIN_U32("graphics/object_events/pics/people/mayoras/rock_climbing.4bpp");
+
 const u32 gObjectEventPic_BrendanNormalOras[] = INCBIN_U32("graphics/object_events/pics/people/brendanoras/walking.4bpp");
 const u32 gObjectEventPic_BrendanRunningOras[] = INCBIN_U32("graphics/object_events/pics/people/brendanoras/running.4bpp");
 const u16 gObjectEventPal_BrendanOras[] = INCBIN_U16("graphics/object_events/pics/people/brendanoras/brendan.gbapal");

@@ -14,7 +14,7 @@ script RandomizeBrother{
             setobjectxyperm(30, 33, 3)
             setobjectmovementtype(30, MOVEMENT_TYPE_FACE_UP)
         case 1:
-            setobjectxyperm(30, 28, 26)
+            setobjectxyperm(30, 29, 26)
             setobjectmovementtype(30, MOVEMENT_TYPE_FACE_UP)
         case 2:
             setobjectxyperm(30, 19, 43)

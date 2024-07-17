@@ -103,6 +103,12 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalBrenda
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalBrendanMachBike;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalBrendanAcroBike;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalBrendanSurfing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalBrendanRockClimbing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalMayRockClimbing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRockClimbing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRockClimbing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRockClimbingOras;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRockClimbingOras;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalBrendanFieldMove;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalMayNormal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalMayMachBike;
@@ -414,6 +420,12 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_RIVAL_BRENDAN_ACRO_BIKE] =  &gObjectEventGraphicsInfo_RivalBrendanAcroBike,
     [OBJ_EVENT_GFX_RIVAL_BRENDAN_SURFING] =    &gObjectEventGraphicsInfo_RivalBrendanSurfing,
     [OBJ_EVENT_GFX_RIVAL_BRENDAN_FIELD_MOVE] = &gObjectEventGraphicsInfo_RivalBrendanFieldMove,
+    [OBJ_EVENT_GFX_RIVAL_BRENDAN_ROCK_CLIMBING] = &gObjectEventGraphicsInfo_RivalBrendanRockClimbing,
+    [OBJ_EVENT_GFX_RIVAL_MAY_ROCK_CLIMBING] = &gObjectEventGraphicsInfo_RivalMayRockClimbing,
+    [OBJ_EVENT_GFX_BRENDAN_ROCK_CLIMBING] = &gObjectEventGraphicsInfo_BrendanRockClimbing,
+    [OBJ_EVENT_GFX_MAY_ROCK_CLIMBING] = &gObjectEventGraphicsInfo_MayRockClimbing,
+    [OBJ_EVENT_GFX_BRENDAN_ROCK_CLIMBING_ORAS] = &gObjectEventGraphicsInfo_BrendanRockClimbingOras,
+    [OBJ_EVENT_GFX_MAY_ROCK_CLIMBING_ORAS] = &gObjectEventGraphicsInfo_MayRockClimbingOras,
     [OBJ_EVENT_GFX_RIVAL_MAY_NORMAL] =         &gObjectEventGraphicsInfo_RivalMayNormal,
     [OBJ_EVENT_GFX_RIVAL_MAY_MACH_BIKE] =      &gObjectEventGraphicsInfo_RivalMayMachBike,
     [OBJ_EVENT_GFX_RIVAL_MAY_ACRO_BIKE] =      &gObjectEventGraphicsInfo_RivalMayAcroBike,

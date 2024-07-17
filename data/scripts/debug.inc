@@ -158,10 +158,7 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
-	setvar VAR_WINDYWOODS_STATE, 0
-	clearflag FLAG_WW_HIDEDAD
-	clearflag FLAG_WW_ENDEVENT
-	clearflag FLAG_WW_HIDEROCKET
+	givemon SPECIES_SCOLIPEDE, 50
 	end
 
 Debug_EventScript_Script_6::

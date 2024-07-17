@@ -74,6 +74,7 @@
 #define FLDEFF_TALL_GRASS_AUTUMN         70
 #define FLDEFF_MUD_FOOTPRINTS            71
 #define FLDEFF_MUD_PILE                  72
+#define FLDEFF_USE_ROCK_CLIMB            73
 
 #define FLDEFFOBJ_SHADOW_S              0
 #define FLDEFFOBJ_SHADOW_M              1

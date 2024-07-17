@@ -28,7 +28,7 @@ RandomizeBrother_5:
 	return
 
 RandomizeBrother_6:
-	setobjectxyperm 30, 28, 26
+	setobjectxyperm 30, 29, 26
 	setobjectmovementtype 30, MOVEMENT_TYPE_FACE_UP
 	return
 

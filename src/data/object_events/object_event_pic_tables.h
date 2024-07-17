@@ -119,6 +119,66 @@ static const struct SpriteFrameImage sPicTable_BrendanSurfingOras[] = {
     overworld_frame(gObjectEventPic_BrendanSurfingOras, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_BrendanRockClimbing[] = {
+    overworld_frame(gObjectEventPic_BrendanRockClimbing, 4, 4, 0),
+    overworld_frame(gObjectEventPic_BrendanRockClimbing, 4, 4, 2),
+    overworld_frame(gObjectEventPic_BrendanRockClimbing, 4, 4, 4),
+    overworld_frame(gObjectEventPic_BrendanRockClimbing, 4, 4, 0),
+    overworld_frame(gObjectEventPic_BrendanRockClimbing, 4, 4, 0),
+    overworld_frame(gObjectEventPic_BrendanRockClimbing, 4, 4, 2),
+    overworld_frame(gObjectEventPic_BrendanRockClimbing, 4, 4, 2),
+    overworld_frame(gObjectEventPic_BrendanRockClimbing, 4, 4, 4),
+    overworld_frame(gObjectEventPic_BrendanRockClimbing, 4, 4, 4),
+    overworld_frame(gObjectEventPic_BrendanRockClimbing, 4, 4, 1),
+    overworld_frame(gObjectEventPic_BrendanRockClimbing, 4, 4, 3),
+    overworld_frame(gObjectEventPic_BrendanRockClimbing, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_BrendanRockClimbingOras[] = {
+    overworld_frame(gObjectEventPic_BrendanRockClimbingOras, 4, 4, 0),
+    overworld_frame(gObjectEventPic_BrendanRockClimbingOras, 4, 4, 2),
+    overworld_frame(gObjectEventPic_BrendanRockClimbingOras, 4, 4, 4),
+    overworld_frame(gObjectEventPic_BrendanRockClimbingOras, 4, 4, 0),
+    overworld_frame(gObjectEventPic_BrendanRockClimbingOras, 4, 4, 0),
+    overworld_frame(gObjectEventPic_BrendanRockClimbingOras, 4, 4, 2),
+    overworld_frame(gObjectEventPic_BrendanRockClimbingOras, 4, 4, 2),
+    overworld_frame(gObjectEventPic_BrendanRockClimbingOras, 4, 4, 4),
+    overworld_frame(gObjectEventPic_BrendanRockClimbingOras, 4, 4, 4),
+    overworld_frame(gObjectEventPic_BrendanRockClimbingOras, 4, 4, 1),
+    overworld_frame(gObjectEventPic_BrendanRockClimbingOras, 4, 4, 3),
+    overworld_frame(gObjectEventPic_BrendanRockClimbingOras, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_MayRockClimbing[] = {
+    overworld_frame(gObjectEventPic_MayRockClimbing, 4, 4, 0),
+    overworld_frame(gObjectEventPic_MayRockClimbing, 4, 4, 2),
+    overworld_frame(gObjectEventPic_MayRockClimbing, 4, 4, 4),
+    overworld_frame(gObjectEventPic_MayRockClimbing, 4, 4, 0),
+    overworld_frame(gObjectEventPic_MayRockClimbing, 4, 4, 0),
+    overworld_frame(gObjectEventPic_MayRockClimbing, 4, 4, 2),
+    overworld_frame(gObjectEventPic_MayRockClimbing, 4, 4, 2),
+    overworld_frame(gObjectEventPic_MayRockClimbing, 4, 4, 4),
+    overworld_frame(gObjectEventPic_MayRockClimbing, 4, 4, 4),
+    overworld_frame(gObjectEventPic_MayRockClimbing, 4, 4, 1),
+    overworld_frame(gObjectEventPic_MayRockClimbing, 4, 4, 3),
+    overworld_frame(gObjectEventPic_MayRockClimbing, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_MayRockClimbingOras[] = {
+    overworld_frame(gObjectEventPic_MayRockClimbingOras, 4, 4, 0),
+    overworld_frame(gObjectEventPic_MayRockClimbingOras, 4, 4, 2),
+    overworld_frame(gObjectEventPic_MayRockClimbingOras, 4, 4, 4),
+    overworld_frame(gObjectEventPic_MayRockClimbingOras, 4, 4, 0),
+    overworld_frame(gObjectEventPic_MayRockClimbingOras, 4, 4, 0),
+    overworld_frame(gObjectEventPic_MayRockClimbingOras, 4, 4, 2),
+    overworld_frame(gObjectEventPic_MayRockClimbingOras, 4, 4, 2),
+    overworld_frame(gObjectEventPic_MayRockClimbingOras, 4, 4, 4),
+    overworld_frame(gObjectEventPic_MayRockClimbingOras, 4, 4, 4),
+    overworld_frame(gObjectEventPic_MayRockClimbingOras, 4, 4, 1),
+    overworld_frame(gObjectEventPic_MayRockClimbingOras, 4, 4, 3),
+    overworld_frame(gObjectEventPic_MayRockClimbingOras, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_BrendanUnderwaterOras[] = {
     overworld_frame(gObjectEventPic_BrendanUnderwaterOras, 4, 4, 0),
     overworld_frame(gObjectEventPic_BrendanUnderwaterOras, 4, 4, 1),

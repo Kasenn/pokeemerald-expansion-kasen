@@ -113,6 +113,13 @@ static bool8 WaterfallFieldEffect_WaitForShowMon(struct Task *, struct ObjectEve
 static bool8 WaterfallFieldEffect_RideUp(struct Task *, struct ObjectEvent *);
 static bool8 WaterfallFieldEffect_ContinueRideOrEnd(struct Task *, struct ObjectEvent *);
 
+static void Task_UseRockClimb(u8);
+static bool8 RockClimbFieldEffect_Init(struct Task *, struct ObjectEvent *);
+static bool8 RockClimbFieldEffect_ShowMon(struct Task *, struct ObjectEvent *);
+static bool8 RockClimbFieldEffect_WaitForShowMon(struct Task *, struct ObjectEvent *);
+static bool8 RockClimbFieldEffect_RideUpOrDown(struct Task *, struct ObjectEvent *);
+static bool8 RockClimbFieldEffect_ContinueRideOrEnd(struct Task *, struct ObjectEvent *);
+
 static void Task_UseDive(u8);
 static bool8 DiveFieldEffect_Init(struct Task *);
 static bool8 DiveFieldEffect_ShowMon(struct Task *);
@@ -654,6 +661,15 @@ static bool8 (*const sWaterfallFieldEffectFuncs[])(struct Task *, struct ObjectE
     WaterfallFieldEffect_WaitForShowMon,
     WaterfallFieldEffect_RideUp,
     WaterfallFieldEffect_ContinueRideOrEnd,
+};
+
+static bool8 (*const sRockClimbFieldEffectFuncs[])(struct Task *, struct ObjectEvent *) =
+{
+    RockClimbFieldEffect_Init,
+    RockClimbFieldEffect_ShowMon,
+    RockClimbFieldEffect_WaitForShowMon,
+    RockClimbFieldEffect_RideUpOrDown,
+    RockClimbFieldEffect_ContinueRideOrEnd,
 };
 
 static bool8 (*const sDiveFieldEffectFuncs[])(struct Task *) =
@@ -1904,6 +1920,110 @@ static bool8 WaterfallFieldEffect_ContinueRideOrEnd(struct Task *task, struct Ob
     gPlayerAvatar.preventStep = FALSE;
     DestroyTask(FindTaskIdByFunc(Task_UseWaterfall));
     FieldEffectActiveListRemove(FLDEFF_USE_WATERFALL);
+    return FALSE;
+}
+
+bool8 FldEff_UseRockClimb(void)
+{
+    u8 taskId;
+    taskId = CreateTask(Task_UseRockClimb, 0xff);
+    gTasks[taskId].tMonId = gFieldEffectArguments[0];
+    Task_UseRockClimb(taskId);
+    return FALSE;
+}
+
+static void Task_UseRockClimb(u8 taskId)
+{
+    while (sRockClimbFieldEffectFuncs[gTasks[taskId].tState](&gTasks[taskId], &gObjectEvents[gPlayerAvatar.objectEventId]));
+}
+
+static bool8 RockClimbFieldEffect_Init(struct Task *task, struct ObjectEvent *objectEvent)
+{
+    LockPlayerFieldControls();
+    gPlayerAvatar.preventStep = TRUE;
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 RockClimbFieldEffect_ShowMon(struct Task *task, struct ObjectEvent *objectEvent)
+{
+    LockPlayerFieldControls();
+    if (!ObjectEventIsMovementOverridden(objectEvent))
+    {
+        ObjectEventClearHeldMovementIfFinished(objectEvent);
+        gFieldEffectArguments[0] = task->tMonId;
+        FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
+        task->tState++;
+    }
+    return FALSE;
+}
+
+static bool8 RockClimbFieldEffect_WaitForShowMon(struct Task *task, struct ObjectEvent *objectEvent)
+{
+    // s16 x;
+    // s16 y;
+    
+    if (FieldEffectActiveListContains(FLDEFF_FIELD_MOVE_SHOW_MON))
+    {
+        return FALSE;
+    }
+    objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+    ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_ROCK_CLIMBING));
+    ObjectEventClearHeldMovementIfFinished(objectEvent);
+    // PlayerGetDestCoords(&x, &y);
+    // gFieldEffectArguments[0] = x;
+    // gFieldEffectArguments[1] = y;
+    // gFieldEffectArguments[2] = gPlayerAvatar.objectEventId;
+    // objectEvent->fieldEffectSpriteId = FieldEffectStart(FLDEFF_SURF_BLOB);
+    // SetSurfBlob_BobState(objectEvent->fieldEffectSpriteId, BOB_NONE);
+    task->tState++;
+    return TRUE;
+}
+
+static bool8 RockClimbFieldEffect_RideUpOrDown(struct Task *task, struct ObjectEvent *objectEvent)
+{
+    // struct ObjectEvent * blobObj = &gObjectEvents[objectEvent->fieldEffectSpriteId];
+    PlaySE(SE_M_ROCK_THROW);
+    gFieldEffectArguments[0] = objectEvent->currentCoords.x;
+    gFieldEffectArguments[1] = objectEvent->currentCoords.y;
+    gFieldEffectArguments[2] = objectEvent->previousElevation;
+    if (GetPlayerMovementDirection() == DIR_SOUTH){
+        gFieldEffectArguments[3] = 3;
+    }
+    else{
+        gFieldEffectArguments[3] = 1;
+    }
+    FieldEffectStart(FLDEFF_DUST);
+    if (GetPlayerMovementDirection() == DIR_NORTH){
+        ObjectEventSetHeldMovement(objectEvent, GetWalkFastMovementAction(DIR_NORTH));
+        // ObjectEventSetHeldMovement(blobObj, GetWalkNormalMovementAction(DIR_NORTH));
+    }
+    else{
+        ObjectEventSetHeldMovement(objectEvent, GetWalkFastMovementAction(DIR_SOUTH));
+        // ObjectEventSetHeldMovement(blobObj, GetWalkNormalMovementAction(DIR_SOUTH));
+    }
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 RockClimbFieldEffect_ContinueRideOrEnd(struct Task *task, struct ObjectEvent *objectEvent)
+{
+    if (!ObjectEventClearHeldMovementIfFinished(objectEvent))
+        return FALSE;
+
+    if (MetatileBehavior_IsRockWall(objectEvent->currentMetatileBehavior))
+    {
+        // Still ascending rock wall, back to RockClimbFieldEffect_RideUpOrDown
+        task->tState = 3;
+        return TRUE;
+    }
+    // DestroySprite(&gSprites[objectEvent->fieldEffectSpriteId]);
+    UnlockPlayerFieldControls();
+    gPlayerAvatar.preventStep = FALSE;
+    ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_NORMAL));
+    ObjectEventForceSetHeldMovement(objectEvent, GetFaceDirectionMovementAction(objectEvent->facingDirection));
+    DestroyTask(FindTaskIdByFunc(Task_UseRockClimb));
+    FieldEffectActiveListRemove(FLDEFF_USE_ROCK_CLIMB);
     return FALSE;
 }
 

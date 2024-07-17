@@ -84,6 +84,7 @@ static void CheckAcroBikeCollision(s16, s16, u8, u8 *);
 static void DoPlayerAvatarTransition(void);
 static void PlayerAvatarTransition_Dummy(struct ObjectEvent *);
 static void PlayerAvatarTransition_Normal(struct ObjectEvent *);
+static void PlayerAvatarTransition_RockClimbing(struct ObjectEvent *);
 static void PlayerAvatarTransition_Bike(struct ObjectEvent *);
 static void PlayerAvatarTransition_Surfing(struct ObjectEvent *);
 static void PlayerAvatarTransition_Underwater(struct ObjectEvent *);
@@ -225,6 +226,7 @@ static void (*const sPlayerAvatarTransitionFuncs[])(struct ObjectEvent *) =
     [PLAYER_AVATAR_STATE_CONTROLLABLE] = PlayerAvatarTransition_ReturnToField,
     [PLAYER_AVATAR_STATE_FORCED]       = PlayerAvatarTransition_Dummy,
     [PLAYER_AVATAR_STATE_DASH]         = PlayerAvatarTransition_Dummy,
+    [PLAYER_AVATAR_STATE_ROCK_CLIMBING]       = PlayerAvatarTransition_RockClimbing,
 };
 
 static bool8 (*const sArrowWarpMetatileBehaviorChecks[])(u8) =
@@ -240,6 +242,7 @@ static const u16 sRivalAvatarGfxIds[][2] =
     [PLAYER_AVATAR_STATE_NORMAL]     = {OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL,     OBJ_EVENT_GFX_RIVAL_MAY_NORMAL},
     [PLAYER_AVATAR_STATE_BIKE]       = {OBJ_EVENT_GFX_RIVAL_BRENDAN_ACRO_BIKE,  OBJ_EVENT_GFX_RIVAL_MAY_ACRO_BIKE},
     [PLAYER_AVATAR_STATE_SURFING]    = {OBJ_EVENT_GFX_RIVAL_BRENDAN_SURFING,    OBJ_EVENT_GFX_RIVAL_MAY_SURFING},
+    [PLAYER_AVATAR_STATE_ROCK_CLIMBING]    = {OBJ_EVENT_GFX_RIVAL_BRENDAN_ROCK_CLIMBING,    OBJ_EVENT_GFX_RIVAL_MAY_ROCK_CLIMBING},
     [PLAYER_AVATAR_STATE_UNDERWATER] = {OBJ_EVENT_GFX_BRENDAN_UNDERWATER,       OBJ_EVENT_GFX_MAY_UNDERWATER},
     [PLAYER_AVATAR_STATE_FIELD_MOVE] = {OBJ_EVENT_GFX_RIVAL_BRENDAN_FIELD_MOVE, OBJ_EVENT_GFX_RIVAL_MAY_FIELD_MOVE},
     [PLAYER_AVATAR_STATE_FISHING]    = {OBJ_EVENT_GFX_BRENDAN_FISHING,          OBJ_EVENT_GFX_MAY_FISHING},
@@ -252,6 +255,7 @@ static const u16 sPlayerAvatarGfxIds[][2] =
     [PLAYER_AVATAR_STATE_NORMAL]     = {OBJ_EVENT_GFX_BRENDAN_NORMAL,     OBJ_EVENT_GFX_MAY_NORMAL},
     [PLAYER_AVATAR_STATE_BIKE]       = {OBJ_EVENT_GFX_BRENDAN_ACRO_BIKE,  OBJ_EVENT_GFX_MAY_ACRO_BIKE},
     [PLAYER_AVATAR_STATE_SURFING]    = {OBJ_EVENT_GFX_BRENDAN_SURFING,    OBJ_EVENT_GFX_MAY_SURFING},
+    [PLAYER_AVATAR_STATE_ROCK_CLIMBING]    = {OBJ_EVENT_GFX_BRENDAN_ROCK_CLIMBING,    OBJ_EVENT_GFX_MAY_ROCK_CLIMBING},
     [PLAYER_AVATAR_STATE_UNDERWATER] = {OBJ_EVENT_GFX_BRENDAN_UNDERWATER, OBJ_EVENT_GFX_MAY_UNDERWATER},
     [PLAYER_AVATAR_STATE_FIELD_MOVE] = {OBJ_EVENT_GFX_BRENDAN_FIELD_MOVE, OBJ_EVENT_GFX_MAY_FIELD_MOVE},
     [PLAYER_AVATAR_STATE_FISHING]    = {OBJ_EVENT_GFX_BRENDAN_FISHING,    OBJ_EVENT_GFX_MAY_FISHING},
@@ -265,6 +269,7 @@ static const u16 sPlayerAvatarOrasGfxIds[][2] =
     [PLAYER_AVATAR_STATE_BIKE]       = {OBJ_EVENT_GFX_BRENDAN_ACRO_BIKE_ORAS,  OBJ_EVENT_GFX_MAY_ACRO_BIKE_ORAS},
     [PLAYER_AVATAR_STATE_SURFING]    = {OBJ_EVENT_GFX_BRENDAN_SURFING_ORAS,    OBJ_EVENT_GFX_MAY_SURFING_ORAS},
     [PLAYER_AVATAR_STATE_UNDERWATER] = {OBJ_EVENT_GFX_BRENDAN_UNDERWATER,      OBJ_EVENT_GFX_MAY_UNDERWATER_ORAS},
+    [PLAYER_AVATAR_STATE_ROCK_CLIMBING]    = {OBJ_EVENT_GFX_BRENDAN_ROCK_CLIMBING_ORAS,    OBJ_EVENT_GFX_MAY_ROCK_CLIMBING_ORAS},
 };
 
 static const u8 sPlayerAvatarAnimGfxIds[][2] =
@@ -870,6 +875,11 @@ static void SetPlayerAvatarTransitionState(struct ObjectEvent *objEvent, u8 stat
 static void PlayerAvatarTransition_Normal(struct ObjectEvent *objEvent)
 {
     SetPlayerAvatarTransitionState(objEvent, PLAYER_AVATAR_STATE_NORMAL);
+}
+
+static void PlayerAvatarTransition_RockClimbing(struct ObjectEvent *objEvent)
+{
+    SetPlayerAvatarTransitionState(objEvent, PLAYER_AVATAR_STATE_ROCK_CLIMBING);
 }
 
 static void PlayerAvatarTransition_Bike(struct ObjectEvent *objEvent)
