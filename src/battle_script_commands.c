@@ -7731,15 +7731,19 @@ static void Cmd_getmoneyreward(void)
     if (gBattleOutcome == B_OUTCOME_WON)
     {
         money = GetTrainerMoneyToGive(gTrainerBattleOpponent_A);
-        battlePoints = money / 500;
-        if (battlePoints > 3)
-            battlePoints = 3;
-        if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS){
+        if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
             money += GetTrainerMoneyToGive(gTrainerBattleOpponent_B);
-            battlePoints += (GetTrainerMoneyToGive(gTrainerBattleOpponent_B) / 500);
+            
+        battlePoints = money / 500;
+        if (gBattleTypeFlags & (BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_DOUBLE)){
             if (battlePoints > 6)
                 battlePoints = 6;
         }
+        else{
+            if (battlePoints > 3)
+            battlePoints = 3;
+        }
+        
         if (FlagGet(FLAG_SYSTEM_NOREWARDBATTLES))
         {
             money = 0;

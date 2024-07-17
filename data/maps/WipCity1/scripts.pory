@@ -310,9 +310,9 @@ text Aldeleaf_GymUnavailable_Text{
 	"I'm sorry, but we can't currently\n"
 	"accept new challengers.\p"
 	"The Gym Leader is busy dealing with a\n"
-	"situation at the Pokémon Ranch.\l"
-	"If you'd like to help,\l"
-	"the ranch is just west of Aldeleaf."
+	"situation at the Pokémon Ranch.\p"
+	"If you'd like to help, you can\l"
+	"find the ranch just west of Aldeleaf."
 }
 
 script Aldeleaf_Sudowoodo{

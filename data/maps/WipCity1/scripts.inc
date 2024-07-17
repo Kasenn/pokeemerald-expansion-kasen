@@ -526,9 +526,9 @@ Aldeleaf_GymUnavailable_Text::
 	.string "I'm sorry, but we can't currently\n"
 	.string "accept new challengers.\p"
 	.string "The Gym Leader is busy dealing with a\n"
-	.string "situation at the Pokémon Ranch.\l"
-	.string "If you'd like to help,\l"
-	.string "the ranch is just west of Aldeleaf.$"
+	.string "situation at the Pokémon Ranch.\p"
+	.string "If you'd like to help, you can\l"
+	.string "find the ranch just west of Aldeleaf.$"
 
 Aldeleaf_WantToCut::
 	.string "There's a weird tree blocking\n"

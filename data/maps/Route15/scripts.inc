@@ -40,6 +40,7 @@ R15_ClearBlockade_1:
 
 
 R15_Acerola::
+	setflag FLAG_ACEROLA_TALKED_TO
 	goto_if_set FLAG_TEMP_5, R15_Acerola_2
 	lock
 	faceplayer

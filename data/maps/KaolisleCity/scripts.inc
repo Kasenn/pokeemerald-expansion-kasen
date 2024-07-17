@@ -163,7 +163,8 @@ KaolisleCity_MysteryMan::
 KaolisleCity_MysteryMan_1:
 	compare VAR_RESULT, FALSE
 	goto_if_eq KaolisleCity_MysteryMan_6
-	goto_if_set FLAG_BADGE03_GET, KaolisleCity_MysteryMan_9
+	goto_if_set FLAG_BADGE04_GET, KaolisleCity_MysteryMan_9
+	goto_if_set FLAG_BADGE03_GET, KaolisleCity_MysteryMan_10
 	msgbox KaolisleCity_MysteryMan_2Badges, MSGBOX_NPC
 KaolisleCity_MysteryMan_8:
 	turnobject 7, DIR_NORTH
@@ -181,6 +182,10 @@ KaolisleCity_MysteryMan_6:
 	end
 
 KaolisleCity_MysteryMan_9:
+	msgbox KaolisleCity_MysteryMan_4Badges, MSGBOX_NPC
+	goto KaolisleCity_MysteryMan_8
+
+KaolisleCity_MysteryMan_10:
 	msgbox KaolisleCity_MysteryMan_3Badges, MSGBOX_NPC
 	goto KaolisleCity_MysteryMan_8
 
@@ -542,6 +547,12 @@ KaolisleCity_MysteryMan_3Badges::
 	.string "I don't think this would be a fair match.\p"
 	.string "It's a good start but I would recommend\n"
 	.string "you get a couple more first.$"
+
+KaolisleCity_MysteryMan_4Badges::
+	.string "Hm…\p"
+	.string "You seem pretty strong, but I would\n"
+	.string "suggest you get at least 6 badges\l"
+	.string "before trying to challenge me.$"
 
 KaolisleCity_ExpertM_Text::
 	.string "Oh, are you a trainer from afar?\p"

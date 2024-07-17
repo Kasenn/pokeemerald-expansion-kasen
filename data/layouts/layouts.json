@@ -4927,7 +4927,7 @@
       "width": 11,
       "height": 8,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_HerbShop",
       "border_filepath": "data/layouts/AzuretideHouse1/border.bin",
       "blockdata_filepath": "data/layouts/AzuretideHouse1/map.bin"
     },
@@ -6217,7 +6217,7 @@
       "width": 55,
       "height": 45,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "secondary_tileset": "gTileset_Amberock",
       "border_filepath": "data/layouts/AmberockTown/border.bin",
       "blockdata_filepath": "data/layouts/AmberockTown/map.bin"
     },

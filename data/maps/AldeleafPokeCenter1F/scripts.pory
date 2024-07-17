@@ -39,14 +39,14 @@ script AldeleafPokeCenter1F_EventScript_Girl{
 
 text AldeleafPokeCenter1F_Text_PokemonHavePersonalities{
 	"I saw a group of people clad in black\n"
-    "heading towards the Pokémon Ranch not\l"
-    "too long ago.\l"
+    "heading towards the Pokémon Ranch\l"
+    "not too long ago.\l"
     "Wonder what they were up to."
 }
 text AldeleafPokeCenter1F_Text_PokemonHavePersonalities2{
 	"I saw a group of people clad in black\n"
-    "heading south of Aldeleaf City not\l"
-    "too long ago.\l"
+    "heading south of Aldeleaf City\l"
+    "not too long ago.\l"
     "Wonder what they were up to."
 }
 text AldeleafPokeCenter1F_Text_MaleAndFemalePokemon{
@@ -54,7 +54,8 @@ text AldeleafPokeCenter1F_Text_MaleAndFemalePokemon{
     "of a big city and a rural town."
 }
 text AldeleafPokeCenter1F_Text_HMCutNextDoor{
-	"To the east of the city lies the\n"
-    "Windplume Valley. Many Flying-type\l"
-    "trainers like to go there to train."
+	"To the east of the city lies\n"
+    "the Windplume Valley.\p"
+	"Many Flying-type trainers\n"
+    "like to go there to train."
 }

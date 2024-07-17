@@ -27,6 +27,7 @@ script R15_ClearBlockade{
 }
 
 script R15_Acerola{
+    setflag(FLAG_ACEROLA_TALKED_TO)
     if(flag(FLAG_TEMP_5)){
         msgbox(AcerolaThatWay, MSGBOX_NPC)
         end

@@ -1078,3 +1078,25 @@ const struct Tileset gTileset_DrisledgeGym =
     .metatileAttributes = gMetatileAttributes_DrisledgeGym,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_HerbShop =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_HerbShop,
+    .palettes = gTilesetPalettes_HerbShop,
+    .metatiles = gMetatiles_HerbShop,
+    .metatileAttributes = gMetatileAttributes_HerbShop,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Amberock =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Amberock,
+    .palettes = gTilesetPalettes_Amberock,
+    .metatiles = gMetatiles_Amberock,
+    .metatileAttributes = gMetatileAttributes_Amberock,
+    .callback = NULL,
+};

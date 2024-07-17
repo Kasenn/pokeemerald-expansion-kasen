@@ -276,3 +276,9 @@ const u16 gMetatileAttributes_Building2[] = INCBIN_U16("data/tilesets/primary/bu
 
 const u16 gMetatiles_DrisledgeGym[] = INCBIN_U16("data/tilesets/secondary/drisledge_gym/metatiles.bin");
 const u16 gMetatileAttributes_DrisledgeGym[] = INCBIN_U16("data/tilesets/secondary/drisledge_gym/metatile_attributes.bin");
+
+const u16 gMetatiles_HerbShop[] = INCBIN_U16("data/tilesets/secondary/herb_shop/metatiles.bin");
+const u16 gMetatileAttributes_HerbShop[] = INCBIN_U16("data/tilesets/secondary/herb_shop/metatile_attributes.bin");
+
+const u16 gMetatiles_Amberock[] = INCBIN_U16("data/tilesets/secondary/amberock/metatiles.bin");
+const u16 gMetatileAttributes_Amberock[] = INCBIN_U16("data/tilesets/secondary/amberock/metatile_attributes.bin");

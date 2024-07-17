@@ -418,8 +418,8 @@ PokeRanch_SpecialBattleWon::
 	delay 40
 	fadescreenswapbuffers FADE_FROM_BLACK
 	delay 40
-	fadenewbgm MUS_OLDALE
-	savebgm MUS_OLDALE
+	fadenewbgm MUS_VERDANTURF
+	savebgm MUS_VERDANTURF
 	goto_if_set FLAG_JASMINE_HELPED, PokeRanch_SpecialBattleWon_2
 	msgbox Ranch_RocketEscapeFail2, MSGBOX_DEFAULT
 PokeRanch_SpecialBattleWon_1:

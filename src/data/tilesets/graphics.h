@@ -2074,3 +2074,41 @@ const u16 gTilesetPalettes_DrisledgeGym[][16] =
 };
 
 const u32 gTilesetTiles_DrisledgeGym[] = INCBIN_U32("data/tilesets/secondary/drisledge_gym/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_HerbShop[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/herb_shop/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/herb_shop/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/herb_shop/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/herb_shop/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/herb_shop/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/herb_shop/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/herb_shop/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/herb_shop/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/herb_shop/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/herb_shop/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/herb_shop/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/herb_shop/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/herb_shop/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_HerbShop[] = INCBIN_U32("data/tilesets/secondary/herb_shop/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Amberock[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/amberock/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/amberock/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/amberock/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/amberock/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/amberock/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/amberock/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/amberock/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/amberock/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/amberock/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/amberock/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/amberock/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/amberock/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/amberock/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Amberock[] = INCBIN_U32("data/tilesets/secondary/amberock/tiles.4bpp.lz");

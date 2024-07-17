@@ -1515,19 +1515,19 @@ static const struct TrainerMon sParty_Warren[] = {
 
 static const struct TrainerMon sParty_Mary[] = {
     {
-    .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
+    .nature = NATURE_IMPISH,
     .lvl = 19,
     .species = SPECIES_STUNFISK,
     .moves = {MOVE_REVENGE, MOVE_MUD_SHOT, MOVE_THUNDER_SHOCK, MOVE_WATER_GUN}
     },
     {
-    .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
+    .nature = NATURE_MODEST,
     .lvl = 20,
     .species = SPECIES_ELECTABUZZ,
     .moves = {MOVE_WILD_CHARGE, MOVE_SWIFT, MOVE_LOW_KICK, MOVE_SIGNAL_BEAM}
     },
     {
-    .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
+    .nature = NATURE_MODEST,
     .lvl = 22,
     .species = SPECIES_JOLTEON,
     .heldItem = ITEM_SITRUS_BERRY,

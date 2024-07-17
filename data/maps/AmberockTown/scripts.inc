@@ -39,6 +39,15 @@ Amberock_PaperVisibility_1:
 	setmetatile 25, 13, 0x170, FALSE
 	setmetatile 24, 13, 0x170, FALSE
 	setmetatile 23, 13, 0x170, FALSE
+	setmetatile 23, 14, 0x170, FALSE
+	setmetatile 24, 14, 0x170, FALSE
+	setmetatile 25, 14, 0x170, FALSE
+	setmetatile 24, 15, 0x170, FALSE
+	setmetatile 25, 15, 0x170, FALSE
+	setmetatile 26, 15, 0x170, FALSE
+	setmetatile 26, 16, 0x170, FALSE
+	setmetatile 27, 16, 0x170, FALSE
+	setmetatile 28, 16, 0x170, FALSE
 	return
 
 
@@ -108,43 +117,50 @@ Amberock_Papers::
 	clearflag FLAG_TEMP_3
 	addobject 1
 	addobject 2
+	checktrainerflag TRAINER_R15_TR18_BERRYROCKET
+	goto_if 0, Amberock_Papers_2
+Amberock_Papers_1:
 	delay 60
 	switch VAR_FACING
-	case DIR_SOUTH, Amberock_Papers_3
-	case DIR_WEST, Amberock_Papers_4
-	case DIR_EAST, Amberock_Papers_5
-Amberock_Papers_1:
+	case DIR_SOUTH, Amberock_Papers_6
+	case DIR_WEST, Amberock_Papers_7
+	case DIR_EAST, Amberock_Papers_8
+Amberock_Papers_4:
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	delay 24
+	goto_if_set FLAG_TEMP_A, Amberock_Papers_10
 	msgbox OurPapers
+Amberock_Papers_9:
 	closemessage
 	switch VAR_FACING
-	case DIR_SOUTH, Amberock_Papers_8
-	case DIR_WEST, Amberock_Papers_9
-	case DIR_EAST, Amberock_Papers_10
-Amberock_Papers_6:
+	case DIR_SOUTH, Amberock_Papers_15
+	case DIR_WEST, Amberock_Papers_16
+	case DIR_EAST, Amberock_Papers_17
+Amberock_Papers_13:
 	waitmovement 0
 	delay 60
 	switch VAR_FACING
-	case DIR_SOUTH, Amberock_Papers_13
-	case DIR_WEST, Amberock_Papers_14
-	case DIR_EAST, Amberock_Papers_15
-Amberock_Papers_11:
+	case DIR_SOUTH, Amberock_Papers_20
+	case DIR_WEST, Amberock_Papers_21
+	case DIR_EAST, Amberock_Papers_22
+Amberock_Papers_18:
 	waitmovement 0
 	delay 15
 	checkplayergender
 	compare VAR_RESULT, MALE
-	goto_if_eq Amberock_Papers_17
+	goto_if_eq Amberock_Papers_24
 	bufferstring STR_VAR_1, Amberock_Papers_Text_1
-Amberock_Papers_16:
-	msgbox AcerolaVisitGym
+Amberock_Papers_23:
+	goto_if_set FLAG_ACEROLA_TALKED_TO, Amberock_Papers_28
+	msgbox AcerolaVisitGymAlternative
+Amberock_Papers_27:
 	closemessage
 	switch VAR_FACING
-	case DIR_SOUTH, Amberock_Papers_22
-	case DIR_WEST, Amberock_Papers_23
-	case DIR_EAST, Amberock_Papers_24
-Amberock_Papers_20:
+	case DIR_SOUTH, Amberock_Papers_33
+	case DIR_WEST, Amberock_Papers_34
+	case DIR_EAST, Amberock_Papers_35
+Amberock_Papers_31:
 	waitmovement 0
 	setvar VAR_ROUTE14_ROCKET_EVENT, 6
 	removeobject 1
@@ -153,61 +169,73 @@ Amberock_Papers_20:
 	release
 	return
 
-Amberock_Papers_3:
-	applymovement 1, MoveScientist2
+Amberock_Papers_2:
+	call AmberockAlternativeCutscene
 	goto Amberock_Papers_1
 
-Amberock_Papers_4:
+Amberock_Papers_6:
+	applymovement 1, MoveScientist2
+	goto Amberock_Papers_4
+
+Amberock_Papers_7:
 	setobjectxy 1, 28, 4
 	applymovement 1, Walk5Down
-	goto Amberock_Papers_1
-
-Amberock_Papers_5:
-	setobjectxy 1, 28, 4
-	applymovement 1, MoveScientist1
-	goto Amberock_Papers_1
+	goto Amberock_Papers_4
 
 Amberock_Papers_8:
-	applymovement 1, ScientistLeave2
-	goto Amberock_Papers_6
-
-Amberock_Papers_9:
-	applymovement 1, Walk5Up
-	goto Amberock_Papers_6
+	setobjectxy 1, 28, 4
+	applymovement 1, MoveScientist1
+	goto Amberock_Papers_4
 
 Amberock_Papers_10:
-	applymovement 1, ScientistLeave1
-	goto Amberock_Papers_6
-
-Amberock_Papers_13:
-	applymovement 2, MoveScientist2
-	goto Amberock_Papers_11
-
-Amberock_Papers_14:
-	setobjectxy 2, 28, 4
-	applymovement 2, Walk5Down
-	goto Amberock_Papers_11
+	msgbox OurPapersAlternative
+	goto Amberock_Papers_9
 
 Amberock_Papers_15:
-	setobjectxy 2, 28, 4
-	applymovement 2, MoveScientist1
-	goto Amberock_Papers_11
+	applymovement 1, ScientistLeave2
+	goto Amberock_Papers_13
+
+Amberock_Papers_16:
+	applymovement 1, Walk5Up
+	goto Amberock_Papers_13
 
 Amberock_Papers_17:
-	bufferstring STR_VAR_1, Amberock_Papers_Text_0
-	goto Amberock_Papers_16
+	applymovement 1, ScientistLeave1
+	goto Amberock_Papers_13
+
+Amberock_Papers_20:
+	applymovement 2, MoveScientist2
+	goto Amberock_Papers_18
+
+Amberock_Papers_21:
+	setobjectxy 2, 28, 4
+	applymovement 2, Walk5Down
+	goto Amberock_Papers_18
 
 Amberock_Papers_22:
-	applymovement 2, ScientistLeave2
-	goto Amberock_Papers_20
-
-Amberock_Papers_23:
-	applymovement 2, Walk5Up
-	goto Amberock_Papers_20
+	setobjectxy 2, 28, 4
+	applymovement 2, MoveScientist1
+	goto Amberock_Papers_18
 
 Amberock_Papers_24:
+	bufferstring STR_VAR_1, Amberock_Papers_Text_0
+	goto Amberock_Papers_23
+
+Amberock_Papers_28:
+	msgbox AcerolaVisitGym
+	goto Amberock_Papers_27
+
+Amberock_Papers_33:
+	applymovement 2, ScientistLeave2
+	goto Amberock_Papers_31
+
+Amberock_Papers_34:
+	applymovement 2, Walk5Up
+	goto Amberock_Papers_31
+
+Amberock_Papers_35:
 	applymovement 2, ScientistLeave1
-	goto Amberock_Papers_20
+	goto Amberock_Papers_31
 
 
 MoveScientist1:
@@ -247,6 +275,46 @@ ScientistLeave1:
 	walk_up
 	walk_up
 	step_end
+
+AmberockAlternativeCutscene::
+	delay 48
+	switch VAR_FACING
+	case DIR_WEST, AmberockAlternativeCutscene_3
+	case DIR_EAST, AmberockAlternativeCutscene_3
+AmberockAlternativeCutscene_1:
+	waitmovement 0
+	special SpawnCameraObject
+	compare VAR_FACING, DIR_SOUTH
+	goto_if_eq AmberockAlternativeCutscene_5
+	applymovement OBJ_EVENT_ID_CAMERA, Walk4Down
+AmberockAlternativeCutscene_4:
+	waitmovement 0
+	delay 60
+	msgbox RocketYoureTooLate
+	closemessage
+	setflag FLAG_TEMP_A
+	applymovement 4, Walk4Down
+	waitmovement 0
+	compare VAR_FACING, DIR_SOUTH
+	goto_if_eq AmberockAlternativeCutscene_9
+	applymovement OBJ_EVENT_ID_CAMERA, Walk4Up
+AmberockAlternativeCutscene_8:
+	waitmovement 0
+	special RemoveCameraObject
+	return
+
+AmberockAlternativeCutscene_3:
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceDown
+	goto AmberockAlternativeCutscene_1
+
+AmberockAlternativeCutscene_5:
+	applymovement OBJ_EVENT_ID_CAMERA, Walk5Down
+	goto AmberockAlternativeCutscene_4
+
+AmberockAlternativeCutscene_9:
+	applymovement OBJ_EVENT_ID_CAMERA, Walk5Up
+	goto AmberockAlternativeCutscene_8
+
 
 Amberock_Papers_Text_0:
 	.string "mister$"
@@ -300,8 +368,32 @@ OurPapers::
 	.string "what lies ahead.\p"
 	.string "In the meantime, I'll try to get my\n"
 	.string "hands on a Hidden Machine that can\l"
-	.string "teach your Pokémon how to carry people\l"
-	.string "across water.\p"
+	.string "teach your Pokémon how to carry\l"
+	.string "people across water.\p"
+	.string "I'll meet you back here once we're\n"
+	.string "both ready.$"
+
+OurPapersAlternative::
+	.string "Can I see those papers?\p"
+	.string "{PLAYER} handed the papers to the\n"
+	.string "scientist.\p"
+	.string "… … … …\p"
+	.string "Yes, these are definitely some of\n"
+	.string "the papers that were stolen.\p"
+	.string "You say you saw the culprit flee to\n"
+	.string "Amberock Town and cut the bridge\l"
+	.string "behind him?\p"
+	.string "That scoundrel!\p"
+	.string "No matter what we do now, this\n"
+	.string "has given him ample time to hide.\p"
+	.string "It would take too long to wait for\n"
+	.string "the bridge to be repaired.\p"
+	.string "You should prepare your team for\n"
+	.string "what lies ahead.\p"
+	.string "In the meantime, I'll try to get my\n"
+	.string "hands on a Hidden Machine that can\l"
+	.string "teach your Pokémon how to carry\l"
+	.string "people across water.\p"
 	.string "I'll meet you back here once we're\n"
 	.string "both ready.$"
 
@@ -315,3 +407,21 @@ AcerolaVisitGym::
 	.string "all of Sinko!\p"
 	.string "Anyway, I need to head back home now.\n"
 	.string "See you again, {STR_VAR_1}!$"
+
+AcerolaVisitGymAlternative::
+	.string "I couldn't help overhearing\n"
+	.string "parts of your conversation.\p"
+	.string "If you're looking to strengthen your\n"
+	.string "Pokémon, you should totally check the\l"
+	.string "Pokémon Gym over in Drisledge Town!\p"
+	.string "I hear it's one of the best gyms in\n"
+	.string "all of Sinko!\p"
+	.string "Anyway, I need to head back home now.\n"
+	.string "See you again, {STR_VAR_1}!$"
+
+RocketYoureTooLate::
+	.string "Rocket Grunt: I see our little\n"
+	.string "diversion wasn't enough to fool you.\p"
+	.string "But, it matters not.\n"
+	.string "You're late anyway!\p"
+	.string "Good luck ever catching me!$"

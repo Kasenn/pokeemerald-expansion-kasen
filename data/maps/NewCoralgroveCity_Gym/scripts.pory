@@ -229,8 +229,8 @@ text NewCoralgroveCity_Gym_Text_BugCatcher1Defeat{
 	"But I had the terrain advantage…\n"
 }
 text NewCoralgroveCity_Gym_Text_BugCatcher1PostBattle{
-	"You may have beaten me but\p"
-	"you have no chance against Aaron!\n"
+	"You may have beaten me but\n"
+	"you have no chance against Aaron!"
 }
 text NewCoralgroveCity_Gym_Text_BugCatcher2Intro{
 	"If you can't beat me, you won't stand\n"
