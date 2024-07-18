@@ -1069,9 +1069,13 @@ static void UpdateAshFieldEffect_End(struct Sprite *sprite)
 u32 FldEff_SurfBlob(void)
 {
     u8 spriteId;
-
+    u8 blob = FLDEFFOBJ_ROCK_CLIMBING_BLOB;
+    
+    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING){
+        blob = FLDEFFOBJ_SURF_BLOB;
+    }
     SetSpritePosToOffsetMapCoords((s16 *)&gFieldEffectArguments[0], (s16 *)&gFieldEffectArguments[1], 8, 8);
-    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_SURF_BLOB], gFieldEffectArguments[0], gFieldEffectArguments[1], 150);
+    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[blob], gFieldEffectArguments[0], gFieldEffectArguments[1], 150);
     if (spriteId != MAX_SPRITES)
     {
         struct Sprite *sprite = &gSprites[spriteId];

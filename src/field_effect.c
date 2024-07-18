@@ -119,6 +119,8 @@ static bool8 RockClimbFieldEffect_ShowMon(struct Task *, struct ObjectEvent *);
 static bool8 RockClimbFieldEffect_WaitForShowMon(struct Task *, struct ObjectEvent *);
 static bool8 RockClimbFieldEffect_RideUpOrDown(struct Task *, struct ObjectEvent *);
 static bool8 RockClimbFieldEffect_ContinueRideOrEnd(struct Task *, struct ObjectEvent *);
+static bool8 RockClimbFieldEffect_StopRide(struct Task *, struct ObjectEvent *);
+static bool8 RockClimbFieldEffect_StopTask(struct Task *, struct ObjectEvent *);
 
 static void Task_UseDive(u8);
 static bool8 DiveFieldEffect_Init(struct Task *);
@@ -670,6 +672,8 @@ static bool8 (*const sRockClimbFieldEffectFuncs[])(struct Task *, struct ObjectE
     RockClimbFieldEffect_WaitForShowMon,
     RockClimbFieldEffect_RideUpOrDown,
     RockClimbFieldEffect_ContinueRideOrEnd,
+    RockClimbFieldEffect_StopRide,
+    RockClimbFieldEffect_StopTask,
 };
 
 static bool8 (*const sDiveFieldEffectFuncs[])(struct Task *) =
@@ -1923,6 +1927,9 @@ static bool8 WaterfallFieldEffect_ContinueRideOrEnd(struct Task *task, struct Ob
     return FALSE;
 }
 
+#define tDestX data[2]
+#define tDestY data[3]
+
 bool8 FldEff_UseRockClimb(void)
 {
     u8 taskId;
@@ -1959,30 +1966,25 @@ static bool8 RockClimbFieldEffect_ShowMon(struct Task *task, struct ObjectEvent 
 }
 
 static bool8 RockClimbFieldEffect_WaitForShowMon(struct Task *task, struct ObjectEvent *objectEvent)
-{
-    // s16 x;
-    // s16 y;
-    
-    if (FieldEffectActiveListContains(FLDEFF_FIELD_MOVE_SHOW_MON))
-    {
-        return FALSE;
+{   
+    if (!FieldEffectActiveListContains(FLDEFF_FIELD_MOVE_SHOW_MON)){
+        ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_SURFING));
+        ObjectEventClearHeldMovementIfFinished(objectEvent);
+        PlayerGetDestCoords(&task->tDestX, &task->tDestY);
+        MoveCoords(gObjectEvents[gPlayerAvatar.objectEventId].movementDirection, &task->tDestX, &task->tDestY);
+        ObjectEventSetHeldMovement(objectEvent, GetJumpSpecialMovementAction(objectEvent->movementDirection));
+        gFieldEffectArguments[0] = task->tDestX;
+        gFieldEffectArguments[1] = task->tDestY;
+        gFieldEffectArguments[2] = gPlayerAvatar.objectEventId;
+        objectEvent->fieldEffectSpriteId = FieldEffectStart(FLDEFF_SURF_BLOB);
+        task->tState++;
+        return TRUE;
     }
-    objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
-    ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_ROCK_CLIMBING));
-    ObjectEventClearHeldMovementIfFinished(objectEvent);
-    // PlayerGetDestCoords(&x, &y);
-    // gFieldEffectArguments[0] = x;
-    // gFieldEffectArguments[1] = y;
-    // gFieldEffectArguments[2] = gPlayerAvatar.objectEventId;
-    // objectEvent->fieldEffectSpriteId = FieldEffectStart(FLDEFF_SURF_BLOB);
-    // SetSurfBlob_BobState(objectEvent->fieldEffectSpriteId, BOB_NONE);
-    task->tState++;
-    return TRUE;
+    return FALSE;
 }
 
 static bool8 RockClimbFieldEffect_RideUpOrDown(struct Task *task, struct ObjectEvent *objectEvent)
 {
-    // struct ObjectEvent * blobObj = &gObjectEvents[objectEvent->fieldEffectSpriteId];
     PlaySE(SE_M_ROCK_THROW);
     gFieldEffectArguments[0] = objectEvent->currentCoords.x;
     gFieldEffectArguments[1] = objectEvent->currentCoords.y;
@@ -1996,11 +1998,9 @@ static bool8 RockClimbFieldEffect_RideUpOrDown(struct Task *task, struct ObjectE
     FieldEffectStart(FLDEFF_DUST);
     if (GetPlayerMovementDirection() == DIR_NORTH){
         ObjectEventSetHeldMovement(objectEvent, GetWalkFastMovementAction(DIR_NORTH));
-        // ObjectEventSetHeldMovement(blobObj, GetWalkNormalMovementAction(DIR_NORTH));
     }
     else{
         ObjectEventSetHeldMovement(objectEvent, GetWalkFastMovementAction(DIR_SOUTH));
-        // ObjectEventSetHeldMovement(blobObj, GetWalkNormalMovementAction(DIR_SOUTH));
     }
     task->tState++;
     return FALSE;
@@ -2010,25 +2010,50 @@ static bool8 RockClimbFieldEffect_ContinueRideOrEnd(struct Task *task, struct Ob
 {
     if (!ObjectEventClearHeldMovementIfFinished(objectEvent))
         return FALSE;
-
-    if (MetatileBehavior_IsRockWall(objectEvent->currentMetatileBehavior))
+    SetSurfBlob_BobState(objectEvent->fieldEffectSpriteId, BOB_PLAYER_AND_MON);
+    GetXYCoordsOneStepInFrontOfPlayer(&task->tDestX, &task->tDestY);
+    if (MetatileBehavior_IsRockWall(MapGridGetMetatileBehaviorAt(task->tDestX, task->tDestY)))
     {
         // Still ascending rock wall, back to RockClimbFieldEffect_RideUpOrDown
         task->tState = 3;
         return TRUE;
     }
-    // DestroySprite(&gSprites[objectEvent->fieldEffectSpriteId]);
-    UnlockPlayerFieldControls();
     gPlayerAvatar.preventStep = FALSE;
-    ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_NORMAL));
+    ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_SURFING));
     ObjectEventForceSetHeldMovement(objectEvent, GetFaceDirectionMovementAction(objectEvent->facingDirection));
-    DestroyTask(FindTaskIdByFunc(Task_UseRockClimb));
-    FieldEffectActiveListRemove(FLDEFF_USE_ROCK_CLIMB);
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 RockClimbFieldEffect_StopRide(struct Task *task, struct ObjectEvent *objectEvent){
+    if (ObjectEventIsMovementOverridden(objectEvent))
+    {
+        if (!ObjectEventClearHeldMovementIfFinished(objectEvent))
+            return FALSE;
+    }
+    SetSurfBlob_BobState(objectEvent->fieldEffectSpriteId, BOB_NONE);
+    ObjectEventSetHeldMovement(objectEvent, GetJumpSpecialMovementAction(objectEvent->movementDirection));
+    ObjectEventClearHeldMovementIfFinished(objectEvent);
+    task->tState++;
+    return FALSE;
+}
+
+static bool8 RockClimbFieldEffect_StopTask(struct Task *task, struct ObjectEvent *objectEvent){
+    if (ObjectEventClearHeldMovementIfFinished(objectEvent)){
+        UnlockPlayerFieldControls();
+        DestroyTask(FindTaskIdByFunc(Task_UseRockClimb));
+        FieldEffectActiveListRemove(FLDEFF_USE_ROCK_CLIMB);
+        DestroySprite(&gSprites[objectEvent->fieldEffectSpriteId]);
+        ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_NORMAL));
+        ObjectEventForceSetHeldMovement(objectEvent, GetFaceDirectionMovementAction(objectEvent->facingDirection));
+    }
     return FALSE;
 }
 
 #undef tState
 #undef tMonId
+#undef tDestX
+#undef tDestY
 
 bool8 FldEff_UseDive(void)
 {

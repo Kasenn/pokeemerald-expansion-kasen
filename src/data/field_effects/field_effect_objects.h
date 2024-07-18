@@ -196,6 +196,12 @@ static const struct SpriteFrameImage sPicTable_SurfBlob[] = {
     overworld_frame(gFieldEffectObjectPic_SurfBlob, 4, 4, 2),
 };
 
+static const struct SpriteFrameImage sPicTable_RockClimbingBlob[] = {
+    overworld_frame(gFieldEffectObjectPic_RockClimbingBlob, 4, 4, 0),
+    overworld_frame(gFieldEffectObjectPic_RockClimbingBlob, 4, 4, 1),
+    overworld_frame(gFieldEffectObjectPic_RockClimbingBlob, 4, 4, 2),
+};
+
 static const union AnimCmd sSurfBlobAnim_FaceSouth[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -234,6 +240,16 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_SurfBlob = {
     .oam = &gObjectEventBaseOam_32x32,
     .anims = sAnimTable_SurfBlob,
     .images = sPicTable_SurfBlob,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = UpdateSurfBlobFieldEffect,
+};
+
+const struct SpriteTemplate gFieldEffectObjectTemplate_RockClimbingBlob = {
+    .tileTag = TAG_NONE,
+    .paletteTag = TAG_NONE,
+    .oam = &gObjectEventBaseOam_32x32,
+    .anims = sAnimTable_SurfBlob,
+    .images = sPicTable_RockClimbingBlob,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = UpdateSurfBlobFieldEffect,
 };
