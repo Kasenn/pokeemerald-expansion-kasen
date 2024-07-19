@@ -146,6 +146,8 @@ static void Task_RunPerStepCallback(u8 taskId)
 #define tState           data[0]
 #define tAmbientCryState data[1]
 #define tAmbientCryDelay data[2]
+#define tIdleState       data[3]
+#define tIdleDelay       data[4]
 
 #define TIME_UPDATE_INTERVAL (1 << 12)
 
@@ -175,6 +177,7 @@ static void Task_RunTimeBasedEvents(u8 taskId)
     {
         RunTimeBasedEvents(data);
         UpdateAmbientCry(&tAmbientCryState, (u16*) &tAmbientCryDelay);
+        DoIdleAnimation(&tIdleState, (u16*) &tIdleDelay);
     }
 }
 
@@ -228,9 +231,13 @@ void ResetFieldTasksArgs(void)
         data = gTasks[taskId].data;
         tAmbientCryState = 0;
         tAmbientCryDelay = 0;
+        tIdleState = 0;
+        tIdleDelay = 0;
     }
 }
 
+#undef tIdleState
+#undef tIdleDelay
 #undef tAmbientCryState
 #undef tAmbientCryDelay
 

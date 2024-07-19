@@ -1438,6 +1438,33 @@ u8 GetLastUsedWarpMapType(void)
     return GetMapTypeByWarpData(&gLastUsedWarp);
 }
 
+// States for DoIdleAnimation
+enum {
+    IDLE_DELAY,
+    IDLE_DO,
+};
+
+void DoIdleAnimation(s16 *state, u16 *delayCounter)
+{
+    switch (*state)
+    {
+    case IDLE_DELAY:
+        *delayCounter = 30;
+        *state = IDLE_DO;
+        break;
+    case IDLE_DO:
+        if (--(*delayCounter) == 0)
+        {               
+            struct ObjectEvent *playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+            if (gPlayerAvatar.tileTransitionState == T_NOT_MOVING){
+                ObjectEventForceSetHeldMovement(playerObjEvent, GetWalkInPlaceNormalMovementAction(GetPlayerFacingDirection()));
+            }
+            *state = IDLE_DELAY;
+        }
+        break;
+    }
+}
+
 bool8 IsMapTypeOutdoors(u8 mapType)
 {
     if (mapType == MAP_TYPE_ROUTE
