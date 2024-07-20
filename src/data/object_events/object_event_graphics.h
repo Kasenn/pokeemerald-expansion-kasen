@@ -458,6 +458,7 @@ const u32 gObjectEventPic_Fisherman_North[] = INCBIN_U32("graphics/object_events
 const u32 gObjectEventPic_Fisherman_South[] = INCBIN_U32("graphics/object_events/pics/people/fisherman_south.4bpp");
 const u32 gObjectEventPic_Fisherman_SouthRod[] = INCBIN_U32("graphics/object_events/pics/people/fisherman_south_rod.4bpp");
 const u32 gObjectEventPic_Fisherman_Horizontal[] = INCBIN_U32("graphics/object_events/pics/people/fisherman_horizontal.4bpp");
+const u32 gObjectEventPic_Fisherman_Horizontal2[] = INCBIN_U32("graphics/object_events/pics/people/fisherman_horizontal2.4bpp");
 const u32 gObjectEventPic_FisherXl[] = INCBIN_U32("graphics/object_events/pics/people/fisherxl.4bpp");
 const u32 gObjectEventPic_Fisherman_HorizontalRod[] = INCBIN_U32("graphics/object_events/pics/people/fisherman_horizontal_rod.4bpp");
 const u32 gObjectEventPic_Iris[] = INCBIN_U32("graphics/object_events/pics/people/iris.4bpp");

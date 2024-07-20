@@ -365,7 +365,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SCIENTIST_1] =              &gObjectEventGraphicsInfo_Scientist1,
     [OBJ_EVENT_GFX_LASS] =                     &gObjectEventGraphicsInfo_Lass,
     [OBJ_EVENT_GFX_GENTLEMAN] =                &gObjectEventGraphicsInfo_Gentleman,
-    [OBJ_EVENT_GFX_FISHERMAN_HORIZONTAL] =          &gObjectEventGraphicsInfo_FishermanHorizontal,
+    [OBJ_EVENT_GFX_FISHERMAN_WEST] =     &gObjectEventGraphicsInfo_FishermanHorizontal,
     [OBJ_EVENT_GFX_FISHERXL] =          &gObjectEventGraphicsInfo_FisherXl,
     [OBJ_EVENT_GFX_SAILOR] =                   &gObjectEventGraphicsInfo_Sailor,
     [OBJ_EVENT_GFX_FISHERMAN] =                &gObjectEventGraphicsInfo_Fisherman,
@@ -618,7 +618,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_FISHERMAN_NORTH] =          &gObjectEventGraphicsInfo_FishermanNorth,
     [OBJ_EVENT_GFX_FISHERMAN_SOUTH] =          &gObjectEventGraphicsInfo_FishermanSouth,
     [OBJ_EVENT_GFX_FISHERMAN_SOUTH_ROD] =          &gObjectEventGraphicsInfo_FishermanSouthRod,
-    [OBJ_EVENT_GFX_FISHERMAN_HORIZONTAL_ROD] =          &gObjectEventGraphicsInfo_FishermanHorizontalRod,
+    [OBJ_EVENT_GFX_FISHERMAN_EAST] =          &gObjectEventGraphicsInfo_FishermanEast,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

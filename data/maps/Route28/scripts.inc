@@ -217,8 +217,6 @@ Route28_Trainer4_Psychic::
 
 
 Route28_Fisher::
-	hideobjectat 11, MAP_ROUTE28
-	applymovement 13, WW_Face
 	msgbox Route28_Fisher_Text, MSGBOX_NPC
 	end
 

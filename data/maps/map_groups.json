@@ -709,7 +709,6 @@
     "Route119_House"
   ],
   "gMapGroup_OldAreas": [
-    "TestRoom",
     "PetalburgCity",
     "SlateportCity",
     "MauvilleCity",
@@ -872,6 +871,6 @@
     "MtChimney"
   ],
   "gMapGroup_IndoorRoute124": [
-
+    "TestRoom"
   ]
 }

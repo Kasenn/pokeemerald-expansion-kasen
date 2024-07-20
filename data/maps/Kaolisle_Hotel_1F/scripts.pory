@@ -750,3 +750,7 @@ text Hotel_Chef_Text{
     "Do note that taking the food outside\n"
     "the buffet is prohibited."
 }
+
+script TestScript{
+    msgbox("Test", MSGBOX_NPC)
+}

@@ -598,6 +598,17 @@ static const struct SpriteFrameImage sPicTable_FishermanHorizontal[] = {
     overworld_frame(gObjectEventPic_Fisherman_Horizontal, 6, 6, 3),
     overworld_frame(gObjectEventPic_Fisherman_Horizontal, 6, 6, 0),
 };
+static const struct SpriteFrameImage sPicTable_FishermanEast[] = {
+    overworld_frame(gObjectEventPic_Fisherman_Horizontal2, 6, 6, 0),
+    overworld_frame(gObjectEventPic_Fisherman_Horizontal2, 6, 6, 1),
+    overworld_frame(gObjectEventPic_Fisherman_Horizontal2, 6, 6, 2),
+    overworld_frame(gObjectEventPic_Fisherman_Horizontal2, 6, 6, 3),
+    overworld_frame(gObjectEventPic_Fisherman_Horizontal2, 6, 6, 0),
+    overworld_frame(gObjectEventPic_Fisherman_Horizontal2, 6, 6, 1),
+    overworld_frame(gObjectEventPic_Fisherman_Horizontal2, 6, 6, 2),
+    overworld_frame(gObjectEventPic_Fisherman_Horizontal2, 6, 6, 3),
+    overworld_frame(gObjectEventPic_Fisherman_Horizontal2, 6, 6, 0),
+};
 static const struct SpriteFrameImage sPicTable_FisherXl[] = {
     overworld_frame(gObjectEventPic_FisherXl, 6, 6, 0),
     overworld_frame(gObjectEventPic_FisherXl, 6, 6, 1),

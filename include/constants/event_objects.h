@@ -264,8 +264,8 @@
 #define OBJ_EVENT_GFX_FISHERMAN_NORTH                260
 #define OBJ_EVENT_GFX_FISHERMAN_SOUTH                 261
 #define OBJ_EVENT_GFX_FISHERMAN_SOUTH_ROD                262
-#define OBJ_EVENT_GFX_FISHERMAN_HORIZONTAL                 263
-#define OBJ_EVENT_GFX_FISHERMAN_HORIZONTAL_ROD                264
+#define OBJ_EVENT_GFX_FISHERMAN_WEST                 263
+#define OBJ_EVENT_GFX_FISHERMAN_EAST                264
 #define OBJ_EVENT_GFX_MIMIKYU                265
 #define OBJ_EVENT_GFX_WOMAN_6                     266
 #define OBJ_EVENT_GFX_FISHERXL                 267

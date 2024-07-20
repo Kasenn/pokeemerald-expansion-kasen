@@ -775,6 +775,9 @@ $(OBJEVENTGFXDIR)/people/fisherman_south_rod.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/fisherman_horizontal.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 6 -mheight 6
 
+$(OBJEVENTGFXDIR)/people/fisherman_horizontal2.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 6 -mheight 6
+
 $(OBJEVENTGFXDIR)/people/fisherxl.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 6 -mheight 6
 

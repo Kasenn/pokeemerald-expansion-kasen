@@ -103,8 +103,6 @@ Shoreslate_Woman3::
 
 
 Shoreslate_Fisher::
-	hideobjectat 12, MAP_SHORESLATE_CITY
-	applymovement 25, WW_Face
 	msgbox Shoreslate_Fisher_Text, MSGBOX_NPC
 	end
 
