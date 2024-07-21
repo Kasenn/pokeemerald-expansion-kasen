@@ -1579,6 +1579,12 @@ void SetRoute119Weather(void)
         SetSavedWeather(WEATHER_ROUTE119_CYCLE);
 }
 
+void SetDrisledgeWeather(void)
+{
+    if (VarGet(VAR_DRISLEDGE_TOWN_STATE >= 30) && (VarGet(VAR_TEMP_0) <= 6 || VarGet(VAR_TEMP_0) >= 18))
+        SetSavedWeather(WEATHER_SHADE);
+}
+
 void SetRoute123Weather(void)
 {
     if (IsMapTypeOutdoors(GetLastUsedWarpMapType()) != TRUE)

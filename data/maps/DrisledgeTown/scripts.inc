@@ -1,41 +1,202 @@
 DrisledgeTown_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, DespawnDrisledgeNPCs
-	map_script MAP_SCRIPT_ON_LOAD, DespawnDrisledgeNPCs
+	map_script MAP_SCRIPT_ON_TRANSITION, DrisledgeTownOnTransition
+	map_script MAP_SCRIPT_ON_LOAD, DrisledgeTownOnLoad
 	.byte 0
 
 
-DespawnDrisledgeNPCs::
-	compare VAR_DRISLEDGE_TOWN_STATE, 30
-	goto_if_ge DespawnDrisledgeNPCs_2
-	setflag FLAG_TEMP_2
-	setdynamicwarp MAP_DRISLEDGE_GYM, 5, 51
-DespawnDrisledgeNPCs_1:
-	setflag FLAG_VISITED_DRISLEDGE
-	compare VAR_DRISLEDGE_TOWN_STATE, 7
-	goto_if_ge DespawnDrisledgeNPCs_5
-	return
-
-DespawnDrisledgeNPCs_2:
-	setflag FLAG_TEMP_2
-	setdynamicwarp MAP_DRISLEDGE_GYM_HOUSE, 4, 8
-	setmaplayoutindex LAYOUT_DRISLEDGE_TOWN_BROKEN
+DrisledgeTownOnLoad::
 	gettime
 	copyvar VAR_TEMP_0, VAR_0x8000
-	compare VAR_TEMP_0, 6
-	goto_if_le DespawnDrisledgeNPCs_7
-	compare VAR_TEMP_0, 18
-	goto_if_ge DespawnDrisledgeNPCs_7
-	goto DespawnDrisledgeNPCs_1
-
-DespawnDrisledgeNPCs_5:
-	setflag FLAG_TEMP_1
+	call SetDrisledgeGym
 	return
 
-DespawnDrisledgeNPCs_7:
+
+DrisledgeTownOnTransition::
+	setflag FLAG_VISITED_DRISLEDGE
+	gettime
+	copyvar VAR_TEMP_0, VAR_0x8000
+	special SetDrisledgeWeather
+	call SetDrisledgeNPCs
+	call SetDrisledgeGym
+	compare VAR_DRISLEDGE_TOWN_STATE, 30
+	goto_if_ge DrisledgeTownOnTransition_1
+	return
+
+DrisledgeTownOnTransition_1:
+	compare VAR_TEMP_0, 6
+	goto_if_le DrisledgeTownOnTransition_3
+	compare VAR_TEMP_0, 18
+	goto_if_ge DrisledgeTownOnTransition_3
+	setmaplayoutindex LAYOUT_DRISLEDGE_TOWN_BROKEN
+	return
+
+DrisledgeTownOnTransition_3:
 	setmaplayoutindex LAYOUT_DRISLEDGE_TOWN_BROKEN2
+	return
+
+
+SetDrisledgeNPCs::
+	setflag FLAG_TEMP_2
+	compare VAR_DRISLEDGE_TOWN_STATE, 7
+	goto_if_ge SetDrisledgeNPCs_2
+SetDrisledgeNPCs_1:
+	compare VAR_DRISLEDGE_TOWN_STATE, 30
+	goto_if_ge SetDrisledgeNPCs_6
+SetDrisledgeNPCs_4:
+	return
+
+SetDrisledgeNPCs_2:
+	setflag FLAG_TEMP_1
+	goto SetDrisledgeNPCs_1
+
+SetDrisledgeNPCs_5:
 	clearflag FLAG_TEMP_2
-	setweather WEATHER_SHADE
-	goto DespawnDrisledgeNPCs_1
+	goto SetDrisledgeNPCs_4
+
+SetDrisledgeNPCs_6:
+	compare VAR_TEMP_0, 6
+	goto_if_le SetDrisledgeNPCs_5
+	compare VAR_TEMP_0, 18
+	goto_if_ge SetDrisledgeNPCs_5
+	goto SetDrisledgeNPCs_4
+
+
+SetUpBrokenDrisledge::
+	call SetUpDrisledgeTrees
+	call SetUpDrisledgeBushes
+	call SetUpDrisledgePuddles
+	call SetUpDrisledgeHouses
+	return
+
+
+SetUpGhostTownDrisledge::
+	return
+
+
+SetUpDrisledgeTrees::
+	setmetatile 23, 22, 0x204, FALSE
+	setmetatile 22, 14, 0x204, FALSE
+	setmetatile 24, 11, 0x204, FALSE
+	setmetatile 9, 6, 0x254, FALSE
+	setmetatile 10, 6, 0x254, FALSE
+	setmetatile 11, 6, 0x254, FALSE
+	setmetatile 9, 7, 0x254, FALSE
+	setmetatile 10, 7, 0x254, FALSE
+	setmetatile 11, 7, 0x254, FALSE
+	setmetatile 9, 8, 0x254, FALSE
+	setmetatile 10, 8, 0x254, FALSE
+	setmetatile 7, 8, 0x254, FALSE
+	setmetatile 8, 8, 0x254, FALSE
+	setmetatile 7, 9, 0x254, FALSE
+	setmetatile 8, 9, 0x254, FALSE
+	return
+
+
+SetUpDrisledgeBushes::
+	setmetatile 14, 1, 0x205, FALSE
+	setmetatile 15, 4, 0x205, FALSE
+	setmetatile 18, 4, 0x205, FALSE
+	setmetatile 20, 5, 0x205, FALSE
+	setmetatile 28, 6, 0x205, FALSE
+	setmetatile 15, 7, 0x205, FALSE
+	setmetatile 15, 8, 0x205, FALSE
+	setmetatile 26, 9, 0x205, FALSE
+	setmetatile 27, 9, 0x205, FALSE
+	setmetatile 27, 10, 0x205, FALSE
+	setmetatile 25, 11, 0x205, FALSE
+	setmetatile 25, 12, 0x205, FALSE
+	setmetatile 22, 12, 0x205, FALSE
+	setmetatile 16, 12, 0x205, FALSE
+	setmetatile 17, 12, 0x205, FALSE
+	setmetatile 12, 12, 0x205, FALSE
+	setmetatile 12, 13, 0x205, FALSE
+	setmetatile 15, 14, 0x205, FALSE
+	setmetatile 15, 15, 0x205, FALSE
+	setmetatile 20, 14, 0x205, FALSE
+	setmetatile 20, 15, 0x205, FALSE
+	setmetatile 20, 16, 0x205, FALSE
+	setmetatile 21, 15, 0x205, FALSE
+	setmetatile 24, 14, 0x205, FALSE
+	setmetatile 5, 21, 0x205, FALSE
+	setmetatile 5, 22, 0x205, FALSE
+	setmetatile 6, 22, 0x205, FALSE
+	setmetatile 6, 24, 0x205, FALSE
+	setmetatile 11, 23, 0x205, FALSE
+	setmetatile 12, 22, 0x205, FALSE
+	setmetatile 20, 22, 0x205, FALSE
+	setmetatile 20, 24, 0x205, FALSE
+	setmetatile 21, 23, 0x205, FALSE
+	setmetatile 23, 24, 0x205, FALSE
+	return
+
+
+SetUpDrisledgePuddles::
+	setmetatile 13, 5, 0x254, FALSE
+	setmetatile 14, 5, 0x254, FALSE
+	setmetatile 12, 6, 0x254, FALSE
+	setmetatile 13, 6, 0x254, FALSE
+	setmetatile 14, 6, 0x254, FALSE
+	setmetatile 12, 7, 0x254, FALSE
+	setmetatile 13, 7, 0x254, FALSE
+	setmetatile 14, 7, 0x254, FALSE
+	setmetatile 9, 9, 0x254, FALSE
+	setmetatile 10, 9, 0x254, FALSE
+	setmetatile 11, 9, 0x254, FALSE
+	setmetatile 8, 10, 0x254, FALSE
+	setmetatile 9, 10, 0x254, FALSE
+	setmetatile 10, 10, 0x254, FALSE
+	setmetatile 11, 10, 0x254, FALSE
+	setmetatile 8, 11, 0x254, FALSE
+	setmetatile 9, 11, 0x254, FALSE
+	setmetatile 10, 11, 0x254, FALSE
+	setmetatile 11, 11, 0x254, FALSE
+	return
+
+
+SetUpDrisledgeHouses::
+	setmetatile 7, 21, 0x2E8, FALSE
+	setmetatile 8, 21, 0x2E9, FALSE
+	setmetatile 9, 21, 0x2EA, FALSE
+	setmetatile 10, 21, 0x2EB, FALSE
+	setmetatile 7, 22, 0x2F4, TRUE
+	setmetatile 8, 22, 0x2F5, TRUE
+	setmetatile 9, 22, 0x2F2, TRUE
+	setmetatile 10, 22, 0x2F3, TRUE
+	setmetatile 7, 23, 0x2F8, TRUE
+	setmetatile 8, 23, 0x2FD, TRUE
+	setmetatile 9, 23, 0x2FA, TRUE
+	setmetatile 10, 23, 0x2FB, TRUE
+	setmetatile 7, 24, 0x300, TRUE
+	setmetatile 9, 24, 0x302, TRUE
+	setmetatile 10, 24, 0x303, TRUE
+	setmetatile 7 + 9, 21 -8, 0x2E8, FALSE
+	setmetatile 8 + 9, 21 -8, 0x2E9, FALSE
+	setmetatile 9 + 9, 21 -8, 0x2EA, FALSE
+	setmetatile 10 + 9, 21 -8, 0x2EB, FALSE
+	setmetatile 7 + 9, 22 -8, 0x2F4, TRUE
+	setmetatile 8 + 9, 22 -8, 0x2F5, TRUE
+	setmetatile 9 + 9, 22 -8, 0x2F2, TRUE
+	setmetatile 10 + 9, 22 -8, 0x2F3, TRUE
+	setmetatile 7 + 9, 23 -8, 0x2F8, TRUE
+	setmetatile 8 + 9, 23 -8, 0x2FD, TRUE
+	setmetatile 9 + 9, 23 -8, 0x2FA, TRUE
+	setmetatile 10 + 9, 23 -8, 0x2FB, TRUE
+	setmetatile 7 + 9, 24 -8, 0x300, TRUE
+	setmetatile 9 + 9, 24 -8, 0x302, TRUE
+	setmetatile 10 + 9, 24 -8, 0x303, TRUE
+	return
+
+
+SetDrisledgeGym::
+	compare VAR_DRISLEDGE_TOWN_STATE, 30
+	goto_if_ge SetDrisledgeGym_2
+	setdynamicwarp MAP_DRISLEDGE_GYM, 5, 51
+SetDrisledgeGym_1:
+	return
+
+SetDrisledgeGym_2:
+	setdynamicwarp MAP_DRISLEDGE_GYM_HOUSE, 4, 8
+	goto SetDrisledgeGym_1
 
 
 Drisledge_Sign1::
