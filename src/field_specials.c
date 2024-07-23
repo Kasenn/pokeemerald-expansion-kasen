@@ -3811,38 +3811,6 @@ void IncrementBirthIslandRockStepCount(void)
     }
 }
 
-void UpdateGrottos(void)
-{
-    u16 grottoSteps = VarGet(VAR_GROTTO_STEP_COUNT);
-
-    if (grottoSteps != 0)
-    {
-        grottoSteps--;
-        VarSet(VAR_GROTTO_STEP_COUNT, grottoSteps);
-        if (grottoSteps == 0)
-        {
-            VarSet(VAR_GROTTO_STEP_COUNT, 256);
-
-            if (Random() % 10 == 0 && FlagGet(FLAG_DAILY_GROTTO_1)){
-                FlagClear(FLAG_DAILY_GROTTO_1);
-                VarSet(VAR_GROTTO_1, Random() % 100);
-            }
-            if (Random() % 10 == 0 && FlagGet(FLAG_DAILY_GROTTO_2)){
-                FlagClear(FLAG_DAILY_GROTTO_2);
-                VarSet(VAR_GROTTO_2, Random() % 100);
-            }
-            if (Random() % 10 == 0 && FlagGet(FLAG_DAILY_GROTTO_3)){
-                FlagClear(FLAG_DAILY_GROTTO_3);
-                VarSet(VAR_GROTTO_3, Random() % 100);
-            }
-            if (Random() % 10 == 0 && FlagGet(FLAG_DAILY_GROTTO_4)){
-                FlagClear(FLAG_DAILY_GROTTO_4);
-                VarSet(VAR_GROTTO_4, Random() % 100);
-            }
-        }
-    }
-}
-
 void SetDeoxysRockPalette(void)
 {
     LoadPalette(&sDeoxysRockPalettes[(u8)VarGet(VAR_DEOXYS_ROCK_LEVEL)], OBJ_PLTT_ID(ROCK_PAL_ID), PLTT_SIZEOF(4));

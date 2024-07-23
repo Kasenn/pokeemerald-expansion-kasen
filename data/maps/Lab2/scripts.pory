@@ -491,6 +491,7 @@ script Lab_BallMain{
         end
     }
     lock
+    waitse
     playmoncry(VAR_TEMP_3, CRY_MODE_NORMAL)
     showmonpic(VAR_TEMP_3, 10, 3)
     waitmoncry

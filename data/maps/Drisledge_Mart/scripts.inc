@@ -28,6 +28,12 @@ DrisMartFlagControl_1:
 	return
 
 
+testSteps::
+	buffernumberstring STR_VAR_1, VAR_GROTTO_STEP_COUNT
+	msgbox testSteps_Text_0, MSGBOX_NPC
+	return
+
+
 MartCounterHop1::
 	lock
 	compare VAR_FACING, DIR_WEST
@@ -164,6 +170,9 @@ HopOverLedgeToNorthMart:
 	jump_2_up
 	delay_16
 	step_end
+
+testSteps_Text_0:
+	.string "{STR_VAR_1}$"
 
 MartCounterEmpty::
 	.string "There's nobody behind the counter.\p"

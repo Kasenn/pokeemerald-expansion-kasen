@@ -30,6 +30,7 @@
 #include "trainer_see.h"
 #include "trainer_hill.h"
 #include "vs_seeker.h"
+#include "random.h"
 #include "wild_encounter.h"
 #include "follow_me.h"
 #include "constants/event_bg.h"
@@ -71,6 +72,7 @@ static bool8 TryStartWarpEventScript(struct MapPosition *, u16);
 static bool8 TryStartMiscWalkingScripts(u16);
 static bool8 TryStartStepCountScript(u16);
 static void UpdateFriendshipStepCounter(void);
+static void UpdateGrottos(void);
 #if OW_POISON_DAMAGE < GEN_5
 static bool8 UpdatePoisonStepCounter(void);
 #endif // OW_POISON_DAMAGE
@@ -170,7 +172,6 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     {
         IncrementGameStat(GAME_STAT_STEPS);
         IncrementBirthIslandRockStepCount();
-        UpdateGrottos();
         if (TryStartStepBasedScript(&position, metatileBehavior, playerDirection) == TRUE)
             return TRUE;
     }
@@ -283,9 +284,6 @@ static bool8 TryStartInteractionScript(struct MapPosition *position, u16 metatil
      && script != Kaolisle_Gym_Switch4
      && script != LitwickChase_2
      && script != LitwickChase_3
-     && script != Lab2_Ball1
-     && script != Lab2_Ball2
-     && script != Lab2_Ball3
      && script != LanettesHouse_Extractinator
      && script != EventScript_PC)
         PlaySE(SE_SELECT);
@@ -623,6 +621,7 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
 
     IncrementRematchStepCounter();
     UpdateFriendshipStepCounter();
+    UpdateGrottos();
     UpdateFarawayIslandStepCounter();
 
     if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED_MOVE) && !MetatileBehavior_IsForcedMovementTile(metatileBehavior))
@@ -692,6 +691,33 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
     if (TryStartMatchCall())
         return TRUE;
     return FALSE;
+}
+
+static void UpdateGrottos(void)
+{
+    u16 *ptr = GetVarPointer(VAR_GROTTO_STEP_COUNT);
+
+    (*ptr)++;
+    (*ptr) %= 256;
+    if (*ptr == 0)
+    {
+        if (Random() % 10 == 0 && FlagGet(FLAG_DAILY_GROTTO_1)){
+            FlagClear(FLAG_DAILY_GROTTO_1);
+            VarSet(VAR_GROTTO_1, Random() % 100);
+        }
+        if (Random() % 10 == 0 && FlagGet(FLAG_DAILY_GROTTO_2)){
+            FlagClear(FLAG_DAILY_GROTTO_2);
+            VarSet(VAR_GROTTO_2, Random() % 100);
+        }
+        if (Random() % 10 == 0 && FlagGet(FLAG_DAILY_GROTTO_3)){
+            FlagClear(FLAG_DAILY_GROTTO_3);
+            VarSet(VAR_GROTTO_3, Random() % 100);
+        }
+        if (Random() % 10 == 0 && FlagGet(FLAG_DAILY_GROTTO_4)){
+            FlagClear(FLAG_DAILY_GROTTO_4);
+            VarSet(VAR_GROTTO_4, Random() % 100);
+        }
+    }
 }
 
 static void UNUSED ClearFriendshipStepCounter(void)

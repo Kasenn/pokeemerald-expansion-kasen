@@ -95,7 +95,8 @@
     "CrystalpineTwon",
     "IceperchCity",
     "SnowcrestCity",
-    "GalewindCity"
+    "GalewindCity",
+    "Route14_CaveEntrance"
   ],
   "gMapGroup_RouteInteriors": [
     "RanchBarn",
@@ -133,7 +134,8 @@
     "SkyPillar_5F",
     "UndergroundRuins_4F",
     "WindplumePeak",
-    "Route15_Grotto"
+    "Route15_Grotto",
+    "WindywoodsFix"
   ],
   "gMapGroup_IndoorPearlwoodPoint": [
     "Lab2",

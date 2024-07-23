@@ -152,7 +152,7 @@ Route2_Text_BlackBeltPostBattle::
 	.string "You have potential to become\na great black belt.\pIf you're interested,\ndrop by our dojo in Sandstone City.$"
 
 Route2_Text_YoungsterIntro::
-	.string "Our eyes met so\nyou know what that means!$"
+	.string "Our eyes met so you\nknow what that means!$"
 
 Route2_Text_YoungsterDefeated::
 	.string "You must've cheated somehow…$"

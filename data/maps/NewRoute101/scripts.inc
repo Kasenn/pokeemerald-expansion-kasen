@@ -118,6 +118,7 @@ Route1_CoolTrainerPostBattle::
 	msgbox WW_CoolTrainerExplainReward, MSGBOX_DEFAULT
 	playfanfare MUS_OBTAIN_B_POINTS
 	msgbox Route1_CoolTrainerPostBattle_Text_0, MSGBOX_DEFAULT
+	waitfanfare
 	goto_if_unset FLAG_INTRO_TO_BP, Route1_CoolTrainerPostBattle_2
 Route1_CoolTrainerPostBattle_1:
 	setflag FLAG_ROUTE1_COOLTRAINERREWARD

@@ -330,7 +330,7 @@ Coralgrove_DroppedSomething::
 	.string "something in the ocean.$"
 
 Coral_Hiker_Text::
-	.string "There was landslide between\n"
+	.string "There was a landslide between\n"
 	.string "Coralgrove City and Primrose Town.\p"
 	.string "There's some rocks here and there but\n"
 	.string "most of it has already been cleared.$"

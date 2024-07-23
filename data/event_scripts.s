@@ -1491,3 +1491,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/GalewindCity/scripts.inc"
 
 	.include "data/maps/Route15_Grotto/scripts.inc"
+
+	.include "data/maps/Route14_CaveEntrance/scripts.inc"
+
+	.include "data/maps/WindywoodsFix/scripts.inc"

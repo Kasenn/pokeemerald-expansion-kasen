@@ -102,7 +102,7 @@ script Route2_Youngster{
 }
 
 text Route2_Text_YoungsterIntro{
-    "Our eyes met so\nyou know what that means!"
+    "Our eyes met so you\nknow what that means!"
 }
 
 text Route2_Text_YoungsterDefeated{

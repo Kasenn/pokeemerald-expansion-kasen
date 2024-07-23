@@ -204,7 +204,7 @@ script Coralgrove_HIKER{
 }
 
 text Coral_Hiker_Text{
-    "There was landslide between\n"
+    "There was a landslide between\n"
     "Coralgrove City and Primrose Town.\p"
     "There's some rocks here and there but\n"
     "most of it has already been cleared."

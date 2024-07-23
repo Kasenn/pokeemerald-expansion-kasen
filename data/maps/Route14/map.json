@@ -27,6 +27,11 @@
       "map": "MAP_BERRY_FIELDS",
       "offset": 0,
       "direction": "down"
+    },
+    {
+      "map": "MAP_ROUTE14_CAVE_ENTRANCE",
+      "offset": 38,
+      "direction": "up"
     }
   ],
   "object_events": [

@@ -1,21 +1,21 @@
 static const struct TrainerMon sParty_Sawyer1[] = {
     {
-    .lvl = 6,
+    .lvl = 10,
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .ev = TRAINER_PARTY_EVS(4, 252, 252, 0, 0 ,0), 
+    .ev = TRAINER_PARTY_EVS(104, 0, 252, 0, 0 ,152), 
     .nature = NATURE_ADAMANT,
     .species = SPECIES_SQUIRTLE,
     .gender = TRAINER_MON_MALE,
     .moves = {MOVE_TACKLE},
-    .heldItem = ITEM_CHOICE_BAND
+    .heldItem = ITEM_CHOICE_BAND,
     }
 };
 
 static const struct TrainerMon sParty_GruntAquaHideout1[] = {
     {
-    .lvl = 6,
+    .lvl = 10,
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .ev = TRAINER_PARTY_EVS(4, 252, 252, 0, 0 ,0), 
+    .ev = TRAINER_PARTY_EVS(104, 0, 252, 0, 0 ,152), 
     .nature = NATURE_ADAMANT,
     .species = SPECIES_BULBASAUR,
     .gender = TRAINER_MON_MALE,
@@ -26,9 +26,9 @@ static const struct TrainerMon sParty_GruntAquaHideout1[] = {
 
 static const struct TrainerMon sParty_GruntAquaHideout2[] = {
     {
-    .lvl = 6,
+    .lvl = 10,
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .ev = TRAINER_PARTY_EVS(4, 252, 252, 0, 0 ,0), 
+    .ev = TRAINER_PARTY_EVS(104, 0, 252, 0, 0 ,152), 
     .nature = NATURE_ADAMANT,
     .species = SPECIES_CHARMANDER,
     .gender = TRAINER_MON_MALE,

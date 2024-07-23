@@ -69,7 +69,7 @@ text Route1_Text_BugCatcherDefeated{
 }
 
 text Route1_Text_BugCatcherPostBattle{
-    "I haven't seen a single\nbug type Pokémon here.\lI may need to switch a spot."
+    "I haven't seen a single\nbug type Pokémon here.\lI may need to try another spot."
 }
 
 script Route1_CoolTrainer{
@@ -142,6 +142,7 @@ script Route1_CoolTrainerPostBattle{
     msgbox(WW_CoolTrainerExplainReward, MSGBOX_DEFAULT)
     playfanfare(MUS_OBTAIN_B_POINTS)
     msgbox("Earned 10 BP!", MSGBOX_DEFAULT)
+    waitfanfare
     if(!flag(FLAG_INTRO_TO_BP)){
         msgbox(ExplainBP, MSGBOX_DEFAULT)
     }

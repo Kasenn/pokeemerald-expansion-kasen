@@ -4424,8 +4424,8 @@
     {
       "id": "LAYOUT_NEW_ROUTE101",
       "name": "NewRoute101_Layout",
-      "width": 45,
-      "height": 36,
+      "width": 49,
+      "height": 40,
       "primary_tileset": "gTileset_Pearlwood",
       "secondary_tileset": "gTileset_Pearlwood_Secondary",
       "border_filepath": "data/layouts/NewRoute101/border.bin",
@@ -4484,7 +4484,7 @@
     {
       "id": "LAYOUT_WINDY_WOODS",
       "name": "WindyWoods_Layout",
-      "width": 68,
+      "width": 78,
       "height": 56,
       "primary_tileset": "gTileset_DarkForest",
       "secondary_tileset": "gTileset_DarkForestSec",
@@ -6470,6 +6470,26 @@
       "secondary_tileset": "gTileset_SecretBaseShrub",
       "border_filepath": "data/layouts/Route15_Grotto/border.bin",
       "blockdata_filepath": "data/layouts/Route15_Grotto/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE14_CAVE_ENTRANCE",
+      "name": "Route14_CaveEntrance_Layout",
+      "width": 29,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree2",
+      "border_filepath": "data/layouts/Route14_CaveEntrance/border.bin",
+      "blockdata_filepath": "data/layouts/Route14_CaveEntrance/map.bin"
+    },
+    {
+      "id": "LAYOUT_WINDYWOODS_FIX",
+      "name": "WindywoodsFix_Layout",
+      "width": 68,
+      "height": 10,
+      "primary_tileset": "gTileset_DarkForest",
+      "secondary_tileset": "gTileset_DarkForestSec",
+      "border_filepath": "data/layouts/WindywoodsFix/border.bin",
+      "blockdata_filepath": "data/layouts/WindywoodsFix/map.bin"
     }
   ]
 }

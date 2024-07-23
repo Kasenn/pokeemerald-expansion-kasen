@@ -158,6 +158,7 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
+	call testSteps
 	end
 
 Debug_EventScript_Script_6::

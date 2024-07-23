@@ -10,7 +10,7 @@ gBirchDexRatingText_Cancel::
 gBirchDexRatingText_SoYouveSeenAndCaught::
 	.string "Hmhm…\p"
 	.string "So, you've seen {STR_VAR_1} Pokémon,\n"
-	.string "and you've caught {STR_VAR_2} Pokémon$"
+	.string "and you've caught {STR_VAR_2} Pokémon.$"
 
 gBirchDexRatingText_LessThan10::
 	.string "Go into grassy areas more and look\n"

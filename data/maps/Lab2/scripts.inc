@@ -414,6 +414,7 @@ Lab2_Ball3::
 Lab_BallMain::
 	goto_if_set FLAG_SYS_POKEMON_GET, Lab_BallMain_2
 	lock
+	waitse
 	playmoncry VAR_TEMP_3, CRY_MODE_NORMAL
 	showmonpic VAR_TEMP_3, 10, 3
 	waitmoncry

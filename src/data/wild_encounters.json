@@ -11956,7 +11956,7 @@
           "map": "MAP_NEW_ROUTE101",
           "base_label": "gNewRoute1010",
           "land_mons": {
-            "encounter_rate": 40,
+            "encounter_rate": 30,
             "mons": [
               {
                 "min_level": 2,
@@ -12502,7 +12502,7 @@
           "map": "MAP_PRIMROSE_MEADOW",
           "base_label": "gPrimroseMeadow0",
           "land_mons": {
-            "encounter_rate": 30,
+            "encounter_rate": 20,
             "mons": [
               {
                 "min_level": 3,

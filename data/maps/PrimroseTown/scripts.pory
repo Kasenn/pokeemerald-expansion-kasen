@@ -21,7 +21,7 @@ script Primrose_FlowerGirl{
 }
 
 script Primrose_FatMan{
-	msgbox("This place is real pretty.\pWould be a real shame to be allergic\nto all this pollen though…\p…\lsniff…", MSGBOX_NPC)
+	msgbox("This place is real pretty.\pWould be a real shame to be allergic\nto all this pollen though…\p…\psniff…", MSGBOX_NPC)
 	end
 }
 

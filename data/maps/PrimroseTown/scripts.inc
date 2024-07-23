@@ -69,7 +69,7 @@ Primrose_FlowerGirl_Text_0:
 	.string "Look at all those pretty flowers!\pI'd like to pick a few of them but\nI'm scared I might get attacked\lby a bug Pokémon…$"
 
 Primrose_FatMan_Text_0:
-	.string "This place is real pretty.\pWould be a real shame to be allergic\nto all this pollen though…\p…\lsniff…$"
+	.string "This place is real pretty.\pWould be a real shame to be allergic\nto all this pollen though…\p…\psniff…$"
 
 Primrose_Hiker_Text_0:
 	.string "I don't like the look of that storm…$"

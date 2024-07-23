@@ -18,3 +18,46 @@ script School2F_Door{
     release
     end
 }
+
+script SchoolPoster1{
+    msgbox(SchoolPoster1_Text, MSGBOX_SIGN)
+}
+text SchoolPoster1_Text{
+    "It's a poster advertising some\n"
+    "sort of school play."
+}
+
+script SchoolPoster2{
+    msgbox(SchoolPoster2_Text, MSGBOX_SIGN)
+}
+text SchoolPoster2_Text{
+    "It's a poster advertising some sort of\n"
+    "after school Pokémon battling club."
+}
+
+script SchoolPoster3{
+    msgbox(SchoolPoster3_Text, MSGBOX_SIGN)
+}
+text SchoolPoster3_Text{
+    "It's a movie poster about a masked\n"
+    "super hero, fighting against evil\l"
+    "with her partner Riolu."
+}
+
+script SchoolPoster4{
+    msgbox(SchoolPoster4_Text, MSGBOX_SIGN)
+}
+text SchoolPoster4_Text{
+    "It's a poster giving instructions\n"
+    "on how to use the PC as a guest."
+}
+
+script SchoolPC{
+    msgbox(SchoolPC_Text, MSGBOX_SIGN)
+}
+text SchoolPC_Text{
+    "It's a school PC.\n"
+    "It doesn't seem to turn on.\p"
+    "Whoever used it last must have\n"
+    "forgot to plug in the charger."
+}

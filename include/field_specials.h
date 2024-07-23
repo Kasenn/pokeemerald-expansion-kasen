@@ -11,7 +11,6 @@ u16 GetPCBoxToSendMon(void);
 bool8 InMultiPartnerRoom(void);
 void UpdateTrainerFansAfterLinkBattle(void);
 void IncrementBirthIslandRockStepCount(void);
-void UpdateGrottos(void);
 bool8 AbnormalWeatherHasExpired(void);
 bool8 ShouldDoBrailleRegicePuzzle(void);
 bool32 ShouldDoWallyCall(void);

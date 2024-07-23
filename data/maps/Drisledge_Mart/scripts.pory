@@ -22,6 +22,11 @@ script DrisMartFlagControl{
     }
 }
 
+script testSteps{
+    buffernumberstring(STR_VAR_1, VAR_GROTTO_STEP_COUNT)
+    msgbox("{STR_VAR_1}", MSGBOX_NPC)
+}
+
 script MartCounterHop1{
     lock
     if(var(VAR_FACING) == DIR_WEST){
