@@ -218,7 +218,12 @@ void DrawDoorMetatileAt(int x, int y, u16 *tiles)
 
     if (offset >= 0)
     {
-        DrawMetatile(METATILE_LAYER_TYPE_COVERED, tiles, offset);
+        if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(TOWN_WIP2)){
+            DrawMetatile(METATILE_LAYER_TYPE_NORMAL, tiles, offset);
+        }
+        else{
+            DrawMetatile(METATILE_LAYER_TYPE_COVERED, tiles, offset);
+        }
         sFieldCameraOffset.copyBGToVRAM = TRUE;
     }
 }

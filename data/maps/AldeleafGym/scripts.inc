@@ -334,7 +334,7 @@ Aldeleaf_Gym_EventScript_VolknerDefeated::
 
 
 Aldeleaf_Gym_EventScript_GiveWildCharge::
-	giveitem ITEM_TM_WILD_CHARGE
+	giveitem ITEM_TM_CHARGE_BEAM
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	msgbox Aldeleaf_Gym_Text_ExplainWildCharge, MSGBOX_DEFAULT
 	release
@@ -538,12 +538,13 @@ Aldeleaf_Gym_Text_ThunderBadgeInfoTakeThis::
 	.string "Here, have this TM as well.$"
 
 Aldeleaf_Gym_Text_ExplainWildCharge::
-	.string "That TM contains the move Wild Charge.\p"
-	.string "It's a really powerful attack where\n"
-	.string "the user shrouds itself in electricity\l"
-	.string "and slams against the opponent.\p"
-	.string "Be careful though, as this also\n"
-	.string "hurts the user!$"
+	.string "That TM contains the move Charge Beam.\p"
+	.string "It's a really powerful attack\n"
+	.string "where the user charges up to fire\l"
+	.string "an electric beam at the opponent.\p"
+	.string "And sometimes the residual electricity\n"
+	.string "from the attack may also boost\l"
+	.string "the user's Sp. Atk stat.$"
 
 Aldeleaf_Gym_Text_VolknerPostBattle::
 	.string "After witnessing your strength here,\n"

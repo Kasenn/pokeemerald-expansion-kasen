@@ -58,7 +58,7 @@
     F(PSYSHOCK) \
     F(SCALD) \
     F(FLING) \
-    F(CHARGE_BEAM) \
+    F(DRAINING_KISS) \
     F(SKY_DROP) \
     F(INCINERATE) \
     F(MEGAHORN) \
@@ -94,7 +94,7 @@
     F(SPIKES) \
     F(FLASH_CANNON) \
     F(MYSTICAL_FIRE) \
-    F(WILD_CHARGE) \
+    F(CHARGE_BEAM) \
     F(FALSE_SWIPE) \
     F(SNARL) \
     F(SMART_STRIKE) \

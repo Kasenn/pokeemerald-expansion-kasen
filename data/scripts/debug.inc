@@ -158,7 +158,10 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
-	call testSteps
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Right
+	delay 10
+	releaseall
 	end
 
 Debug_EventScript_Script_6::

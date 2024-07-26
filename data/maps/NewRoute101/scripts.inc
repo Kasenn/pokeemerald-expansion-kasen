@@ -221,7 +221,7 @@ Route1_Text_BugCatcherDefeated::
 	.string "Looks like I still\nhave some ways to go…$"
 
 Route1_Text_BugCatcherPostBattle::
-	.string "I haven't seen a single\nbug type Pokémon here.\lI may need to switch a spot.$"
+	.string "I haven't seen a single\nbug type Pokémon here.\lI may need to try another spot.$"
 
 Route1_Text_CoolTrainerDefeated::
 	.string "Truly a magnificent battle!$"

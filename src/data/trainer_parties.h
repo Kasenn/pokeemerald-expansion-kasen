@@ -1515,24 +1515,23 @@ static const struct TrainerMon sParty_Warren[] = {
 
 static const struct TrainerMon sParty_Mary[] = {
     {
-    .nature = NATURE_IMPISH,
+    .nature = NATURE_MODEST,
     .lvl = 19,
-    .species = SPECIES_STUNFISK,
-    .moves = {MOVE_REVENGE, MOVE_MUD_SHOT, MOVE_THUNDER_SHOCK, MOVE_WATER_GUN}
+    .species = SPECIES_FLAAFFY,
+    .moves = {MOVE_CHARGE_BEAM, MOVE_CHARGE, MOVE_TACKLE}
     },
     {
-    .nature = NATURE_MODEST,
+    .nature = NATURE_IMPISH,
     .lvl = 20,
-    .species = SPECIES_ELECTABUZZ,
-    .moves = {MOVE_WILD_CHARGE, MOVE_SWIFT, MOVE_LOW_KICK, MOVE_SIGNAL_BEAM}
+    .species = SPECIES_STUNFISK,
+    .moves = {MOVE_MUD_SHOT, MOVE_CHARGE_BEAM, MOVE_WATER_GUN, MOVE_REVENGE}
     },
     {
     .nature = NATURE_MODEST,
     .lvl = 22,
-    .species = SPECIES_JOLTEON,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_WILD_CHARGE, MOVE_BITE, MOVE_DOUBLE_KICK, MOVE_QUICK_ATTACK}
-    }
+    .species = SPECIES_ELECTABUZZ,
+    .moves = {MOVE_CHARGE_BEAM, MOVE_SWIFT, MOVE_LOW_KICK, MOVE_SIGNAL_BEAM}
+    },
 };
 
 static const struct TrainerMon sParty_WpvTr1Birdkeeper[] = {

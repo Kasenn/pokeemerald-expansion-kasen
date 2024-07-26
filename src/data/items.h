@@ -10103,16 +10103,16 @@ const struct Item gItemsInfo[] =
         .secondaryId = MOVE_FLING, // Not In-Game Yet
     },
 
-    [ITEM_TM_CHARGE_BEAM] =
+    [ITEM_TM_DRAINING_KISS] =
     {
         .name = _("TM57"),
         .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .description = sQuestionMarksDesc,
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_CHARGE_BEAM, // Not In-Game Yet
+        .secondaryId = MOVE_DRAINING_KISS,
     },
 
     [ITEM_TM_SKY_DROP] =
@@ -10563,20 +10563,20 @@ const struct Item gItemsInfo[] =
         .secondaryId = MOVE_MYSTICAL_FIRE, // Not In-Game Yet
     },
 
-    [ITEM_TM_WILD_CHARGE] =
+    [ITEM_TM_CHARGE_BEAM] =
     {
         .name = _("TM93"),
         .price = 3000,
         .description = COMPOUND_STRING(
-            "The user shrouds itself in\n"
-            "electricity and smashes\n"
-            "into its target. It also\n"
-            "damages the user a little."),
+            "The user attacks with an\n"
+            "electric charge.\n"
+            "It may also raise the\n"
+            "user's Sp. Atk stat."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_WILD_CHARGE,
+        .secondaryId = MOVE_CHARGE_BEAM,
     },
 
     [ITEM_TM_FALSE_SWIPE] =

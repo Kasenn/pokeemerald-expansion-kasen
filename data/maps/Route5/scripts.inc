@@ -3,12 +3,6 @@ Route5_MapScripts::
 	.byte 0
 
 
-Route5_IncreaseVar::
-	addvar VAR_ROUTE5_TRAINERCOUNT, 1
-	release
-	end
-
-
 Route5_Youngster::
 	msgbox Route5_Youngster_Text, MSGBOX_NPC
 	end
@@ -22,91 +16,91 @@ Route5_Crustle::
 
 
 Route5_Trainer1_Fisher::
-	trainerbattle_single TRAINER_R5_TR1_FISHER, Route5_Trainer1_Fisher_Intro, Route5_Trainer1_Fisher_Defeat, Route5_IncreaseVar
+	trainerbattle_single TRAINER_R5_TR1_FISHER, Route5_Trainer1_Fisher_Intro, Route5_Trainer1_Fisher_Defeat
 	msgbox Route5_Trainer1_Fisher_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route5_Trainer2_Beauty::
-	trainerbattle_single TRAINER_R5_TR2_BEAUTY, Route5_Trainer2_Beauty_Intro, Route5_Trainer2_Beauty_Defeat, Route5_IncreaseVar
+	trainerbattle_single TRAINER_R5_TR2_BEAUTY, Route5_Trainer2_Beauty_Intro, Route5_Trainer2_Beauty_Defeat
 	msgbox Route5_Trainer2_Beauty_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route5_Trainer3_YoungCouple::
-	trainerbattle_double TRAINER_R5_TR3_YOUNGCOUPLE, Route5_Trainer3_YoungCouple_Intro, Route5_Trainer3_YoungCouple_Defeat, Route5_Trainer3_YoungCouple_NotEnough, Route5_IncreaseVar
+	trainerbattle_double TRAINER_R5_TR3_YOUNGCOUPLE, Route5_Trainer3_YoungCouple_Intro, Route5_Trainer3_YoungCouple_Defeat, Route5_Trainer3_YoungCouple_NotEnough
 	msgbox Route5_Trainer3_YoungCouple_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route5_Trainer3_YoungCouple2::
-	trainerbattle_double TRAINER_R5_TR3_YOUNGCOUPLE, Route5_Trainer3_YoungCouple2_Intro, Route5_Trainer3_YoungCouple2_Defeat, Route5_Trainer3_YoungCouple2_NotEnough, Route5_IncreaseVar
+	trainerbattle_double TRAINER_R5_TR3_YOUNGCOUPLE, Route5_Trainer3_YoungCouple2_Intro, Route5_Trainer3_YoungCouple2_Defeat, Route5_Trainer3_YoungCouple2_NotEnough
 	msgbox Route5_Trainer3_YoungCouple2_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route5_Trainer4_Lass1::
-	trainerbattle_single TRAINER_R5_TR4_LASS1, Route5_Trainer4_Lass1_Intro, Route5_Trainer4_Lass1_Defeat, Route5_IncreaseVar
+	trainerbattle_single TRAINER_R5_TR4_LASS1, Route5_Trainer4_Lass1_Intro, Route5_Trainer4_Lass1_Defeat
 	msgbox Route5_Trainer4_Lass1_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route5_Trainer5_PokeFan_F::
-	trainerbattle_single TRAINER_R5_TR5_POKEFAN_F, Route5_Trainer5_PokeFan_F_Intro, Route5_Trainer5_PokeFan_F_Defeat, Route5_IncreaseVar
+	trainerbattle_single TRAINER_R5_TR5_POKEFAN_F, Route5_Trainer5_PokeFan_F_Intro, Route5_Trainer5_PokeFan_F_Defeat
 	msgbox Route5_Trainer5_PokeFan_F_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route5_Trainer6_Lass2::
-	trainerbattle_single TRAINER_R5_TR6_LASS2, Route5_Trainer6_Lass2_Intro, Route5_Trainer6_Lass2_Defeat, Route5_IncreaseVar
+	trainerbattle_single TRAINER_R5_TR6_LASS2, Route5_Trainer6_Lass2_Intro, Route5_Trainer6_Lass2_Defeat
 	msgbox Route5_Trainer6_Lass2_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route5_Trainer7_Gentleman::
-	trainerbattle_single TRAINER_R5_TR7_GENTLEMAN, Route5_Trainer7_Gentleman_Intro, Route5_Trainer7_Gentleman_Defeat, Route5_IncreaseVar
+	trainerbattle_single TRAINER_R5_TR7_GENTLEMAN, Route5_Trainer7_Gentleman_Intro, Route5_Trainer7_Gentleman_Defeat
 	msgbox Route5_Trainer7_Gentleman_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route5_Trainer8_Youngster::
-	trainerbattle_single TRAINER_R5_TR8_YOUNGSTER, Route5_Trainer8_Youngster_Intro, Route5_Trainer8_Youngster_Defeat, Route5_IncreaseVar
+	trainerbattle_single TRAINER_R5_TR8_YOUNGSTER, Route5_Trainer8_Youngster_Intro, Route5_Trainer8_Youngster_Defeat
 	msgbox Route5_Trainer8_Youngster_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route5_Trainer9_Triathlete::
-	trainerbattle_single TRAINER_R5_TR9_TRIATHLETE, Route5_Trainer9_Triathlete_Intro, Route5_Trainer9_Triathlete_Defeat, Route5_IncreaseVar
+	trainerbattle_single TRAINER_R5_TR9_TRIATHLETE, Route5_Trainer9_Triathlete_Intro, Route5_Trainer9_Triathlete_Defeat
 	msgbox Route5_Trainer9_Triathlete_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route5_Trainer10_RichBoy::
-	trainerbattle_single TRAINER_R5_TR10_RICHBOY, Route5_Trainer10_RichBoy_Intro, Route5_Trainer10_RichBoy_Defeat, Route5_IncreaseVar
+	trainerbattle_single TRAINER_R5_TR10_RICHBOY, Route5_Trainer10_RichBoy_Intro, Route5_Trainer10_RichBoy_Defeat
 	msgbox Route5_Trainer10_RichBoy_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route5_Trainer11_Man_5::
-	trainerbattle_single TRAINER_R5_TR11_MAN_5, Route5_Trainer11_Man_5_Intro, Route5_Trainer11_Man_5_Defeat, Route5_IncreaseVar
+	trainerbattle_single TRAINER_R5_TR11_MAN_5, Route5_Trainer11_Man_5_Intro, Route5_Trainer11_Man_5_Defeat
 	msgbox Route5_Trainer11_Man_5_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route5_Trainer12_BugCatcher::
-	trainerbattle_single TRAINER_R5_TR12_BUGCATCHER, Route5_Trainer12_BugCatcher_Intro, Route5_Trainer12_BugCatcher_Defeat, Route5_IncreaseVar
+	trainerbattle_single TRAINER_R5_TR12_BUGCATCHER, Route5_Trainer12_BugCatcher_Intro, Route5_Trainer12_BugCatcher_Defeat
 	msgbox Route5_Trainer12_BugCatcher_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route5_Trainer13_NinjaBoy::
-	trainerbattle_single TRAINER_R5_TR13_NINJABOY, Route5_Trainer13_NinjaBoy_Intro, Route5_Trainer13_NinjaBoy_Defeat, Route5_IncreaseVar
+	trainerbattle_single TRAINER_R5_TR13_NINJABOY, Route5_Trainer13_NinjaBoy_Intro, Route5_Trainer13_NinjaBoy_Defeat
 	msgbox Route5_Trainer13_NinjaBoy_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route5_Trainer14_Hiker::
-	trainerbattle_single TRAINER_R5_TR14_HIKER, Route5_Trainer14_Hiker_Intro, Route5_Trainer14_Hiker_Defeat, Route5_IncreaseVar
+	trainerbattle_single TRAINER_R5_TR14_HIKER, Route5_Trainer14_Hiker_Intro, Route5_Trainer14_Hiker_Defeat
 	msgbox Route5_Trainer14_Hiker_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -127,20 +121,86 @@ Route5_ItemBall3::
 
 
 Route5_Trainer15_CoolTrainer::
-	compare VAR_ROUTE5_TRAINERCOUNT, 15
-	goto_if_ge Route5_Trainer15_CoolTrainer_1
-	compare VAR_ROUTE5_TRAINERCOUNT, 13
-	goto_if_le Route5_Trainer15_CoolTrainer_2
-	goto Route5_CoolTrainerEligibleForBattle
-	return
-
-Route5_Trainer15_CoolTrainer_1:
-	msgbox Route5_CoolTrainer_PostBattle, MSGBOX_NPC
+	checktrainerflag TRAINER_R5_TR15_COOLTRAINER
+	goto_if 1, Route5_Trainer15_CoolTrainer_2
+	checktrainerflag TRAINER_R5_TR1_FISHER
+	goto_if 1, Route5_Trainer15_CoolTrainer_7
+Route5_Trainer15_CoolTrainer_4:
+	msgbox Route5_CoolTrainer_DefeatMoreTrainers, MSGBOX_NPC
 	end
 
 Route5_Trainer15_CoolTrainer_2:
-	msgbox Route5_CoolTrainer_DefeatMoreTrainers, MSGBOX_NPC
+	msgbox Route5_CoolTrainer_PostBattle, MSGBOX_NPC
 	end
+
+Route5_Trainer15_CoolTrainer_5:
+	goto Route5_CoolTrainerEligibleForBattle
+	goto Route5_Trainer15_CoolTrainer_4
+
+Route5_Trainer15_CoolTrainer_6:
+	checktrainerflag TRAINER_R5_TR3_YOUNGCOUPLE
+	goto_if 1, Route5_Trainer15_CoolTrainer_11
+	goto Route5_Trainer15_CoolTrainer_4
+
+Route5_Trainer15_CoolTrainer_7:
+	checktrainerflag TRAINER_R5_TR2_BEAUTY
+	goto_if 1, Route5_Trainer15_CoolTrainer_6
+	goto Route5_Trainer15_CoolTrainer_4
+
+Route5_Trainer15_CoolTrainer_10:
+	checktrainerflag TRAINER_R5_TR5_POKEFAN_F
+	goto_if 1, Route5_Trainer15_CoolTrainer_15
+	goto Route5_Trainer15_CoolTrainer_4
+
+Route5_Trainer15_CoolTrainer_11:
+	checktrainerflag TRAINER_R5_TR4_LASS1
+	goto_if 1, Route5_Trainer15_CoolTrainer_10
+	goto Route5_Trainer15_CoolTrainer_4
+
+Route5_Trainer15_CoolTrainer_14:
+	checktrainerflag TRAINER_R5_TR7_GENTLEMAN
+	goto_if 1, Route5_Trainer15_CoolTrainer_19
+	goto Route5_Trainer15_CoolTrainer_4
+
+Route5_Trainer15_CoolTrainer_15:
+	checktrainerflag TRAINER_R5_TR6_LASS2
+	goto_if 1, Route5_Trainer15_CoolTrainer_14
+	goto Route5_Trainer15_CoolTrainer_4
+
+Route5_Trainer15_CoolTrainer_18:
+	checktrainerflag TRAINER_R5_TR9_TRIATHLETE
+	goto_if 1, Route5_Trainer15_CoolTrainer_23
+	goto Route5_Trainer15_CoolTrainer_4
+
+Route5_Trainer15_CoolTrainer_19:
+	checktrainerflag TRAINER_R5_TR8_YOUNGSTER
+	goto_if 1, Route5_Trainer15_CoolTrainer_18
+	goto Route5_Trainer15_CoolTrainer_4
+
+Route5_Trainer15_CoolTrainer_22:
+	checktrainerflag TRAINER_R5_TR11_MAN_5
+	goto_if 1, Route5_Trainer15_CoolTrainer_27
+	goto Route5_Trainer15_CoolTrainer_4
+
+Route5_Trainer15_CoolTrainer_23:
+	checktrainerflag TRAINER_R5_TR10_RICHBOY
+	goto_if 1, Route5_Trainer15_CoolTrainer_22
+	goto Route5_Trainer15_CoolTrainer_4
+
+Route5_Trainer15_CoolTrainer_26:
+	checktrainerflag TRAINER_R5_TR13_NINJABOY
+	goto_if 1, Route5_Trainer15_CoolTrainer_30
+	goto Route5_Trainer15_CoolTrainer_4
+
+Route5_Trainer15_CoolTrainer_27:
+	checktrainerflag TRAINER_R5_TR12_BUGCATCHER
+	goto_if 1, Route5_Trainer15_CoolTrainer_26
+	goto Route5_Trainer15_CoolTrainer_4
+
+Route5_Trainer15_CoolTrainer_30:
+	checktrainerflag TRAINER_R5_TR14_HIKER
+	goto_if 1, Route5_Trainer15_CoolTrainer_5
+	goto Route5_Trainer15_CoolTrainer_4
 
 
 Route5_CoolTrainerEligibleForBattle::
@@ -177,7 +237,6 @@ Route5_CoolTrainerPostBattle::
 	waitfanfare
 	msgbox Route5_ExplainReward, MSGBOX_DEFAULT
 	call Route5_GiveBP
-	setvar VAR_ROUTE5_TRAINERCOUNT, 15
 	playfanfare MUS_OBTAIN_B_POINTS
 	msgbox Route5_CoolTrainerPostBattle_Text_0, MSGBOX_DEFAULT
 	waitfanfare
@@ -396,8 +455,9 @@ Route5_Trainer13_NinjaBoy_PostBattle::
 	.string "Are there more like this?$"
 
 Route5_Trainer14_Hiker_Intro::
-	.string "You've found my secret spot!\n"
-	.string "This calls for a battle!$"
+	.string "You never know what you might find\n"
+	.string "when taking the path least traveled.\l"
+	.string "This time you found a battle!$"
 
 Route5_Trainer14_Hiker_Defeat::
 	.string "What a fine show of strength!$"
