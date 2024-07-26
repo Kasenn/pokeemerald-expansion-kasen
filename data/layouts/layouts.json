@@ -5097,7 +5097,7 @@
       "width": 40,
       "height": 30,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fallarbor",
+      "secondary_tileset": "gTileset_TestRoom",
       "border_filepath": "data/layouts/TestRoom/border.bin",
       "blockdata_filepath": "data/layouts/TestRoom/map.bin"
     },
