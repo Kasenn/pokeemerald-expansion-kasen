@@ -40,7 +40,7 @@ static const u8 sTileBitAttributes[NUM_METATILE_BEHAVIORS] =
     [MB_ICE]                             = TILE_FLAG_UNUSED,
     [MB_SAND]                            = TILE_FLAG_UNUSED,
     [MB_SEAWEED]                         = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE | TILE_FLAG_HAS_ENCOUNTERS,
-    [MB_UNUSED_23]                       = TILE_FLAG_UNUSED,
+    [MB_MIRROR]                       = TILE_FLAG_UNUSED,
     [MB_ASHGRASS]                        = TILE_FLAG_UNUSED | TILE_FLAG_HAS_ENCOUNTERS,
     [MB_FOOTPRINTS]                      = TILE_FLAG_UNUSED | TILE_FLAG_HAS_ENCOUNTERS,
     [MB_THIN_ICE]                        = TILE_FLAG_UNUSED,
@@ -265,6 +265,7 @@ bool8 MetatileBehavior_IsReflective(u8 metatileBehavior)
      || metatileBehavior == MB_PUDDLE
      || metatileBehavior == MB_UNUSED_SOOTOPOLIS_DEEP_WATER_2
      || metatileBehavior == MB_ICE
+     || metatileBehavior == MB_MIRROR
      || metatileBehavior == MB_SOOTOPOLIS_DEEP_WATER
      || metatileBehavior == MB_REFLECTION_UNDER_BRIDGE)
         return TRUE;
@@ -275,6 +276,14 @@ bool8 MetatileBehavior_IsReflective(u8 metatileBehavior)
 bool8 MetatileBehavior_IsIce(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_ICE)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsMirror(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_MIRROR)
         return TRUE;
     else
         return FALSE;

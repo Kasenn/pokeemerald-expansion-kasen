@@ -179,6 +179,11 @@ SetRockVar_40:
 	end
 
 
+SorryAboutPuzzle::
+	msgbox SorryAboutPuzzle_Text, MSGBOX_SIGN
+	return
+
+
 WeirdCave_TriggerTiles::
 	goto_if_set FLAG_WEIRDCAVESOLVED, WeirdCave_TriggerTiles_2
 	switch VAR_WEIRDCAVE_CORRECTSTEPS
@@ -416,3 +421,13 @@ WeirdCave_TriggerTiles_73:
 	goto_if_eq WeirdCave_TriggerTiles_71
 	goto WeirdCave_TriggerTiles_72
 
+
+SorryAboutPuzzle_Text::
+	.string "Hello, Kasen here\n"
+	.string "(the rom hack creator).\p"
+	.string "I decided to add this sign here to\n"
+	.string "inform you that while this puzzle is\l"
+	.string "possible to solve, it's not intuitive\l"
+	.string "at all and is kind of unfair.\p"
+	.string "This sign will be deleted once I can\n"
+	.string "think of a better puzzle.$"

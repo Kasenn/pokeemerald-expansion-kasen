@@ -84,6 +84,7 @@ PokeRanch_Volkner_1:
 	giveitem ITEM_HM01
 	waitse
 	msgbox Ranch_ExplainCut
+	closemessage
 	compare VAR_FACING, DIR_SOUTH
 	goto_if_eq PokeRanch_Volkner_5
 PokeRanch_Volkner_4:

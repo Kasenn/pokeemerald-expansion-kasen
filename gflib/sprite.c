@@ -121,6 +121,197 @@ const union AnimCmd * const gDummySpriteAnimTable[];
 const union AffineAnimCmd * const gDummySpriteAffineAnimTable[];
 const struct SpriteTemplate gDummySpriteTemplate;
 
+static const union AnimCmd sAnim_FaceNorth[] =
+{
+    ANIMCMD_FRAME(0, 16),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_FaceSouth[] =
+{
+    ANIMCMD_FRAME(1, 16),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_FaceWest[] =
+{
+    ANIMCMD_FRAME(2, 16),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_FaceEast[] =
+{
+    ANIMCMD_FRAME(2, 16, .hFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_GoNorth[] =
+{
+    ANIMCMD_FRAME(3, 8),
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(4, 8),
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_GoSouth[] =
+{
+    ANIMCMD_FRAME(5, 8),
+    ANIMCMD_FRAME(1, 8),
+    ANIMCMD_FRAME(6, 8),
+    ANIMCMD_FRAME(1, 8),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_GoWest[] =
+{
+    ANIMCMD_FRAME(7, 8),
+    ANIMCMD_FRAME(2, 8),
+    ANIMCMD_FRAME(8, 8),
+    ANIMCMD_FRAME(2, 8),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_GoEast[] =
+{
+    ANIMCMD_FRAME(7, 8, .hFlip = TRUE),
+    ANIMCMD_FRAME(2, 8, .hFlip = TRUE),
+    ANIMCMD_FRAME(8, 8, .hFlip = TRUE),
+    ANIMCMD_FRAME(2, 8, .hFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_GoFastSouth[] =
+{
+    ANIMCMD_FRAME(3, 4),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(4, 4),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_GoFastNorth[] =
+{
+    ANIMCMD_FRAME(5, 4),
+    ANIMCMD_FRAME(1, 4),
+    ANIMCMD_FRAME(6, 4),
+    ANIMCMD_FRAME(1, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_GoFastWest[] =
+{
+    ANIMCMD_FRAME(7, 4),
+    ANIMCMD_FRAME(2, 4),
+    ANIMCMD_FRAME(8, 4),
+    ANIMCMD_FRAME(2, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_GoFastEast[] =
+{
+    ANIMCMD_FRAME(7, 4, .hFlip = TRUE),
+    ANIMCMD_FRAME(2, 4, .hFlip = TRUE),
+    ANIMCMD_FRAME(8, 4, .hFlip = TRUE),
+    ANIMCMD_FRAME(2, 4, .hFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_GoFasterSouth[] =
+{
+    ANIMCMD_FRAME(3, 2),
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(4, 2),
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_GoFasterNorth[] =
+{
+    ANIMCMD_FRAME(5, 2),
+    ANIMCMD_FRAME(1, 2),
+    ANIMCMD_FRAME(6, 2),
+    ANIMCMD_FRAME(1, 2),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_GoFasterWest[] =
+{
+    ANIMCMD_FRAME(7, 2),
+    ANIMCMD_FRAME(2, 2),
+    ANIMCMD_FRAME(8, 2),
+    ANIMCMD_FRAME(2, 2),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_GoFasterEast[] =
+{
+    ANIMCMD_FRAME(7, 2, .hFlip = TRUE),
+    ANIMCMD_FRAME(2, 2, .hFlip = TRUE),
+    ANIMCMD_FRAME(8, 2, .hFlip = TRUE),
+    ANIMCMD_FRAME(2, 2, .hFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_GoFastestSouth[] =
+{
+    ANIMCMD_FRAME(3, 1),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(4, 1),
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_GoFastestNorth[] =
+{
+    ANIMCMD_FRAME(5, 1),
+    ANIMCMD_FRAME(1, 1),
+    ANIMCMD_FRAME(6, 1),
+    ANIMCMD_FRAME(1, 1),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_GoFastestWest[] =
+{
+    ANIMCMD_FRAME(7, 1),
+    ANIMCMD_FRAME(2, 1),
+    ANIMCMD_FRAME(8, 1),
+    ANIMCMD_FRAME(2, 1),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_GoFastestEast[] =
+{
+    ANIMCMD_FRAME(7, 1, .hFlip = TRUE),
+    ANIMCMD_FRAME(2, 1, .hFlip = TRUE),
+    ANIMCMD_FRAME(8, 1, .hFlip = TRUE),
+    ANIMCMD_FRAME(2, 1, .hFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+const union AnimCmd * const gDummySpriteAnimTableReverse[] = {
+    [0] = sAnim_FaceNorth,
+    [1] = sAnim_FaceSouth,
+    [2] = sAnim_FaceWest,
+    [3] = sAnim_FaceEast,
+    [4] = sAnim_GoNorth,
+    [5] = sAnim_GoSouth,
+    [6] = sAnim_GoWest,
+    [7] = sAnim_GoEast,
+    [8] = sAnim_GoFastSouth,
+    [9] = sAnim_GoFastNorth,
+    [10] = sAnim_GoFastWest,
+    [11] = sAnim_GoFastEast,
+    [12] = sAnim_GoFasterSouth,
+    [13] = sAnim_GoFasterNorth,
+    [14] = sAnim_GoFasterWest,
+    [15] = sAnim_GoFasterEast,
+    [16] = sAnim_GoFastestSouth,
+    [17] = sAnim_GoFastestNorth,
+    [18] = sAnim_GoFastestWest,
+    [19] = sAnim_GoFastestEast,
+};
+
 static const u8 sCenterToCornerVecTable[3][4][2] =
 {
     {   // square

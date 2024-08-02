@@ -144,6 +144,20 @@ script SetRockVar{
 
 // THE CORRECT ORDER IS: up left right right down right left up left up
 
+script SorryAboutPuzzle{
+    msgbox(SorryAboutPuzzle_Text, MSGBOX_SIGN)
+}
+text SorryAboutPuzzle_Text{
+    "Hello, Kasen here\n"
+    "(the rom hack creator).\p"
+    "I decided to add this sign here to\n"
+    "inform you that while this puzzle is\l"
+    "possible to solve, it's not intuitive\l"
+    "at all and is kind of unfair.\p"
+    "This sign will be deleted once I can\n"
+    "think of a better puzzle."
+}
+
 script WeirdCave_TriggerTiles{
     if(flag(FLAG_WEIRDCAVESOLVED)){
         release

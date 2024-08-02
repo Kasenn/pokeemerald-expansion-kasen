@@ -65,6 +65,7 @@ script PokeRanch_Volkner{
         giveitem(ITEM_HM01)
         waitse
         msgbox(Ranch_ExplainCut)
+        closemessage
         if(var(VAR_FACING) == DIR_SOUTH){
         applymovement(10, PokeRanch_VolknerExit2FacingSWE)
         }

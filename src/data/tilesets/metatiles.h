@@ -282,3 +282,6 @@ const u16 gMetatileAttributes_HerbShop[] = INCBIN_U16("data/tilesets/secondary/h
 
 const u16 gMetatiles_Amberock[] = INCBIN_U16("data/tilesets/secondary/amberock/metatiles.bin");
 const u16 gMetatileAttributes_Amberock[] = INCBIN_U16("data/tilesets/secondary/amberock/metatile_attributes.bin");
+
+const u16 gMetatiles_TestRoom[] = INCBIN_U16("data/tilesets/secondary/test_room/metatiles.bin");
+const u16 gMetatileAttributes_TestRoom[] = INCBIN_U16("data/tilesets/secondary/test_room/metatile_attributes.bin");

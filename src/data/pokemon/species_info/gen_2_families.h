@@ -4362,7 +4362,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .baseSpAttack  = 50,
         .baseSpDefense = 50,
         .types = MON_TYPES(TYPE_NORMAL),
-        .catchRate = 120,
+        .catchRate = 160,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 66 : 124,
         .evYield_Attack = 1,
         .itemCommon = ITEM_HONEY,

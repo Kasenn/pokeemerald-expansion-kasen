@@ -34,7 +34,8 @@ Aldeleaf_BPShop_ChooseHoldItem::
 	case 6, Aldeleaf_BPShop_ChooseHoldItem_8
 	case 7, Aldeleaf_BPShop_ChooseHoldItem_9
 	case 8, Aldeleaf_BPShop_ChooseHoldItem_10
-	case MULTI_B_PRESSED, Aldeleaf_BPShop_ChooseHoldItem_11
+	case 9, Aldeleaf_BPShop_ChooseHoldItem_11
+	case MULTI_B_PRESSED, Aldeleaf_BPShop_ChooseHoldItem_12
 	return
 
 Aldeleaf_BPShop_ChooseHoldItem_2:
@@ -86,10 +87,16 @@ Aldeleaf_BPShop_ChooseHoldItem_9:
 	return
 
 Aldeleaf_BPShop_ChooseHoldItem_10:
-	call BPShop_ClerkGoodbye
+	setvar VAR_0x8008, 24
+	setvar VAR_0x8009, ITEM_LINKING_CORD
+	goto BPShop_HeldItem
 	return
 
 Aldeleaf_BPShop_ChooseHoldItem_11:
+	call BPShop_ClerkGoodbye
+	return
+
+Aldeleaf_BPShop_ChooseHoldItem_12:
 	call BPShop_ClerkGoodbye
 	return
 
@@ -478,6 +485,10 @@ AldeShop_Man_Text::
 AldeShop_OldMan_Text::
 	.string "Where were these shops back when\n"
 	.string "I was still but a wee trainer…$"
+
+LinkingCordDesc::
+	.string "A mysterious string that\n"
+	.string "makes some Pokémon evolve.$"
 
 Aldeleaf_BPShop_Text_DrillRunDesc::
 	.string "Spins its body\n"

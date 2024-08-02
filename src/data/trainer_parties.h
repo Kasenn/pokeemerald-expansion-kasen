@@ -907,7 +907,7 @@ static const struct TrainerMon sParty_Dusty1[] = {
     .lvl = 6,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_STRUGGLE}
+    .moves = {MOVE_MEMENTO}
     }
 };
 
@@ -1027,7 +1027,7 @@ static const struct TrainerMon sParty_GabbyAndTy2[] = {
     .lvl = 8,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_STRUGGLE}
+    .moves = {MOVE_MEMENTO}
     }
 };
 
@@ -1296,7 +1296,7 @@ static const struct TrainerMon sParty_Randall[] = {
     .lvl = 16,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_STRUGGLE}
+    .moves = {MOVE_MEMENTO}
     }
 };
 
@@ -2332,7 +2332,7 @@ static const struct TrainerMon sParty_Shoreslate_Nurse[] = {
     .lvl = 25,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_STRUGGLE}
+    .moves = {MOVE_MEMENTO}
     }
 };
 
@@ -2874,7 +2874,7 @@ static const struct TrainerMon sParty_MarigorgeNurse[] = {
     .lvl = 30,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_STRUGGLE}
+    .moves = {MOVE_MEMENTO}
     }
 };
 
@@ -3020,12 +3020,12 @@ static const struct TrainerMon sParty_KG_Clay[] = {
     {
     .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
     .lvl = 31,
-    .species = SPECIES_STUNFISK,
-    .moves = {MOVE_SUCKER_PUNCH, MOVE_REVENGE, MOVE_MUD_SHOT, MOVE_THUNDER_SHOCK},
+    .species = SPECIES_KROKOROK,
+    .moves = {MOVE_SANDSTORM, MOVE_CRUNCH, MOVE_SWAGGER, MOVE_DIG},
     },
     {
     .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .lvl = 32,
+    .lvl = 31,
     .species = SPECIES_DONPHAN,
     .moves = {MOVE_ROLLOUT, MOVE_STOMPING_TANTRUM, MOVE_SLAM, MOVE_KNOCK_OFF},
     },
@@ -3405,7 +3405,7 @@ static const struct TrainerMon sParty_RockliffeNurse[] = {
     .lvl = 30,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_STRUGGLE}
+    .moves = {MOVE_MEMENTO}
     }
 };
 
@@ -4229,7 +4229,7 @@ static const struct TrainerMon Party_Sandstone_Nurse[] = {
     .lvl = 33,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_STRUGGLE}
+    .moves = {MOVE_MEMENTO}
     }
 };
 
@@ -5377,7 +5377,7 @@ static const struct TrainerMon sParty_DRISLEDGE_NURSE[] = {
     .lvl = 40,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_STRUGGLE}
+    .moves = {MOVE_MEMENTO}
     }
 };
 

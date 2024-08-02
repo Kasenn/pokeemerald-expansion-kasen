@@ -295,6 +295,9 @@ Route124_DivingTreasureHuntersHouse_Text_HaveYouSeenAnyShards:
 Route124_DivingTreasureHuntersHouse_Text_YouHaventGotAnyShards:
 	.string "You haven't got any treasures\n"
 	.string "for me…\p"
+	.string "I've heard fishermen tell stories of\n"
+	.string "rare Pokémon carrying such shards\l"
+	.string "from time to time.$"
 	.string "If you see any shards, like the Red\n"
 	.string "Shard, you've got to trade it with me!$"
 

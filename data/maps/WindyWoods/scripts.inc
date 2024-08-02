@@ -283,7 +283,7 @@ WW_RockPostBattle::
 	showobjectat 14, MAP_WINDY_WOODS
 	setvar VAR_WINDYWOODS_STATE, 4
 	clearflag FLAG_WW_HIDEDAD
-	warp MAP_WINDY_WOODS, 27, 13
+	warp MAP_WINDY_WOODS, 37, 13
 	waitstate
 	release
 	end
@@ -292,7 +292,7 @@ WW_RockPostBattle::
 WW_BridgeWarp::
 	clearflag FLAG_WW_HIDEDAD
 	showobjectat 14, MAP_WINDY_WOODS
-	setobjectxy 14, 29, 13
+	setobjectxy 14, 39, 13
 	turnobject 14, DIR_WEST
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	end
@@ -305,7 +305,7 @@ WW_BridgeScene2::
 	waitmessage
 	closemessage
 	delay 40
-	setobjectxy 12, 20, 14
+	setobjectxy 12, 30, 14
 	showobjectat 12, MAP_WINDY_WOODS
 	applymovement 12, WW_DevonEnters
 	waitmovement 0

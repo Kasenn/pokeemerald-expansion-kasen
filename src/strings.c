@@ -1226,6 +1226,7 @@ const u8 gText_MetalCoat[] = _("Metal Coat{CLEAR_TO 0x5E}24BP");
 const u8 gText_PrismScale[] = _("Prism Scale{CLEAR_TO 0x5E}24BP");
 const u8 gText_Protector[] = _("Protector{CLEAR_TO 0x5E}24BP");
 const u8 gText_ReaperCloth[] = _("Oval Stone{CLEAR_TO 0x5E}24BP");
+const u8 gText_LinkingCord[] = _("Linking Cord{CLEAR_TO 0x5E}24BP");
 const u8 gText_BrightPowder[] = _("Bright Powder{CLEAR_TO 0x5E}16BP");
 const u8 gText_QuickClaw[] = _("Quick Claw{CLEAR_TO 0x5E}16BP");
 const u8 gText_SootheBell[] = _("Soothe Bell{CLEAR_TO 0x5E}16BP");

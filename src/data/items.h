@@ -11414,9 +11414,9 @@ const struct Item gItemsInfo[] =
         .name = _("Letter"),
         .price = 0,
         .description = COMPOUND_STRING(
-            "A letter to Steven\n"
-            "from the President\n"
-            "of the Devon Corp."),
+            "A letter from\n"
+            "a Devon Corp.\n"
+            "employee."),
         .importance = 2,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,

@@ -1100,3 +1100,14 @@ const struct Tileset gTileset_Amberock =
     .metatileAttributes = gMetatileAttributes_Amberock,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_TestRoom =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_TestRoom,
+    .palettes = gTilesetPalettes_TestRoom,
+    .metatiles = gMetatiles_TestRoom,
+    .metatileAttributes = gMetatileAttributes_TestRoom,
+    .callback = NULL,
+};

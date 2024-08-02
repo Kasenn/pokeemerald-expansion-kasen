@@ -537,6 +537,17 @@ static const u8 sFaceDirectionAnimNums[] = {
     [DIR_NORTHWEST] = ANIM_STD_FACE_NORTH,
     [DIR_NORTHEAST] = ANIM_STD_FACE_NORTH,
 };
+static const u8 sFaceDirectionAnimNumsReverse[] = {
+    [DIR_NONE] = ANIM_STD_FACE_SOUTH,
+    [DIR_SOUTH] = ANIM_STD_FACE_NORTH,
+    [DIR_NORTH] = ANIM_STD_FACE_SOUTH,
+    [DIR_WEST] = ANIM_STD_FACE_WEST,
+    [DIR_EAST] = ANIM_STD_FACE_EAST,
+    [DIR_SOUTHWEST] = ANIM_STD_FACE_SOUTH,
+    [DIR_SOUTHEAST] = ANIM_STD_FACE_SOUTH,
+    [DIR_NORTHWEST] = ANIM_STD_FACE_NORTH,
+    [DIR_NORTHEAST] = ANIM_STD_FACE_NORTH,
+};
 static const u8 sMoveDirectionAnimNums[] = {
     [DIR_NONE] = ANIM_STD_GO_SOUTH,
     [DIR_SOUTH] = ANIM_STD_GO_SOUTH,
@@ -4264,6 +4275,11 @@ u8 GetFaceDirectionAnimNum(u8 direction)
     return sFaceDirectionAnimNums[direction];
 }
 
+u8 GetFaceDirectionAnimNumReverse(u8 direction)
+{
+    return sFaceDirectionAnimNumsReverse[direction];
+}
+
 u8 GetMoveDirectionAnimNum(u8 direction)
 {
     return sMoveDirectionAnimNums[direction];
@@ -7290,7 +7306,8 @@ static void GetGroundEffectFlags_Reflection(struct ObjectEvent *objEvent, u32 *f
 {
     u32 reflectionFlags[NUM_REFLECTION_TYPES - 1] = {
         [REFL_TYPE_ICE   - 1] = GROUND_EFFECT_FLAG_ICE_REFLECTION,
-        [REFL_TYPE_WATER - 1] = GROUND_EFFECT_FLAG_WATER_REFLECTION
+        [REFL_TYPE_WATER - 1] = GROUND_EFFECT_FLAG_WATER_REFLECTION,
+        [REFL_TYPE_MIRROR - 1] = GROUND_EFFECT_FLAG_MIRROR_REFLECTION
     };
     u8 reflType = ObjectEventGetNearbyReflectionType(objEvent);
 
@@ -7565,6 +7582,8 @@ static u8 GetReflectionTypeByMetatileBehavior(u32 behavior)
 {
     if (MetatileBehavior_IsIce(behavior))
         return REFL_TYPE_ICE;
+    else if (MetatileBehavior_IsMirror(behavior))
+        return REFL_TYPE_MIRROR;
     else if (MetatileBehavior_IsReflective(behavior))
         return REFL_TYPE_WATER;
     else
@@ -7791,12 +7810,17 @@ void GroundEffect_StepOnLongGrass(struct ObjectEvent *objEvent, struct Sprite *s
 
 void GroundEffect_WaterReflection(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
-    SetUpReflection(objEvent, sprite, FALSE);
+    SetUpReflection(objEvent, sprite, FALSE, FALSE);
 }
 
 void GroundEffect_IceReflection(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
-    SetUpReflection(objEvent, sprite, TRUE);
+    SetUpReflection(objEvent, sprite, TRUE, FALSE);
+}
+
+void GroundEffect_MirrorReflection(struct ObjectEvent *objEvent, struct Sprite *sprite)
+{
+    SetUpReflection(objEvent, sprite, TRUE, TRUE);
 }
 
 void GroundEffect_FlowingWater(struct ObjectEvent *objEvent, struct Sprite *sprite)
@@ -8023,7 +8047,8 @@ static void (*const sGroundEffectFuncs[])(struct ObjectEvent *objEvent, struct S
     GroundEffect_HotSprings,            // GROUND_EFFECT_FLAG_HOT_SPRINGS
     GroundEffect_Seaweed,               // GROUND_EFFECT_FLAG_SEAWEED
     GroundEffect_MudTracks,              // GROUND_EFFECT_FLAG_MUD
-    GroundEffect_MudHeap              // GROUND_EFFECT_FLAG_MUD_PILE
+    GroundEffect_MudHeap,              // GROUND_EFFECT_FLAG_MUD_PILE
+    GroundEffect_MirrorReflection,       // GROUND_EFFECT_FLAG_MIRROR_REFLECTION
 };
 
 static void DoFlaggedGroundEffects(struct ObjectEvent *objEvent, struct Sprite *sprite, u32 flags)

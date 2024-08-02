@@ -72,6 +72,7 @@ static const u16 sFrontierExchangeCorner_HoldItems3[] =
     ITEM_PRISM_SCALE,
     ITEM_PROTECTOR,
     ITEM_OVAL_STONE,
+    ITEM_LINKING_CORD,
     ITEM_LIST_END
 };
 
@@ -202,6 +203,7 @@ static const u8 *const sFrontierExchangeCorner_HoldItemsDescriptions3[] =
     BattleFrontier_ExchangeServiceCorner_Text_PrismScaleDesc,
     BattleFrontier_ExchangeServiceCorner_Text_ProtectorDesc,
     BattleFrontier_ExchangeServiceCorner_Text_OvalStoneDesc,
+    LinkingCordDesc,
     gText_Exit
 };
 

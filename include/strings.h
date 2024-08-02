@@ -733,6 +733,7 @@ extern const u8 gText_MetalCoat[];
 extern const u8 gText_PrismScale[];
 extern const u8 gText_Protector[];
 extern const u8 gText_ReaperCloth[];
+extern const u8 gText_LinkingCord[];
 
 extern const u8 gText_BrightPowder[];
 extern const u8 gText_QuickClaw[];
@@ -1006,6 +1007,7 @@ extern const u8 BattleFrontier_ExchangeServiceCorner_Text_MetalCoatDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_PrismScaleDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_ProtectorDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_OvalStoneDesc[];
+extern const u8 LinkingCordDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_BrightPowderDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_QuickClawDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_SootheBellDesc[];

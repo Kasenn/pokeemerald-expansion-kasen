@@ -45,6 +45,7 @@ enum ReflectionTypes
     REFL_TYPE_NONE,
     REFL_TYPE_ICE,
     REFL_TYPE_WATER,
+    REFL_TYPE_MIRROR,
     NUM_REFLECTION_TYPES
 };
 
@@ -71,7 +72,8 @@ enum ReflectionTypes
 #define GROUND_EFFECT_FLAG_HOT_SPRINGS           (1 << 18)
 #define GROUND_EFFECT_FLAG_SEAWEED               (1 << 19)
 #define GROUND_EFFECT_FLAG_MUD                   (1 << 20)
-#define GROUND_EFFECT_FLAG_MUD_PILE             (1 << 21)
+#define GROUND_EFFECT_FLAG_MUD_PILE              (1 << 21)
+#define GROUND_EFFECT_FLAG_MIRROR_REFLECTION     (1 << 22)
 
 // Sprite data for the CameraObject functions
 #define sCamera_FollowSpriteId data[0]
@@ -120,6 +122,7 @@ void SpawnObjectEventsOnReturnToField(s16 x, s16 y);
 void OverrideSecretBaseDecorationSpriteScript(u8 localId, u8 mapNum, u8 mapGroup, u8 decorCat);
 void GetMapCoordsFromSpritePos(s16 x, s16 y, s16 *destX, s16 *destY);
 u8 GetFaceDirectionAnimNum(u8 direction);
+u8 GetFaceDirectionAnimNumReverse(u8 direction);
 void SetSpritePosToOffsetMapCoords(s16 *x, s16 *y, s16 dx, s16 dy);
 void ObjectEventClearHeldMovement(struct ObjectEvent *);
 void ObjectEventClearHeldMovementIfActive(struct ObjectEvent *);

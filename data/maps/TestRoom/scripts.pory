@@ -1,0 +1,138 @@
+mapscripts TestRoom_MapScripts {
+    // MAP_SCRIPT_ON_TRANSITION: TeleportRoomSelect_OnTransition
+}
+
+script TestTrigger1{
+    setvar(VAR_TEMP_2, 1)
+    goto(MainReflectionTrigger)
+}
+script TestTrigger2{
+    setvar(VAR_TEMP_2, 2)
+    goto(MainReflectionTrigger)
+}
+script TestTrigger3{
+    setvar(VAR_TEMP_2, 3)
+    goto(MainReflectionTrigger)
+}
+script TestTrigger4{
+    setvar(VAR_TEMP_2, 4)
+    goto(MainReflectionTrigger)
+}
+script TestTrigger5{
+    setvar(VAR_TEMP_2, 5)
+    goto(MainReflectionTrigger)
+}
+script TestTrigger6{
+    setvar(VAR_TEMP_2, 6)
+    goto(MainReflectionTrigger)
+}
+script TestTrigger7{
+    setvar(VAR_TEMP_2, 7)
+    goto(MainReflectionTrigger)
+}
+script TestTrigger8{
+    setvar(VAR_TEMP_2, 8)
+    goto(MainReflectionTrigger)
+}
+script TestTrigger9{
+    setvar(VAR_TEMP_2, 9)
+    goto(MainReflectionTrigger)
+}
+script TestTrigger10{
+    setvar(VAR_TEMP_2, 10)
+    goto(MainReflectionTrigger)
+}
+script TestTrigger11{
+    setvar(VAR_TEMP_2, 11)
+    goto(MainReflectionTrigger)
+}
+
+script MainReflectionTrigger{
+    switch(var(VAR_TEMP_2)){
+        case 1:
+            setobjectxy(37, 7, 16)
+        case 2:
+            setobjectxy(37, 7, 15)
+        case 3:
+            setobjectxy(37, 8, 14)
+        case 4:
+            setobjectxy(37, 9, 14)
+        case 5:
+            setobjectxy(37, 10, 14)
+        case 6:
+            setobjectxy(37, 11, 14)
+        case 7:
+            setobjectxy(37, 12, 14)
+        case 8:
+            setobjectxy(37, 13, 14)
+        case 9:
+            setobjectxy(37, 14, 14)
+        case 10:
+            setobjectxy(37, 15, 15)
+        case 11:
+            setobjectxy(37, 15, 16)
+    }
+    release
+    end
+}
+
+// script Map1_OnTransition{
+//     setvar(VAR_MAP_GROUP, 1)
+// }
+
+// script CycleWarp{
+//     switch(var(VAR_MAP_GROUP)){
+//         case 1:
+//             call(CycleGroup1)
+//         case 2:
+//             call(CycleGroup2)
+//         case 3:
+//             call(CycleGroup3)
+//         case 4:
+//             call(CycleGroup4)
+//     }
+//     addvar(VAR_TELEPORT, 1)
+//     if(var(VAR_TELEPORT) == 4){
+//         setvar(VAR_TELEPORT, 0)
+//     }
+// }
+
+// script CycleGroup1{
+//     switch(var(VAR_TELEPORT)){
+//         case 0:
+//             warpsilent(MAP_1, X, Y)
+//         case 1:
+//             warpsilent(MAP_2, X, Y)
+//         case 2:
+//             warpsilent(MAP_3, X, Y)
+//         case 3:
+//             warpsilent(MAP_4, X, Y)
+//     }
+//     return
+// }
+// script CycleGroup2{
+//     switch(var(VAR_TELEPORT)){
+//         case 0:
+//             warpsilent(MAP_5, X, Y)
+//         case 1:
+//             warpsilent(MAP_6, X, Y)
+//         case 2:
+//             warpsilent(MAP_7, X, Y)
+//         case 3:
+//             warpsilent(MAP_8, X, Y)
+//     }
+//     return
+// }
+// script CycleGroup3{
+//     switch(var(VAR_TELEPORT)){
+//         case 0:
+//             warpsilent(MAP_9, X, Y)
+//         case 1:
+//             warpsilent(MAP_10, X, Y)
+//         case 2:
+//             warpsilent(MAP_11, X, Y)
+//         case 3:
+//             warpsilent(MAP_12, X, Y)
+//     }
+//     return
+// }

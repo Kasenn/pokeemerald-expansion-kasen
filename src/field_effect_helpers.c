@@ -50,10 +50,10 @@ extern u16 gReflectionPaletteBuffer[];
 #define sReflectionVerticalOffset   data[2]
 #define sIsStillReflection          data[7]
 
-void SetUpReflection(struct ObjectEvent *objectEvent, struct Sprite *sprite, bool8 stillReflection)
+void SetUpReflection(struct ObjectEvent *objectEvent, struct Sprite *sprite, bool8 stillReflection, bool8 isMirror)
 {
     struct Sprite *reflectionSprite;
-
+    //reflection
     reflectionSprite = &gSprites[CreateCopySpriteAt(sprite, sprite->x, sprite->y, 152)];
     reflectionSprite->callback = UpdateObjectReflectionSprite;
     reflectionSprite->oam.priority = 3;
@@ -167,6 +167,16 @@ static void UpdateObjectReflectionSprite(struct Sprite *reflectionSprite)
         reflectionSprite->centerToCornerVecY = mainSprite->centerToCornerVecY;
         reflectionSprite->x2 = mainSprite->x2;
         reflectionSprite->y2 = -mainSprite->y2;
+        //reflection
+        // if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(TEST_ROOM)){
+        // // if (MetatileBehavior_IsMirror(objectEvent->currentMetatileBehavior)){
+        //     reflectionSprite->y2 -= 40;
+        //     reflectionSprite->oam.matrixNum = mainSprite->oam.matrixNum;
+        //     if (objectEvent->facingDirection == DIR_NORTH){
+        //     }
+        //     else if (objectEvent->facingDirection == DIR_SOUTH){
+        //     }
+        // }
         if (objectEvent->graphicsId == OBJ_EVENT_GFX_FISHERMAN_SOUTH){
             reflectionSprite->y2 -= 16;
         }
