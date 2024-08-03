@@ -283,9 +283,6 @@ static void BuildColorMaps(void)
     u16 baseBrightness;
     s16 diff;
 
-    for (i = 0; i <= 12; i++)
-        sBasePaletteColorMapTypes[i] = GAMMA_NORMAL;
-
     sPaletteColorMapTypes = sBasePaletteColorMapTypes;
     for (i = 0; i < 2; i++)
     {

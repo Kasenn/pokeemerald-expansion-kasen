@@ -20,7 +20,7 @@ void SetSurfBlob_PlayerOffset(u8 spriteId, bool8 hasOffset, s16 offset);
 bool8 UpdateRevealDisguise(struct ObjectEvent *);
 void StartRevealDisguise(struct ObjectEvent *);
 void StartAshFieldEffect(s16, s16, u16, s16);
-void SetUpReflection(struct ObjectEvent *, struct Sprite *, u8);
+void SetUpReflection(struct ObjectEvent *, struct Sprite *, u8, u8);
 void SetUpShadow(struct ObjectEvent *, struct Sprite *);
 u32 StartFieldEffectForObjectEvent(u8, struct ObjectEvent *);
 u8 FindTallGrassFieldEffectSpriteId(u8 localId, u8 mapNum, u8 mapGroup, s16 x, s16 y);
@@ -43,6 +43,5 @@ void UpdateBubblesFieldEffect(struct Sprite *);
 void UpdateSparkleFieldEffect(struct Sprite *);
 void SetSpriteInvisible(u8 spriteId);
 void ShowWarpArrowSprite(u8 spriteId, u8 direction, s16 x, s16 y);
-void LoadFieldEffectPalette(u8 fieldEffect);
 
 #endif //GUARD_FIELD_EFFECT_HELPERS_H

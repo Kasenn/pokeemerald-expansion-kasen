@@ -1630,11 +1630,11 @@ static bool8 CanPlaceDecoration(u8 taskId, const struct Decoration *decoration)
     // If sprite(like), check if there is an available object event slot for it
     if (decoration->permission == DECORPERM_SPRITE)
     {
-        for (i = 0; i < NUM_DECORATION_FLAGS; i++)
-        {
-            if (FlagGet(FLAG_DECORATION_1 + i) == TRUE)
-                return TRUE;
-        }
+        // for (i = 0; i < NUM_DECORATION_FLAGS; i++)
+        // {
+        //     if (FlagGet(FLAG_DECORATION_1 + i) == TRUE)
+        //         return TRUE;
+        // }
         return FALSE;
     }
     return TRUE;

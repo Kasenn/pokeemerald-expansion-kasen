@@ -1,0 +1,11 @@
+/usr/lib/gcc/arm-none-eabi/12.2.1/cc1 -quiet <flags> -o build/modern/src/field_player_avatar.o src/field_player_avatar.c
+python3 tools/learnset_helpers/teachable.py
+/usr/lib/gcc/arm-none-eabi/12.2.1/cc1 -quiet <flags> -o build/modern/src/pokemon.o src/pokemon.c
+cd build/modern && arm-none-eabi-ld -Map ../../pokeemerald.map -T ld_script.ld -o ../../pokeemerald.elf <objects> <lib>
+Memory region         Used Size  Region Size  %age Used
+           EWRAM:      254074 B       256 KB     96.92%
+           IWRAM:       25340 B        32 KB     77.33%
+             ROM:    28384624 B        32 MB     84.59%
+tools/gbafix/gbafix pokeemerald.elf -t"POKEMON EMER" -cBPEE -m01 -r0 --silent
+arm-none-eabi-objcopy -O binary pokeemerald.elf pokeemerald.gba
+tools/gbafix/gbafix pokeemerald.gba -p --silent

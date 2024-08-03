@@ -661,6 +661,8 @@ static const u8 *const sActionStringTable[] =
     [PARTY_MSG_WHICH_APPLIANCE]        = gText_WhichAppliance,
     [PARTY_MSG_CHOOSE_SECOND_FUSION]   = gText_NextFusionMon,
     [PARTY_MSG_PARTNER]          = gText_TalkToPartner,
+    [PARTY_MSG_FOLLOW_MON]      = gText_FollowMon,
+    [PARTY_MSG_UNFOLLOW_MON]    = gText_UnfollowMon,
 };
 
 static const u8 *const sDescriptionStringTable[] =
@@ -696,6 +698,8 @@ struct
 {
     [MENU_SUMMARY] = {gText_Summary5, CursorCb_Summary},
     [MENU_SWITCH] = {gText_Switch2, CursorCb_Switch},
+    [MENU_FOLLOW_ME] = {gText_FollowMe, CursorCb_FollowMe},
+    [MENU_UNFOLLOW_ME] = {gText_UnfollowMe, CursorCb_FollowMe},
     [MENU_CANCEL1] = {gText_Cancel2, CursorCb_Cancel1},
     [MENU_ITEM] = {gText_Item, CursorCb_Item},
     [MENU_GIVE] = {gMenuText_Give, CursorCb_Give},

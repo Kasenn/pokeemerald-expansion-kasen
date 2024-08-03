@@ -3738,8 +3738,8 @@ static u32 AI_CalcMoveEffectScore(u32 battlerAtk, u32 battlerDef, u32 move)
         }
         else
         {
-            IncreaseStatUpScore(battlerAtk, battlerDef, STAT_CHANGE_ATK, &score);
-            IncreaseStatUpScore(battlerAtk, battlerDef, STAT_CHANGE_DEF, &score);
+            ADJUST_SCORE(IncreaseStatUpScore(battlerAtk, battlerDef, STAT_CHANGE_ATK));
+            ADJUST_SCORE(IncreaseStatUpScore(battlerAtk, battlerDef, STAT_CHANGE_DEF));
         }
         break;
     case EFFECT_CURSE:

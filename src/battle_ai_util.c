@@ -679,9 +679,6 @@ struct SimulatedDamage AI_CalcDamage(u32 move, u32 battlerAtk, u32 battlerDef, u
                     gBattleStruct->beatUpSlot = 0;
                 }
                 break;
-            case EFFECT_REVENGE:
-                dmg = dmg * 2;
-                break;
             }
 
             // Handle other multi-strike moves

@@ -14,3 +14,4 @@
 // Pokémon Debug
 #define DEBUG_POKEMON_SPRITE_VISUALIZER DEBUG_OVERWORLD_MENU    // Enables a debug menu for Pokémon sprites and icons, accessed by pressing Select in the summary screen.
 
+#endif // GUARD_CONFIG_DEBUG_H

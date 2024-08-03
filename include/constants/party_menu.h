@@ -83,6 +83,8 @@
 #define PARTY_MSG_CHOOSE_SECOND_FUSION      28
 #define PARTY_MSG_PARTNER                   29
 #define PARTY_MSG_CANT_FLY_NOW              30
+#define PARTY_MSG_FOLLOW_MON              31
+#define PARTY_MSG_UNFOLLOW_MON              32
 #define PARTY_MSG_NONE                      127
 
 // IDs for DisplayPartyPokemonDescriptionText, to display a message in the party pokemon's box

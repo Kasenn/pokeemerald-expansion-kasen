@@ -7020,8 +7020,8 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .iconPic = gItemIcon_PaintBrush,
-        .iconPalette = gItemIconPalette_PaintBrush,
+        .iconPic = gItemIcon_Paintbrush,
+        .iconPalette = gItemIconPalette_Paintbrush,
         .flingPower = 90,
     },
 
@@ -13823,7 +13823,7 @@ const struct Item gItemsInfo[] =
         .effect = gItemEffect_EvoItem,
         .flingPower = 80,
         .iconPic = gItemIcon_TropicalStone,
-        .iconPalette = gItemIconPalette_gItemIcon_TropicalStone,
+        .iconPalette = gItemIconPalette_TropicalStone,
     },
 
     [ITEM_ANCIENT_STONE] =

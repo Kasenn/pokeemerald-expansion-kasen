@@ -185,12 +185,38 @@ Debug_CheckSaveBlock::
 	msgbox Debug_SaveBlock3Size, MSGBOX_DEFAULT
 	callnative CheckPokemonStorageSize
 	msgbox Debug_PokemonStorageSize, MSGBOX_DEFAULT
+	callnative CheckSaveBlock1Part1
+	msgbox Debug_SaveBlock1SizePart1, MSGBOX_DEFAULT
+	callnative CheckSaveBlock1Part2
+	msgbox Debug_SaveBlock1SizePart2, MSGBOX_DEFAULT
+	callnative CheckSaveBlock1Part3
+	msgbox Debug_SaveBlock1SizePart3, MSGBOX_DEFAULT
+	callnative CheckSaveBlock1Part4
+	msgbox Debug_SaveBlock1SizePart4, MSGBOX_DEFAULT
 	release
 	end
 
 Debug_SaveBlock1Size::
 	.string "SaveBlock1 size: {STR_VAR_1}b/{STR_VAR_2}b.\n"
 	.string "Free space: {STR_VAR_3}b.$"
+
+Debug_SaveBlock1SizePart1::
+	.string "Pokedex size: {STR_VAR_1}b\n"
+	.string "Time size: {STR_VAR_2}b\l"
+	.string "PlayersApprentice size: {STR_VAR_3}b.$"
+
+Debug_SaveBlock1SizePart2::
+	.string "Apprentice size: {STR_VAR_1}b\n"
+	.string "BerryCrush size: {STR_VAR_2}b\l"
+	.string "PokemonJumpRecords size: {STR_VAR_3}b.$"
+
+Debug_SaveBlock1SizePart3::
+	.string "BerryPickingResults size: {STR_VAR_1}b\n"
+	.string "ItemSlot size: {STR_VAR_2}b\l"
+	.string "BattleFrontier size: {STR_VAR_3}b.$"
+
+Debug_SaveBlock1SizePart4::
+	.string "Follower size: {STR_VAR_1}b.$"
 
 Debug_SaveBlock2Size::
 	.string "SaveBlock2 size: {STR_VAR_1}b/{STR_VAR_2}b.\n"
