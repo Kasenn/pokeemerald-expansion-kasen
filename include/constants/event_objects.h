@@ -285,24 +285,20 @@
 #define OBJ_EVENT_GFX_MAY_ROCK_CLIMBING             281
 #define OBJ_EVENT_GFX_BRENDAN_ROCK_CLIMBING_ORAS    282
 #define OBJ_EVENT_GFX_MAY_ROCK_CLIMBING_ORAS        283
+#define OBJ_EVENT_GFX_POKE_BALL                  284
+#define OBJ_EVENT_GFX_OW_MON                     285
 
-// NOTE: By default, the max value for NUM_OBJ_EVENT_GFX is 239.
-//
-// Object event graphics ids are 1 byte in size (max value of 255), and the dynamic
-// graphics ids that start after NUM_OBJ_EVENT_GFX reach this limit. No graphics id
-// uses the value 239 itself, so removing the "+ 1" in OBJ_EVENT_GFX_VARS would
-// allow increasing NUM_OBJ_EVENT_GFX to 240. There are also a handful of unused
-// object graphics that can be removed. If more graphics are needed, anything that
-// stores graphics ids will need to be increased in size. See wiki entry below:
-// https://github.com/pret/pokeemerald/wiki/Feature-Branches#overworld-expansion
-#define NUM_OBJ_EVENT_GFX                        284
+// NOTE: The maximum amount of object events has been expanded from 255 to 65535.
+// Since dynamic graphics ids still require at least 16 free values, the actual limit
+// is 65519, but even considering follower Pokémon, this should be more than enough :)
+#define NUM_OBJ_EVENT_GFX                        286
 
 
 // These are dynamic object gfx ids.
 // They correspond with the values of the VAR_OBJ_GFX_ID_X vars.
 // More info about them in include/constants/vars.h
 #define OBJ_EVENT_GFX_VARS   (NUM_OBJ_EVENT_GFX + 1)
-#define OBJ_EVENT_GFX_VAR_0  (OBJ_EVENT_GFX_VARS + 0x0) // 240
+#define OBJ_EVENT_GFX_VAR_0  (OBJ_EVENT_GFX_VARS + 0x0)
 #define OBJ_EVENT_GFX_VAR_1  (OBJ_EVENT_GFX_VARS + 0x1)
 #define OBJ_EVENT_GFX_VAR_2  (OBJ_EVENT_GFX_VARS + 0x2)
 #define OBJ_EVENT_GFX_VAR_3  (OBJ_EVENT_GFX_VARS + 0x3)
@@ -317,12 +313,23 @@
 #define OBJ_EVENT_GFX_VAR_C  (OBJ_EVENT_GFX_VARS + 0xC)
 #define OBJ_EVENT_GFX_VAR_D  (OBJ_EVENT_GFX_VARS + 0xD)
 #define OBJ_EVENT_GFX_VAR_E  (OBJ_EVENT_GFX_VARS + 0xE)
-#define OBJ_EVENT_GFX_VAR_F  (OBJ_EVENT_GFX_VARS + 0xF) // 255
+#define OBJ_EVENT_GFX_VAR_F  (OBJ_EVENT_GFX_VARS + 0xF)
 
-#define SHADOW_SIZE_S   0
-#define SHADOW_SIZE_M   1
-#define SHADOW_SIZE_L   2
-#define SHADOW_SIZE_XL  3
+#define OBJ_EVENT_GFX_MON_BASE  0x200 // 512
+#define OBJ_EVENT_GFX_SPECIES_BITS 11
+#define OBJ_EVENT_GFX_SPECIES_MASK ((1 << OBJ_EVENT_GFX_SPECIES_BITS) - 1)
+
+// Used to call a specific species' follower graphics. Useful for static encounters.
+#define OBJ_EVENT_GFX_SPECIES(name)       (SPECIES_##name + OBJ_EVENT_GFX_MON_BASE)
+#define OBJ_EVENT_GFX_SPECIES_SHINY(name) (SPECIES_##name + OBJ_EVENT_GFX_MON_BASE + SPECIES_SHINY_TAG)
+
+#define OW_SPECIES(x) (((x)->graphicsId & OBJ_EVENT_GFX_SPECIES_MASK) - OBJ_EVENT_GFX_MON_BASE)
+#define OW_FORM(x) ((x)->graphicsId >> OBJ_EVENT_GFX_SPECIES_BITS)
+
+#define SHADOW_SIZE_S    0
+#define SHADOW_SIZE_M    1
+#define SHADOW_SIZE_L    2
+#define SHADOW_SIZE_NONE 3   // Originally SHADOW_SIZE_XL, which went unused due to shadowSize in ObjectEventGraphicsInfo being only 2 bits.
 
 #define F_INANIMATE                        (1 << 6)
 #define F_DISABLE_REFLECTION_PALETTE_LOAD  (1 << 7)
@@ -330,6 +337,9 @@
 #define TRACKS_NONE       0
 #define TRACKS_FOOT       1
 #define TRACKS_BIKE_TIRE  2
+#define TRACKS_SLITHER    3
+#define TRACKS_SPOT       4
+#define TRACKS_BUG        5
 
 #define FIRST_DECORATION_SPRITE_GFX OBJ_EVENT_GFX_PICHU_DOLL
 
@@ -340,6 +350,7 @@
 #define OBJ_EVENT_ID_PLAYER 0xFF
 #define OBJ_EVENT_ID_FOLLOWER 0xFE
 #define OBJ_EVENT_ID_CAMERA 0x7F
+#define OBJ_EVENT_ID_FOLLOWER 0xFE
 
 // Object event local ids referenced in C files
 #define LOCALID_ROUTE111_PLAYER_FALLING 45
@@ -371,6 +382,7 @@
 #define LOCALID_BATTLE_FRONTIER_MART_CLERK 1
 #define LOCALID_SLATEPORT_ENERGY_GURU 25
 
+// Moved from src/event_object_movement.c so that they're accesible from other files.
 #define OBJ_EVENT_PAL_TAG_BRENDAN                 0x1100
 #define OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION      0x1101
 #define OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION       0x1102
@@ -414,45 +426,95 @@
 #define OBJ_EVENT_PAL_EXAMPLE5                    0x1128
 #define OBJ_EVENT_PAL_IRIS                        0x1129
 #define OBJ_EVENT_PAL_TAG_ANABEL                  0x112A
-#define OBJ_EVENT_PAL_VOLKNER                 0x112B
-#define OBJ_EVENT_PAL_JASMINE                 0x112C
-#define OBJ_EVENT_PAL_MAREEP                  0x112D
-#define OBJ_EVENT_PAL_ROCKET_F                  0x112E
-#define OBJ_EVENT_PAL_SKYLA                  0x112F
-#define OBJ_EVENT_PAL_STONE_SPHERE                  0x1130
-#define OBJ_EVENT_PAL_CRUSTLE                   0x1131
-#define OBJ_EVENT_PAL_NEWPIKACHU                0x1132
-#define OBJ_EVENT_PAL_CLAY                    0x1133
-#define OBJ_EVENT_PAL_ROCKET_ADMIN_M        0x1134
-#define OBJ_EVENT_PAL_VOLCARONA             0x1135
-#define OBJ_EVENT_PAL_ABRA                  0x1136
-#define OBJ_EVENT_PAL_SPHEAL                0x1137
-#define OBJ_EVENT_PAL_EXCADRILL                0x1138
-#define OBJ_EVENT_PAL_AMPHAROS                  0x1139
-#define OBJ_EVENT_PAL_ROSTE                     0x113A
-#define OBJ_EVENT_PAL_LAND_SWIMMER_F                     0x113B
-#define OBJ_EVENT_PAL_KORRINA                    0x113C
-#define OBJ_EVENT_PAL_ACE_TRAINER_M  0x113D
-#define OBJ_EVENT_PAL_ACE_TRAINER_F  0x113E
-#define OBJ_EVENT_PAL_MAY_ORAS  0x113F
-#define OBJ_EVENT_PAL_BRENDAN_ORAS  0x1140
-#define OBJ_EVENT_PAL_STEEL_SPHERE  0x1141
-#define OBJ_EVENT_PAL_PIDGEOTTO              0x1142
-#define OBJ_EVENT_PAL_PIDGEOT                0x1143
-#define OBJ_EVENT_PAL_FLOCK                0x1144
-#define OBJ_EVENT_PAL_ACEROLA                    0x1145
-#define OBJ_EVENT_PAL_MIMIKYU                   0x1146
-#define OBJ_EVENT_PAL_BANETTE                   0x1147
-#define OBJ_EVENT_PAL_GASTLY                    0x1148
-#define OBJ_EVENT_PAL_GENGAR                    0x1149
-#define OBJ_EVENT_PAL_HAUNTER                   0x114A
-#define OBJ_EVENT_PAL_LITWICK                   0x114B
-#define OBJ_EVENT_PAL_MISDREAVUS                0x114C
-#define OBJ_EVENT_PAL_MISMAGIUS                 0x114D
-#define OBJ_EVENT_PAL_PHANTUMP                  0x114E
-#define OBJ_EVENT_PAL_SABLEYE                   0x114F
-#define OBJ_EVENT_PAL_SHUPPET                   0x1150
+#define OBJ_EVENT_PAL_VOLKNER                     0x112B
+#define OBJ_EVENT_PAL_JASMINE                     0x112C
+#define OBJ_EVENT_PAL_MAREEP                      0x112D
+#define OBJ_EVENT_PAL_ROCKET_F                    0x112E
+#define OBJ_EVENT_PAL_SKYLA                       0x112F
+#define OBJ_EVENT_PAL_STONE_SPHERE                0x1130
+#define OBJ_EVENT_PAL_CRUSTLE                     0x1131
+#define OBJ_EVENT_PAL_NEWPIKACHU                  0x1132
+#define OBJ_EVENT_PAL_CLAY                        0x1133
+#define OBJ_EVENT_PAL_ROCKET_ADMIN_M              0x1134
+#define OBJ_EVENT_PAL_VOLCARONA                   0x1135
+#define OBJ_EVENT_PAL_ABRA                        0x1136
+#define OBJ_EVENT_PAL_SPHEAL                      0x1137
+#define OBJ_EVENT_PAL_EXCADRILL                   0x1138
+#define OBJ_EVENT_PAL_AMPHAROS                    0x1139
+#define OBJ_EVENT_PAL_ROSTE                       0x113A
+#define OBJ_EVENT_PAL_LAND_SWIMMER_F              0x113B
+#define OBJ_EVENT_PAL_KORRINA                     0x113C
+#define OBJ_EVENT_PAL_ACE_TRAINER_M               0x113D
+#define OBJ_EVENT_PAL_ACE_TRAINER_F               0x113E
+#define OBJ_EVENT_PAL_MAY_ORAS                    0x113F
+#define OBJ_EVENT_PAL_BRENDAN_ORAS                0x1140
+#define OBJ_EVENT_PAL_STEEL_SPHERE                0x1141
+#define OBJ_EVENT_PAL_PIDGEOTTO                   0x1142
+#define OBJ_EVENT_PAL_PIDGEOT                     0x1143
+#define OBJ_EVENT_PAL_FLOCK                       0x1144
+#define OBJ_EVENT_PAL_ACEROLA                     0x1145
+#define OBJ_EVENT_PAL_MIMIKYU                     0x1146
+#define OBJ_EVENT_PAL_BANETTE                     0x1147
+#define OBJ_EVENT_PAL_GASTLY                      0x1148
+#define OBJ_EVENT_PAL_GENGAR                      0x1149
+#define OBJ_EVENT_PAL_HAUNTER                     0x114A
+#define OBJ_EVENT_PAL_LITWICK                     0x114B
+#define OBJ_EVENT_PAL_MISDREAVUS                  0x114C
+#define OBJ_EVENT_PAL_MISMAGIUS                   0x114D
+#define OBJ_EVENT_PAL_PHANTUMP                    0x114E
+#define OBJ_EVENT_PAL_SABLEYE                     0x114F
 
+
+#if OW_FOLLOWERS_POKEBALLS
+// Vanilla
+#define OBJ_EVENT_PAL_TAG_BALL_MASTER             0x1150
+#define OBJ_EVENT_PAL_TAG_BALL_ULTRA              0x1151
+#define OBJ_EVENT_PAL_TAG_BALL_GREAT              0x1152
+#define OBJ_EVENT_PAL_TAG_BALL_SAFARI             0x1153
+#define OBJ_EVENT_PAL_TAG_BALL_NET                0x1154
+#define OBJ_EVENT_PAL_TAG_BALL_DIVE               0x1155
+#define OBJ_EVENT_PAL_TAG_BALL_NEST               0x1156
+#define OBJ_EVENT_PAL_TAG_BALL_REPEAT             0x1157
+#define OBJ_EVENT_PAL_TAG_BALL_TIMER              0x1158
+#define OBJ_EVENT_PAL_TAG_BALL_LUXURY             0x1159
+#define OBJ_EVENT_PAL_TAG_BALL_PREMIER            0x115A
+// Gen IV/Sinnoh
+#define OBJ_EVENT_PAL_TAG_BALL_DUSK               0x115B
+#define OBJ_EVENT_PAL_TAG_BALL_HEAL               0x115C
+#define OBJ_EVENT_PAL_TAG_BALL_QUICK              0x115D
+#define OBJ_EVENT_PAL_TAG_BALL_CHERISH            0x115E
+#define OBJ_EVENT_PAL_TAG_BALL_PARK               0x115F
+// Gen II/Johto Apricorns
+#define OBJ_EVENT_PAL_TAG_BALL_FAST               0x1160
+#define OBJ_EVENT_PAL_TAG_BALL_LEVEL              0x1161
+#define OBJ_EVENT_PAL_TAG_BALL_LURE               0x1162
+#define OBJ_EVENT_PAL_TAG_BALL_HEAVY              0x1163
+#define OBJ_EVENT_PAL_TAG_BALL_LOVE               0x1164
+#define OBJ_EVENT_PAL_TAG_BALL_FRIEND             0x1165
+#define OBJ_EVENT_PAL_TAG_BALL_MOON               0x1166
+#define OBJ_EVENT_PAL_TAG_BALL_SPORT              0x1167
+// Gen V
+#define OBJ_EVENT_PAL_TAG_BALL_DREAM              0x1168
+// Gen VII
+#define OBJ_EVENT_PAL_TAG_BALL_BEAST              0x1169
+// Gen VIII
+#define OBJ_EVENT_PAL_TAG_BALL_STRANGE            0x116A
+#endif //OW_FOLLOWERS_POKEBALLS
+
+// Regular Objects continue
+#define OBJ_EVENT_PAL_SHUPPET                     0x116B
+#define OBJ_EVENT_PAL_TAG_DYNAMIC                 0x116C
+
+// Used as a placeholder follower graphic
+#define OBJ_EVENT_PAL_TAG_SUBSTITUTE              0x7611
+#define OBJ_EVENT_PAL_TAG_EMOTES                  0x8002
+// Not a real OW palette tag; used for the white flash applied to followers
+#define OBJ_EVENT_PAL_TAG_WHITE                   (OBJ_EVENT_PAL_TAG_NONE - 1)
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
+
+// This + localId is used as the tileTag
+// for compressed graphicsInfos
+// '(C)ompressed (E)vent'
+#define COMP_OW_TILE_TAG_BASE 0xCE00
 
 #endif  // GUARD_CONSTANTS_EVENT_OBJECTS_H

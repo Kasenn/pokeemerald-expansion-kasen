@@ -35,6 +35,7 @@
 #define FLDEFF_USE_FLY                   31
 #define FLDEFF_FLY_IN                    32
 #define FLDEFF_QUESTION_MARK_ICON        33
+#define FLDEFF_EMOTE                     33 // shares a slot with FLDEFF_QUESTION_MARK_ICON
 #define FLDEFF_FEET_IN_FLOWING_WATER     34
 #define FLDEFF_BIKE_TIRE_TRACKS          35
 #define FLDEFF_SAND_DISGUISE             36
@@ -75,6 +76,9 @@
 #define FLDEFF_MUD_FOOTPRINTS            71
 #define FLDEFF_MUD_PILE                  72
 #define FLDEFF_USE_ROCK_CLIMB            73
+#define FLDEFF_TRACKS_SLITHER            74
+#define FLDEFF_TRACKS_SPOT               75
+#define FLDEFF_TRACKS_BUG                76
 
 #define FLDEFFOBJ_SHADOW_S              0
 #define FLDEFFOBJ_SHADOW_M              1
@@ -117,6 +121,9 @@
 #define FLDEFFOBJ_MUD_FOOTPRINTS        38
 #define FLDEFFOBJ_MUD_PILE              39
 #define FLDEFFOBJ_ROCK_CLIMBING_BLOB    40
+#define FLDEFFOBJ_TRACKS_SLITHER        41
+#define FLDEFFOBJ_TRACKS_SPOT           42
+#define FLDEFFOBJ_TRACKS_BUG            43
 
 #define FLDEFF_PAL_TAG_CUT_GRASS          0x1000
 #define FLDEFF_PAL_TAG_SECRET_POWER_TREE  0x1003

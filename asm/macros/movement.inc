@@ -169,4 +169,6 @@
 	create_movement_action jump_rightdown, MOVEMENT_ACTION_JUMP_RIGHTDOWN
 	create_movement_action jump_rightup, MOVEMENT_ACTION_JUMP_RIGHTUP
 
+	create_movement_action exit_pokeball, MOVEMENT_ACTION_EXIT_POKEBALL
+	create_movement_action enter_pokeball, MOVEMENT_ACTION_ENTER_POKEBALL
 	create_movement_action step_end, MOVEMENT_ACTION_STEP_END

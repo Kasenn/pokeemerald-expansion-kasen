@@ -85,7 +85,8 @@
 #define MOVEMENT_TYPE_RUN_SEQUENCE_UP_RIGHT_DOWN_LEFT  0x51
 #define MOVEMENT_TYPE_LEVITATE                         0x52
 #define MOVEMENT_TYPE_FISH_DOWN                        0x53
-#define NUM_MOVEMENT_TYPES                             0x54
+#define MOVEMENT_TYPE_FOLLOW_PLAYER                    0x54
+#define NUM_MOVEMENT_TYPES                             0x55
 
 #define MOVEMENT_ACTION_FACE_DOWN                       0x0
 #define MOVEMENT_ACTION_FACE_UP                         0x1
@@ -252,6 +253,8 @@
 #define MOVEMENT_ACTION_JUMP_LEFTUP                     0xA2
 #define MOVEMENT_ACTION_JUMP_RIGHTDOWN                  0xA3
 #define MOVEMENT_ACTION_JUMP_RIGHTUP                    0xA4
+#define MOVEMENT_ACTION_EXIT_POKEBALL                   0xA5
+#define MOVEMENT_ACTION_ENTER_POKEBALL                  0xA6
 
 #define MOVEMENT_ACTION_STEP_END 0xFE
 #define MOVEMENT_ACTION_NONE     0xFF
@@ -286,6 +289,11 @@
 #define ANIM_SKATE_NORTH (ANIM_STD_COUNT + 5)
 #define ANIM_SKATE_WEST (ANIM_STD_COUNT + 6)
 #define ANIM_SKATE_EAST (ANIM_STD_COUNT + 7)
+
+#define ANIM_EXIT_POKEBALL_FAST_SOUTH (ANIM_STD_COUNT + 0)
+#define ANIM_EXIT_POKEBALL_FAST_NORTH (ANIM_STD_COUNT + 1)
+#define ANIM_EXIT_POKEBALL_FAST_WEST  (ANIM_STD_COUNT + 2)
+#define ANIM_EXIT_POKEBALL_FAST_EAST  (ANIM_STD_COUNT + 3)
 
 #define ANIM_BUNNY_HOP_BACK_WHEEL_SOUTH         (ANIM_STD_COUNT + 0)
 #define ANIM_BUNNY_HOP_BACK_WHEEL_NORTH         (ANIM_STD_COUNT + 1)

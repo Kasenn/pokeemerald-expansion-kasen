@@ -10277,4 +10277,3 @@ const struct Trainer gTrainers[] = {
     },
 
 };
-

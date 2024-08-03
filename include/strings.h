@@ -3197,25 +3197,6 @@ extern const u8 gText_NeatnessRankings[];
 extern const u8 gText_CoopRankings[];
 extern const u8 gText_PressingPowerRankings[];
 
-// Lilycove Lady
-extern const u8 gText_ContestLady_Handsome[];
-extern const u8 gText_ContestLady_Vinny[];
-extern const u8 gText_ContestLady_Moreme[];
-extern const u8 gText_ContestLady_Ironhard[];
-extern const u8 gText_ContestLady_Muscle[];
-extern const u8 gText_ContestLady_Coolness[];
-extern const u8 gText_ContestLady_Beauty[];
-extern const u8 gText_ContestLady_Cuteness[];
-extern const u8 gText_ContestLady_Smartness[];
-extern const u8 gText_ContestLady_Toughness[];
-extern const u8 gText_QuizLady_Lady[];
-extern const u8 gText_FavorLady_Slippery[];
-extern const u8 gText_FavorLady_Roundish[];
-extern const u8 gText_FavorLady_Whamish[];
-extern const u8 gText_FavorLady_Shiny[];
-extern const u8 gText_FavorLady_Sticky[];
-extern const u8 gText_FavorLady_Pointy[];
-
 extern const u8 gText_CoolnessContest[];
 extern const u8 gText_BeautyContest[];
 extern const u8 gText_CutenessContest[];
@@ -3341,5 +3322,9 @@ extern const u8 gText_TMCaseWillBePutAway[];
 extern const u8 gText_FontSmall[];
 extern const u8 gText_FontShort[];
 extern const u8 gText_TMCase_Blue[];
+
+// Map name pop-up
+extern const u8 gText_AM[];
+extern const u8 gText_PM[];
 
 #endif // GUARD_STRINGS_H

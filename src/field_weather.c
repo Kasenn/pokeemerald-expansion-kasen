@@ -113,43 +113,43 @@ void (*const gWeatherPalStateFuncs[])(void) =
 
 // This table specifies which of the color maps should be
 // applied to each of the background and sprite palettes.
-static EWRAM_DATA u8 ALIGNED(2) sBasePaletteColorMapTypes[32] = {0};
-// {
-//     // background palettes
-//     COLOR_MAP_DARK_CONTRAST,
-//     COLOR_MAP_DARK_CONTRAST,
-//     COLOR_MAP_DARK_CONTRAST,
-//     COLOR_MAP_DARK_CONTRAST,
-//     COLOR_MAP_DARK_CONTRAST,
-//     COLOR_MAP_DARK_CONTRAST,
-//     COLOR_MAP_DARK_CONTRAST,
-//     COLOR_MAP_DARK_CONTRAST,
-//     COLOR_MAP_DARK_CONTRAST,
-//     COLOR_MAP_DARK_CONTRAST,
-//     COLOR_MAP_DARK_CONTRAST,
-//     COLOR_MAP_DARK_CONTRAST,
-//     COLOR_MAP_DARK_CONTRAST,
-//     COLOR_MAP_DARK_CONTRAST,
-//     COLOR_MAP_NONE,
-//     COLOR_MAP_NONE,
-//     // sprite palettes
-//     COLOR_MAP_CONTRAST,
-//     COLOR_MAP_DARK_CONTRAST,
-//     COLOR_MAP_CONTRAST,
-//     COLOR_MAP_CONTRAST,
-//     COLOR_MAP_CONTRAST,
-//     COLOR_MAP_CONTRAST,
-//     COLOR_MAP_DARK_CONTRAST,
-//     COLOR_MAP_DARK_CONTRAST,
-//     COLOR_MAP_DARK_CONTRAST,
-//     COLOR_MAP_DARK_CONTRAST,
-//     COLOR_MAP_CONTRAST,
-//     COLOR_MAP_DARK_CONTRAST,
-//     COLOR_MAP_DARK_CONTRAST,
-//     COLOR_MAP_DARK_CONTRAST,
-//     COLOR_MAP_DARK_CONTRAST,
-//     COLOR_MAP_DARK_CONTRAST,
-// };
+static const u8 ALIGNED(2) sBasePaletteColorMapTypes[32] =
+{
+    // background palettes
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_NONE,
+    COLOR_MAP_NONE,
+    // sprite palettes
+    COLOR_MAP_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+    COLOR_MAP_DARK_CONTRAST,
+};
 
 const u16 ALIGNED(4) gFogPalette[] = INCBIN_U16("graphics/weather/fog.gbapal");
 
@@ -252,6 +252,7 @@ static void Task_WeatherMain(u8 taskId)
 
 static void None_Init(void)
 {
+    Weather_SetBlendCoeffs(8, 12); // Indoor shadows
     gWeatherPtr->targetColorMapIndex = 0;
     gWeatherPtr->colorMapStepDelay = 0;
 }
@@ -1113,8 +1114,10 @@ void ResetPreservedPalettesInWeather(void)
     sPaletteColorMapTypes = sBasePaletteColorMapTypes;
 }
 
-void UpdatePaletteGammaType(u8 index, u8 gammaType)
+bool32 IsWeatherAlphaBlend(void)
 {
-    if (index != 0xFF)
-        sBasePaletteColorMapTypes[index + 16] = gammaType;
+    return (gWeatherPtr->currWeather == WEATHER_FOG_HORIZONTAL
+         || gWeatherPtr->currWeather == WEATHER_FOG_DIAGONAL
+         || gWeatherPtr->currWeather == WEATHER_UNDERWATER_BUBBLES
+         || gWeatherPtr->currWeather == WEATHER_UNDERWATER);
 }
