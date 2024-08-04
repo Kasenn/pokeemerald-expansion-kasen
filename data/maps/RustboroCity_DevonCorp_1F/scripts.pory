@@ -257,7 +257,7 @@ script FlagTesting{
     // setflag(FLAG_REMATCH_GLACIA)
     // setflag(FLAG_REMATCH_DRAKE)
     // closemessage
-    return
+    return 
 }
 
 script FindFishingWire{
