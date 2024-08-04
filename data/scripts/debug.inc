@@ -158,11 +158,12 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
-	lockall
-	applymovement OBJ_EVENT_ID_PLAYER, Walk1Right
-	delay 10
-	releaseall
+	bufferspeciesname STR_VAR_1, SPECIES_CLODSIRE
+	msgbox TestMsg
 	end
+
+TestMsg:
+	.string "{STR_VAR_1}$"
 
 Debug_EventScript_Script_6::
 	release
@@ -191,8 +192,6 @@ Debug_CheckSaveBlock::
 	msgbox Debug_SaveBlock1SizePart2, MSGBOX_DEFAULT
 	callnative CheckSaveBlock1Part3
 	msgbox Debug_SaveBlock1SizePart3, MSGBOX_DEFAULT
-	callnative CheckSaveBlock1Part4
-	msgbox Debug_SaveBlock1SizePart4, MSGBOX_DEFAULT
 	release
 	end
 
@@ -201,22 +200,17 @@ Debug_SaveBlock1Size::
 	.string "Free space: {STR_VAR_3}b.$"
 
 Debug_SaveBlock1SizePart1::
-	.string "Pokedex size: {STR_VAR_1}b\n"
-	.string "Time size: {STR_VAR_2}b\l"
-	.string "PlayersApprentice size: {STR_VAR_3}b.$"
+	.string "WarpData size: {STR_VAR_1}b\n"
+	.string "Pokemon size: {STR_VAR_2}b\l"
+	.string "ItemSlot size: {STR_VAR_3}b.$"
 
 Debug_SaveBlock1SizePart2::
-	.string "Apprentice size: {STR_VAR_1}b\n"
-	.string "BerryCrush size: {STR_VAR_2}b\l"
-	.string "PokemonJumpRecords size: {STR_VAR_3}b.$"
+	.string "Pokeblock size: {STR_VAR_1}b\n"
+	.string "ObjectEvent size: {STR_VAR_2}b\l"
+	.string "ObjectEventTemplate size: {STR_VAR_3}b.$"
 
 Debug_SaveBlock1SizePart3::
-	.string "BerryPickingResults size: {STR_VAR_1}b\n"
-	.string "ItemSlot size: {STR_VAR_2}b\l"
-	.string "BattleFrontier size: {STR_VAR_3}b.$"
-
-Debug_SaveBlock1SizePart4::
-	.string "Follower size: {STR_VAR_1}b.$"
+	.string "RegisteredItemSlot size: {STR_VAR_1}b.$"
 
 Debug_SaveBlock2Size::
 	.string "SaveBlock2 size: {STR_VAR_1}b/{STR_VAR_2}b.\n"

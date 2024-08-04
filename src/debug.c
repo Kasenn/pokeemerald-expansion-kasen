@@ -2162,9 +2162,9 @@ void CheckSaveBlock1Size(struct ScriptContext *ctx)
 
 void CheckSaveBlock1Part1(struct ScriptContext *ctx)
 {
-    u32 Sb1A = sizeof(struct Pokedex);
-    u32 Sb1B = sizeof(struct Time);
-    u32 Sb1C = sizeof(struct PlayersApprentice);
+    u32 Sb1A = sizeof(struct WarpData);
+    u32 Sb1B = sizeof(struct Pokemon);
+    u32 Sb1C = sizeof(struct ItemSlot);
     ConvertIntToDecimalStringN(gStringVar1, Sb1A, STR_CONV_MODE_LEFT_ALIGN, 6);
     ConvertIntToDecimalStringN(gStringVar2, Sb1B, STR_CONV_MODE_LEFT_ALIGN, 6);
     ConvertIntToDecimalStringN(gStringVar3, Sb1C, STR_CONV_MODE_LEFT_ALIGN, 6);
@@ -2172,9 +2172,9 @@ void CheckSaveBlock1Part1(struct ScriptContext *ctx)
 
 void CheckSaveBlock1Part2(struct ScriptContext *ctx)
 {
-    u32 Sb1A = sizeof(struct Apprentice);
-    u32 Sb1B = sizeof(struct BerryCrush);
-    u32 Sb1C = sizeof(struct PokemonJumpRecords);
+    u32 Sb1A = sizeof(struct Pokeblock);
+    u32 Sb1B = sizeof(struct ObjectEvent);
+    u32 Sb1C = sizeof(struct ObjectEventTemplate);
     ConvertIntToDecimalStringN(gStringVar1, Sb1A, STR_CONV_MODE_LEFT_ALIGN, 6);
     ConvertIntToDecimalStringN(gStringVar2, Sb1B, STR_CONV_MODE_LEFT_ALIGN, 6);
     ConvertIntToDecimalStringN(gStringVar3, Sb1C, STR_CONV_MODE_LEFT_ALIGN, 6);
@@ -2182,22 +2182,8 @@ void CheckSaveBlock1Part2(struct ScriptContext *ctx)
 
 void CheckSaveBlock1Part3(struct ScriptContext *ctx)
 {
-    u32 Sb1A = sizeof(struct BerryPickingResults);
-    u32 Sb1B = sizeof(struct ItemSlot);
-    u32 Sb1C = sizeof(struct BattleFrontier);
-    ConvertIntToDecimalStringN(gStringVar1, Sb1A, STR_CONV_MODE_LEFT_ALIGN, 6);
-    ConvertIntToDecimalStringN(gStringVar2, Sb1B, STR_CONV_MODE_LEFT_ALIGN, 6);
-    ConvertIntToDecimalStringN(gStringVar3, Sb1C, STR_CONV_MODE_LEFT_ALIGN, 6);
-}
-
-void CheckSaveBlock1Part4(struct ScriptContext *ctx)
-{
-    u32 Sb1A = sizeof(struct Follower);
-    // u32 Sb1B = sizeof(struct ItemSlot);
-    // u32 Sb1C = sizeof(struct BattleFrontier);
-    ConvertIntToDecimalStringN(gStringVar1, Sb1A, STR_CONV_MODE_LEFT_ALIGN, 6);
-    // ConvertIntToDecimalStringN(gStringVar2, Sb1B, STR_CONV_MODE_LEFT_ALIGN, 6);
-    // ConvertIntToDecimalStringN(gStringVar3, Sb1C, STR_CONV_MODE_LEFT_ALIGN, 6);
+    u32 Sb1D = sizeof(struct RegisteredItemSlot);
+    ConvertIntToDecimalStringN(gStringVar1, Sb1D, STR_CONV_MODE_LEFT_ALIGN, 6);
 }
 
 void CheckSaveBlock2Size(struct ScriptContext *ctx)

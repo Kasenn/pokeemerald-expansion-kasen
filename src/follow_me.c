@@ -73,6 +73,7 @@ static void Task_FollowerHandleEscalatorFinish(u8 taskId);
 static void CalculateFollowerEscalatorTrajectoryUp(struct Task *task);
 static void CalculateFollowerEscalatorTrajectoryDown(struct Task *task);
 static void TurnNPCIntoFollower(u8 localId, u16 followerFlags);
+static void RemoveObjectEventInternal2(struct ObjectEvent *);
 
 // Const Data
 static const struct FollowerSpriteGraphics gFollowerAlternateSprites[] =
@@ -1127,6 +1128,40 @@ void FollowMe_HandleSprite(void)
     }
 }
 
+void RemoveObjectEvent2(struct ObjectEvent *objectEvent)
+{
+    objectEvent->active = FALSE;
+    RemoveObjectEventInternal2(objectEvent);
+    // zero potential species info
+    objectEvent->graphicsId = objectEvent->shiny = 0;
+}
+
+static void RemoveObjectEventInternal2(struct ObjectEvent *objectEvent)
+{
+    struct SpriteFrameImage image;
+    image.size = GetObjectEventGraphicsInfo(objectEvent->graphicsId)->size;
+    gSprites[objectEvent->spriteId].images = &image;
+    // It's possible that this function is called while the sprite pointed to `== sDummySprite`, i.e during map resume;
+    // In this case, don't free the palette as `paletteNum` is likely blank dummy data
+    if (!gSprites[objectEvent->spriteId].inUse &&
+        !gSprites[objectEvent->spriteId].oam.paletteNum &&
+        gSprites[objectEvent->spriteId].callback == SpriteCallbackDummy)
+    {
+        DestroySprite(&gSprites[objectEvent->spriteId]);
+    }
+    else
+    {
+        u32 paletteNum = gSprites[objectEvent->spriteId].oam.paletteNum;
+        u16 tileStart;
+        if (OW_GFX_COMPRESS)
+            tileStart = gSprites[objectEvent->spriteId].sheetTileStart;
+        DestroySprite(&gSprites[objectEvent->spriteId]);
+        FieldEffectFreePaletteIfUnused(paletteNum);
+        if (OW_GFX_COMPRESS && tileStart)
+            FieldEffectFreeTilesIfUnused(tileStart);
+    }
+}
+
 void SetFollowerSprite(u8 spriteIndex)
 {
     u8 oldSpriteId;
@@ -1156,7 +1191,7 @@ void SetFollowerSprite(u8 spriteIndex)
     backupFollower.graphicsId = newGraphicsId;
     //backupFollower.graphicsIdUpperByte = newGraphicsId >> 8;
     DestroySprite(&gSprites[oldSpriteId]);
-    RemoveObjectEvent(&gObjectEvents[GetFollowerMapObjId()]);
+    RemoveObjectEvent2(&gObjectEvents[GetFollowerMapObjId()]);
 
     clone = *GetObjectEventTemplateByLocalIdAndMap(gSaveBlock2Ptr->follower.map.id, gSaveBlock2Ptr->follower.map.number, gSaveBlock2Ptr->follower.map.group);
     clone.graphicsId = newGraphicsId;
@@ -1413,7 +1448,7 @@ void DestroyFollower(void)
 {
     if (gSaveBlock2Ptr->follower.inProgress)
     {
-        RemoveObjectEvent(&gObjectEvents[gSaveBlock2Ptr->follower.objId]);
+        RemoveObjectEvent2(&gObjectEvents[gSaveBlock2Ptr->follower.objId]);
         FlagSet(gSaveBlock2Ptr->follower.flag);
         gSaveBlock2Ptr->follower.inProgress = FALSE;
     }
