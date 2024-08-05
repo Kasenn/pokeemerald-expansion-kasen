@@ -16265,6 +16265,14 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .iconSprite = gMonIcon_PorygonZ,
         .iconPalIndex = 0,
         FOOTPRINT(PorygonZ)
+        OVERWORLD(
+            sPicTable_PorygonZ,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            gOverworldPalette_PorygonZ,
+            gShinyOverworldPalette_PorygonZ
+        )
         .formSpeciesIdTable = sPorygonZFormSpeciesIdTable,
         .formChangeTable = sPorygonZFormChangeTable,
         .levelUpLearnset = sPorygonZLevelUpLearnset,

@@ -180,6 +180,14 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .iconSprite = gMonIcon_Decidueye,
         .iconPalIndex = 1,
         FOOTPRINT(Decidueye)
+        OVERWORLD(
+            sPicTable_Decidueye,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            gOverworldPalette_Decidueye,
+            gShinyOverworldPalette_Decidueye
+        )
         .formChangeTable = sDecidueyeFormChangeTable,
     },
     [SPECIES_DECIDUEYE_MEGA] =
@@ -480,6 +488,14 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .iconSprite = gMonIcon_Incineroar,
         .iconPalIndex = 0,
         FOOTPRINT(Incineroar)
+        OVERWORLD(
+            sPicTable_Incineroar,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            gOverworldPalette_Incineroar,
+            gShinyOverworldPalette_Incineroar
+        )
     },
     [SPECIES_INCINEROAR_MEGA] =
     {

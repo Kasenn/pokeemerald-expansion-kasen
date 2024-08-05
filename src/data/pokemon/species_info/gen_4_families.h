@@ -550,7 +550,15 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .pokemonOffset = 0,                                 
         .trainerScale = 290,                                
         .trainerOffset = 1,                                 
-        FOOTPRINT(Empoleon)                                
+        FOOTPRINT(Empoleon)
+        OVERWORLD(
+            sPicTable_Empoleon,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            gOverworldPalette_Empoleon,
+            gShinyOverworldPalette_Empoleon
+        )                                
         .levelUpLearnset = sEmpoleonLevelUpLearnset,        
         .teachableLearnset = sEmpoleonTeachableLearnset,    
         .formSpeciesIdTable = sEmpoleonFormSpeciesIdTable,  
