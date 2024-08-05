@@ -1961,7 +1961,7 @@ static void Task_UseRockClimb(u8 taskId)
 static bool8 RockClimbFieldEffect_Init(struct Task *task, struct ObjectEvent *objectEvent)
 {
     LockPlayerFieldControls();
-    SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_SURFING);
+    SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_FORCED_MOVE);
     gPlayerAvatar.preventStep = TRUE;
     task->tState++;
     return FALSE;
