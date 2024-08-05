@@ -261,7 +261,7 @@ FollowerStaysBehind::
 	goto_if_eq FollowerStaysBehind_2
 	lock
 	playse SE_PIN
-	applymovement OBJ_EVENT_ID_FOLLOWER, Common_Movement_ExclamationMark
+	applymovement OBJ_EVENT_ID_FOLLOWME_FOLLOWER, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 48
 	facefollower

@@ -1,4 +1,10 @@
-mapscripts SkyPillar_5F_MapScripts{}
+mapscripts SkyPillar_5F_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION{
+        if(!flag(FLAG_OBTAINED_MEGA_RING)){
+            setflag(FLAG_TEMP_HIDE_FOLLOWER)
+        }
+    }
+}
 
 script AT_5F_Up{
     if(defeated(TRAINER_AT_5F_COOLTRAINER_M)){

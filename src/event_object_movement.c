@@ -626,7 +626,7 @@ static const u16 sReflectionPaletteTags_PlayerUnderwater[] = {
     OBJ_EVENT_PAL_TAG_PLAYER_UNDERWATER,
     OBJ_EVENT_PAL_TAG_PLAYER_UNDERWATER,
 };
-//wip
+
 static const struct PairedPalettes sPlayerReflectionPaletteSets[] = {
     {OBJ_EVENT_PAL_TAG_BRENDAN,           sReflectionPaletteTags_Brendan},
     {OBJ_EVENT_PAL_TAG_MAY,               sReflectionPaletteTags_May},

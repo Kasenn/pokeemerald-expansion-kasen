@@ -3,6 +3,9 @@ mapscripts SkyPillar_Top_MapScripts{
 }
 
 script AT_Top{
+    if(!flag(FLAG_OBTAINED_MEGA_RING)){
+        setflag(FLAG_TEMP_HIDE_FOLLOWER)
+    }
     setvar(VAR_TEMP_6, 1)
     end
 }
@@ -46,28 +49,29 @@ script AT_TopEvent{
     switch(var(VAR_TEMP_5)){
         case 1:
             applymovement(OBJ_EVENT_ID_PLAYER, AT_Top_Movement1)
-            applymovement(OBJ_EVENT_ID_FOLLOWER, AT_Top_Movement1Follower)
+            applymovement(OBJ_EVENT_ID_FOLLOWME_FOLLOWER, AT_Top_Movement1Follower)
         case 2:
             applymovement(OBJ_EVENT_ID_PLAYER, AT_Top_Movement2)
-            applymovement(OBJ_EVENT_ID_FOLLOWER, AT_Top_Movement2Follower)
+            applymovement(OBJ_EVENT_ID_FOLLOWME_FOLLOWER, AT_Top_Movement2Follower)
         case 3:
             applymovement(OBJ_EVENT_ID_PLAYER, Walk2Up)
-            applymovement(OBJ_EVENT_ID_FOLLOWER, AT_Top_Movement3Follower)
+            applymovement(OBJ_EVENT_ID_FOLLOWME_FOLLOWER, AT_Top_Movement3Follower)
         case 4:
             applymovement(OBJ_EVENT_ID_PLAYER, AT_Top_Movement4)
-            applymovement(OBJ_EVENT_ID_FOLLOWER, AT_Top_Movement4Follower)
+            applymovement(OBJ_EVENT_ID_FOLLOWME_FOLLOWER, AT_Top_Movement4Follower)
         case 5:
             applymovement(OBJ_EVENT_ID_PLAYER, AT_Top_Movement5)
-            applymovement(OBJ_EVENT_ID_FOLLOWER, AT_Top_Movement5Follower)
+            applymovement(OBJ_EVENT_ID_FOLLOWME_FOLLOWER, AT_Top_Movement5Follower)
         case 6:
             applymovement(OBJ_EVENT_ID_PLAYER, AT_Top_Movement6)
-            applymovement(OBJ_EVENT_ID_FOLLOWER, AT_Top_Movement6Follower)
+            applymovement(OBJ_EVENT_ID_FOLLOWME_FOLLOWER, AT_Top_Movement6Follower)
     }
     waitmovement(OBJ_EVENT_ID_PLAYER)
-    waitmovement(OBJ_EVENT_ID_FOLLOWER)
+    waitmovement(OBJ_EVENT_ID_FOLLOWME_FOLLOWER)
     delay(30)
     applymovement(2, TurnKorrina)
     waitmovement(0)
+    clearflag(FLAG_TEMP_HIDE_FOLLOWER)
     msgbox(YouTwoMadeIt)
     closemessage
     applymovement(2, KorrinaGoesToRival)
@@ -90,7 +94,7 @@ script AT_TopEvent{
     removeobject(2)
     fadescreen(FADE_FROM_BLACK)
     delay(48)
-    applymovement(OBJ_EVENT_ID_FOLLOWER, Walk1Left)
+    applymovement(OBJ_EVENT_ID_FOLLOWME_FOLLOWER, Walk1Left)
     waitmovement(0)
     turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
     checkplayergender
@@ -103,7 +107,7 @@ script AT_TopEvent{
     closemessage
     if(flag(FLAG_HIDE_LIBRARY_BIRCH)){
         playse(SE_PIN)
-        applymovement(OBJ_EVENT_ID_FOLLOWER, Common_Movement_ExclamationMark)
+        applymovement(OBJ_EVENT_ID_FOLLOWME_FOLLOWER, Common_Movement_ExclamationMark)
         waitmovement(0)
         delay(48)
         if(var(VAR_RESULT) == MALE){
@@ -117,14 +121,14 @@ script AT_TopEvent{
     checkitem(ITEM_HM02)
     if(var(VAR_RESULT) == FALSE){
         playse(SE_PIN)
-        applymovement(OBJ_EVENT_ID_FOLLOWER, Common_Movement_QuestionMark)
+        applymovement(OBJ_EVENT_ID_FOLLOWME_FOLLOWER, Common_Movement_QuestionMark)
         waitmovement(0)
         delay(48)
         msgbox(NotHaveFly)
         closemessage
     }
     delay(10)
-    applymovement(OBJ_EVENT_ID_FOLLOWER, Common_Movement_WalkInPlaceFasterDown)
+    applymovement(OBJ_EVENT_ID_FOLLOWME_FOLLOWER, Common_Movement_WalkInPlaceFasterDown)
 	waitmovement(0)
 	delay(50)
     setfieldeffectargument(0, 1)

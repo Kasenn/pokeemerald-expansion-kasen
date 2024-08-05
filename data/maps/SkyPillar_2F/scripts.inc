@@ -12,15 +12,21 @@ SkyPillar_2F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 
 
 SetRivalTowerLoc::
-	compare VAR_RIVAL_AROUND_SANDSTONE, 2
-	goto_if_le SetRivalTowerLoc_2
+	goto_if_unset FLAG_OBTAINED_MEGA_RING, SetRivalTowerLoc_2
 SetRivalTowerLoc_1:
+	compare VAR_RIVAL_AROUND_SANDSTONE, 2
+	goto_if_le SetRivalTowerLoc_5
+SetRivalTowerLoc_4:
 	end
 
 SetRivalTowerLoc_2:
+	setflag FLAG_TEMP_HIDE_FOLLOWER
+	goto SetRivalTowerLoc_1
+
+SetRivalTowerLoc_5:
 	setobjectxyperm 6, 12, 3
 	setobjectmovementtype 6, MOVEMENT_TYPE_FACE_RIGHT
-	goto SetRivalTowerLoc_1
+	goto SetRivalTowerLoc_4
 
 
 AT_2F_Tr2_Left::

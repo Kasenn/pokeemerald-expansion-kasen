@@ -7107,7 +7107,7 @@ static const struct LevelUpMove sCombuskenLevelUpLearnset[] = {
     LEVEL_UP_MOVE(47, MOVE_MIRROR_MOVE),
     LEVEL_UP_MOVE(53, MOVE_SKY_UPPERCUT),
     LEVEL_UP_MOVE(58, MOVE_FLARE_BLITZ),
-    LEVEL_UP_END
+    LEVEL_UP_END 
 };
 
 static const struct LevelUpMove sBlazikenLevelUpLearnset[] = {

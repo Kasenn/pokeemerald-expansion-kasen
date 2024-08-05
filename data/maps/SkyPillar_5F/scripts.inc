@@ -1,5 +1,14 @@
 SkyPillar_5F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, SkyPillar_5F_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
+
+SkyPillar_5F_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	goto_if_unset FLAG_OBTAINED_MEGA_RING, SkyPillar_5F_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
+	return
+
+SkyPillar_5F_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
+	setflag FLAG_TEMP_HIDE_FOLLOWER
+	return
 
 
 AT_5F_Up::

@@ -1,5 +1,14 @@
 SkyPillar_4F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, SkyPillar_4F_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
+
+SkyPillar_4F_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	goto_if_unset FLAG_OBTAINED_MEGA_RING, SkyPillar_4F_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
+	return
+
+SkyPillar_4F_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
+	setflag FLAG_TEMP_HIDE_FOLLOWER
+	return
 
 
 AT_4F_Tr1::

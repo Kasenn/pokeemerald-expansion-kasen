@@ -9,6 +9,9 @@ mapscripts SkyPillar_2F_MapScripts{
 }
 
 script SetRivalTowerLoc{
+    if(!flag(FLAG_OBTAINED_MEGA_RING)){
+        setflag(FLAG_TEMP_HIDE_FOLLOWER)
+    }
     if(var(VAR_RIVAL_AROUND_SANDSTONE) <= 2){
         setobjectxyperm(6, 12, 3)
         setobjectmovementtype(6, MOVEMENT_TYPE_FACE_RIGHT)

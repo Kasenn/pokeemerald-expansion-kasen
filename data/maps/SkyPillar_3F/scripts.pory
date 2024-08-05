@@ -1,4 +1,10 @@
-mapscripts SkyPillar_3F_MapScripts{}
+mapscripts SkyPillar_3F_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION{
+        if(!flag(FLAG_OBTAINED_MEGA_RING)){
+            setflag(FLAG_TEMP_HIDE_FOLLOWER)
+        }
+    }
+}
 
 script AT_3F_Tr1_Up{
     if(defeated(TRAINER_AT_3F_TR1_EXPERT_M)){
