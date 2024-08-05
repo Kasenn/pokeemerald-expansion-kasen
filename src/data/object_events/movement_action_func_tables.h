@@ -450,7 +450,7 @@ u8 (*const *const gMovementActionFuncs[])(struct ObjectEvent *, struct Sprite *)
     [MOVEMENT_ACTION_DELAY_1] = gMovementActionFuncs_Delay1,
     [MOVEMENT_ACTION_DELAY_2] = gMovementActionFuncs_Delay2,
     [MOVEMENT_ACTION_DELAY_4] = gMovementActionFuncs_Delay4,
-    [MOVEMENT_ACTION_DELAY_8] = gMovementActionFuncs_Delay8,
+    [MOVEMENT_ACTION_DELAY_8] = gMovementActionFuncs_Delay8, 
     [MOVEMENT_ACTION_DELAY_16] = gMovementActionFuncs_Delay16,
     [MOVEMENT_ACTION_WALK_FAST_DOWN] = gMovementActionFuncs_WalkFastDown,
     [MOVEMENT_ACTION_WALK_FAST_UP] = gMovementActionFuncs_WalkFastUp,
