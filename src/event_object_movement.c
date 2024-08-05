@@ -1086,13 +1086,6 @@ const u8 gJump2MovementActions[] = {
     MOVEMENT_ACTION_JUMP_2_LEFT,
     MOVEMENT_ACTION_JUMP_2_RIGHT,
 };
-const u8 gJump3MovementActions[] = {
-    MOVEMENT_ACTION_JUMP_2_DOWN,
-    MOVEMENT_ACTION_JUMP_LEFTDOWN,
-    MOVEMENT_ACTION_JUMP_RIGHTDOWN,
-    MOVEMENT_ACTION_JUMP_LEFTUP,
-    MOVEMENT_ACTION_JUMP_RIGHTUP,
-};
 const u8 gJumpInPlaceMovementActions[] = {
     MOVEMENT_ACTION_JUMP_IN_PLACE_DOWN,
     MOVEMENT_ACTION_JUMP_IN_PLACE_DOWN,
@@ -6353,7 +6346,6 @@ dirn_to_anim(GetWalkFasterMovementAction, gWalkFasterMovementActions);
 dirn_to_anim(GetSlideMovementAction, gSlideMovementActions);
 dirn_to_anim(GetPlayerRunMovementAction, gPlayerRunMovementActions);
 dirn_to_anim(GetJump2MovementAction, gJump2MovementActions);
-// dirn_to_anim(GetJump3MovementAction, gJump3MovementActions);
 dirn_to_anim(GetJumpInPlaceMovementAction, gJumpInPlaceMovementActions);
 dirn_to_anim(GetJumpInPlaceTurnAroundMovementAction, gJumpInPlaceTurnAroundMovementActions);
 dirn_to_anim(GetJumpMovementAction, gJumpMovementActions);
@@ -6813,7 +6805,6 @@ enum {
     JUMP_TYPE_HIGH,
     JUMP_TYPE_LOW,
     JUMP_TYPE_NORMAL,
-    JUMP_TYPE_LONG,
     JUMP_TYPE_FAST,
     JUMP_TYPE_FASTER,
 };
@@ -6963,12 +6954,6 @@ bool8 MovementAction_Jump2Left_Step0(struct ObjectEvent *objectEvent, struct Spr
     return MovementAction_Jump2Left_Step1(objectEvent, sprite);
 }
 
-bool8 MovementAction_Jump3Left_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
-{
-    InitJumpRegular(objectEvent, sprite, DIR_WEST, JUMP_DISTANCE_FARTHER, JUMP_TYPE_LONG);
-    return MovementAction_Jump2Left_Step1(objectEvent, sprite);
-}
-
 bool8 MovementAction_Jump2Left_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     if (DoJumpAnim(objectEvent, sprite))
@@ -6987,74 +6972,6 @@ bool8 MovementAction_Jump2Right_Step0(struct ObjectEvent *objectEvent, struct Sp
 }
 
 bool8 MovementAction_Jump2Right_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
-{
-    if (DoJumpAnim(objectEvent, sprite))
-    {
-        objectEvent->hasShadow = FALSE;
-        sprite->sActionFuncId = 2;
-        return TRUE;
-    }
-    return FALSE;
-}
-
-bool8 MovementAction_JumpLeftDown_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
-{
-    InitJump(objectEvent, sprite, DIR_SOUTHWEST, JUMP_DISTANCE_FAR, JUMP_TYPE_HIGH);
-    return MovementAction_JumpLeftDown_Step1(objectEvent, sprite);
-}
-
-bool8 MovementAction_JumpLeftDown_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
-{
-    if (DoJumpAnim(objectEvent, sprite))
-    {
-        objectEvent->hasShadow = FALSE;
-        sprite->sActionFuncId = 2;
-        return TRUE;
-    }
-    return FALSE;
-}
-
-bool8 MovementAction_JumpRightDown_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
-{
-    InitJumpRegular(objectEvent, sprite, DIR_SOUTHEAST, JUMP_DISTANCE_FAR, JUMP_TYPE_HIGH);
-    return MovementAction_JumpRightDown_Step1(objectEvent, sprite);
-}
-
-bool8 MovementAction_JumpRightDown_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
-{
-    if (DoJumpAnim(objectEvent, sprite))
-    {
-        objectEvent->hasShadow = FALSE;
-        sprite->sActionFuncId = 2;
-        return TRUE;
-    }
-    return FALSE;
-}
-
-bool8 MovementAction_JumpLeftUp_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
-{
-    InitJumpRegular(objectEvent, sprite, DIR_NORTHWEST, JUMP_DISTANCE_FAR, JUMP_TYPE_HIGH);
-    return MovementAction_JumpLeftUp_Step1(objectEvent, sprite);
-}
-
-bool8 MovementAction_JumpLeftUp_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
-{
-    if (DoJumpAnim(objectEvent, sprite))
-    {
-        objectEvent->hasShadow = FALSE;
-        sprite->sActionFuncId = 2;
-        return TRUE;
-    }
-    return FALSE;
-}
-
-bool8 MovementAction_JumpRightUp_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
-{
-    InitJumpRegular(objectEvent, sprite, DIR_NORTHEAST, JUMP_DISTANCE_FAR, JUMP_TYPE_HIGH);
-    return MovementAction_JumpRightUp_Step1(objectEvent, sprite);
-}
-
-bool8 MovementAction_JumpRightUp_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     if (DoJumpAnim(objectEvent, sprite))
     {
@@ -9424,15 +9341,6 @@ u8 GetLedgeJumpDirection(s16 x, s16 y, u8 direction)
     index--;
     behavior = MapGridGetMetatileBehaviorAt(x, y);
 
-    // if(MetatileBehavior_IsJumpSouthWest(behavior))
-    //     return DIR_SOUTHWEST;
-    // if(MetatileBehavior_IsJumpSouthEast(behavior))
-    //     return DIR_SOUTHEAST;
-    // if(MetatileBehavior_IsJumpNorthWest(behavior))
-    //     return DIR_NORTHWEST;
-    // if(MetatileBehavior_IsJumpNorthEast(behavior))
-    //     return DIR_NORTHEAST;
-
     if (ledgeBehaviorFuncs[index](behavior) == TRUE)
         return index + 1;
 
@@ -9605,8 +9513,8 @@ void GroundEffect_StepOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *s
     gFieldEffectArguments[5] = objEvent->mapGroup;
     gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
     gFieldEffectArguments[7] = FALSE; // don't skip to end of anim
-    if (objEvent->localId == OBJ_EVENT_ID_PLAYER)
-        PlaySE(SPECIES_HOOPA);
+    // if (objEvent->localId == OBJ_EVENT_ID_PLAYER)
+    //     PlaySE(SPECIES_HOOPA);
     if (MetatileBehavior_IsTallGrassAutumn(objEvent->currentMetatileBehavior)){
         FieldEffectStart(FLDEFF_TALL_GRASS_AUTUMN);
     }
@@ -9638,8 +9546,8 @@ void GroundEffect_StepOnLongGrass(struct ObjectEvent *objEvent, struct Sprite *s
     gFieldEffectArguments[5] = objEvent->mapGroup;
     gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
     gFieldEffectArguments[7] = 0;
-    if (objEvent->localId == OBJ_EVENT_ID_PLAYER)
-        PlaySE(SPECIES_HOOPA);
+    // if (objEvent->localId == OBJ_EVENT_ID_PLAYER)
+    //     PlaySE(SPECIES_HOOPA);
     FieldEffectStart(FLDEFF_LONG_GRASS);
 }
 
@@ -10352,16 +10260,10 @@ static const s8 sJumpY_Normal[] = {
     -9,  -8,  -6,  -5,  -3,  -2,   0,   0
 };
 
-static const s8 sJumpY_Long[] = {
-    -2,  -3,  -4, -5, -6,  -7,  -7,  -7,
-    -6,  -5,  -4, -3, -2,   0,   0,   0
-};
-
 static const s8 *const sJumpYTable[] = {
     [JUMP_TYPE_HIGH]   = sJumpY_High,
     [JUMP_TYPE_LOW]    = sJumpY_Low,
-    [JUMP_TYPE_NORMAL] = sJumpY_Normal,
-    [JUMP_TYPE_LONG]   = sJumpY_Long
+    [JUMP_TYPE_NORMAL] = sJumpY_Normal
 };
 
 static s16 GetJumpY(s16 i, u8 type)
@@ -10388,14 +10290,12 @@ static u8 DoJumpSpriteMovement(struct Sprite *sprite)
         [JUMP_DISTANCE_IN_PLACE] = 16,
         [JUMP_DISTANCE_NORMAL] = 16,
         [JUMP_DISTANCE_FAR] = 32,
-        [JUMP_DISTANCE_FARTHER] = 48,
     };
     u8 distanceToShift[] =
     {
         [JUMP_DISTANCE_IN_PLACE] = 0,
         [JUMP_DISTANCE_NORMAL] = 0,
         [JUMP_DISTANCE_FAR] = 1,
-        [JUMP_DISTANCE_FARTHER] = 2,
     };
     u8 result = 0;
 
@@ -10439,13 +10339,11 @@ static u8 DoJumpSpecialSpriteMovement(struct Sprite *sprite)
         [JUMP_DISTANCE_IN_PLACE] = 32,
         [JUMP_DISTANCE_NORMAL] = 32,
         [JUMP_DISTANCE_FAR] = 64,
-        [JUMP_DISTANCE_FARTHER] = 16,
     };
     u8 distanceToShift[] = {
         [JUMP_DISTANCE_IN_PLACE] = 1,
         [JUMP_DISTANCE_NORMAL] = 1,
         [JUMP_DISTANCE_FAR] = 2,
-        [JUMP_DISTANCE_FARTHER] = 2,
     };
     u8 result = 0;
 

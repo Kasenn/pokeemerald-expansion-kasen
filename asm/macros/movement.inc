@@ -164,11 +164,6 @@
 	create_movement_action fly_down, MOVEMENT_ACTION_FLY_DOWN
 	create_movement_action emote_double_exclamation_mark, MOVEMENT_ACTION_EMOTE_DOUBLE_EXCL_MARK
 	create_movement_action emote_x, MOVEMENT_ACTION_EMOTE_X
-	create_movement_action jump_leftdown, MOVEMENT_ACTION_JUMP_LEFTDOWN
-	create_movement_action jump_leftup, MOVEMENT_ACTION_JUMP_LEFTUP
-	create_movement_action jump_rightdown, MOVEMENT_ACTION_JUMP_RIGHTDOWN
-	create_movement_action jump_rightup, MOVEMENT_ACTION_JUMP_RIGHTUP
-
 	create_movement_action exit_pokeball, MOVEMENT_ACTION_EXIT_POKEBALL
 	create_movement_action enter_pokeball, MOVEMENT_ACTION_ENTER_POKEBALL
 	create_movement_action step_end, MOVEMENT_ACTION_STEP_END

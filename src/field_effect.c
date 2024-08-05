@@ -1948,6 +1948,8 @@ bool8 FldEff_UseRockClimb(void)
     taskId = CreateTask(Task_UseRockClimb, 0xff);
     gTasks[taskId].tMonId = gFieldEffectArguments[0];
     Task_UseRockClimb(taskId);
+    Overworld_ClearSavedMusic();
+    Overworld_ChangeMusicToDefault();
     return FALSE;
 }
 
@@ -1959,6 +1961,7 @@ static void Task_UseRockClimb(u8 taskId)
 static bool8 RockClimbFieldEffect_Init(struct Task *task, struct ObjectEvent *objectEvent)
 {
     LockPlayerFieldControls();
+    SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_SURFING);
     gPlayerAvatar.preventStep = TRUE;
     task->tState++;
     return FALSE;
@@ -2052,6 +2055,7 @@ static bool8 RockClimbFieldEffect_StopRide(struct Task *task, struct ObjectEvent
 
 static bool8 RockClimbFieldEffect_StopTask(struct Task *task, struct ObjectEvent *objectEvent){
     if (ObjectEventClearHeldMovementIfFinished(objectEvent)){
+        SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_ON_FOOT);
         UnlockPlayerFieldControls();
         DestroyTask(FindTaskIdByFunc(Task_UseRockClimb));
         FieldEffectActiveListRemove(FLDEFF_USE_ROCK_CLIMB);

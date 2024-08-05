@@ -134,7 +134,7 @@ static bool32 Fishing_CheckForBite(struct Task *);
 static bool32 Fishing_GotBite(struct Task *);
 static bool32 Fishing_ChangeMinigame(struct Task *);
 static bool32 Fishing_WaitForA(struct Task *);
-// static bool32 Fishing_APressNoMinigame(struct Task *);
+static bool32 Fishing_APressNoMinigame(struct Task *);
 static bool32 Fishing_CheckMoreDots(struct Task *);
 static bool32 Fishing_MonOnHook(struct Task *);
 static bool32 Fishing_StartEncounter(struct Task *);
@@ -319,6 +319,26 @@ static const u8 sPlayerAvatarGfxToStateFlag[GENDER_COUNT][5][2] =
         {OBJ_EVENT_GFX_MAY_ACRO_BIKE,      PLAYER_AVATAR_FLAG_BIKE},
         {OBJ_EVENT_GFX_MAY_SURFING,        PLAYER_AVATAR_FLAG_SURFING},
         {OBJ_EVENT_GFX_MAY_UNDERWATER,     PLAYER_AVATAR_FLAG_UNDERWATER},
+    }
+};
+
+static const u8 sPlayerAvatarGfxToStateFlagOras[GENDER_COUNT][5][2] =
+{
+    [MALE] =
+    {
+        {OBJ_EVENT_GFX_BRENDAN_NORMAL_ORAS,     PLAYER_AVATAR_FLAG_ON_FOOT},
+        {OBJ_EVENT_GFX_BRENDAN_ACRO_BIKE_ORAS,  PLAYER_AVATAR_FLAG_BIKE},
+        {OBJ_EVENT_GFX_BRENDAN_ACRO_BIKE_ORAS,  PLAYER_AVATAR_FLAG_BIKE},
+        {OBJ_EVENT_GFX_BRENDAN_SURFING_ORAS,    PLAYER_AVATAR_FLAG_SURFING},
+        {OBJ_EVENT_GFX_BRENDAN_UNDERWATER, PLAYER_AVATAR_FLAG_UNDERWATER},
+    },
+    [FEMALE] =
+    {
+        {OBJ_EVENT_GFX_MAY_NORMAL_ORAS,         PLAYER_AVATAR_FLAG_ON_FOOT},
+        {OBJ_EVENT_GFX_MAY_ACRO_BIKE_ORAS,      PLAYER_AVATAR_FLAG_BIKE},
+        {OBJ_EVENT_GFX_MAY_ACRO_BIKE_ORAS,      PLAYER_AVATAR_FLAG_BIKE},
+        {OBJ_EVENT_GFX_MAY_SURFING_ORAS,        PLAYER_AVATAR_FLAG_SURFING},
+        {OBJ_EVENT_GFX_MAY_UNDERWATER_ORAS,     PLAYER_AVATAR_FLAG_UNDERWATER},
     }
 };
 
@@ -889,22 +909,22 @@ static void PlayerAvatarTransition_Normal(struct ObjectEvent *objEvent)
     SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_ON_FOOT);
 }
 
-static void PlayerAvatarTransition_MachBike(struct ObjectEvent *objEvent)
-{
-    ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_BIKE));
-    ObjectEventTurn(objEvent, objEvent->movementDirection);
-    SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_BIKE);
-    BikeClearState(0, 0);
-}
+// static void PlayerAvatarTransition_MachBike(struct ObjectEvent *objEvent)
+// {
+//     ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_BIKE));
+//     ObjectEventTurn(objEvent, objEvent->movementDirection);
+//     SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_BIKE);
+//     BikeClearState(0, 0);
+// }
 
-static void PlayerAvatarTransition_AcroBike(struct ObjectEvent *objEvent)
-{
-    ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_BIKE));
-    ObjectEventTurn(objEvent, objEvent->movementDirection);
-    SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_BIKE);
-    BikeClearState(0, 0);
-    Bike_HandleBumpySlopeJump();
-}
+// static void PlayerAvatarTransition_AcroBike(struct ObjectEvent *objEvent)
+// {
+//     ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_BIKE));
+//     ObjectEventTurn(objEvent, objEvent->movementDirection);
+//     SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_BIKE);
+//     BikeClearState(0, 0);
+//     Bike_HandleBumpySlopeJump();
+// }
 
 static void PlayerAvatarTransition_Bike(struct ObjectEvent *objEvent)
 {
@@ -940,7 +960,7 @@ static void PlayerAvatarTransition_Underwater(struct ObjectEvent *objEvent)
 
 static void PlayerAvatarTransition_RockClimbing(struct ObjectEvent *objEvent)
 {
-    // SetPlayerAvatarTransitionState(objEvent, PLAYER_AVATAR_STATE_ROCK_CLIMBING);
+    ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_ROCK_CLIMBING));
 }
 
 static void PlayerAvatarTransition_ReturnToField(struct ObjectEvent *objEvent)
@@ -1429,13 +1449,22 @@ void SetPlayerAvatarStateMask(u8 flags)
 static u8 GetPlayerAvatarStateTransitionByGraphicsId(u16 graphicsId, u8 gender)
 {
     u8 i;
-
-    for (i = 0; i < ARRAY_COUNT(sPlayerAvatarGfxToStateFlag[0]); i++)
-    {
-        if (sPlayerAvatarGfxToStateFlag[gender][i][0] == graphicsId)
-            return sPlayerAvatarGfxToStateFlag[gender][i][1];
+    if(FlagGet(FLAG_PC_CHANGE_COSTUME)){
+        for (i = 0; i < ARRAY_COUNT(sPlayerAvatarGfxToStateFlagOras[0]); i++)
+        {
+            if (sPlayerAvatarGfxToStateFlagOras[gender][i][0] == graphicsId)
+                return sPlayerAvatarGfxToStateFlagOras[gender][i][1];
+        }
+        return PLAYER_AVATAR_FLAG_ON_FOOT;
     }
+    else{
+        for (i = 0; i < ARRAY_COUNT(sPlayerAvatarGfxToStateFlag[0]); i++)
+        {
+            if (sPlayerAvatarGfxToStateFlag[gender][i][0] == graphicsId)
+                return sPlayerAvatarGfxToStateFlag[gender][i][1];
+        }
     return PLAYER_AVATAR_FLAG_ON_FOOT;
+    }
 }
 
 u16 GetPlayerAvatarGraphicsIdByCurrentState(void)
@@ -1443,12 +1472,22 @@ u16 GetPlayerAvatarGraphicsIdByCurrentState(void)
     u8 i;
     u8 flags = gPlayerAvatar.flags;
 
-    for (i = 0; i < ARRAY_COUNT(sPlayerAvatarGfxToStateFlag[0]); i++)
-    {
-        if (sPlayerAvatarGfxToStateFlag[gPlayerAvatar.gender][i][1] & flags)
-            return sPlayerAvatarGfxToStateFlag[gPlayerAvatar.gender][i][0];
+    if(FlagGet(FLAG_PC_CHANGE_COSTUME)){
+        for (i = 0; i < ARRAY_COUNT(sPlayerAvatarGfxToStateFlagOras[0]); i++)
+        {
+            if (sPlayerAvatarGfxToStateFlagOras[gPlayerAvatar.gender][i][1] & flags)
+                return sPlayerAvatarGfxToStateFlagOras[gPlayerAvatar.gender][i][0];
+        }
+        return 0;
     }
-    return 0;
+    else{
+        for (i = 0; i < ARRAY_COUNT(sPlayerAvatarGfxToStateFlag[0]); i++)
+        {
+            if (sPlayerAvatarGfxToStateFlag[gPlayerAvatar.gender][i][1] & flags)
+                return sPlayerAvatarGfxToStateFlag[gPlayerAvatar.gender][i][0];
+        }
+        return 0;
+    }
 }
 
 void SetPlayerAvatarExtraStateTransition(u16 graphicsId, u8 transitionFlag)
@@ -1833,7 +1872,7 @@ static bool32 (*const sFishingStateFuncs[])(struct Task *) =
     [FISHING_GOT_BITE]              = Fishing_GotBite,
     [FISHING_CHANGE_MINIGAME]       = Fishing_ChangeMinigame,
     [FISHING_WAIT_FOR_A]            = Fishing_WaitForA,
-    // [FISHING_A_PRESS_NO_MINIGAME]   = Fishing_APressNoMinigame,
+    [FISHING_A_PRESS_NO_MINIGAME]   = Fishing_APressNoMinigame,
     [FISHING_CHECK_MORE_DOTS]       = Fishing_CheckMoreDots,
     [FISHING_MON_ON_HOOK]           = Fishing_MonOnHook,
     [FISHING_START_ENCOUNTER]       = Fishing_StartEncounter,
@@ -1882,6 +1921,7 @@ static bool32 Fishing_GetRodOut(struct Task *task)
 
     task->tRoundsPlayed = 0;
     task->tMinRoundsRequired = minRounds1[task->tFishingRod] + (Random() % minRounds2[task->tFishingRod]);
+    task->tPlayerGfxId = gObjectEvents[gPlayerAvatar.objectEventId].graphicsId;
     playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
     ObjectEventClearHeldMovementIfActive(playerObjEvent);
     playerObjEvent->enableAnim = TRUE;
@@ -1997,11 +2037,11 @@ static bool32 Fishing_ChangeMinigame(struct Task *task)
     {
         case GEN_1:
         case GEN_2:
-            task->tStep = FISHING_WAIT_FOR_A;
+            task->tStep = FISHING_A_PRESS_NO_MINIGAME;
             break;
         case GEN_3:
         default:
-            task->tStep = FISHING_WAIT_FOR_A;
+            task->tStep = FISHING_A_PRESS_NO_MINIGAME;
             break;
     }
     return TRUE;
@@ -2020,6 +2060,14 @@ static bool32 Fishing_WaitForA(struct Task *task)
     task->tFrameCounter++;
     if (JOY_NEW(A_BUTTON))
         task->tStep++;
+    return FALSE;
+}
+
+static bool32 Fishing_APressNoMinigame(struct Task *task)
+{
+    AlignFishingAnimationFrames();
+    if (JOY_NEW(A_BUTTON))
+        task->tStep = FISHING_MON_ON_HOOK;
     return FALSE;
 }
 

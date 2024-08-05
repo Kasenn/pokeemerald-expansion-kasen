@@ -432,8 +432,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN_WEST",
-      "x": 27,
-      "y": 15,
+      "x": 34,
+      "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
       "movement_range_x": 0,
@@ -445,8 +445,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN_NORTH",
-      "x": 28,
-      "y": 14,
+      "x": 35,
+      "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
       "movement_range_x": 0,
@@ -458,7 +458,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN_EAST",
-      "x": 28,
+      "x": 36,
       "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
@@ -471,8 +471,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN_SOUTH",
-      "x": 29,
-      "y": 15,
+      "x": 36,
+      "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
       "movement_range_x": 0,
@@ -484,8 +484,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAY_NORMAL_ORAS",
-      "x": 11,
-      "y": 12,
+      "x": 0,
+      "y": 0,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE",
       "movement_range_x": 5,
@@ -589,8 +589,8 @@
     },
     {
       "type": "trigger",
-      "x": 15,
-      "y": 18,
+      "x": 0,
+      "y": 21,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -598,7 +598,7 @@
     },
     {
       "type": "trigger",
-      "x": 15,
+      "x": 0,
       "y": 17,
       "elevation": 0,
       "var": "VAR_TEMP_0",

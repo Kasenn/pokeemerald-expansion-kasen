@@ -295,7 +295,8 @@ static void ItemUseOnFieldCB_Bike(u8 taskId)
 {
     gUnusedBikeCameraAheadPanback = FALSE;
 
-    gSaveBlock2Ptr->playerBike = MACH_BIKE;
+    // if(gSaveBlock2Ptr->playerBike != (MACH_BIKE || ACRO_BIKE))
+    //     gSaveBlock2Ptr->playerBike = ACRO_BIKE;
     if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_BIKE)
     {
         SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
@@ -304,9 +305,10 @@ static void ItemUseOnFieldCB_Bike(u8 taskId)
     }
     else
     {
-        gSaveBlock2Ptr->playerBike = ItemId_GetSecondaryId(gSpecialVar_ItemId);
+        // gSaveBlock2Ptr->playerBike = ItemId_GetSecondaryId(gSpecialVar_ItemId);
         SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_BIKE);
-        if(gSaveBlock1Ptr->location.mapNum != MAP_NUM(SANDSTONE_GYM_1F))
+        if (gSaveBlock1Ptr->location.mapNum != MAP_NUM(SANDSTONE_GYM_1F)
+        && gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(SANDSTONE_GYM_1F))
         {
             Overworld_SetSavedMusic(MUS_CYCLING);
             Overworld_ChangeMusicTo(MUS_CYCLING);
