@@ -91,7 +91,7 @@ static const union AnimCmd *const sCloudSpriteAnimCmds[] =
 static const struct SpriteTemplate sCloudSpriteTemplate =
 {
     .tileTag = GFXTAG_CLOUD,
-    .paletteTag = 0x1207,
+    .paletteTag = PALTAG_WEATHER_2,
     .oam = &sCloudSpriteOamData,
     .anims = sCloudSpriteAnimCmds,
     .images = NULL,
@@ -188,7 +188,7 @@ static void CreateCloudSprites(void)
         return;
 
     LoadSpriteSheet(&sCloudSpriteSheet);
-    LoadCustomWeatherSpritePalette(&sCloudsSpritePalette);
+    LoadCustomWeatherSpritePalette(gCloudsWeatherPalette);
     for (i = 0; i < NUM_CLOUD_SPRITES; i++)
     {
         spriteId = CreateSprite(&sCloudSpriteTemplate, 0, 0, 0xFF);
@@ -221,7 +221,7 @@ static void DestroyCloudSprites(void)
             DestroySprite(gWeatherPtr->sprites.s1.cloudSprites[i]);
     }
 
-    FreeSpriteTilesByTag(0x1207);
+    FreeSpriteTilesByTag(GFXTAG_CLOUD);
     gWeatherPtr->cloudSpritesCreated = FALSE;
 }
 
@@ -1644,7 +1644,6 @@ static void CreateAshSprites(void)
 
     if (!gWeatherPtr->ashSpritesCreated)
     {
-        LoadCustomWeatherSpritePalette(&sFogSpritePalette);
         for (i = 0; i < NUM_ASH_SPRITES; i++)
         {
             spriteId = CreateSpriteAtEnd(&sAshSpriteTemplate, 0, 0, 0x4E);
@@ -1863,7 +1862,6 @@ static void CreateFogDiagonalSprites(void)
     {
         fogDiagonalSpriteSheet = sFogDiagonalSpriteSheet;
         LoadSpriteSheet(&fogDiagonalSpriteSheet);
-        LoadCustomWeatherSpritePalette(&sFogSpritePalette);
         for (i = 0; i < NUM_FOG_DIAGONAL_SPRITES; i++)
         {
             spriteId = CreateSpriteAtEnd(&sFogDiagonalSpriteTemplate, 0, (i / 5) * 64, 0xFF);
@@ -2089,7 +2087,7 @@ static const union AnimCmd *const sSandstormSpriteAnimCmds[] =
 static const struct SpriteTemplate sSandstormSpriteTemplate =
 {
     .tileTag = GFXTAG_SANDSTORM,
-    .paletteTag = 0x1204,
+    .paletteTag = PALTAG_WEATHER_2,
     .oam = &sSandstormSpriteOamData,
     .anims = sSandstormSpriteAnimCmds,
     .images = NULL,
@@ -2122,7 +2120,7 @@ static void CreateSandstormSprites(void)
     if (!gWeatherPtr->sandstormSpritesCreated)
     {
         LoadSpriteSheet(&sSandstormSpriteSheet);
-        LoadCustomWeatherSpritePalette(&sSandstormSpritePalette);
+        LoadCustomWeatherSpritePalette(gSandstormWeatherPalette);
         for (i = 0; i < NUM_SANDSTORM_SPRITES; i++)
         {
             spriteId = CreateSpriteAtEnd(&sSandstormSpriteTemplate, 0, (i / 5) * 64, 1);
@@ -2416,7 +2414,8 @@ static void CreateWindSprites(void)
     if (!gWeatherPtr->windSpritesCreated)
     {
         LoadSpriteSheet(&sWindSpriteSheet);
-        LoadCustomWeatherSpritePalette(&sWindSpritePalette);
+        //gSandstormWeatherPalette
+        LoadCustomWeatherSpritePalette(gWindWeatherPalette);
         for (i = 0; i < NUM_WIND_SPRITES; i++)
         {
             spriteId = CreateSpriteAtEnd(&sWindSpriteTemplate, 0, (i / 5) * 64, 1);

@@ -157,10 +157,11 @@ void StartWeather(void)
 {
     if (!FuncIsActiveTask(Task_WeatherMain))
     {
-        u8 index = 15;
-        CpuCopy32(gFogPalette, &gPlttBufferUnfaded[0x100 + index * 16], 32);
+        u8 index = AllocSpritePalette(PALTAG_WEATHER);
+        CpuCopy32(gFogPalette, &gPlttBufferUnfaded[OBJ_PLTT_ID(index)], PLTT_SIZE_4BPP);
         BuildColorMaps();
         gWeatherPtr->contrastColorMapSpritePalIndex = index;
+        gWeatherPtr->weatherPicSpritePalIndex = AllocSpritePalette(PALTAG_WEATHER_2);
         gWeatherPtr->rainSpriteCount = 0;
         gWeatherPtr->curRainSpriteIndex = 0;
         gWeatherPtr->cloudSpritesCreated = 0;
@@ -862,10 +863,10 @@ static bool8 UNUSED IsFirstFrameOfWeatherFadeIn(void)
         return FALSE;
 }
 
-void LoadCustomWeatherSpritePalette(const struct SpritePalette *palette)
+void LoadCustomWeatherSpritePalette(const u16 *palette)
 {
-    LoadSpritePalette(palette);
-    UpdateSpritePaletteWithWeather(IndexOfSpritePaletteTag(palette->tag));
+    LoadPalette(palette, OBJ_PLTT_ID(gWeatherPtr->weatherPicSpritePalIndex), PLTT_SIZE_4BPP);
+    UpdateSpritePaletteWithWeather(gWeatherPtr->weatherPicSpritePalIndex);
 }
 
 static void LoadDroughtWeatherPalette(u8 *palsIndex, u8 *palsOffset)
