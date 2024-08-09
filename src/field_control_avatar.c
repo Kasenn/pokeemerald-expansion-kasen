@@ -145,6 +145,17 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
         input->input_field_1_2 = TRUE;
         input->DEBUG_OVERWORLD_TRIGGER_EVENT = FALSE;
     }
+    if((gSaveBlock1Ptr->location.mapNum == MAP_NUM(TEST_ROOM))
+    && (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(TEST_ROOM))){
+        if ((heldKeys & R_BUTTON) && input->pressedBButton)
+        {
+            ScriptContext_SetupScript(ChooseSpellRange);
+        }
+        if ((heldKeys & L_BUTTON) && input->pressedBButton)
+        {
+            ScriptContext_SetupScript(ChooseSpellType);
+        }
+    }
 #endif
 }
 

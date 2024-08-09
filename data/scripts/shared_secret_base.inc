@@ -25,13 +25,6 @@ SecretBase_OnResume:
 
 SecretBase_EventScript_PC::
 	lockall
-	playse SE_PC_LOGIN
-	message SecretBase_Text_BootUpPC
-	dofieldeffect FLDEFF_PCTURN_ON
-	waitstate
-	waitmessage
-	waitbuttonpress
-	playse SE_SELECT
 	goto SecretBase_EventScript_PCShowMainMenu
 	end
 
@@ -146,7 +139,6 @@ SecretBase_EventScript_PCRegistryInfo::
 	end
 
 SecretBase_EventScript_PCTurnOff::
-	special DoSecretBasePCTurnOffEffect
 	closemessage
 	releaseall
 	end

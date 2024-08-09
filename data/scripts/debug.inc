@@ -158,12 +158,12 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
-	bufferspeciesname STR_VAR_1, SPECIES_CLODSIRE
 	msgbox TestMsg
+	closemessage
 	end
 
 TestMsg:
-	.string "{STR_VAR_1}$"
+	.string "Yer a wizard, Harry.$"
 
 Debug_EventScript_Script_6::
 	release

@@ -49,14 +49,14 @@ const u16 DecorGfx_PRETTY_DESK[] = {
 
 const u16 DecorGfx_BRICK_DESK[] = {
     DECOR_TILE(BrickDesk_TopLeft),
-    DECOR_TILE(BrickDesk_TopMid),
-    DECOR_TILE(BrickDesk_TopRight),
-    DECOR_TILE(BrickDesk_MidLeft),
-    DECOR_TILE(BrickDesk_Center),
-    DECOR_TILE(BrickDesk_MidRight),
-    DECOR_TILE(BrickDesk_BottomLeft),
-    DECOR_TILE(BrickDesk_BottomMid),
-    DECOR_TILE(BrickDesk_BottomRight)
+    DECOR_TILE(BrickDesk_TopLeft),
+    DECOR_TILE(BrickDesk_TopLeft),
+    DECOR_TILE(BrickDesk_TopLeft),
+    DECOR_TILE(BrickDesk_TopLeft),
+    DECOR_TILE(BrickDesk_TopLeft),
+    DECOR_TILE(BrickDesk_TopLeft),
+    DECOR_TILE(BrickDesk_TopLeft),
+    DECOR_TILE(BrickDesk_TopLeft)
 };
 
 const u16 DecorGfx_CAMP_DESK[] = {
@@ -84,7 +84,7 @@ const u16 DecorGfx_HARD_DESK[] = {
 };
 
 const u16 DecorGfx_SMALL_CHAIR[] = {
-    DECOR_TILE(SmallChair)
+    DECOR_TILE(PrettyDesk_TopLeft)
 };
 
 const u16 DecorGfx_POKEMON_CHAIR[] = {
@@ -135,17 +135,17 @@ const u16 DecorGfx_PRETTY_FLOWERS[] = {
 };
 
 const u16 DecorGfx_COLORFUL_PLANT[] = {
-    DECOR_TILE(ColorfulPlant_TopLeft),
-    DECOR_TILE(ColorfulPlant_TopRight),
-    DECOR_TILE(ColorfulPlant_BaseLeft1),
-    DECOR_TILE(ColorfulPlant_BaseRight1)
+    DECOR_TILE(PrettyDesk_TopLeft),
+    DECOR_TILE(PrettyDesk_TopLeft),
+    DECOR_TILE(PrettyDesk_TopLeft),
+    DECOR_TILE(PrettyDesk_TopLeft)
 };
 
 const u16 DecorGfx_BIG_PLANT[] = {
-    DECOR_TILE(BigPlant_TopLeft),
-    DECOR_TILE(BigPlant_TopRight),
-    DECOR_TILE(BigPlant_BaseLeft1),
-    DECOR_TILE(BigPlant_BaseRight1)
+    DECOR_TILE(BrickDesk_TopLeft),
+    DECOR_TILE(BrickDesk_TopLeft),
+    DECOR_TILE(BrickDesk_TopLeft),
+    DECOR_TILE(BrickDesk_TopLeft)
 };
 
 const u16 DecorGfx_GORGEOUS_PLANT[] = {
@@ -171,7 +171,7 @@ const u16 DecorGfx_BLUE_BRICK[] = {
 };
 
 const u16 DecorGfx_RED_BALLOON[] = {
-    DECOR_TILE(RedBalloon)
+    DECOR_TILE(BrickDesk_TopLeft)
 };
 
 const u16 DecorGfx_BLUE_BALLOON[] = {
@@ -294,11 +294,22 @@ const u16 DecorGfx_GLITTER_MAT[] = {
 };
 
 const u16 DecorGfx_JUMP_MAT[] = {
+    DECOR_TILE(JumpMat),
+    DECOR_TILE(JumpMat),
+    DECOR_TILE(JumpMat),
     DECOR_TILE(JumpMat)
 };
 
 const u16 DecorGfx_SPIN_MAT[] = {
-    DECOR_TILE(SpinMat)
+    DECOR_TILE(SpinMat),
+    DECOR_TILE(SpinMat),
+    DECOR_TILE(SpinMat),
+    DECOR_TILE(SpinMat),
+    DECOR_TILE(SpinMat),
+    DECOR_TILE(SpinMat),
+    DECOR_TILE(SpinMat),
+    DECOR_TILE(SpinMat),
+    DECOR_TILE(SpinMat),
 };
 
 const u16 DecorGfx_C_LOW_NOTE_MAT[] = {

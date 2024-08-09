@@ -3314,8 +3314,8 @@
     {
       "id": "LAYOUT_BATTLE_FRONTIER_BATTLE_DOME_LOBBY",
       "name": "BattleFrontier_BattleDomeLobby_Layout",
-      "width": 23,
-      "height": 17,
+      "width": 25,
+      "height": 30,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_BattleDome",
       "border_filepath": "data/layouts/BattleFrontier_BattleDomeLobby/border.bin",
@@ -5097,7 +5097,7 @@
       "width": 40,
       "height": 30,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_TestRoom",
+      "secondary_tileset": "gTileset_EliteFour",
       "border_filepath": "data/layouts/TestRoom/border.bin",
       "blockdata_filepath": "data/layouts/TestRoom/map.bin"
     },

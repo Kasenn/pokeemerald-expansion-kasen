@@ -580,12 +580,20 @@ static void InitDecorationActionsWindow(void)
 
 void DoSecretBaseDecorationMenu(u8 taskId)
 {
-    InitDecorationActionsWindow();
-    sDecorationContext.items = gSaveBlock1Ptr->secretBases[0].decorations;
-    sDecorationContext.pos = gSaveBlock1Ptr->secretBases[0].decorationPositions;
-    sDecorationContext.size = DECOR_MAX_SECRET_BASE;
-    sDecorationContext.isPlayerRoom = FALSE;
-    gTasks[taskId].func = HandleDecorationActionsMenuInput;
+    // u8 l = VarGet(VAR_TEMP_A);
+    u8 i = VarGet(VAR_TEMP_B);
+
+    // CondenseDecorationsInCategory(i+4);
+    gCurDecorationItems = gDecorationInventories[4].items;
+    gCurDecorationIndex = i;
+    //decor
+    gTasks[taskId].func = DecorationItemsMenuAction_AttemptPlace;
+    // InitDecorationActionsWindow();
+    // sDecorationContext.items = gSaveBlock1Ptr->secretBases[0].decorations;
+    // sDecorationContext.pos = gSaveBlock1Ptr->secretBases[0].decorationPositions;
+    // sDecorationContext.size = DECOR_MAX_SECRET_BASE;
+    // sDecorationContext.isPlayerRoom = FALSE;
+    // gTasks[taskId].func = HandleDecorationActionsMenuInput;
 }
 
 void DoPlayerRoomDecorationMenu(u8 taskId)
@@ -713,10 +721,12 @@ static void InitDecorationCategoriesWindow(u8 taskId)
 
 static void ReinitDecorationCategoriesWindow(u8 taskId)
 {
-    FillWindowPixelBuffer(sDecorMenuWindowIds[WINDOW_DECORATION_CATEGORIES], PIXEL_FILL(1));
-    PrintDecorationCategoryMenuItems(taskId);
-    InitMenuInUpperLeftCornerNormal(sDecorMenuWindowIds[WINDOW_DECORATION_CATEGORIES], DECORCAT_COUNT + 1, sCurDecorationCategory);
-    gTasks[taskId].func = HandleDecorationCategoriesMenuInput;
+    DecorationMenuAction_Cancel(taskId);
+    // ExitDecorationCategoriesMenu(taskId);
+    // FillWindowPixelBuffer(sDecorMenuWindowIds[WINDOW_DECORATION_CATEGORIES], PIXEL_FILL(1));
+    // PrintDecorationCategoryMenuItems(taskId);
+    // InitMenuInUpperLeftCornerNormal(sDecorMenuWindowIds[WINDOW_DECORATION_CATEGORIES], DECORCAT_COUNT + 1, sCurDecorationCategory);
+    // gTasks[taskId].func = HandleDecorationCategoriesMenuInput;
 }
 
 static void PrintDecorationCategoryMenuItems(u8 taskId)
@@ -800,11 +810,11 @@ static void HandleDecorationCategoriesMenuInput(u8 taskId)
 
 static void SelectDecorationCategory(u8 taskId)
 {
-    sNumOwnedDecorationsInCurCategory = GetNumOwnedDecorationsInCategory(sCurDecorationCategory);
+    sNumOwnedDecorationsInCurCategory = GetNumOwnedDecorationsInCategory(4);
     if (sNumOwnedDecorationsInCurCategory != 0)
     {
-        CondenseDecorationsInCategory(sCurDecorationCategory);
-        gCurDecorationItems = gDecorationInventories[sCurDecorationCategory].items;
+        CondenseDecorationsInCategory(4);
+        gCurDecorationItems = gDecorationInventories[4].items;
         IdentifyOwnedDecorationsCurrentlyInUse(taskId);
         sDecorationsScrollOffset = 0;
         sDecorationsCursorPos = 0;
@@ -1324,42 +1334,43 @@ static bool8 HasDecorationSpace(void)
 
 static void DecorationItemsMenuAction_AttemptPlace(u8 taskId)
 {
-    if (sDecorationContext.isPlayerRoom == TRUE && sCurDecorationCategory != DECORCAT_DOLL && sCurDecorationCategory != DECORCAT_CUSHION)
-    {
-        StringExpandPlaceholders(gStringVar4, gText_CantPlaceInRoom);
-        DisplayItemMessageOnField(taskId, gStringVar4, ReturnToDecorationItemsAfterInvalidSelection);
-    }
-    else if (IsSelectedDecorInThePC() == TRUE)
-    {
-        if (HasDecorationSpace() == TRUE)
-        {
+    // if (sDecorationContext.isPlayerRoom == TRUE && sCurDecorationCategory != DECORCAT_DOLL && sCurDecorationCategory != DECORCAT_CUSHION)
+    // {
+    //     StringExpandPlaceholders(gStringVar4, gText_CantPlaceInRoom);
+    //     DisplayItemMessageOnField(taskId, gStringVar4, ReturnToDecorationItemsAfterInvalidSelection);
+    // }
+    // else if (IsSelectedDecorInThePC() == TRUE)
+    // {
+    //     if (HasDecorationSpace() == TRUE)
+    //     {
             FadeScreen(FADE_TO_BLACK, 0);
             gTasks[taskId].tState = 0;
             gTasks[taskId].func = Task_PlaceDecoration;
-        }
-        else
-        {
-            ConvertIntToDecimalStringN(gStringVar1, sDecorationContext.size, STR_CONV_MODE_RIGHT_ALIGN, 2);
-            if (sDecorationContext.isPlayerRoom == FALSE)
-            {
-                StringExpandPlaceholders(gStringVar4, gText_NoMoreDecorations);
-            }
-            else
-            {
-                StringExpandPlaceholders(gStringVar4, gText_NoMoreDecorations2);
-            }
-            DisplayItemMessageOnField(taskId, gStringVar4, ReturnToDecorationItemsAfterInvalidSelection);
-        }
-    }
-    else
-    {
-        StringExpandPlaceholders(gStringVar4, gText_InUseAlready);
-        DisplayItemMessageOnField(taskId, gStringVar4, ReturnToDecorationItemsAfterInvalidSelection);
-    }
+        // }
+    //     else
+    //     {
+    //         ConvertIntToDecimalStringN(gStringVar1, sDecorationContext.size, STR_CONV_MODE_RIGHT_ALIGN, 2);
+    //         if (sDecorationContext.isPlayerRoom == FALSE)
+    //         {
+    //             StringExpandPlaceholders(gStringVar4, gText_NoMoreDecorations);
+    //         }
+    //         else
+    //         {
+    //             StringExpandPlaceholders(gStringVar4, gText_NoMoreDecorations2);
+    //         }
+    //         DisplayItemMessageOnField(taskId, gStringVar4, ReturnToDecorationItemsAfterInvalidSelection);
+    //     }
+    // }
+    // else
+    // {
+    //     StringExpandPlaceholders(gStringVar4, gText_InUseAlready);
+    //     DisplayItemMessageOnField(taskId, gStringVar4, ReturnToDecorationItemsAfterInvalidSelection);
+    // }
 }
 
 static void Task_PlaceDecoration(u8 taskId)
 {
+    // gCurDecorationIndex = 0;
     switch (gTasks[taskId].tState)
     {
         case 0:
@@ -1540,11 +1551,17 @@ static bool8 CanPlaceDecoration(u8 taskId, const struct Decoration *decoration)
                 curX = gTasks[taskId].tCursorX + j;
                 behaviorAt = MapGridGetMetatileBehaviorAt(curX, curY);
                 layerType = GetMetatileAttributesById(NUM_TILES_IN_PRIMARY + decoration->tiles[(mapY - 1 - i) * mapX + j]) & METATILE_ATTR_LAYER_MASK;
-                if (!IsFloorOrBoardAndHole(behaviorAt, decoration))
+                // if (!IsFloorOrBoardAndHole(behaviorAt, decoration))
+                //     return FALSE;
+
+                // if (!IsntInitialPosition(taskId, curX, curY, layerType))
+                //     return FALSE;
+                
+                if (MetatileBehavior_IsMountain(behaviorAt))
                     return FALSE;
 
-                if (!IsntInitialPosition(taskId, curX, curY, layerType))
-                    return FALSE;
+                else if (MetatileBehavior_IsEastBlocked(behaviorAt))
+                    return TRUE;
 
                 behaviorAt = GetObjectEventIdByPosition(curX, curY, 0);
                 if (behaviorAt != 0 && behaviorAt != OBJECT_EVENTS_COUNT)
@@ -1561,13 +1578,18 @@ static bool8 CanPlaceDecoration(u8 taskId, const struct Decoration *decoration)
                 curX = gTasks[taskId].tCursorX + j;
                 behaviorAt = MapGridGetMetatileBehaviorAt(curX, curY);
                 layerType = GetMetatileAttributesById(NUM_TILES_IN_PRIMARY + decoration->tiles[(mapY - 1 - i) * mapX + j]) & METATILE_ATTR_LAYER_MASK;
-                if (!MetatileBehavior_IsNormal(behaviorAt) && !IsSecretBaseTrainerSpot(behaviorAt, layerType))
+                // if (!MetatileBehavior_IsNormal(behaviorAt) && !IsSecretBaseTrainerSpot(behaviorAt, layerType))
+                //     return FALSE;
+
+                // if (!IsntInitialPosition(taskId, curX, curY, layerType))
+                //     return FALSE;
+                if (MetatileBehavior_IsEastBlocked(behaviorAt))
+                    return TRUE;
+
+                else if (GetObjectEventIdByPosition(curX, curY, 0) != OBJECT_EVENTS_COUNT)
                     return FALSE;
 
-                if (!IsntInitialPosition(taskId, curX, curY, layerType))
-                    return FALSE;
-
-                if (GetObjectEventIdByPosition(curX, curY, 0) != OBJECT_EVENTS_COUNT)
+                else if (MetatileBehavior_IsMountain(behaviorAt))
                     return FALSE;
             }
         }
@@ -1755,7 +1777,7 @@ static void c1_overworld_prev_quest(u8 taskId)
     case 1:
         FreePlayerSpritePalette();
         FreeSpritePaletteByTag(PLACE_DECORATION_SELECTOR_TAG);
-        gFieldCallback = FieldCB_InitDecorationItemsWindow;
+        // gFieldCallback = FieldCB_InitDecorationItemsWindow;
         SetMainCallback2(CB2_ReturnToField);
         DestroyTask(taskId);
         break;

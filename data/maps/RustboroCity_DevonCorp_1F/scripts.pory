@@ -199,6 +199,135 @@ script Update3{
     end
 }
 
+script CapsuleCorpCenter{
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    subvar(VAR_TEMP_1, 1)
+    subvar(VAR_TEMP_2, 4)
+    setmetatile(VAR_TEMP_1, VAR_TEMP_2, 0x048, FALSE)
+    addvar(VAR_TEMP_1, 1)
+    setmetatile(VAR_TEMP_1, VAR_TEMP_2, 0x049, FALSE)
+    addvar(VAR_TEMP_1, 1)
+    setmetatile(VAR_TEMP_1, VAR_TEMP_2, 0x04A, FALSE)
+    addvar(VAR_TEMP_1, 1)
+    setmetatile(VAR_TEMP_1, VAR_TEMP_2, 0x04B, FALSE)
+    //2nd row
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    subvar(VAR_TEMP_1, 1)
+    subvar(VAR_TEMP_2, 3)
+    setmetatile(VAR_TEMP_1, VAR_TEMP_2, 0x050, FALSE)
+    addvar(VAR_TEMP_1, 1)
+    setmetatile(VAR_TEMP_1, VAR_TEMP_2, 0x051, FALSE)
+    addvar(VAR_TEMP_1, 1)
+    setmetatile(VAR_TEMP_1, VAR_TEMP_2, 0x052, FALSE)
+    addvar(VAR_TEMP_1, 1)
+    setmetatile(VAR_TEMP_1, VAR_TEMP_2, 0x053, FALSE)
+    //3rd row
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    subvar(VAR_TEMP_1, 1)
+    subvar(VAR_TEMP_2, 2)
+    setmetatile(VAR_TEMP_1, VAR_TEMP_2, 0x058, FALSE)
+    addvar(VAR_TEMP_1, 1)
+    setmetatile(VAR_TEMP_1, VAR_TEMP_2, 0x059, FALSE)
+    addvar(VAR_TEMP_1, 1)
+    setmetatile(VAR_TEMP_1, VAR_TEMP_2, 0x05A, FALSE)
+    addvar(VAR_TEMP_1, 1)
+    setmetatile(VAR_TEMP_1, VAR_TEMP_2, 0x05B, FALSE)
+    //4th row
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    subvar(VAR_TEMP_1, 1)
+    subvar(VAR_TEMP_2, 1)
+    setmetatile(VAR_TEMP_1, VAR_TEMP_2, 0x060, FALSE)
+    addvar(VAR_TEMP_1, 1)
+    setmetatile(VAR_TEMP_1, VAR_TEMP_2, 0x061, FALSE)
+    addvar(VAR_TEMP_1, 1)
+    setmetatile(VAR_TEMP_1, VAR_TEMP_2, 0x062, FALSE)
+    addvar(VAR_TEMP_1, 1)
+    setmetatile(VAR_TEMP_1, VAR_TEMP_2, 0x063, FALSE)
+    special(DrawWholeMapView)
+    release
+}
+
+script ChooseSpellRange{
+    lockall
+    message(ChooseRange_Text)
+    waitmessage
+    dynmultipush("1x1", 0)
+    dynmultipush("2x2", 1)
+    dynmultipush("3x3", 2)
+    dynmultistack(23, 6, FALSE, 5, FALSE, 0, NULL)
+    switch(var(VAR_RESULT)){
+        case 0: //decor
+            msgbox("Spell set to 1x1.")
+            setvar(VAR_TEMP_A, 1)
+        case 1:
+            msgbox("Spell set to 2x2.")
+            setvar(VAR_TEMP_A, 2)
+        case 2:
+            msgbox("Spell set to 3x3.")
+            setvar(VAR_TEMP_A, 0)
+        case MULTI_B_PRESSED:
+            closemessage
+    }
+    release
+}
+text ChooseRange_Text{
+    "Choose spell range."
+}
+script ChooseSpellType{
+    if(!flag(FLAG_SYS_ARENA_GOLD)){
+        setflag(FLAG_SYS_ARENA_GOLD)
+        adddecoration(DECOR_PRETTY_DESK)
+        adddecoration(DECOR_SMALL_CHAIR)
+        adddecoration(DECOR_COLORFUL_PLANT)
+        adddecoration(DECOR_GLITTER_MAT)
+        adddecoration(DECOR_JUMP_MAT)
+        adddecoration(DECOR_SPIN_MAT)
+        // adddecoration(DECOR_SMALL_CHAIR)
+        // adddecoration(DECOR_COLORFUL_PLANT)
+        // adddecoration(DECOR_PRETTY_DESK)
+        // adddecoration(DECOR_RED_BALLOON)
+        // adddecoration(DECOR_BIG_PLANT)
+        // adddecoration(DECOR_CAMP_DESK)
+    }
+    message(SpellType)
+	waitmessage
+    dynmultipush("Create", 0)
+    dynmultipush("Destroy", 1)
+    dynmultistack(23, 8, FALSE, 5, FALSE, 0, NULL)
+    switch(var(VAR_RESULT)){
+        case 0:
+            msgbox("Spell set to create.")
+            if(var(VAR_TEMP_A) == 0){
+                setvar(VAR_TEMP_B, 0)
+            }
+            if(var(VAR_TEMP_A) == 1){
+                setvar(VAR_TEMP_B, 1)
+            }
+            if(var(VAR_TEMP_A) == 2){
+                setvar(VAR_TEMP_B, 2)
+            }
+        case 1:
+            msgbox("Spell set to destroy.")
+            if(var(VAR_TEMP_A) == 1){
+                setvar(VAR_TEMP_B, 3)
+            }
+            if(var(VAR_TEMP_A) == 2){
+                setvar(VAR_TEMP_B, 4)
+            }
+            if(var(VAR_TEMP_A) == 0){
+                setvar(VAR_TEMP_B, 5)
+            }
+        case MULTI_B_PRESSED:
+            release
+            end
+    }
+    closemessage
+	special(ShowSecretBaseDecorationMenu)
+	waitstate
+}
+text SpellType{
+    "Choose spell type."
+}
 script FlagTesting{
     // if(!flag(FLAG_TEMP_10)){
     //     call(RustboroCity_EventScript_ScientistAddMatchCall)
