@@ -1111,3 +1111,25 @@ const struct Tileset gTileset_TestRoom =
     .metatileAttributes = gMetatileAttributes_TestRoom,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_PokemonWorldTournament =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_PokemonWorldTournament,
+    .palettes = gTilesetPalettes_PokemonWorldTournament,
+    .metatiles = gMetatiles_PokemonWorldTournament,
+    .metatileAttributes = gMetatileAttributes_PokemonWorldTournament,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_PWT =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_PWT,
+    .palettes = gTilesetPalettes_PWT,
+    .metatiles = gMetatiles_PWT,
+    .metatileAttributes = gMetatileAttributes_PWT,
+    .callback = NULL,
+};

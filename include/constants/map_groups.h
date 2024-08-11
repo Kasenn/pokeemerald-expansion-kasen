@@ -829,7 +829,8 @@
 #define MAP_MT_CHIMNEY                               (158 | (48 << 8))
 
 // gMapGroup_IndoorRoute124
-#define MAP_TEST_ROOM (0 | (49 << 8))
+#define MAP_TEST_ROOM                (0 | (49 << 8))
+#define MAP_POKEMON_WORLD_TOURNAMENT (1 | (49 << 8))
 
 #define MAP_GROUPS_COUNT 50
 

@@ -1028,6 +1028,7 @@ SECTIONS {
         sound/songs/midi/mus_alola_e4.o(.rodata);
         sound/songs/midi/mus_mistral.o(.rodata);
         sound/songs/midi/mus_muted.o(.rodata);
+        sound/songs/midi/mus_pwtlobby.o(.rodata);
         sound/songs/midi/mus_hg_azalea.o(.rodata);
         sound/songs/midi/mus_unwavering.o(.rodata);
         sound/songs/midi/mus_happy.o(.rodata);

@@ -2829,7 +2829,7 @@ static void SetPartyMonSelectionActions(struct Pokemon *mons, u8 slotId, u8 acti
 static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
 {
     u8 i, j;
-    u8 partyIndex = GetLeadMonIndex();
+    // u8 partyIndex = GetLeadMonIndex();
 
 
     sPartyMenuInternal->numActions = 0;
@@ -2852,7 +2852,7 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
     {
         if (GetMonData(&mons[1], MON_DATA_SPECIES) != SPECIES_NONE)
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SWITCH);
-        if (slotId == partyIndex){
+        if (slotId == GetLeadMonIndex() && !FlagGet(FLAG_TEMP_HIDE_FOLLOWER) && OW_FOLLOWERS_ENABLED == TRUE){
             if (FlagGet(FLAG_DISABLE_FOLLOWER))
                 AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_FOLLOW_ME);
             else

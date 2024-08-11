@@ -1497,3 +1497,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Route14_CaveEntrance/scripts.inc"
 
 	.include "data/maps/WindywoodsFix/scripts.inc"
+
+	.include "data/maps/PokemonWorldTournament/scripts.inc"

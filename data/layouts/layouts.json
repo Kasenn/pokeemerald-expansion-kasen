@@ -6490,6 +6490,16 @@
       "secondary_tileset": "gTileset_DarkForestSec",
       "border_filepath": "data/layouts/WindywoodsFix/border.bin",
       "blockdata_filepath": "data/layouts/WindywoodsFix/map.bin"
+    },
+    {
+      "id": "LAYOUT_POKEMON_WORLD_TOURNAMENT",
+      "name": "PokemonWorldTournament_Layout",
+      "width": 25,
+      "height": 30,
+      "primary_tileset": "gTileset_PokemonWorldTournament",
+      "secondary_tileset": "gTileset_PWT",
+      "border_filepath": "data/layouts/PokemonWorldTournament/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonWorldTournament/map.bin"
     }
   ]
 }

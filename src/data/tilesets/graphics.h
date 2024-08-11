@@ -2131,3 +2131,41 @@ const u16 gTilesetPalettes_TestRoom[][16] =
 };
 
 const u32 gTilesetTiles_TestRoom[] = INCBIN_U32("data/tilesets/secondary/test_room/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_PokemonWorldTournament[][16] =
+{
+    INCBIN_U16("data/tilesets/primary/pokemon_world_tournament/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/primary/pokemon_world_tournament/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/primary/pokemon_world_tournament/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/primary/pokemon_world_tournament/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/primary/pokemon_world_tournament/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/primary/pokemon_world_tournament/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/primary/pokemon_world_tournament/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/primary/pokemon_world_tournament/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/primary/pokemon_world_tournament/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/primary/pokemon_world_tournament/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/primary/pokemon_world_tournament/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/primary/pokemon_world_tournament/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/primary/pokemon_world_tournament/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_PokemonWorldTournament[] = INCBIN_U32("data/tilesets/primary/pokemon_world_tournament/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_PWT[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/pwt/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pwt/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pwt/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pwt/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pwt/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pwt/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pwt/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pwt/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pwt/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pwt/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pwt/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pwt/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/pwt/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_PWT[] = INCBIN_U32("data/tilesets/secondary/pwt/tiles.4bpp.lz");

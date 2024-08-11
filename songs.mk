@@ -645,6 +645,9 @@ $(MID_SUBDIR)/mus_vs_iris.s: %.s: %.mid
 $(MID_SUBDIR)/mus_mistral.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V104
 
+$(MID_SUBDIR)/mus_pwtlobby.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V104
+
 $(MID_SUBDIR)/mus_alola_e4.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V089
 

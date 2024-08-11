@@ -285,3 +285,9 @@ const u16 gMetatileAttributes_Amberock[] = INCBIN_U16("data/tilesets/secondary/a
 
 const u16 gMetatiles_TestRoom[] = INCBIN_U16("data/tilesets/secondary/test_room/metatiles.bin");
 const u16 gMetatileAttributes_TestRoom[] = INCBIN_U16("data/tilesets/secondary/test_room/metatile_attributes.bin");
+
+const u16 gMetatiles_PokemonWorldTournament[] = INCBIN_U16("data/tilesets/primary/pokemon_world_tournament/metatiles.bin");
+const u16 gMetatileAttributes_PokemonWorldTournament[] = INCBIN_U16("data/tilesets/primary/pokemon_world_tournament/metatile_attributes.bin");
+
+const u16 gMetatiles_PWT[] = INCBIN_U16("data/tilesets/secondary/pwt/metatiles.bin");
+const u16 gMetatileAttributes_PWT[] = INCBIN_U16("data/tilesets/secondary/pwt/metatile_attributes.bin");
