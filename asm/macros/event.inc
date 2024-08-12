@@ -1949,6 +1949,14 @@
     .byte 0xec
     .endm
 
+	@ Checks if at least one party mon is equal to the specified level. If so, VAR_RESULT is set to the
+	@ (zero-indexed) slot number of the first Pokemon that knows the move. If not, VAR_RESULT is set to PARTY_SIZE.
+	@ VAR_0x8004 is also set to this Pokemon's species.
+	.macro checkpartylevel monLevel:req
+	.byte 0xed
+	.2byte \monLevel
+	.endm
+
 	@ Sets the player team to level specified by the argument
 	.macro setpartylevel level:req
 	callnative ScrCmd_setpartylevel
@@ -1958,16 +1966,6 @@
 	.macro addvartovar
 	callnative AddVarToVar
 	.endm
-
-
-	@ Checks if at least one party mon is equal to the specified level. If so, VAR_RESULT is set to the
-	@ (zero-indexed) slot number of the first Pokemon that knows the move. If not, VAR_RESULT is set to PARTY_SIZE.
-	@ VAR_0x8004 is also set to this Pokemon's species.
-	.macro checkpartylevel monLevel:req
-	.byte 0xed
-	.2byte \monLevel
-	.endm
-
 
 @ Supplementary
 
