@@ -2610,3 +2610,12 @@ void ScriptSetDoubleBattleFlag(struct ScriptContext *ctx)
 {
     sIsScriptedWildDouble = TRUE;
 }
+
+bool8 ScrCmd_bpmart(struct ScriptContext *ctx)
+{
+    const void *ptr = (void *)ScriptReadWord(ctx);
+
+    CreateBPmartMenu(ptr);
+    ScriptContext_Stop();
+    return TRUE;
+}

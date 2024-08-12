@@ -1028,3 +1028,8 @@ u32 GetItemStatus2Mask(u16 itemId)
     else
         return 0;
 }
+
+u16 ItemId_GetBpPrice(u16 itemId)
+{
+    return gItemsInfo[SanitizeItemId(itemId)].bpCost;
+}

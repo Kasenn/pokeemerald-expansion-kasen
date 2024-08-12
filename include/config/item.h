@@ -19,6 +19,11 @@
 #define I_BERRY_PRICE                   GEN_7       // Since Berries have become unplantable (Gen8+), their price has gone up.
 #define I_POWER_ITEM_BOOST              GEN_LATEST  // In Gen7+, Power Items grant 8 EVs instead of 4 EVs.
 #define I_PREMIER_BALL_BONUS            GEN_LATEST  // In LGPE onwards (Gen8+ here), you are given a Premier Ball for every 10 Poké Balls of any type and in the same purchase. Previously, it only applied to regular Poké Balls and only 1 could be obtained per purchase.
+#define I_PRICE_BP                      GEN_7       // Some purchasable BP items have varied in value across generations.
+                                                    // As a general rule, Gens 3, 4, 6, and 7 have similar prices, with most prices going down the newer the generation.
+                                                    // Gen 5 prices are based on Black 2 and White 2, where many items received around 50% discounts.
+                                                    // In Gen 8, many of the prices were adjusted and many items received 0-80% discounts.
+                                                    // Gen 9 jacked up some of the prices to ludicrous degrees, and generally isn't recommended without heavily editing the BP gains.
 
 // TM config
 #define I_REUSABLE_TMS          TRUE       // In Gen5-8, TMs are reusable. Setting this to TRUE will make all vanilla TMs reusable, though they can also be cherry-picked by setting their importance to 1.

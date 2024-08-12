@@ -1957,6 +1957,15 @@
 	.2byte \monLevel
 	.endm
 
+	@ Opens the Pokemart system, offering the specified products for sale.
+	@ Products should be a list of .2byte item values preceded by an .align 2
+	@ Uses BP as currency, with the prices based on the .bpCost value
+	@ in src/data/items.h.
+	.macro bpmart products:req
+	.byte 0xee
+	.4byte \products
+	.endm
+
 	@ Sets the player team to level specified by the argument
 	.macro setpartylevel level:req
 	callnative ScrCmd_setpartylevel

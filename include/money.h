@@ -30,5 +30,7 @@ void AddMoneyLabelObject(u16 x, u16 y);
 void RemoveMoneyLabelObject(void);
 void AddBattlePoints(u32 pointsToAdd);
 u32 CalculateMoneyTextHorizontalPosition(u32 amount);
+void PrintBpAmount(u8 windowId, u8 x, u8 y, int amount, u8 speed);
+void PrintBpBoxWithBorder(u8 windowId, u16 tileStart, u8 pallete, int amount);
 
 #endif // GUARD_MONEY_H
