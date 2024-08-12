@@ -174,7 +174,7 @@ static void CancelDecoratingPrompt(u8 taskId);
 static void CancelDecorating(u8 taskId);
 static void CancelDecorating_(u8 taskId);
 static void c1_overworld_prev_quest(u8 taskId);
-static void FieldCB_InitDecorationItemsWindow(void);
+// static void FieldCB_InitDecorationItemsWindow(void);
 static void ResetCursorMovement(void);
 static void ContinueDecorating(u8 taskId);
 static void CantPlaceDecorationPrompt(u8 taskId);
@@ -1320,17 +1320,17 @@ void SetDecoration(void)
     // }
 }
 
-static bool8 HasDecorationSpace(void)
-{
-    u16 i;
-    for (i = 0; i < sDecorationContext.size; i++)
-    {
-        if (sDecorationContext.items[i] == DECOR_NONE)
-            return TRUE;
-    }
+// static bool8 HasDecorationSpace(void)
+// {
+//     u16 i;
+//     for (i = 0; i < sDecorationContext.size; i++)
+//     {
+//         if (sDecorationContext.items[i] == DECOR_NONE)
+//             return TRUE;
+//     }
 
-    return FALSE;
-}
+//     return FALSE;
+// }
 
 static void DecorationItemsMenuAction_AttemptPlace(u8 taskId)
 {
@@ -1495,12 +1495,12 @@ static void AttemptCancelPlaceDecoration(u8 taskId)
     DisplayItemMessageOnField(taskId, gStringVar4, CancelDecoratingPrompt);
 }
 
-static bool8 IsSecretBaseTrainerSpot(u8 behaviorAt, u16 layerType)
-{
-    if (!(MetatileBehavior_IsSecretBaseTrainerSpot(behaviorAt) == TRUE && layerType == METATILE_LAYER_TYPE_NORMAL))
-        return FALSE;
-    return TRUE;
-}
+// static bool8 IsSecretBaseTrainerSpot(u8 behaviorAt, u16 layerType)
+// {
+//     // if (!(MetatileBehavior_IsSecretBaseTrainerSpot(behaviorAt) == TRUE && layerType == METATILE_LAYER_TYPE_NORMAL))
+//     //     return FALSE;
+//     return TRUE;
+// }
 
 // Can't place decoration where the player was standing when they interacted with the PC
 static bool8 IsntInitialPosition(u8 taskId, s16 x, s16 y, u16 layerType)
@@ -1512,19 +1512,19 @@ static bool8 IsntInitialPosition(u8 taskId, s16 x, s16 y, u16 layerType)
     return TRUE;
 }
 
-static bool8 IsFloorOrBoardAndHole(u16 behaviorAt, const struct Decoration *decoration)
-{
-    if (MetatileBehavior_IsSecretBaseTrainerSpot(behaviorAt) != TRUE)
-    {
-        if (decoration->id == DECOR_SOLID_BOARD && MetatileBehavior_IsSecretBaseHole(behaviorAt) == TRUE)
-            return TRUE;
+// static bool8 IsFloorOrBoardAndHole(u16 behaviorAt, const struct Decoration *decoration)
+// {
+//     if (MetatileBehavior_IsSecretBaseTrainerSpot(behaviorAt) != TRUE)
+//     {
+//         if (decoration->id == DECOR_SOLID_BOARD && MetatileBehavior_IsSecretBaseHole(behaviorAt) == TRUE)
+//             return TRUE;
 
-        if (MetatileBehavior_IsNormal(behaviorAt))
-            return TRUE;
-    }
+//         if (MetatileBehavior_IsNormal(behaviorAt))
+//             return TRUE;
+//     }
 
-    return FALSE;
-}
+//     return FALSE;
+// }
 
 static bool8 CanPlaceDecoration(u8 taskId, const struct Decoration *decoration)
 {
@@ -1808,16 +1808,16 @@ static void Task_InitDecorationItemsWindow(u8 taskId)
     }
 }
 
-static void FieldCB_InitDecorationItemsWindow(void)
-{
-    u8 taskId;
+// static void FieldCB_InitDecorationItemsWindow(void)
+// {
+//     u8 taskId;
 
-    LockPlayerFieldControls();
-    FadeInFromBlack();
-    taskId = CreateTask(Task_InitDecorationItemsWindow, 8);
-    AddDecorationItemsWindow(taskId);
-    gTasks[taskId].tState = 0;
-}
+//     LockPlayerFieldControls();
+//     FadeInFromBlack();
+//     taskId = CreateTask(Task_InitDecorationItemsWindow, 8);
+//     AddDecorationItemsWindow(taskId);
+//     gTasks[taskId].tState = 0;
+// }
 
 static bool8 ApplyCursorMovement_IsInvalid(u8 taskId)
 {

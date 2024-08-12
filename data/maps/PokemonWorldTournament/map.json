@@ -2,7 +2,7 @@
   "id": "MAP_POKEMON_WORLD_TOURNAMENT",
   "name": "PokemonWorldTournament",
   "layout": "LAYOUT_POKEMON_WORLD_TOURNAMENT",
-  "music": "MUS_PWTLOBBY",
+  "music": "MUS_B_TOWER",
   "region_map_section": "MAPSEC_ALDELEAF_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -76,7 +76,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "BPMartTest",
       "flag": "0"
     },
     {
@@ -89,7 +89,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "BPMartTest",
       "flag": "0"
     },
     {

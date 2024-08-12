@@ -647,13 +647,13 @@ bool8 MetatileBehavior_IsSecretBaseScenery1(u8 metatileBehavior)
 }
 
 // Used by the rock/grass floor space that the secret base trainer stands on
-bool8 MetatileBehavior_IsSecretBaseTrainerSpot(u8 metatileBehavior)
-{
-    if (metatileBehavior == MB_SECRET_BASE_TRAINER_SPOT)
-        return TRUE;
-    else
-        return FALSE;
-}
+// bool8 MetatileBehavior_IsSecretBaseTrainerSpot(u8 metatileBehavior)
+// {
+//     if (metatileBehavior == MB_SECRET_BASE_TRAINER_SPOT)
+//         return TRUE;
+//     else
+//         return FALSE;
+// }
 
 bool8 MetatileBehavior_IsSecretBaseImpassable(u8 metatileBehavior)
 {

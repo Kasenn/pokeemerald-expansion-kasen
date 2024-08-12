@@ -158,8 +158,7 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
-	msgbox TestMsg
-	closemessage
+	call BPMartTest
 	end
 
 TestMsg:
