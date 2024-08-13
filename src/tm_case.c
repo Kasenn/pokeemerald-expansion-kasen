@@ -31,17 +31,17 @@
 
 #define TM_CASE_TM_TAG 400
 
-struct UnkStruct_203B10C
+struct TMCaseStaticResources
 {
     void (* savedCallback)(void);
     u8 tmCaseMenuType;
-    u8 unk_05;
-    u8 unk_06;
+    u8 allowSelectClose;
+    u8 unused;
     u16 selectedRow;
     u16 scrollOffset;
 };
 
-struct UnkStruct_203B118
+struct TMCaseDynamicResources
 {
     void (* savedCallback)(void);
     u8 tmSpriteId;
@@ -56,19 +56,11 @@ struct UnkStruct_203B118
     u8 filler_14[8];
 };
 
-struct UnkStruct_203B11C
-{
-    struct ItemSlot bagPocket_TMHM[BAG_TMHM_COUNT];
-    struct ItemSlot bagPocket_KeyItems[BAG_KEYITEMS_COUNT];
-    u16 unk_160;
-    u16 unk_162;
-};
-
-static EWRAM_DATA struct UnkStruct_203B10C sTMCaseStaticResources = {};
-static EWRAM_DATA struct UnkStruct_203B118 * sTMCaseDynamicResources = NULL;
+static EWRAM_DATA struct TMCaseStaticResources sTMCaseStaticResources = {};
+static EWRAM_DATA struct TMCaseDynamicResources * sTMCaseDynamicResources = NULL;
 static EWRAM_DATA void * sTilemapBuffer = NULL; // tilemap buffer
 static EWRAM_DATA struct ListMenuItem * sListMenuItemsBuffer = NULL;
-static EWRAM_DATA u8 (* sListMenuStringsBuffer)[29] = NULL;
+static EWRAM_DATA u8 (* sListMenuStringsBuffer)[31] = NULL;
 static EWRAM_DATA u16 * sTMSpritePaletteBuffer = NULL;
 static EWRAM_DATA u8    spriteIdData[PARTY_SIZE] = {};
 static EWRAM_DATA u16   spriteIdPalette[PARTY_SIZE] = {};
@@ -94,7 +86,6 @@ static void Task_TMCaseMain(u8 taskId);
 static void Task_SelectTMAction_FromFieldBag(u8 taskId);
 static void Task_TMContextMenu_HandleInput(u8 taskId);
 static void TMHMContextMenuAction_Use(u8 taskId);
-// static void TMHMContextMenuAction_Give(u8 taskId);
 static void PrintError_ThereIsNoPokemon(u8 taskId);
 static void PrintError_ItemCantBeHeld(u8 taskId);
 static void Task_WaitButtonAfterErrorPrint(u8 taskId);
@@ -104,7 +95,6 @@ static void Task_SelectTMAction_Type1(u8 taskId);
 static void Task_SelectTMAction_Type3(u8 taskId);
 static void InitWindowTemplatesAndPals(void);
 static void AddTextPrinterParameterized_ColorByIndex(u8 windowId, u8 fontId, const u8 * str, u8 x, u8 y, u8 letterSpacing, u8 lineSpacing, u8 speed, u8 colorIdx);
-// static void TMCase_SetWindowBorder1(u8 windowId);
 static void TMCase_SetWindowBorder2(u8 windowId);
 static void TMCase_SetWindowBorder3(u8 windowId);
 static void TMCase_PrintMessageWithFollowupTask(u8 taskId, u8 windowId, const u8 * str, TaskFunc func);
@@ -138,7 +128,8 @@ static const struct BgTemplate sBGTemplates[] = {
         .paletteMode = 0,
         .priority = 1,
         .baseTile = 0x000
-    }, {
+    },
+    {
         .bg = 1,
         .charBaseIndex = 0,
         .mapBaseIndex = 30,
@@ -146,7 +137,8 @@ static const struct BgTemplate sBGTemplates[] = {
         .paletteMode = 0,
         .priority = 0,
         .baseTile = 0x000
-    }, {
+    },
+    {
         .bg = 2,
         .charBaseIndex = 0,
         .mapBaseIndex = 29,
@@ -171,13 +163,11 @@ static const struct MenuAction sMenuActions_UseGiveExit[] = {
 
 static const u8 sMenuActionIndices_Field[] = {0, 1};
 static const u8 sMenuActionIndices_UnionRoom[] = {0, 1};
-// static const struct YesNoFuncTable sYesNoFuncTable = {Task_PrintSaleConfirmedText, Task_SaleOfTMsCanceled};
 
 static const u8 sText_ClearTo18[] = _("{CLEAR_TO 18}");
 static const u8 sText_SingleSpace[] = _(" ");
 
 const u8 gItemDescription_ITEM_TM_CASE[] = _("A case that holds TMs and HMs.\nIt is attached to the BAG's\ncompartment for important items.");
-//const u16 gTMCaseMainWindowPalette[] = INCBIN_U16("graphics/tm_case/unk_841F408.gbapal");
 
 static ALIGNED(4) const u16 sPal3Override[] = {RGB(8, 8, 8), RGB(30, 16, 6)};
 
@@ -268,7 +258,7 @@ static const u16 sTMSpritePaletteOffsetByType[] = {
 void InitTMCase(u8 type, void (* callback)(void), u8 a2)
 {
     ResetBufferPointers_NoFree();
-    sTMCaseDynamicResources = Alloc(sizeof(struct UnkStruct_203B118));
+    sTMCaseDynamicResources = Alloc(sizeof(struct TMCaseDynamicResources));
     sTMCaseDynamicResources->savedCallback = 0;
     sTMCaseDynamicResources->scrollIndicatorArrowPairId = 0xFF;
     sTMCaseDynamicResources->contextMenuWindowId = 0xFF;
@@ -277,7 +267,7 @@ void InitTMCase(u8 type, void (* callback)(void), u8 a2)
     if (callback != NULL)
         sTMCaseStaticResources.savedCallback = callback;
     if (a2 != 0xFF)
-        sTMCaseStaticResources.unk_05 = a2;
+        sTMCaseStaticResources.allowSelectClose = a2;
     gTextFlags.autoScroll = FALSE;
     SetMainCallback2(CB2_SetUpTMCaseUI_Blocking);
 }
@@ -443,25 +433,24 @@ static bool8 HandleLoadTMCaseGraphicsAndPalettes(void)
     {
     case 0:
         ResetTempTileDataBuffers();
-        DecompressAndCopyTileDataToVram(1, gUnknown_8E845D8, 0, 0, 0);
+        DecompressAndCopyTileDataToVram(1, gTMCase_Gfx, 0, 0, 0);
         sTMCaseDynamicResources->seqId++;
         break;
     case 1:
         if (FreeTempTileDataBuffersIfPossible() != TRUE)
         {
-            LZDecompressWram(gUnknown_8E84A24, sTilemapBuffer);
+            LZDecompressWram(gTMCaseMenu_Tilemap, sTilemapBuffer);
             sTMCaseDynamicResources->seqId++;
         }
         break;
     case 2:
-        // LZDecompressWram(gUnknown_8E84B70, GetBgTilemapBuffer(1)); //TM case bg graphic
         sTMCaseDynamicResources->seqId++;
         break;
     case 3:
         if (gSaveBlock2Ptr->playerGender == MALE)
-            LoadCompressedPalette(gUnknown_8E84CB0, 0, 0x80);
+            LoadCompressedPalette(gTMCaseMenu_Male_Pal, 0, 0x80);
         else
-            LoadCompressedPalette(gUnknown_8E84D20, 0, 0x80);
+            LoadCompressedPalette(gTMCaseMenu_Female_Pal, 0, 0x80);
         sTMCaseDynamicResources->seqId++;
         break;
     case 4:
@@ -481,7 +470,7 @@ static void CreateTMCaseListMenuBuffers(void)
 {
     struct BagPocket * pocket = &gBagPockets[POCKET_TM_HM - 1];
     sListMenuItemsBuffer = Alloc((pocket->capacity) * sizeof(struct ListMenuItem));
-    sListMenuStringsBuffer = Alloc(sTMCaseDynamicResources->numTMs * 29);
+    sListMenuStringsBuffer = Alloc(sTMCaseDynamicResources->numTMs * 31);
 }
 
 static void InitTMCaseListMenuItems(void)
@@ -741,7 +730,7 @@ static void Task_TMCaseMain(u8 taskId)
         {
             input = ListMenu_ProcessInput(data[0]);
             ListMenuGetScrollAndRow(data[0], &sTMCaseStaticResources.scrollOffset, &sTMCaseStaticResources.selectedRow);
-            if (JOY_NEW(SELECT_BUTTON) && sTMCaseStaticResources.unk_05 == 1)
+            if (JOY_NEW(SELECT_BUTTON) && sTMCaseStaticResources.allowSelectClose == 1)
             {
                 PlaySE(SE_SELECT);
                 gSpecialVar_ItemId = ITEM_NONE;
@@ -970,11 +959,6 @@ static void AddTextPrinterParameterized_ColorByIndex(u8 windowId, u8 fontId, con
     AddTextPrinterParameterized4(windowId, fontId, x, y, letterSpacing, lineSpacing, sTMCaseTextColors[colorIdx], speed, str);
 }
 
-// static void TMCase_SetWindowBorder1(u8 windowId)
-// {
-//     DrawStdFrameWithCustomTileAndPalette(windowId, FALSE, 0x5B, 0x0E);
-// }
-
 static void TMCase_SetWindowBorder2(u8 windowId)
 {
     DrawStdFrameWithCustomTileAndPalette(windowId, FALSE, 0x78, 0x0D);
@@ -1005,12 +989,12 @@ static void DrawMoveInfoUIMarkers(void)
         BlitMenuInfoIcon(4, 21, 0, 24); // "Accuracy" sprite
         BlitMenuInfoIcon(4, 22, 0, 36); // "PP" sprite
     #else
-        BlitMenuInfoIcon(4, 20, 0, 0); // "Type" sprite
-        BlitMenuInfoIcon(4, 21, 0, 12); // "Power" sprite
-        BlitMenuInfoIcon(4, 22, 0, 24); // "Accuracy" sprite
-        BlitMenuInfoIcon(4, 23, 0, 36); // "PP" sprite
+        BlitMenuInfoIcon(4, MENU_INFO_ICON_TYPE, 0, 0); // "Type" sprite
+        BlitMenuInfoIcon(4, MENU_INFO_ICON_POWER, 0, 12); // "Power" sprite
+        BlitMenuInfoIcon(4, MENU_INFO_ICON_ACCURACY, 0, 24); // "Accuracy" sprite
+        BlitMenuInfoIcon(4, MENU_INFO_ICON_PP, 0, 36); // "PP" sprite
     #endif
-    CopyWindowToVram(4, 2);
+    CopyWindowToVram(4, COPYWIN_GFX);
 }
 
 static void TMCase_MoveCursor_UpdatePrintedTMInfo(u16 itemId)
@@ -1056,7 +1040,7 @@ static void TMCase_MoveCursor_UpdatePrintedTMInfo(u16 itemId)
 
 static void PlaceHMTileInWindow(u8 windowId, u8 x, u8 y)
 {
-    BlitBitmapToWindow(windowId, gUnknown_8E99118, x, y, 16, 12);
+    BlitBitmapToWindow(windowId, gTMCaseHM_Gfx, x, y, 16, 12);
 }
 
 // static void HandlePrintMoneyOnHand(void)

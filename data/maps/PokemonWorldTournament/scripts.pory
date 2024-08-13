@@ -1,0 +1,36 @@
+mapscripts PokemonWorldTournament_MapScripts {
+    
+}
+
+script BP_Mart{
+    lock
+    faceplayer
+    message(BP_Mart_Greetings)
+    waitmessage
+    bpmart(BP_Mart_Items)
+    msgbox(gText_PleaseComeAgain)
+    release
+}
+
+text BP_Mart_Greetings{
+    "Hello!\p"
+	"Welcome to the\n"
+	"Exchange Service Corner!\p"
+	"Would you like to trade in your BP\n"
+	"for some fabulous prizes?"
+}
+
+mart BP_Mart_Items{
+    ITEM_GREPA_BERRY
+    ITEM_MAX_POTION
+    ITEM_FIRE_STONE
+    ITEM_POWER_ANKLET
+    ITEM_WHITE_HERB
+    ITEM_AIR_BALLOON
+    ITEM_FOCUS_SASH
+    ITEM_ADAMANT_MINT
+    ITEM_ALAKAZITE
+    ITEM_ABILITY_CAPSULE
+    ITEM_TM02
+    ITEM_NONE
+}
