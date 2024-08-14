@@ -12,14 +12,6 @@ script BP_Mart{
     release
 }
 
-text BP_Mart_Greetings{
-    "Hello!\p"
-	"Welcome to the\n"
-	"Exchange Service Corner!\p"
-	"Would you like to trade in your BP\n"
-	"for some fabulous prizes?"
-}
-
 mart BP_Mart_Items{
     ITEM_GREPA_BERRY
     ITEM_MAX_POTION
@@ -33,4 +25,27 @@ mart BP_Mart_Items{
     ITEM_ABILITY_CAPSULE
     ITEM_TM02
     ITEM_NONE
+}
+
+text BP_Mart_Greetings{
+    "Hello!\p"
+	"Welcome to the\n"
+	"Exchange Service Corner!\p"
+	"Would you like to trade in your BP\n"
+	"for some fabulous prizes?"
+}
+
+script TestDir{
+    lock
+    switch(var(VAR_FACING)){
+        case DIR_NORTH:
+            msgbox("facing north")
+        case DIR_WEST:
+            msgbox("facing west")
+        case DIR_EAST:
+            msgbox("facing east")
+        case DIR_SOUTH:
+            msgbox("facing south")
+    }
+    release
 }

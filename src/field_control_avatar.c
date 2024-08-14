@@ -1045,6 +1045,7 @@ static const u8 *TryRunCoordEventScript(const struct CoordEvent *coordEvent)
 {
     if (coordEvent != NULL)
     {
+        gSpecialVar_Facing = GetPlayerFacingDirection();
         if (coordEvent->script == NULL)
         {
             DoCoordEventWeather(coordEvent->trigger);
