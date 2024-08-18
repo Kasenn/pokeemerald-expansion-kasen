@@ -158,13 +158,18 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
-	call BPMart
+	fadescreenswapbuffers FADE_TO_BLACK
+	showobjectat 18, MAP_POKEMON_WORLD_TOURNAMENT
+	fadescreenswapbuffers FADE_FROM_BLACK
+	release
 	end
 
 TestMsg:
 	.string "Yer a wizard, Harry.$"
 
 Debug_EventScript_Script_6::
+	setflag FLAG_TEMP_1
+	removeobject 18
 	release
 	end
 

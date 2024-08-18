@@ -1,30 +1,122 @@
-mapscripts PokemonWorldTournament_MapScripts {
-    
-}
+mapscripts PokemonWorldTournament_MapScripts {}
 
 script BP_Mart{
     lock
     faceplayer
     message(BP_Mart_Greetings)
     waitmessage
-    bpmart(BP_Mart_Items)
-    msgbox(gText_PleaseComeAgain)
+    bpmart(BP_Mart_Items, TRUE)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(PleaseSaveSomeBp)
+    }
+    else{
+        msgbox(gText_PleaseComeAgain)
+    }
     release
 }
 
 mart BP_Mart_Items{
-    ITEM_GREPA_BERRY
-    ITEM_MAX_POTION
-    ITEM_FIRE_STONE
-    ITEM_POWER_ANKLET
-    ITEM_WHITE_HERB
-    ITEM_AIR_BALLOON
-    ITEM_FOCUS_SASH
-    ITEM_ADAMANT_MINT
-    ITEM_ALAKAZITE
-    ITEM_ABILITY_CAPSULE
-    ITEM_TM02
-    ITEM_NONE
+    MOVE_POUND
+MOVE_KARATE_CHOP
+MOVE_DOUBLE_SLAP
+MOVE_COMET_PUNCH
+MOVE_MEGA_PUNCH
+MOVE_PAY_DAY
+MOVE_FIRE_PUNCH
+MOVE_ICE_PUNCH
+MOVE_THUNDER_PUNCH
+MOVE_SCRATCH
+MOVE_VISE_GRIP
+MOVE_VICE_GRIP
+MOVE_GUILLOTINE
+MOVE_RAZOR_WIND
+MOVE_SWORDS_DANCE
+MOVE_CUT
+MOVE_GUST
+MOVE_WING_ATTACK
+MOVE_WHIRLWIND
+MOVE_FLY
+MOVE_BIND
+MOVE_SLAM
+MOVE_VINE_WHIP
+MOVE_STOMP
+MOVE_DOUBLE_KICK
+MOVE_MEGA_KICK
+MOVE_JUMP_KICK
+MOVE_ROLLING_KICK
+MOVE_SAND_ATTACK
+MOVE_HEADBUTT
+MOVE_HORN_ATTACK
+MOVE_FURY_ATTACK
+MOVE_HORN_DRILL
+MOVE_TACKLE
+MOVE_BODY_SLAM
+MOVE_WRAP
+MOVE_TAKE_DOWN
+MOVE_THRASH
+MOVE_DOUBLE_EDGE
+MOVE_TAIL_WHIP
+MOVE_POISON_STING
+MOVE_TWINEEDLE
+MOVE_PIN_MISSILE
+MOVE_LEER
+MOVE_BITE
+MOVE_GROWL
+MOVE_ROAR
+MOVE_SING
+MOVE_SUPERSONIC
+MOVE_SONIC_BOOM
+MOVE_DISABLE
+MOVE_ACID
+MOVE_EMBER
+MOVE_FLAMETHROWER
+MOVE_MIST
+MOVE_WATER_GUN
+MOVE_HYDRO_PUMP
+MOVE_SURF
+MOVE_ICE_BEAM
+MOVE_BLIZZARD
+MOVE_PSYBEAM
+MOVE_BUBBLE_BEAM
+MOVE_AURORA_BEAM
+MOVE_HYPER_BEAM
+MOVE_PECK
+MOVE_DRILL_PECK
+MOVE_SUBMISSION
+MOVE_LOW_KICK
+MOVE_COUNTER
+MOVE_SEISMIC_TOSS
+MOVE_STRENGTH
+MOVE_ABSORB
+MOVE_MEGA_DRAIN
+MOVE_LEECH_SEED
+MOVE_GROWTH
+MOVE_RAZOR_LEAF
+MOVE_SOLAR_BEAM
+MOVE_POISON_POWDER
+MOVE_STUN_SPORE
+MOVE_SLEEP_POWDER
+MOVE_PETAL_DANCE
+MOVE_STRING_SHOT
+MOVE_DRAGON_RAGE
+MOVE_FIRE_SPIN
+MOVE_THUNDER_SHOCK
+MOVE_THUNDERBOLT
+MOVE_THUNDER_WAVE
+MOVE_THUNDER
+MOVE_ROCK_THROW
+MOVE_EARTHQUAKE
+MOVE_FISSURE
+MOVE_DIG
+MOVE_TOXIC
+MOVE_CONFUSION
+MOVE_PSYCHIC
+MOVE_HYPNOSIS
+MOVE_MEDITATE
+MOVE_AGILITY
+MOVE_QUICK_ATTACK
+MOVE_RAGE
+    MOVE_NONE
 }
 
 text BP_Mart_Greetings{
@@ -32,7 +124,12 @@ text BP_Mart_Greetings{
 	"Welcome to the\n"
 	"Exchange Service Corner!\p"
 	"Would you like to trade in your BP\n"
-	"for some fabulous prizes?"
+	"to teach your Pokémon new moves?"
+}
+
+text PleaseSaveSomeBp{
+    "Please save some BP\n"
+    "and come see us again."
 }
 
 script TestDir{
@@ -48,4 +145,91 @@ script TestDir{
             msgbox("facing south")
     }
     release
+}
+
+// mapscripts TestMap_MapScripts{
+//     MAP_SCRIPT_ON_TRANSITION: RandomizeWarp
+// }
+
+// script RandomizeWarp{
+//     random(3)
+//     copyvar(VAR_TEMP_1, VAR_RESULT)
+// }
+
+// script WarpTile1{
+//     if(var(VAR_TEMP_1) == 0){
+//         warpteleport()  // correct warp
+//     }
+//     else{
+//         warpteleport()  // wrong warp
+//     }
+// }
+
+// script WarpTile2{
+//     if(var(VAR_TEMP_1) == 1){
+//         warpteleport()  // correct warp
+//     }
+//     else{
+//         warpteleport()  // wrong warp
+//     }
+// }
+
+// script WarpTile3{
+//     if(var(VAR_TEMP_1) == 2){
+//         warpteleport()  // correct warp
+//     }
+//     else{
+//         warpteleport()  // wrong warp
+//     }
+// }
+
+// script WarpTile4{
+//     if(var(VAR_TEMP_1) == 3){
+//         warpteleport()  // correct warp
+//     }
+//     else{
+//         warpteleport()  // wrong warp
+//     }
+// }
+
+script DebugGuy{
+    lock
+    faceplayer
+    msgbox(EnableMoveInfo, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        clearflag(FLAG_TEMP_1)
+        clearflag(FLAG_TEMP_2)
+        msgbox(BasicMenu)
+        release
+        end
+    }
+    setflag(FLAG_TEMP_1)
+    msgbox(EnableContestInfo, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        clearflag(FLAG_TEMP_2)
+        msgbox(MoveInfoEnabled)
+        release
+        end
+    }
+    setflag(FLAG_TEMP_2)
+    msgbox(EverythingEnabled)
+    release
+}
+
+text EnableMoveInfo{
+    "Enable move info window?"
+}
+text BasicMenu{
+    "Move Tutor set to default."
+}
+text EnableContestInfo{
+    "Enable contest move info?"
+}
+text MoveInfoEnabled{
+    "Move Tutor set to show\n"
+    "basic move info."
+}
+text EverythingEnabled{
+    "Move Tutor set to show\n"
+    "all move info."
 }

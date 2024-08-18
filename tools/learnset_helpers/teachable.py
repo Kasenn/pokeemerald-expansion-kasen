@@ -31,6 +31,10 @@ for file in incs_to_check:
         for x in re.findall(r'setvar VAR_0x8005, (MOVE_.*)', raw):
             if not x in tutor_moves:
                 tutor_moves.append(x)
+    if 'hasMoveTutor' in raw:
+        for x in re.findall(r'(MOVE_.*)', raw):
+            if not x in tutor_moves:
+                tutor_moves.append(x)
 
 # scan TMs and HMs
 with open("./include/constants/tms_hms.h", 'r') as file:
