@@ -968,11 +968,11 @@ static void RemoveDecorationItemsScrollIndicators(void)
     }
 }
 
-static void AddDecorationItemsWindow(u8 taskId)
-{
-    AddDecorationWindow(WINDOW_DECORATION_CATEGORIES);
-    InitDecorationItemsWindow(taskId);
-}
+// static void AddDecorationItemsWindow(u8 taskId)
+// {
+//     AddDecorationWindow(WINDOW_DECORATION_CATEGORIES);
+//     InitDecorationItemsWindow(taskId);
+// }
 
 static void InitDecorationItemsWindow(u8 taskId)
 {
@@ -1784,29 +1784,29 @@ static void c1_overworld_prev_quest(u8 taskId)
     }
 }
 
-static void Task_InitDecorationItemsWindow(u8 taskId)
-{
-    s16 *data = gTasks[taskId].data;
-    switch (tState)
-    {
-    case 0:
-        HideSecretBaseDecorationSprites();
-        tState++;
-        break;
-    case 1:
-        ScriptContext_SetupScript(SecretBase_EventScript_InitDecorations);
-        tState++;
-        break;
-    case 2:
-        LockPlayerFieldControls();
-        tState++;
-        break;
-    case 3:
-        if (IsWeatherNotFadingIn() == TRUE)
-            gTasks[taskId].func = HandleDecorationItemsMenuInput;
-        break;
-    }
-}
+// static void Task_InitDecorationItemsWindow(u8 taskId)
+// {
+//     s16 *data = gTasks[taskId].data;
+//     switch (tState)
+//     {
+//     case 0:
+//         HideSecretBaseDecorationSprites();
+//         tState++;
+//         break;
+//     case 1:
+//         ScriptContext_SetupScript(SecretBase_EventScript_InitDecorations);
+//         tState++;
+//         break;
+//     case 2:
+//         LockPlayerFieldControls();
+//         tState++;
+//         break;
+//     case 3:
+//         if (IsWeatherNotFadingIn() == TRUE)
+//             gTasks[taskId].func = HandleDecorationItemsMenuInput;
+//         break;
+//     }
+// }
 
 // static void FieldCB_InitDecorationItemsWindow(void)
 // {
