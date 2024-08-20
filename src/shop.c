@@ -123,6 +123,7 @@ static EWRAM_DATA u8 sPurchaseHistoryId = 0;
 EWRAM_DATA struct ItemSlot gMartPurchaseHistory[SMARTSHOPPER_NUM_ITEMS] = {0};
 static EWRAM_DATA u16 sScrollOffset = 0;
 static EWRAM_DATA u16 sSelectedRow = 0;
+static EWRAM_DATA u8 sNarrowerText = 0;
 
 static void Task_ShopMenu(u8 taskId);
 static void Task_HandleShopMenuQuit(u8 taskId);
@@ -813,7 +814,9 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
             description = ItemId_GetDescription(item);
         else if (MARTMOVE)
         {
-            FormatTextByWidth(gStringVar3, 101, FONT_NARROWER, gMovesInfo[item].description, GetFontAttribute(FONT_NARROWER, FONTATTR_LETTER_SPACING));
+            FormatTextByWidth(gStringVar3, 101, FONT_NARROW, gMovesInfo[item].description, GetFontAttribute(FONT_NARROW, FONTATTR_LETTER_SPACING));
+            if (sNarrowerText == TRUE)
+                FormatTextByWidth(gStringVar3, 101, FONT_NARROWER, gMovesInfo[item].description, GetFontAttribute(FONT_NARROWER, FONTATTR_LETTER_SPACING));
             description = gStringVar3;
         }
         else
@@ -1071,7 +1074,14 @@ static void BuyMenuInitWindows(void)
 static void BuyMenuPrint(u8 windowId, const u8 *text, u8 x, u8 y, s8 speed, u8 colorSet)
 {
     if (MARTMOVE)
-        AddTextPrinterParameterized4(windowId, FONT_NARROWER, x, y, 0, -2, sShopBuyMenuTextColors[colorSet], speed, text);
+        if (sNarrowerText == TRUE)
+        {
+            sNarrowerText = FALSE;
+            AddTextPrinterParameterized4(windowId, FONT_NARROWER, x, y, 0, -2, sShopBuyMenuTextColors[colorSet], speed, text);
+        }
+        else
+            AddTextPrinterParameterized4(windowId, FONT_NARROW, x, y, 0, -2, sShopBuyMenuTextColors[colorSet], speed, text);
+
     else
         AddTextPrinterParameterized4(windowId, FONT_NORMAL, x, y, 0, 0, sShopBuyMenuTextColors[colorSet], speed, text);
 }
@@ -1746,6 +1756,7 @@ void CreateBPmartMoveTutor(const u16 *itemsForSale)
 static void FormatTextByWidth(u8 *result, s32 maxWidth, u8 fontId, const u8 *str, s16 letterSpacing)
 {
     u8 *end, *ptr, *curLine, *lastSpace;
+    u8 lines = 1;
 
     end = result;
     // copy string, replacing all spaces and line breaks with EOS
@@ -1785,6 +1796,7 @@ static void FormatTextByWidth(u8 *result, s32 maxWidth, u8 fontId, const u8 *str
         if (GetStringWidth(fontId, curLine, letterSpacing) > maxWidth)
         {
             *lastSpace = CHAR_NEWLINE;
+            lines++;
 
             curLine = ptr;
         }
@@ -1822,5 +1834,7 @@ static void FormatTextByWidth(u8 *result, s32 maxWidth, u8 fontId, const u8 *str
         {
             ptr++;
         }
+        if (lines > 3)
+            sNarrowerText = TRUE;
     }
 }
