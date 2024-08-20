@@ -1961,9 +1961,10 @@
 	@ Products should be a list of .2byte item values preceded by an .align 2
 	@ Uses BP as currency, with the prices based on the .bpCost value
 	@ in src/data/items.h.
-	.macro bpmart products:req
+	.macro bpmart products:req, isMoveTutor:req
 	.byte 0xee
 	.4byte \products
+	.2byte \isMoveTutor
 	.endm
 
 	@ Sets the player team to level specified by the argument

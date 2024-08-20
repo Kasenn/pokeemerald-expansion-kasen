@@ -89,6 +89,7 @@ void BufferBattlePartyCurrentOrder(void);
 void BufferBattlePartyCurrentOrderBySide(u8 battlerId, u8 flankId);
 void SwitchPartyOrderLinkMulti(u8 battlerId, u8 slot, u8 arrayIndex);
 void SwitchPartyMonSlots(u8 slot, u8 slot2);
+void InitPartyMenu(u8 menuType, u8 layout, u8 partyAction, bool8 keepCursorPos, u8 messageId, TaskFunc task, MainCallback callback);
 u8 GetPartyIdFromBattlePartyId(u8 slot);
 void ShowPartyMenuToShowcaseMultiBattleParty(void);
 void ChooseMonForDaycare(void);

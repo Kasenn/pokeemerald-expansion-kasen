@@ -9,16 +9,6 @@ gText_PlayerWhatCanIDoForYou::
 	.string "{PLAYER}{STRING 5}, welcome!\p"
 	.string "What can I do for you?$"
 
-BPMart::
-	lock
-	faceplayer
-	message gText_HowMayIServeYouBp
-	waitmessage
-	bpmart BPmart_Items
-	msgbox gText_PleaseComeAgainBp, MSGBOX_DEFAULT
-	release
-	end
-
 gText_HowMayIServeYouBp::
 	.string "Hello!\p"
 	.string "Welcome to the\n"

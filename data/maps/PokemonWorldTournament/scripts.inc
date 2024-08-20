@@ -2,15 +2,17 @@ PokemonWorldTournament_MapScripts::
 	.byte 0
 
 
+@hasMoveTutor
+
 BP_Mart::
 	lock
 	faceplayer
 	message BP_Mart_Greetings
 	waitmessage
-	bpmart BP_Mart_Items, TRUE
+	bpmart BP_Mart_Moves, TRUE
 	compare VAR_RESULT, FALSE
 	goto_if_eq BP_Mart_2
-	msgbox gText_PleaseComeAgain
+	msgbox TakeYourBP
 BP_Mart_1:
 	release
 	return
@@ -21,108 +23,61 @@ BP_Mart_2:
 
 
 	.align 2
-BP_Mart_Items:
-	.2byte MOVE_POUND
-	.2byte MOVE_KARATE_CHOP
-	.2byte MOVE_DOUBLE_SLAP
-	.2byte MOVE_COMET_PUNCH
-	.2byte MOVE_MEGA_PUNCH
-	.2byte MOVE_PAY_DAY
+BP_Mart_Moves:
+	.2byte MOVE_BIND
+	.2byte MOVE_SNORE
+	.2byte MOVE_WATER_PULSE
+	.2byte MOVE_SHOCK_WAVE
+	.2byte MOVE_BUG_BITE
+	.2byte MOVE_COVET
+	.2byte MOVE_LOW_KICK
+	.2byte MOVE_SIGNAL_BEAM
+	.2byte MOVE_GIGA_DRAIN
+	.2byte MOVE_THUNDER_PUNCH
 	.2byte MOVE_FIRE_PUNCH
 	.2byte MOVE_ICE_PUNCH
-	.2byte MOVE_THUNDER_PUNCH
-	.2byte MOVE_SCRATCH
-	.2byte MOVE_VISE_GRIP
-	.2byte MOVE_VICE_GRIP
-	.2byte MOVE_GUILLOTINE
-	.2byte MOVE_RAZOR_WIND
-	.2byte MOVE_SWORDS_DANCE
-	.2byte MOVE_CUT
-	.2byte MOVE_GUST
-	.2byte MOVE_WING_ATTACK
-	.2byte MOVE_WHIRLWIND
-	.2byte MOVE_FLY
-	.2byte MOVE_BIND
-	.2byte MOVE_SLAM
-	.2byte MOVE_VINE_WHIP
-	.2byte MOVE_STOMP
-	.2byte MOVE_DOUBLE_KICK
-	.2byte MOVE_MEGA_KICK
-	.2byte MOVE_JUMP_KICK
-	.2byte MOVE_ROLLING_KICK
-	.2byte MOVE_SAND_ATTACK
-	.2byte MOVE_HEADBUTT
-	.2byte MOVE_HORN_ATTACK
-	.2byte MOVE_FURY_ATTACK
-	.2byte MOVE_HORN_DRILL
-	.2byte MOVE_TACKLE
-	.2byte MOVE_BODY_SLAM
-	.2byte MOVE_WRAP
-	.2byte MOVE_TAKE_DOWN
-	.2byte MOVE_THRASH
-	.2byte MOVE_DOUBLE_EDGE
-	.2byte MOVE_TAIL_WHIP
-	.2byte MOVE_POISON_STING
-	.2byte MOVE_TWINEEDLE
-	.2byte MOVE_PIN_MISSILE
-	.2byte MOVE_LEER
-	.2byte MOVE_BITE
-	.2byte MOVE_GROWL
-	.2byte MOVE_ROAR
-	.2byte MOVE_SING
-	.2byte MOVE_SUPERSONIC
-	.2byte MOVE_SONIC_BOOM
-	.2byte MOVE_DISABLE
-	.2byte MOVE_ACID
-	.2byte MOVE_EMBER
-	.2byte MOVE_FLAMETHROWER
-	.2byte MOVE_MIST
-	.2byte MOVE_WATER_GUN
-	.2byte MOVE_HYDRO_PUMP
-	.2byte MOVE_SURF
-	.2byte MOVE_ICE_BEAM
-	.2byte MOVE_BLIZZARD
-	.2byte MOVE_PSYBEAM
-	.2byte MOVE_BUBBLE_BEAM
-	.2byte MOVE_AURORA_BEAM
-	.2byte MOVE_HYPER_BEAM
-	.2byte MOVE_PECK
-	.2byte MOVE_DRILL_PECK
-	.2byte MOVE_SUBMISSION
-	.2byte MOVE_LOW_KICK
-	.2byte MOVE_COUNTER
-	.2byte MOVE_SEISMIC_TOSS
-	.2byte MOVE_STRENGTH
-	.2byte MOVE_ABSORB
-	.2byte MOVE_MEGA_DRAIN
-	.2byte MOVE_LEECH_SEED
-	.2byte MOVE_GROWTH
-	.2byte MOVE_RAZOR_LEAF
-	.2byte MOVE_SOLAR_BEAM
-	.2byte MOVE_POISON_POWDER
-	.2byte MOVE_STUN_SPORE
-	.2byte MOVE_SLEEP_POWDER
-	.2byte MOVE_PETAL_DANCE
-	.2byte MOVE_STRING_SHOT
-	.2byte MOVE_DRAGON_RAGE
-	.2byte MOVE_FIRE_SPIN
-	.2byte MOVE_THUNDER_SHOCK
-	.2byte MOVE_THUNDERBOLT
-	.2byte MOVE_THUNDER_WAVE
-	.2byte MOVE_THUNDER
-	.2byte MOVE_ROCK_THROW
-	.2byte MOVE_EARTHQUAKE
-	.2byte MOVE_FISSURE
-	.2byte MOVE_DIG
-	.2byte MOVE_TOXIC
-	.2byte MOVE_CONFUSION
-	.2byte MOVE_PSYCHIC
-	.2byte MOVE_HYPNOSIS
-	.2byte MOVE_MEDITATE
-	.2byte MOVE_AGILITY
-	.2byte MOVE_QUICK_ATTACK
-	.2byte MOVE_RAGE
+	.2byte MOVE_DRAIN_PUNCH
+	.2byte MOVE_KNOCK_OFF
+	.2byte MOVE_SUPER_FANG
+	.2byte MOVE_DUAL_CHOP
+	.2byte MOVE_ENDEAVOR
 	.2byte MOVE_NONE
+	.2byte ITEM_NONE
+
+BP_Mart2::
+	lock
+	faceplayer
+	message BP_Mart_Greetings2
+	waitmessage
+	bpmart BP_Mart_Items, FALSE
+	msgbox gText_PleaseComeAgain
+	release
+	return
+
+
+	.align 2
+BP_Mart_Items:
+	.2byte ITEM_TOXIC_ORB
+	.2byte ITEM_FLAME_ORB
+	.2byte ITEM_IRON_BALL
+	.2byte ITEM_RING_TARGET
+	.2byte ITEM_WHITE_HERB
+	.2byte ITEM_MENTAL_HERB
+	.2byte ITEM_POWER_HERB
+	.2byte ITEM_FOCUS_SASH
+	.2byte ITEM_AIR_BALLOON
+	.2byte ITEM_RED_CARD
+	.2byte ITEM_EJECT_BUTTON
+	.2byte ITEM_WEAKNESS_POLICY
+	.2byte ITEM_CHOICE_BAND
+	.2byte ITEM_CHOICE_SPECS
+	.2byte ITEM_CHOICE_SCARF
+	.2byte ITEM_LIFE_ORB
+	.2byte ITEM_ROCKY_HELMET
+	.2byte ITEM_ASSAULT_VEST
+	.2byte ITEM_SAFETY_GOGGLES
+	.2byte ITEM_TERRAIN_EXTENDER
+	.2byte ITEM_PROTECTIVE_PADS
 	.2byte ITEM_NONE
 
 TestDir::
@@ -194,12 +149,19 @@ TestDir_Text_2:
 TestDir_Text_3:
 	.string "facing south$"
 
+TakeYourBP::
+	.string "I'll be taking your BP now.{PLAY_SE SE_SHOP}$"
+
 BP_Mart_Greetings::
+	.string "We got the moves,\n"
+	.string "we got the groove.$"
+
+BP_Mart_Greetings2::
 	.string "Hello!\p"
 	.string "Welcome to the\n"
 	.string "Exchange Service Corner!\p"
 	.string "Would you like to trade in your BP\n"
-	.string "to teach your Pokémon new moves?$"
+	.string "for some exquisite items?$"
 
 PleaseSaveSomeBp::
 	.string "Please save some BP\n"

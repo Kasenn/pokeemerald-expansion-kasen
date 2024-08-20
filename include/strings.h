@@ -966,8 +966,14 @@ extern const u8 BattleFrontier_Lounge3_Text_GetToBattlePyramid[];
 extern const u8 gText_BP[];
 extern const u8 gText_YouDontHaveBp[];
 extern const u8 gText_YouWantedVar1ThatllBeVar2_Bp[];
+extern const u8 gText_YouWantedVar1ThatllBeVar2_BpMove[];
 extern const u8 gText_Var1AndYouWantedVar2_Bp[];
 extern const u8 gText_Exchange[];
+extern const u8 gText_TeachMove[];
+extern const u8 gText_WhichPokemon[];
+extern const u8 gText_TutorPhysical[];
+extern const u8 gText_TutorSpecial[];
+extern const u8 gText_TutorStatus[];
 
 // Battle Frontier Exchange Corner
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_KissPosterDesc[];
