@@ -238,6 +238,7 @@ u8 GetMoveDirectionFastAnimNum(u8 direction);
 u8 GetMoveDirectionFasterAnimNum(u8 direction);
 u8 GetMoveDirectionFastestAnimNum(u8 direction);
 u8 GetLedgeJumpDirection(s16 x, s16 y, u8 direction);
+u8 GetLongLedgeJumpDirection(s16 x, s16 y, u8 direction);
 void CameraObjectSetFollowedSpriteId(u8 objectId);
 void UpdateObjectEventSpriteInvisibility(struct Sprite *sprite, bool8 invisible);
 s16 GetFigure8XOffset(s16 idx);
@@ -308,7 +309,7 @@ void MovementType_FollowPlayer(struct Sprite *);
 u8 GetSlideMovementAction(u32);
 u8 GetJumpMovementAction(u32);
 u8 GetJump2MovementAction(u32);
-// u8 GetJump3MovementAction(u32);
+u8 GetJump3MovementAction(u32); //wip2
 u8 CopySprite(struct Sprite *sprite, s16 x, s16 y, u8 subpriority);
 u8 CreateCopySpriteAt(struct Sprite *sprite, s16 x, s16 y, u8 subpriority);
 

@@ -19,6 +19,7 @@ void PlayerOnBikeCollide(u8 direction);
 void PlayerFaceDirection(u8 direction);
 void PlayerTurnInPlace(u8 direction);
 void PlayerJumpLedge(u8 direction);
+void PlayerJumpLedgeLong(u8 direction);
 void PlayerIdleWheelie(u8 direction);
 void PlayerStartWheelie(u8 direction);
 void PlayerEndWheelie(u8 direction);

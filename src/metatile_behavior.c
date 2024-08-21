@@ -226,6 +226,38 @@ bool8 MetatileBehavior_IsJumpSouth(u8 metatileBehavior)
         return FALSE;
 }
 
+bool8 MetatileBehavior_IsRampEast(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_RAMP_EAST)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsRampWest(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_RAMP_WEST)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsRampNorth(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_RAMP_NORTH)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsRampSouth(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_RAMP_SOUTH)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 bool8 MetatileBehavior_IsPokeGrass(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_TALL_GRASS || metatileBehavior == MB_LONG_GRASS || MB_TALL_GRASS_AUTUMN)

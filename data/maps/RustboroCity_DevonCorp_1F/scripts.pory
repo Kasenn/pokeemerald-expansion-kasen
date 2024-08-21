@@ -836,3 +836,27 @@ text RenameBrother{
     "Would you like to rename your brother?\n"
     "(Yes if haven't seen this before!)"
 }
+
+script JumpTest{
+    applymovement(22, Jump0)
+    applymovement(23, Jump1)
+    applymovement(24, Jump1Special)
+    applymovement(25, Jump2)
+    waitmovement(25)
+}
+
+movement Jump0{
+    jump_in_place_right
+}
+
+movement Jump1{
+    jump_right
+}
+
+movement Jump1Special{
+    jump_special_right
+}
+
+movement Jump2{
+    jump_2_right
+}

@@ -1,0 +1,39 @@
+{
+  "id": "MAP_ROUTE25",
+  "name": "Route25",
+  "layout": "LAYOUT_ROUTE25",
+  "music": "MUS_ROUTE113",
+  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_ROUTE24",
+      "offset": -43,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_EVERFROST_TOWN",
+      "offset": -1,
+      "direction": "right"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

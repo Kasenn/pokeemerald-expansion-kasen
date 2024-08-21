@@ -97,7 +97,22 @@
     "IceperchCity",
     "SnowcrestCity",
     "GalewindCity",
-    "Route14_CaveEntrance"
+    "Route14_CaveEntrance",
+    "Route16",
+    "Route17",
+    "BarrenWastes",
+    "Route18",
+    "Route19",
+    "Route20",
+    "Route21",
+    "Route22_Part2",
+    "Route24",
+    "Route25",
+    "Route26",
+    "Route27",
+    "Route27_Part2",
+    "Route28_Part2",
+    "Route29"
   ],
   "gMapGroup_RouteInteriors": [
     "RanchBarn",

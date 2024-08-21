@@ -231,8 +231,13 @@ static void MachBikeTransition_TrySpeedUp(u8 direction)
         collision = GetBikeCollision(direction);
         if (collision > 0 && collision < COLLISION_VERTICAL_RAIL)
         {
+            DebugPrintfLevel(MGBA_LOG_WARN, "%d", collision);
             // we hit a solid object, but check to see if its a ledge and then jump.
-            if (collision == COLLISION_LEDGE_JUMP)
+            if (collision == COLLISION_LEDGE_JUMP_LONG)
+            {
+                PlayerJumpLedgeLong(direction);
+            }
+            else if (collision == COLLISION_LEDGE_JUMP)
             {
                 PlayerJumpLedge(direction);
             }
@@ -268,7 +273,11 @@ static void MachBikeTransition_TrySlowDown(u8 direction)
 
     if (collision > 0 && collision < COLLISION_VERTICAL_RAIL)
     {
-        if (collision == COLLISION_LEDGE_JUMP)
+        if (collision == COLLISION_LEDGE_JUMP_LONG)
+        {
+            PlayerJumpLedgeLong(direction);
+        }
+        else if (collision == COLLISION_LEDGE_JUMP)
         {
             PlayerJumpLedge(direction);
         }
@@ -569,7 +578,9 @@ static void AcroBikeTransition_Moving(u8 direction)
     collision = GetBikeCollision(direction);
     if (collision > 0 && collision < COLLISION_VERTICAL_RAIL)
     {
-        if (collision == COLLISION_LEDGE_JUMP)
+        if (collision == COLLISION_LEDGE_JUMP_LONG)
+            PlayerJumpLedgeLong(direction);
+        else if (collision == COLLISION_LEDGE_JUMP)
             PlayerJumpLedge(direction);
         else if (collision == COLLISION_OBJECT_EVENT && IsPlayerCollidingWithFarawayIslandMew(direction))
             PlayerOnBikeCollideWithFarawayIslandMew(direction);
@@ -631,7 +642,7 @@ static void AcroBikeTransition_WheelieHoppingMoving(u8 direction)
     collision = GetBikeCollision(direction);
     if (collision && collision != COLLISION_WHEELIE_HOP)
     {
-        if (collision == COLLISION_LEDGE_JUMP)
+        if (collision == COLLISION_LEDGE_JUMP || collision == COLLISION_LEDGE_JUMP_LONG)
         {
             PlayerLedgeHoppingWheelie(direction);
             return;
@@ -694,7 +705,7 @@ static void AcroBikeTransition_WheelieMoving(u8 direction)
     collision = GetBikeCollision(direction);
     if (collision > 0 && collision < COLLISION_VERTICAL_RAIL)
     {
-        if (collision == COLLISION_LEDGE_JUMP)
+        if (collision == COLLISION_LEDGE_JUMP || collision == COLLISION_LEDGE_JUMP_LONG)
         {
             PlayerLedgeHoppingWheelie(direction);
         }
@@ -728,7 +739,7 @@ static void AcroBikeTransition_WheelieRisingMoving(u8 direction)
     collision = GetBikeCollision(direction);
     if (collision > 0 && collision < COLLISION_VERTICAL_RAIL)
     {
-        if (collision == COLLISION_LEDGE_JUMP)
+        if (collision == COLLISION_LEDGE_JUMP || collision == COLLISION_LEDGE_JUMP_LONG)
         {
             PlayerLedgeHoppingWheelie(direction);
         }
@@ -762,7 +773,9 @@ static void AcroBikeTransition_WheelieLoweringMoving(u8 direction)
     collision = GetBikeCollision(direction);
     if (collision > 0 && collision < COLLISION_VERTICAL_RAIL)
     {
-        if (collision == COLLISION_LEDGE_JUMP)
+        if (collision == COLLISION_LEDGE_JUMP_LONG)
+            PlayerJumpLedgeLong(direction);
+        else if (collision == COLLISION_LEDGE_JUMP)
             PlayerJumpLedge(direction);
         else if (collision < COLLISION_STOP_SURFING || collision > COLLISION_ROTATING_GATE)
             PlayerEndWheelie(direction);

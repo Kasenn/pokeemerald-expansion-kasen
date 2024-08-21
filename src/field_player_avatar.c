@@ -78,6 +78,7 @@ static u8 CheckForPlayerAvatarStaticCollision(u8);
 static u8 CheckForObjectEventStaticCollision(struct ObjectEvent *, s16, s16, u8, u8);
 static bool8 CanStopSurfing(s16, s16, u8);
 static bool8 ShouldJumpLedge(s16, s16, u8);
+static bool8 ShouldJumpLongLedge(s16, s16, u8);
 static bool8 TryPushBoulder(s16, s16, u8);
 static void CheckAcroBikeCollision(s16, s16, u8, u8 *);
 
@@ -500,6 +501,8 @@ static bool8 DoForcedMovement(u8 direction, void (*moveFunc)(u8))
         {
             if (collision == COLLISION_LEDGE_JUMP)
                 PlayerJumpLedge(direction);
+            if (collision == COLLISION_LEDGE_JUMP_LONG)
+                PlayerJumpLedgeLong(direction);
             playerAvatar->flags |= PLAYER_AVATAR_FLAG_FORCED_MOVE;
             playerAvatar->runningState = MOVING;
             return TRUE;
@@ -683,6 +686,11 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
             PlayerJumpLedge(direction);
             return;
         }
+        if (collision == COLLISION_LEDGE_JUMP_LONG)
+        {
+            PlayerJumpLedgeLong(direction);
+            return;
+        }
         else if (collision == COLLISION_OBJECT_EVENT && IsPlayerCollidingWithFarawayIslandMew(direction))
         {
             PlayerNotOnBikeCollideWithFarawayIslandMew(direction);
@@ -757,6 +765,11 @@ u8 CheckForObjectEventCollision(struct ObjectEvent *objectEvent, s16 x, s16 y, u
         IncrementGameStat(GAME_STAT_JUMPED_DOWN_LEDGES);
         return COLLISION_LEDGE_JUMP;
     }
+    if (ShouldJumpLongLedge(x, y, direction))
+    {
+        IncrementGameStat(GAME_STAT_JUMPED_DOWN_LEDGES);
+        return COLLISION_LEDGE_JUMP_LONG;
+    }
     if (collision == COLLISION_OBJECT_EVENT && TryPushBoulder(x, y, direction))
         return COLLISION_PUSHED_BOULDER;
 
@@ -804,6 +817,15 @@ static bool8 ShouldJumpLedge(s16 x, s16 y, u8 direction)
     else
         return FALSE;
 }
+
+static bool8 ShouldJumpLongLedge(s16 x, s16 y, u8 direction)
+{
+    if (GetLongLedgeJumpDirection(x, y, direction) != DIR_NONE)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 
 static bool8 TryPushBoulder(s16 x, s16 y, u8 direction)
 {
@@ -1099,30 +1121,19 @@ void PlayerTurnInPlace(u8 direction)
     PlayerSetAnimId(GetWalkInPlaceFastMovementAction(direction), COPY_MOVE_FACE);
 }
 
-void PlayerJumpLedge(u8 direction)
+void PlayerJumpLedge(u8 direction)//wip
 {
-    // s16 x, y;
-
     PlaySE(SE_LEDGE);
-    // if (MetatileBehavior_IsJumpNorthEast(MapGridGetMetatileBehaviorAt(x, y)))
-    // {
-    //     PlayerSetAnimId(GetJump3MovementAction(direction), COPY_MOVE_JUMP2);
-    // }
-    // else if (MetatileBehavior_IsJumpNorthWest(MapGridGetMetatileBehaviorAt(x, y)))
-    // {
-    //     PlayerSetAnimId(GetJump3MovementAction(direction), COPY_MOVE_JUMP2);
-    // }
-    // else if (MetatileBehavior_IsJumpSouthEast(MapGridGetMetatileBehaviorAt(x, y)))
-    // {
-    //     PlayerSetAnimId(GetJump3MovementAction(direction), COPY_MOVE_JUMP2);
-    // }
-    // else if (MetatileBehavior_IsJumpSouthWest(MapGridGetMetatileBehaviorAt(x, y)))
-    // {
-    //     PlayerSetAnimId(GetJump3MovementAction(direction), COPY_MOVE_JUMP2);
-    // }
-    // else{
-        PlayerSetAnimId(GetJump2MovementAction(direction), COPY_MOVE_JUMP2);
-    // }
+    PlayerSetAnimId(GetJump2MovementAction(direction), COPY_MOVE_JUMP2);
+}
+
+void PlayerJumpLedgeLong(u8 direction)
+{
+    PlaySE(SE_LEDGE);
+    if (GetPlayerSpeed() != PLAYER_SPEED_FASTEST)
+        PlayerSetAnimId(GetJumpMovementAction(direction), COPY_MOVE_JUMP2);
+    else
+        PlayerSetAnimId(GetJump3MovementAction(direction), COPY_MOVE_JUMP2);
 }
 
 // Stop player on current facing direction once they're done moving and if they're not currently Acro Biking on bumpy slope

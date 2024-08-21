@@ -17,6 +17,11 @@
       "map": "MAP_SANDSTONE_CITY",
       "offset": -25,
       "direction": "left"
+    },
+    {
+      "map": "MAP_GALEWIND_CITY",
+      "offset": 112,
+      "direction": "up"
     }
   ],
   "object_events": [

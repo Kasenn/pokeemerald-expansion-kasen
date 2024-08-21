@@ -2,7 +2,7 @@
   "id": "MAP_TEST_ROOM",
   "name": "TestRoom",
   "layout": "LAYOUT_TEST_ROOM",
-  "music": "MUS_VICTORY_ROAD",
+  "music": "MUS_ROUTE119",
   "region_map_section": "MAPSEC_ALDELEAF_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -275,19 +275,6 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAY_NORMAL_ORAS",
-      "x": 0,
-      "y": 0,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE",
-      "movement_range_x": 5,
-      "movement_range_y": 4,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
       "x": 7,
       "y": 22,
@@ -303,8 +290,8 @@
   ],
   "warp_events": [
     {
-      "x": 5,
-      "y": 24,
+      "x": 4,
+      "y": 8,
       "elevation": 0,
       "dest_map": "MAP_TEST_ROOM",
       "dest_warp_id": "0"

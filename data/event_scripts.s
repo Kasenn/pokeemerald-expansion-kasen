@@ -1499,3 +1499,33 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/WindywoodsFix/scripts.inc"
 
 	.include "data/maps/PokemonWorldTournament/scripts.inc"
+
+	.include "data/maps/Route16/scripts.inc"
+
+	.include "data/maps/Route17/scripts.inc"
+
+	.include "data/maps/BarrenWastes/scripts.inc"
+
+	.include "data/maps/Route18/scripts.inc"
+
+	.include "data/maps/Route19/scripts.inc"
+
+	.include "data/maps/Route20/scripts.inc"
+
+	.include "data/maps/Route21/scripts.inc"
+
+	.include "data/maps/Route22_Part2/scripts.inc"
+
+	.include "data/maps/Route24/scripts.inc"
+
+	.include "data/maps/Route25/scripts.inc"
+
+	.include "data/maps/Route26/scripts.inc"
+
+	.include "data/maps/Route27/scripts.inc"
+
+	.include "data/maps/Route27_Part2/scripts.inc"
+
+	.include "data/maps/Route28_Part2/scripts.inc"
+
+	.include "data/maps/Route29/scripts.inc"

@@ -24,6 +24,7 @@ BP_Mart_2:
 
 	.align 2
 BP_Mart_Moves:
+	.2byte MOVE_HEAD_SMASH
 	.2byte MOVE_BIND
 	.2byte MOVE_SNORE
 	.2byte MOVE_WATER_PULSE
@@ -150,7 +151,7 @@ TestDir_Text_3:
 	.string "facing south$"
 
 TakeYourBP::
-	.string "I'll be taking your BP now.{PLAY_SE SE_SHOP}$"
+	.string "I'll be taking your BP now.$"
 
 BP_Mart_Greetings::
 	.string "We got the moves,\n"

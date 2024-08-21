@@ -158,10 +158,7 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
-	fadescreenswapbuffers FADE_TO_BLACK
-	showobjectat 18, MAP_POKEMON_WORLD_TOURNAMENT
-	fadescreenswapbuffers FADE_FROM_BLACK
-	release
+	call JumpTest
 	end
 
 TestMsg:

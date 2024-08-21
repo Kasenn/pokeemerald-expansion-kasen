@@ -1086,6 +1086,13 @@ const u8 gJump2MovementActions[] = {
     MOVEMENT_ACTION_JUMP_2_LEFT,
     MOVEMENT_ACTION_JUMP_2_RIGHT,
 };
+const u8 gJump3MovementActions[] = {
+    MOVEMENT_ACTION_JUMP_3_DOWN,
+    MOVEMENT_ACTION_JUMP_3_DOWN,
+    MOVEMENT_ACTION_JUMP_3_UP,
+    MOVEMENT_ACTION_JUMP_3_LEFT,
+    MOVEMENT_ACTION_JUMP_3_RIGHT,
+};
 const u8 gJumpInPlaceMovementActions[] = {
     MOVEMENT_ACTION_JUMP_IN_PLACE_DOWN,
     MOVEMENT_ACTION_JUMP_IN_PLACE_DOWN,
@@ -5562,6 +5569,11 @@ bool8 FollowablePlayerMovement_Step(struct ObjectEvent *objectEvent, struct Spri
         // InitJumpRegular will set the proper speed
         ObjectEventSetSingleMovement(objectEvent, sprite, GetJump2MovementAction(direction));
     }
+    else if (GetLongLedgeJumpDirection(x, y, direction) != DIR_NONE)
+    {
+        // InitJumpRegular will set the proper speed
+        ObjectEventSetSingleMovement(objectEvent, sprite, GetJump3MovementAction(direction));//wip
+    }
     else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_DASH))
     {
         // Set follow speed according to player's speed
@@ -6346,6 +6358,7 @@ dirn_to_anim(GetWalkFasterMovementAction, gWalkFasterMovementActions);
 dirn_to_anim(GetSlideMovementAction, gSlideMovementActions);
 dirn_to_anim(GetPlayerRunMovementAction, gPlayerRunMovementActions);
 dirn_to_anim(GetJump2MovementAction, gJump2MovementActions);
+dirn_to_anim(GetJump3MovementAction, gJump3MovementActions);
 dirn_to_anim(GetJumpInPlaceMovementAction, gJumpInPlaceMovementActions);
 dirn_to_anim(GetJumpInPlaceTurnAroundMovementAction, gJumpInPlaceTurnAroundMovementActions);
 dirn_to_anim(GetJumpMovementAction, gJumpMovementActions);
@@ -6981,6 +6994,75 @@ bool8 MovementAction_Jump2Right_Step1(struct ObjectEvent *objectEvent, struct Sp
     }
     return FALSE;
 }
+
+bool8 MovementAction_Jump3Down_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    InitJumpRegular(objectEvent, sprite, DIR_SOUTH, JUMP_DISTANCE_FARTHER, JUMP_TYPE_FAST);
+    return MovementAction_Jump3Down_Step1(objectEvent, sprite);
+}
+
+bool8 MovementAction_Jump3Down_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (DoJumpAnim(objectEvent, sprite))
+    {
+        objectEvent->hasShadow = FALSE;
+        sprite->sActionFuncId = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 MovementAction_Jump3Up_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    InitJumpRegular(objectEvent, sprite, DIR_NORTH, JUMP_DISTANCE_FARTHER, JUMP_TYPE_FAST);
+    return MovementAction_Jump3Up_Step1(objectEvent, sprite);
+}
+
+bool8 MovementAction_Jump3Up_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (DoJumpAnim(objectEvent, sprite))
+    {
+        objectEvent->hasShadow = FALSE;
+        sprite->sActionFuncId = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 MovementAction_Jump3Left_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    InitJumpRegular(objectEvent, sprite, DIR_WEST, JUMP_DISTANCE_FARTHER, JUMP_TYPE_FAST);
+    return MovementAction_Jump3Left_Step1(objectEvent, sprite);
+}
+
+bool8 MovementAction_Jump3Left_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (DoJumpAnim(objectEvent, sprite))
+    {
+        objectEvent->hasShadow = FALSE;
+        sprite->sActionFuncId = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 MovementAction_Jump3Right_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    InitJumpRegular(objectEvent, sprite, DIR_EAST, JUMP_DISTANCE_FARTHER, JUMP_TYPE_FAST);
+    return MovementAction_Jump3Right_Step1(objectEvent, sprite);
+}
+
+bool8 MovementAction_Jump3Right_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (DoJumpAnim(objectEvent, sprite))
+    {
+        objectEvent->hasShadow = FALSE;
+        sprite->sActionFuncId = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
 
 static void InitMovementDelay(struct Sprite *sprite, u16 duration)
 {
@@ -9347,6 +9429,32 @@ u8 GetLedgeJumpDirection(s16 x, s16 y, u8 direction)
     return DIR_NONE;
 }
 
+u8 GetLongLedgeJumpDirection(s16 x, s16 y, u8 direction)
+{
+    static bool8 (*const ledgeBehaviorFuncs[])(u8) = {
+        [DIR_SOUTH - 1] = MetatileBehavior_IsRampSouth, //wip
+        [DIR_NORTH - 1] = MetatileBehavior_IsRampNorth,
+        [DIR_WEST - 1]  = MetatileBehavior_IsRampWest,
+        [DIR_EAST - 1]  = MetatileBehavior_IsRampEast,
+    };
+
+    u8 behavior;
+    u8 index = direction;
+
+    if (index == DIR_NONE)
+        return DIR_NONE;
+    else if (index > DIR_EAST)
+        index -= DIR_EAST;
+
+    index--;
+    behavior = MapGridGetMetatileBehaviorAt(x, y);
+
+    if (ledgeBehaviorFuncs[index](behavior) == TRUE)
+        return index + 1;
+
+    return DIR_NONE;
+}
+
 static void SetObjectEventSpriteOamTableForLongGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
     if (objEvent->disableCoveringGroundEffects)
@@ -10290,12 +10398,14 @@ static u8 DoJumpSpriteMovement(struct Sprite *sprite)
         [JUMP_DISTANCE_IN_PLACE] = 16,
         [JUMP_DISTANCE_NORMAL] = 16,
         [JUMP_DISTANCE_FAR] = 32,
+        [JUMP_DISTANCE_FARTHER] = 48,
     };
     u8 distanceToShift[] =
     {
         [JUMP_DISTANCE_IN_PLACE] = 0,
         [JUMP_DISTANCE_NORMAL] = 0,
         [JUMP_DISTANCE_FAR] = 1,
+        [JUMP_DISTANCE_FARTHER] = 2,
     };
     u8 result = 0;
 
@@ -10339,11 +10449,13 @@ static u8 DoJumpSpecialSpriteMovement(struct Sprite *sprite)
         [JUMP_DISTANCE_IN_PLACE] = 32,
         [JUMP_DISTANCE_NORMAL] = 32,
         [JUMP_DISTANCE_FAR] = 64,
+        [JUMP_DISTANCE_FARTHER] = 96,
     };
     u8 distanceToShift[] = {
         [JUMP_DISTANCE_IN_PLACE] = 1,
         [JUMP_DISTANCE_NORMAL] = 1,
         [JUMP_DISTANCE_FAR] = 2,
+        [JUMP_DISTANCE_FARTHER] = 3,
     };
     u8 result = 0;
 

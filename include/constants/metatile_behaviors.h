@@ -88,10 +88,10 @@
 #define MB_ELEVATION_3_DOOR 0x54
 #define MB_LAVA 0x55
 #define MB_NO_FLOOR 0x56
-#define MB_UNUSED_57 0x57
-#define MB_UNUSED_58 0x58
-#define MB_UNUSED_59 0x59
-#define MB_UNUSED_5A 0x5A
+#define MB_RAMP_NORTH 0x57
+#define MB_RAMP_EAST 0x58
+#define MB_RAMP_WEST 0x59
+#define MB_RAMP_SOUTH 0x5A
 #define MB_UNUSED_5B 0x5B
 #define MB_UNUSED_5C 0x5C
 #define MB_UNUSED_5D 0x5D

@@ -17,6 +17,11 @@
       "map": "MAP_DRISLEDGE_TOWN",
       "offset": -8,
       "direction": "down"
+    },
+    {
+      "map": "MAP_ROUTE22_PART2",
+      "offset": 0,
+      "direction": "right"
     }
   ],
   "object_events": [

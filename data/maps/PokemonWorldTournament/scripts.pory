@@ -18,6 +18,7 @@ script BP_Mart{
 }
 
 mart BP_Mart_Moves{
+    MOVE_HEAD_SMASH
     MOVE_BIND
     MOVE_SNORE
     MOVE_WATER_PULSE
@@ -74,7 +75,7 @@ mart BP_Mart_Items{
 }
 
 text TakeYourBP{
-    "I'll be taking your BP now.{PLAY_SE SE_SHOP}"
+    "I'll be taking your BP now."
 }
 
 text BP_Mart_Greetings{

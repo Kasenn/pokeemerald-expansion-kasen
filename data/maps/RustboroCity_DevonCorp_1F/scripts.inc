@@ -678,6 +678,31 @@ Rustboro_Basement_ItemBall::
 	end
 
 
+JumpTest::
+	applymovement 22, Jump0
+	applymovement 23, Jump1
+	applymovement 24, Jump1Special
+	applymovement 25, Jump2
+	waitmovement 25
+	return
+
+
+Jump0:
+	jump_in_place_right
+	step_end
+
+Jump1:
+	jump_right
+	step_end
+
+Jump1Special:
+	jump_special_right
+	step_end
+
+Jump2:
+	jump_2_right
+	step_end
+
 ChooseSpellRange_Text_0:
 	.string "1x1$"
 
