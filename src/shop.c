@@ -48,7 +48,6 @@
 #define MARTBP sMartInfo.martType == MART_TYPE_BP
 
 #define MAX_ITEMS_SHOWN 8
-#define MOVE_TUTOR_INFO_BOX         TRUE    // Shows a box with battle move info when using the move tutor mart.
 
 enum {
     WIN_BUY_SELL_QUIT,
@@ -794,7 +793,7 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
     if (onInit != TRUE)
         PlaySE(SE_SELECT);
 
-    if (MARTMOVE && MOVE_TUTOR_INFO_BOX == TRUE)
+    if (MARTMOVE && I_MOVE_TUTOR_INFO_BOX == TRUE)
     {
         MoveTutorLoadMoveInfo(item);
     }
@@ -815,7 +814,7 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
         else if (MARTMOVE)
         {
             FormatTextByWidth(gStringVar3, 101, FONT_NARROW, gMovesInfo[item].description, GetFontAttribute(FONT_NARROW, FONTATTR_LETTER_SPACING));
-            if (sNarrowerText == TRUE)
+            if (sNarrowerText)
                 FormatTextByWidth(gStringVar3, 101, FONT_NARROWER, gMovesInfo[item].description, GetFontAttribute(FONT_NARROWER, FONTATTR_LETTER_SPACING));
             description = gStringVar3;
         }
@@ -1055,7 +1054,7 @@ static void BuyMenuInitWindows(void)
         LoadUserWindowBorderGfx(WIN_BP, 1, BG_PLTT_ID(13));
         LoadMessageBoxGfx(WIN_BP, 0xA, BG_PLTT_ID(14));
         PutWindowTilemap(WIN_BP);
-        if (MOVE_TUTOR_INFO_BOX == TRUE)
+        if (I_MOVE_TUTOR_INFO_BOX == TRUE)
         {
             DrawStdFrameWithCustomTileAndPalette(WIN_BATTLE_MOVE_DESC, FALSE, 1, 13);
             PutWindowTilemap(WIN_BATTLE_MOVE_DESC);

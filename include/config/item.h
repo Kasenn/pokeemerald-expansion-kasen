@@ -24,6 +24,7 @@
                                                     // Gen 5 prices are based on Black 2 and White 2, where many items received around 50% discounts.
                                                     // In Gen 8, many of the prices were adjusted and many items received 0-80% discounts.
                                                     // Gen 9 jacked up some of the prices to ludicrous degrees, and generally isn't recommended without heavily editing the BP gains.
+#define I_MOVE_TUTOR_INFO_BOX           TRUE        // Shows a box with battle move info when using the move tutor mart.
 
 // TM config
 #define I_REUSABLE_TMS          TRUE       // In Gen5-8, TMs are reusable. Setting this to TRUE will make all vanilla TMs reusable, though they can also be cherry-picked by setting their importance to 1.
