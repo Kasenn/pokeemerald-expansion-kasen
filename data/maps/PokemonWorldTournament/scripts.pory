@@ -1,61 +1,24 @@
 mapscripts PokemonWorldTournament_MapScripts {}
 
-raw`@hasMoveTutor`
+raw`@hasMoveTutor` // if P_LEARNSET_HELPER_TEACHABLE is set to TRUE, adding this line makes the python script recognize the file and
+                   // add any moves found in this file automatically.
 
-script BP_Mart{
+script BP_Mart_MoveTutor{
     lock
     faceplayer
-    message(BP_Mart_Greetings)
+    message(BP_Mart_Moves)
     waitmessage
-    bpmart(BP_Mart_Moves, TRUE)
-    if(var(VAR_RESULT) == FALSE){
-        msgbox(PleaseSaveSomeBp)
-    }
-    else{
-        msgbox(TakeYourBP)
-    }
+    bpmart(BP_Mart_Moves, TRUE)     // TRUE for move tutor, FALSE for item shop
+    // if(var(VAR_RESULT) == FALSE){   // VAR_RESULT is set to TRUE if successfully teaching a move to a mon, FALSE otherwise
+    //     msgbox(PleaseSaveSomeBp)
+    // }
+    // else{
+    //     msgbox(IllTakeYourBPNow)
+    // }
     release
 }
 
 mart BP_Mart_Moves{
-    MOVE_KARATE_CHOP
-    MOVE_RAZOR_WIND
-    MOVE_DOUBLE_KICK
-    MOVE_HORN_DRILL
-    MOVE_TACKLE
-    MOVE_BODY_SLAM
-    MOVE_DOUBLE_EDGE
-    MOVE_ACID
-    MOVE_AURORA_BEAM
-    MOVE_RAZOR_LEAF
-    MOVE_FISSURE
-    MOVE_SMOG
-    MOVE_SWIFT
-    MOVE_CRABHAMMER
-    MOVE_SLASH
-    MOVE_AEROBLAST
-    MOVE_MAGNITUDE
-    MOVE_MEGAHORN
-    MOVE_IRON_TAIL
-    MOVE_CROSS_CHOP
-    MOVE_RAIN_DANCE
-    MOVE_SUNNY_DAY
-    MOVE_ROCK_SMASH
-    MOVE_FAKE_OUT
-    MOVE_ARM_THRUST
-    MOVE_ICE_BALL
-    MOVE_POISON_FANG
-    MOVE_METEOR_MASH
-    MOVE_HEAD_SMASH
-    MOVE_BIND
-    MOVE_SNORE
-    MOVE_WATER_PULSE
-    MOVE_SHOCK_WAVE
-    MOVE_BUG_BITE
-    MOVE_COVET
-    MOVE_LOW_KICK
-    MOVE_SIGNAL_BEAM
-    MOVE_GIGA_DRAIN
     MOVE_THUNDER_PUNCH
     MOVE_FIRE_PUNCH
     MOVE_ICE_PUNCH
@@ -67,13 +30,13 @@ mart BP_Mart_Moves{
     MOVE_NONE
 }
 
-script BP_Mart2{
+script BP_Mart_ItemShop{
     lock
     faceplayer
-    message(BP_Mart_Greetings2)
+    message(BP_Mart_Moves)
     waitmessage
-    bpmart(BP_Mart_Items, FALSE)
-    msgbox(gText_PleaseComeAgain)
+    bpmart(BP_Mart_Items, FALSE)    // TRUE for move tutor, FALSE for item shop
+    msgbox(BP_Mart_Moves)
     release
 }
 
@@ -89,39 +52,7 @@ mart BP_Mart_Items{
     ITEM_AIR_BALLOON
     ITEM_RED_CARD
     ITEM_EJECT_BUTTON
-    ITEM_WEAKNESS_POLICY
-    ITEM_CHOICE_BAND
-    ITEM_CHOICE_SPECS
-    ITEM_CHOICE_SCARF
-    ITEM_LIFE_ORB
-    ITEM_ROCKY_HELMET
-    ITEM_ASSAULT_VEST
-    ITEM_SAFETY_GOGGLES
-    ITEM_TERRAIN_EXTENDER
-    ITEM_PROTECTIVE_PADS
     ITEM_NONE
-}
-
-text TakeYourBP{
-    "I'll be taking your BP now."
-}
-
-text BP_Mart_Greetings{
-    "We got the moves,\n"
-    "we got the groove."
-}
-
-text BP_Mart_Greetings2{
-    "Hello!\p"
-	"Welcome to the\n"
-	"Exchange Service Corner!\p"
-	"Would you like to trade in your BP\n"
-	"for some exquisite items?"
-}
-
-text PleaseSaveSomeBp{
-    "Please save some BP\n"
-    "and come see us again."
 }
 
 script TestDir{

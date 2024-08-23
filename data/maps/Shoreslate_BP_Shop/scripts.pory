@@ -1,6 +1,4 @@
-raw`
-@ special ChooseMonForMoveTutor
-`
+raw`@hasMoveTutor`
 
 mapscripts Shoreslate_BP_Shop_MapScripts{}
 
@@ -41,188 +39,38 @@ text ShoreslateShop_OldMan_Text{
 }
 
 script Shoreslate_BPShop_HoldItemClerk{
-	setvar(VAR_TEMP_2, EXCHANGE_CORNER_HOLD_ITEM_CLERK4)
-	setvar(VAR_TEMP_3, 4)
-	goto(BPShop_HoldItemClerk) // Edit this script when adding new shops
+	call(BPShop_ItemClerk)
+	bpmart(Shoreslate_Items, FALSE)
+    goto(BPShop_ItemClerkAfter)
 }
-
-script Shoreslate_BPShop_ChooseHoldItem{
-    setvar(VAR_0x8004, SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR4)
-    call(BPShop_SetupHoldItem)
-    switch(var(VAR_RESULT)){
-        case 0:
-            setvar(VAR_0x8008, 16)
- 			setvar(VAR_0x8009, ITEM_BRIGHT_POWDER)
-			goto(BPShop_HeldItem)
-        case 1:
-            setvar(VAR_0x8008, 16)
- 			setvar(VAR_0x8009, ITEM_QUICK_CLAW)
-			goto(BPShop_HeldItem)
-        case 2:
-			setvar(VAR_0x8008, 16)
- 			setvar(VAR_0x8009, ITEM_SOOTHE_BELL)
-            goto(BPShop_HeldItem)
-        case 3:
-			setvar(VAR_0x8008, 16)
- 			setvar(VAR_0x8009, ITEM_SCOPE_LENS)
-            goto(BPShop_HeldItem)
-        case 4:
-			setvar(VAR_0x8008, 16)
- 			setvar(VAR_0x8009, ITEM_SHELL_BELL)
-            goto(BPShop_HeldItem)
-        case 5:
-			setvar(VAR_0x8008, 16)
- 			setvar(VAR_0x8009, ITEM_MUSCLE_BAND)
-            goto(BPShop_HeldItem)
-        case 6:
-			setvar(VAR_0x8008, 16)
- 			setvar(VAR_0x8009, ITEM_WISE_GLASSES)
-            goto(BPShop_HeldItem)
-        case 7:
-			setvar(VAR_0x8008, 16)
- 			setvar(VAR_0x8009, ITEM_WIDE_LENS)
-            goto(BPShop_HeldItem)
-        case 8:
-			setvar(VAR_0x8008, 16)
- 			setvar(VAR_0x8009, ITEM_ZOOM_LENS)
-            goto(BPShop_HeldItem)
-        case 9:
-            call(BPShop_ClerkGoodbye)
-        case MULTI_B_PRESSED:
-            call(BPShop_ClerkGoodbye)
-    }
+mart Shoreslate_Items{
+    ITEM_BRIGHT_POWDER
+    ITEM_QUICK_CLAW
+    ITEM_SOOTHE_BELL
+    ITEM_SCOPE_LENS
+    ITEM_SHELL_BELL
+    ITEM_MUSCLE_BAND
+    ITEM_WISE_GLASSES
+    ITEM_WIDE_LENS
+    ITEM_ZOOM_LENS
+	ITEM_NONE
 }
 
 script Shoreslate_BPShop_MoveTutor{
-	setvar(VAR_TEMP_C, SCROLL_MULTI_BF_MOVE_TUTOR_5)
-	setvar(VAR_TEMP_5, 5)
-	goto(BPShop_MoveTutor) // Edit this script when adding new shops
+	call(BPShop_MoveTutor)
+	bpmart(Shoreslate_MoveTutor, TRUE)
+    goto(BPShop_MoveTutorAfter)
 }
-
-script Shoreslate_BPShop_ChooseTutorMove{
-	setvar(VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_5)
-	call(MoveTutorSetup)
-	switch(var(VAR_RESULT)){
-		case 0:
-            setvar(VAR_0x8008, 6)
-			setvar(VAR_0x8005, MOVE_WATER_PULSE)
-			goto(BPShop_ConfirmMoveSelection)
-        case 1:
-            setvar(VAR_0x8008, 8)
-			setvar(VAR_0x8005, MOVE_FURY_CUTTER)
-			goto(BPShop_ConfirmMoveSelection)
-        case 2:
-            setvar(VAR_0x8008, 8)
-			setvar(VAR_0x8005, MOVE_MAGIC_ROOM)
-			goto(BPShop_ConfirmMoveSelection)
-        case 3:
-            setvar(VAR_0x8008, 8)
-			setvar(VAR_0x8005, MOVE_MUD_SLAP)
-			goto(BPShop_ConfirmMoveSelection)
-        case 4:
-            setvar(VAR_0x8008, 8)
-			setvar(VAR_0x8005, MOVE_SWIFT)
-			goto(BPShop_ConfirmMoveSelection)
-        case 5:
-            setvar(VAR_0x8008, 10)
-			setvar(VAR_0x8005, MOVE_FOUL_PLAY)
-			goto(BPShop_ConfirmMoveSelection)
-        case 6:
-            setvar(VAR_0x8008, 10)
-			setvar(VAR_0x8005, MOVE_GUNK_SHOT)
-			goto(BPShop_ConfirmMoveSelection)
-        case 7:
-            setvar(VAR_0x8008, 10)
-			setvar(VAR_0x8005, MOVE_TRICK)
-			goto(BPShop_ConfirmMoveSelection)
-        case 8:
-            setvar(VAR_0x8008, 12)
-			setvar(VAR_0x8005, MOVE_ANCIENT_POWER)
-			goto(BPShop_ConfirmMoveSelection)
-        case 9:
-            setvar(VAR_0x8008, 12)
-			setvar(VAR_0x8005, MOVE_OMINOUS_WIND)
-			goto(BPShop_ConfirmMoveSelection)
-		case 10:
-			call(BPShop_ExitTutorMoveSelect)
-		case MULTI_B_PRESSED: 
-			call(BPShop_ExitTutorMoveSelect)
-	}
-	end
-}
-
-text Shoreslate_BPShop_Text_WaterPulseDesc{
-	"An aquatic\n"
-    "attack that may\n"
-    "confuse the foe."
-}
-text Shoreslate_BPShop_Text_FuryCutterDesc{
-	"An attack that\n"
-    "intensifies on\n"
-    "successive hits."
-}
-text Shoreslate_BPShop_Text_MagicRoomDesc{
-	"Hold items lose\n"
-    "their effects\n"
-    "for 5 turns."
-}
-text Shoreslate_BPShop_Text_MudSlapDesc{
-	"Hurls mud in the\n"
-    "foe's face to\n"
-    "reduce accuracy."
-}
-text Shoreslate_BPShop_Text_SwiftDesc{
-	"Sprays star-\n"
-    "shaped rays\n"
-    "that never miss."
-}
-text Shoreslate_BPShop_Text_FoulPlayDesc{
-	"The greater the\n"
-    "foe's Attack, the\n"
-    "greater the power."
-}
-text Shoreslate_BPShop_Text_GunkShotDesc{
-	"Shoots filth\n"
-    "at the foe.\n"
-    "May also poison."
-}
-text Shoreslate_BPShop_Text_TrickDesc{
-	"Tricks the foe\n"
-    "into trading\n"
-    "held items."
-}
-text Shoreslate_BPShop_Text_AncientPowerDesc{
-	"An attack that\n"
-    "may raise\n"
-    "all stats."
-}
-text Shoreslate_BPShop_Text_OminousWindDesc{
-	"A repulsive\n"
-    "attack that may\n"
-    "raise all stats."
-}
-
-text BattleFrontier_ExchangeServiceCorner_Text_SootheBellDesc{
-    "A hold item that calms spirits and\n"
-    "fosters friendship."
-}
-text BattleFrontier_ExchangeServiceCorner_Text_ShellBellDesc{
-    "A hold item that restores HP upon\n"
-    "striking the foe."
-}
-text BattleFrontier_ExchangeServiceCorner_Text_MuscleBandDesc{
-    "A headband that boosts the power of\n"
-    "physical moves."
-}
-text BattleFrontier_ExchangeServiceCorner_Text_WiseGlassesDesc{
-	"A pair of glasses that ups the power\n"
-    "of special moves."
-}
-text BattleFrontier_ExchangeServiceCorner_Text_WideLensDesc{
-    "A magnifying lens that boosts the\n"
-    "accuracy of moves."
-}
-text BattleFrontier_ExchangeServiceCorner_Text_ZoomLensDesc{
-    "If the holder moves after the foe, it'll\n"
-    "boost accuracy."
+mart Shoreslate_MoveTutor{
+    MOVE_WATER_PULSE
+    MOVE_FURY_CUTTER
+    MOVE_MAGIC_ROOM
+    MOVE_MUD_SLAP
+    MOVE_SWIFT
+    MOVE_FOUL_PLAY
+    MOVE_GUNK_SHOT
+    MOVE_TRICK
+    MOVE_ANCIENT_POWER
+    MOVE_OMINOUS_WIND
+	MOVE_NONE
 }

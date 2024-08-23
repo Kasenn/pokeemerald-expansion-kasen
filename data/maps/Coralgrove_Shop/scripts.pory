@@ -1,6 +1,4 @@
-raw`
-@ special ChooseMonForMoveTutor
-`
+raw`@hasMoveTutor`
 
 mapscripts Coralgrove_Shop_MapScripts{}
 
@@ -15,162 +13,38 @@ script CGShop_Fisher{
 }
 
 script Coralgrove_BPShop_HoldItemClerk{
-	setvar(VAR_TEMP_2, EXCHANGE_CORNER_HOLD_ITEM_CLERK2)
-	setvar(VAR_TEMP_3, 2)
-	goto(BPShop_HoldItemClerk) // Edit this script when adding new shops
+	call(BPShop_ItemClerk)
+	bpmart(Coralgrove_Items, FALSE)
+    goto(BPShop_ItemClerkAfter)
 }
-
-script Coralgrove_BPShop_ChooseHoldItem{
-    setvar(VAR_0x8004, SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR2)
-    call(BPShop_SetupHoldItem)
-    switch(var(VAR_RESULT)){
-        case 0:
-            setvar(VAR_0x8008, 8)
- 			setvar(VAR_0x8009, ITEM_MIRACLE_SEED)
-			goto(BPShop_HeldItem)
-        case 1:
-            setvar(VAR_0x8008, 8)
- 			setvar(VAR_0x8009, ITEM_CHARCOAL)
-			goto(BPShop_HeldItem)
-        case 2:
-			setvar(VAR_0x8008, 8)
- 			setvar(VAR_0x8009, ITEM_MYSTIC_WATER)
-            goto(BPShop_HeldItem)
-        case 3:
-			setvar(VAR_0x8008, 8)
- 			setvar(VAR_0x8009, ITEM_SILK_SCARF)
-            goto(BPShop_HeldItem)
-        case 4:
-			setvar(VAR_0x8008, 8)
- 			setvar(VAR_0x8009, ITEM_SHARP_BEAK)
-            goto(BPShop_HeldItem)
-        case 5:
-			setvar(VAR_0x8008, 8)
- 			setvar(VAR_0x8009, ITEM_BLACK_BELT)
-            goto(BPShop_HeldItem)
-        case 6:
-			setvar(VAR_0x8008, 8)
- 			setvar(VAR_0x8009, ITEM_HARD_STONE)
-            goto(BPShop_HeldItem)
-        case 7:
-			setvar(VAR_0x8008, 8)
- 			setvar(VAR_0x8009, ITEM_MAGNET)
-            goto(BPShop_HeldItem)
-        case 8:
-			setvar(VAR_0x8008, 8)
- 			setvar(VAR_0x8009, ITEM_POISON_BARB)
-            goto(BPShop_HeldItem)
-		case 9:
-			call(BPShop_ClerkGoodbye)
-        case MULTI_B_PRESSED:
-            call(BPShop_ClerkGoodbye)
-    }
+mart Coralgrove_Items{
+	ITEM_MIRACLE_SEED
+	ITEM_CHARCOAL
+	ITEM_MYSTIC_WATER
+	ITEM_SILK_SCARF
+	ITEM_SHARP_BEAK
+	ITEM_BLACK_BELT
+	ITEM_HARD_STONE
+	ITEM_MAGNET
+	ITEM_POISON_BARB
+	ITEM_NONE
 }
 
 script Coralgrove_BPShop_MoveTutor{
-	setvar(VAR_TEMP_C, SCROLL_MULTI_BF_MOVE_TUTOR_3)
-	setvar(VAR_TEMP_5, 3)
-	goto(BPShop_MoveTutor) // Edit this script when adding new shops
+	call(BPShop_MoveTutor)
+	bpmart(Coralgrove_MoveTutor, TRUE)
+    goto(BPShop_MoveTutorAfter)
 }
-
-script Coralgrove_BPShop_ChooseTutorMove{
-	setvar(VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_3)
-	call(MoveTutorSetup)
-	switch(var(VAR_RESULT)){
-		case 0:
-            setvar(VAR_0x8008, 4)
-			setvar(VAR_0x8005, MOVE_SNORE)
-			goto(BPShop_ConfirmMoveSelection)
-        case 1:
-            setvar(VAR_0x8008, 4)
-			setvar(VAR_0x8005, MOVE_BIND)
-			goto(BPShop_ConfirmMoveSelection)
-        case 2:
-            setvar(VAR_0x8008, 4)
-			setvar(VAR_0x8005, MOVE_SHOCK_WAVE)
-			goto(BPShop_ConfirmMoveSelection)
-        case 3:
-            setvar(VAR_0x8008, 4)
-			setvar(VAR_0x8005, MOVE_BUG_BITE)
-			goto(BPShop_ConfirmMoveSelection)
-        case 4:
-            setvar(VAR_0x8008, 8)
-			setvar(VAR_0x8005, MOVE_HEAL_BELL)
-			goto(BPShop_ConfirmMoveSelection)
-        case 5:
-            setvar(VAR_0x8008, 8)
-			setvar(VAR_0x8005, MOVE_ELECTROWEB)
-			goto(BPShop_ConfirmMoveSelection)
-        case 6:
-            setvar(VAR_0x8008, 8)
-			setvar(VAR_0x8005, MOVE_DEFOG)
-			goto(BPShop_ConfirmMoveSelection)
-        case 7:
-            setvar(VAR_0x8008, 8)
-			setvar(VAR_0x8005, MOVE_LOW_KICK)
-			goto(BPShop_ConfirmMoveSelection)
-        case 8:
-            setvar(VAR_0x8008, 8)
-			setvar(VAR_0x8005, MOVE_HELPING_HAND)
-			goto(BPShop_ConfirmMoveSelection)
-        case 9:
-            setvar(VAR_0x8008, 8)
-			setvar(VAR_0x8005, MOVE_RECYCLE)
-			goto(BPShop_ConfirmMoveSelection)
-		case 10:
-			call(BPShop_ExitTutorMoveSelect)
-		case MULTI_B_PRESSED: 
-			call(BPShop_ExitTutorMoveSelect)
-	}
-	end
-}
-
-text Coralgrove_BPShop_Text_SnoreDesc{
-	"Can only be used\n"
-	"while asleep. May\n"
-	"cause flinching."
-}
-text Coralgrove_BPShop_Text_BindDesc{
-	"Bind and squeeze\n"
-	"the target for\n"
-	"4-5 turns."
-}
-text Coralgrove_BPShop_Text_ShockWaveDesc{
-	"A quick jolt of\n"
-	"electricity that\n"
-	"never misses."
-}
-text Coralgrove_BPShop_Text_BugBiteDesc{
-	"Eats the target's\n"
-	"berry, gaining\n"
-	"its effect."
-}
-text Coralgrove_BPShop_Text_HealBellDesc{
-	"Heals the status\n"
-	"conditions of all\n"
-	"party Pokémon."
-}
-text Coralgrove_BPShop_Text_ElectrowebDesc{
-	"Electric web that\n"
-	"also reduces the\n"
-	"target's speed."
-}
-text Coralgrove_BPShop_Text_DefogDesc{
-	"Clears most\n"
-	"obstacles. Also\n"
-	"lowers evasion."
-}
-text Coralgrove_BPShop_Text_LowKickDesc{
-	"The heavier the\n"
-	"target, the\n"
-	"greater the power."
-}
-text Coralgrove_BPShop_Text_HelpingHandDesc{
-	"Boosts the power\n"
-	"of an ally's\n"
-	"attack."
-}
-text Coralgrove_BPShop_Text_RecycleDesc{
-	"Recycles a used\n"
-	"held item."
+mart Coralgrove_MoveTutor{
+	MOVE_SNORE
+	MOVE_BIND
+	MOVE_SHOCK_WAVE
+	MOVE_BUG_BITE
+	MOVE_HEAL_BELL
+	MOVE_ELECTROWEB
+	MOVE_DEFOG
+	MOVE_LOW_KICK
+	MOVE_HELPING_HAND
+	MOVE_RECYCLE
+	MOVE_NONE
 }

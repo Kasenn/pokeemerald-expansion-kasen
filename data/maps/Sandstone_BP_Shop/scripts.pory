@@ -1,6 +1,4 @@
-raw`
-@ special ChooseMonForMoveTutor
-`
+raw`@hasMoveTutor`
 
 mapscripts Sandstone_BP_Shop_MapScripts{}
 
@@ -28,316 +26,50 @@ text SandstoneShop_Lass_Text{
 }
 
 script Sandstone_BPShop_HoldItemClerk{
-	setvar(VAR_TEMP_2, EXCHANGE_CORNER_HOLD_ITEM_CLERK6)
-	setvar(VAR_TEMP_3, 6)
-	goto(BPShop_HoldItemClerk) // Edit this script when adding new shops
+	call(BPShop_ItemClerk)
+	bpmart(Sandstone_Items, FALSE)
+    goto(BPShop_ItemClerkAfter)
 }
-
-script Sandstone_BPShop_ChooseHoldItem{
-    setvar(VAR_0x8004, SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR6)
-    call(BPShop_SetupHoldItem)
-    switch(var(VAR_RESULT)){
-        case 0:
-            setvar(VAR_0x8008, 40)
-            setvar(VAR_0x8009, ITEM_LONELY_MINT)
-            goto(BPShop_HeldItem)
-        case 1:
-            setvar(VAR_0x8008, 40)
-            setvar(VAR_0x8009, ITEM_ADAMANT_MINT)
-            goto(BPShop_HeldItem)
-        case 2:
-            setvar(VAR_0x8008, 40)
-            setvar(VAR_0x8009, ITEM_NAUGHTY_MINT)
-            goto(BPShop_HeldItem)
-        case 3:
-            setvar(VAR_0x8008, 40)
-            setvar(VAR_0x8009, ITEM_BRAVE_MINT)
-            goto(BPShop_HeldItem)
-        case 4:
-            setvar(VAR_0x8008, 40)
-            setvar(VAR_0x8009, ITEM_BOLD_MINT)
-            goto(BPShop_HeldItem)
-        case 5:
-            setvar(VAR_0x8008, 40)
-            setvar(VAR_0x8009, ITEM_IMPISH_MINT)
-            goto(BPShop_HeldItem)
-        case 6:
-            setvar(VAR_0x8008, 40)
-            setvar(VAR_0x8009, ITEM_LAX_MINT)
-            goto(BPShop_HeldItem)
-        case 7:
-            setvar(VAR_0x8008, 40)
-            setvar(VAR_0x8009, ITEM_RELAXED_MINT)
-            goto(BPShop_HeldItem)
-        case 8:
-            setvar(VAR_0x8008, 40)
-            setvar(VAR_0x8009, ITEM_MODEST_MINT)
-            goto(BPShop_HeldItem)
-        case 9:
-            setvar(VAR_0x8008, 40)
-            setvar(VAR_0x8009, ITEM_MILD_MINT)
-            goto(BPShop_HeldItem)
-        case 10:
-            setvar(VAR_0x8008, 40)
-            setvar(VAR_0x8009, ITEM_RASH_MINT)
-            goto(BPShop_HeldItem)
-        case 11:
-            setvar(VAR_0x8008, 40)
-            setvar(VAR_0x8009, ITEM_QUIET_MINT)
-            goto(BPShop_HeldItem)
-        case 12:
-            setvar(VAR_0x8008, 40)
-            setvar(VAR_0x8009, ITEM_CALM_MINT)
-            goto(BPShop_HeldItem)
-        case 13:
-            setvar(VAR_0x8008, 40)
-            setvar(VAR_0x8009, ITEM_GENTLE_MINT)
-            goto(BPShop_HeldItem)
-        case 14:
-            setvar(VAR_0x8008, 40)
-            setvar(VAR_0x8009, ITEM_CAREFUL_MINT)
-            goto(BPShop_HeldItem)
-        case 15:
-            setvar(VAR_0x8008, 40)
-            setvar(VAR_0x8009, ITEM_SASSY_MINT)
-            goto(BPShop_HeldItem)
-        case 16:
-            setvar(VAR_0x8008, 40)
-            setvar(VAR_0x8009, ITEM_TIMID_MINT)
-            goto(BPShop_HeldItem)
-        case 17:
-            setvar(VAR_0x8008, 40)
-            setvar(VAR_0x8009, ITEM_HASTY_MINT)
-            goto(BPShop_HeldItem)
-        case 18:
-            setvar(VAR_0x8008, 40)
-            setvar(VAR_0x8009, ITEM_JOLLY_MINT)
-            goto(BPShop_HeldItem)
-        case 19:
-            setvar(VAR_0x8008, 40)
-            setvar(VAR_0x8009, ITEM_NAIVE_MINT)
-            goto(BPShop_HeldItem)
-        case 20:
-            setvar(VAR_0x8008, 40)
-            setvar(VAR_0x8009, ITEM_SERIOUS_MINT)
-            goto(BPShop_HeldItem)
-        case 21:
-            call(BPShop_ClerkGoodbye)
-        case MULTI_B_PRESSED:
-            call(BPShop_ClerkGoodbye)
-    }
+mart Sandstone_Items{
+    ITEM_LONELY_MINT 
+    ITEM_ADAMANT_MINT
+    ITEM_NAUGHTY_MINT
+    ITEM_BRAVE_MINT
+    ITEM_BOLD_MINT
+    ITEM_IMPISH_MINT
+    ITEM_LAX_MINT
+    ITEM_RELAXED_MINT
+    ITEM_MODEST_MINT
+    ITEM_MILD_MINT
+    ITEM_RASH_MINT
+    ITEM_QUIET_MINT
+    ITEM_CALM_MINT
+    ITEM_GENTLE_MINT
+    ITEM_CAREFUL_MINT
+    ITEM_SASSY_MINT
+    ITEM_TIMID_MINT
+    ITEM_HASTY_MINT
+    ITEM_JOLLY_MINT
+    ITEM_NAIVE_MINT
+    ITEM_SERIOUS_MINT
+	ITEM_NONE
 }
-text Sandstone_BPShop_LonelyMintDesc {
-    "Can be smelled. It ups Attack, but\n"
-    "reduces Defense."
-}
-
-text Sandstone_BPShop_AdamantMintDesc {
-    "Can be smelled. It ups Attack, but\n"
-    "reduces Sp. Atk."
-}
-
-text Sandstone_BPShop_NaughtyMintDesc {
-    "Can be smelled. It ups Attack, but\n"
-    "reduces Sp. Def."
-}
-
-text Sandstone_BPShop_BraveMintDesc {
-    "Can be smelled. It ups Attack, but\n"
-    "reduces Speed."
-}
-
-text Sandstone_BPShop_BoldMintDesc {
-    "Can be smelled. It ups Defense,\n"
-    "but reduces Attack."
-}
-
-text Sandstone_BPShop_ImpishMintDesc {
-    "Can be smelled. It ups Defense,\n"
-    "but reduces Sp. Atk."
-}
-
-text Sandstone_BPShop_LaxMintDesc {
-    "Can be smelled. It ups Defense,\n"
-    "but reduces Sp. Def."
-}
-
-text Sandstone_BPShop_RelaxedMintDesc {
-    "Can be smelled. It ups Defense,\n"
-    "but reduces Speed."
-}
-
-text Sandstone_BPShop_ModestMintDesc {
-    "Can be smelled. It ups Sp. Atk,\n"
-    "but reduces Attack."
-}
-
-text Sandstone_BPShop_MildMintDesc {
-    "Can be smelled. It ups Sp. Atk,\n"
-    "but reduces Defense."
-}
-
-text Sandstone_BPShop_RashMintDesc {
-    "Can be smelled. It ups Sp. Atk,\n"
-    "but reduces Sp. Def."
-}
-
-text Sandstone_BPShop_QuietMintDesc {
-    "Can be smelled. It ups Sp. Atk,\n"
-    "but reduces Speed."
-}
-
-text Sandstone_BPShop_CalmMintDesc {
-    "Can be smelled. It ups Sp. Def,\n"
-    "but reduces Attack."
-}
-
-text Sandstone_BPShop_GentleMintDesc {
-    "Can be smelled. It ups Sp. Def,\n"
-    "but reduces Defense."
-}
-
-text Sandstone_BPShop_CarefulMintDesc {
-    "Can be smelled. It ups Sp. Def,\n"
-    "but reduces Sp. Atk."
-}
-
-text Sandstone_BPShop_SassyMintDesc {
-    "Can be smelled. It ups Sp. Def,\n"
-    "but reduces Speed."
-}
-
-text Sandstone_BPShop_TimidMintDesc {
-    "Can be smelled. It ups Speed,\n"
-    "but reduces Attack."
-}
-
-text Sandstone_BPShop_HastyMintDesc {
-    "Can be smelled. It ups Speed,\n"
-    "but reduces Defense."
-}
-
-text Sandstone_BPShop_JollyMintDesc {
-    "Can be smelled. It ups Speed,\n"
-    "but reduces Sp. Atk."
-}
-
-text Sandstone_BPShop_NaiveMintDesc {
-    "Can be smelled. It ups Speed,\n"
-    "but reduces Sp. Def."
-}
-
-text Sandstone_BPShop_SeriousMintDesc {
-    "Can be smelled. It makes each,\n"
-    "stat grow equally."
-}
-
 
 script Sandstone_BPShop_MoveTutor{
-	setvar(VAR_TEMP_C, SCROLL_MULTI_BF_MOVE_TUTOR_7)
-	setvar(VAR_TEMP_5, 7)
-	goto(BPShop_MoveTutor) // Edit this script when adding new shops
+	call(BPShop_MoveTutor)
+	bpmart(Sandstone_MoveTutor, TRUE)
+    goto(BPShop_MoveTutorAfter)
 }
-
-script Sandstone_BPShop_ChooseTutorMove{
-	setvar(VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_7)
-	call(MoveTutorSetup)
-	switch(var(VAR_RESULT)){
-		case 0:
-            setvar(VAR_0x8008, 6)
-			setvar(VAR_0x8005, MOVE_THUNDER_WAVE)
-			goto(BPShop_ConfirmMoveSelection)
-        case 1:
-            setvar(VAR_0x8008, 8)
-			setvar(VAR_0x8005, MOVE_FIRE_PUNCH)
-			goto(BPShop_ConfirmMoveSelection)
-        case 2:
-            setvar(VAR_0x8008, 8)
-			setvar(VAR_0x8005, MOVE_THUNDER_PUNCH)
-			goto(BPShop_ConfirmMoveSelection)
-        case 3:
-            setvar(VAR_0x8008, 8)
-			setvar(VAR_0x8005, MOVE_ICE_PUNCH)
-			goto(BPShop_ConfirmMoveSelection)
-        case 4:
-            setvar(VAR_0x8008, 8)
-			setvar(VAR_0x8005, MOVE_DRAIN_PUNCH)
-			goto(BPShop_ConfirmMoveSelection)
-        case 5:
-            setvar(VAR_0x8008, 8)
-			setvar(VAR_0x8005, MOVE_PSYCH_UP)
-			goto(BPShop_ConfirmMoveSelection)
-        case 6:
-            setvar(VAR_0x8008, 8)
-			setvar(VAR_0x8005, MOVE_PAIN_SPLIT)
-			goto(BPShop_ConfirmMoveSelection)
-        case 7:
-            setvar(VAR_0x8008, 10)
-			setvar(VAR_0x8005, MOVE_TAILWIND)
-			goto(BPShop_ConfirmMoveSelection)
-        case 8:
-            setvar(VAR_0x8008, 14)
-			setvar(VAR_0x8005, MOVE_IRON_TAIL)
-			goto(BPShop_ConfirmMoveSelection)
-        case 9:
-            setvar(VAR_0x8008, 16)
-			setvar(VAR_0x8005, MOVE_ENDEAVOR)
-			goto(BPShop_ConfirmMoveSelection)
-		case 10:
-			call(BPShop_ExitTutorMoveSelect)
-		case MULTI_B_PRESSED: 
-			call(BPShop_ExitTutorMoveSelect)
-	}
-	end
+mart Sandstone_MoveTutor{
+    MOVE_THUNDER_WAVE
+    MOVE_FIRE_PUNCH
+    MOVE_THUNDER_PUNCH
+    MOVE_ICE_PUNCH
+    MOVE_DRAIN_PUNCH
+    MOVE_PSYCH_UP
+    MOVE_PAIN_SPLIT
+    MOVE_TAILWIND
+    MOVE_IRON_TAIL
+    MOVE_ENDEAVOR
+	MOVE_NONE
 }
-
-text Sandstone_BPShop_Text_ThunderWaveDesc{
-	"A weak jolt of\n"
-    "electricity that\n"
-    "paralyzes the foe."
-}
-text Sandstone_BPShop_Text_FirePunchDesc{
-	"A fiery punch\n"
-    "that may burn\n"
-    "the foe."
-}
-text Sandstone_BPShop_Text_ThunderPunchDesc{
-	"An electrified\n"
-    "punch that may\n"
-    "paralyze the foe."
-}
-text Sandstone_BPShop_Text_IcePunchDesc{
-	"An icy punch\n"
-    "that may freeze\n"
-    "the foe."
-}
-text Sandstone_BPShop_Text_DrainPunchDesc{
-	"An attack that\n"
-    "absorbs half the\n"
-    "damage inflicted."
-}
-text Sandstone_BPShop_Text_PsychUpDesc{
-	"Copies the foe's\n"
-    "effect(s) and\n"
-    "gives to the user."
-}
-text Sandstone_BPShop_Text_PainSplitDesc{
-	"Adds the user and\n"
-    "foe's HP, then\n"
-    "splits them."
-}
-text Sandstone_BPShop_Text_TailwindDesc{
-	"Whips up a\n"
-    "turbulent breeze\n"
-    "that raises Speed."
-}
-text Sandstone_BPShop_Text_IronTailDesc{
-    "Attacks with a\n"
-    "rock-hard tail.\n"
-    "May lower Defense."
-}
-text Sandstone_BPShop_Text_EndeavorDesc{
-	"Gains power if the\n"
-    "user's HP is lower\n"
-    "than the foe's HP."
-}    

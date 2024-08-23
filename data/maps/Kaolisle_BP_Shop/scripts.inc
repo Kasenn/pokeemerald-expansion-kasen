@@ -1,4 +1,4 @@
-@ special ChooseMonForMoveTutor
+@hasMoveTutor
 
 Kaolisle_BP_Shop_MapScripts::
 	.byte 0
@@ -15,179 +15,45 @@ KaolisleShop_Lass::
 
 
 Kaolisle_BPShop_HoldItemClerk::
-	setvar VAR_TEMP_2, EXCHANGE_CORNER_HOLD_ITEM_CLERK5
-	setvar VAR_TEMP_3, 5
-	goto BPShop_HoldItemClerk
+	call BPShop_ItemClerk
+	bpmart Kaolisle_Items, FALSE
+	goto BPShop_ItemClerkAfter
 	return
 
 
-Kaolisle_BPShop_ChooseHoldItem::
-	setvar VAR_0x8004, SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR5
-	call BPShop_SetupHoldItem
-	switch VAR_RESULT
-	case 0, Kaolisle_BPShop_ChooseHoldItem_2
-	case 1, Kaolisle_BPShop_ChooseHoldItem_3
-	case 2, Kaolisle_BPShop_ChooseHoldItem_4
-	case 3, Kaolisle_BPShop_ChooseHoldItem_5
-	case 4, Kaolisle_BPShop_ChooseHoldItem_6
-	case 5, Kaolisle_BPShop_ChooseHoldItem_7
-	case 6, Kaolisle_BPShop_ChooseHoldItem_8
-	case 7, Kaolisle_BPShop_ChooseHoldItem_9
-	case 8, Kaolisle_BPShop_ChooseHoldItem_10
-	case MULTI_B_PRESSED, Kaolisle_BPShop_ChooseHoldItem_11
-	return
-
-Kaolisle_BPShop_ChooseHoldItem_2:
-	setvar VAR_0x8008, 16
-	setvar VAR_0x8009, ITEM_POWER_BRACER
-	goto BPShop_HeldItem
-	return
-
-Kaolisle_BPShop_ChooseHoldItem_3:
-	setvar VAR_0x8008, 16
-	setvar VAR_0x8009, ITEM_POWER_BELT
-	goto BPShop_HeldItem
-	return
-
-Kaolisle_BPShop_ChooseHoldItem_4:
-	setvar VAR_0x8008, 16
-	setvar VAR_0x8009, ITEM_POWER_LENS
-	goto BPShop_HeldItem
-	return
-
-Kaolisle_BPShop_ChooseHoldItem_5:
-	setvar VAR_0x8008, 16
-	setvar VAR_0x8009, ITEM_POWER_BAND
-	goto BPShop_HeldItem
-	return
-
-Kaolisle_BPShop_ChooseHoldItem_6:
-	setvar VAR_0x8008, 16
-	setvar VAR_0x8009, ITEM_POWER_ANKLET
-	goto BPShop_HeldItem
-	return
-
-Kaolisle_BPShop_ChooseHoldItem_7:
-	setvar VAR_0x8008, 16
-	setvar VAR_0x8009, ITEM_POWER_WEIGHT
-	goto BPShop_HeldItem
-	return
-
-Kaolisle_BPShop_ChooseHoldItem_8:
-	setvar VAR_0x8008, 32
-	setvar VAR_0x8009, ITEM_DESTINY_KNOT
-	goto BPShop_HeldItem
-	return
-
-Kaolisle_BPShop_ChooseHoldItem_9:
-	setvar VAR_0x8008, 32
-	setvar VAR_0x8009, ITEM_EVERSTONE
-	goto BPShop_HeldItem
-	return
-
-Kaolisle_BPShop_ChooseHoldItem_10:
-	call BPShop_ClerkGoodbye
-	return
-
-Kaolisle_BPShop_ChooseHoldItem_11:
-	call BPShop_ClerkGoodbye
-	return
-
+	.align 2
+Kaolisle_Items:
+	.2byte ITEM_POWER_WEIGHT
+	.2byte ITEM_POWER_BRACER
+	.2byte ITEM_POWER_BELT
+	.2byte ITEM_POWER_LENS
+	.2byte ITEM_POWER_BAND
+	.2byte ITEM_POWER_ANKLET
+	.2byte ITEM_DESTINY_KNOT
+	.2byte ITEM_EVERSTONE
+	.2byte ITEM_NONE
 
 Kaolisle_BPShop_MoveTutor::
-	setvar VAR_TEMP_C, SCROLL_MULTI_BF_MOVE_TUTOR_6
-	setvar VAR_TEMP_5, 6
-	goto BPShop_MoveTutor
+	call BPShop_MoveTutor
+	bpmart Kaolisle_MoveTutor, TRUE
+	goto BPShop_MoveTutorAfter
 	return
 
 
-Kaolisle_BPShop_ChooseTutorMove::
-	setvar VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_6
-	call MoveTutorSetup
-	switch VAR_RESULT
-	case 0, Kaolisle_BPShop_ChooseTutorMove_3
-	case 1, Kaolisle_BPShop_ChooseTutorMove_4
-	case 2, Kaolisle_BPShop_ChooseTutorMove_5
-	case 3, Kaolisle_BPShop_ChooseTutorMove_6
-	case 4, Kaolisle_BPShop_ChooseTutorMove_7
-	case 5, Kaolisle_BPShop_ChooseTutorMove_8
-	case 6, Kaolisle_BPShop_ChooseTutorMove_9
-	case 7, Kaolisle_BPShop_ChooseTutorMove_10
-	case 8, Kaolisle_BPShop_ChooseTutorMove_11
-	case 9, Kaolisle_BPShop_ChooseTutorMove_12
-	case 10, Kaolisle_BPShop_ChooseTutorMove_13
-	case MULTI_B_PRESSED, Kaolisle_BPShop_ChooseTutorMove_14
-Kaolisle_BPShop_ChooseTutorMove_1:
-	end
-
-Kaolisle_BPShop_ChooseTutorMove_3:
-	setvar VAR_0x8008, 4
-	setvar VAR_0x8005, MOVE_COVET
-	goto BPShop_ConfirmMoveSelection
-	goto Kaolisle_BPShop_ChooseTutorMove_1
-
-Kaolisle_BPShop_ChooseTutorMove_4:
-	setvar VAR_0x8008, 4
-	setvar VAR_0x8005, MOVE_STRING_SHOT
-	goto BPShop_ConfirmMoveSelection
-	goto Kaolisle_BPShop_ChooseTutorMove_1
-
-Kaolisle_BPShop_ChooseTutorMove_5:
-	setvar VAR_0x8008, 8
-	setvar VAR_0x8005, MOVE_BLOCK
-	goto BPShop_ConfirmMoveSelection
-	goto Kaolisle_BPShop_ChooseTutorMove_1
-
-Kaolisle_BPShop_ChooseTutorMove_6:
-	setvar VAR_0x8008, 8
-	setvar VAR_0x8005, MOVE_SNATCH
-	goto BPShop_ConfirmMoveSelection
-	goto Kaolisle_BPShop_ChooseTutorMove_1
-
-Kaolisle_BPShop_ChooseTutorMove_7:
-	setvar VAR_0x8008, 8
-	setvar VAR_0x8005, MOVE_UPROAR
-	goto BPShop_ConfirmMoveSelection
-	goto Kaolisle_BPShop_ChooseTutorMove_1
-
-Kaolisle_BPShop_ChooseTutorMove_8:
-	setvar VAR_0x8008, 8
-	setvar VAR_0x8005, MOVE_WORRY_SEED
-	goto BPShop_ConfirmMoveSelection
-	goto Kaolisle_BPShop_ChooseTutorMove_1
-
-Kaolisle_BPShop_ChooseTutorMove_9:
-	setvar VAR_0x8008, 10
-	setvar VAR_0x8005, MOVE_STEALTH_ROCK
-	goto BPShop_ConfirmMoveSelection
-	goto Kaolisle_BPShop_ChooseTutorMove_1
-
-Kaolisle_BPShop_ChooseTutorMove_10:
-	setvar VAR_0x8008, 10
-	setvar VAR_0x8005, MOVE_SYNTHESIS
-	goto BPShop_ConfirmMoveSelection
-	goto Kaolisle_BPShop_ChooseTutorMove_1
-
-Kaolisle_BPShop_ChooseTutorMove_11:
-	setvar VAR_0x8008, 10
-	setvar VAR_0x8005, MOVE_ZEN_HEADBUTT
-	goto BPShop_ConfirmMoveSelection
-	goto Kaolisle_BPShop_ChooseTutorMove_1
-
-Kaolisle_BPShop_ChooseTutorMove_12:
-	setvar VAR_0x8008, 12
-	setvar VAR_0x8005, MOVE_LAST_RESORT
-	goto BPShop_ConfirmMoveSelection
-	goto Kaolisle_BPShop_ChooseTutorMove_1
-
-Kaolisle_BPShop_ChooseTutorMove_13:
-	call BPShop_ExitTutorMoveSelect
-	goto Kaolisle_BPShop_ChooseTutorMove_1
-
-Kaolisle_BPShop_ChooseTutorMove_14:
-	call BPShop_ExitTutorMoveSelect
-	goto Kaolisle_BPShop_ChooseTutorMove_1
-
+	.align 2
+Kaolisle_MoveTutor:
+	.2byte MOVE_COVET
+	.2byte MOVE_STRING_SHOT
+	.2byte MOVE_BLOCK
+	.2byte MOVE_SNATCH
+	.2byte MOVE_UPROAR
+	.2byte MOVE_WORRY_SEED
+	.2byte MOVE_STEALTH_ROCK
+	.2byte MOVE_SYNTHESIS
+	.2byte MOVE_ZEN_HEADBUTT
+	.2byte MOVE_LAST_RESORT
+	.2byte MOVE_NONE
+	.2byte ITEM_NONE
 
 KaolisleShop_Man_Text::
 	.string "Did you know? Power items can be used\n"
@@ -200,85 +66,3 @@ KaolisleShop_Lass_Text::
 	.string "Move Tutors are highly technical.\p"
 	.string "I'm not entirely sure which ones I\n"
 	.string "should teach.$"
-
-Kaolisle_BPShop_PowerBracerDesc::
-	.string "Hold item that promotes Atk gain,\n"
-	.string "but reduces Speed.$"
-
-Kaolisle_BPShop_PowerBeltDesc::
-	.string "Hold item that promotes Def gain,\n"
-	.string "but reduces Speed.$"
-
-Kaolisle_BPShop_PowerLensDesc::
-	.string "Hold item that promotes Sp. Atk gain,\n"
-	.string "but reduces Speed.$"
-
-Kaolisle_BPShop_PowerBandDesc::
-	.string "Hold item that promotes Sp. Def gain,\n"
-	.string "but reduces Speed.$"
-
-Kaolisle_BPShop_PowerAnkletDesc::
-	.string "Hold item that promotes Spd gain,\n"
-	.string "but reduces Speed.$"
-
-Kaolisle_BPShop_PowerWeightDesc::
-	.string "A hold item that promotes HP gain,\n"
-	.string "but reduces Speed.$"
-
-Kaolisle_BPShop_DestinyKnotDesc::
-	.string "If the holder falls in love, the foe\n"
-	.string "does too.$"
-
-Kaolisle_BPShop_EverstoneDesc::
-	.string "A wondrous hold item that prevents\n"
-	.string "evolution.$"
-
-Kaolisle_BPShop_Text_CovetDesc::
-	.string "Steals the\n"
-	.string "target's held\n"
-	.string "item.$"
-
-Kaolisle_BPShop_Text_StringShotDesc::
-	.string "Binds the foe\n"
-	.string "with string to\n"
-	.string "reduce its Speed.$"
-
-Kaolisle_BPShop_Text_BlockDesc::
-	.string "Prevents the\n"
-	.string "target from\n"
-	.string "escaping.$"
-
-Kaolisle_BPShop_Text_WorrySeedDesc::
-	.string "Makes the\n"
-	.string "target's ability\n"
-	.string "Insomnia.$"
-
-Kaolisle_BPShop_Text_UproarDesc::
-	.string "3-turn attack.\n"
-	.string "No Pokémon can\n"
-	.string "sleep during it.$"
-
-Kaolisle_BPShop_Text_SnatchDesc::
-	.string "Steals the effect\n"
-	.string "of most beneficial\n"
-	.string "status moves.$"
-
-Kaolisle_BPShop_Text_StealthRockDesc::
-	.string "Sets floating\n"
-	.string "stones that hurt\n"
-	.string "a foe switching in.$"
-
-Kaolisle_BPShop_Text_SynthesisDesc::
-	.string "Restores HP.\n"
-	.string "The amount varies\n"
-	.string "with the weather.$"
-
-Kaolisle_BPShop_Text_ZenHeadbuttDesc::
-	.string "A strong head-\n"
-	.string "butt that may\n"
-	.string "cause flinching.$"
-
-Kaolisle_BPShop_Text_LastResortDesc::
-	.string "Only usable after\n"
-	.string "using all other\n"
-	.string "moves in combat.$"
