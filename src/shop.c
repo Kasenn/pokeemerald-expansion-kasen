@@ -1756,6 +1756,7 @@ static void FormatTextByWidth(u8 *result, s32 maxWidth, u8 fontId, const u8 *str
 {
     u8 *end, *ptr, *curLine, *lastSpace;
     u8 lines = 1;
+    u8 reformat = FALSE;
 
     end = result;
     // copy string, replacing all spaces and line breaks with EOS
@@ -1768,6 +1769,7 @@ static void FormatTextByWidth(u8 *result, s32 maxWidth, u8 fontId, const u8 *str
             *end = CHAR_HYPHEN;
             end++;
             *end = EOS;
+            reformat = TRUE;
         }
         else
             *end = *str;
@@ -1796,6 +1798,8 @@ static void FormatTextByWidth(u8 *result, s32 maxWidth, u8 fontId, const u8 *str
         {
             *lastSpace = CHAR_NEWLINE;
             lines++;
+            if (lines > 3)
+                sNarrowerText = TRUE;
 
             curLine = ptr;
         }
@@ -1805,35 +1809,32 @@ static void FormatTextByWidth(u8 *result, s32 maxWidth, u8 fontId, const u8 *str
         // now ptr is the next EOS char
     }
 
-    // Remove consecutive spaces
-    ptr = result;
-    while (*ptr != EOS)
+    if (reformat)  // Remove consecutive spaces
     {
-        if (*ptr == CHAR_SPACE && *(ptr + 1) == CHAR_SPACE)
+        ptr = result;
+        while (*ptr != EOS)
         {
-            u8 *shiftPtr = ptr;
-            while (*(shiftPtr + 2) != EOS)
+            if (*ptr == CHAR_SPACE && *(ptr + 1) == CHAR_SPACE)
             {
-                *shiftPtr = *(shiftPtr + 2);
-                shiftPtr++;
+                lastSpace = ptr;
+                while (*(lastSpace + 2) != EOS)
+                {
+                    *lastSpace = *(lastSpace + 2);
+                    lastSpace++;
+                }
+                *lastSpace = EOS; // Set the new end of the string after the shift
             }
-            *shiftPtr = EOS; // Set the new end of the string after the shift
-        }
-        else if (*ptr == CHAR_HYPHEN && *(ptr + 1) == CHAR_SPACE)
-        {
-            u8 *shiftPtr = ptr + 1;
-            while (*shiftPtr != EOS)
+            else if (*ptr == CHAR_HYPHEN && *(ptr + 1) == CHAR_SPACE)
             {
-                *shiftPtr = *(shiftPtr + 1);
-                shiftPtr++;
+                lastSpace = ptr + 1;
+                while (*lastSpace != EOS)
+                {
+                    *lastSpace = *(lastSpace + 1);
+                    lastSpace++;
+                }
             }
-            // No need to increment ptr here, as we want to check the next char after the hyphen.
+            else
+                ptr++;
         }
-        else
-        {
-            ptr++;
-        }
-        if (lines > 3)
-            sNarrowerText = TRUE;
     }
 }

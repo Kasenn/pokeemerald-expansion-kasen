@@ -6997,7 +6997,7 @@ bool8 MovementAction_Jump2Right_Step1(struct ObjectEvent *objectEvent, struct Sp
 
 bool8 MovementAction_Jump3Down_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
-    InitJumpRegular(objectEvent, sprite, DIR_SOUTH, JUMP_DISTANCE_FARTHER, JUMP_TYPE_FAST);
+    InitJumpRegular(objectEvent, sprite, DIR_SOUTH, JUMP_DISTANCE_FARTHER, JUMP_TYPE_FASTER);
     return MovementAction_Jump3Down_Step1(objectEvent, sprite);
 }
 
@@ -7014,7 +7014,7 @@ bool8 MovementAction_Jump3Down_Step1(struct ObjectEvent *objectEvent, struct Spr
 
 bool8 MovementAction_Jump3Up_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
-    InitJumpRegular(objectEvent, sprite, DIR_NORTH, JUMP_DISTANCE_FARTHER, JUMP_TYPE_FAST);
+    InitJumpRegular(objectEvent, sprite, DIR_NORTH, JUMP_DISTANCE_FARTHER, JUMP_TYPE_FASTER);
     return MovementAction_Jump3Up_Step1(objectEvent, sprite);
 }
 
@@ -7031,7 +7031,7 @@ bool8 MovementAction_Jump3Up_Step1(struct ObjectEvent *objectEvent, struct Sprit
 
 bool8 MovementAction_Jump3Left_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
-    InitJumpRegular(objectEvent, sprite, DIR_WEST, JUMP_DISTANCE_FARTHER, JUMP_TYPE_FAST);
+    InitJumpRegular(objectEvent, sprite, DIR_WEST, JUMP_DISTANCE_FARTHER, JUMP_TYPE_FASTER);
     return MovementAction_Jump3Left_Step1(objectEvent, sprite);
 }
 
@@ -7048,7 +7048,7 @@ bool8 MovementAction_Jump3Left_Step1(struct ObjectEvent *objectEvent, struct Spr
 
 bool8 MovementAction_Jump3Right_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
-    InitJumpRegular(objectEvent, sprite, DIR_EAST, JUMP_DISTANCE_FARTHER, JUMP_TYPE_FAST);
+    InitJumpRegular(objectEvent, sprite, DIR_EAST, JUMP_DISTANCE_FARTHER, JUMP_TYPE_FASTER);
     return MovementAction_Jump3Right_Step1(objectEvent, sprite);
 }
 

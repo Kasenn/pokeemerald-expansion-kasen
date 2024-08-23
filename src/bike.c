@@ -231,7 +231,6 @@ static void MachBikeTransition_TrySpeedUp(u8 direction)
         collision = GetBikeCollision(direction);
         if (collision > 0 && collision < COLLISION_VERTICAL_RAIL)
         {
-            DebugPrintfLevel(MGBA_LOG_WARN, "%d", collision);
             // we hit a solid object, but check to see if its a ledge and then jump.
             if (collision == COLLISION_LEDGE_JUMP_LONG)
             {
@@ -253,6 +252,7 @@ static void MachBikeTransition_TrySpeedUp(u8 direction)
         }
         else
         {
+            // DebugPrintfLevel(MGBA_LOG_WARN, "%d",  gPlayerAvatar.bikeSpeed);
             // we did not hit anything that can slow us down, so perform the advancement callback depending on the bikeFrameCounter and try to increase the mach bike's speed.
             sMachBikeSpeedCallbacks[gPlayerAvatar.bikeFrameCounter](direction);
             gPlayerAvatar.bikeSpeed = gPlayerAvatar.bikeFrameCounter + (gPlayerAvatar.bikeFrameCounter >> 1); // same as dividing by 2, but compiler is insistent on >> 1
