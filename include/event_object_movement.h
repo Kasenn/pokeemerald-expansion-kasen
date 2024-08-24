@@ -493,11 +493,6 @@ bool32 IsVirtualObjectInvisible(u8 virtualObjId);
 void SetVirtualObjectSpriteAnim(u8 virtualObjId, u8 animNum);
 bool32 IsVirtualObjectAnimating(u8 virtualObjId);
 
-// NEW
-u16 GetMiniStepCount(u8 speed);
-void RunMiniStep(struct Sprite *sprite, u8 speed, u8 currentFrame);
-bool8 PlayerIsUnderWaterfall(struct ObjectEvent *objectEvent);
-
 bool8 MovementAction_EmoteX_Step0(struct ObjectEvent *, struct Sprite *);
 bool8 MovementAction_EmoteDoubleExclamationMark_Step0(struct ObjectEvent *, struct Sprite *);
 

@@ -335,7 +335,7 @@
 #define TRAINER_DRISLEDGEGYM_TRAINER5                    329
 #define TRAINER_DRISLEDGEGYM_TRAINER6                    330
 #define TRAINER_LEADER_ACEROLA                    331
-#define TRAINER_EDDIE                       332
+#define TRAINER_LEADER_JASMINE                       332
 #define TRAINER_ALLEN                       333
 #define TRAINER_TIMMY                       334
 #define TRAINER_WALLACE                     335

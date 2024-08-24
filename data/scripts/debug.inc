@@ -175,7 +175,7 @@ Debug_EventScript_Script_7::
 	end
 
 Debug_EventScript_Script_8::
-	trainerbattle_single TRAINER_AUSTINA, Route1_Text_CoolTrainerDefeated, Route1_Text_CoolTrainerDefeated
+	trainerbattle_single TRAINER_LEADER_JASMINE, Route1_Text_CoolTrainerDefeated, Route1_Text_CoolTrainerDefeated
 	end
 
 Debug_CheckSaveBlock::

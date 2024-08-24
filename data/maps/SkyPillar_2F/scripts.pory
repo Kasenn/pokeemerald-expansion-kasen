@@ -9,9 +9,9 @@ mapscripts SkyPillar_2F_MapScripts{
 }
 
 script SetRivalTowerLoc{
-    if(!flag(FLAG_OBTAINED_MEGA_RING)){
-        setflag(FLAG_TEMP_HIDE_FOLLOWER)
-    }
+    // if(!flag(FLAG_OBTAINED_MEGA_RING)){
+    //     setflag(FLAG_TEMP_HIDE_FOLLOWER)
+    // }
     if(var(VAR_RIVAL_AROUND_SANDSTONE) <= 2){
         setobjectxyperm(6, 12, 3)
         setobjectmovementtype(6, MOVEMENT_TYPE_FACE_RIGHT)
@@ -285,8 +285,7 @@ script TestFollower{
     // setflag(FLAG_PARTNER_HEALS)
     msgbox("Let's go!")
     closemessage
-    loadword(0, MakeNewTeam)
-    setfollower(6, FOLLOWER_FLAG_ALL)
+    setfollower(6, FOLLOWER_FLAG_ALL, MakeNewTeam)
     release
     end
 }
@@ -446,9 +445,8 @@ script UnitedWithRival{
     closemessage
     setvar(VAR_RIVAL_AROUND_SANDSTONE, 3)
     setflag(FLAG_PARTNER_HEALS)
-    loadword(0, MakeNewTeam)
     special(HealPlayerParty)
-    setfollower(6, FOLLOWER_FLAG_ALL)
+    setfollower(6, FOLLOWER_FLAG_ALL, MakeNewTeam)
     release
     end
 }
@@ -490,9 +488,8 @@ script MeetingRivalInTheTower{
     setvar(VAR_TEMP_3, 1)
     setvar(VAR_RIVAL_AROUND_SANDSTONE, 3)
     setflag(FLAG_PARTNER_HEALS)
-    loadword(0, MakeNewTeam)
     special(HealPlayerParty)
-    setfollower(6, FOLLOWER_FLAG_ALL)
+    setfollower(6, FOLLOWER_FLAG_ALL, MakeNewTeam)
     msgbox(InitialPartnerSetup)
     goto(BeginPartnerSetup)
 }

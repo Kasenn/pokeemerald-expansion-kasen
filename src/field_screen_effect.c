@@ -825,7 +825,6 @@ void Task_DoDoorWarp(u8 taskId)
         }
     }
 }
-*/
 
 static void Task_DoContestHallWarp(u8 taskId)
 {

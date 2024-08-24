@@ -5480,14 +5480,14 @@ static const struct TrainerMon sParty_TRAINER_LEADER_ACEROLA[] = {
     },
 };
 
-static const struct TrainerMon sParty_Eddie[] = {
+static const struct TrainerMon sParty_LeaderJasmine[] = {
     {
     .lvl = 14,
     .species = SPECIES_ZIGZAGOON,
     },
     {
     .lvl = 16,
-    .species = SPECIES_ZIGZAGOON,
+    .species = SPECIES_STEELIX,
     }
 };
 

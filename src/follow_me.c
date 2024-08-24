@@ -1069,9 +1069,9 @@ void FollowMe_HandleBike(void)
     if (gSaveBlock2Ptr->follower.currentSprite == FOLLOWER_SPRITE_INDEX_SURF) //Follower is surfing
         return; //Sprite will automatically be adjusted when they finish surfing
 
-    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_MACH_BIKE && FollowerCanBike() && gSaveBlock2Ptr->follower.comeOutDoorStairs != 1) //Coming out door
+    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_BIKE && FollowerCanBike() && gSaveBlock2Ptr->follower.comeOutDoorStairs != 1) //Coming out door
         SetFollowerSprite(FOLLOWER_SPRITE_INDEX_MACH_BIKE); //Mach Bike on
-    else if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_ACRO_BIKE && FollowerCanBike() && gSaveBlock2Ptr->follower.comeOutDoorStairs != 1) //Coming out door
+    else if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_BIKE && FollowerCanBike() && gSaveBlock2Ptr->follower.comeOutDoorStairs != 1) //Coming out door
         SetFollowerSprite(FOLLOWER_SPRITE_INDEX_ACRO_BIKE); //Acro Bike on
     else
         SetFollowerSprite(FOLLOWER_SPRITE_INDEX_NORMAL);
@@ -1081,9 +1081,9 @@ void FollowMe_HandleSprite(void)
 {
     if (gSaveBlock2Ptr->follower.flags & FOLLOWER_FLAG_CAN_BIKE)
     {
-        if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_MACH_BIKE)
+        if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_BIKE)
             SetFollowerSprite(FOLLOWER_SPRITE_INDEX_MACH_BIKE);
-        else if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_ACRO_BIKE)
+        else if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_BIKE)
             SetFollowerSprite(FOLLOWER_SPRITE_INDEX_ACRO_BIKE);
     }
     else if (gMapHeader.mapType == MAP_TYPE_UNDERWATER)

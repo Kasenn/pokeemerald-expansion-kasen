@@ -12,21 +12,15 @@ SkyPillar_2F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 
 
 SetRivalTowerLoc::
-	goto_if_unset FLAG_OBTAINED_MEGA_RING, SetRivalTowerLoc_2
-SetRivalTowerLoc_1:
 	compare VAR_RIVAL_AROUND_SANDSTONE, 2
-	goto_if_le SetRivalTowerLoc_5
-SetRivalTowerLoc_4:
+	goto_if_le SetRivalTowerLoc_2
+SetRivalTowerLoc_1:
 	end
 
 SetRivalTowerLoc_2:
-	setflag FLAG_TEMP_HIDE_FOLLOWER
-	goto SetRivalTowerLoc_1
-
-SetRivalTowerLoc_5:
 	setobjectxyperm 6, 12, 3
 	setobjectmovementtype 6, MOVEMENT_TYPE_FACE_RIGHT
-	goto SetRivalTowerLoc_4
+	goto SetRivalTowerLoc_1
 
 
 AT_2F_Tr2_Left::
@@ -331,8 +325,7 @@ TestFollower::
 	faceplayer
 	msgbox TestFollower_Text_0
 	closemessage
-	loadword 0, MakeNewTeam
-	setfollower 6, FOLLOWER_FLAG_ALL
+	setfollower 6, FOLLOWER_FLAG_ALL, MakeNewTeam
 	release
 	end
 
@@ -545,9 +538,8 @@ UnitedWithRival_1:
 	closemessage
 	setvar VAR_RIVAL_AROUND_SANDSTONE, 3
 	setflag FLAG_PARTNER_HEALS
-	loadword 0, MakeNewTeam
 	special HealPlayerParty
-	setfollower 6, FOLLOWER_FLAG_ALL
+	setfollower 6, FOLLOWER_FLAG_ALL, MakeNewTeam
 	release
 	end
 
@@ -579,9 +571,8 @@ MeetingRivalInTheTower_1:
 	setvar VAR_TEMP_3, 1
 	setvar VAR_RIVAL_AROUND_SANDSTONE, 3
 	setflag FLAG_PARTNER_HEALS
-	loadword 0, MakeNewTeam
 	special HealPlayerParty
-	setfollower 6, FOLLOWER_FLAG_ALL
+	setfollower 6, FOLLOWER_FLAG_ALL, MakeNewTeam
 	msgbox InitialPartnerSetup
 	goto BeginPartnerSetup
 	return

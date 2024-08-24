@@ -3997,16 +3997,16 @@
         .party = TRAINER_PARTY(sParty_TRAINER_LEADER_ACEROLA),
     },
 
-    [TRAINER_EDDIE] =
+    [TRAINER_LEADER_JASMINE] =
     {
-        .trainerClass = TRAINER_CLASS_YOUNGSTER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_YOUNGSTER,
-        .trainerName = _("EDDIE"),
+        .trainerClass = TRAINER_CLASS_LEADER,
+        .encounterMusic_gender = F_TRAINER_FEMALE |TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_JASMINE,
+        .trainerName = _("Jasmine"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Eddie),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_ACE_POKEMON,
+        .party = TRAINER_PARTY(sParty_LeaderJasmine),
     },
 
     [TRAINER_ALLEN] =
