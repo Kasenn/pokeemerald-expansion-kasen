@@ -358,10 +358,9 @@ SECTIONS {
         src/gym_leader_rematch.o(.text);
         src/battle_transition_frontier.o(.text);
         src/international_string_util.o(.text);
+        src/follow_me.o(.text);
         src/pokemon_sprite_visualizer.o(.text);
         src/expansion_intro.o(.text);
-        src/follow_me.o(.text);
-        src/tm_case.o(.text);
     } > ROM =0
 
     script_data :
@@ -728,10 +727,9 @@ SECTIONS {
         data/mystery_gift.o(.rodata);
         src/m4a_tables.o(.rodata);
         data/sound_data.o(.rodata);
+        src/follow_me.o(.rodata);
         src/pokemon_sprite_visualizer.o(.rodata);
         src/expansion_intro.o(.rodata);
-        src/follow_me.o(.rodata);
-        src/tm_case.o(.rodata);
     } > ROM =0
 
     song_data :
@@ -1022,17 +1020,6 @@ SECTIONS {
         sound/songs/midi/mus_petalburg.o(.rodata);
         sound/songs/midi/mus_oldale.o(.rodata);
         sound/songs/midi/mus_gym.o(.rodata);
-        sound/songs/midi/mus_bwtrainerbattle.o(.rodata);
-        sound/songs/midi/mus_trainer_battle_bw.o(.rodata);
-        sound/songs/midi/mus_vs_iris.o(.rodata);
-        sound/songs/midi/mus_alola_e4.o(.rodata);
-        sound/songs/midi/mus_mistral.o(.rodata);
-        sound/songs/midi/mus_muted.o(.rodata);
-        sound/songs/midi/mus_pwtlobby.o(.rodata);
-        sound/songs/midi/mus_hg_azalea.o(.rodata);
-        sound/songs/midi/mus_unwavering.o(.rodata);
-        sound/songs/midi/mus_happy.o(.rodata);
-        sound/songs/midi/mus_dp_vs_legend.o(.rodata);
         sound/songs/midi/mus_surf.o(.rodata);
         sound/songs/midi/mus_petalburg_woods.o(.rodata);
         sound/songs/midi/mus_level_up.o(.rodata);

@@ -50,9 +50,10 @@ bool8 CheckFollowerFlag(u16 flag);
 void FollowerPositionFix(u8 offset);
 void SetFollowerSprite(u8 spriteIndex);
 bool8 PlayerHasFollower(void);
+u8 DetermineFollowerState(struct ObjectEvent* follower, u8 state, u8 direction);
+u8 DetermineFollowerDirection(struct ObjectEvent* player, struct ObjectEvent* follower);
 
 // moved from field_screen_effect.c
-void Task_DoDoorWarp(u8 taskId);
 bool8 IsPlayerOnFoot(void);
 
 #endif //GUARD_FOLLOW_ME_H

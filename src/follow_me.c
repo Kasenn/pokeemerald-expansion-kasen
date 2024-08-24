@@ -36,9 +36,6 @@ Known Issues:
         -inherits incorrect palette, may get directionally confused
 */
 
-// Defines
-// #define PLAYER_AVATAR_FLAG_BIKE    PLAYER_AVATAR_STATE_BIKE
-
 struct FollowerSpriteGraphics
 {
     u16 normalId;
@@ -56,9 +53,7 @@ static u8 GetFollowerMapObjId(void);
 static u16 GetFollowerSprite(void);
 static void TryUpdateFollowerSpriteUnderwater(void);
 static void Task_ReallowPlayerMovement(u8 taskId);
-static u8 DetermineFollowerDirection(struct ObjectEvent* player, struct ObjectEvent* follower);
 static void PlayerLogCoordinates(struct ObjectEvent* player);
-static u8 DetermineFollowerState(struct ObjectEvent* follower, u8 state, u8 direction);
 static bool8 IsStateMovement(u8 state);
 static u8 ReturnFollowerDelayedState(u8 direction);
 static void SetSurfJump(void);
@@ -73,7 +68,6 @@ static void Task_FollowerHandleEscalatorFinish(u8 taskId);
 static void CalculateFollowerEscalatorTrajectoryUp(struct Task *task);
 static void CalculateFollowerEscalatorTrajectoryDown(struct Task *task);
 static void TurnNPCIntoFollower(u8 localId, u16 followerFlags);
-static void RemoveObjectEventInternal2(struct ObjectEvent *);
 
 // Const Data
 static const struct FollowerSpriteGraphics gFollowerAlternateSprites[] =
@@ -83,34 +77,10 @@ static const struct FollowerSpriteGraphics gFollowerAlternateSprites[] =
     [0] = 
     {
         .normalId = OBJ_EVENT_GFX_RIVAL_MAY_NORMAL,
-        .machBikeId = OBJ_EVENT_GFX_RIVAL_MAY_NORMAL,
-        .acroBikeId = OBJ_EVENT_GFX_RIVAL_MAY_NORMAL,
+        .machBikeId = OBJ_EVENT_GFX_RIVAL_MAY_MACH_BIKE,
+        .acroBikeId = OBJ_EVENT_GFX_RIVAL_MAY_ACRO_BIKE,
         .surfId = OBJ_EVENT_GFX_RIVAL_MAY_SURFING,
         .underwaterId = OBJ_EVENT_GFX_MAY_UNDERWATER,
-    },
-    [1] = 
-    {
-        .normalId = OBJ_EVENT_GFX_MAY_NORMAL_ORAS,
-        .machBikeId = OBJ_EVENT_GFX_MAY_NORMAL_ORAS,
-        .acroBikeId = OBJ_EVENT_GFX_MAY_NORMAL_ORAS,
-        .surfId = OBJ_EVENT_GFX_MAY_SURFING_ORAS,
-        .underwaterId = OBJ_EVENT_GFX_MAY_UNDERWATER_ORAS,
-    },
-    [2] = 
-    {
-        .normalId = OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL,
-        .machBikeId = OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL,
-        .acroBikeId = OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL,
-        .surfId = OBJ_EVENT_GFX_RIVAL_BRENDAN_SURFING,
-        .underwaterId = OBJ_EVENT_GFX_BRENDAN_UNDERWATER,
-    },
-    [3] = 
-    {
-        .normalId = OBJ_EVENT_GFX_BRENDAN_NORMAL_ORAS,
-        .machBikeId = OBJ_EVENT_GFX_BRENDAN_NORMAL_ORAS,
-        .acroBikeId = OBJ_EVENT_GFX_BRENDAN_NORMAL_ORAS,
-        .surfId = OBJ_EVENT_GFX_BRENDAN_SURFING_ORAS,
-        .underwaterId = OBJ_EVENT_GFX_BRENDAN_UNDERWATER,
     },
 
 };
@@ -357,7 +327,7 @@ static void Task_ReallowPlayerMovement(u8 taskId)
     DestroyTask(taskId);
 }
 
-static u8 DetermineFollowerDirection(struct ObjectEvent* player, struct ObjectEvent* follower)
+u8 DetermineFollowerDirection(struct ObjectEvent* player, struct ObjectEvent* follower)
 {
     //Move the follower towards the player
     s8 delta_x = follower->currentCoords.x - player->currentCoords.x;
@@ -383,7 +353,7 @@ static void PlayerLogCoordinates(struct ObjectEvent* player)
 }
 
 #define RETURN_STATE(state, dir) return newState == MOVEMENT_INVALID ? state + (dir - 1) : ReturnFollowerDelayedState(dir - 1);
-static u8 DetermineFollowerState(struct ObjectEvent* follower, u8 state, u8 direction)
+u8 DetermineFollowerState(struct ObjectEvent* follower, u8 state, u8 direction)
 {
     u8 newState = MOVEMENT_INVALID;
     #if SIDEWAYS_STAIRS_IMPLEMENTED == TRUE
@@ -783,6 +753,7 @@ static void Task_FinishSurfDismount(u8 taskId)
     gPlayerAvatar.preventStep = FALSE;
 }
 
+/* Consolidated into field_screen_effect.c
 void Task_DoDoorWarp(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
@@ -790,13 +761,11 @@ void Task_DoDoorWarp(u8 taskId)
     s16 *y = &task->data[3];
     u8 playerObjId = gPlayerAvatar.objectEventId;
     u8 followerObjId = GetFollowerObjectId();
-
     switch (task->data[0])
     {
     case 0:
         if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_DASH))
             SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT); //Stop running
-
         gSaveBlock2Ptr->follower.comeOutDoorStairs = 0; //Just in case came out and when right back in
         FreezeObjectEvents();
         PlayerGetDestCoords(x, y);
@@ -809,7 +778,6 @@ void Task_DoDoorWarp(u8 taskId)
         {
             ObjectEventClearHeldMovementIfActive(&gObjectEvents[playerObjId]);
             ObjectEventSetHeldMovement(&gObjectEvents[playerObjId], MOVEMENT_ACTION_WALK_NORMAL_UP);
-
             if (gSaveBlock2Ptr->follower.inProgress && !gObjectEvents[followerObjId].invisible)
             {
                 u8 newState = DetermineFollowerState(&gObjectEvents[followerObjId], MOVEMENT_ACTION_WALK_NORMAL_UP,
@@ -817,7 +785,6 @@ void Task_DoDoorWarp(u8 taskId)
                 ObjectEventClearHeldMovementIfActive(&gObjectEvents[followerObjId]);
                 ObjectEventSetHeldMovement(&gObjectEvents[followerObjId], newState);
             }
-
             task->data[0] = 2;
         }
         break;
@@ -843,7 +810,6 @@ void Task_DoDoorWarp(u8 taskId)
             ObjectEventClearHeldMovementIfActive(&gObjectEvents[followerObjId]);
             ObjectEventSetHeldMovement(&gObjectEvents[followerObjId], MOVEMENT_ACTION_WALK_NORMAL_UP);
         }
-
         TryFadeOutOldMapMusic();
         WarpFadeOutScreen();
         PlayRainStoppingSoundEffect();
@@ -858,23 +824,24 @@ void Task_DoDoorWarp(u8 taskId)
         break;
     }
 }
+*/
 
-// static u8 GetPlayerFaceToDoorDirection(struct ObjectEvent* player, struct ObjectEvent* follower)
-// {
-//     s16 delta_x = player->currentCoords.x - follower->currentCoords.x;
+static u8 GetPlayerFaceToDoorDirection(struct ObjectEvent* player, struct ObjectEvent* follower)
+{
+    s16 delta_x = player->currentCoords.x - follower->currentCoords.x;
 
-//     if (delta_x < 0)
-//         return DIR_EAST;
-//     else if (delta_x > 0)
-//         return DIR_WEST;
+    if (delta_x < 0)
+        return DIR_EAST;
+    else if (delta_x > 0)
+        return DIR_WEST;
 
-//     return DIR_NORTH;
-// }
+    return DIR_NORTH;
+}
 
 static void Task_FollowerOutOfDoor(u8 taskId)
 {
     struct ObjectEvent *follower = &gObjectEvents[GetFollowerMapObjId()];
-    // struct ObjectEvent *player = &gObjectEvents[gPlayerAvatar.objectEventId];
+    struct ObjectEvent *player = &gObjectEvents[gPlayerAvatar.objectEventId];
     struct Task *task = &gTasks[taskId];
     s16 *x = &task->data[2];
     s16 *y = &task->data[3];
@@ -882,8 +849,9 @@ static void Task_FollowerOutOfDoor(u8 taskId)
     //if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_DASH) && ObjectEventClearHeldMovementIfFinished(player))
         //SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT); //Temporarily stop running
 
-    // if (ObjectEventClearHeldMovementIfFinished(player))
-    //     ObjectEventTurn(player, GetPlayerFaceToDoorDirection(player, follower)); //The player should face towards the follow as the exit the door
+    if (FACE_FOLLOWER_ON_DOOR_EXIT == TRUE && ObjectEventClearHeldMovementIfFinished(player)) {
+        ObjectEventTurn(player, GetPlayerFaceToDoorDirection(player, follower)); //The player should face towards the follow as the exit the door
+    }
 
     switch (task->data[0])
     {
@@ -1101,9 +1069,9 @@ void FollowMe_HandleBike(void)
     if (gSaveBlock2Ptr->follower.currentSprite == FOLLOWER_SPRITE_INDEX_SURF) //Follower is surfing
         return; //Sprite will automatically be adjusted when they finish surfing
 
-    if (gPlayerAvatar.flags & PLAYER_AVATAR_STATE_BIKE && FollowerCanBike() && gSaveBlock2Ptr->follower.comeOutDoorStairs != 1) //Coming out door
+    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_MACH_BIKE && FollowerCanBike() && gSaveBlock2Ptr->follower.comeOutDoorStairs != 1) //Coming out door
         SetFollowerSprite(FOLLOWER_SPRITE_INDEX_MACH_BIKE); //Mach Bike on
-    else if (gPlayerAvatar.flags & PLAYER_AVATAR_STATE_BIKE && FollowerCanBike() && gSaveBlock2Ptr->follower.comeOutDoorStairs != 1) //Coming out door
+    else if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_ACRO_BIKE && FollowerCanBike() && gSaveBlock2Ptr->follower.comeOutDoorStairs != 1) //Coming out door
         SetFollowerSprite(FOLLOWER_SPRITE_INDEX_ACRO_BIKE); //Acro Bike on
     else
         SetFollowerSprite(FOLLOWER_SPRITE_INDEX_NORMAL);
@@ -1113,9 +1081,9 @@ void FollowMe_HandleSprite(void)
 {
     if (gSaveBlock2Ptr->follower.flags & FOLLOWER_FLAG_CAN_BIKE)
     {
-        if (gPlayerAvatar.flags & PLAYER_AVATAR_STATE_BIKE)
+        if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_MACH_BIKE)
             SetFollowerSprite(FOLLOWER_SPRITE_INDEX_MACH_BIKE);
-        else if (gPlayerAvatar.flags & PLAYER_AVATAR_STATE_BIKE)
+        else if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_ACRO_BIKE)
             SetFollowerSprite(FOLLOWER_SPRITE_INDEX_ACRO_BIKE);
     }
     else if (gMapHeader.mapType == MAP_TYPE_UNDERWATER)
@@ -1125,40 +1093,6 @@ void FollowMe_HandleSprite(void)
     else
     {
         SetFollowerSprite(FOLLOWER_SPRITE_INDEX_NORMAL);
-    }
-}
-
-void RemoveObjectEvent2(struct ObjectEvent *objectEvent)
-{
-    objectEvent->active = FALSE;
-    RemoveObjectEventInternal2(objectEvent);
-    // zero potential species info
-    objectEvent->graphicsId = objectEvent->shiny = 0;
-}
-
-static void RemoveObjectEventInternal2(struct ObjectEvent *objectEvent)
-{
-    struct SpriteFrameImage image;
-    image.size = GetObjectEventGraphicsInfo(objectEvent->graphicsId)->size;
-    gSprites[objectEvent->spriteId].images = &image;
-    // It's possible that this function is called while the sprite pointed to `== sDummySprite`, i.e during map resume;
-    // In this case, don't free the palette as `paletteNum` is likely blank dummy data
-    if (!gSprites[objectEvent->spriteId].inUse &&
-        !gSprites[objectEvent->spriteId].oam.paletteNum &&
-        gSprites[objectEvent->spriteId].callback == SpriteCallbackDummy)
-    {
-        DestroySprite(&gSprites[objectEvent->spriteId]);
-    }
-    else
-    {
-        u32 paletteNum = gSprites[objectEvent->spriteId].oam.paletteNum;
-        u16 tileStart;
-        if (OW_GFX_COMPRESS)
-            tileStart = gSprites[objectEvent->spriteId].sheetTileStart;
-        DestroySprite(&gSprites[objectEvent->spriteId]);
-        FieldEffectFreePaletteIfUnused(paletteNum);
-        if (OW_GFX_COMPRESS && tileStart)
-            FieldEffectFreeTilesIfUnused(tileStart);
     }
 }
 
@@ -1191,7 +1125,7 @@ void SetFollowerSprite(u8 spriteIndex)
     backupFollower.graphicsId = newGraphicsId;
     //backupFollower.graphicsIdUpperByte = newGraphicsId >> 8;
     DestroySprite(&gSprites[oldSpriteId]);
-    RemoveObjectEvent2(&gObjectEvents[GetFollowerMapObjId()]);
+    RemoveObjectEvent(&gObjectEvents[GetFollowerMapObjId()]);
 
     clone = *GetObjectEventTemplateByLocalIdAndMap(gSaveBlock2Ptr->follower.map.id, gSaveBlock2Ptr->follower.map.number, gSaveBlock2Ptr->follower.map.group);
     clone.graphicsId = newGraphicsId;
@@ -1448,7 +1382,7 @@ void DestroyFollower(void)
 {
     if (gSaveBlock2Ptr->follower.inProgress)
     {
-        RemoveObjectEvent2(&gObjectEvents[gSaveBlock2Ptr->follower.objId]);
+        RemoveObjectEvent(&gObjectEvents[gSaveBlock2Ptr->follower.objId]);
         FlagSet(gSaveBlock2Ptr->follower.flag);
         gSaveBlock2Ptr->follower.inProgress = FALSE;
     }
@@ -1499,5 +1433,3 @@ void CheckPlayerHasFollower(void)
 {
     gSpecialVar_Result = gSaveBlock2Ptr->follower.inProgress;
 }
-
-

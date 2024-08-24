@@ -1927,11 +1927,17 @@
 	_dynmultichoice \left, \top, \ignoreBPress, \maxBeforeScroll, \shouldSort, \initialSelected, \callbacks, NULL
 	.endm
 
-	    @ sets an NPC up to follow the player
-    .macro setfollower localId:req, flags:req
+
+		@ sets an NPC up to follow the player
+    .macro setfollower localId:req, flags:req, script
+	ballfollowingmon
+	.ifnb \script
+		loadword 0, \script
+	.endif
     .byte 0xe9
     .byte \localId
     .2byte \flags
+	updatefollowingmon
     .endm
     
     @ remove the following NPC (assumes there will only ever be one)
@@ -1949,11 +1955,28 @@
     .byte 0xec
     .endm
 
+	@ Updates Pokemon follower
+	.macro updatefollowingmon
+    .byte 0xed
+    .endm
+
+	@ Returns Pokemon follower to ball
+	.macro ballfollowingmon
+	.byte 0xee
+	delay 16
+	.endm
+	    @ sets an NPC up to follow the player
+    .macro setfollower localId:req, flags:req
+    .byte 0xe9
+    .byte \localId
+    .2byte \flags
+    .endm
+
 	@ Checks if at least one party mon is equal to the specified level. If so, VAR_RESULT is set to the
 	@ (zero-indexed) slot number of the first Pokemon that knows the move. If not, VAR_RESULT is set to PARTY_SIZE.
 	@ VAR_0x8004 is also set to this Pokemon's species.
 	.macro checkpartylevel monLevel:req
-	.byte 0xed
+	.byte 0xef
 	.2byte \monLevel
 	.endm
 
@@ -1962,7 +1985,7 @@
 	@ Uses BP as currency, with the prices based on the .bpCost value
 	@ in src/data/items.h.
 	.macro bpmart products:req, isMoveTutor:req
-	.byte 0xee
+	.byte 0xf0
 	.4byte \products
 	.2byte \isMoveTutor
 	.endm

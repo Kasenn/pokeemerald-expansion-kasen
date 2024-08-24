@@ -532,7 +532,6 @@ struct Follower
     /*0x15*/ u8 locked;
 }; /* size = 0x18 */
 
-
 struct SaveBlock2
 {
     /*0x00*/ u8 playerName[PLAYER_NAME_LENGTH + 1];
