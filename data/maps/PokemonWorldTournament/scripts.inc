@@ -7,11 +7,19 @@ PokemonWorldTournament_MapScripts::
 BP_Mart_MoveTutor::
 	lock
 	faceplayer
-	message BP_Mart_Moves
+	message BP_Mart_Greetings
 	waitmessage
 	bpmart BP_Mart_Moves, TRUE
+	compare VAR_RESULT, FALSE
+	goto_if_eq BP_Mart_MoveTutor_2
+	msgbox IllTakeYourBPNow
+BP_Mart_MoveTutor_1:
 	release
 	return
+
+BP_Mart_MoveTutor_2:
+	msgbox PleaseSaveSomeBp
+	goto BP_Mart_MoveTutor_1
 
 
 	.align 2
@@ -30,10 +38,10 @@ BP_Mart_Moves:
 BP_Mart_ItemShop::
 	lock
 	faceplayer
-	message BP_Mart_Moves
+	message BP_Mart_Greetings2
 	waitmessage
 	bpmart BP_Mart_Items, FALSE
-	msgbox BP_Mart_Moves
+	msgbox PleaseSaveSomeBp
 	release
 	return
 
@@ -121,6 +129,24 @@ TestDir_Text_2:
 
 TestDir_Text_3:
 	.string "facing south$"
+
+IllTakeYourBPNow::
+	.string "I'll be taking your BP now.$"
+
+BP_Mart_Greetings::
+	.string "We got the moves,\n"
+	.string "we got the groove.$"
+
+BP_Mart_Greetings2::
+	.string "Hello!\p"
+	.string "Welcome to the\n"
+	.string "Exchange Service Corner!\p"
+	.string "Would you like to trade in your BP\n"
+	.string "for some exquisite items?$"
+
+PleaseSaveSomeBp::
+	.string "Please save some BP\n"
+	.string "and come see us again.$"
 
 EnableMoveInfo::
 	.string "Enable move info window?$"

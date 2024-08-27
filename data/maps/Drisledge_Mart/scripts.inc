@@ -23,7 +23,6 @@ DrisMartFlagControl::
 
 DrisMartFlagControl_1:
 	setweather WEATHER_SHADE
-	doweather
 	playbgm MUS_NONE, TRUE
 	setflag FLAG_TEMP_1
 	return

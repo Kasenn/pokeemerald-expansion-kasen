@@ -6,16 +6,38 @@ raw`@hasMoveTutor` // if P_LEARNSET_HELPER_TEACHABLE is set to TRUE, adding this
 script BP_Mart_MoveTutor{
     lock
     faceplayer
-    message(BP_Mart_Moves)
+    message(BP_Mart_Greetings)
     waitmessage
     bpmart(BP_Mart_Moves, TRUE)     // TRUE for move tutor, FALSE for item shop
-    // if(var(VAR_RESULT) == FALSE){   // VAR_RESULT is set to TRUE if successfully teaching a move to a mon, FALSE otherwise
-    //     msgbox(PleaseSaveSomeBp)
-    // }
-    // else{
-    //     msgbox(IllTakeYourBPNow)
-    // }
+    if(var(VAR_RESULT) == FALSE){   // VAR_RESULT is set to TRUE if successfully teaching a move to a mon, FALSE otherwise
+        msgbox(PleaseSaveSomeBp)
+    }
+    else{
+        msgbox(IllTakeYourBPNow)
+    }
     release
+}
+
+text IllTakeYourBPNow{
+    "I'll be taking your BP now."
+}
+
+text BP_Mart_Greetings{
+    "We got the moves,\n"
+    "we got the groove."
+}
+
+text BP_Mart_Greetings2{
+    "Hello!\p"
+	"Welcome to the\n"
+	"Exchange Service Corner!\p"
+	"Would you like to trade in your BP\n"
+	"for some exquisite items?"
+}
+
+text PleaseSaveSomeBp{
+    "Please save some BP\n"
+    "and come see us again."
 }
 
 mart BP_Mart_Moves{
@@ -33,10 +55,10 @@ mart BP_Mart_Moves{
 script BP_Mart_ItemShop{
     lock
     faceplayer
-    message(BP_Mart_Moves)
+    message(BP_Mart_Greetings2)
     waitmessage
     bpmart(BP_Mart_Items, FALSE)    // TRUE for move tutor, FALSE for item shop
-    msgbox(BP_Mart_Moves)
+    msgbox(PleaseSaveSomeBp)
     release
 }
 
