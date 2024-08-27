@@ -351,6 +351,8 @@ static const u8 sText_WildFled[] = _("{PLAY_SE SE_FLEE}{B_LINK_OPPONENT1_NAME} f
 static const u8 sText_TwoWildFled[] = _("{PLAY_SE SE_FLEE}{B_LINK_OPPONENT1_NAME} and\n{B_LINK_OPPONENT2_NAME} fled!");
 static const u8 sText_NoRunningFromTrainers[] = _("No! There's no running\nfrom a trainer battle!\p");
 static const u8 sText_NoRunningFromGhost[] = _("A strange force beckons you to stay.\nThere's no running from this battle!\p");
+static const u8 sText_JasmineNotGivingUp[] = _("We're not giving up just yet!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}");
+static const u8 sText_JasmineAmphy[] = _("Amphy?!\pYou're not supposed to\ncome out of your ball!\p… {PAUSE 48}… {PAUSE 48}…\pI'm sorry, but Amphy seems too\npersistent to back down now…\p");
 static const u8 sText_CantEscape[] = _("Can't escape!\p");
 static const u8 sText_DontLeaveBirch[] = _("PROF. BIRCH: Don't leave me like this!\p");
 static const u8 sText_ButNothingHappened[] = _("But nothing happened!");
@@ -1225,6 +1227,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_WILDPKMNFLED - BATTLESTRINGS_TABLE_START] = sText_WildPkmnFled,
     [STRINGID_NORUNNINGFROMTRAINERS - BATTLESTRINGS_TABLE_START] = sText_NoRunningFromTrainers,
     [STRINGID_NORUNNINGFROMGHOST - BATTLESTRINGS_TABLE_START] = sText_NoRunningFromGhost,
+    [STRINGID_JASMINE_NOTGIVINGUPYET - BATTLESTRINGS_TABLE_START] = sText_JasmineNotGivingUp,
+    [STRINGID_JASMINE_AMPHY - BATTLESTRINGS_TABLE_START] = sText_JasmineAmphy,
     [STRINGID_CANTESCAPE - BATTLESTRINGS_TABLE_START] = sText_CantEscape,
     [STRINGID_DONTLEAVEBIRCH - BATTLESTRINGS_TABLE_START] = sText_DontLeaveBirch,
     [STRINGID_BUTNOTHINGHAPPENED - BATTLESTRINGS_TABLE_START] = sText_ButNothingHappened,
@@ -4165,6 +4169,11 @@ static const struct TrainerSlide sTrainerSlides[] =
         // .msgFirstDown = sText_DontGetCockyKid,
         .msgMegaEvolution = sText_LetsHaveFun,
         // .msgBeforeFirstTurn = sText_HeardOfMegaEvos,
+    },
+    {
+        .trainerId = TRAINER_LEADER_JASMINE,
+        .isFrontierTrainer = FALSE,
+        .msgLastSwitchIn = sText_JasmineNotGivingUp,
     },
 };
 

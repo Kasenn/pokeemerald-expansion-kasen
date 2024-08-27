@@ -5482,23 +5482,33 @@ static const struct TrainerMon sParty_TRAINER_LEADER_ACEROLA[] = {
 
 static const struct TrainerMon sParty_LeaderJasmine[] = {
     {
-    .lvl = 14,
-    .species = SPECIES_ZIGZAGOON,
+    .lvl = 40,
+    .species = SPECIES_MAGNEMITE,
     },
     {
-    .lvl = 16,
+    .lvl = 40,
+    .species = SPECIES_MAGNEMITE,
+    },
+    {
+    .lvl = 40,
     .species = SPECIES_STEELIX,
-    }
+    },
+    {
+    .lvl = 40,
+    .species = SPECIES_STEELIX,
+    },
+    {
+    .lvl = 40,
+    .species = SPECIES_AMPHAROS,
+    .heldItem = ITEM_AMPHAROSITE,
+    },
 };
 
 static const struct TrainerMon sParty_Allen[] = {
     {
-    .lvl = 4,
-    .species = SPECIES_ZIGZAGOON,
-    },
-    {
-    .lvl = 3,
-    .species = SPECIES_TAILLOW,
+    .lvl = 30,
+    .species = SPECIES_AMPHAROS,
+    .moves = {MOVE_GRASS_KNOT, MOVE_THUNDER_PUNCH, MOVE_SIGNAL_BEAM, MOVE_POWER_GEM},
     }
 };
 

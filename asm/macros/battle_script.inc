@@ -1949,6 +1949,11 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro jumpifamphy battler:req, jumpInstr:req
+	various \battler, VARIOUS_AMPHY_INTERRUPTS
+	.4byte \jumpInstr
+	.endm
+
 	.macro handletrainerslidemsg battler:req, case:req
 	various \battler, VARIOUS_HANDLE_TRAINER_SLIDE_MSG
 	.byte \case

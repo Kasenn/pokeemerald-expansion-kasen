@@ -10,6 +10,7 @@ script AdamantExteriorSetObject{
     checkfollower
     if(var(VAR_RESULT) == TRUE){
         destroyfollower
+        clearflag(FLAG_OBTAINED_MEGA_RING)
         setvar(VAR_RIVAL_AROUND_SANDSTONE, 4)
         clearflag(FLAG_PARTNER_HEALS)
     }

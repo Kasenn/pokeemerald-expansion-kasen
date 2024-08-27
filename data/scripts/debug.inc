@@ -158,7 +158,11 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
-	call JumpTest
+	givemon SPECIES_STEELIX, 50, ITEM_NONE
+	givemon SPECIES_EXEGGUTOR_ALOLAN, 50, ITEM_NONE
+	givemon SPECIES_XERNEAS, 50, ITEM_NONE
+	givemon SPECIES_YVELTAL, 50, ITEM_NONE
+	givemon SPECIES_ZYGARDE_50, 50, ITEM_NONE
 	end
 
 TestMsg:

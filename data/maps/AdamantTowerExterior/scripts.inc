@@ -19,6 +19,7 @@ AdamantExteriorSetObject_2:
 
 AdamantExteriorSetObject_5:
 	destroyfollower
+	clearflag FLAG_OBTAINED_MEGA_RING
 	setvar VAR_RIVAL_AROUND_SANDSTONE, 4
 	clearflag FLAG_PARTNER_HEALS
 	goto AdamantExteriorSetObject_4

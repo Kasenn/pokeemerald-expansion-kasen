@@ -1358,6 +1358,9 @@ void BattleSetup_StartTrainerBattle(void)
     else
         gBattleTypeFlags = (BATTLE_TYPE_TRAINER);
 
+    if (GetTrainerPicFromId(gTrainerBattleOpponent_A) == TRAINER_PIC_JASMINE)
+        gBattleTypeFlags |= BATTLE_TYPE_JASMINE;
+
     if (InBattlePyramid())
     {
         VarSet(VAR_TEMP_PLAYING_PYRAMID_MUSIC, 0);

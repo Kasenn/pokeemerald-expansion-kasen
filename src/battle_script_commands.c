@@ -66,6 +66,7 @@
 #include "config/battle.h"
 #include "constants/battle_frontier.h"
 #include "data/battle_move_effects.h"
+#include "battle_main.h"
 
 // table to avoid ugly powing on gba (courtesy of doesnt)
 // this returns (i^2.5)/4
@@ -6471,7 +6472,14 @@ static void Cmd_getswitchedmondata(void)
     if (gBattleControllerExecFlags)
         return;
 
-    gBattlerPartyIndexes[battler] = gBattleStruct->monToSwitchIntoId[battler];
+    if (gBattleTypeFlags & BATTLE_TYPE_JASMINE && !CanBattlerSwitch(battler))
+    {
+        FlagSet(FLAG_TEMP_1);
+        CreateNPCTrainerParty(&(gEnemyParty + 1)[0 + 1], gTrainerBattleOpponent_A, TRUE);
+        gBattleMons[gBattlerAttacker].species = SPECIES_GRENINJA_ASH;
+    }
+    else
+        gBattlerPartyIndexes[battler] = gBattleStruct->monToSwitchIntoId[battler];   
 
     BtlController_EmitGetMonData(battler, BUFFER_A, REQUEST_ALL_BATTLE, gBitTable[gBattlerPartyIndexes[battler]]);
     MarkBattlerForControllerExec(battler);
@@ -10164,6 +10172,15 @@ static void Cmd_various(void)
             return;
         }
         break;
+    }
+    case VARIOUS_AMPHY_INTERRUPTS:
+    {
+        VARIOUS_ARGS(const u8 *jumpInstr);
+        if (gBattleTypeFlags & BATTLE_TYPE_JASMINE && !CanBattlerSwitch(battler))
+            gBattlescriptCurrInstr = cmd->jumpInstr;
+        else
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        return;
     }
     case VARIOUS_TRY_TRAINER_SLIDE_MSG_LAST_ON:
     {

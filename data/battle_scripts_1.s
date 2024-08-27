@@ -5664,6 +5664,7 @@ BattleScript_FaintedMonSendOutNew:
 	waitstate
 	resetplayerfainted
 	trytrainerslidelastonmsg BS_FAINTED
+	jumpifamphy BS_FAINTED, BattleScript_AmphyInterrupts
 	jumpifbytenotequal sSHIFT_SWITCHED, sZero, BattleScript_FaintedMonShiftSwitched
 BattleScript_FaintedMonSendOutNewEnd:
 	switchineffects BS_FAINTED
@@ -5677,6 +5678,27 @@ BattleScript_FaintedMonShiftSwitched:
 	resetsentmonsvalue
 	copybyte gBattlerTarget, sSAVED_BATTLER
 	goto BattleScript_FaintedMonSendOutNewEnd
+
+BattleScript_AmphyInterrupts::
+	pause B_WAIT_TIME_MED
+	trainerslideout BS_ATTACKER
+	waitstate
+	atknameinbuff1
+	resetswitchinabilitybits BS_TARGET
+	hpthresholds2 BS_TARGET
+	switchoutabilities BS_TARGET
+	waitstate
+	getswitchedmondata BS_TARGET
+	switchindataupdate BS_TARGET
+	hpthresholds BS_TARGET
+	trytoclearprimalweather
+	flushtextbox
+	switchinanim BS_TARGET, 0
+	waitstate
+	setbyte sSHIFT_SWITCHED, 1
+	printstring STRINGID_JASMINE_AMPHY
+	jumpifbytenotequal sSHIFT_SWITCHED, sZero, BattleScript_FaintedMonSendOutNewEnd
+	jumpifbyteequal sSHIFT_SWITCHED, sZero, BattleScript_FaintedMonSendOutNewEnd
 
 BattleScript_HandleFaintedMonMultiple::
 	openpartyscreen BS_FAINTED_MULTIPLE_1, BattleScript_HandleFaintedMonMultipleStart
