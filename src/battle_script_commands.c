@@ -2426,6 +2426,10 @@ static void Cmd_critmessage(void)
         {
             PrepareStringBattle(STRINGID_CRITICALHIT, gBattlerAttacker);
 
+            if (GetBattlerSide(gBattlerTarget) == B_SIDE_PLAYER)
+                IncrementGameStat(GAME_STAT_FOE_CRIT_PLAYER);
+            else
+                IncrementGameStat(GAME_STAT_PLAYER_CRIT_FOE);
             // Signal for the trainer slide-in system.
             if (GetBattlerSide(gBattlerTarget) != B_SIDE_PLAYER && gBattleStruct->trainerSlideFirstCriticalHitMsgState != 2)
                 gBattleStruct->trainerSlideFirstCriticalHitMsgState = 1;
@@ -2508,6 +2512,10 @@ static void Cmd_resultmessage(void)
 
     if (gMoveResultFlags & MOVE_RESULT_MISSED && (!(gMoveResultFlags & MOVE_RESULT_DOESNT_AFFECT_FOE) || gBattleCommunication[MISS_TYPE] > B_MSG_AVOIDED_ATK))
     {
+        if (GetBattlerSide(gBattlerTarget) == B_SIDE_PLAYER)
+            IncrementGameStat(GAME_STAT_FOE_MISS_PLAYER);
+        else
+            IncrementGameStat(GAME_STAT_PLAYER_MISS_FOE);
         if (gBattleCommunication[MISS_TYPE] > B_MSG_AVOIDED_ATK) // Wonder Guard or Levitate - show the ability pop-up
             CreateAbilityPopUp(gBattlerTarget, gBattleMons[gBattlerTarget].ability, (gBattleTypeFlags & BATTLE_TYPE_DOUBLE) != 0);
         stringId = gMissStringIds[gBattleCommunication[MISS_TYPE]];

@@ -525,6 +525,12 @@ void ScrCmd_setpartylevel(struct ScriptContext *ctx)
     }
 }
 
+void ScrCmd_copygamestat(struct ScriptContext *ctx)
+{
+    u8 stat = VarGet(ScriptReadHalfword(ctx));
+    ConvertIntToDecimalStringN(gStringVar1, GetGameStat(stat), STR_CONV_MODE_LEFT_ALIGN, 4);
+}
+
 void Script_GetChosenMonOffensiveEVs(void)
 {
     ConvertIntToDecimalStringN(gStringVar1, GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_EV), STR_CONV_MODE_LEFT_ALIGN, 3);

@@ -703,6 +703,15 @@ Jump2:
 	jump_2_right
 	step_end
 
+GameStatTest::
+	copygamestat GAME_STAT_PLAYER_MISS_FOE
+	msgbox GameStatTest_Text_0
+	copygamestat GAME_STAT_FOE_MISS_PLAYER
+	msgbox GameStatTest_Text_1
+	release
+	return
+
+
 ChooseSpellRange_Text_0:
 	.string "1x1$"
 
@@ -783,6 +792,12 @@ SetTeamLevel_Text_15:
 
 SetTeamLevel_Text_16:
 	.string "Team set to level 45.$"
+
+GameStatTest_Text_0:
+	.string "Player missed foe: {STR_VAR_1}$"
+
+GameStatTest_Text_1:
+	.string "Foe missed player: {STR_VAR_1}$"
 
 RustboroCity_DevonCorp_1F_Text_ThoseShoesAreOurProduct::
 	.string "Hey, those running shoes!\n"

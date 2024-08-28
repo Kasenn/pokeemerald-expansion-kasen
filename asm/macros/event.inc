@@ -1990,6 +1990,12 @@
 	.2byte \level
 	.endm
 
+	@ Copies specified game stat to STR_VAR_1
+	.macro copygamestat stat:req
+	callnative ScrCmd_copygamestat
+	.2byte \stat
+	.endm
+
 	.macro addvartovar
 	callnative AddVarToVar
 	.endm

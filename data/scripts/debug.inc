@@ -169,9 +169,7 @@ TestMsg:
 	.string "Yer a wizard, Harry.$"
 
 Debug_EventScript_Script_6::
-	setflag FLAG_TEMP_1
-	removeobject 18
-	release
+	call GameStatTest
 	end
 
 Debug_EventScript_Script_7::

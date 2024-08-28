@@ -138,6 +138,10 @@ static void PrintHofDebutTimeOnCard(void);
 static void PrintLinkBattleResultsOnCard(void);
 static void PrintTradesStringOnCard(void);
 static void PrintBerryCrushStringOnCard(void);
+static void PrintPlayerCritFoeOnCardBack(void);
+static void PrintFoeCritPlayerOnCardBack(void);
+static void PrintPlayerMissedFoeOnCardBack(void);
+static void PrintFoeMissedPlayerOnCardBack(void);
 static void PrintPokeblockStringOnCard(void);
 static void PrintUnionStringOnCard(void);
 static void PrintContestStringOnCard(void);
@@ -956,17 +960,21 @@ static bool8 PrintAllOnCardBack(void)
         PrintNameOnCardBack();
         break;
     case 1:
-        PrintHofDebutTimeOnCard();
+        PrintPlayerCritFoeOnCardBack();
+        // PrintHofDebutTimeOnCard();
         break;
     case 2:
-        PrintLinkBattleResultsOnCard();
+        PrintFoeCritPlayerOnCardBack();
+        // PrintLinkBattleResultsOnCard();
         break;
     case 3:
-        PrintTradesStringOnCard();
+        PrintPlayerMissedFoeOnCardBack();
+        // PrintTradesStringOnCard();
         break;
     case 4:
-        PrintBerryCrushStringOnCard();
-        PrintPokeblockStringOnCard();
+        PrintFoeMissedPlayerOnCardBack();
+        // PrintBerryCrushStringOnCard();
+        // PrintPokeblockStringOnCard();
         break;
     case 5:
         PrintUnionStringOnCard();
@@ -1206,6 +1214,27 @@ static void PrintHofDebutTimeOnCard(void)
 {
     if (sData->hasHofResult)
         PrintStatOnBackOfCard(0, gText_HallOfFameDebut, sData->textHofTime, sTrainerCardStatColors);
+}
+
+static void PrintPlayerCritFoeOnCardBack(void)
+{
+    ConvertIntToDecimalStringN(gStringVar4, GetGameStat(GAME_STAT_PLAYER_CRIT_FOE), STR_CONV_MODE_LEFT_ALIGN, 7);
+    PrintStatOnBackOfCard(0, gText_PlayerCritFoe, gStringVar4, sTrainerCardStatColors);
+}
+static void PrintFoeCritPlayerOnCardBack(void)
+{
+    ConvertIntToDecimalStringN(gStringVar4, GetGameStat(GAME_STAT_FOE_CRIT_PLAYER), STR_CONV_MODE_LEFT_ALIGN, 7);
+    PrintStatOnBackOfCard(2, gText_FoeCritPlayer, gStringVar4, sTrainerCardStatColors);
+}
+static void PrintPlayerMissedFoeOnCardBack(void)
+{
+    ConvertIntToDecimalStringN(gStringVar4, GetGameStat(GAME_STAT_PLAYER_MISS_FOE), STR_CONV_MODE_LEFT_ALIGN, 7);
+    PrintStatOnBackOfCard(1, gText_PlayerMissFoe, gStringVar4, sTrainerCardStatColors);
+}
+static void PrintFoeMissedPlayerOnCardBack(void)
+{
+    ConvertIntToDecimalStringN(gStringVar4, GetGameStat(GAME_STAT_FOE_MISS_PLAYER), STR_CONV_MODE_LEFT_ALIGN, 7);
+    PrintStatOnBackOfCard(3, gText_FoeMissPlayer, gStringVar4, sTrainerCardStatColors);
 }
 
 static const u8 *const sLinkBattleTexts[] =

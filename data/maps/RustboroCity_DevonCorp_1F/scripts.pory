@@ -860,3 +860,11 @@ movement Jump1Special{
 movement Jump2{
     jump_2_right
 }
+
+script GameStatTest{
+    copygamestat(GAME_STAT_PLAYER_MISS_FOE)
+    msgbox("Player missed foe: {STR_VAR_1}")
+    copygamestat(GAME_STAT_FOE_MISS_PLAYER)
+    msgbox("Foe missed player: {STR_VAR_1}")
+    release
+}
