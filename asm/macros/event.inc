@@ -1930,14 +1930,25 @@
 
 		@ sets an NPC up to follow the player
     .macro setfollower localId:req, flags:req, script
+	checkfollower
+	goto_if_eq VAR_RESULT, TRUE, 1f
 	ballfollowingmon
 	.ifnb \script
-		loadword 0, \script
+		.if \script == 0
+			.set setScript, FALSE
+		.else
+			loadword 0, \script
+			.set setScript, TRUE
+		.endif
+	.else
+		.set setScript, FALSE
 	.endif
     .byte 0xe9
     .byte \localId
     .2byte \flags
+	.byte setScript
 	updatefollowingmon
+	1:
     .endm
     
     @ remove the following NPC (assumes there will only ever be one)
