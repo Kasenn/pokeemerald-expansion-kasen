@@ -299,6 +299,7 @@ extern const u8 BattleScript_WeakArmorActivates[];
 extern const u8 BattleScript_FellStingerRaisesStat[];
 extern const u8 BattleScript_SnowWarningActivatesHail[];
 extern const u8 BattleScript_SnowWarningActivatesSnow[];
+extern const u8 BattleScript_PickupActivates[];
 extern const u8 BattleScript_HarvestActivates[];
 extern const u8 BattleScript_ImposterActivates[];
 extern const u8 BattleScript_SelectingNotAllowedMoveAssaultVest[];
@@ -852,5 +853,7 @@ extern const u8 BattleScript_EffectTidyUp[];
 extern const u8 BattleScript_GhostBallDodge[];
 extern const u8 BattleScript_EffectSpicyExtract[];
 extern const u8 BattleScript_DamageToQuarterTargetHP[];
+extern const u8 BattleScript_EffectFickleBeam[];
+extern const u8 BattleScript_FickleBeamDoubled[];
 
 #endif // GUARD_BATTLE_SCRIPTS_H

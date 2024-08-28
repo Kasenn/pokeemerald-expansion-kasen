@@ -5562,8 +5562,8 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
             SIZE_64x64,
             SHADOW_SIZE_M,
             TRACKS_NONE,
-            gOverworldPalette_DialgaOrigin
-            //, gShinyOverworldPalette_DialgaOrigin
+            gOverworldPalette_DialgaOrigin,
+            gShinyOverworldPalette_DialgaOrigin
         )
         .isLegendary = TRUE,
         .isFrontierBanned = TRUE,
@@ -5700,8 +5700,8 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
             SIZE_64x64,
             SHADOW_SIZE_M,
             TRACKS_NONE,
-            gOverworldPalette_PalkiaOrigin
-            //, gShinyOverworldPalette_PalkiaOrigin
+            gOverworldPalette_PalkiaOrigin,
+            gShinyOverworldPalette_PalkiaOrigin
         )
         .isLegendary = TRUE,
         .isFrontierBanned = TRUE,
@@ -5977,8 +5977,8 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
             SIZE_64x64,
             SHADOW_SIZE_M,
             TRACKS_FOOT,
-            gOverworldPalette_GiratinaOrigin
-            //, gShinyOverworldPalette_GiratinaOrigin
+            gOverworldPalette_GiratinaOrigin,
+            gShinyOverworldPalette_GiratinaOrigin
         )
         .isLegendary = TRUE,
         .isFrontierBanned = TRUE,

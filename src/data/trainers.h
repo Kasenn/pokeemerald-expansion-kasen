@@ -202,7 +202,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GruntRusturfTunnel),
     },
-
     [TRAINER_GRUNT_WEATHER_INST_1] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
@@ -214,7 +213,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GruntWeatherInst1),
     },
-
     [TRAINER_GRUNT_WEATHER_INST_2] =
     {
         .trainerClass = TRAINER_CLASS_BUG_CATCHER,
@@ -226,7 +224,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GruntWeatherInst2),
     },
-
     [TRAINER_GRUNT_WEATHER_INST_3] =
     {
         .trainerClass = TRAINER_CLASS_TUBER_F,
@@ -238,7 +235,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GruntWeatherInst3),
     },
-
     [TRAINER_GRUNT_MUSEUM_1] =
     {
         .trainerClass = TRAINER_CLASS_COOLTRAINER,
@@ -250,7 +246,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_GruntMuseum1),
     },
-
     [TRAINER_GRUNT_MUSEUM_2] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
@@ -262,7 +257,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GruntMuseum2),
     },
-
     [TRAINER_GRUNT_SPACE_CENTER_1] =
     {
         .trainerClass = TRAINER_CLASS_LASS,
@@ -274,7 +268,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GruntSpaceCenter1),
     },
-
     [TRAINER_GRUNT_MT_PYRE_1] =
     {
         .trainerClass = TRAINER_CLASS_BLACK_BELT,
@@ -286,7 +279,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GruntMtPyre1),
     },
-
     [TRAINER_GRUNT_MT_PYRE_2] =
     {
         .trainerClass = TRAINER_CLASS_YOUNGSTER,
@@ -298,7 +290,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GruntMtPyre2),
     },
-
     [TRAINER_GRUNT_MT_PYRE_3] =
     {
         .trainerClass = TRAINER_CLASS_SCHOOL_KID,
@@ -310,7 +301,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GruntMtPyre3),
     },
-
     [TRAINER_GRUNT_WEATHER_INST_4] =
     {
         .trainerClass = TRAINER_CLASS_BUG_CATCHER,
@@ -322,7 +312,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GruntWeatherInst4),
     },
-
     [TRAINER_GRUNT_AQUA_HIDEOUT_5] =
     {
         .trainerClass = TRAINER_CLASS_LADY,
@@ -334,7 +323,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GruntAquaHideout5),
     },
-
     [TRAINER_GRUNT_AQUA_HIDEOUT_6] =
     {
         .trainerClass = TRAINER_CLASS_BUG_CATCHER,
@@ -466,7 +454,6 @@
         .aiFlags = AI_FLAG_ACE_POKEMON | AI_FLAG_WILL_SUICIDE | AI_FLAG_PREFER_STATUS_MOVES,
         .party = TRAINER_PARTY(sParty_Felix),
     },
-
     [TRAINER_VIOLET] =
     {
         .trainerClass = TRAINER_CLASS_NURSE,
@@ -478,7 +465,6 @@
         .aiFlags = AI_FLAG_ACE_POKEMON | AI_FLAG_WILL_SUICIDE | AI_FLAG_PREFER_STATUS_MOVES,
         .party = TRAINER_PARTY(sParty_Violet),
     },
-
     [TRAINER_ROSE_2] =
     {
         .trainerClass = TRAINER_CLASS_NURSE,
@@ -490,7 +476,6 @@
         .aiFlags = AI_FLAG_ACE_POKEMON | AI_FLAG_WILL_SUICIDE | AI_FLAG_PREFER_STATUS_MOVES,
         .party = TRAINER_PARTY(sParty_Rose2),
     },
-
     [TRAINER_ROSE_3] =
     {
         .trainerClass = TRAINER_CLASS_NURSE,
@@ -502,7 +487,6 @@
         .aiFlags = AI_FLAG_ACE_POKEMON | AI_FLAG_WILL_SUICIDE | AI_FLAG_PREFER_STATUS_MOVES,
         .party = TRAINER_PARTY(sParty_Rose3),
     },
-
     [TRAINER_ROSE_4] =
     {
         .trainerClass = TRAINER_CLASS_NURSE,
@@ -514,7 +498,6 @@
         .aiFlags = AI_FLAG_ACE_POKEMON | AI_FLAG_WILL_SUICIDE | AI_FLAG_PREFER_STATUS_MOVES,
         .party = TRAINER_PARTY(sParty_Rose4),
     },
-
     [TRAINER_ROSE_5] =
     {
         .trainerClass = TRAINER_CLASS_NURSE,
@@ -526,7 +509,6 @@
         .aiFlags = AI_FLAG_ACE_POKEMON | AI_FLAG_WILL_SUICIDE | AI_FLAG_PREFER_STATUS_MOVES,
         .party = TRAINER_PARTY(sParty_Rose5),
     },
-
     [TRAINER_DUSTY_1] =
     {
         .trainerClass = TRAINER_CLASS_NURSE,
@@ -538,7 +520,6 @@
         .aiFlags = AI_FLAG_ACE_POKEMON | AI_FLAG_WILL_SUICIDE | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_SEQUENCE_SWITCHING,
         .party = TRAINER_PARTY(sParty_Dusty1),
     },
-
     [TRAINER_CHIP] =
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER,
@@ -550,7 +531,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Chip),
     },
-
     [TRAINER_FOSTER] =
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER,
@@ -562,7 +542,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Foster),
     },
-
     [TRAINER_DUSTY_2] =
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER,
@@ -574,7 +553,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Dusty2),
     },
-
     [TRAINER_DUSTY_3] =
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER,
@@ -586,7 +564,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Dusty3),
     },
-
     [TRAINER_DUSTY_4] =
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER,
@@ -598,7 +575,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Dusty4),
     },
-
     [TRAINER_DUSTY_5] =
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER,
@@ -610,7 +586,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Dusty5),
     },
-
     [TRAINER_GABBY_AND_TY_1] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -624,7 +599,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_ACE_POKEMON,
         .party = TRAINER_PARTY(sParty_GabbyAndTy1),
     },
-
     [TRAINER_GABBY_AND_TY_2] =
     {
         .trainerClass = TRAINER_CLASS_NURSE,
@@ -636,7 +610,6 @@
         .aiFlags = AI_FLAG_ACE_POKEMON | AI_FLAG_WILL_SUICIDE | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_SEQUENCE_SWITCHING,
         .party = TRAINER_PARTY(sParty_GabbyAndTy2),
     },
-
     [TRAINER_GABBY_AND_TY_3] =
     {
         .trainerClass = TRAINER_CLASS_HIKER,
@@ -648,7 +621,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GabbyAndTy3),
     },
-
     [TRAINER_GABBY_AND_TY_4] =
     {
         .trainerClass = TRAINER_CLASS_LASS,
@@ -660,7 +632,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GabbyAndTy4),
     },
-
     [TRAINER_GABBY_AND_TY_5] =
     {
         .trainerClass = TRAINER_CLASS_POKEMANIAC,
@@ -672,7 +643,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GabbyAndTy5),
     },
-
     [TRAINER_GABBY_AND_TY_6] =
     {
         .trainerClass = TRAINER_CLASS_BUG_CATCHER,
@@ -684,7 +654,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GabbyAndTy6),
     },
-
     [TRAINER_LOLA_1] =
     {
         .trainerClass = TRAINER_CLASS_TWINS,
@@ -696,7 +665,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Lola1),
     },
-
     [TRAINER_AUSTINA] =
     {
         .trainerClass = TRAINER_CLASS_MAGMA_LEADER,
@@ -708,7 +676,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Austina),
     },
-
     [TRAINER_GWEN] =
     {
         .trainerClass = TRAINER_CLASS_TRIATHLETE,
@@ -720,7 +687,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Gwen),
     },
-
     [TRAINER_LOLA_2] =
     {
         .trainerClass = TRAINER_CLASS_CAMPER,
@@ -732,7 +698,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Lola2),
     },
-
     [TRAINER_LOLA_3] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
@@ -744,7 +709,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Lola3),
     },
-
     [TRAINER_LOLA_4] =
     {
         .trainerClass = TRAINER_CLASS_COOLTRAINER,
@@ -756,7 +720,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Lola4),
     },
-
     [TRAINER_LOLA_5] =
     {
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
@@ -768,7 +731,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Lola5),
     },
-
     [TRAINER_RICKY_1] =
     {
         .trainerClass = TRAINER_CLASS_YOUNGSTER,
@@ -780,7 +742,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Ricky1),
     },
-
     [TRAINER_SIMON] =
     {
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
@@ -792,7 +753,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Simon),
     },
-
     [TRAINER_CHARLIE] =
     {
         .trainerClass = TRAINER_CLASS_LASS,
@@ -804,7 +764,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Charlie),
     },
-
     [TRAINER_RICKY_2] =
     {
         .trainerClass = TRAINER_CLASS_YOUNGSTER,
@@ -816,7 +775,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Ricky2),
     },
-
     [TRAINER_RICKY_3] =
     {
         .trainerClass = TRAINER_CLASS_TRIATHLETE,
@@ -828,7 +786,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Ricky3),
     },
-
     [TRAINER_RICKY_4] =
     {
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET,
@@ -840,7 +797,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Ricky4),
     },
-
     [TRAINER_RICKY_5] =
     {
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET,
@@ -852,7 +808,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Ricky5),
     },
-
     [TRAINER_RANDALL] =
     {
         .trainerClass = TRAINER_CLASS_NURSE,
@@ -864,7 +819,6 @@
         .aiFlags = AI_FLAG_ACE_POKEMON | AI_FLAG_WILL_SUICIDE | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_SEQUENCE_SWITCHING,
         .party = TRAINER_PARTY(sParty_Randall),
     },
-
     [TRAINER_PARKER] =
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER,
@@ -876,7 +830,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Parker),
     },
-
     [TRAINER_GEORGE] =
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER,
@@ -888,7 +841,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_George),
     },
-
     [TRAINER_BERKE] =
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER,
@@ -900,7 +852,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Berke),
     },
-
     [TRAINER_BRAXTON] =
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER,
@@ -912,7 +863,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Braxton),
     },
-
     [TRAINER_VINCENT] =
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER,
@@ -924,7 +874,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Vincent),
     },
-
     [TRAINER_LEROY] =
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER,
@@ -936,7 +885,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Leroy),
     },
-
     [TRAINER_WILTON_1] =
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER,
@@ -948,7 +896,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Wilton1),
     },
-
     [TRAINER_EDGAR] =
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER,
@@ -960,7 +907,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Edgar),
     },
-
     [TRAINER_ALBERT] =
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER,
@@ -972,7 +918,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Albert),
     },
-
     [TRAINER_SAMUEL] =
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER_DOUBLE,
@@ -984,7 +929,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Samuel),
     },
-
     [TRAINER_VITO] =
     {
         .trainerClass = TRAINER_CLASS_POKEMANIAC,
@@ -996,7 +940,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Vito),
     },
-
     [TRAINER_OWEN] =
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER,
@@ -1008,7 +951,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Owen),
     },
-
     [TRAINER_WILTON_2] =
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER,
@@ -1020,7 +962,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Wilton2),
     },
-
     [TRAINER_WILTON_3] =
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER,
@@ -1032,7 +973,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Wilton3),
     },
-
     [TRAINER_WILTON_4] =
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER,
@@ -1044,7 +984,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Wilton4),
     },
-
     [TRAINER_WILTON_5] =
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER,
@@ -1056,7 +995,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Wilton5),
     },
-
     [TRAINER_WARREN] =
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER,
@@ -1068,7 +1006,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Warren),
     },
-
     [TRAINER_MARY] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -3140,7 +3077,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(Party_R14Tr2_Hiker),
     },
-
     [TRAINER_SIDNEY] =
     {
         .trainerClass = TRAINER_CLASS_ELITE_FOUR,
@@ -3154,7 +3090,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SETUP_FIRST_TURN,
         .party = TRAINER_PARTY(sParty_Sidney),
     },
-
     [TRAINER_PHOEBE] =
     {
         .trainerClass = TRAINER_CLASS_ELITE_FOUR,
@@ -3168,7 +3103,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Phoebe),
     },
-
     [TRAINER_GLACIA] =
     {
         .trainerClass = TRAINER_CLASS_ELITE_FOUR,
@@ -3182,7 +3116,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Glacia),
     },
-
     [TRAINER_DRAKE] =
     {
         .trainerClass = TRAINER_CLASS_ELITE_FOUR,
@@ -4020,7 +3953,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Allen),
     },
-
     [TRAINER_TIMMY] =
     {
         .trainerClass = TRAINER_CLASS_YOUNGSTER,
@@ -4032,7 +3964,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Timmy),
     },
-
     [TRAINER_WALLACE] =
     {
         .trainerClass = TRAINER_CLASS_CHAMPION,
@@ -4046,7 +3977,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Wallace),
     },
-
     [TRAINER_ANDREW] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
@@ -4058,7 +3988,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Andrew),
     },
-
     [TRAINER_IVAN] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
@@ -4070,7 +3999,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Ivan),
     },
-
     [TRAINER_CLAUDE] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
@@ -4082,7 +4010,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Claude),
     },
-
     [TRAINER_ELLIOT_1] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
@@ -4094,7 +4021,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Elliot1),
     },
-
     [TRAINER_NED] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
@@ -4106,7 +4032,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Ned),
     },
-
     [TRAINER_DALE] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
@@ -4118,7 +4043,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Dale),
     },
-
     [TRAINER_NOLAN] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
@@ -4130,7 +4054,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Nolan),
     },
-
     [TRAINER_BARNY] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
@@ -4142,7 +4065,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Barny),
     },
-
     [TRAINER_WADE] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
@@ -4154,7 +4076,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Wade),
     },
-
     [TRAINER_CARTER] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
@@ -4166,7 +4087,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Carter),
     },
-
     [TRAINER_ELLIOT_2] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
@@ -4178,7 +4098,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Elliot2),
     },
-
     [TRAINER_ELLIOT_3] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
@@ -4190,7 +4109,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Elliot3),
     },
-
     [TRAINER_ELLIOT_4] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
@@ -4202,7 +4120,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Elliot4),
     },
-
     [TRAINER_ELLIOT_5] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
@@ -4214,7 +4131,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Elliot5),
     },
-
     [TRAINER_RONALD] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
@@ -4226,7 +4142,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Ronald),
     },
-
     [TRAINER_JACOB] =
     {
         .trainerClass = TRAINER_CLASS_TRIATHLETE,
@@ -4238,7 +4153,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Jacob),
     },
-
     [TRAINER_ANTHONY] =
     {
         .trainerClass = TRAINER_CLASS_TRIATHLETE,
@@ -4334,7 +4248,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Jasmine),
     },
-
     [TRAINER_ABIGAIL_2] =
     {
         .trainerClass = TRAINER_CLASS_TRIATHLETE,
@@ -4790,7 +4703,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Aaron),
     },
-
     [TRAINER_PERRY] =
     {
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
@@ -4802,7 +4714,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Perry),
     },
-
     [TRAINER_HUGH] =
     {
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
@@ -4814,7 +4725,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Hugh),
     },
-
     [TRAINER_PHIL] =
     {
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
@@ -4826,7 +4736,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Phil),
     },
-
     [TRAINER_JARED] =
     {
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
@@ -4838,7 +4747,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Jared),
     },
-
     [TRAINER_HUMBERTO] =
     {
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
@@ -4850,7 +4758,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Humberto),
     },
-
     [TRAINER_PRESLEY] =
     {
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
@@ -4862,7 +4769,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Presley),
     },
-
     [TRAINER_EDWARDO] =
     {
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
@@ -4874,7 +4780,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Edwardo),
     },
-
     [TRAINER_COLIN] =
     {
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
@@ -4886,7 +4791,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Colin),
     },
-
     [TRAINER_ROBERT_1] =
     {
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
@@ -4898,7 +4802,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Robert1),
     },
-
     [TRAINER_BENNY] =
     {
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
@@ -4910,7 +4813,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Benny),
     },
-
     [TRAINER_CHESTER] =
     {
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
@@ -4922,7 +4824,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Chester),
     },
-
     [TRAINER_ROBERT_2] =
     {
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
@@ -4934,7 +4835,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Robert2),
     },
-
     [TRAINER_ROBERT_3] =
     {
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
@@ -4946,7 +4846,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Robert3),
     },
-
     [TRAINER_ROBERT_4] =
     {
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
@@ -4958,7 +4857,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Robert4),
     },
-
     [TRAINER_ROBERT_5] =
     {
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
@@ -4970,7 +4868,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Robert5),
     },
-
     [TRAINER_ALEX] =
     {
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
@@ -4982,7 +4879,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Alex),
     },
-
     [TRAINER_BECK] =
     {
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
@@ -4994,7 +4890,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Beck),
     },
-
     [TRAINER_YASU] =
     {
         .trainerClass = TRAINER_CLASS_NINJA_BOY,
@@ -5006,7 +4901,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Yasu),
     },
-
     [TRAINER_TAKASHI] =
     {
         .trainerClass = TRAINER_CLASS_NINJA_BOY,
@@ -5018,7 +4912,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Takashi),
     },
-
     [TRAINER_DIANNE] =
     {
         .trainerClass = TRAINER_CLASS_COOLTRAINER,
@@ -5030,7 +4923,6 @@
         .aiFlags = 0,
         .party = TRAINER_PARTY(sParty_Dianne),
     },
-
     [TRAINER_JANI] =
     {
         .trainerClass = TRAINER_CLASS_TUBER_F,
@@ -5042,7 +4934,6 @@
         .aiFlags = 0,
         .party = TRAINER_PARTY(sParty_Jani),
     },
-
     [TRAINER_LAO_1] =
     {
         .trainerClass = TRAINER_CLASS_NINJA_BOY,
@@ -5054,7 +4945,6 @@
         .aiFlags = 0,
         .party = TRAINER_PARTY(sParty_Lao1),
     },
-
     [TRAINER_LUNG] =
     {
         .trainerClass = TRAINER_CLASS_NINJA_BOY,
@@ -5138,7 +5028,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Laura),
     },
-
     [TRAINER_CYNDY_1] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
@@ -5150,7 +5039,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Cyndy1),
     },
-
     [TRAINER_CORA] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
@@ -5162,7 +5050,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Cora),
     },
-
     [TRAINER_PAULA] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
@@ -5174,7 +5061,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Paula),
     },
-
     [TRAINER_CYNDY_2] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
@@ -5186,7 +5072,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Cyndy2),
     },
-
     [TRAINER_CYNDY_3] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
@@ -5198,7 +5083,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Cyndy3),
     },
-
     [TRAINER_CYNDY_4] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
@@ -5210,7 +5094,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Cyndy4),
     },
-
     [TRAINER_CYNDY_5] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
@@ -5222,7 +5105,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Cyndy5),
     },
-
     [TRAINER_MADELINE_1] =
     {
         .trainerClass = TRAINER_CLASS_PARASOL_LADY,
@@ -5234,7 +5116,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Madeline1),
     },
-
     [TRAINER_CLARISSA] =
     {
         .trainerClass = TRAINER_CLASS_PARASOL_LADY,
@@ -5246,7 +5127,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Clarissa),
     },
-
     [TRAINER_ANGELICA] =
     {
         .trainerClass = TRAINER_CLASS_PARASOL_LADY,
@@ -5258,7 +5138,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Angelica),
     },
-
     [TRAINER_MADELINE_2] =
     {
         .trainerClass = TRAINER_CLASS_PARASOL_LADY,
@@ -5270,7 +5149,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Madeline2),
     },
-
     [TRAINER_MADELINE_3] =
     {
         .trainerClass = TRAINER_CLASS_PARASOL_LADY,
@@ -5282,7 +5160,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Madeline3),
     },
-
     [TRAINER_MADELINE_4] =
     {
         .trainerClass = TRAINER_CLASS_PARASOL_LADY,
@@ -5294,7 +5171,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Madeline4),
     },
-
     [TRAINER_MADELINE_5] =
     {
         .trainerClass = TRAINER_CLASS_PARASOL_LADY,
@@ -5306,7 +5182,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Madeline5),
     },
-
     [TRAINER_BEVERLY] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -5318,7 +5193,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Beverly),
     },
-
     [TRAINER_IMANI] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -5330,7 +5204,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Imani),
     },
-
     [TRAINER_KYLA] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -5342,7 +5215,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Kyla),
     },
-
     [TRAINER_DENISE] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -5354,7 +5226,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Denise),
     },
-
     [TRAINER_BETH] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -5366,7 +5237,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Beth),
     },
-
     [TRAINER_TARA] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -5378,7 +5248,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Tara),
     },
-
     [TRAINER_MISSY] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -5390,7 +5259,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Missy),
     },
-
     [TRAINER_ALICE] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -5462,7 +5330,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Nikki),
     },
-
     [TRAINER_BRENDA] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -5474,7 +5341,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Brenda),
     },
-
     [TRAINER_KATIE] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -5486,7 +5352,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Katie),
     },
-
     [TRAINER_SUSIE] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -5498,7 +5363,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Susie),
     },
-
     [TRAINER_KARA] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -5510,7 +5374,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Kara),
     },
-
     [TRAINER_DANA] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -5522,7 +5385,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Dana),
     },
-
     [TRAINER_SIENNA] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -5534,7 +5396,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Sienna),
     },
-
     [TRAINER_DEBRA] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -5546,7 +5407,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Debra),
     },
-
     [TRAINER_LINDA] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -5558,7 +5418,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Linda),
     },
-
     [TRAINER_KAYLEE] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -5570,7 +5429,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Kaylee),
     },
-
     [TRAINER_LAUREL] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -5582,7 +5440,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Laurel),
     },
-
     [TRAINER_CARLEE] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -5594,7 +5451,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Carlee),
     },
-
     [TRAINER_JENNY_2] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -5606,7 +5462,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Jenny2),
     },
-
     [TRAINER_JENNY_3] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -5618,7 +5473,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Jenny3),
     },
-
     [TRAINER_JENNY_4] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -5630,7 +5484,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Jenny4),
     },
-
     [TRAINER_JENNY_5] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -5642,7 +5495,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Jenny5),
     },
-
     [TRAINER_HEIDI] =
     {
         .trainerClass = TRAINER_CLASS_PICNICKER,
@@ -5654,7 +5506,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Heidi),
     },
-
     [TRAINER_BECKY] =
     {
         .trainerClass = TRAINER_CLASS_PICNICKER,
@@ -5666,7 +5517,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Becky),
     },
-
     [TRAINER_CAROL] =
     {
         .trainerClass = TRAINER_CLASS_PICNICKER,
@@ -5678,7 +5528,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Carol),
     },
-
     [TRAINER_NANCY] =
     {
         .trainerClass = TRAINER_CLASS_PICNICKER,
@@ -5690,7 +5539,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Nancy),
     },
-
     [TRAINER_MARTHA] =
     {
         .trainerClass = TRAINER_CLASS_PICNICKER,
@@ -5702,7 +5550,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Martha),
     },
-
     [TRAINER_DIANA_1] =
     {
         .trainerClass = TRAINER_CLASS_PICNICKER,
@@ -5714,7 +5561,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Diana1),
     },
-
     [TRAINER_CEDRIC] =
     {
         .trainerClass = TRAINER_CLASS_PSYCHIC,
@@ -5726,7 +5572,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Cedric),
     },
-
     [TRAINER_IRENE] =
     {
         .trainerClass = TRAINER_CLASS_PICNICKER,
@@ -5738,7 +5583,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Irene),
     },
-
     [TRAINER_DIANA_2] =
     {
         .trainerClass = TRAINER_CLASS_PICNICKER,
@@ -5750,7 +5594,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Diana2),
     },
-
     [TRAINER_DIANA_3] =
     {
         .trainerClass = TRAINER_CLASS_PICNICKER,
@@ -5762,7 +5605,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Diana3),
     },
-
     [TRAINER_DIANA_4] =
     {
         .trainerClass = TRAINER_CLASS_PICNICKER,
@@ -5774,7 +5616,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Diana4),
     },
-
     [TRAINER_DIANA_5] =
     {
         .trainerClass = TRAINER_CLASS_PICNICKER,
@@ -5786,7 +5627,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Diana5),
     },
-
     [TRAINER_AMY_AND_LIV_1] =
     {
         .trainerClass = TRAINER_CLASS_TWINS,
@@ -5798,7 +5638,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_AmyAndLiv1),
     },
-
     [TRAINER_AMY_AND_LIV_2] =
     {
         .trainerClass = TRAINER_CLASS_TWINS,
@@ -5810,7 +5649,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_AmyAndLiv2),
     },
-
     [TRAINER_GINA_AND_MIA_1] =
     {
         .trainerClass = TRAINER_CLASS_TWINS,
@@ -5822,7 +5660,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GinaAndMia1),
     },
-
     [TRAINER_MIU_AND_YUKI] =
     {
         .trainerClass = TRAINER_CLASS_TWINS,
@@ -5834,7 +5671,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_MiuAndYuki),
     },
-
     [TRAINER_AMY_AND_LIV_3] =
     {
         .trainerClass = TRAINER_CLASS_TWINS,
@@ -5846,7 +5682,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_AmyAndLiv3),
     },
-
     [TRAINER_GINA_AND_MIA_2] =
     {
         .trainerClass = TRAINER_CLASS_TWINS,
@@ -5858,7 +5693,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GinaAndMia2),
     },
-
     [TRAINER_AMY_AND_LIV_4] =
     {
         .trainerClass = TRAINER_CLASS_TWINS,
@@ -5870,7 +5704,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_AmyAndLiv4),
     },
-
     [TRAINER_AMY_AND_LIV_5] =
     {
         .trainerClass = TRAINER_CLASS_TWINS,
@@ -5882,7 +5715,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_AmyAndLiv5),
     },
-
     [TRAINER_AMY_AND_LIV_6] =
     {
         .trainerClass = TRAINER_CLASS_TWINS,
@@ -5894,7 +5726,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_AmyAndLiv6),
     },
-
     [TRAINER_HUEY] =
     {
         .trainerClass = TRAINER_CLASS_SAILOR,
@@ -5906,7 +5737,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Huey),
     },
-
     [TRAINER_EDMOND] =
     {
         .trainerClass = TRAINER_CLASS_SAILOR,
@@ -5918,7 +5748,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Edmond),
     },
-
     [TRAINER_ERNEST_1] =
     {
         .trainerClass = TRAINER_CLASS_SAILOR,
@@ -5930,7 +5759,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Ernest1),
     },
-
     [TRAINER_DWAYNE] =
     {
         .trainerClass = TRAINER_CLASS_SAILOR,
@@ -5942,7 +5770,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Dwayne),
     },
-
     [TRAINER_PHILLIP] =
     {
         .trainerClass = TRAINER_CLASS_SAILOR,
@@ -5954,7 +5781,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Phillip),
     },
-
     [TRAINER_LEONARD] =
     {
         .trainerClass = TRAINER_CLASS_SAILOR,
@@ -5966,7 +5792,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Leonard),
     },
-
     [TRAINER_DUNCAN] =
     {
         .trainerClass = TRAINER_CLASS_SAILOR,
@@ -5978,7 +5803,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Duncan),
     },
-
     [TRAINER_ERNEST_2] =
     {
         .trainerClass = TRAINER_CLASS_SAILOR,
@@ -5990,7 +5814,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Ernest2),
     },
-
     [TRAINER_ERNEST_3] =
     {
         .trainerClass = TRAINER_CLASS_SAILOR,
@@ -6002,7 +5825,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Ernest3),
     },
-
     [TRAINER_ERNEST_4] =
     {
         .trainerClass = TRAINER_CLASS_SAILOR,
@@ -6014,7 +5836,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Ernest4),
     },
-
     [TRAINER_ERNEST_5] =
     {
         .trainerClass = TRAINER_CLASS_SAILOR,
@@ -6026,7 +5847,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Ernest5),
     },
-
     [TRAINER_ELI] =
     {
         .trainerClass = TRAINER_CLASS_HIKER,
@@ -6038,7 +5858,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Eli),
     },
-
     [TRAINER_ANNIKA] =
     {
         .trainerClass = TRAINER_CLASS_POKEFAN,
@@ -6050,7 +5869,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Annika),
     },
-
     [TRAINER_JAZMYN] =
     {
         .trainerClass = TRAINER_CLASS_COOLTRAINER_2,
@@ -6062,7 +5880,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Jazmyn),
     },
-
     [TRAINER_JONAS] =
     {
         .trainerClass = TRAINER_CLASS_NINJA_BOY,
@@ -6074,7 +5891,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Jonas),
     },
-
     [TRAINER_KAYLEY] =
     {
         .trainerClass = TRAINER_CLASS_PARASOL_LADY,
@@ -6086,7 +5902,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Kayley),
     },
-
     [TRAINER_AURON] =
     {
         .trainerClass = TRAINER_CLASS_EXPERT,
@@ -6182,7 +5997,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Hector),
     },
-
     [TRAINER_TABITHA_MOSSDEEP] =
     {
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET,
@@ -6194,7 +6008,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_TabithaMossdeep),
     },
-
     [TRAINER_EDWIN_2] =
     {
         .trainerClass = TRAINER_CLASS_COLLECTOR,
@@ -6206,7 +6019,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Edwin2),
     },
-
     [TRAINER_EDWIN_3] =
     {
         .trainerClass = TRAINER_CLASS_COLLECTOR,
@@ -6218,7 +6030,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Edwin3),
     },
-
     [TRAINER_EDWIN_4] =
     {
         .trainerClass = TRAINER_CLASS_COLLECTOR,
@@ -6230,7 +6041,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Edwin4),
     },
-
     [TRAINER_EDWIN_5] =
     {
         .trainerClass = TRAINER_CLASS_COLLECTOR,
@@ -6242,7 +6052,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Edwin5),
     },
-
     [TRAINER_WALLY_VR_1] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -6254,7 +6063,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_WallyVR1),
     },
-
     [TRAINER_BRENDAN_ROUTE_103_MUDKIP] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -6266,7 +6074,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_BrendanRoute103Mudkip),
     },
-
     [TRAINER_BRENDAN_ROUTE_110_MUDKIP] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -6278,7 +6085,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_BrendanRoute110Mudkip),
     },
-
     [TRAINER_BRENDAN_ROUTE_119_MUDKIP] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -6290,7 +6096,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_BrendanRoute119Mudkip),
     },
-
     [TRAINER_BRENDAN_ROUTE_103_TREECKO] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -6302,7 +6107,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SETUP_FIRST_TURN,
         .party = TRAINER_PARTY(sParty_BrendanRoute103Treecko),
     },
-
     [TRAINER_BRENDAN_ROUTE_110_TREECKO] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -6314,7 +6118,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_BrendanRoute110Treecko),
     },
-
     [TRAINER_BRENDAN_ROUTE_119_TREECKO] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -6326,7 +6129,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_BrendanRoute119Treecko),
     },
-
     [TRAINER_BRENDAN_ROUTE_103_TORCHIC] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -6338,7 +6140,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_BrendanRoute103Torchic),
     },
-
     [TRAINER_BRENDAN_ROUTE_110_TORCHIC] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -6350,7 +6151,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_BrendanRoute110Torchic),
     },
-
     [TRAINER_BRENDAN_ROUTE_119_TORCHIC] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -6362,7 +6162,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_BrendanRoute119Torchic),
     },
-
     [TRAINER_MAY_ROUTE_103_MUDKIP] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -6374,7 +6173,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_MayRoute103Mudkip),
     },
-
     [TRAINER_MAY_ROUTE_110_MUDKIP] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -6386,7 +6184,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_MayRoute110Mudkip),
     },
-
     [TRAINER_MAY_ROUTE_119_MUDKIP] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -6398,7 +6195,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_MayRoute119Mudkip),
     },
-
     [TRAINER_MAY_ROUTE_103_TREECKO] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -6410,7 +6206,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_MayRoute103Treecko),
     },
-
     [TRAINER_MAY_ROUTE_110_TREECKO] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -6422,7 +6217,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_MayRoute110Treecko),
     },
-
     [TRAINER_MAY_ROUTE_119_TREECKO] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -6434,7 +6228,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_MayRoute119Treecko),
     },
-
     [TRAINER_MAY_ROUTE_103_TORCHIC] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -6446,7 +6239,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_MayRoute103Torchic),
     },
-
     [TRAINER_MAY_ROUTE_110_TORCHIC] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -6458,7 +6250,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_MayRoute110Torchic),
     },
-
     [TRAINER_MAY_ROUTE_119_TORCHIC] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -6470,7 +6261,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_MayRoute119Torchic),
     },
-
     [TRAINER_ISAAC_1] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
@@ -6482,7 +6272,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Isaac1),
     },
-
     [TRAINER_DAVIS] =
     {
         .trainerClass = TRAINER_CLASS_BUG_CATCHER,
@@ -6494,7 +6283,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Davis),
     },
-
     [TRAINER_MITCHELL] =
     {
         .trainerClass = TRAINER_CLASS_COOLTRAINER,
@@ -6506,7 +6294,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Mitchell),
     },
-
     [TRAINER_ISAAC_2] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
@@ -6518,7 +6305,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Isaac2),
     },
-
     [TRAINER_ISAAC_3] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
@@ -6530,7 +6316,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Isaac3),
     },
-
     [TRAINER_ISAAC_4] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
@@ -6566,7 +6351,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Lydia1),
     },
-
     [TRAINER_HALLE] =
     {
         .trainerClass = TRAINER_CLASS_COOLTRAINER,
@@ -6578,7 +6362,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Halle),
     },
-
     [TRAINER_GARRISON] =
     {
         .trainerClass = TRAINER_CLASS_RUIN_MANIAC,
@@ -6590,7 +6373,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Garrison),
     },
-
     [TRAINER_LYDIA_2] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
@@ -6602,7 +6384,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Lydia2),
     },
-
     [TRAINER_LYDIA_3] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
@@ -6614,7 +6395,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Lydia3),
     },
-
     [TRAINER_LYDIA_4] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
@@ -6722,7 +6502,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Jackson5),
     },
-
     [TRAINER_CATHERINE_1] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_RANGER,
@@ -6734,7 +6513,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SETUP_FIRST_TURN,
         .party = TRAINER_PARTY(sParty_Catherine1),
     },
-
     [TRAINER_JENNA] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_RANGER,
@@ -6746,7 +6524,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SETUP_FIRST_TURN,
         .party = TRAINER_PARTY(sParty_Jenna),
     },
-
     [TRAINER_SOPHIA] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_RANGER,
@@ -6758,7 +6535,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Sophia),
     },
-
     [TRAINER_CATHERINE_2] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_RANGER,
@@ -6770,7 +6546,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SETUP_FIRST_TURN,
         .party = TRAINER_PARTY(sParty_Catherine2),
     },
-
     [TRAINER_CATHERINE_3] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_RANGER,
@@ -6782,7 +6557,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Catherine3),
     },
-
     [TRAINER_CATHERINE_4] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_RANGER,
@@ -7166,7 +6940,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Isabella),
     },
-
     [TRAINER_GRUNT_WEATHER_INST_5] =
     {
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET,
@@ -7178,7 +6951,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GruntWeatherInst5),
     },
-
     [TRAINER_TABITHA_MT_CHIMNEY] =
     {
         .trainerClass = TRAINER_CLASS_MAGMA_ADMIN,
@@ -7190,7 +6962,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_TabithaMtChimney),
     },
-
     [TRAINER_JONATHAN] =
     {
         .trainerClass = TRAINER_CLASS_COOLTRAINER,
@@ -7202,7 +6973,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SETUP_FIRST_TURN,
         .party = TRAINER_PARTY(sParty_Jonathan),
     },
-
     [TRAINER_BRENDAN_RUSTBORO_TORCHIC] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -7214,7 +6984,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_BrendanRustboroTorchic),
     },
-
     [TRAINER_MAY_RUSTBORO_MUDKIP] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -7226,7 +6995,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SETUP_FIRST_TURN,
         .party = TRAINER_PARTY(sParty_MayRustboroMudkip),
     },
-
     [TRAINER_MAXIE_MAGMA_HIDEOUT] =
     {
         .trainerClass = TRAINER_CLASS_MAGMA_LEADER,
@@ -7238,7 +7006,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_MaxieMagmaHideout),
     },
-
     [TRAINER_MAXIE_MT_CHIMNEY] =
     {
         .trainerClass = TRAINER_CLASS_MAGMA_LEADER,
@@ -7250,7 +7017,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_MaxieMtChimney),
     },
-
     [TRAINER_TIANA] =
     {
         .trainerClass = TRAINER_CLASS_LASS,
@@ -7262,7 +7028,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Tiana),
     },
-
     [TRAINER_HALEY_1] =
     {
         .trainerClass = TRAINER_CLASS_LASS,
@@ -7274,7 +7039,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Haley1),
     },
-
     [TRAINER_JANICE] =
     {
         .trainerClass = TRAINER_CLASS_LASS,
@@ -7286,7 +7050,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Janice),
     },
-
     [TRAINER_VIVI] =
     {
         .trainerClass = TRAINER_CLASS_WINSTRATE,
@@ -7298,7 +7061,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Vivi),
     },
-
     [TRAINER_HALEY_2] =
     {
         .trainerClass = TRAINER_CLASS_LASS,
@@ -7310,7 +7072,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Haley2),
     },
-
     [TRAINER_HALEY_3] =
     {
         .trainerClass = TRAINER_CLASS_LASS,
@@ -7322,7 +7083,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Haley3),
     },
-
     [TRAINER_HALEY_4] =
     {
         .trainerClass = TRAINER_CLASS_LASS,
@@ -7334,7 +7094,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Haley4),
     },
-
     [TRAINER_HALEY_5] =
     {
         .trainerClass = TRAINER_CLASS_LASS,
@@ -7346,7 +7105,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Haley5),
     },
-
     [TRAINER_SALLY] =
     {
         .trainerClass = TRAINER_CLASS_LASS,
@@ -7358,7 +7116,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Sally),
     },
-
     [TRAINER_ROBIN] =
     {
         .trainerClass = TRAINER_CLASS_LASS,
@@ -7370,7 +7127,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Robin),
     },
-
     [TRAINER_ANDREA] =
     {
         .trainerClass = TRAINER_CLASS_LASS,
@@ -7382,7 +7138,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Andrea),
     },
-
     [TRAINER_CRISSY] =
     {
         .trainerClass = TRAINER_CLASS_LASS,
@@ -7394,7 +7149,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Crissy),
     },
-
     [TRAINER_RICK] =
     {
         .trainerClass = TRAINER_CLASS_BUG_CATCHER,
@@ -7406,7 +7160,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Rick),
     },
-
     [TRAINER_LYLE] =
     {
         .trainerClass = TRAINER_CLASS_BUG_CATCHER,
@@ -7418,7 +7171,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Lyle),
     },
-
     [TRAINER_JOSE] =
     {
         .trainerClass = TRAINER_CLASS_BUG_CATCHER,
@@ -7430,7 +7182,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Jose),
     },
-
     [TRAINER_DOUG] =
     {
         .trainerClass = TRAINER_CLASS_BUG_CATCHER,
@@ -7442,7 +7193,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Doug),
     },
-
     [TRAINER_GREG] =
     {
         .trainerClass = TRAINER_CLASS_BUG_CATCHER,
@@ -7454,7 +7204,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Greg),
     },
-
     [TRAINER_KENT] =
     {
         .trainerClass = TRAINER_CLASS_BUG_CATCHER,
@@ -7466,7 +7215,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Kent),
     },
-
     [TRAINER_JAMES_1] =
     {
         .trainerClass = TRAINER_CLASS_BUG_CATCHER,
@@ -7478,7 +7226,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_James1),
     },
-
     [TRAINER_JAMES_2] =
     {
         .trainerClass = TRAINER_CLASS_BUG_CATCHER,
@@ -7490,7 +7237,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_James2),
     },
-
     [TRAINER_JAMES_3] =
     {
         .trainerClass = TRAINER_CLASS_BUG_CATCHER,
@@ -7502,7 +7248,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_James3),
     },
-
     [TRAINER_JAMES_4] =
     {
         .trainerClass = TRAINER_CLASS_BUG_CATCHER,
@@ -7514,7 +7259,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_James4),
     },
-
     [TRAINER_JAMES_5] =
     {
         .trainerClass = TRAINER_CLASS_BUG_CATCHER,
@@ -7526,7 +7270,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_James5),
     },
-
     [TRAINER_BRICE] =
     {
         .trainerClass = TRAINER_CLASS_HIKER,
@@ -7538,7 +7281,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Brice),
     },
-
     [TRAINER_TRENT_1] =
     {
         .trainerClass = TRAINER_CLASS_HIKER,
@@ -7550,7 +7292,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Trent1),
     },
-
     [TRAINER_LENNY] =
     {
         .trainerClass = TRAINER_CLASS_HIKER,
@@ -7562,7 +7303,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Lenny),
     },
-
     [TRAINER_LUCAS_1] =
     {
         .trainerClass = TRAINER_CLASS_HIKER,
@@ -7574,7 +7314,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Lucas1),
     },
-
     [TRAINER_ALAN] =
     {
         .trainerClass = TRAINER_CLASS_HIKER,
@@ -7586,7 +7325,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Alan),
     },
-
     [TRAINER_CLARK] =
     {
         .trainerClass = TRAINER_CLASS_HIKER,
@@ -7598,7 +7336,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Clark),
     },
-
     [TRAINER_ERIC] =
     {
         .trainerClass = TRAINER_CLASS_HIKER,
@@ -7610,7 +7347,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Eric),
     },
-
     [TRAINER_LUCAS_2] =
     {
         .trainerClass = TRAINER_CLASS_HIKER,
@@ -7622,7 +7358,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Lucas2),
     },
-
     [TRAINER_MIKE_1] =
     {
         .trainerClass = TRAINER_CLASS_HIKER,
@@ -7634,7 +7369,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Mike1),
     },
-
     [TRAINER_MIKE_2] =
     {
         .trainerClass = TRAINER_CLASS_HIKER,
@@ -7646,7 +7380,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Mike2),
     },
-
     [TRAINER_TRENT_2] =
     {
         .trainerClass = TRAINER_CLASS_HIKER,
@@ -7658,7 +7391,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Trent2),
     },
-
     [TRAINER_TRENT_3] =
     {
         .trainerClass = TRAINER_CLASS_HIKER,
@@ -7670,7 +7402,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Trent3),
     },
-
     [TRAINER_TRENT_4] =
     {
         .trainerClass = TRAINER_CLASS_HIKER,
@@ -7682,7 +7413,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Trent4),
     },
-
     [TRAINER_TRENT_5] =
     {
         .trainerClass = TRAINER_CLASS_HIKER,
@@ -7694,7 +7424,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Trent5),
     },
-
     [TRAINER_DEZ_AND_LUKE] =
     {
         .trainerClass = TRAINER_CLASS_YOUNG_COUPLE,
@@ -7706,7 +7435,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_DezAndLuke),
     },
-
     [TRAINER_LEA_AND_JED] =
     {
         .trainerClass = TRAINER_CLASS_YOUNG_COUPLE,
@@ -7718,7 +7446,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_LeaAndJed),
     },
-
     [TRAINER_KIRA_AND_DAN_1] =
     {
         .trainerClass = TRAINER_CLASS_YOUNG_COUPLE,
@@ -7730,7 +7457,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_KiraAndDan1),
     },
-
     [TRAINER_KIRA_AND_DAN_2] =
     {
         .trainerClass = TRAINER_CLASS_YOUNG_COUPLE,
@@ -7742,7 +7468,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_KiraAndDan2),
     },
-
     [TRAINER_KIRA_AND_DAN_3] =
     {
         .trainerClass = TRAINER_CLASS_YOUNG_COUPLE,
@@ -7754,7 +7479,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_KiraAndDan3),
     },
-
     [TRAINER_KIRA_AND_DAN_4] =
     {
         .trainerClass = TRAINER_CLASS_YOUNG_COUPLE,
@@ -7766,7 +7490,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_KiraAndDan4),
     },
-
     [TRAINER_KIRA_AND_DAN_5] =
     {
         .trainerClass = TRAINER_CLASS_YOUNG_COUPLE,
@@ -7778,7 +7501,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_KiraAndDan5),
     },
-
     [TRAINER_JOHANNA] =
     {
         .trainerClass = TRAINER_CLASS_BEAUTY,
@@ -7790,7 +7512,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Johanna),
     },
-
     [TRAINER_GERALD] =
     {
         .trainerClass = TRAINER_CLASS_COOLTRAINER,
@@ -7802,7 +7523,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Gerald),
     },
-
     [TRAINER_VIVIAN] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
@@ -7814,7 +7534,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Vivian),
     },
-
     [TRAINER_DANIELLE] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
@@ -7826,7 +7545,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Danielle),
     },
-
     [TRAINER_HIDEO] =
     {
         .trainerClass = TRAINER_CLASS_NINJA_BOY,
@@ -7838,7 +7556,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Hideo),
     },
-
     [TRAINER_KEIGO] =
     {
         .trainerClass = TRAINER_CLASS_NINJA_BOY,
@@ -7850,7 +7567,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Keigo),
     },
-
     [TRAINER_RILEY] =
     {
         .trainerClass = TRAINER_CLASS_NINJA_BOY,
@@ -7862,7 +7578,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Riley),
     },
-
     [TRAINER_FLINT] =
     {
         .trainerClass = TRAINER_CLASS_CAMPER,
@@ -7874,7 +7589,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Flint),
     },
-
     [TRAINER_ASHLEY] =
     {
         .trainerClass = TRAINER_CLASS_PICNICKER,
@@ -7886,7 +7600,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Ashley),
     },
-
     [TRAINER_WALLY_MAUVILLE] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -7898,7 +7611,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_WallyMauville),
     },
-
     [TRAINER_WALLY_VR_2] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -7910,7 +7622,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_WallyVR2),
     },
-
     [TRAINER_WALLY_VR_3] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -7922,7 +7633,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_WallyVR3),
     },
-
     [TRAINER_WALLY_VR_4] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -7934,7 +7644,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_WallyVR4),
     },
-
     [TRAINER_WALLY_VR_5] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -7946,7 +7655,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_WallyVR5),
     },
-
     [TRAINER_BRENDAN_LILYCOVE_MUDKIP] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -7958,7 +7666,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_BrendanLilycoveMudkip),
     },
-
     [TRAINER_BRENDAN_LILYCOVE_TREECKO] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -7970,7 +7677,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_BrendanLilycoveTreecko),
     },
-
     [TRAINER_BRENDAN_LILYCOVE_TORCHIC] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -7982,7 +7688,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_BrendanLilycoveTorchic),
     },
-
     [TRAINER_MAY_LILYCOVE_MUDKIP] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -7994,7 +7699,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_MayLilycoveMudkip),
     },
-
     [TRAINER_MAY_LILYCOVE_TREECKO] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -8006,7 +7710,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_MayLilycoveTreecko),
     },
-
     [TRAINER_MAY_LILYCOVE_TORCHIC] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -8018,7 +7721,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_MayLilycoveTorchic),
     },
-
     [TRAINER_JONAH] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
@@ -8030,7 +7732,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Jonah),
     },
-
     [TRAINER_HENRY] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
@@ -8042,7 +7743,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Henry),
     },
-
     [TRAINER_ROGER] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
@@ -8054,7 +7754,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Roger),
     },
-
     [TRAINER_ALEXA] =
     {
         .trainerClass = TRAINER_CLASS_COOLTRAINER,
@@ -8066,7 +7765,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Alexa),
     },
-
     [TRAINER_RUBEN] =
     {
         .trainerClass = TRAINER_CLASS_COOLTRAINER,
@@ -8078,7 +7776,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Ruben),
     },
-
     [TRAINER_KOJI_1] =
     {
         .trainerClass = TRAINER_CLASS_BLACK_BELT,
@@ -8090,7 +7787,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Koji1),
     },
-
     [TRAINER_WAYNE] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
@@ -8102,7 +7798,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Wayne),
     },
-
     [TRAINER_AIDAN] =
     {
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
@@ -8114,7 +7809,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Aidan),
     },
-
     [TRAINER_REED] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_M,
@@ -8126,7 +7820,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Reed),
     },
-
     [TRAINER_TISHA] =
     {
         .trainerClass = TRAINER_CLASS_SWIMMER_F,
@@ -8138,7 +7831,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Tisha),
     },
-
     [TRAINER_TORI_AND_TIA] =
     {
         .trainerClass = TRAINER_CLASS_TWINS,
@@ -8150,7 +7842,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_ToriAndTia),
     },
-
     [TRAINER_KIM_AND_IRIS] =
     {
         .trainerClass = TRAINER_CLASS_SR_AND_JR,
@@ -8162,7 +7853,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_KimAndIris),
     },
-
     [TRAINER_TYRA_AND_IVY] =
     {
         .trainerClass = TRAINER_CLASS_SR_AND_JR,
@@ -8174,7 +7864,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_TyraAndIvy),
     },
-
     [TRAINER_MEL_AND_PAUL] =
     {
         .trainerClass = TRAINER_CLASS_YOUNG_COUPLE,
@@ -8186,7 +7875,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_MelAndPaul),
     },
-
     [TRAINER_JOHN_AND_JAY_1] =
     {
         .trainerClass = TRAINER_CLASS_OLD_COUPLE,
@@ -8198,7 +7886,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_JohnAndJay1),
     },
-
     [TRAINER_JOHN_AND_JAY_2] =
     {
         .trainerClass = TRAINER_CLASS_OLD_COUPLE,
@@ -8210,7 +7897,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_JohnAndJay2),
     },
-
     [TRAINER_JOHN_AND_JAY_3] =
     {
         .trainerClass = TRAINER_CLASS_OLD_COUPLE,
@@ -8222,7 +7908,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_JohnAndJay3),
     },
-
     [TRAINER_JOHN_AND_JAY_4] =
     {
         .trainerClass = TRAINER_CLASS_OLD_COUPLE,
@@ -8234,7 +7919,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SETUP_FIRST_TURN,
         .party = TRAINER_PARTY(sParty_JohnAndJay4),
     },
-
     [TRAINER_JOHN_AND_JAY_5] =
     {
         .trainerClass = TRAINER_CLASS_OLD_COUPLE,
@@ -8246,7 +7930,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_JohnAndJay5),
     },
-
     [TRAINER_RELI_AND_IAN] =
     {
         .trainerClass = TRAINER_CLASS_SIS_AND_BRO,
@@ -8258,7 +7941,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_ReliAndIan),
     },
-
     [TRAINER_LILA_AND_ROY_1] =
     {
         .trainerClass = TRAINER_CLASS_SIS_AND_BRO,
@@ -8270,7 +7952,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_LilaAndRoy1),
     },
-
     [TRAINER_LILA_AND_ROY_2] =
     {
         .trainerClass = TRAINER_CLASS_SIS_AND_BRO,
@@ -8282,7 +7963,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_LilaAndRoy2),
     },
-
     [TRAINER_LILA_AND_ROY_3] =
     {
         .trainerClass = TRAINER_CLASS_SIS_AND_BRO,
@@ -8294,7 +7974,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_LilaAndRoy3),
     },
-
     [TRAINER_LILA_AND_ROY_4] =
     {
         .trainerClass = TRAINER_CLASS_SIS_AND_BRO,
@@ -8306,7 +7985,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_LilaAndRoy4),
     },
-
     [TRAINER_LILA_AND_ROY_5] =
     {
         .trainerClass = TRAINER_CLASS_SIS_AND_BRO,
@@ -8318,7 +7996,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_LilaAndRoy5),
     },
-
     [TRAINER_LISA_AND_RAY] =
     {
         .trainerClass = TRAINER_CLASS_SIS_AND_BRO,
@@ -8330,7 +8007,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_LisaAndRay),
     },
-
     [TRAINER_CHRIS] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
@@ -8342,7 +8018,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Chris),
     },
-
     [TRAINER_DAWSON] =
     {
         .trainerClass = TRAINER_CLASS_RICH_BOY,
@@ -8354,7 +8029,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Dawson),
     },
-
     [TRAINER_SARAH] =
     {
         .trainerClass = TRAINER_CLASS_LADY,
@@ -8366,7 +8040,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Sarah),
     },
-
     [TRAINER_DARIAN] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
@@ -8378,7 +8051,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Darian),
     },
-
     [TRAINER_HAILEY] =
     {
         .trainerClass = TRAINER_CLASS_TUBER_F,
@@ -8390,7 +8062,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Hailey),
     },
-
     [TRAINER_CHANDLER] =
     {
         .trainerClass = TRAINER_CLASS_TUBER_M,
@@ -8402,7 +8073,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Chandler),
     },
-
     [TRAINER_KALEB] =
     {
         .trainerClass = TRAINER_CLASS_POKEFAN,
@@ -8414,7 +8084,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Kaleb),
     },
-
     [TRAINER_JOSEPH] =
     {
         .trainerClass = TRAINER_CLASS_GUITARIST,
@@ -8606,7 +8275,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Deandre),
     },
-
     [TRAINER_GRUNT_MAGMA_HIDEOUT_1] =
     {
         .trainerClass = TRAINER_CLASS_TEAM_MAGMA,
@@ -8618,7 +8286,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GruntMagmaHideout1),
     },
-
     [TRAINER_GRUNT_MAGMA_HIDEOUT_2] =
     {
         .trainerClass = TRAINER_CLASS_TEAM_MAGMA,
@@ -8630,7 +8297,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GruntMagmaHideout2),
     },
-
     [TRAINER_GRUNT_MAGMA_HIDEOUT_3] =
     {
         .trainerClass = TRAINER_CLASS_TEAM_MAGMA,
@@ -8642,7 +8308,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GruntMagmaHideout3),
     },
-
     [TRAINER_GRUNT_MAGMA_HIDEOUT_4] =
     {
         .trainerClass = TRAINER_CLASS_TEAM_MAGMA,
@@ -8654,7 +8319,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GruntMagmaHideout4),
     },
-
     [TRAINER_GRUNT_MAGMA_HIDEOUT_5] =
     {
         .trainerClass = TRAINER_CLASS_TEAM_MAGMA,
@@ -8966,7 +8630,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Branden),
     },
-
     [TRAINER_BRYANT] =
     {
         .trainerClass = TRAINER_CLASS_KINDLER,
@@ -8978,7 +8641,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Bryant),
     },
-
     [TRAINER_SHAYLA] =
     {
         .trainerClass = TRAINER_CLASS_AROMA_LADY,
@@ -8990,7 +8652,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Shayla),
     },
-
     [TRAINER_KYRA] =
     {
         .trainerClass = TRAINER_CLASS_TRIATHLETE,
@@ -9002,7 +8663,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Kyra),
     },
-
     [TRAINER_JAIDEN] =
     {
         .trainerClass = TRAINER_CLASS_NINJA_BOY,
@@ -9014,7 +8674,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Jaiden),
     },
-
     [TRAINER_ALIX] =
     {
         .trainerClass = TRAINER_CLASS_PSYCHIC,
@@ -9026,7 +8685,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Alix),
     },
-
     [TRAINER_HELENE] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
@@ -9038,7 +8696,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Helene),
     },
-
     [TRAINER_MARLENE] =
     {
         .trainerClass = TRAINER_CLASS_PSYCHIC,
@@ -9050,7 +8707,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Marlene),
     },
-
     [TRAINER_DEVAN] =
     {
         .trainerClass = TRAINER_CLASS_HIKER,
@@ -9062,7 +8718,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Devan),
     },
-
     [TRAINER_JOHNSON] =
     {
         .trainerClass = TRAINER_CLASS_YOUNGSTER,
@@ -9074,7 +8729,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Johnson),
     },
-
     [TRAINER_MELINA] =
     {
         .trainerClass = TRAINER_CLASS_TRIATHLETE,
@@ -9086,7 +8740,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Melina),
     },
-
     [TRAINER_BRANDI] =
     {
         .trainerClass = TRAINER_CLASS_PSYCHIC,
@@ -9098,7 +8751,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Brandi),
     },
-
     [TRAINER_AISHA] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
@@ -9110,7 +8762,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Aisha),
     },
-
     [TRAINER_MAKAYLA] =
     {
         .trainerClass = TRAINER_CLASS_EXPERT,
@@ -9122,7 +8773,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Makayla),
     },
-
     [TRAINER_FABIAN] =
     {
         .trainerClass = TRAINER_CLASS_GUITARIST,
@@ -9134,7 +8784,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Fabian),
     },
-
     [TRAINER_DAYTON] =
     {
         .trainerClass = TRAINER_CLASS_KINDLER,
@@ -9146,7 +8795,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Dayton),
     },
-
     [TRAINER_RACHEL] =
     {
         .trainerClass = TRAINER_CLASS_PARASOL_LADY,
@@ -9158,7 +8806,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Rachel),
     },
-
     [TRAINER_LEONEL] =
     {
         .trainerClass = TRAINER_CLASS_COOLTRAINER,
@@ -9170,7 +8817,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Leonel),
     },
-
     [TRAINER_CALLIE] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
@@ -9182,7 +8828,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Callie),
     },
-
     [TRAINER_CALE] =
     {
         .trainerClass = TRAINER_CLASS_BUG_MANIAC,
@@ -9194,7 +8839,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Cale),
     },
-
     [TRAINER_MYLES] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
@@ -9206,7 +8850,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Myles),
     },
-
     [TRAINER_PAT] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
@@ -9218,7 +8861,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Pat),
     },
-
     [TRAINER_CRISTIN_1] =
     {
         .trainerClass = TRAINER_CLASS_COOLTRAINER,
@@ -9230,7 +8872,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Cristin1),
     },
-
     [TRAINER_MAY_RUSTBORO_TREECKO] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -9242,7 +8883,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_MayRustboroTreecko),
     },
-
     [TRAINER_MAY_RUSTBORO_TORCHIC] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -9254,7 +8894,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_MayRustboroTorchic),
     },
-
     [TRAINER_ROXANNE_2] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9266,7 +8905,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Roxanne2),
     },
-
     [TRAINER_ROXANNE_3] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9278,7 +8916,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Roxanne3),
     },
-
     [TRAINER_ROXANNE_4] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9290,7 +8927,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Roxanne4),
     },
-
     [TRAINER_ROXANNE_5] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9302,7 +8938,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Roxanne5),
     },
-
     [TRAINER_BRAWLY_2] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9314,7 +8949,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Brawly2),
     },
-
     [TRAINER_BRAWLY_3] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9326,7 +8960,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Brawly3),
     },
-
     [TRAINER_BRAWLY_4] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9338,7 +8971,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Brawly4),
     },
-
     [TRAINER_BRAWLY_5] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9350,7 +8982,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Brawly5),
     },
-
     [TRAINER_WATTSON_2] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9362,7 +8993,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Wattson2),
     },
-
     [TRAINER_WATTSON_3] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9374,7 +9004,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Wattson3),
     },
-
     [TRAINER_WATTSON_4] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9386,7 +9015,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Wattson4),
     },
-
     [TRAINER_WATTSON_5] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9398,7 +9026,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Wattson5),
     },
-
     [TRAINER_FLANNERY_2] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9410,7 +9037,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Flannery2),
     },
-
     [TRAINER_FLANNERY_3] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9422,7 +9048,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Flannery3),
     },
-
     [TRAINER_FLANNERY_4] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9434,7 +9059,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Flannery4),
     },
-
     [TRAINER_FLANNERY_5] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9446,7 +9070,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Flannery5),
     },
-
     [TRAINER_NORMAN_2] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9458,7 +9081,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Norman2),
     },
-
     [TRAINER_NORMAN_3] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9470,7 +9092,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Norman3),
     },
-
     [TRAINER_NORMAN_4] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9482,7 +9103,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Norman4),
     },
-
     [TRAINER_NORMAN_5] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9494,7 +9114,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Norman5),
     },
-
     [TRAINER_WINONA_2] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9506,7 +9125,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_RISKY,
         .party = TRAINER_PARTY(sParty_Winona2),
     },
-
     [TRAINER_WINONA_3] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9518,7 +9136,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_RISKY,
         .party = TRAINER_PARTY(sParty_Winona3),
     },
-
     [TRAINER_WINONA_4] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9530,7 +9147,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_RISKY,
         .party = TRAINER_PARTY(sParty_Winona4),
     },
-
     [TRAINER_WINONA_5] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9542,7 +9158,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_RISKY,
         .party = TRAINER_PARTY(sParty_Winona5),
     },
-
     [TRAINER_TATE_AND_LIZA_2] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9554,7 +9169,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_TateAndLiza2),
     },
-
     [TRAINER_TATE_AND_LIZA_3] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9566,7 +9180,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_TateAndLiza3),
     },
-
     [TRAINER_TATE_AND_LIZA_4] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9578,7 +9191,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_TateAndLiza4),
     },
-
     [TRAINER_TATE_AND_LIZA_5] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9590,7 +9202,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_TateAndLiza5),
     },
-
     [TRAINER_JUAN_2] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9602,7 +9213,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Juan2),
     },
-
     [TRAINER_JUAN_3] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9614,7 +9224,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Juan3),
     },
-
     [TRAINER_JUAN_4] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9626,7 +9235,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Juan4),
     },
-
     [TRAINER_JUAN_5] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -9638,7 +9246,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Juan5),
     },
-
     [TRAINER_ANGELO] =
     {
         .trainerClass = TRAINER_CLASS_BUG_MANIAC,
@@ -9650,7 +9257,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Angelo),
     },
-
     [TRAINER_DARIUS] =
     {
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
@@ -9662,7 +9268,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Darius),
     },
-
     [TRAINER_STEVEN] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -9674,7 +9279,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Steven),
     },
-
     [TRAINER_ANABEL] =
     {
         .trainerClass = TRAINER_CLASS_SALON_MAIDEN,
@@ -9806,7 +9410,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Andres5),
     },
-
     [TRAINER_CORY_2] =
     {
         .trainerClass = TRAINER_CLASS_SAILOR,
@@ -9818,7 +9421,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Cory2),
     },
-
     [TRAINER_CORY_3] =
     {
         .trainerClass = TRAINER_CLASS_SAILOR,
@@ -9830,7 +9432,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Cory3),
     },
-
     [TRAINER_CORY_4] =
     {
         .trainerClass = TRAINER_CLASS_SAILOR,
@@ -9842,7 +9443,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Cory4),
     },
-
     [TRAINER_CORY_5] =
     {
         .trainerClass = TRAINER_CLASS_SAILOR,
@@ -9854,7 +9454,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Cory5),
     },
-
     [TRAINER_PABLO_2] =
     {
         .trainerClass = TRAINER_CLASS_TRIATHLETE,
@@ -9866,7 +9465,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Pablo2),
     },
-
     [TRAINER_PABLO_3] =
     {
         .trainerClass = TRAINER_CLASS_TRIATHLETE,
@@ -9878,7 +9476,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Pablo3),
     },
-
     [TRAINER_PABLO_4] =
     {
         .trainerClass = TRAINER_CLASS_TRIATHLETE,
@@ -9890,7 +9487,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Pablo4),
     },
-
     [TRAINER_PABLO_5] =
     {
         .trainerClass = TRAINER_CLASS_TRIATHLETE,
@@ -9902,7 +9498,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Pablo5),
     },
-
     [TRAINER_KOJI_2] =
     {
         .trainerClass = TRAINER_CLASS_BLACK_BELT,
@@ -9914,7 +9509,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Koji2),
     },
-
     [TRAINER_KOJI_3] =
     {
         .trainerClass = TRAINER_CLASS_BLACK_BELT,
@@ -9926,7 +9520,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Koji3),
     },
-
     [TRAINER_KOJI_4] =
     {
         .trainerClass = TRAINER_CLASS_BLACK_BELT,
@@ -10046,7 +9639,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Fernando5),
     },
-
     [TRAINER_SAWYER_2] =
     {
         .trainerClass = TRAINER_CLASS_HIKER,
@@ -10058,7 +9650,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Sawyer2),
     },
-
     [TRAINER_SAWYER_3] =
     {
         .trainerClass = TRAINER_CLASS_HIKER,
@@ -10070,7 +9661,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Sawyer3),
     },
-
     [TRAINER_SAWYER_4] =
     {
         .trainerClass = TRAINER_CLASS_HIKER,
@@ -10082,7 +9672,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Sawyer4),
     },
-
     [TRAINER_SAWYER_5] =
     {
         .trainerClass = TRAINER_CLASS_HIKER,
@@ -10094,7 +9683,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Sawyer5),
     },
-
     [TRAINER_GABRIELLE_2] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
@@ -10106,7 +9694,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Gabrielle2),
     },
-
     [TRAINER_GABRIELLE_3] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
@@ -10118,7 +9705,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Gabrielle3),
     },
-
     [TRAINER_GABRIELLE_4] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
@@ -10130,7 +9716,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Gabrielle4),
     },
-
     [TRAINER_GABRIELLE_5] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
@@ -10142,7 +9727,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Gabrielle5),
     },
-
     [TRAINER_THALIA_2] =
     {
         .trainerClass = TRAINER_CLASS_BEAUTY,
@@ -10154,7 +9738,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Thalia2),
     },
-
     [TRAINER_THALIA_3] =
     {
         .trainerClass = TRAINER_CLASS_BEAUTY,
@@ -10166,7 +9749,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Thalia3),
     },
-
     [TRAINER_THALIA_4] =
     {
         .trainerClass = TRAINER_CLASS_BEAUTY,
@@ -10178,7 +9760,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Thalia4),
     },
-
     [TRAINER_THALIA_5] =
     {
         .trainerClass = TRAINER_CLASS_BEAUTY,
@@ -10190,7 +9771,6 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Thalia5),
     },
-
     [TRAINER_MARIELA] =
     {
         .trainerClass = TRAINER_CLASS_PSYCHIC,
@@ -10202,7 +9782,6 @@
         .aiFlags = 0,
         .party = TRAINER_PARTY(sParty_Mariela),
     },
-
     [TRAINER_ALVARO] =
     {
         .trainerClass = TRAINER_CLASS_PSYCHIC,
@@ -10214,7 +9793,6 @@
         .aiFlags = 0,
         .party = TRAINER_PARTY(sParty_Alvaro),
     },
-
     [TRAINER_EVERETT] =
     {
         .trainerClass = TRAINER_CLASS_GENTLEMAN,
@@ -10226,7 +9804,6 @@
         .aiFlags = 0,
         .party = TRAINER_PARTY(sParty_Everett),
     },
-
     [TRAINER_RED] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -10238,7 +9815,6 @@
         .aiFlags = 0,
         .party = TRAINER_PARTY(sParty_Red),
     },
-
     [TRAINER_LEAF] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -10250,7 +9826,6 @@
         .aiFlags = 0,
         .party = TRAINER_PARTY(sParty_Leaf),
     },
-
     [TRAINER_BRENDAN_PLACEHOLDER] =
     {
         .trainerClass = TRAINER_CLASS_RS_PROTAG,
@@ -10262,7 +9837,6 @@
         .aiFlags = 0,
         .party = TRAINER_PARTY(sParty_BrendanLinkPlaceholder),
     },
-
     [TRAINER_MAY_PLACEHOLDER] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,

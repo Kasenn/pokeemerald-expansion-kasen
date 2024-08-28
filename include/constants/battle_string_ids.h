@@ -712,6 +712,7 @@
 #define STRINGID_FOGISDEEP                            710
 #define STRINGID_FOGLIFTED                            711
 #define STRINGID_PKMNMADESHELLGLEAM                   712
+#define STRINGID_FICKLEBEAMDOUBLED                    713
 
 #define STRINGID_ITISWINDY                            713
 #define STRINGID_WEATHERWIND                          714
