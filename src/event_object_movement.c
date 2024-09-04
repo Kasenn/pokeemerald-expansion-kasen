@@ -5489,7 +5489,7 @@ bool8 MovementType_FollowPlayer_Moving(struct ObjectEvent *objectEvent, struct S
     {
         UpdateFollowerTransformEffect(objectEvent, sprite);
         if (OW_FOLLOWERS_BOBBING == TRUE && (sprite->data[5] & 7) == 2)
-            sprite->y2 ^= -1;
+            sprite->y2 ^= 1;
     }
     return FALSE;
 }
@@ -5511,7 +5511,7 @@ bool8 FollowablePlayerMovement_Idle(struct ObjectEvent *objectEvent, struct Spri
     }
     else if (OW_FOLLOWERS_BOBBING == TRUE && (sprite->data[3] & 7) == 2)
     {
-        sprite->y2 ^= -1;
+        sprite->y2 ^= 1;
     }
     UpdateFollowerTransformEffect(objectEvent, sprite);
     return FALSE;
@@ -5623,7 +5623,7 @@ bool8 FollowablePlayerMovement_Step(struct ObjectEvent *objectEvent, struct Spri
     {
         ObjectEventSetSingleMovement(objectEvent, sprite, GetWalkNormalMovementAction(direction));
         if (OW_FOLLOWERS_BOBBING == TRUE)
-            sprite->y2 = -1;
+            sprite->y2 = 1;
     }
     #endif
     objectEvent->singleMovementActive = 1;
