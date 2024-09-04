@@ -12957,7 +12957,7 @@
           "map": "MAP_ROUTE3",
           "base_label": "gRoute30",
           "land_mons": {
-            "encounter_rate": 18,
+            "encounter_rate": 15,
             "mons": [
               {
                 "min_level": 7,

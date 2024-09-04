@@ -1,7 +1,7 @@
 {
   "id": "MAP_KAOLISLE_POKECENTER_1F",
   "name": "Kaolisle_Pokecenter_1F",
-  "layout": "LAYOUT_KAOLISLE_POKECENTER_1F",
+  "layout": "LAYOUT_ALDELEAF_POKE_CENTER1F",
   "music": "MUS_POKE_CENTER",
   "region_map_section": "MAPSEC_KAOLISLE_CITY",
   "requires_flash": false,

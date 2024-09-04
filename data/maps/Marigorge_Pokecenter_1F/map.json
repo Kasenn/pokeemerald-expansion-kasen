@@ -1,7 +1,7 @@
 {
   "id": "MAP_MARIGORGE_POKECENTER_1F",
   "name": "Marigorge_Pokecenter_1F",
-  "layout": "LAYOUT_MARIGORGE_POKECENTER_1F",
+  "layout": "LAYOUT_ALDELEAF_POKE_CENTER1F",
   "music": "MUS_POKE_CENTER",
   "region_map_section": "MAPSEC_MARIGORGE_TOWN",
   "requires_flash": false,

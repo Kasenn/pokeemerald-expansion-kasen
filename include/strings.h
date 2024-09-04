@@ -1290,6 +1290,7 @@ extern const u8 gText_AboutE_Mode[];
 extern const u8 gText_AboutG_Mode[];
 extern const u8 gText_E_Mode[];
 extern const u8 gText_G_Mode[];
+extern const u8 gText_Stats[];
 extern const u8 gText_Blank[];
 extern const u8 gText_5BP[];
 extern const u8 gText_10BP[];

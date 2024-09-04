@@ -568,6 +568,10 @@ MeetingRivalInTheTower::
 	msgbox BrendanLongTimeNoSee
 MeetingRivalInTheTower_1:
 	closemessage
+	setvar VAR_TEMP_3, 1
+	setvar VAR_RIVAL_AROUND_SANDSTONE, 3
+	setflag FLAG_PARTNER_HEALS
+	special HealPlayerParty
 	setfollower 6, FOLLOWER_FLAG_ALL, MakeNewTeam
 	msgbox InitialPartnerSetup
 	goto BeginPartnerSetup

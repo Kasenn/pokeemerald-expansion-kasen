@@ -3194,6 +3194,12 @@ u8 GetObjectEventIdByPosition(u16 x, u16 y, u8 elevation)
 
 static bool8 ObjectEventDoesElevationMatch(struct ObjectEvent *objectEvent, u8 elevation)
 {
+    if ((objectEvent->currentElevation == 11 && elevation == 12) || (objectEvent->currentElevation == 12 && elevation == 11))
+        return TRUE;
+    if ((objectEvent->currentElevation == 11 && elevation == 3) || (objectEvent->currentElevation == 3 && elevation == 11))
+        return TRUE;
+    if ((objectEvent->currentElevation == 4 && elevation == 12) || (objectEvent->currentElevation == 12 && elevation == 4))
+        return TRUE;
     if (objectEvent->currentElevation != 0 && elevation != 0 && objectEvent->currentElevation != elevation)
         return FALSE;
 
@@ -6079,6 +6085,8 @@ u8 GetCollisionAtCoords(struct ObjectEvent *objectEvent, s16 x, s16 y, u32 dir)
         return COLLISION_NONE;
 #endif
 
+    // if (objectEvent->graphicsId == OBJ_EVENT_GFX_FISHERMAN_SOUTH)
+    //     return COLLISION_NONE;
     if (IsCoordOutsideObjectEventMovementRange(objectEvent, x, y))
         return COLLISION_OUTSIDE_RANGE;
     else if (MapGridGetCollisionAt(x, y) || GetMapBorderIdAt(x, y) == CONNECTION_INVALID || IsMetatileDirectionallyImpassable(objectEvent, x, y, direction))
@@ -6153,6 +6161,12 @@ static bool8 DoesObjectCollideWithObjectAt(struct ObjectEvent *objectEvent, s16 
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
     {
         curObject = &gObjectEvents[i];
+        // if (curObject->graphicsId > OBJ_EVENT_GFX_SPECIES(BULBASAUR) && curObject->graphicsId < OBJ_EVENT_GFX_SPECIES(MIRAIDON))
+        //     return FALSE;
+        // if (curObject->mapNum == MAP_NUM(KAOLISLE_CITY)
+        //  && curObject->mapGroup == MAP_GROUP(KAOLISLE_CITY)
+        //  && curObject->graphicsId == OBJ_EVENT_GFX_SPECIES(HAUNTER))
+        //     return FALSE;
         if (curObject->active && (curObject->movementType != MOVEMENT_TYPE_FOLLOW_PLAYER || objectEvent != &gObjectEvents[gPlayerAvatar.objectEventId]) && curObject != objectEvent && !FollowMe_IsCollisionExempt(curObject, objectEvent))
         {
             if ((curObject->currentCoords.x == x && curObject->currentCoords.y == y) || (curObject->previousCoords.x == x && curObject->previousCoords.y == y))
@@ -9510,6 +9524,13 @@ static bool8 IsElevationMismatchAt(u8 elevation, s16 x, s16 y)
         return FALSE;
 
     mapElevation = MapGridGetElevationAt(x, y);
+
+    if ((mapElevation == 11 && elevation == 12) || (mapElevation == 12 && elevation == 11))
+        return FALSE;
+    if ((mapElevation == 11 && elevation == 3) || (mapElevation == 3 && elevation == 11))
+        return FALSE;
+    if ((mapElevation == 4 && elevation == 12) || (mapElevation == 12 && elevation == 4))
+        return FALSE;
 
     if (mapElevation == 0 || mapElevation == 15)
         return FALSE;

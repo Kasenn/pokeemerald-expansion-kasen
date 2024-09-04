@@ -34,10 +34,10 @@
 #define GAME_STAT_ENTERED_BATTLE_TOWER        30
 #define GAME_STAT_UNKNOWN_31                  31
 #define GAME_STAT_BATTLE_TOWER_SINGLES_STREAK 32
-#define GAME_STAT_POKEBLOCKS                  33
-#define GAME_STAT_POKEBLOCKS_WITH_FRIENDS     34
-#define GAME_STAT_WON_LINK_CONTEST            35
-#define GAME_STAT_ENTERED_CONTEST             36
+#define GAME_STAT_PARALYZED                  33
+#define GAME_STAT_FLINCHED     34
+#define GAME_STAT_CONFUSED            35
+#define GAME_STAT_OMNIBOOST             36
 #define GAME_STAT_WON_CONTEST                 37
 #define GAME_STAT_SHOPPED                     38
 #define GAME_STAT_USED_ITEMFINDER             39

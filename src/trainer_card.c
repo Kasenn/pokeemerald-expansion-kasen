@@ -94,6 +94,7 @@ struct TrainerCardData
 // EWRAM
 EWRAM_DATA struct TrainerCard gTrainerCards[4] = {0};
 EWRAM_DATA static struct TrainerCardData *sData = NULL;
+static EWRAM_DATA u8 sTrainerStatistics = 0;
 
 //this file's functions
 static void VblankCb_TrainerCard(void);
@@ -134,19 +135,21 @@ static void PrintPokedexOnCard(void);
 static void PrintProfilePhraseOnCard(void);
 static bool8 PrintAllOnCardBack(void);
 static void PrintNameOnCardBack(void);
-static void PrintHofDebutTimeOnCard(void);
-static void PrintLinkBattleResultsOnCard(void);
-static void PrintTradesStringOnCard(void);
-static void PrintBerryCrushStringOnCard(void);
-static void PrintPlayerCritFoeOnCardBack(void);
-static void PrintFoeCritPlayerOnCardBack(void);
-static void PrintPlayerMissedFoeOnCardBack(void);
-static void PrintFoeMissedPlayerOnCardBack(void);
-static void PrintPokeblockStringOnCard(void);
-static void PrintUnionStringOnCard(void);
-static void PrintContestStringOnCard(void);
-static void PrintPokemonIconsOnCard(void);
-static void PrintBattleFacilityStringOnCard(void);
+// static void PrintHofDebutTimeOnCard(void);
+// static void PrintLinkBattleResultsOnCard(void);
+// static void PrintTradesStringOnCard(void);
+// static void PrintBerryCrushStringOnCard(void);
+static void PrintStatistics1OnCardBack(void);
+static void PrintStatistics2OnCardBack(void);
+static void PrintStatistics3OnCardBack(void);
+static void PrintStatistics4OnCardBack(void);
+static void PrintStatistics5OnCardBack(void);
+static void PrintStatistics6OnCardBack(void);
+// static void PrintPokeblockStringOnCard(void);
+// static void PrintUnionStringOnCard(void);
+// static void PrintContestStringOnCard(void);
+// static void PrintPokemonIconsOnCard(void);
+// static void PrintBattleFacilityStringOnCard(void);
 static void PrintStickersOnCard(void);
 static void BufferTextsVarsForCardPage2(void);
 static void BufferNameForCardBack(void);
@@ -377,6 +380,10 @@ static void CloseTrainerCard(u8 taskId)
 #define STATE_CLOSE_CARD          14
 #define STATE_WAIT_LINK_PARTNER   15
 #define STATE_CLOSE_CARD_LINK     16
+#define STATE_HANDLE_INPUT_BACK_PAGE_2   17
+#define STATE_HANDLE_INPUT_BACK_PAGE_3   18
+#define STATE_HANDLE_INPUT_BACK_PAGE_4   19
+#define STATE_HANDLE_INPUT_BACK_PAGE_5   20
 
 static void Task_TrainerCard(u8 taskId)
 {
@@ -504,6 +511,198 @@ static void Task_TrainerCard(u8 taskId)
                sData->mainState = STATE_CLOSE_CARD;
            }
         }
+        else if (JOY_NEW(DPAD_DOWN) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
+        {
+            sData->onBack = FALSE;
+            sTrainerStatistics++;
+            FlipTrainerCard();
+            PlaySE(SE_RG_CARD_OPEN);
+            sData->mainState = STATE_HANDLE_INPUT_BACK_PAGE_2;
+        }
+        break;
+    case STATE_HANDLE_INPUT_BACK_PAGE_2:
+        if (JOY_NEW(B_BUTTON))
+        {
+            if (gReceivedRemoteLinkPlayers && sData->isLink && InUnionRoom() == TRUE)
+            {
+                sData->mainState = STATE_WAIT_LINK_PARTNER;
+            }
+            else if (gReceivedRemoteLinkPlayers)
+            {
+                BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, sData->blendColor);
+                sData->mainState = STATE_CLOSE_CARD;
+            }
+            else
+            {
+                FlipTrainerCard();
+                sData->mainState = STATE_WAIT_FLIP_TO_FRONT;
+                PlaySE(SE_RG_CARD_FLIP);
+            }
+        }
+        else if (JOY_NEW(A_BUTTON))
+        {
+           if (gReceivedRemoteLinkPlayers && sData->isLink && InUnionRoom() == TRUE)
+           {
+               sData->mainState = STATE_WAIT_LINK_PARTNER;
+           }
+           else
+           {
+               BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, sData->blendColor);
+               sData->mainState = STATE_CLOSE_CARD;
+           }
+        }
+        else if (JOY_NEW(DPAD_UP) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
+        {
+            sData->onBack = FALSE;
+            sTrainerStatistics--;
+            FlipTrainerCard();
+            PlaySE(SE_RG_CARD_OPEN);
+            sData->mainState = STATE_HANDLE_INPUT_BACK;
+        }
+        else if (JOY_NEW(DPAD_DOWN) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
+        {
+            sData->onBack = FALSE;
+            sTrainerStatistics++;
+            FlipTrainerCard();
+            PlaySE(SE_RG_CARD_OPEN);
+            sData->mainState = STATE_HANDLE_INPUT_BACK_PAGE_3;
+        }
+        break;
+    case STATE_HANDLE_INPUT_BACK_PAGE_3:
+        if (JOY_NEW(B_BUTTON))
+        {
+            if (gReceivedRemoteLinkPlayers && sData->isLink && InUnionRoom() == TRUE)
+            {
+                sData->mainState = STATE_WAIT_LINK_PARTNER;
+            }
+            else if (gReceivedRemoteLinkPlayers)
+            {
+                BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, sData->blendColor);
+                sData->mainState = STATE_CLOSE_CARD;
+            }
+            else
+            {
+                FlipTrainerCard();
+                sData->mainState = STATE_WAIT_FLIP_TO_FRONT;
+                PlaySE(SE_RG_CARD_FLIP);
+            }
+        }
+        else if (JOY_NEW(A_BUTTON))
+        {
+           if (gReceivedRemoteLinkPlayers && sData->isLink && InUnionRoom() == TRUE)
+           {
+               sData->mainState = STATE_WAIT_LINK_PARTNER;
+           }
+           else
+           {
+               BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, sData->blendColor);
+               sData->mainState = STATE_CLOSE_CARD;
+           }
+        }
+        else if (JOY_NEW(DPAD_UP) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
+        {
+            sData->onBack = FALSE;
+            sTrainerStatistics--;
+            FlipTrainerCard();
+            PlaySE(SE_RG_CARD_OPEN);
+            sData->mainState = STATE_HANDLE_INPUT_BACK_PAGE_2;
+        }
+        else if (JOY_NEW(DPAD_DOWN) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
+        {
+            sData->onBack = FALSE;
+            sTrainerStatistics++;
+            FlipTrainerCard();
+            PlaySE(SE_RG_CARD_OPEN);
+            sData->mainState = STATE_HANDLE_INPUT_BACK_PAGE_4;
+        }
+        break;
+    case STATE_HANDLE_INPUT_BACK_PAGE_4:
+        if (JOY_NEW(B_BUTTON))
+        {
+            if (gReceivedRemoteLinkPlayers && sData->isLink && InUnionRoom() == TRUE)
+            {
+                sData->mainState = STATE_WAIT_LINK_PARTNER;
+            }
+            else if (gReceivedRemoteLinkPlayers)
+            {
+                BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, sData->blendColor);
+                sData->mainState = STATE_CLOSE_CARD;
+            }
+            else
+            {
+                FlipTrainerCard();
+                sData->mainState = STATE_WAIT_FLIP_TO_FRONT;
+                PlaySE(SE_RG_CARD_FLIP);
+            }
+        }
+        else if (JOY_NEW(A_BUTTON))
+        {
+           if (gReceivedRemoteLinkPlayers && sData->isLink && InUnionRoom() == TRUE)
+           {
+               sData->mainState = STATE_WAIT_LINK_PARTNER;
+           }
+           else
+           {
+               BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, sData->blendColor);
+               sData->mainState = STATE_CLOSE_CARD;
+           }
+        }
+        else if (JOY_NEW(DPAD_UP) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
+        {
+            sData->onBack = FALSE;
+            sTrainerStatistics--;
+            FlipTrainerCard();
+            PlaySE(SE_RG_CARD_OPEN);
+            sData->mainState = STATE_HANDLE_INPUT_BACK_PAGE_3;
+        }
+        else if (JOY_NEW(DPAD_DOWN) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
+        {
+            sData->onBack = FALSE;
+            sTrainerStatistics++;
+            FlipTrainerCard();
+            PlaySE(SE_RG_CARD_OPEN);
+            sData->mainState = STATE_HANDLE_INPUT_BACK_PAGE_5;
+        }
+        break;
+    case STATE_HANDLE_INPUT_BACK_PAGE_5:
+        if (JOY_NEW(B_BUTTON))
+        {
+            if (gReceivedRemoteLinkPlayers && sData->isLink && InUnionRoom() == TRUE)
+            {
+                sData->mainState = STATE_WAIT_LINK_PARTNER;
+            }
+            else if (gReceivedRemoteLinkPlayers)
+            {
+                BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, sData->blendColor);
+                sData->mainState = STATE_CLOSE_CARD;
+            }
+            else
+            {
+                FlipTrainerCard();
+                sData->mainState = STATE_WAIT_FLIP_TO_FRONT;
+                PlaySE(SE_RG_CARD_FLIP);
+            }
+        }
+        else if (JOY_NEW(A_BUTTON))
+        {
+           if (gReceivedRemoteLinkPlayers && sData->isLink && InUnionRoom() == TRUE)
+           {
+               sData->mainState = STATE_WAIT_LINK_PARTNER;
+           }
+           else
+           {
+               BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, sData->blendColor);
+               sData->mainState = STATE_CLOSE_CARD;
+           }
+        }
+        else if (JOY_NEW(DPAD_UP) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
+        {
+            sData->onBack = FALSE;
+            sTrainerStatistics--;
+            FlipTrainerCard();
+            PlaySE(SE_RG_CARD_OPEN);
+            sData->mainState = STATE_HANDLE_INPUT_BACK_PAGE_4;
+        }
         break;
     case STATE_WAIT_LINK_PARTNER:
         SetCloseLinkCallback();
@@ -594,6 +793,7 @@ static void CB2_InitTrainerCard(void)
     switch (gMain.state)
     {
     case 0:
+        sTrainerStatistics = 0;
         ResetGpuRegs();
         SetUpTrainerCardTask();
         gMain.state++;
@@ -744,8 +944,8 @@ static void SetPlayerCardData(struct TrainerCard *trainerCard, u8 cardType)
         trainerCard->battleTowerStraightWins = 0;
     // Seems like GF got CARD_TYPE_FRLG and CARD_TYPE_RS wrong.
     case CARD_TYPE_FRLG:
-        trainerCard->contestsWithFriends = GetCappedGameStat(GAME_STAT_WON_LINK_CONTEST, 999);
-        trainerCard->pokeblocksWithFriends = GetCappedGameStat(GAME_STAT_POKEBLOCKS_WITH_FRIENDS, 0xFFFF);
+        // trainerCard->contestsWithFriends = GetCappedGameStat(GAME_STAT_WON_LINK_CONTEST, 999);
+        // trainerCard->pokeblocksWithFriends = GetCappedGameStat(GAME_STAT_POKEBLOCKS_WITH_FRIENDS, 0xFFFF);
         if (CountPlayerMuseumPaintings() >= CONTEST_CATEGORIES_COUNT)
             trainerCard->hasAllPaintings = TRUE;
         trainerCard->stars = GetRubyTrainerStars(trainerCard);
@@ -960,29 +1160,31 @@ static bool8 PrintAllOnCardBack(void)
         PrintNameOnCardBack();
         break;
     case 1:
-        PrintPlayerCritFoeOnCardBack();
+        PrintStatistics1OnCardBack();
         // PrintHofDebutTimeOnCard();
         break;
     case 2:
-        PrintFoeCritPlayerOnCardBack();
+        PrintStatistics2OnCardBack();
         // PrintLinkBattleResultsOnCard();
         break;
     case 3:
-        PrintPlayerMissedFoeOnCardBack();
+        PrintStatistics3OnCardBack();
         // PrintTradesStringOnCard();
         break;
     case 4:
-        PrintFoeMissedPlayerOnCardBack();
+        PrintStatistics4OnCardBack();
         // PrintBerryCrushStringOnCard();
         // PrintPokeblockStringOnCard();
         break;
     case 5:
-        PrintUnionStringOnCard();
-        PrintContestStringOnCard();
+        PrintStatistics5OnCardBack();
+        // PrintUnionStringOnCard();
+        // PrintContestStringOnCard();
         break;
     case 6:
-        PrintPokemonIconsOnCard();
-        PrintBattleFacilityStringOnCard();
+        PrintStatistics6OnCardBack();
+        // PrintPokemonIconsOnCard();
+        // PrintBattleFacilityStringOnCard();
         break;
     case 7:
         PrintStickersOnCard();
@@ -1180,12 +1382,31 @@ static void BufferNameForCardBack(void)
     }
 }
 
+static const u8 sText_StatsPage2[] = _("{DPAD_UPDOWN} Statistics  2/5");
+static const u8 sText_StatsPage3[] = _("{DPAD_UPDOWN} Statistics  3/5");
+static const u8 sText_StatsPage4[] = _("{DPAD_UPDOWN} Statistics  4/5");
+static const u8 sText_StatsPage5[] = _("{DPAD_UP} Statistics  5/5");
+
 static void PrintNameOnCardBack(void)
 {
-    if (!sData->isHoenn)
-        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 136, 9, sTrainerCardTextColors, TEXT_SKIP_DRAW, sData->textPlayersCard);
-    else
-        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, sData->textPlayersCard, 216), 9, sTrainerCardTextColors, TEXT_SKIP_DRAW, sData->textPlayersCard);
+    switch (sTrainerStatistics)
+    {
+        case 0:
+            AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, sData->textPlayersCard, 216), 9, sTrainerCardTextColors, TEXT_SKIP_DRAW, sData->textPlayersCard);
+            break;
+        case 1:
+            AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, sText_StatsPage2, 216), 9, sTrainerCardTextColors, TEXT_SKIP_DRAW, sText_StatsPage2);
+            break;
+        case 2:
+            AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, sText_StatsPage3, 216), 9, sTrainerCardTextColors, TEXT_SKIP_DRAW, sText_StatsPage3);
+            break;
+        case 3:
+            AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, sText_StatsPage4, 216), 9, sTrainerCardTextColors, TEXT_SKIP_DRAW, sText_StatsPage4);
+            break;
+        case 4:
+            AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, sText_StatsPage5, 216), 9, sTrainerCardTextColors, TEXT_SKIP_DRAW, sText_StatsPage5);
+            break;
+    }
 }
 
 static const u8 sText_HofTime[] = _("{STR_VAR_1}:{STR_VAR_2}:{STR_VAR_3}");
@@ -1210,31 +1431,166 @@ static void PrintStatOnBackOfCard(u8 top, const u8 *statName, u8 *stat, const u8
     AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, stat, widths[sData->isHoenn]), top * 16 + 33, color, TEXT_SKIP_DRAW, stat);
 }
 
-static void PrintHofDebutTimeOnCard(void)
+static UNUSED void PrintHofDebutTimeOnCard(void)
 {
     if (sData->hasHofResult)
         PrintStatOnBackOfCard(0, gText_HallOfFameDebut, sData->textHofTime, sTrainerCardStatColors);
 }
 
-static void PrintPlayerCritFoeOnCardBack(void)
+static const u8 sStatText_PlayerCritFoe[] = _("Opponents critically hit");
+static const u8 sStatText_PlayerMissFoe[] = _("Oopponents missed");
+static const u8 sStatText_FoeCritPlayer[] = _("Critically hit by opponents");
+static const u8 sStatText_FoeMissPlayer[] = _("Missed by opponents");
+static const u8 sStatText_SavedGame[] = _("Saved game");
+static const u8 sStatText_TotalBattles[] = _("Total battles");
+static const u8 sStatText_HatchedEggs[] = _("Hatched eggs");
+static const u8 sStatText_PlantedBerries[] = _("Planted berries");
+static const u8 sStatText_WildBattles[] = _("Wild battles");
+static const u8 sStatText_UsedItemfinder[] = _("Used Itemfinder");
+static const u8 sStatText_Steps[] = _("Steps taken");
+static const u8 sStatText_TrainerBattles[] = _("Trainer battles");
+static const u8 sStatText_JumpedDownLedges[] = _("Jumped down ledges");
+static const u8 sStatText_UsedPokeCenter[] = _("Used Pokécenter");
+static const u8 sStatText_PokemonCaptures[] = _("Captured Pokémon");
+static const u8 sStatText_UsedCut[] = _("Used Cut");
+static const u8 sStatText_Shopped[] = _("Shopped");
+static const u8 sStatText_FishingEncounters[] = _("Fishing encounters");
+static const u8 sStatText_UsedRockSmash[] = _("Used Rock Smash");
+static const u8 sStatText_CheckedPokedex[] = _("Checked Pokédex");
+static const u8 sStatText_EvolvedPokemon[] = _("Evolved Pokémon");
+static const u8 sStatText_UsedDaycare[] = _("Used Daycare");
+static const u8 sStatText_Paralyzed[] = _("Times paralyzed");
+static const u8 sStatText_Flinched[] = _("Times flinched");
+static const u8 sStatText_Confused[] = _("Times confused");
+static const u8 sStatText_Omniboosts[] = _("Omniboosts");
+static const u8 sStatText_WIP[] = _("");
+
+static const u8 sStatValues[5][6] =
 {
-    ConvertIntToDecimalStringN(gStringVar4, GetGameStat(GAME_STAT_PLAYER_CRIT_FOE), STR_CONV_MODE_LEFT_ALIGN, 7);
-    PrintStatOnBackOfCard(0, gText_PlayerCritFoe, gStringVar4, sTrainerCardStatColors);
+    [0] = {
+        GAME_STAT_SAVED_GAME,
+        GAME_STAT_PLANTED_BERRIES,
+        GAME_STAT_STEPS,
+        GAME_STAT_USED_POKECENTER,
+        GAME_STAT_SHOPPED,
+        GAME_STAT_CHECKED_POKEDEX,
+    },
+    [1] = {
+        GAME_STAT_TOTAL_BATTLES,
+        GAME_STAT_WILD_BATTLES,
+        GAME_STAT_TRAINER_BATTLES,
+        GAME_STAT_POKEMON_CAPTURES,
+        GAME_STAT_FISHING_ENCOUNTERS,
+        GAME_STAT_EVOLVED_POKEMON,
+    },
+    [2] = {
+        GAME_STAT_HATCHED_EGGS,
+        GAME_STAT_USED_ITEMFINDER,
+        GAME_STAT_JUMPED_DOWN_LEDGES,
+        GAME_STAT_USED_CUT,
+        GAME_STAT_USED_ROCK_SMASH,
+        GAME_STAT_USED_DAYCARE,
+    },
+    [3] = {
+        GAME_STAT_PARALYZED,
+        GAME_STAT_CONFUSED,
+        GAME_STAT_FLINCHED,
+        GAME_STAT_OMNIBOOST,
+        GAME_STAT_PLAYER_CRIT_FOE,
+        GAME_STAT_PLAYER_MISS_FOE,
+    },
+    [4] = {
+        GAME_STAT_FOE_CRIT_PLAYER,
+        GAME_STAT_FOE_MISS_PLAYER,
+        0, 0, 0, 0,
+    },
+};
+
+static const u8 *const sStatDescriptions[5][6] =
+{
+    [0] = {
+        sStatText_SavedGame,
+        sStatText_PlantedBerries,
+        sStatText_Steps,
+        sStatText_UsedPokeCenter,
+        sStatText_Shopped,
+        sStatText_CheckedPokedex,
+    },
+    [1] = {
+        sStatText_TotalBattles,
+        sStatText_WildBattles,
+        sStatText_TrainerBattles,
+        sStatText_PokemonCaptures,
+        sStatText_FishingEncounters,
+        sStatText_EvolvedPokemon,
+    },
+    [2] = {
+        sStatText_HatchedEggs,
+        sStatText_UsedItemfinder,
+        sStatText_JumpedDownLedges,
+        sStatText_UsedCut,
+        sStatText_UsedRockSmash,
+        sStatText_UsedDaycare,
+    },
+    [3] = {
+        sStatText_Paralyzed,
+        sStatText_Confused,
+        sStatText_Flinched,
+        sStatText_Omniboosts,
+        sStatText_PlayerCritFoe,
+        sStatText_PlayerMissFoe,
+    },
+    [4] = {
+        sStatText_FoeCritPlayer,
+        sStatText_FoeMissPlayer,
+        sStatText_WIP,
+        sStatText_WIP,
+        sStatText_WIP,
+        sStatText_WIP,
+    },
+};
+
+static void PrintStatistics1OnCardBack(void)
+{
+    ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sTrainerStatistics][0]), STR_CONV_MODE_LEFT_ALIGN, 9);
+    PrintStatOnBackOfCard(0, sStatDescriptions[sTrainerStatistics][0], gStringVar4, sTrainerCardStatColors);
 }
-static void PrintFoeCritPlayerOnCardBack(void)
+static void PrintStatistics2OnCardBack(void)
 {
-    ConvertIntToDecimalStringN(gStringVar4, GetGameStat(GAME_STAT_FOE_CRIT_PLAYER), STR_CONV_MODE_LEFT_ALIGN, 7);
-    PrintStatOnBackOfCard(2, gText_FoeCritPlayer, gStringVar4, sTrainerCardStatColors);
+    ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sTrainerStatistics][1]), STR_CONV_MODE_LEFT_ALIGN, 9);
+    PrintStatOnBackOfCard(1, sStatDescriptions[sTrainerStatistics][1], gStringVar4, sTrainerCardStatColors);
 }
-static void PrintPlayerMissedFoeOnCardBack(void)
+static void PrintStatistics3OnCardBack(void)
 {
-    ConvertIntToDecimalStringN(gStringVar4, GetGameStat(GAME_STAT_PLAYER_MISS_FOE), STR_CONV_MODE_LEFT_ALIGN, 7);
-    PrintStatOnBackOfCard(1, gText_PlayerMissFoe, gStringVar4, sTrainerCardStatColors);
+    if (sTrainerStatistics < 4)
+    {
+        ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sTrainerStatistics][2]), STR_CONV_MODE_LEFT_ALIGN, 9);
+        PrintStatOnBackOfCard(2, sStatDescriptions[sTrainerStatistics][2], gStringVar4, sTrainerCardStatColors);
+    }
 }
-static void PrintFoeMissedPlayerOnCardBack(void)
+static void PrintStatistics4OnCardBack(void)
 {
-    ConvertIntToDecimalStringN(gStringVar4, GetGameStat(GAME_STAT_FOE_MISS_PLAYER), STR_CONV_MODE_LEFT_ALIGN, 7);
-    PrintStatOnBackOfCard(3, gText_FoeMissPlayer, gStringVar4, sTrainerCardStatColors);
+    if (sTrainerStatistics < 4)
+    {
+        ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sTrainerStatistics][3]), STR_CONV_MODE_LEFT_ALIGN, 9);
+        PrintStatOnBackOfCard(3, sStatDescriptions[sTrainerStatistics][3], gStringVar4, sTrainerCardStatColors);
+    }
+}
+static void PrintStatistics5OnCardBack(void)
+{
+    if (sTrainerStatistics < 4)
+    {
+        ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sTrainerStatistics][4]), STR_CONV_MODE_LEFT_ALIGN, 9);
+        PrintStatOnBackOfCard(4, sStatDescriptions[sTrainerStatistics][4], gStringVar4, sTrainerCardStatColors);
+    }
+}
+static void PrintStatistics6OnCardBack(void)
+{
+    if (sTrainerStatistics < 4)
+    {
+        ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sTrainerStatistics][5]), STR_CONV_MODE_LEFT_ALIGN, 9);
+        PrintStatOnBackOfCard(5, sStatDescriptions[sTrainerStatistics][5], gStringVar4, sTrainerCardStatColors);
+    }
 }
 
 static const u8 *const sLinkBattleTexts[] =
@@ -1254,7 +1610,7 @@ static void BufferLinkBattleResults(void)
     }
 }
 
-static void PrintLinkBattleResultsOnCard(void)
+static UNUSED void PrintLinkBattleResultsOnCard(void)
 {
     if (sData->hasLinkResults)
     {
@@ -1271,7 +1627,7 @@ static void BufferNumTrades(void)
         ConvertIntToDecimalStringN(sData->textNumTrades, sData->trainerCard.pokemonTrades, STR_CONV_MODE_RIGHT_ALIGN, 5);
 }
 
-static void PrintTradesStringOnCard(void)
+static UNUSED void PrintTradesStringOnCard(void)
 {
     if (sData->hasTrades)
         PrintStatOnBackOfCard(2, gText_PokemonTrades, sData->textNumTrades, sTrainerCardStatColors);
@@ -1283,7 +1639,7 @@ static void BufferBerryCrushPoints(void)
         ConvertIntToDecimalStringN(sData->textBerryCrushPts, sData->trainerCard.linkPoints.berryCrush, STR_CONV_MODE_RIGHT_ALIGN, 5);
 }
 
-static void PrintBerryCrushStringOnCard(void)
+static UNUSED void PrintBerryCrushStringOnCard(void)
 {
     if (sData->cardType == CARD_TYPE_FRLG && sData->trainerCard.linkPoints.berryCrush)
         PrintStatOnBackOfCard(4, gText_BerryCrush, sData->textBerryCrushPts, sTrainerCardStatColors);
@@ -1295,7 +1651,7 @@ static void BufferUnionRoomStats(void)
         ConvertIntToDecimalStringN(sData->textUnionRoomStats, sData->trainerCard.unionRoomNum, STR_CONV_MODE_RIGHT_ALIGN, 5);
 }
 
-static void PrintUnionStringOnCard(void)
+static UNUSED void PrintUnionStringOnCard(void)
 {
     if (sData->cardType == CARD_TYPE_FRLG && sData->trainerCard.unionRoomNum)
         PrintStatOnBackOfCard(3, gText_UnionTradesAndBattles, sData->textUnionRoomStats, sTrainerCardStatColors);
@@ -1310,7 +1666,7 @@ static void BufferLinkPokeblocksNum(void)
     }
 }
 
-static void PrintPokeblockStringOnCard(void)
+static UNUSED void PrintPokeblockStringOnCard(void)
 {
     if (sData->cardType != CARD_TYPE_FRLG && sData->trainerCard.pokeblocksWithFriends)
         PrintStatOnBackOfCard(3, gText_PokeblocksWithFriends, sData->textNumLinkPokeblocks, sTrainerCardStatColors);
@@ -1322,7 +1678,7 @@ static void BufferLinkContestNum(void)
         ConvertIntToDecimalStringN(sData->textNumLinkContests, sData->trainerCard.contestsWithFriends, STR_CONV_MODE_RIGHT_ALIGN, 5);
 }
 
-static void PrintContestStringOnCard(void)
+static UNUSED void PrintContestStringOnCard(void)
 {
     if (sData->cardType != CARD_TYPE_FRLG && sData->trainerCard.contestsWithFriends)
         PrintStatOnBackOfCard(4, gText_WonContestsWFriends, sData->textNumLinkContests, sTrainerCardStatColors);
@@ -1352,7 +1708,7 @@ static void BufferBattleFacilityStats(void)
     }
 }
 
-static void PrintBattleFacilityStringOnCard(void)
+static UNUSED void PrintBattleFacilityStringOnCard(void)
 {
     switch (sData->cardType)
     {
@@ -1369,7 +1725,7 @@ static void PrintBattleFacilityStringOnCard(void)
     }
 }
 
-static void PrintPokemonIconsOnCard(void)
+static UNUSED void PrintPokemonIconsOnCard(void)
 {
     u8 i;
     u8 paletteSlots[PARTY_SIZE] = {5, 6, 7, 8, 9, 10};

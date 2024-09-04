@@ -1065,7 +1065,7 @@ const struct Tileset gTileset_Building2 =
     .palettes = gTilesetPalettes_Building2,
     .metatiles = gMetatiles_Building2,
     .metatileAttributes = gMetatileAttributes_Building2,
-    .callback = NULL,
+    .callback = InitTilesetAnim_Building,
 };
 
 const struct Tileset gTileset_DrisledgeGym =
