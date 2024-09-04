@@ -9,8 +9,17 @@ ROUTE14_Grotto_SetObject::
 	goto_if_le ROUTE14_Grotto_SetObject_2
 ROUTE14_Grotto_SetObject_1:
 	compare VAR_GROTTO_3, 40
-	goto_if_ge ROUTE14_Grotto_SetObject_5
+	goto_if_ge ROUTE14_Grotto_SetObject_6
 ROUTE14_Grotto_SetObject_4:
+	compare VAR_GROTTO_3, 55
+	goto_if_ge ROUTE14_Grotto_SetObject_11
+ROUTE14_Grotto_SetObject_9:
+	compare VAR_GROTTO_3, 70
+	goto_if_ge ROUTE14_Grotto_SetObject_16
+ROUTE14_Grotto_SetObject_14:
+	compare VAR_GROTTO_3, 85
+	goto_if_ge ROUTE14_Grotto_SetObject_21
+ROUTE14_Grotto_SetObject_19:
 	end
 
 ROUTE14_Grotto_SetObject_2:
@@ -18,11 +27,44 @@ ROUTE14_Grotto_SetObject_2:
 	goto ROUTE14_Grotto_SetObject_1
 
 ROUTE14_Grotto_SetObject_5:
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_TRICK_HOUSE_STATUE
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( KLEFKI )
 	goto ROUTE14_Grotto_SetObject_4
+
+ROUTE14_Grotto_SetObject_6:
+	compare VAR_GROTTO_3, 54
+	goto_if_le ROUTE14_Grotto_SetObject_5
+	goto ROUTE14_Grotto_SetObject_4
+
+ROUTE14_Grotto_SetObject_10:
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( TOXEL )
+	goto ROUTE14_Grotto_SetObject_9
+
+ROUTE14_Grotto_SetObject_11:
+	compare VAR_GROTTO_3, 69
+	goto_if_le ROUTE14_Grotto_SetObject_10
+	goto ROUTE14_Grotto_SetObject_9
+
+ROUTE14_Grotto_SetObject_15:
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( CUBCHOO )
+	goto ROUTE14_Grotto_SetObject_14
+
+ROUTE14_Grotto_SetObject_16:
+	compare VAR_GROTTO_3, 84
+	goto_if_le ROUTE14_Grotto_SetObject_15
+	goto ROUTE14_Grotto_SetObject_14
+
+ROUTE14_Grotto_SetObject_20:
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SNEASEL )
+	goto ROUTE14_Grotto_SetObject_19
+
+ROUTE14_Grotto_SetObject_21:
+	compare VAR_GROTTO_3, 99
+	goto_if_le ROUTE14_Grotto_SetObject_20
+	goto ROUTE14_Grotto_SetObject_19
 
 
 ROUTE14_GrottoInteract::
+	faceplayer
 	lockall
 	compare VAR_GROTTO_3, 39
 	goto_if_le ROUTE14_GrottoInteract_2

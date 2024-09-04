@@ -6,12 +6,22 @@ script WW_Grotto_SetObject{
     if(var(VAR_GROTTO_1) <= 39){
         setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL)
     }
-    if(var(VAR_GROTTO_1) >= 40){
-        setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_TRICK_HOUSE_STATUE)
+    if((var(VAR_GROTTO_1) >= 40) && (var(VAR_GROTTO_1) <= 54)){
+        setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(TOGEPI))
+    }
+    if((var(VAR_GROTTO_1) >= 55) && (var(VAR_GROTTO_1) <= 69)){
+        setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(SWABLU))
+    }
+    if((var(VAR_GROTTO_1) >= 70) && (var(VAR_GROTTO_1) <= 84)){
+        setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(GLIGAR))
+    }
+    if((var(VAR_GROTTO_1) >= 85) && (var(VAR_GROTTO_1) <= 99)){
+        setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(SNEASEL))
     }
     end
 }
 script WW_GrottoInteract{
+    faceplayer
     lockall
     if(var(VAR_GROTTO_1) <= 39){
         goto(WW_GrottoItem)

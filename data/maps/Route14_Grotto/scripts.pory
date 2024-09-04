@@ -7,12 +7,22 @@ script ROUTE14_Grotto_SetObject{
     if(var(VAR_GROTTO_3) <= 39){
         setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL)
     }
-    if(var(VAR_GROTTO_3) >= 40){
-        setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_TRICK_HOUSE_STATUE)
+    if((var(VAR_GROTTO_3) >= 40) && (var(VAR_GROTTO_3) <= 54)){
+        setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(KLEFKI))
+    }
+    if((var(VAR_GROTTO_3) >= 55) && (var(VAR_GROTTO_3) <= 69)){
+        setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(TOXEL))
+    }
+    if((var(VAR_GROTTO_3) >= 70) && (var(VAR_GROTTO_3) <= 84)){
+        setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(CUBCHOO))
+    }
+    if((var(VAR_GROTTO_3) >= 85) && (var(VAR_GROTTO_3) <= 99)){
+        setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(SNEASEL))
     }
     end
 }
 script ROUTE14_GrottoInteract{
+    faceplayer
     lockall
     if(var(VAR_GROTTO_3) <= 39){
         goto(ROUTE14_GrottoItem)

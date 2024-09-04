@@ -9,8 +9,17 @@ WW_Grotto_SetObject::
 	goto_if_le WW_Grotto_SetObject_2
 WW_Grotto_SetObject_1:
 	compare VAR_GROTTO_1, 40
-	goto_if_ge WW_Grotto_SetObject_5
+	goto_if_ge WW_Grotto_SetObject_6
 WW_Grotto_SetObject_4:
+	compare VAR_GROTTO_1, 55
+	goto_if_ge WW_Grotto_SetObject_11
+WW_Grotto_SetObject_9:
+	compare VAR_GROTTO_1, 70
+	goto_if_ge WW_Grotto_SetObject_16
+WW_Grotto_SetObject_14:
+	compare VAR_GROTTO_1, 85
+	goto_if_ge WW_Grotto_SetObject_21
+WW_Grotto_SetObject_19:
 	end
 
 WW_Grotto_SetObject_2:
@@ -18,11 +27,44 @@ WW_Grotto_SetObject_2:
 	goto WW_Grotto_SetObject_1
 
 WW_Grotto_SetObject_5:
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_TRICK_HOUSE_STATUE
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( TOGEPI )
 	goto WW_Grotto_SetObject_4
+
+WW_Grotto_SetObject_6:
+	compare VAR_GROTTO_1, 54
+	goto_if_le WW_Grotto_SetObject_5
+	goto WW_Grotto_SetObject_4
+
+WW_Grotto_SetObject_10:
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SWABLU )
+	goto WW_Grotto_SetObject_9
+
+WW_Grotto_SetObject_11:
+	compare VAR_GROTTO_1, 69
+	goto_if_le WW_Grotto_SetObject_10
+	goto WW_Grotto_SetObject_9
+
+WW_Grotto_SetObject_15:
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( GLIGAR )
+	goto WW_Grotto_SetObject_14
+
+WW_Grotto_SetObject_16:
+	compare VAR_GROTTO_1, 84
+	goto_if_le WW_Grotto_SetObject_15
+	goto WW_Grotto_SetObject_14
+
+WW_Grotto_SetObject_20:
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SNEASEL )
+	goto WW_Grotto_SetObject_19
+
+WW_Grotto_SetObject_21:
+	compare VAR_GROTTO_1, 99
+	goto_if_le WW_Grotto_SetObject_20
+	goto WW_Grotto_SetObject_19
 
 
 WW_GrottoInteract::
+	faceplayer
 	lockall
 	compare VAR_GROTTO_1, 39
 	goto_if_le WW_GrottoInteract_2

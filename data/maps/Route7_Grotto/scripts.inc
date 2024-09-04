@@ -9,8 +9,17 @@ ROUTE7_Grotto_SetObject::
 	goto_if_le ROUTE7_Grotto_SetObject_2
 ROUTE7_Grotto_SetObject_1:
 	compare VAR_GROTTO_2, 40
-	goto_if_ge ROUTE7_Grotto_SetObject_5
+	goto_if_ge ROUTE7_Grotto_SetObject_6
 ROUTE7_Grotto_SetObject_4:
+	compare VAR_GROTTO_2, 55
+	goto_if_ge ROUTE7_Grotto_SetObject_11
+ROUTE7_Grotto_SetObject_9:
+	compare VAR_GROTTO_2, 70
+	goto_if_ge ROUTE7_Grotto_SetObject_16
+ROUTE7_Grotto_SetObject_14:
+	compare VAR_GROTTO_2, 85
+	goto_if_ge ROUTE7_Grotto_SetObject_21
+ROUTE7_Grotto_SetObject_19:
 	end
 
 ROUTE7_Grotto_SetObject_2:
@@ -18,11 +27,44 @@ ROUTE7_Grotto_SetObject_2:
 	goto ROUTE7_Grotto_SetObject_1
 
 ROUTE7_Grotto_SetObject_5:
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_TRICK_HOUSE_STATUE
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( ABSOL )
 	goto ROUTE7_Grotto_SetObject_4
+
+ROUTE7_Grotto_SetObject_6:
+	compare VAR_GROTTO_2, 54
+	goto_if_le ROUTE7_Grotto_SetObject_5
+	goto ROUTE7_Grotto_SetObject_4
+
+ROUTE7_Grotto_SetObject_10:
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( VULPIX_ALOLAN )
+	goto ROUTE7_Grotto_SetObject_9
+
+ROUTE7_Grotto_SetObject_11:
+	compare VAR_GROTTO_2, 69
+	goto_if_le ROUTE7_Grotto_SetObject_10
+	goto ROUTE7_Grotto_SetObject_9
+
+ROUTE7_Grotto_SetObject_15:
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SKORUPI )
+	goto ROUTE7_Grotto_SetObject_14
+
+ROUTE7_Grotto_SetObject_16:
+	compare VAR_GROTTO_2, 84
+	goto_if_le ROUTE7_Grotto_SetObject_15
+	goto ROUTE7_Grotto_SetObject_14
+
+ROUTE7_Grotto_SetObject_20:
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SNEASEL )
+	goto ROUTE7_Grotto_SetObject_19
+
+ROUTE7_Grotto_SetObject_21:
+	compare VAR_GROTTO_2, 99
+	goto_if_le ROUTE7_Grotto_SetObject_20
+	goto ROUTE7_Grotto_SetObject_19
 
 
 ROUTE7_GrottoInteract::
+	faceplayer
 	lockall
 	compare VAR_GROTTO_2, 39
 	goto_if_le ROUTE7_GrottoInteract_2

@@ -158,11 +158,8 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
-	givemon SPECIES_STEELIX, 50, ITEM_NONE
-	givemon SPECIES_EXEGGUTOR_ALOLAN, 50, ITEM_NONE
-	givemon SPECIES_XERNEAS, 50, ITEM_NONE
-	givemon SPECIES_YVELTAL, 50, ITEM_NONE
-	givemon SPECIES_ZYGARDE_50, 50, ITEM_NONE
+	applymovement OBJ_EVENT_ID_FOLLOWER, Common_Movement_ExclamationMark
+	waitmovement 0
 	end
 
 TestMsg:

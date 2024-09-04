@@ -9,8 +9,17 @@ ROUTE15_Grotto_SetObject::
 	goto_if_le ROUTE15_Grotto_SetObject_2
 ROUTE15_Grotto_SetObject_1:
 	compare VAR_GROTTO_4, 40
-	goto_if_ge ROUTE15_Grotto_SetObject_5
+	goto_if_ge ROUTE15_Grotto_SetObject_6
 ROUTE15_Grotto_SetObject_4:
+	compare VAR_GROTTO_4, 55
+	goto_if_ge ROUTE15_Grotto_SetObject_11
+ROUTE15_Grotto_SetObject_9:
+	compare VAR_GROTTO_4, 70
+	goto_if_ge ROUTE15_Grotto_SetObject_16
+ROUTE15_Grotto_SetObject_14:
+	compare VAR_GROTTO_4, 85
+	goto_if_ge ROUTE15_Grotto_SetObject_21
+ROUTE15_Grotto_SetObject_19:
 	end
 
 ROUTE15_Grotto_SetObject_2:
@@ -18,11 +27,44 @@ ROUTE15_Grotto_SetObject_2:
 	goto ROUTE15_Grotto_SetObject_1
 
 ROUTE15_Grotto_SetObject_5:
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_TRICK_HOUSE_STATUE
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( CLEFFA )
 	goto ROUTE15_Grotto_SetObject_4
+
+ROUTE15_Grotto_SetObject_6:
+	compare VAR_GROTTO_4, 54
+	goto_if_le ROUTE15_Grotto_SetObject_5
+	goto ROUTE15_Grotto_SetObject_4
+
+ROUTE15_Grotto_SetObject_10:
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( IGGLYBUFF )
+	goto ROUTE15_Grotto_SetObject_9
+
+ROUTE15_Grotto_SetObject_11:
+	compare VAR_GROTTO_4, 69
+	goto_if_le ROUTE15_Grotto_SetObject_10
+	goto ROUTE15_Grotto_SetObject_9
+
+ROUTE15_Grotto_SetObject_15:
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( NATU )
+	goto ROUTE15_Grotto_SetObject_14
+
+ROUTE15_Grotto_SetObject_16:
+	compare VAR_GROTTO_4, 84
+	goto_if_le ROUTE15_Grotto_SetObject_15
+	goto ROUTE15_Grotto_SetObject_14
+
+ROUTE15_Grotto_SetObject_20:
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SNEASEL )
+	goto ROUTE15_Grotto_SetObject_19
+
+ROUTE15_Grotto_SetObject_21:
+	compare VAR_GROTTO_4, 99
+	goto_if_le ROUTE15_Grotto_SetObject_20
+	goto ROUTE15_Grotto_SetObject_19
 
 
 ROUTE15_GrottoInteract::
+	faceplayer
 	lockall
 	compare VAR_GROTTO_4, 39
 	goto_if_le ROUTE15_GrottoInteract_2
