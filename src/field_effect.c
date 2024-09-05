@@ -1422,6 +1422,7 @@ static void Task_UseFly(u8 taskId)
         {
             SetFollowerSprite(FOLLOWER_SPRITE_INDEX_NORMAL);
             follower->invisible = TRUE;
+            gSaveBlock2Ptr->follower.comeOutDoorStairs = 0; // In case the follower was still coming out of a door.
             task->data[3]++;
         }
     }
@@ -2548,6 +2549,7 @@ static void EscapeRopeWarpOutEffect_HideFollower(struct Task *task)
         {
             SetFollowerSprite(FOLLOWER_SPRITE_INDEX_NORMAL);
             follower->invisible = TRUE;
+            gSaveBlock2Ptr->follower.comeOutDoorStairs = 0; // In case the follower was still coming out of a door.
             task->tState++;
         }
     }

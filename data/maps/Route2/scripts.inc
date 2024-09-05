@@ -120,6 +120,16 @@ Route23_Sign::
 	return
 
 
+Route8_Sign2::
+	msgbox Route8_Sign2_Text, MSGBOX_SIGN
+	return
+
+
+Route1_Sign::
+	msgbox Route1_Sign_Text, MSGBOX_SIGN
+	return
+
+
 Route2_Landslide_Text_0:
 	.string "Looks like the route to Coralgrove City\nis buried under a landslide.\pI guess I need to take the detour\nthrough Windy Woods…$"
 
@@ -243,3 +253,28 @@ Route23_Sign_Text::
 	.string "a new Pokémon may make it its home\l"
 	.string "after the grotto has been left\l"
 	.string "undisturbed for some time.$"
+
+Route8_Sign2_Text::
+	.string "Trainer Tips\p"
+	.string "A lot can happen on the road,\n"
+	.string "and some of these events are\l"
+	.string "recorded in the Trainer Info.\p"
+	.string "To see statistics of certain events,\n"
+	.string "press the START-button and head to\l"
+	.string "the “Stats” screen.\p"
+	.string "To view even more detailed statistics,\n"
+	.string "press the A-button.$"
+
+Route1_Sign_Text::
+	.string "Trainer Tips\p"
+	.string "If you ever feel lonely on your\n"
+	.string "travels, simply let your Pokémon\l"
+	.string "walk alongside you!\p"
+	.string "To let a Pokémon out of its ball,\n"
+	.string "head to the party menu, choose\l"
+	.string "your first Pokémon, and select the\l"
+	.string "“Walk with” option.\p"
+	.string "Note: some areas may have rules\n"
+	.string "against letting Pokémon walk freely,\l"
+	.string "while some areas may be too small\l"
+	.string "for certain larger species.$"

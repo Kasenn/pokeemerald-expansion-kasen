@@ -68,6 +68,7 @@ script Pearlwood_BrotherFightLeft{
 
 script Pearlwood_BrotherFightMain{
     lock
+    safefollow
     playse(SE_PIN)
     msgbox("???: {PLAYER}!")
     closemessage
@@ -83,14 +84,17 @@ script Pearlwood_BrotherFightMain{
     waitmovement(0)
     msgbox(BrotherFightIntro)
     setflag(FLAG_CONTINUE_AFTER_WHITEOUT)
+    playbgm(MUS_ENCOUNTER_MALE, FALSE)
+    msgbox(Pearlwood_Brother_Intro)
     switch(var(VAR_STARTER_MON)){
         case 0:
-            trainerbattle_single(TRAINER_BROTHER1_ROWLET, Pearlwood_Brother_Intro, Pearlwood_Brother_Outro, PearlwoodWon)
+            trainerbattle_no_intro(TRAINER_BROTHER1_ROWLET, Pearlwood_Brother_Outro)
         case 1:
-            trainerbattle_single(TRAINER_BROTHER1_TORCHIC, Pearlwood_Brother_Intro, Pearlwood_Brother_Outro, PearlwoodWon)
+            trainerbattle_no_intro(TRAINER_BROTHER1_TORCHIC, Pearlwood_Brother_Outro)
         case 2:
-            trainerbattle_single(TRAINER_BROTHER1_PIPLUP, Pearlwood_Brother_Intro, Pearlwood_Brother_Outro, PearlwoodWon)
+            trainerbattle_no_intro(TRAINER_BROTHER1_PIPLUP, Pearlwood_Brother_Outro)
     }
+    goto(PearlwoodWon)
 }
 
 text BrotherFightIntro{
@@ -116,6 +120,7 @@ text Pearlwood_Brother_Outro{
 }
 
 script PearlwoodWon{
+    safefollow
     // switch(var(VAR_RESULT)){
     //     case B_OUTCOME_WON:
     //         msgbox("Won")
@@ -155,12 +160,12 @@ script PearlwoodWon{
     }
     closemessage
     clearflag(FLAG_CONTINUE_AFTER_WHITEOUT)
-    special(HealPlayerParty)
     applymovement(3, Walk5Down)
 	waitmovement(0)
     removeobject(3)
     setvar(VAR_PEARLWOOD_TOWN_STATE, 6)
     delay(30)
+    safefollow
 	release
 }
 

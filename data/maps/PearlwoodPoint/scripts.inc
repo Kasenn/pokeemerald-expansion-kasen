@@ -66,6 +66,7 @@ Pearlwood_BrotherFightLeft::
 
 Pearlwood_BrotherFightMain::
 	lock
+	safefollow
 	playse SE_PIN
 	msgbox Pearlwood_BrotherFightMain_Text_0
 	closemessage
@@ -79,30 +80,35 @@ Pearlwood_BrotherFightMain_1:
 	waitmovement 0
 	msgbox BrotherFightIntro
 	setflag FLAG_CONTINUE_AFTER_WHITEOUT
+	playbgm MUS_ENCOUNTER_MALE, FALSE
+	msgbox Pearlwood_Brother_Intro
 	switch VAR_STARTER_MON
-	case 0, Pearlwood_BrotherFightMain_6
-	case 1, Pearlwood_BrotherFightMain_7
-	case 2, Pearlwood_BrotherFightMain_8
+	case 0, Pearlwood_BrotherFightMain_7
+	case 1, Pearlwood_BrotherFightMain_8
+	case 2, Pearlwood_BrotherFightMain_9
+Pearlwood_BrotherFightMain_5:
+	goto PearlwoodWon
 	return
 
 Pearlwood_BrotherFightMain_2:
 	applymovement 3, Walk5Up
 	goto Pearlwood_BrotherFightMain_1
 
-Pearlwood_BrotherFightMain_6:
-	trainerbattle_single TRAINER_BROTHER1_ROWLET, Pearlwood_Brother_Intro, Pearlwood_Brother_Outro, PearlwoodWon
-	return
-
 Pearlwood_BrotherFightMain_7:
-	trainerbattle_single TRAINER_BROTHER1_TORCHIC, Pearlwood_Brother_Intro, Pearlwood_Brother_Outro, PearlwoodWon
-	return
+	trainerbattle_no_intro TRAINER_BROTHER1_ROWLET, Pearlwood_Brother_Outro
+	goto Pearlwood_BrotherFightMain_5
 
 Pearlwood_BrotherFightMain_8:
-	trainerbattle_single TRAINER_BROTHER1_PIPLUP, Pearlwood_Brother_Intro, Pearlwood_Brother_Outro, PearlwoodWon
-	return
+	trainerbattle_no_intro TRAINER_BROTHER1_TORCHIC, Pearlwood_Brother_Outro
+	goto Pearlwood_BrotherFightMain_5
+
+Pearlwood_BrotherFightMain_9:
+	trainerbattle_no_intro TRAINER_BROTHER1_PIPLUP, Pearlwood_Brother_Outro
+	goto Pearlwood_BrotherFightMain_5
 
 
 PearlwoodWon::
+	safefollow
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq PearlwoodWon_2
 	checkplayergender
@@ -114,12 +120,12 @@ PearlwoodWon_5:
 PearlwoodWon_1:
 	closemessage
 	clearflag FLAG_CONTINUE_AFTER_WHITEOUT
-	special HealPlayerParty
 	applymovement 3, Walk5Down
 	waitmovement 0
 	removeobject 3
 	setvar VAR_PEARLWOOD_TOWN_STATE, 6
 	delay 30
+	safefollow
 	release
 	return
 

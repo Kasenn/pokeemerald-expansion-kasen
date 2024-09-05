@@ -245,3 +245,36 @@ text Route23_Sign_Text{
     "after the grotto has been left\l"
     "undisturbed for some time."
 }
+
+script Route8_Sign2{
+    msgbox(Route8_Sign2_Text, MSGBOX_SIGN)
+}
+text Route8_Sign2_Text{
+    "Trainer Tips\p"
+    "A lot can happen on the road,\n"
+    "and some of these events are\l"
+    "recorded in the Trainer Info.\p"
+    "To see statistics of certain events,\n"
+    "press the START-button and head to\l"
+    "the “Stats” screen.\p"
+    "To view even more detailed statistics,\n"
+    "press the A-button."
+}
+
+script Route1_Sign{
+    msgbox(Route1_Sign_Text, MSGBOX_SIGN)
+}
+text Route1_Sign_Text{
+    "Trainer Tips\p"
+    "If you ever feel lonely on your\n"
+    "travels, simply let your Pokémon\l"
+    "walk alongside you!\p"
+    "To let a Pokémon out of its ball,\n"
+    "head to the party menu, choose\l"
+    "your first Pokémon, and select the\l"
+    "“Walk with” option.\p"
+    "Note: some areas may have rules\n"
+    "against letting Pokémon walk freely,\l"
+    "while some areas may be too small\l"
+    "for certain larger species."
+}

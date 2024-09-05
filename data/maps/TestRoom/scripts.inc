@@ -1,6 +1,171 @@
 TestRoom_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, HideKrokorokOrPlayer
 	.byte 0
 
+
+HideKrokorokOrPlayer::
+	setflag FLAG_TEMP_3
+	return
+
+
+KrokorokPlayer::
+	lock
+	faceplayer
+	msgbox ReturnKrokorok, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq KrokorokPlayer_2
+	closemessage
+	getplayerxy VAR_TEMP_0, VAR_TEMP_1
+	setobjectxy 1, VAR_TEMP_0, VAR_TEMP_1
+	setobjectxyperm 1, VAR_TEMP_0, VAR_TEMP_1
+	clearflag FLAG_TEMP_1
+	addobject 1
+	switch VAR_FACING
+	case DIR_NORTH, KrokorokPlayer_6
+	case DIR_EAST, KrokorokPlayer_7
+	case DIR_WEST, KrokorokPlayer_8
+	case DIR_SOUTH, KrokorokPlayer_9
+KrokorokPlayer_4:
+	waitmovement 0
+	setkrokorokdisguise
+	applymovement OBJ_EVENT_ID_PLAYER, SetObjectVisible
+	waitmovement 0
+	removeobject 2
+	clearflag FLAG_TEMP_HIDE_FOLLOWER
+	callnative UpdateFollowingPokemon
+	clearflag FLAG_SYS_USE_STRENGTH
+	setflag FLAG_SYS_B_DASH
+	delay 15
+	release
+	return
+
+KrokorokPlayer_2:
+	release
+	end
+
+KrokorokPlayer_6:
+	turnobject 1, DIR_NORTH
+	applymovement OBJ_EVENT_ID_PLAYER, MovePlayerToKrokorokNorth
+	goto KrokorokPlayer_4
+
+KrokorokPlayer_7:
+	turnobject 1, DIR_EAST
+	applymovement OBJ_EVENT_ID_PLAYER, MovePlayerToKrokorokEast
+	goto KrokorokPlayer_4
+
+KrokorokPlayer_8:
+	turnobject 1, DIR_WEST
+	applymovement OBJ_EVENT_ID_PLAYER, MovePlayerToKrokorokWest
+	goto KrokorokPlayer_4
+
+KrokorokPlayer_9:
+	turnobject 1, DIR_SOUTH
+	applymovement OBJ_EVENT_ID_PLAYER, MovePlayerToKrokorokSouth
+	goto KrokorokPlayer_4
+
+
+KrokorokScript::
+	lock
+	faceplayer
+	msgbox SwitchToKrokorok, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq KrokorokScript_2
+	closemessage
+	delay 15
+	getplayerxy VAR_TEMP_0, VAR_TEMP_1
+	setobjectxy 2, VAR_TEMP_0, VAR_TEMP_1
+	setobjectxyperm 2, VAR_TEMP_0, VAR_TEMP_1
+	clearflag FLAG_TEMP_3
+	addobject 2
+	switch VAR_FACING
+	case DIR_NORTH, KrokorokScript_6
+	case DIR_EAST, KrokorokScript_7
+	case DIR_WEST, KrokorokScript_8
+	case DIR_SOUTH, KrokorokScript_9
+KrokorokScript_4:
+	switch VAR_FACING
+	case DIR_NORTH, KrokorokScript_12
+	case DIR_EAST, KrokorokScript_13
+	case DIR_WEST, KrokorokScript_14
+	case DIR_SOUTH, KrokorokScript_15
+KrokorokScript_10:
+	waitmovement 0
+	setkrokorokdisguise
+	applymovement OBJ_EVENT_ID_PLAYER, SetObjectVisible
+	waitmovement 0
+	setflag FLAG_TEMP_HIDE_FOLLOWER
+	callnative UpdateFollowingPokemon
+	setflag FLAG_SYS_USE_STRENGTH
+	removeobject 1
+	clearflag FLAG_SYS_B_DASH
+	delay 15
+	release
+	return
+
+KrokorokScript_2:
+	release
+	end
+
+KrokorokScript_6:
+	turnobject 2, DIR_NORTH
+	goto KrokorokScript_4
+
+KrokorokScript_7:
+	turnobject 2, DIR_EAST
+	goto KrokorokScript_4
+
+KrokorokScript_8:
+	turnobject 2, DIR_WEST
+	goto KrokorokScript_4
+
+KrokorokScript_9:
+	turnobject 2, DIR_SOUTH
+	goto KrokorokScript_4
+
+KrokorokScript_12:
+	applymovement OBJ_EVENT_ID_PLAYER, MovePlayerToKrokorokNorth
+	goto KrokorokScript_10
+
+KrokorokScript_13:
+	applymovement OBJ_EVENT_ID_PLAYER, MovePlayerToKrokorokEast
+	goto KrokorokScript_10
+
+KrokorokScript_14:
+	applymovement OBJ_EVENT_ID_PLAYER, MovePlayerToKrokorokWest
+	goto KrokorokScript_10
+
+KrokorokScript_15:
+	applymovement OBJ_EVENT_ID_PLAYER, MovePlayerToKrokorokSouth
+	goto KrokorokScript_10
+
+
+MovePlayerToKrokorokNorth:
+	set_invisible
+	walk_up
+	walk_in_place_fast_down
+	step_end
+
+SetObjectVisible:
+	set_visible
+	step_end
+
+MovePlayerToKrokorokEast:
+	set_invisible
+	walk_right
+	walk_in_place_fast_left
+	step_end
+
+MovePlayerToKrokorokSouth:
+	set_invisible
+	walk_down
+	walk_in_place_fast_up
+	step_end
+
+MovePlayerToKrokorokWest:
+	set_invisible
+	walk_left
+	walk_in_place_fast_right
+	step_end
 
 TestTrigger1::
 	setvar VAR_TEMP_2, 1
@@ -129,3 +294,11 @@ MainReflectionTrigger_13:
 	setobjectxy 37, 15, 16
 	goto MainReflectionTrigger_1
 
+
+ReturnKrokorok::
+	.string "Stop giving Krokorok orders?$"
+
+SwitchToKrokorok::
+	.string "The Krokorok looks at you\n"
+	.string "expectantly.\p"
+	.string "Start giving it orders?$"

@@ -5604,6 +5604,10 @@ static void HandleEndTurn_FinishBattle(void)
         if(FlagGet(FLAG_PARTNER_HEALS)){
             HealPlayerParty();
         }
+        if (gTrainerBattleOpponent_A == TRAINER_BROTHER1_ROWLET
+         || gTrainerBattleOpponent_A == TRAINER_BROTHER1_TORCHIC
+         || gTrainerBattleOpponent_A == TRAINER_BROTHER1_PIPLUP)
+            HealPlayerParty();
         if (B_TRAINERS_KNOCK_OFF_ITEMS == TRUE || B_RESTORE_HELD_BATTLE_ITEMS >= GEN_9)
             TryRestoreHeldItems();
 
