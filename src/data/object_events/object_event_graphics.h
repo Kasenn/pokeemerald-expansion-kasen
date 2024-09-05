@@ -519,6 +519,8 @@ const u32 gObjectEventPic_Pidgeot2[] = INCBIN_U32("graphics/object_events/pics/p
 const u16 gObjectEventPalette_Pidgeot[] = INCBIN_U16("graphics/object_events/pics/pokemon/pidgeot.gbapal");
 const u32 gObjectEventPic_Flock[] = INCBIN_U32("graphics/object_events/pics/pokemon/flock.4bpp");
 const u16 gObjectEventPalette_Flock[] = INCBIN_U16("graphics/object_events/pics/pokemon/flock.gbapal");
+const u32 gObjectEventPic_KrokorokPlayer[] = INCBIN_U32("graphics/object_events/pics/people/krokorok.4bpp");
+const u16 gObjectEventPalette_KrokorokPlayer[] = INCBIN_U16("graphics/object_events/pics/people/krokorok.gbapal");
 
 const u16 gObjectEventPal_Lugia[] = INCBIN_U16("graphics/object_events/palettes/lugia.gbapal");
 

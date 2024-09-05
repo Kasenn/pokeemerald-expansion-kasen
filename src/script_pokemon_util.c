@@ -27,6 +27,7 @@
 #include "constants/abilities.h"
 #include "constants/items.h"
 #include "constants/battle_frontier.h"
+#include "field_player_avatar.h"
 
 static void CB2_ReturnFromChooseHalfParty(void);
 static void CB2_ReturnFromChooseBattleFrontierParty(void);
@@ -581,4 +582,12 @@ void Script_SetStatus1(struct ScriptContext *ctx)
     {
         SetMonData(&gPlayerParty[slot], MON_DATA_STATUS, &status1);
     }
+}
+
+void ScrCmd_SetKrokorokDisguise()
+{
+    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_ON_FOOT)
+        SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_KROKOROK);
+    else
+        SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
 }

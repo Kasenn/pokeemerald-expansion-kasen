@@ -562,6 +562,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Phantump,          OBJ_EVENT_PAL_PHANTUMP},
     {gObjectEventPalette_Sableye,           OBJ_EVENT_PAL_SABLEYE},
     {gObjectEventPalette_Shuppet,           OBJ_EVENT_PAL_SHUPPET},
+    {gObjectEventPalette_KrokorokPlayer,           OBJ_EVENT_PAL_KROKOROK},
     
 #if OW_FOLLOWERS_POKEBALLS
     {gObjectEventPal_MasterBall,            OBJ_EVENT_PAL_TAG_BALL_MASTER},

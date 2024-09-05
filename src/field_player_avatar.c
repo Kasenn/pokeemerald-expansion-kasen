@@ -88,6 +88,7 @@ static void PlayerAvatarTransition_Dummy(struct ObjectEvent *);
 static void PlayerAvatarTransition_Normal(struct ObjectEvent *);
 static void PlayerAvatarTransition_RockClimbing(struct ObjectEvent *);
 static void PlayerAvatarTransition_Bike(struct ObjectEvent *);
+static void PlayerAvatarTransition_Krokorok(struct ObjectEvent *);
 static void PlayerAvatarTransition_Surfing(struct ObjectEvent *);
 static void PlayerAvatarTransition_Underwater(struct ObjectEvent *);
 static void PlayerAvatarTransition_ReturnToField(struct ObjectEvent *);
@@ -243,6 +244,7 @@ static void (*const sPlayerAvatarTransitionFuncs[])(struct ObjectEvent *) =
     [PLAYER_AVATAR_STATE_FORCED]       = PlayerAvatarTransition_Dummy,
     [PLAYER_AVATAR_STATE_DASH]         = PlayerAvatarTransition_Dummy,
     [PLAYER_AVATAR_STATE_ROCK_CLIMBING]       = PlayerAvatarTransition_RockClimbing,
+    [PLAYER_AVATAR_STATE_KROKOROK]     = PlayerAvatarTransition_Krokorok,
 };
 
 static bool8 (*const sArrowWarpMetatileBehaviorChecks[])(u8) =
@@ -277,6 +279,7 @@ static const u8 sPlayerAvatarGfxIds[][2] =
     [PLAYER_AVATAR_STATE_FISHING]       = {OBJ_EVENT_GFX_BRENDAN_FISHING,           OBJ_EVENT_GFX_MAY_FISHING},
     [PLAYER_AVATAR_STATE_WATERING]      = {OBJ_EVENT_GFX_BRENDAN_WATERING,          OBJ_EVENT_GFX_MAY_WATERING},
     [PLAYER_AVATAR_STATE_VSSEEKER]      = {OBJ_EVENT_GFX_BRENDAN_FIELD_MOVE,        OBJ_EVENT_GFX_MAY_FIELD_MOVE},
+    [PLAYER_AVATAR_STATE_KROKOROK]      = {OBJ_EVENT_GFX_KROKOROK,                  OBJ_EVENT_GFX_KROKOROK},
 };
 
 static const u8 sPlayerAvatarOrasGfxIds[][2] =
@@ -290,6 +293,7 @@ static const u8 sPlayerAvatarOrasGfxIds[][2] =
     [PLAYER_AVATAR_STATE_FISHING]       = {OBJ_EVENT_GFX_BRENDAN_FISHING_ORAS,      OBJ_EVENT_GFX_MAY_FISHING_ORAS},
     [PLAYER_AVATAR_STATE_WATERING]      = {OBJ_EVENT_GFX_BRENDAN_WATERING_ORAS,     OBJ_EVENT_GFX_MAY_WATERING_ORAS},
     [PLAYER_AVATAR_STATE_VSSEEKER]      = {OBJ_EVENT_GFX_BRENDAN_FIELD_MOVE,        OBJ_EVENT_GFX_MAY_FIELD_MOVE},
+    [PLAYER_AVATAR_STATE_KROKOROK]      = {OBJ_EVENT_GFX_KROKOROK,                  OBJ_EVENT_GFX_KROKOROK},
 };
 
 static const u16 sFRLGAvatarGfxIds[GENDER_COUNT] =
@@ -304,7 +308,7 @@ static const u16 sRSAvatarGfxIds[GENDER_COUNT] =
     [FEMALE] = OBJ_EVENT_GFX_LINK_RS_MAY
 };
 
-static const u8 sPlayerAvatarGfxToStateFlag[GENDER_COUNT][5][2] =
+static const u8 sPlayerAvatarGfxToStateFlag[GENDER_COUNT][6][2] =
 {
     [MALE] =
     {
@@ -313,6 +317,7 @@ static const u8 sPlayerAvatarGfxToStateFlag[GENDER_COUNT][5][2] =
         {OBJ_EVENT_GFX_BRENDAN_ACRO_BIKE,  PLAYER_AVATAR_FLAG_BIKE},
         {OBJ_EVENT_GFX_BRENDAN_SURFING,    PLAYER_AVATAR_FLAG_SURFING},
         {OBJ_EVENT_GFX_BRENDAN_UNDERWATER, PLAYER_AVATAR_FLAG_UNDERWATER},
+        {OBJ_EVENT_GFX_KROKOROK,           PLAYER_AVATAR_FLAG_KROKOROK},
     },
     [FEMALE] =
     {
@@ -321,10 +326,11 @@ static const u8 sPlayerAvatarGfxToStateFlag[GENDER_COUNT][5][2] =
         {OBJ_EVENT_GFX_MAY_ACRO_BIKE,      PLAYER_AVATAR_FLAG_BIKE},
         {OBJ_EVENT_GFX_MAY_SURFING,        PLAYER_AVATAR_FLAG_SURFING},
         {OBJ_EVENT_GFX_MAY_UNDERWATER,     PLAYER_AVATAR_FLAG_UNDERWATER},
+        {OBJ_EVENT_GFX_KROKOROK,           PLAYER_AVATAR_FLAG_KROKOROK},
     }
 };
 
-static const u8 sPlayerAvatarGfxToStateFlagOras[GENDER_COUNT][5][2] =
+static const u8 sPlayerAvatarGfxToStateFlagOras[GENDER_COUNT][6][2] =
 {
     [MALE] =
     {
@@ -333,6 +339,7 @@ static const u8 sPlayerAvatarGfxToStateFlagOras[GENDER_COUNT][5][2] =
         {OBJ_EVENT_GFX_BRENDAN_ACRO_BIKE_ORAS,  PLAYER_AVATAR_FLAG_BIKE},
         {OBJ_EVENT_GFX_BRENDAN_SURFING_ORAS,    PLAYER_AVATAR_FLAG_SURFING},
         {OBJ_EVENT_GFX_BRENDAN_UNDERWATER, PLAYER_AVATAR_FLAG_UNDERWATER},
+        {OBJ_EVENT_GFX_KROKOROK,           PLAYER_AVATAR_FLAG_KROKOROK},
     },
     [FEMALE] =
     {
@@ -341,6 +348,7 @@ static const u8 sPlayerAvatarGfxToStateFlagOras[GENDER_COUNT][5][2] =
         {OBJ_EVENT_GFX_MAY_ACRO_BIKE_ORAS,      PLAYER_AVATAR_FLAG_BIKE},
         {OBJ_EVENT_GFX_MAY_SURFING_ORAS,        PLAYER_AVATAR_FLAG_SURFING},
         {OBJ_EVENT_GFX_MAY_UNDERWATER_ORAS,     PLAYER_AVATAR_FLAG_UNDERWATER},
+        {OBJ_EVENT_GFX_KROKOROK,           PLAYER_AVATAR_FLAG_KROKOROK},
     }
 };
 
@@ -930,6 +938,13 @@ static void PlayerAvatarTransition_Normal(struct ObjectEvent *objEvent)
     ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_NORMAL));
     ObjectEventTurn(objEvent, objEvent->movementDirection);
     SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_ON_FOOT);
+}
+
+static void PlayerAvatarTransition_Krokorok(struct ObjectEvent *objEvent)
+{
+    ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_KROKOROK));
+    ObjectEventTurn(objEvent, objEvent->movementDirection);
+    SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_KROKOROK);
 }
 
 // static void PlayerAvatarTransition_MachBike(struct ObjectEvent *objEvent)

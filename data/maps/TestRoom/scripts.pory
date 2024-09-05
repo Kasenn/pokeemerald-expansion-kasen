@@ -1,5 +1,145 @@
 mapscripts TestRoom_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: HideKrokorokOrPlayer
     // MAP_SCRIPT_ON_TRANSITION: TeleportRoomSelect_OnTransition
+}
+
+const PLAYER = OBJ_EVENT_ID_PLAYER
+const KROKOROK = 1
+const FAKE = 2
+const FLAG_FAKE = FLAG_TEMP_3
+const FLAG_KROKOROK = FLAG_TEMP_1
+
+script HideKrokorokOrPlayer{
+    setflag(FLAG_FAKE)
+}
+
+script KrokorokPlayer{
+    lock
+    faceplayer
+    msgbox(ReturnKrokorok, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    closemessage
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    setobjectxy(KROKOROK, VAR_TEMP_0, VAR_TEMP_1)
+    setobjectxyperm(KROKOROK, VAR_TEMP_0, VAR_TEMP_1)
+    clearflag(FLAG_KROKOROK)
+    addobject(KROKOROK)
+    switch(var(VAR_FACING)){
+        case DIR_NORTH:
+            turnobject(KROKOROK, DIR_NORTH)
+            applymovement(PLAYER, MovePlayerToKrokorokNorth)
+        case DIR_EAST:
+            turnobject(KROKOROK, DIR_EAST)
+            applymovement(PLAYER, MovePlayerToKrokorokEast)
+        case DIR_WEST:
+            turnobject(KROKOROK, DIR_WEST)
+            applymovement(PLAYER, MovePlayerToKrokorokWest)
+        case DIR_SOUTH:
+            turnobject(KROKOROK, DIR_SOUTH)
+            applymovement(PLAYER, MovePlayerToKrokorokSouth)
+    }
+    waitmovement(0)
+    setkrokorokdisguise
+    applymovement(PLAYER, SetObjectVisible)
+    waitmovement(0)
+    removeobject(FAKE)
+    clearflag(FLAG_TEMP_HIDE_FOLLOWER)
+    callnative(UpdateFollowingPokemon)
+    clearflag(FLAG_SYS_USE_STRENGTH)
+    setflag(FLAG_SYS_B_DASH)
+    delay(15)
+    release
+}
+
+script KrokorokScript{
+    lock
+    faceplayer
+    msgbox(SwitchToKrokorok, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    closemessage
+    delay(15)
+
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    setobjectxy(FAKE, VAR_TEMP_0, VAR_TEMP_1)
+    setobjectxyperm(FAKE, VAR_TEMP_0, VAR_TEMP_1)
+
+    clearflag(FLAG_FAKE)
+    addobject(FAKE)
+    switch(var(VAR_FACING)){
+        case DIR_NORTH:
+            turnobject(FAKE, DIR_NORTH)
+        case DIR_EAST:
+            turnobject(FAKE, DIR_EAST)
+        case DIR_WEST:
+            turnobject(FAKE, DIR_WEST)
+        case DIR_SOUTH:
+            turnobject(FAKE, DIR_SOUTH)
+    }
+
+    switch(var(VAR_FACING)){
+        case DIR_NORTH:
+            applymovement(PLAYER, MovePlayerToKrokorokNorth)
+        case DIR_EAST:
+            applymovement(PLAYER, MovePlayerToKrokorokEast)
+        case DIR_WEST:
+            applymovement(PLAYER, MovePlayerToKrokorokWest)
+        case DIR_SOUTH:
+            applymovement(PLAYER, MovePlayerToKrokorokSouth)
+    }
+    waitmovement(0)
+    setkrokorokdisguise
+    applymovement(PLAYER, SetObjectVisible)
+    waitmovement(0)
+    setflag(FLAG_TEMP_HIDE_FOLLOWER)
+    callnative(UpdateFollowingPokemon)
+    setflag(FLAG_SYS_USE_STRENGTH)
+    removeobject(KROKOROK)
+    clearflag(FLAG_SYS_B_DASH)
+    delay(15)
+    release
+}
+
+text ReturnKrokorok{
+    "Stop giving Krokorok orders?"
+}
+
+text SwitchToKrokorok{
+    "The Krokorok looks at you\n"
+    "expectantly.\p"
+    "Start giving it orders?"
+}
+
+movement MovePlayerToKrokorokNorth{
+    set_invisible
+    walk_up
+    walk_in_place_fast_down
+}
+movement SetObjectVisible{
+    set_visible
+}
+
+movement MovePlayerToKrokorokEast{
+    set_invisible
+    walk_right
+    walk_in_place_fast_left
+}
+
+movement MovePlayerToKrokorokSouth{
+    set_invisible
+    walk_down
+    walk_in_place_fast_up
+}
+
+movement MovePlayerToKrokorokWest{
+    set_invisible
+    walk_left
+    walk_in_place_fast_right
 }
 
 script TestTrigger1{

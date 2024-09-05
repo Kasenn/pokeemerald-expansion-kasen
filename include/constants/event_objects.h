@@ -5,7 +5,7 @@
 #define OBJ_EVENT_GFX_BRENDAN_MACH_BIKE            1
 #define OBJ_EVENT_GFX_BRENDAN_SURFING              2
 #define OBJ_EVENT_GFX_BRENDAN_FIELD_MOVE           3
-#define OBJ_EVENT_GFX_QUINTY_PLUMP                 4        // free
+#define OBJ_EVENT_GFX_QUINTY_PLUMP                 286        // free
 #define OBJ_EVENT_GFX_NINJA_BOY                    5
 #define OBJ_EVENT_GFX_TWIN                         6
 #define OBJ_EVENT_GFX_BOY_1                        7
@@ -287,11 +287,12 @@
 #define OBJ_EVENT_GFX_MAY_ROCK_CLIMBING_ORAS        283
 #define OBJ_EVENT_GFX_POKE_BALL                     284
 #define OBJ_EVENT_GFX_OW_MON                        285
+#define OBJ_EVENT_GFX_KROKOROK                      4
 
 // NOTE: The maximum amount of object events has been expanded from 255 to 65535.
 // Since dynamic graphics ids still require at least 16 free values, the actual limit
 // is 65519, but even considering follower Pokémon, this should be more than enough :)
-#define NUM_OBJ_EVENT_GFX                        286
+#define NUM_OBJ_EVENT_GFX                        287
 
 
 // These are dynamic object gfx ids.
@@ -504,6 +505,7 @@
 // Regular Objects continue
 #define OBJ_EVENT_PAL_SHUPPET                     0x116B
 #define OBJ_EVENT_PAL_TAG_DYNAMIC                 0x116C
+#define OBJ_EVENT_PAL_KROKOROK                    0x116D
 
 // Used as a placeholder follower graphic
 #define OBJ_EVENT_PAL_TAG_SUBSTITUTE              0x7611

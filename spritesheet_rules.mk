@@ -228,6 +228,9 @@ $(OBJEVENTGFXDIR)/pokemon/flock.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/may_oras.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 
+$(OBJEVENTGFXDIR)/people/krokorok.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+
 $(OBJEVENTGFXDIR)/people/brendan_oras.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 

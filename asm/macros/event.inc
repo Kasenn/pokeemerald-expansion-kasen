@@ -2017,6 +2017,14 @@
 	callnative AddVarToVar
 	.endm
 
+	.macro safefollow
+	callnative ScrCmd_safefollow
+	.endm
+
+	.macro setkrokorokdisguise
+	callnative ScrCmd_SetKrokorokDisguise
+	.endm
+
 @ Supplementary
 
 	.macro goto_if_unset flag:req, dest:req

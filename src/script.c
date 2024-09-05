@@ -518,3 +518,11 @@ void AddVarToVar(void)
 {
     VarSet(VAR_MUD_BAD_LUCK_PROTECTION, (VarGet(VAR_MUD_BAD_LUCK_PROTECTION) + VarGet(VAR_TEMP_7)));
 }
+
+void ScrCmd_safefollow()
+{
+    if (FlagGet(FLAG_SAFE_FOLLOWER_MOVEMENT))
+        FlagClear(FLAG_SAFE_FOLLOWER_MOVEMENT);
+    else
+        FlagSet(FLAG_SAFE_FOLLOWER_MOVEMENT);
+}
