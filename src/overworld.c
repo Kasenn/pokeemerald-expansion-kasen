@@ -2099,13 +2099,12 @@ static bool32 ReturnToFieldLocal(u8 *state)
         else
             UpdateFollowingPokemon();
         SetCameraToTrackPlayer();
-        FollowMe_BindToSurbBlobOnReloadScreen();
         (*state)++;
         break;
     case 1:
         InitViewGraphics();
         TryLoadTrainerHillEReaderPalette();
-        FollowMe_BindToSurbBlobOnReloadScreen();
+        FollowMe_BindToSurfBlobOnReloadScreen();
         (*state)++;
         break;
     case 2:
