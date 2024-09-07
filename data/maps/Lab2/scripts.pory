@@ -304,8 +304,15 @@ script Lab2_HideRival{
     }
 }
 script Lab2_DexGet{
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk6Up)
+    callnative(UpdateFollowingPokemon)
+    setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+    // turnobject(OBJ_EVENT_ID_FOLLOWER, DIR_NORTH)
+    // showobjectat(OBJ_EVENT_ID_FOLLOWER, MAP_LAB2)
+    // applymovement(OBJ_EVENT_ID_PLAYER, Walk6Up)
+    // delay(8)
+    // applymovement(OBJ_EVENT_ID_FOLLOWER, Walk5Up)
     waitmovement(0)
+    lock
     checkplayergender
     if(var(VAR_RESULT) == MALE){
         msgbox(Lab2_DexTalkMay)
@@ -350,12 +357,18 @@ script Lab2_DexGet{
     delay(25)
     msgbox("Prof. Birch: Sigh…\pSometimes I wonder\nwhere {RIVAL} gets all that energy…", MSGBOX_DEFAULT)
 	release
+    end
+}
+
+movement SpawnFollower{
+    set_visible
+    exit_pokeball
 }
 
 movement Lab2_Movement_RivalExit1{
-	player_run_down * 1
+	player_run_down * 3
 	player_run_left * 1
-    player_run_down * 7
+    player_run_down * 5
 }
 
 movement Lab2FaceDown{

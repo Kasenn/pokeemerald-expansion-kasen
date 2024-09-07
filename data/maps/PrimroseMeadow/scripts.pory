@@ -42,13 +42,20 @@ script PrimroseMeadow_EventScript_Rival{
 		msgbox(PRMeadow_BrendanTimeToHeadBack, MSGBOX_DEFAULT)
 	}
 	closemessage
+	safefollow
 	setvar(VAR_PEARLWOOD_TOWN_STATE, 8)
 	switch(var(VAR_FACING)){
 		case DIR_SOUTH:
 			applymovement(1, PRMeadow_Movement_RivalExit1)
 		case DIR_NORTH:
 			applymovement(OBJ_EVENT_ID_PLAYER, PRMeadow_Movement_WatchRivalExitFacingNorth)
-			applymovement(1, PRMeadow_Movement_RivalExitFacingNorth1)
+			getfollowerxy(VAR_TEMP_0, VAR_TEMP_1)
+			if(var(VAR_TEMP_0) == 9 && var(VAR_TEMP_1) == 9){
+				applymovement(1, PRMeadow_Movement_RivalExitFacingNorth2)
+			}
+			else{
+				applymovement(1, PRMeadow_Movement_RivalExitFacingNorth1)
+			}
 		case DIR_EAST:
 		case DIR_WEST:
 			applymovement(OBJ_EVENT_ID_PLAYER, PRMeadow_Movement_WatchRivalExitFacingEastOrWest)
@@ -59,10 +66,17 @@ script PrimroseMeadow_EventScript_Rival{
 	savebgm(MUS_DUMMY)
 	fadedefaultbgm
 	release
+	end
 }
 
 movement PRMeadow_Movement_RivalExitFacingNorth1{
 	player_run_right
+	player_run_down * 11
+	player_run_left * 3
+}
+
+movement PRMeadow_Movement_RivalExitFacingNorth2{
+	player_run_right * 2
 	player_run_down * 11
 	player_run_left * 3
 }

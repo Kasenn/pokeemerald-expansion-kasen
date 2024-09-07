@@ -4,6 +4,7 @@ OldaleTown_House2_MapScripts::
 
 NotMyNectar::
 	lockall
+	safefollow
 	applymovement 1, NectarUp
 	waitmovement 0
 	delay 10
@@ -14,7 +15,7 @@ NotMyNectar::
 	waitmovement 0
 	delay 30
 	release
-	end
+	return
 
 
 NectarManiac::

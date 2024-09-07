@@ -2001,6 +2001,13 @@
 	.2byte \isMoveTutor
 	.endm
 
+	@ Retrieves the followers's zero-indexed x- and y-coordinates in the map, and stores them in the specified variables.
+	.macro getfollowerxy x:req, y:req
+	.byte 0xf1
+	.2byte \x
+	.2byte \y
+	.endm
+
 	@ Sets the player team to level specified by the argument
 	.macro setpartylevel level:req
 	callnative ScrCmd_setpartylevel

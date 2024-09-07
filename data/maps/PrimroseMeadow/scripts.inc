@@ -27,6 +27,7 @@ PrimroseMeadow_EventScript_Rival_19:
 	msgbox PRMeadow_BrendanTimeToHeadBack, MSGBOX_DEFAULT
 PrimroseMeadow_EventScript_Rival_5:
 	closemessage
+	safefollow
 	setvar VAR_PEARLWOOD_TOWN_STATE, 8
 	switch VAR_FACING
 	case DIR_SOUTH, PrimroseMeadow_EventScript_Rival_11
@@ -39,7 +40,7 @@ PrimroseMeadow_EventScript_Rival_9:
 	savebgm MUS_DUMMY
 	fadedefaultbgm
 	release
-	return
+	end
 
 PrimroseMeadow_EventScript_Rival_2:
 	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
@@ -61,6 +62,10 @@ PrimroseMeadow_EventScript_Rival_11:
 
 PrimroseMeadow_EventScript_Rival_12:
 	applymovement OBJ_EVENT_ID_PLAYER, PRMeadow_Movement_WatchRivalExitFacingNorth
+	getfollowerxy VAR_TEMP_0, VAR_TEMP_1
+	compare VAR_TEMP_0, 9
+	goto_if_eq PrimroseMeadow_EventScript_Rival_26
+PrimroseMeadow_EventScript_Rival_25:
 	applymovement 1, PRMeadow_Movement_RivalExitFacingNorth1
 	goto PrimroseMeadow_EventScript_Rival_9
 
@@ -93,8 +98,36 @@ PrimroseMeadow_EventScript_Rival_23:
 	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_MUDKIP, PRMeadow_BrendanDefeated
 	goto PrimroseMeadow_EventScript_Rival_19
 
+PrimroseMeadow_EventScript_Rival_24:
+	applymovement 1, PRMeadow_Movement_RivalExitFacingNorth2
+	goto PrimroseMeadow_EventScript_Rival_9
+
+PrimroseMeadow_EventScript_Rival_26:
+	compare VAR_TEMP_1, 9
+	goto_if_eq PrimroseMeadow_EventScript_Rival_24
+	goto PrimroseMeadow_EventScript_Rival_25
+
 
 PRMeadow_Movement_RivalExitFacingNorth1:
+	player_run_right
+	player_run_down
+	player_run_down
+	player_run_down
+	player_run_down
+	player_run_down
+	player_run_down
+	player_run_down
+	player_run_down
+	player_run_down
+	player_run_down
+	player_run_down
+	player_run_left
+	player_run_left
+	player_run_left
+	step_end
+
+PRMeadow_Movement_RivalExitFacingNorth2:
+	player_run_right
 	player_run_right
 	player_run_down
 	player_run_down

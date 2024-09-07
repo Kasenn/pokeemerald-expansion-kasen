@@ -984,7 +984,7 @@ static void CB2_FieldShowRegionMap(void)
 void NameBrother(void)
 {
     NewGameBirchSpeech_SetBrotherName(1);
-    DoNamingScreen(NAMING_SCREEN_BROTHER, gSaveBlock3Ptr->brotherName, gSaveBlock3Ptr->brotherGender, 0, 0, CB2_ReturnToFieldContinueScript);
+    DoNamingScreen(NAMING_SCREEN_BROTHER, gSaveBlock3Ptr->brotherName, 0, 0, 0, CB2_ReturnToFieldContinueScript);
 }
 
 void FieldShowRegionMap(void)

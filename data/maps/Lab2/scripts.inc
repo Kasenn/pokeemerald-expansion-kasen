@@ -233,8 +233,10 @@ Lab2_HideRival_10:
 
 
 Lab2_DexGet::
-	applymovement OBJ_EVENT_ID_PLAYER, Walk6Up
+	callnative UpdateFollowingPokemon
+	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
 	waitmovement 0
+	lock
 	checkplayergender
 	compare VAR_RESULT, MALE
 	goto_if_eq Lab2_DexGet_2
@@ -278,7 +280,7 @@ Lab2_DexGet_10:
 	delay 25
 	msgbox Lab2_DexGet_Text_5, MSGBOX_DEFAULT
 	release
-	return
+	end
 
 Lab2_DexGet_2:
 	msgbox Lab2_DexTalkMay
@@ -297,11 +299,16 @@ Lab2_DexGet_11:
 	goto Lab2_DexGet_10
 
 
+SpawnFollower:
+	set_visible
+	exit_pokeball
+	step_end
+
 Lab2_Movement_RivalExit1:
 	player_run_down
+	player_run_down
+	player_run_down
 	player_run_left
-	player_run_down
-	player_run_down
 	player_run_down
 	player_run_down
 	player_run_down

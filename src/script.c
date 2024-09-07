@@ -146,7 +146,10 @@ static bool8 ScriptPush(struct ScriptContext *ctx, const u8 *ptr)
 static const u8 *ScriptPop(struct ScriptContext *ctx)
 {
     if (ctx->stackDepth == 0)
+    {
+        FlagClear(FLAG_SAFE_FOLLOWER_MOVEMENT);
         return NULL;
+    }
 
     ctx->stackDepth--;
     return ctx->stack[ctx->stackDepth];
@@ -521,8 +524,5 @@ void AddVarToVar(void)
 
 void ScrCmd_safefollow()
 {
-    if (FlagGet(FLAG_SAFE_FOLLOWER_MOVEMENT))
-        FlagClear(FLAG_SAFE_FOLLOWER_MOVEMENT);
-    else
-        FlagSet(FLAG_SAFE_FOLLOWER_MOVEMENT);
+    FlagSet(FLAG_SAFE_FOLLOWER_MOVEMENT);
 }

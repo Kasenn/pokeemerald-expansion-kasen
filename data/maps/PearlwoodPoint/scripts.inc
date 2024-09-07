@@ -125,7 +125,6 @@ PearlwoodWon_1:
 	removeobject 3
 	setvar VAR_PEARLWOOD_TOWN_STATE, 6
 	delay 30
-	safefollow
 	release
 	return
 

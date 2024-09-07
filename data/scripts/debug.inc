@@ -158,11 +158,7 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
-	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
-	applymovement OBJ_EVENT_ID_FOLLOWER, Walk2Right
-	waitmovement 0
-	clearflag FLAG_SAFE_FOLLOWER_MOVEMENT
-	release
+	call CheckSafeMovement
 	end
 
 TestMsg:

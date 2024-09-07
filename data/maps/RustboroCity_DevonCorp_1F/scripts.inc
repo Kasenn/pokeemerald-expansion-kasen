@@ -302,6 +302,15 @@ CapsuleCorpCenter::
 	return
 
 
+CheckSafeMovement::
+	getfollowerxy VAR_TEMP_0, VAR_TEMP_1
+	buffernumberstring STR_VAR_1, VAR_TEMP_0
+	buffernumberstring STR_VAR_2, VAR_TEMP_1
+	msgbox CheckSafeMovement_Text_0
+	release
+	return
+
+
 ChooseSpellRange::
 	lockall
 	message ChooseRange_Text
@@ -711,6 +720,9 @@ GameStatTest::
 	release
 	return
 
+
+CheckSafeMovement_Text_0:
+	.string "X: {STR_VAR_1}\nY: {STR_VAR_2}$"
 
 ChooseSpellRange_Text_0:
 	.string "1x1$"

@@ -952,6 +952,25 @@ bool8 ScrCmd_getplayerxy(struct ScriptContext *ctx)
     return FALSE;
 }
 
+bool8 ScrCmd_getfollowerxy(struct ScriptContext *ctx)
+{
+    u16 *pX = GetVarPointer(ScriptReadHalfword(ctx));
+    u16 *pY = GetVarPointer(ScriptReadHalfword(ctx));
+
+    struct ObjectEvent *followerObject = GetFollowerObject();
+    if (followerObject)
+    {
+        *pX = followerObject->currentCoords.x - MAP_OFFSET;
+        *pY = followerObject->currentCoords.y - MAP_OFFSET;
+    }
+    else
+    {
+        *pX = 0;
+        *pY = 0;
+    }
+    return FALSE;
+}
+
 bool8 ScrCmd_getpartysize(struct ScriptContext *ctx)
 {
     gSpecialVar_Result = CalculatePlayerPartyCount();

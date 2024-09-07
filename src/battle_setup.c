@@ -588,8 +588,8 @@ void BattleSetup_StartScriptedWildBattle(void)
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_EndScriptedWildBattle;
     gBattleTypeFlags = 0;
-    if((gSaveBlock1Ptr->location.mapNum == MAP_NUM(DRISLEDGE_GYM))
-    && (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(DRISLEDGE_GYM))){
+    if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(DRISLEDGE_GYM)
+    && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(DRISLEDGE_GYM)){
         gBattleTypeFlags = BATTLE_TYPE_GHOST;
     }
     CreateBattleStartTask(GetWildBattleTransition(), 0);

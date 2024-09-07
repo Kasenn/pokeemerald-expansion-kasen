@@ -247,6 +247,14 @@ script CapsuleCorpCenter{
     release
 }
 
+script CheckSafeMovement{
+    getfollowerxy(VAR_TEMP_0, VAR_TEMP_1)
+    buffernumberstring(STR_VAR_1, VAR_TEMP_0)
+    buffernumberstring(STR_VAR_2, VAR_TEMP_1)
+    msgbox("X: {STR_VAR_1}\nY: {STR_VAR_2}")
+    release
+}
+
 script ChooseSpellRange{
     lockall
     message(ChooseRange_Text)
