@@ -189,7 +189,7 @@ struct Time
 struct SaveBlock3
 {
     /*0x00*/ u8 brotherName[PLAYER_NAME_LENGTH + 1];
-    /*0x08*/ u8 followerIndex;
+    /*0x08*/ u8 brotherGender; // MALE, FEMALE
     /*0x0B*/ struct ItemSlot bagPocket_Medicine[BAG_MEDICINE_COUNT];
     #if OW_USE_FAKE_RTC
     struct Time fakeRTC;
