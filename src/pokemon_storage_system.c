@@ -590,6 +590,7 @@ EWRAM_DATA static u8 sMovingMonOrigBoxId = 0;
 EWRAM_DATA static u8 sMovingMonOrigBoxPos = 0;
 EWRAM_DATA static bool8 sAutoActionOn = 0;
 EWRAM_DATA static bool8 sJustOpenedBag = 0;
+EWRAM_DATA static u8 sFollowerIndex = 0;
 
 // Main tasks
 static void Task_InitPokeStorage(u8);
@@ -2112,6 +2113,8 @@ static void Task_InitPokeStorage(u8 taskId)
         SetVBlankCallback(NULL);
         SetGpuReg(REG_OFFSET_DISPCNT, 0);
         ResetForPokeStorage();
+        sFollowerIndex = gSaveBlock3Ptr->followerIndex;
+        DebugPrintfLevel(MGBA_LOG_WARN, "init follower index: %d",  sFollowerIndex);
         if (sStorage->isReopening)
         {
             switch (sWhichToReshow)
@@ -2757,6 +2760,11 @@ static void Task_MoveMon(u8 taskId)
     switch (sStorage->state)
     {
     case 0:
+        if (gSaveBlock3Ptr->followerIndex == sCursorPosition && sCursorArea == CURSOR_AREA_IN_PARTY)
+        {
+            sFollowerIndex = sCursorPosition + 0xF;
+            DebugPrintfLevel(MGBA_LOG_WARN, "sFollowerIndex changed to %d",  sFollowerIndex);
+        }
         InitMonPlaceChange(CHANGE_GRAB);
         sStorage->state++;
         break;
@@ -2777,6 +2785,21 @@ static void Task_PlaceMon(u8 taskId)
     switch (sStorage->state)
     {
     case 0:
+        if (gSaveBlock3Ptr->followerIndex != sFollowerIndex)
+        {
+            if (sCursorArea == CURSOR_AREA_IN_PARTY)
+            {
+                sFollowerIndex = sCursorPosition;
+                gSaveBlock3Ptr->followerIndex = sCursorPosition;
+                DebugPrintfLevel(MGBA_LOG_WARN, "follower placed in party slot %d",  sFollowerIndex);
+            }
+            else if (sCursorArea == CURSOR_AREA_IN_BOX)
+            {
+                sFollowerIndex = 0;
+                gSaveBlock3Ptr->followerIndex = 0;
+                DebugPrintfLevel(MGBA_LOG_WARN, "follower placed in box. new slot is now %d",  sFollowerIndex);
+            }
+        }
         InitMonPlaceChange(CHANGE_PLACE);
         sStorage->state++;
         break;
@@ -6458,9 +6481,25 @@ static void PurgeMonOrBoxMon(u8 boxId, u8 position)
 static void SetShiftedMonData(u8 boxId, u8 position)
 {
     if (boxId == TOTAL_BOXES_COUNT)
+    {
+        if (sFollowerIndex != gSaveBlock3Ptr->followerIndex)
+        {
+            sFollowerIndex = position;
+            gSaveBlock3Ptr->followerIndex = position;
+            DebugPrintfLevel(MGBA_LOG_WARN, "follower placed in party slot %d",  sFollowerIndex);
+        }
         sStorage->tempMon = gPlayerParty[position];
+    }
     else
+    {
+        if (sFollowerIndex != gSaveBlock3Ptr->followerIndex)
+        {
+            sFollowerIndex = 0;
+            gSaveBlock3Ptr->followerIndex = 0;
+            DebugPrintfLevel(MGBA_LOG_WARN, "follower placed in box. new slot is now %d",  sFollowerIndex);
+        }
         BoxMonAtToMon(boxId, position, &sStorage->tempMon);
+    }
 
     SetPlacedMonData(boxId, position);
     sStorage->movingMon = sStorage->tempMon;
@@ -6483,6 +6522,13 @@ static bool8 TryStorePartyMonInBox(u8 boxId)
     }
     else
     {
+        DebugPrintfLevel(MGBA_LOG_WARN, "follower index before storing: %d",  gSaveBlock3Ptr->followerIndex);
+        DebugPrintfLevel(MGBA_LOG_WARN, "sCursorPosition before storing: %d",  sCursorPosition);
+        if (gSaveBlock3Ptr->followerIndex == sCursorPosition)
+        {
+            gSaveBlock3Ptr->followerIndex = 0;
+            sFollowerIndex = 0;
+        }
         SetMovingMonData(TOTAL_BOXES_COUNT, sCursorPosition);
         SetPlacedMonData(boxId, boxPosition);
         DestroyPartyMonIcon(sCursorPosition);
@@ -6546,6 +6592,13 @@ static void ReleaseMon(void)
             boxId = TOTAL_BOXES_COUNT;
             if (OW_PC_RELEASE_ITEM >= GEN_8)
                 item = GetMonData(&gPlayerParty[sCursorPosition], MON_DATA_HELD_ITEM);
+            DebugPrintfLevel(MGBA_LOG_WARN, "follower index before release: %d",  gSaveBlock3Ptr->followerIndex);
+            DebugPrintfLevel(MGBA_LOG_WARN, "sCursorPosition before release: %d",  sCursorPosition);
+            if (gSaveBlock3Ptr->followerIndex == sCursorPosition)
+            {
+                gSaveBlock3Ptr->followerIndex = 0;
+                sFollowerIndex = 0;
+            }
         }
         else
         {
@@ -6825,7 +6878,14 @@ s16 CompactPartySlots(void)
         if (species != SPECIES_NONE)
         {
             if (i != last)
+            {
                 gPlayerParty[last] = gPlayerParty[i];
+                if (gSaveBlock3Ptr->followerIndex == i)
+                {
+                    gSaveBlock3Ptr->followerIndex--;
+                    sFollowerIndex = gSaveBlock3Ptr->followerIndex;
+                }
+            }
             last++;
         }
         else if (retVal == -1)
