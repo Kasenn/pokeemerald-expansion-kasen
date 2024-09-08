@@ -1,6 +1,17 @@
 mapscripts TestRoom_MapScripts {
-    // MAP_SCRIPT_ON_TRANSITION: HideKrokorokOrPlayer
-    // MAP_SCRIPT_ON_TRANSITION: TeleportRoomSelect_OnTransition
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_TEMP_0, 1: TestMovementScript
+    ]
+}
+
+script TestMovementScript{
+    setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+    buffernumberstring(STR_VAR_1, VAR_TEMP_0)
+    msgbox("{STR_VAR_1}", MSGBOX_NPC)
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk3Up)
+    waitmovement(0)
+    addvar(VAR_TEMP_0, 1)
+    release
 }
 
 const PLAYER = OBJ_EVENT_ID_PLAYER

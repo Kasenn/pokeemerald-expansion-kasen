@@ -1,5 +1,21 @@
 TestRoom_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, TestRoom_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
+
+TestRoom_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_TEMP_0, 1, TestMovementScript
+	.2byte 0
+
+
+TestMovementScript::
+	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
+	buffernumberstring STR_VAR_1, VAR_TEMP_0
+	msgbox TestMovementScript_Text_0, MSGBOX_NPC
+	applymovement OBJ_EVENT_ID_PLAYER, Walk3Up
+	waitmovement 0
+	addvar VAR_TEMP_0, 1
+	release
+	return
 
 
 HideKrokorokOrPlayer::
@@ -293,6 +309,9 @@ MainReflectionTrigger_13:
 	setobjectxy 37, 15, 16
 	goto MainReflectionTrigger_1
 
+
+TestMovementScript_Text_0:
+	.string "{STR_VAR_1}$"
 
 ReturnKrokorok::
 	.string "Stop giving Krokorok orders?$"
