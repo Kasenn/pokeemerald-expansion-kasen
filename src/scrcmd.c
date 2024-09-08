@@ -2682,3 +2682,20 @@ bool8 ScrCmd_ballfollowingmon(struct ScriptContext *ctx)
     }
     return FALSE;
 }
+
+bool8 ScrCmd_removeobjectbyflag(struct ScriptContext *ctx)
+{
+    u8 i;
+    u16 flag = ScriptReadHalfword(ctx);
+    FlagSet(flag);
+
+    for (i = 0; i < gMapHeader.events->objectEventCount; i++)
+    {
+        if (gMapHeader.events->objectEvents[i].flagId == flag)
+        {
+            u8 localId = gMapHeader.events->objectEvents[i].localId;
+            RemoveObjectEventByLocalIdAndMap(localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+        }
+    }
+    return FALSE;
+}

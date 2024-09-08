@@ -2008,6 +2008,14 @@
 	.2byte \y
 	.endm
 
+	@ Attempts to despawn the specified (localId) object on the specified map.
+	@ It also sets the object's visibility flag if it has one.
+	@ If no map is specified, then the current map is used.
+	.macro removeobjectbyflag flag:req
+	.byte 0xf2
+	.2byte \flag
+	.endm
+
 	@ Sets the player team to level specified by the argument
 	.macro setpartylevel level:req
 	callnative ScrCmd_setpartylevel

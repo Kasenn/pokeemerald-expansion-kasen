@@ -158,15 +158,15 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
-	call CheckSafeMovement
+	removeobjectbyflag FLAG_TEMP_3
+	release
+	end
+
+Debug_EventScript_Script_6::
 	end
 
 TestMsg:
 	.string "Yer a wizard, Harry.$"
-
-Debug_EventScript_Script_6::
-	call GameStatTest
-	end
 
 Debug_EventScript_Script_7::
 	release

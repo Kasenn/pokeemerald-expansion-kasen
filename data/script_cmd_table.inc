@@ -242,6 +242,7 @@ gScriptCmdTable::
 	.4byte ScrCmd_checkpartylevel					@ 0xef
 	.4byte ScrCmd_bpmart					        @ 0xf0
 	.4byte ScrCmd_getfollowerxy						@ 0xf1
+	.4byte ScrCmd_removeobjectbyflag				@ 0xf2
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop
