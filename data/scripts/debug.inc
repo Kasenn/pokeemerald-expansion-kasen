@@ -158,12 +158,19 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
-	removeobjectbyflag FLAG_TEMP_3
-	release
+	call TestEvent
 	end
 
 Debug_EventScript_Script_6::
-	end
+	call NotMyNectar
+	@lockall
+	@safefollow
+	@release
+	@msgbox TestMsg, MSGBOX_NPC
+	@applymovement OBJ_EVENT_ID_PLAYER, Walk5Up
+	@waitmovement 0
+	@release
+	@end
 
 TestMsg:
 	.string "Yer a wizard, Harry.$"

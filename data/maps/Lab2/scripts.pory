@@ -8,6 +8,18 @@ mapscripts Lab2_MapScripts{
         VAR_PEARLWOOD_TOWN_STATE, 15: Lab2_GetMegaStoneWithoutRival
     ]
 }
+script TestEvent{
+    msgbox("Set event to “automatic”?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox("Event set to “manual”")
+        setvar(VAR_PEARLWOOD_TOWN_STATE, 9)
+    }
+    else{
+        msgbox("Event set to “automatic”")
+        setvar(VAR_PEARLWOOD_TOWN_STATE, 8)
+    }
+    release
+}
 script Lab2_GetMegaStoneWithoutRival{
     applymovement(OBJ_EVENT_ID_PLAYER, Walk6Up)
     waitmovement(0)
@@ -304,11 +316,12 @@ script Lab2_HideRival{
     }
 }
 script Lab2_DexGet{
-    callnative(UpdateFollowingPokemon)
-    setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+    // callnative(UpdateFollowingPokemon)
+    // setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
     // turnobject(OBJ_EVENT_ID_FOLLOWER, DIR_NORTH)
     // showobjectat(OBJ_EVENT_ID_FOLLOWER, MAP_LAB2)
-    // applymovement(OBJ_EVENT_ID_PLAYER, Walk6Up)
+    safefollow
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk6Up)
     // delay(8)
     // applymovement(OBJ_EVENT_ID_FOLLOWER, Walk5Up)
     waitmovement(0)

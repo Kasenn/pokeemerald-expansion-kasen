@@ -9,7 +9,7 @@ script NotMyNectar{
     msgbox(NotMyNectar_Text, MSGBOX_NPC)
     waitmessage
     closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Down)
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk3Down)
     waitmovement(0)
     delay(30)
     release

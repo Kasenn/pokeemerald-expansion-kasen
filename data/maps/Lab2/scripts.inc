@@ -12,6 +12,22 @@ Lab2_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 	.2byte 0
 
 
+TestEvent::
+	msgbox TestEvent_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq TestEvent_2
+	msgbox TestEvent_Text_2
+	setvar VAR_PEARLWOOD_TOWN_STATE, 8
+TestEvent_1:
+	release
+	return
+
+TestEvent_2:
+	msgbox TestEvent_Text_1
+	setvar VAR_PEARLWOOD_TOWN_STATE, 9
+	goto TestEvent_1
+
+
 Lab2_GetMegaStoneWithoutRival::
 	applymovement OBJ_EVENT_ID_PLAYER, Walk6Up
 	waitmovement 0
@@ -233,8 +249,8 @@ Lab2_HideRival_10:
 
 
 Lab2_DexGet::
-	callnative UpdateFollowingPokemon
-	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
+	safefollow
+	applymovement OBJ_EVENT_ID_PLAYER, Walk6Up
 	waitmovement 0
 	lock
 	checkplayergender
@@ -491,6 +507,15 @@ Lab2_NoLeave::
 	release
 	return
 
+
+TestEvent_Text_0:
+	.string "Set event to “automatic”?$"
+
+TestEvent_Text_1:
+	.string "Event set to “manual”$"
+
+TestEvent_Text_2:
+	.string "Event set to “automatic”$"
 
 Lab2_DexGet_Text_0:
 	.string "Obtained the Pokédex!$"
