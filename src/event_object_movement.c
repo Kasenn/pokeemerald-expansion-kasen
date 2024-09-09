@@ -1955,6 +1955,11 @@ u8 CreateVirtualObject(u16 graphicsId, u8 virtualObjId, s16 x, s16 y, u8 elevati
 struct Pokemon *GetFirstLiveMon(void)
 {
     u32 i;
+    u32 j = gSaveBlock3Ptr->followerIndex;
+    if (j == 0xFF)
+        return NULL;
+    if (gPlayerParty[j].hp > 0 && !(gPlayerParty[j].box.isEgg || gPlayerParty[j].box.isBadEgg))
+        return &gPlayerParty[j];
     for (i = 0; i < PARTY_SIZE; i++)
     {
         if (gPlayerParty[i].hp > 0 && !(gPlayerParty[i].box.isEgg || gPlayerParty[i].box.isBadEgg))

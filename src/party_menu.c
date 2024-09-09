@@ -484,6 +484,7 @@ static void BlitBitmapToPartyWindow_RightColumn(u8, u8, u8, u8, u8, bool8);
 static void CursorCb_Summary(u8);
 static void CursorCb_Switch(u8);
 static void CursorCb_FollowMe(u8);
+static void CursorCb_UnfollowMe(u8);
 static void CursorCb_Cancel1(u8);
 static void CursorCb_Item(u8);
 static void CursorCb_Give(u8);
@@ -2854,12 +2855,12 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
     {
         if (GetMonData(&mons[1], MON_DATA_SPECIES) != SPECIES_NONE)
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SWITCH);
-        if (slotId == GetLeadMonIndex() && !FlagGet(FLAG_TEMP_HIDE_FOLLOWER) && OW_FOLLOWERS_ENABLED == TRUE){
-            if (FlagGet(FLAG_DISABLE_FOLLOWER))
-                AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_FOLLOW_ME);
-            else
-                AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_UNFOLLOW_ME);
-        }
+
+        if (gPartyMenu.slotId != gSaveBlock3Ptr->followerIndex)
+            AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_FOLLOW_ME);
+        else
+            AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_UNFOLLOW_ME);
+        
             
         if (ItemIsMail(GetMonData(&mons[slotId], MON_DATA_HELD_ITEM)))
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_MAIL);
@@ -3065,16 +3066,45 @@ static void CursorCb_FollowMe(u8 taskId)
 {
     PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
     PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
-    if (FlagGet(FLAG_DISABLE_FOLLOWER)){
+
+    gSaveBlock3Ptr->followerIndex = gPartyMenu.slotId;
+
+    // if (FlagGet(FLAG_DISABLE_FOLLOWER)){
         PlaySE(SE_BALL_TRADE);
         DisplayPartyMenuStdMessage(PARTY_MSG_FOLLOW_MON);
-        FlagClear(FLAG_DISABLE_FOLLOWER);
-    }
-    else{
+    //     FlagClear(FLAG_DISABLE_FOLLOWER);
+    // }
+    // else{
+    //     PlaySE12WithPanning(SE_BALL_TRADE, SOUND_PAN_TARGET);
+    //     DisplayPartyMenuStdMessage(PARTY_MSG_UNFOLLOW_MON);
+    //     FlagSet(FLAG_DISABLE_FOLLOWER);
+    // } 
+    gTasks[taskId].func = Task_CancelAfterAorBPress;
+    // if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON))){
+    //     PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
+    //     // DisplayPartyMenuStdMessage(PARTY_MSG_CHOOSE_MON);
+    //     gTasks[taskId].func = Task_HandleChooseMonInput;
+    // }
+    // DisplayPartyMenuStdMessage(PARTY_MSG_MOVE_TO_WHERE);
+}
+
+static void CursorCb_UnfollowMe(u8 taskId)
+{
+    PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
+    PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
+
+    gSaveBlock3Ptr->followerIndex = 0xFF;
+
+    // if (FlagGet(FLAG_DISABLE_FOLLOWER)){
+        // PlaySE(SE_BALL_TRADE);
+        // DisplayPartyMenuStdMessage(PARTY_MSG_FOLLOW_MON);
+    //     FlagClear(FLAG_DISABLE_FOLLOWER);
+    // }
+    // else{
         PlaySE12WithPanning(SE_BALL_TRADE, SOUND_PAN_TARGET);
         DisplayPartyMenuStdMessage(PARTY_MSG_UNFOLLOW_MON);
-        FlagSet(FLAG_DISABLE_FOLLOWER);
-    } 
+    //     FlagSet(FLAG_DISABLE_FOLLOWER);
+    // } 
     gTasks[taskId].func = Task_CancelAfterAorBPress;
     // if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON))){
     //     PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
@@ -3302,6 +3332,11 @@ static void SwitchPartyMon(void)
     mon1 = &gPlayerParty[gPartyMenu.slotId];
     mon2 = &gPlayerParty[gPartyMenu.slotId2];
     monBuffer = Alloc(sizeof(struct Pokemon));
+    if (gPartyMenu.slotId == gSaveBlock3Ptr->followerIndex)
+        gSaveBlock3Ptr->followerIndex = gPartyMenu.slotId2;
+    else if (gPartyMenu.slotId2 == gSaveBlock3Ptr->followerIndex)
+        gSaveBlock3Ptr->followerIndex = gPartyMenu.slotId;
+
     *monBuffer = *mon1;
     *mon1 = *mon2;
     *mon2 = *monBuffer;
