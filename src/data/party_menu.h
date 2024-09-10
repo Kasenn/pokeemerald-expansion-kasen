@@ -504,6 +504,17 @@ static const struct WindowTemplate sItemGiveTakeWindowTemplate =
     .baseBlock = 0x39D,
 };
 
+static const struct WindowTemplate sFollowerSetWindowTemplate =
+{
+    .bg = 2,
+    .tilemapLeft = 23,
+    .tilemapTop = 15,
+    .width = 6,
+    .height = 4,
+    .paletteNum = 14,
+    .baseBlock = 0x39D,
+};
+
 static const struct WindowTemplate sMailReadTakeWindowTemplate =
 {
     .bg = 2,
@@ -663,6 +674,7 @@ static const u8 *const sActionStringTable[] =
     [PARTY_MSG_PARTNER]          = gText_TalkToPartner,
     [PARTY_MSG_FOLLOW_MON]      = gText_FollowMon,
     [PARTY_MSG_UNFOLLOW_MON]    = gText_UnfollowMon,
+    [PARTY_MSG_DO_WHAT_WITH_FOLLOWER]      = gText_DoWhatWithFollower,
 };
 
 static const u8 *const sDescriptionStringTable[] =
@@ -698,8 +710,10 @@ struct
 {
     [MENU_SUMMARY] = {gText_Summary5, CursorCb_Summary},
     [MENU_SWITCH] = {gText_Switch2, CursorCb_Switch},
+    [MENU_FOLLOWER] = {gText_Follower, CursorCb_Follower},
     [MENU_FOLLOW_ME] = {gText_FollowMe, CursorCb_FollowMe},
     [MENU_UNFOLLOW_ME] = {gText_UnfollowMe, CursorCb_UnfollowMe},
+    [MENU_RESET_FOLLOW] = {gText_ResetFollow, CursorCb_ResetFollow},
     [MENU_CANCEL1] = {gText_Cancel2, CursorCb_Cancel1},
     [MENU_ITEM] = {gText_Item, CursorCb_Item},
     [MENU_GIVE] = {gMenuText_Give, CursorCb_Give},
@@ -742,6 +756,10 @@ static const u8 sPartyMenuAction_TradeSummaryCancel2[] = {MENU_TRADE2, MENU_SUMM
 static const u8 sPartyMenuAction_TakeItemTossCancel[] = {MENU_TAKE_ITEM, MENU_TOSS, MENU_CANCEL1};
 static const u8 sPartyMenuAction_RotomCatalog[] = {MENU_CATALOG_BULB, MENU_CATALOG_OVEN, MENU_CATALOG_WASHING, MENU_CATALOG_FRIDGE, MENU_CATALOG_FAN, MENU_CATALOG_MOWER, MENU_CANCEL1};
 static const u8 sPartyMenuAction_ZygardeCube[] = {MENU_CHANGE_FORM, MENU_CHANGE_ABILITY, MENU_CANCEL1};
+static const u8 sPartyMenuAction_ResetUnsetCancel[] = {MENU_RESET_FOLLOW, MENU_UNFOLLOW_ME, MENU_CANCEL2};
+static const u8 sPartyMenuAction_UnsetCancel[] = {MENU_RESET_FOLLOW, MENU_CANCEL2};
+static const u8 sPartyMenuAction_SetCancel[] = {MENU_FOLLOW_ME, MENU_CANCEL2};
+static const u8 sPartyMenuAction_SetUnsetCancel[] = {MENU_FOLLOW_ME, MENU_UNFOLLOW_ME, MENU_CANCEL2};
 
 
 
@@ -763,6 +781,10 @@ static const u8 *const sPartyMenuActions[] =
     [ACTIONS_TAKEITEM_TOSS] = sPartyMenuAction_TakeItemTossCancel,
     [ACTIONS_ROTOM_CATALOG] = sPartyMenuAction_RotomCatalog,
     [ACTIONS_ZYGARDE_CUBE]  = sPartyMenuAction_ZygardeCube,
+    [ACTIONS_FOLLOWER_UNSET]          = sPartyMenuAction_ResetUnsetCancel,
+    [ACTIONS_FOLLOWER_SET]      = sPartyMenuAction_SetCancel,
+    [ACTIONS_FOLLOWER_NOT_SET]      = sPartyMenuAction_SetUnsetCancel,
+    [ACTIONS_FOLLOWER_UNSET_CANCEL]          = sPartyMenuAction_UnsetCancel,
 };
 
 static const u8 sPartyMenuActionCounts[] =
@@ -783,6 +805,10 @@ static const u8 sPartyMenuActionCounts[] =
     [ACTIONS_TAKEITEM_TOSS] = ARRAY_COUNT(sPartyMenuAction_TakeItemTossCancel),
     [ACTIONS_ROTOM_CATALOG] = ARRAY_COUNT(sPartyMenuAction_RotomCatalog),
     [ACTIONS_ZYGARDE_CUBE]  = ARRAY_COUNT(sPartyMenuAction_ZygardeCube),
+    [ACTIONS_FOLLOWER_UNSET]          = ARRAY_COUNT(sPartyMenuAction_ResetUnsetCancel),
+    [ACTIONS_FOLLOWER_SET]          = ARRAY_COUNT(sPartyMenuAction_SetCancel),
+    [ACTIONS_FOLLOWER_NOT_SET]          = ARRAY_COUNT(sPartyMenuAction_SetUnsetCancel),
+    [ACTIONS_FOLLOWER_UNSET_CANCEL]          = ARRAY_COUNT(sPartyMenuAction_UnsetCancel),
 };
 
 static const u16 sFieldMoves[FIELD_MOVES_COUNT + 1] =

@@ -85,6 +85,7 @@
 #define PARTY_MSG_CANT_FLY_NOW              30
 #define PARTY_MSG_FOLLOW_MON              31
 #define PARTY_MSG_UNFOLLOW_MON              32
+#define PARTY_MSG_DO_WHAT_WITH_FOLLOWER              33
 #define PARTY_MSG_NONE                      127
 
 // IDs for DisplayPartyPokemonDescriptionText, to display a message in the party pokemon's box
@@ -108,5 +109,6 @@
 #define SELECTWINDOW_MOVES       3
 #define SELECTWINDOW_CATALOG     4
 #define SELECTWINDOW_ZYGARDECUBE 5
+#define SELECTWINDOW_SETFOLLOWER 6
 
 #endif // GUARD_CONSTANTS_PARTY_MENU_H
