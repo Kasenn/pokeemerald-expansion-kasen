@@ -279,11 +279,9 @@ static void StorePokemonInEmptyDaycareSlot(struct Pokemon *mon, struct DayCare *
 void StoreSelectedPokemonInDaycare(void)
 {
     u8 monId = GetCursorSelectionMonId();
-    DebugPrintfLevel(MGBA_LOG_WARN, "chosen mon is slot %d",  monId);
-    DebugPrintfLevel(MGBA_LOG_WARN, "follower mon is slot %d",  gSaveBlock3Ptr->followerIndex);
     if (gSaveBlock3Ptr->followerIndex == monId)
         gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
-    else if (gSaveBlock3Ptr->followerIndex <= (PARTY_SIZE - 1) && monId <= gSaveBlock3Ptr->followerIndex)
+    else if (gSaveBlock3Ptr->followerIndex < PARTY_SIZE && monId < gSaveBlock3Ptr->followerIndex)
         gSaveBlock3Ptr->followerIndex--;
     DebugPrintfLevel(MGBA_LOG_WARN, "follower mon changed to slot %d",  gSaveBlock3Ptr->followerIndex);
     StorePokemonInEmptyDaycareSlot(&gPlayerParty[monId], &gSaveBlock1Ptr->daycare);

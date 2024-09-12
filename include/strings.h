@@ -461,7 +461,6 @@ extern const u8 gText_SwitchedPkmnItem[];
 extern const u8 gText_BagFullCouldNotRemoveItem[];
 extern const u8 gText_PkmnCantParticipate[];
 extern const u8 gText_PkmnNotHolding[];
-extern const u8 gText_FollowerDefaulted[];
 extern const u8 gText_ThrowAwayItem[];
 extern const u8 gText_ItemThrownAway[];
 extern const u8 gText_SendMailToPC[];
@@ -2058,9 +2057,6 @@ extern const u8 gText_ByeByePkmn[];
 extern const u8 gText_MarkYourPkmn[];
 extern const u8 gText_ThatsYourLastPkmn[];
 extern const u8 gText_TalkToPartner[];
-extern const u8 gText_FollowMon[];
-extern const u8 gText_FollowMon0Hp[];
-extern const u8 gText_UnfollowMon[];
 extern const u8 gText_YourPartysFull[];
 extern const u8 gText_YoureHoldingAPkmn[];
 extern const u8 gText_WhichOneWillYouTake[];
@@ -2191,7 +2187,6 @@ extern const u8 gText_DoWhatWithPokemon[];
 extern const u8 gText_RestoreWhichMove[];
 extern const u8 gText_BoostPp[];
 extern const u8 gText_DoWhatWithItem[];
-extern const u8 gText_DoWhatWithFollower[];
 extern const u8 gText_DoWhatWithMail[];
 extern const u8 gText_AlreadyHoldingOne[];
 extern const u8 gText_WhichAppliance[];
@@ -2222,10 +2217,6 @@ extern const u8 gText_Register[];
 extern const u8 gText_Trade4[];
 extern const u8 gText_Summary5[];
 extern const u8 gText_Switch2[];
-extern const u8 gText_Follower[];
-extern const u8 gText_FollowMe[];
-extern const u8 gText_UnfollowMe[];
-extern const u8 gText_ResetFollow[];
 extern const u8 gText_Item[];
 extern const u8 gText_NotPkmnOtherTrainerWants[];
 extern const u8 gText_ThatIsntAnEgg[];
@@ -3134,5 +3125,16 @@ extern const u8 gText_TMCase_Blue[];
 // Map name pop-up
 extern const u8 gText_AM[];
 extern const u8 gText_PM[];
+
+// Follower party menu
+extern const u8 gText_Follower[];
+extern const u8 gText_FollowerSet[];
+extern const u8 gText_FollowerReturn[];
+extern const u8 gText_FollowerUnset[];
+extern const u8 gText_FollowerPreferred[];
+extern const u8 gText_FollowerDefaulted[];
+extern const u8 gText_FollowerFainted[];
+extern const u8 gText_FollowerReturnedToBall[];
+extern const u8 gText_DoWhatWithFollower[];
 
 #endif // GUARD_STRINGS_H

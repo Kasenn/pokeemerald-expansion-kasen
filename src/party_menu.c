@@ -83,9 +83,9 @@ enum {
     MENU_SUMMARY,
     MENU_SWITCH,
     MENU_FOLLOWER,
-    MENU_FOLLOW_ME,
-    MENU_UNFOLLOW_ME,
-    MENU_RESET_FOLLOW,
+    MENU_FOLLOWER_SET,
+    MENU_FOLLOWER_RETURN,
+    MENU_FOLLOWER_UNSET,
     MENU_CANCEL1,
     MENU_ITEM,
     MENU_GIVE,
@@ -132,10 +132,10 @@ enum {
     ACTIONS_TAKEITEM_TOSS,
     ACTIONS_ROTOM_CATALOG,
     ACTIONS_ZYGARDE_CUBE,
-    ACTIONS_FOLLOWER_UNSET,
     ACTIONS_FOLLOWER_SET,
-    ACTIONS_FOLLOWER_NOT_SET,
-    ACTIONS_FOLLOWER_UNSET_CANCEL,
+    ACTIONS_FOLLOWER_SET_RETURN,
+    ACTIONS_FOLLOWER_UNSET,
+    ACTIONS_FOLLOWER_UNSET_RETURN,
 };
 
 // In CursorCb_FieldMove, field moves <= FIELD_MOVE_WATERFALL are assumed to line up with the badge flags.
@@ -489,10 +489,6 @@ static void BlitBitmapToPartyWindow_LeftColumn(u8, u8, u8, u8, u8, bool8);
 static void BlitBitmapToPartyWindow_RightColumn(u8, u8, u8, u8, u8, bool8);
 static void CursorCb_Summary(u8);
 static void CursorCb_Switch(u8);
-static void CursorCb_Follower(u8);
-static void CursorCb_FollowMe(u8);
-static void CursorCb_UnfollowMe(u8);
-static void CursorCb_ResetFollow(u8);
 static void CursorCb_Cancel1(u8);
 static void CursorCb_Item(u8);
 static void CursorCb_Give(u8);
@@ -526,6 +522,10 @@ static bool8 SetUpFieldMove_Dive(void);
 void TryItemHoldFormChange(struct Pokemon *mon);
 static void ShowMoveSelectWindow(u8 slot);
 static void Task_HandleWhichMoveInput(u8 taskId);
+static void CursorCb_Follower(u8);
+static void CursorCb_FollowerSet(u8);
+static void CursorCb_FollowerUnset(u8);
+static void CursorCb_FollowerReturn(u8);
 
 // static const data
 #include "data/party_menu.h"
@@ -2758,7 +2758,7 @@ static u8 DisplaySelectionWindow(u8 windowType)
     case SELECTWINDOW_ITEM:
         window = sItemGiveTakeWindowTemplate;
         break;
-    case SELECTWINDOW_SETFOLLOWER:
+    case SELECTWINDOW_FOLLOWER:
         window = sFollowerSetWindowTemplate;
         break;
     case SELECTWINDOW_MAIL:
@@ -3082,43 +3082,43 @@ static void CursorCb_Follower(u8 taskId)
     PlaySE(SE_SELECT);
     PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
     PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
-    if (gSaveBlock3Ptr->followerIndex == gPartyMenu.slotId) // selected pokemon is set follower
+    if (gSaveBlock3Ptr->followerIndex == gPartyMenu.slotId)
     {
         if (hp == 0)
         {
-            SetPartyMonSelectionActions(gPlayerParty, gPartyMenu.slotId, ACTIONS_FOLLOWER_UNSET_CANCEL);
-            DisplaySelectionWindow(SELECTWINDOW_SETFOLLOWER);
+            SetPartyMonSelectionActions(gPlayerParty, gPartyMenu.slotId, ACTIONS_FOLLOWER_UNSET);
+            DisplaySelectionWindow(SELECTWINDOW_FOLLOWER);
         }
         else
         {
-            SetPartyMonSelectionActions(gPlayerParty, gPartyMenu.slotId, ACTIONS_FOLLOWER_UNSET);
+            SetPartyMonSelectionActions(gPlayerParty, gPartyMenu.slotId, ACTIONS_FOLLOWER_UNSET_RETURN);
             DisplaySelectionWindow(SELECTWINDOW_ITEM);
         }
     }
-    else if (gPartyMenu.slotId == 0 && gSaveBlock3Ptr->followerIndex == OW_FOLLOWER_NOT_SET) // selected first pokemon, but is not set
+    else if (gPartyMenu.slotId == 0 && gSaveBlock3Ptr->followerIndex == OW_FOLLOWER_NOT_SET)
     {
         if (hp == 0)
         {
             SetPartyMonSelectionActions(gPlayerParty, gPartyMenu.slotId, ACTIONS_FOLLOWER_SET);
-            DisplaySelectionWindow(SELECTWINDOW_SETFOLLOWER);
+            DisplaySelectionWindow(SELECTWINDOW_FOLLOWER);
         }
         else
         {
-            SetPartyMonSelectionActions(gPlayerParty, gPartyMenu.slotId, ACTIONS_FOLLOWER_NOT_SET);
+            SetPartyMonSelectionActions(gPlayerParty, gPartyMenu.slotId, ACTIONS_FOLLOWER_SET_RETURN);
             DisplaySelectionWindow(SELECTWINDOW_ITEM);
         }
     }
-    else                                                                                    // selected a pokemon that is not set
+    else
     {
         if (mon == GetFirstLiveMon() && gSaveBlock3Ptr->followerIndex == OW_FOLLOWER_NOT_SET)
         {
-            SetPartyMonSelectionActions(gPlayerParty, gPartyMenu.slotId, ACTIONS_FOLLOWER_NOT_SET);
+            SetPartyMonSelectionActions(gPlayerParty, gPartyMenu.slotId, ACTIONS_FOLLOWER_SET_RETURN);
             DisplaySelectionWindow(SELECTWINDOW_ITEM);
         }
         else
         {
             SetPartyMonSelectionActions(gPlayerParty, gPartyMenu.slotId, ACTIONS_FOLLOWER_SET);
-            DisplaySelectionWindow(SELECTWINDOW_SETFOLLOWER);
+            DisplaySelectionWindow(SELECTWINDOW_FOLLOWER);
         }
     }
     GetMonNickname(mon, gStringVar1);
@@ -3127,7 +3127,7 @@ static void CursorCb_Follower(u8 taskId)
     gTasks[taskId].func = Task_HandleSelectionMenuInput;
 }
 
-static void CursorCb_FollowMe(u8 taskId)
+static void CursorCb_FollowerSet(u8 taskId)
 {
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
     u16 hp = GetMonData(mon, MON_DATA_HP);
@@ -3143,14 +3143,14 @@ static void CursorCb_FollowMe(u8 taskId)
     }
     GetMonNickname(mon, gStringVar1);
     if (hp == 0)
-        StringExpandPlaceholders(gStringVar4, gText_FollowMon0Hp);
+        StringExpandPlaceholders(gStringVar4, gText_FollowerFainted);
     else
-        StringExpandPlaceholders(gStringVar4, gText_FollowMon);
+        StringExpandPlaceholders(gStringVar4, gText_FollowerPreferred);
     DisplayPartyMenuMessage(gStringVar4, TRUE);
     gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
 }
 
-static void CursorCb_UnfollowMe(u8 taskId)
+static void CursorCb_FollowerReturn(u8 taskId)
 {
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
 
@@ -3162,12 +3162,12 @@ static void CursorCb_UnfollowMe(u8 taskId)
     gFollowerSteps = 0;
 
     GetMonNickname(mon, gStringVar1);
-    StringExpandPlaceholders(gStringVar4, gText_UnfollowMon);
+    StringExpandPlaceholders(gStringVar4, gText_FollowerReturnedToBall);
     DisplayPartyMenuMessage(gStringVar4, TRUE);
     gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
 }
 
-static void CursorCb_ResetFollow(u8 taskId)
+static void CursorCb_FollowerUnset(u8 taskId)
 {
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
 

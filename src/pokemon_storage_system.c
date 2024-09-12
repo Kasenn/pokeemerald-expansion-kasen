@@ -590,7 +590,8 @@ EWRAM_DATA static u8 sMovingMonOrigBoxId = 0;
 EWRAM_DATA static u8 sMovingMonOrigBoxPos = 0;
 EWRAM_DATA static bool8 sAutoActionOn = 0;
 EWRAM_DATA static bool8 sJustOpenedBag = 0;
-EWRAM_DATA static u8 sFollowerIndex = 0;
+
+#define FOLLOWER_IN_HAND 0xFD
 
 // Main tasks
 static void Task_InitPokeStorage(u8);
@@ -2113,9 +2114,6 @@ static void Task_InitPokeStorage(u8 taskId)
         SetVBlankCallback(NULL);
         SetGpuReg(REG_OFFSET_DISPCNT, 0);
         ResetForPokeStorage();
-        sFollowerIndex = gSaveBlock3Ptr->followerIndex;
-        DebugPrintfLevel(MGBA_LOG_WARN, "Follower is currently in slot %d",  gSaveBlock3Ptr->followerIndex);
-        DebugPrintfLevel(MGBA_LOG_WARN, "sFollowerIndex has been initialized to slot %d",  sFollowerIndex);
         if (sStorage->isReopening)
         {
             switch (sWhichToReshow)
@@ -2762,10 +2760,7 @@ static void Task_MoveMon(u8 taskId)
     {
     case 0:
         if (gSaveBlock3Ptr->followerIndex == sCursorPosition && sCursorArea == CURSOR_AREA_IN_PARTY)
-        {
-            sFollowerIndex = sCursorPosition + 0xF; // sFollowerIndex gets misaligned from gSaveBlock3Ptr->followerIndex to show that the follower is currently in hand
-            DebugPrintfLevel(MGBA_LOG_WARN, "Follower is currently in hand. sFollowerIndex has been misaligned to %d",  sFollowerIndex);
-        }
+            gSaveBlock3Ptr->followerIndex = FOLLOWER_IN_HAND;
         InitMonPlaceChange(CHANGE_GRAB);
         sStorage->state++;
         break;
@@ -2786,20 +2781,14 @@ static void Task_PlaceMon(u8 taskId)
     switch (sStorage->state)
     {
     case 0:
-        if (gSaveBlock3Ptr->followerIndex != sFollowerIndex)
+        if (gSaveBlock3Ptr->followerIndex == FOLLOWER_IN_HAND)
         {
             if (sCursorArea == CURSOR_AREA_IN_PARTY)
-            {
-                sFollowerIndex = sCursorPosition;
                 gSaveBlock3Ptr->followerIndex = sCursorPosition;
-                DebugPrintfLevel(MGBA_LOG_WARN, "Follower placed in party slot %d",  sFollowerIndex);
-            }
             else if (sCursorArea == CURSOR_AREA_IN_BOX)
             {
-                sFollowerIndex = OW_FOLLOWER_NOT_SET;
                 gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
                 gFollowerSteps = 0;
-                DebugPrintfLevel(MGBA_LOG_WARN, "Follower placed in a box. Slot defaulted to %d",  sFollowerIndex);
             }
         }
         InitMonPlaceChange(CHANGE_PLACE);
@@ -6484,28 +6473,19 @@ static void SetShiftedMonData(u8 boxId, u8 position)
 {
     if (boxId == TOTAL_BOXES_COUNT)
     {
-        if (sFollowerIndex != gSaveBlock3Ptr->followerIndex) // follower is currently in hand, about to be placed down in party
-        {
+        if (gSaveBlock3Ptr->followerIndex == FOLLOWER_IN_HAND)
             gSaveBlock3Ptr->followerIndex = position;
-            sFollowerIndex = position;
-            DebugPrintfLevel(MGBA_LOG_WARN, "Follower set down from hand to party slot %d",  gSaveBlock3Ptr->followerIndex);
-            DebugPrintfLevel(MGBA_LOG_WARN, "sFollowerIndex is now set to party slot %d",  sFollowerIndex);
-        }
-        else if (gSaveBlock3Ptr->followerIndex == position) // follower is about to be placed in hand
-        {
-            sFollowerIndex += 0xF; // sFollowerIndex gets misaligned from gSaveBlock3Ptr->followerIndex to show that the follower is currently in hand
-            DebugPrintfLevel(MGBA_LOG_WARN, "Follower was shifted to hand. sFollowerIndex has been misaligned to %d",  sFollowerIndex);
-        }
+        else if (gSaveBlock3Ptr->followerIndex == position)
+            gSaveBlock3Ptr->followerIndex = FOLLOWER_IN_HAND;
+
         sStorage->tempMon = gPlayerParty[position];
     }
     else
     {
-        if (sFollowerIndex != gSaveBlock3Ptr->followerIndex)
+        if (gSaveBlock3Ptr->followerIndex == FOLLOWER_IN_HAND)
         {
-            sFollowerIndex = OW_FOLLOWER_NOT_SET;
             gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
             gFollowerSteps = 0;
-            DebugPrintfLevel(MGBA_LOG_WARN, "Follower placed in a box. Slot defaulted to %d",  gSaveBlock3Ptr->followerIndex);
         }
         BoxMonAtToMon(boxId, position, &sStorage->tempMon);
     }
@@ -6534,9 +6514,7 @@ static bool8 TryStorePartyMonInBox(u8 boxId)
         if (gSaveBlock3Ptr->followerIndex == sCursorPosition)
         {
             gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
-            sFollowerIndex = OW_FOLLOWER_NOT_SET;
             gFollowerSteps = 0;
-            DebugPrintfLevel(MGBA_LOG_WARN, "Follower was stored in a box. Follower defaulted to %d",  gSaveBlock3Ptr->followerIndex);
         }
         SetMovingMonData(TOTAL_BOXES_COUNT, sCursorPosition);
         SetPlacedMonData(boxId, boxPosition);
@@ -6604,9 +6582,7 @@ static void ReleaseMon(void)
             if (gSaveBlock3Ptr->followerIndex == sCursorPosition)
             {
                 gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
-                sFollowerIndex = OW_FOLLOWER_NOT_SET;
                 gFollowerSteps = 0;
-                DebugPrintfLevel(MGBA_LOG_WARN, "Follower was released. Follower defaulted to %d",  gSaveBlock3Ptr->followerIndex);
             }
         }
         else
@@ -6890,11 +6866,7 @@ s16 CompactPartySlots(void)
             {
                 gPlayerParty[last] = gPlayerParty[i];
                 if (gSaveBlock3Ptr->followerIndex == i)
-                {
                     gSaveBlock3Ptr->followerIndex--;
-                    sFollowerIndex = gSaveBlock3Ptr->followerIndex;
-                    DebugPrintfLevel(MGBA_LOG_WARN, "Follower affected by party compaction. Follower now in slot %d",  gSaveBlock3Ptr->followerIndex);
-                }
             }
             last++;
         }

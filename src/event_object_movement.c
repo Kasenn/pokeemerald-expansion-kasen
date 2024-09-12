@@ -1991,40 +1991,34 @@ static bool8 InBattleFacilityOrContestHall(void)
         || gMapHeader.mapLayoutId == LAYOUT_CONTEST_HALL_CUTE;
 }
 
-struct Pokemon *FindFirstViableMon(void)
-{
-    u32 i;
-
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
-        if (gPlayerParty[i].hp > 0 && !(gPlayerParty[i].box.isEgg || gPlayerParty[i].box.isBadEgg))
-            return &gPlayerParty[i];
-    }
-    return NULL;
-}
-
-// Return address of first conscious party mon or NULL
+// This and the above function could probably use some clean-up/optimization
+// The general order of operations is:
+// 1. If the follower has been recalled to its ball, return NULL
+// 2. If no preferred follower has been set or the player is in battle facility or contest hall, use default behavior
+// 3. Use preferred follower
+// 4. If preferred follower is fainted or an egg (hopefully this shouldn't be possible), use default behavior
+// Default: Return address of first conscious party mon or NULL
 struct Pokemon *GetFirstLiveMon(void)
 {
     u32 i;
     u32 j = gSaveBlock3Ptr->followerIndex;
 
-    if (j == OW_FOLLOWER_RECALLED)                                                              // follower recalled, return NULL
+    if (j == OW_FOLLOWER_RECALLED)
         return NULL;
-    if (j == OW_FOLLOWER_NOT_SET || InBattleFacilityOrContestHall())                              // follower not set or player in any battle facility
+    if (j == OW_FOLLOWER_NOT_SET || InBattleFacilityOrContestHall())
     {
-        for (i = 0; i < PARTY_SIZE; i++)                                                          // or contest hall, follow default behavior
+        for (i = 0; i < PARTY_SIZE; i++)
         {
             if (gPlayerParty[i].hp > 0 && !(gPlayerParty[i].box.isEgg || gPlayerParty[i].box.isBadEgg))
                 return &gPlayerParty[i];
         }
         return NULL;
     }                                                                 
-    if (gPlayerParty[j].hp > 0 && !(gPlayerParty[j].box.isEgg || gPlayerParty[j].box.isBadEgg)) // follower chosen, return follower slot
+    if (gPlayerParty[j].hp > 0 && !(gPlayerParty[j].box.isEgg || gPlayerParty[j].box.isBadEgg))
         return &gPlayerParty[j];
-    else                                                                                        // if follower not viable, use default behavior as backup
+    else
     {
-        for (i = 0; i < PARTY_SIZE; i++)                                                          // or contest hall, follow default behavior
+        for (i = 0; i < PARTY_SIZE; i++)
         {
             if (gPlayerParty[i].hp > 0 && !(gPlayerParty[i].box.isEgg || gPlayerParty[i].box.isBadEgg))
                 return &gPlayerParty[i];
