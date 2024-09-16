@@ -467,6 +467,7 @@ Lab_BallMain_7:
 	compare VAR_RESULT, YES
 	goto_if_eq Lab_BallMain_13
 Lab_BallMain_12:
+	callnative UpdateFollowingPokemon
 	release
 	return
 
