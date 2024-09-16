@@ -1,10 +1,18 @@
 TestRoom_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, SetTestFlag
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, TestRoom_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
 TestRoom_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 	map_script_2 VAR_TEMP_0, 1, TestMovementScript
 	.2byte 0
+
+
+SetTestFlag::
+	setflag FLAG_TEMP_1
+	setflag FLAG_TEMP_2
+	setflag FLAG_TEMP_3
+	return
 
 
 TestMovementScript::

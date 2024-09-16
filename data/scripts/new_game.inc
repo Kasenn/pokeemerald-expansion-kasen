@@ -124,7 +124,6 @@ EventScript_ResetAllBerries::
 EventScript_ResetAllMapFlags::
 	setvar VAR_GROTTO_STEP_COUNT, 256
 	setvar VAR_DEBUG, 8
-	setflag FLAG_DISABLE_FOLLOWER
 	setflag FLAG_HIDE_AMPHAROS
 	setflag FLAG_OLDMAN_PEARLSTRING
 	setflag FLAG_OBTAINED_PIDGEOTITE

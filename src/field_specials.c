@@ -1596,7 +1596,7 @@ void SetRoute119Weather(void)
 
 void SetDrisledgeWeather(void)
 {
-    if (VarGet(VAR_DRISLEDGE_TOWN_STATE >= 30) && (VarGet(VAR_TEMP_0) <= 6 || VarGet(VAR_TEMP_0) >= 18))
+    if (VarGet(VAR_DRISLEDGE_TOWN_STATE) >= 30 && (gLocalTime.hours >= 6 && gLocalTime.hours < 18))
         SetSavedWeather(WEATHER_SHADE);
 }
 

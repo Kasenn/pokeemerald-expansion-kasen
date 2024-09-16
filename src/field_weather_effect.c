@@ -1275,6 +1275,23 @@ static const struct OamData sOamData_FogH =
     .affineParam = 0,
 };
 
+static const struct OamData sOamData_FogHLower =
+{
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = ST_OAM_OBJ_BLEND,
+    .mosaic = FALSE,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(64x64),
+    .x = 0,
+    .matrixNum = 0,
+    .size = SPRITE_SIZE(64x64),
+    .tileNum = 0,
+    .priority = 3,
+    .paletteNum = 0,
+    .affineParam = 0,
+};
+
 static const union AnimCmd sAnim_FogH_0[] =
 {
     ANIMCMD_FRAME(0, 16),
@@ -1338,6 +1355,17 @@ static const struct SpriteTemplate sFogHorizontalSpriteTemplate =
     .tileTag = GFXTAG_FOG_H,
     .paletteTag = PALTAG_WEATHER,
     .oam = &sOamData_FogH,
+    .anims = sAnims_FogH,
+    .images = NULL,
+    .affineAnims = sAffineAnims_FogH,
+    .callback = FogHorizontalSpriteCallback,
+};
+
+static const struct SpriteTemplate sFogHorizontalLowerSpriteTemplate =
+{
+    .tileTag = GFXTAG_FOG_H,
+    .paletteTag = PALTAG_WEATHER,
+    .oam = &sOamData_FogHLower,
     .anims = sAnims_FogH,
     .images = NULL,
     .affineAnims = sAffineAnims_FogH,
@@ -1457,6 +1485,7 @@ static void CreateFogHorizontalSprites(void)
         for (i = 0; i < NUM_FOG_HORIZONTAL_SPRITES; i++)
         {
             spriteId = CreateSpriteAtEnd(&sFogHorizontalSpriteTemplate, 0, 0, 0xFF);
+            // spriteId = CreateSpriteAtEnd(&sFogHorizontalLowerSpriteTemplate, 0, 0, 0xFF);
             if (spriteId != MAX_SPRITES)
             {
                 sprite = &gSprites[spriteId];

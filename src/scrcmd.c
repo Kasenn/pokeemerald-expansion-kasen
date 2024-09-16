@@ -2672,8 +2672,7 @@ bool8 ScrCmd_ballfollowingmon(struct ScriptContext *ctx)
      || (gMapHeader.mapType == MAP_TYPE_INDOOR && SpeciesToGraphicsInfo(species, form)->oam->size > ST_OAM_SIZE_2)
      || FlagGet(FLAG_TEMP_HIDE_FOLLOWER)
      || gSaveBlock2Ptr->follower.inProgress
-     || !FlagGet(FLAG_SYS_POKEMON_GET)
-     || FlagGet(FLAG_DISABLE_FOLLOWER))
+     || !FlagGet(FLAG_SYS_POKEMON_GET))
     {
         return FALSE;
     }

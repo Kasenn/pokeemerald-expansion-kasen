@@ -358,6 +358,15 @@
   "coord_events": [
     {
       "type": "trigger",
+      "x": 86,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "HideAmphyR3"
+    },
+    {
+      "type": "trigger",
       "x": 24,
       "y": 31,
       "elevation": 0,
@@ -373,15 +382,6 @@
       "var": "VAR_TEMP_MIXED_RECORDS",
       "var_value": "0",
       "script": "TriggerMia"
-    },
-    {
-      "type": "trigger",
-      "x": 86,
-      "y": 25,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "HideAmphyR3"
     }
   ],
   "bg_events": [

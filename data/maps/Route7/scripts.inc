@@ -310,11 +310,11 @@ Route8_Trainer6_Camper_M_Intro::
 	.string "I could do this all day!$"
 
 Route8_Trainer6_Camper_M_Defeat::
-	.string "Way too strong!$"
+	.string "Again! Again!$"
 
 Route8_Trainer6_Camper_M_PostBattle::
-	.string "My Pokémon need a moment's rest but if\n"
-	.string "you're up for it, I'd like to\l"
+	.string "My Pokémon need a moment's rest, but\n"
+	.string "if you're up for it, I'd like to\l"
 	.string "battle again soon!$"
 
 Route8_Trainer7_Triathlete_M_Intro::

@@ -167,6 +167,7 @@ TriggerGina_1:
 	special HasEnoughMonsForDoubleBattle
 	compare VAR_RESULT, PLAYER_HAS_TWO_USABLE_MONS
 	goto_if_eq TriggerGina_5
+	release
 	end
 
 TriggerGina_5:
@@ -199,6 +200,7 @@ TriggerMia_1:
 	special HasEnoughMonsForDoubleBattle
 	compare VAR_RESULT, PLAYER_HAS_TWO_USABLE_MONS
 	goto_if_eq TriggerMia_5
+	release
 	end
 
 TriggerMia_5:

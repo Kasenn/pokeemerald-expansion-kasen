@@ -1510,7 +1510,7 @@
 #define FLAG_LITWICK_TAG_COMPLETE                           (SYSTEM_FLAGS + 0x8C) // 
 #define FLAG_LITWICK_CAUGHT                           (SYSTEM_FLAGS + 0x8D) // 
 #define FLAG_ACEROLA_ITEM                           (SYSTEM_FLAGS + 0x8E) // 
-#define FLAG_UNUSED_0x8EF                           (SYSTEM_FLAGS + 0x8F) // 
+#define FLAG_SYS_JOURNAL_GET                           (SYSTEM_FLAGS + 0x8F) // 
 #define FLAG_UNUSED_0x8F0                           (SYSTEM_FLAGS + 0x90) // 
 #define FLAG_UNUSED_0x8F1                           (SYSTEM_FLAGS + 0x91) // 
 #define FLAG_UNUSED_0x8F2                           (SYSTEM_FLAGS + 0x92) // 

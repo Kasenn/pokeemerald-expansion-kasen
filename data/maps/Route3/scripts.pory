@@ -154,6 +154,7 @@ script TriggerGina{
 			waitmessage
 			end
 		}
+		release
 		end
 	}
 	else{
@@ -184,6 +185,7 @@ script TriggerMia{
 			waitmessage
 			end
 		}
+		release
 		end
 	}
 	else{

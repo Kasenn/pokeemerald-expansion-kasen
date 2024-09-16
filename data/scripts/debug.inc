@@ -158,7 +158,7 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
-	call TestEvent
+	setflag FLAG_SYS_JOURNAL_GET
 	end
 
 Debug_EventScript_Script_6::
@@ -173,7 +173,7 @@ Debug_EventScript_Script_6::
 	@end
 
 TestMsg:
-	.string "Yer a wizard, Harry.$"
+	.string "Test.$"
 
 Debug_EventScript_Script_7::
 	release

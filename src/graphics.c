@@ -1919,6 +1919,10 @@ const u32 gKantoTrainerCardFront_Tilemap[] = INCBIN_U32("graphics/trainer_card/f
 const u32 gKantoTrainerCardBack_Tilemap[] = INCBIN_U32("graphics/trainer_card/frlg/back.bin.lz");
 const u32 gKantoTrainerCardFrontLink_Tilemap[] = INCBIN_U32("graphics/trainer_card/frlg/front_link.bin.lz");
 
+const u16 gJournal_Pal[] = INCBIN_U16("graphics/trainer_card/journal_pink.gbapal");
+const u32 gJournal_Gfx[] = INCBIN_U32("graphics/trainer_card/journal_tiles.4bpp.lz");
+const u32 gJournal_Tilemap[] = INCBIN_U32("graphics/trainer_card/journal.bin.lz");
+
 // Pokémon storage system
 
 const u32 gStorageSystemMenu_Gfx[] = INCBIN_U32("graphics/pokemon_storage/menu.4bpp.lz");

@@ -1,7 +1,14 @@
 mapscripts TestRoom_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: SetTestFlag
     MAP_SCRIPT_ON_FRAME_TABLE[
         VAR_TEMP_0, 1: TestMovementScript
     ]
+}
+
+script SetTestFlag{
+    setflag(FLAG_TEMP_1)
+    setflag(FLAG_TEMP_2)
+    setflag(FLAG_TEMP_3)
 }
 
 script TestMovementScript{

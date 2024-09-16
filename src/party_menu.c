@@ -2869,7 +2869,7 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SWITCH);
     }
 
-    if (GetMonData(&mons[1], MON_DATA_SPECIES) != SPECIES_NONE || GetMonData(mons, MON_DATA_IS_EGG))
+    if (GetMonData(&mons[slotId], MON_DATA_SPECIES) != SPECIES_NONE || GetMonData(&mons[slotId], MON_DATA_IS_EGG) == FALSE)
         AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_FOLLOWER);
 
     if (!InBattlePike())
