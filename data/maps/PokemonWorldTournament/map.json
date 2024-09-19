@@ -2,7 +2,7 @@
   "id": "MAP_POKEMON_WORLD_TOURNAMENT",
   "name": "PokemonWorldTournament",
   "layout": "LAYOUT_POKEMON_WORLD_TOURNAMENT",
-  "music": "MUS_B_TOWER",
+  "music": "MUS_PWTLOBBY",
   "region_map_section": "MAPSEC_ALDELEAF_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
