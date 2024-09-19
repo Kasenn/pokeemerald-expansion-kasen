@@ -8504,7 +8504,7 @@ u8 GetAttackerObedienceForAction()
     if (FlagGet(FLAG_BADGE08_GET)) // Rain Badge, ignore obedience altogether
         return OBEYS;
 
-    obedienceLevel = 15;
+    obedienceLevel = 15; 
 
     if (FlagGet(FLAG_BADGE01_GET))
         obedienceLevel = 30;
