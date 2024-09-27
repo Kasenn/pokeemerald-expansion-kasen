@@ -526,6 +526,18 @@ void ScrCmd_setpartylevel(struct ScriptContext *ctx)
     }
 }
 
+void ScrCmd_addbp(struct ScriptContext *ctx)
+{
+    u8 bp = VarGet(ScriptReadHalfword(ctx));
+
+    ConvertIntToDecimalStringN(gStringVar1, bp, STR_CONV_MODE_LEFT_ALIGN, 3);
+
+    if (gSaveBlock2Ptr->frontier.battlePoints + bp > MAX_BATTLE_FRONTIER_POINTS)
+        gSaveBlock2Ptr->frontier.battlePoints = MAX_BATTLE_FRONTIER_POINTS;
+    else
+        gSaveBlock2Ptr->frontier.battlePoints = gSaveBlock2Ptr->frontier.battlePoints + bp;
+}
+
 void ScrCmd_copygamestat(struct ScriptContext *ctx)
 {
     u8 stat = VarGet(ScriptReadHalfword(ctx));

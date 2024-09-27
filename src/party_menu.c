@@ -2870,7 +2870,7 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
     }
 
     if (GetMonData(&mons[slotId], MON_DATA_SPECIES) != SPECIES_NONE || GetMonData(&mons[slotId], MON_DATA_IS_EGG) == FALSE)
-        if (FlagGet(FLAG_PARTNER_HEALS) == FALSE)
+        if (FlagGet(FLAG_PARTNER_HEALS) == FALSE && FlagGet(FLAG_HEAL_AFTER_BATTLE) == FALSE)
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_FOLLOWER);
 
     if (!InBattlePike())

@@ -302,6 +302,24 @@ CapsuleCorpCenter::
 	return
 
 
+AutomaticUpdate::
+	compare VAR_DEBUG, 8
+	goto_if_eq AutomaticUpdate_2
+AutomaticUpdate_1:
+	return
+
+AutomaticUpdate_2:
+	setvar VAR_DEBUG, 9
+	clearflag FLAG_UNUSED_0x4E6
+	clearflag FLAG_UNUSED_0x4E7
+	clearflag FLAG_UNUSED_0x4E8
+	msgbox AutomaticUpdate_Text1
+	callnative DefaultFollower
+	closemessage
+	release
+	goto AutomaticUpdate_1
+
+
 CheckSafeMovement::
 	getfollowerxy VAR_TEMP_0, VAR_TEMP_1
 	buffernumberstring STR_VAR_1, VAR_TEMP_0
@@ -847,6 +865,15 @@ EmployeeNew_TakeTimeToRecover::
 	.string "the attack and assess just how much\l"
 	.string "was stolen, but at least nobody was\l"
 	.string "seriously hurt.$"
+
+AutomaticUpdate_Text1::
+	.string "A new update has been applied.\p"
+	.string "Things included in this update:\p"
+	.string "1. Followers, as well as setting a\n"
+	.string "preferred follower from party screen.\p"
+	.string "2. An updated “Stats” page in the\n"
+	.string "start menu.\p"
+	.string "3. A lot of bug fixes.$"
 
 ChooseRange_Text::
 	.string "Choose spell range.$"

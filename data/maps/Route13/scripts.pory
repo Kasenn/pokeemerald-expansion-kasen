@@ -1,4 +1,33 @@
-mapscripts Route13_MapScripts{}
+mapscripts Route13_MapScripts{
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_DEBUG, 8: RemovePlayerFromRoute13
+    ]
+}
+
+script RemovePlayerFromRoute13{
+    lockall
+    msgbox(RelocatedFromRoute13)
+    setvar(VAR_DEBUG, 9)
+    clearflag(FLAG_UNUSED_0x4E6)
+    clearflag(FLAG_UNUSED_0x4E7)
+    clearflag(FLAG_UNUSED_0x4E8)
+    closemessage
+    warp(MAP_SANDSTONE_CITY, 39, 32)
+    callnative(DefaultFollower)
+    end
+}
+
+text RelocatedFromRoute13{
+    "A new update has been applied\n"
+    "automatically.\p"
+    "This enables followers and setting\n"
+    "a preferred follower from party screen,\l"
+    "an updated “Stats” page in the\l"
+    "start menu + a lot of bug fixes.\p"
+    "Due to changes made to this route,\n"
+    "you will be teleported to the closest\l"
+    "Pokémon Center."
+}
 
 script R13_BeachSwimmer{
     msgbox(R13_BeachSwimmer_Text, MSGBOX_NPC)
@@ -17,9 +46,10 @@ script Route13_Tr1_Birdkeeper {
 }
 text Route13_Tr1_Birdkeeper_Text{
     "Planning to head to Galewind City?\n"
-    "I wouldn't bother, unless you have\l"
-    "surfing Pokémon or flying Pokémon\l"
-    "that can take you there directly."
+    "Good luck with that.\p"
+    "The weather has been real bad lately,\n"
+    "so the odds of the bridge being open\l"
+    "are close to zero."
 }
 
 script Route13_Tr2_Runner_M {

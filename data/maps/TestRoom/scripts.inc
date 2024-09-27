@@ -16,14 +16,21 @@ SetTestFlag::
 
 
 TestMovementScript::
-	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
+	safefollow
 	buffernumberstring STR_VAR_1, VAR_TEMP_0
-	msgbox TestMovementScript_Text_0, MSGBOX_NPC
+	compare VAR_TEMP_0, 0
+	goto_if_eq TestMovementScript_2
+	msgbox TestMovementScript_Text_1, MSGBOX_NPC
+TestMovementScript_1:
 	applymovement OBJ_EVENT_ID_PLAYER, Walk3Up
 	waitmovement 0
 	addvar VAR_TEMP_0, 1
 	release
 	return
+
+TestMovementScript_2:
+	msgbox TestMovementScript_Text_0, MSGBOX_NPC
+	goto TestMovementScript_1
 
 
 HideKrokorokOrPlayer::
@@ -319,6 +326,9 @@ MainReflectionTrigger_13:
 
 
 TestMovementScript_Text_0:
+	.string "0$"
+
+TestMovementScript_Text_1:
 	.string "{STR_VAR_1}$"
 
 ReturnKrokorok::

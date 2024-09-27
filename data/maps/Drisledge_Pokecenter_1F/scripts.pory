@@ -1,6 +1,9 @@
 mapscripts Drisledge_Pokecenter_1F_MapScripts {
     MAP_SCRIPT_ON_TRANSITION: DrisledgePokeCenter1F_OnTransition
     MAP_SCRIPT_ON_LOAD: DrisledgeCenter_SetTiles
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_DEBUG, 8: AutomaticUpdate
+    ]
 }
 
 script DrisledgePokeCenter1F_OnTransition{

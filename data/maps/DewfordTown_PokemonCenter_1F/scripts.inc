@@ -2,6 +2,7 @@
 
 DewfordTown_PokemonCenter_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, DewfordTown_PokemonCenter_1F_OnTransition
+    map_script MAP_SCRIPT_ON_FRAME_TABLE, Drisledge_Pokecenter_1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
 DewfordTown_PokemonCenter_1F_OnTransition:

@@ -622,6 +622,8 @@ gSongTable::
 	song mus_happy, 0, 0
 	song mus_dp_vs_legend, 0, 0
 	song mus_pwtlobby, 0, 0
+	song mus_alola_e42, 0, 0
+	song mus_abw_rival, 0, 0
 
 	.align 2
 dummy_song_header:

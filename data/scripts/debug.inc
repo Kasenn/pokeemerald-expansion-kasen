@@ -38,6 +38,7 @@ Debug_CheatStart::
 	setvar VAR_ROUTE116_STATE, 2
 	setflag FLAG_HIDE_ROUTE_116_MR_BRINEY
 	setflag FLAG_BADGE01_GET
+	setflag FLAG_BADGE02_GET
 	setflag FLAG_BADGE03_GET
 	setflag FLAG_BADGE04_GET
 	setflag FLAG_BADGE05_GET
@@ -158,29 +159,30 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
-	setflag FLAG_SYS_JOURNAL_GET
+	givemon SPECIES_UMBREON, 50
+	givemon SPECIES_GOODRA_HISUIAN, 50
+	givemon SPECIES_DONPHAN, 50
+	givemon SPECIES_GARDEVOIR, 50
+	givemon SPECIES_FROSLASS, 50
+	givemon SPECIES_BLAZIKEN, 50
+	release
 	end
 
 Debug_EventScript_Script_6::
-	call NotMyNectar
-	@lockall
-	@safefollow
-	@release
-	@msgbox TestMsg, MSGBOX_NPC
-	@applymovement OBJ_EVENT_ID_PLAYER, Walk5Up
-	@waitmovement 0
-	@release
-	@end
+	end
 
 TestMsg:
 	.string "Test.$"
 
 Debug_EventScript_Script_7::
+	special LoadPlayerParty
 	release
 	end
 
 Debug_EventScript_Script_8::
-	trainerbattle_single TRAINER_LEADER_JASMINE, Route1_Text_CoolTrainerDefeated, Route1_Text_CoolTrainerDefeated
+	special SavePlayerParty
+	setpartylevel 50
+	trainerbattle_single TRAINER_KASEN, Route1_Text_CoolTrainerDefeated, Route1_Text_CoolTrainerDefeated, Debug_EventScript_Script_7
 	end
 
 Debug_CheckSaveBlock::

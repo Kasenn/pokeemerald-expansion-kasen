@@ -123,7 +123,9 @@
     "AdamantTowerExterior",
     "BerryFields",
     "BerryFieldHouse",
-    "Route15_MoveReminder"
+    "Route15_MoveReminder",
+    "Route13Alternative",
+    "Route13_GateHouse"
   ],
   "gMapGroup_Dungeons": [
     "Route7_Grotto",
@@ -312,7 +314,11 @@
     "Sandstone_Gym_1F",
     "Sandstone_Gym_2F",
     "Sandstone_Library_1F",
-    "Sandstone_Library_2F"
+    "Sandstone_Library_2F",
+    "Sandstone_LargeHouse3_1F",
+    "Sandstone_LargeHouse3_2F",
+    "Sandstone_LargeHouse3_3F",
+    "Sandstone_LargeHouse3_4F"
   ],
   "gMapGroup_IndoorFishingVillage": [
     "FishingVillage_House1",

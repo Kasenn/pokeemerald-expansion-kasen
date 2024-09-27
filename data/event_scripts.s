@@ -1530,3 +1530,15 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Route28_Part2/scripts.inc"
 
 	.include "data/maps/Route29/scripts.inc"
+
+	.include "data/maps/Route13Alternative/scripts.inc"
+
+	.include "data/maps/Route13_GateHouse/scripts.inc"
+
+	.include "data/maps/Sandstone_LargeHouse3_1F/scripts.inc"
+
+	.include "data/maps/Sandstone_LargeHouse3_2F/scripts.inc"
+
+	.include "data/maps/Sandstone_LargeHouse3_3F/scripts.inc"
+
+	.include "data/maps/Sandstone_LargeHouse3_4F/scripts.inc"

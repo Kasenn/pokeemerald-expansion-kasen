@@ -199,8 +199,8 @@
   ],
   "warp_events": [
     {
-      "x": 4,
-      "y": 6,
+      "x": 28,
+      "y": 14,
       "elevation": 0,
       "dest_map": "MAP_TEST_ROOM",
       "dest_warp_id": "0"

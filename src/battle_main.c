@@ -383,6 +383,7 @@ const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
     TRAINER_CLASS(ROCKET_ADMIN, "Executive", 10),
     TRAINER_CLASS(ELITE, "Elite trainer", 25),
     TRAINER_CLASS(NURSE, "Tutor", 0),
+    TRAINER_CLASS(KASEN, "Game dev", 25),
     TRAINER_CLASS(GYMMEMBER, "Gym trainer", 15),
     TRAINER_CLASS(GYMMEMBER_DOUBLE, "Gym trainers", 20),
     TRAINER_CLASS(ENTHUSIAST, "{PKMN} enthusiast", 10, ITEM_FRIEND_BALL),
@@ -5604,10 +5605,13 @@ static void HandleEndTurn_FinishBattle(void)
         if(FlagGet(FLAG_PARTNER_HEALS)){
             HealPlayerParty();
         }
-        if (gTrainerBattleOpponent_A == TRAINER_BROTHER1_ROWLET
-         || gTrainerBattleOpponent_A == TRAINER_BROTHER1_TORCHIC
-         || gTrainerBattleOpponent_A == TRAINER_BROTHER1_PIPLUP)
+        if(FlagGet(FLAG_HEAL_AFTER_BATTLE)){
             HealPlayerParty();
+        }
+        // if (gTrainerBattleOpponent_A == TRAINER_BROTHER1_ROWLET
+        //  || gTrainerBattleOpponent_A == TRAINER_BROTHER1_TORCHIC
+        //  || gTrainerBattleOpponent_A == TRAINER_BROTHER1_PIPLUP)
+        //     HealPlayerParty();
         if (B_TRAINERS_KNOCK_OFF_ITEMS == TRUE || B_RESTORE_HELD_BATTLE_ITEMS >= GEN_9)
             TryRestoreHeldItems();
 

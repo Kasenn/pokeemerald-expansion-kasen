@@ -280,7 +280,7 @@ Route110_EventScript_IsabelRematch::
 	end
 
 Route110_EventScript_Timmy::
-	trainerbattle_single TRAINER_TIMMY, Route110_Text_TimmyIntro, Route110_Text_TimmyDefeated
+	trainerbattle_single TRAINER_KASEN, Route110_Text_TimmyIntro, Route110_Text_TimmyDefeated
 	msgbox Route110_Text_TimmyPostBattle, MSGBOX_AUTOCLOSE
 	end
 

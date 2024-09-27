@@ -78,6 +78,8 @@
 #define MAP_BERRY_FIELDS           (6 | (1 << 8))
 #define MAP_BERRY_FIELD_HOUSE      (7 | (1 << 8))
 #define MAP_ROUTE15_MOVE_REMINDER  (8 | (1 << 8))
+#define MAP_ROUTE13ALTERNATIVE     (9 | (1 << 8))
+#define MAP_ROUTE13_GATE_HOUSE     (10 | (1 << 8))
 
 // gMapGroup_Dungeons
 #define MAP_ROUTE7_GROTTO                    (0 | (2 << 8))
@@ -267,6 +269,10 @@
 #define MAP_SANDSTONE_GYM_2F                        (21 | (13 << 8))
 #define MAP_SANDSTONE_LIBRARY_1F                    (22 | (13 << 8))
 #define MAP_SANDSTONE_LIBRARY_2F                    (23 | (13 << 8))
+#define MAP_SANDSTONE_LARGE_HOUSE3_1F               (24 | (13 << 8))
+#define MAP_SANDSTONE_LARGE_HOUSE3_2F               (25 | (13 << 8))
+#define MAP_SANDSTONE_LARGE_HOUSE3_3F               (26 | (13 << 8))
+#define MAP_SANDSTONE_LARGE_HOUSE3_4F               (27 | (13 << 8))
 
 // gMapGroup_IndoorFishingVillage
 #define MAP_FISHING_VILLAGE_HOUSE1 (0 | (14 << 8))

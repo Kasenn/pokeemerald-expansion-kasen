@@ -1,6 +1,11 @@
 Rockliffe_Pokecenter_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, RockliffePokeCenter1F_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Rockliffe_Pokecenter_1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
+
+Rockliffe_Pokecenter_1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_DEBUG, 8, AutomaticUpdate
+	.2byte 0
 
 
 RockliffePokeCenter1F_OnTransition::

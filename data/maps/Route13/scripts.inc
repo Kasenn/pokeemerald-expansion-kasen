@@ -1,5 +1,23 @@
 Route13_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route13_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
+
+Route13_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_DEBUG, 8, RemovePlayerFromRoute13
+	.2byte 0
+
+
+RemovePlayerFromRoute13::
+	lockall
+	msgbox RelocatedFromRoute13
+	setvar VAR_DEBUG, 9
+	clearflag FLAG_UNUSED_0x4E6
+	clearflag FLAG_UNUSED_0x4E7
+	clearflag FLAG_UNUSED_0x4E8
+	closemessage
+	warp MAP_SANDSTONE_CITY, 39, 32
+	callnative DefaultFollower
+	end
 
 
 R13_BeachSwimmer::
@@ -68,6 +86,17 @@ SetR11RivalFight_5:
 	goto SetR11RivalFight_4
 
 
+RelocatedFromRoute13::
+	.string "A new update has been applied\n"
+	.string "automatically.\p"
+	.string "This enables followers and setting\n"
+	.string "a preferred follower from party screen,\l"
+	.string "an updated “Stats” page in the\l"
+	.string "start menu + a lot of bug fixes.\p"
+	.string "Due to changes made to this route,\n"
+	.string "you will be teleported to the closest\l"
+	.string "Pokémon Center.$"
+
 R13_BeachSwimmer_Text::
 	.string "It's a long way to Galewind City.\p"
 	.string "Not even an experienced swimmer like\n"
@@ -76,9 +105,10 @@ R13_BeachSwimmer_Text::
 
 Route13_Tr1_Birdkeeper_Text::
 	.string "Planning to head to Galewind City?\n"
-	.string "I wouldn't bother, unless you have\l"
-	.string "surfing Pokémon or flying Pokémon\l"
-	.string "that can take you there directly.$"
+	.string "Good luck with that.\p"
+	.string "The weather has been real bad lately,\n"
+	.string "so the odds of the bridge being open\l"
+	.string "are close to zero.$"
 
 R13Tr2_Intro::
 	.string "I'm building stamina to eventually be\n"

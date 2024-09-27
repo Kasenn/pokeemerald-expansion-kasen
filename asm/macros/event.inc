@@ -2022,6 +2022,12 @@
 	.2byte \level
 	.endm
 
+	@ Gives a specific amount of BP
+	.macro addbp amount:req
+	callnative ScrCmd_addbp
+	.2byte \amount
+	.endm
+
 	@ Copies specified game stat to STR_VAR_1
 	.macro copygamestat stat:req
 	callnative ScrCmd_copygamestat
@@ -2038,6 +2044,10 @@
 
 	.macro setkrokorokdisguise
 	callnative ScrCmd_SetKrokorokDisguise
+	.endm
+
+	.macro unlockfollowermovement
+	callnative ResetCopyableMovement
 	.endm
 
 @ Supplementary

@@ -82,6 +82,7 @@ Pearlwood_BrotherFightMain_1:
 	setflag FLAG_CONTINUE_AFTER_WHITEOUT
 	playbgm MUS_ENCOUNTER_MALE, FALSE
 	msgbox Pearlwood_Brother_Intro
+	setflag FLAG_HEAL_AFTER_BATTLE
 	switch VAR_STARTER_MON
 	case 0, Pearlwood_BrotherFightMain_7
 	case 1, Pearlwood_BrotherFightMain_8
@@ -113,9 +114,9 @@ PearlwoodWon::
 	goto_if_eq PearlwoodWon_2
 	checkplayergender
 	compare VAR_RESULT, MALE
-	goto_if_eq PearlwoodWon_6
+	goto_if_eq PearlwoodWon_10
 	bufferstring STR_VAR_1, PearlwoodWon_Text_1
-PearlwoodWon_5:
+PearlwoodWon_9:
 	msgbox PlayerHouse1F_Apology
 PearlwoodWon_1:
 	closemessage
@@ -124,17 +125,27 @@ PearlwoodWon_1:
 	waitmovement 0
 	removeobject 3
 	setvar VAR_PEARLWOOD_TOWN_STATE, 6
+	clearflag FLAG_HEAL_AFTER_BATTLE
 	delay 30
 	release
 	return
 
 PearlwoodWon_2:
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq PearlwoodWon_6
+	bufferstring STR_VAR_1, PearlwoodWon_Text_1
+PearlwoodWon_5:
 	msgbox PearlwoodBrotherPrize
 	goto PearlwoodWon_1
 
 PearlwoodWon_6:
 	bufferstring STR_VAR_1, PearlwoodWon_Text_0
 	goto PearlwoodWon_5
+
+PearlwoodWon_10:
+	bufferstring STR_VAR_1, PearlwoodWon_Text_0
+	goto PearlwoodWon_9
 
 
 Pearlwood_Point_FatMan::
@@ -218,14 +229,17 @@ PlayerHouse1F_Apology::
 PearlwoodBrotherPrize::
 	.string "Hmph… I guess I should not\n"
 	.string "have underestimated you.\p"
-	.string "Anyway, have you thought about what\n"
-	.string "you're going to do next?\p"
-	.string "If you're up for it, we should totally\n"
-	.string "see which of us is the better trainer\l"
-	.string "by taking on the Pokémon Gym Challenge!\p"
-	.string "Our neighbor {RIVAL} just set out this\n"
-	.string "morning so we better get moving or\l"
-	.string "we'll fall behind!\p"
+	.string "Anyway, have you thought about\n"
+	.string "what you're going to do next?\p"
+	.string "I talked with our neighbor {RIVAL}\n"
+	.string "and {STR_VAR_1} mentioned {STR_VAR_1} was going to\l"
+	.string "take on the Pokémon Gym Challenge.\p"
+	.string "We should take part on the challenge\n"
+	.string "as well and see which of us three\l"
+	.string "is the best trainer!\p"
+	.string "{RIVAL} set out just a few moments\n"
+	.string "ago, so we better get moving as well\l"
+	.string "or we'll fall behind!\p"
 	.string "Don't know about you but I'm not\n"
 	.string "content with a second place.\p"
 	.string "Catch ya later!$"

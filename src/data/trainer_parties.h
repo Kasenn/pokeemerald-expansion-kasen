@@ -1,8 +1,7 @@
 static const struct TrainerMon sParty_Sawyer1[] = {
     {
-    .lvl = 10,
-    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .ev = TRAINER_PARTY_EVS(104, 0, 252, 0, 0 ,152), 
+    .lvl = 5,
+    // .iv = TRAINER_PARTY_IVS(0, 31, 0, 0, 31, 31),
     .nature = NATURE_ADAMANT,
     .species = SPECIES_SQUIRTLE,
     .gender = TRAINER_MON_MALE,
@@ -13,9 +12,8 @@ static const struct TrainerMon sParty_Sawyer1[] = {
 
 static const struct TrainerMon sParty_GruntAquaHideout1[] = {
     {
-    .lvl = 10,
-    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .ev = TRAINER_PARTY_EVS(104, 0, 252, 0, 0 ,152), 
+    .lvl = 5,
+    // .iv = TRAINER_PARTY_IVS(0, 31, 0, 0, 31, 31),
     .nature = NATURE_ADAMANT,
     .species = SPECIES_BULBASAUR,
     .gender = TRAINER_MON_MALE,
@@ -26,9 +24,8 @@ static const struct TrainerMon sParty_GruntAquaHideout1[] = {
 
 static const struct TrainerMon sParty_GruntAquaHideout2[] = {
     {
-    .lvl = 10,
-    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .ev = TRAINER_PARTY_EVS(104, 0, 252, 0, 0 ,152), 
+    .lvl = 5,
+    // .iv = TRAINER_PARTY_IVS(0, 31, 0, 0, 31, 31),
     .nature = NATURE_ADAMANT,
     .species = SPECIES_CHARMANDER,
     .gender = TRAINER_MON_MALE,
@@ -5505,7 +5502,7 @@ static const struct TrainerMon sParty_LeaderJasmine[] = {
     },
 };
 
-static const struct TrainerMon sParty_Allen[] = {
+static const struct TrainerMon sParty_LeaderJasmine2[] = {
     {
     .lvl = 30,
     .species = SPECIES_AMPHAROS,
@@ -5513,14 +5510,71 @@ static const struct TrainerMon sParty_Allen[] = {
     }
 };
 
-static const struct TrainerMon sParty_Timmy[] = {
+static const struct TrainerMon sParty_Kasen[] = {
     {
-    .lvl = 15,
-    .species = SPECIES_ARON,
+    .lvl = 50,
+    .species = SPECIES_UMBREON,
+    .ball = ITEM_MASTER_BALL,
+    .nature = NATURE_CALM,
+    .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
+    .ev = TRAINER_PARTY_EVS(252, 0, 252, 0, 0, 4),
+    .moves = {MOVE_MOONLIGHT, MOVE_CONFUSE_RAY, MOVE_FLASH, MOVE_FOUL_PLAY},
+    .ability = ABILITY_SYNCHRONIZE,
+    .heldItem = ITEM_LEFTOVERS,
     },
     {
-    .lvl = 13,
-    .species = SPECIES_ELECTRIKE,
+    .lvl = 50,
+    .species = SPECIES_GOODRA_HISUIAN,
+    .ball = ITEM_MASTER_BALL,
+    .nature = NATURE_MODEST,
+    .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
+    .ev = TRAINER_PARTY_EVS(120, 0, 0, 0, 252, 136),
+    .moves = {MOVE_DRAGON_PULSE, MOVE_WATER_PULSE, MOVE_THUNDER, MOVE_IRON_HEAD},
+    .ability = ABILITY_SAP_SIPPER,
+    .heldItem = ITEM_ASSAULT_VEST,
+    },
+    {
+    .lvl = 50,
+    .species = SPECIES_DONPHAN,
+    .nature = NATURE_ADAMANT,
+    .ball = ITEM_MASTER_BALL,
+    .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
+    .ev = TRAINER_PARTY_EVS(252, 252, 4, 0, 0, 0),
+    .moves = {MOVE_GIGA_IMPACT, MOVE_EARTHQUAKE, MOVE_THUNDER_FANG, MOVE_FIRE_FANG},
+    .heldItem = ITEM_SITRUS_BERRY,
+    },
+    {
+    .lvl = 50,
+    .species = SPECIES_GARDEVOIR,
+    .gender = TRAINER_MON_FEMALE,
+    .ball = ITEM_MASTER_BALL,
+    .nature = NATURE_MODEST,
+    .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 0, 252, 4),
+    .ability = ABILITY_TRACE,
+    .moves = {MOVE_MOONBLAST, MOVE_CAPTIVATE, MOVE_MAGICAL_LEAF, MOVE_PSYCHIC},
+    .heldItem = ITEM_BRIGHT_POWDER,
+    },
+    {
+    .lvl = 50,
+    .species = SPECIES_FROSLASS,
+    .gender = TRAINER_MON_FEMALE,
+    .ball = ITEM_MASTER_BALL,
+    .nature = NATURE_TIMID,
+    .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
+    .ev = TRAINER_PARTY_EVS(4, 0, 0, 252, 252, 0),
+    .moves = {MOVE_SHADOW_BALL, MOVE_CONFUSE_RAY, MOVE_BLIZZARD, MOVE_WILL_O_WISP},
+    .heldItem = ITEM_FOCUS_SASH,
+    },
+    {
+    .lvl = 50,
+    .species = SPECIES_BLAZIKEN,
+    .ball = ITEM_MASTER_BALL,
+    .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
+    .ev = TRAINER_PARTY_EVS(4, 252, 0, 252, 0, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_BLAZE_KICK, MOVE_BRAVE_BIRD, MOVE_SLASH, MOVE_ROCK_SMASH},
+    .heldItem = ITEM_MUSCLE_BAND,
     }
 };
 

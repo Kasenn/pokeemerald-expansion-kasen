@@ -20,7 +20,7 @@
     },
     {
       "map": "MAP_ROUTE13",
-      "offset": 25,
+      "offset": 20,
       "direction": "right"
     },
     {
@@ -295,6 +295,13 @@
       "y": 22,
       "elevation": 0,
       "dest_map": "MAP_LILYCOVE_CITY_DEPARTMENT_STORE_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 15,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_SANDSTONE_LARGE_HOUSE3_1F",
       "dest_warp_id": "0"
     }
   ],

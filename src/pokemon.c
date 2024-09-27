@@ -5971,8 +5971,9 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_PALACE_MAVEN:
         case TRAINER_CLASS_ARENA_TYCOON:
         case TRAINER_CLASS_FACTORY_HEAD:
+        case TRAINER_CLASS_KASEN:
         case TRAINER_CLASS_PIKE_QUEEN:
-            return MUS_ALOLA_E4;
+            return MUS_ABW_RIVAL;
         case TRAINER_CLASS_GYMMEMBER:
             return MUS_BWTRAINERBATTLE;
         case TRAINER_CLASS_GYMMEMBER_DOUBLE:

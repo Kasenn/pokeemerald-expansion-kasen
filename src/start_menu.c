@@ -724,7 +724,7 @@ static bool8 StartMenuBagCallback(void)
     return FALSE;
 }
 
-static bool8 StartMenuPokeNavCallback(void)
+static bool8 UNUSED StartMenuPokeNavCallback(void)
 {
     if (!gPaletteFade.active)
     {

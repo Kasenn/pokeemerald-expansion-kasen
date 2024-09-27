@@ -12,13 +12,29 @@ script SetTestFlag{
 }
 
 script TestMovementScript{
-    setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+    safefollow
     buffernumberstring(STR_VAR_1, VAR_TEMP_0)
-    msgbox("{STR_VAR_1}", MSGBOX_NPC)
+    if(var(VAR_TEMP_0) == 0){
+        msgbox("0", MSGBOX_NPC)
+    }
+    else{
+        msgbox("{STR_VAR_1}", MSGBOX_NPC)
+    }
     applymovement(OBJ_EVENT_ID_PLAYER, Walk3Up)
     waitmovement(0)
     addvar(VAR_TEMP_0, 1)
     release
+
+    // switch(var(VAR_TEMP_0)){
+    //     case 0:
+    //         const X = 0
+    //     case 1:
+    //         const X = 1
+    //     case 2:
+    //         const X = 2
+    //     case 3:
+    //         const X = 3
+    // }
 }
 
 const PLAYER = OBJ_EVENT_ID_PLAYER

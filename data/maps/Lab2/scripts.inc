@@ -199,6 +199,7 @@ TurnPlayer:
 	step_end
 
 Lab2_Intro::
+	safefollow
 	applymovement OBJ_EVENT_ID_PLAYER, Walk6Up
 	waitmovement 0
 	lockall
@@ -220,7 +221,10 @@ Lab2_HideRival::
 	goto_if_set FLAG_SYS_POKEMON_GET, Lab2_HideRival_2
 Lab2_HideRival_1:
 	compare VAR_PEARLWOOD_TOWN_STATE, 8
-	goto_if_eq Lab2_HideRival_4
+	goto_if_ge Lab2_HideRival_5
+Lab2_HideRival_4:
+	compare VAR_PEARLWOOD_TOWN_STATE, 8
+	goto_if_eq Lab2_HideRival_11
 	setflag FLAG_HIDE_LAB_RIVAL
 	return
 
@@ -231,9 +235,11 @@ Lab2_HideRival_2:
 	case 2, Lab2_HideRival_10
 	goto Lab2_HideRival_1
 
-Lab2_HideRival_4:
-	clearflag FLAG_HIDE_LAB_RIVAL
-	return
+Lab2_HideRival_5:
+	setobjectxyperm 1, 20, 0
+	setobjectxyperm 2, 20, 0
+	setobjectxyperm 3, 20, 0
+	goto Lab2_HideRival_4
 
 Lab2_HideRival_8:
 	setobjectxyperm 1, 20, 0
@@ -247,12 +253,17 @@ Lab2_HideRival_10:
 	setobjectxyperm 3, 20, 0
 	goto Lab2_HideRival_1
 
+Lab2_HideRival_11:
+	clearflag FLAG_HIDE_LAB_RIVAL
+	return
+
 
 Lab2_DexGet::
 	safefollow
 	applymovement OBJ_EVENT_ID_PLAYER, Walk6Up
 	waitmovement 0
-	lock
+	unlockfollowermovement
+	lockall
 	checkplayergender
 	compare VAR_RESULT, MALE
 	goto_if_eq Lab2_DexGet_2
@@ -283,6 +294,7 @@ Lab2_DexGet_7:
 	goto_if_eq Lab2_DexGet_11
 Lab2_DexGet_10:
 	closemessage
+	applymovement OBJ_EVENT_ID_FOLLOWER, Lab2FaceDown
 	applymovement OBJ_EVENT_ID_PLAYER, Lab2FaceDown
 	applymovement 5, Lab2_Movement_RivalExit1
 	waitmovement 0
@@ -291,6 +303,7 @@ Lab2_DexGet_10:
 	setvar VAR_PEARLWOOD_TOWN_STATE, 9
 	clearflag FLAG_ROUTE1_STATE
 	savebgm MUS_DUMMY
+	turnobject OBJ_EVENT_ID_FOLLOWER, DIR_NORTH
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	fadedefaultbgm
 	delay 25
@@ -460,6 +473,8 @@ Lab_BallMain::
 Lab_BallMain_7:
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_ROUTE1_STATE
+	setflag FLAG_HEAL_AFTER_BATTLE
+	setvar VAR_TEMP_5, 1
 	clearflag FLAG_BROTHER_PEARLFIGHT
 	setvar VAR_PEARLWOOD_TOWN_STATE, 5
 	msgbox Lab_BallMain_Text_3, MSGBOX_YESNO
@@ -497,6 +512,34 @@ Lab_BallMain_13:
 	call Common_EventScript_GetGiftMonPartySlot
 	call Common_EventScript_NameReceivedPartyMon
 	goto Lab_BallMain_12
+
+
+Lab_FollowerEvent2::
+	setflag FLAG_TEMP_10
+	goto Lab_FollowerEvent
+	return
+
+
+Lab_FollowerEvent::
+	safefollow
+	unlockfollowermovement
+	lockall
+	playse SE_PIN
+	goto_if_set FLAG_TEMP_10, Lab_FollowerEvent_2
+	turnobject 4, DIR_EAST
+Lab_FollowerEvent_1:
+	applymovement 4, ExclamationMark
+	waitmovement 0
+	delay 48
+	msgbox BirchSurprised
+	setvar VAR_TEMP_5, 0
+	clearflag FLAG_HEAL_AFTER_BATTLE
+	release
+	return
+
+Lab_FollowerEvent_2:
+	turnobject 4, DIR_NORTH
+	goto Lab_FollowerEvent_1
 
 
 Lab2_NoLeave::
@@ -736,6 +779,17 @@ Lab2_PresentingBalls::
 	.string "them as your own.\p"
 	.string "You may only choose one so make\n"
 	.string "sure you decide carefully!$"
+
+BirchSurprised::
+	.string "Prof. Birch: Oh my!\p"
+	.string "I knew these little fellas were\n"
+	.string "energetic, but I never expected one\l"
+	.string "to bust out of its ball like that!\p"
+	.string "Now that you two are partners,\n"
+	.string "I'm sure it will go back inside\l"
+	.string "its ball if you simply ask it nicely.\l"
+	.string "You can use the party menu to give\l"
+	.string "commands to your Pokémon.$"
 
 Lab2_NotChosen::
 	.string "Take your time.$"

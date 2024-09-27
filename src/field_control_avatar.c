@@ -177,7 +177,16 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         return TRUE;
 
     if (TryRunOnFrameMapScript() == TRUE)
+    {
+        // struct ObjectEvent *objEvent = GetFollowerObject();
+        // struct Sprite *sprite;
+        // UpdateFollowingPokemon();
+        // gObjectEvents[gPlayerAvatar.objectEventId].playerCopyableMovement = COPY_MOVE_WALK;
+        // objEvent->movementType = MOVEMENT_TYPE_FOLLOW_PLAYER;
+        // PlayerWalkNormal(GetPlayerFacingDirection());
+        // ObjectEventSetSingleMovement(objEvent, sprite, GetWalkNormalMovementAction(GetPlayerFacingDirection()));
         return TRUE;
+    }
 
     if (input->pressedBButton && TrySetupDiveEmergeScript() == TRUE)
         return TRUE;

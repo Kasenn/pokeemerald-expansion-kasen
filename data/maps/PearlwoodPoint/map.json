@@ -182,7 +182,7 @@
       "y": 22,
       "elevation": 0,
       "var": "VAR_PEARLWOOD_TOWN_STATE",
-      "var_value": "3",
+      "var_value": "2",
       "script": "Pearlwood_Point_NoPokemon2"
     }
   ],

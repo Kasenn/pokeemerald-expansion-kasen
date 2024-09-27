@@ -5,6 +5,7 @@
 #include "util.h"
 #include "constants/event_objects.h"
 #include "constants/map_scripts.h"
+#include "event_object_movement.h"
 
 #define RAM_SCRIPT_MAGIC 51
 
@@ -525,4 +526,11 @@ void AddVarToVar(void)
 void ScrCmd_safefollow()
 {
     FlagSet(FLAG_SAFE_FOLLOWER_MOVEMENT);
+    UpdateFollowingPokemon();
+    gObjectEvents[gPlayerAvatar.objectEventId].playerCopyableMovement = COPY_MOVE_WALK;
+}
+
+void ResetCopyableMovement()
+{
+    gObjectEvents[gPlayerAvatar.objectEventId].playerCopyableMovement = 0;
 }

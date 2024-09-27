@@ -388,6 +388,7 @@ BuffetComplete::
 	msgbox BuffetCompleted, MSGBOX_DEFAULT
 	setvar VAR_KAOLISLE_HOTEL_STATE, 11
 	checkitemspace ITEM_LEFTOVERS
+	clearflag FLAG_CONTINUE_AFTER_WHITEOUT
 	compare VAR_RESULT, FALSE
 	goto_if_eq BuffetComplete_2
 	waitse
@@ -422,6 +423,7 @@ BuffetLost2::
 	msgbox BuffetLost_Text, MSGBOX_DEFAULT
 	closemessage
 	special HealPlayerParty
+	callnative UpdateFollowingPokemon
 	clearflag FLAG_CONTINUE_AFTER_WHITEOUT
 	clearflag FLAG_SYSTEM_NOREWARDBATTLES
 	setvar VAR_KAOLISLE_HOTEL_STATE, 7

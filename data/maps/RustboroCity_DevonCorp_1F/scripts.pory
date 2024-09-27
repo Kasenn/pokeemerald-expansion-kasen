@@ -247,6 +247,30 @@ script CapsuleCorpCenter{
     release
 }
 
+script AutomaticUpdate{
+    if(var(VAR_DEBUG) == 8){
+        setvar(VAR_DEBUG, 9)
+        clearflag(FLAG_UNUSED_0x4E6)
+        clearflag(FLAG_UNUSED_0x4E7)
+        clearflag(FLAG_UNUSED_0x4E8)
+        msgbox(AutomaticUpdate_Text1)
+        callnative(DefaultFollower)
+        closemessage
+        release
+    }
+    return
+}
+
+text AutomaticUpdate_Text1{
+    "A new update has been applied.\p"
+    "Things included in this update:\p"
+    "1. Followers, as well as setting a\n"
+    "preferred follower from party screen.\p"
+    "2. An updated “Stats” page in the\n"
+    "start menu.\p"
+    "3. A lot of bug fixes."
+}
+
 script CheckSafeMovement{
     getfollowerxy(VAR_TEMP_0, VAR_TEMP_1)
     buffernumberstring(STR_VAR_1, VAR_TEMP_0)

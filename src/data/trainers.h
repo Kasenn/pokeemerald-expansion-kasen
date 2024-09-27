@@ -17,7 +17,6 @@
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_SALON_MAIDEN_ANABEL,
         .trainerName = _("Thomas"),
-        .items = {ITEM_POTION, ITEM_POTION},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Sawyer1),
@@ -29,7 +28,6 @@
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_SALON_MAIDEN_ANABEL,
         .trainerName = _("Thomas"),
-        .items = {ITEM_POTION, ITEM_POTION},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_GruntAquaHideout1),
@@ -41,7 +39,6 @@
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_SALON_MAIDEN_ANABEL,
         .trainerName = _("Thomas"),
-        .items = {ITEM_POTION, ITEM_POTION},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_GruntAquaHideout2),
@@ -3942,27 +3939,29 @@
         .party = TRAINER_PARTY(sParty_LeaderJasmine),
     },
 
-    [TRAINER_ALLEN] =
+    [TRAINER_LEADER_JASMINE_2] =
     {
-        .trainerClass = TRAINER_CLASS_YOUNGSTER,
+        .trainerClass = TRAINER_CLASS_KASEN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_YOUNGSTER,
-        .trainerName = _("ALLEN"),
+        .trainerPic = TRAINER_PIC_KASEN,
+        .trainerName = _("Kasen"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Allen),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_ACE_POKEMON,
+        .party = TRAINER_PARTY(sParty_LeaderJasmine2),
     },
-    [TRAINER_TIMMY] =
+    [TRAINER_KASEN] =
     {
-        .trainerClass = TRAINER_CLASS_YOUNGSTER,
+        .trainerClass = TRAINER_CLASS_KASEN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_YOUNGSTER,
-        .trainerName = _("TIMMY"),
+        .trainerPic = TRAINER_PIC_KASEN,
+        .trainerName = _("Kasen"),
+        .mugshotEnabled = TRUE,
+        .mugshotColor = MUGSHOT_COLOR_FLYING,
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Timmy),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_ACE_POKEMON,
+        .party = TRAINER_PARTY(sParty_Kasen),
     },
     [TRAINER_WALLACE] =
     {

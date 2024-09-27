@@ -86,6 +86,7 @@ script Pearlwood_BrotherFightMain{
     setflag(FLAG_CONTINUE_AFTER_WHITEOUT)
     playbgm(MUS_ENCOUNTER_MALE, FALSE)
     msgbox(Pearlwood_Brother_Intro)
+    setflag(FLAG_HEAL_AFTER_BATTLE)
     switch(var(VAR_STARTER_MON)){
         case 0:
             trainerbattle_no_intro(TRAINER_BROTHER1_ROWLET, Pearlwood_Brother_Outro)
@@ -146,6 +147,13 @@ script PearlwoodWon{
     //         msgbox("Link battle ran")
     // }
     if(var(VAR_RESULT) == B_OUTCOME_WON){
+        checkplayergender
+        if(var(VAR_RESULT) == MALE){
+            bufferstring(STR_VAR_1, "she")
+        }
+        else{
+            bufferstring(STR_VAR_1, "he")
+        }
         msgbox(PearlwoodBrotherPrize)
     }
 	else{
@@ -164,6 +172,7 @@ script PearlwoodWon{
 	waitmovement(0)
     removeobject(3)
     setvar(VAR_PEARLWOOD_TOWN_STATE, 6)
+    clearflag(FLAG_HEAL_AFTER_BATTLE)
     delay(30)
 	release
 }
@@ -193,14 +202,17 @@ text PlayerHouse1F_Apology{
 text PearlwoodBrotherPrize{
     "Hmph… I guess I should not\n"
     "have underestimated you.\p"
-    "Anyway, have you thought about what\n"
-    "you're going to do next?\p"
-    "If you're up for it, we should totally\n"
-    "see which of us is the better trainer\l"
-    "by taking on the Pokémon Gym Challenge!\p"
-    "Our neighbor {RIVAL} just set out this\n"
-    "morning so we better get moving or\l"
-    "we'll fall behind!\p"
+    "Anyway, have you thought about\n"
+    "what you're going to do next?\p"
+    "I talked with our neighbor {RIVAL}\n"
+    "and {STR_VAR_1} mentioned {STR_VAR_1} was going to\l"
+    "take on the Pokémon Gym Challenge.\p"
+    "We should take part on the challenge\n"
+    "as well and see which of us three\l"
+    "is the best trainer!\p"
+    "{RIVAL} set out just a few moments\n"
+    "ago, so we better get moving as well\l"
+    "or we'll fall behind!\p"
     "Don't know about you but I'm not\n"
     "content with a second place.\p"
     "Catch ya later!"

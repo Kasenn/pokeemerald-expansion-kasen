@@ -1,4 +1,4 @@
-mapscripts Lab2_MapScripts{
+mapscripts Lab2_MapScripts{ 
     MAP_SCRIPT_ON_TRANSITION: Lab2_HideRival
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_PEARLWOOD_TOWN_STATE, 2: Lab2_Intro
@@ -281,6 +281,7 @@ text ComeGetYourStoneLaterShort{
 }
 
 script Lab2_Intro{
+    safefollow
     applymovement(OBJ_EVENT_ID_PLAYER, Walk6Up)
     waitmovement(0)
     lockall
@@ -308,6 +309,11 @@ script Lab2_HideRival{
                 setobjectxyperm(3, 20, 0)
         }
     }
+    if(var(VAR_PEARLWOOD_TOWN_STATE) >= 8){
+        setobjectxyperm(1, 20, 0)
+        setobjectxyperm(2, 20, 0)
+        setobjectxyperm(3, 20, 0)
+    }
     if(var(VAR_PEARLWOOD_TOWN_STATE) == 8){
         clearflag(FLAG_HIDE_LAB_RIVAL)
     }
@@ -316,16 +322,11 @@ script Lab2_HideRival{
     }
 }
 script Lab2_DexGet{
-    // callnative(UpdateFollowingPokemon)
-    // setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
-    // turnobject(OBJ_EVENT_ID_FOLLOWER, DIR_NORTH)
-    // showobjectat(OBJ_EVENT_ID_FOLLOWER, MAP_LAB2)
     safefollow
     applymovement(OBJ_EVENT_ID_PLAYER, Walk6Up)
-    // delay(8)
-    // applymovement(OBJ_EVENT_ID_FOLLOWER, Walk5Up)
     waitmovement(0)
-    lock
+    unlockfollowermovement
+    lockall
     checkplayergender
     if(var(VAR_RESULT) == MALE){
         msgbox(Lab2_DexTalkMay)
@@ -357,6 +358,7 @@ script Lab2_DexGet{
         msgbox("Come on, let's go catch some Pokémon!")
     }
     closemessage
+    applymovement(OBJ_EVENT_ID_FOLLOWER, Lab2FaceDown)
 	applymovement(OBJ_EVENT_ID_PLAYER, Lab2FaceDown)
 	applymovement(5, Lab2_Movement_RivalExit1)
 	waitmovement(0)
@@ -365,6 +367,7 @@ script Lab2_DexGet{
     setvar(VAR_PEARLWOOD_TOWN_STATE, 9)
     clearflag(FLAG_ROUTE1_STATE)
 	savebgm(MUS_DUMMY)
+    turnobject(OBJ_EVENT_ID_FOLLOWER, DIR_NORTH)
     turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
 	fadedefaultbgm
     delay(25)
@@ -547,6 +550,8 @@ script Lab_BallMain{
     }
     setflag(FLAG_SYS_POKEMON_GET)
     setflag(FLAG_ROUTE1_STATE)
+    setflag(FLAG_HEAL_AFTER_BATTLE)
+    setvar(VAR_TEMP_5, 1)
     clearflag(FLAG_BROTHER_PEARLFIGHT)
     setvar(VAR_PEARLWOOD_TOWN_STATE, 5)
     msgbox("Do you want to give a nickname\nto your new Pokémon?", MSGBOX_YESNO)
@@ -557,6 +562,42 @@ script Lab_BallMain{
     }
     callnative(UpdateFollowingPokemon)
     release
+}
+script Lab_FollowerEvent2{
+    setflag(FLAG_TEMP_10)
+    goto(Lab_FollowerEvent)
+}
+
+script Lab_FollowerEvent{
+    safefollow
+    unlockfollowermovement
+    lockall
+    playse(SE_PIN)
+    if(flag(FLAG_TEMP_10)){
+        turnobject(4, DIR_NORTH)
+    }
+    else{
+        turnobject(4, DIR_EAST)
+    }
+    applymovement(4, ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    msgbox(BirchSurprised)
+    setvar(VAR_TEMP_5, 0)
+    clearflag(FLAG_HEAL_AFTER_BATTLE)
+    release
+}
+
+text BirchSurprised{
+    "Prof. Birch: Oh my!\p"
+    "I knew these little fellas were\n"
+    "energetic, but I never expected one\l"
+    "to bust out of its ball like that!\p"
+    "Now that you two are partners,\n"
+    "I'm sure it will go back inside\l"
+    "its ball if you simply ask it nicely.\l"
+    "You can use the party menu to give\l"
+    "commands to your Pokémon."
 }
 
 text Lab2_NotChosen{

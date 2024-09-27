@@ -1,0 +1,351 @@
+mapscripts Sandstone_LargeHouse3_4F_MapScripts {
+    
+}
+
+script DevFight{
+    lockall
+    faceplayer
+    if(defeated(TRAINER_KASEN)){
+        if(!flag(FLAG_DEV_REWARD)){
+            goto(GetDevReward)
+        }
+        else{
+            msgbox(FightDevGoodBattle, MSGBOX_NPC)
+            end
+        }
+    }
+    if(flag(FLAG_TEMP_1)){
+        msgbox(FightDevShort, MSGBOX_YESNO)
+    }
+    elif(flag(FLAG_TEMP_2)){
+        msgbox(FightDevTryAgain, MSGBOX_YESNO)
+    }
+    else{
+        msgbox(FightDev, MSGBOX_YESNO)
+    }
+    if(var(VAR_RESULT) == FALSE){
+        setflag(FLAG_TEMP_1)
+        msgbox(DevFightLater, MSGBOX_NPC)
+        end
+    }
+    else{
+        special(SavePlayerParty)
+        setpartylevel(50)
+        setflag(FLAG_CONTINUE_AFTER_WHITEOUT)
+        setflag(FLAG_SYSTEM_NOREWARDBATTLES)
+        setflag(FLAG_HEAL_AFTER_BATTLE)
+        special(HealPlayerParty)
+        msgbox(DevFightLetsBegin)
+        trainerbattle_no_intro(TRAINER_KASEN, KasenLoseText)
+        special(LoadPlayerParty)
+        clearflag(FLAG_CONTINUE_AFTER_WHITEOUT)
+        clearflag(FLAG_SYSTEM_NOREWARDBATTLES)
+        clearflag(FLAG_HEAL_AFTER_BATTLE)
+        if(var(VAR_RESULT) == B_OUTCOME_WON){
+            goto(GetDevReward)
+        }
+        else{
+            clearflag(FLAG_TEMP_1)
+            setflag(FLAG_TEMP_2)
+            msgbox(DevFightGoodAttempt, MSGBOX_NPC)
+        }
+        releaseall
+        end
+    }
+}
+
+script GetDevReward{
+    checkitemspace(ITEM_ABILITY_PATCH)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(NotEnoughRoom, MSGBOX_NPC)
+        end
+    }
+    msgbox(DevFightTakeReward)
+    giveitem(ITEM_ABILITY_PATCH)
+    waitfanfare
+    setflag(FLAG_DEV_REWARD)
+    msgbox(DevFightTakeTheseAsWell)
+    addbp(30)
+    playfanfare(MUS_OBTAIN_B_POINTS)
+    msgbox("Earned {STR_VAR_1} BP!", MSGBOX_DEFAULT)
+    waitfanfare
+    if(!flag(FLAG_INTRO_TO_BP)){
+        msgbox(ExplainBP, MSGBOX_DEFAULT)
+        setflag(FLAG_INTRO_TO_BP)
+    }
+    releaseall
+	end
+}
+
+text FightDevGoodBattle{
+    "That was a great battle."
+}
+text FightDevShort{
+    "So, are we ready?"
+}
+text FightDevTryAgain{
+    "What's this?\n"
+    "You want to try again?"
+}
+text FightDev{
+    "Why hello there.\p"
+    "My name is Kasen, and I'm\n"
+    "the developer of this game.\p"
+    "I'm surprised you managed to\n"
+    "find my place.\p"
+    "Since we're here, how about\n"
+    "a little Pokémon battle?\p"
+    "I must warn you, I've got a real\n"
+    "powerful team.\p"
+    "Also, for the duration of this battle,\n"
+    "all Pokémon will be scaled to level 50."
+}
+text DevFightLater{
+    "I understand.\p"
+    "You need time to prep,\n"
+    "is that it?\p"
+    "Feel free to use the PC next to the\n"
+    "bookcase to access your storage."
+}
+text DevFightLetsBegin{
+    "Splendid!\n"
+    "Here we go!"
+}
+text KasenLoseText{
+    "I can't believe I just lost.\n"
+    "Maybe I should've cheated…"
+}
+text DevFightGoodAttempt{
+    "That was a good attempt, but looks\n"
+    "like the winner this time was me."
+}
+text DevFightTakeReward{
+    "Well, you managed to beat me fair\n"
+    "and square.\p"
+    "I guess you want some kind of\n"
+    "reward now, is that it?\p"
+    "Hmm…\n"
+    "What to give…\p"
+    "Aha!\p"
+    "I'm sure this will come in handy!"
+}
+
+text DevFightTakeTheseAsWell{
+    "And take these as well."
+}
+
+script DevRoom_Boxes{
+    msgbox(DevRoom_Boxes_Text, MSGBOX_SIGN)
+    end
+}
+script DevRoom_PileOfBooks{
+    msgbox(DevRoom_PileOfBooks_Text, MSGBOX_SIGN)
+    end
+}
+script DevRoom_Books{
+    msgbox(DevRoom_Books_Text, MSGBOX_SIGN)
+    end
+}
+script DevRoom_LeftShelf{
+    msgbox(DevRoom_LeftShelf_Text, MSGBOX_SIGN)
+    end
+}
+script DevRoom_RightShelf{
+    msgbox(DevRoom_RightShelf_Text, MSGBOX_SIGN)
+    end
+}
+
+text DevRoom_Boxes_Text{
+    "It's a pile of unlabeled boxes."
+}
+text DevRoom_PileOfBooks_Text{
+    "It's a pile of books.\p"
+    "Probably not the best location\n"
+    "to store them…"
+}
+text DevRoom_Books_Text{
+    "There seems to be some sort of\n"
+    "notebooks strewn across the table."
+}
+text DevRoom_LeftShelf_Text{
+    "It's a bookshelf with a Torchic doll\n"
+    "on top."
+}
+text DevRoom_RightShelf_Text{
+    "It's a bookshelf with a Pikachu doll\n"
+    "on top."
+}
+
+script BerryWoman{
+    if(flag(FLAG_RECEIVED_SANDSTONE_BERRY)){
+        msgbox(AlreadyGaveABerry, MSGBOX_NPC)
+        end
+    }
+    safefollow
+    lockall
+    faceplayer
+    checkitem(ITEM_WAILMER_PAIL)
+    msgbox(ImTheBerryLady)
+    closemessage
+    if(var(VAR_RESULT) == TRUE){
+        playse(SE_PIN)
+        applymovement(1, ExclamationMark)
+        waitmovement(0)
+        delay(48)
+        msgbox(BerryLadyHaveABerry)
+        checkitemspace(ITEM_CHOPLE_BERRY)
+        if(var(VAR_RESULT) == FALSE){
+            msgbox(NotEnoughRoom, MSGBOX_NPC)
+            end
+        }
+        giveitem(ITEM_CHOPLE_BERRY)
+        waitfanfare
+        setflag(FLAG_RECEIVED_SANDSTONE_BERRY)
+    }
+    releaseall
+    end
+}
+
+text AlreadyGaveABerry{
+    "Rejuvenate the planet,\n"
+    "one tree at a time."
+}
+text ImTheBerryLady{
+    "Did you know that plants are the\n"
+    "lungs of this planet?\l"
+    "Keeping Mother Nature healthy\l"
+    "keeps us healthy."
+}
+text BerryLadyHaveABerry{
+    "Oh!\p"
+    "I see you are carrying a Wailmer Pail.\p"
+    "You must really care about nature\n"
+    "as well.\p"
+    "Why don't you try planting this in\n"
+    "a rich soil somewhere?"
+}
+
+script SandstoneLargehouse3_Woman{
+    msgbox(SandstoneLargehouse3_Woman_Text, MSGBOX_NPC)
+    end
+}
+
+script SandstoneLargehouse3_Man{
+    msgbox(SandstoneLargehouse3_Man_Text, MSGBOX_NPC)
+    end
+}
+
+text SandstoneLargehouse3_Woman_Text{
+    "We don't often get visitors here.\p"
+    "It's like people get lost\n"
+    "on the way here."
+}
+text SandstoneLargehouse3_Man_Text{
+    "To the east of the city lies route 13,\n"
+    "and beyond that, Galewind City.\p"
+    "In the past, people used Pokémon to\n"
+    "surf between the cities, but recently,\l"
+    "a massive sea bridge was built to\l"
+    "connect the cities together, making\l"
+    "the route much easier to traverse."
+}
+
+script SandstoneLargehouse3_Hiker{
+    msgbox(SandstoneLargehouse3_Hiker_Text, MSGBOX_NPC)
+    end
+}
+text SandstoneLargehouse3_Hiker_Text{
+    "Have you been to the desert?\p"
+    "In the past I was out there,\n"
+    "trying to uncover its secrets.\p"
+    "I believe we were real close to\n"
+    "uncovering something big, but then\l"
+    "an earthquake caused certain areas\l"
+    "to collapse, ruining all of our\l"
+    "progress."
+}
+
+script SandstoneLargehouse3_Book{
+    lockall
+    msgbox(SL3_Book_Intro, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == TRUE){
+        msgbox(SL3_Book_Part1, MSGBOX_YESNO)
+    }
+    if(var(VAR_RESULT) == TRUE){
+        msgbox(SL3_Book_Part2, MSGBOX_YESNO)
+    }
+    if(var(VAR_RESULT) == TRUE){
+        msgbox(SL3_Book_Part3, MSGBOX_YESNO)
+    }
+    if(var(VAR_RESULT) == TRUE){
+        msgbox(SL3_Book_Part4, MSGBOX_SIGN)
+    }
+    releaseall
+    end
+}
+
+text SL3_Book_Intro{
+    "It looks to be a journal written by\n"
+    "a member of a desert expedition team.\l"
+    "Would you like to read it?"
+}
+text SL3_Book_Part1{
+    "“Day 3 of the expedition.”\p"
+    "“We stumbled upon a cave we swear\n"
+    "wasn't here when we first arrived.\p"
+    "At a first glance, it seems like any\n"
+    "regular cave filled with Zubats.\l"
+    "Hardly something to write home about.\p"
+    "However, some of the expedition\n"
+    "members have reported feeling\l"
+    "something ominous emanating from\l"
+    "this cave.\l"
+    "I suggest we investigate it further.”\p"
+    "Keep reading?"
+}
+text SL3_Book_Part2{
+    "“Day 4 of the expedition.”\p"
+    "“This is certainly peculiar.\p"
+    "Maybe it's the fatigue playing tricks\n"
+    "on us, but I swear the boulders\l"
+    "in this cave have moved on their own.\p"
+    "It's simply impossible for any human\n"
+    "to move these, and none of the members\l"
+    "of the expedition have strong enough\l"
+    "Pokémon that could handle the heavy\l"
+    "lifting for them.\l"
+    "Something very strange is happening\l"
+    "here.”\p"
+    "Keep reading?"
+}
+text SL3_Book_Part3{
+    "“Day 7 of the expedition.”\p"
+    "“We've been investigating the cave\n"
+    "for a few days now.\p"
+    "If I didn't know better, I would say\n"
+    "this cave is either alive, or haunted.\p"
+    "Every time we enter, it seems as if\n"
+    "the boulders have moved around on\l"
+    "their own.\p"
+    "It's as if the cave itself is trying\n"
+    "to somehow communicate with us.\p"
+    "If that's the case, I wish it would\n"
+    "write on a piece of paper instead…”\p"
+    "Keep reading?"
+}
+text SL3_Book_Part4{
+    "“Day 11 of the expedition.”\p"
+    "“We were so close,\n"
+    "I could sense it!\p"
+    "We were this close to cracking the\n"
+    "secret of the cave when an earthquake\l"
+    "happened and forced us to evacuate\l"
+    "from the cave.\p"
+    "We tried going back for the cave\n"
+    "after the quakes had ended, but\l"
+    "the entrance was nowhere to be found.\p"
+    "It's almost as if the desert itself\n"
+    "wanted to keep the secret safe…”\p"
+    "The rest of the journal seems to\n"
+    "drivel on…"
+}

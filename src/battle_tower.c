@@ -3153,6 +3153,8 @@ void FillPartnerParty(u16 trainerId)
             SetMonData(&gPlayerParty[MULTI_PARTY_SIZE + i], MON_DATA_OT_GENDER, &j);
         }
     }
+    for (i = 0; i < 3; i++)
+        gPlayerParty[i + 3] = gPlayerParty[i];
 }
 
 bool32 RubyBattleTowerRecordToEmerald(struct RSBattleTowerRecord *src, struct EmeraldBattleTowerRecord *dst)

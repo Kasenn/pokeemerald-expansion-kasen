@@ -192,16 +192,16 @@ static const u8 *const sItemStorage_OptionDescriptions[] =
 static const struct MenuAction sPlayerPCMenuActions[] =
 {
     [MENU_ITEMSTORAGE] = { gText_ItemStorage, {PlayerPC_ItemStorage} },
-    [MENU_MAILBOX]     = { gText_Mailbox,     {PlayerPC_Mailbox} },
-    [MENU_DECORATION]  = { gText_Decoration,  {PlayerPC_Decoration} },
+    // [MENU_MAILBOX]     = { gText_Mailbox,     {PlayerPC_Mailbox} },
+    // [MENU_DECORATION]  = { gText_Decoration,  {PlayerPC_Decoration} },
     [MENU_TURNOFF]     = { gText_TurnOff,     {PlayerPC_TurnOff} }
 };
 
 static const u8 sBedroomPC_OptionOrder[] =
 {
     MENU_ITEMSTORAGE,
-    MENU_MAILBOX,
-    MENU_DECORATION,
+    // MENU_MAILBOX,
+    // MENU_DECORATION,
     MENU_TURNOFF
 };
 #define NUM_BEDROOM_PC_OPTIONS ARRAY_COUNT(sBedroomPC_OptionOrder)
@@ -252,7 +252,7 @@ static const struct WindowTemplate sWindowTemplates_MainMenus[] =
         .tilemapLeft = 1,
         .tilemapTop = 1,
         .width = 9,
-        .height = 8,
+        .height = 4,
         .paletteNum = 15,
         .baseBlock = 1
     },
@@ -455,7 +455,7 @@ static void PlayerPC_ItemStorage(u8 taskId)
     gTasks[taskId].func = ItemStorageMenuProcessInput;
 }
 
-static void PlayerPC_Mailbox(u8 taskId)
+static void UNUSED PlayerPC_Mailbox(u8 taskId)
 {
     gPlayerPCItemPageInfo.count = GetMailboxMailCount();
 
@@ -485,7 +485,7 @@ static void PlayerPC_Mailbox(u8 taskId)
     }
 }
 
-static void PlayerPC_Decoration(u8 taskId)
+static void UNUSED PlayerPC_Decoration(u8 taskId)
 {
     DoPlayerRoomDecorationMenu(taskId);
 }

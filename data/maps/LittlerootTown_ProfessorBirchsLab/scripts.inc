@@ -808,14 +808,14 @@ LittlerootTown_ProfessorBirchsLab_Text_BrendanWhereShouldIGoNext:
 
 LittlerootTown_ProfessorBirchsLab_Text_SeriousLookingMachine:
 	.string "It's a serious-looking machine.\n"
-	.string "The PROF must use this for research.$"
+	.string "The Prof must use this for research.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_PCUsedForResearch:
 	.string "It's a PC used for research.\n"
 	.string "Better not mess around with it.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_CrammedWithBooksOnPokemon:
-	.string "It's crammed with books on POKéMON.$"
+	.string "It's crammed with books on Pokémon.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BookTooHardToRead:
 	.string "It's a book that's too hard to read.$"

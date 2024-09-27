@@ -1,4 +1,5 @@
 STD_REVERB = 50
+MAX_REVERB = 90
 
 $(MID_BUILDDIR)/%.o: $(MID_SUBDIR)/%.s
 	$(AS) $(ASFLAGS) -I sound -o $@ $<
@@ -649,6 +650,9 @@ $(MID_SUBDIR)/mus_pwtlobby.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V104
 
 $(MID_SUBDIR)/mus_alola_e4.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(MAX_REVERB) -G193 -V089
+
+$(MID_SUBDIR)/mus_abw_rival.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V089
 
 $(MID_SUBDIR)/mus_muted.s: %.s: %.mid
@@ -665,6 +669,9 @@ $(MID_SUBDIR)/mus_happy.s: %.s: %.mid
 
 $(MID_SUBDIR)/mus_dp_vs_legend.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V089
+
+$(MID_SUBDIR)/mus_alola_e42.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(MAX_REVERB) -G193 -V089
 
 $(MID_SUBDIR)/ph_choice_blend.s: %.s: %.mid
 	$(MID) $< $@ -E -G130 -P4

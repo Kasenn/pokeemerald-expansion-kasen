@@ -5797,7 +5797,7 @@
       "width": 140,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Pacifidlog",
+      "secondary_tileset": "gTileset_CyclingRoad",
       "border_filepath": "data/layouts/Route13/border.bin",
       "blockdata_filepath": "data/layouts/Route13/map.bin"
     },
@@ -6650,6 +6650,66 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Route29/border.bin",
       "blockdata_filepath": "data/layouts/Route29/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE13ALTERNATIVE",
+      "name": "Route13Alternative_Layout",
+      "width": 140,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_CyclingRoad",
+      "border_filepath": "data/layouts/Route13Alternative/border.bin",
+      "blockdata_filepath": "data/layouts/Route13Alternative/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE13_GATE_HOUSE",
+      "name": "Route13_GateHouse_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/Route13_GateHouse/border.bin",
+      "blockdata_filepath": "data/layouts/Route13_GateHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSTONE_LARGE_HOUSE3_1F",
+      "name": "Sandstone_LargeHouse3_1F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Sandstone_LargeHouse3_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Sandstone_LargeHouse3_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSTONE_LARGE_HOUSE3_2F",
+      "name": "Sandstone_LargeHouse3_2F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Sandstone_LargeHouse3_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Sandstone_LargeHouse3_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSTONE_LARGE_HOUSE3_3F",
+      "name": "Sandstone_LargeHouse3_3F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Sandstone_LargeHouse3_3F/border.bin",
+      "blockdata_filepath": "data/layouts/Sandstone_LargeHouse3_3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSTONE_LARGE_HOUSE3_4F",
+      "name": "Sandstone_LargeHouse3_4F_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/Sandstone_LargeHouse3_4F/border.bin",
+      "blockdata_filepath": "data/layouts/Sandstone_LargeHouse3_4F/map.bin"
     }
   ]
 }

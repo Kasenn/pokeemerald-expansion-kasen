@@ -384,6 +384,7 @@ void Overworld_ResetStateAfterFly(void)
     FlagClear(FLAG_INCREASED_SHINY_ODDS);
     FlagClear(FLAG_SYSTEM_NOREWARDBATTLES);
     FlagClear(FLAG_PARTNER_HEALS);
+    FlagClear(FLAG_HEAL_AFTER_BATTLE);
     FlagClear(FLAG_DESERT_STEPS);
     VarSet(VAR_POKECENTER_TRAINING, 0);
 }
@@ -399,6 +400,7 @@ void Overworld_ResetStateAfterTeleport(void)
     FlagClear(FLAG_INCREASED_SHINY_ODDS);
     FlagClear(FLAG_SYSTEM_NOREWARDBATTLES);
     FlagClear(FLAG_PARTNER_HEALS);
+    FlagClear(FLAG_HEAL_AFTER_BATTLE);
     FlagClear(FLAG_DESERT_STEPS);
     VarSet(VAR_POKECENTER_TRAINING, 0);
     RunScriptImmediately(EventScript_ResetMrBriney);
@@ -415,6 +417,7 @@ void Overworld_ResetStateAfterDigEscRope(void)
     FlagClear(FLAG_INCREASED_SHINY_ODDS);
     FlagClear(FLAG_SYSTEM_NOREWARDBATTLES);
     FlagClear(FLAG_PARTNER_HEALS);
+    FlagClear(FLAG_HEAL_AFTER_BATTLE);
     FlagClear(FLAG_DESERT_STEPS);
     VarSet(VAR_POKECENTER_TRAINING, 0);
 }
@@ -443,6 +446,7 @@ void Overworld_ResetBattleFlagsAndVars(void)
     FlagClear(FLAG_INCREASED_SHINY_ODDS);
     FlagClear(FLAG_SYSTEM_NOREWARDBATTLES);
     FlagClear(FLAG_PARTNER_HEALS);
+    FlagClear(FLAG_HEAL_AFTER_BATTLE);
     FlagClear(FLAG_DESERT_STEPS);
     FlagClear(B_FLAG_DYNAMAX_BATTLE);
     FlagClear(B_FLAG_SKY_BATTLE);
@@ -1670,6 +1674,11 @@ void CB2_NewGame(void)
     SetFieldVBlankCallback();
     SetMainCallback1(CB1_Overworld);
     SetMainCallback2(CB2_Overworld);
+}
+
+void DefaultFollower(void)
+{
+    gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
 }
 
 void CB2_WhiteOut(void)

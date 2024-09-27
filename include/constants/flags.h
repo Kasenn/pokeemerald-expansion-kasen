@@ -1299,9 +1299,9 @@
 #define FLAG_VISITED_ROCKLIFFE                                           0x4E3 // 
 #define FLAG_OBTAINED_LUCARIONITE                                           0x4E4 // 
 #define FLAG_R13_ITEM1                                           0x4E5 // 
-#define FLAG_R13_ITEM2                                           0x4E6 // 
-#define FLAG_R13_ITEM3                                           0x4E7 // 
-#define FLAG_R13_ITEM4                                           0x4E8 // 
+#define FLAG_UNUSED_0x4E6                                           0x4E6 // 
+#define FLAG_UNUSED_0x4E7                                           0x4E7 // 
+#define FLAG_UNUSED_0x4E8                                           0x4E8 // 
 #define FLAG_FC_ITEM1                                           0x4E9 // 
 #define FLAG_FC_ITEM2                                           0x4EA // 
 #define FLAG_FC_ITEM3                                           0x4EB // 
@@ -1397,7 +1397,7 @@
 #define FLAG_SYS_CRUISE_MODE                        (SYSTEM_FLAGS + 0x2D)
 
 #define FLAG_DISABLE_FOLLOWER                           (SYSTEM_FLAGS + 0x2E) // 
-#define FLAG_UNUSED_0x88F                           (SYSTEM_FLAGS + 0x2F) // 
+#define FLAG_HEAL_AFTER_BATTLE                           (SYSTEM_FLAGS + 0x2F) // 
 
 #define FLAG_SYS_TV_HOME                            (SYSTEM_FLAGS + 0x30)
 #define FLAG_SYS_TV_WATCH                           (SYSTEM_FLAGS + 0x31)
@@ -1511,8 +1511,8 @@
 #define FLAG_LITWICK_CAUGHT                           (SYSTEM_FLAGS + 0x8D) // 
 #define FLAG_ACEROLA_ITEM                           (SYSTEM_FLAGS + 0x8E) // 
 #define FLAG_SYS_JOURNAL_GET                           (SYSTEM_FLAGS + 0x8F) // 
-#define FLAG_UNUSED_0x8F0                           (SYSTEM_FLAGS + 0x90) // 
-#define FLAG_UNUSED_0x8F1                           (SYSTEM_FLAGS + 0x91) // 
+#define FLAG_DEV_REWARD                           (SYSTEM_FLAGS + 0x90) // 
+#define FLAG_RECEIVED_SANDSTONE_BERRY                           (SYSTEM_FLAGS + 0x91) // 
 #define FLAG_UNUSED_0x8F2                           (SYSTEM_FLAGS + 0x92) // 
 #define FLAG_UNUSED_0x8F3                           (SYSTEM_FLAGS + 0x93) // 
 #define FLAG_UNUSED_0x8F4                           (SYSTEM_FLAGS + 0x94) // 
