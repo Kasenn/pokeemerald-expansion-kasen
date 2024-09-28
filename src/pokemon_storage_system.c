@@ -1595,6 +1595,7 @@ static void Task_PCMainMenu(u8 taskId)
             break;
         case MENU_B_PRESSED:
         case OPTION_EXIT:
+            PlaySE(SE_SELECT);
             ClearStdWindowAndFrame(task->tWindowId, TRUE);
             UnlockPlayerFieldControls();
             ScriptContext_Enable();

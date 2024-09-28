@@ -191,35 +191,44 @@ static const u8 *const sItemStorage_OptionDescriptions[] =
 
 static const struct MenuAction sPlayerPCMenuActions[] =
 {
-    [MENU_ITEMSTORAGE] = { gText_ItemStorage, {PlayerPC_ItemStorage} },
-    // [MENU_MAILBOX]     = { gText_Mailbox,     {PlayerPC_Mailbox} },
-    // [MENU_DECORATION]  = { gText_Decoration,  {PlayerPC_Decoration} },
+    [MENU_WITHDRAW] = { gText_WithdrawItem, {ItemStorage_Withdraw} },
+    [MENU_DEPOSIT]  = { gText_DepositItem,  {ItemStorage_Deposit} },
+    [MENU_TOSS]     = { gText_TossItem,     {ItemStorage_Toss} },
     [MENU_TURNOFF]     = { gText_TurnOff,     {PlayerPC_TurnOff} }
+};
+
+static const struct MenuAction sPlayerPCMenuActions2[] =
+{
+    [MENU_WITHDRAW] = { gText_WithdrawItem, {ItemStorage_Withdraw} },
+    [MENU_DEPOSIT]  = { gText_DepositItem,  {ItemStorage_Deposit} },
+    [MENU_TOSS]     = { gText_TossItem,     {ItemStorage_Toss} },
+    [MENU_TURNOFF]     = { gText_Cancel,     {PlayerPC_TurnOff} }
 };
 
 static const u8 sBedroomPC_OptionOrder[] =
 {
-    MENU_ITEMSTORAGE,
-    // MENU_MAILBOX,
-    // MENU_DECORATION,
+    MENU_WITHDRAW,
+    MENU_DEPOSIT,
+    MENU_TOSS,
     MENU_TURNOFF
 };
-#define NUM_BEDROOM_PC_OPTIONS ARRAY_COUNT(sBedroomPC_OptionOrder)
+#define NUM_BEDROOM_PC_OPTIONS 4
 
 static const u8 sPlayerPC_OptionOrder[] =
 {
-    MENU_ITEMSTORAGE,
-    MENU_MAILBOX,
-    MENU_TURNOFF
+    MENU_WITHDRAW,
+    MENU_DEPOSIT,
+    MENU_TOSS,
+    MENU_EXIT
 };
-#define NUM_PLAYER_PC_OPTIONS ARRAY_COUNT(sPlayerPC_OptionOrder)
+#define NUM_PLAYER_PC_OPTIONS 4
 
 static const struct MenuAction sItemStorage_MenuActions[] =
 {
     [MENU_WITHDRAW] = { gText_WithdrawItem, {ItemStorage_Withdraw} },
     [MENU_DEPOSIT]  = { gText_DepositItem,  {ItemStorage_Deposit} },
     [MENU_TOSS]     = { gText_TossItem,     {ItemStorage_Toss} },
-    [MENU_EXIT]     = { gText_Cancel,       {ItemStorage_Exit} }
+    [MENU_EXIT]     = { gText_Cancel,       {PlayerPC_TurnOff} }
 };
 
 static const u16 sNewGamePCItems[][2] =
@@ -243,7 +252,7 @@ static const struct WindowTemplate sWindowTemplates_MainMenus[] =
         .tilemapLeft = 1,
         .tilemapTop = 1,
         .width = 9,
-        .height = 6,
+        .height = 8,
         .paletteNum = 15,
         .baseBlock = 1
     },
@@ -252,7 +261,7 @@ static const struct WindowTemplate sWindowTemplates_MainMenus[] =
         .tilemapLeft = 1,
         .tilemapTop = 1,
         .width = 9,
-        .height = 4,
+        .height = 8,
         .paletteNum = 15,
         .baseBlock = 1
     },
@@ -405,7 +414,14 @@ static void InitPlayerPCMenu(u8 taskId)
     windowTemplate.width = GetMaxWidthInSubsetOfMenuTable(sPlayerPCMenuActions, sTopMenuOptionOrder, sTopMenuNumOptions);
     tWindowId = AddWindow(&windowTemplate);
     SetStandardWindowBorderStyle(tWindowId, FALSE);
-    PrintMenuActionTextsInUpperLeftCorner(tWindowId, sTopMenuNumOptions, sPlayerPCMenuActions, sTopMenuOptionOrder);
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PLAYER_HOUSE2F))
+    {
+        PrintMenuActionTextsInUpperLeftCorner(tWindowId, sTopMenuNumOptions, sPlayerPCMenuActions, sTopMenuOptionOrder);
+    }
+    else
+    {
+        PrintMenuActionTextsInUpperLeftCorner(tWindowId, sTopMenuNumOptions, sPlayerPCMenuActions2, sTopMenuOptionOrder);
+    }
     InitMenuInUpperLeftCornerNormal(tWindowId, sTopMenuNumOptions, 0);
     ScheduleBgCopyTilemapToVram(0);
     gTasks[taskId].func = PlayerPCProcessMenuInput;
@@ -492,12 +508,10 @@ static void UNUSED PlayerPC_Decoration(u8 taskId)
 
 static void PlayerPC_TurnOff(u8 taskId)
 {
-    if (sTopMenuNumOptions == NUM_BEDROOM_PC_OPTIONS) // Flimsy way to determine if Bedroom PC is in use
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PLAYER_HOUSE2F))
     {
-        if (gSaveBlock2Ptr->playerGender == MALE)
-            ScriptContext_SetupScript(LittlerootTown_BrendansHouse_2F_EventScript_TurnOffPlayerPC);
-        else
-            ScriptContext_SetupScript(LittlerootTown_MaysHouse_2F_EventScript_TurnOffPlayerPC);
+        ItemStorage_EraseMainMenu(taskId);
+        ScriptContext_SetupScript(LittlerootTown_BrendansHouse_2F_EventScript_TurnOffPlayerPC);
     }
     else
     {
@@ -513,13 +527,24 @@ static void InitItemStorageMenu(u8 taskId, u8 var)
 
     data = gTasks[taskId].data;
     windowTemplate = sWindowTemplates_MainMenus[WIN_ITEM_STORAGE_MENU];
-    windowTemplate.width = GetMaxWidthInMenuTable(sItemStorage_MenuActions, ARRAY_COUNT(sItemStorage_MenuActions));
-    tWindowId = AddWindow(&windowTemplate);
-    SetStandardWindowBorderStyle(tWindowId, FALSE);
-    PrintMenuTable(tWindowId, ARRAY_COUNT(sItemStorage_MenuActions), sItemStorage_MenuActions);
-    InitMenuInUpperLeftCornerNormal(tWindowId, ARRAY_COUNT(sItemStorage_MenuActions), var);
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PLAYER_HOUSE2F))
+    {
+        windowTemplate.width = GetMaxWidthInMenuTable(sPlayerPCMenuActions, ARRAY_COUNT(sPlayerPCMenuActions));
+        tWindowId = AddWindow(&windowTemplate);
+        SetStandardWindowBorderStyle(tWindowId, FALSE);
+        PrintMenuTable(tWindowId, ARRAY_COUNT(sPlayerPCMenuActions), sPlayerPCMenuActions);
+        InitMenuInUpperLeftCornerNormal(tWindowId, ARRAY_COUNT(sPlayerPCMenuActions), var);
+    }
+    else
+    {
+        windowTemplate.width = GetMaxWidthInMenuTable(sItemStorage_MenuActions, ARRAY_COUNT(sItemStorage_MenuActions));
+        tWindowId = AddWindow(&windowTemplate);
+        SetStandardWindowBorderStyle(tWindowId, FALSE);
+        PrintMenuTable(tWindowId, ARRAY_COUNT(sItemStorage_MenuActions), sItemStorage_MenuActions);
+        InitMenuInUpperLeftCornerNormal(tWindowId, ARRAY_COUNT(sItemStorage_MenuActions), var);
+    }
     ScheduleBgCopyTilemapToVram(0);
-    ItemStorageMenuPrint(sItemStorage_OptionDescriptions[var]);
+    ItemStorageMenuPrint(gText_WhatWouldYouLike);
 }
 
 static void ItemStorageMenuPrint(const u8 *textPtr)
@@ -540,7 +565,7 @@ static void ItemStorageMenuProcessInput(u8 taskId)
     {
     case MENU_NOTHING_CHOSEN:
         if (oldPos != newPos)
-            ItemStorageMenuPrint(sItemStorage_OptionDescriptions[newPos]);
+            ItemStorageMenuPrint(gText_WhatWouldYouLike);
         break;
     case MENU_B_PRESSED:
         PlaySE(SE_SELECT);
@@ -645,7 +670,17 @@ static void ItemStorage_Enter(u8 taskId, bool8 toss)
 static void ItemStorage_Exit(u8 taskId)
 {
     ItemStorage_EraseMainMenu(taskId);
-    ReshowPlayerPC(taskId);
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PLAYER_HOUSE2F)) // Flimsy way to determine if Bedroom PC is in use
+    {
+        ScriptContext_SetupScript(LittlerootTown_BrendansHouse_2F_EventScript_TurnOffPlayerPC);
+        DestroyTask(taskId);
+    }
+    else
+    {
+        ScriptContext_Enable();
+        DestroyTask(taskId);
+        // ReshowPlayerPC(taskId);//wip
+    }
 }
 
 // Used by Item Storage and the Mailbox
