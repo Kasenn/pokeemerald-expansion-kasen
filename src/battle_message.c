@@ -2121,8 +2121,8 @@ static const u8 *const sStatNamesTable2[] =
     gText_SpDef, gText_Defense, gText_Speed
 };
 
-const u8 gText_SafariBalls[] = _("{HIGHLIGHT DARK_GRAY}Safari Balls");
-const u8 gText_SafariBallLeft[] = _("{HIGHLIGHT DARK_GRAY}Left: $" "{HIGHLIGHT DARK_GRAY}");
+const u8 gText_SafariBalls[] = _("Safari Balls");
+const u8 gText_SafariBallLeft[] = _("Left: $" "");
 const u8 gText_Sleep[] = _("sleep");
 const u8 gText_Poison[] = _("poison");
 const u8 gText_Burn[] = _("burn");
@@ -2283,22 +2283,22 @@ static const struct BattleWindowText sTextOnWindowsInfo_Normal[] =
     [B_WIN_MSG] = {
         .fillValue = PIXEL_FILL(0xF),
         .fontId = FONT_NORMAL,
-        .x = 0,
+        .x = 2,
         .y = 1,
         .speed = 1,
-        .fgColor = 1,
+        .fgColor = 11,
         .bgColor = 15,
-        .shadowColor = 6,
+        .shadowColor = 7,
     },
     [B_WIN_ACTION_PROMPT] = {
         .fillValue = PIXEL_FILL(0xF),
         .fontId = FONT_NORMAL,
-        .x = 1,
+        .x = 2,
         .y = 1,
         .speed = 0,
-        .fgColor = 1,
+        .fgColor = 11,
         .bgColor = 15,
-        .shadowColor = 6,
+        .shadowColor = 7,
     },
     [B_WIN_ACTION_MENU] = {
         .fillValue = PIXEL_FILL(0xE),
@@ -3990,6 +3990,10 @@ void BattlePutTextOnWindow(const u8 *text, u8 windowId)
     printerTemplate.y = textInfo[windowId].y;
     printerTemplate.currentX = printerTemplate.x;
     printerTemplate.currentY = printerTemplate.y;
+    // if (windowId & B_WIN_MSG || windowId & B_WIN_ACTION_PROMPT)
+    // {
+    //     printerTemplate.currentX += 2;
+    // }
     printerTemplate.letterSpacing = textInfo[windowId].letterSpacing;
     printerTemplate.lineSpacing = textInfo[windowId].lineSpacing;
     printerTemplate.unk = 0;

@@ -2474,6 +2474,12 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                     ADJUST_SCORE(-10);
                 break;
             case MOVE_FORESTS_CURSE:
+                if (gBattleMons[battlerDef].status2 & STATUS2_CURSED
+                  || DoesPartnerHaveSameMoveEffect(BATTLE_PARTNER(battlerAtk), battlerDef, move, aiData->partnerMove))
+                    ADJUST_SCORE(-10);
+                else if (aiData->hpPercents[battlerAtk] <= 25)
+                    ADJUST_SCORE(-6);
+
                 if (IS_BATTLER_OF_TYPE(battlerDef, TYPE_GRASS) || PartnerMoveIsSameAsAttacker(BATTLE_PARTNER(battlerAtk), battlerDef, move, aiData->partnerMove) || GetActiveGimmick(battlerDef) == GIMMICK_TERA)
                     ADJUST_SCORE(-10);
                 break;

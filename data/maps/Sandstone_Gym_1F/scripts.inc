@@ -119,9 +119,25 @@ TurnLeft:
 	step_end
 
 SandstoneCheckpoint0::
-	setdynamicwarp MAP_SANDSTONE_GYM_1F, 8, 36
+	switch VAR_SANDSTONE_GYM_CHECKPOINTS
+	case 0, SandstoneCheckpoint0_3
+	case 1, SandstoneCheckpoint0_4
+	case 2, SandstoneCheckpoint0_5
+SandstoneCheckpoint0_1:
 	release
 	end
+
+SandstoneCheckpoint0_3:
+	setdynamicwarp MAP_SANDSTONE_GYM_1F, 8, 36
+	goto SandstoneCheckpoint0_1
+
+SandstoneCheckpoint0_4:
+	setdynamicwarp MAP_SANDSTONE_GYM_1F, 21, 9
+	goto SandstoneCheckpoint0_1
+
+SandstoneCheckpoint0_5:
+	setdynamicwarp MAP_SANDSTONE_GYM_1F, 36, 17
+	goto SandstoneCheckpoint0_1
 
 
 SandstoneCheckpoint1::

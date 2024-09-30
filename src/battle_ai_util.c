@@ -2412,6 +2412,18 @@ static u32 GetCurseDamage(u32 battlerId)
     return damage;
 }
 
+static u32 GetMegaExhaustionDamage(u32 battlerId)
+{
+    u32 damage = 0;
+    if (IsBattlerMegaEvolved(battlerId))
+    {
+        damage = GetNonDynamaxMaxHP(battlerId) / 6;
+        if (damage == 0)
+            damage = 1;
+    }
+    return damage;
+}
+
 static u32 GetTrapDamage(u32 battlerId)
 {
     // ai has no knowledge about turns remaining
@@ -2524,7 +2536,8 @@ u32 GetBattlerSecondaryDamage(u32 battlerId)
      + GetCurseDamage(battlerId)
      + GetTrapDamage(battlerId)
      + GetPoisonDamage(battlerId)
-     + GetWeatherDamage(battlerId);
+     + GetWeatherDamage(battlerId)
+     + GetMegaExhaustionDamage(battlerId);
 
     return secondaryDamage;
 }
@@ -3633,6 +3646,9 @@ static u32 IncreaseStatUpScoreInternal(u32 battlerAtk, u32 battlerDef, u32 statI
 
     // Don't increase stats if opposing battler has Opportunist
     if (AI_DATA->abilities[battlerDef] == ABILITY_OPPORTUNIST)
+        return NO_INCREASE;
+
+    if (IsBattlerMegaEvolved(battlerAtk))
         return NO_INCREASE;
 
     switch (statId)

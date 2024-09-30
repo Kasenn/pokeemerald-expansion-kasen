@@ -3941,10 +3941,10 @@
 
     [TRAINER_LEADER_JASMINE_2] =
     {
-        .trainerClass = TRAINER_CLASS_KASEN,
+        .trainerClass = TRAINER_CLASS_LEADER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_KASEN,
-        .trainerName = _("Kasen"),
+        .trainerPic = TRAINER_PIC_JASMINE,
+        .trainerName = _("Jasmine"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_ACE_POKEMON,

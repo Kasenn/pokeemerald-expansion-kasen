@@ -47,6 +47,7 @@
 #include "constants/battle_frontier.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "rtc.h"
 
 // Menu actions
 enum
@@ -82,6 +83,7 @@ bool8 (*gMenuCallback)(void);
 
 // EWRAM
 EWRAM_DATA static u8 sSafariBallsWindowId = 0;
+EWRAM_DATA static u8 sClockWindowId = 0;
 EWRAM_DATA static u8 sBattlePyramidFloorWindowId = 0;
 EWRAM_DATA static u8 sStartMenuCursorPos = 0;
 EWRAM_DATA static u8 sNumStartMenuActions = 0;
@@ -148,6 +150,16 @@ static const struct WindowTemplate sWindowTemplate_SafariBalls = {
     .tilemapTop = 1,
     .width = 9,
     .height = 8,
+    .paletteNum = 15,
+    .baseBlock = 0x8
+};
+
+static const struct WindowTemplate sWindowTemplate_Clock = {
+    .bg = 0,
+    .tilemapLeft = 1,
+    .tilemapTop = 1,
+    .width = 4,
+    .height = 2,
     .paletteNum = 15,
     .baseBlock = 0x8
 };
@@ -254,6 +266,7 @@ static void BuildBattlePikeStartMenu(void);
 static void BuildBattlePyramidStartMenu(void);
 static void BuildMultiPartnerRoomStartMenu(void);
 static void ShowSafariBallsWindow(void);
+static void ShowClockWindow(void);
 static void ShowPyramidFloorWindow(void);
 static void RemoveExtraStartMenuWindows(void);
 static bool32 PrintStartMenuActions(s8 *pIndex, u32 count);
@@ -457,6 +470,29 @@ static void ShowSafariBallsWindow(void)
     CopyWindowToVram(sSafariBallsWindowId, COPYWIN_GFX);
 }
 
+static const u8 gText_Zero[] = _("0");
+
+static void ShowClockWindow(void)
+{
+    sClockWindowId = AddWindow(&sWindowTemplate_Clock);
+    PutWindowTilemap(sClockWindowId);
+    DrawStdWindowFrame(sClockWindowId, FALSE);
+    // if(gLocalTime.hours < 10){
+    //     StringCopy(gStringVar1, gText_Zero);
+    // }
+    RtcCalcLocalTime();
+    ConvertIntToDecimalStringN(gStringVar2, gLocalTime.minutes, STR_CONV_MODE_LEADING_ZEROS, 2);
+    ConvertIntToDecimalStringN(gStringVar1, gLocalTime.hours, STR_CONV_MODE_RIGHT_ALIGN, 2);
+    // StringAppend(gStringVar1, gStringVar3);
+    // ConvertIntToDecimalStringN(gStringVar2, gLocalTime.minutes, STR_CONV_MODE_RIGHT_ALIGN, 2);
+    // StringCopy(gStringVar2, gStringVar3);
+
+    // ConvertIntToDecimalStringN(gStringVar3, sSafariZoneStepCounter, STR_CONV_MODE_RIGHT_ALIGN, 2);
+    StringExpandPlaceholders(gStringVar4, gText_Clock);
+    AddTextPrinterParameterized(sClockWindowId, FONT_NORMAL, gStringVar4, 3, 1, TEXT_SKIP_DRAW, NULL);
+    CopyWindowToVram(sClockWindowId, COPYWIN_GFX);
+}
+
 static void ShowPyramidFloorWindow(void)
 {
     if (gSaveBlock2Ptr->frontier.curChallengeBattleNum == FRONTIER_STAGES_PER_CHALLENGE)
@@ -480,10 +516,16 @@ static void RemoveExtraStartMenuWindows(void)
         CopyWindowToVram(sSafariBallsWindowId, COPYWIN_GFX);
         RemoveWindow(sSafariBallsWindowId);
     }
-    if (InBattlePyramid())
+    else if (InBattlePyramid())
     {
         ClearStdWindowAndFrameToTransparent(sBattlePyramidFloorWindowId, FALSE);
         RemoveWindow(sBattlePyramidFloorWindowId);
+    }
+    else
+    {
+        ClearStdWindowAndFrameToTransparent(sClockWindowId, FALSE);
+        CopyWindowToVram(sClockWindowId, COPYWIN_GFX);
+        RemoveWindow(sClockWindowId);
     }
 }
 
@@ -540,8 +582,10 @@ static bool32 InitStartMenuStep(void)
     case 3:
         if (GetSafariZoneFlag())
             ShowSafariBallsWindow();
-        if (InBattlePyramid())
+        else if (InBattlePyramid())
             ShowPyramidFloorWindow();
+        else
+            ShowClockWindow();
         sInitStartMenuData[0]++;
         break;
     case 4:

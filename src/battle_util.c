@@ -3039,7 +3039,7 @@ u8 DoBattlerEndTurnEffects(void)
             {
                 gBattlerTarget = battler;
                 if (IsBattlerMegaEvolved(gBattlerTarget))
-                    gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 7;
+                    gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 6;
                 if (gBattleMoveDamage == 0)
                     gBattleMoveDamage = 1;
                 BattleScriptExecute(BattleScript_MegaExhaustion);

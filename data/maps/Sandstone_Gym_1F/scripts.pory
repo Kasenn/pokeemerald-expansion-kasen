@@ -65,6 +65,7 @@ script SetSandstoneBike{
 }
 
 script ClearSandstoneBike{
+    
     clearflag(FLAG_SYS_CYCLING_ROAD)
     release
     end
@@ -101,7 +102,15 @@ movement TurnLeft{
 }
 
 script SandstoneCheckpoint0{
-    setdynamicwarp(MAP_SANDSTONE_GYM_1F, 8, 36)
+    switch(var(VAR_SANDSTONE_GYM_CHECKPOINTS)){
+        case 0:
+            setdynamicwarp(MAP_SANDSTONE_GYM_1F, 8, 36)
+        case 1:
+            setdynamicwarp(MAP_SANDSTONE_GYM_1F, 21, 9)
+        case 2:
+            setdynamicwarp(MAP_SANDSTONE_GYM_1F, 36, 17)
+    }
+    // setdynamicwarp(MAP_SANDSTONE_GYM_1F, 8, 36)
     release
     end
 }

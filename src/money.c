@@ -200,9 +200,12 @@ void HideMoneyBox(void)
 
 void AddMoneyLabelObject(u16 x, u16 y)
 {
+    u8 xToAdd = 0;
+    if (gSaveBlock2Ptr->optionsWindowFrameType == 20)
+        xToAdd = 2;
     LoadCompressedSpriteSheet(&sSpriteSheet_MoneyLabel);
     LoadCompressedSpritePalette(&sSpritePalette_MoneyLabel);
-    sMoneyLabelSpriteId = CreateSprite(&sSpriteTemplate_MoneyLabel, x, y, 0);
+    sMoneyLabelSpriteId = CreateSprite(&sSpriteTemplate_MoneyLabel, x + xToAdd, y, 0);
 }
 
 void RemoveMoneyLabelObject(void)
