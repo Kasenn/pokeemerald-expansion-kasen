@@ -3959,7 +3959,7 @@
         .mugshotEnabled = TRUE,
         .mugshotColor = MUGSHOT_COLOR_FLYING,
         .items = {},
-        .doubleBattle = FALSE,
+        .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_ACE_POKEMON,
         .party = TRAINER_PARTY(sParty_Kasen),
     },

@@ -48,6 +48,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "rtc.h"
+#include "graphics.h"
+#include "decompress.h"
 
 // Menu actions
 enum
@@ -94,6 +96,7 @@ EWRAM_DATA static u8 (*sSaveDialogCallback)(void) = NULL;
 EWRAM_DATA static u8 sSaveDialogTimer = 0;
 EWRAM_DATA static bool8 sSavingComplete = FALSE;
 EWRAM_DATA static u8 sSaveInfoWindowId = 0;
+EWRAM_DATA static u8 sTimeLabelSpriteId = 0;
 
 // Menu action callbacks
 static bool8 StartMenuPokedexCallback(void);
@@ -159,6 +162,16 @@ static const struct WindowTemplate sWindowTemplate_Clock = {
     .tilemapLeft = 1,
     .tilemapTop = 1,
     .width = 4,
+    .height = 2,
+    .paletteNum = 15,
+    .baseBlock = 0x8
+};
+
+static const struct WindowTemplate sWindowTemplate_Clock24H = {
+    .bg = 0,
+    .tilemapLeft = 1,
+    .tilemapTop = 1,
+    .width = 6,
     .height = 2,
     .paletteNum = 15,
     .baseBlock = 0x8
@@ -470,26 +483,114 @@ static void ShowSafariBallsWindow(void)
     CopyWindowToVram(sSafariBallsWindowId, COPYWIN_GFX);
 }
 
-static const u8 gText_Zero[] = _("0");
+
+
+#define TIME_LABEL_TAG 0x2722
+
+static const struct OamData sOamData_TimeLabel =
+{
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = ST_OAM_OBJ_NORMAL,
+    .mosaic = FALSE,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(32x16),
+    .x = 0,
+    .matrixNum = 0,
+    .size = SPRITE_SIZE(32x16),
+    .tileNum = 0,
+    .priority = 0,
+    .paletteNum = 0,
+    .affineParam = 0,
+};
+
+static const struct SpriteTemplate sSpriteTemplate_TimeLabel =
+{
+    .tileTag = TIME_LABEL_TAG,
+    .paletteTag = TIME_LABEL_TAG,
+    .oam = &sOamData_TimeLabel,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy
+};
+
+static const struct CompressedSpriteSheet sSpriteSheet_TimeLabel =
+{
+    .data = gTime_Gfx,
+    .size = 256,
+    .tag = TIME_LABEL_TAG,
+};
+
+static const struct CompressedSpritePalette sSpritePalette_TimeLabel [2] =
+{
+    {
+    .data = gTime_PalMale,
+    .tag = TIME_LABEL_TAG
+    },
+    {
+    .data = gTime_PalFemale,
+    .tag = TIME_LABEL_TAG
+    }
+};
+
+static void AddTimeLabelObject(u16 x, u16 y)
+{
+    u8 xToAdd = 0;
+    if (gSaveBlock2Ptr->optionsWindowFrameType == 20)
+        xToAdd = 2;
+    LoadCompressedSpriteSheet(&sSpriteSheet_TimeLabel);
+    if(gSaveBlock2Ptr->playerGender == MALE)
+        LoadCompressedSpritePalette(&sSpritePalette_TimeLabel[0]);
+    else
+        LoadCompressedSpritePalette(&sSpritePalette_TimeLabel[1]);
+    sTimeLabelSpriteId = CreateSprite(&sSpriteTemplate_TimeLabel, x + xToAdd, y, 0);
+}
 
 static void ShowClockWindow(void)
 {
-    sClockWindowId = AddWindow(&sWindowTemplate_Clock);
-    PutWindowTilemap(sClockWindowId);
-    DrawStdWindowFrame(sClockWindowId, FALSE);
-    // if(gLocalTime.hours < 10){
-    //     StringCopy(gStringVar1, gText_Zero);
-    // }
-    RtcCalcLocalTime();
-    ConvertIntToDecimalStringN(gStringVar2, gLocalTime.minutes, STR_CONV_MODE_LEADING_ZEROS, 2);
-    ConvertIntToDecimalStringN(gStringVar1, gLocalTime.hours, STR_CONV_MODE_RIGHT_ALIGN, 2);
-    // StringAppend(gStringVar1, gStringVar3);
-    // ConvertIntToDecimalStringN(gStringVar2, gLocalTime.minutes, STR_CONV_MODE_RIGHT_ALIGN, 2);
-    // StringCopy(gStringVar2, gStringVar3);
+    u8 hours = gLocalTime.hours;
+    u8 minutes = gLocalTime.minutes;
+    u8 timeFormat = gSaveBlock2Ptr->optionsTimeFormat;
+    bool8 isPM = FALSE;
 
-    // ConvertIntToDecimalStringN(gStringVar3, sSafariZoneStepCounter, STR_CONV_MODE_RIGHT_ALIGN, 2);
-    StringExpandPlaceholders(gStringVar4, gText_Clock);
-    AddTextPrinterParameterized(sClockWindowId, FONT_NORMAL, gStringVar4, 3, 1, TEXT_SKIP_DRAW, NULL);
+    if (timeFormat == OPTIONS_12H_FORMAT)
+    {
+        if (hours > 12)
+        {
+            isPM = TRUE;
+            hours -= 12;
+        }
+        else if (hours == 12)
+        {
+            isPM = TRUE;
+        }
+        else if (hours == 0)
+        {
+            hours = 12;
+        }
+    }
+    PutWindowTilemap(sClockWindowId);               //wip, maybe move these
+    DrawStdWindowFrame(sClockWindowId, FALSE);      //
+    RtcCalcLocalTime();                             //
+    ConvertIntToDecimalStringN(gStringVar2, minutes, STR_CONV_MODE_LEADING_ZEROS, 2);
+    ConvertIntToDecimalStringN(gStringVar1, hours, STR_CONV_MODE_RIGHT_ALIGN, 2);
+    if (timeFormat == OPTIONS_24H_FORMAT)
+    {
+        StringExpandPlaceholders(gStringVar4, gText_Clock);
+    }
+    else
+    {
+        if(isPM)
+        {
+            StringExpandPlaceholders(gStringVar4, gText_ClockPM);
+        }
+        else
+        {
+            StringExpandPlaceholders(gStringVar4, gText_ClockAM);
+        }
+    }
+    AddTextPrinterParameterized(sClockWindowId, FONT_NORMAL, gStringVar4, 3, 2, TEXT_SKIP_DRAW, NULL);
     CopyWindowToVram(sClockWindowId, COPYWIN_GFX);
 }
 
@@ -521,8 +622,9 @@ static void RemoveExtraStartMenuWindows(void)
         ClearStdWindowAndFrameToTransparent(sBattlePyramidFloorWindowId, FALSE);
         RemoveWindow(sBattlePyramidFloorWindowId);
     }
-    else
+    else if (VarGet(VAR_PEARLWOOD_TOWN_STATE) > 5)
     {
+        DestroySpriteAndFreeResources(&gSprites[sTimeLabelSpriteId]);
         ClearStdWindowAndFrameToTransparent(sClockWindowId, FALSE);
         CopyWindowToVram(sClockWindowId, COPYWIN_GFX);
         RemoveWindow(sClockWindowId);
@@ -584,8 +686,18 @@ static bool32 InitStartMenuStep(void)
             ShowSafariBallsWindow();
         else if (InBattlePyramid())
             ShowPyramidFloorWindow();
-        else
+        else if (VarGet(VAR_PEARLWOOD_TOWN_STATE) > 5)
+        {
+            if (gSaveBlock2Ptr->optionsTimeFormat == OPTIONS_24H_FORMAT)
+            {
+                sClockWindowId = AddWindow(&sWindowTemplate_Clock);
+            }
+            else
+            {
+                sClockWindowId = AddWindow(&sWindowTemplate_Clock24H);
+            }
             ShowClockWindow();
+        }
         sInitStartMenuData[0]++;
         break;
     case 4:
@@ -595,6 +707,8 @@ static bool32 InitStartMenuStep(void)
     case 5:
         sStartMenuCursorPos = InitMenuNormal(GetStartMenuWindowId(), FONT_NORMAL, 0, 9, 16, sNumStartMenuActions, sStartMenuCursorPos);
         CopyWindowToVram(GetStartMenuWindowId(), COPYWIN_MAP);
+        if (VarGet(VAR_PEARLWOOD_TOWN_STATE) > 5)
+            AddTimeLabelObject(19, 9);
         return TRUE;
     }
 
@@ -647,6 +761,7 @@ void Task_ShowStartMenu(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
 
+    // ShowClockWindow();
     switch(task->data[0])
     {
     case 0:
@@ -677,6 +792,7 @@ void ShowStartMenu(void)
 
 static bool8 HandleStartMenuInput(void)
 {
+    ShowClockWindow();
     if (JOY_NEW(DPAD_UP))
     {
         PlaySE(SE_SELECT);
@@ -1099,6 +1215,7 @@ static bool8 SaveErrorTimer(void)
 
 static u8 SaveConfirmSaveCallback(void)
 {
+    RemoveExtraStartMenuWindows();
     ClearStdWindowAndFrame(GetStartMenuWindowId(), FALSE);
     RemoveStartMenuWindow();
     ShowSaveInfoWindow();

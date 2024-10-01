@@ -5,6 +5,7 @@ Sandstone_Pokecenter_1F_MapScripts::
 
 Sandstone_Pokecenter_1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 	map_script_2 VAR_DEBUG, 8, AutomaticUpdate
+	map_script_2 VAR_DEBUG, 9, AutomaticUpdate2
 	.2byte 0
 
 

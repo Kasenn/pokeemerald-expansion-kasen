@@ -2,6 +2,7 @@ mapscripts Sandstone_Pokecenter_1F_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: SandstonePokeCenter1F_OnTransition
     MAP_SCRIPT_ON_FRAME_TABLE[
         VAR_DEBUG, 8: AutomaticUpdate
+        VAR_DEBUG, 9: AutomaticUpdate2
     ]
 	// MAP_SCRIPT_ON_RESUME: CableClub_OnResume
 }

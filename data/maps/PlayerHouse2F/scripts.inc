@@ -71,7 +71,6 @@ Player2FSetClock_1:
 	fadescreen FADE_TO_BLACK
 	special StartWallClock
 	waitstate
-	delay 30
 	setvar VAR_PEARLWOOD_TOWN_STATE, 1
 	setflag FLAG_SET_WALL_CLOCK
 	release

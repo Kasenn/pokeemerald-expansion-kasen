@@ -1689,6 +1689,9 @@ const u32 gShopMenu_Gfx[] = INCBIN_U32("graphics/shop/menu.4bpp.lz");
 const u32 gShopMenu_Pal[] = INCBIN_U32("graphics/shop/menu.gbapal.lz");
 const u32 gShopMenu_Tilemap[] = INCBIN_U32("graphics/shop/menu.bin.lz");
 const u32 gShopMenuMoney_Gfx[] = INCBIN_U32("graphics/shop/money.4bpp.lz");
+const u32 gTime_Gfx[] = INCBIN_U32("graphics/shop/time.4bpp.lz");
+const u32 gTime_PalMale[] = INCBIN_U32("graphics/shop/time_male.gbapal.lz");
+const u32 gTime_PalFemale[] = INCBIN_U32("graphics/shop/time_female.gbapal.lz");
 const u32 gShopMenu_Tilemap_MoveTutor[] = INCBIN_U32("graphics/shop/menu2.bin.lz");
 const u32 gShopMenu_Gfx_MoveTutor[] = INCBIN_U32("graphics/shop/menu2.4bpp.lz");
 
@@ -1885,6 +1888,7 @@ const u32 gEasyChatWindow_Tilemap[] = INCBIN_U32("graphics/easy_chat/window.bin.
 
 const u16 gWallClockMale_Pal[]      = INCBIN_U16("graphics/wallclock/male.gbapal");
 const u16 gWallClockFemale_Pal[]    = INCBIN_U16("graphics/wallclock/female.gbapal");
+const u16 gWallClockTime_Pal[]    = INCBIN_U16("graphics/wallclock/time.gbapal");
 const u32 gWallClock_Gfx[]          = INCBIN_U32("graphics/wallclock/clock.4bpp.lz");
 const u32 gWallClockStart_Tilemap[] = INCBIN_U32("graphics/wallclock/clock_start.bin.lz");
 const u32 gWallClockView_Tilemap[]  = INCBIN_U32("graphics/wallclock/clock_view.bin.lz");

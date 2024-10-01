@@ -178,6 +178,7 @@ extern const u8 gText_MixingRecords[];
 extern const u8 gText_RecordMixingComplete[];
 extern const u8 gText_EmptyString2[];
 extern const u8 gText_Confirm3[];
+extern const u8 gText_Display[];
 extern const u8 gText_Cancel4[];
 extern const u8 gText_IsThisTheCorrectTime[];
 extern const u8 gText_PkmnFainted_FldPsn[];
@@ -268,6 +269,8 @@ extern const u8 gText_Peak[];
 extern const u8 gText_SafariBallStock[];
 extern const u8 gText_BattlePyramidFloor[];
 extern const u8 gText_Clock[];
+extern const u8 gText_ClockPM[];
+extern const u8 gText_ClockAM[];
 
 extern const u8 gText_MenuOptionPokedex[];
 extern const u8 gText_MenuOptionPokemon[];

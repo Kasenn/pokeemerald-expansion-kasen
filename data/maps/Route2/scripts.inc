@@ -260,7 +260,7 @@ Route8_Sign2_Text::
 	.string "and some of these events are\l"
 	.string "recorded in the Trainer Info.\p"
 	.string "To see statistics of certain events,\n"
-	.string "press the START-button and head to\l"
+	.string "press the START button and head to\l"
 	.string "the “Stats” screen.\p"
 	.string "To view even more detailed statistics,\n"
 	.string "press the A-button.$"

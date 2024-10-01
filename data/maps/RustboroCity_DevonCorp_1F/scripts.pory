@@ -248,17 +248,15 @@ script CapsuleCorpCenter{
 }
 
 script AutomaticUpdate{
-    if(var(VAR_DEBUG) == 8){
-        setvar(VAR_DEBUG, 9)
-        clearflag(FLAG_UNUSED_0x4E6)
-        clearflag(FLAG_UNUSED_0x4E7)
-        clearflag(FLAG_UNUSED_0x4E8)
-        msgbox(AutomaticUpdate_Text1)
-        callnative(DefaultFollower)
-        closemessage
-        release
-    }
-    return
+    setvar(VAR_DEBUG, 9)
+    clearflag(FLAG_UNUSED_0x4E6)
+    clearflag(FLAG_UNUSED_0x4E7)
+    clearflag(FLAG_UNUSED_0x4E8)
+    msgbox(AutomaticUpdate_Text1)
+    callnative(DefaultFollower)
+    closemessage
+    release
+    end
 }
 
 text AutomaticUpdate_Text1{
@@ -269,6 +267,32 @@ text AutomaticUpdate_Text1{
     "2. An updated “Stats” page in the\n"
     "start menu.\p"
     "3. A lot of bug fixes."
+}
+
+script AutomaticUpdate2{
+    setvar(VAR_DEBUG, 10)
+    msgbox(AutomaticUpdate_Text2, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == TRUE){
+        checkplayergender
+        if(var(VAR_RESULT) == MALE){
+            setvar(VAR_0x8004, MALE)
+        }
+        else{
+            setvar(VAR_0x8004, FEMALE)
+        }
+        fadescreen (FADE_TO_BLACK)
+	    special (StartWallClock)
+	    waitstate
+    }
+    release
+    end
+}
+
+text AutomaticUpdate_Text2{
+    "Update: You have obtained a watch.\p"
+    "You can now check the time by\n"
+    "pressing the START button.\p"
+    "Would you like to re-set the clock?"
 }
 
 script CheckSafeMovement{

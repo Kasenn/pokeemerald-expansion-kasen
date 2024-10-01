@@ -303,12 +303,6 @@ CapsuleCorpCenter::
 
 
 AutomaticUpdate::
-	compare VAR_DEBUG, 8
-	goto_if_eq AutomaticUpdate_2
-AutomaticUpdate_1:
-	return
-
-AutomaticUpdate_2:
 	setvar VAR_DEBUG, 9
 	clearflag FLAG_UNUSED_0x4E6
 	clearflag FLAG_UNUSED_0x4E7
@@ -317,7 +311,32 @@ AutomaticUpdate_2:
 	callnative DefaultFollower
 	closemessage
 	release
-	goto AutomaticUpdate_1
+	end
+
+
+AutomaticUpdate2::
+	setvar VAR_DEBUG, 10
+	msgbox AutomaticUpdate_Text2, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
+	goto_if_eq AutomaticUpdate2_2
+AutomaticUpdate2_1:
+	release
+	end
+
+AutomaticUpdate2_2:
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq AutomaticUpdate2_5
+	setvar VAR_0x8004, FEMALE
+AutomaticUpdate2_4:
+	fadescreen FADE_TO_BLACK
+	special StartWallClock
+	waitstate
+	goto AutomaticUpdate2_1
+
+AutomaticUpdate2_5:
+	setvar VAR_0x8004, MALE
+	goto AutomaticUpdate2_4
 
 
 CheckSafeMovement::
@@ -874,6 +893,12 @@ AutomaticUpdate_Text1::
 	.string "2. An updated “Stats” page in the\n"
 	.string "start menu.\p"
 	.string "3. A lot of bug fixes.$"
+
+AutomaticUpdate_Text2::
+	.string "Update: You have obtained a watch.\p"
+	.string "You can now check the time by\n"
+	.string "pressing the START button.\p"
+	.string "Would you like to re-set the clock?$"
 
 ChooseRange_Text::
 	.string "Choose spell range.$"

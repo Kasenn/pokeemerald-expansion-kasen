@@ -179,6 +179,7 @@ extern const u32 gDecorIconPalette_RegisteelDoll[];
 extern const u32 gWallClock_Gfx[];
 extern const u16 gWallClockMale_Pal[];
 extern const u16 gWallClockFemale_Pal[];
+extern const u16 gWallClockTime_Pal[];
 extern const u32 gWallClockStart_Tilemap[];
 extern const u32 gWallClockView_Tilemap[];
 
@@ -2042,6 +2043,9 @@ extern const u32 gShopMenu_Gfx[];
 extern const u32 gShopMenu_Tilemap[];
 extern const u32 gShopMenu_Pal[];
 extern const u32 gShopMenuMoney_Gfx[];
+extern const u32 gTime_Gfx[];
+extern const u32 gTime_PalMale[];
+extern const u32 gTime_PalFemale[];
 extern const u32 gShopMenu_Gfx_MoveTutor[];
 extern const u32 gShopMenu_Tilemap_MoveTutor[];
 

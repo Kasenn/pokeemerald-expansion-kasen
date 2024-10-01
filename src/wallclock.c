@@ -20,6 +20,7 @@
 #include "window.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "string_util.h"
 
 static void CB2_WallClock(void);
 static void Task_SetClock_WaitFadeIn(u8 taskId);
@@ -55,6 +56,12 @@ static void SpriteCB_AMIndicator(struct Sprite *sprite);
 #define PALTAG_WALL_CLOCK_MALE   0x1000
 #define PALTAG_WALL_CLOCK_FEMALE 0x1001
 
+static const u8 sClockTextColors[] = {
+    TEXT_COLOR_WHITE,
+    TEXT_COLOR_DARK_GRAY,
+    TEXT_COLOR_LIGHT_GRAY
+};
+
 enum {
     PERIOD_AM,
     PERIOD_PM,
@@ -68,7 +75,10 @@ enum {
 
 enum {
     WIN_MSG,
-    WIN_BUTTON_LABEL,
+    WIN_BUTTON_LABEL_A,
+    WIN_BUTTON_LABEL_B,
+    WIN_TIME,
+    WIN_AMPM,
 };
 
 static const u32 sHand_Gfx[] = INCBIN_U32("graphics/wallclock/hand.4bpp.lz");
@@ -85,14 +95,41 @@ static const struct WindowTemplate sWindowTemplates[] =
         .paletteNum = 14,
         .baseBlock = 512
     },
-    [WIN_BUTTON_LABEL] = {
+    [WIN_BUTTON_LABEL_A] = {
         .bg = 2,
         .tilemapLeft = 24,
-        .tilemapTop = 16,
+        .tilemapTop = 15,
         .width = 6,
         .height = 2,
         .paletteNum = 12,
         .baseBlock = 560
+    },
+    [WIN_BUTTON_LABEL_B] = {
+        .bg = 2,
+        .tilemapLeft = 23,
+        .tilemapTop = 17,
+        .width = 6,
+        .height = 2,
+        .paletteNum = 12,
+        .baseBlock = 582
+    },
+    [WIN_TIME] = {
+        .bg = 2,
+        .tilemapLeft = 13,
+        .tilemapTop = 13,
+        .width = 4,
+        .height = 2,
+        .paletteNum = 3,
+        .baseBlock = 572
+    },
+    [WIN_AMPM] = {
+        .bg = 2,
+        .tilemapLeft = 17,
+        .tilemapTop = 14,
+        .width = 2,
+        .height = 1,
+        .paletteNum = 3,
+        .baseBlock = 580
     },
     DUMMY_WIN_TEMPLATE
 };
@@ -653,6 +690,7 @@ static void LoadWallClockGraphics(void)
 
     LoadPalette(GetOverworldTextboxPalettePtr(), BG_PLTT_ID(14), PLTT_SIZE_4BPP);
     LoadPalette(sTextPrompt_Pal, BG_PLTT_ID(12), PLTT_SIZEOF(4));
+    LoadPalette(gWallClockTime_Pal, BG_PLTT_ID(3), PLTT_SIZE_4BPP);
     ResetBgsAndClearDma3BusyFlags(0);
     InitBgsFromTemplates(0, sBgTemplates, ARRAY_COUNT(sBgTemplates));
     InitWindows(sWindowTemplates);
@@ -666,6 +704,60 @@ static void LoadWallClockGraphics(void)
     FreeAllSpritePalettes();
     LoadCompressedSpriteSheet(&sSpriteSheet_ClockHand);
     LoadSpritePalettes(sSpritePalettes_Clock);
+}
+
+static const u8 sText_ClockPM[] = _("{UP_P}{UP_M}");
+static const u8 sText_ClockAM[] = _("{UP_A}{UP_M}");
+
+static void ShowWallClockTime(u8 taskId)
+{
+    u8 hours;
+    bool8 isPM = FALSE;
+
+    if (gSaveBlock2Ptr->optionsTimeFormat == OPTIONS_24H_FORMAT)
+    {
+        hours = gTasks[taskId].tHours;
+    }
+    else
+    {
+        if (gTasks[taskId].tHours > 12)
+        {
+            isPM = TRUE;
+            hours = gTasks[taskId].tHours - 12;
+        }
+        else if (gTasks[taskId].tHours == 0)
+        {
+            hours = 12;
+        }
+        else if (gTasks[taskId].tHours == 12)
+        {
+            isPM = TRUE;
+            hours = 12;
+        }
+        else
+        {
+            hours = gTasks[taskId].tHours;
+        }
+    }
+
+    ConvertIntToDecimalStringN(gStringVar2, gTasks[taskId].tMinutes, STR_CONV_MODE_LEADING_ZEROS, 2);
+    ConvertIntToDecimalStringN(gStringVar1, hours, STR_CONV_MODE_RIGHT_ALIGN, 2);
+    StringExpandPlaceholders(gStringVar4, gText_Clock);
+
+    if (gSaveBlock2Ptr->optionsTimeFormat == OPTIONS_12H_FORMAT)
+    {
+        if (isPM)
+        {
+            AddTextPrinterParameterized3(WIN_AMPM, FONT_NORMAL, 5, 0, sClockTextColors, 0, sText_ClockPM);
+        }
+        else
+        {
+            AddTextPrinterParameterized3(WIN_AMPM, FONT_NORMAL, 5, 0, sClockTextColors, 0, sText_ClockAM);
+        }
+    }
+    AddTextPrinterParameterized3(WIN_TIME, FONT_NORMAL, 2, 0, sClockTextColors, 0, gStringVar4);
+    PutWindowTilemap(WIN_TIME);
+    PutWindowTilemap(WIN_AMPM);
 }
 
 static void WallClockInit(void)
@@ -710,18 +802,37 @@ void CB2_StartWallClock(void)
     gSprites[spriteId].oam.affineMode = ST_OAM_AFFINE_NORMAL;
     gSprites[spriteId].oam.matrixNum = 1;
 
-    spriteId = CreateSprite(&sSpriteTemplate_PM, 120, 80, 2);
-    gSprites[spriteId].sTaskId = taskId;
-    gSprites[spriteId].data[1] = 45;
+    // spriteId = CreateSprite(&sSpriteTemplate_PM, 120, 80, 2);
+    // gSprites[spriteId].sTaskId = taskId;
+    // gSprites[spriteId].data[1] = 45;
 
-    spriteId = CreateSprite(&sSpriteTemplate_AM, 120, 80, 2);
-    gSprites[spriteId].sTaskId = taskId;
-    gSprites[spriteId].data[1] = 90;
+    // spriteId = CreateSprite(&sSpriteTemplate_AM, 120, 80, 2);
+    // gSprites[spriteId].sTaskId = taskId;
+    // gSprites[spriteId].data[1] = 90;
 
     WallClockInit();
 
-    AddTextPrinterParameterized(WIN_BUTTON_LABEL, FONT_NORMAL, gText_Confirm3, 0, 1, 0, NULL);
-    PutWindowTilemap(WIN_BUTTON_LABEL);
+    // ConvertIntToDecimalStringN(gStringVar2, gTasks[taskId].tMinutes, STR_CONV_MODE_LEADING_ZEROS, 2);
+    // ConvertIntToDecimalStringN(gStringVar1, gTasks[taskId].tHours, STR_CONV_MODE_LEADING_ZEROS, 2);
+    // StringExpandPlaceholders(gStringVar4, gText_Clock);
+// 
+    AddTextPrinterParameterized(WIN_BUTTON_LABEL_A, FONT_NORMAL, gText_Confirm3, 0, 1, 0, NULL);
+    PutWindowTilemap(WIN_BUTTON_LABEL_A);
+    AddTextPrinterParameterized(WIN_BUTTON_LABEL_B, FONT_NORMAL, gText_Display, 0, 1, 0, NULL);
+    PutWindowTilemap(WIN_BUTTON_LABEL_B);
+
+        // u8 color[3];
+        // color[0] = 0;
+        // color[1] = 14;
+        // color[2] = 15;
+
+        // AddTextPrinterParameterized4(WIN_TIME, FONT_SMALL, 0, 0, 0, 0, color, 1, gStringVar4);
+    
+    // AddTextPrinterParameterized3(WIN_TIME, FONT_NORMAL, 2, 0, sClockTextColors, 0, gStringVar4);
+        // AddTextPrinterParameterized(WIN_TIME, FONT_SMALL, gStringVar4, 2, 0, 0, NULL);
+    ShowWallClockTime(taskId);
+
+    // PutWindowTilemap(WIN_TIME);
     ScheduleBgCopyTilemapToVram(2);
 }
 
@@ -729,24 +840,24 @@ void CB2_ViewWallClock(void)
 {
     u8 taskId;
     u8 spriteId;
-    u8 angle1;
-    u8 angle2;
+    // u8 angle1;
+    // u8 angle2;
 
     LoadWallClockGraphics();
     LZ77UnCompVram(gWallClockView_Tilemap, (u16 *)BG_SCREEN_ADDR(7));
 
     taskId = CreateTask(Task_ViewClock_WaitFadeIn, 0);
     InitClockWithRtc(taskId);
-    if (gTasks[taskId].tPeriod == PERIOD_AM)
-    {
-        angle1 = 45;
-        angle2 = 90;
-    }
-    else
-    {
-        angle1 = 90;
-        angle2 = 135;
-    }
+    // if (gTasks[taskId].tPeriod == PERIOD_AM)
+    // {
+    //     angle1 = 45;
+    //     angle2 = 90;
+    // }
+    // else
+    // {
+    //     angle1 = 90;
+    //     angle2 = 135;
+    // }
 
     spriteId = CreateSprite(&sSpriteTemplate_MinuteHand, 120, 80, 1);
     gSprites[spriteId].sTaskId = taskId;
@@ -758,18 +869,20 @@ void CB2_ViewWallClock(void)
     gSprites[spriteId].oam.affineMode = ST_OAM_AFFINE_NORMAL;
     gSprites[spriteId].oam.matrixNum = 1;
 
-    spriteId = CreateSprite(&sSpriteTemplate_PM, 120, 80, 2);
-    gSprites[spriteId].sTaskId = taskId;
-    gSprites[spriteId].data[1] = angle1;
+    // spriteId = CreateSprite(&sSpriteTemplate_PM, 120, 80, 2);
+    // gSprites[spriteId].sTaskId = taskId;
+    // gSprites[spriteId].data[1] = angle1;
 
-    spriteId = CreateSprite(&sSpriteTemplate_AM, 120, 80, 2);
-    gSprites[spriteId].sTaskId = taskId;
-    gSprites[spriteId].data[1] = angle2;
+    // spriteId = CreateSprite(&sSpriteTemplate_AM, 120, 80, 2);
+    // gSprites[spriteId].sTaskId = taskId;
+    // gSprites[spriteId].data[1] = angle2;
 
     WallClockInit();
-
-    AddTextPrinterParameterized(WIN_BUTTON_LABEL, FONT_NORMAL, gText_Cancel4, 0, 1, 0, NULL);
-    PutWindowTilemap(WIN_BUTTON_LABEL);
+    ShowWallClockTime(taskId);
+    AddTextPrinterParameterized(WIN_BUTTON_LABEL_A, FONT_NORMAL, gText_Display, 0, 1, 0, NULL);
+    PutWindowTilemap(WIN_BUTTON_LABEL_A);
+    AddTextPrinterParameterized(WIN_BUTTON_LABEL_B, FONT_NORMAL, gText_Cancel4, 0, 1, 0, NULL);
+    PutWindowTilemap(WIN_BUTTON_LABEL_B);
     ScheduleBgCopyTilemapToVram(2);
 }
 
@@ -804,6 +917,23 @@ static void Task_SetClock_HandleInput(u8 taskId)
         {
             gTasks[taskId].func = Task_SetClock_AskConfirm;
         }
+        if (JOY_NEW(B_BUTTON))
+        {
+            PlaySE(SE_SELECT);
+            if (gSaveBlock2Ptr->optionsTimeFormat == OPTIONS_12H_FORMAT)
+            {
+                gSaveBlock2Ptr->optionsTimeFormat = OPTIONS_24H_FORMAT;
+            }
+            else
+            {
+                gSaveBlock2Ptr->optionsTimeFormat = OPTIONS_12H_FORMAT;
+            }
+            ClearStdWindowAndFrameToTransparent(WIN_TIME, FALSE);
+            ClearWindowTilemap(WIN_TIME);
+            ClearStdWindowAndFrameToTransparent(WIN_AMPM, TRUE);
+            ClearWindowTilemap(WIN_AMPM);
+            ShowWallClockTime(taskId);
+        }
         else
         {
             gTasks[taskId].tMoveDir = MOVE_NONE;
@@ -821,6 +951,13 @@ static void Task_SetClock_HandleInput(u8 taskId)
 
                 gTasks[taskId].tMinuteHandAngle = CalcNewMinHandAngle(gTasks[taskId].tMinuteHandAngle, gTasks[taskId].tMoveDir, gTasks[taskId].tMoveSpeed);
                 AdvanceClock(taskId, gTasks[taskId].tMoveDir);
+                ShowWallClockTime(taskId);
+                // ConvertIntToDecimalStringN(gStringVar2, gTasks[taskId].tMinutes, STR_CONV_MODE_LEADING_ZEROS, 2);
+                // ConvertIntToDecimalStringN(gStringVar1, gTasks[taskId].tHours, STR_CONV_MODE_LEADING_ZEROS, 2);
+                // StringExpandPlaceholders(gStringVar4, gText_Clock);
+                // AddTextPrinterParameterized3(WIN_TIME, FONT_NORMAL, 2, 0, sClockTextColors, 0, gStringVar4);
+                // AddTextPrinterParameterized(WIN_TIME, FONT_SMALL, gStringVar4, 2, 0, 0, NULL);
+                // PutWindowTilemap(WIN_TIME);
             }
             else
             {
@@ -880,11 +1017,32 @@ static void Task_ViewClock_WaitFadeIn(u8 taskId)
         gTasks[taskId].func = Task_ViewClock_HandleInput;
 }
 
-static void Task_ViewClock_HandleInput(u8 taskId)
+static void Task_ViewClock_HandleInput(u8 taskId)//wip
 {
     InitClockWithRtc(taskId);
-    if (JOY_NEW(A_BUTTON | B_BUTTON))
+    if (JOY_NEW(A_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        if (gSaveBlock2Ptr->optionsTimeFormat == OPTIONS_12H_FORMAT)
+        {
+            gSaveBlock2Ptr->optionsTimeFormat = OPTIONS_24H_FORMAT;
+        }
+        else
+        {
+            gSaveBlock2Ptr->optionsTimeFormat = OPTIONS_12H_FORMAT;
+        }
+        ClearStdWindowAndFrameToTransparent(WIN_TIME, FALSE);
+        ClearWindowTilemap(WIN_TIME);
+        ClearStdWindowAndFrameToTransparent(WIN_AMPM, TRUE);
+        ClearWindowTilemap(WIN_AMPM);
+        ShowWallClockTime(taskId);
+    }
+    else if (JOY_NEW(B_BUTTON))
         gTasks[taskId].func = Task_ViewClock_FadeOut;
+    else
+    {
+        ShowWallClockTime(taskId);
+    }
 }
 
 static void Task_ViewClock_FadeOut(u8 taskId)
@@ -949,8 +1107,6 @@ static bool32 AdvanceClock(u8 taskId, u8 direction)
                 gTasks[taskId].tHours--;
             else
                 gTasks[taskId].tHours = 23;
-
-            UpdateClockPeriod(taskId, direction);
         }
         break;
     case MOVE_FORWARD:
@@ -966,15 +1122,13 @@ static bool32 AdvanceClock(u8 taskId, u8 direction)
                 gTasks[taskId].tHours++;
             else
                 gTasks[taskId].tHours = 0;
-
-            UpdateClockPeriod(taskId, direction);
         }
         break;
     }
     return FALSE;
 }
 
-static void UpdateClockPeriod(u8 taskId, u8 direction)
+static void UNUSED UpdateClockPeriod(u8 taskId, u8 direction)
 {
     u8 hours = gTasks[taskId].tHours;
     switch (direction)
