@@ -76,10 +76,40 @@ static const struct CompressedSpriteSheet sSpriteSheets_HealthBar[MAX_BATTLERS_C
     {gBlankGfxCompressed, 0x0120, TAG_HEALTHBAR_OPPONENT2_TILE}
 };
 
-const struct SpritePalette sSpritePalettes_HealthBoxHealthBar[2] =
+const struct SpritePalette sSpritePalettes_HealthBoxHealthBar[][2] =
 {
+    [0] = {
     {gBattleInterface_BallStatusBarPal, TAG_HEALTHBOX_PAL},
     {gBattleInterface_BallDisplayPal, TAG_HEALTHBAR_PAL}
+    },
+    [1] = {
+    {gBattleInterface_BallStatusBarPal2, TAG_HEALTHBOX_PAL},
+    {gBattleInterface_BallDisplayPal, TAG_HEALTHBAR_PAL}
+    },
+    [2] = {
+    {gBattleInterface_BallStatusBarPal3, TAG_HEALTHBOX_PAL},
+    {gBattleInterface_BallDisplayPal, TAG_HEALTHBAR_PAL}
+    },
+    [3] = {
+    {gBattleInterface_BallStatusBarPal4, TAG_HEALTHBOX_PAL},
+    {gBattleInterface_BallDisplayPal, TAG_HEALTHBAR_PAL}
+    },
+    [4] = {
+    {gBattleInterface_BallStatusBarPal5, TAG_HEALTHBOX_PAL},
+    {gBattleInterface_BallDisplayPal, TAG_HEALTHBAR_PAL}
+    },
+    [5] = {
+    {gBattleInterface_BallStatusBarPal6, TAG_HEALTHBOX_PAL},
+    {gBattleInterface_BallDisplayPal, TAG_HEALTHBAR_PAL}
+    },
+    [6] = {
+    {gBattleInterface_BallStatusBarPal7, TAG_HEALTHBOX_PAL},
+    {gBattleInterface_BallDisplayPal, TAG_HEALTHBAR_PAL}
+    },
+    [7] = {
+    {gBattleInterface_BallStatusBarPal8, TAG_HEALTHBOX_PAL},
+    {gBattleInterface_BallDisplayPal, TAG_HEALTHBAR_PAL}
+    }
 };
 
 // code
@@ -675,9 +705,10 @@ void BattleLoadAllHealthBoxesGfxAtOnce(void)
 {
     u8 numberOfBattlers = 0;
     u8 i;
+    u16 color = gSaveBlock2Ptr->battleInterfaceColor;
 
-    LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[0]);
-    LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[1]);
+    LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[color][0]);
+    LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[color][1]);
     if (!IsDoubleBattle())
     {
         LoadCompressedSpriteSheet(&sSpriteSheet_SinglesPlayerHealthbox);
@@ -699,13 +730,14 @@ void BattleLoadAllHealthBoxesGfxAtOnce(void)
 bool8 BattleLoadAllHealthBoxesGfx(u8 state)
 {
     bool8 retVal = FALSE;
+    u16 color = gSaveBlock2Ptr->battleInterfaceColor;
 
     if (state != 0)
     {
         if (state == 1)
         {
-            LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[0]);
-            LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[1]);
+            LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[color][0]);
+            LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[color][1]);
             LoadIndicatorSpritesGfx();
             CategoryIcons_LoadSpritesGfx();
         }

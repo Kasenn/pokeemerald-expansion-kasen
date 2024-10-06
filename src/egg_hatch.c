@@ -487,8 +487,21 @@ static void Task_EggHatch(u8 taskId)
     }
 }
 
+static const u32 *const sBattleTextboxColor[] =
+{
+    gBattleTextboxPalette,
+    gBattleTextboxPalette2,
+    gBattleTextboxPalette3,
+    gBattleTextboxPalette4,
+    gBattleTextboxPalette5,
+    gBattleTextboxPalette6,
+    gBattleTextboxPalette7,
+    gBattleTextboxPalette8,
+};
+
 static void CB2_LoadEggHatch(void)
 {
+    u16 color = gSaveBlock2Ptr->battleInterfaceColor;
     switch (gMain.state)
     {
     case 0:
@@ -532,7 +545,7 @@ static void CB2_LoadEggHatch(void)
     case 2:
         DecompressAndLoadBgGfxUsingHeap(0, gBattleTextboxTiles, 0, 0, 0);
         CopyToBgTilemapBuffer(0, gBattleTextboxTilemap, 0, 0);
-        LoadCompressedPalette(gBattleTextboxPalette, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
+        LoadCompressedPalette(sBattleTextboxColor[color], BG_PLTT_ID(0), PLTT_SIZE_4BPP);
         gMain.state++;
         break;
     case 3:

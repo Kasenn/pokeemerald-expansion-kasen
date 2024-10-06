@@ -841,7 +841,7 @@ static void AnimTask_FlashHealthboxOnLevelUp_Step(u8 taskId)
             if (gTasks[taskId].data[2] > 16)
                 gTasks[taskId].data[2] = 16;
 
-            paletteOffset = OBJ_PLTT_ID(paletteNum);
+            paletteOffset = OBJ_PLTT_ID(paletteNum) - 3;
             BlendPalette(paletteOffset + colorOffset, 1, gTasks[taskId].data[2], RGB(20, 27, 31));
             if (gTasks[taskId].data[2] == 16)
                 gTasks[taskId].data[1]++;
@@ -851,7 +851,7 @@ static void AnimTask_FlashHealthboxOnLevelUp_Step(u8 taskId)
             if (gTasks[taskId].data[2] < 0)
                 gTasks[taskId].data[2] = 0;
 
-            paletteOffset = OBJ_PLTT_ID(paletteNum);
+            paletteOffset = OBJ_PLTT_ID(paletteNum) - 1;
             BlendPalette(paletteOffset + colorOffset, 1, gTasks[taskId].data[2], RGB(20, 27, 31));
             if (gTasks[taskId].data[2] == 0)
                 DestroyAnimVisualTask(taskId);

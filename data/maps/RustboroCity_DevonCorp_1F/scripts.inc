@@ -320,6 +320,7 @@ AutomaticUpdate2::
 	compare VAR_RESULT, TRUE
 	goto_if_eq AutomaticUpdate2_2
 AutomaticUpdate2_1:
+	msgbox AutomaticUpdate_Text3, MSGBOX_SIGN
 	release
 	end
 
@@ -897,8 +898,28 @@ AutomaticUpdate_Text1::
 AutomaticUpdate_Text2::
 	.string "Update: You have obtained a watch.\p"
 	.string "You can now check the time by\n"
-	.string "pressing the START button.\p"
+	.string "pressing the START button and can\l"
+	.string "toggle between 12-hour and 24-hour\l"
+	.string "modes through the options menu or\l"
+	.string "by viewing a wall clock.\p"
 	.string "Would you like to re-set the clock?$"
+
+AutomaticUpdate_Text3::
+	.string "There are also many new window frames\n"
+	.string "available in the options menu.\p"
+	.string "There is now also a separate color\n"
+	.string "switcher for the battle interface,\l"
+	.string "as well as an ability to change\l"
+	.string "window frames during battle.\p"
+	.string "To cycle between colors, hold the\n"
+	.string "START button during battle and press\l"
+	.string "left and right on the d-pad.\p"
+	.string "To change window frames, hold the\n"
+	.string "START button and press up and down\l"
+	.string "on the d-pad.\p"
+	.string "The toggle between health numbers\n"
+	.string "and bars in double battles has been\l"
+	.string "moved to SELECT button.$"
 
 ChooseRange_Text::
 	.string "Choose spell range.$"

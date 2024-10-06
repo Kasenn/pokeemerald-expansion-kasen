@@ -120,6 +120,17 @@ PearlwoodWon_9:
 	msgbox PlayerHouse1F_Apology
 PearlwoodWon_1:
 	closemessage
+	playse SE_PIN
+	applymovement 3, ExclamationMark
+	waitmovement 0
+	delay 48
+	msgbox BrotherWatch
+	playfanfare MUS_OBTAIN_ITEM
+	message ObtainedWatch
+	waitfanfare
+	msgbox ViewClock
+	msgbox BrotherGoodbye
+	closemessage
 	clearflag FLAG_CONTINUE_AFTER_WHITEOUT
 	applymovement 3, Walk5Down
 	waitmovement 0
@@ -205,6 +216,21 @@ Pearlwood_Brother_Intro::
 Pearlwood_Brother_Outro::
 	.string "Of course you picked THAT one!$"
 
+BrotherWatch::
+	.string "Oh!\p"
+	.string "Before I leave, there's something\n"
+	.string "I meant to give you.$"
+
+ObtainedWatch::
+	.string "{PLAYER} obtained a wristwatch!$"
+
+ViewClock::
+	.string "{COLOR RED}{SHADOW LIGHT_RED}You can now view the time by\n"
+	.string "pressing the START button!$"
+
+BrotherGoodbye::
+	.string "{BROTHER}: Catch ya later!$"
+
 PlayerHouse1F_Apology::
 	.string "{BROTHER}: Sorry about that.\n"
 	.string "I knew that with my experience it was\l"
@@ -223,8 +249,7 @@ PlayerHouse1F_Apology::
 	.string "ago, so we better get moving as well\l"
 	.string "or we'll fall behind!\p"
 	.string "Don't know about you but I'm not\n"
-	.string "content with a second place.\p"
-	.string "Catch ya later!$"
+	.string "content with a second place.$"
 
 PearlwoodBrotherPrize::
 	.string "Hmph… I guess I should not\n"
@@ -241,8 +266,7 @@ PearlwoodBrotherPrize::
 	.string "ago, so we better get moving as well\l"
 	.string "or we'll fall behind!\p"
 	.string "Don't know about you but I'm not\n"
-	.string "content with a second place.\p"
-	.string "Catch ya later!$"
+	.string "content with a second place.$"
 
 Pearlwood_Point_FatMan_Text::
 	.string "The weather is so calm here despite\n"

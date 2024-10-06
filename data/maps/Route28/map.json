@@ -233,6 +233,14 @@
       "elevation": 0,
       "item": "ITEM_GREAT_BALL",
       "flag": "FLAG_ROUTE28_HIDDENBALL"
+    },
+    {
+      "type": "sign",
+      "x": 18,
+      "y": 42,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route28_Sign"
     }
   ]
 }

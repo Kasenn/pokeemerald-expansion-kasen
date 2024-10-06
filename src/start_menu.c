@@ -537,7 +537,7 @@ static const struct CompressedSpritePalette sSpritePalette_TimeLabel [2] =
 static void AddTimeLabelObject(u16 x, u16 y)
 {
     u8 xToAdd = 0;
-    if (gSaveBlock2Ptr->optionsWindowFrameType == 20)
+    if (gSaveBlock2Ptr->optionsWindowFrameType >= 20)
         xToAdd = 2;
     LoadCompressedSpriteSheet(&sSpriteSheet_TimeLabel);
     if(gSaveBlock2Ptr->playerGender == MALE)
@@ -792,7 +792,9 @@ void ShowStartMenu(void)
 
 static bool8 HandleStartMenuInput(void)
 {
-    ShowClockWindow();
+    if (VarGet(VAR_PEARLWOOD_TOWN_STATE) > 5)
+        ShowClockWindow();
+
     if (JOY_NEW(DPAD_UP))
     {
         PlaySE(SE_SELECT);

@@ -45,6 +45,10 @@
 #include "level_caps.h"
 #include "menu.h"
 #include "pokemon_summary_screen.h"
+#include "graphics.h"
+#include "text_window.h"
+#include "gpu_regs.h"
+#include "decompress.h"
 
 static void PlayerBufferExecCompleted(u32 battler);
 static void PlayerHandleLoadMonSprite(u32 battler);
@@ -101,6 +105,95 @@ static void Task_UpdateLvlInHealthbox(u8);
 static void PrintLinkStandbyMsg(void);
 
 static void ReloadMoveNames(u32 battler);
+
+static const u16 *const sHealthBoxColor[] =
+{
+    gBattleInterface_BallStatusBarPal,
+    gBattleInterface_BallStatusBarPal2, //gBattleInterface_BallStatusBarPal2,
+    gBattleInterface_BallStatusBarPal3, //gBattleInterface_BallStatusBarPal3,
+    gBattleInterface_BallStatusBarPal4, //gBattleInterface_BallStatusBarPal4,
+    gBattleInterface_BallStatusBarPal5, //gBattleInterface_BallStatusBarPal5,
+    gBattleInterface_BallStatusBarPal6, //gBattleInterface_BallStatusBarPal6,
+    gBattleInterface_BallStatusBarPal7, //gBattleInterface_BallStatusBarPal7,
+    gBattleInterface_BallStatusBarPal8, //gBattleInterface_BallStatusBarPal8,
+};
+
+static const u32 *const sBattleTextboxColor[] =
+{
+    gBattleTextboxPalette,
+    gBattleTextboxPalette2,
+    gBattleTextboxPalette3,
+    gBattleTextboxPalette4,
+    gBattleTextboxPalette5,
+    gBattleTextboxPalette6,
+    gBattleTextboxPalette7,
+    gBattleTextboxPalette8,
+};
+
+static const u8 *const sWindowFrames[] =
+{
+    gTextWindowFrame1_GfxOpaque,
+    sTextWindowFrame2_GfxOpaque,
+    sTextWindowFrame3_GfxOpaque,
+    sTextWindowFrame4_GfxOpaque,
+    sTextWindowFrame5_GfxOpaque,
+    sTextWindowFrame6_GfxOpaque,
+    sTextWindowFrame7_GfxOpaque,
+    sTextWindowFrame8_GfxOpaque,
+    sTextWindowFrame9_GfxOpaque,
+    sTextWindowFrame10_GfxOpaque,
+    sTextWindowFrame11_GfxOpaque,
+    sTextWindowFrame12_GfxOpaque,
+    sTextWindowFrame13_GfxOpaque,
+    sTextWindowFrame14_GfxOpaque,
+    sTextWindowFrame15_GfxOpaque,
+    sTextWindowFrame16_GfxOpaque,
+    sTextWindowFrame17_GfxOpaque,
+    sTextWindowFrame18_GfxOpaque,
+    sTextWindowFrame19_GfxOpaque,
+    sTextWindowFrame20_GfxOpaque,
+    sTextWindowFrame21_GfxOpaque,
+    sTextWindowFrame21_GfxOpaque,
+    sTextWindowFrame21_GfxOpaque,
+    sTextWindowFrame21_GfxOpaque,
+    sTextWindowFrame21_GfxOpaque,
+    sTextWindowFrame21_GfxOpaque,
+    sTextWindowFrame21_GfxOpaque,
+    sTextWindowFrame21_GfxOpaque,
+};
+
+static const u16 *const sWindowFrameColor[] =
+{
+    gTextWindowFrame1_PalOpaque,
+    sTextWindowFrame2_PalOpaque,
+    sTextWindowFrame3_PalOpaque,
+    sTextWindowFrame4_PalOpaque,
+    sTextWindowFrame5_PalOpaque,
+    sTextWindowFrame6_PalOpaque,
+    sTextWindowFrame7_PalOpaque,
+    sTextWindowFrame8_PalOpaque,
+    sTextWindowFrame9_PalOpaque,
+    sTextWindowFrame10_PalOpaque,
+    sTextWindowFrame11_PalOpaque,
+    sTextWindowFrame12_PalOpaque,
+    sTextWindowFrame13_PalOpaque,
+    sTextWindowFrame14_PalOpaque,
+    sTextWindowFrame15_PalOpaque,
+    sTextWindowFrame16_PalOpaque,
+    sTextWindowFrame17_PalOpaque,
+    sTextWindowFrame18_PalOpaque,
+    sTextWindowFrame19_PalOpaque,
+    sTextWindowFrame20_PalOpaque,
+    sTextWindowFrame21_Pal1Opaque,
+    sTextWindowFrame21_Pal2Opaque,
+    sTextWindowFrame21_Pal3Opaque,
+    sTextWindowFrame21_Pal4Opaque,
+    sTextWindowFrame21_Pal5Opaque,
+    sTextWindowFrame21_Pal6Opaque,
+    sTextWindowFrame21_Pal7Opaque,
+    sTextWindowFrame21_Pal8Opaque,
+};
+
 
 static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(u32 battler) =
 {
@@ -319,7 +412,75 @@ static void HandleInputChooseAction(u32 battler)
         }
     }
 
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_HELD(START_BUTTON))
+    {
+        if (JOY_NEW(DPAD_UP))
+        {
+            PlaySE(SE_SELECT);
+            if (gSaveBlock2Ptr->optionsWindowFrameType == 27)
+                gSaveBlock2Ptr->optionsWindowFrameType = 0;
+            else
+                gSaveBlock2Ptr->optionsWindowFrameType++;
+            // u16 color = gSaveBlock2Ptr->battleInterfaceColor;
+            // FillAroundBattleWindows();    
+            // CopyToBgTilemapBuffer(0, gBattleTextboxTilemap, 0, 0);
+            // CopyBgTilemapBufferToVram(0);
+            // LoadCompressedPalette(sBattleTextboxColor[color], BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
+            // LoadBattleMenuWindowGfx();
+            // if (B_TERRAIN_BG_CHANGE == TRUE)
+            //     DrawTerrainTypeBattleBackground();
+            // else
+            //     DrawMainBattleBackground();
+
+            // FillAroundBattleWindows();
+            // BattlePutTextOnWindow(gText_BattleMenu, B_WIN_ACTION_MENU);
+            // ActionSelectionCreateCursorAt(gActionSelectionCursor[battler], 0);
+            // PREPARE_MON_NICK_BUFFER(gBattleTextBuff1, battler, gBattlerPartyIndexes[battler]);
+            // BattleStringExpandPlaceholdersToDisplayedString(gText_WhatWillPkmnDo);
+            // BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_ACTION_PROMPT);
+            LoadBgTiles(2, sWindowFrames[gSaveBlock2Ptr->optionsWindowFrameType], 0x120, 0x12);
+            LoadUserWindowBorderGfx(2, 0x22, BG_PLTT_ID(1));
+            // LoadBgTiles(2, sWindowFrames[gSaveBlock2Ptr->optionsWindowFrameType], 0x120, 0x22);
+            LoadPalette(sWindowFrameColor[gSaveBlock2Ptr->optionsWindowFrameType], BG_PLTT_ID(1), PLTT_SIZE_4BPP);
+        }
+        else if (JOY_NEW(DPAD_DOWN))
+        {
+            PlaySE(SE_SELECT);
+            if (gSaveBlock2Ptr->optionsWindowFrameType == 0)
+                gSaveBlock2Ptr->optionsWindowFrameType = 27;
+            else
+                gSaveBlock2Ptr->optionsWindowFrameType--;
+            LoadBgTiles(2, sWindowFrames[gSaveBlock2Ptr->optionsWindowFrameType], 0x120, 0x12);
+            LoadUserWindowBorderGfx(2, 0x22, BG_PLTT_ID(1));
+            // LoadBgTiles(2, sWindowFrames[gSaveBlock2Ptr->optionsWindowFrameType], 0x120, 0x22);
+            LoadPalette(sWindowFrameColor[gSaveBlock2Ptr->optionsWindowFrameType], BG_PLTT_ID(1), PLTT_SIZE_4BPP);
+            // LoadUserWindowBorderGfx(2, 0x12, BG_PLTT_ID(1));
+        }
+        else if (JOY_NEW(DPAD_RIGHT))
+        {
+            PlaySE(SE_SELECT);
+            if (gSaveBlock2Ptr->battleInterfaceColor == 7)
+                gSaveBlock2Ptr->battleInterfaceColor = 0;
+            else
+                gSaveBlock2Ptr->battleInterfaceColor++;
+            u16 color = gSaveBlock2Ptr->battleInterfaceColor;
+            LoadPalette(sHealthBoxColor[color], OBJ_PLTT_ID(4), PLTT_SIZE_4BPP);
+            LoadCompressedPalette(sBattleTextboxColor[color], BG_PLTT_ID(0), PLTT_SIZE_4BPP);
+        }
+        else if (JOY_NEW(DPAD_LEFT))
+        {
+            PlaySE(SE_SELECT);
+            if (gSaveBlock2Ptr->battleInterfaceColor == 0)
+                gSaveBlock2Ptr->battleInterfaceColor = 7;
+            else
+                gSaveBlock2Ptr->battleInterfaceColor--;
+            u16 color = gSaveBlock2Ptr->battleInterfaceColor;
+            LoadPalette(sHealthBoxColor[color], OBJ_PLTT_ID(4), PLTT_SIZE_4BPP);
+            LoadCompressedPalette(sBattleTextboxColor[color], BG_PLTT_ID(0), PLTT_SIZE_4BPP);
+        }
+    }
+
+    else if (JOY_NEW(A_BUTTON))
     {
         PlaySE(SE_SELECT);
         TryHideLastUsedBall();
@@ -408,11 +569,11 @@ static void HandleInputChooseAction(u32 battler)
             }
         }
     }
-    else if (JOY_NEW(START_BUTTON))
+    else if (JOY_NEW(SELECT_BUTTON))
     {
         SwapHpBarsWithHpText();
     }
-    else if (DEBUG_BATTLE_MENU == TRUE && JOY_NEW(SELECT_BUTTON))
+    else if (DEBUG_BATTLE_MENU == TRUE && JOY_NEW(L_BUTTON))
     {
         BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_DEBUG, 0);
         PlayerBufferExecCompleted(battler);

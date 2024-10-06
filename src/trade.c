@@ -2948,8 +2948,21 @@ void LinkTradeDrawWindow(void)
     CopyWindowToVram(0, COPYWIN_FULL);
 }
 
+static const u32 *const sBattleTextboxColor[] =
+{
+    gBattleTextboxPalette,
+    gBattleTextboxPalette2,
+    gBattleTextboxPalette3,
+    gBattleTextboxPalette4,
+    gBattleTextboxPalette5,
+    gBattleTextboxPalette6,
+    gBattleTextboxPalette7,
+    gBattleTextboxPalette8,
+};
+
 static void TradeAnimInit_LoadGfx(void)
 {
+    u16 color = gSaveBlock2Ptr->battleInterfaceColor;
     SetGpuReg(REG_OFFSET_DISPCNT, 0);
     ResetBgsAndClearDma3BusyFlags(0);
     InitBgsFromTemplates(0, sTradeSequenceBgTemplates, ARRAY_COUNT(sTradeSequenceBgTemplates));
@@ -2963,13 +2976,13 @@ static void TradeAnimInit_LoadGfx(void)
     DecompressAndLoadBgGfxUsingHeap(0, gBattleTextboxTiles, 0, 0, 0);
     LZDecompressWram(gBattleTextboxTilemap, gDecompressionBuffer);
     CopyToBgTilemapBuffer(0, gDecompressionBuffer, BG_SCREEN_SIZE, 0);
-    LoadCompressedPalette(gBattleTextboxPalette, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
+    LoadCompressedPalette(sBattleTextboxColor[color], BG_PLTT_ID(0), PLTT_SIZE_4BPP);
     InitWindows(sTradeSequenceWindowTemplates);
     // ... and doing the same load again
     DecompressAndLoadBgGfxUsingHeap(0, gBattleTextboxTiles, 0, 0, 0);
     LZDecompressWram(gBattleTextboxTilemap, gDecompressionBuffer);
     CopyToBgTilemapBuffer(0, gDecompressionBuffer, BG_SCREEN_SIZE, 0);
-    LoadCompressedPalette(gBattleTextboxPalette, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
+    LoadCompressedPalette(sBattleTextboxColor[color], BG_PLTT_ID(0), PLTT_SIZE_4BPP);
 }
 
 static void CB2_InitInGameTrade(void)

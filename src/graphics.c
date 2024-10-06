@@ -2,6 +2,13 @@
 
 const u32 gBattleTextboxTiles[] = INCBIN_U32("graphics/battle_interface/textbox.4bpp.lz");
 const u32 gBattleTextboxPalette[] = INCBIN_U32("graphics/battle_interface/textbox.gbapal.lz");
+const u32 gBattleTextboxPalette2[] = INCBIN_U32("graphics/battle_interface/textbox2.gbapal.lz");
+const u32 gBattleTextboxPalette3[] = INCBIN_U32("graphics/battle_interface/textbox3.gbapal.lz");
+const u32 gBattleTextboxPalette4[] = INCBIN_U32("graphics/battle_interface/textbox4.gbapal.lz");
+const u32 gBattleTextboxPalette5[] = INCBIN_U32("graphics/battle_interface/textbox5.gbapal.lz");
+const u32 gBattleTextboxPalette6[] = INCBIN_U32("graphics/battle_interface/textbox6.gbapal.lz");
+const u32 gBattleTextboxPalette7[] = INCBIN_U32("graphics/battle_interface/textbox7.gbapal.lz");
+const u32 gBattleTextboxPalette8[] = INCBIN_U32("graphics/battle_interface/textbox8.gbapal.lz");
 const u32 gBattleTextboxTilemap[] = INCBIN_U32("graphics/battle_interface/textbox_map.bin.lz");
 
 const u32 gUnusedGfx_OldCharmap[] = INCBIN_U32("graphics/unused/old_charmap.4bpp.lz"); // japanese table and bunch of stuff
@@ -704,6 +711,13 @@ const u32 gUnusedTilemap_BasicFrame[] = INCBIN_U32("graphics/unused/basic_frame.
 // Battle Interface
 
 const u16 gBattleInterface_BallStatusBarPal[] = INCBIN_U16("graphics/battle_interface/ball_status_bar.gbapal");
+const u16 gBattleInterface_BallStatusBarPal2[] = INCBIN_U16("graphics/battle_interface/ball_status_bar_2.gbapal");
+const u16 gBattleInterface_BallStatusBarPal3[] = INCBIN_U16("graphics/battle_interface/ball_status_bar_3.gbapal");
+const u16 gBattleInterface_BallStatusBarPal4[] = INCBIN_U16("graphics/battle_interface/ball_status_bar_4.gbapal");
+const u16 gBattleInterface_BallStatusBarPal5[] = INCBIN_U16("graphics/battle_interface/ball_status_bar_5.gbapal");
+const u16 gBattleInterface_BallStatusBarPal6[] = INCBIN_U16("graphics/battle_interface/ball_status_bar_6.gbapal");
+const u16 gBattleInterface_BallStatusBarPal7[] = INCBIN_U16("graphics/battle_interface/ball_status_bar_7.gbapal");
+const u16 gBattleInterface_BallStatusBarPal8[] = INCBIN_U16("graphics/battle_interface/ball_status_bar_8.gbapal");
 
 const u16 gBattleInterface_BallDisplayPal[] = INCBIN_U16("graphics/battle_interface/ball_display.gbapal");
 
@@ -718,6 +732,8 @@ const u8 gHealthboxElementsGfxTable[] = INCBIN_U8("graphics/battle_interface/hpb
                                                   "graphics/battle_interface/status2.4bpp", // these three duplicate sets of graphics are for the opponent/partner Pokémon
                                                   "graphics/battle_interface/status3.4bpp",
                                                   "graphics/battle_interface/status4.4bpp",
+                                                  "graphics/battle_interface/status5.4bpp",
+                                                  "graphics/battle_interface/status6.4bpp",
                                                   "graphics/battle_interface/healthbox_doubles_frameend.4bpp",
                                                   "graphics/battle_interface/healthbox_doubles_frameend_bar.4bpp");
 const u32 gBattleInterfaceGfx_UnusedWindow3[] = INCBIN_U32("graphics/battle_interface/unused_window3.4bpp.lz");

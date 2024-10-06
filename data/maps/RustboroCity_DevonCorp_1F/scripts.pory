@@ -284,6 +284,7 @@ script AutomaticUpdate2{
 	    special (StartWallClock)
 	    waitstate
     }
+    msgbox(AutomaticUpdate_Text3, MSGBOX_SIGN)
     release
     end
 }
@@ -291,8 +292,29 @@ script AutomaticUpdate2{
 text AutomaticUpdate_Text2{
     "Update: You have obtained a watch.\p"
     "You can now check the time by\n"
-    "pressing the START button.\p"
+    "pressing the START button and can\l"
+    "toggle between 12-hour and 24-hour\l"
+    "modes through the options menu or\l"
+    "by viewing a wall clock.\p"
     "Would you like to re-set the clock?"
+}
+
+text AutomaticUpdate_Text3{
+    "There are also many new window frames\n"
+    "available in the options menu.\p"
+    "There is now also a separate color\n"
+    "switcher for the battle interface,\l"
+    "as well as an ability to change\l"
+    "window frames during battle.\p"
+    "To cycle between colors, hold the\n"
+    "START button during battle and press\l"
+    "left and right on the d-pad.\p"
+    "To change window frames, hold the\n"
+    "START button and press up and down\l"
+    "on the d-pad.\p"
+    "The toggle between health numbers\n"
+    "and bars in double battles has been\l"
+    "moved to SELECT button."
 }
 
 script CheckSafeMovement{

@@ -7,48 +7,106 @@
 #include "graphics.h"
 
 const u8 gTextWindowFrame1_Gfx[] = INCBIN_U8("graphics/text_window/1.4bpp");
-static const u8 sTextWindowFrame2_Gfx[] = INCBIN_U8("graphics/text_window/2.4bpp");
-static const u8 sTextWindowFrame3_Gfx[] = INCBIN_U8("graphics/text_window/3.4bpp");
-static const u8 sTextWindowFrame4_Gfx[] = INCBIN_U8("graphics/text_window/4.4bpp");
-static const u8 sTextWindowFrame5_Gfx[] = INCBIN_U8("graphics/text_window/5.4bpp");
-static const u8 sTextWindowFrame6_Gfx[] = INCBIN_U8("graphics/text_window/6.4bpp");
-static const u8 sTextWindowFrame7_Gfx[] = INCBIN_U8("graphics/text_window/7.4bpp");
-static const u8 sTextWindowFrame8_Gfx[] = INCBIN_U8("graphics/text_window/8.4bpp");
-static const u8 sTextWindowFrame9_Gfx[] = INCBIN_U8("graphics/text_window/9.4bpp");
-static const u8 sTextWindowFrame10_Gfx[] = INCBIN_U8("graphics/text_window/10.4bpp");
-static const u8 sTextWindowFrame11_Gfx[] = INCBIN_U8("graphics/text_window/11.4bpp");
-static const u8 sTextWindowFrame12_Gfx[] = INCBIN_U8("graphics/text_window/12.4bpp");
-static const u8 sTextWindowFrame13_Gfx[] = INCBIN_U8("graphics/text_window/13.4bpp");
-static const u8 sTextWindowFrame14_Gfx[] = INCBIN_U8("graphics/text_window/14.4bpp");
-static const u8 sTextWindowFrame15_Gfx[] = INCBIN_U8("graphics/text_window/15.4bpp");
-static const u8 sTextWindowFrame16_Gfx[] = INCBIN_U8("graphics/text_window/16.4bpp");
-static const u8 sTextWindowFrame17_Gfx[] = INCBIN_U8("graphics/text_window/17.4bpp");
-static const u8 sTextWindowFrame18_Gfx[] = INCBIN_U8("graphics/text_window/18.4bpp");
-static const u8 sTextWindowFrame19_Gfx[] = INCBIN_U8("graphics/text_window/19.4bpp");
-static const u8 sTextWindowFrame20_Gfx[] = INCBIN_U8("graphics/text_window/20.4bpp");
-static const u8 sTextWindowFrame21_Gfx[] = INCBIN_U8("graphics/text_window/21.4bpp");
+const u8 sTextWindowFrame2_Gfx[] = INCBIN_U8("graphics/text_window/2.4bpp");
+const u8 sTextWindowFrame3_Gfx[] = INCBIN_U8("graphics/text_window/3.4bpp");
+const u8 sTextWindowFrame4_Gfx[] = INCBIN_U8("graphics/text_window/4.4bpp");
+const u8 sTextWindowFrame5_Gfx[] = INCBIN_U8("graphics/text_window/5.4bpp");
+const u8 sTextWindowFrame6_Gfx[] = INCBIN_U8("graphics/text_window/6.4bpp");
+const u8 sTextWindowFrame7_Gfx[] = INCBIN_U8("graphics/text_window/7.4bpp");
+const u8 sTextWindowFrame8_Gfx[] = INCBIN_U8("graphics/text_window/8.4bpp");
+const u8 sTextWindowFrame9_Gfx[] = INCBIN_U8("graphics/text_window/9.4bpp");
+const u8 sTextWindowFrame10_Gfx[] = INCBIN_U8("graphics/text_window/10.4bpp");
+const u8 sTextWindowFrame11_Gfx[] = INCBIN_U8("graphics/text_window/11.4bpp");
+const u8 sTextWindowFrame12_Gfx[] = INCBIN_U8("graphics/text_window/12.4bpp");
+const u8 sTextWindowFrame13_Gfx[] = INCBIN_U8("graphics/text_window/13.4bpp");
+const u8 sTextWindowFrame14_Gfx[] = INCBIN_U8("graphics/text_window/14.4bpp");
+const u8 sTextWindowFrame15_Gfx[] = INCBIN_U8("graphics/text_window/15.4bpp");
+const u8 sTextWindowFrame16_Gfx[] = INCBIN_U8("graphics/text_window/16.4bpp");
+const u8 sTextWindowFrame17_Gfx[] = INCBIN_U8("graphics/text_window/17.4bpp");
+const u8 sTextWindowFrame18_Gfx[] = INCBIN_U8("graphics/text_window/18.4bpp");
+const u8 sTextWindowFrame19_Gfx[] = INCBIN_U8("graphics/text_window/19.4bpp");
+const u8 sTextWindowFrame20_Gfx[] = INCBIN_U8("graphics/text_window/20.4bpp");
+const u8 sTextWindowFrame21_Gfx[] = INCBIN_U8("graphics/text_window/21.4bpp");
 
 const u16 gTextWindowFrame1_Pal[] = INCBIN_U16("graphics/text_window/1.gbapal");
-static const u16 sTextWindowFrame2_Pal[] = INCBIN_U16("graphics/text_window/2.gbapal");
-static const u16 sTextWindowFrame3_Pal[] = INCBIN_U16("graphics/text_window/3.gbapal");
-static const u16 sTextWindowFrame4_Pal[] = INCBIN_U16("graphics/text_window/4.gbapal");
-static const u16 sTextWindowFrame5_Pal[] = INCBIN_U16("graphics/text_window/5.gbapal");
-static const u16 sTextWindowFrame6_Pal[] = INCBIN_U16("graphics/text_window/6.gbapal");
-static const u16 sTextWindowFrame7_Pal[] = INCBIN_U16("graphics/text_window/7.gbapal");
-static const u16 sTextWindowFrame8_Pal[] = INCBIN_U16("graphics/text_window/8.gbapal");
-static const u16 sTextWindowFrame9_Pal[] = INCBIN_U16("graphics/text_window/9.gbapal");
-static const u16 sTextWindowFrame10_Pal[] = INCBIN_U16("graphics/text_window/10.gbapal");
-static const u16 sTextWindowFrame11_Pal[] = INCBIN_U16("graphics/text_window/11.gbapal");
-static const u16 sTextWindowFrame12_Pal[] = INCBIN_U16("graphics/text_window/12.gbapal");
-static const u16 sTextWindowFrame13_Pal[] = INCBIN_U16("graphics/text_window/13.gbapal");
-static const u16 sTextWindowFrame14_Pal[] = INCBIN_U16("graphics/text_window/14.gbapal");
-static const u16 sTextWindowFrame15_Pal[] = INCBIN_U16("graphics/text_window/15.gbapal");
-static const u16 sTextWindowFrame16_Pal[] = INCBIN_U16("graphics/text_window/16.gbapal");
-static const u16 sTextWindowFrame17_Pal[] = INCBIN_U16("graphics/text_window/17.gbapal");
-static const u16 sTextWindowFrame18_Pal[] = INCBIN_U16("graphics/text_window/18.gbapal");
-static const u16 sTextWindowFrame19_Pal[] = INCBIN_U16("graphics/text_window/19.gbapal");
-static const u16 sTextWindowFrame20_Pal[] = INCBIN_U16("graphics/text_window/20.gbapal");
-static const u16 sTextWindowFrame21_Pal[] = INCBIN_U16("graphics/text_window/21.gbapal");
+const u16 sTextWindowFrame2_Pal[] = INCBIN_U16("graphics/text_window/2.gbapal");
+const u16 sTextWindowFrame3_Pal[] = INCBIN_U16("graphics/text_window/3.gbapal");
+const u16 sTextWindowFrame4_Pal[] = INCBIN_U16("graphics/text_window/4.gbapal");
+const u16 sTextWindowFrame5_Pal[] = INCBIN_U16("graphics/text_window/5.gbapal");
+const u16 sTextWindowFrame6_Pal[] = INCBIN_U16("graphics/text_window/6.gbapal");
+const u16 sTextWindowFrame7_Pal[] = INCBIN_U16("graphics/text_window/7.gbapal");
+const u16 sTextWindowFrame8_Pal[] = INCBIN_U16("graphics/text_window/8.gbapal");
+const u16 sTextWindowFrame9_Pal[] = INCBIN_U16("graphics/text_window/9.gbapal");
+const u16 sTextWindowFrame10_Pal[] = INCBIN_U16("graphics/text_window/10.gbapal");
+const u16 sTextWindowFrame11_Pal[] = INCBIN_U16("graphics/text_window/11.gbapal");
+const u16 sTextWindowFrame12_Pal[] = INCBIN_U16("graphics/text_window/12.gbapal");
+const u16 sTextWindowFrame13_Pal[] = INCBIN_U16("graphics/text_window/13.gbapal");
+const u16 sTextWindowFrame14_Pal[] = INCBIN_U16("graphics/text_window/14.gbapal");
+const u16 sTextWindowFrame15_Pal[] = INCBIN_U16("graphics/text_window/15.gbapal");
+const u16 sTextWindowFrame16_Pal[] = INCBIN_U16("graphics/text_window/16.gbapal");
+const u16 sTextWindowFrame17_Pal[] = INCBIN_U16("graphics/text_window/17.gbapal");
+const u16 sTextWindowFrame18_Pal[] = INCBIN_U16("graphics/text_window/18.gbapal");
+const u16 sTextWindowFrame19_Pal[] = INCBIN_U16("graphics/text_window/19.gbapal");
+const u16 sTextWindowFrame20_Pal[] = INCBIN_U16("graphics/text_window/20.gbapal");
+const u16 sTextWindowFrame21_Pal1[] = INCBIN_U16("graphics/text_window/21.gbapal");
+const u16 sTextWindowFrame21_Pal2[] = INCBIN_U16("graphics/text_window/21_2.gbapal");
+const u16 sTextWindowFrame21_Pal3[] = INCBIN_U16("graphics/text_window/21_3.gbapal");
+const u16 sTextWindowFrame21_Pal4[] = INCBIN_U16("graphics/text_window/21_4.gbapal");
+const u16 sTextWindowFrame21_Pal5[] = INCBIN_U16("graphics/text_window/21_5.gbapal");
+const u16 sTextWindowFrame21_Pal6[] = INCBIN_U16("graphics/text_window/21_6.gbapal");
+const u16 sTextWindowFrame21_Pal7[] = INCBIN_U16("graphics/text_window/21_7.gbapal");
+const u16 sTextWindowFrame21_Pal8[] = INCBIN_U16("graphics/text_window/21_8.gbapal");
+
+const u8 gTextWindowFrame1_GfxOpaque[] = INCBIN_U8("graphics/text_window/opaque/1.4bpp");
+const u8 sTextWindowFrame2_GfxOpaque[] = INCBIN_U8("graphics/text_window/opaque/2.4bpp");
+const u8 sTextWindowFrame3_GfxOpaque[] = INCBIN_U8("graphics/text_window/opaque/3.4bpp");
+const u8 sTextWindowFrame4_GfxOpaque[] = INCBIN_U8("graphics/text_window/opaque/4.4bpp");
+const u8 sTextWindowFrame5_GfxOpaque[] = INCBIN_U8("graphics/text_window/opaque/5.4bpp");
+const u8 sTextWindowFrame6_GfxOpaque[] = INCBIN_U8("graphics/text_window/opaque/6.4bpp");
+const u8 sTextWindowFrame7_GfxOpaque[] = INCBIN_U8("graphics/text_window/opaque/7.4bpp");
+const u8 sTextWindowFrame8_GfxOpaque[] = INCBIN_U8("graphics/text_window/opaque/8.4bpp");
+const u8 sTextWindowFrame9_GfxOpaque[] = INCBIN_U8("graphics/text_window/opaque/9.4bpp");
+const u8 sTextWindowFrame10_GfxOpaque[] = INCBIN_U8("graphics/text_window/opaque/10.4bpp");
+const u8 sTextWindowFrame11_GfxOpaque[] = INCBIN_U8("graphics/text_window/opaque/11.4bpp");
+const u8 sTextWindowFrame12_GfxOpaque[] = INCBIN_U8("graphics/text_window/opaque/12.4bpp");
+const u8 sTextWindowFrame13_GfxOpaque[] = INCBIN_U8("graphics/text_window/opaque/13.4bpp");
+const u8 sTextWindowFrame14_GfxOpaque[] = INCBIN_U8("graphics/text_window/opaque/14.4bpp");
+const u8 sTextWindowFrame15_GfxOpaque[] = INCBIN_U8("graphics/text_window/opaque/15.4bpp");
+const u8 sTextWindowFrame16_GfxOpaque[] = INCBIN_U8("graphics/text_window/opaque/16.4bpp");
+const u8 sTextWindowFrame17_GfxOpaque[] = INCBIN_U8("graphics/text_window/opaque/17.4bpp");
+const u8 sTextWindowFrame18_GfxOpaque[] = INCBIN_U8("graphics/text_window/opaque/18.4bpp");
+const u8 sTextWindowFrame19_GfxOpaque[] = INCBIN_U8("graphics/text_window/opaque/19.4bpp");
+const u8 sTextWindowFrame20_GfxOpaque[] = INCBIN_U8("graphics/text_window/opaque/20.4bpp");
+const u8 sTextWindowFrame21_GfxOpaque[] = INCBIN_U8("graphics/text_window/opaque/21.4bpp");
+
+const u16 gTextWindowFrame1_PalOpaque[] = INCBIN_U16("graphics/text_window/opaque/1.gbapal");
+const u16 sTextWindowFrame2_PalOpaque[] = INCBIN_U16("graphics/text_window/opaque/2.gbapal");
+const u16 sTextWindowFrame3_PalOpaque[] = INCBIN_U16("graphics/text_window/opaque/3.gbapal");
+const u16 sTextWindowFrame4_PalOpaque[] = INCBIN_U16("graphics/text_window/opaque/4.gbapal");
+const u16 sTextWindowFrame5_PalOpaque[] = INCBIN_U16("graphics/text_window/opaque/5.gbapal");
+const u16 sTextWindowFrame6_PalOpaque[] = INCBIN_U16("graphics/text_window/opaque/6.gbapal");
+const u16 sTextWindowFrame7_PalOpaque[] = INCBIN_U16("graphics/text_window/opaque/7.gbapal");
+const u16 sTextWindowFrame8_PalOpaque[] = INCBIN_U16("graphics/text_window/opaque/8.gbapal");
+const u16 sTextWindowFrame9_PalOpaque[] = INCBIN_U16("graphics/text_window/opaque/9.gbapal");
+const u16 sTextWindowFrame10_PalOpaque[] = INCBIN_U16("graphics/text_window/opaque/10.gbapal");
+const u16 sTextWindowFrame11_PalOpaque[] = INCBIN_U16("graphics/text_window/opaque/11.gbapal");
+const u16 sTextWindowFrame12_PalOpaque[] = INCBIN_U16("graphics/text_window/opaque/12.gbapal");
+const u16 sTextWindowFrame13_PalOpaque[] = INCBIN_U16("graphics/text_window/opaque/13.gbapal");
+const u16 sTextWindowFrame14_PalOpaque[] = INCBIN_U16("graphics/text_window/opaque/14.gbapal");
+const u16 sTextWindowFrame15_PalOpaque[] = INCBIN_U16("graphics/text_window/opaque/15.gbapal");
+const u16 sTextWindowFrame16_PalOpaque[] = INCBIN_U16("graphics/text_window/opaque/16.gbapal");
+const u16 sTextWindowFrame17_PalOpaque[] = INCBIN_U16("graphics/text_window/opaque/17.gbapal");
+const u16 sTextWindowFrame18_PalOpaque[] = INCBIN_U16("graphics/text_window/opaque/18.gbapal");
+const u16 sTextWindowFrame19_PalOpaque[] = INCBIN_U16("graphics/text_window/opaque/19.gbapal");
+const u16 sTextWindowFrame20_PalOpaque[] = INCBIN_U16("graphics/text_window/opaque/20.gbapal");
+const u16 sTextWindowFrame21_Pal1Opaque[] = INCBIN_U16("graphics/text_window/opaque/21.gbapal");
+const u16 sTextWindowFrame21_Pal2Opaque[] = INCBIN_U16("graphics/text_window/opaque/21_2.gbapal");
+const u16 sTextWindowFrame21_Pal3Opaque[] = INCBIN_U16("graphics/text_window/opaque/21_3.gbapal");
+const u16 sTextWindowFrame21_Pal4Opaque[] = INCBIN_U16("graphics/text_window/opaque/21_4.gbapal");
+const u16 sTextWindowFrame21_Pal5Opaque[] = INCBIN_U16("graphics/text_window/opaque/21_5.gbapal");
+const u16 sTextWindowFrame21_Pal6Opaque[] = INCBIN_U16("graphics/text_window/opaque/21_6.gbapal");
+const u16 sTextWindowFrame21_Pal7Opaque[] = INCBIN_U16("graphics/text_window/opaque/21_7.gbapal");
+const u16 sTextWindowFrame21_Pal8Opaque[] = INCBIN_U16("graphics/text_window/opaque/21_8.gbapal");
 
 static const u16 sTextWindowPalettes[][16] =
 {
@@ -81,7 +139,14 @@ static const struct TilesPal sWindowFrames[WINDOW_FRAMES_COUNT] =
     {sTextWindowFrame18_Gfx, sTextWindowFrame18_Pal},
     {sTextWindowFrame19_Gfx, sTextWindowFrame19_Pal},
     {sTextWindowFrame20_Gfx, sTextWindowFrame20_Pal},
-    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal}
+    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal1},
+    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal2},
+    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal3},
+    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal4},
+    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal5},
+    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal6},
+    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal7},
+    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal8},
 };
 
 // code

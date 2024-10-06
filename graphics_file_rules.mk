@@ -286,6 +286,34 @@ $(BATINTGFXDIR)/textbox.gbapal: $(BATINTGFXDIR)/textbox_0.gbapal \
                                 $(BATINTGFXDIR)/textbox_1.gbapal
 	@cat $^ >$@
 
+$(BATINTGFXDIR)/textbox2.gbapal: $(BATINTGFXDIR)/textbox_2.gbapal \
+                                $(BATINTGFXDIR)/textbox_1.gbapal
+	@cat $^ >$@
+
+$(BATINTGFXDIR)/textbox3.gbapal: $(BATINTGFXDIR)/textbox_3.gbapal \
+                                $(BATINTGFXDIR)/textbox_1.gbapal
+	@cat $^ >$@
+
+$(BATINTGFXDIR)/textbox4.gbapal: $(BATINTGFXDIR)/textbox_4.gbapal \
+                                $(BATINTGFXDIR)/textbox_1.gbapal
+	@cat $^ >$@
+
+$(BATINTGFXDIR)/textbox5.gbapal: $(BATINTGFXDIR)/textbox_5.gbapal \
+                                $(BATINTGFXDIR)/textbox_1.gbapal
+	@cat $^ >$@
+
+$(BATINTGFXDIR)/textbox6.gbapal: $(BATINTGFXDIR)/textbox_6.gbapal \
+                                $(BATINTGFXDIR)/textbox_1.gbapal
+	@cat $^ >$@
+
+$(BATINTGFXDIR)/textbox7.gbapal: $(BATINTGFXDIR)/textbox_7.gbapal \
+                                $(BATINTGFXDIR)/textbox_1.gbapal
+	@cat $^ >$@
+
+$(BATINTGFXDIR)/textbox8.gbapal: $(BATINTGFXDIR)/textbox_8.gbapal \
+                                $(BATINTGFXDIR)/textbox_1.gbapal
+	@cat $^ >$@
+
 $(BTLANMSPRGFXDIR)/ice_cube.4bpp: $(BTLANMSPRGFXDIR)/ice_cube_0.4bpp \
                                   $(BTLANMSPRGFXDIR)/ice_cube_1.4bpp \
                                   $(BTLANMSPRGFXDIR)/ice_cube_2.4bpp \

@@ -167,6 +167,17 @@ script PearlwoodWon{
         msgbox(PlayerHouse1F_Apology)
     }
     closemessage
+    playse(SE_PIN)
+    applymovement(3, ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    msgbox(BrotherWatch)
+    playfanfare(MUS_OBTAIN_ITEM)
+    message(ObtainedWatch)
+    waitfanfare
+    msgbox(ViewClock)
+    msgbox(BrotherGoodbye)
+    closemessage
     clearflag(FLAG_CONTINUE_AFTER_WHITEOUT)
     applymovement(3, Walk5Down)
 	waitmovement(0)
@@ -175,6 +186,22 @@ script PearlwoodWon{
     clearflag(FLAG_HEAL_AFTER_BATTLE)
     delay(30)
 	release
+}
+
+text BrotherWatch{
+    "Oh!\p"
+    "Before I leave, there's something\n"
+    "I meant to give you."
+}
+text ObtainedWatch{
+    "{PLAYER} obtained a wristwatch!"
+}
+text ViewClock{
+    "{COLOR RED}{SHADOW LIGHT_RED}You can now view the time by\n"
+    "pressing the START button!"
+}
+text BrotherGoodbye{
+    "{BROTHER}: Catch ya later!"
 }
 
 text PlayerHouse1F_Apology{
@@ -195,8 +222,7 @@ text PlayerHouse1F_Apology{
     "ago, so we better get moving as well\l"
     "or we'll fall behind!\p"
     "Don't know about you but I'm not\n"
-    "content with a second place.\p"
-    "Catch ya later!"
+    "content with a second place."
 }
 
 text PearlwoodBrotherPrize{
@@ -214,8 +240,7 @@ text PearlwoodBrotherPrize{
     "ago, so we better get moving as well\l"
     "or we'll fall behind!\p"
     "Don't know about you but I'm not\n"
-    "content with a second place.\p"
-    "Catch ya later!"
+    "content with a second place."
 }
 
 script Pearlwood_Point_FatMan{

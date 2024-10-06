@@ -583,6 +583,7 @@ script Lab_FollowerEvent{
     waitmovement(0)
     delay(48)
     msgbox(BirchSurprised)
+    msgbox("{COLOR RED}{SHADOW LIGHT_RED}You can use the party menu to set\na preferred Pokémon, withdraw your\lcurrent one, or let another one out.")
     setvar(VAR_TEMP_5, 0)
     clearflag(FLAG_HEAL_AFTER_BATTLE)
     release
@@ -595,9 +596,7 @@ text BirchSurprised{
     "to bust out of its ball like that!\p"
     "Now that you two are partners,\n"
     "I'm sure it will go back inside\l"
-    "its ball if you simply ask it nicely.\l"
-    "You can use the party menu to give\l"
-    "commands to your Pokémon."
+    "its ball if you simply ask it nicely."
 }
 
 text Lab2_NotChosen{

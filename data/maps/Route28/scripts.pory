@@ -284,3 +284,19 @@ text Route28_Fisher_Text{
     "a tunnel house that goes over\l"
     "the dangerous terrain instead."
 }
+
+script Route28_Sign{
+    msgbox(Route28_Sign_Text, MSGBOX_SIGN)
+}
+text Route28_Sign_Text{
+    "Trainer Tips\p"
+    "During a battle, holding the START\n"
+    "button and pressing up or down on\l"
+    "the d-pad changes the style of the\l"
+    "window border, while pressing left or\l"
+    "down on the d-pad changes the color\l"
+    "of the battle interface.\p"
+    "During double battles, pressing the\n"
+    "SELECT button switches the view\l"
+    "between health bars and numbers."
+}

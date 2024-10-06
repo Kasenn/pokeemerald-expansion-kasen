@@ -221,6 +221,11 @@ Route28_Fisher::
 	end
 
 
+Route28_Sign::
+	msgbox Route28_Sign_Text, MSGBOX_SIGN
+	return
+
+
 Route28_BrotherIntro::
 	.string "{BROTHER}: Yo, {PLAYER}!\p"
 	.string "I see you've finally made your way\n"
@@ -349,3 +354,15 @@ Route28_Fisher_Text::
 	.string "get across, they opted to build\l"
 	.string "a tunnel house that goes over\l"
 	.string "the dangerous terrain instead.$"
+
+Route28_Sign_Text::
+	.string "Trainer Tips\p"
+	.string "During a battle, holding the START\n"
+	.string "button and pressing up or down on\l"
+	.string "the d-pad changes the style of the\l"
+	.string "window border, while pressing left or\l"
+	.string "down on the d-pad changes the color\l"
+	.string "of the battle interface.\p"
+	.string "During double battles, pressing the\n"
+	.string "SELECT button switches the view\l"
+	.string "between health bars and numbers.$"

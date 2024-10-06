@@ -532,6 +532,7 @@ Lab_FollowerEvent_1:
 	waitmovement 0
 	delay 48
 	msgbox BirchSurprised
+	msgbox Lab_FollowerEvent_Text_0
 	setvar VAR_TEMP_5, 0
 	clearflag FLAG_HEAL_AFTER_BATTLE
 	release
@@ -596,6 +597,9 @@ Lab_BallMain_Text_2:
 
 Lab_BallMain_Text_3:
 	.string "Do you want to give a nickname\nto your new Pokémon?$"
+
+Lab_FollowerEvent_Text_0:
+	.string "{COLOR RED}{SHADOW LIGHT_RED}You can use the party menu to set\na preferred Pokémon, withdraw your\lcurrent one, or let another one out.$"
 
 Lab2_NoLeave_Text_0:
 	.string "{COLOR RED}{SHADOW LIGHT_RED}You haven't chosen a Pokémon yet!$"
@@ -787,9 +791,7 @@ BirchSurprised::
 	.string "to bust out of its ball like that!\p"
 	.string "Now that you two are partners,\n"
 	.string "I'm sure it will go back inside\l"
-	.string "its ball if you simply ask it nicely.\l"
-	.string "You can use the party menu to give\l"
-	.string "commands to your Pokémon.$"
+	.string "its ball if you simply ask it nicely.$"
 
 Lab2_NotChosen::
 	.string "Take your time.$"
