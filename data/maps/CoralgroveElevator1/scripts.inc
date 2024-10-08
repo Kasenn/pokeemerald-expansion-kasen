@@ -14,6 +14,7 @@ ElevatorBlock_2:
 	msgbox ElevatorBlock_Text_0, MSGBOX_DEFAULT
 	waitmessage
 	closemessage
+	safefollow
 	applymovement OBJ_EVENT_ID_PLAYER, Walk1Left
 	waitmovement 0
 	goto ElevatorBlock_1

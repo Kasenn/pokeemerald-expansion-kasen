@@ -21,8 +21,12 @@ Sandstone_BigHouse2_3F_Man::
 	goto_if_eq Sandstone_BigHouse2_3F_Man_5
 	lock
 	faceplayer
+	getfollowerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 13
+	goto_if_ne Sandstone_BigHouse2_3F_Man_9
+Sandstone_BigHouse2_3F_Man_7:
 	compare VAR_SANDSTONEPORYGON_STATE, 1
-	goto_if_eq Sandstone_BigHouse2_3F_Man_8
+	goto_if_eq Sandstone_BigHouse2_3F_Man_13
 	msgbox GetAntiVirus, MSGBOX_NPC
 	setvar VAR_SANDSTONEPORYGON_STATE, 1
 	end
@@ -37,15 +41,24 @@ Sandstone_BigHouse2_3F_Man_5:
 	end
 
 Sandstone_BigHouse2_3F_Man_8:
+	safefollow
+	goto Sandstone_BigHouse2_3F_Man_7
+
+Sandstone_BigHouse2_3F_Man_9:
+	compare VAR_TEMP_2, 3
+	goto_if_ne Sandstone_BigHouse2_3F_Man_8
+	goto Sandstone_BigHouse2_3F_Man_7
+
+Sandstone_BigHouse2_3F_Man_13:
 	checkitem ITEM_ANTIVIRUS
 	compare VAR_RESULT, FALSE
-	goto_if_eq Sandstone_BigHouse2_3F_Man_11
+	goto_if_eq Sandstone_BigHouse2_3F_Man_16
 	msgbox InstallAntiVirus, MSGBOX_DEFAULT
 	closemessage
 	compare VAR_FACING, DIR_NORTH
-	goto_if_eq Sandstone_BigHouse2_3F_Man_14
+	goto_if_eq Sandstone_BigHouse2_3F_Man_19
 	applymovement 1, WalkSouthToBench
-Sandstone_BigHouse2_3F_Man_13:
+Sandstone_BigHouse2_3F_Man_18:
 	setvar VAR_SANDSTONEPORYGON_STATE, 2
 	setobjectxyperm 1, 13, 3
 	waitmovement 0
@@ -53,13 +66,13 @@ Sandstone_BigHouse2_3F_Man_13:
 	release
 	end
 
-Sandstone_BigHouse2_3F_Man_11:
+Sandstone_BigHouse2_3F_Man_16:
 	msgbox INeedAntiVirus, MSGBOX_NPC
 	end
 
-Sandstone_BigHouse2_3F_Man_14:
+Sandstone_BigHouse2_3F_Man_19:
 	applymovement 1, WalkEastToBench
-	goto Sandstone_BigHouse2_3F_Man_13
+	goto Sandstone_BigHouse2_3F_Man_18
 
 
 Sandstone_BigHouse2_3F_PC::

@@ -121,6 +121,7 @@ Coralgrove_RightBirds::
 Coralgrove_BirdEvent::
 	goto_if_set FLAG_CORALGROVE_CUTSCENE, Coralgrove_BirdEvent_2
 	lock
+	safefollow
 	special SpawnCameraObject
 	applymovement OBJ_EVENT_ID_CAMERA, Walk3Up
 	waitmovement 0

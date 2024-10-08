@@ -58,6 +58,7 @@ script AldeleafSmallHouse2_Woman{
         if(!flag(FLAG_GHOST_MOVED)){
             lockall
             setflag(FLAG_GHOST_MOVED)
+            safefollow
             applymovement(2, AldeleafMoveGhost)
             delay(15)
             turnobject(1, DIR_WEST)
@@ -94,6 +95,7 @@ script AldeleafSmallHouse2_Woman{
 script Aldeleaf_MoveGhost{
     if((var(VAR_ALDELEAF_HOUSE) == 6) && (!flag(FLAG_GHOST_MOVED))){
         setflag(FLAG_GHOST_MOVED)
+        safefollow
         applymovement(2, AldeleafMoveGhost)
         delay(15)
         turnobject(1, DIR_WEST)

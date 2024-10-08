@@ -40,6 +40,7 @@ AdamantExterior_Man3::
 	goto_if_set FLAG_SHOWED_BADGE, AdamantExterior_Man3_2
 	goto_if_unset FLAG_BADGE04_GET, AdamantExterior_Man3_5
 	lockall
+	safefollow
 	faceplayer
 	msgbox AdamantExterior_Man3_NoAccess
 	closemessage

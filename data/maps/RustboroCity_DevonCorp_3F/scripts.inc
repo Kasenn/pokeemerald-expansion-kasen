@@ -4,6 +4,7 @@ RustboroCity_DevonCorp_3F_MapScripts::
 
 DevonCorpTrigger1::
 	goto_if_set FLAG_DEVON_UNDER_ATTACK, DevonCorpTrigger1_2
+	safefollow
 	call DevonTurnRocket
 	setvar VAR_TEMP_2, 1
 	applymovement 3, DevonRocketMove1
@@ -17,6 +18,7 @@ DevonCorpTrigger1_2:
 
 DevonCorpTrigger2::
 	goto_if_set FLAG_DEVON_UNDER_ATTACK, DevonCorpTrigger2_2
+	safefollow
 	call DevonTurnRocket
 	setvar VAR_TEMP_2, 2
 	applymovement 3, DevonRocketMove2
@@ -30,6 +32,7 @@ DevonCorpTrigger2_2:
 
 DevonCorpTrigger3::
 	goto_if_set FLAG_DEVON_UNDER_ATTACK, DevonCorpTrigger3_2
+	safefollow
 	call DevonTurnRocket
 	setvar VAR_TEMP_2, 3
 	applymovement 3, DevonRocketMove3
@@ -43,6 +46,7 @@ DevonCorpTrigger3_2:
 
 DevonCorpTrigger4::
 	goto_if_set FLAG_DEVON_UNDER_ATTACK, DevonCorpTrigger4_2
+	safefollow
 	call DevonTurnRocket
 	setvar VAR_TEMP_2, 4
 	applymovement 3, DevonRocketMove4
@@ -137,6 +141,7 @@ DevonCorpRocketMainEvent_6:
 
 
 MovePrez1::
+	safefollow
 	applymovement 1, PrezMove1
 	waitmovement 0
 	goto DevonPrezTalk
@@ -155,6 +160,7 @@ PrezMove1:
 	step_end
 
 MovePrez2::
+	safefollow
 	applymovement 1, PrezMove2
 	waitmovement 0
 	goto DevonPrezTalk
@@ -172,6 +178,7 @@ PrezMove2:
 	step_end
 
 MovePrez3::
+	safefollow
 	applymovement 1, PrezMove3
 	waitmovement 0
 	goto DevonPrezTalk
@@ -189,6 +196,7 @@ PrezMove3:
 	step_end
 
 MovePrez4::
+	safefollow
 	applymovement 1, PrezMove4
 	waitmovement 0
 	goto DevonPrezTalk

@@ -55,6 +55,8 @@ script SchoolHallGirl3{
         msgbox("I'm studying Baton Pass strategies.\nWould you like to have a battle?", MSGBOX_YESNO)
         if(var(VAR_RESULT) == YES){
             trainerbattle_no_intro(TRAINER_ARCHIE, SchoolHallGirl3Defeated)
+            release
+            end
         }
         else{
             closemessage
@@ -78,6 +80,8 @@ script SchoolHallKidM{
         msgbox("I'm studying Toxic strategies.\nWould you like to have a battle?", MSGBOX_YESNO)
         if(var(VAR_RESULT) == YES){
             trainerbattle_no_intro(TRAINER_LEAH, SchoolHallKidMDefeated)
+            release
+            end
         }
         else{
             closemessage
@@ -101,6 +105,8 @@ script SchoolHallBoy2{
         msgbox("I'm studying Last Resort strategies.\nWould you like to have a battle?", MSGBOX_YESNO)
         if(var(VAR_RESULT) == YES){
             trainerbattle_no_intro(TRAINER_DAISY, SchoolHallBoy2Defeated)
+            release
+            end
         }
         else{
             closemessage
@@ -124,6 +130,8 @@ script SchoolHallGirl2{
         msgbox("I'm studying Toxic Heal strategies.\nWould you like to have a battle?", MSGBOX_YESNO)
         if(var(VAR_RESULT) == YES){
             trainerbattle_no_intro(TRAINER_ROSE_1, SchoolHallGirl2Defeated)
+            release
+            end
         }
         else{
             closemessage

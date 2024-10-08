@@ -113,6 +113,7 @@ script Berryfields_Blockade{
         turnobject(14, DIR_EAST)
     }
     playse(SE_PIN)
+    safefollow
     applymovement(14, Common_Movement_ExclamationMark)
     waitmovement(0)
     delay(48)

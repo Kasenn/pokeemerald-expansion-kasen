@@ -107,6 +107,7 @@ Berryfields_Blockade::
 	turnobject 14, DIR_EAST
 Berryfields_Blockade_1:
 	playse SE_PIN
+	safefollow
 	applymovement 14, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 48

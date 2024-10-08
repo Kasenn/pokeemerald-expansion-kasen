@@ -61,6 +61,7 @@ CheckForEscapeRope_1:
 CheckForEscapeRope_2:
 	lock
 	playse SE_PIN
+	safefollow
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 60

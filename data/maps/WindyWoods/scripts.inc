@@ -207,6 +207,7 @@ WW_GIVEBP::
 
 WW_HelpGirl::
 	lockall
+	safefollow
 	applymovement 5, WW_Face
 	waitmovement 0
 	playse SE_PIN

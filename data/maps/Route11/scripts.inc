@@ -298,6 +298,7 @@ R11_RivalEvent::
 	checkplayergender
 	call_if_eq VAR_RESULT, MALE, Route110_EventScript_PlayMayMusic
 	call_if_eq VAR_RESULT, FEMALE, Route110_EventScript_PlayBrendanMusic
+	safefollow
 	applymovement 8, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
 	playse SE_PIN
@@ -424,6 +425,7 @@ R11_RivalNotAngry_6:
 KorrinaIntro::
 	closemessage
 	playse SE_PIN
+	safefollow
 	applymovement 8, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 40
@@ -452,6 +454,7 @@ KorrinaIntro_2:
 
 KorrinaMovesBack::
 	closemessage
+	safefollow
 	applymovement 9, KorrinaInPlace
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
@@ -561,6 +564,7 @@ R11_RivalPostBattle::
 	msgbox R11_BrendanPostText, MSGBOX_DEFAULT
 R11_RivalPostBattle_1:
 	closemessage
+	safefollow
 	applymovement 9, KorrinaMoveForward
 	waitmovement 0
 	delay 10
@@ -622,6 +626,7 @@ R11_RivalExits_1:
 	showobjectat 28, MAP_ROUTE11
 	special DrawWholeMapView
 	delay 40
+	safefollow
 	applymovement 28, R11RivalLeaves
 	waitmovement 0
 	setvar VAR_GYM_TELEPORT, 1

@@ -20,6 +20,7 @@ script NectarManiac{
 	    msgbox(NectarManiac_Text, MSGBOX_NPC)
         specialvar(VAR_RESULT, CheckOricorio)
         if(var(VAR_RESULT) == TRUE){
+            safefollow
             playse(SE_PIN)
             applymovement(1, Common_Movement_ExclamationMark)
             waitmovement(0)

@@ -158,6 +158,7 @@ script AldeleafTriggerMain{
 	lock
 	playse(SE_PIN)
 	turnobject(18, DIR_WEST)
+	safefollow
 	applymovement(18, Common_Movement_ExclamationMark)
 	waitmovement(0)
 	delay(48)
@@ -195,6 +196,7 @@ script AldeleafTriggerMain2{
 	lock
 	playse(SE_PIN)
 	turnobject(19, DIR_EAST)
+	safefollow
 	applymovement(19, Common_Movement_ExclamationMark)
 	waitmovement(0)
 	delay(48)
@@ -241,6 +243,7 @@ script AldeleafCity_KeyMan{
 	closemessage
 	checkitem(ITEM_LOST_KEY)
 	if(var(VAR_RESULT) == TRUE){
+		safefollow
 		applymovement(16, Common_Movement_ExclamationMark)
 		playse(SE_PIN)
 		faceplayer
@@ -368,6 +371,7 @@ script Aldeleaf_Sudowoodo_NoCut{
 	faceplayer
 	waitse
 	playse(SE_SUDOWOODO_SHAKE)
+	safefollow
 	applymovement(1, Aldeleaf_SudowoodoShake)
 	waitmovement(1)
 	release
@@ -394,6 +398,7 @@ movement Aldeleaf_SudowoodoShake{
 script Aldeleaf_Sudowoodo_CutDown{
 	waitse
 	playse(SE_SUDOWOODO_SHAKE)
+	safefollow
 	applymovement(1, Aldeleaf_SudowoodoShake)
 	waitmovement(1)
 	checkitem(ITEM_WAILMER_PAIL)
@@ -428,6 +433,7 @@ script Aldeleaf_TrainerNearSudowoodo{
         msgbox(Aldeleaf_Text_OnceAnOddTreePastHere, MSGBOX_DEFAULT)
 		waitmessage
 		closemessage
+		safefollow
 		if(var(VAR_FACING) == DIR_WEST){
 			applymovement(3, Aldeleaf_TrainerMoveLong)
 		}
@@ -449,7 +455,7 @@ script Aldeleaf_TrainerNearSudowoodo{
 }
 movement Aldeleaf_TrainerMoveLong{
 	walk_down
-	walk_right * 2
+	walk_right * 3
 	walk_up
 	walk_right * 7
 }

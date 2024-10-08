@@ -87,6 +87,7 @@ Aldeleaf_MuseumCurator_26:
 
 SellRelic::
 	playse SE_PIN
+	safefollow
 	applymovement 2, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 40

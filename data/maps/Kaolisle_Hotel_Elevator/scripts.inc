@@ -144,6 +144,7 @@ Hotel_Elevator_ExitFloorSelect::
 Hotel_Elevator_MoveElevator::
 	special CloseDeptStoreElevatorWindow
 	closemessage
+	safefollow
 	applymovement VAR_LAST_TALKED, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
 	waitse

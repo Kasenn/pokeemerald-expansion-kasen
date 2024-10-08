@@ -106,6 +106,7 @@ Aldeleaf_Artist_4:
 	compare VAR_RESULT, FALSE
 	goto_if_eq Aldeleaf_Artist_8
 	playse SE_PIN
+	safefollow
 	applymovement 4, Common_Movement_ExclamationMark
 	waitmovement 0
 	applymovement 4, Common_Movement_Delay48

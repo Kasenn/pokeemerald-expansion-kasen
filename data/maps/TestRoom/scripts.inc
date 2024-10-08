@@ -16,7 +16,7 @@ SetTestFlag::
 
 
 TestMovementScript::
-	safefollow
+	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
 	buffernumberstring STR_VAR_1, VAR_TEMP_0
 	compare VAR_TEMP_0, 0
 	goto_if_eq TestMovementScript_2

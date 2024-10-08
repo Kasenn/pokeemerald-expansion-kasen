@@ -129,6 +129,7 @@ script Library_Birch{
     msgbox(Library_Birch_Text)
     closemessage
 	delay(20)
+    safefollow
 	applymovement(5, Common_Movement_WalkInPlaceFasterLeft)
 	waitmovement(0)
 	delay(10)
@@ -142,7 +143,16 @@ script Library_Birch{
     msgbox(Library_Birch_Text2)
     closemessage
     if(var(VAR_FACING) == DIR_EAST){
-        applymovement(5, BirchLeavesLong)
+        getfollowerxy(VAR_TEMP_1, VAR_TEMP_2)
+        if(var(VAR_TEMP_1) == 17){
+            applymovement(5, BirchLeavesLonger)
+        }
+        elif(var(VAR_TEMP_1) == 18){
+            applymovement(5, BirchLeavesLongest)
+        }
+        else{
+            applymovement(5, BirchLeavesLong)
+        }
     }
     else{
         applymovement(5, BirchLeavesShort)
@@ -185,6 +195,20 @@ movement BirchLeavesLong{
     walk_down
     walk_left * 2
     walk_up * 5
+    walk_right * 4
+    walk_up * 2
+}
+movement BirchLeavesLonger{
+    walk_down
+    walk_left * 3
+    walk_up * 5
+    walk_right * 5
+    walk_up * 2
+}
+movement BirchLeavesLongest{
+    walk_down * 2
+    walk_left * 2
+    walk_up * 6
     walk_right * 4
     walk_up * 2
 }

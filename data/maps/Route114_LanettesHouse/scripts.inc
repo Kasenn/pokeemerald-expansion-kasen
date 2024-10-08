@@ -91,6 +91,7 @@ LanettesHouse_Scientist_21:
 	msgbox SampleBoxIntro2, MSGBOX_DEFAULT
 	closemessage
 	playse SE_PIN
+	safefollow
 	applymovement 1, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 48
@@ -140,6 +141,7 @@ LanettesHouse_Extractinator::
 	delay 30
 	waitmessage
 	closemessage
+	safefollow
 	applymovement 2, Walk1Down
 	waitmovement 0
 	msgbox PleaseRemoveItemFromTray

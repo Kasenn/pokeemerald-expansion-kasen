@@ -69,8 +69,21 @@ Amberock_SurfScientist_1:
 	return
 
 Amberock_SurfScientist_2:
+	getfollowerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 34
+	goto_if_ne Amberock_SurfScientist_7
+Amberock_SurfScientist_5:
 	applymovement 1, ScientistLeavesDetour
 	goto Amberock_SurfScientist_1
+
+Amberock_SurfScientist_6:
+	safefollow
+	goto Amberock_SurfScientist_5
+
+Amberock_SurfScientist_7:
+	compare VAR_TEMP_2, 10
+	goto_if_ne Amberock_SurfScientist_6
+	goto Amberock_SurfScientist_5
 
 
 ScientistLeavesDetour:
@@ -108,6 +121,7 @@ ScientistLeavesStraight:
 
 Amberock_Papers::
 	lock
+	safefollow
 	msgbox PapersOnGround
 	removeobject 3
 	setmetatile 27, 10, 0x128, FALSE
@@ -117,6 +131,8 @@ Amberock_Papers::
 	clearflag FLAG_TEMP_3
 	addobject 1
 	addobject 2
+	getfollowerxy VAR_TEMP_1, VAR_TEMP_2
+	safefollow
 	checktrainerflag TRAINER_R15_TR18_BERRYROCKET
 	goto_if 0, Amberock_Papers_2
 Amberock_Papers_1:
@@ -134,33 +150,33 @@ Amberock_Papers_4:
 Amberock_Papers_9:
 	closemessage
 	switch VAR_FACING
-	case DIR_SOUTH, Amberock_Papers_15
-	case DIR_WEST, Amberock_Papers_16
-	case DIR_EAST, Amberock_Papers_17
-Amberock_Papers_13:
+	case DIR_SOUTH, Amberock_Papers_30
+	case DIR_WEST, Amberock_Papers_31
+	case DIR_EAST, Amberock_Papers_32
+Amberock_Papers_28:
 	waitmovement 0
 	delay 60
 	switch VAR_FACING
-	case DIR_SOUTH, Amberock_Papers_20
-	case DIR_WEST, Amberock_Papers_21
-	case DIR_EAST, Amberock_Papers_22
-Amberock_Papers_18:
+	case DIR_SOUTH, Amberock_Papers_35
+	case DIR_WEST, Amberock_Papers_36
+	case DIR_EAST, Amberock_Papers_37
+Amberock_Papers_33:
 	waitmovement 0
 	delay 15
 	checkplayergender
 	compare VAR_RESULT, MALE
-	goto_if_eq Amberock_Papers_24
+	goto_if_eq Amberock_Papers_39
 	bufferstring STR_VAR_1, Amberock_Papers_Text_1
-Amberock_Papers_23:
-	goto_if_set FLAG_ACEROLA_TALKED_TO, Amberock_Papers_28
+Amberock_Papers_38:
+	goto_if_set FLAG_ACEROLA_TALKED_TO, Amberock_Papers_43
 	msgbox AcerolaVisitGymAlternative
-Amberock_Papers_27:
+Amberock_Papers_42:
 	closemessage
 	switch VAR_FACING
-	case DIR_SOUTH, Amberock_Papers_33
-	case DIR_WEST, Amberock_Papers_34
-	case DIR_EAST, Amberock_Papers_35
-Amberock_Papers_31:
+	case DIR_SOUTH, Amberock_Papers_48
+	case DIR_WEST, Amberock_Papers_49
+	case DIR_EAST, Amberock_Papers_50
+Amberock_Papers_46:
 	waitmovement 0
 	setvar VAR_ROUTE14_ROCKET_EVENT, 6
 	removeobject 1
@@ -174,15 +190,24 @@ Amberock_Papers_2:
 	goto Amberock_Papers_1
 
 Amberock_Papers_6:
+	compare VAR_TEMP_1, 27
+	goto_if_eq Amberock_Papers_15
+Amberock_Papers_13:
 	applymovement 1, MoveScientist2
 	goto Amberock_Papers_4
 
 Amberock_Papers_7:
+	compare VAR_TEMP_1, 28
+	goto_if_eq Amberock_Papers_20
+Amberock_Papers_18:
 	setobjectxy 1, 28, 4
 	applymovement 1, Walk5Down
 	goto Amberock_Papers_4
 
 Amberock_Papers_8:
+	compare VAR_TEMP_1, 26
+	goto_if_eq Amberock_Papers_25
+Amberock_Papers_23:
 	setobjectxy 1, 28, 4
 	applymovement 1, MoveScientist1
 	goto Amberock_Papers_4
@@ -191,51 +216,78 @@ Amberock_Papers_10:
 	msgbox OurPapersAlternative
 	goto Amberock_Papers_9
 
+Amberock_Papers_14:
+	clearflag FLAG_SAFE_FOLLOWER_MOVEMENT
+	goto Amberock_Papers_13
+
 Amberock_Papers_15:
-	applymovement 1, ScientistLeave2
+	compare VAR_TEMP_2, 8
+	goto_if_eq Amberock_Papers_14
 	goto Amberock_Papers_13
 
-Amberock_Papers_16:
-	applymovement 1, Walk5Up
-	goto Amberock_Papers_13
-
-Amberock_Papers_17:
-	applymovement 1, ScientistLeave1
-	goto Amberock_Papers_13
+Amberock_Papers_19:
+	clearflag FLAG_SAFE_FOLLOWER_MOVEMENT
+	goto Amberock_Papers_18
 
 Amberock_Papers_20:
-	applymovement 2, MoveScientist2
-	goto Amberock_Papers_18
-
-Amberock_Papers_21:
-	setobjectxy 2, 28, 4
-	applymovement 2, Walk5Down
-	goto Amberock_Papers_18
-
-Amberock_Papers_22:
-	setobjectxy 2, 28, 4
-	applymovement 2, MoveScientist1
+	compare VAR_TEMP_2, 9
+	goto_if_eq Amberock_Papers_19
 	goto Amberock_Papers_18
 
 Amberock_Papers_24:
-	bufferstring STR_VAR_1, Amberock_Papers_Text_0
+	clearflag FLAG_SAFE_FOLLOWER_MOVEMENT
 	goto Amberock_Papers_23
 
-Amberock_Papers_28:
-	msgbox AcerolaVisitGym
-	goto Amberock_Papers_27
+Amberock_Papers_25:
+	compare VAR_TEMP_2, 9
+	goto_if_eq Amberock_Papers_24
+	goto Amberock_Papers_23
 
-Amberock_Papers_33:
-	applymovement 2, ScientistLeave2
-	goto Amberock_Papers_31
+Amberock_Papers_30:
+	applymovement 1, ScientistLeave2
+	goto Amberock_Papers_28
 
-Amberock_Papers_34:
-	applymovement 2, Walk5Up
-	goto Amberock_Papers_31
+Amberock_Papers_31:
+	applymovement 1, Walk5Up
+	goto Amberock_Papers_28
+
+Amberock_Papers_32:
+	applymovement 1, ScientistLeave1
+	goto Amberock_Papers_28
 
 Amberock_Papers_35:
+	applymovement 2, MoveScientist2
+	goto Amberock_Papers_33
+
+Amberock_Papers_36:
+	setobjectxy 2, 28, 4
+	applymovement 2, Walk5Down
+	goto Amberock_Papers_33
+
+Amberock_Papers_37:
+	setobjectxy 2, 28, 4
+	applymovement 2, MoveScientist1
+	goto Amberock_Papers_33
+
+Amberock_Papers_39:
+	bufferstring STR_VAR_1, Amberock_Papers_Text_0
+	goto Amberock_Papers_38
+
+Amberock_Papers_43:
+	msgbox AcerolaVisitGym
+	goto Amberock_Papers_42
+
+Amberock_Papers_48:
+	applymovement 2, ScientistLeave2
+	goto Amberock_Papers_46
+
+Amberock_Papers_49:
+	applymovement 2, Walk5Up
+	goto Amberock_Papers_46
+
+Amberock_Papers_50:
 	applymovement 2, ScientistLeave1
-	goto Amberock_Papers_31
+	goto Amberock_Papers_46
 
 
 MoveScientist1:

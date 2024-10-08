@@ -18,6 +18,7 @@ CoralgroveTradeSequence_1:
 CoralgroveTradeSequence_6:
 	goto_if_set FLAG_TEMP_3, CoralgroveTradeSequence_14
 	playse SE_PIN
+	safefollow
 	applymovement 1, Common_Movement_QuestionMark
 	waitmovement 0
 	delay 24

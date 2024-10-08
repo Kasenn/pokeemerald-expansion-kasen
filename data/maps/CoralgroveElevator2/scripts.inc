@@ -16,6 +16,7 @@ CoralgroveElevator2_Kasen::
 
 CoralgroveElevator2_Bail::
 	lockall
+	safefollow
 	turnobject 1, DIR_NORTH
 	checkplayergender
 	compare VAR_RESULT, MALE
@@ -33,6 +34,7 @@ CoralgroveElevator2_Bail_2:
 
 CoralgroveElevator2_Trigger1::
 	lockall
+	safefollow
 	turnobject 1, DIR_WEST
 	playse SE_PIN
 	applymovement 1, Common_Movement_ExclamationMark
@@ -46,6 +48,7 @@ CoralgroveElevator2_Trigger1::
 
 CoralgroveElevator2_Trigger2::
 	lockall
+	safefollow
 	turnobject 1, DIR_EAST
 	playse SE_PIN
 	applymovement 1, Common_Movement_ExclamationMark
@@ -59,6 +62,7 @@ CoralgroveElevator2_Trigger2::
 
 CoralgroveElevator2_Rival::
 	lockall
+	safefollow
 	applymovement 1, Elevator2FacePlayer
 	waitmovement 0
 	compare VAR_CORALGROVE_ELEVATOR, 0
@@ -218,6 +222,7 @@ CoralgroveElevator2_AfterBrendanBattle::
 
 
 CoralgroveElevator2_RivalExit::
+	safefollow
 	closemessage
 	applymovement 1, Harbor_Movement_RivalExit1
 	waitmovement 0

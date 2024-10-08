@@ -12,7 +12,8 @@ script SetTestFlag{
 }
 
 script TestMovementScript{
-    safefollow
+    // safefollow
+    setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
     buffernumberstring(STR_VAR_1, VAR_TEMP_0)
     if(var(VAR_TEMP_0) == 0){
         msgbox("0", MSGBOX_NPC)

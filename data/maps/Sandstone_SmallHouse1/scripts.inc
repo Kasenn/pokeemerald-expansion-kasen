@@ -71,6 +71,7 @@ Sandstone_SmallHouse_FisherWoman_7:
 	compare VAR_RESULT, TRUE
 	goto_if_eq Sandstone_SmallHouse_FisherWoman_10
 	playse SE_PIN
+	safefollow
 	applymovement 1, Common_Movement_QuestionMark
 	waitmovement 0
 	delay 30

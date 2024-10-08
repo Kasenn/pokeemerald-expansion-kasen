@@ -33,6 +33,7 @@ NectarManiac_4:
 	end
 
 NectarManiac_5:
+	safefollow
 	playse SE_PIN
 	applymovement 1, Common_Movement_ExclamationMark
 	waitmovement 0

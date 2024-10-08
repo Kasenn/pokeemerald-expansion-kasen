@@ -92,6 +92,7 @@ script Kaolisle_Karatemaster{
     checkitem(ITEM_LOST_MEMENTO)
     if(var(VAR_RESULT) == TRUE){
         playse(SE_PIN)
+        safefollow
 	    applymovement(1, Common_Movement_ExclamationMark)
 	    waitmovement(0)
 	    delay(40)

@@ -939,6 +939,7 @@ static const struct TrainerMon sParty_Dusty2[] = {
     {
     .lvl = 10,
     .species = SPECIES_COMBEE,
+    .gender = TRAINER_MON_FEMALE,
     }
 };
 
@@ -1134,8 +1135,8 @@ static const struct TrainerMon sParty_Lola2[] = {
         .species = SPECIES_HOUNDOUR,
     },
     {
-        .lvl = 12,
-        .species = SPECIES_SANDSHREW,
+        .lvl = 13,
+        .species = SPECIES_SANDILE,
     },
 };
 
@@ -2078,7 +2079,7 @@ static const struct TrainerMon sParty_R6Tr3_CamperF[] = {
     {
     .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
     .lvl = 22,
-    .species = SPECIES_SANDSLASH,
+    .species = SPECIES_RUFFLET,
     }
 };
 
@@ -2530,7 +2531,7 @@ static const struct TrainerMon sParty_DesertTr2_Camper2[] = {
     {
     .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
     .lvl = 23,
-    .species = SPECIES_SANDSHREW,
+    .species = SPECIES_SANDILE,
     },
     {
     .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
@@ -2981,14 +2982,14 @@ static const struct TrainerMon sParty_KG_Tr8_Camper3[] = {
     {
     .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
     .lvl = 25,
-    .species = SPECIES_SANDSLASH,
-    .moves = {MOVE_SAND_TOMB, MOVE_CRUSH_CLAW, MOVE_SWIFT, MOVE_MAGNITUDE}
+    .species = SPECIES_WOOPER,
+    .moves = {MOVE_POISON_JAB, MOVE_YAWN, MOVE_SLAM, MOVE_MUD_SHOT}
     },
     {
     .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
     .lvl = 27,
     .species = SPECIES_CLODSIRE,
-    .moves = {MOVE_POISON_JAB, MOVE_YAWN, MOVE_SLAM, MOVE_AMNESIA}
+    .moves = {MOVE_POISON_JAB, MOVE_YAWN, MOVE_SLAM, MOVE_MUD_SHOT}
     }
 };
 
@@ -5162,7 +5163,7 @@ static const struct TrainerMon sParty_TRAINER_R23_TR1_BREEDER_M[] = {
     {
     .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
     .lvl = 35,
-    .species = SPECIES_SANDSHREW,
+    .species = SPECIES_KROKOROK,
     },
     {
     .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),

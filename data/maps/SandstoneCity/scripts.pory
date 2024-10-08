@@ -217,8 +217,8 @@ script SandstoneRival{
     setflag(FLAG_BRENDAN_COSTUME_CHANGE)
     call(Common_EventScript_SetupRivalGfxId)
     lock
-    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
-	waitmovement(0)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+	delay(5)
     opendoor(51, 22)
     waitdooranim
     addobject(13)

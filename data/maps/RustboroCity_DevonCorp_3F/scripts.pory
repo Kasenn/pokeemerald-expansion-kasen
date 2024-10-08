@@ -5,6 +5,7 @@ script DevonCorpTrigger1{
         release
         end
     }
+    safefollow
     call(DevonTurnRocket)
     setvar(VAR_TEMP_2, 1)
     applymovement(3, DevonRocketMove1)
@@ -15,6 +16,7 @@ script DevonCorpTrigger2{
         release
         end
     }
+    safefollow
     call(DevonTurnRocket)
     setvar(VAR_TEMP_2, 2)
     applymovement(3, DevonRocketMove2)
@@ -25,6 +27,7 @@ script DevonCorpTrigger3{
         release
         end
     }
+    safefollow
     call(DevonTurnRocket)
     setvar(VAR_TEMP_2, 3)
     applymovement(3, DevonRocketMove3)
@@ -35,6 +38,7 @@ script DevonCorpTrigger4{
         release
         end
     }
+    safefollow
     call(DevonTurnRocket)
     setvar(VAR_TEMP_2, 4)
     applymovement(3, DevonRocketMove4)
@@ -99,6 +103,7 @@ script DevonCorpRocketMainEvent{
     end
 }
 script MovePrez1{
+    safefollow
     applymovement(1, PrezMove1)
     waitmovement(0)
     goto(DevonPrezTalk)
@@ -111,6 +116,7 @@ movement PrezMove1{
 }
 
 script MovePrez2{
+    safefollow
     applymovement(1, PrezMove2)
     waitmovement(0)
     goto(DevonPrezTalk)
@@ -121,6 +127,7 @@ movement PrezMove2{
 }
 
 script MovePrez3{
+    safefollow
     applymovement(1, PrezMove3)
     waitmovement(0)
     goto(DevonPrezTalk)
@@ -131,6 +138,7 @@ movement PrezMove3{
 }
 
 script MovePrez4{
+    safefollow
     applymovement(1, PrezMove4)
     waitmovement(0)
     goto(DevonPrezTalk)

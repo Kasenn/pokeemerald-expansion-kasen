@@ -70,6 +70,8 @@ PokeRanch_Owner::
 PokeRanch_Volkner::
 	lock
 	faceplayer
+	safefollow
+	getfollowerxy VAR_TEMP_1, VAR_TEMP_2
 	setflag FLAG_VOLKNER_MET
 	goto_if_set FLAG_RANCH_HELPED, PokeRanch_Volkner_1
 	compare VAR_POKERANCH, 0
@@ -95,8 +97,8 @@ PokeRanch_Volkner_10:
 	goto_if_eq PokeRanch_Volkner_22
 PokeRanch_Volkner_21:
 	compare VAR_FACING, DIR_EAST
-	goto_if_eq PokeRanch_Volkner_30
-PokeRanch_Volkner_29:
+	goto_if_eq PokeRanch_Volkner_33
+PokeRanch_Volkner_32:
 	waitmovement 0
 	setflag FLAG_HIDE_VOLKNER_1
 	setflag FLAG_RECEIVED_HM_CUT
@@ -135,13 +137,15 @@ PokeRanch_Volkner_15:
 	goto PokeRanch_Volkner_7
 
 PokeRanch_Volkner_11:
+	compare VAR_TEMP_1, 36
+	goto_if_eq PokeRanch_Volkner_24
 	applymovement 10, PokeRanch_VolknerExit2FacingNorth
 	goto PokeRanch_Volkner_10
 
 PokeRanch_Volkner_13:
 	msgbox PokeRanch_VolknerGossip, MSGBOX_DEFAULT
-	goto_if_set FLAG_JASMINE_HELPED, PokeRanch_Volkner_26
-PokeRanch_Volkner_24:
+	goto_if_set FLAG_JASMINE_HELPED, PokeRanch_Volkner_29
+PokeRanch_Volkner_27:
 	waitmessage
 	closemessage
 	release
@@ -163,22 +167,38 @@ PokeRanch_Volkner_22:
 	applymovement 10, PokeRanch_VolknerExit2FacingSWE
 	goto PokeRanch_Volkner_21
 
-PokeRanch_Volkner_25:
+PokeRanch_Volkner_24:
+	applymovement 10, PokeRanch_VolknerExit2FacingNorthAlt
+	goto PokeRanch_Volkner_10
+
+PokeRanch_Volkner_28:
 	msgbox Volkner2_JasmineHelped, MSGBOX_DEFAULT
 	setflag FLAG_VOLKNER_INFORMED
-	goto PokeRanch_Volkner_24
+	goto PokeRanch_Volkner_27
 
-PokeRanch_Volkner_26:
-	goto_if_unset FLAG_VOLKNER_INFORMED, PokeRanch_Volkner_25
-	goto PokeRanch_Volkner_24
+PokeRanch_Volkner_29:
+	goto_if_unset FLAG_VOLKNER_INFORMED, PokeRanch_Volkner_28
+	goto PokeRanch_Volkner_27
 
-PokeRanch_Volkner_30:
+PokeRanch_Volkner_33:
 	applymovement 10, PokeRanch_VolknerExit2FacingSWE
-	goto PokeRanch_Volkner_29
+	goto PokeRanch_Volkner_32
 
 
 PokeRanch_VolknerExit2FacingNorth:
 	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+PokeRanch_VolknerExit2FacingNorthAlt:
+	walk_left
 	walk_down
 	walk_down
 	walk_down
@@ -256,6 +276,7 @@ PokeRanch_VolknerExitFacingNorth:
 
 PokeRanch_MareepTrigger::
 	lock
+	safefollow
 	faceplayer
 	waitse
 	playmoncry SPECIES_MAREEP, CRY_MODE_NORMAL
@@ -425,6 +446,7 @@ PokeRanch_SpecialBattleWon::
 	msgbox Ranch_RocketEscapeFail2, MSGBOX_DEFAULT
 PokeRanch_SpecialBattleWon_1:
 	waitmessage
+	safefollow
 	closemessage
 	applymovement 18, AfterBattleVolkner1
 	waitmovement 0
@@ -721,13 +743,13 @@ Ranch_JasmineHeadsBack::
 	.string "make sure the situation at the barn\l"
 	.string "is under control…\p"
 	.string "Um, if you don't mind,\n"
-	.string "I'd like to take that little guy\l"
-	.string "hiding behind you back to the barn…$"
+	.string "I'd like to take the little guy\l"
+	.string "hiding in the corner back to the barn…$"
 
 Ranch_JasmineHeadsBack2::
 	.string "???: Um, if you don't mind,\n"
-	.string "I'd like to take that little guy\l"
-	.string "hiding behind you back to the barn…$"
+	.string "I'd like to take the little guy\l"
+	.string "hiding in the corner back to the barn…$"
 
 RanchRocket2Challenge::
 	.string "Don't think you're out\n"

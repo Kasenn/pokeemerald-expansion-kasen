@@ -149,6 +149,7 @@ AldeleafTriggerMain::
 	lock
 	playse SE_PIN
 	turnobject 18, DIR_WEST
+	safefollow
 	applymovement 18, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 48
@@ -201,6 +202,7 @@ AldeleafTriggerMain2::
 	lock
 	playse SE_PIN
 	turnobject 19, DIR_EAST
+	safefollow
 	applymovement 19, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 48
@@ -265,6 +267,7 @@ AldeleafCity_KeyMan_1:
 	end
 
 AldeleafCity_KeyMan_2:
+	safefollow
 	applymovement 16, Common_Movement_ExclamationMark
 	playse SE_PIN
 	faceplayer
@@ -370,6 +373,7 @@ Aldeleaf_Sudowoodo_NoCut::
 	faceplayer
 	waitse
 	playse SE_SUDOWOODO_SHAKE
+	safefollow
 	applymovement 1, Aldeleaf_SudowoodoShake
 	waitmovement 1
 	release
@@ -397,6 +401,7 @@ Aldeleaf_SudowoodoShake:
 Aldeleaf_Sudowoodo_CutDown::
 	waitse
 	playse SE_SUDOWOODO_SHAKE
+	safefollow
 	applymovement 1, Aldeleaf_SudowoodoShake
 	waitmovement 1
 	checkitem ITEM_WAILMER_PAIL
@@ -442,6 +447,7 @@ Aldeleaf_TrainerNearSudowoodo_2:
 	msgbox Aldeleaf_Text_OnceAnOddTreePastHere, MSGBOX_DEFAULT
 	waitmessage
 	closemessage
+	safefollow
 	compare VAR_FACING, DIR_WEST
 	goto_if_eq Aldeleaf_TrainerNearSudowoodo_6
 	applymovement 3, Aldeleaf_TrainerMoveShort
@@ -459,6 +465,7 @@ Aldeleaf_TrainerNearSudowoodo_6:
 
 Aldeleaf_TrainerMoveLong:
 	walk_down
+	walk_right
 	walk_right
 	walk_right
 	walk_up

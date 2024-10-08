@@ -41,6 +41,7 @@ FishVillage_Brother::
 	lock
 	turnobject 1, DIR_SOUTH
 	playse SE_PIN
+	safefollow
 	applymovement 1, ExclamationMark
 	waitmovement 0
 	delay 48
@@ -108,6 +109,7 @@ FishVillage_Brother_34:
 	msgbox FishingVillageBrotherLeaves
 FishVillage_Brother_54:
 	closemessage
+	safefollow
 	switch VAR_TEMP_2
 	case 1, FishVillage_Brother_67
 	case 2, FishVillage_Brother_68
@@ -320,6 +322,7 @@ FishVillage_Man1_2:
 	faceplayer
 	msgbox CaughtGyarados
 	closemessage
+	safefollow
 	switch VAR_FACING
 	case DIR_EAST, FishVillage_Man1_6
 	case DIR_NORTH, FishVillage_Man1_6

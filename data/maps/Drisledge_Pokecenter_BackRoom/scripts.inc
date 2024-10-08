@@ -64,6 +64,7 @@ TriggerGengariteEvent::
 	turnobject 3, DIR_SOUTH
 	turnobject 4, DIR_SOUTH
 	playse SE_PIN
+	safefollow
 	applymovement 2, ExclamationMark
 	applymovement 3, ExclamationMark
 	applymovement 4, ExclamationMark

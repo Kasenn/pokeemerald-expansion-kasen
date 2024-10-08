@@ -54,20 +54,21 @@ R15_Acerola_4:
 	goto_if_eq R15_Acerola_9
 	msgbox AcerolaYouMustBeBusy
 	closemessage
+	checkfollower
+	compare VAR_RESULT, TRUE
+	goto_if_eq R15_Acerola_13
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
 	compare VAR_FACING, DIR_NORTH
-	goto_if_eq R15_Acerola_13
-R15_Acerola_12:
+	goto_if_eq R15_Acerola_23
 	compare VAR_FACING, DIR_SOUTH
-	goto_if_eq R15_Acerola_16
-R15_Acerola_15:
+	goto_if_eq R15_Acerola_24
 	compare VAR_FACING, DIR_EAST
-	goto_if_eq R15_Acerola_19
+	goto_if_eq R15_Acerola_25
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	waitmovement 0
 	delay 100
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
-R15_Acerola_18:
+R15_Acerola_12:
 	delay 48
 	msgbox AcerolaThatWay
 R15_Acerola_8:
@@ -88,25 +89,70 @@ R15_Acerola_9:
 	goto R15_Acerola_8
 
 R15_Acerola_13:
+	safefollow
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
+	applymovement OBJ_EVENT_ID_FOLLOWER, Common_Movement_QuestionMark
+	compare VAR_FACING, DIR_NORTH
+	goto_if_eq R15_Acerola_16
+	compare VAR_FACING, DIR_SOUTH
+	goto_if_eq R15_Acerola_17
+	compare VAR_FACING, DIR_EAST
+	goto_if_eq R15_Acerola_18
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	turnobject OBJ_EVENT_ID_FOLLOWER, DIR_EAST
+	waitmovement 0
+	delay 100
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject OBJ_EVENT_ID_FOLLOWER, DIR_WEST
+	goto R15_Acerola_12
+
+R15_Acerola_16:
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
+	turnobject OBJ_EVENT_ID_FOLLOWER, DIR_SOUTH
+	waitmovement 0
+	delay 100
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	turnobject OBJ_EVENT_ID_FOLLOWER, DIR_NORTH
+	goto R15_Acerola_12
+
+R15_Acerola_17:
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	turnobject OBJ_EVENT_ID_FOLLOWER, DIR_NORTH
+	waitmovement 0
+	delay 100
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
+	turnobject OBJ_EVENT_ID_FOLLOWER, DIR_SOUTH
+	goto R15_Acerola_12
+
+R15_Acerola_18:
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject OBJ_EVENT_ID_FOLLOWER, DIR_WEST
+	waitmovement 0
+	delay 100
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	turnobject OBJ_EVENT_ID_FOLLOWER, DIR_EAST
+	goto R15_Acerola_12
+
+R15_Acerola_23:
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
 	waitmovement 0
 	delay 100
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	goto R15_Acerola_12
 
-R15_Acerola_16:
+R15_Acerola_24:
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	waitmovement 0
 	delay 100
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
-	goto R15_Acerola_15
+	goto R15_Acerola_12
 
-R15_Acerola_19:
+R15_Acerola_25:
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
 	waitmovement 0
 	delay 100
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
-	goto R15_Acerola_18
+	goto R15_Acerola_12
 
 
 Route15_Sign1::
@@ -135,6 +181,7 @@ R15_RR_Escapes::
 	setvar VAR_ROUTE14_ROCKET_EVENT, 4
 	turnobject 18, DIR_NORTH
 	playse SE_PIN
+	safefollow
 	applymovement 18, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 48

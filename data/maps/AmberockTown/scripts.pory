@@ -3,6 +3,9 @@ mapscripts AmberockTown_MapScripts{
     MAP_SCRIPT_ON_LOAD: Amberock_PaperVisibility
 }
 
+const X = VAR_TEMP_1
+const Y = VAR_TEMP_2
+
 script Amberock_FlagControl{
     setflag(FLAG_TEMP_3)
     setflag(FLAG_TEMP_2)
@@ -42,6 +45,10 @@ script Amberock_SurfScientist{
     msgbox(GoGetBackPapers)
     closemessage
     if(var(VAR_FACING) == DIR_SOUTH){
+        getfollowerxy(X, Y)
+        if(var(X) != 34 && var(Y) != 10){
+            safefollow
+        }
         applymovement(1, ScientistLeavesDetour)
     }
     else{
@@ -93,6 +100,7 @@ movement ScientistLeavesStraight{
 
 script Amberock_Papers{
     lock
+    safefollow
     msgbox(PapersOnGround)
     removeobject(3)
     setmetatile(27, 10, 0x128, FALSE)
@@ -102,17 +110,28 @@ script Amberock_Papers{
     clearflag(FLAG_TEMP_3)
     addobject(1)
     addobject(2)
+    getfollowerxy(X, Y)
+    safefollow
     if(!defeated(TRAINER_R15_TR18_BERRYROCKET)){
         call(AmberockAlternativeCutscene)
     }
     delay(60)
     switch(var(VAR_FACING)){
         case DIR_SOUTH:
+            if(var(X) == 27 && var(Y) == 8){
+                clearflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+            }
             applymovement(1, MoveScientist2)
         case DIR_WEST:
+            if(var(X) == 28 && var(Y) == 9){
+                clearflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+            }
             setobjectxy(1, 28, 4)
             applymovement(1, Walk5Down)
         case DIR_EAST:
+            if(var(X) == 26 && var(Y) == 9){
+                clearflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+            }
             setobjectxy(1, 28, 4)
             applymovement(1, MoveScientist1)
     }

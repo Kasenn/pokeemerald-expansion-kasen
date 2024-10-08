@@ -45,6 +45,7 @@ script AdamantExterior_Man3{
         end
     }
     lockall
+    safefollow
     faceplayer
     msgbox(AdamantExterior_Man3_NoAccess)
     closemessage

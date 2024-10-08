@@ -58,6 +58,7 @@ script LitwickChase_1_Main{
     if(var(VAR_TEMP_3) == 1){
         turnobject(1, DIR_WEST)
     }
+    safefollow
     applymovement(1, ExclamationMark)
     waitmovement(0)
     delay(48)
@@ -76,6 +77,10 @@ script LitwickChase_2{
     lock
     faceplayer
     playse(SE_PIN)
+    getfollowerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if(var(VAR_TEMP_1) != 13 && var(VAR_TEMP_2) != 3){
+        safefollow
+    }
     applymovement(1, ExclamationMark)
     waitmovement(0)
     delay(48)
@@ -105,11 +110,20 @@ script LitwickChase_3{
     lock
     faceplayer
     playse(SE_PIN)
+    getfollowerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if(var(VAR_TEMP_1) != 2 && var(VAR_TEMP_2) != 3){
+        safefollow
+    }
     applymovement(1, ExclamationMark)
     waitmovement(0)
     delay(48)
     if(var(VAR_FACING) == DIR_EAST){
-        applymovement(1, LitwickEscape3North)
+        if(var(VAR_TEMP_1) == 1 && var(VAR_TEMP_2 == 4)){
+            applymovement(1, LitwickEscape3NorthLong)
+        }
+        else{
+            applymovement(1, LitwickEscape3North)
+        }
     }
     else{
         applymovement(1, LitwickEscape3)
@@ -129,6 +143,12 @@ movement LitwickEscape3North{
     walk_fast_left * 2
     walk_fast_down * 4
     walk_fast_right * 11
+}
+movement LitwickEscape3NorthLong{
+    walk_fast_up
+    walk_fast_left * 3
+    walk_fast_down * 4
+    walk_fast_right * 12
 }
 movement LitwickEscape3{
     walk_fast_left

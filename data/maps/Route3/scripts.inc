@@ -171,8 +171,9 @@ TriggerGina_1:
 	end
 
 TriggerGina_5:
-	lockall
+	lock
 	playbgm MUS_ENCOUNTER_TWINS, FALSE
+	safefollow
 	applymovement 10, Common_Movement_ExclamationMark
 	applymovement 11, Common_Movement_ExclamationMark
 	waitmovement 10
@@ -204,8 +205,9 @@ TriggerMia_1:
 	end
 
 TriggerMia_5:
-	lockall
+	lock
 	playbgm MUS_ENCOUNTER_TWINS, FALSE
+	safefollow
 	applymovement 10, Common_Movement_ExclamationMark
 	applymovement 11, Common_Movement_ExclamationMark
 	waitmovement 10
@@ -336,7 +338,7 @@ Route3_CamperDefeated::
 	.string "enough of a bribe…$"
 
 Route3_CamperPostBattle::
-	.string "My Sandshrew loves eating\n"
+	.string "My Sandile loves eating\n"
 	.string "my sandwiches.$"
 
 Route3_CoolFIntro::

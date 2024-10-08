@@ -24,6 +24,7 @@ text Kasen{
 
 script CoralgroveElevator2_Bail{
     lockall
+    safefollow
     turnobject(1, DIR_NORTH)
     checkplayergender
     if(var(VAR_RESULT) == MALE){
@@ -48,6 +49,7 @@ text CoralgroveElevator2_Bail_Female{
 
 script CoralgroveElevator2_Trigger1{
     lockall
+    safefollow
     turnobject(1, DIR_WEST)
     playse(SE_PIN)
     applymovement(1, Common_Movement_ExclamationMark)
@@ -59,6 +61,7 @@ script CoralgroveElevator2_Trigger1{
 }
 script CoralgroveElevator2_Trigger2{
     lockall
+    safefollow
     turnobject(1, DIR_EAST)
     playse(SE_PIN)
     applymovement(1, Common_Movement_ExclamationMark)
@@ -70,6 +73,7 @@ script CoralgroveElevator2_Trigger2{
 }
 script CoralgroveElevator2_Rival{
     lockall
+    safefollow
     applymovement(1, Elevator2FacePlayer)
     waitmovement(0)
     if(var(VAR_CORALGROVE_ELEVATOR) == 0){
@@ -285,6 +289,7 @@ text CoralgroveElevator2_MayDowsing{
 }
 
 script CoralgroveElevator2_RivalExit{
+    safefollow
 	closemessage
 	applymovement(1, Harbor_Movement_RivalExit1)
 	waitmovement(0)

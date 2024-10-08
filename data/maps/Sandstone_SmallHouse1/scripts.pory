@@ -91,6 +91,7 @@ script Sandstone_SmallHouse_FisherWoman{
             end
         }
         playse(SE_PIN)
+        safefollow
         applymovement(1, Common_Movement_QuestionMark)
         waitmovement(0)
         delay(30)

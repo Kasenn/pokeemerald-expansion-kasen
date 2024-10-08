@@ -82,6 +82,7 @@ Library_Birch::
 	msgbox Library_Birch_Text
 	closemessage
 	delay 20
+	safefollow
 	applymovement 5, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
 	delay 10
@@ -106,7 +107,20 @@ Library_Birch_1:
 	end
 
 Library_Birch_2:
+	getfollowerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 17
+	goto_if_eq Library_Birch_5
+	compare VAR_TEMP_1, 18
+	goto_if_eq Library_Birch_6
 	applymovement 5, BirchLeavesLong
+	goto Library_Birch_1
+
+Library_Birch_5:
+	applymovement 5, BirchLeavesLonger
+	goto Library_Birch_1
+
+Library_Birch_6:
+	applymovement 5, BirchLeavesLongest
 	goto Library_Birch_1
 
 
@@ -129,6 +143,44 @@ BirchLeavesLong:
 	walk_down
 	walk_left
 	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	step_end
+
+BirchLeavesLonger:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	step_end
+
+BirchLeavesLongest:
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_up
 	walk_up
 	walk_up
 	walk_up

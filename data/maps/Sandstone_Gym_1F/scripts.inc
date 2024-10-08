@@ -96,6 +96,7 @@ SandStoneNoBike::
 	lockall
 	playse SE_PIN
 	turnobject 9, DIR_NORTH
+	safefollow
 	applymovement 9, Common_Movement_ExclamationMark
 	waitmovement 0
 	applymovement 9, Common_Movement_Delay48

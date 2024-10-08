@@ -78,7 +78,8 @@ SchoolHallGirl3_1:
 
 SchoolHallGirl3_4:
 	trainerbattle_no_intro TRAINER_ARCHIE, SchoolHallGirl3Defeated
-	return
+	release
+	end
 
 
 SchoolHallKidM::
@@ -102,7 +103,8 @@ SchoolHallKidM_1:
 
 SchoolHallKidM_4:
 	trainerbattle_no_intro TRAINER_LEAH, SchoolHallKidMDefeated
-	return
+	release
+	end
 
 
 SchoolHallBoy2::
@@ -126,7 +128,8 @@ SchoolHallBoy2_1:
 
 SchoolHallBoy2_4:
 	trainerbattle_no_intro TRAINER_DAISY, SchoolHallBoy2Defeated
-	return
+	release
+	end
 
 
 SchoolHallGirl2::
@@ -150,7 +153,8 @@ SchoolHallGirl2_1:
 
 SchoolHallGirl2_4:
 	trainerbattle_no_intro TRAINER_ROSE_1, SchoolHallGirl2Defeated
-	return
+	release
+	end
 
 
 SchoolReceptionist_Text_0:

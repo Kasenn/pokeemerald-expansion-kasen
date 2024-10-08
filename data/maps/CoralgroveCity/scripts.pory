@@ -110,6 +110,7 @@ script Coralgrove_BirdEvent{
         end
     }
     lock
+    safefollow
     special(SpawnCameraObject)
     applymovement(OBJ_EVENT_ID_CAMERA, Walk3Up)
     waitmovement(0)

@@ -73,6 +73,7 @@ Kaolisle_Karatemaster_2:
 
 Kaolisle_Karatemaster_5:
 	playse SE_PIN
+	safefollow
 	applymovement 1, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 40

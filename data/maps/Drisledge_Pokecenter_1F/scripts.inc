@@ -113,7 +113,7 @@ Gengar_HealPkmn::
 
 
 Gengar_TakeAndHealPkmn::
-	applymovement 8, Common_Movement_WalkInPlaceFasterLeft
+	applymovement 8, Movement_PkmnCenterNurse_Turn
 	waitmovement 0
 	dofieldeffect FLDEFF_POKECENTER_HEAL
 	waitfieldeffect FLDEFF_POKECENTER_HEAL

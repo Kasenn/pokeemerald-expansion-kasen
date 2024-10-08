@@ -27,6 +27,7 @@ JasmineLeavesHotel::
 	delay 30
 	turnobject 24, DIR_SOUTH
 	playse SE_PIN
+	safefollow
 	applymovement 24, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 70
@@ -463,6 +464,7 @@ BuffetNotEnoughMoney::
 BuffetAlreadyCompleted::
 	msgbox BuffetAlreadyCompleted_Text, MSGBOX_DEFAULT
 	closemessage
+	safefollow
 	applymovement OBJ_EVENT_ID_PLAYER, Walk1Right
 	waitmovement 0
 	release
@@ -553,6 +555,7 @@ Hotel_Attendant::
 Hotel_PrivateParty::
 	lockall
 	playse SE_PIN
+	safefollow
 	applymovement 1, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 40

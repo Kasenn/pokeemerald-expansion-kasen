@@ -551,6 +551,7 @@ AcerolaDanceTriggerMain::
 	compare VAR_RESULT, FALSE
 	goto_if_eq AcerolaDanceTriggerMain_5
 	lock
+	safefollow
 	applymovement 6, WW_Face
 	waitmovement 0
 	playse SE_PIN

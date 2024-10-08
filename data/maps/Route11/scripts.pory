@@ -486,6 +486,7 @@ script R11_RivalEvent{
     checkplayergender
     call_if_eq(VAR_RESULT, MALE, Route110_EventScript_PlayMayMusic)
 	call_if_eq(VAR_RESULT, FEMALE, Route110_EventScript_PlayBrendanMusic)
+    safefollow
 	applymovement(8, Common_Movement_WalkInPlaceFasterDown)
 	waitmovement(0)
     playse(SE_PIN)
@@ -583,6 +584,7 @@ script R11_RivalNotAngry{
 script KorrinaIntro{
     closemessage
     playse(SE_PIN)
+    safefollow
     applymovement(8, Common_Movement_ExclamationMark)
 	waitmovement(0)
     delay(40)
@@ -609,6 +611,7 @@ script KorrinaIntro{
 }
 script KorrinaMovesBack{
     closemessage
+    safefollow
     applymovement(9, KorrinaInPlace)
     waitmovement(0)
     turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
@@ -677,6 +680,7 @@ script R11_RivalPostBattle{
         msgbox(R11_BrendanPostText, MSGBOX_DEFAULT)
     }
     closemessage
+    safefollow
     applymovement(9, KorrinaMoveForward)
     waitmovement(0)
     delay(10)
@@ -730,6 +734,7 @@ script R11_RivalExits{
     showobjectat(28, MAP_ROUTE11)
     special(DrawWholeMapView)
     delay(40)
+    safefollow
     applymovement(28, R11RivalLeaves)
     waitmovement(0)
     setvar(VAR_GYM_TELEPORT, 1)

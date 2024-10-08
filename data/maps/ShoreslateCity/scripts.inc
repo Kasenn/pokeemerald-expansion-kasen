@@ -331,6 +331,7 @@ Shoreslate_DevonExteriorTrigger_1:
 	waitmessage
 	closemessage
 	setvar VAR_TEMP_6, 1
+	safefollow
 	applymovement OBJ_EVENT_ID_PLAYER, Walk1Right
 	waitmovement 0
 	delay 5

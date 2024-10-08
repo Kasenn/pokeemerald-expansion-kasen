@@ -279,6 +279,7 @@ DrisledgeGym_Mimikyu1::
 	playmoncry SPECIES_MIMIKYU, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
+	safefollow
 	applymovement 2, Walk6Right
 	waitmovement 0
 	removeobject 2
@@ -298,6 +299,7 @@ DrisledgeGym_Mimikyu2::
 	playmoncry SPECIES_MIMIKYU, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
+	safefollow
 	applymovement 4, Walk6Up
 	waitmovement 0
 	removeobject 4
@@ -317,6 +319,7 @@ DrisledgeGym_Mimikyu3::
 	playmoncry SPECIES_MIMIKYU, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
+	safefollow
 	applymovement 9, Walk6Right
 	waitmovement 0
 	removeobject 9
@@ -336,6 +339,7 @@ DrisledgeGym_Mimikyu4::
 	playmoncry SPECIES_MIMIKYU, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
+	safefollow
 	applymovement 13, Walk6Up
 	waitmovement 0
 	removeobject 13
@@ -355,6 +359,7 @@ DrisledgeGym_Mimikyu5::
 	playmoncry SPECIES_MIMIKYU, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
+	safefollow
 	applymovement 17, Walk6Left
 	waitmovement 0
 	removeobject 17
@@ -375,6 +380,7 @@ DrisledgeGym_Trainer1_PostScript::
 	msgbox KeepUpWithReal
 	closemessage
 	delay 48
+	safefollow
 	applymovement 3, RunFastDown
 	applymovement 1, RunFastRight
 	call DrisledgeMetatiles1
@@ -421,6 +427,7 @@ DrisledgeGym_Trainer2_PostScript::
 	msgbox KeepUpWithReal
 	closemessage
 	delay 48
+	safefollow
 	applymovement 5, RunFastUp
 	applymovement 6, RunFastDown
 	applymovement 7, RunFastRight
@@ -473,6 +480,7 @@ DrisledgeGym_Trainer3_PostScript::
 	msgbox KeepUpWithReal
 	closemessage
 	delay 48
+	safefollow
 	applymovement 10, RunFastRight
 	applymovement 11, RunFastUp
 	applymovement 8, RunFastLeft
@@ -525,6 +533,7 @@ DrisledgeGym_Trainer4_PostScript::
 	msgbox KeepUpWithReal
 	closemessage
 	delay 48
+	safefollow
 	applymovement 12, RunFastRight
 	applymovement 14, RunFastUp
 	applymovement 15, RunFastDown
@@ -577,6 +586,7 @@ DrisledgeGym_Trainer5_PostScript::
 	msgbox KeepUpWithReal
 	closemessage
 	delay 48
+	safefollow
 	applymovement 19, RunFastRight
 	applymovement 16, RunFastUp
 	applymovement 18, RunFastLeft
@@ -623,6 +633,7 @@ DrisledgeGym_Trainer6::
 DrisledgeGym_Trainer6_PostScript::
 	animateflash 0
 	setflashlevel 0
+	safefollow
 	applymovement 21, Walk7Left
 	call DrisledgeMetatiles6
 	setvar VAR_DRISLEDGE_TOWN_STATE, 29

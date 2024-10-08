@@ -95,6 +95,7 @@ AldeleafSmallHouse2_Woman_24:
 AldeleafSmallHouse2_Woman_27:
 	lockall
 	setflag FLAG_GHOST_MOVED
+	safefollow
 	applymovement 2, AldeleafMoveGhost
 	delay 15
 	turnobject 1, DIR_WEST
@@ -128,6 +129,7 @@ Aldeleaf_MoveGhost_1:
 
 Aldeleaf_MoveGhost_2:
 	setflag FLAG_GHOST_MOVED
+	safefollow
 	applymovement 2, AldeleafMoveGhost
 	delay 15
 	turnobject 1, DIR_WEST

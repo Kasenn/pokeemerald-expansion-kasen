@@ -51,6 +51,7 @@ R14_RR_Event_Trigger1::
 	clearflag FLAG_TEMP_2
 	addobject 14
 	delay 30
+	safefollow
 	applymovement 14, R14_GruntEscapes
 	waitmovement 0
 	removeobject 14
@@ -133,6 +134,7 @@ R14_BlockAccessToFacility::
 	msgbox R14_BlockAccessToFacility_Text2
 R14_BlockAccessToFacility_1:
 	closemessage
+	safefollow
 	applymovement OBJ_EVENT_ID_PLAYER, Walk1Down
 	waitmovement 0
 	release
@@ -174,6 +176,7 @@ R14_HelpScientist3::
 
 R14_HelpScientist::
 	lock
+	safefollow
 	switch VAR_TEMP_1
 	case 1, R14_HelpScientist_3
 	case 2, R14_HelpScientist_4
@@ -239,6 +242,7 @@ R14_ChaseAfterRocket::
 	turnobject 17, DIR_EAST
 R14_ChaseAfterRocket_1:
 	playse SE_PIN
+	safefollow
 	applymovement 17, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 48

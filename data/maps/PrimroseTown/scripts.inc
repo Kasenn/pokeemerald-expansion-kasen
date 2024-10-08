@@ -34,6 +34,7 @@ Primrose_Hiker::
 
 PrimroseBlocked::
 	lockall
+	safefollow
 	applymovement 3, Primrose_FaceRight
 	waitmovement 0
 	playse SE_PIN

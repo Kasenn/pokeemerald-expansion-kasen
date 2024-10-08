@@ -2,6 +2,9 @@ mapscripts PokeRanch_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: SetVolkner
 }
 
+const X = VAR_TEMP_1
+const Y = VAR_TEMP_2
+
 script SetVolkner{
     if(!flag(FLAG_BADGE02_GET)){
         setobjectmovementtype(3, MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP)
@@ -59,6 +62,8 @@ script PokeRanch_Owner{
 script PokeRanch_Volkner{
     lock
     faceplayer
+    safefollow
+    getfollowerxy(X, Y)
     setflag(FLAG_VOLKNER_MET)
     if(flag(FLAG_RANCH_HELPED)){
         msgbox(PokeRanch_VolknerReward, MSGBOX_DEFAULT)
@@ -67,16 +72,21 @@ script PokeRanch_Volkner{
         msgbox(Ranch_ExplainCut)
         closemessage
         if(var(VAR_FACING) == DIR_SOUTH){
-        applymovement(10, PokeRanch_VolknerExit2FacingSWE)
+            applymovement(10, PokeRanch_VolknerExit2FacingSWE)
         }
 	    if(var(VAR_FACING) == DIR_NORTH){
-        applymovement(10, PokeRanch_VolknerExit2FacingNorth)
+            if(var(X) == 36){
+                applymovement(10, PokeRanch_VolknerExit2FacingNorthAlt)
+            }
+            else{
+                applymovement(10, PokeRanch_VolknerExit2FacingNorth)
+            }
         }
 	    if(var(VAR_FACING) == DIR_WEST){
-        applymovement(10, PokeRanch_VolknerExit2FacingSWE)
+            applymovement(10, PokeRanch_VolknerExit2FacingSWE)
         }
         if(var(VAR_FACING) == DIR_EAST){
-        applymovement(10, PokeRanch_VolknerExit2FacingSWE)
+            applymovement(10, PokeRanch_VolknerExit2FacingSWE)
         }
         waitmovement(0)
         setflag(FLAG_HIDE_VOLKNER_1)
@@ -136,6 +146,10 @@ script PokeRanch_Volkner{
 
 movement PokeRanch_VolknerExit2FacingNorth{
     walk_right
+    walk_down *8
+}
+movement PokeRanch_VolknerExit2FacingNorthAlt{
+    walk_left
     walk_down *8
 }
 movement PokeRanch_VolknerExit2FacingSWE{
@@ -276,6 +290,7 @@ text PokeRanch_VolknerGossip{
 
 script PokeRanch_MareepTrigger{
     lock
+    safefollow
 	faceplayer
     waitse
 	playmoncry(SPECIES_MAREEP, CRY_MODE_NORMAL)
@@ -449,6 +464,7 @@ script PokeRanch_SpecialBattleWon{
         msgbox(Ranch_RocketEscapeFail2, MSGBOX_DEFAULT)
     }
     waitmessage
+    safefollow
     closemessage
     applymovement(18, AfterBattleVolkner1)
     waitmovement(0)
@@ -534,13 +550,13 @@ text Ranch_JasmineHeadsBack{
     "make sure the situation at the barn\l"
     "is under control…\p"
     "Um, if you don't mind,\n"
-    "I'd like to take that little guy\l"
-    "hiding behind you back to the barn…"
+    "I'd like to take the little guy\l"
+    "hiding in the corner back to the barn…"
 }
 text Ranch_JasmineHeadsBack2{
     "???: Um, if you don't mind,\n"
-    "I'd like to take that little guy\l"
-    "hiding behind you back to the barn…"
+    "I'd like to take the little guy\l"
+    "hiding in the corner back to the barn…"
 }
 text RanchRocket2Challenge{
     "Don't think you're out\n"

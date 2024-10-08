@@ -6,10 +6,12 @@ Route28_BrotherTrigger_1::
 	goto_if_set FLAG_ROUTE28_DESPAWN_BROTHER, Route28_BrotherTrigger_1_1
 	lockall
 	playbgm MUS_ENCOUNTER_BRENDAN, FALSE
+	safefollow
 	applymovement 4, Route28_MoveBrother1
 	waitmovement 4
 	delay 15
 	call Route28_BrotherFight
+	safefollow
 	applymovement 4, Route28BrotherLeaves1
 	goto Route28_EndScript
 	return
@@ -23,10 +25,12 @@ Route28_BrotherTrigger_2::
 	goto_if_set FLAG_ROUTE28_DESPAWN_BROTHER, Route28_BrotherTrigger_2_1
 	lockall
 	playbgm MUS_ENCOUNTER_BRENDAN, FALSE
+	safefollow
 	applymovement 4, Route28_MoveBrother2
 	waitmovement 4
 	delay 15
 	call Route28_BrotherFight
+	safefollow
 	applymovement 4, Route28BrotherLeaves2
 	goto Route28_EndScript
 	return
@@ -359,9 +363,9 @@ Route28_Sign_Text::
 	.string "Trainer Tips\p"
 	.string "During a battle, holding the START\n"
 	.string "button and pressing up or down on\l"
-	.string "the d-pad changes the style of the\l"
+	.string "the D-Pad changes the style of the\l"
 	.string "window border, while pressing left or\l"
-	.string "down on the d-pad changes the color\l"
+	.string "down on the D-Pad changes the color\l"
 	.string "of the battle interface.\p"
 	.string "During double battles, pressing the\n"
 	.string "SELECT button switches the view\l"

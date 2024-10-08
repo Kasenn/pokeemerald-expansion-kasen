@@ -351,6 +351,7 @@ AT_Custodian_5:
 	compare VAR_RESULT, FALSE
 	goto_if_eq AT_Custodian_11
 	playse SE_PIN
+	safefollow
 	applymovement 1, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 48
@@ -362,6 +363,7 @@ AT_Custodian_5:
 
 AT_Custodian_8:
 	playse SE_PIN
+	safefollow
 	applymovement 1, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 48

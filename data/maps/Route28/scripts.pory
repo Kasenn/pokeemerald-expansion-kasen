@@ -8,10 +8,12 @@ script Route28_BrotherTrigger_1{
     else{
         lockall
         playbgm(MUS_ENCOUNTER_BRENDAN, FALSE)
+        safefollow
         applymovement(4, Route28_MoveBrother1)
         waitmovement(4)
         delay(15)
         call(Route28_BrotherFight)
+        safefollow
         applymovement(4, Route28BrotherLeaves1)
         goto(Route28_EndScript)
     }
@@ -24,10 +26,12 @@ script Route28_BrotherTrigger_2{
     else{
         lockall
         playbgm(MUS_ENCOUNTER_BRENDAN, FALSE)
+        safefollow
         applymovement(4, Route28_MoveBrother2)
         waitmovement(4)
         delay(15)
         call(Route28_BrotherFight)
+        safefollow
         applymovement(4, Route28BrotherLeaves2)
         goto(Route28_EndScript)
     }
@@ -292,9 +296,9 @@ text Route28_Sign_Text{
     "Trainer Tips\p"
     "During a battle, holding the START\n"
     "button and pressing up or down on\l"
-    "the d-pad changes the style of the\l"
+    "the D-Pad changes the style of the\l"
     "window border, while pressing left or\l"
-    "down on the d-pad changes the color\l"
+    "down on the D-Pad changes the color\l"
     "of the battle interface.\p"
     "During double battles, pressing the\n"
     "SELECT button switches the view\l"

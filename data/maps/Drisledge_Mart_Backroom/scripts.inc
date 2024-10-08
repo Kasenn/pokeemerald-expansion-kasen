@@ -87,6 +87,7 @@ LitwickChase_1_Main::
 	compare VAR_TEMP_3, 1
 	goto_if_eq LitwickChase_1_Main_2
 LitwickChase_1_Main_1:
+	safefollow
 	applymovement 1, ExclamationMark
 	waitmovement 0
 	delay 48
@@ -114,13 +115,17 @@ LitwickChase_2::
 	lock
 	faceplayer
 	playse SE_PIN
+	getfollowerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 13
+	goto_if_ne LitwickChase_2_3
+LitwickChase_2_1:
 	applymovement 1, ExclamationMark
 	waitmovement 0
 	delay 48
 	compare VAR_FACING, DIR_EAST
-	goto_if_eq LitwickChase_2_2
+	goto_if_eq LitwickChase_2_7
 	applymovement 1, LitwickEscape2
-LitwickChase_2_1:
+LitwickChase_2_6:
 	waitmovement 0
 	setobjectxyperm 1, 3, 4
 	turnobject 1, DIR_SOUTH
@@ -129,8 +134,17 @@ LitwickChase_2_1:
 	return
 
 LitwickChase_2_2:
-	applymovement 1, LitwickEscape2North
+	safefollow
 	goto LitwickChase_2_1
+
+LitwickChase_2_3:
+	compare VAR_TEMP_2, 3
+	goto_if_ne LitwickChase_2_2
+	goto LitwickChase_2_1
+
+LitwickChase_2_7:
+	applymovement 1, LitwickEscape2North
+	goto LitwickChase_2_6
 
 
 LitwickEscape2North:
@@ -167,13 +181,17 @@ LitwickChase_3::
 	lock
 	faceplayer
 	playse SE_PIN
+	getfollowerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 2
+	goto_if_ne LitwickChase_3_3
+LitwickChase_3_1:
 	applymovement 1, ExclamationMark
 	waitmovement 0
 	delay 48
 	compare VAR_FACING, DIR_EAST
-	goto_if_eq LitwickChase_3_2
+	goto_if_eq LitwickChase_3_7
 	applymovement 1, LitwickEscape3
-LitwickChase_3_1:
+LitwickChase_3_6:
 	waitmovement 0
 	setobjectxy 1, 14, 13
 	setobjectxyperm 1, 14, 13
@@ -186,8 +204,29 @@ LitwickChase_3_1:
 	return
 
 LitwickChase_3_2:
-	applymovement 1, LitwickEscape3North
+	safefollow
 	goto LitwickChase_3_1
+
+LitwickChase_3_3:
+	compare VAR_TEMP_2, 3
+	goto_if_ne LitwickChase_3_2
+	goto LitwickChase_3_1
+
+LitwickChase_3_7:
+	compare VAR_TEMP_1, 1
+	goto_if_eq LitwickChase_3_12
+LitwickChase_3_11:
+	applymovement 1, LitwickEscape3North
+	goto LitwickChase_3_6
+
+LitwickChase_3_10:
+	applymovement 1, LitwickEscape3NorthLong
+	goto LitwickChase_3_6
+
+LitwickChase_3_12:
+	compare VAR_TEMP_2 == 4, 0
+	goto_if_ne LitwickChase_3_10
+	goto LitwickChase_3_11
 
 
 LitwickEscape3North:
@@ -198,6 +237,29 @@ LitwickEscape3North:
 	walk_fast_down
 	walk_fast_down
 	walk_fast_down
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	step_end
+
+LitwickEscape3NorthLong:
+	walk_fast_up
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_right
 	walk_fast_right
 	walk_fast_right
 	walk_fast_right

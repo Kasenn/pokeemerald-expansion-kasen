@@ -281,6 +281,7 @@ AldeleafBigHouse3_2F_Hide3FMan_2:
 	msgbox AldeleafBigHouse3_3F_PokeBall_StayOut, MSGBOX_DEFAULT
 	waitmessage
 	closemessage
+	safefollow
 	applymovement OBJ_EVENT_ID_PLAYER, Walk1Down
 	waitmovement 0
 	goto AldeleafBigHouse3_2F_Hide3FMan_1

@@ -162,6 +162,7 @@ script Aldeleaf_Artist{
         end
     }
     playse(SE_PIN)
+    safefollow
     applymovement(4, Common_Movement_ExclamationMark)
 	waitmovement(0)
 	applymovement(4, Common_Movement_Delay48)

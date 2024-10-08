@@ -21,6 +21,10 @@ script Sandstone_BigHouse2_3F_Man{
     }
     lock
     faceplayer
+    getfollowerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if(var(VAR_TEMP_1) != 13 && var(VAR_TEMP_2) != 3){
+        safefollow
+    }
     if(var(VAR_SANDSTONEPORYGON_STATE) == 1){
         checkitem(ITEM_ANTIVIRUS)
         if(var(VAR_RESULT) == FALSE){

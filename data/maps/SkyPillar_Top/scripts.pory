@@ -361,6 +361,7 @@ script AT_Custodian{
             end
         }
         playse(SE_PIN)
+        safefollow
         applymovement(1, Common_Movement_ExclamationMark)
         waitmovement(0)
         delay(48)
@@ -375,6 +376,7 @@ script AT_Custodian{
     checkitem(ITEM_STONE_SPHERE)
     if(var(VAR_RESULT) == TRUE){
         playse(SE_PIN)
+        safefollow
         applymovement(1, Common_Movement_ExclamationMark)
         waitmovement(0)
         delay(48)

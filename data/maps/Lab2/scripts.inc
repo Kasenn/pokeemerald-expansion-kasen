@@ -29,6 +29,7 @@ TestEvent_2:
 
 
 Lab2_GetMegaStoneWithoutRival::
+	safefollow
 	applymovement OBJ_EVENT_ID_PLAYER, Walk6Up
 	waitmovement 0
 	msgbox LabMegaStonesWithoutRival
@@ -77,6 +78,7 @@ Lab2_GetMegaStoneWithoutRival_12:
 
 
 Lab2_GetMegaStone::
+	safefollow
 	clearflag FLAG_HIDE_LAB_RIVAL
 	applymovement OBJ_EVENT_ID_PLAYER, Walk6Up
 	waitmovement 0

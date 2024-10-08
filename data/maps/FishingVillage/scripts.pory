@@ -27,6 +27,7 @@ script FishVillage_Brother{
     lock
     turnobject(1, DIR_SOUTH)
     playse(SE_PIN)
+    safefollow
     applymovement(1, ExclamationMark)
     waitmovement(0)
     delay(48)
@@ -112,6 +113,7 @@ script FishVillage_Brother{
         msgbox(FishingVillageBrotherLeaves)
     }
     closemessage
+    safefollow
     switch(var(VAR_TEMP_2)){
         case 1:
             applymovement(1, LeaveFishBrotherRight)
@@ -288,6 +290,7 @@ script FishVillage_Man1{
         faceplayer
         msgbox(CaughtGyarados)
         closemessage
+        safefollow
         switch(var(VAR_FACING)){
             case DIR_EAST:
             case DIR_NORTH:

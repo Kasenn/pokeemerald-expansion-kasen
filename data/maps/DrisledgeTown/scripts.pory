@@ -509,6 +509,7 @@ script AcerolaDanceTriggerMain{
         end
     }
     lock
+    safefollow
     applymovement(6, WW_Face)
     waitmovement(0)
     playse(SE_PIN)

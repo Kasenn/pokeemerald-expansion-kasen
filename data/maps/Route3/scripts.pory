@@ -136,8 +136,9 @@ script TriggerGina{
 	if(!defeated(TRAINER_LOLA_1)){
 		special(HasEnoughMonsForDoubleBattle)
 		if(var(VAR_RESULT) == PLAYER_HAS_TWO_USABLE_MONS){
-			lockall
+			lock
 			playbgm(MUS_ENCOUNTER_TWINS, FALSE)
+			safefollow
 			applymovement(10, Common_Movement_ExclamationMark)
 			applymovement(11, Common_Movement_ExclamationMark)
 			waitmovement(10)
@@ -167,8 +168,9 @@ script TriggerMia{
 	if(!defeated(TRAINER_LOLA_1)){
 		special(HasEnoughMonsForDoubleBattle)
 		if(var(VAR_RESULT) == PLAYER_HAS_TWO_USABLE_MONS){
-			lockall
+			lock
 			playbgm(MUS_ENCOUNTER_TWINS, FALSE)
+			safefollow
 			applymovement(10, Common_Movement_ExclamationMark)
 			applymovement(11, Common_Movement_ExclamationMark)
 			waitmovement(10)
@@ -306,7 +308,7 @@ text Route3_CamperDefeated{
 	"enough of a bribe…"
 }
 text Route3_CamperPostBattle{
-	"My Sandshrew loves eating\n"
+	"My Sandile loves eating\n"
 	"my sandwiches."
 }
 /////////////////////////////
