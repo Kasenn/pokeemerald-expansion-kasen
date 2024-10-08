@@ -129,6 +129,7 @@ AldeleafBigHouse3_Ditto::
 
 AldeleafBigHouse3_3F_PokeBall::
 	goto_if_unset FLAG_TOUCHPOKEBALL, AldeleafBigHouse3_3F_PokeBall_2
+	clearflag FLAG_SAFE_FOLLOWER_MOVEMENT
 	lockall
 	msgbox AldeleafBigHouse3_3F_PokeBall_Text_Sure, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
@@ -193,13 +194,13 @@ AldeleafBigHouse3_3F_PokeBall_5:
 
 AldeleafBigHouse3_3F_PokeBall_8:
 	applymovement 2, AldeleafBigHouse3_3F_MoveLong, MAP_ALDELEAF_BIG_HOUSE3_3F
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	applymovement OBJ_EVENT_ID_PLAYER, PlayerLooksLeft
 	setvar VAR_TEMP_2, DIR_SOUTH
 	goto AldeleafBigHouse3_3F_PokeBall_7
 
 AldeleafBigHouse3_3F_PokeBall_11:
 	applymovement 2, AldeleafBigHouse3_3F_MoveShort, MAP_ALDELEAF_BIG_HOUSE3_3F
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	applymovement OBJ_EVENT_ID_PLAYER, PlayerLooksLeft
 	setvar VAR_TEMP_2, DIR_EAST
 	goto AldeleafBigHouse3_3F_PokeBall_10
 
@@ -221,6 +222,10 @@ AldeleafBigHouse3_3F_PokeBall_23:
 	applymovement 2, AldeleafBigHouse3_3F_LeftDown, MAP_ALDELEAF_BIG_HOUSE3_3F
 	goto AldeleafBigHouse3_3F_PokeBall_22
 
+
+PlayerLooksLeft:
+	walk_in_place_faster_left
+	step_end
 
 AldeleafBigHouse3_3F_MoveLong:
 	walk_right

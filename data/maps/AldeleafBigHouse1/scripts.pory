@@ -201,6 +201,7 @@ script AldeleafBigHouse3_3F_PokeBall{
         setflag(FLAG_TOUCHPOKEBALL)
         end
     }
+    clearflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
     lockall
     msgbox(AldeleafBigHouse3_3F_PokeBall_Text_Sure, MSGBOX_YESNO)
     if(var(VAR_RESULT) == FALSE){
@@ -224,12 +225,12 @@ script AldeleafBigHouse3_3F_PokeBall{
     delay(30)
     if(var(VAR_FACING) == DIR_SOUTH){
         applymovement(2, AldeleafBigHouse3_3F_MoveLong, MAP_ALDELEAF_BIG_HOUSE3_3F)
-        turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerLooksLeft)
         setvar(VAR_TEMP_2, DIR_SOUTH)
     }
     if(var(VAR_FACING) == DIR_EAST){
         applymovement(2, AldeleafBigHouse3_3F_MoveShort, MAP_ALDELEAF_BIG_HOUSE3_3F)
-        turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+        applymovement(OBJ_EVENT_ID_PLAYER, PlayerLooksLeft)
         setvar(VAR_TEMP_2, DIR_EAST)
     }
     waitmovement(2, MAP_ALDELEAF_BIG_HOUSE3_3F)
@@ -261,6 +262,9 @@ script AldeleafBigHouse3_3F_PokeBall{
     warp(MAP_ALDELEAF_BIG_HOUSE3_2F, 1, 3)
     release
     end
+}
+movement PlayerLooksLeft{
+    walk_in_place_faster_left
 }
 movement AldeleafBigHouse3_3F_MoveLong{
     walk_right * 5
