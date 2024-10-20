@@ -132,7 +132,6 @@ Amberock_Papers::
 	addobject 1
 	addobject 2
 	getfollowerxy VAR_TEMP_1, VAR_TEMP_2
-	safefollow
 	checktrainerflag TRAINER_R15_TR18_BERRYROCKET
 	goto_if 0, Amberock_Papers_2
 Amberock_Papers_1:

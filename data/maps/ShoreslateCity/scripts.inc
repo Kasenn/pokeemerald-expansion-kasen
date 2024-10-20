@@ -314,15 +314,10 @@ CancelBuyingCastelia::
 
 
 Shoreslate_DevonExteriorTrigger::
-	checktrainerflag TRAINER_SHORESLATE_ROCKET
-	goto_if 0, Shoreslate_DevonExteriorTrigger_1
-	release
-	end
-
-Shoreslate_DevonExteriorTrigger_1:
 	compare VAR_TEMP_6, 1
-	goto_if_eq Shoreslate_DevonExteriorTrigger_5
-	lockall
+	goto_if_eq Shoreslate_DevonExteriorTrigger_2
+	safefollow
+	lock
 	delay 5
 	turnobject 1, DIR_SOUTH
 	delay 5
@@ -331,14 +326,13 @@ Shoreslate_DevonExteriorTrigger_1:
 	waitmessage
 	closemessage
 	setvar VAR_TEMP_6, 1
-	safefollow
 	applymovement OBJ_EVENT_ID_PLAYER, Walk1Right
 	waitmovement 0
 	delay 5
 	release
 	end
 
-Shoreslate_DevonExteriorTrigger_5:
+Shoreslate_DevonExteriorTrigger_2:
 	lockall
 	delay 5
 	turnobject 1, DIR_SOUTH

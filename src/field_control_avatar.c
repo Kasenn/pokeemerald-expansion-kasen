@@ -141,6 +141,15 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
         input->dpadDirection = DIR_EAST;
 
 #if DEBUG_OVERWORLD_MENU == TRUE && DEBUG_OVERWORLD_IN_MENU == FALSE
+    if (JOY_NEW(L_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        if (gSaveBlock3Ptr->followerIndex == 0)
+            gSaveBlock3Ptr->followerIndex = 1;
+        else
+            gSaveBlock3Ptr->followerIndex = 0;
+        UpdateFollowingPokemon();
+    }
     if ((heldKeys & DEBUG_OVERWORLD_HELD_KEYS) && input->DEBUG_OVERWORLD_TRIGGER_EVENT)
     {
         input->input_field_1_2 = TRUE;

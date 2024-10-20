@@ -724,7 +724,7 @@ text Hotel_Attendant_Text{
     "but feel free to enjoy the ambiance."
 }
 script Hotel_PrivateParty{
-    lockall
+    lock
     playse(SE_PIN)
     safefollow
 	applymovement(1, Common_Movement_ExclamationMark)
@@ -756,6 +756,6 @@ text Hotel_Chef_Text{
     "the buffet is prohibited."
 }
 
-script TestScript{
-    msgbox("Test", MSGBOX_NPC)
-}
+// script TestScript{
+//     msgbox("Test", MSGBOX_NPC)
+// }

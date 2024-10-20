@@ -93,7 +93,7 @@ ClearSandstoneBike::
 
 
 SandStoneNoBike::
-	lockall
+	lock
 	playse SE_PIN
 	turnobject 9, DIR_NORTH
 	safefollow

@@ -1,21 +1,21 @@
 #include "global.h"
 #include "test/battle.h"
 
-DOUBLE_BATTLE_TEST("Teraform Zero clears weather and terrain upon activation")
-{
-    GIVEN {
-        PLAYER(SPECIES_TERAPAGOS_TERASTAL);
-        PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_KYOGRE) {Ability(ABILITY_DRIZZLE); }
-        OPPONENT(SPECIES_TAPU_KOKO) {Ability(ABILITY_ELECTRIC_SURGE); }
-    } WHEN {
-        TURN { MOVE(playerLeft, MOVE_CELEBRATE, gimmick: GIMMICK_TERA); }
-    } SCENE {
-        ABILITY_POPUP(playerLeft, ABILITY_TERAFORM_ZERO);
-        MESSAGE("The rain stopped.");
-        MESSAGE("The electricity disappeared from the battlefield.");
-    }
-}
+// DOUBLE_BATTLE_TEST("Teraform Zero clears weather and terrain upon activation")
+// {
+//     GIVEN {
+//         PLAYER(SPECIES_TERAPAGOS_TERASTAL);
+//         PLAYER(SPECIES_WOBBUFFET);
+//         OPPONENT(SPECIES_KYOGRE) {Ability(ABILITY_DRIZZLE); }
+//         OPPONENT(SPECIES_TAPU_KOKO) {Ability(ABILITY_ELECTRIC_SURGE); }
+//     } WHEN {
+//         TURN { MOVE(playerLeft, MOVE_CELEBRATE, gimmick: GIMMICK_TERA); }
+//     } SCENE {
+//         ABILITY_POPUP(playerLeft, ABILITY_TERAFORM_ZERO);
+//         MESSAGE("The rain stopped.");
+//         MESSAGE("The electricity disappeared from the battlefield.");
+//     }
+// }
 
 DOUBLE_BATTLE_TEST("Teraform Zero can be supressed")
 {

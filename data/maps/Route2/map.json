@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_PRIMROSE_TOWN",
-      "offset": -7,
+      "offset": -8,
       "direction": "down"
     },
     {

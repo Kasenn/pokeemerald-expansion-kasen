@@ -1,7 +1,7 @@
 mapscripts OldaleTown_House2_MapScripts{}
 
 script NotMyNectar{
-    lockall
+    lock
     safefollow
     applymovement(1, NectarUp)
     waitmovement(0)

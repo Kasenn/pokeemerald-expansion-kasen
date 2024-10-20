@@ -553,7 +553,7 @@ Hotel_Attendant::
 
 
 Hotel_PrivateParty::
-	lockall
+	lock
 	playse SE_PIN
 	safefollow
 	applymovement 1, Common_Movement_ExclamationMark
@@ -574,16 +574,8 @@ Hotel_Chef::
 	end
 
 
-TestScript::
-	msgbox TestScript_Text_0, MSGBOX_NPC
-	return
-
-
 BuffetComplete_Text_0:
 	.string "Earned {STR_VAR_1} BP!$"
-
-TestScript_Text_0:
-	.string "Test$"
 
 Hotel1F_JasmineGoodbye::
 	.string "Jasmine: Oh, hello again, {PLAYER}.\p"

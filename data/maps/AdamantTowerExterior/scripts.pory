@@ -35,7 +35,6 @@ text AdamantExterior_FatMan_Text{
     "You just watch me!"
 }
 script AdamantExterior_Man3{
-    safefollow
     if(flag(FLAG_SHOWED_BADGE)){
         msgbox(AdamantGoIn, MSGBOX_NPC)
         end
@@ -44,7 +43,7 @@ script AdamantExterior_Man3{
         msgbox(AdamantExterior_Man3_NoAccess, MSGBOX_NPC)
         end
     }
-    lockall
+    lock
     safefollow
     faceplayer
     msgbox(AdamantExterior_Man3_NoAccess)

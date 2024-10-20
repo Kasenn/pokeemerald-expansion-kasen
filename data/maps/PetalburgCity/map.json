@@ -3,7 +3,7 @@
   "name": "PetalburgCity",
   "layout": "LAYOUT_PETALBURG_CITY",
   "music": "MUS_PETALBURG",
-  "region_map_section": "MAPSEC_PETALBURG_CITY",
+  "region_map_section": "MAPSEC_TOWN_WIP5",
   "requires_flash": false,
   "weather": "WEATHER_ABNORMAL",
   "map_type": "MAP_TYPE_CITY",
@@ -20,7 +20,12 @@
     },
     {
       "map": "MAP_ROUTE102",
-      "offset": 10,
+      "offset": -17,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_TEST_ROOM",
+      "offset": 3,
       "direction": "right"
     }
   ],
@@ -141,6 +146,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
       "flag": "FLAG_HIDE_PETALBURG_CITY_SCOTT"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GROUDON_SIDE",
+      "x": 25,
+      "y": 17,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PetalburgCity_EventScript_WallysMom",
+      "flag": "0"
     }
   ],
   "warp_events": [

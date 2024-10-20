@@ -3454,6 +3454,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .baseSpeed     = 10,
         .baseSpAttack  = 10,
         .baseSpDefense = 10,
+        .description = COMPOUND_STRING(
+            "No desc"),
         .types = { TYPE_NORMAL, TYPE_NORMAL},
         .catchRate = 190,
         .expYield = 300,
@@ -3496,6 +3498,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .baseSpeed     = 20,
         .baseSpAttack  = 20,
         .baseSpDefense = 20,
+        .description = COMPOUND_STRING(
+            "No desc"),
         .types = { TYPE_NORMAL, TYPE_NORMAL},
         .catchRate = 190,
         .expYield = 1,
@@ -3538,6 +3542,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .baseSpeed     = 20,
         .baseSpAttack  = 20,
         .baseSpDefense = 20,
+        .description = COMPOUND_STRING(
+            "No desc"),
         .types = { TYPE_NORMAL, TYPE_NORMAL},
         .catchRate = 190,
         .expYield = 1,
@@ -3580,6 +3586,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .baseSpeed     = 20,
         .baseSpAttack  = 20,
         .baseSpDefense = 20,
+        .description = COMPOUND_STRING(
+            "No desc"),
         .types = { TYPE_NORMAL, TYPE_NORMAL},
         .catchRate = 190,
         .expYield = 1,
@@ -3622,6 +3630,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .baseSpeed     = 20,
         .baseSpAttack  = 20,
         .baseSpDefense = 20,
+        .description = COMPOUND_STRING(
+            "No desc"),
         .types = { TYPE_NORMAL, TYPE_NORMAL},
         .catchRate = 190,
         .expYield = 1,
@@ -3664,6 +3674,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .baseSpeed     = 20,
         .baseSpAttack  = 20,
         .baseSpDefense = 20,
+        .description = COMPOUND_STRING(
+            "No desc"),
         .types = { TYPE_NORMAL, TYPE_NORMAL},
         .catchRate = 190,
         .expYield = 1,
@@ -3706,6 +3718,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .baseSpeed     = 20,
         .baseSpAttack  = 20,
         .baseSpDefense = 20,
+        .description = COMPOUND_STRING(
+            "No desc"),
         .types = { TYPE_NORMAL, TYPE_NORMAL},
         .catchRate = 190,
         .expYield = 1,

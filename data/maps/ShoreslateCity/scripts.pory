@@ -417,7 +417,6 @@ text NotMoneyForCastelias{
 }
 
 script Shoreslate_DevonExteriorTrigger{
-    if(!defeated(TRAINER_SHORESLATE_ROCKET)){
         if(var(VAR_TEMP_6) == 1){
             lockall
             delay(5)
@@ -431,7 +430,8 @@ script Shoreslate_DevonExteriorTrigger{
             release
             end
         }
-        lockall
+        safefollow
+        lock
         delay(5)
         turnobject(1, DIR_SOUTH)
         delay(5)
@@ -440,17 +440,11 @@ script Shoreslate_DevonExteriorTrigger{
         waitmessage
         closemessage
         setvar(VAR_TEMP_6, 1)
-        safefollow
         applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
         waitmovement(0)
         delay(5)
         release
         end
-    }
-    else{
-        release
-        end
-    }
 }
 
 text ShoreSlate_NotGettingThrough{

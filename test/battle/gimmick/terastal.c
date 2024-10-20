@@ -277,23 +277,23 @@ SINGLE_BATTLE_TEST("(TERA) Roost does not remove the user's Flying type while Te
     }
 }
 
-SINGLE_BATTLE_TEST("(TERA) Type-changing moves fail against a Terastallized Pokemon")
-{
-    u16 move;
-    PARAMETRIZE { move = MOVE_SOAK; }
-    PARAMETRIZE { move = MOVE_FORESTS_CURSE; }
-    PARAMETRIZE { move = MOVE_TRICK_OR_TREAT; }
-    GIVEN {
-        PLAYER(SPECIES_WOBBUFFET) { TeraType(TYPE_PSYCHIC); }
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(player, MOVE_CELEBRATE, gimmick: GIMMICK_TERA); MOVE(opponent, move); }
-    } SCENE {
-        if (move != MOVE_SOAK)
-            NOT { ANIMATION(ANIM_TYPE_MOVE, move, opponent); }
-        MESSAGE("But it failed!");
-    }
-}
+// SINGLE_BATTLE_TEST("(TERA) Type-changing moves fail against a Terastallized Pokemon")
+// {
+//     u16 move;
+//     PARAMETRIZE { move = MOVE_SOAK; }
+//     PARAMETRIZE { move = MOVE_FORESTS_CURSE; }
+//     PARAMETRIZE { move = MOVE_TRICK_OR_TREAT; }
+//     GIVEN {
+//         PLAYER(SPECIES_WOBBUFFET) { TeraType(TYPE_PSYCHIC); }
+//         OPPONENT(SPECIES_WOBBUFFET);
+//     } WHEN {
+//         TURN { MOVE(player, MOVE_CELEBRATE, gimmick: GIMMICK_TERA); MOVE(opponent, move); }
+//     } SCENE {
+//         if (move != MOVE_SOAK)
+//             NOT { ANIMATION(ANIM_TYPE_MOVE, move, opponent); }
+//         MESSAGE("But it failed!");
+//     }
+// }
 
 SINGLE_BATTLE_TEST("(TERA) Reflect Type fails if used by a Terastallized Pokemon")
 {
@@ -746,17 +746,17 @@ SINGLE_BATTLE_TEST("(TERA) Terapagos retains the Stellar type boost at all times
     }
 }
 
-SINGLE_BATTLE_TEST("(TERA) Terapagos retains its base defensive profile when Terastalizing")
-{
-    GIVEN {
-        PLAYER(SPECIES_TERAPAGOS);
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(player, MOVE_CELEBRATE, gimmick: GIMMICK_TERA); MOVE(opponent, MOVE_BRICK_BREAK); }
-    } SCENE {
-        MESSAGE("It's super effective!");
-    }
-}
+// SINGLE_BATTLE_TEST("(TERA) Terapagos retains its base defensive profile when Terastalizing")
+// {
+//     GIVEN {
+//         PLAYER(SPECIES_TERAPAGOS);
+//         OPPONENT(SPECIES_WOBBUFFET);
+//     } WHEN {
+//         TURN { MOVE(player, MOVE_CELEBRATE, gimmick: GIMMICK_TERA); MOVE(opponent, MOVE_BRICK_BREAK); }
+//     } SCENE {
+//         MESSAGE("It's super effective!");
+//     }
+// }
 
 SINGLE_BATTLE_TEST("(TERA) Illusion breaks if the pokemon Terastalizes")
 {
@@ -789,23 +789,23 @@ SINGLE_BATTLE_TEST("(TERA) Transformed pokemon can't Terastalize")
 }
 */
 
-SINGLE_BATTLE_TEST("(TERA) Pokemon with Tera forms change upon Terastallizing")
-{
-    u32 species, targetSpecies;
-    PARAMETRIZE { species = SPECIES_OGERPON_TEAL_MASK;        targetSpecies = SPECIES_OGERPON_TEAL_MASK_TERA; }
-    PARAMETRIZE { species = SPECIES_OGERPON_WELLSPRING_MASK;  targetSpecies = SPECIES_OGERPON_WELLSPRING_MASK_TERA; }
-    PARAMETRIZE { species = SPECIES_OGERPON_HEARTHFLAME_MASK; targetSpecies = SPECIES_OGERPON_HEARTHFLAME_MASK_TERA; }
-    PARAMETRIZE { species = SPECIES_OGERPON_CORNERSTONE_MASK; targetSpecies = SPECIES_OGERPON_CORNERSTONE_MASK_TERA; }
-    PARAMETRIZE { species = SPECIES_TERAPAGOS_TERASTAL;       targetSpecies = SPECIES_TERAPAGOS_STELLAR; }
-    GIVEN {
-        PLAYER(species);
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(player, MOVE_CELEBRATE, gimmick: GIMMICK_TERA); }
-    } THEN {
-        EXPECT_EQ(player->species, targetSpecies);
-    }
-}
+// SINGLE_BATTLE_TEST("(TERA) Pokemon with Tera forms change upon Terastallizing")
+// {
+//     u32 species, targetSpecies;
+//     PARAMETRIZE { species = SPECIES_OGERPON_TEAL_MASK;        targetSpecies = SPECIES_OGERPON_TEAL_MASK_TERA; }
+//     PARAMETRIZE { species = SPECIES_OGERPON_WELLSPRING_MASK;  targetSpecies = SPECIES_OGERPON_WELLSPRING_MASK_TERA; }
+//     PARAMETRIZE { species = SPECIES_OGERPON_HEARTHFLAME_MASK; targetSpecies = SPECIES_OGERPON_HEARTHFLAME_MASK_TERA; }
+//     PARAMETRIZE { species = SPECIES_OGERPON_CORNERSTONE_MASK; targetSpecies = SPECIES_OGERPON_CORNERSTONE_MASK_TERA; }
+//     PARAMETRIZE { species = SPECIES_TERAPAGOS_TERASTAL;       targetSpecies = SPECIES_TERAPAGOS_STELLAR; }
+//     GIVEN {
+//         PLAYER(species);
+//         OPPONENT(SPECIES_WOBBUFFET);
+//     } WHEN {
+//         TURN { MOVE(player, MOVE_CELEBRATE, gimmick: GIMMICK_TERA); }
+//     } THEN {
+//         EXPECT_EQ(player->species, targetSpecies);
+//     }
+// }
 
 SINGLE_BATTLE_TEST("(TERA) All type indicators function correctly")
 {

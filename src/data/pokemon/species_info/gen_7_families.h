@@ -521,6 +521,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .shinyPalette = gMonShinyPalette_IncineroarMega,
         .iconSprite = gMonIcon_IncineroarMega,
         .iconPalIndex = 0,
+        .isMegaEvolution = TRUE,
         FOOTPRINT(Incineroar)
     },
 #endif //P_FAMILY_LITTEN

@@ -314,6 +314,99 @@ AutomaticUpdate::
 	end
 
 
+TestScript::
+	setvar VAR_TEMP_5, 125
+	random 4
+	copyvar VAR_TEMP_6, VAR_RESULT
+	msgbox TestScript_Text_0
+	closemessage
+	playmoncry VAR_TEMP_5, CRY_MODE_NORMAL
+	waitmoncry
+	message TestScript_Text_1
+	waitmessage
+	compare VAR_TEMP_6, 0
+	goto_if_eq TestScript_2
+TestScript_11:
+	random 1000
+	compare VAR_RESULT, VAR_TEMP_5
+	goto_if_eq TestScript_11
+	copyvar VAR_TEMP_0, VAR_RESULT
+	bufferspeciesname STR_VAR_1, VAR_TEMP_0
+	dynmultipush TestScript_Text_2, 0
+TestScript_1:
+	compare VAR_TEMP_6, 1
+	goto_if_eq TestScript_6
+TestScript_19:
+	random 1000
+	compare VAR_RESULT, VAR_TEMP_5
+	goto_if_eq TestScript_19
+	compare VAR_RESULT, VAR_TEMP_0
+	goto_if_eq TestScript_19
+	copyvar VAR_TEMP_1, VAR_RESULT
+	bufferspeciesname STR_VAR_1, VAR_TEMP_1
+	dynmultipush TestScript_Text_2, 1
+TestScript_5:
+	compare VAR_TEMP_6, 2
+	goto_if_eq TestScript_14
+TestScript_29:
+	random 1000
+	compare VAR_RESULT, VAR_TEMP_5
+	goto_if_eq TestScript_29
+	compare VAR_RESULT, VAR_TEMP_0
+	goto_if_eq TestScript_29
+	compare VAR_RESULT, VAR_TEMP_1
+	goto_if_eq TestScript_29
+	copyvar VAR_TEMP_2, VAR_RESULT
+	bufferspeciesname STR_VAR_1, VAR_TEMP_2
+	dynmultipush TestScript_Text_2, 2
+TestScript_13:
+	compare VAR_TEMP_6, 3
+	goto_if_eq TestScript_24
+TestScript_40:
+	random 1000
+	compare VAR_RESULT, VAR_TEMP_5
+	goto_if_eq TestScript_40
+	compare VAR_RESULT, VAR_TEMP_0
+	goto_if_eq TestScript_40
+	compare VAR_RESULT, VAR_TEMP_1
+	goto_if_eq TestScript_40
+	compare VAR_RESULT, VAR_TEMP_2
+	goto_if_eq TestScript_40
+	copyvar VAR_TEMP_3, VAR_RESULT
+	bufferspeciesname STR_VAR_1, VAR_TEMP_3
+	dynmultipush TestScript_Text_2, 3
+TestScript_23:
+	dynmultistack 23, 0, FALSE, 4, FALSE, 0, NULL
+	compare VAR_RESULT, VAR_TEMP_6
+	goto_if_eq TestScript_35
+	msgbox TestScript_Text_4, MSGBOX_SIGN
+	return
+
+TestScript_2:
+	bufferspeciesname STR_VAR_1, VAR_TEMP_5
+	dynmultipush TestScript_Text_2, 0
+	goto TestScript_1
+
+TestScript_6:
+	bufferspeciesname STR_VAR_1, VAR_TEMP_5
+	dynmultipush TestScript_Text_2, 1
+	goto TestScript_5
+
+TestScript_14:
+	bufferspeciesname STR_VAR_1, VAR_TEMP_5
+	dynmultipush TestScript_Text_2, 2
+	goto TestScript_13
+
+TestScript_24:
+	bufferspeciesname STR_VAR_1, VAR_TEMP_5
+	dynmultipush TestScript_Text_2, 3
+	goto TestScript_23
+
+TestScript_35:
+	msgbox TestScript_Text_3, MSGBOX_SIGN
+	return
+
+
 AutomaticUpdate2::
 	setvar VAR_DEBUG, 10
 	msgbox AutomaticUpdate_Text2, MSGBOX_YESNO
@@ -758,6 +851,21 @@ GameStatTest::
 	release
 	return
 
+
+TestScript_Text_0:
+	.string "can you guess the mon?$"
+
+TestScript_Text_1:
+	.string "which mon is that?$"
+
+TestScript_Text_2:
+	.string "{STR_VAR_1}$"
+
+TestScript_Text_3:
+	.string "correct$"
+
+TestScript_Text_4:
+	.string "false$"
 
 CheckSafeMovement_Text_0:
 	.string "X: {STR_VAR_1}\nY: {STR_VAR_2}$"

@@ -206,7 +206,7 @@ WW_GIVEBP::
 
 
 WW_HelpGirl::
-	lockall
+	lock
 	safefollow
 	applymovement 5, WW_Face
 	waitmovement 0

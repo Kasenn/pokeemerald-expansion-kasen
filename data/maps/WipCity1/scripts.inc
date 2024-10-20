@@ -255,7 +255,7 @@ AldeleafCity_Hidden_4:
 
 
 AldeleafCity_KeyMan::
-	lockall
+	lock
 	msgbox AldeleafCity_KeyMan_Text, MSGBOX_DEFAULT
 	waitmessage
 	closemessage
@@ -459,8 +459,21 @@ Aldeleaf_TrainerNearSudowoodo_5:
 	goto Aldeleaf_TrainerNearSudowoodo_1
 
 Aldeleaf_TrainerNearSudowoodo_6:
+	getfollowerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 46
+	goto_if_eq Aldeleaf_TrainerNearSudowoodo_11
+Aldeleaf_TrainerNearSudowoodo_10:
 	applymovement 3, Aldeleaf_TrainerMoveLong
 	goto Aldeleaf_TrainerNearSudowoodo_5
+
+Aldeleaf_TrainerNearSudowoodo_9:
+	applymovement 3, Aldeleaf_TrainerMoveLongAlt
+	goto Aldeleaf_TrainerNearSudowoodo_5
+
+Aldeleaf_TrainerNearSudowoodo_11:
+	compare VAR_TEMP_2, 6
+	goto_if_eq Aldeleaf_TrainerNearSudowoodo_9
+	goto Aldeleaf_TrainerNearSudowoodo_10
 
 
 Aldeleaf_TrainerMoveLong:
@@ -469,6 +482,21 @@ Aldeleaf_TrainerMoveLong:
 	walk_right
 	walk_right
 	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Aldeleaf_TrainerMoveLongAlt:
+	walk_up
+	walk_right
+	walk_right
+	walk_down
+	walk_right
 	walk_right
 	walk_right
 	walk_right

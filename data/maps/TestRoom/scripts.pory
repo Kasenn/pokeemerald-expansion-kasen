@@ -9,6 +9,42 @@ script SetTestFlag{
     setflag(FLAG_TEMP_1)
     setflag(FLAG_TEMP_2)
     setflag(FLAG_TEMP_3)
+    setvar(VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_YOUNGSTER)
+}
+
+const GROUDON_PETALBURG = 10
+const GROUDON_TESTMAP = 15
+const KYOGRE = 16
+
+script TestBoundary{
+    //before map transition
+    lock
+    showobjectat(KYOGRE, MAP_TEST_ROOM)
+    hideobjectat(GROUDON_TESTMAP, MAP_TEST_ROOM)
+    applymovement(KYOGRE, Walk6Left)
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk6invis)
+    waitmovement(0)
+
+    //after map transition
+    turnobject(GROUDON_PETALBURG, DIR_WEST)
+    showobjectat(GROUDON_PETALBURG, MAP_PETALBURG_CITY)
+    applymovement(KYOGRE, TurnInvisible, MAP_TEST_ROOM)
+    applymovement(OBJ_EVENT_ID_PLAYER, MakeVisible)
+    waitmovement(0, MAP_TEST_ROOM)
+    release
+}
+
+movement Walk6invis{
+    set_invisible
+    walk_left * 6
+}
+
+movement MakeVisible{
+    set_visible
+}
+
+movement TurnInvisible{
+    set_invisible
 }
 
 script TestMovementScript{

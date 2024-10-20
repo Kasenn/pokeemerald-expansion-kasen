@@ -111,7 +111,6 @@ script Amberock_Papers{
     addobject(1)
     addobject(2)
     getfollowerxy(X, Y)
-    safefollow
     if(!defeated(TRAINER_R15_TR18_BERRYROCKET)){
         call(AmberockAlternativeCutscene)
     }

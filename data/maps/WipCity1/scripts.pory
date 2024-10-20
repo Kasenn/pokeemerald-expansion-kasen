@@ -237,7 +237,7 @@ script AldeleafCity_Hidden{
 	end
 }
 script AldeleafCity_KeyMan{
-	lockall
+	lock
 	msgbox(AldeleafCity_KeyMan_Text, MSGBOX_DEFAULT)
 	waitmessage
 	closemessage
@@ -435,7 +435,13 @@ script Aldeleaf_TrainerNearSudowoodo{
 		closemessage
 		safefollow
 		if(var(VAR_FACING) == DIR_WEST){
-			applymovement(3, Aldeleaf_TrainerMoveLong)
+			getfollowerxy(VAR_TEMP_1, VAR_TEMP_2)
+			if(var(VAR_TEMP_1) == 46 && var(VAR_TEMP_2) == 6){
+				applymovement(3, Aldeleaf_TrainerMoveLongAlt)
+			}
+			else{
+				applymovement(3, Aldeleaf_TrainerMoveLong)
+			}
 		}
 		else{
 			applymovement(3, Aldeleaf_TrainerMoveShort)
@@ -458,6 +464,12 @@ movement Aldeleaf_TrainerMoveLong{
 	walk_right * 3
 	walk_up
 	walk_right * 7
+}
+movement Aldeleaf_TrainerMoveLongAlt{
+	walk_up
+	walk_right * 2
+	walk_down
+	walk_right * 8
 }
 movement Aldeleaf_TrainerMoveShort{
 	walk_right * 7

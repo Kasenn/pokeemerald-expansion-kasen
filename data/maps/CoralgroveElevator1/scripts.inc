@@ -9,7 +9,7 @@ ElevatorBlock_1:
 	end
 
 ElevatorBlock_2:
-	lockall
+	lock
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	msgbox ElevatorBlock_Text_0, MSGBOX_DEFAULT
 	waitmessage

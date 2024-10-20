@@ -118,7 +118,7 @@ DevRoom_RightShelf::
 BerryWoman::
 	goto_if_set FLAG_RECEIVED_SANDSTONE_BERRY, BerryWoman_2
 	safefollow
-	lockall
+	lock
 	faceplayer
 	checkitem ITEM_WAILMER_PAIL
 	msgbox ImTheBerryLady

@@ -2469,13 +2469,18 @@ static const struct TrainerMon sParty_DC2F_Rocket5[] = {
     },
     {
     .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 23,
-    .species = SPECIES_SEVIPER,
-    .moves = {MOVE_POISON_FANG, MOVE_GLARE, MOVE_SCREECH, MOVE_BITE}
-    }
+    .lvl = 22,
+    .species = SPECIES_SNEASEL,
+    },
 };
 
 static const struct TrainerMon sParty_DC3F_Rocket1[] = {
+    {
+    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+    .lvl = 23,
+    .species = SPECIES_SEVIPER,
+    .moves = {MOVE_POISON_FANG, MOVE_GLARE, MOVE_SCREECH, MOVE_BITE}
+    },
     {
     .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
     .lvl = 24,

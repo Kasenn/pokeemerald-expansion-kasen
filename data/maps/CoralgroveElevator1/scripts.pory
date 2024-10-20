@@ -2,7 +2,7 @@ mapscripts CoralgroveElevator1_MapScripts{}
 
 script ElevatorBlock{
     if(!flag(FLAG_BADGE01_GET)){
-        lockall
+        lock
         turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
         msgbox("I'm sorry but there has been\nan accident in the harbor area.\pAs such we cannot let the public\naccess it right now.", MSGBOX_DEFAULT)
         waitmessage

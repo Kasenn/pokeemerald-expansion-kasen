@@ -259,6 +259,86 @@ script AutomaticUpdate{
     end
 }
 
+const VAR_CORRECT_ANSWER = VAR_TEMP_5
+const VAR_CORRECT_ANSWER_SPOT = VAR_TEMP_6
+
+script TestScript{
+    setvar(VAR_CORRECT_ANSWER, 125)
+    random(4)
+    copyvar(VAR_CORRECT_ANSWER_SPOT, VAR_RESULT)
+
+    msgbox("can you guess the mon?")
+    closemessage
+    playmoncry(VAR_CORRECT_ANSWER, CRY_MODE_NORMAL)
+    waitmoncry
+    message("which mon is that?")
+    waitmessage
+
+    if(var(VAR_CORRECT_ANSWER_SPOT) == 0){
+        bufferspeciesname(STR_VAR_1, VAR_CORRECT_ANSWER)
+        dynmultipush("{STR_VAR_1}", 0)
+    }
+    else{
+        do {
+            random(1000)
+        } while(var(VAR_RESULT) == VAR_CORRECT_ANSWER)
+        copyvar(VAR_TEMP_0, VAR_RESULT)
+        bufferspeciesname(STR_VAR_1, VAR_TEMP_0)
+        dynmultipush("{STR_VAR_1}", 0)
+    }
+
+
+    if(var(VAR_CORRECT_ANSWER_SPOT) == 1){
+        bufferspeciesname(STR_VAR_1, VAR_CORRECT_ANSWER)
+        dynmultipush("{STR_VAR_1}", 1)
+    }
+    else{
+        do {
+            random(1000)
+        } while(var(VAR_RESULT) == VAR_CORRECT_ANSWER || var(VAR_RESULT) == VAR_TEMP_0)
+        copyvar(VAR_TEMP_1, VAR_RESULT)
+        bufferspeciesname(STR_VAR_1, VAR_TEMP_1)
+        dynmultipush("{STR_VAR_1}", 1)
+    }
+
+
+    if(var(VAR_CORRECT_ANSWER_SPOT) == 2){
+        bufferspeciesname(STR_VAR_1, VAR_CORRECT_ANSWER)
+        dynmultipush("{STR_VAR_1}", 2)
+    }
+    else{
+        do {
+            random(1000)
+        } while(var(VAR_RESULT) == VAR_CORRECT_ANSWER || var(VAR_RESULT) == VAR_TEMP_0 || var(VAR_RESULT) == VAR_TEMP_1)
+        copyvar(VAR_TEMP_2, VAR_RESULT)
+        bufferspeciesname(STR_VAR_1, VAR_TEMP_2)
+        dynmultipush("{STR_VAR_1}", 2)
+    }
+
+
+    if(var(VAR_CORRECT_ANSWER_SPOT) == 3){
+        bufferspeciesname(STR_VAR_1, VAR_CORRECT_ANSWER)
+        dynmultipush("{STR_VAR_1}", 3)
+    }
+    else{
+        do {
+            random(1000)
+        } while(var(VAR_RESULT) == VAR_CORRECT_ANSWER || var(VAR_RESULT) == VAR_TEMP_0 || var(VAR_RESULT) == VAR_TEMP_1 || var(VAR_RESULT) == VAR_TEMP_2)
+        copyvar(VAR_TEMP_3, VAR_RESULT)
+        bufferspeciesname(STR_VAR_1, VAR_TEMP_3)
+        dynmultipush("{STR_VAR_1}", 3)
+    }
+    
+    dynmultistack(23, 0, FALSE, 4, FALSE, 0, NULL)
+
+    if(var(VAR_RESULT) == VAR_CORRECT_ANSWER_SPOT){
+        msgbox("correct", MSGBOX_SIGN)
+    }
+    else{
+        msgbox("false", MSGBOX_SIGN)
+    }
+}
+
 text AutomaticUpdate_Text1{
     "A new update has been applied.\p"
     "Things included in this update:\p"

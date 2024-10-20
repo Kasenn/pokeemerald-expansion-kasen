@@ -36,10 +36,9 @@ AdamantExterior_FatMan::
 
 
 AdamantExterior_Man3::
-	safefollow
 	goto_if_set FLAG_SHOWED_BADGE, AdamantExterior_Man3_2
 	goto_if_unset FLAG_BADGE04_GET, AdamantExterior_Man3_5
-	lockall
+	lock
 	safefollow
 	faceplayer
 	msgbox AdamantExterior_Man3_NoAccess

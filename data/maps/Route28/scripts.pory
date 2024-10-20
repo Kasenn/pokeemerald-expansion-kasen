@@ -6,7 +6,7 @@ script Route28_BrotherTrigger_1{
         end
     }
     else{
-        lockall
+        lock
         playbgm(MUS_ENCOUNTER_BRENDAN, FALSE)
         safefollow
         applymovement(4, Route28_MoveBrother1)
@@ -24,7 +24,7 @@ script Route28_BrotherTrigger_2{
         end
     }
     else{
-        lockall
+        lock
         playbgm(MUS_ENCOUNTER_BRENDAN, FALSE)
         safefollow
         applymovement(4, Route28_MoveBrother2)

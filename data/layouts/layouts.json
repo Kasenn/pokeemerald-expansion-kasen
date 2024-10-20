@@ -57,7 +57,7 @@
       "width": 80,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lilycove",
+      "secondary_tileset": "gTileset_Amberock",
       "border_filepath": "data/layouts/LilycoveCity/border.bin",
       "blockdata_filepath": "data/layouts/LilycoveCity/map.bin"
     },
@@ -4464,7 +4464,7 @@
     {
       "id": "LAYOUT_PRIMROSE_TOWN",
       "name": "PrimroseTown_Layout",
-      "width": 36,
+      "width": 37,
       "height": 30,
       "primary_tileset": "gTileset_Pearlwood",
       "secondary_tileset": "gTileset_Pearlwood_PRIMROSEFLOWERS",

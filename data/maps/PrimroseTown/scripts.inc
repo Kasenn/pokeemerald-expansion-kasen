@@ -33,7 +33,7 @@ Primrose_Hiker::
 
 
 PrimroseBlocked::
-	lockall
+	lock
 	safefollow
 	applymovement 3, Primrose_FaceRight
 	waitmovement 0

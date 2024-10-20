@@ -3965,10 +3965,10 @@
     },
     [TRAINER_WALLACE] =
     {
-        .trainerClass = TRAINER_CLASS_CHAMPION,
+        .trainerClass = TRAINER_CLASS_LEADER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_CHAMPION_WALLACE,
-        .trainerName = _("WALLACE"),
+        .trainerPic = TRAINER_PIC_MINA,
+        .trainerName = _("Mina"),
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},
         .doubleBattle = FALSE,
         .mugshotEnabled = TRUE,

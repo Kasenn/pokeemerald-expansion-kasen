@@ -159,12 +159,8 @@ Debug_EventScript_Script_4::
 	end
 
 Debug_EventScript_Script_5::
-	givemon SPECIES_UMBREON, 50
-	givemon SPECIES_GOODRA_HISUIAN, 50
-	givemon SPECIES_DONPHAN, 50
-	givemon SPECIES_GARDEVOIR, 50
-	givemon SPECIES_FROSLASS, 50
-	givemon SPECIES_BLAZIKEN, 50
+	setvar VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_LASS
+	special DrawWholeMapView
 	release
 	end
 
@@ -183,7 +179,7 @@ Debug_EventScript_Script_7::
 Debug_EventScript_Script_8::
 	special SavePlayerParty
 	setpartylevel 50
-	trainerbattle_single TRAINER_KASEN, Route1_Text_CoolTrainerDefeated, Route1_Text_CoolTrainerDefeated, Debug_EventScript_Script_7
+	trainerbattle_single TRAINER_WALLACE, Route1_Text_CoolTrainerDefeated, Route1_Text_CoolTrainerDefeated, Debug_EventScript_Script_7
 	end
 
 Debug_CheckSaveBlock::

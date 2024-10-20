@@ -294,7 +294,7 @@ R11_RivalTrigger2::
 
 
 R11_RivalEvent::
-	lockall
+	lock
 	checkplayergender
 	call_if_eq VAR_RESULT, MALE, Route110_EventScript_PlayMayMusic
 	call_if_eq VAR_RESULT, FEMALE, Route110_EventScript_PlayBrendanMusic

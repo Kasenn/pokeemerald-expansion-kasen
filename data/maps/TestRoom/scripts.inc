@@ -12,8 +12,43 @@ SetTestFlag::
 	setflag FLAG_TEMP_1
 	setflag FLAG_TEMP_2
 	setflag FLAG_TEMP_3
+	setvar VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_YOUNGSTER
 	return
 
+
+TestBoundary::
+	lock
+	showobjectat 16, MAP_TEST_ROOM
+	hideobjectat 15, MAP_TEST_ROOM
+	applymovement 16, Walk6Left
+	applymovement OBJ_EVENT_ID_PLAYER, Walk6invis
+	waitmovement 0
+	turnobject 10, DIR_WEST
+	showobjectat 10, MAP_PETALBURG_CITY
+	applymovement 16, TurnInvisible, MAP_TEST_ROOM
+	applymovement OBJ_EVENT_ID_PLAYER, MakeVisible
+	waitmovement 0, MAP_TEST_ROOM
+	release
+	return
+
+
+Walk6invis:
+	set_invisible
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+MakeVisible:
+	set_visible
+	step_end
+
+TurnInvisible:
+	set_invisible
+	step_end
 
 TestMovementScript::
 	setflag FLAG_SAFE_FOLLOWER_MOVEMENT

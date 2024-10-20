@@ -3,7 +3,7 @@ OldaleTown_House2_MapScripts::
 
 
 NotMyNectar::
-	lockall
+	lock
 	safefollow
 	applymovement 1, NectarUp
 	waitmovement 0

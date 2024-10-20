@@ -56,7 +56,7 @@ script AldeleafSmallHouse2_Woman{
     }
     if(var(VAR_ALDELEAF_HOUSE) == 6){
         if(!flag(FLAG_GHOST_MOVED)){
-            lockall
+            lock
             setflag(FLAG_GHOST_MOVED)
             safefollow
             applymovement(2, AldeleafMoveGhost)

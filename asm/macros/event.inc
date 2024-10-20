@@ -2012,7 +2012,7 @@
 	@ It also sets the object's visibility flag if it has one.
 	@ If no map is specified, then the current map is used.
 	.macro removeobjectbyflag flag:req
-	.byte 0xf2
+	callnative ScrCmd_removeobjectbyflag
 	.2byte \flag
 	.endm
 

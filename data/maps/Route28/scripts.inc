@@ -4,7 +4,7 @@ Route28_MapScripts::
 
 Route28_BrotherTrigger_1::
 	goto_if_set FLAG_ROUTE28_DESPAWN_BROTHER, Route28_BrotherTrigger_1_1
-	lockall
+	lock
 	playbgm MUS_ENCOUNTER_BRENDAN, FALSE
 	safefollow
 	applymovement 4, Route28_MoveBrother1
@@ -23,7 +23,7 @@ Route28_BrotherTrigger_1_1:
 
 Route28_BrotherTrigger_2::
 	goto_if_set FLAG_ROUTE28_DESPAWN_BROTHER, Route28_BrotherTrigger_2_1
-	lockall
+	lock
 	playbgm MUS_ENCOUNTER_BRENDAN, FALSE
 	safefollow
 	applymovement 4, Route28_MoveBrother2

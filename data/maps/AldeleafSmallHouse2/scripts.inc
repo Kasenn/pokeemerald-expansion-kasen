@@ -93,7 +93,7 @@ AldeleafSmallHouse2_Woman_24:
 	end
 
 AldeleafSmallHouse2_Woman_27:
-	lockall
+	lock
 	setflag FLAG_GHOST_MOVED
 	safefollow
 	applymovement 2, AldeleafMoveGhost

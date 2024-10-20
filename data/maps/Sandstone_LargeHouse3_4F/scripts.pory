@@ -182,7 +182,7 @@ script BerryWoman{
         end
     }
     safefollow
-    lockall
+    lock
     faceplayer
     checkitem(ITEM_WAILMER_PAIL)
     msgbox(ImTheBerryLady)

@@ -15,7 +15,7 @@ CoralgroveElevator2_Kasen::
 
 
 CoralgroveElevator2_Bail::
-	lockall
+	lock
 	safefollow
 	turnobject 1, DIR_NORTH
 	checkplayergender
@@ -33,7 +33,7 @@ CoralgroveElevator2_Bail_2:
 
 
 CoralgroveElevator2_Trigger1::
-	lockall
+	lock
 	safefollow
 	turnobject 1, DIR_WEST
 	playse SE_PIN
@@ -47,7 +47,7 @@ CoralgroveElevator2_Trigger1::
 
 
 CoralgroveElevator2_Trigger2::
-	lockall
+	lock
 	safefollow
 	turnobject 1, DIR_EAST
 	playse SE_PIN
@@ -61,7 +61,7 @@ CoralgroveElevator2_Trigger2::
 
 
 CoralgroveElevator2_Rival::
-	lockall
+	lock
 	safefollow
 	applymovement 1, Elevator2FacePlayer
 	waitmovement 0
