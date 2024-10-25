@@ -256,6 +256,21 @@ Update3_69:
 	goto Update3_1
 
 
+IrisBattle::
+	trainerbattle_single TRAINER_CASUAL_IRIS, RustboroCity_DevonCorp_1F_Rocket1_Intro, RustboroCity_DevonCorp_1F_Rocket1_Defeat
+	return
+
+
+DraydenBattle::
+	trainerbattle_single TRAINER_LEADER_DRAYDEN, RustboroCity_DevonCorp_1F_Rocket1_Intro, RustboroCity_DevonCorp_1F_Rocket1_Defeat
+	return
+
+
+MinaBattle::
+	trainerbattle_single TRAINER_ELITE_FOUR_MINA, RustboroCity_DevonCorp_1F_Rocket1_Intro, RustboroCity_DevonCorp_1F_Rocket1_Defeat
+	return
+
+
 CapsuleCorpCenter::
 	getplayerxy VAR_TEMP_1, VAR_TEMP_2
 	subvar VAR_TEMP_1, 1

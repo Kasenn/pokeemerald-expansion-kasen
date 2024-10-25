@@ -5956,7 +5956,7 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_ELITE:
             return MUS_VS_GYM_LEADER;
         case TRAINER_CLASS_CHAMPION:
-            return MUS_DP_VS_LEGEND;
+            return MUS_VS_CHAMPION;
         case TRAINER_CLASS_RIVAL2:
         case TRAINER_CLASS_RIVAL:
             if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
@@ -6337,7 +6337,7 @@ const u8 *GetTrainerPartnerName(void)
     {
         if (gPartnerTrainerId == TRAINER_PARTNER(PARTNER_STEVEN))
         {
-            return GetTrainerNameFromId(TRAINER_STEVEN);
+            return GetTrainerNameFromId(TRAINER_ELITE_FOUR_MINA);
         }
         else if (gPartnerTrainerId == TRAINER_PARTNER(PARTNER_MAY_ROWLET))
         {

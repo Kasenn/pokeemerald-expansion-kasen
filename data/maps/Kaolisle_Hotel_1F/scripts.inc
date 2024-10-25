@@ -355,6 +355,7 @@ BuffetLost::
 	delay 50
 	setvar VAR_KAOLISLE_HOTEL_STATE, 5
 	warpsilent MAP_KAOLISLE_HOTEL_1F, 13, 7
+	waitstate
 	return
 
 

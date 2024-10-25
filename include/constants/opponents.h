@@ -805,9 +805,9 @@
 #define TRAINER_JUAN_3                      799
 #define TRAINER_JUAN_4                      800
 #define TRAINER_JUAN_5                      801
-#define TRAINER_ANGELO                      802
-#define TRAINER_DARIUS                      803
-#define TRAINER_STEVEN                      804
+#define TRAINER_CASUAL_IRIS                      802
+#define TRAINER_LEADER_DRAYDEN                      803
+#define TRAINER_ELITE_FOUR_MINA                      804
 #define TRAINER_ANABEL                      805
 #define TRAINER_TUCKER                      806
 #define TRAINER_SPENSER                     807

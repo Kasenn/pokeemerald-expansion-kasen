@@ -78,7 +78,7 @@ FortreeCity_Gym_SetGymTrainers::
 	settrainerflag TRAINER_ASHLEY
 	settrainerflag TRAINER_EDWARDO
 	settrainerflag TRAINER_HUMBERTO
-	settrainerflag TRAINER_DARIUS
+	settrainerflag TRAINER_LEADER_DRAYDEN
 	return
 
 MossdeepCity_Gym_SetGymTrainers::

@@ -199,6 +199,16 @@ script Update3{
     end
 }
 
+script IrisBattle{
+    trainerbattle_single(TRAINER_CASUAL_IRIS, RustboroCity_DevonCorp_1F_Rocket1_Intro, RustboroCity_DevonCorp_1F_Rocket1_Defeat)
+}
+script DraydenBattle{
+    trainerbattle_single(TRAINER_LEADER_DRAYDEN, RustboroCity_DevonCorp_1F_Rocket1_Intro, RustboroCity_DevonCorp_1F_Rocket1_Defeat)
+}
+script MinaBattle{
+    trainerbattle_single(TRAINER_ELITE_FOUR_MINA, RustboroCity_DevonCorp_1F_Rocket1_Intro, RustboroCity_DevonCorp_1F_Rocket1_Defeat)
+}
+
 script CapsuleCorpCenter{
     getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
     subvar(VAR_TEMP_1, 1)

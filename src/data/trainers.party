@@ -15817,7 +15817,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Ice Beam
 - Rest
 
-=== TRAINER_ANGELO ===
+=== TRAINER_CASUAL_IRIS ===
 Name: ANGELO
 Class: Bug Maniac
 Pic: Bug Maniac
@@ -15840,7 +15840,7 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Quick Attack
 - Confuse Ray
 
-=== TRAINER_DARIUS ===
+=== TRAINER_LEADER_DRAYDEN ===
 Name: DARIUS
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -15853,7 +15853,7 @@ Tropius
 Level: 30
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
-=== TRAINER_STEVEN ===
+=== TRAINER_ELITE_FOUR_MINA ===
 Name: STEVEN
 Class: Rival
 Pic: Steven

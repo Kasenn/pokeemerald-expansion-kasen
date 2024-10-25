@@ -1514,19 +1514,16 @@ static const struct TrainerMon sParty_Warren[] = {
 
 static const struct TrainerMon sParty_Mary[] = {
     {
-    .nature = NATURE_MODEST,
     .lvl = 19,
     .species = SPECIES_FLAAFFY,
     .moves = {MOVE_CHARGE_BEAM, MOVE_CHARGE, MOVE_TACKLE}
     },
     {
-    .nature = NATURE_IMPISH,
     .lvl = 20,
     .species = SPECIES_STUNFISK,
     .moves = {MOVE_MUD_SHOT, MOVE_CHARGE_BEAM, MOVE_WATER_GUN, MOVE_REVENGE}
     },
     {
-    .nature = NATURE_MODEST,
     .lvl = 22,
     .species = SPECIES_ELECTABUZZ,
     .moves = {MOVE_CHARGE_BEAM, MOVE_SWIFT, MOVE_LOW_KICK, MOVE_SIGNAL_BEAM}

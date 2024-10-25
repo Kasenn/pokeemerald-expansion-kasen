@@ -169,6 +169,14 @@ Walk4Right:
 	walk_right
 	step_end
 
+Walk5Right:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
 Walk6Right:
 	walk_right
 	walk_right

@@ -259,6 +259,12 @@ const u32 gTrainerPalette_PalaceMavenSpenser[] = INCBIN_U32("graphics/trainers/f
 const u32 gTrainerFrontPic_Kasen[] = INCBIN_U32("graphics/trainers/front_pics/kasen.4bpp.lz");
 const u32 gTrainerPalette_Kasen[] = INCBIN_U32("graphics/trainers/front_pics/kasen.gbapal.lz");
 
+const u32 gTrainerFrontPic_Drayden[] = INCBIN_U32("graphics/trainers/front_pics/drayden.4bpp.lz");
+const u32 gTrainerPalette_Drayden[] = INCBIN_U32("graphics/trainers/front_pics/drayden.gbapal.lz");
+
+const u32 gTrainerFrontPic_IrisCasual[] = INCBIN_U32("graphics/trainers/front_pics/iris_casual.4bpp.lz");
+const u32 gTrainerPalette_IrisCasual[] = INCBIN_U32("graphics/trainers/front_pics/iris_casual.gbapal.lz");
+
 const u32 gTrainerFrontPic_Mina[] = INCBIN_U32("graphics/trainers/front_pics/mina.4bpp.lz");
 const u32 gTrainerPalette_Mina[] = INCBIN_U32("graphics/trainers/front_pics/mina.gbapal.lz");
 
@@ -441,6 +447,8 @@ const struct TrainerSprite gTrainerSprites[] =
     TRAINER_SPRITE(DOME_ACE_TUCKER, DomeAceTucker),
     TRAINER_SPRITE(PALACE_MAVEN_SPENSER, PalaceMavenSpenser),
     TRAINER_SPRITE(KASEN, Kasen),
+    TRAINER_SPRITE(DRAYDEN, Drayden),
+    TRAINER_SPRITE(IRIS_CASUAL, IrisCasual),
     TRAINER_SPRITE(MINA, Mina),
     TRAINER_SPRITE(ARENA_TYCOON_GRETA, ArenaTycoonGreta),
     TRAINER_SPRITE(FACTORY_HEAD_NOLAND, FactoryHeadNoland),
