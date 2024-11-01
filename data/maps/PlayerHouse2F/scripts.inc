@@ -1,26 +1,25 @@
 PlayerHouse2F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, PlayerHouse2F_Start
+	map_script MAP_SCRIPT_ON_TRANSITION, PlayerHouse2F_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, PlayerHouse2F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
-PlayerHouse2F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
-	map_script_2 VAR_PEARLWOOD_TOWN_STATE, 0, PlayerHouse2F_MomTalk
-	.2byte 0
-
-
-PlayerHouse2F_Start::
+PlayerHouse2F_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	checkplayergender
 	compare VAR_RESULT, FEMALE
-	goto_if_eq PlayerHouse2F_Start_1
+	goto_if_eq PlayerHouse2F_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
 	return
 
-PlayerHouse2F_Start_1:
+PlayerHouse2F_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
 	setmaplayoutindex LAYOUT_PLAYER_HOUSE2F_MAY
 	return
 
+PlayerHouse2F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_PEARLWOOD_TOWN_STATE, 0, PlayerHouse2F_Intro
+	.2byte 0
 
-PlayerHouse2F_MomTalk::
-	lock
+
+PlayerHouse2F_Intro::
+	fadescreen FADE_FROM_BLACK
 	delay 60
 	setobjectxy 1, 7, 1
 	showobjectat 1, MAP_PLAYER_HOUSE2F

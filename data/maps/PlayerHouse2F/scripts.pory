@@ -1,33 +1,32 @@
 mapscripts PlayerHouse2F_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION: PlayerHouse2F_Start
+    MAP_SCRIPT_ON_TRANSITION {
+        checkplayergender
+        if(var(VAR_RESULT) == FEMALE){
+            setmaplayoutindex(LAYOUT_PLAYER_HOUSE2F_MAY)
+        }
+    }
     MAP_SCRIPT_ON_FRAME_TABLE [
-        VAR_PEARLWOOD_TOWN_STATE, 0: PlayerHouse2F_MomTalk
+        VAR_PEARLWOOD_TOWN_STATE, 0: PlayerHouse2F_Intro
     ]
 }
 
-script PlayerHouse2F_Start{
-    checkplayergender
-    if(var(VAR_RESULT) == FEMALE){
-        setmaplayoutindex(LAYOUT_PLAYER_HOUSE2F_MAY)
-    }
-}
+const MOM = 1
 
-script PlayerHouse2F_MomTalk{
-    lock
+script PlayerHouse2F_Intro{
     delay(60)
-    setobjectxy(1, 7, 1)
-    showobjectat(1, MAP_PLAYER_HOUSE2F)
+    setobjectxy(MOM, 7, 1)
+    showobjectat(MOM, MAP_PLAYER_HOUSE2F)
     delay(60)
-    applymovement(1, Walk1Down)
+    applymovement(MOM, Walk1Down)
     waitmovement(0)
-    turnobject(1, DIR_WEST)
+    turnobject(MOM, DIR_WEST)
     delay(10)
     msgbox(Player2FMomIntro)
     closemessage
     delay(30)
-    applymovement(1, Walk1Up)
+    applymovement(MOM, Walk1Up)
     waitmovement(0)
-    removeobject(1)
+    removeobject(MOM)
     delay(30)
     applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
     waitmovement(0)
