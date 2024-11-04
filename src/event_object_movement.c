@@ -538,6 +538,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_RocketAdmin_M,     OBJ_EVENT_PAL_ROCKET_ADMIN_M},
     {gObjectEventPalette_Volcarona,         OBJ_EVENT_PAL_VOLCARONA},
     {gObjectEventPalette_Abra,              OBJ_EVENT_PAL_ABRA},
+    {gObjectEventPalette_Abra2,              OBJ_EVENT_PAL_ABRA2},
     {gObjectEventPalette_Spheal,            OBJ_EVENT_PAL_SPHEAL},
     {gObjectEventPalette_Excadrill,         OBJ_EVENT_PAL_EXCADRILL},
     {gObjectEventPalette_Ampharos,          OBJ_EVENT_PAL_AMPHAROS},
@@ -8237,6 +8238,12 @@ bool8 MovementAction_FaceOriginalDirection_Step0(struct ObjectEvent *objectEvent
 bool8 MovementAction_NurseJoyBowDown_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     StartSpriteAnimInDirection(objectEvent, sprite, DIR_SOUTH, ANIM_NURSE_BOW);
+    return FALSE;
+}
+
+bool8 MovementAction_AbraSpin_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    StartSpriteAnimInDirection(objectEvent, sprite, DIR_SOUTH, ANIM_ABRA_SPIN);
     return FALSE;
 }
 

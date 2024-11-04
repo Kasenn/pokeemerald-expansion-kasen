@@ -835,6 +835,9 @@ $(OBJEVENTGFXDIR)/people/volcarona.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/abra.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 
+$(OBJEVENTGFXDIR)/people/abra2.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+
 $(OBJEVENTGFXDIR)/pokemon/spheal.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 

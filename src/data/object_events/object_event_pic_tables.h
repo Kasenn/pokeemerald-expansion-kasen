@@ -2253,6 +2253,22 @@ static const struct SpriteFrameImage sPicTable_Abra[] = {
     overworld_frame(gObjectEventPic_Abra2, 4, 4, 6),
 };
 
+static const struct SpriteFrameImage sPicTable_Abra2[] = {
+    overworld_frame(gObjectEventPic_Abra2Spin, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Abra2Spin, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Abra2Spin, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Abra2Spin, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Abra2Spin, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Abra2Spin, 4, 4, 5),
+    overworld_frame(gObjectEventPic_Abra2Spin, 4, 4, 6),
+    overworld_frame(gObjectEventPic_Abra2Spin, 4, 4, 7),
+    overworld_frame(gObjectEventPic_Abra2Spin, 4, 4, 8),
+    overworld_frame(gObjectEventPic_Abra2Spin, 4, 4, 9),
+    overworld_frame(gObjectEventPic_Abra2Spin, 4, 4, 10),
+    overworld_frame(gObjectEventPic_Abra2Spin, 4, 4, 11),
+    overworld_frame(gObjectEventPic_Abra2Spin, 4, 4, 12),
+};
+
 static const struct SpriteFrameImage sPicTable_Spheal[] = {
     overworld_frame(gObjectEventPic_Spheal2, 4, 4, 0),
     overworld_frame(gObjectEventPic_Spheal2, 4, 4, 1),

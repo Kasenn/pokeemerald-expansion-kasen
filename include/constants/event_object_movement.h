@@ -254,6 +254,7 @@
 #define MOVEMENT_ACTION_JUMP_3_UP                       0xA3
 #define MOVEMENT_ACTION_JUMP_3_LEFT                     0xA4
 #define MOVEMENT_ACTION_JUMP_3_RIGHT                    0xA5
+#define MOVEMENT_ACTION_ABRA_SPIN                       0xA6
 
 #define MOVEMENT_ACTION_STEP_END 0xFE
 #define MOVEMENT_ACTION_NONE     0xFF
@@ -322,6 +323,7 @@
 
 #define ANIM_NURSE_BOW (ANIM_STD_COUNT + 0)
 #define ANIM_RAISE_HAND (ANIM_STD_COUNT + 0)
+#define ANIM_ABRA_SPIN (ANIM_STD_COUNT + 0)
 
 #define ANIM_FIELD_MOVE 0
 
