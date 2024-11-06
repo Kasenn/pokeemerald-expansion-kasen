@@ -1,8 +1,6 @@
 mapscripts CoralgroveElevatorInt_MapScripts {
-    MAP_SCRIPT_ON_FRAME_TABLE [
-        VAR_CORALGROVE_ELEVATOR, 0 :CGC_ElevatorUp
-        VAR_CORALGROVE_ELEVATOR, 1 :CGC_ElevatorUp
-        VAR_CORALGROVE_ELEVATOR, 2 :CGC_ElevatorUp
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_TEMP_0, 0 :CGC_ElevatorUp
     ]
 }
 

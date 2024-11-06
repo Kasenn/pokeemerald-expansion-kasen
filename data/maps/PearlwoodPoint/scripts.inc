@@ -5,6 +5,12 @@ PearlwoodPoint_MapScripts::
 
 Pearlwood_Visited::
 	setflag FLAG_VISITED_PEARLWOOD_POINT
+	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_PKMN_OBTAINED
+	goto_if_ne Pearlwood_Visited_1
+	return
+
+Pearlwood_Visited_1:
+	setflag FLAG_TEMP_1
 	return
 
 
@@ -135,7 +141,7 @@ PearlwoodWon_1:
 	applymovement 3, Walk5Down
 	waitmovement 0
 	removeobject 3
-	setvar VAR_PEARLWOOD_TOWN_STATE, 6
+	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_BROTHER_FOUGHT
 	clearflag FLAG_HEAL_AFTER_BATTLE
 	delay 30
 	release

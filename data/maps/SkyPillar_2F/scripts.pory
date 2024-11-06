@@ -1,22 +1,27 @@
 mapscripts SkyPillar_2F_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: SetRivalTowerLoc
     MAP_SCRIPT_ON_FRAME_TABLE[
-        VAR_RIVAL_AROUND_SANDSTONE, 0: MeetingRivalInTheTower
-        VAR_RIVAL_AROUND_SANDSTONE, 1: MeetingRivalInTheTower
-        VAR_RIVAL_AROUND_SANDSTONE, 2: MeetingRivalInTheTower
-        VAR_RIVAL_AROUND_SANDSTONE, 4: UnitedWithRival
+        VAR_TEMP_0, 1: MeetingRivalInTheTower
+        VAR_TEMP_0, 2: UnitedWithRival
     ]
 }
 
 script SetRivalTowerLoc{
-    // if(!flag(FLAG_OBTAINED_MEGA_RING)){
-    //     setflag(FLAG_TEMP_HIDE_FOLLOWER)
-    // }
-    if(var(VAR_RIVAL_AROUND_SANDSTONE) <= 2){
-        setobjectxyperm(6, 12, 3)
-        setobjectmovementtype(6, MOVEMENT_TYPE_FACE_RIGHT)
+    checkfollower
+    if(var(VAR_RESULT) == FALSE){
+        if(flag(FLAG_OBTAINED_MEGA_RING)){
+            setvar(VAR_TEMP_0, 0)
+        }
+        elif(flag(FLAG_REUNITE_WITH_RIVAL)){
+            clearflag(FLAG_REUNITE_WITH_RIVAL)
+            setvar(VAR_TEMP_0, 2)
+        }
+        else{
+            setvar(VAR_TEMP_0, 1)
+            setobjectxyperm(6, 12, 3)
+            setobjectmovementtype(6, MOVEMENT_TYPE_FACE_RIGHT)
+        }
     }
-    end
 }
 
 script AT_2F_Tr2_Left{
@@ -443,7 +448,7 @@ script UnitedWithRival{
         msgbox(YoureBackBrendan)
     }
     closemessage
-    setvar(VAR_RIVAL_AROUND_SANDSTONE, 3)
+    setvar(VAR_TEMP_0, 0)
     setflag(FLAG_PARTNER_HEALS)
     special(HealPlayerParty)
     setfollower(6, FOLLOWER_FLAG_ALL, MakeNewTeam)
@@ -461,32 +466,25 @@ script MeetingRivalInTheTower{
     delay(48)
     applymovement(6, Tower2FRival)
     waitmovement(0)
-    checkplayergender
-    if(var(VAR_RESULT) == MALE){
-        if(var(VAR_RIVAL_AROUND_SANDSTONE) == 1){
+    if(checkplayergender == MALE){
+        if(flag(FLAG_RIVAL_COSTUME_CHANGE)){
             msgbox(MayHappyToSee)
         }
-        elif(var(VAR_RIVAL_AROUND_SANDSTONE) == 2){
-            msgbox(MayNotHappyToSee)
-        }
         else{
-            msgbox(MayLongTimeNoSee)
+            msgbox(MayNotHappyToSee)
         }
     }
     else{
-        if(var(VAR_RIVAL_AROUND_SANDSTONE) == 1){
+        if(flag(FLAG_RIVAL_COSTUME_CHANGE)){
             msgbox(BrendanHappyToSee)
         }
-        elif(var(VAR_RIVAL_AROUND_SANDSTONE) == 2){
-            msgbox(BrendanNotHappyToSee)
-        }
         else{
-            msgbox(BrendanLongTimeNoSee)
+            msgbox(BrendanNotHappyToSee)
         }
     }
     closemessage
+    setvar(VAR_TEMP_0, 0)
     setvar(VAR_TEMP_3, 1)
-    setvar(VAR_RIVAL_AROUND_SANDSTONE, 3)
     setflag(FLAG_PARTNER_HEALS)
     special(HealPlayerParty)
     setfollower(6, FOLLOWER_FLAG_ALL, MakeNewTeam)
@@ -824,26 +822,26 @@ text MayNotHappyToSee{
     "are all topped up after every battle.\p"
     "Here, how about you take the lead?"
 }
-text MayLongTimeNoSee{
-    "{RIVAL}: Oh, hi {PLAYER}!\p"
-    "Didn't expect to bump into you here.\p"
-    "I assume you're here to climb the tower\n"
-    "under Korrina's instructions as well?\p"
-    "In that case, we should totally\n"
-    "team up!\p"
-    "Some of these trainers are real tough\n"
-    "and many of them have also teamed up,\l"
-    "which means that we should too.\p"
-    "Don't worry though.\p"
-    "I won't interfere with your wild\n"
-    "Pokémon battles so you can catch any\l"
-    "new Pokémon you see!\p"
-    "I'll also make sure that your Pokémon\n"
-    "are all topped up after every battle.\p"
-    "Okay! with that out of the way, let's\n"
-    "get cracking with this tower!\p"
-    "Lead the way!"
-}
+// text MayLongTimeNoSee{
+//     "{RIVAL}: Oh, hi {PLAYER}!\p"
+//     "Didn't expect to bump into you here.\p"
+//     "I assume you're here to climb the tower\n"
+//     "under Korrina's instructions as well?\p"
+//     "In that case, we should totally\n"
+//     "team up!\p"
+//     "Some of these trainers are real tough\n"
+//     "and many of them have also teamed up,\l"
+//     "which means that we should too.\p"
+//     "Don't worry though.\p"
+//     "I won't interfere with your wild\n"
+//     "Pokémon battles so you can catch any\l"
+//     "new Pokémon you see!\p"
+//     "I'll also make sure that your Pokémon\n"
+//     "are all topped up after every battle.\p"
+//     "Okay! with that out of the way, let's\n"
+//     "get cracking with this tower!\p"
+//     "Lead the way!"
+// }
 text BrendanHappyToSee{
     "{RIVAL}: Oh, hey {PLAYER}!\p"
     "Didn't expect to bump into you so\n"
@@ -885,26 +883,26 @@ text BrendanNotHappyToSee{
     "let's get on top of this tower!\p"
     "I'll follow your lead."
 }
-text BrendanLongTimeNoSee{
-    "{RIVAL}: Oh, hey {PLAYER}!\p"
-    "Didn't expect to see you here\n"
-    "so soon.\p"
-    "I'm guessing Korrina sent you here\n"
-    "to climb the tower as well?\p"
-    "In that case, how about we team up?\n"
-    "Some of these trainers are real tough\l"
-    "and seeing how they've teamed up,\l"
-    "it makes sense we do the same.\p"
-    "Don't worry though.\p"
-    "I won't get in the way of your wild\n"
-    "Pokémon battles so you can catch any\l"
-    "new Pokémon you see.\p"
-    "I'll also make sure that your Pokémon\n"
-    "are healthy after every battle.\p"
-    "Okay. With that out of the way,\n"
-    "let's get on top of this tower!\p"
-    "I'll follow your lead."
-}
+// text BrendanLongTimeNoSee{
+//     "{RIVAL}: Oh, hey {PLAYER}!\p"
+//     "Didn't expect to see you here\n"
+//     "so soon.\p"
+//     "I'm guessing Korrina sent you here\n"
+//     "to climb the tower as well?\p"
+//     "In that case, how about we team up?\n"
+//     "Some of these trainers are real tough\l"
+//     "and seeing how they've teamed up,\l"
+//     "it makes sense we do the same.\p"
+//     "Don't worry though.\p"
+//     "I won't get in the way of your wild\n"
+//     "Pokémon battles so you can catch any\l"
+//     "new Pokémon you see.\p"
+//     "I'll also make sure that your Pokémon\n"
+//     "are healthy after every battle.\p"
+//     "Okay. With that out of the way,\n"
+//     "let's get on top of this tower!\p"
+//     "I'll follow your lead."
+// }
 text YoureBackMay{
     "{RIVAL}: I've been waiting here like I\n"
     "said I would.\p"

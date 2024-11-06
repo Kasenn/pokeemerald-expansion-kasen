@@ -934,36 +934,6 @@ text R11BrendanChallengeKorrina{
     "Hope to see you soon!"
 }
 
-script SetMayOutfit{
-    lock
-    msgbox(SetRivalGfx, MSGBOX_YESNO)
-    if(var(VAR_RESULT) == TRUE){
-        setflag(FLAG_MAY_COSTUME_CHANGE)
-        setflag(FLAG_BRENDAN_COSTUME_CHANGE)
-    }
-    else{
-        clearflag(FLAG_MAY_COSTUME_CHANGE)
-        clearflag(FLAG_BRENDAN_COSTUME_CHANGE)
-    }
-    msgbox(SetPlayerGfx, MSGBOX_YESNO)
-    if(var(VAR_RESULT) == TRUE){
-        setflag(FLAG_PC_CHANGE_COSTUME)
-    }
-    else{
-        clearflag(FLAG_PC_CHANGE_COSTUME)
-    }
-    closemessage
-    release
-    end
-}
-
-text SetRivalGfx{
-    "Use new outfit for rival?"
-}
-text SetPlayerGfx{
-    "Use new outfit for player?"
-}
-
 script R11VarTest{
     buffernumberstring(STR_VAR_1, VAR_R11_TRAINERS)
     msgbox("{STR_VAR_1}", MSGBOX_NPC)

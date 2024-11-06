@@ -43,7 +43,7 @@ script PrimroseMeadow_EventScript_Rival{
 	}
 	closemessage
 	safefollow
-	setvar(VAR_PEARLWOOD_TOWN_STATE, 8)
+	setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_RIVAL_FOUGHT_IN_MEADOW)
 	switch(var(VAR_FACING)){
 		case DIR_SOUTH:
 			applymovement(1, PRMeadow_Movement_RivalExit1)

@@ -144,59 +144,54 @@ Mart_Clerk::
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	switch VAR_BADGES_OBTAINED
-	case 0, Mart_Clerk_3
-	case 1, Mart_Clerk_4
-	case 2, Mart_Clerk_5
-	case 3, Mart_Clerk_6
-	case 4, Mart_Clerk_7
-	case 5, Mart_Clerk_8
-	case 6, Mart_Clerk_9
-	case 7, Mart_Clerk_10
-	case 8, Mart_Clerk_11
+	goto_if_set FLAG_BADGE08_GET, Mart_Clerk_2
+	goto_if_set FLAG_BADGE07_GET, Mart_Clerk_3
+	goto_if_set FLAG_BADGE06_GET, Mart_Clerk_4
+	goto_if_set FLAG_BADGE05_GET, Mart_Clerk_5
+	goto_if_set FLAG_BADGE04_GET, Mart_Clerk_6
+	goto_if_set FLAG_BADGE03_GET, Mart_Clerk_7
+	goto_if_set FLAG_BADGE02_GET, Mart_Clerk_8
+	goto_if_set FLAG_BADGE01_GET, Mart_Clerk_9
+	goto_if_set FLAG_SYS_POKEDEX_GET, Mart_Clerk_19
+	pokemart Mart_NoBadges
 Mart_Clerk_1:
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
-Mart_Clerk_3:
-	goto_if_set FLAG_SYS_POKEDEX_GET, Mart_Clerk_12
-	pokemart Mart_NoBadges
-	goto Mart_Clerk_1
-
-Mart_Clerk_4:
-	pokemart Mart_1Badges
-	goto Mart_Clerk_1
-
-Mart_Clerk_5:
-	pokemart Mart_2Badges
-	goto Mart_Clerk_1
-
-Mart_Clerk_6:
-	pokemart Mart_3Badges
-	goto Mart_Clerk_1
-
-Mart_Clerk_7:
-	pokemart Mart_4Badges
-	goto Mart_Clerk_1
-
-Mart_Clerk_8:
-	pokemart Mart_4Badges
-	goto Mart_Clerk_1
-
-Mart_Clerk_9:
-	pokemart Mart_7Badges
-	goto Mart_Clerk_1
-
-Mart_Clerk_10:
-	pokemart Mart_7Badges
-	goto Mart_Clerk_1
-
-Mart_Clerk_11:
+Mart_Clerk_2:
 	pokemart Mart_8Badges
 	goto Mart_Clerk_1
 
-Mart_Clerk_12:
+Mart_Clerk_3:
+	pokemart Mart_7Badges
+	goto Mart_Clerk_1
+
+Mart_Clerk_4:
+	pokemart Mart_7Badges
+	goto Mart_Clerk_1
+
+Mart_Clerk_5:
+	pokemart Mart_4Badges
+	goto Mart_Clerk_1
+
+Mart_Clerk_6:
+	pokemart Mart_4Badges
+	goto Mart_Clerk_1
+
+Mart_Clerk_7:
+	pokemart Mart_3Badges
+	goto Mart_Clerk_1
+
+Mart_Clerk_8:
+	pokemart Mart_2Badges
+	goto Mart_Clerk_1
+
+Mart_Clerk_9:
+	pokemart Mart_1Badges
+	goto Mart_Clerk_1
+
+Mart_Clerk_19:
 	pokemart Mart_NoBadgesExpanded
 	goto Mart_Clerk_1
 
@@ -353,24 +348,27 @@ Mart_ClerkSandStoneLeft::
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	switch VAR_BADGES_OBTAINED
-	case 3, Mart_ClerkSandStoneLeft_3
-	case 4, Mart_ClerkSandStoneLeft_4
-	case 5, Mart_ClerkSandStoneLeft_5
-	case 6, Mart_ClerkSandStoneLeft_6
-	case 7, Mart_ClerkSandStoneLeft_7
-	case 8, Mart_ClerkSandStoneLeft_8
+	goto_if_set FLAG_BADGE08_GET, Mart_ClerkSandStoneLeft_2
+	goto_if_set FLAG_BADGE07_GET, Mart_ClerkSandStoneLeft_3
+	goto_if_set FLAG_BADGE06_GET, Mart_ClerkSandStoneLeft_4
+	goto_if_set FLAG_BADGE05_GET, Mart_ClerkSandStoneLeft_5
+	goto_if_set FLAG_BADGE04_GET, Mart_ClerkSandStoneLeft_6
+	pokemart SSLeftMart_3Badges
 Mart_ClerkSandStoneLeft_1:
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
+Mart_ClerkSandStoneLeft_2:
+	pokemart SSLeftMart_8Badges
+	goto Mart_ClerkSandStoneLeft_1
+
 Mart_ClerkSandStoneLeft_3:
-	pokemart SSLeftMart_3Badges
+	pokemart SSLeftMart_7Badges
 	goto Mart_ClerkSandStoneLeft_1
 
 Mart_ClerkSandStoneLeft_4:
-	pokemart SSLeftMart_4Badges
+	pokemart SSLeftMart_6Badges
 	goto Mart_ClerkSandStoneLeft_1
 
 Mart_ClerkSandStoneLeft_5:
@@ -378,15 +376,7 @@ Mart_ClerkSandStoneLeft_5:
 	goto Mart_ClerkSandStoneLeft_1
 
 Mart_ClerkSandStoneLeft_6:
-	pokemart SSLeftMart_6Badges
-	goto Mart_ClerkSandStoneLeft_1
-
-Mart_ClerkSandStoneLeft_7:
-	pokemart SSLeftMart_7Badges
-	goto Mart_ClerkSandStoneLeft_1
-
-Mart_ClerkSandStoneLeft_8:
-	pokemart SSLeftMart_8Badges
+	pokemart SSLeftMart_4Badges
 	goto Mart_ClerkSandStoneLeft_1
 
 
@@ -395,24 +385,27 @@ Mart_ClerkSandStoneRight::
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	switch VAR_BADGES_OBTAINED
-	case 3, Mart_ClerkSandStoneRight_3
-	case 4, Mart_ClerkSandStoneRight_4
-	case 5, Mart_ClerkSandStoneRight_5
-	case 6, Mart_ClerkSandStoneRight_6
-	case 7, Mart_ClerkSandStoneRight_7
-	case 8, Mart_ClerkSandStoneRight_8
+	goto_if_set FLAG_BADGE08_GET, Mart_ClerkSandStoneRight_2
+	goto_if_set FLAG_BADGE07_GET, Mart_ClerkSandStoneRight_3
+	goto_if_set FLAG_BADGE06_GET, Mart_ClerkSandStoneRight_4
+	goto_if_set FLAG_BADGE05_GET, Mart_ClerkSandStoneRight_5
+	goto_if_set FLAG_BADGE04_GET, Mart_ClerkSandStoneRight_6
+	pokemart SSRightMart_3Badges
 Mart_ClerkSandStoneRight_1:
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
+Mart_ClerkSandStoneRight_2:
+	pokemart SSRightMart_8Badges
+	goto Mart_ClerkSandStoneRight_1
+
 Mart_ClerkSandStoneRight_3:
-	pokemart SSRightMart_3Badges
+	pokemart SSRightMart_7Badges
 	goto Mart_ClerkSandStoneRight_1
 
 Mart_ClerkSandStoneRight_4:
-	pokemart SSRightMart_4Badges
+	pokemart SSRightMart_7Badges
 	goto Mart_ClerkSandStoneRight_1
 
 Mart_ClerkSandStoneRight_5:
@@ -420,15 +413,7 @@ Mart_ClerkSandStoneRight_5:
 	goto Mart_ClerkSandStoneRight_1
 
 Mart_ClerkSandStoneRight_6:
-	pokemart SSRightMart_7Badges
-	goto Mart_ClerkSandStoneRight_1
-
-Mart_ClerkSandStoneRight_7:
-	pokemart SSRightMart_7Badges
-	goto Mart_ClerkSandStoneRight_1
-
-Mart_ClerkSandStoneRight_8:
-	pokemart SSRightMart_8Badges
+	pokemart SSRightMart_4Badges
 	goto Mart_ClerkSandStoneRight_1
 
 

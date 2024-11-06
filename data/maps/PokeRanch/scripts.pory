@@ -314,7 +314,7 @@ script PokeRanch_MareepTrigger{
     setobjectxy(19, 44, 8)
     showobjectat(19, MAP_POKE_RANCH)
     delay(50)
-    if(flag(FLAG_WW_ENDEVENT)){
+    if(defeated(TRAINER_SHELLY_SEAFLOOR_CAVERN)){
         msgbox(RanchGrunt1, MSGBOX_DEFAULT)
         waitmessage
         closemessage

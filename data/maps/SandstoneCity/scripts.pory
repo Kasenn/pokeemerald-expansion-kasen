@@ -2,12 +2,15 @@ mapscripts SandstoneCity_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: VisitedSandstone
 }
 
+const TRIGGER = VAR_TEMP_1
+const RIVAL = 13
+
 script VisitedSandstone{
+    setflag(FLAG_TEMP_1)
     setflag(FLAG_VISITED_SANDSTONE_CITY)
-    if(var(VAR_RIVAL_AROUND_SANDSTONE) == 3){
-        setvar(VAR_RIVAL_AROUND_SANDSTONE, 4)
+    if(checkitem(ITEM_MEGA_RING) == FALSE){
+        clearflag(FLAG_OBTAINED_MEGA_RING)
     }
-    end
 }
 
 script Sandstone_Sign1{
@@ -204,91 +207,106 @@ text Sandstone_Nerd_Text{
     "Library and read a few books!"
 }
 
+script SandstoneRivalTrigger1{
+    setvar(TRIGGER, 1)
+    goto(SandstoneRival)
+}
+script SandstoneRivalTrigger2{
+    setvar(TRIGGER, 2)
+    goto(SandstoneRival)
+}
+script SandstoneRivalTrigger3{
+    setvar(TRIGGER, 3)
+    goto(SandstoneRival)
+}
+script SandstoneRivalTrigger4{
+    setvar(TRIGGER, 4)
+    goto(SandstoneRival)
+}
+
 script SandstoneRival{
-    if(var(VAR_RIVAL_AROUND_SANDSTONE) == 4){
-        release
-        end
-    }
-    if(var(VAR_PEARLWOOD_TOWN_STATE) == 10){
-        release
-        end
-    }
-    setflag(FLAG_MAY_COSTUME_CHANGE)
-    setflag(FLAG_BRENDAN_COSTUME_CHANGE)
+    setflag(FLAG_RIVAL_COSTUME_CHANGE)
     call(Common_EventScript_SetupRivalGfxId)
     lock
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
 	delay(5)
     opendoor(51, 22)
+    if(var(TRIGGER) == 1){
+        delay(10)
+        turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    }
     waitdooranim
-    addobject(13)
-    applymovement(OBJ_EVENT_ID_PLAYER, Sandstone_PushPlayerDown)
-    applymovement(13, Sandstone_RivalExitStore)
-    waitmovement(0)
-    closedoor(51, 22)
-    waitdooranim
-    checkplayergender
-    copyvar(VAR_TEMP_2, VAR_RESULT)
-    if(var(VAR_TEMP_2) == MALE){
-        msgbox(RivalMayLikeOutfit, MSGBOX_YESNO)
-        if(var(VAR_RESULT) == FALSE){
-            if(flag(FLAG_PC_CHANGE_COSTUME)){
-                msgbox(DontLikeMaysOutfitV2)
-            }
-            else{
-                msgbox(DontLikeMaysOutfit)
-            }
-            clearflag(FLAG_MAY_COSTUME_CHANGE)
-            clearflag(FLAG_BRENDAN_COSTUME_CHANGE)
-            if(var(VAR_RIVAL_AROUND_SANDSTONE) == 0){
-                setvar(VAR_RIVAL_AROUND_SANDSTONE, 2)
-            }
+    addobject(RIVAL)
+    switch(var(TRIGGER)){
+        case 1:
+            applymovement(OBJ_EVENT_ID_PLAYER, Sandstone_PushPlayerDown)
+            applymovement(RIVAL, Walk1Down)
+            waitmovement(0)
+            closedoor(51, 22)
+            waitdooranim
+        case 2:
+            safefollow
+            applymovement(RIVAL, Walk1Down)
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+            waitmovement(0)
+            closedoor(51, 22)
+            waitdooranim
+        case 3:
+            safefollow
+            applymovement(RIVAL, Walk1Down)
+            waitmovement(0)
+            closedoor(51, 22)
+            waitdooranim
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+            applymovement(RIVAL, Walk1Down)
+            waitmovement(0)
+        case 4:
+            safefollow
+            applymovement(RIVAL, Walk1Down)
+            waitmovement(0)
+            closedoor(51, 22)
+            waitdooranim
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+            applymovement(RIVAL, Walk2Down)
+            waitmovement(0)
+    }
+    if(checkplayergender == MALE){
+        if(msgbox(RivalMayLikeOutfit, MSGBOX_YESNO) == TRUE){
+            msgbox(LikeMaysOutfit)
         }
         else{
-            if(flag(FLAG_PC_CHANGE_COSTUME)){
-                msgbox(LikeMaysOutfitV2)
-            }
-            else{
-                msgbox(LikeMaysOutfit)
-            }
-            if(var(VAR_RIVAL_AROUND_SANDSTONE) == 0){
-                setvar(VAR_RIVAL_AROUND_SANDSTONE, 1)
-            }
+            msgbox(DontLikeMaysOutfit)
+            clearflag(FLAG_RIVAL_COSTUME_CHANGE)
         }
     }
     else{
-        msgbox(RivalBrendanLikeOutfit, MSGBOX_YESNO)
-        if(var(VAR_RESULT) == FALSE){
-            if(flag(FLAG_PC_CHANGE_COSTUME)){
-                msgbox(DontLikeBrendansOutfitV2)
-            }
-            else{
-                msgbox(DontLikeBrendansOutfit)
-            }
-            clearflag(FLAG_MAY_COSTUME_CHANGE)
-            clearflag(FLAG_BRENDAN_COSTUME_CHANGE)
-            if(var(VAR_RIVAL_AROUND_SANDSTONE) == 0){
-                setvar(VAR_RIVAL_AROUND_SANDSTONE, 2)
-            }
+        if(msgbox(RivalBrendanLikeOutfit, MSGBOX_YESNO) == TRUE){
+            msgbox(LikeBrendansOutfit)
         }
         else{
-            if(flag(FLAG_PC_CHANGE_COSTUME)){
-                msgbox(LikeBrendansOutfitV2)
-            }
-            else{
-                msgbox(LikeBrendansOutfit)
-            }
-            if(var(VAR_RIVAL_AROUND_SANDSTONE) == 0){
-                setvar(VAR_RIVAL_AROUND_SANDSTONE, 1)
-            }
+            msgbox(DontLikeBrendansOutfit)
+            clearflag(FLAG_RIVAL_COSTUME_CHANGE)
         }
     }
     closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, Sandstone_PlayerWatchRivalExit)
-	applymovement(13, Sandstone_RivalExitAfterStore)
-	waitmovement(0)
-	removeobject(13)
-    setvar(VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 3)
+    switch(var(TRIGGER)){
+        case 1:
+        case 2:
+        	applymovement(RIVAL, Sandstone_RivalExitAfterStore)
+            delay(32)
+            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft)
+        case 3:
+            applymovement(RIVAL, Sandstone_RivalExitAfterStore2)
+            delay(16)
+            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft)
+        case 4:
+            applymovement(RIVAL, Walk8Left)
+            delay(16)
+            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft)
+    }
+	waitmovement(RIVAL)
+	removeobject(RIVAL)
+    removeobject(14)    // FLAG_RIVAL_MET_IN_SANDSTONE
+    removeobject(15)    // FLAG_RIVAL_MET_IN_SANDSTONE
     release
     end
 }
@@ -297,19 +315,8 @@ movement Sandstone_PushPlayerDown{
 	lock_facing_direction
 	walk_down
 	unlock_facing_direction
-	step_end
-}
-
-movement Sandstone_PlayerWatchRivalExit{
-	delay_16 * 2
-	walk_in_place_faster_left
-	step_end
-}
-
-movement Sandstone_RivalExitStore{
-	delay_8
-	walk_down
-	step_end
+    delay_8
+    step_end
 }
 
 movement Sandstone_RivalExitAfterStore{
@@ -318,6 +325,12 @@ movement Sandstone_RivalExitAfterStore{
     walk_left
 	walk_down
 	walk_left * 6
+	step_end
+}
+movement Sandstone_RivalExitAfterStore2{
+    walk_left
+    walk_down
+	walk_left * 7
 	step_end
 }
 
@@ -380,42 +393,13 @@ text LikeBrendansOutfit{
     "See you again soon!"
 }
 
-text DontLikeMaysOutfitV2{
-    "{RIVAL}: Oh… But I thought it was cute…\p"
-    "No, you know what? It IS cute!\n"
-    "You just don't understand fashion!\p"
-    "Maybe you should think about\n"
-    "switching that get-up of yours\l"
-    "as well sometimes--\p"
-    "…Oh wait, you already have…\p"
-    "Well, whatever!"
+script SandstoneCity_BunearyGirl{
+    lock
+    msgbox(SandstoneCity_BunearyGirl_Text)
+    release
 }
-text LikeMaysOutfitV2{
-    "{RIVAL}: I knew you'd like it!\p"
-    "I see your sense of fashion\n"
-    "isn't completely outdated.\p"
-    "…Oh wait, I see you've already\n"
-    "got some fancy new style!\p"
-    "And here I thought I got to\n"
-    "surprise you first.\p"
-    "…Anyway, I need to get going now!\p"
-    "See you!"
-}
-text DontLikeBrendansOutfitV2{
-    "{RIVAL}: Oh… I thought you'd agree…\p"
-    "Um, I think your outfit looks\n"
-    "good on you though…\p"
-    "…Anyway, I need to get going.\p"
-    "See you…"
-}
-text LikeBrendansOutfitV2{
-    "{RIVAL}: Thanks! Guess my sense of\n"
-    "fashion isn't completely outdated\l"
-    "after all!\p"
-    "Looks like you've already found\n"
-    "the new clothing store.\p"
-    "I have to say, that outfit of yours\n"
-    "looks good too!\p"
-    "…Anyway, I need to get going now.\p"
-    "See you again soon!"
+text SandstoneCity_BunearyGirl_Text{
+    "I know you don't like going to\n"
+    "the Pokémon Center, but we really\l"
+    "need to get that injury healed."
 }

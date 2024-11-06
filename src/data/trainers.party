@@ -313,7 +313,7 @@ Gyarados
 Level: 34
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_RUSTURF_TUNNEL ===
+=== TRAINER_R1_YOUNGSTER ===
 Name: GRUNT
 Class: Team Aqua
 Pic: Aqua Grunt M
@@ -326,7 +326,7 @@ Poochyena
 Level: 11
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_WEATHER_INST_1 ===
+=== TRAINER_R1_FISHER ===
 Name: GRUNT
 Class: Team Aqua
 Pic: Aqua Grunt M
@@ -343,7 +343,7 @@ Poochyena
 Level: 27
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_WEATHER_INST_2 ===
+=== TRAINER_R1_BUG_CATCHER ===
 Name: GRUNT
 Class: Team Aqua
 Pic: Aqua Grunt M
@@ -360,7 +360,7 @@ Carvanha
 Level: 27
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_WEATHER_INST_3 ===
+=== TRAINER_R1_TUBER ===
 Name: GRUNT
 Class: Team Aqua
 Pic: Aqua Grunt M
@@ -381,7 +381,7 @@ Carvanha
 Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_MUSEUM_1 ===
+=== TRAINER_R1_COOLTRAINER ===
 Name: GRUNT
 Class: Team Aqua
 Pic: Aqua Grunt M
@@ -467,7 +467,7 @@ Carvanha
 Level: 30
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_WEATHER_INST_4 ===
+=== TRAINER_WW_BUGCATCHER ===
 Name: GRUNT
 Class: Team Aqua
 Pic: Aqua Grunt F
@@ -480,7 +480,7 @@ Carvanha
 Level: 28
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_AQUA_HIDEOUT_5 ===
+=== TRAINER_WW_LADY ===
 Name: GRUNT
 Class: Team Aqua
 Pic: Aqua Grunt F
@@ -493,7 +493,7 @@ Carvanha
 Level: 32
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_AQUA_HIDEOUT_6 ===
+=== TRAINER_WW_BUGCATCHER_2 ===
 Name: GRUNT
 Class: Team Aqua
 Pic: Aqua Grunt F
@@ -506,7 +506,7 @@ Zubat
 Level: 32
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_FREDRICK ===
+=== TRAINER_WW_CAMPER ===
 Name: FREDRICK
 Class: Expert
 Pic: Expert M
@@ -523,7 +523,7 @@ Machoke
 Level: 30
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_MATT ===
+=== TRAINER_WW_LASS ===
 Name: MATT
 Class: Aqua Admin
 Pic: Aqua Admin M
@@ -541,7 +541,7 @@ Golbat
 Level: 34
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
-=== TRAINER_ZANDER ===
+=== TRAINER_WW_YOUNGSTER ===
 Name: ZANDER
 Class: Black Belt
 Pic: Black Belt
@@ -554,7 +554,7 @@ Hariyama
 Level: 31
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_SHELLY_WEATHER_INSTITUTE ===
+=== TRAINER_WW_ACE_TRAINER ===
 Name: SHELLY
 Class: Aqua Admin
 Pic: Aqua Admin F
@@ -922,7 +922,7 @@ IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
 - Sand Attack
 - Poison Sting
 
-=== TRAINER_GABBY_AND_TY_1 ===
+=== TRAINER_LEADER_AARON ===
 Name: GABBY & TY
 Class: Interviewer
 Pic: Interviewer
@@ -1649,7 +1649,7 @@ Ludicolo
 Level: 33
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_MARY ===
+=== TRAINER_LEADER_VOLKNER ===
 Name: MARY
 Class: Cooltrainer
 Pic: Cooltrainer F

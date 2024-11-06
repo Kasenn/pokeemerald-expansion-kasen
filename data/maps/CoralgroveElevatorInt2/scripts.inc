@@ -3,9 +3,7 @@ CoralgroveElevatorInt2_MapScripts::
 	.byte 0
 
 CoralgroveElevatorInt2_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
-	map_script_2 VAR_CORALGROVE_ELEVATOR, 0, CGC_ElevatorDown
-	map_script_2 VAR_CORALGROVE_ELEVATOR, 1, CGC_ElevatorDown
-	map_script_2 VAR_CORALGROVE_ELEVATOR, 2, CGC_ElevatorDown
+	map_script_2 VAR_TEMP_0, 0, CGC_ElevatorDown
 	.2byte 0
 
 

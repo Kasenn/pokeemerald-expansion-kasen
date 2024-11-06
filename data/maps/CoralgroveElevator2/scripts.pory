@@ -2,26 +2,6 @@ mapscripts CoralgroveElevator2_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: Common_EventScript_SetupRivalGfxId
 }
 
-
-script CoralgroveElevator2_Kasen{
-    lockall
-    msgbox(Kasen, MSGBOX_DEFAULT)
-    waitmessage
-    closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Up)
-    waitmovement(0)
-    release
-    end
-}
-text Kasen{
-    "Kasen here.\p"
-    "Currently this corridor is the\n"
-    "last part of the rom hack I've made.\p"
-    "The next area is still WIP so\n"
-    "I can't let you go through.\p"
-    "Sorry!"
-}
-
 script CoralgroveElevator2_Bail{
     lock
     safefollow
@@ -33,7 +13,7 @@ script CoralgroveElevator2_Bail{
     else{
         msgbox(CoralgroveElevator2_Bail_Female, MSGBOX_DEFAULT)
     }
-    addvar(VAR_CORALGROVE_ELEVATOR, 1)
+    setvar(VAR_MAIN_STORY_BITS, STORY_RIVAL_DEFEATED_OR_BAILED_ON)
     release
     end
 }
@@ -74,12 +54,11 @@ script CoralgroveElevator2_Trigger2{
 script CoralgroveElevator2_Rival{
     lock
     safefollow
-    applymovement(1, Elevator2FacePlayer)
+    applymovement(1, FacePlayer)
     waitmovement(0)
-    if(var(VAR_CORALGROVE_ELEVATOR) == 0){
-        setvar(VAR_CORALGROVE_ELEVATOR, 1)
-        checkplayergender
-        if(var(VAR_RESULT) == MALE){
+    if(var(VAR_MAIN_STORY_BITS) == STORY_DEFEATED_GYM_1){
+        setvar(VAR_MAIN_STORY_BITS, STORY_RIVAL_MET_AT_CORALGROVE_ELEVATOR)
+        if(checkplayergender == MALE){
             goto(CoralgroveElevator2_Rival_May)
         }
         else{
@@ -103,9 +82,6 @@ script CoralgroveElevator2_Rival{
 
 text CoralgroveElevator2_Rival_PostBattleMessage{
     "Next time I won't lose!"
-}
-movement Elevator2FacePlayer{
-    face_player
 }
 
 script CoralgroveElevator2_Rival_May{
@@ -170,8 +146,7 @@ text CoralgroveElevator2_Rival_Brendan_Speech{
     "is stronger?"
 }
 script CoralgroveElevator2_Rival_BATTLECONFIG{
-    checkplayergender
-    if(var(VAR_RESULT) == MALE){
+    if(checkplayergender == MALE){
         switch(var(VAR_STARTER_MON)){
         case 0:
             call(CoralgroveElevator2_StartMayBattleRowlet)
@@ -229,7 +204,7 @@ text CoralgroveElevator2_RivalDefeated{
 script CoralgroveElevator2_AfterMayBattle{
 	msgbox(CoralgroveElevator2_MayContinueOn, MSGBOX_DEFAULT)
     giveitem(ITEM_DOWSING_MACHINE)
-    addvar(VAR_CORALGROVE_ELEVATOR, 1)
+    setvar(VAR_MAIN_STORY_BITS, STORY_RIVAL_DEFEATED_OR_BAILED_ON)
     msgbox(CoralgroveElevator2_MayDowsing)
 	goto(CoralgroveElevator2_RivalExit)
 	end
@@ -237,7 +212,7 @@ script CoralgroveElevator2_AfterMayBattle{
 script CoralgroveElevator2_AfterBrendanBattle{
 	msgbox(CoralgroveElevator2_BrendanContinueOn, MSGBOX_DEFAULT)
     giveitem(ITEM_DOWSING_MACHINE)
-    addvar(VAR_CORALGROVE_ELEVATOR, 1)
+    setvar(VAR_MAIN_STORY_BITS, STORY_RIVAL_DEFEATED_OR_BAILED_ON)
     msgbox(CoralgroveElevator2_BrendanDowsing)
 	goto(CoralgroveElevator2_RivalExit)
 	end

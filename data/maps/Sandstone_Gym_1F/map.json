@@ -287,8 +287,8 @@
       "x": 28,
       "y": 39,
       "elevation": 0,
-      "var": "VAR_BADGES_OBTAINED",
-      "var_value": "3",
+      "var": "TRAINER_FLAGS_START+TRAINER_LEADER_KORRINA",
+      "var_value": "0",
       "script": "Korrina_GymTrigger"
     },
     {

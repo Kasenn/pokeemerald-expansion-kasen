@@ -647,33 +647,6 @@ R11_RivalExits_2:
 	goto R11_RivalExits_1
 
 
-SetMayOutfit::
-	lock
-	msgbox SetRivalGfx, MSGBOX_YESNO
-	compare VAR_RESULT, TRUE
-	goto_if_eq SetMayOutfit_2
-	clearflag FLAG_MAY_COSTUME_CHANGE
-	clearflag FLAG_BRENDAN_COSTUME_CHANGE
-SetMayOutfit_1:
-	msgbox SetPlayerGfx, MSGBOX_YESNO
-	compare VAR_RESULT, TRUE
-	goto_if_eq SetMayOutfit_6
-	clearflag FLAG_PC_CHANGE_COSTUME
-SetMayOutfit_5:
-	closemessage
-	release
-	end
-
-SetMayOutfit_2:
-	setflag FLAG_MAY_COSTUME_CHANGE
-	setflag FLAG_BRENDAN_COSTUME_CHANGE
-	goto SetMayOutfit_1
-
-SetMayOutfit_6:
-	setflag FLAG_PC_CHANGE_COSTUME
-	goto SetMayOutfit_5
-
-
 R11VarTest::
 	buffernumberstring STR_VAR_1, VAR_R11_TRAINERS
 	msgbox R11VarTest_Text_0, MSGBOX_NPC
@@ -1101,9 +1074,3 @@ R11BrendanChallengeKorrina::
 	.string "my Pokémon get an ample amount of\l"
 	.string "training.\p"
 	.string "Hope to see you soon!$"
-
-SetRivalGfx::
-	.string "Use new outfit for rival?$"
-
-SetPlayerGfx::
-	.string "Use new outfit for player?$"

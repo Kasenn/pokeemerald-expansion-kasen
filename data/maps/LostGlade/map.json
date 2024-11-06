@@ -534,8 +534,8 @@
       "x": 42,
       "y": 22,
       "elevation": 0,
-      "var": "VAR_OLDALE_TOWN_STATE",
-      "var_value": "1",
+      "var": "VAR_TEMP_MIXED_RECORDS",
+      "var_value": "0",
       "script": "LostGladeFlag"
     },
     {

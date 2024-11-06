@@ -2,16 +2,14 @@ mapscripts Pearlwood_MaysHouse1F_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: LoadBrendanHouse1F
 }
 script LoadBrendanHouse1F{
-    checkplayergender
-    if(var(VAR_RESULT) == FEMALE){
+    if(checkplayergender == FEMALE){
         setmaplayoutindex(LAYOUT_RIVAL_HOUSE1F_BRENDAN)
     }
 }
 
 script Pearlwood_MaysHouse1F_RivalMom{
-    if(var(VAR_PEARLWOOD_TOWN_STATE) <= 3){
-        checkplayergender
-        if(var(VAR_RESULT) == MALE){
+    if(var(VAR_PEARLWOOD_TOWN_STATE) <= STORY_PEARLWOOD_MET_RIVAL){
+        if(checkplayergender == MALE){
             bufferstring(STR_VAR_1, "her")
         }
         else{
@@ -19,9 +17,12 @@ script Pearlwood_MaysHouse1F_RivalMom{
         }
         msgbox(Pearlwood_MaysHouse1F_RivalMom1, MSGBOX_NPC)
     }
+    elif(var(VAR_PEARLWOOD_TOWN_STATE) >= STORY_PEARLWOOD_BROTHER_FOUGHT){
+        msgbox(Pearlwood_MaysHouse1F_RivalMom3, MSGBOX_NPC)
+    }
     else{
         msgbox(Pearlwood_MaysHouse1F_RivalMom2, MSGBOX_NPC)
-        }
+    }
 }
 
 text Pearlwood_MaysHouse1F_RivalMom1{
@@ -39,4 +40,13 @@ text Pearlwood_MaysHouse1F_RivalMom2{
     "{RIVAL} can't stay quietly at home.\p"
     "Primrose Meadow is just past\n"
     "the next town."
+}
+
+text Pearlwood_MaysHouse1F_RivalMom3{
+	"I think it's wonderful for people to\n"
+	"travel with Pokémon.\p"
+	"But you should go home every so often\n"
+	"to let your mother know you're okay.\p"
+	"She might not say it, but I'm sure she\n"
+	"worries about you, {PLAYER}."
 }

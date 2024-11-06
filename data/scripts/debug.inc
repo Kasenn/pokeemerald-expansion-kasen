@@ -14,7 +14,6 @@ Debug_CheatStart::
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH
-	setflag FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG
 	setvar VAR_ROUTE101_STATE, 3
 	giveitem ITEM_HM02
 	givemon SPECIES_SCEPTILE, 42, ITEM_NONE
@@ -23,11 +22,8 @@ Debug_CheatStart::
 	givemon SPECIES_PIDGEOT, 20, ITEM_NONE
 	setflag FLAG_SYS_POKEDEX_GET
 	special SetUnlockedPokedexFlags
-	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
-	setvar VAR_CABLE_CLUB_TUTORIAL_STATE, 2
 	setflag FLAG_SYS_NATIONAL_DEX
 	special EnableNationalPokedex
-	setflag FLAG_RECEIVED_RUNNING_SHOES
 	setflag FLAG_SYS_B_DASH
 	setvar VAR_LITTLEROOT_TOWN_STATE, 4 @ 4: Received Running Shoes
 	setvar VAR_LITTLEROOT_INTRO_STATE, 7 @ 7: Told to go meet rival
@@ -138,48 +134,43 @@ Debug_EventScript_Text_DefensiveIVs:
 	.string "HP IVs: {STR_VAR_1}, DEF IVs: {STR_VAR_2}, SPDEF IVs: {STR_VAR_3}$"
 
 Debug_EventScript_Script_1::
-	call Update3
+	call Debug_Script_1
+	release
 	end
 
 Debug_EventScript_Script_2::
-	setmonmetlocation 0, MAP_NEW_ROUTE101
-	setmonmetlocation 1, MAP_NEW_ROUTE101
-	setmonmetlocation 2, MAP_NEW_ROUTE101
-	setmonmetlocation 3, MAP_NEW_ROUTE101
-	setmonmetlocation 4, MAP_NEW_ROUTE101
-	setmonmetlocation 5, MAP_NEW_ROUTE101
+	call Debug_Script_2
+	release
 	end
 
 Debug_EventScript_Script_3::
-	call SetR11RivalFight
+	call Debug_Script_3
+	release
 	end
 
 Debug_EventScript_Script_4::
-	call SetTeamLevel
+	call Debug_Script_4
+	release
 	end
 
 Debug_EventScript_Script_5::
-	setvar VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_LASS
-	special DrawWholeMapView
+	call Debug_Script_5
 	release
 	end
 
 Debug_EventScript_Script_6::
+	call Debug_Script_6
 	release
 	end
 
-TestMsg:
-	.string "Test.$"
-
 Debug_EventScript_Script_7::
-	special LoadPlayerParty
+	call Debug_Script_7
 	release
 	end
 
 Debug_EventScript_Script_8::
-	special SavePlayerParty
-	setpartylevel 50
-	trainerbattle_single TRAINER_WALLACE, Route1_Text_CoolTrainerDefeated, Route1_Text_CoolTrainerDefeated, Debug_EventScript_Script_7
+	call Debug_Script_8
+	release
 	end
 
 Debug_CheckSaveBlock::

@@ -393,8 +393,8 @@
       "x": 15,
       "y": 11,
       "elevation": 0,
-      "var": "VAR_DRISLEDGE_TOWN_STATE",
-      "var_value": "29",
+      "var": "TRAINER_FLAGS_START+TRAINER_LEADER_ACEROLA",
+      "var_value": "0",
       "script": "DrisledgeGym_AcerolaTrigger"
     }
   ],

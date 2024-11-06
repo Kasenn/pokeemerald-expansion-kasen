@@ -57,7 +57,7 @@
       "x": 10,
       "y": 8,
       "elevation": 0,
-      "var": "VAR_CORALGROVE_ELEVATOR",
+      "var": "VAR_MAIN_STORY_BITS",
       "var_value": "0",
       "script": "CoralgroveElevator2_Trigger1"
     },
@@ -66,7 +66,7 @@
       "x": 12,
       "y": 8,
       "elevation": 0,
-      "var": "VAR_CORALGROVE_ELEVATOR",
+      "var": "VAR_MAIN_STORY_BITS",
       "var_value": "0",
       "script": "CoralgroveElevator2_Trigger2"
     },
@@ -75,7 +75,7 @@
       "x": 12,
       "y": 5,
       "elevation": 0,
-      "var": "VAR_CORALGROVE_ELEVATOR",
+      "var": "VAR_MAIN_STORY_BITS",
       "var_value": "1",
       "script": "CoralgroveElevator2_Bail"
     },
@@ -84,7 +84,7 @@
       "x": 11,
       "y": 5,
       "elevation": 0,
-      "var": "VAR_CORALGROVE_ELEVATOR",
+      "var": "VAR_MAIN_STORY_BITS",
       "var_value": "1",
       "script": "CoralgroveElevator2_Bail"
     },
@@ -93,27 +93,9 @@
       "x": 10,
       "y": 5,
       "elevation": 0,
-      "var": "VAR_CORALGROVE_ELEVATOR",
+      "var": "VAR_MAIN_STORY_BITS",
       "var_value": "1",
       "script": "CoralgroveElevator2_Bail"
-    },
-    {
-      "type": "trigger",
-      "x": 20,
-      "y": 7,
-      "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
-      "var_value": "0",
-      "script": "CoralgroveElevator2_Kasen"
-    },
-    {
-      "type": "trigger",
-      "x": 18,
-      "y": 7,
-      "elevation": 0,
-      "var": "VAR_TEMP_MIXED_RECORDS",
-      "var_value": "0",
-      "script": "CoralgroveElevator2_Kasen"
     }
   ],
   "bg_events": [

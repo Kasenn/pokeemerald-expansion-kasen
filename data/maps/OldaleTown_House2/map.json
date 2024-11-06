@@ -57,7 +57,7 @@
       "x": 3,
       "y": 2,
       "elevation": 0,
-      "var": "VAR_NECTAR_MANIAC_HOUSE",
+      "var": "FLAG_ORICORIO_SHOWN_TO_MANIAC",
       "var_value": "0",
       "script": "NotMyNectar"
     }

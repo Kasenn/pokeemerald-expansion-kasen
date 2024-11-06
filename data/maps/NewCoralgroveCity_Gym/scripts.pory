@@ -1,40 +1,27 @@
 mapscripts NewCoralgroveCity_Gym_MapScripts{}
 
+const AARON = 1
+
 script NewCoralgroveCity_Gym_Aaron_Talk{
-	if(flag(FLAG_RECEIVED_TM_U_TURN)){
-		lockall
-		faceplayer
-		msgbox(NewCoralgroveCity_Gym_Text_AaronPostBattle, MSGBOX_DEFAULT)
-		waitmessage
-		closemessage
-		release
-		end
+	if(defeated(TRAINER_LEADER_AARON)){
+		msgbox(NewCoralgroveCity_Gym_Text_AaronPostBattle, MSGBOX_NPC)
 	}
 	else{
-		lockall
-		faceplayer
-		msgbox("Ah, a new challenger.\pGo stand on the other side of\nthe arena and we may begin." MSGBOX_DEFAULT)
-		waitmessage
-		closemessage
-		turnobject(1, DIR_WEST)
-		release
-		end
+		msgbox("Ah, a new challenger.\pGo stand on the other side of\nthe arena and we may begin." MSGBOX_NPC)
+		turnobject(AARON, DIR_WEST)
 	}
 }
 script NewCoralgroveCity_Gym_EventScript_Aaron{
-	lockall
+	lock
 	delay(10)
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
-	turnobject(1, DIR_WEST)
+	turnobject(AARON, DIR_WEST)
 	special(SpawnCameraObject)
 	applymovement(OBJ_EVENT_ID_CAMERA, Walk3Right)
 	waitmovement(0)
 	delay(10)
 	special(RemoveCameraObject)
-	trainerbattle_single(TRAINER_GABBY_AND_TY_1, NewCoralgroveCity_Gym_Text_AaronIntro, NewCoralgroveCity_Gym_Text_AaronDefeat, NewCoralgroveCity_Gym_EventScript_AaronDefeated, NO_MUSIC)
-	// specialvar VAR_RESULT, ShouldTryRematchBattle
-	// goto_if_eq VAR_RESULT, TRUE, NewCoralgroveCity_Gym_EventScript_AaronRematch
-	goto_if_unset(FLAG_RECEIVED_TM_U_TURN, NewCoralgroveCity_Gym_EventScript_GiveUTurn)
+	trainerbattle_single(TRAINER_LEADER_AARON, NewCoralgroveCity_Gym_Text_AaronIntro, NewCoralgroveCity_Gym_Text_AaronDefeat, NewCoralgroveCity_Gym_EventScript_AaronDefeated, NO_MUSIC)
 	msgbox(NewCoralgroveCity_Gym_Text_AaronPostBattle, MSGBOX_DEFAULT)
 	release
 	end
@@ -42,7 +29,7 @@ script NewCoralgroveCity_Gym_EventScript_Aaron{
 script NewCoralgroveCity_Gym_EventScript_AaronDefeated{
 	special(SpawnCameraObject)
 	delay(30)
-	applymovement(1, Walk3Left)
+	applymovement(AARON, Walk3Left)
 	applymovement(OBJ_EVENT_ID_PLAYER, Walk3Right)
 	waitmovement(0)
 	delay(15)
@@ -50,31 +37,14 @@ script NewCoralgroveCity_Gym_EventScript_AaronDefeated{
 	waitmessage
 	call(Common_EventScript_PlayGymBadgeFanfare)
 	msgbox(NewCoralgroveCity_Gym_Text_StoneBadgeInfoTakeThis, MSGBOX_DEFAULT)
-	setflag(FLAG_DEFEATED_RUSTBORO_GYM)
 	setflag(FLAG_BADGE01_GET)
-	setvar(VAR_RUSTBORO_CITY_STATE, 1)
-	setvar(VAR_BADGES_OBTAINED, 1)
 	setvar(VAR_0x8008, 1)
 	call(Common_EventScript_SetGymTrainers)
 	special(RemoveCameraObject)
-	// call_if_eq VAR_UNUSED_VAR, 6, Common_EventScript_ReadyPetalburgGymForBattle
-	goto(NewCoralgroveCity_Gym_EventScript_GiveUTurn)
-	end
-}
-
-script NewCoralgroveCity_Gym_EventScript_GiveUTurn{
 	giveitem(ITEM_TM_U_TURN)
-	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
-	setflag(FLAG_RECEIVED_TM_U_TURN)
-	msgbox (NewCoralgroveCity_Gym_Text_ExplainUTurn, MSGBOX_DEFAULT)
+	msgbox (NewCoralgroveCity_Gym_Text_ExplainUTurn)
 	release
-	end
 }
-
-// NewCoralgroveCity_Gym_EventScript_AaronRematch::
-// 	trainerbattle_rematch_double TRAINER_SANDGYM_TR1_CYCLISTM1, NewCoralgroveCity_Gym_Text_AaronPreRematch, NewCoralgroveCity_Gym_Text_AaronRematchDefeat, NewCoralgroveCity_Gym_Text_AaronRematchNeedTwoMons
-// 	msgbox NewCoralgroveCity_Gym_Text_AaronPostRematch, MSGBOX_AUTOCLOSE
-// 	end 
 
 script NewCoralgroveCity_Gym_EventScript_Maniac{
 	trainerbattle_single(TRAINER_CHIP, NewCoralgroveCity_Gym_Text_ManiacIntro, NewCoralgroveCity_Gym_Text_ManiacDefeat)
@@ -107,48 +77,22 @@ script NewCoralgroveCity_Gym_EventScript_BugCatcher3{
 	end
 }
 script NewCoralgroveCity_Gym_EventScript_GymGuide{
-	lock
-	faceplayer
-	goto_if_set(FLAG_DEFEATED_RUSTBORO_GYM, NewCoralgroveCity_Gym_EventScript_GymGuidePostVictory)
-	msgbox(NewCoralgroveCity_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT)
-	release
-	end
+	if(defeated(TRAINER_LEADER_AARON)){
+		msgbox(NewCoralgroveCity_Gym_Text_GymGuidePostVictory, MSGBOX_NPC)
+	}
+	else{
+		msgbox(NewCoralgroveCity_Gym_Text_GymGuideAdvice, MSGBOX_NPC)
+	}
 }
-script NewCoralgroveCity_Gym_EventScript_GymGuidePostVictory{
-	msgbox(NewCoralgroveCity_Gym_Text_GymGuidePostVictory, MSGBOX_DEFAULT)
-	release
-	end
-}
-script NewCoralgroveCity_Gym_EventScript_Statue{
-	lockall
-	goto_if_set(FLAG_BADGE01_GET, NewCoralgroveCity_Gym_EventScript_GymStatueCertified)
-	goto(NewCoralgroveCity_Gym_EventScript_GymStatue)
-	end
-}
-script NewCoralgroveCity_Gym_EventScript_GymStatueCertified{
-	msgbox(NewCoralgroveCity_Gym_Text_GymStatueCertified, MSGBOX_DEFAULT)
-	releaseall
-	end
-}
-script NewCoralgroveCity_Gym_EventScript_GymStatue{
-	msgbox(NewCoralgroveCity_Gym_Text_GymStatue, MSGBOX_DEFAULT)
-	releaseall
-	end}
 
-// NewCoralgroveCity_Gym_EventScript_RegisterAaron::
-// 	lockall
-// 	pokenavcall NewCoralgroveCity_Gym_Text_RoxanneRegisterCall
-// 	waitmessage
-// 	delay 30
-// 	playfanfare MUS_REGISTER_MATCH_CALL
-// 	msgbox NewCoralgroveCity_Gym_Text_RegisteredAaron, MSGBOX_DEFAULT
-// 	waitfanfare
-// 	closemessage
-// 	delay 30
-// 	setflag FLAG_ENABLE_ROXANNE_MATCH_CALL
-// 	clearflag FLAG_ENABLE_ROXANNE_FIRST_CALL
-// 	releaseall
-// 	end
+script NewCoralgroveCity_Gym_EventScript_Statue{
+	if(defeated(TRAINER_LEADER_AARON)){
+		msgbox(NewCoralgroveCity_Gym_Text_GymStatueCertified, MSGBOX_SIGN)
+	}
+	else{
+		msgbox(NewCoralgroveCity_Gym_Text_GymStatue, MSGBOX_SIGN)
+	}
+}
 
 text NewCoralgroveCity_Gym_Text_GymGuideAdvice{
 	"Yo, champ in the making!\p"

@@ -25,10 +25,13 @@ text AdamantTower1F_Man4_Text{
 }
 
 script SetupRivalPartner{
+    if(!flag(FLAG_PARTNER_HEALS)){
+        setflag(FLAG_TEMP_1)
+    }
     checkplayergender
     call(Common_EventScript_SetupRivalGfxId)
     if(var(VAR_RESULT) == MALE){
-        if(flag(FLAG_MAY_COSTUME_CHANGE)){
+        if(flag(FLAG_RIVAL_COSTUME_CHANGE)){
             switch(var(VAR_STARTER_MON)){
                 case 0:
                     setvar(VAR_TOWER_PARTNER, 0)
@@ -50,7 +53,7 @@ script SetupRivalPartner{
         }
     }
     else{
-        if(flag(FLAG_BRENDAN_COSTUME_CHANGE)){
+        if(flag(FLAG_RIVAL_COSTUME_CHANGE)){
             switch(var(VAR_STARTER_MON)){
                 case 0:
                     setvar(VAR_TOWER_PARTNER, 6)
@@ -74,131 +77,22 @@ script SetupRivalPartner{
     end
 }
 
-script SetUpPlayerParty{
-    fadescreen(FADE_TO_BLACK)
-	special(ChooseHalfPartyForBattle)
-	waitstate
-    setflag(FLAG_PARTNER_HEALS)
-}
-
-movement Walk1Left{
-    walk_left
-    step_end
-}
-movement Walk2Left{
-    walk_left * 2
-    step_end
-}
-movement Walk3Left{
-    walk_left * 3
-    step_end
-}
-movement Walk4Left{
-    walk_left * 4
-    step_end
-}
-movement Walk6Left{
-    walk_left * 6
-    step_end
-}
-movement Walk7Left{
-    walk_left * 7
-    step_end
-}
-movement Walk1Right{
-    walk_right
-    step_end
-}
-movement Walk2Right{
-    walk_right * 2
-    step_end
-}
-movement Walk3Right{
-    walk_right * 3
-    step_end
-}
-movement Walk4Right{
-    walk_right * 4
-    step_end
-}
-movement Walk5Right{
-    walk_right * 5
-    step_end
-}
-movement Walk6Right{
-    walk_right * 6
-    step_end
-}
-movement Walk1Up{
-    walk_up
-    step_end
-}
-movement Walk2Up{
-    walk_up * 2
-    step_end
-}
-movement Walk3Up{
-    walk_up * 3
-    step_end
-}
-movement Walk4Up{
-    walk_up * 4
-    step_end
-}
-movement Walk5Up{
-    walk_up * 5
-    step_end
-}
-movement Walk6Up{
-    walk_up * 6
-    step_end
-}
-movement Walk1Down{
-    walk_down
-    step_end
-}
-movement Walk2Down{
-    walk_down * 2
-    step_end
-}
-movement Walk3Down{
-    walk_down * 3
-    step_end
-}
-movement Walk4Down{
-    walk_down * 4
-    step_end
-}
-movement Walk5Down{
-    walk_down * 5
-    step_end
-}
-movement Walk6Down{
-    walk_down * 6
-    step_end
-}
-
 script FollowerStaysBehind{
-    if(var(VAR_TEMP_5) == 1){
-        release
-        end
-    }
     lock
     playse(SE_PIN)
-    applymovement(OBJ_EVENT_ID_FOLLOWER, Common_Movement_ExclamationMark)
+    applymovement(OBJ_EVENT_ID_FOLLOW_ME, Common_Movement_ExclamationMark)
     waitmovement(0)
     delay(48)
     facefollower
-    checkplayergender
     delay(15)
-    if(var(VAR_RESULT) == MALE){
+    if(checkplayergender == MALE){
         msgbox(MaystayHere)
     }
     else{
         msgbox(BrendanStayHere)
     }
     closemessage
-    setvar(VAR_TEMP_5, 1)
+    setflag(FLAG_TEMP_1)
     release
     end
 }

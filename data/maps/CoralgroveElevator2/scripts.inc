@@ -3,17 +3,6 @@ CoralgroveElevator2_MapScripts::
 	.byte 0
 
 
-CoralgroveElevator2_Kasen::
-	lockall
-	msgbox Kasen, MSGBOX_DEFAULT
-	waitmessage
-	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Walk1Up
-	waitmovement 0
-	release
-	end
-
-
 CoralgroveElevator2_Bail::
 	lock
 	safefollow
@@ -23,7 +12,7 @@ CoralgroveElevator2_Bail::
 	goto_if_eq CoralgroveElevator2_Bail_2
 	msgbox CoralgroveElevator2_Bail_Female, MSGBOX_DEFAULT
 CoralgroveElevator2_Bail_1:
-	addvar VAR_CORALGROVE_ELEVATOR, 1
+	setvar VAR_MAIN_STORY_BITS, STORY_RIVAL_DEFEATED_OR_BAILED_ON
 	release
 	end
 
@@ -63,9 +52,9 @@ CoralgroveElevator2_Trigger2::
 CoralgroveElevator2_Rival::
 	lock
 	safefollow
-	applymovement 1, Elevator2FacePlayer
+	applymovement 1, FacePlayer
 	waitmovement 0
-	compare VAR_CORALGROVE_ELEVATOR, 0
+	compare VAR_MAIN_STORY_BITS, STORY_DEFEATED_GYM_1
 	goto_if_eq CoralgroveElevator2_Rival_1
 	msgbox CoralgroveElevator2_Rival_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, YES
@@ -77,7 +66,7 @@ CoralgroveElevator2_Rival::
 	end
 
 CoralgroveElevator2_Rival_1:
-	setvar VAR_CORALGROVE_ELEVATOR, 1
+	setvar VAR_MAIN_STORY_BITS, STORY_RIVAL_MET_AT_CORALGROVE_ELEVATOR
 	checkplayergender
 	compare VAR_RESULT, MALE
 	goto_if_eq CoralgroveElevator2_Rival_4
@@ -92,10 +81,6 @@ CoralgroveElevator2_Rival_7:
 	goto CoralgroveElevator2_Rival_BATTLECONFIG
 	return
 
-
-Elevator2FacePlayer:
-	face_player
-	step_end
 
 CoralgroveElevator2_Rival_May::
 	msgbox CoralgroveElevator2_Rival_May_Speech, MSGBOX_YESNO
@@ -206,7 +191,7 @@ CoralgroveElevator2_StartBrendanBattlePiplup::
 CoralgroveElevator2_AfterMayBattle::
 	msgbox CoralgroveElevator2_MayContinueOn, MSGBOX_DEFAULT
 	giveitem ITEM_DOWSING_MACHINE
-	addvar VAR_CORALGROVE_ELEVATOR, 1
+	setvar VAR_MAIN_STORY_BITS, STORY_RIVAL_DEFEATED_OR_BAILED_ON
 	msgbox CoralgroveElevator2_MayDowsing
 	goto CoralgroveElevator2_RivalExit
 	end
@@ -215,7 +200,7 @@ CoralgroveElevator2_AfterMayBattle::
 CoralgroveElevator2_AfterBrendanBattle::
 	msgbox CoralgroveElevator2_BrendanContinueOn, MSGBOX_DEFAULT
 	giveitem ITEM_DOWSING_MACHINE
-	addvar VAR_CORALGROVE_ELEVATOR, 1
+	setvar VAR_MAIN_STORY_BITS, STORY_RIVAL_DEFEATED_OR_BAILED_ON
 	msgbox CoralgroveElevator2_BrendanDowsing
 	goto CoralgroveElevator2_RivalExit
 	end
@@ -264,14 +249,6 @@ CoralgroveElevator2_Rival_May_Text_1:
 
 CoralgroveElevator2_Rival_Brendan_Text_0:
 	.string "It's okay, take your time.\pI'll be waiting here.$"
-
-Kasen::
-	.string "Kasen here.\p"
-	.string "Currently this corridor is the\n"
-	.string "last part of the rom hack I've made.\p"
-	.string "The next area is still WIP so\n"
-	.string "I can't let you go through.\p"
-	.string "Sorry!$"
 
 CoralgroveElevator2_Bail_Male::
 	.string "{RIVAL}: Hey!\p"

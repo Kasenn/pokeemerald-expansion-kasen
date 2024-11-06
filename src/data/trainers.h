@@ -188,7 +188,7 @@
         .party = TRAINER_PARTY(sParty_Brother5_Piplup),
     },
 
-    [TRAINER_GRUNT_RUSTURF_TUNNEL] =
+    [TRAINER_R1_YOUNGSTER] =
     {
         .trainerClass = TRAINER_CLASS_YOUNGSTER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
@@ -199,7 +199,7 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GruntRusturfTunnel),
     },
-    [TRAINER_GRUNT_WEATHER_INST_1] =
+    [TRAINER_R1_FISHER] =
     {
         .trainerClass = TRAINER_CLASS_FISHERMAN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
@@ -210,7 +210,7 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GruntWeatherInst1),
     },
-    [TRAINER_GRUNT_WEATHER_INST_2] =
+    [TRAINER_R1_BUG_CATCHER] =
     {
         .trainerClass = TRAINER_CLASS_BUG_CATCHER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
@@ -221,7 +221,7 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GruntWeatherInst2),
     },
-    [TRAINER_GRUNT_WEATHER_INST_3] =
+    [TRAINER_R1_TUBER] =
     {
         .trainerClass = TRAINER_CLASS_TUBER_F,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_GIRL,
@@ -232,7 +232,7 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GruntWeatherInst3),
     },
-    [TRAINER_GRUNT_MUSEUM_1] =
+    [TRAINER_R1_COOLTRAINER] =
     {
         .trainerClass = TRAINER_CLASS_COOLTRAINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
@@ -298,7 +298,7 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GruntMtPyre3),
     },
-    [TRAINER_GRUNT_WEATHER_INST_4] =
+    [TRAINER_WW_BUGCATCHER] =
     {
         .trainerClass = TRAINER_CLASS_BUG_CATCHER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
@@ -309,7 +309,7 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GruntWeatherInst4),
     },
-    [TRAINER_GRUNT_AQUA_HIDEOUT_5] =
+    [TRAINER_WW_LADY] =
     {
         .trainerClass = TRAINER_CLASS_LADY,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
@@ -320,7 +320,7 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GruntAquaHideout5),
     },
-    [TRAINER_GRUNT_AQUA_HIDEOUT_6] =
+    [TRAINER_WW_BUGCATCHER_2] =
     {
         .trainerClass = TRAINER_CLASS_BUG_CATCHER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
@@ -332,7 +332,7 @@
         .party = TRAINER_PARTY(sParty_GruntAquaHideout6),
     },
 
-    [TRAINER_FREDRICK] =
+    [TRAINER_WW_CAMPER] =
     {
         .trainerClass = TRAINER_CLASS_CAMPER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
@@ -344,7 +344,7 @@
         .party = TRAINER_PARTY(sParty_Fredrick),
     },
 
-    [TRAINER_MATT] =
+    [TRAINER_WW_LASS] =
     {
         .trainerClass = TRAINER_CLASS_LASS,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
@@ -356,7 +356,7 @@
         .party = TRAINER_PARTY(sParty_Matt),
     },
 
-    [TRAINER_ZANDER] =
+    [TRAINER_WW_YOUNGSTER] =
     {
         .trainerClass = TRAINER_CLASS_YOUNGSTER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
@@ -368,7 +368,7 @@
         .party = TRAINER_PARTY(sParty_Zander),
     },
 
-    [TRAINER_SHELLY_WEATHER_INSTITUTE] =
+    [TRAINER_WW_ACE_TRAINER] =
     {
         .trainerClass = TRAINER_CLASS_COOLTRAINER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_COOL,
@@ -583,7 +583,7 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Dusty5),
     },
-    [TRAINER_GABBY_AND_TY_1] =
+    [TRAINER_LEADER_AARON] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
@@ -1003,7 +1003,7 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Warren),
     },
-    [TRAINER_MARY] =
+    [TRAINER_LEADER_VOLKNER] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,

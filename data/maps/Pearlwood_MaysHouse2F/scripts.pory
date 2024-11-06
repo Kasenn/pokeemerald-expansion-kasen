@@ -2,9 +2,10 @@ mapscripts Pearlwood_MaysHouse2F_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: Pearlwood_MaysHouse2F_SetRival
 }
 
+const RIVAL = 3
+
 script Pearlwood_MaysHouse2F_SetRival{
-    checkplayergender
-    if(var(VAR_RESULT) == FEMALE){
+    if(checkplayergender == FEMALE){
         setmaplayoutindex(LAYOUT_RIVAL_HOUSE2F_BRENDAN)
     }
     call(Common_EventScript_SetupRivalGfxId)
@@ -12,11 +13,11 @@ script Pearlwood_MaysHouse2F_SetRival{
 
 script Pearlwood_MaysHouse2F_Rival{
     lock
-    if(var(VAR_PEARLWOOD_TOWN_STATE) == 2){
+    if(var(VAR_PEARLWOOD_TOWN_STATE) == STORY_PEARLWOOD_RECEIVED_RUNNING_SHOES){
         waitse
         playse(SE_PIN)
         safefollow
-        applymovement(3, Common_Movement_ExclamationMark)
+        applymovement(RIVAL, Common_Movement_ExclamationMark)
         waitmovement(0)
         faceplayer
         delay(48)
@@ -24,12 +25,11 @@ script Pearlwood_MaysHouse2F_Rival{
         closemessage
         delay(20)
         playse(SE_PIN)
-        applymovement(3, Common_Movement_ExclamationMark)
+        applymovement(RIVAL, Common_Movement_ExclamationMark)
         waitmovement(0)
         delay(48)
-        setvar(VAR_PEARLWOOD_TOWN_STATE, 3)
-        checkplayergender
-        if(var(VAR_RESULT) == MALE){
+        setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MET_RIVAL)
+        if(checkplayergender == MALE){
             msgbox(Pearlwood_MaysHouse2F_Intro2_MalePC)
         }
         else{
@@ -39,7 +39,7 @@ script Pearlwood_MaysHouse2F_Rival{
     else{
         msgbox(Pearlwood_MaysHouse2F_Gossip)
     }
-    turnobject(3, DIR_NORTH)
+    turnobject(RIVAL, DIR_NORTH)
     release
 }
 
@@ -72,4 +72,11 @@ text Pearlwood_MaysHouse2F_Intro2_FemalePC{
 text Pearlwood_MaysHouse2F_Gossip{
     "{RIVAL}: Sorry, but I REALLY need to\n"
     "finish writing this e-mail."
+}
+
+script WooperDoll{
+    msgbox("It's a Wooper doll.", MSGBOX_SIGN)
+}
+script AzurillDoll{
+    msgbox("It's an Azurill doll.", MSGBOX_SIGN)
 }

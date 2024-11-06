@@ -294,6 +294,7 @@ KaolGym_ClayTalk_2:
 
 KaolGym_LeaderScript::
 	goto_if_set FLAG_BADGE03_GET, KaolGym_LeaderScript_2
+	setvar VAR_TEMP_0, 2
 	call GymStartingMovement
 	trainerbattle_single TRAINER_KAOLGYM_CLAY, KaolGym_ClayInt, KaolGym_ClayDef, KaolGym_ClayEvent, NO_MUSIC
 	end
@@ -310,7 +311,6 @@ KaolGym_ClayEvent::
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox KaolGym_TakeThis, MSGBOX_DEFAULT
 	setflag FLAG_BADGE03_GET
-	setvar VAR_BADGES_OBTAINED, 3
 	setvar VAR_KAOLISLE_HOTEL_STATE, 1
 	clearflag FLAG_HIDEJASMINE_HOTEL
 	setvar VAR_0x8008, 3
@@ -365,9 +365,9 @@ GymStartingMovement::
 	lockall
 	delay 10
 	special SpawnCameraObject
-	compare VAR_BADGES_OBTAINED, 3
+	compare VAR_TEMP_0, 3
 	goto_if_eq GymStartingMovement_2
-	compare VAR_BADGES_OBTAINED, 4
+	compare VAR_TEMP_0, 4
 	goto_if_eq GymStartingMovement_3
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	turnobject 1, DIR_WEST
@@ -394,9 +394,9 @@ GymStartingMovement_3:
 GymMovementAfter::
 	special SpawnCameraObject
 	delay 30
-	compare VAR_BADGES_OBTAINED, 3
+	compare VAR_TEMP_0, 3
 	goto_if_eq GymMovementAfter_2
-	compare VAR_BADGES_OBTAINED, 4
+	compare VAR_TEMP_0, 4
 	goto_if_eq GymMovementAfter_3
 	applymovement 1, Walk3Left
 	applymovement OBJ_EVENT_ID_PLAYER, Walk3Right
@@ -414,13 +414,6 @@ GymMovementAfter_3:
 	applymovement 20, Walk3Right
 	applymovement OBJ_EVENT_ID_PLAYER, Walk3Left
 	goto GymMovementAfter_1
-
-
-SetBadgesAndTrainers::
-	addvar VAR_BADGES_OBTAINED, 1
-	copyvar VAR_0x8008, VAR_BADGES_OBTAINED
-	call Common_EventScript_SetGymTrainers
-	return
 
 
 KaolGymQuake_Text_0:

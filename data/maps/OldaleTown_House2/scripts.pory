@@ -3,7 +3,7 @@ mapscripts OldaleTown_House2_MapScripts{}
 script NotMyNectar{
     lock
     safefollow
-    applymovement(1, NectarUp)
+    turnobject(1, DIR_NORTH)
     waitmovement(0)
     delay(10)
     msgbox(NotMyNectar_Text, MSGBOX_NPC)
@@ -16,8 +16,10 @@ script NotMyNectar{
 }
 
 script NectarManiac{
-    if(var(VAR_NECTAR_MANIAC_HOUSE) == 0){
-	    msgbox(NectarManiac_Text, MSGBOX_NPC)
+    if(!flag(FLAG_ORICORIO_SHOWN_TO_MANIAC)){
+        lock
+        faceplayer
+	    msgbox(NectarManiac_Text)
         specialvar(VAR_RESULT, CheckOricorio)
         if(var(VAR_RESULT) == TRUE){
             safefollow
@@ -26,7 +28,7 @@ script NectarManiac{
             waitmovement(0)
             delay(48)
             msgbox(NectarManiac_OricorioFound, MSGBOX_NPC)
-            setvar(VAR_NECTAR_MANIAC_HOUSE, 1)
+            setflag(FLAG_ORICORIO_SHOWN_TO_MANIAC)
         }
 	    end
     }
@@ -44,10 +46,6 @@ text NectarManiac_GoRightIn{
 
 text NectarManiac_Text{
     "I planted a bunch of expensive flowers\non my backyard to attract some rare\lbug type Pokémon, but instead all\lI get are these stupid birds.\pIf you could show me one of these\nbirds imprisoned inside a Poké Ball,\lI might let you access my backyard."
-}
-
-movement NectarUp{
-    face_up
 }
 
 text NotMyNectar_Text{

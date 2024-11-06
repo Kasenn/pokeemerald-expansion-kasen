@@ -2016,7 +2016,7 @@
 	.2byte \flag
 	.endm
 
-	@ Sets the player team to level specified by the argument
+	@ Sets the player's entire party to specified level
 	.macro setpartylevel level:req
 	callnative ScrCmd_setpartylevel
 	.2byte \level

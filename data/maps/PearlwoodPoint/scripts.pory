@@ -2,8 +2,15 @@ mapscripts PearlwoodPoint_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: Pearlwood_Visited
 }
 
+const LASS = 2
+const BROTHER = 3
+const GIRL = 4
+
 script Pearlwood_Visited{
     setflag(FLAG_VISITED_PEARLWOOD_POINT)
+    if(var(VAR_PEARLWOOD_TOWN_STATE) != STORY_PEARLWOOD_PKMN_OBTAINED){
+        setflag(FLAG_TEMP_1)
+    }
 }
 
 script Pearlwood_Point_NoPokemon1{
@@ -18,9 +25,9 @@ script Pearlwood_Point_NoPokemon2{
 
 script Pearlwood_Point_NoPokemon{
     lock
-    turnobject(2, DIR_SOUTH)
+    turnobject(LASS, DIR_SOUTH)
     playse(SE_PIN)
-    applymovement(2, Common_Movement_ExclamationMark)
+    applymovement(LASS, Common_Movement_ExclamationMark)
     waitmovement(0)
     delay(48)
     msgbox(Pearlwood_Point_WatchOut)
@@ -74,12 +81,12 @@ script Pearlwood_BrotherFightMain{
     closemessage
     delay(30)
     if(var(VAR_TEMP_2) == 1){
-        applymovement(3, Walk5Up)
+        applymovement(BROTHER, Walk5Up)
     }
     else{
-        applymovement(3, Walk1Left)
+        applymovement(BROTHER, Walk1Left)
         waitmovement(0)
-        applymovement(3, Walk5Up)
+        applymovement(BROTHER, Walk5Up)
     }
     waitmovement(0)
     msgbox(BrotherFightIntro)
@@ -122,33 +129,8 @@ text Pearlwood_Brother_Outro{
 
 script PearlwoodWon{
     safefollow
-    // switch(var(VAR_RESULT)){
-    //     case B_OUTCOME_WON:
-    //         msgbox("Won")
-    //     case B_OUTCOME_LOST:
-    //         msgbox("Lost")
-    //     case B_OUTCOME_DREW:
-    //         msgbox("Drew")
-    //     case B_OUTCOME_RAN:
-    //         msgbox("Ran")
-    //     case B_OUTCOME_PLAYER_TELEPORTED:
-    //         msgbox("Player teleported")
-    //     case B_OUTCOME_MON_FLED:
-    //         msgbox("Fled")
-    //     case B_OUTCOME_CAUGHT:
-    //         msgbox("Caught")
-    //     case B_OUTCOME_NO_SAFARI_BALLS:
-    //         msgbox("No safari balls")
-    //     case B_OUTCOME_FORFEITED:
-    //         msgbox("Forfeited")
-    //     case B_OUTCOME_MON_TELEPORTED:
-    //         msgbox("Mon teleported")
-    //     case B_OUTCOME_LINK_BATTLE_RAN:
-    //         msgbox("Link battle ran")
-    // }
     if(var(VAR_RESULT) == B_OUTCOME_WON){
-        checkplayergender
-        if(var(VAR_RESULT) == MALE){
+        if(checkplayergender == MALE){
             bufferstring(STR_VAR_1, "she")
         }
         else{
@@ -157,8 +139,7 @@ script PearlwoodWon{
         msgbox(PearlwoodBrotherPrize)
     }
 	else{
-        checkplayergender
-        if(var(VAR_RESULT) == MALE){
+        if(checkplayergender == MALE){
             bufferstring(STR_VAR_1, "she")
         }
         else{
@@ -168,7 +149,7 @@ script PearlwoodWon{
     }
     closemessage
     playse(SE_PIN)
-    applymovement(3, ExclamationMark)
+    applymovement(BROTHER, ExclamationMark)
     waitmovement(0)
     delay(48)
     msgbox(BrotherWatch)
@@ -179,10 +160,10 @@ script PearlwoodWon{
     msgbox(BrotherGoodbye)
     closemessage
     clearflag(FLAG_CONTINUE_AFTER_WHITEOUT)
-    applymovement(3, Walk5Down)
+    applymovement(BROTHER, Walk5Down)
 	waitmovement(0)
-    removeobject(3)
-    setvar(VAR_PEARLWOOD_TOWN_STATE, 6)
+    removeobject(BROTHER)
+    setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_BROTHER_FOUGHT)
     clearflag(FLAG_HEAL_AFTER_BATTLE)
     delay(30)
 	release
@@ -255,7 +236,7 @@ text Pearlwood_Point_FatMan_Text{
 
 script Pearlwood_Point_LittleGirl{
     msgbox(Pearlwood_Point_LittleGirl_Text, MSGBOX_NPC)
-    turnobject(4, DIR_NORTH)
+    turnobject(GIRL, DIR_NORTH)
 }
 text Pearlwood_Point_LittleGirl_Text{
     "Shh!\p"

@@ -462,11 +462,11 @@ static u32 OpponentGetTrainerPicId(u32 battlerId)
         trainerPicId = GetTrainerPicFromId(gTrainerBattleOpponent_A);
     }
 
-    if ((trainerPicId == TRAINER_PIC_MAY) && (FlagGet(FLAG_MAY_COSTUME_CHANGE)))
+    if ((trainerPicId == TRAINER_PIC_MAY) && (FlagGet(FLAG_RIVAL_COSTUME_CHANGE)))
     {
         trainerPicId = TRAINER_PIC_MAY_ORAS;
     }
-    if ((trainerPicId == TRAINER_PIC_BRENDAN) && (FlagGet(FLAG_BRENDAN_COSTUME_CHANGE)))
+    if ((trainerPicId == TRAINER_PIC_BRENDAN) && (FlagGet(FLAG_RIVAL_COSTUME_CHANGE)))
     {
         trainerPicId = TRAINER_PIC_BRENDAN_ORAS;
     }

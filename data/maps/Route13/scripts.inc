@@ -60,32 +60,6 @@ Route13_Tr5_Blackbelt::
 	end
 
 
-SetR11RivalFight::
-	lock
-	msgbox WantToSetRivalFight, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
-	goto_if_eq SetR11RivalFight_2
-	checkitem ITEM_DOWSING_MACHINE
-	compare VAR_RESULT, TRUE
-	goto_if_eq SetR11RivalFight_5
-	msgbox RivalFought, MSGBOX_NPC
-	clearflag FLAG_RIVAL_HARBOR_ANGRY
-	additem ITEM_DOWSING_MACHINE
-SetR11RivalFight_4:
-	end
-
-SetR11RivalFight_2:
-	closemessage
-	release
-	end
-
-SetR11RivalFight_5:
-	msgbox RivalNotFought, MSGBOX_NPC
-	setflag FLAG_RIVAL_HARBOR_ANGRY
-	removeitem ITEM_DOWSING_MACHINE
-	goto SetR11RivalFight_4
-
-
 RelocatedFromRoute13::
 	.string "A new update has been applied\n"
 	.string "automatically.\p"
@@ -190,17 +164,3 @@ R13Tr5_PostBattle::
 	.string "on the cliffs were made?\p"
 	.string "My ancestors used their bare fists to\n"
 	.string "carve them directly to the cliff face.$"
-
-WantToSetRivalFight::
-	.string "This option will change an upcoming\n"
-	.string "rival event based on whether the rival\l"
-	.string "was fought in the Coralgrove elevator.\p"
-	.string "Would you like to switch the event?$"
-
-RivalNotFought::
-	.string "Rival set to NOT FOUGHT.\n"
-	.string "Removed the Itemfinder.$"
-
-RivalFought::
-	.string "Rival set to FOUGHT.\n"
-	.string "Added the Itemfinder.$"

@@ -1,204 +1,59 @@
 Lab2_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Lab2_HideRival
+	map_script MAP_SCRIPT_ON_TRANSITION, Lab2_On_Transition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, Lab2_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
 Lab2_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
-	map_script_2 VAR_PEARLWOOD_TOWN_STATE, 2, Lab2_Intro
-	map_script_2 VAR_PEARLWOOD_TOWN_STATE, 3, Lab2_Intro
-	map_script_2 VAR_PEARLWOOD_TOWN_STATE, 8, Lab2_DexGet
-	map_script_2 VAR_PEARLWOOD_TOWN_STATE, 10, Lab2_GetMegaStone
-	map_script_2 VAR_PEARLWOOD_TOWN_STATE, 15, Lab2_GetMegaStoneWithoutRival
+	map_script_2 VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_RECEIVED_RUNNING_SHOES, Lab2_Intro
+	map_script_2 VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MET_RIVAL, Lab2_Intro
+	map_script_2 VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_RIVAL_FOUGHT_IN_MEADOW, Lab2_DexGet
+	map_script_2 VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_RING_OBTAINED, Lab2_GetMegaStone
 	.2byte 0
 
 
-TestEvent::
-	msgbox TestEvent_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
-	goto_if_eq TestEvent_2
-	msgbox TestEvent_Text_2
-	setvar VAR_PEARLWOOD_TOWN_STATE, 8
-TestEvent_1:
-	release
+Lab2_On_Transition::
+	goto_if_set FLAG_SYS_POKEMON_GET, Lab2_On_Transition_2
+Lab2_On_Transition_1:
+	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_RIVAL_FOUGHT_IN_MEADOW
+	goto_if_ge Lab2_On_Transition_5
+Lab2_On_Transition_4:
+	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_RIVAL_FOUGHT_IN_MEADOW
+	goto_if_eq Lab2_On_Transition_11
+	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_RING_OBTAINED
+	goto_if_eq Lab2_On_Transition_11
+	setflag FLAG_HIDE_LAB_RIVAL
 	return
 
-TestEvent_2:
-	msgbox TestEvent_Text_1
-	setvar VAR_PEARLWOOD_TOWN_STATE, 9
-	goto TestEvent_1
-
-
-Lab2_GetMegaStoneWithoutRival::
-	safefollow
-	applymovement OBJ_EVENT_ID_PLAYER, Walk6Up
-	waitmovement 0
-	msgbox LabMegaStonesWithoutRival
-	closemessage
-	goto_if_set FLAG_CORALGROVE_TRADE_COMPLETED, Lab2_GetMegaStoneWithoutRival_2
-Lab2_GetMegaStoneWithoutRival_1:
-	checkitemspace ITEM_DECIDUEITE
-	compare VAR_RESULT, FALSE
-	goto_if_eq Lab2_GetMegaStoneWithoutRival_5
+Lab2_On_Transition_2:
 	switch VAR_STARTER_MON
-	case 0, Lab2_GetMegaStoneWithoutRival_10
-	case 1, Lab2_GetMegaStoneWithoutRival_11
-	case 2, Lab2_GetMegaStoneWithoutRival_12
-Lab2_GetMegaStoneWithoutRival_8:
-	setvar VAR_PEARLWOOD_TOWN_STATE, 20
-	waitse
-Lab2_GetMegaStoneWithoutRival_4:
-	release
-	end
+	case 0, Lab2_On_Transition_8
+	case 1, Lab2_On_Transition_9
+	case 2, Lab2_On_Transition_10
+	goto Lab2_On_Transition_1
 
-Lab2_GetMegaStoneWithoutRival_2:
-	playse SE_PIN
-	applymovement 4, Common_Movement_QuestionMark
-	waitmovement 0
-	delay 30
-	msgbox TradedAwayStarter
-	closemessage
-	goto Lab2_GetMegaStoneWithoutRival_1
+Lab2_On_Transition_5:
+	setobjectxyperm 1, 20, 0
+	setobjectxyperm 2, 20, 0
+	setobjectxyperm 3, 20, 0
+	goto Lab2_On_Transition_4
 
-Lab2_GetMegaStoneWithoutRival_5:
-	msgbox ComeGetYourStoneLaterWithoutRival
-	setvar VAR_PEARLWOOD_TOWN_STATE, 16
-	goto Lab2_GetMegaStoneWithoutRival_4
+Lab2_On_Transition_8:
+	setobjectxyperm 1, 20, 0
+	goto Lab2_On_Transition_1
 
-Lab2_GetMegaStoneWithoutRival_10:
-	giveitem ITEM_DECIDUEITE
-	goto Lab2_GetMegaStoneWithoutRival_8
+Lab2_On_Transition_9:
+	setobjectxyperm 2, 20, 0
+	goto Lab2_On_Transition_1
 
-Lab2_GetMegaStoneWithoutRival_11:
-	giveitem ITEM_BLAZIKENITE
-	goto Lab2_GetMegaStoneWithoutRival_8
+Lab2_On_Transition_10:
+	setobjectxyperm 3, 20, 0
+	goto Lab2_On_Transition_1
 
-Lab2_GetMegaStoneWithoutRival_12:
-	giveitem ITEM_EMPOLEONITE
-	goto Lab2_GetMegaStoneWithoutRival_8
-
-
-Lab2_GetMegaStone::
-	safefollow
+Lab2_On_Transition_11:
+	call Common_EventScript_SetupRivalGfxId
 	clearflag FLAG_HIDE_LAB_RIVAL
-	applymovement OBJ_EVENT_ID_PLAYER, Walk6Up
-	waitmovement 0
-	msgbox LabMegaStones
-	closemessage
-	goto_if_set FLAG_CORALGROVE_TRADE_COMPLETED, Lab2_GetMegaStone_2
-Lab2_GetMegaStone_1:
-	checkitemspace ITEM_DECIDUEITE
-	compare VAR_RESULT, FALSE
-	goto_if_eq Lab2_GetMegaStone_5
-	switch VAR_STARTER_MON
-	case 0, Lab2_GetMegaStone_14
-	case 1, Lab2_GetMegaStone_15
-	case 2, Lab2_GetMegaStone_16
-Lab2_GetMegaStone_12:
-	setvar VAR_PEARLWOOD_TOWN_STATE, 12
-	waitse
-Lab2_GetMegaStone_4:
-	delay 24
-	closemessage
-	applymovement 4, ProfBackAndForth
-	waitmovement 0
-	applymovement 5, Common_Movement_WalkInPlaceFasterLeft
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
-	checkplayergender
-	compare VAR_RESULT, MALE
-	goto_if_eq Lab2_GetMegaStone_9
-	compare VAR_PEARLWOOD_TOWN_STATE, 11
-	goto_if_eq Lab2_GetMegaStone_20
-	msgbox GonnaTakeMyLeave_Brendan
-	applymovement 5, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	msgbox ThanksDadBirch
-Lab2_GetMegaStone_8:
-	closemessage
-	applymovement 5, RivalLeavesLab
-	applymovement OBJ_EVENT_ID_PLAYER, TurnPlayer
-	waitmovement 5
-	removeobject 5
-	release
-	end
+	return
 
-Lab2_GetMegaStone_2:
-	playse SE_PIN
-	applymovement 4, Common_Movement_QuestionMark
-	waitmovement 0
-	delay 30
-	msgbox TradedAwayStarter
-	closemessage
-	goto Lab2_GetMegaStone_1
-
-Lab2_GetMegaStone_5:
-	msgbox ComeGetYourStoneLater
-	setvar VAR_PEARLWOOD_TOWN_STATE, 11
-	goto Lab2_GetMegaStone_4
-
-Lab2_GetMegaStone_9:
-	compare VAR_PEARLWOOD_TOWN_STATE, 11
-	goto_if_eq Lab2_GetMegaStone_17
-	msgbox GonnaTakeMyLeave_May
-	applymovement 5, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	msgbox ThanksDadBirch
-	goto Lab2_GetMegaStone_8
-
-Lab2_GetMegaStone_14:
-	giveitem ITEM_DECIDUEITE
-	goto Lab2_GetMegaStone_12
-
-Lab2_GetMegaStone_15:
-	giveitem ITEM_BLAZIKENITE
-	goto Lab2_GetMegaStone_12
-
-Lab2_GetMegaStone_16:
-	giveitem ITEM_EMPOLEONITE
-	goto Lab2_GetMegaStone_12
-
-Lab2_GetMegaStone_17:
-	msgbox GonnaGoAhead_May
-	applymovement 5, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	msgbox ThanksDadBirch
-	goto Lab2_GetMegaStone_8
-
-Lab2_GetMegaStone_20:
-	msgbox GonnaGoAhead_Brendan
-	applymovement 5, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	msgbox ThanksDadBirch
-	goto Lab2_GetMegaStone_8
-
-
-ProfBackAndForth:
-	walk_right
-	walk_in_place_faster_down
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	walk_left
-	walk_in_place_faster_down
-	step_end
-
-RivalLeavesLab:
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	step_end
-
-TurnPlayer:
-	walk_in_place_faster_right
-	walk_in_place_faster_down
-	step_end
 
 Lab2_Intro::
 	safefollow
@@ -213,50 +68,8 @@ Lab2_Intro::
 	msgbox Lab2_PresentingBalls
 	closemessage
 	delay 20
-	setvar VAR_PEARLWOOD_TOWN_STATE, 4
+	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_PROF_INTRO
 	release
-	return
-
-
-Lab2_HideRival::
-	call Common_EventScript_SetupRivalGfxId
-	goto_if_set FLAG_SYS_POKEMON_GET, Lab2_HideRival_2
-Lab2_HideRival_1:
-	compare VAR_PEARLWOOD_TOWN_STATE, 8
-	goto_if_ge Lab2_HideRival_5
-Lab2_HideRival_4:
-	compare VAR_PEARLWOOD_TOWN_STATE, 8
-	goto_if_eq Lab2_HideRival_11
-	setflag FLAG_HIDE_LAB_RIVAL
-	return
-
-Lab2_HideRival_2:
-	switch VAR_STARTER_MON
-	case 0, Lab2_HideRival_8
-	case 1, Lab2_HideRival_9
-	case 2, Lab2_HideRival_10
-	goto Lab2_HideRival_1
-
-Lab2_HideRival_5:
-	setobjectxyperm 1, 20, 0
-	setobjectxyperm 2, 20, 0
-	setobjectxyperm 3, 20, 0
-	goto Lab2_HideRival_4
-
-Lab2_HideRival_8:
-	setobjectxyperm 1, 20, 0
-	goto Lab2_HideRival_1
-
-Lab2_HideRival_9:
-	setobjectxyperm 2, 20, 0
-	goto Lab2_HideRival_1
-
-Lab2_HideRival_10:
-	setobjectxyperm 3, 20, 0
-	goto Lab2_HideRival_1
-
-Lab2_HideRival_11:
-	clearflag FLAG_HIDE_LAB_RIVAL
 	return
 
 
@@ -278,11 +91,6 @@ Lab2_DexGet_4:
 	message Lab2_DexGet_Text_0
 	waitmessage
 	waitfanfare
-	setflag FLAG_SYS_POKEDEX_GET
-	special SetUnlockedPokedexFlags
-	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
-	setvar VAR_CABLE_CLUB_TUTORIAL_STATE, 1
-	setvar VAR_OLDALE_TOWN_STATE, 1
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	turnobject 5, DIR_WEST
 	msgbox Lab2_DexGet_Text_1
@@ -291,10 +99,8 @@ Lab2_DexGet_4:
 	checkplayergender
 	compare VAR_RESULT, MALE
 	goto_if_eq Lab2_DexGet_8
+	msgbox Lab2_DexGet_Text_4
 Lab2_DexGet_7:
-	compare VAR_RESULT, FEMALE
-	goto_if_eq Lab2_DexGet_11
-Lab2_DexGet_10:
 	closemessage
 	applymovement OBJ_EVENT_ID_FOLLOWER, Lab2FaceDown
 	applymovement OBJ_EVENT_ID_PLAYER, Lab2FaceDown
@@ -302,14 +108,15 @@ Lab2_DexGet_10:
 	waitmovement 0
 	delay 60
 	removeobject 5
-	setvar VAR_PEARLWOOD_TOWN_STATE, 9
-	clearflag FLAG_ROUTE1_STATE
 	savebgm MUS_DUMMY
 	turnobject OBJ_EVENT_ID_FOLLOWER, DIR_NORTH
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	fadedefaultbgm
 	delay 25
 	msgbox Lab2_DexGet_Text_5, MSGBOX_DEFAULT
+	special SetUnlockedPokedexFlags
+	setflag FLAG_SYS_POKEDEX_GET
+	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_DEX_OBTAINED
 	release
 	end
 
@@ -325,110 +132,188 @@ Lab2_DexGet_8:
 	msgbox Lab2_DexGet_Text_3
 	goto Lab2_DexGet_7
 
-Lab2_DexGet_11:
-	msgbox Lab2_DexGet_Text_4
-	goto Lab2_DexGet_10
 
+Lab2_GetMegaStone::
+	safefollow
+	applymovement OBJ_EVENT_ID_PLAYER, Walk6Up
+	waitmovement 0
+	goto_if_set FLAG_HIDE_LAB_RIVAL, Lab2_GetMegaStone_2
+	msgbox LabMegaStones
+Lab2_GetMegaStone_1:
+	closemessage
+	goto_if_set FLAG_CORALGROVE_TRADE_COMPLETED, Lab2_GetMegaStone_6
+Lab2_GetMegaStone_5:
+	checkitemspace ITEM_DECIDUEITE
+	compare VAR_RESULT, FALSE
+	goto_if_eq Lab2_GetMegaStone_9
+	switch VAR_STARTER_MON
+	case 0, Lab2_GetMegaStone_21
+	case 1, Lab2_GetMegaStone_22
+	case 2, Lab2_GetMegaStone_23
+Lab2_GetMegaStone_19:
+	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED
+	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED
+	goto_if_eq Lab2_GetMegaStone_30
+Lab2_GetMegaStone_28:
+	waitse
+Lab2_GetMegaStone_8:
+	goto_if_unset FLAG_HIDE_LAB_RIVAL, Lab2_GetMegaStone_13
+Lab2_GetMegaStone_12:
+	release
+	end
 
-SpawnFollower:
-	set_visible
-	exit_pokeball
-	step_end
+Lab2_GetMegaStone_2:
+	msgbox LabMegaStonesWithoutRival
+	goto Lab2_GetMegaStone_1
 
-Lab2_Movement_RivalExit1:
-	player_run_down
-	player_run_down
-	player_run_down
-	player_run_left
-	player_run_down
-	player_run_down
-	player_run_down
-	player_run_down
-	player_run_down
-	step_end
+Lab2_GetMegaStone_6:
+	playse SE_PIN
+	applymovement 4, Common_Movement_QuestionMark
+	waitmovement 0
+	delay 30
+	msgbox TradedAwayStarter
+	closemessage
+	goto Lab2_GetMegaStone_5
 
-Lab2FaceDown:
-	delay_16
-	walk_in_place_faster_down
-	step_end
+Lab2_GetMegaStone_9:
+	goto_if_set FLAG_HIDE_LAB_RIVAL, Lab2_GetMegaStone_16
+	msgbox ComeGetYourStoneLater
+Lab2_GetMegaStone_15:
+	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_GET_MEGA_STONE_LATER
+	goto Lab2_GetMegaStone_8
+
+Lab2_GetMegaStone_13:
+	closemessage
+	delay 24
+	applymovement 4, ProfBackAndForth
+	waitmovement 0
+	applymovement 5, Common_Movement_WalkInPlaceFasterLeft
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	waitmovement 0
+	checkplayergender
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq Lab2_GetMegaStone_25
+	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_GET_MEGA_STONE_LATER
+	goto_if_eq Lab2_GetMegaStone_36
+	msgbox GonnaTakeMyLeave_Brendan
+Lab2_GetMegaStone_24:
+	applymovement 5, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	msgbox ThanksDadBirch
+	closemessage
+	applymovement 5, RivalLeavesLab
+	applymovement OBJ_EVENT_ID_PLAYER, TurnPlayer
+	waitmovement 5
+	removeobject 5
+	goto Lab2_GetMegaStone_12
+
+Lab2_GetMegaStone_16:
+	msgbox ComeGetYourStoneLaterWithoutRival
+	goto Lab2_GetMegaStone_15
+
+Lab2_GetMegaStone_21:
+	giveitem ITEM_DECIDUEITE
+	goto Lab2_GetMegaStone_19
+
+Lab2_GetMegaStone_22:
+	giveitem ITEM_BLAZIKENITE
+	goto Lab2_GetMegaStone_19
+
+Lab2_GetMegaStone_23:
+	giveitem ITEM_EMPOLEONITE
+	goto Lab2_GetMegaStone_19
+
+Lab2_GetMegaStone_25:
+	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_GET_MEGA_STONE_LATER
+	goto_if_eq Lab2_GetMegaStone_33
+	msgbox GonnaTakeMyLeave_May
+	goto Lab2_GetMegaStone_24
+
+Lab2_GetMegaStone_29:
+	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED
+	goto Lab2_GetMegaStone_28
+
+Lab2_GetMegaStone_30:
+	goto_if_set FLAG_RECEIVED_CAPSULE, Lab2_GetMegaStone_29
+	goto Lab2_GetMegaStone_28
+
+Lab2_GetMegaStone_33:
+	msgbox GonnaGoAhead_May
+	goto Lab2_GetMegaStone_24
+
+Lab2_GetMegaStone_36:
+	msgbox GonnaGoAhead_Brendan
+	goto Lab2_GetMegaStone_24
+
 
 Lab2_Birch::
-	lockall
-	faceplayer
-	compare VAR_PEARLWOOD_TOWN_STATE, 13
+	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_PROF_INTRO
 	goto_if_eq Lab2_Birch_2
-	compare VAR_PEARLWOOD_TOWN_STATE, 20
-	goto_if_eq Lab2_Birch_2
-	compare VAR_PEARLWOOD_TOWN_STATE, 9
-	goto_if_eq Lab2_Birch_2
-	compare VAR_PEARLWOOD_TOWN_STATE, 12
-	goto_if_eq Lab2_Birch_9
-	compare VAR_PEARLWOOD_TOWN_STATE, 11
-	goto_if_eq Lab2_Birch_12
-	compare VAR_PEARLWOOD_TOWN_STATE, 16
-	goto_if_eq Lab2_Birch_12
-	goto_if_unset FLAG_SYS_POKEMON_GET, Lab2_Birch_20
-	msgbox Lab2_Birch_Text_1
-Lab2_Birch_19:
-	waitmessage
+	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_DEX_OBTAINED
+	goto_if_le Lab2_Birch_3
+	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED
+	goto_if_eq Lab2_Birch_4
+	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_GET_MEGA_STONE_LATER
+	goto_if_eq Lab2_Birch_5
+	call ProfBirch_EventScript_RatePokedexOrRegister
+Lab2_Birch_1:
 	release
 	end
 
 Lab2_Birch_2:
-	call ProfBirch_EventScript_RatePokedexOrRegister
-	end
+	msgbox PickABall, MSGBOX_NPC
+	goto Lab2_Birch_1
 
-Lab2_Birch_9:
-	goto_if_set FLAG_RECEIVED_CAPSULE, Lab2_Birch_17
+Lab2_Birch_3:
+	msgbox TakeCareOfPokemon, MSGBOX_NPC
+	goto Lab2_Birch_1
+
+Lab2_Birch_4:
 	msgbox YourFatherIsInTown, MSGBOX_NPC
-	end
+	goto Lab2_Birch_1
 
-Lab2_Birch_12:
+Lab2_Birch_5:
+	lock
+	faceplayer
 	msgbox HeresYourStoneNow
-	closemessage
 	checkitemspace ITEM_DECIDUEITE
 	compare VAR_RESULT, FALSE
-	goto_if_eq Lab2_Birch_23
+	goto_if_eq Lab2_Birch_11
 	switch VAR_STARTER_MON
-	case 0, Lab2_Birch_28
-	case 1, Lab2_Birch_29
-	case 2, Lab2_Birch_30
-Lab2_Birch_26:
-	compare VAR_PEARLWOOD_TOWN_STATE, 16
-	goto_if_eq Lab2_Birch_32
-	setvar VAR_PEARLWOOD_TOWN_STATE, 12
-Lab2_Birch_31:
+	case 0, Lab2_Birch_16
+	case 1, Lab2_Birch_17
+	case 2, Lab2_Birch_18
+Lab2_Birch_14:
 	waitse
-	release
-	end
+	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED
+	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED
+	goto_if_eq Lab2_Birch_20
+	goto Lab2_Birch_1
 
-Lab2_Birch_17:
-	call ProfBirch_EventScript_RatePokedexOrRegister
-	end
-
-Lab2_Birch_20:
-	msgbox Lab2_Birch_Text_0
-	goto Lab2_Birch_19
-
-Lab2_Birch_23:
+Lab2_Birch_11:
 	msgbox ComeGetYourStoneLaterShort, MSGBOX_NPC
 	end
 
-Lab2_Birch_28:
+Lab2_Birch_16:
 	giveitem ITEM_DECIDUEITE
-	goto Lab2_Birch_26
+	goto Lab2_Birch_14
 
-Lab2_Birch_29:
+Lab2_Birch_17:
 	giveitem ITEM_BLAZIKENITE
-	goto Lab2_Birch_26
+	goto Lab2_Birch_14
 
-Lab2_Birch_30:
+Lab2_Birch_18:
 	giveitem ITEM_EMPOLEONITE
-	goto Lab2_Birch_26
+	goto Lab2_Birch_14
 
-Lab2_Birch_32:
-	setvar VAR_PEARLWOOD_TOWN_STATE, 20
-	goto Lab2_Birch_31
+Lab2_Birch_19:
+	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED
+	goto Lab2_Birch_1
+
+Lab2_Birch_20:
+	goto_if_set FLAG_RECEIVED_CAPSULE, Lab2_Birch_19
+	goto Lab2_Birch_1
 
 
 Lab2_Ball1::
@@ -474,11 +359,9 @@ Lab_BallMain::
 	case SPECIES_PIPLUP, Lab_BallMain_11
 Lab_BallMain_7:
 	setflag FLAG_SYS_POKEMON_GET
-	setflag FLAG_ROUTE1_STATE
 	setflag FLAG_HEAL_AFTER_BATTLE
 	setvar VAR_TEMP_5, 1
-	clearflag FLAG_BROTHER_PEARLFIGHT
-	setvar VAR_PEARLWOOD_TOWN_STATE, 5
+	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_PKMN_OBTAINED
 	msgbox Lab_BallMain_Text_3, MSGBOX_YESNO
 	hidemonpic
 	compare VAR_RESULT, YES
@@ -555,14 +438,55 @@ Lab2_NoLeave::
 	return
 
 
-TestEvent_Text_0:
-	.string "Set event to “automatic”?$"
+SpawnFollower:
+	set_visible
+	exit_pokeball
+	step_end
 
-TestEvent_Text_1:
-	.string "Event set to “manual”$"
+Lab2_Movement_RivalExit1:
+	player_run_down
+	player_run_down
+	player_run_down
+	player_run_left
+	player_run_down
+	player_run_down
+	player_run_down
+	player_run_down
+	player_run_down
+	step_end
 
-TestEvent_Text_2:
-	.string "Event set to “automatic”$"
+Lab2FaceDown:
+	delay_16
+	walk_in_place_faster_down
+	step_end
+
+ProfBackAndForth:
+	walk_right
+	walk_in_place_faster_down
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_left
+	walk_in_place_faster_down
+	step_end
+
+RivalLeavesLab:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+TurnPlayer:
+	walk_in_place_faster_right
+	walk_in_place_faster_down
+	step_end
 
 Lab2_DexGet_Text_0:
 	.string "Obtained the Pokédex!$"
@@ -582,12 +506,6 @@ Lab2_DexGet_Text_4:
 Lab2_DexGet_Text_5:
 	.string "Prof. Birch: Sigh…\pSometimes I wonder\nwhere {RIVAL} gets all that energy…$"
 
-Lab2_Birch_Text_0:
-	.string "Prof. Birch: Go on, pick one of the\nballs from the table.$"
-
-Lab2_Birch_Text_1:
-	.string "Prof. Birch: I hope you take\ngood care of your new companion.$"
-
 Lab_BallMain_Text_0:
 	.string "You already received a Pokémon.$"
 
@@ -605,6 +523,53 @@ Lab_FollowerEvent_Text_0:
 
 Lab2_NoLeave_Text_0:
 	.string "{COLOR RED}{SHADOW LIGHT_RED}You haven't chosen a Pokémon yet!$"
+
+Lab2_Intro_Speech::
+	.string "Prof. Birch: Hello!\n"
+	.string "You must be {PLAYER}!\p"
+	.string "As you may know, it is customary in\n"
+	.string "this town for every young person to\l"
+	.string "be given their very first Pokémon.\p"
+	.string "Some people use this opportunity to\n"
+	.string "go on a journey of self-discovery\l"
+	.string "while some are content with\l"
+	.string "where they are now.\p"
+	.string "What you do with your Pokémon is\n"
+	.string "your decision.$"
+
+Lab2_PresentingBalls::
+	.string "Over there on the table lies three\n"
+	.string "Poké Balls. Each of them stores\l"
+	.string "some very rare Pokémon.\p"
+	.string "You may now go and choose one of\n"
+	.string "them as your own.\p"
+	.string "You may only choose one so make\n"
+	.string "sure you decide carefully!$"
+
+Lab2_DexTalkMay::
+	.string "Prof. Birch: {RIVAL}, {PLAYER},\nis there something you need?\p"
+	.string "{RIVAL}: Oh boy, is there…\pYou gave {PLAYER} a Pokémon but\nnever gave him a Pokédex, dad!\pHow do you expect him to become\n a great trainer without one!?\p"
+	.string "Prof. Birch: Oh, it must've\nslipped my mind…\p"
+	.string "{RIVAL}: Slipped your mind!?\nYou're a Pokémon professor!\p"
+	.string "Surely you realize that giving one to\n{PLAYER} helps your research as well?\p"
+	.string "Prof. Birch: I know, I know.\nI'll get {PLAYER} one right away.\p"
+	.string "Now, let's see…\l… … … …\pAh, darn it.\pLooks like I don't have any extra\nlying around at this time…\p"
+	.string "{RIVAL}: Well we can't have {PLAYER}\nleaving empty-handed, now can we!?\p"
+	.string "Prof. Birch: Here, {PLAYER},\nyou can have mine.\lI'll order myself a new one.\p"
+	.string "{RIVAL}: Yay! Thanks, dad!\n$"
+
+Lab2_DexTalkBrendan::
+	.string "Prof. Birch: {RIVAL}, {PLAYER},\nis there something you need?\p"
+	.string "{RIVAL}: As a matter of fact, there is.\nYou never gave {PLAYER} a Pokédex!\p"
+	.string "How do you expect her to become\n a great trainer without one?\p"
+	.string "Prof. Birch: Oh, it must've\nslipped my mind…\p"
+	.string "{RIVAL}: Slipped your mind?\nAren't you a Pokémon professor?\p"
+	.string "Surely giving one to {PLAYER}\nhelps your research as well.\p"
+	.string "Prof. Birch: I know, I know.\nI'll get {PLAYER} one right away.\p"
+	.string "Now, let's see…\l… … … …\pAh, darn it.\pLooks like I don't have any extra\nlying around at this time…\p"
+	.string "{RIVAL}: Well we can't have {PLAYER}\nleaving empty-handed, now can we?\p"
+	.string "Prof. Birch: Yes, I know. {PLAYER},\nyou can have mine.\lI'll order myself a new one.\p"
+	.string "{RIVAL}: You're the best, dad!\n$"
 
 LabMegaStones::
 	.string "Prof. Birch: {RIVAL}, {PLAYER},\n"
@@ -724,6 +689,14 @@ ThanksDadBirch::
 	.string "{RIVAL}: Thanks dad! I'm going to go\n"
 	.string "and give this thing a try right away!$"
 
+PickABall::
+	.string "Prof. Birch: Go on, pick one of the\n"
+	.string "balls from the table.$"
+
+TakeCareOfPokemon::
+	.string "Prof. Birch: I hope you take\n"
+	.string "good care of your new companion.$"
+
 YourFatherIsInTown::
 	.string "Prof. Birch: Oh, I almost forgot!\n"
 	.string "Your father is currently in town.\p"
@@ -738,53 +711,6 @@ ComeGetYourStoneLaterShort::
 	.string "No, looks like your bag is still full.\p"
 	.string "You will need to make some room in your\n"
 	.string "bag before I can give this to you.$"
-
-Lab2_DexTalkMay::
-	.string "Prof. Birch: {RIVAL}, {PLAYER},\nis there something you need?\p"
-	.string "{RIVAL}: Oh boy, is there…\pYou gave {PLAYER} a Pokémon but\nnever gave him a Pokédex, dad!\pHow do you expect him to become\n a great trainer without one!?\p"
-	.string "Prof. Birch: Oh, it must've\nslipped my mind…\p"
-	.string "{RIVAL}: Slipped your mind!?\nYou're a Pokémon professor!\p"
-	.string "Surely you realize that giving one to\n{PLAYER} helps your research as well?\p"
-	.string "Prof. Birch: I know, I know.\nI'll get {PLAYER} one right away.\p"
-	.string "Now, let's see…\l… … … …\pAh, darn it.\pLooks like I don't have any extra\nlying around at this time…\p"
-	.string "{RIVAL}: Well we can't have {PLAYER}\nleaving empty-handed, now can we!?\p"
-	.string "Prof. Birch: Here, {PLAYER},\nyou can have mine.\lI'll order myself a new one.\p"
-	.string "{RIVAL}: Yay! Thanks, dad!\n$"
-
-Lab2_DexTalkBrendan::
-	.string "Prof. Birch: {RIVAL}, {PLAYER},\nis there something you need?\p"
-	.string "{RIVAL}: As a matter of fact, there is.\nYou never gave {PLAYER} a Pokédex!\p"
-	.string "How do you expect her to become\n a great trainer without one?\p"
-	.string "Prof. Birch: Oh, it must've\nslipped my mind…\p"
-	.string "{RIVAL}: Slipped your mind?\nAren't you a Pokémon professor?\p"
-	.string "Surely giving one to {PLAYER}\nhelps your research as well.\p"
-	.string "Prof. Birch: I know, I know.\nI'll get {PLAYER} one right away.\p"
-	.string "Now, let's see…\l… … … …\pAh, darn it.\pLooks like I don't have any extra\nlying around at this time…\p"
-	.string "{RIVAL}: Well we can't have {PLAYER}\nleaving empty-handed, now can we?\p"
-	.string "Prof. Birch: Yes, I know. {PLAYER},\nyou can have mine.\lI'll order myself a new one.\p"
-	.string "{RIVAL}: You're the best, dad!\n$"
-
-Lab2_Intro_Speech::
-	.string "Prof. Birch: Hello!\n"
-	.string "You must be {PLAYER}!\p"
-	.string "As you may know, it is customary in\n"
-	.string "this town for every young person to\l"
-	.string "be given their very first Pokémon.\p"
-	.string "Some people use this opportunity to\n"
-	.string "go on a journey of self-discovery\l"
-	.string "while some are content with\l"
-	.string "where they are now.\p"
-	.string "What you do with your Pokémon is\n"
-	.string "your decision.$"
-
-Lab2_PresentingBalls::
-	.string "Over there on the table lies three\n"
-	.string "Poké Balls. Each of them stores\l"
-	.string "some very rare Pokémon.\p"
-	.string "You may now go and choose one of\n"
-	.string "them as your own.\p"
-	.string "You may only choose one so make\n"
-	.string "sure you decide carefully!$"
 
 BirchSurprised::
 	.string "Prof. Birch: Oh my!\p"

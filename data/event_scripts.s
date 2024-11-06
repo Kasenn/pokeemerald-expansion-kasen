@@ -50,6 +50,7 @@
 #include "constants/songs.h"
 #include "constants/sound.h"
 #include "constants/species.h"
+#include "constants/story.h"
 #include "constants/trade.h"
 #include "constants/trainer_hill.h"
 #include "constants/trainers.h"
@@ -453,6 +454,8 @@ gStdScripts_End::
 	.include "data/maps/AlteringCave/scripts.inc"
 	.include "data/maps/MeteorFalls_StevensCave/scripts.inc"
 	.include "data/scripts/shared_secret_base.inc"
+	.include "data/scripts/general_scripts.inc"
+	.include "data/scripts/test_scripts.inc"
 	.include "data/maps/BattleColosseum_2P/scripts.inc"
 	.include "data/maps/TradeCenter/scripts.inc"
 	.include "data/maps/RecordCorner/scripts.inc"
@@ -1542,3 +1545,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Sandstone_LargeHouse3_3F/scripts.inc"
 
 	.include "data/maps/Sandstone_LargeHouse3_4F/scripts.inc"
+
+	.include "data/maps/SandstoneCityAlt/scripts.inc"

@@ -14,7 +14,6 @@ OldaleTown_OnTransition:
 
 @ This script seems pointless because nothing uses VAR_OLDALE_TOWN_STATE
 OldaleTown_EventScript_SetOldaleState::
-	setvar VAR_OLDALE_TOWN_STATE, 1
 	return
 
 OldaleTown_EventScript_BlockWestEntrance::

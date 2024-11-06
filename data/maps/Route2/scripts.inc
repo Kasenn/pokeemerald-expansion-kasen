@@ -4,8 +4,8 @@ Route2_MapScripts::
 
 
 R2ClearLandslide::
-	goto_if_set FLAG_CORAL_FLAG_1, R2ClearLandslide_1
-	end
+	goto_if_set FLAG_VISITED_RUSTBORO_CITY, R2ClearLandslide_1
+	return
 
 R2ClearLandslide_1:
 	setmetatile 19, 7, 0x0AF, FALSE
@@ -17,7 +17,7 @@ R2ClearLandslide_1:
 	setmetatile 19, 11, 0x0AF, FALSE
 	setmetatile 20, 11, 0x0CF, FALSE
 	setmetatile 20, 12, 0x071, FALSE
-	end
+	return
 
 
 Route2_Landslide::
@@ -38,35 +38,30 @@ Route2_Revive::
 Route2_Fisher::
 	trainerbattle_single TRAINER_GRUNT_MUSEUM_2, Route2_Text_FisherIntro, Route2_Text_FisherDefeated
 	msgbox Route2_Text_FisherPostBattle, MSGBOX_AUTOCLOSE
-	waitmessage
 	end
 
 
 Route2_Lass::
 	trainerbattle_single TRAINER_GRUNT_SPACE_CENTER_1, Route2_Text_LassIntro, Route2_Text_LassDefeated
 	msgbox Route2_Text_LassPostBattle, MSGBOX_AUTOCLOSE
-	waitmessage
 	end
 
 
 Route2_BlackBelt::
 	trainerbattle_single TRAINER_GRUNT_MT_PYRE_1, Route2_Text_BlackBeltIntro, Route2_Text_BlackBeltDefeated
 	msgbox Route2_Text_BlackBeltPostBattle, MSGBOX_AUTOCLOSE
-	waitmessage
 	end
 
 
 Route2_Youngster::
 	trainerbattle_single TRAINER_GRUNT_MT_PYRE_2, Route2_Text_YoungsterIntro, Route2_Text_YoungsterDefeated
 	msgbox Route2_Text_YoungsterPostBattle, MSGBOX_AUTOCLOSE
-	waitmessage
 	end
 
 
 Route2_Girl3::
 	trainerbattle_single TRAINER_GRUNT_MT_PYRE_3, Route2_Text_Girl3Intro, Route2_Text_Girl3Defeated
 	msgbox Route2_Text_Girl3PostBattle, MSGBOX_AUTOCLOSE
-	waitmessage
 	end
 
 

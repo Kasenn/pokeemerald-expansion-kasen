@@ -2,9 +2,9 @@ OldaleTown_PokemonCenter_2F_MapScripts::
 	.byte 0
 
 
-IvTraining::
-	goto_if_unset FLAG_CORAL_FLAG_1, IvTraining_2
-	lockall
+EvTraining::
+	goto_if_unset FLAG_VISITED_RUSTBORO_CITY, EvTraining_2
+	lock
 	setvar VAR_0x8008, 5
 	buffernumberstring STR_VAR_1, VAR_0x8008
 	specialvar VAR_TEMP_1, GetFrontierBattlePoints
@@ -13,7 +13,7 @@ IvTraining::
 	release
 	end
 
-IvTraining_2:
+EvTraining_2:
 	msgbox OldaleTown_PokemonCenter_1F_Text_Train, MSGBOX_NPC
 	end
 
@@ -74,7 +74,7 @@ EvTraining_Setup_6:
 
 
 LevelTraining1::
-	goto_if_unset FLAG_CORAL_FLAG_1, LevelTraining1_2
+	goto_if_unset FLAG_VISITED_RUSTBORO_CITY, LevelTraining1_2
 	setvar VAR_POKECENTER_TRAINING, 1
 	setvar VAR_0x8008, 2
 	goto LevelTrainingCheck
@@ -313,7 +313,7 @@ LevelTrainingMain_37:
 
 
 IvTrainingIntro::
-	goto_if_unset FLAG_CORAL_FLAG_1, IvTrainingIntro_2
+	goto_if_unset FLAG_VISITED_RUSTBORO_CITY, IvTrainingIntro_2
 	lock
 	msgbox WelcomeToTrainingClub
 	goto TrainingClubNpc

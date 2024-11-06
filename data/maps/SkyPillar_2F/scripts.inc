@@ -4,23 +4,33 @@ SkyPillar_2F_MapScripts::
 	.byte 0
 
 SkyPillar_2F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
-	map_script_2 VAR_RIVAL_AROUND_SANDSTONE, 0, MeetingRivalInTheTower
-	map_script_2 VAR_RIVAL_AROUND_SANDSTONE, 1, MeetingRivalInTheTower
-	map_script_2 VAR_RIVAL_AROUND_SANDSTONE, 2, MeetingRivalInTheTower
-	map_script_2 VAR_RIVAL_AROUND_SANDSTONE, 4, UnitedWithRival
+	map_script_2 VAR_TEMP_0, 1, MeetingRivalInTheTower
+	map_script_2 VAR_TEMP_0, 2, UnitedWithRival
 	.2byte 0
 
 
 SetRivalTowerLoc::
-	compare VAR_RIVAL_AROUND_SANDSTONE, 2
-	goto_if_le SetRivalTowerLoc_2
-SetRivalTowerLoc_1:
-	end
+	checkfollower
+	compare VAR_RESULT, FALSE
+	goto_if_eq SetRivalTowerLoc_1
+	return
 
-SetRivalTowerLoc_2:
+SetRivalTowerLoc_1:
+	goto_if_set FLAG_OBTAINED_MEGA_RING, SetRivalTowerLoc_3
+	goto_if_set FLAG_REUNITE_WITH_RIVAL, SetRivalTowerLoc_4
+	setvar VAR_TEMP_0, 1
 	setobjectxyperm 6, 12, 3
 	setobjectmovementtype 6, MOVEMENT_TYPE_FACE_RIGHT
-	goto SetRivalTowerLoc_1
+	return
+
+SetRivalTowerLoc_3:
+	setvar VAR_TEMP_0, 0
+	return
+
+SetRivalTowerLoc_4:
+	clearflag FLAG_REUNITE_WITH_RIVAL
+	setvar VAR_TEMP_0, 2
+	return
 
 
 AT_2F_Tr2_Left::
@@ -536,7 +546,7 @@ UnitedWithRival::
 	msgbox YoureBackBrendan
 UnitedWithRival_1:
 	closemessage
-	setvar VAR_RIVAL_AROUND_SANDSTONE, 3
+	setvar VAR_TEMP_0, 0
 	setflag FLAG_PARTNER_HEALS
 	special HealPlayerParty
 	setfollower 6, FOLLOWER_FLAG_ALL, MakeNewTeam
@@ -561,15 +571,12 @@ MeetingRivalInTheTower::
 	checkplayergender
 	compare VAR_RESULT, MALE
 	goto_if_eq MeetingRivalInTheTower_2
-	compare VAR_RIVAL_AROUND_SANDSTONE, 1
-	goto_if_eq MeetingRivalInTheTower_10
-	compare VAR_RIVAL_AROUND_SANDSTONE, 2
-	goto_if_eq MeetingRivalInTheTower_11
-	msgbox BrendanLongTimeNoSee
+	goto_if_set FLAG_RIVAL_COSTUME_CHANGE, MeetingRivalInTheTower_8
+	msgbox BrendanNotHappyToSee
 MeetingRivalInTheTower_1:
 	closemessage
+	setvar VAR_TEMP_0, 0
 	setvar VAR_TEMP_3, 1
-	setvar VAR_RIVAL_AROUND_SANDSTONE, 3
 	setflag FLAG_PARTNER_HEALS
 	special HealPlayerParty
 	setfollower 6, FOLLOWER_FLAG_ALL, MakeNewTeam
@@ -578,27 +585,16 @@ MeetingRivalInTheTower_1:
 	return
 
 MeetingRivalInTheTower_2:
-	compare VAR_RIVAL_AROUND_SANDSTONE, 1
-	goto_if_eq MeetingRivalInTheTower_5
-	compare VAR_RIVAL_AROUND_SANDSTONE, 2
-	goto_if_eq MeetingRivalInTheTower_6
-	msgbox MayLongTimeNoSee
+	goto_if_set FLAG_RIVAL_COSTUME_CHANGE, MeetingRivalInTheTower_5
+	msgbox MayNotHappyToSee
 	goto MeetingRivalInTheTower_1
 
 MeetingRivalInTheTower_5:
 	msgbox MayHappyToSee
 	goto MeetingRivalInTheTower_1
 
-MeetingRivalInTheTower_6:
-	msgbox MayNotHappyToSee
-	goto MeetingRivalInTheTower_1
-
-MeetingRivalInTheTower_10:
+MeetingRivalInTheTower_8:
 	msgbox BrendanHappyToSee
-	goto MeetingRivalInTheTower_1
-
-MeetingRivalInTheTower_11:
-	msgbox BrendanNotHappyToSee
 	goto MeetingRivalInTheTower_1
 
 
@@ -1205,26 +1201,6 @@ MayNotHappyToSee::
 	.string "are all topped up after every battle.\p"
 	.string "Here, how about you take the lead?$"
 
-MayLongTimeNoSee::
-	.string "{RIVAL}: Oh, hi {PLAYER}!\p"
-	.string "Didn't expect to bump into you here.\p"
-	.string "I assume you're here to climb the tower\n"
-	.string "under Korrina's instructions as well?\p"
-	.string "In that case, we should totally\n"
-	.string "team up!\p"
-	.string "Some of these trainers are real tough\n"
-	.string "and many of them have also teamed up,\l"
-	.string "which means that we should too.\p"
-	.string "Don't worry though.\p"
-	.string "I won't interfere with your wild\n"
-	.string "Pokémon battles so you can catch any\l"
-	.string "new Pokémon you see!\p"
-	.string "I'll also make sure that your Pokémon\n"
-	.string "are all topped up after every battle.\p"
-	.string "Okay! with that out of the way, let's\n"
-	.string "get cracking with this tower!\p"
-	.string "Lead the way!$"
-
 BrendanHappyToSee::
 	.string "{RIVAL}: Oh, hey {PLAYER}!\p"
 	.string "Didn't expect to bump into you so\n"
@@ -1254,26 +1230,6 @@ BrendanNotHappyToSee::
 	.string "In that case, would you mind teaming\n"
 	.string "up with me?\p"
 	.string "Some of these trainers are real tough\n"
-	.string "and seeing how they've teamed up,\l"
-	.string "it makes sense we do the same.\p"
-	.string "Don't worry though.\p"
-	.string "I won't get in the way of your wild\n"
-	.string "Pokémon battles so you can catch any\l"
-	.string "new Pokémon you see.\p"
-	.string "I'll also make sure that your Pokémon\n"
-	.string "are healthy after every battle.\p"
-	.string "Okay. With that out of the way,\n"
-	.string "let's get on top of this tower!\p"
-	.string "I'll follow your lead.$"
-
-BrendanLongTimeNoSee::
-	.string "{RIVAL}: Oh, hey {PLAYER}!\p"
-	.string "Didn't expect to see you here\n"
-	.string "so soon.\p"
-	.string "I'm guessing Korrina sent you here\n"
-	.string "to climb the tower as well?\p"
-	.string "In that case, how about we team up?\n"
-	.string "Some of these trainers are real tough\l"
 	.string "and seeing how they've teamed up,\l"
 	.string "it makes sense we do the same.\p"
 	.string "Don't worry though.\p"

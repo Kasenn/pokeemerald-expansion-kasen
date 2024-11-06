@@ -375,8 +375,8 @@
       "x": 15,
       "y": 2,
       "elevation": 0,
-      "var": "VAR_BADGES_OBTAINED",
-      "var_value": "1",
+      "var": "TRAINER_FLAGS_START+TRAINER_LEADER_VOLKNER",
+      "var_value": "0",
       "script": "AldeleafTrigger1"
     },
     {
@@ -384,8 +384,8 @@
       "x": 16,
       "y": 2,
       "elevation": 0,
-      "var": "VAR_BADGES_OBTAINED",
-      "var_value": "1",
+      "var": "TRAINER_FLAGS_START+TRAINER_LEADER_VOLKNER",
+      "var_value": "0",
       "script": "AldeleafTrigger2"
     },
     {
@@ -393,8 +393,8 @@
       "x": 17,
       "y": 2,
       "elevation": 0,
-      "var": "VAR_BADGES_OBTAINED",
-      "var_value": "1",
+      "var": "TRAINER_FLAGS_START+TRAINER_LEADER_VOLKNER",
+      "var_value": "0",
       "script": "AldeleafTrigger3"
     },
     {
@@ -402,8 +402,8 @@
       "x": 26,
       "y": 57,
       "elevation": 0,
-      "var": "VAR_BADGES_OBTAINED",
-      "var_value": "1",
+      "var": "TRAINER_FLAGS_START+TRAINER_LEADER_VOLKNER",
+      "var_value": "0",
       "script": "AldeleafTrigger4"
     },
     {
@@ -411,8 +411,8 @@
       "x": 27,
       "y": 57,
       "elevation": 0,
-      "var": "VAR_BADGES_OBTAINED",
-      "var_value": "1",
+      "var": "TRAINER_FLAGS_START+TRAINER_LEADER_VOLKNER",
+      "var_value": "0",
       "script": "AldeleafTrigger5"
     }
   ],

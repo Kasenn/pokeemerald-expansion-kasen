@@ -18,7 +18,7 @@ Pearlwood_MaysHouse2F_SetRival_2:
 
 Pearlwood_MaysHouse2F_Rival::
 	lock
-	compare VAR_PEARLWOOD_TOWN_STATE, 2
+	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_RECEIVED_RUNNING_SHOES
 	goto_if_eq Pearlwood_MaysHouse2F_Rival_2
 	msgbox Pearlwood_MaysHouse2F_Gossip
 Pearlwood_MaysHouse2F_Rival_1:
@@ -41,7 +41,7 @@ Pearlwood_MaysHouse2F_Rival_2:
 	applymovement 3, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 48
-	setvar VAR_PEARLWOOD_TOWN_STATE, 3
+	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MET_RIVAL
 	checkplayergender
 	compare VAR_RESULT, MALE
 	goto_if_eq Pearlwood_MaysHouse2F_Rival_5
@@ -52,6 +52,22 @@ Pearlwood_MaysHouse2F_Rival_5:
 	msgbox Pearlwood_MaysHouse2F_Intro2_MalePC
 	goto Pearlwood_MaysHouse2F_Rival_1
 
+
+WooperDoll::
+	msgbox WooperDoll_Text_0, MSGBOX_SIGN
+	return
+
+
+AzurillDoll::
+	msgbox AzurillDoll_Text_0, MSGBOX_SIGN
+	return
+
+
+WooperDoll_Text_0:
+	.string "It's a Wooper doll.$"
+
+AzurillDoll_Text_0:
+	.string "It's an Azurill doll.$"
 
 Pearlwood_MaysHouse2F_Intro::
 	.string "{RIVAL}: Oh, hi {PLAYER}!\p"

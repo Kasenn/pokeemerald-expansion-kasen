@@ -4,36 +4,21 @@ CoralgroveCity_MapScripts::
 
 
 Coralgrove_State::
-	compare VAR_CORALGROVE_STATE, 0
-	goto_if_eq Coralgrove_State_2
-Coralgrove_State_1:
 	setflag FLAG_VISITED_RUSTBORO_CITY
-	end
-
-Coralgrove_State_2:
-	setvar VAR_CORALGROVE_STATE, 1
-	setflag FLAG_CORAL_FLAG_1
-	setflag FLAG_0x267_CG_HIDEGHOST
-	hideobjectat 11, MAP_CORALGROVE_CITY
-	goto Coralgrove_State_1
+	setflag FLAG_TEMP_1
+	return
 
 
 CoralHideGhost2::
-	compare VAR_CORALGROVE_STATE, 1
-	goto_if_eq CoralHideGhost2_2
+	removeobject 11
+	clearflag FLAG_TEMP_2
 	release
-	end
-
-CoralHideGhost2_2:
-	hideobjectat 11, MAP_CORALGROVE_CITY
-	release
-	end
+	return
 
 
 Coralgrove_HauntedHouse::
 	lockall
-	compare VAR_CORALGROVE_STATE, 1
-	goto_if_eq Coralgrove_HauntedHouse_2
+	goto_if_unset FLAG_0x267_CG_HIDEGHOST, Coralgrove_HauntedHouse_2
 Coralgrove_HauntedHouse_1:
 	msgbox Coralgrove_HauntedHouse_Text_0, MSGBOX_SIGN
 	waitmessage
@@ -42,56 +27,39 @@ Coralgrove_HauntedHouse_1:
 	end
 
 Coralgrove_HauntedHouse_2:
-	setvar VAR_CORALGROVE_STATE, 2
+	setflag FLAG_TEMP_2
 	goto Coralgrove_HauntedHouse_1
 
 
 CoralShowGhost::
-	compare VAR_CORALGROVE_STATE, 2
-	goto_if_eq CoralShowGhost_1
-	return
-
-CoralShowGhost_1:
-	setvar VAR_CORALGROVE_STATE, 3
-	clearflag FLAG_0x267_CG_HIDEGHOST
-	showobjectat 11, MAP_CORALGROVE_CITY
+	clearflag FLAG_TEMP_1
+	addobject 11
+	release
 	return
 
 
 CoralHideGhost::
-	compare VAR_CORALGROVE_STATE, 3
-	goto_if_eq CoralHideGhost_2
-CoralHideGhost_1:
-	end
-
-CoralHideGhost_2:
-	lockall
+	lock
 	fadeoutbgm 0
 	delay 60
-	msgbox CoralHideGhost_Text_0, MSGBOX_DEFAULT
-	waitmessage
+	msgbox CoralHideGhost_Text_0
 	closemessage
 	fadescreenspeed FADE_TO_WHITE, 2
 	setflag FLAG_0x267_CG_HIDEGHOST
-	setvar VAR_CORALGROVE_STATE, 4
-	hideobjectat 11, MAP_CORALGROVE_CITY
+	clearflag FLAG_TEMP_2
+	removeobject 11
 	delay 30
 	fadescreenspeed FADE_FROM_WHITE, 2
 	delay 90
 	fadeinbgm 0
 	delay 60
 	release
-	goto CoralHideGhost_1
+	return
 
 
 Coralgrove_MAN_3::
-	lockall
-	faceplayer
 	msgbox Coralgrove_MAN_3_Text_0, MSGBOX_NPC
-	waitmessage
-	closemessage
-	release
-	end
+	return
 
 
 Coralgrove_GENTLEMAN::
@@ -99,7 +67,7 @@ Coralgrove_GENTLEMAN::
 	msgbox Coralgrove_GENTLEMAN_Text, MSGBOX_NPC
 Coralgrove_GENTLEMAN_1:
 	turnobject 12, DIR_NORTH
-	end
+	return
 
 Coralgrove_GENTLEMAN_2:
 	msgbox Coralgrove_DroppedSomething, MSGBOX_NPC
@@ -119,20 +87,19 @@ Coralgrove_RightBirds::
 
 
 Coralgrove_BirdEvent::
-	goto_if_set FLAG_CORALGROVE_CUTSCENE, Coralgrove_BirdEvent_2
 	lock
 	safefollow
 	special SpawnCameraObject
 	applymovement OBJ_EVENT_ID_CAMERA, Walk3Up
 	waitmovement 0
 	compare VAR_TEMP_3, 1
-	goto_if_eq Coralgrove_BirdEvent_5
+	goto_if_eq Coralgrove_BirdEvent_2
 	applymovement 13, BirdFlyFromEast
 	waitmovement 13
 	playmoncry SPECIES_PIDGEOT, CRY_MODE_NORMAL
 	applymovement 13, BirdFlyFromEast
 	waitmovement 13
-Coralgrove_BirdEvent_4:
+Coralgrove_BirdEvent_1:
 	applymovement OBJ_EVENT_ID_CAMERA, Walk3Down
 	waitmovement 0
 	special RemoveCameraObject
@@ -145,16 +112,12 @@ Coralgrove_BirdEvent_4:
 	end
 
 Coralgrove_BirdEvent_2:
-	release
-	end
-
-Coralgrove_BirdEvent_5:
 	applymovement 14, BirdFlyFromWest
 	waitmovement 14
 	playmoncry SPECIES_PIDGEOT, CRY_MODE_NORMAL
 	applymovement 14, BirdFlyFromWest
 	waitmovement 14
-	goto Coralgrove_BirdEvent_4
+	goto Coralgrove_BirdEvent_1
 
 
 BirdFlyFromWest:
@@ -184,91 +147,55 @@ BirdFlyFromEast:
 	step_end
 
 Coralgrove_MartMan::
-	lockall
-	faceplayer
 	msgbox Coralgrove_MartMan_Text_0, MSGBOX_NPC
-	waitmessage
-	closemessage
-	release
-	end
+	return
 
 
 CoralGrove_NINJA_BOY::
-	lockall
-	faceplayer
 	msgbox CoralGrove_NINJA_BOY_Text_0, MSGBOX_NPC
-	waitmessage
-	closemessage
-	end
+	return
 
 
 CoralGrove_OLD_WOMAN::
-	lockall
+	lock
 	msgbox CoralGrove_OLD_WOMAN_Text_0, MSGBOX_DEFAULT
-	waitmessage
 	closemessage
-	releaseall
-	end
+	release
+	return
 
 
 CoralGrove_OLD_MAN::
-	lockall
-	faceplayer
 	msgbox CoralGrove_OLD_MAN_Text_0, MSGBOX_NPC
-	waitmessage
-	closemessage
-	release
-	end
+	return
 
 
 Coralgrove_LASS::
-	lockall
-	faceplayer
 	msgbox Coralgrove_LASS_Text_0, MSGBOX_NPC
-	waitmessage
-	closemessage
-	release
-	end
+	return
 
 
 Coralgrove_HIKER::
-	lockall
-	faceplayer
 	msgbox Coral_Hiker_Text, MSGBOX_NPC
-	waitmessage
-	closemessage
-	release
-	end
+	return
 
 
 Coralgrove_Children::
-	lockall
-	faceplayer
 	msgbox Coralgrove_Children_Text_0, MSGBOX_NPC
-	waitmessage
-	closemessage
-	release
-	end
+	return
 
 
 Coralgrove_school::
 	msgbox Coralgrove_school_Text_0, MSGBOX_SIGN
-	waitmessage
-	closemessage
-	end
+	return
 
 
 Coralgrove_Lifthouse::
 	msgbox Coralgrove_Lifthouse_Text_0, MSGBOX_SIGN
-	waitmessage
-	closemessage
-	end
+	return
 
 
 CoralSign::
 	msgbox CoralSign_Text_0, MSGBOX_SIGN
-	waitmessage
-	closemessage
 	return
 
 
@@ -279,7 +206,7 @@ CoralGreatBall::
 
 CoralGrove_EventScript_GymSign::
 	msgbox CoralGrove_EventScript_GymSign_Text_0, MSGBOX_SIGN
-	end
+	return
 
 
 Coralgrove_HauntedHouse_Text_0:

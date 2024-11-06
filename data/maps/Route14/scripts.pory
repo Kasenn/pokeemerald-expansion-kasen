@@ -88,12 +88,8 @@ script R14_RR_Event_Trigger1{
     fadedefaultbgm
     setobjectxyperm(15, 41, 13)
     setobjectxy(15, 41, 13)
-    if(var(VAR_PEARLWOOD_TOWN_STATE) == 10){
-        setvar(VAR_PEARLWOOD_TOWN_STATE, 15)
-    }
-    else{
-        setvar(VAR_PEARLWOOD_TOWN_STATE, 20)
-    }
+    setflag(FLAG_HIDE_PLAYERS_HOUSE_DAD)
+    setflag(FLAG_HIDE_LAB_RIVAL)
     setvar(VAR_ROUTE14_ROCKET_EVENT, 1)
     release
     end

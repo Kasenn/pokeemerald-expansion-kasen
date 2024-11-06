@@ -33,13 +33,14 @@ SchoolTeach::
 	goto_if 0, SchoolTeach_1
 	checktrainerflag TRAINER_ROSE_1
 	goto_if 0, SchoolTeach_1
-	goto_if_set FLAG_SCHOOL_DONE, SchoolTeach_2
+	checkitem ITEM_TM_FALSE_SWIPE
+	compare VAR_RESULT, TRUE
+	goto_if_eq SchoolTeach_2
 	msgbox SchoolTeach_Text_2, MSGBOX_NPC
 	giveitem ITEM_TM_FALSE_SWIPE
 	waitmessage
 	msgbox SchoolTeach_Text_3, MSGBOX_NPC
 	closemessage
-	setflag FLAG_SCHOOL_DONE
 	release
 	end
 

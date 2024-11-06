@@ -1133,3 +1133,14 @@ const struct Tileset gTileset_PWT =
     .metatileAttributes = gMetatileAttributes_PWT,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_NewSandstoneCity =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_NewSandstoneCity,
+    .palettes = gTilesetPalettes_NewSandstoneCity,
+    .metatiles = gMetatiles_NewSandstoneCity,
+    .metatileAttributes = gMetatileAttributes_NewSandstoneCity,
+    .callback = NULL,
+};

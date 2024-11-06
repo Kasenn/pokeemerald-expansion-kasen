@@ -3,28 +3,19 @@ NewCoralgroveCity_Gym_MapScripts::
 
 
 NewCoralgroveCity_Gym_Aaron_Talk::
-	goto_if_set FLAG_RECEIVED_TM_U_TURN, NewCoralgroveCity_Gym_Aaron_Talk_1
-	lockall
-	faceplayer
+	checktrainerflag TRAINER_LEADER_AARON
+	goto_if 1, NewCoralgroveCity_Gym_Aaron_Talk_1
 	msgbox NewCoralgroveCity_Gym_Aaron_Talk_Text_0
-	waitmessage
-	closemessage
 	turnobject 1, DIR_WEST
-	release
-	end
+	return
 
 NewCoralgroveCity_Gym_Aaron_Talk_1:
-	lockall
-	faceplayer
-	msgbox NewCoralgroveCity_Gym_Text_AaronPostBattle, MSGBOX_DEFAULT
-	waitmessage
-	closemessage
-	release
-	end
+	msgbox NewCoralgroveCity_Gym_Text_AaronPostBattle, MSGBOX_NPC
+	return
 
 
 NewCoralgroveCity_Gym_EventScript_Aaron::
-	lockall
+	lock
 	delay 10
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	turnobject 1, DIR_WEST
@@ -33,8 +24,7 @@ NewCoralgroveCity_Gym_EventScript_Aaron::
 	waitmovement 0
 	delay 10
 	special RemoveCameraObject
-	trainerbattle_single TRAINER_GABBY_AND_TY_1, NewCoralgroveCity_Gym_Text_AaronIntro, NewCoralgroveCity_Gym_Text_AaronDefeat, NewCoralgroveCity_Gym_EventScript_AaronDefeated, NO_MUSIC
-	goto_if_unset FLAG_RECEIVED_TM_U_TURN, NewCoralgroveCity_Gym_EventScript_GiveUTurn
+	trainerbattle_single TRAINER_LEADER_AARON, NewCoralgroveCity_Gym_Text_AaronIntro, NewCoralgroveCity_Gym_Text_AaronDefeat, NewCoralgroveCity_Gym_EventScript_AaronDefeated, NO_MUSIC
 	msgbox NewCoralgroveCity_Gym_Text_AaronPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -51,24 +41,14 @@ NewCoralgroveCity_Gym_EventScript_AaronDefeated::
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox NewCoralgroveCity_Gym_Text_StoneBadgeInfoTakeThis, MSGBOX_DEFAULT
-	setflag FLAG_DEFEATED_RUSTBORO_GYM
 	setflag FLAG_BADGE01_GET
-	setvar VAR_RUSTBORO_CITY_STATE, 1
-	setvar VAR_BADGES_OBTAINED, 1
 	setvar VAR_0x8008, 1
 	call Common_EventScript_SetGymTrainers
 	special RemoveCameraObject
-	goto NewCoralgroveCity_Gym_EventScript_GiveUTurn
-	end
-
-
-NewCoralgroveCity_Gym_EventScript_GiveUTurn::
 	giveitem ITEM_TM_U_TURN
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_TM_U_TURN
-	msgbox NewCoralgroveCity_Gym_Text_ExplainUTurn, MSGBOX_DEFAULT
+	msgbox NewCoralgroveCity_Gym_Text_ExplainUTurn
 	release
-	end
+	return
 
 
 NewCoralgroveCity_Gym_EventScript_Maniac::
@@ -108,37 +88,25 @@ NewCoralgroveCity_Gym_EventScript_BugCatcher3::
 
 
 NewCoralgroveCity_Gym_EventScript_GymGuide::
-	lock
-	faceplayer
-	goto_if_set FLAG_DEFEATED_RUSTBORO_GYM, NewCoralgroveCity_Gym_EventScript_GymGuidePostVictory
-	msgbox NewCoralgroveCity_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT
-	release
-	end
+	checktrainerflag TRAINER_LEADER_AARON
+	goto_if 1, NewCoralgroveCity_Gym_EventScript_GymGuide_1
+	msgbox NewCoralgroveCity_Gym_Text_GymGuideAdvice, MSGBOX_NPC
+	return
 
-
-NewCoralgroveCity_Gym_EventScript_GymGuidePostVictory::
-	msgbox NewCoralgroveCity_Gym_Text_GymGuidePostVictory, MSGBOX_DEFAULT
-	release
-	end
+NewCoralgroveCity_Gym_EventScript_GymGuide_1:
+	msgbox NewCoralgroveCity_Gym_Text_GymGuidePostVictory, MSGBOX_NPC
+	return
 
 
 NewCoralgroveCity_Gym_EventScript_Statue::
-	lockall
-	goto_if_set FLAG_BADGE01_GET, NewCoralgroveCity_Gym_EventScript_GymStatueCertified
-	goto NewCoralgroveCity_Gym_EventScript_GymStatue
-	end
+	checktrainerflag TRAINER_LEADER_AARON
+	goto_if 1, NewCoralgroveCity_Gym_EventScript_Statue_1
+	msgbox NewCoralgroveCity_Gym_Text_GymStatue, MSGBOX_SIGN
+	return
 
-
-NewCoralgroveCity_Gym_EventScript_GymStatueCertified::
-	msgbox NewCoralgroveCity_Gym_Text_GymStatueCertified, MSGBOX_DEFAULT
-	releaseall
-	end
-
-
-NewCoralgroveCity_Gym_EventScript_GymStatue::
-	msgbox NewCoralgroveCity_Gym_Text_GymStatue, MSGBOX_DEFAULT
-	releaseall
-	end
+NewCoralgroveCity_Gym_EventScript_Statue_1:
+	msgbox NewCoralgroveCity_Gym_Text_GymStatueCertified, MSGBOX_SIGN
+	return
 
 
 NewCoralgroveCity_Gym_Aaron_Talk_Text_0:

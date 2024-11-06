@@ -300,7 +300,8 @@ PokeRanch_MareepTrigger::
 	setobjectxy 19, 44, 8
 	showobjectat 19, MAP_POKE_RANCH
 	delay 50
-	goto_if_set FLAG_WW_ENDEVENT, PokeRanch_MareepTrigger_2
+	checktrainerflag TRAINER_SHELLY_SEAFLOOR_CAVERN
+	goto_if 1, PokeRanch_MareepTrigger_2
 	msgbox RanchGrunt2, MSGBOX_DEFAULT
 	waitmessage
 	closemessage

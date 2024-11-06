@@ -15,23 +15,29 @@ LoadBrendanHouse1F_1:
 
 
 Pearlwood_MaysHouse1F_RivalMom::
-	compare VAR_PEARLWOOD_TOWN_STATE, 3
+	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MET_RIVAL
 	goto_if_le Pearlwood_MaysHouse1F_RivalMom_1
+	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_BROTHER_FOUGHT
+	goto_if_ge Pearlwood_MaysHouse1F_RivalMom_2
 	msgbox Pearlwood_MaysHouse1F_RivalMom2, MSGBOX_NPC
 	return
 
 Pearlwood_MaysHouse1F_RivalMom_1:
 	checkplayergender
 	compare VAR_RESULT, MALE
-	goto_if_eq Pearlwood_MaysHouse1F_RivalMom_5
+	goto_if_eq Pearlwood_MaysHouse1F_RivalMom_7
 	bufferstring STR_VAR_1, Pearlwood_MaysHouse1F_RivalMom_Text_1
-Pearlwood_MaysHouse1F_RivalMom_4:
+Pearlwood_MaysHouse1F_RivalMom_6:
 	msgbox Pearlwood_MaysHouse1F_RivalMom1, MSGBOX_NPC
 	return
 
-Pearlwood_MaysHouse1F_RivalMom_5:
+Pearlwood_MaysHouse1F_RivalMom_2:
+	msgbox Pearlwood_MaysHouse1F_RivalMom3, MSGBOX_NPC
+	return
+
+Pearlwood_MaysHouse1F_RivalMom_7:
 	bufferstring STR_VAR_1, Pearlwood_MaysHouse1F_RivalMom_Text_0
-	goto Pearlwood_MaysHouse1F_RivalMom_4
+	goto Pearlwood_MaysHouse1F_RivalMom_6
 
 
 Pearlwood_MaysHouse1F_RivalMom_Text_0:
@@ -54,3 +60,11 @@ Pearlwood_MaysHouse1F_RivalMom2::
 	.string "{RIVAL} can't stay quietly at home.\p"
 	.string "Primrose Meadow is just past\n"
 	.string "the next town.$"
+
+Pearlwood_MaysHouse1F_RivalMom3::
+	.string "I think it's wonderful for people to\n"
+	.string "travel with Pokémon.\p"
+	.string "But you should go home every so often\n"
+	.string "to let your mother know you're okay.\p"
+	.string "She might not say it, but I'm sure she\n"
+	.string "worries about you, {PLAYER}.$"

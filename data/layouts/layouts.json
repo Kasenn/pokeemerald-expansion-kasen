@@ -5787,7 +5787,7 @@
       "width": 77,
       "height": 69,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_SandstoneCity",
+      "secondary_tileset": "gTileset_NewSandstoneCity",
       "border_filepath": "data/layouts/SandstoneCity/border.bin",
       "blockdata_filepath": "data/layouts/SandstoneCity/map.bin"
     },
@@ -6710,6 +6710,16 @@
       "secondary_tileset": "gTileset_Lab",
       "border_filepath": "data/layouts/Sandstone_LargeHouse3_4F/border.bin",
       "blockdata_filepath": "data/layouts/Sandstone_LargeHouse3_4F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSTONE_CITY_ALT",
+      "name": "SandstoneCityAlt_Layout",
+      "width": 77,
+      "height": 69,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_NewSandstoneCity",
+      "border_filepath": "data/layouts/SandstoneCityAlt/border.bin",
+      "blockdata_filepath": "data/layouts/SandstoneCityAlt/map.bin"
     }
   ]
 }

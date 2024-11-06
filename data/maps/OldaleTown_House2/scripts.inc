@@ -5,7 +5,7 @@ OldaleTown_House2_MapScripts::
 NotMyNectar::
 	lock
 	safefollow
-	applymovement 1, NectarUp
+	turnobject 1, DIR_NORTH
 	waitmovement 0
 	delay 10
 	msgbox NotMyNectar_Text, MSGBOX_NPC
@@ -19,13 +19,14 @@ NotMyNectar::
 
 
 NectarManiac::
-	compare VAR_NECTAR_MANIAC_HOUSE, 0
-	goto_if_eq NectarManiac_2
+	goto_if_unset FLAG_ORICORIO_SHOWN_TO_MANIAC, NectarManiac_2
 	msgbox NectarManiac_GoRightIn, MSGBOX_NPC
 	end
 
 NectarManiac_2:
-	msgbox NectarManiac_Text, MSGBOX_NPC
+	lock
+	faceplayer
+	msgbox NectarManiac_Text
 	specialvar VAR_RESULT, CheckOricorio
 	compare VAR_RESULT, TRUE
 	goto_if_eq NectarManiac_5
@@ -39,13 +40,9 @@ NectarManiac_5:
 	waitmovement 0
 	delay 48
 	msgbox NectarManiac_OricorioFound, MSGBOX_NPC
-	setvar VAR_NECTAR_MANIAC_HOUSE, 1
+	setflag FLAG_ORICORIO_SHOWN_TO_MANIAC
 	goto NectarManiac_4
 
-
-NectarUp:
-	face_up
-	step_end
 
 NectarManiac_OricorioFound::
 	.string "Oh? I can see you've caught one\nof those wretched birds!\pThis means you are someone I can trust\nnot to mess up my beautiful garden!\pPlease, enjoy its peace and\ntranquility to the fullest.$"

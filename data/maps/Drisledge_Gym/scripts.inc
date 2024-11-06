@@ -830,6 +830,7 @@ DrisledgeGym_AcerolaTalk_5:
 
 
 DrisledgeGym_AcerolaTrigger::
+	setvar VAR_TEMP_0, 4
 	call GymStartingMovement
 	checkplayergender
 	compare VAR_RESULT, MALE
@@ -859,7 +860,6 @@ Acerola_PosBatEvent_1:
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox Acerola_ExplainBadge, MSGBOX_DEFAULT
 	setflag FLAG_BADGE05_GET
-	addvar VAR_BADGES_OBTAINED, 1
 	giveitem ITEM_TM_SHADOW_CLAW
 	setvar VAR_DRISLEDGE_TOWN_STATE, 30
 	msgbox Explain_ShadowClaw, MSGBOX_DEFAULT

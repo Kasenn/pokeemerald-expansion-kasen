@@ -67,7 +67,7 @@ PetalburgCity_Gym_SetGymTrainers::
 	settrainerflag TRAINER_PARKER
 	settrainerflag TRAINER_GEORGE
 	settrainerflag TRAINER_BERKE
-	settrainerflag TRAINER_MARY
+	settrainerflag TRAINER_LEADER_VOLKNER
 	settrainerflag TRAINER_WPV_TR1_BIRDKEEPER
 	settrainerflag TRAINER_WPV_TR2_TRIATH
 	return

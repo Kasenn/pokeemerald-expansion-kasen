@@ -4,15 +4,16 @@ SandstoneCity_MapScripts::
 
 
 VisitedSandstone::
+	setflag FLAG_TEMP_1
 	setflag FLAG_VISITED_SANDSTONE_CITY
-	compare VAR_RIVAL_AROUND_SANDSTONE, 3
-	goto_if_eq VisitedSandstone_2
-VisitedSandstone_1:
-	end
+	checkitem ITEM_MEGA_RING
+	compare VAR_RESULT, FALSE
+	goto_if_eq VisitedSandstone_1
+	return
 
-VisitedSandstone_2:
-	setvar VAR_RIVAL_AROUND_SANDSTONE, 4
-	goto VisitedSandstone_1
+VisitedSandstone_1:
+	clearflag FLAG_OBTAINED_MEGA_RING
+	return
 
 
 Sandstone_Sign1::
@@ -129,134 +130,154 @@ Sandstone_Nerd::
 	end
 
 
+SandstoneRivalTrigger1::
+	setvar VAR_TEMP_1, 1
+	goto SandstoneRival
+	return
+
+
+SandstoneRivalTrigger2::
+	setvar VAR_TEMP_1, 2
+	goto SandstoneRival
+	return
+
+
+SandstoneRivalTrigger3::
+	setvar VAR_TEMP_1, 3
+	goto SandstoneRival
+	return
+
+
+SandstoneRivalTrigger4::
+	setvar VAR_TEMP_1, 4
+	goto SandstoneRival
+	return
+
+
 SandstoneRival::
-	compare VAR_RIVAL_AROUND_SANDSTONE, 4
-	goto_if_eq SandstoneRival_2
-	compare VAR_PEARLWOOD_TOWN_STATE, 10
-	goto_if_eq SandstoneRival_5
-	setflag FLAG_MAY_COSTUME_CHANGE
-	setflag FLAG_BRENDAN_COSTUME_CHANGE
+	setflag FLAG_RIVAL_COSTUME_CHANGE
 	call Common_EventScript_SetupRivalGfxId
 	lock
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	delay 5
 	opendoor 51, 22
+	compare VAR_TEMP_1, 1
+	goto_if_eq SandstoneRival_2
+SandstoneRival_1:
 	waitdooranim
 	addobject 13
-	applymovement OBJ_EVENT_ID_PLAYER, Sandstone_PushPlayerDown
-	applymovement 13, Sandstone_RivalExitStore
-	waitmovement 0
-	closedoor 51, 22
-	waitdooranim
+	switch VAR_TEMP_1
+	case 1, SandstoneRival_6
+	case 2, SandstoneRival_7
+	case 3, SandstoneRival_8
+	case 4, SandstoneRival_9
+SandstoneRival_4:
 	checkplayergender
-	copyvar VAR_TEMP_2, VAR_RESULT
-	compare VAR_TEMP_2, MALE
-	goto_if_eq SandstoneRival_8
+	compare VAR_RESULT, MALE
+	goto_if_eq SandstoneRival_11
 	msgbox RivalBrendanLikeOutfit, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
-	goto_if_eq SandstoneRival_14
-	goto_if_set FLAG_PC_CHANGE_COSTUME, SandstoneRival_30
-	msgbox LikeBrendansOutfit
-SandstoneRival_29:
-	compare VAR_RIVAL_AROUND_SANDSTONE, 0
-	goto_if_eq SandstoneRival_39
-SandstoneRival_7:
+	compare VAR_RESULT, TRUE
+	goto_if_eq SandstoneRival_22
+	msgbox DontLikeBrendansOutfit
+	clearflag FLAG_RIVAL_COSTUME_CHANGE
+SandstoneRival_10:
 	closemessage
-	applymovement OBJ_EVENT_ID_PLAYER, Sandstone_PlayerWatchRivalExit
-	applymovement 13, Sandstone_RivalExitAfterStore
-	waitmovement 0
+	switch VAR_TEMP_1
+	case 1, SandstoneRival_16
+	case 2, SandstoneRival_16
+	case 3, SandstoneRival_17
+	case 4, SandstoneRival_18
+SandstoneRival_14:
+	waitmovement 13
 	removeobject 13
-	setvar VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 3
+	removeobject 14
+	removeobject 15
 	release
 	end
 
 SandstoneRival_2:
-	release
-	end
+	delay 10
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	goto SandstoneRival_1
 
-SandstoneRival_5:
-	release
-	end
+SandstoneRival_6:
+	applymovement OBJ_EVENT_ID_PLAYER, Sandstone_PushPlayerDown
+	applymovement 13, Walk1Down
+	waitmovement 0
+	closedoor 51, 22
+	waitdooranim
+	goto SandstoneRival_4
+
+SandstoneRival_7:
+	safefollow
+	applymovement 13, Walk1Down
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	waitmovement 0
+	closedoor 51, 22
+	waitdooranim
+	goto SandstoneRival_4
 
 SandstoneRival_8:
-	msgbox RivalMayLikeOutfit, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
-	goto_if_eq SandstoneRival_11
-	goto_if_set FLAG_PC_CHANGE_COSTUME, SandstoneRival_22
-	msgbox LikeMaysOutfit
-SandstoneRival_21:
-	compare VAR_RIVAL_AROUND_SANDSTONE, 0
-	goto_if_eq SandstoneRival_35
-	goto SandstoneRival_7
+	safefollow
+	applymovement 13, Walk1Down
+	waitmovement 0
+	closedoor 51, 22
+	waitdooranim
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	applymovement 13, Walk1Down
+	waitmovement 0
+	goto SandstoneRival_4
+
+SandstoneRival_9:
+	safefollow
+	applymovement 13, Walk1Down
+	waitmovement 0
+	closedoor 51, 22
+	waitdooranim
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	applymovement 13, Walk2Down
+	waitmovement 0
+	goto SandstoneRival_4
 
 SandstoneRival_11:
-	goto_if_set FLAG_PC_CHANGE_COSTUME, SandstoneRival_18
+	msgbox RivalMayLikeOutfit, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
+	goto_if_eq SandstoneRival_19
 	msgbox DontLikeMaysOutfit
-SandstoneRival_17:
-	clearflag FLAG_MAY_COSTUME_CHANGE
-	clearflag FLAG_BRENDAN_COSTUME_CHANGE
-	compare VAR_RIVAL_AROUND_SANDSTONE, 0
-	goto_if_eq SandstoneRival_33
-	goto SandstoneRival_7
+	clearflag FLAG_RIVAL_COSTUME_CHANGE
+	goto SandstoneRival_10
 
-SandstoneRival_14:
-	goto_if_set FLAG_PC_CHANGE_COSTUME, SandstoneRival_26
-	msgbox DontLikeBrendansOutfit
-SandstoneRival_25:
-	clearflag FLAG_MAY_COSTUME_CHANGE
-	clearflag FLAG_BRENDAN_COSTUME_CHANGE
-	compare VAR_RIVAL_AROUND_SANDSTONE, 0
-	goto_if_eq SandstoneRival_37
-	goto SandstoneRival_7
+SandstoneRival_16:
+	applymovement 13, Sandstone_RivalExitAfterStore
+	delay 32
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	goto SandstoneRival_14
+
+SandstoneRival_17:
+	applymovement 13, Sandstone_RivalExitAfterStore2
+	delay 16
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	goto SandstoneRival_14
 
 SandstoneRival_18:
-	msgbox DontLikeMaysOutfitV2
-	goto SandstoneRival_17
+	applymovement 13, Walk8Left
+	delay 16
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	goto SandstoneRival_14
+
+SandstoneRival_19:
+	msgbox LikeMaysOutfit
+	goto SandstoneRival_10
 
 SandstoneRival_22:
-	msgbox LikeMaysOutfitV2
-	goto SandstoneRival_21
-
-SandstoneRival_26:
-	msgbox DontLikeBrendansOutfitV2
-	goto SandstoneRival_25
-
-SandstoneRival_30:
-	msgbox LikeBrendansOutfitV2
-	goto SandstoneRival_29
-
-SandstoneRival_33:
-	setvar VAR_RIVAL_AROUND_SANDSTONE, 2
-	goto SandstoneRival_7
-
-SandstoneRival_35:
-	setvar VAR_RIVAL_AROUND_SANDSTONE, 1
-	goto SandstoneRival_7
-
-SandstoneRival_37:
-	setvar VAR_RIVAL_AROUND_SANDSTONE, 2
-	goto SandstoneRival_7
-
-SandstoneRival_39:
-	setvar VAR_RIVAL_AROUND_SANDSTONE, 1
-	goto SandstoneRival_7
+	msgbox LikeBrendansOutfit
+	goto SandstoneRival_10
 
 
 Sandstone_PushPlayerDown:
 	lock_facing_direction
 	walk_down
 	unlock_facing_direction
-	step_end
-
-Sandstone_PlayerWatchRivalExit:
-	delay_16
-	delay_16
-	walk_in_place_faster_left
-	step_end
-
-Sandstone_RivalExitStore:
 	delay_8
-	walk_down
 	step_end
 
 Sandstone_RivalExitAfterStore:
@@ -271,6 +292,25 @@ Sandstone_RivalExitAfterStore:
 	walk_left
 	walk_left
 	step_end
+
+Sandstone_RivalExitAfterStore2:
+	walk_left
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+SandstoneCity_BunearyGirl::
+	lock
+	msgbox SandstoneCity_BunearyGirl_Text
+	release
+	return
+
 
 Sandstone_Sign1_Text::
 	.string "SANDSTONE CITY\n"
@@ -431,41 +471,7 @@ LikeBrendansOutfit::
 	.string "…Anyway, I need to get going now.\p"
 	.string "See you again soon!$"
 
-DontLikeMaysOutfitV2::
-	.string "{RIVAL}: Oh… But I thought it was cute…\p"
-	.string "No, you know what? It IS cute!\n"
-	.string "You just don't understand fashion!\p"
-	.string "Maybe you should think about\n"
-	.string "switching that get-up of yours\l"
-	.string "as well sometimes--\p"
-	.string "…Oh wait, you already have…\p"
-	.string "Well, whatever!$"
-
-LikeMaysOutfitV2::
-	.string "{RIVAL}: I knew you'd like it!\p"
-	.string "I see your sense of fashion\n"
-	.string "isn't completely outdated.\p"
-	.string "…Oh wait, I see you've already\n"
-	.string "got some fancy new style!\p"
-	.string "And here I thought I got to\n"
-	.string "surprise you first.\p"
-	.string "…Anyway, I need to get going now!\p"
-	.string "See you!$"
-
-DontLikeBrendansOutfitV2::
-	.string "{RIVAL}: Oh… I thought you'd agree…\p"
-	.string "Um, I think your outfit looks\n"
-	.string "good on you though…\p"
-	.string "…Anyway, I need to get going.\p"
-	.string "See you…$"
-
-LikeBrendansOutfitV2::
-	.string "{RIVAL}: Thanks! Guess my sense of\n"
-	.string "fashion isn't completely outdated\l"
-	.string "after all!\p"
-	.string "Looks like you've already found\n"
-	.string "the new clothing store.\p"
-	.string "I have to say, that outfit of yours\n"
-	.string "looks good too!\p"
-	.string "…Anyway, I need to get going now.\p"
-	.string "See you again soon!$"
+SandstoneCity_BunearyGirl_Text::
+	.string "I know you don't like going to\n"
+	.string "the Pokémon Center, but we really\l"
+	.string "need to get that injury healed.$"

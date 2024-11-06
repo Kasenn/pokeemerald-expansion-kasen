@@ -98,16 +98,16 @@
 #define VAR_PEARLWOOD_TOWN_STATE                         0x404E // PEARLWOOD, 1ST TOWN
 #define VAR_LOTAD_SIZE_RECORD                            0x404F
 #define VAR_LITTLEROOT_TOWN_STATE                        0x4050
-#define VAR_OLDALE_TOWN_STATE                            0x4051
-#define VAR_NECTAR_MANIAC_HOUSE                          0x4052 // USED TO CONTROL THE BACKDOOR TO PRIMROSE TOWN NECTAR MANIAC'S HOUSE
+#define VAR_UNUSED_0x4051                            0x4051
+#define VAR_UNUSED_0x4052                          0x4052 // USED TO CONTROL THE BACKDOOR TO PRIMROSE TOWN NECTAR MANIAC'S HOUSE
 #define VAR_LAVARIDGE_TOWN_STATE                         0x4053
 #define VAR_CURRENT_SECRET_BASE                          0x4054 // was probably allocated for VAR_FALLARBOR_TOWN_STATE at one point
 #define VAR_WINDYWOODS_STATE                        0x4055 // Used for Windy Woods events
-#define VAR_CORALGROVE_STATE                        0x4056 // Used for Coralgrove City events
+#define VAR_UNUSED_0x4056                        0x4056 // Used for Coralgrove City events
 #define VAR_PETALBURG_CITY_STATE                         0x4057
 #define VAR_SLATEPORT_CITY_STATE                         0x4058
-#define VAR_CORALGROVE_ELEVATOR                          0x4059
-#define VAR_RUSTBORO_CITY_STATE                          0x405A
+#define VAR_MAIN_STORY_BITS                          0x4059
+#define VAR_UNUSED_0x405A                          0x405A
 #define VAR_WIND_SPEED                           0x405B // used to set the wind speed
 #define VAR_DESERT_BYPASS                          0x405C // used to deal with triggers around desert
 #define VAR_MOSSDEEP_CITY_STATE                          0x405D
@@ -142,7 +142,7 @@
 #define VAR_TOWER_PARTNER                               0x407A // 
 #define VAR_ROUTE128_STATE                               0x407B
 #define VAR_RANCH_AMPHAROS                               0x407C //
-#define VAR_RIVAL_AROUND_SANDSTONE                               0x407D
+#define VAR_UNUSED_0x407D                              0x407D
 #define VAR_MUD_REWARD_1                                 0x407E // MUD REWARD
 #define VAR_MUD_REWARD_2                                 0x407F // MUD REWARD
 #define VAR_MUD_REWARD_3                                 0x4080 // MUD REWARD
@@ -156,7 +156,7 @@
 #define VAR_CONTEST_TYPE                                 0x4088
 #define VAR_SECRET_BASE_INITIALIZED                      0x4089
 #define VAR_CONTEST_PRIZE_PICKUP                         0x408A
-#define VAR_BADGES_OBTAINED                                0x408B 
+#define VAR_UNUSED_0x408B                                0x408B 
 #define VAR_LITTLEROOT_HOUSES_STATE_BRENDAN              0x408C
 #define VAR_LITTLEROOT_RIVAL_STATE                       0x408D
 #define VAR_BOARD_BRINEY_BOAT_STATE                      0x408E
@@ -222,7 +222,7 @@
 #define VAR_SKY_PILLAR_STATE                             0x40CA
 #define VAR_MIRAGE_TOWER_STATE                           0x40CB
 #define VAR_FOSSIL_MANIAC_STATE                          0x40CC
-#define VAR_CABLE_CLUB_TUTORIAL_STATE                    0x40CD
+#define VAR_UNUSED_0x40CD                    0x40CD
 #define VAR_FRONTIER_BATTLE_MODE                         0x40CE
 #define VAR_FRONTIER_FACILITY                            0x40CF
 #define VAR_HAS_ENTERED_BATTLE_FRONTIER                  0x40D0 // Var is used like a flag.

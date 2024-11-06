@@ -1,24 +1,29 @@
 mapscripts PlayerHouse1F_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION: PH1FClearFlag
-    MAP_SCRIPT_ON_FRAME_TABLE [
-        VAR_PEARLWOOD_TOWN_STATE, 1: PlayerHouse1F_MomIntro
+    MAP_SCRIPT_ON_TRANSITION {
+        if(checkplayergender == FEMALE){
+            setmaplayoutindex(LAYOUT_PLAYER_HOUSE1F_MAY)
+        }
+        if(var(VAR_PEARLWOOD_TOWN_STATE) >= STORY_PEARLWOOD_MEGA_EVENT_COMPLETED){
+            setflag(FLAG_SPOKEN_TO_MOM_AFTER_MEGA_RING)
+        }
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_INTRO_COMPLETED: PlayerHouse1F_Intro
     ]
 }
 
-script PlayerHouse1F_MomIntro{
+const MOM = 1
+
+script PlayerHouse1F_Intro{
     lock
-    turnobject(1, DIR_NORTH)
+    turnobject(MOM, DIR_NORTH)
     playse(SE_PIN)
-    applymovement(1, Common_Movement_ExclamationMark)
+    applymovement(MOM, Common_Movement_ExclamationMark)
     waitmovement(0)
     delay(48)
-    // msgbox(PlayerHouse1F_LookPlayer)
-    // closemessage
-    // delay(30)
-    // call(IntroNameBrother)
     msgbox(PlayerHouse1F_LookPlayer)
     closemessage
-    turnobject(1, DIR_WEST)
+    turnobject(MOM, DIR_WEST)
     applymovement(OBJ_EVENT_ID_PLAYER, PlayerHouse1F_PlayerSitTable)
     waitmovement(0)
     delay(20)
@@ -30,63 +35,31 @@ script PlayerHouse1F_MomIntro{
     msgbox(PlayerHouse1F_Disc2)
     closemessage
     playse(SE_PIN)
-    applymovement(1, Common_Movement_ExclamationMark)
+    applymovement(MOM, Common_Movement_ExclamationMark)
     waitmovement(0)
     delay(48)
-    turnobject(1, DIR_SOUTH)
+    turnobject(MOM, DIR_SOUTH)
     turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
     msgbox(PlayerHouse1F_Disc3)
     closemessage
-    setflag(FLAG_BROTHER_PEARLFIGHT)
-    setvar(VAR_PEARLWOOD_TOWN_STATE, 2)
-    call(Player1F_Shoes)
-    turnobject(1, DIR_WEST)
-    release
-}
-
-// script IntroNameBrother{
-//     fadescreen(FADE_TO_BLACK)
-//     special(NameBrother)
-//     waitstate
-//     msgbox(SoItsBrother, MSGBOX_YESNO)
-//     if(var(VAR_RESULT) == FALSE){
-//         goto(BrotherLoop)
-//     }
-//     closemessage
-//     return
-// }
-// text SoItsBrother{
-//     "So it's {BROTHER}?"
-// }
-// script BrotherLoop{
-//     goto(IntroNameBrother)
-// }
-
-script Player1F_Shoes{
     msgbox("Oh, and one more thing.")
     playfanfare(MUS_OBTAIN_ITEM)
     message("{COLOR RED}{SHADOW LIGHT_RED}Obtained the running shoes!")
     waitfanfare
     waitmessage
     setflag(FLAG_SYS_B_DASH)
-    setflag(FLAG_RECEIVED_RUNNING_SHOES)
+    setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_RECEIVED_RUNNING_SHOES)
     msgbox("Mom: Now you can zip around everywhere\nmuch faster!")
     closemessage
     delay(30)
+    turnobject(MOM, DIR_WEST)
+    release
 }
 
 text PlayerHouse1F_LookPlayer{
     "Mom: Look, {PLAYER}!\n"
     "Your brother is back from his trip!\p"
     "Come, come sit by the table!"
-}
-text PlayerHouse1F_LookPlayer2{
-    "Mom: Come, come sit by the table!"
-}
-
-movement PlayerHouse1F_PlayerSitTable{
-    walk_down * 4
-    walk_left * 3
 }
 
 text PlayerHouse1F_Disc1{
@@ -122,8 +95,9 @@ text PlayerHouse1F_Disc3{
     "northwest from here."
 }
 
-text PlayerHouse1F_BrotherGossip{
-    "{BROTHER}: Go get 'em, champ!"
+movement PlayerHouse1F_PlayerSitTable{
+    walk_down * 4
+    walk_left * 3
 }
 
 script PlayerHouse1F_Brother{
@@ -131,35 +105,35 @@ script PlayerHouse1F_Brother{
     turnobject(2, DIR_EAST)
 }
 
+text PlayerHouse1F_BrotherGossip{
+    "{BROTHER}: Go get 'em, champ!"
+}
+
 script PlayerHouse1F_Mom{
-    lockall
-    faceplayer
-    if((var(VAR_PEARLWOOD_TOWN_STATE) >= 15)
-    && (!flag(FLAG_RECEIVED_CAPSULE))){
-        msgbox(DadLeftAGift, MSGBOX_NPC)
-        setflag(FLAG_DAD_INTRO)
-        setflag(FLAG_RECEIVED_CAPSULE)
-        clearflag(FLAG_DAD_GIFT)
-        end
-    }
-    elif(var(VAR_PEARLWOOD_TOWN_STATE) == 2){
+    if(var(VAR_PEARLWOOD_TOWN_STATE) == STORY_PEARLWOOD_RECEIVED_RUNNING_SHOES){
         msgbox(MomSeeYou, MSGBOX_NPC)
         turnobject(1, DIR_WEST)
     }
-    elif(var(VAR_PEARLWOOD_TOWN_STATE) == 6){
+    elif(var(VAR_PEARLWOOD_TOWN_STATE) == STORY_PEARLWOOD_BROTHER_FOUGHT){
         msgbox(PlayerHouse1F_MomGoodbye_Text, MSGBOX_NPC)
-        setvar(VAR_PEARLWOOD_TOWN_STATE, 7)
-        turnobject(1, DIR_WEST)
+        setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_GIVEN_GOODBYE_TO_MOM)
+    }
+    elif(var(VAR_PEARLWOOD_TOWN_STATE) >= STORY_PEARLWOOD_MEGA_RING_OBTAINED
+    && !flag(FLAG_SPOKEN_TO_MOM_AFTER_MEGA_RING)){
+        setflag(FLAG_SPOKEN_TO_MOM_AFTER_MEGA_RING)
+        if(!flag(FLAG_RECEIVED_CAPSULE)){
+            if(flag(FLAG_HIDE_PLAYERS_HOUSE_DAD)){
+                msgbox(DadLeftAGift, MSGBOX_NPC)
+            }
+            else{
+                msgbox(MomLookWhosBack, MSGBOX_NPC)
+            }
+        }
+        else{
+            goto(PlayersHouse_1F_EventScript_MomHealsParty)
+        }
     }
     else{
-        if(var(VAR_PEARLWOOD_TOWN_STATE) >= 10){
-            if(flag(FLAG_DAD_INTRO)){
-                goto(PlayersHouse_1F_EventScript_MomHealsParty)
-            }
-            msgbox(MomLookWhosBack, MSGBOX_NPC)
-            setflag(FLAG_DAD_INTRO)
-            end
-        }
         goto(PlayersHouse_1F_EventScript_MomHealsParty)
     }
 }
@@ -180,38 +154,26 @@ text PlayerHouse1F_MomGoodbye_Text{
     "If your Pokémon ever get hurt,\n"
     "come see me and I'll help patch them up."
 }
-
-script PH1FClearFlag{
-    checkplayergender
-    if(var(VAR_RESULT) == FEMALE){
-        setmaplayoutindex(LAYOUT_PLAYER_HOUSE1F_MAY)
-    }
-    if(var(VAR_PEARLWOOD_TOWN_STATE) >= 10){
-        clearflag(FLAG_HIDE_PLAYERS_HOUSE_DAD)
-    }
-    if(var(VAR_PEARLWOOD_TOWN_STATE) >= 15){
-        setflag(FLAG_HIDE_PLAYERS_HOUSE_DAD)
-    }
-    if(var(VAR_PEARLWOOD_TOWN_STATE) >= 20){
-        setflag(FLAG_DAD_INTRO)
-    }
-    end
+text MomLookWhosBack{
+    "Mom: Oh, great timing, honey!\n"
+    "Look who's back home!"
 }
-
-script WooperDoll{
-    msgbox("It's a Wooper doll.", MSGBOX_SIGN)
-}
-script AzurillDoll{
-    msgbox("It's an Azurill doll.", MSGBOX_SIGN)
+text DadLeftAGift{
+    "Mom: Oh, hi honey!\p"
+    "It's a shame you two just missed each\n"
+    "other, but dad came to visit while\l"
+    "you were away!\p"
+    "I believe he left a gift for you in\n"
+    "your room. You should go have a look!"
 }
 
 script PlayerHouse1F_Dad{
-    lock
-    faceplayer
     if(flag(FLAG_RECEIVED_CAPSULE)){
         msgbox(WhereBrother, MSGBOX_NPC)
         end
     }
+    lock
+    faceplayer
     if(flag(FLAG_TEMP_5)){
         msgbox(GiftFromDadShort)
     }
@@ -219,8 +181,7 @@ script PlayerHouse1F_Dad{
         msgbox(GiftFromDad)
     }
     closemessage
-    checkitemspace(ITEM_ABILITY_CAPSULE)
-    if(var(VAR_RESULT) == FALSE){
+    if(checkitemspace(ITEM_ABILITY_CAPSULE) == FALSE){
         msgbox(NotEnoughRoom, MSGBOX_NPC)
         setflag(FLAG_TEMP_5)
         end
@@ -229,8 +190,8 @@ script PlayerHouse1F_Dad{
     waitse
     msgbox(ExplainCapsule, MSGBOX_NPC)
     setflag(FLAG_RECEIVED_CAPSULE)
-    if(var(VAR_PEARLWOOD_TOWN_STATE) == 12){
-        setvar(VAR_PEARLWOOD_TOWN_STATE, 13)
+    if(var(VAR_PEARLWOOD_TOWN_STATE) == STORY_PEARLWOOD_MEGA_STONE_OBTAINED){
+        setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED)
     }
     end
 }
@@ -276,16 +237,4 @@ text WhereBrother{
     "However, as a parent, I do still feel\n"
     "a bit anxious knowing you two are\l"
     "out there, traveling the world."
-}
-text MomLookWhosBack{
-    "Mom: Oh, great timing, honey!\n"
-    "Look who's back home!"
-}
-text DadLeftAGift{
-    "Mom: Oh, hi honey!\p"
-    "It's a shame you two just missed each\n"
-    "other, but dad came to visit while\l"
-    "you were away!\p"
-    "I believe he left a gift for you in\n"
-    "your room. You should go have a look!"
 }

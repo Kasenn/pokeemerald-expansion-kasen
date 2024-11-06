@@ -6,12 +6,12 @@ Common_EventScript_SetupRivalGfxId::
 
 EventScript_SetupRivalGfxIdFemale::
 	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL
-	goto_if_set FLAG_MAY_COSTUME_CHANGE, EventScript_SetupRivalGfxIdFemaleOras
+	goto_if_set FLAG_RIVAL_COSTUME_CHANGE, EventScript_SetupRivalGfxIdFemaleOras
 	return
 
 EventScript_SetupRivalGfxIdMale::
 	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL
-	goto_if_set FLAG_BRENDAN_COSTUME_CHANGE, EventScript_SetupRivalGfxIdMaleOras
+	goto_if_set FLAG_RIVAL_COSTUME_CHANGE, EventScript_SetupRivalGfxIdMaleOras
 	return
 
 EventScript_SetupRivalGfxIdMaleOras::
@@ -30,12 +30,12 @@ Common_EventScript_SetupRivalOnBikeGfxId::
 
 EventScript_SetupRivalOnBikeGfxIdFemale::
 	setvar VAR_OBJ_GFX_ID_3, OBJ_EVENT_GFX_RIVAL_MAY_MACH_BIKE
-	goto_if_set FLAG_MAY_COSTUME_CHANGE, EventScript_SetupRivalOnBikeGfxIdFemaleOras
+	goto_if_set FLAG_RIVAL_COSTUME_CHANGE, EventScript_SetupRivalOnBikeGfxIdFemaleOras
 	return
 
 EventScript_SetupRivalOnBikeGfxIdMale::
 	setvar VAR_OBJ_GFX_ID_3, OBJ_EVENT_GFX_RIVAL_BRENDAN_MACH_BIKE
-	goto_if_set FLAG_BRENDAN_COSTUME_CHANGE, EventScript_SetupRivalOnBikeGfxIdMaleOras
+	goto_if_set FLAG_RIVAL_COSTUME_CHANGE, EventScript_SetupRivalOnBikeGfxIdMaleOras
 	return
 
 EventScript_SetupRivalOnBikeGfxIdMaleOras::

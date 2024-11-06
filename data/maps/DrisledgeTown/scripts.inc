@@ -552,7 +552,7 @@ AcerolaDanceTriggerMain::
 	goto_if_eq AcerolaDanceTriggerMain_5
 	lock
 	safefollow
-	applymovement 6, WW_Face
+	applymovement 6, FacePlayer
 	waitmovement 0
 	playse SE_PIN
 	applymovement 6, ExclamationMark

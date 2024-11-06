@@ -166,7 +166,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_0x267_CG_HIDEGHOST"
+      "flag": "FLAG_TEMP_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
@@ -307,8 +307,8 @@
       "x": 45,
       "y": 31,
       "elevation": 0,
-      "var": "VAR_CORALGROVE_STATE",
-      "var_value": "3",
+      "var": "FLAG_TEMP_1",
+      "var_value": "0",
       "script": "CoralHideGhost"
     },
     {
@@ -316,8 +316,8 @@
       "x": 41,
       "y": 32,
       "elevation": 0,
-      "var": "VAR_CORALGROVE_STATE",
-      "var_value": "2",
+      "var": "FLAG_TEMP_2",
+      "var_value": "1",
       "script": "CoralShowGhost"
     },
     {
@@ -325,8 +325,8 @@
       "x": 44,
       "y": 31,
       "elevation": 0,
-      "var": "VAR_CORALGROVE_STATE",
-      "var_value": "3",
+      "var": "FLAG_TEMP_1",
+      "var_value": "0",
       "script": "CoralHideGhost"
     },
     {
@@ -334,8 +334,8 @@
       "x": 36,
       "y": 31,
       "elevation": 0,
-      "var": "VAR_CORALGROVE_STATE",
-      "var_value": "1",
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
       "script": "CoralHideGhost2"
     },
     {
@@ -343,7 +343,7 @@
       "x": 22,
       "y": 7,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "FLAG_CORALGROVE_CUTSCENE",
       "var_value": "0",
       "script": "Coralgrove_LeftBirds"
     },
@@ -352,7 +352,7 @@
       "x": 24,
       "y": 7,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "FLAG_CORALGROVE_CUTSCENE",
       "var_value": "0",
       "script": "Coralgrove_RightBirds"
     }

@@ -6,13 +6,20 @@ Sandstone_Pokecenter_1F_MapScripts::
 Sandstone_Pokecenter_1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 	map_script_2 VAR_DEBUG, 8, AutomaticUpdate
 	map_script_2 VAR_DEBUG, 9, AutomaticUpdate2
+	map_script_2 VAR_DEBUG, 10, AutomaticUpdate3
 	.2byte 0
 
 
 SandstonePokeCenter1F_OnTransition::
+	goto_if_unset FLAG_RIVAL_MET_IN_SANDSTONE, SandstonePokeCenter1F_OnTransition_2
+SandstonePokeCenter1F_OnTransition_1:
 	setrespawn HEAL_LOCATION_SANDSTONE_CITY
 	call Common_EventScript_UpdateBrineyLocation
 	end
+
+SandstonePokeCenter1F_OnTransition_2:
+	setflag FLAG_TEMP_1
+	goto SandstonePokeCenter1F_OnTransition_1
 
 
 SandstonePokeCenter1F_EventScript_Nurse::
@@ -22,6 +29,24 @@ SandstonePokeCenter1F_EventScript_Nurse::
 	waitbuttonpress
 	release
 	end
+
+
+SandstoneCityPC_BunearyGirl::
+	lock
+	msgbox SandstoneCityPC_BunearyGirl_Text
+	release
+	return
+
+
+SandstoneCityPC_Buneary::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_BUNEARY, CRY_MODE_NORMAL
+	msgbox SandstoneCityPC_Buneary_Text_0, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	return
 
 
 SandstonePokeCenter1F_Youngster::
@@ -172,6 +197,13 @@ ReceivedMegaMonFanfare::
 	waitfanfare
 	return
 
+
+SandstoneCityPC_Buneary_Text_0:
+	.string "Bi-bih!$"
+
+SandstoneCityPC_BunearyGirl_Text::
+	.string "There we go.\n"
+	.string "Now that wasn't so bad, was it?$"
 
 SandstonePokeCenter1F_Youngster_Text::
 	.string "I recently took one of my Pokémon back\n"

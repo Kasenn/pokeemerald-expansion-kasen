@@ -1,5 +1,5 @@
 Std_MsgboxNPC:
-	lockall
+	lock
 	faceplayer
 	message NULL
 	waitmessage

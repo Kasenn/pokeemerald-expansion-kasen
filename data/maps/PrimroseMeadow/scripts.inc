@@ -28,7 +28,7 @@ PrimroseMeadow_EventScript_Rival_19:
 PrimroseMeadow_EventScript_Rival_5:
 	closemessage
 	safefollow
-	setvar VAR_PEARLWOOD_TOWN_STATE, 8
+	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_RIVAL_FOUGHT_IN_MEADOW
 	switch VAR_FACING
 	case DIR_SOUTH, PrimroseMeadow_EventScript_Rival_11
 	case DIR_NORTH, PrimroseMeadow_EventScript_Rival_12

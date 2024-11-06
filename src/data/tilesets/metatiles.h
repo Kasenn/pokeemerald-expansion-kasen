@@ -291,3 +291,6 @@ const u16 gMetatileAttributes_PokemonWorldTournament[] = INCBIN_U16("data/tilese
 
 const u16 gMetatiles_PWT[] = INCBIN_U16("data/tilesets/secondary/pwt/metatiles.bin");
 const u16 gMetatileAttributes_PWT[] = INCBIN_U16("data/tilesets/secondary/pwt/metatile_attributes.bin");
+
+const u16 gMetatiles_NewSandstoneCity[] = INCBIN_U16("data/tilesets/secondary/new_sandstone_city/metatiles.bin");
+const u16 gMetatileAttributes_NewSandstoneCity[] = INCBIN_U16("data/tilesets/secondary/new_sandstone_city/metatile_attributes.bin");

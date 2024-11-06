@@ -4,31 +4,24 @@ mapscripts LostGlade_MapScripts{
 
 script GladeLandmark{
     setflag(FLAG_LANDMARK_LOST_GLADE)
-    end
 }
 
 script LostGladeShrine{
-    msgbox("A forgotten shrine for some\nforgotten deity.", MSGBOX_SIGN)
-    end
+    msgbox("A forgotten shrine for some\nforgotten deity.\pIt looks like there's a slot for\nsome kind of object here.", MSGBOX_SIGN)
 }
 
 script LostGladeCamper{
     if(flag(FLAG_GLADE_PUZZLE)){
-        msgbox("You've been to the large puddle\nas well, haven't you?\pThere must be some clue to breaking\nthe curse on this place.", MSGBOX_NPC)
-        end
+        msgbox("You've been to the large puddle\nas well, haven't you?\pIt seems to appear any time I get\ncompletely lost, almost as if\lguiding me back to the start.\pThere must be some clue to breaking\nthe curse on this place.", MSGBOX_NPC)
     }
     else{
         msgbox("This place is weird.\pNo matter which direction I go,\nI seem to always end up back here.", MSGBOX_NPC)
-        end
     }
 }
 
 script LostGladeFlag{
     if(!flag(FLAG_GLADE_PUZZLE)){
         setflag(FLAG_GLADE_PUZZLE)
-        setvar(VAR_OLDALE_TOWN_STATE, 2)
-        releaseall
-        end
     }
     releaseall
     end

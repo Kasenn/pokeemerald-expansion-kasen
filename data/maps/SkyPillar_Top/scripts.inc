@@ -4,14 +4,22 @@ SkyPillar_Top_MapScripts::
 
 
 AT_Top::
-	goto_if_unset FLAG_OBTAINED_MEGA_RING, AT_Top_2
+	checkitem ITEM_MEGA_RING
+	compare VAR_RESULT, TRUE
+	goto_if_eq AT_Top_2
 AT_Top_1:
+	goto_if_unset FLAG_OBTAINED_MEGA_RING, AT_Top_5
+AT_Top_4:
 	setvar VAR_TEMP_6, 1
 	end
 
 AT_Top_2:
-	setflag FLAG_TEMP_HIDE_FOLLOWER
+	setflag FLAG_TEMP_1
 	goto AT_Top_1
+
+AT_Top_5:
+	setflag FLAG_TEMP_HIDE_FOLLOWER
+	goto AT_Top_4
 
 
 AT_Pedestal::
@@ -66,7 +74,7 @@ AT_TopEvent::
 	case 6, AT_TopEvent_8
 AT_TopEvent_1:
 	waitmovement OBJ_EVENT_ID_PLAYER
-	waitmovement OBJ_EVENT_ID_FOLLOWER
+	waitmovement OBJ_EVENT_ID_FOLLOW_ME
 	delay 30
 	applymovement 2, TurnKorrina
 	waitmovement 0
@@ -80,6 +88,7 @@ AT_TopEvent_1:
 	waitmovement 0
 	delay 15
 	giveitem ITEM_MEGA_RING
+	setflag FLAG_TEMP_1
 	waitfanfare
 	closemessage
 	delay 48
@@ -93,7 +102,7 @@ AT_TopEvent_1:
 	removeobject 2
 	fadescreen FADE_FROM_BLACK
 	delay 48
-	applymovement OBJ_EVENT_ID_FOLLOWER, Walk1Left
+	applymovement OBJ_EVENT_ID_FOLLOW_ME, Walk1Left
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	checkplayergender
@@ -109,7 +118,7 @@ AT_TopEvent_13:
 	goto_if_eq AT_TopEvent_17
 AT_TopEvent_16:
 	delay 10
-	applymovement OBJ_EVENT_ID_FOLLOWER, Common_Movement_WalkInPlaceFasterDown
+	applymovement OBJ_EVENT_ID_FOLLOW_ME, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
 	delay 50
 	setfieldeffectargument 0, 1
@@ -118,9 +127,10 @@ AT_TopEvent_16:
 	destroyfollower
 	waitfieldeffect FLDEFF_NPCFLY_OUT
 	delay 30
-	setvar VAR_RIVAL_AROUND_SANDSTONE, 5
-	setvar VAR_PEARLWOOD_TOWN_STATE, 10
+	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_RING_OBTAINED
 	clearflag FLAG_KORRINA_LEAVESGYM
+	clearflag FLAG_HIDE_PLAYERS_HOUSE_DAD
+	clearflag FLAG_HIDE_LAB_RIVAL
 	setflag FLAG_HIDE_LIBRARY_BIRCH
 	clearflag FLAG_PARTNER_HEALS
 	settrainerflag TRAINER_AT_2F_TR2_MAN3
@@ -145,32 +155,32 @@ AT_TopEvent_16:
 
 AT_TopEvent_3:
 	applymovement OBJ_EVENT_ID_PLAYER, AT_Top_Movement1
-	applymovement OBJ_EVENT_ID_FOLLOWER, AT_Top_Movement1Follower
+	applymovement OBJ_EVENT_ID_FOLLOW_ME, AT_Top_Movement1Follower
 	goto AT_TopEvent_1
 
 AT_TopEvent_4:
 	applymovement OBJ_EVENT_ID_PLAYER, AT_Top_Movement2
-	applymovement OBJ_EVENT_ID_FOLLOWER, AT_Top_Movement2Follower
+	applymovement OBJ_EVENT_ID_FOLLOW_ME, AT_Top_Movement2Follower
 	goto AT_TopEvent_1
 
 AT_TopEvent_5:
 	applymovement OBJ_EVENT_ID_PLAYER, Walk2Up
-	applymovement OBJ_EVENT_ID_FOLLOWER, AT_Top_Movement3Follower
+	applymovement OBJ_EVENT_ID_FOLLOW_ME, AT_Top_Movement3Follower
 	goto AT_TopEvent_1
 
 AT_TopEvent_6:
 	applymovement OBJ_EVENT_ID_PLAYER, AT_Top_Movement4
-	applymovement OBJ_EVENT_ID_FOLLOWER, AT_Top_Movement4Follower
+	applymovement OBJ_EVENT_ID_FOLLOW_ME, AT_Top_Movement4Follower
 	goto AT_TopEvent_1
 
 AT_TopEvent_7:
 	applymovement OBJ_EVENT_ID_PLAYER, AT_Top_Movement5
-	applymovement OBJ_EVENT_ID_FOLLOWER, AT_Top_Movement5Follower
+	applymovement OBJ_EVENT_ID_FOLLOW_ME, AT_Top_Movement5Follower
 	goto AT_TopEvent_1
 
 AT_TopEvent_8:
 	applymovement OBJ_EVENT_ID_PLAYER, AT_Top_Movement6
-	applymovement OBJ_EVENT_ID_FOLLOWER, AT_Top_Movement6Follower
+	applymovement OBJ_EVENT_ID_FOLLOW_ME, AT_Top_Movement6Follower
 	goto AT_TopEvent_1
 
 AT_TopEvent_10:
@@ -179,7 +189,7 @@ AT_TopEvent_10:
 
 AT_TopEvent_14:
 	playse SE_PIN
-	applymovement OBJ_EVENT_ID_FOLLOWER, Common_Movement_ExclamationMark
+	applymovement OBJ_EVENT_ID_FOLLOW_ME, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 48
 	compare VAR_RESULT, MALE
@@ -191,7 +201,7 @@ AT_TopEvent_19:
 
 AT_TopEvent_17:
 	playse SE_PIN
-	applymovement OBJ_EVENT_ID_FOLLOWER, Common_Movement_QuestionMark
+	applymovement OBJ_EVENT_ID_FOLLOW_ME, Common_Movement_QuestionMark
 	waitmovement 0
 	delay 48
 	msgbox NotHaveFly

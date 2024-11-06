@@ -30,7 +30,7 @@ script SchoolTeach{
         release
         end
     }
-    elif(flag(FLAG_SCHOOL_DONE)){
+    elif(checkitem(ITEM_TM_FALSE_SWIPE) == TRUE){
         msgbox("Don't forget what you've learned.", MSGBOX_NPC)
         closemessage
         release
@@ -42,7 +42,6 @@ script SchoolTeach{
         waitmessage
         msgbox("That TM contains the move False Swipe.\pFalse Swipe makes it easier to catch\nwild Pokémon by leaving the foe with\lat least 1 HP.", MSGBOX_NPC)
         closemessage
-        setflag(FLAG_SCHOOL_DONE)
         release
         end
     }

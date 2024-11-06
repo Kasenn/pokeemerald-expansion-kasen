@@ -276,7 +276,7 @@ AldeleafGymFloorTriggered_37:
 Aldeleaf_Gym_Volkner_Talk::
 	lockall
 	faceplayer
-	checktrainerflag TRAINER_MARY
+	checktrainerflag TRAINER_LEADER_VOLKNER
 	goto_if 1, Aldeleaf_Gym_Volkner_Talk_2
 	msgbox Aldeleaf_Gym_Volkner_Talk_Text_0
 	waitmessage
@@ -303,7 +303,7 @@ Aldeleaf_Gym_EventScript_Volkner::
 	waitmovement 0
 	delay 10
 	special RemoveCameraObject
-	trainerbattle_single TRAINER_MARY, Aldeleaf_Gym_Text_VolknerIntro, Aldeleaf_Gym_Text_VolknerDefeat, Aldeleaf_Gym_EventScript_VolknerDefeated, NO_MUSIC
+	trainerbattle_single TRAINER_LEADER_VOLKNER, Aldeleaf_Gym_Text_VolknerIntro, Aldeleaf_Gym_Text_VolknerDefeat, Aldeleaf_Gym_EventScript_VolknerDefeated, NO_MUSIC
 	goto Aldeleaf_Gym_EventScript_GiveWildCharge
 	msgbox Aldeleaf_Gym_Text_VolknerPostBattle, MSGBOX_DEFAULT
 	release
@@ -325,7 +325,6 @@ Aldeleaf_Gym_EventScript_VolknerDefeated::
 	setflag FLAG_BADGE02_GET
 	setflag FLAG_ALDELEAF_SWITCH_ALL
 	addvar VAR_ALDELEAF_GYM_STATE, 1
-	setvar VAR_BADGES_OBTAINED, 2
 	setvar VAR_0x8008, 2
 	call Common_EventScript_SetGymTrainers
 	special RemoveCameraObject

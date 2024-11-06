@@ -3,6 +3,7 @@
   "fonts": {
     "1_latin_rse": {
       "maxLineLength": 208,
+      "numLines": 2,
       "cursorOverlapWidth": 0,
       "widths": {
         " ": 3,
@@ -160,7 +161,6 @@
         "ü": 6,
         "{TALL_PLUS}": 0,
         "{PLAYER}": 56,
-        "{BROTHER}": 56,
         "{STR_VAR_1}": 80,
         "{STR_VAR_2}": 80,
         "{STR_VAR_3}": 80,
@@ -178,6 +178,7 @@
     },
     "1_latin_frlg": {
       "maxLineLength": 208,
+      "numLines": 2,
       "cursorOverlapWidth": 10,
       "widths": {
         " ": 6,
@@ -226,6 +227,7 @@
         "+": 8,
         "LV": 10,
         "=": 8,
+        ";": 5,
         "¿": 6,
         "¡": 6,
         "{PK}": 8,

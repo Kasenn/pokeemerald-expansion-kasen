@@ -1,14 +1,31 @@
 PlayerHouse1F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, PH1FClearFlag
+	map_script MAP_SCRIPT_ON_TRANSITION, PlayerHouse1F_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, PlayerHouse1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
+PlayerHouse1F_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	checkplayergender
+	compare VAR_RESULT, FEMALE
+	goto_if_eq PlayerHouse1F_MapScripts_MAP_SCRIPT_ON_TRANSITION_2
+PlayerHouse1F_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
+	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED
+	goto_if_ge PlayerHouse1F_MapScripts_MAP_SCRIPT_ON_TRANSITION_4
+	return
+
+PlayerHouse1F_MapScripts_MAP_SCRIPT_ON_TRANSITION_2:
+	setmaplayoutindex LAYOUT_PLAYER_HOUSE1F_MAY
+	goto PlayerHouse1F_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
+
+PlayerHouse1F_MapScripts_MAP_SCRIPT_ON_TRANSITION_4:
+	setflag FLAG_SPOKEN_TO_MOM_AFTER_MEGA_RING
+	return
+
 PlayerHouse1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
-	map_script_2 VAR_PEARLWOOD_TOWN_STATE, 1, PlayerHouse1F_MomIntro
+	map_script_2 VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_INTRO_COMPLETED, PlayerHouse1F_Intro
 	.2byte 0
 
 
-PlayerHouse1F_MomIntro::
+PlayerHouse1F_Intro::
 	lock
 	turnobject 1, DIR_NORTH
 	playse SE_PIN
@@ -36,25 +53,18 @@ PlayerHouse1F_MomIntro::
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	msgbox PlayerHouse1F_Disc3
 	closemessage
-	setflag FLAG_BROTHER_PEARLFIGHT
-	setvar VAR_PEARLWOOD_TOWN_STATE, 2
-	call Player1F_Shoes
-	turnobject 1, DIR_WEST
-	release
-	return
-
-
-Player1F_Shoes::
-	msgbox Player1F_Shoes_Text_0
+	msgbox PlayerHouse1F_Intro_Text_0
 	playfanfare MUS_OBTAIN_ITEM
-	message Player1F_Shoes_Text_1
+	message PlayerHouse1F_Intro_Text_1
 	waitfanfare
 	waitmessage
 	setflag FLAG_SYS_B_DASH
-	setflag FLAG_RECEIVED_RUNNING_SHOES
-	msgbox Player1F_Shoes_Text_2
+	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_RECEIVED_RUNNING_SHOES
+	msgbox PlayerHouse1F_Intro_Text_2
 	closemessage
 	delay 30
+	turnobject 1, DIR_WEST
+	release
 	return
 
 
@@ -75,101 +85,50 @@ PlayerHouse1F_Brother::
 
 
 PlayerHouse1F_Mom::
-	lockall
-	faceplayer
-	compare VAR_PEARLWOOD_TOWN_STATE, 15
-	goto_if_ge PlayerHouse1F_Mom_7
-PlayerHouse1F_Mom_6:
-	compare VAR_PEARLWOOD_TOWN_STATE, 2
+	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_RECEIVED_RUNNING_SHOES
+	goto_if_eq PlayerHouse1F_Mom_1
+	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_BROTHER_FOUGHT
 	goto_if_eq PlayerHouse1F_Mom_2
-	compare VAR_PEARLWOOD_TOWN_STATE, 6
-	goto_if_eq PlayerHouse1F_Mom_3
-	compare VAR_PEARLWOOD_TOWN_STATE, 10
-	goto_if_ge PlayerHouse1F_Mom_11
+	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_RING_OBTAINED
+	goto_if_ge PlayerHouse1F_Mom_5
+PlayerHouse1F_Mom_4:
 	goto PlayersHouse_1F_EventScript_MomHealsParty
 	return
 
 PlayerHouse1F_Mom_1:
-	msgbox DadLeftAGift, MSGBOX_NPC
-	setflag FLAG_DAD_INTRO
-	setflag FLAG_RECEIVED_CAPSULE
-	clearflag FLAG_DAD_GIFT
-	end
-
-PlayerHouse1F_Mom_2:
 	msgbox MomSeeYou, MSGBOX_NPC
 	turnobject 1, DIR_WEST
 	return
 
-PlayerHouse1F_Mom_3:
+PlayerHouse1F_Mom_2:
 	msgbox PlayerHouse1F_MomGoodbye_Text, MSGBOX_NPC
-	setvar VAR_PEARLWOOD_TOWN_STATE, 7
-	turnobject 1, DIR_WEST
+	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_GIVEN_GOODBYE_TO_MOM
 	return
 
-PlayerHouse1F_Mom_7:
-	goto_if_unset FLAG_RECEIVED_CAPSULE, PlayerHouse1F_Mom_1
-	goto PlayerHouse1F_Mom_6
-
-PlayerHouse1F_Mom_11:
-	goto_if_set FLAG_DAD_INTRO, PlayerHouse1F_Mom_14
-PlayerHouse1F_Mom_13:
-	msgbox MomLookWhosBack, MSGBOX_NPC
-	setflag FLAG_DAD_INTRO
-	end
-
-PlayerHouse1F_Mom_14:
+PlayerHouse1F_Mom_3:
+	setflag FLAG_SPOKEN_TO_MOM_AFTER_MEGA_RING
+	goto_if_unset FLAG_RECEIVED_CAPSULE, PlayerHouse1F_Mom_10
 	goto PlayersHouse_1F_EventScript_MomHealsParty
-	goto PlayerHouse1F_Mom_13
-
-
-PH1FClearFlag::
-	checkplayergender
-	compare VAR_RESULT, FEMALE
-	goto_if_eq PH1FClearFlag_2
-PH1FClearFlag_1:
-	compare VAR_PEARLWOOD_TOWN_STATE, 10
-	goto_if_ge PH1FClearFlag_5
-PH1FClearFlag_4:
-	compare VAR_PEARLWOOD_TOWN_STATE, 15
-	goto_if_ge PH1FClearFlag_8
-PH1FClearFlag_7:
-	compare VAR_PEARLWOOD_TOWN_STATE, 20
-	goto_if_ge PH1FClearFlag_11
-PH1FClearFlag_10:
-	end
-
-PH1FClearFlag_2:
-	setmaplayoutindex LAYOUT_PLAYER_HOUSE1F_MAY
-	goto PH1FClearFlag_1
-
-PH1FClearFlag_5:
-	clearflag FLAG_HIDE_PLAYERS_HOUSE_DAD
-	goto PH1FClearFlag_4
-
-PH1FClearFlag_8:
-	setflag FLAG_HIDE_PLAYERS_HOUSE_DAD
-	goto PH1FClearFlag_7
-
-PH1FClearFlag_11:
-	setflag FLAG_DAD_INTRO
-	goto PH1FClearFlag_10
-
-
-WooperDoll::
-	msgbox WooperDoll_Text_0, MSGBOX_SIGN
 	return
 
+PlayerHouse1F_Mom_5:
+	goto_if_unset FLAG_SPOKEN_TO_MOM_AFTER_MEGA_RING, PlayerHouse1F_Mom_3
+	goto PlayerHouse1F_Mom_4
 
-AzurillDoll::
-	msgbox AzurillDoll_Text_0, MSGBOX_SIGN
+PlayerHouse1F_Mom_10:
+	goto_if_set FLAG_HIDE_PLAYERS_HOUSE_DAD, PlayerHouse1F_Mom_13
+	msgbox MomLookWhosBack, MSGBOX_NPC
+	return
+
+PlayerHouse1F_Mom_13:
+	msgbox DadLeftAGift, MSGBOX_NPC
 	return
 
 
 PlayerHouse1F_Dad::
+	goto_if_set FLAG_RECEIVED_CAPSULE, PlayerHouse1F_Dad_2
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_CAPSULE, PlayerHouse1F_Dad_2
 	goto_if_set FLAG_TEMP_5, PlayerHouse1F_Dad_5
 	msgbox GiftFromDad
 PlayerHouse1F_Dad_4:
@@ -181,7 +140,7 @@ PlayerHouse1F_Dad_4:
 	waitse
 	msgbox ExplainCapsule, MSGBOX_NPC
 	setflag FLAG_RECEIVED_CAPSULE
-	compare VAR_PEARLWOOD_TOWN_STATE, 12
+	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED
 	goto_if_eq PlayerHouse1F_Dad_12
 PlayerHouse1F_Dad_11:
 	end
@@ -200,32 +159,23 @@ PlayerHouse1F_Dad_9:
 	end
 
 PlayerHouse1F_Dad_12:
-	setvar VAR_PEARLWOOD_TOWN_STATE, 13
+	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED
 	goto PlayerHouse1F_Dad_11
 
 
-Player1F_Shoes_Text_0:
+PlayerHouse1F_Intro_Text_0:
 	.string "Oh, and one more thing.$"
 
-Player1F_Shoes_Text_1:
+PlayerHouse1F_Intro_Text_1:
 	.string "{COLOR RED}{SHADOW LIGHT_RED}Obtained the running shoes!$"
 
-Player1F_Shoes_Text_2:
+PlayerHouse1F_Intro_Text_2:
 	.string "Mom: Now you can zip around everywhere\nmuch faster!$"
-
-WooperDoll_Text_0:
-	.string "It's a Wooper doll.$"
-
-AzurillDoll_Text_0:
-	.string "It's an Azurill doll.$"
 
 PlayerHouse1F_LookPlayer::
 	.string "Mom: Look, {PLAYER}!\n"
 	.string "Your brother is back from his trip!\p"
 	.string "Come, come sit by the table!$"
-
-PlayerHouse1F_LookPlayer2::
-	.string "Mom: Come, come sit by the table!$"
 
 PlayerHouse1F_Disc1::
 	.string "Mom: So, {BROTHER},\n"
@@ -276,6 +226,18 @@ PlayerHouse1F_MomGoodbye_Text::
 	.string "If your Pokémon ever get hurt,\n"
 	.string "come see me and I'll help patch them up.$"
 
+MomLookWhosBack::
+	.string "Mom: Oh, great timing, honey!\n"
+	.string "Look who's back home!$"
+
+DadLeftAGift::
+	.string "Mom: Oh, hi honey!\p"
+	.string "It's a shame you two just missed each\n"
+	.string "other, but dad came to visit while\l"
+	.string "you were away!\p"
+	.string "I believe he left a gift for you in\n"
+	.string "your room. You should go have a look!$"
+
 GiftFromDad::
 	.string "Dad: Hm?\p"
 	.string "Well, if it isn't {PLAYER}!\p"
@@ -316,15 +278,3 @@ WhereBrother::
 	.string "However, as a parent, I do still feel\n"
 	.string "a bit anxious knowing you two are\l"
 	.string "out there, traveling the world.$"
-
-MomLookWhosBack::
-	.string "Mom: Oh, great timing, honey!\n"
-	.string "Look who's back home!$"
-
-DadLeftAGift::
-	.string "Mom: Oh, hi honey!\p"
-	.string "It's a shame you two just missed each\n"
-	.string "other, but dad came to visit while\l"
-	.string "you were away!\p"
-	.string "I believe he left a gift for you in\n"
-	.string "your room. You should go have a look!$"

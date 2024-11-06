@@ -221,30 +221,37 @@ script Mart_Clerk{
 	faceplayer
 	message(gText_HowMayIServeYou)
 	waitmessage
-    switch(var(VAR_BADGES_OBTAINED)){
-        case 0:
-            if(flag(FLAG_SYS_POKEDEX_GET)){
-                pokemart(Mart_NoBadgesExpanded)
-            }
-            else{
-                pokemart(Mart_NoBadges)
-            }
-        case 1:
-            pokemart(Mart_1Badges)
-        case 2:
-            pokemart(Mart_2Badges)
-        case 3:
-            pokemart(Mart_3Badges)
-        case 4:
-            pokemart(Mart_4Badges)
-        case 5:
-            pokemart(Mart_4Badges)
-        case 6:
-            pokemart(Mart_7Badges)
-        case 7:
-            pokemart(Mart_7Badges)
-        case 8:
-            pokemart(Mart_8Badges)
+    if(flag(FLAG_BADGE08_GET)){
+        pokemart(Mart_8Badges)
+    }
+    elif(flag(FLAG_BADGE07_GET)){
+        pokemart(Mart_7Badges)
+    }
+    elif(flag(FLAG_BADGE06_GET)){
+        pokemart(Mart_7Badges)
+    }
+    elif(flag(FLAG_BADGE05_GET)){
+        pokemart(Mart_4Badges)
+    }
+    elif(flag(FLAG_BADGE04_GET)){
+        pokemart(Mart_4Badges)
+    }
+    elif(flag(FLAG_BADGE03_GET)){
+        pokemart(Mart_3Badges)
+    }
+    elif(flag(FLAG_BADGE02_GET)){
+        pokemart(Mart_2Badges)
+    }
+    elif(flag(FLAG_BADGE01_GET)){
+        pokemart(Mart_1Badges)
+    }
+    else{
+        if(flag(FLAG_SYS_POKEDEX_GET)){
+            pokemart(Mart_NoBadgesExpanded)
+        }
+        else{
+            pokemart(Mart_NoBadges)
+        }
     }
     msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 	release
@@ -396,19 +403,23 @@ script Mart_ClerkSandStoneLeft{
 	faceplayer
 	message(gText_HowMayIServeYou)
 	waitmessage
-    switch(var(VAR_BADGES_OBTAINED)){
-        case 3:
-            pokemart(SSLeftMart_3Badges)
-        case 4:
-            pokemart(SSLeftMart_4Badges)
-        case 5:
-            pokemart(SSLeftMart_4Badges)
-        case 6:
-            pokemart(SSLeftMart_6Badges)
-        case 7:
-            pokemart(SSLeftMart_7Badges)
-        case 8:
-            pokemart(SSLeftMart_8Badges)
+    if(flag(FLAG_BADGE08_GET)){
+        pokemart(SSLeftMart_8Badges)
+    }
+    elif(flag(FLAG_BADGE07_GET)){
+        pokemart(SSLeftMart_7Badges)
+    }
+    elif(flag(FLAG_BADGE06_GET)){
+        pokemart(SSLeftMart_6Badges)
+    }
+    elif(flag(FLAG_BADGE05_GET)){
+        pokemart(SSLeftMart_4Badges)
+    }
+    elif(flag(FLAG_BADGE04_GET)){
+        pokemart(SSLeftMart_4Badges)
+    }
+    else{
+        pokemart(SSLeftMart_3Badges)
     }
     msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 	release
@@ -420,19 +431,23 @@ script Mart_ClerkSandStoneRight{
 	faceplayer
 	message(gText_HowMayIServeYou)
 	waitmessage
-    switch(var(VAR_BADGES_OBTAINED)){
-        case 3:
-            pokemart(SSRightMart_3Badges)
-        case 4:
-            pokemart(SSRightMart_4Badges)
-        case 5:
-            pokemart(SSRightMart_4Badges)
-        case 6:
-            pokemart(SSRightMart_7Badges)
-        case 7:
-            pokemart(SSRightMart_7Badges)
-        case 8:
-            pokemart(SSRightMart_8Badges)
+    if(flag(FLAG_BADGE08_GET)){
+        pokemart(SSRightMart_8Badges)
+    }
+    elif(flag(FLAG_BADGE07_GET)){
+        pokemart(SSRightMart_7Badges)
+    }
+    elif(flag(FLAG_BADGE06_GET)){
+        pokemart(SSRightMart_7Badges)
+    }
+    elif(flag(FLAG_BADGE05_GET)){
+        pokemart(SSRightMart_4Badges)
+    }
+    elif(flag(FLAG_BADGE04_GET)){
+        pokemart(SSRightMart_4Badges)
+    }
+    else{
+        pokemart(SSRightMart_3Badges)
     }
     msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 	release

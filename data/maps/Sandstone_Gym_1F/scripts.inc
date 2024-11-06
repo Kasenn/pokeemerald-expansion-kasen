@@ -187,6 +187,7 @@ SandGym_KorrinaTalk_2:
 
 
 Korrina_GymTrigger::
+	setvar VAR_TEMP_0, 3
 	call GymStartingMovement
 	msgbox KorrinaInt
 	trainerbattle_no_intro TRAINER_LEADER_KORRINA, KorrinaDef
@@ -202,7 +203,8 @@ Korrina_PosBatEvent::
 	call Common_EventScript_PlayGymBadgeFanfare
 	msgbox Korrina_ExplainBadge, MSGBOX_DEFAULT
 	setflag FLAG_BADGE04_GET
-	call SetBadgesAndTrainers
+	setvar VAR_0x8008, 4
+	call Common_EventScript_SetGymTrainers
 	giveitem ITEM_TM_POWER_UP_PUNCH
 	msgbox Explain_PUPunch, MSGBOX_DEFAULT
 	msgbox MeetMeAtAdTower, MSGBOX_DEFAULT

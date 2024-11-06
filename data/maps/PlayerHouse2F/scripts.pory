@@ -1,12 +1,20 @@
 mapscripts PlayerHouse2F_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
-        checkplayergender
-        if(var(VAR_RESULT) == FEMALE){
+        if(checkplayergender == FEMALE){
             setmaplayoutindex(LAYOUT_PLAYER_HOUSE2F_MAY)
         }
+        if(var(VAR_PEARLWOOD_TOWN_STATE) >= STORY_PEARLWOOD_INTRO_COMPLETED){
+            setflag(FLAG_TEMP_1)
+        }
+        if(var(VAR_PEARLWOOD_TOWN_STATE) >= STORY_PEARLWOOD_MEGA_RING_OBTAINED
+        && flag(FLAG_HIDE_PLAYERS_HOUSE_DAD)
+        && !flag(FLAG_RECEIVED_CAPSULE)){
+            setflag(FLAG_RECEIVED_CAPSULE)
+            clearflag(FLAG_DAD_GIFT)
+        }
     }
-    MAP_SCRIPT_ON_FRAME_TABLE [
-        VAR_PEARLWOOD_TOWN_STATE, 0: PlayerHouse2F_Intro
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_INTRO: PlayerHouse2F_Intro
     ]
 }
 
@@ -21,7 +29,7 @@ script PlayerHouse2F_Intro{
     waitmovement(0)
     turnobject(MOM, DIR_WEST)
     delay(10)
-    msgbox(Player2FMomIntro)
+    msgbox(PlayerHouse2F_Intro_Text)
     closemessage
     delay(30)
     applymovement(MOM, Walk1Up)
@@ -30,17 +38,21 @@ script PlayerHouse2F_Intro{
     delay(30)
     applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
     waitmovement(0)
-    setflag(FLAG_PEARLWOOD_MOM_TALKED_TO)
-    setvar(VAR_PEARLWOOD_TOWN_STATE, 1)
+    setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_INTRO_COMPLETED)
     setrespawn(HEAL_LOCATION_PLAYER_HOUSE2F)
     release
 }
+text PlayerHouse2F_Intro_Text{
+    "Mom: Rise and shine,\n"
+    "{PLAYER}!\p"
+    "Today's a very special day so\n"
+    "when you're ready, come on\l"
+    "downstairs.\p"
+    "Oh but first, don't forget to\n"
+    "set your new clock!"
+}
 
 script PlayerHouse2F_ClockReminder{
-    if(flag(FLAG_SET_WALL_CLOCK)){
-        release
-        end
-    }
     lockall
     msgbox(PlayerHouse2F_ClockReminder_Text)
     closemessage
@@ -53,38 +65,34 @@ text PlayerHouse2F_ClockReminder_Text{
     "heading downstairs."
 }
 
-text Player2FMomIntro{
-    "Mom: Rise and shine,\n"
-    "{PLAYER}!\p"
-    "Today's a very special day so\n"
-    "when you're ready, come on\l"
-    "downstairs.\p"
-    "Oh but first, don't forget to\n"
-    "set your new clock!"
-}
-
 script Player2FSetClock{
-    checkplayergender
-    if(var(VAR_RESULT) == MALE){
+    if(checkplayergender == MALE){
         setvar(VAR_0x8004, MALE)
     }
     else{
         setvar(VAR_0x8004, FEMALE)
     }
-    goto_if_set (FLAG_SET_WALL_CLOCK, Players2FCheckClock)
-	msgbox (PlayersHouse_2F_Text_ClockIsStopped, MSGBOX_DEFAULT)
-    fadescreen (FADE_TO_BLACK)
-	special (StartWallClock)
+    if(flag(FLAG_SYS_CLOCK_SET)){
+        goto(Player2FCheckClock)
+    }
+	msgbox(PlayersHouse_2F_Text_ClockIsStopped, MSGBOX_DEFAULT)
+    fadescreen(FADE_TO_BLACK)
+	special(StartWallClock)
 	waitstate
-	setvar (VAR_PEARLWOOD_TOWN_STATE, 1)
-	setflag (FLAG_SET_WALL_CLOCK)
 	release
 }
 
-script Players2FCheckClock{
+script Player2FCheckClock{
 	incrementgamestat(GAME_STAT_CHECKED_CLOCK)
 	fadescreen(FADE_TO_BLACK)
 	special(Special_ViewWallClock)
 	waitstate
 	release
+}
+
+script PlayerHouse_ItemCapsule{
+    finditem(ITEM_ABILITY_CAPSULE)
+    if(var(VAR_PEARLWOOD_TOWN_STATE) >= STORY_PEARLWOOD_MEGA_STONE_OBTAINED){
+        setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED)
+    }
 }

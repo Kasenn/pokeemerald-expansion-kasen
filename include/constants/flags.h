@@ -93,7 +93,7 @@
 
 // Scripts
 #define FLAG_SYSTEM_NOREWARDBATTLES             0x50 // NO EXP OR MONEY FROM BATTLES, used in hotel battle buffet
-#define FLAG_SET_WALL_CLOCK                     0x51
+#define FLAG_RIVAL_MET_IN_SANDSTONE                     0x51
 #define FLAG_RECEIVED_METAL_COAT                0x52
 #define FLAG_SANDSTONE_LAVACOOKIE               0x53
 #define FLAG_RECEIVED_LIGHTBALL                 0x54  // Received light ball after showing 2 raichus in skyloch village
@@ -199,7 +199,7 @@
 #define FLAG_OBTAINED_STARTER_STONE                     0xB4       
 #define FLAG_COLLISION_OFF                     0xB5
 #define FLAG_RECEIVED_CAPSULE                     0xB6       
-#define FLAG_DAD_INTRO                     0xB7
+#define FLAG_SPOKEN_TO_MOM_AFTER_MEGA_RING                     0xB7
 #define FLAG_STEELSPHERE_CLUE                     0xB8
 #define FLAG_CORALGROVE_CUTSCENE                     0xB9
 #define FLAG_OBTAINED_PIDGEOTITE                     0xBA
@@ -294,7 +294,7 @@
 #define FLAG_EVIL_TEAM_ESCAPED_STERN_SPOKE   0x10F
 #define FLAG_RECEIVED_EXP_SHARE              0x110
 #define FLAG_POKERUS_EXPLAINED               0x111
-#define FLAG_RECEIVED_RUNNING_SHOES          0x112
+#define FLAG_UNUSED_0x112          0x112
 #define FLAG_RECEIVED_QUICK_CLAW             0x113
 #define FLAG_RECEIVED_KINGS_ROCK             0x114
 #define FLAG_RECEIVED_MACHO_BRACE            0x115
@@ -650,12 +650,12 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x6E)
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
-#define FLAG_PEARLWOOD_MOM_TALKED_TO             0x264 // Intro, mom comes to your room
-#define FLAG_CORAL_FLAG_1                   0x265 // UNLOCKS POKECENTER TRAINING
-#define FLAG_SCHOOL_DONE                    0x266 // TRAINER SCHOOL DONE
+#define FLAG_SANDSTONE_HIDDENITEM_1             0x264 //
+#define FLAG_SANDSTONE_HIDDENITEM_2                   0x265 //
+#define FLAG_UNUSED_0x266                    0x266 // TRAINER SCHOOL DONE
 #define FLAG_0x267_CG_HIDEGHOST      0x267 // Used to hide the ghost in Coralgrove City
 #define FLAG_OBTAINED_A_FOSSIL  0x268 // 
-#define FLAG_RECEIVED_TM_U_TURN             0x269 // TM for first gym
+#define FLAG_UNUSED_0x269             0x269 // TM for first gym
 #define FLAG_NECTARQUESTDONE                0x26A // set this flag if oricorio shown to nectar maniac
 #define FLAG_SAFARI_NW_ITEM1  0x26B // 
 #define FLAG_SAFARI_NW_ITEM2  0x26C // 
@@ -740,7 +740,7 @@
 #define FLAG_OBTAINED_BEEDRILLITE  0x2BB // 
 
 // Event Flags
-#define FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG                      0x2BC
+#define FLAG_REUNITE_WITH_RIVAL                      0x2BC
 #define FLAG_HIDE_APPRENTICE                                        0x2BD
 #define FLAG_HIDE_POKEMON_CENTER_2F_MYSTERY_GIFT_MAN                0x2BE
 #define FLAG_HIDE_UNION_ROOM_PLAYER_1                               0x2BF
@@ -791,7 +791,7 @@
 #define FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MAY                    0x2EA
 #define FLAG_HIDE_SAFARI_ZONE_SOUTH_EAST_EXPANSION                  0x2EB
 #define FLAG_HIDE_LILYCOVE_HARBOR_EVENT_TICKET_TAKER                0x2EC
-#define FLAG_HIDE_SANDSTONE_CITY_RIVAL                              0x2ED
+#define FLAG_UNUSED_0x2ED                              0x2ED
 #define FLAG_HIDE_ROUTE_101_ZIGZAGOON                               0x2EE
 #define FLAG_HIDE_VICTORY_ROAD_EXIT_WALLY                           0x2EF
 #define FLAG_HIDE_LITTLEROOT_TOWN_MOM_OUTSIDE                       0x2F0
@@ -1221,19 +1221,19 @@
 #define FLAG_ROUTE15_ITEM3                                            0x495 // 
 #define FLAG_ROUTE15_ITEM4                                             0x496 // 
 #define FLAG_ROUTE15_ITEM5                                             0x497 // 
-#define FLAG_BROTHER_PEARLFIGHT                                      0x498 // Sets the flag for the brother fight in the 1st town
+#define FLAG_UNUSED_0x498                                      0x498 // Sets the flag for the brother fight in the 1st town
 #define FLAG_ROUTE15_ITEM6                                          0x499 // 
 #define FLAG_PEARLWOOD_POTION_SAMPLE                                 0x49A // Potion given by the old guy in the 1st town
 #define FLAG_ROUTE15_ITEM7                                             0x49B // 
-#define FLAG_ROUTE1_STATE                                                   0x49C // Shows/Hides route 1 NPCs
-#define FLAG_ROUTE1_COOLTRAINER                                      0x49D // Cooltrainer dialogue skip on route 1
-#define FLAG_ROUTE1_COOLTRAINERREWARD                                0x49E // Reward from Cooltrainer in route 1
-#define FLAG_WW_COOLTRAINER                                          0x49F // Cooltrainer dialogue skip in windy woods
+#define FLAG_UNUSED_0x49C                                                   0x49C // Shows/Hides route 1 NPCs
+#define FLAG_UNUSED_0x49D                                      0x49D // Cooltrainer dialogue skip on route 1
+#define FLAG_ORICORIO_SHOWN_TO_MANIAC                                0x49E // Reward from Cooltrainer in route 1
+#define FLAG_UNUSED_0x49F                                          0x49F // Cooltrainer dialogue skip in windy woods
 #define FLAG_WW_COOLTRAINERREWARD                                    0x4A0 // Reward from Cooltrainer in windy woods
 #define FLAG_I_EXP_SHARE_FLAG                                        0x4A1 // Can be used to toggle global Exp Share
-#define FLAG_WW_ENDEVENT                                             0x4A2 // Used to hide event stuff at Windy Woods
-#define FLAG_WW_HIDEROCKET                                           0x4A3 // Hide event rocket grunt in windy woods
-#define FLAG_WW_HIDEDAD                                              0x4A4 // Hide event dad in windy woods
+#define FLAG_UNUSED_0x4A2                                             0x4A2 // Used to hide event stuff at Windy Woods
+#define FLAG_UNUSED_0x4A3                                           0x4A3 // Hide event rocket grunt in windy woods
+#define FLAG_UNUSED_0x4A4                                              0x4A4 // Hide event dad in windy woods
 #define FLAG_CORALGROVE_TRADE_COMPLETED                                     0x4A5 // Starter trade in Coralgrove
 #define FLAG_TALKEDTOSLEEPINGGUY                                     0x4A6 // TM rest in Coralgrove Harbor
 #define FLAG_RIVAL_HARBOR_ANGRY                                             0x4A7 // makes rival angry if bailed on in the elevator
@@ -1310,7 +1310,7 @@
 #define FLAG_FC_DOOR_OPEN                                           0x4EE // 
 #define FLAG_FC_LOOTEDROCK                                           0x4EF // 
 
-#define FLAG_DEFEATED_RUSTBORO_GYM                                  0x4F0
+#define FLAG_UNUSED_0x4F0                                  0x4F0
 #define FLAG_DEFEATED_DEWFORD_GYM                                   0x4F1
 #define FLAG_DEFEATED_MAUVILLE_GYM                                  0x4F2
 #define FLAG_DEFEATED_LAVARIDGE_GYM                                 0x4F3
@@ -1381,8 +1381,8 @@
 #define FLAG_IS_CHAMPION                            (SYSTEM_FLAGS + 0x1F) // Seems to be related to linking.
 #define FLAG_NURSE_UNION_ROOM_REMINDER              (SYSTEM_FLAGS + 0x20)
 
-#define FLAG_MAY_COSTUME_CHANGE                           (SYSTEM_FLAGS + 0x21) // 
-#define FLAG_BRENDAN_COSTUME_CHANGE                           (SYSTEM_FLAGS + 0x22) // 
+#define FLAG_RIVAL_COSTUME_CHANGE                           (SYSTEM_FLAGS + 0x21) // 
+#define FLAG_UNUSED_SYS_0x22                           (SYSTEM_FLAGS + 0x22) // 
 #define FLAG_PC_CHANGE_COSTUME                           (SYSTEM_FLAGS + 0x23) // 
 #define FLAG_VISITED_FLOODEDCAVE                           (SYSTEM_FLAGS + 0x24) // 
 #define FLAG_VISITED_FISHING_VILLAGE                           (SYSTEM_FLAGS + 0x25) // 
@@ -1498,7 +1498,7 @@
 
 #define FLAG_CONTINUE_AFTER_WHITEOUT                           (SYSTEM_FLAGS + 0x83) // 
 
-#define FLAG_RECEIVED_POKEDEX_FROM_BIRCH            (SYSTEM_FLAGS + 0x84)
+#define FLAG_UNUSED_SYS_0x84            (SYSTEM_FLAGS + 0x84)
 
 #define FLAG_VISITED_BASALPEAK                           (SYSTEM_FLAGS + 0x85) // 
 #define FLAG_VISITED_FROSTFIRE                          (SYSTEM_FLAGS + 0x86) // 

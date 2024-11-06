@@ -3,30 +3,20 @@ mapscripts CoralgroveCity_MapScripts{
 }
 
 script Coralgrove_State{
-    if(var(VAR_CORALGROVE_STATE) == 0){
-        setvar(VAR_CORALGROVE_STATE, 1)
-        setflag(FLAG_CORAL_FLAG_1)
-        setflag(FLAG_0x267_CG_HIDEGHOST)
-        hideobjectat(11, MAP_CORALGROVE_CITY)
-    }
     setflag(FLAG_VISITED_RUSTBORO_CITY)
-    end
+    setflag(FLAG_TEMP_1)
 }
 
 script CoralHideGhost2{
-    if(var(VAR_CORALGROVE_STATE) == 1){
-        hideobjectat(11, MAP_CORALGROVE_CITY)
-        release
-        end
-    }
+    removeobject(11)
+    clearflag(FLAG_TEMP_2)
     release
-    end
 }
 
 script Coralgrove_HauntedHouse{
     lockall
-    if(var(VAR_CORALGROVE_STATE) == 1){
-        setvar(VAR_CORALGROVE_STATE, 2)
+    if(!flag(FLAG_0x267_CG_HIDEGHOST)){
+        setflag(FLAG_TEMP_2)
     }
     msgbox("The door is nailed shut.\nLooks like nobody lives here.", MSGBOX_SIGN)
     waitmessage
@@ -36,43 +26,31 @@ script Coralgrove_HauntedHouse{
 }
 
 script CoralShowGhost{
-    if(var(VAR_CORALGROVE_STATE) == 2){
-        setvar(VAR_CORALGROVE_STATE, 3)
-        clearflag(FLAG_0x267_CG_HIDEGHOST)
-        showobjectat(11, MAP_CORALGROVE_CITY)
-    }
+    clearflag(FLAG_TEMP_1)
+    addobject(11)
+    release
 }
 
 script CoralHideGhost{
-    if(var(VAR_CORALGROVE_STATE) == 3){
-        lockall
-        fadeoutbgm(0)
-        delay(60)
-        msgbox("No, you're not the one…", MSGBOX_DEFAULT)
-        waitmessage
-        closemessage
-        fadescreenspeed(FADE_TO_WHITE,2)
-        setflag(FLAG_0x267_CG_HIDEGHOST)
-        setvar(VAR_CORALGROVE_STATE, 4)
-        hideobjectat(11, MAP_CORALGROVE_CITY)
-        delay(30)
-        fadescreenspeed(FADE_FROM_WHITE,2)
-        delay(90)
-        fadeinbgm(0)
-        delay(60)
-        release
-    }
-    end
+    lock
+    fadeoutbgm(0)
+    delay(60)
+    msgbox("No, you're not the one…")
+    closemessage
+    fadescreenspeed(FADE_TO_WHITE,2)
+    setflag(FLAG_0x267_CG_HIDEGHOST)
+    clearflag(FLAG_TEMP_2)
+    removeobject(11)
+    delay(30)
+    fadescreenspeed(FADE_FROM_WHITE,2)
+    delay(90)
+    fadeinbgm(0)
+    delay(60)
+    release
 }
 
 script Coralgrove_MAN_3{
-    lockall
-    faceplayer
     msgbox("To the south lies Primrose Town.\pIf you want to go anywhere else,\nyou must take the elevator to\lthe north to access the harbor area.", MSGBOX_NPC)
-    waitmessage
-    closemessage
-    release
-    end
 }
 
 script Coralgrove_GENTLEMAN{
@@ -83,7 +61,6 @@ script Coralgrove_GENTLEMAN{
         msgbox(Coralgrove_GENTLEMAN_Text, MSGBOX_NPC)
     }
     turnobject(12, DIR_NORTH)
-    end
 }
 text Coralgrove_GENTLEMAN_Text{
     "Do you ever look far into the horizon\n"
@@ -105,10 +82,6 @@ script Coralgrove_RightBirds{
 }
 
 script Coralgrove_BirdEvent{
-    if(flag(FLAG_CORALGROVE_CUTSCENE)){
-        release
-        end
-    }
     lock
     safefollow
     special(SpawnCameraObject)
@@ -147,61 +120,30 @@ movement BirdFlyFromEast{
 }
 
 script Coralgrove_MartMan{
-    lockall
-    faceplayer
     msgbox("Hello and welcome!\nThis is the Battle Shop.\pHere you can purchase useful\ncombat items and consumables.\pInstead of regular currency, everything\nin our shop is purchasable with\lBattle Points, or BP, instead!", MSGBOX_NPC)
-    waitmessage
-    closemessage
-    release
-    end
 }
 
 script CoralGrove_NINJA_BOY{
-    lockall
-    faceplayer
     msgbox("I swear I saw this ghost girl flying\nabout but none of the adults believe me!", MSGBOX_NPC)
-    waitmessage
-    closemessage
-    end
 }
 
 script CoralGrove_OLD_WOMAN{
-    lockall
+    lock
     msgbox("Such pretty flowers…", MSGBOX_DEFAULT)
-    waitmessage
     closemessage
-    releaseall
-    end
+    release
 }
 
 script CoralGrove_OLD_MAN{
-    lockall
-    faceplayer
     msgbox("My wife often gets mesmerized\nby flowers.\pI don't really care about flowers\nbut better not let her catch on…", MSGBOX_NPC)
-    waitmessage
-    closemessage
-    release
-    end
 }
 
 script Coralgrove_LASS{
-    lockall
-    faceplayer
     msgbox("Can you even call this place a city?\pThere's the Trainers' School and\nthe Pokémon Gym but apart from those\lthere's very little to do here.", MSGBOX_NPC)
-    waitmessage
-    closemessage
-    release
-    end
 }
 
 script Coralgrove_HIKER{
-    lockall
-    faceplayer
     msgbox(Coral_Hiker_Text, MSGBOX_NPC)
-    waitmessage
-    closemessage
-    release
-    end
 }
 
 text Coral_Hiker_Text{
@@ -212,33 +154,19 @@ text Coral_Hiker_Text{
 }
 
 script Coralgrove_Children{
-    lockall
-    faceplayer
     msgbox("We're on recess!", MSGBOX_NPC)
-    waitmessage
-    closemessage
-    release
-    end
 }
 
 script Coralgrove_school{
     msgbox("Pokémon Trainers' School", MSGBOX_SIGN)
-    waitmessage
-    closemessage
-    end
 }
 
 script Coralgrove_Lifthouse{
     msgbox("Elevator access to harbor area", MSGBOX_SIGN)
-    waitmessage
-    closemessage
-    end
 }
 
 script CoralSign{
     msgbox("CORALGROVE CITY\n“Home of many aspiring trainers.”", MSGBOX_SIGN)
-    waitmessage
-    closemessage
 }
 
 script CoralGreatBall{
@@ -247,5 +175,4 @@ script CoralGreatBall{
 
 script CoralGrove_EventScript_GymSign{
 	msgbox("Coralgrove City Pokémon Gym\nLeader: Aaron", MSGBOX_SIGN)
-	end
 }
