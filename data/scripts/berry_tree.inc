@@ -180,7 +180,7 @@ BerryTree_EventScript_PickBerry::
 	waitmessage
 	waitfanfare
 	waitbuttonpress
-	message BerryTree_Text_PutAwayBerry
+	call TryDropStrangeSeed_BerryPlant
 	waitmessage
 	waitbuttonpress
 	release
@@ -214,6 +214,8 @@ BerryTree_EventScript_WantToWater::
 .if OW_BERRY_WEEDS == TRUE
 	call BerryTree_EventScript_CheckForWeed
 .endif
+	checkitem ITEM_FERTILIZER
+	call_if_eq VAR_RESULT, TRUE, BerryTree_WantToFertilize
 	checkitem ITEM_WAILMER_PAIL
 	goto_if_eq VAR_RESULT, FALSE, BerryTree_EventScript_DontWater
 	specialvar VAR_RESULT, CanWaterBerryPlot
@@ -226,6 +228,12 @@ BerryTree_EventScript_WantToWater::
 BerryTree_EventScript_DontWater::
 	releaseall
 	end
+
+BerryTree_WantToFertilize::
+	special ObjectEventInteractionGetBerryName
+	msgbox BerryTree_WantToFertilize_Text, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, BerryTree_ItemUseFertilizer
+	return
 
 BerryTree_EventScript_ItemUseWailmerPail::
 	special ObjectEventInteractionGetBerryTreeData
@@ -333,6 +341,10 @@ BerryTree_Text_BerryLeftUnpicked:
 BerryTree_Text_WantToWater:
 	.string "Want to water the {STR_VAR_1} with the\n"
 	.string "Wailmer Pail?$"
+
+BerryTree_WantToFertilize_Text:
+	.string "Want to apply Fertilizer to the\n"
+	.string "{STR_VAR_1} plant?$"
 
 BerryTree_Text_WateredTheBerry:
 	.string "{PLAYER} watered the {STR_VAR_1}.$"

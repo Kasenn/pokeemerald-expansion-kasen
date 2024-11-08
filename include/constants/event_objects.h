@@ -184,10 +184,10 @@
 #define OBJ_EVENT_GFX_BIG_VENUSAUR_DOLL          180        // free?
 #define OBJ_EVENT_GFX_BIG_CHARIZARD_DOLL         181        // free?
 #define OBJ_EVENT_GFX_BIG_BLASTOISE_DOLL         182        // free?
-#define OBJ_EVENT_GFX_BIG_WAILMER_DOLL           183        // free?
-#define OBJ_EVENT_GFX_BIG_REGIROCK_DOLL          184        // free?
-#define OBJ_EVENT_GFX_BIG_REGICE_DOLL            185        // free?
-#define OBJ_EVENT_GFX_BIG_REGISTEEL_DOLL         186        // free?
+#define OBJ_EVENT_GFX_BRENDAN_FERTILIZING           183
+#define OBJ_EVENT_GFX_MAY_FERTILIZING               184
+#define OBJ_EVENT_GFX_BRENDAN_FERTILIZING_ORAS           185
+#define OBJ_EVENT_GFX_MAY_FERTILIZING_ORAS               186
 #define OBJ_EVENT_GFX_LATIAS                     187        // free
 #define OBJ_EVENT_GFX_LATIOS                     188        // free
 #define OBJ_EVENT_GFX_GAMEBOY_KID                189
@@ -293,12 +293,17 @@
 #define OBJ_EVENT_GFX_IRIS_CASUAL                   289
 #define OBJ_EVENT_GFX_DRAYDEN                   290
 #define OBJ_EVENT_GFX_ABRA2                     291
+#define OBJ_EVENT_GFX_BIG_WAILMER_DOLL           292        // free?
+#define OBJ_EVENT_GFX_BIG_REGIROCK_DOLL          293        // free?
+#define OBJ_EVENT_GFX_BIG_REGICE_DOLL            294        // free?
+#define OBJ_EVENT_GFX_BIG_REGISTEEL_DOLL         295        // free?
+
 
 
 // NOTE: The maximum amount of object events has been expanded from 255 to 65535.
 // Since dynamic graphics ids still require at least 16 free values, the actual limit
 // is 65519, but even considering follower Pokémon, this should be more than enough :)
-#define NUM_OBJ_EVENT_GFX                        292
+#define NUM_OBJ_EVENT_GFX                        296
 
 
 // These are dynamic object gfx ids.

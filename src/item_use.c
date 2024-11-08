@@ -69,6 +69,7 @@ static void ItemUseOnFieldCB_Itemfinder(u8);
 static void ItemUseOnFieldCB_Berry(u8);
 static void ItemUseOnFieldCB_WailmerPailBerry(u8);
 static void ItemUseOnFieldCB_WailmerPailSudowoodo(u8);
+static void ItemUseOnFieldCB_Fertilizer(u8);
 static bool8 TryToWaterSudowoodo(void);
 static void BootUpSoundTMHM(u8);
 static void Task_ShowTMHMContainedMessage(u8);
@@ -844,6 +845,26 @@ static void ItemUseOnFieldCB_WailmerPailBerry(u8 taskId)
 {
     LockPlayerFieldControls();
     ScriptContext_SetupScript(BerryTree_EventScript_ItemUseWailmerPail);
+    DestroyTask(taskId);
+}
+
+void ItemUseOutOfBattle_Fertilizer(u8 taskId)
+{
+    if (TryToWaterBerryTree() == TRUE)
+    {
+        sItemUseOnFieldCB = ItemUseOnFieldCB_Fertilizer;
+        SetUpItemUseOnFieldCallback(taskId);
+    }
+    else
+    {
+        DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
+}
+
+static void ItemUseOnFieldCB_Fertilizer(u8 taskId)
+{
+    LockPlayerFieldControls();
+    ScriptContext_SetupScript(BerryTree_ItemUseFertilizer);
     DestroyTask(taskId);
 }
 

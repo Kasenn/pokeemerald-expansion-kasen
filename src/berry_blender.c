@@ -3448,8 +3448,8 @@ static void SpriteCB_PlayerArrow(struct Sprite *sprite)
 
 static void TryUpdateBerryBlenderRecord(void)
 {
-    if (gSaveBlock1Ptr->berryBlenderRecords[sBerryBlender->numPlayers - 2] < sBerryBlender->maxRPM)
-        gSaveBlock1Ptr->berryBlenderRecords[sBerryBlender->numPlayers - 2] = sBerryBlender->maxRPM;
+    // if (gSaveBlock1Ptr->berryBlenderRecords[sBerryBlender->numPlayers - 2] < sBerryBlender->maxRPM)
+    //     gSaveBlock1Ptr->berryBlenderRecords[sBerryBlender->numPlayers - 2] = sBerryBlender->maxRPM;
 }
 
 static bool8 PrintBlendingResults(void)
@@ -3752,12 +3752,35 @@ static bool8 PrintBlendingRanking(void)
     return FALSE;
 }
 
+void TryDropStrangeSeed(void)
+{
+    u8 slot = gSaveBlock1Ptr->strangeSeedIndex;
+    u8 i;
+
+    for (i = 0; i < 11; i++)
+    {
+        if (gSaveBlock1Ptr->strangeSeedDrop[i] == 0)
+        {
+            u8 rand = Random() % 100;
+            gSaveBlock1Ptr->strangeSeedDrop[i] = rand;
+        }
+    }
+    gSpecialVar_0x8004 = gSaveBlock1Ptr->strangeSeedDrop[slot];
+    gSaveBlock1Ptr->strangeSeedDrop[slot] = 0;
+    if (slot == 10)
+        slot = 0;
+    else
+        slot++;
+    
+    gSaveBlock1Ptr->strangeSeedIndex = slot;
+}
+
 void ShowBerryBlenderRecordWindow(void)
 {
-    s32 i;
-    s32 xPos, yPos;
+    // s32 i;
+    s32 xPos;
     struct WindowTemplate winTemplate;
-    u8 text[32];
+    // u8 text[32];
 
     winTemplate = sBlenderRecordWindowTemplate;
     gRecordsWindowId = AddWindow(&winTemplate);
@@ -3768,21 +3791,21 @@ void ShowBerryBlenderRecordWindow(void)
     AddTextPrinterParameterized(gRecordsWindowId, FONT_NORMAL, gText_BlenderMaxSpeedRecord, xPos, 1, 0, NULL);
     AddTextPrinterParameterized(gRecordsWindowId, FONT_NORMAL, gText_234Players, 4, 41, 0, NULL);
 
-    for (i = 0, yPos = 41; i < NUM_SCORE_TYPES; i++)
-    {
-        u8 *txtPtr;
-        u32 record;
+    // for (i = 0, yPos = 41; i < NUM_SCORE_TYPES; i++)
+    // {
+    //     u8 *txtPtr;
+    //     u32 record;
 
-        record = gSaveBlock1Ptr->berryBlenderRecords[i];
+    //     record = gSaveBlock1Ptr->berryBlenderRecords[i];
 
-        txtPtr = ConvertIntToDecimalStringN(text, record / 100, STR_CONV_MODE_RIGHT_ALIGN, 3);
-        txtPtr = StringAppend(txtPtr, sText_Dot);
-        txtPtr = ConvertIntToDecimalStringN(txtPtr, record % 100, STR_CONV_MODE_LEADING_ZEROS, 2);
-        txtPtr = StringAppend(txtPtr, sText_RPM);
+    //     txtPtr = ConvertIntToDecimalStringN(text, record / 100, STR_CONV_MODE_RIGHT_ALIGN, 3);
+    //     txtPtr = StringAppend(txtPtr, sText_Dot);
+    //     txtPtr = ConvertIntToDecimalStringN(txtPtr, record % 100, STR_CONV_MODE_LEADING_ZEROS, 2);
+    //     txtPtr = StringAppend(txtPtr, sText_RPM);
 
-        xPos = GetStringRightAlignXOffset(FONT_NORMAL, text, 140);
-        AddTextPrinterParameterized(gRecordsWindowId, FONT_NORMAL, text, xPos, yPos + (i * 16), 0, NULL);
-    }
+    //     xPos = GetStringRightAlignXOffset(FONT_NORMAL, text, 140);
+    //     AddTextPrinterParameterized(gRecordsWindowId, FONT_NORMAL, text, xPos, yPos + (i * 16), 0, NULL);
+    // }
 
     PutWindowTilemap(gRecordsWindowId);
     CopyWindowToVram(gRecordsWindowId, COPYWIN_FULL);

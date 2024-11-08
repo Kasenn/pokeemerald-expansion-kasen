@@ -2128,6 +2128,12 @@ const u32 gItemIconPalette_Processor[] = INCBIN_U32("graphics/items/icon_palette
 const u32 gItemIcon_TitaniumLine[] = INCBIN_U32("graphics/items/icons/titanium_line.4bpp.lz");
 const u32 gItemIconPalette_TitaniumLine[] = INCBIN_U32("graphics/items/icon_palettes/titanium_line.gbapal.lz");
 
+const u32 gItemIcon_StrangeSeed[] = INCBIN_U32("graphics/items/icons/strange_seed.4bpp.lz");
+const u32 gItemIconPalette_StrangeSeed[] = INCBIN_U32("graphics/items/icons/strange_seed.gbapal.lz");
+
+const u32 gItemIcon_Fertilizer[] = INCBIN_U32("graphics/items/icons/fertilizer.4bpp.lz");
+const u32 gItemIconPalette_Fertilizer[] = INCBIN_U32("graphics/items/icons/fertilizer.gbapal.lz");
+
 const u32 gItemIcon_Chesnaughtite[] = INCBIN_U32("graphics/items/icons/chesnaughtite.4bpp.lz");
 const u32 gItemIconPalette_Chesnaughtite[] = INCBIN_U32("graphics/items/icon_palettes/chesnaughtite.gbapal.lz");
 const u32 gItemIcon_FairyFeather[] = INCBIN_U32("graphics/items/icons/fairy_feather.4bpp.lz");

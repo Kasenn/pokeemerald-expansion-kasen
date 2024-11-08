@@ -67,6 +67,11 @@ const u32 gObjectEventPic_MayAcroBikeOras[] = INCBIN_U32("graphics/object_events
 const u32 gObjectEventPic_MayFishingOras[] = INCBIN_U32("graphics/object_events/pics/people/mayoras/fishing.4bpp");
 const u32 gObjectEventPic_MayWateringOras[] = INCBIN_U32("graphics/object_events/pics/people/mayoras/watering.4bpp");
 
+const u32 gObjectEventPic_MayFertilizingOras[] = INCBIN_U32("graphics/object_events/pics/people/mayoras/fertilizing.4bpp");
+const u32 gObjectEventPic_MayFertilizing[] = INCBIN_U32("graphics/object_events/pics/people/may/fertilizing.4bpp");
+const u32 gObjectEventPic_BrendanFertilizingOras[] = INCBIN_U32("graphics/object_events/pics/people/brendanoras/fertilizing.4bpp");
+const u32 gObjectEventPic_BrendanFertilizing[] = INCBIN_U32("graphics/object_events/pics/people/brendan/fertilizing.4bpp");
+
 const u32 gObjectEventPic_MayDecoratingOras[] = INCBIN_U32("graphics/object_events/pics/people/mayoras/decorating.4bpp");
 const u32 gObjectEventPic_MayUnderwaterOras[] = INCBIN_U32("graphics/object_events/pics/people/mayoras/underwater.4bpp");
 

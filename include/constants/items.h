@@ -1026,11 +1026,13 @@
 #define ITEM_HISTORY_BOOK 849
 #define ITEM_SAMPLE_BOX 850
 #define ITEM_TITANIUM_LINE 851
+#define ITEM_STRANGE_SEED 852
+#define ITEM_FERTILIZER 853
 
 // HOPO BERRY
 // LEGEND PLATE
 
-#define ITEMS_COUNT 852
+#define ITEMS_COUNT 854
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

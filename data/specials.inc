@@ -109,6 +109,7 @@ gSpecials::
 	def_special TryContestGModeLinkup
 	def_special SaveGame
 	def_special DoWateringBerryTreeAnim
+	def_special DoFertilizingBerryTreeAnim
 	def_special ShowEasyChatScreen
 	def_special ShowEasyChatProfile
 	def_special Script_GetCurrentMauvilleMan

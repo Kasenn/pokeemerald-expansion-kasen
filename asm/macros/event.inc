@@ -2050,6 +2050,15 @@
 	callnative ResetCopyableMovement
 	.endm
 
+	@ picks a 0-99 value from the strange seed index and stores it in VAR_0x8004
+	.macro trystrangeseed
+	callnative TryDropStrangeSeed
+	.endm
+
+	.macro fertilizeberry
+	callnative BerryTreeUseFertilizer
+	.endm
+
 @ Supplementary
 
 	.macro goto_if_unset flag:req, dest:req

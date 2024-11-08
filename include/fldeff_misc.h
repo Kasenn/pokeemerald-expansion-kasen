@@ -26,6 +26,7 @@ bool8 IsLargeBreakableDecoration(u16 metatileId, bool8 checkBase);
 void FldEffPoison_Start(void);
 bool32 FldEffPoison_IsActive(void);
 void DoWateringBerryTreeAnim(void);
+void DoFertilizingBerryTreeAnim(void);
 u8 CreateRecordMixingLights(void);
 void DestroyRecordMixingLights(void);
 

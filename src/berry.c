@@ -408,7 +408,7 @@ const struct Berry gBerries[] =
         .minYield = YIELD_RATE(3, 2, 3, 4),
         .description1 = COMPOUND_STRING("The red Berry tastes slightly spicy."),
         .description2 = COMPOUND_STRING("It grows quickly in just four hours."),
-        .growthDuration = GROWTH_DURATION(4, 8, 12, 24, 16, 24),
+        .growthDuration = GROWTH_DURATION(8, 8, 12, 24, 16, 24),
         .spicy = 10,
         .dry = 10,
         .sweet = 0,
@@ -431,7 +431,7 @@ const struct Berry gBerries[] =
         .minYield = YIELD_RATE(3, 2, 3, 4),
         .description1 = COMPOUND_STRING("The Berry is blue on the outside, but"),
         .description2 = COMPOUND_STRING("it blackens the mouth when eaten."),
-        .growthDuration = GROWTH_DURATION(4, 8, 12, 24, 16, 24),
+        .growthDuration = GROWTH_DURATION(8, 8, 12, 24, 16, 24),
         .spicy = 0,
         .dry = 10,
         .sweet = 10,
@@ -454,7 +454,7 @@ const struct Berry gBerries[] =
         .minYield = YIELD_RATE(3, 2, 3, 4),
         .description1 = COMPOUND_STRING("This Berry was the seventh"),
         .description2 = COMPOUND_STRING("discovered in the world. It is sweet."),
-        .growthDuration = GROWTH_DURATION(4, 8, 12, 24, 16, 24),
+        .growthDuration = GROWTH_DURATION(8, 8, 12, 24, 16, 24),
         .spicy = 0,
         .dry = 0,
         .sweet = 10,
@@ -477,7 +477,7 @@ const struct Berry gBerries[] =
         .minYield = YIELD_RATE(3, 2, 3, 4),
         .description1 = COMPOUND_STRING("The flower is small and white. It has a"),
         .description2 = COMPOUND_STRING("delicate balance of bitter and sour."),
-        .growthDuration = GROWTH_DURATION(4, 8, 12, 24, 16, 24),
+        .growthDuration = GROWTH_DURATION(8, 8, 12, 24, 16, 24),
         .spicy = 0,
         .dry = 0,
         .sweet = 0,
@@ -500,7 +500,7 @@ const struct Berry gBerries[] =
         .minYield = YIELD_RATE(3, 2, 3, 4),
         .description1 = COMPOUND_STRING("Weak against wind and cold."),
         .description2 = COMPOUND_STRING("The fruit is spicy and the skin, sour."),
-        .growthDuration = GROWTH_DURATION(4, 8, 12, 24, 16, 24),
+        .growthDuration = GROWTH_DURATION(8, 8, 12, 24, 16, 24),
         .spicy = 10,
         .dry = 0,
         .sweet = 0,
@@ -1942,6 +1942,39 @@ void BerryTreeTimeUpdate(s32 minutes)
                         tree->minutesUntilNextStage = GetStageDurationByBerryType(tree->berry) * ((tree->mulch == ITEM_TO_MULCH(ITEM_STABLE_MULCH)) ? 6 : 4);
                 }
             }
+        }
+    }
+}
+
+void BerryTreeUseFertilizer(void)
+{
+    struct BerryTree *tree = GetBerryTreeInfo(GetObjectEventBerryTreeId(gSelectedObjectEvent));
+    s32 time = 360;
+
+    if (tree->minutesUntilNextStage <= time)
+    {
+        gSpecialVar_0x800A = TRUE;
+        tree->berryYield = GetBerryInfo(tree->berry)->maxYield;
+    }
+    else
+        gSpecialVar_0x800A = FALSE;
+
+    if (tree->berry && tree->stage && !tree->stopGrowth)
+    {
+        // Check Berry growth
+        while (time != 0)
+        {
+            if (tree->minutesUntilNextStage > time)
+            {
+                tree->minutesUntilNextStage -= time;
+                break;
+            }
+            time -= tree->minutesUntilNextStage;
+            tree->minutesUntilNextStage = GetMulchAffectedGrowthRate(GetStageDurationByBerryType(tree->berry), tree->mulch, tree->stage);
+            if (!BerryTreeGrow(tree))
+                break;
+            if (tree->stage == BERRY_STAGE_BERRIES)
+                tree->minutesUntilNextStage = GetStageDurationByBerryType(tree->berry) * ((tree->mulch == ITEM_TO_MULCH(ITEM_STABLE_MULCH)) ? 6 : 4);
         }
     }
 }

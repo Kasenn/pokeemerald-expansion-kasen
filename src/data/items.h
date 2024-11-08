@@ -14778,4 +14778,35 @@ const struct Item gItemsInfo[] =
         .iconPic = gItemIcon_TitaniumLine,
         .iconPalette = gItemIconPalette_TitaniumLine,
     },
+
+    [ITEM_STRANGE_SEED] =
+    {
+        .name = _("Strange Seed"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A peculiar seed.\n"
+            "It is coveted by\n"
+            "collectors."),
+        .importance = 0,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_StrangeSeed,
+        .iconPalette = gItemIconPalette_StrangeSeed,
+    },
+
+    [ITEM_FERTILIZER] =
+    {
+        .name = _("Fertilizer"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Rapidly boosts\n"
+            "plant growth."),
+        .importance = 0,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_Fertilizer,
+        .iconPic = gItemIcon_Fertilizer,
+        .iconPalette = gItemIconPalette_Fertilizer,
+    },
 };

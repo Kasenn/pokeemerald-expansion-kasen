@@ -148,6 +148,18 @@ void ResetMenuAndMonGlobals(void)
     ResetPokeblockScrollPositions();
 }
 
+void InitStrangeSeeds(void)
+{
+    u8 i;
+
+    for (i = 0; i < 11; i++)
+    {
+        u8 rand = Random() % 100;
+        gSaveBlock1Ptr->strangeSeedDrop[i] = rand;
+    }
+    gSaveBlock1Ptr->strangeSeedIndex = 0;
+}
+
 void NewGameInitData(void)
 {
     if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_CORRUPT)
@@ -193,6 +205,7 @@ void NewGameInitData(void)
     InitEasyChatPhrases();
     SetMauvilleOldMan();
     InitDewfordTrend();
+    InitStrangeSeeds();
     ResetFanClub();
     ResetLotteryCorner();
     WarpToTruck();

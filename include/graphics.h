@@ -1749,6 +1749,10 @@ extern const u32 gItemIcon_Processor[];
 extern const u32 gItemIconPalette_Processor[];
 extern const u32 gItemIcon_TitaniumLine[];
 extern const u32 gItemIconPalette_TitaniumLine[];
+extern const u32 gItemIcon_StrangeSeed[];
+extern const u32 gItemIconPalette_StrangeSeed[];
+extern const u32 gItemIcon_Fertilizer[];
+extern const u32 gItemIconPalette_Fertilizer[];
 
 extern const u32 gItemIcon_FairyFeather[];
 extern const u32 gItemIconPalette_FairyFeather[];

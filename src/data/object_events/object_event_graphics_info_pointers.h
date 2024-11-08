@@ -197,6 +197,10 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Latios;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GameboyKid;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ContestJudge;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanWatering;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFertilizing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFertilizing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFertilizingOras;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFertilizingOras;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayWatering;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanDecorating;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayDecorating;
@@ -528,6 +532,10 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_CONTEST_JUDGE] =            &gObjectEventGraphicsInfo_ContestJudge,
     [OBJ_EVENT_GFX_BRENDAN_WATERING] =         &gObjectEventGraphicsInfo_BrendanWatering,
     [OBJ_EVENT_GFX_MAY_WATERING] =             &gObjectEventGraphicsInfo_MayWatering,
+    [OBJ_EVENT_GFX_BRENDAN_FERTILIZING] =              &gObjectEventGraphicsInfo_BrendanFertilizing,
+    [OBJ_EVENT_GFX_MAY_FERTILIZING] =                  &gObjectEventGraphicsInfo_MayFertilizing,
+    [OBJ_EVENT_GFX_BRENDAN_FERTILIZING_ORAS] =         &gObjectEventGraphicsInfo_BrendanFertilizingOras,
+    [OBJ_EVENT_GFX_MAY_FERTILIZING_ORAS] =             &gObjectEventGraphicsInfo_MayFertilizingOras,
     [OBJ_EVENT_GFX_BRENDAN_DECORATING] =       &gObjectEventGraphicsInfo_BrendanDecorating,
     [OBJ_EVENT_GFX_MAY_DECORATING] =           &gObjectEventGraphicsInfo_MayDecorating,
     // [OBJ_EVENT_GFX_ARCHIE] =                   &gObjectEventGraphicsInfo_Archie,

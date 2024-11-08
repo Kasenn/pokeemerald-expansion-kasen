@@ -1,6 +1,100 @@
 // This file is meant for general scripts that have no other place to go, as well as debug scripts
 
+// General stuff
 
+script BerryTree_ItemUseFertilizer{
+    special(ObjectEventInteractionGetBerryName)
+	message(BerryTree_Text_FertilizedTheBerry)
+	waitmessage
+	special(ObjectEventInteractionWaterBerryTree)
+    fertilizeberry
+	special(DoFertilizingBerryTreeAnim)
+	waitstate
+	message(BerryTree_Text_PlantIsDelighted)
+	waitmessage
+	waitbuttonpress
+	releaseall
+    dotimebasedevents
+    if(var(VAR_0x800A) == TRUE){
+        delay(210)
+    }
+	end
+}
+text BerryTree_Text_FertilizedTheBerry{
+    "{PLAYER} applied the Fertilizer to\n"
+    "the {STR_VAR_1} plant."
+}
+
+script TryDropStrangeSeed_Tree{
+    trystrangeseed
+    if(var(VAR_0x8004) >= 80 &&
+    checkitemspace(ITEM_STRANGE_SEED) == TRUE){
+        waitse
+        playse(SE_PIN)
+        applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
+        waitmovement(0)
+        delay(48)
+        msgbox(StrangeSeedDroppedTree)
+        additem(ITEM_STRANGE_SEED)
+        message(BerryTree_Text_PickedTheSeed)
+	    playfanfare(MUS_OBTAIN_BERRY)
+	    waitmessage
+	    waitfanfare
+	    waitbuttonpress
+        message(BerryTree_Text_PutAwaySeed)
+        waitmessage
+	    waitbuttonpress
+    }
+    return
+}
+
+text StrangeSeedDroppedBerry{
+    "A Strange Seed dropped from the\n"
+    "berry tree."
+}
+text StrangeSeedDroppedTree{
+    "A Strange Seed dropped from the tree."
+}
+text BerryTree_Text_PickedTheSeed{
+	"{PLAYER} picked up the Strange Seed."
+}
+text BerryTree_Text_PutAwaySeed{
+	"{PLAYER} put away the Strange\n"
+	"Seed in the Items pocket."
+}
+text BerryTree_Text_PutAwayBerryAndSeed{
+	"{PLAYER} put away the {STR_VAR_1}\n"
+	"in the bag's berries pocket\l"
+    "and the Strange Seed in the\l"
+    "Items pocket.\p"
+	"The soil returned to its soft and\n"
+	"loamy state."
+}
+
+script TryDropStrangeSeed_BerryPlant{
+    trystrangeseed
+    if(var(VAR_0x8004) >= 60
+    && checkitemspace(ITEM_STRANGE_SEED) == TRUE){
+        closemessage
+        waitse
+        playse(SE_PIN)
+        applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
+        waitmovement(0)
+        delay(48)
+        msgbox(StrangeSeedDroppedBerry)
+        additem(ITEM_STRANGE_SEED)
+        message(BerryTree_Text_PickedTheSeed)
+	    playfanfare(MUS_OBTAIN_BERRY)
+	    waitmessage
+	    waitfanfare
+	    waitbuttonpress
+        message(BerryTree_Text_PutAwayBerryAndSeed)
+    }
+    else{
+        message(BerryTree_Text_PutAwayBerry)
+    }
+    return
+}
 
 // Leader test scripts
 
@@ -82,6 +176,7 @@ text AutomaticUpdate2_Text2{
     "moved to SELECT button."
 }
 script AutomaticUpdate3{
+    callnative(InitStrangeSeeds)
     setvar(VAR_DEBUG, 11)
     setvar(VAR_UNUSED_0x4051, 0)
     setvar(VAR_UNUSED_0x4052, 0)
@@ -308,7 +403,8 @@ script Debug_Script_4{              // Set team level
     end
 }
 script Debug_Script_5{
-    clearflag(FLAG_REUNITE_WITH_RIVAL)
+    giveitem(ITEM_HM01)
+    setflag(FLAG_BADGE02_GET)
     return
 }
 script Debug_Script_6{

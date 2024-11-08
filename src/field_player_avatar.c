@@ -266,6 +266,7 @@ static const u8 sRivalAvatarGfxIds[][2] =
     [PLAYER_AVATAR_STATE_FISHING]       = {OBJ_EVENT_GFX_BRENDAN_FISHING,          OBJ_EVENT_GFX_MAY_FISHING},
     [PLAYER_AVATAR_STATE_WATERING]      = {OBJ_EVENT_GFX_BRENDAN_WATERING,         OBJ_EVENT_GFX_MAY_WATERING},
     [PLAYER_AVATAR_STATE_VSSEEKER]      = {OBJ_EVENT_GFX_RIVAL_BRENDAN_FIELD_MOVE, OBJ_EVENT_GFX_RIVAL_MAY_FIELD_MOVE},
+    [PLAYER_AVATAR_STATE_FERTILIZING]   = {OBJ_EVENT_GFX_BRENDAN_FERTILIZING,      OBJ_EVENT_GFX_MAY_FERTILIZING},
 };
 
 static const u8 sPlayerAvatarGfxIds[][2] =
@@ -280,6 +281,7 @@ static const u8 sPlayerAvatarGfxIds[][2] =
     [PLAYER_AVATAR_STATE_WATERING]      = {OBJ_EVENT_GFX_BRENDAN_WATERING,          OBJ_EVENT_GFX_MAY_WATERING},
     [PLAYER_AVATAR_STATE_VSSEEKER]      = {OBJ_EVENT_GFX_BRENDAN_FIELD_MOVE,        OBJ_EVENT_GFX_MAY_FIELD_MOVE},
     [PLAYER_AVATAR_STATE_KROKOROK]      = {OBJ_EVENT_GFX_KROKOROK,                  OBJ_EVENT_GFX_KROKOROK},
+    [PLAYER_AVATAR_STATE_FERTILIZING]   = {OBJ_EVENT_GFX_BRENDAN_FERTILIZING,      OBJ_EVENT_GFX_MAY_FERTILIZING},
 };
 
 static const u8 sPlayerAvatarOrasGfxIds[][2] =
@@ -294,6 +296,7 @@ static const u8 sPlayerAvatarOrasGfxIds[][2] =
     [PLAYER_AVATAR_STATE_WATERING]      = {OBJ_EVENT_GFX_BRENDAN_WATERING_ORAS,     OBJ_EVENT_GFX_MAY_WATERING_ORAS},
     [PLAYER_AVATAR_STATE_VSSEEKER]      = {OBJ_EVENT_GFX_BRENDAN_FIELD_MOVE,        OBJ_EVENT_GFX_MAY_FIELD_MOVE},
     [PLAYER_AVATAR_STATE_KROKOROK]      = {OBJ_EVENT_GFX_KROKOROK,                  OBJ_EVENT_GFX_KROKOROK},
+    [PLAYER_AVATAR_STATE_FERTILIZING]   = {OBJ_EVENT_GFX_BRENDAN_FERTILIZING_ORAS,      OBJ_EVENT_GFX_MAY_FERTILIZING_ORAS},
 };
 
 static const u16 sFRLGAvatarGfxIds[GENDER_COUNT] =
@@ -1600,6 +1603,11 @@ void PlayerUseAcroBikeOnBumpySlope(u8 direction)
 void SetPlayerAvatarWatering(u8 direction)
 {
     ObjectEventSetGraphicsId(&gObjectEvents[gPlayerAvatar.objectEventId], GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_WATERING));
+    StartSpriteAnim(&gSprites[gPlayerAvatar.spriteId], GetFaceDirectionAnimNum(direction));
+}
+void SetPlayerAvatarFertilizing(u8 direction)
+{
+    ObjectEventSetGraphicsId(&gObjectEvents[gPlayerAvatar.objectEventId], GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_FERTILIZING));
     StartSpriteAnim(&gSprites[gPlayerAvatar.spriteId], GetFaceDirectionAnimNum(direction));
 }
 

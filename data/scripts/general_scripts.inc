@@ -1,3 +1,91 @@
+BerryTree_ItemUseFertilizer::
+	special ObjectEventInteractionGetBerryName
+	message BerryTree_Text_FertilizedTheBerry
+	waitmessage
+	special ObjectEventInteractionWaterBerryTree
+	fertilizeberry
+	special DoFertilizingBerryTreeAnim
+	waitstate
+	message BerryTree_Text_PlantIsDelighted
+	waitmessage
+	waitbuttonpress
+	releaseall
+	dotimebasedevents
+	compare VAR_0x800A, TRUE
+	goto_if_eq BerryTree_ItemUseFertilizer_2
+BerryTree_ItemUseFertilizer_1:
+	end
+
+BerryTree_ItemUseFertilizer_2:
+	delay 210
+	goto BerryTree_ItemUseFertilizer_1
+
+
+TryDropStrangeSeed_Tree::
+	trystrangeseed
+	compare VAR_0x8004, 80
+	goto_if_ge TryDropStrangeSeed_Tree_3
+TryDropStrangeSeed_Tree_1:
+	return
+
+TryDropStrangeSeed_Tree_2:
+	waitse
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 48
+	msgbox StrangeSeedDroppedTree
+	additem ITEM_STRANGE_SEED
+	message BerryTree_Text_PickedTheSeed
+	playfanfare MUS_OBTAIN_BERRY
+	waitmessage
+	waitfanfare
+	waitbuttonpress
+	message BerryTree_Text_PutAwaySeed
+	waitmessage
+	waitbuttonpress
+	goto TryDropStrangeSeed_Tree_1
+
+TryDropStrangeSeed_Tree_3:
+	checkitemspace ITEM_STRANGE_SEED
+	compare VAR_RESULT, TRUE
+	goto_if_eq TryDropStrangeSeed_Tree_2
+	goto TryDropStrangeSeed_Tree_1
+
+
+TryDropStrangeSeed_BerryPlant::
+	trystrangeseed
+	compare VAR_0x8004, 60
+	goto_if_ge TryDropStrangeSeed_BerryPlant_4
+TryDropStrangeSeed_BerryPlant_3:
+	message BerryTree_Text_PutAwayBerry
+TryDropStrangeSeed_BerryPlant_1:
+	return
+
+TryDropStrangeSeed_BerryPlant_2:
+	closemessage
+	waitse
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 48
+	msgbox StrangeSeedDroppedBerry
+	additem ITEM_STRANGE_SEED
+	message BerryTree_Text_PickedTheSeed
+	playfanfare MUS_OBTAIN_BERRY
+	waitmessage
+	waitfanfare
+	waitbuttonpress
+	message BerryTree_Text_PutAwayBerryAndSeed
+	goto TryDropStrangeSeed_BerryPlant_1
+
+TryDropStrangeSeed_BerryPlant_4:
+	checkitemspace ITEM_STRANGE_SEED
+	compare VAR_RESULT, TRUE
+	goto_if_eq TryDropStrangeSeed_BerryPlant_2
+	goto TryDropStrangeSeed_BerryPlant_3
+
+
 IrisBattle::
 	trainerbattle_single TRAINER_CASUAL_IRIS, RustboroCity_DevonCorp_1F_Rocket1_Intro, RustboroCity_DevonCorp_1F_Rocket1_Defeat
 	return
@@ -52,6 +140,7 @@ AutomaticUpdate2_5:
 
 
 AutomaticUpdate3::
+	callnative InitStrangeSeeds
 	setvar VAR_DEBUG, 11
 	setvar VAR_UNUSED_0x4051, 0
 	setvar VAR_UNUSED_0x4052, 0
@@ -397,7 +486,8 @@ Debug_Script_4_12:
 
 
 Debug_Script_5::
-	clearflag FLAG_REUNITE_WITH_RIVAL
+	giveitem ITEM_HM01
+	setflag FLAG_BADGE02_GET
 	return
 
 
@@ -681,6 +771,32 @@ Debug_Script_4_Text_15:
 
 Debug_Script_4_Text_16:
 	.string "Team set to level 45.$"
+
+BerryTree_Text_FertilizedTheBerry::
+	.string "{PLAYER} applied the Fertilizer to\n"
+	.string "the {STR_VAR_1} plant.$"
+
+StrangeSeedDroppedBerry::
+	.string "A Strange Seed dropped from the\n"
+	.string "berry tree.$"
+
+StrangeSeedDroppedTree::
+	.string "A Strange Seed dropped from the tree.$"
+
+BerryTree_Text_PickedTheSeed::
+	.string "{PLAYER} picked up the Strange Seed.$"
+
+BerryTree_Text_PutAwaySeed::
+	.string "{PLAYER} put away the Strange\n"
+	.string "Seed in the Items pocket.$"
+
+BerryTree_Text_PutAwayBerryAndSeed::
+	.string "{PLAYER} put away the {STR_VAR_1}\n"
+	.string "in the bag's berries pocket\l"
+	.string "and the Strange Seed in the\l"
+	.string "Items pocket.\p"
+	.string "The soil returned to its soft and\n"
+	.string "loamy state.$"
 
 AutomaticUpdate_Text1::
 	.string "A new update has been applied.\p"

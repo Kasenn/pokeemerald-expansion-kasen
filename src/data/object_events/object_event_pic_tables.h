@@ -1341,6 +1341,54 @@ static const struct SpriteFrameImage sPicTable_MayWateringOras[] = {
     overworld_frame(gObjectEventPic_MayWateringOras, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage sPicTable_BrendanFertilizing[] = {
+    overworld_frame(gObjectEventPic_BrendanFertilizing, 4, 4, 0),
+    overworld_frame(gObjectEventPic_BrendanFertilizing, 4, 4, 2),
+    overworld_frame(gObjectEventPic_BrendanFertilizing, 4, 4, 4),
+    overworld_frame(gObjectEventPic_BrendanFertilizing, 4, 4, 1),
+    overworld_frame(gObjectEventPic_BrendanFertilizing, 4, 4, 1),
+    overworld_frame(gObjectEventPic_BrendanFertilizing, 4, 4, 3),
+    overworld_frame(gObjectEventPic_BrendanFertilizing, 4, 4, 3),
+    overworld_frame(gObjectEventPic_BrendanFertilizing, 4, 4, 5),
+    overworld_frame(gObjectEventPic_BrendanFertilizing, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_BrendanFertilizingOras[] = {
+    overworld_frame(gObjectEventPic_BrendanFertilizingOras, 4, 4, 0),
+    overworld_frame(gObjectEventPic_BrendanFertilizingOras, 4, 4, 2),
+    overworld_frame(gObjectEventPic_BrendanFertilizingOras, 4, 4, 4),
+    overworld_frame(gObjectEventPic_BrendanFertilizingOras, 4, 4, 1),
+    overworld_frame(gObjectEventPic_BrendanFertilizingOras, 4, 4, 1),
+    overworld_frame(gObjectEventPic_BrendanFertilizingOras, 4, 4, 3),
+    overworld_frame(gObjectEventPic_BrendanFertilizingOras, 4, 4, 3),
+    overworld_frame(gObjectEventPic_BrendanFertilizingOras, 4, 4, 5),
+    overworld_frame(gObjectEventPic_BrendanFertilizingOras, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_MayFertilizing[] = {
+    overworld_frame(gObjectEventPic_MayFertilizing, 4, 4, 0),
+    overworld_frame(gObjectEventPic_MayFertilizing, 4, 4, 2),
+    overworld_frame(gObjectEventPic_MayFertilizing, 4, 4, 4),
+    overworld_frame(gObjectEventPic_MayFertilizing, 4, 4, 1),
+    overworld_frame(gObjectEventPic_MayFertilizing, 4, 4, 1),
+    overworld_frame(gObjectEventPic_MayFertilizing, 4, 4, 3),
+    overworld_frame(gObjectEventPic_MayFertilizing, 4, 4, 3),
+    overworld_frame(gObjectEventPic_MayFertilizing, 4, 4, 5),
+    overworld_frame(gObjectEventPic_MayFertilizing, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_MayFertilizingOras[] = {
+    overworld_frame(gObjectEventPic_MayFertilizingOras, 4, 4, 0),
+    overworld_frame(gObjectEventPic_MayFertilizingOras, 4, 4, 2),
+    overworld_frame(gObjectEventPic_MayFertilizingOras, 4, 4, 4),
+    overworld_frame(gObjectEventPic_MayFertilizingOras, 4, 4, 1),
+    overworld_frame(gObjectEventPic_MayFertilizingOras, 4, 4, 1),
+    overworld_frame(gObjectEventPic_MayFertilizingOras, 4, 4, 3),
+    overworld_frame(gObjectEventPic_MayFertilizingOras, 4, 4, 3),
+    overworld_frame(gObjectEventPic_MayFertilizingOras, 4, 4, 5),
+    overworld_frame(gObjectEventPic_MayFertilizingOras, 4, 4, 5),
+};
+
 static const struct SpriteFrameImage sPicTable_BrendanDecorating[] = {
     obj_frame_tiles(gObjectEventPic_BrendanDecorating),
 };

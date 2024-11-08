@@ -50,6 +50,7 @@ bool8 IsPlayerFacingSurfableFishableWater(void);
 bool8 IsPlayerFacingFishableLava(void);
 bool8 IsPlayerSurfingNorth(void);
 void SetPlayerAvatarWatering(u8 direction);
+void SetPlayerAvatarFertilizing(u8 direction);
 u8 GetPlayerAvatarFlags(void);
 void UpdatePlayerAvatarTransitionState(void);
 u16 GetFRLGAvatarGraphicsIdByGender(u8);

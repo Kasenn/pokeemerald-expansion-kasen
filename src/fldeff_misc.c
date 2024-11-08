@@ -39,6 +39,10 @@ static void Task_WateringBerryTreeAnim_Start(u8);
 static void Task_WateringBerryTreeAnim_Continue(u8);
 static void Task_WateringBerryTreeAnim_End(u8);
 
+static void Task_FertilizingBerryTreeAnim_Start(u8);
+static void Task_FertilizingBerryTreeAnim_Continue(u8);
+static void Task_FertilizingBerryTreeAnim_End(u8);
+
 static void FieldCallback_SecretBaseCave(void);
 static void SpriteCB_CaveEntranceInit(struct Sprite *);
 static void SpriteCB_CaveEntranceOpen(struct Sprite *);
@@ -1249,7 +1253,9 @@ static void Task_WateringBerryTreeAnim_Start(u8 taskId)
 {
     struct ObjectEvent *playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
 
-    playerObjEvent->previousElevation += 1;
+    if ((GetPlayerFacingDirection() == DIR_EAST)
+     || (GetPlayerFacingDirection() == DIR_WEST))
+        playerObjEvent->previousElevation += 1;
     if (!ObjectEventIsMovementOverridden(playerObjEvent)
         || ObjectEventClearHeldMovementIfFinished(playerObjEvent))
     {
@@ -1279,7 +1285,9 @@ static void Task_WateringBerryTreeAnim_Continue(u8 taskId)
 static void Task_WateringBerryTreeAnim_End(u8 taskId)
 {
     struct ObjectEvent *playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
-    playerObjEvent->previousElevation -= 1;
+    if ((GetPlayerFacingDirection() == DIR_EAST)
+     || (GetPlayerFacingDirection() == DIR_WEST))
+        playerObjEvent->previousElevation -= 1;
     SetPlayerAvatarTransitionFlags(GetPlayerAvatarFlags());
     DestroyTask(taskId);
     ScriptContext_Enable();
@@ -1288,6 +1296,62 @@ static void Task_WateringBerryTreeAnim_End(u8 taskId)
 void DoWateringBerryTreeAnim(void)
 {
     CreateTask(Task_WateringBerryTreeAnim, 80);
+}
+
+static void Task_FertilizingBerryTreeAnim(u8 taskId)
+{
+    gTasks[taskId].func = Task_FertilizingBerryTreeAnim_Start;
+}
+
+static void Task_FertilizingBerryTreeAnim_Start(u8 taskId)
+{
+    struct ObjectEvent *playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+
+
+    if ((GetPlayerFacingDirection() == DIR_EAST)
+     || (GetPlayerFacingDirection() == DIR_WEST))
+        playerObjEvent->previousElevation += 1;
+    if (!ObjectEventIsMovementOverridden(playerObjEvent)
+        || ObjectEventClearHeldMovementIfFinished(playerObjEvent))
+    {
+        // Start Fertilizing
+        SetPlayerAvatarFertilizing(GetPlayerFacingDirection());
+        ObjectEventSetHeldMovement(playerObjEvent, GetWalkInPlaceNormalMovementAction(GetPlayerFacingDirection()));
+        gTasks[taskId].func = Task_FertilizingBerryTreeAnim_Continue;
+    }
+}
+
+static void Task_FertilizingBerryTreeAnim_Continue(u8 taskId)
+{
+    struct ObjectEvent *playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+
+    if (ObjectEventClearHeldMovementIfFinished(playerObjEvent))
+    {
+        s16 value = gTasks[taskId].data[1]++;
+
+        // Continue holding Fertilizing action 10 times, then end
+        if (value < 10)
+            ObjectEventSetHeldMovement(playerObjEvent, GetWalkInPlaceNormalMovementAction(GetPlayerFacingDirection()));
+        else
+            gTasks[taskId].func = Task_FertilizingBerryTreeAnim_End;
+    }
+}
+
+static void Task_FertilizingBerryTreeAnim_End(u8 taskId)
+{
+    struct ObjectEvent *playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+    if ((GetPlayerFacingDirection() == DIR_EAST)
+     || (GetPlayerFacingDirection() == DIR_WEST))
+        playerObjEvent->previousElevation -= 1;
+    SetPlayerAvatarTransitionFlags(GetPlayerAvatarFlags());
+    DestroyTask(taskId);
+    ScriptContext_Enable();
+}
+
+void DoFertilizingBerryTreeAnim(void)
+{
+    CreateTask(Task_FertilizingBerryTreeAnim, 80);
+
 }
 
 // The lights that blink on the counter when mixing records in the cable club
