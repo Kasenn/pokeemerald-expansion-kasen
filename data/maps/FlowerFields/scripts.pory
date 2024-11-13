@@ -1,0 +1,325 @@
+mapscripts FlowerFields_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION{
+        if(var(VAR_MINA_INTRO_QUEST) >= STORY_MINA_GRANBULL_DEFEATED){
+            setflag(FLAG_TEMP_1)
+            setobjectxyperm(2, 31, 39)
+            setobjectmovementtype(2, MOVEMENT_TYPE_FACE_UP)
+        }
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_MINA_INTRO_QUEST, STORY_MINA_GRANBULL_DEFEATED: FlowerFields_MinaEvent_FrameTable
+    ]
+}
+
+script FlowerFields_MinaEvent_FrameTable{
+    delay(15)
+    playmoncry(SPECIES_GRANBULL, CRY_MODE_FAINT)
+    waitmoncry
+    delay(15)
+    turnobject(1, DIR_EAST)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+    delay(5)
+    msgbox(ThanksForBattlingGranbull)
+    if(checkitemspace(ITEM_RARE_CANDY) == FALSE){
+        setvar(VAR_MINA_INTRO_QUEST, STORY_MINA_SPOKEN_WITH_AFTER_BATTLE)
+        goto(ZeBagIsFull)
+    }
+    giveitem(ITEM_RARE_CANDY)
+    turnobject(1, DIR_SOUTH)
+    setvar(VAR_MINA_INTRO_QUEST, STORY_MINA_QUEST_COMPLETE)
+    release
+}
+
+script FlowerFields_Combee{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_COMBEE, CRY_MODE_NORMAL)
+	msgbox("Bzzz!")
+	waitmoncry
+	release
+	end}
+script FlowerFields_Cutiefly{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_CUTIEFLY, CRY_MODE_NORMAL)
+	msgbox("Bzzz!")
+	waitmoncry
+	release
+	end}
+script FlowerFields_HoneyTree{
+    lock
+    checkitem(ITEM_HONEY, 1)
+    if(checkitem(ITEM_HONEY, 1) == FALSE){
+        msgbox(HoneyTree_NoHoney, MSGBOX_SIGN)
+        end
+    }
+    if(msgbox(HoneyTree_YesHoney, MSGBOX_YESNO) == TRUE){
+        msgbox(HoneyUsedOnTree, MSGBOX_DEFAULT)
+        closemessage
+        removeitem(ITEM_HONEY, 1)
+        random(20)
+        if(var(VAR_RESULT) <= 8){
+            setwildbattlelevelrange(SPECIES_COMBEE, 12, ITEM_NONE, SPECIES_NONE, 15)
+        }
+        elif(var(VAR_RESULT) >= 18){
+            setwildbattlelevelrange(SPECIES_TEDDIURSA, 12, ITEM_NONE, SPECIES_NONE, 15)
+        }
+        else{
+            setwildbattlelevelrange(SPECIES_CUTIEFLY, 12, ITEM_NONE, SPECIES_NONE, 15)
+        }
+        dowildbattle
+    }
+    release
+    end}
+script FlowerFields_Mina{
+    lock
+    faceplayer
+    if(var(VAR_MINA_INTRO_QUEST) == STORY_MINA_NOT_SPOKEN_TO){
+        msgbox(GranbullBeingRowdy, MSGBOX_NPC)
+        turnobject(1, DIR_SOUTH)
+        setvar(VAR_MINA_INTRO_QUEST, STORY_MINA_SPOKEN_TO)
+    }
+    elif(var(VAR_MINA_INTRO_QUEST) == STORY_MINA_SPOKEN_TO){
+        msgbox(AllIWantToDoIsPaintGranbull, MSGBOX_NPC)
+        turnobject(1, DIR_SOUTH)
+    }
+    elif(var(VAR_MINA_INTRO_QUEST) == STORY_MINA_GRANBULL_BATTLED){
+        msgbox(FeistyGranbullAintHe, MSGBOX_NPC)
+        setvar(VAR_MINA_INTRO_QUEST, STORY_MINA_SPOKEN_TO)
+    }
+    elif(var(VAR_MINA_INTRO_QUEST) == STORY_MINA_GRANBULL_DEFEATED){
+        msgbox(ThanksForBattlingGranbull)
+        if(checkitemspace(ITEM_RARE_CANDY) == FALSE){
+            setvar(VAR_MINA_INTRO_QUEST, STORY_MINA_SPOKEN_WITH_AFTER_BATTLE)
+            goto(ZeBagIsFull)
+        }
+        giveitem(ITEM_RARE_CANDY)
+        turnobject(1, DIR_SOUTH)
+        setvar(VAR_MINA_INTRO_QUEST, STORY_MINA_QUEST_COMPLETE)
+    }
+    elif(var(VAR_MINA_INTRO_QUEST) == STORY_MINA_SPOKEN_WITH_AFTER_BATTLE){
+        msgbox(ThanksForBattlingGranbull_Short)
+        if(checkitemspace(ITEM_RARE_CANDY) == FALSE){
+            setvar(VAR_MINA_INTRO_QUEST, STORY_MINA_SPOKEN_WITH_AFTER_BATTLE)
+            goto(ZeBagIsFull)
+        }
+        giveitem(ITEM_RARE_CANDY)
+        turnobject(1, DIR_SOUTH)
+        setvar(VAR_MINA_INTRO_QUEST, STORY_MINA_QUEST_COMPLETE)
+    }
+    elif(var(VAR_MINA_INTRO_QUEST) == STORY_MINA_QUEST_COMPLETE){
+        msgbox(MinaIntroduction, MSGBOX_NPC)
+        turnobject(1, DIR_SOUTH)
+        setvar(VAR_MINA_INTRO_QUEST, STORY_MINA_INTRODUCED)
+    }
+    else{
+        msgbox(MinaLikesToPaint, MSGBOX_NPC)
+        turnobject(1, DIR_SOUTH)
+    }
+    release
+    end
+}
+text GranbullBeingRowdy{
+    "All I wanted to do was paint my\n"
+    "Granbull doing a super cool pose,\l"
+    "but he's just way too distracted\l"
+    "by that Combee."
+}
+text AllIWantToDoIsPaintGranbull{
+    "Wish he would calm down…"
+}
+text FeistyGranbullAintHe{
+    "Feisty, ain't he?\p"
+    "Granbull really likes showing his\n"
+    "affection through chomping.\l"
+    "Like, he just can't stop chomping\l"
+    "things."
+}
+text ThanksForBattlingGranbull{
+    "Thanks for playing with Granbull.\p"
+    "Hope he didn't cause you too much\n"
+    "trouble.\p"
+    "Wish I could like, reward you or\n"
+    "something, but all I've got to give\l"
+    "is this candy."
+}
+text ThanksForBattlingGranbull_Short{
+    "Wish I could like, reward you or\n"
+    "something, but all I've got to give\l"
+    "is this candy."
+}
+text MinaIntroduction{
+    "Oh right, I never even introduced\n"
+    "myself.\p"
+    "My name is Mina.\p"
+    "I found this super cool spot and\n"
+    "thought I'd have my Granbull pose\l"
+    "for an awesome painting, but the\l"
+    "moment I let it out of its ball,\l"
+    "it started chasing after the\l"
+    "Pokémon here.\p"
+    "Thanks for handling the situation\n"
+    "though."
+}
+text MinaLikesToPaint{
+    "If you don't mind, I'd like to\n"
+    "focus on painting now."
+}
+text WantToBattleGranbull{
+    "The Granbull looks like it's\n"
+    "raring to go.\p"
+    "Would you like to battle with it?"
+}
+text CombeeFliesAway{
+    "The Granbull calms down long enough\n"
+    "for the Combee to escape."
+}
+script FlowerFields_Granbull{
+    lock
+	faceplayer
+    waitse
+    if(var(VAR_MINA_INTRO_QUEST) == STORY_MINA_SPOKEN_TO
+    || var(VAR_MINA_INTRO_QUEST) == STORY_MINA_GRANBULL_BATTLED){
+        playmoncry(SPECIES_GRANBULL, CRY_MODE_NORMAL)
+        waitmoncry
+        if(msgbox(WantToBattleGranbull, MSGBOX_YESNO) == FALSE){
+            release
+            end
+        }
+        if(flag(FLAG_BADGE03_GET)){
+            createmon(1, 0, SPECIES_GRANBULL, 34, ITEM_NONE, ITEM_NONE, NATURE_HARDY, 0, MALE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, MOVE_HEADBUTT, MOVE_LICK, MOVE_BITE, MOVE_SCARY_FACE, FALSE)
+        }
+        elif(flag(FLAG_BADGE04_GET)){
+            createmon(1, 0, SPECIES_GRANBULL, 38, ITEM_NONE, ITEM_NONE, NATURE_HARDY, 0, MALE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, MOVE_HEADBUTT, MOVE_LICK, MOVE_BITE, MOVE_RAGE, FALSE)
+        }
+        elif(flag(FLAG_BADGE05_GET)){
+            createmon(1, 0, SPECIES_GRANBULL, 45, ITEM_NONE, ITEM_NONE, NATURE_HARDY, 0, MALE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, MOVE_HEADBUTT, MOVE_LICK, MOVE_BITE, MOVE_PLAY_ROUGH, FALSE)
+        }
+        else{
+            createmon(1, 0, SPECIES_GRANBULL, 23, ITEM_NONE, ITEM_NONE, NATURE_HARDY, 0, MALE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, MOVE_HEADBUTT, MOVE_LICK, MOVE_BITE, MOVE_SCARY_FACE, FALSE)
+        }
+        setvar(VAR_MINA_INTRO_QUEST, STORY_MINA_GRANBULL_BATTLED)
+        setvar(VAR_SHINY_MULTIPLIER, 200)
+        setflag(FLAG_SYSTEM_NO_WILD_RUNNING)
+        setflag(FLAG_SYSTEM_NO_CATCHING)
+        dowildbattle
+        setvar(VAR_SHINY_MULTIPLIER, 0)
+        setvar(VAR_MINA_INTRO_QUEST, STORY_MINA_GRANBULL_DEFEATED)
+        clearflag(FLAG_SYSTEM_NO_WILD_RUNNING)
+        clearflag(FLAG_SYSTEM_NO_CATCHING)
+        fadescreen(FADE_TO_BLACK)
+        delay(40)
+        msgbox(CombeeFliesAway)
+        closemessage
+        removeobject(3)
+        warpsilentnofadeout(MAP_FLOWER_FIELDS, 32, 37)
+        waitstate
+    }
+    elif(var(VAR_MINA_INTRO_QUEST) >= STORY_MINA_GRANBULL_DEFEATED){
+        playmoncry(SPECIES_GRANBULL, CRY_MODE_FAINT)
+        msgbox("Grr…")
+        waitmoncry
+        turnobject(2, DIR_NORTH)
+    }
+    else{
+        playmoncry(SPECIES_GRANBULL, CRY_MODE_NORMAL)
+        msgbox("Grr!")
+	    waitmoncry
+    }
+	release
+}
+
+script Route8_HoneyTrader{
+    faceplayer
+    if(flag(FLAG_INTRODUCED_TO_BERRY_TRADER)){
+        if(checkitem(ITEM_ORAN_BERRY) == TRUE){
+            if(msgbox(HereToTradeMoreBerries, MSGBOX_YESNO) == TRUE){
+                goto(TradeBerriesMain)
+            }
+        }
+        goto(TradeBerriesGoodbye)
+    }
+    setflag(FLAG_INTRODUCED_TO_BERRY_TRADER)
+    if(msgbox(GotAnyOranBerries) == TRUE){
+        if (checkitem(ITEM_ORAN_BERRY) == TRUE){
+            goto(TradeBerriesMain)
+        }
+        else{
+            msgbox(Route8_HoneyTrader_DontHaveBerries, MSGBOX_NPC)
+            end
+        }
+    }
+    goto(TradeBerriesGoodbye)}
+
+script TradeBerriesMain{
+    checkitemquant(ITEM_ORAN_BERRY)
+    if(msgbox(TradeHowManyBerries, MSGBOX_HOWMANY) == 0){
+        goto(TradeBerriesGoodbye)
+    }
+    else{
+        copyvar(VAR_TEMP_2, VAR_RESULT)
+        buffernumberstring(STR_VAR_1, VAR_TEMP_2)
+        while(var(VAR_RESULT) != 0){
+            subvar(VAR_RESULT, 1)
+            addvar(VAR_TEMP_1, 2)
+        }
+        buffernumberstring(STR_VAR_2, VAR_TEMP_1)
+        if(var(VAR_TEMP_2) == 1){
+            if(msgbox(TradeBerriesForHoney_Text_Single, MSGBOX_YESNO) == TRUE){
+                if(checkitemspace(ITEM_HONEY, VAR_TEMP_1) == FALSE){
+                    setvar(VAR_TEMP_1, 0)
+                    setvar(VAR_TEMP_2, 0)
+                    goto(ZeBagIsFull)
+                }
+                giveitem(ITEM_HONEY, VAR_TEMP_1)
+                removeitem(ITEM_ORAN_BERRY, VAR_TEMP_2)
+            }
+        }
+        else{
+            if(msgbox(TradeBerriesForHoney_Text_Multiple, MSGBOX_YESNO) == TRUE){
+                if(checkitemspace(ITEM_HONEY, VAR_TEMP_1) == FALSE){
+                    setvar(VAR_TEMP_1, 0)
+                    setvar(VAR_TEMP_2, 0)
+                    goto(ZeBagIsFull)
+                }
+                giveitem(ITEM_HONEY, VAR_TEMP_1)
+                removeitem(ITEM_ORAN_BERRY, VAR_TEMP_2)
+            }
+        }
+        goto(TradeBerriesGoodbye)
+    }}
+
+script TradeBerriesGoodbye{
+    setvar(VAR_TEMP_1, 0)
+    setvar(VAR_TEMP_2, 0)
+    msgbox(ComeTradeWhenGetMoreBerries, MSGBOX_NPC)
+    end}
+
+text HereToTradeMoreBerries{
+    "Have you come to trade\n"
+    "Oran Berries?"}
+text GotAnyOranBerries{
+    "While my Pokémon mainly eat honey,\n"
+    "they absolutely adore Oran Berries!\p"
+    "Do you have any Oran Berries you\n"
+    "would like to trade?\p"
+    "I can give you two jars of honey\n"
+    "for each Oran Berry."}
+text TradeHowManyBerries{
+    "How many berries would you\n"
+    "like to trade?"}
+text TradeBerriesForHoney_Text_Single{
+    "One Oran Berry for two jars of honey.\p"
+    "Is that trade okay?"}
+text TradeBerriesForHoney_Text_Multiple{
+    "{STR_VAR_1} berries for {STR_VAR_2} jars\n"
+    "of honey.\p"
+    "Is that trade okay?"}
+text ComeTradeWhenGetMoreBerries{
+    "If you ever need any honey,\n"
+    "you can find me here."}
+text Route8_HoneyTrader_DontHaveBerries{
+    "Hm… You don't seem to be carrying\n"
+    "any Oran Berries…"}

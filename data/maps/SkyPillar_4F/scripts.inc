@@ -39,16 +39,14 @@ Tower_4F_Tr1_Battle::
 	playbgm MUS_ENCOUNTER_INTENSE, FALSE
 	applymovement 6, Common_Movement_ExclamationMark
 	waitmovement 0
-	applymovement 6, Common_Movement_Delay48
-	waitmovement 0
+	delay 48
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	msgbox Tr1_4F_BlackbeltIntro
 	closemessage
 	playbgm MUS_ENCOUNTER_SUSPICIOUS, FALSE
 	applymovement 5, Common_Movement_ExclamationMark
 	waitmovement 0
-	applymovement 5, Common_Movement_Delay48
-	waitmovement 0
+	delay 48
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
 	msgbox Tr1_4F_HexManiacIntro
 	closemessage

@@ -44,10 +44,8 @@ script R12_Cyclist2{
     lock
     faceplayer
     msgbox(R12_Cyclist2_Text, MSGBOX_DEFAULT)
-    checkitemspace(ITEM_X_SPEED)
-    if(var(VAR_RESULT) == FALSE){
-        msgbox(NotEnoughRoom, MSGBOX_NPC)
-        end
+    if(checkitemspace(ITEM_X_SPEED) == FALSE){
+        goto(ZeBagIsFull)
     }
     giveitem(ITEM_X_SPEED)
     waitfanfare

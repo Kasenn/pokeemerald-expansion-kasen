@@ -7,9 +7,8 @@ script AldeleafSmallHouse1_Man{
     lockall
     faceplayer
     msgbox(AldeleafSmallHouse1_Man_Text, MSGBOX_DEFAULT)
-    checkitemspace(ITEM_WHITE_FLUTE, 1)
-    if(var(VAR_RESULT) == FALSE){
-        goto(OldManNotEnoughRoom)
+    if(checkitemspace(ITEM_BLACK_FLUTE) == FALSE){
+        goto(ZeBagIsFull)
     }
     giveitem(ITEM_BLACK_FLUTE, 1)
     setflag(FLAG_WHITEFLUTE_RECEIVED)
@@ -19,11 +18,6 @@ script AldeleafSmallHouse1_Man{
 
 text AldeleafSmallHouse1_Man_Text{
     "Thank you for retrieving my\nhouse key for me.\lTo show you my gratitude,\lI'd like you to have this."
-}
-
-script OldManNotEnoughRoom{
-    msgbox("Oh, but you don't have enough room…", MSGBOX_NPC)
-    end
 }
 
 script AldeleafSmallHouse1_Man2{

@@ -35,10 +35,8 @@ script Kaolisle_Hotel_5F_BPShopBeauty{
         else{
             bufferspeciesname(STR_VAR_1, VAR_0x8004)
             msgbox(YourMonKnowsMove, MSGBOX_DEFAULT)
-            checkitemspace(ITEM_HEART_SCALE)
-            if(var(VAR_RESULT) == FALSE){
-                msgbox(NotEnoughRoom, MSGBOX_NPC)
-                end
+            if(checkitemspace(ITEM_HEART_SCALE) == FALSE){
+                goto(ZeBagIsFull)
             }
             waitse
             giveitem(ITEM_HEART_SCALE)

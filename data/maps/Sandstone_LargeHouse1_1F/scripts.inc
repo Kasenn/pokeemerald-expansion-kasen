@@ -39,6 +39,7 @@ Sandstone_BigHouse1_1F_OldWoman::
 	checkitemspace ITEM_LAVA_COOKIE
 	compare VAR_RESULT, FALSE
 	goto_if_eq Sandstone_BigHouse1_1F_OldWoman_5
+Sandstone_BigHouse1_1F_OldWoman_4:
 	giveitem ITEM_LAVA_COOKIE
 	waitfanfare
 	setflag FLAG_SANDSTONE_LAVACOOKIE
@@ -51,8 +52,8 @@ Sandstone_BigHouse1_1F_OldWoman_2:
 	end
 
 Sandstone_BigHouse1_1F_OldWoman_5:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
+	goto ZeBagIsFull
+	goto Sandstone_BigHouse1_1F_OldWoman_4
 
 
 Sandstone_BigHouse1_1F_Youngster::
@@ -115,6 +116,7 @@ Aldeleaf_Artist_4:
 	checkitemspace ITEM_PAINTBRUSH
 	compare VAR_RESULT, FALSE
 	goto_if_eq Aldeleaf_Artist_11
+Aldeleaf_Artist_10:
 	goto GivePaintBrush
 	return
 
@@ -131,9 +133,9 @@ Aldeleaf_Artist_8:
 	end
 
 Aldeleaf_Artist_11:
-	msgbox NotEnoughRoom, MSGBOX_NPC
 	setflag FLAG_TEMP_2
-	end
+	goto ZeBagIsFull
+	goto Aldeleaf_Artist_10
 
 
 GivePaintBrush::

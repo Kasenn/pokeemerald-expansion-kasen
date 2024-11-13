@@ -94,13 +94,8 @@ UndergroundRuinsFossil_1:
 	end
 
 UndergroundRuinsFossil_5:
-	goto NotEnoughRoom
+	goto ZeBagIsFull
 	goto UndergroundRuinsFossil_4
-
-
-NotEnoughRoom::
-	msgbox NotEnoughRoom_Text_0, MSGBOX_NPC
-	end
 
 
 RandomizeFossil::
@@ -336,9 +331,6 @@ QuakeAfterFossil::
 	release
 	end
 
-
-NotEnoughRoom_Text_0:
-	.string "You don't have enough room to\ncarry that item…$"
 
 FoundRope::
 	.string "You stumble upon some old rope that\n"

@@ -19,11 +19,9 @@ script CoralgroveTradeSequence{
             msgbox(LookingForStone)
         }
         closemessage
-        checkitemspace(ITEM_INCINEROARITE)
-        if(var(VAR_RESULT) == FALSE){
+        if(checkitemspace(ITEM_INCINEROARITE) == FALSE){
             setflag(FLAG_TEMP_3)
-            msgbox(NotEnoughRoom, MSGBOX_NPC)
-            end
+            goto(ZeBagIsFull)
         }
         switch(var(VAR_STARTER_MON)){
             case 0:

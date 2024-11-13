@@ -294,3 +294,6 @@ const u16 gMetatileAttributes_PWT[] = INCBIN_U16("data/tilesets/secondary/pwt/me
 
 const u16 gMetatiles_NewSandstoneCity[] = INCBIN_U16("data/tilesets/secondary/new_sandstone_city/metatiles.bin");
 const u16 gMetatileAttributes_NewSandstoneCity[] = INCBIN_U16("data/tilesets/secondary/new_sandstone_city/metatile_attributes.bin");
+
+const u16 gMetatiles_FlowerField[] = INCBIN_U16("data/tilesets/secondary/flower_field/metatiles.bin");
+const u16 gMetatileAttributes_FlowerField[] = INCBIN_U16("data/tilesets/secondary/flower_field/metatile_attributes.bin");

@@ -243,8 +243,8 @@ script LitwickEligibleBall{
     setflag(FLAG_LITWICK_CAUGHT)
     setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_LITWICK)
     playfanfare(MUS_OBTAIN_ITEM)
-    givemon(SPECIES_LITWICK, 5, ITEM_NONE, VAR_ITEM_ID)
     removeitem(VAR_ITEM_ID, 1)
+    givemon(SPECIES_LITWICK, 5, ITEM_NONE, VAR_ITEM_ID)
     call(GiveMon_Script)
     release
     clearflag(FLAG_TEMP_2)

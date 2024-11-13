@@ -22,10 +22,8 @@ script Rockliffe_House1_OldWoman{
         end
     }
     msgbox(TakeBeedrillite, MSGBOX_DEFAULT)
-    checkitemspace(ITEM_BEEDRILLITE)
-    if(var(VAR_RESULT) == FALSE){
-        msgbox(NotEnoughRoom, MSGBOX_NPC)
-        end
+    if(checkitemspace(ITEM_BEEDRILLITE) == FALSE){
+        goto(ZeBagIsFull)
     }
     giveitem(ITEM_BEEDRILLITE)
     setflag(FLAG_OBTAINED_BEEDRILLITE)
@@ -122,10 +120,8 @@ text IKnewAron{
 }
 script WeighsMoreResult{
     msgbox(AronWeighsMore, MSGBOX_DEFAULT)
-    checkitemspace(ITEM_METAL_COAT)
-    if(var(VAR_RESULT) == FALSE){
-        msgbox(NotEnoughRoom, MSGBOX_NPC)
-        end
+    if(checkitemspace(ITEM_METAL_COAT) == FALSE){
+        goto(ZeBagIsFull)
     }
     giveitem(ITEM_METAL_COAT)
     waitse

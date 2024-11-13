@@ -9,10 +9,8 @@ script RanchHouseMan{
         lock
         faceplayer
         msgbox(RanchHouseItsYou, MSGBOX_NPC)
-        checkitemspace(ITEM_AMPHAROSITE)
-        if(var(VAR_RESULT) == FALSE){
-            msgbox(NotEnoughRoom, MSGBOX_NPC)
-            end
+        if(checkitemspace(ITEM_AMPHAROSITE) == FALSE){
+            goto(ZeBagIsFull)
         }
         giveitem(ITEM_AMPHAROSITE)
         waitfanfare

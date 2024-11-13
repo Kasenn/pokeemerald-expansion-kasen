@@ -411,6 +411,7 @@ R15_AceTrainerPostBattle_4:
 	checkitemspace ITEM_ROCKY_HELMET
 	compare VAR_RESULT, FALSE
 	goto_if_eq R15_AceTrainerPostBattle_13
+R15_AceTrainerPostBattle_12:
 	giveitem ITEM_ROCKY_HELMET
 	waitfanfare
 	msgbox R15_Ace_ExplainReward
@@ -438,10 +439,8 @@ R15_AceTrainerPostBattle_9:
 	goto R15_AceTrainerPostBattle_8
 
 R15_AceTrainerPostBattle_13:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	turnobject 27, DIR_WEST
-	turnobject 28, DIR_WEST
-	end
+	goto ZeBagIsFull
+	goto R15_AceTrainerPostBattle_12
 
 
 R15_AceTrainerBattle::

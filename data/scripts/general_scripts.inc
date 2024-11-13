@@ -1,3 +1,128 @@
+TradeSeedsForFertilizer::
+	lock
+	faceplayer
+	goto_if_set FLAG_MET_STRANGE_SEED_TRADER, TradeSeedsForFertilizer_2
+TradeSeedsForFertilizer_1:
+	msgbox SeenAnyStrangeSeeds
+	checkitem ITEM_STRANGE_SEED
+	compare VAR_RESULT, TRUE
+	goto_if_eq TradeSeedsForFertilizer_4
+	return
+
+TradeSeedsForFertilizer_2:
+	checkitem ITEM_STRANGE_SEED
+	compare VAR_RESULT, TRUE
+	goto_if_eq TradeSeedsForFertilizer_7
+TradeSeedsForFertilizer_6:
+	goto TradeSeedsGoodbye
+	goto TradeSeedsForFertilizer_1
+
+TradeSeedsForFertilizer_4:
+	playse SE_PIN
+	safefollow
+	applymovement 4, ExclamationMark
+	waitmovement 0
+	delay 48
+	setflag FLAG_MET_STRANGE_SEED_TRADER
+	msgbox CareToTradeSeeds, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
+	goto_if_eq TradeSeedsForFertilizer_9
+	goto TradeSeedsGoodbye
+	return
+
+TradeSeedsForFertilizer_7:
+	msgbox HereToTradeMoreSeeds, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
+	goto_if_eq TradeSeedsForFertilizer_12
+	goto TradeSeedsForFertilizer_6
+
+TradeSeedsForFertilizer_9:
+	goto TradeSeedsMain
+	return
+
+TradeSeedsForFertilizer_12:
+	goto TradeSeedsMain
+	goto TradeSeedsForFertilizer_6
+
+
+TradeSeedsMain::
+	checkitemquant ITEM_STRANGE_SEED
+	msgbox TradeHowManySeeds, MSGBOX_HOWMANY
+	compare VAR_RESULT, 0
+	goto_if_eq TradeSeedsMain_1
+	copyvar VAR_TEMP_2, VAR_RESULT
+	buffernumberstring STR_VAR_1, VAR_TEMP_2
+TradeSeedsMain_5:
+	compare VAR_RESULT, 0
+	goto_if_ne TradeSeedsMain_6
+	buffernumberstring STR_VAR_2, VAR_TEMP_1
+	compare VAR_TEMP_2, 1
+	goto_if_eq TradeSeedsMain_9
+	msgbox TradeSeedsForFertilizer_Text_Multiple, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
+	goto_if_eq TradeSeedsMain_14
+TradeSeedsMain_8:
+	goto TradeSeedsGoodbye
+	return
+
+TradeSeedsMain_1:
+	goto TradeSeedsGoodbye
+	return
+
+TradeSeedsMain_6:
+	subvar VAR_RESULT, 1
+	addvar VAR_TEMP_1, 2
+	goto TradeSeedsMain_5
+
+TradeSeedsMain_9:
+	msgbox TradeSeedsForFertilizer_Text_Single, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
+	goto_if_eq TradeSeedsMain_12
+	goto TradeSeedsMain_8
+
+TradeSeedsMain_12:
+	checkitemspace ITEM_FERTILIZER, VAR_TEMP_1
+	compare VAR_RESULT, FALSE
+	goto_if_eq TradeSeedsMain_17
+TradeSeedsMain_16:
+	giveitem ITEM_FERTILIZER, VAR_TEMP_1
+	removeitem ITEM_STRANGE_SEED, VAR_TEMP_2
+	goto TradeSeedsMain_8
+
+TradeSeedsMain_14:
+	checkitemspace ITEM_FERTILIZER, VAR_TEMP_1
+	compare VAR_RESULT, FALSE
+	goto_if_eq TradeSeedsMain_20
+TradeSeedsMain_19:
+	giveitem ITEM_FERTILIZER, VAR_TEMP_1
+	removeitem ITEM_STRANGE_SEED, VAR_TEMP_2
+	goto TradeSeedsMain_8
+
+TradeSeedsMain_17:
+	setvar VAR_TEMP_1, 0
+	setvar VAR_TEMP_2, 0
+	goto ZeBagIsFull
+	goto TradeSeedsMain_16
+
+TradeSeedsMain_20:
+	setvar VAR_TEMP_1, 0
+	setvar VAR_TEMP_2, 0
+	goto ZeBagIsFull
+	goto TradeSeedsMain_19
+
+
+TradeSeedsGoodbye::
+	setvar VAR_TEMP_1, 0
+	setvar VAR_TEMP_2, 0
+	msgbox ComeTradeWhenGetMoreSeeds, MSGBOX_NPC
+	end
+
+
+ZeBagIsFull::
+	msgbox gText_TooBadBagIsFull, MSGBOX_NPC
+	end
+
+
 BerryTree_ItemUseFertilizer::
 	special ObjectEventInteractionGetBerryName
 	message BerryTree_Text_FertilizedTheBerry
@@ -142,15 +267,15 @@ AutomaticUpdate2_5:
 AutomaticUpdate3::
 	callnative InitStrangeSeeds
 	setvar VAR_DEBUG, 11
-	setvar VAR_UNUSED_0x4051, 0
-	setvar VAR_UNUSED_0x4052, 0
+	setvar VAR_SHINY_MULTIPLIER, 0
+	setvar VAR_MINA_INTRO_QUEST, 0
 	setvar VAR_UNUSED_0x4056, 0
 	setvar VAR_UNUSED_0x405A, 0
 	setvar VAR_UNUSED_0x407D, 0
 	setvar VAR_UNUSED_0x408B, 0
 	setvar VAR_UNUSED_0x40CD, 0
 	clearflag FLAG_REUNITE_WITH_RIVAL
-	clearflag FLAG_UNUSED_0x2ED
+	clearflag FLAG_INTRODUCED_TO_BERRY_TRADER
 	clearflag FLAG_RIVAL_MET_IN_SANDSTONE
 	clearflag FLAG_UNUSED_0x112
 	clearflag FLAG_SANDSTONE_HIDDENITEM_1
@@ -162,9 +287,9 @@ AutomaticUpdate3::
 	clearflag FLAG_UNUSED_0x49C
 	clearflag FLAG_UNUSED_0x49D
 	clearflag FLAG_UNUSED_0x49F
-	clearflag FLAG_UNUSED_0x4A2
-	clearflag FLAG_UNUSED_0x4A3
-	clearflag FLAG_UNUSED_0x4A4
+	clearflag FLAG_FLOWERFIELDS_ITEM_1
+	clearflag FLAG_FLOWERFIELDS_ITEM_2
+	clearflag FLAG_FLOWERFIELDS_ITEM_3
 	clearflag FLAG_UNUSED_0x4F0
 	clearflag FLAG_UNUSED_SYS_0x84
 	clearflag FLAG_ORICORIO_SHOWN_TO_MANIAC
@@ -486,8 +611,7 @@ Debug_Script_4_12:
 
 
 Debug_Script_5::
-	giveitem ITEM_HM01
-	setflag FLAG_BADGE02_GET
+	call LitwickMain
 	return
 
 
@@ -771,6 +895,41 @@ Debug_Script_4_Text_15:
 
 Debug_Script_4_Text_16:
 	.string "Team set to level 45.$"
+
+SeenAnyStrangeSeeds::
+	.string "I've been hearing some rumors about\n"
+	.string "Pokémon hiding strange seeds in trees.$"
+
+CareToTradeSeeds::
+	.string "Ah, those seeds seem to match\n"
+	.string "the description!\p"
+	.string "I have this special plant fertilizer\n"
+	.string "that can greatly improve the growth\l"
+	.string "rate of berry trees.\p"
+	.string "If you'd like, I can trade you\n"
+	.string "two batches of the fertilizer\l"
+	.string "for a single strange seed.$"
+
+ComeTradeWhenGetMoreSeeds::
+	.string "If you find any strange seeds, I'll\n"
+	.string "gladly trade them for some fertilizer.$"
+
+HereToTradeMoreSeeds::
+	.string "Here to trade some strange seeds?$"
+
+TradeHowManySeeds::
+	.string "How many seeds would you\n"
+	.string "like to trade?$"
+
+TradeSeedsForFertilizer_Text_Single::
+	.string "One seed for two batches\n"
+	.string "of fertilizer.\p"
+	.string "Is that trade okay?$"
+
+TradeSeedsForFertilizer_Text_Multiple::
+	.string "{STR_VAR_1} seeds for {STR_VAR_2} batches\n"
+	.string "of fertilizer.\p"
+	.string "Is that trade okay?$"
 
 BerryTree_Text_FertilizedTheBerry::
 	.string "{PLAYER} applied the Fertilizer to\n"

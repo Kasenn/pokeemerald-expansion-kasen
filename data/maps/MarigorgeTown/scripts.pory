@@ -357,11 +357,9 @@ script Marigorge_SusMan{
             hidemoneybox
             end
         }
-        checkitemspace(ITEM_SAFARI_BALL, 1)
-        if (var(VAR_RESULT) == FALSE){
-            msgbox(NotEnoughRoom, MSGBOX_NPC)
+        if (checkitemspace(ITEM_SAFARI_BALL) == FALSE){
             hidemoneybox
-            end
+            goto(ZeBagIsFull)
         }
         removemoney(3000)
         playse(SE_SHOP)

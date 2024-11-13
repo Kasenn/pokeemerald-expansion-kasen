@@ -313,8 +313,7 @@ script HowManyCastelias{
 }
 script Buy1Castelia{
     hidemoneybox
-    checkitemspace(ITEM_CASTELIACONE, 1)
-    if(var(VAR_RESULT) == FALSE){
+    if(checkitemspace(ITEM_CASTELIACONE, 1) == FALSE){
         msgbox(NotRoomForCastelias, MSGBOX_NPC)
         end
     }
@@ -345,8 +344,7 @@ text Put1CasteliaInPocket{
 }
 script Buy4Castelia{
     hidemoneybox
-    checkitemspace(ITEM_CASTELIACONE, 4)
-    if(var(VAR_RESULT) == FALSE){
+    if(checkitemspace(ITEM_CASTELIACONE, 4) == FALSE){
         msgbox(NotRoomForCastelias, MSGBOX_NPC)
         end
     }

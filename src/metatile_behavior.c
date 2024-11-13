@@ -260,7 +260,7 @@ bool8 MetatileBehavior_IsRampSouth(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsPokeGrass(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_TALL_GRASS || metatileBehavior == MB_LONG_GRASS || MB_TALL_GRASS_AUTUMN)
+    if (metatileBehavior == MB_TALL_GRASS || metatileBehavior == MB_LONG_GRASS || metatileBehavior == MB_TALL_GRASS_AUTUMN)
         return TRUE;
     else
         return FALSE;

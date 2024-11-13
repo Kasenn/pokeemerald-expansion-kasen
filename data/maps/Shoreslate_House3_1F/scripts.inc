@@ -30,6 +30,7 @@ Shoreslate_House3_1F_BlackBelt_18:
 	checkitemspace ITEM_LUCARIONITE
 	compare VAR_RESULT, FALSE
 	goto_if_eq Shoreslate_House3_1F_BlackBelt_23
+Shoreslate_House3_1F_BlackBelt_22:
 	giveitem ITEM_LUCARIONITE
 	waitmessage
 	waitse
@@ -57,8 +58,8 @@ Shoreslate_House3_1F_BlackBelt_19:
 	goto Shoreslate_House3_1F_BlackBelt_18
 
 Shoreslate_House3_1F_BlackBelt_23:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
+	goto ZeBagIsFull
+	goto Shoreslate_House3_1F_BlackBelt_22
 
 
 Shoreslate_House3_2F_Girl::
@@ -87,6 +88,7 @@ Shoreslate_House3_2F_Girl_6:
 	checkitemspace ITEM_SUPER_POTION
 	compare VAR_RESULT, FALSE
 	goto_if_eq Shoreslate_House3_2F_Girl_18
+Shoreslate_House3_2F_Girl_17:
 	giveitem ITEM_SUPER_POTION
 	setflag FLAG_RECEIVED_SHORESLATE_POTION
 	addvar VAR_TEMP_1, 1
@@ -145,8 +147,8 @@ Shoreslate_House3_2F_Girl_16:
 	goto Shoreslate_House3_2F_Girl_4
 
 Shoreslate_House3_2F_Girl_18:
-	msgbox FatGuyNotEnoughRoom, MSGBOX_NPC
-	end
+	goto ZeBagIsFull
+	goto Shoreslate_House3_2F_Girl_17
 
 
 Shoreslate_House3_3F_Man::

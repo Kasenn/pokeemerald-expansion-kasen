@@ -170,18 +170,18 @@ text WW_Text_CoolTrainerDefeated{
 
 script WW_CoolTrainerPostBattle{
     msgbox(WW_CoolTrainerReward)
-    if(checkitemspace(ITEM_DAMP_MULCH)){
-        msgbox(NotEnoughRoom, MSGBOX_NPC)
-        end
-    }
     switch(var(VAR_STARTER_MON)){
         case 0:
-            giveitem(ITEM_MIRACLE_SEED)
+            setvar(VAR_TEMP_0, ITEM_MIRACLE_SEED)
         case 1:
-            giveitem(ITEM_CHARCOAL)
+            setvar(VAR_TEMP_0, ITEM_CHARCOAL)
         case 2:
-            giveitem(ITEM_MYSTIC_WATER)
+            setvar(VAR_TEMP_0, ITEM_MYSTIC_WATER)
     }
+    if(checkitemspace(VAR_TEMP_0)){
+        goto(ZeBagIsFull)
+    }
+    giveitem(VAR_TEMP_0)
     setflag(FLAG_WW_COOLTRAINERREWARD)
     msgbox("Give that item to your Pokémon to\nboost the power of their attacks.\pTake these as well.")
     addbp(10)

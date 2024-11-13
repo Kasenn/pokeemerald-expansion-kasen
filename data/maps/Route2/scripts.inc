@@ -90,6 +90,11 @@ Route5_Sign::
 	return
 
 
+Route5_Sign2::
+	msgbox Route5_Sign2_Text, MSGBOX_SIGN
+	return
+
+
 Route7_Sign::
 	msgbox Route7_Sign_Text, MSGBOX_SIGN
 	return
@@ -204,6 +209,11 @@ Route5_Sign_Text::
 	.string "Conversely, having a Pokémon battle\n"
 	.string "opponents that are stronger than it\l"
 	.string "will grant the Pokémon extra experience.$"
+
+Route5_Sign2_Text::
+	.string "{UP_ARROW} Aldeleaf City\n"
+	.string "{RIGHT_ARROW} Flower Fields\l"
+	.string "{DOWN_ARROW} Skyloch Town$"
 
 Route7_Sign_Text::
 	.string "Trainer Tips\p"

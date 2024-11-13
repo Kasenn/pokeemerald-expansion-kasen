@@ -92,6 +92,7 @@ Sandstone_Maniac::
 	checkitemspace ITEM_ULTRA_BALL
 	compare VAR_RESULT, FALSE
 	goto_if_eq Sandstone_Maniac_8
+Sandstone_Maniac_7:
 	giveitem ITEM_ULTRA_BALL
 	setflag FLAG_SANDSTONE_ULTRABALL
 	release
@@ -106,8 +107,8 @@ Sandstone_Maniac_5:
 	end
 
 Sandstone_Maniac_8:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
+	goto ZeBagIsFull
+	goto Sandstone_Maniac_7
 
 
 Sandstone_Man3::

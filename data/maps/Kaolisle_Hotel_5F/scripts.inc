@@ -53,6 +53,7 @@ Kaolisle_Hotel_5F_BPShopBeauty_5:
 	checkitemspace ITEM_HEART_SCALE
 	compare VAR_RESULT, FALSE
 	goto_if_eq Kaolisle_Hotel_5F_BPShopBeauty_14
+Kaolisle_Hotel_5F_BPShopBeauty_13:
 	waitse
 	giveitem ITEM_HEART_SCALE
 	waitfanfare
@@ -70,8 +71,8 @@ Kaolisle_Hotel_5F_BPShopBeauty_10:
 	end
 
 Kaolisle_Hotel_5F_BPShopBeauty_14:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
+	goto ZeBagIsFull
+	goto Kaolisle_Hotel_5F_BPShopBeauty_13
 
 
 SetAndCheckHeartScaleMove::

@@ -286,10 +286,8 @@ script R23_Ace_PostBattle{
         end
     }
     msgbox(R23_Ace_Reward, MSGBOX_DEFAULT)
-    checkitemspace(ITEM_CHOICE_SCARF)
-    if(var(VAR_RESULT) == FALSE){
-        msgbox(NotEnoughRoom, MSGBOX_NPC)
-        end
+    if(checkitemspace(ITEM_CHOICE_SCARF) == FALSE){
+        goto(ZeBagIsFull)
     }
     giveitem(ITEM_CHOICE_SCARF)
     waitfanfare

@@ -68,6 +68,7 @@
 #define MAP_ROUTE28_PART2         (59 | (0 << 8))
 #define MAP_ROUTE29               (60 | (0 << 8))
 #define MAP_SANDSTONE_CITY_ALT    (61 | (0 << 8))
+#define MAP_FLOWER_FIELDS         (62 | (0 << 8))
 
 // gMapGroup_RouteInteriors
 #define MAP_RANCH_BARN             (0 | (1 << 8))

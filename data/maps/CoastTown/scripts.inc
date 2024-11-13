@@ -76,14 +76,8 @@ CoastTown_FatGuy2::
 CoastTown_FatGuy2_2:
 	msgbox FatGuyHoneyIntro, MSGBOX_NPC
 	checkitemspace ITEM_HONEY, 3
-	compare VAR_RESULT, TRUE
-	goto_if_eq CoastTown_FatGuy2_4
-	msgbox FatGuyNotEnoughRoom, MSGBOX_NPC
-	waitmessage
-	closemessage
-	release
-	end
-
+	compare VAR_RESULT, FALSE
+	goto_if_eq CoastTown_FatGuy2_5
 CoastTown_FatGuy2_4:
 	giveitem ITEM_HONEY, 3
 	msgbox FatGuyHoneyGiven, MSGBOX_NPC
@@ -92,6 +86,10 @@ CoastTown_FatGuy2_4:
 	closemessage
 	release
 	end
+
+CoastTown_FatGuy2_5:
+	goto ZeBagIsFull
+	goto CoastTown_FatGuy2_4
 
 
 CoastTown_LittleGirl::
@@ -593,9 +591,6 @@ FatGuyHoneyGiven::
 	.string "there in the world and many of them\l"
 	.string "should be able to attract an entirely\l"
 	.string "different set of Pokémon.$"
-
-FatGuyNotEnoughRoom::
-	.string "Oh, but you don't have enough room…$"
 
 FatGuyHoneyGivenAlready::
 	.string "Go on, try using some of\n"

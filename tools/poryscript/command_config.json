@@ -92,6 +92,9 @@
         },
         "msgbox": {
             "var_name": "VAR_RESULT"
+        },
+        "checkfollower": {
+            "var_name": "VAR_RESULT"
         }
     }
 }

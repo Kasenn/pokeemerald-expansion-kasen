@@ -57,9 +57,13 @@ AldeleafCity_Maniac::
 AldeleafCity_Maniac_1:
 	goto_if_set FLAG_SHELL_BELL_RECEIVED, AldeleafCity_Maniac_4
 	checkitemspace ITEM_SHELL_BELL
-	compare VAR_RESULT, TRUE
-	goto_if_eq AldeleafCity_Maniac_11
-	msgbox NotRoomForShellBell, MSGBOX_NPC
+	compare VAR_RESULT, FALSE
+	goto_if_eq AldeleafCity_Maniac_12
+AldeleafCity_Maniac_11:
+	msgbox AldeleafCity_Maniac_Continues, MSGBOX_DEFAULT
+	giveitem ITEM_SHELL_BELL
+	setflag FLAG_SHELL_BELL_RECEIVED
+	msgbox ExplainShellBell, MSGBOX_NPC
 	end
 
 AldeleafCity_Maniac_4:
@@ -71,27 +75,25 @@ AldeleafCity_Maniac_7:
 	faceplayer
 	msgbox AldeleafCity_Maniac_Continues, MSGBOX_DEFAULT
 	checkitemspace ITEM_SHELL_BELL
-	compare VAR_RESULT, TRUE
-	goto_if_eq AldeleafCity_Maniac_14
-	msgbox NotRoomForShellBell, MSGBOX_NPC
+	compare VAR_RESULT, FALSE
+	goto_if_eq AldeleafCity_Maniac_15
+AldeleafCity_Maniac_14:
+	giveitem ITEM_SHELL_BELL
+	setflag FLAG_SHELL_BELL_RECEIVED
+	msgbox ExplainShellBell, MSGBOX_NPC
 	end
 
 AldeleafCity_Maniac_8:
 	trainerbattle_no_intro TRAINER_VITO, AldeleafCity_Maniac_Defeated
 	goto AldeleafCity_Maniac_7
 
-AldeleafCity_Maniac_11:
-	msgbox AldeleafCity_Maniac_Continues, MSGBOX_DEFAULT
-	giveitem ITEM_SHELL_BELL
-	setflag FLAG_SHELL_BELL_RECEIVED
-	msgbox ExplainShellBell, MSGBOX_NPC
-	end
+AldeleafCity_Maniac_12:
+	goto ZeBagIsFull
+	goto AldeleafCity_Maniac_11
 
-AldeleafCity_Maniac_14:
-	giveitem ITEM_SHELL_BELL
-	setflag FLAG_SHELL_BELL_RECEIVED
-	msgbox ExplainShellBell, MSGBOX_NPC
-	end
+AldeleafCity_Maniac_15:
+	goto ZeBagIsFull
+	goto AldeleafCity_Maniac_14
 
 
 AldeleafCity_Child1::
@@ -240,18 +242,19 @@ AldeleafCity_Hidden::
 
 AldeleafCity_Hidden_2:
 	msgbox AldeleafCity_Hidden_Text, MSGBOX_NPC
-	checkitemspace ITEM_QUICK_BALL, 1
+	checkitemspace ITEM_QUICK_BALL
 	compare VAR_RESULT, FALSE
-	goto_if_eq AldeleafCity_Hidden_4
+	goto_if_eq AldeleafCity_Hidden_5
+AldeleafCity_Hidden_4:
 	giveitem ITEM_QUICK_BALL, 1
 	setflag FLAG_ALDELEAF_QUICK_BALL
 	waitmessage
 	closemessage
 	end
 
-AldeleafCity_Hidden_4:
-	msgbox NotRoomQuickBall, MSGBOX_NPC
-	end
+AldeleafCity_Hidden_5:
+	goto ZeBagIsFull
+	goto AldeleafCity_Hidden_4
 
 
 AldeleafCity_KeyMan::
@@ -532,10 +535,6 @@ ExplainShellBell::
 	.string "any time it strikes a foe,\l"
 	.string "it regains a small portion of its HP.$"
 
-NotRoomForShellBell::
-	.string "Oh, but you don't have\n"
-	.string "enough room…$"
-
 AldeleafCity_Maniac_PostBattle::
 	.string "Leave me alone.$"
 
@@ -658,10 +657,6 @@ AldeleafCity_Hidden_Text::
 
 AldeleafCity_Hidden_Text2::
 	.string "I'm hiding from my friend.$"
-
-NotRoomQuickBall::
-	.string "Oh, but you don't have enough room\n"
-	.string "in your Ball Pocket…$"
 
 AldeleafCity_KeyMan_Text::
 	.string "Oh no, my key…\n"

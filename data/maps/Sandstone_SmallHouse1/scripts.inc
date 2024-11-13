@@ -15,6 +15,7 @@ Sandstone_SmallHouse_Child::
 	checkitemspace ITEM_AIR_BALLOON
 	compare VAR_RESULT, FALSE
 	goto_if_eq Sandstone_SmallHouse_Child_5
+Sandstone_SmallHouse_Child_4:
 	giveitem ITEM_AIR_BALLOON
 	waitfanfare
 	closemessage
@@ -27,8 +28,8 @@ Sandstone_SmallHouse_Child_2:
 	end
 
 Sandstone_SmallHouse_Child_5:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
+	goto ZeBagIsFull
+	goto Sandstone_SmallHouse_Child_4
 
 
 Sandstone_SmallHouse_Man1::

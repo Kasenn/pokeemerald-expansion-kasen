@@ -15,6 +15,7 @@ RanchHouseMan_2:
 	checkitemspace ITEM_AMPHAROSITE
 	compare VAR_RESULT, FALSE
 	goto_if_eq RanchHouseMan_8
+RanchHouseMan_7:
 	giveitem ITEM_AMPHAROSITE
 	waitfanfare
 	setflag FLAG_OBTAINED_AMPHAROSITE
@@ -27,8 +28,8 @@ RanchHouseMan_5:
 	end
 
 RanchHouseMan_8:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
+	goto ZeBagIsFull
+	goto RanchHouseMan_7
 
 
 RanchHouseWoman::

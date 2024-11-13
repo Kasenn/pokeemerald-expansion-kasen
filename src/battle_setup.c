@@ -588,7 +588,7 @@ void BattleSetup_StartScriptedWildBattle(void)
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_EndScriptedWildBattle;
     gBattleTypeFlags = 0;
-    if(MAP(DRISLEDGE_GYM)){
+    if (MAP(DRISLEDGE_GYM)){
         gBattleTypeFlags = BATTLE_TYPE_GHOST;
     }
     CreateBattleStartTask(GetWildBattleTransition(), 0);

@@ -77,16 +77,11 @@ script UndergroundRuinsFossil{
     else{
         checkitemspace(ITEM_BUG_TERA_SHARD, 1)
         if(var(VAR_RESULT) == FALSE){
-            goto(NotEnoughRoom)
+            goto(ZeBagIsFull)
         }
         setflag(FLAG_DESERT_RUINS_OPENED)
         goto(RandomizeFossil)
     }
-}
-
-script NotEnoughRoom{
-    msgbox("You don't have enough room to\ncarry that item…", MSGBOX_NPC)
-    end
 }
 
 script RandomizeFossil{

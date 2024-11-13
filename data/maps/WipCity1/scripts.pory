@@ -45,18 +45,14 @@ script AldeleafCity_Maniac{
 			end
 		}
 		else{
-			checkitemspace(ITEM_SHELL_BELL)
-			if(var(VAR_RESULT) == TRUE){
-				msgbox(AldeleafCity_Maniac_Continues, MSGBOX_DEFAULT)
-				giveitem(ITEM_SHELL_BELL)
-				setflag(FLAG_SHELL_BELL_RECEIVED)
-				msgbox(ExplainShellBell, MSGBOX_NPC)
-				end
+			if(checkitemspace(ITEM_SHELL_BELL) == FALSE){
+				goto(ZeBagIsFull)
 			}
-			else{
-			msgbox(NotRoomForShellBell, MSGBOX_NPC)
+			msgbox(AldeleafCity_Maniac_Continues, MSGBOX_DEFAULT)
+			giveitem(ITEM_SHELL_BELL)
+			setflag(FLAG_SHELL_BELL_RECEIVED)
+			msgbox(ExplainShellBell, MSGBOX_NPC)
 			end
-			}
 		}
 	}
 	else{
@@ -71,17 +67,13 @@ script AldeleafCity_Maniac{
 		lockall
 		faceplayer
 		msgbox(AldeleafCity_Maniac_Continues, MSGBOX_DEFAULT)
-		checkitemspace(ITEM_SHELL_BELL)
-		if(var(VAR_RESULT) == TRUE){
-			giveitem(ITEM_SHELL_BELL)
-			setflag(FLAG_SHELL_BELL_RECEIVED)
-			msgbox(ExplainShellBell, MSGBOX_NPC)
-			end
+		if(checkitemspace(ITEM_SHELL_BELL) == FALSE){
+			goto(ZeBagIsFull)
 		}
-		else{
-			msgbox(NotRoomForShellBell, MSGBOX_NPC)
-			end
-		}
+		giveitem(ITEM_SHELL_BELL)
+		setflag(FLAG_SHELL_BELL_RECEIVED)
+		msgbox(ExplainShellBell, MSGBOX_NPC)
+		end
 	}
 }
 text AldeleafCity_Maniac_DeclineBattle{
@@ -99,10 +91,6 @@ text ExplainShellBell{
 	"Have your Pokémon hold that and\n"
 	"any time it strikes a foe,\l"
 	"it regains a small portion of its HP."
-}
-text NotRoomForShellBell{
-	"Oh, but you don't have\n"
-	"enough room…"
 }
 text AldeleafCity_Maniac_PostBattle{
 	"Leave me alone."
@@ -220,18 +208,14 @@ script AldeleafTriggerMain2{
 script AldeleafCity_Hidden{
 	if(!flag(FLAG_ALDELEAF_QUICK_BALL)){
 		msgbox(AldeleafCity_Hidden_Text, MSGBOX_NPC)
-		checkitemspace(ITEM_QUICK_BALL, 1)
-		if(var(VAR_RESULT) == FALSE){
-			msgbox(NotRoomQuickBall, MSGBOX_NPC)
-			end
+		if(checkitemspace(ITEM_QUICK_BALL) == FALSE){
+			goto(ZeBagIsFull)
 		}
-		else{
-			giveitem(ITEM_QUICK_BALL, 1)
-			setflag(FLAG_ALDELEAF_QUICK_BALL)
-			waitmessage
-			closemessage
-			end
-		}
+		giveitem(ITEM_QUICK_BALL, 1)
+		setflag(FLAG_ALDELEAF_QUICK_BALL)
+		waitmessage
+		closemessage
+		end
 	}
 	msgbox(AldeleafCity_Hidden_Text2, MSGBOX_NPC)
 	end
@@ -558,10 +542,6 @@ text AldeleafCity_Hidden_Text{
 }
 text AldeleafCity_Hidden_Text2{
 	"I'm hiding from my friend."
-}
-text NotRoomQuickBall{
-	"Oh, but you don't have enough room\n"
-	"in your Ball Pocket…"
 }
 text AldeleafCity_KeyMan_Text{
 	"Oh no, my key…\n"

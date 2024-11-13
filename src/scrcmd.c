@@ -530,6 +530,14 @@ bool8 ScrCmd_checkitem(struct ScriptContext *ctx)
     return FALSE;
 }
 
+bool8 ScrCmd_checkitemquantity(struct ScriptContext *ctx)
+{
+    u16 itemId = VarGet(ScriptReadHalfword(ctx));
+
+    gSpecialVar_0x8005 = CheckBagItemQuantity(itemId);
+    return FALSE;
+}
+
 bool8 ScrCmd_checkdexmon(struct ScriptContext *ctx)
 {
     u16 species = VarGet(ScriptReadHalfword(ctx));
@@ -778,6 +786,20 @@ bool8 ScrCmd_warpsilent(struct ScriptContext *ctx)
 
     SetWarpDestination(mapGroup, mapNum, warpId, x, y);
     DoDiveWarp();
+    ResetInitialPlayerAvatarState();
+    return TRUE;
+}
+
+bool8 ScrCmd_warpsilentnofadeout(struct ScriptContext *ctx)
+{
+    u8 mapGroup = ScriptReadByte(ctx);
+    u8 mapNum = ScriptReadByte(ctx);
+    u8 warpId = ScriptReadByte(ctx);
+    u16 x = VarGet(ScriptReadHalfword(ctx));
+    u16 y = VarGet(ScriptReadHalfword(ctx));
+
+    SetWarpDestination(mapGroup, mapNum, warpId, x, y);
+    DoDiveWarpNoFadeout();
     ResetInitialPlayerAvatarState();
     return TRUE;
 }
@@ -1459,6 +1481,22 @@ bool8 ScrCmd_yesnobox(struct ScriptContext *ctx)
     u8 top = ScriptReadByte(ctx);
 
     if (ScriptMenu_YesNo(left, top) == TRUE)
+    {
+        ScriptContext_Stop();
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
+    }
+}
+
+bool8 ScrCmd_howmanybox(struct ScriptContext *ctx)
+{
+    u8 UNUSED left = ScriptReadByte(ctx);
+    u8 UNUSED top = ScriptReadByte(ctx);
+
+    if (ScriptMenu_HowMany() == TRUE)
     {
         ScriptContext_Stop();
         return TRUE;

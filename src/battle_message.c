@@ -408,7 +408,7 @@ static const u8 sText_PkmnEnthralledByX[] = _("{B_OPPONENT_MON1_NAME} is enthral
 static const u8 sText_PkmnIgnoredX[] = _("{B_OPPONENT_MON1_NAME} completely ignored\nthe {B_BUFF1}!");
 static const u8 sText_ThrewPokeblockAtPkmn[] = _("{B_PLAYER_NAME} threw a {POKEBLOCK}\nat the {B_OPPONENT_MON1_NAME}!");
 static const u8 sText_OutOfSafariBalls[] = _("{PLAY_SE SE_DING_DONG}Announcer: You're out of\nSafari Balls! Game over!\p");
-static const u8 sText_OpponentMon1Appeared[] = _("{B_OPPONENT_MON1_NAME} appeared!\p");
+static const u8 sText_OpponentMon1Appeared[] = _("{B_OPPONENT_MON1_NAME} wants to battle!\p");
 static const u8 sText_WildPkmnAppeared[] = _("Wild {B_OPPONENT_MON1_NAME} appeared!\p");
 static const u8 sText_LegendaryPkmnAppeared[] = _("Wild {B_OPPONENT_MON1_NAME} appeared!\p");
 static const u8 sText_WildPkmnAppearedPause[] = _("Wild {B_OPPONENT_MON1_NAME} appeared!{PAUSE 127}");
@@ -2862,6 +2862,8 @@ void BufferStringBattle(u16 stringID, u32 battler)
                 stringPtr = sText_TwoWildPkmnAppeared;
             else if (gBattleTypeFlags & BATTLE_TYPE_WALLY_TUTORIAL)
                 stringPtr = sText_WildPkmnAppearedPause;
+            else if (FlagGet(FLAG_SYSTEM_NO_WILD_RUNNING))
+                stringPtr = sText_OpponentMon1Appeared;
             else
                 stringPtr = sText_WildPkmnAppeared;
         }
@@ -3141,6 +3143,8 @@ static void GetBattlerNick(u32 battler, u8 *dst)
     if (GetBattlerSide(battler) != B_SIDE_PLAYER)                     \
     {                                                                   \
         if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)                     \
+            toCpy = sText_FoePkmnPrefix;                                \
+        else if (FlagGet(FLAG_SYSTEM_NO_WILD_RUNNING))                  \
             toCpy = sText_FoePkmnPrefix;                                \
         else                                                            \
             toCpy = sText_WildPkmnPrefix;                               \
@@ -3544,6 +3548,8 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                 if (GetBattlerSide(gBattleScripting.battler) != B_SIDE_PLAYER)
                 {
                     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+                        toCpy = sText_FoePkmnPrefix;
+                    else if (FlagGet(FLAG_SYSTEM_NO_WILD_RUNNING))
                         toCpy = sText_FoePkmnPrefix;
                     else
                         toCpy = sText_WildPkmnPrefix;
@@ -4131,6 +4137,7 @@ static const u8 sText_NotAFairFight[] = _("I hesitated doing this, but you've\nr
 static const u8 sText_HeardOfMegaEvos[] = _("Have you heard of Mega Evolution?{PAUSE_UNTIL_PRESS}");
 static const u8 sText_HopeYoureReady[] = _("You're doing great, but this is where\nyour luck runs out!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_LetsHaveFun[] = _("Let's have some real fun!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}");
+static const u8 sText_MinaTest[] = _("{PLAY_BGM MUS_ABW_RIVAL}We're not done yet.{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}");
 
 static const struct TrainerSlide sTrainerSlides[] =
 {
@@ -4178,6 +4185,11 @@ static const struct TrainerSlide sTrainerSlides[] =
         .trainerId = TRAINER_LEADER_JASMINE,
         .isFrontierTrainer = FALSE,
         .msgLastSwitchIn = sText_JasmineNotGivingUp,
+    },
+    {
+        .trainerId = TRAINER_MINA,
+        .isFrontierTrainer = FALSE,
+        .msgLastSwitchIn = sText_MinaTest,
     },
 };
 

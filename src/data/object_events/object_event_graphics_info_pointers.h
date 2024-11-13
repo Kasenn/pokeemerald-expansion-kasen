@@ -207,6 +207,9 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayDecorati
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Archie;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Korrina;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kasen;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Gen4_Breeder_M;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Gen4_Breeder_F;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Breeder;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Drayden;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_IrisCasual;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mina;
@@ -618,6 +621,9 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_LAND_SWIMMER_F] =                     &gObjectEventGraphicsInfo_LandSwimmerF,
     [OBJ_EVENT_GFX_KORRINA] =                   &gObjectEventGraphicsInfo_Korrina,
     [OBJ_EVENT_GFX_KASEN] =                   &gObjectEventGraphicsInfo_Kasen,
+    [OBJ_EVENT_GFX_GEN4_BREEDER_M] =                   &gObjectEventGraphicsInfo_Gen4_Breeder_M,
+    [OBJ_EVENT_GFX_GEN4_BREEDER_F] =                   &gObjectEventGraphicsInfo_Gen4_Breeder_F,
+    [OBJ_EVENT_GFX_BREEDER] =                   &gObjectEventGraphicsInfo_Breeder,
     [OBJ_EVENT_GFX_DRAYDEN] =                   &gObjectEventGraphicsInfo_Drayden,
     [OBJ_EVENT_GFX_IRIS_CASUAL] =                   &gObjectEventGraphicsInfo_IrisCasual,
     [OBJ_EVENT_GFX_MINA] =                   &gObjectEventGraphicsInfo_Mina,

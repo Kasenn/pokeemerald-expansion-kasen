@@ -8,7 +8,7 @@ AldeleafSmallHouse1_Man_1:
 	lockall
 	faceplayer
 	msgbox AldeleafSmallHouse1_Man_Text, MSGBOX_DEFAULT
-	checkitemspace ITEM_WHITE_FLUTE, 1
+	checkitemspace ITEM_BLACK_FLUTE
 	compare VAR_RESULT, FALSE
 	goto_if_eq AldeleafSmallHouse1_Man_5
 AldeleafSmallHouse1_Man_4:
@@ -22,22 +22,14 @@ AldeleafSmallHouse1_Man_2:
 	goto AldeleafSmallHouse1_Man_1
 
 AldeleafSmallHouse1_Man_5:
-	goto OldManNotEnoughRoom
+	goto ZeBagIsFull
 	goto AldeleafSmallHouse1_Man_4
-
-
-OldManNotEnoughRoom::
-	msgbox OldManNotEnoughRoom_Text_0, MSGBOX_NPC
-	end
 
 
 AldeleafSmallHouse1_Man2::
 	msgbox AldeleafSmallHouse1_Man2_Text_0, MSGBOX_NPC
 	end
 
-
-OldManNotEnoughRoom_Text_0:
-	.string "Oh, but you don't have enough room…$"
 
 AldeleafSmallHouse1_Man2_Text_0:
 	.string "Thanks again for your help.$"

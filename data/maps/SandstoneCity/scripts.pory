@@ -101,10 +101,8 @@ script Sandstone_Maniac{
         end
     }
     msgbox(Sandstone_Maniac_Text, MSGBOX_DEFAULT)
-    checkitemspace(ITEM_ULTRA_BALL)
-    if(var(VAR_RESULT) == FALSE){
-        msgbox(NotEnoughRoom, MSGBOX_NPC)
-        end
+    if(checkitemspace(ITEM_ULTRA_BALL) == FALSE){
+        goto(ZeBagIsFull)
     }
     giveitem(ITEM_ULTRA_BALL)
     setflag(FLAG_SANDSTONE_ULTRABALL)

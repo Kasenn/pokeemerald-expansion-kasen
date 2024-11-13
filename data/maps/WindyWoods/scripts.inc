@@ -157,14 +157,16 @@ WW_CoolTrainerEligible_5:
 
 WW_CoolTrainerPostBattle::
 	msgbox WW_CoolTrainerReward
-	checkitemspace ITEM_DAMP_MULCH
-	compare VAR_RESULT, 0
-	goto_if_ne WW_CoolTrainerPostBattle_2
 	switch VAR_STARTER_MON
-	case 0, WW_CoolTrainerPostBattle_6
-	case 1, WW_CoolTrainerPostBattle_7
-	case 2, WW_CoolTrainerPostBattle_8
-WW_CoolTrainerPostBattle_4:
+	case 0, WW_CoolTrainerPostBattle_3
+	case 1, WW_CoolTrainerPostBattle_4
+	case 2, WW_CoolTrainerPostBattle_5
+WW_CoolTrainerPostBattle_1:
+	checkitemspace VAR_TEMP_0
+	compare VAR_RESULT, 0
+	goto_if_ne WW_CoolTrainerPostBattle_7
+WW_CoolTrainerPostBattle_6:
+	giveitem VAR_TEMP_0
 	setflag FLAG_WW_COOLTRAINERREWARD
 	msgbox WW_CoolTrainerPostBattle_Text_0
 	addbp 10
@@ -172,21 +174,21 @@ WW_CoolTrainerPostBattle_4:
 	release
 	return
 
-WW_CoolTrainerPostBattle_2:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
+WW_CoolTrainerPostBattle_3:
+	setvar VAR_TEMP_0, ITEM_MIRACLE_SEED
+	goto WW_CoolTrainerPostBattle_1
 
-WW_CoolTrainerPostBattle_6:
-	giveitem ITEM_MIRACLE_SEED
-	goto WW_CoolTrainerPostBattle_4
+WW_CoolTrainerPostBattle_4:
+	setvar VAR_TEMP_0, ITEM_CHARCOAL
+	goto WW_CoolTrainerPostBattle_1
+
+WW_CoolTrainerPostBattle_5:
+	setvar VAR_TEMP_0, ITEM_MYSTIC_WATER
+	goto WW_CoolTrainerPostBattle_1
 
 WW_CoolTrainerPostBattle_7:
-	giveitem ITEM_CHARCOAL
-	goto WW_CoolTrainerPostBattle_4
-
-WW_CoolTrainerPostBattle_8:
-	giveitem ITEM_MYSTIC_WATER
-	goto WW_CoolTrainerPostBattle_4
+	goto ZeBagIsFull
+	goto WW_CoolTrainerPostBattle_6
 
 
 WW_HelpGirl::

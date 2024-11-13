@@ -9273,7 +9273,7 @@
     },
     [TRAINER_ELITE_FOUR_MINA] =
     {
-        .trainerClass = TRAINER_CLASS_ELITE_FOUR,
+        .trainerClass = TRAINER_CLASS_PAINTER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_FEMALE | F_TRAINER_FEMALE,
         .trainerPic = TRAINER_PIC_MINA,
         .trainerName = _("Mina"),

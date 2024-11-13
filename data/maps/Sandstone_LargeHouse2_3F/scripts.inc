@@ -160,6 +160,7 @@ Sandstone_BigHouse2_1F_Maniac::
 	checkitemspace ITEM_DUSK_BALL, 2
 	compare VAR_RESULT, FALSE
 	goto_if_eq Sandstone_BigHouse2_1F_Maniac_5
+Sandstone_BigHouse2_1F_Maniac_4:
 	giveitem ITEM_DUSK_BALL, 2
 	setflag FLAG_SANDSTONE_DUSKBALLS
 	waitfanfare
@@ -171,8 +172,8 @@ Sandstone_BigHouse2_1F_Maniac_2:
 	end
 
 Sandstone_BigHouse2_1F_Maniac_5:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
+	goto ZeBagIsFull
+	goto Sandstone_BigHouse2_1F_Maniac_4
 
 
 BusyAnsweringEmail::

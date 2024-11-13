@@ -136,6 +136,7 @@ PlayerHouse1F_Dad_4:
 	checkitemspace ITEM_ABILITY_CAPSULE
 	compare VAR_RESULT, FALSE
 	goto_if_eq PlayerHouse1F_Dad_9
+PlayerHouse1F_Dad_8:
 	giveitem ITEM_ABILITY_CAPSULE
 	waitse
 	msgbox ExplainCapsule, MSGBOX_NPC
@@ -154,9 +155,9 @@ PlayerHouse1F_Dad_5:
 	goto PlayerHouse1F_Dad_4
 
 PlayerHouse1F_Dad_9:
-	msgbox NotEnoughRoom, MSGBOX_NPC
 	setflag FLAG_TEMP_5
-	end
+	goto ZeBagIsFull
+	goto PlayerHouse1F_Dad_8
 
 PlayerHouse1F_Dad_12:
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED

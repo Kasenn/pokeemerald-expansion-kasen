@@ -305,9 +305,10 @@ Marigorge_SusMan::
 	checkmoney 3000
 	compare VAR_RESULT, FALSE
 	goto_if_eq Marigorge_SusMan_8
-	checkitemspace ITEM_SAFARI_BALL, 1
+	checkitemspace ITEM_SAFARI_BALL
 	compare VAR_RESULT, FALSE
 	goto_if_eq Marigorge_SusMan_11
+Marigorge_SusMan_10:
 	removemoney 3000
 	playse SE_SHOP
 	updatemoneybox
@@ -336,9 +337,9 @@ Marigorge_SusMan_8:
 	end
 
 Marigorge_SusMan_11:
-	msgbox NotEnoughRoom, MSGBOX_NPC
 	hidemoneybox
-	end
+	goto ZeBagIsFull
+	goto Marigorge_SusMan_10
 
 
 Aldeleaf_MuseumCurator_Intro::

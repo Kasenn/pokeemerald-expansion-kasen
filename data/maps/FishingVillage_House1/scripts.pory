@@ -20,10 +20,8 @@ script OldManGyaradosite{
     lock
     faceplayer
     msgbox(GiveGyaradosite)
-    checkitemspace(ITEM_GYARADOSITE)
-    if(var(VAR_RESULT) == FALSE){
-        msgbox(NotEnoughRoom, MSGBOX_NPC)
-        end
+    if(checkitemspace(ITEM_GYARADOSITE) == FALSE){
+        goto(ZeBagIsFull)
     }
     giveitem(ITEM_GYARADOSITE)
     setflag(FLAG_RECEIVED_GYARADOSITE)

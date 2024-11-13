@@ -461,8 +461,8 @@ Kaolisle_FanClub_ExpertF_Text::
 	.string "Almost every day there's somebody\n"
 	.string "different here looking to trade.\p"
 	.string "If you too would like to trade,\n"
-	.string "just talk to the person sitting\l"
-	.string "at the table.$"
+	.string "just talk to the person standing\l"
+	.string "next to the table.$"
 
 FanClub_WantToTradeGrowlithe::
 	.string "Where I come from we have this\n"

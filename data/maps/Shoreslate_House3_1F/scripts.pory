@@ -27,10 +27,8 @@ script Shoreslate_House3_1F_BlackBelt{
             else{
                 msgbox(Shoreslate_BlackBelt_Female_YesAura, MSGBOX_DEFAULT)
             }
-            checkitemspace(ITEM_LUCARIONITE)
-            if(var(VAR_RESULT) == FALSE){
-                msgbox(NotEnoughRoom, MSGBOX_NPC)
-                end
+            if(checkitemspace(ITEM_LUCARIONITE) == FALSE){
+                goto(ZeBagIsFull)
             }
             giveitem(ITEM_LUCARIONITE)
             waitmessage
@@ -86,10 +84,8 @@ script Shoreslate_House3_2F_Girl{
     switch(var(VAR_TEMP_1)){
         case 10:
             msgbox(Shoreslate_Annoy_10, MSGBOX_NPC)
-            checkitemspace(ITEM_SUPER_POTION)
-            if(var(VAR_RESULT) == FALSE){
-                msgbox(FatGuyNotEnoughRoom, MSGBOX_NPC)
-                end
+            if(checkitemspace(ITEM_SUPER_POTION) == FALSE){
+                goto(ZeBagIsFull)
             }
             giveitem(ITEM_SUPER_POTION)
             setflag(FLAG_RECEIVED_SHORESLATE_POTION)

@@ -104,7 +104,9 @@ gStdScripts::
 	.4byte Std_ObtainDecoration        @ STD_OBTAIN_DECORATION
 	.4byte Std_RegisteredInMatchCall   @ STD_REGISTER_MATCH_CALL
 	.4byte Std_MsgboxGetPoints         @ MSGBOX_GETPOINTS
+	.4byte Std_MsgboxHowMany           @ MSGBOX_HOWMANY
 	.4byte Std_MsgboxPokenav           @ MSGBOX_POKENAV
+	
 gStdScripts_End::
 
 	.include "data/maps/PetalburgCity/scripts.inc"
@@ -1547,3 +1549,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Sandstone_LargeHouse3_4F/scripts.inc"
 
 	.include "data/maps/SandstoneCityAlt/scripts.inc"
+
+	.include "data/maps/FlowerFields/scripts.inc"

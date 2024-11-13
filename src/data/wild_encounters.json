@@ -11832,7 +11832,7 @@
               {
                 "min_level": 3,
                 "max_level": 4,
-                "species": "SPECIES_COMBEE"
+                "species": "SPECIES_SCATTERBUG"
               },
               {
                 "min_level": 3,
@@ -11842,7 +11842,7 @@
               {
                 "min_level": 3,
                 "max_level": 4,
-                "species": "SPECIES_COMBEE"
+                "species": "SPECIES_SCATTERBUG"
               },
               {
                 "min_level": 3,
@@ -11852,11 +11852,16 @@
               {
                 "min_level": 3,
                 "max_level": 4,
-                "species": "SPECIES_CUTIEFLY"
+                "species": "SPECIES_WEEDLE"
               },
               {
                 "min_level": 3,
                 "max_level": 4,
+                "species": "SPECIES_SCATTERBUG"
+              },
+              {
+                "min_level": 4,
+                "max_level": 5,
                 "species": "SPECIES_CUTIEFLY"
               },
               {
@@ -11872,7 +11877,7 @@
               {
                 "min_level": 4,
                 "max_level": 5,
-                "species": "SPECIES_CUTIEFLY"
+                "species": "SPECIES_SCATTERBUG"
               },
               {
                 "min_level": 4,
@@ -11882,12 +11887,7 @@
               {
                 "min_level": 4,
                 "max_level": 5,
-                "species": "SPECIES_CUTIEFLY"
-              },
-              {
-                "min_level": 4,
-                "max_level": 5,
-                "species": "SPECIES_CUTIEFLY"
+                "species": "SPECIES_COMBEE"
               }
             ]
           },
@@ -12517,17 +12517,17 @@
               {
                 "min_level": 3,
                 "max_level": 4,
-                "species": "SPECIES_COMBEE"
+                "species": "SPECIES_SCATTERBUG"
               },
               {
                 "min_level": 3,
                 "max_level": 4,
-                "species": "SPECIES_COMBEE"
+                "species": "SPECIES_WEEDLE"
               },
               {
                 "min_level": 3,
                 "max_level": 4,
-                "species": "SPECIES_COMBEE"
+                "species": "SPECIES_WEEDLE"
               },
               {
                 "min_level": 3,
@@ -12542,7 +12542,7 @@
               {
                 "min_level": 3,
                 "max_level": 4,
-                "species": "SPECIES_STARLY"
+                "species": "SPECIES_SCATTERBUG"
               },
               {
                 "min_level": 3,
@@ -12552,12 +12552,12 @@
               {
                 "min_level": 3,
                 "max_level": 4,
-                "species": "SPECIES_PICHU"
+                "species": "SPECIES_KRICKETOT"
               },
               {
                 "min_level": 3,
                 "max_level": 4,
-                "species": "SPECIES_PICHU"
+                "species": "SPECIES_KRICKETOT"
               },
               {
                 "min_level": 3,
@@ -16167,6 +16167,75 @@
                 "min_level": 5,
                 "max_level": 5,
                 "species": "SPECIES_NONE"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_FLOWER_FIELDS",
+          "base_label": "gFlowerFields0",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_COMBEE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CUTIEFLY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CUTIEFLY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CUTIEFLY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CUTIEFLY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_COMBEE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_COMBEE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_COMBEE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_COMBEE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_COMBEE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_COMBEE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_COMBEE"
               }
             ]
           }

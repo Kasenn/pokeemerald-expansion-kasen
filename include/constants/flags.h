@@ -223,7 +223,7 @@
 #define FLAG_RECEIVED_YELLOW_SCARF           0xCC
 #define FLAG_INTERACTED_WITH_STEVEN_SPACE_CENTER    0xCD
 #define FLAG_ENCOUNTERED_LATIAS_OR_LATIOS    0xCE
-#define FLAG_MET_ARCHIE_METEOR_FALLS         0xCF
+#define FLAG_MET_STRANGE_SEED_TRADER         0xCF
 #define FLAG_GOT_BASEMENT_KEY_FROM_WATTSON   0xD0
 #define FLAG_GOT_TM_THUNDERBOLT_FROM_WATTSON 0xD1
 #define FLAG_FAN_CLUB_STRENGTH_SHARED        0xD2 // Set when you rate the strength of another trainer in Lilycove's Trainer Fan Club.
@@ -791,7 +791,7 @@
 #define FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_MAY                    0x2EA
 #define FLAG_HIDE_SAFARI_ZONE_SOUTH_EAST_EXPANSION                  0x2EB
 #define FLAG_HIDE_LILYCOVE_HARBOR_EVENT_TICKET_TAKER                0x2EC
-#define FLAG_UNUSED_0x2ED                              0x2ED
+#define FLAG_INTRODUCED_TO_BERRY_TRADER                              0x2ED
 #define FLAG_HIDE_ROUTE_101_ZIGZAGOON                               0x2EE
 #define FLAG_HIDE_VICTORY_ROAD_EXIT_WALLY                           0x2EF
 #define FLAG_HIDE_LITTLEROOT_TOWN_MOM_OUTSIDE                       0x2F0
@@ -1231,9 +1231,9 @@
 #define FLAG_UNUSED_0x49F                                          0x49F // Cooltrainer dialogue skip in windy woods
 #define FLAG_WW_COOLTRAINERREWARD                                    0x4A0 // Reward from Cooltrainer in windy woods
 #define FLAG_I_EXP_SHARE_FLAG                                        0x4A1 // Can be used to toggle global Exp Share
-#define FLAG_UNUSED_0x4A2                                             0x4A2 // Used to hide event stuff at Windy Woods
-#define FLAG_UNUSED_0x4A3                                           0x4A3 // Hide event rocket grunt in windy woods
-#define FLAG_UNUSED_0x4A4                                              0x4A4 // Hide event dad in windy woods
+#define FLAG_FLOWERFIELDS_ITEM_1                                             0x4A2 // Used to hide event stuff at Windy Woods
+#define FLAG_FLOWERFIELDS_ITEM_2                                           0x4A3 // Hide event rocket grunt in windy woods
+#define FLAG_FLOWERFIELDS_ITEM_3                                              0x4A4 // Hide event dad in windy woods
 #define FLAG_CORALGROVE_TRADE_COMPLETED                                     0x4A5 // Starter trade in Coralgrove
 #define FLAG_TALKEDTOSLEEPINGGUY                                     0x4A6 // TM rest in Coralgrove Harbor
 #define FLAG_RIVAL_HARBOR_ANGRY                                             0x4A7 // makes rival angry if bailed on in the elevator

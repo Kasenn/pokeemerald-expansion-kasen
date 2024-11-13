@@ -1,7 +1,109 @@
 // This file is meant for general scripts that have no other place to go, as well as debug scripts
 
+//
 // General stuff
+//
+script TradeSeedsForFertilizer{
+    lock
+    faceplayer
+    if(flag(FLAG_MET_STRANGE_SEED_TRADER)){
+        if(checkitem(ITEM_STRANGE_SEED) == TRUE){
+            if(msgbox(HereToTradeMoreSeeds, MSGBOX_YESNO) == TRUE){
+                goto(TradeSeedsMain)
+            }
+        }
+        goto(TradeSeedsGoodbye)
+    }
+    msgbox(SeenAnyStrangeSeeds)
+    if (checkitem(ITEM_STRANGE_SEED) == TRUE){
+        playse(SE_PIN)
+        safefollow
+        applymovement(4, ExclamationMark)
+        waitmovement(0)
+        delay(48)
+        setflag(FLAG_MET_STRANGE_SEED_TRADER)
+        if(msgbox(CareToTradeSeeds, MSGBOX_YESNO) == TRUE){
+            goto(TradeSeedsMain)
+        }
+        else{
+            goto(TradeSeedsGoodbye)
+        }
+    }}
+script TradeSeedsMain{
+    checkitemquant(ITEM_STRANGE_SEED)
+    if(msgbox(TradeHowManySeeds, MSGBOX_HOWMANY) == 0){
+        goto(TradeSeedsGoodbye)
+    }
+    else{
+        copyvar(VAR_TEMP_2, VAR_RESULT)
+        buffernumberstring(STR_VAR_1, VAR_TEMP_2)
+        while(var(VAR_RESULT) != 0){
+            subvar(VAR_RESULT, 1)
+            addvar(VAR_TEMP_1, 2)
+        }
+        buffernumberstring(STR_VAR_2, VAR_TEMP_1)
+        if(var(VAR_TEMP_2) == 1){
+            if(msgbox(TradeSeedsForFertilizer_Text_Single, MSGBOX_YESNO) == TRUE){
+                if(checkitemspace(ITEM_FERTILIZER, VAR_TEMP_1) == FALSE){
+                    setvar(VAR_TEMP_1, 0)
+                    setvar(VAR_TEMP_2, 0)
+                    goto(ZeBagIsFull)
+                }
+                giveitem(ITEM_FERTILIZER, VAR_TEMP_1)
+                removeitem(ITEM_STRANGE_SEED, VAR_TEMP_2)
+            }
+        }
+        else{
+            if(msgbox(TradeSeedsForFertilizer_Text_Multiple, MSGBOX_YESNO) == TRUE){
+                if(checkitemspace(ITEM_FERTILIZER, VAR_TEMP_1) == FALSE){
+                    setvar(VAR_TEMP_1, 0)
+                    setvar(VAR_TEMP_2, 0)
+                    goto(ZeBagIsFull)
+                }
+                giveitem(ITEM_FERTILIZER, VAR_TEMP_1)
+                removeitem(ITEM_STRANGE_SEED, VAR_TEMP_2)
+            }
+        }
+        goto(TradeSeedsGoodbye)
+    }}
+script TradeSeedsGoodbye{
+    setvar(VAR_TEMP_1, 0)
+    setvar(VAR_TEMP_2, 0)
+    msgbox(ComeTradeWhenGetMoreSeeds, MSGBOX_NPC)
+    end}
+text SeenAnyStrangeSeeds{
+    "I've been hearing some rumors about\n"
+    "Pokémon hiding strange seeds in trees."}
+text CareToTradeSeeds{
+    "Ah, those seeds seem to match\n"
+    "the description!\p"
+    "I have this special plant fertilizer\n"
+    "that can greatly improve the growth\l"
+    "rate of berry trees.\p"
+    "If you'd like, I can trade you\n"
+    "two batches of the fertilizer\l"
+    "for a single strange seed."}
+text ComeTradeWhenGetMoreSeeds{
+    "If you find any strange seeds, I'll\n"
+    "gladly trade them for some fertilizer."}
+text HereToTradeMoreSeeds{
+    "Here to trade some strange seeds?"}
+text TradeHowManySeeds{
+    "How many seeds would you\n"
+    "like to trade?"}
+text TradeSeedsForFertilizer_Text_Single{
+    "One seed for two batches\n"
+    "of fertilizer.\p"
+    "Is that trade okay?"}
+text TradeSeedsForFertilizer_Text_Multiple{
+    "{STR_VAR_1} seeds for {STR_VAR_2} batches\n"
+    "of fertilizer.\p"
+    "Is that trade okay?"}
 
+
+script ZeBagIsFull{
+    msgbox(gText_TooBadBagIsFull, MSGBOX_NPC)
+    end}
 script BerryTree_ItemUseFertilizer{
     special(ObjectEventInteractionGetBerryName)
 	message(BerryTree_Text_FertilizedTheBerry)
@@ -18,13 +120,7 @@ script BerryTree_ItemUseFertilizer{
     if(var(VAR_0x800A) == TRUE){
         delay(210)
     }
-	end
-}
-text BerryTree_Text_FertilizedTheBerry{
-    "{PLAYER} applied the Fertilizer to\n"
-    "the {STR_VAR_1} plant."
-}
-
+	end}
 script TryDropStrangeSeed_Tree{
     trystrangeseed
     if(var(VAR_0x8004) >= 80 &&
@@ -45,32 +141,7 @@ script TryDropStrangeSeed_Tree{
         waitmessage
 	    waitbuttonpress
     }
-    return
-}
-
-text StrangeSeedDroppedBerry{
-    "A Strange Seed dropped from the\n"
-    "berry tree."
-}
-text StrangeSeedDroppedTree{
-    "A Strange Seed dropped from the tree."
-}
-text BerryTree_Text_PickedTheSeed{
-	"{PLAYER} picked up the Strange Seed."
-}
-text BerryTree_Text_PutAwaySeed{
-	"{PLAYER} put away the Strange\n"
-	"Seed in the Items pocket."
-}
-text BerryTree_Text_PutAwayBerryAndSeed{
-	"{PLAYER} put away the {STR_VAR_1}\n"
-	"in the bag's berries pocket\l"
-    "and the Strange Seed in the\l"
-    "Items pocket.\p"
-	"The soil returned to its soft and\n"
-	"loamy state."
-}
-
+    return}
 script TryDropStrangeSeed_BerryPlant{
     trystrangeseed
     if(var(VAR_0x8004) >= 60
@@ -93,23 +164,40 @@ script TryDropStrangeSeed_BerryPlant{
     else{
         message(BerryTree_Text_PutAwayBerry)
     }
-    return
-}
+    return}
+text BerryTree_Text_FertilizedTheBerry{
+    "{PLAYER} applied the Fertilizer to\n"
+    "the {STR_VAR_1} plant."}
+text StrangeSeedDroppedBerry{
+    "A Strange Seed dropped from the\n"
+    "berry tree."}
+text StrangeSeedDroppedTree{
+    "A Strange Seed dropped from the tree."}
+text BerryTree_Text_PickedTheSeed{
+	"{PLAYER} picked up the Strange Seed."}
+text BerryTree_Text_PutAwaySeed{
+	"{PLAYER} put away the Strange\n"
+	"Seed in the Items pocket."}
+text BerryTree_Text_PutAwayBerryAndSeed{
+	"{PLAYER} put away the {STR_VAR_1}\n"
+	"in the bag's berries pocket\l"
+    "and the Strange Seed in the\l"
+    "Items pocket.\p"
+	"The soil returned to its soft and\n"
+	"loamy state."}
 
+//
 // Leader test scripts
-
+//
 script IrisBattle{
-    trainerbattle_single(TRAINER_CASUAL_IRIS, RustboroCity_DevonCorp_1F_Rocket1_Intro, RustboroCity_DevonCorp_1F_Rocket1_Defeat)
-}
+    trainerbattle_single(TRAINER_CASUAL_IRIS, RustboroCity_DevonCorp_1F_Rocket1_Intro, RustboroCity_DevonCorp_1F_Rocket1_Defeat)}
 script DraydenBattle{
-    trainerbattle_single(TRAINER_LEADER_DRAYDEN, RustboroCity_DevonCorp_1F_Rocket1_Intro, RustboroCity_DevonCorp_1F_Rocket1_Defeat)
-}
+    trainerbattle_single(TRAINER_LEADER_DRAYDEN, RustboroCity_DevonCorp_1F_Rocket1_Intro, RustboroCity_DevonCorp_1F_Rocket1_Defeat)}
 script MinaBattle{
-    trainerbattle_single(TRAINER_ELITE_FOUR_MINA, RustboroCity_DevonCorp_1F_Rocket1_Intro, RustboroCity_DevonCorp_1F_Rocket1_Defeat)
-}
-
+    trainerbattle_single(TRAINER_ELITE_FOUR_MINA, RustboroCity_DevonCorp_1F_Rocket1_Intro, RustboroCity_DevonCorp_1F_Rocket1_Defeat)}
+//
 // Automatic update scripts
-
+//
 script AutomaticUpdate{
     setvar(VAR_DEBUG, 9)
     clearflag(FLAG_UNUSED_0x4E6)
@@ -119,8 +207,7 @@ script AutomaticUpdate{
     callnative(DefaultFollower)
     closemessage
     release
-    end
-}
+    end}
 text AutomaticUpdate_Text1{
     "A new update has been applied.\p"
     "Things included in this update:\p"
@@ -128,8 +215,7 @@ text AutomaticUpdate_Text1{
     "preferred follower from party screen.\p"
     "2. An updated “Stats” page in the\n"
     "start menu.\p"
-    "3. A lot of bug fixes."
-}
+    "3. A lot of bug fixes."}
 script AutomaticUpdate2{
     setvar(VAR_DEBUG, 10)
     msgbox(AutomaticUpdate2_Text2, MSGBOX_YESNO)
@@ -147,8 +233,7 @@ script AutomaticUpdate2{
     }
     msgbox(AutomaticUpdate2_Text2, MSGBOX_SIGN)
     release
-    end
-}
+    end}
 text AutomaticUpdate2_Text{
     "Update: You have obtained a watch.\p"
     "You can now check the time by\n"
@@ -156,8 +241,7 @@ text AutomaticUpdate2_Text{
     "toggle between 12-hour and 24-hour\l"
     "modes through the options menu or\l"
     "by viewing a wall clock.\p"
-    "Would you like to re-set the clock?"
-}
+    "Would you like to re-set the clock?"}
 text AutomaticUpdate2_Text2{
     "There are also many new window frames\n"
     "available in the options menu.\p"
@@ -173,20 +257,19 @@ text AutomaticUpdate2_Text2{
     "on the D-Pad.\p"
     "The toggle between health numbers\n"
     "and bars in double battles has been\l"
-    "moved to SELECT button."
-}
+    "moved to SELECT button."}
 script AutomaticUpdate3{
     callnative(InitStrangeSeeds)
     setvar(VAR_DEBUG, 11)
-    setvar(VAR_UNUSED_0x4051, 0)
-    setvar(VAR_UNUSED_0x4052, 0)
+    setvar(VAR_SHINY_MULTIPLIER, 0)
+    setvar(VAR_MINA_INTRO_QUEST, 0)
     setvar(VAR_UNUSED_0x4056, 0)
     setvar(VAR_UNUSED_0x405A, 0)
     setvar(VAR_UNUSED_0x407D, 0)
     setvar(VAR_UNUSED_0x408B, 0)
     setvar(VAR_UNUSED_0x40CD, 0)
     clearflag(FLAG_REUNITE_WITH_RIVAL)
-    clearflag(FLAG_UNUSED_0x2ED)
+    clearflag(FLAG_INTRODUCED_TO_BERRY_TRADER)
     clearflag(FLAG_RIVAL_MET_IN_SANDSTONE)
     clearflag(FLAG_UNUSED_0x112)
     clearflag(FLAG_SANDSTONE_HIDDENITEM_1)
@@ -198,9 +281,9 @@ script AutomaticUpdate3{
     clearflag(FLAG_UNUSED_0x49C)
     clearflag(FLAG_UNUSED_0x49D)
     clearflag(FLAG_UNUSED_0x49F)
-    clearflag(FLAG_UNUSED_0x4A2)
-    clearflag(FLAG_UNUSED_0x4A3)
-    clearflag(FLAG_UNUSED_0x4A4)
+    clearflag(FLAG_FLOWERFIELDS_ITEM_1)
+    clearflag(FLAG_FLOWERFIELDS_ITEM_2)
+    clearflag(FLAG_FLOWERFIELDS_ITEM_3)
     clearflag(FLAG_UNUSED_0x4F0)
     clearflag(FLAG_UNUSED_SYS_0x84)
     clearflag(FLAG_ORICORIO_SHOWN_TO_MANIAC)
@@ -211,9 +294,9 @@ script AutomaticUpdate3{
     release
     end
 }
-
+//
 // Debug scripts
-
+//
 script Debug_Script_1{              // Manual update       
     if(var(VAR_DEBUG) == 0)
     {
@@ -323,16 +406,14 @@ script Debug_Script_1{              // Manual update
     }
 	closemessage
     release
-    end
-}
+    end}
 script Debug_Script_2{              // Fix Mon met locations
     setmonmetlocation(0, MAP_NEW_ROUTE101)
 	setmonmetlocation(1, MAP_NEW_ROUTE101)
 	setmonmetlocation(2, MAP_NEW_ROUTE101)
 	setmonmetlocation(3, MAP_NEW_ROUTE101)
 	setmonmetlocation(4, MAP_NEW_ROUTE101)
-	setmonmetlocation(5, MAP_NEW_ROUTE101)
-}
+	setmonmetlocation(5, MAP_NEW_ROUTE101)}
 script Debug_Script_3{              // Set Route 11 rival fight
     lock
     msgbox(WantToSetRivalFight, MSGBOX_YESNO)
@@ -352,8 +433,7 @@ script Debug_Script_3{              // Set Route 11 rival fight
             clearflag(FLAG_RIVAL_HARBOR_ANGRY)
             additem(ITEM_DOWSING_MACHINE)
         }
-        end
-}
+        end}
 script Debug_Script_4{              // Set team level
     lock
     msgbox(LevelSetIntro, MSGBOX_DEFAULT)
@@ -400,11 +480,9 @@ script Debug_Script_4{              // Set team level
             closemessage
     }
     release
-    end
-}
+    end}
 script Debug_Script_5{
-    giveitem(ITEM_HM01)
-    setflag(FLAG_BADGE02_GET)
+    call(LitwickMain)
     return
 }
 script Debug_Script_6{
@@ -416,9 +494,9 @@ script Debug_Script_7{
 script Debug_Script_8{
     return
 }
-
+//
 // Debug related scripts
-
+//
 script UpdateItemCheck{
     checkitem(ITEM_TM49, 2)
     if(var(VAR_RESULT) == TRUE){
@@ -434,30 +512,24 @@ script UpdateItemCheck{
         msgbox(ReplacedGrassKnot)
         removeitem(ITEM_TM_GIGA_DRAIN)
         additem(ITEM_TM_GRASS_KNOT)
-    }
-}
+    }}
 text ReplacedFlute{
     "Your White Flute has been replaced\n"
-    "with a Black Flute."
-}
+    "with a Black Flute."}
 text ReplacedGrassKnot{
     "Your TM for Giga Drain has been\n"
-    "replaced with a TM for Grass Knot."
-}
+    "replaced with a TM for Grass Knot."}
 text WantToSetRivalFight{
     "This option will change an upcoming\n"
     "rival event based on whether the rival\l"
     "was fought in the Coralgrove elevator.\p"
-    "Would you like to switch the event?"
-}
+    "Would you like to switch the event?"}
 text RivalNotFought{
     "Rival set to NOT FOUGHT.\n"
-    "Removed the Itemfinder."
-}
+    "Removed the Itemfinder."}
 text RivalFought{
     "Rival set to FOUGHT.\n"
-    "Added the Itemfinder."
-}
+    "Added the Itemfinder."}
 text LevelSetIntro{
     "This option will set the level of your\n"
     "entire team to the specified level.\p"
@@ -468,129 +540,99 @@ text LevelSetIntro{
     "evolve/de-evolve your Pokémon,\l"
     "nor does it add or remove moves.\p"
     "The team's stats will be recalculated.\n"
-    "EVs earned will remain unchanged."
-}
+    "EVs earned will remain unchanged."}
 text WhichLevelToSet{
     "Which level would you like to set\n"
-    "your team?"
-}
+    "your team?"}
 text FlagsAndVarsUpdated2{
     "Flags and Vars updated.\p"
     "Would you like to warp to Coralgrove?\n"
-    "(Choose YES if current area is bugged)"
-}
+    "(Choose YES if current area is bugged)"}
 text RenameBrother{
     "Would you like to rename your brother?\n"
-    "(Yes if haven't seen this before!)"
-}
+    "(Yes if haven't seen this before!)"}
 
+// 
 // Global movement scripts
-
+//
 movement Walk1Left{
     walk_left
-    step_end
-}
+    step_end}
 movement Walk2Left{
     walk_left * 2
-    step_end
-}
+    step_end}
 movement Walk3Left{
     walk_left * 3
-    step_end
-}
+    step_end}
 movement Walk4Left{
     walk_left * 4
-    step_end
-}
+    step_end}
 movement Walk5Left{
     walk_left * 4
-    step_end
-}
+    step_end}
 movement Walk6Left{
     walk_left * 6
-    step_end
-}
+    step_end}
 movement Walk7Left{
     walk_left * 7
-    step_end
-}
+    step_end}
 movement Walk8Left{
     walk_left * 8
-    step_end
-}
+    step_end}
 movement Walk9Left{
     walk_left * 9
-    step_end
-}
+    step_end}
 movement Walk1Right{
     walk_right
-    step_end
-}
+    step_end}
 movement Walk2Right{
     walk_right * 2
-    step_end
-}
+    step_end}
 movement Walk3Right{
     walk_right * 3
-    step_end
-}
+    step_end}
 movement Walk4Right{
     walk_right * 4
-    step_end
-}
+    step_end}
 movement Walk5Right{
     walk_right * 5
-    step_end
-}
+    step_end}
 movement Walk6Right{
     walk_right * 6
-    step_end
-}
+    step_end}
 movement Walk1Up{
     walk_up
-    step_end
-}
+    step_end}
 movement Walk2Up{
     walk_up * 2
-    step_end
-}
+    step_end}
 movement Walk3Up{
     walk_up * 3
-    step_end
-}
+    step_end}
 movement Walk4Up{
     walk_up * 4
-    step_end
-}
+    step_end}
 movement Walk5Up{
     walk_up * 5
-    step_end
-}
+    step_end}
 movement Walk6Up{
     walk_up * 6
-    step_end
-}
+    step_end}
 movement Walk1Down{
     walk_down
-    step_end
-}
+    step_end}
 movement Walk2Down{
     walk_down * 2
-    step_end
-}
+    step_end}
 movement Walk3Down{
     walk_down * 3
-    step_end
-}
+    step_end}
 movement Walk4Down{
     walk_down * 4
-    step_end
-}
+    step_end}
 movement Walk5Down{
     walk_down * 5
-    step_end
-}
+    step_end}
 movement Walk6Down{
     walk_down * 6
-    step_end
-}
+    step_end}

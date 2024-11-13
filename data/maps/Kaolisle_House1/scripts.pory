@@ -17,10 +17,8 @@ script Kaolisle_Pianist{
         else{
             faceplayer
             msgbox(ThankYouForListening, MSGBOX_DEFAULT)
-            checkitemspace(ITEM_HEART_SCALE, 2)
-            if(var(VAR_RESULT) == FALSE){
-                msgbox(NotEnoughRoom, MSGBOX_NPC)
-                end
+            if(checkitemspace(ITEM_HEART_SCALE, 2) == FALSE){
+                goto(ZeBagIsFull)
             }
             special(FinishCyclingRoadChallenge)
             giveitem(ITEM_HEART_SCALE, 2)

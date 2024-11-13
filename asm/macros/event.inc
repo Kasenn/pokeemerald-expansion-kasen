@@ -2008,6 +2008,28 @@
 	.2byte \y
 	.endm
 
+	@ Displays a "How many" multichoice box at the specified coordinates, and blocks script execution until the user makes a selection.
+	@ Their selection is stored in VAR_RESULT as NO (0) or value (X). Pressing B is equivalent to answering NO
+	.macro howmanybox x:req, y:req
+	.byte 0xf2
+	.byte \x
+	.byte \y
+	.endm
+
+	@ Checks how many of the specified item player has in the bag, and writes the value to VAR_0x8005.
+	.macro checkitemquant itemId:req
+	callnative ScrCmd_checkitemquantity
+	.2byte \itemId
+	.endm
+
+	@ Warps the player to the specified map without playing a sound effect.
+	@ Warp commands can be given either the id of which warp location to go to on the destination map
+	@ or a pair of x/y coordinates to go to directly on the destination map.
+	.macro warpsilentnofadeout map:req, a, b, c
+	callnative ScrCmd_warpsilentnofadeout
+	formatwarp \map, \a, \b, \c
+	.endm
+
 	@ Attempts to despawn the specified (localId) object on the specified map.
 	@ It also sets the object's visibility flag if it has one.
 	@ If no map is specified, then the current map is used.
@@ -2203,7 +2225,8 @@
 	MSGBOX_YESNO = 5
 	MSGBOX_AUTOCLOSE = 6
 	MSGBOX_GETPOINTS = 9
-	MSGBOX_POKENAV = 10
+	MSGBOX_HOWMANY = 10
+	MSGBOX_POKENAV = 11
 
 	YES = 1
 	NO  = 0

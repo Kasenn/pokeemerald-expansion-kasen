@@ -33,6 +33,7 @@ Kaolisle_Pianist_5:
 	checkitemspace ITEM_HEART_SCALE, 2
 	compare VAR_RESULT, FALSE
 	goto_if_eq Kaolisle_Pianist_14
+Kaolisle_Pianist_13:
 	special FinishCyclingRoadChallenge
 	giveitem ITEM_HEART_SCALE, 2
 	clearflag FLAG_KAOLISLE_PLAYINGPIANO
@@ -51,8 +52,8 @@ Kaolisle_Pianist_10:
 	end
 
 Kaolisle_Pianist_14:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
+	goto ZeBagIsFull
+	goto Kaolisle_Pianist_13
 
 
 Kaolisle_Karatemaster::

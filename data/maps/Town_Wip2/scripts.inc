@@ -144,7 +144,7 @@ SkylochInt_RestHouseGirl::
 
 SkylochInt_RestHouseFridge::
 	goto_if_set FLAG_SKYLOCH_JUICE, SkylochInt_RestHouseFridge_2
-	checkitemspace ITEM_BERRY_JUICE, 1
+	checkitemspace ITEM_BERRY_JUICE
 	compare VAR_RESULT, TRUE
 	goto_if_eq SkylochInt_RestHouseFridge_4
 	msgbox CantFitJuice, MSGBOX_SIGN
@@ -196,14 +196,15 @@ SkylochInt_PikachuWoman_7:
 	checkitemspace ITEM_LIGHT_BALL
 	compare VAR_RESULT, FALSE
 	goto_if_eq SkylochInt_PikachuWoman_10
+SkylochInt_PikachuWoman_9:
 	giveitem ITEM_LIGHT_BALL
 	setflag FLAG_RECEIVED_LIGHTBALL
 	msgbox ExplainLightBall, MSGBOX_NPC
 	end
 
 SkylochInt_PikachuWoman_10:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
+	goto ZeBagIsFull
+	goto SkylochInt_PikachuWoman_9
 
 
 SkylochInt_Pikachu::

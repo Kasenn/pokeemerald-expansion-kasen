@@ -503,8 +503,7 @@ script AcerolaDanceTriggerMain{
         release
         end
     }
-    checkitemspace(ITEM_BUG_TERA_SHARD)
-    if(var(VAR_RESULT) == FALSE){
+    if(checkitemspace(ITEM_TM_CAPTIVATE) == FALSE){
         release
         end
     }

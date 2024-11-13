@@ -2188,3 +2188,22 @@ const u16 gTilesetPalettes_NewSandstoneCity[][16] =
 };
 
 const u32 gTilesetTiles_NewSandstoneCity[] = INCBIN_U32("data/tilesets/secondary/new_sandstone_city/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_FlowerField[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/flower_field/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_field/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_field/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_field/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_field/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_field/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_field/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_field/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_field/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_field/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_field/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_field/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/flower_field/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_FlowerField[] = INCBIN_U32("data/tilesets/secondary/flower_field/tiles.4bpp.lz");

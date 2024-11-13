@@ -32,10 +32,8 @@ script Sandstone_BigHouse1_1F_OldWoman{
     lock
     faceplayer
     msgbox(HaveACookie)
-    checkitemspace(ITEM_LAVA_COOKIE)
-    if(var(VAR_RESULT) == FALSE){
-        msgbox(NotEnoughRoom, MSGBOX_NPC)
-        end
+    if(checkitemspace(ITEM_LAVA_COOKIE) == FALSE){
+        goto(ZeBagIsFull)
     }
     giveitem(ITEM_LAVA_COOKIE)
     waitfanfare
@@ -168,11 +166,9 @@ script Aldeleaf_Artist{
 	applymovement(4, Common_Movement_Delay48)
 	waitmovement(0)
     msgbox(YouHaveSmeargle)
-    checkitemspace(ITEM_PAINTBRUSH)
-    if(var(VAR_RESULT) == FALSE){
-        msgbox(NotEnoughRoom, MSGBOX_NPC)
+    if(checkitemspace(ITEM_PAINTBRUSH) == FALSE){
         setflag(FLAG_TEMP_2)
-        end
+        goto(ZeBagIsFull)
     }
     goto(GivePaintBrush)
 }

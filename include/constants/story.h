@@ -30,4 +30,13 @@
 #define STORY_RIVAL_MET_AT_CORALGROVE_ELEVATOR          1
 #define STORY_RIVAL_DEFEATED_OR_BAILED_ON               2
 
+// VAR_MINA_INTRO_QUEST
+#define STORY_MINA_NOT_SPOKEN_TO                        0
+#define STORY_MINA_SPOKEN_TO                            1
+#define STORY_MINA_GRANBULL_BATTLED                     2
+#define STORY_MINA_GRANBULL_DEFEATED                    3
+#define STORY_MINA_SPOKEN_WITH_AFTER_BATTLE             4
+#define STORY_MINA_QUEST_COMPLETE                       5
+#define STORY_MINA_INTRODUCED                           6
+
 #endif // GUARD_CONSTANTS_STORY_H

@@ -12466,46 +12466,18 @@ static const struct TrainerMon sParty_Darius[] = {
 
 static const struct TrainerMon sParty_Steven[] = {
     {
-    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .lvl = 77,
-    .species = SPECIES_SKARMORY,
+    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
+    .lvl = 23,
+    .species = SPECIES_KLEFKI,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_TOXIC, MOVE_AERIAL_ACE, MOVE_SPIKES, MOVE_STEEL_WING}
+    .moves = {MOVE_SHOCK_WAVE, MOVE_QUICK_ATTACK, MOVE_CHARM, MOVE_NONE}
     },
     {
-    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .lvl = 75,
-    .species = SPECIES_CLAYDOL,
+    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
+    .lvl = 23,
+    .species = SPECIES_GRANBULL,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_REFLECT, MOVE_LIGHT_SCREEN, MOVE_ANCIENT_POWER, MOVE_EARTHQUAKE}
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .lvl = 76,
-    .species = SPECIES_AGGRON,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_THUNDER, MOVE_EARTHQUAKE, MOVE_SOLAR_BEAM, MOVE_DRAGON_CLAW}
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .lvl = 76,
-    .species = SPECIES_CRADILY,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_GIGA_DRAIN, MOVE_ANCIENT_POWER, MOVE_INGRAIN, MOVE_CONFUSE_RAY}
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .lvl = 76,
-    .species = SPECIES_ARMALDO,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_WATER_PULSE, MOVE_ANCIENT_POWER, MOVE_AERIAL_ACE, MOVE_SLASH}
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .lvl = 78,
-    .species = SPECIES_METAGROSS,
-    .heldItem = ITEM_SITRUS_BERRY,
-    .moves = {MOVE_EARTHQUAKE, MOVE_PSYCHIC, MOVE_METEOR_MASH, MOVE_SHADOW_BALL}
+    .moves = {MOVE_SHOCK_WAVE, MOVE_QUICK_ATTACK, MOVE_CONFUSE_RAY, MOVE_NONE}
     }
 };
 

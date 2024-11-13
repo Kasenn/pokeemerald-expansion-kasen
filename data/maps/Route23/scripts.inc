@@ -174,6 +174,7 @@ R23_Ace_PostBattle::
 	checkitemspace ITEM_CHOICE_SCARF
 	compare VAR_RESULT, FALSE
 	goto_if_eq R23_Ace_PostBattle_5
+R23_Ace_PostBattle_4:
 	giveitem ITEM_CHOICE_SCARF
 	waitfanfare
 	msgbox R23_Ace_ExplainReward
@@ -188,8 +189,8 @@ R23_Ace_PostBattle_2:
 	end
 
 R23_Ace_PostBattle_5:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
+	goto ZeBagIsFull
+	goto R23_Ace_PostBattle_4
 
 
 R23_Girl1_Text::

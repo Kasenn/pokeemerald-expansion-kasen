@@ -1144,3 +1144,14 @@ const struct Tileset gTileset_NewSandstoneCity =
     .metatileAttributes = gMetatileAttributes_NewSandstoneCity,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_FlowerField =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_FlowerField,
+    .palettes = gTilesetPalettes_FlowerField,
+    .metatiles = gMetatiles_FlowerField,
+    .metatileAttributes = gMetatileAttributes_FlowerField,
+    .callback = InitTilesetAnim_FlowerField,
+};

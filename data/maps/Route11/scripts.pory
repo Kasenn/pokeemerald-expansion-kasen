@@ -76,10 +76,8 @@ script Route11_CaveManiac{
     lock
     faceplayer
     msgbox(LeaveMeAlone_Torment, MSGBOX_DEFAULT)
-    checkitemspace(ITEM_TM_TORMENT)
-    if(var(VAR_RESULT) == FALSE){
-        msgbox(NotEnoughRoom, MSGBOX_NPC)
-        end
+    if(checkitemspace(ITEM_TM_TORMENT) == FALSE){
+        goto(ZeBagIsFull)
     }
     giveitem(ITEM_TM_TORMENT)
     waitse
@@ -377,10 +375,8 @@ script R11_Ace_EligibleForBattle{
 
 script R11_Ace_PostBattleScript{
     msgbox(R11_Ace_Reward, MSGBOX_DEFAULT)
-    checkitemspace(ITEM_LUCKY_EGG)
-    if(var(VAR_RESULT) == FALSE){
-        msgbox(NotEnoughRoom, MSGBOX_NPC)
-        end
+    if(checkitemspace(ITEM_LUCKY_EGG) == FALSE){
+        goto(ZeBagIsFull)
     }
     giveitem(ITEM_LUCKY_EGG)
     waitfanfare

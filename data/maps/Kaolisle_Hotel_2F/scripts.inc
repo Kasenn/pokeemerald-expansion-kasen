@@ -76,6 +76,7 @@ Kaolisle_Hotel_2F_Man2_MonFound::
 	checkitemspace ITEM_TROPICAL_STONE
 	compare VAR_RESULT, FALSE
 	goto_if_eq Kaolisle_Hotel_2F_Man2_MonFound_2
+Kaolisle_Hotel_2F_Man2_MonFound_1:
 	waitse
 	giveitem ITEM_TROPICAL_STONE
 	setflag FLAG_OBTAINED_TROPICALSTONE
@@ -84,8 +85,8 @@ Kaolisle_Hotel_2F_Man2_MonFound::
 	return
 
 Kaolisle_Hotel_2F_Man2_MonFound_2:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
+	goto ZeBagIsFull
+	goto Kaolisle_Hotel_2F_Man2_MonFound_1
 
 
 Room201_Text_0:

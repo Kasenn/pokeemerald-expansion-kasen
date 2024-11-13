@@ -28,6 +28,7 @@ CoralgroveTradeSequence_13:
 	checkitemspace ITEM_INCINEROARITE
 	compare VAR_RESULT, FALSE
 	goto_if_eq CoralgroveTradeSequence_18
+CoralgroveTradeSequence_17:
 	switch VAR_STARTER_MON
 	case 0, CoralgroveTradeSequence_22
 	case 1, CoralgroveTradeSequence_23
@@ -64,8 +65,8 @@ CoralgroveTradeSequence_14:
 
 CoralgroveTradeSequence_18:
 	setflag FLAG_TEMP_3
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
+	goto ZeBagIsFull
+	goto CoralgroveTradeSequence_17
 
 CoralgroveTradeSequence_22:
 	giveitem ITEM_CHESNAUGHTITE

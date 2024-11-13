@@ -80,6 +80,7 @@ Route11_CaveManiac::
 	checkitemspace ITEM_TM_TORMENT
 	compare VAR_RESULT, FALSE
 	goto_if_eq Route11_CaveManiac_5
+Route11_CaveManiac_4:
 	giveitem ITEM_TM_TORMENT
 	waitse
 	waitmessage
@@ -93,8 +94,8 @@ Route11_CaveManiac_2:
 	end
 
 Route11_CaveManiac_5:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
+	goto ZeBagIsFull
+	goto Route11_CaveManiac_4
 
 
 Route11_RepairGuy::
@@ -244,6 +245,7 @@ R11_Ace_PostBattleScript::
 	checkitemspace ITEM_LUCKY_EGG
 	compare VAR_RESULT, FALSE
 	goto_if_eq R11_Ace_PostBattleScript_2
+R11_Ace_PostBattleScript_1:
 	giveitem ITEM_LUCKY_EGG
 	waitfanfare
 	msgbox R11_Ace_ExplainReward
@@ -254,8 +256,8 @@ R11_Ace_PostBattleScript::
 	end
 
 R11_Ace_PostBattleScript_2:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
+	goto ZeBagIsFull
+	goto R11_Ace_PostBattleScript_1
 
 
 RewardBP::

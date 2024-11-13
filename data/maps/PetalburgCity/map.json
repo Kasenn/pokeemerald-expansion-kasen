@@ -20,12 +20,7 @@
     },
     {
       "map": "MAP_ROUTE102",
-      "offset": -17,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_TEST_ROOM",
-      "offset": 3,
+      "offset": 10,
       "direction": "right"
     }
   ],

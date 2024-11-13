@@ -15,57 +15,6 @@ Route8_Boy::
 	end
 
 
-Route8_HoneyTrader::
-	lock
-	faceplayer
-	goto_if_set FLAG_TEMP_2, Route8_HoneyTrader_2
-Route8_HoneyTrader_1:
-	goto_if_unset FLAG_TEMP_2, Route8_HoneyTrader_5
-Route8_HoneyTrader_4:
-	setflag FLAG_TEMP_2
-	compare VAR_RESULT, FALSE
-	goto_if_eq Route8_HoneyTrader_8
-	compare VAR_RESULT, TRUE
-	goto_if_eq Route8_HoneyTrader_10
-	return
-
-Route8_HoneyTrader_2:
-	msgbox Route8_HoneyTrader_TextShort, MSGBOX_YESNO
-	goto Route8_HoneyTrader_1
-
-Route8_HoneyTrader_5:
-	msgbox Route8_HoneyTrader_Text, MSGBOX_YESNO
-	goto Route8_HoneyTrader_4
-
-Route8_HoneyTrader_8:
-	msgbox Route8_HoneyTrader_Decline, MSGBOX_NPC
-	end
-
-Route8_HoneyTrader_10:
-	checkitem ITEM_ORAN_BERRY, 1
-	compare VAR_RESULT, FALSE
-	goto_if_eq Route8_HoneyTrader_12
-	checkitemspace ITEM_HONEY, 2
-	compare VAR_RESULT, FALSE
-	goto_if_eq Route8_HoneyTrader_15
-	removeitem ITEM_ORAN_BERRY, 1
-	additem ITEM_HONEY, 2
-	playfanfare MUS_OBTAIN_ITEM
-	msgbox Route8_Trade, MSGBOX_DEFAULT
-	waitse
-	waitmessage
-	msgbox Route8_ThanksForTrade, MSGBOX_NPC
-	end
-
-Route8_HoneyTrader_12:
-	msgbox Route8_HoneyTrader_DontHaveBerries, MSGBOX_NPC
-	end
-
-Route8_HoneyTrader_15:
-	msgbox Route8_HoneyTrader_NotEnoughRoom, MSGBOX_NPC
-	end
-
-
 Route8_Sign::
 	msgbox Route8_Sign_Text, MSGBOX_SIGN
 	end
@@ -178,42 +127,6 @@ Route8_Boy_Text::
 	.string "Why'd they have to set the flower shop\n"
 	.string "in the middle of nowhere.\l"
 	.string "I'm tired of walking all the way here…$"
-
-Route8_HoneyTrader_Text::
-	.string "Hi! I'm looking for Oran Berries.\n"
-	.string "With the help of my Pokémon,\l"
-	.string "I've been able to amass a large\l"
-	.string "quantity of Honey.\p"
-	.string "Do you have any Oran Berries?\n"
-	.string "I'd be willing to trade 2 jars of\l"
-	.string "Honey for 1 Oran Berry.\p"
-	.string "Would you like to trade?$"
-
-Route8_HoneyTrader_TextShort::
-	.string "Would you like to trade an Oran Berry\n"
-	.string "for Honey?$"
-
-Route8_HoneyTrader_Decline::
-	.string "Oh…\p"
-	.string "Well, if you find any Oran Berries\n"
-	.string "and would like to trade,\l"
-	.string "you'll find me here.$"
-
-Route8_HoneyTrader_DontHaveBerries::
-	.string "Hm… You don't seem to be carrying\n"
-	.string "any Oran Berries…$"
-
-Route8_HoneyTrader_NotEnoughRoom::
-	.string "Hm… You don't seem to have any room\n"
-	.string "to hold the honey…$"
-
-Route8_Trade::
-	.string "{PLAYER} traded 1 Oran Berry\n"
-	.string "for 2 jars of Honey!$"
-
-Route8_ThanksForTrade::
-	.string "Thanks for the trade! Come find me\n"
-	.string "if you'd like to trade more!$"
 
 Route8_Sign_Text::
 	.string "{LEFT_ARROW} Pretty Petal flower shop\n"

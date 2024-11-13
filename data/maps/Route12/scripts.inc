@@ -32,6 +32,7 @@ R12_Cyclist2::
 	checkitemspace ITEM_X_SPEED
 	compare VAR_RESULT, FALSE
 	goto_if_eq R12_Cyclist2_5
+R12_Cyclist2_4:
 	giveitem ITEM_X_SPEED
 	waitfanfare
 	setflag FLAG_R12_XSPEED
@@ -44,8 +45,8 @@ R12_Cyclist2_2:
 	end
 
 R12_Cyclist2_5:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
+	goto ZeBagIsFull
+	goto R12_Cyclist2_4
 
 
 Route12_Tr1_Triathlete_F::

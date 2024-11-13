@@ -154,6 +154,15 @@ text Route5_Sign_Text{
     "will grant the Pokémon extra experience."
 }
 
+script Route5_Sign2{
+    msgbox(Route5_Sign2_Text, MSGBOX_SIGN)
+}
+text Route5_Sign2_Text{
+    "{UP_ARROW} Aldeleaf City\n"
+    "{RIGHT_ARROW} Flower Fields\l"
+    "{DOWN_ARROW} Skyloch Town"
+}
+
 script Route7_Sign{
     msgbox(Route7_Sign_Text, MSGBOX_SIGN)
 }

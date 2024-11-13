@@ -547,7 +547,7 @@ AcerolaDanceTriggerMain::
 	addvar VAR_TEMP_4, 1
 	compare VAR_TEMP_4, 50
 	goto_if_lt AcerolaDanceTriggerMain_2
-	checkitemspace ITEM_BUG_TERA_SHARD
+	checkitemspace ITEM_TM_CAPTIVATE
 	compare VAR_RESULT, FALSE
 	goto_if_eq AcerolaDanceTriggerMain_5
 	lock

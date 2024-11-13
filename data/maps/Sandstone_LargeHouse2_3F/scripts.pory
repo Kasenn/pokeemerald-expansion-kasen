@@ -195,10 +195,8 @@ script Sandstone_BigHouse2_1F_Maniac{
     lock
     faceplayer
     msgbox(Sandstone_BigHouse2_1F_Maniac_Text, MSGBOX_DEFAULT)
-    checkitemspace(ITEM_DUSK_BALL, 2)
-    if(var(VAR_RESULT) == FALSE){
-        msgbox(NotEnoughRoom, MSGBOX_NPC)
-        end
+    if(checkitemspace(ITEM_DUSK_BALL, 2) == FALSE){
+        goto(ZeBagIsFull)
     }
     giveitem(ITEM_DUSK_BALL, 2)
     setflag(FLAG_SANDSTONE_DUSKBALLS)

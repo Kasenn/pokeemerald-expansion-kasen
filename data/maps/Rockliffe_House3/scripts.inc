@@ -17,6 +17,7 @@ Rockliffe_House1_OldWoman::
 	checkitemspace ITEM_BEEDRILLITE
 	compare VAR_RESULT, FALSE
 	goto_if_eq Rockliffe_House1_OldWoman_14
+Rockliffe_House1_OldWoman_13:
 	giveitem ITEM_BEEDRILLITE
 	setflag FLAG_OBTAINED_BEEDRILLITE
 	waitse
@@ -42,8 +43,8 @@ Rockliffe_House1_OldWoman_11:
 	end
 
 Rockliffe_House1_OldWoman_14:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
+	goto ZeBagIsFull
+	goto Rockliffe_House1_OldWoman_13
 
 
 RockliffeHouse3_Man1::
@@ -87,6 +88,7 @@ WeighsMoreResult::
 	checkitemspace ITEM_METAL_COAT
 	compare VAR_RESULT, FALSE
 	goto_if_eq WeighsMoreResult_2
+WeighsMoreResult_1:
 	giveitem ITEM_METAL_COAT
 	waitse
 	waitmessage
@@ -96,8 +98,8 @@ WeighsMoreResult::
 	end
 
 WeighsMoreResult_2:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
+	goto ZeBagIsFull
+	goto WeighsMoreResult_1
 
 
 RockliffeHouse3_Man2::

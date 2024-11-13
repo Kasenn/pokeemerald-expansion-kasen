@@ -546,12 +546,8 @@ script R15_AceTrainerPostBattle{
     else{
         msgbox(R15_Ace_RewardFemale, MSGBOX_DEFAULT)
     }
-    checkitemspace(ITEM_ROCKY_HELMET)
-    if(var(VAR_RESULT) == FALSE){
-        msgbox(NotEnoughRoom, MSGBOX_NPC)
-        turnobject(27, DIR_WEST)
-        turnobject(28, DIR_WEST)
-        end
+    if(checkitemspace(ITEM_ROCKY_HELMET) == FALSE){
+        goto(ZeBagIsFull)
     }
     giveitem(ITEM_ROCKY_HELMET)
     waitfanfare

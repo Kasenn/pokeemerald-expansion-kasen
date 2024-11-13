@@ -402,9 +402,8 @@ movement WalkTo3rdTable{
 script BuffetComplete{
     msgbox(BuffetCompleted, MSGBOX_DEFAULT)
     setvar(VAR_KAOLISLE_HOTEL_STATE, 11)
-    checkitemspace(ITEM_LEFTOVERS)
     clearflag(FLAG_CONTINUE_AFTER_WHITEOUT)
-    if(var(VAR_RESULT) == FALSE){
+    if(checkitemspace(ITEM_LEFTOVERS) == FALSE){
         msgbox(NotEnoughRoomLeftovers, MSGBOX_DEFAULT)
         closemessage
         applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
@@ -646,10 +645,8 @@ script Hotel_BirdTrainer{
     msgbox(Hotel_BirdTrainer_LetsDoThis)
     trainerbattle_no_intro(TRAINER_HOTEL_BIRDKEEPER, Hotel_BirdTrainer_Lose)
     msgbox(Hotel_BirdTrainer_Reward, MSGBOX_DEFAULT)
-    checkitemspace(ITEM_FLYING_GEM)
-    if(var(VAR_RESULT) == FALSE){
-        msgbox(NotEnoughRoom, MSGBOX_NPC)
-        end
+    if(checkitemspace(ITEM_FLYING_GEM) == FALSE){
+        goto(ZeBagIsFull)
     }
     giveitem(ITEM_FLYING_GEM, 1)
     waitse

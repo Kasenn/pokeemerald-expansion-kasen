@@ -98,8 +98,8 @@
 #define VAR_PEARLWOOD_TOWN_STATE                         0x404E // PEARLWOOD, 1ST TOWN
 #define VAR_LOTAD_SIZE_RECORD                            0x404F
 #define VAR_LITTLEROOT_TOWN_STATE                        0x4050
-#define VAR_UNUSED_0x4051                            0x4051
-#define VAR_UNUSED_0x4052                          0x4052 // USED TO CONTROL THE BACKDOOR TO PRIMROSE TOWN NECTAR MANIAC'S HOUSE
+#define VAR_SHINY_MULTIPLIER                            0x4051
+#define VAR_MINA_INTRO_QUEST                          0x4052 // USED TO CONTROL THE BACKDOOR TO PRIMROSE TOWN NECTAR MANIAC'S HOUSE
 #define VAR_LAVARIDGE_TOWN_STATE                         0x4053
 #define VAR_CURRENT_SECRET_BASE                          0x4054 // was probably allocated for VAR_FALLARBOR_TOWN_STATE at one point
 #define VAR_WINDYWOODS_STATE                        0x4055 // Used for Windy Woods events

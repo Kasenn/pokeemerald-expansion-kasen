@@ -397,7 +397,7 @@
       "width": 80,
       "height": 80,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mossdeep",
+      "secondary_tileset": "gTileset_Unused1",
       "border_filepath": "data/layouts/Route124/border.bin",
       "blockdata_filepath": "data/layouts/Route124/map.bin"
     },
@@ -407,7 +407,7 @@
       "width": 80,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mossdeep",
+      "secondary_tileset": "gTileset_Unused1",
       "border_filepath": "data/layouts/Route125/border.bin",
       "blockdata_filepath": "data/layouts/Route125/map.bin"
     },
@@ -417,7 +417,7 @@
       "width": 80,
       "height": 80,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mossdeep",
+      "secondary_tileset": "gTileset_Unused1",
       "border_filepath": "data/layouts/Route126/border.bin",
       "blockdata_filepath": "data/layouts/Route126/map.bin"
     },
@@ -427,7 +427,7 @@
       "width": 80,
       "height": 80,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mossdeep",
+      "secondary_tileset": "gTileset_Unused1",
       "border_filepath": "data/layouts/Route127/border.bin",
       "blockdata_filepath": "data/layouts/Route127/map.bin"
     },
@@ -437,7 +437,7 @@
       "width": 120,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mossdeep",
+      "secondary_tileset": "gTileset_Unused1",
       "border_filepath": "data/layouts/Route128/border.bin",
       "blockdata_filepath": "data/layouts/Route128/map.bin"
     },
@@ -447,7 +447,7 @@
       "width": 80,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mossdeep",
+      "secondary_tileset": "gTileset_Unused1",
       "border_filepath": "data/layouts/Route129/border.bin",
       "blockdata_filepath": "data/layouts/Route129/map.bin"
     },
@@ -4834,7 +4834,7 @@
     {
       "id": "LAYOUT_ROUTE5",
       "name": "Route5_Layout",
-      "width": 46,
+      "width": 40,
       "height": 100,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_WipCity1",
@@ -5545,9 +5545,9 @@
       "id": "LAYOUT_KAOLISLE_FISHING_ASSOCIATION",
       "name": "Kaolisle_FishingAssociation_Layout",
       "width": 12,
-      "height": 14,
+      "height": 16,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_PokemonFanClub",
       "border_filepath": "data/layouts/Kaolisle_FishingAssociation/border.bin",
       "blockdata_filepath": "data/layouts/Kaolisle_FishingAssociation/map.bin"
     },
@@ -6720,6 +6720,16 @@
       "secondary_tileset": "gTileset_NewSandstoneCity",
       "border_filepath": "data/layouts/SandstoneCityAlt/border.bin",
       "blockdata_filepath": "data/layouts/SandstoneCityAlt/map.bin"
+    },
+    {
+      "id": "LAYOUT_FLOWER_FIELDS",
+      "name": "FlowerFields_Layout",
+      "width": 46,
+      "height": 100,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_FlowerField",
+      "border_filepath": "data/layouts/FlowerFields/border.bin",
+      "blockdata_filepath": "data/layouts/FlowerFields/map.bin"
     }
   ]
 }

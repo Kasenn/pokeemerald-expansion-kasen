@@ -27,6 +27,7 @@ OldManGyaradosite::
 	checkitemspace ITEM_GYARADOSITE
 	compare VAR_RESULT, FALSE
 	goto_if_eq OldManGyaradosite_5
+OldManGyaradosite_4:
 	giveitem ITEM_GYARADOSITE
 	setflag FLAG_RECEIVED_GYARADOSITE
 	release
@@ -37,8 +38,8 @@ OldManGyaradosite_2:
 	end
 
 OldManGyaradosite_5:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
+	goto ZeBagIsFull
+	goto OldManGyaradosite_4
 
 
 GiveGyaradosite::

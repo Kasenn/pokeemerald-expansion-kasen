@@ -182,9 +182,8 @@ script PlayerHouse1F_Dad{
     }
     closemessage
     if(checkitemspace(ITEM_ABILITY_CAPSULE) == FALSE){
-        msgbox(NotEnoughRoom, MSGBOX_NPC)
         setflag(FLAG_TEMP_5)
-        end
+        goto(ZeBagIsFull)
     }
     giveitem(ITEM_ABILITY_CAPSULE)
     waitse

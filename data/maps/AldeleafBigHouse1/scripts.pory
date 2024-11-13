@@ -83,8 +83,10 @@ script AldeleafBigHouse2_2F_OldWoman{
         goto(AldeleafBigHouse2_2F_OldWoman2)
     }
     msgbox(AldeleafBigHouse2_2F_OldWoman_Text, MSGBOX_DEFAULT)
+    if(checkitemspace(ITEM_LAVA_COOKIE) == FALSE){
+        goto(ZeBagIsFull)
+    }
     giveitem(ITEM_LAVA_COOKIE)
-	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_BagIsFull)
     setflag(FLAG_RECEIVED_LAVA_COOKIE)
     waitmessage
     closemessage

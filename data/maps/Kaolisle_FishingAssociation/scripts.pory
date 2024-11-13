@@ -182,8 +182,8 @@ text Kaolisle_FanClub_ExpertF_Text{
     "Almost every day there's somebody\n"
     "different here looking to trade.\p"
     "If you too would like to trade,\n"
-    "just talk to the person sitting\l"
-    "at the table."
+    "just talk to the person standing\l"
+    "next to the table."
 }
 
 script Kaolisle_FanClub_Trader{

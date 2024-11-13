@@ -389,8 +389,8 @@ WalkTo3rdTable:
 BuffetComplete::
 	msgbox BuffetCompleted, MSGBOX_DEFAULT
 	setvar VAR_KAOLISLE_HOTEL_STATE, 11
-	checkitemspace ITEM_LEFTOVERS
 	clearflag FLAG_CONTINUE_AFTER_WHITEOUT
+	checkitemspace ITEM_LEFTOVERS
 	compare VAR_RESULT, FALSE
 	goto_if_eq BuffetComplete_2
 	waitse
@@ -517,6 +517,7 @@ Hotel_BirdTrainer_4:
 	checkitemspace ITEM_FLYING_GEM
 	compare VAR_RESULT, FALSE
 	goto_if_eq Hotel_BirdTrainer_12
+Hotel_BirdTrainer_11:
 	giveitem ITEM_FLYING_GEM, 1
 	waitse
 	waitmessage
@@ -539,8 +540,8 @@ Hotel_BirdTrainer_9:
 	end
 
 Hotel_BirdTrainer_12:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
+	goto ZeBagIsFull
+	goto Hotel_BirdTrainer_11
 
 
 Hotel_Drinker::

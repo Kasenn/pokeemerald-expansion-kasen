@@ -55,10 +55,8 @@ script DevFight{
 }
 
 script GetDevReward{
-    checkitemspace(ITEM_ABILITY_PATCH)
-    if(var(VAR_RESULT) == FALSE){
-        msgbox(NotEnoughRoom, MSGBOX_NPC)
-        end
+    if(checkitemspace(ITEM_ABILITY_PATCH) == FALSE){
+        goto(ZeBagIsFull)
     }
     msgbox(DevFightTakeReward)
     giveitem(ITEM_ABILITY_PATCH)
@@ -193,10 +191,8 @@ script BerryWoman{
         waitmovement(0)
         delay(48)
         msgbox(BerryLadyHaveABerry)
-        checkitemspace(ITEM_CHOPLE_BERRY)
-        if(var(VAR_RESULT) == FALSE){
-            msgbox(NotEnoughRoom, MSGBOX_NPC)
-            end
+        if(checkitemspace(ITEM_CHOPLE_BERRY) == FALSE){
+            goto(ZeBagIsFull)
         }
         giveitem(ITEM_CHOPLE_BERRY)
         waitfanfare

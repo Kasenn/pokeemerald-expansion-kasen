@@ -2097,6 +2097,18 @@ static const struct SpriteFrameImage sPicTable_Kasen[] = {
     overworld_frame(gObjectEventPic_Kasen, 2, 4, 2),
 };
 
+static const struct SpriteFrameImage sPicTable_Breeder[] = {
+    overworld_frame(gObjectEventPic_Breeder, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Breeder, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Breeder, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Breeder, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Breeder, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Breeder, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Breeder, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Breeder, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Breeder, 2, 4, 2),
+};
+
 static const struct SpriteFrameImage sPicTable_Drayden[] = {
     overworld_frame(gObjectEventPic_Drayden, 2, 4, 0),
     overworld_frame(gObjectEventPic_Drayden, 2, 4, 1),
@@ -2107,6 +2119,30 @@ static const struct SpriteFrameImage sPicTable_Drayden[] = {
     overworld_frame(gObjectEventPic_Drayden, 2, 4, 6),
     overworld_frame(gObjectEventPic_Drayden, 2, 4, 7),
     overworld_frame(gObjectEventPic_Drayden, 2, 4, 8),
+};
+
+static const struct SpriteFrameImage sPicTable_Gen4_Breeder_M[] = {
+    overworld_frame(gObjectEventPic_Gen4_Breeder_M, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Gen4_Breeder_M, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Gen4_Breeder_M, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Gen4_Breeder_M, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Gen4_Breeder_M, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Gen4_Breeder_M, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Gen4_Breeder_M, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Gen4_Breeder_M, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Gen4_Breeder_M, 2, 4, 8),
+};
+
+static const struct SpriteFrameImage sPicTable_Gen4_Breeder_F[] = {
+    overworld_frame(gObjectEventPic_Gen4_Breeder_F, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Gen4_Breeder_F, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Gen4_Breeder_F, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Gen4_Breeder_F, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Gen4_Breeder_F, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Gen4_Breeder_F, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Gen4_Breeder_F, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Gen4_Breeder_F, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Gen4_Breeder_F, 2, 4, 8),
 };
 
 static const struct SpriteFrameImage sPicTable_IrisCasual[] = {

@@ -48,8 +48,11 @@ AldeleafBigHouse2_2F_OldWoman::
 	goto_if_set FLAG_RECEIVED_LAVA_COOKIE, AldeleafBigHouse2_2F_OldWoman_2
 AldeleafBigHouse2_2F_OldWoman_1:
 	msgbox AldeleafBigHouse2_2F_OldWoman_Text, MSGBOX_DEFAULT
+	checkitemspace ITEM_LAVA_COOKIE
+	compare VAR_RESULT, FALSE
+	goto_if_eq AldeleafBigHouse2_2F_OldWoman_5
+AldeleafBigHouse2_2F_OldWoman_4:
 	giveitem ITEM_LAVA_COOKIE
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	setflag FLAG_RECEIVED_LAVA_COOKIE
 	waitmessage
 	closemessage
@@ -59,6 +62,10 @@ AldeleafBigHouse2_2F_OldWoman_1:
 AldeleafBigHouse2_2F_OldWoman_2:
 	goto AldeleafBigHouse2_2F_OldWoman2
 	goto AldeleafBigHouse2_2F_OldWoman_1
+
+AldeleafBigHouse2_2F_OldWoman_5:
+	goto ZeBagIsFull
+	goto AldeleafBigHouse2_2F_OldWoman_4
 
 
 AldeleafBigHouse2_2F_OldMan::

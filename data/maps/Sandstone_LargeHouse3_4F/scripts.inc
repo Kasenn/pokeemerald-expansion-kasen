@@ -66,6 +66,7 @@ GetDevReward::
 	checkitemspace ITEM_ABILITY_PATCH
 	compare VAR_RESULT, FALSE
 	goto_if_eq GetDevReward_2
+GetDevReward_1:
 	msgbox DevFightTakeReward
 	giveitem ITEM_ABILITY_PATCH
 	waitfanfare
@@ -81,8 +82,8 @@ GetDevReward_4:
 	end
 
 GetDevReward_2:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
+	goto ZeBagIsFull
+	goto GetDevReward_1
 
 GetDevReward_5:
 	msgbox ExplainBP, MSGBOX_DEFAULT
@@ -142,14 +143,15 @@ BerryWoman_5:
 	checkitemspace ITEM_CHOPLE_BERRY
 	compare VAR_RESULT, FALSE
 	goto_if_eq BerryWoman_8
+BerryWoman_7:
 	giveitem ITEM_CHOPLE_BERRY
 	waitfanfare
 	setflag FLAG_RECEIVED_SANDSTONE_BERRY
 	goto BerryWoman_4
 
 BerryWoman_8:
-	msgbox NotEnoughRoom, MSGBOX_NPC
-	end
+	goto ZeBagIsFull
+	goto BerryWoman_7
 
 
 SandstoneLargehouse3_Woman::

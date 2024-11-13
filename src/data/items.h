@@ -3308,7 +3308,7 @@ const struct Item gItemsInfo[] =
     {
         .name = _("Growth Mulch"),
         .pluralName = _("Growth Mulch"),
-        .price = 200,
+        .price = 500,
 #if OW_BERRY_MULCH_USAGE == TRUE
         .description = COMPOUND_STRING(
             "A fertilizer that\n"
@@ -3330,7 +3330,7 @@ const struct Item gItemsInfo[] =
     {
         .name = _("Damp Mulch"),
         .pluralName = _("Damp Mulch"),
-        .price = 200,
+        .price = 500,
 #if OW_BERRY_MULCH_USAGE == TRUE
         .description = COMPOUND_STRING(
             "A fertilizer that\n"
@@ -3352,7 +3352,7 @@ const struct Item gItemsInfo[] =
     {
         .name = _("Stable Mulch"),
         .pluralName = _("Stable Mulch"),
-        .price = 200,
+        .price = 500,
 #if OW_BERRY_MULCH_USAGE == TRUE
         .description = COMPOUND_STRING(
             "A fertilizer that\n"
@@ -3374,7 +3374,7 @@ const struct Item gItemsInfo[] =
     {
         .name = _("Gooey Mulch"),
         .pluralName = _("Gooey Mulch"),
-        .price = 200,
+        .price = 500,
 #if OW_BERRY_MULCH_USAGE == TRUE
         .description = COMPOUND_STRING(
             "A fertilizer that\n"
@@ -3396,7 +3396,7 @@ const struct Item gItemsInfo[] =
     {
         .name = _("Rich Mulch"),
         .pluralName = _("Rich Mulch"),
-        .price = 200,
+        .price = 500,
 #if OW_BERRY_MULCH_USAGE == TRUE
         .description = COMPOUND_STRING(
             "A fertilizer that\n"
@@ -14800,8 +14800,9 @@ const struct Item gItemsInfo[] =
         .name = _("Fertilizer"),
         .price = 0,
         .description = COMPOUND_STRING(
-            "Rapidly boosts\n"
-            "plant growth."),
+            "Nourishes plants.\n"
+            "More effective\n"
+            "on common plants."),
         .importance = 0,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_FIELD,
