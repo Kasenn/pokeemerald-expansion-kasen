@@ -42,9 +42,9 @@ DewfordTown_PokemonCenter_1F_Text_FaintedMonCanUseHM:
 script DewfordTown_PokemonCenter_1F_OldMan{
     lockall
     faceplayer
-    if(!flag(FLAG_DFTPC1F_MAPBOUGHT)){
-        if(!flag(FLAG_DFTPC1F_MANSPOKENTO)){
-            setflag(FLAG_DFTPC1F_MANSPOKENTO)
+    if(checkitem(ITEM_TOWN_MAP) == FALSE){
+        if(!flag(FLAG_TEMP_1)){
+            setflag(FLAG_TEMP_1)
             msgbox(DFTPC1F_MapIntro, MSGBOX_NPC)
             showmoneybox(0,0)
             msgbox(DFTPC1F_Interested, MSGBOX_YESNO)
@@ -88,7 +88,6 @@ script DFTPC1F_SellMap{
     if(var(VAR_RESULT) == YES){
         hidemoneybox
         removemoney(2000)
-        setflag(FLAG_DFTPC1F_MAPBOUGHT)
         giveitem(ITEM_TOWN_MAP)
         waitfanfare
         msgbox("Enjoy your brand new map!", MSGBOX_NPC)

@@ -12,7 +12,7 @@ Route132_EventScript_Dana::
 	end
 
 Route132_EventScript_Ronald::
-	trainerbattle_single TRAINER_RONALD, Route132_Text_RonaldIntro, Route132_Text_RonaldDefeat
+	trainerbattle_single TRAINER_R9_TR5_SWIMMER_F, Route132_Text_RonaldIntro, Route132_Text_RonaldDefeat
 	msgbox Route132_Text_RonaldPostBattle, MSGBOX_AUTOCLOSE
 	end
 

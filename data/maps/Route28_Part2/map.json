@@ -14,7 +14,7 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_SNOWCREST_CITY",
+      "map": "MAP_ICEPERCH_CITY",
       "offset": -12,
       "direction": "up"
     }

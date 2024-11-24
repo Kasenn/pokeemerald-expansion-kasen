@@ -637,15 +637,18 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
 #endif //P_GEN_2_CROSS_EVOS
 
     const u32 gMonFrontPic_Pikachu[] = INCBIN_U32("graphics/pokemon/pikachu/anim_front.4bpp.lz");
+    const u32 gMonFrontPic_PikachuSurfing[] = INCBIN_U32("graphics/pokemon/pikachu/anim_front2.4bpp.lz");
     const u32 gMonPalette_Pikachu[] = INCBIN_U32("graphics/pokemon/pikachu/normal.gbapal.lz");
     const u32 gMonBackPic_Pikachu[] = INCBIN_U32("graphics/pokemon/pikachu/back.4bpp.lz");
     const u32 gMonShinyPalette_Pikachu[] = INCBIN_U32("graphics/pokemon/pikachu/shiny.gbapal.lz");
     const u8 gMonIcon_Pikachu[] = INCBIN_U8("graphics/pokemon/pikachu/icon.4bpp");
+    const u8 gMonIcon_PikachuSurfing[] = INCBIN_U8("graphics/pokemon/pikachu/icon2.4bpp");
 #if P_FOOTPRINTS
     const u8 gMonFootprint_Pikachu[] = INCBIN_U8("graphics/pokemon/pikachu/footprint.1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
     const u32 gObjectEventPic_Pikachu[] = INCBIN_COMP("graphics/pokemon/pikachu/overworld.4bpp");
+    const u32 gObjectEventPic_PikachuSurfing[] = INCBIN_COMP("graphics/pokemon/pikachu/overworld2.4bpp");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
     const u32 gOverworldPalette_Pikachu[] = INCBIN_U32("graphics/pokemon/pikachu/overworld_normal.gbapal.lz");
     const u32 gShinyOverworldPalette_Pikachu[] = INCBIN_U32("graphics/pokemon/pikachu/overworld_shiny.gbapal.lz");

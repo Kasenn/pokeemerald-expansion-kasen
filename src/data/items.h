@@ -10626,20 +10626,20 @@ const struct Item gItemsInfo[] =
         .secondaryId = MOVE_DRAGON_CLAW,
     },
 
-    [ITEM_TM_WATER_PULSE] =
+    [ITEM_TM_FLIP_TURN] =
     {
         .name = _("TM03"),
         .price = 3000,
         .description = COMPOUND_STRING(
-            "The foe is hit with a\n"
-            "pulsating blast of water.\n"
-            "It may also confuse the\n"
-            "target."),
+            "After making its attack,\n"
+            "the user rushes back to\n"
+            "switch places with a party\n"
+            "Pokémon in waiting."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_WATER_PULSE,
+        .secondaryId = MOVE_FLIP_TURN,
     },
 
     [ITEM_TM_CALM_MIND] =
@@ -11427,12 +11427,16 @@ const struct Item gItemsInfo[] =
     {
         .name = _("TM52"),
         .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .description = COMPOUND_STRING(
+            "The user attacks at full\n"
+            "power. It may also lower\n"
+            "the foe's Sp. Def stat\n"
+            "if it hits."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_FOCUS_BLAST, // Not In-Game Yet
+        .secondaryId = MOVE_FOCUS_BLAST,
     },
 
     [ITEM_TM_ENERGY_BALL] =
@@ -14809,5 +14813,20 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Fertilizer,
         .iconPic = gItemIcon_Fertilizer,
         .iconPalette = gItemIconPalette_Fertilizer,
+    },
+
+    [ITEM_CHARGED_ORB] =
+    {
+        .name = _("Charged Orb"),
+        .price = 0,
+        .description = COMPOUND_STRING( 
+            "Charged with power\n"
+            "lost long time ago."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_ChargedOrb,
+        .iconPalette = gItemIconPalette_ChargedOrb,
     },
 };

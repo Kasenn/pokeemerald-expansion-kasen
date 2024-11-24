@@ -22,6 +22,11 @@
       "map": "MAP_DRISLEDGE_TOWN",
       "offset": 129,
       "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE23LAKE",
+      "offset": 98,
+      "direction": "down"
     }
   ],
   "object_events": [
@@ -310,6 +315,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ZYGARDE_CELL",
+      "x": 122,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ZygardeCell",
+      "flag": "FLAG_ZYGARDE_CELL_38"
     }
   ],
   "warp_events": [
@@ -558,6 +576,20 @@
       "type": "weather",
       "x": 145,
       "y": 11,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN_THUNDERSTORM"
+    },
+    {
+      "type": "weather",
+      "x": 117,
+      "y": 37,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN_THUNDERSTORM"
+    },
+    {
+      "type": "weather",
+      "x": 118,
+      "y": 38,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_RAIN_THUNDERSTORM"
     }

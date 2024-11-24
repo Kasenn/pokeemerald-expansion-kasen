@@ -248,7 +248,9 @@
 #define MAPSEC_KAOLISLE_MINES                  0xF4
 #define MAPSEC_ADAMANT_TOWER                   0xF5
 #define MAPSEC_FLOODED_CAVES                   0xF6
-#define MAPSEC_NONE                            0xF7
+#define MAPSEC_SERPENT_CAVE                    0xF7
+#define MAPSEC_WINDPLUME_MOUNTAIN              0xF8
+#define MAPSEC_NONE                            0xF9
 
 
 #define METLOC_SPECIAL_EGG                  0xFD

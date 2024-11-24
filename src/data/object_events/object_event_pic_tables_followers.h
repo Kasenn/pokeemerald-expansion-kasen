@@ -170,6 +170,9 @@ static const struct SpriteFrameImage sPicTable_PichuSpikyEared[] = {
 static const struct SpriteFrameImage sPicTable_Pikachu[] = {
     overworld_ascending_frames(gObjectEventPic_Pikachu, 4, 4),
 };
+static const struct SpriteFrameImage sPicTable_PikachuSurfing[] = {
+    overworld_ascending_frames(gObjectEventPic_PikachuSurfing, 4, 4),
+};
 #if P_COSPLAY_PIKACHU_FORMS
 /*static const struct SpriteFrameImage sPicTable_PikachuCosplay[] = {
     overworld_ascending_frames(gObjectEventPic_PikachuCosplay, 4, 4),

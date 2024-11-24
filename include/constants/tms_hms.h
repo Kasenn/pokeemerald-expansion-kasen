@@ -4,7 +4,7 @@
 #define FOREACH_TM(F) \
     F(FOCUS_PUNCH) \
     F(DRAGON_CLAW) \
-    F(WATER_PULSE) \
+    F(FLIP_TURN) \
     F(CALM_MIND) \
     F(ROAR) \
     F(TOXIC) \

@@ -454,6 +454,7 @@ void Overworld_ResetBattleFlagsAndVars(void)
     FlagClear(FLAG_DESERT_STEPS);
     FlagClear(B_FLAG_DYNAMAX_BATTLE);
     FlagClear(B_FLAG_SKY_BATTLE);
+    FlagClear(FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE);
     VarSet(VAR_SHINY_MULTIPLIER, 0);
     VarSet(VAR_POKECENTER_TRAINING, 0);
 }
@@ -1010,6 +1011,10 @@ static u8 GetAdjustedInitialDirection(struct InitialPlayerAvatarState *playerStr
         return DIR_SOUTH;
     else if (MetatileBehavior_IsSouthArrowWarp(metatileBehavior) == TRUE)
         return DIR_NORTH;
+    else if (MetatileBehavior_PointPlayerWest(metatileBehavior) == TRUE)
+        return DIR_WEST;
+    else if (MetatileBehavior_PointPlayerEast(metatileBehavior) == TRUE)
+        return DIR_EAST;
     else if (MetatileBehavior_IsNorthArrowWarp(metatileBehavior) == TRUE)
         return DIR_SOUTH;
     else if (MetatileBehavior_IsWestArrowWarp(metatileBehavior) == TRUE)

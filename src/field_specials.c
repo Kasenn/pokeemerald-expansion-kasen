@@ -3714,12 +3714,12 @@ u32 GetMartEmployeeObjectEventId(void)
 
 bool32 IsTrainerRegistered(void)
 {
-    int index = GetRematchIdxByTrainerIdx(gSpecialVar_0x8004);
-    if (index >= 0)
-    {
-        if (FlagGet(FLAG_MATCH_CALL_REGISTERED + index) == TRUE)
-            return TRUE;
-    }
+    // int index = GetRematchIdxByTrainerIdx(gSpecialVar_0x8004);
+    // if (index >= 0)
+    // {
+    //     if (FlagGet(FLAG_MATCH_CALL_REGISTERED + index) == TRUE)
+    //         return TRUE;
+    // }
     return FALSE;
 }
 

@@ -1,0 +1,113 @@
+{
+  "id": "MAP_WINDPLUME_MOUNTAIN_6F",
+  "name": "WindplumeMountain_6F",
+  "layout": "LAYOUT_WINDPLUME_MOUNTAIN_6F",
+  "music": "MUS_CAVE_OF_ORIGIN",
+  "region_map_section": "MAPSEC_WINDPLUME_MOUNTAIN",
+  "requires_flash": true,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": true,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 9,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_STARDUST",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_WINDPLUME_MT_ITEM_16"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 22,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_MAX_POTION",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_WINDPLUME_MT_ITEM_14"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 25,
+      "y": 21,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_RARE_CANDY",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_WINDPLUME_MT_ITEM_15"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 24,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "FLAG_TEMP_1"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 30,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_WINDPLUME_MOUNTAIN_5F",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 25,
+      "y": 28,
+      "elevation": 0,
+      "dest_map": "MAP_WINDPLUME_MOUNTAIN_5F",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 17,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_WINDPLUME_MOUNTAIN_5F",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 21,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_WINDPLUME_MOUNTAIN_7F",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+    {
+      "type": "hidden_item",
+      "x": 22,
+      "y": 14,
+      "elevation": 0,
+      "item": "ITEM_FLOAT_STONE",
+      "flag": "FLAG_WINDPLUME_MT_ITEM_17"
+    }
+  ]
+}

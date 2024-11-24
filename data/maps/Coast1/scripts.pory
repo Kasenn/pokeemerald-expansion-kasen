@@ -1,0 +1,246 @@
+mapscripts Coast1_MapScripts{}
+
+script Route3_Tr1_Swimmer_F {
+    trainerbattle_single(TRAINER_R3_TR1_SWIMMER_F, R3Tr1_Intro, R3Tr1_Lose)
+    msgbox(R3Tr1_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R3Tr1_Intro{
+    "My Pokémon are in their natural\n"
+    "habitat.\p"
+    "There's no way we can lose!"
+}
+text R3Tr1_Lose{
+    "B-But…\n"
+    "We had the terrain advantage…"
+}
+text R3Tr1_PostBattle{
+    "I know!\p"
+    "The real reason I lost is because\n"
+    "it's not raining.\p"
+    "That's when we're truly in our\n"
+    "element!"
+}
+
+script Route3_Tr2_Swimmer_M {
+    trainerbattle_single(TRAINER_R3_TR2_SWIMMER_M, R3Tr2_Intro, R3Tr2_Lose)
+    msgbox(R3Tr2_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R3Tr2_Intro{
+    "Swimming with your Pokémon!\p"
+    "You're making me jealous!"
+}
+text R3Tr2_Lose{
+    "Oh!\n"
+	"I can't…"
+}
+text R3Tr2_PostBattle{
+    "I wish I could ride my Pokémon\n"
+    "like you do…"
+}
+
+script Route3_Tr3_Swimmer_OldSister {
+    trainerbattle_single(TRAINER_R3_TR3_SWIMMER_OLDSISTER, R3Tr3_Intro, R3Tr3_Lose)
+    msgbox(R3Tr3_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R3Tr3_Intro{
+    "Sigh…\p"
+	"Here I am in the sea, but who's with me?\n"
+	"My little brother!\p"
+	"Let's battle so I won't have to dwell\n"
+	"on that!"
+}
+text R3Tr3_Lose{
+    "I only lost because I was distracted\n"
+    "looking after my little brother!"
+}
+text R3Tr3_PostBattle{
+    "Sigh…\p"
+	"If only it wasn't my little brother\n"
+	"next to me, but a nice boyfriend…"
+}
+
+script Route3_Tr4_Tuber {
+    trainerbattle_single(TRAINER_R3_TR4_TUBER, R3Tr4_Intro, R3Tr4_Lose)
+    msgbox(R3Tr4_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R3Tr4_Intro{
+    "I'm having so much fun with\n"
+    "my big sister!\p"
+    "But I'll happily play with you too!"
+}
+text R3Tr4_Lose{
+    "Oh no…"
+}
+text R3Tr4_PostBattle{
+    "You may have won, but I bet you\n"
+    "can't beat my tough big sister!\p"
+	"Don't cry when you lose!"
+}
+
+script Route3_Tr5_Fisherman {
+    trainerbattle_single(TRAINER_R3_TR5_FISHERMAN, R3Tr5_Intro, R3Tr5_Lose)
+    msgbox(R3Tr5_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R3Tr5_Intro{
+   	"Through fishing, I have attained a\n"
+	"state of becalmed serenity…\p"
+	"Please, allow me to demonstrate…"
+}
+text R3Tr5_Lose{
+    "Though I have lost, my heart remains\n"
+	"calm…"
+}
+text R3Tr5_PostBattle{
+    "It matters not that I catch nothing.\n"
+	"The line remains in the water…"
+}
+
+script Route3_Tr6_LandSwimmer_1 {
+    trainerbattle_single(TRAINER_R3_TR6_LANDSWIMMER_1, R3Tr6_Intro, R3Tr6_Lose)
+    msgbox(R3Tr6_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R3Tr6_Intro{
+    "I'm in a sour mood right now.\n"
+    "You, help me mellow down!"
+}
+text R3Tr6_Lose{
+    "Not the outcome I expected…"
+}
+text R3Tr6_PostBattle{
+    "I was looking for a nice beach to\n"
+    "relax, but all these jagged rocks\l"
+    "everywhere are ruining the mood."
+}
+
+script Route3_Tr7_LandSwimmer_2 {
+    trainerbattle_single(TRAINER_R3_TR7_LANDSWIMMER_2, R3Tr7_Intro, R3Tr7_Lose)
+    msgbox(R3Tr7_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R3Tr7_Intro{
+    "I've been looking for pearls,\n"
+    "but so far have been unsuccessful.\p"
+    "Maybe I'll have better luck in\n"
+    "a Pokémon battle!"
+}
+text R3Tr7_Lose{
+    "I must be doing something wrong…"
+}
+text R3Tr7_PostBattle{
+    "Have you seen that massive boulder\n"
+    "to the north?\p"
+    "I don't think it's a natural\n"
+    "formation."
+}
+
+script Route3_Tr8_Sailor {
+    trainerbattle_single(TRAINER_R3_TR8_SAILOR, R3Tr8_Intro, R3Tr8_Lose)
+    msgbox(R3Tr8_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R3Tr8_Intro{
+    "You're here to steal my treasure,\n"
+    "aren't you?!"
+}
+text R3Tr8_Lose{
+    "No more!\p"
+    "Here, I'll pay you if you\n"
+    "just leave me alone!"
+}
+text R3Tr8_PostBattle{
+    "Did you know?\p"
+    "Apparently there used to be a huge\n"
+    "mountain to the north of here, but\l"
+    "it was blown to smithereens during\l"
+    "a fierce battle between Pokémon.\p"
+    "All these rocks and islands were\n"
+    "formed from the rubble."
+}
+
+script Route3_Tr9_Swimmer_M1 {
+    trainerbattle_single(TRAINER_R3_TR9_SWIMMER_M1, R3Tr9_Intro, R3Tr9_Lose)
+    msgbox(R3Tr9_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R3Tr9_Intro{
+    "If you think you can take me in\n"
+    "a Pokémon battle, think again!"
+}
+text R3Tr9_Lose{
+    "I feel like Magikarp floundering\n"
+    "on dry land…"
+}
+text R3Tr9_PostBattle{
+    "Swimming in these parts of the world\n"
+    "is rough.\p"
+    "You need to keep your eyes peeled at\n"
+    "all times, lest a rogue wave throws\l"
+    "you against a rock."
+}
+
+script Route3_Tr10_Swimmer_M2 {
+    trainerbattle_single(TRAINER_R3_TR10_SWIMMER_M2, R3Tr10_Intro, R3Tr10_Lose)
+    msgbox(R3Tr10_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R3Tr10_Intro{
+    "Swimming is a full-body workout!\n"
+	"You will get fit!"
+}
+text R3Tr10_Lose{
+    "I admit it!\n"
+	"You win!"
+}
+text R3Tr10_PostBattle{
+    "Thanks to my daily swimming routine…\n"
+	"Look! Feast your eyes on this physique!"
+}	
+
+script Route3_Tr11_Swimmer_F1 {
+    trainerbattle_single(TRAINER_R3_TR11_SWIMMER_F1, R3Tr11_Intro, R3Tr11_Lose)
+    msgbox(R3Tr11_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+
+text R3Tr11_Intro{
+    "I love the Pokémon you're\n"
+    "surfing on!\p"
+    "Can you show me more?"
+}
+text R3Tr11_Lose{
+    "I'm not crying!\n"
+    "I just got some water in my eyes!"
+}
+text R3Tr11_PostBattle{
+    "I wish I could surf on my Pokémon,\n"
+    "but they're just way too small to\l"
+    "be ridden."
+}
+
+script Coast_Runes{
+    if(checkitem(ITEM_HISTORY_BOOK) == TRUE){
+        msgbox(OnlyGuardiansMayEnter, MSGBOX_SIGN)
+    }
+    else{
+        msgbox(IndescipherableText, MSGBOX_SIGN)
+    }
+}
+text OnlyGuardiansMayEnter{
+    "The rock wall is covered in\n"
+    "indecipherable glyphs.\p"
+    "With the help of your History Book,\n"
+    "you can interpret a short passage:\p"
+    "“Long ago, the way was sealed by the\n"
+    "power of the Three, and only by their\l"
+    "power can it once again be opened.”"
+}
+text IndescipherableText{
+    "The rock wall is covered in\n"
+    "indecipherable glyphs."
+}

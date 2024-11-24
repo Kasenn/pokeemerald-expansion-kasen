@@ -428,6 +428,8 @@ static u8 GetLongGrassCaseAt(s16 x, s16 y)
         return LONG_GRASS_BASE_CENTER;
     else if (metatileId == METATILE_Fortree_SecretBase_LongGrass_TopRight)
         return LONG_GRASS_BASE_RIGHT;
+    else if (metatileId == 0x3B9)
+        return LONG_GRASS_BASE_RIGHT;
     else
         return LONG_GRASS_NONE;
 }
@@ -445,12 +447,7 @@ static void SetCutGrassMetatiles(s16 x, s16 y)
             switch (GetLongGrassCaseAt(currentX, y + 1))
             {
             case LONG_GRASS_FIELD:
-                if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE11)){
-                    MapGridSetMetatileIdAt(currentX, y + 1, METATILE_Mauville_LongGrass_Root);
-                }
-                else{
-                    MapGridSetMetatileIdAt(currentX, y + 1, METATILE_Fortree_LongGrass_Root);
-                }
+                MapGridSetMetatileIdAt(currentX, y + 1, METATILE_Fortree_LongGrass_Root);
                 break;
             case LONG_GRASS_BASE_LEFT:
                 MapGridSetMetatileIdAt(currentX, y + 1, METATILE_Fortree_SecretBase_LongGrass_BottomLeft);
@@ -578,12 +575,7 @@ static void HandleLongGrassOnHyper(u8 caseId, s16 x, s16 y)
             switch (GetLongGrassCaseAt(newX, y + 4))
             {
             case LONG_GRASS_FIELD:
-                if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE11)){
-                    MapGridSetMetatileIdAt(newX, y + 4, METATILE_Mauville_LongGrass_Root);
-                }
-                else{
-                    MapGridSetMetatileIdAt(newX, y + 4, METATILE_Fortree_LongGrass_Root);
-                }
+                MapGridSetMetatileIdAt(newX, y + 4, METATILE_Fortree_LongGrass_Root);
                 break;
             case LONG_GRASS_BASE_LEFT:
                 MapGridSetMetatileIdAt(newX, y + 4, METATILE_Fortree_SecretBase_LongGrass_BottomLeft);
@@ -646,12 +638,7 @@ void FixLongGrassMetatilesWindowTop(s16 x, s16 y)
         switch (GetLongGrassCaseAt(x, y + 1))
         {
         case LONG_GRASS_FIELD:
-            if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE11)){
-                    MapGridSetMetatileIdAt(x, y + 1, METATILE_Mauville_LongGrass_Root);
-            }
-            else{
-                    MapGridSetMetatileIdAt(x, y + 1, METATILE_Fortree_LongGrass_Root);
-            }
+            MapGridSetMetatileIdAt(x, y + 1, METATILE_Fortree_LongGrass_Root);
             break;
         case LONG_GRASS_BASE_LEFT:
             MapGridSetMetatileIdAt(x, y + 1, METATILE_Fortree_SecretBase_LongGrass_BottomLeft);

@@ -126,6 +126,7 @@ AzuretideHouse1_HerbShop_Text_WelcomeToHerbShop::
 	.string "effective and inexpensive medicine!$"
 
 AzuretideHouse1_HerbShop_Text_HerbalMedicineWorksButMonWillDislike::
-	.string "Herbal medicine works impressively well.\n"
-	.string "But your Pokémon will dislike you for it.\l"
+	.string "Herbal medicine works impressively\n"
+	.string "well, but your Pokémon will dislike\l"
+	.string "you for it.\p"
 	.string "It must be horribly bitter!$"

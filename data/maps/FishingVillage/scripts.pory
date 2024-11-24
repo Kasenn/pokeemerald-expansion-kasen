@@ -106,7 +106,7 @@ script FishVillage_Brother{
             }
         }
     }
-    if(flag(FLAG_TEMP_A)){
+    if(flag(FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE)){
         msgbox(FishingVillageBrotherLeavesAfterMegaEvo)
     }
     else{

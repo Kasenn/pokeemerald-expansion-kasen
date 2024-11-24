@@ -128,153 +128,9 @@ script CoastTown_Triathlete{
 }
 
 script CoastTown_Swimmer{
-    lockall
-    faceplayer
     msgbox("Eek!\pSomething wriggly just touched my leg!", MSGBOX_NPC)
-    waitmessage
-    closemessage
-    release
-    end
 }
 
-script CoastTown_NoPokemonTree1{
-    lockall
-    if(flag(FLAG_COASTTOWN_TREE1)){
-        msgbox("There doesn't seem to be any\nwild Pokémon in this tree.", MSGBOX_DEFAULT)
-        closemessage
-        releaseall
-        end
-    }
-    else{
-        call(CoastTown_EmptyPokemonTree_Event)
-        if(var(VAR_RESULT) >= 6){
-            setflag(FLAG_COASTTOWN_TREE1)
-        }
-        releaseall
-        end
-    }
-}
-script CoastTown_NoPokemonTree2{
-    lockall
-    if(flag(FLAG_COASTTOWN_TREE2)){
-        msgbox("There doesn't seem to be any\nwild Pokémon in this tree.", MSGBOX_DEFAULT)
-        closemessage
-        releaseall
-        end
-    }
-    else{
-        call(CoastTown_EmptyPokemonTree_Event)
-        if(var(VAR_RESULT) >= 6){
-            setflag(FLAG_COASTTOWN_TREE2)
-        }
-        releaseall
-        end
-    }
-}
-script CoastTown_NoPokemonTree3{
-    lockall
-    if(flag(FLAG_COASTTOWN_TREE3)){
-        msgbox("There doesn't seem to be any\nwild Pokémon in this tree.", MSGBOX_DEFAULT)
-        closemessage
-        releaseall
-        end
-    }
-    else{
-        call(CoastTown_EmptyPokemonTree_Event)
-        if(var(VAR_RESULT) >= 6){
-            setflag(FLAG_COASTTOWN_TREE3)
-        }
-        releaseall
-        end
-    }
-}
-
-script CoastTown_EmptyPokemonTree_Event{
-    msgbox("There could be wild\nPokémon in this tree.\pWant to give it a shake?", MSGBOX_YESNO)
-    if(var(VAR_RESULT) == YES){
-        closemessage
-        playse(SE_SUDOWOODO_SHAKE)
-        waitse
-        random(9)
-        if(var(VAR_RESULT) <= 5){
-            msgbox(UnsureTreeShake, MSGBOX_DEFAULT)
-            waitmessage
-            closemessage
-            releaseall
-            end
-        }
-        if(var(VAR_RESULT) >= 6){
-            msgbox(NoPokemonTreeShake, MSGBOX_DEFAULT)
-            waitmessage
-            closemessage
-            return
-        }
-    }
-    else{
-        closemessage
-        releaseall
-        end
-    }
-}
-
-text UnsureTreeShake{
-    "You give the tree a firm shake but\nyou're not sure if it did anything."
-}
-text NoPokemonTreeShake{
-    "You give the tree a firm shake but it\nseems that this tree has no Pokémon."
-}
-
-script CoastTown_YesPokemonTree1{
-    lockall
-    if(flag(FLAG_COASTTOWN_YESTREE1)){
-        msgbox("There doesn't seem to be any\nwild Pokémon left in this tree.", MSGBOX_DEFAULT)
-        closemessage
-        releaseall
-        end
-    }
-    else{
-        call(CoastTown_YesPokemonTree_Event)
-        if(var(VAR_RESULT) >= 7){
-            setflag(FLAG_COASTTOWN_YESTREE1)
-        }
-        releaseall
-        end
-    }
-}
-script CoastTown_YesPokemonTree2{
-    lockall
-    if(flag(FLAG_COASTTOWN_YESTREE2)){
-        msgbox("There doesn't seem to be any\nwild Pokémon left in this tree.", MSGBOX_DEFAULT)
-        closemessage
-        releaseall
-        end
-    }
-    else{
-        call(CoastTown_YesPokemonTree_Event)
-        if(var(VAR_RESULT) >= 7){
-            setflag(FLAG_COASTTOWN_YESTREE2)
-        }
-        releaseall
-        end
-    }
-}
-script CoastTown_YesPokemonTree3{
-    lockall
-    if(flag(FLAG_COASTTOWN_YESTREE3)){
-        msgbox("There doesn't seem to be any\nwild Pokémon left in this tree.", MSGBOX_DEFAULT)
-        closemessage
-        releaseall
-        end
-    }
-    else{
-        call(CoastTown_YesPokemonTree_Event)
-        if(var(VAR_RESULT) >= 7){
-            setflag(FLAG_COASTTOWN_YESTREE3)
-        }
-        releaseall
-        end
-    }
-}
 script AzureTide_MysteryWoman{
     lock
     if(flag(FLAG_TEMP_3)){
@@ -377,54 +233,6 @@ text AzureTide_MysteryWoman_1Badges{
     "I'm a pretty strong trainer so you\n"
     "should work on getting more Badges\l"
     "before taking on my challenge."
-}
-
-script CoastTown_YesPokemonTree_Event{
-    msgbox("There could be wild\nPokémon in this tree.\pWant to give it a shake?", MSGBOX_YESNO)
-    if(var(VAR_RESULT) == YES){
-        closemessage
-        playse(SE_SUDOWOODO_SHAKE)
-        waitse
-        random(10)
-        if(var(VAR_RESULT) <= 6){
-            msgbox(UnsureTreeShake, MSGBOX_DEFAULT)
-            waitmessage
-            closemessage
-            releaseall
-            end
-        }
-        if(var(VAR_RESULT) >= 7){
-            msgbox(YesPokemonTreeShake, MSGBOX_DEFAULT)
-            random(5)
-            if(var(VAR_RESULT) == 0){
-                setwildbattle(SPECIES_BOUNSWEET, 14)
-            }
-            if(var(VAR_RESULT) == 1){
-                setwildbattle(SPECIES_SPINARAK, 14)
-            }
-            if(var(VAR_RESULT) == 2){
-                setwildbattle(SPECIES_APPLIN, 14)
-            }
-            if(var(VAR_RESULT) == 3){
-                setwildbattle(SPECIES_SKWOVET, 14)
-            }
-            if(var(VAR_RESULT) == 4){
-                setwildbattle(SPECIES_MANKEY, 14)
-            }
-            dowildbattle
-            setvar(VAR_RESULT, 8)
-            return
-        }
-    }
-    else{
-        closemessage
-        releaseall
-        end
-    }
-}
-
-text YesPokemonTreeShake{
-    "You give the tree a firm shake and\na wild Pokémon lands in front of you!"
 }
 
 script Azuretide_HoneyTree{
@@ -534,8 +342,4 @@ text AmphyPoints{
     "towards the ranch and gesturing you\l"
     "to follow.\p"
     "Follow the Pokémon?"
-}
-
-movement AmphyLeaves{
-    walk_up * 6
 }

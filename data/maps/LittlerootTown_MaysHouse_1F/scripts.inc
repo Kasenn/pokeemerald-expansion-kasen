@@ -10,7 +10,7 @@ LittlerootTown_MaysHouse_1F_MapScripts::
 
 LittlerootTown_MaysHouse_1F_OnLoad:
 	call_if_lt VAR_LITTLEROOT_INTRO_STATE, 6, LittlerootTown_MaysHouse_1F_EventScript_SetMovingBoxes
-	call_if_set FLAG_UNUSED_0x112, LittlerootTown_MaysHouse_1F_EventScript_CheckShowShoesManual
+	call_if_set FLAG_KAOLISLE_ITEM8, LittlerootTown_MaysHouse_1F_EventScript_CheckShowShoesManual
 	end
 
 LittlerootTown_MaysHouse_1F_EventScript_SetMovingBoxes::

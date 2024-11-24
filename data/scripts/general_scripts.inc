@@ -211,6 +211,20 @@ TryDropStrangeSeed_BerryPlant_4:
 	goto TryDropStrangeSeed_BerryPlant_3
 
 
+ZygardeCell::
+	lock
+	waitse
+	playfanfare MUS_OBTAIN_ITEM
+	removeobject VAR_LAST_TALKED
+	message PlayerFoundZygardeCell
+	waitfanfare
+	waitmessage
+	msgbox gText_PutZygardeCellInCube
+	addvar VAR_ZYGARDE_CELLS, 1
+	release
+	end
+
+
 IrisBattle::
 	trainerbattle_single TRAINER_CASUAL_IRIS, RustboroCity_DevonCorp_1F_Rocket1_Intro, RustboroCity_DevonCorp_1F_Rocket1_Defeat
 	return
@@ -240,7 +254,7 @@ AutomaticUpdate::
 
 AutomaticUpdate2::
 	setvar VAR_DEBUG, 10
-	msgbox AutomaticUpdate2_Text2, MSGBOX_YESNO
+	msgbox AutomaticUpdate2_Text, MSGBOX_YESNO
 	compare VAR_RESULT, TRUE
 	goto_if_eq AutomaticUpdate2_2
 AutomaticUpdate2_1:
@@ -273,18 +287,24 @@ AutomaticUpdate3::
 	setvar VAR_UNUSED_0x405A, 0
 	setvar VAR_UNUSED_0x407D, 0
 	setvar VAR_UNUSED_0x408B, 0
-	setvar VAR_UNUSED_0x40CD, 0
+	setvar VAR_SERPENTCAVE_STORY, 0
 	clearflag FLAG_REUNITE_WITH_RIVAL
 	clearflag FLAG_INTRODUCED_TO_BERRY_TRADER
 	clearflag FLAG_RIVAL_MET_IN_SANDSTONE
-	clearflag FLAG_UNUSED_0x112
+	clearflag FLAG_KAOLISLE_ITEM8
 	clearflag FLAG_SANDSTONE_HIDDENITEM_1
 	clearflag FLAG_SANDSTONE_HIDDENITEM_2
 	clearflag FLAG_UNUSED_SYS_0x22
-	clearflag FLAG_UNUSED_0x266
-	clearflag FLAG_UNUSED_0x269
-	clearflag FLAG_UNUSED_0x498
-	clearflag FLAG_UNUSED_0x49C
+	clearflag FLAG_KAOLISLE_ITEM9
+	clearflag FLAG_SERPENTCAVE_BOULDER_1
+	clearflag FLAG_SERPENTCAVE_BOULDER_2
+	clearflag FLAG_SERPENTCAVE_BOULDER_3
+	clearflag FLAG_SERPENTCAVE_BOULDER_4
+	clearflag FLAG_UNUSED_0x4B1
+	clearflag FLAG_UNUSED_0x4B2
+	clearflag FLAG_WW_WATERSTONE
+	clearflag FLAG_COAST_TOMB_OPENED
+	clearflag FLAG_SERPENTCAVE_ITEM4
 	clearflag FLAG_UNUSED_0x49D
 	clearflag FLAG_UNUSED_0x49F
 	clearflag FLAG_FLOWERFIELDS_ITEM_1
@@ -307,6 +327,104 @@ AutomaticUpdate3_3:
 	compare VAR_PEARLWOOD_TOWN_STATE, 20
 	goto_if_lt AutomaticUpdate3_2
 	goto AutomaticUpdate3_1
+
+
+AutomaticUpdate4::
+	msgbox AutomaticUpdate4_Text_0
+	setflag FLAG_WINDPLUME_MT_HIDE_CHARGED_ORB
+	setvar VAR_ZYGARDE_CELLS, 0
+	clearflag FLAG_UNUSED_0x4A6
+	clearflag FLAG_UNUSED_0x101
+	setflag FLAG_ZYGARDE_CELL_1
+	setflag FLAG_ZYGARDE_CELL_2
+	setflag FLAG_ZYGARDE_CELL_3
+	setflag FLAG_ZYGARDE_CELL_4
+	setflag FLAG_ZYGARDE_CELL_5
+	setflag FLAG_ZYGARDE_CELL_6
+	setflag FLAG_ZYGARDE_CELL_7
+	setflag FLAG_ZYGARDE_CELL_8
+	setflag FLAG_ZYGARDE_CELL_9
+	setflag FLAG_ZYGARDE_CELL_10
+	setflag FLAG_ZYGARDE_CELL_11
+	setflag FLAG_ZYGARDE_CELL_12
+	setflag FLAG_ZYGARDE_CELL_13
+	setflag FLAG_ZYGARDE_CELL_14
+	setflag FLAG_ZYGARDE_CELL_15
+	setflag FLAG_ZYGARDE_CELL_16
+	setflag FLAG_ZYGARDE_CELL_17
+	setflag FLAG_ZYGARDE_CELL_18
+	setflag FLAG_ZYGARDE_CELL_19
+	setflag FLAG_ZYGARDE_CELL_20
+	setflag FLAG_ZYGARDE_CELL_21
+	setflag FLAG_ZYGARDE_CELL_22
+	setflag FLAG_ZYGARDE_CELL_23
+	setflag FLAG_ZYGARDE_CELL_24
+	setflag FLAG_ZYGARDE_CELL_25
+	setflag FLAG_ZYGARDE_CELL_26
+	setflag FLAG_ZYGARDE_CELL_27
+	setflag FLAG_ZYGARDE_CELL_28
+	setflag FLAG_ZYGARDE_CELL_29
+	setflag FLAG_ZYGARDE_CELL_30
+	setflag FLAG_ZYGARDE_CELL_31
+	setflag FLAG_ZYGARDE_CELL_32
+	setflag FLAG_ZYGARDE_CELL_33
+	setflag FLAG_ZYGARDE_CELL_34
+	setflag FLAG_ZYGARDE_CELL_35
+	setflag FLAG_ZYGARDE_CELL_36
+	setflag FLAG_ZYGARDE_CELL_37
+	setflag FLAG_ZYGARDE_CELL_38
+	setflag FLAG_ZYGARDE_CELL_39
+	setflag FLAG_ZYGARDE_CELL_40
+	setflag FLAG_ZYGARDE_CELL_41
+	setflag FLAG_ZYGARDE_CELL_42
+	setflag FLAG_ZYGARDE_CELL_43
+	setflag FLAG_ZYGARDE_CELL_44
+	setflag FLAG_ZYGARDE_CELL_45
+	setflag FLAG_ZYGARDE_CELL_46
+	setflag FLAG_ZYGARDE_CELL_47
+	setflag FLAG_ZYGARDE_CELL_48
+	setflag FLAG_ZYGARDE_CELL_49
+	setflag FLAG_ZYGARDE_CELL_50
+	clearflag FLAG_SHORESLATE_ITEM2
+	clearflag FLAG_ROUTE9_ITEM1
+	clearflag FLAG_ROUTE9_ITEM2
+	clearflag FLAG_ROUTE9_ITEM3
+	clearflag FLAG_ROUTE9_ITEM4
+	clearflag FLAG_ROUTE9_ITEM5
+	clearflag FLAG_ROUTE9_ITEM6
+	clearflag FLAG_ROUTE9_ITEM7
+	clearflag FLAG_ROUTE9_ITEM8
+	clearflag FLAG_COAST_ITEM1
+	clearflag FLAG_COAST_ITEM2
+	clearflag FLAG_COAST_ITEM3
+	clearflag FLAG_COAST_ITEM4
+	clearflag FLAG_COAST_ITEM5
+	clearflag FLAG_COAST_ITEM6
+	clearflag FLAG_ROUTE10_ITEM1
+	clearflag FLAG_ROUTE10_ITEM2
+	clearflag FLAG_ROUTE10_ITEM3
+	clearflag FLAG_ROUTE10_ITEM4
+	clearflag FLAG_ROUTE10_ITEM5
+	clearflag FLAG_ROUTE10_ITEM6
+	clearflag FLAG_ROUTE10_ITEM7
+	clearflag FLAG_ROUTE10_ITEM8
+	clearflag FLAG_SERPENTCAVE_ITEM1
+	clearflag FLAG_SERPENTCAVE_ITEM2
+	clearflag FLAG_SERPENTCAVE_ITEM3
+	clearflag FLAG_OBTAINED_AGGRONITE
+	clearflag FLAG_FLOODEDCAVE_FOSSIL
+	setvar VAR_SERPENTCAVE_WATER_LEVEL, 0
+	setvar VAR_DEBUG, 12
+	release
+	end
+
+
+AutomaticUpdate5::
+	setflag FLAG_WINDPLUME_MT_HIDE_CHARGED_ORB
+	setvar VAR_DEBUG, 13
+	msgbox AutomaticUpdate5_Text_0
+	release
+	return
 
 
 Debug_Script_1::
@@ -611,11 +729,16 @@ Debug_Script_4_12:
 
 
 Debug_Script_5::
-	call LitwickMain
+	cleartrainerflag TRAINER_LEADER_ACEROLA
+	setpartylevel 45
+	trainerbattle_no_intro TRAINER_LEADER_ACEROLA, Debug_Script_5_Text_0
+	release
 	return
 
 
 Debug_Script_6::
+	applymovement 1, MarineCave_End_Movement_KyogreApproach
+	waitmovement 0
 	return
 
 
@@ -845,6 +968,22 @@ Walk6Down:
 	walk_down
 	step_end
 
+Walk7Down:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+AutomaticUpdate4_Text_0:
+	.string "Vars Updated$"
+
+AutomaticUpdate5_Text_0:
+	.string "Vars and flags updated$"
+
 Debug_Script_4_Text_0:
 	.string "Gym 1 (lvl 14)$"
 
@@ -895,6 +1034,9 @@ Debug_Script_4_Text_15:
 
 Debug_Script_4_Text_16:
 	.string "Team set to level 45.$"
+
+Debug_Script_5_Text_0:
+	.string "GG$"
 
 SeenAnyStrangeSeeds::
 	.string "I've been hearing some rumors about\n"
@@ -956,6 +1098,13 @@ BerryTree_Text_PutAwayBerryAndSeed::
 	.string "Items pocket.\p"
 	.string "The soil returned to its soft and\n"
 	.string "loamy state.$"
+
+PlayerFoundZygardeCell::
+	.string "{PLAYER} found a Zygarde Cell!$"
+
+gText_PutZygardeCellInCube::
+	.string "{PLAYER} stored the Zygarde Cell\n"
+	.string "in the Zygarde Cube.$"
 
 AutomaticUpdate_Text1::
 	.string "A new update has been applied.\p"

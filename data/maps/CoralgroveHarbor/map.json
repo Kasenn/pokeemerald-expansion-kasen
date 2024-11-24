@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_COAST1",
-      "offset": -52,
+      "offset": -57,
       "direction": "right"
     }
   ],
@@ -84,6 +84,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CoralgroveHarbor_Sailor",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL_FLOATING",
+      "x": 31,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_PIDGEOTITE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_OBTAINED_PIDGEOTITE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ZYGARDE_CELL",
+      "x": 30,
+      "y": 42,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ZygardeCell",
+      "flag": "FLAG_ZYGARDE_CELL_8"
     }
   ],
   "warp_events": [

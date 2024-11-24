@@ -105,7 +105,7 @@ FishVillage_Brother_28:
 	case 1, FishVillage_Brother_76
 	case 2, FishVillage_Brother_77
 FishVillage_Brother_34:
-	goto_if_set FLAG_TEMP_A, FishVillage_Brother_55
+	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, FishVillage_Brother_55
 	msgbox FishingVillageBrotherLeaves
 FishVillage_Brother_54:
 	closemessage

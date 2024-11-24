@@ -111,6 +111,7 @@ bool8 ScrCmd_nop1(struct ScriptContext *ctx)
 
 bool8 ScrCmd_end(struct ScriptContext *ctx)
 {
+    FlagClear(FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE);
     FlagClear(FLAG_SAFE_FOLLOWER_MOVEMENT);
     StopScript(ctx);
     return FALSE;

@@ -181,6 +181,12 @@ static const union AnimCmd sAnim_FaceSouth[] =
     ANIMCMD_JUMP(0),
 };
 
+static const union AnimCmd sAnim_FaceNorthBoulder[] =
+{
+    ANIMCMD_FRAME(0, 16, .vFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
 static const union AnimCmd sAnim_FaceNorth[] =
 {
     ANIMCMD_FRAME(1, 16),
@@ -226,6 +232,48 @@ static const union AnimCmd sAnim_FaceEast2F[] =
 static const union AnimCmd sAnim_FaceEast2F_Asym[] =
 {
     ANIMCMD_FRAME(6, 16),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_RollSouthFast[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(1, 4),
+    ANIMCMD_FRAME(2, 4),
+    ANIMCMD_FRAME(3, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_RollNorthFast[] =
+{
+    ANIMCMD_FRAME(3, 4, .vFlip = TRUE),
+    ANIMCMD_FRAME(2, 4, .vFlip = TRUE),
+    ANIMCMD_FRAME(1, 4, .vFlip = TRUE),
+    ANIMCMD_FRAME(0, 4, .vFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_RollSouth[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(1, 8),
+    ANIMCMD_FRAME(2, 8),
+    ANIMCMD_FRAME(3, 8),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_RollNorth[] =
+{
+    ANIMCMD_FRAME(3, 8, .vFlip = TRUE),
+    ANIMCMD_FRAME(2, 8, .vFlip = TRUE),
+    ANIMCMD_FRAME(1, 8, .vFlip = TRUE),
+    ANIMCMD_FRAME(0, 8, .vFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_BoulderJumpNorth[] =
+{
+    ANIMCMD_FRAME(0, 32, .vFlip = TRUE),
     ANIMCMD_JUMP(0),
 };
 
@@ -1360,6 +1408,30 @@ static const union AnimCmd *const sAnimTable_Standard[] = {
     [ANIM_STD_GO_FASTEST_NORTH] = sAnim_GoFastestNorth,
     [ANIM_STD_GO_FASTEST_WEST] = sAnim_GoFastestWest,
     [ANIM_STD_GO_FASTEST_EAST] = sAnim_GoFastestEast,
+};
+
+static const union AnimCmd *const sAnimTable_RollingStone[] = {
+    [ANIM_STD_FACE_SOUTH] = sAnim_FaceSouth,
+    [ANIM_STD_FACE_NORTH] = sAnim_FaceNorthBoulder,
+    [ANIM_STD_FACE_WEST] = sAnim_FaceWest,
+    [ANIM_STD_FACE_EAST] = sAnim_FaceEast,
+    [ANIM_STD_GO_SOUTH] = sAnim_RollSouth,
+    [ANIM_STD_GO_NORTH] = sAnim_RollNorth,
+    [ANIM_STD_GO_WEST] = sAnim_GoWest,
+    [ANIM_STD_GO_EAST] = sAnim_GoEast,
+    [ANIM_STD_GO_FAST_SOUTH] = sAnim_RollSouthFast,
+    [ANIM_STD_GO_FAST_NORTH] = sAnim_RollNorthFast,
+    [ANIM_STD_GO_FAST_WEST] = sAnim_GoFastWest,
+    [ANIM_STD_GO_FAST_EAST] = sAnim_GoFastEast,
+    [ANIM_STD_GO_FASTER_SOUTH] = sAnim_RollSouthFast,
+    [ANIM_STD_GO_FASTER_NORTH] = sAnim_RollNorthFast,
+    [ANIM_STD_GO_FASTER_WEST] = sAnim_GoFasterWest,
+    [ANIM_STD_GO_FASTER_EAST] = sAnim_GoFasterEast,
+    [ANIM_STD_GO_FASTEST_SOUTH] = sAnim_GoFastestSouth,
+    [ANIM_STD_GO_FASTEST_NORTH] = sAnim_GoFastestNorth,
+    [ANIM_STD_GO_FASTEST_WEST] = sAnim_GoFastestWest,
+    [ANIM_STD_GO_FASTEST_EAST] = sAnim_GoFastestEast,
+    [ANIM_GET_ON_OFF_POKEMON_NORTH] = sAnim_BoulderJumpNorth,
 };
 
 static const union AnimCmd sAnim_AbraSpin[] =

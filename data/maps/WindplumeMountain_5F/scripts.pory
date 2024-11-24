@@ -1,0 +1,5 @@
+mapscripts WindplumeMountain_5F_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        setholewarp(MAP_WINDPLUME_MOUNTAIN_4F)
+    }
+}

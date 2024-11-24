@@ -205,9 +205,9 @@ FlowerFields_Granbull_2:
 	msgbox WantToBattleGranbull, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
 	goto_if_eq FlowerFields_Granbull_10
-	goto_if_set FLAG_BADGE03_GET, FlowerFields_Granbull_13
+	goto_if_set FLAG_BADGE05_GET, FlowerFields_Granbull_13
 	goto_if_set FLAG_BADGE04_GET, FlowerFields_Granbull_14
-	goto_if_set FLAG_BADGE05_GET, FlowerFields_Granbull_15
+	goto_if_set FLAG_BADGE03_GET, FlowerFields_Granbull_15
 	createmon 1, 0, SPECIES_GRANBULL, 23, ITEM_NONE, ITEM_NONE, NATURE_HARDY, 0, MALE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, MOVE_HEADBUTT, MOVE_LICK, MOVE_BITE, MOVE_SCARY_FACE, FALSE
 FlowerFields_Granbull_12:
 	setvar VAR_MINA_INTRO_QUEST, STORY_MINA_GRANBULL_BATTLED
@@ -240,7 +240,7 @@ FlowerFields_Granbull_10:
 	end
 
 FlowerFields_Granbull_13:
-	createmon 1, 0, SPECIES_GRANBULL, 34, ITEM_NONE, ITEM_NONE, NATURE_HARDY, 0, MALE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, MOVE_HEADBUTT, MOVE_LICK, MOVE_BITE, MOVE_SCARY_FACE, FALSE
+	createmon 1, 0, SPECIES_GRANBULL, 45, ITEM_NONE, ITEM_NONE, NATURE_HARDY, 0, MALE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, MOVE_HEADBUTT, MOVE_LICK, MOVE_BITE, MOVE_PLAY_ROUGH, FALSE
 	goto FlowerFields_Granbull_12
 
 FlowerFields_Granbull_14:
@@ -248,7 +248,7 @@ FlowerFields_Granbull_14:
 	goto FlowerFields_Granbull_12
 
 FlowerFields_Granbull_15:
-	createmon 1, 0, SPECIES_GRANBULL, 45, ITEM_NONE, ITEM_NONE, NATURE_HARDY, 0, MALE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, MOVE_HEADBUTT, MOVE_LICK, MOVE_BITE, MOVE_PLAY_ROUGH, FALSE
+	createmon 1, 0, SPECIES_GRANBULL, 34, ITEM_NONE, ITEM_NONE, NATURE_HARDY, 0, MALE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, MOVE_HEADBUTT, MOVE_LICK, MOVE_BITE, MOVE_SCARY_FACE, FALSE
 	goto FlowerFields_Granbull_12
 
 

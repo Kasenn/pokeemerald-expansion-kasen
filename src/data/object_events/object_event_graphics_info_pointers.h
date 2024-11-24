@@ -207,7 +207,14 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayDecorati
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Archie;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Korrina;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kasen;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BigBoulderLeft;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BigBoulderRight;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BwAceSwimmer;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemBallFloating;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ZygardeCell;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Gen4_Breeder_M;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_IrisOnAggron;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AggronMount;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Gen4_Breeder_F;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Breeder;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Drayden;
@@ -621,6 +628,13 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_LAND_SWIMMER_F] =                     &gObjectEventGraphicsInfo_LandSwimmerF,
     [OBJ_EVENT_GFX_KORRINA] =                   &gObjectEventGraphicsInfo_Korrina,
     [OBJ_EVENT_GFX_KASEN] =                   &gObjectEventGraphicsInfo_Kasen,
+    [OBJ_EVENT_GFX_BIG_BOULDER_LEFT] =                   &gObjectEventGraphicsInfo_BigBoulderLeft,
+    [OBJ_EVENT_GFX_BIG_BOULDER_RIGHT] =                   &gObjectEventGraphicsInfo_BigBoulderRight,
+    [OBJ_EVENT_GFX_BW_ACE_SWIMMER] =                   &gObjectEventGraphicsInfo_BwAceSwimmer,
+    [OBJ_EVENT_GFX_ITEM_BALL_FLOATING] =                   &gObjectEventGraphicsInfo_ItemBallFloating,
+    [OBJ_EVENT_GFX_ZYGARDE_CELL] =                   &gObjectEventGraphicsInfo_ZygardeCell,
+    [OBJ_EVENT_GFX_IRIS_ON_AGGRON] =                   &gObjectEventGraphicsInfo_IrisOnAggron,
+    [OBJ_EVENT_GFX_AGGRON_MOUNT] =                   &gObjectEventGraphicsInfo_AggronMount,
     [OBJ_EVENT_GFX_GEN4_BREEDER_M] =                   &gObjectEventGraphicsInfo_Gen4_Breeder_M,
     [OBJ_EVENT_GFX_GEN4_BREEDER_F] =                   &gObjectEventGraphicsInfo_Gen4_Breeder_F,
     [OBJ_EVENT_GFX_BREEDER] =                   &gObjectEventGraphicsInfo_Breeder,

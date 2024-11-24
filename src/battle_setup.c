@@ -93,7 +93,7 @@ static bool32 IsPlayerDefeated(u32 battleOutcome);
 #if FREE_MATCH_CALL == FALSE
 static u16 GetRematchTrainerId(u16 trainerId);
 #endif //FREE_MATCH_CALL
-static void RegisterTrainerInMatchCall(void);
+// static void RegisterTrainerInMatchCall(void);
 static void HandleRematchVarsOnBattleEnd(void);
 static const u8 *GetIntroSpeechOfApproachingTrainer(void);
 static const u8 *GetTrainerCantBattleSpeech(void);
@@ -317,13 +317,13 @@ const struct RematchTrainer gRematchTable[REMATCH_TABLE_ENTRIES] =
     [REMATCH_TIMOTHY] = REMATCH(TRAINER_R15_TR14_LASS, TRAINER_R15_TR15_SCIENTIST, TRAINER_R15_TR16_AROMALADY, TRAINER_R15_TR17_NINJABOY3, TRAINER_R15_TR18_BERRYROCKET, ROUTE115),
     [REMATCH_SHELBY] = REMATCH(TRAINER_R23_TR2_MANIAC, TRAINER_R23_TR3_TWINS, TRAINER_R23_TR4_BREEDER_F, TRAINER_R23_TR5_HEXMANIAC_1, TRAINER_R23_TR6_PSYCHIC_M, MT_CHIMNEY),
     [REMATCH_CALVIN] = REMATCH(TRAINER_R23_TR7_HEXMANIAC_2, TRAINER_DRISLEDGEGYM_TRAINER4, TRAINER_DRISLEDGEGYM_TRAINER5, TRAINER_DRISLEDGEGYM_TRAINER6, TRAINER_LEADER_ACEROLA, ROUTE102),
-    [REMATCH_ELLIOT] = REMATCH(TRAINER_ELLIOT_1, TRAINER_ELLIOT_2, TRAINER_ELLIOT_3, TRAINER_ELLIOT_4, TRAINER_ELLIOT_5, ROUTE106),
+    [REMATCH_ELLIOT] = REMATCH(TRAINER_R3_TR5_FISHERMAN, TRAINER_R9_TR1_SWIMMER_M, TRAINER_R9_TR2_BLACKBELT, TRAINER_R9_TR3_BIRDKEEPER, TRAINER_R9_TR4_BATTLEGIRL, ROUTE106),
     [REMATCH_ISAIAH] = REMATCH(TRAINER_ISAIAH_1, TRAINER_ISAIAH_2, TRAINER_ISAIAH_3, TRAINER_ISAIAH_4, TRAINER_ISAIAH_5, ROUTE128),
     [REMATCH_MARIA] = REMATCH(TRAINER_MARIA_1, TRAINER_MARIA_2, TRAINER_MARIA_3, TRAINER_MARIA_4, TRAINER_MARIA_5, ROUTE117),
-    [REMATCH_ABIGAIL] = REMATCH(TRAINER_ABIGAIL_1, TRAINER_ABIGAIL_2, TRAINER_ABIGAIL_3, TRAINER_ABIGAIL_4, TRAINER_ABIGAIL_5, ROUTE110),
-    [REMATCH_DYLAN] = REMATCH(TRAINER_DYLAN_1, TRAINER_DYLAN_2, TRAINER_DYLAN_3, TRAINER_DYLAN_4, TRAINER_DYLAN_5, ROUTE117),
+    [REMATCH_ABIGAIL] = REMATCH(TRAINER_R10_TR3_FISHERMAN, TRAINER_R10_TR5_BLACKBELT, TRAINER_R10_TR6_HIKER, TRAINER_R10_TR7_SWIMMER_F2, TRAINER_R10_TR8_SWIMMER_M2, ROUTE110),
+    [REMATCH_DYLAN] = REMATCH(TRAINER_R10_TR9_BATTLEGIRL, TRAINER_R10_TR10_TUBER_M, TRAINER_DYLAN_3, TRAINER_DYLAN_4, TRAINER_DYLAN_5, ROUTE117),
     [REMATCH_KATELYN] = REMATCH(TRAINER_KATELYN_1, TRAINER_KATELYN_2, TRAINER_KATELYN_3, TRAINER_KATELYN_4, TRAINER_KATELYN_5, ROUTE128),
-    [REMATCH_BENJAMIN] = REMATCH(TRAINER_BENJAMIN_1, TRAINER_BENJAMIN_2, TRAINER_BENJAMIN_3, TRAINER_BENJAMIN_4, TRAINER_BENJAMIN_5, ROUTE110),
+    [REMATCH_BENJAMIN] = REMATCH(TRAINER_R9_TR8_COLLECTOR, TRAINER_R9_TR9_SWIMMER_M2, TRAINER_R9_TR10_LANDSWIMMER, TRAINER_R10_TR1_ACESWIMMER, TRAINER_R10_TR2_SWIMMER_F1, ROUTE110),
     [REMATCH_PABLO] = REMATCH(TRAINER_PABLO_1, TRAINER_PABLO_2, TRAINER_PABLO_3, TRAINER_PABLO_4, TRAINER_PABLO_5, ROUTE126),
     [REMATCH_NICOLAS] = REMATCH(TRAINER_NICOLAS_1, TRAINER_NICOLAS_2, TRAINER_NICOLAS_3, TRAINER_NICOLAS_4, TRAINER_NICOLAS_5, METEOR_FALLS_1F_2R),
     [REMATCH_ROBERT] = REMATCH(TRAINER_ROBERT_1, TRAINER_ROBERT_2, TRAINER_ROBERT_3, TRAINER_ROBERT_4, TRAINER_ROBERT_5, ROUTE120),
@@ -359,7 +359,7 @@ const struct RematchTrainer gRematchTable[REMATCH_TABLE_ENTRIES] =
     [REMATCH_PHOEBE] = REMATCH(TRAINER_PHOEBE, TRAINER_PHOEBE, TRAINER_PHOEBE, TRAINER_PHOEBE, TRAINER_PHOEBE, EVER_GRANDE_CITY),
     [REMATCH_GLACIA] = REMATCH(TRAINER_GLACIA, TRAINER_GLACIA, TRAINER_GLACIA, TRAINER_GLACIA, TRAINER_GLACIA, EVER_GRANDE_CITY),
     [REMATCH_DRAKE] = REMATCH(TRAINER_DRAKE, TRAINER_DRAKE, TRAINER_DRAKE, TRAINER_DRAKE, TRAINER_DRAKE, EVER_GRANDE_CITY),
-    [REMATCH_WALLACE] = REMATCH(TRAINER_WALLACE, TRAINER_WALLACE, TRAINER_WALLACE, TRAINER_WALLACE, TRAINER_WALLACE, EVER_GRANDE_CITY),
+    [REMATCH_WALLACE] = REMATCH(TRAINER_R3_TR1_SWIMMER_F, TRAINER_R3_TR1_SWIMMER_F, TRAINER_R3_TR1_SWIMMER_F, TRAINER_R3_TR1_SWIMMER_F, TRAINER_R3_TR1_SWIMMER_F, EVER_GRANDE_CITY),
 };
 
 static const u16 sBadgeFlags[NUM_BADGES] =
@@ -693,20 +693,20 @@ void StartRegiBattle(void)
     species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
     switch (species)
     {
-    case SPECIES_REGIROCK:
+    case SPECIES_ZAPDOS:
         transitionId = B_TRANSITION_REGIROCK;
         break;
-    case SPECIES_REGICE:
+    case SPECIES_MOLTRES:
         transitionId = B_TRANSITION_REGICE;
         break;
-    case SPECIES_REGISTEEL:
+    case SPECIES_ARTICUNO:
         transitionId = B_TRANSITION_REGISTEEL;
         break;
     default:
         transitionId = B_TRANSITION_GRID_SQUARES;
         break;
     }
-    CreateBattleStartTask(transitionId, MUS_VS_REGI);
+    CreateBattleStartTask(transitionId, MUS_VS_MEW);
 
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
@@ -1514,7 +1514,7 @@ static void CB2_EndTrainerBattle(void)
         DowngradeBadPoison();
         if (!InBattlePyramid() && !InTrainerHillChallenge())
         {
-            RegisterTrainerInMatchCall();
+            // RegisterTrainerInMatchCall();
             SetBattledTrainersFlags();
         }
     }
@@ -1534,7 +1534,7 @@ static void CB2_EndRematchBattle(void)
     else
     {
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
-        RegisterTrainerInMatchCall();
+        // RegisterTrainerInMatchCall();
         SetBattledTrainersFlags();
         HandleRematchVarsOnBattleEnd();
         DowngradeBadPoison();
@@ -1783,10 +1783,10 @@ static inline bool32 DoesCurrentMapMatchRematchTrainerMap(s32 i, const struct Re
     return table[i].mapGroup == mapGroup && table[i].mapNum == mapNum;
 }
 
-bool32 TrainerIsMatchCallRegistered(s32 i)
-{
-    return FlagGet(FLAG_MATCH_CALL_REGISTERED + i);
-}
+// bool32 TrainerIsMatchCallRegistered(s32 i)
+// {
+//     return FlagGet(FLAG_MATCH_CALL_REGISTERED + i);
+// }
 
 #if FREE_MATCH_CALL == FALSE
 static bool32 UpdateRandomTrainerRematches(const struct RematchTrainer *table, u16 mapGroup, u16 mapNum)
@@ -1806,12 +1806,12 @@ static bool32 UpdateRandomTrainerRematches(const struct RematchTrainer *table, u
             // Trainer already wants a rematch. Don't bother updating it.
             return TRUE;
         }
-        else if (TrainerIsMatchCallRegistered(i) && ((Random() % 100) <= 30))
-            // 31% chance of getting a rematch.
-        {
-            SetRematchIdForTrainer(table, i);
-            return TRUE;
-        }
+        // else if (TrainerIsMatchCallRegistered(i) && ((Random() % 100) <= 30))
+        //     // 31% chance of getting a rematch.
+        // {
+        //     SetRematchIdForTrainer(table, i);
+        //     return TRUE;
+        // }
     }
 
     return FALSE;
@@ -1936,28 +1936,28 @@ static void ClearTrainerWantRematchState(const struct RematchTrainer *table, u16
 #endif //FREE_MATCH_CALL
 }
 
-static u32 GetTrainerMatchCallFlag(u32 trainerId)
-{
-    s32 i;
+// static u32 GetTrainerMatchCallFlag(u32 trainerId)
+// {
+//     s32 i;
 
-    for (i = 0; i < REMATCH_TABLE_ENTRIES; i++)
-    {
-        if (gRematchTable[i].trainerIds[0] == trainerId)
-            return FLAG_MATCH_CALL_REGISTERED + i;
-    }
+//     for (i = 0; i < REMATCH_TABLE_ENTRIES; i++)
+//     {
+//         if (gRematchTable[i].trainerIds[0] == trainerId)
+//             return FLAG_MATCH_CALL_REGISTERED + i;
+//     }
 
-    return 0xFFFF;
-}
+//     return 0xFFFF;
+// }
 
-static void RegisterTrainerInMatchCall(void)
-{
-    if (FlagGet(FLAG_HAS_MATCH_CALL))
-    {
-        u32 matchCallFlagId = GetTrainerMatchCallFlag(gTrainerBattleOpponent_A);
-        if (matchCallFlagId != 0xFFFF)
-            FlagSet(matchCallFlagId);
-    }
-}
+// static void RegisterTrainerInMatchCall(void)
+// {
+//     if (FlagGet(FLAG_HAS_MATCH_CALL))
+//     {
+//         u32 matchCallFlagId = GetTrainerMatchCallFlag(gTrainerBattleOpponent_A);
+//         if (matchCallFlagId != 0xFFFF)
+//             FlagSet(matchCallFlagId);
+//     }
+// }
 
 static bool8 WasSecondRematchWon(const struct RematchTrainer *table, u16 firstBattleTrainerId)
 {

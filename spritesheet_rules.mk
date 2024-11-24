@@ -231,6 +231,15 @@ $(OBJEVENTGFXDIR)/people/korrina.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/kasen.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
+$(OBJEVENTGFXDIR)/people/zygarde_cell.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
+$(OBJEVENTGFXDIR)/misc/bigboulder.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
+$(OBJEVENTGFXDIR)/misc/ball_float.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
 $(OBJEVENTGFXDIR)/people/gen4_breeder_m.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
@@ -269,6 +278,9 @@ $(OBJEVENTGFXDIR)/people/brendan_oras.4bpp: %.4bpp: %.png
 
 $(OBJEVENTGFXDIR)/people/bw_ace_trainer_f.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+
+$(OBJEVENTGFXDIR)/people/bw_ace_trainer_f_swimmer.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
 
 $(OBJEVENTGFXDIR)/people/bw_ace_trainer_m.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
@@ -820,6 +832,12 @@ $(OBJEVENTGFXDIR)/people/fisherman_horizontal2.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/fisherxl.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 6 -mheight 6
 
+$(OBJEVENTGFXDIR)/people/aggron_mount.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 6 -mheight 6
+
+$(OBJEVENTGFXDIR)/people/iris_on_aggron.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 6 -mheight 6
+
 $(OBJEVENTGFXDIR)/people/fisherman_horizontal_rod.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
@@ -1074,6 +1092,9 @@ $(POKEMONGFXDIR)/arbok/overworld.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 
 $(POKEMONGFXDIR)/pikachu/overworld.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+
+$(POKEMONGFXDIR)/pikachu/overworld2.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 
 $(POKEMONGFXDIR)/raichu/overworld.4bpp: %.4bpp: %.png

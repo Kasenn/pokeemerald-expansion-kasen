@@ -218,6 +218,11 @@ SkylochInt_Pikachu::
 	end
 
 
+Route23Lake_Hiker::
+	msgbox Route23Lake_Hiker_Text, MSGBOX_NPC
+	return
+
+
 SkylochInt_FatMan_Text_0:
 	.string "Oh…$"
 
@@ -362,3 +367,8 @@ SkylochInt_PikachuWoman_Text::
 	.string "Could you show me both of those\n"
 	.string "variations? I'll give you\l"
 	.string "something great in return.$"
+
+Route23Lake_Hiker_Text::
+	.string "I've seen another stone like\n"
+	.string "this in a similar location.\l"
+	.string "I doubt it's simple coincidence.$"

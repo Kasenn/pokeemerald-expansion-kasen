@@ -300,13 +300,20 @@
 #define OBJ_EVENT_GFX_BREEDER                   296
 #define OBJ_EVENT_GFX_GEN4_BREEDER_M                   297
 #define OBJ_EVENT_GFX_GEN4_BREEDER_F                   298
+#define OBJ_EVENT_GFX_BIG_BOULDER_LEFT                      299
+#define OBJ_EVENT_GFX_BIG_BOULDER_RIGHT                      300
+#define OBJ_EVENT_GFX_BW_ACE_SWIMMER                      301
+#define OBJ_EVENT_GFX_ITEM_BALL_FLOATING                    302
+#define OBJ_EVENT_GFX_ZYGARDE_CELL                    303
+#define OBJ_EVENT_GFX_IRIS_ON_AGGRON                304
+#define OBJ_EVENT_GFX_AGGRON_MOUNT                  305
 
 
 
 // NOTE: The maximum amount of object events has been expanded from 255 to 65535.
 // Since dynamic graphics ids still require at least 16 free values, the actual limit
 // is 65519, but even considering follower Pokémon, this should be more than enough :)
-#define NUM_OBJ_EVENT_GFX                        299
+#define NUM_OBJ_EVENT_GFX                        306
 
 
 // These are dynamic object gfx ids.
@@ -529,6 +536,12 @@
 #define OBJ_EVENT_PAL_DRAYDEN                 0x1171
 #define OBJ_EVENT_PAL_ABRA2                 0x1172
 #define OBJ_EVENT_PAL_BREEDER                 0x1173
+#define OBJ_EVENT_PAL_BIG_BOULDER                 0x1174
+#define OBJ_EVENT_PAL_BW_ACE_SWIMMER                 0x1175
+#define OBJ_EVENT_PAL_ITEM_BALL_FLOATING                 0x1176
+#define OBJ_EVENT_PAL_ZYGARDE_CELL                 0x1177
+#define OBJ_EVENT_PAL_IRIS_ON_AGGRON                 0x1178
+#define OBJ_EVENT_PAL_AGGRON_MOUNT                 0x1179
 
 // Used as a placeholder follower graphic
 #define OBJ_EVENT_PAL_TAG_SUBSTITUTE              0x7611

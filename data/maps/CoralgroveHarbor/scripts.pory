@@ -52,20 +52,19 @@ script CoralHarborBall{
 
 script CoralgroveHarbor_SleepingMan{
     lockall
-    if(!flag(FLAG_TALKEDTOSLEEPINGGUY)){
-        msgbox("zzz…\pHwuh?\pOh, whew! For a moment I thought\nmy boss might have caught me napping.\pWill you keep this a secret\nif I give you this TM?", MSGBOX_DEFAULT)
+    if(checkitem(ITEM_TM_REST) == FALSE){
+        msgbox("Zzz…\pHwuh?\pOh, whew! For a moment I thought\nmy boss might have caught me napping.\pWill you keep this a secret\nif I give you this TM?", MSGBOX_DEFAULT)
         waitmessage
         giveitem(ITEM_TM_REST)
         waitfanfare
         msgbox("Yawn…\pSleep is essential for good health…\nSleep and regain health…", MSGBOX_DEFAULT)
         waitmessage
-        setflag(FLAG_TALKEDTOSLEEPINGGUY)
         closemessage
         releaseall
         end
     }
     else{
-        msgbox("zzz…", MSGBOX_DEFAULT)
+        msgbox("Zzz…", MSGBOX_DEFAULT)
         waitmessage
         closemessage
         releaseall

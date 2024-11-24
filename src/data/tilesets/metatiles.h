@@ -297,3 +297,9 @@ const u16 gMetatileAttributes_NewSandstoneCity[] = INCBIN_U16("data/tilesets/sec
 
 const u16 gMetatiles_FlowerField[] = INCBIN_U16("data/tilesets/secondary/flower_field/metatiles.bin");
 const u16 gMetatileAttributes_FlowerField[] = INCBIN_U16("data/tilesets/secondary/flower_field/metatile_attributes.bin");
+
+const u16 gMetatiles_Mossdeep2[] = INCBIN_U16("data/tilesets/secondary/mossdeep_2/metatiles.bin");
+const u16 gMetatileAttributes_Mossdeep2[] = INCBIN_U16("data/tilesets/secondary/mossdeep_2/metatile_attributes.bin");
+
+const u16 gMetatiles_WindplumeCave[] = INCBIN_U16("data/tilesets/secondary/windplume_cave/metatiles.bin");
+const u16 gMetatileAttributes_WindplumeCave[] = INCBIN_U16("data/tilesets/secondary/windplume_cave/metatile_attributes.bin");

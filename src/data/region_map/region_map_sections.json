@@ -1039,6 +1039,22 @@
       "y": 0,
       "width": 1,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_SERPENT_CAVE",
+      "name": "SERPENT CAVE",
+      "x": 12,
+      "y": 14,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_WINDPLUME_MOUNTAIN",
+      "name": "WINDPLUME PEAK",
+      "x": 23,
+      "y": 7,
+      "width": 1,
+      "height": 1
     }
   ]
 }

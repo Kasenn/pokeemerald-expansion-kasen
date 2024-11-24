@@ -901,7 +901,7 @@ LittlerootTown_EventScript_GiveRunningShoes::
 	playfanfare MUS_OBTAIN_ITEM
 	message LittlerootTown_Text_SwitchShoesWithRunningShoes
 	waitfanfare
-	setflag FLAG_UNUSED_0x112
+	setflag FLAG_KAOLISLE_ITEM8
 	msgbox LittlerootTown_Text_ExplainRunningShoes, MSGBOX_DEFAULT
 	msgbox LittlerootTown_Text_ComeHomeIfAnythingHappens, MSGBOX_DEFAULT
 	closemessage

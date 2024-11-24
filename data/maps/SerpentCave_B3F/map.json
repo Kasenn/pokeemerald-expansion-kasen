@@ -1,0 +1,97 @@
+{
+  "id": "MAP_SERPENT_CAVE_B3F",
+  "name": "SerpentCave_B3F",
+  "layout": "LAYOUT_SERPENT_CAVE_B3F",
+  "music": "MUS_CAVE_OF_ORIGIN",
+  "region_map_section": "MAPSEC_SERPENT_CAVE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": true,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 5,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_SERPENT_CAVE_B2F",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 24,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_SERPENT_CAVE_B2F",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 43,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_SERPENT_CAVE_B2F",
+      "dest_warp_id": "7"
+    },
+    {
+      "x": 62,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_SERPENT_CAVE_B2F",
+      "dest_warp_id": "8"
+    },
+    {
+      "x": 81,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_SERPENT_CAVE_B2F",
+      "dest_warp_id": "9"
+    },
+    {
+      "x": 5,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_SERPENT_CAVE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 24,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_SERPENT_CAVE",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 43,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_SERPENT_CAVE",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 62,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_SERPENT_CAVE",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 81,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_SERPENT_CAVE",
+      "dest_warp_id": "4"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

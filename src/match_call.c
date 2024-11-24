@@ -132,8 +132,8 @@ static EWRAM_DATA struct MatchCallState sMatchCallState = {0};
 static EWRAM_DATA struct BattleFrontierStreakInfo sBattleFrontierStreakInfo = {0};
 
 static u32 GetCurrentTotalMinutes(struct Time *);
-static u32 GetNumRegisteredNPCs(void);
-static u32 GetActiveMatchCallTrainerId(u32);
+// static u32 GetNumRegisteredNPCs(void);
+// static u32 GetActiveMatchCallTrainerId(u32);
 static int GetTrainerMatchCallId(int);
 static u16 GetRematchTrainerLocation(int);
 static bool32 TrainerIsEligibleForRematch(int);
@@ -488,7 +488,7 @@ static const struct MatchCallTrainerTextInfo sMatchCallTrainers[] =
         .differentRouteMatchCallTextId = TEXT_ID(REQ_TOPIC_DIFF_ROUTE, 1),
     },
     {
-        .trainerId = TRAINER_ELLIOT_1,
+        .trainerId = TRAINER_R3_TR5_FISHERMAN,
         .unused = 0,
         .battleTopicTextIds = BATTLE_TEXT_IDS(3),
         .generalTextId = TEXT_ID(GEN_TOPIC_PERSONAL, 33),
@@ -515,7 +515,7 @@ static const struct MatchCallTrainerTextInfo sMatchCallTrainers[] =
         .differentRouteMatchCallTextId = TEXT_ID(REQ_TOPIC_DIFF_ROUTE, 9),
     },
     {
-        .trainerId = TRAINER_ABIGAIL_1,
+        .trainerId = TRAINER_R10_TR3_FISHERMAN,
         .unused = 0,
         .battleTopicTextIds = BATTLE_TEXT_IDS(9),
         .generalTextId = TEXT_ID(GEN_TOPIC_PERSONAL, 35),
@@ -524,7 +524,7 @@ static const struct MatchCallTrainerTextInfo sMatchCallTrainers[] =
         .differentRouteMatchCallTextId = TEXT_ID(REQ_TOPIC_DIFF_ROUTE, 9),
     },
     {
-        .trainerId = TRAINER_DYLAN_1,
+        .trainerId = TRAINER_R10_TR9_BATTLEGIRL,
         .unused = 0,
         .battleTopicTextIds = BATTLE_TEXT_IDS(5),
         .generalTextId = TEXT_ID(GEN_TOPIC_PERSONAL, 36),
@@ -542,7 +542,7 @@ static const struct MatchCallTrainerTextInfo sMatchCallTrainers[] =
         .differentRouteMatchCallTextId = TEXT_ID(REQ_TOPIC_DIFF_ROUTE, 9),
     },
     {
-        .trainerId = TRAINER_BENJAMIN_1,
+        .trainerId = TRAINER_R9_TR8_COLLECTOR,
         .unused = 0,
         .battleTopicTextIds = BATTLE_TEXT_IDS(5),
         .generalTextId = TEXT_ID(GEN_TOPIC_PERSONAL, 34),
@@ -1098,11 +1098,11 @@ static bool32 UpdateMatchCallStepCounter(void)
 static bool32 SelectMatchCallTrainer(void)
 {
     u32 matchCallId;
-    u32 numRegistered = GetNumRegisteredNPCs();
+    u32 numRegistered = 0;
     if (numRegistered == 0)
         return FALSE;
 
-    sMatchCallState.trainerId = GetActiveMatchCallTrainerId(Random() % numRegistered);
+    sMatchCallState.trainerId = 0;
     sMatchCallState.triggeredFromScript = FALSE;
     if (sMatchCallState.trainerId == REMATCH_TABLE_ENTRIES)
         return FALSE;
@@ -1114,34 +1114,34 @@ static bool32 SelectMatchCallTrainer(void)
     return TRUE;
 }
 
-static u32 GetNumRegisteredNPCs(void)
-{
-    u32 i, count;
-    for (i = 0, count = 0; i < REMATCH_SPECIAL_TRAINER_START; i++)
-    {
-        if (FlagGet(FLAG_MATCH_CALL_REGISTERED + i))
-            count++;
-    }
+// static u32 GetNumRegisteredNPCs(void)
+// {
+//     u32 i, count;
+//     for (i = 0, count = 0; i < REMATCH_SPECIAL_TRAINER_START; i++)
+//     {
+//         if (FlagGet(FLAG_MATCH_CALL_REGISTERED + i))
+//             count++;
+//     }
 
-    return count;
-}
+//     return count;
+// }
 
-static u32 GetActiveMatchCallTrainerId(u32 activeMatchCallId)
-{
-    u32 i;
-    for (i = 0; i < REMATCH_SPECIAL_TRAINER_START; i++)
-    {
-        if (FlagGet(FLAG_MATCH_CALL_REGISTERED + i))
-        {
-            if (!activeMatchCallId)
-                return gRematchTable[i].trainerIds[0];
+// static u32 GetActiveMatchCallTrainerId(u32 activeMatchCallId)
+// {
+//     u32 i;
+//     for (i = 0; i < REMATCH_SPECIAL_TRAINER_START; i++)
+//     {
+//         if (FlagGet(FLAG_MATCH_CALL_REGISTERED + i))
+//         {
+//             if (!activeMatchCallId)
+//                 return gRematchTable[i].trainerIds[0];
 
-            activeMatchCallId--;
-        }
-    }
+//             activeMatchCallId--;
+//         }
+//     }
 
-    return REMATCH_TABLE_ENTRIES;
-}
+//     return REMATCH_TABLE_ENTRIES;
+// }
 
 /*
     From the function calls below, a call can only be triggered...

@@ -117,7 +117,7 @@ Route117_EventScript_RematchLydia::
 	end
 
 Route117_EventScript_Dylan::
-	trainerbattle_single TRAINER_DYLAN_1, Route117_Text_DylanIntro, Route117_Text_DylanDefeat, Route117_EventScript_RegisterDylan
+	trainerbattle_single TRAINER_R10_TR9_BATTLEGIRL, Route117_Text_DylanIntro, Route117_Text_DylanDefeat, Route117_EventScript_RegisterDylan
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route117_EventScript_RematchDylan
 	msgbox Route117_Text_DylanPostBattle, MSGBOX_DEFAULT
@@ -128,12 +128,12 @@ Route117_EventScript_RegisterDylan::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route117_Text_DylanRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_DYLAN_1
+	register_matchcall TRAINER_R10_TR9_BATTLEGIRL
 	release
 	end
 
 Route117_EventScript_RematchDylan::
-	trainerbattle_rematch TRAINER_DYLAN_1, Route117_Text_DylanRematchIntro, Route117_Text_DylanRematchDefeat
+	trainerbattle_rematch TRAINER_R10_TR9_BATTLEGIRL, Route117_Text_DylanRematchIntro, Route117_Text_DylanRematchDefeat
 	msgbox Route117_Text_DylanPostRematch, MSGBOX_AUTOCLOSE
 	end
 

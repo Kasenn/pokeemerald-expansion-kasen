@@ -114,7 +114,8 @@
     "Route28_Part2",
     "Route29",
     "SandstoneCityAlt",
-    "FlowerFields"
+    "FlowerFields",
+    "Route23Lake"
   ],
   "gMapGroup_RouteInteriors": [
     "RanchBarn",
@@ -156,7 +157,25 @@
     "UndergroundRuins_4F",
     "WindplumePeak",
     "Route15_Grotto",
-    "WindywoodsFix"
+    "WindywoodsFix",
+    "SerpentCave",
+    "SerpentCave_0_Streams",
+    "SerpentCave_1_Streams",
+    "SerpentCave_2_Streams",
+    "SerpentCave_3_Streams",
+    "SerpentCave_B1F",
+    "SerpentCave_B2F",
+    "SerpentCave_B3F",
+    "SerpentCaveMain",
+    "FloodedCave_FossilRoom",
+    "WindplumeMountain",
+    "WindplumeMountain_2F",
+    "WindplumeMountain_3F",
+    "WindplumeMountain_4F",
+    "WindplumeMountain_5F",
+    "WindplumeMountain_6F",
+    "WindplumeMountain_Peak",
+    "WindplumeMountain_7F"
   ],
   "gMapGroup_IndoorPearlwoodPoint": [
     "Lab2",
@@ -897,7 +916,8 @@
     "TerraCave_End",
     "AlteringCave",
     "MeteorFalls_StevensCave",
-    "MtChimney"
+    "MtChimney",
+    "AmberockTest"
   ],
   "gMapGroup_IndoorRoute124": [
     "TestRoom",

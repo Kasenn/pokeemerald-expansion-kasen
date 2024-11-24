@@ -285,9 +285,11 @@ text Route5_Trainer14_Hiker_Defeat{
     "What a fine show of strength!"
 }
 text Route5_Trainer14_Hiker_PostBattle{
-    "Walking down the beaten path is so boring.\n"
-    "Sometimes taking the path least traveled\l"
-    "can lead you to unexpected treasures."
+    "Walking down the beaten path is so\n"
+    "boring.\p"
+    "Sometimes taking the path least\n"
+    "traveled can lead you to unexpected\l"
+    "treasures."
 }
 script Route5_ItemBall1{
     finditem(ITEM_SUPER_REPEL)

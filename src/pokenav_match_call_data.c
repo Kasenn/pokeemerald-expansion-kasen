@@ -506,7 +506,7 @@ static const struct MatchCallStructTrainer sSidneyMatchCallHeader =
 {
     .type = MC_TYPE_LEADER,
     .mapSec = MAPSEC_EVER_GRANDE_CITY,
-    .flag = FLAG_REMATCH_SIDNEY,
+    .flag = FLAG_OLD_WORLD_FLAG,
     .rematchTableIdx = REMATCH_SIDNEY,
     .desc = gText_EliteFourMatchCallDesc,
     .name = NULL,
@@ -522,7 +522,7 @@ static const struct MatchCallStructTrainer sPhoebeMatchCallHeader =
 {
     .type = MC_TYPE_LEADER,
     .mapSec = MAPSEC_EVER_GRANDE_CITY,
-    .flag = FLAG_REMATCH_PHOEBE,
+    .flag = FLAG_OLD_WORLD_FLAG,
     .rematchTableIdx = REMATCH_PHOEBE,
     .desc = gText_EliteFourMatchCallDesc,
     .name = NULL,
@@ -538,7 +538,7 @@ static const struct MatchCallStructTrainer sGlaciaMatchCallHeader =
 {
     .type = MC_TYPE_LEADER,
     .mapSec = MAPSEC_EVER_GRANDE_CITY,
-    .flag = FLAG_REMATCH_GLACIA,
+    .flag = FLAG_OLD_WORLD_FLAG,
     .rematchTableIdx = REMATCH_GLACIA,
     .desc = gText_EliteFourMatchCallDesc,
     .name = NULL,
@@ -554,7 +554,7 @@ static const struct MatchCallStructTrainer sDrakeMatchCallHeader =
 {
     .type = MC_TYPE_LEADER,
     .mapSec = MAPSEC_EVER_GRANDE_CITY,
-    .flag = FLAG_REMATCH_DRAKE,
+    .flag = FLAG_OLD_WORLD_FLAG,
     .rematchTableIdx = REMATCH_DRAKE,
     .desc = gText_EliteFourMatchCallDesc,
     .name = NULL,
@@ -570,7 +570,7 @@ static const struct MatchCallStructTrainer sWallaceMatchCallHeader =
 {
     .type = MC_TYPE_LEADER,
     .mapSec = MAPSEC_EVER_GRANDE_CITY,
-    .flag = FLAG_REMATCH_WALLACE,
+    .flag = FLAG_OLD_WORLD_FLAG,
     .rematchTableIdx = REMATCH_WALLACE,
     .desc = gText_ChampionMatchCallDesc,
     .name = NULL,
@@ -1146,7 +1146,7 @@ bool32 MatchCall_HasRematchId(u32 idx)
 
 void SetMatchCallRegisteredFlag(void)
 {
-    int r0 = GetRematchIdxByTrainerIdx(gSpecialVar_0x8004);
-    if (r0 >= 0)
-        FlagSet(FLAG_MATCH_CALL_REGISTERED + r0);
+    // int r0 = GetRematchIdxByTrainerIdx(gSpecialVar_0x8004);
+    // if (r0 >= 0)
+    //     FlagSet(FLAG_MATCH_CALL_REGISTERED + r0);
 }

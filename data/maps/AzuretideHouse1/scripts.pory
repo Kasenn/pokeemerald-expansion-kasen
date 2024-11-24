@@ -119,7 +119,8 @@ script AzuretideHouse1_HerbShop_OldLady{
 }
 
 text AzuretideHouse1_HerbShop_Text_HerbalMedicineWorksButMonWillDislike{
-	"Herbal medicine works impressively well.\n"
-	"But your Pokémon will dislike you for it.\l"
+	"Herbal medicine works impressively\n"
+	"well, but your Pokémon will dislike\l"
+	"you for it.\p"
 	"It must be horribly bitter!"
 }

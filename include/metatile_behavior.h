@@ -40,6 +40,8 @@ bool8 MetatileBehavior_IsEastArrowWarp(u8);
 bool8 MetatileBehavior_IsWestArrowWarp(u8);
 bool8 MetatileBehavior_IsNorthArrowWarp(u8);
 bool8 MetatileBehavior_IsSouthArrowWarp(u8);
+bool8 MetatileBehavior_PointPlayerWest(u8);
+bool8 MetatileBehavior_PointPlayerEast(u8);
 bool8 MetatileBehavior_IsArrowWarp(u8);
 bool8 MetatileBehavior_IsForcedMovementTile(u8);
 bool8 MetatileBehavior_IsIce_2(u8);

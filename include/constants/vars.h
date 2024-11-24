@@ -47,7 +47,7 @@
 #define VAR_OBJ_GFX_ID_F           0x401F
 
 // general purpose vars
-#define VAR_UNUSED4020                                0x4020
+#define VAR_SERPENTCAVE_WATER_LEVEL                                0x4020
 #define VAR_REPEL_STEP_COUNT                             0x4021
 #define VAR_ICE_STEP_COUNT                               0x4022
 #define VAR_STARTER_MON                                  0x4023 // 0=Treecko, 1=Torchic, 2=Mudkip
@@ -222,7 +222,7 @@
 #define VAR_SKY_PILLAR_STATE                             0x40CA
 #define VAR_MIRAGE_TOWER_STATE                           0x40CB
 #define VAR_FOSSIL_MANIAC_STATE                          0x40CC
-#define VAR_UNUSED_0x40CD                    0x40CD
+#define VAR_SERPENTCAVE_STORY                    0x40CD
 #define VAR_FRONTIER_BATTLE_MODE                         0x40CE
 #define VAR_FRONTIER_FACILITY                            0x40CF
 #define VAR_HAS_ENTERED_BATTLE_FRONTIER                  0x40D0 // Var is used like a flag.

@@ -120,6 +120,7 @@ static const u16 sPikachuFormSpeciesIdTable[] = {
     SPECIES_PIKACHU_GIGANTAMAX,
 #endif
     SPECIES_PIKACHU_PARTNER,
+    SPECIES_PIKACHU_SURFING,
     FORM_SPECIES_END,
 };
 

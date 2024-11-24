@@ -1,0 +1,53 @@
+mapscripts WindplumeMountain_Peak_MapScripts {
+    MAP_SCRIPT_ON_RESUME{
+        if(flag(FLAG_SYS_CTRL_OBJ_DELETE)){
+            specialvar(VAR_RESULT, GetBattleOutcome)
+            if(var(VAR_RESULT) == B_OUTCOME_CAUGHT){
+                removeobject(VAR_LAST_TALKED)
+                clearflag(FLAG_WINDPLUME_MT_HIDE_CHARGED_ORB)
+                addobject(2)
+            }
+        }
+    }
+    MAP_SCRIPT_ON_TRANSITION{
+        if(!flag(FLAG_DEFEATED_ZAPDOS)){
+            clearflag(FLAG_HIDE_ZAPDOS)
+        }
+    }
+}
+
+script Windplume_Zapdos{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_ZAPDOS, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+	setwildbattle(SPECIES_ZAPDOS, 50)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	special(StartRegiBattle)
+	waitstate
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    specialvar(VAR_RESULT, GetBattleOutcome)
+	if(var(VAR_RESULT) == B_OUTCOME_WON){
+        setflag(FLAG_DEFEATED_ZAPDOS)
+	    fadescreenswapbuffers (FADE_TO_BLACK)
+	    removeobject (VAR_LAST_TALKED)
+        clearflag(FLAG_WINDPLUME_MT_HIDE_CHARGED_ORB)
+        addobject(2)
+	    fadescreenswapbuffers (FADE_FROM_BLACK)
+	    release
+	    end
+    } 
+	if(var(VAR_RESULT) == B_OUTCOME_RAN){
+        setvar(VAR_0x8004, SPECIES_ZAPDOS)
+	    goto(Common_EventScript_LegendaryFlewAway)
+    } 
+	if(var(VAR_RESULT) == B_OUTCOME_PLAYER_TELEPORTED){
+        setvar(VAR_0x8004, SPECIES_ZAPDOS)
+	    goto(Common_EventScript_LegendaryFlewAway)
+    } 
+	setflag(FLAG_DEFEATED_ZAPDOS)
+	release
+	end
+}

@@ -185,7 +185,23 @@ text BerryTree_Text_PutAwayBerryAndSeed{
     "Items pocket.\p"
 	"The soil returned to its soft and\n"
 	"loamy state."}
-
+script ZygardeCell{
+    lock
+	waitse
+    playfanfare(MUS_OBTAIN_ITEM)
+    removeobject(VAR_LAST_TALKED)
+	message(PlayerFoundZygardeCell)
+	waitfanfare
+	waitmessage
+	msgbox(gText_PutZygardeCellInCube)
+    addvar(VAR_ZYGARDE_CELLS, 1)
+	release
+	end}
+text PlayerFoundZygardeCell{
+    "{PLAYER} found a Zygarde Cell!"}
+text gText_PutZygardeCellInCube{
+    "{PLAYER} stored the Zygarde Cell\n"
+    "in the Zygarde Cube."}
 //
 // Leader test scripts
 //
@@ -218,7 +234,7 @@ text AutomaticUpdate_Text1{
     "3. A lot of bug fixes."}
 script AutomaticUpdate2{
     setvar(VAR_DEBUG, 10)
-    msgbox(AutomaticUpdate2_Text2, MSGBOX_YESNO)
+    msgbox(AutomaticUpdate2_Text, MSGBOX_YESNO)
     if(var(VAR_RESULT) == TRUE){
         checkplayergender
         if(var(VAR_RESULT) == MALE){
@@ -267,18 +283,24 @@ script AutomaticUpdate3{
     setvar(VAR_UNUSED_0x405A, 0)
     setvar(VAR_UNUSED_0x407D, 0)
     setvar(VAR_UNUSED_0x408B, 0)
-    setvar(VAR_UNUSED_0x40CD, 0)
+    setvar(VAR_SERPENTCAVE_STORY, 0)
     clearflag(FLAG_REUNITE_WITH_RIVAL)
     clearflag(FLAG_INTRODUCED_TO_BERRY_TRADER)
     clearflag(FLAG_RIVAL_MET_IN_SANDSTONE)
-    clearflag(FLAG_UNUSED_0x112)
+    clearflag(FLAG_KAOLISLE_ITEM8)
     clearflag(FLAG_SANDSTONE_HIDDENITEM_1)
     clearflag(FLAG_SANDSTONE_HIDDENITEM_2)
     clearflag(FLAG_UNUSED_SYS_0x22)
-    clearflag(FLAG_UNUSED_0x266)
-    clearflag(FLAG_UNUSED_0x269)
-    clearflag(FLAG_UNUSED_0x498)
-    clearflag(FLAG_UNUSED_0x49C)
+    clearflag(FLAG_KAOLISLE_ITEM9)
+    clearflag(FLAG_SERPENTCAVE_BOULDER_1)
+    clearflag(FLAG_SERPENTCAVE_BOULDER_2)
+    clearflag(FLAG_SERPENTCAVE_BOULDER_3)
+    clearflag(FLAG_SERPENTCAVE_BOULDER_4)
+    clearflag(FLAG_UNUSED_0x4B1)
+    clearflag(FLAG_UNUSED_0x4B2)
+    clearflag(FLAG_WW_WATERSTONE)
+    clearflag(FLAG_COAST_TOMB_OPENED)
+    clearflag(FLAG_SERPENTCAVE_ITEM4)
     clearflag(FLAG_UNUSED_0x49D)
     clearflag(FLAG_UNUSED_0x49F)
     clearflag(FLAG_FLOWERFIELDS_ITEM_1)
@@ -292,7 +314,101 @@ script AutomaticUpdate3{
         setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_RING_OBTAINED)
     }
     release
+    end}
+script AutomaticUpdate4{
+    msgbox("Vars Updated")
+    setflag(FLAG_WINDPLUME_MT_HIDE_CHARGED_ORB)
+    setvar(VAR_ZYGARDE_CELLS, 0)
+    clearflag(FLAG_UNUSED_0x4A6)
+    clearflag(FLAG_UNUSED_0x101)
+    setflag(FLAG_ZYGARDE_CELL_1)
+    setflag(FLAG_ZYGARDE_CELL_2)
+    setflag(FLAG_ZYGARDE_CELL_3)
+    setflag(FLAG_ZYGARDE_CELL_4)
+    setflag(FLAG_ZYGARDE_CELL_5)
+    setflag(FLAG_ZYGARDE_CELL_6)
+    setflag(FLAG_ZYGARDE_CELL_7)
+    setflag(FLAG_ZYGARDE_CELL_8)
+    setflag(FLAG_ZYGARDE_CELL_9)
+    setflag(FLAG_ZYGARDE_CELL_10)
+    setflag(FLAG_ZYGARDE_CELL_11)
+    setflag(FLAG_ZYGARDE_CELL_12)
+    setflag(FLAG_ZYGARDE_CELL_13)
+    setflag(FLAG_ZYGARDE_CELL_14)
+    setflag(FLAG_ZYGARDE_CELL_15)
+    setflag(FLAG_ZYGARDE_CELL_16)
+    setflag(FLAG_ZYGARDE_CELL_17)
+    setflag(FLAG_ZYGARDE_CELL_18)
+    setflag(FLAG_ZYGARDE_CELL_19)
+    setflag(FLAG_ZYGARDE_CELL_20)
+    setflag(FLAG_ZYGARDE_CELL_21)
+    setflag(FLAG_ZYGARDE_CELL_22)
+    setflag(FLAG_ZYGARDE_CELL_23)
+    setflag(FLAG_ZYGARDE_CELL_24)
+    setflag(FLAG_ZYGARDE_CELL_25)
+    setflag(FLAG_ZYGARDE_CELL_26)
+    setflag(FLAG_ZYGARDE_CELL_27)
+    setflag(FLAG_ZYGARDE_CELL_28)
+    setflag(FLAG_ZYGARDE_CELL_29)
+    setflag(FLAG_ZYGARDE_CELL_30)
+    setflag(FLAG_ZYGARDE_CELL_31)
+    setflag(FLAG_ZYGARDE_CELL_32)
+    setflag(FLAG_ZYGARDE_CELL_33)
+    setflag(FLAG_ZYGARDE_CELL_34)
+    setflag(FLAG_ZYGARDE_CELL_35)
+    setflag(FLAG_ZYGARDE_CELL_36)
+    setflag(FLAG_ZYGARDE_CELL_37)
+    setflag(FLAG_ZYGARDE_CELL_38)
+    setflag(FLAG_ZYGARDE_CELL_39)
+    setflag(FLAG_ZYGARDE_CELL_40)
+    setflag(FLAG_ZYGARDE_CELL_41)
+    setflag(FLAG_ZYGARDE_CELL_42)
+    setflag(FLAG_ZYGARDE_CELL_43)
+    setflag(FLAG_ZYGARDE_CELL_44)
+    setflag(FLAG_ZYGARDE_CELL_45)
+    setflag(FLAG_ZYGARDE_CELL_46)
+    setflag(FLAG_ZYGARDE_CELL_47)
+    setflag(FLAG_ZYGARDE_CELL_48)
+    setflag(FLAG_ZYGARDE_CELL_49)
+    setflag(FLAG_ZYGARDE_CELL_50)
+    clearflag(FLAG_SHORESLATE_ITEM2)
+    clearflag(FLAG_ROUTE9_ITEM1)
+    clearflag(FLAG_ROUTE9_ITEM2)
+    clearflag(FLAG_ROUTE9_ITEM3)
+    clearflag(FLAG_ROUTE9_ITEM4)
+    clearflag(FLAG_ROUTE9_ITEM5)
+    clearflag(FLAG_ROUTE9_ITEM6)
+    clearflag(FLAG_ROUTE9_ITEM7)
+    clearflag(FLAG_ROUTE9_ITEM8)
+    clearflag(FLAG_COAST_ITEM1)
+    clearflag(FLAG_COAST_ITEM2)
+    clearflag(FLAG_COAST_ITEM3)
+    clearflag(FLAG_COAST_ITEM4)
+    clearflag(FLAG_COAST_ITEM5)
+    clearflag(FLAG_COAST_ITEM6)
+    clearflag(FLAG_ROUTE10_ITEM1)
+    clearflag(FLAG_ROUTE10_ITEM2)
+    clearflag(FLAG_ROUTE10_ITEM3)
+    clearflag(FLAG_ROUTE10_ITEM4)
+    clearflag(FLAG_ROUTE10_ITEM5)
+    clearflag(FLAG_ROUTE10_ITEM6)
+    clearflag(FLAG_ROUTE10_ITEM7)
+    clearflag(FLAG_ROUTE10_ITEM8)
+    clearflag(FLAG_SERPENTCAVE_ITEM1)
+    clearflag(FLAG_SERPENTCAVE_ITEM2)
+    clearflag(FLAG_SERPENTCAVE_ITEM3)
+    clearflag(FLAG_OBTAINED_AGGRONITE)
+    clearflag(FLAG_FLOODEDCAVE_FOSSIL)
+    setvar(VAR_SERPENTCAVE_WATER_LEVEL, 0)
+    setvar(VAR_DEBUG, 12)
+    release
     end
+}
+script AutomaticUpdate5{
+    setflag(FLAG_WINDPLUME_MT_HIDE_CHARGED_ORB)
+    setvar(VAR_DEBUG, 13)
+    msgbox("Vars and flags updated")
+    release
 }
 //
 // Debug scripts
@@ -482,10 +598,14 @@ script Debug_Script_4{              // Set team level
     release
     end}
 script Debug_Script_5{
-    call(LitwickMain)
-    return
+    cleartrainerflag(TRAINER_LEADER_ACEROLA)
+    setpartylevel(45)
+    trainerbattle_no_intro(TRAINER_LEADER_ACEROLA, "GG")
+    release
 }
 script Debug_Script_6{
+    applymovement(1, MarineCave_End_Movement_KyogreApproach)
+    waitmovement(0)
     return
 }
 script Debug_Script_7{
@@ -635,4 +755,7 @@ movement Walk5Down{
     step_end}
 movement Walk6Down{
     walk_down * 6
+    step_end}
+movement Walk7Down{
+    walk_down * 7
     step_end}

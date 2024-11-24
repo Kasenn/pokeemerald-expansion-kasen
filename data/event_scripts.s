@@ -1551,3 +1551,43 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/SandstoneCityAlt/scripts.inc"
 
 	.include "data/maps/FlowerFields/scripts.inc"
+
+	.include "data/maps/AmberockTest/scripts.inc"
+
+	.include "data/maps/SerpentCave/scripts.inc"
+
+	.include "data/maps/SerpentCave_0_Streams/scripts.inc"
+
+	.include "data/maps/SerpentCave_1_Streams/scripts.inc"
+
+	.include "data/maps/SerpentCave_2_Streams/scripts.inc"
+
+	.include "data/maps/SerpentCave_3_Streams/scripts.inc"
+
+	.include "data/maps/SerpentCave_B1F/scripts.inc"
+
+	.include "data/maps/SerpentCave_B2F/scripts.inc"
+
+	.include "data/maps/SerpentCave_B3F/scripts.inc"
+
+	.include "data/maps/Route23Lake/scripts.inc"
+
+	.include "data/maps/SerpentCaveMain/scripts.inc"
+
+	.include "data/maps/FloodedCave_FossilRoom/scripts.inc"
+
+	.include "data/maps/WindplumeMountain/scripts.inc"
+
+	.include "data/maps/WindplumeMountain_2F/scripts.inc"
+
+	.include "data/maps/WindplumeMountain_3F/scripts.inc"
+
+	.include "data/maps/WindplumeMountain_4F/scripts.inc"
+
+	.include "data/maps/WindplumeMountain_5F/scripts.inc"
+
+	.include "data/maps/WindplumeMountain_6F/scripts.inc"
+
+	.include "data/maps/WindplumeMountain_Peak/scripts.inc"
+
+	.include "data/maps/WindplumeMountain_7F/scripts.inc"

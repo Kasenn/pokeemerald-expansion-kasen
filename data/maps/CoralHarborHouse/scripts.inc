@@ -5,17 +5,23 @@ CoralHarborHouse_MapScripts::
 CoralHarborHouse_EventScript_OldRodFisherman::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_OLD_ROD, CoralHarborHouse_EventScript_HowsFishing
+	checkitem ITEM_OLD_ROD
+	compare VAR_RESULT, TRUE
+	goto_if_eq CoralHarborHouse_EventScript_OldRodFisherman_2
+CoralHarborHouse_EventScript_OldRodFisherman_1:
 	msgbox CoralHarborHouse_Text_GettingItchToFish, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, CoralHarborHouse_EventScript_GiveOldRod
 	goto_if_eq VAR_RESULT, NO, CoralHarborHouse_EventScript_NotGettingItchToFish
 	end
 
+CoralHarborHouse_EventScript_OldRodFisherman_2:
+	goto CoralHarborHouse_EventScript_HowsFishing
+	goto CoralHarborHouse_EventScript_OldRodFisherman_1
+
 
 CoralHarborHouse_EventScript_GiveOldRod::
 	msgbox CoralHarborHouse_Text_GiveYouOneOfMyRods, MSGBOX_DEFAULT
 	giveitem ITEM_OLD_ROD
-	setflag FLAG_RECEIVED_OLD_ROD
 	msgbox CoralHarborHouse_Text_ThrowInFishingAdvice, MSGBOX_DEFAULT
 	release
 	end
@@ -29,9 +35,6 @@ CoralHarborHouse_EventScript_NotGettingItchToFish::
 
 CoralHarborHouse_EventScript_HowsFishing::
 	msgbox CoralHarborHouse_Text_HowsYourFishing, MSGBOX_NPC
-	waitmessage
-	closemessage
-	release
 	end
 
 

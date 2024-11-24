@@ -4725,7 +4725,7 @@
       "id": "LAYOUT_COAST1",
       "name": "Coast1_Layout",
       "width": 40,
-      "height": 80,
+      "height": 90,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Coast1/border.bin",
@@ -5417,7 +5417,7 @@
       "width": 200,
       "height": 30,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mossdeep",
+      "secondary_tileset": "gTileset_Mossdeep2",
       "border_filepath": "data/layouts/Route9/border.bin",
       "blockdata_filepath": "data/layouts/Route9/map.bin"
     },
@@ -6730,6 +6730,206 @@
       "secondary_tileset": "gTileset_FlowerField",
       "border_filepath": "data/layouts/FlowerFields/border.bin",
       "blockdata_filepath": "data/layouts/FlowerFields/map.bin"
+    },
+    {
+      "id": "LAYOUT_AMBEROCK_TEST",
+      "name": "AmberockTest_Layout",
+      "width": 95,
+      "height": 42,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Amberock",
+      "border_filepath": "data/layouts/AmberockTest/border.bin",
+      "blockdata_filepath": "data/layouts/AmberockTest/map.bin"
+    },
+    {
+      "id": "LAYOUT_SERPENT_CAVE",
+      "name": "SerpentCave_Layout",
+      "width": 152,
+      "height": 41,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MeteorFalls",
+      "border_filepath": "data/layouts/SerpentCave/border.bin",
+      "blockdata_filepath": "data/layouts/SerpentCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_SERPENT_CAVE_0_STREAMS",
+      "name": "SerpentCave_0_Streams_Layout",
+      "width": 152,
+      "height": 41,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MeteorFalls",
+      "border_filepath": "data/layouts/SerpentCave_0_Streams/border.bin",
+      "blockdata_filepath": "data/layouts/SerpentCave_0_Streams/map.bin"
+    },
+    {
+      "id": "LAYOUT_SERPENT_CAVE_1_STREAMS",
+      "name": "SerpentCave_1_Streams_Layout",
+      "width": 152,
+      "height": 41,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MeteorFalls",
+      "border_filepath": "data/layouts/SerpentCave_1_Streams/border.bin",
+      "blockdata_filepath": "data/layouts/SerpentCave_1_Streams/map.bin"
+    },
+    {
+      "id": "LAYOUT_SERPENT_CAVE_2_STREAMS",
+      "name": "SerpentCave_2_Streams_Layout",
+      "width": 152,
+      "height": 41,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MeteorFalls",
+      "border_filepath": "data/layouts/SerpentCave_2_Streams/border.bin",
+      "blockdata_filepath": "data/layouts/SerpentCave_2_Streams/map.bin"
+    },
+    {
+      "id": "LAYOUT_SERPENT_CAVE_3_STREAMS",
+      "name": "SerpentCave_3_Streams_Layout",
+      "width": 152,
+      "height": 41,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MeteorFalls",
+      "border_filepath": "data/layouts/SerpentCave_3_Streams/border.bin",
+      "blockdata_filepath": "data/layouts/SerpentCave_3_Streams/map.bin"
+    },
+    {
+      "id": "LAYOUT_SERPENT_CAVE_B1F",
+      "name": "SerpentCave_B1F_Layout",
+      "width": 87,
+      "height": 11,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MeteorFalls",
+      "border_filepath": "data/layouts/SerpentCave_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/SerpentCave_B1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SERPENT_CAVE_B2F",
+      "name": "SerpentCave_B2F_Layout",
+      "width": 87,
+      "height": 11,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MeteorFalls",
+      "border_filepath": "data/layouts/SerpentCave_B2F/border.bin",
+      "blockdata_filepath": "data/layouts/SerpentCave_B2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SERPENT_CAVE_B3F",
+      "name": "SerpentCave_B3F_Layout",
+      "width": 87,
+      "height": 11,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MeteorFalls",
+      "border_filepath": "data/layouts/SerpentCave_B3F/border.bin",
+      "blockdata_filepath": "data/layouts/SerpentCave_B3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE23LAKE",
+      "name": "Route23Lake_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Drisledge",
+      "border_filepath": "data/layouts/Route23Lake/border.bin",
+      "blockdata_filepath": "data/layouts/Route23Lake/map.bin"
+    },
+    {
+      "id": "LAYOUT_SERPENT_CAVE_MAIN",
+      "name": "SerpentCaveMain_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MeteorFalls",
+      "border_filepath": "data/layouts/SerpentCaveMain/border.bin",
+      "blockdata_filepath": "data/layouts/SerpentCaveMain/map.bin"
+    },
+    {
+      "id": "LAYOUT_FLOODED_CAVE_FOSSIL_ROOM",
+      "name": "FloodedCave_FossilRoom_Layout",
+      "width": 11,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/FloodedCave_FossilRoom/border.bin",
+      "blockdata_filepath": "data/layouts/FloodedCave_FossilRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_WINDPLUME_MOUNTAIN",
+      "name": "WindplumeMountain_Layout",
+      "width": 41,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_WindplumeCave",
+      "border_filepath": "data/layouts/WindplumeMountain/border.bin",
+      "blockdata_filepath": "data/layouts/WindplumeMountain/map.bin"
+    },
+    {
+      "id": "LAYOUT_WINDPLUME_MOUNTAIN_2F",
+      "name": "WindplumeMountain_2F_Layout",
+      "width": 41,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_WindplumeCave",
+      "border_filepath": "data/layouts/WindplumeMountain_2F/border.bin",
+      "blockdata_filepath": "data/layouts/WindplumeMountain_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_WINDPLUME_MOUNTAIN_3F",
+      "name": "WindplumeMountain_3F_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_WindplumeCave",
+      "border_filepath": "data/layouts/WindplumeMountain_3F/border.bin",
+      "blockdata_filepath": "data/layouts/WindplumeMountain_3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_WINDPLUME_MOUNTAIN_4F",
+      "name": "WindplumeMountain_4F_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_WindplumeCave",
+      "border_filepath": "data/layouts/WindplumeMountain_4F/border.bin",
+      "blockdata_filepath": "data/layouts/WindplumeMountain_4F/map.bin"
+    },
+    {
+      "id": "LAYOUT_WINDPLUME_MOUNTAIN_5F",
+      "name": "WindplumeMountain_5F_Layout",
+      "width": 41,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_WindplumeCave",
+      "border_filepath": "data/layouts/WindplumeMountain_5F/border.bin",
+      "blockdata_filepath": "data/layouts/WindplumeMountain_5F/map.bin"
+    },
+    {
+      "id": "LAYOUT_WINDPLUME_MOUNTAIN_6F",
+      "name": "WindplumeMountain_6F_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_WindplumeCave",
+      "border_filepath": "data/layouts/WindplumeMountain_6F/border.bin",
+      "blockdata_filepath": "data/layouts/WindplumeMountain_6F/map.bin"
+    },
+    {
+      "id": "LAYOUT_WINDPLUME_MOUNTAIN_PEAK",
+      "name": "WindplumeMountain_Peak_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_WindplumeCave",
+      "border_filepath": "data/layouts/WindplumeMountain_Peak/border.bin",
+      "blockdata_filepath": "data/layouts/WindplumeMountain_Peak/map.bin"
+    },
+    {
+      "id": "LAYOUT_WINDPLUME_MOUNTAIN_7F",
+      "name": "WindplumeMountain_7F_Layout",
+      "width": 11,
+      "height": 13,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_WindplumeCave",
+      "border_filepath": "data/layouts/WindplumeMountain_7F/border.bin",
+      "blockdata_filepath": "data/layouts/WindplumeMountain_7F/map.bin"
     }
   ]
 }

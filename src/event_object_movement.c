@@ -567,10 +567,16 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Shuppet,           OBJ_EVENT_PAL_SHUPPET},
     {gObjectEventPalette_KrokorokPlayer,           OBJ_EVENT_PAL_KROKOROK},
     {gObjectEventPalette_Kasen,           OBJ_EVENT_PAL_KASEN},
+    {gObjectEventPalette_BwAceSwimmer,           OBJ_EVENT_PAL_BW_ACE_SWIMMER},
+    {gObjectEventPalette_ItemBallFloating,           OBJ_EVENT_PAL_ITEM_BALL_FLOATING},
     {gObjectEventPalette_Mina,           OBJ_EVENT_PAL_MINA},
     {gObjectEventPalette_IrisCasual,           OBJ_EVENT_PAL_IRIS_CASUAL},
     {gObjectEventPalette_Drayden,           OBJ_EVENT_PAL_DRAYDEN},
     {gObjectEventPalette_Breeder,           OBJ_EVENT_PAL_BREEDER},
+    {gObjectEventPalette_BigBoulder,           OBJ_EVENT_PAL_BIG_BOULDER},
+    {gObjectEventPalette_ZygardeCell,           OBJ_EVENT_PAL_ZYGARDE_CELL},
+    {gObjectEventPalette_IrisOnAggron,           OBJ_EVENT_PAL_IRIS_ON_AGGRON},
+    {gObjectEventPalette_AggronMount,           OBJ_EVENT_PAL_AGGRON_MOUNT},
     
 #if OW_FOLLOWERS_POKEBALLS
     {gObjectEventPal_MasterBall,            OBJ_EVENT_PAL_TAG_BALL_MASTER},

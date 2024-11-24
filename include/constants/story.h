@@ -39,4 +39,12 @@
 #define STORY_MINA_QUEST_COMPLETE                       5
 #define STORY_MINA_INTRODUCED                           6
 
+// VAR_SERPENTCAVE_STORY
+#define STORY_SERPENTCAVE_NOT_ENTERED                   0
+#define STORY_SERPENTCAVE_IRIS_INTRO                    1
+#define STORY_SERPENTCAVE_IRIS_MET_AFTER_FLOOD          2
+#define STORY_SERPENTCAVE_IRIS_CHALLENGED               3
+#define STORY_SERPENTCAVE_IRIS_DEFEATED                 4
+#define STORY_SERPENTCAVE_OBTAINED_MEGA_STONE           5
+
 #endif // GUARD_CONSTANTS_STORY_H

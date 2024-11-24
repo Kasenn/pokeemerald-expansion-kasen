@@ -243,7 +243,7 @@ Route102_EventScript_LivRematch::
 	end
 
 Route103_EventScript_Andrew::
-	trainerbattle_single TRAINER_ANDREW, Route103_Text_AndrewIntro, Route103_Text_AndrewDefeated
+	trainerbattle_single TRAINER_R3_TR2_SWIMMER_M, Route103_Text_AndrewIntro, Route103_Text_AndrewDefeated
 	msgbox Route103_Text_AndrewPostBattle, MSGBOX_AUTOCLOSE
 	end
 

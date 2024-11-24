@@ -1737,6 +1737,8 @@ extern const u32 gItemIcon_SpecialSoup[];
 extern const u32 gItemIconPalette_SpecialSoup[];
 extern const u32 gItemIcon_Curry[];
 extern const u32 gItemIconPalette_Curry[];
+extern const u32 gItemIcon_ChargedOrb[];
+extern const u32 gItemIconPalette_ChargedOrb[];
 extern const u32 gItemIcon_Empoleonite[];
 extern const u32 gItemIconPalette_Empoleonite[];
 extern const u32 gItemIcon_Decidueite[];

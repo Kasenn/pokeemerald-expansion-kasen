@@ -154,6 +154,8 @@ static const u16 sRegionMap_SpecialPlaceLocations[][2] =
     {MAPSEC_MAGMA_HIDEOUT,              MAPSEC_ROUTE_112},
     {MAPSEC_POKE_RANCH,                 MAPSEC_NEWROUTE_4},
     {MAPSEC_BERRY_FIELDS,                 MAPSEC_NEWROUTE_15},
+    {MAPSEC_SERPENT_CAVE,                 MAPSEC_NEWROUTE_10},
+    {MAPSEC_WINDPLUME_MOUNTAIN,                 MAPSEC_WINDPLUME_VALLEY},
     {MAPSEC_KAOLISLE_MINES,             MAPSEC_KAOLISLE_CITY},
     {MAPSEC_FLOODED_CAVES,             MAPSEC_NEWROUTE_12},
     {MAPSEC_WEIRDCAVE,                  MAPSEC_NEWROUTE_6},

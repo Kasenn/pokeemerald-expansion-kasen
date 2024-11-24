@@ -1,0 +1,102 @@
+mapscripts SerpentCaveMain_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        if(var(VAR_SERPENTCAVE_STORY) >= STORY_SERPENTCAVE_OBTAINED_MEGA_STONE){
+            setflag(FLAG_TEMP_1)
+        }
+    }
+}
+
+script SerpentCave_Iris{
+    lock
+    faceplayer
+    if(defeated(TRAINER_CASUAL_IRIS)){
+        goto(IrisAfterBattle)
+    }
+    if(var(VAR_SERPENTCAVE_STORY) == STORY_SERPENTCAVE_IRIS_CHALLENGED){
+        if(msgbox(Iris_TryAgain, MSGBOX_YESNO) == FALSE){
+            msgbox(Iris_PrepareFirst, MSGBOX_NPC)
+            end
+        }
+    }
+    else{
+        msgbox(FightForTreasure)
+    }
+    setvar(VAR_SERPENTCAVE_STORY, STORY_SERPENTCAVE_IRIS_CHALLENGED)
+    trainerbattle_no_intro(TRAINER_CASUAL_IRIS, SerpentCaveIris_Lose)
+    setvar(VAR_SERPENTCAVE_STORY, STORY_SERPENTCAVE_IRIS_DEFEATED)
+    goto(IrisAfterBattle)
+}
+
+script IrisAfterBattle{
+    if(flag(FLAG_TEMP_2)){
+        msgbox(Iris_GiveRewardShort)
+    }
+    elif(flag(FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE)){
+        msgbox(Iris_GiveRewardAfterMegaEvo)
+    }
+    else{
+        msgbox(Iris_GiveReward)
+    }
+    giveitem(ITEM_GARCHOMPITE)
+    if(var(VAR_RESULT) == FALSE){
+        setflag(FLAG_TEMP_2)
+        goto(ZeBagIsFull)
+    }
+    msgbox(IrisLeaves)
+    closemessage
+    setvar(VAR_SERPENTCAVE_STORY, STORY_SERPENTCAVE_OBTAINED_MEGA_STONE)
+    safefollow
+    switch(var(VAR_FACING)){
+        case DIR_SOUTH:
+        case DIR_WEST:
+        case DIR_EAST:
+            applymovement(1, Walk7Down)
+        case DIR_NORTH:
+            getfollowerxy(VAR_TEMP_0, VAR_TEMP_1)
+            if(var(VAR_TEMP_0) == 13){
+                applymovement(1, moves(
+                    walk_right
+                    walk_down * 3
+                    walk_left
+                    walk_down * 5
+                ))
+            }
+            else{
+                applymovement(1, moves(
+                    walk_left
+                    walk_down * 3
+                    walk_right
+                    walk_down * 5
+                ))
+            }
+    }
+    waitmovement(1)
+    removeobject(1)
+    delay(15)
+    release
+}
+
+text Iris_TryAgain{
+    "try again?"
+}
+text Iris_PrepareFirst{
+    "prepare first"
+}
+text FightForTreasure{
+    "fight for treasure"
+}
+text SerpentCaveIris_Lose{
+    "what? how? you cheated!"
+}
+text Iris_GiveRewardShort{
+    "here's the reward short"
+}
+text Iris_GiveRewardAfterMegaEvo{
+    "now i don't want to give reward!"
+}
+text Iris_GiveReward{
+    "here is your reward"
+}
+text IrisLeaves{
+    "goodbye"
+}

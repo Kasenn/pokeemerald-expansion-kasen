@@ -435,6 +435,22 @@ bool8 MetatileBehavior_IsSouthArrowWarp(u8 metatileBehavior)
         return FALSE;
 }
 
+bool8 MetatileBehavior_PointPlayerWest(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_POINT_PLAYER_WEST)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_PointPlayerEast(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_POINT_PLAYER_EAST)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 bool8 Unref_MetatileBehavior_IsArrowWarp(u8 metatileBehavior)
 {
     u8 isArrowWarp = FALSE;
@@ -1052,6 +1068,7 @@ bool8 MetatileBehavior_IsEastBlocked(u8 metatileBehavior)
      || metatileBehavior == MB_IMPASSABLE_SOUTHEAST
      || metatileBehavior == MB_IMPASSABLE_WEST_AND_EAST
      || metatileBehavior == MB_IMPASSABLE
+     || metatileBehavior == MB_LONG_GRASS_SOUTH_EDGE_IMPASSABLE
      || metatileBehavior == MB_SECRET_BASE_BREAKABLE_DOOR)
         return TRUE;
     else
@@ -1065,6 +1082,7 @@ bool8 MetatileBehavior_IsWestBlocked(u8 metatileBehavior)
      || metatileBehavior == MB_IMPASSABLE_SOUTHWEST
      || metatileBehavior == MB_IMPASSABLE_WEST_AND_EAST
      || metatileBehavior == MB_IMPASSABLE
+     || metatileBehavior == MB_LONG_GRASS_SOUTH_EDGE_IMPASSABLE
      || metatileBehavior == MB_SECRET_BASE_BREAKABLE_DOOR)
         return TRUE;
     else
@@ -1077,6 +1095,7 @@ bool8 MetatileBehavior_IsNorthBlocked(u8 metatileBehavior)
      || metatileBehavior == MB_IMPASSABLE_NORTHEAST
      || metatileBehavior == MB_IMPASSABLE_NORTHWEST
      || metatileBehavior == MB_IMPASSABLE
+     || metatileBehavior == MB_LONG_GRASS_SOUTH_EDGE_IMPASSABLE
      || metatileBehavior == MB_IMPASSABLE_SOUTH_AND_NORTH)
         return TRUE;
     else
@@ -1089,6 +1108,7 @@ bool8 MetatileBehavior_IsSouthBlocked(u8 metatileBehavior)
      || metatileBehavior == MB_IMPASSABLE_SOUTHEAST
      || metatileBehavior == MB_IMPASSABLE_SOUTHWEST
      || metatileBehavior == MB_IMPASSABLE
+     || metatileBehavior == MB_LONG_GRASS_SOUTH_EDGE_IMPASSABLE
      || metatileBehavior == MB_IMPASSABLE_SOUTH_AND_NORTH)
         return TRUE;
     else
@@ -1426,7 +1446,8 @@ bool8 MetatileBehavior_IsCuttableGrass(u8 metatileBehavior)
      || metatileBehavior == MB_TALL_GRASS_AUTUMN
      || metatileBehavior == MB_LONG_GRASS
      || metatileBehavior == MB_ASHGRASS
-     || metatileBehavior == MB_LONG_GRASS_SOUTH_EDGE)
+     || metatileBehavior == MB_LONG_GRASS_SOUTH_EDGE
+     || metatileBehavior == MB_LONG_GRASS_SOUTH_EDGE_IMPASSABLE)
         return TRUE;
     else
         return FALSE;
@@ -1568,7 +1589,8 @@ bool8 MetatileBehavior_IsLongGrass_Duplicate(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsLongGrassSouthEdge(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_LONG_GRASS_SOUTH_EDGE)
+    if (metatileBehavior == MB_LONG_GRASS_SOUTH_EDGE
+     || metatileBehavior == MB_LONG_GRASS_SOUTH_EDGE_IMPASSABLE)
         return TRUE;
     else
         return FALSE;

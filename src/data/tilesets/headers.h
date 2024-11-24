@@ -127,7 +127,7 @@ const struct Tileset gTileset_Mossdeep =
     .palettes = gTilesetPalettes_Mossdeep,
     .metatiles = gMetatiles_Mossdeep,
     .metatileAttributes = gMetatileAttributes_Mossdeep,
-    .callback = InitTilesetAnim_Pacifidlog,
+    .callback = InitTilesetAnim_Kaolisle,
 };
 
 const struct Tileset gTileset_EverGrande =
@@ -270,7 +270,7 @@ const struct Tileset gTileset_MeteorFalls =
     .palettes = gTilesetPalettes_MeteorFalls,
     .metatiles = gMetatiles_MeteorFalls,
     .metatileAttributes = gMetatileAttributes_MeteorFalls,
-    .callback = NULL,
+    .callback = InitTilesetAnim_Pacifidlog,
 };
 
 const struct Tileset gTileset_OceanicMuseum =
@@ -1154,4 +1154,26 @@ const struct Tileset gTileset_FlowerField =
     .metatiles = gMetatiles_FlowerField,
     .metatileAttributes = gMetatileAttributes_FlowerField,
     .callback = InitTilesetAnim_FlowerField,
+};
+
+const struct Tileset gTileset_Mossdeep2 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Mossdeep2,
+    .palettes = gTilesetPalettes_Mossdeep2,
+    .metatiles = gMetatiles_Mossdeep2,
+    .metatileAttributes = gMetatileAttributes_Mossdeep2,
+    .callback = InitTilesetAnim_Kaolisle,
+};
+
+const struct Tileset gTileset_WindplumeCave =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_WindplumeCave,
+    .palettes = gTilesetPalettes_WindplumeCave,
+    .metatiles = gMetatiles_WindplumeCave,
+    .metatileAttributes = gMetatileAttributes_WindplumeCave,
+    .callback = NULL,
 };

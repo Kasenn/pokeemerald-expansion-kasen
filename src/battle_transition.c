@@ -311,6 +311,11 @@ static const u16 sRegirock_Palette[] = INCBIN_U16("graphics/battle_transitions/r
 static const u32 sRegice_Tilemap[] = INCBIN_U32("graphics/battle_transitions/regice.bin");
 static const u32 sRegisteel_Tilemap[] = INCBIN_U32("graphics/battle_transitions/registeel.bin");
 static const u32 sRegirock_Tilemap[] = INCBIN_U32("graphics/battle_transitions/regirock.bin");
+
+static const u32 sZapdos_Tileset[] = INCBIN_U32("graphics/battle_transitions/zapdos.4bpp");
+static const u16 sZapdos_Palette[] = INCBIN_U16("graphics/battle_transitions/zapdos.gbapal");
+static const u32 sZapdos_Tilemap[] = INCBIN_U32("graphics/battle_transitions/zapdos.bin");
+
 static const u16 sUnused_Palette[] = INCBIN_U16("graphics/battle_transitions/unused.gbapal");
 static const u32 sKyogre_Tileset[] = INCBIN_U32("graphics/battle_transitions/kyogre.4bpp.lz");
 static const u32 sKyogre_Tilemap[] = INCBIN_U32("graphics/battle_transitions/kyogre.bin.lz");
@@ -449,6 +454,7 @@ static const TransitionStateFunc sRegice_Funcs[] =
     PatternWeave_Blend1,
     PatternWeave_Blend2,
     PatternWeave_FinishAppear,
+    FramesCountdown,
     PatternWeave_CircularMask
 };
 
@@ -459,6 +465,7 @@ static const TransitionStateFunc sRegisteel_Funcs[] =
     PatternWeave_Blend1,
     PatternWeave_Blend2,
     PatternWeave_FinishAppear,
+    FramesCountdown,
     PatternWeave_CircularMask
 };
 
@@ -469,6 +476,7 @@ static const TransitionStateFunc sRegirock_Funcs[] =
     PatternWeave_Blend1,
     PatternWeave_Blend2,
     PatternWeave_FinishAppear,
+    FramesCountdown,
     PatternWeave_CircularMask
 };
 
@@ -1409,12 +1417,30 @@ static bool8 Magma_Init(struct Task *task)
 static bool8 Regi_Init(struct Task *task)
 {
     u16 *tilemap, *tileset;
+    u16 species;
 
-    task->tEndDelay = 60;
+    task->tEndDelay = 30;
     InitPatternWeaveTransition(task);
     GetBg0TilesDst(&tilemap, &tileset);
     CpuFill16(0, tilemap, BG_SCREEN_SIZE);
-    CpuCopy16(sRegis_Tileset, tileset, 0x2000);
+
+    species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
+    switch (species)
+    {
+    case SPECIES_ZAPDOS:
+        CpuCopy16(sZapdos_Tileset, tileset, 0x2000);
+        break;
+    case SPECIES_MOLTRES:
+        CpuCopy16(sRegis_Tileset, tileset, 0x2000);
+        break;
+    case SPECIES_ARTICUNO:
+        CpuCopy16(sRegis_Tileset, tileset, 0x2000);
+        break;
+    default:
+        CpuCopy16(sRegis_Tileset, tileset, 0x2000);
+        break;
+    }
+    // CpuCopy16(sRegis_Tileset, tileset, 0x2000);
 
     task->tState++;
     return FALSE;
@@ -1509,8 +1535,8 @@ static bool8 Regirock_SetGfx(struct Task *task)
     u16 *tilemap, *tileset;
 
     GetBg0TilesDst(&tilemap, &tileset);
-    LoadPalette(sRegirock_Palette, BG_PLTT_ID(15), sizeof(sRegirock_Palette));
-    CpuCopy16(sRegirock_Tilemap, tilemap, 0x500);
+    LoadPalette(sZapdos_Palette, BG_PLTT_ID(15), sizeof(sZapdos_Palette));
+    CpuCopy16(sZapdos_Tilemap, tilemap, 0x500);
     SetSinWave((s16*)gScanlineEffectRegBuffers[0], 0, task->tSinIndex, 132, task->tAmplitude, DISPLAY_HEIGHT);
 
     task->tState++;

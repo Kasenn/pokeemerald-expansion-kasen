@@ -6240,7 +6240,7 @@ Electrike
 Level: 13
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_WALLACE ===
+=== TRAINER_R3_TR1_SWIMMER_F ===
 Name: WALLACE
 Class: Champion
 Pic: Champion Wallace
@@ -6299,7 +6299,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Ice Beam
 - Toxic
 
-=== TRAINER_ANDREW ===
+=== TRAINER_R3_TR2_SWIMMER_M ===
 Name: ANDREW
 Class: Fisherman
 Pic: Fisherman
@@ -6320,7 +6320,7 @@ Magikarp
 Level: 15
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_IVAN ===
+=== TRAINER_R3_TR3_SWIMMER_OLDSISTER ===
 Name: IVAN
 Class: Fisherman
 Pic: Fisherman
@@ -6341,7 +6341,7 @@ Magikarp
 Level: 7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_CLAUDE ===
+=== TRAINER_R3_TR4_TUBER ===
 Name: CLAUDE
 Class: Fisherman
 Pic: Fisherman
@@ -6362,7 +6362,7 @@ Barboach
 Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_ELLIOT_1 ===
+=== TRAINER_R3_TR5_FISHERMAN ===
 Name: ELLIOT
 Class: Fisherman
 Pic: Fisherman
@@ -6383,7 +6383,7 @@ Magikarp
 Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_NED ===
+=== TRAINER_R3_TR6_LANDSWIMMER_1 ===
 Name: NED
 Class: Fisherman
 Pic: Fisherman
@@ -6396,7 +6396,7 @@ Tentacool
 Level: 11
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_DALE ===
+=== TRAINER_R3_TR7_LANDSWIMMER_2 ===
 Name: DALE
 Class: Fisherman
 Pic: Fisherman
@@ -6421,7 +6421,7 @@ Wailmer
 Level: 14
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_NOLAN ===
+=== TRAINER_R3_TR8_SAILOR ===
 Name: NOLAN
 Class: Fisherman
 Pic: Fisherman
@@ -6434,7 +6434,7 @@ Barboach
 Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_BARNY ===
+=== TRAINER_R3_TR9_SWIMMER_M1 ===
 Name: BARNY
 Class: Fisherman
 Pic: Fisherman
@@ -6451,7 +6451,7 @@ Carvanha
 Level: 25
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_WADE ===
+=== TRAINER_R3_TR10_SWIMMER_M2 ===
 Name: WADE
 Class: Fisherman
 Pic: Fisherman
@@ -6464,7 +6464,7 @@ Tentacool
 Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_CARTER ===
+=== TRAINER_R3_TR11_SWIMMER_F1 ===
 Name: CARTER
 Class: Fisherman
 Pic: Fisherman
@@ -6481,7 +6481,7 @@ Tentacruel
 Level: 25
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_ELLIOT_2 ===
+=== TRAINER_R9_TR1_SWIMMER_M ===
 Name: ELLIOT
 Class: Fisherman
 Pic: Fisherman
@@ -6502,7 +6502,7 @@ Gyarados
 Level: 27
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_ELLIOT_3 ===
+=== TRAINER_R9_TR2_BLACKBELT ===
 Name: ELLIOT
 Class: Fisherman
 Pic: Fisherman
@@ -6527,7 +6527,7 @@ Gyarados
 Level: 29
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 
-=== TRAINER_ELLIOT_4 ===
+=== TRAINER_R9_TR3_BIRDKEEPER ===
 Name: ELLIOT
 Class: Fisherman
 Pic: Fisherman
@@ -6552,7 +6552,7 @@ Gyarados
 Level: 31
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
-=== TRAINER_ELLIOT_5 ===
+=== TRAINER_R9_TR4_BATTLEGIRL ===
 Name: ELLIOT
 Class: Fisherman
 Pic: Fisherman
@@ -6577,7 +6577,7 @@ Tentacruel
 Level: 35
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
-=== TRAINER_RONALD ===
+=== TRAINER_R9_TR5_SWIMMER_F ===
 Name: RONALD
 Class: Fisherman
 Pic: Fisherman
@@ -6610,7 +6610,7 @@ Gyarados
 Level: 35
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_JACOB ===
+=== TRAINER_R9_TR6_FISHERMAN ===
 Name: JACOB
 Class: Triathlete
 Pic: Cycling Triathlete M
@@ -6631,7 +6631,7 @@ Magnemite
 Level: 14
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
-=== TRAINER_ANTHONY ===
+=== TRAINER_R9_TR7_HIKER ===
 Name: ANTHONY
 Class: Triathlete
 Pic: Cycling Triathlete M
@@ -6648,7 +6648,7 @@ Magnemite
 Level: 14
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_BENJAMIN_1 ===
+=== TRAINER_R9_TR8_COLLECTOR ===
 Name: BENJAMIN
 Class: Triathlete
 Pic: Cycling Triathlete M
@@ -6661,7 +6661,7 @@ Magnemite
 Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_BENJAMIN_2 ===
+=== TRAINER_R9_TR9_SWIMMER_M2 ===
 Name: BENJAMIN
 Class: Triathlete
 Pic: Cycling Triathlete M
@@ -6674,7 +6674,7 @@ Magnemite
 Level: 30
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_BENJAMIN_3 ===
+=== TRAINER_R9_TR10_LANDSWIMMER ===
 Name: BENJAMIN
 Class: Triathlete
 Pic: Cycling Triathlete M
@@ -6687,7 +6687,7 @@ Magnemite
 Level: 33
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 
-=== TRAINER_BENJAMIN_4 ===
+=== TRAINER_R10_TR1_ACESWIMMER ===
 Name: BENJAMIN
 Class: Triathlete
 Pic: Cycling Triathlete M
@@ -6700,7 +6700,7 @@ Magneton
 Level: 36
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
-=== TRAINER_BENJAMIN_5 ===
+=== TRAINER_R10_TR2_SWIMMER_F1 ===
 Name: BENJAMIN
 Class: Triathlete
 Pic: Cycling Triathlete M
@@ -6713,7 +6713,7 @@ Magneton
 Level: 39
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
-=== TRAINER_ABIGAIL_1 ===
+=== TRAINER_R10_TR3_FISHERMAN ===
 Name: ABIGAIL
 Class: Triathlete
 Pic: Cycling Triathlete F
@@ -6726,7 +6726,7 @@ Magnemite
 Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_JASMINE ===
+=== TRAINER_R10_TR4_SWIMMER_M1 ===
 Name: JASMINE
 Class: Triathlete
 Pic: Cycling Triathlete F
@@ -6747,7 +6747,7 @@ Voltorb
 Level: 6
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_ABIGAIL_2 ===
+=== TRAINER_R10_TR5_BLACKBELT ===
 Name: ABIGAIL
 Class: Triathlete
 Pic: Cycling Triathlete F
@@ -6760,7 +6760,7 @@ Magnemite
 Level: 28
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_ABIGAIL_3 ===
+=== TRAINER_R10_TR6_HIKER ===
 Name: ABIGAIL
 Class: Triathlete
 Pic: Cycling Triathlete F
@@ -6773,7 +6773,7 @@ Magnemite
 Level: 31
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 
-=== TRAINER_ABIGAIL_4 ===
+=== TRAINER_R10_TR7_SWIMMER_F2 ===
 Name: ABIGAIL
 Class: Triathlete
 Pic: Cycling Triathlete F
@@ -6786,7 +6786,7 @@ Magneton
 Level: 34
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
-=== TRAINER_ABIGAIL_5 ===
+=== TRAINER_R10_TR8_SWIMMER_M2 ===
 Name: ABIGAIL
 Class: Triathlete
 Pic: Cycling Triathlete F
@@ -6799,7 +6799,7 @@ Magneton
 Level: 37
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
-=== TRAINER_DYLAN_1 ===
+=== TRAINER_R10_TR9_BATTLEGIRL ===
 Name: DYLAN
 Class: Triathlete
 Pic: Running Triathlete M
@@ -6812,7 +6812,7 @@ Doduo
 Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_DYLAN_2 ===
+=== TRAINER_R10_TR10_TUBER_M ===
 Name: DYLAN
 Class: Triathlete
 Pic: Running Triathlete M

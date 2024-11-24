@@ -123,7 +123,58 @@ EventScript_ResetAllBerries::
 
 EventScript_ResetAllMapFlags::
 	setvar VAR_GROTTO_STEP_COUNT, 256
-	setvar VAR_DEBUG, 11
+	setvar VAR_DEBUG, 13
+	setflag FLAG_WINDPLUME_MT_HIDE_CHARGED_ORB
+	setflag FLAG_ZYGARDE_CELL_1
+    setflag FLAG_ZYGARDE_CELL_2
+    setflag FLAG_ZYGARDE_CELL_3
+    setflag FLAG_ZYGARDE_CELL_4
+    setflag FLAG_ZYGARDE_CELL_5
+    setflag FLAG_ZYGARDE_CELL_6
+    setflag FLAG_ZYGARDE_CELL_7
+    setflag FLAG_ZYGARDE_CELL_8
+    setflag FLAG_ZYGARDE_CELL_9
+    setflag FLAG_ZYGARDE_CELL_10
+    setflag FLAG_ZYGARDE_CELL_11
+    setflag FLAG_ZYGARDE_CELL_12
+    setflag FLAG_ZYGARDE_CELL_13
+    setflag FLAG_ZYGARDE_CELL_14
+    setflag FLAG_ZYGARDE_CELL_15
+    setflag FLAG_ZYGARDE_CELL_16
+    setflag FLAG_ZYGARDE_CELL_17
+    setflag FLAG_ZYGARDE_CELL_18
+    setflag FLAG_ZYGARDE_CELL_19
+    setflag FLAG_ZYGARDE_CELL_20
+    setflag FLAG_ZYGARDE_CELL_21
+    setflag FLAG_ZYGARDE_CELL_22
+    setflag FLAG_ZYGARDE_CELL_23
+    setflag FLAG_ZYGARDE_CELL_24
+    setflag FLAG_ZYGARDE_CELL_25
+    setflag FLAG_ZYGARDE_CELL_26
+    setflag FLAG_ZYGARDE_CELL_27
+    setflag FLAG_ZYGARDE_CELL_28
+    setflag FLAG_ZYGARDE_CELL_29
+    setflag FLAG_ZYGARDE_CELL_30
+    setflag FLAG_ZYGARDE_CELL_31
+    setflag FLAG_ZYGARDE_CELL_32
+    setflag FLAG_ZYGARDE_CELL_33
+    setflag FLAG_ZYGARDE_CELL_34
+    setflag FLAG_ZYGARDE_CELL_35
+    setflag FLAG_ZYGARDE_CELL_36
+    setflag FLAG_ZYGARDE_CELL_37
+    setflag FLAG_ZYGARDE_CELL_38
+    setflag FLAG_ZYGARDE_CELL_39
+    setflag FLAG_ZYGARDE_CELL_40
+    setflag FLAG_ZYGARDE_CELL_41
+    setflag FLAG_ZYGARDE_CELL_42
+    setflag FLAG_ZYGARDE_CELL_43
+    setflag FLAG_ZYGARDE_CELL_44
+    setflag FLAG_ZYGARDE_CELL_45
+    setflag FLAG_ZYGARDE_CELL_46
+    setflag FLAG_ZYGARDE_CELL_47
+    setflag FLAG_ZYGARDE_CELL_48
+    setflag FLAG_ZYGARDE_CELL_49
+    setflag FLAG_ZYGARDE_CELL_50
 	setflag FLAG_HIDE_AMPHAROS
 	setflag FLAG_OLDMAN_PEARLSTRING
 	setflag FLAG_OBTAINED_PIDGEOTITE

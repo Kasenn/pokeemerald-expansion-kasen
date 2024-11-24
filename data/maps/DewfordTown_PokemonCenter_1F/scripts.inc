@@ -1,3 +1,4 @@
+
 .set LOCALID_NURSE, 1
 
 DewfordTown_PokemonCenter_1F_MapScripts::
@@ -40,7 +41,9 @@ DewfordTown_PokemonCenter_1F_Text_FaintedMonCanUseHM:
 DewfordTown_PokemonCenter_1F_OldMan::
 	lockall
 	faceplayer
-	goto_if_unset FLAG_DFTPC1F_MAPBOUGHT, DewfordTown_PokemonCenter_1F_OldMan_1
+	checkitem ITEM_TOWN_MAP
+	compare VAR_RESULT, FALSE
+	goto_if_eq DewfordTown_PokemonCenter_1F_OldMan_1
 	msgbox DewfordTown_PokemonCenter_1F_OldMan_Text_0, MSGBOX_NPC
 	waitmessage
 	closemessage
@@ -48,7 +51,7 @@ DewfordTown_PokemonCenter_1F_OldMan::
 	end
 
 DewfordTown_PokemonCenter_1F_OldMan_1:
-	goto_if_unset FLAG_DFTPC1F_MANSPOKENTO, DewfordTown_PokemonCenter_1F_OldMan_4
+	goto_if_unset FLAG_TEMP_1, DewfordTown_PokemonCenter_1F_OldMan_4
 	showmoneybox 0, 0
 	msgbox DFTPC1F_MapIntro2, MSGBOX_YESNO
 	compare VAR_RESULT, YES
@@ -57,7 +60,7 @@ DewfordTown_PokemonCenter_1F_OldMan_1:
 	return
 
 DewfordTown_PokemonCenter_1F_OldMan_4:
-	setflag FLAG_DFTPC1F_MANSPOKENTO
+	setflag FLAG_TEMP_1
 	msgbox DFTPC1F_MapIntro, MSGBOX_NPC
 	showmoneybox 0, 0
 	msgbox DFTPC1F_Interested, MSGBOX_YESNO
@@ -98,7 +101,6 @@ DFTPC1F_SellMap::
 DFTPC1F_SellMap_1:
 	hidemoneybox
 	removemoney 2000
-	setflag FLAG_DFTPC1F_MAPBOUGHT
 	giveitem ITEM_TOWN_MAP
 	waitfanfare
 	msgbox DewfordTown_PokemonCenter_1F_OldMan_Text_0, MSGBOX_NPC

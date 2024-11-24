@@ -1,0 +1,848 @@
+mapscripts SerpentCave_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: SerpentCaveLayout
+    MAP_SCRIPT_ON_LOAD: SerpentCaveSetWaterfall
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_SERPENTCAVE_STORY, STORY_SERPENTCAVE_NOT_ENTERED: IrisGoodbye
+    ]
+}
+
+const BOULDER_1 = FLAG_TEMP_1
+const RAPID_1 = FLAG_TEMP_2
+const BOULDER_2 = FLAG_TEMP_3
+const RAPID_2 = FLAG_TEMP_4
+const BOULDER_3 = FLAG_TEMP_5
+const RAPID_3 = FLAG_TEMP_6
+const BOULDER_4 = FLAG_TEMP_7
+const RAPID_4 = FLAG_TEMP_8
+const X = VAR_TEMP_0
+const CAVE_ENTRANCE = VAR_TEMP_1
+
+script SerpentCaveLayout{
+    if(var(VAR_SERPENTCAVE_STORY) >= STORY_SERPENTCAVE_IRIS_INTRO){
+        setflag(FLAG_TEMP_B)
+    }
+    if(var(VAR_SERPENTCAVE_STORY) == STORY_SERPENTCAVE_NOT_ENTERED){
+        setflag(FLAG_HIDE_MAP_NAME_POPUP)
+        getplayerxy(X, VAR_TEMP_1)
+        switch(var(X)){
+            case 27:
+                setvar(CAVE_ENTRANCE, 0)
+                setobjectxyperm(31, 27, 6)
+                setobjectxyperm(32, 27, 5)
+                setobjectxyperm(33, 27, 5)
+                setobjectmovementtype(31, MOVEMENT_TYPE_FACE_DOWN)
+                setobjectmovementtype(32, MOVEMENT_TYPE_FACE_UP)
+                setobjectmovementtype(33, MOVEMENT_TYPE_FACE_UP)
+            case 57:
+                setvar(CAVE_ENTRANCE, 1)
+                setobjectxyperm(31, 57, 32)
+                setobjectxyperm(32, 57, 35)
+                setobjectxyperm(33, 57, 35)
+                setobjectmovementtype(31, MOVEMENT_TYPE_FACE_UP)
+                setobjectmovementtype(32, MOVEMENT_TYPE_FACE_DOWN)
+                setobjectmovementtype(33, MOVEMENT_TYPE_FACE_DOWN)
+            case 83:
+                setvar(CAVE_ENTRANCE, 2)
+            case 113:
+                setvar(CAVE_ENTRANCE, 3)
+                setobjectxyperm(31, 113, 30)
+                setobjectxyperm(32, 113, 32)
+                setobjectxyperm(33, 113, 32)
+                setobjectmovementtype(31, MOVEMENT_TYPE_FACE_UP)
+                setobjectmovementtype(32, MOVEMENT_TYPE_FACE_DOWN)
+                setobjectmovementtype(33, MOVEMENT_TYPE_FACE_DOWN)
+            case 138:
+                setvar(CAVE_ENTRANCE, 4)
+                setobjectxyperm(31, 138, 29)
+                setobjectxyperm(32, 138, 31)
+                setobjectxyperm(33, 138, 31)
+                setobjectmovementtype(31, MOVEMENT_TYPE_FACE_UP)
+                setobjectmovementtype(32, MOVEMENT_TYPE_FACE_DOWN)
+                setobjectmovementtype(33, MOVEMENT_TYPE_FACE_DOWN)
+        }
+    }
+    setflag(RAPID_1)
+    setflag(RAPID_2)
+    setflag(RAPID_3)
+    setflag(RAPID_4)
+    switch(var(VAR_SERPENTCAVE_WATER_LEVEL)){
+        case 0:
+            setmaplayoutindex(LAYOUT_SERPENT_CAVE_0_STREAMS)
+        case 1:
+        case 11:
+            setmaplayoutindex(LAYOUT_SERPENT_CAVE_1_STREAMS)
+        case 2:
+        case 12:
+            setmaplayoutindex(LAYOUT_SERPENT_CAVE_2_STREAMS)
+        case 3:
+        case 13:
+            setmaplayoutindex(LAYOUT_SERPENT_CAVE_3_STREAMS)
+        case 4:
+        case 14:
+            setmaplayoutindex(LAYOUT_SERPENT_CAVE)
+    }
+    if(flag(FLAG_SERPENTCAVE_BOULDER_1)){
+        setflag(BOULDER_1)
+        clearflag(RAPID_1)
+    }
+    if(flag(FLAG_SERPENTCAVE_BOULDER_2)){
+        setflag(BOULDER_2)
+        clearflag(RAPID_2)
+    }
+    if(flag(FLAG_SERPENTCAVE_BOULDER_3)){
+        setflag(BOULDER_3)
+        clearflag(RAPID_3)
+    }
+    if(flag(FLAG_SERPENTCAVE_BOULDER_4)){
+        setflag(BOULDER_4)
+        clearflag(RAPID_4)
+    }
+}
+script SerpentCaveSetWaterfall{
+    setflag(FLAG_TEMP_A)
+    if(flag(FLAG_SERPENTCAVE_BOULDER_1)){
+        setmetatile(30, 3, 0x2B6, TRUE)
+        setmetatile(31, 3, 0x2B7, TRUE)
+        setmetatile(30, 4, 0x2C8, TRUE)
+        setmetatile(31, 4, 0x2C9, TRUE)
+        setmetatile(30, 5, 0x2C8, TRUE)
+        setmetatile(31, 5, 0x2C9, TRUE)
+        setmetatile(30, 6, 0x2C8, TRUE)
+        setmetatile(31, 6, 0x2C9, TRUE)
+        setmetatile(30, 7, 0x2C8, TRUE)
+        setmetatile(31, 7, 0x2C9, TRUE)
+        setmetatile(30, 8, 0x2D0, TRUE)
+        setmetatile(31, 8, 0x2D1, TRUE)
+        if(var(VAR_SERPENTCAVE_WATER_LEVEL) <= 3){
+            setmetatile(30, 9, 0x0B9, TRUE)
+            setmetatile(31, 9, 0x0B9, TRUE)
+            setmetatile(30, 10, 0x0B9, TRUE)
+            setmetatile(31, 10, 0x0B9, TRUE)
+            setmetatile(30, 11, 0x0B9, TRUE)
+            setmetatile(31, 11, 0x0B9, TRUE)
+            setmetatile(30, 12, 0x0B9, TRUE)
+            setmetatile(31, 12, 0x0B9, TRUE)
+        }
+    }
+    if(flag(FLAG_SERPENTCAVE_BOULDER_2)){
+        setmetatile(54, 36, 0x2CC, TRUE)
+        setmetatile(55, 36, 0x2CD, TRUE)
+        setmetatile(54, 35, 0x2C4, TRUE)
+        setmetatile(55, 35, 0x2C5, TRUE)
+        setmetatile(54, 34, 0x2C4, TRUE)
+        setmetatile(55, 34, 0x2C5, TRUE)
+        setmetatile(54, 33, 0x2C4, TRUE)
+        setmetatile(55, 33, 0x2C5, TRUE)
+        setmetatile(54, 32, 0x2BC, TRUE)
+        setmetatile(55, 32, 0x2BD, TRUE)
+        if(var(VAR_SERPENTCAVE_WATER_LEVEL) <= 3){
+            setmetatile(54, 31, 0x2C4, TRUE)
+            setmetatile(55, 31, 0x2C5, TRUE)
+            setmetatile(54, 30, 0x2BC, TRUE)
+            setmetatile(55, 30, 0x2BD, TRUE)
+        }
+    }
+    if(flag(FLAG_SERPENTCAVE_BOULDER_3)){
+        setmetatile(108, 33, 0x2CC, TRUE)
+        setmetatile(109, 33, 0x2CD, TRUE)
+        setmetatile(108, 32, 0x2C4, TRUE)
+        setmetatile(109, 32, 0x2C5, TRUE)
+        setmetatile(108, 31, 0x2C4, TRUE)
+        setmetatile(109, 31, 0x2C5, TRUE)
+        setmetatile(108, 30, 0x2BC, TRUE)
+        setmetatile(109, 30, 0x2BD, TRUE)
+        if(var(VAR_SERPENTCAVE_WATER_LEVEL) <= 3){
+            setmetatile(108, 29, 0x2C4, TRUE)
+            setmetatile(109, 29, 0x2C5, TRUE)
+            setmetatile(108, 28, 0x2BC, TRUE)
+            setmetatile(109, 28, 0x2BD, TRUE)
+        }
+    }
+    if(flag(FLAG_SERPENTCAVE_BOULDER_4)){
+        setmetatile(135, 32, 0x2CD, TRUE)
+        setmetatile(134, 32, 0x2CC, TRUE)
+        setmetatile(134, 31, 0x2C4, TRUE)
+        setmetatile(135, 31, 0x2C5, TRUE)
+        setmetatile(134, 30, 0x2C4, TRUE)
+        setmetatile(135, 30, 0x2C5, TRUE)
+        setmetatile(134, 29, 0x2BC, TRUE)
+        setmetatile(135, 29, 0x2BD, TRUE)
+        if(var(VAR_SERPENTCAVE_WATER_LEVEL) <= 3){
+            setmetatile(134, 28, 0x2C4, TRUE)
+            setmetatile(135, 28, 0x2C5, TRUE)
+            setmetatile(134, 27, 0x2BC, TRUE)
+            setmetatile(135, 27, 0x2BD, TRUE)
+        }
+    }
+}
+
+movement Walk4DownFast{
+    walk_down * 4
+    walk_fast_down * 3
+}
+
+text PushBoulderAsideCant{
+    "It's a huge boulder, and it looks like\n"
+    "there's a hole in the wall behind it.\p"
+    "A Pokémon may be able to push the\n"
+    "boulder aside."
+}
+text PushBoulderAside{
+    "It's a huge boulder, and it looks like\n"
+    "there's a hole in the wall behind it.\p"
+    "A Pokémon may be able to push the\n"
+    "boulder aside.\p"
+	"Would you like to use Strength?"
+}
+
+text PushWithStrength{
+    "{STR_VAR_1} used Strength!\p"
+	"{STR_VAR_1} was able to nudge\n"
+	"the huge boulder loose!"
+}
+
+script SerpentCave_RapidTooFast{
+    msgbox(SerpentCave_RapidTooFast_Text, MSGBOX_SIGN)
+}
+text SerpentCave_RapidTooFast_Text{
+    "The water is flowing too rapidly\n"
+    "to fish or surf here."
+}
+
+movement BoulderGoingUp1{
+    walk_up * 5
+    jump_special_up
+    walk_up
+    jump_special_up}
+movement BoulderGoingUp2{
+    walk_up * 4
+    jump_special_up
+    walk_up
+    jump_special_up}
+script PushABoulder{
+    if(checkpartymove(MOVE_STRENGTH) == PARTY_SIZE){
+        msgbox(PushBoulderAsideCant)
+        release
+        end
+    }
+    bufferpartymonnick(STR_VAR_1, VAR_RESULT)
+    if(msgbox(PushBoulderAside, MSGBOX_YESNO) == FALSE){
+        release
+        end
+    }
+    safefollow
+    msgbox(PushWithStrength)
+    closemessage
+    call(CameraShake)
+    waitse
+    waitstate
+    delay(20)}
+
+script DoBoulderOneRoll{
+    applymovement(6, Walk4DownFast)
+    applymovement(7, Walk4DownFast)
+
+    setmetatile(30, 4, 0x326, TRUE)
+    setmetatile(31, 4, 0x327, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+    setmetatile(30, 4, 0x2C8, TRUE)
+    setmetatile(31, 4, 0x2C9, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+
+    setmetatile(30, 5, 0x32E, TRUE)
+    setmetatile(31, 5, 0x32F, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+    setmetatile(30, 5, 0x2C8, TRUE)
+    setmetatile(31, 5, 0x2C9, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+
+    setmetatile(30, 6, 0x32E, TRUE)
+    setmetatile(31, 6, 0x32F, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+    setmetatile(30, 6, 0x2C8, TRUE)
+    setmetatile(31, 6, 0x2C9, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+
+    setmetatile(30, 7, 0x32E, TRUE)
+    setmetatile(31, 7, 0x32F, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+    setmetatile(30, 7, 0x2C8, TRUE)
+    setmetatile(31, 7, 0x2C9, TRUE)
+    special(DrawWholeMapView)
+    delay(2)
+
+    setmetatile(30, 8, 0x33E, TRUE)
+    setmetatile(31, 8, 0x33F, TRUE)
+    special(DrawWholeMapView)
+    delay(4)
+    setmetatile(30, 8, 0x2D0, TRUE)
+    setmetatile(31, 8, 0x2D1, TRUE)
+    special(DrawWholeMapView)
+    delay(4)
+
+    setmetatile(30, 9, 0x346, TRUE)
+    setmetatile(31, 9, 0x347, TRUE)
+    special(DrawWholeMapView)
+    delay(4)
+    setmetatile(30, 9, 0x0B9, TRUE)
+    setmetatile(31, 9, 0x0B9, TRUE)
+    special(DrawWholeMapView)
+    delay(4)
+
+    setmetatile(30, 10, 0x346, TRUE)
+    setmetatile(31, 10, 0x347, TRUE)
+    special(DrawWholeMapView)
+    delay(4)
+    setmetatile(30, 10, 0x0B9, TRUE)
+    setmetatile(31, 10, 0x0B9, TRUE)
+    special(DrawWholeMapView)
+    delay(4)
+
+    setmetatile(30, 11, 0x346, TRUE)
+    setmetatile(31, 11, 0x347, TRUE)
+    special(DrawWholeMapView)
+    delay(4)
+    setmetatile(30, 11, 0x0B9, TRUE)
+    setmetatile(31, 11, 0x0B9, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+
+    setmetatile(30, 12, 0x0B9, TRUE)
+    setmetatile(31, 12, 0x0B9, TRUE)
+    special(DrawWholeMapView)}
+script DoBoulderTwoRoll{
+    applymovement(8, BoulderGoingUp1)
+    applymovement(9, BoulderGoingUp1)
+
+    delay(4)
+    setmetatile(54, 36, 0x340, TRUE)
+    setmetatile(55, 36, 0x341, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+    setmetatile(54, 36, 0x2CC, TRUE)
+    setmetatile(55, 36, 0x2CD, TRUE)
+    special(DrawWholeMapView)
+
+    delay(8)
+    setmetatile(54, 35, 0x338, TRUE)
+    setmetatile(55, 35, 0x339, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+    setmetatile(54, 35, 0x2C4, TRUE)
+    setmetatile(55, 35, 0x2C5, TRUE)
+    special(DrawWholeMapView)
+
+    delay(8)
+    setmetatile(54, 34, 0x338, TRUE)
+    setmetatile(55, 34, 0x339, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+    setmetatile(54, 34, 0x2C4, TRUE)
+    setmetatile(55, 34, 0x2C5, TRUE)
+    special(DrawWholeMapView)
+
+    delay(8)
+    setmetatile(54, 33, 0x338, TRUE)
+    setmetatile(55, 33, 0x339, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+    setmetatile(54, 33, 0x2C4, TRUE)
+    setmetatile(55, 33, 0x2C5, TRUE)
+    special(DrawWholeMapView)
+
+    delay(8)
+    setmetatile(54, 32, 0x330, TRUE)
+    setmetatile(55, 32, 0x331, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+    setmetatile(54, 32, 0x2BC, TRUE)
+    setmetatile(55, 32, 0x2BD, TRUE)
+    special(DrawWholeMapView)
+
+    delay(16)
+    setmetatile(54, 31, 0x338, TRUE)
+    setmetatile(55, 31, 0x339, TRUE)
+    special(DrawWholeMapView)
+
+    call(CameraShake)
+
+    delay(8)
+    setmetatile(54, 31, 0x2C4, TRUE)
+    setmetatile(55, 31, 0x2C5, TRUE)
+    special(DrawWholeMapView)
+
+    delay(8)
+    setmetatile(54, 30, 0x330, TRUE)
+    setmetatile(55, 30, 0x331, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+    setmetatile(54, 30, 0x2BC, TRUE)
+    setmetatile(55, 30, 0x2BD, TRUE)
+    special(DrawWholeMapView)}
+script DoBoulderThreeRoll{
+    applymovement(17, BoulderGoingUp2)
+    applymovement(18, BoulderGoingUp2)
+
+    delay(4)
+    setmetatile(108, 33, 0x340, TRUE)
+    setmetatile(109, 33, 0x341, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+    setmetatile(108, 33, 0x2CC, TRUE)
+    setmetatile(109, 33, 0x2CD, TRUE)
+    special(DrawWholeMapView)
+
+    delay(8)
+    setmetatile(108, 32, 0x338, TRUE)
+    setmetatile(109, 32, 0x339, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+    setmetatile(108, 32, 0x2C4, TRUE)
+    setmetatile(109, 32, 0x2C5, TRUE)
+    special(DrawWholeMapView)
+
+    delay(8)
+    setmetatile(108, 31, 0x338, TRUE)
+    setmetatile(109, 31, 0x339, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+    setmetatile(108, 31, 0x2C4, TRUE)
+    setmetatile(109, 31, 0x2C5, TRUE)
+    special(DrawWholeMapView)
+
+    delay(8)
+    setmetatile(108, 30, 0x330, TRUE)
+    setmetatile(109, 30, 0x331, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+    setmetatile(108, 30, 0x2BC, TRUE)
+    setmetatile(109, 30, 0x2BD, TRUE)
+    special(DrawWholeMapView)
+
+    delay(16)
+    setmetatile(108, 29, 0x338, TRUE)
+    setmetatile(109, 29, 0x339, TRUE)
+    special(DrawWholeMapView)
+
+    call(CameraShake)
+
+    delay(8)
+    setmetatile(108, 29, 0x2C4, TRUE)
+    setmetatile(109, 29, 0x2C5, TRUE)
+    special(DrawWholeMapView)
+
+    delay(8)
+    setmetatile(108, 28, 0x330, TRUE)
+    setmetatile(109, 28, 0x331, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+    setmetatile(108, 28, 0x2BC, TRUE)
+    setmetatile(109, 28, 0x2BD, TRUE)
+    special(DrawWholeMapView)}
+script DoBoulderFourRoll{
+    applymovement(24, BoulderGoingUp2)
+    applymovement(25, BoulderGoingUp2)
+
+    delay(4)
+    setmetatile(134, 32, 0x340, TRUE)
+    setmetatile(135, 32, 0x341, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+    setmetatile(134, 32, 0x2CC, TRUE)
+    setmetatile(135, 32, 0x2CD, TRUE)
+    special(DrawWholeMapView)
+
+    delay(8)
+    setmetatile(134, 31, 0x338, TRUE)
+    setmetatile(135, 31, 0x339, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+    setmetatile(134, 31, 0x2C4, TRUE)
+    setmetatile(135, 31, 0x2C5, TRUE)
+    special(DrawWholeMapView)
+
+    delay(8)
+    setmetatile(134, 30, 0x338, TRUE)
+    setmetatile(135, 30, 0x339, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+    setmetatile(134, 30, 0x2C4, TRUE)
+    setmetatile(135, 30, 0x2C5, TRUE)
+    special(DrawWholeMapView)
+
+    delay(8)
+    setmetatile(134, 29, 0x330, TRUE)
+    setmetatile(135, 29, 0x331, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+    setmetatile(134, 29, 0x2BC, TRUE)
+    setmetatile(135, 29, 0x2BD, TRUE)
+    special(DrawWholeMapView)
+
+    delay(16)
+    setmetatile(134, 28, 0x338, TRUE)
+    setmetatile(135, 28, 0x339, TRUE)
+    special(DrawWholeMapView)
+
+    call(CameraShake)
+
+    delay(8)
+    setmetatile(134, 28, 0x2C4, TRUE)
+    setmetatile(135, 28, 0x2C5, TRUE)
+    special(DrawWholeMapView)
+
+    delay(8)
+    setmetatile(134, 27, 0x330, TRUE)
+    setmetatile(135, 27, 0x331, TRUE)
+    special(DrawWholeMapView)
+    delay(8)
+    setmetatile(134, 27, 0x2BC, TRUE)
+    setmetatile(135, 27, 0x2BD, TRUE)
+    special(DrawWholeMapView)}
+
+
+script SerpentCave_MoveFirstBoulder{
+    lockall
+    call(PushABoulder)
+    call(DoBoulderOneRoll)
+    waitmovement(0)
+    removeobject(1)
+    removeobject(6)
+    removeobject(7)
+    clearflag(RAPID_1)
+    addobject(2)
+    addobject(3)
+    addobject(4)
+    addobject(5)
+    if(var(VAR_SERPENTCAVE_WATER_LEVEL) == 3){
+        playse(SE_M_DIVE)
+        waitse
+    }
+    else{
+        call(CameraShake)
+        waitstate
+    }
+    setflag(FLAG_SERPENTCAVE_BOULDER_1)
+    addvar(VAR_SERPENTCAVE_WATER_LEVEL, 1)
+    release}
+script SerpentCave_MoveSecondBoulder{
+    call(PushABoulder)
+    call(DoBoulderTwoRoll)
+
+    waitmovement(0)
+    delay(8)
+    if(var(VAR_SERPENTCAVE_WATER_LEVEL) == 3){
+        playse(SE_M_DIVE)
+        waitse
+    }
+    else{
+        call(CameraShake)
+        waitstate
+    }
+    removeobject(8)
+    removeobject(9)
+    removeobject(10)
+    clearflag(RAPID_2)
+    addobject(12)
+    addobject(13)
+    addobject(14)
+    addobject(15)
+    addobject(16)
+    setflag(FLAG_SERPENTCAVE_BOULDER_2)
+    addvar(VAR_SERPENTCAVE_WATER_LEVEL, 1)
+    release}
+script SerpentCave_MoveThirdBoulder{
+    call(PushABoulder)
+    call(DoBoulderThreeRoll)
+
+    waitmovement(0)
+    delay(8)
+    if(var(VAR_SERPENTCAVE_WATER_LEVEL) == 3){
+        playse(SE_M_DIVE)
+        waitse
+    }
+    else{
+        call(CameraShake)
+        waitstate
+    }
+    removeobject(17)
+    removeobject(18)
+    removeobject(19)
+    clearflag(RAPID_3)
+    addobject(20)
+    addobject(21)
+    addobject(22)
+    addobject(23)
+    setflag(FLAG_SERPENTCAVE_BOULDER_3)
+    addvar(VAR_SERPENTCAVE_WATER_LEVEL, 1)
+    release}
+
+script SerpentCave_MoveFourthBoulder{
+    call(PushABoulder)
+    call(DoBoulderFourRoll)
+
+    waitmovement(0)
+    delay(8)
+    if(var(VAR_SERPENTCAVE_WATER_LEVEL) == 3){
+        playse(SE_M_DIVE)
+        waitse
+    }
+    else{
+        call(CameraShake)
+        waitstate
+    }
+    removeobject(24)
+    removeobject(25)
+    removeobject(26)
+    clearflag(RAPID_4)
+    addobject(27)
+    addobject(28)
+    addobject(29)
+    addobject(30)
+    setflag(FLAG_SERPENTCAVE_BOULDER_4)
+    addvar(VAR_SERPENTCAVE_WATER_LEVEL, 1)
+    release}
+script CameraShake{
+    setvar(VAR_0x8004, 1)  // vertical pan
+    setvar(VAR_0x8005, 1)  // horizontal pan
+    setvar(VAR_0x8006, 14)  // num shakes
+    setvar(VAR_0x8007, 6)  // shake delay
+    special(ShakeCamera)
+    return
+}
+script CameraShakeFaster{
+    setvar(VAR_0x8004, 1)  // vertical pan
+    setvar(VAR_0x8005, 1)  // horizontal pan
+    setvar(VAR_0x8006, 8)  // num shakes
+    setvar(VAR_0x8007, 5)  // shake delay
+    special(ShakeCamera)
+    return
+}
+text IrisIntroText{
+    "exposition blah blah\p"
+    "lets go aggron"
+}
+script IrisGoodbye{
+    delay(24)
+    switch(var(CAVE_ENTRANCE)){
+        case 0:
+        case 2:
+            turnobject(31, DIR_NORTH)
+        default:
+            turnobject(31, DIR_SOUTH)
+    }
+    playse(SE_PIN)
+    applymovement(31, ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    switch(var(CAVE_ENTRANCE)){
+        case 0:
+        case 2:
+            applymovement(31, Walk1Up)
+        case 1:
+            applymovement(31, Walk3Down)
+        case 3:
+            applymovement(31, Walk2Down)
+        case 4:
+            applymovement(31, Walk2Down)
+    }
+    waitmovement(0)
+    delay(10)
+    msgbox(IrisIntroText)
+    closemessage
+    delay(5)
+    switch(var(CAVE_ENTRANCE)){
+        case 2:
+            turnobject(31, DIR_EAST)
+    }
+    delay(48)
+    addobject(32)
+    addobject(33)
+    removeobject(31)
+    delay(60)
+    clearflag(FLAG_HIDE_MAP_NAME_POPUP)
+    switch(var(CAVE_ENTRANCE)){
+        case 0:
+            goto(IrisLeavesEntrance1)
+        case 1:
+            goto(IrisLeavesEntrance2)
+        case 2:
+            goto(IrisLeavesEntrance3)
+        case 3:
+            goto(IrisLeavesEntrance4)
+        case 4:
+            goto(IrisLeavesEntrance5)
+    }
+}
+
+movement IrisLeavesOnAggron1{
+    walk_in_place_fast_up * 6
+    walk_down
+    walk_right * 2
+    walk_down
+    jump_special_down
+    delay_16
+    jump_special_down
+    delay_16
+    jump_special_down
+    delay_16
+    jump_special_down
+    delay_16
+    jump_special_down
+    delay_16
+}
+movement IrisLeavesOnAggron2{
+    walk_in_place_fast_down * 6
+    walk_up * 2
+    walk_right * 2
+    walk_up
+    jump_up
+    delay_16 * 2
+    jump_up
+    delay_16 * 2
+    jump_up
+    delay_16 * 2
+    jump_up
+    delay_16 * 2
+    jump_up
+    delay_16 * 2
+}
+movement IrisLeavesOnAggron3{
+    walk_in_place_fast_right * 6
+    walk_down * 1
+    jump_special_down
+    delay_16
+    jump_special_down
+    delay_16
+    jump_special_down
+    delay_16
+    walk_down * 3
+}
+movement IrisLeavesOnAggron4{
+    walk_in_place_fast_down * 6
+    walk_up * 2
+    jump_up
+    delay_16 * 2
+    jump_up
+    delay_16 * 2
+    jump_up
+    delay_16 * 2
+    jump_up
+    delay_16 * 2
+    jump_up
+    delay_16 * 2
+}
+movement IrisLeavesOnAggron5{
+    walk_in_place_fast_down * 6
+    walk_up
+    walk_right * 2
+    walk_up
+    jump_up
+    delay_16 * 2
+    jump_up
+    delay_16 * 2
+    jump_up
+    delay_16 * 2
+    jump_up
+    delay_16 * 2
+    jump_up
+    delay_16 * 2
+}
+
+script IrisLeavesEntrance1{
+    applymovement(32, IrisLeavesOnAggron1)
+    applymovement(33, IrisLeavesOnAggron1)
+    delay(72)
+    message("NOT THAT WAYYY!")
+    delay(72)
+    call(CameraShakeFaster)
+    delay(48)
+    call(CameraShakeFaster)
+    delay(48)
+    call(CameraShakeFaster)
+    delay(48)
+    call(CameraShakeFaster)
+    delay(48)
+    call(CameraShakeFaster)
+    goto(IrisIntroEnd)
+}
+script IrisLeavesEntrance2{
+    applymovement(32, IrisLeavesOnAggron2)
+    applymovement(33, IrisLeavesOnAggron2)
+    delay(56)
+    message("NOT THAT WAYYY!")
+    delay(88)
+    call(CameraShakeFaster)
+    delay(48)
+    call(CameraShakeFaster)
+    delay(48)
+    call(CameraShakeFaster)
+    delay(48)
+    call(CameraShakeFaster)
+    delay(48)
+    call(CameraShakeFaster)
+    goto(IrisIntroEnd)
+}
+script IrisLeavesEntrance3{
+    applymovement(32, IrisLeavesOnAggron3)
+    applymovement(33, IrisLeavesOnAggron3)
+    delay(48)
+    delay(12)
+    message("NOT THAT WAYYY!")
+    delay(36)
+    call(CameraShakeFaster)
+    delay(48)
+    call(CameraShakeFaster)
+    delay(48)
+    call(CameraShakeFaster)
+    goto(IrisIntroEnd)
+}
+script IrisLeavesEntrance4{
+    applymovement(32, IrisLeavesOnAggron4)
+    applymovement(33, IrisLeavesOnAggron4)
+    delay(56)
+    message("NOT THAT WAYYY!")
+    delay(40)
+    call(CameraShakeFaster)
+    delay(48)
+    call(CameraShakeFaster)
+    delay(48)
+    call(CameraShakeFaster)
+    delay(48)
+    call(CameraShakeFaster)
+    delay(48)
+    call(CameraShakeFaster)
+    goto(IrisIntroEnd)
+}
+script IrisLeavesEntrance5{
+    applymovement(32, IrisLeavesOnAggron5)
+    applymovement(33, IrisLeavesOnAggron5)
+    delay(56)
+    message("NOT THAT WAYYY!")
+    delay(56)
+    call(CameraShakeFaster)
+    delay(48)
+    call(CameraShakeFaster)
+    delay(48)
+    call(CameraShakeFaster)
+    delay(48)
+    call(CameraShakeFaster)
+    delay(48)
+    call(CameraShakeFaster)
+    goto(IrisIntroEnd)
+}
+script IrisIntroEnd{
+    waitmovement(0)
+    delay(30)
+    removeobject(32)
+    removeobject(33)
+    setvar(VAR_SERPENTCAVE_STORY, STORY_SERPENTCAVE_IRIS_INTRO)
+    release
+}

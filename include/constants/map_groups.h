@@ -69,6 +69,7 @@
 #define MAP_ROUTE29               (60 | (0 << 8))
 #define MAP_SANDSTONE_CITY_ALT    (61 | (0 << 8))
 #define MAP_FLOWER_FIELDS         (62 | (0 << 8))
+#define MAP_ROUTE23LAKE           (63 | (0 << 8))
 
 // gMapGroup_RouteInteriors
 #define MAP_RANCH_BARN             (0 | (1 << 8))
@@ -111,6 +112,24 @@
 #define MAP_WINDPLUME_PEAK                   (24 | (2 << 8))
 #define MAP_ROUTE15_GROTTO                   (25 | (2 << 8))
 #define MAP_WINDYWOODS_FIX                   (26 | (2 << 8))
+#define MAP_SERPENT_CAVE                     (27 | (2 << 8))
+#define MAP_SERPENT_CAVE_0_STREAMS           (28 | (2 << 8))
+#define MAP_SERPENT_CAVE_1_STREAMS           (29 | (2 << 8))
+#define MAP_SERPENT_CAVE_2_STREAMS           (30 | (2 << 8))
+#define MAP_SERPENT_CAVE_3_STREAMS           (31 | (2 << 8))
+#define MAP_SERPENT_CAVE_B1F                 (32 | (2 << 8))
+#define MAP_SERPENT_CAVE_B2F                 (33 | (2 << 8))
+#define MAP_SERPENT_CAVE_B3F                 (34 | (2 << 8))
+#define MAP_SERPENT_CAVE_MAIN                (35 | (2 << 8))
+#define MAP_FLOODED_CAVE_FOSSIL_ROOM         (36 | (2 << 8))
+#define MAP_WINDPLUME_MOUNTAIN               (37 | (2 << 8))
+#define MAP_WINDPLUME_MOUNTAIN_2F            (38 | (2 << 8))
+#define MAP_WINDPLUME_MOUNTAIN_3F            (39 | (2 << 8))
+#define MAP_WINDPLUME_MOUNTAIN_4F            (40 | (2 << 8))
+#define MAP_WINDPLUME_MOUNTAIN_5F            (41 | (2 << 8))
+#define MAP_WINDPLUME_MOUNTAIN_6F            (42 | (2 << 8))
+#define MAP_WINDPLUME_MOUNTAIN_PEAK          (43 | (2 << 8))
+#define MAP_WINDPLUME_MOUNTAIN_7F            (44 | (2 << 8))
 
 // gMapGroup_IndoorPearlwoodPoint
 #define MAP_LAB2                   (0 | (3 << 8))
@@ -850,6 +869,7 @@
 #define MAP_ALTERING_CAVE                            (156 | (48 << 8))
 #define MAP_METEOR_FALLS_STEVENS_CAVE                (157 | (48 << 8))
 #define MAP_MT_CHIMNEY                               (158 | (48 << 8))
+#define MAP_AMBEROCK_TEST                            (159 | (48 << 8))
 
 // gMapGroup_IndoorRoute124
 #define MAP_TEST_ROOM                (0 | (49 << 8))

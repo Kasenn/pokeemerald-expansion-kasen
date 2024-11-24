@@ -48,7 +48,9 @@ CoralHarborBall::
 
 CoralgroveHarbor_SleepingMan::
 	lockall
-	goto_if_unset FLAG_TALKEDTOSLEEPINGGUY, CoralgroveHarbor_SleepingMan_1
+	checkitem ITEM_TM_REST
+	compare VAR_RESULT, FALSE
+	goto_if_eq CoralgroveHarbor_SleepingMan_1
 	msgbox CoralgroveHarbor_SleepingMan_Text_2, MSGBOX_DEFAULT
 	waitmessage
 	closemessage
@@ -62,7 +64,6 @@ CoralgroveHarbor_SleepingMan_1:
 	waitfanfare
 	msgbox CoralgroveHarbor_SleepingMan_Text_1, MSGBOX_DEFAULT
 	waitmessage
-	setflag FLAG_TALKEDTOSLEEPINGGUY
 	closemessage
 	releaseall
 	end
@@ -81,13 +82,13 @@ CoralgroveHarbor_Woman_Text_0:
 	.string "I'd really like to set up a shop here\nbut there's simply not enough room.\pDigging a hole in this cliff could\nendanger the city above.$"
 
 CoralgroveHarbor_SleepingMan_Text_0:
-	.string "zzz…\pHwuh?\pOh, whew! For a moment I thought\nmy boss might have caught me napping.\pWill you keep this a secret\nif I give you this TM?$"
+	.string "Zzz…\pHwuh?\pOh, whew! For a moment I thought\nmy boss might have caught me napping.\pWill you keep this a secret\nif I give you this TM?$"
 
 CoralgroveHarbor_SleepingMan_Text_1:
 	.string "Yawn…\pSleep is essential for good health…\nSleep and regain health…$"
 
 CoralgroveHarbor_SleepingMan_Text_2:
-	.string "zzz…$"
+	.string "Zzz…$"
 
 CoralgroveHarbor_OldMan_Text::
 	.string "Beyond the ocean lies the town\n"

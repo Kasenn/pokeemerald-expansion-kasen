@@ -463,9 +463,11 @@ Route5_Trainer14_Hiker_Defeat::
 	.string "What a fine show of strength!$"
 
 Route5_Trainer14_Hiker_PostBattle::
-	.string "Walking down the beaten path is so boring.\n"
-	.string "Sometimes taking the path least traveled\l"
-	.string "can lead you to unexpected treasures.$"
+	.string "Walking down the beaten path is so\n"
+	.string "boring.\p"
+	.string "Sometimes taking the path least\n"
+	.string "traveled can lead you to unexpected\l"
+	.string "treasures.$"
 
 Route5_CoolTrainer_ReadyForBattle::
 	.string "I heard you beat all the other\n"

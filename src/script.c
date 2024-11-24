@@ -148,6 +148,7 @@ static const u8 *ScriptPop(struct ScriptContext *ctx)
 {
     if (ctx->stackDepth == 0)
     {
+        FlagClear(FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE);
         FlagClear(FLAG_SAFE_FOLLOWER_MOVEMENT);
         return NULL;
     }

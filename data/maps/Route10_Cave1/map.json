@@ -23,7 +23,13 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 9,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_SERPENT_CAVE_B1F",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 

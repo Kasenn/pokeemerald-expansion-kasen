@@ -29,7 +29,7 @@ AmphyScene::
 	playmoncry SPECIES_AMPHAROS, CRY_MODE_NORMAL
 	waitmoncry
 	delay 48
-	applymovement 23, AmphyLeaves, MAP_ROUTE3
+	applymovement 23, Walk6Up, MAP_ROUTE3
 	waitmovement 0
 	setflag FLAG_HIDE_AMPHAROS
 	removeobject 23, MAP_ROUTE3

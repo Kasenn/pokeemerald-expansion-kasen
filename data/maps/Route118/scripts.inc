@@ -200,12 +200,12 @@ Route118_EventScript_RematchRose::
 	end
 
 Route118_EventScript_Barny::
-	trainerbattle_single TRAINER_BARNY, Route118_Text_BarnyIntro, Route118_Text_BarnyDefeat
+	trainerbattle_single TRAINER_R3_TR9_SWIMMER_M1, Route118_Text_BarnyIntro, Route118_Text_BarnyDefeat
 	msgbox Route118_Text_BarnyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route118_EventScript_Wade::
-	trainerbattle_single TRAINER_WADE, Route118_Text_WadeIntro, Route118_Text_WadeDefeat
+	trainerbattle_single TRAINER_R3_TR10_SWIMMER_M2, Route118_Text_WadeIntro, Route118_Text_WadeDefeat
 	msgbox Route118_Text_WadePostBattle, MSGBOX_AUTOCLOSE
 	end
 
