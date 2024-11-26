@@ -9752,7 +9752,12 @@ void GroundEffect_SpawnOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *
     gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
     gFieldEffectArguments[7] = TRUE; // skip to end of anim
     if (MetatileBehavior_IsTallGrassAutumn(objEvent->currentMetatileBehavior)){
-        FieldEffectStart(FLDEFF_TALL_GRASS_AUTUMN);
+        if(MAP(SAFARI_ZONE_MOUNTAIN)){
+            FieldEffectStart(FLDEFF_TALL_GRASS_MOUNTAIN);  
+        }
+        else{
+            FieldEffectStart(FLDEFF_TALL_GRASS_AUTUMN);
+        }
     }
     if (!MetatileBehavior_IsTallGrassAutumn(objEvent->currentMetatileBehavior)){
         FieldEffectStart(FLDEFF_TALL_GRASS);
@@ -9772,7 +9777,12 @@ void GroundEffect_StepOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *s
     // if (objEvent->localId == OBJ_EVENT_ID_PLAYER)
     //     PlaySE(SPECIES_HOOPA);
     if (MetatileBehavior_IsTallGrassAutumn(objEvent->currentMetatileBehavior)){
-        FieldEffectStart(FLDEFF_TALL_GRASS_AUTUMN);
+        if(MAP(SAFARI_ZONE_MOUNTAIN)){
+            FieldEffectStart(FLDEFF_TALL_GRASS_MOUNTAIN);  
+        }
+        else{
+            FieldEffectStart(FLDEFF_TALL_GRASS_AUTUMN);
+        }
     }
     if (!MetatileBehavior_IsTallGrassAutumn(objEvent->currentMetatileBehavior)){
         FieldEffectStart(FLDEFF_TALL_GRASS);

@@ -12,18 +12,18 @@
 #define FLAG_TEMP_2      (TEMP_FLAGS_START + 0x2)
 #define FLAG_TEMP_3      (TEMP_FLAGS_START + 0x3)
 #define FLAG_TEMP_4      (TEMP_FLAGS_START + 0x4)
-#define FLAG_TEMP_5      (TEMP_FLAGS_START + 0x5)  // Unused Flag
-#define FLAG_TEMP_6      (TEMP_FLAGS_START + 0x6)  // Unused Flag
-#define FLAG_TEMP_7      (TEMP_FLAGS_START + 0x7)  // Unused Flag
-#define FLAG_TEMP_8      (TEMP_FLAGS_START + 0x8)  // Unused Flag
-#define FLAG_TEMP_9      (TEMP_FLAGS_START + 0x9)  // Unused Flag
-#define FLAG_TEMP_A      (TEMP_FLAGS_START + 0xA)  // Unused Flag
-#define FLAG_TEMP_B      (TEMP_FLAGS_START + 0xB)  // Unused Flag
-#define FLAG_TEMP_C      (TEMP_FLAGS_START + 0xC)  // Unused Flag
-#define FLAG_TEMP_D      (TEMP_FLAGS_START + 0xD)  // Unused Flag
+#define FLAG_TEMP_5      (TEMP_FLAGS_START + 0x5)
+#define FLAG_TEMP_6      (TEMP_FLAGS_START + 0x6)
+#define FLAG_TEMP_7      (TEMP_FLAGS_START + 0x7)
+#define FLAG_TEMP_8      (TEMP_FLAGS_START + 0x8)
+#define FLAG_TEMP_9      (TEMP_FLAGS_START + 0x9)
+#define FLAG_TEMP_A      (TEMP_FLAGS_START + 0xA)
+#define FLAG_TEMP_B      (TEMP_FLAGS_START + 0xB)
+#define FLAG_TEMP_C      (TEMP_FLAGS_START + 0xC)
+#define FLAG_TEMP_D      (TEMP_FLAGS_START + 0xD)
 #define FLAG_TEMP_E      (TEMP_FLAGS_START + 0xE)  
-#define FLAG_TEMP_F      (TEMP_FLAGS_START + 0xF)  // Unused Flag
-#define FLAG_TEMP_10     (TEMP_FLAGS_START + 0x10) // Unused Flag
+#define FLAG_TEMP_F      (TEMP_FLAGS_START + 0xF)
+#define FLAG_TEMP_10     (TEMP_FLAGS_START + 0x10)
 #define FLAG_TEMP_11     (TEMP_FLAGS_START + 0x11)
 #define FLAG_TEMP_12     (TEMP_FLAGS_START + 0x12)
 #define FLAG_TEMP_13     (TEMP_FLAGS_START + 0x13)
@@ -113,7 +113,7 @@
 #define FLAG_POKECENTER_ITEM               0x61
 #define FLAG_TV_EXPLAINED                       0x62
 #define FLAG_MAUVILLE_GYM_BARRIERS_STATE        0x63
-#define FLAG_MOSSDEEP_GYM_SWITCH_1              0x64 // Leftover from the RS version of Mossdeep Gym, functionally unused
+#define FLAG_MOSSDEEP_GYM_SWITCH_1              0x64 // Leftover from the RS version of Mossdeep Gym
 #define FLAG_MOSSDEEP_GYM_SWITCH_2              0x65 //
 #define FLAG_MOSSDEEP_GYM_SWITCH_3              0x66 //
 #define FLAG_MOSSDEEP_GYM_SWITCH_4              0x67 //
@@ -277,7 +277,7 @@
 #define FLAG_RECEIVED_CHARCOAL               0xFE
 #define FLAG_LATIOS_OR_LATIAS_ROAMING        0xFF
 #define FLAG_RECEIVED_REPEAT_BALL            0x100
-#define FLAG_UNUSED_0x101                0x101
+#define FLAG_SAFARIMOUNTAIN_ITEM6                0x101
 #define FLAG_RECEIVED_COIN_CASE              0x102
 #define FLAG_RETURNED_RED_OR_BLUE_ORB        0x103
 #define FLAG_RECEIVED_TM_SNATCH              0x104
@@ -353,8 +353,7 @@
 #define FLAG_ROUTE23_ITEM2           0x14A
 #define FLAG_OBTAINED_AERODACTYLITE           0x14B
 #define FLAG_ROUTE23_ITEM3           0x14C
-#define FLAG_WONDER_CARD_UNUSED_17           0x14D
-#define NUM_WONDER_CARD_FLAGS                (1 + FLAG_WONDER_CARD_UNUSED_17 - FLAG_RECEIVED_AURORA_TICKET)
+#define FLAG_SAFARIMOUNTAIN_ITEM7           0x14D
 
 #define FLAG_MIRAGE_TOWER_VISIBLE            0x14E
 #define FLAG_CHOSE_ROOT_FOSSIL               0x14F
@@ -756,7 +755,7 @@
 #define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_4               0x2CA
 #define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_5               0x2CB
 #define FLAG_HIDE_BATTLE_TOWER_MULTI_BATTLE_PARTNER_6               0x2CC
-#define FLAG_HIDE_SAFARI_ZONE_SOUTH_CONSTRUCTION_WORKERS            0x2CD
+#define FLAG_R14_ITEM5            0x2CD
 #define FLAG_HIDE_MEW                                               0x2CE
 #define FLAG_HIDE_ROUTE_104_RIVAL                                   0x2CF
 #define FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE                  0x2D0
@@ -1225,19 +1224,19 @@
 #define FLAG_PEARLWOOD_POTION_SAMPLE                                 0x49A // Potion given by the old guy in the 1st town
 #define FLAG_ROUTE15_ITEM7                                             0x49B // 
 #define FLAG_SERPENTCAVE_ITEM4                                                   0x49C // Shows/Hides route 1 NPCs
-#define FLAG_UNUSED_0x49D                                      0x49D // Cooltrainer dialogue skip on route 1
+#define FLAG_SAFARIMOUNTAIN_ITEM1                                      0x49D
 #define FLAG_ORICORIO_SHOWN_TO_MANIAC                                0x49E // Reward from Cooltrainer in route 1
-#define FLAG_UNUSED_0x49F                                          0x49F // Cooltrainer dialogue skip in windy woods
+#define FLAG_SAFARIMOUNTAIN_ITEM2                                          0x49F
 #define FLAG_WW_COOLTRAINERREWARD                                    0x4A0 // Reward from Cooltrainer in windy woods
 #define FLAG_I_EXP_SHARE_FLAG                                        0x4A1 // Can be used to toggle global Exp Share
 #define FLAG_FLOWERFIELDS_ITEM_1                                             0x4A2 // Used to hide event stuff at Windy Woods
 #define FLAG_FLOWERFIELDS_ITEM_2                                           0x4A3 // Hide event rocket grunt in windy woods
 #define FLAG_FLOWERFIELDS_ITEM_3                                              0x4A4 // Hide event dad in windy woods
 #define FLAG_CORALGROVE_TRADE_COMPLETED                                     0x4A5 // Starter trade in Coralgrove
-#define FLAG_UNUSED_0x4A6                                     0x4A6 // TM rest in Coralgrove Harbor
+#define FLAG_SAFARIMOUNTAIN_ITEM3                                     0x4A6 // TM rest in Coralgrove Harbor
 #define FLAG_RIVAL_HARBOR_ANGRY                                             0x4A7 // makes rival angry if bailed on in the elevator
-#define FLAG_UNUSED_0x4A8                                            0x4A8 // 1st time spoken to map seller
-#define FLAG_UNUSED_0x4A9                                              0x4A9 // set if map is bought
+#define FLAG_SAFARIMOUNTAIN_ITEM4                                            0x4A8 // 1st time spoken to map seller
+#define FLAG_SAFARIMOUNTAIN_ITEM5                                              0x4A9 // set if map is bought
 #define FLAG_COASTTOWN_PEARL                                                0x4AA // Azuretide hidden item
 #define FLAG_COASTTOWN_REDSHARD                                             0x4AB // Azuretide hidden item
 #define FLAG_COASTTOWN_HEATROCK                                             0x4AC // Azuretide hidden item
@@ -1245,7 +1244,7 @@
 #define FLAG_SERPENTCAVE_BOULDER_2                                        0x4AE // 
 #define FLAG_SERPENTCAVE_BOULDER_3                                        0x4AF // 
 #define FLAG_SERPENTCAVE_BOULDER_4                                     0x4B0 // 
-#define FLAG_UNUSED_0x4B1                                     0x4B1 // 
+#define FLAG_R14_ITEM6                                     0x4B1 // 
 #define FLAG_UNUSED_0x4B2                                     0x4B2 // 
 #define FLAG_VISITED_PEARLWOOD_POINT                                        0x4B3 // Visited Pearlwood
 #define FLAG_VISITED_AZURETIDE                                              0x4B4 // Visited Azuretide
@@ -1298,7 +1297,7 @@
 #define FLAG_VISITED_ROCKLIFFE                                           0x4E3 // 
 #define FLAG_OBTAINED_LUCARIONITE                                           0x4E4 // 
 #define FLAG_R13_ITEM1                                           0x4E5 // 
-#define FLAG_UNUSED_0x4E6                                           0x4E6 // 
+#define FLAG_SERPENTCAVE_DRAGONFANG                                           0x4E6 // 
 #define FLAG_UNUSED_0x4E7                                           0x4E7 // 
 #define FLAG_UNUSED_0x4E8                                           0x4E8 // 
 #define FLAG_FC_ITEM1                                           0x4E9 // 

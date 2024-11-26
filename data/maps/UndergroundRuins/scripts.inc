@@ -71,7 +71,7 @@ CheckForEscapeRope_2:
 
 
 UndergroundSandstormTM::
-	finditem ITEM_TM37
+	finditem ITEM_TM_SANDSTORM
 	end
 
 

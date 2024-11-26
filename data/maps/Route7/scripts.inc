@@ -26,7 +26,7 @@ Route8_Ball1::
 
 
 Route8_Ball2::
-	finditem ITEM_TM69
+	finditem ITEM_TM_ROCK_POLISH
 	end
 
 

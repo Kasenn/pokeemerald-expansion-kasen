@@ -1560,6 +1560,33 @@ void ChooseSendDaycareMon(void)
     gMain.savedCallback = CB2_ReturnToField;
 }
 
+void ReadMonHiddenPowerType(void)
+{
+    u8 slot = gSpecialVar_0x8004;
+
+    u8 hpIV =    GetMonData(&gPlayerParty[slot], MON_DATA_HP_IV);
+    u8 atkIV =   GetMonData(&gPlayerParty[slot], MON_DATA_ATK_IV);
+    u8 defIV =   GetMonData(&gPlayerParty[slot], MON_DATA_DEF_IV);
+    u8 spdIV =   GetMonData(&gPlayerParty[slot], MON_DATA_SPEED_IV);
+    u8 spAtkIV = GetMonData(&gPlayerParty[slot], MON_DATA_SPATK_IV);
+    u8 spDefIV = GetMonData(&gPlayerParty[slot], MON_DATA_SPDEF_IV);
+
+    u8 typeBits  = ((hpIV & 1) << 0)
+                 | ((atkIV & 1) << 1)
+                 | ((defIV & 1) << 2)
+                 | ((spdIV & 1) << 3)
+                 | ((spAtkIV & 1) << 4)
+                 | ((spDefIV & 1) << 5);
+
+    // Subtract 6 instead of 1 below because 5 types are excluded (TYPE_NONE, TYPE_NORMAL, TYPE_MYSTERY, TYPE_FAIRY and TYPE_STELLAR)
+    // The final + 2 skips past TYPE_NONE and Normal.
+    u8 type = ((NUMBER_OF_MON_TYPES - 6) * typeBits) / 63 + 2;
+    if (type >= TYPE_MYSTERY)
+        type++;
+
+    StringCopy(gStringVar3, gTypesInfo[type].name);
+}
+
 static u8 ModifyBreedingScoreForOvalCharm(u8 score)
 {
     if (CheckBagHasItem(ITEM_OVAL_CHARM, 1))

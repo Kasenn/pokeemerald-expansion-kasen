@@ -568,3 +568,4 @@ gSpecials::
 	def_special Script_GetChosenMonDefensiveIVs
 	def_special NameBrother
 	def_special SetDrisledgeWeather
+	def_special ReadMonHiddenPowerType

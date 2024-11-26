@@ -116,7 +116,7 @@ Route5_ItemBall2::
 
 
 Route5_ItemBall3::
-	finditem ITEM_TM39
+	finditem ITEM_TM_ROCK_TOMB
 	return
 
 

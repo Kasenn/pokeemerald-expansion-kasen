@@ -298,7 +298,7 @@ script Route5_ItemBall2{
     finditem(ITEM_GREAT_BALL)
 }
 script Route5_ItemBall3{
-    finditem(ITEM_TM39)
+    finditem(ITEM_TM_ROCK_TOMB)
 }
 
 script Route5_Trainer15_CoolTrainer{

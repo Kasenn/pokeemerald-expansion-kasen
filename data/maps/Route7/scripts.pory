@@ -33,7 +33,7 @@ script Route8_Ball1{
     end
 }
 script Route8_Ball2{
-    finditem(ITEM_TM69)
+    finditem(ITEM_TM_ROCK_POLISH)
     end
 }
 

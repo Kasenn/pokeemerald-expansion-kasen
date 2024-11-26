@@ -242,7 +242,7 @@ MinaBattle::
 
 AutomaticUpdate::
 	setvar VAR_DEBUG, 9
-	clearflag FLAG_UNUSED_0x4E6
+	clearflag FLAG_SERPENTCAVE_DRAGONFANG
 	clearflag FLAG_UNUSED_0x4E7
 	clearflag FLAG_UNUSED_0x4E8
 	msgbox AutomaticUpdate_Text1
@@ -300,13 +300,13 @@ AutomaticUpdate3::
 	clearflag FLAG_SERPENTCAVE_BOULDER_2
 	clearflag FLAG_SERPENTCAVE_BOULDER_3
 	clearflag FLAG_SERPENTCAVE_BOULDER_4
-	clearflag FLAG_UNUSED_0x4B1
+	clearflag FLAG_R14_ITEM6
 	clearflag FLAG_UNUSED_0x4B2
 	clearflag FLAG_WW_WATERSTONE
 	clearflag FLAG_COAST_TOMB_OPENED
 	clearflag FLAG_SERPENTCAVE_ITEM4
-	clearflag FLAG_UNUSED_0x49D
-	clearflag FLAG_UNUSED_0x49F
+	clearflag FLAG_SAFARIMOUNTAIN_ITEM1
+	clearflag FLAG_SAFARIMOUNTAIN_ITEM2
 	clearflag FLAG_FLOWERFIELDS_ITEM_1
 	clearflag FLAG_FLOWERFIELDS_ITEM_2
 	clearflag FLAG_FLOWERFIELDS_ITEM_3
@@ -333,8 +333,8 @@ AutomaticUpdate4::
 	msgbox AutomaticUpdate4_Text_0
 	setflag FLAG_WINDPLUME_MT_HIDE_CHARGED_ORB
 	setvar VAR_ZYGARDE_CELLS, 0
-	clearflag FLAG_UNUSED_0x4A6
-	clearflag FLAG_UNUSED_0x101
+	clearflag FLAG_SAFARIMOUNTAIN_ITEM3
+	clearflag FLAG_SAFARIMOUNTAIN_ITEM6
 	setflag FLAG_ZYGARDE_CELL_1
 	setflag FLAG_ZYGARDE_CELL_2
 	setflag FLAG_ZYGARDE_CELL_3
@@ -420,6 +420,12 @@ AutomaticUpdate4::
 
 
 AutomaticUpdate5::
+	clearflag FLAG_SAFARIMOUNTAIN_ITEM4
+	clearflag FLAG_SAFARIMOUNTAIN_ITEM5
+	clearflag FLAG_SAFARIMOUNTAIN_ITEM6
+	clearflag FLAG_SAFARIMOUNTAIN_ITEM7
+	clearflag FLAG_R14_ITEM5
+	clearflag FLAG_R14_ITEM6
 	setflag FLAG_WINDPLUME_MT_HIDE_CHARGED_ORB
 	setvar VAR_DEBUG, 13
 	msgbox AutomaticUpdate5_Text_0
@@ -729,9 +735,12 @@ Debug_Script_4_12:
 
 
 Debug_Script_5::
-	cleartrainerflag TRAINER_LEADER_ACEROLA
-	setpartylevel 45
-	trainerbattle_no_intro TRAINER_LEADER_ACEROLA, Debug_Script_5_Text_0
+	special ChoosePartyMon
+	waitstate
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, Route117_PokemonDayCare_EventScript_ComeAgain
+	specialvar VAR_0x8005, GetSelectedMonNicknameAndSpecies
+	special ReadMonHiddenPowerType
+	msgbox Debug_Script_5_Text_0
 	release
 	return
 
@@ -751,7 +760,7 @@ Debug_Script_8::
 
 
 UpdateItemCheck::
-	checkitem ITEM_TM49, 2
+	checkitem ITEM_TM_ECHOED_VOICE, 2
 	compare VAR_RESULT, TRUE
 	goto_if_eq UpdateItemCheck_2
 UpdateItemCheck_1:
@@ -765,7 +774,7 @@ UpdateItemCheck_4:
 	return
 
 UpdateItemCheck_2:
-	removeitem ITEM_TM49, 1
+	removeitem ITEM_TM_ECHOED_VOICE, 1
 	giveitem ITEM_TM_ROCK_SLIDE
 	goto UpdateItemCheck_1
 
@@ -1036,7 +1045,7 @@ Debug_Script_4_Text_16:
 	.string "Team set to level 45.$"
 
 Debug_Script_5_Text_0:
-	.string "GG$"
+	.string "{STR_VAR_3}$"
 
 SeenAnyStrangeSeeds::
 	.string "I've been hearing some rumors about\n"

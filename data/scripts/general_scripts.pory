@@ -216,7 +216,7 @@ script MinaBattle{
 //
 script AutomaticUpdate{
     setvar(VAR_DEBUG, 9)
-    clearflag(FLAG_UNUSED_0x4E6)
+    clearflag(FLAG_SERPENTCAVE_DRAGONFANG)
     clearflag(FLAG_UNUSED_0x4E7)
     clearflag(FLAG_UNUSED_0x4E8)
     msgbox(AutomaticUpdate_Text1)
@@ -296,13 +296,13 @@ script AutomaticUpdate3{
     clearflag(FLAG_SERPENTCAVE_BOULDER_2)
     clearflag(FLAG_SERPENTCAVE_BOULDER_3)
     clearflag(FLAG_SERPENTCAVE_BOULDER_4)
-    clearflag(FLAG_UNUSED_0x4B1)
+    clearflag(FLAG_R14_ITEM6)
     clearflag(FLAG_UNUSED_0x4B2)
     clearflag(FLAG_WW_WATERSTONE)
     clearflag(FLAG_COAST_TOMB_OPENED)
     clearflag(FLAG_SERPENTCAVE_ITEM4)
-    clearflag(FLAG_UNUSED_0x49D)
-    clearflag(FLAG_UNUSED_0x49F)
+    clearflag(FLAG_SAFARIMOUNTAIN_ITEM1)
+    clearflag(FLAG_SAFARIMOUNTAIN_ITEM2)
     clearflag(FLAG_FLOWERFIELDS_ITEM_1)
     clearflag(FLAG_FLOWERFIELDS_ITEM_2)
     clearflag(FLAG_FLOWERFIELDS_ITEM_3)
@@ -319,8 +319,8 @@ script AutomaticUpdate4{
     msgbox("Vars Updated")
     setflag(FLAG_WINDPLUME_MT_HIDE_CHARGED_ORB)
     setvar(VAR_ZYGARDE_CELLS, 0)
-    clearflag(FLAG_UNUSED_0x4A6)
-    clearflag(FLAG_UNUSED_0x101)
+    clearflag(FLAG_SAFARIMOUNTAIN_ITEM3)
+    clearflag(FLAG_SAFARIMOUNTAIN_ITEM6)
     setflag(FLAG_ZYGARDE_CELL_1)
     setflag(FLAG_ZYGARDE_CELL_2)
     setflag(FLAG_ZYGARDE_CELL_3)
@@ -405,6 +405,12 @@ script AutomaticUpdate4{
     end
 }
 script AutomaticUpdate5{
+    clearflag(FLAG_SAFARIMOUNTAIN_ITEM4)
+    clearflag(FLAG_SAFARIMOUNTAIN_ITEM5)
+    clearflag(FLAG_SAFARIMOUNTAIN_ITEM6)
+    clearflag(FLAG_SAFARIMOUNTAIN_ITEM7)
+    clearflag(FLAG_R14_ITEM5)
+    clearflag(FLAG_R14_ITEM6)
     setflag(FLAG_WINDPLUME_MT_HIDE_CHARGED_ORB)
     setvar(VAR_DEBUG, 13)
     msgbox("Vars and flags updated")
@@ -598,9 +604,12 @@ script Debug_Script_4{              // Set team level
     release
     end}
 script Debug_Script_5{
-    cleartrainerflag(TRAINER_LEADER_ACEROLA)
-    setpartylevel(45)
-    trainerbattle_no_intro(TRAINER_LEADER_ACEROLA, "GG")
+    special(ChoosePartyMon)
+	waitstate
+	goto_if_eq(VAR_0x8004, PARTY_NOTHING_CHOSEN, Route117_PokemonDayCare_EventScript_ComeAgain)
+	specialvar(VAR_0x8005, GetSelectedMonNicknameAndSpecies)
+    special(ReadMonHiddenPowerType)
+    msgbox("{STR_VAR_3}")
     release
 }
 script Debug_Script_6{
@@ -618,9 +627,9 @@ script Debug_Script_8{
 // Debug related scripts
 //
 script UpdateItemCheck{
-    checkitem(ITEM_TM49, 2)
+    checkitem(ITEM_TM_ECHOED_VOICE, 2)
     if(var(VAR_RESULT) == TRUE){
-        removeitem(ITEM_TM49, 1)
+        removeitem(ITEM_TM_ECHOED_VOICE, 1)
         giveitem(ITEM_TM_ROCK_SLIDE)
     }
     checkitem(ITEM_TM_CASE)

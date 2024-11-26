@@ -2,9 +2,9 @@ mapscripts SerpentCave_B3F_MapScripts {
     // MAP_SCRIPT_ON_TRANSITION: SCB3F
 }
 
-script SCB3F{
-    addvar(VAR_SERPENTCAVE_WATER_LEVEL, 1)
-    if(var(VAR_SERPENTCAVE_WATER_LEVEL) >= 5){
-        setvar(VAR_SERPENTCAVE_WATER_LEVEL, 0)
-    }
-}
+// script SCB3F{
+//     addvar(VAR_SERPENTCAVE_WATER_LEVEL, 1)
+//     if(var(VAR_SERPENTCAVE_WATER_LEVEL) >= 5){
+//         setvar(VAR_SERPENTCAVE_WATER_LEVEL, 0)
+//     }
+// }

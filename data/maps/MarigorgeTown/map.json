@@ -19,13 +19,13 @@
       "direction": "down"
     },
     {
-      "map": "MAP_SAFARI_ZONE_SOUTH",
-      "offset": 51,
+      "map": "MAP_WINDPLUME_PEAK",
+      "offset": 8,
       "direction": "up"
     },
     {
-      "map": "MAP_WINDPLUME_PEAK",
-      "offset": 8,
+      "map": "MAP_SAFARI_ZONE_SOUTH",
+      "offset": 51,
       "direction": "up"
     }
   ],

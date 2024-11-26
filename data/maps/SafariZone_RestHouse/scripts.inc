@@ -23,6 +23,7 @@ SafariZone_RestHouse_FatMan::
 	setflag FLAG_RESTED_AT_SAFARI
 	fadescreen FADE_TO_BLACK
 	playfanfare MUS_HEAL
+	closemessage
 	waitfanfare
 	fadescreen FADE_FROM_BLACK
 	delay 15

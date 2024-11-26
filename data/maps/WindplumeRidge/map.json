@@ -318,6 +318,114 @@
       "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "WindplumeRidge_RemoveWind"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 16,
+      "elevation": 0,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "WindplumeRidge_StartWind"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 17,
+      "elevation": 0,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "WindplumeRidge_StartWind"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 16,
+      "elevation": 0,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "WindplumeRidge_RemoveWind"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 17,
+      "elevation": 0,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "WindplumeRidge_RemoveWind"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 18,
+      "elevation": 0,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "WindplumeRidge_RemoveWind"
+    },
+    {
+      "type": "trigger",
+      "x": 78,
+      "y": 19,
+      "elevation": 0,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "WindplumeRidge_StartWind"
+    },
+    {
+      "type": "trigger",
+      "x": 78,
+      "y": 17,
+      "elevation": 0,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "WindplumeRidge_StartWind"
+    },
+    {
+      "type": "trigger",
+      "x": 78,
+      "y": 18,
+      "elevation": 0,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "WindplumeRidge_StartWind"
+    },
+    {
+      "type": "trigger",
+      "x": 79,
+      "y": 16,
+      "elevation": 0,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "WindplumeRidge_StartWind"
+    },
+    {
+      "type": "trigger",
+      "x": 78,
+      "y": 20,
+      "elevation": 0,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "WindplumeRidge_StartWind"
+    },
+    {
+      "type": "trigger",
+      "x": 85,
+      "y": 17,
+      "elevation": 0,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "WindplumeRidge_RemoveWind"
+    },
+    {
+      "type": "trigger",
+      "x": 85,
+      "y": 18,
+      "elevation": 0,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "WindplumeRidge_RemoveWind"
     }
   ],
   "bg_events": [
@@ -341,7 +449,7 @@
       "type": "hidden_item",
       "x": 75,
       "y": 16,
-      "elevation": 0,
+      "elevation": 4,
       "item": "ITEM_PRETTY_FEATHER",
       "flag": "FLAG_WPV_FEATHER6"
     },

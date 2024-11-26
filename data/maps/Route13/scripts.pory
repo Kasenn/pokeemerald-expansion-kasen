@@ -8,7 +8,7 @@ script RemovePlayerFromRoute13{
     lockall
     msgbox(RelocatedFromRoute13)
     setvar(VAR_DEBUG, 9)
-    clearflag(FLAG_UNUSED_0x4E6)
+    clearflag(FLAG_SERPENTCAVE_DRAGONFANG)
     clearflag(FLAG_UNUSED_0x4E7)
     clearflag(FLAG_UNUSED_0x4E8)
     closemessage

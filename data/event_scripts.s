@@ -1591,3 +1591,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/WindplumeMountain_Peak/scripts.inc"
 
 	.include "data/maps/WindplumeMountain_7F/scripts.inc"
+
+	.include "data/maps/SafariZone_Mountain/scripts.inc"
+
+	.include "data/maps/Maptest/scripts.inc"

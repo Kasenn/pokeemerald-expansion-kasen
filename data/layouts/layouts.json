@@ -2395,7 +2395,7 @@
       "id": "LAYOUT_SAFARI_ZONE_SOUTHWEST",
       "name": "SafariZone_Southwest_Layout",
       "width": 46,
-      "height": 40,
+      "height": 16,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_SafariSec",
       "border_filepath": "data/layouts/SafariZone_Southwest/border.bin",
@@ -6930,6 +6930,26 @@
       "secondary_tileset": "gTileset_WindplumeCave",
       "border_filepath": "data/layouts/WindplumeMountain_7F/border.bin",
       "blockdata_filepath": "data/layouts/WindplumeMountain_7F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SAFARI_ZONE_MOUNTAIN",
+      "name": "SafariZone_Mountain_Layout",
+      "width": 46,
+      "height": 24,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SafariSec",
+      "border_filepath": "data/layouts/SafariZone_Mountain/border.bin",
+      "blockdata_filepath": "data/layouts/SafariZone_Mountain/map.bin"
+    },
+    {
+      "id": "LAYOUT_MAPTEST",
+      "name": "Maptest_Layout",
+      "width": 3,
+      "height": 1,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SafariSec",
+      "border_filepath": "data/layouts/Maptest/border.bin",
+      "blockdata_filepath": "data/layouts/Maptest/map.bin"
     }
   ]
 }

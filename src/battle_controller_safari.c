@@ -7,6 +7,7 @@
 #include "bg.h"
 #include "data.h"
 #include "event_data.h"
+#include "graphics.h"
 #include "item_menu.h"
 #include "link.h"
 #include "main.h"
@@ -19,6 +20,7 @@
 #include "sound.h"
 #include "task.h"
 #include "text.h"
+#include "text_window.h"
 #include "util.h"
 #include "window.h"
 #include "constants/battle_anim.h"
@@ -122,9 +124,145 @@ static void SafariBufferRunCommand(u32 battler)
     }
 }
 
+static const u16 *const sHealthBoxColor[] =
+{
+    gBattleInterface_BallStatusBarPal,
+    gBattleInterface_BallStatusBarPal2, //gBattleInterface_BallStatusBarPal2,
+    gBattleInterface_BallStatusBarPal3, //gBattleInterface_BallStatusBarPal3,
+    gBattleInterface_BallStatusBarPal4, //gBattleInterface_BallStatusBarPal4,
+    gBattleInterface_BallStatusBarPal5, //gBattleInterface_BallStatusBarPal5,
+    gBattleInterface_BallStatusBarPal6, //gBattleInterface_BallStatusBarPal6,
+    gBattleInterface_BallStatusBarPal7, //gBattleInterface_BallStatusBarPal7,
+    gBattleInterface_BallStatusBarPal8, //gBattleInterface_BallStatusBarPal8,
+};
+
+static const u32 *const sBattleTextboxColor[] =
+{
+    gBattleTextboxPalette,
+    gBattleTextboxPalette2,
+    gBattleTextboxPalette3,
+    gBattleTextboxPalette4,
+    gBattleTextboxPalette5,
+    gBattleTextboxPalette6,
+    gBattleTextboxPalette7,
+    gBattleTextboxPalette8,
+};
+
+static const u8 *const sWindowFrames[] =
+{
+    gTextWindowFrame1_GfxOpaque,
+    sTextWindowFrame2_GfxOpaque,
+    sTextWindowFrame3_GfxOpaque,
+    sTextWindowFrame4_GfxOpaque,
+    sTextWindowFrame5_GfxOpaque,
+    sTextWindowFrame6_GfxOpaque,
+    sTextWindowFrame7_GfxOpaque,
+    sTextWindowFrame8_GfxOpaque,
+    sTextWindowFrame9_GfxOpaque,
+    sTextWindowFrame10_GfxOpaque,
+    sTextWindowFrame11_GfxOpaque,
+    sTextWindowFrame12_GfxOpaque,
+    sTextWindowFrame13_GfxOpaque,
+    sTextWindowFrame14_GfxOpaque,
+    sTextWindowFrame15_GfxOpaque,
+    sTextWindowFrame16_GfxOpaque,
+    sTextWindowFrame17_GfxOpaque,
+    sTextWindowFrame18_GfxOpaque,
+    sTextWindowFrame19_GfxOpaque,
+    sTextWindowFrame20_GfxOpaque,
+    sTextWindowFrame21_GfxOpaque,
+    sTextWindowFrame21_GfxOpaque,
+    sTextWindowFrame21_GfxOpaque,
+    sTextWindowFrame21_GfxOpaque,
+    sTextWindowFrame21_GfxOpaque,
+    sTextWindowFrame21_GfxOpaque,
+    sTextWindowFrame21_GfxOpaque,
+    sTextWindowFrame21_GfxOpaque,
+};
+
+static const u16 *const sWindowFrameColor[] =
+{
+    gTextWindowFrame1_PalOpaque,
+    sTextWindowFrame2_PalOpaque,
+    sTextWindowFrame3_PalOpaque,
+    sTextWindowFrame4_PalOpaque,
+    sTextWindowFrame5_PalOpaque,
+    sTextWindowFrame6_PalOpaque,
+    sTextWindowFrame7_PalOpaque,
+    sTextWindowFrame8_PalOpaque,
+    sTextWindowFrame9_PalOpaque,
+    sTextWindowFrame10_PalOpaque,
+    sTextWindowFrame11_PalOpaque,
+    sTextWindowFrame12_PalOpaque,
+    sTextWindowFrame13_PalOpaque,
+    sTextWindowFrame14_PalOpaque,
+    sTextWindowFrame15_PalOpaque,
+    sTextWindowFrame16_PalOpaque,
+    sTextWindowFrame17_PalOpaque,
+    sTextWindowFrame18_PalOpaque,
+    sTextWindowFrame19_PalOpaque,
+    sTextWindowFrame20_PalOpaque,
+    sTextWindowFrame21_Pal1Opaque,
+    sTextWindowFrame21_Pal2Opaque,
+    sTextWindowFrame21_Pal3Opaque,
+    sTextWindowFrame21_Pal4Opaque,
+    sTextWindowFrame21_Pal5Opaque,
+    sTextWindowFrame21_Pal6Opaque,
+    sTextWindowFrame21_Pal7Opaque,
+    sTextWindowFrame21_Pal8Opaque,
+};
+
 static void HandleInputChooseAction(u32 battler)
 {
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_HELD(START_BUTTON))
+    {
+        if (JOY_NEW(DPAD_UP))
+        {
+            PlaySE(SE_SELECT);
+            if (gSaveBlock2Ptr->optionsWindowFrameType == 27)
+                gSaveBlock2Ptr->optionsWindowFrameType = 0;
+            else
+                gSaveBlock2Ptr->optionsWindowFrameType++;
+            LoadBgTiles(2, sWindowFrames[gSaveBlock2Ptr->optionsWindowFrameType], 0x120, 0x12);
+            LoadUserWindowBorderGfx(2, 0x22, BG_PLTT_ID(1));
+            LoadPalette(sWindowFrameColor[gSaveBlock2Ptr->optionsWindowFrameType], BG_PLTT_ID(1), PLTT_SIZE_4BPP);
+        }
+        else if (JOY_NEW(DPAD_DOWN))
+        {
+            PlaySE(SE_SELECT);
+            if (gSaveBlock2Ptr->optionsWindowFrameType == 0)
+                gSaveBlock2Ptr->optionsWindowFrameType = 27;
+            else
+                gSaveBlock2Ptr->optionsWindowFrameType--;
+            LoadBgTiles(2, sWindowFrames[gSaveBlock2Ptr->optionsWindowFrameType], 0x120, 0x12);
+            LoadUserWindowBorderGfx(2, 0x22, BG_PLTT_ID(1));
+            LoadPalette(sWindowFrameColor[gSaveBlock2Ptr->optionsWindowFrameType], BG_PLTT_ID(1), PLTT_SIZE_4BPP);
+        }
+        else if (JOY_NEW(DPAD_RIGHT))
+        {
+            PlaySE(SE_SELECT);
+            if (gSaveBlock2Ptr->battleInterfaceColor == 7)
+                gSaveBlock2Ptr->battleInterfaceColor = 0;
+            else
+                gSaveBlock2Ptr->battleInterfaceColor++;
+            u16 color = gSaveBlock2Ptr->battleInterfaceColor;
+            LoadPalette(sHealthBoxColor[color], OBJ_PLTT_ID(4), PLTT_SIZEOF(8));
+            LoadCompressedPalette(sBattleTextboxColor[color], BG_PLTT_ID(0), TILE_SIZE_4BPP);
+        }
+        else if (JOY_NEW(DPAD_LEFT))
+        {
+            PlaySE(SE_SELECT);
+            if (gSaveBlock2Ptr->battleInterfaceColor == 0)
+                gSaveBlock2Ptr->battleInterfaceColor = 7;
+            else
+                gSaveBlock2Ptr->battleInterfaceColor--;
+            u16 color = gSaveBlock2Ptr->battleInterfaceColor;
+            LoadPalette(sHealthBoxColor[color], OBJ_PLTT_ID(4), PLTT_SIZEOF(8));
+            LoadCompressedPalette(sBattleTextboxColor[color], BG_PLTT_ID(0), TILE_SIZE_4BPP);
+        }
+    }
+
+    else if (JOY_NEW(A_BUTTON))
     {
         PlaySE(SE_SELECT);
 

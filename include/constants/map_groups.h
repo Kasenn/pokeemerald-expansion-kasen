@@ -675,6 +675,7 @@
 #define MAP_NAVEL_ROCK_DOWN11                               (86 | (41 << 8))
 #define MAP_NAVEL_ROCK_BOTTOM                               (87 | (41 << 8))
 #define MAP_TRAINER_HILL_ELEVATOR                           (88 | (41 << 8))
+#define MAP_SAFARI_ZONE_MOUNTAIN                            (89 | (41 << 8))
 
 // gMapGroup_IndoorRoute104Prototype
 #define MAP_ROUTE104_PROTOTYPE                          (0 | (42 << 8))
@@ -874,6 +875,7 @@
 // gMapGroup_IndoorRoute124
 #define MAP_TEST_ROOM                (0 | (49 << 8))
 #define MAP_POKEMON_WORLD_TOURNAMENT (1 | (49 << 8))
+#define MAP_MAPTEST                  (2 | (49 << 8))
 
 #define MAP_GROUPS_COUNT 50
 

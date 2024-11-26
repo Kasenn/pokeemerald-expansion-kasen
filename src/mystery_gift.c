@@ -290,8 +290,8 @@ void DisableWonderCardSending(struct WonderCard *card)
 
 static bool32 IsWonderCardFlagIDInValidRange(u16 flagId)
 {
-    if (flagId >= WONDER_CARD_FLAG_OFFSET && flagId < WONDER_CARD_FLAG_OFFSET + NUM_WONDER_CARD_FLAGS)
-        return TRUE;
+    // if (flagId >= WONDER_CARD_FLAG_OFFSET && flagId < WONDER_CARD_FLAG_OFFSET + NUM_WONDER_CARD_FLAGS)
+    //     return TRUE;
 
     return FALSE;
 }
@@ -316,7 +316,7 @@ static const u16 sReceivedGiftFlags[] =
     FLAG_OLD_WORLD_FLAG,
     FLAG_OLD_WORLD_FLAG,
     FLAG_OLD_WORLD_FLAG,
-    FLAG_WONDER_CARD_UNUSED_17,
+    FLAG_OLD_WORLD_FLAG,
 };
 
 bool32 IsSavedWonderCardGiftNotReceived(void)

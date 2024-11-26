@@ -187,7 +187,7 @@ Route28_BrotherFight_26:
 
 
 Route28_TM::
-	finditem ITEM_TM43
+	finditem ITEM_TM_SECRET_POWER
 	end
 
 
