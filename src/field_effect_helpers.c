@@ -11,6 +11,7 @@
 #include "sound.h"
 #include "sprite.h"
 #include "trig.h"
+#include "constants/weather.h"
 #include "constants/event_objects.h"
 #include "constants/field_effects.h"
 #include "constants/rgb.h"
@@ -707,7 +708,12 @@ u32 FldEff_SandFootprints(void)
         struct Sprite *sprite = &gSprites[spriteId];
         sprite->coordOffsetEnabled = TRUE;
         sprite->oam.priority = gFieldEffectArguments[3];
-        sprite->sFldEff = FLDEFF_SAND_FOOTPRINTS;
+        if (GetSavedWeather() == WEATHER_BLIZZARD){
+            sprite->sFldEff = FLDEFF_SNOW_FOOTPRINTS;
+        }
+        else{
+            sprite->sFldEff = FLDEFF_SAND_FOOTPRINTS;
+        }
         StartSpriteAnim(sprite, gFieldEffectArguments[4]);
     }
     return 0;

@@ -1,12 +1,40 @@
 TestRoom_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, SetTestFlag
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, TestRoom_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
-TestRoom_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
-	map_script_2 VAR_TEMP_0, 1, TestMovementScript
-	.2byte 0
 
+DoBoulderCheck::
+	getobjectxy 4
+	compare VAR_0x8002, 25
+	goto_if_ne DoBoulderCheck_2
+	safefollow
+	applymovement 4, MoveBoulderFast
+	waitmovement 0
+	setobjectxy 4, 9, 25
+	setobjectxyperm 4, 9, 25
+	setvar VAR_TEMP_0, 0
+DoBoulderCheck_1:
+	release
+	return
+
+DoBoulderCheck_2:
+	setvar VAR_TEMP_0, 0
+	goto DoBoulderCheck_1
+
+
+MoveBoulderFast:
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	step_end
 
 SetTestFlag::
 	setflag FLAG_TEMP_1

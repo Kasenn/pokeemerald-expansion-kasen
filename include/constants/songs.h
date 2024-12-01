@@ -557,6 +557,7 @@
 #define MUS_PWTLOBBY                620
 #define MUS_ALOLA_E42               621
 #define MUS_ABW_RIVAL               622
+#define MUS_GINGA                   623
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 

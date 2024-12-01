@@ -12407,29 +12407,32 @@ static const struct TrainerMon sParty_TRAINER_CASUAL_IRIS[] = {
     .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
     .lvl = 43,
     .species = SPECIES_GABITE,
+    .gender = TRAINER_MON_MALE,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_SHOCK_WAVE, MOVE_QUICK_ATTACK, MOVE_CHARM, MOVE_NONE}
+    .moves = {MOVE_SAND_TOMB, MOVE_SLASH, MOVE_DIG, MOVE_DRAGON_CLAW}
     },
     {
     .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
     .lvl = 44,
     .species = SPECIES_FRAXURE,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_SHOCK_WAVE, MOVE_QUICK_ATTACK, MOVE_CONFUSE_RAY, MOVE_NONE}
+    .moves = {MOVE_CRUNCH, MOVE_FOCUS_ENERGY, MOVE_SWORDS_DANCE, MOVE_OUTRAGE}
     },
     {
     .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
     .lvl = 44,
     .species = SPECIES_ARCHEOPS,
+    .gender = TRAINER_MON_MALE,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_SHOCK_WAVE, MOVE_QUICK_ATTACK, MOVE_CONFUSE_RAY, MOVE_NONE}
+    .moves = {MOVE_DRAGON_CLAW, MOVE_TAILWIND, MOVE_ROCK_SLIDE, MOVE_PLUCK}
     },
     {
     .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
     .lvl = 47,
     .species = SPECIES_AGGRON,
+    .ability = ABILITY_ROCK_HEAD,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_SHOCK_WAVE, MOVE_QUICK_ATTACK, MOVE_CONFUSE_RAY, MOVE_NONE}
+    .moves = {MOVE_DOUBLE_EDGE, MOVE_IRON_TAIL, MOVE_ROCK_SLIDE, MOVE_AUTOTOMIZE}
     }
 };
 

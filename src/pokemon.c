@@ -5918,6 +5918,10 @@ bool32 IsSpeciesInHoennDex(u16 species)
 
 u16 GetBattleBGM(void)
 {
+    if (GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL) == SPECIES_URSALUNA_BLOODMOON)
+    {
+        return MUS_GINGA;
+    }
     if (gBattleTypeFlags & BATTLE_TYPE_LEGENDARY)
     {
         switch (GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL))

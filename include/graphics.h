@@ -60,6 +60,8 @@ extern const u32 gBallGfx_Beast[];
 extern const u32 gBallPal_Beast[];
 extern const u32 gBallGfx_Cherish[];
 extern const u32 gBallPal_Cherish[];
+extern const u32 gBallGfx_Dire[];
+extern const u32 gBallPal_Dire[];
 extern const u32 gOpenPokeballGfx[];
 
 // Pokémon gfx
@@ -235,6 +237,7 @@ extern const u32 gBattleTerrainTilemap_Sand[];
 extern const u32 gBattleTerrainAnimTiles_Sand[];
 extern const u32 gBattleTerrainAnimTilemap_Sand[];
 extern const u32 gBattleTerrainPalette_Sand[];
+extern const u32 gBattleTerrainPalette_Snow[];
 extern const u32 gBattleTerrainTiles_Underwater[];
 extern const u32 gBattleTerrainTilemap_Underwater[];
 extern const u32 gBattleTerrainAnimTiles_Underwater[];
@@ -422,6 +425,8 @@ extern const u32 gItemIcon_BeastBall[];
 extern const u32 gItemIconPalette_BeastBall[];
 extern const u32 gItemIcon_CherishBall[];
 extern const u32 gItemIconPalette_CherishBall[];
+extern const u32 gItemIcon_DireBall[];
+extern const u32 gItemIconPalette_DireBall[];
 // Medicine
 extern const u32 gItemIcon_Potion[];
 extern const u32 gItemIconPalette_Potion[];
@@ -1745,6 +1750,8 @@ extern const u32 gItemIcon_Decidueite[];
 extern const u32 gItemIconPalette_Decidueite[];
 extern const u32 gItemIcon_Incineroarite[];
 extern const u32 gItemIconPalette_Incineroarite[];
+extern const u32 gItemIcon_Ariadosite[];
+extern const u32 gItemIconPalette_Ariadosite[];
 extern const u32 gItemIcon_Chesnaughtite[];
 extern const u32 gItemIconPalette_Chesnaughtite[];
 extern const u32 gItemIcon_Processor[];

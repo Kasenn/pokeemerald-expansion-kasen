@@ -4449,6 +4449,15 @@ static void HandleTurnActionSelectionState(void)
                     *(gBattleStruct->stateIdAfterSelScript + battler) = STATE_BEFORE_ACTION_CHOSEN;
                     return;
                 }
+                else if (gBattleTypeFlags & BATTLE_TYPE_NO_RUNNING
+                         && gBattleResources->bufferB[battler][1] == B_ACTION_RUN)
+                {
+                    gSelectionBattleScripts[battler] = BattleScript_PrintCantEscapeFromBattle;
+                    gBattleCommunication[battler] = STATE_SELECTION_SCRIPT;
+                    *(gBattleStruct->selectionScriptFinished + battler) = FALSE;
+                    *(gBattleStruct->stateIdAfterSelScript + battler) = STATE_BEFORE_ACTION_CHOSEN;
+                    return;
+                }
                 else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER
                          && !(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
                          && gBattleResources->bufferB[battler][1] == B_ACTION_RUN)

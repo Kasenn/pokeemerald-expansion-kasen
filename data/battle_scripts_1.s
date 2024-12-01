@@ -5572,7 +5572,7 @@ BattleScript_HandleFaintedMon::
 	setbyte sSHIFT_SWITCHED, 0
 	checkteamslost BattleScript_HandleFaintedMonMultiple
 	jumpifbyte CMP_NOT_EQUAL, gBattleOutcome, 0, BattleScript_FaintedMonEnd
-	jumpifbattletype BATTLE_TYPE_TRAINER | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_GHOST, BattleScript_FaintedMonTryChoose
+	jumpifbattletype BATTLE_TYPE_TRAINER | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_GHOST | BATTLE_TYPE_NO_RUNNING, BattleScript_FaintedMonTryChoose
 	jumpifword CMP_NO_COMMON_BITS, gHitMarker, HITMARKER_PLAYER_FAINTED, BattleScript_FaintedMonTryChoose
 @ Yes/No for sending out a new Pokémon if one is defeated in a wild battle
 	printstring STRINGID_USENEXTPKMN
@@ -8776,6 +8776,20 @@ BattleScript_CuteCharmActivates::
 	printstring STRINGID_PKMNSXINFATUATEDY
 	waitmessage B_WAIT_TIME_LONG
 	call BattleScript_TryDestinyKnotTarget
+	return
+
+BattleScript_HiveLeaderActivates::
+	call BattleScript_AbilityPopUp
+	status2animation BS_ATTACKER, STATUS2_WRAPPED
+	printstring STRINGID_HIVE_LEADER
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_HiveLeaderActivatesOffense::
+	call BattleScript_AbilityPopUp
+	status2animation BS_EFFECT_BATTLER, STATUS2_WRAPPED
+	printstring STRINGID_INFESTATION
+	waitmessage B_WAIT_TIME_LONG
 	return
 
 BattleScript_GooeyActivates::

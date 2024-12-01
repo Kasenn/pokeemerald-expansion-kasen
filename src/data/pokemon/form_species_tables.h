@@ -918,6 +918,12 @@ static const u16 sIncineroarFormSpeciesIdTable[] = {
     FORM_SPECIES_END,
 };
 
+static const u16 sAriadosFormSpeciesIdTable[] = {
+    SPECIES_ARIADOS,
+    SPECIES_ARIADOS_MEGA,
+    FORM_SPECIES_END,
+};
+
 static const u16 sPorygonZFormSpeciesIdTable[] = {
     SPECIES_PORYGON_Z,
     SPECIES_PORYGON_Z_MEGA,

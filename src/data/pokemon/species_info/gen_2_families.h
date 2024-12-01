@@ -1171,6 +1171,77 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sAriadosLevelUpLearnset,
         .teachableLearnset = sAriadosTeachableLearnset,
+        .formSpeciesIdTable = sAriadosFormSpeciesIdTable,
+        .formChangeTable = sAriadosFormChangeTable
+    },
+
+    [SPECIES_ARIADOS_MEGA] =
+    {
+        .baseHP        = 70,
+        .baseAttack    = 150,
+        .baseDefense   = 140,
+        .baseSpeed     = 30,
+        .baseSpAttack  = 30,
+        .baseSpDefense = 80,
+        .types = MON_TYPES(TYPE_BUG, TYPE_POISON),
+        .abilities = { ABILITY_HIVE_LEADER, ABILITY_HIVE_LEADER, ABILITY_HIVE_LEADER },
+        .catchRate = 90,
+    #if P_UPDATED_EXP_YIELDS >= GEN_7
+        .expYield = 140,
+    #elif P_UPDATED_EXP_YIELDS >= GEN_5
+        .expYield = 137,
+    #else
+        .expYield = 134,
+    #endif
+        .evYield_Attack = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 15,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_FAST,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_BUG),
+        .bodyColor = BODY_COLOR_RED,
+        .speciesName = _("Ariados"),
+        .cryId = CRY_ARIADOS,
+        .natDexNum = NATIONAL_DEX_ARIADOS,
+        .categoryName = _("Long Leg"),
+        .height = 11,
+        .weight = 335,
+        .description = COMPOUND_STRING(
+            "Its feet are tipped with tiny hooked claws\n"
+            "that enable it to scuttle on ceilings and\n"
+            "vertical walls. It constricts its foe with\n"
+            "thin and strong silk webbing."),
+        .pokemonScale = 316,
+        .pokemonOffset = 8,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_AriadosMega,
+        .frontPicSize = MON_COORDS_SIZE(64, 56),
+        .frontPicYOffset = 7,
+        .frontAnimFrames = sAnims_AriadosMega,
+        .frontAnimId = ANIM_H_SHAKE,
+        .backPic = gMonBackPic_AriadosMega,
+        .backPicSize = MON_COORDS_SIZE(64, 48),
+        .backPicYOffset = 9,
+        .backAnimId = BACK_ANIM_H_SLIDE,
+        .palette = gMonPalette_Ariados,
+        .shinyPalette = gMonShinyPalette_Ariados,
+        .iconSprite = gMonIcon_AriadosMega,
+        .iconPalIndex = 0,
+        FOOTPRINT(Ariados)
+        OVERWORLD(
+            sPicTable_Ariados,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_BUG,
+            gOverworldPalette_Ariados,
+            gShinyOverworldPalette_Ariados
+        )
+        .levelUpLearnset = sAriadosLevelUpLearnset,
+        .teachableLearnset = sAriadosTeachableLearnset,
+        .isMegaEvolution = TRUE,
+        .formSpeciesIdTable = sAriadosFormSpeciesIdTable,
+        .formChangeTable = sAriadosFormChangeTable
     },
 #endif //P_FAMILY_SPINARAK
 

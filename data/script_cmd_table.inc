@@ -243,6 +243,7 @@ gScriptCmdTable::
 	.4byte ScrCmd_bpmart					        @ 0xf0
 	.4byte ScrCmd_getfollowerxy						@ 0xf1
 	.4byte ScrCmd_howmanybox						@ 0xf2
+	.4byte ScrCmd_getobjectxy						@ 0xf3
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop

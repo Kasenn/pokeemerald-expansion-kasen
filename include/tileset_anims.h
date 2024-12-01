@@ -33,6 +33,7 @@ void InitTilesetAnim_MauvilleGym(void);
 void InitTilesetAnim_EliteFour(void);
 void InitTilesetAnim_BattleDome(void);
 void InitTilesetAnim_BattlePyramid(void);
+void InitTilesetAnim_MirageTower(void);
 void InitTilesetAnim_Drisledge(void);
 
 #endif // GUARD_TILESET_ANIMS_H

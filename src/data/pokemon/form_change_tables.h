@@ -414,6 +414,11 @@ static const struct FormChange sIncineroarFormChangeTable[] = {
     {FORM_CHANGE_TERMINATOR},
 };
 
+static const struct FormChange sAriadosFormChangeTable[] = {
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_ARIADOS_MEGA, ITEM_ARIADOSITE},
+    {FORM_CHANGE_TERMINATOR},
+};
+
 static const struct FormChange sChesnaughtFormChangeTable[] = {
     {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_CHESNAUGHT_MEGA, ITEM_CHESNAUGHTITE},
     {FORM_CHANGE_TERMINATOR},

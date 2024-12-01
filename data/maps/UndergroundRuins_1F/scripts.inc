@@ -194,6 +194,26 @@ DesertRuins_WallText5_5:
 	end
 
 
+DesertRuins_WallText6::
+	checkitem ITEM_HISTORY_BOOK
+	compare VAR_RESULT, FALSE
+	goto_if_eq DesertRuins_WallText6_2
+	lock
+	msgbox TranslateWallText1, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq DesertRuins_WallText6_5
+	msgbox WallTextTranslated6, MSGBOX_SIGN
+	end
+
+DesertRuins_WallText6_2:
+	msgbox DesertRuins_WallText_Text1, MSGBOX_SIGN
+	end
+
+DesertRuins_WallText6_5:
+	release
+	end
+
+
 RuinsEntranceMan_After::
 	.string "What?! The wall collapsed and revealed\n"
 	.string "a new floor to the ruins?!\p"
@@ -275,6 +295,18 @@ WallTextTranslated4::
 	.string "_______ __ hard to stay awake lately.”$"
 
 WallTextTranslated5::
+	.string "Some of the glyphs are missing, but you\n"
+	.string "can make out the following text:\p"
+	.string "“The King _____ us to ____ digging\n"
+	.string "deeper, but the _______ are clearly\l"
+	.string "afraid of _________.\p"
+	.string "____ have noticed the _________\n"
+	.string "activity increasing ___ further we\l"
+	.string "delve, and _______ something _______\l"
+	.string "might be resting _____ ___ ______ here.\p"
+	.string "Still, everyday __ ____ forward…”$"
+
+WallTextTranslated6::
 	.string "Some of the glyphs are missing, but you\n"
 	.string "can make out the following text:\p"
 	.string "“The King _____ us to ____ digging\n"

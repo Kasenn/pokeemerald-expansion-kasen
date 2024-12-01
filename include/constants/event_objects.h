@@ -542,6 +542,7 @@
 #define OBJ_EVENT_PAL_ZYGARDE_CELL                 0x1177
 #define OBJ_EVENT_PAL_IRIS_ON_AGGRON                 0x1178
 #define OBJ_EVENT_PAL_AGGRON_MOUNT                 0x1179
+#define OBJ_EVENT_PAL_TAG_BALL_DIRE            0x117A
 
 // Used as a placeholder follower graphic
 #define OBJ_EVENT_PAL_TAG_SUBSTITUTE              0x7611

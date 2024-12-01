@@ -1699,6 +1699,20 @@ static bool8 PushBoulder_End(struct Task *task, struct ObjectEvent *player, stru
         ObjectEventClearHeldMovementIfFinished(boulder);
         gPlayerAvatar.preventStep = FALSE;
         UnlockPlayerFieldControls();
+        if (MAP(TEST_ROOM)){
+            VarSet(VAR_BOULDER_ID, boulder->localId);
+                // u8 metatileBehavior = boulder->currentMetatileBehavior;
+
+                // if (sForcedMovementTestFuncs[10](metatileBehavior))
+                //     ObjectEventSetHeldMovement(boulder, GetWalkFastMovementAction(DIR_SOUTH));
+                // else if (sForcedMovementTestFuncs[11](metatileBehavior))
+                //     ObjectEventSetHeldMovement(boulder, GetWalkFastMovementAction(DIR_NORTH));
+                // else if (sForcedMovementTestFuncs[12](metatileBehavior))
+                //     ObjectEventSetHeldMovement(boulder, GetWalkFastMovementAction(DIR_WEST));
+                // else if (sForcedMovementTestFuncs[13](metatileBehavior))
+                //     ObjectEventSetHeldMovement(boulder, GetWalkFastMovementAction(DIR_EAST));
+                // return FALSE;
+        }
         DestroyTask(FindTaskIdByFunc(Task_PushBoulder));
     }
     return FALSE;

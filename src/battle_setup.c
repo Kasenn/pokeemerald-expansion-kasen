@@ -598,6 +598,18 @@ void BattleSetup_StartScriptedWildBattle(void)
     TryUpdateGymLeaderRematchFromWild();
 }
 
+void BattleSetup_StartScriptedWildBattleNoRunning(void)
+{
+    LockPlayerFieldControls();
+    gMain.savedCallback = CB2_EndScriptedWildBattle;
+    gBattleTypeFlags = BATTLE_TYPE_NO_RUNNING;
+    CreateBattleStartTask(GetWildBattleTransition(), 0);
+    IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+    IncrementGameStat(GAME_STAT_WILD_BATTLES);
+    IncrementDailyWildBattles();
+    TryUpdateGymLeaderRematchFromWild();
+}
+
 void BattleSetup_StartScriptedDoubleWildBattle(void)
 {
     LockPlayerFieldControls();
@@ -782,7 +794,16 @@ u8 BattleSetup_GetTerrainId(void)
     if (MetatileBehavior_IsLongGrass(tileBehavior))
         return BATTLE_TERRAIN_LONG_GRASS;
     if (MetatileBehavior_IsSandOrDeepSand(tileBehavior))
-        return BATTLE_TERRAIN_SAND;
+    {
+        if (GetSavedWeather() == WEATHER_BLIZZARD)
+        {
+            return BATTLE_TERRAIN_SNOW;
+        }
+        else
+        {
+            return BATTLE_TERRAIN_SAND;
+        }
+    }
 
     switch (gMapHeader.mapType)
     {
@@ -900,6 +921,13 @@ u8 GetWildBattleTransition(void)
     u8 enemyLevel = GetMonData(&gEnemyParty[0], MON_DATA_LEVEL);
     u8 playerLevel = GetSumOfPlayerPartyLevel(1);
 
+    if (MAP(UNDERGROUND_RUINS_5F))
+    {
+        gQueuedStatBoosts[B_POSITION_OPPONENT_LEFT].stats |= (1 << 0);  // Set Attack bit
+        gQueuedStatBoosts[B_POSITION_OPPONENT_LEFT].statChanges[0] = 1; // Set Attack to +1
+        gQueuedStatBoosts[B_POSITION_OPPONENT_LEFT].stats |= 0x80;      // Set flag
+
+    }
     if (enemyLevel < playerLevel)
     {
         if (InBattlePyramid())

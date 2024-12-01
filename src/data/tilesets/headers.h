@@ -746,7 +746,7 @@ const struct Tileset gTileset_MirageTower =
     .palettes = gTilesetPalettes_MirageTower,
     .metatiles = gMetatiles_MirageTower,
     .metatileAttributes = gMetatileAttributes_MirageTower,
-    .callback = NULL,
+    .callback = InitTilesetAnim_MirageTower,
 };
 
 const struct Tileset gTileset_MossdeepGameCorner =

@@ -332,6 +332,7 @@ LitwickMain_1:
 	case 25, LitwickMain_10
 	case 26, LitwickMain_10
 	case 27, LitwickMain_10
+	case 28, LitwickMain_10
 	msgbox ThatsNotaBall, MSGBOX_NPC
 	setflag VAR_TEMP_A
 	end

@@ -22,6 +22,7 @@ const u16 gCloudsWeatherPalette[] = INCBIN_U16("graphics/weather/cloud.gbapal");
 const u16 gSandstormWeatherPalette[] = INCBIN_U16("graphics/weather/sandstorm.gbapal");
 const u16 gWindWeatherPalette[] = INCBIN_U16("graphics/weather/wind.gbapal");
 const u16 gDarkWindWeatherPalette[] = INCBIN_U16("graphics/weather/dark_wind.gbapal");
+const u16 gSnowWindWeatherPalette[] = INCBIN_U16("graphics/weather/snow_wind.gbapal");
 const u8 gWeatherFogDiagonalTiles[] = INCBIN_U8("graphics/weather/fog_diagonal.4bpp");
 const u8 gWeatherFogHorizontalTiles[] = INCBIN_U8("graphics/weather/fog_horizontal.4bpp");
 const u8 gWeatherCloudTiles[] = INCBIN_U8("graphics/weather/cloud.4bpp");
@@ -528,7 +529,8 @@ bool8 Rain_Finish(void)
         if (gWeatherPtr->nextWeather == WEATHER_RAIN
          || gWeatherPtr->nextWeather == WEATHER_RAIN_THUNDERSTORM
          || gWeatherPtr->nextWeather == WEATHER_DOWNPOUR
-         || gWeatherPtr->nextWeather == WEATHER_STRONG_WINDS)
+         || gWeatherPtr->nextWeather == WEATHER_STRONG_WINDS
+         || gWeatherPtr->nextWeather == WEATHER_BLIZZARD)
         {
             gWeatherPtr->finishStep = 0xFF;
             return FALSE;
@@ -2270,6 +2272,9 @@ void Wind_InitVars(void)
     gWeatherPtr->initStep = 0;
     gWeatherPtr->weatherGfxLoaded = 0;
     gWeatherPtr->targetColorMapIndex = 0;
+    if (GetSavedWeather() == WEATHER_BLIZZARD){
+        gWeatherPtr->targetColorMapIndex = 3;
+    }
     gWeatherPtr->colorMapStepDelay = 20;
     if (!gWeatherPtr->windSpritesCreated)
     {
@@ -2446,9 +2451,12 @@ static void CreateWindSprites(void)
     {
         LoadSpriteSheet(&sWindSpriteSheet);
         //gSandstormWeatherPalette
-        if(MAP(WINDPLUME_MOUNTAIN_PEAK))
+        if (MAP(WINDPLUME_MOUNTAIN_PEAK))
         {
             LoadCustomWeatherSpritePalette(gDarkWindWeatherPalette);
+        }
+        else if (GetSavedWeather() == WEATHER_BLIZZARD){
+            LoadCustomWeatherSpritePalette(gSnowWindWeatherPalette);
         }
         else
         {
@@ -2866,6 +2874,7 @@ static u8 TranslateWeatherNum(u8 weather)
     case WEATHER_UNDERWATER_BUBBLES: return WEATHER_UNDERWATER_BUBBLES;
     case WEATHER_ABNORMAL:           return WEATHER_ABNORMAL;
     case WEATHER_STRONG_WINDS:       return WEATHER_STRONG_WINDS;
+    case WEATHER_BLIZZARD:       return WEATHER_BLIZZARD;
     case WEATHER_ROUTE119_CYCLE:     return sWeatherCycleRoute119[gSaveBlock1Ptr->weatherCycleStage];
     case WEATHER_ROUTE123_CYCLE:     return sWeatherCycleRoute123[gSaveBlock1Ptr->weatherCycleStage];
     default:                         return WEATHER_NONE;

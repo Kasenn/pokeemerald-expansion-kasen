@@ -1,23 +1,5 @@
 Route13_MapScripts::
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route13_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
-
-Route13_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
-	map_script_2 VAR_DEBUG, 8, RemovePlayerFromRoute13
-	.2byte 0
-
-
-RemovePlayerFromRoute13::
-	lockall
-	msgbox RelocatedFromRoute13
-	setvar VAR_DEBUG, 9
-	clearflag FLAG_SERPENTCAVE_DRAGONFANG
-	clearflag FLAG_UNUSED_0x4E7
-	clearflag FLAG_UNUSED_0x4E8
-	closemessage
-	warp MAP_SANDSTONE_CITY, 39, 32
-	callnative DefaultFollower
-	end
 
 
 R13_BeachSwimmer::

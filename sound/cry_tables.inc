@@ -494,6 +494,7 @@ gCryTable::
 .if P_FAMILY_SPINARAK == TRUE
 	cry Cry_Spinarak
 	cry Cry_Ariados
+	cry_reverse Cry_Ariados
 .endif @ P_FAMILY_SPINARAK
 .if P_FAMILY_CHINCHOU == TRUE
 	cry Cry_Chinchou

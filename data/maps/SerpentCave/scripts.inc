@@ -1024,5 +1024,15 @@ SerpentCave_RapidTooFast_Text::
 	.string "to fish or surf here.$"
 
 IrisIntroText::
-	.string "exposition blah blah\p"
-	.string "lets go aggron$"
+	.string "Oh, hi there!\p"
+	.string "Are you here looking for treasure?\p"
+	.string "My name's Iris, and you are…?\p"
+	.string "{PLAYER}… Well, listen up,\n"
+	.string "{PLAYER}.\p"
+	.string "I found these caverns first,\n"
+	.string "which means all the treasure here\l"
+	.string "belongs to me!\p"
+	.string "With the help of my trusty steed,\n"
+	.string "I bet I can grab up everything\l"
+	.string "before you can even blink!\p"
+	.string "Let's go, Aggron!$"

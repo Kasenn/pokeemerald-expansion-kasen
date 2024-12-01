@@ -626,8 +626,18 @@ script CameraShakeFaster{
     return
 }
 text IrisIntroText{
-    "exposition blah blah\p"
-    "lets go aggron"
+    "Oh, hi there!\p"
+    "Are you here looking for treasure?\p"
+    "My name's Iris, and you are…?\p"
+    "{PLAYER}… Well, listen up,\n"
+    "{PLAYER}.\p"
+    "I found these caverns first,\n"
+    "which means all the treasure here\l"
+    "belongs to me!\p"
+    "With the help of my trusty steed,\n"
+    "I bet I can grab up everything\l"
+    "before you can even blink!\p"
+    "Let's go, Aggron!"
 }
 script IrisGoodbye{
     delay(24)

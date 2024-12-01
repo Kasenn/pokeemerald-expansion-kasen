@@ -1161,7 +1161,7 @@
 #define FLAG_ITEM_MAUVILLE_CITY_X_SPEED                             0x45C
 #define FLAG_ITEM_PETALBURG_WOODS_PARALYZE_HEAL                     0x45D
 #define FLAG_ITEM_ROUTE_115_GREAT_BALL                              0x45E
-#define FLAG_ITEM_SAFARI_ZONE_NORTH_CALCIUM                         0x45F
+#define FLAG_HIDE_RUINS_TYRANITAR                         0x45F
 #define FLAG_ITEM_MT_PYRE_3F_SUPER_REPEL                            0x460
 #define FLAG_ITEM_ROUTE_118_HYPER_POTION                            0x461
 #define FLAG_ITEM_NEW_MAUVILLE_FULL_HEAL                            0x462
@@ -1245,7 +1245,7 @@
 #define FLAG_SERPENTCAVE_BOULDER_3                                        0x4AF // 
 #define FLAG_SERPENTCAVE_BOULDER_4                                     0x4B0 // 
 #define FLAG_R14_ITEM6                                     0x4B1 // 
-#define FLAG_UNUSED_0x4B2                                     0x4B2 // 
+#define FLAG_UNDERGROUNDRUINS_FULLRESTORE                                     0x4B2 // 
 #define FLAG_VISITED_PEARLWOOD_POINT                                        0x4B3 // Visited Pearlwood
 #define FLAG_VISITED_AZURETIDE                                              0x4B4 // Visited Azuretide
 #define FLAG_VISITED_WIP_CITY1                                              0x4B5 // Visited Aldeleaf
@@ -1298,7 +1298,7 @@
 #define FLAG_OBTAINED_LUCARIONITE                                           0x4E4 // 
 #define FLAG_R13_ITEM1                                           0x4E5 // 
 #define FLAG_SERPENTCAVE_DRAGONFANG                                           0x4E6 // 
-#define FLAG_UNUSED_0x4E7                                           0x4E7 // 
+#define FLAG_OBTAINED_TYRANITARITE                                           0x4E7 // 
 #define FLAG_UNUSED_0x4E8                                           0x4E8 // 
 #define FLAG_FC_ITEM1                                           0x4E9 // 
 #define FLAG_FC_ITEM2                                           0x4EA // 

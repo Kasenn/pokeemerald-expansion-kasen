@@ -1595,3 +1595,21 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/SafariZone_Mountain/scripts.inc"
 
 	.include "data/maps/Maptest/scripts.inc"
+
+	.include "data/maps/AmberockPokeCenter1F/scripts.inc"
+
+	.include "data/maps/AmberockMart/scripts.inc"
+
+	.include "data/maps/Amberock_House1/scripts.inc"
+
+	.include "data/maps/Amberock_House2/scripts.inc"
+
+	.include "data/maps/Amberock_House3/scripts.inc"
+
+	.include "data/maps/Amberock_PokeballFactory/scripts.inc"
+
+	.include "data/maps/Amberock_PokeballFactory_B1F/scripts.inc"
+
+	.include "data/maps/Amberock_PokeballFactory_Office/scripts.inc"
+
+	.include "data/maps/UndergroundRuins_5F/scripts.inc"

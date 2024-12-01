@@ -18866,6 +18866,75 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_UNDERGROUND_RUINS_5F",
+          "base_label": "gUndergroundRuins_5F0",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 36,
+                "max_level": 40,
+                "species": "SPECIES_LARVITAR"
+              },
+              {
+                "min_level": 36,
+                "max_level": 40,
+                "species": "SPECIES_BALTOY"
+              },
+              {
+                "min_level": 36,
+                "max_level": 40,
+                "species": "SPECIES_YAMASK"
+              },
+              {
+                "min_level": 36,
+                "max_level": 40,
+                "species": "SPECIES_YAMASK"
+              },
+              {
+                "min_level": 38,
+                "max_level": 42,
+                "species": "SPECIES_LARVITAR"
+              },
+              {
+                "min_level": 37,
+                "max_level": 41,
+                "species": "SPECIES_LARVITAR"
+              },
+              {
+                "min_level": 37,
+                "max_level": 41,
+                "species": "SPECIES_MISDREAVUS"
+              },
+              {
+                "min_level": 38,
+                "max_level": 42,
+                "species": "SPECIES_MISDREAVUS"
+              },
+              {
+                "min_level": 38,
+                "max_level": 42,
+                "species": "SPECIES_PUPITAR"
+              },
+              {
+                "min_level": 37,
+                "max_level": 41,
+                "species": "SPECIES_PUPITAR"
+              },
+              {
+                "min_level": 38,
+                "max_level": 42,
+                "species": "SPECIES_PUPITAR"
+              },
+              {
+                "min_level": 38,
+                "max_level": 42,
+                "species": "SPECIES_PUPITAR"
+              }
+            ]
+          }
         }
       ]
     },

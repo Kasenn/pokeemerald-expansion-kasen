@@ -19,9 +19,12 @@ script SerpentCave_Iris{
         }
     }
     else{
-        msgbox(FightForTreasure)
+        if(msgbox(FightForTreasure, MSGBOX_YESNO) == FALSE){
+            msgbox(Iris_PrepareFirst, MSGBOX_NPC)
+            setvar(VAR_SERPENTCAVE_STORY, STORY_SERPENTCAVE_IRIS_CHALLENGED)
+            end
+        }
     }
-    setvar(VAR_SERPENTCAVE_STORY, STORY_SERPENTCAVE_IRIS_CHALLENGED)
     trainerbattle_no_intro(TRAINER_CASUAL_IRIS, SerpentCaveIris_Lose)
     setvar(VAR_SERPENTCAVE_STORY, STORY_SERPENTCAVE_IRIS_DEFEATED)
     goto(IrisAfterBattle)
@@ -77,26 +80,65 @@ script IrisAfterBattle{
 }
 
 text Iris_TryAgain{
-    "try again?"
+    "You're back!\p"
+    "Well, are you ready to battle?"
 }
 text Iris_PrepareFirst{
-    "prepare first"
+    "I get it, you need to strategize\n"
+    "first."
 }
 text FightForTreasure{
-    "fight for treasure"
+    "Iris: Oho, managed to catch up,\n"
+    "did we?\p"
+    "By the way, do you happen to know\n"
+    "anything about the cave flooding?\p"
+    "Thanks to that, all the cool stuff\n"
+    "at the bottom of the cave got swept\l"
+    "away by the tide!\p"
+    "All that's left is this crummy\n"
+    "little cave with this weird shining\l"
+    "stone I found.\p"
+    "You look like you want it.\p"
+    "If you can beat me in a Pokémon\n"
+    "battle, I might just give it to you.\p"
+    "How about it?"
 }
 text SerpentCaveIris_Lose{
-    "what? how? you cheated!"
+    "This can't be! You must've\n"
+    "cheated somehow!"
 }
 text Iris_GiveRewardShort{
-    "here's the reward short"
+    "A promise is a promise.\n"
+    "Here's your prize."
 }
 text Iris_GiveRewardAfterMegaEvo{
-    "now i don't want to give reward!"
+    "Oh wow!\p"
+    "How did your Pokémon evolve like that\n"
+    "during the battle?\p"
+    "Mega Evolution?\n"
+    "Triggered by a Mega Stone?\p"
+    "Hey, do you think by any chance this\n"
+    "stone is a Mega Stone?\p"
+    "Now I kinda don't wanna give it away…\p"
+    "But, a promise is a promise…"
 }
 text Iris_GiveReward{
-    "here is your reward"
+    "Oh wow!\p"
+    "I have to admit, you're way stronger\n"
+    "than I expected!\p"
+    "That was fun!\p"
+    "I'd kinda grown to like the look of\n"
+    "this stone, but I did promise it to\l"
+    "you if you won.\p"
+    "A promise is a promise."
 }
 text IrisLeaves{
-    "goodbye"
+    "Well, it was a fun experience to\n"
+    "battle with you, {PLAYER}, but\l"
+    "seeing how the cave kinda got\l"
+    "flooded, I don't see much point\l"
+    "loitering around here anymore.\p"
+    "Think I'm gonna head home now.\p"
+    "I hope we get to battle again\n"
+    "some day!"
 }

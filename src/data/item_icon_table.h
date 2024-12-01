@@ -29,6 +29,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_PARK_BALL] = {gItemIcon_ParkBall, gItemIconPalette_ParkBall},
     [ITEM_BEAST_BALL] = {gItemIcon_BeastBall, gItemIconPalette_BeastBall},
     [ITEM_CHERISH_BALL] = {gItemIcon_CherishBall, gItemIconPalette_CherishBall},
+    [ITEM_DIRE_BALL] = {gItemIcon_DireBall, gItemIconPalette_DireBall},
     // Medicine
     [ITEM_POTION] = {gItemIcon_Potion, gItemIconPalette_Potion},
     [ITEM_SUPER_POTION] = {gItemIcon_Potion, gItemIconPalette_SuperPotion},
@@ -375,6 +376,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_TITANIUM_LINE] = {gItemIcon_TitaniumLine, gItemIconPalette_TitaniumLine},
     [ITEM_STRANGE_SEED] = {gItemIcon_StrangeSeed, gItemIconPalette_StrangeSeed},
     [ITEM_FERTILIZER] = {gItemIcon_Fertilizer, gItemIconPalette_Fertilizer},
+    [ITEM_ARIADOSITE] = {gItemIcon_Ariadosite, gItemIconPalette_Ariadosite},
 
     // Gems
     [ITEM_NORMAL_GEM] = {gItemIcon_NormalGem, gItemIconPalette_NormalGem},

@@ -1304,6 +1304,13 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 8,
     },
 
+    [ABILITY_HIVE_LEADER] =
+    {
+        .name = _("Hive Leader"),
+        .description = COMPOUND_STRING("Infests on contact."),
+        .aiRating = 8,
+    },
+
     [ABILITY_SEARING_RAGE] =
     {
         .name = _("Searing Rage"),

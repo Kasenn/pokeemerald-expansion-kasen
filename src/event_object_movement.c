@@ -594,6 +594,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_HealBall,              OBJ_EVENT_PAL_TAG_BALL_HEAL},
     {gObjectEventPal_QuickBall,             OBJ_EVENT_PAL_TAG_BALL_QUICK},
     {gObjectEventPal_CherishBall,           OBJ_EVENT_PAL_TAG_BALL_CHERISH},
+    {gObjectEventPal_DireBall,              OBJ_EVENT_PAL_TAG_BALL_DIRE},
     {gObjectEventPal_ParkBall,              OBJ_EVENT_PAL_TAG_BALL_PARK},
     {gObjectEventPal_FastBall,              OBJ_EVENT_PAL_TAG_BALL_FAST},
     {gObjectEventPal_LevelBall,             OBJ_EVENT_PAL_TAG_BALL_LEVEL},
@@ -9642,8 +9643,8 @@ static const u8 sElevationToSubpriority[] = {
     115, 115, 83, 115, 83, 115, 83, 115, 83, 115, 83, 115, 83, 0, 0, 115
 };
 
-static const u8 sElevationToPriority[] = {
-    2, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 0, 0, 2
+static const u8 sElevationToPriority[] = {//wip
+    2, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 3, 3, 2
 };
 
 static const u8 sElevationToSubspriteTableNum[] = {
@@ -9889,13 +9890,24 @@ static void DoTracksGroundEffect_Footprints(struct ObjectEvent *objEvent, struct
         FLDEFF_SAND_FOOTPRINTS,
         FLDEFF_DEEP_SAND_FOOTPRINTS
     };
+    u16 snowFootprints_FieldEffectData[2] = {
+        FLDEFF_SNOW_FOOTPRINTS,
+        FLDEFF_DEEP_SAND_FOOTPRINTS
+    };
 
     gFieldEffectArguments[0] = objEvent->previousCoords.x;
     gFieldEffectArguments[1] = objEvent->previousCoords.y;
     gFieldEffectArguments[2] = 149;
     gFieldEffectArguments[3] = 2;
     gFieldEffectArguments[4] = objEvent->facingDirection;
-    FieldEffectStart(sandFootprints_FieldEffectData[isDeepSand]);
+    if (GetSavedWeather() == WEATHER_BLIZZARD)
+    {
+        FieldEffectStart(snowFootprints_FieldEffectData[isDeepSand]);
+    }
+    else
+    {
+        FieldEffectStart(sandFootprints_FieldEffectData[isDeepSand]);
+    }
 }
 
 static void DoTracksGroundEffect_FootprintsB(struct ObjectEvent *objEvent, struct Sprite *sprite, bool8 isDeepSand)

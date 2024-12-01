@@ -269,6 +269,13 @@
       "elevation": 0,
       "dest_map": "MAP_UNDERGROUND_RUINS",
       "dest_warp_id": "21"
+    },
+    {
+      "x": 14,
+      "y": 60,
+      "elevation": 0,
+      "dest_map": "MAP_UNDERGROUND_RUINS_5F",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
@@ -322,6 +329,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "DesertRuins_WallText5"
+    },
+    {
+      "type": "sign",
+      "x": 17,
+      "y": 60,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DesertRuins_WallText6"
+    },
+    {
+      "type": "sign",
+      "x": 16,
+      "y": 60,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DesertRuins_WallText6"
     }
   ]
 }

@@ -3035,11 +3035,22 @@ u8 DoBattlerEndTurnEffects(void)
             gBattleStruct->turnEffectsTracker++;
             break;
         case ENDTURN_MEGA_EVO:
-            if (IsBattlerMegaEvolved(battler) && gBattleMons[battler].hp != 0)
+            if (IsBattlerMegaEvolved(battler)
+            && IsBattlerAlive(battler))
             {
                 gBattlerTarget = battler;
-                if (IsBattlerMegaEvolved(gBattlerTarget))
-                    gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 6;
+
+                u16 physAttack = CalculateMoveDamage(MOVE_NONE, gBattlerAttacker, gBattlerAttacker, TYPE_MYSTERY, 40, FALSE, FALSE, TRUE);
+                u16 speAttack = CalculateMoveDamage(MOVE_NONE_SPECIAL, gBattlerAttacker, gBattlerAttacker, TYPE_MYSTERY, 40, FALSE, FALSE, TRUE);
+
+                if (speAttack > physAttack)
+                    gBattleMoveDamage = speAttack;
+                else
+                    gBattleMoveDamage = physAttack;
+
+                if (gBattleMoveDamage > gBattleMons[gBattlerTarget].maxHP / 5)
+                    gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 5;
+
                 if (gBattleMoveDamage == 0)
                     gBattleMoveDamage = 1;
                 BattleScriptExecute(BattleScript_MegaExhaustion);
@@ -5879,6 +5890,28 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+        case ABILITY_HIVE_LEADER:
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+             && IsBattlerAlive(gBattlerAttacker)
+             && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
+             && TARGET_TURN_DAMAGED
+             && IsBattlerAlive(gBattlerTarget)
+             && !(gBattleMons[gBattlerAttacker].status2 & STATUS2_WRAPPED)
+             && GetBattlerHoldEffect(gBattlerAttacker, TRUE) != HOLD_EFFECT_PROTECTIVE_PADS
+             && IsMoveMakingContact(move, gBattlerAttacker))
+            {
+                gBattleMons[gBattlerAttacker].status2 |= STATUS2_WRAPPED;
+                if (GetBattlerHoldEffect(gBattlerTarget, TRUE) == HOLD_EFFECT_GRIP_CLAW)
+                    gDisableStructs[gEffectBattler].wrapTurns = B_BINDING_TURNS >= GEN_5 ? 7 : 5;
+                else
+                    gDisableStructs[gEffectBattler].wrapTurns = B_BINDING_TURNS >= GEN_5 ? (Random() % 2) + 4 : (Random() % 4) + 2;
+                gBattleStruct->wrappedMove[gEffectBattler] = MOVE_INFESTATION;
+                gBattleStruct->wrappedBy[gEffectBattler] = gBattlerTarget;
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_HiveLeaderActivates;
+                effect++;
+            }
+            break;
         case ABILITY_ILLUSION:
             if (gBattleStruct->illusion[gBattlerTarget].on && !gBattleStruct->illusion[gBattlerTarget].broken && TARGET_TURN_DAMAGED)
             {
@@ -6076,6 +6109,27 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 BattleScriptPushCursor();
                 gBattlescriptCurrInstr = BattleScript_AbilityStatusEffect;
                 gHitMarker |= HITMARKER_STATUS_ABILITY_EFFECT;
+                effect++;
+            }
+            break;
+        case ABILITY_HIVE_LEADER:
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+             && IsBattlerAlive(gEffectBattler)
+             && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
+             && !(gBattleMons[gEffectBattler].status2 & STATUS2_WRAPPED)
+             && GetBattlerHoldEffect(gBattlerAttacker, TRUE) != HOLD_EFFECT_PROTECTIVE_PADS
+             && IsMoveMakingContact(move, gBattlerAttacker)
+             && TARGET_TURN_DAMAGED)
+            {
+                gBattleMons[gEffectBattler].status2 |= STATUS2_WRAPPED;
+                if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_GRIP_CLAW)
+                    gDisableStructs[gEffectBattler].wrapTurns = B_BINDING_TURNS >= GEN_5 ? 7 : 5;
+                else
+                    gDisableStructs[gEffectBattler].wrapTurns = B_BINDING_TURNS >= GEN_5 ? (Random() % 2) + 4 : (Random() % 4) + 2;
+                gBattleStruct->wrappedMove[gEffectBattler] = MOVE_INFESTATION;
+                gBattleStruct->wrappedBy[gEffectBattler] = gBattlerAttacker;
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_HiveLeaderActivatesOffense;
                 effect++;
             }
             break;

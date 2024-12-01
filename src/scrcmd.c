@@ -994,6 +994,17 @@ bool8 ScrCmd_getfollowerxy(struct ScriptContext *ctx)
     return FALSE;
 }
 
+bool8 ScrCmd_getobjectxy(struct ScriptContext *ctx)
+{
+    u16 localId = VarGet(ScriptReadHalfword(ctx));
+    u8 objectId = GetObjectEventIdByLocalIdAndMap(localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup); 
+    struct ObjectEvent *objEvent = &gObjectEvents[objectId];
+
+    gSpecialVar_0x8001 = objEvent->currentCoords.x - MAP_OFFSET;
+    gSpecialVar_0x8002 = objEvent->currentCoords.y - MAP_OFFSET;
+    return FALSE;
+}
+
 bool8 ScrCmd_getpartysize(struct ScriptContext *ctx)
 {
     gSpecialVar_Result = CalculatePlayerPartyCount();
@@ -2201,6 +2212,15 @@ bool8 ScrCmd_dowildbattle(struct ScriptContext *ctx)
         BattleSetup_StartScriptedWildBattle();
     else
         BattleSetup_StartScriptedDoubleWildBattle();
+
+    ScriptContext_Stop();
+
+    return TRUE;
+}
+
+bool8 ScrCmd_dowildbattlenorunning(struct ScriptContext *ctx)
+{
+    BattleSetup_StartScriptedWildBattleNoRunning();
 
     ScriptContext_Stop();
 

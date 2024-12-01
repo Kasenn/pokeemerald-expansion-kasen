@@ -15527,6 +15527,10 @@ static void Cmd_handleballthrow(void)
             {
                 shakes = maxShakes;
             }
+            else if ((gBattleMons[gBattlerTarget].hp < gBattleMons[gBattlerTarget].maxHP * 105 / 100 / 5) && gLastUsedItem == ITEM_DIRE_BALL)
+            {
+                shakes = maxShakes;
+            }
             else
             {
                 odds = Sqrt(Sqrt(16711680 / odds));

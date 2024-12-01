@@ -57,7 +57,7 @@
 #define BATTLE_TYPE_WALLY_TUTORIAL     (1 << 9) // Used in pokefirered as BATTLE_TYPE_OLD_MAN_TUTORIAL.
 #define BATTLE_TYPE_ROAMER             (1 << 10)
 #define BATTLE_TYPE_EREADER_TRAINER    (1 << 11)
-#define BATTLE_TYPE_RAID               (1 << 12)
+#define BATTLE_TYPE_NO_RUNNING               (1 << 12)
 #define BATTLE_TYPE_LEGENDARY          (1 << 13)
 #define BATTLE_TYPE_GHOST              (1 << 14)
 #define BATTLE_TYPE_TWO_OPPONENTS      (1 << 15) // Used in pokefirered as BATTLE_TYPE_GHOST.
@@ -434,6 +434,7 @@
 #define BATTLE_TERRAIN_SPACE            20
 #define BATTLE_TERRAIN_ULTRA_SPACE      21
 #define BATTLE_TERRAIN_MUD              22
+// #define BATTLE_TERRAIN_SNOW             23
 
 #define BATTLE_TERRAIN_COUNT            23
 

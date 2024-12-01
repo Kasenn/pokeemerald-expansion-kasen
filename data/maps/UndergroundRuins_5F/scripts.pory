@@ -1,0 +1,83 @@
+mapscripts UndergroundRuins_5F_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        if(flag(FLAG_HIDE_RUINS_TYRANITAR)){
+            setobjectxyperm(3, 38, 18)
+        }
+    }
+}
+
+script Ttar_Trigger1{
+    setvar(VAR_TEMP_1, 1)
+    goto(Ttar_MainEvent)
+}
+script Ttar_Trigger2{
+    setvar(VAR_TEMP_1, 2)
+    goto(Ttar_MainEvent)
+}
+script Ttar_Trigger3{
+    setvar(VAR_TEMP_1, 3)
+    goto(Ttar_MainEvent)
+}
+
+script Ttar_MainEvent{
+    delay(30)
+    switch(var(VAR_TEMP_1)){
+        case 1:
+            setobjectxy(1, 37, 12)
+        case 3:
+            setobjectxy(1, 39, 12)
+    }
+    playse(SE_FALL)
+    safefollow
+    applymovement(1, moves(
+        lock_anim
+        delay_16 * 2
+        walk_fast_down * 6
+    ))
+    waitmovement(0)
+    playse(SE_M_EARTHQUAKE)
+    setvar(VAR_0x8004, 2)  // vertical pan
+    setvar(VAR_0x8005, 2)  // horizontal pan
+    setvar(VAR_0x8006, 30)  // num shakes
+    setvar(VAR_0x8007, 3)  // shake delay
+    special(ShakeCamera)
+    waitstate
+    waitse
+    delay(30)
+    playmoncry(SPECIES_TYRANITAR, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    setwildbattle(SPECIES_TYRANITAR, 55)
+    setflag(FLAG_SYSTEM_NO_WILD_RUNNING)
+    dowildbattlenorunning
+    waitstate
+    clearflag(FLAG_SYSTEM_NO_WILD_RUNNING)
+	fadescreen (FADE_TO_BLACK)
+	removeobject (1)
+    switch(var(VAR_TEMP_1)){
+        case 1:
+            setobjectxy(3, 37, 18)
+            setobjectxyperm(3, 37, 18)
+        case 2:
+            setobjectxy(3, 38, 18)
+            setobjectxyperm(3, 38, 18)
+        case 3:
+            setobjectxy(3, 39, 18)
+            setobjectxyperm(3, 39, 18)
+    }
+	fadescreen (FADE_FROM_BLACK)
+	release
+	end
+}
+
+script Ruins_OminousPresence{
+    msgbox(OverwhelmingAura)
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Down)
+    waitmovement(0)
+    release
+}
+
+text OverwhelmingAura{
+    "An overwhelming aura compels you\n"
+    "to turn back…"
+}

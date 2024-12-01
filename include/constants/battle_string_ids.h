@@ -724,8 +724,9 @@
 #define STRINGID_NORUNNINGFROMGHOST                   721
 #define STRINGID_JASMINE_NOTGIVINGUPYET               722
 #define STRINGID_JASMINE_AMPHY                        723
+#define	STRINGID_HIVE_LEADER                          724
 
-#define BATTLESTRINGS_COUNT                           724
+#define BATTLESTRINGS_COUNT                           725
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,

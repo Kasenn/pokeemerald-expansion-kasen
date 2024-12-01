@@ -18,7 +18,7 @@ Amberock_FlagControl_2:
 	goto Amberock_FlagControl_1
 
 Amberock_FlagControl_4:
-	setobjectxyperm 1, 33, 11
+	setobjectxyperm 31, 33, 11
 	clearflag FLAG_TEMP_2
 	return
 
@@ -33,21 +33,21 @@ Amberock_PaperVisibility::
 	return
 
 Amberock_PaperVisibility_1:
-	setmetatile 27, 10, 0x128, FALSE
-	setmetatile 27, 12, 0x189, FALSE
-	setmetatile 26, 12, 0x189, FALSE
-	setmetatile 25, 13, 0x170, FALSE
-	setmetatile 24, 13, 0x170, FALSE
-	setmetatile 23, 13, 0x170, FALSE
-	setmetatile 23, 14, 0x170, FALSE
-	setmetatile 24, 14, 0x170, FALSE
-	setmetatile 25, 14, 0x170, FALSE
-	setmetatile 24, 15, 0x170, FALSE
-	setmetatile 25, 15, 0x170, FALSE
-	setmetatile 26, 15, 0x170, FALSE
-	setmetatile 26, 16, 0x170, FALSE
-	setmetatile 27, 16, 0x170, FALSE
-	setmetatile 28, 16, 0x170, FALSE
+	setmetatile 27 + 30, 10, 0x128, FALSE
+	setmetatile 27 + 30, 12, 0x189, FALSE
+	setmetatile 26 + 30, 12, 0x189, FALSE
+	setmetatile 25 + 30, 13, 0x170, FALSE
+	setmetatile 24 + 30, 13, 0x170, FALSE
+	setmetatile 23 + 30, 13, 0x170, FALSE
+	setmetatile 23 + 30, 14, 0x170, FALSE
+	setmetatile 24 + 30, 14, 0x170, FALSE
+	setmetatile 25 + 30, 14, 0x170, FALSE
+	setmetatile 24 + 30, 15, 0x170, FALSE
+	setmetatile 25 + 30, 15, 0x170, FALSE
+	setmetatile 26 + 30, 15, 0x170, FALSE
+	setmetatile 26 + 30, 16, 0x170, FALSE
+	setmetatile 27 + 30, 16, 0x170, FALSE
+	setmetatile 28 + 30, 16, 0x170, FALSE
 	return
 
 
@@ -70,7 +70,7 @@ Amberock_SurfScientist_1:
 
 Amberock_SurfScientist_2:
 	getfollowerxy VAR_TEMP_1, VAR_TEMP_2
-	compare VAR_TEMP_1, 34
+	compare VAR_TEMP_1, 64
 	goto_if_ne Amberock_SurfScientist_7
 Amberock_SurfScientist_5:
 	applymovement 1, ScientistLeavesDetour
@@ -124,7 +124,7 @@ Amberock_Papers::
 	safefollow
 	msgbox PapersOnGround
 	removeobject 3
-	setmetatile 27, 10, 0x128, FALSE
+	setmetatile 57, 10, 0x128, FALSE
 	special DrawWholeMapView
 	closemessage
 	clearflag FLAG_TEMP_2
@@ -189,25 +189,25 @@ Amberock_Papers_2:
 	goto Amberock_Papers_1
 
 Amberock_Papers_6:
-	compare VAR_TEMP_1, 27
+	compare VAR_TEMP_1, 57
 	goto_if_eq Amberock_Papers_15
 Amberock_Papers_13:
 	applymovement 1, MoveScientist2
 	goto Amberock_Papers_4
 
 Amberock_Papers_7:
-	compare VAR_TEMP_1, 28
+	compare VAR_TEMP_1, 58
 	goto_if_eq Amberock_Papers_20
 Amberock_Papers_18:
-	setobjectxy 1, 28, 4
+	setobjectxy 31, 28, 4
 	applymovement 1, Walk5Down
 	goto Amberock_Papers_4
 
 Amberock_Papers_8:
-	compare VAR_TEMP_1, 26
+	compare VAR_TEMP_1, 56
 	goto_if_eq Amberock_Papers_25
 Amberock_Papers_23:
-	setobjectxy 1, 28, 4
+	setobjectxy 31, 28, 4
 	applymovement 1, MoveScientist1
 	goto Amberock_Papers_4
 
@@ -259,12 +259,12 @@ Amberock_Papers_35:
 	goto Amberock_Papers_33
 
 Amberock_Papers_36:
-	setobjectxy 2, 28, 4
+	setobjectxy 32, 28, 4
 	applymovement 2, Walk5Down
 	goto Amberock_Papers_33
 
 Amberock_Papers_37:
-	setobjectxy 2, 28, 4
+	setobjectxy 32, 28, 4
 	applymovement 2, MoveScientist1
 	goto Amberock_Papers_33
 

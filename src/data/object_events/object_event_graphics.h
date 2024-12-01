@@ -350,6 +350,7 @@ const u16 gFieldEffectObjectPalette1[] = INCBIN_U16("graphics/field_effects/pale
 const u16 gFieldEffectObjectPalette2[] = INCBIN_U16("graphics/field_effects/palettes/general_2.gbapal");
 const u16 gFieldEffectObjectPalette3[] = INCBIN_U16("graphics/field_effects/palettes/general_3.gbapal");
 const u16 gFieldEffectObjectPalette4[] = INCBIN_U16("graphics/field_effects/palettes/general_4.gbapal");
+const u16 gFieldEffectObjectPalette5[] = INCBIN_U16("graphics/field_effects/palettes/general_5.gbapal");
 const u32 gFieldEffectObjectPic_GroundImpactDust[] = INCBIN_U32("graphics/field_effects/pics/ground_impact_dust.4bpp");
 const u32 gFieldEffectObjectPic_JumpTallGrass[] = INCBIN_U32("graphics/field_effects/pics/jump_tall_grass.4bpp");
 const u32 gUnusedGrass3[] = INCBIN_U32("graphics/field_effects/pics/unused_grass_3.4bpp");
@@ -587,6 +588,7 @@ const u32 gObjectEventPic_MoonBall[] = INCBIN_U32("graphics/object_events/pics/m
 const u32 gObjectEventPic_SportBall[] = INCBIN_U32("graphics/object_events/pics/misc/ball_sport.4bpp");
 const u32 gObjectEventPic_DreamBall[] = INCBIN_U32("graphics/object_events/pics/misc/ball_dream.4bpp");
 const u32 gObjectEventPic_BeastBall[] = INCBIN_U32("graphics/object_events/pics/misc/ball_beast.4bpp");
+const u32 gObjectEventPic_DireBall[] = INCBIN_U32("graphics/object_events/pics/misc/ball_dire.4bpp");
 #ifdef ITEM_STRANGE_BALL
 const u32 gObjectEventPic_StrangeBall[] = INCBIN_U32("graphics/object_events/pics/misc/ball_strange.4bpp");
 #endif //ITEM_STRANGE_BALL
@@ -611,6 +613,7 @@ const u16 gObjectEventPal_DuskBall[] = INCBIN_U16("graphics/object_events/pics/m
 const u16 gObjectEventPal_HealBall[] = INCBIN_U16("graphics/object_events/pics/misc/ball_heal.gbapal");
 const u16 gObjectEventPal_QuickBall[] = INCBIN_U16("graphics/object_events/pics/misc/ball_quick.gbapal");
 const u16 gObjectEventPal_CherishBall[] = INCBIN_U16("graphics/object_events/pics/misc/ball_cherish.gbapal");
+const u16 gObjectEventPal_DireBall[] = INCBIN_U16("graphics/object_events/pics/misc/ball_dire.gbapal");
 const u16 gObjectEventPal_ParkBall[] = INCBIN_U16("graphics/object_events/pics/misc/ball_park.gbapal");
 // Gen II/Johto Apricorns
 const u16 gObjectEventPal_FastBall[] = INCBIN_U16("graphics/object_events/pics/misc/ball_fast.gbapal");

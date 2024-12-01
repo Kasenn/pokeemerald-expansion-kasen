@@ -31,16 +31,17 @@
 #define ITEM_PARK_BALL 25
 #define ITEM_BEAST_BALL 26
 #define ITEM_CHERISH_BALL 27
+#define ITEM_DIRE_BALL 28
 
 // Note: If moving ball IDs around, updating FIRST_BALL/LAST_BALL is not sufficient
 //       Several places expect the ball IDs to be first and contiguous (e.g. MON_DATA_POKEBALL)
 //       If adding new balls, it's easiest to insert them after the last ball and increment the below IDs (and removing ITEM_034 for example)
 #define FIRST_BALL ITEM_POKE_BALL
-#define LAST_BALL  ITEM_CHERISH_BALL
+#define LAST_BALL  ITEM_DIRE_BALL
 
 // Medicine
-#define ITEM_POTION 28
-#define ITEM_SUPER_POTION 29
+#define ITEM_POTION 29
+#define ITEM_SUPER_POTION 856
 #define ITEM_HYPER_POTION 30
 #define ITEM_MAX_POTION 31
 #define ITEM_FULL_RESTORE 32
@@ -1029,11 +1030,12 @@
 #define ITEM_STRANGE_SEED 852
 #define ITEM_FERTILIZER 853
 #define ITEM_CHARGED_ORB 854
+#define ITEM_ARIADOSITE 855
 
 // HOPO BERRY
 // LEGEND PLATE
 
-#define ITEMS_COUNT 855
+#define ITEMS_COUNT 857
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

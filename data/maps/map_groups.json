@@ -16,6 +16,7 @@
     "gMapGroup_IndoorSandstoneCity",
     "gMapGroup_IndoorFishingVillage",
     "gMapGroup_IndoorDrisledgeTown",
+    "gMapGroup_IndoorAmberockTown",
     "gMapGroup_IndoorLittleroot",
     "gMapGroup_IndoorOldale",
     "gMapGroup_IndoorDewford",
@@ -175,7 +176,8 @@
     "WindplumeMountain_5F",
     "WindplumeMountain_6F",
     "WindplumeMountain_Peak",
-    "WindplumeMountain_7F"
+    "WindplumeMountain_7F",
+    "UndergroundRuins_5F"
   ],
   "gMapGroup_IndoorPearlwoodPoint": [
     "Lab2",
@@ -359,6 +361,17 @@
     "Drisledge_Mart_Backroom",
     "DrisledgeTown_Broken2"
   ],
+  "gMapGroup_IndoorAmberockTown": [
+    "AmberockPokeCenter1F",
+    "AmberockMart",
+    "MauvilleCity_GameCorner",
+    "Amberock_House1",
+    "Amberock_House2",
+    "Amberock_House3",
+    "Amberock_PokeballFactory",
+    "Amberock_PokeballFactory_B1F",
+    "Amberock_PokeballFactory_Office"
+  ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
     "LittlerootTown_BrendansHouse_2F",
@@ -445,7 +458,6 @@
     "MauvilleCity_Gym",
     "MauvilleCity_BikeShop",
     "MauvilleCity_House1",
-    "MauvilleCity_GameCorner",
     "MauvilleCity_House2",
     "MauvilleCity_PokemonCenter_1F",
     "MauvilleCity_PokemonCenter_2F",

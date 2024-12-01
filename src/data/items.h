@@ -595,6 +595,22 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_CherishBall,
     },
 
+    [ITEM_DIRE_BALL] =
+    {
+        .name = _("Dire Ball"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Catches a Pokémon\n"
+            "at critical health\n"
+            "without fail."),
+        .pocket = POCKET_POKE_BALLS,
+        .type = ITEM_USE_BAG_MENU,
+        .battleUsage = EFFECT_ITEM_THROW_BALL,
+        .secondaryId = ITEM_DIRE_BALL - FIRST_BALL,
+        .iconPic = gItemIcon_DireBall,
+        .iconPalette = gItemIconPalette_DireBall,
+    },
+
 // Medicine
 
     [ITEM_POTION] =
@@ -14212,6 +14228,22 @@ const struct Item gItemsInfo[] =
         .flingPower = 80,
         .iconPic = gItemIcon_Incineroarite,
         .iconPalette = gItemIconPalette_Incineroarite,
+    },
+    [ITEM_ARIADOSITE] =
+    {
+        .name = _("Ariadosite"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = COMPOUND_STRING(
+            "This stone enables\n"
+            "Ariados to Mega\n"
+            "Evolve in battle."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+        .iconPic = gItemIcon_Ariadosite,
+        .iconPalette = gItemIconPalette_Ariadosite,
     },
     [ITEM_PROCESSOR] =
     {

@@ -2,7 +2,7 @@
   "id": "MAP_AMBEROCK_TOWN",
   "name": "AmberockTown",
   "layout": "LAYOUT_AMBEROCK_TOWN",
-  "music": "MUS_VERDANTURF",
+  "music": "MUS_DEWFORD",
   "region_map_section": "MAPSEC_TOWN_WIP5",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -15,14 +15,14 @@
   "connections": [
     {
       "map": "MAP_ROUTE15",
-      "offset": 4,
+      "offset": 34,
       "direction": "up"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
-      "x": 28,
+      "x": 58,
       "y": 3,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -35,7 +35,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ACEROLA",
-      "x": 28,
+      "x": 58,
       "y": 3,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -48,7 +48,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 27,
+      "x": 57,
       "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
@@ -61,7 +61,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 27,
+      "x": 57,
       "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -70,12 +70,12 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_4"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ZYGARDE_CELL",
-      "x": 30,
-      "y": 21,
+      "x": 60,
+      "y": 26,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -84,10 +84,43 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ZygardeCell",
       "flag": "FLAG_ZYGARDE_CELL_36"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SS_TIDAL",
+      "x": 12,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
-
+    {
+      "x": 61,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_AMBEROCK_POKE_CENTER1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 72,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_AMBEROCK_MART",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 38,
+      "y": 34,
+      "elevation": 0,
+      "dest_map": "MAP_MAUVILLE_CITY_GAME_CORNER",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 

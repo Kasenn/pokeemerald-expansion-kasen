@@ -20,9 +20,10 @@ SerpentCave_Iris::
 SerpentCave_Iris_1:
 	compare VAR_SERPENTCAVE_STORY, STORY_SERPENTCAVE_IRIS_CHALLENGED
 	goto_if_eq SerpentCave_Iris_5
-	msgbox FightForTreasure
+	msgbox FightForTreasure, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq SerpentCave_Iris_10
 SerpentCave_Iris_4:
-	setvar VAR_SERPENTCAVE_STORY, STORY_SERPENTCAVE_IRIS_CHALLENGED
 	trainerbattle_no_intro TRAINER_CASUAL_IRIS, SerpentCaveIris_Lose
 	setvar VAR_SERPENTCAVE_STORY, STORY_SERPENTCAVE_IRIS_DEFEATED
 	goto IrisAfterBattle
@@ -40,6 +41,11 @@ SerpentCave_Iris_5:
 
 SerpentCave_Iris_8:
 	msgbox Iris_PrepareFirst, MSGBOX_NPC
+	end
+
+SerpentCave_Iris_10:
+	msgbox Iris_PrepareFirst, MSGBOX_NPC
+	setvar VAR_SERPENTCAVE_STORY, STORY_SERPENTCAVE_IRIS_CHALLENGED
 	end
 
 
@@ -124,25 +130,64 @@ IrisAfterBattle_Movement_1:
 	step_end
 
 Iris_TryAgain::
-	.string "try again?$"
+	.string "You're back!\p"
+	.string "Well, are you ready to battle?$"
 
 Iris_PrepareFirst::
-	.string "prepare first$"
+	.string "I get it, you need to strategize\n"
+	.string "first.$"
 
 FightForTreasure::
-	.string "fight for treasure$"
+	.string "Iris: Oho, managed to catch up,\n"
+	.string "did we?\p"
+	.string "By the way, do you happen to know\n"
+	.string "anything about the cave flooding?\p"
+	.string "Thanks to that, all the cool stuff\n"
+	.string "at the bottom of the cave got swept\l"
+	.string "away by the tide!\p"
+	.string "All that's left is this crummy\n"
+	.string "little cave with this weird shining\l"
+	.string "stone I found.\p"
+	.string "You look like you want it.\p"
+	.string "If you can beat me in a Pokémon\n"
+	.string "battle, I might just give it to you.\p"
+	.string "How about it?$"
 
 SerpentCaveIris_Lose::
-	.string "what? how? you cheated!$"
+	.string "This can't be! You must've\n"
+	.string "cheated somehow!$"
 
 Iris_GiveRewardShort::
-	.string "here's the reward short$"
+	.string "A promise is a promise.\n"
+	.string "Here's your prize.$"
 
 Iris_GiveRewardAfterMegaEvo::
-	.string "now i don't want to give reward!$"
+	.string "Oh wow!\p"
+	.string "How did your Pokémon evolve like that\n"
+	.string "during the battle?\p"
+	.string "Mega Evolution?\n"
+	.string "Triggered by a Mega Stone?\p"
+	.string "Hey, do you think by any chance this\n"
+	.string "stone is a Mega Stone?\p"
+	.string "Now I kinda don't wanna give it away…\p"
+	.string "But, a promise is a promise…$"
 
 Iris_GiveReward::
-	.string "here is your reward$"
+	.string "Oh wow!\p"
+	.string "I have to admit, you're way stronger\n"
+	.string "than I expected!\p"
+	.string "That was fun!\p"
+	.string "I'd kinda grown to like the look of\n"
+	.string "this stone, but I did promise it to\l"
+	.string "you if you won.\p"
+	.string "A promise is a promise.$"
 
 IrisLeaves::
-	.string "goodbye$"
+	.string "Well, it was a fun experience to\n"
+	.string "battle with you, {PLAYER}, but\l"
+	.string "seeing how the cave kinda got\l"
+	.string "flooded, I don't see much point\l"
+	.string "loitering around here anymore.\p"
+	.string "Think I'm gonna head home now.\p"
+	.string "I hope we get to battle again\n"
+	.string "some day!$"

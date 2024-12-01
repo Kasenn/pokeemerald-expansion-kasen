@@ -1,10 +1,31 @@
 mapscripts TestRoom_MapScripts {
     MAP_SCRIPT_ON_TRANSITION: SetTestFlag
-    MAP_SCRIPT_ON_FRAME_TABLE[
-        VAR_TEMP_0, 1: TestMovementScript
-    ]
+    // MAP_SCRIPT_ON_FRAME_TABLE[
+    //     VAR_TEMP_0, 1: DoBoulderCheck
+    // ]
 }
 
+const X = VAR_0x8001
+const Y = VAR_0x8002
+
+script DoBoulderCheck{
+    getobjectxy(4)
+    if(var(Y) != 25){
+        setvar(VAR_TEMP_0, 0)
+    }
+    else{
+        safefollow
+        applymovement(4, MoveBoulderFast)
+        waitmovement(0)
+        setobjectxy(4, 9, 25)
+        setobjectxyperm(4, 9, 25)
+        setvar(VAR_TEMP_0, 0)
+    }
+    release
+}
+movement MoveBoulderFast{
+    walk_fast_left * 11
+}
 script SetTestFlag{
     setflag(FLAG_TEMP_1)
     setflag(FLAG_TEMP_2)

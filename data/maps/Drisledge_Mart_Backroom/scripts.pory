@@ -228,6 +228,7 @@ script LitwickMain{
         case 25:
         case 26:
         case 27:
+        case 28:
             goto(LitwickEligibleBall)
         default:
             msgbox(ThatsNotaBall, MSGBOX_NPC)

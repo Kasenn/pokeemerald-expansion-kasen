@@ -226,7 +226,7 @@ ZygardeCell::
 
 
 IrisBattle::
-	trainerbattle_single TRAINER_CASUAL_IRIS, RustboroCity_DevonCorp_1F_Rocket1_Intro, RustboroCity_DevonCorp_1F_Rocket1_Defeat
+	trainerbattle_no_intro TRAINER_CASUAL_IRIS, RustboroCity_DevonCorp_1F_Rocket1_Defeat
 	return
 
 
@@ -243,7 +243,7 @@ MinaBattle::
 AutomaticUpdate::
 	setvar VAR_DEBUG, 9
 	clearflag FLAG_SERPENTCAVE_DRAGONFANG
-	clearflag FLAG_UNUSED_0x4E7
+	clearflag FLAG_OBTAINED_TYRANITARITE
 	clearflag FLAG_UNUSED_0x4E8
 	msgbox AutomaticUpdate_Text1
 	callnative DefaultFollower
@@ -301,7 +301,7 @@ AutomaticUpdate3::
 	clearflag FLAG_SERPENTCAVE_BOULDER_3
 	clearflag FLAG_SERPENTCAVE_BOULDER_4
 	clearflag FLAG_R14_ITEM6
-	clearflag FLAG_UNUSED_0x4B2
+	clearflag FLAG_UNDERGROUNDRUINS_FULLRESTORE
 	clearflag FLAG_WW_WATERSTONE
 	clearflag FLAG_COAST_TOMB_OPENED
 	clearflag FLAG_SERPENTCAVE_ITEM4
@@ -420,6 +420,12 @@ AutomaticUpdate4::
 
 
 AutomaticUpdate5::
+	checkitemquant ITEM_POTION
+	removeitem ITEM_POTION, VAR_0x8005
+	additem ITEM_SUPER_POTION, VAR_0x8005
+	checkitemquant ITEM_DIRE_BALL
+	removeitem ITEM_DIRE_BALL, VAR_0x8005
+	additem ITEM_POTION, VAR_0x8005
 	clearflag FLAG_SAFARIMOUNTAIN_ITEM4
 	clearflag FLAG_SAFARIMOUNTAIN_ITEM5
 	clearflag FLAG_SAFARIMOUNTAIN_ITEM6
@@ -735,12 +741,10 @@ Debug_Script_4_12:
 
 
 Debug_Script_5::
-	special ChoosePartyMon
-	waitstate
-	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, Route117_PokemonDayCare_EventScript_ComeAgain
-	specialvar VAR_0x8005, GetSelectedMonNicknameAndSpecies
-	special ReadMonHiddenPowerType
-	msgbox Debug_Script_5_Text_0
+	givemon SPECIES_AGGRON, 50
+	givemon SPECIES_GABITE, 50
+	givemon SPECIES_FRAXURE, 50
+	givemon SPECIES_ARCHEOPS, 50
 	release
 	return
 
@@ -1043,9 +1047,6 @@ Debug_Script_4_Text_15:
 
 Debug_Script_4_Text_16:
 	.string "Team set to level 45.$"
-
-Debug_Script_5_Text_0:
-	.string "{STR_VAR_3}$"
 
 SeenAnyStrangeSeeds::
 	.string "I've been hearing some rumors about\n"

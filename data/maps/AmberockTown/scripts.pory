@@ -13,27 +13,27 @@ script Amberock_FlagControl{
         setflag(FLAG_TEMP_1)
     }
     if(flag(FLAG_BADGE05_GET) && !flag(FLAG_RECEIVED_HM_SURF)){
-        setobjectxyperm(1, 33, 11)
+        setobjectxyperm(31, 33, 11)
         clearflag(FLAG_TEMP_2)
     }
 }
 script Amberock_PaperVisibility{
     if(var(VAR_ROUTE14_ROCKET_EVENT) >= 6){
-        setmetatile(27, 10, 0x128, FALSE)
-        setmetatile(27, 12, 0x189, FALSE)
-        setmetatile(26, 12, 0x189, FALSE)
-        setmetatile(25, 13, 0x170, FALSE)
-        setmetatile(24, 13, 0x170, FALSE)
-        setmetatile(23, 13, 0x170, FALSE)
-        setmetatile(23, 14, 0x170, FALSE)
-        setmetatile(24, 14, 0x170, FALSE)
-        setmetatile(25, 14, 0x170, FALSE)
-        setmetatile(24, 15, 0x170, FALSE)
-        setmetatile(25, 15, 0x170, FALSE)
-        setmetatile(26, 15, 0x170, FALSE)
-        setmetatile(26, 16, 0x170, FALSE)
-        setmetatile(27, 16, 0x170, FALSE)
-        setmetatile(28, 16, 0x170, FALSE)
+        setmetatile(27 + 30, 10, 0x128, FALSE)
+        setmetatile(27 + 30, 12, 0x189, FALSE)
+        setmetatile(26 + 30, 12, 0x189, FALSE)
+        setmetatile(25 + 30, 13, 0x170, FALSE)
+        setmetatile(24 + 30, 13, 0x170, FALSE)
+        setmetatile(23 + 30, 13, 0x170, FALSE)
+        setmetatile(23 + 30, 14, 0x170, FALSE)
+        setmetatile(24 + 30, 14, 0x170, FALSE)
+        setmetatile(25 + 30, 14, 0x170, FALSE)
+        setmetatile(24 + 30, 15, 0x170, FALSE)
+        setmetatile(25 + 30, 15, 0x170, FALSE)
+        setmetatile(26 + 30, 15, 0x170, FALSE)
+        setmetatile(26 + 30, 16, 0x170, FALSE)
+        setmetatile(27 + 30, 16, 0x170, FALSE)
+        setmetatile(28 + 30, 16, 0x170, FALSE)
     }
 }
 
@@ -46,7 +46,7 @@ script Amberock_SurfScientist{
     closemessage
     if(var(VAR_FACING) == DIR_SOUTH){
         getfollowerxy(X, Y)
-        if(var(X) != 34 && var(Y) != 10){
+        if(var(X) != 64 && var(Y) != 10){
             safefollow
         }
         applymovement(1, ScientistLeavesDetour)
@@ -103,7 +103,7 @@ script Amberock_Papers{
     safefollow
     msgbox(PapersOnGround)
     removeobject(3)
-    setmetatile(27, 10, 0x128, FALSE)
+    setmetatile(57, 10, 0x128, FALSE)
     special(DrawWholeMapView)
     closemessage
     clearflag(FLAG_TEMP_2)
@@ -117,21 +117,21 @@ script Amberock_Papers{
     delay(60)
     switch(var(VAR_FACING)){
         case DIR_SOUTH:
-            if(var(X) == 27 && var(Y) == 8){
+            if(var(X) == 57 && var(Y) == 8){
                 clearflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
             }
             applymovement(1, MoveScientist2)
         case DIR_WEST:
-            if(var(X) == 28 && var(Y) == 9){
+            if(var(X) == 58 && var(Y) == 9){
                 clearflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
             }
-            setobjectxy(1, 28, 4)
+            setobjectxy(31, 28, 4)
             applymovement(1, Walk5Down)
         case DIR_EAST:
-            if(var(X) == 26 && var(Y) == 9){
+            if(var(X) == 56 && var(Y) == 9){
                 clearflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
             }
-            setobjectxy(1, 28, 4)
+            setobjectxy(31, 28, 4)
             applymovement(1, MoveScientist1)
     }
     waitmovement(0)
@@ -158,10 +158,10 @@ script Amberock_Papers{
         case DIR_SOUTH:
             applymovement(2, MoveScientist2)
         case DIR_WEST:
-            setobjectxy(2, 28, 4)
+            setobjectxy(32, 28, 4)
             applymovement(2, Walk5Down)
         case DIR_EAST:
-            setobjectxy(2, 28, 4)
+            setobjectxy(32, 28, 4)
             applymovement(2, MoveScientist1)
     }
     waitmovement(0)

@@ -57,7 +57,7 @@
       "width": 80,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Amberock",
+      "secondary_tileset": "gTileset_BattleArena",
       "border_filepath": "data/layouts/LilycoveCity/border.bin",
       "blockdata_filepath": "data/layouts/LilycoveCity/map.bin"
     },
@@ -6214,8 +6214,8 @@
     {
       "id": "LAYOUT_AMBEROCK_TOWN",
       "name": "AmberockTown_Layout",
-      "width": 55,
-      "height": 45,
+      "width": 95,
+      "height": 42,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Amberock",
       "border_filepath": "data/layouts/AmberockTown/border.bin",
@@ -6950,6 +6950,96 @@
       "secondary_tileset": "gTileset_SafariSec",
       "border_filepath": "data/layouts/Maptest/border.bin",
       "blockdata_filepath": "data/layouts/Maptest/map.bin"
+    },
+    {
+      "id": "LAYOUT_AMBEROCK_POKE_CENTER1F",
+      "name": "AmberockPokeCenter1F_Layout",
+      "width": 13,
+      "height": 16,
+      "primary_tileset": "gTileset_Building2",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/AmberockPokeCenter1F/border.bin",
+      "blockdata_filepath": "data/layouts/AmberockPokeCenter1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_AMBEROCK_MART",
+      "name": "AmberockMart_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/AmberockMart/border.bin",
+      "blockdata_filepath": "data/layouts/AmberockMart/map.bin"
+    },
+    {
+      "id": "LAYOUT_AMBEROCK_HOUSE1",
+      "name": "Amberock_House1_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Amberock_House1/border.bin",
+      "blockdata_filepath": "data/layouts/Amberock_House1/map.bin"
+    },
+    {
+      "id": "LAYOUT_AMBEROCK_HOUSE2",
+      "name": "Amberock_House2_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Amberock_House2/border.bin",
+      "blockdata_filepath": "data/layouts/Amberock_House2/map.bin"
+    },
+    {
+      "id": "LAYOUT_AMBEROCK_HOUSE3",
+      "name": "Amberock_House3_Layout",
+      "width": 11,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Amberock_House3/border.bin",
+      "blockdata_filepath": "data/layouts/Amberock_House3/map.bin"
+    },
+    {
+      "id": "LAYOUT_AMBEROCK_POKEBALL_FACTORY",
+      "name": "Amberock_PokeballFactory_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Amberock_PokeballFactory/border.bin",
+      "blockdata_filepath": "data/layouts/Amberock_PokeballFactory/map.bin"
+    },
+    {
+      "id": "LAYOUT_AMBEROCK_POKEBALL_FACTORY_B1F",
+      "name": "Amberock_PokeballFactory_B1F_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Amberock_PokeballFactory_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/Amberock_PokeballFactory_B1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_AMBEROCK_POKEBALL_FACTORY_OFFICE",
+      "name": "Amberock_PokeballFactory_Office_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Amberock_PokeballFactory_Office/border.bin",
+      "blockdata_filepath": "data/layouts/Amberock_PokeballFactory_Office/map.bin"
+    },
+    {
+      "id": "LAYOUT_UNDERGROUND_RUINS_5F",
+      "name": "UndergroundRuins_5F_Layout",
+      "width": 60,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MirageTower",
+      "border_filepath": "data/layouts/UndergroundRuins_5F/border.bin",
+      "blockdata_filepath": "data/layouts/UndergroundRuins_5F/map.bin"
     }
   ]
 }

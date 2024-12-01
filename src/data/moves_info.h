@@ -136,6 +136,24 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .assistBanned = TRUE,
         .battleAnimScript = Move_NONE,
     },
+    [MOVE_NONE_SPECIAL] =
+    {
+        .name = COMPOUND_STRING("-"),
+        .description = COMPOUND_STRING(""),
+        .effect = EFFECT_HIT,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .metronomeBanned = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .sketchBanned = TRUE,
+        .assistBanned = TRUE,
+        .battleAnimScript = Move_NONE,
+    },
 
     [MOVE_POUND] =
     {

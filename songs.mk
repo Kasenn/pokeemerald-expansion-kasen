@@ -652,6 +652,9 @@ $(MID_SUBDIR)/mus_pwtlobby.s: %.s: %.mid
 $(MID_SUBDIR)/mus_alola_e4.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(MAX_REVERB) -G193 -V089
 
+$(MID_SUBDIR)/mus_ginga.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(MAX_REVERB) -G193 -V098
+
 $(MID_SUBDIR)/mus_abw_rival.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V089
 

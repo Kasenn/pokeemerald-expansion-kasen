@@ -20,6 +20,7 @@
 #define WEATHER_ROUTE119_CYCLE          20
 #define WEATHER_ROUTE123_CYCLE          21
 #define WEATHER_STRONG_WINDS            22
+#define WEATHER_BLIZZARD                23
 
 // These are used in maps' coord_weather_event entries.
 // They are not a one-to-one mapping with the engine's
@@ -38,6 +39,7 @@
 #define COORD_EVENT_WEATHER_ROUTE119_CYCLE      20
 #define COORD_EVENT_WEATHER_ROUTE123_CYCLE      21
 #define COORD_EVENT_WEATHER_STRONG_WINDS        22
+#define COORD_EVENT_WEATHER_BLIZZARD        23
 
 // These are the "abnormal weather events" that are used
 // to find Kyogre and Groudon.

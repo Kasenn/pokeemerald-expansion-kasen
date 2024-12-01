@@ -44,7 +44,7 @@
     {
       "type": "hidden_item",
       "x": 14,
-      "y": 11,
+      "y": 9,
       "elevation": 0,
       "item": "ITEM_DRAGON_FANG",
       "flag": "FLAG_SERPENTCAVE_DRAGONFANG"

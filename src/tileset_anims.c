@@ -44,6 +44,7 @@ static void TilesetAnim_EliteFour(u16);
 static void TilesetAnim_MauvilleGym(u16);
 static void TilesetAnim_BikeShop(u16);
 static void TilesetAnim_BattlePyramid(u16);
+static void TilesetAnim_MirageTower(u16);
 static void TilesetAnim_Drisledge(u16);
 static void TilesetAnim_BattleDome(u16);
 static void QueueAnimTiles_General_Flower(u16);
@@ -60,6 +61,7 @@ static void QueueAnimTiles_Mauville_Flowers(u16, u8);
 static void QueueAnimTiles_FlowerField_Flowers(u16, u8);
 static void QueueAnimTiles_BikeShop_BlinkingLights(u16);
 static void QueueAnimTiles_BattlePyramid_Torch(u16);
+static void QueueAnimTiles_MirageTower_Smoke(u16);
 static void QueueAnimTiles_Drisledge_Wisp(u16);
 static void QueueAnimTiles_BattlePyramid_StatueShadow(u16);
 static void BlendAnimPalette_BattleDome_FloorLights(u16);
@@ -603,6 +605,11 @@ const u16 gTilesetAnims_BattlePyramid_Torch_Frame1[] = INCBIN_U16("data/tilesets
 const u16 gTilesetAnims_BattlePyramid_Torch_Frame2[] = INCBIN_U16("data/tilesets/secondary/drisledge_gym/anim/fire/12.4bpp");
 const u16 tileset_anims_space_9[16] = {};
 
+const u16 gTilesetAnims_MirageTower_Smoke_Frame0[] = INCBIN_U16("data/tilesets/secondary/mirage_tower/anim/smoke/0.4bpp");
+const u16 gTilesetAnims_MirageTower_Smoke_Frame1[] = INCBIN_U16("data/tilesets/secondary/mirage_tower/anim/smoke/1.4bpp");
+const u16 gTilesetAnims_MirageTower_Smoke_Frame2[] = INCBIN_U16("data/tilesets/secondary/mirage_tower/anim/smoke/2.4bpp");
+const u16 gTilesetAnims_MirageTower_Smoke_Frame3[] = INCBIN_U16("data/tilesets/secondary/mirage_tower/anim/smoke/3.4bpp");
+
 const u16 gTilesetAnims_BattlePyramid_StatueShadow_Frame0[] = INCBIN_U16("data/tilesets/secondary/battle_pyramid/anim/statue_shadow/0.4bpp");
 const u16 gTilesetAnims_BattlePyramid_StatueShadow_Frame1[] = INCBIN_U16("data/tilesets/secondary/battle_pyramid/anim/statue_shadow/1.4bpp");
 const u16 gTilesetAnims_BattlePyramid_StatueShadow_Frame2[] = INCBIN_U16("data/tilesets/secondary/battle_pyramid/anim/statue_shadow/2.4bpp");
@@ -622,6 +629,17 @@ const u16 *const gTilesetAnims_BattlePyramid_Torch[] = {
     gTilesetAnims_BattlePyramid_Torch_Frame0,
     gTilesetAnims_BattlePyramid_Torch_Frame1,
     gTilesetAnims_BattlePyramid_Torch_Frame2
+};
+
+const u16 *const gTilesetAnims_MirageTower_Smoke[] = {
+    gTilesetAnims_MirageTower_Smoke_Frame0,
+    gTilesetAnims_MirageTower_Smoke_Frame1,
+    gTilesetAnims_MirageTower_Smoke_Frame2,
+    gTilesetAnims_MirageTower_Smoke_Frame3,
+    gTilesetAnims_MirageTower_Smoke_Frame0,
+    gTilesetAnims_MirageTower_Smoke_Frame1,
+    gTilesetAnims_MirageTower_Smoke_Frame2,
+    // gTilesetAnims_MirageTower_Smoke_Frame3
 };
 
 const u16 *const gTilesetAnims_Drisledge_Wisp[] = {
@@ -939,6 +957,14 @@ void InitTilesetAnim_BattlePyramid(void)
     sSecondaryTilesetAnimCounterMax = sPrimaryTilesetAnimCounterMax;
     sSecondaryTilesetAnimCallback = TilesetAnim_BattlePyramid;
 }
+
+void InitTilesetAnim_MirageTower(void)
+{
+    sSecondaryTilesetAnimCounter = 0;
+    sSecondaryTilesetAnimCounterMax = sPrimaryTilesetAnimCounterMax;
+    sSecondaryTilesetAnimCallback = TilesetAnim_MirageTower;
+}
+
 
 void InitTilesetAnim_Drisledge(void)
 {
@@ -1267,6 +1293,14 @@ static void TilesetAnim_BattlePyramid(u16 timer)
     }
 }
 
+static void TilesetAnim_MirageTower(u16 timer)
+{
+    if (timer % 12 == 0)
+    {
+        QueueAnimTiles_MirageTower_Smoke(timer / 12);
+    }
+}
+
 static void TilesetAnim_Drisledge(u16 timer)
 {
     if (timer % 8 == 0)
@@ -1334,6 +1368,12 @@ static void QueueAnimTiles_BattlePyramid_Torch(u16 timer)
 {
     u16 i = timer % ARRAY_COUNT(gTilesetAnims_BattlePyramid_Torch);
     AppendTilesetAnimToBuffer(gTilesetAnims_BattlePyramid_Torch[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 151)), 16 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_MirageTower_Smoke(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_MirageTower_Smoke);
+    AppendTilesetAnimToBuffer(gTilesetAnims_MirageTower_Smoke[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_TOTAL - 16)), 16 * TILE_SIZE_4BPP);
 }
 
 static void QueueAnimTiles_Drisledge_Wisp(u16 timer)

@@ -3486,6 +3486,12 @@ static const union AnimCmd sAnim_IncineroarMega_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_AriadosMega_1[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_PorygonZMega_1[] =
 {
     ANIMCMD_FRAME(0, 1),
@@ -10812,6 +10818,7 @@ SINGLE_ANIMATION(Ledian);
 #if P_FAMILY_SPINARAK
 SINGLE_ANIMATION(Spinarak);
 SINGLE_ANIMATION(Ariados);
+SINGLE_ANIMATION(AriadosMega);
 #endif //P_FAMILY_SPINARAK
 #if P_FAMILY_CHINCHOU
 SINGLE_ANIMATION(Chinchou);

@@ -85,6 +85,9 @@ const u32 gItemIconPalette_BeastBall[] = INCBIN_U32("graphics/items/icon_palette
 const u32 gItemIcon_CherishBall[] = INCBIN_U32("graphics/items/icons/cherish_ball.4bpp.lz");
 const u32 gItemIconPalette_CherishBall[] = INCBIN_U32("graphics/items/icon_palettes/cherish_ball.gbapal.lz");
 
+const u32 gItemIcon_DireBall[] = INCBIN_U32("graphics/items/icons/dire_ball.4bpp.lz");
+const u32 gItemIconPalette_DireBall[] = INCBIN_U32("graphics/items/icons/dire_ball.gbapal.lz");
+
 // Medicine
 
 const u32 gItemIcon_Potion[] = INCBIN_U32("graphics/items/icons/potion.4bpp.lz");
@@ -2124,6 +2127,10 @@ const u32 gItemIconPalette_Decidueite[] = INCBIN_U32("graphics/items/icon_palett
 
 const u32 gItemIcon_Incineroarite[] = INCBIN_U32("graphics/items/icons/incineroarite.4bpp.lz");
 const u32 gItemIconPalette_Incineroarite[] = INCBIN_U32("graphics/items/icon_palettes/incineroarite.gbapal.lz");
+
+const u32 gItemIcon_Ariadosite[] = INCBIN_U32("graphics/items/icons/ariadosite.4bpp.lz");
+const u32 gItemIconPalette_Ariadosite[] = INCBIN_U32("graphics/items/icons/ariadosite.gbapal.lz");
+
 
 const u32 gItemIcon_Processor[] = INCBIN_U32("graphics/items/icons/processor.4bpp.lz");
 const u32 gItemIconPalette_Processor[] = INCBIN_U32("graphics/items/icon_palettes/processor.gbapal.lz");
