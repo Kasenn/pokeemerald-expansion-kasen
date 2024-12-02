@@ -1177,3 +1177,14 @@ const struct Tileset gTileset_WindplumeCave =
     .metatileAttributes = gMetatileAttributes_WindplumeCave,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Facility2 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Facility2,
+    .palettes = gTilesetPalettes_Facility2,
+    .metatiles = gMetatiles_Facility2,
+    .metatileAttributes = gMetatileAttributes_Facility2,
+    .callback = NULL,
+};

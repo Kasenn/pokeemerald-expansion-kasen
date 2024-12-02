@@ -7040,6 +7040,26 @@
       "secondary_tileset": "gTileset_MirageTower",
       "border_filepath": "data/layouts/UndergroundRuins_5F/border.bin",
       "blockdata_filepath": "data/layouts/UndergroundRuins_5F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOUTHERN_DESERT",
+      "name": "SouthernDesert_Layout",
+      "width": 61,
+      "height": 80,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/SouthernDesert/border.bin",
+      "blockdata_filepath": "data/layouts/SouthernDesert/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEVON_CROP_MEMORY",
+      "name": "DevonCrop_Memory_Layout",
+      "width": 19,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Facility2",
+      "border_filepath": "data/layouts/DevonCrop_Memory/border.bin",
+      "blockdata_filepath": "data/layouts/DevonCrop_Memory/map.bin"
     }
   ]
 }

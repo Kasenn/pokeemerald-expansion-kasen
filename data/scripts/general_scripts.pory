@@ -218,7 +218,7 @@ script AutomaticUpdate{
     setvar(VAR_DEBUG, 9)
     clearflag(FLAG_SERPENTCAVE_DRAGONFANG)
     clearflag(FLAG_OBTAINED_TYRANITARITE)
-    clearflag(FLAG_UNUSED_0x4E8)
+    clearflag(FLAG_OBTAINED_ASSAULT_VEST)
     msgbox(AutomaticUpdate_Text1)
     callnative(DefaultFollower)
     closemessage
@@ -317,7 +317,6 @@ script AutomaticUpdate3{
     end}
 script AutomaticUpdate4{
     msgbox("Vars Updated")
-    setflag(FLAG_WINDPLUME_MT_HIDE_CHARGED_ORB)
     setvar(VAR_ZYGARDE_CELLS, 0)
     clearflag(FLAG_SAFARIMOUNTAIN_ITEM3)
     clearflag(FLAG_SAFARIMOUNTAIN_ITEM6)
@@ -417,10 +416,28 @@ script AutomaticUpdate5{
     clearflag(FLAG_SAFARIMOUNTAIN_ITEM7)
     clearflag(FLAG_R14_ITEM5)
     clearflag(FLAG_R14_ITEM6)
-    setflag(FLAG_WINDPLUME_MT_HIDE_CHARGED_ORB)
+    clearflag(FLAG_WINDPLUME_MT_HIDE_CHARGED_ORB)
     setvar(VAR_DEBUG, 13)
     msgbox("Vars and flags updated")
+    if(flag(FLAG_HELPED_DEVON_CORP)){
+        if(msgbox(SceneAltered, MSGBOX_YESNO) == TRUE){
+            callnative(StorePCLocation)
+            getplayerxy(VAR_OBJ_GFX_ID_D, VAR_OBJ_GFX_ID_E)
+            closemessage
+            warpsilent(MAP_DEVON_CROP_MEMORY, 0)
+            waitstate
+        }
+    }
     release
+}
+text SceneAltered{
+    "An earlier story scene of\n"
+    "Team Rocket's assault on Devon\l"
+    "Corp. has had its dialogue\l"
+    "slightly altered, which affects\l"
+    "the upcoming story.\p"
+    "Would you like to view the\n"
+    "altered scene?"
 }
 //
 // Debug scripts
@@ -610,10 +627,7 @@ script Debug_Script_4{              // Set team level
     release
     end}
 script Debug_Script_5{
-    givemon(SPECIES_AGGRON, 50)
-    givemon(SPECIES_GABITE, 50)
-    givemon(SPECIES_FRAXURE, 50)
-    givemon(SPECIES_ARCHEOPS, 50)
+    callnative(TintWorld)
     release
 }
 script Debug_Script_6{

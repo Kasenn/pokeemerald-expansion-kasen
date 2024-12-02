@@ -2757,3 +2757,50 @@ bool8 ScrCmd_removeobjectbyflag(struct ScriptContext *ctx)
     }
     return FALSE;
 }
+
+void ApplyGlobalTintToPaletteSlot(u8 slot, u8 count, u8 mode)
+{
+    switch (mode)
+    {
+    case 0:
+        return;
+    case 1:
+        TintPalette_GrayScale(&gPlttBufferUnfaded[BG_PLTT_ID(slot)], count * 16);
+        break;
+    case 2:
+        TintPalette_SepiaTone(&gPlttBufferUnfaded[BG_PLTT_ID(slot)], count * 16);
+        break;
+    default:
+        return;
+    }
+    CpuFastCopy(&gPlttBufferUnfaded[BG_PLTT_ID(slot)], &gPlttBufferFaded[BG_PLTT_ID(slot)], count * PLTT_SIZE_4BPP);
+}
+
+void TintWorld(void)
+{
+    ApplyGlobalTintToPaletteSlot(0, 32, 2);
+}
+
+void StorePCLocation(void)
+{
+    if (MAP(OLDALE_TOWN_POKEMON_CENTER_1F))
+        VarSet(VAR_OBJ_GFX_ID_F, 0);
+    else if (MAP(RUSTBORO_CITY_POKEMON_CENTER_1F))
+        VarSet(VAR_OBJ_GFX_ID_F, 1);
+    else if (MAP(DEWFORD_TOWN_POKEMON_CENTER_1F))
+        VarSet(VAR_OBJ_GFX_ID_F, 2);
+    else if (MAP(ALDELEAF_POKE_CENTER1F))
+        VarSet(VAR_OBJ_GFX_ID_F, 3);
+    else if (MAP(SHORESLATE_POKECENTER_1F))
+        VarSet(VAR_OBJ_GFX_ID_F, 4);
+    else if (MAP(MARIGORGE_POKECENTER_1F))
+        VarSet(VAR_OBJ_GFX_ID_F, 5);
+    else if (MAP(KAOLISLE_POKECENTER_1F))
+        VarSet(VAR_OBJ_GFX_ID_F, 6);
+    else if (MAP(ROCKLIFFE_POKECENTER_1F))
+        VarSet(VAR_OBJ_GFX_ID_F, 7);
+    else if (MAP(SANDSTONE_POKECENTER_1F))
+        VarSet(VAR_OBJ_GFX_ID_F, 8);
+    else if (MAP(DRISLEDGE_POKECENTER_1F))
+        VarSet(VAR_OBJ_GFX_ID_F, 9);
+}

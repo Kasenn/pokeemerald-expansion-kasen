@@ -1613,3 +1613,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Amberock_PokeballFactory_Office/scripts.inc"
 
 	.include "data/maps/UndergroundRuins_5F/scripts.inc"
+
+	.include "data/maps/SouthernDesert/scripts.inc"
+
+	.include "data/maps/DevonCrop_Memory/scripts.inc"

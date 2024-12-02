@@ -873,10 +873,6 @@ static void ApplyGlobalTintToPaletteEntries(u16 offset, u16 size)
 
 }
 
-static void UNUSED ApplyGlobalTintToPaletteSlot(u8 slot, u8 count)
-{
-
-}
 
 static void LoadTilesetPalette(struct Tileset const *tileset, u16 destOffset, u16 size)
 {

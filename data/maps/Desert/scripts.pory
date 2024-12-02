@@ -576,3 +576,17 @@ script Desert_EventScript_SandstormTrigger{
 script Desert_EventScript_SandstormTrigger2{
     end
 }
+
+script BlockSouthernDesert{
+    msgbox(StrongSandstorm)
+    closemessage
+    safefollow
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Up)
+    waitmovement(0)
+    release
+}
+
+text StrongSandstorm{
+    "The wind coming from the south is too\n"
+    "strong even for your Go-goggles."
+}

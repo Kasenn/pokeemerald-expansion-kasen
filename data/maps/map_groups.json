@@ -116,7 +116,8 @@
     "Route29",
     "SandstoneCityAlt",
     "FlowerFields",
-    "Route23Lake"
+    "Route23Lake",
+    "SouthernDesert"
   ],
   "gMapGroup_RouteInteriors": [
     "RanchBarn",
@@ -269,7 +270,8 @@
     "RustboroCity_DevonCorp_1F",
     "RustboroCity_DevonCorp_2F",
     "RustboroCity_DevonCorp_3F",
-    "DevonCorpBasement"
+    "DevonCorpBasement",
+    "DevonCrop_Memory"
   ],
   "gMapGroup_IndoorMarigorgeTown": [
     "Marigorge_Mart",

@@ -67,9 +67,87 @@ Route10_Beachgoer_F::
 
 
 Route10_Tr1_AceSwimmer::
-	trainerbattle_single TRAINER_R10_TR1_ACESWIMMER, R10Tr1_Intro, R10Tr1_Lose
-	msgbox R10Tr1_PostBattle, MSGBOX_AUTOCLOSE
+	checktrainerflag TRAINER_R10_TR1_ACESWIMMER
+	goto_if 1, Route10_Tr1_AceSwimmer_1
+	checktrainerflag TRAINER_R10_TR2_SWIMMER_F1
+	goto_if 1, Route10_Tr1_AceSwimmer_5
+Route10_Tr1_AceSwimmer_3:
+	msgbox R10_Ace_NotEligible, MSGBOX_NPC
 	end
+
+Route10_Tr1_AceSwimmer_1:
+	goto R10_Ace_PostBattle
+	return
+
+Route10_Tr1_AceSwimmer_2:
+	goto R10_Ace_EligibleForBattle
+	return
+
+Route10_Tr1_AceSwimmer_4:
+	checktrainerflag TRAINER_R10_TR7_SWIMMER_F2
+	goto_if 1, Route10_Tr1_AceSwimmer_8
+	goto Route10_Tr1_AceSwimmer_3
+
+Route10_Tr1_AceSwimmer_5:
+	checktrainerflag TRAINER_R10_TR4_SWIMMER_M1
+	goto_if 1, Route10_Tr1_AceSwimmer_4
+	goto Route10_Tr1_AceSwimmer_3
+
+Route10_Tr1_AceSwimmer_8:
+	checktrainerflag TRAINER_R10_TR8_SWIMMER_M2
+	goto_if 1, Route10_Tr1_AceSwimmer_2
+	goto Route10_Tr1_AceSwimmer_3
+
+
+R10_Ace_EligibleForBattle::
+	lockall
+	faceplayer
+	goto_if_unset FLAG_TEMP_5, R10_Ace_EligibleForBattle_2
+	msgbox R10_Ace_ReadyForBattleShort, MSGBOX_YESNO
+R10_Ace_EligibleForBattle_1:
+	compare VAR_RESULT, TRUE
+	goto_if_eq R10_Ace_EligibleForBattle_6
+R10_Ace_EligibleForBattle_5:
+	msgbox R10_Ace_DeclineBattle, MSGBOX_NPC
+	end
+
+R10_Ace_EligibleForBattle_2:
+	setflag FLAG_TEMP_5
+	msgbox R10_Ace_ReadyForBattle, MSGBOX_YESNO
+	goto R10_Ace_EligibleForBattle_1
+
+R10_Ace_EligibleForBattle_6:
+	msgbox R10_Ace_BeginBattle, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_R10_TR1_ACESWIMMER, R10_Ace_Lose
+	goto R10_Ace_PostBattle
+	goto R10_Ace_EligibleForBattle_5
+
+
+R10_Ace_PostBattle::
+	lock
+	faceplayer
+	goto_if_set FLAG_OBTAINED_ASSAULT_VEST, R10_Ace_PostBattle_2
+	msgbox R10_Ace_Reward, MSGBOX_DEFAULT
+	checkitemspace ITEM_ASSAULT_VEST
+	compare VAR_RESULT, FALSE
+	goto_if_eq R10_Ace_PostBattle_5
+R10_Ace_PostBattle_4:
+	giveitem ITEM_ASSAULT_VEST
+	waitfanfare
+	msgbox R10_Ace_ExplainReward
+	setflag FLAG_OBTAINED_ASSAULT_VEST
+	setvar VAR_0x8004, 30
+	call RewardBP
+	release
+	end
+
+R10_Ace_PostBattle_2:
+	msgbox R10_Ace_PostBattle_Text, MSGBOX_NPC
+	end
+
+R10_Ace_PostBattle_5:
+	goto ZeBagIsFull
+	goto R10_Ace_PostBattle_4
 
 
 R10Tr2_Intro::
@@ -159,11 +237,29 @@ Route10_Beachgoer_M_Text::
 Route10_Beachgoer_F_Text::
 	.string "$"
 
-R10Tr1_Intro::
+R10_Ace_NotEligible::
 	.string "$"
 
-R10Tr1_Lose::
+R10_Ace_ReadyForBattle::
 	.string "$"
 
-R10Tr1_PostBattle::
+R10_Ace_ReadyForBattleShort::
+	.string "$"
+
+R10_Ace_BeginBattle::
+	.string "$"
+
+R10_Ace_Lose::
+	.string "$"
+
+R10_Ace_DeclineBattle::
+	.string "$"
+
+R10_Ace_PostBattle_Text::
+	.string "$"
+
+R10_Ace_Reward::
+	.string "$"
+
+R10_Ace_ExplainReward::
 	.string "$"

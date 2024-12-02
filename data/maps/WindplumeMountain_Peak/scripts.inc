@@ -21,6 +21,7 @@ WindplumeMountain_Peak_MapScripts_MAP_SCRIPT_ON_RESUME_3:
 
 WindplumeMountain_Peak_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	goto_if_unset FLAG_DEFEATED_ZAPDOS, WindplumeMountain_Peak_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
+	setobjectxyperm 2, 18, 12
 	return
 
 WindplumeMountain_Peak_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
@@ -57,8 +58,8 @@ Windplume_Zapdos_2:
 	setflag FLAG_DEFEATED_ZAPDOS
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject VAR_LAST_TALKED
-	clearflag FLAG_WINDPLUME_MT_HIDE_CHARGED_ORB
-	addobject 2
+	setobjectxy 2, 18, 12
+	setobjectxyperm 2, 18, 12
 	fadescreenswapbuffers FADE_FROM_BLACK
 	release
 	end

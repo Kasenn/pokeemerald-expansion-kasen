@@ -244,7 +244,7 @@ AutomaticUpdate::
 	setvar VAR_DEBUG, 9
 	clearflag FLAG_SERPENTCAVE_DRAGONFANG
 	clearflag FLAG_OBTAINED_TYRANITARITE
-	clearflag FLAG_UNUSED_0x4E8
+	clearflag FLAG_OBTAINED_ASSAULT_VEST
 	msgbox AutomaticUpdate_Text1
 	callnative DefaultFollower
 	closemessage
@@ -331,7 +331,6 @@ AutomaticUpdate3_3:
 
 AutomaticUpdate4::
 	msgbox AutomaticUpdate4_Text_0
-	setflag FLAG_WINDPLUME_MT_HIDE_CHARGED_ORB
 	setvar VAR_ZYGARDE_CELLS, 0
 	clearflag FLAG_SAFARIMOUNTAIN_ITEM3
 	clearflag FLAG_SAFARIMOUNTAIN_ITEM6
@@ -432,11 +431,27 @@ AutomaticUpdate5::
 	clearflag FLAG_SAFARIMOUNTAIN_ITEM7
 	clearflag FLAG_R14_ITEM5
 	clearflag FLAG_R14_ITEM6
-	setflag FLAG_WINDPLUME_MT_HIDE_CHARGED_ORB
+	clearflag FLAG_WINDPLUME_MT_HIDE_CHARGED_ORB
 	setvar VAR_DEBUG, 13
 	msgbox AutomaticUpdate5_Text_0
+	goto_if_set FLAG_HELPED_DEVON_CORP, AutomaticUpdate5_2
+AutomaticUpdate5_1:
 	release
 	return
+
+AutomaticUpdate5_2:
+	msgbox SceneAltered, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
+	goto_if_eq AutomaticUpdate5_4
+	goto AutomaticUpdate5_1
+
+AutomaticUpdate5_4:
+	callnative StorePCLocation
+	getplayerxy VAR_OBJ_GFX_ID_D, VAR_OBJ_GFX_ID_E
+	closemessage
+	warpsilent MAP_DEVON_CROP_MEMORY, 0
+	waitstate
+	goto AutomaticUpdate5_1
 
 
 Debug_Script_1::
@@ -741,10 +756,7 @@ Debug_Script_4_12:
 
 
 Debug_Script_5::
-	givemon SPECIES_AGGRON, 50
-	givemon SPECIES_GABITE, 50
-	givemon SPECIES_FRAXURE, 50
-	givemon SPECIES_ARCHEOPS, 50
+	callnative TintWorld
 	release
 	return
 
@@ -1150,6 +1162,15 @@ AutomaticUpdate2_Text2::
 	.string "The toggle between health numbers\n"
 	.string "and bars in double battles has been\l"
 	.string "moved to SELECT button.$"
+
+SceneAltered::
+	.string "An earlier story scene of\n"
+	.string "Team Rocket's assault on Devon\l"
+	.string "Corp. has had its dialogue\l"
+	.string "slightly altered, which affects\l"
+	.string "the upcoming story.\p"
+	.string "Would you like to view the\n"
+	.string "altered scene?$"
 
 ReplacedFlute::
 	.string "Your White Flute has been replaced\n"

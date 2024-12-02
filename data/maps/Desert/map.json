@@ -22,6 +22,11 @@
       "map": "MAP_ROUTE8",
       "offset": 21,
       "direction": "up"
+    },
+    {
+      "map": "MAP_SOUTHERN_DESERT",
+      "offset": 24,
+      "direction": "down"
     }
   ],
   "object_events": [
@@ -831,6 +836,33 @@
       "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "DesertQuakesOff"
+    },
+    {
+      "type": "trigger",
+      "x": 51,
+      "y": 77,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "BlockSouthernDesert"
+    },
+    {
+      "type": "trigger",
+      "x": 52,
+      "y": 77,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "BlockSouthernDesert"
+    },
+    {
+      "type": "trigger",
+      "x": 53,
+      "y": 77,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "BlockSouthernDesert"
     }
   ],
   "bg_events": [

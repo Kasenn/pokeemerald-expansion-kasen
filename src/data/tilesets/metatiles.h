@@ -303,3 +303,6 @@ const u16 gMetatileAttributes_Mossdeep2[] = INCBIN_U16("data/tilesets/secondary/
 
 const u16 gMetatiles_WindplumeCave[] = INCBIN_U16("data/tilesets/secondary/windplume_cave/metatiles.bin");
 const u16 gMetatileAttributes_WindplumeCave[] = INCBIN_U16("data/tilesets/secondary/windplume_cave/metatile_attributes.bin");
+
+const u16 gMetatiles_Facility2[] = INCBIN_U16("data/tilesets/secondary/facility_2/metatiles.bin");
+const u16 gMetatileAttributes_Facility2[] = INCBIN_U16("data/tilesets/secondary/facility_2/metatile_attributes.bin");

@@ -1,0 +1,80 @@
+mapscripts DevonCrop_Memory_MapScripts {
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
+        VAR_TEMP_0, 0{
+            turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+            callnative(TintWorld)
+        }
+    ]
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_TEMP_0, 0: PlayDevonMemory
+    ]
+}
+
+script PlayDevonMemory{
+    delay(60)
+    msgbox(DevonProtonPostBattle, MSGBOX_DEFAULT)
+    closemessage
+    fadescreen(FADE_TO_BLACK)
+    removeobject(1)
+    fadenewbgm(MUS_SLATEPORT)
+    fadescreen(FADE_FROM_BLACK)
+    delay(20)
+    applymovement(2, PrezMove2)
+    waitmovement(0)
+    msgbox(DevonPrezCongratulations2, MSGBOX_DEFAULT)
+    msgbox(SceneEnds)
+    closemessage
+    switch(var(VAR_OBJ_GFX_ID_F)){
+        case 0:
+            warpsilent(MAP_OLDALE_TOWN_POKEMON_CENTER_1F, VAR_OBJ_GFX_ID_D, VAR_OBJ_GFX_ID_E)
+        case 1:
+            warpsilent(MAP_RUSTBORO_CITY_POKEMON_CENTER_1F, VAR_OBJ_GFX_ID_D, VAR_OBJ_GFX_ID_E)
+        case 2:
+            warpsilent(MAP_DEWFORD_TOWN_POKEMON_CENTER_1F, VAR_OBJ_GFX_ID_D, VAR_OBJ_GFX_ID_E)
+        case 3:
+            warpsilent(MAP_ALDELEAF_POKE_CENTER1F, VAR_OBJ_GFX_ID_D, VAR_OBJ_GFX_ID_E)
+        case 4:
+            warpsilent(MAP_SHORESLATE_POKECENTER_1F, VAR_OBJ_GFX_ID_D, VAR_OBJ_GFX_ID_E)
+        case 5:
+            warpsilent(MAP_MARIGORGE_POKECENTER_1F, VAR_OBJ_GFX_ID_D, VAR_OBJ_GFX_ID_E)
+        case 6:
+            warpsilent(MAP_KAOLISLE_POKECENTER_1F, VAR_OBJ_GFX_ID_D, VAR_OBJ_GFX_ID_E)
+        case 7:
+            warpsilent(MAP_ROCKLIFFE_POKECENTER_1F, VAR_OBJ_GFX_ID_D, VAR_OBJ_GFX_ID_E)
+        case 8:
+            warpsilent(MAP_SANDSTONE_POKECENTER_1F, VAR_OBJ_GFX_ID_D, VAR_OBJ_GFX_ID_E)
+        case 9:
+            warpsilent(MAP_DRISLEDGE_POKECENTER_1F, VAR_OBJ_GFX_ID_D, VAR_OBJ_GFX_ID_E)
+    }
+    waitstate
+}
+
+text DevonPrezCongratulations2{
+    "Ah, you must be {PLAYER}.\n"
+    "I've heard so much about you.\p"
+    "I'm Mr. Stone, the president of\n"
+    "the Devon Corporation.\p"
+    "Thank you so much for driving that\n"
+    "pesky Team Rocket away and saving\l"
+    "our company!\p"
+    "Unfortunately, Team Rocket did not\n"
+    "leave here empty-handed.\p"
+    "They didn't seem to care much for\n"
+    "the wealth in my safe, and seemed to\l"
+    "be more interested in our research\l"
+    "and prototypes.\p"
+    "I don't know what they are planning,\n"
+    "but they are clearly preparing for\l"
+    "something.\p"
+    "Anywho, I don't have much to offer you\n"
+    "seeing how we just got robbed, but I do\l"
+    "have this thing from my personal\l"
+    "collection.\p"
+    "A trainer like you should find it\n"
+    "useful."
+}
+text SceneEnds{
+    "{COLOR RED}{SHADOW LIGHT_RED}After this, the player is given\n"
+    "the HM for Flash, and the scene\l"
+    "continues normally."
+}

@@ -13,6 +13,9 @@ mapscripts WindplumeMountain_Peak_MapScripts {
         if(!flag(FLAG_DEFEATED_ZAPDOS)){
             clearflag(FLAG_HIDE_ZAPDOS)
         }
+        else{
+            setobjectxyperm(2, 18, 12)
+        }
     }
 }
 
@@ -33,8 +36,8 @@ script Windplume_Zapdos{
         setflag(FLAG_DEFEATED_ZAPDOS)
 	    fadescreenswapbuffers (FADE_TO_BLACK)
 	    removeobject (VAR_LAST_TALKED)
-        clearflag(FLAG_WINDPLUME_MT_HIDE_CHARGED_ORB)
-        addobject(2)
+        setobjectxy(2, 18, 12)
+        setobjectxyperm(2, 18, 12)
 	    fadescreenswapbuffers (FADE_FROM_BLACK)
 	    release
 	    end

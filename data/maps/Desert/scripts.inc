@@ -388,6 +388,16 @@ Desert_EventScript_SandstormTrigger2::
 	end
 
 
+BlockSouthernDesert::
+	msgbox StrongSandstorm
+	closemessage
+	safefollow
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Up
+	waitmovement 0
+	release
+	return
+
+
 DesertEntrance_Text_0:
 	.string "This place is still work in progress.\n"
 	.string "You're free to explore, though there's\l"
@@ -662,3 +672,7 @@ Desert_ExplainReward::
 	.string "from weather effects like hail or\l"
 	.string "sandstorm!\p"
 	.string "…Oh, and take these as well!$"
+
+StrongSandstorm::
+	.string "The wind coming from the south is too\n"
+	.string "strong even for your Go-goggles.$"

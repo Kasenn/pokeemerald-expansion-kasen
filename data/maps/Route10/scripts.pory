@@ -150,16 +150,85 @@ text Route10_Beachgoer_F_Text{
 }
 
 script Route10_Tr1_AceSwimmer {
-    trainerbattle_single(TRAINER_R10_TR1_ACESWIMMER, R10Tr1_Intro, R10Tr1_Lose)
-    msgbox(R10Tr1_PostBattle, MSGBOX_AUTOCLOSE)
+    if(defeated(TRAINER_R10_TR1_ACESWIMMER)){
+        goto(R10_Ace_PostBattle)
+    }
+    elif(defeated(TRAINER_R10_TR2_SWIMMER_F1)
+      && defeated(TRAINER_R10_TR4_SWIMMER_M1)
+      && defeated(TRAINER_R10_TR7_SWIMMER_F2)
+      && defeated(TRAINER_R10_TR8_SWIMMER_M2))
+    {
+        goto(R10_Ace_EligibleForBattle)
+    }
+    else{
+        msgbox(R10_Ace_NotEligible, MSGBOX_NPC)
+        end
+    }
+}
+script R10_Ace_EligibleForBattle{
+    lockall
+    faceplayer
+    if(!flag(FLAG_TEMP_5)){
+        setflag(FLAG_TEMP_5)
+        msgbox(R10_Ace_ReadyForBattle, MSGBOX_YESNO)
+    }
+    else{
+        msgbox(R10_Ace_ReadyForBattleShort, MSGBOX_YESNO)
+    }
+    if(var(VAR_RESULT) == TRUE){
+        msgbox(R10_Ace_BeginBattle, MSGBOX_DEFAULT)
+        trainerbattle_no_intro(TRAINER_R10_TR1_ACESWIMMER, R10_Ace_Lose)
+        goto(R10_Ace_PostBattle)
+    }
+    msgbox(R10_Ace_DeclineBattle, MSGBOX_NPC)
     end
 }
-text R10Tr1_Intro{
+
+script R10_Ace_PostBattle{
+    lock
+    faceplayer
+    if(flag(FLAG_OBTAINED_ASSAULT_VEST)){
+        msgbox(R10_Ace_PostBattle_Text, MSGBOX_NPC)
+        end
+    }
+    msgbox(R10_Ace_Reward, MSGBOX_DEFAULT)
+    if(checkitemspace(ITEM_ASSAULT_VEST) == FALSE){
+        goto(ZeBagIsFull)
+    }
+    giveitem(ITEM_ASSAULT_VEST)
+    waitfanfare
+    msgbox(R10_Ace_ExplainReward)
+    setflag(FLAG_OBTAINED_ASSAULT_VEST)
+    setvar(VAR_0x8004, 30)
+    call(RewardBP)
+    release
+    end
+}
+
+text R10_Ace_NotEligible{
     ""
 }
-text R10Tr1_Lose{
+text R10_Ace_ReadyForBattle{
     ""
 }
-text R10Tr1_PostBattle{
+text R10_Ace_ReadyForBattleShort{
+    ""
+}
+text R10_Ace_BeginBattle{
+    ""
+}
+text R10_Ace_Lose{
+    ""
+}
+text R10_Ace_DeclineBattle{
+    ""
+}
+text R10_Ace_PostBattle_Text{
+    ""
+}
+text R10_Ace_Reward{
+    ""
+}
+text R10_Ace_ExplainReward{
     ""
 }

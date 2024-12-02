@@ -70,6 +70,7 @@
 #define MAP_SANDSTONE_CITY_ALT    (61 | (0 << 8))
 #define MAP_FLOWER_FIELDS         (62 | (0 << 8))
 #define MAP_ROUTE23LAKE           (63 | (0 << 8))
+#define MAP_SOUTHERN_DESERT       (64 | (0 << 8))
 
 // gMapGroup_RouteInteriors
 #define MAP_RANCH_BARN             (0 | (1 << 8))
@@ -223,6 +224,7 @@
 #define MAP_RUSTBORO_CITY_DEVON_CORP_2F (12 | (9 << 8))
 #define MAP_RUSTBORO_CITY_DEVON_CORP_3F (13 | (9 << 8))
 #define MAP_DEVON_CORP_BASEMENT         (14 | (9 << 8))
+#define MAP_DEVON_CROP_MEMORY           (15 | (9 << 8))
 
 // gMapGroup_IndoorMarigorgeTown
 #define MAP_MARIGORGE_MART          (0 | (10 << 8))
