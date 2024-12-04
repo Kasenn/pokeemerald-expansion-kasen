@@ -1,5 +1,4 @@
 Route110_SeasideCyclingRoadSouthEntrance_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route110_SeasideCyclingRoadSouthEntrance_OnTransition
 	.byte 0
 
 Route110_SeasideCyclingRoadSouthEntrance_OnTransition:
@@ -21,7 +20,6 @@ Route110_SeasideCyclingRoadSouthEntrance_EventScript_Clerk::
 Route110_SeasideCyclingRoadSouthEntrance_EventScript_BikeCheck::
 	lockall
 	specialvar VAR_RESULT, GetPlayerAvatarBike
-	call_if_eq VAR_RESULT, 2, Route110_SeasideCyclingRoadSouthEntrance_EventScript_OnMachBike
 	goto_if_eq VAR_RESULT, 0, Route110_SeasideCyclingRoadSouthEntrance_EventScript_NoBike
 	setflag FLAG_SYS_CYCLING_ROAD
 	setvar VAR_TEMP_1, 1

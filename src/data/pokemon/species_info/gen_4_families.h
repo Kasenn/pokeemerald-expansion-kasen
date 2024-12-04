@@ -4926,10 +4926,10 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .height = 3,
         .weight = 3,
         .description = COMPOUND_STRING(
-            "If the convection microwave oven is not\n"
-            "working properly, then the Rotom inhabiting\n"
-            "it will become lethargic. It will gleefully\n"
-            "burn your favorite outfit in mischief."),
+            "If the convection microwave oven is\n"
+            "not working properly, then the Rotom\n"
+            "inhabiting it will become lethargic. It\n"
+            "makes mischief by turning up the heat."),
         .pokemonScale = 530,
         .pokemonOffset = 13,
         .trainerScale = 256,
