@@ -33,12 +33,6 @@
 #define ITEM_CHERISH_BALL 27
 #define ITEM_DIRE_BALL 28
 
-// Note: If moving ball IDs around, updating FIRST_BALL/LAST_BALL is not sufficient
-//       Several places expect the ball IDs to be first and contiguous (e.g. MON_DATA_POKEBALL)
-//       If adding new balls, it's easiest to insert them after the last ball and increment the below IDs (and removing ITEM_034 for example)
-#define FIRST_BALL ITEM_POKE_BALL
-#define LAST_BALL  ITEM_DIRE_BALL
-
 // Medicine
 #define ITEM_POTION 29
 #define ITEM_SUPER_POTION 856
@@ -1032,10 +1026,12 @@
 #define ITEM_CHARGED_ORB 854
 #define ITEM_ARIADOSITE 855
 
+#define ITEM_STRANGE_BALL 857
+
 // HOPO BERRY
 // LEGEND PLATE
 
-#define ITEMS_COUNT 857
+#define ITEMS_COUNT 858
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations
@@ -1112,6 +1108,7 @@
 #define EFFECT_ITEM_RESTORE_PP              10
 #define EFFECT_ITEM_INCREASE_ALL_STATS      11
 #define EFFECT_ITEM_HERBAL_MIX              12
+#define EFFECT_ITEM_USE_POKE_FLUTE          13
 
 // Enigma Berry dummy constant
 #define EFFECT_ITEM_ENIGMA_BERRY_EREADER    1

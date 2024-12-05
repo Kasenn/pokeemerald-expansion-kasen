@@ -130,6 +130,16 @@ static const u8 sTileBitAttributes[NUM_METATILE_BEHAVIORS] =
     [MB_ISOLATED_HORIZONTAL_RAIL]        = TILE_FLAG_UNUSED,
     [MB_VERTICAL_RAIL]                   = TILE_FLAG_UNUSED,
     [MB_HORIZONTAL_RAIL]                 = TILE_FLAG_UNUSED,
+    [MB_SIGNPOST]                           = TILE_FLAG_UNUSED,
+    [MB_POKEMON_CENTER_SIGN]                = TILE_FLAG_UNUSED,
+    [MB_POKEMART_SIGN]                      = TILE_FLAG_UNUSED,
+    [MB_SIDEWAYS_STAIRS_RIGHT_SIDE]         = TILE_FLAG_UNUSED,
+    [MB_SIDEWAYS_STAIRS_LEFT_SIDE]          = TILE_FLAG_UNUSED,
+    [MB_SIDEWAYS_STAIRS_RIGHT_SIDE_TOP]     = TILE_FLAG_UNUSED,
+    [MB_SIDEWAYS_STAIRS_LEFT_SIDE_TOP]      = TILE_FLAG_UNUSED,
+    [MB_SIDEWAYS_STAIRS_RIGHT_SIDE_BOTTOM]  = TILE_FLAG_UNUSED,
+    [MB_SIDEWAYS_STAIRS_LEFT_SIDE_BOTTOM]   = TILE_FLAG_UNUSED,
+    [MB_ROCK_STAIRS]                        = TILE_FLAG_UNUSED,
 };
 
 bool8 MetatileBehavior_IsATile(u8 metatileBehavior)
@@ -1606,7 +1616,7 @@ bool8 MetatileBehavior_IsTrainerHillTimer(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsDirectionalUpRightStairWarp(u8 metatileBehavior)
 {
-    if(metatileBehavior == MB_UP_RIGHT_STAIR_WARP)
+    if (metatileBehavior == MB_UP_RIGHT_STAIR_WARP)
         return TRUE;
     else
         return FALSE;
@@ -1638,7 +1648,101 @@ bool8 MetatileBehavior_IsDirectionalDownLeftStairWarp(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsDirectionalStairWarp(u8 metatileBehavior)
 {
-    if (metatileBehavior >= MB_UP_RIGHT_STAIR_WARP && metatileBehavior <= MB_DOWN_LEFT_STAIR_WARP)
+    if (metatileBehavior == MB_UP_RIGHT_STAIR_WARP
+     || metatileBehavior == MB_UP_LEFT_STAIR_WARP
+     || metatileBehavior == MB_DOWN_RIGHT_STAIR_WARP
+     || metatileBehavior == MB_DOWN_LEFT_STAIR_WARP)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsSignpost(u32 metatileBehavior)
+{
+    return (metatileBehavior == MB_SIGNPOST);
+}
+
+bool8 MetatileBehavior_IsPokemonCenterSign(u32 metatileBehavior)
+{
+    return (metatileBehavior == MB_POKEMON_CENTER_SIGN);
+}
+
+bool8 MetatileBehavior_IsPokeMartSign(u32 metatileBehavior)
+{
+    return (metatileBehavior == MB_POKEMART_SIGN);
+}
+
+bool8 MetatileBehavior_IsSidewaysStairsRightSide(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_SIDEWAYS_STAIRS_RIGHT_SIDE || metatileBehavior == MB_SIDEWAYS_STAIRS_RIGHT_SIDE_BOTTOM)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsSidewaysStairsLeftSide(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_SIDEWAYS_STAIRS_LEFT_SIDE || metatileBehavior == MB_SIDEWAYS_STAIRS_LEFT_SIDE_BOTTOM)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsSidewaysStairsRightSideTop(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_SIDEWAYS_STAIRS_RIGHT_SIDE_TOP)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsSidewaysStairsLeftSideTop(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_SIDEWAYS_STAIRS_LEFT_SIDE_TOP)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsSidewaysStairsRightSideBottom(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_SIDEWAYS_STAIRS_RIGHT_SIDE_BOTTOM)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsSidewaysStairsLeftSideBottom(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_SIDEWAYS_STAIRS_LEFT_SIDE_BOTTOM)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsSidewaysStairsRightSideAny(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_SIDEWAYS_STAIRS_RIGHT_SIDE
+     || metatileBehavior == MB_SIDEWAYS_STAIRS_RIGHT_SIDE_BOTTOM
+     || metatileBehavior == MB_SIDEWAYS_STAIRS_RIGHT_SIDE_TOP)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsSidewaysStairsLeftSideAny(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_SIDEWAYS_STAIRS_LEFT_SIDE
+     || metatileBehavior == MB_SIDEWAYS_STAIRS_LEFT_SIDE_BOTTOM
+     || metatileBehavior == MB_SIDEWAYS_STAIRS_LEFT_SIDE_TOP)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsRockStairs(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_ROCK_STAIRS)
         return TRUE;
     else
         return FALSE;

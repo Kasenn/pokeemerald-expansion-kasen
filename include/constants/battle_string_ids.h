@@ -712,21 +712,33 @@
 #define STRINGID_FOGLIFTED                            710
 #define STRINGID_PKMNMADESHELLGLEAM                   711
 #define STRINGID_FICKLEBEAMDOUBLED                    712
+#define STRINGID_COMMANDERACTIVATES                   713
+#define STRINGID_POKEFLUTECATCHY                      714
+#define STRINGID_POKEFLUTE                            715
+#define STRINGID_MONHEARINGFLUTEAWOKE                 716
+#define STRINGID_SUNLIGHTISHARSH                      717
+#define STRINGID_ITISHAILING                          718
+#define STRINGID_ITISSNOWING                          719
+#define STRINGID_ISCOVEREDWITHGRASS                   720
+#define STRINGID_MISTSWIRLSAROUND                     721
+#define STRINGID_ELECTRICCURRENTISRUNNING             722
+#define STRINGID_SEEMSWEIRD                           723
+#define STRINGID_WAGGLINGAFINGER                      724
 
-#define STRINGID_ITISWINDY                            713
-#define STRINGID_WEATHERWIND                          714
-#define STRINGID_PLAYERGOTMONEYANDBP                  715
-#define STRINGID_LAIDLOW                              716
-#define STRINGID_SLEEPBERRY                           717
-#define STRINGID_TARGETISHURTBYMEGAEXHAUSTION         718
-#define STRINGID_FORESTCURSE                          719
-#define STRINGID_NOWHITEOUT                           720
-#define STRINGID_NORUNNINGFROMGHOST                   721
-#define STRINGID_JASMINE_NOTGIVINGUPYET               722
-#define STRINGID_JASMINE_AMPHY                        723
-#define	STRINGID_HIVE_LEADER                          724
+#define STRINGID_ITISWINDY                            725
+#define STRINGID_WEATHERWIND                          726
+#define STRINGID_PLAYERGOTMONEYANDBP                  727
+#define STRINGID_LAIDLOW                              728
+#define STRINGID_SLEEPBERRY                           729
+#define STRINGID_TARGETISHURTBYMEGAEXHAUSTION         730
+#define STRINGID_FORESTCURSE                          731
+#define STRINGID_NOWHITEOUT                           732
+#define STRINGID_NORUNNINGFROMGHOST                   733
+#define STRINGID_JASMINE_NOTGIVINGUPYET               734
+#define STRINGID_JASMINE_AMPHY                        735
+#define	STRINGID_HIVE_LEADER                          736
 
-#define BATTLESTRINGS_COUNT                           725
+#define BATTLESTRINGS_COUNT                           737
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,

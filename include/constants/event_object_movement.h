@@ -255,6 +255,10 @@
 #define MOVEMENT_ACTION_JUMP_3_LEFT                     0xA4
 #define MOVEMENT_ACTION_JUMP_3_RIGHT                    0xA5
 #define MOVEMENT_ACTION_ABRA_SPIN                       0xA6
+#define MOVEMENT_ACTION_RUN_DOWN_SLOW                   0xA7    // slow running for rocky stairs
+#define MOVEMENT_ACTION_RUN_UP_SLOW                     0xA8
+#define MOVEMENT_ACTION_RUN_LEFT_SLOW                   0xA9
+#define MOVEMENT_ACTION_RUN_RIGHT_SLOW                  0xAA
 
 #define MOVEMENT_ACTION_STEP_END 0xFE
 #define MOVEMENT_ACTION_NONE     0xFF

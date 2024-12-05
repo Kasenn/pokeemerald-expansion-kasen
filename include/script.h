@@ -64,5 +64,7 @@ void InitRamScript_NoObjectEvent(u8 *script, u16 scriptSize);
 void SetMovingNpcId(u16 npcId);
 
 u8* ReadWord(u8 index);
+extern u8 gMsgIsSignPost;
+extern u8 gMsgBoxIsCancelable;
 
 #endif // GUARD_SCRIPT_H
