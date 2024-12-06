@@ -470,7 +470,7 @@ u8 (*const *const gMovementActionFuncs[])(struct ObjectEvent *, struct Sprite *)
     [MOVEMENT_ACTION_JUMP_2_UP] = gMovementActionFuncs_Jump2Up,
     [MOVEMENT_ACTION_JUMP_2_LEFT] = gMovementActionFuncs_Jump2Left,
     [MOVEMENT_ACTION_JUMP_2_RIGHT] = gMovementActionFuncs_Jump2Right,
-    [MOVEMENT_ACTION_JUMP_3_DOWN] = gMovementActionFuncs_Jump3Down, //wip
+    [MOVEMENT_ACTION_JUMP_3_DOWN] = gMovementActionFuncs_Jump3Down,
     [MOVEMENT_ACTION_JUMP_3_UP] = gMovementActionFuncs_Jump3Up,
     [MOVEMENT_ACTION_JUMP_3_LEFT] = gMovementActionFuncs_Jump3Left,
     [MOVEMENT_ACTION_JUMP_3_RIGHT] = gMovementActionFuncs_Jump3Right,
@@ -751,7 +751,7 @@ u8 (*const gMovementActionFuncs_WalkNormalRight[])(struct ObjectEvent *, struct 
     MovementAction_PauseSpriteAnim,
 };
 
-static const s16 sJumpInitDisplacements[] = {//wip
+static const s16 sJumpInitDisplacements[] = {
     [JUMP_DISTANCE_IN_PLACE] = 0,
     [JUMP_DISTANCE_NORMAL] = 1,
     [JUMP_DISTANCE_FAR] = 1,

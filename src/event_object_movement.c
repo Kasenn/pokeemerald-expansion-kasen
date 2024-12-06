@@ -5811,7 +5811,7 @@ bool8 FollowablePlayerMovement_Step(struct ObjectEvent *objectEvent, struct Spri
     else if (GetLongLedgeJumpDirection(x, y, direction) != DIR_NONE)
     {
         // InitJumpRegular will set the proper speed
-        ObjectEventSetSingleMovement(objectEvent, sprite, GetJump3MovementAction(direction));//wip
+        ObjectEventSetSingleMovement(objectEvent, sprite, GetJump3MovementAction(direction));
     }
     else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_DASH))
     {
@@ -9930,7 +9930,7 @@ u8 GetLedgeJumpDirection(s16 x, s16 y, u8 direction)
 u8 GetLongLedgeJumpDirection(s16 x, s16 y, u8 direction)
 {
     static bool8 (*const ledgeBehaviorFuncs[])(u8) = {
-        [DIR_SOUTH - 1] = MetatileBehavior_IsRampSouth, //wip
+        [DIR_SOUTH - 1] = MetatileBehavior_IsRampSouth,
         [DIR_NORTH - 1] = MetatileBehavior_IsRampNorth,
         [DIR_WEST - 1]  = MetatileBehavior_IsRampWest,
         [DIR_EAST - 1]  = MetatileBehavior_IsRampEast,
@@ -9999,7 +9999,7 @@ static const u8 sElevationToSubpriority[] = {
     115, 115, 83, 115, 83, 115, 83, 115, 83, 115, 83, 115, 83, 0, 0, 115
 };
 
-static const u8 sElevationToPriority[] = {//wip
+static const u8 sElevationToPriority[] = {
     2, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 3, 3, 2
 };
 

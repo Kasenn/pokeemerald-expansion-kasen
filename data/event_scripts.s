@@ -599,8 +599,8 @@ EventScript_AfterWhiteOutHeal::
 	lockall
 	msgbox gText_FirstShouldRestoreMonsHealth
 	call EventScript_PkmnCenterNurse_TakeAndHealPkmn
-	call_if_unset FLAG_DEFEATED_RUSTBORO_GYM, EventScript_AfterWhiteOutHealMsgPreRoxanne
-	call_if_set FLAG_DEFEATED_RUSTBORO_GYM, EventScript_AfterWhiteOutHealMsg
+	call_if_unset FLAG_BADGE01_GET, EventScript_AfterWhiteOutHealMsgPreRoxanne
+	call_if_set FLAG_BADGE01_GET, EventScript_AfterWhiteOutHealMsg
 	applymovement VAR_LAST_TALKED, Movement_PkmnCenterNurse_Bow
 	waitmovement 0
 	fadedefaultbgm
@@ -1694,3 +1694,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/SouthernDesert/scripts.inc"
 
 	.include "data/maps/DevonCrop_Memory/scripts.inc"
+
+	.include "data/maps/TestWall/scripts.inc"
+
+	.include "data/maps/TestRoomCopy/scripts.inc"

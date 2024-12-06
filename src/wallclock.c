@@ -1017,7 +1017,7 @@ static void Task_ViewClock_WaitFadeIn(u8 taskId)
         gTasks[taskId].func = Task_ViewClock_HandleInput;
 }
 
-static void Task_ViewClock_HandleInput(u8 taskId)//wip
+static void Task_ViewClock_HandleInput(u8 taskId)
 {
     InitClockWithRtc(taskId);
     if (JOY_NEW(A_BUTTON))

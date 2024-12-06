@@ -1,0 +1,44 @@
+{
+  "id": "MAP_TEST_ROOM_COPY",
+  "name": "TestRoomCopy",
+  "layout": "LAYOUT_TEST_ROOM_COPY",
+  "music": "MUS_ROUTE119",
+  "region_map_section": "MAPSEC_ALDELEAF_CITY",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_TEST_ROOM",
+      "offset": 28,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_TEST_ROOM",
+      "offset": -28,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_TEST_WALL",
+      "offset": 12,
+      "direction": "right"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

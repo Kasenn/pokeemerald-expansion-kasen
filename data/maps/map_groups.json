@@ -937,6 +937,8 @@
   "gMapGroup_IndoorRoute124": [
     "TestRoom",
     "PokemonWorldTournament",
-    "Maptest"
+    "Maptest",
+    "TestWall",
+    "TestRoomCopy"
   ]
 }

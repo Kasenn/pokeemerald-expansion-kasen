@@ -627,7 +627,8 @@ script Debug_Script_4{              // Set team level
     release
     end}
 script Debug_Script_5{
-    callnative(TintWorld)
+    setwildbattle(SPECIES_URSALUNA_BLOODMOON, 50)
+    dowildbattle
     release
 }
 script Debug_Script_6{

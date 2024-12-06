@@ -1,203 +1,283 @@
 WindplumeRidge_MapScripts::
+# 2 "data/maps/WindplumeRidge/scripts.pory"
 	map_script MAP_SCRIPT_ON_TRANSITION, SetWindPlumeFlag
 	.byte 0
 
 
 SetWindPlumeFlag::
+# 5 "data/maps/WindplumeRidge/scripts.pory"
 	setflag FLAG_LANDMARK_WINDPLUME_VALLEY
+# 6 "data/maps/WindplumeRidge/scripts.pory"
 	release
 	end
 
 
 WindPlume_VarSetter::
+# 11 "data/maps/WindplumeRidge/scripts.pory"
 	compare VAR_WIND_SPEED, 0
 	goto_if_eq WindPlume_VarSetter_2
 WindPlume_VarSetter_1:
+# 15 "data/maps/WindplumeRidge/scripts.pory"
 	compare VAR_WIND_SPEED, 1
 	goto_if_eq WindPlume_VarSetter_5
 WindPlume_VarSetter_4:
+# 19 "data/maps/WindplumeRidge/scripts.pory"
 	compare VAR_WIND_SPEED, 2
 	goto_if_eq WindPlume_VarSetter_7
 	return
 
 WindPlume_VarSetter_2:
+# 12 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox WindPlume_VarSetter_Text_0, MSGBOX_NPC
+# 13 "data/maps/WindplumeRidge/scripts.pory"
 	setvar VAR_WIND_SPEED, 1
 	goto WindPlume_VarSetter_1
 
 WindPlume_VarSetter_5:
+# 16 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox WindPlume_VarSetter_Text_1, MSGBOX_NPC
+# 17 "data/maps/WindplumeRidge/scripts.pory"
 	setvar VAR_WIND_SPEED, 2
 	goto WindPlume_VarSetter_4
 
 WindPlume_VarSetter_7:
+# 20 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox WindPlume_VarSetter_Text_2, MSGBOX_NPC
+# 21 "data/maps/WindplumeRidge/scripts.pory"
 	setvar VAR_WIND_SPEED, 0
 	return
 
 
 WindplumeRidge_StartWind::
+# 26 "data/maps/WindplumeRidge/scripts.pory"
 	setweather WEATHER_STRONG_WINDS
+# 27 "data/maps/WindplumeRidge/scripts.pory"
 	doweather
 	end
 
 
 WindplumeRidge_RemoveWind::
+# 31 "data/maps/WindplumeRidge/scripts.pory"
 	setweather WEATHER_SUNNY
+# 32 "data/maps/WindplumeRidge/scripts.pory"
 	doweather
 	end
 
 
 HideAldeleafWoman::
+# 36 "data/maps/WindplumeRidge/scripts.pory"
 	setflag FLAG_DEFEATED_SUDOWOODO2
+# 37 "data/maps/WindplumeRidge/scripts.pory"
 	release
 	end
 
 
 Windplume_IronBall::
+# 41 "data/maps/WindplumeRidge/scripts.pory"
 	finditem ITEM_IRON_BALL
 	return
 
 
 Windplume_Guide::
+# 45 "data/maps/WindplumeRidge/scripts.pory"
 	goto_if_set FLAG_RECEIVED_HM_FLY, Windplume_Guide_2
+# 49 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Guide_Text, MSGBOX_NPC
 Windplume_Guide_1:
 	end
 
 Windplume_Guide_2:
+# 46 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Guide_Text_Post, MSGBOX_NPC
 	goto Windplume_Guide_1
 
 
 Windplume_Trainer1::
+# 90 "data/maps/WindplumeRidge/scripts.pory"
 	trainerbattle_single TRAINER_WPV_TR1_BIRDKEEPER, Windplume_Text_Trainer1Intro, Windplume_Text_Trainer1Defeat
+# 91 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer1PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Windplume_Trainer2::
+# 109 "data/maps/WindplumeRidge/scripts.pory"
 	trainerbattle_single TRAINER_WPV_TR2_TRIATH, Windplume_Text_Trainer2Intro, Windplume_Text_Trainer2Defeat
+# 110 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer2PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Windplume_Trainer3::
+# 125 "data/maps/WindplumeRidge/scripts.pory"
 	trainerbattle_single TRAINER_WPV_TR3_BATTLEGIRL, Windplume_Text_Trainer3Intro, Windplume_Text_Trainer3Defeat
+# 126 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer3PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Windplume_Trainer4::
+# 146 "data/maps/WindplumeRidge/scripts.pory"
 	trainerbattle_single TRAINER_WPV_TR4_CAMPER, Windplume_Text_Trainer4Intro, Windplume_Text_Trainer4Defeat
+# 147 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer4PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Windplume_Trainer5::
+# 165 "data/maps/WindplumeRidge/scripts.pory"
 	trainerbattle_single TRAINER_WPV_TR5_BIRDKEEPER, Windplume_Text_Trainer5Intro, Windplume_Text_Trainer5Defeat
+# 166 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer5PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Windplume_Trainer6::
+# 187 "data/maps/WindplumeRidge/scripts.pory"
 	trainerbattle_single TRAINER_WPV_TR6_MANIAC, Windplume_Text_Trainer6Intro, Windplume_Text_Trainer6Defeat
+# 188 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer6PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Windplume_Trainer7::
+# 205 "data/maps/WindplumeRidge/scripts.pory"
 	trainerbattle_single TRAINER_WPV_TR7_BIRDKEEPER, Windplume_Text_Trainer7Intro, Windplume_Text_Trainer7Defeat
+# 206 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer7PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Windplume_Trainer8::
+# 225 "data/maps/WindplumeRidge/scripts.pory"
 	trainerbattle_single TRAINER_WPV_TR8_NINJABOY, Windplume_Text_Trainer8Intro, Windplume_Text_Trainer8Defeat
+# 226 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer8PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Windplume_Trainer9::
+# 244 "data/maps/WindplumeRidge/scripts.pory"
 	trainerbattle_single TRAINER_WPV_TR9_LASS, Windplume_Text_Trainer9Intro, Windplume_Text_Trainer9Defeat
+# 245 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer9PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Windplume_Trainer10::
+# 265 "data/maps/WindplumeRidge/scripts.pory"
 	trainerbattle_single TRAINER_WPV_TR10_TRIATH, Windplume_Text_Trainer10Intro, Windplume_Text_Trainer10Defeat
+# 266 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer10PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Windplume_Trainer11::
+# 281 "data/maps/WindplumeRidge/scripts.pory"
 	trainerbattle_single TRAINER_WPV_TR11_BIRDKEEPER, Windplume_Text_Trainer11Intro, Windplume_Text_Trainer11Defeat
+# 282 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer11PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Windplume_Trainer12::
+# 300 "data/maps/WindplumeRidge/scripts.pory"
 	trainerbattle_single TRAINER_WPV_TR12_BATTLEGIRL, Windplume_Text_Trainer12Intro, Windplume_Text_Trainer12Defeat
+# 301 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer12PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Windplume_Trainer13::
+# 320 "data/maps/WindplumeRidge/scripts.pory"
 	trainerbattle_single TRAINER_WPV_TR13_BIRDKEEPER, Windplume_Text_Trainer13Intro, Windplume_Text_Trainer13Defeat
+# 321 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer13PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Windplume_Trainer14::
+# 338 "data/maps/WindplumeRidge/scripts.pory"
 	lockall
+# 339 "data/maps/WindplumeRidge/scripts.pory"
 	faceplayer
+# 340 "data/maps/WindplumeRidge/scripts.pory"
 	trainerbattle_single TRAINER_WPV_TR14_SKYLA, Windplume_Text_Trainer14Intro, Windplume_Text_Trainer14Defeat, Windplume_Event_SkylaDefeated, NO_MUSIC
+# 341 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer14PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Windplume_Event_SkylaDefeated::
+# 346 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer14Outro, MSGBOX_DEFAULT
+# 347 "data/maps/WindplumeRidge/scripts.pory"
 	waitmessage
+# 348 "data/maps/WindplumeRidge/scripts.pory"
 	closemessage
+# 349 "data/maps/WindplumeRidge/scripts.pory"
 	giveitem ITEM_HM02
+# 350 "data/maps/WindplumeRidge/scripts.pory"
 	waitfanfare
+# 351 "data/maps/WindplumeRidge/scripts.pory"
 	setflag FLAG_RECEIVED_HM_FLY
+# 352 "data/maps/WindplumeRidge/scripts.pory"
 	call SetWindPlumeTrainersDefeated
+# 353 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_ExplainFly, MSGBOX_DEFAULT
+# 354 "data/maps/WindplumeRidge/scripts.pory"
 	waitmessage
+# 355 "data/maps/WindplumeRidge/scripts.pory"
 	closemessage
+# 356 "data/maps/WindplumeRidge/scripts.pory"
 	release
 	end
 
 
 SetWindPlumeTrainersDefeated::
+# 401 "data/maps/WindplumeRidge/scripts.pory"
 	settrainerflag TRAINER_WPV_TR1_BIRDKEEPER
+# 402 "data/maps/WindplumeRidge/scripts.pory"
 	settrainerflag TRAINER_WPV_TR2_TRIATH
+# 403 "data/maps/WindplumeRidge/scripts.pory"
 	settrainerflag TRAINER_WPV_TR3_BATTLEGIRL
+# 404 "data/maps/WindplumeRidge/scripts.pory"
 	settrainerflag TRAINER_WPV_TR4_CAMPER
+# 405 "data/maps/WindplumeRidge/scripts.pory"
 	settrainerflag TRAINER_WPV_TR5_BIRDKEEPER
+# 406 "data/maps/WindplumeRidge/scripts.pory"
 	settrainerflag TRAINER_WPV_TR6_MANIAC
+# 407 "data/maps/WindplumeRidge/scripts.pory"
 	settrainerflag TRAINER_WPV_TR7_BIRDKEEPER
+# 408 "data/maps/WindplumeRidge/scripts.pory"
 	settrainerflag TRAINER_WPV_TR8_NINJABOY
+# 409 "data/maps/WindplumeRidge/scripts.pory"
 	settrainerflag TRAINER_WPV_TR9_LASS
+# 410 "data/maps/WindplumeRidge/scripts.pory"
 	settrainerflag TRAINER_WPV_TR10_TRIATH
+# 411 "data/maps/WindplumeRidge/scripts.pory"
 	settrainerflag TRAINER_WPV_TR11_BIRDKEEPER
+# 412 "data/maps/WindplumeRidge/scripts.pory"
 	settrainerflag TRAINER_WPV_TR12_BATTLEGIRL
+# 413 "data/maps/WindplumeRidge/scripts.pory"
 	settrainerflag TRAINER_WPV_TR13_BIRDKEEPER
 	return
 
 
 WindPlume_VarSetter_Text_0:
+# 12 "data/maps/WindplumeRidge/scripts.pory"
 	.string "VAR_WIND_SPEED set to 1$"
 
 WindPlume_VarSetter_Text_1:
+# 16 "data/maps/WindplumeRidge/scripts.pory"
 	.string "VAR_WIND_SPEED set to 2$"
 
 WindPlume_VarSetter_Text_2:
+# 20 "data/maps/WindplumeRidge/scripts.pory"
 	.string "VAR_WIND_SPEED set back to 0$"
 
 Windplume_Guide_Text_Post::
+# 54 "data/maps/WindplumeRidge/scripts.pory"
 	.string "You're back! I assume you've taken\n"
 	.string "a victory against Skyla?\p"
 	.string "Good job! It's rare to see a trainer\n"
@@ -211,6 +291,7 @@ Windplume_Guide_Text_Post::
 	.string "you two any time soon!$"
 
 Windplume_Guide_Text::
+# 68 "data/maps/WindplumeRidge/scripts.pory"
 	.string "Oh, we have a new challenger!\p"
 	.string "This place is called the Windplume\n"
 	.string "Valley.\p"
@@ -231,64 +312,79 @@ Windplume_Guide_Text::
 	.string "Anyway, better get to it!$"
 
 Windplume_Text_Trainer1Intro::
+# 94 "data/maps/WindplumeRidge/scripts.pory"
 	.string "I have the wind on my side!\n"
 	.string "What chance do you thing you got!?$"
 
 Windplume_Text_Trainer1Defeat::
+# 98 "data/maps/WindplumeRidge/scripts.pory"
 	.string "Even with the wind on my side,\n"
 	.string "I couldn't keep up…$"
 
 Windplume_Text_Trainer1PostBattle::
+# 102 "data/maps/WindplumeRidge/scripts.pory"
 	.string "This wind is really great for my birds.\n"
 	.string "They love going fast so this place is\l"
 	.string "a paradise for them.$"
 
 Windplume_Text_Trainer2Intro::
+# 113 "data/maps/WindplumeRidge/scripts.pory"
 	.string "Gotta go fast!$"
 
 Windplume_Text_Trainer2Defeat::
+# 116 "data/maps/WindplumeRidge/scripts.pory"
 	.string "Not fast enough…$"
 
 Windplume_Text_Trainer2PostBattle::
+# 119 "data/maps/WindplumeRidge/scripts.pory"
 	.string "Maybe outspeeding your opponent\n"
 	.string "just isn't enough…$"
 
 Windplume_Text_Trainer3Intro::
+# 129 "data/maps/WindplumeRidge/scripts.pory"
 	.string "Just because I'm not a bird keeper\n"
 	.string "doesn't mean I don't have flying\l"
 	.string "Pokemon!$"
 
 Windplume_Text_Trainer3Defeat::
+# 134 "data/maps/WindplumeRidge/scripts.pory"
 	.string "Maybe I need to consider a change\n"
 	.string "in strategy…$"
 
 Windplume_Text_Trainer3PostBattle::
+# 138 "data/maps/WindplumeRidge/scripts.pory"
 	.string "This place is great for training.\n"
 	.string "If you don't try to fight the wind\l"
 	.string "and just go with it,\l"
 	.string "the feeling can be kind of liberating.$"
 
 Windplume_Text_Trainer4Intro::
+# 150 "data/maps/WindplumeRidge/scripts.pory"
 	.string "Are you here to train?\n"
 	.string "Here, let me be your training partner!$"
 
 Windplume_Text_Trainer4Defeat::
+# 154 "data/maps/WindplumeRidge/scripts.pory"
 	.string "I guess I've been slacking off…$"
 
 Windplume_Text_Trainer4PostBattle::
+# 157 "data/maps/WindplumeRidge/scripts.pory"
 	.string "Apparently this wind makes it easier\n"
 	.string "for Pokémon to execute certain wind or\l"
 	.string "flying related moves.\l"
 	.string "I hope you've come prepared.$"
 
 Windplume_Text_Trainer5Intro::
+# 169 "data/maps/WindplumeRidge/scripts.pory"
 	.string "You're looking at the next boss\n"
 	.string "of this place!$"
 
 Windplume_Text_Trainer5Defeat::
+# 173 "data/maps/WindplumeRidge/scripts.pory"
 	.string "You just got lucky, that's all!$"
 
 Windplume_Text_Trainer5PostBattle::
+# 176 "data/maps/WindplumeRidge/scripts.pory"
 	.string "While this place technically\n"
 	.string "isn't a gym, we do have a sort of\l"
 	.string "leader character we all look up to.\p"
@@ -298,53 +394,65 @@ Windplume_Text_Trainer5PostBattle::
 	.string "the senior trainer.$"
 
 Windplume_Text_Trainer6Intro::
+# 191 "data/maps/WindplumeRidge/scripts.pory"
 	.string "I love Pokémon!\n"
 	.string "I love Pokémon battles even more!$"
 
 Windplume_Text_Trainer6Defeat::
+# 195 "data/maps/WindplumeRidge/scripts.pory"
 	.string "I hate Pokémon battles…$"
 
 Windplume_Text_Trainer6PostBattle::
+# 198 "data/maps/WindplumeRidge/scripts.pory"
 	.string "Apparently there's a place to\n"
 	.string "catch wild Pokémon here.\l"
 	.string "Wonder where that is…$"
 
 Windplume_Text_Trainer7Intro::
+# 209 "data/maps/WindplumeRidge/scripts.pory"
 	.string "My Pokémon are stronger than the wind.\n"
 	.string "They're my pride and joy!$"
 
 Windplume_Text_Trainer7Defeat::
+# 213 "data/maps/WindplumeRidge/scripts.pory"
 	.string "My Pokémon may be stronger than\n"
 	.string "the wind, but they aren't as strong\l"
 	.string "as yours.$"
 
 Windplume_Text_Trainer7PostBattle::
+# 218 "data/maps/WindplumeRidge/scripts.pory"
 	.string "Many bird keepers come here to train.\p"
 	.string "That's why you can find feathers\n"
 	.string "strewn all over the place.$"
 
 Windplume_Text_Trainer8Intro::
+# 229 "data/maps/WindplumeRidge/scripts.pory"
 	.string "Swift as the wind, that's the\n"
 	.string "ninja way!$"
 
 Windplume_Text_Trainer8Defeat::
+# 233 "data/maps/WindplumeRidge/scripts.pory"
 	.string "I failed…$"
 
 Windplume_Text_Trainer8PostBattle::
+# 236 "data/maps/WindplumeRidge/scripts.pory"
 	.string "Ninjas are taught to be quick\n"
 	.string "and silent. But ninjas must also\l"
 	.string "possess the strength to take down\l"
 	.string "their foes.$"
 
 Windplume_Text_Trainer9Intro::
+# 248 "data/maps/WindplumeRidge/scripts.pory"
 	.string "My Pokémon may not be traditional\n"
 	.string "flying types, but that doesn't mean\l"
 	.string "you should underestimate us!$"
 
 Windplume_Text_Trainer9Defeat::
+# 253 "data/maps/WindplumeRidge/scripts.pory"
 	.string "Even with the wind on my side, I lost…$"
 
 Windplume_Text_Trainer9PostBattle::
+# 256 "data/maps/WindplumeRidge/scripts.pory"
 	.string "Have you wondered how the winds\n"
 	.string "are so strong here?\p"
 	.string "Apparently it's got something to do\n"
@@ -352,55 +460,68 @@ Windplume_Text_Trainer9PostBattle::
 	.string "funnel it all through here.$"
 
 Windplume_Text_Trainer10Intro::
+# 269 "data/maps/WindplumeRidge/scripts.pory"
 	.string "Can't you see that I'm training here?!$"
 
 Windplume_Text_Trainer10Defeat::
+# 272 "data/maps/WindplumeRidge/scripts.pory"
 	.string "Even with all my training…$"
 
 Windplume_Text_Trainer10PostBattle::
+# 275 "data/maps/WindplumeRidge/scripts.pory"
 	.string "Please don't bother me,\n"
 	.string "I'm still in the middle of my training.$"
 
 Windplume_Text_Trainer11Intro::
+# 285 "data/maps/WindplumeRidge/scripts.pory"
 	.string "Go my birds, bring me victory!$"
 
 Windplume_Text_Trainer11Defeat::
+# 288 "data/maps/WindplumeRidge/scripts.pory"
 	.string "My Pokémon did their best.\n"
 	.string "That's all I can ask for.$"
 
 Windplume_Text_Trainer11PostBattle::
+# 292 "data/maps/WindplumeRidge/scripts.pory"
 	.string "My birds are free to fly in the air\n"
 	.string "while I'm standing here,\l"
 	.string "shackled to the ground.\p"
 	.string "I wonder, am I holding them back?$"
 
 Windplume_Text_Trainer12Intro::
+# 304 "data/maps/WindplumeRidge/scripts.pory"
 	.string "This is the final stretch!\n"
 	.string "Too bad I stand here!$"
 
 Windplume_Text_Trainer12Defeat::
+# 308 "data/maps/WindplumeRidge/scripts.pory"
 	.string "How could this be?!\n"
 	.string "I wasn't being reckless at all!$"
 
 Windplume_Text_Trainer12PostBattle::
+# 312 "data/maps/WindplumeRidge/scripts.pory"
 	.string "You've earned it,\n"
 	.string "go ahead and claim your prize.\p"
 	.string "Oh, I meant the prize of getting to\n"
 	.string "challenge the senior trainer, of course!$"
 
 Windplume_Text_Trainer13Intro::
+# 324 "data/maps/WindplumeRidge/scripts.pory"
 	.string "You're not getting past this point!$"
 
 Windplume_Text_Trainer13Defeat::
+# 327 "data/maps/WindplumeRidge/scripts.pory"
 	.string "I couldn't block your path…\n"
 	.string "You're an impressive trainer!$"
 
 Windplume_Text_Trainer13PostBattle::
+# 331 "data/maps/WindplumeRidge/scripts.pory"
 	.string "Even I didn't stand a chance\n"
 	.string "against you.\p"
 	.string "I wonder, will she?$"
 
 Windplume_Text_Trainer14Intro::
+# 359 "data/maps/WindplumeRidge/scripts.pory"
 	.string "Hee-hee! I've been waiting for you.\p"
 	.string "My name is Skyla, and I guess you\n"
 	.string "could consider me the “Gym Leader”\l"
@@ -413,10 +534,12 @@ Windplume_Text_Trainer14Intro::
 	.string "Why don't you and I have some fun?$"
 
 Windplume_Text_Trainer14Defeat::
+# 371 "data/maps/WindplumeRidge/scripts.pory"
 	.string "I won't forget this battle!\n"
 	.string "I'm glad that I could fight against you!$"
 
 Windplume_Text_Trainer14PostBattle::
+# 375 "data/maps/WindplumeRidge/scripts.pory"
 	.string "Skyla: Are you and your Pokémon well?\n"
 	.string "Our battle together was so much fun.\p"
 	.string "Now, my Pokémon and I have started\n"
@@ -425,12 +548,14 @@ Windplume_Text_Trainer14PostBattle::
 	.string "Next time I will not lose!$"
 
 Windplume_Text_ExplainFly::
+# 384 "data/maps/WindplumeRidge/scripts.pory"
 	.string "That's a Hidden Machine, Fly!\p"
 	.string "When you use that move outside of\n"
 	.string "battle, you can easily visit towns\l"
 	.string "you've already visited!$"
 
 Windplume_Text_Trainer14Outro::
+# 391 "data/maps/WindplumeRidge/scripts.pory"
 	.string "You're an amazing Pokémon Trainer.\n"
 	.string "My Pokémon and I are happy,\l"
 	.string "because for the first time in a while,\l"

@@ -3010,8 +3010,16 @@ u8 DoBattlerEndTurnEffects(void)
             {
                 gBattlerTarget = battler;
 
-                u16 physAttack = CalculateMoveDamage(MOVE_NONE, gBattlerAttacker, gBattlerAttacker, TYPE_MYSTERY, 40, FALSE, FALSE, TRUE);
-                u16 speAttack = CalculateMoveDamage(MOVE_NONE_SPECIAL, gBattlerAttacker, gBattlerAttacker, TYPE_MYSTERY, 40, FALSE, FALSE, TRUE);
+                struct DamageCalculationData damageCalcData;
+                damageCalcData.battlerAtk = damageCalcData.battlerDef = gBattlerAttacker;
+                damageCalcData.move = MOVE_NONE;
+                damageCalcData.moveType = TYPE_MYSTERY;
+                damageCalcData.isCrit = FALSE;
+                damageCalcData.randomFactor = FALSE;
+                damageCalcData.updateFlags = TRUE;
+                u16 physAttack = CalculateMoveDamage(&damageCalcData, 40);
+                damageCalcData.move = MOVE_NONE_SPECIAL;
+                u16 speAttack = CalculateMoveDamage(&damageCalcData, 40);
 
                 if (speAttack > physAttack)
                     gBattleMoveDamage = speAttack;

@@ -671,7 +671,6 @@ static const u8 *const sActionStringTable[] =
     [PARTY_MSG_ALREADY_HOLDING_ONE]    = gText_AlreadyHoldingOne,
     [PARTY_MSG_WHICH_APPLIANCE]        = gText_WhichAppliance,
     [PARTY_MSG_CHOOSE_SECOND_FUSION]   = gText_NextFusionMon,
-    [PARTY_MSG_PARTNER]                = gText_TalkToPartner,
     [PARTY_MSG_DO_WHAT_WITH_FOLLOWER]  = gText_DoWhatWithFollower,
 };
 

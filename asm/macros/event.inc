@@ -2554,29 +2554,29 @@
 	.endm
 
 	@ Stores the position of the given object in destX and destY. Mode CURRENT_POSITION will take the object's current position. Mode TEMPLATE_POSITION will take the object's template position.
-	.macro getobjectxy localId:req, posType:req, destX:req, destY:req
-	callnative ScrCmd_getobjectxy
-	.2byte \localId
-	.2byte \posType
-	.2byte \destX
-	.2byte \destY
-	.endm
+	@.macro getobjectxy localId:req, posType:req, destX:req, destY:req
+	@callnative ScrCmd_getobjectxy
+	@.2byte \localId
+	@.2byte \posType
+	@.2byte \destX
+	@.2byte \destY
+	@.endm
 
-	.macro getobjecttemplatexy localId:req, posType = TEMPLATE_POSITION, destX:req, destY:req
-	callnative ScrCmd_getobjectxy
-	.2byte \localId
-	.2byte \posType
-	.2byte \destX
-	.2byte \destY
-	.endm
+	@.macro getobjecttemplatexy localId:req, posType = TEMPLATE_POSITION, destX:req, destY:req
+	@callnative ScrCmd_getobjectxy
+	@.2byte \localId
+	@.2byte \posType
+	@.2byte \destX
+	@.2byte \destY
+	@.endm
 
-	.macro getobjectcurrentxy localId:req, posType = CURRENT_POSITION, destX:req, destY:req
-	callnative ScrCmd_getobjectxy
-	.2byte \localId
-	.2byte \posType
-	.2byte \destX
-	.2byte \destY
-	.endm
+	@.macro getobjectcurrentxy localId:req, posType = CURRENT_POSITION, destX:req, destY:req
+	@callnative ScrCmd_getobjectxy
+	@.2byte \localId
+	@.2byte \posType
+	@.2byte \destX
+	@.2byte \destY
+	@.endm
 
 	@ Return TRUE to dest if there is an object at the position x and y.
 	.macro checkobjectat x:req, y:req, dest = VAR_RESULT

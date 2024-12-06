@@ -322,7 +322,7 @@ void MovementType_WalkSlowlyInPlace(struct Sprite *);
 void MovementType_FollowPlayer(struct Sprite *);
 u8 GetSlideMovementAction(u32);
 u8 GetJump2MovementAction(u32);
-u8 GetJump3MovementAction(u32); //wip2
+u8 GetJump3MovementAction(u32);
 u8 CopySprite(struct Sprite *sprite, s16 x, s16 y, u8 subpriority);
 u8 CreateCopySpriteAt(struct Sprite *sprite, s16 x, s16 y, u8 subpriority);
 

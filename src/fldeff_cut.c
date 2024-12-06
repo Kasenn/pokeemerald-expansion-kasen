@@ -281,7 +281,7 @@ static void FieldCallback_CutGrass(void)
     gFieldEffectArguments[0] = GetCursorSelectionMonId();
 }
 
-bool8 FldEff_UseCutOnGrass(void)
+bool8 FldEff_UseCutOnGrass(void)//wip
 {
     u8 taskId = CreateFieldMoveTask();
 

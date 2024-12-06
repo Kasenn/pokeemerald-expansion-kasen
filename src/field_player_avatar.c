@@ -1178,7 +1178,7 @@ void PlayerTurnInPlace(u8 direction)
     PlayerSetAnimId(GetWalkInPlaceFastMovementAction(direction), COPY_MOVE_FACE);
 }
 
-void PlayerJumpLedge(u8 direction)//wip
+void PlayerJumpLedge(u8 direction)
 {
     PlaySE(SE_LEDGE);
     PlayerSetAnimId(GetJump2MovementAction(direction), COPY_MOVE_JUMP2);

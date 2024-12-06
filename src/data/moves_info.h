@@ -146,7 +146,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .mirrorMoveBanned = TRUE,
         .sketchBanned = TRUE,
         .assistBanned = TRUE,
-        .battleAnimScript = Move_NONE,
+        .battleAnimScript = gBattleAnimMove_None,
     },
 
     [MOVE_POUND] =
@@ -14097,7 +14097,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .contestEffect = CONTEST_EFFECT_HIGHLY_APPEALING,
         .contestCategory = CONTEST_CATEGORY_COOL,
         .contestComboStarterId = 0,
-        .contestComboMoves = {0}
+        .contestComboMoves = {0},
+        .battleAnimScript = Move_RAZOR_GALE,
     },
 
     [MOVE_MAT_BLOCK] =

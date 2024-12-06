@@ -1,57 +1,78 @@
 Drisledge_Mart_Backroom_MapScripts::
+# 2 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	map_script MAP_SCRIPT_ON_TRANSITION, MartBackroomFlag
 	.byte 0
 
 
 MartBackroomFlag::
+# 5 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	setflag FLAG_TEMP_1
+# 6 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	goto_if_set FLAG_LITWICK_TAG_COMPLETE, MartBackroomFlag_2
 MartBackroomFlag_1:
+# 11 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	goto_if_set FLAG_LITWICK_CAUGHT, MartBackroomFlag_4
 	return
 
 MartBackroomFlag_2:
+# 7 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	setobjectxyperm 1, 14, 13
+# 8 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	clearflag FLAG_TEMP_1
+# 9 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	setflag FLAG_TEMP_2
 	goto MartBackroomFlag_1
 
 MartBackroomFlag_4:
+# 12 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	setflag FLAG_TEMP_1
+# 13 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	clearflag FLAG_TEMP_2
 	return
 
 
 Drisledge_Litwick::
+# 17 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	goto_if_set FLAG_LITWICK_TAG_COMPLETE, Drisledge_Litwick_2
 Drisledge_Litwick_1:
+# 20 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	compare VAR_TEMP_1, 2
 	goto_if_eq Drisledge_Litwick_5
 Drisledge_Litwick_4:
+# 23 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	compare VAR_TEMP_1, 3
 	goto_if_eq Drisledge_Litwick_7
 	return
 
 Drisledge_Litwick_2:
+# 18 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	goto LitwickMain
 	goto Drisledge_Litwick_1
 
 Drisledge_Litwick_5:
+# 21 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	goto LitwickChase_2
 	goto Drisledge_Litwick_4
 
 Drisledge_Litwick_7:
+# 24 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	goto LitwickChase_3
 	return
 
 
 DrisledgeMart_Box::
+# 28 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	msgbox CharredBox, MSGBOX_SIGN
+# 29 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	goto_if_set FLAG_LITWICK_CAUGHT, DrisledgeMart_Box_2
+# 32 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	gettime
+# 33 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	copyvar VAR_TEMP_0, VAR_0x8000
+# 35 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	compare VAR_TEMP_0, 6
 	goto_if_le DrisledgeMart_Box_4
+# 35 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	compare VAR_TEMP_0, 18
 	goto_if_ge DrisledgeMart_Box_4
 	return
@@ -60,389 +81,633 @@ DrisledgeMart_Box_2:
 	end
 
 DrisledgeMart_Box_4:
+# 36 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	compare VAR_TEMP_1, 0
 	goto_if_eq DrisledgeMart_Box_8
 	return
 
 DrisledgeMart_Box_8:
+# 37 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	setvar VAR_TEMP_1, 1
+# 38 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	clearflag FLAG_TEMP_1
 	return
 
 
 LitwickChase_1_Left::
+# 49 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	setvar VAR_TEMP_3, 1
+# 50 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	goto LitwickChase_1_Main
 	return
 
 
 LitwickChase_1_Right::
+# 53 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	goto LitwickChase_1_Main
 	return
 
 
 LitwickChase_1_Main::
+# 56 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	lock
+# 57 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	playse SE_PIN
+# 58 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	compare VAR_TEMP_3, 1
 	goto_if_eq LitwickChase_1_Main_2
 LitwickChase_1_Main_1:
+# 61 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	safefollow
+# 62 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	applymovement 1, ExclamationMark
+# 63 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	waitmovement 0
+# 64 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	delay 48
+# 65 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	applymovement 1, LitwickEscape1
+# 66 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	waitmovement 0
+# 67 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	setobjectxyperm 1, 14, 4
+# 68 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	turnobject 1, DIR_SOUTH
+# 69 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	setvar VAR_TEMP_1, 2
+# 70 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	release
 	return
 
 LitwickChase_1_Main_2:
+# 59 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	turnobject 1, DIR_WEST
 	goto LitwickChase_1_Main_1
 
 
+# 72 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 LitwickEscape1:
+# 73 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_up
+# 73 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_up
+# 74 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 74 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
 	step_end
 
 LitwickChase_2::
+# 77 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	lock
+# 78 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	faceplayer
+# 79 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	playse SE_PIN
+# 80 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	getfollowerxy VAR_TEMP_1, VAR_TEMP_2
+# 81 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	compare VAR_TEMP_1, 13
 	goto_if_ne LitwickChase_2_3
 LitwickChase_2_1:
+# 84 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	applymovement 1, ExclamationMark
+# 85 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	waitmovement 0
+# 86 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	delay 48
+# 87 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	compare VAR_FACING, DIR_EAST
 	goto_if_eq LitwickChase_2_7
+# 91 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	applymovement 1, LitwickEscape2
 LitwickChase_2_6:
+# 93 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	waitmovement 0
+# 94 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	setobjectxyperm 1, 3, 4
+# 95 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	turnobject 1, DIR_SOUTH
+# 96 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	setvar VAR_TEMP_1, 3
+# 97 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	release
 	return
 
 LitwickChase_2_2:
+# 82 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	safefollow
 	goto LitwickChase_2_1
 
 LitwickChase_2_3:
+# 81 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	compare VAR_TEMP_2, 3
 	goto_if_ne LitwickChase_2_2
 	goto LitwickChase_2_1
 
 LitwickChase_2_7:
+# 88 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	applymovement 1, LitwickEscape2North
 	goto LitwickChase_2_6
 
 
+# 100 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 LitwickEscape2North:
+# 101 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_up
+# 102 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 102 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 102 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 102 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 102 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 102 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 102 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 102 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 102 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 102 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 102 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 103 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_down
 	step_end
 
+# 105 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 LitwickEscape2:
+# 106 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 106 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 106 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 106 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 106 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 106 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 106 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 106 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 106 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 106 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 106 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
 	step_end
 
 LitwickChase_3::
+# 110 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	lock
+# 111 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	faceplayer
+# 112 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	playse SE_PIN
+# 113 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	getfollowerxy VAR_TEMP_1, VAR_TEMP_2
+# 114 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	compare VAR_TEMP_1, 2
 	goto_if_ne LitwickChase_3_3
 LitwickChase_3_1:
+# 117 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	applymovement 1, ExclamationMark
+# 118 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	waitmovement 0
+# 119 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	delay 48
+# 120 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	compare VAR_FACING, DIR_EAST
 	goto_if_eq LitwickChase_3_7
+# 129 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	applymovement 1, LitwickEscape3
 LitwickChase_3_6:
+# 131 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	waitmovement 0
+# 132 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	setobjectxy 1, 14, 13
+# 133 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	setobjectxyperm 1, 14, 13
+# 134 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	turnobject 1, DIR_SOUTH
+# 135 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	removeobject 2
+# 136 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	setvar VAR_TEMP_1, 4
+# 137 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	setflag FLAG_TEMP_2
+# 138 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	setflag FLAG_LITWICK_TAG_COMPLETE
+# 139 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	release
 	return
 
 LitwickChase_3_2:
+# 115 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	safefollow
 	goto LitwickChase_3_1
 
 LitwickChase_3_3:
+# 114 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	compare VAR_TEMP_2, 3
 	goto_if_ne LitwickChase_3_2
 	goto LitwickChase_3_1
 
 LitwickChase_3_7:
+# 121 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	compare VAR_TEMP_1, 1
 	goto_if_eq LitwickChase_3_12
 LitwickChase_3_11:
+# 125 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	applymovement 1, LitwickEscape3North
 	goto LitwickChase_3_6
 
 LitwickChase_3_10:
+# 122 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	applymovement 1, LitwickEscape3NorthLong
 	goto LitwickChase_3_6
 
 LitwickChase_3_12:
+# 121 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	compare VAR_TEMP_2 == 4, 0
 	goto_if_ne LitwickChase_3_10
 	goto LitwickChase_3_11
 
 
+# 141 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 LitwickEscape3North:
+# 142 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_up
+# 143 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 143 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 144 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_down
+# 144 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_down
+# 144 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_down
+# 144 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_down
+# 145 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 145 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 145 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 145 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 145 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 145 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 145 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 145 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 145 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 145 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 145 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
 	step_end
 
+# 147 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 LitwickEscape3NorthLong:
+# 148 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_up
+# 149 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 149 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 149 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 150 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_down
+# 150 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_down
+# 150 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_down
+# 150 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_down
+# 151 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 151 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 151 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 151 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 151 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 151 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 151 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 151 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 151 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 151 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 151 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 151 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
 	step_end
 
+# 153 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 LitwickEscape3:
+# 154 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_left
+# 155 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_down
+# 155 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_down
+# 155 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_down
+# 156 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 156 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 156 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 156 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 156 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 156 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 156 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 156 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 156 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 156 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
+# 156 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	walk_fast_right
 	step_end
 
 LitwickMain::
+# 160 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	lock
+# 161 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	faceplayer
+# 162 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	waitse
+# 163 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	playmoncry SPECIES_LITWICK, CRY_MODE_NORMAL
+# 164 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	waitmoncry
+# 165 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	goto_if_set FLAG_TEMP_A, LitwickMain_2
+# 169 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	msgbox LitwickStaresAtYou, MSGBOX_YESNO
 LitwickMain_1:
+# 171 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq LitwickMain_6
+# 187 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	call Common_OpenBag
+# 188 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	switch VAR_ITEM_ID
+# 189 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case ITEM_NONE, LitwickMain_9
+# 204 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 1, LitwickMain_10
+# 205 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 2, LitwickMain_10
+# 206 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 3, LitwickMain_10
+# 207 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 4, LitwickMain_10
+# 208 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 5, LitwickMain_10
+# 209 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 6, LitwickMain_10
+# 210 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 7, LitwickMain_10
+# 211 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 8, LitwickMain_10
+# 212 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 9, LitwickMain_10
+# 213 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 10, LitwickMain_10
+# 214 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 11, LitwickMain_10
+# 215 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 12, LitwickMain_10
+# 216 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 13, LitwickMain_10
+# 217 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 14, LitwickMain_10
+# 218 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 15, LitwickMain_10
+# 219 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 16, LitwickMain_10
+# 220 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 17, LitwickMain_10
+# 221 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 18, LitwickMain_10
+# 222 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 19, LitwickMain_10
+# 223 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 20, LitwickMain_10
+# 224 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 21, LitwickMain_10
+# 225 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 22, LitwickMain_10
+# 226 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 23, LitwickMain_10
+# 227 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 24, LitwickMain_10
+# 228 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 25, LitwickMain_10
+# 229 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 26, LitwickMain_10
+# 230 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 27, LitwickMain_10
+# 231 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case 28, LitwickMain_10
+# 234 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	msgbox ThatsNotaBall, MSGBOX_NPC
+# 235 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	setflag VAR_TEMP_A
 	end
 
 LitwickMain_2:
+# 166 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	msgbox LitwickStaresAtYouShort, MSGBOX_YESNO
 	goto LitwickMain_1
 
 LitwickMain_6:
+# 172 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	msgbox LitwickFrowns
+# 173 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	switch VAR_FACING
+# 174 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case DIR_NORTH, LitwickMain_14
+# 176 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case DIR_SOUTH, LitwickMain_15
+# 178 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case DIR_WEST, LitwickMain_16
+# 180 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case DIR_EAST, LitwickMain_17
 LitwickMain_12:
+# 183 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	release
+# 184 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	setflag FLAG_TEMP_A
 	end
 
 LitwickMain_9:
+# 190 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	msgbox LitwickFrowns
+# 191 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	switch VAR_FACING
+# 192 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case DIR_NORTH, LitwickMain_20
+# 194 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case DIR_SOUTH, LitwickMain_21
+# 196 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case DIR_WEST, LitwickMain_22
+# 198 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	case DIR_EAST, LitwickMain_23
 LitwickMain_18:
+# 201 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	release
+# 202 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	setflag VAR_TEMP_A
 	end
 
 LitwickMain_10:
+# 232 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	goto LitwickEligibleBall
 	return
 
 LitwickMain_14:
+# 175 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	turnobject 1, DIR_NORTH
 	goto LitwickMain_12
 
 LitwickMain_15:
+# 177 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	turnobject 1, DIR_SOUTH
 	goto LitwickMain_12
 
 LitwickMain_16:
+# 179 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	turnobject 1, DIR_WEST
 	goto LitwickMain_12
 
 LitwickMain_17:
+# 181 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	turnobject 1, DIR_EAST
 	goto LitwickMain_12
 
 LitwickMain_20:
+# 193 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	turnobject 1, DIR_NORTH
 	goto LitwickMain_18
 
 LitwickMain_21:
+# 195 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	turnobject 1, DIR_SOUTH
 	goto LitwickMain_18
 
 LitwickMain_22:
+# 197 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	turnobject 1, DIR_WEST
 	goto LitwickMain_18
 
 LitwickMain_23:
+# 199 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	turnobject 1, DIR_EAST
 	goto LitwickMain_18
 
 
 LitwickEligibleBall::
+# 241 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	bufferitemname STR_VAR_1, VAR_ITEM_ID
+# 242 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	msgbox LitwickGetsInsideBall
+# 243 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	removeobject 1
+# 244 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	setflag FLAG_LITWICK_CAUGHT
+# 245 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_LITWICK
+# 246 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	playfanfare MUS_OBTAIN_ITEM
+# 247 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	removeitem VAR_ITEM_ID, 1
+# 248 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	givemon SPECIES_LITWICK, 5, ITEM_NONE, VAR_ITEM_ID
+# 249 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	call GiveMon_Script
+# 250 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	release
+# 251 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	clearflag FLAG_TEMP_2
+# 252 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	addobject 2
 	return
 
 
 GiveMon_Script::
+# 282 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	bufferspeciesname STR_VAR_1, VAR_TEMP_TRANSFERRED_SPECIES
+# 283 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	bufferspeciesname STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES
+# 284 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	message GiveMon_Script_Text_0
+# 285 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	waitmessage
+# 286 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	waitfanfare
+# 287 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq GiveMon_Script_2
+# 296 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PC
 	goto_if_eq GiveMon_Script_4
 	return
 
 GiveMon_Script_2:
+# 288 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+# 289 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq GiveMon_Script_7
+# 292 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	call Common_EventScript_GetGiftMonPartySlot
+# 293 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	call Common_EventScript_NameReceivedPartyMon
 	return
 
 GiveMon_Script_4:
+# 297 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+# 298 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq GiveMon_Script_10
+# 302 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	call Common_EventScript_NameReceivedBoxMon
+# 303 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	call Common_EventScript_TransferredToPC
 	return
 
@@ -450,23 +715,28 @@ GiveMon_Script_7:
 	return
 
 GiveMon_Script_10:
+# 299 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	call Common_EventScript_TransferredToPC
 	return
 
 
 GiveMon_Script_Text_0:
+# 284 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	.string "{PLAYER} received the {STR_VAR_2}!$"
 
 CharredBox::
+# 42 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	.string "It's an empty crate.\p"
 	.string "The interior of the crate appears\n"
 	.string "to be slightly charred.$"
 
 LitwickStaresAtYouShort::
+# 255 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	.string "Offer the Pokémon a Poké Ball\n"
 	.string "from your bag?$"
 
 LitwickStaresAtYou::
+# 259 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	.string "The Pokémon seems to have gotten\n"
 	.string "comfortable with your presence\l"
 	.string "after your little game of tag.\p"
@@ -475,14 +745,17 @@ LitwickStaresAtYou::
 	.string "Offer it a Poké Ball from your bag?$"
 
 LitwickFrowns::
+# 267 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	.string "The Pokémon looks at you\n"
 	.string "expectantly, but then turns\l"
 	.string "to minding its own business.$"
 
 ThatsNotaBall::
+# 272 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	.string "That's not a Poké Ball!$"
 
 LitwickGetsInsideBall::
+# 275 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	.string "You place the {STR_VAR_1} on\n"
 	.string "the ground, and the Pokémon\l"
 	.string "gently taps the ball.$"

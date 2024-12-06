@@ -15009,8 +15009,7 @@ static void Cmd_settypebasedhalvers(void)
 
 bool32 DoesSubstituteBlockMove(u32 battlerAtk, u32 battlerDef, u32 move)
 {
-    u32 moveType = 0;
-    GET_MOVE_TYPE(gCurrentMove, moveType);
+    u32 moveType = GetMoveType(gCurrentMove);
 
     if (!(gBattleMons[battlerDef].status2 & STATUS2_SUBSTITUTE))
         return FALSE;
@@ -15026,8 +15025,7 @@ bool32 DoesSubstituteBlockMove(u32 battlerAtk, u32 battlerDef, u32 move)
 
 bool32 DoesBreachPierce(u32 battlerAtk, u32 battlerDef, u32 move)
 {
-    u32 moveType = 0;
-    GET_MOVE_TYPE(gCurrentMove, moveType);
+    u32 moveType = GetMoveType(gCurrentMove);
 
     if ((GetBattlerAbility(battlerAtk) == ABILITY_DATA_BREACH) && (moveType == TYPE_NORMAL))
         return TRUE;

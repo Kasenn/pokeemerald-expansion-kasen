@@ -1674,7 +1674,7 @@
 #define SPECIES_MUK_ALOLAN                       SPECIES_MUK_ALOLA                              
 #define SPECIES_EXEGGUTOR_ALOLAN                 SPECIES_EXEGGUTOR_ALOLA                        
 #define SPECIES_MAROWAK_ALOLAN                   SPECIES_MAROWAK_ALOLA                          
-#define SPECIES_MEOWTH_GALAR                     SPECIES_MEOWTH_GALAR                           
+#define SPECIES_MEOWTH_GALARIAN                     SPECIES_MEOWTH_GALAR                           
 #define SPECIES_PONYTA_GALARIAN                  SPECIES_PONYTA_GALAR                           
 #define SPECIES_RAPIDASH_GALARIAN                SPECIES_RAPIDASH_GALAR                         
 #define SPECIES_SLOWPOKE_GALARIAN                SPECIES_SLOWPOKE_GALAR                         
@@ -1715,7 +1715,8 @@
 #define SPECIES_SHELLOS_EAST_SEA                 SPECIES_SHELLOS_EAST       
 #define SPECIES_GASTRODON_EAST_SEA               SPECIES_GASTRODON_EAST
 #define SPECIES_MEOWSTIC_MALE                    SPECIES_MEOWSTIC_M
-#define SPECIES_MEOWSTIC_FEMALE                  SPECIES_MEOWSTIC_F       
+#define SPECIES_MEOWSTIC_FEMALE                  SPECIES_MEOWSTIC_F
+#define SPECIES_WOOPER_PALDEAN                   SPECIES_WOOPER_PALDEA
 
 
 

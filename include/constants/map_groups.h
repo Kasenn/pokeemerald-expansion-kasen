@@ -889,6 +889,8 @@
 #define MAP_TEST_ROOM                (0 | (50 << 8))
 #define MAP_POKEMON_WORLD_TOURNAMENT (1 | (50 << 8))
 #define MAP_MAPTEST                  (2 | (50 << 8))
+#define MAP_TEST_WALL                (3 | (50 << 8))
+#define MAP_TEST_ROOM_COPY           (4 | (50 << 8))
 
 #define MAP_GROUPS_COUNT 51
 

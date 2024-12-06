@@ -756,7 +756,8 @@ Debug_Script_4_12:
 
 
 Debug_Script_5::
-	callnative TintWorld
+	setwildbattle SPECIES_URSALUNA_BLOODMOON, 50
+	dowildbattle
 	release
 	return
 

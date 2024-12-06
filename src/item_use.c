@@ -1689,19 +1689,19 @@ void ItemUseOutOfBattle_PokeFlute(u8 taskId)
     }
 }
 
-static void ItemUseOnFieldCB_TownMap(u8 taskId)
-{
-    LockPlayerFieldControls();
-    ScriptContext_SetupScript(EventScript_RegionMap);
-    DestroyTask(taskId);
-}
+// static void ItemUseOnFieldCB_TownMap(u8 taskId)
+// {
+//     LockPlayerFieldControls();
+//     ScriptContext_SetupScript(EventScript_RegionMap);
+//     DestroyTask(taskId);
+// }
 
-void ItemUseOutOfBattle_TownMap(u8 taskId)
-{
-    sItemUseOnFieldCB = ItemUseOnFieldCB_TownMap;
-    gFieldCallback = FieldCB_UseItemOnField;
-    gBagMenu->newScreenCallback = CB2_ReturnToField;
-    Task_FadeAndCloseBagMenu(taskId);
-}
+// void ItemUseOutOfBattle_TownMap(u8 taskId)
+// {
+//     sItemUseOnFieldCB = ItemUseOnFieldCB_TownMap;
+//     gFieldCallback = FieldCB_UseItemOnField;
+//     gBagMenu->newScreenCallback = CB2_ReturnToField;
+//     Task_FadeAndCloseBagMenu(taskId);
+// }
 
 #undef tUsingRegisteredKeyItem

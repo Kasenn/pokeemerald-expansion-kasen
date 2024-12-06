@@ -3,11 +3,13 @@ AldeleafSmallHouse3_MapScripts::
 
 
 AldeleafSmallHouse3_OldMan::
+# 4 "data/maps/AldeleafSmallHouse3/scripts.pory"
 	msgbox AldeleafSmallHouse3_OldMan_Text, MSGBOX_NPC
 	end
 
 
 AldeleafSmallHouse3_OldMan_Text::
+# 8 "data/maps/AldeleafSmallHouse3/scripts.pory"
 	.string "The Aldeleaf Pokémon Gym is a fairly\n"
 	.string "new addition to the city.\p"
 	.string "I heard the current Gym Leader\n"

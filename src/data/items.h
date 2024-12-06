@@ -616,7 +616,7 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_BAG_MENU,
         .battleUsage = EFFECT_ITEM_THROW_BALL,
-        .secondaryId = ITEM_DIRE_BALL - FIRST_BALL,
+        .secondaryId = BALL_DIRE,
         .iconPic = gItemIcon_DireBall,
         .iconPalette = gItemIconPalette_DireBall,
     },

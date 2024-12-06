@@ -5094,10 +5094,10 @@
     {
       "id": "LAYOUT_TEST_ROOM",
       "name": "TestRoom_Layout",
-      "width": 40,
-      "height": 30,
+      "width": 28,
+      "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lavaridge",
+      "secondary_tileset": "gTileset_Amberock",
       "border_filepath": "data/layouts/TestRoom/border.bin",
       "blockdata_filepath": "data/layouts/TestRoom/map.bin"
     },
@@ -7060,6 +7060,26 @@
       "secondary_tileset": "gTileset_Facility2",
       "border_filepath": "data/layouts/DevonCrop_Memory/border.bin",
       "blockdata_filepath": "data/layouts/DevonCrop_Memory/map.bin"
+    },
+    {
+      "id": "LAYOUT_TEST_WALL",
+      "name": "TestWall_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Amberock",
+      "border_filepath": "data/layouts/TestWall/border.bin",
+      "blockdata_filepath": "data/layouts/TestWall/map.bin"
+    },
+    {
+      "id": "LAYOUT_TEST_ROOM_COPY",
+      "name": "TestRoomCopy_Layout",
+      "width": 28,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Amberock",
+      "border_filepath": "data/layouts/TestRoomCopy/border.bin",
+      "blockdata_filepath": "data/layouts/TestRoomCopy/map.bin"
     }
   ]
 }

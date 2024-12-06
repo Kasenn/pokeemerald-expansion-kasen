@@ -869,13 +869,14 @@ static void LoadAndCreateEnemyShadowSpriteCustom(struct PokemonSpriteVisualizer 
 {
     bool8 invisible = FALSE;
     species = SanitizeSpeciesId(species);
+    u16 color = gSaveBlock2Ptr->battleInterfaceColor;
 
     if (B_ENEMY_MON_SHADOW_STYLE >= GEN_4 && P_GBA_STYLE_SPECIES_GFX == FALSE)
     {
         invisible = gSpeciesInfo[species].suppressEnemyShadow;
 
         LoadCompressedSpriteSheet(&gSpriteSheet_EnemyShadowsSized);
-        LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[0]);
+        LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[color][0]);
         u8 x = sBattlerCoords[0][1].x;
         u8 y = sBattlerCoords[0][1].y;
         s8 xOffset = data->shadowSettings.overrideX;
@@ -908,7 +909,7 @@ static void LoadAndCreateEnemyShadowSpriteCustom(struct PokemonSpriteVisualizer 
             invisible = TRUE;
 
         LoadCompressedSpriteSheet(&gSpriteSheet_EnemyShadow);
-        LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[0]);
+        LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[color][0]);
         u8 x = sBattlerCoords[0][1].x;
         u8 y = sBattlerCoords[0][1].y;
 
