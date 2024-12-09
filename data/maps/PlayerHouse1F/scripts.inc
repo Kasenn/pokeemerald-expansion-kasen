@@ -1,284 +1,190 @@
 PlayerHouse1F_MapScripts::
-# 2 "data/maps/PlayerHouse1F/scripts.pory"
 	map_script MAP_SCRIPT_ON_TRANSITION, PlayerHouse1F_MapScripts_MAP_SCRIPT_ON_TRANSITION
-# 10 "data/maps/PlayerHouse1F/scripts.pory"
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, PlayerHouse1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
 PlayerHouse1F_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	checkplayergender
-# 0 "data/maps/PlayerHouse1F/scripts.pory"
 	compare VAR_RESULT, FEMALE
 	goto_if_eq PlayerHouse1F_MapScripts_MAP_SCRIPT_ON_TRANSITION_2
 PlayerHouse1F_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
-# 6 "data/maps/PlayerHouse1F/scripts.pory"
 	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED
 	goto_if_ge PlayerHouse1F_MapScripts_MAP_SCRIPT_ON_TRANSITION_4
 	return
 
 PlayerHouse1F_MapScripts_MAP_SCRIPT_ON_TRANSITION_2:
-# 4 "data/maps/PlayerHouse1F/scripts.pory"
 	setmaplayoutindex LAYOUT_PLAYER_HOUSE1F_MAY
 	goto PlayerHouse1F_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
 
 PlayerHouse1F_MapScripts_MAP_SCRIPT_ON_TRANSITION_4:
-# 7 "data/maps/PlayerHouse1F/scripts.pory"
 	setflag FLAG_SPOKEN_TO_MOM_AFTER_MEGA_RING
 	return
 
 PlayerHouse1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
-# 11 "data/maps/PlayerHouse1F/scripts.pory"
 	map_script_2 VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_INTRO_COMPLETED, PlayerHouse1F_Intro
 	.2byte 0
 
 
 PlayerHouse1F_Intro::
-# 18 "data/maps/PlayerHouse1F/scripts.pory"
 	lock
-# 19 "data/maps/PlayerHouse1F/scripts.pory"
 	turnobject 1, DIR_NORTH
-# 20 "data/maps/PlayerHouse1F/scripts.pory"
 	playse SE_PIN
-# 21 "data/maps/PlayerHouse1F/scripts.pory"
 	applymovement 1, Common_Movement_ExclamationMark
-# 22 "data/maps/PlayerHouse1F/scripts.pory"
 	waitmovement 0
-# 23 "data/maps/PlayerHouse1F/scripts.pory"
 	delay 48
-# 24 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox PlayerHouse1F_LookPlayer
-# 25 "data/maps/PlayerHouse1F/scripts.pory"
 	closemessage
-# 26 "data/maps/PlayerHouse1F/scripts.pory"
 	turnobject 1, DIR_WEST
-# 27 "data/maps/PlayerHouse1F/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, PlayerHouse1F_PlayerSitTable
-# 28 "data/maps/PlayerHouse1F/scripts.pory"
 	waitmovement 0
-# 29 "data/maps/PlayerHouse1F/scripts.pory"
 	delay 20
-# 30 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox PlayerHouse1F_Disc1
-# 31 "data/maps/PlayerHouse1F/scripts.pory"
 	closemessage
-# 32 "data/maps/PlayerHouse1F/scripts.pory"
 	fadescreen FADE_TO_BLACK
-# 33 "data/maps/PlayerHouse1F/scripts.pory"
 	delay 80
-# 34 "data/maps/PlayerHouse1F/scripts.pory"
 	fadescreen FADE_FROM_BLACK
-# 35 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox PlayerHouse1F_Disc2
-# 36 "data/maps/PlayerHouse1F/scripts.pory"
 	closemessage
-# 37 "data/maps/PlayerHouse1F/scripts.pory"
 	playse SE_PIN
-# 38 "data/maps/PlayerHouse1F/scripts.pory"
 	applymovement 1, Common_Movement_ExclamationMark
-# 39 "data/maps/PlayerHouse1F/scripts.pory"
 	waitmovement 0
-# 40 "data/maps/PlayerHouse1F/scripts.pory"
 	delay 48
-# 41 "data/maps/PlayerHouse1F/scripts.pory"
 	turnobject 1, DIR_SOUTH
-# 42 "data/maps/PlayerHouse1F/scripts.pory"
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-# 43 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox PlayerHouse1F_Disc3
-# 44 "data/maps/PlayerHouse1F/scripts.pory"
 	closemessage
-# 45 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox PlayerHouse1F_Intro_Text_0
-# 46 "data/maps/PlayerHouse1F/scripts.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 47 "data/maps/PlayerHouse1F/scripts.pory"
 	message PlayerHouse1F_Intro_Text_1
-# 48 "data/maps/PlayerHouse1F/scripts.pory"
 	waitfanfare
-# 49 "data/maps/PlayerHouse1F/scripts.pory"
 	waitmessage
-# 50 "data/maps/PlayerHouse1F/scripts.pory"
 	setflag FLAG_SYS_B_DASH
-# 51 "data/maps/PlayerHouse1F/scripts.pory"
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_RECEIVED_RUNNING_SHOES
-# 52 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox PlayerHouse1F_Intro_Text_2
-# 53 "data/maps/PlayerHouse1F/scripts.pory"
 	closemessage
-# 54 "data/maps/PlayerHouse1F/scripts.pory"
 	delay 30
-# 55 "data/maps/PlayerHouse1F/scripts.pory"
 	turnobject 1, DIR_WEST
-# 56 "data/maps/PlayerHouse1F/scripts.pory"
 	release
 	return
 
 
-# 98 "data/maps/PlayerHouse1F/scripts.pory"
 PlayerHouse1F_PlayerSitTable:
-# 99 "data/maps/PlayerHouse1F/scripts.pory"
 	walk_down
-# 99 "data/maps/PlayerHouse1F/scripts.pory"
 	walk_down
-# 99 "data/maps/PlayerHouse1F/scripts.pory"
 	walk_down
-# 99 "data/maps/PlayerHouse1F/scripts.pory"
 	walk_down
-# 100 "data/maps/PlayerHouse1F/scripts.pory"
 	walk_left
-# 100 "data/maps/PlayerHouse1F/scripts.pory"
 	walk_left
-# 100 "data/maps/PlayerHouse1F/scripts.pory"
 	walk_left
 	step_end
 
 PlayerHouse1F_Brother::
-# 104 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox PlayerHouse1F_BrotherGossip, MSGBOX_NPC
-# 105 "data/maps/PlayerHouse1F/scripts.pory"
 	turnobject 2, DIR_EAST
 	return
 
 
 PlayerHouse1F_Mom::
-# 113 "data/maps/PlayerHouse1F/scripts.pory"
 	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_RECEIVED_RUNNING_SHOES
 	goto_if_eq PlayerHouse1F_Mom_1
-# 117 "data/maps/PlayerHouse1F/scripts.pory"
 	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_BROTHER_FOUGHT
 	goto_if_eq PlayerHouse1F_Mom_2
-# 121 "data/maps/PlayerHouse1F/scripts.pory"
 	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_RING_OBTAINED
 	goto_if_ge PlayerHouse1F_Mom_5
 PlayerHouse1F_Mom_4:
-# 137 "data/maps/PlayerHouse1F/scripts.pory"
 	goto PlayersHouse_1F_EventScript_MomHealsParty
 	return
 
 PlayerHouse1F_Mom_1:
-# 114 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox MomSeeYou, MSGBOX_NPC
-# 115 "data/maps/PlayerHouse1F/scripts.pory"
 	turnobject 1, DIR_WEST
 	return
 
 PlayerHouse1F_Mom_2:
-# 118 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox PlayerHouse1F_MomGoodbye_Text, MSGBOX_NPC
-# 119 "data/maps/PlayerHouse1F/scripts.pory"
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_GIVEN_GOODBYE_TO_MOM
 	return
 
 PlayerHouse1F_Mom_3:
-# 123 "data/maps/PlayerHouse1F/scripts.pory"
 	setflag FLAG_SPOKEN_TO_MOM_AFTER_MEGA_RING
-# 124 "data/maps/PlayerHouse1F/scripts.pory"
 	goto_if_unset FLAG_RECEIVED_CAPSULE, PlayerHouse1F_Mom_10
-# 133 "data/maps/PlayerHouse1F/scripts.pory"
 	goto PlayersHouse_1F_EventScript_MomHealsParty
 	return
 
 PlayerHouse1F_Mom_5:
-# 122 "data/maps/PlayerHouse1F/scripts.pory"
 	goto_if_unset FLAG_SPOKEN_TO_MOM_AFTER_MEGA_RING, PlayerHouse1F_Mom_3
 	goto PlayerHouse1F_Mom_4
 
 PlayerHouse1F_Mom_10:
-# 125 "data/maps/PlayerHouse1F/scripts.pory"
 	goto_if_set FLAG_HIDE_PLAYERS_HOUSE_DAD, PlayerHouse1F_Mom_13
-# 129 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox MomLookWhosBack, MSGBOX_NPC
 	return
 
 PlayerHouse1F_Mom_13:
-# 126 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox DadLeftAGift, MSGBOX_NPC
 	return
 
 
 PlayerHouse1F_Dad::
-# 171 "data/maps/PlayerHouse1F/scripts.pory"
 	goto_if_set FLAG_RECEIVED_CAPSULE, PlayerHouse1F_Dad_2
-# 175 "data/maps/PlayerHouse1F/scripts.pory"
 	lock
-# 176 "data/maps/PlayerHouse1F/scripts.pory"
 	faceplayer
-# 177 "data/maps/PlayerHouse1F/scripts.pory"
 	goto_if_set FLAG_TEMP_5, PlayerHouse1F_Dad_5
-# 181 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox GiftFromDad
 PlayerHouse1F_Dad_4:
-# 183 "data/maps/PlayerHouse1F/scripts.pory"
 	closemessage
 	checkitemspace ITEM_ABILITY_CAPSULE
-# 0 "data/maps/PlayerHouse1F/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq PlayerHouse1F_Dad_9
 PlayerHouse1F_Dad_8:
-# 188 "data/maps/PlayerHouse1F/scripts.pory"
 	giveitem ITEM_ABILITY_CAPSULE
-# 189 "data/maps/PlayerHouse1F/scripts.pory"
 	waitse
-# 190 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox ExplainCapsule, MSGBOX_NPC
-# 191 "data/maps/PlayerHouse1F/scripts.pory"
 	setflag FLAG_RECEIVED_CAPSULE
-# 192 "data/maps/PlayerHouse1F/scripts.pory"
 	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED
 	goto_if_eq PlayerHouse1F_Dad_12
 PlayerHouse1F_Dad_11:
 	end
 
 PlayerHouse1F_Dad_2:
-# 172 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox WhereBrother, MSGBOX_NPC
 	end
 
 PlayerHouse1F_Dad_5:
-# 178 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox GiftFromDadShort
 	goto PlayerHouse1F_Dad_4
 
 PlayerHouse1F_Dad_9:
-# 185 "data/maps/PlayerHouse1F/scripts.pory"
 	setflag FLAG_TEMP_5
-# 186 "data/maps/PlayerHouse1F/scripts.pory"
 	goto ZeBagIsFull
 	goto PlayerHouse1F_Dad_8
 
 PlayerHouse1F_Dad_12:
-# 193 "data/maps/PlayerHouse1F/scripts.pory"
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED
 	goto PlayerHouse1F_Dad_11
 
 
 PlayerHouse1F_Intro_Text_0:
-# 45 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Oh, and one more thing.$"
 
 PlayerHouse1F_Intro_Text_1:
-# 47 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "{COLOR RED}{SHADOW LIGHT_RED}Obtained the running shoes!$"
 
 PlayerHouse1F_Intro_Text_2:
-# 52 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Mom: Now you can zip around everywhere\nmuch faster!$"
 
 PlayerHouse1F_LookPlayer::
-# 59 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Mom: Look, {PLAYER}!\n"
 	.string "Your brother is back from his trip!\p"
 	.string "Come, come sit by the table!$"
 
 PlayerHouse1F_Disc1::
-# 65 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Mom: So, {BROTHER},\n"
 	.string "how was your trip to Kanto?\p"
 	.string "Go on, I want to hear everything!\p"
 	.string "{BROTHER}: …$"
 
 PlayerHouse1F_Disc2::
-# 72 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "{BROTHER}: In the end, that Lance's\n"
 	.string "Dragonite was simply too strong…\p"
 	.string "Mom: Well, at least you tried\n"
@@ -289,7 +195,6 @@ PlayerHouse1F_Disc2::
 	.string "forgetting something?$"
 
 PlayerHouse1F_Disc3::
-# 83 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Mom: Oh, that's right!\p"
 	.string "This is supposed to be your special day,\n"
 	.string "{PLAYER}!\p"
@@ -304,15 +209,12 @@ PlayerHouse1F_Disc3::
 	.string "northwest from here.$"
 
 PlayerHouse1F_BrotherGossip::
-# 108 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "{BROTHER}: Go get 'em, champ!$"
 
 MomSeeYou::
-# 141 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Mom: See you, honey!$"
 
 PlayerHouse1F_MomGoodbye_Text::
-# 144 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Mom: You're leaving on an adventure?\n"
 	.string "Well, can't say that I'm surprised.\p"
 	.string "Your father was like that as well\n"
@@ -326,12 +228,10 @@ PlayerHouse1F_MomGoodbye_Text::
 	.string "come see me and I'll help patch them up.$"
 
 MomLookWhosBack::
-# 157 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Mom: Oh, great timing, honey!\n"
 	.string "Look who's back home!$"
 
 DadLeftAGift::
-# 161 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Mom: Oh, hi honey!\p"
 	.string "It's a shame you two just missed each\n"
 	.string "other, but dad came to visit while\l"
@@ -340,7 +240,6 @@ DadLeftAGift::
 	.string "your room. You should go have a look!$"
 
 GiftFromDad::
-# 198 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Dad: Hm?\p"
 	.string "Well, if it isn't {PLAYER}!\p"
 	.string "I had hoped I could see you and\n"
@@ -358,12 +257,10 @@ GiftFromDad::
 	.string "but you can still have yours.$"
 
 GiftFromDadShort::
-# 216 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Dad: It's a shame {BROTHER} isn't here,\n"
 	.string "but you can still have yours.\p$"
 
 ExplainCapsule::
-# 220 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Dad: That's an Ability Capsule.\p"
 	.string "Many Pokémon are born with one of two\n"
 	.string "different abilities.\p"
@@ -375,7 +272,6 @@ ExplainCapsule::
 	.string "Pokémon to use it on.$"
 
 WhereBrother::
-# 231 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Dad: Have you seen {BROTHER} lately?\p"
 	.string "Seeing how well he managed during\n"
 	.string "the Kanto challenge, I hardly doubt\l"

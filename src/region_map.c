@@ -166,6 +166,8 @@ static const u16 sRegionMap_SpecialPlaceLocations[][2] =
     {MAPSEC_WINDPLUME_VALLEY,                MAPSEC_NEWROUTE_28},
     {MAPSEC_JAGGED_PASS,                MAPSEC_ROUTE_112},
     {MAPSEC_HIDDENGROTTO_ROUTE7,              MAPSEC_NEWROUTE_8},
+    {MAPSEC_HIDDENGROTTO_AZURETIDE,     MAPSEC_AZURETIDE_TOWN},
+    {MAPSEC_HIDDENGROTTO_ROUTE_15,      MAPSEC_NEWROUTE_15},
     {MAPSEC_MT_PYRE,                    MAPSEC_ROUTE_122},
     {MAPSEC_SKY_PILLAR,                 MAPSEC_ROUTE_131},
     {MAPSEC_MIRAGE_TOWER,               MAPSEC_ROUTE_111},
@@ -1191,6 +1193,13 @@ static void InitMapBasedOnPlayerLocation(void)
     case MAPSEC_UNDERWATER_MARINE_CAVE:
         GetMarineCaveCoords(&sRegionMap->cursorPosX, &sRegionMap->cursorPosY);
         return;
+    }
+    if (MAP(SOUTHERN_DESERT))
+    {
+        y += 2;
+        x++;
+        if (gSaveBlock1Ptr->pos.x >= 30)
+            x--;
     }
     sRegionMap->cursorPosX = gRegionMapEntries[sRegionMap->mapSecId].x + x + MAPCURSOR_X_MIN;
     sRegionMap->cursorPosY = gRegionMapEntries[sRegionMap->mapSecId].y + y + MAPCURSOR_Y_MIN;

@@ -325,7 +325,9 @@ script Route23Lake_Hiker{
     msgbox(Route23Lake_Hiker_Text, MSGBOX_NPC)
 }
 text Route23Lake_Hiker_Text{
-    "I've seen another stone like\n"
+    "This giant stone almost looks\n"
+    "as if it's a roost or something.\p"
+    "I've seen another one like\n"
     "this in a similar location.\l"
     "I doubt it's simple coincidence."
 }

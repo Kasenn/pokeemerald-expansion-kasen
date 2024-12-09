@@ -250,7 +250,9 @@
 #define MAPSEC_FLOODED_CAVES                   0xF6
 #define MAPSEC_SERPENT_CAVE                    0xF7
 #define MAPSEC_WINDPLUME_MOUNTAIN              0xF8
-#define MAPSEC_NONE                            0xF9
+#define MAPSEC_HIDDENGROTTO_AZURETIDE          0xF9
+#define MAPSEC_HIDDENGROTTO_ROUTE_15          0xFA
+#define MAPSEC_NONE                            0xFB
 
 
 #define METLOC_SPECIAL_EGG                  0xFD

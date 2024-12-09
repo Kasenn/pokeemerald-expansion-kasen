@@ -63,26 +63,13 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MauvilleCity_GameCorner_EventScript_PrizeCornerDolls",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_GIRL_2",
-      "x": 7,
-      "y": 3,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "MauvilleCity_GameCorner_EventScript_Girl",
+      "script": "Amberock_GameCorner_PrizePokemon",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
       "x": 19,
-      "y": 4,
+      "y": 3,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -128,7 +115,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "MauvilleCity_GameCorner_EventScript_PrizeCornerTMs",
+      "script": "Amberock_GameCorner_PrizeMegaStones",
       "flag": "0"
     },
     {
@@ -382,6 +369,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Roulette_EventScript_Table2"
+    },
+    {
+      "type": "hidden_item",
+      "x": 2,
+      "y": 2,
+      "elevation": 0,
+      "item": "ITEM_FULL_RESTORE",
+      "flag": "FLAG_GAME_CORNER_TRASHITEM"
     }
   ]
 }

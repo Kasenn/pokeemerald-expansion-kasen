@@ -1055,6 +1055,22 @@
       "y": 5,
       "width": 1,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_HIDDENGROTTO_AZURETIDE",
+      "name": "HIDDEN GROTTO",
+      "x": 19,
+      "y": 7,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_HIDDENGROTTO_ROUTE_15",
+      "name": "HIDDEN GROTTO",
+      "x": 1,
+      "y": 13,
+      "width": 1,
+      "height": 1
     }
   ]
 }

@@ -103,11 +103,11 @@
 #define VAR_LAVARIDGE_TOWN_STATE                         0x4053
 #define VAR_CURRENT_SECRET_BASE                          0x4054 // was probably allocated for VAR_FALLARBOR_TOWN_STATE at one point
 #define VAR_WINDYWOODS_STATE                        0x4055 // Used for Windy Woods events
-#define VAR_UNUSED_0x4056                        0x4056 // Used for Coralgrove City events
+#define VAR_AMBEROCK_STORY                        0x4056 // Used for Amberock Town events
 #define VAR_PETALBURG_CITY_STATE                         0x4057
 #define VAR_SLATEPORT_CITY_STATE                         0x4058
 #define VAR_MAIN_STORY_BITS                          0x4059
-#define VAR_UNUSED_0x405A                          0x405A
+#define VAR_GROTTO_5                          0x405A
 #define VAR_WIND_SPEED                           0x405B // used to set the wind speed
 #define VAR_DESERT_BYPASS                          0x405C // used to deal with triggers around desert
 #define VAR_MOSSDEEP_CITY_STATE                          0x405D

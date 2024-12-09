@@ -343,3 +343,15 @@ text AmphyPoints{
     "to follow.\p"
     "Follow the Pokémon?"
 }
+
+script Azuretide_Grotto_Entrance{
+    lock
+    msgbox(GoInsideGrotto, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    warp(MAP_AZURETIDE_GROTTO, 6, 19)
+    waitstate
+    release
+}

@@ -283,8 +283,8 @@ AutomaticUpdate3::
 	setvar VAR_DEBUG, 11
 	setvar VAR_SHINY_MULTIPLIER, 0
 	setvar VAR_MINA_INTRO_QUEST, 0
-	setvar VAR_UNUSED_0x4056, 0
-	setvar VAR_UNUSED_0x405A, 0
+	setvar VAR_AMBEROCK_STORY, 0
+	setvar VAR_GROTTO_5, 0
 	setvar VAR_UNUSED_0x407D, 0
 	setvar VAR_UNUSED_0x408B, 0
 	setvar VAR_SERPENTCAVE_STORY, 0
@@ -294,7 +294,7 @@ AutomaticUpdate3::
 	clearflag FLAG_KAOLISLE_ITEM8
 	clearflag FLAG_SANDSTONE_HIDDENITEM_1
 	clearflag FLAG_SANDSTONE_HIDDENITEM_2
-	clearflag FLAG_UNUSED_SYS_0x22
+	clearflag FLAG_AMBEROCK_ITEM1
 	clearflag FLAG_KAOLISLE_ITEM9
 	clearflag FLAG_SERPENTCAVE_BOULDER_1
 	clearflag FLAG_SERPENTCAVE_BOULDER_2
@@ -310,8 +310,8 @@ AutomaticUpdate3::
 	clearflag FLAG_FLOWERFIELDS_ITEM_1
 	clearflag FLAG_FLOWERFIELDS_ITEM_2
 	clearflag FLAG_FLOWERFIELDS_ITEM_3
-	clearflag FLAG_UNUSED_0x4F0
-	clearflag FLAG_UNUSED_SYS_0x84
+	clearflag FLAG_REPAIR_AMBEROCK_BRIDGE
+	clearflag FLAG_AMBEROCK_ITEM2
 	clearflag FLAG_ORICORIO_SHOWN_TO_MANIAC
 	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_RING_OBTAINED
 	goto_if_gt AutomaticUpdate3_3
@@ -330,7 +330,6 @@ AutomaticUpdate3_3:
 
 
 AutomaticUpdate4::
-	msgbox AutomaticUpdate4_Text_0
 	setvar VAR_ZYGARDE_CELLS, 0
 	clearflag FLAG_SAFARIMOUNTAIN_ITEM3
 	clearflag FLAG_SAFARIMOUNTAIN_ITEM6
@@ -433,7 +432,6 @@ AutomaticUpdate5::
 	clearflag FLAG_R14_ITEM6
 	clearflag FLAG_WINDPLUME_MT_HIDE_CHARGED_ORB
 	setvar VAR_DEBUG, 13
-	msgbox AutomaticUpdate5_Text_0
 	goto_if_set FLAG_HELPED_DEVON_CORP, AutomaticUpdate5_2
 AutomaticUpdate5_1:
 	release
@@ -756,8 +754,7 @@ Debug_Script_4_12:
 
 
 Debug_Script_5::
-	setwildbattle SPECIES_URSALUNA_BLOODMOON, 50
-	dowildbattle
+	special InitRoamer
 	release
 	return
 
@@ -1003,12 +1000,6 @@ Walk7Down:
 	walk_down
 	walk_down
 	step_end
-
-AutomaticUpdate4_Text_0:
-	.string "Vars Updated$"
-
-AutomaticUpdate5_Text_0:
-	.string "Vars and flags updated$"
 
 Debug_Script_4_Text_0:
 	.string "Gym 1 (lvl 14)$"

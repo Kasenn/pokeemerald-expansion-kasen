@@ -242,8 +242,8 @@
       "x": 65,
       "y": 48,
       "elevation": 0,
-      "item": "ITEM_RARE_CANDY",
-      "flag": "FLAG_TEMP_5"
+      "item": "ITEM_MAX_ETHER",
+      "flag": "FLAG_ROUTE7_ITEM6"
     },
     {
       "type": "sign",

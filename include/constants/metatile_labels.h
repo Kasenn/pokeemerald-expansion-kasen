@@ -1,6 +1,9 @@
 #ifndef GUARD_METATILE_LABELS_H
 #define GUARD_METATILE_LABELS_H
 
+// gTileset_Amberock
+#define METATILE_Amberock_NormalDoor  0x349
+
 // gTileset_BattleArena
 #define METATILE_BattleArena_Door  0x21B
 
@@ -146,6 +149,7 @@
 #define METATILE_Contest_WallShadow          0x221
 
 // gTileset_Dewford
+#define METATILE_Dewford_BattleTent_Door   0x3D4
 #define METATILE_Dewford_Door              0x225
 #define METATILE_Dewford_Door_BattleTower  0x25D
 

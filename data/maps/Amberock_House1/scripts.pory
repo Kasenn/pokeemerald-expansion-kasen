@@ -1,0 +1,152 @@
+mapscripts Amberock_House1_MapScripts {
+    
+}
+
+script Amberock_House1_OldMan{
+    msgbox(Amberock_House1_OldMan_Text, MSGBOX_NPC)
+    setflag(FLAG_REPAIR_AMBEROCK_BRIDGE)
+}
+script Amberock_House1_Youngster{
+    msgbox(Amberock_House1_Youngster_Text, MSGBOX_NPC)
+}
+text Amberock_House1_OldMan_Text{
+    "There used to be a massive bridge\n"
+    "connecting Amberock with the mainland,\l"
+    "but the eroding cliffs made it\l"
+    "impossible to keep it connected.\p"
+    "The town has switched to using a rope\n"
+    "bridge instead, and while it too does\l"
+    "break from time to time, it's much\l"
+    "easier and faster to repair."
+}
+text Amberock_House1_Youngster_Text{
+    "You've heard of exhaustion caused by\n"
+    "Mega Evolution, but did you know that\l"
+    "the severity of the exhaustion is\l"
+    "affected by the Pokémon's stats?\p"
+    "The stronger the Pokémon, the faster\n"
+    "it tires itself out.\p"
+    "And if the Pokémon has great defenses,\n"
+    "the less it will get exhausted."
+}
+script Amberock_House3_HPChecker{
+    lock
+    faceplayer
+    if(flag(FLAG_TEMP_1)){
+        msgbox(CheckMonHPShort, MSGBOX_YESNO)
+    }
+    else{
+        msgbox(CheckMonHP, MSGBOX_YESNO)
+    }
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(DontCheckHP, MSGBOX_NPC)
+        end
+    }
+    msgbox(WhichPokemonToAscertain)
+    closemessage
+    special(ChoosePartyMon)
+    waitstate
+    if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN){
+        msgbox(DontCheckHP, MSGBOX_NPC)
+        end
+    }
+    special(ReadMonHiddenPowerType)
+    special(BufferMonNickname)
+    setflag(FLAG_TEMP_1)
+    msgbox(YourMonHPis)
+    msgbox(ComeSeekMeForHP, MSGBOX_NPC)
+}
+
+text CheckMonHP{
+    "I have a rare gift that allows me\n"
+    "to ascertain the type of a Pokémon's\l"
+    "Hidden Power.\p"
+    "Would you like to learn of your\n"
+    "Pokémon's type?"
+}
+text CheckMonHPShort{
+    "Interested to learn another\n"
+    "Pokémon's hidden type?"
+}
+text WhichPokemonToAscertain{
+    "Which Pokémon should I evaluate?"
+}
+text DontCheckHP{
+    "Come seek me if you change\n"
+    "your mind."
+}
+text YourMonHPis{
+    "Hm… Let's see…\p"
+    "Yes…\p"
+    "Your {STR_VAR_1}…\n"
+    "It seems to be of {STR_VAR_3} type."
+}
+text ComeSeekMeForHP{
+    "If you would like to learn of\n"
+    "another Pokémon, come seek me out."
+}
+
+script Amberock_House2_ChanseyTrader{
+    lock
+    faceplayer
+    if(flag(FLAG_TRADED_CHANSEY)){
+        msgbox(ThanksForTrade_Chansey, MSGBOX_NPC)
+	    end
+    }
+    setvar(VAR_0x8008, INGAME_TRADE_CHANSEY)
+    copyvar(VAR_0x8004, VAR_0x8008)
+    specialvar(VAR_0x8009, GetInGameTradeSpeciesInfo)
+    if(msgbox(WantToTradeChansey, MSGBOX_YESNO) == FALSE){
+        goto(DeclineChanseyTrade)
+    }
+    special(ChoosePartyMon)
+	waitstate
+    if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN){
+        goto(DeclineChanseyTrade)
+    }
+	copyvar(VAR_0x8005, VAR_0x8004)
+	specialvar(VAR_RESULT, GetTradeSpecies)
+	goto_if_ne(VAR_RESULT, VAR_0x8009, ChanseyNotRequestedMon)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	special(CreateInGameTradePokemon)
+	special(DoInGameTradeScene)
+	waitstate
+    msgbox(ChanseyTradeThanks)
+	setflag(FLAG_TRADED_CHANSEY)
+	release
+}
+
+script DeclineChanseyTrade{
+    msgbox(ChanseyTradeDeclineText, MSGBOX_NPC)
+	end
+}
+
+script ChanseyNotRequestedMon{
+	bufferspeciesname(STR_VAR_1, VAR_0x8009)
+	msgbox(ChanseyWrongMonText, MSGBOX_NPC)
+	end
+}
+
+text ThanksForTrade_Chansey{
+    "Don't worry.\n"
+    "I'll take good care of Audino!"
+}
+text WantToTradeChansey{
+    "Hi!\n"
+    "I'm looking for an Audino.\p"
+    "Do you have one?\n"
+    "I could trade my Chansey for it."
+}
+text ChanseyTradeThanks{
+    "Aww, it's so cute!\p"
+    "Don't worry.\n"
+    "I'll take good care of Audino!"
+}
+text ChanseyTradeDeclineText{
+    "You don't want to trade?\n"
+    "That's a shame…"
+}
+text ChanseyWrongMonText{
+    "Hm… That doesn't look like\n"
+    "an Audino to me…"
+}

@@ -7,17 +7,14 @@ script ROUTE7_Grotto_SetObject{
     if(var(VAR_GROTTO_2) <= 39){
         setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL)
     }
-    if((var(VAR_GROTTO_2) >= 40) && (var(VAR_GROTTO_2) <= 54)){
+    elif(var(VAR_GROTTO_2) <= 59){
         setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(ABSOL))
     }
-    if((var(VAR_GROTTO_2) >= 55) && (var(VAR_GROTTO_2) <= 69)){
+    elif(var(VAR_GROTTO_2) <= 79){
         setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(VULPIX_ALOLAN))
     }
-    if((var(VAR_GROTTO_2) >= 70) && (var(VAR_GROTTO_2) <= 84)){
+    else{
         setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(SKORUPI))
-    }
-    if((var(VAR_GROTTO_2) >= 85) && (var(VAR_GROTTO_2) <= 99)){
-        setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(SNEASEL))
     }
     end
 }
@@ -34,34 +31,34 @@ script ROUTE7_GrottoInteract{
 }
 
 script ROUTE7_GrottoItem{
-    if((var(VAR_GROTTO_3) <= 3)){
+    if((var(VAR_GROTTO_2) <= 3)){
         finditem(ITEM_GREAT_BALL)
     }
-    elif((var(VAR_GROTTO_3) >= 4) && (var(VAR_GROTTO_3) <= 7)){
+    elif(var(VAR_GROTTO_2) <= 7){
         finditem(ITEM_SUPER_REPEL)
     }
-    elif((var(VAR_GROTTO_3) >= 8) && (var(VAR_GROTTO_3) <= 11)){
+    elif(var(VAR_GROTTO_2) <= 11){
         finditem(ITEM_SUPER_POTION)
     }
-    elif((var(VAR_GROTTO_3) >= 12) && (var(VAR_GROTTO_3) <= 15)){
+    elif(var(VAR_GROTTO_2) <= 15){
         finditem(ITEM_ULTRA_BALL)
     }
-    elif((var(VAR_GROTTO_3) >= 16) && (var(VAR_GROTTO_3) <= 19)){
+    elif(var(VAR_GROTTO_2) <= 19){
         finditem(ITEM_FULL_HEAL)
     }
-    elif((var(VAR_GROTTO_3) >= 20) && (var(VAR_GROTTO_3) <= 23)){
+    elif(var(VAR_GROTTO_2) <= 23){
         finditem(ITEM_HYPER_POTION)
     }
-    elif((var(VAR_GROTTO_3) >= 24) && (var(VAR_GROTTO_3) <= 27)){
+    elif(var(VAR_GROTTO_2) <= 27){
         finditem(ITEM_FIRE_STONE)
     }
-    elif((var(VAR_GROTTO_3) >= 28) && (var(VAR_GROTTO_3) <= 31)){
+    elif(var(VAR_GROTTO_2) <= 31){
         finditem(ITEM_THUNDER_STONE)
     }
-    elif((var(VAR_GROTTO_3) >= 32) && (var(VAR_GROTTO_3) <= 35)){
+    elif(var(VAR_GROTTO_2) <= 35){
         finditem(ITEM_WATER_STONE)
     }
-    elif((var(VAR_GROTTO_3) >= 36) && (var(VAR_GROTTO_3) <= 39)){
+    elif(var(VAR_GROTTO_2) <= 39){
         finditem(ITEM_LEAF_STONE)
     }
     else{
@@ -76,30 +73,23 @@ script ROUTE7_GrottoItem{
 }
 
 script ROUTE7_GrottoPokemon{
-    lockall
-    if((var(VAR_GROTTO_2) >= 40) && (var(VAR_GROTTO_2) <= 54)){
+    if(var(VAR_GROTTO_2) <= 59){
         playmoncry(SPECIES_ABSOL, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
         setwildbattlelevelrange(SPECIES_ABSOL, 15, ITEM_NONE, SPECIES_NONE, 19)
     }
-    if((var(VAR_GROTTO_2) >= 55) && (var(VAR_GROTTO_2) <= 69)){
+    if(var(VAR_GROTTO_2) <= 79){
         playmoncry(SPECIES_VULPIX_ALOLAN, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
         setwildbattlelevelrange(SPECIES_VULPIX_ALOLAN, 15, ITEM_NONE, SPECIES_NONE, 19)
     }
-    if((var(VAR_GROTTO_2) >= 70) && (var(VAR_GROTTO_2) <= 84)){
+    else{
         playmoncry(SPECIES_SKORUPI, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
         setwildbattlelevelrange(SPECIES_SKORUPI, 15, ITEM_NONE, SPECIES_NONE, 19)
-    }
-    if((var(VAR_GROTTO_2) >= 85) && (var(VAR_GROTTO_2) <= 99)){
-        playmoncry(SPECIES_SNEASEL, CRY_MODE_ENCOUNTER)
-        delay(40)
-        waitmoncry
-        setwildbattlelevelrange(SPECIES_SNEASEL, 15, ITEM_NONE, SPECIES_NONE, 19)
     }
     setflag(FLAG_SYS_CTRL_OBJ_DELETE)
     dowildbattle

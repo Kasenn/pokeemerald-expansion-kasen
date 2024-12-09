@@ -613,6 +613,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route14_Grotto_Entrance"
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 22,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route14_TrainerTips"
     }
   ]
 }

@@ -4875,8 +4875,8 @@ void DrawTextOnTradeWindow(u8 windowId, const u8 *str, u8 speed)
 {
     FillWindowPixelBuffer(windowId, PIXEL_FILL(15));
     sTradeAnim->textColors[0] = TEXT_DYNAMIC_COLOR_6;
-    sTradeAnim->textColors[1] = TEXT_COLOR_WHITE;
-    sTradeAnim->textColors[2] = TEXT_COLOR_GREEN;
+    sTradeAnim->textColors[1] = 11;
+    sTradeAnim->textColors[2] = 7;
     AddTextPrinterParameterized4(windowId, FONT_NORMAL, 0, 2, 0, 0, sTradeAnim->textColors, speed, str);
     CopyWindowToVram(windowId, COPYWIN_FULL);
 }

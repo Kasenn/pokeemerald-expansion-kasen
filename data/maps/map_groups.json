@@ -178,7 +178,8 @@
     "WindplumeMountain_6F",
     "WindplumeMountain_Peak",
     "WindplumeMountain_7F",
-    "UndergroundRuins_5F"
+    "UndergroundRuins_5F",
+    "Azuretide_Grotto"
   ],
   "gMapGroup_IndoorPearlwoodPoint": [
     "Lab2",
@@ -313,7 +314,10 @@
     "Rockliffe_Mart",
     "Rockliffe_House1",
     "Rockliffe_House2",
-    "Rockliffe_House3"
+    "Rockliffe_House3",
+    "SlateportCity_BattleTentLobby",
+    "SlateportCity_BattleTentCorridor",
+    "SlateportCity_BattleTentBattleRoom"
   ],
   "gMapGroup_IndoorSandstoneCity": [
     "LilycoveCity_DepartmentStore_1F",
@@ -444,9 +448,6 @@
   "gMapGroup_IndoorSlateport": [
     "SlateportCity_SternsShipyard_1F",
     "SlateportCity_SternsShipyard_2F",
-    "SlateportCity_BattleTentLobby",
-    "SlateportCity_BattleTentCorridor",
-    "SlateportCity_BattleTentBattleRoom",
     "SlateportCity_NameRatersHouse",
     "SlateportCity_PokemonFanClub",
     "SlateportCity_OceanicMuseum_1F",

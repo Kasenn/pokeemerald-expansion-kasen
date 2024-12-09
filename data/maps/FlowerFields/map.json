@@ -422,6 +422,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "FlowerFields_Cutiefly",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 40,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_HERACRONITE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_HERACRONITE_OBTAINED"
     }
   ],
   "warp_events": [
@@ -678,6 +691,198 @@
       "elevation": 0,
       "item": "ITEM_HONEY",
       "flag": "FLAG_FLOWERFIELDS_ITEM_3"
+    },
+    {
+      "type": "sign",
+      "x": 28,
+      "y": 49,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
+    },
+    {
+      "type": "sign",
+      "x": 28,
+      "y": 48,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
+    },
+    {
+      "type": "sign",
+      "x": 29,
+      "y": 49,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
+    },
+    {
+      "type": "sign",
+      "x": 29,
+      "y": 48,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
+    },
+    {
+      "type": "sign",
+      "x": 40,
+      "y": 45,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
+    },
+    {
+      "type": "sign",
+      "x": 40,
+      "y": 46,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
+    },
+    {
+      "type": "sign",
+      "x": 39,
+      "y": 46,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
+    },
+    {
+      "type": "sign",
+      "x": 39,
+      "y": 45,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
+    },
+    {
+      "type": "sign",
+      "x": 42,
+      "y": 31,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
+    },
+    {
+      "type": "sign",
+      "x": 42,
+      "y": 32,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
+    },
+    {
+      "type": "sign",
+      "x": 41,
+      "y": 32,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
+    },
+    {
+      "type": "sign",
+      "x": 41,
+      "y": 31,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
+    },
+    {
+      "type": "sign",
+      "x": 38,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
+    },
+    {
+      "type": "sign",
+      "x": 38,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
+    },
+    {
+      "type": "sign",
+      "x": 37,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
+    },
+    {
+      "type": "sign",
+      "x": 37,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 15,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
+    },
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 15,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FlowerFields_HoneyTree2"
     }
   ]
 }

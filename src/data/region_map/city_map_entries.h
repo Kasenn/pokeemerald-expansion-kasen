@@ -190,4 +190,9 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
         .index = 0,
         .tilemap = gPokenavCityMap_Drisledge,
     },
+    {
+        .mapSecId = MAPSEC_TOWN_WIP5,
+        .index = 0,
+        .tilemap = gPokenavCityMap_Amberock,
+    },
 };

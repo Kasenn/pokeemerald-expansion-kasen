@@ -185,6 +185,13 @@
       "elevation": 0,
       "dest_map": "MAP_AZURETIDE_MART",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 27,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_AZURETIDE_GROTTO",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
@@ -278,6 +285,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "CoastTown_Sign4"
+    },
+    {
+      "type": "sign",
+      "x": 27,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Azuretide_Grotto_Entrance"
+    },
+    {
+      "type": "sign",
+      "x": 28,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Azuretide_Grotto_Entrance"
     }
   ]
 }

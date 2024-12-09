@@ -201,6 +201,17 @@ text Route11_Sign_Text{
     "of grass at a time."
 }
 
+script Route14_TrainerTips{
+    msgbox(Route14_TrainerTips_Text, MSGBOX_SIGN)
+}
+text Route14_TrainerTips_Text{
+    "Trainer Tips\p"
+    "When in battle and choosing a move,\n"
+    "pressing the L button will display\l"
+    "additional information of the\l"
+    "chosen move."
+}
+
 script Route15_Sign4{
     msgbox(Route15_Sign4_Text, MSGBOX_SIGN)
 }

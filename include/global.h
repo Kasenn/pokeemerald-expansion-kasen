@@ -1136,6 +1136,7 @@ struct SaveBlock1
     /*0x31B3*/ struct ExternalEventData externalEventData;
     /*0x31C7*/ struct ExternalEventFlags externalEventFlags;
     /*0x31DC*/ struct Roamer roamer[ROAMER_COUNT];
+    u8 padding[24];
 #if FREE_ENIGMA_BERRY == FALSE
     /*0x31F8*/ struct EnigmaBerry enigmaBerry;
 #endif //FREE_ENIGMA_BERRY

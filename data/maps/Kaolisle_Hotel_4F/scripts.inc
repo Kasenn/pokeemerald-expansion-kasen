@@ -1,160 +1,121 @@
 Kaolisle_Hotel_4F_MapScripts::
-# 2 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	map_script MAP_SCRIPT_ON_LOAD, LockDoorAfterGym
-# 3 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	map_script MAP_SCRIPT_ON_TRANSITION, LockDoorAfterGym
 	.byte 0
 
 
 LockDoorAfterGym::
-# 7 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	goto_if_set FLAG_BADGE03_GET, LockDoorAfterGym_2
 LockDoorAfterGym_1:
 	end
 
 LockDoorAfterGym_2:
-# 8 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	setmetatile 4, 5, 0x0B3, TRUE
 	goto LockDoorAfterGym_1
 
 
 Room401::
-# 14 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	msgbox Room401_Text_0, MSGBOX_SIGN
 	end
 
 
 Room402::
-# 18 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	msgbox Room402_Text_0, MSGBOX_SIGN
 	end
 
 
 Room403::
-# 22 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	msgbox Room403_Text_0, MSGBOX_SIGN
 	end
 
 
 Room404::
-# 26 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	msgbox Room404_Text_0, MSGBOX_SIGN
 	end
 
 
 Kaolisle_Hotel_4F_Man2::
-# 31 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	msgbox Kaolisle_Hotel_4F_Man2_Text, MSGBOX_NPC
 	end
 
 
 Kaolisle_Hotel_4F_Woman4::
-# 35 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	msgbox Kaolisle_Hotel_4F_Woman4_Text, MSGBOX_NPC
 	end
 
 
 Kaolisle_Hotel_4F_FinnishGuy::
-# 39 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	msgbox Kaolisle_Hotel_4F_FinnishGuy_Text, MSGBOX_NPC
 	end
 
 
 Kaolisle_Hotel_4F_Kirlia::
-# 43 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	lock
-# 44 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	faceplayer
-# 45 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	waitse
-# 46 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	playmoncry SPECIES_KIRLIA, CRY_MODE_NORMAL
-# 47 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	msgbox Kaolisle_Hotel_4F_Kirlia_Text, MSGBOX_DEFAULT
-# 48 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	closemessage
-# 49 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	waitmoncry
-# 50 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	release
 	end
 
 
 Kaolisle_Hotel_4F_Jasmine::
-# 54 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	goto_if_set FLAG_TALKED_TO_JASMINE_AT_HOTEL, Kaolisle_Hotel_4F_Jasmine_2
-# 58 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	msgbox Kaolisle_Hotel_4F_Jasmine_Text, MSGBOX_NPC
-# 59 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	setflag FLAG_TALKED_TO_JASMINE_AT_HOTEL
 Kaolisle_Hotel_4F_Jasmine_1:
 	end
 
 Kaolisle_Hotel_4F_Jasmine_2:
-# 55 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	msgbox Kaolisle_Hotel_4F_Jasmine_Text2, MSGBOX_NPC
 	goto Kaolisle_Hotel_4F_Jasmine_1
 
 
 Kaolisle_Hotel_4F_Attendant::
-# 64 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	msgbox Kaolisle_Hotel_4F_Attendant_Text, MSGBOX_NPC
 	end
 
 
 Kaolisle_Hotel_4F_Attendant2::
-# 68 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	msgbox Kaolisle_Hotel_4F_Attendant2_Text, MSGBOX_NPC
 	end
 
 
 Kaolisle_Hotel_4F_Ampharos::
-# 164 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	lock
-# 165 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	faceplayer
-# 166 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	waitse
-# 167 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	playmoncry SPECIES_AMPHAROS, CRY_MODE_NORMAL
-# 168 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	msgbox Kaolisle_Hotel_4F_Ampharos_Text_0, MSGBOX_DEFAULT
-# 169 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	waitmoncry
-# 170 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	release
 	end
 
 
 Room401_Text_0:
-# 14 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	.string "Room 401$"
 
 Room402_Text_0:
-# 18 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	.string "Room 402$"
 
 Room403_Text_0:
-# 22 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	.string "Room 403$"
 
 Room404_Text_0:
-# 26 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	.string "Room 404\nReservation not found$"
 
 Kaolisle_Hotel_4F_Ampharos_Text_0:
-# 168 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	.string "Amphy: Palu!\nPalulu!$"
 
 Kaolisle_Hotel_4F_Man2_Text::
-# 72 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	.string "I'm staying at the prestigious\n"
 	.string "Kaolisle Grand Resort, yet I'm stuck\l"
 	.string "in my room working.\l"
 	.string "Disappointing!$"
 
 Kaolisle_Hotel_4F_Woman4_Text::
-# 78 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	.string "Did you know this?\n"
 	.string "It's from an article in Pokémon Pal.\p"
 	.string "“Press the START Button while in a bag\n"
@@ -164,7 +125,6 @@ Kaolisle_Hotel_4F_Woman4_Text::
 	.string "re-opening your bag.”$"
 
 Kaolisle_Hotel_4F_FinnishGuy_Text::
-# 87 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	.string "Olen tullut tänne lomailemaan,\n"
 	.string "mutta pakko myöntää, että paikallisten\l"
 	.string "kanssa keskustelu on hieman vaikeaa\l"
@@ -174,7 +134,6 @@ Kaolisle_Hotel_4F_FinnishGuy_Text::
 	.string "kumpaankin suuntaan.$"
 
 Kaolisle_Hotel_4F_FinnishGuy_Text2::
-# 96 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	.string "Oon tääl lomal mut pakko myöntää et\n"
 	.string "paikallisten kans puhumine o hieman vaikeet\l"
 	.string "heikon kielitaidon vuoks.\p"
@@ -182,7 +141,6 @@ Kaolisle_Hotel_4F_FinnishGuy_Text2::
 	.string "auttaa tulkkaa puhetta kumpaanki suuntaa.$"
 
 Kaolisle_Hotel_4F_Kirlia_Text::
-# 103 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	.string "“I'm here on a vacation, though I\n"
 	.string "have to admit, having conversations\l"
 	.string "with the locals is a bit difficult\l"
@@ -192,14 +150,12 @@ Kaolisle_Hotel_4F_Kirlia_Text::
 	.string "speech between parties.”$"
 
 Kaolisle_Hotel_4F_Attendant_Text::
-# 112 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	.string "Huh?\p"
 	.string "Oh, I swear I wasn't slacking off!\p"
 	.string "I just happened to spot some dirt\n"
 	.string "in this corner!$"
 
 Kaolisle_Hotel_4F_Jasmine_Text::
-# 118 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	.string "Jasmine: Oh, hello…\n"
 	.string "Um… {PLAYER}… was it?\p"
 	.string "Y-you look like you've grown a lot\n"
@@ -214,7 +170,6 @@ Kaolisle_Hotel_4F_Jasmine_Text::
 	.string "when I arrived…$"
 
 Kaolisle_Hotel_4F_Jasmine_Text2::
-# 133 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	.string "…Oh! This big fella…\n"
 	.string "S-she is my traveling companion, Amphy.\p"
 	.string "It's been a few years but there was\n"
@@ -237,7 +192,6 @@ Kaolisle_Hotel_4F_Jasmine_Text2::
 	.string "ever since…$"
 
 Kaolisle_Hotel_4F_Attendant2_Text::
-# 155 "data/maps/Kaolisle_Hotel_4F/scripts.pory"
 	.string "Here at Kaolisle Grand Resort,\n"
 	.string "cleanliness and customer satisfaction\l"
 	.string "are our top priorities.\p"

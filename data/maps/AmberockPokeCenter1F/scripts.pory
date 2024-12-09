@@ -1,0 +1,21 @@
+mapscripts AmberockPokeCenter1F_MapScripts {
+    
+}
+
+script Amberock_PokeCenter_RichBoy{
+    msgbox(Amberock_PokeCenter_RichBoy_Text, MSGBOX_NPC)
+}
+script Amberock_PokeCenter_Woman{
+    msgbox(Amberock_PokeCenter_Woman_Text, MSGBOX_NPC)
+}
+text Amberock_PokeCenter_RichBoy_Text{
+    "I thought I could have these people\n"
+    "train my Pokémon if I just paid them\l"
+    "money, but apparently they only\l"
+    "accept “BP”…"
+}
+text Amberock_PokeCenter_Woman_Text{
+    "My Pokémon is always super happy to\n"
+    "visit a Pokémon Center!\p"
+    "Everyone here is just so nice."
+}

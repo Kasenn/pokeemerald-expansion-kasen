@@ -132,6 +132,7 @@
 #define MAP_WINDPLUME_MOUNTAIN_PEAK          (43 | (2 << 8))
 #define MAP_WINDPLUME_MOUNTAIN_7F            (44 | (2 << 8))
 #define MAP_UNDERGROUND_RUINS_5F             (45 | (2 << 8))
+#define MAP_AZURETIDE_GROTTO                 (46 | (2 << 8))
 
 // gMapGroup_IndoorPearlwoodPoint
 #define MAP_LAB2                   (0 | (3 << 8))
@@ -260,13 +261,16 @@
 #define MAP_KAOLISLE_HOTEL_ELEVATOR      (23 | (11 << 8))
 
 // gMapGroup_IndoorRockliffeTown
-#define MAP_ROCKLIFFE_HARBOR        (0 | (12 << 8))
-#define MAP_ROCKLIFFE_POKECENTER_1F (1 | (12 << 8))
-#define MAP_ROCKLIFFE_POKECENTER_2F (2 | (12 << 8))
-#define MAP_ROCKLIFFE_MART          (3 | (12 << 8))
-#define MAP_ROCKLIFFE_HOUSE1        (4 | (12 << 8))
-#define MAP_ROCKLIFFE_HOUSE2        (5 | (12 << 8))
-#define MAP_ROCKLIFFE_HOUSE3        (6 | (12 << 8))
+#define MAP_ROCKLIFFE_HARBOR                       (0 | (12 << 8))
+#define MAP_ROCKLIFFE_POKECENTER_1F                (1 | (12 << 8))
+#define MAP_ROCKLIFFE_POKECENTER_2F                (2 | (12 << 8))
+#define MAP_ROCKLIFFE_MART                         (3 | (12 << 8))
+#define MAP_ROCKLIFFE_HOUSE1                       (4 | (12 << 8))
+#define MAP_ROCKLIFFE_HOUSE2                       (5 | (12 << 8))
+#define MAP_ROCKLIFFE_HOUSE3                       (6 | (12 << 8))
+#define MAP_SLATEPORT_CITY_BATTLE_TENT_LOBBY       (7 | (12 << 8))
+#define MAP_SLATEPORT_CITY_BATTLE_TENT_CORRIDOR    (8 | (12 << 8))
+#define MAP_SLATEPORT_CITY_BATTLE_TENT_BATTLE_ROOM (9 | (12 << 8))
 
 // gMapGroup_IndoorSandstoneCity
 #define MAP_LILYCOVE_CITY_DEPARTMENT_STORE_1F       (0 | (13 << 8))
@@ -394,19 +398,16 @@
 #define MAP_CORALGROVE_GYM                   (7 | (24 << 8))
 
 // gMapGroup_IndoorSlateport
-#define MAP_SLATEPORT_CITY_STERNS_SHIPYARD_1F      (0 | (25 << 8))
-#define MAP_SLATEPORT_CITY_STERNS_SHIPYARD_2F      (1 | (25 << 8))
-#define MAP_SLATEPORT_CITY_BATTLE_TENT_LOBBY       (2 | (25 << 8))
-#define MAP_SLATEPORT_CITY_BATTLE_TENT_CORRIDOR    (3 | (25 << 8))
-#define MAP_SLATEPORT_CITY_BATTLE_TENT_BATTLE_ROOM (4 | (25 << 8))
-#define MAP_SLATEPORT_CITY_NAME_RATERS_HOUSE       (5 | (25 << 8))
-#define MAP_SLATEPORT_CITY_POKEMON_FAN_CLUB        (6 | (25 << 8))
-#define MAP_SLATEPORT_CITY_OCEANIC_MUSEUM_1F       (7 | (25 << 8))
-#define MAP_SLATEPORT_CITY_OCEANIC_MUSEUM_2F       (8 | (25 << 8))
-#define MAP_SLATEPORT_CITY_HARBOR                  (9 | (25 << 8))
-#define MAP_SLATEPORT_CITY_HOUSE                   (10 | (25 << 8))
-#define MAP_SLATEPORT_CITY_POKEMON_CENTER_1F       (11 | (25 << 8))
-#define MAP_SLATEPORT_CITY_POKEMON_CENTER_2F       (12 | (25 << 8))
+#define MAP_SLATEPORT_CITY_STERNS_SHIPYARD_1F (0 | (25 << 8))
+#define MAP_SLATEPORT_CITY_STERNS_SHIPYARD_2F (1 | (25 << 8))
+#define MAP_SLATEPORT_CITY_NAME_RATERS_HOUSE  (2 | (25 << 8))
+#define MAP_SLATEPORT_CITY_POKEMON_FAN_CLUB   (3 | (25 << 8))
+#define MAP_SLATEPORT_CITY_OCEANIC_MUSEUM_1F  (4 | (25 << 8))
+#define MAP_SLATEPORT_CITY_OCEANIC_MUSEUM_2F  (5 | (25 << 8))
+#define MAP_SLATEPORT_CITY_HARBOR             (6 | (25 << 8))
+#define MAP_SLATEPORT_CITY_HOUSE              (7 | (25 << 8))
+#define MAP_SLATEPORT_CITY_POKEMON_CENTER_1F  (8 | (25 << 8))
+#define MAP_SLATEPORT_CITY_POKEMON_CENTER_2F  (9 | (25 << 8))
 
 // gMapGroup_IndoorMauville
 #define MAP_MAUVILLE_CITY_GYM               (0 | (26 << 8))

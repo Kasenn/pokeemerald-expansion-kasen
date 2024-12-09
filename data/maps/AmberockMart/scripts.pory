@@ -1,0 +1,33 @@
+mapscripts AmberockMart_MapScripts {
+    
+}
+
+script Amberock_MartMother{
+    msgbox(Amberock_MartMother_Text, MSGBOX_NPC)
+}
+script Amberock_MartChild{
+    lock
+    msgbox(Amberock_MartChild_Text)
+    release
+    end
+}
+script Amberock_MartGrandpa{
+    lock
+    msgbox(Amberock_MartGrandpa_Text)
+    release
+    end
+}
+
+text Amberock_MartMother_Text{
+    "I don't like how much my father\n"
+    "spoils my daughter, but they get to\l"
+    "meet so rarely that I think it's\l"
+    "fine when it happens."
+}
+text Amberock_MartChild_Text{
+    "Candy!"
+}
+text Amberock_MartGrandpa_Text{
+    "That's right.\n"
+    "Pick any you want!"
+}

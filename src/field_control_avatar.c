@@ -787,6 +787,10 @@ static void UpdateGrottos(void)
             FlagClear(FLAG_DAILY_GROTTO_4);
             VarSet(VAR_GROTTO_4, Random() % 100);
         }
+        if (Random() % 10 == 0 && FlagGet(FLAG_DAILY_GROTTO_5)){
+            FlagClear(FLAG_DAILY_GROTTO_5);
+            VarSet(VAR_GROTTO_5, Random() % 100);
+        }
     }
 }
 

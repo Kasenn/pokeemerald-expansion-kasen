@@ -97,6 +97,7 @@ EWRAM_DATA static u8 sSaveDialogTimer = 0;
 EWRAM_DATA static bool8 sSavingComplete = FALSE;
 EWRAM_DATA static u8 sSaveInfoWindowId = 0;
 EWRAM_DATA static u8 sTimeLabelSpriteId = 0;
+EWRAM_DATA static u8 sIsClockOnScreen = 0;
 
 // Menu action callbacks
 static bool8 StartMenuPokedexCallback(void);
@@ -545,6 +546,7 @@ static void AddTimeLabelObject(u16 x, u16 y)
     else
         LoadCompressedSpritePalette(&sSpritePalette_TimeLabel[1]);
     sTimeLabelSpriteId = CreateSprite(&sSpriteTemplate_TimeLabel, x + xToAdd, y, 0);
+    sIsClockOnScreen = TRUE;
 }
 
 static void ShowClockWindow(void)
@@ -622,9 +624,9 @@ static void RemoveExtraStartMenuWindows(void)
         ClearStdWindowAndFrameToTransparent(sBattlePyramidFloorWindowId, FALSE);
         RemoveWindow(sBattlePyramidFloorWindowId);
     }
-    else if (VarGet(VAR_PEARLWOOD_TOWN_STATE) > 5
-    && !FlagGet(FLAG_SYS_SAFARI_MODE))
+    else if (sIsClockOnScreen)
     {
+        sIsClockOnScreen = FALSE;
         DestroySpriteAndFreeResources(&gSprites[sTimeLabelSpriteId]);
         ClearStdWindowAndFrameToTransparent(sClockWindowId, FALSE);
         CopyWindowToVram(sClockWindowId, COPYWIN_GFX);

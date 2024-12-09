@@ -5,20 +5,56 @@ mapscripts AmberockTown_MapScripts{
 
 const X = VAR_TEMP_1
 const Y = VAR_TEMP_2
+const FLAG_PAPERS = FLAG_TEMP_1
+const FLAG_SCIENTIST = FLAG_TEMP_2
+const FLAG_ACEROLA = FLAG_TEMP_3
+const FLAG_ESCAPING_ROCKET = FLAG_TEMP_4
+const FLAG_FAKE_PLAYER = FLAG_TEMP_5
+const FLAG_KROKOROK = FLAG_TEMP_6
+const FLAG_CLAY = FLAG_TEMP_7
+const FLAG_ROCKET_BOUNCERS = FLAG_TEMP_8
+const FLAG_GIOVANNI = FLAG_TEMP_9
+const FLAG_TEAM_ROCKET = FLAG_TEMP_A
+const FLAG_BOAT = FLAG_TEMP_B
+const FLAG_HIKER = FLAG_TEMP_C
 
 script Amberock_FlagControl{
-    setflag(FLAG_TEMP_3)
-    setflag(FLAG_TEMP_2)
+    if(flag(FLAG_REPAIR_AMBEROCK_BRIDGE)){
+        setmaplayoutindex(LAYOUT_AMBEROCK_TEST)
+    }
+    else{
+        setflag(FLAG_HIKER)
+    }
+    setflag(FLAG_ACEROLA)
+    setflag(FLAG_SCIENTIST)
     if(var(VAR_ROUTE14_ROCKET_EVENT) >= 6){
-        setflag(FLAG_TEMP_1)
+        setflag(FLAG_ESCAPING_ROCKET)
+        setflag(FLAG_PAPERS)
     }
     if(flag(FLAG_BADGE05_GET) && !flag(FLAG_RECEIVED_HM_SURF)){
         setobjectxyperm(31, 33, 11)
-        clearflag(FLAG_TEMP_2)
+        clearflag(FLAG_SCIENTIST)
+    }
+    if(checkplayergender == MALE){
+        if(flag(FLAG_PC_CHANGE_COSTUME)){
+            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_NORMAL_ORAS)
+        }
+        else{
+            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL)
+        }
+    }
+    else{
+        if(flag(FLAG_PC_CHANGE_COSTUME)){
+            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_NORMAL_ORAS)
+        }
+        else{
+            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL)
+        }
     }
 }
 script Amberock_PaperVisibility{
-    if(var(VAR_ROUTE14_ROCKET_EVENT) >= 6){
+    if((var(VAR_ROUTE14_ROCKET_EVENT) >= 6)
+    && !flag(FLAG_REPAIR_AMBEROCK_BRIDGE)){
         setmetatile(27 + 30, 10, 0x128, FALSE)
         setmetatile(27 + 30, 12, 0x189, FALSE)
         setmetatile(26 + 30, 12, 0x189, FALSE)
@@ -106,8 +142,8 @@ script Amberock_Papers{
     setmetatile(57, 10, 0x128, FALSE)
     special(DrawWholeMapView)
     closemessage
-    clearflag(FLAG_TEMP_2)
-    clearflag(FLAG_TEMP_3)
+    clearflag(FLAG_SCIENTIST)
+    clearflag(FLAG_ACEROLA)
     addobject(1)
     addobject(2)
     getfollowerxy(X, Y)
@@ -292,7 +328,6 @@ movement ScientistLeave1{
     walk_up * 3
     step_end
 }
-
 script AmberockAlternativeCutscene{
     delay(48)
     switch(var(VAR_FACING)){
@@ -325,11 +360,123 @@ script AmberockAlternativeCutscene{
     special(RemoveCameraObject)
     return
 }
-
 text RocketYoureTooLate{
     "Rocket Grunt: I see our little\n"
     "diversion wasn't enough to fool you.\p"
     "But, it matters not.\n"
     "You're late anyway!\p"
     "Good luck ever catching me!"
+}
+
+script Amberock_WelcomeSign{
+    msgbox(Amberock_WelcomeSign_Text, MSGBOX_SIGN)
+}
+text Amberock_WelcomeSign_Text{
+    "Amberock Town\n"
+	"“The town where everyone prospers!”"
+}
+script Amberock_FactorySign{
+    msgbox(Amberock_FactorySign_Text, MSGBOX_SIGN)
+}
+text Amberock_FactorySign_Text{
+    "Poké Ball Factory"
+}
+script Amberock_GameCornerSign{
+    msgbox(Amberock_GameCornerSign_Text, MSGBOX_SIGN)
+}
+text Amberock_GameCornerSign_Text{
+    "“The play spot for all!”\n"
+	"Amberock Game Corner"
+}
+
+script PokeFactory_Bouncer{
+    msgbox(PokeFactory_Bouncer_Text, MSGBOX_NPC)
+    turnobject(7, DIR_SOUTH)
+    turnobject(8, DIR_SOUTH)
+}
+text PokeFactory_Bouncer_Text{
+    "This place isn't a playground.\n"
+    "Beat it, kid."
+}
+
+script Amberock_Girl2{
+    if(var(VAR_AMBEROCK_STORY) == STORY_AMBEROCK_STORY_COMPLETE){
+        msgbox(Amberock_Girl2_Text, MSGBOX_NPC)
+    }
+    else{
+        msgbox(Amberock_Girl2_Text2, MSGBOX_NPC)
+    }
+}
+script Amberock_OldWoman{
+    msgbox(Amberock_OldWoman_Text, MSGBOX_NPC)
+}
+script Amberock_Boy{
+    msgbox(Amberock_Boy_Text, MSGBOX_NPC)
+}
+script Amberock_OldMan{
+    lock
+    if(checkitem(ITEM_COIN_CASE) == TRUE){
+        msgbox(Amberock_OldMan_Text2)
+        release
+        end
+    }
+    faceplayer
+    msgbox(Amberock_OldMan_Text)
+    giveitem(ITEM_COIN_CASE)
+    release
+    turnobject(16, DIR_SOUTH)
+    end
+}
+text Amberock_Girl2_Text{
+    "Team Rocket attacked the Poké Ball\n"
+    "factory? I hope everybody is okay."
+}
+text Amberock_Girl2_Text2{
+    "There's some pretty menacing guys\n"
+    "guarding the gate to the factory.\p"
+    "Wonder what happened…"
+}
+text Amberock_OldWoman_Text{
+    "They kicked me out because I was\n"
+    "too good of a player!\p"
+    "They say my Magnemite was rigging the\n"
+    "machines, but there's no proof of that!"
+}
+text Amberock_Boy_Text{
+    "They say Amberock Town used to be\n"
+    "Amberock City, but the cliffs have\l"
+    "slowly eroded away and reduced the\l"
+    "size of livable land."
+}
+text Amberock_OldMan_Text{
+    "I'm done gambling!\n"
+    "It has led me absolutely nowhere!\p"
+    "Here, you want this?\n"
+    "Well, it's yours!"
+}
+text Amberock_OldMan_Text2{
+    "Stupid Game Corner…"
+}
+script Amberock_Magnemite{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_MAGNEMITE, CRY_MODE_NORMAL)
+	msgbox(Amberock_Magnemite_Text, MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+text Amberock_Magnemite_Text{
+    "Magnemite: Bzzzt!"
+}
+
+script Amberock_BridgeRepair{
+    msgbox(Amberock_BridgeRepair_Text, MSGBOX_NPC)
+}
+text Amberock_BridgeRepair_Text{
+    "This bridge breaks quite often,\n"
+    "so we need to be on constant lookout\l"
+    "and fix it before it causes trouble\l"
+    "for the residents."
 }

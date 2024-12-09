@@ -9830,7 +9830,7 @@
               {
                 "min_level": 22,
                 "max_level": 22,
-                "species": "SPECIES_STUFFUL"
+                "species": "SPECIES_KOMALA"
               },
               {
                 "min_level": 23,
@@ -9845,7 +9845,7 @@
               {
                 "min_level": 23,
                 "max_level": 23,
-                "species": "SPECIES_CHANSEY"
+                "species": "SPECIES_EXEGGCUTE"
               },
               {
                 "min_level": 24,
@@ -9979,7 +9979,7 @@
               {
                 "min_level": 25,
                 "max_level": 25,
-                "species": "SPECIES_GOLETT"
+                "species": "SPECIES_GLIGAR"
               },
               {
                 "min_level": 25,
@@ -9994,12 +9994,12 @@
               {
                 "min_level": 26,
                 "max_level": 26,
-                "species": "SPECIES_GLIGAR"
+                "species": "SPECIES_PAWNIARD"
               },
               {
                 "min_level": 27,
                 "max_level": 27,
-                "species": "SPECIES_PAWNIARD"
+                "species": "SPECIES_GLIGAR"
               },
               {
                 "min_level": 27,
@@ -16504,6 +16504,36 @@
         {
           "map": "MAP_AMBEROCK_TOWN",
           "base_label": "gAmberockTown0",
+          "water_mons": {
+            "encounter_rate": 4,
+            "mons": [
+              {
+                "min_level": 25,
+                "max_level": 35,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 25,
+                "max_level": 35,
+                "species": "SPECIES_WINGULL"
+              },
+              {
+                "min_level": 30,
+                "max_level": 35,
+                "species": "SPECIES_PELIPPER"
+              },
+              {
+                "min_level": 30,
+                "max_level": 35,
+                "species": "SPECIES_TENTACRUEL"
+              },
+              {
+                "min_level": 30,
+                "max_level": 35,
+                "species": "SPECIES_TENTACRUEL"
+              }
+            ]
+          },
           "fishing_mons": {
             "encounter_rate": 30,
             "mons": [
@@ -16985,7 +17015,97 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_COMBEE"
+                "species": "SPECIES_HERACROSS"
+              }
+            ]
+          },
+          "water_mons": {
+            "encounter_rate": 4,
+            "mons": [
+              {
+                "min_level": 15,
+                "max_level": 35,
+                "species": "SPECIES_ARROKUDA"
+              },
+              {
+                "min_level": 10,
+                "max_level": 20,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 15,
+                "max_level": 35,
+                "species": "SPECIES_ARROKUDA"
+              },
+              {
+                "min_level": 10,
+                "max_level": 20,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 10,
+                "max_level": 20,
+                "species": "SPECIES_MAGIKARP"
+              }
+            ]
+          },
+          "fishing_mons": {
+            "encounter_rate": 40,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 12,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 5,
+                "max_level": 12,
+                "species": "SPECIES_FINNEON"
+              },
+              {
+                "min_level": 5,
+                "max_level": 12,
+                "species": "SPECIES_BARBOACH"
+              },
+              {
+                "min_level": 20,
+                "max_level": 25,
+                "species": "SPECIES_SKRELP"
+              },
+              {
+                "min_level": 20,
+                "max_level": 25,
+                "species": "SPECIES_BARBOACH"
+              },
+              {
+                "min_level": 20,
+                "max_level": 25,
+                "species": "SPECIES_FINNEON"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NONE"
               }
             ]
           }

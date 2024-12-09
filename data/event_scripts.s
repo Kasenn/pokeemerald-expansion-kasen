@@ -1698,3 +1698,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/TestWall/scripts.inc"
 
 	.include "data/maps/TestRoomCopy/scripts.inc"
+
+	.include "data/maps/Azuretide_Grotto/scripts.inc"

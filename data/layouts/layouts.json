@@ -5685,7 +5685,7 @@
       "id": "LAYOUT_ROCKLIFFE_TOWN",
       "name": "RockliffeTown_Layout",
       "width": 43,
-      "height": 48,
+      "height": 58,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/RockliffeTown/border.bin",
@@ -6724,7 +6724,7 @@
     {
       "id": "LAYOUT_FLOWER_FIELDS",
       "name": "FlowerFields_Layout",
-      "width": 46,
+      "width": 54,
       "height": 100,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_FlowerField",
@@ -6974,8 +6974,8 @@
     {
       "id": "LAYOUT_AMBEROCK_HOUSE1",
       "name": "Amberock_House1_Layout",
-      "width": 11,
-      "height": 9,
+      "width": 12,
+      "height": 8,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/Amberock_House1/border.bin",
@@ -6994,7 +6994,7 @@
     {
       "id": "LAYOUT_AMBEROCK_HOUSE3",
       "name": "Amberock_House3_Layout",
-      "width": 11,
+      "width": 10,
       "height": 9,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
@@ -7080,6 +7080,16 @@
       "secondary_tileset": "gTileset_Amberock",
       "border_filepath": "data/layouts/TestRoomCopy/border.bin",
       "blockdata_filepath": "data/layouts/TestRoomCopy/map.bin"
+    },
+    {
+      "id": "LAYOUT_AZURETIDE_GROTTO",
+      "name": "Azuretide_Grotto_Layout",
+      "width": 13,
+      "height": 23,
+      "primary_tileset": "gTileset_SecretBase",
+      "secondary_tileset": "gTileset_SecretBaseShrub",
+      "border_filepath": "data/layouts/Azuretide_Grotto/border.bin",
+      "blockdata_filepath": "data/layouts/Azuretide_Grotto/map.bin"
     }
   ]
 }

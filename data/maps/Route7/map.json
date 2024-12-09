@@ -138,8 +138,8 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_sight_or_berry_tree_id": "ITEM_HP_UP",
+      "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ROUTE8_ITEM4"
     },
     {
@@ -336,6 +336,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ZygardeCell",
       "flag": "FLAG_ZYGARDE_CELL_22"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 2,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_WHITE_HERB",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ROUTE7_WHITE_HERB"
     }
   ],
   "warp_events": [

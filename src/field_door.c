@@ -30,6 +30,7 @@ struct DoorAnimFrame
 static bool8 ShouldUseMultiCorridorDoor(void);
 
 static const u8 sDoorAnimTiles_Littleroot[] = INCBIN_U8("graphics/door_anims/littleroot.4bpp");
+static const u8 sDoorAnimTiles_Amberock[] = INCBIN_U8("graphics/door_anims/amberock.4bpp");
 static const u16 sDoorNullPalette1[16] = {};
 static const u8 sDoorAnimTiles_BirchsLab[] = INCBIN_U8("graphics/door_anims/birchs_lab.4bpp");
 static const u16 sDoorNullPalette2[16] = {};
@@ -177,6 +178,7 @@ static const struct DoorAnimFrame sBigDoorCloseAnimFrames[] =
 
 static const u8 sDoorAnimPalettes_General[] = {1, 1, 1, 1, 1, 1, 1, 1};
 static const u8 sDoorAnimPalettes_General2[] = {8, 8, 5, 5, 5, 5, 5, 5};
+static const u8 sDoorAnimPalettes_Amberock[] = {5, 5, 5, 5, 5, 5, 5, 5};
 static const u8 sDoorAnimPalettes_DrapeDoor[] = {11, 11, 11, 11, 11, 11, 11, 11};
 static const u8 sDoorAnimPalettes_Sandstone[] = {11, 11, 11, 11, 5, 5, 5, 5};
 static const u8 sDoorAnimPalettes_PokeCenter[] = {1, 1, 1, 1, 1, 1, 1, 1};
@@ -308,6 +310,7 @@ static const struct DoorGraphics sDoorAnimGraphicsTable[] =
     {METATILE_SandstoneCity_BPShop,                         DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_PokeCenter, sDoorAnimPalettes_PokeShop},
     {METATILE_SandstoneCity_SSSmall,                        DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_General2, sDoorAnimPalettes_Sandstone},
     {METATILE_SandstoneCity_SandstoneDoor,                  DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_General3, sDoorAnimPalettes_General2},
+    {METATILE_Amberock_NormalDoor,                          DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Amberock, sDoorAnimPalettes_Amberock}
 };
 
 // NOTE: The tiles of a door's animation must be copied to VRAM because they are not already part of any given tileset.

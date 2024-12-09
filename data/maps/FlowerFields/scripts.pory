@@ -73,6 +73,23 @@ script FlowerFields_HoneyTree{
     }
     release
     end}
+script FlowerFields_HoneyTree2{
+    lock
+    checkitem(ITEM_HONEY, 1)
+    if(checkitem(ITEM_HONEY, 1) == FALSE){
+        msgbox(HoneyTree_NoHoney, MSGBOX_SIGN)
+        end
+    }
+    if(msgbox(HoneyTree_YesHoney, MSGBOX_YESNO) == TRUE){
+        msgbox(HoneyUsedOnTree, MSGBOX_DEFAULT)
+        closemessage
+        removeitem(ITEM_HONEY, 1)
+        setwildbattlelevelrange(SPECIES_HERACROSS, 20, ITEM_NONE, SPECIES_NONE, 25)
+        dowildbattle
+    }
+    release
+    end
+}
 script FlowerFields_Mina{
     lock
     faceplayer

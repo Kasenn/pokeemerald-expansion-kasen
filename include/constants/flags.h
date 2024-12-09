@@ -245,7 +245,7 @@
 #define FLAG_RECEIVED_MENTAL_HERB            0xDF
 #define FLAG_WINGULL_DELIVERED_MAIL          0xE0
 #define FLAG_RECEIVED_20_COINS               0xE1
-#define FLAG_RECEIVED_STARTER_DOLL           0xE2
+#define FLAG_GAME_CORNER_TRASHITEM           0xE2
 #define FLAG_RECEIVED_GOOD_ROD               0xE3
 #define FLAG_REGI_DOORS_OPENED               0xE4
 #define FLAG_RECEIVED_TM_RETURN              0xE5
@@ -1309,7 +1309,7 @@
 #define FLAG_FC_DOOR_OPEN                                           0x4EE // 
 #define FLAG_FC_LOOTEDROCK                                           0x4EF // 
 
-#define FLAG_UNUSED_0x4F0                                  0x4F0
+#define FLAG_REPAIR_AMBEROCK_BRIDGE                                  0x4F0
 #define FLAG_DEFEATED_DEWFORD_GYM                                   0x4F1
 #define FLAG_DEFEATED_MAUVILLE_GYM                                  0x4F2
 #define FLAG_DEFEATED_LAVARIDGE_GYM                                 0x4F3
@@ -1381,7 +1381,7 @@
 #define FLAG_NURSE_UNION_ROOM_REMINDER              (SYSTEM_FLAGS + 0x20)
 
 #define FLAG_RIVAL_COSTUME_CHANGE                           (SYSTEM_FLAGS + 0x21) // 
-#define FLAG_UNUSED_SYS_0x22                           (SYSTEM_FLAGS + 0x22) // 
+#define FLAG_AMBEROCK_ITEM1                           (SYSTEM_FLAGS + 0x22) // 
 #define FLAG_PC_CHANGE_COSTUME                           (SYSTEM_FLAGS + 0x23) // 
 #define FLAG_VISITED_FLOODEDCAVE                           (SYSTEM_FLAGS + 0x24) // 
 #define FLAG_VISITED_FISHING_VILLAGE                           (SYSTEM_FLAGS + 0x25) // 
@@ -1497,7 +1497,7 @@
 
 #define FLAG_CONTINUE_AFTER_WHITEOUT                           (SYSTEM_FLAGS + 0x83) // 
 
-#define FLAG_UNUSED_SYS_0x84            (SYSTEM_FLAGS + 0x84)
+#define FLAG_AMBEROCK_ITEM2            (SYSTEM_FLAGS + 0x84)
 
 #define FLAG_VISITED_BASALPEAK                           (SYSTEM_FLAGS + 0x85) // 
 #define FLAG_VISITED_FROSTFIRE                          (SYSTEM_FLAGS + 0x86) // 
@@ -1512,11 +1512,11 @@
 #define FLAG_SYS_JOURNAL_GET                           (SYSTEM_FLAGS + 0x8F) // 
 #define FLAG_DEV_REWARD                           (SYSTEM_FLAGS + 0x90) // 
 #define FLAG_RECEIVED_SANDSTONE_BERRY                           (SYSTEM_FLAGS + 0x91) // 
-#define FLAG_UNUSED_0x8F2                           (SYSTEM_FLAGS + 0x92) // 
-#define FLAG_UNUSED_0x8F3                           (SYSTEM_FLAGS + 0x93) // 
-#define FLAG_UNUSED_0x8F4                           (SYSTEM_FLAGS + 0x94) // 
-#define FLAG_UNUSED_0x8F5                           (SYSTEM_FLAGS + 0x95) // 
-#define FLAG_UNUSED_0x8F6                           (SYSTEM_FLAGS + 0x96) // 
+#define FLAG_TRADED_CHANSEY                           (SYSTEM_FLAGS + 0x92) // 
+#define FLAG_ROUTE7_ITEM6                           (SYSTEM_FLAGS + 0x93) // 
+#define FLAG_ROUTE3_ITEM1                           (SYSTEM_FLAGS + 0x94) // 
+#define FLAG_HERACRONITE_OBTAINED                           (SYSTEM_FLAGS + 0x95) // 
+#define FLAG_ROUTE7_WHITE_HERB                           (SYSTEM_FLAGS + 0x96) // 
 #define FLAG_UNUSED_0x8F7                           (SYSTEM_FLAGS + 0x97) // 
 #define FLAG_UNUSED_0x8F8                           (SYSTEM_FLAGS + 0x98) // 
 #define FLAG_UNUSED_0x8F9                           (SYSTEM_FLAGS + 0x99) // 
@@ -1587,7 +1587,7 @@
 
 #define FLAG_DAILY_GROTTO_3                           (DAILY_FLAGS_START + 0x15) // 
 #define FLAG_DAILY_GROTTO_4                           (DAILY_FLAGS_START + 0x16) // 
-#define FLAG_UNUSED_0x937                           (DAILY_FLAGS_START + 0x17) // 
+#define FLAG_DAILY_GROTTO_5                           (DAILY_FLAGS_START + 0x17) // 
 #define FLAG_UNUSED_0x938                           (DAILY_FLAGS_START + 0x18) // 
 #define FLAG_UNUSED_0x939                           (DAILY_FLAGS_START + 0x19) // 
 #define FLAG_UNUSED_0x93A                           (DAILY_FLAGS_START + 0x1A) // 
