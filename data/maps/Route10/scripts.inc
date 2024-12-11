@@ -57,12 +57,14 @@ Route10_Tr10_Tuber_M::
 
 
 Route10_Beachgoer_M::
-	msgbox Route10_Beachgoer_M_Text, MSGBOX_NPC
+	msgbox Route10_Beachgoer_M_Text
+	release
 	return
 
 
 Route10_Beachgoer_F::
-	msgbox Route10_Beachgoer_F_Text, MSGBOX_NPC
+	msgbox Route10_Beachgoer_F_Text
+	release
 	return
 
 
@@ -126,16 +128,16 @@ R10_Ace_EligibleForBattle_6:
 R10_Ace_PostBattle::
 	lock
 	faceplayer
-	goto_if_set FLAG_OBTAINED_ASSAULT_VEST, R10_Ace_PostBattle_2
+	goto_if_set FLAG_OBTAINED_BLUNDER_POLICY, R10_Ace_PostBattle_2
 	msgbox R10_Ace_Reward, MSGBOX_DEFAULT
-	checkitemspace ITEM_ASSAULT_VEST
+	checkitemspace ITEM_BLUNDER_POLICY
 	compare VAR_RESULT, FALSE
 	goto_if_eq R10_Ace_PostBattle_5
 R10_Ace_PostBattle_4:
-	giveitem ITEM_ASSAULT_VEST
+	giveitem ITEM_BLUNDER_POLICY
 	waitfanfare
 	msgbox R10_Ace_ExplainReward
-	setflag FLAG_OBTAINED_ASSAULT_VEST
+	setflag FLAG_OBTAINED_BLUNDER_POLICY
 	setvar VAR_0x8004, 30
 	call RewardBP
 	release
@@ -151,91 +153,120 @@ R10_Ace_PostBattle_5:
 
 
 R10Tr2_Intro::
-	.string "$"
+	.string "The sea is my backyard. I'm not going\n"
+	.string "to take it easy because you're a kid!$"
 
 R10Tr2_Lose::
-	.string "$"
+	.string "Did you take it easy on me by any\n"
+	.string "chance?$"
 
 R10Tr2_PostBattle::
-	.string "$"
+	.string "Drifting along with the waves…\n"
+	.string "I love it! Why don't you give it a try?$"
 
 R10Tr3_Intro::
-	.string "$"
+	.string "Which do you prefer, fishing in the\n"
+	.string "sea or a stream?$"
 
 R10Tr3_Lose::
-	.string "$"
+	.string "Like in deep-sea fishing, I lost\n"
+	.string "spectacularly!$"
 
 R10Tr3_PostBattle::
-	.string "$"
+	.string "Fishing is the greatest whether it's\n"
+	.string "in the sea or a stream.\l"
+	.string "You agree with me, right?$"
 
 R10Tr4_Intro::
-	.string "$"
+	.string "Hahahah! I'm a lousy runner, but in\n"
+	.string "the water you can't catch me!$"
 
 R10Tr4_Lose::
-	.string "$"
+	.string "I give up!$"
 
 R10Tr4_PostBattle::
-	.string "$"
+	.string "I wouldn't lose in a swim race…$"
 
 R10Tr5_Intro::
-	.string "$"
+	.string "You're a Pokémon trainer.\n"
+	.string "No need for words. We battle now.$"
 
 R10Tr5_Lose::
-	.string "$"
+	.string "… … … … … …\n"
+	.string "… … … … … …$"
 
 R10Tr5_PostBattle::
-	.string "$"
+	.string "It was I who challenged you, and yet\n"
+	.string "I lost. I am deeply shamed…$"
 
 R10Tr6_Intro::
-	.string "$"
+	.string "Young people are too happy to go with\n"
+	.string "the flow. They're without direction.$"
 
 R10Tr6_Lose::
-	.string "$"
+	.string "You have a firm sense of purpose.$"
 
 R10Tr6_PostBattle::
-	.string "$"
+	.string "Don't let others lead you astray.\n"
+	.string "Don't lose direction as you grow older.$"
 
 R10Tr7_Intro::
-	.string "$"
+	.string "I liked training here by myself.\n"
+	.string "It's awful that all these people came!$"
 
 R10Tr7_Lose::
-	.string "$"
+	.string "I hate this!$"
 
 R10Tr7_PostBattle::
-	.string "$"
+	.string "Okay! I won't complain about other\n"
+	.string "people being here.$"
 
 R10Tr8_Intro::
-	.string "$"
+	.string "Can your Pokémon dodge our\n"
+	.string "lightning-quick attacks?$"
 
 R10Tr8_Lose::
-	.string "$"
+	.string "I never knew such a technique existed!\n"
+	.string "You've defeated us thoroughly.$"
 
 R10Tr8_PostBattle::
-	.string "$"
+	.string "I haven't lost my passion for speed.\n"
+	.string "I will try harder.$"
 
 R10Tr9_Intro::
-	.string "$"
+	.string "My Pokémon can't be taken down\n"
+	.string "easily!$"
 
 R10Tr9_Lose::
-	.string "$"
+	.string "You're kidding!\n"
+	.string "Explain how I lost!$"
 
 R10Tr9_PostBattle::
-	.string "$"
+	.string "Haha!\n"
+	.string "You won, all right!\p"
+	.string "I'll work my way back up by taking on\n"
+	.string "trainers I happen to meet!$"
 
 R10Tr10_Intro::
-	.string "$"
+	.string "I love Water-type Pokémon.\n"
+	.string "I love other Pokémon, too!$"
 
 R10Tr10_Lose::
-	.string "$"
+	.string "Waaah! I lost!\n"
+	.string "Waaah! Waaah!$"
 
 R10Tr10_PostBattle::
-	.string "$"
+	.string "Shouting is good for me!\n"
+	.string "It uplifts me!$"
 
 Route10_Beachgoer_M_Text::
-	.string "$"
+	.string "Strange…\p"
+	.string "I swear I placed my cup down\n"
+	.string "right next to me…$"
 
 Route10_Beachgoer_F_Text::
-	.string "$"
+	.string "Excuse me, but you're\n"
+	.string "blocking the sun.$"
 
 R10_Ace_NotEligible::
 	.string "$"

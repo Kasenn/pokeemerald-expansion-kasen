@@ -63,91 +63,127 @@ Route9_Tr10_LandSwimmer::
 
 
 R9Tr1_Intro::
-	.string "$"
+	.string "I try not to swim where the currents\n"
+	.string "are too strong.$"
 
 R9Tr1_Lose::
-	.string "$"
+	.string "Oh, please, no!$"
 
 R9Tr1_PostBattle::
-	.string "$"
+	.string "If I get swept away, I'll lose all my\n"
+	.string "sense of place…$"
 
 R9Tr2_Intro::
-	.string "$"
+	.string "I contemplate Pokémon 24 hours a day.\n"
+	.string "How could you possibly beat me?$"
 
 R9Tr2_Lose::
-	.string "$"
+	.string "I lose.\n"
+	.string "I will concede defeat.$"
 
 R9Tr2_PostBattle::
-	.string "$"
+	.string "Urggh…\n"
+	.string "You're a Pokémon fanatic, aren't you?\p"
+	.string "You must contemplate Pokémon 24 hours\n"
+	.string "a day, don't you?$"
 
 R9Tr3_Intro::
-	.string "$"
+	.string "I do not fear you, for I have\n"
+	.string "my trusty birds with me!$"
 
 R9Tr3_Lose::
-	.string "$"
+	.string "Maybe I should've been more\n"
+	.string "afraid…$"
 
 R9Tr3_PostBattle::
-	.string "$"
+	.string "With my trusty birds, I have no\n"
+	.string "need to brave the currents.\p"
+	.string "My birds will take me anywhere\n"
+	.string "I want to go.$"
 
 R9Tr4_Intro::
-	.string "$"
+	.string "My Pokémon are faster than these\n"
+	.string "currents. Try to keep up!$"
 
 R9Tr4_Lose::
-	.string "$"
+	.string "Couldn't keep up…$"
 
 R9Tr4_PostBattle::
-	.string "$"
+	.string "Your Pokémon is so strong, I bet\n"
+	.string "it could swim against the currents!$"
 
 R9Tr5_Intro::
-	.string "$"
+	.string "No tiny current can wash away\n"
+	.string "my Pokémon.\p"
+	.string "Witness their sturdiness!$"
 
 R9Tr5_Lose::
-	.string "$"
+	.string "We may be immovable against\n"
+	.string "currents, but not other Pokémon…$"
 
 R9Tr5_PostBattle::
-	.string "$"
+	.string "You never know where a current will\n"
+	.string "take you.\p"
+	.string "Sometimes it's treasure,\n"
+	.string "sometimes Pokémon battle.\l"
+	.string "Both exciting in their own way.$"
 
 R9Tr6_Intro::
-	.string "$"
+	.string "Check out all these Pokémon I caught!$"
 
 R9Tr6_Lose::
-	.string "$"
+	.string "Guess all the ones I caught were just\n"
+	.string "small fries…$"
 
 R9Tr6_PostBattle::
-	.string "$"
+	.string "One day I will fish up a Pokémon no\n"
+	.string "trainer can defeat. Mark my words!$"
 
 R9Tr7_Intro::
-	.string "$"
+	.string "I've fought hundreds of battles.\n"
+	.string "You can't win!$"
 
 R9Tr7_Lose::
-	.string "$"
+	.string "I've also lost hundreds of battles…$"
 
 R9Tr7_PostBattle::
-	.string "$"
+	.string "I never battle when I know I'll win.\n"
+	.string "I like to battle at the razor's edge of\l"
+	.string "victory and defeat!$"
 
 R9Tr8_Intro::
-	.string "$"
+	.string "Welcome!\n"
+	.string "I've been expecting you!$"
 
 R9Tr8_Lose::
-	.string "$"
+	.string "No! Please!$"
 
 R9Tr8_PostBattle::
-	.string "$"
+	.string "A strong child trainer\n"
+	.string "That's so annoying!$"
 
 R9Tr9_Intro::
-	.string "$"
+	.string "I've led a life of woe and misery…\n"
+	.string "I've been cast away, and this is where\l"
+	.string "I've drifted…$"
 
 R9Tr9_Lose::
-	.string "$"
+	.string "Another loss…$"
 
 R9Tr9_PostBattle::
-	.string "$"
+	.string "A life adrift…\n"
+	.string "I don't want it anymore!$"
 
 R9Tr10_Intro::
-	.string "$"
+	.string "Did the currents carry you here, too?\n"
+	.string "This must have been fated.\l"
+	.string "Let's battle!$"
 
 R9Tr10_Lose::
-	.string "$"
+	.string "Strong!\n"
+	.string "Too much so!$"
 
 R9Tr10_PostBattle::
-	.string "$"
+	.string "It's just my luck that a tough TRAINER\n"
+	.string "like you would drift here…\l"
+	.string "I must be cursed…$"

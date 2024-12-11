@@ -10,7 +10,7 @@ mapscripts Route13_MapScripts{
 //     setvar(VAR_DEBUG, 9)
 //     clearflag(FLAG_SERPENTCAVE_DRAGONFANG)
 //     clearflag(FLAG_OBTAINED_TYRANITARITE)
-//     clearflag(FLAG_OBTAINED_ASSAULT_VEST)
+//     clearflag(FLAG_OBTAINED_BLUNDER_POLICY)
 //     closemessage
 //     warp(MAP_SANDSTONE_CITY, 39, 32)
 //     callnative(DefaultFollower)

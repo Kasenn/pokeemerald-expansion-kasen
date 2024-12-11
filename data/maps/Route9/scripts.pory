@@ -6,13 +6,15 @@ script Route9_Tr1_Swimmer_M {
     end
 }
 text R9Tr1_Intro{
-    ""
+    "I try not to swim where the currents\n"
+    "are too strong."
 }
 text R9Tr1_Lose{
-    ""
+    "Oh, please, no!"
 }
 text R9Tr1_PostBattle{
-    ""
+    "If I get swept away, I'll lose all my\n"
+    "sense of place…"
 }
 
 script Route9_Tr2_BlackBelt {
@@ -21,13 +23,18 @@ script Route9_Tr2_BlackBelt {
     end
 }
 text R9Tr2_Intro{
-    ""
+    "I contemplate Pokémon 24 hours a day.\n"
+    "How could you possibly beat me?"
 }
 text R9Tr2_Lose{
-    ""
+    "I lose.\n"
+    "I will concede defeat."
 }
 text R9Tr2_PostBattle{
-    ""
+    "Urggh…\n"
+    "You're a Pokémon fanatic, aren't you?\p"
+    "You must contemplate Pokémon 24 hours\n"
+    "a day, don't you?$"
 }
 
 script Route9_Tr3_BirdKeeper {
@@ -36,13 +43,18 @@ script Route9_Tr3_BirdKeeper {
     end
 }
 text R9Tr3_Intro{
-    ""
+    "I do not fear you, for I have\n"
+    "my trusty birds with me!"
 }
 text R9Tr3_Lose{
-    ""
+    "Maybe I should've been more\n"
+    "afraid…"
 }
 text R9Tr3_PostBattle{
-    ""
+    "With my trusty birds, I have no\n"
+    "need to brave the currents.\p"
+    "My birds will take me anywhere\n"
+    "I want to go."
 }
 
 script Route9_Tr4_BattleGirl {
@@ -51,13 +63,15 @@ script Route9_Tr4_BattleGirl {
     end
 }
 text R9Tr4_Intro{
-    ""
+    "My Pokémon are faster than these\n"
+    "currents. Try to keep up!"
 }
 text R9Tr4_Lose{
-    ""
+    "Couldn't keep up…"
 }
 text R9Tr4_PostBattle{
-    ""
+    "Your Pokémon is so strong, I bet\n"
+    "it could swim against the currents!"
 }
 
 script Route9_Tr5_Swimmer_F {
@@ -66,13 +80,20 @@ script Route9_Tr5_Swimmer_F {
     end
 }
 text R9Tr5_Intro{
-    ""
+    "No tiny current can wash away\n"
+    "my Pokémon.\p"
+    "Witness their sturdiness!"
 }
 text R9Tr5_Lose{
-    ""
+    "We may be immovable against\n"
+    "currents, but not other Pokémon…"
 }
 text R9Tr5_PostBattle{
-    ""
+    "You never know where a current will\n"
+    "take you.\p"
+    "Sometimes it's treasure,\n"
+    "sometimes Pokémon battle.\l"
+    "Both exciting in their own way."
 }
 
 script Route9_Tr6_Fisherman {
@@ -81,13 +102,15 @@ script Route9_Tr6_Fisherman {
     end
 }
 text R9Tr6_Intro{
-    ""
+    "Check out all these Pokémon I caught!"
 }
 text R9Tr6_Lose{
-    ""
+    "Guess all the ones I caught were just\n"
+    "small fries…"
 }
 text R9Tr6_PostBattle{
-    ""
+    "One day I will fish up a Pokémon no\n"
+    "trainer can defeat. Mark my words!"
 }
 
 script Route9_Tr7_Hiker {
@@ -96,13 +119,16 @@ script Route9_Tr7_Hiker {
     end
 }
 text R9Tr7_Intro{
-    ""
+    "I've fought hundreds of battles.\n"
+    "You can't win!"
 }
 text R9Tr7_Lose{
-    ""
+    "I've also lost hundreds of battles…"
 }
 text R9Tr7_PostBattle{
-    ""
+    "I never battle when I know I'll win.\n"
+	"I like to battle at the razor's edge of\l"
+	"victory and defeat!"
 }
 
 script Route9_Tr8_Collector {
@@ -111,13 +137,15 @@ script Route9_Tr8_Collector {
     end
 }
 text R9Tr8_Intro{
-    ""
+    "Welcome!\n"
+    "I've been expecting you!"
 }
 text R9Tr8_Lose{
-    ""
+    "No! Please!"
 }
 text R9Tr8_PostBattle{
-    ""
+    "A strong child trainer\n"
+    "That's so annoying!"
 }
 
 script Route9_Tr9_Swimmer_M2 {
@@ -126,13 +154,16 @@ script Route9_Tr9_Swimmer_M2 {
     end
 }
 text R9Tr9_Intro{
-    ""
+    "I've led a life of woe and misery…\n"
+    "I've been cast away, and this is where\l"
+    "I've drifted…"
 }
 text R9Tr9_Lose{
-    ""
+    "Another loss…"
 }
 text R9Tr9_PostBattle{
-    ""
+    "A life adrift…\n"
+    "I don't want it anymore!"
 }
 
 script Route9_Tr10_LandSwimmer {
@@ -141,11 +172,16 @@ script Route9_Tr10_LandSwimmer {
     end
 }
 text R9Tr10_Intro{
-    ""
+    "Did the currents carry you here, too?\n"
+    "This must have been fated.\l"
+    "Let's battle!"
 }
 text R9Tr10_Lose{
-    ""
+    "Strong!\n"
+    "Too much so!"
 }
 text R9Tr10_PostBattle{
-    ""
+    "It's just my luck that a tough TRAINER\n"
+    "like you would drift here…\l"
+    "I must be cursed…"
 }

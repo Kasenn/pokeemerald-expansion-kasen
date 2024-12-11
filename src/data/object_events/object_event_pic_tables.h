@@ -2122,6 +2122,18 @@ static const struct SpriteFrameImage sPicTable_Kasen[] = {
     overworld_frame(gObjectEventPic_Kasen, 2, 4, 2),
 };
 
+static const struct SpriteFrameImage sPicTable_SSTidalRear[] = {
+    overworld_frame(gObjectEventPic_SSTidalRear, 6, 6, 0),
+    overworld_frame(gObjectEventPic_SSTidalRear, 6, 6, 0),
+    overworld_frame(gObjectEventPic_SSTidalRear, 6, 6, 0),
+    overworld_frame(gObjectEventPic_SSTidalRear, 6, 6, 0),
+    overworld_frame(gObjectEventPic_SSTidalRear, 6, 6, 0),
+    overworld_frame(gObjectEventPic_SSTidalRear, 6, 6, 0),
+    overworld_frame(gObjectEventPic_SSTidalRear, 6, 6, 0),
+    overworld_frame(gObjectEventPic_SSTidalRear, 6, 6, 0),
+    overworld_frame(gObjectEventPic_SSTidalRear, 6, 6, 0),
+};
+
 static const struct SpriteFrameImage sPicTable_ZygardeCell[] = {
     overworld_frame(gObjectEventPic_ZygardeCell, 2, 4, 0),
     overworld_frame(gObjectEventPic_ZygardeCell, 2, 4, 1),

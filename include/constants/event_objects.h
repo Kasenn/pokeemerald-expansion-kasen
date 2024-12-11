@@ -307,13 +307,14 @@
 #define OBJ_EVENT_GFX_ZYGARDE_CELL                    303
 #define OBJ_EVENT_GFX_IRIS_ON_AGGRON                304
 #define OBJ_EVENT_GFX_AGGRON_MOUNT                  305
+#define OBJ_EVENT_GFX_SS_TIDAL_REAR                    306
 
 
 
 // NOTE: The maximum amount of object events has been expanded from 255 to 65535.
 // Since dynamic graphics ids still require at least 16 free values, the actual limit
 // is 65519, but even considering follower Pokémon, this should be more than enough :)
-#define NUM_OBJ_EVENT_GFX                        306
+#define NUM_OBJ_EVENT_GFX                        307
 
 
 // These are dynamic object gfx ids.
@@ -545,6 +546,7 @@
 #define OBJ_EVENT_PAL_IRIS_ON_AGGRON                 0x1178
 #define OBJ_EVENT_PAL_AGGRON_MOUNT                 0x1179
 #define OBJ_EVENT_PAL_TAG_BALL_DIRE            0x117A
+#define OBJ_EVENT_PAL_SS_TIDAL_REAR             0x117B
 
 // Used as a placeholder follower graphic
 #define OBJ_EVENT_PAL_TAG_SUBSTITUTE              0x7611

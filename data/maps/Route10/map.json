@@ -45,7 +45,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Route10_Tr1_AceSwimmer",
       "flag": "0"
     },
     {
@@ -53,12 +53,12 @@
       "x": 99,
       "y": 9,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_LEFT_UP_RIGHT",
+      "movement_range_x": 3,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Route10_Tr2_Swimmer_F1",
       "flag": "0"
     },
     {
@@ -71,7 +71,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "KaolisleCity_Mother",
+      "script": "Route10_Beachgoer_F",
       "flag": "0"
     },
     {
@@ -84,20 +84,20 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "KaolisleCity_Father",
+      "script": "Route10_Beachgoer_M",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
-      "x": 115,
+      "x": 118,
       "y": 7,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
+      "movement_range_x": 7,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Route10_Tr4_Swimmer_M1",
       "flag": "0"
     },
     {
@@ -108,9 +108,9 @@
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Route10_Tr3_Fisherman",
       "flag": "0"
     },
     {
@@ -118,12 +118,12 @@
       "x": 56,
       "y": 7,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
+      "movement_range_x": 6,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route10_Tr5_BlackBelt",
       "flag": "0"
     },
     {
@@ -134,9 +134,9 @@
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "1",
+      "script": "Route10_Tr6_Hiker",
       "flag": "0"
     },
     {
@@ -148,7 +148,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
+      "trainer_sight_or_berry_tree_id": "ITEM_TM_SCALD",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ROUTE10_ITEM6"
     },
@@ -157,12 +157,12 @@
       "x": 18,
       "y": 23,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN",
+      "movement_range_x": 3,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Route10_Tr7_Swimmer_F2",
       "flag": "0"
     },
     {
@@ -174,7 +174,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
+      "trainer_sight_or_berry_tree_id": "ITEM_DIVE_BALL",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ROUTE10_ITEM8"
     },
@@ -187,7 +187,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
+      "trainer_sight_or_berry_tree_id": "ITEM_MAX_REPEL",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ROUTE10_ITEM7"
     },
@@ -196,25 +196,25 @@
       "x": 36,
       "y": 12,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_UP_LEFT_DOWN",
+      "movement_range_x": 5,
+      "movement_range_y": 6,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Route10_Tr8_Swimmer_M2",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_6",
-      "x": 55,
-      "y": 19,
+      "x": 56,
+      "y": 17,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_LEFT_UP_RIGHT",
+      "movement_range_x": 6,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Route10_Tr9_BattleGirl",
       "flag": "0"
     },
     {
@@ -222,12 +222,12 @@
       "x": 92,
       "y": 16,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Route10_Tr10_Tuber_M",
       "flag": "0"
     },
     {
@@ -276,7 +276,7 @@
       "x": 59,
       "y": 20,
       "elevation": 0,
-      "item": "ITEM_NONE",
+      "item": "ITEM_HEART_SCALE",
       "flag": "FLAG_ROUTE10_ITEM4"
     },
     {
@@ -284,7 +284,7 @@
       "x": 68,
       "y": 21,
       "elevation": 0,
-      "item": "ITEM_NONE",
+      "item": "ITEM_CALCIUM",
       "flag": "FLAG_ROUTE10_ITEM3"
     },
     {
@@ -292,13 +292,13 @@
       "x": 49,
       "y": 6,
       "elevation": 0,
-      "item": "ITEM_NONE",
+      "item": "ITEM_HEART_SCALE",
       "flag": "FLAG_ROUTE10_ITEM5"
     },
     {
       "type": "hidden_item",
-      "x": 133,
-      "y": 6,
+      "x": 134,
+      "y": 5,
       "elevation": 0,
       "item": "ITEM_BERRY_JUICE",
       "flag": "FLAG_ROUTE10_ITEM1"
@@ -308,7 +308,7 @@
       "x": 65,
       "y": 8,
       "elevation": 0,
-      "item": "ITEM_NONE",
+      "item": "ITEM_STARDUST",
       "flag": "FLAG_ROUTE10_ITEM2"
     }
   ]

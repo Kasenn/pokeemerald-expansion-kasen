@@ -1058,16 +1058,8 @@ void AnimTask_ThrowBall_StandingTrainer(u8 taskId)
     u8 subpriority;
     u8 spriteId;
 
-    if (gBattleTypeFlags & BATTLE_TYPE_WALLY_TUTORIAL)
-    {
-        x = 32;
-        y = 11;
-    }
-    else
-    {
-        x = 23;
-        y = 5;
-    }
+    x = 23;
+    y = 5;
 
     ballId = ItemIdToBallId(gLastUsedItem);
     subpriority = GetBattlerSpriteSubpriority(GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT)) + 1;

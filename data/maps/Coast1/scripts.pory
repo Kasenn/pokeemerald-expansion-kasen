@@ -1,7 +1,7 @@
 mapscripts Coast1_MapScripts{}
 
 script Route3_Tr1_Swimmer_F {
-    trainerbattle_single(TRAINER_R3_TR1_SWIMMER_F, R3Tr1_Intro, R3Tr1_Lose)
+    trainerbattle_single(TRAINER_R3_TR1_SWIMMER_F, R3Tr1_Intro, R3Tr1_Lose) 
     msgbox(R3Tr1_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }

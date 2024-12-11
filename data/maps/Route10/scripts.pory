@@ -6,13 +6,15 @@ script Route10_Tr2_Swimmer_F1 {
     end
 }
 text R10Tr2_Intro{
-    ""
+    "Out of my way, brat!"
 }
 text R10Tr2_Lose{
-    ""
+    "Ow ow ow!\n"
+    "I'm sorry for my behavior!"
 }
 text R10Tr2_PostBattle{
-    ""
+    "I didn't mean to call you a brat!\n"
+    "I'm sorry!"
 }
 
 script Route10_Tr3_Fisherman {
@@ -21,13 +23,17 @@ script Route10_Tr3_Fisherman {
     end
 }
 text R10Tr3_Intro{
-    ""
+    "Which do you prefer, fishing in the\n"
+    "sea or a stream?"
 }
 text R10Tr3_Lose{
-    ""
+    "Like in deep-sea fishing, I lost\n"
+    "spectacularly!"
 }
 text R10Tr3_PostBattle{
-    ""
+    "Fishing is the greatest whether it's\n"
+    "in the sea or a stream.\l"
+    "You agree with me, right?"
 }
 
 script Route10_Tr4_Swimmer_M1 {
@@ -36,13 +42,16 @@ script Route10_Tr4_Swimmer_M1 {
     end
 }
 text R10Tr4_Intro{
-    ""
+    "Adults are working out here.\n"
+    "Move!"
 }
 text R10Tr4_Lose{
-    ""
+    "Oof…\n"
+    "Can't believe I just lost to a kid…"
 }
 text R10Tr4_PostBattle{
-    ""
+    "You've had your fun,\n"
+    "now leave me alone…"
 }
 
 script Route10_Tr5_BlackBelt {
@@ -51,13 +60,16 @@ script Route10_Tr5_BlackBelt {
     end
 }
 text R10Tr5_Intro{
-    ""
+    "You're a Pokémon trainer.\n"
+    "No need for words. We battle now."
 }
 text R10Tr5_Lose{
-    ""
+    "… … … … … …\n"
+    "… … … … … …"
 }
 text R10Tr5_PostBattle{
-    ""
+    "It was I who challenged you, and yet\n"
+    "I lost. I am deeply shamed…"
 }
 
 script Route10_Tr6_Hiker {
@@ -66,13 +78,15 @@ script Route10_Tr6_Hiker {
     end
 }
 text R10Tr6_Intro{
-    ""
+    "Young people are too happy to go with\n"
+    "the flow. They're without direction."
 }
 text R10Tr6_Lose{
-    ""
+    "You have a firm sense of purpose."
 }
 text R10Tr6_PostBattle{
-    ""
+    "Don't let others lead you astray.\n"
+    "Don't lose direction as you grow older."
 }
 
 script Route10_Tr7_Swimmer_F2 {
@@ -81,13 +95,15 @@ script Route10_Tr7_Swimmer_F2 {
     end
 }
 text R10Tr7_Intro{
-    ""
+    "I liked training here by myself.\n"
+    "It's awful that all these people came!"
 }
 text R10Tr7_Lose{
-    ""
+    "I hate this!"
 }
 text R10Tr7_PostBattle{
-    ""
+    "Okay! I won't complain about other\n"
+    "people being here."
 }
 
 script Route10_Tr8_Swimmer_M2 {
@@ -96,13 +112,16 @@ script Route10_Tr8_Swimmer_M2 {
     end
 }
 text R10Tr8_Intro{
-    ""
+    "Can your Pokémon dodge our\n"
+    "lightning-quick attacks?"
 }
 text R10Tr8_Lose{
-    ""
+    "I never knew such a technique existed!\n"
+    "You've defeated us thoroughly."
 }
 text R10Tr8_PostBattle{
-    ""
+    "I haven't lost my passion for speed.\n"
+    "I will try harder."
 }
 
 script Route10_Tr9_BattleGirl {
@@ -111,13 +130,18 @@ script Route10_Tr9_BattleGirl {
     end
 }
 text R10Tr9_Intro{
-    ""
+    "My Pokémon can't be taken down\n"
+    "easily!"
 }
 text R10Tr9_Lose{
-    ""
+    "You're kidding!\n"
+    "Explain how I lost!"
 }
 text R10Tr9_PostBattle{
-    ""
+    "Haha!\n"
+    "You won, all right!\p"
+    "I'll work my way back up by taking on\n"
+    "trainers I happen to meet!"
 }
 
 script Route10_Tr10_Tuber_M {
@@ -126,27 +150,35 @@ script Route10_Tr10_Tuber_M {
     end
 }
 text R10Tr10_Intro{
-    ""
+    "I love Water-type Pokémon.\n"
+    "I love other Pokémon, too!"
 }
 text R10Tr10_Lose{
-    ""
+    "Waaah! I lost!\n"
+    "Waaah! Waaah!"
 }
 text R10Tr10_PostBattle{
-    ""
+    "Shouting is good for me!\n"
+    "It uplifts me!"
 }
 
 script Route10_Beachgoer_M{
-    msgbox(Route10_Beachgoer_M_Text, MSGBOX_NPC)
+    msgbox(Route10_Beachgoer_M_Text)
+    release
 }
 text Route10_Beachgoer_M_Text{
-    ""
+    "Strange…\p"
+    "I swear I placed my cup down\n"
+    "right next to me…"
 }
 
 script Route10_Beachgoer_F{
-    msgbox(Route10_Beachgoer_F_Text, MSGBOX_NPC)
+    msgbox(Route10_Beachgoer_F_Text)
+    release
 }
 text Route10_Beachgoer_F_Text{
-    ""
+    "Excuse me, but you're\n"
+    "blocking the sun."
 }
 
 script Route10_Tr1_AceSwimmer {
@@ -187,18 +219,18 @@ script R10_Ace_EligibleForBattle{
 script R10_Ace_PostBattle{
     lock
     faceplayer
-    if(flag(FLAG_OBTAINED_ASSAULT_VEST)){
+    if(flag(FLAG_OBTAINED_BLUNDER_POLICY)){
         msgbox(R10_Ace_PostBattle_Text, MSGBOX_NPC)
         end
     }
     msgbox(R10_Ace_Reward, MSGBOX_DEFAULT)
-    if(checkitemspace(ITEM_ASSAULT_VEST) == FALSE){
+    if(checkitemspace(ITEM_BLUNDER_POLICY) == FALSE){
         goto(ZeBagIsFull)
     }
-    giveitem(ITEM_ASSAULT_VEST)
+    giveitem(ITEM_BLUNDER_POLICY)
     waitfanfare
     msgbox(R10_Ace_ExplainReward)
-    setflag(FLAG_OBTAINED_ASSAULT_VEST)
+    setflag(FLAG_OBTAINED_BLUNDER_POLICY)
     setvar(VAR_0x8004, 30)
     call(RewardBP)
     release
@@ -206,29 +238,59 @@ script R10_Ace_PostBattle{
 }
 
 text R10_Ace_NotEligible{
-    ""
+    "I met some rude swimmers here\n"
+    "not too long ago.\p"
+    "I wish I could've put them in their\n"
+    "place, but my slow Pokémon just\l"
+    "couldn't catch up to them.\p"
+    "Why don't you see if you can take\n"
+    "them on?\p"
+    "And once you've done that, come back\n"
+    "to me if you want a real challenge."
 }
 text R10_Ace_ReadyForBattle{
-    ""
+    "I saw how you handled those rude\n"
+    "swimmers.\p"
+    "You're pretty good.\p"
+    "But are you good enough to handle\n"
+    "my Pokémon?"
 }
 text R10_Ace_ReadyForBattleShort{
-    ""
+    "Think you're good enough to handle\n"
+    "my Pokémon?"
 }
 text R10_Ace_BeginBattle{
-    ""
+    "The game's on!"
 }
 text R10_Ace_Lose{
-    ""
+    "Oh wow, I sure got put in my place."
 }
 text R10_Ace_DeclineBattle{
-    ""
+    "Aww… And here I was getting my\n"
+    "hopes up…"
 }
 text R10_Ace_PostBattle_Text{
-    ""
+    "I should be sad for losing, but\n"
+    "seeing you beat those rude swimmers\l"
+    "really made my day."
 }
 text R10_Ace_Reward{
-    ""
+    "Oh wow, you're way stronger\n"
+    "than I expected.\p"
+    "I thought I had my strategy perfected\n"
+    "to a tee, but I guess I still need\l"
+    "some more practice.\p"
+    "Maybe you can put this item to\n"
+    "better use?"
 }
 text R10_Ace_ExplainReward{
-    ""
+    "That there Blunder Policy massively\n"
+    "boosts a Pokémon's speed when it\l"
+    "misses with a move.\p"
+    "Use it in combination with strong-\n"
+    "hitting, low-accuracy moves, and\l"
+    "watch how your Pokémon turns into\l"
+    "an unstoppable force!\p"
+    "Oh, and before I forget,\n"
+    "take these as well."
 }

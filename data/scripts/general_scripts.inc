@@ -244,7 +244,7 @@ AutomaticUpdate::
 	setvar VAR_DEBUG, 9
 	clearflag FLAG_SERPENTCAVE_DRAGONFANG
 	clearflag FLAG_OBTAINED_TYRANITARITE
-	clearflag FLAG_OBTAINED_ASSAULT_VEST
+	clearflag FLAG_OBTAINED_BLUNDER_POLICY
 	msgbox AutomaticUpdate_Text1
 	callnative DefaultFollower
 	closemessage

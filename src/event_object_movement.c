@@ -567,6 +567,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Shuppet,           OBJ_EVENT_PAL_SHUPPET},
     {gObjectEventPalette_KrokorokPlayer,           OBJ_EVENT_PAL_KROKOROK},
     {gObjectEventPalette_Kasen,           OBJ_EVENT_PAL_KASEN},
+    {gObjectEventPalette_SSTidalRear,           OBJ_EVENT_PAL_SS_TIDAL_REAR},
     {gObjectEventPalette_BwAceSwimmer,           OBJ_EVENT_PAL_BW_ACE_SWIMMER},
     {gObjectEventPalette_ItemBallFloating,           OBJ_EVENT_PAL_ITEM_BALL_FLOATING},
     {gObjectEventPalette_Mina,           OBJ_EVENT_PAL_MINA},
@@ -1814,6 +1815,9 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
     sprite->centerToCornerVecY = -(graphicsInfo->height >> 1);
     sprite->x += 8;
     sprite->y += 16 + sprite->centerToCornerVecY;
+    if (objectEvent->graphicsId == OBJ_EVENT_GFX_SS_TIDAL_REAR){
+        sprite->x -= 8;
+    }
     if (objectEvent->graphicsId == OBJ_EVENT_GFX_FISHERMAN_SOUTH){
         sprite->y += 8;
     }
@@ -2917,6 +2921,9 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
         sprite->centerToCornerVecY = -(graphicsInfo->height >> 1);
         sprite->x += 8;
         sprite->y += 16 + sprite->centerToCornerVecY;
+        if (objectEvent->graphicsId == OBJ_EVENT_GFX_SS_TIDAL_REAR){
+            sprite->x -= 8;
+        }
         if (objectEvent->graphicsId == OBJ_EVENT_GFX_FISHERMAN_SOUTH){
             sprite->y += 8;
         }

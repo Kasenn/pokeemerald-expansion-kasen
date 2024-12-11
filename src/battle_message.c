@@ -2122,18 +2122,20 @@ void BufferStringBattle(u16 stringID, u32 battler)
                 }
                 else
                 {
+                    DebugPrintfLevel(MGBA_LOG_WARN, "Does the first one happen?");
                     if (gTrainerBattleOpponent_A == TRAINER_UNION_ROOM)
                         stringPtr = sText_Trainer1WantsToBattle;
                     else if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
                         stringPtr = sText_LinkTrainerWantsToBattlePause;
                     else
                         stringPtr = sText_LinkTrainerWantsToBattle;
-                    if (trainerClass == TRAINER_CLASS_RIVAL2)
+                    if ((trainerClass == TRAINER_CLASS_RIVAL2) && !(gBattleTypeFlags & BATTLE_TYPE_FRONTIER))
                         stringPtr = sText_BrotherWantsToBattle;
                 }
             }
             else
             {
+                DebugPrintfLevel(MGBA_LOG_WARN, "Does the second one happen?");
                 if (BATTLE_TWO_VS_ONE_OPPONENT)
                     stringPtr = sText_Trainer1WantsToBattle;
                 else if (gBattleTypeFlags & (BATTLE_TYPE_MULTI | BATTLE_TYPE_INGAME_PARTNER))
@@ -2142,7 +2144,7 @@ void BufferStringBattle(u16 stringID, u32 battler)
                     stringPtr = sText_TwoTrainersWantToBattle;
                 else
                     stringPtr = sText_Trainer1WantsToBattle;
-                if (trainerClass == TRAINER_CLASS_RIVAL2)
+                if ((trainerClass == TRAINER_CLASS_RIVAL2) && !(gBattleTypeFlags & BATTLE_TYPE_FRONTIER))
                         stringPtr = sText_BrotherWantsToBattle;
             }
         }
@@ -2152,8 +2154,6 @@ void BufferStringBattle(u16 stringID, u32 battler)
                 stringPtr = sText_LegendaryPkmnAppeared;
             else if (IsDoubleBattle() && IsValidForBattle(&gEnemyParty[gBattlerPartyIndexes[GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT)]]))
                 stringPtr = sText_TwoWildPkmnAppeared;
-            else if (gBattleTypeFlags & BATTLE_TYPE_WALLY_TUTORIAL)
-                stringPtr = sText_WildPkmnAppearedPause;
             else if (FlagGet(FLAG_SYSTEM_NO_WILD_RUNNING))
                 stringPtr = sText_OpponentMon1Appeared;
             else
@@ -2825,7 +2825,8 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst, u32 dstSize)
                 break;
             case B_TXT_TRAINER1_NAME: // trainer1 name
                 toCpy = BattleStringGetOpponentNameByTrainerId(gTrainerBattleOpponent_A, text, multiplayerId, GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT));
-                if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_RIVAL2)
+                DebugPrintfLevel(MGBA_LOG_WARN, "Does the third one happen?");
+                if ((gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_RIVAL2) && !(gBattleTypeFlags & BATTLE_TYPE_FRONTIER))
                         toCpy = GetExpandedPlaceholder(PLACEHOLDER_ID_BROTHER);
                 break;
             case B_TXT_TRAINER1_NAME_WITH_CLASS: // trainer1 name with trainer class
@@ -3045,7 +3046,7 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst, u32 dstSize)
                 break;
             case B_TXT_ATK_TRAINER_NAME:
                 toCpy = BattleStringGetTrainerName(text, multiplayerId, gBattlerAttacker);
-                if ((gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_RIVAL2)
+                if ((gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_RIVAL2) && !(gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
                     && (GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT))
                         toCpy = GetExpandedPlaceholder(PLACEHOLDER_ID_BROTHER);
                 break;

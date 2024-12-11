@@ -286,7 +286,7 @@
 #define FLAG_RECEIVED_TM_BULLET_SEED         0x106
 #define FLAG_ENTERED_ELITE_FOUR              0x107
 #define FLAG_RECEIVED_TM_HIDDEN_POWER        0x108
-#define FLAG_RECEIVED_TM_TORMENT             0x109
+#define FLAG_RECEIVED_TM_FLING             0x109
 #define FLAG_RECEIVED_LAVARIDGE_EGG          0x10A
 #define FLAG_RECEIVED_REVIVED_FOSSIL_MON     0x10B
 #define FLAG_SECRET_BASE_REGISTRY_ENABLED    0x10C
@@ -1300,7 +1300,7 @@
 #define FLAG_R13_ITEM1                                           0x4E5 // 
 #define FLAG_SERPENTCAVE_DRAGONFANG                                           0x4E6 // 
 #define FLAG_OBTAINED_TYRANITARITE                                           0x4E7 // 
-#define FLAG_OBTAINED_ASSAULT_VEST                                           0x4E8 // 
+#define FLAG_OBTAINED_BLUNDER_POLICY                                           0x4E8 // 
 #define FLAG_FC_ITEM1                                           0x4E9 // 
 #define FLAG_FC_ITEM2                                           0x4EA // 
 #define FLAG_FC_ITEM3                                           0x4EB // 
