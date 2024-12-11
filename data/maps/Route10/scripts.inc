@@ -153,16 +153,15 @@ R10_Ace_PostBattle_5:
 
 
 R10Tr2_Intro::
-	.string "The sea is my backyard. I'm not going\n"
-	.string "to take it easy because you're a kid!$"
+	.string "Out of my way, brat!$"
 
 R10Tr2_Lose::
-	.string "Did you take it easy on me by any\n"
-	.string "chance?$"
+	.string "Ow ow ow!\n"
+	.string "I'm sorry for my behavior!$"
 
 R10Tr2_PostBattle::
-	.string "Drifting along with the waves…\n"
-	.string "I love it! Why don't you give it a try?$"
+	.string "I didn't mean to call you a brat!\n"
+	.string "I'm sorry!$"
 
 R10Tr3_Intro::
 	.string "Which do you prefer, fishing in the\n"
@@ -178,14 +177,16 @@ R10Tr3_PostBattle::
 	.string "You agree with me, right?$"
 
 R10Tr4_Intro::
-	.string "Hahahah! I'm a lousy runner, but in\n"
-	.string "the water you can't catch me!$"
+	.string "Adults are working out here.\n"
+	.string "Move!$"
 
 R10Tr4_Lose::
-	.string "I give up!$"
+	.string "Oof…\n"
+	.string "Can't believe I just lost to a kid…$"
 
 R10Tr4_PostBattle::
-	.string "I wouldn't lose in a swim race…$"
+	.string "You've had your fun,\n"
+	.string "now leave me alone…$"
 
 R10Tr5_Intro::
 	.string "You're a Pokémon trainer.\n"
@@ -269,28 +270,58 @@ Route10_Beachgoer_F_Text::
 	.string "blocking the sun.$"
 
 R10_Ace_NotEligible::
-	.string "$"
+	.string "I met some rude swimmers here\n"
+	.string "not too long ago.\p"
+	.string "I wish I could've put them in their\n"
+	.string "place, but my slow Pokémon just\l"
+	.string "couldn't catch up to them.\p"
+	.string "Why don't you see if you can take\n"
+	.string "them on?\p"
+	.string "And once you've done that, come back\n"
+	.string "to me if you want a real challenge.$"
 
 R10_Ace_ReadyForBattle::
-	.string "$"
+	.string "I saw how you handled those rude\n"
+	.string "swimmers.\p"
+	.string "You're pretty good.\p"
+	.string "But are you good enough to handle\n"
+	.string "my Pokémon?$"
 
 R10_Ace_ReadyForBattleShort::
-	.string "$"
+	.string "Think you're good enough to handle\n"
+	.string "my Pokémon?$"
 
 R10_Ace_BeginBattle::
-	.string "$"
+	.string "The game's on!$"
 
 R10_Ace_Lose::
-	.string "$"
+	.string "Oh wow, I sure got put in my place.$"
 
 R10_Ace_DeclineBattle::
-	.string "$"
+	.string "Aww… And here I was getting my\n"
+	.string "hopes up…$"
 
 R10_Ace_PostBattle_Text::
-	.string "$"
+	.string "I should be sad for losing, but\n"
+	.string "seeing you beat those rude swimmers\l"
+	.string "really made my day.$"
 
 R10_Ace_Reward::
-	.string "$"
+	.string "Oh wow, you're way stronger\n"
+	.string "than I expected.\p"
+	.string "I thought I had my strategy perfected\n"
+	.string "to a tee, but I guess I still need\l"
+	.string "some more practice.\p"
+	.string "Maybe you can put this item to\n"
+	.string "better use?$"
 
 R10_Ace_ExplainReward::
-	.string "$"
+	.string "That there Blunder Policy massively\n"
+	.string "boosts a Pokémon's speed when it\l"
+	.string "misses with a move.\p"
+	.string "Use it in combination with strong-\n"
+	.string "hitting, low-accuracy moves, and\l"
+	.string "watch how your Pokémon turns into\l"
+	.string "an unstoppable force!\p"
+	.string "Oh, and before I forget,\n"
+	.string "take these as well.$"

@@ -403,6 +403,7 @@ script AutomaticUpdate4{
     end
 }
 script AutomaticUpdate5{
+    msgbox(EVTrainerNerfed)
     checkitemquant(ITEM_POTION)
     removeitem(ITEM_POTION, VAR_0x8005)
     additem(ITEM_SUPER_POTION, VAR_0x8005)
@@ -427,6 +428,11 @@ script AutomaticUpdate5{
         }
     }
     release
+}
+text EVTrainerNerfed{
+    "The EV trainer in Pokémon Centers\n"
+    "has been nerfed from 10 EV per\l"
+    "Pokémon to 5."
 }
 text SceneAltered{
     "An earlier story scene of\n"
@@ -625,7 +631,7 @@ script Debug_Script_4{              // Set team level
     release
     end}
 script Debug_Script_5{
-    special(InitRoamer)
+    setvar(VAR_KAOLISLE_BIRDS, 100)
     release
 }
 script Debug_Script_6{

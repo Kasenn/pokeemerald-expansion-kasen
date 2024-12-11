@@ -1700,3 +1700,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/TestRoomCopy/scripts.inc"
 
 	.include "data/maps/Azuretide_Grotto/scripts.inc"
+
+	.include "data/maps/Kaolisle_BirdHouse/scripts.inc"

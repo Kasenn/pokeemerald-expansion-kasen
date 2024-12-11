@@ -1,0 +1,229 @@
+mapscripts Kaolisle_BirdHouse_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: HideBirdHouseBirds
+}
+
+script HideBirdHouseBirds{
+    setflag(PIKIPEK_1)
+    setflag(PIKIPEK_2)
+    setflag(PIKIPEK_4)
+    setflag(TRUMBEAK_8)
+    setflag(TRUMBEAK_16)
+    switch(var(VAR_KAOLISLE_BIRDS)){
+        case 101:
+            clearflag(PIKIPEK_1)
+        case 102:
+            clearflag(PIKIPEK_2)
+        case 103:
+            clearflag(PIKIPEK_1)
+            clearflag(PIKIPEK_2)
+        case 104:
+            clearflag(PIKIPEK_4)
+        case 105:
+            clearflag(PIKIPEK_1)
+            clearflag(PIKIPEK_4)
+        case 106:
+            clearflag(PIKIPEK_2)
+            clearflag(PIKIPEK_4)
+        case 107:
+            clearflag(PIKIPEK_1)
+            clearflag(PIKIPEK_2)
+            clearflag(PIKIPEK_4)
+        case 108:
+            clearflag(TRUMBEAK_8)
+        case 109:
+            clearflag(PIKIPEK_1)
+            clearflag(TRUMBEAK_8)
+        case 110:
+            clearflag(TRUMBEAK_8)
+            clearflag(PIKIPEK_2)
+        case 111:
+            clearflag(TRUMBEAK_8)
+            clearflag(PIKIPEK_1)
+            clearflag(PIKIPEK_2)
+        case 112:
+            clearflag(TRUMBEAK_8)
+            clearflag(PIKIPEK_4)
+        case 113:
+            clearflag(TRUMBEAK_8)
+            clearflag(PIKIPEK_4)
+            clearflag(PIKIPEK_1)
+        case 114:
+            clearflag(TRUMBEAK_8)
+            clearflag(PIKIPEK_4)
+            clearflag(PIKIPEK_2)
+        case 115:
+            clearflag(TRUMBEAK_8)
+            clearflag(PIKIPEK_4)
+            clearflag(PIKIPEK_2)
+            clearflag(PIKIPEK_1)
+        case 116:
+            clearflag(TRUMBEAK_16)
+        case 117:
+            clearflag(TRUMBEAK_16)
+            clearflag(PIKIPEK_1)
+        case 118:
+            clearflag(TRUMBEAK_16)
+            clearflag(PIKIPEK_2)
+        case 119:
+            clearflag(TRUMBEAK_16)
+            clearflag(PIKIPEK_2)
+            clearflag(PIKIPEK_1)
+        case 120:
+            clearflag(TRUMBEAK_16)
+            clearflag(PIKIPEK_4)
+        case 121:
+            clearflag(TRUMBEAK_16)
+            clearflag(PIKIPEK_4)
+            clearflag(PIKIPEK_1)
+        case 122:
+            clearflag(TRUMBEAK_16)
+            clearflag(PIKIPEK_4)
+            clearflag(PIKIPEK_2)
+        case 123:
+            clearflag(TRUMBEAK_16)
+            clearflag(PIKIPEK_4)
+            clearflag(PIKIPEK_2)
+            clearflag(PIKIPEK_1)
+        case 124:
+            clearflag(TRUMBEAK_16)
+            clearflag(TRUMBEAK_8)
+        case 125:
+            clearflag(TRUMBEAK_16)
+            clearflag(TRUMBEAK_8)
+            clearflag(PIKIPEK_1)
+        case 126:
+            clearflag(TRUMBEAK_16)
+            clearflag(TRUMBEAK_8)
+            clearflag(PIKIPEK_2)
+        case 127:
+            clearflag(TRUMBEAK_16)
+            clearflag(TRUMBEAK_8)
+            clearflag(PIKIPEK_2)
+            clearflag(PIKIPEK_1)
+        case 128:
+            clearflag(TRUMBEAK_16)
+            clearflag(TRUMBEAK_8)
+            clearflag(PIKIPEK_4)
+        case 129:
+            clearflag(TRUMBEAK_16)
+            clearflag(TRUMBEAK_8)
+            clearflag(PIKIPEK_4)
+            clearflag(PIKIPEK_1)
+        case 130:
+            clearflag(TRUMBEAK_16)
+            clearflag(TRUMBEAK_8)
+            clearflag(PIKIPEK_4)
+            clearflag(PIKIPEK_2)
+        case 131:
+            clearflag(TRUMBEAK_16)
+            clearflag(TRUMBEAK_8)
+            clearflag(PIKIPEK_4)
+            clearflag(PIKIPEK_2)
+            clearflag(PIKIPEK_1)
+    }
+}
+
+const PIKIPEK_1 = FLAG_TEMP_5
+const PIKIPEK_2 = FLAG_TEMP_6
+const PIKIPEK_4 = FLAG_TEMP_7
+const TRUMBEAK_8 = FLAG_TEMP_8
+const TRUMBEAK_16 = FLAG_TEMP_9
+
+script Kaolisle_BirdHouse_BirdMan{
+    if(checkitem(ITEM_TM_BULLET_SEED) == TRUE){
+        msgbox(ThanksForReturningBirds, MSGBOX_NPC)
+        end
+    }
+    if(var(VAR_KAOLISLE_BIRDS) == 0){
+        msgbox(PleaseHelpReturnBirds, MSGBOX_NPC)
+        setvar(VAR_KAOLISLE_BIRDS, 100)
+        end
+    }
+    if(var(VAR_KAOLISLE_BIRDS) == 100){
+        msgbox(PleaseHelpReturnBirds_Reminder, MSGBOX_NPC)
+        end
+    }
+    if(var(VAR_KAOLISLE_BIRDS) < 131){
+        msgbox(SomeBirdsAreBack, MSGBOX_NPC)
+        end
+    }
+    else{
+        lock
+        faceplayer
+        msgbox(TakeBulletSeed)
+        giveitem(ITEM_TM_BULLET_SEED)
+        if(var(VAR_RESULT) == FALSE){
+            goto(ZeBagIsFull)
+        }
+    }
+    release
+    end
+}
+
+text ThanksForReturningBirds{
+    "Thank you again for guiding my\n"
+    "precious birds back!"
+}
+text PleaseHelpReturnBirds{
+    "This morning I accidentally left one\n"
+    "of my windows open and all my exotic\l"
+    "birds escaped.\p"
+    "Do you think you could help me\n"
+    "guide them back?\p"
+    "They very much like the weather here\n"
+    "so I doubt they've flown too far.\p"
+    "There should be three Pikipeks and\n"
+    "two Trumbeaks.\p"
+    "The Trumbeaks love the ocean air,\n"
+    "so they're probably flying somewhere\l"
+    "above the ocean.\p"
+    "The Pikipeks aren't very good fliers,\n"
+    "so I assume they would probably stick\l"
+    "rather close to land.\p"
+    "They must've simply gotten lost, so\n"
+    "if you give them a gentle nudge and\l"
+    "point towards home, I'm sure they\l"
+    "can figure out the rest."
+}
+text PleaseHelpReturnBirds_Reminder{
+    "There should be three Pikipeks and\n"
+    "two Trumbeaks.\p"
+    "They must've simply gotten lost, so\n"
+    "if you give them a gentle nudge and\l"
+    "point towards home, I'm sure they\l"
+    "can figure out the rest."
+}
+text SomeBirdsAreBack{
+    "I see some of the birds are back,\n"
+    "but some are still missing.\p"
+    "As a reminder, there should be\n"
+    "three Pikipeks and two Trumbeaks."
+}
+text TakeBulletSeed{
+    "Thank you so much for guiding my\n"
+    "precious birds back!\p"
+    "I don't have much to offer in\n"
+    "terms of rewards, but I hope this\l"
+    "will suffice."
+}
+
+script KaolisleBirdHouse_Pikipek{
+	lock
+	faceplayer
+    waitse
+	playmoncry(SPECIES_PIKIPEK, CRY_MODE_NORMAL)
+	msgbox("Pikipek: Kreek!", MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+script KaolisleBirdHouse_Trumbeak{
+	lock
+	faceplayer
+    waitse
+	playmoncry(SPECIES_TRUMBEAK, CRY_MODE_NORMAL)
+	msgbox("Trumbeak: Kreek!", MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}

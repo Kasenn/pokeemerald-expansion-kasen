@@ -4,60 +4,277 @@ KaolisleCity_MapScripts::
 
 
 RandomizeBrother::
+	compare VAR_KAOLISLE_BIRDS, 100
+	goto_if_lt RandomizeBrother_2
+RandomizeBrother_1:
+	switch VAR_KAOLISLE_BIRDS
+	case 101, RandomizeBrother_6
+	case 102, RandomizeBrother_7
+	case 103, RandomizeBrother_8
+	case 104, RandomizeBrother_9
+	case 105, RandomizeBrother_10
+	case 106, RandomizeBrother_11
+	case 107, RandomizeBrother_12
+	case 108, RandomizeBrother_13
+	case 109, RandomizeBrother_14
+	case 110, RandomizeBrother_15
+	case 111, RandomizeBrother_16
+	case 112, RandomizeBrother_17
+	case 113, RandomizeBrother_18
+	case 114, RandomizeBrother_19
+	case 115, RandomizeBrother_20
+	case 116, RandomizeBrother_21
+	case 117, RandomizeBrother_22
+	case 118, RandomizeBrother_23
+	case 119, RandomizeBrother_24
+	case 120, RandomizeBrother_25
+	case 121, RandomizeBrother_26
+	case 122, RandomizeBrother_27
+	case 123, RandomizeBrother_28
+	case 124, RandomizeBrother_29
+	case 125, RandomizeBrother_30
+	case 126, RandomizeBrother_31
+	case 127, RandomizeBrother_32
+	case 128, RandomizeBrother_33
+	case 129, RandomizeBrother_34
+	case 130, RandomizeBrother_35
+	case 131, RandomizeBrother_36
+RandomizeBrother_4:
 	setflag FLAG_VISITED_KAOLISLE
-	goto_if_set FLAG_BADGE03_GET, RandomizeBrother_2
+	goto_if_set FLAG_BADGE03_GET, RandomizeBrother_38
 	random 8
 	copyvar VAR_TEMP_3, VAR_RESULT
 	switch VAR_TEMP_3
-	case 0, RandomizeBrother_5
-	case 1, RandomizeBrother_6
-	case 2, RandomizeBrother_7
-	case 3, RandomizeBrother_8
-	case 4, RandomizeBrother_9
-	case 5, RandomizeBrother_10
-	case 6, RandomizeBrother_11
-	case 7, RandomizeBrother_12
+	case 0, RandomizeBrother_41
+	case 1, RandomizeBrother_42
+	case 2, RandomizeBrother_43
+	case 3, RandomizeBrother_44
+	case 4, RandomizeBrother_45
+	case 5, RandomizeBrother_46
+	case 6, RandomizeBrother_47
+	case 7, RandomizeBrother_48
 	return
 
 RandomizeBrother_2:
+	setflag FLAG_TEMP_5
+	setflag FLAG_TEMP_6
+	setflag FLAG_TEMP_7
+	setflag FLAG_TEMP_8
+	setflag FLAG_TEMP_9
+	goto RandomizeBrother_1
+
+RandomizeBrother_6:
+	setflag FLAG_TEMP_5
+	goto RandomizeBrother_4
+
+RandomizeBrother_7:
+	setflag FLAG_TEMP_6
+	goto RandomizeBrother_4
+
+RandomizeBrother_8:
+	setflag FLAG_TEMP_5
+	setflag FLAG_TEMP_6
+	goto RandomizeBrother_4
+
+RandomizeBrother_9:
+	setflag FLAG_TEMP_7
+	goto RandomizeBrother_4
+
+RandomizeBrother_10:
+	setflag FLAG_TEMP_5
+	setflag FLAG_TEMP_7
+	goto RandomizeBrother_4
+
+RandomizeBrother_11:
+	setflag FLAG_TEMP_6
+	setflag FLAG_TEMP_7
+	goto RandomizeBrother_4
+
+RandomizeBrother_12:
+	setflag FLAG_TEMP_5
+	setflag FLAG_TEMP_6
+	setflag FLAG_TEMP_7
+	goto RandomizeBrother_4
+
+RandomizeBrother_13:
+	setflag FLAG_TEMP_8
+	goto RandomizeBrother_4
+
+RandomizeBrother_14:
+	setflag FLAG_TEMP_5
+	setflag FLAG_TEMP_8
+	goto RandomizeBrother_4
+
+RandomizeBrother_15:
+	setflag FLAG_TEMP_8
+	setflag FLAG_TEMP_6
+	goto RandomizeBrother_4
+
+RandomizeBrother_16:
+	setflag FLAG_TEMP_8
+	setflag FLAG_TEMP_5
+	setflag FLAG_TEMP_6
+	goto RandomizeBrother_4
+
+RandomizeBrother_17:
+	setflag FLAG_TEMP_8
+	setflag FLAG_TEMP_7
+	goto RandomizeBrother_4
+
+RandomizeBrother_18:
+	setflag FLAG_TEMP_8
+	setflag FLAG_TEMP_7
+	setflag FLAG_TEMP_5
+	goto RandomizeBrother_4
+
+RandomizeBrother_19:
+	setflag FLAG_TEMP_8
+	setflag FLAG_TEMP_7
+	setflag FLAG_TEMP_6
+	goto RandomizeBrother_4
+
+RandomizeBrother_20:
+	setflag FLAG_TEMP_8
+	setflag FLAG_TEMP_7
+	setflag FLAG_TEMP_6
+	setflag FLAG_TEMP_5
+	goto RandomizeBrother_4
+
+RandomizeBrother_21:
+	setflag FLAG_TEMP_9
+	goto RandomizeBrother_4
+
+RandomizeBrother_22:
+	setflag FLAG_TEMP_9
+	setflag FLAG_TEMP_5
+	goto RandomizeBrother_4
+
+RandomizeBrother_23:
+	setflag FLAG_TEMP_9
+	setflag FLAG_TEMP_6
+	goto RandomizeBrother_4
+
+RandomizeBrother_24:
+	setflag FLAG_TEMP_9
+	setflag FLAG_TEMP_6
+	setflag FLAG_TEMP_5
+	goto RandomizeBrother_4
+
+RandomizeBrother_25:
+	setflag FLAG_TEMP_9
+	setflag FLAG_TEMP_7
+	goto RandomizeBrother_4
+
+RandomizeBrother_26:
+	setflag FLAG_TEMP_9
+	setflag FLAG_TEMP_7
+	setflag FLAG_TEMP_5
+	goto RandomizeBrother_4
+
+RandomizeBrother_27:
+	setflag FLAG_TEMP_9
+	setflag FLAG_TEMP_7
+	setflag FLAG_TEMP_6
+	goto RandomizeBrother_4
+
+RandomizeBrother_28:
+	setflag FLAG_TEMP_9
+	setflag FLAG_TEMP_7
+	setflag FLAG_TEMP_6
+	setflag FLAG_TEMP_5
+	goto RandomizeBrother_4
+
+RandomizeBrother_29:
+	setflag FLAG_TEMP_9
+	setflag FLAG_TEMP_8
+	goto RandomizeBrother_4
+
+RandomizeBrother_30:
+	setflag FLAG_TEMP_9
+	setflag FLAG_TEMP_8
+	setflag FLAG_TEMP_5
+	goto RandomizeBrother_4
+
+RandomizeBrother_31:
+	setflag FLAG_TEMP_9
+	setflag FLAG_TEMP_8
+	setflag FLAG_TEMP_6
+	goto RandomizeBrother_4
+
+RandomizeBrother_32:
+	setflag FLAG_TEMP_9
+	setflag FLAG_TEMP_8
+	setflag FLAG_TEMP_6
+	setflag FLAG_TEMP_5
+	goto RandomizeBrother_4
+
+RandomizeBrother_33:
+	setflag FLAG_TEMP_9
+	setflag FLAG_TEMP_8
+	setflag FLAG_TEMP_7
+	goto RandomizeBrother_4
+
+RandomizeBrother_34:
+	setflag FLAG_TEMP_9
+	setflag FLAG_TEMP_8
+	setflag FLAG_TEMP_7
+	setflag FLAG_TEMP_5
+	goto RandomizeBrother_4
+
+RandomizeBrother_35:
+	setflag FLAG_TEMP_9
+	setflag FLAG_TEMP_8
+	setflag FLAG_TEMP_7
+	setflag FLAG_TEMP_6
+	goto RandomizeBrother_4
+
+RandomizeBrother_36:
+	setflag FLAG_TEMP_9
+	setflag FLAG_TEMP_8
+	setflag FLAG_TEMP_7
+	setflag FLAG_TEMP_6
+	setflag FLAG_TEMP_5
+	goto RandomizeBrother_4
+
+RandomizeBrother_38:
 	end
 
-RandomizeBrother_5:
+RandomizeBrother_41:
 	setobjectxyperm 30, 33, 3
 	setobjectmovementtype 30, MOVEMENT_TYPE_FACE_UP
 	return
 
-RandomizeBrother_6:
+RandomizeBrother_42:
 	setobjectxyperm 30, 29, 26
 	setobjectmovementtype 30, MOVEMENT_TYPE_FACE_UP
 	return
 
-RandomizeBrother_7:
+RandomizeBrother_43:
 	setobjectxyperm 30, 19, 43
 	setobjectmovementtype 30, MOVEMENT_TYPE_FACE_UP
 	return
 
-RandomizeBrother_8:
+RandomizeBrother_44:
 	setobjectxyperm 30, 25, 51
 	setobjectmovementtype 30, MOVEMENT_TYPE_FACE_DOWN
 	return
 
-RandomizeBrother_9:
+RandomizeBrother_45:
 	setobjectxyperm 30, 53, 52
 	setobjectmovementtype 30, MOVEMENT_TYPE_FACE_UP
 	return
 
-RandomizeBrother_10:
+RandomizeBrother_46:
 	setobjectxyperm 30, 52, 61
 	setobjectmovementtype 30, MOVEMENT_TYPE_FACE_RIGHT
 	return
 
-RandomizeBrother_11:
+RandomizeBrother_47:
 	setobjectxyperm 30, 18, 15
 	setobjectmovementtype 30, MOVEMENT_TYPE_LOOK_AROUND
 	return
 
-RandomizeBrother_12:
+RandomizeBrother_48:
 	setobjectxyperm 30, 53, 25
 	setobjectmovementtype 30, MOVEMENT_TYPE_FACE_RIGHT
 	return
@@ -393,8 +610,66 @@ KaolisleCity_SignIntro::
 	end
 
 
+Pikipek1::
+	addvar VAR_KAOLISLE_BIRDS, 1
+	setvar VAR_TEMP_9, SPECIES_PIKIPEK
+	goto KaolisleBirdMain
+	return
+
+
+Pikipek2::
+	addvar VAR_KAOLISLE_BIRDS, 2
+	setvar VAR_TEMP_9, SPECIES_PIKIPEK
+	goto KaolisleBirdMain
+	return
+
+
+Pikipek4::
+	addvar VAR_KAOLISLE_BIRDS, 4
+	setvar VAR_TEMP_9, SPECIES_PIKIPEK
+	goto KaolisleBirdMain
+	return
+
+
+Trumbeak8::
+	addvar VAR_KAOLISLE_BIRDS, 8
+	setvar VAR_TEMP_9, SPECIES_TRUMBEAK
+	goto KaolisleBirdMain
+	return
+
+
+Trumbeak16::
+	addvar VAR_KAOLISLE_BIRDS, 16
+	setvar VAR_TEMP_9, SPECIES_TRUMBEAK
+	goto KaolisleBirdMain
+	return
+
+
+KaolisleBirdMain::
+	lock
+	faceplayer
+	waitse
+	bufferspeciesname STR_VAR_1, VAR_TEMP_9
+	playmoncry VAR_TEMP_9, CRY_MODE_NORMAL
+	waitmoncry
+	msgbox KaolisleBirdMain_Text_0
+	closemessage
+	fadescreen FADE_TO_BLACK
+	delay 15
+	msgbox NudgeMon
+	closemessage
+	removeobject VAR_LAST_TALKED
+	fadescreen FADE_FROM_BLACK
+	delay 15
+	release
+	end
+
+
 KaolisleCity_Zigzagoon_Text_0:
 	.string "Zigzagoon: Guguuh!$"
+
+KaolisleBirdMain_Text_0:
+	.string "This looks to be one of the\nlost {STR_VAR_1}s.$"
 
 Kaolisle_BrotherIntro::
 	.string "{BROTHER}: Yo, {PLAYER}!\n"
@@ -732,3 +1007,7 @@ KaolisleCity_SignFanClub_Text::
 KaolisleCity_SignIntro_Text::
 	.string "KAOLISLE CITY\n"
 	.string "“The cleanest city in the world.”$"
+
+NudgeMon::
+	.string "You give the {STR_VAR_1} a nudge\n"
+	.string "and it starts flying towards home.$"

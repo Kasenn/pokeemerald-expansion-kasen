@@ -429,7 +429,7 @@ EVTrainingDescription_Text::
 	.string "The person to my left offers\n"
 	.string "EV training.\p"
 	.string "She has 5 training bots, with each\n"
-	.string "granting 10 EV in the specified stat.\p"
+	.string "granting 5 EV in the specified stat.\p"
 	.string "The cost of this service and the\n"
 	.string "quality of the bots is consistent\l"
 	.string "between every training club, so you're\l"

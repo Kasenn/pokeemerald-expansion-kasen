@@ -2,7 +2,133 @@ mapscripts KaolisleCity_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: RandomizeBrother
 }
 
+const PIKIPEK_1 = FLAG_TEMP_5
+const PIKIPEK_2 = FLAG_TEMP_6
+const PIKIPEK_4 = FLAG_TEMP_7
+const TRUMBEAK_8 = FLAG_TEMP_8
+const TRUMBEAK_16 = FLAG_TEMP_9
+
 script RandomizeBrother{
+    if(var(VAR_KAOLISLE_BIRDS) < 100){
+        setflag(PIKIPEK_1)
+        setflag(PIKIPEK_2)
+        setflag(PIKIPEK_4)
+        setflag(TRUMBEAK_8)
+        setflag(TRUMBEAK_16)
+    }
+    switch(var(VAR_KAOLISLE_BIRDS)){
+        case 101:
+            setflag(PIKIPEK_1)
+        case 102:
+            setflag(PIKIPEK_2)
+        case 103:
+            setflag(PIKIPEK_1)
+            setflag(PIKIPEK_2)
+        case 104:
+            setflag(PIKIPEK_4)
+        case 105:
+            setflag(PIKIPEK_1)
+            setflag(PIKIPEK_4)
+        case 106:
+            setflag(PIKIPEK_2)
+            setflag(PIKIPEK_4)
+        case 107:
+            setflag(PIKIPEK_1)
+            setflag(PIKIPEK_2)
+            setflag(PIKIPEK_4)
+        case 108:
+            setflag(TRUMBEAK_8)
+        case 109:
+            setflag(PIKIPEK_1)
+            setflag(TRUMBEAK_8)
+        case 110:
+            setflag(TRUMBEAK_8)
+            setflag(PIKIPEK_2)
+        case 111:
+            setflag(TRUMBEAK_8)
+            setflag(PIKIPEK_1)
+            setflag(PIKIPEK_2)
+        case 112:
+            setflag(TRUMBEAK_8)
+            setflag(PIKIPEK_4)
+        case 113:
+            setflag(TRUMBEAK_8)
+            setflag(PIKIPEK_4)
+            setflag(PIKIPEK_1)
+        case 114:
+            setflag(TRUMBEAK_8)
+            setflag(PIKIPEK_4)
+            setflag(PIKIPEK_2)
+        case 115:
+            setflag(TRUMBEAK_8)
+            setflag(PIKIPEK_4)
+            setflag(PIKIPEK_2)
+            setflag(PIKIPEK_1)
+        case 116:
+            setflag(TRUMBEAK_16)
+        case 117:
+            setflag(TRUMBEAK_16)
+            setflag(PIKIPEK_1)
+        case 118:
+            setflag(TRUMBEAK_16)
+            setflag(PIKIPEK_2)
+        case 119:
+            setflag(TRUMBEAK_16)
+            setflag(PIKIPEK_2)
+            setflag(PIKIPEK_1)
+        case 120:
+            setflag(TRUMBEAK_16)
+            setflag(PIKIPEK_4)
+        case 121:
+            setflag(TRUMBEAK_16)
+            setflag(PIKIPEK_4)
+            setflag(PIKIPEK_1)
+        case 122:
+            setflag(TRUMBEAK_16)
+            setflag(PIKIPEK_4)
+            setflag(PIKIPEK_2)
+        case 123:
+            setflag(TRUMBEAK_16)
+            setflag(PIKIPEK_4)
+            setflag(PIKIPEK_2)
+            setflag(PIKIPEK_1)
+        case 124:
+            setflag(TRUMBEAK_16)
+            setflag(TRUMBEAK_8)
+        case 125:
+            setflag(TRUMBEAK_16)
+            setflag(TRUMBEAK_8)
+            setflag(PIKIPEK_1)
+        case 126:
+            setflag(TRUMBEAK_16)
+            setflag(TRUMBEAK_8)
+            setflag(PIKIPEK_2)
+        case 127:
+            setflag(TRUMBEAK_16)
+            setflag(TRUMBEAK_8)
+            setflag(PIKIPEK_2)
+            setflag(PIKIPEK_1)
+        case 128:
+            setflag(TRUMBEAK_16)
+            setflag(TRUMBEAK_8)
+            setflag(PIKIPEK_4)
+        case 129:
+            setflag(TRUMBEAK_16)
+            setflag(TRUMBEAK_8)
+            setflag(PIKIPEK_4)
+            setflag(PIKIPEK_1)
+        case 130:
+            setflag(TRUMBEAK_16)
+            setflag(TRUMBEAK_8)
+            setflag(PIKIPEK_4)
+            setflag(PIKIPEK_2)
+        case 131:
+            setflag(TRUMBEAK_16)
+            setflag(TRUMBEAK_8)
+            setflag(PIKIPEK_4)
+            setflag(PIKIPEK_2)
+            setflag(PIKIPEK_1)
+    }
     setflag(FLAG_VISITED_KAOLISLE)
     if(flag(FLAG_BADGE03_GET)){
         end
@@ -657,4 +783,53 @@ text KaolisleCity_SignFanClub_Text{
 text KaolisleCity_SignIntro_Text{
     "KAOLISLE CITY\n"
     "“The cleanest city in the world.”"
+}
+
+script Pikipek1{
+    addvar(VAR_KAOLISLE_BIRDS, 1)
+    setvar(VAR_TEMP_9, SPECIES_PIKIPEK)
+    goto(KaolisleBirdMain)
+}
+script Pikipek2{
+    addvar(VAR_KAOLISLE_BIRDS, 2)
+    setvar(VAR_TEMP_9, SPECIES_PIKIPEK)
+    goto(KaolisleBirdMain)
+}
+script Pikipek4{
+    addvar(VAR_KAOLISLE_BIRDS, 4)
+    setvar(VAR_TEMP_9, SPECIES_PIKIPEK)
+    goto(KaolisleBirdMain)
+}
+script Trumbeak8{
+    addvar(VAR_KAOLISLE_BIRDS, 8)
+    setvar(VAR_TEMP_9, SPECIES_TRUMBEAK)
+    goto(KaolisleBirdMain)
+}
+script Trumbeak16{
+    addvar(VAR_KAOLISLE_BIRDS, 16)
+    setvar(VAR_TEMP_9, SPECIES_TRUMBEAK)
+    goto(KaolisleBirdMain)
+}
+
+script KaolisleBirdMain{
+    lock
+	faceplayer
+    waitse
+    bufferspeciesname(STR_VAR_1, VAR_TEMP_9)
+	playmoncry(VAR_TEMP_9, CRY_MODE_NORMAL)
+    waitmoncry
+	msgbox("This looks to be one of the\nlost {STR_VAR_1}s.")
+    closemessage
+    fadescreen(FADE_TO_BLACK)
+    delay(15)
+    msgbox(NudgeMon)
+    closemessage
+    removeobject(VAR_LAST_TALKED)
+    fadescreen(FADE_FROM_BLACK)
+	release
+}
+
+text NudgeMon{
+    "You give the {STR_VAR_1} a nudge,\n"
+    "and it starts flying towards home."
 }

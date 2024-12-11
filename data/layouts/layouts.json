@@ -7090,6 +7090,16 @@
       "secondary_tileset": "gTileset_SecretBaseShrub",
       "border_filepath": "data/layouts/Azuretide_Grotto/border.bin",
       "blockdata_filepath": "data/layouts/Azuretide_Grotto/map.bin"
+    },
+    {
+      "id": "LAYOUT_KAOLISLE_BIRD_HOUSE",
+      "name": "Kaolisle_BirdHouse_Layout",
+      "width": 12,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Kaolisle_BirdHouse/border.bin",
+      "blockdata_filepath": "data/layouts/Kaolisle_BirdHouse/map.bin"
     }
   ]
 }

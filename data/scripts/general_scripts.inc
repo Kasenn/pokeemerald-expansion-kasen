@@ -418,6 +418,7 @@ AutomaticUpdate4::
 
 
 AutomaticUpdate5::
+	msgbox EVTrainerNerfed
 	checkitemquant ITEM_POTION
 	removeitem ITEM_POTION, VAR_0x8005
 	additem ITEM_SUPER_POTION, VAR_0x8005
@@ -754,7 +755,7 @@ Debug_Script_4_12:
 
 
 Debug_Script_5::
-	special InitRoamer
+	setvar VAR_KAOLISLE_BIRDS, 100
 	release
 	return
 
@@ -1154,6 +1155,11 @@ AutomaticUpdate2_Text2::
 	.string "The toggle between health numbers\n"
 	.string "and bars in double battles has been\l"
 	.string "moved to SELECT button.$"
+
+EVTrainerNerfed::
+	.string "The EV trainer in Pokémon Centers\n"
+	.string "has been nerfed from 10 EV per\l"
+	.string "Pokémon to 5.$"
 
 SceneAltered::
 	.string "An earlier story scene of\n"

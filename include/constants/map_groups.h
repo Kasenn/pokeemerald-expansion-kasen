@@ -259,6 +259,7 @@
 #define MAP_KAOLISLE_HOTEL_4F_ROOMS      (21 | (11 << 8))
 #define MAP_KAOLISLE_HOTEL_5F_ROOMS      (22 | (11 << 8))
 #define MAP_KAOLISLE_HOTEL_ELEVATOR      (23 | (11 << 8))
+#define MAP_KAOLISLE_BIRD_HOUSE          (24 | (11 << 8))
 
 // gMapGroup_IndoorRockliffeTown
 #define MAP_ROCKLIFFE_HARBOR                       (0 | (12 << 8))
