@@ -5,22 +5,36 @@ AldeleafGym_MapScripts::
 
 
 AldeleafGymSetUpFromLoad::
-	goto_if_set FLAG_ALDELEAF_SWITCH1, AldeleafGymSetUpFromLoad_2
+	compare VAR_ROUTE14_ROCKET_EVENT, 6
+	goto_if_ge AldeleafGymSetUpFromLoad_2
 AldeleafGymSetUpFromLoad_1:
-	goto_if_set FLAG_ALDELEAF_SWITCH2, AldeleafGymSetUpFromLoad_5
+	compare VAR_AMBEROCK_STORY, STORY_AMBEROCK_STORY_COMPLETE
+	goto_if_ge AldeleafGymSetUpFromLoad_5
 AldeleafGymSetUpFromLoad_4:
-	goto_if_set FLAG_ALDELEAF_SWITCH3, AldeleafGymSetUpFromLoad_7
+	goto_if_set FLAG_ALDELEAF_SWITCH1, AldeleafGymSetUpFromLoad_8
+AldeleafGymSetUpFromLoad_7:
+	goto_if_set FLAG_ALDELEAF_SWITCH2, AldeleafGymSetUpFromLoad_11
+AldeleafGymSetUpFromLoad_10:
+	goto_if_set FLAG_ALDELEAF_SWITCH3, AldeleafGymSetUpFromLoad_13
 	return
 
 AldeleafGymSetUpFromLoad_2:
-	setmetatile 1, 73, 0x206, FALSE
+	setflag FLAG_TEMP_1
 	goto AldeleafGymSetUpFromLoad_1
 
 AldeleafGymSetUpFromLoad_5:
-	setmetatile 1, 64, 0x206, FALSE
+	clearflag FLAG_TEMP_1
 	goto AldeleafGymSetUpFromLoad_4
 
-AldeleafGymSetUpFromLoad_7:
+AldeleafGymSetUpFromLoad_8:
+	setmetatile 1, 73, 0x206, FALSE
+	goto AldeleafGymSetUpFromLoad_7
+
+AldeleafGymSetUpFromLoad_11:
+	setmetatile 1, 64, 0x206, FALSE
+	goto AldeleafGymSetUpFromLoad_10
+
+AldeleafGymSetUpFromLoad_13:
 	setmetatile 1, 55, 0x206, FALSE
 	return
 

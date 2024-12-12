@@ -615,6 +615,7 @@ extern const u8 Lab2_Ball1[];
 extern const u8 Lab2_Ball2[];
 extern const u8 Lab2_Ball3[];
 extern const u8 LanettesHouse_Extractinator[];
+extern const u8 Amberock_RetreatKrokorok[];
 
 // Battle Pyramid.
 extern const u8 BattlePyramid_Retire[];

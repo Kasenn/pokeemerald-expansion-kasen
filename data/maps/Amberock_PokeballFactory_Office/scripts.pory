@@ -1,0 +1,5 @@
+mapscripts Amberock_PokeballFactory_Office_MapScripts {
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
+        VAR_TEMP_3, 0: SetPlayerKrokorokModel
+    ]
+}

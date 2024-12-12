@@ -6507,7 +6507,7 @@
       "width": 48,
       "height": 130,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "secondary_tileset": "gTileset_Mossdeep2",
       "border_filepath": "data/layouts/Route16/border.bin",
       "blockdata_filepath": "data/layouts/Route16/map.bin"
     },
@@ -7006,8 +7006,8 @@
       "name": "Amberock_PokeballFactory_Layout",
       "width": 40,
       "height": 40,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Facility",
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BikeShop",
       "border_filepath": "data/layouts/Amberock_PokeballFactory/border.bin",
       "blockdata_filepath": "data/layouts/Amberock_PokeballFactory/map.bin"
     },

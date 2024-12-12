@@ -1,6 +1,9 @@
 mapscripts AmberockTown_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: Amberock_FlagControl
     MAP_SCRIPT_ON_LOAD: Amberock_PaperVisibility
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
+        VAR_TEMP_3, 0: SetPlayerKrokorokModel
+    ]
 }
 
 const X = VAR_TEMP_1
@@ -17,41 +20,212 @@ const FLAG_GIOVANNI = FLAG_TEMP_9
 const FLAG_TEAM_ROCKET = FLAG_TEMP_A
 const FLAG_BOAT = FLAG_TEMP_B
 const FLAG_HIKER = FLAG_TEMP_C
+const PLAYER = OBJ_EVENT_ID_PLAYER
+const NPC_KROKOROK = 9
+const NPC_CLAY = 10
+const NPC_PLAYER = 11
+const NPC_VOLKNER = 23
 
 script Amberock_FlagControl{
+    if(!flag(FLAG_DISGUISED_AS_KROKOROK)){
+        setflag(FLAG_FAKE_PLAYER)
+    }
+    else{
+        setflag(FLAG_TEMP_HIDE_FOLLOWER)
+        setflag(FLAG_KROKOROK)
+    }
+    ///
     if(flag(FLAG_REPAIR_AMBEROCK_BRIDGE)){
         setmaplayoutindex(LAYOUT_AMBEROCK_TEST)
     }
     else{
         setflag(FLAG_HIKER)
     }
-    setflag(FLAG_ACEROLA)
-    setflag(FLAG_SCIENTIST)
-    if(var(VAR_ROUTE14_ROCKET_EVENT) >= 6){
-        setflag(FLAG_ESCAPING_ROCKET)
-        setflag(FLAG_PAPERS)
-    }
-    if(flag(FLAG_BADGE05_GET) && !flag(FLAG_RECEIVED_HM_SURF)){
-        setobjectxyperm(31, 33, 11)
-        clearflag(FLAG_SCIENTIST)
-    }
-    if(checkplayergender == MALE){
-        if(flag(FLAG_PC_CHANGE_COSTUME)){
-            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_NORMAL_ORAS)
-        }
-        else{
-            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL)
-        }
-    }
-    else{
-        if(flag(FLAG_PC_CHANGE_COSTUME)){
-            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_NORMAL_ORAS)
-        }
-        else{
-            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL)
-        }
-    }
+    call(Amberock_AcerolaEvent)
+    call(Amberock_SetPlayerModel)
 }
+
+script Amberock_KrokorokIntro{
+    lock
+    safefollow
+    delay(15)
+    playse(SE_PIN)
+    turnobject(NPC_CLAY, DIR_SOUTH)
+    turnobject(NPC_VOLKNER, DIR_SOUTH)
+    applymovement(NPC_CLAY, ExclamationMark)
+    applymovement(NPC_VOLKNER, ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    delay(15)
+    applymovement(PLAYER, Walk2Up)
+    waitmovement(0)
+    unlockfollowermovement
+    msgbox(VolknerGreetsPlayer)
+    turnobject(NPC_VOLKNER, DIR_WEST)
+    turnobject(PLAYER, DIR_WEST)
+    turnobject(NPC_CLAY, DIR_EAST)
+    msgbox(ClayHelped)
+    turnobject(NPC_VOLKNER, DIR_SOUTH)
+    turnobject(PLAYER, DIR_NORTH)
+    msgbox(VolknerControlKrokorok)
+    setvar(VAR_AMBEROCK_STORY, STORY_AMBEROCK_SPOKE_WITH_CLAY)
+    release
+}
+
+text VolknerGreetsPlayer{
+    "(WIP) hello player"
+}
+text ClayHelped{
+    "(WIP) clay helped"
+}
+text VolknerControlKrokorok{
+    "(WIP) control this krokorok\n"
+    "and scout out the factory"
+}
+
+script Amberock_Clay{
+    msgbox(Amberock_Clay_Text, MSGBOX_NPC)
+}
+text Amberock_Clay_Text{
+    "(WIP)"
+}
+
+script Amberock_Volkner{
+    msgbox(Amberock_Volkner_Text, MSGBOX_NPC)
+}
+text Amberock_Volkner_Text{
+    "(WIP)"
+}
+
+script Amberock_KrokorokScript{
+    msgbox(SwitchToKrokorok, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    closemessage
+    delay(15)
+
+    clearflag(FLAG_FAKE_PLAYER)
+    addobject(NPC_PLAYER)
+
+    applymovement(PLAYER, MovePlayerToKrokorokNorth)
+    waitmovement(0)
+    setkrokorokdisguise
+    applymovement(PLAYER, SetObjectVisible)
+    waitmovement(0)
+    setflag(FLAG_DISGUISED_AS_KROKOROK)
+    setflag(FLAG_TEMP_HIDE_FOLLOWER)
+    callnative(UpdateFollowingPokemon)
+    setflag(FLAG_SYS_USE_STRENGTH)
+    removeobject(NPC_KROKOROK)
+    clearflag(FLAG_SYS_B_DASH)
+    delay(15)
+    applymovement(PLAYER, KrokorokGoesNorthThroughFence)
+    delay(8)
+    playse(SE_LEDGE)
+    delay(32)
+    playse(SE_M_DIG)
+    waitse
+    playse(SE_M_DIG)
+    waitse
+    playse(SE_M_DIG)
+    waitse
+    playse(SE_M_DIG)
+    waitse
+    fadenewbgm(MUS_AQUA_MAGMA_HIDEOUT)
+    delay(32)
+    playse(SE_M_SAND_ATTACK)
+    playse(SE_BIKE_HOP)
+    waitmovement(0)
+    release
+}
+
+script Amberock_RecallKrokorok{
+    if(msgbox(TellKrokorokToRetreat, MSGBOX_YESNO) == FALSE){
+        release
+        end
+    }
+    closemessage
+    delay(15)
+    applymovement(PLAYER, KrokorokGoesSouthThroughFence)
+    delay(8)
+    playse(SE_LEDGE)
+    delay(32)
+    playse(SE_M_DIG)
+    waitse
+    playse(SE_M_DIG)
+    waitse
+    playse(SE_M_DIG)
+    waitse
+    playse(SE_M_DIG)
+    waitse
+    fadenewbgm(MUS_RUSTBORO)
+    delay(32)
+    playse(SE_M_SAND_ATTACK)
+    playse(SE_BIKE_HOP)
+    waitmovement(0)
+    clearflag(FLAG_KROKOROK)
+    addobject(NPC_KROKOROK)
+    applymovement(PLAYER, MovePlayerFromKrokorokSouth)
+    waitmovement(0)
+    setkrokorokdisguise
+    applymovement(PLAYER, SetObjectVisible)
+    waitmovement(0)
+    clearflag(FLAG_DISGUISED_AS_KROKOROK)
+    clearflag(FLAG_TEMP_HIDE_FOLLOWER)
+    callnative(UpdateFollowingPokemon)
+    removeobject(NPC_PLAYER)
+    setflag(FLAG_SYS_B_DASH)
+}
+
+text TellKrokorokToRetreat{
+    "Order the Krokorok to return back\n"
+    "to the group?"
+}
+
+movement KrokorokGoesNorthThroughFence{
+    walk_in_place_fast_up
+    jump_in_place_up
+    set_invisible
+    delay_16
+    walk_slow_up * 2
+    delay_16 * 3
+    set_visible
+    jump_in_place_up
+}
+movement KrokorokGoesSouthThroughFence{
+    walk_in_place_fast_down
+    jump_in_place_down
+    set_invisible
+    delay_16
+    walk_slow_down * 2
+    delay_16 * 3
+    set_visible
+    jump_in_place_down
+}
+
+script DiscoverAmberock{
+    setflag(FLAG_VISITED_AMBEROCK)
+    release
+}
+
+script Amberock_RetreatKrokorok{
+    if(msgbox(CallKrokorokBack, MSGBOX_YESNO) == TRUE){
+        clearflag(FLAG_DISGUISED_AS_KROKOROK)
+        setflag(FLAG_SYS_B_DASH)
+        // setkrokorokdisguise
+        warp(MAP_AMBEROCK_TOWN, 30, 21)
+        waitstate
+    }
+    release
+}
+
+text CallKrokorokBack{
+    "Order the Krokorok to return back\n"
+    "to the group?"
+}
+
 script Amberock_PaperVisibility{
     if((var(VAR_ROUTE14_ROCKET_EVENT) >= 6)
     && !flag(FLAG_REPAIR_AMBEROCK_BRIDGE)){
@@ -72,7 +246,6 @@ script Amberock_PaperVisibility{
         setmetatile(28 + 30, 16, 0x170, FALSE)
     }
 }
-
 script Amberock_SurfScientist{
     lock
     faceplayer
@@ -434,7 +607,7 @@ text Amberock_Girl2_Text{
 text Amberock_Girl2_Text2{
     "There's some pretty menacing guys\n"
     "guarding the gate to the factory.\p"
-    "Wonder what happened…"
+    "I wonder what's going on…"
 }
 text Amberock_OldWoman_Text{
     "They kicked me out because I was\n"
@@ -479,4 +652,44 @@ text Amberock_BridgeRepair_Text{
     "so we need to be on constant lookout\l"
     "and fix it before it causes trouble\l"
     "for the residents."
+}
+
+script Amberock_AcerolaEvent{
+    setflag(FLAG_ACEROLA)
+    setflag(FLAG_SCIENTIST)
+    if(var(VAR_ROUTE14_ROCKET_EVENT) >= 6){
+        setflag(FLAG_ESCAPING_ROCKET)
+        setflag(FLAG_PAPERS)
+    }
+    if(flag(FLAG_BADGE05_GET) && !flag(FLAG_RECEIVED_HM_SURF)){
+        setobjectxyperm(31, 33, 11)
+        clearflag(FLAG_SCIENTIST)
+    }
+    return
+}
+script Amberock_SetPlayerModel{
+    if(checkplayergender == MALE){
+        if(flag(FLAG_PC_CHANGE_COSTUME)){
+            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_NORMAL_ORAS)
+        }
+        else{
+            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL)
+        }
+    }
+    else{
+        if(flag(FLAG_PC_CHANGE_COSTUME)){
+            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_NORMAL_ORAS)
+        }
+        else{
+            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL)
+        }
+    }
+    return
+}
+
+script SetPlayerKrokorokModel{
+    if(flag(FLAG_DISGUISED_AS_KROKOROK)){
+        setkrokorokdisguise
+    }
+    setvar(VAR_TEMP_3, 1)
 }

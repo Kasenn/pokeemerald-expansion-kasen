@@ -212,6 +212,11 @@ movement MovePlayerToKrokorokNorth{
     walk_up
     walk_in_place_fast_down
 }
+movement MovePlayerFromKrokorokSouth{
+    set_invisible
+    walk_down
+    walk_in_place_fast_up
+}
 movement SetObjectVisible{
     set_visible
 }

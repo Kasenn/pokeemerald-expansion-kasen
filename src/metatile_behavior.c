@@ -305,7 +305,6 @@ bool8 MetatileBehavior_IsReflective(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_POND_WATER
      || metatileBehavior == MB_PUDDLE
-     || metatileBehavior == MB_UNUSED_SOOTOPOLIS_DEEP_WATER_2
      || metatileBehavior == MB_ICE
      || metatileBehavior == MB_MIRROR
      || metatileBehavior == MB_SOOTOPOLIS_DEEP_WATER
@@ -456,6 +455,22 @@ bool8 MetatileBehavior_PointPlayerWest(u8 metatileBehavior)
 bool8 MetatileBehavior_PointPlayerEast(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_POINT_PLAYER_EAST)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_PointPlayerNorth(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_POINT_PLAYER_NORTH)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_PointPlayerSouth(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_POINT_PLAYER_SOUTH)
         return TRUE;
     else
         return FALSE;
@@ -1055,11 +1070,7 @@ bool8 MetatileBehavior_IsDeepOrOceanWater(u8 metatileBehavior)
 
 bool8 Unref_MetatileBehavior_IsUnusedSootopolisWater(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_UNUSED_SOOTOPOLIS_DEEP_WATER
-     || metatileBehavior == MB_UNUSED_SOOTOPOLIS_DEEP_WATER_2)
-        return TRUE;
-    else
-        return FALSE;
+    return FALSE;
 }
 
 bool8 MetatileBehavior_IsSurfableAndNotWaterfall(u8 metatileBehavior)

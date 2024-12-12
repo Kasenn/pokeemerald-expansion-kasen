@@ -1029,6 +1029,10 @@ static u8 GetAdjustedInitialDirection(struct InitialPlayerAvatarState *playerStr
         return DIR_WEST;
     else if (MetatileBehavior_PointPlayerEast(metatileBehavior) == TRUE)
         return DIR_EAST;
+    else if (MetatileBehavior_PointPlayerNorth(metatileBehavior) == TRUE)
+        return DIR_NORTH;
+    else if (MetatileBehavior_PointPlayerSouth(metatileBehavior) == TRUE)
+        return DIR_SOUTH;
     else if (MetatileBehavior_IsNorthArrowWarp(metatileBehavior) == TRUE)
         return DIR_SOUTH;
     else if (MetatileBehavior_IsWestArrowWarp(metatileBehavior) == TRUE)
@@ -1178,6 +1182,18 @@ static bool16 IsInfiltratedDevonCorp(struct WarpData *warp)
         return FALSE;
 }
 
+static bool16 IsInfiltratedPokeBallFactory(struct WarpData *warp)
+{
+    if (FlagGet(FLAG_DISGUISED_AS_KROKOROK)
+    && (
+        (warp->mapGroup == MAP_GROUP(AMBEROCK_TOWN) && warp->mapNum == MAP_NUM(AMBEROCK_TOWN))
+     || (warp->mapGroup == MAP_GROUP(AMBEROCK_TEST) && warp->mapNum == MAP_NUM(AMBEROCK_TEST))
+    ))
+        return TRUE;
+    else
+        return FALSE;
+}
+
 static bool16 IsInflitratedSpaceCenter(struct WarpData *warp)
 {
     if (VarGet(VAR_MOSSDEEP_CITY_STATE) == 0)
@@ -1196,6 +1212,8 @@ u16 GetLocationMusic(struct WarpData *warp)
 {
     if (NoMusicInSotopolisWithLegendaries(warp) == TRUE)
         return MUS_NONE;
+    else if (IsInfiltratedPokeBallFactory(warp) == TRUE)
+        return MUS_AQUA_MAGMA_HIDEOUT;
     else if (ShouldLegendaryMusicPlayAtLocation(warp) == TRUE)
         return MUS_ABNORMAL_WEATHER;
     else if (IsInflitratedSpaceCenter(warp) == TRUE)

@@ -48,17 +48,16 @@
 #define STORY_SERPENTCAVE_OBTAINED_MEGA_STONE           5
 
 // VAR_AMBEROCK_STORY
-#define STORY_AMBEROCK_ENTERED                          0
-#define STORY_AMBEROCK_TRIED_ENTERING_FACTORY           1                
-#define STORY_AMBEROCK_SPOKE_WITH_CLAY                  2        
-#define STORY_AMBEROCK_CONTROLLING_KROKOROK             3            
-#define STORY_AMBEROCK_FOUND_GIOVANNI                   4        
-#define STORY_AMBEROCK_FOUND_PETREL                     5   
-#define STORY_AMBEROCK_CUT_ELECTRICITY                  6       
-#define STORY_AMBEROCK_FOUGHT_PETREL                    7       
-#define STORY_AMBEROCK_OBTAINED_RESEARCH                8           
-#define STORY_AMBEROCK_CAME_TOO_LATE                    9       
-#define STORY_AMBEROCK_GIOVANNI_ESCAPED                 10       
-#define STORY_AMBEROCK_STORY_COMPLETE                   11      
+#define STORY_AMBEROCK_ENTERED                          0         
+#define STORY_AMBEROCK_SPOKE_WITH_CLAY                  1        
+#define STORY_AMBEROCK_CONTROLLING_KROKOROK             2            
+#define STORY_AMBEROCK_FOUND_GIOVANNI                   3        
+#define STORY_AMBEROCK_FOUND_PETREL                     4   
+#define STORY_AMBEROCK_CUT_ELECTRICITY                  5       
+#define STORY_AMBEROCK_FOUGHT_PETREL                    6       
+#define STORY_AMBEROCK_OBTAINED_RESEARCH                7           
+#define STORY_AMBEROCK_CAME_TOO_LATE                    8       
+#define STORY_AMBEROCK_GIOVANNI_ESCAPED                 9       
+#define STORY_AMBEROCK_STORY_COMPLETE                   10      
 
 #endif // GUARD_CONSTANTS_STORY_H

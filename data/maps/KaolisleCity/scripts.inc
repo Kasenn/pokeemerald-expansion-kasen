@@ -660,9 +660,8 @@ KaolisleBirdMain::
 	closemessage
 	removeobject VAR_LAST_TALKED
 	fadescreen FADE_FROM_BLACK
-	delay 15
 	release
-	end
+	return
 
 
 KaolisleCity_Zigzagoon_Text_0:
@@ -1009,5 +1008,5 @@ KaolisleCity_SignIntro_Text::
 	.string "“The cleanest city in the world.”$"
 
 NudgeMon::
-	.string "You give the {STR_VAR_1} a nudge\n"
+	.string "You give the {STR_VAR_1} a nudge,\n"
 	.string "and it starts flying towards home.$"

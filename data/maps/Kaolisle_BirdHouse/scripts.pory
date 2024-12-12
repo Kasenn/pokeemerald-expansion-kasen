@@ -2,6 +2,12 @@ mapscripts Kaolisle_BirdHouse_MapScripts {
     MAP_SCRIPT_ON_TRANSITION: HideBirdHouseBirds
 }
 
+const PIKIPEK_1 = FLAG_TEMP_5
+const PIKIPEK_2 = FLAG_TEMP_6
+const PIKIPEK_4 = FLAG_TEMP_7
+const TRUMBEAK_8 = FLAG_TEMP_8
+const TRUMBEAK_16 = FLAG_TEMP_9
+
 script HideBirdHouseBirds{
     setflag(PIKIPEK_1)
     setflag(PIKIPEK_2)
@@ -122,12 +128,6 @@ script HideBirdHouseBirds{
             clearflag(PIKIPEK_1)
     }
 }
-
-const PIKIPEK_1 = FLAG_TEMP_5
-const PIKIPEK_2 = FLAG_TEMP_6
-const PIKIPEK_4 = FLAG_TEMP_7
-const TRUMBEAK_8 = FLAG_TEMP_8
-const TRUMBEAK_16 = FLAG_TEMP_9
 
 script Kaolisle_BirdHouse_BirdMan{
     if(checkitem(ITEM_TM_BULLET_SEED) == TRUE){

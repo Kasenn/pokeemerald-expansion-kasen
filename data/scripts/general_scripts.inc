@@ -774,6 +774,11 @@ Debug_Script_8::
 	return
 
 
+RapidsTooStrong::
+	msgbox RapidsTooStrong_Text, MSGBOX_NPC
+	return
+
+
 UpdateItemCheck::
 	checkitem ITEM_TM_ECHOED_VOICE, 2
 	compare VAR_RESULT, TRUE
@@ -1169,6 +1174,12 @@ SceneAltered::
 	.string "the upcoming story.\p"
 	.string "Would you like to view the\n"
 	.string "altered scene?$"
+
+RapidsTooStrong_Text::
+	.string "These rapids are simply too strong\n"
+	.string "to surf against.\p"
+	.string "I'm sure they'll die down once the\n"
+	.string "game dev finishes the upcoming area!$"
 
 ReplacedFlute::
 	.string "Your White Flute has been replaced\n"

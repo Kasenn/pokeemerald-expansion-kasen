@@ -207,6 +207,10 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayDecorati
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Archie;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Korrina;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kasen;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Giovanni;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Petrel;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Gate;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Crate;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SSTidalRear;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BigBoulderLeft;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BigBoulderRight;
@@ -629,6 +633,10 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_LAND_SWIMMER_F] =                     &gObjectEventGraphicsInfo_LandSwimmerF,
     [OBJ_EVENT_GFX_KORRINA] =                   &gObjectEventGraphicsInfo_Korrina,
     [OBJ_EVENT_GFX_KASEN] =                   &gObjectEventGraphicsInfo_Kasen,
+    [OBJ_EVENT_GFX_GIOVANNI]                                &gObjectEventGraphicsInfo_Giovanni,
+    [OBJ_EVENT_GFX_PETREL]                                &gObjectEventGraphicsInfo_Petrel,
+    [OBJ_EVENT_GFX_GATE]                                &gObjectEventGraphicsInfo_Gate,
+    [OBJ_EVENT_GFX_CRATE]                                &gObjectEventGraphicsInfo_Crate,
     [OBJ_EVENT_GFX_SS_TIDAL_REAR] =                   &gObjectEventGraphicsInfo_SSTidalRear,
     [OBJ_EVENT_GFX_BIG_BOULDER_LEFT] =                   &gObjectEventGraphicsInfo_BigBoulderLeft,
     [OBJ_EVENT_GFX_BIG_BOULDER_RIGHT] =                   &gObjectEventGraphicsInfo_BigBoulderRight,

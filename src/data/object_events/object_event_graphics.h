@@ -516,6 +516,15 @@ const u32 gObjectEventPic_Korrina[] = INCBIN_U32("graphics/object_events/pics/pe
 const u16 gObjectEventPalette_Korrina[] = INCBIN_U16("graphics/object_events/pics/people/korrina.gbapal");
 const u32 gObjectEventPic_Kasen[] = INCBIN_U32("graphics/object_events/pics/people/kasen.4bpp");
 const u16 gObjectEventPalette_Kasen[] = INCBIN_U16("graphics/object_events/pics/people/kasen.gbapal");
+
+const u32 gObjectEventPic_Giovanni[] = INCBIN_U32("graphics/object_events/pics/people/giovanni.4bpp");
+const u16 gObjectEventPalette_Giovanni[] = INCBIN_U16("graphics/object_events/pics/people/giovanni.gbapal");
+const u32 gObjectEventPic_Petrel[] = INCBIN_U32("graphics/object_events/pics/people/petrel.4bpp");
+const u16 gObjectEventPalette_Petrel[] = INCBIN_U16("graphics/object_events/pics/people/petrel.gbapal");
+const u32 gObjectEventPic_Gate[] = INCBIN_U32("graphics/object_events/pics/people/gate.4bpp");
+const u16 gObjectEventPalette_Gate[] = INCBIN_U16("graphics/object_events/pics/people/gate.gbapal");
+const u32 gObjectEventPic_Crate[] = INCBIN_U32("graphics/object_events/pics/people/crate.4bpp");
+const u16 gObjectEventPalette_Crate[] = INCBIN_U16("graphics/object_events/pics/people/crate.gbapal");
 const u32 gObjectEventPic_SSTidalRear[] = INCBIN_U32("graphics/object_events/pics/misc/ss_tidal_rear.4bpp");
 const u16 gObjectEventPalette_SSTidalRear[] = INCBIN_U16("graphics/object_events/pics/misc/ss_tidal_rear.gbapal");
 const u32 gObjectEventPic_BigBoulder[] = INCBIN_U32("graphics/object_events/pics/misc/bigboulder.4bpp");

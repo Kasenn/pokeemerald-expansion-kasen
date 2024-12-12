@@ -1517,7 +1517,7 @@
 #define FLAG_ROUTE3_ITEM1                           (SYSTEM_FLAGS + 0x94) // 
 #define FLAG_HERACRONITE_OBTAINED                           (SYSTEM_FLAGS + 0x95) // 
 #define FLAG_ROUTE7_WHITE_HERB                           (SYSTEM_FLAGS + 0x96) // 
-#define FLAG_UNUSED_0x8F7                           (SYSTEM_FLAGS + 0x97) // 
+#define FLAG_DISGUISED_AS_KROKOROK                           (SYSTEM_FLAGS + 0x97) // 
 #define FLAG_UNUSED_0x8F8                           (SYSTEM_FLAGS + 0x98) // 
 #define FLAG_UNUSED_0x8F9                           (SYSTEM_FLAGS + 0x99) // 
 #define FLAG_UNUSED_0x8FA                           (SYSTEM_FLAGS + 0x9A) // 

@@ -238,6 +238,12 @@ MovePlayerToKrokorokNorth:
 	walk_in_place_fast_down
 	step_end
 
+MovePlayerFromKrokorokSouth:
+	set_invisible
+	walk_down
+	walk_in_place_fast_up
+	step_end
+
 SetObjectVisible:
 	set_visible
 	step_end

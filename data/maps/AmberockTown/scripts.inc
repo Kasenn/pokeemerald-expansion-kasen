@@ -1,57 +1,208 @@
 AmberockTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Amberock_FlagControl
 	map_script MAP_SCRIPT_ON_LOAD, Amberock_PaperVisibility
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, AmberockTown_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
 	.byte 0
+
+AmberockTown_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE:
+	map_script_2 VAR_TEMP_3, 0, SetPlayerKrokorokModel
+	.2byte 0
 
 
 Amberock_FlagControl::
-	goto_if_set FLAG_REPAIR_AMBEROCK_BRIDGE, Amberock_FlagControl_2
-	setflag FLAG_TEMP_C
+	goto_if_unset FLAG_DISGUISED_AS_KROKOROK, Amberock_FlagControl_2
+	setflag FLAG_TEMP_HIDE_FOLLOWER
+	setflag FLAG_TEMP_6
 Amberock_FlagControl_1:
-	setflag FLAG_TEMP_3
-	setflag FLAG_TEMP_2
-	compare VAR_ROUTE14_ROCKET_EVENT, 6
-	goto_if_ge Amberock_FlagControl_6
+	goto_if_set FLAG_REPAIR_AMBEROCK_BRIDGE, Amberock_FlagControl_6
+	setflag FLAG_TEMP_C
 Amberock_FlagControl_5:
-	goto_if_set FLAG_BADGE05_GET, Amberock_FlagControl_10
-Amberock_FlagControl_8:
-	checkplayergender
-	compare VAR_RESULT, MALE
-	goto_if_eq Amberock_FlagControl_13
-	goto_if_set FLAG_PC_CHANGE_COSTUME, Amberock_FlagControl_19
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL
+	call Amberock_AcerolaEvent
+	call Amberock_SetPlayerModel
 	return
 
 Amberock_FlagControl_2:
-	setmaplayoutindex LAYOUT_AMBEROCK_TEST
+	setflag FLAG_TEMP_5
 	goto Amberock_FlagControl_1
 
 Amberock_FlagControl_6:
-	setflag FLAG_TEMP_4
-	setflag FLAG_TEMP_1
+	setmaplayoutindex LAYOUT_AMBEROCK_TEST
 	goto Amberock_FlagControl_5
 
-Amberock_FlagControl_9:
-	setobjectxyperm 31, 33, 11
-	clearflag FLAG_TEMP_2
-	goto Amberock_FlagControl_8
 
-Amberock_FlagControl_10:
-	goto_if_unset FLAG_RECEIVED_HM_SURF, Amberock_FlagControl_9
-	goto Amberock_FlagControl_8
-
-Amberock_FlagControl_13:
-	goto_if_set FLAG_PC_CHANGE_COSTUME, Amberock_FlagControl_16
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL
+Amberock_KrokorokIntro::
+	lock
+	safefollow
+	delay 15
+	playse SE_PIN
+	turnobject 10, DIR_SOUTH
+	turnobject 23, DIR_SOUTH
+	applymovement 10, ExclamationMark
+	applymovement 23, ExclamationMark
+	waitmovement 0
+	delay 48
+	delay 15
+	applymovement OBJ_EVENT_ID_PLAYER, Walk2Up
+	waitmovement 0
+	unlockfollowermovement
+	msgbox VolknerGreetsPlayer
+	turnobject 23, DIR_WEST
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject 10, DIR_EAST
+	msgbox ClayHelped
+	turnobject 23, DIR_SOUTH
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	msgbox VolknerControlKrokorok
+	setvar VAR_AMBEROCK_STORY, STORY_AMBEROCK_SPOKE_WITH_CLAY
+	release
 	return
 
-Amberock_FlagControl_16:
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_NORMAL_ORAS
+
+Amberock_Clay::
+	msgbox Amberock_Clay_Text, MSGBOX_NPC
 	return
 
-Amberock_FlagControl_19:
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_NORMAL_ORAS
+
+Amberock_Volkner::
+	msgbox Amberock_Volkner_Text, MSGBOX_NPC
 	return
+
+
+Amberock_KrokorokScript::
+	msgbox SwitchToKrokorok, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Amberock_KrokorokScript_2
+	closemessage
+	delay 15
+	clearflag FLAG_TEMP_5
+	addobject 11
+	applymovement OBJ_EVENT_ID_PLAYER, MovePlayerToKrokorokNorth
+	waitmovement 0
+	setkrokorokdisguise
+	applymovement OBJ_EVENT_ID_PLAYER, SetObjectVisible
+	waitmovement 0
+	setflag FLAG_DISGUISED_AS_KROKOROK
+	setflag FLAG_TEMP_HIDE_FOLLOWER
+	callnative UpdateFollowingPokemon
+	setflag FLAG_SYS_USE_STRENGTH
+	removeobject 9
+	clearflag FLAG_SYS_B_DASH
+	delay 15
+	applymovement OBJ_EVENT_ID_PLAYER, KrokorokGoesNorthThroughFence
+	delay 8
+	playse SE_LEDGE
+	delay 32
+	playse SE_M_DIG
+	waitse
+	playse SE_M_DIG
+	waitse
+	playse SE_M_DIG
+	waitse
+	playse SE_M_DIG
+	waitse
+	fadenewbgm MUS_AQUA_MAGMA_HIDEOUT
+	delay 32
+	playse SE_M_SAND_ATTACK
+	playse SE_BIKE_HOP
+	waitmovement 0
+	release
+	return
+
+Amberock_KrokorokScript_2:
+	release
+	end
+
+
+Amberock_RecallKrokorok::
+	msgbox TellKrokorokToRetreat, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Amberock_RecallKrokorok_2
+	closemessage
+	delay 15
+	applymovement OBJ_EVENT_ID_PLAYER, KrokorokGoesSouthThroughFence
+	delay 8
+	playse SE_LEDGE
+	delay 32
+	playse SE_M_DIG
+	waitse
+	playse SE_M_DIG
+	waitse
+	playse SE_M_DIG
+	waitse
+	playse SE_M_DIG
+	waitse
+	fadenewbgm MUS_RUSTBORO
+	delay 32
+	playse SE_M_SAND_ATTACK
+	playse SE_BIKE_HOP
+	waitmovement 0
+	clearflag FLAG_TEMP_6
+	addobject 9
+	applymovement OBJ_EVENT_ID_PLAYER, MovePlayerFromKrokorokSouth
+	waitmovement 0
+	setkrokorokdisguise
+	applymovement OBJ_EVENT_ID_PLAYER, SetObjectVisible
+	waitmovement 0
+	clearflag FLAG_DISGUISED_AS_KROKOROK
+	clearflag FLAG_TEMP_HIDE_FOLLOWER
+	callnative UpdateFollowingPokemon
+	removeobject 11
+	setflag FLAG_SYS_B_DASH
+	return
+
+Amberock_RecallKrokorok_2:
+	release
+	end
+
+
+KrokorokGoesNorthThroughFence:
+	walk_in_place_fast_up
+	jump_in_place_up
+	set_invisible
+	delay_16
+	walk_slow_up
+	walk_slow_up
+	delay_16
+	delay_16
+	delay_16
+	set_visible
+	jump_in_place_up
+	step_end
+
+KrokorokGoesSouthThroughFence:
+	walk_in_place_fast_down
+	jump_in_place_down
+	set_invisible
+	delay_16
+	walk_slow_down
+	walk_slow_down
+	delay_16
+	delay_16
+	delay_16
+	set_visible
+	jump_in_place_down
+	step_end
+
+DiscoverAmberock::
+	setflag FLAG_VISITED_AMBEROCK
+	release
+	return
+
+
+Amberock_RetreatKrokorok::
+	msgbox CallKrokorokBack, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
+	goto_if_eq Amberock_RetreatKrokorok_2
+Amberock_RetreatKrokorok_1:
+	release
+	return
+
+Amberock_RetreatKrokorok_2:
+	clearflag FLAG_DISGUISED_AS_KROKOROK
+	setflag FLAG_SYS_B_DASH
+	warp MAP_AMBEROCK_TOWN, 30, 21
+	waitstate
+	goto Amberock_RetreatKrokorok_1
 
 
 Amberock_PaperVisibility::
@@ -475,11 +626,94 @@ Amberock_BridgeRepair::
 	return
 
 
+Amberock_AcerolaEvent::
+	setflag FLAG_TEMP_3
+	setflag FLAG_TEMP_2
+	compare VAR_ROUTE14_ROCKET_EVENT, 6
+	goto_if_ge Amberock_AcerolaEvent_2
+Amberock_AcerolaEvent_1:
+	goto_if_set FLAG_BADGE05_GET, Amberock_AcerolaEvent_6
+Amberock_AcerolaEvent_4:
+	return
+
+Amberock_AcerolaEvent_2:
+	setflag FLAG_TEMP_4
+	setflag FLAG_TEMP_1
+	goto Amberock_AcerolaEvent_1
+
+Amberock_AcerolaEvent_5:
+	setobjectxyperm 31, 33, 11
+	clearflag FLAG_TEMP_2
+	goto Amberock_AcerolaEvent_4
+
+Amberock_AcerolaEvent_6:
+	goto_if_unset FLAG_RECEIVED_HM_SURF, Amberock_AcerolaEvent_5
+	goto Amberock_AcerolaEvent_4
+
+
+Amberock_SetPlayerModel::
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq Amberock_SetPlayerModel_2
+	goto_if_set FLAG_PC_CHANGE_COSTUME, Amberock_SetPlayerModel_8
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL
+Amberock_SetPlayerModel_1:
+	return
+
+Amberock_SetPlayerModel_2:
+	goto_if_set FLAG_PC_CHANGE_COSTUME, Amberock_SetPlayerModel_5
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL
+	goto Amberock_SetPlayerModel_1
+
+Amberock_SetPlayerModel_5:
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_NORMAL_ORAS
+	goto Amberock_SetPlayerModel_1
+
+Amberock_SetPlayerModel_8:
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_NORMAL_ORAS
+	goto Amberock_SetPlayerModel_1
+
+
+SetPlayerKrokorokModel::
+	goto_if_set FLAG_DISGUISED_AS_KROKOROK, SetPlayerKrokorokModel_2
+SetPlayerKrokorokModel_1:
+	setvar VAR_TEMP_3, 1
+	return
+
+SetPlayerKrokorokModel_2:
+	setkrokorokdisguise
+	goto SetPlayerKrokorokModel_1
+
+
 Amberock_Papers_Text_0:
 	.string "mister$"
 
 Amberock_Papers_Text_1:
 	.string "miss$"
+
+VolknerGreetsPlayer::
+	.string "(WIP) hello player$"
+
+ClayHelped::
+	.string "(WIP) clay helped$"
+
+VolknerControlKrokorok::
+	.string "(WIP) control this krokorok\n"
+	.string "and scout out the factory$"
+
+Amberock_Clay_Text::
+	.string "(WIP)$"
+
+Amberock_Volkner_Text::
+	.string "(WIP)$"
+
+TellKrokorokToRetreat::
+	.string "Order the Krokorok to return back\n"
+	.string "to the group?$"
+
+CallKrokorokBack::
+	.string "Order the Krokorok to return back\n"
+	.string "to the group?$"
 
 HereIsSurfHM::
 	.string "Ah, perfect timing!\p"
@@ -607,7 +841,7 @@ Amberock_Girl2_Text::
 Amberock_Girl2_Text2::
 	.string "There's some pretty menacing guys\n"
 	.string "guarding the gate to the factory.\p"
-	.string "Wonder what happened…$"
+	.string "I wonder what's going on…$"
 
 Amberock_OldWoman_Text::
 	.string "They kicked me out because I was\n"

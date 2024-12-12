@@ -645,6 +645,16 @@ script Debug_Script_7{
 script Debug_Script_8{
     return
 }
+
+script RapidsTooStrong{
+    msgbox(RapidsTooStrong_Text, MSGBOX_NPC)
+}
+text RapidsTooStrong_Text{
+    "These rapids are simply too strong\n"
+    "to surf against.\p"
+    "I'm sure they'll die down once the\n"
+    "game dev finishes the upcoming area!"
+}
 //
 // Debug related scripts
 //

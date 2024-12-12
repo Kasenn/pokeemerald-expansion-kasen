@@ -1,5 +1,13 @@
 mapscripts Kaolisle_Gym_MapScripts{
     MAP_SCRIPT_ON_LOAD: Kaolisle_Gym_SetMetatiles
+    MAP_SCRIPT_ON_TRANSITION{
+        if(var(VAR_ROUTE14_ROCKET_EVENT) >= 6){
+            setflag(FLAG_TEMP_1)
+        }
+        if(var(VAR_AMBEROCK_STORY) >= STORY_AMBEROCK_STORY_COMPLETE){
+            clearflag(FLAG_TEMP_1)
+        }
+    }
 }
 
 script Kaolisle_Gym_SetMetatiles{

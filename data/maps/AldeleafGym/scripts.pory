@@ -19,6 +19,12 @@ mapscripts AldeleafGym_MapScripts{
 //     }
 // }
 script AldeleafGymSetUpFromLoad{
+    if(var(VAR_ROUTE14_ROCKET_EVENT) >= 6){
+        setflag(FLAG_TEMP_1)
+    }
+    if(var(VAR_AMBEROCK_STORY) >= STORY_AMBEROCK_STORY_COMPLETE){
+        clearflag(FLAG_TEMP_1)
+    }
     if(flag(FLAG_ALDELEAF_SWITCH1)){
         setmetatile(1, 73, 0x206, FALSE)
     }

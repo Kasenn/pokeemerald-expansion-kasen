@@ -578,6 +578,10 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_ZygardeCell,           OBJ_EVENT_PAL_ZYGARDE_CELL},
     {gObjectEventPalette_IrisOnAggron,           OBJ_EVENT_PAL_IRIS_ON_AGGRON},
     {gObjectEventPalette_AggronMount,           OBJ_EVENT_PAL_AGGRON_MOUNT},
+    {gObjectEventPalette_Giovanni,           OBJ_EVENT_PAL_GIOVANNI},
+    {gObjectEventPalette_Petrel,           OBJ_EVENT_PAL_PETREL},
+    {gObjectEventPalette_Gate,           OBJ_EVENT_PAL_GATE},
+    {gObjectEventPalette_Crate,           OBJ_EVENT_PAL_CRATE},
     
 #if OW_FOLLOWERS_POKEBALLS
     {gObjectEventPal_MasterBall,            OBJ_EVENT_PAL_TAG_BALL_MASTER},

@@ -1,6 +1,23 @@
 Kaolisle_Gym_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, Kaolisle_Gym_SetMetatiles
+	map_script MAP_SCRIPT_ON_TRANSITION, Kaolisle_Gym_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
+
+Kaolisle_Gym_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	compare VAR_ROUTE14_ROCKET_EVENT, 6
+	goto_if_ge Kaolisle_Gym_MapScripts_MAP_SCRIPT_ON_TRANSITION_2
+Kaolisle_Gym_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
+	compare VAR_AMBEROCK_STORY, STORY_AMBEROCK_STORY_COMPLETE
+	goto_if_ge Kaolisle_Gym_MapScripts_MAP_SCRIPT_ON_TRANSITION_4
+	return
+
+Kaolisle_Gym_MapScripts_MAP_SCRIPT_ON_TRANSITION_2:
+	setflag FLAG_TEMP_1
+	goto Kaolisle_Gym_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
+
+Kaolisle_Gym_MapScripts_MAP_SCRIPT_ON_TRANSITION_4:
+	clearflag FLAG_TEMP_1
+	return
 
 
 Kaolisle_Gym_SetMetatiles::
