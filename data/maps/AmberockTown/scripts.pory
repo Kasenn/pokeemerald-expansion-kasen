@@ -4,6 +4,9 @@ mapscripts AmberockTown_MapScripts{
     MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
         VAR_TEMP_3, 0: SetPlayerKrokorokModel
     ]
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_AMBEROCK_STORY, STORY_AMBEROCK_CUT_ELECTRICITY: Amberock_GroupGoesToGate
+    ]
 }
 
 const X = VAR_TEMP_1
@@ -20,13 +23,242 @@ const FLAG_GIOVANNI = FLAG_TEMP_9
 const FLAG_TEAM_ROCKET = FLAG_TEMP_A
 const FLAG_BOAT = FLAG_TEMP_B
 const FLAG_HIKER = FLAG_TEMP_C
+const FLAG_GATE_NINJA = FLAG_TEMP_D
 const PLAYER = OBJ_EVENT_ID_PLAYER
 const NPC_KROKOROK = 9
 const NPC_CLAY = 10
 const NPC_PLAYER = 11
-const NPC_VOLKNER = 23
+const NPC_VOLKNER = 22
+
+script Amberock_GateEvent1{
+    setvar(VAR_TEMP_3, 1)
+    goto(AmberockGateEventMain)
+}
+script Amberock_GateEvent2{
+    setvar(VAR_TEMP_3, 2)
+    goto(AmberockGateEventMain)
+}
+script Amberock_GateEvent3{
+    setvar(VAR_TEMP_3, 3)
+    goto(AmberockGateEventMain)
+}
+script Amberock_GateEvent4{
+    setvar(VAR_TEMP_3, 4)
+    goto(AmberockGateEventMain)
+}
+script AmberockGateEventMain{
+    lock
+    safefollow
+    switch(var(VAR_TEMP_3)){
+        case 1:
+            applymovement(PLAYER, GateMovement1)
+        case 2:
+            applymovement(PLAYER, GateMovement2)
+        case 3:
+            applymovement(PLAYER, GateMovement3)
+        case 4:
+            applymovement(PLAYER, GateMovement4)
+    }
+    waitmovement(0)
+    turnobject(NPC_CLAY, DIR_SOUTH)
+    delay(8)
+    msgbox(VolknerTakePrisoners, MSGBOX_AUTOCLOSE)
+    applymovement(7, Amberock_LeftRocketLeaves)
+    applymovement(8, Amberock_RightRocketLeaves)
+    delay(48)
+    applymovement(NPC_VOLKNER, Amberock_VolknerLeaves)
+    delay(16)
+    turnobject(PLAYER, DIR_EAST)
+    turnobject(NPC_CLAY, DIR_EAST)
+    waitmovement(0)
+    delay(16)
+    turnobject(PLAYER, DIR_NORTH)
+    turnobject(NPC_CLAY, DIR_SOUTH)
+    msgbox(ClayGoAfterGiovanni, MSGBOX_AUTOCLOSE)
+    delay(8)
+    applymovement(NPC_CLAY, Walk1Up)
+    waitmovement(0)
+    delay(16)
+    applymovement(27, MoveGateLeft)
+    applymovement(28, MoveGateRight)
+    waitmovement(0)
+    delay(8)
+    applymovement(NPC_CLAY, ClayGoesToFactory)
+    waitmovement(0)
+    setvar(VAR_AMBEROCK_STORY, STORY_AMBEROCK_BEAT_GUARDS)
+    removeobject(NPC_CLAY)
+    removeobject(NPC_VOLKNER)
+    removeobject(7)
+    removeobject(8)
+    setobjectxyperm(27, 41, 20)
+    setobjectxyperm(28, 44, 20)
+    release
+}
+movement MoveGateLeft{
+    lock_facing_direction
+    lock_anim
+    walk_left
+}
+movement MoveGateRight{
+    lock_facing_direction
+    lock_anim
+    walk_right
+}
+text VolknerTakePrisoners{
+    "(WIP)volkner takes prisoners"
+}
+text ClayGoAfterGiovanni{
+    "(WIP)i go after giovanni"
+}
+movement Amberock_LeftRocketLeaves{
+    walk_right * 2
+    walk_down
+    walk_right * 3
+    walk_up
+    walk_right * 2
+    walk_up
+    walk_right * 2
+}
+movement Amberock_RightRocketLeaves{
+    walk_right
+    walk_down
+    walk_right * 3
+    walk_up
+    walk_right * 2
+    walk_up
+    walk_right * 2
+}
+movement Amberock_VolknerLeaves{
+    walk_right * 4
+    walk_up
+    walk_right * 2
+    walk_up
+    walk_right * 2
+}
+movement ClayGoesToFactory{
+    walk_up * 3
+    walk_left * 7
+    walk_up * 2
+}
+movement GateMovement1{
+    walk_right * 2
+    walk_up
+}
+movement GateMovement2{
+    walk_down
+    walk_left * 3
+    walk_in_place_fast_up
+}
+movement GateMovement3{
+    walk_left * 3
+    walk_in_place_fast_up
+}
+movement GateMovement4{
+    walk_left * 3
+    walk_up
+}
+
+script Amberock_GroupGoesToGate{
+    delay(15)
+    turnobject(NPC_CLAY, DIR_SOUTH)
+    msgbox(LetsGoToGate, MSGBOX_AUTOCLOSE)
+    turnobject(NPC_CLAY, DIR_EAST)
+    delay(15)
+    applymovement(NPC_KROKOROK, moves(enter_pokeball set_invisible))
+    waitmovement(0)
+    removeobject(NPC_KROKOROK)
+    if(flag(FLAG_FACTORY_ITEM_1) || flag(FLAG_FACTORY_ITEM_2) || flag(FLAG_FACTORY_ITEM_3)){
+        playse(SE_PIN)
+        applymovement(NPC_CLAY, ExclamationMark)
+        waitmovement(0)
+        delay(48)
+        turnobject(NPC_CLAY, DIR_SOUTH)
+        delay(15)
+        msgbox(KrokorokWasCarryingSomething, MSGBOX_AUTOCLOSE)
+        closemessage
+        turnobject(NPC_CLAY, DIR_EAST)
+        delay(15)
+        if(flag(FLAG_FACTORY_ITEM_1)){
+            clearflag(FLAG_FACTORY_ITEM_1_OUTSIDE)
+            addobject(24)
+        }
+        if(flag(FLAG_FACTORY_ITEM_2)){
+            clearflag(FLAG_FACTORY_ITEM_2_OUTSIDE)
+            addobject(25)
+        }
+        if(flag(FLAG_FACTORY_ITEM_3)){
+            clearflag(FLAG_FACTORY_ITEM_3_OUTSIDE)
+            addobject(26)
+        }
+        delay(60)
+    }
+    applymovement(NPC_CLAY, ClayMovesToGate)
+    applymovement(NPC_VOLKNER, VolknerMovesToGate)
+    waitmovement(NPC_CLAY)
+    setobjectxy(NPC_CLAY, 42, 22)
+    setobjectxyperm(NPC_CLAY, 42, 22)
+    setobjectxy(NPC_VOLKNER, 43, 22)
+    setobjectxyperm(NPC_VOLKNER, 43, 22)
+    turnobject(NPC_CLAY, DIR_NORTH)
+    turnobject(NPC_VOLKNER, DIR_NORTH)
+    setobjectmovementtype(NPC_CLAY, MOVEMENT_TYPE_FACE_UP)
+    setobjectmovementtype(NPC_VOLKNER, MOVEMENT_TYPE_FACE_UP)
+    setvar(VAR_AMBEROCK_STORY, STORY_AMBEROCK_GROUP_WAITING_AT_GATE)
+    release
+}
+text LetsGoToGate{
+    "(WIP)lets go gate"
+}
+text KrokorokWasCarryingSomething{
+    "(WIP)krokorok was carrying something"
+}
+movement ClayMovesToGate{
+    walk_down * 2
+    walk_right *2
+    walk_down * 4
+    walk_right * 8
+}
+movement VolknerMovesToGate{
+    walk_down * 6
+    walk_right * 8
+}
+script SetFactoryWarp2{
+    if(var(VAR_AMBEROCK_STORY) < STORY_AMBEROCK_CUT_ELECTRICITY){
+        setdynamicwarp(MAP_AMBEROCK_POKEBALL_FACTORY, 1)
+    }
+    else{
+        setdynamicwarp(MAP_AMBEROCK_POKEBALL_FACTORY_NO_LIGHTS, 1)
+    }
+    release
+}
+script SetFactoryWarp1{
+    if(var(VAR_AMBEROCK_STORY) < STORY_AMBEROCK_CUT_ELECTRICITY){
+        setdynamicwarp(MAP_AMBEROCK_POKEBALL_FACTORY, 0)
+    }
+    else{
+        setdynamicwarp(MAP_AMBEROCK_POKEBALL_FACTORY_NO_LIGHTS, 0)
+    }
+    release
+}
 
 script Amberock_FlagControl{
+    if(var(VAR_AMBEROCK_STORY) >= STORY_AMBEROCK_CUT_ELECTRICITY){
+        setflag(FLAG_GATE_NINJA)
+    }
+    if(var(VAR_AMBEROCK_STORY) == STORY_AMBEROCK_GROUP_WAITING_AT_GATE){
+        setflag(FLAG_KROKOROK)
+        setobjectmovementtype(NPC_CLAY, MOVEMENT_TYPE_FACE_UP)
+        setobjectmovementtype(NPC_VOLKNER, MOVEMENT_TYPE_FACE_UP)
+        setobjectxyperm(NPC_CLAY, 42, 22)
+        setobjectxyperm(NPC_VOLKNER, 43, 22)
+    }
+    if(var(VAR_AMBEROCK_STORY) >= STORY_AMBEROCK_BEAT_GUARDS){
+        setflag(FLAG_CLAY)
+        setflag(FLAG_KROKOROK)
+        setflag(FLAG_ROCKET_BOUNCERS)
+        setobjectxyperm(27, 41, 20)
+        setobjectxyperm(28, 44, 20)
+    }
     if(!flag(FLAG_DISGUISED_AS_KROKOROK)){
         setflag(FLAG_FAKE_PLAYER)
     }
@@ -55,8 +287,8 @@ script Amberock_KrokorokIntro{
     applymovement(NPC_CLAY, ExclamationMark)
     applymovement(NPC_VOLKNER, ExclamationMark)
     waitmovement(0)
-    delay(48)
-    delay(15)
+    delay(64)
+    dismountplayer
     applymovement(PLAYER, Walk2Up)
     waitmovement(0)
     unlockfollowermovement
@@ -87,14 +319,14 @@ script Amberock_Clay{
     msgbox(Amberock_Clay_Text, MSGBOX_NPC)
 }
 text Amberock_Clay_Text{
-    "(WIP)"
+    "(WIP)i am clay"
 }
 
 script Amberock_Volkner{
     msgbox(Amberock_Volkner_Text, MSGBOX_NPC)
 }
 text Amberock_Volkner_Text{
-    "(WIP)"
+    "(WIP)i am volkner"
 }
 
 script Amberock_KrokorokScript{
@@ -141,6 +373,22 @@ script Amberock_KrokorokScript{
     release
 }
 
+script Amberock_KrokorokGiovanniCutScene{
+    lock
+    delay(15)
+    msgbox(GiovanniWeAreOnSchedule)
+    msgbox(ClayLetsBail)
+    closemessage
+    setvar(VAR_AMBEROCK_STORY, STORY_AMBEROCK_FOUND_GIOVANNI)
+    release
+}
+text GiovanniWeAreOnSchedule{
+    "(WIP)we are on schedule boss"
+}
+text ClayLetsBail{
+    "(WIP)clay: lets bail"
+}
+
 script Amberock_RecallKrokorok{
     if(msgbox(TellKrokorokToRetreat, MSGBOX_YESNO) == FALSE){
         release
@@ -177,6 +425,15 @@ script Amberock_RecallKrokorok{
     callnative(UpdateFollowingPokemon)
     removeobject(NPC_PLAYER)
     setflag(FLAG_SYS_B_DASH)
+}
+
+script PokeFactory_Packer{
+    msgbox(PokeFactory_Packer_Text)
+    release
+}
+text PokeFactory_Packer_Text{
+    "The grunt is too busy packing the\n"
+    "crates to notice the Krokorok."
 }
 
 text TellKrokorokToRetreat{
@@ -576,6 +833,9 @@ script Amberock_Girl2{
     if(var(VAR_AMBEROCK_STORY) == STORY_AMBEROCK_STORY_COMPLETE){
         msgbox(Amberock_Girl2_Text, MSGBOX_NPC)
     }
+    elif(var(VAR_AMBEROCK_STORY) >= STORY_AMBEROCK_GROUP_WAITING_AT_GATE){
+        msgbox(Amberock_Girl2_Text3, MSGBOX_NPC)
+    }
     else{
         msgbox(Amberock_Girl2_Text2, MSGBOX_NPC)
     }
@@ -608,6 +868,9 @@ text Amberock_Girl2_Text2{
     "There's some pretty menacing guys\n"
     "guarding the gate to the factory.\p"
     "I wonder what's going on…"
+}
+text Amberock_Girl2_Text3{
+    "What's going on with the factory?"
 }
 text Amberock_OldWoman_Text{
     "They kicked me out because I was\n"

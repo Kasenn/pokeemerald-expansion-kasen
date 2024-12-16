@@ -259,6 +259,9 @@ const u32 gTrainerPalette_PalaceMavenSpenser[] = INCBIN_U32("graphics/trainers/f
 const u32 gTrainerFrontPic_Kasen[] = INCBIN_U32("graphics/trainers/front_pics/kasen.4bpp.lz");
 const u32 gTrainerPalette_Kasen[] = INCBIN_U32("graphics/trainers/front_pics/kasen.gbapal.lz");
 
+const u32 gTrainerFrontPic_Petrel[] = INCBIN_U32("graphics/trainers/front_pics/petrel.4bpp.lz");
+const u32 gTrainerPalette_Petrel[] = INCBIN_U32("graphics/trainers/front_pics/petrel.gbapal.lz");
+
 const u32 gTrainerFrontPic_BW_ACE_TRAINER_F_SWIMMER[] = INCBIN_U32("graphics/trainers/front_pics/bw_ace_trainer_f_swimmer.4bpp.lz");
 const u32 gTrainerPalette_BW_ACE_TRAINER_F_SWIMMER[] = INCBIN_U32("graphics/trainers/front_pics/bw_ace_trainer_f_swimmer.gbapal.lz");
 
@@ -450,6 +453,7 @@ const struct TrainerSprite gTrainerSprites[] =
     TRAINER_SPRITE(TRAINER_PIC_DOME_ACE_TUCKER, gTrainerFrontPic_DomeAceTucker, gTrainerPalette_DomeAceTucker),
     TRAINER_SPRITE(TRAINER_PIC_PALACE_MAVEN_SPENSER, gTrainerFrontPic_PalaceMavenSpenser, gTrainerPalette_PalaceMavenSpenser),
     TRAINER_SPRITE(TRAINER_PIC_KASEN, gTrainerFrontPic_Kasen, gTrainerPalette_Kasen),
+    TRAINER_SPRITE(TRAINER_PIC_PETREL, gTrainerFrontPic_Petrel, gTrainerPalette_Petrel),
     TRAINER_SPRITE(TRAINER_PIC_BW_ACE_TRAINER_F_SWIMMER, gTrainerFrontPic_BW_ACE_TRAINER_F_SWIMMER, gTrainerPalette_BW_ACE_TRAINER_F_SWIMMER),
     TRAINER_SPRITE(TRAINER_PIC_DRAYDEN, gTrainerFrontPic_Drayden, gTrainerPalette_Drayden),
     TRAINER_SPRITE(TRAINER_PIC_IRIS_CASUAL, gTrainerFrontPic_IrisCasual, gTrainerPalette_IrisCasual),

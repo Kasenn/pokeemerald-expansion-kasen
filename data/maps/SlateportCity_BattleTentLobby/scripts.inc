@@ -55,6 +55,7 @@ SlateportCity_BattleTentLobby_EventScript_GivePrize::
 	waitmessage
 	playfanfare MUS_OBTAIN_ITEM
 	waitfanfare
+	call CheckForTentSpecialPrize
 	goto SlateportCity_BattleTentLobby_EventScript_EndGivePrize
 
 SlateportCity_BattleTentLobby_EventScript_NoRoomForPrize::
@@ -94,6 +95,7 @@ SlateportCity_BattleTentLobby_EventScript_Attendant::
 	faceplayer
 	slateporttent_getprize
 	goto_if_ne VAR_RESULT, ITEM_NONE, SlateportCity_BattleTentLobby_EventScript_GivePrize
+	goto_if_eq VAR_TENT_SPECIAL_PRIZE, 3, CheckForTentSpecialPrize
 	special SavePlayerParty
 	msgbox SlateportCity_BattleTentLobby_Text_WelcomeToBattleTent, MSGBOX_DEFAULT
 SlateportCity_BattleTentLobby_EventScript_AskEnterChallenge::

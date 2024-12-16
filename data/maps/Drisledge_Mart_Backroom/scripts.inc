@@ -305,34 +305,34 @@ LitwickMain_1:
 	call Common_OpenBag
 	switch VAR_ITEM_ID
 	case ITEM_NONE, LitwickMain_9
-	case 1, LitwickMain_10
-	case 2, LitwickMain_10
-	case 3, LitwickMain_10
-	case 4, LitwickMain_10
-	case 5, LitwickMain_10
-	case 6, LitwickMain_10
-	case 7, LitwickMain_10
-	case 8, LitwickMain_10
-	case 9, LitwickMain_10
-	case 10, LitwickMain_10
-	case 11, LitwickMain_10
-	case 12, LitwickMain_10
-	case 13, LitwickMain_10
-	case 14, LitwickMain_10
-	case 15, LitwickMain_10
-	case 16, LitwickMain_10
-	case 17, LitwickMain_10
-	case 18, LitwickMain_10
-	case 19, LitwickMain_10
-	case 20, LitwickMain_10
-	case 21, LitwickMain_10
-	case 22, LitwickMain_10
-	case 23, LitwickMain_10
-	case 24, LitwickMain_10
-	case 25, LitwickMain_10
-	case 26, LitwickMain_10
-	case 27, LitwickMain_10
-	case 28, LitwickMain_10
+	case ITEM_POKE_BALL, LitwickMain_10
+	case ITEM_GREAT_BALL, LitwickMain_10
+	case ITEM_ULTRA_BALL, LitwickMain_10
+	case ITEM_MASTER_BALL, LitwickMain_10
+	case ITEM_PREMIER_BALL, LitwickMain_10
+	case ITEM_HEAL_BALL, LitwickMain_10
+	case ITEM_NET_BALL, LitwickMain_10
+	case ITEM_NEST_BALL, LitwickMain_10
+	case ITEM_DIVE_BALL, LitwickMain_10
+	case ITEM_DUSK_BALL, LitwickMain_10
+	case ITEM_TIMER_BALL, LitwickMain_10
+	case ITEM_QUICK_BALL, LitwickMain_10
+	case ITEM_REPEAT_BALL, LitwickMain_10
+	case ITEM_LUXURY_BALL, LitwickMain_10
+	case ITEM_LEVEL_BALL, LitwickMain_10
+	case ITEM_LURE_BALL, LitwickMain_10
+	case ITEM_MOON_BALL, LitwickMain_10
+	case ITEM_FRIEND_BALL, LitwickMain_10
+	case ITEM_LOVE_BALL, LitwickMain_10
+	case ITEM_FAST_BALL, LitwickMain_10
+	case ITEM_HEAVY_BALL, LitwickMain_10
+	case ITEM_DREAM_BALL, LitwickMain_10
+	case ITEM_SAFARI_BALL, LitwickMain_10
+	case ITEM_SPORT_BALL, LitwickMain_10
+	case ITEM_PARK_BALL, LitwickMain_10
+	case ITEM_BEAST_BALL, LitwickMain_10
+	case ITEM_CHERISH_BALL, LitwickMain_10
+	case ITEM_DIRE_BALL, LitwickMain_10
 	msgbox ThatsNotaBall, MSGBOX_NPC
 	setflag VAR_TEMP_A
 	end

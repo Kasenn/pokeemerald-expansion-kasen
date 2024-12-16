@@ -60,6 +60,7 @@ static void QueueAnimTiles_Slateport_Balloons(u16);
 static void QueueAnimTiles_Mauville_Flowers(u16, u8);
 static void QueueAnimTiles_FlowerField_Flowers(u16, u8);
 static void QueueAnimTiles_BikeShop_BlinkingLights(u16);
+static void QueueAnimTiles_BikeShop_Treadmill(u16);
 static void QueueAnimTiles_BattlePyramid_Torch(u16);
 static void QueueAnimTiles_MirageTower_Smoke(u16);
 static void QueueAnimTiles_Drisledge_Wisp(u16);
@@ -572,6 +573,18 @@ const u16 tileset_anims_space_7[16] = {};
 const u16 *const gTilesetAnims_BikeShop_BlinkingLights[] = {
     gTilesetAnims_BikeShop_BlinkingLights_Frame0,
     gTilesetAnims_BikeShop_BlinkingLights_Frame1
+};
+
+const u16 gTilesetAnims_BikeShop_Treadmill_Frame0[] = INCBIN_U16("data/tilesets/secondary/bike_shop/anim/treadmill/0.4bpp");
+const u16 gTilesetAnims_BikeShop_Treadmill_Frame1[] = INCBIN_U16("data/tilesets/secondary/bike_shop/anim/treadmill/1.4bpp");
+const u16 gTilesetAnims_BikeShop_Treadmill_Frame2[] = INCBIN_U16("data/tilesets/secondary/bike_shop/anim/treadmill/2.4bpp");
+const u16 gTilesetAnims_BikeShop_Treadmill_Frame3[] = INCBIN_U16("data/tilesets/secondary/bike_shop/anim/treadmill/3.4bpp");
+
+const u16 *const gTilesetAnims_BikeShop_Treadmill[] = {
+    gTilesetAnims_BikeShop_Treadmill_Frame0,
+    gTilesetAnims_BikeShop_Treadmill_Frame1,
+    gTilesetAnims_BikeShop_Treadmill_Frame2,
+    gTilesetAnims_BikeShop_Treadmill_Frame3
 };
 
 const u16 gTilesetAnims_Sootopolis_StormyWater_Frame0[] = INCBIN_U16("data/tilesets/secondary/sootopolis/anim/stormy_water/0_kyogre.4bpp", "data/tilesets/secondary/sootopolis/anim/stormy_water/0_groudon.4bpp");
@@ -1282,6 +1295,8 @@ static void TilesetAnim_BikeShop(u16 timer)
 {
     if (timer % 4 == 0)
         QueueAnimTiles_BikeShop_BlinkingLights(timer / 4);
+    if (timer % 1 == 0)
+        QueueAnimTiles_BikeShop_Treadmill(timer / 1);
 }
 
 static void TilesetAnim_BattlePyramid(u16 timer)
@@ -1356,6 +1371,12 @@ static void QueueAnimTiles_BikeShop_BlinkingLights(u16 timer)
 {
     u16 i = timer % ARRAY_COUNT(gTilesetAnims_BikeShop_BlinkingLights);
     AppendTilesetAnimToBuffer(gTilesetAnims_BikeShop_BlinkingLights[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 496)), 9 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_BikeShop_Treadmill(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_BikeShop_Treadmill);
+    AppendTilesetAnimToBuffer(gTilesetAnims_BikeShop_Treadmill[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x2D7)), 4 * TILE_SIZE_4BPP);
 }
 
 static void QueueAnimTiles_Sootopolis_StormyWater(u16 timer)

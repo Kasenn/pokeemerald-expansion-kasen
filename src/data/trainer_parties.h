@@ -7072,8 +7072,9 @@ static const struct TrainerMon sParty_Sienna[] = {
 
 static const struct TrainerMon sParty_Debra[] = {
     {
-    .lvl = 34,
-    .species = SPECIES_SEAKING,
+    .lvl = 30,
+    .species = SPECIES_BEWEAR,
+    .moves = {MOVE_GIGA_DRAIN}
     }
 };
 

@@ -32,6 +32,7 @@ extern u16 *const gSpecialVars[];
 
 void InitEventData(void)
 {
+    memset(gSaveBlock1Ptr->flags2, 0, sizeof(gSaveBlock1Ptr->flags2));
     memset(gSaveBlock1Ptr->flags, 0, sizeof(gSaveBlock1Ptr->flags));
     memset(gSaveBlock1Ptr->vars, 0, sizeof(gSaveBlock1Ptr->vars));
     memset(sSpecialFlags, 0, sizeof(sSpecialFlags));
@@ -251,6 +252,8 @@ u8 *GetFlagPointer(u16 id)
 {
     if (id == 0)
         return NULL;
+    else if (id > SPECIAL_FLAGS_END)
+        return &gSaveBlock1Ptr->flags2[(id - SPECIAL_FLAGS_END)/ 8];
     else if (id < SPECIAL_FLAGS_START)
         return &gSaveBlock1Ptr->flags[id / 8];
     else

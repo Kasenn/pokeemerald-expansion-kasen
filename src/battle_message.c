@@ -2122,7 +2122,6 @@ void BufferStringBattle(u16 stringID, u32 battler)
                 }
                 else
                 {
-                    DebugPrintfLevel(MGBA_LOG_WARN, "Does the first one happen?");
                     if (gTrainerBattleOpponent_A == TRAINER_UNION_ROOM)
                         stringPtr = sText_Trainer1WantsToBattle;
                     else if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
@@ -2135,7 +2134,6 @@ void BufferStringBattle(u16 stringID, u32 battler)
             }
             else
             {
-                DebugPrintfLevel(MGBA_LOG_WARN, "Does the second one happen?");
                 if (BATTLE_TWO_VS_ONE_OPPONENT)
                     stringPtr = sText_Trainer1WantsToBattle;
                 else if (gBattleTypeFlags & (BATTLE_TYPE_MULTI | BATTLE_TYPE_INGAME_PARTNER))
@@ -2825,7 +2823,6 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst, u32 dstSize)
                 break;
             case B_TXT_TRAINER1_NAME: // trainer1 name
                 toCpy = BattleStringGetOpponentNameByTrainerId(gTrainerBattleOpponent_A, text, multiplayerId, GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT));
-                DebugPrintfLevel(MGBA_LOG_WARN, "Does the third one happen?");
                 if ((gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_RIVAL2) && !(gBattleTypeFlags & BATTLE_TYPE_FRONTIER))
                         toCpy = GetExpandedPlaceholder(PLACEHOLDER_ID_BROTHER);
                 break;

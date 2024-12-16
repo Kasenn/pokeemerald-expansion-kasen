@@ -283,7 +283,6 @@ void StoreSelectedPokemonInDaycare(void)
         gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
     else if (gSaveBlock3Ptr->followerIndex < PARTY_SIZE && monId < gSaveBlock3Ptr->followerIndex)
         gSaveBlock3Ptr->followerIndex--;
-    DebugPrintfLevel(MGBA_LOG_WARN, "follower mon changed to slot %d",  gSaveBlock3Ptr->followerIndex);
     StorePokemonInEmptyDaycareSlot(&gPlayerParty[monId], &gSaveBlock1Ptr->daycare);
 }
 

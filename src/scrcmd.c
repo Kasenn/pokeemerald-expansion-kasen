@@ -2880,3 +2880,33 @@ bool8 Scrcmd_getobjectfacingdirection(struct ScriptContext *ctx)
 
     return FALSE;
 }
+
+void ZeroFlags(void)
+{
+    memset(gSaveBlock1Ptr->flags2, 0, sizeof(gSaveBlock1Ptr->flags2));
+}
+
+void CheckSaveBlockData(void)
+{
+    u16 i, j;
+
+    for (i = 0; i < 1040; i++)
+    {
+        j = gSaveBlock1Ptr->flags2[i];
+        if (gSaveBlock1Ptr->flags2[i] != 0)
+        {
+            DebugPrintfLevel(MGBA_LOG_WARN, "placeholder %d", i);
+            DebugPrintfLevel(MGBA_LOG_WARN, "is value %d", j);
+        }
+    }
+}
+
+void DismountPlayer(void)
+{
+    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_BIKE)
+    {
+        SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
+        Overworld_ClearSavedMusic();
+        Overworld_PlaySpecialMapMusic();
+    }
+}

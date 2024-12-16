@@ -142,7 +142,7 @@
 #define VAR_TOWER_PARTNER                               0x407A // 
 #define VAR_ROUTE128_STATE                               0x407B
 #define VAR_RANCH_AMPHAROS                               0x407C //
-#define VAR_UNUSED_0x407D                              0x407D
+#define VAR_ZYGARDE_CORES                              0x407D
 #define VAR_MUD_REWARD_1                                 0x407E // MUD REWARD
 #define VAR_MUD_REWARD_2                                 0x407F // MUD REWARD
 #define VAR_MUD_REWARD_3                                 0x4080 // MUD REWARD
@@ -156,7 +156,7 @@
 #define VAR_CONTEST_TYPE                                 0x4088
 #define VAR_SECRET_BASE_INITIALIZED                      0x4089
 #define VAR_CONTEST_PRIZE_PICKUP                         0x408A
-#define VAR_UNUSED_0x408B                                0x408B 
+#define VAR_TENT_SPECIAL_PRIZE                                0x408B 
 #define VAR_LITTLEROOT_HOUSES_STATE_BRENDAN              0x408C
 #define VAR_LITTLEROOT_RIVAL_STATE                       0x408D
 #define VAR_BOARD_BRINEY_BOAT_STATE                      0x408E

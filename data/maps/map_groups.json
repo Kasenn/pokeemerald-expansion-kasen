@@ -117,7 +117,8 @@
     "SandstoneCityAlt",
     "FlowerFields",
     "Route23Lake",
-    "SouthernDesert"
+    "SouthernDesert",
+    "AmberockTown_KrokorokPier"
   ],
   "gMapGroup_RouteInteriors": [
     "RanchBarn",
@@ -377,7 +378,8 @@
     "Amberock_House3",
     "Amberock_PokeballFactory",
     "Amberock_PokeballFactory_B1F",
-    "Amberock_PokeballFactory_Office"
+    "Amberock_PokeballFactory_Office",
+    "Amberock_PokeballFactory_NoLights"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

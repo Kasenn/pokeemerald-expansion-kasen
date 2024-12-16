@@ -534,7 +534,7 @@ void ScrCmd_safefollow()
     gObjectEvents[gPlayerAvatar.objectEventId].playerCopyableMovement = COPY_MOVE_WALK;
 }
 
-void ResetCopyableMovement()
+void ScrCmd_resetcopyablemovement()
 {
     gObjectEvents[gPlayerAvatar.objectEventId].playerCopyableMovement = 0;
 }

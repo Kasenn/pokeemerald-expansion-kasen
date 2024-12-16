@@ -73,6 +73,7 @@ static const struct GMaxMove sGMaxMoveTable[] =
 // Returns whether a battler can Dynamax.
 bool32 CanDynamax(u32 battler)
 {
+    return FALSE;
     u16 species = gBattleMons[battler].species;
     u16 holdEffect = GetBattlerHoldEffect(battler, FALSE);
 

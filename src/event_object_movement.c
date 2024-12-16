@@ -576,6 +576,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Breeder,           OBJ_EVENT_PAL_BREEDER},
     {gObjectEventPalette_BigBoulder,           OBJ_EVENT_PAL_BIG_BOULDER},
     {gObjectEventPalette_ZygardeCell,           OBJ_EVENT_PAL_ZYGARDE_CELL},
+    {gObjectEventPalette_ZygardeCore,           OBJ_EVENT_PAL_ZYGARDE_CORE},
     {gObjectEventPalette_IrisOnAggron,           OBJ_EVENT_PAL_IRIS_ON_AGGRON},
     {gObjectEventPalette_AggronMount,           OBJ_EVENT_PAL_AGGRON_MOUNT},
     {gObjectEventPalette_Giovanni,           OBJ_EVENT_PAL_GIOVANNI},

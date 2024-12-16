@@ -49,15 +49,16 @@
 
 // VAR_AMBEROCK_STORY
 #define STORY_AMBEROCK_ENTERED                          0         
-#define STORY_AMBEROCK_SPOKE_WITH_CLAY                  1        
-#define STORY_AMBEROCK_CONTROLLING_KROKOROK             2            
+#define STORY_AMBEROCK_SPOKE_WITH_CLAY                  1
+#define STORY_AMBEROCK_FOUND_PETREL                     2   
 #define STORY_AMBEROCK_FOUND_GIOVANNI                   3        
-#define STORY_AMBEROCK_FOUND_PETREL                     4   
-#define STORY_AMBEROCK_CUT_ELECTRICITY                  5       
-#define STORY_AMBEROCK_FOUGHT_PETREL                    6       
-#define STORY_AMBEROCK_OBTAINED_RESEARCH                7           
-#define STORY_AMBEROCK_CAME_TOO_LATE                    8       
-#define STORY_AMBEROCK_GIOVANNI_ESCAPED                 9       
-#define STORY_AMBEROCK_STORY_COMPLETE                   10      
+#define STORY_AMBEROCK_CUT_ELECTRICITY                  4
+#define STORY_AMBEROCK_GROUP_WAITING_AT_GATE            5
+#define STORY_AMBEROCK_BEAT_GUARDS                      6     
+#define STORY_AMBEROCK_FOUGHT_PETREL                    7       
+#define STORY_AMBEROCK_OBTAINED_RESEARCH                8           
+#define STORY_AMBEROCK_CAME_TOO_LATE                    9       
+#define STORY_AMBEROCK_GIOVANNI_ESCAPED                 10       
+#define STORY_AMBEROCK_STORY_COMPLETE                   11      
 
 #endif // GUARD_CONSTANTS_STORY_H

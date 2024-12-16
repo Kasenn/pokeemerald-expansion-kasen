@@ -535,6 +535,7 @@ const u32 gObjectEventPic_ItemBallFloating[] = INCBIN_U32("graphics/object_event
 const u16 gObjectEventPalette_ItemBallFloating[] = INCBIN_U16("graphics/object_events/pics/misc/ball_float.gbapal");
 const u32 gObjectEventPic_ZygardeCell[] = INCBIN_U32("graphics/object_events/pics/people/zygarde_cell.4bpp");
 const u16 gObjectEventPalette_ZygardeCell[] = INCBIN_U16("graphics/object_events/pics/people/zygarde_cell.gbapal");
+const u16 gObjectEventPalette_ZygardeCore[] = INCBIN_U16("graphics/object_events/pics/people/zygarde_core.gbapal");
 const u32 gObjectEventPic_Breeder[] = INCBIN_U32("graphics/object_events/pics/people/breeder.4bpp");
 const u16 gObjectEventPalette_Breeder[] = INCBIN_U16("graphics/object_events/pics/people/breeder.gbapal");
 const u32 gObjectEventPic_Gen4_Breeder_M[] = INCBIN_U32("graphics/object_events/pics/people/gen4_breeder_m.4bpp");

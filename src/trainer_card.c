@@ -2552,7 +2552,6 @@ static void PssScrollRightEnd(u8 taskId) // display right
     ShowBg(1);
             
     DrawTrainerCardWindow(WIN_CARD_TEXT);
-    DebugPrintfLevel(MGBA_LOG_WARN, "are we getting this far?",  gPlayerAvatar.bikeSpeed);
     SwitchTaskToFollowupFunc(taskId);
 }
 
@@ -2617,7 +2616,6 @@ static void PssScrollLeftEnd(u8 taskId) // display left
     ShowBg(2);
             
     DrawTrainerCardWindow(WIN_CARD_TEXT);
-    DebugPrintfLevel(MGBA_LOG_WARN, "are we getting this far?",  gPlayerAvatar.bikeSpeed);
     // FillWindowPixelBuffer(WIN_CARD_TEXT, PIXEL_FILL(0));
     // PrintAllOnJournal();
     // DrawTrainerCardWindow(WIN_CARD_TEXT);

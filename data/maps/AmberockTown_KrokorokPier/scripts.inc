@@ -1,0 +1,18 @@
+AmberockTown_KrokorokPier_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, AmberockTown_KrokorokPier_MapScripts_MAP_SCRIPT_ON_TRANSITION
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, AmberockTown_KrokorokPier_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
+	.byte 0
+
+AmberockTown_KrokorokPier_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	goto_if_set FLAG_DISGUISED_AS_KROKOROK, AmberockTown_KrokorokPier_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
+	return
+
+AmberockTown_KrokorokPier_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
+	setflag FLAG_TEMP_HIDE_FOLLOWER
+	setflag FLAG_SYS_USE_STRENGTH
+	return
+
+AmberockTown_KrokorokPier_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE:
+	map_script_2 VAR_TEMP_3, 0, SetPlayerKrokorokModel
+	.2byte 0
+

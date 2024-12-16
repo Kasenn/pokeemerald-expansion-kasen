@@ -1702,3 +1702,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Azuretide_Grotto/scripts.inc"
 
 	.include "data/maps/Kaolisle_BirdHouse/scripts.inc"
+
+	.include "data/maps/AmberockTown_KrokorokPier/scripts.inc"
+
+	.include "data/maps/Amberock_PokeballFactory_NoLights/scripts.inc"

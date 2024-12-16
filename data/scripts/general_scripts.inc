@@ -1,3 +1,41 @@
+CheckForTentSpecialPrize::
+	compare VAR_TENT_SPECIAL_PRIZE, 3
+	goto_if_ne CheckForTentSpecialPrize_2
+CheckForTentSpecialPrize_1:
+	switch VAR_TENT_SPECIAL_PRIZE
+	case 1, CheckForTentSpecialPrize_6
+	case 2, CheckForTentSpecialPrize_7
+	case 3, CheckForTentSpecialPrize_8
+CheckForTentSpecialPrize_4:
+	goto SlateportCity_BattleTentLobby_EventScript_EndGivePrize
+	return
+
+CheckForTentSpecialPrize_2:
+	addvar VAR_TENT_SPECIAL_PRIZE, 1
+	goto CheckForTentSpecialPrize_1
+
+CheckForTentSpecialPrize_6:
+	msgbox GainedASpecialTicket
+	goto CheckForTentSpecialPrize_4
+
+CheckForTentSpecialPrize_7:
+	msgbox NowHaveTwoTickets
+	goto CheckForTentSpecialPrize_4
+
+CheckForTentSpecialPrize_8:
+	msgbox TentGrandPrize
+	giveitem ITEM_FRESH_START_MOCHI
+	compare VAR_RESULT, FALSE
+	goto_if_eq CheckForTentSpecialPrize_10
+CheckForTentSpecialPrize_9:
+	setvar VAR_TENT_SPECIAL_PRIZE, 0
+	goto CheckForTentSpecialPrize_4
+
+CheckForTentSpecialPrize_10:
+	goto SlateportCity_BattleTentLobby_EventScript_NoRoomForPrize
+	goto CheckForTentSpecialPrize_9
+
+
 TradeSeedsForFertilizer::
 	lock
 	faceplayer
@@ -225,6 +263,20 @@ ZygardeCell::
 	end
 
 
+ZygardeCore::
+	lock
+	waitse
+	playfanfare MUS_OBTAIN_ITEM
+	removeobject VAR_LAST_TALKED
+	message PlayerFoundZygardeCore
+	waitfanfare
+	waitmessage
+	msgbox gText_PutZygardeCoreInCube
+	addvar VAR_ZYGARDE_CORES, 1
+	release
+	end
+
+
 IrisBattle::
 	trainerbattle_no_intro TRAINER_CASUAL_IRIS, RustboroCity_DevonCorp_1F_Rocket1_Defeat
 	return
@@ -245,7 +297,6 @@ AutomaticUpdate::
 	clearflag FLAG_SERPENTCAVE_DRAGONFANG
 	clearflag FLAG_OBTAINED_TYRANITARITE
 	clearflag FLAG_OBTAINED_BLUNDER_POLICY
-	msgbox AutomaticUpdate_Text1
 	callnative DefaultFollower
 	closemessage
 	release
@@ -254,28 +305,7 @@ AutomaticUpdate::
 
 AutomaticUpdate2::
 	setvar VAR_DEBUG, 10
-	msgbox AutomaticUpdate2_Text, MSGBOX_YESNO
-	compare VAR_RESULT, TRUE
-	goto_if_eq AutomaticUpdate2_2
-AutomaticUpdate2_1:
-	msgbox AutomaticUpdate2_Text2, MSGBOX_SIGN
-	release
 	end
-
-AutomaticUpdate2_2:
-	checkplayergender
-	compare VAR_RESULT, MALE
-	goto_if_eq AutomaticUpdate2_5
-	setvar VAR_0x8004, FEMALE
-AutomaticUpdate2_4:
-	fadescreen FADE_TO_BLACK
-	special StartWallClock
-	waitstate
-	goto AutomaticUpdate2_1
-
-AutomaticUpdate2_5:
-	setvar VAR_0x8004, MALE
-	goto AutomaticUpdate2_4
 
 
 AutomaticUpdate3::
@@ -285,8 +315,8 @@ AutomaticUpdate3::
 	setvar VAR_MINA_INTRO_QUEST, 0
 	setvar VAR_AMBEROCK_STORY, 0
 	setvar VAR_GROTTO_5, 0
-	setvar VAR_UNUSED_0x407D, 0
-	setvar VAR_UNUSED_0x408B, 0
+	setvar VAR_ZYGARDE_CORES, 0
+	setvar VAR_TENT_SPECIAL_PRIZE, 0
 	setvar VAR_SERPENTCAVE_STORY, 0
 	clearflag FLAG_REUNITE_WITH_RIVAL
 	clearflag FLAG_INTRODUCED_TO_BERRY_TRADER
@@ -294,7 +324,7 @@ AutomaticUpdate3::
 	clearflag FLAG_KAOLISLE_ITEM8
 	clearflag FLAG_SANDSTONE_HIDDENITEM_1
 	clearflag FLAG_SANDSTONE_HIDDENITEM_2
-	clearflag FLAG_AMBEROCK_ITEM1
+	clearflag FLAG_UNUSED_SYS_0x22
 	clearflag FLAG_KAOLISLE_ITEM9
 	clearflag FLAG_SERPENTCAVE_BOULDER_1
 	clearflag FLAG_SERPENTCAVE_BOULDER_2
@@ -418,13 +448,64 @@ AutomaticUpdate4::
 
 
 AutomaticUpdate5::
-	msgbox EVTrainerNerfed
-	checkitemquant ITEM_POTION
-	removeitem ITEM_POTION, VAR_0x8005
-	additem ITEM_SUPER_POTION, VAR_0x8005
-	checkitemquant ITEM_DIRE_BALL
-	removeitem ITEM_DIRE_BALL, VAR_0x8005
-	additem ITEM_POTION, VAR_0x8005
+	msgbox AutomaticUpdate_Text1
+	msgbox AutomaticUpdate2_Text2
+	msgbox AutomaticUpdate2_Text, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
+	goto_if_eq AutomaticUpdate5_2
+AutomaticUpdate5_1:
+	setflag FLAG_ZYGARDE_CELL_51
+	setflag FLAG_ZYGARDE_CELL_52
+	setflag FLAG_ZYGARDE_CELL_53
+	setflag FLAG_ZYGARDE_CELL_54
+	setflag FLAG_ZYGARDE_CELL_55
+	setflag FLAG_ZYGARDE_CELL_56
+	setflag FLAG_ZYGARDE_CELL_57
+	setflag FLAG_ZYGARDE_CELL_58
+	setflag FLAG_ZYGARDE_CELL_59
+	setflag FLAG_ZYGARDE_CELL_60
+	setflag FLAG_ZYGARDE_CELL_61
+	setflag FLAG_ZYGARDE_CELL_62
+	setflag FLAG_ZYGARDE_CELL_63
+	setflag FLAG_ZYGARDE_CELL_64
+	setflag FLAG_ZYGARDE_CELL_65
+	setflag FLAG_ZYGARDE_CELL_66
+	setflag FLAG_ZYGARDE_CELL_67
+	setflag FLAG_ZYGARDE_CELL_68
+	setflag FLAG_ZYGARDE_CELL_69
+	setflag FLAG_ZYGARDE_CELL_70
+	setflag FLAG_ZYGARDE_CELL_71
+	setflag FLAG_ZYGARDE_CELL_72
+	setflag FLAG_ZYGARDE_CELL_73
+	setflag FLAG_ZYGARDE_CELL_74
+	setflag FLAG_ZYGARDE_CELL_75
+	setflag FLAG_ZYGARDE_CELL_76
+	setflag FLAG_ZYGARDE_CELL_77
+	setflag FLAG_ZYGARDE_CELL_78
+	setflag FLAG_ZYGARDE_CELL_79
+	setflag FLAG_ZYGARDE_CELL_80
+	setflag FLAG_ZYGARDE_CELL_81
+	setflag FLAG_ZYGARDE_CELL_82
+	setflag FLAG_ZYGARDE_CELL_83
+	setflag FLAG_ZYGARDE_CELL_84
+	setflag FLAG_ZYGARDE_CELL_85
+	setflag FLAG_ZYGARDE_CELL_86
+	setflag FLAG_ZYGARDE_CELL_87
+	setflag FLAG_ZYGARDE_CELL_88
+	setflag FLAG_ZYGARDE_CELL_89
+	setflag FLAG_ZYGARDE_CELL_90
+	setflag FLAG_ZYGARDE_CELL_91
+	setflag FLAG_ZYGARDE_CELL_92
+	setflag FLAG_ZYGARDE_CELL_93
+	setflag FLAG_ZYGARDE_CELL_94
+	setflag FLAG_ZYGARDE_CELL_95
+	setflag FLAG_ZYGARDE_CORE_1
+	setflag FLAG_ZYGARDE_CORE_2
+	setflag FLAG_ZYGARDE_CORE_3
+	setflag FLAG_ZYGARDE_CORE_4
+	setflag FLAG_FACTORY_ITEM_1_OUTSIDE
+	setflag FLAG_FACTORY_ITEM_2_OUTSIDE
+	setflag FLAG_FACTORY_ITEM_3_OUTSIDE
 	clearflag FLAG_SAFARIMOUNTAIN_ITEM4
 	clearflag FLAG_SAFARIMOUNTAIN_ITEM5
 	clearflag FLAG_SAFARIMOUNTAIN_ITEM6
@@ -433,24 +514,45 @@ AutomaticUpdate5::
 	clearflag FLAG_R14_ITEM6
 	clearflag FLAG_WINDPLUME_MT_HIDE_CHARGED_ORB
 	setvar VAR_DEBUG, 13
-	goto_if_set FLAG_HELPED_DEVON_CORP, AutomaticUpdate5_2
-AutomaticUpdate5_1:
+	goto_if_set FLAG_VISITED_ROCKLIFFE, AutomaticUpdate5_5
+AutomaticUpdate5_4:
+	goto_if_set FLAG_HELPED_DEVON_CORP, AutomaticUpdate5_12
+AutomaticUpdate5_11:
 	release
 	return
 
 AutomaticUpdate5_2:
-	msgbox SceneAltered, MSGBOX_YESNO
-	compare VAR_RESULT, TRUE
-	goto_if_eq AutomaticUpdate5_4
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq AutomaticUpdate5_8
+	setvar VAR_0x8004, FEMALE
+AutomaticUpdate5_7:
+	fadescreen FADE_TO_BLACK
+	special StartWallClock
+	waitstate
 	goto AutomaticUpdate5_1
 
-AutomaticUpdate5_4:
+AutomaticUpdate5_5:
+	msgbox BattleTentInRockliffe
+	goto AutomaticUpdate5_4
+
+AutomaticUpdate5_8:
+	setvar VAR_0x8004, MALE
+	goto AutomaticUpdate5_7
+
+AutomaticUpdate5_12:
+	msgbox SceneAltered, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
+	goto_if_eq AutomaticUpdate5_14
+	goto AutomaticUpdate5_11
+
+AutomaticUpdate5_14:
 	callnative StorePCLocation
 	getplayerxy VAR_OBJ_GFX_ID_D, VAR_OBJ_GFX_ID_E
 	closemessage
 	warpsilent MAP_DEVON_CROP_MEMORY, 0
 	waitstate
-	goto AutomaticUpdate5_1
+	goto AutomaticUpdate5_11
 
 
 Debug_Script_1::
@@ -755,14 +857,13 @@ Debug_Script_4_12:
 
 
 Debug_Script_5::
-	setvar VAR_KAOLISLE_BIRDS, 100
+	givemon SPECIES_HITMONLEE, 30, ITEM_NONE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, MOVE_FAKE_OUT
 	release
 	return
 
 
 Debug_Script_6::
-	applymovement 1, MarineCave_End_Movement_KyogreApproach
-	waitmovement 0
+	trainerbattle_no_intro TRAINER_DEBRA, Debug_Script_6_Text_0
 	return
 
 
@@ -1058,6 +1159,26 @@ Debug_Script_4_Text_15:
 Debug_Script_4_Text_16:
 	.string "Team set to level 45.$"
 
+Debug_Script_6_Text_0:
+	.string "GG$"
+
+GainedASpecialTicket::
+	.string "Due to your victory, you have\n"
+	.string "earned a special victory ticket.\p"
+	.string "Earn two more victory tickets, and\n"
+	.string "you will get a special extra prize!$"
+
+NowHaveTwoTickets::
+	.string "You now have two victory tickets.\p"
+	.string "Earn one more ticket for a special\n"
+	.string "extra prize!$"
+
+TentGrandPrize::
+	.string "You just earned your third victory\n"
+	.string "ticket.\p"
+	.string "This means you are eligible for a\n"
+	.string "special reward, a Fresh Start Mochi!$"
+
 SeenAnyStrangeSeeds::
 	.string "I've been hearing some rumors about\n"
 	.string "Pokémon hiding strange seeds in trees.$"
@@ -1126,28 +1247,33 @@ gText_PutZygardeCellInCube::
 	.string "{PLAYER} stored the Zygarde Cell\n"
 	.string "in the Zygarde Cube.$"
 
+PlayerFoundZygardeCore::
+	.string "{PLAYER} found a Zygarde Core!$"
+
+gText_PutZygardeCoreInCube::
+	.string "{PLAYER} stored the Zygarde Core\n"
+	.string "in the Zygarde Cube.$"
+
 AutomaticUpdate_Text1::
 	.string "A new update has been applied.\p"
 	.string "Things included in this update:\p"
-	.string "1. Followers, as well as setting a\n"
+	.string "1. New areas to explore.\p"
+	.string "2. Some old areas have been updated.\n"
+	.string "Some old events may have reset as\l"
+	.string "a result.\p"
+	.string "3. Followers, as well as setting a\n"
 	.string "preferred follower from party screen.\p"
-	.string "2. An updated “Stats” page in the\n"
+	.string "4. An updated “Stats” page in the\n"
 	.string "start menu.\p"
-	.string "3. A lot of bug fixes.$"
-
-AutomaticUpdate2_Text::
-	.string "Update: You have obtained a watch.\p"
-	.string "You can now check the time by\n"
-	.string "pressing the START button and can\l"
-	.string "toggle between 12-hour and 24-hour\l"
-	.string "modes through the options menu or\l"
-	.string "by viewing a wall clock.\p"
-	.string "Would you like to re-set the clock?$"
+	.string "5. New window frames available\n"
+	.string "in the options menu.\p"
+	.string "6. A lot of random bug fixes.\p"
+	.string "7. The EV trainer in Pokémon Centers\n"
+	.string "has been nerfed from 10 EV per\l"
+	.string "Pokémon to 5.$"
 
 AutomaticUpdate2_Text2::
-	.string "There are also many new window frames\n"
-	.string "available in the options menu.\p"
-	.string "There is now also a separate color\n"
+	.string "8. There is now a separate color\n"
 	.string "switcher for the battle interface,\l"
 	.string "as well as an ability to change\l"
 	.string "window frames during battle.\p"
@@ -1161,10 +1287,21 @@ AutomaticUpdate2_Text2::
 	.string "and bars in double battles has been\l"
 	.string "moved to SELECT button.$"
 
-EVTrainerNerfed::
-	.string "The EV trainer in Pokémon Centers\n"
-	.string "has been nerfed from 10 EV per\l"
-	.string "Pokémon to 5.$"
+AutomaticUpdate2_Text::
+	.string "9. You have obtained a watch.\p"
+	.string "You can now check the time by\n"
+	.string "pressing the START button and can\l"
+	.string "toggle between 12-hour and 24-hour\l"
+	.string "modes through the options menu or\l"
+	.string "by viewing a wall clock.\p"
+	.string "Would you like to re-set the clock?\n"
+	.string "Do note that this may have unintended\l"
+	.string "consequences on time-related events,\l"
+	.string "such as berry growth or daily events.$"
+
+BattleTentInRockliffe::
+	.string "10. A new battle tent has opened in\n"
+	.string "Rockliffe town.$"
 
 SceneAltered::
 	.string "An earlier story scene of\n"

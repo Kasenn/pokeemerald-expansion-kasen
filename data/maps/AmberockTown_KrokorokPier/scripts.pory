@@ -1,0 +1,11 @@
+mapscripts AmberockTown_KrokorokPier_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        if(flag(FLAG_DISGUISED_AS_KROKOROK)){
+            setflag(FLAG_TEMP_HIDE_FOLLOWER)
+            setflag(FLAG_SYS_USE_STRENGTH)
+        }
+    }
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
+        VAR_TEMP_3, 0: SetPlayerKrokorokModel
+    ]
+}

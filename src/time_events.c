@@ -80,7 +80,7 @@ void UpdateShoalTideFlag(void)
         1, // 22
         1, // 23
     };
-
+    // if (IsMapTypeOutdoors(GetLastUsedWarpMapType()) || (gSaveBlock1Ptr->location.mapNum == MAP_NUM(GRANITE_CAVE_1F) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(GRANITE_CAVE_1F)))
     if (IsMapTypeOutdoors(GetLastUsedWarpMapType()))
     {
         RtcCalcLocalTime();

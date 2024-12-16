@@ -99,7 +99,15 @@ void static (*const sSlateportTentFuncs[])(void) =
     [SLATEPORT_TENT_FUNC_GENERATE_RENTAL_MONS]   = GenerateInitialRentalMons
 };
 
-static const u16 sSlateportTentRewards[] = {ITEM_FULL_HEAL};
+static const u16 sSlateportTentRewards[] = 
+{
+    ITEM_HEALTH_MOCHI,
+    ITEM_MUSCLE_MOCHI,
+    ITEM_RESIST_MOCHI,
+    ITEM_GENIUS_MOCHI,
+    ITEM_CLEVER_MOCHI,
+    ITEM_SWIFT_MOCHI,
+};
 
 // code
 void CallVerdanturfTentFunction(void)

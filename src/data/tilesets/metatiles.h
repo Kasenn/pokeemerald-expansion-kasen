@@ -306,3 +306,6 @@ const u16 gMetatileAttributes_WindplumeCave[] = INCBIN_U16("data/tilesets/second
 
 const u16 gMetatiles_Facility2[] = INCBIN_U16("data/tilesets/secondary/facility_2/metatiles.bin");
 const u16 gMetatileAttributes_Facility2[] = INCBIN_U16("data/tilesets/secondary/facility_2/metatile_attributes.bin");
+
+const u16 gMetatiles_PokeBallFactory[] = INCBIN_U16("data/tilesets/secondary/poke_ball_factory/metatiles.bin");
+const u16 gMetatileAttributes_PokeBallFactory[] = INCBIN_U16("data/tilesets/secondary/poke_ball_factory/metatile_attributes.bin");

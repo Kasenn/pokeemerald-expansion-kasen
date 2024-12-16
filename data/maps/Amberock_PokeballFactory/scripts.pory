@@ -1,11 +1,437 @@
+const X = VAR_0x8001
+const Y = VAR_0x8002
+const MAIN_BOULDER = 35
+const VAR_ROCKET_ID = VAR_TEMP_1
+const VAR_ROCKET_DIR = VAR_TEMP_2
+const VAR_WARP_ID = VAR_TEMP_3
+const FLAG_GUARD_ROCKETS = FLAG_TEMP_1
+const FLAG_PETREL = FLAG_TEMP_2
+const PETREL_OBJ = 39
+
 mapscripts Amberock_PokeballFactory_MapScripts {
     MAP_SCRIPT_ON_TRANSITION{
         if(flag(FLAG_DISGUISED_AS_KROKOROK)){
             setflag(FLAG_TEMP_HIDE_FOLLOWER)
             setflag(FLAG_SYS_USE_STRENGTH)
+            setflag(FLAG_PETREL)
+        }
+        if(var(VAR_AMBEROCK_STORY) >= STORY_AMBEROCK_FOUND_PETREL){
+            setflag(FLAG_GUARD_ROCKETS)
         }
     }
     MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
         VAR_TEMP_3, 0: SetPlayerKrokorokModel
     ]
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_BOULDER_ID, MAIN_BOULDER: Factory_DoBoulderCheck
+    ]
+}
+
+script Factory_DoBoulderCheck{
+    getobjectxy(MAIN_BOULDER)
+    if(var(Y) != 32){
+        setvar(VAR_BOULDER_ID, 0)
+    }
+    else{
+        safefollow
+        if(var(X) == 20){
+            applymovement(MAIN_BOULDER, moves(walk_fast_left * 9))
+        }
+        else{
+            applymovement(MAIN_BOULDER, moves(walk_fast_left * 10))
+        }
+        waitmovement(0)
+        playse(SE_M_STRENGTH)
+        setobjectxy(MAIN_BOULDER, 11, 32)
+        setobjectxyperm(MAIN_BOULDER, 11, 32)
+        setvar(VAR_BOULDER_ID, 0)
+    }
+    release
+}
+
+script Factory_BusyKrokorok{
+    msgbox(Factory_BusyKrokorok_Text)
+    release
+}
+text Factory_BusyKrokorok_Text{
+    "The Krokorok seems busy scavenging\n"
+    "through the boxes."
+}
+
+script Amberock_Factory_RocketTrigger1_1{
+    setvar(VAR_ROCKET_ID, 25)
+    setvar(VAR_ROCKET_DIR, DIR_WEST)
+    setvar(VAR_WARP_ID, 4)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger1_2{
+    setvar(VAR_ROCKET_ID, 25)
+    setvar(VAR_ROCKET_DIR, DIR_SOUTH)
+    setvar(VAR_WARP_ID, 4)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger1_3{
+    setvar(VAR_ROCKET_ID, 25)
+    setvar(VAR_ROCKET_DIR, DIR_EAST)
+    setvar(VAR_WARP_ID, 4)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger1_4{
+    setvar(VAR_ROCKET_ID, 25)
+    setvar(VAR_ROCKET_DIR, DIR_NORTH)
+    setvar(VAR_WARP_ID, 4)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger2_1{
+    setvar(VAR_ROCKET_ID, 24)
+    setvar(VAR_ROCKET_DIR, DIR_SOUTH)
+    setvar(VAR_WARP_ID, 5)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger2_2{
+    setvar(VAR_ROCKET_ID, 24)
+    setvar(VAR_ROCKET_DIR, DIR_EAST)
+    setvar(VAR_WARP_ID, 5)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger2_3{
+    setvar(VAR_ROCKET_ID, 24)
+    setvar(VAR_ROCKET_DIR, DIR_NORTH)
+    setvar(VAR_WARP_ID, 5)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger3_1{
+    setvar(VAR_ROCKET_ID, 11)
+    setvar(VAR_ROCKET_DIR, DIR_SOUTH)
+    setvar(VAR_WARP_ID, 6)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger3_2{
+    setvar(VAR_ROCKET_ID, 11)
+    setvar(VAR_ROCKET_DIR, DIR_WEST)
+    setvar(VAR_WARP_ID, 6)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger4_1{
+    setvar(VAR_ROCKET_ID, 28)
+    setvar(VAR_ROCKET_DIR, DIR_EAST)
+    setvar(VAR_WARP_ID, 6)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger4_2{
+    setvar(VAR_ROCKET_ID, 28)
+    setvar(VAR_ROCKET_DIR, DIR_NORTH)
+    setvar(VAR_WARP_ID, 6)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger5_1{
+    setvar(VAR_ROCKET_ID, 12)
+    setvar(VAR_ROCKET_DIR, DIR_SOUTH)
+    setvar(VAR_WARP_ID, 6)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger5_2{
+    setvar(VAR_ROCKET_ID, 12)
+    setvar(VAR_ROCKET_DIR, DIR_WEST)
+    setvar(VAR_WARP_ID, 6)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger6_1{
+    setvar(VAR_ROCKET_ID, 13)
+    setvar(VAR_ROCKET_DIR, DIR_SOUTH)
+    setvar(VAR_WARP_ID, 7)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger6_2{
+    setvar(VAR_ROCKET_ID, 13)
+    setvar(VAR_ROCKET_DIR, DIR_NORTH)
+    setvar(VAR_WARP_ID, 7)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger6_3{
+    setvar(VAR_ROCKET_ID, 13)
+    setvar(VAR_ROCKET_DIR, DIR_WEST)
+    setvar(VAR_WARP_ID, 7)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger7_1{
+    setvar(VAR_ROCKET_ID, 29)
+    setvar(VAR_ROCKET_DIR, DIR_EAST)
+    setvar(VAR_WARP_ID, 8)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger7_2{
+    setvar(VAR_ROCKET_ID, 29)
+    setvar(VAR_ROCKET_DIR, DIR_WEST)
+    setvar(VAR_WARP_ID, 8)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger7_3{
+    setvar(VAR_ROCKET_ID, 29)
+    setvar(VAR_ROCKET_DIR, DIR_NORTH)
+    setvar(VAR_WARP_ID, 8)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger8_1{
+    setvar(VAR_ROCKET_ID, 14)
+    setvar(VAR_ROCKET_DIR, DIR_EAST)
+    setvar(VAR_WARP_ID, 8)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger8_2{
+    setvar(VAR_ROCKET_ID, 14)
+    setvar(VAR_ROCKET_DIR, DIR_SOUTH)
+    setvar(VAR_WARP_ID, 8)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger9_1{
+    setvar(VAR_ROCKET_ID, 30)
+    setvar(VAR_ROCKET_DIR, DIR_EAST)
+    setvar(VAR_WARP_ID, 8)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger9_2{
+    setvar(VAR_ROCKET_ID, 30)
+    setvar(VAR_ROCKET_DIR, DIR_SOUTH)
+    setvar(VAR_WARP_ID, 8)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger9_3{
+    setvar(VAR_ROCKET_ID, 30)
+    setvar(VAR_ROCKET_DIR, DIR_WEST)
+    setvar(VAR_WARP_ID, 8)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger10_1{
+    setvar(VAR_ROCKET_ID, 1)
+    setvar(VAR_ROCKET_DIR, DIR_SOUTH)
+    setvar(VAR_WARP_ID, 8)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger10_2{
+    setvar(VAR_ROCKET_ID, 1)
+    setvar(VAR_ROCKET_DIR, DIR_WEST)
+    setvar(VAR_WARP_ID, 8)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger10_3{
+    setvar(VAR_ROCKET_ID, 1)
+    setvar(VAR_ROCKET_DIR, DIR_NORTH)
+    setvar(VAR_WARP_ID, 8)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger10_4{
+    setvar(VAR_ROCKET_ID, 1)
+    setvar(VAR_ROCKET_DIR, DIR_EAST)
+    setvar(VAR_WARP_ID, 8)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger11_1{
+    setvar(VAR_ROCKET_ID, 2)
+    setvar(VAR_ROCKET_DIR, DIR_WEST)
+    setvar(VAR_WARP_ID, 8)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger11_2{
+    setvar(VAR_ROCKET_ID, 2)
+    setvar(VAR_ROCKET_DIR, DIR_NORTH)
+    setvar(VAR_WARP_ID, 8)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger11_3{
+    setvar(VAR_ROCKET_ID, 2)
+    setvar(VAR_ROCKET_DIR, DIR_EAST)
+    setvar(VAR_WARP_ID, 8)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger11_4{
+    setvar(VAR_ROCKET_ID, 2)
+    setvar(VAR_ROCKET_DIR, DIR_SOUTH)
+    setvar(VAR_WARP_ID, 8)
+    goto(Amberock_Factory_MainRocket)
+}
+
+script Amberock_Factory_MainRocket{
+    lock
+    delay(15)
+    playse(SE_PIN)
+    switch(var(VAR_ROCKET_DIR)){
+        case DIR_NORTH:
+            turnobject(VAR_ROCKET_ID, DIR_NORTH)
+        case DIR_WEST:
+            turnobject(VAR_ROCKET_ID, DIR_WEST)
+        case DIR_EAST:
+            turnobject(VAR_ROCKET_ID, DIR_EAST)
+        case DIR_SOUTH:
+            turnobject(VAR_ROCKET_ID, DIR_SOUTH)
+    }
+    // turnobject(VAR_ROCKET_ID, VAR_ROCKET_DIR)
+    applymovement(VAR_ROCKET_ID, ExclamationMark)
+    waitmovement(0)
+    delay(60)
+    msgbox(GetBackToWork)
+    closemessage
+    switch(var(VAR_WARP_ID)){
+        case 2:
+            warpsilent(MAP_AMBEROCK_POKEBALL_FACTORY, 2)
+        case 4:
+            warpsilent(MAP_AMBEROCK_POKEBALL_FACTORY, 4)
+        case 5:
+            warpsilent(MAP_AMBEROCK_POKEBALL_FACTORY, 5)
+        case 6:
+            warpsilent(MAP_AMBEROCK_POKEBALL_FACTORY, 6)
+        case 7:
+            warpsilent(MAP_AMBEROCK_POKEBALL_FACTORY, 7)
+        case 8:
+            warpsilent(MAP_AMBEROCK_POKEBALL_FACTORY, 8)
+    }
+    // warpsilent(MAP_AMBEROCK_POKEBALL_FACTORY, VAR_WARP_ID)
+    waitstate
+}
+text GetBackToWork{
+    "Where do you think you're going?\n"
+    "Get back to work!"
+}
+
+script FactoryEmployee_Basement{
+    msgbox(FactoryEmployee_Basement_Text, MSGBOX_SIGN)
+}
+text FactoryEmployee_Basement_Text{
+    "(WIP)these are employees"
+}
+
+script TooCloseToProton{
+    setvar(VAR_ROCKET_ID, 4)
+    setvar(VAR_ROCKET_DIR, DIR_EAST)
+    setvar(VAR_WARP_ID, 2)
+    goto(Amberock_Factory_MainRocket)
+}
+
+script Factory_KrokorokPetrelCutScene{
+    lock
+    delay(15)
+    addobject(PETREL_OBJ)
+    applymovement(PETREL_OBJ, moves(delay_16 * 2 walk_down walk_in_place_fast_right))
+    waitmovement(0)
+    msgbox(Petrel_MoveItGuys)
+    turnobject(38, DIR_WEST)
+    msgbox(Sorry_Petrel)
+    closemessage
+    delay(16)
+    applymovement(PETREL_OBJ, moves(walk_up set_invisible))
+    applymovement(37, Factory_RocketGuardLeaves2)
+    applymovement(38, Factory_RocketGuardLeaves)
+    waitmovement(0)
+    removeobject(PETREL_OBJ)
+    removeobject(37)
+    removeobject(38)
+    delay(16)
+    release
+    setvar(VAR_AMBEROCK_STORY, STORY_AMBEROCK_FOUND_PETREL)
+}
+
+movement Factory_RocketGuardLeaves{
+    delay_16
+    walk_left * 3
+    walk_down
+    walk_left * 4
+}
+movement Factory_RocketGuardLeaves2{
+    delay_16
+    walk_left * 4
+    walk_down
+    walk_left * 4
+}
+
+text Petrel_MoveItGuys{
+    "(WIP) get back to work guys"
+}
+text Sorry_Petrel{
+    "(WIP) sorry boss!"
+}
+
+script Amberock_Factory_Generator{
+    if(flag(FLAG_DISGUISED_AS_KROKOROK)){
+        if(var(VAR_AMBEROCK_STORY) >= STORY_AMBEROCK_FOUND_GIOVANNI){
+            if(msgbox(OrderKrokorokDestroy, MSGBOX_YESNO) == TRUE){
+                msgbox(KrokorokBeginsRampage)
+                closemessage
+                fadescreen(FADE_TO_BLACK)
+                msgbox(KrokorokDestroysGenerator)
+                closemessage
+                clearflag(FLAG_DISGUISED_AS_KROKOROK)
+                setflag(FLAG_SYS_B_DASH)
+                setvar(VAR_AMBEROCK_STORY, STORY_AMBEROCK_CUT_ELECTRICITY)
+                warpsilentnofadeout(MAP_AMBEROCK_TOWN, 30, 21)
+                waitstate
+            }
+            release
+            end
+        }
+        else{
+            msgbox(CompleteClaysObjective, MSGBOX_SIGN)
+        }
+    }
+    else{
+        msgbox(BustedGenerator, MSGBOX_SIGN)
+    }
+}
+
+text OrderKrokorokDestroy{
+    "(WIP)tell krok to destroy?"
+}
+text KrokorokBeginsRampage{
+    "(WIP)krok begins rampaging"
+}
+text KrokorokDestroysGenerator{
+    "(WIP)krok destroys generator"
+}
+text CompleteClaysObjective{
+    "(WIP)complete clays objective"
+}
+text BustedGenerator{
+    "(WIP)its a busted gen"
+}
+
+script Amberock_Crate{
+    msgbox(Amberock_Crate_Text, MSGBOX_SIGN)
+}
+text Amberock_Crate_Text{
+    "It's a light enough crate the\n"
+    "Krokorok can push around with ease."
+}
+
+script KrokBall1{
+    setvar(VAR_TEMP_4, ITEM_MAX_ELIXIR)
+    goto(KrokBallMain)
+}
+script KrokBall2{
+    setvar(VAR_TEMP_4, ITEM_X_ATTACK)
+    goto(KrokBallMain)
+}
+script KrokBall3{
+    setvar(VAR_TEMP_4, ITEM_HYPER_POTION)
+    goto(KrokBallMain)
+}
+script KrokBallMain{
+    lock
+	waitse
+    playfanfare(MUS_OBTAIN_ITEM)
+	removeobject(VAR_LAST_TALKED)
+    bufferitemname(STR_VAR_2, VAR_TEMP_4)
+    message(KrokorokFoundItem)
+	delay(10)
+	waitfanfare
+	waitmessage
+	msgbox(KrokorokCarriesItem)
+	release
+    end
+}
+
+text KrokorokFoundItem{
+    "The Krokorok found one {STR_VAR_2}!"
+}
+text KrokorokCarriesItem{
+    "The Krokorok is carrying the\n"
+    "{STR_VAR_2} in its hands for now."
 }

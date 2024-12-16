@@ -680,6 +680,10 @@
 	.byte \direction
 	.endm
 
+	.macro dismountplayer
+	callnative DismountPlayer
+	.endm
+
 	@ Configures the arguments for a trainer battle, then jumps to the appropriate script in scripts/trainer_battle.inc
 	.macro trainerbattle type:req, trainer:req, local_id:req, pointer1:req, pointer2, pointer3, pointer4
 	.byte 0x5c
@@ -2080,7 +2084,7 @@
 	.endm
 
 	.macro unlockfollowermovement
-	callnative ResetCopyableMovement
+	callnative ScrCmd_resetcopyablemovement
 	.endm
 
 	@ picks a 0-99 value from the strange seed index and stores it in VAR_0x8004

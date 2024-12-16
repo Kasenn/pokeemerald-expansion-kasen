@@ -217,6 +217,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BigBoulderR
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BwAceSwimmer;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemBallFloating;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ZygardeCell;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ZygardeCore;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Gen4_Breeder_M;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_IrisOnAggron;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AggronMount;
@@ -643,6 +644,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_BW_ACE_SWIMMER] =                   &gObjectEventGraphicsInfo_BwAceSwimmer,
     [OBJ_EVENT_GFX_ITEM_BALL_FLOATING] =                   &gObjectEventGraphicsInfo_ItemBallFloating,
     [OBJ_EVENT_GFX_ZYGARDE_CELL] =                   &gObjectEventGraphicsInfo_ZygardeCell,
+    [OBJ_EVENT_GFX_ZYGARDE_CORE] =                   &gObjectEventGraphicsInfo_ZygardeCore,
     [OBJ_EVENT_GFX_IRIS_ON_AGGRON] =                   &gObjectEventGraphicsInfo_IrisOnAggron,
     [OBJ_EVENT_GFX_AGGRON_MOUNT] =                   &gObjectEventGraphicsInfo_AggronMount,
     [OBJ_EVENT_GFX_GEN4_BREEDER_M] =                   &gObjectEventGraphicsInfo_Gen4_Breeder_M,

@@ -2,32 +2,375 @@ AmberockTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Amberock_FlagControl
 	map_script MAP_SCRIPT_ON_LOAD, Amberock_PaperVisibility
 	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, AmberockTown_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, AmberockTown_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
 AmberockTown_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE:
 	map_script_2 VAR_TEMP_3, 0, SetPlayerKrokorokModel
 	.2byte 0
 
+AmberockTown_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_AMBEROCK_STORY, STORY_AMBEROCK_CUT_ELECTRICITY, Amberock_GroupGoesToGate
+	.2byte 0
+
+
+Amberock_GateEvent1::
+	setvar VAR_TEMP_3, 1
+	goto AmberockGateEventMain
+	return
+
+
+Amberock_GateEvent2::
+	setvar VAR_TEMP_3, 2
+	goto AmberockGateEventMain
+	return
+
+
+Amberock_GateEvent3::
+	setvar VAR_TEMP_3, 3
+	goto AmberockGateEventMain
+	return
+
+
+Amberock_GateEvent4::
+	setvar VAR_TEMP_3, 4
+	goto AmberockGateEventMain
+	return
+
+
+AmberockGateEventMain::
+	lock
+	safefollow
+	switch VAR_TEMP_3
+	case 1, AmberockGateEventMain_3
+	case 2, AmberockGateEventMain_4
+	case 3, AmberockGateEventMain_5
+	case 4, AmberockGateEventMain_6
+AmberockGateEventMain_1:
+	waitmovement 0
+	turnobject 10, DIR_SOUTH
+	delay 8
+	msgbox VolknerTakePrisoners, MSGBOX_AUTOCLOSE
+	applymovement 7, Amberock_LeftRocketLeaves
+	applymovement 8, Amberock_RightRocketLeaves
+	delay 48
+	applymovement 22, Amberock_VolknerLeaves
+	delay 16
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	turnobject 10, DIR_EAST
+	waitmovement 0
+	delay 16
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	turnobject 10, DIR_SOUTH
+	msgbox ClayGoAfterGiovanni, MSGBOX_AUTOCLOSE
+	delay 8
+	applymovement 10, Walk1Up
+	waitmovement 0
+	delay 16
+	applymovement 27, MoveGateLeft
+	applymovement 28, MoveGateRight
+	waitmovement 0
+	delay 8
+	applymovement 10, ClayGoesToFactory
+	waitmovement 0
+	setvar VAR_AMBEROCK_STORY, STORY_AMBEROCK_BEAT_GUARDS
+	removeobject 10
+	removeobject 22
+	removeobject 7
+	removeobject 8
+	setobjectxyperm 27, 41, 20
+	setobjectxyperm 28, 44, 20
+	release
+	return
+
+AmberockGateEventMain_3:
+	applymovement OBJ_EVENT_ID_PLAYER, GateMovement1
+	goto AmberockGateEventMain_1
+
+AmberockGateEventMain_4:
+	applymovement OBJ_EVENT_ID_PLAYER, GateMovement2
+	goto AmberockGateEventMain_1
+
+AmberockGateEventMain_5:
+	applymovement OBJ_EVENT_ID_PLAYER, GateMovement3
+	goto AmberockGateEventMain_1
+
+AmberockGateEventMain_6:
+	applymovement OBJ_EVENT_ID_PLAYER, GateMovement4
+	goto AmberockGateEventMain_1
+
+
+MoveGateLeft:
+	lock_facing_direction
+	lock_anim
+	walk_left
+	step_end
+
+MoveGateRight:
+	lock_facing_direction
+	lock_anim
+	walk_right
+	step_end
+
+Amberock_LeftRocketLeaves:
+	walk_right
+	walk_right
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_right
+	walk_right
+	walk_up
+	walk_right
+	walk_right
+	step_end
+
+Amberock_RightRocketLeaves:
+	walk_right
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_right
+	walk_right
+	walk_up
+	walk_right
+	walk_right
+	step_end
+
+Amberock_VolknerLeaves:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_right
+	walk_right
+	walk_up
+	walk_right
+	walk_right
+	step_end
+
+ClayGoesToFactory:
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	step_end
+
+GateMovement1:
+	walk_right
+	walk_right
+	walk_up
+	step_end
+
+GateMovement2:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_in_place_fast_up
+	step_end
+
+GateMovement3:
+	walk_left
+	walk_left
+	walk_left
+	walk_in_place_fast_up
+	step_end
+
+GateMovement4:
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	step_end
+
+Amberock_GroupGoesToGate::
+	delay 15
+	turnobject 10, DIR_SOUTH
+	msgbox LetsGoToGate, MSGBOX_AUTOCLOSE
+	turnobject 10, DIR_EAST
+	delay 15
+	applymovement 9, Amberock_GroupGoesToGate_Movement_0
+	waitmovement 0
+	removeobject 9
+	goto_if_set FLAG_FACTORY_ITEM_1, Amberock_GroupGoesToGate_2
+	goto_if_set FLAG_FACTORY_ITEM_2, Amberock_GroupGoesToGate_2
+	goto_if_set FLAG_FACTORY_ITEM_3, Amberock_GroupGoesToGate_2
+Amberock_GroupGoesToGate_1:
+	applymovement 10, ClayMovesToGate
+	applymovement 22, VolknerMovesToGate
+	waitmovement 10
+	setobjectxy 10, 42, 22
+	setobjectxyperm 10, 42, 22
+	setobjectxy 22, 43, 22
+	setobjectxyperm 22, 43, 22
+	turnobject 10, DIR_NORTH
+	turnobject 22, DIR_NORTH
+	setobjectmovementtype 10, MOVEMENT_TYPE_FACE_UP
+	setobjectmovementtype 22, MOVEMENT_TYPE_FACE_UP
+	setvar VAR_AMBEROCK_STORY, STORY_AMBEROCK_GROUP_WAITING_AT_GATE
+	release
+	return
+
+Amberock_GroupGoesToGate_2:
+	playse SE_PIN
+	applymovement 10, ExclamationMark
+	waitmovement 0
+	delay 48
+	turnobject 10, DIR_SOUTH
+	delay 15
+	msgbox KrokorokWasCarryingSomething, MSGBOX_AUTOCLOSE
+	closemessage
+	turnobject 10, DIR_EAST
+	delay 15
+	goto_if_set FLAG_FACTORY_ITEM_1, Amberock_GroupGoesToGate_9
+Amberock_GroupGoesToGate_8:
+	goto_if_set FLAG_FACTORY_ITEM_2, Amberock_GroupGoesToGate_12
+Amberock_GroupGoesToGate_11:
+	goto_if_set FLAG_FACTORY_ITEM_3, Amberock_GroupGoesToGate_15
+Amberock_GroupGoesToGate_14:
+	delay 60
+	goto Amberock_GroupGoesToGate_1
+
+Amberock_GroupGoesToGate_9:
+	clearflag FLAG_FACTORY_ITEM_1_OUTSIDE
+	addobject 24
+	goto Amberock_GroupGoesToGate_8
+
+Amberock_GroupGoesToGate_12:
+	clearflag FLAG_FACTORY_ITEM_2_OUTSIDE
+	addobject 25
+	goto Amberock_GroupGoesToGate_11
+
+Amberock_GroupGoesToGate_15:
+	clearflag FLAG_FACTORY_ITEM_3_OUTSIDE
+	addobject 26
+	goto Amberock_GroupGoesToGate_14
+
+
+ClayMovesToGate:
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+VolknerMovesToGate:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+SetFactoryWarp2::
+	compare VAR_AMBEROCK_STORY, STORY_AMBEROCK_CUT_ELECTRICITY
+	goto_if_lt SetFactoryWarp2_2
+	setdynamicwarp MAP_AMBEROCK_POKEBALL_FACTORY_NO_LIGHTS, 1
+SetFactoryWarp2_1:
+	release
+	return
+
+SetFactoryWarp2_2:
+	setdynamicwarp MAP_AMBEROCK_POKEBALL_FACTORY, 1
+	goto SetFactoryWarp2_1
+
+
+SetFactoryWarp1::
+	compare VAR_AMBEROCK_STORY, STORY_AMBEROCK_CUT_ELECTRICITY
+	goto_if_lt SetFactoryWarp1_2
+	setdynamicwarp MAP_AMBEROCK_POKEBALL_FACTORY_NO_LIGHTS, 0
+SetFactoryWarp1_1:
+	release
+	return
+
+SetFactoryWarp1_2:
+	setdynamicwarp MAP_AMBEROCK_POKEBALL_FACTORY, 0
+	goto SetFactoryWarp1_1
+
 
 Amberock_FlagControl::
-	goto_if_unset FLAG_DISGUISED_AS_KROKOROK, Amberock_FlagControl_2
+	compare VAR_AMBEROCK_STORY, STORY_AMBEROCK_CUT_ELECTRICITY
+	goto_if_ge Amberock_FlagControl_2
+Amberock_FlagControl_1:
+	compare VAR_AMBEROCK_STORY, STORY_AMBEROCK_GROUP_WAITING_AT_GATE
+	goto_if_eq Amberock_FlagControl_5
+Amberock_FlagControl_4:
+	compare VAR_AMBEROCK_STORY, STORY_AMBEROCK_BEAT_GUARDS
+	goto_if_ge Amberock_FlagControl_8
+Amberock_FlagControl_7:
+	goto_if_unset FLAG_DISGUISED_AS_KROKOROK, Amberock_FlagControl_11
 	setflag FLAG_TEMP_HIDE_FOLLOWER
 	setflag FLAG_TEMP_6
-Amberock_FlagControl_1:
-	goto_if_set FLAG_REPAIR_AMBEROCK_BRIDGE, Amberock_FlagControl_6
+Amberock_FlagControl_10:
+	goto_if_set FLAG_REPAIR_AMBEROCK_BRIDGE, Amberock_FlagControl_15
 	setflag FLAG_TEMP_C
-Amberock_FlagControl_5:
+Amberock_FlagControl_14:
 	call Amberock_AcerolaEvent
 	call Amberock_SetPlayerModel
 	return
 
 Amberock_FlagControl_2:
-	setflag FLAG_TEMP_5
+	setflag FLAG_TEMP_D
 	goto Amberock_FlagControl_1
 
-Amberock_FlagControl_6:
+Amberock_FlagControl_5:
+	setflag FLAG_TEMP_6
+	setobjectmovementtype 10, MOVEMENT_TYPE_FACE_UP
+	setobjectmovementtype 22, MOVEMENT_TYPE_FACE_UP
+	setobjectxyperm 10, 42, 22
+	setobjectxyperm 22, 43, 22
+	goto Amberock_FlagControl_4
+
+Amberock_FlagControl_8:
+	setflag FLAG_TEMP_7
+	setflag FLAG_TEMP_6
+	setflag FLAG_TEMP_8
+	setobjectxyperm 27, 41, 20
+	setobjectxyperm 28, 44, 20
+	goto Amberock_FlagControl_7
+
+Amberock_FlagControl_11:
+	setflag FLAG_TEMP_5
+	goto Amberock_FlagControl_10
+
+Amberock_FlagControl_15:
 	setmaplayoutindex LAYOUT_AMBEROCK_TEST
-	goto Amberock_FlagControl_5
+	goto Amberock_FlagControl_14
 
 
 Amberock_KrokorokIntro::
@@ -36,21 +379,21 @@ Amberock_KrokorokIntro::
 	delay 15
 	playse SE_PIN
 	turnobject 10, DIR_SOUTH
-	turnobject 23, DIR_SOUTH
+	turnobject 22, DIR_SOUTH
 	applymovement 10, ExclamationMark
-	applymovement 23, ExclamationMark
+	applymovement 22, ExclamationMark
 	waitmovement 0
-	delay 48
-	delay 15
+	delay 64
+	dismountplayer
 	applymovement OBJ_EVENT_ID_PLAYER, Walk2Up
 	waitmovement 0
 	unlockfollowermovement
 	msgbox VolknerGreetsPlayer
-	turnobject 23, DIR_WEST
+	turnobject 22, DIR_WEST
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
 	turnobject 10, DIR_EAST
 	msgbox ClayHelped
-	turnobject 23, DIR_SOUTH
+	turnobject 22, DIR_SOUTH
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	msgbox VolknerControlKrokorok
 	setvar VAR_AMBEROCK_STORY, STORY_AMBEROCK_SPOKE_WITH_CLAY
@@ -113,6 +456,17 @@ Amberock_KrokorokScript_2:
 	end
 
 
+Amberock_KrokorokGiovanniCutScene::
+	lock
+	delay 15
+	msgbox GiovanniWeAreOnSchedule
+	msgbox ClayLetsBail
+	closemessage
+	setvar VAR_AMBEROCK_STORY, STORY_AMBEROCK_FOUND_GIOVANNI
+	release
+	return
+
+
 Amberock_RecallKrokorok::
 	msgbox TellKrokorokToRetreat, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
@@ -153,6 +507,12 @@ Amberock_RecallKrokorok::
 Amberock_RecallKrokorok_2:
 	release
 	end
+
+
+PokeFactory_Packer::
+	msgbox PokeFactory_Packer_Text
+	release
+	return
 
 
 KrokorokGoesNorthThroughFence:
@@ -574,11 +934,17 @@ PokeFactory_Bouncer::
 Amberock_Girl2::
 	compare VAR_AMBEROCK_STORY, STORY_AMBEROCK_STORY_COMPLETE
 	goto_if_eq Amberock_Girl2_1
+	compare VAR_AMBEROCK_STORY, STORY_AMBEROCK_GROUP_WAITING_AT_GATE
+	goto_if_ge Amberock_Girl2_2
 	msgbox Amberock_Girl2_Text2, MSGBOX_NPC
 	return
 
 Amberock_Girl2_1:
 	msgbox Amberock_Girl2_Text, MSGBOX_NPC
+	return
+
+Amberock_Girl2_2:
+	msgbox Amberock_Girl2_Text3, MSGBOX_NPC
 	return
 
 
@@ -685,11 +1051,28 @@ SetPlayerKrokorokModel_2:
 	goto SetPlayerKrokorokModel_1
 
 
+Amberock_GroupGoesToGate_Movement_0:
+	enter_pokeball
+	set_invisible
+	step_end
+
 Amberock_Papers_Text_0:
 	.string "mister$"
 
 Amberock_Papers_Text_1:
 	.string "miss$"
+
+VolknerTakePrisoners::
+	.string "(WIP)volkner takes prisoners$"
+
+ClayGoAfterGiovanni::
+	.string "(WIP)i go after giovanni$"
+
+LetsGoToGate::
+	.string "(WIP)lets go gate$"
+
+KrokorokWasCarryingSomething::
+	.string "(WIP)krokorok was carrying something$"
 
 VolknerGreetsPlayer::
 	.string "(WIP) hello player$"
@@ -702,10 +1085,20 @@ VolknerControlKrokorok::
 	.string "and scout out the factory$"
 
 Amberock_Clay_Text::
-	.string "(WIP)$"
+	.string "(WIP)i am clay$"
 
 Amberock_Volkner_Text::
-	.string "(WIP)$"
+	.string "(WIP)i am volkner$"
+
+GiovanniWeAreOnSchedule::
+	.string "(WIP)we are on schedule boss$"
+
+ClayLetsBail::
+	.string "(WIP)clay: lets bail$"
+
+PokeFactory_Packer_Text::
+	.string "The grunt is too busy packing the\n"
+	.string "crates to notice the Krokorok.$"
 
 TellKrokorokToRetreat::
 	.string "Order the Krokorok to return back\n"
@@ -842,6 +1235,9 @@ Amberock_Girl2_Text2::
 	.string "There's some pretty menacing guys\n"
 	.string "guarding the gate to the factory.\p"
 	.string "I wonder what's going on…$"
+
+Amberock_Girl2_Text3::
+	.string "What's going on with the factory?$"
 
 Amberock_OldWoman_Text::
 	.string "They kicked me out because I was\n"
