@@ -72,19 +72,23 @@
 #define MAP_ROUTE23LAKE                 (63 | (0 << 8))
 #define MAP_SOUTHERN_DESERT             (64 | (0 << 8))
 #define MAP_AMBEROCK_TOWN_KROKOROK_PIER (65 | (0 << 8))
+#define MAP_AMBEROCK_TOWN_PLAYER_PIER   (66 | (0 << 8))
+#define MAP_ROUTE16_NO_CURRENTS         (67 | (0 << 8))
 
 // gMapGroup_RouteInteriors
-#define MAP_RANCH_BARN             (0 | (1 << 8))
-#define MAP_RANCH_HOUSE            (1 | (1 << 8))
-#define MAP_ROUTE28TUNNEL_HOUSE    (2 | (1 << 8))
-#define MAP_ROUTE12_SIDE_AREA      (3 | (1 << 8))
-#define MAP_ROUTE12_STRENGTH_HOUSE (4 | (1 << 8))
-#define MAP_ADAMANT_TOWER_EXTERIOR (5 | (1 << 8))
-#define MAP_BERRY_FIELDS           (6 | (1 << 8))
-#define MAP_BERRY_FIELD_HOUSE      (7 | (1 << 8))
-#define MAP_ROUTE15_MOVE_REMINDER  (8 | (1 << 8))
-#define MAP_ROUTE13ALTERNATIVE     (9 | (1 << 8))
-#define MAP_ROUTE13_GATE_HOUSE     (10 | (1 << 8))
+#define MAP_RANCH_BARN                    (0 | (1 << 8))
+#define MAP_RANCH_HOUSE                   (1 | (1 << 8))
+#define MAP_ROUTE28TUNNEL_HOUSE           (2 | (1 << 8))
+#define MAP_ROUTE12_SIDE_AREA             (3 | (1 << 8))
+#define MAP_ROUTE12_STRENGTH_HOUSE        (4 | (1 << 8))
+#define MAP_ADAMANT_TOWER_EXTERIOR        (5 | (1 << 8))
+#define MAP_BERRY_FIELDS                  (6 | (1 << 8))
+#define MAP_BERRY_FIELD_HOUSE             (7 | (1 << 8))
+#define MAP_ROUTE15_MOVE_REMINDER         (8 | (1 << 8))
+#define MAP_ROUTE13ALTERNATIVE            (9 | (1 << 8))
+#define MAP_ROUTE13_GATE_HOUSE            (10 | (1 << 8))
+#define MAP_ROUTE119_WEATHER_INSTITUTE_1F (11 | (1 << 8))
+#define MAP_ROUTE119_WEATHER_INSTITUTE_2F (12 | (1 << 8))
 
 // gMapGroup_Dungeons
 #define MAP_ROUTE7_GROTTO                    (0 | (2 << 8))
@@ -323,16 +327,18 @@
 #define MAP_DRISLEDGE_TOWN_BROKEN2         (10 | (15 << 8))
 
 // gMapGroup_IndoorAmberockTown
-#define MAP_AMBEROCK_POKE_CENTER1F              (0 | (16 << 8))
-#define MAP_AMBEROCK_MART                       (1 | (16 << 8))
-#define MAP_MAUVILLE_CITY_GAME_CORNER           (2 | (16 << 8))
-#define MAP_AMBEROCK_HOUSE1                     (3 | (16 << 8))
-#define MAP_AMBEROCK_HOUSE2                     (4 | (16 << 8))
-#define MAP_AMBEROCK_HOUSE3                     (5 | (16 << 8))
-#define MAP_AMBEROCK_POKEBALL_FACTORY           (6 | (16 << 8))
-#define MAP_AMBEROCK_POKEBALL_FACTORY_B1F       (7 | (16 << 8))
-#define MAP_AMBEROCK_POKEBALL_FACTORY_OFFICE    (8 | (16 << 8))
-#define MAP_AMBEROCK_POKEBALL_FACTORY_NO_LIGHTS (9 | (16 << 8))
+#define MAP_AMBEROCK_POKE_CENTER1F                     (0 | (16 << 8))
+#define MAP_AMBEROCK_MART                              (1 | (16 << 8))
+#define MAP_MAUVILLE_CITY_GAME_CORNER                  (2 | (16 << 8))
+#define MAP_AMBEROCK_HOUSE1                            (3 | (16 << 8))
+#define MAP_AMBEROCK_HOUSE2                            (4 | (16 << 8))
+#define MAP_AMBEROCK_HOUSE3                            (5 | (16 << 8))
+#define MAP_AMBEROCK_POKEBALL_FACTORY                  (6 | (16 << 8))
+#define MAP_AMBEROCK_POKEBALL_FACTORY_NO_LIGHTS        (7 | (16 << 8))
+#define MAP_AMBEROCK_POKEBALL_FACTORY_B1F              (8 | (16 << 8))
+#define MAP_AMBEROCK_POKEBALL_FACTORY_B1F_NO_LIGHTS    (9 | (16 << 8))
+#define MAP_AMBEROCK_POKEBALL_FACTORY_OFFICE           (10 | (16 << 8))
+#define MAP_AMBEROCK_POKEBALL_FACTORY_OFFICE_NO_LIGHTS (11 | (16 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (17 << 8))
@@ -723,9 +729,7 @@
 #define MAP_ROUTE123_BERRY_MASTERS_HOUSE (0 | (47 << 8))
 
 // gMapGroup_IndoorRoute119
-#define MAP_ROUTE119_WEATHER_INSTITUTE_1F (0 | (48 << 8))
-#define MAP_ROUTE119_WEATHER_INSTITUTE_2F (1 | (48 << 8))
-#define MAP_ROUTE119_HOUSE                (2 | (48 << 8))
+#define MAP_ROUTE119_HOUSE (0 | (48 << 8))
 
 // gMapGroup_OldAreas
 #define MAP_PETALBURG_CITY                           (0 | (49 << 8))

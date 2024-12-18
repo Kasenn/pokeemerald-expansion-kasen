@@ -6061,12 +6061,19 @@ static const struct TrainerMon sParty_Dylan3[] = {
     }
 };
 
-static const struct TrainerMon sParty_Dylan4[] = {
+static const struct TrainerMon sParty_TRAINER_FACTORY_ROCKET_1[] = {
     {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 34,
-    .species = SPECIES_DODRIO,
-    }
+    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
+    .lvl = 40,
+    .species = SPECIES_SEVIPER,
+    .moves = {MOVE_SWAGGER, MOVE_CRUNCH, MOVE_POISON_JAB, MOVE_GLARE}
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
+    .lvl = 41,
+    .species = SPECIES_ARBOK,
+    .moves = {MOVE_CRUNCH, MOVE_MUD_BOMB, MOVE_ACID_SPRAY, MOVE_SCREECH}
+    },
 };
 
 static const struct TrainerMon sParty_Dylan5[] = {
@@ -6077,35 +6084,58 @@ static const struct TrainerMon sParty_Dylan5[] = {
     }
 };
 
-static const struct TrainerMon sParty_Maria1[] = {
+static const struct TrainerMon sParty_TRAINER_FACTORY_ROCKET_2[] = {
     {
-    .lvl = 17,
-    .species = SPECIES_DODUO,
-    }
+    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
+    .lvl = 43,
+    .species = SPECIES_BISHARP,
+    .moves = {MOVE_SWORDS_DANCE, MOVE_IRON_HEAD, MOVE_NIGHT_SLASH, MOVE_METAL_SOUND}
+    },
 };
 
-static const struct TrainerMon sParty_Maria2[] = {
+static const struct TrainerMon sParty_TRAINER_FACTORY_ROCKET_3[] = {
     {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 28,
-    .species = SPECIES_DODUO,
-    }
+    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
+    .lvl = 39,
+    .species = SPECIES_KROKOROK,
+    .moves = {MOVE_FOUL_PLAY, MOVE_CRUNCH, MOVE_DIG, MOVE_SANDSTORM}
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
+    .lvl = 42,
+    .species = SPECIES_AUDINO,
+    .moves = {MOVE_HEAL_PULSE, MOVE_TAKE_DOWN, MOVE_ATTRACT, MOVE_DISARMING_VOICE}
+    },
 };
 
-static const struct TrainerMon sParty_Maria3[] = {
+static const struct TrainerMon sParty_TRAINER_FACTORY_ROCKET_4[] = {
     {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 31,
-    .species = SPECIES_DODUO,
-    }
+    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
+    .lvl = 40,
+    .species = SPECIES_ZUBAT,
+    .moves = {MOVE_VENOSHOCK, MOVE_LEECH_LIFE, MOVE_HAZE, MOVE_MEAN_LOOK}
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
+    .lvl = 41,
+    .species = SPECIES_GOLBAT,
+    .moves = {MOVE_POISON_FANG, MOVE_LEECH_LIFE, MOVE_HAZE, MOVE_MEAN_LOOK}
+    },
 };
 
-static const struct TrainerMon sParty_Maria4[] = {
+static const struct TrainerMon sParty_TRAINER_FACTORY_ROCKET_5[] = {
     {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 34,
-    .species = SPECIES_DODRIO,
-    }
+    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
+    .lvl = 40,
+    .species = SPECIES_SCRAGGY,
+    .moves = {MOVE_HIGH_JUMP_KICK, MOVE_CRUNCH, MOVE_SWAGGER, MOVE_SCARY_FACE}
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
+    .lvl = 41,
+    .species = SPECIES_SCRAFTY,
+    .moves = {MOVE_HIGH_JUMP_KICK, MOVE_CRUNCH, MOVE_SWAGGER, MOVE_SCARY_FACE}
+    },
 };
 
 static const struct TrainerMon sParty_Maria5[] = {
@@ -6127,15 +6157,37 @@ static const struct TrainerMon sParty_Camden[] = {
     }
 };
 
-static const struct TrainerMon sParty_Demetrius[] = {
+static const struct TrainerMon sParty_TRAINER_FACTORY_ROCKET_PETREL[] = {
     {
-    .lvl = 25,
-    .species = SPECIES_ZIGZAGOON,
+    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
+    .lvl = 39,
+    .species = SPECIES_KOFFING,
+    .moves = {MOVE_TOXIC, MOVE_EXPLOSION}
     },
     {
-    .lvl = 25,
-    .species = SPECIES_ELECTRIKE,
-    }
+    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
+    .lvl = 40,
+    .species = SPECIES_KROKOROK,
+    .moves = {MOVE_FOUL_PLAY, MOVE_CRUNCH, MOVE_EARTHQUAKE, MOVE_SANDSTORM}
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
+    .lvl = 41,
+    .species = SPECIES_RATICATE,
+    .moves = {MOVE_DOUBLE_EDGE, MOVE_SUPER_FANG, MOVE_SUCKER_PUNCH, MOVE_FOCUS_ENERGY}
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
+    .lvl = 41,
+    .species = SPECIES_TOXICROAK,
+    .moves = {MOVE_VENOSHOCK, MOVE_SUCKER_PUNCH, MOVE_MUD_BOMB, MOVE_SWAGGER}
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
+    .lvl = 44,
+    .species = SPECIES_WEEZING,
+    .moves = {MOVE_EXPLOSION, MOVE_SLUDGE_BOMB, MOVE_GYRO_BALL, MOVE_DOUBLE_HIT}
+    },
 };
 
 static const struct TrainerMon sParty_Isaiah1[] = {

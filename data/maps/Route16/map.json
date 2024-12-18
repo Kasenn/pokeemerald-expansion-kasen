@@ -39,7 +39,7 @@
       "flag": "FLAG_ZYGARDE_CELL_41"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_BW_ACE_SWIMMER",
+      "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
       "x": 22,
       "y": 123,
       "elevation": 0,
@@ -49,14 +49,157 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RapidsTooStrong",
-      "flag": "0"
+      "flag": "FLAG_TEMP_1"
     }
   ],
   "warp_events": [
 
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 117,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "EndOfBeta"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 117,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "EndOfBeta"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 117,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "EndOfBeta"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 117,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "EndOfBeta"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 117,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "EndOfBeta"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 117,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "EndOfBeta"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 117,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "EndOfBeta"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 117,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "EndOfBeta"
+    },
+    {
+      "type": "trigger",
+      "x": 26,
+      "y": 117,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "EndOfBeta"
+    },
+    {
+      "type": "trigger",
+      "x": 25,
+      "y": 117,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "EndOfBeta"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 117,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "EndOfBeta"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 117,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "EndOfBeta"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 117,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "EndOfBeta"
+    },
+    {
+      "type": "trigger",
+      "x": 29,
+      "y": 117,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "EndOfBeta"
+    },
+    {
+      "type": "trigger",
+      "x": 28,
+      "y": 117,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "EndOfBeta"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 117,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "EndOfBeta"
+    }
   ],
   "bg_events": [
 

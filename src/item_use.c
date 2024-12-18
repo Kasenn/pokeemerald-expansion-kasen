@@ -1530,18 +1530,18 @@ void ItemUseOutOfBattle_RotomCatalog(u8 taskId)
 
 void ItemUseOutOfBattle_ZygardeCube(u8 taskId)
 {
-    if (!gTasks[taskId].tUsingRegisteredKeyItem)
-    {
-        gItemUseCB = ItemUseCB_ZygardeCube;
-        gTasks[taskId].data[0] = TRUE;
-        SetUpItemUseOnFieldCallback(taskId);
-    }
-    else
-    {
+    // if (!gTasks[taskId].tUsingRegisteredKeyItem)
+    // {
+    //     gItemUseCB = ItemUseCB_ZygardeCube;
+    //     gTasks[taskId].data[0] = TRUE;
+    //     SetUpItemUseOnFieldCallback(taskId);
+    // }
+    // else
+    // {
         // TODO: handle key items with callbacks to menus allow to be used by registering them.
-        ConvertIntToDecimalStringN(gStringVar1, VAR_ZYGARDE_CELLS, STR_CONV_MODE_LEFT_ALIGN, 4);
-        DisplayZygardeCubeItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
-    }
+        ConvertIntToDecimalStringN(gStringVar1, VarGet(VAR_ZYGARDE_CELLS), STR_CONV_MODE_LEFT_ALIGN, 4);
+        DisplayZygardeCubeItemMessage(taskId, FALSE);
+    // }
 }
 
 void ItemUseOutOfBattle_Fusion(u8 taskId)

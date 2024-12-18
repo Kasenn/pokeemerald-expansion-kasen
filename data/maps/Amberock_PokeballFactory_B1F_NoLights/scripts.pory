@@ -1,0 +1,47 @@
+mapscripts Amberock_PokeballFactory_B1F_NoLights_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        if(var(VAR_AMBEROCK_STORY) >= STORY_AMBEROCK_GIOVANNI_ESCAPED){
+            setflashlevel(0)
+            setweather(WEATHER_SHADE)
+            setflag(FLAG_TEMP_1)
+            setobjectxyperm(4, 14, 6)
+            setobjectmovementtype(4, MOVEMENT_TYPE_FACE_UP)
+        }
+    }
+    MAP_SCRIPT_ON_LOAD{
+        if(var(VAR_AMBEROCK_STORY) >= STORY_AMBEROCK_GIOVANNI_ESCAPED){
+            setmetatile(13, 3, 0x2D8, TRUE)
+            setmetatile(14, 3, 0x2D9, TRUE)
+            setmetatile(15, 3, 0x2DA, TRUE)
+            setmetatile(16, 3, 0x2DB, TRUE)
+            setmetatile(13, 4, 0x2E0, TRUE)
+            setmetatile(14, 4, 0x2E1, TRUE)
+            setmetatile(15, 4, 0x2E2, TRUE)
+            setmetatile(16, 4, 0x2E3, TRUE)
+        }
+    }
+}
+
+script BasementGrunts{
+    msgbox(BasementGrunts_Text)
+    release
+}
+text BasementGrunts_Text{
+    "Grunt 1: What do we do?\n"
+    "We're going to be so fired.\p"
+    "Grunt 2: We're not at fault here.\n"
+    "Whoever is meant to control that\l"
+    "Krokorok is the one getting fired!"
+}
+
+script FactoryEmployee_Basement2{
+    msgbox(FactoryEmployee_Basement2_Text, MSGBOX_NPC)
+    turnobject(4, DIR_NORTH)
+}
+text FactoryEmployee_Basement2_Text{
+    "It'll take us a while to get\n"
+    "everything back to working\l"
+    "condition, but at least we got\l"
+    "enough power to get some light\l"
+    "in here!"
+}

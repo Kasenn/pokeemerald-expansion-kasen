@@ -225,6 +225,9 @@ struct SaveBlock3
 #if OW_SHOW_ITEM_DESCRIPTIONS == OW_ITEM_DESCRIPTIONS_FIRST_TIME
     u8 itemFlags[ITEM_FLAGS_COUNT];
 #endif
+#if MOVE_TMHM_TO_SAVEBLOCK3
+    /*0x690*/ struct ItemSlot bagPocket_TMHM[BAG_TMHM_COUNT];
+#endif
 };
 
 extern struct SaveBlock3 *gSaveBlock3Ptr;
@@ -1074,7 +1077,9 @@ struct SaveBlock1
     u8 registeredItemListCount:4;
     struct RegisteredItemSlot registeredItems[REGISTERED_ITEMS_MAX];
     /*0x5D8*/ struct ItemSlot bagPocket_KeyItems[BAG_KEYITEMS_COUNT];
+#if MOVE_TMHM_TO_SAVEBLOCK3 == FALSE
     /*0x690*/ struct ItemSlot bagPocket_TMHM[BAG_TMHM_COUNT];
+#endif
     /*0x790*/ struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
     /*0x848*/ struct Pokeblock pokeblocks[POKEBLOCKS_COUNT];
 #if FREE_EXTRA_SEEN_FLAGS_SAVEBLOCK1 == FALSE

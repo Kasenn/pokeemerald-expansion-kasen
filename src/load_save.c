@@ -315,7 +315,13 @@ void LoadPlayerBag(void)
 
     // load player TMs and HMs.
     for (i = 0; i < BAG_TMHM_COUNT; i++)
+    {
+    #if MOVE_TMHM_TO_SAVEBLOCK3 == FALSE
         gLoadedSaveData.TMsHMs[i] = gSaveBlock1Ptr->bagPocket_TMHM[i];
+    #else
+        gLoadedSaveData.TMsHMs[i] = gSaveBlock3Ptr->bagPocket_TMHM[i];
+    #endif
+    }
 
     // load player berries.
     for (i = 0; i < BAG_BERRIES_COUNT; i++)
@@ -351,7 +357,13 @@ void SavePlayerBag(void)
 
     // save player TMs and HMs.
     for (i = 0; i < BAG_TMHM_COUNT; i++)
+    {
+    #if MOVE_TMHM_TO_SAVEBLOCK3 == FALSE
         gSaveBlock1Ptr->bagPocket_TMHM[i] = gLoadedSaveData.TMsHMs[i];
+    #else
+        gSaveBlock3Ptr->bagPocket_TMHM[i] = gLoadedSaveData.TMsHMs[i];
+    #endif
+    }
 
     // save player berries.
     for (i = 0; i < BAG_BERRIES_COUNT; i++)

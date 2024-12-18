@@ -324,53 +324,61 @@ SetFactoryWarp1_2:
 
 
 Amberock_FlagControl::
-	compare VAR_AMBEROCK_STORY, STORY_AMBEROCK_CUT_ELECTRICITY
+	compare VAR_AMBEROCK_STORY, STORY_AMBEROCK_GIOVANNI_ESCAPED
 	goto_if_ge Amberock_FlagControl_2
 Amberock_FlagControl_1:
-	compare VAR_AMBEROCK_STORY, STORY_AMBEROCK_GROUP_WAITING_AT_GATE
-	goto_if_eq Amberock_FlagControl_5
+	compare VAR_AMBEROCK_STORY, STORY_AMBEROCK_CUT_ELECTRICITY
+	goto_if_ge Amberock_FlagControl_5
 Amberock_FlagControl_4:
-	compare VAR_AMBEROCK_STORY, STORY_AMBEROCK_BEAT_GUARDS
-	goto_if_ge Amberock_FlagControl_8
+	compare VAR_AMBEROCK_STORY, STORY_AMBEROCK_GROUP_WAITING_AT_GATE
+	goto_if_eq Amberock_FlagControl_8
 Amberock_FlagControl_7:
-	goto_if_unset FLAG_DISGUISED_AS_KROKOROK, Amberock_FlagControl_11
+	compare VAR_AMBEROCK_STORY, STORY_AMBEROCK_BEAT_GUARDS
+	goto_if_ge Amberock_FlagControl_11
+Amberock_FlagControl_10:
+	goto_if_unset FLAG_DISGUISED_AS_KROKOROK, Amberock_FlagControl_14
 	setflag FLAG_TEMP_HIDE_FOLLOWER
 	setflag FLAG_TEMP_6
-Amberock_FlagControl_10:
-	goto_if_set FLAG_REPAIR_AMBEROCK_BRIDGE, Amberock_FlagControl_15
+Amberock_FlagControl_13:
+	goto_if_set FLAG_REPAIR_AMBEROCK_BRIDGE, Amberock_FlagControl_18
 	setflag FLAG_TEMP_C
-Amberock_FlagControl_14:
+Amberock_FlagControl_17:
 	call Amberock_AcerolaEvent
 	call Amberock_SetPlayerModel
 	return
 
 Amberock_FlagControl_2:
-	setflag FLAG_TEMP_D
+	setflag FLAG_TEMP_A
+	setflag FLAG_REPAIR_AMBEROCK_BRIDGE
 	goto Amberock_FlagControl_1
 
 Amberock_FlagControl_5:
+	setflag FLAG_TEMP_D
+	goto Amberock_FlagControl_4
+
+Amberock_FlagControl_8:
 	setflag FLAG_TEMP_6
 	setobjectmovementtype 10, MOVEMENT_TYPE_FACE_UP
 	setobjectmovementtype 22, MOVEMENT_TYPE_FACE_UP
 	setobjectxyperm 10, 42, 22
 	setobjectxyperm 22, 43, 22
-	goto Amberock_FlagControl_4
+	goto Amberock_FlagControl_7
 
-Amberock_FlagControl_8:
+Amberock_FlagControl_11:
 	setflag FLAG_TEMP_7
 	setflag FLAG_TEMP_6
 	setflag FLAG_TEMP_8
 	setobjectxyperm 27, 41, 20
 	setobjectxyperm 28, 44, 20
-	goto Amberock_FlagControl_7
-
-Amberock_FlagControl_11:
-	setflag FLAG_TEMP_5
 	goto Amberock_FlagControl_10
 
-Amberock_FlagControl_15:
+Amberock_FlagControl_14:
+	setflag FLAG_TEMP_5
+	goto Amberock_FlagControl_13
+
+Amberock_FlagControl_18:
 	setmaplayoutindex LAYOUT_AMBEROCK_TEST
-	goto Amberock_FlagControl_14
+	goto Amberock_FlagControl_17
 
 
 Amberock_KrokorokIntro::
@@ -396,6 +404,10 @@ Amberock_KrokorokIntro::
 	turnobject 22, DIR_SOUTH
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	msgbox VolknerControlKrokorok
+	turnobject 22, DIR_WEST
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject 10, DIR_EAST
+	msgbox ClayTip
 	setvar VAR_AMBEROCK_STORY, STORY_AMBEROCK_SPOKE_WITH_CLAY
 	release
 	return
@@ -460,8 +472,14 @@ Amberock_KrokorokGiovanniCutScene::
 	lock
 	delay 15
 	msgbox GiovanniWeAreOnSchedule
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Amberock_KrokorokGiovanniCutScene_Movement_0
+	waitmovement 0
 	msgbox ClayLetsBail
 	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Walk2Right
+	waitmovement 0
+	msgbox ClayLetsBail2
 	setvar VAR_AMBEROCK_STORY, STORY_AMBEROCK_FOUND_GIOVANNI
 	release
 	return
@@ -932,7 +950,7 @@ PokeFactory_Bouncer::
 
 
 Amberock_Girl2::
-	compare VAR_AMBEROCK_STORY, STORY_AMBEROCK_STORY_COMPLETE
+	compare VAR_AMBEROCK_STORY, STORY_AMBEROCK_GIOVANNI_ESCAPED
 	goto_if_eq Amberock_Girl2_1
 	compare VAR_AMBEROCK_STORY, STORY_AMBEROCK_GROUP_WAITING_AT_GATE
 	goto_if_ge Amberock_Girl2_2
@@ -1056,6 +1074,14 @@ Amberock_GroupGoesToGate_Movement_0:
 	set_invisible
 	step_end
 
+Amberock_KrokorokGiovanniCutScene_Movement_0:
+	walk_left
+	walk_left
+	walk_up
+	walk_left
+	walk_in_place_fast_down
+	step_end
+
 Amberock_Papers_Text_0:
 	.string "mister$"
 
@@ -1063,38 +1089,119 @@ Amberock_Papers_Text_1:
 	.string "miss$"
 
 VolknerTakePrisoners::
-	.string "(WIP)volkner takes prisoners$"
+	.string "Clay: These guards barely put up\n"
+	.string "a fight.\p"
+	.string "Volkner will deliver them to\n"
+	.string "the police, while we will head\l"
+	.string "inside and put a stop to this.$"
 
 ClayGoAfterGiovanni::
-	.string "(WIP)i go after giovanni$"
+	.string "I'll head directly to the pier.\p"
+	.string "You go grab those papers,\n"
+	.string "and once you're ready,\l"
+	.string "come assist me at the pier.$"
 
 LetsGoToGate::
-	.string "(WIP)lets go gate$"
+	.string "Clay: With the facility plunged\n"
+	.string "into darkness, we can rush\l"
+	.string "the gates without raising an alarm.\p"
+	.string "Let's go!$"
 
 KrokorokWasCarryingSomething::
-	.string "(WIP)krokorok was carrying something$"
+	.string "Clay: It looks like the Krokorok\n"
+	.string "was carrying something.\p"
+	.string "Most of this stuff belonged to\n"
+	.string "Team Rocket, so no need to feel bad\l"
+	.string "for taking it.\p"
+	.string "Once you're ready,\n"
+	.string "meet us at the gates.$"
 
 VolknerGreetsPlayer::
-	.string "(WIP) hello player$"
+	.string "Volkner: Oh, it's you.\n"
+	.string "{PLAYER}, right?\p"
+	.string "You're here after Team Rocket\n"
+	.string "as well? Perfect timing.\p"
+	.string "Busting through the main gate would\n"
+	.string "most likely sound an alarm, so we\l"
+	.string "came up with a different way in.$"
 
 ClayHelped::
-	.string "(WIP) clay helped$"
+	.string "Interrogating the grunt we caught\n"
+	.string "at the Pokémon Ranch, we learned\l"
+	.string "about where Team Rocket might\l"
+	.string "attack next.\p"
+	.string "So, I contacted Mr. Clay,\n"
+	.string "who was willing to train a Krokorok\l"
+	.string "we can order around and use to\l"
+	.string "spy on their operations.$"
 
 VolknerControlKrokorok::
-	.string "(WIP) control this krokorok\n"
-	.string "and scout out the factory$"
+	.string "This Krokorok is wearing a hidden\n"
+	.string "ear piece and a camera, allowing\l"
+	.string "us to order it around remotely.\p"
+	.string "I've seen how good you are with\n"
+	.string "Pokémon.\p"
+	.string "Maybe you'd like to command\n"
+	.string "the Krokorok?\p"
+	.string "The objective is simple: find out who\n"
+	.string "is in charge, what their plans are,\l"
+	.string "and sabotage the facility's generator\l"
+	.string "so that we can sneak in while they are\l"
+	.string "trying to figure out what happened.$"
 
 Amberock_Clay_Text::
-	.string "(WIP)i am clay$"
+	.string "Team Rocket ain't known for\n"
+	.string "their kindness, so they might not\l"
+	.string "like it if they spot a Krokorok\l"
+	.string "wandering around aimlessly.\p"
+	.string "Try to avoid their sight, and\n"
+	.string "do not veer too close to one,\l"
+	.string "lest they hear you.$"
+
+ClayTip::
+	.string "Clay: Team Rocket ain't known for\n"
+	.string "their kindness, so they might not\l"
+	.string "like it if they spot a Krokorok\l"
+	.string "wandering around aimlessly.\p"
+	.string "Try to avoid their sight, and\n"
+	.string "do not veer too close to one,\l"
+	.string "lest they hear you.$"
 
 Amberock_Volkner_Text::
-	.string "(WIP)i am volkner$"
+	.string "The objective is simple: find out who\n"
+	.string "is in charge, what their plans are,\l"
+	.string "and sabotage the facility's generator\l"
+	.string "so that we can sneak in while they are\l"
+	.string "trying to figure out what happened.$"
 
 GiovanniWeAreOnSchedule::
-	.string "(WIP)we are on schedule boss$"
+	.string "Clay: Is that who I think it is?\n"
+	.string "Get us a bit closer, will ya?$"
 
 ClayLetsBail::
-	.string "(WIP)clay: lets bail$"
+	.string "Proton: We've finished grabbing\n"
+	.string "the Poké Balls from the assembly\l"
+	.string "lines, and are now scouring through\l"
+	.string "the crates.\p"
+	.string "It will take a while to grab\n"
+	.string "everything, but we should be able to\l"
+	.string "finish before we are discovered.\p"
+	.string "???: Excellent. And what about\n"
+	.string "the research?\p"
+	.string "Proton: Everything is going exactly\n"
+	.string "as planned.\l"
+	.string "Some of the smartest people I know\l"
+	.string "are on the case.$"
+
+ClayLetsBail2::
+	.string "Clay: It's just as we feared.\p"
+	.string "This ain't some small\n"
+	.string "remnant force.\p"
+	.string "That's Giovanni, the actual leader\n"
+	.string "of the syndicate.\p"
+	.string "Quick, we must cut the power NOW.\p"
+	.string "We need to get inside this facility\n"
+	.string "and put an end to this!$"
 
 PokeFactory_Packer_Text::
 	.string "The grunt is too busy packing the\n"

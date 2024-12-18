@@ -324,7 +324,7 @@ AutomaticUpdate3::
 	clearflag FLAG_KAOLISLE_ITEM8
 	clearflag FLAG_SANDSTONE_HIDDENITEM_1
 	clearflag FLAG_SANDSTONE_HIDDENITEM_2
-	clearflag FLAG_UNUSED_SYS_0x22
+	clearflag FLAG_MSG_FROM_CLAY
 	clearflag FLAG_KAOLISLE_ITEM9
 	clearflag FLAG_SERPENTCAVE_BOULDER_1
 	clearflag FLAG_SERPENTCAVE_BOULDER_2
@@ -503,6 +503,7 @@ AutomaticUpdate5_1:
 	setflag FLAG_ZYGARDE_CORE_2
 	setflag FLAG_ZYGARDE_CORE_3
 	setflag FLAG_ZYGARDE_CORE_4
+	setflag FLAG_ZYGARDE_CORE_5
 	setflag FLAG_FACTORY_ITEM_1_OUTSIDE
 	setflag FLAG_FACTORY_ITEM_2_OUTSIDE
 	setflag FLAG_FACTORY_ITEM_3_OUTSIDE
@@ -857,7 +858,8 @@ Debug_Script_4_12:
 
 
 Debug_Script_5::
-	givemon SPECIES_HITMONLEE, 30, ITEM_NONE, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, MOVE_FAKE_OUT
+	setvar VAR_ZYGARDE_CELLS, 3
+	giveitem ITEM_ZYGARDE_CUBE
 	release
 	return
 
@@ -872,11 +874,6 @@ Debug_Script_7::
 
 
 Debug_Script_8::
-	return
-
-
-RapidsTooStrong::
-	msgbox RapidsTooStrong_Text, MSGBOX_NPC
 	return
 
 
@@ -910,203 +907,988 @@ UpdateItemCheck_7:
 	return
 
 
-Walk1Left:
-	walk_left
-	step_end
+IntermediaryUpdateScript::
+	lock
+	faceplayer
+	msgbox IntermediaryUpdateScript_Text, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq IntermediaryUpdateScript_2
+	call BackUpTMs
+	msgbox TMsAreNowSecured
+	removeobject VAR_LAST_TALKED
+	release
+	return
 
-Walk2Left:
-	walk_left
-	walk_left
-	step_end
+IntermediaryUpdateScript_2:
+	release
+	end
 
-Walk3Left:
-	walk_left
-	walk_left
-	walk_left
-	step_end
 
-Walk4Left:
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	step_end
+BackUpTMs::
+	checkitem ITEM_TM01
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_2
+BackUpTMs_1:
+	checkitem ITEM_TM02
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_5
+BackUpTMs_4:
+	checkitem ITEM_TM03
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_8
+BackUpTMs_7:
+	checkitem ITEM_TM04
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_11
+BackUpTMs_10:
+	checkitem ITEM_TM05
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_14
+BackUpTMs_13:
+	checkitem ITEM_TM06
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_17
+BackUpTMs_16:
+	checkitem ITEM_TM07
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_20
+BackUpTMs_19:
+	checkitem ITEM_TM08
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_23
+BackUpTMs_22:
+	checkitem ITEM_TM09
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_26
+BackUpTMs_25:
+	checkitem ITEM_TM10
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_29
+BackUpTMs_28:
+	checkitem ITEM_TM11
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_32
+BackUpTMs_31:
+	checkitem ITEM_TM12
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_35
+BackUpTMs_34:
+	checkitem ITEM_TM13
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_38
+BackUpTMs_37:
+	checkitem ITEM_TM14
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_41
+BackUpTMs_40:
+	checkitem ITEM_TM15
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_44
+BackUpTMs_43:
+	checkitem ITEM_TM16
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_47
+BackUpTMs_46:
+	checkitem ITEM_TM17
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_50
+BackUpTMs_49:
+	checkitem ITEM_TM18
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_53
+BackUpTMs_52:
+	checkitem ITEM_TM19
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_56
+BackUpTMs_55:
+	checkitem ITEM_TM20
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_59
+BackUpTMs_58:
+	checkitem ITEM_TM21
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_62
+BackUpTMs_61:
+	checkitem ITEM_TM22
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_65
+BackUpTMs_64:
+	checkitem ITEM_TM23
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_68
+BackUpTMs_67:
+	checkitem ITEM_TM24
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_71
+BackUpTMs_70:
+	checkitem ITEM_TM25
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_74
+BackUpTMs_73:
+	checkitem ITEM_TM26
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_77
+BackUpTMs_76:
+	checkitem ITEM_TM27
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_80
+BackUpTMs_79:
+	checkitem ITEM_TM28
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_83
+BackUpTMs_82:
+	checkitem ITEM_TM29
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_86
+BackUpTMs_85:
+	checkitem ITEM_TM30
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_89
+BackUpTMs_88:
+	checkitem ITEM_TM31
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_92
+BackUpTMs_91:
+	checkitem ITEM_TM32
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_95
+BackUpTMs_94:
+	checkitem ITEM_TM33
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_98
+BackUpTMs_97:
+	checkitem ITEM_TM34
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_101
+BackUpTMs_100:
+	checkitem ITEM_TM35
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_104
+BackUpTMs_103:
+	checkitem ITEM_TM36
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_107
+BackUpTMs_106:
+	checkitem ITEM_TM37
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_110
+BackUpTMs_109:
+	checkitem ITEM_TM38
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_113
+BackUpTMs_112:
+	checkitem ITEM_TM39
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_116
+BackUpTMs_115:
+	checkitem ITEM_TM40
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_119
+BackUpTMs_118:
+	checkitem ITEM_TM41
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_122
+BackUpTMs_121:
+	checkitem ITEM_TM42
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_125
+BackUpTMs_124:
+	checkitem ITEM_TM43
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_128
+BackUpTMs_127:
+	checkitem ITEM_TM44
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_131
+BackUpTMs_130:
+	checkitem ITEM_TM45
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_134
+BackUpTMs_133:
+	checkitem ITEM_TM46
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_137
+BackUpTMs_136:
+	checkitem ITEM_TM47
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_140
+BackUpTMs_139:
+	checkitem ITEM_TM48
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_143
+BackUpTMs_142:
+	checkitem ITEM_TM49
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_146
+BackUpTMs_145:
+	checkitem ITEM_TM50
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_149
+BackUpTMs_148:
+	checkitem ITEM_TM51
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_152
+BackUpTMs_151:
+	checkitem ITEM_TM52
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_155
+BackUpTMs_154:
+	checkitem ITEM_TM53
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_158
+BackUpTMs_157:
+	checkitem ITEM_TM54
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_161
+BackUpTMs_160:
+	checkitem ITEM_TM55
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_164
+BackUpTMs_163:
+	checkitem ITEM_TM56
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_167
+BackUpTMs_166:
+	checkitem ITEM_TM57
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_170
+BackUpTMs_169:
+	checkitem ITEM_TM58
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_173
+BackUpTMs_172:
+	checkitem ITEM_TM59
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_176
+BackUpTMs_175:
+	checkitem ITEM_TM60
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_179
+BackUpTMs_178:
+	checkitem ITEM_TM61
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_182
+BackUpTMs_181:
+	checkitem ITEM_TM62
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_185
+BackUpTMs_184:
+	checkitem ITEM_TM63
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_188
+BackUpTMs_187:
+	checkitem ITEM_TM64
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_191
+BackUpTMs_190:
+	checkitem ITEM_TM65
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_194
+BackUpTMs_193:
+	checkitem ITEM_TM66
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_197
+BackUpTMs_196:
+	checkitem ITEM_TM67
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_200
+BackUpTMs_199:
+	checkitem ITEM_TM68
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_203
+BackUpTMs_202:
+	checkitem ITEM_TM69
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_206
+BackUpTMs_205:
+	checkitem ITEM_TM70
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_209
+BackUpTMs_208:
+	checkitem ITEM_TM71
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_212
+BackUpTMs_211:
+	checkitem ITEM_TM72
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_215
+BackUpTMs_214:
+	checkitem ITEM_TM73
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_218
+BackUpTMs_217:
+	checkitem ITEM_TM74
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_221
+BackUpTMs_220:
+	checkitem ITEM_TM75
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_224
+BackUpTMs_223:
+	checkitem ITEM_TM76
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_227
+BackUpTMs_226:
+	checkitem ITEM_TM77
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_230
+BackUpTMs_229:
+	checkitem ITEM_TM78
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_233
+BackUpTMs_232:
+	checkitem ITEM_TM79
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_236
+BackUpTMs_235:
+	checkitem ITEM_TM80
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_239
+BackUpTMs_238:
+	checkitem ITEM_TM81
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_242
+BackUpTMs_241:
+	checkitem ITEM_TM82
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_245
+BackUpTMs_244:
+	checkitem ITEM_TM83
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_248
+BackUpTMs_247:
+	checkitem ITEM_TM84
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_251
+BackUpTMs_250:
+	checkitem ITEM_TM85
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_254
+BackUpTMs_253:
+	checkitem ITEM_TM86
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_257
+BackUpTMs_256:
+	checkitem ITEM_TM87
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_260
+BackUpTMs_259:
+	checkitem ITEM_TM88
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_263
+BackUpTMs_262:
+	checkitem ITEM_TM89
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_266
+BackUpTMs_265:
+	checkitem ITEM_TM90
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_269
+BackUpTMs_268:
+	checkitem ITEM_TM91
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_272
+BackUpTMs_271:
+	checkitem ITEM_TM92
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_275
+BackUpTMs_274:
+	checkitem ITEM_TM93
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_278
+BackUpTMs_277:
+	checkitem ITEM_TM94
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_281
+BackUpTMs_280:
+	checkitem ITEM_TM95
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_284
+BackUpTMs_283:
+	checkitem ITEM_TM96
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_287
+BackUpTMs_286:
+	checkitem ITEM_TM97
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_290
+BackUpTMs_289:
+	checkitem ITEM_TM98
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_293
+BackUpTMs_292:
+	checkitem ITEM_TM99
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_296
+BackUpTMs_295:
+	checkitem ITEM_TM100
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_299
+BackUpTMs_298:
+	checkitem ITEM_HM01
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_302
+BackUpTMs_301:
+	checkitem ITEM_HM02
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_305
+BackUpTMs_304:
+	checkitem ITEM_HM03
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_308
+BackUpTMs_307:
+	checkitem ITEM_HM04
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_311
+BackUpTMs_310:
+	checkitem ITEM_HM05
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_314
+BackUpTMs_313:
+	checkitem ITEM_HM06
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_317
+BackUpTMs_316:
+	checkitem ITEM_HM07
+	compare VAR_RESULT, TRUE
+	goto_if_eq BackUpTMs_319
+	return
 
-Walk5Left:
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	step_end
+BackUpTMs_2:
+	setflag FLAG_ITEM_TM01
+	removeitem ITEM_TM01
+	goto BackUpTMs_1
 
-Walk6Left:
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	step_end
+BackUpTMs_5:
+	setflag FLAG_ITEM_TM02
+	removeitem ITEM_TM02
+	goto BackUpTMs_4
 
-Walk7Left:
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	step_end
+BackUpTMs_8:
+	setflag FLAG_ITEM_TM03
+	removeitem ITEM_TM03
+	goto BackUpTMs_7
 
-Walk8Left:
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	step_end
+BackUpTMs_11:
+	setflag FLAG_ITEM_TM04
+	removeitem ITEM_TM04
+	goto BackUpTMs_10
 
-Walk9Left:
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	step_end
+BackUpTMs_14:
+	setflag FLAG_ITEM_TM05
+	removeitem ITEM_TM05
+	goto BackUpTMs_13
 
-Walk1Right:
-	walk_right
-	step_end
+BackUpTMs_17:
+	setflag FLAG_ITEM_TM06
+	removeitem ITEM_TM06
+	goto BackUpTMs_16
 
-Walk2Right:
-	walk_right
-	walk_right
-	step_end
+BackUpTMs_20:
+	setflag FLAG_ITEM_TM07
+	removeitem ITEM_TM07
+	goto BackUpTMs_19
 
-Walk3Right:
-	walk_right
-	walk_right
-	walk_right
-	step_end
+BackUpTMs_23:
+	setflag FLAG_ITEM_TM08
+	removeitem ITEM_TM08
+	goto BackUpTMs_22
 
-Walk4Right:
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	step_end
+BackUpTMs_26:
+	setflag FLAG_ITEM_TM09
+	removeitem ITEM_TM09
+	goto BackUpTMs_25
 
-Walk5Right:
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	step_end
+BackUpTMs_29:
+	setflag FLAG_ITEM_TM10
+	removeitem ITEM_TM10
+	goto BackUpTMs_28
 
-Walk6Right:
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	step_end
+BackUpTMs_32:
+	setflag FLAG_ITEM_TM11
+	removeitem ITEM_TM11
+	goto BackUpTMs_31
 
-Walk1Up:
-	walk_up
-	step_end
+BackUpTMs_35:
+	setflag FLAG_ITEM_TM12
+	removeitem ITEM_TM12
+	goto BackUpTMs_34
 
-Walk2Up:
-	walk_up
-	walk_up
-	step_end
+BackUpTMs_38:
+	setflag FLAG_ITEM_TM13
+	removeitem ITEM_TM13
+	goto BackUpTMs_37
 
-Walk3Up:
-	walk_up
-	walk_up
-	walk_up
-	step_end
+BackUpTMs_41:
+	setflag FLAG_ITEM_TM14
+	removeitem ITEM_TM14
+	goto BackUpTMs_40
 
-Walk4Up:
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	step_end
+BackUpTMs_44:
+	setflag FLAG_ITEM_TM15
+	removeitem ITEM_TM15
+	goto BackUpTMs_43
 
-Walk5Up:
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	step_end
+BackUpTMs_47:
+	setflag FLAG_ITEM_TM16
+	removeitem ITEM_TM16
+	goto BackUpTMs_46
 
-Walk6Up:
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	step_end
+BackUpTMs_50:
+	setflag FLAG_ITEM_TM17
+	removeitem ITEM_TM17
+	goto BackUpTMs_49
 
-Walk1Down:
-	walk_down
-	step_end
+BackUpTMs_53:
+	setflag FLAG_ITEM_TM18
+	removeitem ITEM_TM18
+	goto BackUpTMs_52
 
-Walk2Down:
-	walk_down
-	walk_down
-	step_end
+BackUpTMs_56:
+	setflag FLAG_ITEM_TM19
+	removeitem ITEM_TM19
+	goto BackUpTMs_55
 
-Walk3Down:
-	walk_down
-	walk_down
-	walk_down
-	step_end
+BackUpTMs_59:
+	setflag FLAG_ITEM_TM20
+	removeitem ITEM_TM20
+	goto BackUpTMs_58
 
-Walk4Down:
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	step_end
+BackUpTMs_62:
+	setflag FLAG_ITEM_TM21
+	removeitem ITEM_TM21
+	goto BackUpTMs_61
 
-Walk5Down:
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	step_end
+BackUpTMs_65:
+	setflag FLAG_ITEM_TM22
+	removeitem ITEM_TM22
+	goto BackUpTMs_64
 
-Walk6Down:
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	step_end
+BackUpTMs_68:
+	setflag FLAG_ITEM_TM23
+	removeitem ITEM_TM23
+	goto BackUpTMs_67
 
-Walk7Down:
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	step_end
+BackUpTMs_71:
+	setflag FLAG_ITEM_TM24
+	removeitem ITEM_TM24
+	goto BackUpTMs_70
+
+BackUpTMs_74:
+	setflag FLAG_ITEM_TM25
+	removeitem ITEM_TM25
+	goto BackUpTMs_73
+
+BackUpTMs_77:
+	setflag FLAG_ITEM_TM26
+	removeitem ITEM_TM26
+	goto BackUpTMs_76
+
+BackUpTMs_80:
+	setflag FLAG_ITEM_TM27
+	removeitem ITEM_TM27
+	goto BackUpTMs_79
+
+BackUpTMs_83:
+	setflag FLAG_ITEM_TM28
+	removeitem ITEM_TM28
+	goto BackUpTMs_82
+
+BackUpTMs_86:
+	setflag FLAG_ITEM_TM29
+	removeitem ITEM_TM29
+	goto BackUpTMs_85
+
+BackUpTMs_89:
+	setflag FLAG_ITEM_TM30
+	removeitem ITEM_TM30
+	goto BackUpTMs_88
+
+BackUpTMs_92:
+	setflag FLAG_ITEM_TM31
+	removeitem ITEM_TM31
+	goto BackUpTMs_91
+
+BackUpTMs_95:
+	setflag FLAG_ITEM_TM32
+	removeitem ITEM_TM32
+	goto BackUpTMs_94
+
+BackUpTMs_98:
+	setflag FLAG_ITEM_TM33
+	removeitem ITEM_TM33
+	goto BackUpTMs_97
+
+BackUpTMs_101:
+	setflag FLAG_ITEM_TM34
+	removeitem ITEM_TM34
+	goto BackUpTMs_100
+
+BackUpTMs_104:
+	setflag FLAG_ITEM_TM35
+	removeitem ITEM_TM35
+	goto BackUpTMs_103
+
+BackUpTMs_107:
+	setflag FLAG_ITEM_TM36
+	removeitem ITEM_TM36
+	goto BackUpTMs_106
+
+BackUpTMs_110:
+	setflag FLAG_ITEM_TM37
+	removeitem ITEM_TM37
+	goto BackUpTMs_109
+
+BackUpTMs_113:
+	setflag FLAG_ITEM_TM38
+	removeitem ITEM_TM38
+	goto BackUpTMs_112
+
+BackUpTMs_116:
+	setflag FLAG_ITEM_TM39
+	removeitem ITEM_TM39
+	goto BackUpTMs_115
+
+BackUpTMs_119:
+	setflag FLAG_ITEM_TM40
+	removeitem ITEM_TM40
+	goto BackUpTMs_118
+
+BackUpTMs_122:
+	setflag FLAG_ITEM_TM41
+	removeitem ITEM_TM41
+	goto BackUpTMs_121
+
+BackUpTMs_125:
+	setflag FLAG_ITEM_TM42
+	removeitem ITEM_TM42
+	goto BackUpTMs_124
+
+BackUpTMs_128:
+	setflag FLAG_ITEM_TM43
+	removeitem ITEM_TM43
+	goto BackUpTMs_127
+
+BackUpTMs_131:
+	setflag FLAG_ITEM_TM44
+	removeitem ITEM_TM44
+	goto BackUpTMs_130
+
+BackUpTMs_134:
+	setflag FLAG_ITEM_TM45
+	removeitem ITEM_TM45
+	goto BackUpTMs_133
+
+BackUpTMs_137:
+	setflag FLAG_ITEM_TM46
+	removeitem ITEM_TM46
+	goto BackUpTMs_136
+
+BackUpTMs_140:
+	setflag FLAG_ITEM_TM47
+	removeitem ITEM_TM47
+	goto BackUpTMs_139
+
+BackUpTMs_143:
+	setflag FLAG_ITEM_TM48
+	removeitem ITEM_TM48
+	goto BackUpTMs_142
+
+BackUpTMs_146:
+	setflag FLAG_ITEM_TM49
+	removeitem ITEM_TM49
+	goto BackUpTMs_145
+
+BackUpTMs_149:
+	setflag FLAG_ITEM_TM50
+	removeitem ITEM_TM50
+	goto BackUpTMs_148
+
+BackUpTMs_152:
+	setflag FLAG_ITEM_TM51
+	removeitem ITEM_TM51
+	goto BackUpTMs_151
+
+BackUpTMs_155:
+	setflag FLAG_ITEM_TM52
+	removeitem ITEM_TM52
+	goto BackUpTMs_154
+
+BackUpTMs_158:
+	setflag FLAG_ITEM_TM53
+	removeitem ITEM_TM53
+	goto BackUpTMs_157
+
+BackUpTMs_161:
+	setflag FLAG_ITEM_TM54
+	removeitem ITEM_TM54
+	goto BackUpTMs_160
+
+BackUpTMs_164:
+	setflag FLAG_ITEM_TM55
+	removeitem ITEM_TM55
+	goto BackUpTMs_163
+
+BackUpTMs_167:
+	setflag FLAG_ITEM_TM56
+	removeitem ITEM_TM56
+	goto BackUpTMs_166
+
+BackUpTMs_170:
+	setflag FLAG_ITEM_TM57
+	removeitem ITEM_TM57
+	goto BackUpTMs_169
+
+BackUpTMs_173:
+	setflag FLAG_ITEM_TM58
+	removeitem ITEM_TM58
+	goto BackUpTMs_172
+
+BackUpTMs_176:
+	setflag FLAG_ITEM_TM59
+	removeitem ITEM_TM59
+	goto BackUpTMs_175
+
+BackUpTMs_179:
+	setflag FLAG_ITEM_TM60
+	removeitem ITEM_TM60
+	goto BackUpTMs_178
+
+BackUpTMs_182:
+	setflag FLAG_ITEM_TM61
+	removeitem ITEM_TM61
+	goto BackUpTMs_181
+
+BackUpTMs_185:
+	setflag FLAG_ITEM_TM62
+	removeitem ITEM_TM62
+	goto BackUpTMs_184
+
+BackUpTMs_188:
+	setflag FLAG_ITEM_TM63
+	removeitem ITEM_TM63
+	goto BackUpTMs_187
+
+BackUpTMs_191:
+	setflag FLAG_ITEM_TM64
+	removeitem ITEM_TM64
+	goto BackUpTMs_190
+
+BackUpTMs_194:
+	setflag FLAG_ITEM_TM65
+	removeitem ITEM_TM65
+	goto BackUpTMs_193
+
+BackUpTMs_197:
+	setflag FLAG_ITEM_TM66
+	removeitem ITEM_TM66
+	goto BackUpTMs_196
+
+BackUpTMs_200:
+	setflag FLAG_ITEM_TM67
+	removeitem ITEM_TM67
+	goto BackUpTMs_199
+
+BackUpTMs_203:
+	setflag FLAG_ITEM_TM68
+	removeitem ITEM_TM68
+	goto BackUpTMs_202
+
+BackUpTMs_206:
+	setflag FLAG_ITEM_TM69
+	removeitem ITEM_TM69
+	goto BackUpTMs_205
+
+BackUpTMs_209:
+	setflag FLAG_ITEM_TM70
+	removeitem ITEM_TM70
+	goto BackUpTMs_208
+
+BackUpTMs_212:
+	setflag FLAG_ITEM_TM71
+	removeitem ITEM_TM71
+	goto BackUpTMs_211
+
+BackUpTMs_215:
+	setflag FLAG_ITEM_TM72
+	removeitem ITEM_TM72
+	goto BackUpTMs_214
+
+BackUpTMs_218:
+	setflag FLAG_ITEM_TM73
+	removeitem ITEM_TM73
+	goto BackUpTMs_217
+
+BackUpTMs_221:
+	setflag FLAG_ITEM_TM74
+	removeitem ITEM_TM74
+	goto BackUpTMs_220
+
+BackUpTMs_224:
+	setflag FLAG_ITEM_TM75
+	removeitem ITEM_TM75
+	goto BackUpTMs_223
+
+BackUpTMs_227:
+	setflag FLAG_ITEM_TM76
+	removeitem ITEM_TM76
+	goto BackUpTMs_226
+
+BackUpTMs_230:
+	setflag FLAG_ITEM_TM77
+	removeitem ITEM_TM77
+	goto BackUpTMs_229
+
+BackUpTMs_233:
+	setflag FLAG_ITEM_TM78
+	removeitem ITEM_TM78
+	goto BackUpTMs_232
+
+BackUpTMs_236:
+	setflag FLAG_ITEM_TM79
+	removeitem ITEM_TM79
+	goto BackUpTMs_235
+
+BackUpTMs_239:
+	setflag FLAG_ITEM_TM80
+	removeitem ITEM_TM80
+	goto BackUpTMs_238
+
+BackUpTMs_242:
+	setflag FLAG_ITEM_TM81
+	removeitem ITEM_TM81
+	goto BackUpTMs_241
+
+BackUpTMs_245:
+	setflag FLAG_ITEM_TM82
+	removeitem ITEM_TM82
+	goto BackUpTMs_244
+
+BackUpTMs_248:
+	setflag FLAG_ITEM_TM83
+	removeitem ITEM_TM83
+	goto BackUpTMs_247
+
+BackUpTMs_251:
+	setflag FLAG_ITEM_TM84
+	removeitem ITEM_TM84
+	goto BackUpTMs_250
+
+BackUpTMs_254:
+	setflag FLAG_ITEM_TM85
+	removeitem ITEM_TM85
+	goto BackUpTMs_253
+
+BackUpTMs_257:
+	setflag FLAG_ITEM_TM86
+	removeitem ITEM_TM86
+	goto BackUpTMs_256
+
+BackUpTMs_260:
+	setflag FLAG_ITEM_TM87
+	removeitem ITEM_TM87
+	goto BackUpTMs_259
+
+BackUpTMs_263:
+	setflag FLAG_ITEM_TM88
+	removeitem ITEM_TM88
+	goto BackUpTMs_262
+
+BackUpTMs_266:
+	setflag FLAG_ITEM_TM89
+	removeitem ITEM_TM89
+	goto BackUpTMs_265
+
+BackUpTMs_269:
+	setflag FLAG_ITEM_TM90
+	removeitem ITEM_TM90
+	goto BackUpTMs_268
+
+BackUpTMs_272:
+	setflag FLAG_ITEM_TM91
+	removeitem ITEM_TM91
+	goto BackUpTMs_271
+
+BackUpTMs_275:
+	setflag FLAG_ITEM_TM92
+	removeitem ITEM_TM92
+	goto BackUpTMs_274
+
+BackUpTMs_278:
+	setflag FLAG_ITEM_TM93
+	removeitem ITEM_TM93
+	goto BackUpTMs_277
+
+BackUpTMs_281:
+	setflag FLAG_ITEM_TM94
+	removeitem ITEM_TM94
+	goto BackUpTMs_280
+
+BackUpTMs_284:
+	setflag FLAG_ITEM_TM95
+	removeitem ITEM_TM95
+	goto BackUpTMs_283
+
+BackUpTMs_287:
+	setflag FLAG_ITEM_TM96
+	removeitem ITEM_TM96
+	goto BackUpTMs_286
+
+BackUpTMs_290:
+	setflag FLAG_ITEM_TM97
+	removeitem ITEM_TM97
+	goto BackUpTMs_289
+
+BackUpTMs_293:
+	setflag FLAG_ITEM_TM98
+	removeitem ITEM_TM98
+	goto BackUpTMs_292
+
+BackUpTMs_296:
+	setflag FLAG_ITEM_TM99
+	removeitem ITEM_TM99
+	goto BackUpTMs_295
+
+BackUpTMs_299:
+	setflag FLAG_ITEM_TM100
+	removeitem ITEM_TM100
+	goto BackUpTMs_298
+
+BackUpTMs_302:
+	setflag FLAG_ITEM_HM01
+	removeitem ITEM_HM01
+	goto BackUpTMs_301
+
+BackUpTMs_305:
+	setflag FLAG_ITEM_HM02
+	removeitem ITEM_HM02
+	goto BackUpTMs_304
+
+BackUpTMs_308:
+	setflag FLAG_ITEM_HM03
+	removeitem ITEM_HM03
+	goto BackUpTMs_307
+
+BackUpTMs_311:
+	setflag FLAG_ITEM_HM04
+	removeitem ITEM_HM04
+	goto BackUpTMs_310
+
+BackUpTMs_314:
+	setflag FLAG_ITEM_HM05
+	removeitem ITEM_HM05
+	goto BackUpTMs_313
+
+BackUpTMs_317:
+	setflag FLAG_ITEM_HM06
+	removeitem ITEM_HM06
+	goto BackUpTMs_316
+
+BackUpTMs_319:
+	setflag FLAG_ITEM_HM07
+	removeitem ITEM_HM07
+	return
+
 
 Debug_Script_4_Text_0:
 	.string "Gym 1 (lvl 14)$"
@@ -1301,7 +2083,9 @@ AutomaticUpdate2_Text::
 
 BattleTentInRockliffe::
 	.string "10. A new battle tent has opened in\n"
-	.string "Rockliffe town.$"
+	.string "Rockliffe town.\p"
+	.string "11. HM moves can no longer forgotten\n"
+	.string "(unless visiting a move deleter)$"
 
 SceneAltered::
 	.string "An earlier story scene of\n"
@@ -1311,12 +2095,6 @@ SceneAltered::
 	.string "the upcoming story.\p"
 	.string "Would you like to view the\n"
 	.string "altered scene?$"
-
-RapidsTooStrong_Text::
-	.string "These rapids are simply too strong\n"
-	.string "to surf against.\p"
-	.string "I'm sure they'll die down once the\n"
-	.string "game dev finishes the upcoming area!$"
 
 ReplacedFlute::
 	.string "Your White Flute has been replaced\n"
@@ -1364,3 +2142,19 @@ FlagsAndVarsUpdated2::
 RenameBrother::
 	.string "Would you like to rename your brother?\n"
 	.string "(Yes if haven't seen this before!)$"
+
+IntermediaryUpdateScript_Text::
+	.string "Hello, I am here to convert your save\n"
+	.string "so that it's compatible with the next\l"
+	.string "major update.\p"
+	.string "After converting, please do not\n"
+	.string "continue playing until you've\l"
+	.string "updated the game.\p"
+	.string "Are you ready to convert\n"
+	.string "your save?$"
+
+TMsAreNowSecured::
+	.string "The save is now prepared for the\n"
+	.string "next update.\p"
+	.string "Please save your game and update\n"
+	.string "to the latest version of the hack.$"

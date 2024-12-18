@@ -1,0 +1,28 @@
+mapscripts Route16_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        if(checkitem(ITEM_ZYGARDE_CUBE) == TRUE){
+            setmaplayoutindex(LAYOUT_ROUTE16_NO_CURRENTS)
+            setflag(FLAG_TEMP_1)
+        }
+    }
+}
+
+script RapidsTooStrong{
+    msgbox(RapidsTooStrong_Text, MSGBOX_NPC)
+}
+text RapidsTooStrong_Text{
+    "The waves here can be really\n"
+    "unpredictable.\p"
+    "No choice but to wait for\n"
+    "them to die down."
+}
+
+script EndOfBeta{
+    msgbox(EndOfBeta_Text, MSGBOX_SIGN)
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Down)
+    waitmovement(0)
+}
+text EndOfBeta_Text{
+    "This way is blocked off\n"
+    "until the next release."
+}

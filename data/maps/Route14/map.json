@@ -284,6 +284,13 @@
       "elevation": 0,
       "dest_map": "MAP_ROUTE14_GROTTO",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 67,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE119_WEATHER_INSTITUTE_1F",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

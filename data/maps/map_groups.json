@@ -118,7 +118,9 @@
     "FlowerFields",
     "Route23Lake",
     "SouthernDesert",
-    "AmberockTown_KrokorokPier"
+    "AmberockTown_KrokorokPier",
+    "AmberockTown_PlayerPier",
+    "Route16_NoCurrents"
   ],
   "gMapGroup_RouteInteriors": [
     "RanchBarn",
@@ -131,7 +133,9 @@
     "BerryFieldHouse",
     "Route15_MoveReminder",
     "Route13Alternative",
-    "Route13_GateHouse"
+    "Route13_GateHouse",
+    "Route119_WeatherInstitute_1F",
+    "Route119_WeatherInstitute_2F"
   ],
   "gMapGroup_Dungeons": [
     "Route7_Grotto",
@@ -377,9 +381,11 @@
     "Amberock_House2",
     "Amberock_House3",
     "Amberock_PokeballFactory",
+    "Amberock_PokeballFactory_NoLights",
     "Amberock_PokeballFactory_B1F",
+    "Amberock_PokeballFactory_B1F_NoLights",
     "Amberock_PokeballFactory_Office",
-    "Amberock_PokeballFactory_NoLights"
+    "Amberock_PokeballFactory_Office_NoLights"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -772,8 +778,6 @@
     "Route123_BerryMastersHouse"
   ],
   "gMapGroup_IndoorRoute119": [
-    "Route119_WeatherInstitute_1F",
-    "Route119_WeatherInstitute_2F",
     "Route119_House"
   ],
   "gMapGroup_OldAreas": [

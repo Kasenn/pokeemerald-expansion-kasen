@@ -250,6 +250,18 @@ script Amberock_Factory_RocketTrigger11_4{
     setvar(VAR_WARP_ID, 8)
     goto(Amberock_Factory_MainRocket)
 }
+script Amberock_Factory_RocketTrigger12_1{
+    setvar(VAR_ROCKET_ID, 1)
+    setvar(VAR_ROCKET_DIR, DIR_WEST)
+    setvar(VAR_WARP_ID, 8)
+    goto(Amberock_Factory_MainRocket)
+}
+script Amberock_Factory_RocketTrigger12_2{
+    setvar(VAR_ROCKET_ID, 1)
+    setvar(VAR_ROCKET_DIR, DIR_SOUTH)
+    setvar(VAR_WARP_ID, 8)
+    goto(Amberock_Factory_MainRocket)
+}
 
 script Amberock_Factory_MainRocket{
     lock
@@ -297,7 +309,9 @@ script FactoryEmployee_Basement{
     msgbox(FactoryEmployee_Basement_Text, MSGBOX_SIGN)
 }
 text FactoryEmployee_Basement_Text{
-    "(WIP)these are employees"
+    "These look to be employees\n"
+    "of the factory.\p"
+    "They seem unharmed."
 }
 
 script TooCloseToProton{
@@ -311,8 +325,9 @@ script Factory_KrokorokPetrelCutScene{
     lock
     delay(15)
     addobject(PETREL_OBJ)
-    applymovement(PETREL_OBJ, moves(delay_16 * 2 walk_down walk_in_place_fast_right))
+    applymovement(PETREL_OBJ, moves(delay_16 * 3 walk_down walk_in_place_fast_right))
     waitmovement(0)
+    delay(16)
     msgbox(Petrel_MoveItGuys)
     turnobject(38, DIR_WEST)
     msgbox(Sorry_Petrel)
@@ -326,28 +341,50 @@ script Factory_KrokorokPetrelCutScene{
     removeobject(37)
     removeobject(38)
     delay(16)
+    msgbox(ThatsPetrel)
+    msgbox(AfterPapers)
     release
     setvar(VAR_AMBEROCK_STORY, STORY_AMBEROCK_FOUND_PETREL)
 }
 
 movement Factory_RocketGuardLeaves{
     delay_16
-    walk_left * 3
-    walk_down
     walk_left * 4
+    walk_up
+    delay_4
+    set_invisible
 }
 movement Factory_RocketGuardLeaves2{
     delay_16
-    walk_left * 4
-    walk_down
-    walk_left * 4
+    walk_left * 5
+    walk_up
+    delay_4
+    set_invisible
 }
 
 text Petrel_MoveItGuys{
-    "(WIP) get back to work guys"
+    "???: Hey, you two knuckleheads!\p"
+    "Come with me to the office and see\n"
+    "if you can figure out what these\l"
+    "fancy research papers say!"
 }
 text Sorry_Petrel{
-    "(WIP) sorry boss!"
+    "Yes boss!\n"
+    "Right away, boss!"
+}
+text ThatsPetrel{
+    "Clay: That's Petrel,\n"
+    "one of the Rocket Executives.\p"
+    "He stands above grunts, but I doubt\n"
+    "he's the mastermind of this operation.\p"
+    "Let's keep looking."
+}
+text AfterPapers{
+    "You're here because you were tasked\n"
+    "with retrieving those papers?\p"
+    "Don't worry, you can get them\n"
+    "once we're done.\l"
+    "I doubt they're going anywhere."
 }
 
 script Amberock_Factory_Generator{
@@ -377,20 +414,42 @@ script Amberock_Factory_Generator{
     }
 }
 
+script MsgFromClay{
+    msgbox(MsgFromClay_Text, MSGBOX_SIGN)
+    setflag(FLAG_MSG_FROM_CLAY)
+    release
+}
+text MsgFromClay_Text{
+    "Clay: Oh, while we're here,\n"
+    "you may wanna grab any items\l"
+    "you see lying around.\p"
+    "It's better we confiscate everything\n"
+    "now, rather than letting Team Rocket\l"
+    "simply take them with 'em."
+}
+
 text OrderKrokorokDestroy{
-    "(WIP)tell krok to destroy?"
+    "Order the Krokorok to disable\n"
+    "the generator?"
 }
 text KrokorokBeginsRampage{
-    "(WIP)krok begins rampaging"
+    "The Krokorok starts gnawing\n"
+    "on the cables…"
 }
 text KrokorokDestroysGenerator{
-    "(WIP)krok destroys generator"
+    "The entire facility goes dark, and\n"
+    "Krokorok returns back to the group."
 }
 text CompleteClaysObjective{
-    "(WIP)complete clays objective"
+    "Volkner: This is the main\n"
+    "generator of the facility.\p"
+    "We can command the Krokorok to gnaw\n"
+    "on some cables to cause a blackout,\l"
+    "but first, we should finish the other\l"
+    "objectives."
 }
 text BustedGenerator{
-    "(WIP)its a busted gen"
+    "(UNUSED)its a busted gen"
 }
 
 script Amberock_Crate{

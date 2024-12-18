@@ -424,15 +424,15 @@
       "x": 28,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_AMBEROCK_POKEBALL_FACTORY",
-      "dest_warp_id": "2"
+      "dest_map": "MAP_AMBEROCK_POKEBALL_FACTORY_NO_LIGHTS",
+      "dest_warp_id": "5"
     },
     {
       "x": 28,
       "y": 12,
       "elevation": 0,
-      "dest_map": "MAP_AMBEROCK_POKEBALL_FACTORY",
-      "dest_warp_id": "3"
+      "dest_map": "MAP_AMBEROCK_POKEBALL_FACTORY_NO_LIGHTS",
+      "dest_warp_id": "4"
     },
     {
       "x": 53,

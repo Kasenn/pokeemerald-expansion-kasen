@@ -1,0 +1,60 @@
+mapscripts Route119_WeatherInstitute_1F_MapScripts {
+    
+}
+
+script LegendaryInstitute1F_Greeter{
+    if(checkplayergender == MALE){
+        bufferstring(STR_VAR_1, "lad")
+    }
+    else{
+        bufferstring(STR_VAR_1, "lass")
+    }
+    if(checkitem(ITEM_ZYGARDE_CUBE) == FALSE){
+        msgbox(LegendaryInstitute1F_Greeter_Text2)
+    }
+    else{
+        msgbox(LegendaryInstitute1F_Greeter_Text, MSGBOX_NPC)
+    }
+}
+script LegendaryInstitute1F_Woman{
+    if(checkitem(ITEM_ZYGARDE_CUBE) == FALSE){
+        msgbox(LegendaryInstitute1F_Woman_Text2)
+    }
+    else{
+        msgbox(LegendaryInstitute1F_Woman_Text, MSGBOX_NPC)
+    }
+    turnobject(1, DIR_EAST)
+}
+script LegendaryInstitute1F_Man{
+    msgbox(LegendaryInstitute1F_Man_Text, MSGBOX_NPC)
+    turnobject(2, DIR_WEST)
+}
+text LegendaryInstitute1F_Greeter_Text{
+    "Thank you so much for helping us\n"
+    "recover our research.\p"
+    "We hope you find that Zygarde\n"
+    "Cube useful!"
+}
+text LegendaryInstitute1F_Woman_Text{
+    "I recommend checking out the Sandstone\n"
+    "Library if you're ever in that area.\p"
+    "Many of the upstairs books sound\n"
+    "like your folktale, but most of them\l"
+    "are actually rooted in reality."
+}
+text LegendaryInstitute1F_Man_Text{
+    "My research is in shambles due to\n"
+    "the recent Team Rocket attack…"
+}
+text LegendaryInstitute1F_Greeter_Text2{
+    "You must be the young {STR_VAR_1} who went\n"
+    "after Team Rocket to recover our\l"
+    "research.\p"
+    "The head scientist is waiting for\n"
+    "you upstairs."
+}
+text LegendaryInstitute1F_Woman_Text2{
+    "I'm sorry, but I'm really busy.\p"
+    "You should head upstairs and\n"
+    "talk with the head scientist instead."
+}

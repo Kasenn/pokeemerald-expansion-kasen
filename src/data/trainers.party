@@ -6825,7 +6825,7 @@ Doduo
 Level: 28
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_DYLAN_3 ===
+=== TRAINER_UNUSED_366 ===
 Name: DYLAN
 Class: Triathlete
 Pic: Running Triathlete M
@@ -6838,7 +6838,7 @@ Doduo
 Level: 31
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 
-=== TRAINER_DYLAN_4 ===
+=== TRAINER_FACTORY_ROCKET_1 ===
 Name: DYLAN
 Class: Triathlete
 Pic: Running Triathlete M
@@ -6851,7 +6851,7 @@ Dodrio
 Level: 34
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
-=== TRAINER_DYLAN_5 ===
+=== TRAINER_UNUSED_368 ===
 Name: DYLAN
 Class: Triathlete
 Pic: Running Triathlete M
@@ -6864,7 +6864,7 @@ Dodrio
 Level: 37
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
-=== TRAINER_MARIA_1 ===
+=== TRAINER_FACTORY_ROCKET_2 ===
 Name: MARIA
 Class: Triathlete
 Pic: Running Triathlete F
@@ -6877,7 +6877,7 @@ Doduo
 Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_MARIA_2 ===
+=== TRAINER_FACTORY_ROCKET_3 ===
 Name: MARIA
 Class: Triathlete
 Pic: Running Triathlete F
@@ -6890,7 +6890,7 @@ Doduo
 Level: 28
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_MARIA_3 ===
+=== TRAINER_FACTORY_ROCKET_4 ===
 Name: MARIA
 Class: Triathlete
 Pic: Running Triathlete F
@@ -6903,7 +6903,7 @@ Doduo
 Level: 31
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 
-=== TRAINER_MARIA_4 ===
+=== TRAINER_FACTORY_ROCKET_5 ===
 Name: MARIA
 Class: Triathlete
 Pic: Running Triathlete F
@@ -6916,7 +6916,7 @@ Dodrio
 Level: 34
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
-=== TRAINER_MARIA_5 ===
+=== TRAINER_UNUSED_373 ===
 Name: MARIA
 Class: Triathlete
 Pic: Running Triathlete F
@@ -6929,7 +6929,7 @@ Dodrio
 Level: 37
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
-=== TRAINER_CAMDEN ===
+=== TRAINER_UNUSED_374 ===
 Name: CAMDEN
 Class: Triathlete
 Pic: Swimming Triathlete M
@@ -6946,7 +6946,7 @@ Staryu
 Level: 33
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_DEMETRIUS ===
+=== TRAINER_FACTORY_ROCKET_PETREL ===
 Name: DEMETRIUS
 Class: Youngster
 Pic: Youngster

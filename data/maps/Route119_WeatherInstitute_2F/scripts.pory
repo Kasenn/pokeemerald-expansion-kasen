@@ -1,0 +1,559 @@
+const PROF = 1
+
+mapscripts Route119_WeatherInstitute_2F_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        if(checkitem(ITEM_ZYGARDE_CUBE) == FALSE){
+            setvar(VAR_TEMP_0, 1)
+        }
+        else{
+            setobjectxyperm(PROF, 2, 4)
+            setobjectmovementtype(PROF, MOVEMENT_TYPE_FACE_LEFT)
+        }
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_TEMP_0, 1: ZygardeCubeEvent
+    ]
+}
+
+script ZygardeCubeEvent{
+    delay(32)
+    playse(SE_PIN)
+    turnobject(PROF, DIR_NORTH)
+    applymovement(PROF, ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    applymovement(PROF, Walk2Up)
+    waitmovement(0)
+    delay(8)
+    msgbox(CanIHaveThePapers)
+    msgbox(PlayerHandsPapersToScientist)
+    removeitem(ITEM_RESEARCH_PAPERS)
+    msgbox(ScientistDireNews)
+    closemessage
+    applymovement(PROF, LabScientistMove)
+    applymovement(OBJ_EVENT_ID_PLAYER, LabPlayerMove)
+    waitmovement(PROF)
+    waitmovement(OBJ_EVENT_ID_PLAYER)
+    delay(8)
+    msgbox(TakeZygardeCube)
+    giveitem(ITEM_ZYGARDE_CUBE)
+    call(ReleaseZygardeCellsCores)
+    msgbox(ExplainZygardeCube)
+    closemessage
+    applymovement(PROF, moves(walk_right, walk_in_place_fast_left))
+    waitmovement(0)
+    setobjectxyperm(PROF, 2, 4)
+    setobjectmovementtype(PROF, MOVEMENT_TYPE_FACE_LEFT)
+    setvar(VAR_TEMP_0, 0)
+    release
+}
+
+text CanIHaveThePapers{
+    "(WIP)"
+}
+text PlayerHandsPapersToScientist{
+    "(WIP)"
+}
+text ScientistDireNews{
+    "(WIP)"
+}
+text TakeZygardeCube{
+    "(WIP)"
+}
+text ExplainZygardeCube{
+    "(WIP)"
+}
+movement LabScientistMove{
+    walk_down * 3
+    walk_left * 12
+    walk_up * 2
+    walk_in_place_fast_down
+}
+movement LabPlayerMove{
+    walk_down * 4
+    walk_left * 12
+    walk_up
+}
+
+script LegendaryInstitute2F_Man{
+    msgbox(LegendaryInstitute2F_Man_Text, MSGBOX_NPC)
+    turnobject(3, DIR_WEST)
+}
+script LegendaryInstitute2F_Woman{
+    msgbox(LegendaryInstitute2F_Woman_Text, MSGBOX_NPC)
+    turnobject(2, DIR_WEST)
+}
+text LegendaryInstitute2F_Man_Text{
+    "Have you ever heard of the Pokémon\n"
+    "Latias and Latios?\p"
+    "It is said that they once roamed\n"
+    "across Sinko, until one day they\l"
+    "simply disappeared.\p"
+    "Nobody knows for sure what\n"
+    "happened to them."
+}
+text LegendaryInstitute2F_Woman_Text{
+    "(WIP)"
+}
+text TenZygardeCreated{
+    "(WIP)"
+}
+text FiftyZygardeCreated{
+    "(WIP)"
+}
+script LegendaryInstitute2F_MainScientist{
+    if(var(VAR_ZYGARDE_PROGRESS) == 1){
+        msgbox(TenZygardeCreated, MSGBOX_NPC)
+        setvar(VAR_ZYGARDE_PROGRESS, 2)
+        end
+    }
+    if(var(VAR_ZYGARDE_PROGRESS) == 3){
+        msgbox(FiftyZygardeCreated, MSGBOX_NPC)
+        setvar(VAR_ZYGARDE_PROGRESS, 4)
+        end
+    }
+    if(flag(FLAG_UNLOCKED_REASSEMBLY_UNIT)){
+        lock
+        faceplayer
+        goto(MainScientist_ExplainFeatures)
+    }
+    else{
+        if(var(VAR_ZYGARDE_CELLS) >= 10
+        && var(VAR_ZYGARDE_CORES) >= 1){
+            msgbox(HaveEnoughCellsAndCores)
+            setflag(FLAG_UNLOCKED_REASSEMBLY_UNIT)
+        }
+        else{
+            if(var(VAR_ZYGARDE_CELLS) == 0){
+                bufferstring(STR_VAR_1, "no")
+            }
+            else{
+                buffernumberstring(STR_VAR_1, VAR_ZYGARDE_CELLS)
+            }
+            if(var(VAR_ZYGARDE_CORES) == 0){
+                bufferstring(STR_VAR_2, "no")
+            }
+            else{
+                buffernumberstring(STR_VAR_2, VAR_ZYGARDE_CORES)
+            }
+            msgbox(NotEnoughCellsAndCores, MSGBOX_NPC)
+        }
+    }
+}
+script MainScientist_ExplainFeatures{
+    message(WhichFeatureToExplain)
+    waitmessage
+    dynmultichoice(23, 0, FALSE, 4, 0, 0, "Assembly", "Separation", "Core Moves", "Cancel")
+    switch(var(VAR_RESULT)){
+    case 0:
+        goto(Explain_Assembly)
+    case 1:
+        goto(Explain_Separation)
+    case 2:
+        goto(Explain_CoreMoves)
+    case 3:
+        goto(ExplainFeatures_Goodbye)
+    case MULTI_B_PRESSED:
+        goto(ExplainFeatures_Goodbye)
+    }
+}
+script Explain_Assembly{
+    msgbox(Explain_Assembly_Text)
+    goto(MainScientist_ExplainFeatures)
+}
+script Explain_Separation{
+    msgbox(Explain_Separation_Text)
+    goto(MainScientist_ExplainFeatures)
+}
+script Explain_CoreMoves{
+    msgbox(Explain_CoreMoves_Text)
+    goto(MainScientist_ExplainFeatures)
+}
+script ExplainFeatures_Goodbye{
+    msgbox(ExplainFeatures_Goodbye_Text)
+    release
+}
+text WhichFeatureToExplain{
+    "(WIP)"
+}
+text Explain_Assembly_Text{
+    "(WIP)"
+}
+text Explain_Separation_Text{
+    "(WIP)"
+}
+text Explain_CoreMoves_Text{
+    "(WIP)"
+}
+text ExplainFeatures_Goodbye_Text{
+    "(WIP)"
+}
+
+script LegendaryInstitute2F_ReassemblyUnit{
+    if(flag(FLAG_UNLOCKED_REASSEMBLY_UNIT)){
+        lock
+        waitse
+        playse(SE_PC_ON)
+        waitse
+        msgbox(ReassemblyUnitActivated)
+        goto(ReassemblyUnit_MainScript)
+    }
+    else{
+        msgbox(ReassemblyUnitInert, MSGBOX_SIGN)
+    }
+}
+
+text HaveEnoughCellsAndCores{
+    "(WIP)"
+}
+text NotEnoughCellsAndCores{
+    "(WIP)"
+}
+text ReassemblyUnitInert{
+    "(WIP)"
+}
+
+script ReassemblyUnit_MainScript{
+    message(DoWhatWithReassemblyUnit)
+    waitmessage
+    dynmultichoice(23, 0, FALSE, 4, 0, 0, "Assembly", "Separation", "Core Moves", "Turn off")
+    switch(var(VAR_RESULT)){
+    case 0:
+        goto(ReassemblyUnit_Assembly)
+    case 1:
+        goto(ReassemblyUnit_Separation)
+    case 2:
+        goto(ReassemblyUnit_CoreMoves)
+    case 3:
+        goto(ReassemblyUnit_TurnOff)
+    case MULTI_B_PRESSED:
+        goto(ReassemblyUnit_TurnOff)
+    }
+}
+text ReassemblyUnitActivated{
+    "(WIP)"
+}
+text DoWhatWithReassemblyUnit{
+    "(WIP)"
+}
+
+script ReassemblyUnit_Assembly{
+    if(flag(FLAG_ZYGARDE10_ASSEMBLED)
+    || flag(FLAG_ZYGARDE50_ASSEMBLED)){
+        msgbox(OnlyOneZygarde)
+        goto(ReassemblyUnit_MainScript)
+    }
+    else{
+        message(AssembleWhichZygarde)
+        waitmessage
+        dynmultichoice(23, 0, FALSE, 4, 0, 0, "10% Forme", "50% Forme", "Cancel")
+        switch(var(VAR_RESULT)){
+        case 0:
+            goto(ReassemblyUnit_Assemble10Forme)
+        case 1:
+            goto(ReassemblyUnit_Assemble50Forme)
+        case 2:
+            goto(ReassemblyUnit_MainScript)
+        case MULTI_B_PRESSED:
+            goto(ReassemblyUnit_MainScript)
+        }
+    }
+}
+script ReassemblyUnit_Assemble10Forme{
+    msgbox(AttemptingToAssemble10Forme)
+    setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ZYGARDE_10)
+    givemon(SPECIES_ZYGARDE_10, 40, ITEM_NONE, ITEM_STRANGE_BALL, NATURE_HARDY, 0, 0, 0, 0, 0, 0, 0, 0, 15, 15, 15, 15, 15, 15, MOVE_DIG, MOVE_BIND, MOVE_LANDS_WRATH, MOVE_SANDSTORM, FALSE, 0, 0)
+    call(GiveMon_Script)
+    setflag(FLAG_ZYGARDE10_ASSEMBLED)
+    if(var(VAR_ZYGARDE_PROGRESS) == 0){
+        setvar(VAR_ZYGARDE_PROGRESS, 1)
+    }
+    subvar(VAR_ZYGARDE_CELLS, 10)
+    subvar(VAR_ZYGARDE_CORES, 1)
+    release
+}
+script ReassemblyUnit_Assemble50Forme{
+    if(var(VAR_ZYGARDE_CELLS) < 50
+    && var(VAR_ZYGARDE_CORES) < 3){
+        buffernumberstring(STR_VAR_1, VAR_ZYGARDE_CELLS)
+        buffernumberstring(STR_VAR_2, VAR_ZYGARDE_CORES)
+        msgbox(NotEnoughCellsAndCoresInCube)
+        goto(ReassemblyUnit_MainScript)
+    }
+    msgbox(AttemptingToAssemble50Forme)
+    setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ZYGARDE_50)
+    givemon(SPECIES_ZYGARDE_50, 40, ITEM_NONE, ITEM_STRANGE_BALL, NATURE_HARDY, 0, 0, 0, 0, 0, 0, 0, 0, 15, 15, 15, 15, 15, 15, MOVE_DIG, MOVE_BIND, MOVE_LANDS_WRATH, MOVE_SANDSTORM, FALSE, 0, 0)
+    call(GiveMon_Script)
+    if(var(VAR_ZYGARDE_PROGRESS) < 3){
+        setvar(VAR_ZYGARDE_PROGRESS, 3)
+    }
+    setflag(FLAG_ZYGARDE50_ASSEMBLED)
+    subvar(VAR_ZYGARDE_CELLS, 50)
+    subvar(VAR_ZYGARDE_CORES, 3)
+}
+
+
+script ReassemblyUnit_Separation{
+    if(!flag(FLAG_ZYGARDE10_ASSEMBLED)
+    && !flag(FLAG_ZYGARDE50_ASSEMBLED)){
+        msgbox(NoZygardeCurrentlyAssembled)
+        goto(ReassemblyUnit_MainScript)
+    }
+    checkpartymon(SPECIES_ZYGARDE_10, 0)
+    if(var(VAR_RESULT) == FALSE){
+        checkpartymon(SPECIES_ZYGARDE_50, 0)
+        if(var(VAR_RESULT) == FALSE){
+            msgbox(NoZygardeDetectedInParty)
+            goto(ReassemblyUnit_MainScript)
+        }
+    }
+    specialvar(VAR_RESULT, CountPartyNonEggMons)
+    if(var(VAR_RESULT) == 1){
+        msgbox(ZygardeOnlyMonInParty)
+        goto(ReassemblyUnit_MainScript)
+    }
+	msgbox(ChooseZygardeForSeparation)
+	fadescreen(FADE_TO_BLACK)
+	special(ChoosePartyMon)
+	waitstate
+    if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN){
+        msgbox(SeparationAborted)
+        goto(ReassemblyUnit_MainScript)
+    }
+	specialvar(VAR_RESULT, CountPartyAliveNonEggMons_IgnoreVar0x8004Slot)
+    if(var(VAR_RESULT) == 0){
+        msgbox(ZygardeOnlyAliveMon)
+        goto(ReassemblyUnit_MainScript)
+    }
+	specialvar(VAR_0x8005, GetSelectedMonNicknameAndSpecies)
+    msgbox(ZygardeRevertedBackToCellsAndCores)
+    if(var(VAR_0x8005) == SPECIES_ZYGARDE_10){
+        addvar(VAR_ZYGARDE_CELLS, 10)
+        addvar(VAR_ZYGARDE_CORES, 1)
+        clearflag(FLAG_ZYGARDE10_ASSEMBLED)
+    }
+    elif(var(VAR_0x8005) == SPECIES_ZYGARDE_50){
+        addvar(VAR_ZYGARDE_CELLS, 50)
+        addvar(VAR_ZYGARDE_CORES, 3)
+        clearflag(FLAG_ZYGARDE50_ASSEMBLED)
+    }
+    special(SeparateZygarde) //StoreSelectedPokemonInDaycare
+    callnative(UpdateFollowingPokemon)
+    goto(ReassemblyUnit_MainScript)
+}
+script ReassemblyUnit_CoreMoves{
+    if(flag(FLAG_ZYGARDE_CORE_1)){
+        dynmultipush("Extreme Speed", VAR_TEMP_1)
+        addvar(VAR_TEMP_1, 1)
+    }
+    if(flag(FLAG_ZYGARDE_CORE_2)){
+        dynmultipush("Dragon Dance", VAR_TEMP_1)
+        addvar(VAR_TEMP_1, 1)
+    }
+    if(flag(FLAG_ZYGARDE_CORE_3)){
+        dynmultipush("Core Enforcer", VAR_TEMP_1)
+        addvar(VAR_TEMP_1, 1)
+    }
+    if(flag(FLAG_ZYGARDE_CORE_4)){
+        dynmultipush("Thousand Arrows", VAR_TEMP_1)
+        addvar(VAR_TEMP_1, 1)
+    }
+    if(flag(FLAG_ZYGARDE_CORE_5)){
+        dynmultipush("Thousand Waves", VAR_TEMP_1)
+        addvar(VAR_TEMP_1, 1)
+    }
+    dynmultipush("Cancel", VAR_TEMP_1)
+    message(TeachZygardeWhichMove)
+    waitmessage
+    dynmultistack(23, 0, FALSE, VAR_TEMP_1, FALSE, 0, 0)
+    switch(var(VAR_RESULT)){
+        case 0:
+            if(flag(FLAG_ZYGARDE_CORE_1)){setvar(VAR_0x8005, MOVE_EXTREME_SPEED)}
+            elif(flag(FLAG_ZYGARDE_CORE_2)){setvar(VAR_0x8005, MOVE_DRAGON_DANCE)}
+            elif(flag(FLAG_ZYGARDE_CORE_3)){setvar(VAR_0x8005, MOVE_CORE_ENFORCER)}
+            elif(flag(FLAG_ZYGARDE_CORE_4)){setvar(VAR_0x8005, MOVE_THOUSAND_ARROWS)}
+            elif(flag(FLAG_ZYGARDE_CORE_5)){setvar(VAR_0x8005, MOVE_THOUSAND_WAVES)}
+            goto(ZygardeTeachCoreMove)
+        case 1:
+            if(flag(FLAG_ZYGARDE_CORE_2)){setvar(VAR_0x8005, MOVE_DRAGON_DANCE)}
+            elif(flag(FLAG_ZYGARDE_CORE_3)){setvar(VAR_0x8005, MOVE_CORE_ENFORCER)}
+            elif(flag(FLAG_ZYGARDE_CORE_4)){setvar(VAR_0x8005, MOVE_THOUSAND_ARROWS)}
+            elif(flag(FLAG_ZYGARDE_CORE_5)){setvar(VAR_0x8005, MOVE_THOUSAND_WAVES)}
+            goto(ZygardeTeachCoreMove)
+        case 2:
+            if(flag(FLAG_ZYGARDE_CORE_3)){setvar(VAR_0x8005, MOVE_CORE_ENFORCER)}
+            elif(flag(FLAG_ZYGARDE_CORE_4)){setvar(VAR_0x8005, MOVE_THOUSAND_ARROWS)}
+            elif(flag(FLAG_ZYGARDE_CORE_5)){setvar(VAR_0x8005, MOVE_THOUSAND_WAVES)}
+            goto(ZygardeTeachCoreMove)
+        case 3:
+            if(flag(FLAG_ZYGARDE_CORE_4)){setvar(VAR_0x8005, MOVE_THOUSAND_ARROWS)}
+            elif(flag(FLAG_ZYGARDE_CORE_5)){setvar(VAR_0x8005, MOVE_THOUSAND_WAVES)}
+            goto(ZygardeTeachCoreMove)
+        case 4:
+            if(flag(FLAG_ZYGARDE_CORE_5)){setvar(VAR_0x8005, MOVE_THOUSAND_WAVES)}
+            goto(ZygardeTeachCoreMove)
+        case 5:
+        case MULTI_B_PRESSED:
+            goto(ReassemblyUnit_MainScript)
+    }
+}
+
+script ZygardeTeachCoreMove{
+    call(MoveTutor_EventScript_OpenPartyMenu)
+    if(var(VAR_RESULT) == 0){
+        msgbox(ZygardeMoveAborted)
+    }
+	goto(ReassemblyUnit_MainScript)
+}
+
+script ReassemblyUnit_TurnOff{
+    waitse
+    playse(SE_PC_OFF)
+    release
+}
+text ZygardeMoveAborted{
+    "(WIP)"
+}
+text TeachZygardeWhichMove{
+    "(WIP)"
+}
+text OnlyOneZygarde{
+    "(WIP)"
+}
+text AssembleWhichZygarde{
+    "(WIP)"
+}
+text AttemptingToAssemble10Forme{
+    "(WIP)"
+}
+text AttemptingToAssemble50Forme{
+    "(WIP)"
+}
+text NotEnoughCellsAndCoresInCube{
+    "(WIP)"
+}
+text NoZygardeCurrentlyAssembled{
+    "(WIP)"
+}
+text NoZygardeDetectedInParty{
+    "(WIP)"
+}
+text ZygardeOnlyMonInParty{
+    "(WIP)"
+}
+text ChooseZygardeForSeparation{
+    "(WIP)"
+}
+text SeparationAborted{
+    "(WIP)"
+}
+text ZygardeOnlyAliveMon{
+    "(WIP)"
+}
+text ZygardeRevertedBackToCellsAndCores{
+    "(WIP)"
+}
+
+script ReleaseZygardeCellsCores{
+    clearflag(FLAG_ZYGARDE_CELL_1)
+    clearflag(FLAG_ZYGARDE_CELL_2)
+    clearflag(FLAG_ZYGARDE_CELL_3)
+    clearflag(FLAG_ZYGARDE_CELL_4)
+    clearflag(FLAG_ZYGARDE_CELL_5)
+    clearflag(FLAG_ZYGARDE_CELL_6)
+    clearflag(FLAG_ZYGARDE_CELL_7)
+    clearflag(FLAG_ZYGARDE_CELL_8)
+    clearflag(FLAG_ZYGARDE_CELL_9)
+    clearflag(FLAG_ZYGARDE_CELL_10)
+    clearflag(FLAG_ZYGARDE_CELL_11)
+    clearflag(FLAG_ZYGARDE_CELL_12)
+    clearflag(FLAG_ZYGARDE_CELL_13)
+    clearflag(FLAG_ZYGARDE_CELL_14)
+    clearflag(FLAG_ZYGARDE_CELL_15)
+    clearflag(FLAG_ZYGARDE_CELL_16)
+    clearflag(FLAG_ZYGARDE_CELL_17)
+    clearflag(FLAG_ZYGARDE_CELL_18)
+    clearflag(FLAG_ZYGARDE_CELL_19)
+    clearflag(FLAG_ZYGARDE_CELL_20)
+    clearflag(FLAG_ZYGARDE_CELL_21)
+    clearflag(FLAG_ZYGARDE_CELL_22)
+    clearflag(FLAG_ZYGARDE_CELL_23)
+    clearflag(FLAG_ZYGARDE_CELL_24)
+    clearflag(FLAG_ZYGARDE_CELL_25)
+    clearflag(FLAG_ZYGARDE_CELL_26)
+    clearflag(FLAG_ZYGARDE_CELL_27)
+    clearflag(FLAG_ZYGARDE_CELL_28)
+    clearflag(FLAG_ZYGARDE_CELL_29)
+    clearflag(FLAG_ZYGARDE_CELL_30)
+    clearflag(FLAG_ZYGARDE_CELL_31)
+    clearflag(FLAG_ZYGARDE_CELL_32)
+    clearflag(FLAG_ZYGARDE_CELL_33)
+    clearflag(FLAG_ZYGARDE_CELL_34)
+    clearflag(FLAG_ZYGARDE_CELL_35)
+    clearflag(FLAG_ZYGARDE_CELL_36)
+    clearflag(FLAG_ZYGARDE_CELL_37)
+    clearflag(FLAG_ZYGARDE_CELL_38)
+    clearflag(FLAG_ZYGARDE_CELL_39)
+    clearflag(FLAG_ZYGARDE_CELL_40)
+    clearflag(FLAG_ZYGARDE_CELL_41)
+    clearflag(FLAG_ZYGARDE_CELL_42)
+    clearflag(FLAG_ZYGARDE_CELL_43)
+    clearflag(FLAG_ZYGARDE_CELL_44)
+    clearflag(FLAG_ZYGARDE_CELL_45)
+    clearflag(FLAG_ZYGARDE_CELL_46)
+    clearflag(FLAG_ZYGARDE_CELL_47)
+    clearflag(FLAG_ZYGARDE_CELL_48)
+    clearflag(FLAG_ZYGARDE_CELL_49)
+    clearflag(FLAG_ZYGARDE_CELL_50)
+    clearflag(FLAG_ZYGARDE_CELL_51)
+    clearflag(FLAG_ZYGARDE_CELL_52)
+    clearflag(FLAG_ZYGARDE_CELL_53)
+    clearflag(FLAG_ZYGARDE_CELL_54)
+    clearflag(FLAG_ZYGARDE_CELL_55)
+    clearflag(FLAG_ZYGARDE_CELL_56)
+    clearflag(FLAG_ZYGARDE_CELL_57)
+    clearflag(FLAG_ZYGARDE_CELL_58)
+    clearflag(FLAG_ZYGARDE_CELL_59)
+    clearflag(FLAG_ZYGARDE_CELL_60)
+    clearflag(FLAG_ZYGARDE_CELL_61)
+    clearflag(FLAG_ZYGARDE_CELL_62)
+    clearflag(FLAG_ZYGARDE_CELL_63)
+    clearflag(FLAG_ZYGARDE_CELL_64)
+    clearflag(FLAG_ZYGARDE_CELL_65)
+    clearflag(FLAG_ZYGARDE_CELL_66)
+    clearflag(FLAG_ZYGARDE_CELL_67)
+    clearflag(FLAG_ZYGARDE_CELL_68)
+    clearflag(FLAG_ZYGARDE_CELL_69)
+    clearflag(FLAG_ZYGARDE_CELL_70)
+    clearflag(FLAG_ZYGARDE_CELL_71)
+    clearflag(FLAG_ZYGARDE_CELL_72)
+    clearflag(FLAG_ZYGARDE_CELL_73)
+    clearflag(FLAG_ZYGARDE_CELL_74)
+    clearflag(FLAG_ZYGARDE_CELL_75)
+    clearflag(FLAG_ZYGARDE_CELL_76)
+    clearflag(FLAG_ZYGARDE_CELL_77)
+    clearflag(FLAG_ZYGARDE_CELL_78)
+    clearflag(FLAG_ZYGARDE_CELL_79)
+    clearflag(FLAG_ZYGARDE_CELL_80)
+    clearflag(FLAG_ZYGARDE_CELL_81)
+    clearflag(FLAG_ZYGARDE_CELL_82)
+    clearflag(FLAG_ZYGARDE_CELL_83)
+    clearflag(FLAG_ZYGARDE_CELL_84)
+    clearflag(FLAG_ZYGARDE_CELL_85)
+    clearflag(FLAG_ZYGARDE_CELL_86)
+    clearflag(FLAG_ZYGARDE_CELL_87)
+    clearflag(FLAG_ZYGARDE_CELL_88)
+    clearflag(FLAG_ZYGARDE_CELL_89)
+    clearflag(FLAG_ZYGARDE_CELL_90)
+    clearflag(FLAG_ZYGARDE_CELL_91)
+    clearflag(FLAG_ZYGARDE_CELL_92)
+    clearflag(FLAG_ZYGARDE_CELL_93)
+    clearflag(FLAG_ZYGARDE_CELL_94)
+    clearflag(FLAG_ZYGARDE_CELL_95)
+    clearflag(FLAG_ZYGARDE_CORE_1)
+    clearflag(FLAG_ZYGARDE_CORE_2)
+    clearflag(FLAG_ZYGARDE_CORE_3)
+    clearflag(FLAG_ZYGARDE_CORE_4)
+    clearflag(FLAG_ZYGARDE_CORE_5)
+    return
+}

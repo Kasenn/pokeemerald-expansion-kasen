@@ -319,6 +319,22 @@ Amberock_Factory_RocketTrigger11_4::
 	return
 
 
+Amberock_Factory_RocketTrigger12_1::
+	setvar VAR_TEMP_1, 1
+	setvar VAR_TEMP_2, DIR_WEST
+	setvar VAR_TEMP_3, 8
+	goto Amberock_Factory_MainRocket
+	return
+
+
+Amberock_Factory_RocketTrigger12_2::
+	setvar VAR_TEMP_1, 1
+	setvar VAR_TEMP_2, DIR_SOUTH
+	setvar VAR_TEMP_3, 8
+	goto Amberock_Factory_MainRocket
+	return
+
+
 Amberock_Factory_MainRocket::
 	lock
 	delay 15
@@ -405,6 +421,7 @@ Factory_KrokorokPetrelCutScene::
 	addobject 39
 	applymovement 39, Factory_KrokorokPetrelCutScene_Movement_0
 	waitmovement 0
+	delay 16
 	msgbox Petrel_MoveItGuys
 	turnobject 38, DIR_WEST
 	msgbox Sorry_Petrel
@@ -418,6 +435,8 @@ Factory_KrokorokPetrelCutScene::
 	removeobject 37
 	removeobject 38
 	delay 16
+	msgbox ThatsPetrel
+	msgbox AfterPapers
 	release
 	setvar VAR_AMBEROCK_STORY, STORY_AMBEROCK_FOUND_PETREL
 	return
@@ -428,11 +447,10 @@ Factory_RocketGuardLeaves:
 	walk_left
 	walk_left
 	walk_left
-	walk_down
 	walk_left
-	walk_left
-	walk_left
-	walk_left
+	walk_up
+	delay_4
+	set_invisible
 	step_end
 
 Factory_RocketGuardLeaves2:
@@ -441,11 +459,10 @@ Factory_RocketGuardLeaves2:
 	walk_left
 	walk_left
 	walk_left
-	walk_down
 	walk_left
-	walk_left
-	walk_left
-	walk_left
+	walk_up
+	delay_4
+	set_invisible
 	step_end
 
 Amberock_Factory_Generator::
@@ -479,6 +496,13 @@ Amberock_Factory_Generator_8:
 	warpsilentnofadeout MAP_AMBEROCK_TOWN, 30, 21
 	waitstate
 	goto Amberock_Factory_Generator_7
+
+
+MsgFromClay::
+	msgbox MsgFromClay_Text, MSGBOX_SIGN
+	setflag FLAG_MSG_FROM_CLAY
+	release
+	return
 
 
 Amberock_Crate::
@@ -547,6 +571,7 @@ Factory_DoBoulderCheck_Movement_1:
 Factory_KrokorokPetrelCutScene_Movement_0:
 	delay_16
 	delay_16
+	delay_16
 	walk_down
 	walk_in_place_fast_right
 	step_end
@@ -565,28 +590,64 @@ GetBackToWork::
 	.string "Get back to work!$"
 
 FactoryEmployee_Basement_Text::
-	.string "(WIP)these are employees$"
+	.string "These look to be employees\n"
+	.string "of the factory.\p"
+	.string "They seem unharmed.$"
 
 Petrel_MoveItGuys::
-	.string "(WIP) get back to work guys$"
+	.string "???: Hey, you two knuckleheads!\p"
+	.string "Come with me to the office and see\n"
+	.string "if you can figure out what these\l"
+	.string "fancy research papers say!$"
 
 Sorry_Petrel::
-	.string "(WIP) sorry boss!$"
+	.string "Yes boss!\n"
+	.string "Right away, boss!$"
+
+ThatsPetrel::
+	.string "Clay: That's Petrel,\n"
+	.string "one of the Rocket Executives.\p"
+	.string "He stands above grunts, but I doubt\n"
+	.string "he's the mastermind of this operation.\p"
+	.string "Let's keep looking.$"
+
+AfterPapers::
+	.string "You're here because you were tasked\n"
+	.string "with retrieving those papers?\p"
+	.string "Don't worry, you can get them\n"
+	.string "once we're done.\l"
+	.string "I doubt they're going anywhere.$"
+
+MsgFromClay_Text::
+	.string "Clay: Oh, while we're here,\n"
+	.string "you may wanna grab any items\l"
+	.string "you see lying around.\p"
+	.string "It's better we confiscate everything\n"
+	.string "now, rather than letting Team Rocket\l"
+	.string "simply take them with 'em.$"
 
 OrderKrokorokDestroy::
-	.string "(WIP)tell krok to destroy?$"
+	.string "Order the Krokorok to disable\n"
+	.string "the generator?$"
 
 KrokorokBeginsRampage::
-	.string "(WIP)krok begins rampaging$"
+	.string "The Krokorok starts gnawing\n"
+	.string "on the cables…$"
 
 KrokorokDestroysGenerator::
-	.string "(WIP)krok destroys generator$"
+	.string "The entire facility goes dark, and\n"
+	.string "Krokorok returns back to the group.$"
 
 CompleteClaysObjective::
-	.string "(WIP)complete clays objective$"
+	.string "Volkner: This is the main\n"
+	.string "generator of the facility.\p"
+	.string "We can command the Krokorok to gnaw\n"
+	.string "on some cables to cause a blackout,\l"
+	.string "but first, we should finish the other\l"
+	.string "objectives.$"
 
 BustedGenerator::
-	.string "(WIP)its a busted gen$"
+	.string "(UNUSED)its a busted gen$"
 
 Amberock_Crate_Text::
 	.string "It's a light enough crate the\n"

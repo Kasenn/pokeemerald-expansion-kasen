@@ -4,6 +4,12 @@ mapscripts Route14_MapScripts{
 
 script R14_ControlFlags{
     special(SetRoute119Weather)
+    if(var(VAR_AMBEROCK_STORY) >= STORY_AMBEROCK_GIOVANNI_ESCAPED){
+        setflag(FLAG_TEMP_1)
+        setflag(FLAG_TEMP_2)
+        setflag(FLAG_TEMP_3)
+        setflag(FLAG_TEMP_4)
+    }
     switch(var(VAR_ROUTE14_ROCKET_EVENT)){
         case 0:
         case 1:

@@ -295,7 +295,7 @@ script AutomaticUpdate3{
     clearflag(FLAG_KAOLISLE_ITEM8)
     clearflag(FLAG_SANDSTONE_HIDDENITEM_1)
     clearflag(FLAG_SANDSTONE_HIDDENITEM_2)
-    clearflag(FLAG_UNUSED_SYS_0x22)
+    clearflag(FLAG_MSG_FROM_CLAY)
     clearflag(FLAG_KAOLISLE_ITEM9)
     clearflag(FLAG_SERPENTCAVE_BOULDER_1)
     clearflag(FLAG_SERPENTCAVE_BOULDER_2)
@@ -472,6 +472,7 @@ script AutomaticUpdate5{
     setflag(FLAG_ZYGARDE_CORE_2)
     setflag(FLAG_ZYGARDE_CORE_3)
     setflag(FLAG_ZYGARDE_CORE_4)
+    setflag(FLAG_ZYGARDE_CORE_5)
     setflag(FLAG_FACTORY_ITEM_1_OUTSIDE)
 	setflag(FLAG_FACTORY_ITEM_2_OUTSIDE)
 	setflag(FLAG_FACTORY_ITEM_3_OUTSIDE)
@@ -543,7 +544,9 @@ text AutomaticUpdate2_Text{
 }
 text BattleTentInRockliffe{
     "10. A new battle tent has opened in\n"
-    "Rockliffe town."
+    "Rockliffe town.\p"
+    "11. HM moves can no longer forgotten\n"
+    "(unless visiting a move deleter)"
 }
 text SceneAltered{
     "An earlier story scene of\n"
@@ -743,7 +746,8 @@ script Debug_Script_4{              // Set team level
     release
     end}
 script Debug_Script_5{
-    givemon(SPECIES_HITMONLEE, 30, ITEM_NONE, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, MOVE_FAKE_OUT)
+    setvar(VAR_ZYGARDE_CELLS, 3)
+    giveitem(ITEM_ZYGARDE_CUBE)
     release
 }
 
@@ -756,16 +760,6 @@ script Debug_Script_7{
 }
 script Debug_Script_8{
     return
-}
-
-script RapidsTooStrong{
-    msgbox(RapidsTooStrong_Text, MSGBOX_NPC)
-}
-text RapidsTooStrong_Text{
-    "These rapids are simply too strong\n"
-    "to surf against.\p"
-    "I'm sure they'll die down once the\n"
-    "game dev finishes the upcoming area!"
 }
 //
 // Debug related scripts
@@ -825,90 +819,464 @@ text RenameBrother{
     "Would you like to rename your brother?\n"
     "(Yes if haven't seen this before!)"}
 
-// 
-// Global movement scripts
-//
-movement Walk1Left{
-    walk_left
-    step_end}
-movement Walk2Left{
-    walk_left * 2
-    step_end}
-movement Walk3Left{
-    walk_left * 3
-    step_end}
-movement Walk4Left{
-    walk_left * 4
-    step_end}
-movement Walk5Left{
-    walk_left * 4
-    step_end}
-movement Walk6Left{
-    walk_left * 6
-    step_end}
-movement Walk7Left{
-    walk_left * 7
-    step_end}
-movement Walk8Left{
-    walk_left * 8
-    step_end}
-movement Walk9Left{
-    walk_left * 9
-    step_end}
-movement Walk1Right{
-    walk_right
-    step_end}
-movement Walk2Right{
-    walk_right * 2
-    step_end}
-movement Walk3Right{
-    walk_right * 3
-    step_end}
-movement Walk4Right{
-    walk_right * 4
-    step_end}
-movement Walk5Right{
-    walk_right * 5
-    step_end}
-movement Walk6Right{
-    walk_right * 6
-    step_end}
-movement Walk1Up{
-    walk_up
-    step_end}
-movement Walk2Up{
-    walk_up * 2
-    step_end}
-movement Walk3Up{
-    walk_up * 3
-    step_end}
-movement Walk4Up{
-    walk_up * 4
-    step_end}
-movement Walk5Up{
-    walk_up * 5
-    step_end}
-movement Walk6Up{
-    walk_up * 6
-    step_end}
-movement Walk1Down{
-    walk_down
-    step_end}
-movement Walk2Down{
-    walk_down * 2
-    step_end}
-movement Walk3Down{
-    walk_down * 3
-    step_end}
-movement Walk4Down{
-    walk_down * 4
-    step_end}
-movement Walk5Down{
-    walk_down * 5
-    step_end}
-movement Walk6Down{
-    walk_down * 6
-    step_end}
-movement Walk7Down{
-    walk_down * 7
-    step_end}
+script IntermediaryUpdateScript{
+    lock
+    faceplayer
+    msgbox(IntermediaryUpdateScript_Text, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    call(BackUpTMs)
+    msgbox(TMsAreNowSecured)
+    removeobject(VAR_LAST_TALKED)
+    release
+}
+
+text IntermediaryUpdateScript_Text{
+    "Hello, I am here to convert your save\n"
+    "so that it's compatible with the next\l"
+    "major update.\p"
+    "After converting, please do not\n"
+    "continue playing until you've\l"
+    "updated the game.\p"
+    "Are you ready to convert\n"
+    "your save?"
+}
+text TMsAreNowSecured{
+    "The save is now prepared for the\n"
+    "next update.\p"
+    "Please save your game and update\n"
+    "to the latest version of the hack."
+}
+
+script BackUpTMs{
+    if(checkitem(ITEM_TM01) == TRUE){
+        setflag(FLAG_ITEM_TM01)
+        removeitem(ITEM_TM01)
+    }
+    if(checkitem(ITEM_TM02) == TRUE){
+        setflag(FLAG_ITEM_TM02)
+        removeitem(ITEM_TM02)
+    }
+    if(checkitem(ITEM_TM03) == TRUE){
+        setflag(FLAG_ITEM_TM03)
+        removeitem(ITEM_TM03)
+    }
+    if(checkitem(ITEM_TM04) == TRUE){
+        setflag(FLAG_ITEM_TM04)
+        removeitem(ITEM_TM04)
+    }
+    if(checkitem(ITEM_TM05) == TRUE){
+        setflag(FLAG_ITEM_TM05)
+        removeitem(ITEM_TM05)
+    }
+    if(checkitem(ITEM_TM06) == TRUE){
+        setflag(FLAG_ITEM_TM06)
+        removeitem(ITEM_TM06)
+    }
+    if(checkitem(ITEM_TM07) == TRUE){
+        setflag(FLAG_ITEM_TM07)
+        removeitem(ITEM_TM07)
+    }
+    if(checkitem(ITEM_TM08) == TRUE){
+        setflag(FLAG_ITEM_TM08)
+        removeitem(ITEM_TM08)
+    }
+    if(checkitem(ITEM_TM09) == TRUE){
+        setflag(FLAG_ITEM_TM09)
+        removeitem(ITEM_TM09)
+    }
+    if(checkitem(ITEM_TM10) == TRUE){
+        setflag(FLAG_ITEM_TM10)
+        removeitem(ITEM_TM10)
+    }
+    if(checkitem(ITEM_TM11) == TRUE){
+        setflag(FLAG_ITEM_TM11)
+        removeitem(ITEM_TM11)
+    }
+    if(checkitem(ITEM_TM12) == TRUE){
+        setflag(FLAG_ITEM_TM12)
+        removeitem(ITEM_TM12)
+    }
+    if(checkitem(ITEM_TM13) == TRUE){
+        setflag(FLAG_ITEM_TM13)
+        removeitem(ITEM_TM13)
+    }
+    if(checkitem(ITEM_TM14) == TRUE){
+        setflag(FLAG_ITEM_TM14)
+        removeitem(ITEM_TM14)
+    }
+    if(checkitem(ITEM_TM15) == TRUE){
+        setflag(FLAG_ITEM_TM15)
+        removeitem(ITEM_TM15)
+    }
+    if(checkitem(ITEM_TM16) == TRUE){
+        setflag(FLAG_ITEM_TM16)
+        removeitem(ITEM_TM16)
+    }
+    if(checkitem(ITEM_TM17) == TRUE){
+        setflag(FLAG_ITEM_TM17)
+        removeitem(ITEM_TM17)
+    }
+    if(checkitem(ITEM_TM18) == TRUE){
+        setflag(FLAG_ITEM_TM18)
+        removeitem(ITEM_TM18)
+    }
+    if(checkitem(ITEM_TM19) == TRUE){
+        setflag(FLAG_ITEM_TM19)
+        removeitem(ITEM_TM19)
+    }
+    if(checkitem(ITEM_TM20) == TRUE){
+        setflag(FLAG_ITEM_TM20)
+        removeitem(ITEM_TM20)
+    }
+    if(checkitem(ITEM_TM21) == TRUE){
+        setflag(FLAG_ITEM_TM21)
+        removeitem(ITEM_TM21)
+    }
+    if(checkitem(ITEM_TM22) == TRUE){
+        setflag(FLAG_ITEM_TM22)
+        removeitem(ITEM_TM22)
+    }
+    if(checkitem(ITEM_TM23) == TRUE){
+        setflag(FLAG_ITEM_TM23)
+        removeitem(ITEM_TM23)
+    }
+    if(checkitem(ITEM_TM24) == TRUE){
+        setflag(FLAG_ITEM_TM24)
+        removeitem(ITEM_TM24)
+    }
+    if(checkitem(ITEM_TM25) == TRUE){
+        setflag(FLAG_ITEM_TM25)
+        removeitem(ITEM_TM25)
+    }
+    if(checkitem(ITEM_TM26) == TRUE){
+        setflag(FLAG_ITEM_TM26)
+        removeitem(ITEM_TM26)
+    }
+    if(checkitem(ITEM_TM27) == TRUE){
+        setflag(FLAG_ITEM_TM27)
+        removeitem(ITEM_TM27)
+    }
+    if(checkitem(ITEM_TM28) == TRUE){
+        setflag(FLAG_ITEM_TM28)
+        removeitem(ITEM_TM28)
+    }
+    if(checkitem(ITEM_TM29) == TRUE){
+        setflag(FLAG_ITEM_TM29)
+        removeitem(ITEM_TM29)
+    }
+    if(checkitem(ITEM_TM30) == TRUE){
+        setflag(FLAG_ITEM_TM30)
+        removeitem(ITEM_TM30)
+    }
+    if(checkitem(ITEM_TM31) == TRUE){
+        setflag(FLAG_ITEM_TM31)
+        removeitem(ITEM_TM31)
+    }
+    if(checkitem(ITEM_TM32) == TRUE){
+        setflag(FLAG_ITEM_TM32)
+        removeitem(ITEM_TM32)
+    }
+    if(checkitem(ITEM_TM33) == TRUE){
+        setflag(FLAG_ITEM_TM33)
+        removeitem(ITEM_TM33)
+    }
+    if(checkitem(ITEM_TM34) == TRUE){
+        setflag(FLAG_ITEM_TM34)
+        removeitem(ITEM_TM34)
+    }
+    if(checkitem(ITEM_TM35) == TRUE){
+        setflag(FLAG_ITEM_TM35)
+        removeitem(ITEM_TM35)
+    }
+    if(checkitem(ITEM_TM36) == TRUE){
+        setflag(FLAG_ITEM_TM36)
+        removeitem(ITEM_TM36)
+    }
+    if(checkitem(ITEM_TM37) == TRUE){
+        setflag(FLAG_ITEM_TM37)
+        removeitem(ITEM_TM37)
+    }
+    if(checkitem(ITEM_TM38) == TRUE){
+        setflag(FLAG_ITEM_TM38)
+        removeitem(ITEM_TM38)
+    }
+    if(checkitem(ITEM_TM39) == TRUE){
+        setflag(FLAG_ITEM_TM39)
+        removeitem(ITEM_TM39)
+    }
+    if(checkitem(ITEM_TM40) == TRUE){
+        setflag(FLAG_ITEM_TM40)
+        removeitem(ITEM_TM40)
+    }
+    if(checkitem(ITEM_TM41) == TRUE){
+        setflag(FLAG_ITEM_TM41)
+        removeitem(ITEM_TM41)
+    }
+    if(checkitem(ITEM_TM42) == TRUE){
+        setflag(FLAG_ITEM_TM42)
+        removeitem(ITEM_TM42)
+    }
+    if(checkitem(ITEM_TM43) == TRUE){
+        setflag(FLAG_ITEM_TM43)
+        removeitem(ITEM_TM43)
+    }
+    if(checkitem(ITEM_TM44) == TRUE){
+        setflag(FLAG_ITEM_TM44)
+        removeitem(ITEM_TM44)
+    }
+    if(checkitem(ITEM_TM45) == TRUE){
+        setflag(FLAG_ITEM_TM45)
+        removeitem(ITEM_TM45)
+    }
+    if(checkitem(ITEM_TM46) == TRUE){
+        setflag(FLAG_ITEM_TM46)
+        removeitem(ITEM_TM46)
+    }
+    if(checkitem(ITEM_TM47) == TRUE){
+        setflag(FLAG_ITEM_TM47)
+        removeitem(ITEM_TM47)
+    }
+    if(checkitem(ITEM_TM48) == TRUE){
+        setflag(FLAG_ITEM_TM48)
+        removeitem(ITEM_TM48)
+    }
+    if(checkitem(ITEM_TM49) == TRUE){
+        setflag(FLAG_ITEM_TM49)
+        removeitem(ITEM_TM49)
+    }
+    if(checkitem(ITEM_TM50) == TRUE){
+        setflag(FLAG_ITEM_TM50)
+        removeitem(ITEM_TM50)
+    }
+    if(checkitem(ITEM_TM51) == TRUE){
+        setflag(FLAG_ITEM_TM51)
+        removeitem(ITEM_TM51)
+    }
+    if(checkitem(ITEM_TM52) == TRUE){
+        setflag(FLAG_ITEM_TM52)
+        removeitem(ITEM_TM52)
+    }
+    if(checkitem(ITEM_TM53) == TRUE){
+        setflag(FLAG_ITEM_TM53)
+        removeitem(ITEM_TM53)
+    }
+    if(checkitem(ITEM_TM54) == TRUE){
+        setflag(FLAG_ITEM_TM54)
+        removeitem(ITEM_TM54)
+    }
+    if(checkitem(ITEM_TM55) == TRUE){
+        setflag(FLAG_ITEM_TM55)
+        removeitem(ITEM_TM55)
+    }
+    if(checkitem(ITEM_TM56) == TRUE){
+        setflag(FLAG_ITEM_TM56)
+        removeitem(ITEM_TM56)
+    }
+    if(checkitem(ITEM_TM57) == TRUE){
+        setflag(FLAG_ITEM_TM57)
+        removeitem(ITEM_TM57)
+    }
+    if(checkitem(ITEM_TM58) == TRUE){
+        setflag(FLAG_ITEM_TM58)
+        removeitem(ITEM_TM58)
+    }
+    if(checkitem(ITEM_TM59) == TRUE){
+        setflag(FLAG_ITEM_TM59)
+        removeitem(ITEM_TM59)
+    }
+    if(checkitem(ITEM_TM60) == TRUE){
+        setflag(FLAG_ITEM_TM60)
+        removeitem(ITEM_TM60)
+    }
+    if(checkitem(ITEM_TM61) == TRUE){
+        setflag(FLAG_ITEM_TM61)
+        removeitem(ITEM_TM61)
+    }
+    if(checkitem(ITEM_TM62) == TRUE){
+        setflag(FLAG_ITEM_TM62)
+        removeitem(ITEM_TM62)
+    }
+    if(checkitem(ITEM_TM63) == TRUE){
+        setflag(FLAG_ITEM_TM63)
+        removeitem(ITEM_TM63)
+    }
+    if(checkitem(ITEM_TM64) == TRUE){
+        setflag(FLAG_ITEM_TM64)
+        removeitem(ITEM_TM64)
+    }
+    if(checkitem(ITEM_TM65) == TRUE){
+        setflag(FLAG_ITEM_TM65)
+        removeitem(ITEM_TM65)
+    }
+    if(checkitem(ITEM_TM66) == TRUE){
+        setflag(FLAG_ITEM_TM66)
+        removeitem(ITEM_TM66)
+    }
+    if(checkitem(ITEM_TM67) == TRUE){
+        setflag(FLAG_ITEM_TM67)
+        removeitem(ITEM_TM67)
+    }
+    if(checkitem(ITEM_TM68) == TRUE){
+        setflag(FLAG_ITEM_TM68)
+        removeitem(ITEM_TM68)
+    }
+    if(checkitem(ITEM_TM69) == TRUE){
+        setflag(FLAG_ITEM_TM69)
+        removeitem(ITEM_TM69)
+    }
+    if(checkitem(ITEM_TM70) == TRUE){
+        setflag(FLAG_ITEM_TM70)
+        removeitem(ITEM_TM70)
+    }
+    if(checkitem(ITEM_TM71) == TRUE){
+        setflag(FLAG_ITEM_TM71)
+        removeitem(ITEM_TM71)
+    }
+    if(checkitem(ITEM_TM72) == TRUE){
+        setflag(FLAG_ITEM_TM72)
+        removeitem(ITEM_TM72)
+    }
+    if(checkitem(ITEM_TM73) == TRUE){
+        setflag(FLAG_ITEM_TM73)
+        removeitem(ITEM_TM73)
+    }
+    if(checkitem(ITEM_TM74) == TRUE){
+        setflag(FLAG_ITEM_TM74)
+        removeitem(ITEM_TM74)
+    }
+    if(checkitem(ITEM_TM75) == TRUE){
+        setflag(FLAG_ITEM_TM75)
+        removeitem(ITEM_TM75)
+    }
+    if(checkitem(ITEM_TM76) == TRUE){
+        setflag(FLAG_ITEM_TM76)
+        removeitem(ITEM_TM76)
+    }
+    if(checkitem(ITEM_TM77) == TRUE){
+        setflag(FLAG_ITEM_TM77)
+        removeitem(ITEM_TM77)
+    }
+    if(checkitem(ITEM_TM78) == TRUE){
+        setflag(FLAG_ITEM_TM78)
+        removeitem(ITEM_TM78)
+    }
+    if(checkitem(ITEM_TM79) == TRUE){
+        setflag(FLAG_ITEM_TM79)
+        removeitem(ITEM_TM79)
+    }
+    if(checkitem(ITEM_TM80) == TRUE){
+        setflag(FLAG_ITEM_TM80)
+        removeitem(ITEM_TM80)
+    }
+    if(checkitem(ITEM_TM81) == TRUE){
+        setflag(FLAG_ITEM_TM81)
+        removeitem(ITEM_TM81)
+    }
+    if(checkitem(ITEM_TM82) == TRUE){
+        setflag(FLAG_ITEM_TM82)
+        removeitem(ITEM_TM82)
+    }
+    if(checkitem(ITEM_TM83) == TRUE){
+        setflag(FLAG_ITEM_TM83)
+        removeitem(ITEM_TM83)
+    }
+    if(checkitem(ITEM_TM84) == TRUE){
+        setflag(FLAG_ITEM_TM84)
+        removeitem(ITEM_TM84)
+    }
+    if(checkitem(ITEM_TM85) == TRUE){
+        setflag(FLAG_ITEM_TM85)
+        removeitem(ITEM_TM85)
+    }
+    if(checkitem(ITEM_TM86) == TRUE){
+        setflag(FLAG_ITEM_TM86)
+        removeitem(ITEM_TM86)
+    }
+    if(checkitem(ITEM_TM87) == TRUE){
+        setflag(FLAG_ITEM_TM87)
+        removeitem(ITEM_TM87)
+    }
+    if(checkitem(ITEM_TM88) == TRUE){
+        setflag(FLAG_ITEM_TM88)
+        removeitem(ITEM_TM88)
+    }
+    if(checkitem(ITEM_TM89) == TRUE){
+        setflag(FLAG_ITEM_TM89)
+        removeitem(ITEM_TM89)
+    }
+    if(checkitem(ITEM_TM90) == TRUE){
+        setflag(FLAG_ITEM_TM90)
+        removeitem(ITEM_TM90)
+    }
+    if(checkitem(ITEM_TM91) == TRUE){
+        setflag(FLAG_ITEM_TM91)
+        removeitem(ITEM_TM91)
+    }
+    if(checkitem(ITEM_TM92) == TRUE){
+        setflag(FLAG_ITEM_TM92)
+        removeitem(ITEM_TM92)
+    }
+    if(checkitem(ITEM_TM93) == TRUE){
+        setflag(FLAG_ITEM_TM93)
+        removeitem(ITEM_TM93)
+    }
+    if(checkitem(ITEM_TM94) == TRUE){
+        setflag(FLAG_ITEM_TM94)
+        removeitem(ITEM_TM94)
+    }
+    if(checkitem(ITEM_TM95) == TRUE){
+        setflag(FLAG_ITEM_TM95)
+        removeitem(ITEM_TM95)
+    }
+    if(checkitem(ITEM_TM96) == TRUE){
+        setflag(FLAG_ITEM_TM96)
+        removeitem(ITEM_TM96)
+    }
+    if(checkitem(ITEM_TM97) == TRUE){
+        setflag(FLAG_ITEM_TM97)
+        removeitem(ITEM_TM97)
+    }
+    if(checkitem(ITEM_TM98) == TRUE){
+        setflag(FLAG_ITEM_TM98)
+        removeitem(ITEM_TM98)
+    }
+    if(checkitem(ITEM_TM99) == TRUE){
+        setflag(FLAG_ITEM_TM99)
+        removeitem(ITEM_TM99)
+    }
+    if(checkitem(ITEM_TM100) == TRUE){
+        setflag(FLAG_ITEM_TM100)
+        removeitem(ITEM_TM100)
+    }
+        if(checkitem(ITEM_HM01) == TRUE){
+        setflag(FLAG_ITEM_HM01)
+        removeitem(ITEM_HM01)
+    }
+    if(checkitem(ITEM_HM02) == TRUE){
+        setflag(FLAG_ITEM_HM02)
+        removeitem(ITEM_HM02)
+    }
+    if(checkitem(ITEM_HM03) == TRUE){
+        setflag(FLAG_ITEM_HM03)
+        removeitem(ITEM_HM03)
+    }
+    if(checkitem(ITEM_HM04) == TRUE){
+        setflag(FLAG_ITEM_HM04)
+        removeitem(ITEM_HM04)
+    }
+    if(checkitem(ITEM_HM05) == TRUE){
+        setflag(FLAG_ITEM_HM05)
+        removeitem(ITEM_HM05)
+    }
+    if(checkitem(ITEM_HM06) == TRUE){
+        setflag(FLAG_ITEM_HM06)
+        removeitem(ITEM_HM06)
+    }
+    if(checkitem(ITEM_HM07) == TRUE){
+        setflag(FLAG_ITEM_HM07)
+        removeitem(ITEM_HM07)
+    }
+}

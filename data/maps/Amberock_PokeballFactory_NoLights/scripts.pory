@@ -1,0 +1,213 @@
+mapscripts Amberock_PokeballFactory_NoLights_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        if(var(VAR_AMBEROCK_STORY) >= STORY_AMBEROCK_OBTAINED_RESEARCH){
+            setobjectxyperm(11, 10, 6)
+        }
+        if(var(VAR_AMBEROCK_STORY) >= STORY_AMBEROCK_GIOVANNI_ESCAPED){
+            setflashlevel(0)
+            setweather(WEATHER_SHADE)
+            setflag(FLAG_TEMP_1)
+        }
+        else{
+            setflag(FLAG_TEMP_2)
+        }
+    }
+}
+
+script BlindRocket1{
+    msgbox(BlindRocket1_Text, MSGBOX_NPC)
+}
+text BlindRocket1_Text{
+    "Help, I can't see!\n"
+    "Is someone there?"
+}
+script BlindRocket2{
+    msgbox(BlindRocket2_Text, MSGBOX_NPC)
+}
+text BlindRocket2_Text{
+    "What happened?\p"
+    "The Krokoroks bailed and now\n"
+    "I can't find my way out!"
+}
+
+script BlindRocket3{
+    msgbox(BlindRocket3_Intro, MSGBOX_NPC)
+}
+text BlindRocket3_Intro{
+    "Aren't you a little short\n"
+    "for a Team Rocket Grunt?"
+}
+text BlindRocket3_Lose{
+    "If only I could've seen what\n"
+    "I was doing…"
+}
+text BlindRocket3_PostBat{
+    "What a terrible timing\n"
+    "for a blackout."
+}
+
+script BlindRocket4{
+    lock
+    faceplayer
+    message(BlindRocket4_Text)
+    waitmessage
+    dynmultichoice(23, 0, TRUE, 2, 0, 0, "Friend", "Foe")
+    if(var(VAR_RESULT) == 0){
+        msgbox(BlindRocket4_Friend, MSGBOX_NPC)
+    }
+    else{
+        msgbox(BlindRocket4_Foe, MSGBOX_NPC)
+    }
+}
+text BlindRocket4_Text{
+    "Are you a friend or a foe?"
+}
+text BlindRocket4_Friend{
+    "Glad to hear that."
+}
+text BlindRocket4_Foe{
+    "Haha.\n"
+    "Good one!"
+}
+
+script BlindRocket5{
+    trainerbattle_single(TRAINER_FACTORY_ROCKET_1, BlindRocket5_Intro, BlindRocket5_Lose)
+    msgbox(BlindRocket5_PostBat, MSGBOX_AUTOCLOSE)
+}
+text BlindRocket5_Intro{
+    "You don't look like you're\n"
+    "supposed to be here.\l"
+    "Intruder alert!"
+}
+text BlindRocket5_Lose{
+    "I'm sorry,\n"
+    "I'll keep my mouth shut!"
+}
+text BlindRocket5_PostBat{
+    "False alarm!"
+}
+
+script BlindRocket6{
+    msgbox(BlindRocket6_Text, MSGBOX_NPC)
+}
+text BlindRocket6_Text{
+    "I'm making sure nobody's getting\n"
+    "through here.\p"
+    "You should pick a spot to guard\n"
+    "as well."
+}
+
+script BlindRocket7{
+    if(defeated(TRAINER_FACTORY_ROCKET_2)){
+        msgbox(BlindRocket7_PostBat, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    message(BlindRocket7_Text)
+    waitmessage
+    dynmultichoice(23, 0, TRUE, 4, 0, 0, "Alan", "Giovanni", "Grunt", "Miles", "Noel", "{RIVAL}")
+    switch(var(VAR_RESULT)){
+        case 0:
+            goto(BlindRocket7_WrongName)
+        case 1:
+            goto(BlindRocket7_Giovanni)
+        case 2:
+            goto(BlindRocket7_Grunt)
+        case 3:
+            goto(BlindRocket7_WrongName)
+        case 4:
+            goto(BlindRocket7_CorrectName)
+        case 5:
+            goto(BlindRocket7_WrongName)
+    }
+}
+text BlindRocket7_Text{
+    "It's so dark here!\n"
+    "You, what's your name?"
+}
+
+script BlindRocket7_WrongName{
+    msgbox(BlindRocket7_WrongName_Text)
+    trainerbattle_no_intro(TRAINER_FACTORY_ROCKET_2, BlindRocket7_Lose)
+}
+script BlindRocket7_Giovanni{
+    msgbox(BlindRocket7_Giovanni_Text)
+    trainerbattle_no_intro(TRAINER_FACTORY_ROCKET_2, BlindRocket7_Lose)
+}
+script BlindRocket7_Grunt{
+    msgbox(BlindRocket7_Grunt_Text)
+    trainerbattle_no_intro(TRAINER_FACTORY_ROCKET_2, BlindRocket7_Lose)
+}
+script BlindRocket7_CorrectName{
+    msgbox(BlindRocket7_CorrectName_Text, MSGBOX_NPC)
+    end
+}
+text BlindRocket7_WrongName_Text{
+    "That's not a name I recognize.\n"
+    "You must be an intruder!"
+}
+text BlindRocket7_Giovanni_Text{
+    "Do you think I'm stupid?\p"
+    "There's only one Giovanni and\n"
+    "you sound nothing like him!"
+}
+text BlindRocket7_Grunt_Text{
+    "Do you take me for a fool?\p"
+    "Grunt is a title, not a name.\n"
+    "We've got an intruder here!"
+}
+text BlindRocket7_CorrectName_Text{
+    "Ah, that checks out."
+}
+text BlindRocket7_Lose{
+    "Can't believe I just lost to a kid…"
+}
+text BlindRocket7_PostBat{
+    "You're not the one who caused\n"
+    "this blackout, are you?"
+}
+
+script BlindRocket8{
+    msgbox(BlindRocket8_Text)
+    release
+}
+text BlindRocket8_Text{
+    "Is this a wall, or a box?"
+}
+
+script BlindRocket9{
+    msgbox(BlindRocket9_Text)
+    release
+}
+text BlindRocket9_Text{
+    "Where did everyone go?"
+}
+
+script FactoryEmployee_1{
+    msgbox(FactoryEmployee_1_Text)
+    release
+}
+script FactoryEmployee_2{
+    msgbox(FactoryEmployee_2_Text, MSGBOX_NPC)
+}
+script FactoryEmployee_3{
+    msgbox(FactoryEmployee_3_Text, MSGBOX_NPC)
+}
+text FactoryEmployee_1_Text{
+    "Boy, I sure hope we have\n"
+    "a good insurance policy…"
+}
+text FactoryEmployee_2_Text{
+    "Not only did we lose a lot of\n"
+    "inventory, just look at this\l"
+    "mess they made…"
+}
+text FactoryEmployee_3_Text{
+    "Thankfully all the machinery\n"
+    "is intact.\p"
+    "As soon as we get the generator\n"
+    "back to full power and clean this\l"
+    "place up a bit, we'll be back\l"
+    "in business."
+}

@@ -93,6 +93,7 @@ enum {
     ACTION_SHOW,
     ACTION_GIVE_FAVOR_LADY,
     ACTION_CONFIRM_QUIZ_LADY,
+    ACTION_CHECKCUBE,
     ACTION_BY_NAME,
     ACTION_BY_TYPE,
     ACTION_BY_AMOUNT,
@@ -177,6 +178,7 @@ static void Task_ChooseHowManyToToss(u8);
 static void AskTossItems(u8);
 static void Task_RemoveItemFromBag(u8);
 static void ItemMenu_Cancel(u8);
+static void ItemMenu_ZygardeCube(u8);
 static void HandleErrorMessage(u8);
 static void PrintItemCantBeHeld(u8);
 static void DisplayCurrentMoneyWindow(void);
@@ -306,6 +308,7 @@ static const struct MenuAction sItemMenuActions[] = {
     [ACTION_REGISTER]          = {gMenuText_Register, {ItemMenu_RegisterList}},
     [ACTION_GIVE]              = {gMenuText_Give,     {ItemMenu_Give}},
     [ACTION_CANCEL]            = {gText_Cancel2,      {ItemMenu_Cancel}},
+    [ACTION_CHECKCUBE]         = {gMenuText_Check,    {ItemMenu_ZygardeCube}},
     [ACTION_BATTLE_USE]        = {gMenuText_Use,      {ItemMenu_UseInBattle}},
     [ACTION_CHECK]             = {gMenuText_Check,    {ItemMenu_UseOutOfBattle}},
     [ACTION_WALK]              = {gMenuText_Walk,     {ItemMenu_UseOutOfBattle}},
@@ -359,6 +362,10 @@ static const u8 sContextMenuItems_Give[] = {
 
 static const u8 sContextMenuItems_Cancel[] = {
     ACTION_CANCEL
+};
+
+static const u8 sContextMenuItems_CheckCube[] = {
+    ACTION_CHECKCUBE,      ACTION_CANCEL
 };
 
 static const u8 sContextMenuItems_BerryBlenderCrush[] = {
@@ -1723,6 +1730,11 @@ static void OpenContextMenu(u8 taskId)
                     gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_Cancel);
                     memcpy(&gBagMenu->contextMenuItemsBuffer, &sContextMenuItems_Cancel, sizeof(sContextMenuItems_Cancel));
                 }
+                else if (gSpecialVar_ItemId == ITEM_ZYGARDE_CUBE)
+                {
+                    gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_CheckCube);
+                    memcpy(&gBagMenu->contextMenuItemsBuffer, &sContextMenuItems_CheckCube, sizeof(sContextMenuItems_CheckCube));
+                }
                 else {
                     gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_KeyItemsPocket);
                     memcpy(&gBagMenu->contextMenuItemsBuffer, &sContextMenuItems_KeyItemsPocket, sizeof(sContextMenuItems_KeyItemsPocket));
@@ -2093,6 +2105,14 @@ static void ItemMenu_Cancel(u8 taskId)
     ScheduleBgCopyTilemapToVram(1);
     BagMenu_PrintCursor(tListTaskId, COLORID_NORMAL);
     ReturnToItemList(taskId);
+}
+
+static void ItemMenu_ZygardeCube(u8 taskId)
+{
+    ItemMenu_Cancel(taskId);
+    ConvertIntToDecimalStringN(gStringVar1, VarGet(VAR_ZYGARDE_CELLS), STR_CONV_MODE_LEFT_ALIGN, 4);
+    ConvertIntToDecimalStringN(gStringVar2, VarGet(VAR_ZYGARDE_CORES), STR_CONV_MODE_LEFT_ALIGN, 4);
+    DisplayZygardeCubeItemMessage(taskId, FALSE);
 }
 
 //tx_registered_items_menu
@@ -3403,7 +3423,11 @@ static void SortItemsInBag(u8 pocket, u8 type)
         itemAmount = BAG_BERRIES_COUNT;
         break;
     case TMHM_POCKET:
+    #if MOVE_TMHM_TO_SAVEBLOCK3 == FALSE
         itemMem = gSaveBlock1Ptr->bagPocket_TMHM;
+    #else
+        itemMem = gSaveBlock3Ptr->bagPocket_TMHM;
+    #endif
         itemAmount = BAG_TMHM_COUNT;
         break;
     default:

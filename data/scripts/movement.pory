@@ -1,0 +1,182 @@
+// Starting from here, these movements are considered
+// 'safe' (won't put follower into a Pokeball)
+movement(global) Common_Movement_FollowerSafeStart{}
+movement Common_Movement_QuestionMark{
+	emote_question_mark
+}
+
+movement Common_Movement_ExclamationMark{
+	emote_exclamation_mark
+}
+
+movement Common_Movement_Delay48{
+	delay_16 * 3
+}
+
+movement Common_Movement_FacePlayer{
+	face_player
+}
+
+movement Common_Movement_FaceAwayPlayer{
+	face_away_player
+}
+
+movement Common_Movement_FaceOriginalDirection{
+	face_original_direction
+}
+
+movement Common_Movement_WalkInPlaceFasterLeft{
+	walk_in_place_faster_left
+}
+
+movement Common_Movement_WalkInPlaceFasterUp{
+	walk_in_place_faster_up
+}
+
+movement Common_Movement_WalkInPlaceFasterRight{
+	walk_in_place_faster_right
+}
+
+movement Common_Movement_WalkInPlaceFasterDown{
+	walk_in_place_faster_down
+}
+
+movement Common_Movement_FaceRight{
+	face_right
+}
+
+movement Common_Movement_FaceLeft{
+	face_left
+}
+
+movement Common_Movement_FaceDown{
+	face_down
+}
+
+movement Common_Movement_FaceUp{
+	face_up
+}
+
+movement Common_Movement_WalkInPlaceDown{
+	walk_in_place_down
+}
+
+movement Common_Movement_WalkInPlaceLeft{
+	walk_in_place_left
+}
+
+movement Common_Movement_WalkInPlaceRight{
+	walk_in_place_right
+}
+
+// End of follower-safe movements
+movement(global) Common_Movement_FollowerSafeEnd{}
+
+movement Common_Movement_WalkUp6{
+	walk_up * 6
+}
+
+movement Common_Movement_WalkUp4{
+	walk_up * 4
+}
+
+movement Common_Movement_Delay32{
+	delay_16 * 2
+}
+
+movement Common_Movement_WalkUp{
+	walk_up
+}
+
+// Unused
+movement Common_Movement_WalkUp2{
+	walk_up * 2
+}
+
+// 
+// Global movement scripts
+//
+movement Walk1Left{
+    walk_left
+    step_end}
+movement Walk2Left{
+    walk_left * 2
+    step_end}
+movement Walk3Left{
+    walk_left * 3
+    step_end}
+movement Walk4Left{
+    walk_left * 4
+    step_end}
+movement Walk5Left{
+    walk_left * 4
+    step_end}
+movement Walk6Left{
+    walk_left * 6
+    step_end}
+movement Walk7Left{
+    walk_left * 7
+    step_end}
+movement Walk8Left{
+    walk_left * 8
+    step_end}
+movement Walk9Left{
+    walk_left * 9
+    step_end}
+movement Walk1Right{
+    walk_right
+    step_end}
+movement Walk2Right{
+    walk_right * 2
+    step_end}
+movement Walk3Right{
+    walk_right * 3
+    step_end}
+movement Walk4Right{
+    walk_right * 4
+    step_end}
+movement Walk5Right{
+    walk_right * 5
+    step_end}
+movement Walk6Right{
+    walk_right * 6
+    step_end}
+movement Walk1Up{
+    walk_up
+    step_end}
+movement Walk2Up{
+    walk_up * 2
+    step_end}
+movement Walk3Up{
+    walk_up * 3
+    step_end}
+movement Walk4Up{
+    walk_up * 4
+    step_end}
+movement Walk5Up{
+    walk_up * 5
+    step_end}
+movement Walk6Up{
+    walk_up * 6
+    step_end}
+movement Walk1Down{
+    walk_down
+    step_end}
+movement Walk2Down{
+    walk_down * 2
+    step_end}
+movement Walk3Down{
+    walk_down * 3
+    step_end}
+movement Walk4Down{
+    walk_down * 4
+    step_end}
+movement Walk5Down{
+    walk_down * 5
+    step_end}
+movement Walk6Down{
+    walk_down * 6
+    step_end}
+movement Walk7Down{
+    walk_down * 7
+    step_end}

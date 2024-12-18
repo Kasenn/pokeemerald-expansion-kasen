@@ -12395,11 +12395,13 @@ const struct Item gItemsInfo[] =
             "Zygarde Cores and\n"
             "Cells."),
         .pocket = POCKET_KEY_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
+        .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_ZygardeCube,
         .iconPic = gItemIcon_ZygardeCube,
         .iconPalette = gItemIconPalette_ZygardeCube,
     },
+        // .type = ITEM_USE_BAG_MENU,
+        // .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
 
     [ITEM_PRISON_BOTTLE] =
     {
@@ -12962,15 +12964,15 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_LavaCookieAndLetter,
     },
 
-    [ITEM_DEVON_PARTS] =
+    [ITEM_RESEARCH_PAPERS] =
     {
-        .name = _("Devon Parts"),
-        .pluralName = _("Devon Parts"),
+        .name = _("Research Papers"),
+        .pluralName = _("Research Papers"),
         .price = 0,
         .description = COMPOUND_STRING(
-            "A package that\n"
-            "contains Devon's\n"
-            "machine parts."),
+            "A briefcase\n"
+            "containing\n"
+            "research papers."),
         .importance = 2,
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,

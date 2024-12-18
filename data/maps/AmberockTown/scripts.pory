@@ -105,10 +105,17 @@ movement MoveGateRight{
     walk_right
 }
 text VolknerTakePrisoners{
-    "(WIP)volkner takes prisoners"
+    "Clay: These guards barely put up\n"
+    "a fight.\p"
+    "Volkner will deliver them to\n"
+    "the police, while we will head\l"
+    "inside and put a stop to this."
 }
 text ClayGoAfterGiovanni{
-    "(WIP)i go after giovanni"
+    "I'll head directly to the pier.\p"
+    "You go grab those papers,\n"
+    "and once you're ready,\l"
+    "come assist me at the pier."
 }
 movement Amberock_LeftRocketLeaves{
     walk_right * 2
@@ -207,10 +214,19 @@ script Amberock_GroupGoesToGate{
     release
 }
 text LetsGoToGate{
-    "(WIP)lets go gate"
+    "Clay: With the facility plunged\n"
+    "into darkness, we can rush\l"
+    "the gates without raising an alarm.\p"
+    "Let's go!"
 }
 text KrokorokWasCarryingSomething{
-    "(WIP)krokorok was carrying something"
+    "Clay: It looks like the Krokorok\n"
+    "was carrying something.\p"
+    "Most of this stuff belonged to\n"
+    "Team Rocket, so no need to feel bad\l"
+    "for taking it.\p"
+    "Once you're ready,\n"
+    "meet us at the gates."
 }
 movement ClayMovesToGate{
     walk_down * 2
@@ -242,6 +258,10 @@ script SetFactoryWarp1{
 }
 
 script Amberock_FlagControl{
+    if(var(VAR_AMBEROCK_STORY) >= STORY_AMBEROCK_GIOVANNI_ESCAPED){
+        setflag(FLAG_TEAM_ROCKET)
+        setflag(FLAG_REPAIR_AMBEROCK_BRIDGE)
+    }
     if(var(VAR_AMBEROCK_STORY) >= STORY_AMBEROCK_CUT_ELECTRICITY){
         setflag(FLAG_GATE_NINJA)
     }
@@ -300,33 +320,79 @@ script Amberock_KrokorokIntro{
     turnobject(NPC_VOLKNER, DIR_SOUTH)
     turnobject(PLAYER, DIR_NORTH)
     msgbox(VolknerControlKrokorok)
+    turnobject(NPC_VOLKNER, DIR_WEST)
+    turnobject(PLAYER, DIR_WEST)
+    turnobject(NPC_CLAY, DIR_EAST)
+    msgbox(ClayTip)
     setvar(VAR_AMBEROCK_STORY, STORY_AMBEROCK_SPOKE_WITH_CLAY)
     release
 }
 
 text VolknerGreetsPlayer{
-    "(WIP) hello player"
+    "Volkner: Oh, it's you.\n"
+    "{PLAYER}, right?\p"
+    "You're here after Team Rocket\n"
+    "as well? Perfect timing.\p"
+    "Busting through the main gate would\n"
+    "most likely sound an alarm, so we\l"
+    "came up with a different way in."
 }
 text ClayHelped{
-    "(WIP) clay helped"
+    "Interrogating the grunt we caught\n"
+    "at the Pokémon Ranch, we learned\l"
+    "about where Team Rocket might\l"
+    "attack next.\p"
+    "So, I contacted Mr. Clay,\n"
+    "who was willing to train a Krokorok\l"
+    "we can order around and use to\l"
+    "spy on their operations."
 }
 text VolknerControlKrokorok{
-    "(WIP) control this krokorok\n"
-    "and scout out the factory"
+    "This Krokorok is wearing a hidden\n"
+    "ear piece and a camera, allowing\l"
+    "us to order it around remotely.\p"
+    "I've seen how good you are with\n"
+    "Pokémon.\p"
+    "Maybe you'd like to command\n"
+    "the Krokorok?\p"
+    "The objective is simple: find out who\n"
+    "is in charge, what their plans are,\l"
+    "and sabotage the facility's generator\l"
+    "so that we can sneak in while they are\l"
+    "trying to figure out what happened."
 }
 
 script Amberock_Clay{
     msgbox(Amberock_Clay_Text, MSGBOX_NPC)
 }
 text Amberock_Clay_Text{
-    "(WIP)i am clay"
+    "Team Rocket ain't known for\n"
+    "their kindness, so they might not\l"
+    "like it if they spot a Krokorok\l"
+    "wandering around aimlessly.\p"
+    "Try to avoid their sight, and\n"
+    "do not veer too close to one,\l"
+    "lest they hear you."
+}
+text ClayTip{
+    "Clay: Team Rocket ain't known for\n"
+    "their kindness, so they might not\l"
+    "like it if they spot a Krokorok\l"
+    "wandering around aimlessly.\p"
+    "Try to avoid their sight, and\n"
+    "do not veer too close to one,\l"
+    "lest they hear you."
 }
 
 script Amberock_Volkner{
     msgbox(Amberock_Volkner_Text, MSGBOX_NPC)
 }
 text Amberock_Volkner_Text{
-    "(WIP)i am volkner"
+    "The objective is simple: find out who\n"
+    "is in charge, what their plans are,\l"
+    "and sabotage the facility's generator\l"
+    "so that we can sneak in while they are\l"
+    "trying to figure out what happened."
 }
 
 script Amberock_KrokorokScript{
@@ -377,16 +443,45 @@ script Amberock_KrokorokGiovanniCutScene{
     lock
     delay(15)
     msgbox(GiovanniWeAreOnSchedule)
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left * 2, walk_up, walk_left, walk_in_place_fast_down))
+    waitmovement(0)
     msgbox(ClayLetsBail)
     closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk2Right)
+    waitmovement(0)
+    msgbox(ClayLetsBail2)
     setvar(VAR_AMBEROCK_STORY, STORY_AMBEROCK_FOUND_GIOVANNI)
     release
 }
 text GiovanniWeAreOnSchedule{
-    "(WIP)we are on schedule boss"
+    "Clay: Is that who I think it is?\n"
+    "Get us a bit closer, will ya?"
 }
 text ClayLetsBail{
-    "(WIP)clay: lets bail"
+    "Proton: We've finished grabbing\n"
+    "the Poké Balls from the assembly\l"
+    "lines, and are now scouring through\l"
+    "the crates.\p"
+    "It will take a while to grab\n"
+    "everything, but we should be able to\l"
+    "finish before we are discovered.\p"
+    "???: Excellent. And what about\n"
+    "the research?\p"
+    "Proton: Everything is going exactly\n"
+    "as planned.\l"
+    "Some of the smartest people I know\l"
+    "are on the case."
+}
+text ClayLetsBail2{
+    "Clay: It's just as we feared.\p"
+    "This ain't some small\n"
+    "remnant force.\p"
+    "That's Giovanni, the actual leader\n"
+    "of the syndicate.\p"
+    "Quick, we must cut the power NOW.\p"
+    "We need to get inside this facility\n"
+    "and put an end to this!"
 }
 
 script Amberock_RecallKrokorok{
@@ -830,7 +925,7 @@ text PokeFactory_Bouncer_Text{
 }
 
 script Amberock_Girl2{
-    if(var(VAR_AMBEROCK_STORY) == STORY_AMBEROCK_STORY_COMPLETE){
+    if(var(VAR_AMBEROCK_STORY) == STORY_AMBEROCK_GIOVANNI_ESCAPED){
         msgbox(Amberock_Girl2_Text, MSGBOX_NPC)
     }
     elif(var(VAR_AMBEROCK_STORY) >= STORY_AMBEROCK_GROUP_WAITING_AT_GATE){

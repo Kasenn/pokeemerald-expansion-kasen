@@ -1706,3 +1706,11 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/AmberockTown_KrokorokPier/scripts.inc"
 
 	.include "data/maps/Amberock_PokeballFactory_NoLights/scripts.inc"
+
+	.include "data/maps/Amberock_PokeballFactory_B1F_NoLights/scripts.inc"
+
+	.include "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.inc"
+
+	.include "data/maps/AmberockTown_PlayerPier/scripts.inc"
+
+	.include "data/maps/Route16_NoCurrents/scripts.inc"

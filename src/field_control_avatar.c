@@ -239,6 +239,10 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     
     if (input->pressedSelectButton)
     {
+        if(FlagGet(FLAG_DISGUISED_AS_KROKOROK))
+        {
+            return FALSE;
+        }
         if (gSaveBlock1Ptr->registeredItemListCount == 1) 
         {
             UseRegisteredKeyItemOnField(1);

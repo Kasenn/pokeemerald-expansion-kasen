@@ -1,6 +1,6 @@
-@ Starting from here, these movements are considered
-@ 'safe' (won't put follower into a Pokeball)
 Common_Movement_FollowerSafeStart::
+	step_end
+
 Common_Movement_QuestionMark:
 	emote_question_mark
 	step_end
@@ -71,7 +71,6 @@ Common_Movement_WalkInPlaceRight:
 	walk_in_place_right
 	step_end
 
-@ End of follower-safe movements
 Common_Movement_FollowerSafeEnd::
 	step_end
 
@@ -100,8 +99,205 @@ Common_Movement_WalkUp:
 	walk_up
 	step_end
 
-@ Unused
-Common_Movement_WalkUp2::
+Common_Movement_WalkUp2:
 	walk_up
 	walk_up
+	step_end
+
+Walk1Left:
+	walk_left
+	step_end
+
+Walk2Left:
+	walk_left
+	walk_left
+	step_end
+
+Walk3Left:
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+Walk4Left:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+Walk5Left:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+Walk6Left:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+Walk7Left:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+Walk8Left:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+Walk9Left:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+Walk1Right:
+	walk_right
+	step_end
+
+Walk2Right:
+	walk_right
+	walk_right
+	step_end
+
+Walk3Right:
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Walk4Right:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Walk5Right:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Walk6Right:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Walk1Up:
+	walk_up
+	step_end
+
+Walk2Up:
+	walk_up
+	walk_up
+	step_end
+
+Walk3Up:
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+Walk4Up:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+Walk5Up:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+Walk6Up:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+Walk1Down:
+	walk_down
+	step_end
+
+Walk2Down:
+	walk_down
+	walk_down
+	step_end
+
+Walk3Down:
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+Walk4Down:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+Walk5Down:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+Walk6Down:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+Walk7Down:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	step_end

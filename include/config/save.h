@@ -20,4 +20,6 @@
 
                                             // Grand Total: 3790
 
+#define MOVE_TMHM_TO_SAVEBLOCK3             FALSE
+
 #endif // GUARD_CONFIG_SAVE_H

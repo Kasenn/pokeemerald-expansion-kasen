@@ -1,0 +1,184 @@
+mapscripts Amberock_PokeballFactory_Office_NoLights_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        if(var(VAR_AMBEROCK_STORY) >= STORY_AMBEROCK_FOUGHT_PETREL){
+            setflag(FLAG_TEMP_1)
+        }
+        if(var(VAR_AMBEROCK_STORY) >= STORY_AMBEROCK_OBTAINED_RESEARCH){
+            setflag(FLAG_TEMP_2)
+        }
+        if(var(VAR_AMBEROCK_STORY) >= STORY_AMBEROCK_GIOVANNI_ESCAPED){
+            setflashlevel(0)
+            setweather(WEATHER_SHADE)
+        }
+    }
+    MAP_SCRIPT_ON_LOAD{
+        if(var(VAR_AMBEROCK_STORY) >= STORY_AMBEROCK_OBTAINED_RESEARCH){
+            setmetatile(13, 7, 0x3AB, TRUE)
+            setmetatile(14, 7, 0x3AC, TRUE)
+            setmetatile(13, 8, 0x3B3, TRUE)
+            setmetatile(14, 8, 0x3B4, TRUE)
+        }
+    }
+}
+
+const UPPER_TRIGGER = FLAG_TEMP_3
+const PETREL = 3
+
+script Factory_Office_Rocket1{
+    trainerbattle_single(TRAINER_FACTORY_ROCKET_3, Factory_Office_Rocket1_Intro, Factory_Office_Rocket1_Lose, OfficeRocketHeal)
+    if(defeated(TRAINER_FACTORY_ROCKET_3)){
+        goto(Factory_Office_HealMon)
+    }
+}
+text Factory_Office_Rocket1_Intro{
+    "I'm an undercover cop.\p"
+    "I'm sorry, but to keep up\n"
+    "appearances, I must battle you now."
+}
+text Factory_Office_Rocket1_Lose{
+    "Thank you for playing along."
+}
+script OfficeRocketHeal{
+    msgbox(GetHurtTooBad, MSGBOX_NPC)
+    end
+}
+script Factory_Office_HealMon{
+    msgbox(Factory_Office_HealMon_Text)
+    closemessage
+	fadescreen(FADE_TO_BLACK)
+	playfanfare(MUS_HEAL)
+	waitfanfare
+    special(HealPlayerParty)
+    callnative(UpdateFollowingPokemon)
+    fadescreen(FADE_FROM_BLACK)
+    msgbox(YourPkmnAreHealed, MSGBOX_NPC)
+    end
+}
+text Factory_Office_HealMon_Text{
+    "Your Pokémon must be exhausted.\n"
+    "Here, let me help."
+}
+text YourPkmnAreHealed{
+    "Let me know if your Pokémon\n"
+    "are feeling weary."
+}
+text GetHurtTooBad{
+    "I hope your Pokémon didn't get\n"
+    "hurt too bad.\p"
+    "Let me know and I'll restore\n"
+    "them back to full health."
+}
+script Factory_Office_Rocket2{
+    trainerbattle_single(TRAINER_FACTORY_ROCKET_4, Factory_Office_Rocket2_Intro, Factory_Office_Rocket2_Lose)
+    msgbox(Factory_Office_Rocket2_PostBat, MSGBOX_AUTOCLOSE)
+}
+text Factory_Office_Rocket2_Intro{
+    "The mouse waltzes straight\n"
+    "into the trap!"
+}
+text Factory_Office_Rocket2_Lose{
+    "Looks like the hunter has\n"
+    "become the prey…"
+}
+text Factory_Office_Rocket2_PostBat{
+    "Don't celebrate too soon.\n"
+    "The worst is yet to come!"
+}
+script Factory_Office_Rocket3{
+    trainerbattle_single(TRAINER_FACTORY_ROCKET_5, Factory_Office_Rocket3_Intro, Factory_Office_Rocket3_Lose)
+    msgbox(Factory_Office_Rocket3_PostBat, MSGBOX_AUTOCLOSE)
+}
+text Factory_Office_Rocket3_Intro{
+    "Looks like the boss's hunch\n"
+    "was correct as always!"
+}
+text Factory_Office_Rocket3_Lose{
+    "I've failed the boss!"
+}
+text Factory_Office_Rocket3_PostBat{
+    "Think you're tough?\n"
+    "You stand no chance against the boss!"
+}
+script Factory_Office_Papers{
+    msgbox(PapersOnTable)
+    finditem(ITEM_RESEARCH_PAPERS)
+    removeobjectbyflag(FLAG_TEMP_2)
+    setmetatile(13, 7, 0x3AB, TRUE)
+    setmetatile(14, 7, 0x3AC, TRUE)
+    setmetatile(13, 8, 0x3B3, TRUE)
+    setmetatile(14, 8, 0x3B4, TRUE)
+    special(DrawWholeMapView)
+    setvar(VAR_AMBEROCK_STORY, STORY_AMBEROCK_OBTAINED_RESEARCH)
+    release
+}
+text PapersOnTable{
+    "These look like they could be\n"
+    "the scientist's research papers."
+}
+script Factory_Office_Trigger1{
+    setflag(UPPER_TRIGGER)
+    goto(Office_PetrelFight)
+}
+script Factory_Office_Trigger2{
+    goto(Office_PetrelFight)
+}
+script Office_PetrelFight{
+    lock
+    safefollow
+    playse(SE_PIN)
+    turnobject(PETREL, DIR_WEST)
+    applymovement(PETREL, ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    if(flag(UPPER_TRIGGER)){
+        applymovement(PETREL, Walk1Left)
+    }
+    else{
+        applymovement(PETREL, moves(walk_down, walk_left))
+    }
+    waitmovement(0)
+    playbgm(MUS_ENCOUNTER_AQUA, TRUE)
+    msgbox(PetrelWelcomesPlayer)
+    trainerbattle_no_intro(TRAINER_FACTORY_ROCKET_PETREL, Petrel_LoseText)
+    if(checkplayergender == MALE){
+        bufferstring(STR_VAR_1, "lad")
+    }
+    else{
+        bufferstring(STR_VAR_1, "lass")
+    }
+    msgbox(PetrelPostBat)
+    closemessage
+    fadescreen(FADE_TO_BLACK)
+    removeobjectbyflag(FLAG_TEMP_1)
+    setvar(VAR_AMBEROCK_STORY, STORY_AMBEROCK_FOUGHT_PETREL)
+    fadenewbgm(MUS_AQUA_MAGMA_HIDEOUT)
+    fadescreen(FADE_FROM_BLACK)
+    delay(20)
+    release
+    end
+}
+
+text PetrelWelcomesPlayer{
+    "Petrel: Oh look, the little hero.\p"
+    "Let me guess, you're here for those\n"
+    "papers on the table?\p"
+    "Sure, I don't mind you taking them.\n"
+    "I couldn't understand anything I read.\p"
+    "You have my permission to take them.\n"
+    "That is, if you can get past me!"
+}
+text Petrel_LoseText{
+    "Tsk!\n"
+    "What's with this kid..."
+}
+text PetrelPostBat{
+    "Petrel: Wahaha!\p"
+    "What an interesting {STR_VAR_1}!\n"
+    "Fine, take your papers.\p"
+    "It's not like we took out all the\n"
+    "interesting bits and stashed them\l"
+    "on our ship!\p"
+    "Well, it was nice chatting with you,\n"
+    "but we gotta run.\l"
+    "Ciao!"
+}

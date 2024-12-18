@@ -1,0 +1,77 @@
+mapscripts AmberockTown_PlayerPier_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        if(var(VAR_AMBEROCK_STORY) >= STORY_AMBEROCK_GIOVANNI_ESCAPED){
+            setflag(FLAG_TEMP_A)
+        }
+    }
+}
+
+script ClayTooStrong{
+    msgbox(ClayTooStrong_Text, MSGBOX_NPC)
+}
+script ClayTooStrong2{
+    msgbox(ClayTooStrong2_Text, MSGBOX_NPC)
+}
+text ClayTooStrong_Text{
+    "Who was that guy?"
+}
+text ClayTooStrong2_Text{
+    "Way too strong…"
+}
+script ClayTooStrong3{
+    msgbox(ClayTooStrong3_Text, MSGBOX_NPC)
+}
+text ClayTooStrong3_Text{
+    "We did our duty, and\n"
+    "that's all that matters."
+}
+script ClayTooStrong4{
+    msgbox(ClayTooStrong4_Text, MSGBOX_NPC)
+}
+text ClayTooStrong4_Text{
+    "We never stood a chance…"
+}
+script ClayTooStrong5{
+    msgbox(ClayTooStrong5_Text, MSGBOX_NPC)
+}
+text ClayTooStrong5_Text{
+    "Hahah! You're too late!"
+}
+script GiovanniEscapesFactory{
+    lock
+    safefollow
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left * 5, walk_up, walk_left))
+    applymovement(1, moves(walk_slow_left * 7))
+    applymovement(2, moves(walk_slow_left * 7))
+    waitmovement(OBJ_EVENT_ID_PLAYER)
+    waitmovement(1)
+    msgbox(ClayWasTooLate, MSGBOX_AUTOCLOSE)
+    delay(8)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+    turnobject(5, DIR_NORTH)
+    delay(8)
+    msgbox(ClayWillTakeRockets, MSGBOX_AUTOCLOSE)
+    applymovement(5, moves(walk_right * 9))
+    waitmovement(0)
+    removeobjectbyflag(FLAG_TEMP_A)
+    setvar(VAR_AMBEROCK_STORY, STORY_AMBEROCK_GIOVANNI_ESCAPED)
+    release
+}
+text ClayWasTooLate{
+    "Clay: Tried stopping them,\n"
+    "but they just kept throwing\l"
+    "all their weak grunts at me\l"
+    "like they were nothing but pawns."
+}
+text ClayWillTakeRockets{
+    "I reckon the cops'll be\n"
+    "here soon.\p"
+    "I'll make sure these scoundrels\n"
+    "get what they deserve.\p"
+    "I assume you found those papers\n"
+    "you were lookin' for?\p"
+    "You should return them with haste.\p"
+    "Maybe the scientists might figure\n"
+    "out a clue about Team Rocket's\l"
+    "next destination."
+}

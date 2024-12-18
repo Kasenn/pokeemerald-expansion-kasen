@@ -1199,3 +1199,14 @@ const struct Tileset gTileset_PokeBallFactory =
     .metatileAttributes = gMetatileAttributes_PokeBallFactory,
     .callback = InitTilesetAnim_BikeShop,
 };
+
+const struct Tileset gTileset_Lab2 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Lab2,
+    .palettes = gTilesetPalettes_Lab2,
+    .metatiles = gMetatiles_Lab2,
+    .metatileAttributes = gMetatileAttributes_Lab2,
+    .callback = NULL,
+};

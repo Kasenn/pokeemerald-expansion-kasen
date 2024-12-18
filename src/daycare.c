@@ -286,6 +286,22 @@ void StoreSelectedPokemonInDaycare(void)
     StorePokemonInEmptyDaycareSlot(&gPlayerParty[monId], &gSaveBlock1Ptr->daycare);
 }
 
+void SeparateZygarde(void)
+{
+    u8 monId = GetCursorSelectionMonId();
+    if (gSaveBlock3Ptr->followerIndex == monId)
+        gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
+    else if (gSaveBlock3Ptr->followerIndex < PARTY_SIZE && monId < gSaveBlock3Ptr->followerIndex)
+        gSaveBlock3Ptr->followerIndex--;
+    
+    DebugPrintfLevel(MGBA_LOG_WARN, "player follower is new %d", gSaveBlock3Ptr->followerIndex);
+
+    ZeroMonData(&gPlayerParty[monId]);
+    CompactPartySlots();
+    CalculatePlayerPartyCount();
+    DebugPrintfLevel(MGBA_LOG_WARN, "player follower after compaction is %d", gSaveBlock3Ptr->followerIndex);
+}
+
 // Shifts the second daycare Pokémon slot into the first slot.
 static void ShiftDaycareSlots(struct DayCare *daycare)
 {

@@ -5,10 +5,13 @@ Route14_MapScripts::
 
 R14_ControlFlags::
 	special SetRoute119Weather
+	compare VAR_AMBEROCK_STORY, STORY_AMBEROCK_GIOVANNI_ESCAPED
+	goto_if_ge R14_ControlFlags_2
+R14_ControlFlags_1:
 	switch VAR_ROUTE14_ROCKET_EVENT
-	case 0, R14_ControlFlags_2
-	case 1, R14_ControlFlags_2
-	case 2, R14_ControlFlags_3
+	case 0, R14_ControlFlags_5
+	case 1, R14_ControlFlags_5
+	case 2, R14_ControlFlags_6
 	setflag FLAG_TEMP_2
 	setflag FLAG_TEMP_3
 	setflag FLAG_TEMP_4
@@ -17,9 +20,16 @@ R14_ControlFlags::
 R14_ControlFlags_2:
 	setflag FLAG_TEMP_1
 	setflag FLAG_TEMP_2
+	setflag FLAG_TEMP_3
+	setflag FLAG_TEMP_4
+	goto R14_ControlFlags_1
+
+R14_ControlFlags_5:
+	setflag FLAG_TEMP_1
+	setflag FLAG_TEMP_2
 	return
 
-R14_ControlFlags_3:
+R14_ControlFlags_6:
 	setflag FLAG_TEMP_1
 	setflag FLAG_TEMP_2
 	setflag FLAG_TEMP_3

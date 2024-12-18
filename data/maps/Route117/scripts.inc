@@ -138,7 +138,7 @@ Route117_EventScript_RematchDylan::
 	end
 
 Route117_EventScript_Maria::
-	trainerbattle_single TRAINER_MARIA_1, Route117_Text_MariaIntro, Route117_Text_MariaDefeat, Route117_EventScript_RegisterMaria
+	trainerbattle_single TRAINER_FACTORY_ROCKET_2, Route117_Text_MariaIntro, Route117_Text_MariaDefeat, Route117_EventScript_RegisterMaria
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route117_EventScript_RematchMaria
 	msgbox Route117_Text_MariaPostBattle, MSGBOX_DEFAULT
@@ -149,12 +149,12 @@ Route117_EventScript_RegisterMaria::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route117_Text_MariaRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_MARIA_1
+	register_matchcall TRAINER_FACTORY_ROCKET_2
 	release
 	end
 
 Route117_EventScript_RematchMaria::
-	trainerbattle_rematch TRAINER_MARIA_1, Route117_Text_MariaRematchIntro, Route117_Text_MariaRematchDefeat
+	trainerbattle_rematch TRAINER_FACTORY_ROCKET_2, Route117_Text_MariaRematchIntro, Route117_Text_MariaRematchDefeat
 	msgbox Route117_Text_MariaPostRematch, MSGBOX_AUTOCLOSE
 	end
 

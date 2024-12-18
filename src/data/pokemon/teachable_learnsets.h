@@ -1411,7 +1411,6 @@ static const u16 sPikachuTeachableLearnset[] = {
     MOVE_ROCK_SMASH,
     MOVE_SHOCK_WAVE,
     MOVE_STRENGTH,
-    MOVE_SURF,
     MOVE_SWAGGER,
     MOVE_THIEF,
     MOVE_THUNDER,

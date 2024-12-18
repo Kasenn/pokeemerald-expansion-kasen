@@ -408,7 +408,6 @@ LitwickEligibleBall::
 	removeobject 1
 	setflag FLAG_LITWICK_CAUGHT
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_LITWICK
-	playfanfare MUS_OBTAIN_ITEM
 	removeitem VAR_ITEM_ID, 1
 	givemon SPECIES_LITWICK, 5, ITEM_NONE, VAR_ITEM_ID
 	call GiveMon_Script
@@ -421,16 +420,18 @@ LitwickEligibleBall::
 GiveMon_Script::
 	bufferspeciesname STR_VAR_1, VAR_TEMP_TRANSFERRED_SPECIES
 	bufferspeciesname STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES
+	playfanfare MUS_OBTAIN_ITEM
 	message GiveMon_Script_Text_0
 	waitmessage
 	waitfanfare
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
-	goto_if_eq GiveMon_Script_2
+	goto_if_eq GiveMon_Script_1
 	compare VAR_RESULT, MON_GIVEN_TO_PC
-	goto_if_eq GiveMon_Script_4
+	goto_if_eq GiveMon_Script_2
+	goto Common_EventScript_NoMoreRoomForPokemon
 	return
 
-GiveMon_Script_2:
+GiveMon_Script_1:
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
 	goto_if_eq GiveMon_Script_7
@@ -438,7 +439,7 @@ GiveMon_Script_2:
 	call Common_EventScript_NameReceivedPartyMon
 	return
 
-GiveMon_Script_4:
+GiveMon_Script_2:
 	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
 	goto_if_eq GiveMon_Script_10

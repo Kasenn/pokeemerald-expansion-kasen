@@ -243,7 +243,6 @@ script LitwickEligibleBall{
     removeobject(1)
     setflag(FLAG_LITWICK_CAUGHT)
     setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_LITWICK)
-    playfanfare(MUS_OBTAIN_ITEM)
     removeitem(VAR_ITEM_ID, 1)
     givemon(SPECIES_LITWICK, 5, ITEM_NONE, VAR_ITEM_ID)
     call(GiveMon_Script)
@@ -281,6 +280,7 @@ text LitwickGetsInsideBall{
 script GiveMon_Script{
     bufferspeciesname(STR_VAR_1, VAR_TEMP_TRANSFERRED_SPECIES)
     bufferspeciesname(STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES)
+    playfanfare(MUS_OBTAIN_ITEM)
     message("{PLAYER} received the {STR_VAR_2}!")
     waitmessage
     waitfanfare
@@ -293,7 +293,7 @@ script GiveMon_Script{
         call(Common_EventScript_NameReceivedPartyMon)
         return
     }
-    if(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+    elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
         msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
 	    if(var(VAR_RESULT) == FALSE){
             call(Common_EventScript_TransferredToPC)
@@ -302,5 +302,8 @@ script GiveMon_Script{
         call(Common_EventScript_NameReceivedBoxMon)
         call(Common_EventScript_TransferredToPC)
         return
+    }
+    else{
+        goto(Common_EventScript_NoMoreRoomForPokemon)
     }
 }

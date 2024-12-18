@@ -2704,7 +2704,7 @@
     {
       "id": "LAYOUT_ROUTE119_WEATHER_INSTITUTE_1F",
       "name": "Route119_WeatherInstitute_1F_Layout",
-      "width": 20,
+      "width": 16,
       "height": 13,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_Lab",
@@ -2714,10 +2714,10 @@
     {
       "id": "LAYOUT_ROUTE119_WEATHER_INSTITUTE_2F",
       "name": "Route119_WeatherInstitute_2F_Layout",
-      "width": 20,
+      "width": 16,
       "height": 11,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Lab",
+      "secondary_tileset": "gTileset_Lab2",
       "border_filepath": "data/layouts/Route119_WeatherInstitute_2F/border.bin",
       "blockdata_filepath": "data/layouts/Route119_WeatherInstitute_2F/map.bin"
     },
@@ -7120,6 +7120,46 @@
       "secondary_tileset": "gTileset_PokeBallFactory",
       "border_filepath": "data/layouts/Amberock_PokeballFactory_NoLights/border.bin",
       "blockdata_filepath": "data/layouts/Amberock_PokeballFactory_NoLights/map.bin"
+    },
+    {
+      "id": "LAYOUT_AMBEROCK_POKEBALL_FACTORY_B1F_NO_LIGHTS",
+      "name": "Amberock_PokeballFactory_B1F_NoLights_Layout",
+      "width": 19,
+      "height": 11,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PokeBallFactory",
+      "border_filepath": "data/layouts/Amberock_PokeballFactory_B1F_NoLights/border.bin",
+      "blockdata_filepath": "data/layouts/Amberock_PokeballFactory_B1F_NoLights/map.bin"
+    },
+    {
+      "id": "LAYOUT_AMBEROCK_POKEBALL_FACTORY_OFFICE_NO_LIGHTS",
+      "name": "Amberock_PokeballFactory_Office_NoLights_Layout",
+      "width": 18,
+      "height": 14,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PokeBallFactory",
+      "border_filepath": "data/layouts/Amberock_PokeballFactory_Office_NoLights/border.bin",
+      "blockdata_filepath": "data/layouts/Amberock_PokeballFactory_Office_NoLights/map.bin"
+    },
+    {
+      "id": "LAYOUT_AMBEROCK_TOWN_PLAYER_PIER",
+      "name": "AmberockTown_PlayerPier_Layout",
+      "width": 40,
+      "height": 21,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Amberock",
+      "border_filepath": "data/layouts/AmberockTown_PlayerPier/border.bin",
+      "blockdata_filepath": "data/layouts/AmberockTown_PlayerPier/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE16_NO_CURRENTS",
+      "name": "Route16_NoCurrents_Layout",
+      "width": 48,
+      "height": 130,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mossdeep2",
+      "border_filepath": "data/layouts/Route16_NoCurrents/border.bin",
+      "blockdata_filepath": "data/layouts/Route16_NoCurrents/map.bin"
     }
   ]
 }

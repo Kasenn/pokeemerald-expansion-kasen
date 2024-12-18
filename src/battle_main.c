@@ -374,7 +374,9 @@ const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
     [TRAINER_CLASS_PYRAMID_KING]     = { _("Pyramid king")},
     [TRAINER_CLASS_RS_PROTAG]        = { _("{PKMN} trainer")},
     [TRAINER_CLASS_TEAM_ROCKET]      = { _("Team Rocket"), 5},
+    [TRAINER_CLASS_DARKNESS_ROCKET]      = { _("Team Rocket"), 5},
     [TRAINER_CLASS_ROCKET_ADMIN]     = { _("Executive"), 10},
+    [TRAINER_CLASS_DARKNESS_ROCKET_ADMIN]     = { _("Executive"), 10},
     [TRAINER_CLASS_ELITE]            = { _("Elite trainer"), 25},
     [TRAINER_CLASS_NURSE]            = { _("Tutor"), 0},
     [TRAINER_CLASS_KASEN]            = { _("Game dev"), 25},
@@ -5481,8 +5483,10 @@ static void HandleEndTurn_BattleWon(void)
             PlayBGM(MUS_VICTORY_LEAGUE);
             break;
         case TRAINER_CLASS_TEAM_ROCKET:
+        case TRAINER_CLASS_DARKNESS_ROCKET:
         case TRAINER_CLASS_TEAM_MAGMA:
         case TRAINER_CLASS_ROCKET_ADMIN:
+        case TRAINER_CLASS_DARKNESS_ROCKET_ADMIN:
         case TRAINER_CLASS_AQUA_LEADER:
         case TRAINER_CLASS_MAGMA_ADMIN:
         case TRAINER_CLASS_MAGMA_LEADER:

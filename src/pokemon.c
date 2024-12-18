@@ -5975,8 +5975,10 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_AQUA_LEADER:
         case TRAINER_CLASS_MAGMA_LEADER:
         case TRAINER_CLASS_ROCKET_ADMIN:
+        case TRAINER_CLASS_DARKNESS_ROCKET_ADMIN:
             return MUS_VS_AQUA_MAGMA_LEADER;
         case TRAINER_CLASS_TEAM_ROCKET:
+        case TRAINER_CLASS_DARKNESS_ROCKET:
         case TRAINER_CLASS_TEAM_MAGMA:
         case TRAINER_CLASS_MAGMA_ADMIN:
             return MUS_VS_AQUA_MAGMA;
@@ -6114,7 +6116,7 @@ bool8 IsMoveHM(u16 move)
     while (sHMMoves[i] != HM_MOVES_END)
     {
         if (sHMMoves[i++] == move)
-            return FALSE;
+            return TRUE;
     }
     return FALSE;
 }
