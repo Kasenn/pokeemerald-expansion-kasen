@@ -1927,7 +1927,8 @@ static void GetOpponentIntroSpeech(void)
 #else
     if (trainerId < FRONTIER_TRAINERS_COUNT)
 #endif //FREE_BATTLE_TOWER_E_READER
-        FrontierSpeechToString(gFacilityTrainers[trainerId].speechBefore);
+        StringCopy(gStringVar4, gFacilityTrainers[trainerId].speechBefore);
+        // FrontierSpeechToString(gFacilityTrainers[trainerId].speechBefore);
     else if (trainerId < TRAINER_RECORD_MIXING_APPRENTICE)
         FrontierSpeechToString(gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].greeting);
     else

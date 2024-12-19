@@ -23,6 +23,7 @@
 #include "constants/moves.h"
 #include "constants/party_menu.h"
 #include "constants/battle_pike.h"
+#include "string_util.h"
 
 struct PikeRoomNPC
 {
@@ -1464,12 +1465,14 @@ static void BufferTrainerIntro(void)
     if (gSpecialVar_0x8005 == 0)
     {
         if (gTrainerBattleOpponent_A < FRONTIER_TRAINERS_COUNT)
-            FrontierSpeechToString(gFacilityTrainers[gTrainerBattleOpponent_A].speechBefore);
+            StringCopy(gStringVar4, gFacilityTrainers[gTrainerBattleOpponent_A].speechBefore);
+            // FrontierSpeechToString(gFacilityTrainers[gTrainerBattleOpponent_A].speechBefore);
     }
     else if (gSpecialVar_0x8005 == 1)
     {
         if (gTrainerBattleOpponent_B < FRONTIER_TRAINERS_COUNT)
-            FrontierSpeechToString(gFacilityTrainers[gTrainerBattleOpponent_B].speechBefore);
+            StringCopy(gStringVar4, gFacilityTrainers[gTrainerBattleOpponent_B].speechBefore);
+            // FrontierSpeechToString(gFacilityTrainers[gTrainerBattleOpponent_B].speechBefore);
     }
 }
 

@@ -14,6 +14,7 @@
 #include "constants/moves.h"
 #include "constants/items.h"
 #include "constants/trainer_hill.h"
+#include "string_util.h"
 
 // Save data using TryWriteSpecialSaveSector is allowed to exceed SECTOR_DATA_SIZE (up to the counter field)
 STATIC_ASSERT(sizeof(struct TrainerHillChallenge) <= SECTOR_COUNTER_OFFSET, TrainerHillChallengeFreeSpace);
@@ -55,10 +56,10 @@ static const struct TrainerHillTrainer sTrainerHillTrainerTemplates_JP[] = {
         .name = __("マキエ$$$$$   "),
         .facilityClass = FACILITY_CLASS_HEX_MANIAC,
         .unused = 0x1,
-        .speechBefore = { EC_WORD_PREPOSTEROUS, EC_WORD_CASE, EC_WORD_THERE, EC_WORD_TO_HER, EC_WORD_CHALLENGE, EC_WORD_JOKING },
-        .speechWin = { EC_WORD_HERS, EC_WORD_TRUMP_CARD, EC_MOVE2(SECRET_POWER), EC_WORD_USING, EC_WORD_WON, EC_WORD_EXCL_EXCL },
-        .speechLose = { EC_WORD_TO_HER, EC_WORD_WIN, EC_WORD_JOKING, EC_WORD_HIGHS, EC_WORD_SCARY, EC_WORD_ELLIPSIS_EXCL },
-        .speechAfter = { EC_WORD_IGNORANT, EC_WORD_SO, EC_WORD_TODAY, EC_WORD_NIGHTTIME, EC_WORD_YOU_RE, EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS },
+        .speechBefore = COMPOUND_STRING(""),
+        .speechWin = COMPOUND_STRING(""),
+        .speechLose = COMPOUND_STRING(""),
+        .speechAfter = COMPOUND_STRING(""),
         .mons = {
             [0] = DUMMY_HILL_MON,
             [1] = DUMMY_HILL_MON,
@@ -135,10 +136,10 @@ static const struct TrainerHillTrainer sTrainerHillTrainerTemplates_JP[] = {
         .name = __("ハルヒト$$$$   "),
         .facilityClass = FACILITY_CLASS_CAMPER,
         .unused = 0x1,
-        .speechBefore = { EC_MOVE2(BOUNCE), EC_WORD_AS_MUCH_AS, EC_EMPTY_WORD, EC_WORD_THEY_RE, EC_WORD_STRONG, EC_WORD_EXCL },
-        .speechWin = { EC_MOVE(FLY), EC_WORD_AS_MUCH_AS, EC_EMPTY_WORD, EC_WORD_THEY_RE, EC_WORD_HAPPY, EC_WORD_EXCL },
-        .speechLose = { EC_MOVE2(MINIMIZE), EC_WORD_AS_MUCH_AS, EC_EMPTY_WORD, EC_WORD_THEY_RE, EC_WORD_SAD, EC_WORD_EXCL },
-        .speechAfter = { EC_MOVE(BITE), EC_WORD_AS_MUCH_AS, EC_EMPTY_WORD, EC_WORD_THEY_RE, EC_WORD_ANGRY, EC_WORD_EXCL },
+        .speechBefore = COMPOUND_STRING(""),
+        .speechWin = COMPOUND_STRING(""),
+        .speechLose = COMPOUND_STRING(""),
+        .speechAfter = COMPOUND_STRING(""),
         .mons = {
             [0] = DUMMY_HILL_MON,
             [1] = DUMMY_HILL_MON,
@@ -215,10 +216,10 @@ static const struct TrainerHillTrainer sTrainerHillTrainerTemplates_JP[] = {
         .name = __("メイコ$$$$$   "),
         .facilityClass = FACILITY_CLASS_SCHOOL_KID_F,
         .unused = 0x1,
-        .speechBefore = { EC_WORD_SHINE, EC_WORD_POKEMON, EC_WORD_RELEASE, EC_WORD_WAS, EC_MOVE2(FRUSTRATION), EC_WORD_WITHOUT },
-        .speechWin = { EC_WORD_SHINE, EC_WORD_POKEMON, EC_WORD_TO_HER, EC_MOVE2(PRESENT), EC_WORD_KNOWS, EC_WORD_WITHOUT },
-        .speechLose = { EC_WORD_THAT, EC_WORD_ABOVE, EC_WORD_LOST, EC_WORD_STORES, EC_WORD_JOKING, EC_WORD_ELLIPSIS_ELLIPSIS_ELLIPSIS },
-        .speechAfter = { EC_WORD_ENTERTAINING, EC_WORD_NONE, EC_WORD_HEY_QUES, EC_WORD_ALMOST, EC_WORD_EXCL, EC_EMPTY_WORD },
+        .speechBefore = COMPOUND_STRING(""),
+        .speechWin = COMPOUND_STRING(""),
+        .speechLose = COMPOUND_STRING(""),
+        .speechAfter = COMPOUND_STRING(""),
         .mons = {
             [0] = DUMMY_HILL_MON,
             [1] = DUMMY_HILL_MON,
@@ -295,10 +296,10 @@ static const struct TrainerHillTrainer sTrainerHillTrainerTemplates_JP[] = {
         .name = __("ピエール$$$$   "),
         .facilityClass = FACILITY_CLASS_GENTLEMAN,
         .unused = 0x1,
-        .speechBefore = { EC_WORD_SHE_WAS, EC_WORD_NO_1, EC_WORD_STRONG, EC_WORD_UNCLE, EC_WORD_THERE, EC_WORD_EXCL },
-        .speechWin = { EC_WORD_HAHAHA, EC_WORD_TEACHER, EC_WORD_BECOMES, EC_WORD_GIVE, EC_WORD_IS_IT_QUES, EC_EMPTY_WORD },
-        .speechLose = { EC_WORD_OUTSIDE, EC_WORD_UNCLE, EC_WORD_SURPRISE, EC_WORD_THESE, EC_WORD_HEY_QUES, EC_WORD_ELLIPSIS_EXCL },
-        .speechAfter = { EC_WORD_HE_S, EC_WORD_NO_1, EC_WORD_STRONG, EC_WORD_CHILDREN, EC_WORD_CAN_T, EC_WORD_EXCL_EXCL },
+        .speechBefore = COMPOUND_STRING(""),
+        .speechWin = COMPOUND_STRING(""),
+        .speechLose = COMPOUND_STRING(""),
+        .speechAfter = COMPOUND_STRING(""),
         .mons = {
             [0] = DUMMY_HILL_MON,
             [1] = DUMMY_HILL_MON,

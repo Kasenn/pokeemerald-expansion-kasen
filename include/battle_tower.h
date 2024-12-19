@@ -20,9 +20,12 @@ struct BattleFrontierTrainer
     u8 facilityClass;
     u8 filler1[3];
     u8 trainerName[PLAYER_NAME_LENGTH + 1];
-    u16 speechBefore[EASY_CHAT_BATTLE_WORDS_COUNT];
-    u16 speechWin[EASY_CHAT_BATTLE_WORDS_COUNT];
-    u16 speechLose[EASY_CHAT_BATTLE_WORDS_COUNT];
+    const u8 *speechBefore;
+    const u8 *speechWin;
+    const u8 *speechLose;
+    // u16 speechBefore[EASY_CHAT_BATTLE_WORDS_COUNT];
+    // u16 speechWin[EASY_CHAT_BATTLE_WORDS_COUNT];
+    // u16 speechLose[EASY_CHAT_BATTLE_WORDS_COUNT];
     const u16 *monSet;
 };
 
