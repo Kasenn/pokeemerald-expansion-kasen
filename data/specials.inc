@@ -204,6 +204,7 @@ gSpecials::
 	def_special GetSelectedMonNicknameAndSpecies
 	def_special StoreSelectedPokemonInDaycare
 	def_special SeparateZygarde
+	def_special ConvertZygarde
 	def_special ChooseSendDaycareMon
 	def_special ShowDaycareLevelMenu
 	def_special GetNumLevelsGainedFromDaycare

@@ -302,6 +302,25 @@ void SeparateZygarde(void)
     DebugPrintfLevel(MGBA_LOG_WARN, "player follower after compaction is %d", gSaveBlock3Ptr->followerIndex);
 }
 
+void ConvertZygarde(void)
+{
+    struct Pokemon *mon = &gPlayerParty[gSpecialVar_0x8004];
+    // u32 targetSpecies = GetFormChangeTargetSpecies(mon, FORM_CHANGE_ITEM_USE_MULTICHOICE, gSpecialVar_ItemId);
+
+    if(gSpecialVar_0x8005 == SPECIES_ZYGARDE_10)
+    {
+        u16 species = SPECIES_ZYGARDE_50;
+        SetMonData(mon, MON_DATA_SPECIES, &species);
+        CalculateMonStats(mon);
+    }
+    else{
+        u16 species = SPECIES_ZYGARDE_10;
+        SetMonData(mon, MON_DATA_SPECIES, &species);
+        CalculateMonStats(mon);
+    }
+}
+
+
 // Shifts the second daycare Pokémon slot into the first slot.
 static void ShiftDaycareSlots(struct DayCare *daycare)
 {

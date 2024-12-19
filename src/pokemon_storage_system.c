@@ -6582,6 +6582,24 @@ static void ReleaseMon(void)
 {
     u8 boxId;
     u16 item = ITEM_NONE;
+    
+    u16 species = GetMonData(&gPlayerParty[sCursorPosition], MON_DATA_SPECIES);
+
+    if(species == SPECIES_ZYGARDE_10
+    || species == SPECIES_ZYGARDE_10_AURA_BREAK
+    || species == SPECIES_ZYGARDE_10_POWER_CONSTRUCT)
+    {
+        FlagClear(FLAG_ZYGARDE10_ASSEMBLED);
+        VarSet(VAR_ZYGARDE_CELLS, (VarGet(VAR_ZYGARDE_CELLS) + 10));
+        VarSet(VAR_ZYGARDE_CORES, (VarGet(VAR_ZYGARDE_CORES) + 1));
+    }
+    if(species == SPECIES_ZYGARDE_50
+    || species == SPECIES_ZYGARDE_50_POWER_CONSTRUCT)
+    {
+        FlagClear(FLAG_ZYGARDE50_ASSEMBLED);
+        VarSet(VAR_ZYGARDE_CELLS, (VarGet(VAR_ZYGARDE_CELLS) + 50));
+        VarSet(VAR_ZYGARDE_CORES, (VarGet(VAR_ZYGARDE_CORES) + 3));
+    }
 
     DestroyReleaseMonIcon();
     if (sIsMonBeingMoved)

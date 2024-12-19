@@ -49,19 +49,19 @@ script ZygardeCubeEvent{
 }
 
 text CanIHaveThePapers{
-    "(WIP)"
+    "(WIP)gimme papers"
 }
 text PlayerHandsPapersToScientist{
-    "(WIP)"
+    "(WIP)player hands papers"
 }
 text ScientistDireNews{
-    "(WIP)"
+    "(WIP)got some dire news"
 }
 text TakeZygardeCube{
-    "(WIP)"
+    "(WIP)take this cube"
 }
 text ExplainZygardeCube{
-    "(WIP)"
+    "(WIP)this is what it does"
 }
 movement LabScientistMove{
     walk_down * 3
@@ -96,10 +96,10 @@ text LegendaryInstitute2F_Woman_Text{
     "(WIP)"
 }
 text TenZygardeCreated{
-    "(WIP)"
+    "(WIP)you've created 10 zygarde"
 }
 text FiftyZygardeCreated{
-    "(WIP)"
+    "(WIP)you've created 50"
 }
 script LegendaryInstitute2F_MainScientist{
     if(var(VAR_ZYGARDE_PROGRESS) == 1){
@@ -174,19 +174,19 @@ script ExplainFeatures_Goodbye{
     release
 }
 text WhichFeatureToExplain{
-    "(WIP)"
+    "(WIP)which feature explain"
 }
 text Explain_Assembly_Text{
-    "(WIP)"
+    "(WIP)Explain_Assembly_Text"
 }
 text Explain_Separation_Text{
-    "(WIP)"
+    "(WIP)Explain_Separation_Text"
 }
 text Explain_CoreMoves_Text{
-    "(WIP)"
+    "(WIP)Explain_CoreMoves_Text"
 }
 text ExplainFeatures_Goodbye_Text{
-    "(WIP)"
+    "(WIP)ExplainFeatures_Goodbye_Text"
 }
 
 script LegendaryInstitute2F_ReassemblyUnit{
@@ -204,13 +204,13 @@ script LegendaryInstitute2F_ReassemblyUnit{
 }
 
 text HaveEnoughCellsAndCores{
-    "(WIP)"
+    "(WIP)HaveEnoughCellsAndCores"
 }
 text NotEnoughCellsAndCores{
-    "(WIP)"
+    "(WIP)NotEnoughCellsAndCores"
 }
 text ReassemblyUnitInert{
-    "(WIP)"
+    "(WIP)ReassemblyUnitInert"
 }
 
 script ReassemblyUnit_MainScript{
@@ -231,19 +231,13 @@ script ReassemblyUnit_MainScript{
     }
 }
 text ReassemblyUnitActivated{
-    "(WIP)"
+    "(WIP)ReassemblyUnitActivated"
 }
 text DoWhatWithReassemblyUnit{
-    "(WIP)"
+    "(WIP)DoWhatWithReassemblyUnit"
 }
 
 script ReassemblyUnit_Assembly{
-    if(flag(FLAG_ZYGARDE10_ASSEMBLED)
-    || flag(FLAG_ZYGARDE50_ASSEMBLED)){
-        msgbox(OnlyOneZygarde)
-        goto(ReassemblyUnit_MainScript)
-    }
-    else{
         message(AssembleWhichZygarde)
         waitmessage
         dynmultichoice(23, 0, FALSE, 4, 0, 0, "10% Forme", "50% Forme", "Cancel")
@@ -257,9 +251,40 @@ script ReassemblyUnit_Assembly{
         case MULTI_B_PRESSED:
             goto(ReassemblyUnit_MainScript)
         }
-    }
+    // }
 }
 script ReassemblyUnit_Assemble10Forme{
+    if(flag(FLAG_ZYGARDE10_ASSEMBLED)){
+        msgbox(OnlyOneZygarde)
+        goto(ReassemblyUnit_MainScript)
+    }
+    if(flag(FLAG_ZYGARDE50_ASSEMBLED)){
+        checkpartymon(SPECIES_ZYGARDE_50, 0)
+        if(var(VAR_RESULT) == FALSE){
+            msgbox(NoZygardeDetectedInParty_Assembly)
+            goto(ReassemblyUnit_MainScript)
+        }
+        msgbox(ChooseZygardeForAssembly)
+	    special(ChoosePartyMon)
+	    waitstate
+        if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN){
+            msgbox(AssemblyAborted)
+            goto(ReassemblyUnit_MainScript)
+        }
+	    specialvar(VAR_0x8005, GetSelectedMonNicknameAndSpecies)
+        if(var(VAR_0x8005) != SPECIES_ZYGARDE_50){
+            msgbox(SpeciesNotZygarde)
+            goto(ReassemblyUnit_MainScript)
+        }
+        addvar(VAR_ZYGARDE_CELLS, 40)
+        addvar(VAR_ZYGARDE_CORES, 2)
+        clearflag(FLAG_ZYGARDE50_ASSEMBLED)
+        setflag(FLAG_ZYGARDE10_ASSEMBLED)
+        special(ConvertZygarde) //StoreSelectedPokemonInDaycare
+        callnative(UpdateFollowingPokemon)
+        msgbox(Assembled50to10)
+        goto(ReassemblyUnit_MainScript)
+    }
     msgbox(AttemptingToAssemble10Forme)
     setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ZYGARDE_10)
     givemon(SPECIES_ZYGARDE_10, 40, ITEM_NONE, ITEM_STRANGE_BALL, NATURE_HARDY, 0, 0, 0, 0, 0, 0, 0, 0, 15, 15, 15, 15, 15, 15, MOVE_DIG, MOVE_BIND, MOVE_LANDS_WRATH, MOVE_SANDSTORM, FALSE, 0, 0)
@@ -273,6 +298,44 @@ script ReassemblyUnit_Assemble10Forme{
     release
 }
 script ReassemblyUnit_Assemble50Forme{
+    if(flag(FLAG_ZYGARDE50_ASSEMBLED)){
+        msgbox(OnlyOneZygarde)
+        goto(ReassemblyUnit_MainScript)
+    }
+    if(flag(FLAG_ZYGARDE10_ASSEMBLED)){
+        if(var(VAR_ZYGARDE_CELLS) < 40
+        && var(VAR_ZYGARDE_CORES) < 2){
+            buffernumberstring(STR_VAR_1, VAR_ZYGARDE_CELLS)
+            buffernumberstring(STR_VAR_2, VAR_ZYGARDE_CORES)
+            msgbox(NotEnoughCellsAndCoresInCube10to50)
+            goto(ReassemblyUnit_MainScript)
+        }
+        checkpartymon(SPECIES_ZYGARDE_10, 0)
+        if(var(VAR_RESULT) == FALSE){
+            msgbox(NoZygardeDetectedInParty_Assembly)
+            goto(ReassemblyUnit_MainScript)
+        }
+        msgbox(ChooseZygardeForAssembly)
+	    special(ChoosePartyMon)
+	    waitstate
+        if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN){
+            msgbox(AssemblyAborted)
+            goto(ReassemblyUnit_MainScript)
+        }
+	    specialvar(VAR_0x8005, GetSelectedMonNicknameAndSpecies)
+        if(var(VAR_0x8005) != SPECIES_ZYGARDE_10){
+            msgbox(SpeciesNotZygarde)
+            goto(ReassemblyUnit_MainScript)
+        }
+        subvar(VAR_ZYGARDE_CELLS, 40)
+        subvar(VAR_ZYGARDE_CORES, 2)
+        clearflag(FLAG_ZYGARDE10_ASSEMBLED)
+        setflag(FLAG_ZYGARDE50_ASSEMBLED)
+        special(ConvertZygarde) //StoreSelectedPokemonInDaycare
+        callnative(UpdateFollowingPokemon)
+        msgbox(Assembled10to50)
+        goto(ReassemblyUnit_MainScript)
+    }
     if(var(VAR_ZYGARDE_CELLS) < 50
     && var(VAR_ZYGARDE_CORES) < 3){
         buffernumberstring(STR_VAR_1, VAR_ZYGARDE_CELLS)
@@ -313,7 +376,6 @@ script ReassemblyUnit_Separation{
         goto(ReassemblyUnit_MainScript)
     }
 	msgbox(ChooseZygardeForSeparation)
-	fadescreen(FADE_TO_BLACK)
 	special(ChoosePartyMon)
 	waitstate
     if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN){
@@ -326,7 +388,6 @@ script ReassemblyUnit_Separation{
         goto(ReassemblyUnit_MainScript)
     }
 	specialvar(VAR_0x8005, GetSelectedMonNicknameAndSpecies)
-    msgbox(ZygardeRevertedBackToCellsAndCores)
     if(var(VAR_0x8005) == SPECIES_ZYGARDE_10){
         addvar(VAR_ZYGARDE_CELLS, 10)
         addvar(VAR_ZYGARDE_CORES, 1)
@@ -337,68 +398,58 @@ script ReassemblyUnit_Separation{
         addvar(VAR_ZYGARDE_CORES, 3)
         clearflag(FLAG_ZYGARDE50_ASSEMBLED)
     }
+    else{
+        msgbox(SpeciesNotZygarde)
+        goto(ReassemblyUnit_MainScript)
+    }
     special(SeparateZygarde) //StoreSelectedPokemonInDaycare
     callnative(UpdateFollowingPokemon)
+    msgbox(ZygardeRevertedBackToCellsAndCores)
     goto(ReassemblyUnit_MainScript)
 }
 script ReassemblyUnit_CoreMoves{
     if(flag(FLAG_ZYGARDE_CORE_1)){
-        dynmultipush("Extreme Speed", VAR_TEMP_1)
-        addvar(VAR_TEMP_1, 1)
+        dynmultipush("Extreme Speed", 0)
     }
     if(flag(FLAG_ZYGARDE_CORE_2)){
-        dynmultipush("Dragon Dance", VAR_TEMP_1)
-        addvar(VAR_TEMP_1, 1)
+        dynmultipush("Dragon Dance", 1)
     }
     if(flag(FLAG_ZYGARDE_CORE_3)){
-        dynmultipush("Core Enforcer", VAR_TEMP_1)
-        addvar(VAR_TEMP_1, 1)
+        dynmultipush("Core Enforcer", 2)
     }
     if(flag(FLAG_ZYGARDE_CORE_4)){
-        dynmultipush("Thousand Arrows", VAR_TEMP_1)
-        addvar(VAR_TEMP_1, 1)
+        dynmultipush("Thousand Arrows", 3)
     }
     if(flag(FLAG_ZYGARDE_CORE_5)){
-        dynmultipush("Thousand Waves", VAR_TEMP_1)
-        addvar(VAR_TEMP_1, 1)
+        dynmultipush("Thousand Waves", 4)
     }
-    dynmultipush("Cancel", VAR_TEMP_1)
+    dynmultipush("Cancel", 5)
     message(TeachZygardeWhichMove)
     waitmessage
-    dynmultistack(23, 0, FALSE, VAR_TEMP_1, FALSE, 0, 0)
+    dynmultistack(23, 0, FALSE, 6, FALSE, 0, 0)
     switch(var(VAR_RESULT)){
         case 0:
-            if(flag(FLAG_ZYGARDE_CORE_1)){setvar(VAR_0x8005, MOVE_EXTREME_SPEED)}
-            elif(flag(FLAG_ZYGARDE_CORE_2)){setvar(VAR_0x8005, MOVE_DRAGON_DANCE)}
-            elif(flag(FLAG_ZYGARDE_CORE_3)){setvar(VAR_0x8005, MOVE_CORE_ENFORCER)}
-            elif(flag(FLAG_ZYGARDE_CORE_4)){setvar(VAR_0x8005, MOVE_THOUSAND_ARROWS)}
-            elif(flag(FLAG_ZYGARDE_CORE_5)){setvar(VAR_0x8005, MOVE_THOUSAND_WAVES)}
+            setvar(VAR_0x8005, MOVE_EXTREME_SPEED_ZYG)
             goto(ZygardeTeachCoreMove)
         case 1:
-            if(flag(FLAG_ZYGARDE_CORE_2)){setvar(VAR_0x8005, MOVE_DRAGON_DANCE)}
-            elif(flag(FLAG_ZYGARDE_CORE_3)){setvar(VAR_0x8005, MOVE_CORE_ENFORCER)}
-            elif(flag(FLAG_ZYGARDE_CORE_4)){setvar(VAR_0x8005, MOVE_THOUSAND_ARROWS)}
-            elif(flag(FLAG_ZYGARDE_CORE_5)){setvar(VAR_0x8005, MOVE_THOUSAND_WAVES)}
+            setvar(VAR_0x8005, MOVE_DRAGON_DANCE_ZYG)
             goto(ZygardeTeachCoreMove)
         case 2:
-            if(flag(FLAG_ZYGARDE_CORE_3)){setvar(VAR_0x8005, MOVE_CORE_ENFORCER)}
-            elif(flag(FLAG_ZYGARDE_CORE_4)){setvar(VAR_0x8005, MOVE_THOUSAND_ARROWS)}
-            elif(flag(FLAG_ZYGARDE_CORE_5)){setvar(VAR_0x8005, MOVE_THOUSAND_WAVES)}
+            setvar(VAR_0x8005, MOVE_CORE_ENFORCER)
             goto(ZygardeTeachCoreMove)
         case 3:
-            if(flag(FLAG_ZYGARDE_CORE_4)){setvar(VAR_0x8005, MOVE_THOUSAND_ARROWS)}
-            elif(flag(FLAG_ZYGARDE_CORE_5)){setvar(VAR_0x8005, MOVE_THOUSAND_WAVES)}
+            setvar(VAR_0x8005, MOVE_THOUSAND_ARROWS)
             goto(ZygardeTeachCoreMove)
         case 4:
-            if(flag(FLAG_ZYGARDE_CORE_5)){setvar(VAR_0x8005, MOVE_THOUSAND_WAVES)}
+            setvar(VAR_0x8005, MOVE_THOUSAND_WAVES)
             goto(ZygardeTeachCoreMove)
         case 5:
         case MULTI_B_PRESSED:
             goto(ReassemblyUnit_MainScript)
     }
 }
-
 script ZygardeTeachCoreMove{
+    msgbox(SelectZygardeToTeachMove)
     call(MoveTutor_EventScript_OpenPartyMenu)
     if(var(VAR_RESULT) == 0){
         msgbox(ZygardeMoveAborted)
@@ -412,47 +463,72 @@ script ReassemblyUnit_TurnOff{
     release
 }
 text ZygardeMoveAborted{
-    "(WIP)"
+    "(WIP)ZygardeMoveAborted"
 }
 text TeachZygardeWhichMove{
-    "(WIP)"
+    "(WIP)TeachZygardeWhichMove"
 }
 text OnlyOneZygarde{
-    "(WIP)"
+    "(WIP)OnlyOneZygarde"
 }
 text AssembleWhichZygarde{
-    "(WIP)"
+    "(WIP)AssembleWhichZygarde"
 }
 text AttemptingToAssemble10Forme{
-    "(WIP)"
+    "(WIP)AttemptingToAssemble10Forme"
 }
 text AttemptingToAssemble50Forme{
-    "(WIP)"
+    "(WIP)AttemptingToAssemble50Forme"
 }
 text NotEnoughCellsAndCoresInCube{
-    "(WIP)"
+    "(WIP)NotEnoughCellsAndCoresInCube"
 }
 text NoZygardeCurrentlyAssembled{
-    "(WIP)"
+    "(WIP)NoZygardeCurrentlyAssembled"
 }
 text NoZygardeDetectedInParty{
-    "(WIP)"
+    "(WIP)NoZygardeDetectedInParty"
 }
 text ZygardeOnlyMonInParty{
-    "(WIP)"
+    "(WIP)ZygardeOnlyMonInParty"
 }
 text ChooseZygardeForSeparation{
-    "(WIP)"
+    "(WIP)ChooseZygardeForSeparation"
 }
 text SeparationAborted{
-    "(WIP)"
+    "(WIP)SeparationAborted"
 }
 text ZygardeOnlyAliveMon{
-    "(WIP)"
+    "(WIP)ZygardeOnlyAliveMon"
 }
 text ZygardeRevertedBackToCellsAndCores{
-    "(WIP)"
+    "(WIP)ZygardeRevertedBackToCellsAndCores"
 }
+text NoZygardeDetectedInParty_Assembly{
+    "(WIP)NoZygardeDetectedInParty_Assembly"
+}
+text ChooseZygardeForAssembly{
+    "(WIP)ChooseZygardeForAssembly"
+}
+text AssemblyAborted{
+    "(WIP)AssemblyAborted"
+}
+text Assembled50to10{
+    "(WIP)Assembled50to10"
+}
+text SpeciesNotZygarde{
+    "(WIP)SpeciesNotZygarde"
+}
+text NotEnoughCellsAndCoresInCube10to50{
+    "(WIP)NotEnoughCellsAndCoresInCube10to50"
+}
+text Assembled10to50{
+    "(WIP)Assembled10to50"
+}
+text SelectZygardeToTeachMove{
+    "(WIP)SelectZygardeToTeachMove"
+}
+
 
 script ReleaseZygardeCellsCores{
     clearflag(FLAG_ZYGARDE_CELL_1)
@@ -557,3 +633,55 @@ script ReleaseZygardeCellsCores{
     clearflag(FLAG_ZYGARDE_CORE_5)
     return
 }
+
+// script ReassemblyUnit_CoreMoves{
+//     if(flag(FLAG_ZYGARDE_CORE_1)){
+//         dynmultipush("Extreme Speed", VAR_TEMP_1)
+//         addvar(VAR_TEMP_1, 1)}
+//     if(flag(FLAG_ZYGARDE_CORE_2)){
+//         dynmultipush("Dragon Dance", VAR_TEMP_1)
+//         addvar(VAR_TEMP_1, 1)}
+//     if(flag(FLAG_ZYGARDE_CORE_3)){
+//         dynmultipush("Core Enforcer", VAR_TEMP_1)
+//         addvar(VAR_TEMP_1, 1)}
+//     if(flag(FLAG_ZYGARDE_CORE_4)){
+//         dynmultipush("Thousand Arrows", VAR_TEMP_1)
+//         addvar(VAR_TEMP_1, 1)}
+//     if(flag(FLAG_ZYGARDE_CORE_5)){
+//         dynmultipush("Thousand Waves", VAR_TEMP_1)
+//         addvar(VAR_TEMP_1, 1)}
+//     dynmultipush("Cancel", VAR_TEMP_1)
+//     message(TeachZygardeWhichMove)
+//     waitmessage
+//     dynmultistack(23, 0, FALSE, VAR_TEMP_1, FALSE, 0, 0)
+//     switch(var(VAR_RESULT)){
+//         case 0:
+//             if(flag(FLAG_ZYGARDE_CORE_1)){setvar(VAR_0x8005, MOVE_EXTREME_SPEED_ZYG)}
+//             elif(flag(FLAG_ZYGARDE_CORE_2)){setvar(VAR_0x8005, MOVE_DRAGON_DANCE_ZYG)}
+//             elif(flag(FLAG_ZYGARDE_CORE_3)){setvar(VAR_0x8005, MOVE_CORE_ENFORCER)}
+//             elif(flag(FLAG_ZYGARDE_CORE_4)){setvar(VAR_0x8005, MOVE_THOUSAND_ARROWS)}
+//             elif(flag(FLAG_ZYGARDE_CORE_5)){setvar(VAR_0x8005, MOVE_THOUSAND_WAVES)}
+//             goto(ZygardeTeachCoreMove)
+//         case 1:
+//             if(flag(FLAG_ZYGARDE_CORE_2)){setvar(VAR_0x8005, MOVE_DRAGON_DANCE_ZYG)}
+//             elif(flag(FLAG_ZYGARDE_CORE_3)){setvar(VAR_0x8005, MOVE_CORE_ENFORCER)}
+//             elif(flag(FLAG_ZYGARDE_CORE_4)){setvar(VAR_0x8005, MOVE_THOUSAND_ARROWS)}
+//             elif(flag(FLAG_ZYGARDE_CORE_5)){setvar(VAR_0x8005, MOVE_THOUSAND_WAVES)}
+//             goto(ZygardeTeachCoreMove)
+//         case 2:
+//             if(flag(FLAG_ZYGARDE_CORE_3)){setvar(VAR_0x8005, MOVE_CORE_ENFORCER)}
+//             elif(flag(FLAG_ZYGARDE_CORE_4)){setvar(VAR_0x8005, MOVE_THOUSAND_ARROWS)}
+//             elif(flag(FLAG_ZYGARDE_CORE_5)){setvar(VAR_0x8005, MOVE_THOUSAND_WAVES)}
+//             goto(ZygardeTeachCoreMove)
+//         case 3:
+//             if(flag(FLAG_ZYGARDE_CORE_4)){setvar(VAR_0x8005, MOVE_THOUSAND_ARROWS)}
+//             elif(flag(FLAG_ZYGARDE_CORE_5)){setvar(VAR_0x8005, MOVE_THOUSAND_WAVES)}
+//             goto(ZygardeTeachCoreMove)
+//         case 4:
+//             if(flag(FLAG_ZYGARDE_CORE_5)){setvar(VAR_0x8005, MOVE_THOUSAND_WAVES)}
+//             goto(ZygardeTeachCoreMove)
+//         case 5:
+//         case MULTI_B_PRESSED:
+//             goto(ReassemblyUnit_MainScript)
+//     }
+// }

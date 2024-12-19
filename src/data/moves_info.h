@@ -6302,6 +6302,28 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .battleAnimScript = gBattleAnimMove_ExtremeSpeed,
     },
 
+    [MOVE_EXTREME_SPEED_ZYG] =
+    {
+        .name = COMPOUND_STRING("Extreme Speed"),
+        .description = COMPOUND_STRING(
+            "An extremely fast and\n"
+            "powerful attack."),
+        .effect = EFFECT_HIT,
+        .power = 80,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 5,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = B_UPDATED_MOVE_DATA >= GEN_5 ? 2 : 1,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .contestEffect = CONTEST_EFFECT_NEXT_APPEAL_EARLIER,
+        .contestCategory = CONTEST_CATEGORY_COOL,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .battleAnimScript = gBattleAnimMove_ExtremeSpeed,
+    },
+
     [MOVE_ANCIENT_POWER] =
     {
         .name = COMPOUND_STRING("Ancient Power"),
@@ -8923,6 +8945,33 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .contestComboMoves = {COMBO_STARTER_DRAGON_BREATH, COMBO_STARTER_DRAGON_RAGE, COMBO_STARTER_DRAGON_RUSH, COMBO_STARTER_DRAGON_TAIL},
         .battleAnimScript = gBattleAnimMove_DragonDance,
     },
+
+        [MOVE_DRAGON_DANCE_ZYG] =
+    {
+        .name = COMPOUND_STRING("Dragon Dance"),
+        .description = COMPOUND_STRING(
+            "A mystical dance that ups\n"
+            "Attack and Speed."),
+        .effect = EFFECT_DRAGON_DANCE,
+        .power = 0,
+        .type = TYPE_DRAGON,
+        .accuracy = 0,
+        .pp = 20,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .zMove = { .effect = Z_EFFECT_RESET_STATS },
+        .danceMove = TRUE,
+        .snatchAffected = TRUE,
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .contestEffect = CONTEST_EFFECT_IMPROVE_CONDITION_PREVENT_NERVOUSNESS,
+        .contestCategory = CONTEST_CATEGORY_COOL,
+        .contestComboStarterId = COMBO_STARTER_DRAGON_DANCE,
+        .contestComboMoves = {COMBO_STARTER_DRAGON_BREATH, COMBO_STARTER_DRAGON_RAGE, COMBO_STARTER_DRAGON_RUSH, COMBO_STARTER_DRAGON_TAIL},
+        .battleAnimScript = gBattleAnimMove_DragonDance,
+    },
+
 
     [MOVE_ROCK_BLAST] =
     {

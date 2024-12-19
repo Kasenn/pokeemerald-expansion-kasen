@@ -858,22 +858,50 @@ Debug_Script_4_12:
 
 
 Debug_Script_5::
-	setvar VAR_ZYGARDE_CELLS, 3
-	giveitem ITEM_ZYGARDE_CUBE
+	clearflag FLAG_ZYGARDE_CORE_1
+	clearflag FLAG_ZYGARDE_CORE_2
+	clearflag FLAG_ZYGARDE_CORE_3
+	clearflag FLAG_ZYGARDE_CORE_4
+	clearflag FLAG_ZYGARDE_CORE_5
+	setflag FLAG_ZYGARDE_CORE_1
 	release
 	return
 
 
 Debug_Script_6::
-	trainerbattle_no_intro TRAINER_DEBRA, Debug_Script_6_Text_0
+	clearflag FLAG_ZYGARDE_CORE_1
+	clearflag FLAG_ZYGARDE_CORE_2
+	clearflag FLAG_ZYGARDE_CORE_3
+	clearflag FLAG_ZYGARDE_CORE_4
+	clearflag FLAG_ZYGARDE_CORE_5
+	setflag FLAG_ZYGARDE_CORE_2
+	setflag FLAG_ZYGARDE_CORE_4
 	return
 
 
 Debug_Script_7::
+	clearflag FLAG_ZYGARDE_CORE_1
+	clearflag FLAG_ZYGARDE_CORE_2
+	clearflag FLAG_ZYGARDE_CORE_3
+	clearflag FLAG_ZYGARDE_CORE_4
+	clearflag FLAG_ZYGARDE_CORE_5
+	setflag FLAG_ZYGARDE_CORE_1
+	setflag FLAG_ZYGARDE_CORE_3
+	setflag FLAG_ZYGARDE_CORE_5
 	return
 
 
 Debug_Script_8::
+	clearflag FLAG_ZYGARDE_CORE_1
+	clearflag FLAG_ZYGARDE_CORE_2
+	clearflag FLAG_ZYGARDE_CORE_3
+	clearflag FLAG_ZYGARDE_CORE_4
+	clearflag FLAG_ZYGARDE_CORE_5
+	setflag FLAG_ZYGARDE_CORE_1
+	setflag FLAG_ZYGARDE_CORE_2
+	setflag FLAG_ZYGARDE_CORE_3
+	setflag FLAG_ZYGARDE_CORE_4
+	setflag FLAG_ZYGARDE_CORE_5
 	return
 
 
@@ -1940,9 +1968,6 @@ Debug_Script_4_Text_15:
 
 Debug_Script_4_Text_16:
 	.string "Team set to level 45.$"
-
-Debug_Script_6_Text_0:
-	.string "GG$"
 
 GainedASpecialTicket::
 	.string "Due to your victory, you have\n"

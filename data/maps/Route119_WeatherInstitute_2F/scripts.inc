@@ -268,90 +268,196 @@ ReassemblyUnit_MainScript_6:
 
 
 ReassemblyUnit_Assembly::
-	goto_if_set FLAG_ZYGARDE10_ASSEMBLED, ReassemblyUnit_Assembly_1
-	goto_if_set FLAG_ZYGARDE50_ASSEMBLED, ReassemblyUnit_Assembly_1
 	message AssembleWhichZygarde
 	waitmessage
 	dynmultichoice 23, 0, FALSE, 4, 0, 0, ReassemblyUnit_Assembly_Text_0, ReassemblyUnit_Assembly_Text_1, MainScientist_ExplainFeatures_Text_3
 	switch VAR_RESULT
-	case 0, ReassemblyUnit_Assembly_7
-	case 1, ReassemblyUnit_Assembly_8
-	case 2, ReassemblyUnit_Assembly_9
-	case MULTI_B_PRESSED, ReassemblyUnit_Assembly_10
+	case 0, ReassemblyUnit_Assembly_2
+	case 1, ReassemblyUnit_Assembly_3
+	case 2, ReassemblyUnit_Assembly_4
+	case MULTI_B_PRESSED, ReassemblyUnit_Assembly_5
 	return
 
-ReassemblyUnit_Assembly_1:
-	msgbox OnlyOneZygarde
-	goto ReassemblyUnit_MainScript
-	return
-
-ReassemblyUnit_Assembly_7:
+ReassemblyUnit_Assembly_2:
 	goto ReassemblyUnit_Assemble10Forme
 	return
 
-ReassemblyUnit_Assembly_8:
+ReassemblyUnit_Assembly_3:
 	goto ReassemblyUnit_Assemble50Forme
 	return
 
-ReassemblyUnit_Assembly_9:
+ReassemblyUnit_Assembly_4:
 	goto ReassemblyUnit_MainScript
 	return
 
-ReassemblyUnit_Assembly_10:
+ReassemblyUnit_Assembly_5:
 	goto ReassemblyUnit_MainScript
 	return
 
 
 ReassemblyUnit_Assemble10Forme::
+	goto_if_set FLAG_ZYGARDE10_ASSEMBLED, ReassemblyUnit_Assemble10Forme_2
+ReassemblyUnit_Assemble10Forme_1:
+	goto_if_set FLAG_ZYGARDE50_ASSEMBLED, ReassemblyUnit_Assemble10Forme_5
+ReassemblyUnit_Assemble10Forme_4:
 	msgbox AttemptingToAssemble10Forme
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ZYGARDE_10
 	givemon SPECIES_ZYGARDE_10, 40, ITEM_NONE, ITEM_STRANGE_BALL, NATURE_HARDY, 0, 0, 0, 0, 0, 0, 0, 0, 15, 15, 15, 15, 15, 15, MOVE_DIG, MOVE_BIND, MOVE_LANDS_WRATH, MOVE_SANDSTORM, FALSE, 0, 0
 	call GiveMon_Script
 	setflag FLAG_ZYGARDE10_ASSEMBLED
 	compare VAR_ZYGARDE_PROGRESS, 0
-	goto_if_eq ReassemblyUnit_Assemble10Forme_2
-ReassemblyUnit_Assemble10Forme_1:
+	goto_if_eq ReassemblyUnit_Assemble10Forme_8
+ReassemblyUnit_Assemble10Forme_7:
 	subvar VAR_ZYGARDE_CELLS, 10
 	subvar VAR_ZYGARDE_CORES, 1
 	release
 	return
 
 ReassemblyUnit_Assemble10Forme_2:
-	setvar VAR_ZYGARDE_PROGRESS, 1
+	msgbox OnlyOneZygarde
+	goto ReassemblyUnit_MainScript
 	goto ReassemblyUnit_Assemble10Forme_1
+
+ReassemblyUnit_Assemble10Forme_5:
+	checkpartymon SPECIES_ZYGARDE_50, 0
+	compare VAR_RESULT, FALSE
+	goto_if_eq ReassemblyUnit_Assemble10Forme_11
+ReassemblyUnit_Assemble10Forme_10:
+	msgbox ChooseZygardeForAssembly
+	special ChoosePartyMon
+	waitstate
+	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
+	goto_if_eq ReassemblyUnit_Assemble10Forme_14
+ReassemblyUnit_Assemble10Forme_13:
+	specialvar VAR_0x8005, GetSelectedMonNicknameAndSpecies
+	compare VAR_0x8005, SPECIES_ZYGARDE_50
+	goto_if_ne ReassemblyUnit_Assemble10Forme_17
+ReassemblyUnit_Assemble10Forme_16:
+	addvar VAR_ZYGARDE_CELLS, 40
+	addvar VAR_ZYGARDE_CORES, 2
+	clearflag FLAG_ZYGARDE50_ASSEMBLED
+	setflag FLAG_ZYGARDE10_ASSEMBLED
+	special ConvertZygarde
+	callnative UpdateFollowingPokemon
+	msgbox Assembled50to10
+	goto ReassemblyUnit_MainScript
+	goto ReassemblyUnit_Assemble10Forme_4
+
+ReassemblyUnit_Assemble10Forme_8:
+	setvar VAR_ZYGARDE_PROGRESS, 1
+	goto ReassemblyUnit_Assemble10Forme_7
+
+ReassemblyUnit_Assemble10Forme_11:
+	msgbox NoZygardeDetectedInParty_Assembly
+	goto ReassemblyUnit_MainScript
+	goto ReassemblyUnit_Assemble10Forme_10
+
+ReassemblyUnit_Assemble10Forme_14:
+	msgbox AssemblyAborted
+	goto ReassemblyUnit_MainScript
+	goto ReassemblyUnit_Assemble10Forme_13
+
+ReassemblyUnit_Assemble10Forme_17:
+	msgbox SpeciesNotZygarde
+	goto ReassemblyUnit_MainScript
+	goto ReassemblyUnit_Assemble10Forme_16
 
 
 ReassemblyUnit_Assemble50Forme::
-	compare VAR_ZYGARDE_CELLS, 50
-	goto_if_lt ReassemblyUnit_Assemble50Forme_3
+	goto_if_set FLAG_ZYGARDE50_ASSEMBLED, ReassemblyUnit_Assemble50Forme_2
 ReassemblyUnit_Assemble50Forme_1:
+	goto_if_set FLAG_ZYGARDE10_ASSEMBLED, ReassemblyUnit_Assemble50Forme_5
+ReassemblyUnit_Assemble50Forme_4:
+	compare VAR_ZYGARDE_CELLS, 50
+	goto_if_lt ReassemblyUnit_Assemble50Forme_9
+ReassemblyUnit_Assemble50Forme_7:
 	msgbox AttemptingToAssemble50Forme
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ZYGARDE_50
 	givemon SPECIES_ZYGARDE_50, 40, ITEM_NONE, ITEM_STRANGE_BALL, NATURE_HARDY, 0, 0, 0, 0, 0, 0, 0, 0, 15, 15, 15, 15, 15, 15, MOVE_DIG, MOVE_BIND, MOVE_LANDS_WRATH, MOVE_SANDSTORM, FALSE, 0, 0
 	call GiveMon_Script
 	compare VAR_ZYGARDE_PROGRESS, 3
-	goto_if_lt ReassemblyUnit_Assemble50Forme_7
-ReassemblyUnit_Assemble50Forme_6:
+	goto_if_lt ReassemblyUnit_Assemble50Forme_18
+ReassemblyUnit_Assemble50Forme_17:
 	setflag FLAG_ZYGARDE50_ASSEMBLED
 	subvar VAR_ZYGARDE_CELLS, 50
 	subvar VAR_ZYGARDE_CORES, 3
 	return
 
 ReassemblyUnit_Assemble50Forme_2:
+	msgbox OnlyOneZygarde
+	goto ReassemblyUnit_MainScript
+	goto ReassemblyUnit_Assemble50Forme_1
+
+ReassemblyUnit_Assemble50Forme_5:
+	compare VAR_ZYGARDE_CELLS, 40
+	goto_if_lt ReassemblyUnit_Assemble50Forme_14
+ReassemblyUnit_Assemble50Forme_12:
+	checkpartymon SPECIES_ZYGARDE_10, 0
+	compare VAR_RESULT, FALSE
+	goto_if_eq ReassemblyUnit_Assemble50Forme_21
+ReassemblyUnit_Assemble50Forme_20:
+	msgbox ChooseZygardeForAssembly
+	special ChoosePartyMon
+	waitstate
+	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
+	goto_if_eq ReassemblyUnit_Assemble50Forme_24
+ReassemblyUnit_Assemble50Forme_23:
+	specialvar VAR_0x8005, GetSelectedMonNicknameAndSpecies
+	compare VAR_0x8005, SPECIES_ZYGARDE_10
+	goto_if_ne ReassemblyUnit_Assemble50Forme_27
+ReassemblyUnit_Assemble50Forme_26:
+	subvar VAR_ZYGARDE_CELLS, 40
+	subvar VAR_ZYGARDE_CORES, 2
+	clearflag FLAG_ZYGARDE10_ASSEMBLED
+	setflag FLAG_ZYGARDE50_ASSEMBLED
+	special ConvertZygarde
+	callnative UpdateFollowingPokemon
+	msgbox Assembled10to50
+	goto ReassemblyUnit_MainScript
+	goto ReassemblyUnit_Assemble50Forme_4
+
+ReassemblyUnit_Assemble50Forme_8:
 	buffernumberstring STR_VAR_1, VAR_ZYGARDE_CELLS
 	buffernumberstring STR_VAR_2, VAR_ZYGARDE_CORES
 	msgbox NotEnoughCellsAndCoresInCube
 	goto ReassemblyUnit_MainScript
-	goto ReassemblyUnit_Assemble50Forme_1
+	goto ReassemblyUnit_Assemble50Forme_7
 
-ReassemblyUnit_Assemble50Forme_3:
+ReassemblyUnit_Assemble50Forme_9:
 	compare VAR_ZYGARDE_CORES, 3
-	goto_if_lt ReassemblyUnit_Assemble50Forme_2
-	goto ReassemblyUnit_Assemble50Forme_1
+	goto_if_lt ReassemblyUnit_Assemble50Forme_8
+	goto ReassemblyUnit_Assemble50Forme_7
 
-ReassemblyUnit_Assemble50Forme_7:
+ReassemblyUnit_Assemble50Forme_13:
+	buffernumberstring STR_VAR_1, VAR_ZYGARDE_CELLS
+	buffernumberstring STR_VAR_2, VAR_ZYGARDE_CORES
+	msgbox NotEnoughCellsAndCoresInCube10to50
+	goto ReassemblyUnit_MainScript
+	goto ReassemblyUnit_Assemble50Forme_12
+
+ReassemblyUnit_Assemble50Forme_14:
+	compare VAR_ZYGARDE_CORES, 2
+	goto_if_lt ReassemblyUnit_Assemble50Forme_13
+	goto ReassemblyUnit_Assemble50Forme_12
+
+ReassemblyUnit_Assemble50Forme_18:
 	setvar VAR_ZYGARDE_PROGRESS, 3
-	goto ReassemblyUnit_Assemble50Forme_6
+	goto ReassemblyUnit_Assemble50Forme_17
+
+ReassemblyUnit_Assemble50Forme_21:
+	msgbox NoZygardeDetectedInParty_Assembly
+	goto ReassemblyUnit_MainScript
+	goto ReassemblyUnit_Assemble50Forme_20
+
+ReassemblyUnit_Assemble50Forme_24:
+	msgbox AssemblyAborted
+	goto ReassemblyUnit_MainScript
+	goto ReassemblyUnit_Assemble50Forme_23
+
+ReassemblyUnit_Assemble50Forme_27:
+	msgbox SpeciesNotZygarde
+	goto ReassemblyUnit_MainScript
+	goto ReassemblyUnit_Assemble50Forme_26
 
 
 ReassemblyUnit_Separation::
@@ -366,7 +472,6 @@ ReassemblyUnit_Separation_6:
 	goto_if_eq ReassemblyUnit_Separation_10
 ReassemblyUnit_Separation_9:
 	msgbox ChooseZygardeForSeparation
-	fadescreen FADE_TO_BLACK
 	special ChoosePartyMon
 	waitstate
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
@@ -377,14 +482,16 @@ ReassemblyUnit_Separation_14:
 	goto_if_eq ReassemblyUnit_Separation_18
 ReassemblyUnit_Separation_17:
 	specialvar VAR_0x8005, GetSelectedMonNicknameAndSpecies
-	msgbox ZygardeRevertedBackToCellsAndCores
 	compare VAR_0x8005, SPECIES_ZYGARDE_10
 	goto_if_eq ReassemblyUnit_Separation_21
 	compare VAR_0x8005, SPECIES_ZYGARDE_50
 	goto_if_eq ReassemblyUnit_Separation_22
+	msgbox SpeciesNotZygarde
+	goto ReassemblyUnit_MainScript
 ReassemblyUnit_Separation_20:
 	special SeparateZygarde
 	callnative UpdateFollowingPokemon
+	msgbox ZygardeRevertedBackToCellsAndCores
 	goto ReassemblyUnit_MainScript
 	return
 
@@ -447,10 +554,10 @@ ReassemblyUnit_CoreMoves_7:
 ReassemblyUnit_CoreMoves_10:
 	goto_if_set FLAG_ZYGARDE_CORE_5, ReassemblyUnit_CoreMoves_14
 ReassemblyUnit_CoreMoves_13:
-	dynmultipush MainScientist_ExplainFeatures_Text_3, VAR_TEMP_1
+	dynmultipush MainScientist_ExplainFeatures_Text_3, 5
 	message TeachZygardeWhichMove
 	waitmessage
-	dynmultistack 23, 0, FALSE, VAR_TEMP_1, FALSE, 0, 0
+	dynmultistack 23, 0, FALSE, 6, FALSE, 0, 0
 	switch VAR_RESULT
 	case 0, ReassemblyUnit_CoreMoves_17
 	case 1, ReassemblyUnit_CoreMoves_18
@@ -462,133 +569,53 @@ ReassemblyUnit_CoreMoves_13:
 	return
 
 ReassemblyUnit_CoreMoves_2:
-	dynmultipush ReassemblyUnit_CoreMoves_Text_0, VAR_TEMP_1
-	addvar VAR_TEMP_1, 1
+	dynmultipush ReassemblyUnit_CoreMoves_Text_0, 0
 	goto ReassemblyUnit_CoreMoves_1
 
 ReassemblyUnit_CoreMoves_5:
-	dynmultipush ReassemblyUnit_CoreMoves_Text_1, VAR_TEMP_1
-	addvar VAR_TEMP_1, 1
+	dynmultipush ReassemblyUnit_CoreMoves_Text_1, 1
 	goto ReassemblyUnit_CoreMoves_4
 
 ReassemblyUnit_CoreMoves_8:
-	dynmultipush ReassemblyUnit_CoreMoves_Text_2, VAR_TEMP_1
-	addvar VAR_TEMP_1, 1
+	dynmultipush ReassemblyUnit_CoreMoves_Text_2, 2
 	goto ReassemblyUnit_CoreMoves_7
 
 ReassemblyUnit_CoreMoves_11:
-	dynmultipush ReassemblyUnit_CoreMoves_Text_3, VAR_TEMP_1
-	addvar VAR_TEMP_1, 1
+	dynmultipush ReassemblyUnit_CoreMoves_Text_3, 3
 	goto ReassemblyUnit_CoreMoves_10
 
 ReassemblyUnit_CoreMoves_14:
-	dynmultipush ReassemblyUnit_CoreMoves_Text_4, VAR_TEMP_1
-	addvar VAR_TEMP_1, 1
+	dynmultipush ReassemblyUnit_CoreMoves_Text_4, 4
 	goto ReassemblyUnit_CoreMoves_13
 
 ReassemblyUnit_CoreMoves_17:
-	goto_if_set FLAG_ZYGARDE_CORE_1, ReassemblyUnit_CoreMoves_24
-	goto_if_set FLAG_ZYGARDE_CORE_2, ReassemblyUnit_CoreMoves_25
-	goto_if_set FLAG_ZYGARDE_CORE_3, ReassemblyUnit_CoreMoves_26
-	goto_if_set FLAG_ZYGARDE_CORE_4, ReassemblyUnit_CoreMoves_27
-	goto_if_set FLAG_ZYGARDE_CORE_5, ReassemblyUnit_CoreMoves_28
-ReassemblyUnit_CoreMoves_23:
+	setvar VAR_0x8005, MOVE_EXTREME_SPEED_ZYG
 	goto ZygardeTeachCoreMove
 	return
 
 ReassemblyUnit_CoreMoves_18:
-	goto_if_set FLAG_ZYGARDE_CORE_2, ReassemblyUnit_CoreMoves_35
-	goto_if_set FLAG_ZYGARDE_CORE_3, ReassemblyUnit_CoreMoves_36
-	goto_if_set FLAG_ZYGARDE_CORE_4, ReassemblyUnit_CoreMoves_37
-	goto_if_set FLAG_ZYGARDE_CORE_5, ReassemblyUnit_CoreMoves_38
-ReassemblyUnit_CoreMoves_34:
+	setvar VAR_0x8005, MOVE_DRAGON_DANCE_ZYG
 	goto ZygardeTeachCoreMove
 	return
 
 ReassemblyUnit_CoreMoves_19:
-	goto_if_set FLAG_ZYGARDE_CORE_3, ReassemblyUnit_CoreMoves_44
-	goto_if_set FLAG_ZYGARDE_CORE_4, ReassemblyUnit_CoreMoves_45
-	goto_if_set FLAG_ZYGARDE_CORE_5, ReassemblyUnit_CoreMoves_46
-ReassemblyUnit_CoreMoves_43:
+	setvar VAR_0x8005, MOVE_CORE_ENFORCER
 	goto ZygardeTeachCoreMove
 	return
 
 ReassemblyUnit_CoreMoves_20:
-	goto_if_set FLAG_ZYGARDE_CORE_4, ReassemblyUnit_CoreMoves_51
-	goto_if_set FLAG_ZYGARDE_CORE_5, ReassemblyUnit_CoreMoves_52
-ReassemblyUnit_CoreMoves_50:
+	setvar VAR_0x8005, MOVE_THOUSAND_ARROWS
 	goto ZygardeTeachCoreMove
 	return
 
 ReassemblyUnit_CoreMoves_21:
-	goto_if_set FLAG_ZYGARDE_CORE_5, ReassemblyUnit_CoreMoves_56
-ReassemblyUnit_CoreMoves_55:
+	setvar VAR_0x8005, MOVE_THOUSAND_WAVES
 	goto ZygardeTeachCoreMove
 	return
 
 ReassemblyUnit_CoreMoves_22:
 	goto ReassemblyUnit_MainScript
 	return
-
-ReassemblyUnit_CoreMoves_24:
-	setvar VAR_0x8005, MOVE_EXTREME_SPEED
-	goto ReassemblyUnit_CoreMoves_23
-
-ReassemblyUnit_CoreMoves_25:
-	setvar VAR_0x8005, MOVE_DRAGON_DANCE
-	goto ReassemblyUnit_CoreMoves_23
-
-ReassemblyUnit_CoreMoves_26:
-	setvar VAR_0x8005, MOVE_CORE_ENFORCER
-	goto ReassemblyUnit_CoreMoves_23
-
-ReassemblyUnit_CoreMoves_27:
-	setvar VAR_0x8005, MOVE_THOUSAND_ARROWS
-	goto ReassemblyUnit_CoreMoves_23
-
-ReassemblyUnit_CoreMoves_28:
-	setvar VAR_0x8005, MOVE_THOUSAND_WAVES
-	goto ReassemblyUnit_CoreMoves_23
-
-ReassemblyUnit_CoreMoves_35:
-	setvar VAR_0x8005, MOVE_DRAGON_DANCE
-	goto ReassemblyUnit_CoreMoves_34
-
-ReassemblyUnit_CoreMoves_36:
-	setvar VAR_0x8005, MOVE_CORE_ENFORCER
-	goto ReassemblyUnit_CoreMoves_34
-
-ReassemblyUnit_CoreMoves_37:
-	setvar VAR_0x8005, MOVE_THOUSAND_ARROWS
-	goto ReassemblyUnit_CoreMoves_34
-
-ReassemblyUnit_CoreMoves_38:
-	setvar VAR_0x8005, MOVE_THOUSAND_WAVES
-	goto ReassemblyUnit_CoreMoves_34
-
-ReassemblyUnit_CoreMoves_44:
-	setvar VAR_0x8005, MOVE_CORE_ENFORCER
-	goto ReassemblyUnit_CoreMoves_43
-
-ReassemblyUnit_CoreMoves_45:
-	setvar VAR_0x8005, MOVE_THOUSAND_ARROWS
-	goto ReassemblyUnit_CoreMoves_43
-
-ReassemblyUnit_CoreMoves_46:
-	setvar VAR_0x8005, MOVE_THOUSAND_WAVES
-	goto ReassemblyUnit_CoreMoves_43
-
-ReassemblyUnit_CoreMoves_51:
-	setvar VAR_0x8005, MOVE_THOUSAND_ARROWS
-	goto ReassemblyUnit_CoreMoves_50
-
-ReassemblyUnit_CoreMoves_52:
-	setvar VAR_0x8005, MOVE_THOUSAND_WAVES
-	goto ReassemblyUnit_CoreMoves_50
-
-ReassemblyUnit_CoreMoves_56:
-	setvar VAR_0x8005, MOVE_THOUSAND_WAVES
-	goto ReassemblyUnit_CoreMoves_55
 
 
 ZygardeTeachCoreMove::
@@ -760,19 +787,19 @@ ReassemblyUnit_CoreMoves_Text_4:
 	.string "Thousand Waves$"
 
 CanIHaveThePapers::
-	.string "(WIP)$"
+	.string "(WIP)gimme papers$"
 
 PlayerHandsPapersToScientist::
-	.string "(WIP)$"
+	.string "(WIP)player hands papers$"
 
 ScientistDireNews::
-	.string "(WIP)$"
+	.string "(WIP)got some dire news$"
 
 TakeZygardeCube::
-	.string "(WIP)$"
+	.string "(WIP)take this cube$"
 
 ExplainZygardeCube::
-	.string "(WIP)$"
+	.string "(WIP)this is what it does$"
 
 LegendaryInstitute2F_Man_Text::
 	.string "Have you ever heard of the Pokémon\n"
@@ -787,79 +814,100 @@ LegendaryInstitute2F_Woman_Text::
 	.string "(WIP)$"
 
 TenZygardeCreated::
-	.string "(WIP)$"
+	.string "(WIP)you've created 10 zygarde$"
 
 FiftyZygardeCreated::
-	.string "(WIP)$"
+	.string "(WIP)you've created 50$"
 
 WhichFeatureToExplain::
-	.string "(WIP)$"
+	.string "(WIP)which feature explain$"
 
 Explain_Assembly_Text::
-	.string "(WIP)$"
+	.string "(WIP)Explain_Assembly_Text$"
 
 Explain_Separation_Text::
-	.string "(WIP)$"
+	.string "(WIP)Explain_Separation_Text$"
 
 Explain_CoreMoves_Text::
-	.string "(WIP)$"
+	.string "(WIP)Explain_CoreMoves_Text$"
 
 ExplainFeatures_Goodbye_Text::
-	.string "(WIP)$"
+	.string "(WIP)ExplainFeatures_Goodbye_Text$"
 
 HaveEnoughCellsAndCores::
-	.string "(WIP)$"
+	.string "(WIP)HaveEnoughCellsAndCores$"
 
 NotEnoughCellsAndCores::
-	.string "(WIP)$"
+	.string "(WIP)NotEnoughCellsAndCores$"
 
 ReassemblyUnitInert::
-	.string "(WIP)$"
+	.string "(WIP)ReassemblyUnitInert$"
 
 ReassemblyUnitActivated::
-	.string "(WIP)$"
+	.string "(WIP)ReassemblyUnitActivated$"
 
 DoWhatWithReassemblyUnit::
-	.string "(WIP)$"
+	.string "(WIP)DoWhatWithReassemblyUnit$"
 
 ZygardeMoveAborted::
-	.string "(WIP)$"
+	.string "(WIP)ZygardeMoveAborted$"
 
 TeachZygardeWhichMove::
-	.string "(WIP)$"
+	.string "(WIP)TeachZygardeWhichMove$"
 
 OnlyOneZygarde::
-	.string "(WIP)$"
+	.string "(WIP)OnlyOneZygarde$"
 
 AssembleWhichZygarde::
-	.string "(WIP)$"
+	.string "(WIP)AssembleWhichZygarde$"
 
 AttemptingToAssemble10Forme::
-	.string "(WIP)$"
+	.string "(WIP)AttemptingToAssemble10Forme$"
 
 AttemptingToAssemble50Forme::
-	.string "(WIP)$"
+	.string "(WIP)AttemptingToAssemble50Forme$"
 
 NotEnoughCellsAndCoresInCube::
-	.string "(WIP)$"
+	.string "(WIP)NotEnoughCellsAndCoresInCube$"
 
 NoZygardeCurrentlyAssembled::
-	.string "(WIP)$"
+	.string "(WIP)NoZygardeCurrentlyAssembled$"
 
 NoZygardeDetectedInParty::
-	.string "(WIP)$"
+	.string "(WIP)NoZygardeDetectedInParty$"
 
 ZygardeOnlyMonInParty::
-	.string "(WIP)$"
+	.string "(WIP)ZygardeOnlyMonInParty$"
 
 ChooseZygardeForSeparation::
-	.string "(WIP)$"
+	.string "(WIP)ChooseZygardeForSeparation$"
 
 SeparationAborted::
-	.string "(WIP)$"
+	.string "(WIP)SeparationAborted$"
 
 ZygardeOnlyAliveMon::
-	.string "(WIP)$"
+	.string "(WIP)ZygardeOnlyAliveMon$"
 
 ZygardeRevertedBackToCellsAndCores::
-	.string "(WIP)$"
+	.string "(WIP)ZygardeRevertedBackToCellsAndCores$"
+
+NoZygardeDetectedInParty_Assembly::
+	.string "(WIP)NoZygardeDetectedInParty_Assembly$"
+
+ChooseZygardeForAssembly::
+	.string "(WIP)ChooseZygardeForAssembly$"
+
+AssemblyAborted::
+	.string "(WIP)AssemblyAborted$"
+
+Assembled50to10::
+	.string "(WIP)Assembled50to10$"
+
+SpeciesNotZygarde::
+	.string "(WIP)SpeciesNotZygarde$"
+
+NotEnoughCellsAndCoresInCube10to50::
+	.string "(WIP)NotEnoughCellsAndCoresInCube10to50$"
+
+Assembled10to50::
+	.string "(WIP)Assembled10to50$"
