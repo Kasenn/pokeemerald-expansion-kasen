@@ -619,6 +619,7 @@ ReassemblyUnit_CoreMoves_22:
 
 
 ZygardeTeachCoreMove::
+	msgbox SelectZygardeToTeachMove
 	call MoveTutor_EventScript_OpenPartyMenu
 	compare VAR_RESULT, 0
 	goto_if_eq ZygardeTeachCoreMove_2
@@ -911,3 +912,6 @@ NotEnoughCellsAndCoresInCube10to50::
 
 Assembled10to50::
 	.string "(WIP)Assembled10to50$"
+
+SelectZygardeToTeachMove::
+	.string "(WIP)SelectZygardeToTeachMove$"
