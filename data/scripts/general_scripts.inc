@@ -858,12 +858,13 @@ Debug_Script_4_12:
 
 
 Debug_Script_5::
-	clearflag FLAG_ZYGARDE_CORE_1
-	clearflag FLAG_ZYGARDE_CORE_2
-	clearflag FLAG_ZYGARDE_CORE_3
-	clearflag FLAG_ZYGARDE_CORE_4
-	clearflag FLAG_ZYGARDE_CORE_5
-	setflag FLAG_ZYGARDE_CORE_1
+	setvar VAR_0x8000, TRAINER_CLASS_SCIENTIST
+	setvar VAR_0x8001, TRAINER_PIC_CYCLING_TRIATHLETE_F
+	bufferstring STR_VAR_1, Debug_Script_5_Text_0
+	createmon 1, 0, SPECIES_CHIKORITA, 20
+	createmon 1, 1, SPECIES_ARON, 17
+	createmon 1, 2, SPECIES_TORCHIC, 20
+	trainerbattle_no_intro TRAINER_MAY_PLACEHOLDER, Debug_Script_5_Text_1
 	release
 	return
 
@@ -1968,6 +1969,12 @@ Debug_Script_4_Text_15:
 
 Debug_Script_4_Text_16:
 	.string "Team set to level 45.$"
+
+Debug_Script_5_Text_0:
+	.string "TestGuy$"
+
+Debug_Script_5_Text_1:
+	.string "GG$"
 
 GainedASpecialTicket::
 	.string "Due to your victory, you have\n"

@@ -2078,6 +2078,8 @@ u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 firstTrain
     u8 retVal;
     if (trainerNum == TRAINER_SECRET_BASE)
         return 0;
+    if (trainerNum == TRAINER_MAY_PLACEHOLDER)
+        return 0;
     if (trainerNum == TRAINER_LEADER_JASMINE && FlagGet(FLAG_TEMP_1))
         trainerNum++;
     retVal = CreateNPCTrainerPartyFromTrainer(party, GetTrainerStructFromId(trainerNum), firstTrainer, gBattleTypeFlags);

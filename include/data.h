@@ -3,6 +3,8 @@
 
 #include "constants/moves.h"
 #include "constants/trainers.h"
+#include "string_util.h"
+#include "event_data.h"
 
 #define MAX_TRAINER_ITEMS 4
 
@@ -198,6 +200,8 @@ static inline const struct Trainer *GetTrainerStructFromId(u16 trainerId)
 
 static inline const u8 GetTrainerClassFromId(u16 trainerId)
 {
+    if (trainerId == TRAINER_MAY_PLACEHOLDER)
+        return gSpecialVar_0x8000;
     return gTrainers[SanitizeTrainerId(trainerId)].trainerClass;
 }
 
@@ -210,6 +214,8 @@ static inline const u8 *GetTrainerClassNameFromId(u16 trainerId)
 
 static inline const u8 *GetTrainerNameFromId(u16 trainerId)
 {
+    if (trainerId == TRAINER_MAY_PLACEHOLDER)
+        return gStringVar1;
     if (trainerId > TRAINER_PARTNER(PARTNER_NONE))
         return gBattlePartners[trainerId - TRAINER_PARTNER(PARTNER_NONE)].trainerName;
     return gTrainers[SanitizeTrainerId(trainerId)].trainerName;
@@ -217,6 +223,8 @@ static inline const u8 *GetTrainerNameFromId(u16 trainerId)
 
 static inline const u8 GetTrainerPicFromId(u16 trainerId)
 {
+    if (trainerId == TRAINER_MAY_PLACEHOLDER)
+        return gSpecialVar_0x8001;
     return gTrainers[SanitizeTrainerId(trainerId)].trainerPic;
 }
 
@@ -247,6 +255,8 @@ static inline const u8 GetTrainerMugshotColorFromId(u16 trainerId)
 
 static inline const u16 *GetTrainerItemsFromId(u16 trainerId)
 {
+    // if (trainerId == TRAINER_MAY_PLACEHOLDER)
+    //     return gSpecialVar_0x8002;
     return gTrainers[SanitizeTrainerId(trainerId)].items;
 }
 
@@ -257,6 +267,8 @@ static inline const struct TrainerMon *GetTrainerPartyFromId(u16 trainerId)
 
 static inline const bool32 GetTrainerAIFlagsFromId(u16 trainerId)
 {
+    // if (trainerId == TRAINER_MAY_PLACEHOLDER)
+    //     return gSpecialVar_0x8003;
     return gTrainers[SanitizeTrainerId(trainerId)].aiFlags;
 }
 

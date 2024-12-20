@@ -746,12 +746,13 @@ script Debug_Script_4{              // Set team level
     release
     end}
 script Debug_Script_5{
-    clearflag(FLAG_ZYGARDE_CORE_1)
-    clearflag(FLAG_ZYGARDE_CORE_2)
-    clearflag(FLAG_ZYGARDE_CORE_3)
-    clearflag(FLAG_ZYGARDE_CORE_4)
-    clearflag(FLAG_ZYGARDE_CORE_5)
-    setflag(FLAG_ZYGARDE_CORE_1)
+    setvar(VAR_0x8000, TRAINER_CLASS_SCIENTIST)
+    setvar(VAR_0x8001, TRAINER_PIC_CYCLING_TRIATHLETE_F)
+    bufferstring(STR_VAR_1, "TestGuy")
+    createmon(1, 0, SPECIES_CHIKORITA, 20)
+    createmon(1, 1, SPECIES_ARON, 17)
+    createmon(1, 2, SPECIES_TORCHIC, 20)
+    trainerbattle_no_intro(TRAINER_MAY_PLACEHOLDER, "GG")
     release
 }
 
