@@ -1,5 +1,10 @@
 AmberockPokeCenter1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, AmberockPokeCenter1F_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
+
+AmberockPokeCenter1F_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	setrespawn HEAL_LOCATION_AMBEROCK_TOWN
+	return
 
 
 Amberock_PokeCenter_RichBoy::

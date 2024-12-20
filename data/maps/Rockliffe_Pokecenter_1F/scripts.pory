@@ -1,12 +1,12 @@
 mapscripts Rockliffe_Pokecenter_1F_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: RockliffePokeCenter1F_OnTransition
-    MAP_SCRIPT_ON_FRAME_TABLE[
-        VAR_DEBUG, 8: AutomaticUpdate
-        VAR_DEBUG, 9: AutomaticUpdate2
-        VAR_DEBUG, 10: AutomaticUpdate3
-        VAR_DEBUG, 11: AutomaticUpdate4
-		VAR_DEBUG, 12: AutomaticUpdate5
-    ]
+//	MAP_SCRIPT_ON_FRAME_TABLE[
+//        VAR_DEBUG, 8: AutomaticUpdate
+//        VAR_DEBUG, 9: AutomaticUpdate2
+//		VAR_DEBUG, 10: AutomaticUpdate3
+//		VAR_DEBUG, 11: AutomaticUpdate4
+//		VAR_DEBUG, 12: AutomaticUpdate5
+//    ]
 	// MAP_SCRIPT_ON_RESUME: CableClub_OnResume
 }
 

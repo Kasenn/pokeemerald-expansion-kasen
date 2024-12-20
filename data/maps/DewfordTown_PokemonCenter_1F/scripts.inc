@@ -1,42 +1,25 @@
-
-.set LOCALID_NURSE, 1
-
 DewfordTown_PokemonCenter_1F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, DewfordTown_PokemonCenter_1F_OnTransition
-    map_script MAP_SCRIPT_ON_FRAME_TABLE, Drisledge_Pokecenter_1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
+	map_script MAP_SCRIPT_ON_TRANSITION, DewfordTown_PokemonCenter_1F_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
 
-DewfordTown_PokemonCenter_1F_OnTransition:
+DewfordTown_PokemonCenter_1F_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setrespawn HEAL_LOCATION_COAST_TOWN
-	call Common_EventScript_UpdateBrineyLocation
-	end
+	return
+
 
 DewfordTown_PokemonCenter_1F_EventScript_Nurse::
-	setvar VAR_0x800B, LOCALID_NURSE
+	setvar VAR_0x800B, 1
 	call Common_EventScript_PkmnCenterNurse
 	waitmessage
 	waitbuttonpress
 	release
-	end
+	return
+
 
 DewfordTown_PokemonCenter_1F_EventScript_PokefanF::
 	msgbox DewfordTown_PokemonCenter_1F_Text_StoneCavern, MSGBOX_NPC
-	end
+	return
 
-DewfordTown_PokemonCenter_1F_EventScript_Man::
-	msgbox DewfordTown_PokemonCenter_1F_Text_FaintedMonCanUseHM, MSGBOX_NPC
-	end
-
-DewfordTown_PokemonCenter_1F_Text_StoneCavern:
-	.string "I heard there's some rare Pokémon\n"
-	.string "you can only find by fishing.\p"
-	.string "It's said that they like to\n"
-	.string "collect rare shards.$"
-
-DewfordTown_PokemonCenter_1F_Text_FaintedMonCanUseHM:
-	.string "Even if a POKéMON faints and can't\n"
-	.string "battle, it can still use a move learned\l"
-	.string "from a HIDDEN MACHINE (HM).$"
 
 DewfordTown_PokemonCenter_1F_OldMan::
 	lockall
@@ -115,6 +98,12 @@ DewfordTown_PokemonCenter_1F_OldMan_Text_0:
 
 DFTPC1F_SellMap_Text_0:
 	.string "Oh, you don't have enough money…$"
+
+DewfordTown_PokemonCenter_1F_Text_StoneCavern::
+	.string "I heard there's some rare Pokémon\n"
+	.string "you can only find by fishing.\p"
+	.string "It's said that they like to\n"
+	.string "collect rare shards.$"
 
 DFTPC1F_MapIntro::
 	.string "Ah, a fresh face around these parts.\p"

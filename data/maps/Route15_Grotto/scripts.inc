@@ -1,6 +1,5 @@
 Route15_Grotto_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, ROUTE15_Grotto_SetObject
-	map_script MAP_SCRIPT_ON_LOAD, ROUTE15_Grotto_SetObject
 	.byte 0
 
 
@@ -117,14 +116,13 @@ ROUTE15_GrottoPokemon::
 	lockall
 	compare VAR_GROTTO_4, 59
 	goto_if_le ROUTE15_GrottoPokemon_2
-ROUTE15_GrottoPokemon_1:
 	compare VAR_GROTTO_4, 79
-	goto_if_le ROUTE15_GrottoPokemon_5
+	goto_if_le ROUTE15_GrottoPokemon_3
 	playmoncry SPECIES_NATU, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
 	setwildbattlelevelrange SPECIES_NATU, 30, ITEM_NONE, SPECIES_NONE, 33
-ROUTE15_GrottoPokemon_4:
+ROUTE15_GrottoPokemon_1:
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -141,10 +139,10 @@ ROUTE15_GrottoPokemon_2:
 	setwildbattlelevelrange SPECIES_CLEFFA, 30, ITEM_NONE, SPECIES_NONE, 33
 	goto ROUTE15_GrottoPokemon_1
 
-ROUTE15_GrottoPokemon_5:
+ROUTE15_GrottoPokemon_3:
 	playmoncry SPECIES_IGGLYBUFF, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
 	setwildbattlelevelrange SPECIES_IGGLYBUFF, 30, ITEM_NONE, SPECIES_NONE, 33
-	goto ROUTE15_GrottoPokemon_4
+	goto ROUTE15_GrottoPokemon_1
 

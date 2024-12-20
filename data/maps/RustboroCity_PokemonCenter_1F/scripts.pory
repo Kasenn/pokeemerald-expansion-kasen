@@ -1,0 +1,55 @@
+const LOCALID_NURSE = 1
+
+mapscripts RustboroCity_PokemonCenter_1F_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION{
+        setrespawn(HEAL_LOCATION_CORALGROVE_CITY)
+    }
+//	MAP_SCRIPT_ON_FRAME_TABLE[
+//        VAR_DEBUG, 8: AutomaticUpdate
+//        VAR_DEBUG, 9: AutomaticUpdate2
+//		VAR_DEBUG, 10: AutomaticUpdate3
+//		VAR_DEBUG, 11: AutomaticUpdate4
+//		VAR_DEBUG, 12: AutomaticUpdate5
+//    ]
+}
+
+script RustboroCity_PokemonCenter_1F_EventScript_Nurse{
+	setvar(VAR_0x800B, LOCALID_NURSE)
+	call(Common_EventScript_PkmnCenterNurse)
+	waitmessage
+	waitbuttonpress
+	release
+	end
+}
+
+script RustboroCity_PokemonCenter_1F_EventScript_Man{
+	msgbox(RustboroCity_PokemonCenter_1F_Text_PokemonHavePersonalities, MSGBOX_NPC)
+}
+
+script RustboroCity_PokemonCenter_1F_EventScript_Boy{
+	msgbox(RustboroCity_PokemonCenter_1F_Text_MaleAndFemalePokemon, MSGBOX_NPC)
+}
+
+script RustboroCity_PokemonCenter_1F_EventScript_Girl{
+	msgbox(RustboroCity_PokemonCenter_1F_Text_HMCutNextDoor, MSGBOX_NPC)
+}
+
+text RustboroCity_PokemonCenter_1F_Text_PokemonHavePersonalities{
+	"Sometimes you have to get off the\n"
+	"beaten path to find some of the\l"
+	"more elusive Pokémon."
+}
+
+text RustboroCity_PokemonCenter_1F_Text_MaleAndFemalePokemon{
+	"They finally opened the Training Hub\n"
+	"upstairs.\p"
+	"I already went and trained my Pokémon\n"
+	"to their absolute limit."
+}
+
+text RustboroCity_PokemonCenter_1F_Text_HMCutNextDoor{
+	"I really want to challenge the\n"
+	"Pokémon Gym but all I have are\l"
+	"grass Pokémon that are weak to bugs."
+}
+

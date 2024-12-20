@@ -116,14 +116,13 @@ ROUTE7_GrottoItem_11:
 ROUTE7_GrottoPokemon::
 	compare VAR_GROTTO_2, 59
 	goto_if_le ROUTE7_GrottoPokemon_2
-ROUTE7_GrottoPokemon_1:
 	compare VAR_GROTTO_2, 79
-	goto_if_le ROUTE7_GrottoPokemon_5
+	goto_if_le ROUTE7_GrottoPokemon_3
 	playmoncry SPECIES_SKORUPI, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
 	setwildbattlelevelrange SPECIES_SKORUPI, 15, ITEM_NONE, SPECIES_NONE, 19
-ROUTE7_GrottoPokemon_4:
+ROUTE7_GrottoPokemon_1:
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -140,10 +139,10 @@ ROUTE7_GrottoPokemon_2:
 	setwildbattlelevelrange SPECIES_ABSOL, 15, ITEM_NONE, SPECIES_NONE, 19
 	goto ROUTE7_GrottoPokemon_1
 
-ROUTE7_GrottoPokemon_5:
+ROUTE7_GrottoPokemon_3:
 	playmoncry SPECIES_VULPIX_ALOLAN, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
 	setwildbattlelevelrange SPECIES_VULPIX_ALOLAN, 15, ITEM_NONE, SPECIES_NONE, 19
-	goto ROUTE7_GrottoPokemon_4
+	goto ROUTE7_GrottoPokemon_1
 

@@ -115,11 +115,6 @@ Route14_TrainerTips::
 	return
 
 
-Route15_Sign4::
-	msgbox Route15_Sign4_Text, MSGBOX_SIGN
-	return
-
-
 Route23_Sign::
 	msgbox Route23_Sign_Text, MSGBOX_SIGN
 	return
@@ -252,14 +247,6 @@ Route14_TrainerTips_Text::
 	.string "pressing the L button will display\l"
 	.string "additional information of the\l"
 	.string "chosen move.$"
-
-Route15_Sign4_Text::
-	.string "Trainer Tips\p"
-	.string "Pokémon can only know up to\n"
-	.string "4 different moves.\p"
-	.string "When teaching new moves to a Pokémon,\n"
-	.string "any previous one can be replaced.\l"
-	.string "Even HM moves!$"
 
 Route23_Sign_Text::
 	.string "Trainer Tips\p"

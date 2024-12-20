@@ -306,12 +306,9 @@ void SeparateZygarde(void)
         gDontCompact = 1;
     }
     
-    DebugPrintfLevel(MGBA_LOG_WARN, "player follower is new %d", gSaveBlock3Ptr->followerIndex);
-
     ZeroMonData(&gPlayerParty[monId]);
     CompactPartySlots();
     CalculatePlayerPartyCount();
-    DebugPrintfLevel(MGBA_LOG_WARN, "player follower after compaction is %d", gSaveBlock3Ptr->followerIndex);
 }
 
 void ConvertZygarde(void)

@@ -1,6 +1,5 @@
 WW_Grotto_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, WW_Grotto_SetObject
-	map_script MAP_SCRIPT_ON_LOAD, WW_Grotto_SetObject
 	.byte 0
 
 

@@ -29,6 +29,7 @@ script ZygardeCubeEvent{
     msgbox(PlayerHandsPapersToScientist)
     removeitem(ITEM_RESEARCH_PAPERS)
     msgbox(ScientistDireNews)
+    msgbox(ScientistDireNews2)
     closemessage
     applymovement(PROF, LabScientistMove)
     applymovement(OBJ_EVENT_ID_PLAYER, LabPlayerMove)
@@ -49,19 +50,61 @@ script ZygardeCubeEvent{
 }
 
 text CanIHaveThePapers{
-    "(WIP)gimme papers"
+    "Ah, it's you!\p"
+    "Were you able to recover\n"
+    "our research papers?"
 }
 text PlayerHandsPapersToScientist{
-    "(WIP)player hands papers"
+    "{PLAYER} hands the research papers\n"
+    "to the scientist."
 }
 text ScientistDireNews{
-    "(WIP)got some dire news"
+    "Splendid!\n"
+    "Now let's see here…\p"
+    "It looks like Team Rocket may have\n"
+    "kept some of the papers, but most of\l"
+    "the material should be here."
+}
+text ScientistDireNews2{
+    "Now, for the reason they stole our\n"
+    "research to begin with…\p"
+    "We fear that Team Rocket may be\n"
+    "looking for an ancient Pokémon\l"
+    "called Yveltal.\p"
+    "Yveltal is said to be sleeping in\n"
+    "its hidden nest, and if awoken,\l"
+    "could spread devastation across\l"
+    "the entire world.\p"
+    "If Team Rocket was to catch and\l"
+    "control Yveltal, the ramifications\l"
+    "would truly be dire.\p"
+    "We must find where Yveltal rests\n"
+    "before Team Rocket does!\p"
+    "In the meantime, there is something\n"
+    "I need to show you.\p"
+    "Please follow me."
 }
 text TakeZygardeCube{
-    "(WIP)take this cube"
+    "This is a Zygarde Reassembly Unit.\p"
+    "It's a machine capable of\n"
+    "reassembling Zygarde, a legendary\l"
+    "Pokémon believed to be the\l"
+    "antithesis of Yveltal.\p"
+    "However, before we can fire up\n"
+    "the machine, we're going to need\l"
+    "your help."
 }
 text ExplainZygardeCube{
-    "(WIP)this is what it does"
+    "In order for the machine to work,\n"
+    "it requires Zygarde Cells and Cores.\p"
+    "Normally these Cells and Cores are\n"
+    "almost impossible to come by, but\l"
+    "that Zygarde Cube emits a frequency\l"
+    "that should draw them out of hiding.\p"
+    "Use the Zygarde Cube to collect at\n"
+    "least ten Cells and one Core,\l"
+    "bring them back here, and let's see\l"
+    "if we can't get this thing running!"
 }
 movement LabScientistMove{
     walk_down * 3
@@ -93,13 +136,39 @@ text LegendaryInstitute2F_Man_Text{
     "happened to them."
 }
 text LegendaryInstitute2F_Woman_Text{
-    "(WIP)"
+    "Nobody knows for certain where\n"
+    "Zygarde originates from.\p"
+    "Some say it's the nature's will\n"
+    "concentrating into a single being\l"
+    "meant to protect the world from\l"
+    "calamity, while some suspect it\l"
+    "might be a man-made Pokémon,\l"
+    "like Porygon."
 }
 text TenZygardeCreated{
-    "(WIP)you've created 10 zygarde"
+    "You've managed to assemble\n"
+    "a 10% Forme Zygarde?\p"
+    "That's great!\p"
+    "However, I believe we can\n"
+    "push it even further.\p"
+    "If you can find a total of 50 Cells\n"
+    "and 3 Cores, we may be able to\l"
+    "unlock its original Forme!"
 }
 text FiftyZygardeCreated{
-    "(WIP)you've created 50"
+    "You've managed to assemble\n"
+    "the 50% Forme Zygarde?\p"
+    "Astounding!\p"
+    "I never thought I would get to\n"
+    "see it in its complete Forme!\p"
+    "However, there is something that\n"
+    "has been bothering me.\p"
+    "As far as our research shows, this\n"
+    "should be Zygarde's final Forme,\l"
+    "and yet, there have been a few\l"
+    "reports of people still spotting\l"
+    "Zygarde Cells out in the wild.\p"
+    "What could this mean?"
 }
 script LegendaryInstitute2F_MainScientist{
     if(var(VAR_ZYGARDE_PROGRESS) == 1){
@@ -121,6 +190,7 @@ script LegendaryInstitute2F_MainScientist{
         if(var(VAR_ZYGARDE_CELLS) >= 10
         && var(VAR_ZYGARDE_CORES) >= 1){
             msgbox(HaveEnoughCellsAndCores)
+            msgbox(HaveEnoughCellsAndCores2)
             setflag(FLAG_UNLOCKED_REASSEMBLY_UNIT)
         }
         else{
@@ -136,7 +206,19 @@ script LegendaryInstitute2F_MainScientist{
             else{
                 buffernumberstring(STR_VAR_2, VAR_ZYGARDE_CORES)
             }
-            msgbox(NotEnoughCellsAndCores, MSGBOX_NPC)
+
+            if(var(VAR_ZYGARDE_CELLS) == 1 && var(VAR_ZYGARDE_CORES) == 1){
+                msgbox(NotEnoughCellAndCore, MSGBOX_NPC)
+            }
+            elif(var(VAR_ZYGARDE_CELLS) == 1){
+                msgbox(NotEnoughCellAndCores, MSGBOX_NPC)
+            }
+            elif(var(VAR_ZYGARDE_CORES) == 1){
+                msgbox(NotEnoughCellsAndCore, MSGBOX_NPC)
+            }
+            else{
+                msgbox(NotEnoughCellsAndCores, MSGBOX_NPC)
+            }
         }
     }
 }
@@ -174,19 +256,52 @@ script ExplainFeatures_Goodbye{
     release
 }
 text WhichFeatureToExplain{
-    "(WIP)which feature explain"
+    "Is there a function you\n"
+    "would like me to explain?"
 }
 text Explain_Assembly_Text{
-    "(WIP)Explain_Assembly_Text"
+    "Assembly is the process of gathering\n"
+    "Cells and Cores and assembling them\l"
+    "to the shape, or Forme, of Zygarde.\p"
+    "There are two known Formes:\n"
+    "10% Forme and 50% Forme.\p"
+    "10% Forme requires 10 Cells and\n"
+    "1 Core to create, while the 50% Forme\l"
+    "requires 50 Cells and 3 Cores.\p"
+    "Do note that 50% Forme is so large\n"
+    "that we can't really let you let it\l"
+    "out of its ball when indoors."
 }
 text Explain_Separation_Text{
-    "(WIP)Explain_Separation_Text"
+    "Separation is the process of\n"
+    "disassembling Zygarde back to\l"
+    "its original Cells and Cores.\p"
+    "When a Zygarde is separated,\n"
+    "it will lose any experience it\l"
+    "has gained, be it moves or any\l"
+    "other form of experience.\p"
+    "Do note that assembling the Zygarde\n"
+    "to another Forme does not necessitate\l"
+    "the use of the separation process.\p"
+    "An existing Zygarde can be made to\n"
+    "assume another Forme through the\l"
+    "assembly process."
 }
 text Explain_CoreMoves_Text{
-    "(WIP)Explain_CoreMoves_Text"
+    "Zygarde Cores contain knowledge about\n"
+    "certain moves, and when the Cores are\l"
+    "synced with the Reassembly Unit,\l"
+    "the Core Moves program will be able to\l"
+    "teach those moves to Zygarde.\p"
+    "The moves available in the Core Moves\n"
+    "program will depend on the Cores you\l"
+    "have managed to find.\p"
+    "Do note that there may be some moves\n"
+    "that only the 50% Forme can learn."
 }
 text ExplainFeatures_Goodbye_Text{
-    "(WIP)ExplainFeatures_Goodbye_Text"
+    "Let me know if there's any\n"
+    "function you need explained."
 }
 
 script LegendaryInstitute2F_ReassemblyUnit{
@@ -204,13 +319,59 @@ script LegendaryInstitute2F_ReassemblyUnit{
 }
 
 text HaveEnoughCellsAndCores{
-    "(WIP)HaveEnoughCellsAndCores"
+    "Have you collected enough\n"
+    "Cells and Cores?\p"
+    "Let's see…\p"
+    "Unbelievable!\p"
+    "I never thought I'd see the day we\n"
+    "get to activate this Reassembly Unit!"
+}
+text HaveEnoughCellsAndCores2{
+    "Now, remember when I promised that we\n"
+    "would make it worth your while if you\l"
+    "recovered our research papers?\p"
+    "Well, seeing how brave and tenacious\n"
+    "you have been through this ordeal,\l"
+    "we believe you to be the perfect\l"
+    "trainer for the Zygarde we are\l"
+    "about to create!\p"
+    "When you're ready, go ahead and access\n"
+    "the console in front of the unit.\p"
+    "If you need more information regarding\n"
+    "the functions of the machine,\l"
+    "just let me know!"
 }
 text NotEnoughCellsAndCores{
-    "(WIP)NotEnoughCellsAndCores"
+    "In order to get the Reassembly Unit\n"
+    "running, we need at least 10 Cells and\l"
+    "1 Core.\p"
+    "So far you have collected {STR_VAR_1} Cells\n"
+    "and {STR_VAR_2} Cores."
+}
+text NotEnoughCellAndCores{
+    "In order to get the Reassembly Unit\n"
+    "running, we need at least 10 Cells and\l"
+    "1 Core.\p"
+    "So far you have collected {STR_VAR_1} Cell\n"
+    "and {STR_VAR_2} Cores."
+}
+text NotEnoughCellsAndCore{
+    "In order to get the Reassembly Unit\n"
+    "running, we need at least 10 Cells and\l"
+    "1 Core.\p"
+    "So far you have collected {STR_VAR_1} Cells\n"
+    "and {STR_VAR_2} Core."
+}
+text NotEnoughCellAndCore{
+    "In order to get the Reassembly Unit\n"
+    "running, we need at least 10 Cells and\l"
+    "1 Core.\p"
+    "So far you have collected {STR_VAR_1} Cell\n"
+    "and {STR_VAR_2} Core."
 }
 text ReassemblyUnitInert{
-    "(WIP)ReassemblyUnitInert"
+    "The Reassembly Unit seems to be\n"
+    "offline."
 }
 
 script ReassemblyUnit_MainScript{
@@ -231,27 +392,26 @@ script ReassemblyUnit_MainScript{
     }
 }
 text ReassemblyUnitActivated{
-    "(WIP)ReassemblyUnitActivated"
+    "Reassembly Unit activated."
 }
 text DoWhatWithReassemblyUnit{
-    "(WIP)DoWhatWithReassemblyUnit"
+    "Do what with the Reassembly Unit?"
 }
 
 script ReassemblyUnit_Assembly{
-        message(AssembleWhichZygarde)
-        waitmessage
-        dynmultichoice(23, 0, FALSE, 4, 0, 0, "10% Forme", "50% Forme", "Cancel")
-        switch(var(VAR_RESULT)){
-        case 0:
-            goto(ReassemblyUnit_Assemble10Forme)
-        case 1:
-            goto(ReassemblyUnit_Assemble50Forme)
-        case 2:
-            goto(ReassemblyUnit_MainScript)
-        case MULTI_B_PRESSED:
-            goto(ReassemblyUnit_MainScript)
-        }
-    // }
+    message(AssembleWhichZygarde)
+    waitmessage
+    dynmultichoice(23, 0, FALSE, 4, 0, 0, "10% Forme", "50% Forme", "Cancel")
+    switch(var(VAR_RESULT)){
+    case 0:
+        goto(ReassemblyUnit_Assemble10Forme)
+    case 1:
+        goto(ReassemblyUnit_Assemble50Forme)
+    case 2:
+        goto(ReassemblyUnit_MainScript)
+    case MULTI_B_PRESSED:
+        goto(ReassemblyUnit_MainScript)
+    }
 }
 script ReassemblyUnit_Assemble10Forme{
     if(flag(FLAG_ZYGARDE10_ASSEMBLED)){
@@ -282,10 +442,12 @@ script ReassemblyUnit_Assemble10Forme{
         setflag(FLAG_ZYGARDE10_ASSEMBLED)
         special(ConvertZygarde) //StoreSelectedPokemonInDaycare
         callnative(UpdateFollowingPokemon)
-        msgbox(Assembled50to10)
+        msgbox(AttemptingToAssemble10Forme)
         goto(ReassemblyUnit_MainScript)
     }
-    msgbox(AttemptingToAssemble10Forme)
+    message(AttemptingToAssemble10Forme)
+    waitmessage
+    closemessage
     setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ZYGARDE_10)
     givemon(SPECIES_ZYGARDE_10, 40, ITEM_NONE, ITEM_STRANGE_BALL, NATURE_HARDY, 0, 0, 0, 0, 0, 0, 0, 0, 15, 15, 15, 15, 15, 15, MOVE_DIG, MOVE_BIND, MOVE_LANDS_WRATH, MOVE_SANDSTORM, FALSE, 0, 0)
     call(GiveMon_Script)
@@ -307,7 +469,7 @@ script ReassemblyUnit_Assemble50Forme{
         && var(VAR_ZYGARDE_CORES) < 2){
             buffernumberstring(STR_VAR_1, VAR_ZYGARDE_CELLS)
             buffernumberstring(STR_VAR_2, VAR_ZYGARDE_CORES)
-            msgbox(NotEnoughCellsAndCoresInCube10to50)
+            msgbox(NotEnoughCellsAndCoresInCube)
             goto(ReassemblyUnit_MainScript)
         }
         checkpartymon(SPECIES_ZYGARDE_10, 0)
@@ -333,7 +495,7 @@ script ReassemblyUnit_Assemble50Forme{
         setflag(FLAG_ZYGARDE50_ASSEMBLED)
         special(ConvertZygarde) //StoreSelectedPokemonInDaycare
         callnative(UpdateFollowingPokemon)
-        msgbox(Assembled10to50)
+        msgbox(AttemptingToAssemble50Forme)
         goto(ReassemblyUnit_MainScript)
     }
     if(var(VAR_ZYGARDE_CELLS) < 50
@@ -343,7 +505,9 @@ script ReassemblyUnit_Assemble50Forme{
         msgbox(NotEnoughCellsAndCoresInCube)
         goto(ReassemblyUnit_MainScript)
     }
-    msgbox(AttemptingToAssemble50Forme)
+    message(AttemptingToAssemble50Forme)
+    waitmessage
+    closemessage
     setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ZYGARDE_50)
     givemon(SPECIES_ZYGARDE_50, 40, ITEM_NONE, ITEM_STRANGE_BALL, NATURE_HARDY, 0, 0, 0, 0, 0, 0, 0, 0, 15, 15, 15, 15, 15, 15, MOVE_DIG, MOVE_BIND, MOVE_LANDS_WRATH, MOVE_SANDSTORM, FALSE, 0, 0)
     call(GiveMon_Script)
@@ -404,10 +568,17 @@ script ReassemblyUnit_Separation{
     }
     special(SeparateZygarde) //StoreSelectedPokemonInDaycare
     callnative(UpdateFollowingPokemon)
-    msgbox(ZygardeRevertedBackToCellsAndCores)
+    message(ZygardeRevertedBackToCellsAndCores)
+    waitmessage
+    msgbox(SeparatedSuccessfully)
     goto(ReassemblyUnit_MainScript)
 }
 script ReassemblyUnit_CoreMoves{
+    if(!flag(FLAG_ZYGARDE10_ASSEMBLED)
+    && !flag(FLAG_ZYGARDE50_ASSEMBLED)){
+        msgbox(NoZygardeCurrentlyAssembled)
+        goto(ReassemblyUnit_MainScript)
+    }
     if(flag(FLAG_ZYGARDE_CORE_1)){
         dynmultipush("Extreme Speed", 0)
     }
@@ -445,6 +616,7 @@ script ReassemblyUnit_CoreMoves{
             goto(ZygardeTeachCoreMove)
         case 5:
         case MULTI_B_PRESSED:
+            msgbox(ZygardeMoveAborted)
             goto(ReassemblyUnit_MainScript)
     }
 }
@@ -463,70 +635,91 @@ script ReassemblyUnit_TurnOff{
     release
 }
 text ZygardeMoveAborted{
-    "(WIP)ZygardeMoveAborted"
+    "Core Moves program aborted.\n"
+    "Returning back to main menu."
 }
 text TeachZygardeWhichMove{
-    "(WIP)TeachZygardeWhichMove"
+    "Teach Zygarde which move?"
 }
 text OnlyOneZygarde{
-    "(WIP)OnlyOneZygarde"
+    "Only one Zygarde can be\n"
+    "assembled at a time.\p"
+    "Returning back to main menu."
 }
 text AssembleWhichZygarde{
-    "(WIP)AssembleWhichZygarde"
+    "Assemble which Zygarde?"
 }
 text AttemptingToAssemble10Forme{
-    "(WIP)AttemptingToAssemble10Forme"
+    "Attempting to assemble 10% Forme\n"
+    "{PLAY_SE SE_ELEVATOR}Zygarde…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PLAY_SE SE_DING_DONG} Assembly completed.{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}"
 }
 text AttemptingToAssemble50Forme{
-    "(WIP)AttemptingToAssemble50Forme"
-}
-text NotEnoughCellsAndCoresInCube{
-    "(WIP)NotEnoughCellsAndCoresInCube"
+    "Attempting to assemble 50% Forme\n"
+    "{PLAY_SE SE_ELEVATOR}Zygarde…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PLAY_SE SE_DING_DONG} Assembly completed.{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}"
 }
 text NoZygardeCurrentlyAssembled{
-    "(WIP)NoZygardeCurrentlyAssembled"
+    "No Zygarde is currently\n"
+    "assembled.\p"
+    "Returning back to main menu."
 }
 text NoZygardeDetectedInParty{
-    "(WIP)NoZygardeDetectedInParty"
+    "No Zygarde found for\n"
+    "interaction.\p"
+    "Returning back to main menu."
 }
 text ZygardeOnlyMonInParty{
-    "(WIP)ZygardeOnlyMonInParty"
+    "Zygarde is currently your only Pokémon\n"
+    "and as such can't be separated."
 }
 text ChooseZygardeForSeparation{
-    "(WIP)ChooseZygardeForSeparation"
+    "Please choose a Zygarde for\n"
+    "the separation process."
 }
 text SeparationAborted{
-    "(WIP)SeparationAborted"
+    "Separation process aborted.\n"
+    "Returning back to main menu."
 }
 text ZygardeOnlyAliveMon{
-    "(WIP)ZygardeOnlyAliveMon"
+    "Cannot separate Zygarde when it is\n"
+    "the only non-fainted Pokemon."
 }
 text ZygardeRevertedBackToCellsAndCores{
-    "(WIP)ZygardeRevertedBackToCellsAndCores"
+    "Attempting to separate Zygarde back\n"
+    "to Cells and Cores…{PLAY_SE SE_ELEVATOR}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PLAY_SE SE_DING_DONG}{PAUSE 0x0F}{PAUSE 0x0F}"
+}
+text SeparatedSuccessfully{
+    "Zygarde separated successfully.\n"
+    "Returning back to main menu."
 }
 text NoZygardeDetectedInParty_Assembly{
-    "(WIP)NoZygardeDetectedInParty_Assembly"
+    "A Zygarde has alredy been assembled,\n"
+    "but could not be found in the party.\p"
+    "Returning back to main menu."
 }
 text ChooseZygardeForAssembly{
-    "(WIP)ChooseZygardeForAssembly"
+    "Only one Zygarde can be\n"
+    "assembled at a time.\p"
+    "Please choose an existing Zygarde\n"
+    "for the assembly process."
 }
 text AssemblyAborted{
-    "(WIP)AssemblyAborted"
-}
-text Assembled50to10{
-    "(WIP)Assembled50to10"
+    "Assembly process aborted.\n"
+    "Returning back to main menu."
 }
 text SpeciesNotZygarde{
-    "(WIP)SpeciesNotZygarde"
+    "Chosen Pokémon is not a Zygarde.\n"
+    "Returning back to main menu."
 }
-text NotEnoughCellsAndCoresInCube10to50{
-    "(WIP)NotEnoughCellsAndCoresInCube10to50"
-}
-text Assembled10to50{
-    "(WIP)Assembled10to50"
+text NotEnoughCellsAndCoresInCube{
+    "Assembling a 50% Forme Zygarde\n"
+    "requires at least 50 Cells and\l"
+    "3 Cores.\p"
+    "A total of {STR_VAR_1} Cells and\n"
+    "{STR_VAR_2} Cores have been collected."
 }
 text SelectZygardeToTeachMove{
-    "(WIP)SelectZygardeToTeachMove"
+    "Please choose a Zygarde for\n"
+    "the Core Moves program."
 }
 
 

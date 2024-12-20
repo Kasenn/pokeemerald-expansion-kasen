@@ -1,15 +1,6 @@
 Marigorge_Pokecenter_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, MarigorgePokeCenter1F_OnTransition
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, Marigorge_Pokecenter_1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
-
-Marigorge_Pokecenter_1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
-	map_script_2 VAR_DEBUG, 8, AutomaticUpdate
-	map_script_2 VAR_DEBUG, 9, AutomaticUpdate2
-	map_script_2 VAR_DEBUG, 10, AutomaticUpdate3
-	map_script_2 VAR_DEBUG, 11, AutomaticUpdate4
-	map_script_2 VAR_DEBUG, 12, AutomaticUpdate5
-	.2byte 0
 
 
 MarigorgePokeCenter1F_OnTransition::

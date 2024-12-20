@@ -79,7 +79,7 @@ script ROUTE7_GrottoPokemon{
         waitmoncry
         setwildbattlelevelrange(SPECIES_ABSOL, 15, ITEM_NONE, SPECIES_NONE, 19)
     }
-    if(var(VAR_GROTTO_2) <= 79){
+    elif(var(VAR_GROTTO_2) <= 79){
         playmoncry(SPECIES_VULPIX_ALOLAN, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry

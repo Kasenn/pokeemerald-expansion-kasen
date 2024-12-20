@@ -59,7 +59,7 @@ LegendaryInstitute1F_Woman_Text::
 	.string "I recommend checking out the Sandstone\n"
 	.string "Library if you're ever in that area.\p"
 	.string "Many of the upstairs books sound\n"
-	.string "like your folktale, but most of them\l"
+	.string "like folktale, but most of them\l"
 	.string "are actually rooted in reality.$"
 
 LegendaryInstitute1F_Man_Text::

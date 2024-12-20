@@ -1,5 +1,7 @@
 mapscripts AmberockPokeCenter1F_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION{
+        setrespawn(HEAL_LOCATION_AMBEROCK_TOWN)
+    }
 }
 
 script Amberock_PokeCenter_RichBoy{
