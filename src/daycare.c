@@ -280,9 +280,15 @@ void StoreSelectedPokemonInDaycare(void)
 {
     u8 monId = GetCursorSelectionMonId();
     if (gSaveBlock3Ptr->followerIndex == monId)
+    {
         gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
+        gDontCompact = 1;
+    }
     else if (gSaveBlock3Ptr->followerIndex < PARTY_SIZE && monId < gSaveBlock3Ptr->followerIndex)
+    {
         gSaveBlock3Ptr->followerIndex--;
+        gDontCompact = 1;
+    }
     StorePokemonInEmptyDaycareSlot(&gPlayerParty[monId], &gSaveBlock1Ptr->daycare);
 }
 
@@ -290,9 +296,15 @@ void SeparateZygarde(void)
 {
     u8 monId = GetCursorSelectionMonId();
     if (gSaveBlock3Ptr->followerIndex == monId)
+    {
         gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
+        gDontCompact = 1;
+    }
     else if (gSaveBlock3Ptr->followerIndex < PARTY_SIZE && monId < gSaveBlock3Ptr->followerIndex)
+    {
         gSaveBlock3Ptr->followerIndex--;
+        gDontCompact = 1;
+    }
     
     DebugPrintfLevel(MGBA_LOG_WARN, "player follower is new %d", gSaveBlock3Ptr->followerIndex);
 

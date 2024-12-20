@@ -590,6 +590,7 @@ EWRAM_DATA static u8 sMovingMonOrigBoxId = 0;
 EWRAM_DATA static u8 sMovingMonOrigBoxPos = 0;
 EWRAM_DATA static bool8 sAutoActionOn = 0;
 EWRAM_DATA static bool8 sJustOpenedBag = 0;
+EWRAM_DATA u8 gDontCompact = 0;
 
 #define FOLLOWER_IN_HAND 0xFD
 
@@ -6582,7 +6583,7 @@ static void ReleaseMon(void)
 {
     u8 boxId;
     u16 item = ITEM_NONE;
-    
+
     u16 species = GetMonData(&gPlayerParty[sCursorPosition], MON_DATA_SPECIES);
 
     if(species == SPECIES_ZYGARDE_10
@@ -6899,7 +6900,7 @@ s16 CompactPartySlots(void)
             if (i != last)
             {
                 gPlayerParty[last] = gPlayerParty[i];
-                if (gSaveBlock3Ptr->followerIndex == i)
+                if (gSaveBlock3Ptr->followerIndex == i && gDontCompact == 0)
                     gSaveBlock3Ptr->followerIndex--;
             }
             last++;
@@ -6912,6 +6913,7 @@ s16 CompactPartySlots(void)
     for (; last < PARTY_SIZE; last++)
         ZeroMonData(&gPlayerParty[last]);
 
+    gDontCompact = 0;
     return retVal;
 }
 
