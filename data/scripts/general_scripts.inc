@@ -514,11 +514,13 @@ AutomaticUpdate5_1:
 	clearflag FLAG_R14_ITEM5
 	clearflag FLAG_R14_ITEM6
 	clearflag FLAG_WINDPLUME_MT_HIDE_CHARGED_ORB
-	setvar VAR_DEBUG, 13
-	goto_if_set FLAG_VISITED_ROCKLIFFE, AutomaticUpdate5_5
+	goto_if_set FLAG_INTERMEDIATE_PATCH, AutomaticUpdate5_5
 AutomaticUpdate5_4:
-	goto_if_set FLAG_HELPED_DEVON_CORP, AutomaticUpdate5_12
+	setvar VAR_DEBUG, 13
+	goto_if_set FLAG_VISITED_ROCKLIFFE, AutomaticUpdate5_12
 AutomaticUpdate5_11:
+	goto_if_set FLAG_HELPED_DEVON_CORP, AutomaticUpdate5_15
+AutomaticUpdate5_14:
 	release
 	return
 
@@ -534,7 +536,8 @@ AutomaticUpdate5_7:
 	goto AutomaticUpdate5_1
 
 AutomaticUpdate5_5:
-	msgbox BattleTentInRockliffe
+	call ReturnTMs
+	clearflag FLAG_INTERMEDIATE_PATCH
 	goto AutomaticUpdate5_4
 
 AutomaticUpdate5_8:
@@ -542,18 +545,22 @@ AutomaticUpdate5_8:
 	goto AutomaticUpdate5_7
 
 AutomaticUpdate5_12:
-	msgbox SceneAltered, MSGBOX_YESNO
-	compare VAR_RESULT, TRUE
-	goto_if_eq AutomaticUpdate5_14
+	msgbox BattleTentInRockliffe
 	goto AutomaticUpdate5_11
 
-AutomaticUpdate5_14:
+AutomaticUpdate5_15:
+	msgbox SceneAltered, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
+	goto_if_eq AutomaticUpdate5_17
+	goto AutomaticUpdate5_14
+
+AutomaticUpdate5_17:
 	callnative StorePCLocation
 	getplayerxy VAR_OBJ_GFX_ID_D, VAR_OBJ_GFX_ID_E
 	closemessage
 	warpsilent MAP_DEVON_CROP_MEMORY, 0
 	waitstate
-	goto AutomaticUpdate5_11
+	goto AutomaticUpdate5_14
 
 
 Debug_Script_1::
@@ -858,51 +865,19 @@ Debug_Script_4_12:
 
 
 Debug_Script_5::
-	setvar VAR_0x8000, TRAINER_CLASS_SCIENTIST
-	setvar VAR_0x8001, TRAINER_PIC_CYCLING_TRIATHLETE_F
-	bufferstring STR_VAR_1, Debug_Script_5_Text_0
-	createmon 1, 0, SPECIES_CHIKORITA, 20
-	createmon 1, 1, SPECIES_ARON, 17
-	createmon 1, 2, SPECIES_TORCHIC, 20
-	trainerbattle_no_intro TRAINER_MAY_PLACEHOLDER, Debug_Script_5_Text_1
 	release
 	return
 
 
 Debug_Script_6::
-	clearflag FLAG_ZYGARDE_CORE_1
-	clearflag FLAG_ZYGARDE_CORE_2
-	clearflag FLAG_ZYGARDE_CORE_3
-	clearflag FLAG_ZYGARDE_CORE_4
-	clearflag FLAG_ZYGARDE_CORE_5
-	setflag FLAG_ZYGARDE_CORE_2
-	setflag FLAG_ZYGARDE_CORE_4
 	return
 
 
 Debug_Script_7::
-	clearflag FLAG_ZYGARDE_CORE_1
-	clearflag FLAG_ZYGARDE_CORE_2
-	clearflag FLAG_ZYGARDE_CORE_3
-	clearflag FLAG_ZYGARDE_CORE_4
-	clearflag FLAG_ZYGARDE_CORE_5
-	setflag FLAG_ZYGARDE_CORE_1
-	setflag FLAG_ZYGARDE_CORE_3
-	setflag FLAG_ZYGARDE_CORE_5
 	return
 
 
 Debug_Script_8::
-	clearflag FLAG_ZYGARDE_CORE_1
-	clearflag FLAG_ZYGARDE_CORE_2
-	clearflag FLAG_ZYGARDE_CORE_3
-	clearflag FLAG_ZYGARDE_CORE_4
-	clearflag FLAG_ZYGARDE_CORE_5
-	setflag FLAG_ZYGARDE_CORE_1
-	setflag FLAG_ZYGARDE_CORE_2
-	setflag FLAG_ZYGARDE_CORE_3
-	setflag FLAG_ZYGARDE_CORE_4
-	setflag FLAG_ZYGARDE_CORE_5
 	return
 
 
@@ -942,6 +917,7 @@ IntermediaryUpdateScript::
 	msgbox IntermediaryUpdateScript_Text, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
 	goto_if_eq IntermediaryUpdateScript_2
+	setflag FLAG_INTERMEDIATE_PATCH
 	call BackUpTMs
 	msgbox TMsAreNowSecured
 	removeobject VAR_LAST_TALKED
@@ -1919,6 +1895,759 @@ BackUpTMs_319:
 	return
 
 
+ReturnTMs::
+	goto_if_set FLAG_ITEM_TM01, ReturnTMs_2
+ReturnTMs_1:
+	goto_if_set FLAG_ITEM_TM02, ReturnTMs_5
+ReturnTMs_4:
+	goto_if_set FLAG_ITEM_TM03, ReturnTMs_8
+ReturnTMs_7:
+	goto_if_set FLAG_ITEM_TM04, ReturnTMs_11
+ReturnTMs_10:
+	goto_if_set FLAG_ITEM_TM05, ReturnTMs_14
+ReturnTMs_13:
+	goto_if_set FLAG_ITEM_TM06, ReturnTMs_17
+ReturnTMs_16:
+	goto_if_set FLAG_ITEM_TM07, ReturnTMs_20
+ReturnTMs_19:
+	goto_if_set FLAG_ITEM_TM08, ReturnTMs_23
+ReturnTMs_22:
+	goto_if_set FLAG_ITEM_TM09, ReturnTMs_26
+ReturnTMs_25:
+	goto_if_set FLAG_ITEM_TM10, ReturnTMs_29
+ReturnTMs_28:
+	goto_if_set FLAG_ITEM_TM11, ReturnTMs_32
+ReturnTMs_31:
+	goto_if_set FLAG_ITEM_TM12, ReturnTMs_35
+ReturnTMs_34:
+	goto_if_set FLAG_ITEM_TM13, ReturnTMs_38
+ReturnTMs_37:
+	goto_if_set FLAG_ITEM_TM14, ReturnTMs_41
+ReturnTMs_40:
+	goto_if_set FLAG_ITEM_TM15, ReturnTMs_44
+ReturnTMs_43:
+	goto_if_set FLAG_ITEM_TM16, ReturnTMs_47
+ReturnTMs_46:
+	goto_if_set FLAG_ITEM_TM17, ReturnTMs_50
+ReturnTMs_49:
+	goto_if_set FLAG_ITEM_TM18, ReturnTMs_53
+ReturnTMs_52:
+	goto_if_set FLAG_ITEM_TM19, ReturnTMs_56
+ReturnTMs_55:
+	goto_if_set FLAG_ITEM_TM20, ReturnTMs_59
+ReturnTMs_58:
+	goto_if_set FLAG_ITEM_TM21, ReturnTMs_62
+ReturnTMs_61:
+	goto_if_set FLAG_ITEM_TM22, ReturnTMs_65
+ReturnTMs_64:
+	goto_if_set FLAG_ITEM_TM23, ReturnTMs_68
+ReturnTMs_67:
+	goto_if_set FLAG_ITEM_TM24, ReturnTMs_71
+ReturnTMs_70:
+	goto_if_set FLAG_ITEM_TM25, ReturnTMs_74
+ReturnTMs_73:
+	goto_if_set FLAG_ITEM_TM26, ReturnTMs_77
+ReturnTMs_76:
+	goto_if_set FLAG_ITEM_TM27, ReturnTMs_80
+ReturnTMs_79:
+	goto_if_set FLAG_ITEM_TM28, ReturnTMs_83
+ReturnTMs_82:
+	goto_if_set FLAG_ITEM_TM29, ReturnTMs_86
+ReturnTMs_85:
+	goto_if_set FLAG_ITEM_TM30, ReturnTMs_89
+ReturnTMs_88:
+	goto_if_set FLAG_ITEM_TM31, ReturnTMs_92
+ReturnTMs_91:
+	goto_if_set FLAG_ITEM_TM32, ReturnTMs_95
+ReturnTMs_94:
+	goto_if_set FLAG_ITEM_TM33, ReturnTMs_98
+ReturnTMs_97:
+	goto_if_set FLAG_ITEM_TM34, ReturnTMs_101
+ReturnTMs_100:
+	goto_if_set FLAG_ITEM_TM35, ReturnTMs_104
+ReturnTMs_103:
+	goto_if_set FLAG_ITEM_TM36, ReturnTMs_107
+ReturnTMs_106:
+	goto_if_set FLAG_ITEM_TM37, ReturnTMs_110
+ReturnTMs_109:
+	goto_if_set FLAG_ITEM_TM38, ReturnTMs_113
+ReturnTMs_112:
+	goto_if_set FLAG_ITEM_TM39, ReturnTMs_116
+ReturnTMs_115:
+	goto_if_set FLAG_ITEM_TM40, ReturnTMs_119
+ReturnTMs_118:
+	goto_if_set FLAG_ITEM_TM41, ReturnTMs_122
+ReturnTMs_121:
+	goto_if_set FLAG_ITEM_TM42, ReturnTMs_125
+ReturnTMs_124:
+	goto_if_set FLAG_ITEM_TM43, ReturnTMs_128
+ReturnTMs_127:
+	goto_if_set FLAG_ITEM_TM44, ReturnTMs_131
+ReturnTMs_130:
+	goto_if_set FLAG_ITEM_TM45, ReturnTMs_134
+ReturnTMs_133:
+	goto_if_set FLAG_ITEM_TM46, ReturnTMs_137
+ReturnTMs_136:
+	goto_if_set FLAG_ITEM_TM47, ReturnTMs_140
+ReturnTMs_139:
+	goto_if_set FLAG_ITEM_TM48, ReturnTMs_143
+ReturnTMs_142:
+	goto_if_set FLAG_ITEM_TM49, ReturnTMs_146
+ReturnTMs_145:
+	goto_if_set FLAG_ITEM_TM50, ReturnTMs_149
+ReturnTMs_148:
+	goto_if_set FLAG_ITEM_TM51, ReturnTMs_152
+ReturnTMs_151:
+	goto_if_set FLAG_ITEM_TM52, ReturnTMs_155
+ReturnTMs_154:
+	goto_if_set FLAG_ITEM_TM53, ReturnTMs_158
+ReturnTMs_157:
+	goto_if_set FLAG_ITEM_TM54, ReturnTMs_161
+ReturnTMs_160:
+	goto_if_set FLAG_ITEM_TM55, ReturnTMs_164
+ReturnTMs_163:
+	goto_if_set FLAG_ITEM_TM56, ReturnTMs_167
+ReturnTMs_166:
+	goto_if_set FLAG_ITEM_TM57, ReturnTMs_170
+ReturnTMs_169:
+	goto_if_set FLAG_ITEM_TM58, ReturnTMs_173
+ReturnTMs_172:
+	goto_if_set FLAG_ITEM_TM59, ReturnTMs_176
+ReturnTMs_175:
+	goto_if_set FLAG_ITEM_TM60, ReturnTMs_179
+ReturnTMs_178:
+	goto_if_set FLAG_ITEM_TM61, ReturnTMs_182
+ReturnTMs_181:
+	goto_if_set FLAG_ITEM_TM62, ReturnTMs_185
+ReturnTMs_184:
+	goto_if_set FLAG_ITEM_TM63, ReturnTMs_188
+ReturnTMs_187:
+	goto_if_set FLAG_ITEM_TM64, ReturnTMs_191
+ReturnTMs_190:
+	goto_if_set FLAG_ITEM_TM65, ReturnTMs_194
+ReturnTMs_193:
+	goto_if_set FLAG_ITEM_TM66, ReturnTMs_197
+ReturnTMs_196:
+	goto_if_set FLAG_ITEM_TM67, ReturnTMs_200
+ReturnTMs_199:
+	goto_if_set FLAG_ITEM_TM68, ReturnTMs_203
+ReturnTMs_202:
+	goto_if_set FLAG_ITEM_TM69, ReturnTMs_206
+ReturnTMs_205:
+	goto_if_set FLAG_ITEM_TM70, ReturnTMs_209
+ReturnTMs_208:
+	goto_if_set FLAG_ITEM_TM71, ReturnTMs_212
+ReturnTMs_211:
+	goto_if_set FLAG_ITEM_TM72, ReturnTMs_215
+ReturnTMs_214:
+	goto_if_set FLAG_ITEM_TM73, ReturnTMs_218
+ReturnTMs_217:
+	goto_if_set FLAG_ITEM_TM74, ReturnTMs_221
+ReturnTMs_220:
+	goto_if_set FLAG_ITEM_TM75, ReturnTMs_224
+ReturnTMs_223:
+	goto_if_set FLAG_ITEM_TM76, ReturnTMs_227
+ReturnTMs_226:
+	goto_if_set FLAG_ITEM_TM77, ReturnTMs_230
+ReturnTMs_229:
+	goto_if_set FLAG_ITEM_TM78, ReturnTMs_233
+ReturnTMs_232:
+	goto_if_set FLAG_ITEM_TM79, ReturnTMs_236
+ReturnTMs_235:
+	goto_if_set FLAG_ITEM_TM80, ReturnTMs_239
+ReturnTMs_238:
+	goto_if_set FLAG_ITEM_TM81, ReturnTMs_242
+ReturnTMs_241:
+	goto_if_set FLAG_ITEM_TM82, ReturnTMs_245
+ReturnTMs_244:
+	goto_if_set FLAG_ITEM_TM83, ReturnTMs_248
+ReturnTMs_247:
+	goto_if_set FLAG_ITEM_TM84, ReturnTMs_251
+ReturnTMs_250:
+	goto_if_set FLAG_ITEM_TM85, ReturnTMs_254
+ReturnTMs_253:
+	goto_if_set FLAG_ITEM_TM86, ReturnTMs_257
+ReturnTMs_256:
+	goto_if_set FLAG_ITEM_TM87, ReturnTMs_260
+ReturnTMs_259:
+	goto_if_set FLAG_ITEM_TM88, ReturnTMs_263
+ReturnTMs_262:
+	goto_if_set FLAG_ITEM_TM89, ReturnTMs_266
+ReturnTMs_265:
+	goto_if_set FLAG_ITEM_TM90, ReturnTMs_269
+ReturnTMs_268:
+	goto_if_set FLAG_ITEM_TM91, ReturnTMs_272
+ReturnTMs_271:
+	goto_if_set FLAG_ITEM_TM92, ReturnTMs_275
+ReturnTMs_274:
+	goto_if_set FLAG_ITEM_TM93, ReturnTMs_278
+ReturnTMs_277:
+	goto_if_set FLAG_ITEM_TM94, ReturnTMs_281
+ReturnTMs_280:
+	goto_if_set FLAG_ITEM_TM95, ReturnTMs_284
+ReturnTMs_283:
+	goto_if_set FLAG_ITEM_TM96, ReturnTMs_287
+ReturnTMs_286:
+	goto_if_set FLAG_ITEM_TM97, ReturnTMs_290
+ReturnTMs_289:
+	goto_if_set FLAG_ITEM_TM98, ReturnTMs_293
+ReturnTMs_292:
+	goto_if_set FLAG_ITEM_TM99, ReturnTMs_296
+ReturnTMs_295:
+	goto_if_set FLAG_ITEM_TM100, ReturnTMs_299
+ReturnTMs_298:
+	goto_if_set FLAG_ITEM_HM01, ReturnTMs_302
+ReturnTMs_301:
+	goto_if_set FLAG_ITEM_HM02, ReturnTMs_305
+ReturnTMs_304:
+	goto_if_set FLAG_ITEM_HM03, ReturnTMs_308
+ReturnTMs_307:
+	goto_if_set FLAG_ITEM_HM04, ReturnTMs_311
+ReturnTMs_310:
+	goto_if_set FLAG_ITEM_HM05, ReturnTMs_314
+ReturnTMs_313:
+	goto_if_set FLAG_ITEM_HM06, ReturnTMs_317
+ReturnTMs_316:
+	goto_if_set FLAG_ITEM_HM07, ReturnTMs_320
+ReturnTMs_319:
+	return
+
+ReturnTMs_2:
+	additem ITEM_TM01
+	clearflag FLAG_ITEM_TM01
+	goto ReturnTMs_1
+
+ReturnTMs_5:
+	additem ITEM_TM02
+	clearflag FLAG_ITEM_TM02
+	goto ReturnTMs_4
+
+ReturnTMs_8:
+	additem ITEM_TM03
+	clearflag FLAG_ITEM_TM03
+	goto ReturnTMs_7
+
+ReturnTMs_11:
+	additem ITEM_TM04
+	clearflag FLAG_ITEM_TM04
+	goto ReturnTMs_10
+
+ReturnTMs_14:
+	additem ITEM_TM05
+	clearflag FLAG_ITEM_TM05
+	goto ReturnTMs_13
+
+ReturnTMs_17:
+	additem ITEM_TM06
+	clearflag FLAG_ITEM_TM06
+	goto ReturnTMs_16
+
+ReturnTMs_20:
+	additem ITEM_TM07
+	clearflag FLAG_ITEM_TM07
+	goto ReturnTMs_19
+
+ReturnTMs_23:
+	additem ITEM_TM08
+	clearflag FLAG_ITEM_TM08
+	goto ReturnTMs_22
+
+ReturnTMs_26:
+	additem ITEM_TM09
+	clearflag FLAG_ITEM_TM09
+	goto ReturnTMs_25
+
+ReturnTMs_29:
+	additem ITEM_TM10
+	clearflag FLAG_ITEM_TM10
+	goto ReturnTMs_28
+
+ReturnTMs_32:
+	additem ITEM_TM11
+	clearflag FLAG_ITEM_TM11
+	goto ReturnTMs_31
+
+ReturnTMs_35:
+	additem ITEM_TM12
+	clearflag FLAG_ITEM_TM12
+	goto ReturnTMs_34
+
+ReturnTMs_38:
+	additem ITEM_TM13
+	clearflag FLAG_ITEM_TM13
+	goto ReturnTMs_37
+
+ReturnTMs_41:
+	additem ITEM_TM14
+	clearflag FLAG_ITEM_TM14
+	goto ReturnTMs_40
+
+ReturnTMs_44:
+	additem ITEM_TM15
+	clearflag FLAG_ITEM_TM15
+	goto ReturnTMs_43
+
+ReturnTMs_47:
+	additem ITEM_TM16
+	clearflag FLAG_ITEM_TM16
+	goto ReturnTMs_46
+
+ReturnTMs_50:
+	additem ITEM_TM17
+	clearflag FLAG_ITEM_TM17
+	goto ReturnTMs_49
+
+ReturnTMs_53:
+	additem ITEM_TM18
+	clearflag FLAG_ITEM_TM18
+	goto ReturnTMs_52
+
+ReturnTMs_56:
+	additem ITEM_TM19
+	clearflag FLAG_ITEM_TM19
+	goto ReturnTMs_55
+
+ReturnTMs_59:
+	additem ITEM_TM20
+	clearflag FLAG_ITEM_TM20
+	goto ReturnTMs_58
+
+ReturnTMs_62:
+	additem ITEM_TM21
+	clearflag FLAG_ITEM_TM21
+	goto ReturnTMs_61
+
+ReturnTMs_65:
+	additem ITEM_TM22
+	clearflag FLAG_ITEM_TM22
+	goto ReturnTMs_64
+
+ReturnTMs_68:
+	additem ITEM_TM23
+	clearflag FLAG_ITEM_TM23
+	goto ReturnTMs_67
+
+ReturnTMs_71:
+	additem ITEM_TM24
+	clearflag FLAG_ITEM_TM24
+	goto ReturnTMs_70
+
+ReturnTMs_74:
+	additem ITEM_TM25
+	clearflag FLAG_ITEM_TM25
+	goto ReturnTMs_73
+
+ReturnTMs_77:
+	additem ITEM_TM26
+	clearflag FLAG_ITEM_TM26
+	goto ReturnTMs_76
+
+ReturnTMs_80:
+	additem ITEM_TM27
+	clearflag FLAG_ITEM_TM27
+	goto ReturnTMs_79
+
+ReturnTMs_83:
+	additem ITEM_TM28
+	clearflag FLAG_ITEM_TM28
+	goto ReturnTMs_82
+
+ReturnTMs_86:
+	additem ITEM_TM29
+	clearflag FLAG_ITEM_TM29
+	goto ReturnTMs_85
+
+ReturnTMs_89:
+	additem ITEM_TM30
+	clearflag FLAG_ITEM_TM30
+	goto ReturnTMs_88
+
+ReturnTMs_92:
+	additem ITEM_TM31
+	clearflag FLAG_ITEM_TM31
+	goto ReturnTMs_91
+
+ReturnTMs_95:
+	additem ITEM_TM32
+	clearflag FLAG_ITEM_TM32
+	goto ReturnTMs_94
+
+ReturnTMs_98:
+	additem ITEM_TM33
+	clearflag FLAG_ITEM_TM33
+	goto ReturnTMs_97
+
+ReturnTMs_101:
+	additem ITEM_TM34
+	clearflag FLAG_ITEM_TM34
+	goto ReturnTMs_100
+
+ReturnTMs_104:
+	additem ITEM_TM35
+	clearflag FLAG_ITEM_TM35
+	goto ReturnTMs_103
+
+ReturnTMs_107:
+	additem ITEM_TM36
+	clearflag FLAG_ITEM_TM36
+	goto ReturnTMs_106
+
+ReturnTMs_110:
+	additem ITEM_TM37
+	clearflag FLAG_ITEM_TM37
+	goto ReturnTMs_109
+
+ReturnTMs_113:
+	additem ITEM_TM38
+	clearflag FLAG_ITEM_TM38
+	goto ReturnTMs_112
+
+ReturnTMs_116:
+	additem ITEM_TM39
+	clearflag FLAG_ITEM_TM39
+	goto ReturnTMs_115
+
+ReturnTMs_119:
+	additem ITEM_TM40
+	clearflag FLAG_ITEM_TM40
+	goto ReturnTMs_118
+
+ReturnTMs_122:
+	additem ITEM_TM41
+	clearflag FLAG_ITEM_TM41
+	goto ReturnTMs_121
+
+ReturnTMs_125:
+	additem ITEM_TM42
+	clearflag FLAG_ITEM_TM42
+	goto ReturnTMs_124
+
+ReturnTMs_128:
+	additem ITEM_TM43
+	clearflag FLAG_ITEM_TM43
+	goto ReturnTMs_127
+
+ReturnTMs_131:
+	additem ITEM_TM44
+	clearflag FLAG_ITEM_TM44
+	goto ReturnTMs_130
+
+ReturnTMs_134:
+	additem ITEM_TM45
+	clearflag FLAG_ITEM_TM45
+	goto ReturnTMs_133
+
+ReturnTMs_137:
+	additem ITEM_TM46
+	clearflag FLAG_ITEM_TM46
+	goto ReturnTMs_136
+
+ReturnTMs_140:
+	additem ITEM_TM47
+	clearflag FLAG_ITEM_TM47
+	goto ReturnTMs_139
+
+ReturnTMs_143:
+	additem ITEM_TM48
+	clearflag FLAG_ITEM_TM48
+	goto ReturnTMs_142
+
+ReturnTMs_146:
+	additem ITEM_TM49
+	clearflag FLAG_ITEM_TM49
+	goto ReturnTMs_145
+
+ReturnTMs_149:
+	additem ITEM_TM50
+	clearflag FLAG_ITEM_TM50
+	goto ReturnTMs_148
+
+ReturnTMs_152:
+	additem ITEM_TM51
+	clearflag FLAG_ITEM_TM51
+	goto ReturnTMs_151
+
+ReturnTMs_155:
+	additem ITEM_TM52
+	clearflag FLAG_ITEM_TM52
+	goto ReturnTMs_154
+
+ReturnTMs_158:
+	additem ITEM_TM53
+	clearflag FLAG_ITEM_TM53
+	goto ReturnTMs_157
+
+ReturnTMs_161:
+	additem ITEM_TM54
+	clearflag FLAG_ITEM_TM54
+	goto ReturnTMs_160
+
+ReturnTMs_164:
+	additem ITEM_TM55
+	clearflag FLAG_ITEM_TM55
+	goto ReturnTMs_163
+
+ReturnTMs_167:
+	additem ITEM_TM56
+	clearflag FLAG_ITEM_TM56
+	goto ReturnTMs_166
+
+ReturnTMs_170:
+	additem ITEM_TM57
+	clearflag FLAG_ITEM_TM57
+	goto ReturnTMs_169
+
+ReturnTMs_173:
+	additem ITEM_TM58
+	clearflag FLAG_ITEM_TM58
+	goto ReturnTMs_172
+
+ReturnTMs_176:
+	additem ITEM_TM59
+	clearflag FLAG_ITEM_TM59
+	goto ReturnTMs_175
+
+ReturnTMs_179:
+	additem ITEM_TM60
+	clearflag FLAG_ITEM_TM60
+	goto ReturnTMs_178
+
+ReturnTMs_182:
+	additem ITEM_TM61
+	clearflag FLAG_ITEM_TM61
+	goto ReturnTMs_181
+
+ReturnTMs_185:
+	additem ITEM_TM62
+	clearflag FLAG_ITEM_TM62
+	goto ReturnTMs_184
+
+ReturnTMs_188:
+	additem ITEM_TM63
+	clearflag FLAG_ITEM_TM63
+	goto ReturnTMs_187
+
+ReturnTMs_191:
+	additem ITEM_TM64
+	clearflag FLAG_ITEM_TM64
+	goto ReturnTMs_190
+
+ReturnTMs_194:
+	additem ITEM_TM65
+	clearflag FLAG_ITEM_TM65
+	goto ReturnTMs_193
+
+ReturnTMs_197:
+	additem ITEM_TM66
+	clearflag FLAG_ITEM_TM66
+	goto ReturnTMs_196
+
+ReturnTMs_200:
+	additem ITEM_TM67
+	clearflag FLAG_ITEM_TM67
+	goto ReturnTMs_199
+
+ReturnTMs_203:
+	additem ITEM_TM68
+	clearflag FLAG_ITEM_TM68
+	goto ReturnTMs_202
+
+ReturnTMs_206:
+	additem ITEM_TM69
+	clearflag FLAG_ITEM_TM69
+	goto ReturnTMs_205
+
+ReturnTMs_209:
+	additem ITEM_TM70
+	clearflag FLAG_ITEM_TM70
+	goto ReturnTMs_208
+
+ReturnTMs_212:
+	additem ITEM_TM71
+	clearflag FLAG_ITEM_TM71
+	goto ReturnTMs_211
+
+ReturnTMs_215:
+	additem ITEM_TM72
+	clearflag FLAG_ITEM_TM72
+	goto ReturnTMs_214
+
+ReturnTMs_218:
+	additem ITEM_TM73
+	clearflag FLAG_ITEM_TM73
+	goto ReturnTMs_217
+
+ReturnTMs_221:
+	additem ITEM_TM74
+	clearflag FLAG_ITEM_TM74
+	goto ReturnTMs_220
+
+ReturnTMs_224:
+	additem ITEM_TM75
+	clearflag FLAG_ITEM_TM75
+	goto ReturnTMs_223
+
+ReturnTMs_227:
+	additem ITEM_TM76
+	clearflag FLAG_ITEM_TM76
+	goto ReturnTMs_226
+
+ReturnTMs_230:
+	additem ITEM_TM77
+	clearflag FLAG_ITEM_TM77
+	goto ReturnTMs_229
+
+ReturnTMs_233:
+	additem ITEM_TM78
+	clearflag FLAG_ITEM_TM78
+	goto ReturnTMs_232
+
+ReturnTMs_236:
+	additem ITEM_TM79
+	clearflag FLAG_ITEM_TM79
+	goto ReturnTMs_235
+
+ReturnTMs_239:
+	additem ITEM_TM80
+	clearflag FLAG_ITEM_TM80
+	goto ReturnTMs_238
+
+ReturnTMs_242:
+	additem ITEM_TM81
+	clearflag FLAG_ITEM_TM81
+	goto ReturnTMs_241
+
+ReturnTMs_245:
+	additem ITEM_TM82
+	clearflag FLAG_ITEM_TM82
+	goto ReturnTMs_244
+
+ReturnTMs_248:
+	additem ITEM_TM83
+	clearflag FLAG_ITEM_TM83
+	goto ReturnTMs_247
+
+ReturnTMs_251:
+	additem ITEM_TM84
+	clearflag FLAG_ITEM_TM84
+	goto ReturnTMs_250
+
+ReturnTMs_254:
+	additem ITEM_TM85
+	clearflag FLAG_ITEM_TM85
+	goto ReturnTMs_253
+
+ReturnTMs_257:
+	additem ITEM_TM86
+	clearflag FLAG_ITEM_TM86
+	goto ReturnTMs_256
+
+ReturnTMs_260:
+	additem ITEM_TM87
+	clearflag FLAG_ITEM_TM87
+	goto ReturnTMs_259
+
+ReturnTMs_263:
+	additem ITEM_TM88
+	clearflag FLAG_ITEM_TM88
+	goto ReturnTMs_262
+
+ReturnTMs_266:
+	additem ITEM_TM89
+	clearflag FLAG_ITEM_TM89
+	goto ReturnTMs_265
+
+ReturnTMs_269:
+	additem ITEM_TM90
+	clearflag FLAG_ITEM_TM90
+	goto ReturnTMs_268
+
+ReturnTMs_272:
+	additem ITEM_TM91
+	clearflag FLAG_ITEM_TM91
+	goto ReturnTMs_271
+
+ReturnTMs_275:
+	additem ITEM_TM92
+	clearflag FLAG_ITEM_TM92
+	goto ReturnTMs_274
+
+ReturnTMs_278:
+	additem ITEM_TM93
+	clearflag FLAG_ITEM_TM93
+	goto ReturnTMs_277
+
+ReturnTMs_281:
+	additem ITEM_TM94
+	clearflag FLAG_ITEM_TM94
+	goto ReturnTMs_280
+
+ReturnTMs_284:
+	additem ITEM_TM95
+	clearflag FLAG_ITEM_TM95
+	goto ReturnTMs_283
+
+ReturnTMs_287:
+	additem ITEM_TM96
+	clearflag FLAG_ITEM_TM96
+	goto ReturnTMs_286
+
+ReturnTMs_290:
+	additem ITEM_TM97
+	clearflag FLAG_ITEM_TM97
+	goto ReturnTMs_289
+
+ReturnTMs_293:
+	additem ITEM_TM98
+	clearflag FLAG_ITEM_TM98
+	goto ReturnTMs_292
+
+ReturnTMs_296:
+	additem ITEM_TM99
+	clearflag FLAG_ITEM_TM99
+	goto ReturnTMs_295
+
+ReturnTMs_299:
+	additem ITEM_TM100
+	clearflag FLAG_ITEM_TM100
+	goto ReturnTMs_298
+
+ReturnTMs_302:
+	additem ITEM_HM01
+	clearflag FLAG_ITEM_HM01
+	goto ReturnTMs_301
+
+ReturnTMs_305:
+	additem ITEM_HM02
+	clearflag FLAG_ITEM_HM02
+	goto ReturnTMs_304
+
+ReturnTMs_308:
+	additem ITEM_HM03
+	clearflag FLAG_ITEM_HM03
+	goto ReturnTMs_307
+
+ReturnTMs_311:
+	additem ITEM_HM04
+	clearflag FLAG_ITEM_HM04
+	goto ReturnTMs_310
+
+ReturnTMs_314:
+	additem ITEM_HM05
+	clearflag FLAG_ITEM_HM05
+	goto ReturnTMs_313
+
+ReturnTMs_317:
+	additem ITEM_HM06
+	clearflag FLAG_ITEM_HM06
+	goto ReturnTMs_316
+
+ReturnTMs_320:
+	additem ITEM_HM07
+	clearflag FLAG_ITEM_HM07
+	goto ReturnTMs_319
+
+
 Debug_Script_4_Text_0:
 	.string "Gym 1 (lvl 14)$"
 
@@ -1969,12 +2698,6 @@ Debug_Script_4_Text_15:
 
 Debug_Script_4_Text_16:
 	.string "Team set to level 45.$"
-
-Debug_Script_5_Text_0:
-	.string "TestGuy$"
-
-Debug_Script_5_Text_1:
-	.string "GG$"
 
 GainedASpecialTicket::
 	.string "Due to your victory, you have\n"
@@ -2190,3 +2913,8 @@ TMsAreNowSecured::
 	.string "next update.\p"
 	.string "Please save your game and update\n"
 	.string "to the latest version of the hack.$"
+
+SaveIsNowUpdated::
+	.string "Your progress is now updated\n"
+	.string "to the latest version.\p"
+	.string "Don't forget to save your game!$"

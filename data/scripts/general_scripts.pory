@@ -483,6 +483,10 @@ script AutomaticUpdate5{
     clearflag(FLAG_R14_ITEM5)
     clearflag(FLAG_R14_ITEM6)
     clearflag(FLAG_WINDPLUME_MT_HIDE_CHARGED_ORB)
+    if(flag(FLAG_INTERMEDIATE_PATCH)){
+        call(ReturnTMs)
+        clearflag(FLAG_INTERMEDIATE_PATCH)
+    }
     setvar(VAR_DEBUG, 13)
     if(flag(FLAG_VISITED_ROCKLIFFE)){
         msgbox(BattleTentInRockliffe)
@@ -746,51 +750,15 @@ script Debug_Script_4{              // Set team level
     release
     end}
 script Debug_Script_5{
-    setvar(VAR_0x8000, TRAINER_CLASS_SCIENTIST)
-    setvar(VAR_0x8001, TRAINER_PIC_CYCLING_TRIATHLETE_F)
-    bufferstring(STR_VAR_1, "TestGuy")
-    createmon(1, 0, SPECIES_CHIKORITA, 20)
-    createmon(1, 1, SPECIES_ARON, 17)
-    createmon(1, 2, SPECIES_TORCHIC, 20)
-    trainerbattle_no_intro(TRAINER_MAY_PLACEHOLDER, "GG")
     release
 }
-
 script Debug_Script_6{
-        clearflag(FLAG_ZYGARDE_CORE_1)
-    clearflag(FLAG_ZYGARDE_CORE_2)
-    clearflag(FLAG_ZYGARDE_CORE_3)
-    clearflag(FLAG_ZYGARDE_CORE_4)
-    clearflag(FLAG_ZYGARDE_CORE_5)
-
-    setflag(FLAG_ZYGARDE_CORE_2)
-    setflag(FLAG_ZYGARDE_CORE_4)
     return
 }
 script Debug_Script_7{
-        clearflag(FLAG_ZYGARDE_CORE_1)
-    clearflag(FLAG_ZYGARDE_CORE_2)
-    clearflag(FLAG_ZYGARDE_CORE_3)
-    clearflag(FLAG_ZYGARDE_CORE_4)
-    clearflag(FLAG_ZYGARDE_CORE_5)
-
-    setflag(FLAG_ZYGARDE_CORE_1)
-    setflag(FLAG_ZYGARDE_CORE_3)
-    setflag(FLAG_ZYGARDE_CORE_5)
     return
 }
 script Debug_Script_8{
-        clearflag(FLAG_ZYGARDE_CORE_1)
-    clearflag(FLAG_ZYGARDE_CORE_2)
-    clearflag(FLAG_ZYGARDE_CORE_3)
-    clearflag(FLAG_ZYGARDE_CORE_4)
-    clearflag(FLAG_ZYGARDE_CORE_5)
-
-    setflag(FLAG_ZYGARDE_CORE_1)
-    setflag(FLAG_ZYGARDE_CORE_2)
-    setflag(FLAG_ZYGARDE_CORE_3)
-    setflag(FLAG_ZYGARDE_CORE_4)
-    setflag(FLAG_ZYGARDE_CORE_5)
     return
 }
 //
@@ -859,6 +827,7 @@ script IntermediaryUpdateScript{
         release
         end
     }
+    setflag(FLAG_INTERMEDIATE_PATCH)
     call(BackUpTMs)
     msgbox(TMsAreNowSecured)
     removeobject(VAR_LAST_TALKED)
@@ -880,6 +849,11 @@ text TMsAreNowSecured{
     "next update.\p"
     "Please save your game and update\n"
     "to the latest version of the hack."
+}
+text SaveIsNowUpdated{
+    "Your progress is now updated\n"
+    "to the latest version.\p"
+    "Don't forget to save your game!"
 }
 
 script BackUpTMs{
@@ -1311,4 +1285,436 @@ script BackUpTMs{
         setflag(FLAG_ITEM_HM07)
         removeitem(ITEM_HM07)
     }
+}
+
+script ReturnTMs{
+        if(flag(FLAG_ITEM_TM01)){
+        additem(ITEM_TM01)
+        clearflag(FLAG_ITEM_TM01)
+    }
+    if(flag(FLAG_ITEM_TM02)){
+        additem(ITEM_TM02)
+        clearflag(FLAG_ITEM_TM02)
+    }
+    if(flag(FLAG_ITEM_TM03)){
+        additem(ITEM_TM03)
+        clearflag(FLAG_ITEM_TM03)
+    }
+    if(flag(FLAG_ITEM_TM04)){
+        additem(ITEM_TM04)
+        clearflag(FLAG_ITEM_TM04)
+    }
+    if(flag(FLAG_ITEM_TM05)){
+        additem(ITEM_TM05)
+        clearflag(FLAG_ITEM_TM05)
+    }
+    if(flag(FLAG_ITEM_TM06)){
+        additem(ITEM_TM06)
+        clearflag(FLAG_ITEM_TM06)
+    }
+    if(flag(FLAG_ITEM_TM07)){
+        additem(ITEM_TM07)
+        clearflag(FLAG_ITEM_TM07)
+    }
+    if(flag(FLAG_ITEM_TM08)){
+        additem(ITEM_TM08)
+        clearflag(FLAG_ITEM_TM08)
+    }
+    if(flag(FLAG_ITEM_TM09)){
+        additem(ITEM_TM09)
+        clearflag(FLAG_ITEM_TM09)
+    }
+    if(flag(FLAG_ITEM_TM10)){
+        additem(ITEM_TM10)
+        clearflag(FLAG_ITEM_TM10)
+    }
+    if(flag(FLAG_ITEM_TM11)){
+        additem(ITEM_TM11)
+        clearflag(FLAG_ITEM_TM11)
+    }
+    if(flag(FLAG_ITEM_TM12)){
+        additem(ITEM_TM12)
+        clearflag(FLAG_ITEM_TM12)
+    }
+    if(flag(FLAG_ITEM_TM13)){
+        additem(ITEM_TM13)
+        clearflag(FLAG_ITEM_TM13)
+    }
+    if(flag(FLAG_ITEM_TM14)){
+        additem(ITEM_TM14)
+        clearflag(FLAG_ITEM_TM14)
+    }
+    if(flag(FLAG_ITEM_TM15)){
+        additem(ITEM_TM15)
+        clearflag(FLAG_ITEM_TM15)
+    }
+    if(flag(FLAG_ITEM_TM16)){
+        additem(ITEM_TM16)
+        clearflag(FLAG_ITEM_TM16)
+    }
+    if(flag(FLAG_ITEM_TM17)){
+        additem(ITEM_TM17)
+        clearflag(FLAG_ITEM_TM17)
+    }
+    if(flag(FLAG_ITEM_TM18)){
+        additem(ITEM_TM18)
+        clearflag(FLAG_ITEM_TM18)
+    }
+    if(flag(FLAG_ITEM_TM19)){
+        additem(ITEM_TM19)
+        clearflag(FLAG_ITEM_TM19)
+    }
+    if(flag(FLAG_ITEM_TM20)){
+        additem(ITEM_TM20)
+        clearflag(FLAG_ITEM_TM20)
+    }
+    if(flag(FLAG_ITEM_TM21)){
+        additem(ITEM_TM21)
+        clearflag(FLAG_ITEM_TM21)
+    }
+    if(flag(FLAG_ITEM_TM22)){
+        additem(ITEM_TM22)
+        clearflag(FLAG_ITEM_TM22)
+    }
+    if(flag(FLAG_ITEM_TM23)){
+        additem(ITEM_TM23)
+        clearflag(FLAG_ITEM_TM23)
+    }
+    if(flag(FLAG_ITEM_TM24)){
+        additem(ITEM_TM24)
+        clearflag(FLAG_ITEM_TM24)
+    }
+    if(flag(FLAG_ITEM_TM25)){
+        additem(ITEM_TM25)
+        clearflag(FLAG_ITEM_TM25)
+    }
+    if(flag(FLAG_ITEM_TM26)){
+        additem(ITEM_TM26)
+        clearflag(FLAG_ITEM_TM26)
+    }
+    if(flag(FLAG_ITEM_TM27)){
+        additem(ITEM_TM27)
+        clearflag(FLAG_ITEM_TM27)
+    }
+    if(flag(FLAG_ITEM_TM28)){
+        additem(ITEM_TM28)
+        clearflag(FLAG_ITEM_TM28)
+    }
+    if(flag(FLAG_ITEM_TM29)){
+        additem(ITEM_TM29)
+        clearflag(FLAG_ITEM_TM29)
+    }
+    if(flag(FLAG_ITEM_TM30)){
+        additem(ITEM_TM30)
+        clearflag(FLAG_ITEM_TM30)
+    }
+    if(flag(FLAG_ITEM_TM31)){
+        additem(ITEM_TM31)
+        clearflag(FLAG_ITEM_TM31)
+    }
+    if(flag(FLAG_ITEM_TM32)){
+        additem(ITEM_TM32)
+        clearflag(FLAG_ITEM_TM32)
+    }
+    if(flag(FLAG_ITEM_TM33)){
+        additem(ITEM_TM33)
+        clearflag(FLAG_ITEM_TM33)
+    }
+    if(flag(FLAG_ITEM_TM34)){
+        additem(ITEM_TM34)
+        clearflag(FLAG_ITEM_TM34)
+    }
+    if(flag(FLAG_ITEM_TM35)){
+        additem(ITEM_TM35)
+        clearflag(FLAG_ITEM_TM35)
+    }
+    if(flag(FLAG_ITEM_TM36)){
+        additem(ITEM_TM36)
+        clearflag(FLAG_ITEM_TM36)
+    }
+    if(flag(FLAG_ITEM_TM37)){
+        additem(ITEM_TM37)
+        clearflag(FLAG_ITEM_TM37)
+    }
+    if(flag(FLAG_ITEM_TM38)){
+        additem(ITEM_TM38)
+        clearflag(FLAG_ITEM_TM38)
+    }
+    if(flag(FLAG_ITEM_TM39)){
+        additem(ITEM_TM39)
+        clearflag(FLAG_ITEM_TM39)
+    }
+    if(flag(FLAG_ITEM_TM40)){
+        additem(ITEM_TM40)
+        clearflag(FLAG_ITEM_TM40)
+    }
+    if(flag(FLAG_ITEM_TM41)){
+        additem(ITEM_TM41)
+        clearflag(FLAG_ITEM_TM41)
+    }
+    if(flag(FLAG_ITEM_TM42)){
+        additem(ITEM_TM42)
+        clearflag(FLAG_ITEM_TM42)
+    }
+    if(flag(FLAG_ITEM_TM43)){
+        additem(ITEM_TM43)
+        clearflag(FLAG_ITEM_TM43)
+    }
+    if(flag(FLAG_ITEM_TM44)){
+        additem(ITEM_TM44)
+        clearflag(FLAG_ITEM_TM44)
+    }
+    if(flag(FLAG_ITEM_TM45)){
+        additem(ITEM_TM45)
+        clearflag(FLAG_ITEM_TM45)
+    }
+    if(flag(FLAG_ITEM_TM46)){
+        additem(ITEM_TM46)
+        clearflag(FLAG_ITEM_TM46)
+    }
+    if(flag(FLAG_ITEM_TM47)){
+        additem(ITEM_TM47)
+        clearflag(FLAG_ITEM_TM47)
+    }
+    if(flag(FLAG_ITEM_TM48)){
+        additem(ITEM_TM48)
+        clearflag(FLAG_ITEM_TM48)
+    }
+    if(flag(FLAG_ITEM_TM49)){
+        additem(ITEM_TM49)
+        clearflag(FLAG_ITEM_TM49)
+    }
+    if(flag(FLAG_ITEM_TM50)){
+        additem(ITEM_TM50)
+        clearflag(FLAG_ITEM_TM50)
+    }
+    if(flag(FLAG_ITEM_TM51)){
+        additem(ITEM_TM51)
+        clearflag(FLAG_ITEM_TM51)
+    }
+    if(flag(FLAG_ITEM_TM52)){
+        additem(ITEM_TM52)
+        clearflag(FLAG_ITEM_TM52)
+    }
+    if(flag(FLAG_ITEM_TM53)){
+        additem(ITEM_TM53)
+        clearflag(FLAG_ITEM_TM53)
+    }
+    if(flag(FLAG_ITEM_TM54)){
+        additem(ITEM_TM54)
+        clearflag(FLAG_ITEM_TM54)
+    }
+    if(flag(FLAG_ITEM_TM55)){
+        additem(ITEM_TM55)
+        clearflag(FLAG_ITEM_TM55)
+    }
+    if(flag(FLAG_ITEM_TM56)){
+        additem(ITEM_TM56)
+        clearflag(FLAG_ITEM_TM56)
+    }
+    if(flag(FLAG_ITEM_TM57)){
+        additem(ITEM_TM57)
+        clearflag(FLAG_ITEM_TM57)
+    }
+    if(flag(FLAG_ITEM_TM58)){
+        additem(ITEM_TM58)
+        clearflag(FLAG_ITEM_TM58)
+    }
+    if(flag(FLAG_ITEM_TM59)){
+        additem(ITEM_TM59)
+        clearflag(FLAG_ITEM_TM59)
+    }
+    if(flag(FLAG_ITEM_TM60)){
+        additem(ITEM_TM60)
+        clearflag(FLAG_ITEM_TM60)
+    }
+    if(flag(FLAG_ITEM_TM61)){
+        additem(ITEM_TM61)
+        clearflag(FLAG_ITEM_TM61)
+    }
+    if(flag(FLAG_ITEM_TM62)){
+        additem(ITEM_TM62)
+        clearflag(FLAG_ITEM_TM62)
+    }
+    if(flag(FLAG_ITEM_TM63)){
+        additem(ITEM_TM63)
+        clearflag(FLAG_ITEM_TM63)
+    }
+    if(flag(FLAG_ITEM_TM64)){
+        additem(ITEM_TM64)
+        clearflag(FLAG_ITEM_TM64)
+    }
+    if(flag(FLAG_ITEM_TM65)){
+        additem(ITEM_TM65)
+        clearflag(FLAG_ITEM_TM65)
+    }
+    if(flag(FLAG_ITEM_TM66)){
+        additem(ITEM_TM66)
+        clearflag(FLAG_ITEM_TM66)
+    }
+    if(flag(FLAG_ITEM_TM67)){
+        additem(ITEM_TM67)
+        clearflag(FLAG_ITEM_TM67)
+    }
+    if(flag(FLAG_ITEM_TM68)){
+        additem(ITEM_TM68)
+        clearflag(FLAG_ITEM_TM68)
+    }
+    if(flag(FLAG_ITEM_TM69)){
+        additem(ITEM_TM69)
+        clearflag(FLAG_ITEM_TM69)
+    }
+    if(flag(FLAG_ITEM_TM70)){
+        additem(ITEM_TM70)
+        clearflag(FLAG_ITEM_TM70)
+    }
+    if(flag(FLAG_ITEM_TM71)){
+        additem(ITEM_TM71)
+        clearflag(FLAG_ITEM_TM71)
+    }
+    if(flag(FLAG_ITEM_TM72)){
+        additem(ITEM_TM72)
+        clearflag(FLAG_ITEM_TM72)
+    }
+    if(flag(FLAG_ITEM_TM73)){
+        additem(ITEM_TM73)
+        clearflag(FLAG_ITEM_TM73)
+    }
+    if(flag(FLAG_ITEM_TM74)){
+        additem(ITEM_TM74)
+        clearflag(FLAG_ITEM_TM74)
+    }
+    if(flag(FLAG_ITEM_TM75)){
+        additem(ITEM_TM75)
+        clearflag(FLAG_ITEM_TM75)
+    }
+    if(flag(FLAG_ITEM_TM76)){
+        additem(ITEM_TM76)
+        clearflag(FLAG_ITEM_TM76)
+    }
+    if(flag(FLAG_ITEM_TM77)){
+        additem(ITEM_TM77)
+        clearflag(FLAG_ITEM_TM77)
+    }
+    if(flag(FLAG_ITEM_TM78)){
+        additem(ITEM_TM78)
+        clearflag(FLAG_ITEM_TM78)
+    }
+    if(flag(FLAG_ITEM_TM79)){
+        additem(ITEM_TM79)
+        clearflag(FLAG_ITEM_TM79)
+    }
+    if(flag(FLAG_ITEM_TM80)){
+        additem(ITEM_TM80)
+        clearflag(FLAG_ITEM_TM80)
+    }
+    if(flag(FLAG_ITEM_TM81)){
+        additem(ITEM_TM81)
+        clearflag(FLAG_ITEM_TM81)
+    }
+    if(flag(FLAG_ITEM_TM82)){
+        additem(ITEM_TM82)
+        clearflag(FLAG_ITEM_TM82)
+    }
+    if(flag(FLAG_ITEM_TM83)){
+        additem(ITEM_TM83)
+        clearflag(FLAG_ITEM_TM83)
+    }
+    if(flag(FLAG_ITEM_TM84)){
+        additem(ITEM_TM84)
+        clearflag(FLAG_ITEM_TM84)
+    }
+    if(flag(FLAG_ITEM_TM85)){
+        additem(ITEM_TM85)
+        clearflag(FLAG_ITEM_TM85)
+    }
+    if(flag(FLAG_ITEM_TM86)){
+        additem(ITEM_TM86)
+        clearflag(FLAG_ITEM_TM86)
+    }
+    if(flag(FLAG_ITEM_TM87)){
+        additem(ITEM_TM87)
+        clearflag(FLAG_ITEM_TM87)
+    }
+    if(flag(FLAG_ITEM_TM88)){
+        additem(ITEM_TM88)
+        clearflag(FLAG_ITEM_TM88)
+    }
+    if(flag(FLAG_ITEM_TM89)){
+        additem(ITEM_TM89)
+        clearflag(FLAG_ITEM_TM89)
+    }
+    if(flag(FLAG_ITEM_TM90)){
+        additem(ITEM_TM90)
+        clearflag(FLAG_ITEM_TM90)
+    }
+    if(flag(FLAG_ITEM_TM91)){
+        additem(ITEM_TM91)
+        clearflag(FLAG_ITEM_TM91)
+    }
+    if(flag(FLAG_ITEM_TM92)){
+        additem(ITEM_TM92)
+        clearflag(FLAG_ITEM_TM92)
+    }
+    if(flag(FLAG_ITEM_TM93)){
+        additem(ITEM_TM93)
+        clearflag(FLAG_ITEM_TM93)
+    }
+    if(flag(FLAG_ITEM_TM94)){
+        additem(ITEM_TM94)
+        clearflag(FLAG_ITEM_TM94)
+    }
+    if(flag(FLAG_ITEM_TM95)){
+        additem(ITEM_TM95)
+        clearflag(FLAG_ITEM_TM95)
+    }
+    if(flag(FLAG_ITEM_TM96)){
+        additem(ITEM_TM96)
+        clearflag(FLAG_ITEM_TM96)
+    }
+    if(flag(FLAG_ITEM_TM97)){
+        additem(ITEM_TM97)
+        clearflag(FLAG_ITEM_TM97)
+    }
+    if(flag(FLAG_ITEM_TM98)){
+        additem(ITEM_TM98)
+        clearflag(FLAG_ITEM_TM98)
+    }
+    if(flag(FLAG_ITEM_TM99)){
+        additem(ITEM_TM99)
+        clearflag(FLAG_ITEM_TM99)
+    }
+    if(flag(FLAG_ITEM_TM100)){
+        additem(ITEM_TM100)
+        clearflag(FLAG_ITEM_TM100)
+    }
+        if(flag(FLAG_ITEM_HM01)){
+        additem(ITEM_HM01)
+        clearflag(FLAG_ITEM_HM01)
+    }
+    if(flag(FLAG_ITEM_HM02)){
+        additem(ITEM_HM02)
+        clearflag(FLAG_ITEM_HM02)
+    }
+    if(flag(FLAG_ITEM_HM03)){
+        additem(ITEM_HM03)
+        clearflag(FLAG_ITEM_HM03)
+    }
+    if(flag(FLAG_ITEM_HM04)){
+        additem(ITEM_HM04)
+        clearflag(FLAG_ITEM_HM04)
+    }
+    if(flag(FLAG_ITEM_HM05)){
+        additem(ITEM_HM05)
+        clearflag(FLAG_ITEM_HM05)
+    }
+    if(flag(FLAG_ITEM_HM06)){
+        additem(ITEM_HM06)
+        clearflag(FLAG_ITEM_HM06)
+    }
+    if(flag(FLAG_ITEM_HM07)){
+        additem(ITEM_HM07)
+        clearflag(FLAG_ITEM_HM07)
+    }
+    return
 }
