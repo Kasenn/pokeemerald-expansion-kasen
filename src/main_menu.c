@@ -1928,7 +1928,7 @@ static void Task_NewGameBirchSpeech_StartBrotherNamingScreen(u8 taskId)
         NewGameBirchSpeech_SetBrotherName(1);
         FreeAndDestroyMonPicSprite(gTasks[taskId].tLotadSpriteId);
         DestroyTask(taskId);
-        DoNamingScreen(NAMING_SCREEN_BROTHER, gSaveBlock3Ptr->brotherName, 0, 0, 0, CB2_NewGameBirchSpeech_ReturnFromNamingScreenBrother);
+        DoNamingScreen(NAMING_SCREEN_BROTHER, gSaveBlock2Ptr->brotherName, 0, 0, 0, CB2_NewGameBirchSpeech_ReturnFromNamingScreenBrother);
     }
 }
 
@@ -2357,8 +2357,8 @@ void NewGameBirchSpeech_SetBrotherName(u8 nameId)
         name = sBrotherPresetNames[nameId];
 
     for (i = 0; i < PLAYER_NAME_LENGTH; i++)
-        gSaveBlock3Ptr->brotherName[i] = name[i];
-    gSaveBlock3Ptr->brotherName[PLAYER_NAME_LENGTH] = EOS;
+        gSaveBlock2Ptr->brotherName[i] = name[i];
+    gSaveBlock2Ptr->brotherName[PLAYER_NAME_LENGTH] = EOS;
 }
 
 

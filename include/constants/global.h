@@ -8,6 +8,7 @@
 #include "config/caps.h"
 #include "config/pokemon.h"
 #include "config/overworld.h"
+#include "config/save.h"
 
 // Invalid Versions show as "----------" in Gen 4 and Gen 5's summary screen.
 // In Gens 6 and 7, invalid versions instead show "a distant land" in the summary screen.
@@ -53,31 +54,29 @@
 
 // capacities of various saveblock objects
 #define DAYCARE_MON_COUNT 2
-#define POKEBLOCKS_COUNT 40
+#define POKEBLOCKS_COUNT 1
 #define OBJECT_EVENTS_COUNT 16
-#define MAIL_COUNT (10 + PARTY_SIZE)
+#define MAIL_COUNT (1)
 #define SECRET_BASES_COUNT 1
 #define POKE_NEWS_COUNT 16
-#define PC_ITEMS_COUNT 50
-#define BAG_ITEMS_COUNT 60
-#define BAG_POKEBALLS_COUNT 20
-#if MOVE_TMHM_TO_SAVEBLOCK3 == FALSE
-    #define BAG_KEYITEMS_COUNT 46
-    #define BAG_TMHM_COUNT 64
-#else
-    #define BAG_KEYITEMS_COUNT 110
-    #define BAG_TMHM_COUNT 108
-#endif
-#define BAG_BERRIES_COUNT 46
-#define BAG_MEDICINE_COUNT 90
+
+#define PC_ITEMS_COUNT 100
+#define BAG_ITEMS_COUNT 100
+#define BAG_KEYITEMS_COUNT 80   // should be able to contain all  
+#define BAG_POKEBALLS_COUNT 30  // room for 1 extra
+#define BAG_TMHM_COUNT 108      // can contain all
+#define BAG_BERRIES_COUNT 69    // can contain all
+#define BAG_MEDICINE_COUNT 80   // 9 more than currently planned
+#define BAG_MEGASTONE_COUNT 50  // should be able to contain all
+
 #define OBJECT_EVENT_TEMPLATES_COUNT 64
-#define DECOR_MAX_SECRET_BASE 16
-#define DECOR_MAX_PLAYERS_HOUSE 12
-#define APPRENTICE_COUNT 4
-#define APPRENTICE_MAX_QUESTIONS 9
-#define MAX_REMATCH_ENTRIES 100 // only REMATCH_TABLE_ENTRIES (78) are used
-#define NUM_CONTEST_WINNERS 13
-#define UNION_ROOM_KB_ROW_COUNT 10
+#define DECOR_MAX_SECRET_BASE 1
+#define DECOR_MAX_PLAYERS_HOUSE 1
+#define APPRENTICE_COUNT 1
+#define APPRENTICE_MAX_QUESTIONS 1
+#define MAX_REMATCH_ENTRIES 1 // only REMATCH_TABLE_ENTRIES (78) are used
+#define NUM_CONTEST_WINNERS 1
+#define UNION_ROOM_KB_ROW_COUNT 1
 #define GIFT_RIBBONS_COUNT 11
 #define SAVED_TRENDS_COUNT 5
 #define PYRAMID_BAG_ITEMS_COUNT 10
@@ -119,7 +118,7 @@
 #define POKEMON_NAME_BUFFER_SIZE max(20, POKEMON_NAME_LENGTH + 1) // Frequently used buffer size. Larger than necessary
 #define PLAYER_NAME_LENGTH 7
 #define MAIL_WORDS_COUNT 9
-#define EASY_CHAT_BATTLE_WORDS_COUNT 6
+#define EASY_CHAT_BATTLE_WORDS_COUNT 1
 #define MOVE_NAME_LENGTH 16
 #define NUM_QUESTIONNAIRE_WORDS 4
 #define QUIZ_QUESTION_LEN 9

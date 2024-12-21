@@ -108,16 +108,16 @@ static void ClearPokedexFlags(void)
     memset(&gSaveBlock1Ptr->dexSeen, 0, sizeof(gSaveBlock1Ptr->dexSeen));
 }
 
-void ClearAllContestWinnerPics(void)
-{
-    s32 i;
+// void ClearAllContestWinnerPics(void)
+// {
+//     s32 i;
 
-    ClearContestWinnerPicsInContestHall();
+//     ClearContestWinnerPicsInContestHall();
 
-    // Clear Museum paintings
-    for (i = MUSEUM_CONTEST_WINNERS_START; i < NUM_CONTEST_WINNERS; i++)
-        gSaveBlock1Ptr->contestWinners[i] = sContestWinnerPicDummy;
-}
+//     // Clear Museum paintings
+//     for (i = MUSEUM_CONTEST_WINNERS_START; i < NUM_CONTEST_WINNERS; i++)
+//         gSaveBlock1Ptr->contestWinners[i] = sContestWinnerPicDummy;
+// }
 
 static void ClearFrontierRecord(void)
 {
@@ -174,22 +174,22 @@ void NewGameInitData(void)
     ClearFrontierRecord();
     ClearSav1();
     ClearSav3();
-    ClearAllMail();
+    // ClearAllMail();
     gSaveBlock2Ptr->specialSaveWarpFlags = 0;
-    gSaveBlock2Ptr->gcnLinkFlags = 0;
+    // gSaveBlock2Ptr->gcnLinkFlags = 0;
     InitPlayerTrainerId();
     PlayTimeCounter_Reset();
     ClearPokedexFlags();
     InitEventData();
     ClearTVShowData();
-    ResetGabbyAndTy();
-    ClearSecretBases();
+    // ResetGabbyAndTy();
+    // ClearSecretBases();
     ClearBerryTrees();
     SetMoney(&gSaveBlock1Ptr->money, 3000);
     SetCoins(0);
     ResetLinkContestBoolean();
     ResetGameStats();
-    ClearAllContestWinnerPics();
+    // ClearAllContestWinnerPics();
     ClearPlayerLinkBattleRecords();
     InitSeedotSizeRecord();
     InitLotadSizeRecord();
@@ -203,9 +203,9 @@ void NewGameInitData(void)
     TxRegItemsMenu_RegisteredItemsMenuNewGame();
     ClearPokeblocks();
     ClearDecorationInventories();
-    InitEasyChatPhrases();
-    SetMauvilleOldMan();
-    InitDewfordTrend();
+    // InitEasyChatPhrases();
+    // SetMauvilleOldMan();
+    // InitDewfordTrend();
     InitStrangeSeeds();
     ResetFanClub();
     ResetLotteryCorner();
@@ -213,26 +213,26 @@ void NewGameInitData(void)
     RunScriptImmediately(EventScript_ResetAllMapFlags);
     ResetMiniGamesRecords();
     InitUnionRoomChatRegisteredTexts();
-    InitLilycoveLady();
-    ResetAllApprenticeData();
+    // InitLilycoveLady();
+    // ResetAllApprenticeData();
     ClearRankingHallRecords();
     InitMatchCallCounters();
     ClearMysteryGift();
     WipeTrainerNameRecords();
     ResetTrainerHillResults();
-    ResetContestLinkResults();
+    // ResetContestLinkResults();
 
     memset(&gSaveBlock2Ptr->follower, 0, sizeof(gSaveBlock2Ptr->follower));
-    gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
+    gSaveBlock1Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
     ResetItemFlags();
 }
 
 static void ResetMiniGamesRecords(void)
 {
-    CpuFill16(0, &gSaveBlock2Ptr->berryCrush, sizeof(struct BerryCrush));
-    SetBerryPowder(&gSaveBlock2Ptr->berryCrush.berryPowderAmount, 0);
-    ResetPokemonJumpRecords();
-    CpuFill16(0, &gSaveBlock2Ptr->berryPick, sizeof(struct BerryPickingResults));
+    // CpuFill16(0, &gSaveBlock2Ptr->berryCrush, sizeof(struct BerryCrush));
+    // SetBerryPowder(&gSaveBlock2Ptr->berryCrush.berryPowderAmount, 0);
+    // ResetPokemonJumpRecords();
+    // CpuFill16(0, &gSaveBlock2Ptr->berryPick, sizeof(struct BerryPickingResults));
 }
 
 static void ResetItemFlags(void)

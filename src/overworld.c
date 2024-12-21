@@ -924,7 +924,7 @@ static void LoadMapFromWarp(bool32 a1)
     isOutdoors = IsMapTypeOutdoors(gMapHeader.mapType);
     isIndoors = IsMapTypeIndoors(gMapHeader.mapType);
 
-    CheckLeftFriendsSecretBase();
+    // CheckLeftFriendsSecretBase();
     TrySetMapSaveWarpStatus();
     ClearTempFieldEventData();
     ResetCyclingRoadChallengeData();
@@ -958,7 +958,7 @@ if (I_VS_SEEKER_CHARGING != 0)
     if (a1 != TRUE && isIndoors)
     {
         UpdateTVScreensOnMap(gBackupMapLayout.width, gBackupMapLayout.height);
-        InitSecretBaseAppearance(TRUE);
+        // InitSecretBaseAppearance(TRUE);
     }
 }
 
@@ -1721,7 +1721,7 @@ void CB2_NewGame(void)
 
 void DefaultFollower(void)
 {
-    gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
+    gSaveBlock1Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
 }
 
 void CB2_WhiteOut(void)
@@ -1877,8 +1877,8 @@ void CB2_ReturnToFieldFadeFromBlack(void)
 
 static void FieldCB_FadeTryShowMapPopup(void)
 {
-    if (gMapHeader.showMapName == TRUE && SecretBaseMapPopupEnabled() == TRUE)
-        ShowMapNamePopup();
+    // if (gMapHeader.showMapName == TRUE && SecretBaseMapPopupEnabled() == TRUE)
+    //     ShowMapNamePopup();
     FieldCB_WarpExitFadeFromBlack();
 }
 
@@ -2125,8 +2125,8 @@ static bool32 LoadMapInStepsLocal(u8 *state, bool32 a2)
         (*state)++;
         break;
     case 11:
-        if (gMapHeader.showMapName == TRUE && SecretBaseMapPopupEnabled() == TRUE)
-            ShowMapNamePopup();
+        // if (gMapHeader.showMapName == TRUE && SecretBaseMapPopupEnabled() == TRUE)
+        //     ShowMapNamePopup();
         (*state)++;
         break;
     case 12:

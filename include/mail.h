@@ -18,7 +18,7 @@
 void ReadMail(struct Mail *mail, void (*exitCallback)(void), bool8 hasText);
 
 // mail_data.h
-void ClearAllMail(void);
+// void ClearAllMail(void);
 void ClearMail(struct Mail *mail);
 bool8 MonHasMail(struct Pokemon *mon);
 u8 GiveMailToMonByItemId(struct Pokemon *mon, u16 itemId);

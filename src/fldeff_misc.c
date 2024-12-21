@@ -496,8 +496,8 @@ static void Task_ComputerScreenCloseEffect(u8 taskId)
 
 static void SetCurrentSecretBase(void)
 {
-    SetCurSecretBaseIdFromPosition(&gPlayerFacingPosition, gMapHeader.events);
-    TrySetCurSecretBaseIndex();
+    // SetCurSecretBaseIdFromPosition(&gPlayerFacingPosition, gMapHeader.events);
+    // TrySetCurSecretBaseIndex();
 }
 
 static void AdjustSecretPowerSpritePixelOffsets(void)
@@ -631,8 +631,8 @@ static void SpriteCB_CaveEntranceOpen(struct Sprite *sprite)
 {
     if (sprite->data[0] < 40)
     {
-        if (++sprite->data[0] == 20)
-            ToggleSecretBaseEntranceMetatile();
+        // if (++sprite->data[0] == 20)
+        //     ToggleSecretBaseEntranceMetatile();
     }
     else
     {
@@ -686,8 +686,8 @@ bool8 FldEff_SecretPowerTree(void)
                  gSprites[gPlayerAvatar.spriteId].oam.y + gFieldEffectArguments[6],
                  148);
 
-    if (gFieldEffectArguments[7] == 1 || gFieldEffectArguments[7] == 3)
-        ToggleSecretBaseEntranceMetatile();
+    // if (gFieldEffectArguments[7] == 1 || gFieldEffectArguments[7] == 3)
+    //     ToggleSecretBaseEntranceMetatile();
 
     return FALSE;
 }
@@ -707,8 +707,8 @@ static void SpriteCB_TreeEntranceOpen(struct Sprite *sprite)
 
     if (sprite->data[0] >= 40)
     {
-        if (gFieldEffectArguments[7] == 0 || gFieldEffectArguments[7] == 2)
-            ToggleSecretBaseEntranceMetatile();
+        // if (gFieldEffectArguments[7] == 0 || gFieldEffectArguments[7] == 2)
+        //     ToggleSecretBaseEntranceMetatile();
 
         sprite->data[0] = 0;
         sprite->callback = SpriteCB_TreeEntranceEnd;
@@ -769,8 +769,8 @@ static void SpriteCB_ShrubEntranceOpen(struct Sprite *sprite)
     {
         sprite->data[0]++;
 
-        if (sprite->data[0] == 20)
-            ToggleSecretBaseEntranceMetatile();
+        // if (sprite->data[0] == 20)
+        //     ToggleSecretBaseEntranceMetatile();
     }
     else
     {
@@ -1183,8 +1183,8 @@ void InteractWithShieldOrTVDecoration(void)
 // As opposed to a small one (single metatile) like the balloons
 bool8 IsLargeBreakableDecoration(u16 metatileId, bool8 checkBase)
 {
-    if (!CurMapIsSecretBase())
-        return FALSE;
+    // if (!CurMapIsSecretBase())
+    //     return FALSE;
 
     if (!checkBase)
     {

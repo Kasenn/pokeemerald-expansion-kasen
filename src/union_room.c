@@ -1493,7 +1493,7 @@ static void Task_StartUnionRoomTrade(u8 taskId)
         }
         break;
     case 2:
-        memcpy(gBlockSendBuffer, gSaveBlock1Ptr->mail, sizeof(struct Mail) * PARTY_SIZE + 4);
+        // memcpy(gBlockSendBuffer, gSaveBlock1Ptr->mail, sizeof(struct Mail) * PARTY_SIZE + 4);
         if (SendBlock(0, gBlockSendBuffer, sizeof(struct Mail) * PARTY_SIZE + 4))
             gTasks[taskId].data[0]++;
         break;
@@ -1732,7 +1732,7 @@ static void Task_StartActivity(u8 taskId)
         break;
     case ACTIVITY_BERRY_CRUSH:
         WarpForWirelessMinigame(USING_BERRY_CRUSH, 9, 1);
-        StartBerryCrush(CB2_LoadMap);
+        // StartBerryCrush(CB2_LoadMap);
         break;
     case ACTIVITY_BERRY_PICK:
         WarpForWirelessMinigame(USING_MINIGAME, 5, 1);

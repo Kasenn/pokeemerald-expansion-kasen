@@ -9,7 +9,7 @@ struct DecorationInventory
 
 extern struct DecorationInventory gDecorationInventories[];
 
-void SetDecorationInventoriesPointers(void);
+// void SetDecorationInventoriesPointers(void);
 void ClearDecorationInventories(void);
 s8 GetFirstEmptyDecorSlot(u8 category);
 u8 CheckHasDecoration(u8 decor);

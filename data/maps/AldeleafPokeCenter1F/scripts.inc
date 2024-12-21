@@ -1,12 +1,10 @@
 AldeleafPokeCenter1F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, AldeleafPokeCenter1F_OnTransition
+	map_script MAP_SCRIPT_ON_TRANSITION, AldeleafPokeCenter1F_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
 
-
-AldeleafPokeCenter1F_OnTransition::
+AldeleafPokeCenter1F_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setrespawn HEAL_LOCATION_ALDELEAF_CITY
-	call Common_EventScript_UpdateBrineyLocation
-	end
+	return
 
 
 AldeleafPokeCenter1F_EventScript_Nurse::

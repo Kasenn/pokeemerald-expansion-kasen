@@ -71,7 +71,7 @@ void ApplyNewEncryptionKeyToBagItems_(u32 newKey) // really GF?
 
 void SetBagItemsPointers(void)
 {
-    gBagPockets[ITEMS_POCKET].itemSlots = gSaveBlock2Ptr->bagPocket_Items;
+    gBagPockets[ITEMS_POCKET].itemSlots = gSaveBlock1Ptr->bagPocket_Items;
     gBagPockets[ITEMS_POCKET].capacity = BAG_ITEMS_COUNT;
 
     gBagPockets[KEYITEMS_POCKET].itemSlots = gSaveBlock1Ptr->bagPocket_KeyItems;
@@ -80,17 +80,16 @@ void SetBagItemsPointers(void)
     gBagPockets[BALLS_POCKET].itemSlots = gSaveBlock1Ptr->bagPocket_PokeBalls;
     gBagPockets[BALLS_POCKET].capacity = BAG_POKEBALLS_COUNT;
 
-    #if MOVE_TMHM_TO_SAVEBLOCK3 == FALSE
-        gBagPockets[TMHM_POCKET].itemSlots = gSaveBlock1Ptr->bagPocket_TMHM;
-    #else
-        gBagPockets[TMHM_POCKET].itemSlots = gSaveBlock3Ptr->bagPocket_TMHM;
-    #endif
+    gBagPockets[TMHM_POCKET].itemSlots = gSaveBlock1Ptr->bagPocket_TMHM;
     gBagPockets[TMHM_POCKET].capacity = BAG_TMHM_COUNT;
 
     gBagPockets[BERRIES_POCKET].itemSlots = gSaveBlock1Ptr->bagPocket_Berries;
     gBagPockets[BERRIES_POCKET].capacity = BAG_BERRIES_COUNT;
 
-    gBagPockets[MEDICINE_POCKET].itemSlots = gSaveBlock3Ptr->bagPocket_Medicine;
+    gBagPockets[MEGASTONE_POCKET].itemSlots = gSaveBlock1Ptr->bagPocket_MegaStones;
+    gBagPockets[MEGASTONE_POCKET].capacity = BAG_MEGASTONE_COUNT;
+
+    gBagPockets[MEDICINE_POCKET].itemSlots = gSaveBlock1Ptr->bagPocket_Medicine;
     gBagPockets[MEDICINE_POCKET].capacity = BAG_MEDICINE_COUNT;
 }
 
@@ -389,11 +388,11 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
         if (totalQuantity < count)
             return FALSE;   // We don't have enough of the item
 
-        if (CurMapIsSecretBase() == TRUE)
-        {
-            VarSet(VAR_SECRET_BASE_LOW_TV_FLAGS, VarGet(VAR_SECRET_BASE_LOW_TV_FLAGS) | SECRET_BASE_USED_BAG);
-            VarSet(VAR_SECRET_BASE_LAST_ITEM_USED, itemId);
-        }
+        // if (CurMapIsSecretBase() == TRUE)
+        // {
+        //     VarSet(VAR_SECRET_BASE_LOW_TV_FLAGS, VarGet(VAR_SECRET_BASE_LOW_TV_FLAGS) | SECRET_BASE_USED_BAG);
+        //     VarSet(VAR_SECRET_BASE_LAST_ITEM_USED, itemId);
+        // }
 
         var = GetItemListPosition(pocket);
         if (itemPocket->capacity > var

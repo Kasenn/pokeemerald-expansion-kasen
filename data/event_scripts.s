@@ -720,7 +720,6 @@ Common_EventScript_ReadyPetalburgGymForBattle::
 Common_EventScript_BufferTrendyPhrase::
 	dotimebasedevents
 	setvar VAR_0x8004, 0
-	special BufferTrendyPhraseString
 	return
 
 EventScript_BackupMrBrineyLocation::

@@ -32,6 +32,7 @@ struct LoadedSaveData
  /*0x0230*/ struct ItemSlot berries[BAG_BERRIES_COUNT];
  /*0x02E8*/ struct Mail mail[MAIL_COUNT];
  /*0x0230*/ struct ItemSlot medicine[BAG_MEDICINE_COUNT];
+ /*0x0230*/ struct ItemSlot megaStones[BAG_MEGASTONE_COUNT];
 };
 
 // EWRAM DATA
@@ -66,8 +67,7 @@ void CheckForFlashMemory(void)
 
 void ClearSav3(void)
 {
-    memset(&gSaveBlock3Ptr->bagPocket_Medicine, 0, sizeof(gSaveBlock3Ptr->bagPocket_Medicine));
-    // CpuFill16(0, &gSaveblock3, sizeof(struct SaveBlock3));
+    CpuFill16(0, &gSaveblock3, sizeof(struct SaveBlock3));
 }
 
 void ClearSav2(void)
@@ -92,7 +92,7 @@ void SetSaveBlocksPointers(u16 offset)
     gPokemonStoragePtr = (void *)(&gPokemonStorage) + offset;
 
     SetBagItemsPointers();
-    SetDecorationInventoriesPointers();
+    // SetDecorationInventoriesPointers();
 }
 
 void MoveSaveBlocks_ResetHeap(void)
@@ -303,7 +303,7 @@ void LoadPlayerBag(void)
 
     // load player items.
     for (i = 0; i < BAG_ITEMS_COUNT; i++)
-        gLoadedSaveData.items[i] = gSaveBlock2Ptr->bagPocket_Items[i];
+        gLoadedSaveData.items[i] = gSaveBlock1Ptr->bagPocket_Items[i];
 
     // load player key items.
     for (i = 0; i < BAG_KEYITEMS_COUNT; i++)
@@ -315,25 +315,23 @@ void LoadPlayerBag(void)
 
     // load player TMs and HMs.
     for (i = 0; i < BAG_TMHM_COUNT; i++)
-    {
-    #if MOVE_TMHM_TO_SAVEBLOCK3 == FALSE
         gLoadedSaveData.TMsHMs[i] = gSaveBlock1Ptr->bagPocket_TMHM[i];
-    #else
-        gLoadedSaveData.TMsHMs[i] = gSaveBlock3Ptr->bagPocket_TMHM[i];
-    #endif
-    }
 
     // load player berries.
     for (i = 0; i < BAG_BERRIES_COUNT; i++)
         gLoadedSaveData.berries[i] = gSaveBlock1Ptr->bagPocket_Berries[i];
 
+    // load player megastones.
+    for (i = 0; i < BAG_MEGASTONE_COUNT; i++)
+        gLoadedSaveData.megaStones[i] = gSaveBlock1Ptr->bagPocket_MegaStones[i];
+
     // load mail.
-    for (i = 0; i < MAIL_COUNT; i++)
-        gLoadedSaveData.mail[i] = gSaveBlock1Ptr->mail[i];
+    // for (i = 0; i < MAIL_COUNT; i++)
+    //     gLoadedSaveData.mail[i] = gSaveBlock1Ptr->mail[i];
 
     // load player medicine.
     for (i = 0; i < BAG_MEDICINE_COUNT; i++)
-        gLoadedSaveData.medicine[i] = gSaveBlock3Ptr->bagPocket_Medicine[i];
+        gLoadedSaveData.medicine[i] = gSaveBlock1Ptr->bagPocket_Medicine[i];
 
     gLastEncryptionKey = gSaveBlock2Ptr->encryptionKey;
 }
@@ -345,7 +343,7 @@ void SavePlayerBag(void)
 
     // save player items.
     for (i = 0; i < BAG_ITEMS_COUNT; i++)
-        gSaveBlock2Ptr->bagPocket_Items[i] = gLoadedSaveData.items[i];
+        gSaveBlock1Ptr->bagPocket_Items[i] = gLoadedSaveData.items[i];
 
     // save player key items.
     for (i = 0; i < BAG_KEYITEMS_COUNT; i++)
@@ -357,25 +355,23 @@ void SavePlayerBag(void)
 
     // save player TMs and HMs.
     for (i = 0; i < BAG_TMHM_COUNT; i++)
-    {
-    #if MOVE_TMHM_TO_SAVEBLOCK3 == FALSE
         gSaveBlock1Ptr->bagPocket_TMHM[i] = gLoadedSaveData.TMsHMs[i];
-    #else
-        gSaveBlock3Ptr->bagPocket_TMHM[i] = gLoadedSaveData.TMsHMs[i];
-    #endif
-    }
 
     // save player berries.
     for (i = 0; i < BAG_BERRIES_COUNT; i++)
         gSaveBlock1Ptr->bagPocket_Berries[i] = gLoadedSaveData.berries[i];
 
+    // save player megastones.
+    for (i = 0; i < BAG_MEGASTONE_COUNT; i++)
+        gSaveBlock1Ptr->bagPocket_MegaStones[i] = gLoadedSaveData.megaStones[i];
+
     // save mail.
-    for (i = 0; i < MAIL_COUNT; i++)
-        gSaveBlock1Ptr->mail[i] = gLoadedSaveData.mail[i];
+    // for (i = 0; i < MAIL_COUNT; i++)
+    //     gSaveBlock1Ptr->mail[i] = gLoadedSaveData.mail[i];
 
     // save player medicine.
     for (i = 0; i < BAG_MEDICINE_COUNT; i++)
-        gSaveBlock3Ptr->bagPocket_Medicine[i] = gLoadedSaveData.medicine[i];
+        gSaveBlock1Ptr->bagPocket_Medicine[i] = gLoadedSaveData.medicine[i];
 
     encryptionKeyBackup = gSaveBlock2Ptr->encryptionKey;
     gSaveBlock2Ptr->encryptionKey = gLastEncryptionKey;
@@ -399,7 +395,7 @@ static void ApplyNewEncryptionKeyToAllEncryptedData(u32 encryptionKey)
 {
     ApplyNewEncryptionKeyToGameStats(encryptionKey);
     ApplyNewEncryptionKeyToBagItems_(encryptionKey);
-    ApplyNewEncryptionKeyToBerryPowder(encryptionKey);
+    // ApplyNewEncryptionKeyToBerryPowder(encryptionKey);
     ApplyNewEncryptionKeyToWord(&gSaveBlock1Ptr->money, encryptionKey);
     ApplyNewEncryptionKeyToHword(&gSaveBlock1Ptr->coins, encryptionKey);
 }

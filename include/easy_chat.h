@@ -120,7 +120,7 @@ struct EasyChatWordsByLetter
     int numWords;
 };
 
-void InitEasyChatPhrases(void);
+// void InitEasyChatPhrases(void);
 void ShowEasyChatScreen(void);
 u8 *CopyEasyChatWord(u8 *dest, u16 word);
 bool32 IsEasyChatAnswerUnlocked(int word);
@@ -131,8 +131,8 @@ u16 GetRandomEasyChatWordFromGroup(u16 group);
 u16 UnlockRandomTrendySaying(void);
 u16 EasyChat_GetNumWordsInGroup(u8);
 u16 GetRandomEasyChatWordFromUnlockedGroup(u16);
-void DoEasyChatScreen(u8 type, u16 *words, MainCallback callback, u8 displayedPersonType);
+// void DoEasyChatScreen(u8 type, u16 *words, MainCallback callback, u8 displayedPersonType);
 void InitQuestionnaireWords(void);
-void UnlockTrendySaying(u8 wordIndex);
+// void UnlockTrendySaying(u8 wordIndex);
 
 #endif // GUARD_EASYCHAT_H

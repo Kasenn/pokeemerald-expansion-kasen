@@ -2101,7 +2101,7 @@ static bool8 ShouldDoSlideInAnim(void)
     struct ObjectEvent *followerObj = GetFollowerObject();
     if (!followerObj
      || followerObj->invisible
-     || (gSaveBlock3Ptr->followerIndex > 0 && gSaveBlock3Ptr->followerIndex < PARTY_SIZE && gPlayerParty[gSaveBlock3Ptr->followerIndex].hp > 0))
+     || (gSaveBlock1Ptr->followerIndex > 0 && gSaveBlock1Ptr->followerIndex < PARTY_SIZE && gPlayerParty[gSaveBlock1Ptr->followerIndex].hp > 0))
         return FALSE;
     if (gBattleTypeFlags & (
         BATTLE_TYPE_LINK | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_FRONTIER | BATTLE_TYPE_FIRST_BATTLE |

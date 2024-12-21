@@ -1,33 +1,4 @@
-mapscripts Route13_MapScripts{
-    // MAP_SCRIPT_ON_FRAME_TABLE[
-    //     VAR_DEBUG, 8: RemovePlayerFromRoute13
-    // ]
-}
-
-// script RemovePlayerFromRoute13{
-//     lockall
-//     msgbox(RelocatedFromRoute13)
-//     setvar(VAR_DEBUG, 9)
-//     clearflag(FLAG_SERPENTCAVE_DRAGONFANG)
-//     clearflag(FLAG_OBTAINED_TYRANITARITE)
-//     clearflag(FLAG_OBTAINED_BLUNDER_POLICY)
-//     closemessage
-//     warp(MAP_SANDSTONE_CITY, 39, 32)
-//     callnative(DefaultFollower)
-//     end
-// }
-
-text RelocatedFromRoute13{
-    "A new update has been applied\n"
-    "automatically.\p"
-    "This enables followers and setting\n"
-    "a preferred follower from party screen,\l"
-    "an updated “Stats” page in the\l"
-    "start menu + a lot of bug fixes.\p"
-    "Due to changes made to this route,\n"
-    "you will be teleported to the closest\l"
-    "Pokémon Center."
-}
+mapscripts Route13_MapScripts{}
 
 script R13_BeachSwimmer{
     msgbox(R13_BeachSwimmer_Text, MSGBOX_NPC)

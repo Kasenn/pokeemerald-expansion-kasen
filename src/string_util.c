@@ -506,7 +506,7 @@ static const u8 *ExpandPlaceholder_Archie(void)
 
 static const u8 *ExpandPlaceholder_Brother(void)
 {
-    return gSaveBlock3Ptr->brotherName;
+    return gSaveBlock2Ptr->brotherName;
 }
 
 static const u8 *ExpandPlaceholder_Maxie(void)

@@ -165,7 +165,7 @@ void SetContestWinnerForPainting(int contestWinnerId)
 {
     u8 *saveIdx = &gCurContestWinnerSaveIdx;
     u8 *isForArtist = &gCurContestWinnerIsForArtist;
-    gCurContestWinner = gSaveBlock1Ptr->contestWinners[contestWinnerId - 1];
+    // gCurContestWinner = 0;
     *saveIdx = contestWinnerId - 1;
     *isForArtist = FALSE;
 }
@@ -291,7 +291,7 @@ static void PrintContestPaintingCaption(u8 contestType, bool8 isForArtist)
     if (contestType < MUSEUM_CONTEST_WINNERS_START)
     {
         // Contest Hall caption
-        BufferContestName(gStringVar1, category);
+        // BufferContestName(gStringVar1, category);
         StringAppend(gStringVar1, gText_Space);
         StringAppend(gStringVar1, sContestRankNames[gContestPaintingWinner->contestRank]);
         StringCopy(gStringVar2, gContestPaintingWinner->trainerName);

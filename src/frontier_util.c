@@ -1481,7 +1481,7 @@ static void ShowPyramidResultsWindow(void)
 static void ShowLinkContestResultsWindow(void)
 {
     const u8 *str;
-    s32 i, j;
+    // s32 i, j;
     s32 x;
 
     gRecordsWindowId = AddWindow(&sLinkContestResultsWindowTemplate);
@@ -1515,14 +1515,14 @@ static void ShowLinkContestResultsWindow(void)
     AddTextPrinterParameterized(gRecordsWindowId, FONT_NORMAL, gText_Smart, x, 89, TEXT_SKIP_DRAW, NULL);
     AddTextPrinterParameterized(gRecordsWindowId, FONT_NORMAL, gText_Tough, x, 105, TEXT_SKIP_DRAW, NULL);
 
-    for (i = 0; i < CONTEST_CATEGORIES_COUNT; i++)
-    {
-        for (j = 0; j < CONTESTANT_COUNT; j++)
-        {
-            ConvertIntToDecimalStringN(gStringVar4, gSaveBlock2Ptr->contestLinkResults[i][j], STR_CONV_MODE_RIGHT_ALIGN, 4);
-            AddTextPrinterParameterized(gRecordsWindowId, FONT_NORMAL, gStringVar4, (j * 38) + 64, (i * 16) + 41, TEXT_SKIP_DRAW, NULL);
-        }
-    }
+    // for (i = 0; i < CONTEST_CATEGORIES_COUNT; i++)
+    // {
+    //     for (j = 0; j < CONTESTANT_COUNT; j++)
+    //     {
+    //         ConvertIntToDecimalStringN(gStringVar4, gSaveBlock2Ptr->contestLinkResults[i][j], STR_CONV_MODE_RIGHT_ALIGN, 4);
+    //         AddTextPrinterParameterized(gRecordsWindowId, FONT_NORMAL, gStringVar4, (j * 38) + 64, (i * 16) + 41, TEXT_SKIP_DRAW, NULL);
+    //     }
+    // }
 
     PutWindowTilemap(gRecordsWindowId);
     CopyWindowToVram(gRecordsWindowId, COPYWIN_FULL);
@@ -1712,7 +1712,7 @@ void CopyFrontierTrainerText(u8 whichText, u16 trainerId)
         else if (trainerId < TRAINER_RECORD_MIXING_APPRENTICE)
             FrontierSpeechToString(gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].greeting);
         else
-            BufferApprenticeChallengeText(trainerId - TRAINER_RECORD_MIXING_APPRENTICE);
+            StringCopy(gStringVar4, gFacilityTrainers[trainerId].speechBefore);
         break;
     case FRONTIER_PLAYER_LOST_TEXT:
     #if FREE_BATTLE_TOWER_E_READER == FALSE
@@ -1743,8 +1743,8 @@ void CopyFrontierTrainerText(u8 whichText, u16 trainerId)
         {
             if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
                 FrontierSpeechToString(GetRecordedBattleEasyChatSpeech());
-            else
-                FrontierSpeechToString(gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].speechWon);
+            // else
+            //     FrontierSpeechToString(gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].speechWon);
         }
         break;
     case FRONTIER_PLAYER_WON_TEXT:
@@ -1777,11 +1777,11 @@ void CopyFrontierTrainerText(u8 whichText, u16 trainerId)
                 trainerId = GetRecordedBattleApprenticeId();
                 FrontierSpeechToString(gApprentices[trainerId].speechLost);
             }
-            else
-            {
-                trainerId = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id;
-                FrontierSpeechToString(gApprentices[trainerId].speechLost);
-            }
+            // else
+            // {
+            //     trainerId = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id;
+            //     FrontierSpeechToString(gApprentices[trainerId].speechLost);
+            // }
         }
         break;
     }

@@ -89,7 +89,7 @@ static u8 GetTVGroupByShowId(u8);
 static u8 FindFirstActiveTVShowThatIsNotAMassOutbreak(void);
 static void SetTVMetatilesOnMap(int, int, u16);
 static u8 FindAnyPokeNewsOnTheAir(void);
-static void TakeGabbyAndTyOffTheAir(void);
+// static void TakeGabbyAndTyOffTheAir(void);
 static bool8 BernoulliTrial(u16 ratio);
 static s8 FindFirstEmptyRecordMixTVShowSlot(TVShow *);
 static bool8 IsRecordMixShowAlreadySpawned(u8, bool8);
@@ -841,7 +841,7 @@ void UpdateTVScreensOnMap(int width, int height)
             // NPC in Lilycove Hotel is always watching TV
             SetTVMetatilesOnMap(width, height, METATILE_Building_TV_On);
         }
-        else if (FlagGet(FLAG_SYS_TV_START) && (FindAnyTVShowOnTheAir() != 0xFF || FindAnyPokeNewsOnTheAir() != 0xFF || IsGabbyAndTyShowOnTheAir()))
+        else if (FlagGet(FLAG_SYS_TV_START) && (FindAnyTVShowOnTheAir() != 0xFF || FindAnyPokeNewsOnTheAir() != 0xFF))
         {
             FlagClear(FLAG_SYS_TV_WATCH);
             SetTVMetatilesOnMap(width, height, METATILE_Building_TV_On);
@@ -910,157 +910,157 @@ u8 GetNextActiveShowIfMassOutbreak(void)
 
 // IN SEARCH OF TRAINERS
 
-void ResetGabbyAndTy(void)
-{
-    gSaveBlock1Ptr->gabbyAndTyData.mon1 = SPECIES_NONE;
-    gSaveBlock1Ptr->gabbyAndTyData.mon2 = SPECIES_NONE;
-    gSaveBlock1Ptr->gabbyAndTyData.lastMove = MOVE_NONE;
-    gSaveBlock1Ptr->gabbyAndTyData.quote[0] = -1;
-    gSaveBlock1Ptr->gabbyAndTyData.battleTookMoreThanOneTurn = FALSE;
-    gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon = FALSE;
-    gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem = FALSE;
-    gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall = FALSE;
-    gSaveBlock1Ptr->gabbyAndTyData.onAir = FALSE;
-    gSaveBlock1Ptr->gabbyAndTyData.valA_5 = 0;
-    gSaveBlock1Ptr->gabbyAndTyData.battleTookMoreThanOneTurn2 = FALSE;
-    gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon2 = FALSE;
-    gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem2 = FALSE;
-    gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall2 = FALSE;
-    gSaveBlock1Ptr->gabbyAndTyData.valB_4 = 0;
-    gSaveBlock1Ptr->gabbyAndTyData.mapnum = 0;
-    gSaveBlock1Ptr->gabbyAndTyData.battleNum = 0;
-}
+// void ResetGabbyAndTy(void)
+// {
+//     gSaveBlock1Ptr->gabbyAndTyData.mon1 = SPECIES_NONE;
+//     gSaveBlock1Ptr->gabbyAndTyData.mon2 = SPECIES_NONE;
+//     gSaveBlock1Ptr->gabbyAndTyData.lastMove = MOVE_NONE;
+//     gSaveBlock1Ptr->gabbyAndTyData.quote[0] = -1;
+//     gSaveBlock1Ptr->gabbyAndTyData.battleTookMoreThanOneTurn = FALSE;
+//     gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon = FALSE;
+//     gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem = FALSE;
+//     gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall = FALSE;
+//     gSaveBlock1Ptr->gabbyAndTyData.onAir = FALSE;
+//     gSaveBlock1Ptr->gabbyAndTyData.valA_5 = 0;
+//     gSaveBlock1Ptr->gabbyAndTyData.battleTookMoreThanOneTurn2 = FALSE;
+//     gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon2 = FALSE;
+//     gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem2 = FALSE;
+//     gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall2 = FALSE;
+//     gSaveBlock1Ptr->gabbyAndTyData.valB_4 = 0;
+//     gSaveBlock1Ptr->gabbyAndTyData.mapnum = 0;
+//     gSaveBlock1Ptr->gabbyAndTyData.battleNum = 0;
+// }
 
-void GabbyAndTyBeforeInterview(void)
-{
-    u8 i;
+// void GabbyAndTyBeforeInterview(void)
+// {
+//     u8 i;
 
-    gSaveBlock1Ptr->gabbyAndTyData.mon1 = gBattleResults.playerMon1Species;
-    gSaveBlock1Ptr->gabbyAndTyData.mon2 = gBattleResults.playerMon2Species;
-    gSaveBlock1Ptr->gabbyAndTyData.lastMove = gBattleResults.lastUsedMovePlayer;
-    if (gSaveBlock1Ptr->gabbyAndTyData.battleNum != 0xFF)
-        gSaveBlock1Ptr->gabbyAndTyData.battleNum++;
+//     gSaveBlock1Ptr->gabbyAndTyData.mon1 = gBattleResults.playerMon1Species;
+//     gSaveBlock1Ptr->gabbyAndTyData.mon2 = gBattleResults.playerMon2Species;
+//     gSaveBlock1Ptr->gabbyAndTyData.lastMove = gBattleResults.lastUsedMovePlayer;
+//     if (gSaveBlock1Ptr->gabbyAndTyData.battleNum != 0xFF)
+//         gSaveBlock1Ptr->gabbyAndTyData.battleNum++;
 
-    gSaveBlock1Ptr->gabbyAndTyData.battleTookMoreThanOneTurn = gBattleResults.playerMonWasDamaged;
+//     gSaveBlock1Ptr->gabbyAndTyData.battleTookMoreThanOneTurn = gBattleResults.playerMonWasDamaged;
 
-    if (gBattleResults.playerFaintCounter != 0)
-        gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon = TRUE;
-    else
-        gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon = FALSE;
+//     if (gBattleResults.playerFaintCounter != 0)
+//         gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon = TRUE;
+//     else
+//         gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon = FALSE;
 
-    if (gBattleResults.numHealingItemsUsed != 0)
-        gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem = TRUE;
-    else
-        gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem = FALSE;
+//     if (gBattleResults.numHealingItemsUsed != 0)
+//         gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem = TRUE;
+//     else
+//         gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem = FALSE;
 
-    for (i = 0; i < POKEBALL_COUNT; i++)
-    {
-        if (gBattleResults.catchAttempts[i])
-        {
-            gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall = TRUE;
-            break;
-        }
-    }
+//     for (i = 0; i < POKEBALL_COUNT; i++)
+//     {
+//         if (gBattleResults.catchAttempts[i])
+//         {
+//             gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall = TRUE;
+//             break;
+//         }
+//     }
 
-    TakeGabbyAndTyOffTheAir();
-    if (gSaveBlock1Ptr->gabbyAndTyData.lastMove == MOVE_NONE)
-        FlagSet(FLAG_TEMP_SKIP_GABBY_INTERVIEW);
-}
+//     TakeGabbyAndTyOffTheAir();
+//     if (gSaveBlock1Ptr->gabbyAndTyData.lastMove == MOVE_NONE)
+//         FlagSet(FLAG_TEMP_SKIP_GABBY_INTERVIEW);
+// }
 
-void GabbyAndTyAfterInterview(void)
-{
-    gSaveBlock1Ptr->gabbyAndTyData.battleTookMoreThanOneTurn2 = gSaveBlock1Ptr->gabbyAndTyData.battleTookMoreThanOneTurn;
-    gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon2 = gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon;
-    gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem2 = gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem;
-    gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall2 = gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall;
-    gSaveBlock1Ptr->gabbyAndTyData.onAir = TRUE;
-    gSaveBlock1Ptr->gabbyAndTyData.mapnum = gMapHeader.regionMapSectionId;
-    IncrementGameStat(GAME_STAT_GOT_INTERVIEWED);
-}
+// void GabbyAndTyAfterInterview(void)
+// {
+//     gSaveBlock1Ptr->gabbyAndTyData.battleTookMoreThanOneTurn2 = gSaveBlock1Ptr->gabbyAndTyData.battleTookMoreThanOneTurn;
+//     gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon2 = gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon;
+//     gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem2 = gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem;
+//     gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall2 = gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall;
+//     gSaveBlock1Ptr->gabbyAndTyData.onAir = TRUE;
+//     gSaveBlock1Ptr->gabbyAndTyData.mapnum = gMapHeader.regionMapSectionId;
+//     IncrementGameStat(GAME_STAT_GOT_INTERVIEWED);
+// }
 
-static void TakeGabbyAndTyOffTheAir(void)
-{
-    gSaveBlock1Ptr->gabbyAndTyData.onAir = FALSE;
-}
+// static void TakeGabbyAndTyOffTheAir(void)
+// {
+//     gSaveBlock1Ptr->gabbyAndTyData.onAir = FALSE;
+// }
 
-u8 GabbyAndTyGetBattleNum(void)
-{
-    if (gSaveBlock1Ptr->gabbyAndTyData.battleNum > 5)
-        return (gSaveBlock1Ptr->gabbyAndTyData.battleNum % 3) + 6;
+// u8 GabbyAndTyGetBattleNum(void)
+// {
+//     if (gSaveBlock1Ptr->gabbyAndTyData.battleNum > 5)
+//         return (gSaveBlock1Ptr->gabbyAndTyData.battleNum % 3) + 6;
 
-    return gSaveBlock1Ptr->gabbyAndTyData.battleNum;
-}
+//     return gSaveBlock1Ptr->gabbyAndTyData.battleNum;
+// }
 
-bool8 IsGabbyAndTyShowOnTheAir(void)
-{
-    return gSaveBlock1Ptr->gabbyAndTyData.onAir;
-}
+// bool8 IsGabbyAndTyShowOnTheAir(void)
+// {
+//     return gSaveBlock1Ptr->gabbyAndTyData.onAir;
+// }
 
-bool8 GabbyAndTyGetLastQuote(void)
-{
-    if (gSaveBlock1Ptr->gabbyAndTyData.quote[0] == EC_EMPTY_WORD)
-    {
-        return FALSE;
-    }
-    CopyEasyChatWord(gStringVar1, gSaveBlock1Ptr->gabbyAndTyData.quote[0]);
-    gSaveBlock1Ptr->gabbyAndTyData.quote[0] = -1;
-    return TRUE;
-}
+// bool8 GabbyAndTyGetLastQuote(void)
+// {
+//     if (gSaveBlock1Ptr->gabbyAndTyData.quote[0] == EC_EMPTY_WORD)
+//     {
+//         return FALSE;
+//     }
+//     CopyEasyChatWord(gStringVar1, gSaveBlock1Ptr->gabbyAndTyData.quote[0]);
+//     gSaveBlock1Ptr->gabbyAndTyData.quote[0] = -1;
+//     return TRUE;
+// }
 
-u8 GabbyAndTyGetLastBattleTrivia(void)
-{
-    if (!gSaveBlock1Ptr->gabbyAndTyData.battleTookMoreThanOneTurn2)
-        return 1;
+// u8 GabbyAndTyGetLastBattleTrivia(void)
+// {
+//     if (!gSaveBlock1Ptr->gabbyAndTyData.battleTookMoreThanOneTurn2)
+//         return 1;
 
-    if (gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall2)
-        return 2;
+//     if (gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall2)
+//         return 2;
 
-    if (gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem2)
-        return 3;
+//     if (gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem2)
+//         return 3;
 
-    if (gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon2)
-        return 4;
+//     if (gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon2)
+//         return 4;
 
-    return 0;
-}
+//     return 0;
+// }
 
 void GetGabbyAndTyLocalIds(void)
 {
-    switch (GabbyAndTyGetBattleNum())
-    {
-    case 1:
-        gSpecialVar_0x8004 = 14;
-        gSpecialVar_0x8005 = 13;
-        break;
-    case 2:
-        gSpecialVar_0x8004 = 5;
-        gSpecialVar_0x8005 = 6;
-        break;
-    case 3:
-        gSpecialVar_0x8004 = 18;
-        gSpecialVar_0x8005 = 17;
-        break;
-    case 4:
-        gSpecialVar_0x8004 = 21;
-        gSpecialVar_0x8005 = 22;
-        break;
-    case 5:
-        gSpecialVar_0x8004 = 8;
-        gSpecialVar_0x8005 = 9;
-        break;
-    case 6:
-        gSpecialVar_0x8004 = 19;
-        gSpecialVar_0x8005 = 20;
-        break;
-    case 7:
-        gSpecialVar_0x8004 = 23;
-        gSpecialVar_0x8005 = 24;
-        break;
-    case 8:
-        gSpecialVar_0x8004 = 10;
-        gSpecialVar_0x8005 = 11;
-        break;
-    }
+    // switch (GabbyAndTyGetBattleNum())
+    // {
+    // case 1:
+    //     gSpecialVar_0x8004 = 14;
+    //     gSpecialVar_0x8005 = 13;
+    //     break;
+    // case 2:
+    //     gSpecialVar_0x8004 = 5;
+    //     gSpecialVar_0x8005 = 6;
+    //     break;
+    // case 3:
+    //     gSpecialVar_0x8004 = 18;
+    //     gSpecialVar_0x8005 = 17;
+    //     break;
+    // case 4:
+    //     gSpecialVar_0x8004 = 21;
+    //     gSpecialVar_0x8005 = 22;
+    //     break;
+    // case 5:
+    //     gSpecialVar_0x8004 = 8;
+    //     gSpecialVar_0x8005 = 9;
+    //     break;
+    // case 6:
+    //     gSpecialVar_0x8004 = 19;
+    //     gSpecialVar_0x8005 = 20;
+    //     break;
+    // case 7:
+    //     gSpecialVar_0x8004 = 23;
+    //     gSpecialVar_0x8005 = 24;
+    //     break;
+    // case 8:
+    //     gSpecialVar_0x8004 = 10;
+    //     gSpecialVar_0x8005 = 11;
+    //     break;
+    // }
 }
 
 void InterviewAfter(void)
@@ -1571,13 +1571,13 @@ void PutLilycoveContestLadyShowOnTheAir(void)
     if (gSpecialVar_Result != TRUE)
     {
         show = &gSaveBlock1Ptr->tvShows[sCurTVShowSlot];
-        BufferContestLadyLanguage(&show->contestLady.language);
+        // BufferContestLadyLanguage(&show->contestLady.language);
         show->contestLady.pokemonNameLanguage = GAME_LANGUAGE;
         show->contestLady.kind = TVSHOW_LILYCOVE_CONTEST_LADY;
         show->contestLady.active = TRUE;
-        BufferContestLadyPlayerName(show->contestLady.playerName);
-        BufferContestLadyMonName(&show->contestLady.contestCategory, show->contestLady.nickname);
-        show->contestLady.pokeblockState = GetContestLadyPokeblockState();
+        // BufferContestLadyPlayerName(show->contestLady.playerName);
+        // BufferContestLadyMonName(&show->contestLady.contestCategory, show->contestLady.nickname);
+        // show->contestLady.pokeblockState = GetContestLadyPokeblockState();
         StorePlayerIdInNormalShow(show);
     }
 }
@@ -1958,139 +1958,139 @@ void AlertTVThatPlayerPlayedRoulette(u16 nCoinsSpent)
     sFindThatGamerCoinsSpent = nCoinsSpent;
 }
 
-static void SecretBaseVisit_CalculateDecorationData(TVShow *show)
-{
-    u8 i, j;
-    u8 n;
-    u8 decoration;
+// static void SecretBaseVisit_CalculateDecorationData(TVShow *show)
+// {
+//     u8 i, j;
+//     u8 n;
+//     u8 decoration;
 
-    for (i = 0; i < DECOR_MAX_SECRET_BASE; i++)
-        sTV_DecorationsBuffer[i] = DECOR_NONE;
+//     for (i = 0; i < DECOR_MAX_SECRET_BASE; i++)
+//         sTV_DecorationsBuffer[i] = DECOR_NONE;
 
-    // Count (and save) the unique decorations in the base
-    for (i = 0, n = 0; i < DECOR_MAX_SECRET_BASE; i++)
-    {
-        decoration = gSaveBlock1Ptr->secretBases[0].decorations[i];
-        if (decoration != DECOR_NONE)
-        {
-            // Search for an empty spot to save decoration
-            for (j = 0; j < DECOR_MAX_SECRET_BASE; j++)
-            {
-                if (sTV_DecorationsBuffer[j] == DECOR_NONE)
-                {
-                    // Save and count new unique decoration
-                    sTV_DecorationsBuffer[j] = decoration;
-                    n++;
-                    break;
-                }
+//     // Count (and save) the unique decorations in the base
+//     for (i = 0, n = 0; i < DECOR_MAX_SECRET_BASE; i++)
+//     {
+//         decoration = gSaveBlock1Ptr->secretBases[0].decorations[i];
+//         if (decoration != DECOR_NONE)
+//         {
+//             // Search for an empty spot to save decoration
+//             for (j = 0; j < DECOR_MAX_SECRET_BASE; j++)
+//             {
+//                 if (sTV_DecorationsBuffer[j] == DECOR_NONE)
+//                 {
+//                     // Save and count new unique decoration
+//                     sTV_DecorationsBuffer[j] = decoration;
+//                     n++;
+//                     break;
+//                 }
 
-                // Decoration has already been saved, skip and move on to the next base decoration
-                if (sTV_DecorationsBuffer[j] == decoration)
-                    break;
-            }
-        }
-    }
+//                 // Decoration has already been saved, skip and move on to the next base decoration
+//                 if (sTV_DecorationsBuffer[j] == decoration)
+//                     break;
+//             }
+//         }
+//     }
 
-    // Cap the number of unique decorations to the number the TV show will talk about
-    if (n > ARRAY_COUNT(show->secretBaseVisit.decorations))
-        show->secretBaseVisit.numDecorations = ARRAY_COUNT(show->secretBaseVisit.decorations);
-    else
-        show->secretBaseVisit.numDecorations = n;
+//     // Cap the number of unique decorations to the number the TV show will talk about
+//     if (n > ARRAY_COUNT(show->secretBaseVisit.decorations))
+//         show->secretBaseVisit.numDecorations = ARRAY_COUNT(show->secretBaseVisit.decorations);
+//     else
+//         show->secretBaseVisit.numDecorations = n;
 
-    switch (show->secretBaseVisit.numDecorations)
-    {
-    case 0:
-        break;
-    case 1:
-        show->secretBaseVisit.decorations[0] = sTV_DecorationsBuffer[0];
-        break;
-    default:
-        // More than 1 decoration, randomize the full list
-        Shuffle(sTV_DecorationsBuffer, n, sizeof(sTV_DecorationsBuffer[0]));
+//     switch (show->secretBaseVisit.numDecorations)
+//     {
+//     case 0:
+//         break;
+//     case 1:
+//         show->secretBaseVisit.decorations[0] = sTV_DecorationsBuffer[0];
+//         break;
+//     default:
+//         // More than 1 decoration, randomize the full list
+//         Shuffle(sTV_DecorationsBuffer, n, sizeof(sTV_DecorationsBuffer[0]));
 
-        // Pick the first decorations in the randomized list to talk about on the show
-        for (i = 0; i < show->secretBaseVisit.numDecorations; i++)
-            show->secretBaseVisit.decorations[i] = sTV_DecorationsBuffer[i];
-        break;
-    }
-}
+//         // Pick the first decorations in the randomized list to talk about on the show
+//         for (i = 0; i < show->secretBaseVisit.numDecorations; i++)
+//             show->secretBaseVisit.decorations[i] = sTV_DecorationsBuffer[i];
+//         break;
+//     }
+// }
 
-static void SecretBaseVisit_CalculatePartyData(TVShow *show)
-{
-    u8 i;
-    u16 move;
-    u16 j;
-    u8 numMoves;
-    u8 numPokemon;
-    u16 sum;
+// static void SecretBaseVisit_CalculatePartyData(TVShow *show)
+// {
+//     u8 i;
+//     u16 move;
+//     u16 j;
+//     u8 numMoves;
+//     u8 numPokemon;
+//     u16 sum;
 
-    for (i = 0, numPokemon = 0; i < PARTY_SIZE; i++)
-    {
-        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE && !GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
-        {
-            sTV_SecretBaseVisitMonsTemp[numPokemon].level = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
-            sTV_SecretBaseVisitMonsTemp[numPokemon].species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+//     for (i = 0, numPokemon = 0; i < PARTY_SIZE; i++)
+//     {
+//         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE && !GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
+//         {
+//             sTV_SecretBaseVisitMonsTemp[numPokemon].level = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
+//             sTV_SecretBaseVisitMonsTemp[numPokemon].species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
 
-            // Check all the Pokémon's moves, then randomly select one to save
-            numMoves = 0;
-            move = GetMonData(&gPlayerParty[i], MON_DATA_MOVE1);
-            if (move != MOVE_NONE)
-            {
-                sTV_SecretBaseVisitMovesTemp[numMoves] = move;
-                numMoves++;
-            }
-            move = GetMonData(&gPlayerParty[i], MON_DATA_MOVE2);
-            if (move != MOVE_NONE)
-            {
-                sTV_SecretBaseVisitMovesTemp[numMoves] = move;
-                numMoves++;
-            }
-            move = GetMonData(&gPlayerParty[i], MON_DATA_MOVE3);
-            if (move != MOVE_NONE)
-            {
-                sTV_SecretBaseVisitMovesTemp[numMoves] = move;
-                numMoves++;
-            }
-            move = GetMonData(&gPlayerParty[i], MON_DATA_MOVE4);
-            if (move != MOVE_NONE)
-            {
-                sTV_SecretBaseVisitMovesTemp[numMoves] = move;
-                numMoves++;
-            }
-            sTV_SecretBaseVisitMonsTemp[numPokemon].move = sTV_SecretBaseVisitMovesTemp[Random() % numMoves];
-            numPokemon++;
-        }
-    }
+//             // Check all the Pokémon's moves, then randomly select one to save
+//             numMoves = 0;
+//             move = GetMonData(&gPlayerParty[i], MON_DATA_MOVE1);
+//             if (move != MOVE_NONE)
+//             {
+//                 sTV_SecretBaseVisitMovesTemp[numMoves] = move;
+//                 numMoves++;
+//             }
+//             move = GetMonData(&gPlayerParty[i], MON_DATA_MOVE2);
+//             if (move != MOVE_NONE)
+//             {
+//                 sTV_SecretBaseVisitMovesTemp[numMoves] = move;
+//                 numMoves++;
+//             }
+//             move = GetMonData(&gPlayerParty[i], MON_DATA_MOVE3);
+//             if (move != MOVE_NONE)
+//             {
+//                 sTV_SecretBaseVisitMovesTemp[numMoves] = move;
+//                 numMoves++;
+//             }
+//             move = GetMonData(&gPlayerParty[i], MON_DATA_MOVE4);
+//             if (move != MOVE_NONE)
+//             {
+//                 sTV_SecretBaseVisitMovesTemp[numMoves] = move;
+//                 numMoves++;
+//             }
+//             sTV_SecretBaseVisitMonsTemp[numPokemon].move = sTV_SecretBaseVisitMovesTemp[Random() % numMoves];
+//             numPokemon++;
+//         }
+//     }
 
-    for (i = 0, sum = 0; i < numPokemon; i++)
-        sum += sTV_SecretBaseVisitMonsTemp[i].level;
+//     for (i = 0, sum = 0; i < numPokemon; i++)
+//         sum += sTV_SecretBaseVisitMonsTemp[i].level;
 
-    // Using the data calculated above, save the data to talk about on the show
-    // (average level, and one randomly selected species / move)
-    show->secretBaseVisit.avgLevel = sum / numPokemon;
-    j = Random() % numPokemon;
-    show->secretBaseVisit.species = sTV_SecretBaseVisitMonsTemp[j].species;
-    show->secretBaseVisit.move = sTV_SecretBaseVisitMonsTemp[j].move;
-}
+//     // Using the data calculated above, save the data to talk about on the show
+//     // (average level, and one randomly selected species / move)
+//     show->secretBaseVisit.avgLevel = sum / numPokemon;
+//     j = Random() % numPokemon;
+//     show->secretBaseVisit.species = sTV_SecretBaseVisitMonsTemp[j].species;
+//     show->secretBaseVisit.move = sTV_SecretBaseVisitMonsTemp[j].move;
+// }
 
-void TryPutSecretBaseVisitOnAir(void)
-{
-    TVShow *show;
+// void TryPutSecretBaseVisitOnAir(void)
+// {
+//     TVShow *show;
 
-    IsRecordMixShowAlreadySpawned(TVSHOW_SECRET_BASE_VISIT, TRUE); // Delete old version of show
-    sCurTVShowSlot = FindFirstEmptyRecordMixTVShowSlot(gSaveBlock1Ptr->tvShows);
-    if (sCurTVShowSlot != -1)
-    {
-        show = &gSaveBlock1Ptr->tvShows[sCurTVShowSlot];
-        show->secretBaseVisit.kind = TVSHOW_SECRET_BASE_VISIT;
-        show->secretBaseVisit.active = FALSE; // NOTE: Show is not active until passed via Record Mix.
-        StringCopy(show->secretBaseVisit.playerName, gSaveBlock2Ptr->playerName);
-        SecretBaseVisit_CalculateDecorationData(show);
-        SecretBaseVisit_CalculatePartyData(show);
-        StorePlayerIdInRecordMixShow(show);
-        show->secretBaseVisit.language = gGameLanguage;
-    }
-}
+//     IsRecordMixShowAlreadySpawned(TVSHOW_SECRET_BASE_VISIT, TRUE); // Delete old version of show
+//     sCurTVShowSlot = FindFirstEmptyRecordMixTVShowSlot(gSaveBlock1Ptr->tvShows);
+//     if (sCurTVShowSlot != -1)
+//     {
+//         show = &gSaveBlock1Ptr->tvShows[sCurTVShowSlot];
+//         show->secretBaseVisit.kind = TVSHOW_SECRET_BASE_VISIT;
+//         show->secretBaseVisit.active = FALSE; // NOTE: Show is not active until passed via Record Mix.
+//         StringCopy(show->secretBaseVisit.playerName, gSaveBlock2Ptr->playerName);
+//         SecretBaseVisit_CalculateDecorationData(show);
+//         SecretBaseVisit_CalculatePartyData(show);
+//         StorePlayerIdInRecordMixShow(show);
+//         show->secretBaseVisit.language = gGameLanguage;
+//     }
+// }
 
 void TryPutBreakingNewsOnAir(void)
 {
@@ -2300,8 +2300,8 @@ void TryPutTrainerFanClubOnAir(void)
         show->trainerFanClub.kind = TVSHOW_TRAINER_FAN_CLUB;
         show->trainerFanClub.active = FALSE; // NOTE: Show is not active until passed via Record Mix.
         StringCopy(show->trainerFanClub.playerName, gSaveBlock2Ptr->playerName);
-        show->trainerFanClub.words[0] = gSaveBlock1Ptr->easyChatProfile[0];
-        show->trainerFanClub.words[1] = gSaveBlock1Ptr->easyChatProfile[1];
+        // show->trainerFanClub.words[0] = gSaveBlock1Ptr->easyChatProfile[0];
+        // show->trainerFanClub.words[1] = gSaveBlock1Ptr->easyChatProfile[1];
         StorePlayerIdInRecordMixShow(show);
         show->trainerFanClub.language = gGameLanguage;
     }
@@ -2416,7 +2416,7 @@ void TryPutSecretBaseSecretsOnAir(void)
             show->secretBaseSecrets.active = FALSE; // NOTE: Show is not active until passed via Record Mix.
             StringCopy(show->secretBaseSecrets.playerName, gSaveBlock2Ptr->playerName);
             show->secretBaseSecrets.stepsInBase = VarGet(VAR_SECRET_BASE_STEP_COUNTER);
-            CopyCurSecretBaseOwnerName_StrVar1();
+            // CopyCurSecretBaseOwnerName_StrVar1();
             StringCopy(strbuf, gStringVar1);
             StripExtCtrlCodes(strbuf);
             StringCopy(show->secretBaseSecrets.baseOwnersName, strbuf);
@@ -2424,10 +2424,10 @@ void TryPutSecretBaseSecretsOnAir(void)
             show->secretBaseSecrets.flags = VarGet(VAR_SECRET_BASE_LOW_TV_FLAGS) + (VarGet(VAR_SECRET_BASE_HIGH_TV_FLAGS) << 16);
             StorePlayerIdInRecordMixShow(show);
             show->secretBaseSecrets.language = gGameLanguage;
-            if (show->secretBaseSecrets.language == LANGUAGE_JAPANESE || gSaveBlock1Ptr->secretBases[VarGet(VAR_CURRENT_SECRET_BASE)].language == LANGUAGE_JAPANESE)
-                show->secretBaseSecrets.baseOwnersNameLanguage = LANGUAGE_JAPANESE;
-            else
-                show->secretBaseSecrets.baseOwnersNameLanguage = gSaveBlock1Ptr->secretBases[VarGet(VAR_CURRENT_SECRET_BASE)].language;
+            // if (show->secretBaseSecrets.language == LANGUAGE_JAPANESE || gSaveBlock1Ptr->secretBases[VarGet(VAR_CURRENT_SECRET_BASE)].language == LANGUAGE_JAPANESE)
+            //     show->secretBaseSecrets.baseOwnersNameLanguage = LANGUAGE_JAPANESE;
+            // else
+            //     show->secretBaseSecrets.baseOwnersNameLanguage = gSaveBlock1Ptr->secretBases[VarGet(VAR_CURRENT_SECRET_BASE)].language;
         }
     }
 }
@@ -4889,7 +4889,7 @@ static void DoTVShowPokemonContestLiveUpdates(void)
     switch (state)
     {
     case CONTESTLIVE_STATE_INTRO:
-        BufferContestName(gStringVar1, show->contestLiveUpdates.category);
+        // BufferContestName(gStringVar1, show->contestLiveUpdates.category);
         StringCopy(gStringVar2, GetSpeciesName(show->contestLiveUpdates.winningSpecies));
         TVShowConvertInternationalString(gStringVar3, show->contestLiveUpdates.winningTrainerName, show->contestLiveUpdates.winningTrainerLanguage);
         if (show->contestLiveUpdates.round1Placing == show->contestLiveUpdates.round2Placing)
@@ -5388,59 +5388,59 @@ static void DoTVShow3CheersForPokeblocks(void)
     ShowFieldMessage(sTV3CheersForPokeblocksTextGroup[state]);
 }
 
-void DoTVShowInSearchOfTrainers(void)
-{
-    u8 state;
+// void DoTVShowInSearchOfTrainers(void)
+// {
+//     u8 state;
 
-    gSpecialVar_Result = FALSE;
-    state = sTVShowState;
-    switch (state)
-    {
-    case 0:
-        GetMapName(gStringVar1, gSaveBlock1Ptr->gabbyAndTyData.mapnum, 0);
-        if (gSaveBlock1Ptr->gabbyAndTyData.battleNum > 1)
-            sTVShowState = 1;
-        else
-            sTVShowState = 2;
-        break;
-    case 1:
-        sTVShowState = 2;
-        break;
-    case 2:
-        if (!gSaveBlock1Ptr->gabbyAndTyData.battleTookMoreThanOneTurn)
-            sTVShowState = 4;
-        else if (gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall)
-            sTVShowState = 5;
-        else if (gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem)
-            sTVShowState = 6;
-        else if (gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon)
-            sTVShowState = 7;
-        else
-            sTVShowState = 3;
-        break;
-    case 3:
-        StringCopy(gStringVar1, GetSpeciesName(gSaveBlock1Ptr->gabbyAndTyData.mon1));
-        StringCopy(gStringVar2, GetMoveName(gSaveBlock1Ptr->gabbyAndTyData.lastMove));
-        StringCopy(gStringVar3, GetSpeciesName(gSaveBlock1Ptr->gabbyAndTyData.mon2));
-        sTVShowState = 8;
-        break;
-    case 4:
-    case 5:
-    case 6:
-    case 7:
-        sTVShowState = 8;
-        break;
-    case 8:
-        CopyEasyChatWord(gStringVar1, gSaveBlock1Ptr->gabbyAndTyData.quote[0]);
-        StringCopy(gStringVar2, GetSpeciesName(gSaveBlock1Ptr->gabbyAndTyData.mon1));
-        StringCopy(gStringVar3, GetSpeciesName(gSaveBlock1Ptr->gabbyAndTyData.mon2));
-        gSpecialVar_Result = TRUE;
-        sTVShowState = 0;
-        TakeGabbyAndTyOffTheAir();
-        break;
-    }
-    ShowFieldMessage(sTVInSearchOfTrainersTextGroup[state]);
-}
+//     gSpecialVar_Result = FALSE;
+//     state = sTVShowState;
+//     switch (state)
+//     {
+//     case 0:
+//         GetMapName(gStringVar1, gSaveBlock1Ptr->gabbyAndTyData.mapnum, 0);
+//         if (gSaveBlock1Ptr->gabbyAndTyData.battleNum > 1)
+//             sTVShowState = 1;
+//         else
+//             sTVShowState = 2;
+//         break;
+//     case 1:
+//         sTVShowState = 2;
+//         break;
+//     case 2:
+//         if (!gSaveBlock1Ptr->gabbyAndTyData.battleTookMoreThanOneTurn)
+//             sTVShowState = 4;
+//         else if (gSaveBlock1Ptr->gabbyAndTyData.playerThrewABall)
+//             sTVShowState = 5;
+//         else if (gSaveBlock1Ptr->gabbyAndTyData.playerUsedHealingItem)
+//             sTVShowState = 6;
+//         else if (gSaveBlock1Ptr->gabbyAndTyData.playerLostAMon)
+//             sTVShowState = 7;
+//         else
+//             sTVShowState = 3;
+//         break;
+//     case 3:
+//         StringCopy(gStringVar1, GetSpeciesName(gSaveBlock1Ptr->gabbyAndTyData.mon1));
+//         StringCopy(gStringVar2, GetMoveName(gSaveBlock1Ptr->gabbyAndTyData.lastMove));
+//         StringCopy(gStringVar3, GetSpeciesName(gSaveBlock1Ptr->gabbyAndTyData.mon2));
+//         sTVShowState = 8;
+//         break;
+//     case 4:
+//     case 5:
+//     case 6:
+//     case 7:
+//         sTVShowState = 8;
+//         break;
+//     case 8:
+//         CopyEasyChatWord(gStringVar1, gSaveBlock1Ptr->gabbyAndTyData.quote[0]);
+//         StringCopy(gStringVar2, GetSpeciesName(gSaveBlock1Ptr->gabbyAndTyData.mon1));
+//         StringCopy(gStringVar3, GetSpeciesName(gSaveBlock1Ptr->gabbyAndTyData.mon2));
+//         gSpecialVar_Result = TRUE;
+//         sTVShowState = 0;
+//         TakeGabbyAndTyOffTheAir();
+//         break;
+//     }
+//     ShowFieldMessage(sTVInSearchOfTrainersTextGroup[state]);
+// }
 
 static void DoTVShowPokemonAngler(void)
 {
@@ -6760,7 +6760,7 @@ static void DoTVShowLilycoveContestLady(void)
     switch (state)
     {
     case CONTESTLADYLIVE_STATE_INTRO:
-        BufferContestName(gStringVar1, show->contestLady.contestCategory);
+        // BufferContestName(gStringVar1, show->contestLady.contestCategory);
         if (show->contestLady.pokeblockState == CONTEST_LADY_GOOD)
             sTVShowState = CONTESTLADYLIVE_STATE_WON;
         else if (show->contestLady.pokeblockState == CONTEST_LADY_NORMAL)

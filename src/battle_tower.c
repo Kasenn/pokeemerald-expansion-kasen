@@ -66,7 +66,7 @@ static void SetMultiPartnerGfx(void);
 static void SetTowerInterviewData(void);
 static void ValidateBattleTowerRecordChecksums(void);
 static void SaveCurrentWinStreak(void);
-static void ValidateApprenticesChecksums(void);
+// static void ValidateApprenticesChecksums(void);
 static void SetNextBattleTentOpponent(void);
 static void CopyEReaderTrainerFarewellMessage(void);
 static void ClearBattleTowerRecord(struct EmeraldBattleTowerRecord *record);
@@ -930,17 +930,17 @@ static bool8 ChooseSpecialBattleTowerTrainer(void)
 
     if (battleMode == FRONTIER_MODE_SINGLES)
     {
-        ValidateApprenticesChecksums();
-        for (i = 0; i < APPRENTICE_COUNT; i++)
-        {
-            if (gSaveBlock2Ptr->apprentices[i].lvlMode != 0
-                && sApprenticeChallengeThreshold[gSaveBlock2Ptr->apprentices[i].numQuestions] == winStreak
-                && gSaveBlock2Ptr->apprentices[i].lvlMode - 1 == lvlMode)
-            {
-                trainerIds[idsCount] = i + TRAINER_RECORD_MIXING_APPRENTICE;
-                idsCount++;
-            }
-        }
+        // ValidateApprenticesChecksums();
+        // for (i = 0; i < APPRENTICE_COUNT; i++)
+        // {
+        //     if (gSaveBlock2Ptr->apprentices[i].lvlMode != 0
+        //         && sApprenticeChallengeThreshold[gSaveBlock2Ptr->apprentices[i].numQuestions] == winStreak
+        //         && gSaveBlock2Ptr->apprentices[i].lvlMode - 1 == lvlMode)
+        //     {
+        //         trainerIds[idsCount] = i + TRAINER_RECORD_MIXING_APPRENTICE;
+        //         idsCount++;
+        //     }
+        // }
     }
 
     if (idsCount != 0)
@@ -1094,7 +1094,7 @@ void SetBattleFacilityTrainerGfxId(u16 trainerId, u8 tempVarId)
     }
     else
     {
-        facilityClass = gApprentices[gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id].facilityClass;
+        facilityClass = gFacilityTrainers[trainerId].facilityClass;
     }
 
     // Search male classes.
@@ -1190,7 +1190,7 @@ u16 GetBattleFacilityTrainerGfxId(u16 trainerId)
     }
     else
     {
-        facilityClass = gApprentices[gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id].facilityClass;
+        facilityClass = gFacilityTrainers[trainerId].facilityClass;
     }
 
     // Search male classes.
@@ -1344,10 +1344,9 @@ u8 GetFrontierTrainerFrontSpriteId(u16 trainerId)
     }
     else
     {
-        if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
             return gFacilityClassToPicIndex[gApprentices[GetRecordedBattleApprenticeId()].facilityClass];
-        else
-            return gFacilityClassToPicIndex[gApprentices[gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id].facilityClass];
+        // else
+        //     return gFacilityClassToPicIndex[gApprentices[gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id].facilityClass];
     }
 }
 
@@ -1393,10 +1392,10 @@ u8 GetFrontierOpponentClass(u16 trainerId)
         {
             trainerClass = gFacilityClassToTrainerClass[gApprentices[GetRecordedBattleApprenticeId()].facilityClass];
         }
-        else
-        {
-            trainerClass = gFacilityClassToTrainerClass[gApprentices[gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id].facilityClass];
-        }
+        // else
+        // {
+        //     trainerClass = gFacilityClassToTrainerClass[gApprentices[gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id].facilityClass];
+        // }
     }
 
     return trainerClass;
@@ -1428,10 +1427,9 @@ static u8 GetFrontierTrainerFacilityClass(u16 trainerId)
     }
     else
     {
-        if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
-            facilityClass = gApprentices[GetRecordedBattleApprenticeId()].facilityClass;
-        else
-            facilityClass = gApprentices[gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id].facilityClass;
+        facilityClass = gApprentices[GetRecordedBattleApprenticeId()].facilityClass;
+        // else
+        //     facilityClass = gApprentices[gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id].facilityClass;
     }
 
     return facilityClass;
@@ -1480,20 +1478,18 @@ void GetFrontierTrainerName(u8 *dst, u16 trainerId)
     }
     else
     {
-        u8 id, language;
+        // u8 id, language;
 
-        if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
-        {
-            id = GetRecordedBattleApprenticeId();
-            language = GetRecordedBattleApprenticeLanguage();
-        }
-        else
-        {
-            struct Apprentice *apprentice = &gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE];
-            id = apprentice->id;
-            language = apprentice->language;
-        }
-        TVShowConvertInternationalString(dst, GetApprenticeNameInLanguage(id, language), language);
+            // id = GetRecordedBattleApprenticeId();
+            // language = GetRecordedBattleApprenticeLanguage();
+        // else
+        // {
+        //     struct Apprentice *apprentice = &gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE];
+        //     id = apprentice->id;
+        //     language = apprentice->language;
+        // }
+        // TVShowConvertInternationalString(dst, GetApprenticeNameInLanguage(id, language), language);
+        CopyFrontierBrainTrainerName(dst);
         return;
     }
 
@@ -1528,7 +1524,7 @@ static bool8 IsFrontierTrainerFemale(u16 trainerId)
     }
     else
     {
-        facilityClass = gApprentices[gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id].facilityClass;
+        facilityClass = gFacilityTrainers[trainerId].facilityClass;
     }
 
     // Search female classes.
@@ -1692,13 +1688,13 @@ static void FillTrainerParty(u16 trainerId, u8 firstMonId, u8 monCount)
         }
         return;
     }
-    else
-    {
-        // Apprentice.
-        for (i = firstMonId; i < firstMonId + FRONTIER_PARTY_SIZE; i++)
-            CreateApprenticeMon(&gEnemyParty[i], &gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE], i - firstMonId);
-        return;
-    }
+    // else
+    // {
+    //     // Apprentice.
+    //     for (i = firstMonId; i < firstMonId + FRONTIER_PARTY_SIZE; i++)
+    //         CreateApprenticeMon(&gEnemyParty[i], &gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE], i - firstMonId);
+    //     return;
+    // }
 
     // Regular battle frontier trainer.
     // Attempt to fill the trainer's party with random Pokémon until 3 have been
@@ -1760,34 +1756,34 @@ static void FillTrainerParty(u16 trainerId, u8 firstMonId, u8 monCount)
 // Probably an early draft before the 'CreateApprenticeMon' was written.
 static void UNUSED Unused_CreateApprenticeMons(u16 trainerId, u8 firstMonId)
 {
-    s32 i, j;
-    u8 friendship = MAX_FRIENDSHIP;
-    u8 level = 0;
-    u8 fixedIV = 0;
-    struct Apprentice *apprentice = &gSaveBlock2Ptr->apprentices[0];
+    // s32 i, j;
+    // u8 friendship = MAX_FRIENDSHIP;
+    // u8 level = 0;
+    // u8 fixedIV = 0;
+    // struct Apprentice *apprentice = &gSaveBlock2Ptr->apprentices[0];
 
-    if (apprentice->numQuestions < 5)
-        fixedIV = 6;
-    else
-        fixedIV = 9;
+    // if (apprentice->numQuestions < 5)
+    //     fixedIV = 6;
+    // else
+    //     fixedIV = 9;
 
-    if (gSaveBlock2Ptr->frontier.lvlMode != FRONTIER_LVL_50)
-        level = FRONTIER_MAX_LEVEL_OPEN;
-    else
-        level = FRONTIER_MAX_LEVEL_50;
+    // if (gSaveBlock2Ptr->frontier.lvlMode != FRONTIER_LVL_50)
+    //     level = FRONTIER_MAX_LEVEL_OPEN;
+    // else
+    //     level = FRONTIER_MAX_LEVEL_50;
 
-    for (i = 0; i != FRONTIER_PARTY_SIZE; i++)
-    {
-        CreateMonWithEVSpread(&gEnemyParty[firstMonId + i], apprentice->party[i].species, level, fixedIV, 8);
-        friendship = MAX_FRIENDSHIP;
-        for (j = 0; j < MAX_MON_MOVES; j++)
-        {
-            if (gMovesInfo[apprentice->party[i].moves[j]].effect == EFFECT_FRUSTRATION)
-                friendship = 0;
-        }
-        SetMonData(&gEnemyParty[firstMonId + i], MON_DATA_FRIENDSHIP, &friendship);
-        SetMonData(&gEnemyParty[firstMonId + i], MON_DATA_HELD_ITEM, &apprentice->party[i].item);
-    }
+    // for (i = 0; i != FRONTIER_PARTY_SIZE; i++)
+    // {
+    //     CreateMonWithEVSpread(&gEnemyParty[firstMonId + i], apprentice->party[i].species, level, fixedIV, 8);
+    //     friendship = MAX_FRIENDSHIP;
+    //     for (j = 0; j < MAX_MON_MOVES; j++)
+    //     {
+    //         if (gMovesInfo[apprentice->party[i].moves[j]].effect == EFFECT_FRUSTRATION)
+    //             friendship = 0;
+    //     }
+    //     SetMonData(&gEnemyParty[firstMonId + i], MON_DATA_FRIENDSHIP, &friendship);
+    //     SetMonData(&gEnemyParty[firstMonId + i], MON_DATA_HELD_ITEM, &apprentice->party[i].item);
+    // }
 }
 
 u16 GetRandomFrontierMonFromSet(u16 trainerId)
@@ -1932,7 +1928,7 @@ static void GetOpponentIntroSpeech(void)
     else if (trainerId < TRAINER_RECORD_MIXING_APPRENTICE)
         FrontierSpeechToString(gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].greeting);
     else
-        BufferApprenticeChallengeText(trainerId - TRAINER_RECORD_MIXING_APPRENTICE);
+        StringCopy(gStringVar4, gFacilityTrainers[trainerId].speechBefore);
 }
 
 static void HandleSpecialTrainerBattleEnd(void)
@@ -2179,12 +2175,12 @@ static void SaveBattleTowerRecord(void)
     StringCopy_PlayerName(playerRecord->name, gSaveBlock2Ptr->playerName);
     playerRecord->winStreak = GetCurrentBattleTowerWinStreak(lvlMode, battleMode);
 
-    for (i = 0; i < EASY_CHAT_BATTLE_WORDS_COUNT; i++)
-    {
-        playerRecord->greeting[i] = gSaveBlock1Ptr->easyChatBattleStart[i];
-        playerRecord->speechWon[i] = gSaveBlock1Ptr->easyChatBattleWon[i];
-        playerRecord->speechLost[i] = gSaveBlock1Ptr->easyChatBattleLost[i];
-    }
+    // for (i = 0; i < EASY_CHAT_BATTLE_WORDS_COUNT; i++)
+    // {
+    //     playerRecord->greeting[i] = gSaveBlock1Ptr->easyChatBattleStart[i];
+    //     playerRecord->speechWon[i] = gSaveBlock1Ptr->easyChatBattleWon[i];
+    //     playerRecord->speechLost[i] = gSaveBlock1Ptr->easyChatBattleLost[i];
+    // }
 
     for (i = 0; i < MAX_FRONTIER_PARTY_SIZE; i++)
     {
@@ -2225,27 +2221,27 @@ static void BattleTowerNop2(void)
 
 static void GetApprenticeMultiPartnerParty(u16 trainerId)
 {
-    s32 i, count;
-    u32 validSpecies[MULTI_PARTY_SIZE];
-    u16 species1 = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES, NULL);
-    u16 species2 = GetMonData(&gPlayerParty[1], MON_DATA_SPECIES, NULL);
+    // s32 count;
+    // u32 validSpecies[MULTI_PARTY_SIZE];
+    // u16 species1 = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES, NULL);
+    // u16 species2 = GetMonData(&gPlayerParty[1], MON_DATA_SPECIES, NULL);
 
-    count = 0;
-    for (i = 0; i < MULTI_PARTY_SIZE; i++)
-    {
-        u16 apprenticeSpecies = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].party[i].species;
-        if (apprenticeSpecies != species1 && apprenticeSpecies != species2)
-        {
-            validSpecies[count] = i;
-            count++;
-        }
-    }
+    // count = 0;
+    // for (i = 0; i < MULTI_PARTY_SIZE; i++)
+    // {
+    //     u16 apprenticeSpecies = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].party[i].species;
+    //     if (apprenticeSpecies != species1 && apprenticeSpecies != species2)
+    //     {
+    //         validSpecies[count] = i;
+    //         count++;
+    //     }
+    // }
 
-    gFrontierTempParty[0] = validSpecies[Random() % count];
-    do
-    {
-        gFrontierTempParty[1] = validSpecies[Random() % count];
-    } while (gFrontierTempParty[0] == gFrontierTempParty[1]);
+    // gFrontierTempParty[0] = validSpecies[Random() % count];
+    // do
+    // {
+    //     gFrontierTempParty[1] = validSpecies[Random() % count];
+    // } while (gFrontierTempParty[0] == gFrontierTempParty[1]);
 }
 
 static void GetRecordMixFriendMultiPartnerParty(u16 trainerId)
@@ -2347,29 +2343,29 @@ static void LoadMultiPartnerCandidatesData(void)
     }
 
     r10 = 0;
-    ValidateApprenticesChecksums();
-    for (i = 0; i < APPRENTICE_COUNT; i++)
-    {
-        if (gSaveBlock2Ptr->apprentices[i].lvlMode != 0
-            && sApprenticeChallengeThreshold[gSaveBlock2Ptr->apprentices[i].numQuestions] / FRONTIER_STAGES_PER_CHALLENGE <= challengeNum
-            && gSaveBlock2Ptr->apprentices[i].lvlMode - 1 == lvlMode)
-        {
-            k = 0;
-            for (j = 0; j < MULTI_PARTY_SIZE; j++)
-            {
-                if (species1 != gSaveBlock2Ptr->apprentices[i].party[j].species
-                    && species2 != gSaveBlock2Ptr->apprentices[i].party[j].species)
-                {
-                    k++;
-                }
-            }
-            if (k > 2)
-            {
-                spArray[r10] = i + TRAINER_RECORD_MIXING_APPRENTICE;
-                r10++;
-            }
-        }
-    }
+    // ValidateApprenticesChecksums();
+    // for (i = 0; i < APPRENTICE_COUNT; i++)
+    // {
+    //     if (gSaveBlock2Ptr->apprentices[i].lvlMode != 0
+    //         && sApprenticeChallengeThreshold[gSaveBlock2Ptr->apprentices[i].numQuestions] / FRONTIER_STAGES_PER_CHALLENGE <= challengeNum
+    //         && gSaveBlock2Ptr->apprentices[i].lvlMode - 1 == lvlMode)
+    //     {
+    //         k = 0;
+    //         for (j = 0; j < MULTI_PARTY_SIZE; j++)
+    //         {
+    //             if (species1 != gSaveBlock2Ptr->apprentices[i].party[j].species
+    //                 && species2 != gSaveBlock2Ptr->apprentices[i].party[j].species)
+    //             {
+    //                 k++;
+    //             }
+    //         }
+    //         if (k > 2)
+    //         {
+    //             spArray[r10] = i + TRAINER_RECORD_MIXING_APPRENTICE;
+    //             r10++;
+    //         }
+    //     }
+    // }
     if (r10 != 0)
     {
         gSaveBlock2Ptr->frontier.trainerIds[6] = spArray[Random() % r10];
@@ -2440,17 +2436,17 @@ static void GetPotentialPartnerMoveAndSpecies(u16 trainerId, u16 monId)
             move = gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].party[gFrontierTempParty[gSpecialVar_0x8005 + 1]].moves[0];
             species = gSaveBlock2Ptr->frontier.towerRecords[trainerId - TRAINER_RECORD_MIXING_FRIEND].party[gFrontierTempParty[gSpecialVar_0x8005 + 1]].species;
         }
-        else
-        {
-            s32 i;
+        // else
+        // {
+        //     s32 i;
 
-            move = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].party[gFrontierTempParty[gSpecialVar_0x8005 - 1]].moves[0];
-            species = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].party[gFrontierTempParty[gSpecialVar_0x8005 - 1]].species;
-            for (i = 0; i < PLAYER_NAME_LENGTH; i++)
-                gStringVar3[i] = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].playerName[i];
-            gStringVar3[i] = EOS;
-            ConvertInternationalString(gStringVar3, gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].language);
-        }
+        //     move = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].party[gFrontierTempParty[gSpecialVar_0x8005 - 1]].moves[0];
+        //     species = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].party[gFrontierTempParty[gSpecialVar_0x8005 - 1]].species;
+        //     for (i = 0; i < PLAYER_NAME_LENGTH; i++)
+        //         gStringVar3[i] = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].playerName[i];
+        //     gStringVar3[i] = EOS;
+        //     ConvertInternationalString(gStringVar3, gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].language);
+        // }
     }
 
     StringCopy(gStringVar1, GetMoveName(move));
@@ -2494,16 +2490,16 @@ static void ShowPartnerCandidateMessage(void)
         {
             GetFrontierTrainerName(gStringVar1, trainerId);
         }
-        else
-        {
-            s32 i;
-            for (i = 0; i < PLAYER_NAME_LENGTH; i++)
-                gStringVar1[i] = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].playerName[i];
-            gStringVar1[i] = EOS;
-            ConvertInternationalString(gStringVar1, gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].language);
-            ConvertIntToDecimalStringN(gStringVar2, gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].number, STR_CONV_MODE_LEFT_ALIGN, 3);
-            GetFrontierTrainerName(gStringVar3, trainerId);
-        }
+        // else
+        // {
+        //     s32 i;
+        //     for (i = 0; i < PLAYER_NAME_LENGTH; i++)
+        //         gStringVar1[i] = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].playerName[i];
+        //     gStringVar1[i] = EOS;
+        //     ConvertInternationalString(gStringVar1, gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].language);
+        //     ConvertIntToDecimalStringN(gStringVar2, gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].number, STR_CONV_MODE_LEFT_ALIGN, 3);
+        //     GetFrontierTrainerName(gStringVar3, trainerId);
+        // }
         break;
     case PARTNER_MSGID_MON1:
         monId = gSaveBlock2Ptr->frontier.trainerIds[8 + k * 2];
@@ -2567,11 +2563,11 @@ static void ShowPartnerCandidateMessage(void)
         ShowFieldMessage(sPartnerTrainerTextTables[partnerId].strings[gSpecialVar_0x8005]);
     }
     // Trainer is a former/record-mixed Apprentice, do Apprentice message
-    else
-    {
-        u8 apprenticeId = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id;
-        ShowFieldMessage(sPartnerApprenticeTextTables[apprenticeId][gSpecialVar_0x8005]);
-    }
+    // else
+    // {
+    //     u8 apprenticeId = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id;
+    //     ShowFieldMessage(sPartnerApprenticeTextTables[apprenticeId][gSpecialVar_0x8005]);
+    // }
 }
 
 static void LoadLinkMultiOpponentsData(void)
@@ -3144,150 +3140,6 @@ void FillPartnerParty(u16 trainerId)
             SetMonData(&gPlayerParty[MULTI_PARTY_SIZE + i], MON_DATA_OT_GENDER, &j);
         }
     }
-    else
-    {
-        trainerId -= TRAINER_RECORD_MIXING_APPRENTICE;
-        for (i = 0; i < FRONTIER_MULTI_PARTY_SIZE; i++)
-        {
-            CreateApprenticeMon(&gPlayerParty[MULTI_PARTY_SIZE + i], &gSaveBlock2Ptr->apprentices[trainerId], gSaveBlock2Ptr->frontier.trainerIds[18 + i]);
-            j = IsFrontierTrainerFemale(trainerId + TRAINER_RECORD_MIXING_APPRENTICE);
-            SetMonData(&gPlayerParty[MULTI_PARTY_SIZE + i], MON_DATA_OT_GENDER, &j);
-        }
-    }
-}
-
-bool32 RubyBattleTowerRecordToEmerald(struct RSBattleTowerRecord *src, struct EmeraldBattleTowerRecord *dst)
-{
-    s32 i, validMons = 0;
-
-    for (i = 0; i < FRONTIER_PARTY_SIZE; i++)
-    {
-        if (src->party[i].species)
-            validMons++;
-    }
-
-    if (validMons != FRONTIER_PARTY_SIZE)
-    {
-        memset(dst, 0, sizeof(*dst));
-        return FALSE;
-    }
-    else
-    {
-        dst->lvlMode = src->lvlMode;
-        dst->winStreak = src->winStreak;
-        // UB: Reading outside the array. sRubyFacilityClassToEmerald has less than FACILITY_CLASSES_COUNT entries.
-        #ifdef UBFIX
-        for (i = 0; i < ARRAY_COUNT(sRubyFacilityClassToEmerald); i++)
-        #else
-        for (i = 0; i < FACILITY_CLASSES_COUNT; i++)
-        #endif
-        {
-            if (sRubyFacilityClassToEmerald[i][0] == src->facilityClass)
-                break;
-        }
-        if (i != FACILITY_CLASSES_COUNT)
-            dst->facilityClass = sRubyFacilityClassToEmerald[i][1];
-        else
-            dst->facilityClass = FACILITY_CLASS_YOUNGSTER;
-
-        for (i = 0; i < PLAYER_NAME_LENGTH + 1; i++)
-            dst->name[i] = src->name[i];
-        for (i = 0; i < TRAINER_ID_LENGTH; i++)
-            dst->trainerId[i] = src->trainerId[i];
-        for (i = 0; i < EASY_CHAT_BATTLE_WORDS_COUNT; i++)
-            dst->greeting[i] = src->greeting[i];
-        for (i = 0; i < EASY_CHAT_BATTLE_WORDS_COUNT; i++)
-            dst->speechWon[i] = sRecordTrainerSpeechWon[i];
-        for (i = 0; i < EASY_CHAT_BATTLE_WORDS_COUNT; i++)
-            dst->speechLost[i] = sRecordTrainerSpeechLost[i];
-        for (i = 0; i < FRONTIER_PARTY_SIZE; i++)
-            dst->party[i] = src->party[i];
-
-        CpuFill32(0, &dst->party[FRONTIER_PARTY_SIZE], sizeof(dst->party[FRONTIER_PARTY_SIZE]));
-        CalcEmeraldBattleTowerChecksum(dst);
-        return TRUE;
-    }
-}
-
-bool32 EmeraldBattleTowerRecordToRuby(struct EmeraldBattleTowerRecord *src, struct RSBattleTowerRecord *dst)
-{
-    s32 i, validMons = 0;
-
-    for (i = 0; i < FRONTIER_PARTY_SIZE; i++)
-    {
-        if (src->party[i].species)
-            validMons++;
-    }
-
-    if (validMons != FRONTIER_PARTY_SIZE)
-    {
-        memset(dst, 0, sizeof(*dst));
-        return FALSE;
-    }
-    else
-    {
-        dst->lvlMode = src->lvlMode;
-        dst->winStreak = src->winStreak;
-        // UB: Reading outside the array. sRubyFacilityClassToEmerald has less than FACILITY_CLASSES_COUNT entries.
-        #ifdef UBFIX
-        for (i = 0; i < ARRAY_COUNT(sRubyFacilityClassToEmerald); i++)
-        #else
-        for (i = 0; i < FACILITY_CLASSES_COUNT; i++)
-        #endif
-        {
-            if (sRubyFacilityClassToEmerald[i][1] == src->facilityClass)
-                break;
-        }
-        if (i != FACILITY_CLASSES_COUNT)
-            dst->facilityClass = sRubyFacilityClassToEmerald[i][0];
-        else
-            dst->facilityClass = RS_FACILITY_CLASS_YOUNGSTER;
-
-        for (i = 0; i < PLAYER_NAME_LENGTH + 1; i++)
-            dst->name[i] = src->name[i];
-        for (i = 0; i < TRAINER_ID_LENGTH; i++)
-            dst->trainerId[i] = src->trainerId[i];
-        for (i = 0; i < EASY_CHAT_BATTLE_WORDS_COUNT; i++)
-            dst->greeting[i] = src->greeting[i];
-        for (i = 0; i < FRONTIER_PARTY_SIZE; i++)
-            dst->party[i] = src->party[i];
-
-        CalcRubyBattleTowerChecksum(dst);
-        return TRUE;
-    }
-}
-
-void CalcApprenticeChecksum(struct Apprentice *apprentice)
-{
-    s32 i;
-
-    apprentice->checksum = 0;
-    for (i = 0; i < offsetof(struct Apprentice, checksum) / sizeof(u32); i++)
-        apprentice->checksum += ((u32 *)apprentice)[i];
-}
-
-static void ClearApprentice(struct Apprentice *apprentice)
-{
-    s32 i;
-
-    for (i = 0; i < sizeof(struct Apprentice) / sizeof(u32); i++)
-        ((u32 *)apprentice)[i] = 0;
-    ResetApprenticeStruct(apprentice);
-}
-
-static void ValidateApprenticesChecksums(void)
-{
-    s32 i, j;
-
-    for (i = 0; i < APPRENTICE_COUNT; i++)
-    {
-        u32 *data = (u32 *) &gSaveBlock2Ptr->apprentices[i];
-        u32 checksum = 0;
-        for (j = 0; j < offsetof(struct Apprentice, checksum) / sizeof(u32); j++)
-            checksum += data[j];
-        if (gSaveBlock2Ptr->apprentices[i].checksum != checksum)
-            ClearApprentice(&gSaveBlock2Ptr->apprentices[i]);
-    }
 }
 
 void GetBattleTowerTrainerLanguage(u8 *dst, u16 trainerId)
@@ -3311,8 +3163,8 @@ void GetBattleTowerTrainerLanguage(u8 *dst, u16 trainerId)
     {
         if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
             *dst = GetRecordedBattleApprenticeLanguage();
-        else
-            *dst = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].language;
+    //     else
+    //         *dst = gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].language;
     }
 }
 
@@ -3565,51 +3417,5 @@ u16 FacilityClassToGraphicsId(u8 facilityClass)
     else
     {
         return OBJ_EVENT_GFX_BOY_1;
-    }
-}
-
-bool32 ValidateBattleTowerRecord(u8 recordId) // unused
-{
-    s32 i;
-    u32 *record = (u32 *)(&gSaveBlock2Ptr->frontier.towerRecords[recordId]);
-    u32 checksum = 0;
-    u32 hasData = 0;
-    for (i = 0; i < offsetof(struct EmeraldBattleTowerRecord, checksum) / sizeof(u32); i++)
-    {
-        checksum += record[i];
-        hasData |= record[i];
-    }
-
-    if (checksum == 0 && hasData == 0)
-    {
-        return FALSE;
-    }
-    else if (gSaveBlock2Ptr->frontier.towerRecords[recordId].checksum != checksum)
-    {
-        ClearBattleTowerRecord(&gSaveBlock2Ptr->frontier.towerRecords[recordId]);
-        return FALSE;
-    }
-    else
-    {
-        return TRUE;
-    }
-}
-
-void TrySetLinkBattleTowerEnemyPartyLevel(void)
-{
-    if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
-    {
-        s32 i;
-        u8 enemyLevel = SetFacilityPtrsGetLevel();
-
-        for (i = 0; i < PARTY_SIZE; i++)
-        {
-            u32 species = GetMonData(&gEnemyParty[i], MON_DATA_SPECIES, NULL);
-            if (species)
-            {
-                SetMonData(&gEnemyParty[i], MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[species].growthRate][enemyLevel]);
-                CalculateMonStats(&gEnemyParty[i]);
-            }
-        }
     }
 }

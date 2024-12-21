@@ -173,15 +173,15 @@ void RecordMixingPlayerSpotTriggered(void)
 // these variables were const in R/S, but had to become changeable because of saveblocks changing RAM position
 static void SetSrcLookupPointers(void)
 {
-    sSecretBasesSave = gSaveBlock1Ptr->secretBases;
+    // sSecretBasesSave = gSaveBlock1Ptr->secretBases;
     sTvShowsSave = gSaveBlock1Ptr->tvShows;
     sPokeNewsSave = gSaveBlock1Ptr->pokeNews;
-    sOldManSave = &gSaveBlock1Ptr->oldMan;
-    sDewfordTrendsSave = gSaveBlock1Ptr->dewfordTrends;
+    // sOldManSave = &gSaveBlock1Ptr->oldMan;
+    // sDewfordTrendsSave = gSaveBlock1Ptr->dewfordTrends;
     sRecordMixMailSave = &sRecordMixMail;
     sBattleTowerSave = &gSaveBlock2Ptr->frontier.towerPlayer;
-    sLilycoveLadySave = &gSaveBlock1Ptr->lilycoveLady;
-    sApprenticesSave = gSaveBlock2Ptr->apprentices;
+    // sLilycoveLadySave = &gSaveBlock1Ptr->lilycoveLady;
+    // sApprenticesSave = gSaveBlock2Ptr->apprentices;
     sBattleTowerSave_Duplicate = &gSaveBlock2Ptr->frontier.towerPlayer;
 }
 
@@ -192,9 +192,9 @@ static void PrepareUnknownExchangePacket(struct PlayerRecordRS *dest)
     SanitizeTVShowLocationsForRuby(dest->tvShows);
     memcpy(dest->pokeNews, sPokeNewsSave, sizeof(dest->pokeNews));
     memcpy(&dest->oldMan, sOldManSave, sizeof(dest->oldMan));
-    memcpy(dest->dewfordTrends, sDewfordTrendsSave, sizeof(dest->dewfordTrends));
+    // memcpy(dest->dewfordTrends, sDewfordTrendsSave, sizeof(dest->dewfordTrends));
     GetRecordMixingDaycareMail(&dest->daycareMail);
-    EmeraldBattleTowerRecordToRuby(sBattleTowerSave, &dest->battleTowerRecord);
+    // EmeraldBattleTowerRecordToRuby(sBattleTowerSave, &dest->battleTowerRecord);
 
     if (GetMultiplayerId() == 0)
         dest->giftItem = GetRecordMixingGift();
@@ -203,16 +203,16 @@ static void PrepareUnknownExchangePacket(struct PlayerRecordRS *dest)
 static void PrepareExchangePacketForRubySapphire(struct PlayerRecordRS *dest)
 {
     memcpy(dest->secretBases, sSecretBasesSave, sizeof(dest->secretBases));
-    ClearJapaneseSecretBases(dest->secretBases);
+    // ClearJapaneseSecretBases(dest->secretBases);
     memcpy(dest->tvShows, sTvShowsSave, sizeof(dest->tvShows));
     SanitizeTVShowsForRuby(dest->tvShows);
     memcpy(dest->pokeNews, sPokeNewsSave, sizeof(dest->pokeNews));
     memcpy(&dest->oldMan, sOldManSave, sizeof(dest->oldMan));
-    SanitizeMauvilleOldManForRuby(&dest->oldMan);
-    memcpy(dest->dewfordTrends, sDewfordTrendsSave, sizeof(dest->dewfordTrends));
+    // SanitizeMauvilleOldManForRuby(&dest->oldMan);
+    // memcpy(dest->dewfordTrends, sDewfordTrendsSave, sizeof(dest->dewfordTrends));
     GetRecordMixingDaycareMail(&dest->daycareMail);
     SanitizeDaycareMailForRuby(&dest->daycareMail);
-    EmeraldBattleTowerRecordToRuby(sBattleTowerSave, &dest->battleTowerRecord);
+    // EmeraldBattleTowerRecordToRuby(sBattleTowerSave, &dest->battleTowerRecord);
     SanitizeRubyBattleTowerRecord(&dest->battleTowerRecord);
 
     if (GetMultiplayerId() == 0)
@@ -221,7 +221,7 @@ static void PrepareExchangePacketForRubySapphire(struct PlayerRecordRS *dest)
 
 static void PrepareExchangePacket(void)
 {
-    SetPlayerSecretBaseParty();
+    // SetPlayerSecretBaseParty();
     DeactivateAllNormalTVShows();
     SetSrcLookupPointers();
 
@@ -258,30 +258,30 @@ static void ReceiveExchangePacket(u32 multiplayerId)
     {
         // Ruby/Sapphire
         CalculateDaycareMailRandSum((void *)sReceivedRecords->ruby.tvShows);
-        ReceiveSecretBasesData(sReceivedRecords->ruby.secretBases, sizeof(sReceivedRecords->ruby), multiplayerId);
+        // ReceiveSecretBasesData(sReceivedRecords->ruby.secretBases, sizeof(sReceivedRecords->ruby), multiplayerId);
         ReceiveDaycareMailData(&sReceivedRecords->ruby.daycareMail, sizeof(sReceivedRecords->ruby), multiplayerId, sReceivedRecords->ruby.tvShows);
         ReceiveBattleTowerData(&sReceivedRecords->ruby.battleTowerRecord, sizeof(sReceivedRecords->ruby), multiplayerId);
         ReceiveTvShowsData(sReceivedRecords->ruby.tvShows, sizeof(sReceivedRecords->ruby), multiplayerId);
         ReceivePokeNewsData(sReceivedRecords->ruby.pokeNews, sizeof(sReceivedRecords->ruby), multiplayerId);
         ReceiveOldManData(&sReceivedRecords->ruby.oldMan, sizeof(sReceivedRecords->ruby), multiplayerId);
-        ReceiveDewfordTrendData(sReceivedRecords->ruby.dewfordTrends, sizeof(sReceivedRecords->ruby), multiplayerId);
+        // ReceiveDewfordTrendData(sReceivedRecords->ruby.dewfordTrends, sizeof(sReceivedRecords->ruby), multiplayerId);
         ReceiveGiftItem(&sReceivedRecords->ruby.giftItem, multiplayerId);
     }
     else
     {
         // Emerald
-        CalculateDaycareMailRandSum((void *)sReceivedRecords->emerald.tvShows);
-        ReceiveSecretBasesData(sReceivedRecords->emerald.secretBases, sizeof(sReceivedRecords->emerald), multiplayerId);
-        ReceiveTvShowsData(sReceivedRecords->emerald.tvShows, sizeof(sReceivedRecords->emerald), multiplayerId);
-        ReceivePokeNewsData(sReceivedRecords->emerald.pokeNews, sizeof(sReceivedRecords->emerald), multiplayerId);
-        ReceiveOldManData(&sReceivedRecords->emerald.oldMan, sizeof(sReceivedRecords->emerald), multiplayerId);
-        ReceiveDewfordTrendData(sReceivedRecords->emerald.dewfordTrends, sizeof(sReceivedRecords->emerald), multiplayerId);
-        ReceiveDaycareMailData(&sReceivedRecords->emerald.daycareMail, sizeof(sReceivedRecords->emerald), multiplayerId, sReceivedRecords->emerald.tvShows);
-        ReceiveBattleTowerData(&sReceivedRecords->emerald.battleTowerRecord, sizeof(sReceivedRecords->emerald), multiplayerId);
-        ReceiveGiftItem(&sReceivedRecords->emerald.giftItem, multiplayerId);
-        ReceiveLilycoveLadyData(&sReceivedRecords->emerald.lilycoveLady, sizeof(sReceivedRecords->emerald), multiplayerId);
-        ReceiveApprenticeData(sReceivedRecords->emerald.apprentices, sizeof(sReceivedRecords->emerald), (u8)multiplayerId);
-        ReceiveRankingHallRecords(&sReceivedRecords->emerald.hallRecords, sizeof(sReceivedRecords->emerald), (u8)multiplayerId);
+        // CalculateDaycareMailRandSum((void *)sReceivedRecords->emerald.tvShows);
+        // // ReceiveSecretBasesData(sReceivedRecords->emerald.secretBases, sizeof(sReceivedRecords->emerald), multiplayerId);
+        // ReceiveTvShowsData(sReceivedRecords->emerald.tvShows, sizeof(sReceivedRecords->emerald), multiplayerId);
+        // ReceivePokeNewsData(sReceivedRecords->emerald.pokeNews, sizeof(sReceivedRecords->emerald), multiplayerId);
+        // ReceiveOldManData(&sReceivedRecords->emerald.oldMan, sizeof(sReceivedRecords->emerald), multiplayerId);
+        // ReceiveDewfordTrendData(sReceivedRecords->emerald.dewfordTrends, sizeof(sReceivedRecords->emerald), multiplayerId);
+        // ReceiveDaycareMailData(&sReceivedRecords->emerald.daycareMail, sizeof(sReceivedRecords->emerald), multiplayerId, sReceivedRecords->emerald.tvShows);
+        // ReceiveBattleTowerData(&sReceivedRecords->emerald.battleTowerRecord, sizeof(sReceivedRecords->emerald), multiplayerId);
+        // ReceiveGiftItem(&sReceivedRecords->emerald.giftItem, multiplayerId);
+        // ReceiveLilycoveLadyData(&sReceivedRecords->emerald.lilycoveLady, sizeof(sReceivedRecords->emerald), multiplayerId);
+        // ReceiveApprenticeData(sReceivedRecords->emerald.apprentices, sizeof(sReceivedRecords->emerald), (u8)multiplayerId);
+        // ReceiveRankingHallRecords(&sReceivedRecords->emerald.hallRecords, sizeof(sReceivedRecords->emerald), (u8)multiplayerId);
     }
 }
 
@@ -630,23 +630,23 @@ static void ShufflePlayerIndices(u32 *data)
 
 static void ReceiveOldManData(OldMan *records, size_t recordSize, u8 multiplayerId)
 {
-    u8 version;
-    u16 language;
-    OldMan *oldMan;
+    // u8 version;
+    // u16 language;
+    // OldMan *oldMan;
     u32 mixIndices[MAX_LINK_PLAYERS];
 
     ShufflePlayerIndices(mixIndices);
-    oldMan = (void *)records + recordSize * mixIndices[multiplayerId];
-    version = gLinkPlayers[mixIndices[multiplayerId]].version;
-    language = gLinkPlayers[mixIndices[multiplayerId]].language;
+    // oldMan = (void *)records + recordSize * mixIndices[multiplayerId];
+    // version = gLinkPlayers[mixIndices[multiplayerId]].version;
+    // language = gLinkPlayers[mixIndices[multiplayerId]].language;
 
-    if (Link_AnyPartnersPlayingRubyOrSapphire())
-        SanitizeReceivedRubyOldMan(oldMan, version, language);
-    else
-        SanitizeReceivedEmeraldOldMan(oldMan, version, language);
+    // if (Link_AnyPartnersPlayingRubyOrSapphire())
+    //     SanitizeReceivedRubyOldMan(oldMan, version, language);
+    // else
+        // SanitizeReceivedEmeraldOldMan(oldMan, version, language);
 
     memcpy(sOldManSave, (void *)records + recordSize * mixIndices[multiplayerId], sizeof(OldMan));
-    ResetMauvilleOldManFlag();
+    // ResetMauvilleOldManFlag();
 }
 
 static void ReceiveBattleTowerData(void *records, size_t recordSize, u8 multiplayerId)
@@ -659,12 +659,12 @@ static void ReceiveBattleTowerData(void *records, size_t recordSize, u8 multipla
     ShufflePlayerIndices(mixIndices);
     if (Link_AnyPartnersPlayingRubyOrSapphire())
     {
-        if (RubyBattleTowerRecordToEmerald((void *)records + recordSize * mixIndices[multiplayerId], (void *)records + recordSize * multiplayerId) == TRUE)
-        {
-            battleTowerRecord = (void *)records + recordSize * multiplayerId;
-            battleTowerRecord->language = gLinkPlayers[mixIndices[multiplayerId]].language;
-            CalcEmeraldBattleTowerChecksum(battleTowerRecord);
-        }
+        // if (RubyBattleTowerRecordToEmerald((void *)records + recordSize * mixIndices[multiplayerId], (void *)records + recordSize * multiplayerId) == TRUE)
+        // {
+        //     battleTowerRecord = (void *)records + recordSize * multiplayerId;
+        //     battleTowerRecord->language = gLinkPlayers[mixIndices[multiplayerId]].language;
+        //     CalcEmeraldBattleTowerChecksum(battleTowerRecord);
+        // }
     }
     else
     {
@@ -681,7 +681,7 @@ static void ReceiveBattleTowerData(void *records, size_t recordSize, u8 multipla
     PutNewBattleTowerRecord((void *)records + recordSize * multiplayerId);
 }
 
-static void ReceiveLilycoveLadyData(LilycoveLady *records, size_t recordSize, u8 multiplayerId)
+static void UNUSED ReceiveLilycoveLadyData(LilycoveLady *records, size_t recordSize, u8 multiplayerId)
 {
     LilycoveLady *lilycoveLady;
     u32 mixIndices[MAX_LINK_PLAYERS];
@@ -689,24 +689,24 @@ static void ReceiveLilycoveLadyData(LilycoveLady *records, size_t recordSize, u8
     ShufflePlayerIndices(mixIndices);
     memcpy((void *)records + recordSize * multiplayerId, sLilycoveLadySave, sizeof(LilycoveLady));
 
-    if (GetLilycoveLadyId() == 0)
-    {
-        lilycoveLady = Alloc(sizeof(*lilycoveLady));
-        if (lilycoveLady == NULL)
-            return;
+    // if (GetLilycoveLadyId() == 0)
+    // {
+    //     lilycoveLady = Alloc(sizeof(*lilycoveLady));
+    //     if (lilycoveLady == NULL)
+    //         return;
 
-        memcpy(lilycoveLady, sLilycoveLadySave, sizeof(LilycoveLady));
-    }
-    else
-    {
+    //     memcpy(lilycoveLady, sLilycoveLadySave, sizeof(LilycoveLady));
+    // }
+    // else
+    // {
         lilycoveLady = NULL;
-    }
+    // }
 
     memcpy(sLilycoveLadySave, (void *)records + recordSize * mixIndices[multiplayerId], sizeof(LilycoveLady));
-    ResetLilycoveLadyForRecordMix();
+    // ResetLilycoveLadyForRecordMix();
     if (lilycoveLady != NULL)
     {
-        QuizLadyClearQuestionForRecordMix(lilycoveLady);
+        // QuizLadyClearQuestionForRecordMix(lilycoveLady);
         Free(lilycoveLady);
     }
 }
@@ -1057,7 +1057,7 @@ static void Task_DoRecordMixing(u8 taskId)
 
 static void GetSavedApprentices(struct Apprentice *dst, struct Apprentice *src)
 {
-    s32 i, id;
+    // s32 i, id;
     s32 apprenticeSaveId, oldPlayerApprenticeSaveId;
     s32 numOldPlayerApprentices, numMixApprentices;
 
@@ -1070,23 +1070,23 @@ static void GetSavedApprentices(struct Apprentice *dst, struct Apprentice *src)
     numOldPlayerApprentices = 0;
     apprenticeSaveId = 0;
     numMixApprentices = 0;
-    for (i = 0; i < 2; i++)
-    {
-        id = (i + gSaveBlock2Ptr->playerApprentice.saveId) % (APPRENTICE_COUNT - 1) + 1;
-        if (src[id].playerName[0] != EOS)
-        {
-            if (GetTrainerId(src[id].playerId) != GetTrainerId(gSaveBlock2Ptr->playerTrainerId))
-            {
-                numMixApprentices++;
-                apprenticeSaveId = id;
-            }
-            if (GetTrainerId(src[id].playerId) == GetTrainerId(gSaveBlock2Ptr->playerTrainerId))
-            {
-                numOldPlayerApprentices++;
-                oldPlayerApprenticeSaveId = id;
-            }
-        }
-    }
+    // for (i = 0; i < 2; i++)
+    // {
+    //     id = (i + gSaveBlock2Ptr->playerApprentice.saveId) % (APPRENTICE_COUNT - 1) + 1;
+    //     if (src[id].playerName[0] != EOS)
+    //     {
+    //         if (GetTrainerId(src[id].playerId) != GetTrainerId(gSaveBlock2Ptr->playerTrainerId))
+    //         {
+    //             numMixApprentices++;
+    //             apprenticeSaveId = id;
+    //         }
+    //         if (GetTrainerId(src[id].playerId) == GetTrainerId(gSaveBlock2Ptr->playerTrainerId))
+    //         {
+    //             numOldPlayerApprentices++;
+    //             oldPlayerApprenticeSaveId = id;
+    //         }
+    //     }
+    // }
 
     // Prefer passing on other mixed Apprentices rather than old player's Apprentices
     if (numMixApprentices == 0 && numOldPlayerApprentices != 0)
@@ -1100,12 +1100,12 @@ static void GetSavedApprentices(struct Apprentice *dst, struct Apprentice *src)
     case 1:
         dst[1] = src[apprenticeSaveId];
         break;
-    case 2:
-        if (Random2() > 0x3333)
-            dst[1] = src[gSaveBlock2Ptr->playerApprentice.saveId + 1];
-        else
-            dst[1] = src[((gSaveBlock2Ptr->playerApprentice.saveId + 1) % (APPRENTICE_COUNT - 1) + 1)];
-        break;
+    // case 2:
+    //     if (Random2() > 0x3333)
+    //         dst[1] = src[gSaveBlock2Ptr->playerApprentice.saveId + 1];
+    //     else
+    //         dst[1] = src[((gSaveBlock2Ptr->playerApprentice.saveId + 1) % (APPRENTICE_COUNT - 1) + 1)];
+    //     break;
     }
 }
 
@@ -1148,54 +1148,54 @@ void GetPlayerHallRecords(struct PlayerHallRecords *dst)
     }
 }
 
-static bool32 IsApprenticeAlreadySaved(struct Apprentice *mixApprentice, struct Apprentice *apprentices)
+// static bool32 IsApprenticeAlreadySaved(struct Apprentice *mixApprentice, struct Apprentice *apprentices)
+// {
+//     s32 i;
+
+//     for (i = 0; i < APPRENTICE_COUNT; i++)
+//     {
+//         if (GetTrainerId(mixApprentice->playerId) == GetTrainerId(apprentices[i].playerId)
+//             && mixApprentice->number == apprentices[i].number)
+//             return TRUE;
+//     }
+
+//     return FALSE;
+// }
+
+static void UNUSED ReceiveApprenticeData(struct Apprentice *records, size_t recordSize, u32 multiplayerId)
 {
-    s32 i;
-
-    for (i = 0; i < APPRENTICE_COUNT; i++)
-    {
-        if (GetTrainerId(mixApprentice->playerId) == GetTrainerId(apprentices[i].playerId)
-            && mixApprentice->number == apprentices[i].number)
-            return TRUE;
-    }
-
-    return FALSE;
-}
-
-static void ReceiveApprenticeData(struct Apprentice *records, size_t recordSize, u32 multiplayerId)
-{
-    s32 i, numApprentices, apprenticeId;
-    struct Apprentice *mixApprentice;
+    s32 numApprentices;
+    // struct Apprentice *mixApprentice;
     u32 mixIndices[MAX_LINK_PLAYERS];
-    u32 apprenticeSaveId;
+    // u32 apprenticeSaveId;
 
     ShufflePlayerIndices(mixIndices);
-    mixApprentice = (void *)records + (recordSize * mixIndices[multiplayerId]);
+    // mixApprentice = (void *)records + (recordSize * mixIndices[multiplayerId]);
     numApprentices = 0;
-    apprenticeId = 0;
-    for (i = 0; i < 2; i++)
-    {
-        if (mixApprentice[i].playerName[0] != EOS && !IsApprenticeAlreadySaved(&mixApprentice[i], &gSaveBlock2Ptr->apprentices[0]))
-        {
-            numApprentices++;
-            apprenticeId = i;
-        }
-    }
+    // apprenticeId = 0;
+    // for (i = 0; i < 2; i++)
+    // {
+    //     if (mixApprentice[i].playerName[0] != EOS && !IsApprenticeAlreadySaved(&mixApprentice[i], &gSaveBlock2Ptr->apprentices[0]))
+    //     {
+    //         numApprentices++;
+    //         apprenticeId = i;
+    //     }
+    // }
 
     switch (numApprentices)
     {
     case 1:
-        apprenticeSaveId = gSaveBlock2Ptr->playerApprentice.saveId + 1;
-        gSaveBlock2Ptr->apprentices[apprenticeSaveId] = mixApprentice[apprenticeId];
-        gSaveBlock2Ptr->playerApprentice.saveId = (gSaveBlock2Ptr->playerApprentice.saveId + 1) % (APPRENTICE_COUNT - 1);
+        // apprenticeSaveId = 0;
+        // gSaveBlock2Ptr->apprentices[apprenticeSaveId] = mixApprentice[apprenticeId];
+        // gSaveBlock2Ptr->playerApprentice.saveId = (gSaveBlock2Ptr->playerApprentice.saveId + 1) % (APPRENTICE_COUNT - 1);
         break;
     case 2:
-        for (i = 0; i < 2; i++)
-        {
-            apprenticeSaveId = ((i ^ 1) + gSaveBlock2Ptr->playerApprentice.saveId) % (APPRENTICE_COUNT - 1) + 1;
-            gSaveBlock2Ptr->apprentices[apprenticeSaveId] = mixApprentice[i];
-        }
-        gSaveBlock2Ptr->playerApprentice.saveId = (gSaveBlock2Ptr->playerApprentice.saveId + 2) % (APPRENTICE_COUNT - 1);
+        // for (i = 0; i < 2; i++)
+        // {
+        //     apprenticeSaveId = ((i ^ 1) + gSaveBlock2Ptr->playerApprentice.saveId) % (APPRENTICE_COUNT - 1) + 1;
+        //     gSaveBlock2Ptr->apprentices[apprenticeSaveId] = mixApprentice[i];
+        // }
+        // gSaveBlock2Ptr->playerApprentice.saveId = (gSaveBlock2Ptr->playerApprentice.saveId + 2) % (APPRENTICE_COUNT - 1);
         break;
     }
 }
@@ -1355,7 +1355,7 @@ static void SaveHighestWinStreakRecords(struct RecordMixingHallRecords *mixHallR
 }
 #endif //FREE_RECORD_MIXING_HALL_RECORDS
 
-static void ReceiveRankingHallRecords(struct PlayerHallRecords *records, size_t recordSize, u32 multiplayerId)
+static void UNUSED ReceiveRankingHallRecords(struct PlayerHallRecords *records, size_t recordSize, u32 multiplayerId)
 {
 #if FREE_RECORD_MIXING_HALL_RECORDS == FALSE
     u8 linkPlayerCount = GetLinkPlayerCount();

@@ -1912,10 +1912,10 @@ bool8 ScrCmd_bufferstdstring(struct ScriptContext *ctx)
 
 bool8 ScrCmd_buffercontestname(struct ScriptContext *ctx)
 {
-    u8 stringVarIndex = ScriptReadByte(ctx);
-    u16 category = VarGet(ScriptReadHalfword(ctx));
+    // u8 stringVarIndex = ScriptReadByte(ctx);
+    // u16 category = VarGet(ScriptReadHalfword(ctx));
 
-    BufferContestName(sScriptStringVars[stringVarIndex], category);
+    // BufferContestName(sScriptStringVars[stringVarIndex], category);
     return FALSE;
 }
 

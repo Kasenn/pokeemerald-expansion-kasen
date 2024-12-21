@@ -10,7 +10,6 @@ DewfordTown_Hall_EventScript_Girl::
 	lock
 	faceplayer
 	call Common_EventScript_BufferTrendyPhrase
-	special IsTrendyPhraseBoring
 	goto_if_eq VAR_RESULT, TRUE, DewfordTown_Hall_EventScript_GirlBoredOfTrend
 	msgbox DewfordTown_Hall_Text_CantImagineLifeWithoutTrend, MSGBOX_DEFAULT
 	release
@@ -89,7 +88,6 @@ DewfordTown_Hall_EventScript_Bookshelf::
 DewfordTown_Hall_EventScript_Painting::
 	lockall
 	call Common_EventScript_BufferTrendyPhrase
-	special GetDewfordHallPaintingNameIndex
 	switch VAR_RESULT
 	case 0, DewfordTown_Hall_EventScript_ScreamTitle
 	case 4, DewfordTown_Hall_EventScript_ScreamTitle
@@ -135,7 +133,6 @@ DewfordTown_Hall_EventScript_PsychicM::
 
 DewfordTown_Hall_EventScript_DoTrendDebate::
 	call Common_EventScript_BufferTrendyPhrase
-	special GetDewfordHallPaintingNameIndex
 	switch VAR_RESULT
 	case 0, DewfordTown_Hall_EventScript_TrendDebate1
 	case 1, DewfordTown_Hall_EventScript_TrendDebate1

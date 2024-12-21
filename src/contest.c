@@ -3727,13 +3727,13 @@ static void DetermineFinalStandings(void)
 
 void SaveLinkContestResults(void)
 {
-    if ((gLinkContestFlags & LINK_CONTEST_FLAG_IS_LINK))
-    {
-        gSaveBlock2Ptr->contestLinkResults[gSpecialVar_ContestCategory][gContestFinalStandings[gContestPlayerMonIndex]] =
-        ((gSaveBlock2Ptr->contestLinkResults[gSpecialVar_ContestCategory][gContestFinalStandings[gContestPlayerMonIndex]] + 1) > 9999) ? 9999 :
-        (gSaveBlock2Ptr->contestLinkResults[gSpecialVar_ContestCategory][gContestFinalStandings[gContestPlayerMonIndex]] + 1);
+    // if ((gLinkContestFlags & LINK_CONTEST_FLAG_IS_LINK))
+    // {
+    //     gSaveBlock2Ptr->contestLinkResults[gSpecialVar_ContestCategory][gContestFinalStandings[gContestPlayerMonIndex]] =
+    //     ((gSaveBlock2Ptr->contestLinkResults[gSpecialVar_ContestCategory][gContestFinalStandings[gContestPlayerMonIndex]] + 1) > 9999) ? 9999 :
+    //     (gSaveBlock2Ptr->contestLinkResults[gSpecialVar_ContestCategory][gContestFinalStandings[gContestPlayerMonIndex]] + 1);
 
-    }
+    // }
 }
 
 static bool8 DidContestantPlaceHigher(s32 a, s32 b, struct ContestFinalStandings *standings)
@@ -5600,15 +5600,15 @@ static void Contest_SetBgCopyFlags(u32 flagIndex)
     sContestBgCopyFlags |= 1 << flagIndex;
 }
 
-void ResetContestLinkResults(void)
-{
-    s32 i;
-    s32 j;
+// void ResetContestLinkResults(void)
+// {
+//     // s32 i;
+//     // s32 j;
 
-    for(i = 0; i < CONTEST_CATEGORIES_COUNT; i++)
-        for(j = 0; j < CONTESTANT_COUNT; j++)
-            gSaveBlock2Ptr->contestLinkResults[i][j] = 0;
-}
+//     // for(i = 0; i < CONTEST_CATEGORIES_COUNT; i++)
+//     //     for(j = 0; j < CONTESTANT_COUNT; j++)
+//     //         gSaveBlock2Ptr->contestLinkResults[i][j] = 0;
+// }
 
 bool8 SaveContestWinner(u8 rank)
 {
@@ -5649,21 +5649,21 @@ bool8 SaveContestWinner(u8 rank)
         // Save winner in the saveblock
         // Used to save any winner for the Contest Hall or the Museum
         // but excludes the temporary save used by the artist
-        u8 id = GetContestWinnerSaveIdx(rank, TRUE);
-        gSaveBlock1Ptr->contestWinners[id].personality = gContestMons[i].personality;
-        gSaveBlock1Ptr->contestWinners[id].species = gContestMons[i].species;
-        gSaveBlock1Ptr->contestWinners[id].trainerId = gContestMons[i].otId;
-        StringCopyN(gSaveBlock1Ptr->contestWinners[id].monName, gContestMons[i].nickname, VANILLA_POKEMON_NAME_LENGTH);
-        StringCopy(gSaveBlock1Ptr->contestWinners[id].trainerName, gContestMons[i].trainerName);
-        if(gLinkContestFlags & LINK_CONTEST_FLAG_IS_LINK)
-            gSaveBlock1Ptr->contestWinners[id].contestRank = CONTEST_RANK_LINK;
-        else
-            gSaveBlock1Ptr->contestWinners[id].contestRank = gSpecialVar_ContestRank;
+        // u8 id = GetContestWinnerSaveIdx(rank, TRUE);
+        // gSaveBlock1Ptr->contestWinners[id].personality = gContestMons[i].personality;
+        // gSaveBlock1Ptr->contestWinners[id].species = gContestMons[i].species;
+        // gSaveBlock1Ptr->contestWinners[id].trainerId = gContestMons[i].otId;
+        // StringCopyN(gSaveBlock1Ptr->contestWinners[id].monName, gContestMons[i].nickname, VANILLA_POKEMON_NAME_LENGTH);
+        // StringCopy(gSaveBlock1Ptr->contestWinners[id].trainerName, gContestMons[i].trainerName);
+        // if(gLinkContestFlags & LINK_CONTEST_FLAG_IS_LINK)
+        //     gSaveBlock1Ptr->contestWinners[id].contestRank = CONTEST_RANK_LINK;
+        // else
+        //     gSaveBlock1Ptr->contestWinners[id].contestRank = gSpecialVar_ContestRank;
 
-        if (rank != CONTEST_SAVE_FOR_MUSEUM)
-            gSaveBlock1Ptr->contestWinners[id].contestCategory = gSpecialVar_ContestCategory;
-        else
-            gSaveBlock1Ptr->contestWinners[id].contestCategory = captionId;
+        // if (rank != CONTEST_SAVE_FOR_MUSEUM)
+        //     gSaveBlock1Ptr->contestWinners[id].contestCategory = gSpecialVar_ContestCategory;
+        // else
+        //     gSaveBlock1Ptr->contestWinners[id].contestCategory = captionId;
     }
     else
     {
@@ -5685,7 +5685,7 @@ bool8 SaveContestWinner(u8 rank)
 // If actually preparing to insert the winner into the saveblock, shift is TRUE
 u8 GetContestWinnerSaveIdx(u8 rank, bool8 shift)
 {
-    s32 i;
+    // s32 i;
 
     switch (rank)
     {
@@ -5693,11 +5693,11 @@ u8 GetContestWinnerSaveIdx(u8 rank, bool8 shift)
     case CONTEST_RANK_SUPER:
     case CONTEST_RANK_HYPER:
     case CONTEST_RANK_MASTER:
-        if (shift)
-        {
-            for (i = NUM_CONTEST_HALL_WINNERS - 1; i > 0; i--)
-                memcpy(&gSaveBlock1Ptr->contestWinners[i], &gSaveBlock1Ptr->contestWinners[i - 1], sizeof(struct ContestWinner));
-        }
+        // if (shift)
+        // {
+        //     for (i = NUM_CONTEST_HALL_WINNERS - 1; i > 0; i--)
+        //         memcpy(&gSaveBlock1Ptr->contestWinners[i], &gSaveBlock1Ptr->contestWinners[i - 1], sizeof(struct ContestWinner));
+        // }
         return CONTEST_WINNER_HALL_1 - 1;
     default:
 //  case CONTEST_SAVE_FOR_MUSEUM:
@@ -5719,13 +5719,13 @@ u8 GetContestWinnerSaveIdx(u8 rank, bool8 shift)
     }
 }
 
-void ClearContestWinnerPicsInContestHall(void)
-{
-    s32 i;
+// void ClearContestWinnerPicsInContestHall(void)
+// {
+//     // s32 i;
 
-    for (i = 0; i < MUSEUM_CONTEST_WINNERS_START; i++)
-        gSaveBlock1Ptr->contestWinners[i] = gDefaultContestWinners[i];
-}
+//     // for (i = 0; i < MUSEUM_CONTEST_WINNERS_START; i++)
+//     //     gSaveBlock1Ptr->contestWinners[i] = gDefaultContestWinners[i];
+// }
 
 static void SetContestLiveUpdateFlags(u8 contestant)
 {

@@ -25,8 +25,7 @@ SecretBase_Text_DiscoveredSmallEntrance:
 	.include "data/text/secret_base_trainers.inc"
 
 SecretBase_EventScript_CheckEntrance::
-	special GetSecretBaseTypeInFrontOfPlayer
-	special CheckPlayerHasSecretBase
+	@special CheckPlayerHasSecretBase
 	goto_if_eq VAR_RESULT, TRUE, SecretBase_EventScript_AlreadyHasSecretBase
 	checkpartymove MOVE_SECRET_POWER
 	setfieldeffectargument 0, VAR_RESULT
@@ -134,11 +133,10 @@ SecretBase_EventScript_InitSecretBase::
 	playse SE_EXIT
 	setvar VAR_INIT_SECRET_BASE, 0
 	setflag FLAG_HIDE_SECRET_BASE_TRAINER
-	special SetPlayerSecretBase
-	special EnterSecretBase
+	@special EnterSecretBase
 	setvar VAR_0x8004, 0
 	setvar VAR_0x8005, 0
-	special InitSecretBaseDecorationSprites
+	@special InitSecretBaseDecorationSprites
 	setvar VAR_SECRET_BASE_INITIALIZED, 1
 	waitstate
 	end
@@ -151,13 +149,12 @@ SecretBase_EventScript_FirstEntrance::
 	goto_if_eq VAR_RESULT, YES, SecretBase_EventScript_SetAsBase
 	closemessage
 	playse SE_EXIT
-	special ClearAndLeaveSecretBase
+	@special ClearAndLeaveSecretBase
 	end
 
 SecretBase_EventScript_SetAsBase::
 	closemessage
 	setflag FLAG_RECEIVED_SECRET_POWER
-	special EnterNewlyCreatedSecretBase
 	waitstate
 	end
 
@@ -170,17 +167,16 @@ SecretBase_EventScript_Enter::
 	lockall
 	setvar VAR_INIT_SECRET_BASE, 1
 	playse SE_EXIT
-	special IsCurSecretBaseOwnedByAnotherPlayer
 	goto_if_eq VAR_RESULT, FALSE, SecretBase_EventScript_EnterPlayersBase
 	clearflag FLAG_HIDE_SECRET_BASE_TRAINER
-	special EnterSecretBase
+	@special EnterSecretBase
 	setvar VAR_SECRET_BASE_INITIALIZED, 0
 	waitstate
 	end
 
 SecretBase_EventScript_EnterPlayersBase::
 	setflag FLAG_HIDE_SECRET_BASE_TRAINER
-	special EnterSecretBase
+	@special EnterSecretBase
 	setvar VAR_SECRET_BASE_INITIALIZED, 0
 	waitstate
 	end
@@ -191,13 +187,13 @@ SecretBase_EventScript_AlreadyHasSecretBase::
 	setfieldeffectargument 0, VAR_RESULT
 	setorcopyvar VAR_0x8004, VAR_RESULT
 	lockall
-	special GetSecretBaseNearbyMapName
+	@special GetSecretBaseNearbyMapName
 	msgbox SecretBase_Text_WouldYouLikeToMoveBases, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, SecretBase_EventScript_CancelOnEntrance
 	msgbox SecretBase_Text_AllDecorationsWillBeReturned, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, SecretBase_EventScript_CancelOnEntrance
 	fadescreenswapbuffers FADE_TO_BLACK
-	special MoveOutOfSecretBaseFromOutside
+	@special MoveOutOfSecretBaseFromOutside
 	closemessage
 	fadescreenswapbuffers FADE_FROM_BLACK
 	msgbox SecretBase_Text_MovingCompletedUseSecretPower, MSGBOX_YESNO
@@ -251,7 +247,7 @@ SecretBase_EventScript_SetDecorationFlags::
 SecretBase_EventScript_InitDecorations::
 	setvar VAR_0x8004, 0
 	setvar VAR_0x8005, 0
-	special InitSecretBaseDecorationSprites
+	@special InitSecretBaseDecorationSprites
 	setvar VAR_SECRET_BASE_INITIALIZED, 1
 	end
 
@@ -261,7 +257,6 @@ SecretBase_EventScript_SetDecoration::
 	end
 
 SecretBase_EventScript_SetDecoration2::
-	special SetDecoration
 	end
 
 SecretBase_EventScript_PutAwayDecoration::
@@ -270,7 +265,6 @@ SecretBase_EventScript_PutAwayDecoration::
 	end
 
 SecretBase_EventScript_PutAwayDecorationLoop::
-	special PutAwayDecorationIteration
 	goto_if_eq VAR_RESULT, 1, SecretBase_EventScript_PutAwayDecorationEnd
 	addvar VAR_0x8004, 1
 	goto_if_eq VAR_0x8005, 0, SecretBase_EventScript_PutAwayDecorationLoop
@@ -283,7 +277,7 @@ SecretBase_EventScript_PutAwayDecorationEnd::
 	end
 
 SecretBase_EventScript_RecordMixTrainer::
-	special GetSecretBaseOwnerAndState
+	@special GetSecretBaseOwnerAndState
 	goto_if_eq VAR_0x8004, 0, SecretBase_EventScript_Trainer0
 	goto_if_eq VAR_0x8004, 1, SecretBase_EventScript_Trainer1
 	goto_if_eq VAR_0x8004, 2, SecretBase_EventScript_Trainer2
@@ -305,7 +299,7 @@ SecretBase_EventScript_Trainer0::
 	msgbox SecretBase_Text_Trainer0Intro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, SecretBase_EventScript_Trainer0DeclineBattle
 	setvar VAR_RESULT, 1
-	special SetBattledOwnerFromResult
+	@special SetBattledOwnerFromResult
 	call Common_EventScript_SaveGame
 	goto_if_eq VAR_RESULT, 0, SecretBase_EventScript_Trainer0DeclineBattle
 	msgbox SecretBase_Text_Trainer0AcceptBattle, MSGBOX_DEFAULT
@@ -318,9 +312,9 @@ SecretBase_EventScript_Trainer0PreChampion::
 	end
 
 SecretBase_EventScript_Trainer0DeclineBattle::
-	special DeclinedSecretBaseBattle
+	@special DeclinedSecretBaseBattle
 	setvar VAR_RESULT, 0
-	special SetBattledOwnerFromResult
+	@special SetBattledOwnerFromResult
 	msgbox SecretBase_Text_Trainer0DeclineBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -339,7 +333,7 @@ SecretBase_EventScript_Trainer1::
 	msgbox SecretBase_Text_Trainer1Intro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, SecretBase_EventScript_Trainer1DeclineBattle
 	setvar VAR_RESULT, 1
-	special SetBattledOwnerFromResult
+	@special SetBattledOwnerFromResult
 	call Common_EventScript_SaveGame
 	goto_if_eq VAR_RESULT, 0, SecretBase_EventScript_Trainer1DeclineBattle
 	msgbox SecretBase_Text_Trainer1AcceptBattle, MSGBOX_DEFAULT
@@ -352,9 +346,9 @@ SecretBase_EventScript_Trainer1PreChampion::
 	end
 
 SecretBase_EventScript_Trainer1DeclineBattle::
-	special DeclinedSecretBaseBattle
+	@special DeclinedSecretBaseBattle
 	setvar VAR_RESULT, 0
-	special SetBattledOwnerFromResult
+	@special SetBattledOwnerFromResult
 	msgbox SecretBase_Text_Trainer1DeclineBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -373,7 +367,7 @@ SecretBase_EventScript_Trainer2::
 	msgbox SecretBase_Text_Trainer2Intro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, SecretBase_EventScript_Trainer2DeclineBattle
 	setvar VAR_RESULT, 1
-	special SetBattledOwnerFromResult
+	@special SetBattledOwnerFromResult
 	call Common_EventScript_SaveGame
 	goto_if_eq VAR_RESULT, 0, SecretBase_EventScript_Trainer2DeclineBattle
 	msgbox SecretBase_Text_Trainer2AcceptBattle, MSGBOX_DEFAULT
@@ -386,9 +380,9 @@ SecretBase_EventScript_Trainer2PreChampion::
 	end
 
 SecretBase_EventScript_Trainer2DeclineBattle::
-	special DeclinedSecretBaseBattle
+	@special DeclinedSecretBaseBattle
 	setvar VAR_RESULT, 0
-	special SetBattledOwnerFromResult
+	@special SetBattledOwnerFromResult
 	msgbox SecretBase_Text_Trainer2DeclineBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -407,7 +401,7 @@ SecretBase_EventScript_Trainer3::
 	msgbox SecretBase_Text_Trainer3Intro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, SecretBase_EventScript_Trainer3DeclineBattle
 	setvar VAR_RESULT, 1
-	special SetBattledOwnerFromResult
+	@special SetBattledOwnerFromResult
 	call Common_EventScript_SaveGame
 	goto_if_eq VAR_RESULT, 0, SecretBase_EventScript_Trainer3DeclineBattle
 	msgbox SecretBase_Text_Trainer3AcceptBattle, MSGBOX_DEFAULT
@@ -420,9 +414,9 @@ SecretBase_EventScript_Trainer3PreChampion::
 	end
 
 SecretBase_EventScript_Trainer3DeclineBattle::
-	special DeclinedSecretBaseBattle
+	@special DeclinedSecretBaseBattle
 	setvar VAR_RESULT, 0
-	special SetBattledOwnerFromResult
+	@special SetBattledOwnerFromResult
 	msgbox SecretBase_Text_Trainer3DeclineBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -441,7 +435,7 @@ SecretBase_EventScript_Trainer4::
 	msgbox SecretBase_Text_Trainer4Intro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, SecretBase_EventScript_Trainer4DeclineBattle
 	setvar VAR_RESULT, 1
-	special SetBattledOwnerFromResult
+	@special SetBattledOwnerFromResult
 	call Common_EventScript_SaveGame
 	goto_if_eq VAR_RESULT, 0, SecretBase_EventScript_Trainer4DeclineBattle
 	msgbox SecretBase_Text_Trainer4AcceptBattle, MSGBOX_DEFAULT
@@ -454,9 +448,9 @@ SecretBase_EventScript_Trainer4PreChampion::
 	end
 
 SecretBase_EventScript_Trainer4DeclineBattle::
-	special DeclinedSecretBaseBattle
+	@special DeclinedSecretBaseBattle
 	setvar VAR_RESULT, 0
-	special SetBattledOwnerFromResult
+	@special SetBattledOwnerFromResult
 	msgbox SecretBase_Text_Trainer4DeclineBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -475,7 +469,7 @@ SecretBase_EventScript_Trainer5::
 	msgbox SecretBase_Text_Trainer5Intro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, SecretBase_EventScript_Trainer5DeclineBattle
 	setvar VAR_RESULT, 1
-	special SetBattledOwnerFromResult
+	@special SetBattledOwnerFromResult
 	call Common_EventScript_SaveGame
 	goto_if_eq VAR_RESULT, 0, SecretBase_EventScript_Trainer5DeclineBattle
 	msgbox SecretBase_Text_Trainer5AcceptBattle, MSGBOX_DEFAULT
@@ -488,9 +482,9 @@ SecretBase_EventScript_Trainer5PreChampion::
 	end
 
 SecretBase_EventScript_Trainer5DeclineBattle::
-	special DeclinedSecretBaseBattle
+	@special DeclinedSecretBaseBattle
 	setvar VAR_RESULT, 0
-	special SetBattledOwnerFromResult
+	@special SetBattledOwnerFromResult
 	msgbox SecretBase_Text_Trainer5DeclineBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -509,7 +503,7 @@ SecretBase_EventScript_Trainer6::
 	msgbox SecretBase_Text_Trainer6Intro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, SecretBase_EventScript_Trainer6DeclineBattle
 	setvar VAR_RESULT, 1
-	special SetBattledOwnerFromResult
+	@special SetBattledOwnerFromResult
 	call Common_EventScript_SaveGame
 	goto_if_eq VAR_RESULT, 0, SecretBase_EventScript_Trainer6DeclineBattle
 	msgbox SecretBase_Text_Trainer6AcceptBattle, MSGBOX_DEFAULT
@@ -522,9 +516,9 @@ SecretBase_EventScript_Trainer6PreChampion::
 	end
 
 SecretBase_EventScript_Trainer6DeclineBattle::
-	special DeclinedSecretBaseBattle
+	@special DeclinedSecretBaseBattle
 	setvar VAR_RESULT, 0
-	special SetBattledOwnerFromResult
+	@special SetBattledOwnerFromResult
 	msgbox SecretBase_Text_Trainer6DeclineBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -543,7 +537,7 @@ SecretBase_EventScript_Trainer7::
 	msgbox SecretBase_Text_Trainer7Intro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, SecretBase_EventScript_Trainer7DeclineBattle
 	setvar VAR_RESULT, 1
-	special SetBattledOwnerFromResult
+	@special SetBattledOwnerFromResult
 	call Common_EventScript_SaveGame
 	goto_if_eq VAR_RESULT, 0, SecretBase_EventScript_Trainer7DeclineBattle
 	msgbox SecretBase_Text_Trainer7AcceptBattle, MSGBOX_DEFAULT
@@ -556,9 +550,9 @@ SecretBase_EventScript_Trainer7PreChampion::
 	end
 
 SecretBase_EventScript_Trainer7DeclineBattle::
-	special DeclinedSecretBaseBattle
+	@special DeclinedSecretBaseBattle
 	setvar VAR_RESULT, 0
-	special SetBattledOwnerFromResult
+	@special SetBattledOwnerFromResult
 	msgbox SecretBase_Text_Trainer7DeclineBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -577,7 +571,7 @@ SecretBase_EventScript_Trainer8::
 	msgbox SecretBase_Text_Trainer8Intro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, SecretBase_EventScript_Trainer8DeclineBattle
 	setvar VAR_RESULT, 1
-	special SetBattledOwnerFromResult
+	@special SetBattledOwnerFromResult
 	call Common_EventScript_SaveGame
 	goto_if_eq VAR_RESULT, 0, SecretBase_EventScript_Trainer8DeclineBattle
 	msgbox SecretBase_Text_Trainer8AcceptBattle, MSGBOX_DEFAULT
@@ -590,9 +584,9 @@ SecretBase_EventScript_Trainer8PreChampion::
 	end
 
 SecretBase_EventScript_Trainer8DeclineBattle::
-	special DeclinedSecretBaseBattle
+	@special DeclinedSecretBaseBattle
 	setvar VAR_RESULT, 0
-	special SetBattledOwnerFromResult
+	@special SetBattledOwnerFromResult
 	msgbox SecretBase_Text_Trainer8DeclineBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -611,7 +605,7 @@ SecretBase_EventScript_Trainer9::
 	msgbox SecretBase_Text_Trainer9Intro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, SecretBase_EventScript_Trainer9DeclineBattle
 	setvar VAR_RESULT, 1
-	special SetBattledOwnerFromResult
+	@special SetBattledOwnerFromResult
 	call Common_EventScript_SaveGame
 	goto_if_eq VAR_RESULT, 0, SecretBase_EventScript_Trainer9DeclineBattle
 	msgbox SecretBase_Text_Trainer9AcceptBattle, MSGBOX_DEFAULT
@@ -624,9 +618,9 @@ SecretBase_EventScript_Trainer9PreChampion::
 	end
 
 SecretBase_EventScript_Trainer9DeclineBattle::
-	special DeclinedSecretBaseBattle
+	@special DeclinedSecretBaseBattle
 	setvar VAR_RESULT, 0
-	special SetBattledOwnerFromResult
+	@special SetBattledOwnerFromResult
 	msgbox SecretBase_Text_Trainer9DeclineBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -637,39 +631,35 @@ SecretBase_EventScript_Trainer9PostBattle::
 	end
 
 SecretBase_EventScript_BattleTrainer::
-	special PrepSecretBaseBattleFlags
-	setvar VAR_0x8004, SPECIAL_BATTLE_SECRET_BASE
 	setvar VAR_0x8005, 0
-	special DoSpecialTrainerBattle
+	@special DospecialTrainerBattle
 	waitstate
 	call_if_eq VAR_RESULT, B_OUTCOME_DREW, SecretBase_EventScript_DrewSecretBaseBattle
 	call_if_eq VAR_RESULT, B_OUTCOME_WON, SecretBase_EventScript_WonSecretBaseBattle
 	call_if_eq VAR_RESULT, B_OUTCOME_LOST, SecretBase_EventScript_LostSecretBaseBattle
-	special HealPlayerParty
+	@special HealPlayerParty
 	callnative UpdateFollowingPokemon
 	release
 	end
 
 SecretBase_EventScript_DrewSecretBaseBattle::
-	special DrewSecretBaseBattle
+	@special DrewSecretBaseBattle
 	return
 
 SecretBase_EventScript_WonSecretBaseBattle::
-	special WonSecretBaseBattle
+	@special WonSecretBaseBattle
 	return
 
 SecretBase_EventScript_LostSecretBaseBattle::
-	special LostSecretBaseBattle
+	@special LostSecretBaseBattle
 	return
 
 	.include "data/scripts/secret_power_tm.inc"
 
 SecretBase_EventScript_DollInteract::
-	special CheckInteractedWithFriendsDollDecor
 	end
 
 SecretBase_EventScript_CushionInteract::
-	special CheckInteractedWithFriendsCushionDecor
 	end
 
 SecretBase_Text_AllDecorationsWillBeReturned:

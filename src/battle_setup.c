@@ -1720,9 +1720,9 @@ const u8 *GetTrainerALoseText(void)
 {
     const u8 *string;
 
-    if (gTrainerBattleOpponent_A == TRAINER_SECRET_BASE)
-        string = GetSecretBaseTrainerLoseText();
-    else
+    // if (gTrainerBattleOpponent_A == TRAINER_SECRET_BASE)
+    //     string = GetSecretBaseTrainerLoseText();
+    // else
         string = sTrainerADefeatSpeech;
 
     StringExpandPlaceholders(gStringVar4, ReturnEmptyStringIfNull(string));

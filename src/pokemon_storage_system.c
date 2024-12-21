@@ -1772,7 +1772,7 @@ void ResetPokemonStorageSystem(void)
     for (boxId = 0; boxId < TOTAL_BOXES_COUNT; boxId++)
         SetBoxWallpaper(boxId, boxId % (MAX_DEFAULT_WALLPAPER + 1));
 
-    ResetWaldaWallpaper();
+    // ResetWaldaWallpaper();
 }
 
 
@@ -2769,8 +2769,8 @@ static void Task_MoveMon(u8 taskId)
     switch (sStorage->state)
     {
     case 0:
-        if (gSaveBlock3Ptr->followerIndex == sCursorPosition && sCursorArea == CURSOR_AREA_IN_PARTY)
-            gSaveBlock3Ptr->followerIndex = FOLLOWER_IN_HAND;
+        if (gSaveBlock1Ptr->followerIndex == sCursorPosition && sCursorArea == CURSOR_AREA_IN_PARTY)
+            gSaveBlock1Ptr->followerIndex = FOLLOWER_IN_HAND;
         InitMonPlaceChange(CHANGE_GRAB);
         sStorage->state++;
         break;
@@ -2791,13 +2791,13 @@ static void Task_PlaceMon(u8 taskId)
     switch (sStorage->state)
     {
     case 0:
-        if (gSaveBlock3Ptr->followerIndex == FOLLOWER_IN_HAND)
+        if (gSaveBlock1Ptr->followerIndex == FOLLOWER_IN_HAND)
         {
             if (sCursorArea == CURSOR_AREA_IN_PARTY)
-                gSaveBlock3Ptr->followerIndex = sCursorPosition;
+                gSaveBlock1Ptr->followerIndex = sCursorPosition;
             else if (sCursorArea == CURSOR_AREA_IN_BOX)
             {
-                gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
+                gSaveBlock1Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
                 gFollowerSteps = 0;
             }
         }
@@ -6490,18 +6490,18 @@ static void SetShiftedMonData(u8 boxId, u8 position)
 {
     if (boxId == TOTAL_BOXES_COUNT)
     {
-        if (gSaveBlock3Ptr->followerIndex == FOLLOWER_IN_HAND)
-            gSaveBlock3Ptr->followerIndex = position;
-        else if (gSaveBlock3Ptr->followerIndex == position)
-            gSaveBlock3Ptr->followerIndex = FOLLOWER_IN_HAND;
+        if (gSaveBlock1Ptr->followerIndex == FOLLOWER_IN_HAND)
+            gSaveBlock1Ptr->followerIndex = position;
+        else if (gSaveBlock1Ptr->followerIndex == position)
+            gSaveBlock1Ptr->followerIndex = FOLLOWER_IN_HAND;
 
         sStorage->tempMon = gPlayerParty[position];
     }
     else
     {
-        if (gSaveBlock3Ptr->followerIndex == FOLLOWER_IN_HAND)
+        if (gSaveBlock1Ptr->followerIndex == FOLLOWER_IN_HAND)
         {
-            gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
+            gSaveBlock1Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
             gFollowerSteps = 0;
         }
         BoxMonAtToMon(boxId, position, &sStorage->tempMon);
@@ -6528,9 +6528,9 @@ static bool8 TryStorePartyMonInBox(u8 boxId)
     }
     else
     {
-        if (gSaveBlock3Ptr->followerIndex == sCursorPosition)
+        if (gSaveBlock1Ptr->followerIndex == sCursorPosition)
         {
-            gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
+            gSaveBlock1Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
             gFollowerSteps = 0;
         }
         SetMovingMonData(TOTAL_BOXES_COUNT, sCursorPosition);
@@ -6614,9 +6614,9 @@ static void ReleaseMon(void)
             boxId = TOTAL_BOXES_COUNT;
             if (OW_PC_RELEASE_ITEM >= GEN_8)
                 item = GetMonData(&gPlayerParty[sCursorPosition], MON_DATA_HELD_ITEM);
-            if (gSaveBlock3Ptr->followerIndex == sCursorPosition)
+            if (gSaveBlock1Ptr->followerIndex == sCursorPosition)
             {
-                gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
+                gSaveBlock1Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
                 gFollowerSteps = 0;
             }
         }
@@ -6900,8 +6900,8 @@ s16 CompactPartySlots(void)
             if (i != last)
             {
                 gPlayerParty[last] = gPlayerParty[i];
-                if (gSaveBlock3Ptr->followerIndex == i && gDontCompact == 0)
-                    gSaveBlock3Ptr->followerIndex--;
+                if (gSaveBlock1Ptr->followerIndex == i && gDontCompact == 0)
+                    gSaveBlock1Ptr->followerIndex--;
             }
             last++;
         }
@@ -9849,72 +9849,72 @@ bool32 AnyStorageMonWithMove(u16 moveId)
 //------------------------------------------------------------------------------
 
 
-void ResetWaldaWallpaper(void)
-{
-    gSaveBlock1Ptr->waldaPhrase.iconId = 0;
-    gSaveBlock1Ptr->waldaPhrase.patternId = 0;
-    gSaveBlock1Ptr->waldaPhrase.patternUnlocked = FALSE;
-    gSaveBlock1Ptr->waldaPhrase.colors[0] = RGB(21, 25, 30);
-    gSaveBlock1Ptr->waldaPhrase.colors[1] = RGB(6, 12, 24);
-    gSaveBlock1Ptr->waldaPhrase.text[0] = EOS;
-}
+// void ResetWaldaWallpaper(void)
+// {
+//     gSaveBlock1Ptr->waldaPhrase.iconId = 0;
+//     gSaveBlock1Ptr->waldaPhrase.patternId = 0;
+//     gSaveBlock1Ptr->waldaPhrase.patternUnlocked = FALSE;
+//     gSaveBlock1Ptr->waldaPhrase.colors[0] = RGB(21, 25, 30);
+//     gSaveBlock1Ptr->waldaPhrase.colors[1] = RGB(6, 12, 24);
+//     gSaveBlock1Ptr->waldaPhrase.text[0] = EOS;
+// }
 
 void SetWaldaWallpaperLockedOrUnlocked(bool32 unlocked)
 {
-    gSaveBlock1Ptr->waldaPhrase.patternUnlocked = unlocked;
+    // gSaveBlock1Ptr->waldaPhrase.patternUnlocked = unlocked;
 }
 
 bool32 IsWaldaWallpaperUnlocked(void)
 {
-    return gSaveBlock1Ptr->waldaPhrase.patternUnlocked;
+    return 0;
 }
 
 u32 GetWaldaWallpaperPatternId(void)
 {
-    return gSaveBlock1Ptr->waldaPhrase.patternId;
+    return 0;
 }
 
 void SetWaldaWallpaperPatternId(u8 id)
 {
-    if (id < ARRAY_COUNT(sWaldaWallpapers))
-        gSaveBlock1Ptr->waldaPhrase.patternId = id;
+    // if (id < ARRAY_COUNT(sWaldaWallpapers))
+    //     gSaveBlock1Ptr->waldaPhrase.patternId = id;
 }
 
 u32 GetWaldaWallpaperIconId(void)
 {
-    return gSaveBlock1Ptr->waldaPhrase.iconId;
+    return 0;
 }
 
 void SetWaldaWallpaperIconId(u8 id)
 {
-    if (id < ARRAY_COUNT(sWaldaWallpaperIcons))
-        gSaveBlock1Ptr->waldaPhrase.iconId = id;
+    // if (id < ARRAY_COUNT(sWaldaWallpaperIcons))
+    //     gSaveBlock1Ptr->waldaPhrase.iconId = id;
 }
 
 u16 *GetWaldaWallpaperColorsPtr(void)
 {
-    return gSaveBlock1Ptr->waldaPhrase.colors;
+    return 0;
 }
 
 void SetWaldaWallpaperColors(u16 color1, u16 color2)
 {
-    gSaveBlock1Ptr->waldaPhrase.colors[0] = color1;
-    gSaveBlock1Ptr->waldaPhrase.colors[1] = color2;
+    // gSaveBlock1Ptr->waldaPhrase.colors[0] = color1;
+    // gSaveBlock1Ptr->waldaPhrase.colors[1] = color2;
 }
 
 u8 *GetWaldaPhrasePtr(void)
 {
-    return gSaveBlock1Ptr->waldaPhrase.text;
+    return 0;
 }
 
 void SetWaldaPhrase(const u8 *src)
 {
-    StringCopy(gSaveBlock1Ptr->waldaPhrase.text, src);
+    // StringCopy(gSaveBlock1Ptr->waldaPhrase.text, src);
 }
 
 bool32 IsWaldaPhraseEmpty(void)
 {
-    return (gSaveBlock1Ptr->waldaPhrase.text[0] == EOS);
+    return 0;
 }
 
 

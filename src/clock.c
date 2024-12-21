@@ -46,7 +46,7 @@ static void UpdatePerDay(struct Time *localTime)
         ClearDailyFlags();
         SetHeartScaleMove();
         SetGrottos();
-        UpdateDewfordTrendPerDay(daysSince);
+        // UpdateDewfordTrendPerDay(daysSince);
         UpdateTVShowsPerDay(daysSince);
         UpdateWeatherPerDay(daysSince);
         UpdatePartyPokerusTime(daysSince);

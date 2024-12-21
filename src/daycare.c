@@ -246,19 +246,19 @@ static void TransferEggMoves(void)
 
 static void StorePokemonInDaycare(struct Pokemon *mon, struct DaycareMon *daycareMon)
 {
-    if (MonHasMail(mon))
-    {
-        u8 mailId;
+    // if (MonHasMail(mon))
+    // {
+    //     u8 mailId;
 
-        StringCopy(daycareMon->mail.otName, gSaveBlock2Ptr->playerName);
-        GetMonNicknameVanilla(mon, daycareMon->mail.monName);
-        StripExtCtrlCodes(daycareMon->mail.monName);
-        daycareMon->mail.gameLanguage = GAME_LANGUAGE;
-        daycareMon->mail.monLanguage = GetMonData(mon, MON_DATA_LANGUAGE);
-        mailId = GetMonData(mon, MON_DATA_MAIL);
-        daycareMon->mail.message = gSaveBlock1Ptr->mail[mailId];
-        TakeMailFromMon(mon);
-    }
+    //     StringCopy(daycareMon->mail.otName, gSaveBlock2Ptr->playerName);
+    //     GetMonNicknameVanilla(mon, daycareMon->mail.monName);
+    //     StripExtCtrlCodes(daycareMon->mail.monName);
+    //     daycareMon->mail.gameLanguage = GAME_LANGUAGE;
+    //     daycareMon->mail.monLanguage = GetMonData(mon, MON_DATA_LANGUAGE);
+    //     mailId = GetMonData(mon, MON_DATA_MAIL);
+    //     daycareMon->mail.message = gSaveBlock1Ptr->mail[mailId];
+    //     TakeMailFromMon(mon);
+    // }
 
     daycareMon->mon = mon->box;
     daycareMon->steps = 0;
@@ -279,14 +279,14 @@ static void StorePokemonInEmptyDaycareSlot(struct Pokemon *mon, struct DayCare *
 void StoreSelectedPokemonInDaycare(void)
 {
     u8 monId = GetCursorSelectionMonId();
-    if (gSaveBlock3Ptr->followerIndex == monId)
+    if (gSaveBlock1Ptr->followerIndex == monId)
     {
-        gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
+        gSaveBlock1Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
         gDontCompact = 1;
     }
-    else if (gSaveBlock3Ptr->followerIndex < PARTY_SIZE && monId < gSaveBlock3Ptr->followerIndex)
+    else if (gSaveBlock1Ptr->followerIndex < PARTY_SIZE && monId < gSaveBlock1Ptr->followerIndex)
     {
-        gSaveBlock3Ptr->followerIndex--;
+        gSaveBlock1Ptr->followerIndex--;
         gDontCompact = 1;
     }
     StorePokemonInEmptyDaycareSlot(&gPlayerParty[monId], &gSaveBlock1Ptr->daycare);
@@ -295,14 +295,14 @@ void StoreSelectedPokemonInDaycare(void)
 void SeparateZygarde(void)
 {
     u8 monId = GetCursorSelectionMonId();
-    if (gSaveBlock3Ptr->followerIndex == monId)
+    if (gSaveBlock1Ptr->followerIndex == monId)
     {
-        gSaveBlock3Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
+        gSaveBlock1Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
         gDontCompact = 1;
     }
-    else if (gSaveBlock3Ptr->followerIndex < PARTY_SIZE && monId < gSaveBlock3Ptr->followerIndex)
+    else if (gSaveBlock1Ptr->followerIndex < PARTY_SIZE && monId < gSaveBlock1Ptr->followerIndex)
     {
-        gSaveBlock3Ptr->followerIndex--;
+        gSaveBlock1Ptr->followerIndex--;
         gDontCompact = 1;
     }
     

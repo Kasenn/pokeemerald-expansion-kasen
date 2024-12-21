@@ -3,7 +3,6 @@
 @ Note: The local IDs of Gabby and Ty are hard-coded in GetGabbyAndTyLocalIds
 GabbyAndTy_EventScript_UpdateLocation::
 	cleartrainerflag TRAINER_GABBY_AND_TY_6
-	specialvar VAR_RESULT, GabbyAndTyGetBattleNum
 	switch VAR_RESULT
 	case 0, GabbyAndTy_EventScript_MoveForBattle1
 	case 1, GabbyAndTy_EventScript_MoveForBattle2
@@ -197,8 +196,8 @@ GabbyAndTy_EventScript_TyBattle6::
 	end
 
 GabbyAndTy_EventScript_FirstInterview::
-	special GabbyAndTyBeforeInterview
-	special GetGabbyAndTyLocalIds
+	@special GabbyAndTyBeforeInterview
+	@special GetGabbyAndTyLocalIds
 	call_if_eq VAR_FACING, DIR_NORTH, GabbyAndTy_EventScript_FacePlayerNorth
 	call_if_eq VAR_FACING, DIR_SOUTH, GabbyAndTy_EventScript_FacePlayerSouth
 	call_if_eq VAR_FACING, DIR_EAST, GabbyAndTy_EventScript_FacePlayerEast
@@ -225,16 +224,14 @@ GabbyAndTy_EventScript_FacePlayerEast::
 	return
 
 GabbyAndTy_EventScript_RequestInterview::
-	special GabbyAndTyBeforeInterview
-	special GetGabbyAndTyLocalIds
+	@special GabbyAndTyBeforeInterview
+	@special GetGabbyAndTyLocalIds
 	call_if_eq VAR_FACING, DIR_NORTH, GabbyAndTy_EventScript_FacePlayerNorth
 	call_if_eq VAR_FACING, DIR_SOUTH, GabbyAndTy_EventScript_FacePlayerSouth
 	call_if_eq VAR_FACING, DIR_EAST, GabbyAndTy_EventScript_FacePlayerEast
 	goto_if_set FLAG_TEMP_SKIP_GABBY_INTERVIEW, GabbyAndTy_EventScript_KeepingAnEyeOutForYou
-	specialvar VAR_RESULT, GabbyAndTyGetLastQuote
 	goto_if_eq VAR_RESULT, 0, GabbyAndTy_EventScript_DidntInterviewLastTime
 	msgbox GabbyAndTy_Text_QuoteFromLastInterview, MSGBOX_DEFAULT
-	specialvar VAR_RESULT, GabbyAndTyGetLastBattleTrivia
 	switch VAR_RESULT
 	case 0, GabbyAndTy_EventScript_RequestInterviewNoTrivia
 	case 1, GabbyAndTy_EventScript_RequestInterviewShortBattle
@@ -294,7 +291,6 @@ GabbyAndTy_EventScript_Interview::
 	faceplayer
 	goto_if_eq VAR_RESULT, 0, GabbyAndTy_EventScript_DontGiveUpKeepingEyeOut
 	msgbox GabbyAndTy_Text_PerfectWellBeSeeingYou, MSGBOX_DEFAULT
-	special GabbyAndTyAfterInterview
 	setflag FLAG_TEMP_SKIP_GABBY_INTERVIEW
 	release
 	end

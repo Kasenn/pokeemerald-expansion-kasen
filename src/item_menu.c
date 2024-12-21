@@ -67,7 +67,8 @@
                             max(BAG_ITEMS_COUNT,             \
                             max(BAG_KEYITEMS_COUNT,          \
                             max(BAG_MEDICINE_COUNT,         \
-                                BAG_POKEBALLS_COUNT)))))) + 1)
+                            max(BAG_MEGASTONE_COUNT,         \
+                                BAG_POKEBALLS_COUNT))))))) + 1)
 
 // Up to 8 item slots can be visible at a time
 #define MAX_ITEMS_SHOWN 8
@@ -119,15 +120,6 @@ struct ListBuffer1 {
 
 struct ListBuffer2 {
     u8 name[MAX_POCKET_ITEMS][max(ITEM_NAME_LENGTH, MOVE_NAME_LENGTH) + 15];
-};
-
-struct TempWallyBag {
-    struct ItemSlot bagPocket_Medicine[BAG_MEDICINE_COUNT];
-    struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
-    u16 cursorPosition[POCKETS_COUNT];
-    u16 scrollPosition[POCKETS_COUNT];
-    u16 unused;
-    u16 pocket;
 };
 
 static void CB2_Bag(void);
@@ -596,7 +588,7 @@ EWRAM_DATA struct BagPosition gBagPosition = {0};
 static EWRAM_DATA struct ListBuffer1 *sListBuffer1 = 0;
 static EWRAM_DATA struct ListBuffer2 *sListBuffer2 = 0;
 EWRAM_DATA u16 gSpecialVar_ItemId = 0;
-static EWRAM_DATA struct TempWallyBag *sTempWallyBag = 0;
+// static EWRAM_DATA struct TempWallyBag *sTempWallyBag = 0;
 
 //tx_registered_items_menu
 extern const u8 EventScript_SelectWithoutRegisteredItem[];
@@ -874,7 +866,10 @@ static bool8 LoadBagMenu_Graphics(void)
     case 1:
         if (FreeTempTileDataBuffersIfPossible() != TRUE)
         {
-            LZDecompressWram(gBagScreen_GfxTileMap, gBagMenu->tilemapBuffer);
+            if(!CheckBagHasItem(ITEM_MEGA_RING, 1))
+                LZDecompressWram(gBagScreen_GfxTileMap, gBagMenu->tilemapBuffer);
+            else
+                LZDecompressWram(gBagScreen_GfxTileMapMega, gBagMenu->tilemapBuffer);
             gBagMenu->graphicsLoadState++;
         }
         break;
@@ -1413,10 +1408,14 @@ static u8 GetSwitchBagPocketDirection(void)
 
 static void ChangeBagPocketId(u8 *bagPocketId, s8 deltaBagPocketId)
 {
-    if (deltaBagPocketId == MENU_CURSOR_DELTA_RIGHT && *bagPocketId == POCKETS_COUNT - 2)
+    u8 isLastBagVisible = 0;
+    if(!CheckBagHasItem(ITEM_MEGA_RING, 1))
+        isLastBagVisible++;
+
+    if (deltaBagPocketId == MENU_CURSOR_DELTA_RIGHT && *bagPocketId == POCKETS_COUNT - 2 - isLastBagVisible)
         *bagPocketId = 0;
     else if (deltaBagPocketId == MENU_CURSOR_DELTA_LEFT && *bagPocketId == 0)
-        *bagPocketId = POCKETS_COUNT - 2;
+        *bagPocketId = POCKETS_COUNT - 2 - isLastBagVisible;
     else
         *bagPocketId += deltaBagPocketId;
 }
@@ -2467,35 +2466,11 @@ static bool8 IsWallysBag(void)
 
 static void PrepareBagForWallyTutorial(void)
 {
-    u32 i;
-
-    sTempWallyBag = AllocZeroed(sizeof(*sTempWallyBag));
-    memcpy(sTempWallyBag->bagPocket_Medicine, gSaveBlock3Ptr->bagPocket_Medicine, sizeof(gSaveBlock3Ptr->bagPocket_Medicine));
-    memcpy(sTempWallyBag->bagPocket_PokeBalls, gSaveBlock1Ptr->bagPocket_PokeBalls, sizeof(gSaveBlock1Ptr->bagPocket_PokeBalls));
-    sTempWallyBag->pocket = gBagPosition.pocket;
-    for (i = 0; i < POCKETS_COUNT; i++)
-    {
-        sTempWallyBag->cursorPosition[i] = gBagPosition.cursorPosition[i];
-        sTempWallyBag->scrollPosition[i] = gBagPosition.scrollPosition[i];
-    }
-    ClearItemSlots(gSaveBlock3Ptr->bagPocket_Medicine, BAG_MEDICINE_COUNT);
-    ClearItemSlots(gSaveBlock1Ptr->bagPocket_PokeBalls, BAG_POKEBALLS_COUNT);
     ResetBagScrollPositions();
 }
 
 static void RestoreBagAfterWallyTutorial(void)
 {
-    u32 i;
-
-    memcpy(gSaveBlock3Ptr->bagPocket_Medicine, sTempWallyBag->bagPocket_Medicine, sizeof(sTempWallyBag->bagPocket_Medicine));
-    memcpy(gSaveBlock1Ptr->bagPocket_PokeBalls, sTempWallyBag->bagPocket_PokeBalls, sizeof(sTempWallyBag->bagPocket_PokeBalls));
-    gBagPosition.pocket = sTempWallyBag->pocket;
-    for (i = 0; i < POCKETS_COUNT; i++)
-    {
-        gBagPosition.cursorPosition[i] = sTempWallyBag->cursorPosition[i];
-        gBagPosition.scrollPosition[i] = sTempWallyBag->scrollPosition[i];
-    }
-    Free(sTempWallyBag);
 }
 
 void DoWallyTutorialBagMenu(void)
@@ -2557,7 +2532,7 @@ static void ItemMenu_Show(u8 taskId)
 
 static void CB2_ApprenticeExitBagMenu(void)
 {
-    gFieldCallback = Apprentice_ScriptContext_Enable;
+    // gFieldCallback = Apprentice_ScriptContext_Enable;
     SetMainCallback2(CB2_ReturnToField);
 }
 
@@ -2571,7 +2546,7 @@ static void ItemMenu_GiveFavorLady(u8 taskId)
 
 static void CB2_FavorLadyExitBagMenu(void)
 {
-    gFieldCallback = FieldCallback_FavorLadyEnableScriptContexts;
+    // gFieldCallback = FieldCallback_FavorLadyEnableScriptContexts;
     SetMainCallback2(CB2_ReturnToField);
 }
 
@@ -2586,7 +2561,7 @@ static void ItemMenu_ConfirmQuizLady(u8 taskId)
 
 static void CB2_QuizLadyExitBagMenu(void)
 {
-    gFieldCallback = FieldCallback_QuizLadyEnableScriptContexts;
+    // gFieldCallback = FieldCallback_QuizLadyEnableScriptContexts;
     SetMainCallback2(CB2_ReturnToField);
 }
 
@@ -3307,6 +3282,7 @@ static void AddBagSortSubMenu(void)
 {
     switch (gBagPosition.pocket + 1)
     {
+        case POCKET_MEGA_STONES:
         case POCKET_KEY_ITEMS:
             gBagMenu->contextMenuItemsPtr = sBagMenuSortKeyItems;
             memcpy(&gBagMenu->contextMenuItemsBuffer, &sBagMenuSortKeyItems, NELEMS(sBagMenuSortKeyItems));
@@ -3407,8 +3383,12 @@ static void SortItemsInBag(u8 pocket, u8 type)
     switch (pocket)
     {
     case ITEMS_POCKET:
-        itemMem = gSaveBlock2Ptr->bagPocket_Items;
+        itemMem = gSaveBlock1Ptr->bagPocket_Items;
         itemAmount = BAG_ITEMS_COUNT;
+        break;
+    case MEDICINE_POCKET:
+        itemMem = gSaveBlock1Ptr->bagPocket_Medicine;
+        itemAmount = BAG_MEDICINE_COUNT;
         break;
     case KEYITEMS_POCKET:
         itemMem = gSaveBlock1Ptr->bagPocket_KeyItems;
@@ -3423,12 +3403,12 @@ static void SortItemsInBag(u8 pocket, u8 type)
         itemAmount = BAG_BERRIES_COUNT;
         break;
     case TMHM_POCKET:
-    #if MOVE_TMHM_TO_SAVEBLOCK3 == FALSE
         itemMem = gSaveBlock1Ptr->bagPocket_TMHM;
-    #else
-        itemMem = gSaveBlock3Ptr->bagPocket_TMHM;
-    #endif
         itemAmount = BAG_TMHM_COUNT;
+        break;
+    case MEGASTONE_POCKET:
+        itemMem = gSaveBlock1Ptr->bagPocket_MegaStones;
+        itemAmount = BAG_MEGASTONE_COUNT;
         break;
     default:
         return;

@@ -272,9 +272,111 @@
 #define VAR_ROUTE14_ROCKET_EVENT                                0x40FC
 #define VAR_DRISLEDGE_TOWN_STATE                                0x40FD // 
 #define VAR_UNUSED_0x40FE                                0x40FE // 
-#define VAR_UNUSED_VAR                                0x40FF // 
+#define VAR_UNUSED_VAR                                0x40FF //
 
-#define VARS_END                                         0x40FF
+#define VAR_UNUSED_0x4100                               0x4100
+#define VAR_UNUSED_0x4101                               0x4101
+#define VAR_UNUSED_0x4102                               0x4102
+#define VAR_UNUSED_0x4103                               0x4103
+#define VAR_UNUSED_0x4104                               0x4104
+#define VAR_UNUSED_0x4105                               0x4105
+#define VAR_UNUSED_0x4106                               0x4106
+#define VAR_UNUSED_0x4107                               0x4107
+#define VAR_UNUSED_0x4108                               0x4108
+#define VAR_UNUSED_0x4109                               0x4109
+#define VAR_UNUSED_0x410A                               0x410A
+#define VAR_UNUSED_0x410B                               0x410B
+#define VAR_UNUSED_0x410C                               0x410C
+#define VAR_UNUSED_0x410D                               0x410D
+#define VAR_UNUSED_0x410E                               0x410E
+#define VAR_UNUSED_0x410F                               0x410F
+
+#define VAR_UNUSED_0x4110                               0x4110
+#define VAR_UNUSED_0x4111                               0x4111
+#define VAR_UNUSED_0x4112                               0x4112
+#define VAR_UNUSED_0x4113                               0x4113
+#define VAR_UNUSED_0x4114                               0x4114
+#define VAR_UNUSED_0x4115                               0x4115
+#define VAR_UNUSED_0x4116                               0x4116
+#define VAR_UNUSED_0x4117                               0x4117
+#define VAR_UNUSED_0x4118                               0x4118
+#define VAR_UNUSED_0x4119                               0x4119
+#define VAR_UNUSED_0x411A                               0x411A
+#define VAR_UNUSED_0x411B                               0x411B
+#define VAR_UNUSED_0x411C                               0x411C
+#define VAR_UNUSED_0x411D                               0x411D
+#define VAR_UNUSED_0x411E                               0x411E
+#define VAR_UNUSED_0x411F                               0x411F
+
+#define VAR_UNUSED_0x4120                               0x4120
+#define VAR_UNUSED_0x4121                               0x4121
+#define VAR_UNUSED_0x4122                               0x4122
+#define VAR_UNUSED_0x4123                               0x4123
+#define VAR_UNUSED_0x4124                               0x4124
+#define VAR_UNUSED_0x4125                               0x4125
+#define VAR_UNUSED_0x4126                               0x4126
+#define VAR_UNUSED_0x4127                               0x4127
+#define VAR_UNUSED_0x4128                               0x4128
+#define VAR_UNUSED_0x4129                               0x4129
+#define VAR_UNUSED_0x412A                               0x412A
+#define VAR_UNUSED_0x412B                               0x412B
+#define VAR_UNUSED_0x412C                               0x412C
+#define VAR_UNUSED_0x412D                               0x412D
+#define VAR_UNUSED_0x412E                               0x412E
+#define VAR_UNUSED_0x412F                               0x412F
+
+#define VAR_UNUSED_0x4130                               0x4130
+#define VAR_UNUSED_0x4131                               0x4131
+#define VAR_UNUSED_0x4132                               0x4132
+#define VAR_UNUSED_0x4133                               0x4133
+#define VAR_UNUSED_0x4134                               0x4134
+#define VAR_UNUSED_0x4135                               0x4135
+#define VAR_UNUSED_0x4136                               0x4136
+#define VAR_UNUSED_0x4137                               0x4137
+#define VAR_UNUSED_0x4138                               0x4138
+#define VAR_UNUSED_0x4139                               0x4139
+#define VAR_UNUSED_0x413A                               0x413A
+#define VAR_UNUSED_0x413B                               0x413B
+#define VAR_UNUSED_0x413C                               0x413C
+#define VAR_UNUSED_0x413D                               0x413D
+#define VAR_UNUSED_0x413E                               0x413E
+#define VAR_UNUSED_0x413F                               0x413F
+
+#define VAR_UNUSED_0x4140                               0x4140
+#define VAR_UNUSED_0x4141                               0x4141
+#define VAR_UNUSED_0x4142                               0x4142
+#define VAR_UNUSED_0x4143                               0x4143
+#define VAR_UNUSED_0x4144                               0x4144
+#define VAR_UNUSED_0x4145                               0x4145
+#define VAR_UNUSED_0x4146                               0x4146
+#define VAR_UNUSED_0x4147                               0x4147
+#define VAR_UNUSED_0x4148                               0x4148
+#define VAR_UNUSED_0x4149                               0x4149
+#define VAR_UNUSED_0x414A                               0x414A
+#define VAR_UNUSED_0x414B                               0x414B
+#define VAR_UNUSED_0x414C                               0x414C
+#define VAR_UNUSED_0x414D                               0x414D
+#define VAR_UNUSED_0x414E                               0x414E
+#define VAR_UNUSED_0x414F                               0x414F
+
+#define VAR_UNUSED_0x4150                               0x4150
+#define VAR_UNUSED_0x4151                               0x4151
+#define VAR_UNUSED_0x4152                               0x4152
+#define VAR_UNUSED_0x4153                               0x4153
+#define VAR_UNUSED_0x4154                               0x4154
+#define VAR_UNUSED_0x4155                               0x4155
+#define VAR_UNUSED_0x4156                               0x4156
+#define VAR_UNUSED_0x4157                               0x4157
+#define VAR_UNUSED_0x4158                               0x4158
+#define VAR_UNUSED_0x4159                               0x4159
+#define VAR_UNUSED_0x415A                               0x415A
+#define VAR_UNUSED_0x415B                               0x415B
+#define VAR_UNUSED_0x415C                               0x415C
+#define VAR_UNUSED_0x415D                               0x415D
+#define VAR_UNUSED_0x415E                               0x415E
+#define VAR_UNUSED_0x415F                               0x415F
+
+#define VARS_END                                         0x415F
 #define VARS_COUNT                                       (VARS_END - VARS_START + 1)
 
 #define SPECIAL_VARS_START            0x8000

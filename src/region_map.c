@@ -1703,11 +1703,11 @@ u8 *GetMapName(u8 *dest, u16 regionMapId, u16 padLength)
     u8 *str;
     u16 i;
 
-    if (regionMapId == MAPSEC_SECRET_BASE)
-    {
-        str = GetSecretBaseMapName(dest);
-    }
-    else if (regionMapId < MAPSEC_NONE)
+    // if (regionMapId == MAPSEC_SECRET_BASE)
+    // {
+    //     str = GetSecretBaseMapName(dest);
+    // }
+    if (regionMapId < MAPSEC_NONE)
     {
         str = StringCopy(dest, gRegionMapEntries[regionMapId].name);
     }

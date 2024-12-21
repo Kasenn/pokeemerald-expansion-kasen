@@ -985,7 +985,7 @@ static void CB2_FieldShowRegionMap(void)
 void NameBrother(void)
 {
     NewGameBirchSpeech_SetBrotherName(1);
-    DoNamingScreen(NAMING_SCREEN_BROTHER, gSaveBlock3Ptr->brotherName, 0, 0, 0, CB2_ReturnToFieldContinueScript);
+    DoNamingScreen(NAMING_SCREEN_BROTHER, gSaveBlock2Ptr->brotherName, 0, 0, 0, CB2_ReturnToFieldContinueScript);
 }
 
 void FieldShowRegionMap(void)
@@ -1361,7 +1361,7 @@ void BufferEReaderTrainerName(void)
 
 u16 GetSlotMachineId(void)
 {
-    static const u8 sSlotMachineRandomSeeds[SLOT_MACHINE_COUNT] = {12, 2, 4, 5, 1, 8, 7, 11, 3, 10, 9, 6};
+    // static const u8 sSlotMachineRandomSeeds[SLOT_MACHINE_COUNT] = {12, 2, 4, 5, 1, 8, 7, 11, 3, 10, 9, 6};
     static const u8 sSlotMachineIds[SLOT_MACHINE_COUNT] = {
         SLOT_MACHINE_UNLUCKIEST,
         SLOT_MACHINE_UNLUCKIER,
@@ -1376,24 +1376,25 @@ u16 GetSlotMachineId(void)
         SLOT_MACHINE_LUCKIER,
         SLOT_MACHINE_LUCKIEST
     };
-    static const u8 sSlotMachineServiceDayIds[SLOT_MACHINE_COUNT] = {
-        SLOT_MACHINE_LUCKY,
-        SLOT_MACHINE_LUCKY,
-        SLOT_MACHINE_LUCKY,
-        SLOT_MACHINE_LUCKY,
-        SLOT_MACHINE_LUCKY,
-        SLOT_MACHINE_LUCKY,
-        SLOT_MACHINE_LUCKIER,
-        SLOT_MACHINE_LUCKIER,
-        SLOT_MACHINE_LUCKIER,
-        SLOT_MACHINE_LUCKIER,
-        SLOT_MACHINE_LUCKIEST,
-        SLOT_MACHINE_LUCKIEST
-    };
+    // static const u8 sSlotMachineServiceDayIds[SLOT_MACHINE_COUNT] = {
+    //     SLOT_MACHINE_LUCKY,
+    //     SLOT_MACHINE_LUCKY,
+    //     SLOT_MACHINE_LUCKY,
+    //     SLOT_MACHINE_LUCKY,
+    //     SLOT_MACHINE_LUCKY,
+    //     SLOT_MACHINE_LUCKY,
+    //     SLOT_MACHINE_LUCKIER,
+    //     SLOT_MACHINE_LUCKIER,
+    //     SLOT_MACHINE_LUCKIER,
+    //     SLOT_MACHINE_LUCKIER,
+    //     SLOT_MACHINE_LUCKIEST,
+    //     SLOT_MACHINE_LUCKIEST
+    // };
 
-    u32 rnd = gSaveBlock1Ptr->dewfordTrends[0].trendiness + gSaveBlock1Ptr->dewfordTrends[0].rand + sSlotMachineRandomSeeds[gSpecialVar_0x8004];
-    if (IsPokeNewsActive(POKENEWS_GAME_CORNER))
-        return sSlotMachineServiceDayIds[rnd % SLOT_MACHINE_COUNT];
+    // u32 rnd = gSaveBlock1Ptr->dewfordTrends[0].trendiness + gSaveBlock1Ptr->dewfordTrends[0].rand + sSlotMachineRandomSeeds[gSpecialVar_0x8004];
+    // if (IsPokeNewsActive(POKENEWS_GAME_CORNER))
+    //     return sSlotMachineServiceDayIds[rnd % SLOT_MACHINE_COUNT];
+    u32 rnd = Random();
 
     return sSlotMachineIds[rnd % SLOT_MACHINE_COUNT];
 }
@@ -3162,7 +3163,7 @@ static void FillFrontierExchangeCornerWindowAndItemIcon(u16 menu, u16 selection)
             {
                 FreeSpriteTilesByTag(TAG_ITEM_ICON);
                 FreeSpritePaletteByTag(TAG_ITEM_ICON);
-                sScrollableMultichoice_ItemSpriteId = AddDecorationIconObject(sFrontierExchangeCorner_Decor1[selection], 33, 88, 0, TAG_ITEM_ICON, TAG_ITEM_ICON);
+                // sScrollableMultichoice_ItemSpriteId = AddDecorationIconObject(sFrontierExchangeCorner_Decor1[selection], 33, 88, 0, TAG_ITEM_ICON, TAG_ITEM_ICON);
             }
             break;
         case SCROLL_MULTI_BF_EXCHANGE_CORNER_DECOR_VENDOR_2:
@@ -3175,7 +3176,7 @@ static void FillFrontierExchangeCornerWindowAndItemIcon(u16 menu, u16 selection)
             {
                 FreeSpriteTilesByTag(TAG_ITEM_ICON);
                 FreeSpritePaletteByTag(TAG_ITEM_ICON);
-                sScrollableMultichoice_ItemSpriteId = AddDecorationIconObject(sFrontierExchangeCorner_Decor2[selection], 33, 88, 0, TAG_ITEM_ICON, TAG_ITEM_ICON);
+                // sScrollableMultichoice_ItemSpriteId = AddDecorationIconObject(sFrontierExchangeCorner_Decor2[selection], 33, 88, 0, TAG_ITEM_ICON, TAG_ITEM_ICON);
             }
             break;
         case SCROLL_MULTI_BF_EXCHANGE_CORNER_VITAMIN_VENDOR:

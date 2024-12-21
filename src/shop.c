@@ -921,6 +921,8 @@ static void BuyMenuPrintPriceInList(u8 windowId, u32 itemId, u8 y)
         }
         if (ItemId_GetImportance(itemId) && sMartInfo.martType != MART_TYPE_MOVE_TUTOR && (CheckBagHasItem(itemId, 1) || CheckPCHasItem(itemId, 1)))
             StringCopy(gStringVar4, gText_SoldOut);
+        else if (itemId == ITEM_PROCESSOR && !CheckBagHasItem(ITEM_MEGA_RING, 1))
+            StringCopy(gStringVar4, gText_SoldOut);
         else
         {
             if (MARTBP || MARTMOVE)
@@ -983,7 +985,7 @@ static void BuyMenuAddItemIcon(u16 item, u8 iconSlot)
     }
     else
     {
-        spriteId = AddDecorationIconObject(item, 20, 84, 1, iconSlot + TAG_ITEM_ICON_BASE, iconSlot + TAG_ITEM_ICON_BASE);
+        spriteId = AddItemIconSprite(iconSlot + TAG_ITEM_ICON_BASE, iconSlot + TAG_ITEM_ICON_BASE, item);
         if (spriteId != MAX_SPRITES)
             *spriteIdPtr = spriteId;
     }
@@ -1352,6 +1354,8 @@ static void Task_BuyMenu(u8 taskId)
                 sShopData->totalCost = gDecorations[itemId].price;
 
             if (ItemId_GetImportance(itemId) && sMartInfo.martType != MART_TYPE_MOVE_TUTOR && (CheckBagHasItem(itemId, 1) || CheckPCHasItem(itemId, 1)))
+                BuyMenuDisplayMessage(taskId, gText_ThatItemIsSoldOut, BuyMenuReturnToItemList);
+            else if (itemId == ITEM_PROCESSOR && !CheckBagHasItem(ITEM_MEGA_RING, 1))
                 BuyMenuDisplayMessage(taskId, gText_ThatItemIsSoldOut, BuyMenuReturnToItemList);
             else if (!IsEnoughMoney(&gSaveBlock1Ptr->money, sShopData->totalCost))
             {

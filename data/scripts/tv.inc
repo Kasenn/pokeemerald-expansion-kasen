@@ -7,7 +7,6 @@ EventScript_TV::
 	goto_if_eq VAR_RESULT, PLAYERS_HOUSE_TV_LATI, EventScript_PlayersHouseLatiNewsFlash
 	goto_if_unset FLAG_SYS_TV_START, EventScript_MomDadMightLikeThis1
 	goto_if_set FLAG_SYS_TV_WATCH, EventScript_MomDadMightLikeThis1
-	specialvar VAR_RESULT, IsGabbyAndTyShowOnTheAir
 	goto_if_eq VAR_RESULT, TRUE, EventScript_DoInSearchOfTrainers
 	goto EventScript_TryDoPokeNews
 	end
@@ -77,7 +76,6 @@ EventScript_TryDoPokeNews::
 	end
 
 EventScript_DoInSearchOfTrainers::
-	special DoTVShowInSearchOfTrainers
 	waitmessage
 	waitbuttonpress
 	goto_if_eq VAR_RESULT, 0, EventScript_DoInSearchOfTrainers

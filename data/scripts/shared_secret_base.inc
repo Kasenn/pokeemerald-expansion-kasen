@@ -11,8 +11,6 @@ SecretBase_OnWarp:
 
 SecretBase_OnTransition:
 	call SecretBase_EventScript_SetDecorationFlags
-	special SetSecretBaseOwnerGfxId
-	special InitSecretBaseVars
 	end
 
 SecretBase_OnFrame:
@@ -105,10 +103,8 @@ SecretBase_EventScript_ShowRegisterMenu::
 	end
 
 SecretBase_EventScript_PCRegister::
-	special GetCurSecretBaseRegistrationValidity
 	goto_if_eq VAR_RESULT, 1, SecretBase_EventScript_AlreadyRegistered
 	goto_if_eq VAR_RESULT, 2, SecretBase_EventScript_CantRegisterTooManyBases
-	special CopyCurSecretBaseOwnerName_StrVar1
 	msgbox SecretBase_Text_WantToRegisterSecretBase, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, SecretBase_EventScript_PCRegisterMenu
 	msgbox SecretBase_Text_RegistrationCompleted, MSGBOX_SIGN
@@ -145,26 +141,21 @@ SecretBase_EventScript_PCTurnOff::
 
 @ Unused
 SecretBase_EventScript_Poster::
-	special CheckInteractedWithFriendsPosterDecor
 	end
 
 @ Unused
 SecretBase_EventScript_FurnitureBottom::
-	special CheckInteractedWithFriendsFurnitureBottom
 	end
 
 @ Unused
 SecretBase_EventScript_FurnitureMiddle::
-	special CheckInteractedWithFriendsFurnitureMiddle
 	end
 
 @ Unused
 SecretBase_EventScript_FurnitureTop::
-	special CheckInteractedWithFriendsFurnitureTop
 	end
 
 SecretBase_EventScript_SandOrnament::
-	special CheckInteractedWithFriendsSandOrnament
 	dofieldeffect FLDEFF_SAND_PILLAR
 	waitstate
 	end

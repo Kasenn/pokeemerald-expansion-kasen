@@ -1,20 +1,8 @@
 
 mapscripts AldeleafPokeCenter1F_MapScripts{
-	MAP_SCRIPT_ON_TRANSITION: AldeleafPokeCenter1F_OnTransition
-//	MAP_SCRIPT_ON_FRAME_TABLE[
-//        VAR_DEBUG, 8: AutomaticUpdate
-//        VAR_DEBUG, 9: AutomaticUpdate2
-//		VAR_DEBUG, 10: AutomaticUpdate3
-//		VAR_DEBUG, 11: AutomaticUpdate4
-//		VAR_DEBUG, 12: AutomaticUpdate5
-//    ]
-	// MAP_SCRIPT_ON_RESUME: CableClub_OnResume
-}
-
-script AldeleafPokeCenter1F_OnTransition{
-	setrespawn(HEAL_LOCATION_ALDELEAF_CITY)
-	call(Common_EventScript_UpdateBrineyLocation)
-	end
+	MAP_SCRIPT_ON_TRANSITION{
+		setrespawn(HEAL_LOCATION_ALDELEAF_CITY)
+	}
 }
 
 script AldeleafPokeCenter1F_EventScript_Nurse{

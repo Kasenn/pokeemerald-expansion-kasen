@@ -752,10 +752,8 @@ SlateportCity_EventScript_BerryPowderClerk::
 
 SlateportCity_EventScript_ReceivedPowderJar::
 	setvar VAR_0x8004, 1
-	specialvar VAR_RESULT, HasEnoughBerryPowder
 	goto_if_eq VAR_RESULT, FALSE, SlateportCity_EventScript_ExplainBerryPowder
 	msgbox SlateportCity_Text_BroughtMeSomeBerryPowder, MSGBOX_DEFAULT
-	special DisplayBerryPowderVendorMenu
 	goto SlateportCity_EventScript_ChooseBerryPowderItem
 	end
 
@@ -865,7 +863,6 @@ SlateportCity_EventScript_PPUp::
 
 SlateportCity_EventScript_CancelPowderItemSelect::
 	msgbox SlateportCity_Text_ComeBackToTradeBerryPowder, MSGBOX_DEFAULT
-	special RemoveBerryPowderVendorMenu
 	release
 	end
 
@@ -873,23 +870,18 @@ SlateportCity_EventScript_TryBuyBerryPowderItem::
 	msgbox SlateportCity_Text_ExchangeBerryPowderForItem, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, SlateportCity_EventScript_ChooseBerryPowderItem
 	copyvar VAR_0x8004, VAR_0x8009
-	specialvar VAR_RESULT, HasEnoughBerryPowder
 	goto_if_eq VAR_RESULT, FALSE, SlateportCity_EventScript_NotEnoughBerryPowder
 	giveitem VAR_0x8008
 	goto_if_eq VAR_RESULT, FALSE, SlateportCity_EventScript_NoRoomForBerryPowderItem
 	copyvar VAR_0x8004, VAR_0x8009
-	special TakeBerryPowder
-	special PrintPlayerBerryPowderAmount
 	msgbox SlateportCity_Text_FineBerryPowderTradeSomethingElse, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, SlateportCity_EventScript_ChooseBerryPowderItem
 	msgbox SlateportCity_Text_WhenYouGetMoreBringItToMe, MSGBOX_DEFAULT
-	special RemoveBerryPowderVendorMenu
 	release
 	end
 
 SlateportCity_EventScript_NoRoomForBerryPowderItem::
 	msgbox gText_TheBagIsFull, MSGBOX_DEFAULT
-	special RemoveBerryPowderVendorMenu
 	release
 	end
 
@@ -950,7 +942,6 @@ SlateportCity_Movement_ScottExitAfterBattleTent:
 
 SlateportCity_EventScript_BerryCrushRankingsSign::
 	lockall
-	special ShowBerryCrushRankings
 	waitstate
 	releaseall
 	end

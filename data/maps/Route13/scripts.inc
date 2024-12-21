@@ -42,17 +42,6 @@ Route13_Tr5_Blackbelt::
 	end
 
 
-RelocatedFromRoute13::
-	.string "A new update has been applied\n"
-	.string "automatically.\p"
-	.string "This enables followers and setting\n"
-	.string "a preferred follower from party screen,\l"
-	.string "an updated “Stats” page in the\l"
-	.string "start menu + a lot of bug fixes.\p"
-	.string "Due to changes made to this route,\n"
-	.string "you will be teleported to the closest\l"
-	.string "Pokémon Center.$"
-
 R13_BeachSwimmer_Text::
 	.string "It's a long way to Galewind City.\p"
 	.string "Not even an experienced swimmer like\n"

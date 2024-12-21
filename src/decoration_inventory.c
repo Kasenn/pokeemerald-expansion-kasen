@@ -10,18 +10,18 @@ EWRAM_DATA struct DecorationInventory gDecorationInventories[DECORCAT_COUNT] = {
     gDecorationInventories[i].size = ARRAY_COUNT(ptr);\
 }
 
-void SetDecorationInventoriesPointers(void)
-{
-    SET_DECOR_INV(DECORCAT_DESK, gSaveBlock1Ptr->decorationDesks);
-    SET_DECOR_INV(DECORCAT_CHAIR, gSaveBlock1Ptr->decorationChairs);
-    SET_DECOR_INV(DECORCAT_PLANT, gSaveBlock1Ptr->decorationPlants);
-    SET_DECOR_INV(DECORCAT_ORNAMENT, gSaveBlock1Ptr->decorationOrnaments);
-    SET_DECOR_INV(DECORCAT_MAT, gSaveBlock1Ptr->decorationMats);
-    SET_DECOR_INV(DECORCAT_POSTER, gSaveBlock1Ptr->decorationPosters);
-    SET_DECOR_INV(DECORCAT_DOLL, gSaveBlock1Ptr->decorationDolls);
-    SET_DECOR_INV(DECORCAT_CUSHION, gSaveBlock1Ptr->decorationCushions);
-    InitDecorationContextItems();
-}
+// void SetDecorationInventoriesPointers(void)
+// {
+//     SET_DECOR_INV(DECORCAT_DESK, gSaveBlock1Ptr->decorationDesks);
+//     SET_DECOR_INV(DECORCAT_CHAIR, gSaveBlock1Ptr->decorationChairs);
+//     SET_DECOR_INV(DECORCAT_PLANT, gSaveBlock1Ptr->decorationPlants);
+//     SET_DECOR_INV(DECORCAT_ORNAMENT, gSaveBlock1Ptr->decorationOrnaments);
+//     SET_DECOR_INV(DECORCAT_MAT, gSaveBlock1Ptr->decorationMats);
+//     SET_DECOR_INV(DECORCAT_POSTER, gSaveBlock1Ptr->decorationPosters);
+//     SET_DECOR_INV(DECORCAT_DOLL, gSaveBlock1Ptr->decorationDolls);
+//     SET_DECOR_INV(DECORCAT_CUSHION, gSaveBlock1Ptr->decorationCushions);
+//     InitDecorationContextItems();
+// }
 
 static void ClearDecorationInventory(u8 category)
 {

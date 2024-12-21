@@ -100,36 +100,36 @@ void SetMysteryEventScriptStatus(u32 status)
     sMysteryEventScriptContext.mStatus = status;
 }
 
-static int CalcRecordMixingGiftChecksum(void)
-{
-    unsigned int i;
-    int sum = 0;
-    u8 *data = (u8 *)(&gSaveBlock1Ptr->recordMixingGift.data);
+// static int CalcRecordMixingGiftChecksum(void)
+// {
+//     // unsigned int i;
+//     // int sum = 0;
+//     // u8 *data = (u8 *)(&gSaveBlock1Ptr->recordMixingGift.data);
 
-    for (i = 0; i < sizeof(gSaveBlock1Ptr->recordMixingGift.data); i++)
-        sum += data[i];
+//     // for (i = 0; i < sizeof(gSaveBlock1Ptr->recordMixingGift.data); i++)
+//     //     sum += data[i];
 
-    return sum;
-}
+//     return 0;
+// }
 
-static bool32 IsRecordMixingGiftValid(void)
-{
-    struct RecordMixingGiftData *data = &gSaveBlock1Ptr->recordMixingGift.data;
-    int checksum = CalcRecordMixingGiftChecksum();
+// static bool32 IsRecordMixingGiftValid(void)
+// {
+//     // struct RecordMixingGiftData *data = &gSaveBlock1Ptr->recordMixingGift.data;
+//     // int checksum = CalcRecordMixingGiftChecksum();
 
-    if (data->unk0 == 0
-        || data->quantity == 0
-        || data->itemId == 0
-        || checksum == 0
-        || checksum != gSaveBlock1Ptr->recordMixingGift.checksum)
-        return FALSE;
-    else
-        return TRUE;
-}
+//     // if (data->unk0 == 0
+//     //     || data->quantity == 0
+//     //     || data->itemId == 0
+//     //     || checksum == 0
+//     //     || checksum != gSaveBlock1Ptr->recordMixingGift.checksum)
+//     //     return FALSE;
+//     // else
+//         return FALSE;
+// }
 
 static void ClearRecordMixingGift(void)
 {
-    CpuFill16(0, &gSaveBlock1Ptr->recordMixingGift, sizeof(gSaveBlock1Ptr->recordMixingGift));
+    // CpuFill16(0, &gSaveBlock1Ptr->recordMixingGift, sizeof(gSaveBlock1Ptr->recordMixingGift));
 }
 
 static void SetRecordMixingGift(u8 unk, u8 quantity, u16 itemId)
@@ -140,33 +140,34 @@ static void SetRecordMixingGift(u8 unk, u8 quantity, u16 itemId)
     }
     else
     {
-        gSaveBlock1Ptr->recordMixingGift.data.unk0 = unk;
-        gSaveBlock1Ptr->recordMixingGift.data.quantity = quantity;
-        gSaveBlock1Ptr->recordMixingGift.data.itemId = itemId;
-        gSaveBlock1Ptr->recordMixingGift.checksum = CalcRecordMixingGiftChecksum();
+        // gSaveBlock1Ptr->recordMixingGift.data.unk0 = unk;
+        // gSaveBlock1Ptr->recordMixingGift.data.quantity = quantity;
+        // gSaveBlock1Ptr->recordMixingGift.data.itemId = itemId;
+        // gSaveBlock1Ptr->recordMixingGift.checksum = CalcRecordMixingGiftChecksum();
     }
 }
 
 u16 GetRecordMixingGift(void)
 {
-    struct RecordMixingGiftData *data = &gSaveBlock1Ptr->recordMixingGift.data;
+    // struct RecordMixingGiftData *data = &gSaveBlock1Ptr->recordMixingGift.data;
 
-    if (!IsRecordMixingGiftValid())
-    {
-        ClearRecordMixingGift();
-        return 0;
-    }
-    else
-    {
-        u16 itemId = data->itemId;
-        data->quantity--;
-        if (data->quantity == 0)
-            ClearRecordMixingGift();
-        else
-            gSaveBlock1Ptr->recordMixingGift.checksum = CalcRecordMixingGiftChecksum();
+    // if (!IsRecordMixingGiftValid())
+    // {
+    //     ClearRecordMixingGift();
+    //     return 0;
+    // }
+    // else
+    // {
+    //     u16 itemId = data->itemId;
+    //     data->quantity--;
+    //     if (data->quantity == 0)
+    //         ClearRecordMixingGift();
+    //     else
+    //         gSaveBlock1Ptr->recordMixingGift.checksum = CalcRecordMixingGiftChecksum();
 
-        return itemId;
-    }
+    //     return itemId;
+    // }
+    return 0;
 }
 
 bool8 MEScrCmd_end(struct ScriptContext *ctx)
@@ -295,7 +296,7 @@ bool8 MEScrCmd_givenationaldex(struct ScriptContext *ctx)
 
 bool8 MEScrCmd_addrareword(struct ScriptContext *ctx)
 {
-    UnlockTrendySaying(ScriptReadByte(ctx));
+    // UnlockTrendySaying(ScriptReadByte(ctx));
     StringExpandPlaceholders(gStringVar4, gText_MysteryEventRareWord);
     ctx->mStatus = MEVENT_STATUS_SUCCESS;
     return FALSE;

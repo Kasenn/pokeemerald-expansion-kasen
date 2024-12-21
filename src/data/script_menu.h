@@ -1021,6 +1021,7 @@ const u8 *const gStdStrings[] =
     [STDSTRING_SMART2] = gText_Smart2,
     [STDSTRING_TOUGH2] = gText_Tough2,
     [STDSTRING_ITEMS] = gText_Items,
+    [STDSTRING_MEGA_STONES] = gText_MegaStones,
     [STDSTRING_KEYITEMS] = gText_Key_Items,
     [STDSTRING_POKEBALLS] = gText_Poke_Balls,
     [STDSTRING_TMHMS] = gText_TMs_Hms,

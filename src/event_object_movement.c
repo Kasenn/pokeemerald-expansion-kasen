@@ -2130,7 +2130,7 @@ static bool8 InBattleFacilityOrContestHall(void)
 struct Pokemon *GetFirstLiveMon(void)
 {
     u32 i;
-    u32 j = gSaveBlock3Ptr->followerIndex;
+    u32 j = gSaveBlock1Ptr->followerIndex;
 
     if (j == OW_FOLLOWER_RECALLED)
         return NULL;
@@ -3122,10 +3122,10 @@ const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u16 graphicsId)
         graphicsId = graphicsId & OBJ_EVENT_GFX_SPECIES_MASK;
     }
 
-    if (graphicsId == OBJ_EVENT_GFX_BARD)
-    {
-        return gMauvilleOldManGraphicsInfoPointers[GetCurrentMauvilleOldMan()];
-    }
+    // if (graphicsId == OBJ_EVENT_GFX_BARD)
+    // {
+    //     return gMauvilleOldManGraphicsInfoPointers[GetCurrentMauvilleOldMan()];
+    // }
 
     if (graphicsId >= OBJ_EVENT_GFX_MON_BASE)
         return SpeciesToGraphicsInfo(graphicsId - OBJ_EVENT_GFX_MON_BASE, form);
