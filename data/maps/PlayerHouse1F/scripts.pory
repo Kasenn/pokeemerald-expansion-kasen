@@ -110,6 +110,8 @@ text PlayerHouse1F_BrotherGossip{
 }
 
 script PlayerHouse1F_Mom{
+    lock
+    faceplayer
     if(var(VAR_PEARLWOOD_TOWN_STATE) == STORY_PEARLWOOD_RECEIVED_RUNNING_SHOES){
         msgbox(MomSeeYou, MSGBOX_NPC)
         turnobject(1, DIR_WEST)

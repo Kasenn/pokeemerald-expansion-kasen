@@ -85,6 +85,8 @@ PlayerHouse1F_Brother::
 
 
 PlayerHouse1F_Mom::
+	lock
+	faceplayer
 	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_RECEIVED_RUNNING_SHOES
 	goto_if_eq PlayerHouse1F_Mom_1
 	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_BROTHER_FOUGHT

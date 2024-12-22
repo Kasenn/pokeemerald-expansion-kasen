@@ -496,10 +496,6 @@ static const struct TrainerMon sParty_GruntMuseum1[] = {
     },
     {
     .lvl = 6,
-    .species = SPECIES_GROWLITHE,
-    },
-    {
-    .lvl = 6,
     .species = SPECIES_PIKACHU,
     }
 };

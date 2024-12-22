@@ -163,8 +163,8 @@ WW_CoolTrainerPostBattle::
 	case 2, WW_CoolTrainerPostBattle_5
 WW_CoolTrainerPostBattle_1:
 	checkitemspace VAR_TEMP_0
-	compare VAR_RESULT, 0
-	goto_if_ne WW_CoolTrainerPostBattle_7
+	compare VAR_RESULT, FALSE
+	goto_if_eq WW_CoolTrainerPostBattle_7
 WW_CoolTrainerPostBattle_6:
 	giveitem VAR_TEMP_0
 	setflag FLAG_WW_COOLTRAINERREWARD

@@ -178,7 +178,7 @@ script WW_CoolTrainerPostBattle{
         case 2:
             setvar(VAR_TEMP_0, ITEM_MYSTIC_WATER)
     }
-    if(checkitemspace(VAR_TEMP_0)){
+    if(checkitemspace(VAR_TEMP_0) == FALSE){
         goto(ZeBagIsFull)
     }
     giveitem(VAR_TEMP_0)
