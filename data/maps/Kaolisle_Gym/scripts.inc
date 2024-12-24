@@ -240,7 +240,7 @@ KaolisleGym_Trainer2_Picnicker1::
 
 KaolisleGym_Trainer3_Hiker1::
 	trainerbattle_single TRAINER_KAOLGYM_TR3_HIKER1, KaolisleGym_Trainer3_Hiker1_Intro, KaolisleGym_Trainer3_Hiker1_Defeat
-	lockall
+	lock
 	faceplayer
 	msgbox KaolisleGym_Trainer3_Hiker1_PostBattle, MSGBOX_YESNO
 	compare VAR_RESULT, TRUE
@@ -379,7 +379,7 @@ KaolGym_Statue_2:
 
 
 GymStartingMovement::
-	lockall
+	lock
 	delay 10
 	special SpawnCameraObject
 	compare VAR_TEMP_0, 3

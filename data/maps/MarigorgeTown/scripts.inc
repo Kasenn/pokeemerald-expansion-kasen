@@ -9,7 +9,7 @@ MariGorgeSetFlag::
 
 
 Aldeleaf_MuseumCurator::
-	lockall
+	lock
 	faceplayer
 	compare VAR_TEMP_1, 1
 	goto_if_eq Aldeleaf_MuseumCurator_2
@@ -295,7 +295,7 @@ Common_OpenBag::
 
 Marigorge_SusMan::
 	goto_if_set FLAG_DAILY_SAFARIBALL_BOUGHT, Marigorge_SusMan_2
-	lockall
+	lock
 	faceplayer
 	msgbox Marigorge_SusMan_Text, MSGBOX_DEFAULT
 	showmoneybox 0, 0

@@ -24,7 +24,7 @@ Primrose_FatMan::
 
 
 Primrose_Hiker::
-	lockall
+	lock
 	msgbox Primrose_Hiker_Text_0, MSGBOX_DEFAULT
 	waitmessage
 	closemessage

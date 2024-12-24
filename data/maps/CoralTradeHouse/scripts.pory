@@ -66,7 +66,7 @@ text HoldTightToStone{
 }
 
 script CoralgroveDartrixTrade{
-    lockall
+    lock
     faceplayer
     goto_if_set(FLAG_CORALGROVE_TRADE_COMPLETED, CoralgroveTradeCompleted)
     setvar(VAR_0x8008, INGAME_TRADE_QUILLADIN)
@@ -91,7 +91,7 @@ script CoralgroveDartrixTrade{
 }
 
 script CoralgroveCombuskenTrade{
-    lockall
+    lock
     faceplayer
     goto_if_set(FLAG_CORALGROVE_TRADE_COMPLETED, CoralgroveTradeCompleted)
     setvar(VAR_0x8008, INGAME_TRADE_TORRACAT)
@@ -116,7 +116,7 @@ script CoralgroveCombuskenTrade{
 }
 
 script CoralgrovePrinplupTrade{
-    lockall
+    lock
     faceplayer
     goto_if_set(FLAG_CORALGROVE_TRADE_COMPLETED, CoralgroveTradeCompleted)
     setvar(VAR_0x8008, INGAME_TRADE_MARSHTOMP)

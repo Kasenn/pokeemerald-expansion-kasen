@@ -387,7 +387,7 @@ Kaolisle_Hotel_5F_Attendant::
 
 
 Kaolisle_Hotel_5F_Man3::
-	lockall
+	lock
 	msgbox Kaolisle_Hotel_5F_Man3_Text, MSGBOX_DEFAULT
 	closemessage
 	release

@@ -17,7 +17,7 @@ script WW_Grotto_SetObject{
 }
 script WW_GrottoInteract{
     faceplayer
-    lockall
+    lock
     if(var(VAR_GROTTO_1) <= 39){
         goto(WW_GrottoItem)
     }
@@ -70,7 +70,7 @@ script WW_GrottoItem{
 }
 
 script WW_GrottoPokemon{
-    lockall
+    lock
     if(var(VAR_GROTTO_1) <= 59){
         playmoncry(SPECIES_TOGEPI, CRY_MODE_ENCOUNTER)
         delay(40)

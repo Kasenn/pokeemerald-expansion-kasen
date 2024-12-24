@@ -8,7 +8,7 @@ script MariGorgeSetFlag{
 }
 
 script Aldeleaf_MuseumCurator{
-    lockall
+    lock
     faceplayer
     if(var(VAR_TEMP_1) == 1){
         checkitem(ITEM_RELIC_COPPER)
@@ -340,7 +340,7 @@ script Marigorge_SusMan{
         msgbox(Marigorge_SusMan_AlreadyBought, MSGBOX_NPC)
         end
     }
-    lockall
+    lock
     faceplayer
     msgbox(Marigorge_SusMan_Text, MSGBOX_DEFAULT)
     showmoneybox(0,0)

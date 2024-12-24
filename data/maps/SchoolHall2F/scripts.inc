@@ -3,7 +3,7 @@ SchoolHall2F_MapScripts::
 
 
 School2F_Receptionist::
-	lockall
+	lock
 	faceplayer
 	msgbox School2F_Receptionist_Text_0, MSGBOX_NPC
 	waitmessage
@@ -13,7 +13,7 @@ School2F_Receptionist::
 
 
 School2F_Door::
-	lockall
+	lock
 	msgbox School2F_Door_Text_0, MSGBOX_SIGN
 	waitmessage
 	closemessage

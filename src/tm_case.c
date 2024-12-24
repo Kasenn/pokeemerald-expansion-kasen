@@ -62,8 +62,8 @@ static EWRAM_DATA void * sTilemapBuffer = NULL; // tilemap buffer
 static EWRAM_DATA struct ListMenuItem * sListMenuItemsBuffer = NULL;
 static EWRAM_DATA u8 (* sListMenuStringsBuffer)[31] = NULL;
 static EWRAM_DATA u16 * sTMSpritePaletteBuffer = NULL;
-static EWRAM_DATA u8    spriteIdData[PARTY_SIZE] = {};
-static EWRAM_DATA u16   spriteIdPalette[PARTY_SIZE] = {};
+EWRAM_DATA u8    gMoveMenuSpriteIdData[PARTY_SIZE] = {};
+EWRAM_DATA u16   gMoveMenuSpriteIdPalette[PARTY_SIZE] = {};
 
 static void CB2_SetUpTMCaseUI_Blocking(void);
 static bool8 DoSetUpTMCaseUI(void);
@@ -1138,15 +1138,15 @@ static void DrawPartyMonIcons(void)
 
         //create icon sprite
         #ifndef POKEMON_EXPANSION
-            spriteIdData[i] = CreateMonIcon(species, SpriteCb_MonIcon, icon_x, icon_y, 1, GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY), TRUE);
+            gMoveMenuSpriteIdData[i] = CreateMonIcon(species, SpriteCb_MonIcon, icon_x, icon_y, 1, GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY), TRUE);
         #else
-            spriteIdData[i] = CreateMonIcon(species, SpriteCb_MonIcon, icon_x, icon_y, 1, GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY));
+            gMoveMenuSpriteIdData[i] = CreateMonIcon(species, SpriteCb_MonIcon, icon_x, icon_y, 1, GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY));
         #endif
 
         //Set priority, stop movement and save original palette position
-        gSprites[spriteIdData[i]].oam.priority = 0;
-        StartSpriteAnim(&gSprites[spriteIdData[i]], 4); //full stop
-        spriteIdPalette[i] = gSprites[spriteIdData[i]].oam.paletteNum; //save correct palette number to array
+        gSprites[gMoveMenuSpriteIdData[i]].oam.priority = 0;
+        StartSpriteAnim(&gSprites[gMoveMenuSpriteIdData[i]], 4); //full stop
+        gMoveMenuSpriteIdPalette[i] = gSprites[gMoveMenuSpriteIdData[i]].oam.paletteNum; //save correct palette number to array
     }
 }
 
@@ -1162,11 +1162,11 @@ static void TintPartyMonIcons(u16 tm)
         SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(7, 11));
         if (!CanLearnTeachableMove(species, ItemIdToBattleMoveId(tm))) 
         {
-            gSprites[spriteIdData[i]].oam.objMode = ST_OAM_OBJ_BLEND;
+            gSprites[gMoveMenuSpriteIdData[i]].oam.objMode = ST_OAM_OBJ_BLEND;
         }
         else
         {
-            gSprites[spriteIdData[i]].oam.objMode = ST_OAM_OBJ_NORMAL;//gMonIconPaletteIndices[species];
+            gSprites[gMoveMenuSpriteIdData[i]].oam.objMode = ST_OAM_OBJ_NORMAL;//gMonIconPaletteIndices[species];
         }
     }
 
@@ -1177,7 +1177,7 @@ static void TintPartyMonIcons(u16 tm)
 //     u8 i;
 //     for (i = 0; i < gPlayerPartyCount; i++)
 //     {
-//         FreeAndDestroyMonIconSprite(&gSprites[spriteIdData[i]]);
+//         FreeAndDestroyMonIconSprite(&gSprites[gMoveMenuSpriteIdData[i]]);
 //         FreeMonIconPalettes();
 //     }
 // }

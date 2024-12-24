@@ -30,7 +30,7 @@ MarigorgePokeCenter1F_Woman::
 
 
 MarigorgePokeCenter1F_Abra::
-	lockall
+	lock
 	faceplayer
 	playmoncry SPECIES_ABRA, CRY_MODE_ENCOUNTER
 	goto_if_unset FLAG_INTRODUCED_TO_TELEPORT, MarigorgePokeCenter1F_Abra_2

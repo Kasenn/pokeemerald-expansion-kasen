@@ -15,7 +15,7 @@ CoralgroveHarbor_Sign2::
 
 
 CoralgroveHarbor_Sailor::
-	lockall
+	lock
 	faceplayer
 	msgbox CoralgroveHarbor_Sailor_Text_0, MSGBOX_NPC
 	waitmessage
@@ -24,7 +24,7 @@ CoralgroveHarbor_Sailor::
 
 
 CoralgroveHarbor_OldMan::
-	lockall
+	lock
 	faceplayer
 	msgbox CoralgroveHarbor_OldMan_Text, MSGBOX_NPC
 	waitmessage
@@ -33,7 +33,7 @@ CoralgroveHarbor_OldMan::
 
 
 CoralgroveHarbor_Woman::
-	lockall
+	lock
 	faceplayer
 	msgbox CoralgroveHarbor_Woman_Text_0, MSGBOX_NPC
 	waitmessage
@@ -47,7 +47,7 @@ CoralHarborBall::
 
 
 CoralgroveHarbor_SleepingMan::
-	lockall
+	lock
 	checkitem ITEM_TM_REST
 	compare VAR_RESULT, FALSE
 	goto_if_eq CoralgroveHarbor_SleepingMan_1

@@ -18,7 +18,7 @@ script RockliffePokeCenter1F_EventScript_Nurse{
 }
 
 script RockliffePokeCenter1F_Man{
-    lockall
+    lock
     msgbox(RockliffePokeCenter1F_Man_Text, MSGBOX_DEFAULT)
     release
     end

@@ -5,7 +5,7 @@ Kaolisle_House1_MapScripts::
 Kaolisle_Pianist::
 	goto_if_set FLAG_PIANOREWARD, Kaolisle_Pianist_2
 	goto_if_set FLAG_KAOLISLE_PLAYINGPIANO, Kaolisle_Pianist_5
-	lockall
+	lock
 	faceplayer
 	msgbox ListenToMePlay, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
@@ -24,7 +24,7 @@ Kaolisle_Pianist_2:
 	end
 
 Kaolisle_Pianist_5:
-	lockall
+	lock
 	special CalcCyclingRoadChallenge
 	compare VAR_RESULT, 11
 	goto_if_le Kaolisle_Pianist_10

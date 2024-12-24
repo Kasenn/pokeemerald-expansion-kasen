@@ -13,7 +13,7 @@ ShoreslateHarborSetFlags_2:
 
 
 ShoreslateHarbor_Attendant::
-	lockall
+	lock
 	faceplayer
 	goto_if_unset FLAG_HELPED_DEVON_CORP, ShoreslateHarbor_Attendant_2
 	msgbox ShoreslateHarbor_Text_GetAboard, MSGBOX_YESNO

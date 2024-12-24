@@ -13,7 +13,7 @@ script CoralgroveHarbor_Sign2{
 }
 
 script CoralgroveHarbor_Sailor{
-    lockall
+    lock
     faceplayer
     msgbox("Even though there's a perfectly\ngood ship docked at the harbor,\lsome crazy people would still rather\lcross the ocean by swimming!", MSGBOX_NPC)
     waitmessage
@@ -22,7 +22,7 @@ script CoralgroveHarbor_Sailor{
 }
 
 script CoralgroveHarbor_OldMan{
-    lockall
+    lock
     faceplayer
     msgbox(CoralgroveHarbor_OldMan_Text, MSGBOX_NPC)
     waitmessage
@@ -38,7 +38,7 @@ text CoralgroveHarbor_OldMan_Text{
 }
 
 script CoralgroveHarbor_Woman{
-    lockall
+    lock
     faceplayer
     msgbox("I'd really like to set up a shop here\nbut there's simply not enough room.\pDigging a hole in this cliff could\nendanger the city above.", MSGBOX_NPC)
     waitmessage
@@ -51,7 +51,7 @@ script CoralHarborBall{
 }
 
 script CoralgroveHarbor_SleepingMan{
-    lockall
+    lock
     if(checkitem(ITEM_TM_REST) == FALSE){
         msgbox("Zzz…\pHwuh?\pOh, whew! For a moment I thought\nmy boss might have caught me napping.\pWill you keep this a secret\nif I give you this TM?", MSGBOX_DEFAULT)
         waitmessage

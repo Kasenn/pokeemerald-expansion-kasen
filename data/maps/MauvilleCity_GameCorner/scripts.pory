@@ -538,7 +538,7 @@ MauvilleCity_GameCorner_EventScript_Woman::
 	end
 
 MauvilleCity_GameCorner_EventScript_SlotMachine0::
-	lockall
+	lock
 	checkitem ITEM_COIN_CASE
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoCoinCase
 	setvar VAR_0x8004, 0
@@ -548,7 +548,7 @@ MauvilleCity_GameCorner_EventScript_SlotMachine0::
 	end
 
 MauvilleCity_GameCorner_EventScript_SlotMachine1::
-	lockall
+	lock
 	checkitem ITEM_COIN_CASE
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoCoinCase
 	setvar VAR_0x8004, 1
@@ -558,7 +558,7 @@ MauvilleCity_GameCorner_EventScript_SlotMachine1::
 	end
 
 MauvilleCity_GameCorner_EventScript_SlotMachine2::
-	lockall
+	lock
 	checkitem ITEM_COIN_CASE
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoCoinCase
 	setvar VAR_0x8004, 2
@@ -568,7 +568,7 @@ MauvilleCity_GameCorner_EventScript_SlotMachine2::
 	end
 
 MauvilleCity_GameCorner_EventScript_SlotMachine3::
-	lockall
+	lock
 	checkitem ITEM_COIN_CASE
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoCoinCase
 	setvar VAR_0x8004, 3
@@ -578,7 +578,7 @@ MauvilleCity_GameCorner_EventScript_SlotMachine3::
 	end
 
 MauvilleCity_GameCorner_EventScript_SlotMachine4::
-	lockall
+	lock
 	checkitem ITEM_COIN_CASE
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoCoinCase
 	setvar VAR_0x8004, 4
@@ -588,7 +588,7 @@ MauvilleCity_GameCorner_EventScript_SlotMachine4::
 	end
 
 MauvilleCity_GameCorner_EventScript_SlotMachine5::
-	lockall
+	lock
 	checkitem ITEM_COIN_CASE
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoCoinCase
 	setvar VAR_0x8004, 5
@@ -598,7 +598,7 @@ MauvilleCity_GameCorner_EventScript_SlotMachine5::
 	end
 
 MauvilleCity_GameCorner_EventScript_SlotMachine6::
-	lockall
+	lock
 	checkitem ITEM_COIN_CASE
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoCoinCase
 	setvar VAR_0x8004, 6
@@ -608,7 +608,7 @@ MauvilleCity_GameCorner_EventScript_SlotMachine6::
 	end
 
 MauvilleCity_GameCorner_EventScript_SlotMachine7::
-	lockall
+	lock
 	checkitem ITEM_COIN_CASE
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoCoinCase
 	setvar VAR_0x8004, 7
@@ -618,7 +618,7 @@ MauvilleCity_GameCorner_EventScript_SlotMachine7::
 	end
 
 MauvilleCity_GameCorner_EventScript_SlotMachine8::
-	lockall
+	lock
 	checkitem ITEM_COIN_CASE
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoCoinCase
 	setvar VAR_0x8004, 8
@@ -628,7 +628,7 @@ MauvilleCity_GameCorner_EventScript_SlotMachine8::
 	end
 
 MauvilleCity_GameCorner_EventScript_SlotMachine9::
-	lockall
+	lock
 	checkitem ITEM_COIN_CASE
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoCoinCase
 	setvar VAR_0x8004, 9
@@ -638,7 +638,7 @@ MauvilleCity_GameCorner_EventScript_SlotMachine9::
 	end
 
 MauvilleCity_GameCorner_EventScript_SlotMachine10::
-	lockall
+	lock
 	checkitem ITEM_COIN_CASE
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoCoinCase
 	setvar VAR_0x8004, 10
@@ -648,7 +648,7 @@ MauvilleCity_GameCorner_EventScript_SlotMachine10::
 	end
 
 MauvilleCity_GameCorner_EventScript_SlotMachine11::
-	lockall
+	lock
 	checkitem ITEM_COIN_CASE
 	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_NoCoinCase
 	setvar VAR_0x8004, 11

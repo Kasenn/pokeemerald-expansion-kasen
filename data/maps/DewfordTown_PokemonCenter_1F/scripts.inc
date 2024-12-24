@@ -22,7 +22,7 @@ DewfordTown_PokemonCenter_1F_EventScript_PokefanF::
 
 
 DewfordTown_PokemonCenter_1F_OldMan::
-	lockall
+	lock
 	faceplayer
 	checkitem ITEM_TOWN_MAP
 	compare VAR_RESULT, FALSE

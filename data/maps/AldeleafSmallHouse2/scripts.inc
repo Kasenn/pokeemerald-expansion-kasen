@@ -146,7 +146,7 @@ AldeleafMoveGhost:
 	step_end
 
 AldeleafSmallHouse2_Doll::
-	lockall
+	lock
 	compare VAR_ALDELEAF_HOUSE, 0
 	goto_if_eq AldeleafSmallHouse2_Doll_2
 AldeleafSmallHouse2_Doll_1:

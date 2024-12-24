@@ -232,7 +232,7 @@ script BuffetOfferSoup{
 }
 
 script Hotel_BuffetTrigger{
-    lockall
+    lock
     turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
     delay(20)
     if((defeated(TRAINER_BUFFET_1))
@@ -629,7 +629,7 @@ script Hotel_BirdTrainer{
         msgbox(Hotel_BirdTrainer_PostBattle, MSGBOX_NPC)
         end
     }
-    lockall
+    lock
     faceplayer
     if(flag(FLAG_TEMP_3)){
         msgbox(Hotel_BirdTrainer_TextShort, MSGBOX_YESNO)

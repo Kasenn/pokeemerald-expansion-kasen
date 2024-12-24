@@ -262,7 +262,7 @@ text R12Tr13_PostBattle{
 }
 
 script R12_HoneyTree{
-    lockall
+    lock
     checkitem(ITEM_HONEY, 1)
     if(var(VAR_RESULT) == TRUE)
     {

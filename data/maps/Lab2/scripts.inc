@@ -59,7 +59,7 @@ Lab2_Intro::
 	safefollow
 	applymovement OBJ_EVENT_ID_PLAYER, Walk6Up
 	waitmovement 0
-	lockall
+	lock
 	msgbox Lab2_Intro_Speech
 	closemessage
 	delay 20
@@ -78,7 +78,7 @@ Lab2_DexGet::
 	applymovement OBJ_EVENT_ID_PLAYER, Walk6Up
 	waitmovement 0
 	unlockfollowermovement
-	lockall
+	lock
 	checkplayergender
 	compare VAR_RESULT, MALE
 	goto_if_eq Lab2_DexGet_2
@@ -408,7 +408,7 @@ Lab_FollowerEvent2::
 Lab_FollowerEvent::
 	safefollow
 	unlockfollowermovement
-	lockall
+	lock
 	playse SE_PIN
 	goto_if_set FLAG_TEMP_10, Lab_FollowerEvent_2
 	turnobject 4, DIR_EAST

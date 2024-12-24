@@ -210,7 +210,7 @@ Route11_Tr14_Acetrainer_F_6:
 
 
 R11_Ace_EligibleForBattle::
-	lockall
+	lock
 	faceplayer
 	checktrainerflag TRAINER_R11_TR14_ACETRAINER_F
 	goto_if 1, R11_Ace_EligibleForBattle_2
@@ -823,7 +823,7 @@ R11Tr12_Lose::
 
 R11Tr12_PostBattle::
 	.string "I would like to circle the globe once\n"
-	.string "again with my POKéMON.$"
+	.string "again with my Pokémon.$"
 
 R11Tr13_Intro::
 	.string "So, we finally meet! My psychic\n"

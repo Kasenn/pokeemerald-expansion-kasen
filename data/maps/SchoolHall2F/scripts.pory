@@ -1,7 +1,7 @@
 mapscripts SchoolHall2F_MapScripts{}
 
 script School2F_Receptionist{
-    lockall
+    lock
     faceplayer
     msgbox("I'm sorry, but the headmaster\nis currently busy.", MSGBOX_NPC)
     waitmessage
@@ -11,7 +11,7 @@ script School2F_Receptionist{
 }
 
 script School2F_Door{
-    lockall
+    lock
     msgbox("It's locked.", MSGBOX_SIGN)
     waitmessage
     closemessage

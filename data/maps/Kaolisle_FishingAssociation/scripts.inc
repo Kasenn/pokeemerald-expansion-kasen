@@ -276,7 +276,7 @@ FanClub_TradeSetup::
 
 
 TradeGrowlithe::
-	lockall
+	lock
 	faceplayer
 	goto_if_set FLAG_TRADED_GROWLITHE, FanClubTradeCompleted
 	setvar VAR_0x8008, INGAME_TRADE_GROWLITHE
@@ -290,7 +290,7 @@ TradeGrowlithe::
 
 
 TradeVoltorb::
-	lockall
+	lock
 	faceplayer
 	goto_if_set FLAG_TRADED_VOLTORB, FanClubTradeCompleted
 	setvar VAR_0x8008, INGAME_TRADE_VOLTORB
@@ -304,7 +304,7 @@ TradeVoltorb::
 
 
 TradeQwilfish::
-	lockall
+	lock
 	faceplayer
 	goto_if_set FLAG_TRADED_QWILFISH, FanClubTradeCompleted
 	setvar VAR_0x8008, INGAME_TRADE_QWILFISH
@@ -318,7 +318,7 @@ TradeQwilfish::
 
 
 TradeSneasel::
-	lockall
+	lock
 	faceplayer
 	goto_if_set FLAG_TRADED_SNEASEL, FanClubTradeCompleted
 	setvar VAR_0x8008, INGAME_TRADE_SNEASEL
@@ -332,7 +332,7 @@ TradeSneasel::
 
 
 TradeZorua::
-	lockall
+	lock
 	faceplayer
 	goto_if_set FLAG_TRADED_ZORUA, FanClubTradeCompleted
 	setvar VAR_0x8008, INGAME_TRADE_ZORUA
@@ -346,7 +346,7 @@ TradeZorua::
 
 
 TradeBulbasaur::
-	lockall
+	lock
 	faceplayer
 	goto_if_set FLAG_TRADED_BULBASAUR, FanClubTradeCompleted
 	setvar VAR_0x8008, INGAME_TRADE_BULBASAUR
@@ -360,7 +360,7 @@ TradeBulbasaur::
 
 
 TradeCharmander::
-	lockall
+	lock
 	faceplayer
 	goto_if_set FLAG_TRADED_CHARMANDER, FanClubTradeCompleted
 	setvar VAR_0x8008, INGAME_TRADE_CHARMANDER
@@ -374,7 +374,7 @@ TradeCharmander::
 
 
 TradeSquirtle::
-	lockall
+	lock
 	faceplayer
 	goto_if_set FLAG_TRADED_SQUIRTLE, FanClubTradeCompleted
 	setvar VAR_0x8008, INGAME_TRADE_SQUIRTLE

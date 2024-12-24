@@ -14,7 +14,7 @@ script CoralHideGhost2{
 }
 
 script Coralgrove_HauntedHouse{
-    lockall
+    lock
     if(!flag(FLAG_0x267_CG_HIDEGHOST)){
         setflag(FLAG_TEMP_2)
     }

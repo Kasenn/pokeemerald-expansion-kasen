@@ -47,7 +47,7 @@ RemoveGymWall::
 
 
 SandstoneGym_Warp::
-	lockall
+	lock
 	playse SE_FAILURE
 	waitse
 	delay 10

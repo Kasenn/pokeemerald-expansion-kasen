@@ -111,7 +111,7 @@ movement AldeleafMoveGhost{
 }
 
 script AldeleafSmallHouse2_Doll{
-    lockall
+    lock
     if(var(VAR_ALDELEAF_HOUSE) == 0){
         msgbox(AldeleafSmallHouse2_JustADoll, MSGBOX_DEFAULT)
     }

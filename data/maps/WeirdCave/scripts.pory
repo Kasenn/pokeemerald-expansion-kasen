@@ -257,7 +257,7 @@ script WeirdCave_TriggerTiles{
         case 9:
             getplayerxy(VAR_TEMP_2, VAR_TEMP_1)
             if((var(VAR_TEMP_2) == 7) && (var(VAR_TEMP_1) == 15)){
-                lockall
+                lock
                 setflag(FLAG_WEIRDCAVESOLVED)
                 setmetatile(6, 5, 0x20B, TRUE)
                 setmetatile(7, 5, 0x20C, TRUE)

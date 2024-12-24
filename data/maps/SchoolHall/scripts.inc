@@ -3,7 +3,7 @@ SchoolHall_MapScripts::
 
 
 SchoolReceptionist::
-	lockall
+	lock
 	faceplayer
 	msgbox SchoolReceptionist_Text_0, MSGBOX_NPC
 	waitmessage
@@ -13,7 +13,7 @@ SchoolReceptionist::
 
 
 SchoolOldMan::
-	lockall
+	lock
 	faceplayer
 	msgbox SchoolOldMan_Text_0, MSGBOX_NPC
 	waitmessage
@@ -23,7 +23,7 @@ SchoolOldMan::
 
 
 SchoolTeach::
-	lockall
+	lock
 	faceplayer
 	checktrainerflag TRAINER_ARCHIE
 	goto_if 0, SchoolTeach_1
@@ -59,7 +59,7 @@ SchoolTeach_2:
 
 
 SchoolHallGirl3::
-	lockall
+	lock
 	faceplayer
 	checktrainerflag TRAINER_ARCHIE
 	goto_if 0, SchoolHallGirl3_1
@@ -84,7 +84,7 @@ SchoolHallGirl3_4:
 
 
 SchoolHallKidM::
-	lockall
+	lock
 	faceplayer
 	checktrainerflag TRAINER_LEAH
 	goto_if 0, SchoolHallKidM_1
@@ -109,7 +109,7 @@ SchoolHallKidM_4:
 
 
 SchoolHallBoy2::
-	lockall
+	lock
 	faceplayer
 	checktrainerflag TRAINER_DAISY
 	goto_if 0, SchoolHallBoy2_1
@@ -134,7 +134,7 @@ SchoolHallBoy2_4:
 
 
 SchoolHallGirl2::
-	lockall
+	lock
 	faceplayer
 	checktrainerflag TRAINER_ROSE_1
 	goto_if 0, SchoolHallGirl2_1

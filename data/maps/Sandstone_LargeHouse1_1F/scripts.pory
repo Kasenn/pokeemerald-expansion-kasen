@@ -77,7 +77,7 @@ text HaveACookie{
 }
 
 script Sandstone_BigHouse1_1F_Youngster{
-    lockall
+    lock
     faceplayer
     if(flag(FLAG_TRADED_SMEARGLE)){
         msgbox(SmeargleTraded, MSGBOX_NPC)

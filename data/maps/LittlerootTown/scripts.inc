@@ -114,7 +114,7 @@ LittlerootTown_OnFrame:
 	.2byte 0
 
 LittlerootTown_EventScript_StepOffTruckMale::
-	lockall
+	lock
 	setvar VAR_0x8004, 5
 	setvar VAR_0x8005, 8
 	call LittlerootTown_EventScript_GoInsideWithMom
@@ -125,7 +125,7 @@ LittlerootTown_EventScript_StepOffTruckMale::
 	end
 
 LittlerootTown_EventScript_StepOffTruckFemale::
-	lockall
+	lock
 	setvar VAR_0x8004, 14
 	setvar VAR_0x8005, 8
 	call LittlerootTown_EventScript_GoInsideWithMom
@@ -209,7 +209,7 @@ LittlerootTown_Movement_PlayerStepOffTruck:
 	step_end
 
 LittlerootTown_EventScript_BeginDexUpgradeScene::
-	lockall
+	lock
 	playse SE_PIN
 	applymovement LOCALID_BIRCH, Common_Movement_ExclamationMark
 	waitmovement 0
@@ -286,7 +286,7 @@ LittlerootTown_EventScript_GoodLuck::
 	end
 
 LittlerootTown_EventScript_NeedPokemonTriggerLeft::
-	lockall
+	lock
 	applymovement LOCALID_TWIN, LittlerootTown_Movement_TwinApproachPlayerLeft
 	waitmovement 0
 	call LittlerootTown_EventScript_DangerousWithoutPokemon
@@ -344,7 +344,7 @@ LittlerootTown_Movement_PushPlayerBackFromRoute:
 	step_end
 
 LittlerootTown_EventScript_NeedPokemonTriggerRight::
-	lockall
+	lock
 	applymovement LOCALID_TWIN, LittlerootTown_Movement_TwinApproachPlayerRight
 	waitmovement 0
 	call LittlerootTown_EventScript_DangerousWithoutPokemon
@@ -378,7 +378,7 @@ LittlerootTown_Movement_TwinReturnRight:
 	step_end
 
 LittlerootTown_EventScript_GoSaveBirchTrigger::
-	lockall
+	lock
 	applymovement LOCALID_TWIN, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
@@ -401,7 +401,7 @@ LittlerootTown_EventScript_BirchsLabSign::
 	end
 
 LittlerootTown_EventScript_BrendansHouseSign::
-	lockall
+	lock
 	checkplayergender
 	call_if_eq VAR_RESULT, MALE, LittlerootTown_EventScript_PlayersHouseSignMale
 	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_EventScript_BirchsHouseSignFemale
@@ -417,7 +417,7 @@ LittlerootTown_EventScript_BirchsHouseSignFemale::
 	return
 
 LittlerootTown_EventScript_MaysHouseSign::
-	lockall
+	lock
 	checkplayergender
 	call_if_eq VAR_RESULT, MALE, LittlerootTown_EventScript_BirchsHouseSignMale
 	call_if_eq VAR_RESULT, FEMALE, LittlerootTown_EventScript_PlayersHouseSignFemale
@@ -433,39 +433,39 @@ LittlerootTown_EventScript_PlayersHouseSignFemale::
 	return
 
 LittlerootTown_EventScript_GiveRunningShoesTrigger0::
-	lockall
+	lock
 	setvar VAR_0x8008, 0
 	setobjectxy LOCALID_MOM, 10, 9
 	goto LittlerootTown_EventScript_GiveRunningShoesTrigger
 	end
 
 LittlerootTown_EventScript_GiveRunningShoesTrigger1::
-	lockall
+	lock
 	setvar VAR_0x8008, 1
 	setobjectxy LOCALID_MOM, 11, 9
 	goto LittlerootTown_EventScript_GiveRunningShoesTrigger
 	end
 
 LittlerootTown_EventScript_GiveRunningShoesTrigger2::
-	lockall
+	lock
 	setvar VAR_0x8008, 2
 	goto LittlerootTown_EventScript_GiveRunningShoesTrigger
 	end
 
 LittlerootTown_EventScript_GiveRunningShoesTrigger3::
-	lockall
+	lock
 	setvar VAR_0x8008, 3
 	goto LittlerootTown_EventScript_GiveRunningShoesTrigger
 	end
 
 LittlerootTown_EventScript_GiveRunningShoesTrigger4::
-	lockall
+	lock
 	setvar VAR_0x8008, 4
 	goto LittlerootTown_EventScript_GiveRunningShoesTrigger
 	end
 
 LittlerootTown_EventScript_GiveRunningShoesTrigger5::
-	lockall
+	lock
 	setvar VAR_0x8008, 5
 	goto LittlerootTown_EventScript_GiveRunningShoesTrigger
 	end
@@ -1020,7 +1020,7 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "Let's go to my LAB.$"
 
 LittlerootTown_EventScript_NewSign::
-	lockall
+	lock
 	msgbox LittlerootTown_EventScript_NewSign_Text_0
 	releaseall
 	return

@@ -76,7 +76,7 @@ UndergroundSandstormTM::
 
 
 UndergroundRuinsFossil::
-	lockall
+	lock
 	msgbox FossilInWall, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
 	goto_if_eq UndergroundRuinsFossil_1

@@ -6,7 +6,6 @@ NotMyNectar::
 	lock
 	safefollow
 	turnobject 1, DIR_NORTH
-	waitmovement 0
 	delay 10
 	msgbox NotMyNectar_Text, MSGBOX_NPC
 	waitmessage
@@ -15,7 +14,7 @@ NotMyNectar::
 	waitmovement 0
 	delay 30
 	release
-	return
+	end
 
 
 NectarManiac::
@@ -31,6 +30,7 @@ NectarManiac_2:
 	compare VAR_RESULT, TRUE
 	goto_if_eq NectarManiac_5
 NectarManiac_4:
+	release
 	end
 
 NectarManiac_5:

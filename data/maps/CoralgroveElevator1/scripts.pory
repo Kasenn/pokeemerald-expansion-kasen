@@ -16,7 +16,7 @@ script ElevatorBlock{
 }
 
 script CoralGrove_ElevatorEmployee{
-    lockall
+    lock
     faceplayer
     msgbox("The situation at the harbor has been\nresolved and the public can\lonce again freely move about.\pThank you for your patience.", MSGBOX_NPC)
     waitmessage

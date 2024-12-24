@@ -125,7 +125,7 @@ BuffetOfferSoup_2:
 
 
 Hotel_BuffetTrigger::
-	lockall
+	lock
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	delay 20
 	checktrainerflag TRAINER_BUFFET_1
@@ -504,7 +504,7 @@ Hotel_Tuber::
 
 Hotel_BirdTrainer::
 	goto_if_set FLAG_HOTEL_FLYINGGEM, Hotel_BirdTrainer_2
-	lockall
+	lock
 	faceplayer
 	goto_if_set FLAG_TEMP_3, Hotel_BirdTrainer_5
 	msgbox Hotel_BirdTrainer_Text, MSGBOX_YESNO

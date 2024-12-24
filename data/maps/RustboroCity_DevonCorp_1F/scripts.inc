@@ -39,7 +39,7 @@ RustboroCity_DevonCorp_1F_EventScript_GreeterNew_2:
 	goto RustboroCity_DevonCorp_1F_EventScript_GreeterNew_1
 
 RustboroCity_DevonCorp_1F_EventScript_GreeterNew_6:
-	lockall
+	lock
 	msgbox GreeterHandOverLetter, MSGBOX_DEFAULT
 	giveitem ITEM_GO_GOGGLES
 	setvar VAR_DESERT_BYPASS, 1
@@ -147,7 +147,7 @@ Rustboro_Basement_Scientist4::
 
 Rustboro_Basement_Scientist5::
 	faceplayer
-	lockall
+	lock
 	goto_if_set FLAG_BASEMENT_SUPERPOTION, Rustboro_Basement_Scientist5_2
 	msgbox Rustboro_Basement_Scientist5_Text, MSGBOX_DEFAULT
 	giveitem ITEM_SUPER_POTION

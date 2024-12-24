@@ -326,7 +326,7 @@ script Route5_Trainer15_CoolTrainer{
     end
 }
 script Route5_CoolTrainerEligibleForBattle{
-    lockall
+    lock
     faceplayer
     if(!flag(FLAG_TEMP_2)){
         setflag(FLAG_TEMP_2)

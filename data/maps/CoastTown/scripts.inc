@@ -29,7 +29,7 @@ CoastTown_Sign4::
 
 
 CoastTown_OldWoman::
-	lockall
+	lock
 	faceplayer
 	msgbox CoastTown_OldWoman_Text_0, MSGBOX_NPC
 	waitmessage
@@ -39,7 +39,7 @@ CoastTown_OldWoman::
 
 
 CoastTown_OldMan::
-	lockall
+	lock
 	faceplayer
 	msgbox CoastTown_OldMan_Text_0, MSGBOX_NPC
 	waitmessage
@@ -54,7 +54,7 @@ Azuretide_Mart_OldWoman::
 
 
 CoastTown_FatGuy::
-	lockall
+	lock
 	faceplayer
 	msgbox CoastTown_FatGuy_Text_0, MSGBOX_NPC
 	waitmessage
@@ -64,7 +64,7 @@ CoastTown_FatGuy::
 
 
 CoastTown_FatGuy2::
-	lockall
+	lock
 	faceplayer
 	goto_if_unset FLAG_AZURETIDE_HONEY, CoastTown_FatGuy2_2
 	msgbox FatGuyHoneyGivenAlready, MSGBOX_NPC
@@ -157,7 +157,7 @@ AzureTide_MysteryWoman_18:
 
 
 Azuretide_HoneyTree::
-	lockall
+	lock
 	goto_if_unset FLAG_AZURETIDE_HONEY, Azuretide_HoneyTree_2
 	checkitem ITEM_HONEY, 1
 	compare VAR_RESULT, TRUE

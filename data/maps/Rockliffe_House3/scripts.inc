@@ -4,7 +4,7 @@ Rockliffe_House3_MapScripts::
 
 Rockliffe_House1_OldWoman::
 	goto_if_set FLAG_OBTAINED_BEEDRILLITE, Rockliffe_House1_OldWoman_2
-	lockall
+	lock
 	faceplayer
 	msgbox DoYouLikeBeedrills, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
@@ -49,7 +49,7 @@ Rockliffe_House1_OldWoman_14:
 
 RockliffeHouse3_Man1::
 	goto_if_set FLAG_RECEIVED_METAL_COAT, RockliffeHouse3_Man1_2
-	lockall
+	lock
 	faceplayer
 	msgbox WhichWeighsMore, MSGBOX_DEFAULT
 	checkdexmon SPECIES_ARON

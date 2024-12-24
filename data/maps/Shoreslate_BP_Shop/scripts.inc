@@ -6,7 +6,7 @@ Shoreslate_BP_Shop_MapScripts::
 
 ShoreslateShop_Man::
 	faceplayer
-	lockall
+	lock
 	msgbox ShoreslateShop_Man_Text, MSGBOX_YESNO
 	compare VAR_RESULT, TRUE
 	goto_if_eq ShoreslateShop_Man_2

@@ -172,7 +172,7 @@ text KaolisleGym_Trainer2_Picnicker1_PostBattle{
 
 script KaolisleGym_Trainer3_Hiker1{
     trainerbattle_single(TRAINER_KAOLGYM_TR3_HIKER1, KaolisleGym_Trainer3_Hiker1_Intro, KaolisleGym_Trainer3_Hiker1_Defeat)
-    lockall
+    lock
     faceplayer
 	msgbox(KaolisleGym_Trainer3_Hiker1_PostBattle, MSGBOX_YESNO)
     if(var(VAR_RESULT) == TRUE){
@@ -497,7 +497,7 @@ text KaolGym_GymStatueCertified{
 
 
 script GymStartingMovement{
-    lockall
+    lock
 	delay(10)
     special(SpawnCameraObject)
     if(var(VAR_TEMP_0) == 3){

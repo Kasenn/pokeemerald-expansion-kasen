@@ -20,7 +20,7 @@ script ROUTE7_Grotto_SetObject{
 }
 script ROUTE7_GrottoInteract{
     faceplayer
-    lockall
+    lock
     if(var(VAR_GROTTO_2) <= 39){
         goto(ROUTE7_GrottoItem)
     }

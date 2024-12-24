@@ -28,7 +28,7 @@ script CoastTown_Sign4{
 }
 
 script CoastTown_OldWoman{
-    lockall
+    lock
     faceplayer
     msgbox("There's been a lot of trainers coming\nhere via the ferry recently.\pShame many of them are in a hurry and\ndon't even care to say hello.", MSGBOX_NPC)
     waitmessage
@@ -38,7 +38,7 @@ script CoastTown_OldWoman{
 }
 
 script CoastTown_OldMan{
-    lockall
+    lock
     faceplayer
     msgbox("For the city folk our way of living\nmay seem simple but that's\ljust the way we like it.", MSGBOX_NPC)
     waitmessage
@@ -59,7 +59,7 @@ text Azuretide_Mart_OldWoman_Text{
 }
 
 script CoastTown_FatGuy{
-    lockall
+    lock
     faceplayer
     msgbox("My friend told me she saw a wild Pokémon\nin one of these trees recently.\pI've been shaking these trees for\nhours yet I've found zilch.", MSGBOX_NPC)
     waitmessage
@@ -69,7 +69,7 @@ script CoastTown_FatGuy{
 }
 
 script CoastTown_FatGuy2{
-    lockall
+    lock
     faceplayer
     if(!flag(FLAG_AZURETIDE_HONEY)){
         msgbox(FatGuyHoneyIntro, MSGBOX_NPC)
@@ -236,7 +236,7 @@ text AzureTide_MysteryWoman_1Badges{
 }
 
 script Azuretide_HoneyTree{
-    lockall
+    lock
     if(!flag(FLAG_AZURETIDE_HONEY)){
         msgbox("It's a peculiar looking tree.", MSGBOX_DEFAULT)
         waitmessage

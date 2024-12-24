@@ -26,7 +26,7 @@ text DewfordTown_PokemonCenter_1F_Text_StoneCavern{
 }
 
 script DewfordTown_PokemonCenter_1F_OldMan{
-    lockall
+    lock
     faceplayer
     if(checkitem(ITEM_TOWN_MAP) == FALSE){
         if(!flag(FLAG_TEMP_1)){

@@ -5,7 +5,7 @@ script Rockliffe_House1_OldWoman{
         msgbox(PutBeedrToGoodUse, MSGBOX_NPC)
         end
     }
-    lockall
+    lock
     faceplayer
     msgbox(DoYouLikeBeedrills, MSGBOX_YESNO)
     if(var(VAR_RESULT) == FALSE){
@@ -68,7 +68,7 @@ script RockliffeHouse3_Man1{
         msgbox(IKnewAron, MSGBOX_NPC)
         end
     }
-    lockall
+    lock
     faceplayer
     msgbox(WhichWeighsMore, MSGBOX_DEFAULT)
     checkdexmon(SPECIES_ARON)

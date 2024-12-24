@@ -30,7 +30,7 @@ ROUTE7_Grotto_SetObject_4:
 
 ROUTE7_GrottoInteract::
 	faceplayer
-	lockall
+	lock
 	compare VAR_GROTTO_2, 39
 	goto_if_le ROUTE7_GrottoInteract_2
 	goto ROUTE7_GrottoPokemon

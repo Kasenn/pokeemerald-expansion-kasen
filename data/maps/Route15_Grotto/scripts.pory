@@ -19,7 +19,7 @@ script ROUTE15_Grotto_SetObject{
 }
 script ROUTE15_GrottoInteract{
     faceplayer
-    lockall
+    lock
     if(var(VAR_GROTTO_4) <= 39){
         goto(ROUTE15_GrottoItem)
     }
@@ -72,7 +72,7 @@ script ROUTE15_GrottoItem{
 }
 
 script ROUTE15_GrottoPokemon{
-    lockall
+    lock
     if(var(VAR_GROTTO_4) <= 59){
         playmoncry(SPECIES_CLEFFA, CRY_MODE_ENCOUNTER)
         delay(40)

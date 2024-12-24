@@ -5,7 +5,7 @@ AldeleafSmallHouse1_MapScripts::
 AldeleafSmallHouse1_Man::
 	goto_if_set FLAG_WHITEFLUTE_RECEIVED, AldeleafSmallHouse1_Man_2
 AldeleafSmallHouse1_Man_1:
-	lockall
+	lock
 	faceplayer
 	msgbox AldeleafSmallHouse1_Man_Text, MSGBOX_DEFAULT
 	checkitemspace ITEM_BLACK_FLUTE

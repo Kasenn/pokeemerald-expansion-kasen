@@ -235,7 +235,7 @@ text Route3_LassPostBattle{
 /////////////////////////////
 text Route3_ManiacIntro{
 	"Y-you want to battle with me?\n"
-	"Even though I just caught my POKéMON?"
+	"Even though I just caught my Pokémon?"
 }
 text Route3_ManiacDefeated{
 	"Y-you're all happy to win?\n"

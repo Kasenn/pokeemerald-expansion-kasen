@@ -10,7 +10,7 @@ script HarborSetFlags{
 }
 
 script CoastTownHarbor_Attendant{
-    lockall
+    lock
     faceplayer
 	msgbox(CoastTownHarbor_Text_GetAboard, MSGBOX_YESNO)
 	goto_if_eq(VAR_RESULT, NO, CoastTownHarbor_EventScript_ComeAgain)
@@ -85,7 +85,7 @@ text CoastTownHarbor_Text_PleaseBoardFerry{
 }
 
 script CoastTownHarbor_Boy{
-    lockall
+    lock
     faceplayer
     msgbox("This is my first time stepping\non the mainland.\pIs this how the astronauts felt when\nthey first stepped on the Moon?", MSGBOX_NPC)
     waitmessage
@@ -95,7 +95,7 @@ script CoastTownHarbor_Boy{
 }
 
 script CoastTownHarbor_Sailor{
-    lockall
+    lock
     msgbox("Ahh, what a fine ship!\nMaybe one day I'll be a captain of one.", MSGBOX_DEFAULT)
     waitmessage
     closemessage

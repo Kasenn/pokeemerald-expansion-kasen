@@ -102,7 +102,7 @@ Route10_Tr1_AceSwimmer_8:
 
 
 R10_Ace_EligibleForBattle::
-	lockall
+	lock
 	faceplayer
 	goto_if_unset FLAG_TEMP_5, R10_Ace_EligibleForBattle_2
 	msgbox R10_Ace_ReadyForBattleShort, MSGBOX_YESNO

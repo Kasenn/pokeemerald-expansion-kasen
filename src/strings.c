@@ -136,6 +136,7 @@ const u8 gText_EmptyString2[] = _("");
 const u8 gText_Cancel7[] = _("Cancel"); // Unused
 const u8 gText_Item[] = _("Item");
 const u8 gText_Mail[] = _("Mail");
+const u8 gTextSelect[] = _("{SELECT_BUTTON}");
 const u8 gText_Take[] = _("Take");
 const u8 gText_Store[] = _("Store");
 const u8 gMenuText_Check[] = _("Check");

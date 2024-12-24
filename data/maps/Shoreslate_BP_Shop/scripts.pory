@@ -4,7 +4,7 @@ mapscripts Shoreslate_BP_Shop_MapScripts{}
 
 script ShoreslateShop_Man{
     faceplayer
-    lockall
+    lock
     msgbox(ShoreslateShop_Man_Text, MSGBOX_YESNO)
     if(var(VAR_RESULT) == TRUE){
         msgbox(ShoreslateShop_Man_TextContinued, MSGBOX_NPC)

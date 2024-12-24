@@ -30,7 +30,7 @@ script ClearShinyFlag{
 }
 
 script Route6_HoneyTree{
-    lockall
+    lock
     checkitem(ITEM_HONEY, 1)
     if(var(VAR_RESULT) == TRUE)
     {

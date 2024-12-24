@@ -257,7 +257,7 @@ HideGhosts::
 
 
 EventScript_FallDownDrisledgeGym::
-	lockall
+	lock
 	delay 20
 	applymovement OBJ_EVENT_ID_PLAYER, SootopolisCity_Gym_1F_Movement_FallThroughIce
 	waitmovement 0

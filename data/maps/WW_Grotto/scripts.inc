@@ -28,7 +28,7 @@ WW_Grotto_SetObject_3:
 
 WW_GrottoInteract::
 	faceplayer
-	lockall
+	lock
 	compare VAR_GROTTO_1, 39
 	goto_if_le WW_GrottoInteract_2
 	goto WW_GrottoPokemon
@@ -112,7 +112,7 @@ WW_GrottoItem_11:
 
 
 WW_GrottoPokemon::
-	lockall
+	lock
 	compare VAR_GROTTO_1, 59
 	goto_if_le WW_GrottoPokemon_2
 	compare VAR_GROTTO_1, 79

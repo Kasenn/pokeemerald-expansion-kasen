@@ -3,7 +3,7 @@ Town1House1_MapScripts::
 
 
 Hiscript::
-	lockall
+	lock
 	faceplayer
 	msgbox Neighbour
 	waitmessage

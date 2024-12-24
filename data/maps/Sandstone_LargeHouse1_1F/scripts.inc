@@ -57,7 +57,7 @@ Sandstone_BigHouse1_1F_OldWoman_5:
 
 
 Sandstone_BigHouse1_1F_Youngster::
-	lockall
+	lock
 	faceplayer
 	goto_if_set FLAG_TRADED_SMEARGLE, Sandstone_BigHouse1_1F_Youngster_2
 	setvar VAR_0x8008, INGAME_TRADE_SMEARGLE

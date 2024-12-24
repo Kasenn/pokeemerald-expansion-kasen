@@ -95,7 +95,7 @@ text Shoreslate_Sailor_Text{
     "ocean than on the back of a Pokémon!"
 }
 script Shoreslate_ExpertM{
-    lockall
+    lock
     msgbox(Shoreslate_ExpertM_Text, MSGBOX_DEFAULT)
     waitmessage
     closemessage
@@ -172,7 +172,7 @@ text Shoreslate_Man1_Text{
 
 script Shoreslate_CasteliaGirl{
     faceplayer
-    lockall
+    lock
     msgbox(Shoreslate_CasteliaGirl_Text, MSGBOX_DEFAULT)
     waitmessage
     closemessage
@@ -416,7 +416,7 @@ text NotMoneyForCastelias{
 
 script Shoreslate_DevonExteriorTrigger{
         if(var(VAR_TEMP_6) == 1){
-            lockall
+            lock
             delay(5)
             turnobject(1, DIR_SOUTH)
             delay(5)

@@ -21,7 +21,7 @@ script DesertEntrance{
 }
 
 script ScorchedDesert_TriggerQuakes{
-    lockall
+    lock
     random(9)
     if(flag(FLAG_DESERT_RUINS_OPENED)){
         random(30)
@@ -98,7 +98,7 @@ script ScorchedDesert_TriggerQuakes{
     end
 }
 script ScorchedDesert_FallThroughFloor{
-	lockall
+	lock
 	delay(20)
 	applymovement(OBJ_EVENT_ID_PLAYER, ScorchedDesert_FallThroughFloorMovement)
 	waitmovement(0)
@@ -455,7 +455,7 @@ script Desert_Trainer14_Cooltrainer{
     }
 }
 script Desert_Trainer14_CooltrainerEligibleForBattle{
-    lockall
+    lock
     faceplayer
     if(!flag(FLAG_TEMP_5)){
         setflag(FLAG_TEMP_5)

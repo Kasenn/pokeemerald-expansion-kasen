@@ -41,7 +41,7 @@ script Lab2_Intro{
     safefollow
     applymovement(OBJ_EVENT_ID_PLAYER, Walk6Up)
     waitmovement(0)
-    lockall
+    lock
     msgbox(Lab2_Intro_Speech)
     closemessage
     delay(20)
@@ -83,7 +83,7 @@ script Lab2_DexGet{
     applymovement(OBJ_EVENT_ID_PLAYER, Walk6Up)
     waitmovement(0)
     unlockfollowermovement
-    lockall
+    lock
     if(checkplayergender == MALE){
         msgbox(Lab2_DexTalkMay)
     }
@@ -486,7 +486,7 @@ script Lab_FollowerEvent2{
 script Lab_FollowerEvent{
     safefollow
     unlockfollowermovement
-    lockall
+    lock
     playse(SE_PIN)
     if(flag(FLAG_TEMP_10)){
         turnobject(PROF, DIR_NORTH)

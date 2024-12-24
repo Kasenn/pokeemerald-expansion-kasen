@@ -5,7 +5,7 @@ Shoreslate_House2_MapScripts::
 Shoreslate_Guesser::
 	goto_if_set FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_3
 Shoreslate_Guesser_1:
-	lockall
+	lock
 	faceplayer
 	bufferleadmonspeciesname STR_VAR_1
 	compare VAR_TEMP_1, 0

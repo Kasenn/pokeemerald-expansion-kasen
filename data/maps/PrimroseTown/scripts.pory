@@ -26,7 +26,7 @@ script Primrose_FatMan{
 }
 
 script Primrose_Hiker{
-    lockall
+    lock
     msgbox("I don't like the look of that storm…", MSGBOX_DEFAULT)
     waitmessage
     closemessage

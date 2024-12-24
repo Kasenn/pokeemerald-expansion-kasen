@@ -5,7 +5,7 @@ script Shoreslate_Guesser{
         msgbox(Shoreslate_Starter_OutOfEggs, MSGBOX_NPC)
         end
     }
-    lockall
+    lock
     faceplayer
     bufferleadmonspeciesname(STR_VAR_1)
     // THIS PART IS TO SHORTEN INTRO

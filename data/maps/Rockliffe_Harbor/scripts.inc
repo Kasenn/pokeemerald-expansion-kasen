@@ -15,7 +15,7 @@ RockliffeHarbor_FerryScript::
 
 
 RockliffeHarbor_Attendant::
-	lockall
+	lock
 	faceplayer
 	msgbox RockliffeHarbor_Text_GetAboard, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Harbor_ComeAgain

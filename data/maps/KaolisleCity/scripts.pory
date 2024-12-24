@@ -615,7 +615,7 @@ script KaolisleCity_TuberTalking1{
         msgbox(WasFunGame, MSGBOX_NPC)
         end
     }
-    lockall
+    lock
     faceplayer
     if(flag(FLAG_TEMP_3)){
         msgbox(CareToTryAgain, MSGBOX_DEFAULT)

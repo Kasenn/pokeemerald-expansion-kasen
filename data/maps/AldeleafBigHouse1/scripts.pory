@@ -77,7 +77,7 @@ text AldeleafBigHouse2_Maniac_Text{
 }
 
 script AldeleafBigHouse2_2F_OldWoman{
-    lockall
+    lock
     faceplayer
     if(flag(FLAG_RECEIVED_LAVA_COOKIE)){
         goto(AldeleafBigHouse2_2F_OldWoman2)
@@ -204,7 +204,7 @@ script AldeleafBigHouse3_3F_PokeBall{
         end
     }
     clearflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
-    lockall
+    lock
     msgbox(AldeleafBigHouse3_3F_PokeBall_Text_Sure, MSGBOX_YESNO)
     if(var(VAR_RESULT) == FALSE){
         closemessage

@@ -74,7 +74,7 @@ Shoreslate_Sailor::
 
 
 Shoreslate_ExpertM::
-	lockall
+	lock
 	msgbox Shoreslate_ExpertM_Text, MSGBOX_DEFAULT
 	waitmessage
 	closemessage
@@ -114,7 +114,7 @@ Shoreslate_Man1::
 
 Shoreslate_CasteliaGirl::
 	faceplayer
-	lockall
+	lock
 	msgbox Shoreslate_CasteliaGirl_Text, MSGBOX_DEFAULT
 	waitmessage
 	closemessage
@@ -333,7 +333,7 @@ Shoreslate_DevonExteriorTrigger::
 	end
 
 Shoreslate_DevonExteriorTrigger_2:
-	lockall
+	lock
 	delay 5
 	turnobject 1, DIR_SOUTH
 	delay 5

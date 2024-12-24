@@ -315,7 +315,7 @@ text R11Tr12_Lose{
 }
 text R11Tr12_PostBattle{
     "I would like to circle the globe once\n"
-    "again with my POKéMON."
+    "again with my Pokémon."
 }
 script Route11_Tr13_Psychic_F {
     trainerbattle_single(TRAINER_R11_TR13_PSYCHIC_F, R11Tr13_Intro, R11Tr13_Lose, IncreaseR11Var)
@@ -352,7 +352,7 @@ script Route11_Tr14_Acetrainer_F {
 }
 
 script R11_Ace_EligibleForBattle{
-    lockall
+    lock
     faceplayer
     if(defeated(TRAINER_R11_TR14_ACETRAINER_F)){
         goto(R11_Ace_PostBattleScript)

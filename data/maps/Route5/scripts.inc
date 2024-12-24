@@ -204,7 +204,7 @@ Route5_Trainer15_CoolTrainer_30:
 
 
 Route5_CoolTrainerEligibleForBattle::
-	lockall
+	lock
 	faceplayer
 	goto_if_unset FLAG_TEMP_2, Route5_CoolTrainerEligibleForBattle_2
 	msgbox Route5_CoolTrainer_ReadyForBattleShort, MSGBOX_YESNO

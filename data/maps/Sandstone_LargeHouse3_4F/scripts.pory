@@ -3,7 +3,7 @@ mapscripts Sandstone_LargeHouse3_4F_MapScripts {
 }
 
 script DevFight{
-    lockall
+    lock
     faceplayer
     if(defeated(TRAINER_KASEN)){
         if(!flag(FLAG_DEV_REWARD)){
@@ -262,7 +262,7 @@ text SandstoneLargehouse3_Hiker_Text{
 }
 
 script SandstoneLargehouse3_Book{
-    lockall
+    lock
     msgbox(SL3_Book_Intro, MSGBOX_YESNO)
     if(var(VAR_RESULT) == TRUE){
         msgbox(SL3_Book_Part1, MSGBOX_YESNO)

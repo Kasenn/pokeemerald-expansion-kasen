@@ -29,7 +29,7 @@ ROUTE15_Grotto_SetObject_4:
 
 ROUTE15_GrottoInteract::
 	faceplayer
-	lockall
+	lock
 	compare VAR_GROTTO_4, 39
 	goto_if_le ROUTE15_GrottoInteract_2
 	goto ROUTE15_GrottoPokemon
@@ -113,7 +113,7 @@ ROUTE15_GrottoItem_11:
 
 
 ROUTE15_GrottoPokemon::
-	lockall
+	lock
 	compare VAR_GROTTO_4, 59
 	goto_if_le ROUTE15_GrottoPokemon_2
 	compare VAR_GROTTO_4, 79

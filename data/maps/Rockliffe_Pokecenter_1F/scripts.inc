@@ -19,7 +19,7 @@ RockliffePokeCenter1F_EventScript_Nurse::
 
 
 RockliffePokeCenter1F_Man::
-	lockall
+	lock
 	msgbox RockliffePokeCenter1F_Man_Text, MSGBOX_DEFAULT
 	release
 	end

@@ -21,7 +21,7 @@ ElevatorBlock_2:
 
 
 CoralGrove_ElevatorEmployee::
-	lockall
+	lock
 	faceplayer
 	msgbox CoralGrove_ElevatorEmployee_Text_0, MSGBOX_NPC
 	waitmessage

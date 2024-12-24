@@ -42,7 +42,7 @@ ClearShinyFlag_2:
 
 
 Route6_HoneyTree::
-	lockall
+	lock
 	checkitem ITEM_HONEY, 1
 	compare VAR_RESULT, TRUE
 	goto_if_eq Route6_HoneyTree_1

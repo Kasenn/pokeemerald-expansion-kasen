@@ -4,7 +4,6 @@ script NotMyNectar{
     lock
     safefollow
     turnobject(1, DIR_NORTH)
-    waitmovement(0)
     delay(10)
     msgbox(NotMyNectar_Text, MSGBOX_NPC)
     waitmessage
@@ -13,6 +12,7 @@ script NotMyNectar{
     waitmovement(0)
     delay(30)
     release
+    end
 }
 
 script NectarManiac{
@@ -30,6 +30,7 @@ script NectarManiac{
             msgbox(NectarManiac_OricorioFound, MSGBOX_NPC)
             setflag(FLAG_ORICORIO_SHOWN_TO_MANIAC)
         }
+        release
 	    end
     }
     msgbox(NectarManiac_GoRightIn, MSGBOX_NPC)

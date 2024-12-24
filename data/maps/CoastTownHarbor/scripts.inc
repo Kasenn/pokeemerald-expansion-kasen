@@ -14,7 +14,7 @@ HarborSetFlags_1:
 
 
 CoastTownHarbor_Attendant::
-	lockall
+	lock
 	faceplayer
 	msgbox CoastTownHarbor_Text_GetAboard, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, CoastTownHarbor_EventScript_ComeAgain
@@ -84,7 +84,7 @@ Movement_FerryDepart3:
 	step_end
 
 CoastTownHarbor_Boy::
-	lockall
+	lock
 	faceplayer
 	msgbox CoastTownHarbor_Boy_Text_0, MSGBOX_NPC
 	waitmessage
@@ -94,7 +94,7 @@ CoastTownHarbor_Boy::
 
 
 CoastTownHarbor_Sailor::
-	lockall
+	lock
 	msgbox CoastTownHarbor_Sailor_Text_0, MSGBOX_DEFAULT
 	waitmessage
 	closemessage

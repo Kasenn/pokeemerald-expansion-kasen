@@ -8,7 +8,7 @@ CheckSafeMovement::
 
 
 ChooseSpellRange::
-	lockall
+	lock
 	message ChooseRange_Text
 	waitmessage
 	dynmultipush ChooseSpellRange_Text_0, 0

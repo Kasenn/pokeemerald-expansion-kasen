@@ -378,10 +378,16 @@ script Debug_Script_1{              // Set team level
     release
     end
     }
-script Debug_Script_2{              // Fix Mon met locations
+script Debug_Script_2{              // 
+    givemon(SPECIES_RILLABOOM, 5)
+    givemon(SPECIES_RILLABOOM, 5)
+    givemon(SPECIES_RILLABOOM, 5)
+    givemon(SPECIES_RILLABOOM, 5)
+    givemon(SPECIES_RILLABOOM, 5)
+    givemon(SPECIES_RILLABOOM, 5)
     return
 }
-script Debug_Script_3{              // Set Route 11 rival fight
+script Debug_Script_3{              // 
     return
 }
 script Debug_Script_4{

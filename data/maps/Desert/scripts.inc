@@ -20,7 +20,7 @@ DesertEntrance::
 
 
 ScorchedDesert_TriggerQuakes::
-	lockall
+	lock
 	random 9
 	goto_if_set FLAG_DESERT_RUINS_OPENED, ScorchedDesert_TriggerQuakes_2
 ScorchedDesert_TriggerQuakes_1:
@@ -119,7 +119,7 @@ ScorchedDesert_TriggerQuakes_12:
 
 
 ScorchedDesert_FallThroughFloor::
-	lockall
+	lock
 	delay 20
 	applymovement OBJ_EVENT_ID_PLAYER, ScorchedDesert_FallThroughFloorMovement
 	waitmovement 0
@@ -311,7 +311,7 @@ Desert_Trainer14_Cooltrainer_2:
 
 
 Desert_Trainer14_CooltrainerEligibleForBattle::
-	lockall
+	lock
 	faceplayer
 	goto_if_unset FLAG_TEMP_5, Desert_Trainer14_CooltrainerEligibleForBattle_2
 	msgbox Desert_Trainer14_Cooltrainer_ReadyForBattleShort, MSGBOX_YESNO

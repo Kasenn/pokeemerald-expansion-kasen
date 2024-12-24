@@ -4,7 +4,7 @@ script AldeleafSmallHouse1_Man{
     if(flag(FLAG_WHITEFLUTE_RECEIVED)){
         goto(AldeleafSmallHouse1_Man2)
     }
-    lockall
+    lock
     faceplayer
     msgbox(AldeleafSmallHouse1_Man_Text, MSGBOX_DEFAULT)
     if(checkitemspace(ITEM_BLACK_FLUTE) == FALSE){

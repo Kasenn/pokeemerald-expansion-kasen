@@ -4123,11 +4123,11 @@ u8 IsRunningFromBattleImpossible(u32 battler)
 
     gPotentialItemEffectBattler = battler;
 
-    if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE) // Cannot ever run from saving Birch's battle.
-    {
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DONT_LEAVE_BIRCH;
-        return BATTLE_RUN_FORBIDDEN;
-    }
+    // if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE) // Cannot ever run from saving Birch's battle.
+    // {
+    //     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DONT_LEAVE_BIRCH;
+    //     return BATTLE_RUN_FORBIDDEN;
+    // }
     if (FlagGet(FLAG_SYSTEM_NO_WILD_RUNNING))
         return BATTLE_RUN_FORBIDDEN;
 

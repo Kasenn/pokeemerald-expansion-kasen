@@ -13,7 +13,7 @@ script AldeleafCity_BirdTrainer{
     end
 }
 script AldeleafCity_OldMan{
-	lockall
+	lock
 	msgbox(AldeleafCity_OldMan_Text, MSGBOX_DEFAULT)
 	waitmessage
 	closemessage
@@ -37,7 +37,7 @@ script AldeleafCity_Boy{
 	end
 }
 script AldeleafCity_Maniac{
-	lockall
+	lock
 	faceplayer
 	if(defeated(TRAINER_VITO)){
 		if(flag(FLAG_SHELL_BELL_RECEIVED)){
@@ -64,7 +64,7 @@ script AldeleafCity_Maniac{
 			msgbox(AldeleafCity_Maniac_DeclineBattle, MSGBOX_NPC)
 			end
 		}
-		lockall
+		lock
 		faceplayer
 		msgbox(AldeleafCity_Maniac_Continues, MSGBOX_DEFAULT)
 		if(checkitemspace(ITEM_SHELL_BELL) == FALSE){
@@ -320,7 +320,7 @@ script Aldeleaf_Sudowoodo{
 			goto(Aldeleaf_Sudowoodo_CutDown)
 		}
 	}
-    lockall
+    lock
 	goto_if_unset(FLAG_BADGE02_GET, Aldeleaf_Sudowoodo_NoCut)
 	checkpartymove(MOVE_CUT)
 	if(var(VAR_RESULT) == PARTY_SIZE){

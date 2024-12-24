@@ -66,7 +66,7 @@ PlayerHouse2F_Intro::
 
 
 PlayerHouse2F_ClockReminder::
-	lockall
+	lock
 	msgbox PlayerHouse2F_ClockReminder_Text
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Walk1Left

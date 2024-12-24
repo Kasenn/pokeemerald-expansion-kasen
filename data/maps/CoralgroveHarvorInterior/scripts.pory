@@ -1,7 +1,7 @@
 mapscripts CoralgroveHarvorInterior_MapScripts {}
 
 script CoralgroveHarbor_Attendant{
-    lockall
+    lock
     faceplayer
 	msgbox(CoralgroveHarbor_Text_GetAboard, MSGBOX_YESNO)
 	goto_if_eq(VAR_RESULT, NO, Harbor_ComeAgain)
@@ -18,7 +18,7 @@ text CoralgroveHarbor_Text_GetAboard{
 }
 
 script CoralgroveHarvorInterior_LittleGirl{
-    lockall
+    lock
     faceplayer
     msgbox("What a big ship!\pWish I could ride it but I can't go\nunless my parents are with me…", MSGBOX_NPC)
     waitmessage
@@ -28,7 +28,7 @@ script CoralgroveHarvorInterior_LittleGirl{
 }
 
 script CoralgroveHarvorInterior_Sailor{
-    lockall
+    lock
     faceplayer
     msgbox("This ferry is the only way\nto access the mainland.\pAs such, its maintenance is essential\nand must be carried out without delay.", MSGBOX_NPC)
     waitmessage

@@ -1935,6 +1935,7 @@ extern const u8 gText_Have[];
 extern const u8 gText_DontHave[];
 extern const u8 gText_Take[];
 extern const u8 gText_Mail[];
+extern const u8 gTextSelect[];
 extern const u8 gText_Take2[];
 extern const u8 gText_Read2[];
 extern const u8 gText_Cancel2[];

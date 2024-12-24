@@ -198,7 +198,7 @@ script Route10_Tr1_AceSwimmer {
     }
 }
 script R10_Ace_EligibleForBattle{
-    lockall
+    lock
     faceplayer
     if(!flag(FLAG_TEMP_5)){
         setflag(FLAG_TEMP_5)

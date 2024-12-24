@@ -61,7 +61,7 @@ AldeleafGymSwitch1::
 	end
 
 AldeleafGymSwitch1_1:
-	lockall
+	lock
 	playse SE_SWITCH
 	setmetatile 1, 73, 0x206, FALSE
 	special DrawWholeMapView
@@ -93,7 +93,7 @@ AldeleafGymSwitch2::
 	end
 
 AldeleafGymSwitch2_1:
-	lockall
+	lock
 	playse SE_SWITCH
 	setmetatile 1, 64, 0x206, FALSE
 	special DrawWholeMapView
@@ -125,7 +125,7 @@ AldeleafGymSwitch3::
 	end
 
 AldeleafGymSwitch3_1:
-	lockall
+	lock
 	playse SE_SWITCH
 	setmetatile 1, 55, 0x206, FALSE
 	special DrawWholeMapView
@@ -288,7 +288,7 @@ AldeleafGymFloorTriggered_37:
 
 
 Aldeleaf_Gym_Volkner_Talk::
-	lockall
+	lock
 	faceplayer
 	checktrainerflag TRAINER_LEADER_VOLKNER
 	goto_if 1, Aldeleaf_Gym_Volkner_Talk_2
@@ -308,7 +308,7 @@ Aldeleaf_Gym_Volkner_Talk_2:
 
 
 Aldeleaf_Gym_EventScript_Volkner::
-	lockall
+	lock
 	delay 10
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	turnobject 18, DIR_WEST
@@ -369,7 +369,7 @@ Aldeleaf_Gym_EventScript_GymGuide_2:
 
 
 Aldeleaf_Gym_EventScript_Statue::
-	lockall
+	lock
 	goto_if_set FLAG_BADGE02_GET, Aldeleaf_Gym_EventScript_Statue_2
 	msgbox Aldeleaf_Gym_Text_GymStatue, MSGBOX_SIGN
 Aldeleaf_Gym_EventScript_Statue_1:

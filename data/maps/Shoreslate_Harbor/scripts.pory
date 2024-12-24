@@ -11,7 +11,7 @@ script ShoreslateHarborSetFlags{
 }
 
 script ShoreslateHarbor_Attendant{
-    lockall
+    lock
     faceplayer
     if(!flag(FLAG_HELPED_DEVON_CORP)){
         msgbox(ShoreslateHarbor_BoatJustLeft, MSGBOX_NPC)

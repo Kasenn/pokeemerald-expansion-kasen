@@ -372,6 +372,12 @@ Debug_Script_1_12:
 
 
 Debug_Script_2::
+	givemon SPECIES_RILLABOOM, 5
+	givemon SPECIES_RILLABOOM, 5
+	givemon SPECIES_RILLABOOM, 5
+	givemon SPECIES_RILLABOOM, 5
+	givemon SPECIES_RILLABOOM, 5
+	givemon SPECIES_RILLABOOM, 5
 	return
 
 

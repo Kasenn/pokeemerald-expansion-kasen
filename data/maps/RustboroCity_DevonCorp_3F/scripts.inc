@@ -89,7 +89,7 @@ DevonRocketMove4:
 	step_end
 
 DevonTurnRocket::
-	lockall
+	lock
 	playse SE_PIN
 	turnobject 3, DIR_WEST
 	applymovement 3, Common_Movement_ExclamationMark

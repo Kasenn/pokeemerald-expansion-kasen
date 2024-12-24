@@ -270,7 +270,7 @@ Route3_LassPostBattle::
 
 Route3_ManiacIntro::
 	.string "Y-you want to battle with me?\n"
-	.string "Even though I just caught my POKéMON?$"
+	.string "Even though I just caught my Pokémon?$"
 
 Route3_ManiacDefeated::
 	.string "Y-you're all happy to win?\n"

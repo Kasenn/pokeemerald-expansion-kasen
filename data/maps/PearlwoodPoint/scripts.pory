@@ -93,6 +93,7 @@ script Pearlwood_BrotherFightMain{
     setflag(FLAG_CONTINUE_AFTER_WHITEOUT)
     playbgm(MUS_ENCOUNTER_MALE, FALSE)
     msgbox(Pearlwood_Brother_Intro)
+    setflag(FLAG_FIRST_BATTLE)
     setflag(FLAG_HEAL_AFTER_BATTLE)
     switch(var(VAR_STARTER_MON)){
         case 0:
@@ -129,6 +130,7 @@ text Pearlwood_Brother_Outro{
 
 script PearlwoodWon{
     safefollow
+    clearflag(FLAG_FIRST_BATTLE)
     if(var(VAR_RESULT) == B_OUTCOME_WON){
         if(checkplayergender == MALE){
             bufferstring(STR_VAR_1, "she")
@@ -186,11 +188,11 @@ text BrotherGoodbye{
 }
 
 text PlayerHouse1F_Apology{
-    "{BROTHER}: Sorry about that.\n"
-    "I knew that with my experience it was\l"
-    "going to be an unfair fight.\p"
-    "I hope you don't take that loss\n"
-    "too seriously…\p"
+    "{BROTHER}: Not a bad attempt\n"
+    "for a rookie.\p"
+    "But, with my experience as\n"
+    "a trainer, you'll need to work\l"
+    "hard if you want to beat me.\p"
     "Anyway, have you thought about\n"
     "what you're going to do next?\p"
     "I talked with our neighbor {RIVAL}\n"

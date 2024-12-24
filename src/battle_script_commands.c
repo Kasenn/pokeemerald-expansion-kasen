@@ -2118,7 +2118,7 @@ static void Cmd_adjustdamage(void)
     CMD_ARGS();
 
     u8 holdEffect, param;
-    u32 affectionScore = GetBattlerAffectionHearts(gBattlerTarget);
+    // u32 affectionScore = GetBattlerAffectionHearts(gBattlerTarget);
     u32 rand = Random() % 100;
 
     if (DoesSubstituteBlockMove(gBattlerAttacker, gBattlerTarget, gCurrentMove))
@@ -2161,19 +2161,16 @@ static void Cmd_adjustdamage(void)
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
         gSpecialStatuses[gBattlerTarget].focusSashed = TRUE;
     }
-    else if (B_AFFECTION_MECHANICS == TRUE && GetBattlerSide(gBattlerTarget) == B_SIDE_PLAYER && affectionScore >= AFFECTION_THREE_HEARTS)
+    else if ((gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE) && (GetBattlerSide(gBattlerTarget) == B_SIDE_PLAYER))
     {
-        if ((affectionScore == AFFECTION_FIVE_HEARTS && rand < 20)
-         || (affectionScore == AFFECTION_FOUR_HEARTS && rand < 15)
-         || (affectionScore == AFFECTION_THREE_HEARTS && rand < 10))
-            gSpecialStatuses[gBattlerTarget].affectionEndured = TRUE;
+        gSpecialStatuses[gBattlerTarget].affectionEndured = TRUE;
     }
 
     if (gMovesInfo[gCurrentMove].effect != EFFECT_FALSE_SWIPE
         && !gProtectStructs[gBattlerTarget].endured
         && !gSpecialStatuses[gBattlerTarget].focusBanded
         && !gSpecialStatuses[gBattlerTarget].focusSashed
-        && (B_AFFECTION_MECHANICS == FALSE || !gSpecialStatuses[gBattlerTarget].affectionEndured)
+        && !gSpecialStatuses[gBattlerTarget].affectionEndured
         && !gSpecialStatuses[gBattlerTarget].sturdied)
         goto END;
 
@@ -2198,7 +2195,7 @@ static void Cmd_adjustdamage(void)
         gMoveResultFlags |= MOVE_RESULT_STURDIED;
         gLastUsedAbility = ABILITY_STURDY;
     }
-    else if (B_AFFECTION_MECHANICS == TRUE && gSpecialStatuses[gBattlerTarget].affectionEndured)
+    else if (gSpecialStatuses[gBattlerTarget].affectionEndured)
     {
         gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED_AFFECTION;
     }
@@ -2744,7 +2741,7 @@ static void Cmd_resultmessage(void)
             {
                 stringId = STRINGID_BUTITFAILED;
             }
-            else if (B_AFFECTION_MECHANICS == TRUE && (gMoveResultFlags & MOVE_RESULT_FOE_ENDURED_AFFECTION))
+            else if (gMoveResultFlags & MOVE_RESULT_FOE_ENDURED_AFFECTION)
             {
                 gSpecialStatuses[gBattlerTarget].affectionEndured = FALSE;
                 gMoveResultFlags &= ~MOVE_RESULT_FOE_ENDURED_AFFECTION;
@@ -12487,7 +12484,7 @@ static void Cmd_tryKO(void)
                 gMoveResultFlags |= MOVE_RESULT_FOE_HUNG_ON;
                 gLastUsedItem = gBattleMons[gBattlerTarget].item;
             }
-            else if (B_AFFECTION_MECHANICS == TRUE && gSpecialStatuses[gBattlerTarget].affectionEndured)
+            else if (gSpecialStatuses[gBattlerTarget].affectionEndured)
             {
                 gBattleMoveDamage = gBattleMons[gBattlerTarget].hp - 1;
                 gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED_AFFECTION;

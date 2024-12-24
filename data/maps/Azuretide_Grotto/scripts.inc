@@ -29,7 +29,7 @@ Azuretide_Grotto_SetObject_3:
 
 Azuretide_GrottoInteract::
 	faceplayer
-	lockall
+	lock
 	compare VAR_GROTTO_5, 39
 	goto_if_le Azuretide_GrottoInteract_2
 	goto Azuretide_GrottoPokemon

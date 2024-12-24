@@ -41,7 +41,7 @@ text MarigorgePokeCenter1F_Woman_Text{
 }
 
 script MarigorgePokeCenter1F_Abra{
-    lockall
+    lock
     faceplayer
     playmoncry(SPECIES_ABRA, CRY_MODE_ENCOUNTER)
     if(!flag(FLAG_INTRODUCED_TO_TELEPORT)){

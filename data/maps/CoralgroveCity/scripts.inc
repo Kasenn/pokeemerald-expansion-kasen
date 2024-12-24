@@ -17,7 +17,7 @@ CoralHideGhost2::
 
 
 Coralgrove_HauntedHouse::
-	lockall
+	lock
 	goto_if_unset FLAG_0x267_CG_HIDEGHOST, Coralgrove_HauntedHouse_2
 Coralgrove_HauntedHouse_1:
 	msgbox Coralgrove_HauntedHouse_Text_0, MSGBOX_SIGN

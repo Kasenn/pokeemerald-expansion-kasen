@@ -3,7 +3,7 @@ Shoreslate_Mart_MapScripts::
 
 
 Shoreslate_Mart_Secret::
-	lockall
+	lock
 	msgbox Shoreslate_Mart_Secret_Text_Beginning, MSGBOX_YESNO
 	compare VAR_RESULT, TRUE
 	goto_if_eq Shoreslate_Mart_Secret_2

@@ -390,7 +390,7 @@ WeirdCave_TriggerTiles_67:
 	goto WeirdCave_TriggerTiles_66
 
 WeirdCave_TriggerTiles_71:
-	lockall
+	lock
 	setflag FLAG_WEIRDCAVESOLVED
 	setmetatile 6, 5, 0x20B, TRUE
 	setmetatile 7, 5, 0x20C, TRUE

@@ -143,7 +143,7 @@ Route23_Tr12_Acetrainer_20:
 
 
 R23_Ace_EligibleForBattle::
-	lockall
+	lock
 	faceplayer
 	goto_if_unset FLAG_TEMP_5, R23_Ace_EligibleForBattle_2
 	msgbox R23_Ace_ReadyForBattleShort, MSGBOX_YESNO

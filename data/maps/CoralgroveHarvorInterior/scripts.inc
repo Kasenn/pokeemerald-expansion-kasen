@@ -3,7 +3,7 @@ CoralgroveHarvorInterior_MapScripts::
 
 
 CoralgroveHarbor_Attendant::
-	lockall
+	lock
 	faceplayer
 	msgbox CoralgroveHarbor_Text_GetAboard, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Harbor_ComeAgain
@@ -15,7 +15,7 @@ CoralgroveHarbor_Attendant::
 
 
 CoralgroveHarvorInterior_LittleGirl::
-	lockall
+	lock
 	faceplayer
 	msgbox CoralgroveHarvorInterior_LittleGirl_Text_0, MSGBOX_NPC
 	waitmessage
@@ -25,7 +25,7 @@ CoralgroveHarvorInterior_LittleGirl::
 
 
 CoralgroveHarvorInterior_Sailor::
-	lockall
+	lock
 	faceplayer
 	msgbox CoralgroveHarvorInterior_Sailor_Text_0, MSGBOX_NPC
 	waitmessage

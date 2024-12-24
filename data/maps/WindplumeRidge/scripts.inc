@@ -149,7 +149,7 @@ Windplume_Trainer13::
 
 
 Windplume_Trainer14::
-	lockall
+	lock
 	faceplayer
 	trainerbattle_single TRAINER_WPV_TR14_SKYLA, Windplume_Text_Trainer14Intro, Windplume_Text_Trainer14Defeat, Windplume_Event_SkylaDefeated, NO_MUSIC
 	msgbox Windplume_Text_Trainer14PostBattle, MSGBOX_AUTOCLOSE

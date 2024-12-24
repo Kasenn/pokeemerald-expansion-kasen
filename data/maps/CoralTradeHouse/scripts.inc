@@ -82,7 +82,7 @@ CoralgroveTradeSequence_24:
 
 
 CoralgroveDartrixTrade::
-	lockall
+	lock
 	faceplayer
 	goto_if_set FLAG_CORALGROVE_TRADE_COMPLETED, CoralgroveTradeCompleted
 	setvar VAR_0x8008, INGAME_TRADE_QUILLADIN
@@ -107,7 +107,7 @@ CoralgroveDartrixTrade::
 
 
 CoralgroveCombuskenTrade::
-	lockall
+	lock
 	faceplayer
 	goto_if_set FLAG_CORALGROVE_TRADE_COMPLETED, CoralgroveTradeCompleted
 	setvar VAR_0x8008, INGAME_TRADE_TORRACAT
@@ -132,7 +132,7 @@ CoralgroveCombuskenTrade::
 
 
 CoralgrovePrinplupTrade::
-	lockall
+	lock
 	faceplayer
 	goto_if_set FLAG_CORALGROVE_TRADE_COMPLETED, CoralgroveTradeCompleted
 	setvar VAR_0x8008, INGAME_TRADE_MARSHTOMP

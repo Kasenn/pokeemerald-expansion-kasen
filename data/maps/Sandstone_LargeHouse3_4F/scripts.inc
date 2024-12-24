@@ -3,7 +3,7 @@ Sandstone_LargeHouse3_4F_MapScripts::
 
 
 DevFight::
-	lockall
+	lock
 	faceplayer
 	checktrainerflag TRAINER_KASEN
 	goto_if 1, DevFight_2
@@ -170,7 +170,7 @@ SandstoneLargehouse3_Hiker::
 
 
 SandstoneLargehouse3_Book::
-	lockall
+	lock
 	msgbox SL3_Book_Intro, MSGBOX_YESNO
 	compare VAR_RESULT, TRUE
 	goto_if_eq SandstoneLargehouse3_Book_2

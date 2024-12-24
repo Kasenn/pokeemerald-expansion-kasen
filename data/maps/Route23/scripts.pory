@@ -260,7 +260,7 @@ script Route23_Tr12_Acetrainer {
 }
 
 script R23_Ace_EligibleForBattle{
-    lockall
+    lock
     faceplayer
     if(!flag(FLAG_TEMP_5)){
         setflag(FLAG_TEMP_5)

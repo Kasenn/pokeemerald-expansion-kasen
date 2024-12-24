@@ -1,7 +1,7 @@
 mapscripts SchoolHall_MapScripts{}
 
 script SchoolReceptionist{
-    lockall
+    lock
     faceplayer
     msgbox("This is the Pokémon Trainers' School,\na place where many aspiring trainers\lcome to hone their skills.", MSGBOX_NPC)
     waitmessage
@@ -11,7 +11,7 @@ script SchoolReceptionist{
 }
 
 script SchoolOldMan{
-    lockall
+    lock
     faceplayer
     msgbox("While many of the students here are\nyoung, this school will accept\lanyone who's eager to learn.", MSGBOX_NPC)
     waitmessage
@@ -21,7 +21,7 @@ script SchoolOldMan{
 }
 
 script SchoolTeach{
-    lockall
+    lock
     faceplayer
     if(!defeated(TRAINER_ARCHIE) || (!defeated(TRAINER_LEAH)) || (!defeated(TRAINER_DAISY)) || (!defeated(TRAINER_ROSE_1))){
         msgbox("The students in this class room are\npracticing all sorts of strategies.\pIf you can defeat them all,\nI will give you a prize.", MSGBOX_DEFAULT)
@@ -48,7 +48,7 @@ script SchoolTeach{
 }
 
 script SchoolHallGirl3{
-    lockall
+    lock
     faceplayer
     if(!defeated(TRAINER_ARCHIE)){
         msgbox("I'm studying Baton Pass strategies.\nWould you like to have a battle?", MSGBOX_YESNO)
@@ -73,7 +73,7 @@ script SchoolHallGirl3{
 }
 
 script SchoolHallKidM{
-    lockall
+    lock
     faceplayer
     if(!defeated(TRAINER_LEAH)){
         msgbox("I'm studying Toxic strategies.\nWould you like to have a battle?", MSGBOX_YESNO)
@@ -98,7 +98,7 @@ script SchoolHallKidM{
 }
 
 script SchoolHallBoy2{
-    lockall
+    lock
     faceplayer
     if(!defeated(TRAINER_DAISY)){
         msgbox("I'm studying Last Resort strategies.\nWould you like to have a battle?", MSGBOX_YESNO)
@@ -123,7 +123,7 @@ script SchoolHallBoy2{
 }
 
 script SchoolHallGirl2{
-    lockall
+    lock
     faceplayer
     if(!defeated(TRAINER_ROSE_1)){
         msgbox("I'm studying Toxic Heal strategies.\nWould you like to have a battle?", MSGBOX_YESNO)

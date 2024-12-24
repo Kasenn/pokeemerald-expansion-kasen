@@ -164,8 +164,8 @@ static u32 GetAiFlags(u16 trainerId)
             flags = AI_FLAG_SAFARI;
         else if (gBattleTypeFlags & BATTLE_TYPE_ROAMER)
             flags = AI_FLAG_ROAMING;
-        else if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
-            flags = AI_FLAG_FIRST_BATTLE;
+        // else if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
+        //     flags = AI_FLAG_FIRST_BATTLE;
         else if (gBattleTypeFlags & BATTLE_TYPE_FACTORY)
             flags = GetAiScriptsInBattleFactory();
         else if (gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_TRAINER_HILL | BATTLE_TYPE_SECRET_BASE))

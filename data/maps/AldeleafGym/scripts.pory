@@ -51,7 +51,7 @@ script AldeleafGymTriggerFlagClear{
 }
 script AldeleafGymSwitch1{
     if(!flag(FLAG_ALDELEAF_SWITCH1)){
-        lockall
+        lock
         playse(SE_SWITCH)
         setmetatile(1, 73, 0x206, FALSE)
         special(DrawWholeMapView)
@@ -73,7 +73,7 @@ script AldeleafGymSwitch1{
 }
 script AldeleafGymSwitch2{
     if(!flag(FLAG_ALDELEAF_SWITCH2)){
-        lockall
+        lock
         playse(SE_SWITCH)
         setmetatile(1, 64, 0x206, FALSE)
         special(DrawWholeMapView)
@@ -95,7 +95,7 @@ script AldeleafGymSwitch2{
 }
 script AldeleafGymSwitch3{
     if(!flag(FLAG_ALDELEAF_SWITCH3)){
-        lockall
+        lock
         playse(SE_SWITCH)
         setmetatile(1, 55, 0x206, FALSE)
         special(DrawWholeMapView)
@@ -201,7 +201,7 @@ script AldeleafGymFloorTriggered{
     }
 }
 script Aldeleaf_Gym_Volkner_Talk{
-    lockall
+    lock
     faceplayer
     if(defeated(TRAINER_LEADER_VOLKNER)){
 		msgbox(Aldeleaf_Gym_Text_VolknerPostBattle, MSGBOX_DEFAULT)
@@ -218,7 +218,7 @@ script Aldeleaf_Gym_Volkner_Talk{
     end
 }
 script Aldeleaf_Gym_EventScript_Volkner{
-	lockall
+	lock
 	delay(10)
 	turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
 	turnobject(18, DIR_WEST)
@@ -346,7 +346,7 @@ script Aldeleaf_Gym_EventScript_GymGuide{
 	end
 }
 script Aldeleaf_Gym_EventScript_Statue{
-	lockall
+	lock
 	if(flag(FLAG_BADGE02_GET)){
         msgbox(Aldeleaf_Gym_Text_GymStatueCertified, MSGBOX_SIGN)
     }

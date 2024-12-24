@@ -506,7 +506,7 @@ KaolisleCity_TuberChasing2::
 
 KaolisleCity_TuberTalking1::
 	goto_if_set FLAG_OBTAINED_BEACHBALL, KaolisleCity_TuberTalking1_2
-	lockall
+	lock
 	faceplayer
 	goto_if_set FLAG_TEMP_3, KaolisleCity_TuberTalking1_5
 	msgbox KaolisleCity_TuberTalking1_Text, MSGBOX_DEFAULT

@@ -15,7 +15,7 @@ AldeleafCity_BirdTrainer::
 
 
 AldeleafCity_OldMan::
-	lockall
+	lock
 	msgbox AldeleafCity_OldMan_Text, MSGBOX_DEFAULT
 	waitmessage
 	closemessage
@@ -44,7 +44,7 @@ AldeleafCity_Boy::
 
 
 AldeleafCity_Maniac::
-	lockall
+	lock
 	faceplayer
 	checktrainerflag TRAINER_VITO
 	goto_if 1, AldeleafCity_Maniac_1
@@ -71,7 +71,7 @@ AldeleafCity_Maniac_4:
 	end
 
 AldeleafCity_Maniac_7:
-	lockall
+	lock
 	faceplayer
 	msgbox AldeleafCity_Maniac_Continues, MSGBOX_DEFAULT
 	checkitemspace ITEM_SHELL_BELL
@@ -332,7 +332,7 @@ Aldeleaf_Sudowoodo::
 	compare VAR_RESULT, TRUE
 	goto_if_eq Aldeleaf_Sudowoodo_2
 Aldeleaf_Sudowoodo_1:
-	lockall
+	lock
 	goto_if_unset FLAG_BADGE02_GET, Aldeleaf_Sudowoodo_NoCut
 	checkpartymove MOVE_CUT
 	compare VAR_RESULT, PARTY_SIZE

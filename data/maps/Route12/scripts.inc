@@ -116,7 +116,7 @@ Route12_Tr13_Ninjaboy::
 
 
 R12_HoneyTree::
-	lockall
+	lock
 	checkitem ITEM_HONEY, 1
 	compare VAR_RESULT, TRUE
 	goto_if_eq R12_HoneyTree_1

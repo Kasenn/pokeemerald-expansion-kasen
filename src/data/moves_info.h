@@ -4501,7 +4501,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .name = COMPOUND_STRING("Curse"),
         .description = COMPOUND_STRING(
             "A move that functions\n"
-            "differently for GHOSTS."),
+            "differently for ghosts."),
         .effect = EFFECT_CURSE,
         .power = 0,
         .type = B_UPDATED_MOVE_TYPES >= GEN_5 ? TYPE_GHOST : TYPE_MYSTERY,

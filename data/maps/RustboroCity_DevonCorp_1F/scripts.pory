@@ -66,7 +66,7 @@ script RustboroCity_DevonCorp_1F_EventScript_GreeterNew{
     }
     checkitem(ITEM_LETTER)
     if(var(VAR_RESULT) == TRUE){
-        lockall
+        lock
         msgbox(GreeterHandOverLetter, MSGBOX_DEFAULT)
         giveitem(ITEM_GO_GOGGLES)
         setvar(VAR_DESERT_BYPASS, 1)
@@ -350,7 +350,7 @@ text Rustboro_Basement_Scientist4_Text{
 }
 script Rustboro_Basement_Scientist5{
     faceplayer
-    lockall
+    lock
     if(flag(FLAG_BASEMENT_SUPERPOTION)){
         msgbox(BasementPleaseHurry, MSGBOX_NPC)
         end

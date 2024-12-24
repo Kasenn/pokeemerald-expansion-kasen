@@ -41,6 +41,7 @@
 #include "constants/songs.h"
 #include "constants/party_menu.h"
 #include "event_data.h"
+#include "pokemon_icon.h"
 
 #define TAG_SCROLL_ARROW   2100
 #define TAG_ITEM_ICON_BASE 2110
@@ -123,6 +124,7 @@ EWRAM_DATA struct ItemSlot gMartPurchaseHistory[SMARTSHOPPER_NUM_ITEMS] = {0};
 static EWRAM_DATA u16 sScrollOffset = 0;
 static EWRAM_DATA u16 sSelectedRow = 0;
 static EWRAM_DATA u8 sNarrowerText = 0;
+static EWRAM_DATA u8 sShowMonIcons = 0;
 
 static void Task_ShopMenu(u8 taskId);
 static void Task_HandleShopMenuQuit(u8 taskId);
@@ -171,6 +173,9 @@ static void FormatTextByWidth(u8*, s32, u8, const u8*, s16);
 static void BuyMenuStartTutor(u8 taskId);
 static void Task_BuyMenuTutor(u8 taskId);
 static void CB2_InitBuyMenuAfterTutor(void);
+static void DrawPartyMonIcons(void);
+static void TintPartyMonIcons(u16 tm);
+static void DestroyPartyMonIcons(void);
 
 static const struct YesNoFuncTable sShopPurchaseYesNoFuncs =
 {
@@ -389,6 +394,7 @@ static u8 CreateShopMenu(u8 martType)
     int numMenuItems;
 
     LockPlayerFieldControls();
+    sShowMonIcons = 0;
     sMartInfo.martType = martType;
     gSpecialVar_Result = FALSE;
 
@@ -709,6 +715,16 @@ static void BuyMenuSetListEntry(struct ListMenuItem *menuItem, u16 item, u8 *nam
     menuItem->id = item;
 }
 
+static void MoveTutorLoadMonIcons(u32 item)
+{
+    DestroyPartyMonIcons();
+    FillWindowPixelBuffer(WIN_BATTLE_MOVE_DESC, PIXEL_FILL(1));
+    AddTextPrinterParameterized(WIN_BATTLE_MOVE_DESC, FONT_NARROW, gTextSelect, 64, 0, TEXT_SKIP_DRAW, NULL); // adds "PP" text
+    DrawPartyMonIcons();
+    TintPartyMonIcons(item);
+    CopyWindowToVram(WIN_BATTLE_MOVE_DESC, COPYWIN_GFX);
+}
+
 static void MoveTutorLoadMoveInfo(u32 item)
 {
     s32 x;
@@ -718,6 +734,8 @@ static void MoveTutorLoadMoveInfo(u32 item)
     extern const struct TypeInfo gTypesInfo[NUMBER_OF_MON_TYPES];
 
     FillWindowPixelBuffer(WIN_BATTLE_MOVE_DESC, PIXEL_FILL(1));
+
+    AddTextPrinterParameterized(WIN_BATTLE_MOVE_DESC, FONT_NARROW, gTextSelect, 64, 0, TEXT_SKIP_DRAW, NULL); // adds "PP" text
 
     str = gText_MoveRelearnerPower;
     AddTextPrinterParameterized(WIN_BATTLE_MOVE_DESC, FONT_NARROW, str, 0, 0, TEXT_SKIP_DRAW, NULL); // adds "Power" text
@@ -795,7 +813,14 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
 
     if (MARTMOVE && I_MOVE_TUTOR_INFO_BOX == TRUE)
     {
-        MoveTutorLoadMoveInfo(item);
+        if(sShowMonIcons == FALSE)
+        {
+            MoveTutorLoadMoveInfo(item);
+        }
+        else
+        {
+            MoveTutorLoadMonIcons(item);
+        }
     }
     if (sMartInfo.martType != MART_TYPE_MOVE_TUTOR)
     {
@@ -1332,6 +1357,30 @@ static void Task_BuyMenu(u8 taskId)
         ListMenuGetScrollAndRow(tListTaskId, &sShopData->scrollOffset, &sShopData->selectedRow);
         gSpecialVar_Result = FALSE;
 
+        if((MARTMOVE) && (JOY_NEW(SELECT_BUTTON)))
+        {
+            struct ListMenu *list = (void *) gTasks[tListTaskId].data;
+
+            if(sShowMonIcons == FALSE)
+            {
+                sShowMonIcons = TRUE;
+                PlaySE(SE_SELECT);
+                FillWindowPixelBuffer(WIN_BATTLE_MOVE_DESC, PIXEL_FILL(1));
+                AddTextPrinterParameterized(WIN_BATTLE_MOVE_DESC, FONT_NARROW, gTextSelect, 64, 0, TEXT_SKIP_DRAW, NULL); // adds "PP" text
+                DrawPartyMonIcons();
+                TintPartyMonIcons(list->template.items[list->scrollOffset + list->selectedRow].id);
+                CopyWindowToVram(WIN_BATTLE_MOVE_DESC, COPYWIN_GFX);
+            }
+            else
+            {
+                sShowMonIcons = FALSE;
+                PlaySE(SE_SELECT);
+                FillWindowPixelBuffer(WIN_BATTLE_MOVE_DESC, PIXEL_FILL(1));
+                DestroyPartyMonIcons();
+                MoveTutorLoadMoveInfo(list->template.items[list->scrollOffset + list->selectedRow].id);
+            }
+        }
+
         switch (itemId)
         {
         case LIST_NOTHING_CHOSEN:
@@ -1861,5 +1910,114 @@ static void FormatTextByWidth(u8 *result, s32 maxWidth, u8 fontId, const u8 *str
             else
                 ptr++;
         }
+    }
+}
+
+#define sMonIconStill data[3]
+static void SpriteCb_MonIcon(struct Sprite *sprite)
+{
+    if (!sprite->sMonIconStill)
+        UpdateMonIconFrame(sprite);
+}
+#undef sMonIconStill
+
+#define SHOP_MON_ICON_START_X  20
+#define SHOP_MON_ICON_START_Y  51
+#define SHOP_MON_ICON_PADDING  32
+
+
+void LoadMonIconPalettesTintedShop(void)
+{
+    u8 i;
+    for (i = 0; i < ARRAY_COUNT(gMonIconPaletteTable); i++)
+    {
+        LoadSpritePalette(&gMonIconPaletteTable[i]);
+        TintPalette_GrayScale2(&gPlttBufferUnfaded[0x170 + i*16], 16);
+    }
+}
+
+
+static void DrawPartyMonIcons(void)
+{
+    u8 i;
+    u16 species;
+    u8 icon_x = 0;
+    u8 icon_y = 0;
+
+    LoadMonIconPalettesTintedShop();
+
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {
+        //calc icon position (centered)
+        if (gPlayerPartyCount == 1)
+        {
+            icon_x = SHOP_MON_ICON_START_X + SHOP_MON_ICON_PADDING;
+            icon_y = SHOP_MON_ICON_START_Y + SHOP_MON_ICON_PADDING*0.5;
+        }
+        else if (gPlayerPartyCount == 2)
+        {
+            icon_x = i < 2 ? SHOP_MON_ICON_START_X + SHOP_MON_ICON_PADDING*0.5 + SHOP_MON_ICON_PADDING * i : SHOP_MON_ICON_START_X + SHOP_MON_ICON_PADDING*0.5 + SHOP_MON_ICON_PADDING * (i - 2);
+            icon_y = SHOP_MON_ICON_START_Y + SHOP_MON_ICON_PADDING*0.5;
+        }else if (gPlayerPartyCount == 3)
+        {
+            icon_x = i < 3 ? SHOP_MON_ICON_START_X + SHOP_MON_ICON_PADDING * i : SHOP_MON_ICON_START_X + SHOP_MON_ICON_PADDING * (i - 3);
+            icon_y = SHOP_MON_ICON_START_Y + SHOP_MON_ICON_PADDING*0.5;
+        }
+        else if (gPlayerPartyCount == 4)
+        {
+            icon_x = i < 2 ? SHOP_MON_ICON_START_X + SHOP_MON_ICON_PADDING*0.5 + SHOP_MON_ICON_PADDING * i : SHOP_MON_ICON_START_X + SHOP_MON_ICON_PADDING*0.5 + SHOP_MON_ICON_PADDING * (i - 2);
+            icon_y = i < 2 ? SHOP_MON_ICON_START_Y : SHOP_MON_ICON_START_Y + SHOP_MON_ICON_PADDING;
+        }
+        else
+        {
+            icon_x = i < 3 ? SHOP_MON_ICON_START_X + SHOP_MON_ICON_PADDING * i : SHOP_MON_ICON_START_X + SHOP_MON_ICON_PADDING * (i - 3);
+            icon_y = i < 3 ? SHOP_MON_ICON_START_Y : SHOP_MON_ICON_START_Y + SHOP_MON_ICON_PADDING;
+        }
+        //get species
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG);
+
+        //create icon sprite
+        #ifndef POKEMON_EXPANSION
+            gMoveMenuSpriteIdData[i] = CreateMonIcon(species, SpriteCb_MonIcon, icon_x, icon_y, 1, GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY), TRUE);
+        #else
+            gMoveMenuSpriteIdData[i] = CreateMonIcon(species, SpriteCb_MonIcon, icon_x, icon_y, 1, GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY));
+        #endif
+
+        //Set priority, stop movement and save original palette position
+        gSprites[gMoveMenuSpriteIdData[i]].oam.priority = 0;
+        StartSpriteAnim(&gSprites[gMoveMenuSpriteIdData[i]], 4); //full stop
+        gMoveMenuSpriteIdPalette[i] = gSprites[gMoveMenuSpriteIdData[i]].oam.paletteNum; //save correct palette number to array
+    }
+}
+
+static void TintPartyMonIcons(u16 tm)
+{
+    u8 i;
+    u16 species;
+
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG);
+        SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_ALL);
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(7, 11));
+        if (!CanLearnTeachableMove(species, tm)) 
+        {
+            gSprites[gMoveMenuSpriteIdData[i]].oam.objMode = ST_OAM_OBJ_BLEND;
+        }
+        else
+        {
+            gSprites[gMoveMenuSpriteIdData[i]].oam.objMode = ST_OAM_OBJ_NORMAL;//gMonIconPaletteIndices[species];
+        }
+    }
+
+}
+
+static void DestroyPartyMonIcons(void)
+{
+    u8 i;
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {
+        FreeAndDestroyMonIconSprite(&gSprites[gMoveMenuSpriteIdData[i]]);
+        FreeMonIconPalettes();
     }
 }

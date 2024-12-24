@@ -1,7 +1,7 @@
 mapscripts Shoreslate_Mart_MapScripts{}
 
 script Shoreslate_Mart_Secret{
-    lockall
+    lock
     msgbox(Shoreslate_Mart_Secret_Text_Beginning, MSGBOX_YESNO)
     if(var(VAR_RESULT) == TRUE){
         msgbox(Shoreslate_Mart_Secret_Text, MSGBOX_YESNO)

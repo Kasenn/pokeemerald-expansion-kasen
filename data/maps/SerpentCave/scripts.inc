@@ -552,7 +552,7 @@ DoBoulderFourRoll::
 
 
 SerpentCave_MoveFirstBoulder::
-	lockall
+	lock
 	call PushABoulder
 	call DoBoulderOneRoll
 	waitmovement 0

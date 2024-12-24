@@ -67,7 +67,7 @@ script UndergroundSandstormTM{
 }
 
 script UndergroundRuinsFossil{
-    lockall
+    lock
     msgbox(FossilInWall, MSGBOX_YESNO)
     if(var(VAR_RESULT) == FALSE){
         closemessage

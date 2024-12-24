@@ -637,10 +637,15 @@ BattleScript_TeatimeBuffer:
 	goto BattleScript_MoveEnd
 
 BattleScript_AffectionBasedEndurance::
-	playanimation BS_TARGET, B_ANIM_AFFECTION_HANGED_ON
+	pause B_WAIT_TIME_MED
+	@playanimation BS_TARGET, B_ANIM_AFFECTION_HANGED_ON
+	trainerslidein BS_OPPONENT1
+	waitstate
 	printstring STRINGID_TARGETTOUGHEDITOUT
 	waitmessage B_WAIT_TIME_LONG
-	return
+	@setbyte sSWITCH_CASE, B_SWITCH_NORMAL
+	setoutcomeonteleport BS_ATTACKER
+	finishaction
 
 BattleScript_AffectionBasedStatusHeal::
 	jumpifstatus BS_ATTACKER, STATUS1_POISON | STATUS1_TOXIC_POISON, BattleScript_AffectionBasedStatus_HealPoisonString

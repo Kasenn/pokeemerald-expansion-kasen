@@ -43,7 +43,7 @@ AldeleafBigHouse2_Maniac::
 
 
 AldeleafBigHouse2_2F_OldWoman::
-	lockall
+	lock
 	faceplayer
 	goto_if_set FLAG_RECEIVED_LAVA_COOKIE, AldeleafBigHouse2_2F_OldWoman_2
 AldeleafBigHouse2_2F_OldWoman_1:
@@ -137,7 +137,7 @@ AldeleafBigHouse3_Ditto::
 AldeleafBigHouse3_3F_PokeBall::
 	goto_if_unset FLAG_TOUCHPOKEBALL, AldeleafBigHouse3_3F_PokeBall_2
 	clearflag FLAG_SAFE_FOLLOWER_MOVEMENT
-	lockall
+	lock
 	msgbox AldeleafBigHouse3_3F_PokeBall_Text_Sure, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
 	goto_if_eq AldeleafBigHouse3_3F_PokeBall_5

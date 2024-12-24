@@ -88,6 +88,7 @@ Pearlwood_BrotherFightMain_1:
 	setflag FLAG_CONTINUE_AFTER_WHITEOUT
 	playbgm MUS_ENCOUNTER_MALE, FALSE
 	msgbox Pearlwood_Brother_Intro
+	setflag FLAG_FIRST_BATTLE
 	setflag FLAG_HEAL_AFTER_BATTLE
 	switch VAR_STARTER_MON
 	case 0, Pearlwood_BrotherFightMain_7
@@ -116,6 +117,7 @@ Pearlwood_BrotherFightMain_9:
 
 PearlwoodWon::
 	safefollow
+	clearflag FLAG_FIRST_BATTLE
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq PearlwoodWon_2
 	checkplayergender
@@ -238,11 +240,11 @@ BrotherGoodbye::
 	.string "{BROTHER}: Catch ya later!$"
 
 PlayerHouse1F_Apology::
-	.string "{BROTHER}: Sorry about that.\n"
-	.string "I knew that with my experience it was\l"
-	.string "going to be an unfair fight.\p"
-	.string "I hope you don't take that loss\n"
-	.string "too seriously…\p"
+	.string "{BROTHER}: Not a bad attempt\n"
+	.string "for a rookie.\p"
+	.string "But, with my experience as\n"
+	.string "a trainer, you'll need to work\l"
+	.string "hard if you want to beat me.\p"
 	.string "Anyway, have you thought about\n"
 	.string "what you're going to do next?\p"
 	.string "I talked with our neighbor {RIVAL}\n"

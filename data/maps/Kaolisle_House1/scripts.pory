@@ -6,7 +6,7 @@ script Kaolisle_Pianist{
         end
     }
     if(flag(FLAG_KAOLISLE_PLAYINGPIANO)){
-        lockall
+        lock
         special(CalcCyclingRoadChallenge)
         if(var(VAR_RESULT) <= 11){
             msgbox(BetterNotDisturb, MSGBOX_DEFAULT)
@@ -28,7 +28,7 @@ script Kaolisle_Pianist{
             end
         }
     }
-    lockall
+    lock
     faceplayer
     msgbox(ListenToMePlay, MSGBOX_YESNO)
     if(var(VAR_RESULT) == FALSE){
