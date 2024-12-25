@@ -2483,6 +2483,8 @@ void RemoveFollowingPokemon(void)
 // Determine whether follower *should* be visible
 bool32 IsFollowerVisible(void)
 {
+    if(FlagGet(FLAG_TEMP_HIDE_FOLLOWER))
+        return FALSE;
     return !(TestPlayerAvatarFlags(FOLLOWER_INVISIBLE_FLAGS)
             || MetatileBehavior_IsSurfableWaterOrUnderwater(gObjectEvents[gPlayerAvatar.objectEventId].previousMetatileBehavior)
             || MetatileBehavior_IsForcedMovementTile(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior));

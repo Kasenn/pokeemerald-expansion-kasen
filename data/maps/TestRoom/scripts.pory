@@ -1,13 +1,28 @@
 mapscripts TestRoom_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION: SetTestFlag
+    // MAP_SCRIPT_ON_TRANSITION{
+    //     callnative(UpdateFollowingPokemon)
+    //     setobjectxy(OBJ_EVENT_ID_FOLLOWER, 6, 25)
+    //     showobjectat(OBJ_EVENT_ID_FOLLOWER, MAP_TEST_ROOM)
+    // }
+    // MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
+    //     VAR_TEMP_0, 0: TestFollowerMacro
+    // ]
     // MAP_SCRIPT_ON_FRAME_TABLE[
-    //     VAR_TEMP_0, 1: DoBoulderCheck
+    //     VAR_TEMP_0, 0: TestFollowerMacro
     // ]
 }
 
 const X = VAR_0x8001
 const Y = VAR_0x8002
 
+script TestFollowerMacro{
+    // callnative(UpdateFollowingPokemon)
+    setobjectxy(OBJ_EVENT_ID_FOLLOWER, 6, 25)
+    showobjectat(OBJ_EVENT_ID_FOLLOWER, MAP_TEST_ROOM)
+    turnobject(OBJ_EVENT_ID_FOLLOWER, DIR_SOUTH)
+    setvar(VAR_TEMP_0, 1)
+    release
+}
 script DoBoulderCheck{
     getobjectxy(4)
     if(var(Y) != 25){
@@ -373,3 +388,13 @@ script MainReflectionTrigger{
 //     }
 //     return
 // }
+
+script TestFollowerDespawning{
+    setflag(FLAG_TEMP_HIDE_FOLLOWER)
+    release
+}
+
+script TestFollowerSpawning{
+    clearflag(FLAG_TEMP_HIDE_FOLLOWER)
+    release
+}

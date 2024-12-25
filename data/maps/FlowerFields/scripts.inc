@@ -231,6 +231,7 @@ FlowerFields_Granbull_2:
 	msgbox WantToBattleGranbull, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
 	goto_if_eq FlowerFields_Granbull_10
+	closemessage
 	goto_if_set FLAG_BADGE05_GET, FlowerFields_Granbull_13
 	goto_if_set FLAG_BADGE04_GET, FlowerFields_Granbull_14
 	goto_if_set FLAG_BADGE03_GET, FlowerFields_Granbull_15

@@ -89,7 +89,7 @@ Kaolisle_Karatemaster_5:
 Kaolisle_SphealHouseLady::
 	faceplayer
 	msgbox Kaolisle_SphealHouseLady_Text, MSGBOX_DEFAULT
-	closemessage
+	release
 	end
 
 

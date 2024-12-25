@@ -150,7 +150,7 @@ text RockSmashMonComesOut_Text{
 script Kaolisle_SphealHouseLady{
     faceplayer
     msgbox(Kaolisle_SphealHouseLady_Text, MSGBOX_DEFAULT)
-    closemessage
+    release
     end
 }
 text Kaolisle_SphealHouseLady_Text{

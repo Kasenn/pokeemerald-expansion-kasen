@@ -160,7 +160,7 @@ script Route5_Sign2{
 text Route5_Sign2_Text{
     "{UP_ARROW} Aldeleaf City\n"
     "{RIGHT_ARROW} Flower Fields\l"
-    "{DOWN_ARROW} Skyloch Town"
+    "{DOWN_ARROW} Skyloch Village"
 }
 
 script Route7_Sign{

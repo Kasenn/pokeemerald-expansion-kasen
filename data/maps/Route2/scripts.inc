@@ -213,7 +213,7 @@ Route5_Sign_Text::
 Route5_Sign2_Text::
 	.string "{UP_ARROW} Aldeleaf City\n"
 	.string "{RIGHT_ARROW} Flower Fields\l"
-	.string "{DOWN_ARROW} Skyloch Town$"
+	.string "{DOWN_ARROW} Skyloch Village$"
 
 Route7_Sign_Text::
 	.string "Trainer Tips\p"

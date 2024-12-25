@@ -388,6 +388,15 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{              // 
+    applymovement(0xff, moves(face_left))
+    waitmovement(0)
+    callnative(UpdateFollowingPokemon)
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    addvar(VAR_TEMP_0, 1)
+    setobjectxy(OBJ_EVENT_ID_FOLLOWER, VAR_TEMP_0, VAR_TEMP_1)
+    applymovement(OBJ_EVENT_ID_FOLLOWER, moves(exit_pokeball, set_visible))
+    applymovement(0xff, moves(unlock_anim, face_down))
+    waitmovement(OBJ_EVENT_ID_FOLLOWER)
     return
 }
 script Debug_Script_4{

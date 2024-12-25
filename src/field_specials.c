@@ -1376,24 +1376,7 @@ u16 GetSlotMachineId(void)
         SLOT_MACHINE_LUCKIER,
         SLOT_MACHINE_LUCKIEST
     };
-    // static const u8 sSlotMachineServiceDayIds[SLOT_MACHINE_COUNT] = {
-    //     SLOT_MACHINE_LUCKY,
-    //     SLOT_MACHINE_LUCKY,
-    //     SLOT_MACHINE_LUCKY,
-    //     SLOT_MACHINE_LUCKY,
-    //     SLOT_MACHINE_LUCKY,
-    //     SLOT_MACHINE_LUCKY,
-    //     SLOT_MACHINE_LUCKIER,
-    //     SLOT_MACHINE_LUCKIER,
-    //     SLOT_MACHINE_LUCKIER,
-    //     SLOT_MACHINE_LUCKIER,
-    //     SLOT_MACHINE_LUCKIEST,
-    //     SLOT_MACHINE_LUCKIEST
-    // };
 
-    // u32 rnd = gSaveBlock1Ptr->dewfordTrends[0].trendiness + gSaveBlock1Ptr->dewfordTrends[0].rand + sSlotMachineRandomSeeds[gSpecialVar_0x8004];
-    // if (IsPokeNewsActive(POKENEWS_GAME_CORNER))
-    //     return sSlotMachineServiceDayIds[rnd % SLOT_MACHINE_COUNT];
     u32 rnd = Random();
 
     return sSlotMachineIds[rnd % SLOT_MACHINE_COUNT];

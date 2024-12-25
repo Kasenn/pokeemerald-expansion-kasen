@@ -382,6 +382,15 @@ Debug_Script_2::
 
 
 Debug_Script_3::
+	applymovement 0xff, Debug_Script_3_Movement_0
+	waitmovement 0
+	callnative UpdateFollowingPokemon
+	getplayerxy VAR_TEMP_0, VAR_TEMP_1
+	addvar VAR_TEMP_0, 1
+	setobjectxy OBJ_EVENT_ID_FOLLOWER, VAR_TEMP_0, VAR_TEMP_1
+	applymovement OBJ_EVENT_ID_FOLLOWER, Debug_Script_3_Movement_1
+	applymovement 0xff, Debug_Script_3_Movement_2
+	waitmovement OBJ_EVENT_ID_FOLLOWER
 	return
 
 
@@ -404,6 +413,20 @@ Debug_Script_7::
 Debug_Script_8::
 	return
 
+
+Debug_Script_3_Movement_0:
+	face_left
+	step_end
+
+Debug_Script_3_Movement_1:
+	exit_pokeball
+	set_visible
+	step_end
+
+Debug_Script_3_Movement_2:
+	unlock_anim
+	face_down
+	step_end
 
 Debug_Script_1_Text_0:
 	.string "Gym 1 (lvl 14)$"

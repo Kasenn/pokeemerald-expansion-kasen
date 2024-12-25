@@ -1,6 +1,14 @@
 TestRoom_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, SetTestFlag
 	.byte 0
+
+
+TestFollowerMacro::
+	setobjectxy OBJ_EVENT_ID_FOLLOWER, 6, 25
+	showobjectat OBJ_EVENT_ID_FOLLOWER, MAP_TEST_ROOM
+	turnobject OBJ_EVENT_ID_FOLLOWER, DIR_SOUTH
+	setvar VAR_TEMP_0, 1
+	release
+	return
 
 
 DoBoulderCheck::
@@ -392,6 +400,18 @@ MainReflectionTrigger_12:
 MainReflectionTrigger_13:
 	setobjectxy 37, 15, 16
 	goto MainReflectionTrigger_1
+
+
+TestFollowerDespawning::
+	setflag FLAG_TEMP_HIDE_FOLLOWER
+	release
+	return
+
+
+TestFollowerSpawning::
+	clearflag FLAG_TEMP_HIDE_FOLLOWER
+	release
+	return
 
 
 TestMovementScript_Text_0:
