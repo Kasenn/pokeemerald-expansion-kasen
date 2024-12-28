@@ -5934,7 +5934,7 @@
     {
       "id": "LAYOUT_SANDSTONE_SMALL_HOUSE4",
       "name": "Sandstone_SmallHouse4_Layout",
-      "width": 8,
+      "width": 10,
       "height": 8,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
@@ -7160,6 +7160,16 @@
       "secondary_tileset": "gTileset_Mossdeep2",
       "border_filepath": "data/layouts/Route16_NoCurrents/border.bin",
       "blockdata_filepath": "data/layouts/Route16_NoCurrents/map.bin"
+    },
+    {
+      "id": "LAYOUT_PRIMROSE_TOWN_COPY",
+      "name": "PrimroseTown_Copy_Layout",
+      "width": 37,
+      "height": 30,
+      "primary_tileset": "gTileset_Pearlwood",
+      "secondary_tileset": "gTileset_Pearlwood_PRIMROSEFLOWERS",
+      "border_filepath": "data/layouts/PrimroseTown_Copy/border.bin",
+      "blockdata_filepath": "data/layouts/PrimroseTown_Copy/map.bin"
     }
   ]
 }

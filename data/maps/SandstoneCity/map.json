@@ -446,6 +446,14 @@
       "elevation": 0,
       "item": "ITEM_MAX_POTION",
       "flag": "FLAG_SANDSTONE_HIDDENITEM_2"
+    },
+    {
+      "type": "sign",
+      "x": 34,
+      "y": 22,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SlateportCity_EventScript_NameRatersHouseSign"
     }
   ]
 }

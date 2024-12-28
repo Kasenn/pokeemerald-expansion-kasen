@@ -32,7 +32,7 @@ script DrisledgeMart_Box{
     gettime
     copyvar(VAR_TEMP_0, VAR_0x8000)
     // setvar(VAR_TEMP_0, 4) //debug
-    if(var(VAR_TEMP_0) <= 6 || var(VAR_TEMP_0) >= 18){
+    if((var(VAR_TEMP_0) <= 6 || var(VAR_TEMP_0) >= 18) || checkitem(ITEM_ZYGARDE_CUBE) == TRUE){
         if(var(VAR_TEMP_1) == 0){
             setvar(VAR_TEMP_1, 1)
             clearflag(FLAG_TEMP_1)

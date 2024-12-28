@@ -6,6 +6,7 @@ script DevonCorpTrigger1{
         end
     }
     safefollow
+    unlockfollowermovement
     call(DevonTurnRocket)
     setvar(VAR_TEMP_2, 1)
     applymovement(3, DevonRocketMove1)
@@ -17,6 +18,7 @@ script DevonCorpTrigger2{
         end
     }
     safefollow
+    unlockfollowermovement
     call(DevonTurnRocket)
     setvar(VAR_TEMP_2, 2)
     applymovement(3, DevonRocketMove2)
@@ -28,6 +30,7 @@ script DevonCorpTrigger3{
         end
     }
     safefollow
+    unlockfollowermovement
     call(DevonTurnRocket)
     setvar(VAR_TEMP_2, 3)
     applymovement(3, DevonRocketMove3)
@@ -39,6 +42,7 @@ script DevonCorpTrigger4{
         end
     }
     safefollow
+    unlockfollowermovement
     call(DevonTurnRocket)
     setvar(VAR_TEMP_2, 4)
     applymovement(3, DevonRocketMove4)
@@ -65,7 +69,6 @@ movement DevonRocketMove4{
     walk_left
 }
 script DevonTurnRocket{
-    lock
     playse(SE_PIN)
     turnobject(3, DIR_WEST)
     applymovement(3, Common_Movement_ExclamationMark)
@@ -79,6 +82,7 @@ script DevonCorpRocketMainEvent{
     msgbox(DevonProtonBeforeBattle, MSGBOX_DEFAULT)
     closemessage
     trainerbattle_no_intro(TRAINER_DC3F_ROCKET_PROTON, DevonProtonDefeatText)
+    release
     msgbox(DevonProtonPostBattle, MSGBOX_DEFAULT)
     closemessage
     fadescreen(FADE_TO_BLACK)

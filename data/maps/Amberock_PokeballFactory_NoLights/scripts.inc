@@ -23,12 +23,14 @@ Amberock_PokeballFactory_NoLights_MapScripts_MAP_SCRIPT_ON_TRANSITION_4:
 
 
 BlindRocket1::
-	msgbox BlindRocket1_Text, MSGBOX_NPC
+	msgbox BlindRocket1_Text
+	release
 	return
 
 
 BlindRocket2::
-	msgbox BlindRocket2_Text, MSGBOX_NPC
+	msgbox BlindRocket2_Text
+	release
 	return
 
 
@@ -42,7 +44,7 @@ BlindRocket4::
 	faceplayer
 	message BlindRocket4_Text
 	waitmessage
-	dynmultichoice 23, 0, TRUE, 2, 0, 0, BlindRocket4_Text_0, BlindRocket4_Text_1
+	dynmultichoice 23, 8, TRUE, 2, 0, 0, BlindRocket4_Text_0, BlindRocket4_Text_1
 	compare VAR_RESULT, 0
 	goto_if_eq BlindRocket4_1
 	msgbox BlindRocket4_Foe, MSGBOX_NPC

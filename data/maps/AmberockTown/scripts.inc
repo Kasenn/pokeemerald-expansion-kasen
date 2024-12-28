@@ -618,6 +618,7 @@ Amberock_SurfScientist::
 	giveitem ITEM_HM03
 	msgbox GoGetBackPapers
 	closemessage
+	safefollow
 	compare VAR_FACING, DIR_SOUTH
 	goto_if_eq Amberock_SurfScientist_2
 	applymovement 1, ScientistLeavesStraight
@@ -631,18 +632,18 @@ Amberock_SurfScientist_1:
 Amberock_SurfScientist_2:
 	getfollowerxy VAR_TEMP_1, VAR_TEMP_2
 	compare VAR_TEMP_1, 64
-	goto_if_ne Amberock_SurfScientist_7
+	goto_if_eq Amberock_SurfScientist_7
 Amberock_SurfScientist_5:
 	applymovement 1, ScientistLeavesDetour
 	goto Amberock_SurfScientist_1
 
 Amberock_SurfScientist_6:
-	safefollow
+	clearflag FLAG_SAFE_FOLLOWER_MOVEMENT
 	goto Amberock_SurfScientist_5
 
 Amberock_SurfScientist_7:
 	compare VAR_TEMP_2, 10
-	goto_if_ne Amberock_SurfScientist_6
+	goto_if_eq Amberock_SurfScientist_6
 	goto Amberock_SurfScientist_5
 
 
@@ -760,7 +761,7 @@ Amberock_Papers_7:
 	goto_if_eq Amberock_Papers_20
 Amberock_Papers_18:
 	setobjectxy 31, 28, 4
-	applymovement 1, Walk5Down
+	applymovement 1, Walk6Down
 	goto Amberock_Papers_4
 
 Amberock_Papers_8:
@@ -820,7 +821,7 @@ Amberock_Papers_35:
 
 Amberock_Papers_36:
 	setobjectxy 32, 28, 4
-	applymovement 2, Walk5Down
+	applymovement 2, Walk6Down
 	goto Amberock_Papers_33
 
 Amberock_Papers_37:
@@ -854,6 +855,7 @@ MoveScientist1:
 	walk_down
 	walk_left
 	walk_left
+	walk_down
 	walk_down
 	walk_down
 	walk_down
@@ -1026,7 +1028,7 @@ Amberock_AcerolaEvent_2:
 	goto Amberock_AcerolaEvent_1
 
 Amberock_AcerolaEvent_5:
-	setobjectxyperm 31, 33, 11
+	setobjectxyperm 1, 63, 11
 	clearflag FLAG_TEMP_2
 	goto Amberock_AcerolaEvent_4
 

@@ -7916,10 +7916,15 @@ static u32 GetTrainerMoneyToGive(u16 trainerId)
     u32 lastMonLevel = 0;
     u32 moneyReward;
     u8 trainerMoney = 0;
+    u32 trainerClass = GetTrainerClassFromId(gTrainerBattleOpponent_A);
 
     if (trainerId == TRAINER_SECRET_BASE)
     {
         moneyReward = 20 * gBattleResources->secretBase->party.levels[0] * gBattleStruct->moneyMultiplier;
+    }
+    else if (trainerClass == TRAINER_CLASS_NURSE)
+    {
+        moneyReward = 0;
     }
     else
     {

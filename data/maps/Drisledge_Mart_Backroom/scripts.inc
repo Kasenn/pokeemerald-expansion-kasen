@@ -54,6 +54,9 @@ DrisledgeMart_Box::
 	goto_if_le DrisledgeMart_Box_4
 	compare VAR_TEMP_0, 18
 	goto_if_ge DrisledgeMart_Box_4
+	checkitem ITEM_ZYGARDE_CUBE
+	compare VAR_RESULT, TRUE
+	goto_if_eq DrisledgeMart_Box_4
 	return
 
 DrisledgeMart_Box_2:
@@ -61,10 +64,10 @@ DrisledgeMart_Box_2:
 
 DrisledgeMart_Box_4:
 	compare VAR_TEMP_1, 0
-	goto_if_eq DrisledgeMart_Box_8
+	goto_if_eq DrisledgeMart_Box_10
 	return
 
-DrisledgeMart_Box_8:
+DrisledgeMart_Box_10:
 	setvar VAR_TEMP_1, 1
 	clearflag FLAG_TEMP_1
 	return

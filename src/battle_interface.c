@@ -1200,9 +1200,9 @@ static void UpdateHpTextInHealthboxInDoubles(u32 healthboxSpriteId, u32 maxOrCur
     {
         if (gBattleSpritesDataPtr->battlerData[gSprites[healthboxSpriteId].data[6]].hpNumbersNoBars) // don't print text if only bars are visible
         {
-            // PrintHpOnHealthbox(barSpriteId, currHp, maxHp, 0, 0x80, 0x20);
-            UpdateOpponentHpTextDoubles(healthboxSpriteId, barSpriteId, maxHp, HP_MAX);
-            UpdateOpponentHpTextDoubles(healthboxSpriteId, barSpriteId, currHp, HP_CURRENT);
+            PrintHpOnHealthbox(barSpriteId, currHp, maxHp, 0, 0x80, 0x20);
+            // UpdateOpponentHpTextDoubles(healthboxSpriteId, barSpriteId, maxHp, HP_MAX);
+            // UpdateOpponentHpTextDoubles(healthboxSpriteId, barSpriteId, currHp, HP_CURRENT);
             // Clears the end of the healthbar gfx.
             CpuCopy32(GetHealthboxElementGfxPtr(HEALTHBOX_GFX_FRAME_END),
                           (void *)(OBJ_VRAM0 + 0x680) + (gSprites[healthboxSpriteId].oam.tileNum * TILE_SIZE_4BPP),

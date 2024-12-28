@@ -1098,7 +1098,7 @@ const struct Tileset gTileset_Amberock =
     .palettes = gTilesetPalettes_Amberock,
     .metatiles = gMetatiles_Amberock,
     .metatileAttributes = gMetatileAttributes_Amberock,
-    .callback = NULL,
+    .callback = InitTilesetAnim_Amberock,
 };
 
 const struct Tileset gTileset_TestRoom =

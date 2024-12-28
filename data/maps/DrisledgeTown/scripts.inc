@@ -27,6 +27,9 @@ DrisledgeTownOnTransition_1:
 	goto_if_le DrisledgeTownOnTransition_3
 	compare VAR_TEMP_0, 18
 	goto_if_ge DrisledgeTownOnTransition_3
+	checkitem ITEM_ZYGARDE_CUBE
+	compare VAR_RESULT, TRUE
+	goto_if_eq DrisledgeTownOnTransition_3
 	setmaplayoutindex LAYOUT_DRISLEDGE_TOWN_BROKEN
 	return
 
@@ -43,6 +46,10 @@ SetDrisledgeNPCs_1:
 	compare VAR_DRISLEDGE_TOWN_STATE, 30
 	goto_if_ge SetDrisledgeNPCs_6
 SetDrisledgeNPCs_4:
+	checkitem ITEM_ZYGARDE_CUBE
+	compare VAR_RESULT, TRUE
+	goto_if_eq SetDrisledgeNPCs_12
+SetDrisledgeNPCs_11:
 	return
 
 SetDrisledgeNPCs_2:
@@ -59,6 +66,10 @@ SetDrisledgeNPCs_6:
 	compare VAR_TEMP_0, 18
 	goto_if_ge SetDrisledgeNPCs_5
 	goto SetDrisledgeNPCs_4
+
+SetDrisledgeNPCs_12:
+	clearflag FLAG_TEMP_2
+	goto SetDrisledgeNPCs_11
 
 
 SetUpBrokenDrisledge::
@@ -190,6 +201,9 @@ SetUpDrisledgeHouses::
 SetDrisledgeGym::
 	compare VAR_DRISLEDGE_TOWN_STATE, 30
 	goto_if_ge SetDrisledgeGym_2
+	checkitem ITEM_ZYGARDE_CUBE
+	compare VAR_RESULT, 0
+	goto_if_ne SetDrisledgeGym_2
 	setdynamicwarp MAP_DRISLEDGE_GYM, 5, 51
 SetDrisledgeGym_1:
 	return

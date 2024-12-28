@@ -101,7 +101,14 @@ text Factory_Office_Rocket3_PostBat{
 }
 script Factory_Office_Papers{
     msgbox(PapersOnTable)
-    finditem(ITEM_RESEARCH_PAPERS)
+	waitse
+    playfanfare(MUS_OBTAIN_ITEM)
+	removeobject(VAR_LAST_TALKED)
+    message(PlayerPickedResearchPapers)
+	delay(10)
+	waitfanfare
+	waitmessage
+	msgbox(PlayerPutResearchPapersInBag)
     removeobjectbyflag(FLAG_TEMP_2)
     setmetatile(13, 7, 0x3AB, TRUE)
     setmetatile(14, 7, 0x3AC, TRUE)
@@ -110,6 +117,13 @@ script Factory_Office_Papers{
     special(DrawWholeMapView)
     setvar(VAR_AMBEROCK_STORY, STORY_AMBEROCK_OBTAINED_RESEARCH)
     release
+}
+text PlayerPickedResearchPapers{
+    "{PLAYER} found Research Papers!"
+}
+text PlayerPutResearchPapersInBag{
+    "{PLAYER} put away the Research Papers\n"
+    "in the Key Items pocket."
 }
 text PapersOnTable{
     "These look like they could be\n"

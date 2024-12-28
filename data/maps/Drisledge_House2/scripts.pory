@@ -14,7 +14,11 @@ script DrisHouse2_FlagControl{
             clearflag(FLAG_TEMP_2)
         }
     }
-
+    if(checkitem(ITEM_ZYGARDE_CUBE) == TRUE){
+        setweather(WEATHER_SHADE)
+        clearflag(FLAG_TEMP_2)
+        setflag(FLAG_TEMP_1)
+    }
 }
 
 script Drisledge_Mismagius1{

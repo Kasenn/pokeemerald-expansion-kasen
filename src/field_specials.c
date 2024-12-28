@@ -72,6 +72,7 @@
 #include "constants/metatile_labels.h"
 #include "palette.h"
 #include "battle_util.h"
+#include "item.h"
 
 #define TAG_ITEM_ICON 5500
 
@@ -1581,7 +1582,7 @@ void SetRoute119Weather(void)
 
 void SetDrisledgeWeather(void)
 {
-    if (VarGet(VAR_DRISLEDGE_TOWN_STATE) >= 30 && (gLocalTime.hours >= 6 && gLocalTime.hours < 18))
+    if ((VarGet(VAR_DRISLEDGE_TOWN_STATE) >= 30 && (gLocalTime.hours >= 6 && gLocalTime.hours < 18)) || CheckBagHasItem(ITEM_ZYGARDE_CUBE, 1))
         SetSavedWeather(WEATHER_SHADE);
 }
 
@@ -3453,7 +3454,7 @@ static void WaitForDeoxysRockMovement(u8 taskId)
     }
 }
 
-void IncrementBirthIslandRockStepCount(void)
+void UNUSED IncrementBirthIslandRockStepCount(void)
 {
     u16 stepCount = VarGet(VAR_DEOXYS_ROCK_STEP_COUNT);
     if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(BIRTH_ISLAND_EXTERIOR) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(BIRTH_ISLAND_EXTERIOR))

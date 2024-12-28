@@ -14,4 +14,9 @@ script DrisHouse1_FlagControl{
     if(var(VAR_TEMP_0) <= 6 || var(VAR_TEMP_0) >= 18){
         clearflag(FLAG_TEMP_3)
     }
+    if(checkitem(ITEM_ZYGARDE_CUBE) == TRUE){
+        setweather(WEATHER_SHADE)
+        setflag(FLAG_TEMP_2)
+        clearflag(FLAG_TEMP_3)
+    }
 }

@@ -41,8 +41,9 @@ GiovanniEscapesFactory::
 	lock
 	safefollow
 	applymovement OBJ_EVENT_ID_PLAYER, GiovanniEscapesFactory_Movement_0
-	applymovement 1, GiovanniEscapesFactory_Movement_1
 	applymovement 2, GiovanniEscapesFactory_Movement_1
+	delay 16
+	applymovement 1, GiovanniEscapesFactory_Movement_1
 	waitmovement OBJ_EVENT_ID_PLAYER
 	waitmovement 1
 	msgbox ClayWasTooLate, MSGBOX_AUTOCLOSE

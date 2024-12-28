@@ -29,6 +29,14 @@ NectarManiac_2:
 	specialvar VAR_RESULT, CheckOricorio
 	compare VAR_RESULT, TRUE
 	goto_if_eq NectarManiac_5
+	msgbox DrewQuickSketch
+	message DrewQuickSketch2
+	waitmessage
+	delay 20
+	showmonpic SPECIES_SPRIGATITO, 10, 3
+	waitbuttonpress
+	hidemonpic
+	msgbox NeverSaidWasAnArtist
 NectarManiac_4:
 	release
 	end
@@ -50,8 +58,26 @@ NectarManiac_OricorioFound::
 NectarManiac_GoRightIn::
 	.string "Enjoy the peace and tranquility\nof my beautiful garden.$"
 
+NeverSaidWasAnArtist::
+	.string "… … … What?\p"
+	.string "Never said I was an artist, did I?$"
+
+DrewQuickSketch::
+	.string "I was able to sketch one of the\n"
+	.string "culprits before they had a chance\l"
+	.string "to flee the scene.$"
+
+DrewQuickSketch2::
+	.string "Here it is.$"
+
 NectarManiac_Text::
-	.string "I planted a bunch of expensive flowers\non my backyard to attract some rare\lbug type Pokémon, but instead all\lI get are these stupid birds.\pIf you could show me one of these\nbirds imprisoned inside a Poké Ball,\lI might let you access my backyard.$"
+	.string "I planted a bunch of expensive flowers\n"
+	.string "in my backyard to attract some rare\l"
+	.string "bug type Pokémon, but instead all\l"
+	.string "I get are these stupid birds.\p"
+	.string "If you could show me one of these\n"
+	.string "birds imprisoned inside a Poké Ball,\l"
+	.string "I might let you access my backyard.$"
 
 NotMyNectar_Text::
 	.string "Excuse me, but did I give you\na permission to enter my backyard?\pYou'll probably just end up trampling\nmy precious flowers.$"

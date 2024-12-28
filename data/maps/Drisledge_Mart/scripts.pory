@@ -4,14 +4,14 @@ mapscripts Drisledge_Mart_MapScripts {
 }
 
 script SetMartDoor{
-    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 30){
+    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 30 || checkitem(ITEM_ZYGARDE_CUBE) == TRUE){
         setmetatile(1, 0, 0x327, TRUE)
         setmetatile(1, 1, 0x251, FALSE)
     }
 }
 
 script DrisMartFlagControl{
-    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 30){
+    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 30 || checkitem(ITEM_ZYGARDE_CUBE) == TRUE){
         setweather(WEATHER_SHADE)
         playbgm(MUS_NONE, TRUE)
         setflag(FLAG_TEMP_1)

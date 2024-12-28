@@ -1410,7 +1410,7 @@ static void ChangeBagPocketId(u8 *bagPocketId, s8 deltaBagPocketId)
 {
     u8 isLastBagVisible = 0;
     if(!CheckBagHasItem(ITEM_MEGA_RING, 1))
-        isLastBagVisible++;
+        isLastBagVisible = 1;
 
     if (deltaBagPocketId == MENU_CURSOR_DELTA_RIGHT && *bagPocketId == POCKETS_COUNT - 2 - isLastBagVisible)
         *bagPocketId = 0;
@@ -1765,6 +1765,10 @@ static void OpenContextMenu(u8 taskId)
             case MEDICINE_POCKET:
                 gBagMenu->contextMenuItemsPtr = sContextMenuItems_ItemsPocket;
                 gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_ItemsPocket);
+                break;
+            case MEGASTONE_POCKET:
+                gBagMenu->contextMenuItemsPtr = sContextMenuItems_Give;
+                gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_Give);
                 break;
             }
         }

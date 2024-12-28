@@ -5,6 +5,7 @@ RustboroCity_DevonCorp_3F_MapScripts::
 DevonCorpTrigger1::
 	goto_if_set FLAG_DEVON_UNDER_ATTACK, DevonCorpTrigger1_2
 	safefollow
+	unlockfollowermovement
 	call DevonTurnRocket
 	setvar VAR_TEMP_2, 1
 	applymovement 3, DevonRocketMove1
@@ -19,6 +20,7 @@ DevonCorpTrigger1_2:
 DevonCorpTrigger2::
 	goto_if_set FLAG_DEVON_UNDER_ATTACK, DevonCorpTrigger2_2
 	safefollow
+	unlockfollowermovement
 	call DevonTurnRocket
 	setvar VAR_TEMP_2, 2
 	applymovement 3, DevonRocketMove2
@@ -33,6 +35,7 @@ DevonCorpTrigger2_2:
 DevonCorpTrigger3::
 	goto_if_set FLAG_DEVON_UNDER_ATTACK, DevonCorpTrigger3_2
 	safefollow
+	unlockfollowermovement
 	call DevonTurnRocket
 	setvar VAR_TEMP_2, 3
 	applymovement 3, DevonRocketMove3
@@ -47,6 +50,7 @@ DevonCorpTrigger3_2:
 DevonCorpTrigger4::
 	goto_if_set FLAG_DEVON_UNDER_ATTACK, DevonCorpTrigger4_2
 	safefollow
+	unlockfollowermovement
 	call DevonTurnRocket
 	setvar VAR_TEMP_2, 4
 	applymovement 3, DevonRocketMove4
@@ -89,7 +93,6 @@ DevonRocketMove4:
 	step_end
 
 DevonTurnRocket::
-	lock
 	playse SE_PIN
 	turnobject 3, DIR_WEST
 	applymovement 3, Common_Movement_ExclamationMark
@@ -104,6 +107,7 @@ DevonCorpRocketMainEvent::
 	msgbox DevonProtonBeforeBattle, MSGBOX_DEFAULT
 	closemessage
 	trainerbattle_no_intro TRAINER_DC3F_ROCKET_PROTON, DevonProtonDefeatText
+	release
 	msgbox DevonProtonPostBattle, MSGBOX_DEFAULT
 	closemessage
 	fadescreen FADE_TO_BLACK

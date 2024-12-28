@@ -14361,7 +14361,7 @@
           "map": "MAP_DESERT",
           "base_label": "gDesert0",
           "land_mons": {
-            "encounter_rate": 13,
+            "encounter_rate": 10,
             "mons": [
               {
                 "min_level": 17,

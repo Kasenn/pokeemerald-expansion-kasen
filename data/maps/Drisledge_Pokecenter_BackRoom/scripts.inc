@@ -5,46 +5,70 @@ Drisledge_Pokecenter_BackRoom_MapScripts::
 
 
 Backroom_SetFlags::
+	checkitem ITEM_ZYGARDE_CUBE
+	compare VAR_RESULT, TRUE
+	goto_if_eq Backroom_SetFlags_2
 	gettime
 	copyvar VAR_TEMP_0, VAR_0x8000
 	compare VAR_TEMP_0, 6
-	goto_if_le Backroom_SetFlags_1
+	goto_if_le Backroom_SetFlags_4
 	compare VAR_TEMP_0, 18
-	goto_if_ge Backroom_SetFlags_1
+	goto_if_ge Backroom_SetFlags_4
 	setflag FLAG_TEMP_1
 	setflag FLAG_TEMP_2
 	setvar VAR_TEMP_1, 1
 	compare VAR_DRISLEDGE_TOWN_STATE, 31
-	goto_if_ge Backroom_SetFlags_10
-Backroom_SetFlags_9:
-	goto_if_set FLAG_OBTAINED_GENGARITE, Backroom_SetFlags_14
+	goto_if_ge Backroom_SetFlags_17
+Backroom_SetFlags_16:
+	goto_if_set FLAG_OBTAINED_GENGARITE, Backroom_SetFlags_23
 	return
 
-Backroom_SetFlags_1:
-	goto_if_unset FLAG_OBTAINED_GENGARITE, Backroom_SetFlags_6
+Backroom_SetFlags_2:
+	goto_if_unset FLAG_OBTAINED_GENGARITE, Backroom_SetFlags_10
+	setvar VAR_TEMP_1, 4
+	setflag FLAG_TEMP_1
+	setflag FLAG_TEMP_2
+Backroom_SetFlags_9:
+	end
+
+Backroom_SetFlags_4:
+	goto_if_unset FLAG_OBTAINED_GENGARITE, Backroom_SetFlags_13
 	setvar VAR_TEMP_1, 4
 	setflag FLAG_TEMP_1
 	setflag FLAG_TEMP_2
 	return
 
-Backroom_SetFlags_6:
+Backroom_SetFlags_10:
 	setvar VAR_TEMP_1, 3
 	clearflag FLAG_TEMP_1
 	clearflag FLAG_TEMP_2
 	compare VAR_DRISLEDGE_TOWN_STATE, 32
-	goto_if_eq Backroom_SetFlags_12
-	return
-
-Backroom_SetFlags_10:
-	setvar VAR_TEMP_1, 2
+	goto_if_eq Backroom_SetFlags_19
 	goto Backroom_SetFlags_9
 
-Backroom_SetFlags_12:
+Backroom_SetFlags_13:
+	setvar VAR_TEMP_1, 3
+	clearflag FLAG_TEMP_1
+	clearflag FLAG_TEMP_2
+	compare VAR_DRISLEDGE_TOWN_STATE, 32
+	goto_if_eq Backroom_SetFlags_21
+	return
+
+Backroom_SetFlags_17:
+	setvar VAR_TEMP_1, 2
+	goto Backroom_SetFlags_16
+
+Backroom_SetFlags_19:
+	setflag FLAG_TEMP_2
+	setvar VAR_TEMP_1, 4
+	goto Backroom_SetFlags_9
+
+Backroom_SetFlags_21:
 	setflag FLAG_TEMP_2
 	setvar VAR_TEMP_1, 4
 	return
 
-Backroom_SetFlags_14:
+Backroom_SetFlags_23:
 	setvar VAR_TEMP_1, 2
 	return
 

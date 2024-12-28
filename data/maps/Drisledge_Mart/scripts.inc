@@ -7,6 +7,9 @@ Drisledge_Mart_MapScripts::
 SetMartDoor::
 	compare VAR_DRISLEDGE_TOWN_STATE, 30
 	goto_if_ge SetMartDoor_1
+	checkitem ITEM_ZYGARDE_CUBE
+	compare VAR_RESULT, TRUE
+	goto_if_eq SetMartDoor_1
 	return
 
 SetMartDoor_1:
@@ -18,6 +21,9 @@ SetMartDoor_1:
 DrisMartFlagControl::
 	compare VAR_DRISLEDGE_TOWN_STATE, 30
 	goto_if_ge DrisMartFlagControl_1
+	checkitem ITEM_ZYGARDE_CUBE
+	compare VAR_RESULT, TRUE
+	goto_if_eq DrisMartFlagControl_1
 	setflag FLAG_TEMP_2
 	return
 

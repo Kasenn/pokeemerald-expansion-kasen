@@ -4,6 +4,7 @@ FlowerFields_MapScripts::
 	.byte 0
 
 FlowerFields_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	setflag FLAG_LANDMARK_FLOWER_FIELDS
 	compare VAR_MINA_INTRO_QUEST, STORY_MINA_GRANBULL_DEFEATED
 	goto_if_ge FlowerFields_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
 	return

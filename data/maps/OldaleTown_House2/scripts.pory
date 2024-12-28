@@ -30,6 +30,16 @@ script NectarManiac{
             msgbox(NectarManiac_OricorioFound, MSGBOX_NPC)
             setflag(FLAG_ORICORIO_SHOWN_TO_MANIAC)
         }
+        else{
+            msgbox(DrewQuickSketch)
+            message(DrewQuickSketch2)
+            waitmessage
+            delay(20)
+            showmonpic(SPECIES_SPRIGATITO, 10, 3)
+            waitbuttonpress
+            hidemonpic
+            msgbox(NeverSaidWasAnArtist)
+        }
         release
 	    end
     }
@@ -45,8 +55,28 @@ text NectarManiac_GoRightIn{
     "Enjoy the peace and tranquility\nof my beautiful garden."
 }
 
+text NeverSaidWasAnArtist{
+    "… … … What?\p"
+    "Never said I was an artist, did I?"
+}
+
+text DrewQuickSketch{
+    "I was able to sketch one of the\n"
+    "culprits before they had a chance\l"
+    "to flee the scene."
+}
+text DrewQuickSketch2{
+    "Here it is."
+}
+
 text NectarManiac_Text{
-    "I planted a bunch of expensive flowers\non my backyard to attract some rare\lbug type Pokémon, but instead all\lI get are these stupid birds.\pIf you could show me one of these\nbirds imprisoned inside a Poké Ball,\lI might let you access my backyard."
+    "I planted a bunch of expensive flowers\n"
+    "in my backyard to attract some rare\l"
+    "bug type Pokémon, but instead all\l"
+    "I get are these stupid birds.\p"
+    "If you could show me one of these\n"
+    "birds imprisoned inside a Poké Ball,\l"
+    "I might let you access my backyard."
 }
 
 text NotMyNectar_Text{

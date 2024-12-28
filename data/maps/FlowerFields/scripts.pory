@@ -1,5 +1,6 @@
 mapscripts FlowerFields_MapScripts{
     MAP_SCRIPT_ON_TRANSITION{
+        setflag(FLAG_LANDMARK_FLOWER_FIELDS)
         if(var(VAR_MINA_INTRO_QUEST) >= STORY_MINA_GRANBULL_DEFEATED){
             setflag(FLAG_TEMP_1)
             setobjectxyperm(2, 31, 39)

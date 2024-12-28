@@ -18,7 +18,7 @@
         .trainerPic = TRAINER_PIC_SALON_MAIDEN_ANABEL,
         .trainerName = _("Thomas"),
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Sawyer1),
     },
 
@@ -29,7 +29,7 @@
         .trainerPic = TRAINER_PIC_SALON_MAIDEN_ANABEL,
         .trainerName = _("Thomas"),
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_GruntAquaHideout1),
     },
 
@@ -40,7 +40,7 @@
         .trainerPic = TRAINER_PIC_SALON_MAIDEN_ANABEL,
         .trainerName = _("Thomas"),
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_GruntAquaHideout2),
     },
 
@@ -52,7 +52,7 @@
         .trainerName = _("Thomas"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_GruntAquaHideout3),
     },
 
@@ -64,7 +64,7 @@
         .trainerName = _("Thomas"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_GruntAquaHideout4),
     },
 
@@ -76,7 +76,7 @@
         .trainerName = _("Thomas"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_GruntSeafloorCavern1),
     },
 
@@ -88,7 +88,7 @@
         .trainerName = _("Thomas"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_GruntSeafloorCavern2),
     },
 
@@ -100,7 +100,7 @@
         .trainerName = _("Thomas"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_GruntSeafloorCavern3),
     },
 
@@ -112,7 +112,7 @@
         .trainerName = _("Thomas"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Gabrielle1),
     },
 
@@ -124,7 +124,7 @@
         .trainerName = _("Thomas"),
         .items = {ITEM_SUPER_POTION, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_TRAINER_BROTHER4_ROWLET),
     },
 
@@ -136,7 +136,7 @@
         .trainerName = _("Thomas"),
         .items = {ITEM_SUPER_POTION, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_TRAINER_BROTHER4_TORCHIC),
     },
 
@@ -148,7 +148,7 @@
         .trainerName = _("Thomas"),
         .items = {ITEM_SUPER_POTION, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_TRAINER_BROTHER4_PIPLUP),
     },
 
@@ -160,7 +160,7 @@
         .trainerName = _("Thomas"),
         .items = {ITEM_HYPER_POTION, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Brother5_Rowlet),
     },
 
@@ -172,7 +172,7 @@
         .trainerName = _("Thomas"),
         .items = {ITEM_HYPER_POTION, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Brother5_Torchic),
     },
 
@@ -184,7 +184,7 @@
         .trainerName = _("Thomas"),
         .items = {ITEM_HYPER_POTION, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Brother5_Piplup),
     },
 
@@ -593,7 +593,7 @@
         .doubleBattle = FALSE,
         .mugshotEnabled = TRUE,
         .mugshotColor = MUGSHOT_COLOR_BUG,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_ACE_POKEMON,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_ACE_POKEMON,
         .party = TRAINER_PARTY(sParty_GabbyAndTy1),
     },
     [TRAINER_GABBY_AND_TY_2] =
@@ -824,7 +824,7 @@
         .trainerName = _("Parker"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Parker),
     },
     [TRAINER_GEORGE] =
@@ -835,7 +835,7 @@
         .trainerName = _("George"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_George),
     },
     [TRAINER_BERKE] =
@@ -846,7 +846,7 @@
         .trainerName = _("Alice"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Berke),
     },
     [TRAINER_BRAXTON] =
@@ -857,7 +857,7 @@
         .trainerName = _("Braxton"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Braxton),
     },
     [TRAINER_VINCENT] =
@@ -868,7 +868,7 @@
         .trainerName = _("Anya"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Vincent),
     },
     [TRAINER_LEROY] =
@@ -879,7 +879,7 @@
         .trainerName = _("Leroy"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Leroy),
     },
     [TRAINER_WILTON_1] =
@@ -890,7 +890,7 @@
         .trainerName = _("Emma"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Wilton1),
     },
     [TRAINER_EDGAR] =
@@ -901,7 +901,7 @@
         .trainerName = _("Sofia"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Edgar),
     },
     [TRAINER_ALBERT] =
@@ -912,7 +912,7 @@
         .trainerName = _("Avery"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Albert),
     },
     [TRAINER_SAMUEL] =
@@ -923,7 +923,7 @@
         .trainerName = _("Teri & Tia"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Samuel),
     },
     [TRAINER_VITO] =
@@ -934,7 +934,7 @@
         .trainerName = _("Vito"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Vito),
     },
     [TRAINER_OWEN] =
@@ -945,7 +945,7 @@
         .trainerName = _("Owen"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Owen),
     },
     [TRAINER_WILTON_2] =
@@ -956,7 +956,7 @@
         .trainerName = _("Naomi"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Wilton2),
     },
     [TRAINER_WILTON_3] =
@@ -967,7 +967,7 @@
         .trainerName = _("Ruby"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Wilton3),
     },
     [TRAINER_WILTON_4] =
@@ -978,7 +978,7 @@
         .trainerName = _("Donald"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Wilton4),
     },
     [TRAINER_WILTON_5] =
@@ -989,7 +989,7 @@
         .trainerName = _("Wilton"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Wilton5),
     },
     [TRAINER_WARREN] =
@@ -1000,7 +1000,7 @@
         .trainerName = _("Warren"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Warren),
     },
     [TRAINER_LEADER_VOLKNER] =
@@ -1013,7 +1013,7 @@
         .doubleBattle = FALSE,
         .mugshotEnabled = TRUE,
         .mugshotColor = MUGSHOT_COLOR_ELECTRIC,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_ACE_POKEMON | AI_FLAG_PREFER_STRONGEST_MOVE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_ACE_POKEMON,
         .party = TRAINER_PARTY(sParty_Mary),
     },
 
@@ -1025,7 +1025,7 @@
         .trainerName = _("Daniel"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_WpvTr1Birdkeeper),
     },
 
@@ -1037,7 +1037,7 @@
         .trainerName = _("Richard"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_WpvTr2Triath),
     },
 
@@ -1049,7 +1049,7 @@
         .trainerName = _("Elizabeth"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_WpvTr3Battlegirl),
     },
 
@@ -1061,7 +1061,7 @@
         .trainerName = _("Samantha"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_WpvTr4Camper),
     },
 
@@ -1073,7 +1073,7 @@
         .trainerName = _("Matthew"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_WpvTr5Birdkeeper),
     },
 
@@ -1085,7 +1085,7 @@
         .trainerName = _("Rodney"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_WpvTr6Maniac),
     },
 
@@ -1097,7 +1097,7 @@
         .trainerName = _("Cameron"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_WpvTr7Birdkeeper),
     },
 
@@ -1109,7 +1109,7 @@
         .trainerName = _("Eli"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_WpvTr8Ninjaboy),
     },
 
@@ -1121,7 +1121,7 @@
         .trainerName = _("Jennifer"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_WpvTr9Lass),
     },
 
@@ -1133,7 +1133,7 @@
         .trainerName = _("Chloe"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_WpvTr10Triath),
     },
 
@@ -1145,7 +1145,7 @@
         .trainerName = _("Nicholas"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_WpvTr11Birdkeeper),
     },
 
@@ -1157,7 +1157,7 @@
         .trainerName = _("Camille"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_WpvTr12Battlegirl),
     },
 
@@ -1169,7 +1169,7 @@
         .trainerName = _("Jonas"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_WpvTr13Birdkeeper),
     },
 
@@ -1207,7 +1207,7 @@
         .trainerName = _("Bruce"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R28_Tr2_Hiker),
     },
 
@@ -1231,7 +1231,7 @@
         .trainerName = _("Joseph"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R28_Tr4_Psychic),
     },
 
@@ -1267,7 +1267,7 @@
         .trainerName = _("Ella & Evan"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R5Tr3_YoungCouple),
     },
 
@@ -1291,7 +1291,7 @@
         .trainerName = _("Carol"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R5Tr5_PokeFanF),
     },
 
@@ -1315,7 +1315,7 @@
         .trainerName = _("Sebastian"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R5Tr7_Gentleman),
     },
 
@@ -1339,7 +1339,7 @@
         .trainerName = _("Sara"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R5Tr9_Triathlete),
     },
 
@@ -1363,7 +1363,7 @@
         .trainerName = _("Kurt"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SEQUENCE_SWITCHING,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SEQUENCE_SWITCHING,
         .party = TRAINER_PARTY(sParty_R5Tr11_Man5),
     },
 
@@ -1399,7 +1399,7 @@
         .trainerName = _("Paul"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SEQUENCE_SWITCHING,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SEQUENCE_SWITCHING,
         .party = TRAINER_PARTY(sParty_R5Tr14_Hiker),
     },
 
@@ -1423,7 +1423,7 @@
         .trainerName = _("Lawrence"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R6Tr1_RangerM),
     },
 
@@ -1435,7 +1435,7 @@
         .trainerName = _("Melissa"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R6Tr2_PokeFanF),
     },
 
@@ -1447,7 +1447,7 @@
         .trainerName = _("Sheila"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R6Tr3_CamperF),
     },
 
@@ -1459,7 +1459,7 @@
         .trainerName = _("Donald"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R6Tr4_CamperM1),
     },
 
@@ -1471,7 +1471,7 @@
         .trainerName = _("Randy"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R6Tr5_Hiker),
     },
 
@@ -1483,7 +1483,7 @@
         .trainerName = _("Conner"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R6Tr6_CamperM2),
     },
 
@@ -1495,7 +1495,7 @@
         .trainerName = _("Erick"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R6Tr7_Kindler),
     },
 
@@ -1507,7 +1507,7 @@
         .trainerName = _("Genna"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R8Tr1_ParasolLady),
     },
 
@@ -1519,7 +1519,7 @@
         .trainerName = _("Kate & Joy"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R8Tr2_SrJr),
     },
 
@@ -1531,7 +1531,7 @@
         .trainerName = _("Jessica"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R8Tr3_AromaLady),
     },
 
@@ -1555,7 +1555,7 @@
         .trainerName = _("Briony"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SEQUENCE_SWITCHING,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SEQUENCE_SWITCHING,
         .party = TRAINER_PARTY(sParty_R8Tr5_PsychicF),
     },
 
@@ -1567,7 +1567,7 @@
         .trainerName = _("Henry"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R8Tr6_CamperM),
     },
 
@@ -1579,7 +1579,7 @@
         .trainerName = _("Winston"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R8Tr7_TriathleteM),
     },
 
@@ -1591,7 +1591,7 @@
         .trainerName = _("Phileas"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R8Tr8_Gentleman),
     },
 
@@ -1603,7 +1603,7 @@
         .trainerName = _("Garret"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R8Tr9_Hiker),
     },
 
@@ -1615,7 +1615,7 @@
         .trainerName = _("John & Jay"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R8Tr10_OldCouple),
     },
 
@@ -1627,7 +1627,7 @@
         .trainerName = _("Martin"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SEQUENCE_SWITCHING,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SEQUENCE_SWITCHING,
         .party = TRAINER_PARTY(sParty_R8Tr11_BirdKeeper),
     },
 
@@ -1651,7 +1651,7 @@
         .trainerName = _("Grunt"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DC1F_Rocket1),
     },
 
@@ -1663,7 +1663,7 @@
         .trainerName = _("Grunt"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DC1F_Rocket2),
     },
 
@@ -1675,7 +1675,7 @@
         .trainerName = _("Grunt"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DC_BaseRocket1),
     },
 
@@ -1687,7 +1687,7 @@
         .trainerName = _("Grunt"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DC_BaseRocket2),
     },
 
@@ -1699,7 +1699,7 @@
         .trainerName = _("Grunt"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DC_BaseRocket3),
     },
 
@@ -1711,7 +1711,7 @@
         .trainerName = _("Scientist"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DC_BaseRocket4),
     },
 
@@ -1723,7 +1723,7 @@
         .trainerName = _("Grunt"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DC2F_Rocket1),
     },
 
@@ -1735,7 +1735,7 @@
         .trainerName = _("Grunt"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DC2F_Rocket2),
     },
 
@@ -1747,7 +1747,7 @@
         .trainerName = _("Grunt"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DC2F_Rocket3),
     },
 
@@ -1759,7 +1759,7 @@
         .trainerName = _("Grunt"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DC2F_Rocket4),
     },
 
@@ -1771,7 +1771,7 @@
         .trainerName = _("Grunt"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DC2F_Rocket5),
     },
 
@@ -1783,7 +1783,7 @@
         .trainerName = _("Grunt"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DC3F_Rocket1),
     },
 
@@ -1795,7 +1795,7 @@
         .trainerName = _("Proton"),
         .items = {ITEM_SUPER_POTION, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DC3F_Rocket_Proton),
     },
 
@@ -1807,7 +1807,7 @@
         .trainerName = _("Grunt"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Shoreslate_Rocket),
     },
 
@@ -1819,7 +1819,7 @@
         .trainerName = _("Jerome"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DesertTr1_Camper),
     },
 
@@ -1831,7 +1831,7 @@
         .trainerName = _("Smith"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DesertTr2_Camper2),
     },
 
@@ -1843,7 +1843,7 @@
         .trainerName = _("Aria"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DesertTr3_Picnicker),
     },
 
@@ -1855,7 +1855,7 @@
         .trainerName = _("Clarissa"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DesertTr4_Picnicker2),
     },
 
@@ -1867,7 +1867,7 @@
         .trainerName = _("Roland"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DesertTr5_Hiker),
     },
 
@@ -1879,7 +1879,7 @@
         .trainerName = _("Ryan"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DesertTr6_Blackbelt),
     },
 
@@ -1891,7 +1891,7 @@
         .trainerName = _("Nelly"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DesertTr7_Picnicker3),
     },
 
@@ -1903,7 +1903,7 @@
         .trainerName = _("Stan"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DesertTr8_Hiker2),
     },
 
@@ -1915,7 +1915,7 @@
         .trainerName = _("Dean"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DesertTr9_Hiker3),
     },
 
@@ -1939,7 +1939,7 @@
         .trainerName = _("Steven"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DesertTr11_Blackbelt2),
     },
 
@@ -1951,7 +1951,7 @@
         .trainerName = _("Herman"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DesertTr12_Hiker4),
     },
 
@@ -1963,7 +1963,7 @@
         .trainerName = _("Wendy"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DesertTr13_Psychic_F),
     },
 
@@ -1987,7 +1987,7 @@
         .trainerName = _("Franklin"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Route7Tr1_Camper),
     },
 
@@ -1999,7 +1999,7 @@
         .trainerName = _("Gemma"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Route7Tr2_Picnicker),
     },
 
@@ -2023,7 +2023,7 @@
         .trainerName = _("Dudley"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Route7Tr4_Birdkeeper),
     },
 
@@ -2035,7 +2035,7 @@
         .trainerName = _("Nob"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Route7Tr5_Blackbelt),
     },
 
@@ -2047,7 +2047,7 @@
         .trainerName = _("Tina"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Route7Tr6_Picnicker2),
     },
 
@@ -2071,7 +2071,7 @@
         .trainerName = _("Clive"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Route7Tr8_Hiker),
     },
 
@@ -2119,7 +2119,7 @@
         .trainerName = _("Mike"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_KG_Tr1_Camper1),
     },
 
@@ -2131,7 +2131,7 @@
         .trainerName = _("Sophie"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_KG_Tr2_Picnicker1),
     },
 
@@ -2143,7 +2143,7 @@
         .trainerName = _("Ralph"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_KG_Tr3_Hiker1),
     },
 
@@ -2155,7 +2155,7 @@
         .trainerName = _("Dan"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_KG_Tr4_Camper2),
     },
 
@@ -2167,7 +2167,7 @@
         .trainerName = _("Mark"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SEQUENCE_SWITCHING,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SEQUENCE_SWITCHING,
         .party = TRAINER_PARTY(sParty_KG_Tr5_Hiker2),
     },
 
@@ -2179,7 +2179,7 @@
         .trainerName = _("Brett"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_KG_Tr6_Hiker3),
     },
 
@@ -2191,7 +2191,7 @@
         .trainerName = _("Mila"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_KG_Tr7_Picnicker2),
     },
 
@@ -2203,7 +2203,7 @@
         .trainerName = _("Axel"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_KG_Tr8_Camper3),
     },
 
@@ -2215,7 +2215,7 @@
         .trainerName = _("Anna"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_KG_Tr9_Picnicker3),
     },
 
@@ -2227,7 +2227,7 @@
         .trainerName = _("Kevin"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_KG_Tr10_Hiker4),
     },
 
@@ -2253,7 +2253,7 @@
         .trainerName = _("Bella"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_KM_Tr1_Picnicker),
     },
 
@@ -2265,7 +2265,7 @@
         .trainerName = _("Wyatt"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_KM_Tr2_Blackbelt),
     },
 
@@ -2277,7 +2277,7 @@
         .trainerName = _("Ike"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_KM_Tr3_Camper),
     },
 
@@ -2289,7 +2289,7 @@
         .trainerName = _("Wilson"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_KM_Tr4_Hiker),
     },
 
@@ -2301,7 +2301,7 @@
         .trainerName = _("Luke"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SEQUENCE_SWITCHING,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SEQUENCE_SWITCHING,
         .party = TRAINER_PARTY(sParty_KM_Tr5_Hiker),
     },
 
@@ -2313,7 +2313,7 @@
         .trainerName = _("Isaac"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_KM_Tr6_Hiker),
     },
 
@@ -2325,7 +2325,7 @@
         .trainerName = _("Caleb"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_KM_Tr7_Camper),
     },
 
@@ -2337,7 +2337,7 @@
         .trainerName = _("Maria"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_KM_Tr8_Picnicker),
     },
 
@@ -2349,7 +2349,7 @@
         .trainerName = _("Koji"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_KM_Tr9_Blackbelt),
     },
 
@@ -2361,7 +2361,7 @@
         .trainerName = _("Everett"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_KM_Tr10_Hiker),
     },
 
@@ -2421,7 +2421,7 @@
         .trainerName = _("Kiara"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_SMART_MON_CHOICES,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SMART_SWITCHING | AI_FLAG_SMART_MON_CHOICES,
         .party = TRAINER_PARTY(sParty_HotelBirdKeeper),
     },
 
@@ -2495,7 +2495,7 @@
         .trainerName = _("Rudy"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Route11Tr2_Birdkeeper),
     },
 
@@ -2531,7 +2531,7 @@
         .trainerName = _("Justin"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Route11Tr5_Pokemaniac),
     },
 
@@ -2543,7 +2543,7 @@
         .trainerName = _("Autumn"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Route11Tr6_Triathlete_F),
     },
 
@@ -2555,7 +2555,7 @@
         .trainerName = _("Ethan"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Route11Tr7_Hiker),
     },
 
@@ -2591,7 +2591,7 @@
         .trainerName = _("Gavin"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Route11Tr10_Cycler_M),
     },
 
@@ -2603,7 +2603,7 @@
         .trainerName = _("Cristian"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Route11Tr11_Blackbelt),
     },
 
@@ -2627,7 +2627,7 @@
         .trainerName = _("Kayla"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Route11Tr13_Psychic_F),
     },
 
@@ -2639,7 +2639,7 @@
         .trainerName = _("Kathrine"),
         .items = {ITEM_HYPER_POTION, ITEM_HYPER_POTION, ITEM_FULL_HEAL},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SMART_SWITCHING | AI_FLAG_CHECK_VIABILITY,
         .party = TRAINER_PARTY(sParty_Route11Tr14_Acetrainer_F),
     },
 
@@ -2651,7 +2651,7 @@
         .trainerName = _("Brendan"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Route11Brendan_Rowlet),
     },
 
@@ -2663,7 +2663,7 @@
         .trainerName = _("Brendan"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Route11Brendan_Torchic),
     },
 
@@ -2675,7 +2675,7 @@
         .trainerName = _("Brendan"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Route11Brendan_Piplup),
     },
 
@@ -2723,7 +2723,7 @@
         .trainerName = _("May"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Route11May_Rowlet),
     },
 
@@ -2735,7 +2735,7 @@
         .trainerName = _("May"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Route11May_Torhic),
     },
 
@@ -2747,7 +2747,7 @@
         .trainerName = _("May"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Route11May_Piplup),
     },
 
@@ -2795,7 +2795,7 @@
         .trainerName = _("Claire"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R12Tr1_Triath),
     },
 
@@ -2807,7 +2807,7 @@
         .trainerName = _("Doug"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R12Tr2_Triath),
     },
 
@@ -2819,7 +2819,7 @@
         .trainerName = _("Christina"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R12Tr3_Triath),
     },
 
@@ -2831,7 +2831,7 @@
         .trainerName = _("Eric"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R12Tr4_Triath),
     },
 
@@ -2843,7 +2843,7 @@
         .trainerName = _("Clark"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R12Tr5_Triath),
     },
 
@@ -2855,7 +2855,7 @@
         .trainerName = _("Nora"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R12Tr6_Triath),
     },
 
@@ -2891,7 +2891,7 @@
         .trainerName = _("Cedric"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R12Tr9_Psychic),
     },
 
@@ -2903,7 +2903,7 @@
         .trainerName = _("Trent"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R12Tr10_Hiker),
     },
 
@@ -2963,7 +2963,7 @@
         .trainerName = _("Gus"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(Party_R13Tr2_RunnerM),
     },
 
@@ -2975,7 +2975,7 @@
         .trainerName = _("Hank & Hope"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(Party_R13Tr3_ExpertCouple),
     },
 
@@ -2987,7 +2987,7 @@
         .trainerName = _("Clayton"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(Party_R13Tr4_Hiker),
     },
 
@@ -2999,7 +2999,7 @@
         .trainerName = _("Hokuto"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(Party_R13Tr5_Blackbelt),
     },
 
@@ -3011,7 +3011,7 @@
         .trainerName = _("Terry"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(Party_FcTr1_Blackbelt),
     },
 
@@ -3023,7 +3023,7 @@
         .trainerName = _("Hailey"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(Party_FcTr2_Battlegirl),
     },
 
@@ -3035,7 +3035,7 @@
         .trainerName = _("Barton"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(Party_FcTr3_Camper),
     },
 
@@ -3047,7 +3047,7 @@
         .trainerName = _("Gordon"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(Party_FcTr4_Hiker),
     },
 
@@ -3059,7 +3059,7 @@
         .trainerName = _("Penelope"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(Party_R14Tr1_RunnerF),
     },
 
@@ -3071,7 +3071,7 @@
         .trainerName = _("Walter"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(Party_R14Tr2_Hiker),
     },
     [TRAINER_SIDNEY] =
@@ -3135,7 +3135,7 @@
         .trainerName = _("Lloyd"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_SGTr1_CyclistM1),
     },
 
@@ -3147,7 +3147,7 @@
         .trainerName = _("Sophia"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_SGTr2_CyclistF1),
     },
 
@@ -3159,7 +3159,7 @@
         .trainerName = _("Jenna"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_SGTr3_CyclistF2),
     },
 
@@ -3171,7 +3171,7 @@
         .trainerName = _("Greg"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_SGTr4_CyclistM2),
     },
 
@@ -3183,7 +3183,7 @@
         .trainerName = _("Emilia"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_SGTr5_CyclistF3),
     },
 
@@ -3195,7 +3195,7 @@
         .trainerName = _("Dennis"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_SGTr6_CyclistM3),
     },
 
@@ -3207,7 +3207,7 @@
         .trainerName = _("Harry"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_SGTr7_CyclistM4),
     },
 
@@ -3423,7 +3423,7 @@
         .trainerName = _("Ernest"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R14Tr4_FisherMan),
     },
 
@@ -3459,7 +3459,7 @@
         .trainerName = _("James"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R14Tr7_Birdkeeper),
     },
 
@@ -3471,7 +3471,7 @@
         .trainerName = _("Cooper"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R14Tr8_Maniac),
     },
 
@@ -3483,7 +3483,7 @@
         .trainerName = _("Colton"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SEQUENCE_SWITCHING,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SEQUENCE_SWITCHING,
         .party = TRAINER_PARTY(sParty_R15Tr1_Birdkeeper),
     },
 
@@ -3495,7 +3495,7 @@
         .trainerName = _("Ashlee"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R15Tr2_RangerF),
     },
 
@@ -3507,7 +3507,7 @@
         .trainerName = _("Miguel"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R15Tr3_RangerM),
     },
 
@@ -3609,7 +3609,7 @@
 
     [TRAINER_R15_ACETRAINER_F] =
     {
-        .trainerClass = TRAINER_CLASS_TRIATHLETE,
+        .trainerClass = TRAINER_CLASS_COOLTRAINER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_PIC_BW_ACE_TRAINER_F,
         .trainerName = _("Donny"),
@@ -3687,7 +3687,7 @@
         .trainerName = _("Grunt"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_R15Tr18_RocketGrunt),
     },
 
@@ -3699,7 +3699,7 @@
         .trainerName = _("Galen"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SEQUENCE_SWITCHING,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SEQUENCE_SWITCHING,
         .party = TRAINER_PARTY(sParty_TRAINER_R23_TR1_BREEDER_M),
     },
 
@@ -3711,7 +3711,7 @@
         .trainerName = _("Shane"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_TRAINER_R23_TR2_MANIAC),
     },
 
@@ -3735,7 +3735,7 @@
         .trainerName = _("Brooke"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_TRAINER_R23_TR4_BREEDER_F),
     },
 
@@ -3759,7 +3759,7 @@
         .trainerName = _("Deandre"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_TRAINER_R23_TR6_PSYCHIC_M),
     },
 
@@ -3807,7 +3807,7 @@
         .trainerName = _("Helen"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_TRAINER_R23_TR10_BATTLEGIRL),
     },
 
@@ -3854,7 +3854,7 @@
         .trainerPic = TRAINER_PIC_HEX_MANIAC,
         .trainerName = _("???"),
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DRISLEDGEGYM_TRAINER1),
     },
 
@@ -3865,7 +3865,7 @@
         .trainerPic = TRAINER_PIC_HEX_MANIAC,
         .trainerName = _("???"),
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DRISLEDGEGYM_TRAINER2),
     },
 
@@ -3876,7 +3876,7 @@
         .trainerPic = TRAINER_PIC_HEX_MANIAC,
         .trainerName = _("???"),
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DRISLEDGEGYM_TRAINER3),
     },
 
@@ -3887,7 +3887,7 @@
         .trainerPic = TRAINER_PIC_HEX_MANIAC,
         .trainerName = _("???"),
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DRISLEDGEGYM_TRAINER4),
     },
 
@@ -3898,7 +3898,7 @@
         .trainerPic = TRAINER_PIC_HEX_MANIAC,
         .trainerName = _("???"),
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DRISLEDGEGYM_TRAINER5),
     },
 
@@ -3909,7 +3909,7 @@
         .trainerPic = TRAINER_PIC_HEX_MANIAC,
         .trainerName = _("???"),
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_DRISLEDGEGYM_TRAINER6),
     },
 
@@ -4217,7 +4217,7 @@
         .trainerName = _("Layla"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_TRAINER_R10_TR2_SWIMMER_F1),
     },
 
@@ -4241,7 +4241,7 @@
         .trainerName = _("Derek"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_TRAINER_R10_TR4_SWIMMER_M1),
     },
     [TRAINER_R10_TR5_BLACKBELT] =
@@ -4252,7 +4252,7 @@
         .trainerName = _("Daisuke"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_TRAINER_R10_TR5_BLACKBELT),
     },
 
@@ -4276,7 +4276,7 @@
         .trainerName = _("Coral"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_TRAINER_R10_TR7_SWIMMER_F2),
     },
 
@@ -4288,7 +4288,7 @@
         .trainerName = _("Kieran"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_TRAINER_R10_TR8_SWIMMER_M2),
     },
 
@@ -4324,7 +4324,7 @@
         .trainerName = _("Grunt"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Dylan3),
     },
 
@@ -4336,7 +4336,7 @@
         .trainerName = _("Grunt"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_TRAINER_FACTORY_ROCKET_1),
     },
 
@@ -4348,7 +4348,7 @@
         .trainerName = _("Grunt"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Dylan5),
     },
 
@@ -4360,7 +4360,7 @@
         .trainerName = _("Grunt"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_TRAINER_FACTORY_ROCKET_2),
     },
 
@@ -4372,7 +4372,7 @@
         .trainerName = _("“Grunt”"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_TRAINER_FACTORY_ROCKET_3),
     },
 
@@ -4384,7 +4384,7 @@
         .trainerName = _("Grunt"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_TRAINER_FACTORY_ROCKET_4),
     },
 
@@ -4396,7 +4396,7 @@
         .trainerName = _("Grunt"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_TRAINER_FACTORY_ROCKET_5),
     },
 
@@ -4408,7 +4408,7 @@
         .trainerName = _("Grunt"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Maria5),
     },
 
@@ -4420,7 +4420,7 @@
         .trainerName = _("Grunt"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .party = TRAINER_PARTY(sParty_Camden),
     },
 
@@ -4432,7 +4432,7 @@
         .trainerName = _("Petrel"),
         .items = {ITEM_HYPER_POTION, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_ACE_POKEMON,
         .party = TRAINER_PARTY(sParty_TRAINER_FACTORY_ROCKET_PETREL),
     },
 

@@ -5,6 +5,9 @@ Drisledge_Pokecenter_1F_MapScripts::
 
 
 DrisledgePokeCenter1F_OnTransition::
+	checkitem ITEM_ZYGARDE_CUBE
+	compare VAR_RESULT, TRUE
+	goto_if_eq DrisledgePokeCenter1F_OnTransition_2
 	setflag FLAG_TEMP_3
 	setflag FLAG_TEMP_2
 	setrespawn HEAL_LOCATION_DRISLEDGE_TOWN
@@ -12,37 +15,47 @@ DrisledgePokeCenter1F_OnTransition::
 	gettime
 	copyvar VAR_TEMP_0, VAR_0x8000
 	compare VAR_DRISLEDGE_TOWN_STATE, 30
-	goto_if_ge DrisledgePokeCenter1F_OnTransition_2
-DrisledgePokeCenter1F_OnTransition_1:
+	goto_if_ge DrisledgePokeCenter1F_OnTransition_5
+DrisledgePokeCenter1F_OnTransition_4:
 	end
 
 DrisledgePokeCenter1F_OnTransition_2:
+	setrespawn HEAL_LOCATION_DRISLEDGE_TOWN
+	setflag FLAG_TEMP_3
+	setflag FLAG_TEMP_1
+	setweather WEATHER_SHADE
+	end
+
+DrisledgePokeCenter1F_OnTransition_5:
 	setflag FLAG_TEMP_1
 	compare VAR_TEMP_0, 6
-	goto_if_le DrisledgePokeCenter1F_OnTransition_4
+	goto_if_le DrisledgePokeCenter1F_OnTransition_7
 	compare VAR_TEMP_0, 18
-	goto_if_ge DrisledgePokeCenter1F_OnTransition_4
+	goto_if_ge DrisledgePokeCenter1F_OnTransition_7
 	clearflag FLAG_TEMP_3
 	setweather WEATHER_SHADE
 	playbgm MUS_NONE, TRUE
-	goto DrisledgePokeCenter1F_OnTransition_1
+	goto DrisledgePokeCenter1F_OnTransition_4
 
-DrisledgePokeCenter1F_OnTransition_4:
+DrisledgePokeCenter1F_OnTransition_7:
 	setweather WEATHER_SHADE
 	clearflag FLAG_TEMP_2
-	goto DrisledgePokeCenter1F_OnTransition_1
+	goto DrisledgePokeCenter1F_OnTransition_4
 
 
 DrisledgeCenter_SetTiles::
+	checkitem ITEM_ZYGARDE_CUBE
+	compare VAR_RESULT, TRUE
+	goto_if_eq DrisledgeCenter_SetTiles_2
 	compare VAR_DRISLEDGE_TOWN_STATE, 30
-	goto_if_ge DrisledgeCenter_SetTiles_2
-DrisledgeCenter_SetTiles_1:
+	goto_if_ge DrisledgeCenter_SetTiles_5
+DrisledgeCenter_SetTiles_4:
 	setflag FLAG_TEMP_3
 	setflag FLAG_TEMP_2
 	gettime
 	copyvar VAR_TEMP_0, VAR_0x8000
 	compare VAR_DRISLEDGE_TOWN_STATE, 30
-	goto_if_ge DrisledgeCenter_SetTiles_4
+	goto_if_ge DrisledgeCenter_SetTiles_7
 	return
 
 DrisledgeCenter_SetTiles_2:
@@ -54,20 +67,31 @@ DrisledgeCenter_SetTiles_2:
 	setmetatile 7, 3, 0x05A, TRUE
 	setmetatile 6, 4, 0x225, FALSE
 	setmetatile 7, 4, 0x267, FALSE
-	goto DrisledgeCenter_SetTiles_1
+	end
 
-DrisledgeCenter_SetTiles_4:
+DrisledgeCenter_SetTiles_5:
+	setmetatile 5, 2, 0x051, FALSE
+	setmetatile 6, 2, 0x21E, FALSE
+	setmetatile 7, 2, 0x052, FALSE
+	setmetatile 5, 3, 0x059, TRUE
+	setmetatile 6, 3, 0x23C, FALSE
+	setmetatile 7, 3, 0x05A, TRUE
+	setmetatile 6, 4, 0x225, FALSE
+	setmetatile 7, 4, 0x267, FALSE
+	goto DrisledgeCenter_SetTiles_4
+
+DrisledgeCenter_SetTiles_7:
 	setflag FLAG_TEMP_1
 	compare VAR_TEMP_0, 6
-	goto_if_le DrisledgeCenter_SetTiles_6
+	goto_if_le DrisledgeCenter_SetTiles_9
 	compare VAR_TEMP_0, 18
-	goto_if_ge DrisledgeCenter_SetTiles_6
+	goto_if_ge DrisledgeCenter_SetTiles_9
 	clearflag FLAG_TEMP_3
 	setweather WEATHER_SHADE
 	playbgm MUS_NONE, TRUE
 	return
 
-DrisledgeCenter_SetTiles_6:
+DrisledgeCenter_SetTiles_9:
 	setweather WEATHER_SHADE
 	clearflag FLAG_TEMP_2
 	return

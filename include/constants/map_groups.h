@@ -74,6 +74,7 @@
 #define MAP_AMBEROCK_TOWN_KROKOROK_PIER (65 | (0 << 8))
 #define MAP_AMBEROCK_TOWN_PLAYER_PIER   (66 | (0 << 8))
 #define MAP_ROUTE16_NO_CURRENTS         (67 | (0 << 8))
+#define MAP_PRIMROSE_TOWN_COPY          (68 | (0 << 8))
 
 // gMapGroup_RouteInteriors
 #define MAP_RANCH_BARN                    (0 | (1 << 8))

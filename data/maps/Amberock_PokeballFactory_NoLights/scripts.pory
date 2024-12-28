@@ -15,14 +15,16 @@ mapscripts Amberock_PokeballFactory_NoLights_MapScripts {
 }
 
 script BlindRocket1{
-    msgbox(BlindRocket1_Text, MSGBOX_NPC)
+    msgbox(BlindRocket1_Text)
+    release
 }
 text BlindRocket1_Text{
     "Help, I can't see!\n"
     "Is someone there?"
 }
 script BlindRocket2{
-    msgbox(BlindRocket2_Text, MSGBOX_NPC)
+    msgbox(BlindRocket2_Text)
+    release
 }
 text BlindRocket2_Text{
     "What happened?\p"
@@ -51,7 +53,7 @@ script BlindRocket4{
     faceplayer
     message(BlindRocket4_Text)
     waitmessage
-    dynmultichoice(23, 0, TRUE, 2, 0, 0, "Friend", "Foe")
+    dynmultichoice(23, 8, TRUE, 2, 0, 0, "Friend", "Foe")
     if(var(VAR_RESULT) == 0){
         msgbox(BlindRocket4_Friend, MSGBOX_NPC)
     }

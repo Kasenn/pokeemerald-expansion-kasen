@@ -1276,7 +1276,7 @@ SlateportCity_Text_HarborSign:
 	.string "the ferry S.S. TIDAL.”$"
 
 SlateportCity_Text_NameRatersHouseSign:
-	.string "NAME RATER'S HOUSE\n"
+	.string "Name Rater's house\n"
 	.string "“Pokémon nicknames rated.”$"
 
 SlateportCity_Text_ExplainBerries:

@@ -6,11 +6,7 @@ mapscripts DrisledgeTown_MapScripts {
 script DrisledgeTownOnLoad{
     gettime
     copyvar(VAR_TEMP_0, VAR_0x8000)
-    // call(SetDrisledgeNPCs)
     call(SetDrisledgeGym)
-    // if(var(VAR_DRISLEDGE_TOWN_STATE) >= 30){
-    //     call(SetUpBrokenDrisledge)
-    //     if(var(VAR_TEMP_0) <= 6 || var(VAR_TEMP_0) >= 18){
     //         call(SetUpGhostTownDrisledge)
     //     }
     // }
@@ -24,7 +20,7 @@ script DrisledgeTownOnTransition{
     call(SetDrisledgeNPCs)
     call(SetDrisledgeGym)
     if(var(VAR_DRISLEDGE_TOWN_STATE) >= 30){
-        if(var(VAR_TEMP_0) <= 6 || var(VAR_TEMP_0) >= 18){
+        if((var(VAR_TEMP_0) <= 6 || var(VAR_TEMP_0) >= 18) || checkitem(ITEM_ZYGARDE_CUBE) == TRUE){
             setmaplayoutindex(LAYOUT_DRISLEDGE_TOWN_BROKEN2)
         }
         else{
@@ -39,6 +35,9 @@ script SetDrisledgeNPCs{
         setflag(FLAG_TEMP_1)
     }
     if((var(VAR_DRISLEDGE_TOWN_STATE) >= 30) && (var(VAR_TEMP_0) <= 6 || var(VAR_TEMP_0) >= 18)){
+        clearflag(FLAG_TEMP_2)
+    }
+    if(checkitem(ITEM_ZYGARDE_CUBE) == TRUE){
         clearflag(FLAG_TEMP_2)
     }
     return
@@ -174,7 +173,7 @@ script SetUpDrisledgeHouses{
 }
 
 script SetDrisledgeGym{
-    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 30){
+    if(var(VAR_DRISLEDGE_TOWN_STATE) >= 30 || checkitem(ITEM_ZYGARDE_CUBE)){
         setdynamicwarp(MAP_DRISLEDGE_GYM_HOUSE, 4, 8)
     }
     else{

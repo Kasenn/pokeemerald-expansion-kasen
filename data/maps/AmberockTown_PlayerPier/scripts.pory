@@ -41,8 +41,9 @@ script GiovanniEscapesFactory{
     lock
     safefollow
     applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left * 5, walk_up, walk_left))
-    applymovement(1, moves(walk_slow_left * 7))
     applymovement(2, moves(walk_slow_left * 7))
+    delay(16)
+    applymovement(1, moves(walk_slow_left * 7))
     waitmovement(OBJ_EVENT_ID_PLAYER)
     waitmovement(1)
     msgbox(ClayWasTooLate, MSGBOX_AUTOCLOSE)

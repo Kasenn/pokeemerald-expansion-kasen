@@ -5,6 +5,7 @@ void ItemUseOutOfBattle_Mail(u8);
 void ItemUseOutOfBattle_Bike(u8);
 void ItemUseOutOfBattle_Rod(u8);
 void ItemUseOutOfBattle_Itemfinder(u8);
+void ItemUseOnFieldCB_Itemfinder(u8);
 void ItemUseOutOfBattle_PokeblockCase(u8);
 void ItemUseOutOfBattle_CoinCase(u8);
 void ItemUseOutOfBattle_SampleBox(u8);

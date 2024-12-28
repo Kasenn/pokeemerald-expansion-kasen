@@ -120,7 +120,8 @@
     "SouthernDesert",
     "AmberockTown_KrokorokPier",
     "AmberockTown_PlayerPier",
-    "Route16_NoCurrents"
+    "Route16_NoCurrents",
+    "PrimroseTown_Copy"
   ],
   "gMapGroup_RouteInteriors": [
     "RanchBarn",

@@ -21,6 +21,7 @@ void InitTilesetAnim_Mossdeep(void);
 void InitTilesetAnim_EverGrande(void);
 void InitTilesetAnim_Pacifidlog(void);
 void InitTilesetAnim_Kaolisle(void);
+void InitTilesetAnim_Amberock(void);
 void InitTilesetAnim_Sootopolis(void);
 void InitTilesetAnim_BattleFrontierOutsideWest(void);
 void InitTilesetAnim_BattleFrontierOutsideEast(void);

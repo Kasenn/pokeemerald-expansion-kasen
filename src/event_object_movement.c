@@ -114,6 +114,7 @@ static u8 setup##_callback(struct ObjectEvent *objectEvent, struct Sprite *sprit
 static EWRAM_DATA u8 sCurrentReflectionType = 0;
 static EWRAM_DATA u16 sCurrentSpecialObjectPaletteTag = 0;
 static EWRAM_DATA struct LockedAnimObjectEvents *sLockedAnimObjectEvents = {0};
+extern EWRAM_DATA u8 sFollowerItemFinderStepCounter;
 
 static void MoveCoordsInDirection(u32, s16 *, s16 *, s16, s16);
 static bool8 ObjectEventExecSingleMovementAction(struct ObjectEvent *, struct Sprite *);
@@ -2645,6 +2646,11 @@ void GetFollowerAction(struct ScriptContext *ctx) // Essentially a big switch fo
     };
     u32 i, j;
     bool32 pickedCondition = FALSE;
+    if (sFollowerItemFinderStepCounter >= 24)
+    {
+        ScriptCall(ctx, FollowerAfterFindingItem);
+        return;
+    }
     if (mon == NULL) // failsafe
     {
         ScriptCall(ctx, EventScript_FollowerLovesYou);

@@ -216,6 +216,9 @@ BuffetDineHere_1:
 	msgbox EnjoyYourBuffet, MSGBOX_DEFAULT
 	closemessage
 	hidemoneybox
+	special SavePlayerParty
+	setpartylevel 40
+	special HealPlayerParty
 	setflag FLAG_CONTINUE_AFTER_WHITEOUT
 	cleartrainerflag TRAINER_BUFFET_1
 	cleartrainerflag TRAINER_BUFFET_2
@@ -388,6 +391,8 @@ WalkTo3rdTable:
 
 BuffetComplete::
 	msgbox BuffetCompleted, MSGBOX_DEFAULT
+	special LoadPlayerParty
+	special HealPlayerParty
 	setvar VAR_KAOLISLE_HOTEL_STATE, 11
 	clearflag FLAG_CONTINUE_AFTER_WHITEOUT
 	checkitemspace ITEM_LEFTOVERS
@@ -424,6 +429,7 @@ BuffetComplete_2:
 BuffetLost2::
 	msgbox BuffetLost_Text, MSGBOX_DEFAULT
 	closemessage
+	special LoadPlayerParty
 	special HealPlayerParty
 	callnative UpdateFollowingPokemon
 	clearflag FLAG_CONTINUE_AFTER_WHITEOUT
@@ -794,6 +800,9 @@ ThatWillBe1000::
 	.string "Before you enter, I must warn you\n"
 	.string "that the trainers here are extremely\l"
 	.string "powerful.\p"
+	.string "For a more even playing field,\n"
+	.string "all Pokémon will be set to Level 40\l"
+	.string "for the duration of the buffet.\p"
 	.string "Would you still like to enter the\n"
 	.string "dining hall? An entry costs ¥1000.$"
 

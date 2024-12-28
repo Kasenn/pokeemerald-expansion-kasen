@@ -3,6 +3,24 @@
 //
 // General stuff
 //
+script FollowerSpottedAnItemNearby{
+    playse(SE_PIN)
+    applymovement(OBJ_EVENT_ID_FOLLOWER, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    setflag(FLAG_FOLLOWER_FINDER_INTRO)
+    bufferlivemonnickname(0)
+    msgbox(FollowerSpottedAnItemNearby_Text, MSGBOX_SIGN)
+    end
+}
+text FollowerSpottedAnItemNearby_Text{
+    "{STR_VAR_1} seems to have spotted\n"
+    "something interesting nearby!"
+}
+script FollowerAfterFindingItem{
+    bufferlivemonnickname(0)
+    msgbox(FollowerSpottedAnItemNearby_Text, MSGBOX_NPC)
+}
 script CheckForTentSpecialPrize{
     if(var(VAR_TENT_SPECIAL_PRIZE) != 3){
         addvar(VAR_TENT_SPECIAL_PRIZE, 1)

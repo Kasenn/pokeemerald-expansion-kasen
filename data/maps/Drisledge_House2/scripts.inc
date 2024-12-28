@@ -7,23 +7,33 @@ Drisledge_House2_MapScripts::
 DrisHouse2_FlagControl::
 	setflag FLAG_TEMP_2
 	compare VAR_DRISLEDGE_TOWN_STATE, 30
-	goto_if_ge DrisHouse2_FlagControl_1
+	goto_if_ge DrisHouse2_FlagControl_2
+DrisHouse2_FlagControl_1:
+	checkitem ITEM_ZYGARDE_CUBE
+	compare VAR_RESULT, TRUE
+	goto_if_eq DrisHouse2_FlagControl_4
 	return
 
-DrisHouse2_FlagControl_1:
+DrisHouse2_FlagControl_2:
 	setweather WEATHER_SHADE
 	setflag FLAG_TEMP_1
 	gettime
 	copyvar VAR_TEMP_0, VAR_0x8000
 	compare VAR_TEMP_0, 6
-	goto_if_le DrisHouse2_FlagControl_3
+	goto_if_le DrisHouse2_FlagControl_6
 	compare VAR_TEMP_0, 18
-	goto_if_ge DrisHouse2_FlagControl_3
+	goto_if_ge DrisHouse2_FlagControl_6
+	goto DrisHouse2_FlagControl_1
+
+DrisHouse2_FlagControl_4:
+	setweather WEATHER_SHADE
+	clearflag FLAG_TEMP_2
+	setflag FLAG_TEMP_1
 	return
 
-DrisHouse2_FlagControl_3:
+DrisHouse2_FlagControl_6:
 	clearflag FLAG_TEMP_2
-	return
+	goto DrisHouse2_FlagControl_1
 
 
 Drisledge_Mismagius1::

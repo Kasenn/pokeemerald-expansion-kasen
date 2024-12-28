@@ -605,10 +605,11 @@ script Amberock_SurfScientist{
     giveitem(ITEM_HM03)
     msgbox(GoGetBackPapers)
     closemessage
+    safefollow
     if(var(VAR_FACING) == DIR_SOUTH){
         getfollowerxy(X, Y)
-        if(var(X) != 64 && var(Y) != 10){
-            safefollow
+        if(var(X) == 64 && var(Y) == 10){
+            clearflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
         }
         applymovement(1, ScientistLeavesDetour)
     }
@@ -687,7 +688,7 @@ script Amberock_Papers{
                 clearflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
             }
             setobjectxy(31, 28, 4)
-            applymovement(1, Walk5Down)
+            applymovement(1, Walk6Down)
         case DIR_EAST:
             if(var(X) == 56 && var(Y) == 9){
                 clearflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
@@ -720,7 +721,7 @@ script Amberock_Papers{
             applymovement(2, MoveScientist2)
         case DIR_WEST:
             setobjectxy(32, 28, 4)
-            applymovement(2, Walk5Down)
+            applymovement(2, Walk6Down)
         case DIR_EAST:
             setobjectxy(32, 28, 4)
             applymovement(2, MoveScientist1)
@@ -832,7 +833,7 @@ text AcerolaVisitGymAlternative{
 movement MoveScientist1{
     walk_down * 2
     walk_left * 2
-    walk_down * 3
+    walk_down * 4
     step_end
 }
 movement MoveScientist2{
@@ -1020,7 +1021,7 @@ script Amberock_AcerolaEvent{
         setflag(FLAG_PAPERS)
     }
     if(flag(FLAG_BADGE05_GET) && !flag(FLAG_RECEIVED_HM_SURF)){
-        setobjectxyperm(31, 33, 11)
+        setobjectxyperm(1, 63, 11)
         clearflag(FLAG_SCIENTIST)
     }
     return

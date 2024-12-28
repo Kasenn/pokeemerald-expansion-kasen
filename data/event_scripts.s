@@ -1713,3 +1713,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/AmberockTown_PlayerPier/scripts.inc"
 
 	.include "data/maps/Route16_NoCurrents/scripts.inc"
+
+	.include "data/maps/PrimroseTown_Copy/scripts.inc"

@@ -7203,7 +7203,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .name = COMPOUND_STRING("Brick Break"),
         .description = COMPOUND_STRING(
             "Destroys barriers such as\n"
-            "REFLECT and causes damage."),
+            "Reflect and causes damage."),
         .effect = EFFECT_BRICK_BREAK,
         .power = 75,
         .type = TYPE_FIGHTING,

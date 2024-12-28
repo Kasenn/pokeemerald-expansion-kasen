@@ -83,7 +83,14 @@ Factory_Office_Rocket3::
 
 Factory_Office_Papers::
 	msgbox PapersOnTable
-	finditem ITEM_RESEARCH_PAPERS
+	waitse
+	playfanfare MUS_OBTAIN_ITEM
+	removeobject VAR_LAST_TALKED
+	message PlayerPickedResearchPapers
+	delay 10
+	waitfanfare
+	waitmessage
+	msgbox PlayerPutResearchPapersInBag
 	removeobjectbyflag FLAG_TEMP_2
 	setmetatile 13, 7, 0x3AB, TRUE
 	setmetatile 14, 7, 0x3AC, TRUE
@@ -201,6 +208,13 @@ Factory_Office_Rocket3_Lose::
 Factory_Office_Rocket3_PostBat::
 	.string "Think you're tough?\n"
 	.string "You stand no chance against the boss!$"
+
+PlayerPickedResearchPapers::
+	.string "{PLAYER} found Research Papers!$"
+
+PlayerPutResearchPapersInBag::
+	.string "{PLAYER} put away the Research Papers\n"
+	.string "in the Key Items pocket.$"
 
 PapersOnTable::
 	.string "These look like they could be\n"

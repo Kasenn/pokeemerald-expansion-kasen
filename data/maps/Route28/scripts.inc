@@ -366,7 +366,4 @@ Route28_Sign_Text::
 	.string "the D-Pad changes the style of the\l"
 	.string "window border, while pressing left or\l"
 	.string "down on the D-Pad changes the color\l"
-	.string "of the battle interface.\p"
-	.string "During double battles, pressing the\n"
-	.string "SELECT button switches the view\l"
-	.string "between health bars and numbers.$"
+	.string "of the battle interface.$"

@@ -252,8 +252,8 @@
 #define MAPSEC_WINDPLUME_MOUNTAIN              0xF8
 #define MAPSEC_HIDDENGROTTO_AZURETIDE          0xF9
 #define MAPSEC_HIDDENGROTTO_ROUTE_15          0xFA
-#define MAPSEC_NONE                            0xFB
-
+#define MAPSEC_FLOWER_FIELDS                            0xFB
+#define MAPSEC_NONE                            0xFC
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

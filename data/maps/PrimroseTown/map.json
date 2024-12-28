@@ -133,38 +133,6 @@
   ],
   "bg_events": [
     {
-      "type": "hidden_item",
-      "x": 3,
-      "y": 5,
-      "elevation": 0,
-      "item": "ITEM_PINK_NECTAR",
-      "flag": "FLAG_DAILY_PRIMROSE_NECTAR1"
-    },
-    {
-      "type": "hidden_item",
-      "x": 4,
-      "y": 4,
-      "elevation": 0,
-      "item": "ITEM_PURPLE_NECTAR",
-      "flag": "FLAG_DAILY_PRIMROSE_NECTAR2"
-    },
-    {
-      "type": "hidden_item",
-      "x": 5,
-      "y": 5,
-      "elevation": 0,
-      "item": "ITEM_YELLOW_NECTAR",
-      "flag": "FLAG_DAILY_PRIMROSE_NECTAR3"
-    },
-    {
-      "type": "hidden_item",
-      "x": 6,
-      "y": 4,
-      "elevation": 0,
-      "item": "ITEM_RED_NECTAR",
-      "flag": "FLAG_DAILY_PRIMROSE_NECTAR4"
-    },
-    {
       "type": "sign",
       "x": 8,
       "y": 23,

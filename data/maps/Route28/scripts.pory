@@ -299,8 +299,5 @@ text Route28_Sign_Text{
     "the D-Pad changes the style of the\l"
     "window border, while pressing left or\l"
     "down on the D-Pad changes the color\l"
-    "of the battle interface.\p"
-    "During double battles, pressing the\n"
-    "SELECT button switches the view\l"
-    "between health bars and numbers."
+    "of the battle interface."
 }

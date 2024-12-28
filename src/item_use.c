@@ -65,7 +65,7 @@ static void Task_OpenRegisteredPokeblockCase(u8);
 static void Task_AccessPokemonBoxLink(u8);
 static void ItemUseOnFieldCB_Bike(u8);
 static void ItemUseOnFieldCB_Rod(u8);
-static void ItemUseOnFieldCB_Itemfinder(u8);
+void ItemUseOnFieldCB_Itemfinder(u8);
 static void ItemUseOnFieldCB_Berry(u8);
 static void ItemUseOnFieldCB_WailmerPailBerry(u8);
 static void ItemUseOnFieldCB_WailmerPailSudowoodo(u8);
@@ -381,7 +381,7 @@ void ItemUseOutOfBattle_Itemfinder(u8 var)
     SetUpItemUseOnFieldCallback(var);
 }
 
-static void ItemUseOnFieldCB_Itemfinder(u8 taskId)
+void ItemUseOnFieldCB_Itemfinder(u8 taskId)
 {
     if (ItemfinderCheckForHiddenItems(gMapHeader.events, taskId) == TRUE)
         gTasks[taskId].func = Task_UseItemfinder;

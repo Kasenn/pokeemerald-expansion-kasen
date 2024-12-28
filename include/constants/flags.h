@@ -1526,8 +1526,8 @@
 #define FLAG_FACTORY_ITEM_3_OUTSIDE                           (SYSTEM_FLAGS + 0x9D) // 
 #define FLAG_FACTORY_DIRE_BALL                           (SYSTEM_FLAGS + 0x9E) // 
 #define FLAG_FIRST_BATTLE                           (SYSTEM_FLAGS + 0x9F) // 
-#define FLAG_UNUSED_0x802                           (SYSTEM_FLAGS + 0xA0) // 
-#define FLAG_UNUSED_0x901                           (SYSTEM_FLAGS + 0xA1) // 
+#define FLAG_LANDMARK_FLOWER_FIELDS                           (SYSTEM_FLAGS + 0xA0) // 
+#define FLAG_FOLLOWER_FINDER_INTRO                           (SYSTEM_FLAGS + 0xA1) // 
 #define FLAG_UNUSED_0x902                           (SYSTEM_FLAGS + 0xA2) // 
 #define FLAG_UNUSED_0x903                           (SYSTEM_FLAGS + 0xA3) // 
 #define FLAG_UNUSED_0x904                           (SYSTEM_FLAGS + 0xA4) // 
