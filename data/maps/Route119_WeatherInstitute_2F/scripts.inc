@@ -110,30 +110,33 @@ LegendaryInstitute2F_Woman::
 
 
 LegendaryInstitute2F_MainScientist::
+	faceplayer
 	compare VAR_ZYGARDE_PROGRESS, 1
 	goto_if_eq LegendaryInstitute2F_MainScientist_2
 	compare VAR_ZYGARDE_PROGRESS, 3
 	goto_if_eq LegendaryInstitute2F_MainScientist_5
-	goto_if_set FLAG_UNLOCKED_REASSEMBLY_UNIT, LegendaryInstitute2F_MainScientist_7
+	goto_if_set FLAG_UNLOCKED_REASSEMBLY_UNIT, LegendaryInstitute2F_MainScientist_8
 	compare VAR_ZYGARDE_CELLS, 10
-	goto_if_ge LegendaryInstitute2F_MainScientist_12
-LegendaryInstitute2F_MainScientist_11:
+	goto_if_ge LegendaryInstitute2F_MainScientist_13
+LegendaryInstitute2F_MainScientist_12:
 	compare VAR_ZYGARDE_CELLS, 0
-	goto_if_eq LegendaryInstitute2F_MainScientist_16
+	goto_if_eq LegendaryInstitute2F_MainScientist_17
 	buffernumberstring STR_VAR_1, VAR_ZYGARDE_CELLS
-LegendaryInstitute2F_MainScientist_15:
+LegendaryInstitute2F_MainScientist_16:
 	compare VAR_ZYGARDE_CORES, 0
-	goto_if_eq LegendaryInstitute2F_MainScientist_20
+	goto_if_eq LegendaryInstitute2F_MainScientist_21
 	buffernumberstring STR_VAR_2, VAR_ZYGARDE_CORES
-LegendaryInstitute2F_MainScientist_19:
+LegendaryInstitute2F_MainScientist_20:
 	compare VAR_ZYGARDE_CELLS, 1
-	goto_if_eq LegendaryInstitute2F_MainScientist_29
-LegendaryInstitute2F_MainScientist_28:
+	goto_if_eq LegendaryInstitute2F_MainScientist_30
+LegendaryInstitute2F_MainScientist_29:
 	compare VAR_ZYGARDE_CELLS, 1
-	goto_if_eq LegendaryInstitute2F_MainScientist_24
-	compare VAR_ZYGARDE_CORES, 1
 	goto_if_eq LegendaryInstitute2F_MainScientist_25
+	compare VAR_ZYGARDE_CORES, 1
+	goto_if_eq LegendaryInstitute2F_MainScientist_26
 	msgbox NotEnoughCellsAndCores, MSGBOX_NPC
+LegendaryInstitute2F_MainScientist_7:
+	release
 	return
 
 LegendaryInstitute2F_MainScientist_2:
@@ -146,47 +149,47 @@ LegendaryInstitute2F_MainScientist_5:
 	setvar VAR_ZYGARDE_PROGRESS, 4
 	end
 
-LegendaryInstitute2F_MainScientist_7:
+LegendaryInstitute2F_MainScientist_8:
 	lock
 	faceplayer
 	goto MainScientist_ExplainFeatures
-	return
+	goto LegendaryInstitute2F_MainScientist_7
 
-LegendaryInstitute2F_MainScientist_10:
+LegendaryInstitute2F_MainScientist_11:
 	msgbox HaveEnoughCellsAndCores
 	msgbox HaveEnoughCellsAndCores2
 	setflag FLAG_UNLOCKED_REASSEMBLY_UNIT
-	return
+	goto LegendaryInstitute2F_MainScientist_7
 
-LegendaryInstitute2F_MainScientist_12:
+LegendaryInstitute2F_MainScientist_13:
 	compare VAR_ZYGARDE_CORES, 1
-	goto_if_ge LegendaryInstitute2F_MainScientist_10
-	goto LegendaryInstitute2F_MainScientist_11
+	goto_if_ge LegendaryInstitute2F_MainScientist_11
+	goto LegendaryInstitute2F_MainScientist_12
 
-LegendaryInstitute2F_MainScientist_16:
+LegendaryInstitute2F_MainScientist_17:
 	bufferstring STR_VAR_1, LegendaryInstitute2F_MainScientist_Text_0
-	goto LegendaryInstitute2F_MainScientist_15
+	goto LegendaryInstitute2F_MainScientist_16
 
-LegendaryInstitute2F_MainScientist_20:
+LegendaryInstitute2F_MainScientist_21:
 	bufferstring STR_VAR_2, LegendaryInstitute2F_MainScientist_Text_0
-	goto LegendaryInstitute2F_MainScientist_19
-
-LegendaryInstitute2F_MainScientist_23:
-	msgbox NotEnoughCellAndCore, MSGBOX_NPC
-	return
+	goto LegendaryInstitute2F_MainScientist_20
 
 LegendaryInstitute2F_MainScientist_24:
-	msgbox NotEnoughCellAndCores, MSGBOX_NPC
-	return
+	msgbox NotEnoughCellAndCore, MSGBOX_NPC
+	goto LegendaryInstitute2F_MainScientist_7
 
 LegendaryInstitute2F_MainScientist_25:
-	msgbox NotEnoughCellsAndCore, MSGBOX_NPC
-	return
+	msgbox NotEnoughCellAndCores, MSGBOX_NPC
+	goto LegendaryInstitute2F_MainScientist_7
 
-LegendaryInstitute2F_MainScientist_29:
+LegendaryInstitute2F_MainScientist_26:
+	msgbox NotEnoughCellsAndCore, MSGBOX_NPC
+	goto LegendaryInstitute2F_MainScientist_7
+
+LegendaryInstitute2F_MainScientist_30:
 	compare VAR_ZYGARDE_CORES, 1
-	goto_if_eq LegendaryInstitute2F_MainScientist_23
-	goto LegendaryInstitute2F_MainScientist_28
+	goto_if_eq LegendaryInstitute2F_MainScientist_24
+	goto LegendaryInstitute2F_MainScientist_29
 
 
 MainScientist_ExplainFeatures::
@@ -425,18 +428,18 @@ ReassemblyUnit_Assemble50Forme_5:
 ReassemblyUnit_Assemble50Forme_12:
 	checkpartymon SPECIES_ZYGARDE_10, 0
 	compare VAR_RESULT, FALSE
-	goto_if_eq ReassemblyUnit_Assemble50Forme_21
-ReassemblyUnit_Assemble50Forme_20:
+	goto_if_eq ReassemblyUnit_Assemble50Forme_24
+ReassemblyUnit_Assemble50Forme_23:
 	msgbox ChooseZygardeForAssembly
 	special ChoosePartyMon
 	waitstate
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
-	goto_if_eq ReassemblyUnit_Assemble50Forme_24
-ReassemblyUnit_Assemble50Forme_23:
+	goto_if_eq ReassemblyUnit_Assemble50Forme_30
+ReassemblyUnit_Assemble50Forme_29:
 	specialvar VAR_0x8005, GetSelectedMonNicknameAndSpecies
 	compare VAR_0x8005, SPECIES_ZYGARDE_10
-	goto_if_ne ReassemblyUnit_Assemble50Forme_27
-ReassemblyUnit_Assemble50Forme_26:
+	goto_if_ne ReassemblyUnit_Assemble50Forme_33
+ReassemblyUnit_Assemble50Forme_32:
 	subvar VAR_ZYGARDE_CELLS, 40
 	subvar VAR_ZYGARDE_CORES, 2
 	clearflag FLAG_ZYGARDE10_ASSEMBLED
@@ -448,8 +451,12 @@ ReassemblyUnit_Assemble50Forme_26:
 	goto ReassemblyUnit_Assemble50Forme_4
 
 ReassemblyUnit_Assemble50Forme_8:
-	buffernumberstring STR_VAR_1, VAR_ZYGARDE_CELLS
-	buffernumberstring STR_VAR_2, VAR_ZYGARDE_CORES
+	copyvar VAR_TEMP_2, VAR_ZYGARDE_CELLS
+	copyvar VAR_TEMP_3, VAR_ZYGARDE_CORES
+	goto_if_set FLAG_ZYGARDE10_ASSEMBLED, ReassemblyUnit_Assemble50Forme_21
+ReassemblyUnit_Assemble50Forme_20:
+	buffernumberstring STR_VAR_1, VAR_TEMP_2
+	buffernumberstring STR_VAR_2, VAR_TEMP_3
 	msgbox NotEnoughCellsAndCoresInCube
 	goto ReassemblyUnit_MainScript
 	goto ReassemblyUnit_Assemble50Forme_7
@@ -460,8 +467,12 @@ ReassemblyUnit_Assemble50Forme_9:
 	goto ReassemblyUnit_Assemble50Forme_7
 
 ReassemblyUnit_Assemble50Forme_13:
-	buffernumberstring STR_VAR_1, VAR_ZYGARDE_CELLS
-	buffernumberstring STR_VAR_2, VAR_ZYGARDE_CORES
+	copyvar VAR_TEMP_2, VAR_ZYGARDE_CELLS
+	copyvar VAR_TEMP_3, VAR_ZYGARDE_CORES
+	goto_if_set FLAG_ZYGARDE10_ASSEMBLED, ReassemblyUnit_Assemble50Forme_27
+ReassemblyUnit_Assemble50Forme_26:
+	buffernumberstring STR_VAR_1, VAR_TEMP_2
+	buffernumberstring STR_VAR_2, VAR_TEMP_3
 	msgbox NotEnoughCellsAndCoresInCube
 	goto ReassemblyUnit_MainScript
 	goto ReassemblyUnit_Assemble50Forme_12
@@ -476,19 +487,29 @@ ReassemblyUnit_Assemble50Forme_18:
 	goto ReassemblyUnit_Assemble50Forme_17
 
 ReassemblyUnit_Assemble50Forme_21:
-	msgbox NoZygardeDetectedInParty_Assembly
-	goto ReassemblyUnit_MainScript
+	addvar VAR_TEMP_2, 10
+	addvar VAR_TEMP_3, 1
 	goto ReassemblyUnit_Assemble50Forme_20
 
 ReassemblyUnit_Assemble50Forme_24:
-	msgbox AssemblyAborted
+	msgbox NoZygardeDetectedInParty_Assembly
 	goto ReassemblyUnit_MainScript
 	goto ReassemblyUnit_Assemble50Forme_23
 
 ReassemblyUnit_Assemble50Forme_27:
+	addvar VAR_TEMP_2, 10
+	addvar VAR_TEMP_3, 1
+	goto ReassemblyUnit_Assemble50Forme_26
+
+ReassemblyUnit_Assemble50Forme_30:
+	msgbox AssemblyAborted
+	goto ReassemblyUnit_MainScript
+	goto ReassemblyUnit_Assemble50Forme_29
+
+ReassemblyUnit_Assemble50Forme_33:
 	msgbox SpeciesNotZygarde
 	goto ReassemblyUnit_MainScript
-	goto ReassemblyUnit_Assemble50Forme_26
+	goto ReassemblyUnit_Assemble50Forme_32
 
 
 ReassemblyUnit_Separation::

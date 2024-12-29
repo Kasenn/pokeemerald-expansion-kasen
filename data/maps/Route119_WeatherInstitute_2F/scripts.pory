@@ -172,6 +172,7 @@ text FiftyZygardeCreated{
     "What could this mean?"
 }
 script LegendaryInstitute2F_MainScientist{
+    faceplayer
     if(var(VAR_ZYGARDE_PROGRESS) == 1){
         msgbox(TenZygardeCreated, MSGBOX_NPC)
         setvar(VAR_ZYGARDE_PROGRESS, 2)
@@ -222,6 +223,7 @@ script LegendaryInstitute2F_MainScientist{
             }
         }
     }
+    release
 }
 script MainScientist_ExplainFeatures{
     message(WhichFeatureToExplain)
@@ -468,8 +470,14 @@ script ReassemblyUnit_Assemble50Forme{
     if(flag(FLAG_ZYGARDE10_ASSEMBLED)){
         if(var(VAR_ZYGARDE_CELLS) < 40
         && var(VAR_ZYGARDE_CORES) < 2){
-            buffernumberstring(STR_VAR_1, VAR_ZYGARDE_CELLS)
-            buffernumberstring(STR_VAR_2, VAR_ZYGARDE_CORES)
+            copyvar(VAR_TEMP_2, VAR_ZYGARDE_CELLS)
+            copyvar(VAR_TEMP_3, VAR_ZYGARDE_CORES)
+            if(flag(FLAG_ZYGARDE10_ASSEMBLED)){
+                addvar(VAR_TEMP_2, 10)
+                addvar(VAR_TEMP_3, 1)
+            }
+            buffernumberstring(STR_VAR_1, VAR_TEMP_2)
+            buffernumberstring(STR_VAR_2, VAR_TEMP_3)
             msgbox(NotEnoughCellsAndCoresInCube)
             goto(ReassemblyUnit_MainScript)
         }
@@ -501,8 +509,14 @@ script ReassemblyUnit_Assemble50Forme{
     }
     if(var(VAR_ZYGARDE_CELLS) < 50
     && var(VAR_ZYGARDE_CORES) < 3){
-        buffernumberstring(STR_VAR_1, VAR_ZYGARDE_CELLS)
-        buffernumberstring(STR_VAR_2, VAR_ZYGARDE_CORES)
+        copyvar(VAR_TEMP_2, VAR_ZYGARDE_CELLS)
+        copyvar(VAR_TEMP_3, VAR_ZYGARDE_CORES)
+        if(flag(FLAG_ZYGARDE10_ASSEMBLED)){
+            addvar(VAR_TEMP_2, 10)
+            addvar(VAR_TEMP_3, 1)
+        }
+        buffernumberstring(STR_VAR_1, VAR_TEMP_2)
+        buffernumberstring(STR_VAR_2, VAR_TEMP_3)
         msgbox(NotEnoughCellsAndCoresInCube)
         goto(ReassemblyUnit_MainScript)
     }
