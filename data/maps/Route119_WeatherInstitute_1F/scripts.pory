@@ -10,7 +10,7 @@ script LegendaryInstitute1F_Greeter{
         bufferstring(STR_VAR_1, "lass")
     }
     if(checkitem(ITEM_ZYGARDE_CUBE) == FALSE){
-        msgbox(LegendaryInstitute1F_Greeter_Text2)
+        msgbox(LegendaryInstitute1F_Greeter_Text2, MSGBOX_NPC)
     }
     else{
         msgbox(LegendaryInstitute1F_Greeter_Text, MSGBOX_NPC)
@@ -18,7 +18,7 @@ script LegendaryInstitute1F_Greeter{
 }
 script LegendaryInstitute1F_Woman{
     if(checkitem(ITEM_ZYGARDE_CUBE) == FALSE){
-        msgbox(LegendaryInstitute1F_Woman_Text2)
+        msgbox(LegendaryInstitute1F_Woman_Text2, MSGBOX_NPC)
     }
     else{
         msgbox(LegendaryInstitute1F_Woman_Text, MSGBOX_NPC)

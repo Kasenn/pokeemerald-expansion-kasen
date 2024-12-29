@@ -19,7 +19,7 @@ LegendaryInstitute1F_Greeter_2:
 	goto LegendaryInstitute1F_Greeter_1
 
 LegendaryInstitute1F_Greeter_5:
-	msgbox LegendaryInstitute1F_Greeter_Text2
+	msgbox LegendaryInstitute1F_Greeter_Text2, MSGBOX_NPC
 	return
 
 
@@ -33,7 +33,7 @@ LegendaryInstitute1F_Woman_1:
 	return
 
 LegendaryInstitute1F_Woman_2:
-	msgbox LegendaryInstitute1F_Woman_Text2
+	msgbox LegendaryInstitute1F_Woman_Text2, MSGBOX_NPC
 	goto LegendaryInstitute1F_Woman_1
 
 

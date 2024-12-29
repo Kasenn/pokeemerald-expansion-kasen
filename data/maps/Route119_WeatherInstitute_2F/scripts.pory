@@ -31,6 +31,7 @@ script ZygardeCubeEvent{
     msgbox(ScientistDireNews)
     msgbox(ScientistDireNews2)
     closemessage
+    delay(10)
     applymovement(PROF, LabScientistMove)
     applymovement(OBJ_EVENT_ID_PLAYER, LabPlayerMove)
     waitmovement(PROF)
@@ -75,9 +76,9 @@ text ScientistDireNews2{
     "its hidden nest, and if awoken,\l"
     "could spread devastation across\l"
     "the entire world.\p"
-    "If Team Rocket was to catch and\l"
-    "control Yveltal, the ramifications\l"
-    "would truly be dire.\p"
+    "If Team Rocket were to get their\n"
+    "hands on Yveltal and control it,\l"
+    "the consequences would be dire.\p"
     "We must find where Yveltal rests\n"
     "before Team Rocket does!\p"
     "In the meantime, there is something\n"

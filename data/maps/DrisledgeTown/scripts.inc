@@ -12,6 +12,7 @@ DrisledgeTownOnLoad::
 
 
 DrisledgeTownOnTransition::
+	setflag FLAG_TEMP_4
 	setflag FLAG_VISITED_DRISLEDGE
 	gettime
 	copyvar VAR_TEMP_0, VAR_0x8000
@@ -30,6 +31,7 @@ DrisledgeTownOnTransition_1:
 	checkitem ITEM_ZYGARDE_CUBE
 	compare VAR_RESULT, TRUE
 	goto_if_eq DrisledgeTownOnTransition_3
+	clearflag FLAG_TEMP_4
 	setmaplayoutindex LAYOUT_DRISLEDGE_TOWN_BROKEN
 	return
 
@@ -498,33 +500,34 @@ Drisledge_Acerola::
 	goto_if_eq Drisledge_Acerola_2
 	bufferstring STR_VAR_1, Drisledge_Acerola_Text_1
 Drisledge_Acerola_1:
-	goto_if_set FLAG_RECEIVED_HM_SURF, Drisledge_Acerola_5
-	msgbox AcerolaCheckWithScientist, MSGBOX_NPC
+	goto_if_set FLAG_ACEROLA_ITEM, Drisledge_Acerola_6
+	compare VAR_TEMP_3, 1
+	goto_if_eq Drisledge_Acerola_9
+	goto_if_unset FLAG_ACEROLA_ITEM, Drisledge_Acerola_15
 	return
 
 Drisledge_Acerola_2:
 	bufferstring STR_VAR_1, Drisledge_Acerola_Text_0
 	goto Drisledge_Acerola_1
 
-Drisledge_Acerola_5:
-	goto_if_set FLAG_ACEROLA_ITEM, Drisledge_Acerola_9
-	compare VAR_TEMP_3, 1
-	goto_if_eq Drisledge_Acerola_12
-	msgbox AcerolaYoureBack, MSGBOX_NPC
-	goto_if_unset FLAG_ACEROLA_ITEM, Drisledge_Acerola_14
-	return
-
-Drisledge_Acerola_9:
-	msgbox AcerolaWithFriends, MSGBOX_NPC
+Drisledge_Acerola_6:
+	goto_if_set FLAG_RECEIVED_HM_SURF, Drisledge_Acerola_12
+	msgbox AcerolaCheckWithScientist, MSGBOX_NPC
+Drisledge_Acerola_11:
 	end
 
-Drisledge_Acerola_12:
+Drisledge_Acerola_9:
 	msgbox AcerolaLetsDance, MSGBOX_NPC
 	end
 
-Drisledge_Acerola_14:
+Drisledge_Acerola_12:
+	msgbox AcerolaWithFriends, MSGBOX_NPC
+	goto Drisledge_Acerola_11
+
+Drisledge_Acerola_15:
+	msgbox AcerolaYoureBack, MSGBOX_NPC
 	setvar VAR_TEMP_3, 1
-	return
+	end
 
 
 AcerolaDanceTriggerCorner::
@@ -653,6 +656,11 @@ Drisledge_Mimikyu::
 	end
 
 
+Drisledge_Hiker::
+	msgbox Drisledge_Hiker_Text, MSGBOX_NPC
+	return
+
+
 DrisledgeGymToggle_Text_0:
 	.string "Town state changed.$"
 
@@ -759,3 +767,10 @@ DrisledgeGengar_Text::
 
 DrisledgeMimikyu_Text::
 	.string "Mii-mii!$"
+
+Drisledge_Hiker_Text::
+	.string "I heard this town has all sorts of\n"
+	.string "festivities going on during the night,\l"
+	.string "but how can that be?\p"
+	.string "All I see is an abandoned\n"
+	.string "ghost town.$"

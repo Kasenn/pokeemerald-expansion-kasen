@@ -36,6 +36,7 @@ ZygardeCubeEvent::
 	msgbox ScientistDireNews
 	msgbox ScientistDireNews2
 	closemessage
+	delay 10
 	applymovement 1, LabScientistMove
 	applymovement OBJ_EVENT_ID_PLAYER, LabPlayerMove
 	waitmovement 1
@@ -857,9 +858,9 @@ ScientistDireNews2::
 	.string "its hidden nest, and if awoken,\l"
 	.string "could spread devastation across\l"
 	.string "the entire world.\p"
-	.string "If Team Rocket was to catch and\l"
-	.string "control Yveltal, the ramifications\l"
-	.string "would truly be dire.\p"
+	.string "If Team Rocket were to get their\n"
+	.string "hands on Yveltal and control it,\l"
+	.string "the consequences would be dire.\p"
 	.string "We must find where Yveltal rests\n"
 	.string "before Team Rocket does!\p"
 	.string "In the meantime, there is something\n"
