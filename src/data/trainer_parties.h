@@ -5825,13 +5825,13 @@ static const struct TrainerMon sParty_TRAINER_R10_TR1_ACESWIMMER[] = {
     },
     {
     .iv = TRAINER_PARTY_IVS(15, 15, 15, 0, 15, 15),
-    .lvl = 45,
+    .lvl = 46,
     .species = SPECIES_ARAQUANID,
     .moves = {MOVE_LUNGE, MOVE_CRUNCH, MOVE_AQUA_RING, MOVE_BUBBLE_BEAM},
     },
     {
     .iv = TRAINER_PARTY_IVS(15, 15, 15, 0, 15, 15),
-    .lvl = 47,
+    .lvl = 48,
     .species = SPECIES_SLOWBRO,
     .heldItem = ITEM_SLOWBRONITE,
     .moves = {MOVE_ZEN_HEADBUTT, MOVE_SLACK_OFF, MOVE_AMNESIA, MOVE_WATER_PULSE},
@@ -12493,7 +12493,7 @@ static const struct TrainerMon sParty_TRAINER_CASUAL_IRIS[] = {
     },
     {
     .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
-    .lvl = 44,
+    .lvl = 45,
     .species = SPECIES_ARCHEOPS,
     .gender = TRAINER_MON_MALE,
     .heldItem = ITEM_NONE,
@@ -12501,7 +12501,7 @@ static const struct TrainerMon sParty_TRAINER_CASUAL_IRIS[] = {
     },
     {
     .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
-    .lvl = 47,
+    .lvl = 48,
     .species = SPECIES_AGGRON,
     .ability = ABILITY_ROCK_HEAD,
     .heldItem = ITEM_NONE,

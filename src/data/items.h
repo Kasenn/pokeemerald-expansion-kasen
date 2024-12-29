@@ -12059,12 +12059,15 @@ const struct Item gItemsInfo[] =
         .name = _("TM96"),
         .bpCost = 40,
         .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .description = COMPOUND_STRING(
+            "The user stabs the target\n"
+            "with a sharp horn.\n"
+            "This attack never misses."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SMART_STRIKE, // Not In-Game Yet
+        .secondaryId = MOVE_SMART_STRIKE,
     },
 
     [ITEM_TM_DARK_PULSE] =
