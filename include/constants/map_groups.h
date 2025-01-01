@@ -900,6 +900,7 @@
 #define MAP_MAPTEST                  (2 | (50 << 8))
 #define MAP_TEST_WALL                (3 | (50 << 8))
 #define MAP_TEST_ROOM_COPY           (4 | (50 << 8))
+#define MAP_ROUTE16_FILLER           (5 | (50 << 8))
 
 #define MAP_GROUPS_COUNT 51
 

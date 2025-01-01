@@ -2,7 +2,7 @@
   "id": "MAP_WINDPLUME_PEAK",
   "name": "WindplumePeak",
   "layout": "LAYOUT_WINDPLUME_PEAK",
-  "music": "MUS_B_PYRAMID",
+  "music": "MUS_MISTRAL",
   "region_map_section": "MAPSEC_WINDPLUME_VALLEY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

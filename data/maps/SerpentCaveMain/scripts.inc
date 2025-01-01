@@ -24,6 +24,7 @@ SerpentCave_Iris_1:
 	compare VAR_RESULT, FALSE
 	goto_if_eq SerpentCave_Iris_10
 SerpentCave_Iris_4:
+	msgbox IrisLetsGo
 	trainerbattle_no_intro TRAINER_CASUAL_IRIS, SerpentCaveIris_Lose
 	setvar VAR_SERPENTCAVE_STORY, STORY_SERPENTCAVE_IRIS_DEFEATED
 	goto IrisAfterBattle
@@ -191,3 +192,9 @@ IrisLeaves::
 	.string "Think I'm gonna head home now.\p"
 	.string "I hope we get to battle again\n"
 	.string "some day!$"
+
+IrisLetsGo::
+	.string "Yay!\n"
+	.string "I knew you'd be up for it!\p"
+	.string "What're we waiting for?\n"
+	.string "Let's go!$"

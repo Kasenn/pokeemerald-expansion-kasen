@@ -251,7 +251,10 @@ text R10_Ace_NotEligible{
 text R10_Ace_ReadyForBattle{
     "I saw how you handled those rude\n"
     "swimmers.\p"
-    "You're pretty good.\p"
+    "They were pestering me some time ago,\n"
+    "so I'm glad to see someone put them\l"
+    "in their place.\p"
+    "I must admit, you're pretty good.\p"
     "But are you good enough to handle\n"
     "my Pokémon?"
 }

@@ -14100,7 +14100,7 @@ const struct Item gItemsInfo[] =
 
     [ITEM_TROPICAL_STONE] =
     {
-        .name = _("TropicalStone"),
+        .name = _("Tropical Stone"),
         .price = 3000,
         .description = COMPOUND_STRING(    
             "Makes certain\n"

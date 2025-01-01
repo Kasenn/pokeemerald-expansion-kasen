@@ -3822,7 +3822,7 @@ static const struct TrainerMon sParty_Route11May_Rowlet[] = {
     }
 };
 
-static const struct TrainerMon sParty_Route11May_Torhic[] = {
+static const struct TrainerMon sParty_Route11May_Torchic[] = {
     {
     .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
     .lvl = 33,
@@ -5754,7 +5754,7 @@ static const struct TrainerMon sParty_TRAINER_R9_TR7_HIKER[] = {
     {
     .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
     .lvl = 37,
-    .species = SPECIES_WOOPER,
+    .species = SPECIES_WOOPER_PALDEA,
     .ability = ABILITY_WATER_ABSORB,
     },
     {
@@ -5817,7 +5817,7 @@ static const struct TrainerMon sParty_TRAINER_R10_TR1_ACESWIMMER[] = {
     },
     {
     .iv = TRAINER_PARTY_IVS(15, 15, 15, 0, 15, 15),
-    .lvl = 44,
+    .lvl = 45,
     .species = SPECIES_GASTRODON_EAST,
     .ability = ABILITY_STICKY_HOLD,
     .heldItem = ITEM_BLUNDER_POLICY,
@@ -12478,7 +12478,8 @@ static const struct TrainerMon sParty_Juan5[] = {
 static const struct TrainerMon sParty_TRAINER_CASUAL_IRIS[] = {
     {
     .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
-    .lvl = 43,
+    .ev = TRAINER_PARTY_EVS(80, 0, 80, 0, 0, 80),
+    .lvl = 44,
     .species = SPECIES_GABITE,
     .gender = TRAINER_MON_MALE,
     .heldItem = ITEM_NONE,
@@ -12486,26 +12487,29 @@ static const struct TrainerMon sParty_TRAINER_CASUAL_IRIS[] = {
     },
     {
     .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
-    .lvl = 44,
+    .ev = TRAINER_PARTY_EVS(80, 0, 80, 0, 0, 80),
+    .lvl = 45,
     .species = SPECIES_FRAXURE,
     .heldItem = ITEM_NONE,
     .moves = {MOVE_CRUNCH, MOVE_FOCUS_ENERGY, MOVE_SWORDS_DANCE, MOVE_OUTRAGE}
     },
     {
     .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
-    .lvl = 45,
+    .ev = TRAINER_PARTY_EVS(80, 0, 80, 0, 0, 80),
+    .lvl = 46,
     .species = SPECIES_ARCHEOPS,
     .gender = TRAINER_MON_MALE,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_DRAGON_CLAW, MOVE_TAILWIND, MOVE_ROCK_SLIDE, MOVE_PLUCK}
+    .moves = {MOVE_DRAGON_CLAW, MOVE_THRASH, MOVE_ROCK_SLIDE, MOVE_PLUCK}
     },
     {
     .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
-    .lvl = 48,
+    .ev = TRAINER_PARTY_EVS(80, 0, 80, 0, 0, 80),
+    .lvl = 49,
     .species = SPECIES_AGGRON,
     .ability = ABILITY_ROCK_HEAD,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_DOUBLE_EDGE, MOVE_IRON_TAIL, MOVE_ROCK_SLIDE, MOVE_AUTOTOMIZE}
+    .moves = {MOVE_DOUBLE_EDGE, MOVE_IRON_TAIL, MOVE_ROCK_SLIDE, MOVE_STOMPING_TANTRUM}
     }
 };
 

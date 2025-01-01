@@ -343,7 +343,7 @@ static bool32 CanFish(void)
     }
     if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
     {
-        if ((IsPlayerFacingFishableLava()) && FlagGet(FLAG_RECEIVED_TITANIUM_LINE))
+        if ((IsPlayerFacingFishableLava()) && CheckBagHasItem(ITEM_TITANIUM_LINE, 1))
             return TRUE;
     }
     else

@@ -28,7 +28,11 @@ Aldeleaf_MuseumCurator_14:
 Aldeleaf_MuseumCurator_20:
 	checkitem ITEM_RELIC_VASE
 	compare VAR_RESULT, TRUE
-	goto_if_eq Aldeleaf_MuseumCurator_26
+	goto_if_eq Aldeleaf_MuseumCurator_27
+Aldeleaf_MuseumCurator_26:
+	checkitem ITEM_RELIC_CROWN
+	compare VAR_RESULT, TRUE
+	goto_if_eq Aldeleaf_MuseumCurator_32
 Aldeleaf_MuseumCurator_1:
 	release
 	end
@@ -48,7 +52,11 @@ Aldeleaf_MuseumCurator_11:
 Aldeleaf_MuseumCurator_17:
 	checkitem ITEM_RELIC_VASE
 	compare VAR_RESULT, TRUE
-	goto_if_eq Aldeleaf_MuseumCurator_23
+	goto_if_eq Aldeleaf_MuseumCurator_24
+Aldeleaf_MuseumCurator_23:
+	checkitem ITEM_RELIC_CROWN
+	compare VAR_RESULT, TRUE
+	goto_if_eq Aldeleaf_MuseumCurator_29
 	msgbox ThanksForContribution, MSGBOX_NPC
 	end
 
@@ -76,11 +84,19 @@ Aldeleaf_MuseumCurator_21:
 	goto SellRelic
 	goto Aldeleaf_MuseumCurator_20
 
-Aldeleaf_MuseumCurator_23:
+Aldeleaf_MuseumCurator_24:
+	goto SellRelicShort
+	goto Aldeleaf_MuseumCurator_23
+
+Aldeleaf_MuseumCurator_27:
+	goto SellRelicShort
+	goto Aldeleaf_MuseumCurator_26
+
+Aldeleaf_MuseumCurator_29:
 	goto SellRelicShort
 	goto Aldeleaf_MuseumCurator_1
 
-Aldeleaf_MuseumCurator_26:
+Aldeleaf_MuseumCurator_32:
 	goto SellRelicShort
 	goto Aldeleaf_MuseumCurator_1
 
@@ -98,17 +114,20 @@ SellRelic::
 	closemessage
 	special Bag_ChooseFossil
 	waitstate
-	compare VAR_ITEM_ID, 157
+	compare VAR_ITEM_ID, ITEM_RELIC_COPPER
 	goto_if_eq SellRelic_5
 SellRelic_4:
-	compare VAR_ITEM_ID, 158
+	compare VAR_ITEM_ID, ITEM_RELIC_SILVER
 	goto_if_eq SellRelic_8
 SellRelic_7:
-	compare VAR_ITEM_ID, 159
+	compare VAR_ITEM_ID, ITEM_RELIC_GOLD
 	goto_if_eq SellRelic_11
 SellRelic_10:
-	compare VAR_ITEM_ID, 160
-	goto_if_eq SellRelic_13
+	compare VAR_ITEM_ID, ITEM_RELIC_VASE
+	goto_if_eq SellRelic_14
+SellRelic_13:
+	compare VAR_ITEM_ID, ITEM_RELIC_CROWN
+	goto_if_eq SellRelic_16
 	msgbox MuseumDontWantToSell, MSGBOX_NPC
 	end
 
@@ -128,8 +147,12 @@ SellRelic_11:
 	goto SellGold
 	goto SellRelic_10
 
-SellRelic_13:
+SellRelic_14:
 	goto SellVase
+	goto SellRelic_13
+
+SellRelic_16:
+	goto SellCrown
 	return
 
 
@@ -139,17 +162,20 @@ SellRelicShort::
 	closemessage
 	special Bag_ChooseFossil
 	waitstate
-	compare VAR_ITEM_ID, 157
+	compare VAR_ITEM_ID, ITEM_RELIC_COPPER
 	goto_if_eq SellRelicShort_2
 SellRelicShort_1:
-	compare VAR_ITEM_ID, 158
+	compare VAR_ITEM_ID, ITEM_RELIC_SILVER
 	goto_if_eq SellRelicShort_5
 SellRelicShort_4:
-	compare VAR_ITEM_ID, 159
+	compare VAR_ITEM_ID, ITEM_RELIC_GOLD
 	goto_if_eq SellRelicShort_8
 SellRelicShort_7:
-	compare VAR_ITEM_ID, 160
-	goto_if_eq SellRelicShort_10
+	compare VAR_ITEM_ID, ITEM_RELIC_VASE
+	goto_if_eq SellRelicShort_11
+SellRelicShort_10:
+	compare VAR_ITEM_ID, ITEM_RELIC_CROWN
+	goto_if_eq SellRelicShort_13
 	msgbox MuseumDontWantToSell, MSGBOX_NPC
 	end
 
@@ -165,8 +191,12 @@ SellRelicShort_8:
 	goto SellGold
 	goto SellRelicShort_7
 
-SellRelicShort_10:
+SellRelicShort_11:
 	goto SellVase
+	goto SellRelicShort_10
+
+SellRelicShort_13:
+	goto SellCrown
 	return
 
 
@@ -342,6 +372,26 @@ Marigorge_SusMan_11:
 	goto Marigorge_SusMan_10
 
 
+SellCrown::
+	showmoneybox 0, 0
+	msgbox WouldYouLikeToSellCrown, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq SellCrown_1
+	addvar VAR_RELIC_SOLD, 1
+	addmoney 300000
+	playse SE_SHOP
+	updatemoneybox
+	removeitem ITEM_RELIC_CROWN, 1
+	setvar VAR_TEMP_1, 1
+	msgbox MuseumThanksForArtifact, MSGBOX_NPC
+	hidemoneybox
+	end
+
+SellCrown_1:
+	msgbox MuseumThatsAShame, MSGBOX_NPC
+	end
+
+
 Aldeleaf_MuseumCurator_Intro::
 	.string "I'm the curator of this museum of\n"
 	.string "fine arts.\p"
@@ -477,3 +527,9 @@ Marigorge_SusMan_AlreadyBought::
 	.string "smuggle out.\p"
 	.string "I can maybe get another one tomorrow\n"
 	.string "once the heat dies down.$"
+
+WouldYouLikeToSellCrown::
+	.string "I can't believe my eyes!\n"
+	.string "That's a genuine Relic Crown!\p"
+	.string "Would you like to sell it to\n"
+	.string "the museum for ¥300000?$"

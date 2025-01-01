@@ -1312,7 +1312,7 @@ static u8 Debug_CheckToggleFlags(u8 id)
                 FlagGet(FLAG_VISITED_FISHING_VILLAGE) &&
                 FlagGet(FLAG_VISITED_DRISLEDGE) &&
                 FlagGet(FLAG_VISITED_AMBEROCK) &&
-                FlagGet(FLAG_VISITED_BASALPEAK) &&
+                FlagGet(FLAG_VISITED_BASALEK) &&
                 FlagGet(FLAG_VISITED_FROSTFIRE) &&
                 FlagGet(FLAG_VISITED_CRYSTALPINE) &&
                 FlagGet(FLAG_VISITED_EVERFROST) &&
@@ -1951,7 +1951,7 @@ static void DebugAction_Util_Fly(u8 taskId)
     FlagSet(FLAG_VISITED_DRISLEDGE);
     FlagSet(FLAG_VISITED_SANDSTONE_CITY);
     FlagSet(FLAG_VISITED_AMBEROCK);
-    FlagSet(FLAG_VISITED_BASALPEAK);
+    FlagSet(FLAG_VISITED_BASALEK);
     FlagSet(FLAG_VISITED_FROSTFIRE);
     FlagSet(FLAG_VISITED_CRYSTALPINE);
     FlagSet(FLAG_VISITED_EVERFROST);
@@ -2903,7 +2903,7 @@ static void DebugAction_FlagsVars_ToggleFlyFlags(u8 taskId)
         FlagClear(FLAG_VISITED_AMBEROCK);
         FlagClear(FLAG_VISITED_ROCKLIFFE);
         FlagClear(FLAG_VISITED_SANDSTONE_CITY);
-        FlagClear(FLAG_VISITED_BASALPEAK);
+        FlagClear(FLAG_VISITED_BASALEK);
         FlagClear(FLAG_VISITED_FROSTFIRE);
         FlagClear(FLAG_VISITED_CRYSTALPINE);
         FlagClear(FLAG_VISITED_EVERFROST);
@@ -2944,7 +2944,7 @@ static void DebugAction_FlagsVars_ToggleFlyFlags(u8 taskId)
         FlagSet(FLAG_VISITED_DRISLEDGE);
         FlagSet(FLAG_VISITED_SANDSTONE_CITY);
         FlagSet(FLAG_VISITED_AMBEROCK);
-        FlagSet(FLAG_VISITED_BASALPEAK);
+        FlagSet(FLAG_VISITED_BASALEK);
         FlagSet(FLAG_VISITED_FROSTFIRE);
         FlagSet(FLAG_VISITED_CRYSTALPINE);
         FlagSet(FLAG_VISITED_EVERFROST);

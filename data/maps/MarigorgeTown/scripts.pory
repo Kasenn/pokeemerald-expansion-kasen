@@ -27,6 +27,10 @@ script Aldeleaf_MuseumCurator{
         if(var(VAR_RESULT) == TRUE){
             goto(SellRelicShort)
         }
+        checkitem(ITEM_RELIC_CROWN)
+        if(var(VAR_RESULT) == TRUE){
+            goto(SellRelicShort)
+        }
         else{
             msgbox(ThanksForContribution, MSGBOX_NPC)
             end
@@ -47,6 +51,10 @@ script Aldeleaf_MuseumCurator{
             goto(SellRelic)
         }
         checkitem(ITEM_RELIC_VASE)
+        if(var(VAR_RESULT) == TRUE){
+            goto(SellRelicShort)
+        }
+        checkitem(ITEM_RELIC_CROWN)
         if(var(VAR_RESULT) == TRUE){
             goto(SellRelicShort)
         }
@@ -72,17 +80,20 @@ script SellRelic{
         closemessage
         special(Bag_ChooseFossil)
         waitstate
-        if(var(VAR_ITEM_ID) == 157){
+        if(var(VAR_ITEM_ID) == ITEM_RELIC_COPPER){
             goto(SellCopper)
         }
-        if(var(VAR_ITEM_ID) == 158){
+        if(var(VAR_ITEM_ID) == ITEM_RELIC_SILVER){
             goto(SellSilver)
         }
-        if(var(VAR_ITEM_ID) == 159){
+        if(var(VAR_ITEM_ID) == ITEM_RELIC_GOLD){
             goto(SellGold)
         }
-        if(var(VAR_ITEM_ID) == 160){
+        if(var(VAR_ITEM_ID) == ITEM_RELIC_VASE){
             goto(SellVase)
+        }
+        if(var(VAR_ITEM_ID) == ITEM_RELIC_CROWN){
+            goto(SellCrown)
         }
         else{
             msgbox(MuseumDontWantToSell, MSGBOX_NPC)
@@ -97,17 +108,20 @@ script SellRelicShort{
     closemessage
     special(Bag_ChooseFossil)
     waitstate
-    if(var(VAR_ITEM_ID) == 157){
+    if(var(VAR_ITEM_ID) == ITEM_RELIC_COPPER){
         goto(SellCopper)
     }
-    if(var(VAR_ITEM_ID) == 158){
+    if(var(VAR_ITEM_ID) == ITEM_RELIC_SILVER){
         goto(SellSilver)
     }
-    if(var(VAR_ITEM_ID) == 159){
+    if(var(VAR_ITEM_ID) == ITEM_RELIC_GOLD){
         goto(SellGold)
     }
-    if(var(VAR_ITEM_ID) == 160){
-            goto(SellVase)
+    if(var(VAR_ITEM_ID) == ITEM_RELIC_VASE){
+        goto(SellVase)
+    }
+    if(var(VAR_ITEM_ID) == ITEM_RELIC_CROWN){
+        goto(SellCrown)
     }
     else{
         msgbox(MuseumDontWantToSell, MSGBOX_NPC)
@@ -412,4 +426,31 @@ text Marigorge_SusMan_AlreadyBought{
     "smuggle out.\p"
     "I can maybe get another one tomorrow\n"
     "once the heat dies down."
+}
+
+script SellCrown{
+    showmoneybox(0, 0)
+    msgbox(WouldYouLikeToSellCrown, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(MuseumThatsAShame, MSGBOX_NPC)
+        end
+    }
+    else{
+        addvar(VAR_RELIC_SOLD, 1)
+        addmoney(300000)
+        playse(SE_SHOP)
+        updatemoneybox
+        removeitem(ITEM_RELIC_CROWN, 1)
+        setvar(VAR_TEMP_1, 1)
+        msgbox(MuseumThanksForArtifact, MSGBOX_NPC)
+        hidemoneybox
+        end
+    }
+}
+
+text WouldYouLikeToSellCrown{
+    "I can't believe my eyes!\n"
+    "That's a genuine Relic Crown!\p"
+    "Would you like to sell it to\n"
+    "the museum for ¥300000?"
 }

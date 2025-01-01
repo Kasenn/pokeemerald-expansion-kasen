@@ -74,7 +74,7 @@ static void QueueAnimTiles_Lavaridge_Lava(u16);
 static void QueueAnimTiles_EverGrande_Flowers(u16, u8);
 // static void QueueAnimTiles_Pacifidlog_LogBridges(u8);
 static void QueueAnimTiles_Pacifidlog_WaterCurrents(u8);
-static void QueueAnimTiles_Kaolisle_WaterCurrents(u8);
+static void QueueAnimTiles_Kaolisle_WaterCurrents(u8, s16);
 static void QueueAnimTiles_Sootopolis_StormyWater(u16);
 static void QueueAnimTiles_Underwater_Seaweed(u8);
 static void QueueAnimTiles_Cave_Lava(u16);
@@ -876,7 +876,7 @@ void InitTilesetAnim_FlowerField(void)
 
 void InitTilesetAnim_Lavaridge(void)
 {
-    sSecondaryTilesetAnimCounter = 0;
+    sSecondaryTilesetAnimCounter = sPrimaryTilesetAnimCounter;
     sSecondaryTilesetAnimCounterMax = sPrimaryTilesetAnimCounterMax;
     sSecondaryTilesetAnimCallback = TilesetAnim_Lavaridge;
 }
@@ -1110,6 +1110,8 @@ static void TilesetAnim_Lavaridge(u16 timer)
         QueueAnimTiles_Lavaridge_Steam(timer / 16);
     if (timer % 16 == 1)
         QueueAnimTiles_Lavaridge_Lava(timer / 16);
+    if (timer % 16 == 3)
+        QueueAnimTiles_Kaolisle_WaterCurrents(timer / 16, 0x2D6);
 }
 
 static void TilesetAnim_EverGrande(u16 timer)
@@ -1143,7 +1145,7 @@ static void TilesetAnim_Pacifidlog(u16 timer)
 static void TilesetAnim_Kaolisle(u16 timer)
 {
     if (timer % 16 == 3)
-        QueueAnimTiles_Kaolisle_WaterCurrents(timer / 16);
+        QueueAnimTiles_Kaolisle_WaterCurrents(timer / 16, 994);
 }
 
 static void TilesetAnim_Amberock(u16 timer)
@@ -1215,10 +1217,10 @@ static void QueueAnimTiles_Pacifidlog_WaterCurrents(u8 timer)
     AppendTilesetAnimToBuffer(gTilesetAnims_Pacifidlog_WaterCurrents[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 496)), 12 * TILE_SIZE_4BPP);
 }
 
-static void QueueAnimTiles_Kaolisle_WaterCurrents(u8 timer)
+static void QueueAnimTiles_Kaolisle_WaterCurrents(u8 timer, s16 tileStart)
 {
     u8 i = timer % ARRAY_COUNT(gTilesetAnims_Pacifidlog_WaterCurrents);
-    AppendTilesetAnimToBuffer(gTilesetAnims_Pacifidlog_WaterCurrents[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 496 - 14)), 12 * TILE_SIZE_4BPP);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Pacifidlog_WaterCurrents[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(tileStart)), 12 * TILE_SIZE_4BPP);
 }
 
 static void QueueAnimTiles_Mauville_Flowers(u16 timer_div, u8 timer_mod)

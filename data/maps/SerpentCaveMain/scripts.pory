@@ -25,6 +25,7 @@ script SerpentCave_Iris{
             end
         }
     }
+    msgbox(IrisLetsGo)
     trainerbattle_no_intro(TRAINER_CASUAL_IRIS, SerpentCaveIris_Lose)
     setvar(VAR_SERPENTCAVE_STORY, STORY_SERPENTCAVE_IRIS_DEFEATED)
     goto(IrisAfterBattle)
@@ -141,4 +142,11 @@ text IrisLeaves{
     "Think I'm gonna head home now.\p"
     "I hope we get to battle again\n"
     "some day!"
+}
+
+text IrisLetsGo{
+    "Yay!\n"
+    "I knew you'd be up for it!\p"
+    "What're we waiting for?\n"
+    "Let's go!"
 }

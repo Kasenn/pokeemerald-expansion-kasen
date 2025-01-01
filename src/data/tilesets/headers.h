@@ -20,7 +20,7 @@ const struct Tileset gTileset_Petalburg =
     .callback = InitTilesetAnim_Petalburg,
 };
 
-const struct Tileset gTileset_Rustboro =
+const struct Tileset gTileset_Shoreslate =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
@@ -548,7 +548,7 @@ const struct Tileset gTileset_MauvilleGameCorner =
     .callback = NULL,
 };
 
-const struct Tileset gTileset_RustboroGym =
+const struct Tileset gTileset_ShoreslateGym =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
@@ -1209,4 +1209,26 @@ const struct Tileset gTileset_Lab2 =
     .metatiles = gMetatiles_Lab2,
     .metatileAttributes = gMetatileAttributes_Lab2,
     .callback = NULL,
+};
+
+const struct Tileset gTileset_Route7 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Route7,
+    .palettes = gTilesetPalettes_Route7,
+    .metatiles = gMetatiles_Route7,
+    .metatileAttributes = gMetatileAttributes_Route7,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Basaluff =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Basaluff,
+    .palettes = gTilesetPalettes_Basaluff,
+    .metatiles = gMetatiles_Basaluff,
+    .metatileAttributes = gMetatileAttributes_Basaluff,
+    .callback = InitTilesetAnim_Lavaridge,
 };

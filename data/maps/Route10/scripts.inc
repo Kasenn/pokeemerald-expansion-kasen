@@ -283,7 +283,10 @@ R10_Ace_NotEligible::
 R10_Ace_ReadyForBattle::
 	.string "I saw how you handled those rude\n"
 	.string "swimmers.\p"
-	.string "You're pretty good.\p"
+	.string "They were pestering me some time ago,\n"
+	.string "so I'm glad to see someone put them\l"
+	.string "in their place.\p"
+	.string "I must admit, you're pretty good.\p"
 	.string "But are you good enough to handle\n"
 	.string "my Pokémon?$"
 

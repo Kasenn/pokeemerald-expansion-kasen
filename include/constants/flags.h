@@ -1499,7 +1499,7 @@
 
 #define FLAG_AMBEROCK_ITEM2            (SYSTEM_FLAGS + 0x84)
 
-#define FLAG_VISITED_BASALPEAK                           (SYSTEM_FLAGS + 0x85) // 
+#define FLAG_VISITED_BASALEK                           (SYSTEM_FLAGS + 0x85) // 
 #define FLAG_VISITED_FROSTFIRE                          (SYSTEM_FLAGS + 0x86) // 
 #define FLAG_VISITED_CRYSTALPINE                           (SYSTEM_FLAGS + 0x87) // 
 #define FLAG_VISITED_EVERFROST                           (SYSTEM_FLAGS + 0x88) // 
@@ -1528,7 +1528,7 @@
 #define FLAG_FIRST_BATTLE                           (SYSTEM_FLAGS + 0x9F) // 
 #define FLAG_LANDMARK_FLOWER_FIELDS                           (SYSTEM_FLAGS + 0xA0) // 
 #define FLAG_FOLLOWER_FINDER_INTRO                           (SYSTEM_FLAGS + 0xA1) // 
-#define FLAG_UNUSED_0x902                           (SYSTEM_FLAGS + 0xA2) // 
+#define FLAG_RELIC_CROWN                           (SYSTEM_FLAGS + 0xA2) // 
 #define FLAG_UNUSED_0x903                           (SYSTEM_FLAGS + 0xA3) // 
 #define FLAG_UNUSED_0x904                           (SYSTEM_FLAGS + 0xA4) // 
 #define FLAG_UNUSED_0x905                           (SYSTEM_FLAGS + 0xA5) // 

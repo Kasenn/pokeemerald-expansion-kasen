@@ -928,6 +928,34 @@ void FishingWildEncounter(u8 rod)
         CreateWildMon(species, level);
         FlagSet(FLAG_TEMP_3);
     }
+    else if((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE16)
+         && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE16))
+         && gObjectEvents[gPlayerAvatar.objectEventId].currentCoords.y <= 50 + MAP_OFFSET)
+    {
+        u8 rodVariable = 5;
+
+        switch (rod)
+        {
+            case OLD_ROD:
+                rodVariable = 5;
+                break;
+            case GOOD_ROD:
+                rodVariable = 15;
+                break;
+            case SUPER_ROD:
+                rodVariable = 25;
+                break;
+        }
+        u8 level = (rodVariable + (Random() % 11));
+        species = Random() % 2;
+
+        if (species == 1)
+            species = SPECIES_MAGBY;
+        else
+            species = SPECIES_SLUGMA;
+
+        CreateWildMon(species, level);
+    }
     else
     {
         species = GenerateFishingWildMon(gWildMonHeaders[GetCurrentMapWildMonHeaderId()].fishingMonsInfo, rod);

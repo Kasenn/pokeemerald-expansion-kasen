@@ -2302,3 +2302,41 @@ const u16 gTilesetPalettes_Lab2[][16] =
 };
 
 const u32 gTilesetTiles_Lab2[] = INCBIN_U32("data/tilesets/secondary/lab_2/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Route7[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/route_7/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_7/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_7/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_7/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_7/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_7/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_7/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_7/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_7/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_7/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_7/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_7/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/route_7/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Route7[] = INCBIN_U32("data/tilesets/secondary/route_7/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Basaluff[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/basaluff/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/basaluff/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/basaluff/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/basaluff/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/basaluff/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/basaluff/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/basaluff/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/basaluff/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/basaluff/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/basaluff/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/basaluff/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/basaluff/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/basaluff/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Basaluff[] = INCBIN_U32("data/tilesets/secondary/basaluff/tiles.4bpp.lz");

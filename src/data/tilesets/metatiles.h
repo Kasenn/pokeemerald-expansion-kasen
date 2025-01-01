@@ -312,3 +312,9 @@ const u16 gMetatileAttributes_PokeBallFactory[] = INCBIN_U16("data/tilesets/seco
 
 const u16 gMetatiles_Lab2[] = INCBIN_U16("data/tilesets/secondary/lab_2/metatiles.bin");
 const u16 gMetatileAttributes_Lab2[] = INCBIN_U16("data/tilesets/secondary/lab_2/metatile_attributes.bin");
+
+const u16 gMetatiles_Route7[] = INCBIN_U16("data/tilesets/secondary/route_7/metatiles.bin");
+const u16 gMetatileAttributes_Route7[] = INCBIN_U16("data/tilesets/secondary/route_7/metatile_attributes.bin");
+
+const u16 gMetatiles_Basaluff[] = INCBIN_U16("data/tilesets/secondary/basaluff/metatiles.bin");
+const u16 gMetatileAttributes_Basaluff[] = INCBIN_U16("data/tilesets/secondary/basaluff/metatile_attributes.bin");

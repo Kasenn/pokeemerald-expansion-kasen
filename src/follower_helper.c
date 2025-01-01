@@ -181,6 +181,7 @@ const struct FollowerMsgInfoExtended gFollowerConditionalMessages[COND_MSG_COUNT
         .conditions =
         {
             MATCH_ON_MB(MB_SHALLOW_WATER, MB_PUDDLE),
+            MATCH_ON_MB(MB_STAIRS_OUTSIDE_ABANDONED_SHIP, MB_SHALLOW_WATER_WITH_ENCOUNTERS)
         },
     },
     [COND_MSG_SAND] =

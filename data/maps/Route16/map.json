@@ -15,20 +15,25 @@
   "connections": [
     {
       "map": "MAP_BASALUFF_TOWN",
-      "offset": 15,
+      "offset": 0,
       "direction": "up"
     },
     {
       "map": "MAP_FISHING_VILLAGE",
       "offset": 4,
       "direction": "down"
+    },
+    {
+      "map": "MAP_ROUTE16_FILLER",
+      "offset": -45,
+      "direction": "left"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_ZYGARDE_CELL",
-      "x": 24,
-      "y": 9,
+      "x": 37,
+      "y": 75,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -50,156 +55,117 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "RapidsTooStrong",
       "flag": "FLAG_TEMP_1"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
+      "x": 14,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_UseRockSmash",
+      "flag": "FLAG_TEMP_3"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 13,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_UseStrength",
+      "flag": "FLAG_TEMP_4"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
+      "x": 22,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_UseRockSmash",
+      "flag": "FLAG_TEMP_2"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 20,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
+      "x": 22,
+      "y": 21,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_UseRockSmash",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 37,
+      "y": 21,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ZYGARDE_CORE",
+      "x": 15,
+      "y": 45,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ZygardeCore",
+      "flag": "FLAG_ZYGARDE_CORE_4"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL_FLOATING",
+      "x": 10,
+      "y": 86,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
 
   ],
   "coord_events": [
-    {
-      "type": "trigger",
-      "x": 15,
-      "y": 117,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EndOfBeta"
-    },
-    {
-      "type": "trigger",
-      "x": 16,
-      "y": 117,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EndOfBeta"
-    },
-    {
-      "type": "trigger",
-      "x": 18,
-      "y": 117,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EndOfBeta"
-    },
-    {
-      "type": "trigger",
-      "x": 17,
-      "y": 117,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EndOfBeta"
-    },
-    {
-      "type": "trigger",
-      "x": 22,
-      "y": 117,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EndOfBeta"
-    },
-    {
-      "type": "trigger",
-      "x": 21,
-      "y": 117,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EndOfBeta"
-    },
-    {
-      "type": "trigger",
-      "x": 20,
-      "y": 117,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EndOfBeta"
-    },
-    {
-      "type": "trigger",
-      "x": 19,
-      "y": 117,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EndOfBeta"
-    },
-    {
-      "type": "trigger",
-      "x": 26,
-      "y": 117,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EndOfBeta"
-    },
-    {
-      "type": "trigger",
-      "x": 25,
-      "y": 117,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EndOfBeta"
-    },
-    {
-      "type": "trigger",
-      "x": 24,
-      "y": 117,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EndOfBeta"
-    },
-    {
-      "type": "trigger",
-      "x": 23,
-      "y": 117,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EndOfBeta"
-    },
-    {
-      "type": "trigger",
-      "x": 30,
-      "y": 117,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EndOfBeta"
-    },
-    {
-      "type": "trigger",
-      "x": 29,
-      "y": 117,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EndOfBeta"
-    },
-    {
-      "type": "trigger",
-      "x": 28,
-      "y": 117,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EndOfBeta"
-    },
-    {
-      "type": "trigger",
-      "x": 27,
-      "y": 117,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EndOfBeta"
-    }
+
   ],
   "bg_events": [
 

@@ -948,6 +948,7 @@
     "PokemonWorldTournament",
     "Maptest",
     "TestWall",
-    "TestRoomCopy"
+    "TestRoomCopy",
+    "Route16_Filler"
   ]
 }
