@@ -166,11 +166,6 @@ const u8 gText_drastically[] = _("drastically ");
 const u8 gText_severely[] = _("severely ");
 static const u8 sText_TerrainReturnedToNormal[] = _("The terrain returned to normal!"); // Unused
 
-//  Remove these when done testing
-static const u8 sTest_TempTestText1[] = _("This is a text for testing stuff.");
-static const u8 sTest_TempTestText2[] = _("This is a text for testing stuff that should be two lines.");
-static const u8 sTest_TempTestText3[] = _("This is a text for testing stuff that should be three lines so it has to have some extra text.");
-
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
     [STRINGID_TRAINER1LOSETEXT]                     = COMPOUND_STRING("{B_TRAINER1_LOSE_TEXT}"),
@@ -1304,7 +1299,10 @@ const u16 gWeatherStartsStringIds[] =
 
 const u16 gTerrainStartsStringIds[] =
 {
-    STRINGID_MISTSWIRLSAROUND, STRINGID_ELECTRICCURRENTISRUNNING, STRINGID_ISCOVEREDWITHGRASS, STRINGID_SEEMSWEIRD,
+    [B_MSG_TERRAIN_SET_MISTY]    = STRINGID_MISTSWIRLSAROUND,
+    [B_MSG_TERRAIN_SET_ELECTRIC] = STRINGID_ELECTRICCURRENTISRUNNING,
+    [B_MSG_TERRAIN_SET_PSYCHIC]  = STRINGID_SEEMSWEIRD,
+    [B_MSG_TERRAIN_SET_GRASSY]   = STRINGID_ISCOVEREDWITHGRASS,
 };
 
 const u16 gPrimalWeatherBlocksStringIds[] =
@@ -2670,7 +2668,9 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst, u32 dstSize)
                     toCpy = gStringVar2;
                 }
                 else
+                {
                     toCpy = gBattleTextBuff2;
+                }
                 break;
             case B_TXT_BUFF3:
                 if (gBattleTextBuff3[0] == B_BUFF_PLACEHOLDER_BEGIN)
@@ -2679,7 +2679,9 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst, u32 dstSize)
                     toCpy = gStringVar3;
                 }
                 else
+                {
                     toCpy = gBattleTextBuff3;
+                }
                 break;
             case B_TXT_COPY_VAR_1:
                 toCpy = gStringVar1;
@@ -2788,7 +2790,9 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst, u32 dstSize)
                                 toCpy = text;
                             }
                             else
+                            {
                                 toCpy = sText_EnigmaBerry;
+                            }
                         }
                     }
                     else
@@ -3153,7 +3157,10 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst, u32 dstSize)
             {
                 while (*toCpy != EOS)
                 {
-                    dst[dstID] = *toCpy;
+                    if (*toCpy == CHAR_SPACE)
+                        dst[dstID] = CHAR_NBSP;
+                    else
+                        dst[dstID] = *toCpy;
                     dstID++;
                     toCpy++;
                 }

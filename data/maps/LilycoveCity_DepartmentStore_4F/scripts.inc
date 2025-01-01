@@ -31,9 +31,7 @@ LilycoveCity_DepartmentStore_4F_Pokemart_AttackTMs:
 	.2byte ITEM_TM_SOLAR_BEAM
 	.2byte ITEM_TM_FOCUS_PUNCH
 	.2byte ITEM_TM_HYPER_BEAM
-	.2byte ITEM_NONE
-	release
-	end
+	pokemartlistend
 
 LilycoveCity_DepartmentStore_4F_EventScript_ClerkRight::
 	lock

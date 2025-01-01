@@ -16960,7 +16960,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .description = COMPOUND_STRING(
             "Hits with electrical fists.\n"
             "Normal moves turn Electric."),
-        .effect = EFFECT_PLASMA_FISTS,
+        .effect = EFFECT_HIT,
         .power = 100,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
@@ -16975,6 +16975,11 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .contestCategory = CONTEST_CATEGORY_COOL,
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_ION_DELUGE,
+            .chance = 100,
+            .sheerForceBoost = SHEER_FORCE_NO_BOOST,
+        }),
         .battleAnimScript = gBattleAnimMove_PlasmaFists,
     },
 
@@ -17023,6 +17028,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
             .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_EVS_PLUS_1,
             .chance = 100,
+            .sheerForceBoost = SHEER_FORCE_NO_BOOST,
         }),
         #endif
         .battleAnimScript = gBattleAnimMove_ZippyZap,
@@ -17072,6 +17078,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_FLINCH,
             .chance = 30,
+            .sheerForceBoost = SHEER_FORCE_NO_BOOST,
         }),
         .battleAnimScript = gBattleAnimMove_FloatyFall,
     },
@@ -17139,6 +17146,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_PARALYSIS,
             .chance = 100,
+            .sheerForceBoost = SHEER_FORCE_NO_BOOST,
         }),
         .battleAnimScript = gBattleAnimMove_BuzzyBuzz,
     },
@@ -17164,6 +17172,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_BURN,
             .chance = 100,
+            .sheerForceBoost = SHEER_FORCE_NO_BOOST,
         }),
         .battleAnimScript = gBattleAnimMove_SizzlySlide,
     },
@@ -17174,7 +17183,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .description = COMPOUND_STRING(
             "Telekinetic force that sets\n"
             "wall, lowering Sp. Atk damage."),
-        .effect = EFFECT_GLITZY_GLOW,
+        .effect = EFFECT_HIT,
         .power = B_UPDATED_MOVE_DATA >= GEN_8 ? 80 : 90,
         .type = TYPE_PSYCHIC,
         .accuracy = B_UPDATED_MOVE_DATA >= GEN_8 ? 95 : 100,
@@ -17184,6 +17193,11 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .category = DAMAGE_CATEGORY_SPECIAL,
         .mirrorMoveBanned = B_UPDATED_MOVE_FLAGS < GEN_8,
         .metronomeBanned = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_LIGHT_SCREEN,
+            .chance = 100,
+            .sheerForceBoost = SHEER_FORCE_NO_BOOST,
+        }),
         .battleAnimScript = gBattleAnimMove_GlitzyGlow,
     },
 
@@ -17193,7 +17207,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .description = COMPOUND_STRING(
             "Acting badly, attacks. Sets\n"
             "wall, lowering Attack damage."),
-        .effect = EFFECT_BADDY_BAD,
+        .effect = EFFECT_HIT,
         .power = B_UPDATED_MOVE_DATA >= GEN_8 ? 80 : 90,
         .type = TYPE_DARK,
         .accuracy = B_UPDATED_MOVE_DATA >= GEN_8 ? 95 : 100,
@@ -17203,6 +17217,11 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .category = DAMAGE_CATEGORY_SPECIAL,
         .mirrorMoveBanned = B_UPDATED_MOVE_FLAGS < GEN_8,
         .metronomeBanned = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_REFLECT,
+            .chance = 100,
+            .sheerForceBoost = SHEER_FORCE_NO_BOOST,
+        }),
         .battleAnimScript = gBattleAnimMove_BaddyBad,
     },
 
@@ -17212,7 +17231,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .description = COMPOUND_STRING(
             "Giant stalk scatters seeds\n"
             "that drain HP every turn."),
-        .effect = EFFECT_SAPPY_SEED,
+        .effect = EFFECT_HIT,
         .power = B_UPDATED_MOVE_DATA >= GEN_8 ? 100 : 90,
         .type = TYPE_GRASS,
         .accuracy = B_UPDATED_MOVE_DATA >= GEN_8 ? 90 : 100,
@@ -17223,6 +17242,11 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .mirrorMoveBanned = B_UPDATED_MOVE_FLAGS < GEN_8,
         .magicCoatAffected = TRUE,
         .metronomeBanned = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_LEECH_SEED,
+            .chance = 100,
+            .sheerForceBoost = SHEER_FORCE_NO_BOOST,
+        }),
         .battleAnimScript = gBattleAnimMove_SappySeed,
     },
 
@@ -17232,7 +17256,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .description = COMPOUND_STRING(
             "Crystal from cold haze hits.\n"
             "Eliminates all stat changes."),
-        .effect = EFFECT_FREEZY_FROST,
+        .effect = EFFECT_HIT,
         .power = B_UPDATED_MOVE_DATA >= GEN_8 ? 100 : 90,
         .type = TYPE_ICE,
         .accuracy = B_UPDATED_MOVE_DATA >= GEN_8 ? 90 : 100,
@@ -17242,6 +17266,11 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .category = DAMAGE_CATEGORY_SPECIAL,
         .mirrorMoveBanned = B_UPDATED_MOVE_FLAGS < GEN_8,
         .metronomeBanned = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_HAZE,
+            .chance = 100,
+            .sheerForceBoost = SHEER_FORCE_NO_BOOST,
+        }),
         .battleAnimScript = gBattleAnimMove_FreezyFrost,
     },
 
@@ -17251,7 +17280,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .description = COMPOUND_STRING(
             "Wrap foe with whirlwind of\n"
             "scent. Heals party's status."),
-        .effect = EFFECT_SPARKLY_SWIRL,
+        .effect = EFFECT_SPARKLY_SWIRL, // Temprorary
         .power = B_UPDATED_MOVE_DATA >= GEN_8 ? 120 : 90,
         .type = TYPE_FAIRY,
         .accuracy = B_UPDATED_MOVE_DATA >= GEN_8 ? 85 : 100,
@@ -17261,6 +17290,11 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .category = DAMAGE_CATEGORY_SPECIAL,
         .mirrorMoveBanned = B_UPDATED_MOVE_FLAGS < GEN_8,
         .metronomeBanned = TRUE,
+        // .additionalEffects = ADDITIONAL_EFFECTS({
+        //     .moveEffect = 0, // MOVE_EFFECT_AROMATHERAPY, Added 0 for Sheer Force boost
+        //     .chance = 100,
+        //     .sheerForceBoost = SHEER_FORCE_NO_BOOST,
+        // }),
         .battleAnimScript = gBattleAnimMove_SparklySwirl,
     },
 
@@ -18885,7 +18919,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .description = COMPOUND_STRING(
             "Attacks with psychic power.\n"
             "Foe's last move has 3 PP cut."),
-        .effect = EFFECT_EERIE_SPELL,
+        .effect = EFFECT_HIT,
         .power = 80,
         .type = TYPE_PSYCHIC,
         .accuracy = 100,
@@ -18899,6 +18933,10 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .contestCategory = CONTEST_CATEGORY_SMART,
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_EERIE_SPELL,
+            .chance = 100,
+        }),
         .battleAnimScript = gBattleAnimMove_EerieSpell,
     },
 
@@ -19700,7 +19738,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .description = COMPOUND_STRING(
             "Hurts foe every turn. Double\n"
             "damage to Steel and Water."),
-        .effect = EFFECT_SALT_CURE,
+        .effect = EFFECT_HIT,
         .power = 40,
         .type = TYPE_ROCK,
         .accuracy = 100,
@@ -19709,6 +19747,10 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .metronomeBanned = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_SALT_CURE,
+            .chance = 100,
+        }),
         .battleAnimScript = gBattleAnimMove_SaltCure,
     },
 
@@ -20605,7 +20647,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
             .moveEffect = MOVE_EFFECT_SP_ATK_PLUS_1,
             .self = TRUE,
             .onChargeTurnOnly = TRUE,
-        }, SHEER_FORCE_HACK),
+            .sheerForceBoost = SHEER_FORCE_BOOST,
+        }),
         .battleAnimScript = gBattleAnimMove_ElectroShot,
     },
 
@@ -20879,6 +20922,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_TOXIC,
             .chance = 50,
+            .sheerForceBoost = SHEER_FORCE_BOOST,
         }),
         .battleAnimScript = gBattleAnimMove_MalignantChain,
     },

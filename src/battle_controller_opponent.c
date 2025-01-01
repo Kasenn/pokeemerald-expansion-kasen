@@ -186,7 +186,9 @@ static void Intro_WaitForShinyAnimAndHealthbox(u32 battler)
                 FreeSpritePaletteByTag(ANIM_TAG_GOLD_STARS);
             }
             else
+            {
                 return;
+            }
         }
         else if (gBattleSpritesDataPtr->healthBoxesData[battler].finishedShinyMonAnim)
         {
@@ -199,13 +201,17 @@ static void Intro_WaitForShinyAnimAndHealthbox(u32 battler)
                     FreeSpritePaletteByTag(ANIM_TAG_GOLD_STARS);
                 }
                 else
+                {
                     return;
+                }
             }
-                gBattleSpritesDataPtr->healthBoxesData[battler].triedShinyMonAnim = FALSE;
-                gBattleSpritesDataPtr->healthBoxesData[battler].finishedShinyMonAnim = FALSE;
+            gBattleSpritesDataPtr->healthBoxesData[battler].triedShinyMonAnim = FALSE;
+            gBattleSpritesDataPtr->healthBoxesData[battler].finishedShinyMonAnim = FALSE;
         }
         else
+        {
             return;
+        }
 
         gBattleSpritesDataPtr->healthBoxesData[battler].introEndDelay = 3;
         gBattlerControllerFuncs[battler] = Intro_DelayAndEnd;
@@ -275,7 +281,9 @@ static void Intro_TryShinyAnimShowHealthbox(u32 battler)
                     m4aMPlayContinue(&gMPlayInfo_BGM);
             }
             else
+            {
                 m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 0x100);
+            }
         }
         gBattleSpritesDataPtr->healthBoxesData[battler].bgmRestored = TRUE;
         bgmRestored = TRUE;
