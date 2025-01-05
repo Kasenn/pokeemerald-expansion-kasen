@@ -389,46 +389,8 @@ Debug_Script_1_12:
 
 
 Debug_Script_2::
-	lock
-	message Debug_Script_2_Text_0
-	waitmessage
-	dynmultipush Debug_Script_2_Text_1, SPECIES_BRENDAN_RUBY
-	dynmultipush Debug_Script_2_Text_2, SPECIES_BRENDAN_EMERALD
-	dynmultipush Debug_Script_2_Text_3, SPECIES_BRENDAN_ORAS
-	dynmultipush Debug_Script_1_Text_8, 0
-	dynmultistack 23, 0, FALSE, 5, FALSE, 98, DYN_MULTICHOICE_CB_SHOW_MON
-	switch VAR_RESULT
-	case SPECIES_BRENDAN_RUBY, Debug_Script_2_3
-	case SPECIES_BRENDAN_EMERALD, Debug_Script_2_4
-	case SPECIES_BRENDAN_ORAS, Debug_Script_2_5
-	case 0, Debug_Script_2_6
-Debug_Script_2_1:
+	trainerbattle_no_intro TRAINER_ELITE_FOUR_MINA, Debug_Script_2_Text_0
 	return
-
-Debug_Script_2_3:
-	setvar VAR_CHOSEN_OUTFIT, 0
-	closemessage
-	warpsilent MAP_PLAYER_HOUSE2F, 5, 4
-	waitstate
-	goto Debug_Script_2_1
-
-Debug_Script_2_4:
-	setvar VAR_CHOSEN_OUTFIT, 1
-	closemessage
-	warpsilent MAP_PLAYER_HOUSE2F, 5, 4
-	waitstate
-	goto Debug_Script_2_1
-
-Debug_Script_2_5:
-	setvar VAR_CHOSEN_OUTFIT, 2
-	closemessage
-	warpsilent MAP_PLAYER_HOUSE2F, 5, 4
-	waitstate
-	goto Debug_Script_2_1
-
-Debug_Script_2_6:
-	release
-	end
 
 
 Debug_Script_3::
@@ -558,16 +520,7 @@ Debug_Script_1_Text_16:
 	.string "Team set to level 45.$"
 
 Debug_Script_2_Text_0:
-	.string "Choose outfit$"
-
-Debug_Script_2_Text_1:
-	.string "RS$"
-
-Debug_Script_2_Text_2:
-	.string "Emerald$"
-
-Debug_Script_2_Text_3:
-	.string "ORAS$"
+	.string "GG$"
 
 FollowerSpottedAnItemNearby_Text::
 	.string "{STR_VAR_1} seems to have spotted\n"

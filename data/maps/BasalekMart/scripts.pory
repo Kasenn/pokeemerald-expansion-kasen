@@ -1,0 +1,178 @@
+mapscripts BasalekMart_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        call(Common_EventScript_SetupRivalGfxId)
+        if(flag(FLAG_RIVAL_MET_IN_BASALEK)){
+            setflag(FLAG_TEMP_1)
+        }
+    }
+}
+
+script BasalekMart_Clerk{
+    lock
+	faceplayer
+	message(gText_HowMayIServeYou)
+	waitmessage
+    if(flag(FLAG_BADGE08_GET)){
+        pokemart(BasalekMart_8Badges)
+    }
+    elif(flag(FLAG_BADGE07_GET)){
+        pokemart(BasalekMart_7Badges)
+    }
+    elif(flag(FLAG_BADGE06_GET)){
+        pokemart(BasalekMart_7Badges)
+    }
+    elif(flag(FLAG_BADGE05_GET)){
+        pokemart(BasalekMart_4Badges)
+    }
+    msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+mart BasalekMart_4Badges{
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+	ITEM_FRESH_WATER
+    ITEM_SODA_POP
+    ITEM_LEMONADE
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_FULL_HEAL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_POKE_DOLL
+	ITEM_NONE
+}
+mart BasalekMart_7Badges{
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+	ITEM_FRESH_WATER
+    ITEM_SODA_POP
+    ITEM_LEMONADE
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_FULL_HEAL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_POKE_DOLL
+	ITEM_NONE
+}
+mart BasalekMart_8Badges{
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+	ITEM_POTION
+    ITEM_FRESH_WATER
+    ITEM_SODA_POP
+    ITEM_LEMONADE
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_FULL_HEAL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_POKE_DOLL
+	ITEM_NONE
+}
+
+script BasalekMart_Triathlete{
+    msgbox(BasalekMart_Triathlete_Text, MSGBOX_NPC)
+    turnobject(4, DIR_NORTH)
+}
+text BasalekMart_Triathlete_Text{
+    "The route up north is often hit with\n"
+    "some extreme weather conditions.\p"
+    "If you're heading that way,\n"
+    "I recommend stocking up first."
+}
+script BasalekMart_Man{
+    msgbox(BasalekMart_Man_Text, MSGBOX_NPC)
+}
+text BasalekMart_Man_Text{
+    "This mart seems to be stocked to the\n"
+    "brim with drinks.\p"
+    "That's fine and all, but I was really\n"
+    "hoping to find some potions."
+}
+script BasalekMart_Rival{
+    lock
+    faceplayer
+    if(flag(FLAG_RIVAL_MET_IN_BASALEK_MART)){
+        if(checkplayergender == MALE){
+            msgbox(BasalekMartMay_ReadyToBattleNow, MSGBOX_YESNO)
+            goto(BasalekMart_MayBattle)
+        }
+        else{
+            msgbox(BasalekMartBrendan_ReadyToBattleNow, MSGBOX_YESNO)
+            goto(BasalekMart_BrendanBattle)
+        }
+    }
+    setflag(FLAG_RIVAL_MET_IN_BASALEK_MART)
+    if(checkplayergender == MALE){
+        msgbox(BasalekMartMay_GettingReadyToHeadOut, MSGBOX_YESNO)
+        goto(BasalekMart_MayBattle)
+    }
+    else{
+        msgbox(BasalekMartBrendan_GettingReadyToHeadOut, MSGBOX_YESNO)
+        goto(BasalekMart_BrendanBattle)
+    }
+}
+script BasalekMart_MayBattle{
+    if(var(VAR_RESULT) == FALSE){
+    msgbox(BasalekMartMay_WantToPrepare, MSGBOX_AUTOCLOSE)
+    end
+    }
+    msgbox(BasalekMartMay_LetsGoFightOutside, MSGBOX_AUTOCLOSE)
+    warp(MAP_BASALUFF_TOWN, 23, 16)
+    waitstate
+}
+script BasalekMart_BrendanBattle{
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(BasalekMartBrendan_WantToPrepare, MSGBOX_AUTOCLOSE)
+        end
+    }
+    msgbox(BasalekMartBrendan_LetsGoFightOutside, MSGBOX_AUTOCLOSE)
+    warp(MAP_BASALUFF_TOWN, 23, 16)
+    waitstate
+}
+
+text BasalekMartMay_GettingReadyToHeadOut{
+    ""
+}
+text BasalekMartMay_WantToPrepare{
+    ""
+}
+text BasalekMartMay_LetsGoFightOutside{
+    ""
+}
+text BasalekMartBrendan_GettingReadyToHeadOut{
+    ""
+}
+text BasalekMartBrendan_WantToPrepare{
+    ""
+}
+text BasalekMartBrendan_LetsGoFightOutside{
+    ""
+}
+text BasalekMartMay_ReadyToBattleNow{
+    ""
+}
+text BasalekMartBrendan_ReadyToBattleNow{
+    ""
+}

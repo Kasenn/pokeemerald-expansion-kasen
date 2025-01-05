@@ -1547,7 +1547,7 @@
 #define FLAG_ROUTE17_ITEM2                           (SYSTEM_FLAGS + 0xB2) // 
 #define FLAG_ROUTE17_ITEM3                           (SYSTEM_FLAGS + 0xB3) // 
 #define FLAG_ROUTE17_ITEM4                           (SYSTEM_FLAGS + 0xB4) // 
-#define FLAG_UNUSED_0x915                           (SYSTEM_FLAGS + 0xB5) // 
+#define FLAG_RIVAL_MET_IN_BASALEK_MART                           (SYSTEM_FLAGS + 0xB5) // 
 #define FLAG_UNUSED_0x916                           (SYSTEM_FLAGS + 0xB6) // 
 #define FLAG_UNUSED_0x917                           (SYSTEM_FLAGS + 0xB7) // 
 #define FLAG_UNUSED_0x918                           (SYSTEM_FLAGS + 0xB8) // 

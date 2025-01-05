@@ -12523,10 +12523,10 @@ static const struct TrainerMon sParty_Darius[] = {
 static const struct TrainerMon sParty_Steven[] = {
     {
     .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 23,
-    .species = SPECIES_KLEFKI,
+    .lvl = 50,
+    .species = SPECIES_COFAGRIGUS,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_THUNDER_WAVE}
+    .moves = {MOVE_TACKLE}
     }
 };
 
