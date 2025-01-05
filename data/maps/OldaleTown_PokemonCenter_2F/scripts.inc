@@ -44,32 +44,32 @@ EvTraining_Setup::
 
 EvTraining_Setup_1:
 	special TakeFrontierBattlePoints
-	trainerbattle_no_intro TRAINER_FELIX, TrainingFinished
+	trainerbattle_no_intro TRAINER_EV_TRAINING_HP, TrainingFinished
 	return
 
 EvTraining_Setup_2:
 	special TakeFrontierBattlePoints
-	trainerbattle_no_intro TRAINER_VIOLET, TrainingFinished
+	trainerbattle_no_intro TRAINER_EV_TRAINING_ATK, TrainingFinished
 	return
 
 EvTraining_Setup_3:
 	special TakeFrontierBattlePoints
-	trainerbattle_no_intro TRAINER_ROSE_2, TrainingFinished
+	trainerbattle_no_intro TRAINER_EV_TRAINING_DEF, TrainingFinished
 	return
 
 EvTraining_Setup_4:
 	special TakeFrontierBattlePoints
-	trainerbattle_no_intro TRAINER_ROSE_3, TrainingFinished
+	trainerbattle_no_intro TRAINER_EV_TRAINING_SPATK, TrainingFinished
 	return
 
 EvTraining_Setup_5:
 	special TakeFrontierBattlePoints
-	trainerbattle_no_intro TRAINER_ROSE_4, TrainingFinished
+	trainerbattle_no_intro TRAINER_EV_TRAINING_SPDEF, TrainingFinished
 	return
 
 EvTraining_Setup_6:
 	special TakeFrontierBattlePoints
-	trainerbattle_no_intro TRAINER_ROSE_5, TrainingFinished
+	trainerbattle_no_intro TRAINER_EV_TRAINING_SPEED, TrainingFinished
 	return
 
 
@@ -274,11 +274,11 @@ LevelTrainingMain_25:
 	goto LevelTrainingMain_24
 
 LevelTrainingMain_29:
-	trainerbattle_no_intro TRAINER_DUSTY_1, TrainingFinished
+	trainerbattle_no_intro TRAINER_EXPBOT_1, TrainingFinished
 	goto LevelTrainingMain_27
 
 LevelTrainingMain_30:
-	trainerbattle_no_intro TRAINER_GABBY_AND_TY_2, TrainingFinished
+	trainerbattle_no_intro TRAINER_EXPBOT_2, TrainingFinished
 	goto LevelTrainingMain_27
 
 LevelTrainingMain_31:

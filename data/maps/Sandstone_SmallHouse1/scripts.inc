@@ -110,29 +110,98 @@ WardrobeRight::
 
 
 WardrobeMain::
-	goto_if_unset FLAG_PURCHASED_OUTFIT, WardrobeMain_2
 	lock
 	msgbox ChangeOutfit, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
-	goto_if_eq WardrobeMain_5
+	goto_if_eq WardrobeMain_2
 	closemessage
-	goto_if_set FLAG_PC_CHANGE_COSTUME, WardrobeMain_8
-	setflag FLAG_PC_CHANGE_COSTUME
-WardrobeMain_7:
+	message WardrobeMain_Text_0
+	waitmessage
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq WardrobeMain_5
+	dynmultipush WardrobeMain_Text_1, SPECIES_MAY_RUBY
+	dynmultipush WardrobeMain_Text_2, SPECIES_MAY_EMERALD
+	goto_if_set FLAG_PURCHASED_OUTFIT, WardrobeMain_12
+WardrobeMain_11:
+	dynmultipush WardrobeMain_Text_4, SPECIES_EMPTY
+	dynmultistack 23, 0, FALSE, 5, FALSE, 98, DYN_MULTICHOICE_CB_SHOW_MON
+	switch VAR_RESULT
+	case SPECIES_MAY_RUBY, WardrobeMain_20
+	case SPECIES_MAY_EMERALD, WardrobeMain_21
+	case SPECIES_MAY_ORAS, WardrobeMain_22
+	case MULTI_B_PRESSED, WardrobeMain_23
+	case SPECIES_EMPTY, WardrobeMain_23
+WardrobeMain_4:
 	return
 
 WardrobeMain_2:
-	msgbox ItsaChangingRoom, MSGBOX_SIGN
-	end
-
-WardrobeMain_5:
 	closemessage
 	release
 	end
 
+WardrobeMain_5:
+	dynmultipush WardrobeMain_Text_1, SPECIES_BRENDAN_RUBY
+	dynmultipush WardrobeMain_Text_2, SPECIES_BRENDAN_EMERALD
+	goto_if_set FLAG_PURCHASED_OUTFIT, WardrobeMain_9
 WardrobeMain_8:
-	clearflag FLAG_PC_CHANGE_COSTUME
-	goto WardrobeMain_7
+	dynmultipush WardrobeMain_Text_4, SPECIES_EMPTY
+	dynmultistack 23, 0, FALSE, 5, FALSE, 98, DYN_MULTICHOICE_CB_SHOW_MON
+	switch VAR_RESULT
+	case SPECIES_BRENDAN_RUBY, WardrobeMain_15
+	case SPECIES_BRENDAN_EMERALD, WardrobeMain_16
+	case SPECIES_BRENDAN_ORAS, WardrobeMain_17
+	case MULTI_B_PRESSED, WardrobeMain_18
+	case SPECIES_EMPTY, WardrobeMain_18
+	goto WardrobeMain_4
+
+WardrobeMain_9:
+	dynmultipush WardrobeMain_Text_3, SPECIES_BRENDAN_ORAS
+	goto WardrobeMain_8
+
+WardrobeMain_12:
+	dynmultipush WardrobeMain_Text_3, SPECIES_MAY_ORAS
+	goto WardrobeMain_11
+
+WardrobeMain_15:
+	setvar VAR_CHOSEN_OUTFIT, 0
+	closemessage
+	goto WardrobeMain_4
+
+WardrobeMain_16:
+	setvar VAR_CHOSEN_OUTFIT, 1
+	closemessage
+	goto WardrobeMain_4
+
+WardrobeMain_17:
+	setvar VAR_CHOSEN_OUTFIT, 2
+	closemessage
+	goto WardrobeMain_4
+
+WardrobeMain_18:
+	closemessage
+	release
+	end
+
+WardrobeMain_20:
+	setvar VAR_CHOSEN_OUTFIT, 0
+	closemessage
+	goto WardrobeMain_4
+
+WardrobeMain_21:
+	setvar VAR_CHOSEN_OUTFIT, 1
+	closemessage
+	goto WardrobeMain_4
+
+WardrobeMain_22:
+	setvar VAR_CHOSEN_OUTFIT, 2
+	closemessage
+	goto WardrobeMain_4
+
+WardrobeMain_23:
+	closemessage
+	release
+	end
 
 
 WardrobeDoor::
@@ -239,6 +308,21 @@ PurchaseOutfit_5:
 	hidemoneybox
 	end
 
+
+WardrobeMain_Text_0:
+	.string "Choose an outfit to wear.$"
+
+WardrobeMain_Text_1:
+	.string "Option 1$"
+
+WardrobeMain_Text_2:
+	.string "Option 2$"
+
+WardrobeMain_Text_3:
+	.string "Option 3$"
+
+WardrobeMain_Text_4:
+	.string "Exit$"
 
 ClothierMain_Text_0:
 	.string "What would you like to do?$"

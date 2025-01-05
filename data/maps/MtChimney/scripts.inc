@@ -508,7 +508,7 @@ MtChimney_EventScript_RematchShelby::
 	end
 
 MtChimney_EventScript_Melissa::
-	trainerbattle_single TRAINER_R6_TR2_POKEFAN_F, MtChimney_Text_MelissaIntro, MtChimney_Text_MelissaDefeat
+	trainerbattle_single TRAINER_R16_TR2_SWIMMER_F, MtChimney_Text_MelissaIntro, MtChimney_Text_MelissaDefeat
 	msgbox MtChimney_Text_MelissaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -518,7 +518,7 @@ MtChimney_EventScript_Sheila::
 	end
 
 MtChimney_EventScript_Shirley::
-	trainerbattle_single TRAINER_R6_TR4_CAMPER_M1, MtChimney_Text_ShirleyIntro, MtChimney_Text_ShirleyDefeat
+	trainerbattle_single TRAINER_R16_TR12_NINJABOY2, MtChimney_Text_ShirleyIntro, MtChimney_Text_ShirleyDefeat
 	msgbox MtChimney_Text_ShirleyPostBattle, MSGBOX_AUTOCLOSE
 	end
 

@@ -171,7 +171,7 @@ Route110_EventScript_Edward::
 	end
 
 Route110_EventScript_Jaclyn::
-	trainerbattle_single TRAINER_R12_UNUSED, Route110_Text_JaclynIntro, Route110_Text_JaclynDefeated
+	trainerbattle_single TRAINER_UNUSED_243, Route110_Text_JaclynIntro, Route110_Text_JaclynDefeated
 	msgbox Route110_Text_JaclynPostBattle, MSGBOX_AUTOCLOSE
 	end
 

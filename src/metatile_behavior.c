@@ -7,6 +7,7 @@
 #define TILE_FLAG_HAS_ENCOUNTERS (1 << 0)
 #define TILE_FLAG_SURFABLE       (1 << 1)
 #define TILE_FLAG_UNUSED         (1 << 2) // Roughly all of the traversable metatiles. Set but never read
+#define TILE_FLAG_FOLLOWER_BANNED (1 << 3)
 
 static const u8 sTileBitAttributes[NUM_METATILE_BEHAVIORS] =
 {
@@ -46,7 +47,7 @@ static const u8 sTileBitAttributes[NUM_METATILE_BEHAVIORS] =
     [MB_FOOTPRINTS]                      = TILE_FLAG_UNUSED | TILE_FLAG_HAS_ENCOUNTERS,
     [MB_THIN_ICE]                        = TILE_FLAG_UNUSED,
     [MB_CRACKED_ICE]                     = TILE_FLAG_UNUSED,
-    [MB_HOT_SPRINGS]                     = TILE_FLAG_UNUSED,
+    [MB_HOT_SPRINGS]                     = TILE_FLAG_UNUSED | TILE_FLAG_FOLLOWER_BANNED,
     [MB_LAVARIDGE_GYM_B1F_WARP]          = TILE_FLAG_UNUSED,
     [MB_SEAWEED_NO_SURFACING]            = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE | TILE_FLAG_HAS_ENCOUNTERS,
     [MB_REFLECTION_UNDER_BRIDGE]         = TILE_FLAG_UNUSED,
@@ -413,6 +414,14 @@ bool8 MetatileBehavior_IsDeepSouthWarp(u8 metatileBehavior)
 bool8 MetatileBehavior_IsSurfableWaterOrUnderwater(u8 metatileBehavior)
 {
     if ((sTileBitAttributes[metatileBehavior] & TILE_FLAG_SURFABLE))
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsFollowerBanned(u8 metatileBehavior)
+{
+    if ((sTileBitAttributes[metatileBehavior] & TILE_FLAG_FOLLOWER_BANNED))
         return TRUE;
     else
         return FALSE;

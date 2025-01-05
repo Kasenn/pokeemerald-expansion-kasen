@@ -314,12 +314,29 @@
 #define OBJ_EVENT_GFX_CRATE                     310
 #define OBJ_EVENT_GFX_ZYGARDE_CORE              311
 
+#define OBJ_EVENT_GFX_BRENDAN_NORMAL_RS         312
+#define OBJ_EVENT_GFX_BRENDAN_ACRO_BIKE_RS      313
+#define OBJ_EVENT_GFX_BRENDAN_SURFING_RS        314
+#define OBJ_EVENT_GFX_BRENDAN_FISHING_RS        315
+#define OBJ_EVENT_GFX_BRENDAN_WATERING_RS       316
+#define OBJ_EVENT_GFX_BRENDAN_FIELD_MOVE_RS     317
+#define OBJ_EVENT_GFX_BRENDAN_FERTILIZING_RS    318
+
+#define OBJ_EVENT_GFX_MAY_NORMAL_RS             319
+#define OBJ_EVENT_GFX_MAY_ACRO_BIKE_RS          320
+#define OBJ_EVENT_GFX_MAY_SURFING_RS            321
+#define OBJ_EVENT_GFX_MAY_FISHING_RS            322
+#define OBJ_EVENT_GFX_MAY_WATERING_RS           323
+#define OBJ_EVENT_GFX_MAY_FIELD_MOVE_RS         324
+#define OBJ_EVENT_GFX_MAY_FERTILIZING_RS        325
+
+
 
 
 // NOTE: The maximum amount of object events has been expanded from 255 to 65535.
 // Since dynamic graphics ids still require at least 16 free values, the actual limit
 // is 65519, but even considering follower Pokémon, this should be more than enough :)
-#define NUM_OBJ_EVENT_GFX                        312
+#define NUM_OBJ_EVENT_GFX                        326
 
 
 // These are dynamic object gfx ids.
@@ -557,6 +574,8 @@
 #define OBJ_EVENT_PAL_GATE              0x117E
 #define OBJ_EVENT_PAL_CRATE             0x117F
 #define OBJ_EVENT_PAL_ZYGARDE_CORE                 0x1180
+#define OBJ_EVENT_PAL_BRENDAN_RS                0x1181
+#define OBJ_EVENT_PAL_MAY_RS                0x1182
 
 // Used as a placeholder follower graphic
 #define OBJ_EVENT_PAL_TAG_SUBSTITUTE              0x7611

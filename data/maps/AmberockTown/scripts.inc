@@ -1041,21 +1041,41 @@ Amberock_SetPlayerModel::
 	checkplayergender
 	compare VAR_RESULT, MALE
 	goto_if_eq Amberock_SetPlayerModel_2
-	goto_if_set FLAG_PC_CHANGE_COSTUME, Amberock_SetPlayerModel_8
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL
+	switch VAR_CHOSEN_OUTFIT
+	case 0, Amberock_SetPlayerModel_10
+	case 1, Amberock_SetPlayerModel_11
+	case 2, Amberock_SetPlayerModel_12
 Amberock_SetPlayerModel_1:
 	return
 
 Amberock_SetPlayerModel_2:
-	goto_if_set FLAG_PC_CHANGE_COSTUME, Amberock_SetPlayerModel_5
+	switch VAR_CHOSEN_OUTFIT
+	case 0, Amberock_SetPlayerModel_6
+	case 1, Amberock_SetPlayerModel_7
+	case 2, Amberock_SetPlayerModel_8
+	goto Amberock_SetPlayerModel_1
+
+Amberock_SetPlayerModel_6:
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_NORMAL_RS
+	goto Amberock_SetPlayerModel_1
+
+Amberock_SetPlayerModel_7:
 	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL
 	goto Amberock_SetPlayerModel_1
 
-Amberock_SetPlayerModel_5:
+Amberock_SetPlayerModel_8:
 	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_NORMAL_ORAS
 	goto Amberock_SetPlayerModel_1
 
-Amberock_SetPlayerModel_8:
+Amberock_SetPlayerModel_10:
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_NORMAL_RS
+	goto Amberock_SetPlayerModel_1
+
+Amberock_SetPlayerModel_11:
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL
+	goto Amberock_SetPlayerModel_1
+
+Amberock_SetPlayerModel_12:
 	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_NORMAL_ORAS
 	goto Amberock_SetPlayerModel_1
 
@@ -1322,7 +1342,7 @@ RocketYoureTooLate::
 	.string "Good luck ever catching me!$"
 
 Amberock_WelcomeSign_Text::
-	.string "Amberock Town\n"
+	.string "AMBEROCK TOWN\n"
 	.string "“The town where everyone prospers!”$"
 
 Amberock_FactorySign_Text::

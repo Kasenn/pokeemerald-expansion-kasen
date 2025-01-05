@@ -345,6 +345,20 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayWateringOras;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFieldMoveOras;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SteelSphere;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Krokorok;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFertilizingRS;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanNormalRS;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanAcroBikeRS;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanSurfingRS;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFishingRS;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanWateringRS;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFieldMoveRS;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFertilizingRS;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayNormalRS;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayAcroBikeRS;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MaySurfingRS;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFishingRS;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayWateringRS;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFieldMoveRS;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_NEWPIKACHU] =                     &gObjectEventGraphicsInfo_NewPikachu,
@@ -681,6 +695,20 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_POKE_BALL] =                &gObjectEventGraphicsInfo_PokeBall,
     [OBJ_EVENT_GFX_OW_MON] =                   &gObjectEventGraphicsInfo_Follower,
     [OBJ_EVENT_GFX_KROKOROK] =       &gObjectEventGraphicsInfo_Krokorok,
+    [OBJ_EVENT_GFX_BRENDAN_NORMAL_RS     ] =         &gObjectEventGraphicsInfo_BrendanNormalRS,
+    [OBJ_EVENT_GFX_BRENDAN_ACRO_BIKE_RS  ] =         &gObjectEventGraphicsInfo_BrendanAcroBikeRS,
+    [OBJ_EVENT_GFX_BRENDAN_SURFING_RS    ] =         &gObjectEventGraphicsInfo_BrendanSurfingRS,
+    [OBJ_EVENT_GFX_BRENDAN_FISHING_RS    ] =         &gObjectEventGraphicsInfo_BrendanFishingRS,
+    [OBJ_EVENT_GFX_BRENDAN_WATERING_RS   ] =         &gObjectEventGraphicsInfo_BrendanWateringRS,
+    [OBJ_EVENT_GFX_BRENDAN_FIELD_MOVE_RS ] =         &gObjectEventGraphicsInfo_BrendanFieldMoveRS,
+    [OBJ_EVENT_GFX_BRENDAN_FERTILIZING_RS] =         &gObjectEventGraphicsInfo_BrendanFertilizingRS,
+    [OBJ_EVENT_GFX_MAY_NORMAL_RS         ] =         &gObjectEventGraphicsInfo_MayNormalRS,
+    [OBJ_EVENT_GFX_MAY_ACRO_BIKE_RS      ] =         &gObjectEventGraphicsInfo_MayAcroBikeRS,
+    [OBJ_EVENT_GFX_MAY_SURFING_RS        ] =         &gObjectEventGraphicsInfo_MaySurfingRS,
+    [OBJ_EVENT_GFX_MAY_FISHING_RS        ] =         &gObjectEventGraphicsInfo_MayFishingRS,
+    [OBJ_EVENT_GFX_MAY_WATERING_RS       ] =         &gObjectEventGraphicsInfo_MayWateringRS,
+    [OBJ_EVENT_GFX_MAY_FIELD_MOVE_RS     ] =         &gObjectEventGraphicsInfo_MayFieldMoveRS,
+    [OBJ_EVENT_GFX_MAY_FERTILIZING_RS    ] =         &gObjectEventGraphicsInfo_MayFertilizingRS,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

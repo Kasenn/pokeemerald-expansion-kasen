@@ -14,13 +14,13 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_BASALUFF_TOWN",
+      "map": "MAP_ROUTE16",
       "offset": 0,
       "direction": "right"
     },
     {
-      "map": "MAP_ROUTE16",
-      "offset": 45,
+      "map": "MAP_BASALUFF_TOWN",
+      "offset": -48,
       "direction": "right"
     }
   ],

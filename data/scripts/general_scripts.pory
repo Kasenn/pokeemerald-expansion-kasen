@@ -397,24 +397,39 @@ script Debug_Script_1{              // Set team level
     end
     }
 script Debug_Script_2{              // 
-    givemon(SPECIES_RILLABOOM, 5)
-    givemon(SPECIES_RILLABOOM, 5)
-    givemon(SPECIES_RILLABOOM, 5)
-    givemon(SPECIES_RILLABOOM, 5)
-    givemon(SPECIES_RILLABOOM, 5)
-    givemon(SPECIES_RILLABOOM, 5)
+    // givemon(SPECIES_BLAZIKEN, 50, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,MOVE_ROCK_CLIMB)
+    lock
+    message("Choose outfit")
+    waitmessage
+    dynmultipush("RS", SPECIES_BRENDAN_RUBY)
+    dynmultipush("Emerald", SPECIES_BRENDAN_EMERALD)
+    dynmultipush("ORAS", SPECIES_BRENDAN_ORAS)
+    dynmultipush("Cancel", SPECIES_EMPTY)
+    dynmultistack(23, 0, FALSE, 5, FALSE, 98, DYN_MULTICHOICE_CB_SHOW_MON)
+	switch(var(VAR_RESULT)){
+        case SPECIES_BRENDAN_RUBY:
+            setvar(VAR_CHOSEN_OUTFIT, 0)
+            closemessage
+            warpsilent(MAP_PLAYER_HOUSE2F, 5, 4)
+            waitstate
+        case SPECIES_BRENDAN_EMERALD:
+            setvar(VAR_CHOSEN_OUTFIT, 1)
+            closemessage
+            warpsilent(MAP_PLAYER_HOUSE2F, 5, 4)
+            waitstate
+        case SPECIES_BRENDAN_ORAS:
+            setvar(VAR_CHOSEN_OUTFIT, 2)
+            closemessage
+            warpsilent(MAP_PLAYER_HOUSE2F, 5, 4)
+            waitstate
+        case SPECIES_EMPTY:
+            release
+            end
+    }
     return
 }
 script Debug_Script_3{              // 
-    applymovement(0xff, moves(face_left))
-    waitmovement(0)
-    callnative(UpdateFollowingPokemon)
-    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
-    addvar(VAR_TEMP_0, 1)
-    setobjectxy(OBJ_EVENT_ID_FOLLOWER, VAR_TEMP_0, VAR_TEMP_1)
-    applymovement(OBJ_EVENT_ID_FOLLOWER, moves(exit_pokeball, set_visible))
-    applymovement(0xff, moves(unlock_anim, face_down))
-    waitmovement(OBJ_EVENT_ID_FOLLOWER)
+    callnative(CheckFoughtTrainers)
     return
 }
 script Debug_Script_4{
@@ -449,3 +464,71 @@ text LevelSetIntro{
 text WhichLevelToSet{
     "Which level would you like to set\n"
     "your team?"}
+
+
+script ResetAdamantTower{
+    if(checkitem(ITEM_MEGA_RING) == FALSE){
+        msgbox(ThisIsForTesting, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    if(msgbox(ResetAdamantTower_YesNo, MSGBOX_YESNO) == FALSE){
+        release
+        end
+    }
+    cleartrainerflag(TRAINER_AT_2F_TR2_MAN3)
+    cleartrainerflag(TRAINER_AT_2F_TR2_WOMAN5)
+    cleartrainerflag(TRAINER_AT_2F_TR1_PSYCHIC)
+    cleartrainerflag(TRAINER_AT_2F_TR1_MAN5)
+    cleartrainerflag(TRAINER_AT_3F_TR1_EXPERT_M)
+    cleartrainerflag(TRAINER_AT_3F_TR1_EXPERT_F)
+    cleartrainerflag(TRAINER_AT_3F_TR2_HEXMANIAC)
+    cleartrainerflag(TRAINER_AT_3F_TR2_PSYCHICF)
+    cleartrainerflag(TRAINER_AT_4F_TR1_BLACKBELT)
+    cleartrainerflag(TRAINER_AT_4F_TR1_HEXMANIAC)
+    cleartrainerflag(TRAINER_AT_4F_TR2_LASS)
+    cleartrainerflag(TRAINER_AT_4F_TR2_YOUNGSTER)
+    cleartrainerflag(TRAINER_AT_4F_TR3_BATTLEGIRL)
+    cleartrainerflag(TRAINER_AT_4F_TR3_BLACKBELT)
+    cleartrainerflag(TRAINER_AT_5F_COOLTRAINER_M)
+    cleartrainerflag(TRAINER_AT_5F_COOLTRAINER_F)
+    removeitem(ITEM_MEGA_RING)
+    clearflag(FLAG_OBTAINED_MEGA_RING)
+    clearflag(FLAG_REUNITE_WITH_RIVAL)
+    setflag(FLAG_DISABLE_SAVING)
+    setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_DEX_OBTAINED)
+    if(msgbox(ResetAdamantTower_ResetTeam, MSGBOX_YESNO) == FALSE){
+        release
+        end
+    }
+    setpartylevel(38)
+    msgbox(PartyHasBeenReset, MSGBOX_NPC)
+    end
+}
+
+text ThisIsForTesting{
+    "Hi. I'm here to help testing\n"
+    "the partner AI."
+}
+text ResetAdamantTower_YesNo{
+    "Hi. I'm here to help testing\n"
+    "the partner AI.\p"
+    "Would you like to reset the tower?"
+}
+text ResetAdamantTower_ResetTeam{
+    "Tower progress has been reset.\p"
+    "This could break saves, so I've\n"
+    "disabled saving for the duration\l"
+    "of the test.\p"
+    "Once you're done testing, please\n"
+    "reset the game to continue regular\l"
+    "play.\p"
+    "The tower is recommended for lvl 38+\n"
+    "teams.\p"
+    "Want me to also set your entire team\n"
+    "to lvl 38?"
+}
+text PartyHasBeenReset{
+    "Team has been set to lvl 38."
+}

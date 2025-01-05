@@ -2234,7 +2234,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRockClimbingOra
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
     .anims = sAnimTable_Surfing,
-    .images = sPicTable_BrendanRockClimbingOras,
+    .images = sPicTable_MayRockClimbingOras,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
@@ -6483,4 +6483,147 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Crate = {
     .anims = sAnimTable_Standard,
     .images = sPicTable_Crate,
     .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+#define PLAYER_OBJ_INFO                             \
+    .tileTag = TAG_NONE,                            \
+    .size = 512,                                    \
+    .width = 32,                                    \
+    .height = 32,                                   \
+    .paletteSlot = PALSLOT_PLAYER,                  \
+    .shadowSize = SHADOW_SIZE_M,                    \
+    .inanimate = FALSE,                             \
+    .compressed = FALSE,                            \
+    .oam = &gObjectEventBaseOam_32x32,              \
+    .subspriteTables = sOamTables_32x32,            \
+    .affineAnims = gDummySpriteAffineAnimTable,     \
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanNormalRS = {
+    PLAYER_OBJ_INFO
+    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_BrendanMayNormal,
+    .images = sPicTable_BrendanNormalRS,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanAcroBikeRS = {
+    PLAYER_OBJ_INFO
+    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .tracks = TRACKS_BIKE_TIRE,
+    .anims = sAnimTable_AcroBike,
+    .images = sPicTable_BrendanAcroBikeRS,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanSurfingRS = {
+    PLAYER_OBJ_INFO
+    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_Surfing,
+    .images = sPicTable_BrendanSurfingRS,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFieldMoveRS = {
+    PLAYER_OBJ_INFO
+    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_FieldMove,
+    .images = sPicTable_BrendanFieldMoveRS,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFishingRS = {
+    PLAYER_OBJ_INFO
+    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_Fishing,
+    .images = sPicTable_BrendanFishingRS,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanWateringRS = {
+    PLAYER_OBJ_INFO
+    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_BrendanWateringRS,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRockClimbingRS = {
+    PLAYER_OBJ_INFO
+    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_Surfing,
+    .images = sPicTable_BrendanRockClimbingRS,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFertilizingRS = {
+    PLAYER_OBJ_INFO
+    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_BrendanFertilizingRS,
+};
+/////////////////////////////////////////////////
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayNormalRS = {
+    PLAYER_OBJ_INFO
+    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_BrendanMayNormal,
+    .images = sPicTable_MayNormalRS,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayAcroBikeRS = {
+    PLAYER_OBJ_INFO
+    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .tracks = TRACKS_BIKE_TIRE,
+    .anims = sAnimTable_AcroBike,
+    .images = sPicTable_MayAcroBikeRS,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MaySurfingRS = {
+    PLAYER_OBJ_INFO
+    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_Surfing,
+    .images = sPicTable_MaySurfingRS,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFieldMoveRS = {
+    PLAYER_OBJ_INFO
+    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_FieldMove,
+    .images = sPicTable_MayFieldMoveRS,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFishingRS = {
+    PLAYER_OBJ_INFO
+    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_Fishing,
+    .images = sPicTable_MayFishingRS,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayWateringRS = {
+    PLAYER_OBJ_INFO
+    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_MayWateringRS,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRockClimbingRS = {
+    PLAYER_OBJ_INFO
+    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_Surfing,
+    .images = sPicTable_MayRockClimbingRS,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFertilizingRS = {
+    PLAYER_OBJ_INFO
+    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_MayFertilizingRS,
 };

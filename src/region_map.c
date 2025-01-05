@@ -130,6 +130,11 @@ static const u16 sRegionMapPlayerIcon_BrendanOrasPal[] = INCBIN_U16("graphics/po
 static const u8 sRegionMapPlayerIcon_BrendanOrasGfx[] = INCBIN_U8("graphics/pokenav/region_map/brendan_icon_oras.4bpp");
 static const u16 sRegionMapPlayerIcon_MayOrasPal[] = INCBIN_U16("graphics/pokenav/region_map/may_icon_oras.gbapal");
 static const u8 sRegionMapPlayerIcon_MayOrasGfx[] = INCBIN_U8("graphics/pokenav/region_map/may_icon_oras.4bpp");
+static const u16 sRegionMapPlayerIcon_MayPalRS[] = INCBIN_U16("graphics/pokenav/region_map/may_icon_rs.gbapal");
+static const u8 sRegionMapPlayerIcon_MayGfxRS[] = INCBIN_U8("graphics/pokenav/region_map/may_icon_rs.4bpp");
+static const u16 sRegionMapPlayerIcon_BrendanPalRS[] = INCBIN_U16("graphics/pokenav/region_map/brendan_icon_rs.gbapal");
+static const u8 sRegionMapPlayerIcon_BrendanGfxRS[] = INCBIN_U8("graphics/pokenav/region_map/brendan_icon_rs.4bpp");
+
 
 #include "data/region_map/region_map_layout.h"
 #include "data/region_map/region_map_entries.h"
@@ -377,7 +382,7 @@ static const u8 sMapHealLocations[][3] =
     [MAPSEC_TOWN_WIP6] = {MAP_GROUP(FISHING_VILLAGE), MAP_NUM(FISHING_VILLAGE), HEAL_LOCATION_FISHING_VILLAGE},
     [MAPSEC_TOWN_WIP9] = {MAP_GROUP(DRISLEDGE_TOWN), MAP_NUM(DRISLEDGE_TOWN), HEAL_LOCATION_DRISLEDGE_TOWN},
     [MAPSEC_TOWN_WIP5] = {MAP_GROUP(AMBEROCK_TOWN), MAP_NUM(AMBEROCK_TOWN), HEAL_LOCATION_AMBEROCK_TOWN},
-    [MAPSEC_BASALEK_TOWN] = {MAP_GROUP(BASALUFF_TOWN), MAP_NUM(BASALUFF_TOWN), HEAL_LOCATION_BASALEK_TOWN},
+    [MAPSEC_BASALEK_TOWN] = {MAP_GROUP(BASALUFF_TOWN), MAP_NUM(BASALUFF_TOWN), HEAL_LOCATION_BASALUFF_TOWN},
     [MAPSEC_ROCKLIFFE_TOWN] = {MAP_GROUP(ROCKLIFFE_TOWN), MAP_NUM(ROCKLIFFE_TOWN), HEAL_LOCATION_ROCKLIFFE_TOWN},
     [MAPSEC_SANDSTONE_CITY] = {MAP_GROUP(SANDSTONE_CITY), MAP_NUM(SANDSTONE_CITY), HEAL_LOCATION_SANDSTONE_CITY},
     [MAPSEC_FORTREE_CITY] = {MAP_GROUP(FORTREE_CITY), MAP_NUM(FORTREE_CITY), HEAL_LOCATION_FORTREE_CITY},
@@ -1581,21 +1586,39 @@ void CreateRegionMapPlayerIcon(u16 tileTag, u16 paletteTag)
         sRegionMap->playerIconSprite = NULL;
         return;
     }
-    if (gSaveBlock2Ptr->playerGender == FEMALE)
-    {
-        sheet.data = sRegionMapPlayerIcon_MayGfx;
-        palette.data = sRegionMapPlayerIcon_MayPal;
+    if (gSaveBlock2Ptr->playerGender == FEMALE){
+        switch (VarGet(VAR_CHOSEN_OUTFIT)){
+            case OUTFIT_RUBYSAPPHIRE:
+                sheet.data = sRegionMapPlayerIcon_MayGfxRS;
+                palette.data = sRegionMapPlayerIcon_MayPalRS;
+                break;
+            case OUTFIT_EMERALD:
+                sheet.data = sRegionMapPlayerIcon_MayGfx;
+                palette.data = sRegionMapPlayerIcon_MayPal;
+                break;
+            case OUTFIT_ORAS:
+                sheet.data = sRegionMapPlayerIcon_MayOrasGfx;
+                palette.data = sRegionMapPlayerIcon_MayOrasPal;
+                break;
+        }
     }
-    if ((gSaveBlock2Ptr->playerGender == MALE) && (FlagGet(FLAG_PC_CHANGE_COSTUME)))
-    {
-        sheet.data = sRegionMapPlayerIcon_BrendanOrasGfx;
-        palette.data = sRegionMapPlayerIcon_BrendanOrasPal;
+    else{
+        switch (VarGet(VAR_CHOSEN_OUTFIT)){
+            case OUTFIT_RUBYSAPPHIRE:
+                sheet.data = sRegionMapPlayerIcon_BrendanGfxRS;
+                palette.data = sRegionMapPlayerIcon_BrendanPalRS;
+                break;
+            case OUTFIT_EMERALD:
+                sheet.data = sRegionMapPlayerIcon_BrendanGfx;
+                palette.data = sRegionMapPlayerIcon_BrendanPal;
+                break;
+            case OUTFIT_ORAS:
+                sheet.data = sRegionMapPlayerIcon_BrendanOrasGfx;
+                palette.data = sRegionMapPlayerIcon_BrendanOrasPal;
+                break;
+        }
     }
-    if ((gSaveBlock2Ptr->playerGender == FEMALE) && (FlagGet(FLAG_PC_CHANGE_COSTUME)))
-    {
-        sheet.data = sRegionMapPlayerIcon_MayOrasGfx;
-        palette.data = sRegionMapPlayerIcon_MayOrasPal;
-    }
+
     LoadSpriteSheet(&sheet);
     LoadSpritePalette(&palette);
     spriteId = CreateSprite(&template, 0, 0, 1);

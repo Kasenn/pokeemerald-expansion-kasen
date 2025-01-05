@@ -2910,3 +2910,36 @@ void DismountPlayer(void)
         Overworld_PlaySpecialMapMusic();
     }
 }
+
+void CheckFoughtTrainers(void)
+{
+    u16 i;
+
+    for (i = 1; i < TRAINER_ISAIAH_1; i++)
+    {
+        if (!HasTrainerBeenFought(i))
+        {
+            DebugPrintfLevel(MGBA_LOG_WARN, "Trainer %d has not been fought", i);
+        }
+    }
+}
+
+void ScrCmd_matchpartylevel(struct ScriptContext *ctx)
+{
+    u8 i;
+    u16 monLevel = ScriptReadHalfword(ctx);
+
+    gSpecialVar_Result = FALSE;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
+        if (!species)
+            break;
+        if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && GetMonData(&gPlayerParty[i], MON_DATA_LEVEL) == monLevel)
+        {
+            gSpecialVar_Result = TRUE;
+            break;
+        }
+    }
+}

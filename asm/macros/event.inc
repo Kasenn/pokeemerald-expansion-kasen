@@ -2007,6 +2007,12 @@
 	.2byte \monLevel
 	.endm
 
+	@ Checks if any party mon is equal to the level. Stores the result in VAR_RESULT.
+	.macro matchpartylevel monLevel:req
+	callnative ScrCmd_matchpartylevel
+	.2byte \monLevel
+	.endm
+
 	@ Opens the Pokemart system, offering the specified products for sale.
 	@ Products should be a list of .2byte item values preceded by an .align 2
 	@ Uses BP as currency, with the prices based on the .bpCost value

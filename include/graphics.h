@@ -6,6 +6,25 @@ extern const u32 gSignpostWindow_Gfx[];
 extern const u32 gMessageBox_Gfx[];
 extern const u16 gMessageBox_Pal[];
 
+// trainer pics
+extern const u32 gTrainerFrontPic_RubySapphireBrendan[];
+extern const u32 gTrainerFrontPic_Brendan[];
+extern const u32 gTrainerFrontPic_BrendanOras[];
+extern const u32 gTrainerFrontPic_Red[];
+extern const u32 gTrainerFrontPic_RubySapphireMay[];
+extern const u32 gTrainerFrontPic_May[];
+extern const u32 gTrainerFrontPic_MayOras[];
+extern const u32 gTrainerFrontPic_Leaf[];
+extern const u32 gTrainerPalette_RubySapphireBrendan[];
+extern const u32 gTrainerPalette_Brendan[];
+extern const u32 gTrainerPalette_BrendanOras[];
+extern const u32 gTrainerPalette_Red[];
+extern const u32 gTrainerPalette_RubySapphireMay[];
+extern const u32 gTrainerPalette_May[];
+extern const u32 gTrainerPalette_MayOras[];
+extern const u32 gTrainerPalette_Leaf[];
+extern const u32 gTrainerFrontPic_Empty[];
+
 // pokeballs
 extern const u32 gBallGfx_Strange[];
 extern const u32 gBallPal_Strange[];

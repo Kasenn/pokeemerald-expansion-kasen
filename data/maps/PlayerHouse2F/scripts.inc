@@ -119,6 +119,121 @@ PlayerHouse_ItemCapsule_1:
 	return
 
 
+PlayerWardrobe::
+	lock
+	msgbox ChangeOutfit2, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq PlayerWardrobe_2
+	closemessage
+	message PlayerWardrobe_Text_0
+	waitmessage
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq PlayerWardrobe_4
+	dynmultipush PlayerWardrobe_Text_1, SPECIES_MAY_RUBY
+	dynmultipush PlayerWardrobe_Text_2, SPECIES_MAY_EMERALD
+	goto_if_set FLAG_PURCHASED_OUTFIT, PlayerWardrobe_11
+PlayerWardrobe_10:
+	dynmultipush PlayerWardrobe_Text_4, SPECIES_EMPTY
+	dynmultistack 23, 0, FALSE, 5, FALSE, 98, DYN_MULTICHOICE_CB_SHOW_MON
+	switch VAR_RESULT
+	case SPECIES_MAY_RUBY, PlayerWardrobe_19
+	case SPECIES_MAY_EMERALD, PlayerWardrobe_20
+	case SPECIES_MAY_ORAS, PlayerWardrobe_21
+	case SPECIES_EMPTY, PlayerWardrobe_22
+	case MULTI_B_PRESSED, PlayerWardrobe_22
+	return
+
+PlayerWardrobe_2:
+	closemessage
+	release
+	end
+
+PlayerWardrobe_4:
+	dynmultipush PlayerWardrobe_Text_1, SPECIES_BRENDAN_RUBY
+	dynmultipush PlayerWardrobe_Text_2, SPECIES_BRENDAN_EMERALD
+	goto_if_set FLAG_PURCHASED_OUTFIT, PlayerWardrobe_8
+PlayerWardrobe_7:
+	dynmultipush PlayerWardrobe_Text_4, SPECIES_EMPTY
+	dynmultistack 23, 0, FALSE, 5, FALSE, 98, DYN_MULTICHOICE_CB_SHOW_MON
+	switch VAR_RESULT
+	case SPECIES_BRENDAN_RUBY, PlayerWardrobe_14
+	case SPECIES_BRENDAN_EMERALD, PlayerWardrobe_15
+	case SPECIES_BRENDAN_ORAS, PlayerWardrobe_16
+	case SPECIES_EMPTY, PlayerWardrobe_17
+	case MULTI_B_PRESSED, PlayerWardrobe_17
+	return
+
+PlayerWardrobe_8:
+	dynmultipush PlayerWardrobe_Text_3, SPECIES_BRENDAN_ORAS
+	goto PlayerWardrobe_7
+
+PlayerWardrobe_11:
+	dynmultipush PlayerWardrobe_Text_3, SPECIES_MAY_ORAS
+	goto PlayerWardrobe_10
+
+PlayerWardrobe_14:
+	setvar VAR_CHOSEN_OUTFIT, 0
+	goto ChangePlayerOutfit
+	return
+
+PlayerWardrobe_15:
+	setvar VAR_CHOSEN_OUTFIT, 1
+	goto ChangePlayerOutfit
+	return
+
+PlayerWardrobe_16:
+	setvar VAR_CHOSEN_OUTFIT, 2
+	goto ChangePlayerOutfit
+	return
+
+PlayerWardrobe_17:
+	release
+	end
+
+PlayerWardrobe_19:
+	setvar VAR_CHOSEN_OUTFIT, 0
+	goto ChangePlayerOutfit
+	return
+
+PlayerWardrobe_20:
+	setvar VAR_CHOSEN_OUTFIT, 1
+	goto ChangePlayerOutfit
+	return
+
+PlayerWardrobe_21:
+	setvar VAR_CHOSEN_OUTFIT, 2
+	goto ChangePlayerOutfit
+	return
+
+PlayerWardrobe_22:
+	release
+	end
+
+
+ChangePlayerOutfit::
+	closemessage
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	warpsilent MAP_PLAYER_HOUSE2F, VAR_TEMP_1, VAR_TEMP_2
+	waitstate
+	end
+
+
+PlayerWardrobe_Text_0:
+	.string "Choose an outfit to wear.$"
+
+PlayerWardrobe_Text_1:
+	.string "Option 1$"
+
+PlayerWardrobe_Text_2:
+	.string "Option 2$"
+
+PlayerWardrobe_Text_3:
+	.string "Option 3$"
+
+PlayerWardrobe_Text_4:
+	.string "Exit$"
+
 PlayerHouse2F_Intro_Text::
 	.string "Mom: Rise and shine,\n"
 	.string "{PLAYER}!\p"
@@ -131,3 +246,12 @@ PlayerHouse2F_Intro_Text::
 PlayerHouse2F_ClockReminder_Text::
 	.string "Better set the clock before\n"
 	.string "heading downstairs.$"
+
+ChangeOutfit2::
+	.string "It's a clothes rack used for\n"
+	.string "storing outfits.\p"
+	.string "Would you like to change your outfit?$"
+
+SteppedAway::
+	.string "{PLAYER} stepped away from the\n"
+	.string "clothes rack.$"

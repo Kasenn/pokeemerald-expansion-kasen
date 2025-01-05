@@ -237,7 +237,7 @@
 #define VAR_HAS_TALKED_TO_SEAFLOOR_CAVERN_ENTRANCE_GRUNT 0x40D9
 #define VAR_REGISTER_BIRCH_STATE                         0x40DA
 #define VAR_ZYGARDE_PROGRESS                                0x40DB 
-#define VAR_UNUSED_0x40DC                                0x40DC 
+#define VAR_CHOSEN_OUTFIT                                0x40DC 
 #define VAR_GIFT_PICHU_SLOT                              0x40DD
 #define VAR_FIRST_MON                                0x40DE // Var is written to, but never read
 #define VAR_SECOND_MON                                0x40DF // Var is written to, but never read

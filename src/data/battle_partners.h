@@ -1,3 +1,5 @@
+    #include "constants/battle_ai.h"
+    
     [PARTNER_NONE] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
@@ -74,6 +76,7 @@
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_BACK_PIC_MAY,
         .trainerName = _("May"),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
     },
     [PARTNER_MAY_TORCHIC] =
     {
@@ -82,6 +85,7 @@
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_BACK_PIC_MAY,
         .trainerName = _("May"),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
     },
     [PARTNER_MAY_PIPLUP] =
     {
@@ -90,6 +94,7 @@
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_BACK_PIC_MAY,
         .trainerName = _("May"),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
     },
     [PARTNER_MAY_ORAS_ROWLET] =
     {
@@ -98,6 +103,7 @@
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_BACK_PIC_MAY_ORAS,
         .trainerName = _("May"),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
     },
     [PARTNER_MAY_ORAS_TORCHIC] =
     {
@@ -106,6 +112,7 @@
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_BACK_PIC_MAY_ORAS,
         .trainerName = _("May"),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
     },
     [PARTNER_MAY_ORAS_PIPLUP] =
     {
@@ -114,6 +121,7 @@
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_BACK_PIC_MAY_ORAS,
         .trainerName = _("May"),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
     },
 
     [PARTNER_BRENDAN_ROWLET] =
@@ -123,6 +131,7 @@
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_BACK_PIC_BRENDAN,
         .trainerName = _("Brendan"),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
     },
     [PARTNER_BRENDAN_TORCHIC] =
     {
@@ -131,6 +140,7 @@
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_BACK_PIC_BRENDAN,
         .trainerName = _("Brendan"),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
     },
     [PARTNER_BRENDAN_PIPLUP] =
     {
@@ -139,6 +149,7 @@
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_BACK_PIC_BRENDAN,
         .trainerName = _("Brendan"),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
     },
     [PARTNER_BRENDAN_ORAS_ROWLET] =
     {
@@ -147,6 +158,7 @@
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_BACK_PIC_BRENDAN_ORAS,
         .trainerName = _("Brendan"),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
     },
     [PARTNER_BRENDAN_ORAS_TORCHIC] =
     {
@@ -155,6 +167,7 @@
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_BACK_PIC_BRENDAN_ORAS,
         .trainerName = _("Brendan"),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
     },
     [PARTNER_BRENDAN_ORAS_PIPLUP] =
     {
@@ -163,4 +176,5 @@
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_BACK_PIC_BRENDAN_ORAS,
         .trainerName = _("Brendan"),
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
     },

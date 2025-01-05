@@ -1,9 +1,14 @@
 mapscripts Route16_MapScripts {
     MAP_SCRIPT_ON_TRANSITION{
+        setflag(FLAG_TEMP_6)
         if(checkitem(ITEM_ZYGARDE_CUBE) == TRUE){
             setmaplayoutindex(LAYOUT_ROUTE16_NO_CURRENTS)
             setflag(FLAG_TEMP_1)
+            clearflag(FLAG_TEMP_6)
         }
+    }
+    MAP_SCRIPT_ON_RESUME{
+        setstepcallback(STEP_CB_ASH)
     }
 }
 
@@ -17,12 +22,198 @@ text RapidsTooStrong_Text{
     "them to die down."
 }
 
-script EndOfBeta{
-    msgbox(EndOfBeta_Text, MSGBOX_SIGN)
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Down)
-    waitmovement(0)
+script Route16_Fisher {
+    msgbox(Route16_Tr3_Fisher_Text, MSGBOX_NPC)
 }
-text EndOfBeta_Text{
-    "This way is blocked off\n"
-    "until the next release."
+text Route16_Tr3_Fisher_Text {
+    "The volcanic activity up north is\n"
+    "keeping these waters warm.\p"
+    "The warmer the water, the more\n"
+    "energetic the fish."
+}
+
+script Route16_SwimmerM {
+    msgbox(Route16_Tr4_SwimmerM_Text, MSGBOX_NPC)
+}
+text Route16_Tr4_SwimmerM_Text {
+    "I'm trying to get to Basalek Town,\n"
+    "but I think I took a wrong turn…"
+}
+
+script Route16_Tr1_SwimmerM {
+    trainerbattle_single(TRAINER_R16_TR1_SWIMMER_M, R16Tr1_Intro, R16Tr1_Lose)
+    msgbox(R16Tr1_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R16Tr1_Intro {
+    "My Pokémon are at the top of\n"
+    "their game!"
+}
+text R16Tr1_Lose {
+    "Clearly we need to train more!"
+}
+text R16Tr1_PostBattle {
+    "Maybe a short break is in order…"
+}
+
+script Route16_Tr2_SwimmerF {
+    trainerbattle_single(TRAINER_R16_TR2_SWIMMER_F, R16Tr2_Intro, R16Tr2_Lose)
+    msgbox(R16Tr2_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R16Tr2_Intro {
+    "I'm the greatest swimmer in the world!\n"
+    "Think you can keep up?"
+}
+text R16Tr2_Lose {
+    "Being a good swimmer doesn't make"
+    "me any better as a trainer…"
+}
+text R16Tr2_PostBattle {
+    "I want to be with my water Pokémon."
+    "That's why I swim."
+}
+
+script Route16_Tr5_SwimmerF {
+    trainerbattle_single(TRAINER_R16_TR5_SWIMMER_F, R16Tr5_Intro, R16Tr5_Lose)
+    msgbox(R16Tr5_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R16Tr5_Intro {
+    "I was starting to get bored\n"
+    "of swimming.\l"
+    "Glad you showed up!"
+}
+text R16Tr5_Lose {
+    "Now I wish you had not showed up…"
+}
+text R16Tr5_PostBattle {
+    "There's not much room to navigate\n"
+    "between these rocks.\p"
+    "Careful you don't smash against\n"
+    "a rock!"
+}
+
+script Route16_Tr6_SwimmerF {
+    trainerbattle_single(TRAINER_R16_TR6_SWIMMER_F, R16Tr6_Intro, R16Tr6_Lose)
+    msgbox(R16Tr6_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R16Tr6_Intro {
+    "You heading to Basalek Town?\n"
+    "Not without battling me first!"
+}
+text R16Tr6_Lose {
+    "Okay, you may proceed."
+}
+text R16Tr6_PostBattle {
+    "The route to Basalek town can be\n"
+    "a bit overwhelming.\p"
+    "Be sure to hydrate!"
+}
+
+script Route16_Tr7_Guitarist {
+    trainerbattle_single(TRAINER_R16_TR7_GUITARIST, R16Tr7_Intro, R16Tr7_Lose)
+    msgbox(R16Tr7_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R16Tr7_Intro {
+    "A heated Pokémon battle!\p"
+    "Just the type of inspiration\n"
+    "I was looking for!"
+}
+text R16Tr7_Lose {
+    "That was fire!"
+}
+text R16Tr7_PostBattle {
+    "That battle lit a fire in my soul!\n"
+    "Thanks, bro!"
+}
+
+script Route16_Tr8_Hiker {
+    trainerbattle_single(TRAINER_R16_TR8_HIKER, R16Tr8_Intro, R16Tr8_Lose)
+    msgbox(R16Tr8_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R16Tr8_Intro {
+    "We hikers aren't afraid of anything.\n"
+    "Let me prove it to you!"
+}
+text R16Tr8_Lose {
+    "I may have lost,\n"
+    "but my spirit will not falter!"
+}
+text R16Tr8_PostBattle {
+    "I can tell just how fearless you are.\n"
+    "You'd make a great hiker!"
+}
+
+script Route16_Tr9_Beauty {
+    trainerbattle_single(TRAINER_R16_TR9_BEAUTY, R16Tr9_Intro, R16Tr9_Lose)
+    msgbox(R16Tr9_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R16Tr9_Intro {
+    "I've got the fire in me, baby.\n"
+	"I can't stand it! I have to battle!"
+}
+text R16Tr9_Lose {
+    "Ooh, that was a scorching-hot match!"
+}
+text R16Tr9_PostBattle {
+    "The heat of the lava pools warms\n"
+	"me up, baby!"
+}
+
+script Route16_Tr10_NinjaBoy {
+    trainerbattle_single(TRAINER_R16_TR10_NINJABOY, R16Tr10_Intro, R16Tr10_Lose)
+    msgbox(R16Tr10_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R16Tr10_Intro {
+    "Freeze!\n"
+    "This is a stick up!"
+}
+text R16Tr10_Lose {
+    "I was just kidding!\p"
+    "I wasn't really going to rob\n"
+    "you, I promise!"
+}
+text R16Tr10_PostBattle {
+    "Please forgive me!\n"
+    "It was just a joke!"
+}
+
+script Route16_Tr11_ExpertF {
+    trainerbattle_single(TRAINER_R16_TR11_EXPERT_F, R16Tr11_Intro, R16Tr11_Lose)
+    msgbox(R16Tr11_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R16Tr11_Intro {
+    "I may look old, but underestimate me,\n"
+    "and you'll pay for it!"
+}
+text R16Tr11_Lose {
+    "Oh, my goodness.\n"
+	"Now, aren't you something!"
+}
+text R16Tr11_PostBattle {
+    "Well, well, I've lost. I can't call\n"
+	"myself an expern now, can I?"
+}
+
+script Route16_Tr12_NinjaBoy2 {
+    trainerbattle_single(TRAINER_R16_TR12_NINJABOY2, R16Tr12_Intro, R16Tr12_Lose)
+    msgbox(R16Tr12_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R16Tr12_Intro {
+    "The smoke… The jagged terrain…\n"
+    "A perfect location for ninja ambush!"
+}
+text R16Tr12_Lose {
+    "Ninja vanish!"
+}
+text R16Tr12_PostBattle {
+    "…Now this is awkward…"
 }

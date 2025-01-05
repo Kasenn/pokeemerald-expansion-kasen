@@ -389,25 +389,50 @@ Debug_Script_1_12:
 
 
 Debug_Script_2::
-	givemon SPECIES_RILLABOOM, 5
-	givemon SPECIES_RILLABOOM, 5
-	givemon SPECIES_RILLABOOM, 5
-	givemon SPECIES_RILLABOOM, 5
-	givemon SPECIES_RILLABOOM, 5
-	givemon SPECIES_RILLABOOM, 5
+	lock
+	message Debug_Script_2_Text_0
+	waitmessage
+	dynmultipush Debug_Script_2_Text_1, SPECIES_BRENDAN_RUBY
+	dynmultipush Debug_Script_2_Text_2, SPECIES_BRENDAN_EMERALD
+	dynmultipush Debug_Script_2_Text_3, SPECIES_BRENDAN_ORAS
+	dynmultipush Debug_Script_1_Text_8, 0
+	dynmultistack 23, 0, FALSE, 5, FALSE, 98, DYN_MULTICHOICE_CB_SHOW_MON
+	switch VAR_RESULT
+	case SPECIES_BRENDAN_RUBY, Debug_Script_2_3
+	case SPECIES_BRENDAN_EMERALD, Debug_Script_2_4
+	case SPECIES_BRENDAN_ORAS, Debug_Script_2_5
+	case 0, Debug_Script_2_6
+Debug_Script_2_1:
 	return
+
+Debug_Script_2_3:
+	setvar VAR_CHOSEN_OUTFIT, 0
+	closemessage
+	warpsilent MAP_PLAYER_HOUSE2F, 5, 4
+	waitstate
+	goto Debug_Script_2_1
+
+Debug_Script_2_4:
+	setvar VAR_CHOSEN_OUTFIT, 1
+	closemessage
+	warpsilent MAP_PLAYER_HOUSE2F, 5, 4
+	waitstate
+	goto Debug_Script_2_1
+
+Debug_Script_2_5:
+	setvar VAR_CHOSEN_OUTFIT, 2
+	closemessage
+	warpsilent MAP_PLAYER_HOUSE2F, 5, 4
+	waitstate
+	goto Debug_Script_2_1
+
+Debug_Script_2_6:
+	release
+	end
 
 
 Debug_Script_3::
-	applymovement 0xff, Debug_Script_3_Movement_0
-	waitmovement 0
-	callnative UpdateFollowingPokemon
-	getplayerxy VAR_TEMP_0, VAR_TEMP_1
-	addvar VAR_TEMP_0, 1
-	setobjectxy OBJ_EVENT_ID_FOLLOWER, VAR_TEMP_0, VAR_TEMP_1
-	applymovement OBJ_EVENT_ID_FOLLOWER, Debug_Script_3_Movement_1
-	applymovement 0xff, Debug_Script_3_Movement_2
-	waitmovement OBJ_EVENT_ID_FOLLOWER
+	callnative CheckFoughtTrainers
 	return
 
 
@@ -431,19 +456,55 @@ Debug_Script_8::
 	return
 
 
-Debug_Script_3_Movement_0:
-	face_left
-	step_end
+ResetAdamantTower::
+	checkitem ITEM_MEGA_RING
+	compare VAR_RESULT, FALSE
+	goto_if_eq ResetAdamantTower_2
+	lock
+	faceplayer
+	msgbox ResetAdamantTower_YesNo, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq ResetAdamantTower_5
+	cleartrainerflag TRAINER_AT_2F_TR2_MAN3
+	cleartrainerflag TRAINER_AT_2F_TR2_WOMAN5
+	cleartrainerflag TRAINER_AT_2F_TR1_PSYCHIC
+	cleartrainerflag TRAINER_AT_2F_TR1_MAN5
+	cleartrainerflag TRAINER_AT_3F_TR1_EXPERT_M
+	cleartrainerflag TRAINER_AT_3F_TR1_EXPERT_F
+	cleartrainerflag TRAINER_AT_3F_TR2_HEXMANIAC
+	cleartrainerflag TRAINER_AT_3F_TR2_PSYCHICF
+	cleartrainerflag TRAINER_AT_4F_TR1_BLACKBELT
+	cleartrainerflag TRAINER_AT_4F_TR1_HEXMANIAC
+	cleartrainerflag TRAINER_AT_4F_TR2_LASS
+	cleartrainerflag TRAINER_AT_4F_TR2_YOUNGSTER
+	cleartrainerflag TRAINER_AT_4F_TR3_BATTLEGIRL
+	cleartrainerflag TRAINER_AT_4F_TR3_BLACKBELT
+	cleartrainerflag TRAINER_AT_5F_COOLTRAINER_M
+	cleartrainerflag TRAINER_AT_5F_COOLTRAINER_F
+	removeitem ITEM_MEGA_RING
+	clearflag FLAG_OBTAINED_MEGA_RING
+	clearflag FLAG_REUNITE_WITH_RIVAL
+	setflag FLAG_DISABLE_SAVING
+	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_DEX_OBTAINED
+	msgbox ResetAdamantTower_ResetTeam, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq ResetAdamantTower_8
+	setpartylevel 38
+	msgbox PartyHasBeenReset, MSGBOX_NPC
+	end
 
-Debug_Script_3_Movement_1:
-	exit_pokeball
-	set_visible
-	step_end
+ResetAdamantTower_2:
+	msgbox ThisIsForTesting, MSGBOX_NPC
+	end
 
-Debug_Script_3_Movement_2:
-	unlock_anim
-	face_down
-	step_end
+ResetAdamantTower_5:
+	release
+	end
+
+ResetAdamantTower_8:
+	release
+	end
+
 
 Debug_Script_1_Text_0:
 	.string "Gym 1 (lvl 14)$"
@@ -495,6 +556,18 @@ Debug_Script_1_Text_15:
 
 Debug_Script_1_Text_16:
 	.string "Team set to level 45.$"
+
+Debug_Script_2_Text_0:
+	.string "Choose outfit$"
+
+Debug_Script_2_Text_1:
+	.string "RS$"
+
+Debug_Script_2_Text_2:
+	.string "Emerald$"
+
+Debug_Script_2_Text_3:
+	.string "ORAS$"
 
 FollowerSpottedAnItemNearby_Text::
 	.string "{STR_VAR_1} seems to have spotted\n"
@@ -667,3 +740,28 @@ LevelSetIntro::
 WhichLevelToSet::
 	.string "Which level would you like to set\n"
 	.string "your team?$"
+
+ThisIsForTesting::
+	.string "Hi. I'm here to help testing\n"
+	.string "the partner AI.$"
+
+ResetAdamantTower_YesNo::
+	.string "Hi. I'm here to help testing\n"
+	.string "the partner AI.\p"
+	.string "Would you like to reset the tower?$"
+
+ResetAdamantTower_ResetTeam::
+	.string "Tower progress has been reset.\p"
+	.string "This could break saves, so I've\n"
+	.string "disabled saving for the duration\l"
+	.string "of the test.\p"
+	.string "Once you're done testing, please\n"
+	.string "reset the game to continue regular\l"
+	.string "play.\p"
+	.string "The tower is recommended for lvl 38+\n"
+	.string "teams.\p"
+	.string "Want me to also set your entire team\n"
+	.string "to lvl 38?$"
+
+PartyHasBeenReset::
+	.string "Team has been set to lvl 38.$"

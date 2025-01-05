@@ -17,6 +17,7 @@
     "gMapGroup_IndoorFishingVillage",
     "gMapGroup_IndoorDrisledgeTown",
     "gMapGroup_IndoorAmberockTown",
+    "gMapGroup_IndoorBasalekTown",
     "gMapGroup_IndoorLittleroot",
     "gMapGroup_IndoorOldale",
     "gMapGroup_IndoorDewford",
@@ -185,7 +186,8 @@
     "WindplumeMountain_Peak",
     "WindplumeMountain_7F",
     "UndergroundRuins_5F",
-    "Azuretide_Grotto"
+    "Azuretide_Grotto",
+    "BasalekTunnels"
   ],
   "gMapGroup_IndoorPearlwoodPoint": [
     "Lab2",
@@ -387,6 +389,11 @@
     "Amberock_PokeballFactory_B1F_NoLights",
     "Amberock_PokeballFactory_Office",
     "Amberock_PokeballFactory_Office_NoLights"
+  ],
+  "gMapGroup_IndoorBasalekTown": [
+    "BasalekMart",
+    "BasalekHouse1",
+    "BasalekHouse2"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -949,6 +956,7 @@
     "Maptest",
     "TestWall",
     "TestRoomCopy",
-    "Route16_Filler"
+    "Route16_Filler",
+    "BasaluffTown_Filler"
   ]
 }

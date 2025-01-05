@@ -898,7 +898,7 @@ script Amberock_WelcomeSign{
     msgbox(Amberock_WelcomeSign_Text, MSGBOX_SIGN)
 }
 text Amberock_WelcomeSign_Text{
-    "Amberock Town\n"
+    "AMBEROCK TOWN\n"
 	"“The town where everyone prospers!”"
 }
 script Amberock_FactorySign{
@@ -1028,19 +1028,23 @@ script Amberock_AcerolaEvent{
 }
 script Amberock_SetPlayerModel{
     if(checkplayergender == MALE){
-        if(flag(FLAG_PC_CHANGE_COSTUME)){
-            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_NORMAL_ORAS)
-        }
-        else{
-            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL)
+        switch(var(VAR_CHOSEN_OUTFIT)){
+            case 0:
+                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_NORMAL_RS)
+            case 1:
+                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL)
+            case 2:
+                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_NORMAL_ORAS)
         }
     }
     else{
-        if(flag(FLAG_PC_CHANGE_COSTUME)){
-            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_NORMAL_ORAS)
-        }
-        else{
-            setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL)
+        switch(var(VAR_CHOSEN_OUTFIT)){
+            case 0:
+                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_NORMAL_RS)
+            case 1:
+                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL)
+            case 2:
+                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_NORMAL_ORAS)
         }
     }
     return

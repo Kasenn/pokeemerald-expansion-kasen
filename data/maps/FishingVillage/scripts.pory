@@ -446,8 +446,7 @@ script FishingVillage_FishingGuru{
 }
 
 script SuperRodQuestStarted{
-    checkpartymon(SPECIES_SLUGMA, 0)
-    if(var(VAR_RESULT) == TRUE){
+    if(flag(FLAG_USED_TITANIUM_LINE)){
         goto(SuperRodReward)
     }
     if(flag(FLAG_TEMP_1)){
@@ -484,28 +483,33 @@ text FisherOfSomeRenown{
     "dedication to this art."
 }
 text FishInLava{
-    "On the island to the north, one can\n"
-    "occasionally find pools of lava.\p"
+    "On the island to the north,\n"
+    "one can find pools of lava.\p"
     "I know this might sound crazy,\n"
     "but there are Pokémon living in\l"
     "those pools!\p"
     "I want you to take that Titanium Line\n"
-    "and use it to fish from one of those\l"
-    "pools.\p"
-    "Bring me back whatever you catch,\n"
-    "and only then will I consider you\l"
-    "a worthy angler."
+    "and see if it can take the heat of\l"
+    "fishing from those pools.\p"
+    "Once you've tested the line,\n"
+    "come back to me, and I may consider\l"
+    "giving you one of my rods."
 }
 text DontHaveSlugma{
     "Have you been to the north yet?\p"
-    "I don't see any Pokémon with you that\n"
-    "could be seen living in the lava pools."
+    "That Titanium Line doesn't look like\n"
+    "it's seen a whole lot of action."
 }
 text YouHaveSlugma{
-    "Ah, that Slugma!\p"
-    "Yes, you have done exactly as\n"
-    "I asked!\p"
-    "You are truly a worthwhile angler.\n"
+    "Ah, your Titanium Line!\p"
+    "I see marks on it that only molten\n"
+    "lava could cause.\p"
+    "Don't worry, the marks are only\n"
+    "superficial.\l"
+    "The line itself should have no trouble\l"
+    "tolerating the heat."
+    "Thank you for helping me test\n"
+    "my theory.\p"
     "Here, I want you to have this!"
 }
 text EnjoySuperRod{
@@ -518,4 +522,5 @@ script SuperRodReward{
     msgbox(YouHaveSlugma)
     giveitem(ITEM_SUPER_ROD)
     msgbox(EnjoySuperRod, MSGBOX_NPC)
+    end
 }

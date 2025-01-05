@@ -1649,8 +1649,17 @@
 #define SPECIES_PORYGON_Z_MEGA                          1535
 #define SPECIES_PIKACHU_SURFING                         1536
 #define SPECIES_ARIADOS_MEGA                            1537
+#define SPECIES_BRENDAN_RUBY                            1538
+#define SPECIES_BRENDAN_EMERALD                         1539
+#define SPECIES_BRENDAN_ORAS                            1540
+#define SPECIES_BRENDAN_CONTEST                         1541
+#define SPECIES_MAY_RUBY                                1542
+#define SPECIES_MAY_EMERALD                             1543
+#define SPECIES_MAY_ORAS                                1544
+#define SPECIES_MAY_CONTEST                             1545
+#define SPECIES_EMPTY                                   1546
 
-#define SPECIES_EGG                                     (SPECIES_ARIADOS_MEGA + 1)
+#define SPECIES_EGG                                     (SPECIES_EMPTY + 1)
 
 #define NUM_SPECIES SPECIES_EGG
 

@@ -1,0 +1,167 @@
+mapscripts BasaluffTown_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION{
+        setflag(FLAG_VISITED_BASALEK)
+        call(Common_EventScript_SetupRivalGfxId)
+    }
+}
+
+script BasalekTown_Sign1{
+    msgbox(BasalekTown_Sign1_Text, MSGBOX_SIGN)
+}
+text BasalekTown_Sign1_Text{
+    "BASALEK TOWN\p"
+    "“Let the hot spring\n"
+    "wash away your worries!”"
+}
+script BasalekTown_Sign2{
+    msgbox(BasalekTown_Sign2_Text, MSGBOX_SIGN)
+}
+text BasalekTown_Sign2_Text{
+    "{UP_ARROW} Route 17\n"
+    "{LEFT_ARROW} Basalek Tunnel\l"
+    "{DOWN_ARROW} Route 16"
+}
+script BasalekTown_Man5{
+    msgbox(BasalekTown_Man5_Text, MSGBOX_NPC)
+}
+text BasalekTown_Man5_Text{
+    "See that cave down there?\n"
+    "That's Basalek Tunnel.\p"
+    "It's said that due to the oppressing\n"
+    "atmosphere, training there is more\l"
+    "efficient than anywhere else.\p"
+    "This has caused the place to become\n"
+    "jam-packed with very experienced\l"
+    "Pokémon trainers."
+}
+script BasalekTown_RichBoy{
+    msgbox(BasalekTown_RichBoy_Text, MSGBOX_NPC)
+}
+text BasalekTown_RichBoy_Text{
+    "I like warmth as much as the next\n"
+    "guy, but this is too much."
+}
+script BasalekTown_Twin{
+    msgbox(BasalekTown_Twin_Text, MSGBOX_NPC)
+}
+text BasalekTown_Twin_Text{
+    "I'm bored…\p"
+    "All the adults care about is sitting\n"
+    "in the hot spring day after day…"
+}
+script BasalekTown_OldMan{
+    msgbox(BasalekTown_OldMan_Text, MSGBOX_NPC)
+}
+text BasalekTown_OldMan_Text{
+    "If your Pokémon are feeling worn out,\n"
+    "hop in to the hot spring and they'll\l"
+    "be refreshed in no time!\p"
+    "If you need to access a PC, they've\n"
+    "set up a station inside the Mart."
+}
+script BasalekTown_HealTrigger{
+    lock
+	fadescreen(FADE_TO_WHITE)
+	special(HealPlayerParty)
+	fadescreen(FADE_FROM_WHITE)
+	msgbox(BasalekTown_HealTrigger_Text)
+	setvar(VAR_TEMP_0, 1)
+	release
+}
+text BasalekTown_HealTrigger_Text{
+    "The water is perfectly warm.\n"
+    "It feels exquisite…\p"
+    "{PLAY_SE SE_USE_ITEM}{PLAYER} and the Pokémon were\n"
+    "fully refreshed!"
+}
+script BasalekTown_HealTrigger2{
+    setvar(VAR_TEMP_0, 0)
+    release
+}
+script BasalekTown_Beauty{
+    msgbox(BasalekTown_Beauty_Text, MSGBOX_SIGN)
+}
+text BasalekTown_Beauty_Text{
+    "I've got some errands to run, but I\n"
+    "guess I can stay for another 5 minutes."
+}
+
+script BasalekTown_EggWoman{
+	lock
+	faceplayer
+    if(flag(FLAG_RECEIVED_LAVARIDGE_EGG)){
+        msgbox(BasalekTown_Text_EverySoOftenEggFoundAtDayCare, MSGBOX_AUTOCLOSE)
+	    end
+    }
+    if(msgbox(BasalekTown_Text_HaveEggWillYouTakeIt, MSGBOX_YESNO) == FALSE){
+        msgbox(BasalekTown_Text_AsYouWishThen, MSGBOX_AUTOCLOSE)
+	    end
+    }
+	getpartysize
+    if(var(VAR_RESULT) == PARTY_SIZE){
+        msgbox(BasalekTown_Text_NoRoomForThisEgg, MSGBOX_AUTOCLOSE)
+	    end
+    }
+	msgbox(BasalekTown_Text_HopeYoullWalkPlentyWithEgg)
+	setflag(FLAG_RECEIVED_LAVARIDGE_EGG)
+	playfanfare(MUS_OBTAIN_ITEM)
+	message(BasalekTown_Text_ReceivedTheEgg)
+	waitfanfare
+	giveegg(SPECIES_EEVEE)
+	release
+}
+
+text BasalekTown_Text_HaveEggWillYouTakeIt{
+	"I have here an EGG.\p"
+	"I'd hoped to hatch it by covering it in\n"
+	"hot sand by the hot springs.\l"
+	"But that doesn't seem to be enough…\p"
+	"I've heard it would be best if it were\n"
+	"kept together with POKéMON and\l"
+	"carried about.\p"
+	"You are a TRAINER, yes?\n"
+	"And your POKéMON radiate vitality.\p"
+	"So, what say you?\n"
+	"Will you take this EGG to hatch?"
+}
+
+text BasalekTown_Text_HopeYoullWalkPlentyWithEgg{
+	"Good! I hope you'll walk plenty with\n"
+	"this here EGG!"
+}
+
+text BasalekTown_Text_ReceivedTheEgg{
+	"{PLAYER} received the EGG."
+}
+text BasalekTown_Text_NoRoomForThisEgg{
+	"Oh? You've too many POKéMON.\n"
+	"There's no room for this EGG…"
+}
+text BasalekTown_Text_AsYouWishThen{
+	"As you wish, then…\p"
+	"If you have a change of heart about\n"
+	"hatching this EGG, I will be here."
+}
+text BasalekTown_Text_EverySoOftenEggFoundAtDayCare{
+	"Every so often, an EGG will be found at\n"
+	"the POKéMON DAY CARE.\p"
+	"Or at least that's how the rumor goes."
+}
+
+
+script BasalekTown_RivalTrigger1{
+    setvar(VAR_TEMP_2, 1)
+    goto(BasalekTown_RivalScript)
+}
+script BasalekTown_RivalTrigger2{
+    setvar(VAR_TEMP_2, 2)
+    goto(BasalekTown_RivalScript)
+}
+script BasalekTown_RivalTrigger3{
+    setvar(VAR_TEMP_2, 3)
+    goto(BasalekTown_RivalScript)
+}
+
+script BasalekTown_RivalScript{
+
+}

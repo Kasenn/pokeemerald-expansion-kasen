@@ -5,7 +5,7 @@ Route7_MapScripts::
 
 ClearShinyFlag2::
 	clearflag FLAG_INCREASED_SHINY_ODDS
-	cleartrainerflag TRAINER_R8_TR6_CAMPER_M
+	cleartrainerflag TRAINER_R8_TR6_ENTHUSIAST
 	release
 	end
 
@@ -67,7 +67,7 @@ Route8_Trainer5_Psychic_F::
 
 
 Route8_Trainer6_Camper_M::
-	trainerbattle_single TRAINER_R8_TR6_CAMPER_M, Route8_Trainer6_Camper_M_Intro, Route8_Trainer6_Camper_M_Defeat
+	trainerbattle_single TRAINER_R8_TR6_ENTHUSIAST, Route8_Trainer6_Camper_M_Intro, Route8_Trainer6_Camper_M_Defeat
 	msgbox Route8_Trainer6_Camper_M_PostBattle, MSGBOX_AUTOCLOSE
 	end
 

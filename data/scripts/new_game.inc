@@ -122,6 +122,7 @@ EventScript_ResetAllBerries::
 	return
 
 EventScript_ResetAllMapFlags::
+	setvar VAR_CHOSEN_OUTFIT, 1
 	setvar VAR_GROTTO_STEP_COUNT, 256
 	setflag FLAG_ZYGARDE_CELL_1
     setflag FLAG_ZYGARDE_CELL_2

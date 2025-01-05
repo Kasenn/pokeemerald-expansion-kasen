@@ -37,6 +37,7 @@ bool8 MetatileBehavior_IsBoulderBlocking(u8);
 bool8 MetatileBehavior_IsElevatedDoor(u8);
 bool8 MetatileBehavior_IsDeepSouthWarp(u8);
 bool8 MetatileBehavior_IsSurfableWaterOrUnderwater(u8);
+bool8 MetatileBehavior_IsFollowerBanned(u8);
 bool8 MetatileBehavior_IsEastArrowWarp(u8);
 bool8 MetatileBehavior_IsWestArrowWarp(u8);
 bool8 MetatileBehavior_IsNorthArrowWarp(u8);

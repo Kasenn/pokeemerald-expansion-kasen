@@ -937,16 +937,16 @@ void FishingWildEncounter(u8 rod)
         switch (rod)
         {
             case OLD_ROD:
-                rodVariable = 5;
+                rodVariable = 10;
                 break;
             case GOOD_ROD:
-                rodVariable = 15;
+                rodVariable = 20;
                 break;
             case SUPER_ROD:
-                rodVariable = 25;
+                rodVariable = 30;
                 break;
         }
-        u8 level = (rodVariable + (Random() % 11));
+        u8 level = (rodVariable + (Random() % 6));
         species = Random() % 2;
 
         if (species == 1)
@@ -954,6 +954,7 @@ void FishingWildEncounter(u8 rod)
         else
             species = SPECIES_SLUGMA;
 
+        FlagSet(FLAG_USED_TITANIUM_LINE);
         CreateWildMon(species, level);
     }
     else

@@ -18,6 +18,11 @@ Roulette_EventScript_Table2::
 	goto Roulette_EventScript_Play
 	end
 
+MauvilleCity_GameCorner_EventScript_NoCoinCase::
+	msgbox AmberockTown_GameCorner_CantPlayWithNoCoinCase, MSGBOX_DEFAULT
+	releaseall
+	end
+
 Roulette_EventScript_Play::
 	special PlayRoulette
 	waitstate

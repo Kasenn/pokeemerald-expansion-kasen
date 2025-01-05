@@ -122,7 +122,7 @@ text Route6_Trainer1_Ranger_M_PostBattle{
     "marching ahead."
 }
 script Route6_Trainer2_PokeFan_F {
-    trainerbattle_single(TRAINER_R6_TR2_POKEFAN_F, Route6_Trainer2_PokeFan_F_Intro, Route6_Trainer2_PokeFan_F_Defeat)
+    trainerbattle_single(TRAINER_R16_TR2_SWIMMER_F, Route6_Trainer2_PokeFan_F_Intro, Route6_Trainer2_PokeFan_F_Defeat)
     msgbox(Route6_Trainer2_PokeFan_F_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -154,7 +154,7 @@ text Route6_Trainer3_Camper_F_PostBattle{
     "I just can't help challenging them."
 }
 script Route6_Trainer4_Camper_M1 {
-    trainerbattle_single(TRAINER_R6_TR4_CAMPER_M1, Route6_Trainer4_Camper_M1_Intro, Route6_Trainer4_Camper_M1_Defeat)
+    trainerbattle_single(TRAINER_R16_TR12_NINJABOY2, Route6_Trainer4_Camper_M1_Intro, Route6_Trainer4_Camper_M1_Defeat)
     msgbox(Route6_Trainer4_Camper_M1_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }

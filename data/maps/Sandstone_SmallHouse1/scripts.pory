@@ -148,10 +148,6 @@ script WardrobeRight{
 }
 
 script WardrobeMain{
-    if(!flag(FLAG_PURCHASED_OUTFIT)){
-        msgbox(ItsaChangingRoom, MSGBOX_SIGN)
-        end
-    }
     lock
     msgbox(ChangeOutfit, MSGBOX_YESNO)
     if(var(VAR_RESULT) == FALSE){
@@ -160,11 +156,57 @@ script WardrobeMain{
         end
     }
     closemessage
-    if(flag(FLAG_PC_CHANGE_COSTUME)){
-        clearflag(FLAG_PC_CHANGE_COSTUME)
+    message("Choose an outfit to wear.")
+    waitmessage
+    if(checkplayergender == MALE){
+        dynmultipush("Option 1", SPECIES_BRENDAN_RUBY)
+        dynmultipush("Option 2", SPECIES_BRENDAN_EMERALD)
+        if(flag(FLAG_PURCHASED_OUTFIT)){
+            dynmultipush("Option 3", SPECIES_BRENDAN_ORAS)
+        }
+        dynmultipush("Exit", SPECIES_EMPTY)
+        dynmultistack(23, 0, FALSE, 5, FALSE, 98, DYN_MULTICHOICE_CB_SHOW_MON)
+	    switch(var(VAR_RESULT)){
+            case SPECIES_BRENDAN_RUBY:
+                setvar(VAR_CHOSEN_OUTFIT, 0)
+                closemessage
+            case SPECIES_BRENDAN_EMERALD:
+                setvar(VAR_CHOSEN_OUTFIT, 1)
+                closemessage
+            case SPECIES_BRENDAN_ORAS:
+                setvar(VAR_CHOSEN_OUTFIT, 2)
+                closemessage
+            case MULTI_B_PRESSED:
+            case SPECIES_EMPTY:
+                closemessage
+                release
+                end
+        }
     }
     else{
-        setflag(FLAG_PC_CHANGE_COSTUME)
+        dynmultipush("Option 1", SPECIES_MAY_RUBY)
+        dynmultipush("Option 2", SPECIES_MAY_EMERALD)
+        if(flag(FLAG_PURCHASED_OUTFIT)){
+            dynmultipush("Option 3", SPECIES_MAY_ORAS)
+        }
+        dynmultipush("Exit", SPECIES_EMPTY)
+        dynmultistack(23, 0, FALSE, 5, FALSE, 98, DYN_MULTICHOICE_CB_SHOW_MON)
+	    switch(var(VAR_RESULT)){
+            case SPECIES_MAY_RUBY:
+                setvar(VAR_CHOSEN_OUTFIT, 0)
+                closemessage
+            case SPECIES_MAY_EMERALD:
+                setvar(VAR_CHOSEN_OUTFIT, 1)
+                closemessage
+            case SPECIES_MAY_ORAS:
+                setvar(VAR_CHOSEN_OUTFIT, 2)
+                closemessage
+            case MULTI_B_PRESSED:
+            case SPECIES_EMPTY:
+                closemessage
+                release
+                end
+        }
     }
     return
 }

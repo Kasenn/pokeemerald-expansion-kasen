@@ -661,7 +661,7 @@ Roselia
 Level: 14
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_FELIX ===
+=== TRAINER_EV_TRAINING_HP ===
 Name: FELIX
 Class: Cooltrainer
 Pic: Cooltrainer M
@@ -682,7 +682,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Skill Swap
 - Earthquake
 
-=== TRAINER_VIOLET ===
+=== TRAINER_EV_TRAINING_ATK ===
 Name: VIOLET
 Class: Aroma Lady
 Pic: Aroma Lady
@@ -699,7 +699,7 @@ Gloom
 Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_ROSE_2 ===
+=== TRAINER_EV_TRAINING_DEF ===
 Name: ROSE
 Class: Aroma Lady
 Pic: Aroma Lady
@@ -716,7 +716,7 @@ Roselia
 Level: 26
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_ROSE_3 ===
+=== TRAINER_EV_TRAINING_SPATK ===
 Name: ROSE
 Class: Aroma Lady
 Pic: Aroma Lady
@@ -737,7 +737,7 @@ Roselia
 Level: 28
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 
-=== TRAINER_ROSE_4 ===
+=== TRAINER_EV_TRAINING_SPDEF ===
 Name: ROSE
 Class: Aroma Lady
 Pic: Aroma Lady
@@ -758,7 +758,7 @@ Roselia
 Level: 31
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
-=== TRAINER_ROSE_5 ===
+=== TRAINER_EV_TRAINING_SPEED ===
 Name: ROSE
 Class: Aroma Lady
 Pic: Aroma Lady
@@ -779,7 +779,7 @@ Roselia
 Level: 34
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
-=== TRAINER_DUSTY_1 ===
+=== TRAINER_EXPBOT_1 ===
 Name: DUSTY
 Class: Ruin Maniac
 Pic: Ruin Maniac
@@ -939,7 +939,7 @@ Whismur
 Level: 17
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
-=== TRAINER_GABBY_AND_TY_2 ===
+=== TRAINER_EXPBOT_2 ===
 Name: GABBY & TY
 Class: Interviewer
 Pic: Interviewer
@@ -1049,7 +1049,7 @@ Azurill
 Level: 12
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_AUSTINA ===
+=== TRAINER_R16_TR1_SWIMMER_M ===
 Name: AUSTINA
 Class: Tuber F
 Pic: Tuber F
@@ -4584,7 +4584,7 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Odor Sleuth
 - Roar
 
-=== TRAINER_SIDNEY ===
+=== TRAINER_UNUSED_SIDNEY ===
 Name: SIDNEY
 Class: Elite Four
 Pic: Elite Four Sidney
@@ -4635,7 +4635,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Swords Dance
 - Slash
 
-=== TRAINER_PHOEBE ===
+=== TRAINER_UNUSED_PHOEBE ===
 Name: PHOEBE
 Class: Elite Four
 Pic: Elite Four Phoebe
@@ -4686,7 +4686,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Rock Slide
 - Earthquake
 
-=== TRAINER_GLACIA ===
+=== TRAINER_UNUSED_GLACIA ===
 Name: GLACIA
 Class: Elite Four
 Pic: Elite Four Glacia
@@ -4737,7 +4737,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Ice Beam
 - Sheer Cold
 
-=== TRAINER_DRAKE ===
+=== TRAINER_UNUSED_DRAKE ===
 Name: DRAKE
 Class: Elite Four
 Pic: Elite Four Drake
@@ -6825,7 +6825,7 @@ Doduo
 Level: 28
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_UNUSED_366 ===
+=== TRAINER_R16_TR10_NINJABOY ===
 Name: DYLAN
 Class: Triathlete
 Pic: Running Triathlete M
@@ -6851,7 +6851,7 @@ Dodrio
 Level: 34
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
-=== TRAINER_UNUSED_368 ===
+=== TRAINER_R16_TR11_EXPERT_F ===
 Name: DYLAN
 Class: Triathlete
 Pic: Running Triathlete M

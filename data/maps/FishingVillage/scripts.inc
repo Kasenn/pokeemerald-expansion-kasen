@@ -442,9 +442,7 @@ FishingVillage_FishingGuru_13:
 
 
 SuperRodQuestStarted::
-	checkpartymon SPECIES_SLUGMA, 0
-	compare VAR_RESULT, TRUE
-	goto_if_eq SuperRodQuestStarted_2
+	goto_if_set FLAG_USED_TITANIUM_LINE, SuperRodQuestStarted_2
 SuperRodQuestStarted_1:
 	goto_if_set FLAG_TEMP_1, SuperRodQuestStarted_4
 	msgbox FishInLava, MSGBOX_NPC
@@ -463,7 +461,7 @@ SuperRodReward::
 	msgbox YouHaveSlugma
 	giveitem ITEM_SUPER_ROD
 	msgbox EnjoySuperRod, MSGBOX_NPC
-	return
+	end
 
 
 FishingVillageBrotherLeaves::
@@ -663,28 +661,33 @@ FisherOfSomeRenown::
 	.string "dedication to this art.$"
 
 FishInLava::
-	.string "On the island to the north, one can\n"
-	.string "occasionally find pools of lava.\p"
+	.string "On the island to the north,\n"
+	.string "one can find pools of lava.\p"
 	.string "I know this might sound crazy,\n"
 	.string "but there are Pokémon living in\l"
 	.string "those pools!\p"
 	.string "I want you to take that Titanium Line\n"
-	.string "and use it to fish from one of those\l"
-	.string "pools.\p"
-	.string "Bring me back whatever you catch,\n"
-	.string "and only then will I consider you\l"
-	.string "a worthy angler.$"
+	.string "and see if it can take the heat of\l"
+	.string "fishing from those pools.\p"
+	.string "Once you've tested the line,\n"
+	.string "come back to me, and I may consider\l"
+	.string "giving you one of my rods.$"
 
 DontHaveSlugma::
 	.string "Have you been to the north yet?\p"
-	.string "I don't see any Pokémon with you that\n"
-	.string "could be seen living in the lava pools.$"
+	.string "That Titanium Line doesn't look like\n"
+	.string "it's seen a whole lot of action.$"
 
 YouHaveSlugma::
-	.string "Ah, that Slugma!\p"
-	.string "Yes, you have done exactly as\n"
-	.string "I asked!\p"
-	.string "You are truly a worthwhile angler.\n"
+	.string "Ah, your Titanium Line!\p"
+	.string "I see marks on it that only molten\n"
+	.string "lava could cause.\p"
+	.string "Don't worry, the marks are only\n"
+	.string "superficial.\l"
+	.string "The line itself should have no trouble\l"
+	.string "tolerating the heat."
+	.string "Thank you for helping me test\n"
+	.string "my theory.\p"
 	.string "Here, I want you to have this!$"
 
 EnjoySuperRod::

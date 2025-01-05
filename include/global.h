@@ -20,6 +20,11 @@
 #include "constants/items.h"
 #include "config/save.h"
 
+#define OUTFIT_RUBYSAPPHIRE 0
+#define OUTFIT_EMERALD      1
+#define OUTFIT_ORAS         2
+#define OUTFIT_CONTEST      3
+
 // Prevent cross-jump optimization.
 #define BLOCK_CROSS_JUMP asm("");
 

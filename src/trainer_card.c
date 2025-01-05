@@ -345,6 +345,11 @@ static const u8 sTrainerPicFacilityClass[][GENDER_COUNT] =
     {
         [MALE]   = FACILITY_CLASS_BRENDAN,
         [FEMALE] = FACILITY_CLASS_MAY
+    },
+    [CARD_TYPE_ORAS] =
+    {
+        [MALE]   = FACILITY_CLASS_BRENDAN_2,
+        [FEMALE] = FACILITY_CLASS_MAY_2
     }
 };
 
@@ -3148,21 +3153,24 @@ static void CreateTrainerCardTrainerPic(void)
     }
     else
     {
-        if(FlagGet(FLAG_PC_CHANGE_COSTUME)){
-            CreateTrainerCardTrainerPicSprite((FacilityClassToPicIndex(sTrainerPicFacilityClass[sData->cardType][sData->trainerCard.gender]) + 31),
-                    TRUE,
-                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][0],
-                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][1],
-                    8,
-                    WIN_TRAINER_PIC);
+        u8 cardType = OUTFIT_EMERALD;
+        switch (VarGet(VAR_CHOSEN_OUTFIT))
+        {
+            case OUTFIT_RUBYSAPPHIRE:
+                cardType = CARD_TYPE_RS;
+                break;
+            case OUTFIT_EMERALD:
+                cardType = CARD_TYPE_EMERALD;
+                break;
+            case OUTFIT_ORAS:
+                cardType = CARD_TYPE_ORAS;
+                break;
         }
-        else{
-            CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(sTrainerPicFacilityClass[sData->cardType][sData->trainerCard.gender]),
-                    TRUE,
-                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][0],
-                    sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][1],
-                    8,
-                    WIN_TRAINER_PIC);
-        }
+        CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(sTrainerPicFacilityClass[cardType][sData->trainerCard.gender]),
+                TRUE,
+                sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][0],
+                sTrainerPicOffset[sData->isHoenn][sData->trainerCard.gender][1],
+                8,
+                WIN_TRAINER_PIC);
     }
 }

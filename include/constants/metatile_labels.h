@@ -4,6 +4,9 @@
 // gTileset_Amberock
 #define METATILE_Amberock_NormalDoor  0x349
 
+// gTileset_Basaluff
+#define METATILE_Basaluff_BasaluffDoor  0x242
+
 // gTileset_BattleArena
 #define METATILE_BattleArena_Door  0x21B
 

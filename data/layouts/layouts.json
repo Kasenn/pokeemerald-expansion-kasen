@@ -6395,7 +6395,7 @@
       "id": "LAYOUT_BASALUFF_TOWN",
       "name": "BasaluffTown_Layout",
       "width": 42,
-      "height": 45,
+      "height": 48,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Basaluff",
       "border_filepath": "data/layouts/BasaluffTown/border.bin",
@@ -6505,7 +6505,7 @@
       "id": "LAYOUT_ROUTE16",
       "name": "Route16_Layout",
       "width": 48,
-      "height": 130,
+      "height": 133,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Basaluff",
       "border_filepath": "data/layouts/Route16/border.bin",
@@ -6515,9 +6515,9 @@
       "id": "LAYOUT_ROUTE17",
       "name": "Route17_Layout",
       "width": 35,
-      "height": 80,
+      "height": 82,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "secondary_tileset": "gTileset_Basaluff",
       "border_filepath": "data/layouts/Route17/border.bin",
       "blockdata_filepath": "data/layouts/Route17/map.bin"
     },
@@ -7155,7 +7155,7 @@
       "id": "LAYOUT_ROUTE16_NO_CURRENTS",
       "name": "Route16_NoCurrents_Layout",
       "width": 48,
-      "height": 130,
+      "height": 133,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Basaluff",
       "border_filepath": "data/layouts/Route16_NoCurrents/border.bin",
@@ -7175,11 +7175,61 @@
       "id": "LAYOUT_ROUTE16_FILLER",
       "name": "Route16_Filler_Layout",
       "width": 4,
-      "height": 135,
+      "height": 94,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Basaluff",
       "border_filepath": "data/layouts/Route16_Filler/border.bin",
       "blockdata_filepath": "data/layouts/Route16_Filler/map.bin"
+    },
+    {
+      "id": "LAYOUT_BASALUFF_TOWN_FILLER",
+      "name": "BasaluffTown_Filler_Layout",
+      "width": 4,
+      "height": 48,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Basaluff",
+      "border_filepath": "data/layouts/BasaluffTown_Filler/border.bin",
+      "blockdata_filepath": "data/layouts/BasaluffTown_Filler/map.bin"
+    },
+    {
+      "id": "LAYOUT_BASALEK_MART",
+      "name": "BasalekMart_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/BasalekMart/border.bin",
+      "blockdata_filepath": "data/layouts/BasalekMart/map.bin"
+    },
+    {
+      "id": "LAYOUT_BASALEK_HOUSE1",
+      "name": "BasalekHouse1_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/BasalekHouse1/border.bin",
+      "blockdata_filepath": "data/layouts/BasalekHouse1/map.bin"
+    },
+    {
+      "id": "LAYOUT_BASALEK_HOUSE2",
+      "name": "BasalekHouse2_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/BasalekHouse2/border.bin",
+      "blockdata_filepath": "data/layouts/BasalekHouse2/map.bin"
+    },
+    {
+      "id": "LAYOUT_BASALEK_TUNNELS",
+      "name": "BasalekTunnels_Layout",
+      "width": 80,
+      "height": 80,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lavaridge",
+      "border_filepath": "data/layouts/BasalekTunnels/border.bin",
+      "blockdata_filepath": "data/layouts/BasalekTunnels/map.bin"
     }
   ]
 }

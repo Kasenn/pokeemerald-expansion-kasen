@@ -584,6 +584,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Petrel,           OBJ_EVENT_PAL_PETREL},
     {gObjectEventPalette_Gate,           OBJ_EVENT_PAL_GATE},
     {gObjectEventPalette_Crate,           OBJ_EVENT_PAL_CRATE},
+    {gObjectEventPalette_BrendanRS,       OBJ_EVENT_PAL_BRENDAN_RS},
+    {gObjectEventPalette_MayRS,       OBJ_EVENT_PAL_MAY_RS},
     
 #if OW_FOLLOWERS_POKEBALLS
     {gObjectEventPal_MasterBall,            OBJ_EVENT_PAL_TAG_BALL_MASTER},
@@ -2488,6 +2490,7 @@ bool32 IsFollowerVisible(void)
         return FALSE;
     return !(TestPlayerAvatarFlags(FOLLOWER_INVISIBLE_FLAGS)
             || MetatileBehavior_IsSurfableWaterOrUnderwater(gObjectEvents[gPlayerAvatar.objectEventId].previousMetatileBehavior)
+            || MetatileBehavior_IsFollowerBanned(gObjectEvents[gPlayerAvatar.objectEventId].previousMetatileBehavior)
             || MetatileBehavior_IsForcedMovementTile(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior));
 }
 

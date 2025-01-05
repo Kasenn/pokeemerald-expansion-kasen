@@ -85,7 +85,7 @@ MossdeepCity_Gym_SetGymTrainers::
 	settrainerflag TRAINER_R11_MAY_PIPLUP
 	settrainerflag TRAINER_R11_MAY_ROWLET_ANGRY
 	settrainerflag TRAINER_R11_MAY_TORCHIC_ANGRY
-	settrainerflag TRAINER_R12_UNUSED2
+	settrainerflag TRAINER_R16_TR5_SWIMMER_F
 	settrainerflag TRAINER_R12_TR9_PSYCHIC_M
 	settrainerflag TRAINER_R12_TR10_HIKER
 	settrainerflag TRAINER_SYLVIA

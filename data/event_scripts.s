@@ -1717,3 +1717,13 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/PrimroseTown_Copy/scripts.inc"
 
 	.include "data/maps/Route16_Filler/scripts.inc"
+
+	.include "data/maps/BasaluffTown_Filler/scripts.inc"
+
+	.include "data/maps/BasalekMart/scripts.inc"
+
+	.include "data/maps/BasalekHouse1/scripts.inc"
+
+	.include "data/maps/BasalekHouse2/scripts.inc"
+
+	.include "data/maps/BasalekTunnels/scripts.inc"

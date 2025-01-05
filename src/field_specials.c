@@ -1364,12 +1364,12 @@ u16 GetSlotMachineId(void)
 {
     // static const u8 sSlotMachineRandomSeeds[SLOT_MACHINE_COUNT] = {12, 2, 4, 5, 1, 8, 7, 11, 3, 10, 9, 6};
     static const u8 sSlotMachineIds[SLOT_MACHINE_COUNT] = {
-        SLOT_MACHINE_UNLUCKIEST,
-        SLOT_MACHINE_UNLUCKIER,
-        SLOT_MACHINE_UNLUCKIER,
         SLOT_MACHINE_UNLUCKY,
         SLOT_MACHINE_UNLUCKY,
         SLOT_MACHINE_UNLUCKY,
+        SLOT_MACHINE_UNLUCKY,
+        SLOT_MACHINE_LUCKY,
+        SLOT_MACHINE_LUCKY,
         SLOT_MACHINE_LUCKY,
         SLOT_MACHINE_LUCKY,
         SLOT_MACHINE_LUCKY,

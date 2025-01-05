@@ -2059,11 +2059,25 @@ static u32 PlayerGetTrainerBackPicId(void)
 
     if (gBattleTypeFlags & BATTLE_TYPE_LINK)
         trainerPicId = LinkPlayerGetTrainerPicId(GetMultiplayerId());
-    else
-        trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN;
-    if(FlagGet(FLAG_PC_CHANGE_COSTUME))
-        trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN_ORAS;
-
+    else{
+        switch (VarGet(VAR_CHOSEN_OUTFIT))
+        {
+        case OUTFIT_RUBYSAPPHIRE:
+            trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_RUBY_SAPPHIRE_BRENDAN;
+            break;
+        case OUTFIT_EMERALD:
+            trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN;
+            break;
+        case OUTFIT_ORAS:
+            trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN_ORAS;
+            break;
+        default:
+            trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN;
+            break;
+        }
+    
+    }
+    
     return trainerPicId;
 }
 
