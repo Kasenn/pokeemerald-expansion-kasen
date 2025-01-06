@@ -2007,7 +2007,7 @@
 	.2byte \monLevel
 	.endm
 
-	@ Checks if any party mon is equal to the level. Stores the result in VAR_RESULT.
+	@ Checks if any party mon is equal to the level. Stores the result in VAR_0x8004.
 	.macro matchpartylevel monLevel:req
 	callnative ScrCmd_matchpartylevel
 	.2byte \monLevel

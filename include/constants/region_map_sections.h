@@ -134,7 +134,7 @@
 #define MAPSEC_UNDERGROUND_PATH_2           0x82
 #define MAPSEC_POKE_RANCH                0x83
 #define MAPSEC_WINDPLUME_VALLEY           0x84
-#define MAPSEC_ROCKET_HIDEOUT               0x85
+#define MAPSEC_SUNKEN_CAVERN               0x85
 #define MAPSEC_SILPH_CO                     0x86
 #define MAPSEC_POKEMON_MANSION              0x87
 #define MAPSEC_KANTO_SAFARI_ZONE            0x88

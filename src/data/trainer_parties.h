@@ -6123,57 +6123,279 @@ static const struct TrainerMon sParty_TRAINER_FACTORY_ROCKET_PETREL[] = {
     },
 };
 
-static const struct TrainerMon sParty_Isaiah1[] = {
-    {
-    .lvl = 35,
-    .species = SPECIES_STARYU,
-    }
-};
-
-static const struct TrainerMon sParty_Pablo1[] = {
-    {
-    .lvl = 33,
-    .species = SPECIES_STARYU,
+static const struct TrainerMon sParty_TRAINER_BASALEK_MAY_ROWLET[] = {
+        {
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 44,
+        .species = SPECIES_STARAPTOR,
+        .nature = NATURE_IMPISH,
+        .moves = {MOVE_CLOSE_COMBAT, MOVE_AERIAL_ACE, MOVE_TAKE_DOWN, MOVE_ENDEAVOR},
+        .gender = TRAINER_MON_FEMALE,
     },
     {
-    .lvl = 33,
-    .species = SPECIES_STARYU,
-    }
-};
-
-static const struct TrainerMon sParty_Chase[] = {
-    {
-    .lvl = 26,
-    .species = SPECIES_WINGULL,
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 45,
+        .species = SPECIES_GALLADE,
+        .nature = NATURE_MILD,
+        .moves = {MOVE_PSYCHO_CUT, MOVE_NIGHT_SLASH, MOVE_POWER_UP_PUNCH, MOVE_ROCK_SLIDE},
+        .gender = TRAINER_MON_MALE,
+        .ability = ABILITY_STEADFAST,
     },
     {
-    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .lvl = 34,
-    .species = SPECIES_STARYU,
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 45,
+        .species = SPECIES_CLODSIRE,
+        .nature = NATURE_ADAMANT,
+        .moves = {MOVE_SLAM, MOVE_POISON_JAB, MOVE_YAWN, MOVE_STOMPING_TANTRUM},
+        .ability = ABILITY_POISON_POINT,
+        .gender = TRAINER_MON_FEMALE,
+    },
+    {
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 46,
+        .species = SPECIES_CRUSTLE,
+        .nature = NATURE_SASSY,
+        .ability = ABILITY_STURDY,
+        .moves = {MOVE_FLAIL, MOVE_ROCK_SLIDE, MOVE_SLASH, MOVE_BUG_BITE},
+        .gender = TRAINER_MON_FEMALE,
+    },
+    {
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 48,
+        .species = SPECIES_BLAZIKEN,
+        .nature = NATURE_SERIOUS,
+        .moves = {MOVE_FLAME_CHARGE, MOVE_ROCK_SMASH, MOVE_BLAZE_KICK, MOVE_ROCK_SLIDE},
+        .gender = TRAINER_MON_FEMALE,
     }
 };
 
-static const struct TrainerMon sParty_Isaiah2[] = {
+static const struct TrainerMon sParty_TRAINER_BASALEK_MAY_TORCHIC[] = {
     {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 39,
-    .species = SPECIES_STARYU,
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 44,
+        .species = SPECIES_STARAPTOR,
+        .nature = NATURE_IMPISH,
+        .moves = {MOVE_CLOSE_COMBAT, MOVE_AERIAL_ACE, MOVE_TAKE_DOWN, MOVE_ENDEAVOR},
+        .gender = TRAINER_MON_FEMALE,
+    },
+    // {
+    //     .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+    //     .lvl = 45,
+    //     .species = SPECIES_GALLADE,
+    //     .nature = NATURE_MILD,
+    //     .moves = {MOVE_PSYCHO_CUT, MOVE_NIGHT_SLASH, MOVE_POWER_UP_PUNCH, MOVE_ROCK_SLIDE},
+    //     .gender = TRAINER_MON_MALE,
+    //     .ability = ABILITY_STEADFAST,
+    // },
+    // {
+    //     .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+    //     .lvl = 45,
+    //     .species = SPECIES_CLODSIRE,
+    //     .nature = NATURE_ADAMANT,
+    //     .moves = {MOVE_SLAM, MOVE_POISON_JAB, MOVE_YAWN, MOVE_STOMPING_TANTRUM},
+    //     .ability = ABILITY_POISON_POINT,
+    //     .gender = TRAINER_MON_FEMALE,
+    // },
+    // {
+    //     .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+    //     .lvl = 46,
+    //     .species = SPECIES_CRUSTLE,
+    //     .nature = NATURE_SASSY,
+    //     .ability = ABILITY_STURDY,
+    //     .moves = {MOVE_FLAIL, MOVE_ROCK_SLIDE, MOVE_SLASH, MOVE_BUG_BITE},
+    //     .gender = TRAINER_MON_FEMALE,
+    // },
+    // {
+    //     .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+    //     .lvl = 48,
+    //     .species = SPECIES_EMPOLEON,
+    //     .nature = NATURE_SERIOUS,
+    //     .moves = {MOVE_RAZOR_GALE, MOVE_BRINE, MOVE_ROCK_SMASH, MOVE_SWAGGER},
+    //     .gender = TRAINER_MON_FEMALE,
+    // }
+};
+
+static const struct TrainerMon sParty_TRAINER_BASALEK_MAY_PIPLUP[] = {
+        {
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 44,
+        .species = SPECIES_STARAPTOR,
+        .nature = NATURE_IMPISH,
+        .moves = {MOVE_CLOSE_COMBAT, MOVE_AERIAL_ACE, MOVE_TAKE_DOWN, MOVE_ENDEAVOR},
+        .gender = TRAINER_MON_FEMALE,
+    },
+    {
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 45,
+        .species = SPECIES_GALLADE,
+        .nature = NATURE_MILD,
+        .moves = {MOVE_PSYCHO_CUT, MOVE_NIGHT_SLASH, MOVE_POWER_UP_PUNCH, MOVE_ROCK_SLIDE},
+        .gender = TRAINER_MON_MALE,
+        .ability = ABILITY_STEADFAST,
+    },
+    {
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 45,
+        .species = SPECIES_CLODSIRE,
+        .nature = NATURE_ADAMANT,
+        .moves = {MOVE_SLAM, MOVE_POISON_JAB, MOVE_YAWN, MOVE_STOMPING_TANTRUM},
+        .ability = ABILITY_POISON_POINT,
+        .gender = TRAINER_MON_FEMALE,
+    },
+    {
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 46,
+        .species = SPECIES_CRUSTLE,
+        .nature = NATURE_SASSY,
+        .ability = ABILITY_STURDY,
+        .moves = {MOVE_FLAIL, MOVE_ROCK_SLIDE, MOVE_SLASH, MOVE_BUG_BITE},
+        .gender = TRAINER_MON_FEMALE,
+    },
+    {
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 48,
+        .species = SPECIES_DECIDUEYE,
+        .nature = NATURE_SERIOUS,
+        .moves = {MOVE_SYNTHESIS, MOVE_PLUCK, MOVE_RAZOR_LEAF, MOVE_SPIRIT_SHACKLE},
+        .gender = TRAINER_MON_FEMALE,
     }
 };
 
-static const struct TrainerMon sParty_Isaiah3[] = {
+static const struct TrainerMon sParty_TRAINER_BASALEK_BRENDAN_ROWLET[] = {
     {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 42,
-    .species = SPECIES_STARYU,
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 44,
+        .species = SPECIES_STARAPTOR,
+        .nature = NATURE_IMPISH,
+        .moves = {MOVE_CLOSE_COMBAT, MOVE_AERIAL_ACE, MOVE_TAKE_DOWN, MOVE_ENDEAVOR},
+        .gender = TRAINER_MON_MALE,
+    },
+    {
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 45,
+        .species = SPECIES_GARDEVOIR,
+        .nature = NATURE_MILD,
+        .moves = {MOVE_PSYCHIC, MOVE_DRAINING_KISS, MOVE_MAGICAL_LEAF, MOVE_CALM_MIND},
+        .gender = TRAINER_MON_FEMALE,
+        .ability = ABILITY_TRACE,
+    },
+    {
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 45,
+        .species = SPECIES_CLODSIRE,
+        .nature = NATURE_ADAMANT,
+        .moves = {MOVE_SLAM, MOVE_POISON_JAB, MOVE_YAWN, MOVE_STOMPING_TANTRUM},
+        .ability = ABILITY_POISON_POINT,
+        .gender = TRAINER_MON_MALE,
+    },
+    {
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 46,
+        .species = SPECIES_CRUSTLE,
+        .nature = NATURE_SASSY,
+        .ability = ABILITY_STURDY,
+        .moves = {MOVE_FLAIL, MOVE_ROCK_SLIDE, MOVE_SLASH, MOVE_BUG_BITE},
+        .gender = TRAINER_MON_MALE,
+    },
+    {
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 48,
+        .species = SPECIES_BLAZIKEN,
+        .nature = NATURE_SERIOUS,
+        .moves = {MOVE_FLAME_CHARGE, MOVE_ROCK_SMASH, MOVE_BLAZE_KICK, MOVE_ROCK_SLIDE},
+        .gender = TRAINER_MON_MALE,
     }
 };
 
-static const struct TrainerMon sParty_Isaiah4[] = {
+static const struct TrainerMon sParty_TRAINER_BASALEK_BRENDAN_TORCHIC[] = {
     {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 45,
-    .species = SPECIES_STARMIE,
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 44,
+        .species = SPECIES_STARAPTOR,
+        .nature = NATURE_IMPISH,
+        .moves = {MOVE_CLOSE_COMBAT, MOVE_AERIAL_ACE, MOVE_TAKE_DOWN, MOVE_ENDEAVOR},
+        .gender = TRAINER_MON_MALE,
+    },
+    {
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 45,
+        .species = SPECIES_GARDEVOIR,
+        .nature = NATURE_MILD,
+        .moves = {MOVE_PSYCHIC, MOVE_DRAINING_KISS, MOVE_MAGICAL_LEAF, MOVE_CALM_MIND},
+        .gender = TRAINER_MON_FEMALE,
+        .ability = ABILITY_TRACE,
+    },
+    {
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 45,
+        .species = SPECIES_CLODSIRE,
+        .nature = NATURE_ADAMANT,
+        .moves = {MOVE_SLAM, MOVE_POISON_JAB, MOVE_YAWN, MOVE_STOMPING_TANTRUM},
+        .ability = ABILITY_POISON_POINT,
+        .gender = TRAINER_MON_MALE,
+    },
+    {
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 46,
+        .species = SPECIES_CRUSTLE,
+        .nature = NATURE_SASSY,
+        .ability = ABILITY_STURDY,
+        .moves = {MOVE_FLAIL, MOVE_ROCK_SLIDE, MOVE_SLASH, MOVE_BUG_BITE},
+        .gender = TRAINER_MON_MALE,
+    },
+    {
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 48,
+        .species = SPECIES_EMPOLEON,
+        .nature = NATURE_SERIOUS,
+        .moves = {MOVE_RAZOR_GALE, MOVE_BRINE, MOVE_ROCK_SMASH, MOVE_SWAGGER},
+        .gender = TRAINER_MON_MALE,
+    }
+};
+
+static const struct TrainerMon sParty_TRAINER_BASALEK_BRENDAN_PIPLUP[] = {
+    {
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 44,
+        .species = SPECIES_STARAPTOR,
+        .nature = NATURE_IMPISH,
+        .moves = {MOVE_CLOSE_COMBAT, MOVE_AERIAL_ACE, MOVE_TAKE_DOWN, MOVE_ENDEAVOR},
+        .gender = TRAINER_MON_MALE,
+    },
+    {
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 45,
+        .species = SPECIES_GARDEVOIR,
+        .nature = NATURE_MILD,
+        .moves = {MOVE_PSYCHIC, MOVE_DRAINING_KISS, MOVE_MAGICAL_LEAF, MOVE_CALM_MIND},
+        .gender = TRAINER_MON_FEMALE,
+        .ability = ABILITY_TRACE,
+    },
+    {
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 45,
+        .species = SPECIES_CLODSIRE,
+        .nature = NATURE_ADAMANT,
+        .moves = {MOVE_SLAM, MOVE_POISON_JAB, MOVE_YAWN, MOVE_STOMPING_TANTRUM},
+        .ability = ABILITY_POISON_POINT,
+        .gender = TRAINER_MON_MALE,
+    },
+    {
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 46,
+        .species = SPECIES_CRUSTLE,
+        .nature = NATURE_SASSY,
+        .ability = ABILITY_STURDY,
+        .moves = {MOVE_FLAIL, MOVE_ROCK_SLIDE, MOVE_SLASH, MOVE_BUG_BITE},
+        .gender = TRAINER_MON_MALE,
+    },
+    {
+        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .lvl = 48,
+        .species = SPECIES_DECIDUEYE,
+        .nature = NATURE_SERIOUS,
+        .moves = {MOVE_SYNTHESIS, MOVE_PLUCK, MOVE_RAZOR_LEAF, MOVE_SPIRIT_SHACKLE},
+        .gender = TRAINER_MON_MALE,
     }
 };
 

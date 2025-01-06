@@ -44,7 +44,7 @@ static void UpdatePerDay(struct Time *localTime)
     {
         daysSince = localTime->days - *days;
         ClearDailyFlags();
-        SetHeartScaleMove();
+        RandomizeDailyVariables();
         SetGrottos();
         // UpdateDewfordTrendPerDay(daysSince);
         UpdateTVShowsPerDay(daysSince);

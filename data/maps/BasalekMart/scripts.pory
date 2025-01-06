@@ -153,26 +153,26 @@ script BasalekMart_BrendanBattle{
 }
 
 text BasalekMartMay_GettingReadyToHeadOut{
-    ""
+    "may: getting ready to head out, battle?"
 }
 text BasalekMartMay_WantToPrepare{
-    ""
+    "may: want to prepare"
 }
 text BasalekMartMay_LetsGoFightOutside{
-    ""
+    "let's go fight outside"
 }
 text BasalekMartBrendan_GettingReadyToHeadOut{
-    ""
+    "brendan: getting ready to head out, battle?"
 }
 text BasalekMartBrendan_WantToPrepare{
-    ""
+    "brendan: want to prepare"
 }
 text BasalekMartBrendan_LetsGoFightOutside{
-    ""
+    "let's go fight outside"
 }
 text BasalekMartMay_ReadyToBattleNow{
-    ""
+    "may: ready now?"
 }
 text BasalekMartBrendan_ReadyToBattleNow{
-    ""
+    "brendan: ready now?"
 }

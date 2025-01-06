@@ -2915,7 +2915,7 @@ void CheckFoughtTrainers(void)
 {
     u16 i;
 
-    for (i = 1; i < TRAINER_ISAIAH_1; i++)
+    for (i = 1; i < TRAINER_BASALEK_MAY_ROWLET; i++)
     {
         if (!HasTrainerBeenFought(i))
         {
@@ -2927,7 +2927,7 @@ void CheckFoughtTrainers(void)
 void ScrCmd_matchpartylevel(struct ScriptContext *ctx)
 {
     u8 i;
-    u16 monLevel = ScriptReadHalfword(ctx);
+    u16 monLevel = VarGet(ScriptReadHalfword(ctx));
 
     gSpecialVar_Result = FALSE;
 

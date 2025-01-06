@@ -1727,3 +1727,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/BasalekHouse2/scripts.inc"
 
 	.include "data/maps/BasalekTunnels/scripts.inc"
+
+	.include "data/maps/SunkernCavern/scripts.inc"

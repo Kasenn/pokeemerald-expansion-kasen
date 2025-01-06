@@ -19287,6 +19287,144 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_SUNKERN_CAVERN",
+          "base_label": "gSunkernCavern0",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 34,
+                "max_level": 37,
+                "species": "SPECIES_ZUBAT"
+              },
+              {
+                "min_level": 34,
+                "max_level": 37,
+                "species": "SPECIES_ROGGENROLA"
+              },
+              {
+                "min_level": 35,
+                "max_level": 38,
+                "species": "SPECIES_BOLDORE"
+              },
+              {
+                "min_level": 36,
+                "max_level": 39,
+                "species": "SPECIES_ZUBAT"
+              },
+              {
+                "min_level": 34,
+                "max_level": 37,
+                "species": "SPECIES_SABLEYE"
+              },
+              {
+                "min_level": 35,
+                "max_level": 38,
+                "species": "SPECIES_DUNSPARCE"
+              },
+              {
+                "min_level": 36,
+                "max_level": 39,
+                "species": "SPECIES_DUNSPARCE"
+              },
+              {
+                "min_level": 37,
+                "max_level": 40,
+                "species": "SPECIES_SABLEYE"
+              },
+              {
+                "min_level": 37,
+                "max_level": 40,
+                "species": "SPECIES_GOLBAT"
+              },
+              {
+                "min_level": 35,
+                "max_level": 38,
+                "species": "SPECIES_ROGGENROLA"
+              },
+              {
+                "min_level": 37,
+                "max_level": 40,
+                "species": "SPECIES_GOLBAT"
+              },
+              {
+                "min_level": 35,
+                "max_level": 38,
+                "species": "SPECIES_ROGGENROLA"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_BASALEK_TUNNELS",
+          "base_label": "gBasalekTunnels0",
+          "land_mons": {
+            "encounter_rate": 5,
+            "mons": [
+              {
+                "min_level": 34,
+                "max_level": 37,
+                "species": "SPECIES_KOFFING"
+              },
+              {
+                "min_level": 34,
+                "max_level": 37,
+                "species": "SPECIES_ROGGENROLA"
+              },
+              {
+                "min_level": 35,
+                "max_level": 38,
+                "species": "SPECIES_ONIX"
+              },
+              {
+                "min_level": 36,
+                "max_level": 39,
+                "species": "SPECIES_ROGGENROLA"
+              },
+              {
+                "min_level": 34,
+                "max_level": 37,
+                "species": "SPECIES_ONIX"
+              },
+              {
+                "min_level": 35,
+                "max_level": 38,
+                "species": "SPECIES_DARUMAKA"
+              },
+              {
+                "min_level": 36,
+                "max_level": 39,
+                "species": "SPECIES_HEATMOR"
+              },
+              {
+                "min_level": 37,
+                "max_level": 40,
+                "species": "SPECIES_HEATMOR"
+              },
+              {
+                "min_level": 37,
+                "max_level": 40,
+                "species": "SPECIES_HEATMOR"
+              },
+              {
+                "min_level": 35,
+                "max_level": 38,
+                "species": "SPECIES_BOLDORE"
+              },
+              {
+                "min_level": 37,
+                "max_level": 40,
+                "species": "SPECIES_HEATMOR"
+              },
+              {
+                "min_level": 35,
+                "max_level": 38,
+                "species": "SPECIES_BOLDORE"
+              }
+            ]
+          }
         }
       ]
     },

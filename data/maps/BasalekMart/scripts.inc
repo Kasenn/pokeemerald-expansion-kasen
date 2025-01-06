@@ -189,25 +189,25 @@ BasalekMart_Man_Text::
 	.string "hoping to find some potions.$"
 
 BasalekMartMay_GettingReadyToHeadOut::
-	.string "$"
+	.string "may: getting ready to head out, battle?$"
 
 BasalekMartMay_WantToPrepare::
-	.string "$"
+	.string "may: want to prepare$"
 
 BasalekMartMay_LetsGoFightOutside::
-	.string "$"
+	.string "let's go fight outside$"
 
 BasalekMartBrendan_GettingReadyToHeadOut::
-	.string "$"
+	.string "brendan: getting ready to head out, battle?$"
 
 BasalekMartBrendan_WantToPrepare::
-	.string "$"
+	.string "brendan: want to prepare$"
 
 BasalekMartBrendan_LetsGoFightOutside::
-	.string "$"
+	.string "let's go fight outside$"
 
 BasalekMartMay_ReadyToBattleNow::
-	.string "$"
+	.string "may: ready now?$"
 
 BasalekMartBrendan_ReadyToBattleNow::
-	.string "$"
+	.string "brendan: ready now?$"

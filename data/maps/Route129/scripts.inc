@@ -25,7 +25,7 @@ Route129_OnFrame:
 	.2byte 0
 
 Route129_EventScript_Chase::
-	trainerbattle_single TRAINER_CHASE, Route129_Text_ChaseIntro, Route129_Text_ChaseDefeat
+	trainerbattle_single TRAINER_BASALEK_MAY_PIPLUP, Route129_Text_ChaseIntro, Route129_Text_ChaseDefeat
 	msgbox Route129_Text_ChasePostBattle, MSGBOX_AUTOCLOSE
 	end
 

@@ -271,10 +271,10 @@
 #define VAR_SPHERES_FOUND                                0x40FB
 #define VAR_ROUTE14_ROCKET_EVENT                                0x40FC
 #define VAR_DRISLEDGE_TOWN_STATE                                0x40FD // 
-#define VAR_UNUSED_0x40FE                                0x40FE // 
+#define VAR_BASALEK_LEVEL_CHECK                                0x40FE // 
 #define VAR_UNUSED_VAR                                0x40FF //
 
-#define VAR_UNUSED_0x4100                               0x4100
+#define VAR_BASALEK_LEVEL_REWARD                               0x4100
 #define VAR_UNUSED_0x4101                               0x4101
 #define VAR_UNUSED_0x4102                               0x4102
 #define VAR_UNUSED_0x4103                               0x4103

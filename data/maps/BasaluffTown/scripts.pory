@@ -1,8 +1,99 @@
+const X = VAR_TEMP_3
+const Y = VAR_TEMP_4
+const RIVAL_TRIGGER = VAR_TEMP_5
+const OBJ_RIVAL = 10
+
 mapscripts BasaluffTown_MapScripts{
     MAP_SCRIPT_ON_TRANSITION{
         setflag(FLAG_VISITED_BASALEK)
         call(Common_EventScript_SetupRivalGfxId)
+        getplayerxy(X, Y)
+        if(var(X) == 23 && var(Y) == 16){
+            setvar(RIVAL_TRIGGER, 1)
+        }
+        if(var(RIVAL_TRIGGER) == 1){
+            setobjectxyperm(OBJ_RIVAL, 24, 16)
+            setobjectmovementtype(OBJ_RIVAL, MOVEMENT_TYPE_FACE_LEFT)
+        }
     }
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
+        RIVAL_TRIGGER, 1{
+            turnobject(0xFF, DIR_EAST)
+        }
+    ]
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        RIVAL_TRIGGER, 1: BasaluffAutomaticRivalFight
+    ]
+}
+
+script BasaluffAutomaticRivalFight{
+    delay(30)
+    setvar(RIVAL_TRIGGER, 0)
+    if(checkplayergender == MALE){
+        msgbox(BasaluffMay_LetsStart)
+        switch(var(VAR_STARTER_MON)){
+            case 0:
+                trainerbattle_no_intro(TRAINER_BASALEK_MAY_ROWLET, BasalekMay_LostText)
+            case 1:
+                trainerbattle_no_intro(TRAINER_BASALEK_MAY_TORCHIC, BasalekMay_LostText)
+            case 2:
+                trainerbattle_no_intro(TRAINER_BASALEK_MAY_PIPLUP, BasalekMay_LostText)
+        }
+        if(flag(FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE)){
+            msgbox(BasaluffMay_PostBattle)
+        }
+        else{
+            msgbox(BasaluffMay_NoMegaPostBattle)
+        }
+    }
+    else{
+        msgbox(BasaluffBrendan_LetsStart)
+        switch(var(VAR_STARTER_MON)){
+            case 0:
+                trainerbattle_no_intro(TRAINER_BASALEK_BRENDAN_ROWLET, BasalekBrendan_LostText)
+            case 1:
+                trainerbattle_no_intro(TRAINER_BASALEK_BRENDAN_TORCHIC, BasalekBrendan_LostText)
+            case 2:
+                trainerbattle_no_intro(TRAINER_BASALEK_BRENDAN_PIPLUP, BasalekBrendan_LostText)
+        }
+        if(flag(FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE)){
+            msgbox(BasaluffBrendan_PostBattle)
+        }
+        else{
+            msgbox(BasaluffBrendan_NoMegaPostBattle)
+        }
+    }
+    closemessage
+    safefollow
+    applymovement(OBJ_RIVAL, moves(walk_up * 4, walk_right, walk_up, walk_right, walk_up, walk_right * 2))
+    waitmovement(0)
+    setflag(FLAG_RIVAL_MET_IN_BASALEK)
+    removeobject(OBJ_RIVAL)
+    release
+}
+text BasaluffMay_LetsStart{
+    ""
+}
+text BasalekMay_LostText{
+    ""
+}
+text BasaluffMay_PostBattle{
+    ""
+}
+text BasaluffMay_NoMegaPostBattle{
+    ""
+}
+text BasaluffBrendan_LetsStart{
+    ""
+}
+text BasalekBrendan_LostText{
+    ""
+}
+text BasaluffBrendan_PostBattle{
+    ""
+}
+text BasaluffBrendan_NoMegaPostBattle{
+    ""
 }
 
 script BasalekTown_Sign1{
@@ -89,6 +180,12 @@ text BasalekTown_Beauty_Text{
 script BasalekTown_EggWoman{
 	lock
 	faceplayer
+    checkdexmon(SPECIES_EEVEE)
+    if(var(VAR_RESULT) == TRUE && !flag(FLAG_EEVEE_EGG_SHOWN)){
+        setflag(FLAG_EEVEE_EGG_SHOWN)
+        msgbox(BasalekTown_EggHatched, MSGBOX_AUTOCLOSE)
+        end
+    }
     if(flag(FLAG_RECEIVED_LAVARIDGE_EGG)){
         msgbox(BasalekTown_Text_EverySoOftenEggFoundAtDayCare, MSGBOX_AUTOCLOSE)
 	    end
@@ -112,40 +209,48 @@ script BasalekTown_EggWoman{
 }
 
 text BasalekTown_Text_HaveEggWillYouTakeIt{
-	"I have here an EGG.\p"
-	"I'd hoped to hatch it by covering it in\n"
-	"hot sand by the hot springs.\l"
-	"But that doesn't seem to be enough…\p"
-	"I've heard it would be best if it were\n"
-	"kept together with POKéMON and\l"
-	"carried about.\p"
-	"You are a TRAINER, yes?\n"
-	"And your POKéMON radiate vitality.\p"
-	"So, what say you?\n"
-	"Will you take this EGG to hatch?"
+    "I recently found my Pokémon carrying\n"
+    "this egg.\p"
+    "In the past I would have been ecstatic,\n"
+    "but I don't think I'm capable of taking\l"
+    "care of any more Pokémon anymore.\p"
+    "I saw your battle with your friend,\n"
+    "and I must say, I'm very impressed.\p"
+    "You seem like the type of person who\n"
+    "takes good care of their Pokémon.\p"
+	"What say you?\n"
+	"Would you like to care for this egg?"
 }
 
 text BasalekTown_Text_HopeYoullWalkPlentyWithEgg{
-	"Good! I hope you'll walk plenty with\n"
-	"this here EGG!"
+	"Thank you!\n"
+    "It warms my heart, knowing it will have\l"
+    "someone caring for it."
 }
 
 text BasalekTown_Text_ReceivedTheEgg{
-	"{PLAYER} received the EGG."
+	"{PLAYER} received the Pokémon egg."
 }
 text BasalekTown_Text_NoRoomForThisEgg{
-	"Oh? You've too many POKéMON.\n"
-	"There's no room for this EGG…"
+	"Oh? You've too many Pokémon.\n"
+	"There's no room for this egg…"
 }
 text BasalekTown_Text_AsYouWishThen{
 	"As you wish, then…\p"
 	"If you have a change of heart about\n"
-	"hatching this EGG, I will be here."
+	"hatching this egg, I will be here."
 }
 text BasalekTown_Text_EverySoOftenEggFoundAtDayCare{
-	"Every so often, an EGG will be found at\n"
-	"the POKéMON DAY CARE.\p"
+	"Every so often, an egg will be found at\n"
+	"the Pokémon Day Care.\p"
 	"Or at least that's how the rumor goes."
+}
+text BasalekTown_EggHatched{
+    "How is the egg doing?\p"
+    "… … …\p"
+    "It hatched already?\n"
+    "That's great to hear.\l"
+    "I knew I chose a caring trainer."
 }
 
 
@@ -163,5 +268,233 @@ script BasalekTown_RivalTrigger3{
 }
 
 script BasalekTown_RivalScript{
+    lock
+    safefollow
+    getfollowerxy(X, Y)
+    if(var(X) != 0){
+        unlockfollowermovement
+    }
+	delay(5)
+    opendoor(20, 15)
+    waitdooranim
+    addobject(OBJ_RIVAL)
+    setobjectxy(OBJ_RIVAL, 20, 15)
+    turnobject(OBJ_RIVAL, DIR_SOUTH)
+    delay(16)
+    applymovement(OBJ_RIVAL, Walk1Down)
+    waitmovement(0)
+    closedoor(20, 15)
+    waitdooranim
+    switch(var(VAR_TEMP_2)){
+        case 1:
+            applymovement(OBJ_RIVAL, moves(walk_right * 4, walk_up * 3, walk_in_place_fast_left))
+            delay(48)
+            applymovement(0xFF, moves(walk_in_place_fast_down))
+            applymovement(OBJ_EVENT_ID_FOLLOWER, moves(walk_in_place_fast_down))
+            unlockfollowermovement
+            delay(64)
+            applymovement(0xFF, moves(walk_in_place_fast_right))
+            applymovement(OBJ_EVENT_ID_FOLLOWER, moves(walk_in_place_fast_right))
+            unlockfollowermovement
+        case 2:
+            applymovement(OBJ_RIVAL, moves(walk_right * 5, walk_up * 3, walk_in_place_fast_left))
+            delay(64)
+            applymovement(0xFF, moves(walk_in_place_fast_down))
+            applymovement(OBJ_EVENT_ID_FOLLOWER, moves(walk_in_place_fast_down))
+            unlockfollowermovement
+            delay(64)
+            applymovement(0xFF, moves(walk_in_place_fast_right))
+            applymovement(OBJ_EVENT_ID_FOLLOWER, moves(walk_in_place_fast_right))
+            unlockfollowermovement
+        case 3:
+            applymovement(OBJ_RIVAL, moves(walk_right * 4, walk_up * 3, walk_in_place_fast_right))
+            delay(64)
+            applymovement(0xFF, moves(walk_in_place_fast_down))
+            applymovement(OBJ_EVENT_ID_FOLLOWER, moves(walk_in_place_fast_down))
+            unlockfollowermovement
+            delay(48)
+            applymovement(0xFF, moves(walk_in_place_fast_left))
+            applymovement(OBJ_EVENT_ID_FOLLOWER, moves(walk_in_place_fast_left))
+            unlockfollowermovement
+    }
+    waitmovement(OBJ_RIVAL)
+    waitmovement(0xFF)
+    delay(24)
+    if(checkplayergender == MALE){
+        if(flag(FLAG_RIVAL_MET_IN_BASALEK_MART)){ // bailing on rival
+            if(flag(FLAG_RIVAL_HARBOR_ANGRY)){ // bailed 2nd time
+                msgbox(BasaluffTown_May_2Bails)
+            }
+            else{ // bailed 1st time
+                msgbox(BasaluffTown_May_1Bail)
+            }
+        }
+        else{ // was not trying to bail
+            msgbox(BasaluffTown_May_NoBails)
+        }
+        switch(var(VAR_STARTER_MON)){
+            case 0:
+                trainerbattle_no_intro(TRAINER_BASALEK_MAY_ROWLET, BasalekMay_LostText)
+            case 1:
+                trainerbattle_no_intro(TRAINER_BASALEK_MAY_TORCHIC, BasalekMay_LostText)
+            case 2:
+                trainerbattle_no_intro(TRAINER_BASALEK_MAY_PIPLUP, BasalekMay_LostText)
+        }
+        if(flag(FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE)){
+            msgbox(BasaluffMay_PostBattle)
+        }
+        else{
+            msgbox(BasaluffMay_NoMegaPostBattle)
+        }
+    }
+    else{
+        if(flag(FLAG_RIVAL_MET_IN_BASALEK_MART)){ // bailing on rival
+            if(flag(FLAG_RIVAL_HARBOR_ANGRY)){ // bailed 2nd time
+                msgbox(BasaluffTown_Brendan_2Bails)
+            }
+            else{ // bailed 1st time
+                msgbox(BasaluffTown_Brendan_1Bail)
+            }
+        }
+        else{ // was not trying to bail
+            msgbox(BasaluffTown_Brendan_NoBails)
+        }
+        switch(var(VAR_STARTER_MON)){
+            case 0:
+                trainerbattle_no_intro(TRAINER_BASALEK_BRENDAN_ROWLET, BasalekBrendan_LostText)
+            case 1:
+                trainerbattle_no_intro(TRAINER_BASALEK_BRENDAN_TORCHIC, BasalekBrendan_LostText)
+            case 2:
+                trainerbattle_no_intro(TRAINER_BASALEK_BRENDAN_PIPLUP, BasalekBrendan_LostText)
+        }
+        if(flag(FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE)){
+            msgbox(BasaluffBrendan_PostBattle)
+        }
+        else{
+            msgbox(BasaluffBrendan_NoMegaPostBattle)
+        }
+    }
+    closemessage
+    safefollow
+    switch(var(VAR_TEMP_2)){
+        case 1:
+            applymovement(OBJ_RIVAL, moves(walk_up, walk_right, walk_up, walk_right, walk_up, walk_right * 5))
+        case 2:
+            applymovement(OBJ_RIVAL, moves(walk_up, walk_right, walk_up, walk_right, walk_up, walk_right * 6))
+        case 3:
+            applymovement(OBJ_RIVAL, moves(walk_up, walk_right, walk_up, walk_right, walk_up, walk_right * 7))
+            applymovement(0xFF, moves(delay_16 * 3, walk_in_place_fast_up, delay_16 * 4, walk_in_place_fast_right))
+    }
+    waitmovement(OBJ_RIVAL)
+    waitmovement(0xFF)
+    setflag(FLAG_RIVAL_MET_IN_BASALEK)
+    removeobject(OBJ_RIVAL)
+    release
+}
 
+movement TurnPlayerAndFollowerRight{
+    delay_16 * 2
+    walk_in_place_fast_right
+}
+
+text BasaluffTown_Brendan_NoBails{
+    ""
+}
+text BasaluffTown_Brendan_1Bail{
+    ""
+}
+text BasaluffTown_Brendan_2Bails{
+    ""
+}
+text BasaluffTown_May_NoBails{
+    ""
+}
+text BasaluffTown_May_1Bail{
+    ""
+}
+text BasaluffTown_May_2Bails{
+    ""
+}
+
+script BasalekTown_LevelChecker{
+    if(flag(FLAG_DAILY_BASALEK_CHECKER)){
+        msgbox(BasalekTown_LevelChecker_ComeAgain, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    buffernumberstring(STR_VAR_1, VAR_BASALEK_LEVEL_CHECK)
+    msgbox(BasalekTown_LevelChecker_NoMatch, MSGBOX_AUTOCLOSE)
+    matchpartylevel(VAR_BASALEK_LEVEL_CHECK)
+    if(var(VAR_RESULT) == FALSE){
+        end
+    }
+    msgbox(BasalekTown_LevelChecker_YesMatch)
+    switch(var(VAR_BASALEK_LEVEL_REWARD)){
+        case 0:
+            giveitem(ITEM_MUSCLE_BAND)
+        case 1:
+            giveitem(ITEM_BINDING_BAND)
+        case 2:
+            giveitem(ITEM_FOCUS_BAND)
+        case 3:
+            giveitem(ITEM_CHOICE_BAND)
+    }
+    if(var(VAR_RESULT) == FALSE){
+        goto(ZeBagIsFull)
+    }
+    setflag(FLAG_DAILY_BASALEK_CHECKER)
+    addvar(VAR_BASALEK_LEVEL_REWARD, 1)
+    if(var(VAR_BASALEK_LEVEL_REWARD) == 4){
+        setvar(VAR_BASALEK_LEVEL_CHECK, 0)
+    }
+    msgbox(BasalekTown_LevelChecker_ComeAgain)
+    release
+}
+
+text BasalekTown_LevelChecker_NoMatch{
+    "…I saw it!\n"
+    "Today's number is {STR_VAR_1}!\p"
+    "Show me a Pokémon that's Lv. {STR_VAR_1}.\n"
+    "If you can, I'll reward you."
+}
+text BasalekTown_LevelChecker_YesMatch{
+    "…Oh, now, hunh?!\p"
+    "I see you have a Pokémon\n"
+    "that is Lv. {STR_VAR_1}.\p"
+    "Well, I'll be! How remarkable!\p"
+    "I'll thank you for that visual treat\n"
+    "with this."
+}
+text BasalekTown_LevelChecker_ComeAgain{
+    "Come back another day for\n"
+    "another showcase!"
+}
+
+script BasalekHouse1_Woman{
+    lock
+    faceplayer
+    msgbox(BasalekHouse1_Woman_Text)
+    if(flag(FLAG_BASALEK_WOMAN_LEMONADE)){
+        release
+        end
+    }
+    giveitem(ITEM_FRESH_WATER)
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    setflag(FLAG_BASALEK_WOMAN_LEMONADE)
+    release
+}
+text BasalekHouse1_Woman_Text{
+    "It's pretty warm out there.\n"
+    "Remember to hydrate!"
+}
+script BasalekHouse1_Man{
+    msgbox(BasalekHouse1_Man_Text, MSGBOX_NPC)
+}
+text BasalekHouse1_Man_Text{
+    "Thanks to geothermal energy, we can\n"
+    "cool our houses for next to nothing."
 }

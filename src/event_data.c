@@ -54,13 +54,17 @@ void ClearDailyFlags(void)
     memset(&gSaveBlock1Ptr->flags[DAILY_FLAGS_START / 8], 0, DAILY_FLAGS_SIZE);
 }
 
-void SetHeartScaleMove(void)
+void RandomizeDailyVariables(void)
 {
     u32 rand;
 
+    // Kaolisle Hotel Heart Scale NPC
     rand = (Random() % 50) + 1;
     VarSet(VAR_HEARTSCALEMOVE, rand);
     VarSet(VAR_BPBEAUTY_STATE, 0);
+
+    // Basalek Town level checker
+    VarSet(VAR_BASALEK_LEVEL_CHECK, (Random() % 100 + 1));
 }
 
 void SetGrottos(void)

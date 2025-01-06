@@ -225,6 +225,10 @@ static inline const u8 GetTrainerPicFromId(u16 trainerId)
 {
     if (trainerId == TRAINER_MAY_PLACEHOLDER)
         return gSpecialVar_0x8001;
+    if (gTrainers[SanitizeTrainerId(trainerId)].trainerPic == TRAINER_PIC_BRENDAN && FlagGet(FLAG_RIVAL_COSTUME_CHANGE))
+        return TRAINER_PIC_BRENDAN_ORAS;
+    if (gTrainers[SanitizeTrainerId(trainerId)].trainerPic == TRAINER_PIC_MAY && FlagGet(FLAG_RIVAL_COSTUME_CHANGE))
+        return TRAINER_PIC_MAY_ORAS;
     return gTrainers[SanitizeTrainerId(trainerId)].trainerPic;
 }
 

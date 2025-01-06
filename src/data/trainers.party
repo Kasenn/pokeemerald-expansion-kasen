@@ -6963,7 +6963,7 @@ Electrike
 Level: 25
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_ISAIAH_1 ===
+=== TRAINER_BASALEK_MAY_ROWLET ===
 Name: ISAIAH
 Class: Triathlete
 Pic: Swimming Triathlete M
@@ -6976,7 +6976,7 @@ Staryu
 Level: 35
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_PABLO_1 ===
+=== TRAINER_BASALEK_MAY_TORCHIC ===
 Name: PABLO
 Class: Triathlete
 Pic: Swimming Triathlete M
@@ -6993,7 +6993,7 @@ Staryu
 Level: 33
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_CHASE ===
+=== TRAINER_BASALEK_MAY_PIPLUP ===
 Name: CHASE
 Class: Triathlete
 Pic: Swimming Triathlete M
@@ -7010,7 +7010,7 @@ Staryu
 Level: 34
 IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
 
-=== TRAINER_ISAIAH_2 ===
+=== TRAINER_BASALEK_BRENDAN_ROWLET ===
 Name: ISAIAH
 Class: Triathlete
 Pic: Swimming Triathlete M
@@ -7023,7 +7023,7 @@ Staryu
 Level: 39
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_ISAIAH_3 ===
+=== TRAINER_BASALEK_BRENDAN_TORCHIC ===
 Name: ISAIAH
 Class: Triathlete
 Pic: Swimming Triathlete M
@@ -7036,7 +7036,7 @@ Staryu
 Level: 42
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 
-=== TRAINER_ISAIAH_4 ===
+=== TRAINER_BASALEK_BRENDAN_PIPLUP ===
 Name: ISAIAH
 Class: Triathlete
 Pic: Swimming Triathlete M

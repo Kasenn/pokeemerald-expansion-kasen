@@ -1548,15 +1548,15 @@
 #define FLAG_ROUTE17_ITEM3                           (SYSTEM_FLAGS + 0xB3) // 
 #define FLAG_ROUTE17_ITEM4                           (SYSTEM_FLAGS + 0xB4) // 
 #define FLAG_RIVAL_MET_IN_BASALEK_MART                           (SYSTEM_FLAGS + 0xB5) // 
-#define FLAG_UNUSED_0x916                           (SYSTEM_FLAGS + 0xB6) // 
-#define FLAG_UNUSED_0x917                           (SYSTEM_FLAGS + 0xB7) // 
-#define FLAG_UNUSED_0x918                           (SYSTEM_FLAGS + 0xB8) // 
-#define FLAG_UNUSED_0x919                           (SYSTEM_FLAGS + 0xB9) // 
-#define FLAG_UNUSED_0x91A                           (SYSTEM_FLAGS + 0xBA) // 
-#define FLAG_UNUSED_0x91B                           (SYSTEM_FLAGS + 0xBB) // 
-#define FLAG_UNUSED_0x91C                           (SYSTEM_FLAGS + 0xBC) // 
-#define FLAG_UNUSED_0x91D                           (SYSTEM_FLAGS + 0xBD) // 
-#define FLAG_UNUSED_0x91E                           (SYSTEM_FLAGS + 0xBE) // 
+#define FLAG_EEVEE_EGG_SHOWN                           (SYSTEM_FLAGS + 0xB6) // 
+#define FLAG_BASALEK_WOMAN_LEMONADE                           (SYSTEM_FLAGS + 0xB7) // 
+#define FLAG_SUNKEN_CAVERN_ITEM1                           (SYSTEM_FLAGS + 0xB8) // 
+#define FLAG_SUNKEN_CAVERN_ITEM2                           (SYSTEM_FLAGS + 0xB9) // 
+#define FLAG_SUNKEN_CAVERN_ITEM3                           (SYSTEM_FLAGS + 0xBA) // 
+#define FLAG_SUNKEN_CAVERN_ITEM4                           (SYSTEM_FLAGS + 0xBB) // 
+#define FLAG_SUNKEN_CAVERN_ITEM5                           (SYSTEM_FLAGS + 0xBC) // 
+#define FLAG_SUNKEN_CAVERN_ITEM6                           (SYSTEM_FLAGS + 0xBD) // 
+#define FLAG_SUNKEN_CAVERN_ITEM7                           (SYSTEM_FLAGS + 0xBE) // 
 #define FLAG_UNUSED_0x91F                           (SYSTEM_FLAGS + 0xBF) // 
 
 // Daily Flags
@@ -1588,7 +1588,7 @@
 #define FLAG_DAILY_GROTTO_3                           (DAILY_FLAGS_START + 0x15) // 
 #define FLAG_DAILY_GROTTO_4                           (DAILY_FLAGS_START + 0x16) // 
 #define FLAG_DAILY_GROTTO_5                           (DAILY_FLAGS_START + 0x17) // 
-#define FLAG_UNUSED_0x938                           (DAILY_FLAGS_START + 0x18) // 
+#define FLAG_DAILY_BASALEK_CHECKER                           (DAILY_FLAGS_START + 0x18) // 
 #define FLAG_UNUSED_0x939                           (DAILY_FLAGS_START + 0x19) // 
 #define FLAG_UNUSED_0x93A                           (DAILY_FLAGS_START + 0x1A) // 
 #define FLAG_UNUSED_0x93B                           (DAILY_FLAGS_START + 0x1B) // 
@@ -1706,11 +1706,11 @@
 #define FLAG_UNLOCKED_REASSEMBLY_UNIT			(SPECIAL_FLAGS_END + 51)
 #define FLAG_ZYGARDE10_ASSEMBLED			    (SPECIAL_FLAGS_END + 52)
 #define FLAG_ZYGARDE50_ASSEMBLED			    (SPECIAL_FLAGS_END + 53)
-#define FLAG_UNUSED_EXTENDED_0054			    (SPECIAL_FLAGS_END + 54)
-#define FLAG_UNUSED_EXTENDED_0055			    (SPECIAL_FLAGS_END + 55)
-#define FLAG_UNUSED_EXTENDED_0056			    (SPECIAL_FLAGS_END + 56)
-#define FLAG_UNUSED_EXTENDED_0057			    (SPECIAL_FLAGS_END + 57)
-#define FLAG_UNUSED_EXTENDED_0058			    (SPECIAL_FLAGS_END + 58)
+#define FLAG_BASALEK_TUNNEL_ITEM1			    (SPECIAL_FLAGS_END + 54)
+#define FLAG_BASALEK_TUNNEL_ITEM2			    (SPECIAL_FLAGS_END + 55)
+#define FLAG_BASALEK_TUNNEL_ITEM3			    (SPECIAL_FLAGS_END + 56)
+#define FLAG_BASALEK_TUNNEL_ITEM4			    (SPECIAL_FLAGS_END + 57)
+#define FLAG_BASALEK_TUNNEL_ITEM5			    (SPECIAL_FLAGS_END + 58)
 #define FLAG_UNUSED_EXTENDED_0059			    (SPECIAL_FLAGS_END + 59)
 #define FLAG_UNUSED_EXTENDED_0060			    (SPECIAL_FLAGS_END + 60)
 #define FLAG_UNUSED_EXTENDED_0061			    (SPECIAL_FLAGS_END + 61)

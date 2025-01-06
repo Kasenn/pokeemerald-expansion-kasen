@@ -7224,12 +7224,22 @@
     {
       "id": "LAYOUT_BASALEK_TUNNELS",
       "name": "BasalekTunnels_Layout",
-      "width": 80,
-      "height": 80,
+      "width": 67,
+      "height": 72,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lavaridge",
+      "secondary_tileset": "gTileset_Basaluff",
       "border_filepath": "data/layouts/BasalekTunnels/border.bin",
       "blockdata_filepath": "data/layouts/BasalekTunnels/map.bin"
+    },
+    {
+      "id": "LAYOUT_SUNKERN_CAVERN",
+      "name": "SunkernCavern_Layout",
+      "width": 40,
+      "height": 130,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_WindplumeCave",
+      "border_filepath": "data/layouts/SunkernCavern/border.bin",
+      "blockdata_filepath": "data/layouts/SunkernCavern/map.bin"
     }
   ]
 }

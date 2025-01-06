@@ -1,11 +1,113 @@
 BasaluffTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, BasaluffTown_MapScripts_MAP_SCRIPT_ON_TRANSITION
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, BasaluffTown_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, BasaluffTown_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
 BasaluffTown_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setflag FLAG_VISITED_BASALEK
 	call Common_EventScript_SetupRivalGfxId
+	getplayerxy VAR_TEMP_3, VAR_TEMP_4
+	compare VAR_TEMP_3, 23
+	goto_if_eq BasaluffTown_MapScripts_MAP_SCRIPT_ON_TRANSITION_3
+BasaluffTown_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
+	compare VAR_TEMP_5, 1
+	goto_if_eq BasaluffTown_MapScripts_MAP_SCRIPT_ON_TRANSITION_6
 	return
+
+BasaluffTown_MapScripts_MAP_SCRIPT_ON_TRANSITION_2:
+	setvar VAR_TEMP_5, 1
+	goto BasaluffTown_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
+
+BasaluffTown_MapScripts_MAP_SCRIPT_ON_TRANSITION_3:
+	compare VAR_TEMP_4, 16
+	goto_if_eq BasaluffTown_MapScripts_MAP_SCRIPT_ON_TRANSITION_2
+	goto BasaluffTown_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
+
+BasaluffTown_MapScripts_MAP_SCRIPT_ON_TRANSITION_6:
+	setobjectxyperm 10, 24, 16
+	setobjectmovementtype 10, MOVEMENT_TYPE_FACE_LEFT
+	return
+
+BasaluffTown_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE:
+	map_script_2 VAR_TEMP_5, 1, BasaluffTown_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_0
+	.2byte 0
+
+BasaluffTown_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_0:
+	turnobject 0xFF, DIR_EAST
+	return
+
+BasaluffTown_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_TEMP_5, 1, BasaluffAutomaticRivalFight
+	.2byte 0
+
+
+BasaluffAutomaticRivalFight::
+	delay 30
+	setvar VAR_TEMP_5, 0
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq BasaluffAutomaticRivalFight_2
+	msgbox BasaluffBrendan_LetsStart
+	switch VAR_STARTER_MON
+	case 0, BasaluffAutomaticRivalFight_12
+	case 1, BasaluffAutomaticRivalFight_13
+	case 2, BasaluffAutomaticRivalFight_14
+BasaluffAutomaticRivalFight_10:
+	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, BasaluffAutomaticRivalFight_18
+	msgbox BasaluffBrendan_NoMegaPostBattle
+BasaluffAutomaticRivalFight_1:
+	closemessage
+	safefollow
+	applymovement 10, BasaluffAutomaticRivalFight_Movement_0
+	waitmovement 0
+	setflag FLAG_RIVAL_MET_IN_BASALEK
+	removeobject 10
+	release
+	return
+
+BasaluffAutomaticRivalFight_2:
+	msgbox BasaluffMay_LetsStart
+	switch VAR_STARTER_MON
+	case 0, BasaluffAutomaticRivalFight_7
+	case 1, BasaluffAutomaticRivalFight_8
+	case 2, BasaluffAutomaticRivalFight_9
+BasaluffAutomaticRivalFight_5:
+	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, BasaluffAutomaticRivalFight_15
+	msgbox BasaluffMay_NoMegaPostBattle
+	goto BasaluffAutomaticRivalFight_1
+
+BasaluffAutomaticRivalFight_7:
+	trainerbattle_no_intro TRAINER_BASALEK_MAY_ROWLET, BasalekMay_LostText
+	goto BasaluffAutomaticRivalFight_5
+
+BasaluffAutomaticRivalFight_8:
+	trainerbattle_no_intro TRAINER_BASALEK_MAY_TORCHIC, BasalekMay_LostText
+	goto BasaluffAutomaticRivalFight_5
+
+BasaluffAutomaticRivalFight_9:
+	trainerbattle_no_intro TRAINER_BASALEK_MAY_PIPLUP, BasalekMay_LostText
+	goto BasaluffAutomaticRivalFight_5
+
+BasaluffAutomaticRivalFight_12:
+	trainerbattle_no_intro TRAINER_BASALEK_BRENDAN_ROWLET, BasalekBrendan_LostText
+	goto BasaluffAutomaticRivalFight_10
+
+BasaluffAutomaticRivalFight_13:
+	trainerbattle_no_intro TRAINER_BASALEK_BRENDAN_TORCHIC, BasalekBrendan_LostText
+	goto BasaluffAutomaticRivalFight_10
+
+BasaluffAutomaticRivalFight_14:
+	trainerbattle_no_intro TRAINER_BASALEK_BRENDAN_PIPLUP, BasalekBrendan_LostText
+	goto BasaluffAutomaticRivalFight_10
+
+BasaluffAutomaticRivalFight_15:
+	msgbox BasaluffMay_PostBattle
+	goto BasaluffAutomaticRivalFight_1
+
+BasaluffAutomaticRivalFight_18:
+	msgbox BasaluffBrendan_PostBattle
+	goto BasaluffAutomaticRivalFight_1
 
 
 BasalekTown_Sign1::
@@ -63,13 +165,17 @@ BasalekTown_Beauty::
 BasalekTown_EggWoman::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_LAVARIDGE_EGG, BasalekTown_EggWoman_2
+	checkdexmon SPECIES_EEVEE
+	compare VAR_RESULT, TRUE
+	goto_if_eq BasalekTown_EggWoman_3
+BasalekTown_EggWoman_1:
+	goto_if_set FLAG_RECEIVED_LAVARIDGE_EGG, BasalekTown_EggWoman_7
 	msgbox BasalekTown_Text_HaveEggWillYouTakeIt, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
-	goto_if_eq BasalekTown_EggWoman_5
+	goto_if_eq BasalekTown_EggWoman_10
 	getpartysize
 	compare VAR_RESULT, PARTY_SIZE
-	goto_if_eq BasalekTown_EggWoman_8
+	goto_if_eq BasalekTown_EggWoman_13
 	msgbox BasalekTown_Text_HopeYoullWalkPlentyWithEgg
 	setflag FLAG_RECEIVED_LAVARIDGE_EGG
 	playfanfare MUS_OBTAIN_ITEM
@@ -80,14 +186,23 @@ BasalekTown_EggWoman::
 	return
 
 BasalekTown_EggWoman_2:
+	setflag FLAG_EEVEE_EGG_SHOWN
+	msgbox BasalekTown_EggHatched, MSGBOX_AUTOCLOSE
+	end
+
+BasalekTown_EggWoman_3:
+	goto_if_unset FLAG_EEVEE_EGG_SHOWN, BasalekTown_EggWoman_2
+	goto BasalekTown_EggWoman_1
+
+BasalekTown_EggWoman_7:
 	msgbox BasalekTown_Text_EverySoOftenEggFoundAtDayCare, MSGBOX_AUTOCLOSE
 	end
 
-BasalekTown_EggWoman_5:
+BasalekTown_EggWoman_10:
 	msgbox BasalekTown_Text_AsYouWishThen, MSGBOX_AUTOCLOSE
 	end
 
-BasalekTown_EggWoman_8:
+BasalekTown_EggWoman_13:
 	msgbox BasalekTown_Text_NoRoomForThisEgg, MSGBOX_AUTOCLOSE
 	end
 
@@ -111,8 +226,404 @@ BasalekTown_RivalTrigger3::
 
 
 BasalekTown_RivalScript::
+	lock
+	safefollow
+	getfollowerxy VAR_TEMP_3, VAR_TEMP_4
+	compare VAR_TEMP_3, 0
+	goto_if_ne BasalekTown_RivalScript_2
+BasalekTown_RivalScript_1:
+	delay 5
+	opendoor 20, 15
+	waitdooranim
+	addobject 10
+	setobjectxy 10, 20, 15
+	turnobject 10, DIR_SOUTH
+	delay 16
+	applymovement 10, Walk1Down
+	waitmovement 0
+	closedoor 20, 15
+	waitdooranim
+	switch VAR_TEMP_2
+	case 1, BasalekTown_RivalScript_6
+	case 2, BasalekTown_RivalScript_7
+	case 3, BasalekTown_RivalScript_8
+BasalekTown_RivalScript_4:
+	waitmovement 10
+	waitmovement 0xFF
+	delay 24
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq BasalekTown_RivalScript_10
+	goto_if_set FLAG_RIVAL_MET_IN_BASALEK_MART, BasalekTown_RivalScript_23
+	msgbox BasaluffTown_Brendan_NoBails
+BasalekTown_RivalScript_22:
+	switch VAR_STARTER_MON
+	case 0, BasalekTown_RivalScript_36
+	case 1, BasalekTown_RivalScript_37
+	case 2, BasalekTown_RivalScript_38
+BasalekTown_RivalScript_34:
+	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, BasalekTown_RivalScript_45
+	msgbox BasaluffBrendan_NoMegaPostBattle
+BasalekTown_RivalScript_9:
+	closemessage
+	safefollow
+	switch VAR_TEMP_2
+	case 1, BasalekTown_RivalScript_15
+	case 2, BasalekTown_RivalScript_16
+	case 3, BasalekTown_RivalScript_17
+BasalekTown_RivalScript_13:
+	waitmovement 10
+	waitmovement 0xFF
+	setflag FLAG_RIVAL_MET_IN_BASALEK
+	removeobject 10
+	release
 	return
 
+BasalekTown_RivalScript_2:
+	unlockfollowermovement
+	goto BasalekTown_RivalScript_1
+
+BasalekTown_RivalScript_6:
+	applymovement 10, BasalekTown_RivalScript_Movement_0
+	delay 48
+	applymovement 0xFF, BasalekTown_RivalScript_Movement_1
+	applymovement OBJ_EVENT_ID_FOLLOWER, BasalekTown_RivalScript_Movement_1
+	unlockfollowermovement
+	delay 64
+	applymovement 0xFF, BasalekTown_RivalScript_Movement_2
+	applymovement OBJ_EVENT_ID_FOLLOWER, BasalekTown_RivalScript_Movement_2
+	unlockfollowermovement
+	goto BasalekTown_RivalScript_4
+
+BasalekTown_RivalScript_7:
+	applymovement 10, BasalekTown_RivalScript_Movement_3
+	delay 64
+	applymovement 0xFF, BasalekTown_RivalScript_Movement_1
+	applymovement OBJ_EVENT_ID_FOLLOWER, BasalekTown_RivalScript_Movement_1
+	unlockfollowermovement
+	delay 64
+	applymovement 0xFF, BasalekTown_RivalScript_Movement_2
+	applymovement OBJ_EVENT_ID_FOLLOWER, BasalekTown_RivalScript_Movement_2
+	unlockfollowermovement
+	goto BasalekTown_RivalScript_4
+
+BasalekTown_RivalScript_8:
+	applymovement 10, BasalekTown_RivalScript_Movement_4
+	delay 64
+	applymovement 0xFF, BasalekTown_RivalScript_Movement_1
+	applymovement OBJ_EVENT_ID_FOLLOWER, BasalekTown_RivalScript_Movement_1
+	unlockfollowermovement
+	delay 48
+	applymovement 0xFF, BasalekTown_RivalScript_Movement_5
+	applymovement OBJ_EVENT_ID_FOLLOWER, BasalekTown_RivalScript_Movement_5
+	unlockfollowermovement
+	goto BasalekTown_RivalScript_4
+
+BasalekTown_RivalScript_10:
+	goto_if_set FLAG_RIVAL_MET_IN_BASALEK_MART, BasalekTown_RivalScript_19
+	msgbox BasaluffTown_May_NoBails
+BasalekTown_RivalScript_18:
+	switch VAR_STARTER_MON
+	case 0, BasalekTown_RivalScript_28
+	case 1, BasalekTown_RivalScript_29
+	case 2, BasalekTown_RivalScript_30
+BasalekTown_RivalScript_26:
+	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, BasalekTown_RivalScript_42
+	msgbox BasaluffMay_NoMegaPostBattle
+	goto BasalekTown_RivalScript_9
+
+BasalekTown_RivalScript_15:
+	applymovement 10, BasalekTown_RivalScript_Movement_6
+	goto BasalekTown_RivalScript_13
+
+BasalekTown_RivalScript_16:
+	applymovement 10, BasalekTown_RivalScript_Movement_7
+	goto BasalekTown_RivalScript_13
+
+BasalekTown_RivalScript_17:
+	applymovement 10, BasalekTown_RivalScript_Movement_8
+	applymovement 0xFF, BasalekTown_RivalScript_Movement_9
+	goto BasalekTown_RivalScript_13
+
+BasalekTown_RivalScript_19:
+	goto_if_set FLAG_RIVAL_HARBOR_ANGRY, BasalekTown_RivalScript_31
+	msgbox BasaluffTown_May_1Bail
+	goto BasalekTown_RivalScript_18
+
+BasalekTown_RivalScript_23:
+	goto_if_set FLAG_RIVAL_HARBOR_ANGRY, BasalekTown_RivalScript_39
+	msgbox BasaluffTown_Brendan_1Bail
+	goto BasalekTown_RivalScript_22
+
+BasalekTown_RivalScript_28:
+	trainerbattle_no_intro TRAINER_BASALEK_MAY_ROWLET, BasalekMay_LostText
+	goto BasalekTown_RivalScript_26
+
+BasalekTown_RivalScript_29:
+	trainerbattle_no_intro TRAINER_BASALEK_MAY_TORCHIC, BasalekMay_LostText
+	goto BasalekTown_RivalScript_26
+
+BasalekTown_RivalScript_30:
+	trainerbattle_no_intro TRAINER_BASALEK_MAY_PIPLUP, BasalekMay_LostText
+	goto BasalekTown_RivalScript_26
+
+BasalekTown_RivalScript_31:
+	msgbox BasaluffTown_May_2Bails
+	goto BasalekTown_RivalScript_18
+
+BasalekTown_RivalScript_36:
+	trainerbattle_no_intro TRAINER_BASALEK_BRENDAN_ROWLET, BasalekBrendan_LostText
+	goto BasalekTown_RivalScript_34
+
+BasalekTown_RivalScript_37:
+	trainerbattle_no_intro TRAINER_BASALEK_BRENDAN_TORCHIC, BasalekBrendan_LostText
+	goto BasalekTown_RivalScript_34
+
+BasalekTown_RivalScript_38:
+	trainerbattle_no_intro TRAINER_BASALEK_BRENDAN_PIPLUP, BasalekBrendan_LostText
+	goto BasalekTown_RivalScript_34
+
+BasalekTown_RivalScript_39:
+	msgbox BasaluffTown_Brendan_2Bails
+	goto BasalekTown_RivalScript_22
+
+BasalekTown_RivalScript_42:
+	msgbox BasaluffMay_PostBattle
+	goto BasalekTown_RivalScript_9
+
+BasalekTown_RivalScript_45:
+	msgbox BasaluffBrendan_PostBattle
+	goto BasalekTown_RivalScript_9
+
+
+TurnPlayerAndFollowerRight:
+	delay_16
+	delay_16
+	walk_in_place_fast_right
+	step_end
+
+BasalekTown_LevelChecker::
+	goto_if_set FLAG_DAILY_BASALEK_CHECKER, BasalekTown_LevelChecker_2
+	lock
+	faceplayer
+	buffernumberstring STR_VAR_1, VAR_BASALEK_LEVEL_CHECK
+	msgbox BasalekTown_LevelChecker_NoMatch, MSGBOX_AUTOCLOSE
+	matchpartylevel VAR_BASALEK_LEVEL_CHECK
+	compare VAR_RESULT, FALSE
+	goto_if_eq BasalekTown_LevelChecker_5
+	msgbox BasalekTown_LevelChecker_YesMatch
+	switch VAR_BASALEK_LEVEL_REWARD
+	case 0, BasalekTown_LevelChecker_9
+	case 1, BasalekTown_LevelChecker_10
+	case 2, BasalekTown_LevelChecker_11
+	case 3, BasalekTown_LevelChecker_12
+BasalekTown_LevelChecker_7:
+	compare VAR_RESULT, FALSE
+	goto_if_eq BasalekTown_LevelChecker_14
+BasalekTown_LevelChecker_13:
+	setflag FLAG_DAILY_BASALEK_CHECKER
+	addvar VAR_BASALEK_LEVEL_REWARD, 1
+	compare VAR_BASALEK_LEVEL_REWARD, 4
+	goto_if_eq BasalekTown_LevelChecker_17
+BasalekTown_LevelChecker_16:
+	msgbox BasalekTown_LevelChecker_ComeAgain
+	release
+	return
+
+BasalekTown_LevelChecker_2:
+	msgbox BasalekTown_LevelChecker_ComeAgain, MSGBOX_NPC
+	end
+
+BasalekTown_LevelChecker_5:
+	end
+
+BasalekTown_LevelChecker_9:
+	giveitem ITEM_MUSCLE_BAND
+	goto BasalekTown_LevelChecker_7
+
+BasalekTown_LevelChecker_10:
+	giveitem ITEM_BINDING_BAND
+	goto BasalekTown_LevelChecker_7
+
+BasalekTown_LevelChecker_11:
+	giveitem ITEM_FOCUS_BAND
+	goto BasalekTown_LevelChecker_7
+
+BasalekTown_LevelChecker_12:
+	giveitem ITEM_CHOICE_BAND
+	goto BasalekTown_LevelChecker_7
+
+BasalekTown_LevelChecker_14:
+	goto ZeBagIsFull
+	goto BasalekTown_LevelChecker_13
+
+BasalekTown_LevelChecker_17:
+	setvar VAR_BASALEK_LEVEL_CHECK, 0
+	goto BasalekTown_LevelChecker_16
+
+
+BasalekHouse1_Woman::
+	lock
+	faceplayer
+	msgbox BasalekHouse1_Woman_Text
+	goto_if_set FLAG_BASALEK_WOMAN_LEMONADE, BasalekHouse1_Woman_2
+	giveitem ITEM_FRESH_WATER
+	compare VAR_RESULT, FALSE
+	goto_if_eq BasalekHouse1_Woman_5
+	setflag FLAG_BASALEK_WOMAN_LEMONADE
+	release
+	return
+
+BasalekHouse1_Woman_2:
+	release
+	end
+
+BasalekHouse1_Woman_5:
+	release
+	end
+
+
+BasalekHouse1_Man::
+	msgbox BasalekHouse1_Man_Text, MSGBOX_NPC
+	return
+
+
+BasaluffAutomaticRivalFight_Movement_0:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_up
+	walk_right
+	walk_up
+	walk_right
+	walk_right
+	step_end
+
+BasalekTown_RivalScript_Movement_0:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_in_place_fast_left
+	step_end
+
+BasalekTown_RivalScript_Movement_1:
+	walk_in_place_fast_down
+	step_end
+
+BasalekTown_RivalScript_Movement_2:
+	walk_in_place_fast_right
+	step_end
+
+BasalekTown_RivalScript_Movement_3:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_in_place_fast_left
+	step_end
+
+BasalekTown_RivalScript_Movement_4:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_in_place_fast_right
+	step_end
+
+BasalekTown_RivalScript_Movement_5:
+	walk_in_place_fast_left
+	step_end
+
+BasalekTown_RivalScript_Movement_6:
+	walk_up
+	walk_right
+	walk_up
+	walk_right
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+BasalekTown_RivalScript_Movement_7:
+	walk_up
+	walk_right
+	walk_up
+	walk_right
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+BasalekTown_RivalScript_Movement_8:
+	walk_up
+	walk_right
+	walk_up
+	walk_right
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+BasalekTown_RivalScript_Movement_9:
+	delay_16
+	delay_16
+	delay_16
+	walk_in_place_fast_up
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_in_place_fast_right
+	step_end
+
+BasaluffMay_LetsStart::
+	.string "$"
+
+BasalekMay_LostText::
+	.string "$"
+
+BasaluffMay_PostBattle::
+	.string "$"
+
+BasaluffMay_NoMegaPostBattle::
+	.string "$"
+
+BasaluffBrendan_LetsStart::
+	.string "$"
+
+BasalekBrendan_LostText::
+	.string "$"
+
+BasaluffBrendan_PostBattle::
+	.string "$"
+
+BasaluffBrendan_NoMegaPostBattle::
+	.string "$"
 
 BasalekTown_Sign1_Text::
 	.string "BASALEK TOWN\p"
@@ -161,35 +672,87 @@ BasalekTown_Beauty_Text::
 	.string "guess I can stay for another 5 minutes.$"
 
 BasalekTown_Text_HaveEggWillYouTakeIt::
-	.string "I have here an EGG.\p"
-	.string "I'd hoped to hatch it by covering it in\n"
-	.string "hot sand by the hot springs.\l"
-	.string "But that doesn't seem to be enough…\p"
-	.string "I've heard it would be best if it were\n"
-	.string "kept together with POKéMON and\l"
-	.string "carried about.\p"
-	.string "You are a TRAINER, yes?\n"
-	.string "And your POKéMON radiate vitality.\p"
-	.string "So, what say you?\n"
-	.string "Will you take this EGG to hatch?$"
+	.string "I recently found my Pokémon carrying\n"
+	.string "this egg.\p"
+	.string "In the past I would have been ecstatic,\n"
+	.string "but I don't think I'm capable of taking\l"
+	.string "care of any more Pokémon anymore.\p"
+	.string "I saw your battle with your friend,\n"
+	.string "and I must say, I'm very impressed.\p"
+	.string "You seem like the type of person who\n"
+	.string "takes good care of their Pokémon.\p"
+	.string "What say you?\n"
+	.string "Would you like to care for this egg?$"
 
 BasalekTown_Text_HopeYoullWalkPlentyWithEgg::
-	.string "Good! I hope you'll walk plenty with\n"
-	.string "this here EGG!$"
+	.string "Thank you!\n"
+	.string "It warms my heart, knowing it will have\l"
+	.string "someone caring for it.$"
 
 BasalekTown_Text_ReceivedTheEgg::
-	.string "{PLAYER} received the EGG.$"
+	.string "{PLAYER} received the Pokémon egg.$"
 
 BasalekTown_Text_NoRoomForThisEgg::
-	.string "Oh? You've too many POKéMON.\n"
-	.string "There's no room for this EGG…$"
+	.string "Oh? You've too many Pokémon.\n"
+	.string "There's no room for this egg…$"
 
 BasalekTown_Text_AsYouWishThen::
 	.string "As you wish, then…\p"
 	.string "If you have a change of heart about\n"
-	.string "hatching this EGG, I will be here.$"
+	.string "hatching this egg, I will be here.$"
 
 BasalekTown_Text_EverySoOftenEggFoundAtDayCare::
-	.string "Every so often, an EGG will be found at\n"
-	.string "the POKéMON DAY CARE.\p"
+	.string "Every so often, an egg will be found at\n"
+	.string "the Pokémon Day Care.\p"
 	.string "Or at least that's how the rumor goes.$"
+
+BasalekTown_EggHatched::
+	.string "How is the egg doing?\p"
+	.string "… … …\p"
+	.string "It hatched already?\n"
+	.string "That's great to hear.\l"
+	.string "I knew I chose a caring trainer.$"
+
+BasaluffTown_Brendan_NoBails::
+	.string "$"
+
+BasaluffTown_Brendan_1Bail::
+	.string "$"
+
+BasaluffTown_Brendan_2Bails::
+	.string "$"
+
+BasaluffTown_May_NoBails::
+	.string "$"
+
+BasaluffTown_May_1Bail::
+	.string "$"
+
+BasaluffTown_May_2Bails::
+	.string "$"
+
+BasalekTown_LevelChecker_NoMatch::
+	.string "…I saw it!\n"
+	.string "Today's number is {STR_VAR_1}!\p"
+	.string "Show me a Pokémon that's Lv. {STR_VAR_1}.\n"
+	.string "If you can, I'll reward you.$"
+
+BasalekTown_LevelChecker_YesMatch::
+	.string "…Oh, now, hunh?!\p"
+	.string "I see you have a Pokémon\n"
+	.string "that is Lv. {STR_VAR_1}.\p"
+	.string "Well, I'll be! How remarkable!\p"
+	.string "I'll thank you for that visual treat\n"
+	.string "with this.$"
+
+BasalekTown_LevelChecker_ComeAgain::
+	.string "Come back another day for\n"
+	.string "another showcase!$"
+
+BasalekHouse1_Woman_Text::
+	.string "It's pretty warm out there.\n"
+	.string "Remember to hydrate!$"
+
+BasalekHouse1_Man_Text::
+	.string "Thanks to geothermal energy, we can\n"
+	.string "cool our houses for next to nothing.$"

@@ -140,6 +140,7 @@
 #define MAP_UNDERGROUND_RUINS_5F             (45 | (2 << 8))
 #define MAP_AZURETIDE_GROTTO                 (46 | (2 << 8))
 #define MAP_BASALEK_TUNNELS                  (47 | (2 << 8))
+#define MAP_SUNKERN_CAVERN                   (48 | (2 << 8))
 
 // gMapGroup_IndoorPearlwoodPoint
 #define MAP_LAB2                   (0 | (3 << 8))

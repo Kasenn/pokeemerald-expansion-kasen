@@ -154,8 +154,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_VAR_0",
-      "x": 25,
-      "y": 11,
+      "x": 3,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -163,7 +163,20 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_TEMP_1"
+      "flag": "FLAG_RIVAL_MET_IN_BASALEK"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
+      "x": 29,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BasalekTown_EggWoman",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -185,7 +198,7 @@
       "x": 11,
       "y": 34,
       "elevation": 0,
-      "dest_map": "MAP_BASALUFF_TOWN",
+      "dest_map": "MAP_BASALEK_TUNNELS",
       "dest_warp_id": "0"
     },
     {
