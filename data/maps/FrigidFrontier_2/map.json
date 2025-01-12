@@ -1,0 +1,150 @@
+{
+  "id": "MAP_FRIGID_FRONTIER_2",
+  "name": "FrigidFrontier_2",
+  "layout": "LAYOUT_FRIGID_FRONTIER_2",
+  "music": "MUS_MT_CHIMNEY",
+  "region_map_section": "MAPSEC_BARREN_WASTES",
+  "requires_flash": false,
+  "weather": "WEATHER_BLIZZARD",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_BARREN_WASTES",
+      "offset": 6,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_FRIGID_FRONTIER3",
+      "offset": -2,
+      "direction": "up"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 17,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_FRIGID_FRONTIER3",
+      "dest_warp_id": "11"
+    },
+    {
+      "x": 18,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_FRIGID_FRONTIER3",
+      "dest_warp_id": "10"
+    },
+    {
+      "x": 19,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_FRIGID_FRONTIER3",
+      "dest_warp_id": "9"
+    },
+    {
+      "x": 20,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_FRIGID_FRONTIER3",
+      "dest_warp_id": "8"
+    },
+    {
+      "x": 30,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_BARREN_WASTES",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 30,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_BARREN_WASTES",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 30,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_BARREN_WASTES",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 30,
+      "y": 22,
+      "elevation": 0,
+      "dest_map": "MAP_BARREN_WASTES",
+      "dest_warp_id": "7"
+    },
+    {
+      "x": 22,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_BARREN_WASTES",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 21,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_BARREN_WASTES",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 20,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_BARREN_WASTES",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 19,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_BARREN_WASTES",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 9,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_FRIGID_FRONTIER_2",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 9,
+      "y": 22,
+      "elevation": 0,
+      "dest_map": "MAP_FRIGID_FRONTIER_2",
+      "dest_warp_id": "5"
+    },
+    {
+      "x": 9,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_FRIGID_FRONTIER_2",
+      "dest_warp_id": "6"
+    },
+    {
+      "x": 9,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_FRIGID_FRONTIER_2",
+      "dest_warp_id": "7"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

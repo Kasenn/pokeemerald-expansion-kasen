@@ -22,6 +22,11 @@
       "map": "MAP_TOWN_WIP2",
       "offset": 5,
       "direction": "left"
+    },
+    {
+      "map": "MAP_ROUTE6FILLER",
+      "offset": 51,
+      "direction": "up"
     }
   ],
   "object_events": [
@@ -102,6 +107,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ZygardeCell",
       "flag": "FLAG_ZYGARDE_CELL_18"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 58,
+      "y": 0,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 59,
+      "y": 0,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "FLAG_TEMP_1"
     }
   ],
   "warp_events": [
@@ -111,6 +142,20 @@
       "elevation": 0,
       "dest_map": "MAP_WEIRD_CAVE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 58,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_DESERT_CLIFFS",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 59,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_DESERT_CLIFFS",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [

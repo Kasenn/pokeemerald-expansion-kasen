@@ -2104,6 +2104,9 @@ const u32 gItemIconPalette_LostKey[] = INCBIN_U32("graphics/items/icon_palettes/
 const u32 gItemIcon_StoneSphere[] = INCBIN_U32("graphics/items/icons/stone_sphere.4bpp.lz");
 const u32 gItemIconPalette_StoneSphere[] = INCBIN_U32("graphics/items/icon_palettes/stone_sphere.gbapal.lz");
 
+const u32 gItemIcon_VerdantSphere[] = INCBIN_U32("graphics/items/icons/verdant_sphere.4bpp.lz");
+const u32 gItemIconPalette_VerdantSphere[] = INCBIN_U32("graphics/items/icons/verdant_sphere.gbapal.lz");
+
 const u32 gItemIcon_ChargedOrb[] = INCBIN_U32("graphics/items/icons/charged_orb.4bpp.lz");
 const u32 gItemIconPalette_ChargedOrb[] = INCBIN_U32("graphics/items/icons/charged_orb.gbapal.lz");
 

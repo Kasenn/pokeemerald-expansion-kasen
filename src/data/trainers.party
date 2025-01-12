@@ -7049,7 +7049,7 @@ Starmie
 Level: 45
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
-=== TRAINER_ISAIAH_5 ===
+=== TRAINER_R17_TR1_CAMPER_M ===
 Name: ISAIAH
 Class: Triathlete
 Pic: Swimming Triathlete M
@@ -7062,7 +7062,7 @@ Starmie
 Level: 48
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
-=== TRAINER_ISOBEL ===
+=== TRAINER_R17_TR2_PICNICKER1 ===
 Name: ISOBEL
 Class: Triathlete
 Pic: Swimming Triathlete F
@@ -7075,7 +7075,7 @@ Staryu
 Level: 34
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_DONNY ===
+=== TRAINER_R17_TR3_PICNICKER2 ===
 Name: DONNY
 Class: Triathlete
 Pic: Swimming Triathlete F
@@ -7092,7 +7092,7 @@ Staryu
 Level: 34
 IVs: 19 HP / 19 Atk / 19 Def / 19 SpA / 19 SpD / 19 Spe
 
-=== TRAINER_TALIA ===
+=== TRAINER_R17_TR4_MANIAC ===
 Name: TALIA
 Class: Triathlete
 Pic: Swimming Triathlete F
@@ -7105,7 +7105,7 @@ Staryu
 Level: 34
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_KATELYN_1 ===
+=== TRAINER_R17_TR5_SCIENTIST ===
 Name: KATELYN
 Class: Triathlete
 Pic: Swimming Triathlete F
@@ -7118,7 +7118,7 @@ Staryu
 Level: 35
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_ALLISON ===
+=== TRAINER_R17_TR6_HIKER1 ===
 Name: ALLISON
 Class: Triathlete
 Pic: Swimming Triathlete F
@@ -7135,7 +7135,7 @@ Staryu
 Level: 33
 IVs: 29 HP / 29 Atk / 29 Def / 29 SpA / 29 SpD / 29 Spe
 
-=== TRAINER_KATELYN_2 ===
+=== TRAINER_R17_TR7_HIKER2 ===
 Name: KATELYN
 Class: Triathlete
 Pic: Swimming Triathlete F
@@ -7148,7 +7148,7 @@ Staryu
 Level: 39
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_KATELYN_3 ===
+=== TRAINER_R17_TR8_COOLTRAINER ===
 Name: KATELYN
 Class: Triathlete
 Pic: Swimming Triathlete F
@@ -7161,7 +7161,7 @@ Staryu
 Level: 42
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 
-=== TRAINER_KATELYN_4 ===
+=== TRAINER_BASALTUNNEL_TR1_HIKER1 ===
 Name: KATELYN
 Class: Triathlete
 Pic: Swimming Triathlete F
@@ -7174,7 +7174,7 @@ Starmie
 Level: 45
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
-=== TRAINER_KATELYN_5 ===
+=== TRAINER_BASALTUNNEL_TR2_BLACKBELT ===
 Name: KATELYN
 Class: Triathlete
 Pic: Swimming Triathlete F
@@ -7187,7 +7187,7 @@ Starmie
 Level: 48
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
-=== TRAINER_NICOLAS_1 ===
+=== TRAINER_BASALTUNNEL_TR3_PICNICKER ===
 Name: NICOLAS
 Class: Dragon Tamer
 Pic: Dragon Tamer
@@ -7204,7 +7204,7 @@ Altaria
 Level: 37
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_NICOLAS_2 ===
+=== TRAINER_BASALTUNNEL_TR4_FIREBREATHER ===
 Name: NICOLAS
 Class: Dragon Tamer
 Pic: Dragon Tamer
@@ -7221,7 +7221,7 @@ Altaria
 Level: 41
 IVs: 13 HP / 13 Atk / 13 Def / 13 SpA / 13 SpD / 13 Spe
 
-=== TRAINER_NICOLAS_3 ===
+=== TRAINER_BASALTUNNEL_TR5_BLACKBELT2 ===
 Name: NICOLAS
 Class: Dragon Tamer
 Pic: Dragon Tamer
@@ -7238,7 +7238,7 @@ Altaria
 Level: 44
 IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 
-=== TRAINER_NICOLAS_4 ===
+=== TRAINER_BASALTUNNEL_TR6_CAMPERM ===
 Name: NICOLAS
 Class: Dragon Tamer
 Pic: Dragon Tamer
@@ -7259,7 +7259,7 @@ Altaria
 Level: 46
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 
-=== TRAINER_NICOLAS_5 ===
+=== TRAINER_BASALTUNNEL_TR7_PICNICKER2 ===
 Name: NICOLAS
 Class: Dragon Tamer
 Pic: Dragon Tamer
@@ -7280,7 +7280,7 @@ Shelgon @ Dragon Fang
 Level: 49
 IVs: 17 HP / 17 Atk / 17 Def / 17 SpA / 17 SpD / 17 Spe
 
-=== TRAINER_AARON ===
+=== TRAINER_BASALTUNNEL_TR8_HIKER2 ===
 Name: AARON
 Class: Dragon Tamer
 Pic: Dragon Tamer
@@ -7297,7 +7297,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Focus Energy
 - Ember
 
-=== TRAINER_PERRY ===
+=== TRAINER_BASALTUNNEL_TR9_BEAUTY ===
 Name: PERRY
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7310,7 +7310,7 @@ Wingull
 Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_HUGH ===
+=== TRAINER_BASALTUNNEL_TR10_FIREBREATHER2 ===
 Name: HUGH
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7327,7 +7327,7 @@ Tropius
 Level: 25
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_PHIL ===
+=== TRAINER_BASALTUNNEL_TR11_HIKER3 ===
 Name: PHIL
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7340,7 +7340,7 @@ Swellow
 Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_JARED ===
+=== TRAINER_BASALTUNNEL_TR12_BROCK ===
 Name: JARED
 Class: Bird Keeper
 Pic: Bird Keeper

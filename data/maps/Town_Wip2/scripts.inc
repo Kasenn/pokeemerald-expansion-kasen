@@ -4,6 +4,7 @@ Town_Wip2_MapScripts::
 
 
 Skyloch_SetFlag::
+	setflag FLAG_TEMP_1
 	setflag FLAG_VISITED_WIP_TOWN2
 	setflag FLAG_INCREASED_SHINY_ODDS
 	end
@@ -222,6 +223,78 @@ Route23Lake_Hiker::
 	msgbox Route23Lake_Hiker_Text, MSGBOX_NPC
 	return
 
+
+TriggerLatiasRoam::
+	checkitem ITEM_SOUL_DEW
+	compare VAR_RESULT, FALSE
+	goto_if_eq TriggerLatiasRoam_2
+	safefollow
+	release
+	fadeoutbgm 0
+	delay 60
+	msgbox SoulDewStartsShining, MSGBOX_SIGN
+	playse SE_M_DETECT
+	dofieldeffectsparkle 25, 26, 0
+	waitfieldeffect FLDEFF_SPARKLE
+	setvar VAR_RESULT, 2
+	playse SE_ORB
+	special DoOrbEffect
+	delay 150
+	waitstate
+	addobject 8
+	special FadeOutOrbEffect
+	waitstate
+	delay 60
+	playse SE_M_FLY
+	waitse
+	delay 30
+	applymovement 8, TriggerLatiasRoam_Movement_0
+	waitmovement 0
+	delay 60
+	playmoncry SPECIES_LATIAS, CRY_MODE_NORMAL
+	waitmoncry
+	delay 30
+	playse SE_PC_ON
+	waitse
+	msgbox LatisRegistered, MSGBOX_SIGN
+	delay 60
+	playse SE_M_FLY
+	applymovement 8, TriggerLatiasRoam_Movement_1
+	waitmovement 0
+	waitse
+	delay 60
+	setseenmon SPECIES_LATIAS
+	setflag FLAG_LATIAS_ROAMING
+	setvar VAR_0x8004, 0
+	special InitRoamer
+	removeobject 8
+	fadeinbgm 0
+	delay 48
+	end
+
+TriggerLatiasRoam_2:
+	release
+	end
+
+
+TriggerLatiasRoam_Movement_0:
+	walk_slow_down
+	walk_slow_down
+	walk_slow_down
+	walk_slow_down
+	walk_slow_down
+	walk_slow_down
+	step_end
+
+TriggerLatiasRoam_Movement_1:
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
 
 SkylochInt_FatMan_Text_0:
 	.string "Oh…$"

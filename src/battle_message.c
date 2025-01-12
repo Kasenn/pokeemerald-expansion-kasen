@@ -609,6 +609,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_MISTYTERRAINENDS]                     = COMPOUND_STRING("The mist disappeared\nfrom the battlefield."),
     [STRINGID_PSYCHICTERRAINENDS]                   = COMPOUND_STRING("The weirdness disappeared\nfrom the battlefield."),
     [STRINGID_GRASSYTERRAINENDS]                    = COMPOUND_STRING("The grass disappeared\nfrom the battlefield."),
+    [STRINGID_ROCKYTERRAINENDS]                     = COMPOUND_STRING("The stones disappeared\nfrom the battlefield."),
     [STRINGID_TARGETABILITYSTATRAISE]               = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY}\nraised its {B_BUFF1}!"),
     [STRINGID_TARGETSSTATWASMAXEDOUT]               = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY} maxed\nits {B_BUFF1}!"),
     [STRINGID_ATTACKERABILITYSTATRAISE]             = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX}'s {B_ATK_ABILITY}\nraised its {B_BUFF1}!"),
@@ -658,6 +659,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_TOPSYTURVYSWITCHEDSTATS]              = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s stat changes were\nall reversed!"),
     [STRINGID_TERRAINBECOMESMISTY]                  = COMPOUND_STRING("Mist swirled about\nthe battlefield!"),
     [STRINGID_TERRAINBECOMESGRASSY]                 = COMPOUND_STRING("Grass grew to cover\nthe battlefield!"),
+    [STRINGID_TERRAINBECOMESROCKY]                  = COMPOUND_STRING("Spiky rocks cover\nthe battlefield!"),
     [STRINGID_TERRAINBECOMESELECTRIC]               = COMPOUND_STRING("An electric current runs across\nthe battlefield!"),
     [STRINGID_TERRAINBECOMESPSYCHIC]                = COMPOUND_STRING("The battlefield got weird!"),
     [STRINGID_TARGETELECTRIFIED]                    = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s moves\nhave been electrified!"),
@@ -679,6 +681,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_GRAVITYGROUNDING]                     = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} can't stay airborne\nbecause of gravity!"),
     [STRINGID_MISTYTERRAINPREVENTS]                 = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} surrounds itself\nwith a protective mist!"),
     [STRINGID_GRASSYTERRAINHEALS]                   = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} is healed\nby the grassy terrain!"),
+    [STRINGID_ROCKYTERRAINDAMAGES]                  = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} is hurt\nby the rocky terrain!"),
     [STRINGID_ELECTRICTERRAINPREVENTS]              = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} surrounds itself\nwith electrified terrain!"),
     [STRINGID_PSYCHICTERRAINPREVENTS]               = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} surrounds itself\nwith psychic terrain!"),
     [STRINGID_SAFETYGOGGLESPROTECTED]               = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} is not affected\nthanks to its {B_LAST_ITEM}!"),
@@ -881,6 +884,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_ITISHAILING]                          = COMPOUND_STRING("It's hailing!"),
     [STRINGID_ITISSNOWING]                          = COMPOUND_STRING("It's snowing!"),
     [STRINGID_ISCOVEREDWITHGRASS]                   = COMPOUND_STRING("The battlefield is covered with\ngrass!"),
+    [STRINGID_ISCOVEREDWITHROCKS]                   = COMPOUND_STRING("The battlefield is covered with\nspiky rocks!"),
     [STRINGID_MISTSWIRLSAROUND]                     = COMPOUND_STRING("Mist swirls around the\nbattlefield!"),
     [STRINGID_ELECTRICCURRENTISRUNNING]             = COMPOUND_STRING("An electric current runs across\nthe battlefield!"),
     [STRINGID_SEEMSWEIRD]                           = COMPOUND_STRING("The battlefield got weird!"),
@@ -936,6 +940,7 @@ const u16 gStartingStatusStringIds[B_MSG_STARTING_STATUS_COUNT] =
     [B_MSG_SET_WONDER_ROOM]         = STRINGID_BIZARREAREACREATED,
     [B_MSG_SET_TAILWIND_PLAYER]     = STRINGID_TAILWINDBLEW,
     [B_MSG_SET_TAILWIND_OPPONENT]   = STRINGID_TAILWINDBLEW,
+    [B_MSG_TERRAIN_SET_ROCKY]       = STRINGID_TERRAINBECOMESROCKY,
 };
 
 const u16 gTerrainStringIds[B_MSG_TERRAIN_COUNT] =
@@ -944,10 +949,12 @@ const u16 gTerrainStringIds[B_MSG_TERRAIN_COUNT] =
     [B_MSG_TERRAIN_SET_ELECTRIC] = STRINGID_TERRAINBECOMESELECTRIC,
     [B_MSG_TERRAIN_SET_PSYCHIC] = STRINGID_TERRAINBECOMESPSYCHIC,
     [B_MSG_TERRAIN_SET_GRASSY] = STRINGID_TERRAINBECOMESGRASSY,
+    [B_MSG_TERRAIN_SET_ROCKY] = STRINGID_TERRAINBECOMESROCKY,
     [B_MSG_TERRAIN_END_MISTY] = STRINGID_MISTYTERRAINENDS,
     [B_MSG_TERRAIN_END_ELECTRIC] = STRINGID_ELECTRICTERRAINENDS,
     [B_MSG_TERRAIN_END_PSYCHIC] = STRINGID_PSYCHICTERRAINENDS,
     [B_MSG_TERRAIN_END_GRASSY] = STRINGID_GRASSYTERRAINENDS,
+    [B_MSG_TERRAIN_END_ROCKY] = STRINGID_ROCKYTERRAINENDS,
 };
 
 const u16 gTerrainPreventsStringIds[] =
@@ -1303,6 +1310,7 @@ const u16 gTerrainStartsStringIds[] =
     [B_MSG_TERRAIN_SET_ELECTRIC] = STRINGID_ELECTRICCURRENTISRUNNING,
     [B_MSG_TERRAIN_SET_PSYCHIC]  = STRINGID_SEEMSWEIRD,
     [B_MSG_TERRAIN_SET_GRASSY]   = STRINGID_ISCOVEREDWITHGRASS,
+    [B_MSG_TERRAIN_SET_ROCKY]    = STRINGID_ISCOVEREDWITHROCKS,
 };
 
 const u16 gPrimalWeatherBlocksStringIds[] =
@@ -2150,7 +2158,7 @@ void BufferStringBattle(u16 stringID, u32 battler)
                 stringPtr = sText_LegendaryPkmnAppeared;
             else if (IsDoubleBattle() && IsValidForBattle(&gEnemyParty[gBattlerPartyIndexes[GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT)]]))
                 stringPtr = sText_TwoWildPkmnAppeared;
-            else if (FlagGet(FLAG_SYSTEM_NO_WILD_RUNNING))
+            else if (FlagGet(FLAG_WILD_TRAINER_MON))
                 stringPtr = sText_OpponentMon1Appeared;
             else
                 stringPtr = sText_WildPkmnAppeared;
@@ -2439,7 +2447,7 @@ static void GetBattlerNick(u32 battler, u8 *dst)
     {                                                                   \
         if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)                     \
             toCpy = sText_FoePkmnPrefix;                                \
-        else if (FlagGet(FLAG_SYSTEM_NO_WILD_RUNNING))                  \
+        else if (FlagGet(FLAG_WILD_TRAINER_MON))                  \
             toCpy = sText_FoePkmnPrefix;                                \
         else                                                            \
             toCpy = sText_WildPkmnPrefix;                               \
@@ -2902,7 +2910,7 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst, u32 dstSize)
                 {
                     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
                         toCpy = sText_FoePkmnPrefix;
-                    else if (FlagGet(FLAG_SYSTEM_NO_WILD_RUNNING))
+                    else if (FlagGet(FLAG_WILD_TRAINER_MON))
                         toCpy = sText_FoePkmnPrefix;
                     else
                         toCpy = sText_WildPkmnPrefix;

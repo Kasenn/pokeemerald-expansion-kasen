@@ -70,7 +70,7 @@ FortreeCity_Gym_EventScript_WinonaRematch::
 	end
 
 FortreeCity_Gym_EventScript_Jared::
-	trainerbattle_single TRAINER_JARED, FortreeCity_Gym_Text_JaredIntro, FortreeCity_Gym_Text_JaredDefeat
+	trainerbattle_single TRAINER_BASALTUNNEL_TR12_BROCK, FortreeCity_Gym_Text_JaredIntro, FortreeCity_Gym_Text_JaredDefeat
 	msgbox FortreeCity_Gym_Text_JaredPostBattle, MSGBOX_AUTOCLOSE
 	end
 

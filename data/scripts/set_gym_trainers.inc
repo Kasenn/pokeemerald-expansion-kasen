@@ -73,7 +73,7 @@ PetalburgCity_Gym_SetGymTrainers::
 	return
 
 FortreeCity_Gym_SetGymTrainers::
-	settrainerflag TRAINER_JARED
+	settrainerflag TRAINER_BASALTUNNEL_TR12_BROCK
 	settrainerflag TRAINER_FLINT
 	settrainerflag TRAINER_ASHLEY
 	settrainerflag TRAINER_EDWARDO

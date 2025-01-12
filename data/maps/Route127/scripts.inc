@@ -26,7 +26,7 @@ Route127_EventScript_Camden::
 	end
 
 Route127_EventScript_Donny::
-	trainerbattle_single TRAINER_DONNY, Route127_Text_DonnyIntro, Route127_Text_DonnyDefeat
+	trainerbattle_single TRAINER_R17_TR3_PICNICKER2, Route127_Text_DonnyIntro, Route127_Text_DonnyDefeat
 	msgbox Route127_Text_DonnyPostBattle, MSGBOX_AUTOCLOSE
 	end
 

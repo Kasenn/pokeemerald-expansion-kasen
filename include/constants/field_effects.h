@@ -81,6 +81,8 @@
 #define FLDEFF_TRACKS_BUG                76
 #define FLDEFF_TALL_GRASS_MOUNTAIN       77
 #define FLDEFF_SNOW_FOOTPRINTS           78
+#define FLDEFF_BIKE_TIRE_TRACKS_SNOW     79
+#define FLDEFF_TRACKS_SLITHER_SNOW       80
 
 #define FLDEFFOBJ_SHADOW_S              0
 #define FLDEFFOBJ_SHADOW_M              1

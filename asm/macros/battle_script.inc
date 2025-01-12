@@ -2068,6 +2068,11 @@
 	.4byte \failInstr
 	.endm
 
+	.macro checkrockyterraindamage battler:req, failInstr:req
+	various \battler, VARIOUS_CHECK_IF_ROCKY_TERRAIN_DAMAGES
+	.4byte \failInstr
+	.endm
+
 	.macro jumpifnotberry battler:req, jumpInstr:req
 	various \battler, VARIOUS_JUMP_IF_NOT_BERRY
 	.4byte \jumpInstr

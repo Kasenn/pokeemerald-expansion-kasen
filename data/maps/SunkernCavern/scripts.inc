@@ -1,2 +1,8 @@
 SunkernCavern_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, SunkernCavern_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
+
+SunkernCavern_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	setflag FLAG_LANDMARK_SUNKEN_CAVERN
+	return
+

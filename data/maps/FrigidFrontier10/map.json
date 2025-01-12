@@ -1,0 +1,61 @@
+{
+  "id": "MAP_FRIGID_FRONTIER10",
+  "name": "FrigidFrontier10",
+  "layout": "LAYOUT_FRIGID_FRONTIER10",
+  "music": "MUS_MT_CHIMNEY",
+  "region_map_section": "MAPSEC_BARREN_WASTES",
+  "requires_flash": false,
+  "weather": "WEATHER_BLIZZARD",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_FRIGID_FRONTIER9",
+      "offset": -3,
+      "direction": "down"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 18,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_FRIGID_FRONTIER9",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 19,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_FRIGID_FRONTIER9",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 20,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_FRIGID_FRONTIER9",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 19,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_FRIGID_FRONTIER_CAVE",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

@@ -535,6 +535,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_RocketF,           OBJ_EVENT_PAL_ROCKET_F},
     {gObjectEventPalette_Skyla,             OBJ_EVENT_PAL_SKYLA},
     {gObjectEventPalette_StoneSphere,       OBJ_EVENT_PAL_STONE_SPHERE},
+    {gObjectEventPalette_VerdantSphere,       OBJ_EVENT_PAL_VERDANT_SPHERE},
     {gObjectEventPalette_Clay,              OBJ_EVENT_PAL_CLAY},
     {gObjectEventPalette_RocketAdmin_M,     OBJ_EVENT_PAL_ROCKET_ADMIN_M},
     {gObjectEventPalette_Volcarona,         OBJ_EVENT_PAL_VOLCARONA},
@@ -568,6 +569,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Shuppet,           OBJ_EVENT_PAL_SHUPPET},
     {gObjectEventPalette_KrokorokPlayer,           OBJ_EVENT_PAL_KROKOROK},
     {gObjectEventPalette_Kasen,           OBJ_EVENT_PAL_KASEN},
+    {gObjectEventPalette_Brock,           OBJ_EVENT_PAL_BROCK},
     {gObjectEventPalette_SSTidalRear,           OBJ_EVENT_PAL_SS_TIDAL_REAR},
     {gObjectEventPalette_BwAceSwimmer,           OBJ_EVENT_PAL_BW_ACE_SWIMMER},
     {gObjectEventPalette_ItemBallFloating,           OBJ_EVENT_PAL_ITEM_BALL_FLOATING},
@@ -3233,7 +3235,9 @@ u8 LoadObjectEventPalette(u16 paletteTag)
     u16 i = FindObjectEventPaletteIndexByTag(paletteTag);
     if (i == 0xFF)
         return i;
-    return LoadSpritePaletteIfTagExists(&sObjectEventSpritePalettes[i]);
+    u8 palIndex = LoadSpritePaletteIfTagExists(&sObjectEventSpritePalettes[i]);
+    UpdateSpritePaletteWithWeather(palIndex);
+    return palIndex;
 }
 
 u8 LoadPlayerObjectEventPalette(u8 gender)
@@ -9688,7 +9692,8 @@ static void GetGroundEffectFlags_Tracks(struct ObjectEvent *objEvent, u32 *flags
     if (MetatileBehavior_IsDeepSand(objEvent->previousMetatileBehavior))
         *flags |= GROUND_EFFECT_FLAG_DEEP_SAND;
     else if (MetatileBehavior_IsSandOrDeepSand(objEvent->previousMetatileBehavior)
-             || MetatileBehavior_IsFootprints(objEvent->previousMetatileBehavior))
+             || MetatileBehavior_IsFootprints(objEvent->previousMetatileBehavior)
+             || MetatileBehavior_IsSnow(objEvent->previousMetatileBehavior))
         *flags |= GROUND_EFFECT_FLAG_SAND;
 }
 
@@ -10132,7 +10137,7 @@ void GroundEffect_SpawnOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *
     gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
     gFieldEffectArguments[7] = TRUE; // skip to end of anim
     if (MetatileBehavior_IsTallGrassAutumn(objEvent->currentMetatileBehavior)){
-        if(MAP(SAFARI_ZONE_MOUNTAIN)){
+        if((MAP(SAFARI_ZONE_MOUNTAIN)) || (MAP(DESERT_CLIFFS))){
             FieldEffectStart(FLDEFF_TALL_GRASS_MOUNTAIN);  
         }
         else{
@@ -10157,7 +10162,7 @@ void GroundEffect_StepOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *s
     // if (objEvent->localId == OBJ_EVENT_ID_PLAYER)
     //     PlaySE(SPECIES_HOOPA);
     if (MetatileBehavior_IsTallGrassAutumn(objEvent->currentMetatileBehavior)){
-        if(MAP(SAFARI_ZONE_MOUNTAIN)){
+        if((MAP(SAFARI_ZONE_MOUNTAIN)) || (MAP(DESERT_CLIFFS))){
             FieldEffectStart(FLDEFF_TALL_GRASS_MOUNTAIN);  
         }
         else{
@@ -10279,7 +10284,7 @@ static void DoTracksGroundEffect_Footprints(struct ObjectEvent *objEvent, struct
     gFieldEffectArguments[2] = 149;
     gFieldEffectArguments[3] = 2;
     gFieldEffectArguments[4] = objEvent->facingDirection;
-    if (GetSavedWeather() == WEATHER_BLIZZARD)
+    if ((GetSavedWeather() == WEATHER_BLIZZARD) || (MAP(ROUTE17)) || (MAP(BARREN_WASTES)))
     {
         FieldEffectStart(snowFootprints_FieldEffectData[isDeepSand]);
     }
@@ -10340,7 +10345,7 @@ static void DoTracksGroundEffect_FootprintsC(struct ObjectEvent *objEvent, struc
     FieldEffectStart(otherFootprintsB_FieldEffectData[isDeepSand]);
 }
 
-static void DoTracksGroundEffect_BikeTireTracks(struct ObjectEvent *objEvent, struct Sprite *sprite, bool8 isDeepSand)
+static void DoTracksGroundEffect_BikeTireTracks(struct ObjectEvent *objEvent, struct Sprite *sprite, bool8 isDeepSand) //wip
 {
     //  Specifies which bike track shape to show next.
     //  For example, when the bike turns from up to right, it will show
@@ -10364,11 +10369,18 @@ static void DoTracksGroundEffect_BikeTireTracks(struct ObjectEvent *objEvent, st
         gFieldEffectArguments[3] = 2;
         gFieldEffectArguments[4] =
         bikeTireTracks_Transitions[movementDir][objEvent->facingDirection - 5];
-        FieldEffectStart(FLDEFF_BIKE_TIRE_TRACKS);
+        if ((GetSavedWeather() == WEATHER_BLIZZARD) || (MAP(ROUTE17)) || (MAP(BARREN_WASTES)))
+        {
+            FieldEffectStart(FLDEFF_BIKE_TIRE_TRACKS_SNOW);
+        }
+        else
+        {
+            FieldEffectStart(FLDEFF_BIKE_TIRE_TRACKS);
+        }
     }
 }
 
-static void DoTracksGroundEffect_SlitherTracks(struct ObjectEvent *objEvent, struct Sprite *sprite, u8 a)
+static void DoTracksGroundEffect_SlitherTracks(struct ObjectEvent *objEvent, struct Sprite *sprite, u8 a) //wip
 {
     //  Specifies which bike track shape to show next.
     //  For example, when the bike turns from up to right, it will show
@@ -10392,7 +10404,14 @@ static void DoTracksGroundEffect_SlitherTracks(struct ObjectEvent *objEvent, str
         gFieldEffectArguments[4] =
         slitherTracks_Transitions[objEvent->previousMovementDirection][objEvent->facingDirection - 5];
         gFieldEffectArguments[5] = objEvent->previousMetatileBehavior;
-        FieldEffectStart(FLDEFF_TRACKS_SLITHER);
+        if ((GetSavedWeather() == WEATHER_BLIZZARD) || (MAP(ROUTE17)) || (MAP(BARREN_WASTES)))
+        {
+            FieldEffectStart(FLDEFF_TRACKS_SLITHER_SNOW);
+        }
+        else
+        {
+            FieldEffectStart(FLDEFF_TRACKS_SLITHER);
+        }
     }
 }
 

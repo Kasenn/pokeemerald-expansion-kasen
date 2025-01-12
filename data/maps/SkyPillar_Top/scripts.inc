@@ -4,27 +4,336 @@ SkyPillar_Top_MapScripts::
 
 
 AT_Top::
+	setflag FLAG_TEMP_8
+	goto_if_unset FLAG_PLACED_STEEL_SPHERE, AT_Top_2
+AT_Top_1:
+	goto_if_unset FLAG_PLACED_VERDANT_SPHERE, AT_Top_5
+AT_Top_4:
+	goto_if_unset FLAG_PLACED_STONE_SPHERE, AT_Top_8
+AT_Top_7:
 	checkitem ITEM_MEGA_RING
 	compare VAR_RESULT, TRUE
-	goto_if_eq AT_Top_2
-AT_Top_1:
-	goto_if_unset FLAG_OBTAINED_MEGA_RING, AT_Top_5
-AT_Top_4:
+	goto_if_eq AT_Top_11
+AT_Top_10:
+	goto_if_unset FLAG_OBTAINED_MEGA_RING, AT_Top_14
+AT_Top_13:
 	setvar VAR_TEMP_6, 1
 	end
 
 AT_Top_2:
-	setflag FLAG_TEMP_1
+	setflag FLAG_TEMP_7
 	goto AT_Top_1
 
 AT_Top_5:
-	setflag FLAG_TEMP_HIDE_FOLLOWER
+	setflag FLAG_TEMP_6
 	goto AT_Top_4
 
+AT_Top_8:
+	setflag FLAG_TEMP_5
+	goto AT_Top_7
 
-AT_Pedestal::
+AT_Top_11:
+	setflag FLAG_TEMP_1
+	goto AT_Top_10
+
+AT_Top_14:
+	setflag FLAG_TEMP_HIDE_FOLLOWER
+	goto AT_Top_13
+
+
+AT_Pedestal_Stone::
+	compare VAR_SPHERES_FOUND, 3
+	goto_if_eq AT_Pedestal_Stone_3
+AT_Pedestal_Stone_1:
 	msgbox AT_Pedestal_Text, MSGBOX_SIGN
 	end
+
+AT_Pedestal_Stone_2:
+	lock
+	msgbox AT_Pedestal_Text2, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq AT_Pedestal_Stone_7
+	removeitem ITEM_STONE_SPHERE
+	clearflag FLAG_PLACED_STONE_SPHERE
+	addobject 8
+	removeobject 5
+	msgbox PlacedStoneSphere, MSGBOX_SIGN
+	call CheckSphereEvent
+	end
+
+AT_Pedestal_Stone_3:
+	checkitem ITEM_STONE_SPHERE
+	compare VAR_RESULT, TRUE
+	goto_if_eq AT_Pedestal_Stone_2
+	goto AT_Pedestal_Stone_1
+
+AT_Pedestal_Stone_7:
+	release
+	end
+
+
+AT_Pedestal_SteelSphere::
+	msgbox AT_Pedestal_SteelSphere_Text, MSGBOX_SIGN
+	return
+
+
+AT_Pedestal_StoneSphere::
+	msgbox AT_Pedestal_StoneSphere_Text, MSGBOX_SIGN
+	return
+
+
+AT_Pedestal_VerdantSphere::
+	msgbox AT_Pedestal_VerdantSphere_Text, MSGBOX_SIGN
+	return
+
+
+AT_Pedestal_Steel::
+	compare VAR_SPHERES_FOUND, 3
+	goto_if_eq AT_Pedestal_Steel_3
+AT_Pedestal_Steel_1:
+	msgbox AT_Pedestal_Text, MSGBOX_SIGN
+	end
+
+AT_Pedestal_Steel_2:
+	lock
+	msgbox AT_Pedestal_Text2, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq AT_Pedestal_Steel_7
+	removeitem ITEM_STEEL_SPHERE
+	clearflag FLAG_PLACED_STEEL_SPHERE
+	addobject 6
+	removeobject 3
+	msgbox PlacedSteelSphere, MSGBOX_SIGN
+	call CheckSphereEvent
+	end
+
+AT_Pedestal_Steel_3:
+	checkitem ITEM_STEEL_SPHERE
+	compare VAR_RESULT, TRUE
+	goto_if_eq AT_Pedestal_Steel_2
+	goto AT_Pedestal_Steel_1
+
+AT_Pedestal_Steel_7:
+	release
+	end
+
+
+AT_Pedestal_Verdant::
+	compare VAR_SPHERES_FOUND, 3
+	goto_if_eq AT_Pedestal_Verdant_3
+AT_Pedestal_Verdant_1:
+	msgbox AT_Pedestal_Text, MSGBOX_SIGN
+	end
+
+AT_Pedestal_Verdant_2:
+	lock
+	msgbox AT_Pedestal_Text2, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq AT_Pedestal_Verdant_7
+	removeitem ITEM_VERDANT_SPHERE
+	clearflag FLAG_PLACED_VERDANT_SPHERE
+	addobject 7
+	removeobject 4
+	msgbox PlacedVerdantSphere, MSGBOX_SIGN
+	call CheckSphereEvent
+	end
+
+AT_Pedestal_Verdant_3:
+	checkitem ITEM_VERDANT_SPHERE
+	compare VAR_RESULT, TRUE
+	goto_if_eq AT_Pedestal_Verdant_2
+	goto AT_Pedestal_Verdant_1
+
+AT_Pedestal_Verdant_7:
+	release
+	end
+
+
+CheckSphereEvent::
+	goto_if_set FLAG_PLACED_STEEL_SPHERE, CheckSphereEvent_2
+	goto_if_set FLAG_PLACED_STONE_SPHERE, CheckSphereEvent_2
+	goto_if_set FLAG_PLACED_VERDANT_SPHERE, CheckSphereEvent_2
+	delay 30
+	getplayerxy VAR_TEMP_7, VAR_TEMP_8
+	compare VAR_TEMP_7, 9 -1
+	goto_if_eq CheckSphereEvent_51
+CheckSphereEvent_49:
+	compare VAR_TEMP_7, 9 + 1
+	goto_if_eq CheckSphereEvent_48
+CheckSphereEvent_46:
+	compare VAR_TEMP_7, 9
+	goto_if_eq CheckSphereEvent_45
+CheckSphereEvent_43:
+	compare VAR_TEMP_7, 9
+	goto_if_eq CheckSphereEvent_42
+CheckSphereEvent_40:
+	compare VAR_TEMP_7, 11 -1
+	goto_if_eq CheckSphereEvent_39
+CheckSphereEvent_37:
+	compare VAR_TEMP_7, 11 + 1
+	goto_if_eq CheckSphereEvent_36
+CheckSphereEvent_34:
+	compare VAR_TEMP_7, 11
+	goto_if_eq CheckSphereEvent_33
+CheckSphereEvent_31:
+	compare VAR_TEMP_7, 11
+	goto_if_eq CheckSphereEvent_30
+CheckSphereEvent_28:
+	compare VAR_TEMP_7, 13 -1
+	goto_if_eq CheckSphereEvent_27
+CheckSphereEvent_25:
+	compare VAR_TEMP_7, 13 + 1
+	goto_if_eq CheckSphereEvent_24
+CheckSphereEvent_22:
+	compare VAR_TEMP_7, 13
+	goto_if_eq CheckSphereEvent_21
+CheckSphereEvent_20:
+	applymovement 0xFF, CheckSphereEvent_Movement_11
+CheckSphereEvent_8:
+	waitmovement 0
+	fadeoutbgm 0
+	delay 48
+	playse SE_ORB
+	fadescreenspeed FADE_TO_WHITE, 6
+	addobject 10
+	addobject 9
+	addobject 11
+	waitse
+	fadescreenspeed FADE_FROM_WHITE, 6
+	delay 48
+	playmoncry SPECIES_VIRIZION, CRY_MODE_NORMAL
+	waitmoncry
+	playmoncry SPECIES_TERRAKION, CRY_MODE_NORMAL
+	waitmoncry
+	playmoncry SPECIES_COBALION, CRY_MODE_NORMAL
+	waitmoncry
+	delay 60
+	applymovement 11, CheckSphereEvent_Movement_12
+	applymovement 9, CheckSphereEvent_Movement_13
+	applymovement 10, CheckSphereEvent_Movement_14
+	playse SE_BIKE_HOP
+	delay 16
+	playse SE_BIKE_HOP
+	delay 16
+	playse SE_BIKE_HOP
+	delay 16
+	playse SE_BIKE_HOP
+	delay 16
+	playse SE_BIKE_HOP
+	delay 16
+	playse SE_BIKE_HOP
+	waitmovement 11
+	waitmovement 9
+	waitmovement 10
+	removeobject 11
+	removeobject 9
+	removeobject 10
+	fadeinbgm 0
+	delay 120
+	setvar VAR_SPHERES_FOUND, 4
+	end
+
+CheckSphereEvent_2:
+	return
+
+CheckSphereEvent_9:
+	applymovement 0xFF, CheckSphereEvent_Movement_0
+	goto CheckSphereEvent_8
+
+CheckSphereEvent_10:
+	applymovement 0xFF, CheckSphereEvent_Movement_1
+	goto CheckSphereEvent_8
+
+CheckSphereEvent_11:
+	applymovement 0xFF, CheckSphereEvent_Movement_2
+	goto CheckSphereEvent_8
+
+CheckSphereEvent_12:
+	applymovement 0xFF, CheckSphereEvent_Movement_3
+	goto CheckSphereEvent_8
+
+CheckSphereEvent_13:
+	applymovement 0xFF, CheckSphereEvent_Movement_4
+	goto CheckSphereEvent_8
+
+CheckSphereEvent_14:
+	applymovement 0xFF, CheckSphereEvent_Movement_5
+	goto CheckSphereEvent_8
+
+CheckSphereEvent_15:
+	applymovement 0xFF, CheckSphereEvent_Movement_6
+	goto CheckSphereEvent_8
+
+CheckSphereEvent_16:
+	applymovement 0xFF, CheckSphereEvent_Movement_7
+	goto CheckSphereEvent_8
+
+CheckSphereEvent_17:
+	applymovement 0xFF, CheckSphereEvent_Movement_8
+	goto CheckSphereEvent_8
+
+CheckSphereEvent_18:
+	applymovement 0xFF, CheckSphereEvent_Movement_9
+	goto CheckSphereEvent_8
+
+CheckSphereEvent_19:
+	applymovement 0xFF, CheckSphereEvent_Movement_10
+	goto CheckSphereEvent_8
+
+CheckSphereEvent_21:
+	compare VAR_TEMP_8, 7 -1
+	goto_if_eq CheckSphereEvent_19
+	goto CheckSphereEvent_20
+
+CheckSphereEvent_24:
+	compare VAR_TEMP_8, 7
+	goto_if_eq CheckSphereEvent_18
+	goto CheckSphereEvent_22
+
+CheckSphereEvent_27:
+	compare VAR_TEMP_8, 7
+	goto_if_eq CheckSphereEvent_17
+	goto CheckSphereEvent_25
+
+CheckSphereEvent_30:
+	compare VAR_TEMP_8, 8 + 1
+	goto_if_eq CheckSphereEvent_16
+	goto CheckSphereEvent_28
+
+CheckSphereEvent_33:
+	compare VAR_TEMP_8, 8 -1
+	goto_if_eq CheckSphereEvent_15
+	goto CheckSphereEvent_31
+
+CheckSphereEvent_36:
+	compare VAR_TEMP_8, 8
+	goto_if_eq CheckSphereEvent_14
+	goto CheckSphereEvent_34
+
+CheckSphereEvent_39:
+	compare VAR_TEMP_8, 8
+	goto_if_eq CheckSphereEvent_13
+	goto CheckSphereEvent_37
+
+CheckSphereEvent_42:
+	compare VAR_TEMP_8, 7 + 1
+	goto_if_eq CheckSphereEvent_12
+	goto CheckSphereEvent_40
+
+CheckSphereEvent_45:
+	compare VAR_TEMP_8, 7 -1
+	goto_if_eq CheckSphereEvent_11
+	goto CheckSphereEvent_43
+
+CheckSphereEvent_48:
+	compare VAR_TEMP_8, 7
+	goto_if_eq CheckSphereEvent_10
+	goto CheckSphereEvent_46
+
+CheckSphereEvent_51:
+	compare VAR_TEMP_8, 7
+	goto_if_eq CheckSphereEvent_9
+	goto CheckSphereEvent_49
 
 
 AT_TopTrigger1::
@@ -339,27 +648,65 @@ AT_Top_Movement6Follower:
 AT_Custodian::
 	lock
 	faceplayer
-	compare VAR_SPHERES_FOUND, 2
+	compare VAR_SPHERES_FOUND, 5
 	goto_if_eq AT_Custodian_2
-	compare VAR_SPHERES_FOUND, 1
+	compare VAR_SPHERES_FOUND, 4
 	goto_if_eq AT_Custodian_5
+	compare VAR_SPHERES_FOUND, 3
+	goto_if_eq AT_Custodian_8
+	checkitem ITEM_VERDANT_SPHERE
+	compare VAR_RESULT, TRUE
+	goto_if_eq AT_Custodian_11
+	compare VAR_SPHERES_FOUND, 2
+	goto_if_eq AT_Custodian_14
+	compare VAR_SPHERES_FOUND, 1
+	goto_if_eq AT_Custodian_17
 	msgbox ImTheCaretaker
 	closemessage
 	checkitem ITEM_STONE_SPHERE
 	compare VAR_RESULT, TRUE
-	goto_if_eq AT_Custodian_8
-AT_Custodian_7:
+	goto_if_eq AT_Custodian_20
+AT_Custodian_19:
 	release
 	end
 
 AT_Custodian_2:
-	msgbox LookForVerdantSphere, MSGBOX_NPC
+	msgbox TrackTheGuardiansShort, MSGBOX_NPC
 	end
 
 AT_Custodian_5:
+	msgbox TrackTheGuardians
+	msgbox TrackTheGuardians2, MSGBOX_NPC
+	setvar VAR_SPHERES_FOUND, 5
+	end
+
+AT_Custodian_8:
+	msgbox PutSpheresInPlace, MSGBOX_NPC
+	turnobject 1, DIR_NORTH
+	end
+
+AT_Custodian_11:
+	waitse
+	playse SE_PIN
+	safefollow
+	applymovement 1, Common_Movement_ExclamationMark
+	waitmovement 0
+	delay 48
+	msgbox ThatsVerdantSphere
+	setvar VAR_SPHERES_FOUND, 3
+	release
+	closemessage
+	turnobject 1, DIR_NORTH
+	end
+
+AT_Custodian_14:
+	msgbox LookForVerdantSphere, MSGBOX_NPC
+	end
+
+AT_Custodian_17:
 	checkitem ITEM_STEEL_SPHERE
 	compare VAR_RESULT, FALSE
-	goto_if_eq AT_Custodian_11
+	goto_if_eq AT_Custodian_23
 	playse SE_PIN
 	safefollow
 	applymovement 1, Common_Movement_ExclamationMark
@@ -371,7 +718,7 @@ AT_Custodian_5:
 	closemessage
 	end
 
-AT_Custodian_8:
+AT_Custodian_20:
 	playse SE_PIN
 	safefollow
 	applymovement 1, Common_Movement_ExclamationMark
@@ -379,9 +726,9 @@ AT_Custodian_8:
 	delay 48
 	msgbox ThatsStoneSphere
 	setvar VAR_SPHERES_FOUND, 1
-	goto AT_Custodian_7
+	goto AT_Custodian_19
 
-AT_Custodian_11:
+AT_Custodian_23:
 	msgbox LookForSteelSphere, MSGBOX_NPC
 	end
 
@@ -406,9 +753,204 @@ OddSensation_5:
 	goto OddSensation_4
 
 
+CheckSphereEvent_Movement_0:
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	walk_in_place_up
+	step_end
+
+CheckSphereEvent_Movement_1:
+	walk_right
+	walk_up
+	step_end
+
+CheckSphereEvent_Movement_2:
+	walk_right
+	walk_right
+	walk_in_place_up
+	step_end
+
+CheckSphereEvent_Movement_3:
+	walk_right
+	walk_up
+	walk_right
+	walk_up
+	step_end
+
+CheckSphereEvent_Movement_4:
+	walk_up
+	walk_right
+	walk_up
+	step_end
+
+CheckSphereEvent_Movement_5:
+	walk_up
+	walk_left
+	walk_up
+	step_end
+
+CheckSphereEvent_Movement_6:
+	walk_up
+	step_end
+
+CheckSphereEvent_Movement_7:
+	walk_right
+	walk_up
+	walk_up
+	walk_left
+	walk_up
+	step_end
+
+CheckSphereEvent_Movement_8:
+	walk_left
+	walk_up
+	step_end
+
+CheckSphereEvent_Movement_9:
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_in_place_up
+	step_end
+
+CheckSphereEvent_Movement_10:
+	walk_left
+	walk_left
+	walk_in_place_up
+	step_end
+
+CheckSphereEvent_Movement_11:
+	walk_left
+	walk_up
+	walk_left
+	walk_up
+	step_end
+
+CheckSphereEvent_Movement_12:
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_left
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_left
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	step_end
+
+CheckSphereEvent_Movement_13:
+	walk_fast_down
+	walk_fast_down
+	walk_fast_right
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_left
+	step_end
+
+CheckSphereEvent_Movement_14:
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_right
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_right
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	step_end
+
 AT_Pedestal_Text::
 	.string "It's a small pedestal, which looks\n"
 	.string "like it's meant to house something.$"
+
+AT_Pedestal_Text2::
+	.string "It's a small pedestal, which looks\n"
+	.string "like it's meant to house something.\p"
+	.string "Try placing one of the spheres on\n"
+	.string "the pedestal?$"
+
+PlacedStoneSphere::
+	.string "{PLAYER} placed the Stone Sphere\n"
+	.string "on the pedestal.$"
+
+PlacedSteelSphere::
+	.string "{PLAYER} placed the Steel Sphere\n"
+	.string "on the pedestal.$"
+
+PlacedVerdantSphere::
+	.string "{PLAYER} placed the Verdant Sphere\n"
+	.string "on the pedestal.$"
+
+AT_Pedestal_SteelSphere_Text::
+	.string "It's a small pedestal, with\n"
+	.string "the Steel Sphere placed on top.$"
+
+AT_Pedestal_StoneSphere_Text::
+	.string "It's a small pedestal, with\n"
+	.string "the Stone Sphere placed on top.$"
+
+AT_Pedestal_VerdantSphere_Text::
+	.string "It's a small pedestal, with\n"
+	.string "the Verdant Sphere placed on top.$"
+
+ThatsVerdantSphere::
+	.string "That Verdant Sphere…\p"
+	.string "Yes, this is undoubtedly another\n"
+	.string "fragment of the Protectors!\p"
+	.string "Does this mean that you've managed to\n"
+	.string "gather all the fragments?\p"
+	.string "Astounding!\p"
+	.string "Hurry, place the spheres on the\n"
+	.string "pedestals!\p"
+	.string "We are about to witness the event\n"
+	.string "of a lifetime!$"
+
+PutSpheresInPlace::
+	.string "Hurry, place the spheres on the\n"
+	.string "pedestals!\p"
+	.string "We are about to witness the event\n"
+	.string "of a lifetime!$"
+
+TrackTheGuardians::
+	.string "I cannot believe it…\p"
+	.string "Those were undoubtedly\n"
+	.string "the Protectors!\p"
+	.string "I never imagined they'd ever grace\n"
+	.string "our world with their presence again!$"
+
+TrackTheGuardians2::
+	.string "Unfortunately, I don't have any\n"
+	.string "clue about the new whereabouts of\l"
+	.string "the Protectors.\p"
+	.string "I doubt they've slinked back to the\n"
+	.string "caves you found the spheres from, but,\l"
+	.string "considering those places hold some\l"
+	.string "sentimental value to them, I imagine\l"
+	.string "they'd probably end up sticking\l"
+	.string "somewhere pretty close by.$"
+
+TrackTheGuardiansShort::
+	.string "Unfortunately, I don't have any\n"
+	.string "clue about the new whereabouts of\l"
+	.string "the Protectors.\p"
+	.string "If I were you, I'd try looking around\n"
+	.string "the places you originally found the\l"
+	.string "spheres from.$"
 
 YouTwoMadeIt::
 	.string "Korrina: Oh hey, you two actually\n"

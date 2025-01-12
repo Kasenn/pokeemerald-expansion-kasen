@@ -801,7 +801,12 @@ u32 FldEff_BikeTireTracks(void)
         struct Sprite *sprite = &gSprites[spriteId];
         sprite->coordOffsetEnabled = TRUE;
         sprite->oam.priority = gFieldEffectArguments[3];
-        sprite->sFldEff = FLDEFF_BIKE_TIRE_TRACKS;
+        if (GetSavedWeather() == WEATHER_BLIZZARD){
+            sprite->sFldEff = FLDEFF_BIKE_TIRE_TRACKS_SNOW;
+        }
+        else{
+            sprite->sFldEff = FLDEFF_BIKE_TIRE_TRACKS;
+        }
         StartSpriteAnim(sprite, gFieldEffectArguments[4]);
     }
     return spriteId;
@@ -819,7 +824,12 @@ u32 FldEff_TracksSlither(void)
         sprite = &gSprites[spriteId];
         sprite->coordOffsetEnabled = TRUE;
         sprite->oam.priority = gFieldEffectArguments[3];
-        sprite->data[7] = FLDEFF_TRACKS_SLITHER;
+        if (GetSavedWeather() == WEATHER_BLIZZARD){
+            sprite->data[7] = FLDEFF_TRACKS_SLITHER_SNOW;
+        }
+        else{
+            sprite->data[7] = FLDEFF_TRACKS_SLITHER;
+        }
         StartSpriteAnim(sprite, gFieldEffectArguments[4]);
     }
     return spriteId;

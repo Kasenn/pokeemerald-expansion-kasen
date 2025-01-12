@@ -30,7 +30,7 @@ Route129_EventScript_Chase::
 	end
 
 Route129_EventScript_Allison::
-	trainerbattle_single TRAINER_ALLISON, Route129_Text_AllisonIntro, Route129_Text_AllisonDefeat
+	trainerbattle_single TRAINER_R17_TR6_HIKER1, Route129_Text_AllisonIntro, Route129_Text_AllisonDefeat
 	msgbox Route129_Text_AllisonPostBattle, MSGBOX_AUTOCLOSE
 	end
 

@@ -6068,6 +6068,8 @@ u32 GetDynamicMoveType(struct Pokemon *mon, u32 move, u32 battler, u8 *ateBoost)
                     return TYPE_ELECTRIC;
                 else if (gFieldStatuses & STATUS_FIELD_GRASSY_TERRAIN)
                     return TYPE_GRASS;
+                else if (gFieldStatuses & STATUS_FIELD_ROCKY_TERRAIN)
+                    return TYPE_ROCK;
                 else if (gFieldStatuses & STATUS_FIELD_MISTY_TERRAIN)
                     return TYPE_FAIRY;
                 else if (gFieldStatuses & STATUS_FIELD_PSYCHIC_TERRAIN)

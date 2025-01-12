@@ -1,5 +1,10 @@
 Route119_WeatherInstitute_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Route119_WeatherInstitute_1F_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
+
+Route119_WeatherInstitute_1F_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	setflag FLAG_LANDMARK_LEGENDARY_INSTITUTE
+	return
 
 
 LegendaryInstitute1F_Greeter::

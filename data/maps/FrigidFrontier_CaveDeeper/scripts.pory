@@ -1,0 +1,24 @@
+mapscripts FrigidFrontier_CaveDeeper_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        if(flag(FLAG_FRIGIDFRONTIERCAVE_VERDANT_SPHERE)){
+            setvar(VAR_TEMP_0, 1)
+        }
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_TEMP_0, 1: FrigidCaveSetBGM
+    ]
+}
+
+script FrigidCaveSetBGM{
+    playbgm(MUS_SEALED_CHAMBER, TRUE)
+    setvar(VAR_TEMP_0, 2)
+    release
+    end
+}
+
+script FrigidCave_LootRock{
+    finditem(ITEM_VERDANT_SPHERE)
+    waitmessage
+    playbgm(MUS_SEALED_CHAMBER, TRUE)
+    end
+}

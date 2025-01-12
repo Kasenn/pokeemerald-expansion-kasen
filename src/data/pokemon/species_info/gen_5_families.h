@@ -10557,7 +10557,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
                                 {EVO_NONE, 0, SPECIES_BRAVIARY_HISUIAN}),
     },
 
-    [SPECIES_BRAVIARY] =
+    [SPECIES_BRAVIARY_HISUIAN] =
     {
         .baseHP        = 100,
         .baseAttack    = 123,
@@ -10622,7 +10622,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
     },
 
 #if P_HISUIAN_FORMS
-    [SPECIES_BRAVIARY_HISUI] =
+    [SPECIES_BRAVIARY] =
     {
         .baseHP        = 110,
         .baseAttack    = 83,

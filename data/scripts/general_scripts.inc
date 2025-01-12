@@ -1,3 +1,29 @@
+EventScript_UseRockClimb::
+	lockall
+	checkpartymove MOVE_ROCK_CLIMB
+	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantRockClimb
+	bufferpartymonnick STR_VAR_1, VAR_RESULT
+	setfieldeffectargument 0, VAR_RESULT
+	compare VAR_ROCK_CLIMB_USED, 3
+	goto_if_lt EventScript_UseRockClimb_2
+EventScript_UseRockClimb_1:
+	msgbox Text_MonUsedRockClimb, MSGBOX_DEFAULT
+	call FollowerIntoPlayerScript
+	callnative HideFollower
+	applymovement OBJ_EVENT_ID_FOLLOWER, EnterPokeballMovement
+	waitmovement 0
+	dofieldeffect FLDEFF_USE_ROCK_CLIMB
+	callnative FollowMe_WarpSetEnd
+	goto EventScript_EndRockClimb
+	return
+
+EventScript_UseRockClimb_2:
+	msgbox Text_WantToRockClimb, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EventScript_EndRockClimb
+	addvar VAR_ROCK_CLIMB_USED, 1
+	goto EventScript_UseRockClimb_1
+
+
 FollowerSpottedAnItemNearby::
 	playse SE_PIN
 	applymovement OBJ_EVENT_ID_FOLLOWER, Common_Movement_ExclamationMark
@@ -394,7 +420,9 @@ Debug_Script_2::
 
 
 Debug_Script_3::
-	callnative CheckFoughtTrainers
+	additem ITEM_STEEL_SPHERE
+	additem ITEM_STONE_SPHERE
+	additem ITEM_VERDANT_SPHERE
 	return
 
 
@@ -464,6 +492,29 @@ ResetAdamantTower_5:
 	end
 
 ResetAdamantTower_8:
+	release
+	end
+
+
+MtChimney_CableCarStation_EventScript_Attendant2::
+	msgbox EndOfBeta, MSGBOX_NPC
+	end
+	goto MtChimney_CableCarStation_EventScript_Attendant
+	return
+
+
+BarrenWastes_Block1::
+	msgbox EndOfBeta2, MSGBOX_SIGN
+	applymovement 0xFF, Walk1Right
+	waitmovement 0
+	release
+	end
+
+
+BarrenWastes_Block2::
+	msgbox EndOfBeta2, MSGBOX_SIGN
+	applymovement 0xFF, Walk1Down
+	waitmovement 0
 	release
 	end
 
@@ -718,3 +769,15 @@ ResetAdamantTower_ResetTeam::
 
 PartyHasBeenReset::
 	.string "Team has been set to lvl 38.$"
+
+EndOfBeta::
+	.string "This is currently the end of beta.\p"
+	.string "The next update should be bringing\n"
+	.string "the cable car back online.\p"
+	.string "In the meanwhile, why don't you\n"
+	.string "try exploring some other areas?$"
+
+EndOfBeta2::
+	.string "This is currently the end of beta.\p"
+	.string "In the meanwhile, why don't you\n"
+	.string "try exploring some other areas?$"

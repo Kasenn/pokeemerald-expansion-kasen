@@ -1492,6 +1492,9 @@ void DrawTerrainTypeBattleBackground(void)
     case STATUS_FIELD_GRASSY_TERRAIN:
         LoadMoveBg(BG_GRASSY_TERRAIN);
         break;
+    case STATUS_FIELD_ROCKY_TERRAIN:
+        LoadMoveBg(BG_ROCKY_TERRAIN);
+        break;
     case STATUS_FIELD_MISTY_TERRAIN:
         LoadMoveBg(BG_MISTY_TERRAIN);
         break;

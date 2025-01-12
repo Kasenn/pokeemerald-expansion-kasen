@@ -2240,6 +2240,10 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
             if (PartnerMoveEffectIsTerrain(BATTLE_PARTNER(battlerAtk), aiData->partnerMove) || gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN)
                 ADJUST_SCORE(-10);
             break;
+        case EFFECT_ROCKY_TERRAIN:
+            if (PartnerMoveEffectIsTerrain(BATTLE_PARTNER(battlerAtk), aiData->partnerMove) || gFieldStatuses & STATUS_FIELD_ROCKY_TERRAIN)
+                ADJUST_SCORE(-10);
+            break;
         case EFFECT_PSYCHIC_TERRAIN:
             if (PartnerMoveEffectIsTerrain(BATTLE_PARTNER(battlerAtk), aiData->partnerMove) || gFieldStatuses & STATUS_FIELD_PSYCHIC_TERRAIN)
                 ADJUST_SCORE(-10);
@@ -5268,6 +5272,10 @@ static s32 AI_PowerfulStatus(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
         break;
     case EFFECT_GRASSY_TERRAIN:
         if (!(gFieldStatuses & STATUS_FIELD_GRASSY_TERRAIN))
+            ADJUST_SCORE(POWERFUL_STATUS_MOVE);
+        break;
+    case EFFECT_ROCKY_TERRAIN:
+        if (!(gFieldStatuses & STATUS_FIELD_ROCKY_TERRAIN))
             ADJUST_SCORE(POWERFUL_STATUS_MOVE);
         break;
     case EFFECT_ELECTRIC_TERRAIN:

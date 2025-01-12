@@ -449,6 +449,7 @@ void Overworld_ResetBattleFlagsAndVars(void)
     FlagClear(B_FLAG_NO_BAG_USE);
     FlagClear(B_FLAG_NO_CATCHING);
     FlagClear(FLAG_SYSTEM_NO_WILD_RUNNING);
+    FlagClear(FLAG_WILD_TRAINER_MON);
     FlagClear(FLAG_SYSTEM_NO_CATCHING);
     FlagClear(FLAG_INCREASED_SHINY_ODDS);
     FlagClear(FLAG_SYSTEM_NOREWARDBATTLES);

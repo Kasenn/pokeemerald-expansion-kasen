@@ -37,3 +37,4 @@ const u32 gPokenavCityMap_Sandstone_1[] = INCBIN_U32("graphics/pokenav/region_ma
 const u32 gPokenavCityMap_FishingVillage[] = INCBIN_U32("graphics/pokenav/region_map/city_maps/fishingvillage.bin.lz");
 const u32 gPokenavCityMap_Drisledge[] = INCBIN_U32("graphics/pokenav/region_map/city_maps/drisledge.bin.lz");
 const u32 gPokenavCityMap_Amberock[] = INCBIN_U32("graphics/pokenav/region_map/city_maps/amberock.bin.lz");
+const u32 gPokenavCityMap_Basalek_0[] = INCBIN_U32("graphics/pokenav/region_map/city_maps/basalek_0.bin.lz");

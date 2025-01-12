@@ -3855,6 +3855,7 @@ void SetMoveEffect(bool32 primary, bool32 certain)
                     case STATUS_FIELD_ELECTRIC_TERRAIN:
                         gBattleScripting.moveEffect = MOVE_EFFECT_PARALYSIS;
                         break;
+                    case STATUS_FIELD_ROCKY_TERRAIN:
                     case STATUS_FIELD_PSYCHIC_TERRAIN:
                         gBattleScripting.moveEffect = MOVE_EFFECT_SPD_MINUS_1;
                         break;
@@ -8941,6 +8942,9 @@ static void RemoveAllTerrains(void)
     case STATUS_FIELD_GRASSY_TERRAIN:
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_END_GRASSY;
         break;
+    case STATUS_FIELD_ROCKY_TERRAIN:
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_END_ROCKY;
+        break;
     case STATUS_FIELD_ELECTRIC_TERRAIN:
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_END_ELECTRIC;
         break;
@@ -9559,6 +9563,30 @@ static void Cmd_various(void)
         }
         return;
     }
+    case VARIOUS_CHECK_IF_ROCKY_TERRAIN_DAMAGES:
+        {
+        VARIOUS_ARGS(const u8 *failInstr);
+        if ((gStatuses3[battler] & (STATUS3_SEMI_INVULNERABLE))
+            || !gBattleMons[battler].hp
+            || IS_BATTLER_OF_TYPE(battler, TYPE_ROCK)
+            || IS_BATTLER_OF_TYPE(battler, TYPE_GROUND)
+            || IS_BATTLER_OF_TYPE(battler, TYPE_STEEL)
+            || !(IsBattlerGrounded(battler)))
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+        else
+        {   
+            // gBattleMoveDamage = GetNonDynamaxMaxHP(battler) / 16;
+            gBattleMoveDamage = GetStealthHazardDamage(gMovesInfo[MOVE_STEALTH_ROCK].type, battler);
+            if (gBattleMoveDamage == 0)
+                gBattleMoveDamage = 1;
+
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        return;
+    }
+
     case VARIOUS_GRAVITY_ON_AIRBORNE_MONS:
     {
         VARIOUS_ARGS();
@@ -14254,6 +14282,8 @@ u32 GetNaturePowerMove(u32 battler)
         move = MOVE_ENERGY_BALL;
     else if (gFieldStatuses & STATUS_FIELD_PSYCHIC_TERRAIN)
         move = MOVE_PSYCHIC;
+    else if (gFieldStatuses & STATUS_FIELD_ROCKY_TERRAIN)
+        move = MOVE_ROCK_SLIDE;
     else if (sNaturePowerMoves[gBattleTerrain] == MOVE_NONE)
         move = MOVE_TRI_ATTACK;
 
@@ -15181,6 +15211,9 @@ static void Cmd_settypetoterrain(void)
         break;
     case STATUS_FIELD_GRASSY_TERRAIN:
         terrainType = TYPE_GRASS;
+        break;
+    case STATUS_FIELD_ROCKY_TERRAIN:
+        terrainType = TYPE_ROCK;
         break;
     case STATUS_FIELD_MISTY_TERRAIN:
         terrainType = TYPE_FAIRY;
@@ -16737,6 +16770,10 @@ void BS_SetRemoveTerrain(void)
     case EFFECT_GRASSY_TERRAIN:
         statusFlag = STATUS_FIELD_GRASSY_TERRAIN;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_SET_GRASSY;
+        break;
+    case EFFECT_ROCKY_TERRAIN:
+        statusFlag = STATUS_FIELD_ROCKY_TERRAIN;
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_SET_ROCKY;
         break;
     case EFFECT_ELECTRIC_TERRAIN:
         statusFlag = STATUS_FIELD_ELECTRIC_TERRAIN;

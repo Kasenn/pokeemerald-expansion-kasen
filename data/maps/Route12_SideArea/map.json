@@ -3,7 +3,7 @@
   "name": "Route12_SideArea",
   "layout": "LAYOUT_ROUTE12_SIDE_AREA",
   "music": "MUS_ROUTE110",
-  "region_map_section": "MAPSEC_NEWROUTE_12",
+  "region_map_section": "MAPSEC_HIDDEN_CLEARING",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",
@@ -39,6 +39,32 @@
       "trainer_sight_or_berry_tree_id": "ITEM_TM_IRON_TAIL",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ROUTE12_SIDEITEM"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(COBALION)",
+      "x": 22,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route12_SideArea_Cobalion",
+      "flag": "FLAG_HIDE_COBALION"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 32,
+      "y": 59,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "FLAG_TEMP_A"
     }
   ],
   "warp_events": [

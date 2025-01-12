@@ -2068,7 +2068,7 @@ static const struct TrainerMon sParty_R6Tr3_CamperF[] = {
     {
     .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
     .lvl = 22,
-    .species = SPECIES_RUFFLET,
+    .species = SPECIES_VULLABY,
     }
 };
 
@@ -6426,7 +6426,7 @@ static const struct TrainerMon sParty_Donny[] = {
     }
 };
 
-static const struct TrainerMon sParty_Talia[] = {
+static const struct TrainerMon sParty_Talia[] = { // ton of confuse + toxic spam
     {
     .lvl = 34,
     .species = SPECIES_STARYU,
@@ -6443,12 +6443,25 @@ static const struct TrainerMon sParty_Katelyn1[] = {
 static const struct TrainerMon sParty_Allison[] = {
     {
     .lvl = 27,
-    .species = SPECIES_WINGULL,
+    .species = SPECIES_GEODUDE,
+    .moves = {MOVE_MAGNITUDE, MOVE_EARTHQUAKE, MOVE_ROLLOUT, MOVE_ROCK_TOMB}
     },
     {
     .iv = TRAINER_PARTY_IVS(29, 29, 29, 29, 29, 29),
     .lvl = 33,
-    .species = SPECIES_STARYU,
+    .species = SPECIES_GRAVELER,
+    .moves = {MOVE_MAGNITUDE, MOVE_EARTHQUAKE, MOVE_ROLLOUT, MOVE_ROCK_TOMB}
+    },
+    {
+    .lvl = 27,
+    .species = SPECIES_ROGGENROLA,
+    .moves = {MOVE_MAGNITUDE, MOVE_EARTHQUAKE, MOVE_ROLLOUT, MOVE_ROCK_TOMB}
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(29, 29, 29, 29, 29, 29),
+    .lvl = 33,
+    .species = SPECIES_BOLDORE,
+    .moves = {MOVE_MAGNITUDE, MOVE_EARTHQUAKE, MOVE_ROLLOUT, MOVE_ROCK_TOMB}
     }
 };
 
@@ -6523,7 +6536,7 @@ static const struct TrainerMon sParty_Nicolas3[] = {
     }
 };
 
-static const struct TrainerMon sParty_Nicolas4[] = {
+static const struct TrainerMon sParty_Nicolas4[] = { //basaltunnel wild encounters
     {
     .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
     .lvl = 46,
@@ -6562,7 +6575,7 @@ static const struct TrainerMon sParty_Nicolas5[] = {
     }
 };
 
-static const struct TrainerMon sParty_Aaron[] = {
+static const struct TrainerMon sParty_Aaron[] = { //self destructs
     {
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
     .lvl = 34,
@@ -6578,7 +6591,7 @@ static const struct TrainerMon sParty_Perry[] = {
     }
 };
 
-static const struct TrainerMon sParty_Hugh[] = {
+static const struct TrainerMon sParty_Hugh[] = { // fire pokemon from tunnels
     {
     .lvl = 25,
     .species = SPECIES_WINGULL,

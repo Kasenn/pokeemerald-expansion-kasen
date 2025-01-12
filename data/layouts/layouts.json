@@ -5794,7 +5794,7 @@
     {
       "id": "LAYOUT_ROUTE13",
       "name": "Route13_Layout",
-      "width": 140,
+      "width": 37,
       "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_CyclingRoad",
@@ -6415,9 +6415,9 @@
       "id": "LAYOUT_FROSTFIRE_CITY",
       "name": "FrostfireCity_Layout",
       "width": 70,
-      "height": 40,
+      "height": 70,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "secondary_tileset": "gTileset_BattleFrontierOutsideWest",
       "border_filepath": "data/layouts/FrostfireCity/border.bin",
       "blockdata_filepath": "data/layouts/FrostfireCity/map.bin"
     },
@@ -6514,7 +6514,7 @@
     {
       "id": "LAYOUT_ROUTE17",
       "name": "Route17_Layout",
-      "width": 35,
+      "width": 56,
       "height": 82,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Basaluff",
@@ -6524,20 +6524,20 @@
     {
       "id": "LAYOUT_BARREN_WASTES",
       "name": "BarrenWastes_Layout",
-      "width": 80,
-      "height": 80,
+      "width": 25,
+      "height": 25,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "secondary_tileset": "gTileset_Basaluff",
       "border_filepath": "data/layouts/BarrenWastes/border.bin",
       "blockdata_filepath": "data/layouts/BarrenWastes/map.bin"
     },
     {
       "id": "LAYOUT_ROUTE18",
       "name": "Route18_Layout",
-      "width": 90,
+      "width": 110,
       "height": 35,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "secondary_tileset": "gTileset_Basaluff",
       "border_filepath": "data/layouts/Route18/border.bin",
       "blockdata_filepath": "data/layouts/Route18/map.bin"
     },
@@ -7240,6 +7240,166 @@
       "secondary_tileset": "gTileset_WindplumeCave",
       "border_filepath": "data/layouts/SunkernCavern/border.bin",
       "blockdata_filepath": "data/layouts/SunkernCavern/map.bin"
+    },
+    {
+      "id": "LAYOUT_HOUNDOOM_CAVE",
+      "name": "HoundoomCave_Layout",
+      "width": 16,
+      "height": 29,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/HoundoomCave/border.bin",
+      "blockdata_filepath": "data/layouts/HoundoomCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_BASALEK_TUNNELS_COPY",
+      "name": "BasalekTunnels_Copy_Layout",
+      "width": 67,
+      "height": 72,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Basaluff",
+      "border_filepath": "data/layouts/BasalekTunnels_Copy/border.bin",
+      "blockdata_filepath": "data/layouts/BasalekTunnels_Copy/map.bin"
+    },
+    {
+      "id": "LAYOUT_OCEAN_WALKWAY",
+      "name": "OceanWalkway_Layout",
+      "width": 120,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_CyclingRoad",
+      "border_filepath": "data/layouts/OceanWalkway/border.bin",
+      "blockdata_filepath": "data/layouts/OceanWalkway/map.bin"
+    },
+    {
+      "id": "LAYOUT_FRIGID_FRONTIER_2",
+      "name": "FrigidFrontier_2_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Basaluff",
+      "border_filepath": "data/layouts/FrigidFrontier_2/border.bin",
+      "blockdata_filepath": "data/layouts/FrigidFrontier_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_FRIGID_FRONTIER3",
+      "name": "FrigidFrontier3_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Basaluff",
+      "border_filepath": "data/layouts/FrigidFrontier3/border.bin",
+      "blockdata_filepath": "data/layouts/FrigidFrontier3/map.bin"
+    },
+    {
+      "id": "LAYOUT_FRIGID_FRONTIER4",
+      "name": "FrigidFrontier4_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Basaluff",
+      "border_filepath": "data/layouts/FrigidFrontier4/border.bin",
+      "blockdata_filepath": "data/layouts/FrigidFrontier4/map.bin"
+    },
+    {
+      "id": "LAYOUT_FRIGID_FRONTIER5",
+      "name": "FrigidFrontier5_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Basaluff",
+      "border_filepath": "data/layouts/FrigidFrontier5/border.bin",
+      "blockdata_filepath": "data/layouts/FrigidFrontier5/map.bin"
+    },
+    {
+      "id": "LAYOUT_FRIGID_FRONTIER6",
+      "name": "FrigidFrontier6_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Basaluff",
+      "border_filepath": "data/layouts/FrigidFrontier6/border.bin",
+      "blockdata_filepath": "data/layouts/FrigidFrontier6/map.bin"
+    },
+    {
+      "id": "LAYOUT_FRIGID_FRONTIER7",
+      "name": "FrigidFrontier7_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Basaluff",
+      "border_filepath": "data/layouts/FrigidFrontier7/border.bin",
+      "blockdata_filepath": "data/layouts/FrigidFrontier7/map.bin"
+    },
+    {
+      "id": "LAYOUT_FRIGID_FRONTIER8",
+      "name": "FrigidFrontier8_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Basaluff",
+      "border_filepath": "data/layouts/FrigidFrontier8/border.bin",
+      "blockdata_filepath": "data/layouts/FrigidFrontier8/map.bin"
+    },
+    {
+      "id": "LAYOUT_FRIGID_FRONTIER9",
+      "name": "FrigidFrontier9_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Basaluff",
+      "border_filepath": "data/layouts/FrigidFrontier9/border.bin",
+      "blockdata_filepath": "data/layouts/FrigidFrontier9/map.bin"
+    },
+    {
+      "id": "LAYOUT_FRIGID_FRONTIER10",
+      "name": "FrigidFrontier10_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Basaluff",
+      "border_filepath": "data/layouts/FrigidFrontier10/border.bin",
+      "blockdata_filepath": "data/layouts/FrigidFrontier10/map.bin"
+    },
+    {
+      "id": "LAYOUT_FRIGID_FRONTIER_CAVE",
+      "name": "FrigidFrontier_Cave_Layout",
+      "width": 15,
+      "height": 16,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/FrigidFrontier_Cave/border.bin",
+      "blockdata_filepath": "data/layouts/FrigidFrontier_Cave/map.bin"
+    },
+    {
+      "id": "LAYOUT_FRIGID_FRONTIER_CAVE_DEEPER",
+      "name": "FrigidFrontier_CaveDeeper_Layout",
+      "width": 31,
+      "height": 42,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/FrigidFrontier_CaveDeeper/border.bin",
+      "blockdata_filepath": "data/layouts/FrigidFrontier_CaveDeeper/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE6FILLER",
+      "name": "Route6Filler_Layout",
+      "width": 14,
+      "height": 5,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/Route6Filler/border.bin",
+      "blockdata_filepath": "data/layouts/Route6Filler/map.bin"
+    },
+    {
+      "id": "LAYOUT_DESERT_CLIFFS",
+      "name": "DesertCliffs_Layout",
+      "width": 43,
+      "height": 90,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DesertCliff",
+      "border_filepath": "data/layouts/DesertCliffs/border.bin",
+      "blockdata_filepath": "data/layouts/DesertCliffs/map.bin"
     }
   ]
 }

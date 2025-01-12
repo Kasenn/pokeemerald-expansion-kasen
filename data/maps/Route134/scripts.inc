@@ -22,7 +22,7 @@ Route134_EventScript_Alex::
 	end
 
 Route134_EventScript_Aaron::
-	trainerbattle_single TRAINER_AARON, Route134_Text_AaronIntro, Route134_Text_AaronDefeat
+	trainerbattle_single TRAINER_BASALTUNNEL_TR8_HIKER2, Route134_Text_AaronIntro, Route134_Text_AaronDefeat
 	msgbox Route134_Text_AaronPostBattle, MSGBOX_AUTOCLOSE
 	end
 

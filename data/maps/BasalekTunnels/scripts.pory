@@ -1,0 +1,329 @@
+mapscripts BasalekTunnels_MapScripts {
+    
+}
+
+script BasaltTunnel_Tr1_Hiker1 {
+    trainerbattle_single(TRAINER_BASALTUNNEL_TR1_HIKER1, BasaltTr1_Intro, BasaltTr1_Lose)
+    msgbox(BasaltTr1_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text BasaltTr1_Intro {
+    "Think you're tough enough\n"
+    "to train here?"
+}
+text BasaltTr1_Lose {
+    "Ghahaha!\p"
+    "Welcome to the Basalek tunnels!\n"
+    "I think you'll fit right in!"
+}
+text BasaltTr1_PostBattle {
+    "These tunnels can be rough,\n"
+    "but I'm sure you'll do fine!"
+}
+
+script BasaltTunnel_Tr2_BlackBelt {
+    trainerbattle_single(TRAINER_BASALTUNNEL_TR2_BLACKBELT, BasaltTr2_Intro, BasaltTr2_Lose)
+    msgbox(BasaltTr2_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text BasaltTr2_Intro {
+    "Our fists are hard as steel!"
+}
+text BasaltTr2_Lose {
+    "Your will is strong as steel."
+}
+text BasaltTr2_PostBattle {
+    "Steel-type Pokémon do great here.\p"
+    "Not only are they not encumbered by\n"
+    "the rough terrain, they also do\l"
+    "amazing against Rock-type Pokémon."
+}
+
+script BasaltTunnel_Tr3_Picnicker {
+    trainerbattle_single(TRAINER_BASALTUNNEL_TR3_PICNICKER, BasaltTr3_Intro, BasaltTr3_Lose)
+    msgbox(BasaltTr3_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text BasaltTr3_Intro {
+    "Who has the knowledge and\n"
+    "the technique for survival?\p"
+    "Pokémon rangers, that's who!"
+}
+text BasaltTr3_Lose {
+    "I didn't have enough Pokémon\n"
+    "know-how…"
+}
+text BasaltTr3_PostBattle {
+    "To break away from civilization and\n"
+    "awaken the wild spirit within!\p"
+    "That's our vision."
+}
+
+script BasaltTunnel_Tr4_FireBreather {
+    trainerbattle_single(TRAINER_BASALTUNNEL_TR4_FIREBREATHER, BasaltTr4_Intro, BasaltTr4_Lose)
+    msgbox(BasaltTr4_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text BasaltTr4_Intro {
+    "My Pokémon are so hot,\n"
+    "they'll melt even rock!"
+}
+text BasaltTr4_Lose {
+    "Could not melt through your\n"
+    "defenses…"
+}
+text BasaltTr4_PostBattle {
+    "I thought my lava Pokémon could\n"
+    "melt through rock, but I guess\l"
+    "type advantages still exist…"
+}
+
+script BasaltTunnel_Tr5_BlackBelt2 {
+    trainerbattle_single(TRAINER_BASALTUNNEL_TR5_BLACKBELT2, BasaltTr5_Intro, BasaltTr5_Lose)
+    msgbox(BasaltTr5_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text BasaltTr5_Intro {
+    "You've made a mistake\n"
+    "coming here!"
+}
+text BasaltTr5_Lose {
+    "Looks like I was the one\n"
+    "mistaken."
+}
+text BasaltTr5_PostBattle {
+    "I've noticed my Pokémon gaining\n"
+    "experience much faster here than\l"
+    "anywhere else.\p"
+    "If I train here for just a bit\n"
+    "longer, I bet I could even take on\l"
+    "the Pokemon League."
+}
+
+script BasaltTunnel_Tr6_CamperM {
+    trainerbattle_single(TRAINER_BASALTUNNEL_TR6_CAMPERM, BasaltTr6_Intro, BasaltTr6_Lose)
+    msgbox(BasaltTr6_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text BasaltTr6_Intro {
+    "I just caught some new Pokémon.\n"
+    "Let's see how strong they are!"
+}
+text BasaltTr6_Lose {
+    "I think we just need a bit more\n"
+    "training, that's all."
+}
+text BasaltTr6_PostBattle {
+    "All Pokémon get stronger the more\n"
+    "they train.\p"
+    "I'm sure these ones are no exception."
+}
+
+script BasaltTunnel_Tr7_Picnicker2 {
+    trainerbattle_single(TRAINER_BASALTUNNEL_TR7_PICNICKER2, BasaltTr7_Intro, BasaltTr7_Lose)
+    msgbox(BasaltTr7_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text BasaltTr7_Intro {
+    "The warmth here is making me drowsy.\n"
+    "Battle with me so I can stay awake."
+}
+text BasaltTr7_Lose {
+    "This is a dream.\n"
+    "I'm sure of it…"
+}
+text BasaltTr7_PostBattle {
+    "Losing burns me up…\n"
+    "I'm just going to sleep right here!\l"
+    "Zzz!"
+}
+
+script BasaltTunnel_Tr8_Hiker2 {
+    trainerbattle_single(TRAINER_BASALTUNNEL_TR8_HIKER2, BasaltTr8_Intro, BasaltTr8_Lose)
+    msgbox(BasaltTr8_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text BasaltTr8_Intro {
+    "Let's have ourselves an explosive\n"
+    "showdown!"
+}
+text BasaltTr8_Lose {
+    "I think we may have blown\n"
+    "our fuse a bit too fast."
+}
+text BasaltTr8_PostBattle {
+    "Sometimes mutually assured\n"
+    "destruction is the only way to go."
+}
+
+script BasaltTunnel_Tr9_Beauty {
+    trainerbattle_single(TRAINER_BASALTUNNEL_TR9_BEAUTY, BasaltTr9_Intro, BasaltTr9_Lose)
+    msgbox(BasaltTr9_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text BasaltTr9_Intro {
+    "I've come too far to be brought down\n"
+    "by some kid!"
+}
+text BasaltTr9_Lose {
+    "No!\n"
+    "All my progress…"
+}
+text BasaltTr9_PostBattle {
+    "I thought I was doing great,\n"
+    "but I guess there are trainers here\l"
+    "that are way beyond my league…"
+}
+
+script BasaltTunnel_Tr10_FireBreather2 {
+    trainerbattle_single(TRAINER_BASALTUNNEL_TR10_FIREBREATHER2, BasaltTr10_Intro, BasaltTr10_Lose)
+    msgbox(BasaltTr10_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text BasaltTr10_Intro {
+    "I caught hot Pokémon in here!\n"
+    "Take a look!"
+}
+text BasaltTr10_Lose {
+    "What a bumpy ride that was!"
+}
+text BasaltTr10_PostBattle {
+    "I like the way you battle.\n"
+    "It has a certain flair to it."
+}
+
+script BasaltTunnel_Tr11_Hiker3 {
+    trainerbattle_single(TRAINER_BASALTUNNEL_TR11_HIKER3, BasaltTr11_Intro, BasaltTr11_Lose)
+    msgbox(BasaltTr11_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text BasaltTr11_Intro {
+    "We will rock you!"
+}
+text BasaltTr11_Lose {
+    "What a big disgrace we are."
+}
+text BasaltTr11_PostBattle {
+    "You're gonna be a big man someday,\n"
+    "I can tell."
+}
+
+script BasaltTunnel_Tr12_Brock {
+    if(checkitem(ITEM_HM08)){
+        msgbox(BasaltTr12_PostBattle, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    msgbox(BasaltTr12_Intro, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(BasaltTr12_IntroNo)
+    }
+    else{
+        msgbox(BasaltTr12_IntroYes)
+    }
+    trainerbattle_no_intro(TRAINER_BASALTUNNEL_TR12_BROCK, BasaltTr12_Lose)
+    msgbox(BrockPostBat)
+    closemessage
+    giveitem(ITEM_HM_ROCK_CLIMB)
+    waitfanfare
+    msgbox(ExplainRockClimb)
+    msgbox(BasaltTr12_PostBattle)
+    release
+}
+text BasaltTr12_Intro {
+    "Welcome, challenger.\n"
+    "My name is Brock.\p"
+    "Some people call me the reigning\n"
+    "champion of Basalek Tunnels, but\l"
+    "I'm not really one for titles.\p"
+    "All I care about is challenging\n"
+    "strong trainers in order to better\l"
+    "myself and my Pokémon.\p"
+    "Tell me, do you believe yourself\n"
+    "to be a strong trainer?"
+}
+text BasaltTr12_IntroNo{
+    "So humble.\p"
+    "You're going to challenge me,\n"
+    "knowing that you'll lose?"
+    "That's the trainer's honor that\n"
+    "compels you to challenge me.\p"
+    "Fine, then!\n"
+    "Show me your best!"
+}
+text BasaltTr12_IntroYes{
+    "So confident.\p"
+    "You think you're going to\n"
+    "trounce over me, is that it?\p"
+    "Fine, then!\n"
+    "Let's see what you got!"
+}
+text BasaltTr12_Lose {
+    "I took you for granted, and so\n"
+    "I lost."
+}
+text BasaltTr12_PostBattle {
+    "I must get back to my training.\p"
+    "Once my training is complete,\n"
+    "maybe we can have another battle."
+}
+text BrockPostBat{
+    "I'm honored to have battled\n"
+    "such a strong trainer.\p"
+    "For your great performance,\n"
+    "I want you to have this."
+}
+text ExplainRockClimb{
+    "That Hidden Machine contains\n"
+    "the move Rock Climb.\p"
+    "Rock Climb will clear most hazards\n"
+    "from the battlefield, as well as\l"
+    "increase the speed of the Pokémon\l"
+    "using the move.\p"
+    "It will also allow you to climb\n"
+    "certain rocky walls."
+}
+
+script BasalekTunnelGreeter{
+    if(defeated(TRAINER_BASALTUNNEL_TR12_BROCK)){
+        msgbox(BasalekTunnelGreeter_Victory, MSGBOX_NPC)
+    }
+    else{
+        msgbox(BasalekTunnelGreeter_Guide, MSGBOX_NPC)
+    }
+}
+
+text BasalekTunnelGreeter_Guide{
+    "Welcome to Basalek Tunnels.\p"
+    "In this high pressure tunnel network,\n"
+    "only the strongest may survive.\p"
+    "If you feel up to the challenge, why\n"
+    "don't you try finding and defeating\l"
+    "the reigning champion?\p"
+    "Be careful though!\p"
+    "The ground here can be very rough,\n"
+    "and heavily favors Rock-type Pokémon.\p"
+    "All grounded Pokémon using Rock-type\n"
+    "moves will pack an extra punch,\l"
+    "but be warned, for if your Pokémon\l"
+    "isn't of Rock, Ground, or Steel type,\l"
+    "the sharp rocks might actually cause\l"
+    "more harm than good.\p"
+    "Also, due to the heat rising from the\n"
+    "ground, many Water-type moves will be\l"
+    "highly ineffective.\p"
+    "With that out of the way,\n"
+    "go get 'em, champ!"
+}
+text BasalekTunnelGreeter_Victory{
+    "Beat the reigning champion, did you?\n"
+    "Way to go!\p"
+    "However, I better not catch you\n"
+    "sitting on your laurels!\p"
+    "Knowing the champion, I'm sure\n"
+    "he's started to train even harder\l"
+    "than before.\p"
+    "The next time you meet, you may be\n"
+    "in for a big surprise!"
+}

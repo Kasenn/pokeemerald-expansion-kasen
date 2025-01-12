@@ -275,8 +275,8 @@
 #define VAR_UNUSED_VAR                                0x40FF //
 
 #define VAR_BASALEK_LEVEL_REWARD                               0x4100
-#define VAR_UNUSED_0x4101                               0x4101
-#define VAR_UNUSED_0x4102                               0x4102
+#define VAR_HOUNDOOMS_DEFEATED                               0x4101
+#define VAR_ROCK_CLIMB_USED                               0x4102
 #define VAR_UNUSED_0x4103                               0x4103
 #define VAR_UNUSED_0x4104                               0x4104
 #define VAR_UNUSED_0x4105                               0x4105

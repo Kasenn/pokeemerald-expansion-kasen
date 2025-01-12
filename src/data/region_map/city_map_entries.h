@@ -195,4 +195,9 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
         .index = 0,
         .tilemap = gPokenavCityMap_Amberock,
     },
+    {
+        .mapSecId = MAPSEC_BASALEK_TOWN,
+        .index = 0,
+        .tilemap = gPokenavCityMap_Basalek_0,
+    },
 };

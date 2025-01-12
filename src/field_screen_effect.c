@@ -1282,7 +1282,7 @@ static void Task_OrbEffect(u8 taskId)
         SetCameraPanningCallback(NULL);
         tShakeDir = 0;
         tShakeDelay = 4;
-        tState = 4;
+        tState = 5;
         break;
     case 4:
         // If the caller script is delayed after starting the orb effect, a `waitstate` might be reached *after*
@@ -1343,7 +1343,7 @@ void DoOrbEffect(void)
     else if (gSpecialVar_Result == 1)
     {
         tBlueOrb = TRUE;
-        tCenterX = 136;
+        tCenterX = 120;
     }
     else if (gSpecialVar_Result == 2)
     {

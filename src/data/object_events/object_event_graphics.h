@@ -517,6 +517,8 @@ const u16 gObjectEventPalette_Skyla[] = INCBIN_U16("graphics/object_events/pics/
 const u32 gObjectEventPic_SteelSphere[] = INCBIN_U32("graphics/object_events/pics/misc/steel_sphere.4bpp");
 const u16 gObjectEventPalette_SteelSphere[] = INCBIN_U16("graphics/object_events/pics/misc/steel_sphere.gbapal");
 const u16 gObjectEventPalette_StoneSphere[] = INCBIN_U16("graphics/object_events/pics/misc/stone_sphere.gbapal");
+const u32 gObjectEventPic_VerdantSphere[] = INCBIN_U32("graphics/object_events/pics/misc/verdant_sphere.4bpp");
+const u16 gObjectEventPalette_VerdantSphere[] = INCBIN_U16("graphics/object_events/pics/misc/verdant_sphere.gbapal");
 const u32 gObjectEventPic_Clay[] = INCBIN_U32("graphics/object_events/pics/people/clay.4bpp");
 const u16 gObjectEventPalette_Clay[] = INCBIN_U16("graphics/object_events/pics/people/clay.gbapal");
 const u32 gObjectEventPic_RocketAdmin_M[] = INCBIN_U32("graphics/object_events/pics/people/rocket_admin_m.4bpp");
@@ -537,6 +539,8 @@ const u32 gObjectEventPic_Korrina[] = INCBIN_U32("graphics/object_events/pics/pe
 const u16 gObjectEventPalette_Korrina[] = INCBIN_U16("graphics/object_events/pics/people/korrina.gbapal");
 const u32 gObjectEventPic_Kasen[] = INCBIN_U32("graphics/object_events/pics/people/kasen.4bpp");
 const u16 gObjectEventPalette_Kasen[] = INCBIN_U16("graphics/object_events/pics/people/kasen.gbapal");
+const u32 gObjectEventPic_Brock[] = INCBIN_U32("graphics/object_events/pics/people/brock.4bpp");
+const u16 gObjectEventPalette_Brock[] = INCBIN_U16("graphics/object_events/pics/people/brock.gbapal");
 
 const u32 gObjectEventPic_Giovanni[] = INCBIN_U32("graphics/object_events/pics/people/giovanni.4bpp");
 const u16 gObjectEventPalette_Giovanni[] = INCBIN_U16("graphics/object_events/pics/people/giovanni.gbapal");

@@ -1,0 +1,31 @@
+mapscripts BarrenWastes_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        setescapewarp(MAP_BARREN_WASTES, 14, 6)
+    }
+}
+
+script Wastes_Hiker{
+    if(checkitem(ITEM_ESCAPE_ROPE) == TRUE){
+        msgbox(Wastes_Hiker_YesRope, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    msgbox(Wastes_Hiker_NoRope)
+    giveitem(ITEM_ESCAPE_ROPE)
+    release
+    end
+}
+
+text Wastes_Hiker_NoRope{
+    "It can be easy to get lost in\n"
+    "the Frigid Frontier.\p"
+    "Take this, and don't be afraid to\n"
+    "use it if you ever find yourself lost."
+}
+text Wastes_Hiker_YesRope{
+    "It's easy to get lost in\n"
+    "the Frigid Frontier.\p"
+    "Make sure you have an Escape Rope or\n"
+    "a Pokémon with the move Fly with you."
+}

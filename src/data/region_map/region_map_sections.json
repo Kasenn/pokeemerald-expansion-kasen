@@ -129,26 +129,26 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_SILPH_CO",
-      "name": "SILPH CO.",
-      "x": 26,
-      "y": 15,
+      "map_section": "MAPSEC_BARREN_WASTES",
+      "name": "FRIGID FRONTIER",
+      "x": 1,
+      "y": 0,
       "width": 1,
       "height": 1
     },
     {
-      "map_section": "MAPSEC_POKEMON_MANSION",
-      "name": "POKéMON MANSION",
-      "x": 26,
-      "y": 15,
+      "map_section": "MAPSEC_BASALEK_TUNNELS",
+      "name": "BASALEK TUNNELS",
+      "x": 1,
+      "y": 2,
       "width": 1,
       "height": 1
     },
     {
-      "map_section": "MAPSEC_KANTO_SAFARI_ZONE",
-      "name": "SAFARI ZONE",
-      "x": 26,
-      "y": 15,
+      "map_section": "MAPSEC_HOUNDOOM_CAVE",
+      "name": "BELLOWING CAVE",
+      "x": 24,
+      "y": 11,
       "width": 1,
       "height": 1
     },
@@ -653,7 +653,7 @@
       "name": "ROUTE 13",
       "x": 7,
       "y": 11,
-      "width": 4,
+      "width": 1,
       "height": 1
     },
     {
@@ -1085,6 +1085,30 @@
       "name": "SUNKEN CAVERN",
       "x": 3,
       "y": 11,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_OCEAN_WALKWAY",
+      "name": "OCEAN WALKWAY",
+      "x": 8,
+      "y": 11,
+      "width": 3,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_DESERT_CLIFFS",
+      "name": "DESERT CLIFFS",
+      "x": 23,
+      "y": 12,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_HIDDEN_CLEARING",
+      "name": "HIDDEN CLEARING",
+      "x": 6,
+      "y": 13,
       "width": 1,
       "height": 1
     }

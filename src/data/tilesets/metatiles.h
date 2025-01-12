@@ -318,3 +318,6 @@ const u16 gMetatileAttributes_Route7[] = INCBIN_U16("data/tilesets/secondary/rou
 
 const u16 gMetatiles_Basaluff[] = INCBIN_U16("data/tilesets/secondary/basaluff/metatiles.bin");
 const u16 gMetatileAttributes_Basaluff[] = INCBIN_U16("data/tilesets/secondary/basaluff/metatile_attributes.bin");
+
+const u16 gMetatiles_DesertCliff[] = INCBIN_U16("data/tilesets/secondary/desert_cliff/metatiles.bin");
+const u16 gMetatileAttributes_DesertCliff[] = INCBIN_U16("data/tilesets/secondary/desert_cliff/metatile_attributes.bin");

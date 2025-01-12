@@ -1232,3 +1232,14 @@ const struct Tileset gTileset_Basaluff =
     .metatileAttributes = gMetatileAttributes_Basaluff,
     .callback = InitTilesetAnim_Lavaridge,
 };
+
+const struct Tileset gTileset_DesertCliff =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_DesertCliff,
+    .palettes = gTilesetPalettes_DesertCliff,
+    .metatiles = gMetatiles_DesertCliff,
+    .metatileAttributes = gMetatileAttributes_DesertCliff,
+    .callback = NULL,
+};

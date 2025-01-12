@@ -2041,8 +2041,10 @@ static void Task_UseRockClimb(u8 taskId)
 static bool8 RockClimbFieldEffect_Init(struct Task *task, struct ObjectEvent *objectEvent)
 {
     LockPlayerFieldControls();
-    SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_FORCED_MOVE);
+    FreezeObjectEvents();
+    HideFollowerForFieldEffect();
     gPlayerAvatar.preventStep = TRUE;
+    SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_FORCED_MOVE);
     task->tState++;
     return FALSE;
 }
@@ -2050,6 +2052,7 @@ static bool8 RockClimbFieldEffect_Init(struct Task *task, struct ObjectEvent *ob
 static bool8 RockClimbFieldEffect_ShowMon(struct Task *task, struct ObjectEvent *objectEvent)
 {
     LockPlayerFieldControls();
+    FreezeObjectEvents();
     if (!ObjectEventIsMovementOverridden(objectEvent))
     {
         ObjectEventClearHeldMovementIfFinished(objectEvent);
@@ -2063,6 +2066,7 @@ static bool8 RockClimbFieldEffect_ShowMon(struct Task *task, struct ObjectEvent 
 static bool8 RockClimbFieldEffect_WaitForShowMon(struct Task *task, struct ObjectEvent *objectEvent)
 {   
     if (!FieldEffectActiveListContains(FLDEFF_FIELD_MOVE_SHOW_MON)){
+        RemoveFollowingPokemon();
         ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_SURFING));
         ObjectEventClearHeldMovementIfFinished(objectEvent);
         PlayerGetDestCoords(&task->tDestX, &task->tDestY);
@@ -2136,6 +2140,8 @@ static bool8 RockClimbFieldEffect_StopRide(struct Task *task, struct ObjectEvent
 static bool8 RockClimbFieldEffect_StopTask(struct Task *task, struct ObjectEvent *objectEvent){
     if (ObjectEventClearHeldMovementIfFinished(objectEvent)){
         SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_ON_FOOT);
+        UpdateFollowingPokemon();
+        UnfreezeObjectEvents();
         UnlockPlayerFieldControls();
         DestroyTask(FindTaskIdByFunc(Task_UseRockClimb));
         FieldEffectActiveListRemove(FLDEFF_USE_ROCK_CLIMB);

@@ -200,7 +200,7 @@ Route128_EventScript_RematchIsaiah::
 	end
 
 Route128_EventScript_Katelyn::
-	trainerbattle_single TRAINER_KATELYN_1, Route128_Text_KatelynIntro, Route128_Text_KatelynDefeat, Route128_EventScript_RegisterKatelyn
+	trainerbattle_single TRAINER_R17_TR5_SCIENTIST, Route128_Text_KatelynIntro, Route128_Text_KatelynDefeat, Route128_EventScript_RegisterKatelyn
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route128_EventScript_RematchKatelyn
 	msgbox Route128_Text_KatelynPostBattle, MSGBOX_DEFAULT
@@ -211,12 +211,12 @@ Route128_EventScript_RegisterKatelyn::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route128_Text_KatelynRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_KATELYN_1
+	register_matchcall TRAINER_R17_TR5_SCIENTIST
 	release
 	end
 
 Route128_EventScript_RematchKatelyn::
-	trainerbattle_rematch TRAINER_KATELYN_1, Route128_Text_KatelynRematchIntro, Route128_Text_KatelynRematchDefeat
+	trainerbattle_rematch TRAINER_R17_TR5_SCIENTIST, Route128_Text_KatelynRematchIntro, Route128_Text_KatelynRematchDefeat
 	msgbox Route128_Text_KatelynPostRematch, MSGBOX_AUTOCLOSE
 	end
 

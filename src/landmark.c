@@ -16,6 +16,7 @@ struct LandmarkList
 };
 
 static const u8 LandmarkName_FloodedCave[] = _("FLOODED CAVE");
+static const u8 LandmarkName_HiddenClearing[] = _("HIDDEN CLEARING");
 static const u8 LandmarkName_FlowerShop[] = _("FLOWER SHOP");
 static const u8 LandmarkName_PokeRanch[] = _("POKéMON RANCH");
 static const u8 LandmarkName_PetalburgWoods[] = _("PETALBURG WOODS");
@@ -64,8 +65,18 @@ static const u8 LandmarkName_WindyWoods[] = _("WINDY WOODS");
 static const u8 LandmarkName_LostGlade[] = _("LOST GLADE");
 static const u8 LandmarkName_WindplumeValley[] = _("WINDPLUME VALLEY");
 static const u8 LandmarkName_FlowerFields[] = _("FLOWER FIELDS");
+static const u8 LandmarkName_SunkenCavern[] = _("SUNKEN CAVERN");
+static const u8 LandmarkName_BellowingCave[] = _("BELLOWING CAVE");
+static const u8 LandmarkName_ResearchCenter[] = _("RESEARCH CENTER");
+static const u8 LandmarkName_DesertCliffs[] = _("DESERT CLIFFS");
 
+
+static const struct Landmark Landmark_DesertCliffs = {LandmarkName_DesertCliffs, FLAG_LANDMARK_DESERT_CLIFFS};
+static const struct Landmark Landmark_SunkenCavern = {LandmarkName_SunkenCavern, FLAG_LANDMARK_SUNKEN_CAVERN};
+static const struct Landmark Landmark_BellowingCave = {LandmarkName_BellowingCave, FLAG_LANDMARK_BELLOWING_CAVE};
+static const struct Landmark Landmark_ResearchCenter = {LandmarkName_ResearchCenter, FLAG_LANDMARK_LEGENDARY_INSTITUTE};
 static const struct Landmark Landmark_FloodedCave = {LandmarkName_FloodedCave, FLAG_VISITED_FLOODEDCAVE};
+static const struct Landmark Landmark_HiddenClearing = {LandmarkName_HiddenClearing, FLAG_LANDMARK_HIDDEN_CLEARING};
 static const struct Landmark Landmark_FlowerFields = {LandmarkName_FlowerFields, FLAG_LANDMARK_FLOWER_FIELDS};
 static const struct Landmark Landmark_FlowerShop = {LandmarkName_FlowerShop, FLAG_LANDMARK_FLOWER_SHOP};
 static const struct Landmark Landmark_PokeRanch = {LandmarkName_PokeRanch, FLAG_LANDMARK_POKE_RANCH};
@@ -116,6 +127,7 @@ static const struct Landmark Landmark_WindplumeValley = {LandmarkName_WindplumeV
 
 static const struct Landmark *const Landmarks_Desert[]  =
 {
+    &Landmark_BellowingCave,
     &Landmark_DesertRuins,
     NULL,
 };
@@ -136,6 +148,12 @@ static const struct Landmark *const Landmarks_Route4_0[]  =
 static const struct Landmark *const Landmarks_Route5_1[]  =
 {
     &Landmark_FlowerFields,
+    NULL,
+};
+
+static const struct Landmark *const Landmarks_Route6_0[]  =
+{
+    &Landmark_DesertCliffs,
     NULL,
 };
 
@@ -160,6 +178,14 @@ static const struct Landmark *const Landmarks_Route11_0[]  =
 static const struct Landmark *const Landmarks_Route12_0[]  =
 {
     &Landmark_FloodedCave,
+    &Landmark_HiddenClearing,
+    NULL,
+};
+
+static const struct Landmark *const Landmarks_Route14_0[]  =
+{
+    &Landmark_SunkenCavern,
+    &Landmark_ResearchCenter,
     NULL,
 };
 
@@ -410,10 +436,13 @@ static const struct LandmarkList sLandmarkLists[] =
     {MAPSEC_DESERT, 5, Landmarks_Desert},
     {MAPSEC_NEWROUTE_4, 1, Landmarks_Route4_0},
     {MAPSEC_NEWROUTE_5, 1, Landmarks_Route5_1},
+    {MAPSEC_NEWROUTE_6, 0, Landmarks_Route6_0},
     {MAPSEC_NEWROUTE_7, 0, Landmarks_Route7_0},
     {MAPSEC_NEWROUTE_8, 0, Landmarks_Route8_0},
     {MAPSEC_NEWROUTE_11, 1, Landmarks_Route11_0},
     {MAPSEC_NEWROUTE_12, 0, Landmarks_Route12_0},
+    {MAPSEC_NEWROUTE_14, 1, Landmarks_Route14_0},
+    {MAPSEC_NEWROUTE_14, 2, Landmarks_Route14_0},
     {MAPSEC_NEWROUTE_15, 2, Landmarks_Route123_1},
     {MAPSEC_NEWROUTE_15, 3, Landmarks_Route123_0},
     {MAPSEC_NEWROUTE_28, 0, Landmarks_Route28_0},

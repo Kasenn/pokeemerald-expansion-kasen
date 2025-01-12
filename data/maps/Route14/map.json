@@ -562,6 +562,20 @@
       "y": 16,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_ROUTE119_CYCLE"
+    },
+    {
+      "type": "weather",
+      "x": 48,
+      "y": 6,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_ROUTE119_CYCLE"
+    },
+    {
+      "type": "weather",
+      "x": 49,
+      "y": 6,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_ROUTE119_CYCLE"
     }
   ],
   "bg_events": [

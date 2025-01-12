@@ -2272,6 +2272,7 @@ BattleScript_EffectMistyTerrain::
 BattleScript_EffectGrassyTerrain::
 BattleScript_EffectElectricTerrain::
 BattleScript_EffectPsychicTerrain::
+BattleScript_EffectRockyTerrain::
 	attackcanceler
 	attackstring
 	ppreduce
@@ -6126,6 +6127,10 @@ BattleScript_GrassyTerrainEnds::
 	call BattleScript_GrassyTerrainHeals_Ret
 	goto BattleScript_TerrainEnds
 
+BattleScript_RockyTerrainEnds::
+	call BattleScript_RockyTerrainDamages_Ret
+	goto BattleScript_TerrainEnds
+
 BattleScript_TerrainEnds_Ret::
 	printfromtable gTerrainStringIds
 	waitmessage B_WAIT_TIME_LONG
@@ -8521,6 +8526,28 @@ BattleScript_GrassyTerrainLoopIncrement::
 	bicword gHitMarker, HITMARKER_IGNORE_BIDE | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
 	jumpifword CMP_COMMON_BITS, gFieldStatuses, STATUS_FIELD_TERRAIN_PERMANENT, BattleScript_GrassyTerrainHealEnd
 BattleScript_GrassyTerrainHealEnd:
+	return
+
+BattleScript_RockyTerrainDamages::
+	call BattleScript_RockyTerrainDamages_Ret
+	end2
+
+BattleScript_RockyTerrainDamages_Ret::
+	setbyte gBattleCommunication, 0
+BattleScript_RockyTerrainLoop:
+	copyarraywithindex gBattlerAttacker, gBattlerByTurnOrder, gBattleCommunication, 1
+	checkrockyterraindamage BS_ATTACKER, BattleScript_RockyTerrainLoopIncrement
+	printstring STRINGID_ROCKYTERRAINDAMAGES
+	waitmessage B_WAIT_TIME_LONG
+	orword gHitMarker, HITMARKER_IGNORE_BIDE | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+BattleScript_RockyTerrainLoopIncrement::
+	addbyte gBattleCommunication, 1
+	jumpifbytenotequal gBattleCommunication, gBattlersCount, BattleScript_RockyTerrainLoop
+	bicword gHitMarker, HITMARKER_IGNORE_BIDE | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	jumpifword CMP_COMMON_BITS, gFieldStatuses, STATUS_FIELD_TERRAIN_PERMANENT, BattleScript_RockyTerrainDamageEnd
+BattleScript_RockyTerrainDamageEnd:
 	return
 
 BattleScript_AbilityNoSpecificStatLoss::

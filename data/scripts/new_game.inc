@@ -122,6 +122,10 @@ EventScript_ResetAllBerries::
 	return
 
 EventScript_ResetAllMapFlags::
+	setflag FLAG_PLACED_STEEL_SPHERE
+	setflag FLAG_PLACED_STONE_SPHERE
+	setflag FLAG_PLACED_VERDANT_SPHERE
+	setvar VAR_DEBUG, 1
 	setvar VAR_CHOSEN_OUTFIT, 1
 	setvar VAR_GROTTO_STEP_COUNT, 256
 	setflag FLAG_ZYGARDE_CELL_1

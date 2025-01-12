@@ -1,0 +1,163 @@
+mapscripts Route17_MapScripts {
+    MAP_SCRIPT_ON_RESUME{
+        setstepcallback(STEP_CB_ASH)
+    }
+}
+
+script Route17_Tr1_CamperM {
+    trainerbattle_single(TRAINER_R17_TR1_CAMPER_M, R17Tr1_Intro, R17Tr1_Lose)
+    msgbox(R17Tr1_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R17Tr1_Intro {
+    "This route can be perilous.\p"
+    "Let me see if your Pokémon are\n"
+    "capable of traversing it!"
+}
+text R17Tr1_Lose {
+    "Your Pokémon are more than equipped\n"
+    "to handle any danger."
+}
+text R17Tr1_PostBattle {
+    "We Pokémon Rangers must be constantly\n"
+    "alert in areas like these."
+}
+
+script Route17_Tr2_Picnicker1 {
+    trainerbattle_single(TRAINER_R17_TR2_PICNICKER1, R17Tr2_Intro, R17Tr2_Lose)
+    msgbox(R17Tr2_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R17Tr2_Intro {
+    "Can your Pokémon take the heat?"
+}
+text R17Tr2_Lose {
+    "Looks like we're the ones who\n"
+    "got burned…"
+}
+text R17Tr2_PostBattle {
+    "Make sure to carry Burn or Full\n"
+    "Heals when traversing these routes."
+}
+
+script Route17_Tr3_Picnicker2 {
+    trainerbattle_single(TRAINER_R17_TR3_PICNICKER2, R17Tr3_Intro, R17Tr3_Lose)
+    msgbox(R17Tr3_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R17Tr3_Intro {
+    "You! Stop!\n"
+    "Let me see your Pokémon!"
+}
+text R17Tr3_Lose {
+    "Uh-huh, yes,\n"
+    "those are some fine Pokémon."
+}
+text R17Tr3_PostBattle {
+    "You have some exceptional Pokémon.\n"
+    "You must be taking good care of them."
+}
+
+script Route17_Tr4_Maniac {
+    trainerbattle_single(TRAINER_R17_TR4_MANIAC, R17Tr4_Intro, R17Tr4_Lose)
+    msgbox(R17Tr4_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R17Tr4_Intro {
+    "For your sake, I hope your\n"
+    "Pokémon don't get confused easily!"
+}
+text R17Tr4_Lose {
+    "I'm confused…\n"
+    "How did we lose?"
+}
+text R17Tr4_PostBattle {
+    "How did this happen?"
+}
+
+script Route17_Tr5_Scientist {
+    trainerbattle_single(TRAINER_R17_TR5_SCIENTIST, R17Tr5_Intro, R17Tr5_Lose)
+    msgbox(R17Tr5_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R17Tr5_Intro {
+    "A new test subject.\n"
+    "Fantastic!"
+}
+text R17Tr5_Lose {
+    "Note to self: test subject\n"
+    "exceeded expectations."
+}
+text R17Tr5_PostBattle {
+    "The test has now concluded.\n"
+    "Thank you for participating."
+}
+
+script Route17_Tr6_Hiker1 {
+    trainerbattle_single(TRAINER_R17_TR6_HIKER1, R17Tr6_Intro, R17Tr6_Lose)
+    msgbox(R17Tr6_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R17Tr6_Intro {
+    "Let's get ready to rumble!"
+}
+text R17Tr6_Lose {
+    "Good show!"
+}
+text R17Tr6_PostBattle {
+    "Sometimes this area gets hit by\n"
+    "earthquakes, and new pockets of lava\l"
+    "spring forth from the ground.\p"
+    "Thankfully a Pokémon's earthquake is\n"
+    "not nearly powerful enough to trigger\l"
+    "a real earthquake."
+}
+
+script Route17_Tr7_Hiker2 {
+    trainerbattle_single(TRAINER_R17_TR7_HIKER2, R17Tr7_Intro, R17Tr7_Lose)
+    msgbox(R17Tr7_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R17Tr7_Intro {
+    "Halt!\n"
+    "Go no further!"
+}
+text R17Tr7_Lose {
+    "You're strong, but I would still\n"
+    "advice against continuing further."
+}
+text R17Tr7_PostBattle {
+    "Past me lies the Frigid Frontier.\p"
+    "It is said that a legendary Pokémon\n"
+    "once made the area its home, but\l"
+    "nowadays the only sings of life ever\l"
+    "inhabiting that place are the\l"
+    "permafrozen woods."
+}
+
+script Route17_Sign{
+    msgbox(Route17_Sign_Text, MSGBOX_SIGN)
+}
+text Route17_Sign_Text{
+    "{LEFT_ARROW} Frigid Frontier\n"
+    "{RIGHT_ARROW} Route 17 Cable Car Station\l"
+    "{DOWN_ARROW} Basalek Town"
+}
+
+script Route17_Tr8_Cooltrainer {
+    trainerbattle_single(TRAINER_R17_TR8_COOLTRAINER, R17Tr8_Intro, R17Tr8_Lose)
+    msgbox(R17Tr8_PostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+text R17Tr8_Intro {
+    "Even the snow can't quench the fire\n"
+    "burning in my heart!"
+}
+text R17Tr8_Lose {
+    "Snuffed out…"
+}
+text R17Tr8_PostBattle {
+    "From here on out the weather's\n"
+    "going to get much colder.\p"
+    "I hope you're well prepared!"
+}

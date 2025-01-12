@@ -12238,19 +12238,19 @@ const struct Item gItemsInfo[] =
         .secondaryId = MOVE_WATERFALL,
     },
 
-    [ITEM_HM_DIVE] =
+    [ITEM_HM_ROCK_CLIMB] =
     {
         .name = _("HM08"),
         .price = 0,
         .description = COMPOUND_STRING(
-            "Dives underwater\n"
-            "the 1st turn, then\n"
-            "attacks next turn."),
+            "Spins the body at\n"
+            "high speed to\n"
+            "strike the foe."),
         .importance = 1,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_DIVE,
+        .secondaryId = MOVE_ROCK_CLIMB,
     },
 
 
@@ -14096,6 +14096,21 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .iconPic = gItemIcon_StoneSphere,
         .iconPalette = gItemIconPalette_StoneSphere,
+    },
+
+        [ITEM_VERDANT_SPHERE] =
+    {
+        .name = _("Verdant Sphere"),
+        .price = 0,
+        .description = COMPOUND_STRING( 
+            "A peculiar vine\n"
+            "sphere."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_VerdantSphere,
+        .iconPalette = gItemIconPalette_VerdantSphere,
     },
 
     [ITEM_TROPICAL_STONE] =

@@ -46,7 +46,7 @@ Route131_EventScript_Ian::
 	end
 
 Route131_EventScript_Talia::
-	trainerbattle_single TRAINER_TALIA, Route131_Text_TaliaIntro, Route131_Text_TaliaDefeat
+	trainerbattle_single TRAINER_R17_TR4_MANIAC, Route131_Text_TaliaIntro, Route131_Text_TaliaDefeat
 	msgbox Route131_Text_TaliaPostBattle, MSGBOX_AUTOCLOSE
 	end
 

@@ -325,21 +325,6 @@ Text_WantToWaterfall:
 Text_MonUsedWaterfall:
 	.string "{STR_VAR_1} used Waterfall.$"
 
-EventScript_UseRockClimb::
-	lockall
-	checkpartymove MOVE_ROCK_CLIMB
-	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantRockClimb
-	bufferpartymonnick STR_VAR_1, VAR_RESULT
-	setfieldeffectargument 0, VAR_RESULT
-	msgbox Text_WantToRockClimb, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EventScript_EndRockClimb
-	msgbox Text_MonUsedRockClimb, MSGBOX_DEFAULT
-	call FollowerIntoPlayerScript
-    callnative HideFollower
-	dofieldeffect FLDEFF_USE_ROCK_CLIMB
-	callnative FollowMe_WarpSetEnd
-	goto EventScript_EndRockClimb
-
 EventScript_CantRockClimb::
 	msgbox Text_CantRockClimb, MSGBOX_DEFAULT
 

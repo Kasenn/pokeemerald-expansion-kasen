@@ -20,7 +20,7 @@
     },
     {
       "map": "MAP_BARREN_WASTES",
-      "offset": -63,
+      "offset": -8,
       "direction": "left"
     },
     {
@@ -52,7 +52,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
+      "trainer_sight_or_berry_tree_id": "ITEM_MAX_REPEL",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ROUTE17_ITEM1"
     },
@@ -74,25 +74,25 @@
       "x": 15,
       "y": 63,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
-      "script": "JaggedPass_EventScript_Ethan",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route17_Tr1_CamperM",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 13,
+      "x": 12,
       "y": 52,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
-      "script": "JaggedPass_EventScript_Autumn",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Route17_Tr2_Picnicker1",
       "flag": "0"
     },
     {
@@ -100,12 +100,12 @@
       "x": 18,
       "y": 42,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "JaggedPass_EventScript_Diana",
+      "script": "Route17_Tr3_Picnicker2",
       "flag": "0"
     },
     {
@@ -118,33 +118,33 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "JaggedPass_EventScript_Eric",
+      "script": "Route17_Tr6_Hiker1",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
-      "x": 11,
-      "y": 8,
+      "x": 12,
+      "y": 10,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "JaggedPass_EventScript_Eric",
+      "script": "Route17_Tr7_Hiker2",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
+      "graphics_id": "OBJ_EVENT_GFX_MAN_5",
       "x": 26,
       "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route17_Tr8_Cooltrainer",
       "flag": "0"
     },
     {
@@ -155,9 +155,9 @@
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "Route17_Tr5_Scientist",
       "flag": "0"
     },
     {
@@ -168,17 +168,211 @@
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "Route17_Tr4_Maniac",
       "flag": "0"
     }
   ],
   "warp_events": [
-
+    {
+      "x": 43,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_MT_CHIMNEY_CABLE_CAR_STATION",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 44,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_MT_CHIMNEY_CABLE_CAR_STATION",
+      "dest_warp_id": "1"
+    }
   ],
   "coord_events": [
-
+    {
+      "type": "weather",
+      "x": 5,
+      "y": 70,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
+    },
+    {
+      "type": "weather",
+      "x": 6,
+      "y": 71,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
+    },
+    {
+      "type": "weather",
+      "x": 6,
+      "y": 72,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
+    },
+    {
+      "type": "weather",
+      "x": 22,
+      "y": 20,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
+    },
+    {
+      "type": "weather",
+      "x": 23,
+      "y": 21,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
+    },
+    {
+      "type": "weather",
+      "x": 14,
+      "y": 21,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
+    },
+    {
+      "type": "weather",
+      "x": 24,
+      "y": 21,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
+    },
+    {
+      "type": "weather",
+      "x": 6,
+      "y": 10,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_BLIZZARD"
+    },
+    {
+      "type": "weather",
+      "x": 6,
+      "y": 9,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_BLIZZARD"
+    },
+    {
+      "type": "weather",
+      "x": 6,
+      "y": 8,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_BLIZZARD"
+    },
+    {
+      "type": "weather",
+      "x": 33,
+      "y": 14,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 32,
+      "y": 15,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 31,
+      "y": 16,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 30,
+      "y": 17,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 0,
+      "y": 5,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_BLIZZARD"
+    },
+    {
+      "type": "weather",
+      "x": 0,
+      "y": 6,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_BLIZZARD"
+    },
+    {
+      "type": "weather",
+      "x": 0,
+      "y": 7,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_BLIZZARD"
+    },
+    {
+      "type": "weather",
+      "x": 0,
+      "y": 8,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_BLIZZARD"
+    },
+    {
+      "type": "weather",
+      "x": 0,
+      "y": 9,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_BLIZZARD"
+    },
+    {
+      "type": "weather",
+      "x": 0,
+      "y": 10,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_BLIZZARD"
+    },
+    {
+      "type": "weather",
+      "x": 7,
+      "y": 7,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_BLIZZARD"
+    },
+    {
+      "type": "weather",
+      "x": 5,
+      "y": 11,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_BLIZZARD"
+    },
+    {
+      "type": "weather",
+      "x": 11,
+      "y": 8,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 10,
+      "y": 9,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 9,
+      "y": 10,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 8,
+      "y": 11,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    }
   ],
   "bg_events": [
     {
@@ -186,7 +380,7 @@
       "x": 3,
       "y": 46,
       "elevation": 0,
-      "item": "ITEM_NONE",
+      "item": "ITEM_NUGGET",
       "flag": "FLAG_ROUTE17_ITEM2"
     },
     {
@@ -194,7 +388,7 @@
       "x": 19,
       "y": 10,
       "elevation": 0,
-      "item": "ITEM_NONE",
+      "item": "ITEM_HEAVY_BALL",
       "flag": "FLAG_ROUTE17_ITEM4"
     },
     {
@@ -203,7 +397,7 @@
       "y": 15,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "Route17_Sign"
     }
   ]
 }

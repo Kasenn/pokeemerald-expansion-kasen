@@ -1,4 +1,23 @@
-mapscripts Route12_SideArea_MapScripts{}
+mapscripts Route12_SideArea_MapScripts{
+    MAP_SCRIPT_ON_RESUME{
+        if(flag(FLAG_SYS_CTRL_OBJ_DELETE)){
+            specialvar(VAR_RESULT, GetBattleOutcome)
+            if(var(VAR_RESULT) == B_OUTCOME_CAUGHT){
+                removeobject(VAR_LAST_TALKED)
+            }
+        }
+    }
+    MAP_SCRIPT_ON_TRANSITION{
+        setflag(FLAG_LANDMARK_HIDDEN_CLEARING)
+        setflag(FLAG_HIDE_COBALION)
+        if(var(VAR_SPHERES_FOUND) >= 4){
+            setflag(FLAG_TEMP_A)
+            if(!flag(FLAG_DEFEATED_COBALION)){
+                clearflag(FLAG_HIDE_COBALION)
+            }
+        }
+    }
+}
 
 script StrengthWoman{
     if(flag(FLAG_RECEIVED_HM_STRENGTH)){
@@ -32,4 +51,38 @@ text Need4BadgesFirst{
     "out of your way, but in order to use it,\l"
     "you must first obtain the badge from\l"
     "Sandstone City Pokémon Gym."
+}
+
+script Route12_SideArea_Cobalion{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_COBALION, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+	setwildbattle(SPECIES_COBALION, 50)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	special(BattleSetup_StartLegendaryBattle)
+	waitstate
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    specialvar(VAR_RESULT, GetBattleOutcome)
+	if(var(VAR_RESULT) == B_OUTCOME_WON){
+        setflag(FLAG_DEFEATED_COBALION)
+	    fadescreenswapbuffers(FADE_TO_BLACK)
+	    removeobject (VAR_LAST_TALKED)
+	    fadescreenswapbuffers(FADE_FROM_BLACK)
+	    release
+	    end
+    } 
+	if(var(VAR_RESULT) == B_OUTCOME_RAN){
+        setvar(VAR_0x8004, SPECIES_COBALION)
+	    goto(Common_EventScript_LegendaryRanAway)
+    } 
+	if(var(VAR_RESULT) == B_OUTCOME_PLAYER_TELEPORTED){
+        setvar(VAR_0x8004, SPECIES_COBALION)
+	    goto(Common_EventScript_LegendaryRanAway)
+    } 
+	setflag(FLAG_DEFEATED_COBALION)
+	release
+	end
 }

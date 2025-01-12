@@ -1,0 +1,141 @@
+mapscripts FrigidFrontier_Cave_MapScripts{
+    MAP_SCRIPT_ON_LOAD{
+        if(flag(FLAG_FRIGIDFRONTIERCAVE_HIDE_STEEL_SPHERE)){
+            setmetatile(6, 1, 0x219, TRUE)
+            setmetatile(7, 1, 0x219, TRUE)
+            setmetatile(8, 1, 0x219, TRUE)
+            setmetatile(6, 2, 0x219, TRUE)
+            setmetatile(7, 2, 0x219, TRUE)
+            setmetatile(8, 2, 0x219, TRUE)
+        }
+    }
+}
+
+script FrigidCave_ActivatePedestal{
+    if(flag(FLAG_FRIGIDFRONTIERCAVE_VERDANT_SPHERE)){
+        msgbox(FrigidCave_Text_EmptyPedestal2, MSGBOX_NPC)
+        end
+    }
+    lock
+    msgbox(FrigidCave_Text_EmptyPedestal, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        closemessage
+        release
+        end
+    }
+    call(Common_OpenBag)
+    bufferitemname(STR_VAR_1, VAR_ITEM_ID)
+    if(var(VAR_ITEM_ID) == 0){
+        closemessage
+        release
+        end
+    }
+    elif(var(VAR_ITEM_ID) == ITEM_STEEL_SPHERE){
+        clearflag(FLAG_FRIGIDFRONTIERCAVE_HIDE_STEEL_SPHERE)
+        setflag(FLAG_FRIGIDFRONTIERCAVE_DOOR_OPEN)
+        removeitem(ITEM_STEEL_SPHERE)
+        removeobject(2)
+        addobject(1)
+        special(DrawWholeMapView)
+        msgbox(FrigidCave_Text_PutCorrectItem, MSGBOX_DEFAULT)
+        closemessage
+        setmetatile(6, 1, 0x20B, TRUE)
+        setmetatile(7, 1, 0x20C, TRUE)
+        setmetatile(8, 1, 0x20D, TRUE)
+        setmetatile(6, 2, 0x213, TRUE)
+        setmetatile(7, 2, 0x214, FALSE)
+        setmetatile(8, 2, 0x215, TRUE)
+        special(DrawWholeMapView)
+        fadeoutbgm(0)
+        delay(30)
+        setvar(VAR_0x8004, 1)  // vertical pan
+        setvar(VAR_0x8005, 1)  // horizontal pan
+        setvar(VAR_0x8006, 8)  // num shakes
+        setvar(VAR_0x8007, 5)  // shake delay
+        special(ShakeCamera)
+        waitstate
+        delay(60)
+        playse(SE_SWITCH)
+        waitse
+        delay(90)
+        fadeinbgm(0)
+        delay(30)
+        release
+    }
+    else{
+        msgbox(FrigidCave_Text_PutWrongItem, MSGBOX_NPC)
+        end
+    }
+}
+
+script FrigidCave_TakeBackSphere{
+    lock
+    msgbox(FrigidCave_Text_TakeBackSphere, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        closemessage
+        release
+        end
+    }
+    additem(ITEM_STEEL_SPHERE)
+    setflag(FLAG_FRIGIDFRONTIERCAVE_HIDE_STEEL_SPHERE)
+    clearflag(FLAG_FRIGIDFRONTIERCAVE_DOOR_OPEN)
+    removeobject(1)
+    addobject(2)
+    special(DrawWholeMapView)
+    msgbox(FrigidCave_Text_TookOutSphere, MSGBOX_DEFAULT)
+    closemessage
+    setmetatile(6, 1, 0x219, TRUE)
+    setmetatile(7, 1, 0x219, TRUE)
+    setmetatile(8, 1, 0x219, TRUE)
+    setmetatile(6, 2, 0x219, TRUE)
+    setmetatile(7, 2, 0x219, TRUE)
+    setmetatile(8, 2, 0x219, TRUE)
+    special(DrawWholeMapView)
+    fadeoutbgm(0)
+    delay(30)
+    setvar(VAR_0x8004, 1)  // vertical pan
+    setvar(VAR_0x8005, 1)  // horizontal pan
+    setvar(VAR_0x8006, 8)  // num shakes
+    setvar(VAR_0x8007, 5)  // shake delay
+    special(ShakeCamera)
+    waitstate
+    delay(60)
+    playse(SE_SWITCH)
+    waitse
+    delay(90)
+    fadeinbgm(0)
+    delay(30)
+    release
+}
+
+text FrigidCave_Text_EmptyPedestal2{
+    "There's an empty pedestal here."
+}
+
+text FrigidCave_Text_EmptyPedestal{
+    "There's an empty pedestal here.\p"
+    "Would you like to try placing an item\n"
+    "on it?"
+}
+text FrigidCave_Text_PutCorrectItem{
+    "{PLAYER} placed the {STR_VAR_1}\n"
+    "on the pedestal.\p"
+    "… {PAUSE_UNTIL_PRESS}… {PAUSE_UNTIL_PRESS}…"
+}
+text FrigidCave_Text_PutWrongItem{
+    "{PLAYER} placed the {STR_VAR_1}\n"
+    "on the pedestal.\p"
+    "… {PAUSE_UNTIL_PRESS}… {PAUSE_UNTIL_PRESS}…\p"
+    "Nothing seems to be happening…\p"
+    "{PLAYER} put the {STR_VAR_1}\n"
+    "back in the bag."
+}
+text FrigidCave_Text_TakeBackSphere{
+    "The Steel Sphere is resting on the\n"
+    "pedestal.\p"
+    "Would you like to pick it back up?"
+}
+text FrigidCave_Text_TookOutSphere{
+    "{PLAYER} took out the Steel Sphere\n"
+    "from the table."
+}

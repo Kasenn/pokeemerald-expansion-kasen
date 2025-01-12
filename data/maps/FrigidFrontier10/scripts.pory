@@ -1,0 +1,5 @@
+mapscripts FrigidFrontier10_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        setescapewarp(MAP_BARREN_WASTES, 14, 6)
+    }
+}

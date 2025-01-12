@@ -4386,7 +4386,9 @@ static bool8 SetUpFieldMove_RockClimb(void)
     s16 x, y;
 
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
-    if (MetatileBehavior_IsRockWall(MapGridGetMetatileBehaviorAt(x, y)) == TRUE && (GetPlayerMovementDirection() == (DIR_NORTH || DIR_SOUTH)))
+    if (MetatileBehavior_IsRockWall(MapGridGetMetatileBehaviorAt(x, y)) == TRUE
+    && (GetPlayerMovementDirection() == DIR_NORTH
+    || GetPlayerMovementDirection() == DIR_SOUTH))
     {
         gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
         gPostMenuFieldCallback = FieldCallback_RockClimb;

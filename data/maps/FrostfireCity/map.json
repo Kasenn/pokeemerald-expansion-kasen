@@ -15,13 +15,8 @@
   "connections": [
     {
       "map": "MAP_ROUTE18",
-      "offset": -3,
+      "offset": 6,
       "direction": "left"
-    },
-    {
-      "map": "MAP_POKEMON_WORLD_TOURNAMENT",
-      "offset": 8,
-      "direction": "up"
     },
     {
       "map": "MAP_ROUTE19",

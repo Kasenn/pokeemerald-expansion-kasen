@@ -737,8 +737,12 @@
 #define STRINGID_JASMINE_NOTGIVINGUPYET               734
 #define STRINGID_JASMINE_AMPHY                        735
 #define	STRINGID_HIVE_LEADER                          736
+#define STRINGID_ROCKYTERRAINDAMAGES                  737
+#define STRINGID_ROCKYTERRAINENDS                     738
+#define STRINGID_TERRAINBECOMESROCKY                  739
+#define STRINGID_ISCOVEREDWITHROCKS                   740
 
-#define BATTLESTRINGS_COUNT                           737
+#define BATTLESTRINGS_COUNT                           741
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -1011,7 +1015,9 @@
 #define B_MSG_TERRAIN_END_ELECTRIC  5
 #define B_MSG_TERRAIN_END_PSYCHIC   6
 #define B_MSG_TERRAIN_END_GRASSY    7
-#define B_MSG_TERRAIN_COUNT         8
+#define B_MSG_TERRAIN_SET_ROCKY     10
+#define B_MSG_TERRAIN_END_ROCKY     11
+#define B_MSG_TERRAIN_COUNT         12
 
 // gStartingStatusStringIds
 #define B_MSG_TERRAIN_SET_MISTY     0
@@ -1023,7 +1029,9 @@
 #define B_MSG_SET_WONDER_ROOM       6
 #define B_MSG_SET_TAILWIND_PLAYER   7
 #define B_MSG_SET_TAILWIND_OPPONENT 8
-#define B_MSG_STARTING_STATUS_COUNT 9
+#define B_MSG_TERRAIN_SET_ROCKY     10
+#define B_MSG_TERRAIN_END_ROCKY     11
+#define B_MSG_STARTING_STATUS_COUNT 12
 
 
 // gWrappedStringIds

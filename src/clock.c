@@ -35,6 +35,16 @@ void DoTimeBasedEvents(void)
     }
 }
 
+static void UpdateVarsAndFlags(void)
+{
+    if (VarGet(VAR_DEBUG) == 0){
+        FlagSet(FLAG_PLACED_STEEL_SPHERE);
+        FlagSet(FLAG_PLACED_STONE_SPHERE);
+        FlagSet(FLAG_PLACED_VERDANT_SPHERE);
+        VarSet(VAR_DEBUG, 1);
+    }
+}
+
 static void UpdatePerDay(struct Time *localTime)
 {
     u16 *days = GetVarPointer(VAR_DAYS);
@@ -46,6 +56,7 @@ static void UpdatePerDay(struct Time *localTime)
         ClearDailyFlags();
         RandomizeDailyVariables();
         SetGrottos();
+        UpdateVarsAndFlags();
         // UpdateDewfordTrendPerDay(daysSince);
         UpdateTVShowsPerDay(daysSince);
         UpdateWeatherPerDay(daysSince);

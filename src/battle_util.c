@@ -1649,6 +1649,7 @@ enum
     ENDTURN_MISTY_TERRAIN,
     ENDTURN_GRASSY_TERRAIN,
     ENDTURN_PSYCHIC_TERRAIN,
+    ENDTURN_ROCKY_TERRAIN,
     ENDTURN_ION_DELUGE,
     ENDTURN_FAIRY_LOCK,
     ENDTURN_STATUS_HEAL,
@@ -1664,6 +1665,8 @@ static bool32 EndTurnTerrain(u32 terrainFlag, u32 stringTableId)
     {
         if (terrainFlag & STATUS_FIELD_GRASSY_TERRAIN)
             BattleScriptExecute(BattleScript_GrassyTerrainHeals);
+        else if (terrainFlag & STATUS_FIELD_ROCKY_TERRAIN)
+            BattleScriptExecute(BattleScript_RockyTerrainDamages);
         if (!(gFieldStatuses & STATUS_FIELD_TERRAIN_PERMANENT) && --gFieldTimers.terrainTimer == 0)
         {
             gFieldStatuses &= ~terrainFlag;
@@ -1671,6 +1674,8 @@ static bool32 EndTurnTerrain(u32 terrainFlag, u32 stringTableId)
             gBattleCommunication[MULTISTRING_CHOOSER] = stringTableId;
             if (terrainFlag & STATUS_FIELD_GRASSY_TERRAIN)
                 BattleScriptExecute(BattleScript_GrassyTerrainEnds);
+            if (terrainFlag & STATUS_FIELD_ROCKY_TERRAIN)
+                BattleScriptExecute(BattleScript_RockyTerrainEnds);
             else
                 BattleScriptExecute(BattleScript_TerrainEnds);
             return TRUE;
@@ -2107,6 +2112,10 @@ u8 DoFieldEndTurnEffects(void)
             break;
         case ENDTURN_GRASSY_TERRAIN:
             effect = EndTurnTerrain(STATUS_FIELD_GRASSY_TERRAIN, B_MSG_TERRAIN_END_GRASSY);
+            gBattleStruct->turnCountersTracker++;
+            break;
+        case ENDTURN_ROCKY_TERRAIN:
+            effect = EndTurnTerrain(STATUS_FIELD_ROCKY_TERRAIN, B_MSG_TERRAIN_END_ROCKY);
             gBattleStruct->turnCountersTracker++;
             break;
         case ENDTURN_PSYCHIC_TERRAIN:
@@ -4145,6 +4154,8 @@ bool32 ChangeTypeBasedOnTerrain(u32 battler)
         battlerType = TYPE_ELECTRIC;
     else if (gFieldStatuses & STATUS_FIELD_GRASSY_TERRAIN)
         battlerType = TYPE_GRASS;
+    else if (gFieldStatuses & STATUS_FIELD_ROCKY_TERRAIN)
+        battlerType = TYPE_ROCK;
     else if (gFieldStatuses & STATUS_FIELD_MISTY_TERRAIN)
         battlerType = TYPE_FAIRY;
     else if (gFieldStatuses & STATUS_FIELD_PSYCHIC_TERRAIN)
@@ -4414,6 +4425,18 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     effect = 2;
                 }
                 break;
+            case STARTING_STATUS_ROCKY_TERRAIN:
+                if (!(gFieldStatuses & STATUS_FIELD_ROCKY_TERRAIN))
+                {
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_SET_ROCKY;
+                    gFieldStatuses |= STATUS_FIELD_ROCKY_TERRAIN;
+                    if (timerVal == 0)
+                        gFieldStatuses |= STATUS_FIELD_TERRAIN_PERMANENT;
+                    else
+                        gFieldTimers.terrainTimer = timerVal;
+                    effect = 2;
+                }
+                break;
             case STARTING_STATUS_PSYCHIC_TERRAIN:
                 if (!(gFieldStatuses & STATUS_FIELD_PSYCHIC_TERRAIN))
                 {
@@ -4513,11 +4536,11 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             effect++;
         }
         else if (B_OVERWORLD_FOG >= GEN_8
-              && (GetCurrentWeather() == WEATHER_FOG_HORIZONTAL || GetCurrentWeather() == WEATHER_FOG_DIAGONAL)
-              && !(gFieldStatuses & STATUS_FIELD_MISTY_TERRAIN))
+              && (MAP(BASALEK_TUNNELS))
+              && !(gFieldStatuses & STATUS_FIELD_ROCKY_TERRAIN))
         {
-            gFieldStatuses = (STATUS_FIELD_MISTY_TERRAIN | STATUS_FIELD_TERRAIN_PERMANENT);
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_SET_MISTY;
+            gFieldStatuses = (STATUS_FIELD_ROCKY_TERRAIN | STATUS_FIELD_TERRAIN_PERMANENT);
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_SET_ROCKY;
             BattleScriptPushCursorAndCallback(BattleScript_OverworldTerrain);
             effect++;
         }
@@ -4562,6 +4585,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     effect++;
                 }
                 break;
+            case WEATHER_BLIZZARD:
             case WEATHER_SNOW:
                 if (!(gBattleWeather & (B_WEATHER_HAIL | B_WEATHER_SNOW)))
                 {
@@ -9448,7 +9472,11 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageCalculationData *
         modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
     if (IsBattlerTerrainAffected(battlerAtk, STATUS_FIELD_GRASSY_TERRAIN) && moveType == TYPE_GRASS)
         modifier = uq4_12_multiply(modifier, (B_TERRAIN_TYPE_BOOST >= GEN_8 ? UQ_4_12(1.3) : UQ_4_12(1.5)));
+    if (IsBattlerTerrainAffected(battlerAtk, STATUS_FIELD_ROCKY_TERRAIN) && moveType == TYPE_ROCK)
+        modifier = uq4_12_multiply(modifier, (B_TERRAIN_TYPE_BOOST >= GEN_8 ? UQ_4_12(1.3) : UQ_4_12(1.5)));
     if (IsBattlerTerrainAffected(battlerDef, STATUS_FIELD_MISTY_TERRAIN) && moveType == TYPE_DRAGON)
+        modifier = uq4_12_multiply(modifier, UQ_4_12(0.5));
+    if (IsBattlerTerrainAffected(battlerDef, STATUS_FIELD_ROCKY_TERRAIN) && moveType == TYPE_WATER)
         modifier = uq4_12_multiply(modifier, UQ_4_12(0.5));
     if (IsBattlerTerrainAffected(battlerAtk, STATUS_FIELD_ELECTRIC_TERRAIN) && moveType == TYPE_ELECTRIC)
         modifier = uq4_12_multiply(modifier, (B_TERRAIN_TYPE_BOOST >= GEN_8 ? UQ_4_12(1.3) : UQ_4_12(1.5)));

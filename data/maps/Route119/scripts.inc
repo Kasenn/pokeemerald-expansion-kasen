@@ -394,12 +394,12 @@ Route119_EventScript_RematchCatherine::
 	end
 
 Route119_EventScript_Hugh::
-	trainerbattle_single TRAINER_HUGH, Route119_Text_HughIntro, Route119_Text_HughDefeat
+	trainerbattle_single TRAINER_BASALTUNNEL_TR10_FIREBREATHER2, Route119_Text_HughIntro, Route119_Text_HughDefeat
 	msgbox Route119_Text_HughPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route119_EventScript_Phil::
-	trainerbattle_single TRAINER_PHIL, Route119_Text_PhilIntro, Route119_Text_PhilDefeat
+	trainerbattle_single TRAINER_BASALTUNNEL_TR11_HIKER3, Route119_Text_PhilIntro, Route119_Text_PhilDefeat
 	msgbox Route119_Text_PhilPostBattle, MSGBOX_AUTOCLOSE
 	end
 

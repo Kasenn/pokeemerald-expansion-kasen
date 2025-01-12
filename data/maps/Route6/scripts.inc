@@ -5,27 +5,34 @@ Route6_MapScripts::
 
 
 ClearShinyFlag3::
-	goto_if_set FLAG_DESERT_RUINS_OPENED, ClearShinyFlag3_2
+	compare VAR_SPHERES_FOUND, 4
+	goto_if_ge ClearShinyFlag3_2
 ClearShinyFlag3_1:
-	goto_if_set FLAG_DEVON_UNDER_ATTACK, ClearShinyFlag3_5
+	goto_if_set FLAG_DESERT_RUINS_OPENED, ClearShinyFlag3_5
 ClearShinyFlag3_4:
+	goto_if_set FLAG_DEVON_UNDER_ATTACK, ClearShinyFlag3_8
+ClearShinyFlag3_7:
 	clearflag FLAG_INCREASED_SHINY_ODDS
 	clearflag FLAG_DESERT_STEPS
 	release
 	end
 
 ClearShinyFlag3_2:
+	setflag FLAG_TEMP_1
+	goto ClearShinyFlag3_1
+
+ClearShinyFlag3_5:
 	setmetatile 40, 13, 0x001, FALSE
 	setmetatile 41, 13, 0x001, FALSE
 	setmetatile 42, 13, 0x001, FALSE
 	setmetatile 40, 14, 0x001, FALSE
 	setmetatile 41, 14, 0x001, FALSE
 	setmetatile 42, 14, 0x001, FALSE
-	goto ClearShinyFlag3_1
-
-ClearShinyFlag3_5:
-	setflag FLAG_DEVON_RESCUED
 	goto ClearShinyFlag3_4
+
+ClearShinyFlag3_8:
+	setflag FLAG_DEVON_RESCUED
+	goto ClearShinyFlag3_7
 
 
 ClearShinyFlag::

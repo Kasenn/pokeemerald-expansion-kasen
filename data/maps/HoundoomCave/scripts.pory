@@ -1,0 +1,201 @@
+mapscripts HoundoomCave_MapScripts {
+     MAP_SCRIPT_ON_RESUME{
+        if(flag(FLAG_SYS_CTRL_OBJ_DELETE)){
+            specialvar(VAR_RESULT, GetBattleOutcome)
+            if(var(VAR_RESULT) == B_OUTCOME_CAUGHT){
+                switch(var(VAR_HOUNDOOMS_DEFEATED)){
+                    case 0:
+                        removeobject(1)
+                    case 1:
+                        removeobject(2)
+                    case 2:
+                        removeobject(3)
+                    case 3:
+                        removeobject(4)
+                }
+            }
+        }
+    }
+    MAP_SCRIPT_ON_TRANSITION{
+        setflag(FLAG_LANDMARK_BELLOWING_CAVE)
+        switch(var(VAR_HOUNDOOMS_DEFEATED)){
+            case 1:
+                setvar(VAR_TEMP_0, 1)
+                setflag(FLAG_TEMP_1)
+            case 2:
+                setvar(VAR_TEMP_0, 1)
+                setflag(FLAG_TEMP_1)
+                setflag(FLAG_TEMP_2)
+            case 3:
+                setvar(VAR_TEMP_0, 1)
+                setflag(FLAG_TEMP_1)
+                setflag(FLAG_TEMP_2)
+                setflag(FLAG_TEMP_3)
+            case 4:
+                setvar(VAR_TEMP_0, 1)
+                setvar(VAR_TEMP_1, 1)
+                setflag(FLAG_TEMP_1)
+                setflag(FLAG_TEMP_2)
+                setflag(FLAG_TEMP_3)
+                setflag(FLAG_TEMP_4)
+        }
+    }
+}
+
+script HoundoomWarning{
+    msgbox(HoundoomWarning_Text, MSGBOX_SIGN)
+    setvar(VAR_TEMP_0, 1)
+}
+text HoundoomWarning_Text{
+    "A pack of Houndoom seems to be\n"
+    "fighting over something shiny.\p"
+    "They seem unaware of your presence\n"
+    "for now."
+}
+script HoundoomTrigger{
+    lockall
+    safefollow
+    delay(30)
+    playse(SE_PIN)
+    turnobject(1, DIR_SOUTH)
+    turnobject(2, DIR_SOUTH)
+    turnobject(3, DIR_SOUTH)
+    applymovement(1, ExclamationMark)
+    applymovement(2, ExclamationMark)
+    applymovement(3, ExclamationMark)
+    applymovement(4, ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    setflag(FLAG_SYSTEM_NO_WILD_RUNNING)
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    switch(var(VAR_HOUNDOOMS_DEFEATED)){
+        case 0:
+            goto(HoundoomBattleFirst)
+        case 1:
+            goto(HoundoomBattleSecond)
+        case 2:
+            goto(HoundoomBattleThird)
+        case 3:
+            goto(HoundoomBattleFourth)
+    }
+}
+
+script HoundoomBattleFirst{
+    call(HoundoomCry)
+    createmon(1, 0, SPECIES_HOUNDOOM, 45, move1 = MOVE_BITE, move2 = MOVE_EMBER, move3 = MOVE_BEAT_UP, move4 = MOVE_NASTY_PLOT)
+    dowildbattle
+    specialvar(VAR_RESULT, GetBattleOutcome)
+	if(var(VAR_RESULT) == B_OUTCOME_WON){
+        setvar(VAR_HOUNDOOMS_DEFEATED, 1)
+        setvar(VAR_LAST_TALKED, 1)
+        call(RemoveHoundoom)
+        goto(HoundoomBattleSecond)
+    }
+    if(var(VAR_RESULT) == B_OUTCOME_PLAYER_TELEPORTED){
+        goto(HoundoomLoop)
+    } 
+}
+script HoundoomBattleSecond{
+    safefollow
+    applymovement(2, MoveHoundoom2)
+    waitmovement(0)
+    call(HoundoomCry)
+    createmon(1, 0, SPECIES_HOUNDOOM, 50, move1 = MOVE_BITE, move2 = MOVE_EMBER, move3 = MOVE_FOUL_PLAY, move4 = MOVE_NASTY_PLOT)
+    dowildbattle
+    specialvar(VAR_RESULT, GetBattleOutcome)
+	if(var(VAR_RESULT) == B_OUTCOME_WON){
+        setvar(VAR_HOUNDOOMS_DEFEATED, 2)
+        setvar(VAR_LAST_TALKED, 2)
+        call(RemoveHoundoom)
+        goto(HoundoomBattleThird)
+    }
+    if(var(VAR_RESULT) == B_OUTCOME_PLAYER_TELEPORTED){
+        goto(HoundoomLoop)
+    } 
+}
+script HoundoomBattleThird{
+    safefollow
+    applymovement(3, MoveHoundoom3)
+    waitmovement(0)
+    call(HoundoomCry)
+    createmon(1, 0, SPECIES_HOUNDOOM, 55, move1 = MOVE_BITE, move2 = MOVE_FLAMETHROWER, move3 = MOVE_FOUL_PLAY, move4 = MOVE_NASTY_PLOT)
+    dowildbattle
+    specialvar(VAR_RESULT, GetBattleOutcome)
+	if(var(VAR_RESULT) == B_OUTCOME_WON){
+        setvar(VAR_HOUNDOOMS_DEFEATED, 3)
+        setvar(VAR_LAST_TALKED, 3)
+        call(RemoveHoundoom)
+        goto(HoundoomBattleFourth)
+    }
+    if(var(VAR_RESULT) == B_OUTCOME_PLAYER_TELEPORTED){
+        goto(HoundoomLoop)
+    } 
+}
+script HoundoomBattleFourth{
+    safefollow
+    applymovement(4, MoveHoundoom4)
+    waitmovement(0)
+    call(HoundoomCry)
+    createmon(1, 0, SPECIES_HOUNDOOM, 60, move1 = MOVE_DARK_PULSE, move2 = MOVE_FLAMETHROWER, move3 = MOVE_FOUL_PLAY, move4 = MOVE_NASTY_PLOT)
+    dowildbattle
+    specialvar(VAR_RESULT, GetBattleOutcome)
+	if(var(VAR_RESULT) == B_OUTCOME_WON){
+        setvar(VAR_HOUNDOOMS_DEFEATED, 4)
+        setvar(VAR_LAST_TALKED, 4)
+        setvar(VAR_TEMP_1, 1)
+        call(RemoveHoundoom)
+        clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+        release
+        end
+    }
+    if(var(VAR_RESULT) == B_OUTCOME_PLAYER_TELEPORTED){
+        goto(HoundoomLoop)
+    } 
+}
+
+script HoundoomCry{
+    playmoncry(SPECIES_HOUNDOOM, CRY_MODE_ENCOUNTER)
+    waitmoncry
+	delay(40)
+}
+
+script HoundoomLoop{
+    switch(var(VAR_HOUNDOOMS_DEFEATED)){
+        case 0:
+            goto(HoundoomBattleFirst)
+        case 1:
+            goto(HoundoomBattleSecond)
+        case 2:
+            goto(HoundoomBattleThird)
+        case 3:
+            goto(HoundoomBattleFourth)
+    }
+}
+
+script RemoveHoundoom{
+    fadescreen(FADE_TO_BLACK)
+	removeobject (VAR_LAST_TALKED)
+	fadescreen(FADE_FROM_BLACK)
+    return
+}
+
+movement MoveHoundoom2{
+    walk_down
+    walk_right
+    walk_in_place_down
+    delay_16
+}
+movement MoveHoundoom3{
+    walk_down
+    walk_left
+    walk_in_place_down
+    delay_16
+}
+movement MoveHoundoom4{
+    walk_right
+    walk_down * 2
+    walk_left
+    walk_in_place_down
+    delay_16
+}
+    

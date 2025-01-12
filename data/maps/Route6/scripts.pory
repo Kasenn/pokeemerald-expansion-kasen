@@ -3,6 +3,9 @@ mapscripts Route6_MapScripts{
     MAP_SCRIPT_ON_LOAD: ClearShinyFlag3
 }
 script ClearShinyFlag3{
+    if(var(VAR_SPHERES_FOUND) >= 4){
+        setflag(FLAG_TEMP_1)
+    }
     if(flag(FLAG_DESERT_RUINS_OPENED)){
         setmetatile(40, 13, 0x001, FALSE)
         setmetatile(41, 13, 0x001, FALSE)

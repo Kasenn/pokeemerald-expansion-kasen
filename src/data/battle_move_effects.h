@@ -1460,6 +1460,12 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .battleTvScore = 0, // TODO: Assign points
     },
 
+    [EFFECT_ROCKY_TERRAIN] =
+    {
+        .battleScript = BattleScript_EffectRockyTerrain,
+        .battleTvScore = 0, // TODO: Assign points
+    },
+
     [EFFECT_ELECTRIC_TERRAIN] =
     {
         .battleScript = BattleScript_EffectElectricTerrain,

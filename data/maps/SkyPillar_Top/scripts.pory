@@ -2,7 +2,23 @@ mapscripts SkyPillar_Top_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: AT_Top
 }
 
+const X = VAR_TEMP_7
+const Y = VAR_TEMP_8
+const TERRAKION = 11
+const VIRIZION = 9
+const COBALION = 10
+
 script AT_Top{
+    setflag(FLAG_TEMP_8)
+    if(!flag(FLAG_PLACED_STEEL_SPHERE)){
+        setflag(FLAG_TEMP_7)
+    }
+    if(!flag(FLAG_PLACED_VERDANT_SPHERE)){
+        setflag(FLAG_TEMP_6)
+    }
+    if(!flag(FLAG_PLACED_STONE_SPHERE)){
+        setflag(FLAG_TEMP_5)
+    }
     if(checkitem(ITEM_MEGA_RING) == TRUE){
         setflag(FLAG_TEMP_1)
     }
@@ -13,39 +29,259 @@ script AT_Top{
     end
 }
 
-script AT_Pedestal{
+script AT_Pedestal_Stone{
+    if(var(VAR_SPHERES_FOUND) == 3 && checkitem(ITEM_STONE_SPHERE) == TRUE){
+        lock
+        msgbox(AT_Pedestal_Text2, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == FALSE){
+            release
+            end
+        }
+        removeitem(ITEM_STONE_SPHERE)
+        clearflag(FLAG_PLACED_STONE_SPHERE)
+        addobject(8)
+        removeobject(5)
+        msgbox(PlacedStoneSphere, MSGBOX_SIGN)
+        call(CheckSphereEvent)
+        end
+    }
     msgbox(AT_Pedestal_Text, MSGBOX_SIGN)
     end
 }
+
+script AT_Pedestal_SteelSphere{
+    msgbox(AT_Pedestal_SteelSphere_Text, MSGBOX_SIGN)
+}
+script AT_Pedestal_StoneSphere{
+    msgbox(AT_Pedestal_StoneSphere_Text, MSGBOX_SIGN)
+}
+script AT_Pedestal_VerdantSphere{
+    msgbox(AT_Pedestal_VerdantSphere_Text, MSGBOX_SIGN)
+}
+
+script AT_Pedestal_Steel{
+    if(var(VAR_SPHERES_FOUND) == 3 && checkitem(ITEM_STEEL_SPHERE) == TRUE){
+        lock
+        msgbox(AT_Pedestal_Text2, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == FALSE){
+            release
+            end
+        }
+        removeitem(ITEM_STEEL_SPHERE)
+        clearflag(FLAG_PLACED_STEEL_SPHERE)
+        addobject(6)
+        removeobject(3)
+        msgbox(PlacedSteelSphere, MSGBOX_SIGN)
+        call(CheckSphereEvent)
+        end
+    }
+    msgbox(AT_Pedestal_Text, MSGBOX_SIGN)
+    end
+}
+
+script AT_Pedestal_Verdant{
+    if(var(VAR_SPHERES_FOUND) == 3 && checkitem(ITEM_VERDANT_SPHERE) == TRUE){
+        lock
+        msgbox(AT_Pedestal_Text2, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == FALSE){
+            release
+            end
+        }
+        removeitem(ITEM_VERDANT_SPHERE)
+        clearflag(FLAG_PLACED_VERDANT_SPHERE)
+        addobject(7)
+        removeobject(4)
+        msgbox(PlacedVerdantSphere, MSGBOX_SIGN)
+        call(CheckSphereEvent)
+        end
+    }
+    msgbox(AT_Pedestal_Text, MSGBOX_SIGN)
+    end
+}
+
+script CheckSphereEvent {
+    if(flag(FLAG_PLACED_STEEL_SPHERE) || flag(FLAG_PLACED_STONE_SPHERE) || flag(FLAG_PLACED_VERDANT_SPHERE)){
+        return
+    }
+    delay(30)
+    getplayerxy(X, Y)
+    if(var(X) == 9-1 && var(Y) == 7){
+        applymovement(0xFF, moves(walk_up, walk_right * 3, walk_in_place_up))
+    }
+    elif(var(X) == 9+1 && var(Y) == 7){
+        applymovement(0xFF, moves(walk_right, walk_up))
+    }
+    elif(var(X) == 9 && var(Y) == 7-1){
+        applymovement(0xFF, moves(walk_right * 2, walk_in_place_up))
+    }
+    elif(var(X) == 9 && var(Y) == 7+1){
+        applymovement(0xFF, moves(walk_right, walk_up, walk_right, walk_up))
+    }
+    elif(var(X) == 11-1 && var(Y) == 8){
+        applymovement(0xFF, moves(walk_up, walk_right, walk_up))
+    }
+    elif(var(X) == 11+1 && var(Y) == 8){
+        applymovement(0xFF, moves(walk_up, walk_left, walk_up))
+    }
+    elif(var(X) == 11 && var(Y) == 8-1){
+        applymovement(0xFF, moves(walk_up))
+    }
+    elif(var(X) == 11 && var(Y) == 8+1){
+        applymovement(0xFF, moves(walk_right, walk_up * 2, walk_left, walk_up))
+    }
+    elif(var(X) == 13-1 && var(Y) == 7){
+        applymovement(0xFF, moves(walk_left, walk_up))
+    }
+    elif(var(X) == 13+1 && var(Y) == 7){
+        applymovement(0xFF, moves(walk_up, walk_left * 3, walk_in_place_up))
+    }
+    elif(var(X) == 13 && var(Y) == 7-1){
+        applymovement(0xFF, moves(walk_left * 2, walk_in_place_up))
+    }
+    else{
+        applymovement(0xFF, moves(walk_left, walk_up, walk_left, walk_up))
+    }
+    waitmovement(0)
+    fadeoutbgm(0)
+    delay(48)
+    playse(SE_ORB)
+    fadescreenspeed(FADE_TO_WHITE, 6)
+    addobject(COBALION)
+    addobject(VIRIZION)
+    addobject(TERRAKION)
+    waitse
+    fadescreenspeed(FADE_FROM_WHITE, 6)
+    delay(48)
+    playmoncry(SPECIES_VIRIZION, CRY_MODE_NORMAL)
+    waitmoncry
+    playmoncry(SPECIES_TERRAKION, CRY_MODE_NORMAL)
+    waitmoncry
+    playmoncry(SPECIES_COBALION, CRY_MODE_NORMAL)
+    waitmoncry
+    delay(60)
+    applymovement(TERRAKION, moves(walk_fast_down * 3, walk_fast_left, walk_fast_down * 3, walk_fast_left, walk_fast_down * 4))
+    applymovement(VIRIZION, moves(walk_fast_down * 2, walk_fast_right, walk_fast_down * 4, walk_fast_down * 4, walk_fast_left))
+    applymovement(COBALION, moves(walk_fast_down * 3, walk_fast_right, walk_fast_down * 3, walk_fast_right, walk_fast_down * 4))
+    playse(SE_BIKE_HOP)
+    delay(16)
+    playse(SE_BIKE_HOP)
+    delay(16)
+    playse(SE_BIKE_HOP)
+    delay(16)
+    playse(SE_BIKE_HOP)
+    delay(16)
+    playse(SE_BIKE_HOP)
+    delay(16)
+    playse(SE_BIKE_HOP)
+    waitmovement(TERRAKION)
+    waitmovement(VIRIZION)
+    waitmovement(COBALION)
+    removeobject(TERRAKION)
+    removeobject(VIRIZION)
+    removeobject(COBALION)
+    fadeinbgm(0)
+    delay(120)
+    setvar(VAR_SPHERES_FOUND, 4)
+    end
+}
+
 text AT_Pedestal_Text{
     "It's a small pedestal, which looks\n"
     "like it's meant to house something."
 }
+text AT_Pedestal_Text2{
+    "It's a small pedestal, which looks\n"
+    "like it's meant to house something.\p"
+    "Try placing one of the spheres on\n"
+    "the pedestal?"
+}
+text PlacedStoneSphere{
+    "{PLAYER} placed the Stone Sphere\n"
+    "on the pedestal."
+}
+text PlacedSteelSphere{
+    "{PLAYER} placed the Steel Sphere\n"
+    "on the pedestal."
+}
+text PlacedVerdantSphere{
+    "{PLAYER} placed the Verdant Sphere\n"
+    "on the pedestal."
+}
+text AT_Pedestal_SteelSphere_Text{
+    "It's a small pedestal, with\n"
+    "the Steel Sphere placed on top."
+}
+text AT_Pedestal_StoneSphere_Text{
+    "It's a small pedestal, with\n"
+    "the Stone Sphere placed on top."
+}
+text AT_Pedestal_VerdantSphere_Text{
+    "It's a small pedestal, with\n"
+    "the Verdant Sphere placed on top."
+}
+text ThatsVerdantSphere{
+    "That Verdant Sphere…\p"
+    "Yes, this is undoubtedly another\n"
+    "fragment of the Protectors!\p"
+    "Does this mean that you've managed to\n"
+    "gather all the fragments?\p"
+    "Astounding!\p"
+    "Hurry, place the spheres on the\n"
+    "pedestals!\p"
+    "We are about to witness the event\n"
+    "of a lifetime!"
+}
+text PutSpheresInPlace{
+    "Hurry, place the spheres on the\n"
+    "pedestals!\p"
+    "We are about to witness the event\n"
+    "of a lifetime!"
+}
+text TrackTheGuardians{
+    "I cannot believe it…\p"
+    "Those were undoubtedly\n"
+    "the Protectors!\p"
+    "I never imagined they'd ever grace\n"
+    "our world with their presence again!"
+}
+text TrackTheGuardians2{
+    "Unfortunately, I don't have any\n"
+    "clue about the new whereabouts of\l"
+    "the Protectors.\p"
+    "I doubt they've slinked back to the\n"
+    "caves you found the spheres from, but,\l"
+    "considering those places hold some\l"
+    "sentimental value to them, I imagine\l"
+    "they'd probably end up sticking\l"
+    "somewhere pretty close by."
+}
+text TrackTheGuardiansShort{
+    "Unfortunately, I don't have any\n"
+    "clue about the new whereabouts of\l"
+    "the Protectors.\p"
+    "If I were you, I'd try looking around\n"
+    "the places you originally found the\l"
+    "spheres from."
+}
 
 script AT_TopTrigger1{
     setvar(VAR_TEMP_5, 1)
-    goto(AT_TopEvent)
-}
+    goto(AT_TopEvent)}
 script AT_TopTrigger2{
     setvar(VAR_TEMP_5, 2)
-    goto(AT_TopEvent)
-}
+    goto(AT_TopEvent)}
 script AT_TopTrigger3{
     setvar(VAR_TEMP_5, 3)
-    goto(AT_TopEvent)
-}
+    goto(AT_TopEvent)}
 script AT_TopTrigger4{
     setvar(VAR_TEMP_5, 4)
-    goto(AT_TopEvent)
-}
+    goto(AT_TopEvent)}
 script AT_TopTrigger5{
     setvar(VAR_TEMP_5, 5)
-    goto(AT_TopEvent)
-}
+    goto(AT_TopEvent)}
 script AT_TopTrigger6{
     setvar(VAR_TEMP_5, 6)
-    goto(AT_TopEvent)
-}
+    goto(AT_TopEvent)}
 
 script AT_TopEvent{
     lock
@@ -165,8 +401,7 @@ script AT_TopEvent{
     settrainerflag(TRAINER_AT_5F_COOLTRAINER_F)
     delay(30)
     release
-    end
-}
+    end}
 text YouTwoMadeIt{
     "Korrina: Oh hey, you two actually\n"
     "made it to the top!\p"
@@ -189,8 +424,7 @@ text YouTwoMadeIt{
     "here in Sinko.\p"
     "That's why I can only afford to give\n"
     "them to the truly expectional trainers.\p"
-    "People like you!"
-}
+    "People like you!"}
 text IDontHaveStones{
     "Korrina: Now, in order to have your\n"
     "Pokémon Mega Evolve, they must be\l"
@@ -213,8 +447,7 @@ text IDontHaveStones{
     "Pokémon though!\p"
     "Mega Evolution takes a huge amount of\n"
     "energy, causing your Pokémon to lose\l"
-    "stamina rapidly!"
-}
+    "stamina rapidly!"}
 text ReturnToGym{
     "Korrina: Okay!\p"
     "I know that introduction was kinda\n"
@@ -224,8 +457,7 @@ text ReturnToGym{
     "never know when another challenger is\l"
     "gonna show up at the gym, asking to\l"
     "challenge the leader.\p"
-    "So, I must bid you two adieu!"
-}
+    "So, I must bid you two adieu!"}
 text LetsGoMeetDadBrendan{
     "{RIVAL}: Hey {PLAYER}, let's go ask\n"
     "my dad!\p"
@@ -355,6 +587,35 @@ movement AT_Top_Movement6Follower{
 script AT_Custodian{
     lock
     faceplayer
+    if(var(VAR_SPHERES_FOUND) == 5){
+        msgbox(TrackTheGuardiansShort, MSGBOX_NPC)
+        end
+    }
+    if(var(VAR_SPHERES_FOUND) == 4){
+        msgbox(TrackTheGuardians)
+        msgbox(TrackTheGuardians2, MSGBOX_NPC)
+        setvar(VAR_SPHERES_FOUND, 5)
+        end
+    }
+    if(var(VAR_SPHERES_FOUND) == 3){
+        msgbox(PutSpheresInPlace, MSGBOX_NPC)
+        turnobject(1, DIR_NORTH)
+        end
+    }
+    if(checkitem(ITEM_VERDANT_SPHERE) == TRUE){
+        waitse
+        playse(SE_PIN)
+        safefollow
+        applymovement(1, Common_Movement_ExclamationMark)
+        waitmovement(0)
+        delay(48)
+        msgbox(ThatsVerdantSphere)
+        setvar(VAR_SPHERES_FOUND, 3)
+        release
+        closemessage
+        turnobject(1, DIR_NORTH)
+        end
+    }
     if(var(VAR_SPHERES_FOUND) == 2){
         msgbox(LookForVerdantSphere, MSGBOX_NPC)
         end
