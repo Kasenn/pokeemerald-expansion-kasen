@@ -3,7 +3,7 @@
   "name": "Route112_CableCarStation",
   "layout": "LAYOUT_CABLE_CAR_STATION",
   "music": "MUS_ROUTE110",
-  "region_map_section": "MAPSEC_ROUTE_112",
+  "region_map_section": "MAPSEC_NEWROUTE_18",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -46,14 +46,14 @@
       "x": 6,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE112",
+      "dest_map": "MAP_ROUTE18",
       "dest_warp_id": "0"
     },
     {
       "x": 7,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE112",
+      "dest_map": "MAP_ROUTE18",
       "dest_warp_id": "1"
     }
   ],

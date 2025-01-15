@@ -87,6 +87,10 @@ gFieldEffectScriptPointers::
 	.4byte gFieldEffectScript_SnowFootprints            @ FLDEFF_SNOW_FOOTPRINTS
 	.4byte gFieldEffectScript_BikeTireTracksSnow            @ FLDEFF_BIKE_TIRE_TRACKS
 	.4byte gFieldEffectScript_TracksSlitherSnow             @ FLDEFF_TRACKS_SLITHER
+	.4byte gFieldEffectScript_DeepSnowFootprints 			@ FLDEFF_DEEP_SNOW_FOOTPRINTS
+	.4byte gFieldEffectScript_TracksSpotSnow 				@ FLDEFF_TRACKS_SPOT_SNOW
+	.4byte gFieldEffectScript_TracksBugSnow 				@ FLDEFF_TRACKS_BUG_SNOW
+
 
 gFieldEffectScript_ExclamationMarkIcon1::
 	field_eff_callnative FldEff_ExclamationMarkIcon
@@ -142,10 +146,6 @@ gFieldEffectScript_JumpTallGrass::
 
 gFieldEffectScript_SandFootprints::
 	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect0, FldEff_SandFootprints
-	field_eff_end
-
-gFieldEffectScript_SnowFootprints::
-	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect5, FldEff_SandFootprints
 	field_eff_end
 
 gFieldEffectScript_JumpBigSplash::
@@ -239,10 +239,6 @@ gFieldEffectScript_FeetInFlowingWater::
 
 gFieldEffectScript_BikeTireTracks::
 	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect0, FldEff_BikeTireTracks
-	field_eff_end
-
-gFieldEffectScript_BikeTireTracksSnow::
-	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect5, FldEff_BikeTireTracks
 	field_eff_end
 
 gFieldEffectScript_SandDisguisePlaceholder::
@@ -411,5 +407,25 @@ gFieldEffectScript_TracksSlither::
 	field_eff_end
 
 gFieldEffectScript_TracksSlitherSnow::
-	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect5, FldEff_TracksSlither
+	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect5, FldEff_TracksSlitherSnow
+	field_eff_end
+
+gFieldEffectScript_DeepSnowFootprints::
+	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect5, FldEff_DeepSnowFootprints
+	field_eff_end
+
+gFieldEffectScript_TracksBugSnow::
+	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect5, FldEff_TracksBugSnow
+	field_eff_end
+
+gFieldEffectScript_TracksSpotSnow::
+	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect5, FldEff_TracksSpotSnow
+	field_eff_end
+
+gFieldEffectScript_BikeTireTracksSnow::
+	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect5, FldEff_BikeTireTracksSnow
+	field_eff_end
+
+gFieldEffectScript_SnowFootprints::
+	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect5, FldEff_SnowFootprints
 	field_eff_end

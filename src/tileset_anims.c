@@ -31,6 +31,7 @@ static void TilesetAnim_Slateport(u16);
 static void TilesetAnim_Mauville(u16);
 static void TilesetAnim_FlowerField(u16);
 static void TilesetAnim_Lavaridge(u16);
+static void TilesetAnim_Frostfire(u16);
 static void TilesetAnim_EverGrande(u16);
 static void TilesetAnim_Pacifidlog(u16);
 static void TilesetAnim_Kaolisle(u16);
@@ -881,6 +882,14 @@ void InitTilesetAnim_Lavaridge(void)
     sSecondaryTilesetAnimCallback = TilesetAnim_Lavaridge;
 }
 
+void InitTilesetAnim_Frostfire(void)
+{
+    sSecondaryTilesetAnimCounter = sPrimaryTilesetAnimCounter;
+    sSecondaryTilesetAnimCounterMax = sPrimaryTilesetAnimCounterMax;
+    sSecondaryTilesetAnimCallback = TilesetAnim_Frostfire;
+}
+
+
 void InitTilesetAnim_Fallarbor(void)
 {
     sSecondaryTilesetAnimCounter = 0;
@@ -1112,6 +1121,14 @@ static void TilesetAnim_Lavaridge(u16 timer)
         QueueAnimTiles_Lavaridge_Lava(timer / 16);
     if (timer % 16 == 3)
         QueueAnimTiles_Kaolisle_WaterCurrents(timer / 16, 0x2D6);
+}
+
+static void TilesetAnim_Frostfire(u16 timer)
+{
+    if (timer % 16 == 0)
+        QueueAnimTiles_Lavaridge_Steam(timer / 16);
+    if (timer % 16 == 1)
+        QueueAnimTiles_Lavaridge_Lava(timer / 16);
 }
 
 static void TilesetAnim_EverGrande(u16 timer)

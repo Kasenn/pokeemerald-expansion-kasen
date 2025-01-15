@@ -418,7 +418,7 @@ script Debug_Script_1{              // Set team level
     end
     }
 script Debug_Script_2{              // 
-    trainerbattle_no_intro(TRAINER_ELITE_FOUR_MINA, "GG")
+    callnative(UpdateVarsAndFlags)
     return
 }
 script Debug_Script_3{              // 

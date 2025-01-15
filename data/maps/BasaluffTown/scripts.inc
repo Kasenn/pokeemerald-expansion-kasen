@@ -39,7 +39,14 @@ BasaluffTown_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_0:
 
 BasaluffTown_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 	map_script_2 VAR_TEMP_5, 1, BasaluffAutomaticRivalFight
+	map_script_2 FLAG_TEMP_10, 1, BasaluffTown_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1
 	.2byte 0
+
+BasaluffTown_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1:
+	msgbox BasaluffTown_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1_Text_0
+	setflag FLAG_TEMP_10
+	release
+	return
 
 
 BasaluffAutomaticRivalFight::
@@ -601,6 +608,9 @@ BasalekTown_RivalScript_Movement_9:
 	delay_16
 	walk_in_place_fast_right
 	step_end
+
+BasaluffTown_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1_Text_0:
+	.string "This is a test$"
 
 BasaluffMay_LetsStart::
 	.string "$"

@@ -1243,3 +1243,14 @@ const struct Tileset gTileset_DesertCliff =
     .metatileAttributes = gMetatileAttributes_DesertCliff,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Frostfire =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Frostfire,
+    .palettes = gTilesetPalettes_Frostfire,
+    .metatiles = gMetatiles_Frostfire,
+    .metatileAttributes = gMetatileAttributes_Frostfire,
+    .callback = InitTilesetAnim_Frostfire,
+};

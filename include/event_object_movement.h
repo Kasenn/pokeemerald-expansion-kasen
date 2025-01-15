@@ -86,6 +86,7 @@ enum FollowerTransformTypes
 #define GROUND_EFFECT_FLAG_MUD                   (1 << 20)
 #define GROUND_EFFECT_FLAG_MUD_PILE              (1 << 21)
 #define GROUND_EFFECT_FLAG_MIRROR_REFLECTION     (1 << 22)
+#define GROUND_EFFECT_FLAG_SNOW     (1 << 23)
 
 // Sprite data for the CameraObject functions
 #define sCamera_FollowSpriteId data[0]

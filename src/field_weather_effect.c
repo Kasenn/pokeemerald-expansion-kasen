@@ -30,6 +30,7 @@ const u8 gWeatherSnow1Tiles[] = INCBIN_U8("graphics/weather/snow0.4bpp");
 const u8 gWeatherSnow2Tiles[] = INCBIN_U8("graphics/weather/snow1.4bpp");
 const u8 gWeatherBubbleTiles[] = INCBIN_U8("graphics/weather/bubble.4bpp");
 const u8 gWeatherAshTiles[] = INCBIN_U8("graphics/weather/ash.4bpp");
+const u8 gWeatherAshSnowTiles[] = INCBIN_U8("graphics/weather/ashsnow.4bpp");
 const u8 gWeatherRainTiles[] = INCBIN_U8("graphics/weather/rain.4bpp");
 const u8 gWeatherSandstormTiles[] = INCBIN_U8("graphics/weather/sandstorm.4bpp");
 const u8 gWeatherWindTiles[] = INCBIN_U8("graphics/weather/wind.4bpp");
@@ -1533,6 +1534,7 @@ static void DestroyFogHorizontalSprites(void)
 //------------------------------------------------------------------------------
 
 static void LoadAshSpriteSheet(void);
+static void LoadAshSnowSpriteSheet(void);
 static void CreateAshSprites(void);
 static void DestroyAshSprites(void);
 static void UpdateAshSprite(struct Sprite *);
@@ -1558,6 +1560,13 @@ void Ash_InitAll(void)
         Ash_Main();
 }
 
+void AshSnow_InitAll(void)
+{
+    Ash_InitVars();
+    while (gWeatherPtr->weatherGfxLoaded == FALSE)
+        AshSnow_Main();
+}
+
 void Ash_Main(void)
 {
     gWeatherPtr->ashBaseSpritesX = gSpriteCoordOffsetX & 0x1FF;
@@ -1568,6 +1577,38 @@ void Ash_Main(void)
     {
     case 0:
         LoadAshSpriteSheet();
+        gWeatherPtr->initStep++;
+        break;
+    case 1:
+        if (!gWeatherPtr->ashSpritesCreated)
+            CreateAshSprites();
+
+        Weather_SetTargetBlendCoeffs(16, 0, 1);
+        gWeatherPtr->initStep++;
+        break;
+    case 2:
+        if (Weather_UpdateBlend())
+        {
+            gWeatherPtr->weatherGfxLoaded = TRUE;
+            gWeatherPtr->initStep++;
+        }
+        break;
+    default:
+        Weather_UpdateBlend();
+        break;
+    }
+}
+
+void AshSnow_Main(void)
+{
+    gWeatherPtr->ashBaseSpritesX = gSpriteCoordOffsetX & 0x1FF;
+    while (gWeatherPtr->ashBaseSpritesX >= DISPLAY_WIDTH)
+        gWeatherPtr->ashBaseSpritesX -= DISPLAY_WIDTH;
+
+    switch (gWeatherPtr->initStep)
+    {
+    case 0:
+        LoadAshSnowSpriteSheet();
         gWeatherPtr->initStep++;
         break;
     case 1:
@@ -1625,6 +1666,18 @@ static const struct SpriteSheet sAshSpriteSheet =
 static void LoadAshSpriteSheet(void)
 {
     LoadSpriteSheet(&sAshSpriteSheet);
+}
+
+static const struct SpriteSheet sAshSnowSpriteSheet =
+{
+    .data = gWeatherAshSnowTiles,
+    .size = sizeof(gWeatherAshSnowTiles),
+    .tag = GFXTAG_ASH,
+};
+
+static void LoadAshSnowSpriteSheet(void)
+{
+    LoadSpriteSheet(&sAshSnowSpriteSheet);
 }
 
 static const struct OamData sAshSpriteOamData =

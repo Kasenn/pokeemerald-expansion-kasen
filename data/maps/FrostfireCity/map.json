@@ -2,11 +2,11 @@
   "id": "MAP_FROSTFIRE_CITY",
   "name": "FrostfireCity",
   "layout": "LAYOUT_FROSTFIRE_CITY",
-  "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_CITY_WIP5",
+  "music": "MUS_FALLARBOR",
+  "region_map_section": "MAPSEC_FROSTFIRE_CITY",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_NONE",
+  "weather": "WEATHER_SNOW",
+  "map_type": "MAP_TYPE_CITY",
   "allow_cycling": true,
   "allow_escaping": false,
   "allow_running": true,
@@ -15,20 +15,20 @@
   "connections": [
     {
       "map": "MAP_ROUTE18",
-      "offset": 6,
+      "offset": 2,
       "direction": "left"
     },
     {
       "map": "MAP_ROUTE19",
-      "offset": -26,
+      "offset": -18,
       "direction": "right"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_ZYGARDE_CELL",
-      "x": 19,
-      "y": 13,
+      "x": 55,
+      "y": 6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,

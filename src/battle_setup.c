@@ -669,13 +669,13 @@ void BattleSetup_StartLegendaryBattle(void)
         CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_VS_MEW);
         break;
     case SPECIES_TERRAKION:
-        CreateBattleStartTask(B_TRANSITION_GROUDON, MUS_VS_KYOGRE_GROUDON);
+        CreateBattleStartTask(B_TRANSITION_SHRED_SPLIT, MUS_VS_KYOGRE_GROUDON);
         break;
     case SPECIES_COBALION:
-        CreateBattleStartTask(B_TRANSITION_KYOGRE, MUS_VS_KYOGRE_GROUDON);
+        CreateBattleStartTask(B_TRANSITION_SHRED_SPLIT, MUS_VS_KYOGRE_GROUDON);
         break;
     case SPECIES_VIRIZION:
-        CreateBattleStartTask(B_TRANSITION_RAYQUAZA, MUS_VS_KYOGRE_GROUDON);
+        CreateBattleStartTask(B_TRANSITION_SHRED_SPLIT, MUS_VS_KYOGRE_GROUDON);
         break;
     }
 

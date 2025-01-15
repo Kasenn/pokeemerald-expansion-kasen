@@ -839,7 +839,7 @@ static void CreateCableCarSprites(void)
             // Init weather
             sCableCar->weather = WEATHER_VOLCANIC_ASH;
             sCableCar->weatherDelay = 350;
-            SetCurrentAndNextWeatherNoDelay(WEATHER_SUNNY);
+            SetCurrentAndNextWeatherNoDelay(WEATHER_VOLCANIC_ASH);
             break;
         case TRUE:
             CopyToBgTilemapBufferRect_ChangePalette(0, sCableCar->groundTilemap + 0x24, 24, 26, 12, 3, 17);
@@ -865,7 +865,7 @@ static void CreateCableCarSprites(void)
             gSprites[spriteId].sXPos = 128;
             gSprites[spriteId].sYPos = 65;
             // Init weather
-            sCableCar->weather = WEATHER_SUNNY;
+            sCableCar->weather = WEATHER_VOLCANIC_ASH;
             sCableCar->weatherDelay = 265;
             SetCurrentAndNextWeatherNoDelay(WEATHER_VOLCANIC_ASH);
             break;

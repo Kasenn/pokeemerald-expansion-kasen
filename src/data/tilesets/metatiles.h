@@ -321,3 +321,6 @@ const u16 gMetatileAttributes_Basaluff[] = INCBIN_U16("data/tilesets/secondary/b
 
 const u16 gMetatiles_DesertCliff[] = INCBIN_U16("data/tilesets/secondary/desert_cliff/metatiles.bin");
 const u16 gMetatileAttributes_DesertCliff[] = INCBIN_U16("data/tilesets/secondary/desert_cliff/metatile_attributes.bin");
+
+const u16 gMetatiles_Frostfire[] = INCBIN_U16("data/tilesets/secondary/frostfire/metatiles.bin");
+const u16 gMetatileAttributes_Frostfire[] = INCBIN_U16("data/tilesets/secondary/frostfire/metatile_attributes.bin");

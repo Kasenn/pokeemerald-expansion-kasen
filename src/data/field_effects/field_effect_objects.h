@@ -3,7 +3,7 @@ const struct SpritePalette gSpritePalette_GeneralFieldEffect1 = {gFieldEffectObj
 const struct SpritePalette gSpritePalette_GeneralFieldEffect2 = {gFieldEffectObjectPalette2, FLDEFF_PAL_TAG_GENERAL_1};
 const struct SpritePalette gSpritePalette_GeneralFieldEffect4 = {gFieldEffectObjectPalette4, FLDEFF_PAL_TAG_GENERAL_1};
 const struct SpritePalette gSpritePalette_GeneralFieldEffect3 = {gFieldEffectObjectPalette3, FLDEFF_PAL_TAG_GENERAL_3};
-const struct SpritePalette gSpritePalette_GeneralFieldEffect5 = {gFieldEffectObjectPalette5, FLDEFF_PAL_TAG_GENERAL_0};
+const struct SpritePalette gSpritePalette_GeneralFieldEffect5 = {gFieldEffectObjectPalette5, FLDEFF_PAL_TAG_GENERAL_1};
 
 static const union AnimCmd sAnim_Shadow[] =
 {
@@ -1399,3 +1399,58 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_Rayquaza = {
 };
 
 static const struct SpritePalette sSpritePalette_Unused = {gObjectEventPal_Npc3, FLDEFF_PAL_TAG_UNKNOWN};
+
+const struct SpriteTemplate gFieldEffectObjectTemplate_SnowFootprints = {
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_1,
+    .oam = &gObjectEventBaseOam_16x16,
+    .anims = sAnimTable_SandFootprints,
+    .images = sPicTable_SandFootprints,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = UpdateFootprintsTireTracksFieldEffect,
+};
+const struct SpriteTemplate gFieldEffectObjectTemplate_DeepSnowFootprints = {
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_1,
+    .oam = &gObjectEventBaseOam_16x16,
+    .anims = sAnimTable_DeepSandFootprints,
+    .images = sPicTable_DeepSandFootprints,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = UpdateFootprintsTireTracksFieldEffect,
+};
+const struct SpriteTemplate gFieldEffectObjectTemplate_BugTracksSnow = {
+    .tileTag = 0xFFFF,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_1,
+    .oam = &gObjectEventBaseOam_16x16,
+    .anims = sAnimTable_DeepSandFootprints,
+    .images = sPicTable_BugTracks,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = UpdateFootprintsTireTracksFieldEffect,
+};
+const struct SpriteTemplate gFieldEffectObjectTemplate_SpotTracksSnow = {
+    .tileTag = 0xFFFF,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_1,
+    .oam = &gObjectEventBaseOam_16x16,
+    .anims = sAnimTable_DeepSandFootprints,
+    .images = sPicTable_SpotTracks,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = UpdateFootprintsTireTracksFieldEffect,
+};
+const struct SpriteTemplate gFieldEffectObjectTemplate_BikeTireTracksSnow = {
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_1,
+    .oam = &gObjectEventBaseOam_16x16,
+    .anims = sAnimTable_BikeTireTracks,
+    .images = sPicTable_BikeTireTracks,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = UpdateFootprintsTireTracksFieldEffect,
+};
+const struct SpriteTemplate gFieldEffectObjectTemplate_SlitherTracksSnow = {
+    .tileTag = 0xFFFF,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_1,
+    .oam = &gObjectEventBaseOam_16x16,
+    .anims = sAnimTable_BikeTireTracks,
+    .images = sPicTable_SlitherTracks,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = UpdateFootprintsTireTracksFieldEffect,
+};

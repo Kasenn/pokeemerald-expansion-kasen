@@ -415,7 +415,7 @@ Debug_Script_1_12:
 
 
 Debug_Script_2::
-	trainerbattle_no_intro TRAINER_ELITE_FOUR_MINA, Debug_Script_2_Text_0
+	callnative UpdateVarsAndFlags
 	return
 
 
@@ -569,9 +569,6 @@ Debug_Script_1_Text_15:
 
 Debug_Script_1_Text_16:
 	.string "Team set to level 45.$"
-
-Debug_Script_2_Text_0:
-	.string "GG$"
 
 FollowerSpottedAnItemNearby_Text::
 	.string "{STR_VAR_1} seems to have spotted\n"

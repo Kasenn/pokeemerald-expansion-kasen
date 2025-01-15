@@ -6415,9 +6415,9 @@
       "id": "LAYOUT_FROSTFIRE_CITY",
       "name": "FrostfireCity_Layout",
       "width": 70,
-      "height": 70,
+      "height": 64,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_BattleFrontierOutsideWest",
+      "secondary_tileset": "gTileset_Frostfire",
       "border_filepath": "data/layouts/FrostfireCity/border.bin",
       "blockdata_filepath": "data/layouts/FrostfireCity/map.bin"
     },
@@ -6514,7 +6514,7 @@
     {
       "id": "LAYOUT_ROUTE17",
       "name": "Route17_Layout",
-      "width": 56,
+      "width": 62,
       "height": 82,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Basaluff",
@@ -6535,9 +6535,9 @@
       "id": "LAYOUT_ROUTE18",
       "name": "Route18_Layout",
       "width": 110,
-      "height": 35,
+      "height": 41,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Basaluff",
+      "secondary_tileset": "gTileset_Frostfire",
       "border_filepath": "data/layouts/Route18/border.bin",
       "blockdata_filepath": "data/layouts/Route18/map.bin"
     },
@@ -6554,8 +6554,8 @@
     {
       "id": "LAYOUT_ROUTE20",
       "name": "Route20_Layout",
-      "width": 50,
-      "height": 50,
+      "width": 27,
+      "height": 44,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Route20/border.bin",

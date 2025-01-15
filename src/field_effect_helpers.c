@@ -708,12 +708,8 @@ u32 FldEff_SandFootprints(void)
         struct Sprite *sprite = &gSprites[spriteId];
         sprite->coordOffsetEnabled = TRUE;
         sprite->oam.priority = gFieldEffectArguments[3];
-        if (GetSavedWeather() == WEATHER_BLIZZARD){
-            sprite->sFldEff = FLDEFF_SNOW_FOOTPRINTS;
-        }
-        else{
-            sprite->sFldEff = FLDEFF_SAND_FOOTPRINTS;
-        }
+        sprite->sFldEff = FLDEFF_SAND_FOOTPRINTS;
+
         StartSpriteAnim(sprite, gFieldEffectArguments[4]);
     }
     return 0;
@@ -801,12 +797,8 @@ u32 FldEff_BikeTireTracks(void)
         struct Sprite *sprite = &gSprites[spriteId];
         sprite->coordOffsetEnabled = TRUE;
         sprite->oam.priority = gFieldEffectArguments[3];
-        if (GetSavedWeather() == WEATHER_BLIZZARD){
-            sprite->sFldEff = FLDEFF_BIKE_TIRE_TRACKS_SNOW;
-        }
-        else{
-            sprite->sFldEff = FLDEFF_BIKE_TIRE_TRACKS;
-        }
+        sprite->sFldEff = FLDEFF_BIKE_TIRE_TRACKS;
+
         StartSpriteAnim(sprite, gFieldEffectArguments[4]);
     }
     return spriteId;
@@ -824,15 +816,119 @@ u32 FldEff_TracksSlither(void)
         sprite = &gSprites[spriteId];
         sprite->coordOffsetEnabled = TRUE;
         sprite->oam.priority = gFieldEffectArguments[3];
-        if (GetSavedWeather() == WEATHER_BLIZZARD){
-            sprite->data[7] = FLDEFF_TRACKS_SLITHER_SNOW;
-        }
-        else{
-            sprite->data[7] = FLDEFF_TRACKS_SLITHER;
-        }
+        sprite->data[7] = FLDEFF_TRACKS_SLITHER;
+
         StartSpriteAnim(sprite, gFieldEffectArguments[4]);
     }
     return spriteId;
+}
+
+u32 FldEff_BikeTireTracksSnow(void)
+{
+    u8 spriteId;
+
+    SetSpritePosToOffsetMapCoords((s16 *)&gFieldEffectArguments[0], (s16 *)&gFieldEffectArguments[1], 8, 8);
+    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_BIKE_TIRE_TRACKS_SNOW], gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2]);
+    if (spriteId != MAX_SPRITES)
+    {
+        struct Sprite *sprite = &gSprites[spriteId];
+        sprite->coordOffsetEnabled = TRUE;
+        sprite->oam.priority = gFieldEffectArguments[3];
+        sprite->sFldEff = FLDEFF_BIKE_TIRE_TRACKS_SNOW;
+        
+        StartSpriteAnim(sprite, gFieldEffectArguments[4]);
+    }
+    return spriteId;
+}
+
+u32 FldEff_TracksSlitherSnow(void)
+{
+    u8 spriteId;
+    struct Sprite *sprite;
+
+    SetSpritePosToOffsetMapCoords((s16 *)&gFieldEffectArguments[0], (s16 *)&gFieldEffectArguments[1], 8, 8);
+    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_TRACKS_SLITHER_SNOW], gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2]);
+    if (spriteId != MAX_SPRITES)
+    {
+        sprite = &gSprites[spriteId];
+        sprite->coordOffsetEnabled = TRUE;
+        sprite->oam.priority = gFieldEffectArguments[3];
+        sprite->data[7] = FLDEFF_TRACKS_SLITHER_SNOW;
+
+        StartSpriteAnim(sprite, gFieldEffectArguments[4]);
+    }
+    return spriteId;
+}
+
+u32 FldEff_SnowFootprints(void)
+{
+    u8 spriteId;
+
+    SetSpritePosToOffsetMapCoords((s16 *)&gFieldEffectArguments[0], (s16 *)&gFieldEffectArguments[1], 8, 8);
+    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_SNOW_FOOTPRINTS], gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2]);
+    if (spriteId != MAX_SPRITES)
+    {
+        struct Sprite *sprite = &gSprites[spriteId];
+        sprite->coordOffsetEnabled = TRUE;
+        sprite->oam.priority = gFieldEffectArguments[3];
+        sprite->sFldEff = FLDEFF_SNOW_FOOTPRINTS;
+        
+        StartSpriteAnim(sprite, gFieldEffectArguments[4]);
+    }
+    return 0;
+}
+
+u32 FldEff_DeepSnowFootprints(void)
+{
+    u8 spriteId;
+
+    SetSpritePosToOffsetMapCoords((s16 *)&gFieldEffectArguments[0], (s16 *)&gFieldEffectArguments[1], 8, 8);
+    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_DEEP_SNOW_FOOTPRINTS], gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2]);
+    if (spriteId != MAX_SPRITES)
+    {
+        struct Sprite *sprite = &gSprites[spriteId];
+        sprite->coordOffsetEnabled = TRUE;
+        sprite->oam.priority = gFieldEffectArguments[3];
+        sprite->sFldEff = FLDEFF_DEEP_SNOW_FOOTPRINTS;
+        StartSpriteAnim(sprite, gFieldEffectArguments[4]);
+    }
+    return spriteId;
+}
+
+u32 FldEff_TracksBugSnow(void)
+{
+    u8 spriteId;
+    struct Sprite *sprite;
+
+    SetSpritePosToOffsetMapCoords((s16 *)&gFieldEffectArguments[0], (s16 *)&gFieldEffectArguments[1], 8, 8);
+    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_TRACKS_BUG_SNOW], gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2]);
+    if (spriteId != MAX_SPRITES)
+    {
+        sprite = &gSprites[spriteId];
+        sprite->coordOffsetEnabled = TRUE;
+        sprite->oam.priority = gFieldEffectArguments[3];
+        sprite->data[7] = FLDEFF_TRACKS_BUG_SNOW;
+        StartSpriteAnim(sprite, gFieldEffectArguments[4]);
+    }
+    return 0;
+}
+
+u32 FldEff_TracksSpotSnow(void)
+{
+    u8 spriteId;
+    struct Sprite *sprite;
+
+    SetSpritePosToOffsetMapCoords((s16 *)&gFieldEffectArguments[0], (s16 *)&gFieldEffectArguments[1], 8, 8);
+    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_TRACKS_SPOT_SNOW], gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2]);
+    if (spriteId != MAX_SPRITES)
+    {
+        sprite = &gSprites[spriteId];
+        sprite->coordOffsetEnabled = TRUE;
+        sprite->oam.priority = gFieldEffectArguments[3];
+        sprite->data[7] = FLDEFF_TRACKS_SPOT_SNOW;
+        StartSpriteAnim(sprite, gFieldEffectArguments[4]);
+    }
+    return 0;
 }
 
 void (*const gFadeFootprintsTireTracksFuncs[])(struct Sprite *) = {

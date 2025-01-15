@@ -2801,8 +2801,8 @@ bool8 ObjectMovingOnRockStairs(struct ObjectEvent *objectEvent, u8 direction)
         s16 y = objectEvent->currentCoords.y;
 
         // TODO followers on sideways stairs
-        if (IsFollowerVisible() && GetFollowerObject() != NULL && (objectEvent->isPlayer || objectEvent->localId == OBJ_EVENT_ID_FOLLOWER))
-            return FALSE;
+        // if (IsFollowerVisible() && GetFollowerObject() != NULL && (objectEvent->isPlayer || objectEvent->localId == OBJ_EVENT_ID_FOLLOWER))
+        //     return FALSE;
 
         switch (direction)
         {
@@ -2817,9 +2817,9 @@ bool8 ObjectMovingOnRockStairs(struct ObjectEvent *objectEvent, u8 direction)
         case DIR_NORTHWEST:
         case DIR_SOUTHWEST:
         case DIR_SOUTHEAST:
-            // directionOverwrite is only used for sideways stairs motion
-            if (objectEvent->directionOverwrite)
-                return TRUE;
+            // // directionOverwrite is only used for sideways stairs motion
+            // if (objectEvent->directionOverwrite)
+            //     return TRUE;
         default:
             return FALSE;
         }

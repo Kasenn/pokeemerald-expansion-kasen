@@ -35,12 +35,14 @@ void DoTimeBasedEvents(void)
     }
 }
 
-static void UpdateVarsAndFlags(void)
+void UpdateVarsAndFlags(void)
 {
     if (VarGet(VAR_DEBUG) == 0){
         FlagSet(FLAG_PLACED_STEEL_SPHERE);
         FlagSet(FLAG_PLACED_STONE_SPHERE);
         FlagSet(FLAG_PLACED_VERDANT_SPHERE);
+        PlantBerryTree(BERRY_TREE_ROUTE_110_YACHE_1, ITEM_TO_BERRY(ITEM_YACHE_BERRY), BERRY_STAGE_BERRIES, FALSE);
+        PlantBerryTree(BERRY_TREE_ROUTE_110_YACHE_2, ITEM_TO_BERRY(ITEM_YACHE_BERRY), BERRY_STAGE_BERRIES, FALSE);
         VarSet(VAR_DEBUG, 1);
     }
 }

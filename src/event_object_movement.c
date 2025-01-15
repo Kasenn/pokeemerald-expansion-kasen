@@ -161,6 +161,14 @@ static void DoTracksGroundEffectMud_None(struct ObjectEvent *, struct Sprite *, 
 static void DoTracksGroundEffectMud_Footprints(struct ObjectEvent *, struct Sprite *, u8);
 static void DoTracksGroundEffectMud_BikeTireTracks(struct ObjectEvent *, struct Sprite *, u8);
 static void DoTracksGroundEffect_SlitherTracks(struct ObjectEvent*, struct Sprite*, u8);
+
+static void DoTracksGroundSnowEffect_None(struct ObjectEvent *, struct Sprite *, u8);
+static void DoTracksGroundSnowEffect_Footprints(struct ObjectEvent *, struct Sprite *, u8);
+static void DoTracksGroundSnowEffect_FootprintsB(struct ObjectEvent*, struct Sprite*, u8);
+static void DoTracksGroundSnowEffect_FootprintsC(struct ObjectEvent*, struct Sprite*, u8);
+static void DoTracksGroundSnowEffect_BikeTireTracks(struct ObjectEvent *, struct Sprite *, u8);
+static void DoTracksGroundSnowEffect_SlitherTracks(struct ObjectEvent*, struct Sprite*, u8);
+
 static void DoRippleFieldEffect(struct ObjectEvent *, struct Sprite *);
 static void DoGroundEffects_OnSpawn(struct ObjectEvent *, struct Sprite *);
 static void DoGroundEffects_OnBeginStep(struct ObjectEvent *, struct Sprite *);
@@ -9692,9 +9700,10 @@ static void GetGroundEffectFlags_Tracks(struct ObjectEvent *objEvent, u32 *flags
     if (MetatileBehavior_IsDeepSand(objEvent->previousMetatileBehavior))
         *flags |= GROUND_EFFECT_FLAG_DEEP_SAND;
     else if (MetatileBehavior_IsSandOrDeepSand(objEvent->previousMetatileBehavior)
-             || MetatileBehavior_IsFootprints(objEvent->previousMetatileBehavior)
-             || MetatileBehavior_IsSnow(objEvent->previousMetatileBehavior))
+          || MetatileBehavior_IsFootprints(objEvent->previousMetatileBehavior))
         *flags |= GROUND_EFFECT_FLAG_SAND;
+    else if (MetatileBehavior_IsSnow(objEvent->previousMetatileBehavior))
+        *flags |= GROUND_EFFECT_FLAG_SNOW;
 }
 
 static void GetGroundEffectFlags_TracksMud(struct ObjectEvent *objEvent, u32 *flags)
@@ -10231,6 +10240,15 @@ static void (*const sGroundEffectTracksFuncs[])(struct ObjectEvent *objEvent, st
     [TRACKS_BUG] = DoTracksGroundEffect_FootprintsB,
 };
 
+static void (*const sGroundSnowEffectTracksFuncs[])(struct ObjectEvent *objEvent, struct Sprite *sprite, bool8 isDeepSand) = {
+    [TRACKS_NONE] = DoTracksGroundSnowEffect_None,
+    [TRACKS_FOOT] = DoTracksGroundSnowEffect_Footprints,
+    [TRACKS_BIKE_TIRE] = DoTracksGroundSnowEffect_BikeTireTracks,
+    [TRACKS_SLITHER] = DoTracksGroundSnowEffect_SlitherTracks,
+    [TRACKS_SPOT] = DoTracksGroundSnowEffect_FootprintsC,
+    [TRACKS_BUG] = DoTracksGroundSnowEffect_FootprintsB,
+};
+
 static void (*const sGroundEffectTracksMudFuncs[])(struct ObjectEvent *objEvent, struct Sprite *sprite, bool8 isMud) = {
     [TRACKS_NONE] = DoTracksGroundEffectMud_None,
     [TRACKS_FOOT] = DoTracksGroundEffectMud_Footprints,
@@ -10255,6 +10273,12 @@ void GroundEffect_MudTracks(struct ObjectEvent *objEvent, struct Sprite *sprite)
     sGroundEffectTracksMudFuncs[info->tracks](objEvent, sprite, TRUE);
 }
 
+void GroundEffect_SnowTracks(struct ObjectEvent *objEvent, struct Sprite *sprite)
+{
+    const struct ObjectEventGraphicsInfo *info = GetObjectEventGraphicsInfo(objEvent->graphicsId);
+    sGroundSnowEffectTracksFuncs[objEvent->invisible ? TRACKS_NONE : info->tracks](objEvent, sprite, FALSE);
+}
+
 
 static void DoTracksGroundEffect_None(struct ObjectEvent *objEvent, struct Sprite *sprite, bool8 isDeepSand)
 {
@@ -10274,24 +10298,14 @@ static void DoTracksGroundEffect_Footprints(struct ObjectEvent *objEvent, struct
         FLDEFF_SAND_FOOTPRINTS,
         FLDEFF_DEEP_SAND_FOOTPRINTS
     };
-    u16 snowFootprints_FieldEffectData[2] = {
-        FLDEFF_SNOW_FOOTPRINTS,
-        FLDEFF_DEEP_SAND_FOOTPRINTS
-    };
 
     gFieldEffectArguments[0] = objEvent->previousCoords.x;
     gFieldEffectArguments[1] = objEvent->previousCoords.y;
     gFieldEffectArguments[2] = 149;
     gFieldEffectArguments[3] = 2;
     gFieldEffectArguments[4] = objEvent->facingDirection;
-    if ((GetSavedWeather() == WEATHER_BLIZZARD) || (MAP(ROUTE17)) || (MAP(BARREN_WASTES)))
-    {
-        FieldEffectStart(snowFootprints_FieldEffectData[isDeepSand]);
-    }
-    else
-    {
-        FieldEffectStart(sandFootprints_FieldEffectData[isDeepSand]);
-    }
+    
+    FieldEffectStart(sandFootprints_FieldEffectData[isDeepSand]);
 }
 
 static void DoTracksGroundEffect_FootprintsB(struct ObjectEvent *objEvent, struct Sprite *sprite, bool8 isDeepSand)
@@ -10369,14 +10383,8 @@ static void DoTracksGroundEffect_BikeTireTracks(struct ObjectEvent *objEvent, st
         gFieldEffectArguments[3] = 2;
         gFieldEffectArguments[4] =
         bikeTireTracks_Transitions[movementDir][objEvent->facingDirection - 5];
-        if ((GetSavedWeather() == WEATHER_BLIZZARD) || (MAP(ROUTE17)) || (MAP(BARREN_WASTES)))
-        {
-            FieldEffectStart(FLDEFF_BIKE_TIRE_TRACKS_SNOW);
-        }
-        else
-        {
-            FieldEffectStart(FLDEFF_BIKE_TIRE_TRACKS);
-        }
+        
+        FieldEffectStart(FLDEFF_BIKE_TIRE_TRACKS);
     }
 }
 
@@ -10404,14 +10412,8 @@ static void DoTracksGroundEffect_SlitherTracks(struct ObjectEvent *objEvent, str
         gFieldEffectArguments[4] =
         slitherTracks_Transitions[objEvent->previousMovementDirection][objEvent->facingDirection - 5];
         gFieldEffectArguments[5] = objEvent->previousMetatileBehavior;
-        if ((GetSavedWeather() == WEATHER_BLIZZARD) || (MAP(ROUTE17)) || (MAP(BARREN_WASTES)))
-        {
-            FieldEffectStart(FLDEFF_TRACKS_SLITHER_SNOW);
-        }
-        else
-        {
-            FieldEffectStart(FLDEFF_TRACKS_SLITHER);
-        }
+        
+        FieldEffectStart(FLDEFF_TRACKS_SLITHER);
     }
 }
 
@@ -10534,11 +10536,22 @@ static void (*const sGroundEffectFuncs[])(struct ObjectEvent *objEvent, struct S
     GroundEffect_MudTracks,              // GROUND_EFFECT_FLAG_MUD
     GroundEffect_MudHeap,              // GROUND_EFFECT_FLAG_MUD_PILE
     GroundEffect_MirrorReflection,       // GROUND_EFFECT_FLAG_MIRROR_REFLECTION
+    GroundEffect_SnowTracks,            // GROUND_EFFECT_FLAG_SNOW
 };
 
 static void DoFlaggedGroundEffects(struct ObjectEvent *objEvent, struct Sprite *sprite, u32 flags)
 {
     u8 i;
+
+    
+
+    // if (MetatileBehavior_IsDeepSand(objEvent->previousMetatileBehavior))
+    //     *flags &= ~GROUND_EFFECT_FLAG_SNOW;
+    // else if (MetatileBehavior_IsSandOrDeepSand(objEvent->previousMetatileBehavior)
+    //       || MetatileBehavior_IsFootprints(objEvent->previousMetatileBehavior))
+    //     *flags &= ~GROUND_EFFECT_FLAG_SNOW;
+    // else if (MetatileBehavior_IsSnow(objEvent->previousMetatileBehavior))
+    //     *flags &= ~GROUND_EFFECT_FLAG_SAND;
 
     if (ObjectEventIsFarawayIslandMew(objEvent) == TRUE && !ShouldMewShakeGrass(objEvent))
         return;
@@ -11615,4 +11628,116 @@ bool8 MovementActionFunc_RunSlow_Step1(struct ObjectEvent *objectEvent, struct S
         return TRUE;
     }
     return FALSE;
+}
+
+static void DoTracksGroundSnowEffect_None(struct ObjectEvent *objEvent, struct Sprite *sprite, bool8 isDeepSand)
+{
+}
+static void DoTracksGroundSnowEffect_Footprints(struct ObjectEvent *objEvent, struct Sprite *sprite, bool8 isDeepSand)
+{
+    // First half-word is a Field Effect script id. (gFieldEffectScriptPointers)
+    u16 snowFootprints_FieldEffectData[2] = {
+        FLDEFF_SNOW_FOOTPRINTS,
+        FLDEFF_DEEP_SNOW_FOOTPRINTS
+    };
+
+    gFieldEffectArguments[0] = objEvent->previousCoords.x;
+    gFieldEffectArguments[1] = objEvent->previousCoords.y;
+    gFieldEffectArguments[2] = 149;
+    gFieldEffectArguments[3] = 2;
+    gFieldEffectArguments[4] = objEvent->facingDirection;
+
+    FieldEffectStart(snowFootprints_FieldEffectData[isDeepSand]);
+}
+
+static void DoTracksGroundSnowEffect_FootprintsB(struct ObjectEvent *objEvent, struct Sprite *sprite, bool8 isDeepSand)
+{
+    // First half-word is a Field Effect script id. (gFieldEffectScriptPointers)
+    u16 otherFootprintsA_FieldEffectData[2] = {
+        FLDEFF_TRACKS_SPOT_SNOW,
+        FLDEFF_TRACKS_SPOT_SNOW
+    };
+
+    gFieldEffectArguments[0] = objEvent->previousCoords.x;
+    gFieldEffectArguments[1] = objEvent->previousCoords.y;
+    gFieldEffectArguments[2] = 149;
+    gFieldEffectArguments[3] = 2;
+    gFieldEffectArguments[4] = objEvent->facingDirection;
+    gFieldEffectArguments[5] = objEvent->previousMetatileBehavior;
+    FieldEffectStart(otherFootprintsA_FieldEffectData[isDeepSand]);
+}
+
+static void DoTracksGroundSnowEffect_FootprintsC(struct ObjectEvent *objEvent, struct Sprite *sprite, bool8 isDeepSand)
+{
+    // First half-word is a Field Effect script id. (gFieldEffectScriptPointers)
+    u16 otherFootprintsB_FieldEffectData[2] = {
+        FLDEFF_TRACKS_BUG_SNOW,
+        FLDEFF_TRACKS_BUG_SNOW
+    };
+
+    gFieldEffectArguments[0] = objEvent->previousCoords.x;
+    gFieldEffectArguments[1] = objEvent->previousCoords.y;
+    gFieldEffectArguments[2] = 149;
+    gFieldEffectArguments[3] = 2;
+    gFieldEffectArguments[4] = objEvent->facingDirection;
+    gFieldEffectArguments[5] = objEvent->previousMetatileBehavior;
+    FieldEffectStart(otherFootprintsB_FieldEffectData[isDeepSand]);
+}
+
+static void DoTracksGroundSnowEffect_BikeTireTracks(struct ObjectEvent *objEvent, struct Sprite *sprite, bool8 isDeepSand) //wip
+{
+    //  Specifies which bike track shape to show next.
+    //  For example, when the bike turns from up to right, it will show
+    //  a track that curves to the right.
+    //  Each 4-byte row corresponds to the initial direction of the bike, and
+    //  each byte in that row is for the next direction of the bike in the order
+    //  of down, up, left, right.
+    static const u8 bikeTireTracks_Transitions[4][4] = {
+        {1, 2, 7, 8},
+        {1, 2, 6, 5},
+        {5, 8, 3, 4},
+        {6, 7, 3, 4},
+    };
+
+    if (objEvent->currentCoords.x != objEvent->previousCoords.x || objEvent->currentCoords.y != objEvent->previousCoords.y)
+    {
+        u8 movementDir = (objEvent->previousMovementDirection > DIR_EAST) ? (objEvent->previousMovementDirection - DIR_EAST) : objEvent->previousMovementDirection;
+        gFieldEffectArguments[0] = objEvent->previousCoords.x;
+        gFieldEffectArguments[1] = objEvent->previousCoords.y;
+        gFieldEffectArguments[2] = 149;
+        gFieldEffectArguments[3] = 2;
+        gFieldEffectArguments[4] =
+        bikeTireTracks_Transitions[movementDir][objEvent->facingDirection - 5];
+
+        FieldEffectStart(FLDEFF_BIKE_TIRE_TRACKS_SNOW);
+    }
+}
+
+static void DoTracksGroundSnowEffect_SlitherTracks(struct ObjectEvent *objEvent, struct Sprite *sprite, u8 a) //wip
+{
+    //  Specifies which bike track shape to show next.
+    //  For example, when the bike turns from up to right, it will show
+    //  a track that curves to the right.
+    //  Each 4-byte row corresponds to the initial direction of the bike, and
+    //  each byte in that row is for the next direction of the bike in the order
+    //  of down, up, left, right.
+    static const u8 slitherTracks_Transitions[4][4] = {
+        {1, 2, 7, 8},
+        {1, 2, 6, 5},
+        {5, 8, 3, 4},
+        {6, 7, 3, 4},
+    };
+
+    if (objEvent->currentCoords.x != objEvent->previousCoords.x || objEvent->currentCoords.y != objEvent->previousCoords.y)
+    {
+        gFieldEffectArguments[0] = objEvent->previousCoords.x;
+        gFieldEffectArguments[1] = objEvent->previousCoords.y;
+        gFieldEffectArguments[2] = 149;
+        gFieldEffectArguments[3] = 2;
+        gFieldEffectArguments[4] =
+        slitherTracks_Transitions[objEvent->previousMovementDirection][objEvent->facingDirection - 5];
+        gFieldEffectArguments[5] = objEvent->previousMetatileBehavior;
+
+        FieldEffectStart(FLDEFF_TRACKS_SLITHER_SNOW);
+    }
 }

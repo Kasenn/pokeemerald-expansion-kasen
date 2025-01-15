@@ -113,7 +113,7 @@
 #define MAPSEC_GALEWIND_CITY                    0x6D
 #define MAPSEC_TOWN_WIP5                    0x6E
 #define MAPSEC_TOWN_WIP6                    0x6F
-#define MAPSEC_CITY_WIP5                    0x70
+#define MAPSEC_FROSTFIRE_CITY                    0x70
 #define MAPSEC_BASALEK_TOWN                    0x71
 #define MAPSEC_TOWN_WIP8                    0x72
 #define MAPSEC_TOWN_WIP9                    0x73
