@@ -168,7 +168,7 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
     {
         .mapSecId = MAPSEC_ROCKLIFFE_TOWN,
         .index = 0,
-        .tilemap = gPokenavCityMap_Kaolisle_0,
+        .tilemap = gPokenavCityMap_Rockliffe_0,
     },
     {
         .mapSecId = MAPSEC_SANDSTONE_CITY,
@@ -199,5 +199,10 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
         .mapSecId = MAPSEC_BASALEK_TOWN,
         .index = 0,
         .tilemap = gPokenavCityMap_Basalek_0,
+    },
+    {
+        .mapSecId = MAPSEC_FROSTFIRE_CITY,
+        .index = 0,
+        .tilemap = gPokenavCityMap_Frostfire_0,
     },
 };

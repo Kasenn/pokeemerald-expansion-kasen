@@ -208,6 +208,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayDecorati
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Archie;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Korrina;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kasen;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Pryce;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Brock;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Giovanni;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Petrel;
@@ -651,6 +652,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_LAND_SWIMMER_F] =                     &gObjectEventGraphicsInfo_LandSwimmerF,
     [OBJ_EVENT_GFX_KORRINA] =                   &gObjectEventGraphicsInfo_Korrina,
     [OBJ_EVENT_GFX_KASEN] =                   &gObjectEventGraphicsInfo_Kasen,
+    [OBJ_EVENT_GFX_PRYCE] =                   &gObjectEventGraphicsInfo_Pryce,
     [OBJ_EVENT_GFX_BROCK] =                   &gObjectEventGraphicsInfo_Brock,
     [OBJ_EVENT_GFX_GIOVANNI]                                &gObjectEventGraphicsInfo_Giovanni,
     [OBJ_EVENT_GFX_PETREL]                                &gObjectEventGraphicsInfo_Petrel,

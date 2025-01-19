@@ -306,7 +306,7 @@ static void CB2_LoadCableCar(void)
         gMain.state++;
         break;
     case 5:
-        if (sCableCar->weather == WEATHER_VOLCANIC_ASH)
+        if (sCableCar->weather == WEATHER_SNOW)
         {
             gMain.state++;
         }
@@ -426,7 +426,7 @@ static void Task_CableCar(u8 taskId)
         // Update ash sprites
         switch (sCableCar->weather)
         {
-        case WEATHER_VOLCANIC_ASH:
+        case WEATHER_SNOW:
             if (gWeatherPtr->sprites.s2.ashSprites[0] != NULL && gWeatherPtr->sprites.s2.ashSprites[0]->oam.priority != 0)
             {
                 for (; i < NUM_ASH_SPRITES; i++)
@@ -552,10 +552,7 @@ static void Task_AnimateBgGoingDown(u8 taskId)
     }
 
     AnimateGroundGoingDown();
-    if (sCableCar->timer < sCableCar->weatherDelay)
-        gSpriteCoordOffsetX = (gSpriteCoordOffsetX + 247) % 248;
-    else
-        gWeatherPtr->ashBaseSpritesX = (gWeatherPtr->ashBaseSpritesX + 247) % 248;
+    gSpriteCoordOffsetX = (gSpriteCoordOffsetX + 127) % 128;
 }
 
 static void VBlankCB_CableCar(void)
@@ -837,9 +834,9 @@ static void CreateCableCarSprites(void)
             gSprites[spriteId].sXPos = 200;
             gSprites[spriteId].sYPos = 99;
             // Init weather
-            sCableCar->weather = WEATHER_VOLCANIC_ASH;
+            sCableCar->weather = WEATHER_SNOW;
             sCableCar->weatherDelay = 350;
-            SetCurrentAndNextWeatherNoDelay(WEATHER_VOLCANIC_ASH);
+            SetCurrentAndNextWeatherNoDelay(WEATHER_SNOW);
             break;
         case TRUE:
             CopyToBgTilemapBufferRect_ChangePalette(0, sCableCar->groundTilemap + 0x24, 24, 26, 12, 3, 17);
@@ -865,9 +862,9 @@ static void CreateCableCarSprites(void)
             gSprites[spriteId].sXPos = 128;
             gSprites[spriteId].sYPos = 65;
             // Init weather
-            sCableCar->weather = WEATHER_VOLCANIC_ASH;
+            sCableCar->weather = WEATHER_SNOW;
             sCableCar->weatherDelay = 265;
-            SetCurrentAndNextWeatherNoDelay(WEATHER_VOLCANIC_ASH);
+            SetCurrentAndNextWeatherNoDelay(WEATHER_SNOW);
             break;
     }
     for (i = 0; i < 9; i++)

@@ -214,15 +214,15 @@
     },
     {
       "type": "weather",
-      "x": 22,
-      "y": 20,
+      "x": 20,
+      "y": 21,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 23,
-      "y": 21,
+      "x": 21,
+      "y": 22,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
@@ -235,143 +235,80 @@
     },
     {
       "type": "weather",
-      "x": 24,
-      "y": 21,
+      "x": 22,
+      "y": 23,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 6,
-      "y": 10,
+      "x": 25,
+      "y": 18,
       "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_BLIZZARD"
+      "weather": "COORD_EVENT_WEATHER_SNOW"
     },
     {
       "type": "weather",
-      "x": 6,
-      "y": 9,
-      "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_BLIZZARD"
-    },
-    {
-      "type": "weather",
-      "x": 6,
-      "y": 8,
-      "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_BLIZZARD"
-    },
-    {
-      "type": "weather",
-      "x": 33,
-      "y": 14,
-      "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_SUNNY"
-    },
-    {
-      "type": "weather",
-      "x": 32,
-      "y": 15,
-      "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_SUNNY"
-    },
-    {
-      "type": "weather",
-      "x": 31,
-      "y": 16,
-      "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_SUNNY"
-    },
-    {
-      "type": "weather",
-      "x": 30,
+      "x": 24,
       "y": 17,
       "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_SUNNY"
+      "weather": "COORD_EVENT_WEATHER_SNOW"
+    },
+    {
+      "type": "weather",
+      "x": 23,
+      "y": 17,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SNOW"
     },
     {
       "type": "weather",
       "x": 0,
       "y": 5,
       "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_BLIZZARD"
+      "weather": "COORD_EVENT_WEATHER_SNOW"
     },
     {
       "type": "weather",
       "x": 0,
       "y": 6,
       "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_BLIZZARD"
+      "weather": "COORD_EVENT_WEATHER_SNOW"
     },
     {
       "type": "weather",
       "x": 0,
       "y": 7,
       "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_BLIZZARD"
+      "weather": "COORD_EVENT_WEATHER_SNOW"
     },
     {
       "type": "weather",
       "x": 0,
       "y": 8,
       "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_BLIZZARD"
+      "weather": "COORD_EVENT_WEATHER_SNOW"
     },
     {
       "type": "weather",
       "x": 0,
       "y": 9,
       "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_BLIZZARD"
+      "weather": "COORD_EVENT_WEATHER_SNOW"
     },
     {
       "type": "weather",
       "x": 0,
       "y": 10,
       "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_BLIZZARD"
+      "weather": "COORD_EVENT_WEATHER_SNOW"
     },
     {
       "type": "weather",
-      "x": 7,
-      "y": 7,
+      "x": 26,
+      "y": 19,
       "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_BLIZZARD"
-    },
-    {
-      "type": "weather",
-      "x": 5,
-      "y": 11,
-      "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_BLIZZARD"
-    },
-    {
-      "type": "weather",
-      "x": 11,
-      "y": 8,
-      "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_SUNNY"
-    },
-    {
-      "type": "weather",
-      "x": 10,
-      "y": 9,
-      "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_SUNNY"
-    },
-    {
-      "type": "weather",
-      "x": 9,
-      "y": 10,
-      "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_SUNNY"
-    },
-    {
-      "type": "weather",
-      "x": 8,
-      "y": 11,
-      "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_SUNNY"
+      "weather": "COORD_EVENT_WEATHER_SNOW"
     }
   ],
   "bg_events": [

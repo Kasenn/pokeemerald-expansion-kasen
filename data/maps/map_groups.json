@@ -18,6 +18,7 @@
     "gMapGroup_IndoorDrisledgeTown",
     "gMapGroup_IndoorAmberockTown",
     "gMapGroup_IndoorBasalekTown",
+    "gMapGroup_IndoorFrosthearth",
     "gMapGroup_IndoorLittleroot",
     "gMapGroup_IndoorOldale",
     "gMapGroup_IndoorDewford",
@@ -191,7 +192,8 @@
     "HoundoomCave",
     "FrigidFrontier_Cave",
     "FrigidFrontier_CaveDeeper",
-    "DesertCliffs"
+    "DesertCliffs",
+    "SnowyRidge"
   ],
   "gMapGroup_IndoorPearlwoodPoint": [
     "Lab2",
@@ -398,6 +400,19 @@
     "BasalekMart",
     "BasalekHouse1",
     "BasalekHouse2"
+  ],
+  "gMapGroup_IndoorFrosthearth": [
+    "FrosthearthCity_House1",
+    "FrosthearthCity_House2",
+    "FrosthearthCity_House3",
+    "FrosthearthCity_House4",
+    "FrosthearthCity_Motel",
+    "FrosthearthCity_PokemonFanClub",
+    "FrosthearthCity_PokeCenter",
+    "FrosthearthCity_Mart",
+    "FrosthearthCity_Harbor",
+    "FrosthearthCity_Gym",
+    "FrosthearthCity_Motel_2F"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

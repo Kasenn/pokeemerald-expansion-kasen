@@ -86,6 +86,7 @@
 #define FLDEFF_DEEP_SNOW_FOOTPRINTS      81
 #define FLDEFF_TRACKS_SPOT_SNOW          82
 #define FLDEFF_TRACKS_BUG_SNOW           83
+#define FLDEFF_TALL_GRASS_SNOW           84
 
 
 #define FLDEFFOBJ_SHADOW_S              0

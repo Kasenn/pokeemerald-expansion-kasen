@@ -441,7 +441,11 @@ BattleScript_FlashEnd::
 BattleScript_MegaExhaustion::
 	printstring STRINGID_TARGETISHURTBYMEGAEXHAUSTION
 	waitmessage B_WAIT_TIME_LONG
-	call BattleScript_HurtTarget_NoString
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	tryfaintmon BS_ATTACKER
+	checkteamslost BattleScript_DoTurnDmgEnd
 	end2
 
 BattleScript_HurtTarget_NoString:
@@ -8542,6 +8546,8 @@ BattleScript_RockyTerrainLoop:
 	orword gHitMarker, HITMARKER_IGNORE_BIDE | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
+	tryfaintmon BS_ATTACKER
+	checkteamslost BattleScript_DoTurnDmgEnd
 BattleScript_RockyTerrainLoopIncrement::
 	addbyte gBattleCommunication, 1
 	jumpifbytenotequal gBattleCommunication, gBattlersCount, BattleScript_RockyTerrainLoop

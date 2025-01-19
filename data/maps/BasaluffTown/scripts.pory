@@ -41,9 +41,11 @@ script BasaluffAutomaticRivalFight{
         }
         if(flag(FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE)){
             msgbox(BasaluffMay_PostBattle)
+            msgbox(BasaluffMay_Goodbye)
         }
         else{
             msgbox(BasaluffMay_NoMegaPostBattle)
+            msgbox(BasaluffMay_Goodbye2)
         }
     }
     else{
@@ -62,6 +64,7 @@ script BasaluffAutomaticRivalFight{
         else{
             msgbox(BasaluffBrendan_NoMegaPostBattle)
         }
+        msgbox(BasaluffBrendan_Goodbye)
     }
     closemessage
     safefollow
@@ -72,28 +75,88 @@ script BasaluffAutomaticRivalFight{
     release
 }
 text BasaluffMay_LetsStart{
-    ""
+    "{RIVAL}: Alright, this should be\n"
+    "enough space for us to battle.\p"
+    "Let's go!"
 }
 text BasalekMay_LostText{
-    ""
+    "Wow!\n"
+	"{PLAYER}, you're strong!\p"
+	"I was worried that you might be\n"
+	"falling behind in your training."
 }
 text BasaluffMay_PostBattle{
-    ""
+    "{RIVAL}: Oh wow,\n"
+    "That was a great battle!\p"
+    "It's nice to see you put that Mega\n"
+    "Ring into good use.\p"
+    "Even if Korrina had only given me\n"
+    "a ring, I'm not sure I could've\l"
+    "still beaten you!"
 }
 text BasaluffMay_NoMegaPostBattle{
-    ""
+    "{RIVAL}: That was a great battle, but\n"
+    "I must say, I'm a bit disappointed…\p"
+    "We got these great gifts from\n"
+    "my dad and Korrina, and you're\l"
+    "just letting them collect dust.\p"
+    "Or maybe, was it because I was so\n"
+    "weak that you didn't see the need\l"
+    "to use them in the first place…"
+}
+text BasaluffMay_Goodbye{
+    "Anyways, I'm guessing you're\n"
+    "heading to Frosthearth City to\l"
+    "challenge the Pokémon Gym there?\p"
+    "I'm heading that way as well,\n"
+    "so maybe we'll meet again soon!\p"
+    "Well, anyway, see you!"
+}
+text BasaluffMay_Goodbye2{
+    "A-Anyways, I'm guessing you're\n"
+    "heading to Frosthearth City to\l"
+    "challenge the Pokémon Gym there?\p"
+    "I'm heading that way as well,\n"
+    "so maybe we'll meet again soon!\p"
+    "Well, anyway, see you…"
 }
 text BasaluffBrendan_LetsStart{
-    ""
+    "{RIVAL}: Okay, this should be\n"
+    "enough space for us to battle.\p"
+    "Let's do this!"
 }
 text BasalekBrendan_LostText{
-    ""
+    "Hmm…\n"
+	"I see you've been training hard.\p"
+	"That stings a bit--I had a head start\n"
+	"on you as a trainer…"
 }
 text BasaluffBrendan_PostBattle{
-    ""
+    "{RIVAL}: That was a great battle!\p"
+    "It's nice to see you put that Mega\n"
+    "Ring into good use.\p"
+    "I'm not sure if I could've beaten\n"
+    "you even if you did not have it."
 }
 text BasaluffBrendan_NoMegaPostBattle{
-    ""
+    "{RIVAL}: That was a great battle!\p"
+    "Though I must admit,\n"
+    "I'm a bit disappointed…\p"
+    "We got this cool stuff from\n"
+    "my dad and Korrina, so I was\l"
+    "kind of expecting to see you\l"
+    "use them in battle.\p"
+    "Or perhaps, I was so weak that you\n"
+    "didn't even see the need to use them\l"
+    "against me…"
+}
+text BasaluffBrendan_Goodbye{
+    "Anyway, I'm guessing you're\n"
+    "heading to Frosthearth City to\l"
+    "challenge the Pokémon Gym there?\p"
+    "I'm heading that way as well,\n"
+    "so maybe we'll meet again soon!\p"
+    "Well, anyway, hang in there!"
 }
 
 script BasalekTown_Sign1{
@@ -109,7 +172,7 @@ script BasalekTown_Sign2{
 }
 text BasalekTown_Sign2_Text{
     "{UP_ARROW} Route 17\n"
-    "{LEFT_ARROW} Basalek Tunnel\l"
+    "{LEFT_ARROW} Basalek Tunnels\l"
     "{DOWN_ARROW} Route 16"
 }
 script BasalekTown_Man5{
@@ -117,7 +180,7 @@ script BasalekTown_Man5{
 }
 text BasalekTown_Man5_Text{
     "See that cave down there?\n"
-    "That's Basalek Tunnel.\p"
+    "That's Basalek Tunnels.\p"
     "It's said that due to the oppressing\n"
     "atmosphere, training there is more\l"
     "efficient than anywhere else.\p"
@@ -174,8 +237,9 @@ script BasalekTown_Beauty{
     msgbox(BasalekTown_Beauty_Text, MSGBOX_SIGN)
 }
 text BasalekTown_Beauty_Text{
-    "I've got some errands to run, but I\n"
-    "guess I can stay for another 5 minutes."
+    "I've got some errands to run,\n"
+    "but I guess I can stay for\l"
+    "another five minutes."
 }
 
 script BasalekTown_EggWoman{
@@ -341,11 +405,14 @@ script BasalekTown_RivalScript{
             case 2:
                 trainerbattle_no_intro(TRAINER_BASALEK_MAY_PIPLUP, BasalekMay_LostText)
         }
+        release
         if(flag(FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE)){
             msgbox(BasaluffMay_PostBattle)
+            msgbox(BasaluffMay_Goodbye)
         }
         else{
             msgbox(BasaluffMay_NoMegaPostBattle)
+            msgbox(BasaluffMay_Goodbye2)
         }
     }
     else{
@@ -368,12 +435,14 @@ script BasalekTown_RivalScript{
             case 2:
                 trainerbattle_no_intro(TRAINER_BASALEK_BRENDAN_PIPLUP, BasalekBrendan_LostText)
         }
+        release
         if(flag(FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE)){
             msgbox(BasaluffBrendan_PostBattle)
         }
         else{
             msgbox(BasaluffBrendan_NoMegaPostBattle)
         }
+        msgbox(BasaluffBrendan_Goodbye)
     }
     closemessage
     safefollow
@@ -399,22 +468,63 @@ movement TurnPlayerAndFollowerRight{
 }
 
 text BasaluffTown_Brendan_NoBails{
-    ""
+    "{RIVAL}: Oh, hey {PLAYER}!\n"
+    "It's been a while, huh?\p"
+    "I was on my way to Route 17, but\n"
+    "the weather was so unbearably humid\l"
+    "that I just had to turn back and\l"
+    "get myself some extra drinks for\l"
+    "the journey.\p"
+    "Anyway, enough about me.\p"
+    "How about we have ourselves\n"
+    "a Pokémon battle?\p"
+    "I'm curious to see if you've mastered\n"
+    "using the Mega Evolution technique."
 }
 text BasaluffTown_Brendan_1Bail{
-    ""
+    "{RIVAL}: You weren't trying to\n"
+    "make a break for it while I was\l"
+    "patiently waiting inside the Mart,\l"
+    "were you?\p"
+    "Well, I hope you're prepared,\n"
+    "because here I come!"
 }
 text BasaluffTown_Brendan_2Bails{
-    ""
+    "{RIVAL}: I had a feeling you might\n"
+    "be walking out on me, just like you did\l"
+    "back at the Coralgrove Harbor.\p"
+    "Well, you're not fooling me again.\n"
+    "Get ready, because here I come!"
 }
 text BasaluffTown_May_NoBails{
-    ""
+    "{RIVAL}: Oh, hi {PLAYER}!\n"
+    "Long time no see!\p"
+    "I was on my way to Route 17,\n"
+    "but  had to turn back just to\l"
+    "get myself some extra drinks for\l"
+    "the journey.\p"
+    "I honestly don't know how people can\n"
+    "even live in this humid atmosphere.\p"
+    "Anyways, enough about me.\p"
+    "How about we have ourselves\n"
+    "a Pokémon battle?\p"
+    "I'm curious to see if you've mastered\n"
+    "using the Mega Evolution technique."
 }
 text BasaluffTown_May_1Bail{
-    ""
+    "{RIVAL}: You weren't trying to\n"
+    "bail on me while I patiently waited\l"
+    "for you inside the Mart?\p"
+    "Well, I hope you've prepared yourself,\n"
+    "because here I come!"
 }
 text BasaluffTown_May_2Bails{
-    ""
+    "{RIVAL}: Aha!\n"
+    "I knew you'd try to bail on me!\p"
+    "I'm not going to let you fool me\n"
+    "like you fooled me back at the\l"
+    "Coralgrove Harbor!\p"
+    "Get ready, because here I come!"
 }
 
 script BasalekTown_LevelChecker{

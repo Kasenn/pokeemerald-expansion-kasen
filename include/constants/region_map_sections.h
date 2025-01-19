@@ -141,7 +141,7 @@
 #define MAPSEC_OCEAN_WALKWAY               0x89
 #define MAPSEC_DESERT_CLIFFS                  0x8A
 #define MAPSEC_HIDDEN_CLEARING              0x8B
-#define MAPSEC_POKEMON_TOWER                0x8C
+#define MAPSEC_SNOWY_RIDGE                0x8C
 #define MAPSEC_CERULEAN_CAVE                0x8D
 #define MAPSEC_POWER_PLANT                  0x8E
 #define MAPSEC_ONE_ISLAND                   0x8F

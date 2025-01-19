@@ -257,8 +257,8 @@ u8 *GetFlagPointer(u16 id)
 {
     if (id == 0)
         return NULL;
-    else if (id > SPECIAL_FLAGS_END)
-        return &gSaveBlock1Ptr->flags2[(id - SPECIAL_FLAGS_END)/ 8];
+    else if (id >= EXTENDED_FLAG_START && id < SPECIAL_FLAGS_START)
+        return &gSaveBlock1Ptr->flags2[(id - EXTENDED_FLAG_START) / 8];
     else if (id < SPECIAL_FLAGS_START)
         return &gSaveBlock1Ptr->flags[id / 8];
     else

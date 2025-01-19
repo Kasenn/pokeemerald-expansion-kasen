@@ -72,7 +72,7 @@ Route125_EventScript_Iris::
 	end
 
 Route125_EventScript_Presley::
-	trainerbattle_single TRAINER_PRESLEY, Route125_Text_PresleyIntro, Route125_Text_PresleyDefeat
+	trainerbattle_single TRAINER_R18_TR2_RANGER_M, Route125_Text_PresleyIntro, Route125_Text_PresleyDefeat
 	msgbox Route125_Text_PresleyPostBattle, MSGBOX_AUTOCLOSE
 	end
 

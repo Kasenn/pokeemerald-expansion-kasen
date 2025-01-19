@@ -252,16 +252,16 @@ text TrackTheGuardians2{
     "caves you found the spheres from, but,\l"
     "considering those places hold some\l"
     "sentimental value to them, I imagine\l"
-    "they'd probably end up sticking\l"
-    "somewhere pretty close by."
+    "they'd probably end up looking for\l"
+    "high vantage points somewhere close by."
 }
 text TrackTheGuardiansShort{
     "Unfortunately, I don't have any\n"
     "clue about the new whereabouts of\l"
     "the Protectors.\p"
-    "If I were you, I'd try looking around\n"
-    "the places you originally found the\l"
-    "spheres from."
+    "If I were you, I'd try looking for\n"
+    "a high vantage point near the places\l"
+    "you originally found the spheres at."
 }
 
 script AT_TopTrigger1{

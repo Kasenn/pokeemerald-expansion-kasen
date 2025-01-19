@@ -1,0 +1,87 @@
+{
+  "id": "MAP_SNOWY_RIDGE",
+  "name": "SnowyRidge",
+  "layout": "LAYOUT_SNOWY_RIDGE",
+  "music": "MUS_MT_CHIMNEY",
+  "region_map_section": "MAPSEC_SNOWY_RIDGE",
+  "requires_flash": false,
+  "weather": "WEATHER_SNOW",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_ROUTE18",
+      "offset": -63,
+      "direction": "down"
+    }
+  ],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(VIRIZION)",
+      "x": 20,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SnowyRidge_Virizion",
+      "flag": "FLAG_HIDE_VIRIZION"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 11,
+      "y": 20,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_QUICK_BALL",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_SNOWY_RIDGE_ITEM2"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 19,
+      "y": 74,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE18",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 20,
+      "y": 74,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE18",
+      "dest_warp_id": "3"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+    {
+      "type": "hidden_item",
+      "x": 21,
+      "y": 47,
+      "elevation": 0,
+      "item": "ITEM_HYPER_POTION",
+      "flag": "FLAG_SNOWY_RIDGE_ITEM3"
+    },
+    {
+      "type": "hidden_item",
+      "x": 18,
+      "y": 26,
+      "elevation": 0,
+      "item": "ITEM_ICE_STONE",
+      "flag": "FLAG_SNOWY_RIDGE_ITEM1"
+    }
+  ]
+}

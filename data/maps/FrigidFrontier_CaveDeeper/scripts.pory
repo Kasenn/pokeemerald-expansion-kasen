@@ -1,6 +1,6 @@
 mapscripts FrigidFrontier_CaveDeeper_MapScripts {
     MAP_SCRIPT_ON_TRANSITION{
-        if(flag(FLAG_FRIGIDFRONTIERCAVE_VERDANT_SPHERE)){
+        if(flag(FLAG_FRIGIDCAVE_VERDANT_SPHERE)){
             setvar(VAR_TEMP_0, 1)
         }
     }

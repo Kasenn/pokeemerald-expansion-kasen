@@ -5,7 +5,7 @@
   "music": "MUS_MT_CHIMNEY",
   "region_map_section": "MAPSEC_BARREN_WASTES",
   "requires_flash": false,
-  "weather": "WEATHER_BLIZZARD",
+  "weather": "WEATHER_SNOW",
   "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -98,7 +98,78 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 14,
+      "elevation": 0,
+      "var": "FLAG_ESCORTING_PRYCE",
+      "var_value": "1",
+      "script": "PryceEscortedOut1"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 13,
+      "elevation": 0,
+      "var": "FLAG_ESCORTING_PRYCE",
+      "var_value": "1",
+      "script": "PryceEscortedOut2"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 12,
+      "elevation": 0,
+      "var": "FLAG_ESCORTING_PRYCE",
+      "var_value": "1",
+      "script": "PryceEscortedOut3"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 11,
+      "elevation": 0,
+      "var": "FLAG_ESCORTING_PRYCE",
+      "var_value": "1",
+      "script": "PryceEscortedOut4"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 6,
+      "elevation": 0,
+      "var": "FLAG_ESCORTING_PRYCE",
+      "var_value": "1",
+      "script": "PryceEscortedOut5"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 6,
+      "elevation": 0,
+      "var": "FLAG_ESCORTING_PRYCE",
+      "var_value": "1",
+      "script": "PryceEscortedOut6"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 6,
+      "elevation": 0,
+      "var": "FLAG_ESCORTING_PRYCE",
+      "var_value": "1",
+      "script": "PryceEscortedOut7"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 6,
+      "elevation": 0,
+      "var": "FLAG_ESCORTING_PRYCE",
+      "var_value": "1",
+      "script": "PryceEscortedOut8"
+    }
   ],
   "bg_events": [
 

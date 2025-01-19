@@ -3,7 +3,7 @@ FrigidFrontier_Cave_MapScripts::
 	.byte 0
 
 FrigidFrontier_Cave_MapScripts_MAP_SCRIPT_ON_LOAD:
-	goto_if_set FLAG_FRIGIDFRONTIERCAVE_HIDE_STEEL_SPHERE, FrigidFrontier_Cave_MapScripts_MAP_SCRIPT_ON_LOAD_1
+	goto_if_set FLAG_FRIGIDCAVE_HIDE_STEEL_SPHERE, FrigidFrontier_Cave_MapScripts_MAP_SCRIPT_ON_LOAD_1
 	return
 
 FrigidFrontier_Cave_MapScripts_MAP_SCRIPT_ON_LOAD_1:
@@ -17,7 +17,7 @@ FrigidFrontier_Cave_MapScripts_MAP_SCRIPT_ON_LOAD_1:
 
 
 FrigidCave_ActivatePedestal::
-	goto_if_set FLAG_FRIGIDFRONTIERCAVE_VERDANT_SPHERE, FrigidCave_ActivatePedestal_2
+	goto_if_set FLAG_FRIGIDCAVE_VERDANT_SPHERE, FrigidCave_ActivatePedestal_2
 	lock
 	msgbox FrigidCave_Text_EmptyPedestal, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
@@ -46,8 +46,8 @@ FrigidCave_ActivatePedestal_7:
 	end
 
 FrigidCave_ActivatePedestal_8:
-	clearflag FLAG_FRIGIDFRONTIERCAVE_HIDE_STEEL_SPHERE
-	setflag FLAG_FRIGIDFRONTIERCAVE_DOOR_OPEN
+	clearflag FLAG_FRIGIDCAVE_HIDE_STEEL_SPHERE
+	setflag FLAG_FRIGIDCAVE_DOOR_OPEN
 	removeitem ITEM_STEEL_SPHERE
 	removeobject 2
 	addobject 1
@@ -85,8 +85,8 @@ FrigidCave_TakeBackSphere::
 	compare VAR_RESULT, FALSE
 	goto_if_eq FrigidCave_TakeBackSphere_2
 	additem ITEM_STEEL_SPHERE
-	setflag FLAG_FRIGIDFRONTIERCAVE_HIDE_STEEL_SPHERE
-	clearflag FLAG_FRIGIDFRONTIERCAVE_DOOR_OPEN
+	setflag FLAG_FRIGIDCAVE_HIDE_STEEL_SPHERE
+	clearflag FLAG_FRIGIDCAVE_DOOR_OPEN
 	removeobject 1
 	addobject 2
 	special DrawWholeMapView

@@ -29,3 +29,120 @@ text Wastes_Hiker_YesRope{
     "Make sure you have an Escape Rope or\n"
     "a Pokémon with the move Fly with you."
 }
+
+script PryceEscortedOut1{
+    setvar(VAR_TEMP_2, 1)
+    goto(PryceEscortedOutMain)
+}
+script PryceEscortedOut2{
+    setvar(VAR_TEMP_2, 2)
+    goto(PryceEscortedOutMain)
+}
+script PryceEscortedOut3{
+    setvar(VAR_TEMP_2, 3)
+    goto(PryceEscortedOutMain)
+}
+script PryceEscortedOut4{
+    setvar(VAR_TEMP_2, 4)
+    goto(PryceEscortedOutMain)
+}
+script PryceEscortedOut5{
+    setvar(VAR_TEMP_2, 5)
+    goto(PryceEscortedOutMain)
+}
+script PryceEscortedOut6{
+    setvar(VAR_TEMP_2, 6)
+    goto(PryceEscortedOutMain)
+}
+script PryceEscortedOut7{
+    setvar(VAR_TEMP_2, 7)
+    goto(PryceEscortedOutMain)
+}
+script PryceEscortedOut8{
+    setvar(VAR_TEMP_2, 8)
+    goto(PryceEscortedOutMain)
+}
+
+script PryceEscortedOutMain{
+    lock
+    delay(30)
+    facefollower
+    delay(10)
+    setvar(VAR_0x8004, 10)
+    if(checkplayergender == MALE){
+        bufferstring(STR_VAR_1, "lad")
+    }
+    else{
+        bufferstring(STR_VAR_1, "lass")
+    }
+    if(flag(FLAG_FIND_PRYCE_QUEST)){
+        msgbox(OldManGivesReward)
+        call(RewardBP)
+        msgbox(ThanksForEscortingPryceOut, MSGBOX_AUTOCLOSE)
+    }
+    else{
+        msgbox(OldManGivesReward)
+        call(RewardBP)
+        msgbox(ThanksForEscortingOldManOut, MSGBOX_AUTOCLOSE)
+    }
+    switch(var(VAR_TEMP_2)){
+        case 1:
+            applymovement(OBJ_EVENT_ID_FOLLOW_ME, moves(walk_up, walk_right * 9))
+            applymovement(0xFF, moves(delay_16, walk_in_place_up, delay_16, walk_in_place_right))
+        case 2:
+            applymovement(OBJ_EVENT_ID_FOLLOW_ME, moves(walk_up, walk_right * 9))
+            applymovement(0xFF, moves(delay_16, walk_in_place_up, delay_16, walk_in_place_right))
+        case 3:
+            applymovement(OBJ_EVENT_ID_FOLLOW_ME, moves(walk_down, walk_right * 9))
+            applymovement(0xFF, moves(delay_16, walk_in_place_down, delay_16, walk_in_place_right))
+        case 4:
+            applymovement(OBJ_EVENT_ID_FOLLOW_ME, moves(walk_down, walk_right * 9))
+            applymovement(0xFF, moves(delay_16, walk_in_place_down, delay_16, walk_in_place_right))
+        case 5:
+            applymovement(OBJ_EVENT_ID_FOLLOW_ME, moves(walk_right, walk_down * 8))
+            applymovement(0xFF, moves(delay_16, walk_in_place_right, delay_16, walk_in_place_down))
+        case 6:
+            applymovement(OBJ_EVENT_ID_FOLLOW_ME, moves(walk_right, walk_down * 8))
+            applymovement(0xFF, moves(delay_16, walk_in_place_right, delay_16, walk_in_place_down))
+        case 7:
+            applymovement(OBJ_EVENT_ID_FOLLOW_ME, moves(walk_left, walk_down * 8))
+            applymovement(0xFF, moves(delay_16, walk_in_place_left, delay_16, walk_in_place_down))
+        case 8:
+            applymovement(OBJ_EVENT_ID_FOLLOW_ME, moves(walk_left, walk_down * 8))
+            applymovement(0xFF, moves(delay_16, walk_in_place_left, delay_16, walk_in_place_down))
+    }
+    waitmovement(OBJ_EVENT_ID_FOLLOW_ME)
+    destroyfollower
+    delay(60)
+    clearflag(FLAG_ESCORTING_PRYCE)
+    clearflag(FLAG_TEMP_1)
+    setflag(FLAG_PRYCE_ESCORTED)
+    release
+}
+
+text ThanksForEscortingPryceOut{
+    "I believe you were looking to\n"
+    "challenge our gym over at\l"
+    "Frosthearth City, yes?\p"
+    "I'll head back to the gym and get\n"
+    "all set up.\p"
+    "Drop by when you're ready, and let's\n"
+    "see if these old bones can still\l"
+    "keep up with a brisk {STR_VAR_1} like you."
+}
+text OldManGivesReward{
+    "Old man: Looks like we managed to\n"
+    "make our way out of that maze.\p"
+    "Thank you {STR_VAR_1}.\p"
+    "I don't know how long I would've\n"
+    "been stuck there without your aid.\p"
+    "I don't have much I can offer you\n"
+    "as a reward, but hopefully this\l"
+    "will suffice."
+}
+text ThanksForEscortingOldManOut{
+    "I need to head back home now.\n"
+    "Thank you again for the help.\p"
+    "Maybe we'll meet again one day\n"
+    "in a less hostile environment."
+}

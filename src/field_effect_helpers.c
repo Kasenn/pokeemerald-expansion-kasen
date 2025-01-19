@@ -435,16 +435,20 @@ u32 FldEff_TallGrass(void)
 
     tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
     SetSpritePosToOffsetMapCoords(&x, &y, 8, 8);
-    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_TALL_GRASS], x, y, 0);
     if (MetatileBehavior_IsTallGrassAutumn(tileBehavior))
     {
         spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_TALL_GRASS_AUTUMN], x, y, 0);
+    }
+    else
+    {
+        spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_TALL_GRASS], x, y, 0);
     }
     if (spriteId != MAX_SPRITES)
     {
         struct Sprite *sprite = &gSprites[spriteId];
         sprite->coordOffsetEnabled = TRUE;
-        sprite->oam.priority = gFieldEffectArguments[3];
+        sprite->oam.priority = ElevationToPriority(gFieldEffectArguments[2]);
+        // sprite->oam.priority = gFieldEffectArguments[3];
         sprite->sElevation = gFieldEffectArguments[2];
         sprite->sX = gFieldEffectArguments[0];
         sprite->sY = gFieldEffectArguments[1];

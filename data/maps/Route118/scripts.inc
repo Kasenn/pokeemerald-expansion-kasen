@@ -236,7 +236,7 @@ Route118_EventScript_Perry::
 	end
 
 Route118_EventScript_Chester::
-	trainerbattle_single TRAINER_CHESTER, Route118_Text_ChesterIntro, Route118_Text_ChesterDefeat
+	trainerbattle_single TRAINER_R18_TR7_POKEMANIAC, Route118_Text_ChesterIntro, Route118_Text_ChesterDefeat
 	msgbox Route118_Text_ChesterPostBattle, MSGBOX_AUTOCLOSE
 	end
 

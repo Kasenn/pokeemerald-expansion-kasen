@@ -1987,8 +1987,7 @@
       "MOVE_SWEET_KISS",
       "MOVE_THUNDER",
       "MOVE_THUNDER_WAVE",
-      "MOVE_FLY",
-      "MOVE_SURF"
+      "MOVE_FLY"
     ],
     "TMMoves": [
       "MOVE_FOCUS_PUNCH",

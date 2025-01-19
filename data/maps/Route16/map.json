@@ -193,8 +193,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
-      "x": 14,
-      "y": 104,
+      "x": 11,
+      "y": 102,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 4,
@@ -239,7 +239,7 @@
       "movement_range_x": 4,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
+      "trainer_sight_or_berry_tree_id": "6",
       "script": "Route16_Tr2_SwimmerF",
       "flag": "FLAG_TEMP_6"
     },
@@ -252,7 +252,7 @@
       "movement_range_x": 4,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
+      "trainer_sight_or_berry_tree_id": "6",
       "script": "Route16_Tr1_SwimmerM",
       "flag": "FLAG_TEMP_6"
     },
@@ -316,7 +316,7 @@
       "movement_type": "MOVEMENT_TYPE_MOUNTAIN_DISGUISE",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_SEE_ALL_DIRECTIONS",
+      "trainer_type": "TRAINER_TYPE_BURIED",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "Route16_Tr12_NinjaBoy2",
       "flag": "0"

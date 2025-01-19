@@ -153,26 +153,71 @@ script BasalekMart_BrendanBattle{
 }
 
 text BasalekMartMay_GettingReadyToHeadOut{
-    "may: getting ready to head out, battle?"
+    "{RIVAL}: Oh, hi {PLAYER}!\n"
+    "Long time no see!\p"
+    "I honestly don't know how people can\n"
+    "even live in this humid atmosphere.\p"
+    "I had to turn back on Route 17\n"
+    "just to get myself some extra drinks\l"
+    "for the journey.\p"
+    "Anyways, enough about me.\p"
+    "How about we have ourselves\n"
+    "a Pokémon battle?\p"
+    "I'm curious to see if you've mastered\n"
+    "using the Mega Evolution technique."
 }
 text BasalekMartMay_WantToPrepare{
-    "may: want to prepare"
+    "I get it.\n"
+    "You want some time to prepare.\p"
+    "There's a PC in the far corner\n"
+    "of the Mart.\p"
+    "And if you need to get your\n"
+    "Pokémon healed, just go take\l"
+    "a dip in the hot spring outside.\p"
+    "I'll be waiting for you here!"
 }
 text BasalekMartMay_LetsGoFightOutside{
-    "let's go fight outside"
+    "Alright!\p"
+    "Come, let's go battle outside\n"
+    "so we don't disturb the store\l"
+    "with our battling."
 }
 text BasalekMartBrendan_GettingReadyToHeadOut{
-    "brendan: getting ready to head out, battle?"
+    "{RIVAL}: Oh, hey {PLAYER}!\n"
+    "It's been a while, huh?\p"
+    "I was on my way to Route 17, but\n"
+    "the weather was so unbearably humid\l"
+    "that I just had to turn back and\l"
+    "get myself some extra drinks for\l"
+    "the journey.\p"
+    "Anyway, enough about me.\p"
+    "How about we have ourselves\n"
+    "a Pokémon battle?\p"
+    "I'm curious to see if you've mastered\n"
+    "using the Mega Evolution technique."
 }
 text BasalekMartBrendan_WantToPrepare{
-    "brendan: want to prepare"
+    "I get it.\n"
+    "You want some time to prepare.\p"
+    "There's a PC in the far corner\n"
+    "of the Mart.\p"
+    "And if you need to get your\n"
+    "Pokémon healed, just give them\l"
+    "a relaxing bath in the hot spring\l"
+    "outside.\p"
+    "I'll be waiting for you here."
 }
 text BasalekMartBrendan_LetsGoFightOutside{
-    "let's go fight outside"
+    "Okay!\p"
+    "But first, let's head outside.\p"
+    "We don't want to disturb the store\n"
+    "with our battle."
 }
 text BasalekMartMay_ReadyToBattleNow{
-    "may: ready now?"
+    "{RIVAL}: You're back!\p"
+    "Are you ready to battle now?"
 }
 text BasalekMartBrendan_ReadyToBattleNow{
-    "brendan: ready now?"
+    "{RIVAL}: Welcome back.\p"
+    "Are you ready to battle now?"
 }

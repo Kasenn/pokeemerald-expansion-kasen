@@ -941,16 +941,16 @@ TrackTheGuardians2::
 	.string "caves you found the spheres from, but,\l"
 	.string "considering those places hold some\l"
 	.string "sentimental value to them, I imagine\l"
-	.string "they'd probably end up sticking\l"
-	.string "somewhere pretty close by.$"
+	.string "they'd probably end up looking for\l"
+	.string "high vantage points somewhere close by.$"
 
 TrackTheGuardiansShort::
 	.string "Unfortunately, I don't have any\n"
 	.string "clue about the new whereabouts of\l"
 	.string "the Protectors.\p"
-	.string "If I were you, I'd try looking around\n"
-	.string "the places you originally found the\l"
-	.string "spheres from.$"
+	.string "If I were you, I'd try looking for\n"
+	.string "a high vantage point near the places\l"
+	.string "you originally found the spheres at.$"
 
 YouTwoMadeIt::
 	.string "Korrina: Oh hey, you two actually\n"

@@ -1,0 +1,119 @@
+mapscripts FrostfireCity_MapScripts {
+    
+}
+
+script FrostHearth_Sign1{
+    msgbox(FrostHearth_Sign1_Text, MSGBOX_SIGN)
+}
+script FrostHearth_Sign2{
+    msgbox(FrostHearth_Sign2_Text, MSGBOX_SIGN)
+}
+script FrostHearth_Sign3{
+    msgbox(FrostHearth_Sign3_Text, MSGBOX_SIGN)
+}
+script FrostHearth_Sign4{
+    msgbox(FrostHearth_Sign4_Text, MSGBOX_SIGN)
+}
+script FrostHearth_Sign5{
+    msgbox(FrostHearth_Sign5_Text, MSGBOX_SIGN)
+}
+
+text FrostHearth_Sign1_Text{
+    "Frosthearth City Pokémon Gym\n"
+	"Leaders: Blaine & Pryce"
+}
+text FrostHearth_Sign2_Text{
+    "Hearth Motel\n"
+    "“Home is where the hearth is.”"
+}
+text FrostHearth_Sign3_Text{
+    "Frosthearth Harbor"
+}
+text FrostHearth_Sign4_Text{
+    "Frosthearth City Pokémon Fan Club"
+}
+text FrostHearth_Sign5_Text{
+    "The Pokémon World Tournament"
+}
+
+script Frosthearth_GymUnavailable{
+	msgbox(Frosthearth_GymUnavailable_Text, MSGBOX_NPC)
+    setflag(FLAG_FIND_PRYCE_QUEST)
+}
+text Frosthearth_GymUnavailable_Text{
+	"I'm sorry, but we can't currently\n"
+	"accept new challengers.\p"
+	"The Gym Leader went to explore\n"
+    "the Frigid Frontier, and has yet\l"
+    "to return."
+}
+
+script Frosthearth_Boy2{
+    
+}
+script Frosthearth_Rufflet{
+    
+}
+script Frosthearth_Maniac{
+    
+}
+script Frosthearth_Man5{
+    
+}
+script Frosthearth_NinjaBoy{
+    
+}
+script Frosthearth_Sailor{
+    
+}
+script Frosthearth_FilmingCrew{
+    
+}
+script Frosthearth_Lass1{
+    
+}
+script Frosthearth_Lass2{
+    
+}
+script Frosthearth_OldMan{
+    
+}
+script Frosthearth_Twin{
+    
+}
+script Frosthearth_LoneOldWoman{
+    
+}
+script Frosthearth_Swimmer{
+    
+}
+script Frosthearth_Scott{
+    
+}
+script Frosthearth_Girl{
+    
+}
+script Frosthearth_HoundourTrainer{
+    
+}
+script Frosthearth_Houndour1{
+    
+}
+script Frosthearth_Houndour2{
+    
+}
+script Frosthearth_OldWomanSand{
+    
+}
+script Frosthearth_ExpertSand{
+    
+}
+script Frosthearth_Girl3{
+    
+}
+script Frosthearth_OldWomanSprings1{
+    
+}
+script Frosthearth_OldWomanSprings2{
+    
+}

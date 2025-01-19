@@ -415,7 +415,29 @@ Debug_Script_1_12:
 
 
 Debug_Script_2::
-	callnative UpdateVarsAndFlags
+	msgbox BasalekMartMay_ReadyToBattleNow
+	msgbox BasalekMartBrendan_ReadyToBattleNow
+	msgbox BasalekMartMay_GettingReadyToHeadOut
+	msgbox BasalekMartBrendan_GettingReadyToHeadOut
+	msgbox BasalekMartMay_WantToPrepare
+	msgbox BasalekMartMay_LetsGoFightOutside
+	msgbox BasalekMartBrendan_WantToPrepare
+	msgbox BasalekMartBrendan_LetsGoFightOutside
+	msgbox BasaluffMay_LetsStart
+	msgbox BasaluffMay_PostBattle
+	msgbox BasaluffMay_Goodbye
+	msgbox BasaluffMay_NoMegaPostBattle
+	msgbox BasaluffMay_Goodbye2
+	msgbox BasaluffBrendan_LetsStart
+	msgbox BasaluffBrendan_PostBattle
+	msgbox BasaluffBrendan_NoMegaPostBattle
+	msgbox BasaluffBrendan_Goodbye
+	msgbox BasaluffTown_May_2Bails
+	msgbox BasaluffTown_May_1Bail
+	msgbox BasaluffTown_May_NoBails
+	msgbox BasaluffTown_Brendan_2Bails
+	msgbox BasaluffTown_Brendan_1Bail
+	msgbox BasaluffTown_Brendan_NoBails
 	return
 
 

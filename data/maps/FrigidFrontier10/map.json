@@ -5,7 +5,7 @@
   "music": "MUS_MT_CHIMNEY",
   "region_map_section": "MAPSEC_BARREN_WASTES",
   "requires_flash": false,
-  "weather": "WEATHER_BLIZZARD",
+  "weather": "WEATHER_SNOW",
   "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
   "allow_escaping": true,
@@ -53,7 +53,33 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 11,
+      "elevation": 0,
+      "var": "FLAG_ESCORTING_PRYCE",
+      "var_value": "TRUE",
+      "script": "PryceBlockCave"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 11,
+      "elevation": 0,
+      "var": "FLAG_ESCORTING_PRYCE",
+      "var_value": "TRUE",
+      "script": "PryceBlockCave"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 11,
+      "elevation": 0,
+      "var": "FLAG_ESCORTING_PRYCE",
+      "var_value": "TRUE",
+      "script": "PryceBlockCave"
+    }
   ],
   "bg_events": [
 

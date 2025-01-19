@@ -7361,7 +7361,7 @@ Tropius
 Level: 27
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_HUMBERTO ===
+=== TRAINER_R18_TR1_HIKER1 ===
 Name: HUMBERTO
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7374,7 +7374,7 @@ Skarmory
 Level: 30
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
-=== TRAINER_PRESLEY ===
+=== TRAINER_R18_TR2_RANGER_M ===
 Name: PRESLEY
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7391,7 +7391,7 @@ Xatu
 Level: 33
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_EDWARDO ===
+=== TRAINER_R18_TR3_KINDLER ===
 Name: EDWARDO
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7408,7 +7408,7 @@ Pelipper
 Level: 29
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
-=== TRAINER_COLIN ===
+=== TRAINER_R18_TR4_HIKER2 ===
 Name: COLIN
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7425,7 +7425,7 @@ Natu
 Level: 28
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_ROBERT_1 ===
+=== TRAINER_R18_TR5_RANGER_F ===
 Name: ROBERT
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7438,7 +7438,7 @@ Swablu
 Level: 29
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_BENNY ===
+=== TRAINER_R18_TR6_SCIENTIST ===
 Name: BENNY
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7459,7 +7459,7 @@ Xatu
 Level: 36
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_CHESTER ===
+=== TRAINER_R18_TR7_POKEMANIAC ===
 Name: CHESTER
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7476,7 +7476,7 @@ Swellow
 Level: 25
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_ROBERT_2 ===
+=== TRAINER_R18_TR8_BREEDER_M ===
 Name: ROBERT
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7493,7 +7493,7 @@ Swablu
 Level: 32
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_ROBERT_3 ===
+=== TRAINER_R18_TR9_ACE_TRAINER_M ===
 Name: ROBERT
 Class: Bird Keeper
 Pic: Bird Keeper

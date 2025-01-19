@@ -115,7 +115,7 @@ BasaltTr1_Intro::
 
 BasaltTr1_Lose::
 	.string "Ghahaha!\p"
-	.string "Welcome to the Basalek tunnels!\n"
+	.string "Welcome to the Basalek Tunnels!\n"
 	.string "I think you'll fit right in!$"
 
 BasaltTr1_PostBattle::
@@ -264,7 +264,7 @@ BasaltTr12_Intro::
 BasaltTr12_IntroNo::
 	.string "So humble.\p"
 	.string "You're going to challenge me,\n"
-	.string "knowing that you'll lose?"
+	.string "knowing that you'll lose?\p"
 	.string "That's the trainer's honor that\n"
 	.string "compels you to challenge me.\p"
 	.string "Fine, then!\n"
@@ -278,8 +278,8 @@ BasaltTr12_IntroYes::
 	.string "Let's see what you got!$"
 
 BasaltTr12_Lose::
-	.string "I took you for granted, and so\n"
-	.string "I lost.$"
+	.string "I took you for granted,\n"
+	.string "and so I lost.$"
 
 BasaltTr12_PostBattle::
 	.string "I must get back to my training.\p"

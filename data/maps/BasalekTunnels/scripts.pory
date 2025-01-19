@@ -13,7 +13,7 @@ text BasaltTr1_Intro {
 }
 text BasaltTr1_Lose {
     "Ghahaha!\p"
-    "Welcome to the Basalek tunnels!\n"
+    "Welcome to the Basalek Tunnels!\n"
     "I think you'll fit right in!"
 }
 text BasaltTr1_PostBattle {
@@ -246,7 +246,7 @@ text BasaltTr12_Intro {
 text BasaltTr12_IntroNo{
     "So humble.\p"
     "You're going to challenge me,\n"
-    "knowing that you'll lose?"
+    "knowing that you'll lose?\p"
     "That's the trainer's honor that\n"
     "compels you to challenge me.\p"
     "Fine, then!\n"
@@ -260,8 +260,8 @@ text BasaltTr12_IntroYes{
     "Let's see what you got!"
 }
 text BasaltTr12_Lose {
-    "I took you for granted, and so\n"
-    "I lost."
+    "I took you for granted,\n"
+    "and so I lost."
 }
 text BasaltTr12_PostBattle {
     "I must get back to my training.\p"

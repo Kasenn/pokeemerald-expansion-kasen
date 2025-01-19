@@ -264,7 +264,7 @@ RewardBP::
 	buffernumberstring STR_VAR_1, VAR_0x8004
 	special GiveFrontierBattlePoints
 	playfanfare MUS_OBTAIN_B_POINTS
-	msgbox RewardBP_Text_0, MSGBOX_DEFAULT
+	message RewardBP_Text_0
 	waitfanfare
 	goto_if_unset FLAG_INTRO_TO_BP, RewardBP_2
 RewardBP_1:

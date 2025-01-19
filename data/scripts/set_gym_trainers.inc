@@ -76,8 +76,8 @@ FortreeCity_Gym_SetGymTrainers::
 	settrainerflag TRAINER_BASALTUNNEL_TR12_BROCK
 	settrainerflag TRAINER_FLINT
 	settrainerflag TRAINER_ASHLEY
-	settrainerflag TRAINER_EDWARDO
-	settrainerflag TRAINER_HUMBERTO
+	settrainerflag TRAINER_R18_TR3_KINDLER
+	settrainerflag TRAINER_R18_TR1_HIKER1
 	settrainerflag TRAINER_LEADER_DRAYDEN
 	return
 

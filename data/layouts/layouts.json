@@ -7400,6 +7400,126 @@
       "secondary_tileset": "gTileset_DesertCliff",
       "border_filepath": "data/layouts/DesertCliffs/border.bin",
       "blockdata_filepath": "data/layouts/DesertCliffs/map.bin"
+    },
+    {
+      "id": "LAYOUT_SNOWY_RIDGE",
+      "name": "SnowyRidge_Layout",
+      "width": 40,
+      "height": 80,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Frostfire",
+      "border_filepath": "data/layouts/SnowyRidge/border.bin",
+      "blockdata_filepath": "data/layouts/SnowyRidge/map.bin"
+    },
+    {
+      "id": "LAYOUT_FROSTHEARTH_CITY_HOUSE1",
+      "name": "FrosthearthCity_House1_Layout",
+      "width": 8,
+      "height": 7,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FrosthearthCity_House1/border.bin",
+      "blockdata_filepath": "data/layouts/FrosthearthCity_House1/map.bin"
+    },
+    {
+      "id": "LAYOUT_FROSTHEARTH_CITY_HOUSE2",
+      "name": "FrosthearthCity_House2_Layout",
+      "width": 8,
+      "height": 7,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FrosthearthCity_House2/border.bin",
+      "blockdata_filepath": "data/layouts/FrosthearthCity_House2/map.bin"
+    },
+    {
+      "id": "LAYOUT_FROSTHEARTH_CITY_HOUSE3",
+      "name": "FrosthearthCity_House3_Layout",
+      "width": 8,
+      "height": 7,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FrosthearthCity_House3/border.bin",
+      "blockdata_filepath": "data/layouts/FrosthearthCity_House3/map.bin"
+    },
+    {
+      "id": "LAYOUT_FROSTHEARTH_CITY_HOUSE4",
+      "name": "FrosthearthCity_House4_Layout",
+      "width": 8,
+      "height": 7,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FrosthearthCity_House4/border.bin",
+      "blockdata_filepath": "data/layouts/FrosthearthCity_House4/map.bin"
+    },
+    {
+      "id": "LAYOUT_FROSTHEARTH_CITY_MOTEL",
+      "name": "FrosthearthCity_Motel_Layout",
+      "width": 12,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FrosthearthCity_Motel/border.bin",
+      "blockdata_filepath": "data/layouts/FrosthearthCity_Motel/map.bin"
+    },
+    {
+      "id": "LAYOUT_FROSTHEARTH_CITY_POKEMON_FAN_CLUB",
+      "name": "FrosthearthCity_PokemonFanClub_Layout",
+      "width": 12,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FrosthearthCity_PokemonFanClub/border.bin",
+      "blockdata_filepath": "data/layouts/FrosthearthCity_PokemonFanClub/map.bin"
+    },
+    {
+      "id": "LAYOUT_FROSTHEARTH_CITY_POKE_CENTER",
+      "name": "FrosthearthCity_PokeCenter_Layout",
+      "width": 13,
+      "height": 16,
+      "primary_tileset": "gTileset_Building2",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/FrosthearthCity_PokeCenter/border.bin",
+      "blockdata_filepath": "data/layouts/FrosthearthCity_PokeCenter/map.bin"
+    },
+    {
+      "id": "LAYOUT_FROSTHEARTH_CITY_MART",
+      "name": "FrosthearthCity_Mart_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/FrosthearthCity_Mart/border.bin",
+      "blockdata_filepath": "data/layouts/FrosthearthCity_Mart/map.bin"
+    },
+    {
+      "id": "LAYOUT_FROSTHEARTH_CITY_HARBOR",
+      "name": "FrosthearthCity_Harbor_Layout",
+      "width": 24,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/FrosthearthCity_Harbor/border.bin",
+      "blockdata_filepath": "data/layouts/FrosthearthCity_Harbor/map.bin"
+    },
+    {
+      "id": "LAYOUT_FROSTHEARTH_CITY_GYM",
+      "name": "FrosthearthCity_Gym_Layout",
+      "width": 60,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_LavaridgeGym",
+      "border_filepath": "data/layouts/FrosthearthCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/FrosthearthCity_Gym/map.bin"
+    },
+    {
+      "id": "LAYOUT_FROSTHEARTH_CITY_MOTEL_2F",
+      "name": "FrosthearthCity_Motel_2F_Layout",
+      "width": 12,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/FrosthearthCity_Motel_2F/border.bin",
+      "blockdata_filepath": "data/layouts/FrosthearthCity_Motel_2F/map.bin"
     }
   ]
 }

@@ -1,9 +1,10 @@
 const struct SpritePalette gSpritePalette_GeneralFieldEffect0 = {gFieldEffectObjectPalette0, FLDEFF_PAL_TAG_GENERAL_0};
 const struct SpritePalette gSpritePalette_GeneralFieldEffect1 = {gFieldEffectObjectPalette1, FLDEFF_PAL_TAG_GENERAL_1};
-const struct SpritePalette gSpritePalette_GeneralFieldEffect2 = {gFieldEffectObjectPalette2, FLDEFF_PAL_TAG_GENERAL_1};
-const struct SpritePalette gSpritePalette_GeneralFieldEffect4 = {gFieldEffectObjectPalette4, FLDEFF_PAL_TAG_GENERAL_1};
+const struct SpritePalette gSpritePalette_GeneralFieldEffect2 = {gFieldEffectObjectPalette2, FLDEFF_PAL_TAG_GENERAL_2};
+const struct SpritePalette gSpritePalette_GeneralFieldEffect4 = {gFieldEffectObjectPalette4, FLDEFF_PAL_TAG_GENERAL_2};
 const struct SpritePalette gSpritePalette_GeneralFieldEffect3 = {gFieldEffectObjectPalette3, FLDEFF_PAL_TAG_GENERAL_3};
-const struct SpritePalette gSpritePalette_GeneralFieldEffect5 = {gFieldEffectObjectPalette5, FLDEFF_PAL_TAG_GENERAL_1};
+const struct SpritePalette gSpritePalette_GeneralFieldEffect5 = {gFieldEffectObjectPalette5, FLDEFF_PAL_TAG_GENERAL_3};
+const struct SpritePalette gSpritePalette_GeneralFieldEffect6 = {gFieldEffectObjectPalette6, FLDEFF_PAL_TAG_GENERAL_2};
 
 static const union AnimCmd sAnim_Shadow[] =
 {
@@ -115,7 +116,7 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_TallGrass = {
 
 const struct SpriteTemplate gFieldEffectObjectTemplate_TallGrassAutumn = {
     .tileTag = TAG_NONE,
-    .paletteTag = FLDEFF_PAL_TAG_GENERAL_1,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_2,
     .oam = &gObjectEventBaseOam_16x16,
     .anims = sAnimTable_TallGrass,
     .images = sPicTable_TallGrassAutumn,
@@ -1402,7 +1403,7 @@ static const struct SpritePalette sSpritePalette_Unused = {gObjectEventPal_Npc3,
 
 const struct SpriteTemplate gFieldEffectObjectTemplate_SnowFootprints = {
     .tileTag = TAG_NONE,
-    .paletteTag = FLDEFF_PAL_TAG_GENERAL_1,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_3,
     .oam = &gObjectEventBaseOam_16x16,
     .anims = sAnimTable_SandFootprints,
     .images = sPicTable_SandFootprints,
@@ -1411,7 +1412,7 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_SnowFootprints = {
 };
 const struct SpriteTemplate gFieldEffectObjectTemplate_DeepSnowFootprints = {
     .tileTag = TAG_NONE,
-    .paletteTag = FLDEFF_PAL_TAG_GENERAL_1,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_3,
     .oam = &gObjectEventBaseOam_16x16,
     .anims = sAnimTable_DeepSandFootprints,
     .images = sPicTable_DeepSandFootprints,
@@ -1420,7 +1421,7 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_DeepSnowFootprints = {
 };
 const struct SpriteTemplate gFieldEffectObjectTemplate_BugTracksSnow = {
     .tileTag = 0xFFFF,
-    .paletteTag = FLDEFF_PAL_TAG_GENERAL_1,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_3,
     .oam = &gObjectEventBaseOam_16x16,
     .anims = sAnimTable_DeepSandFootprints,
     .images = sPicTable_BugTracks,
@@ -1429,7 +1430,7 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_BugTracksSnow = {
 };
 const struct SpriteTemplate gFieldEffectObjectTemplate_SpotTracksSnow = {
     .tileTag = 0xFFFF,
-    .paletteTag = FLDEFF_PAL_TAG_GENERAL_1,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_3,
     .oam = &gObjectEventBaseOam_16x16,
     .anims = sAnimTable_DeepSandFootprints,
     .images = sPicTable_SpotTracks,
@@ -1438,7 +1439,7 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_SpotTracksSnow = {
 };
 const struct SpriteTemplate gFieldEffectObjectTemplate_BikeTireTracksSnow = {
     .tileTag = TAG_NONE,
-    .paletteTag = FLDEFF_PAL_TAG_GENERAL_1,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_3,
     .oam = &gObjectEventBaseOam_16x16,
     .anims = sAnimTable_BikeTireTracks,
     .images = sPicTable_BikeTireTracks,
@@ -1447,7 +1448,7 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_BikeTireTracksSnow = {
 };
 const struct SpriteTemplate gFieldEffectObjectTemplate_SlitherTracksSnow = {
     .tileTag = 0xFFFF,
-    .paletteTag = FLDEFF_PAL_TAG_GENERAL_1,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_3,
     .oam = &gObjectEventBaseOam_16x16,
     .anims = sAnimTable_BikeTireTracks,
     .images = sPicTable_SlitherTracks,

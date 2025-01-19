@@ -1,6 +1,17 @@
 Route17_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Route17_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	map_script MAP_SCRIPT_ON_RESUME, Route17_MapScripts_MAP_SCRIPT_ON_RESUME
 	.byte 0
+
+Route17_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	getplayerxy VAR_TEMP_3, VAR_TEMP_4
+	compare VAR_TEMP_4, 15
+	goto_if_eq Route17_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
+	return
+
+Route17_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
+	setweather WEATHER_SNOW
+	return
 
 Route17_MapScripts_MAP_SCRIPT_ON_RESUME:
 	setstepcallback STEP_CB_ASH
@@ -85,16 +96,17 @@ R17Tr2_PostBattle::
 	.string "Heals when traversing these routes.$"
 
 R17Tr3_Intro::
-	.string "You! Stop!\n"
-	.string "Let me see your Pokémon!$"
+	.string "Feeling the pressure of the hot air?\n"
+	.string "Let my Pokémon cool you off!$"
 
 R17Tr3_Lose::
-	.string "Uh-huh, yes,\n"
-	.string "those are some fine Pokémon.$"
+	.string "Ice cold!$"
 
 R17Tr3_PostBattle::
-	.string "You have some exceptional Pokémon.\n"
-	.string "You must be taking good care of them.$"
+	.string "Have you ever wondered why Ice-type\n"
+	.string "Pokémon are weak to Fire?\p"
+	.string "Ice is just another form of Water,\n"
+	.string "which is super effective against Fire.$"
 
 R17Tr4_Intro::
 	.string "For your sake, I hope your\n"
@@ -147,7 +159,7 @@ R17Tr7_PostBattle::
 	.string "once made the area its home, but\l"
 	.string "nowadays the only sings of life ever\l"
 	.string "inhabiting that place are the\l"
-	.string "permafrozen woods.$"
+	.string "permafrozen trees.$"
 
 Route17_Sign_Text::
 	.string "{LEFT_ARROW} Frigid Frontier\n"

@@ -189,25 +189,70 @@ BasalekMart_Man_Text::
 	.string "hoping to find some potions.$"
 
 BasalekMartMay_GettingReadyToHeadOut::
-	.string "may: getting ready to head out, battle?$"
+	.string "{RIVAL}: Oh, hi {PLAYER}!\n"
+	.string "Long time no see!\p"
+	.string "I honestly don't know how people can\n"
+	.string "even live in this humid atmosphere.\p"
+	.string "I had to turn back on Route 17\n"
+	.string "just to get myself some extra drinks\l"
+	.string "for the journey.\p"
+	.string "Anyways, enough about me.\p"
+	.string "How about we have ourselves\n"
+	.string "a Pokémon battle?\p"
+	.string "I'm curious to see if you've mastered\n"
+	.string "using the Mega Evolution technique.$"
 
 BasalekMartMay_WantToPrepare::
-	.string "may: want to prepare$"
+	.string "I get it.\n"
+	.string "You want some time to prepare.\p"
+	.string "There's a PC in the far corner\n"
+	.string "of the Mart.\p"
+	.string "And if you need to get your\n"
+	.string "Pokémon healed, just go take\l"
+	.string "a dip in the hot spring outside.\p"
+	.string "I'll be waiting for you here!$"
 
 BasalekMartMay_LetsGoFightOutside::
-	.string "let's go fight outside$"
+	.string "Alright!\p"
+	.string "Come, let's go battle outside\n"
+	.string "so we don't disturb the store\l"
+	.string "with our battling.$"
 
 BasalekMartBrendan_GettingReadyToHeadOut::
-	.string "brendan: getting ready to head out, battle?$"
+	.string "{RIVAL}: Oh, hey {PLAYER}!\n"
+	.string "It's been a while, huh?\p"
+	.string "I was on my way to Route 17, but\n"
+	.string "the weather was so unbearably humid\l"
+	.string "that I just had to turn back and\l"
+	.string "get myself some extra drinks for\l"
+	.string "the journey.\p"
+	.string "Anyway, enough about me.\p"
+	.string "How about we have ourselves\n"
+	.string "a Pokémon battle?\p"
+	.string "I'm curious to see if you've mastered\n"
+	.string "using the Mega Evolution technique.$"
 
 BasalekMartBrendan_WantToPrepare::
-	.string "brendan: want to prepare$"
+	.string "I get it.\n"
+	.string "You want some time to prepare.\p"
+	.string "There's a PC in the far corner\n"
+	.string "of the Mart.\p"
+	.string "And if you need to get your\n"
+	.string "Pokémon healed, just give them\l"
+	.string "a relaxing bath in the hot spring\l"
+	.string "outside.\p"
+	.string "I'll be waiting for you here.$"
 
 BasalekMartBrendan_LetsGoFightOutside::
-	.string "let's go fight outside$"
+	.string "Okay!\p"
+	.string "But first, let's head outside.\p"
+	.string "We don't want to disturb the store\n"
+	.string "with our battle.$"
 
 BasalekMartMay_ReadyToBattleNow::
-	.string "may: ready now?$"
+	.string "{RIVAL}: You're back!\p"
+	.string "Are you ready to battle now?$"
 
 BasalekMartBrendan_ReadyToBattleNow::
-	.string "brendan: ready now?$"
+	.string "{RIVAL}: Welcome back.\p"
+	.string "Are you ready to battle now?$"

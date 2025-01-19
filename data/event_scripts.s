@@ -1773,3 +1773,27 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Route6Filler/scripts.inc"
 
 	.include "data/maps/DesertCliffs/scripts.inc"
+
+	.include "data/maps/SnowyRidge/scripts.inc"
+
+	.include "data/maps/FrosthearthCity_House1/scripts.inc"
+
+	.include "data/maps/FrosthearthCity_House2/scripts.inc"
+
+	.include "data/maps/FrosthearthCity_House3/scripts.inc"
+
+	.include "data/maps/FrosthearthCity_House4/scripts.inc"
+
+	.include "data/maps/FrosthearthCity_Motel/scripts.inc"
+
+	.include "data/maps/FrosthearthCity_PokemonFanClub/scripts.inc"
+
+	.include "data/maps/FrosthearthCity_PokeCenter/scripts.inc"
+
+	.include "data/maps/FrosthearthCity_Mart/scripts.inc"
+
+	.include "data/maps/FrosthearthCity_Harbor/scripts.inc"
+
+	.include "data/maps/FrosthearthCity_Gym/scripts.inc"
+
+	.include "data/maps/FrosthearthCity_Motel_2F/scripts.inc"

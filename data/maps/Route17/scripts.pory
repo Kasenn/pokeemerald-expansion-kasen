@@ -1,4 +1,10 @@
 mapscripts Route17_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        getplayerxy(VAR_TEMP_3, VAR_TEMP_4)
+        if(var(VAR_TEMP_4) == 15){
+            setweather(WEATHER_SNOW)
+        }
+    }
     MAP_SCRIPT_ON_RESUME{
         setstepcallback(STEP_CB_ASH)
     }
@@ -46,16 +52,17 @@ script Route17_Tr3_Picnicker2 {
     end
 }
 text R17Tr3_Intro {
-    "You! Stop!\n"
-    "Let me see your Pokémon!"
+    "Feeling the pressure of the hot air?\n"
+    "Let my Pokémon cool you off!"
 }
 text R17Tr3_Lose {
-    "Uh-huh, yes,\n"
-    "those are some fine Pokémon."
+    "Ice cold!"
 }
 text R17Tr3_PostBattle {
-    "You have some exceptional Pokémon.\n"
-    "You must be taking good care of them."
+    "Have you ever wondered why Ice-type\n"
+    "Pokémon are weak to Fire?\p"
+    "Ice is just another form of Water,\n"
+    "which is super effective against Fire."
 }
 
 script Route17_Tr4_Maniac {
@@ -132,7 +139,7 @@ text R17Tr7_PostBattle {
     "once made the area its home, but\l"
     "nowadays the only sings of life ever\l"
     "inhabiting that place are the\l"
-    "permafrozen woods."
+    "permafrozen trees."
 }
 
 script Route17_Sign{

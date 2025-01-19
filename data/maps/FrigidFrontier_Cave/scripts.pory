@@ -1,6 +1,6 @@
 mapscripts FrigidFrontier_Cave_MapScripts{
     MAP_SCRIPT_ON_LOAD{
-        if(flag(FLAG_FRIGIDFRONTIERCAVE_HIDE_STEEL_SPHERE)){
+        if(flag(FLAG_FRIGIDCAVE_HIDE_STEEL_SPHERE)){
             setmetatile(6, 1, 0x219, TRUE)
             setmetatile(7, 1, 0x219, TRUE)
             setmetatile(8, 1, 0x219, TRUE)
@@ -12,7 +12,7 @@ mapscripts FrigidFrontier_Cave_MapScripts{
 }
 
 script FrigidCave_ActivatePedestal{
-    if(flag(FLAG_FRIGIDFRONTIERCAVE_VERDANT_SPHERE)){
+    if(flag(FLAG_FRIGIDCAVE_VERDANT_SPHERE)){
         msgbox(FrigidCave_Text_EmptyPedestal2, MSGBOX_NPC)
         end
     }
@@ -31,8 +31,8 @@ script FrigidCave_ActivatePedestal{
         end
     }
     elif(var(VAR_ITEM_ID) == ITEM_STEEL_SPHERE){
-        clearflag(FLAG_FRIGIDFRONTIERCAVE_HIDE_STEEL_SPHERE)
-        setflag(FLAG_FRIGIDFRONTIERCAVE_DOOR_OPEN)
+        clearflag(FLAG_FRIGIDCAVE_HIDE_STEEL_SPHERE)
+        setflag(FLAG_FRIGIDCAVE_DOOR_OPEN)
         removeitem(ITEM_STEEL_SPHERE)
         removeobject(2)
         addobject(1)
@@ -77,8 +77,8 @@ script FrigidCave_TakeBackSphere{
         end
     }
     additem(ITEM_STEEL_SPHERE)
-    setflag(FLAG_FRIGIDFRONTIERCAVE_HIDE_STEEL_SPHERE)
-    clearflag(FLAG_FRIGIDFRONTIERCAVE_DOOR_OPEN)
+    setflag(FLAG_FRIGIDCAVE_HIDE_STEEL_SPHERE)
+    clearflag(FLAG_FRIGIDCAVE_DOOR_OPEN)
     removeobject(1)
     addobject(2)
     special(DrawWholeMapView)

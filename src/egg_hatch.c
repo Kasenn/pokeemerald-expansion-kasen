@@ -931,9 +931,12 @@ static void CreateEggShardSprite(u8 x, u8 y, s16 velocityX, s16 velocityY, s16 a
 static void EggHatchPrintMessage(u8 windowId, u8 *string, u8 x, u8 y, u8 speed)
 {
     FillWindowPixelBuffer(windowId, PIXEL_FILL(15));
+    // sTradeAnim->textColors[0] = TEXT_DYNAMIC_COLOR_6;
+    // sTradeAnim->textColors[1] = 11;
+    // sTradeAnim->textColors[2] = 7;
     sEggHatchData->textColor[0] = 0;
-    sEggHatchData->textColor[1] = 5;
-    sEggHatchData->textColor[2] = 6;
+    sEggHatchData->textColor[1] = 11;
+    sEggHatchData->textColor[2] = 7;
     AddTextPrinterParameterized4(windowId, FONT_NORMAL, x, y, 0, 0, sEggHatchData->textColor, speed, string);
 }
 

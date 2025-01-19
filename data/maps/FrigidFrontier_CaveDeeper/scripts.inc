@@ -4,7 +4,7 @@ FrigidFrontier_CaveDeeper_MapScripts::
 	.byte 0
 
 FrigidFrontier_CaveDeeper_MapScripts_MAP_SCRIPT_ON_TRANSITION:
-	goto_if_set FLAG_FRIGIDFRONTIERCAVE_VERDANT_SPHERE, FrigidFrontier_CaveDeeper_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
+	goto_if_set FLAG_FRIGIDCAVE_VERDANT_SPHERE, FrigidFrontier_CaveDeeper_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
 	return
 
 FrigidFrontier_CaveDeeper_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:

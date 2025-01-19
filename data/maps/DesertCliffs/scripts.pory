@@ -9,9 +9,6 @@ mapscripts DesertCliffs_MapScripts {
     }
     MAP_SCRIPT_ON_TRANSITION{
         setescapewarp(MAP_DESERT_CLIFFS, 15, 79)
-        if(checkitem(ITEM_ESCAPE_ROPE) == TRUE){
-            setflag(FLAG_TEMP_A)
-        }
         setflag(FLAG_HIDE_TERRAKION)
         if(var(VAR_SPHERES_FOUND) >= 4){
             if(!flag(FLAG_DEFEATED_TERRAKION)){
@@ -56,8 +53,28 @@ script DesertCliffs_Terrakion{
 }
 
 script DesertCliff_Sign{
+    if(checkitem(ITEM_ESCAPE_ROPE) == FALSE){
+        msgbox(DesertCliff_Sign_TextRope)
+        finditem(ITEM_ESCAPE_ROPE)
+        release
+        end
+    }
     msgbox(DesertCliff_Sign_Text, MSGBOX_SIGN)
 }
 text DesertCliff_Sign_Text{
-    ""
+    "Notice from the Pokémon Rangers:\p"
+    "The cliffs before you can be\n"
+    "treacherous to climb.\p"
+    "Make sure to bring an Escape Rope\n"
+    "or a Pokémon with Fly with you!"
+}
+text DesertCliff_Sign_TextRope{
+    "Notice from the Pokémon Rangers:\p"
+    "The cliffs before you can be\n"
+    "treacherous to climb.\p"
+    "Make sure to bring an Escape Rope\n"
+    "or a Pokémon with Fly with you!\p"
+    "…\p"
+    "There seems to be a piece of rope\n"
+    "hanging from the sign."
 }

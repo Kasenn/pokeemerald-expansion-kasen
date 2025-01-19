@@ -39,14 +39,7 @@ BasaluffTown_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_0:
 
 BasaluffTown_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 	map_script_2 VAR_TEMP_5, 1, BasaluffAutomaticRivalFight
-	map_script_2 FLAG_TEMP_10, 1, BasaluffTown_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1
 	.2byte 0
-
-BasaluffTown_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1:
-	msgbox BasaluffTown_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1_Text_0
-	setflag FLAG_TEMP_10
-	release
-	return
 
 
 BasaluffAutomaticRivalFight::
@@ -61,8 +54,10 @@ BasaluffAutomaticRivalFight::
 	case 1, BasaluffAutomaticRivalFight_13
 	case 2, BasaluffAutomaticRivalFight_14
 BasaluffAutomaticRivalFight_10:
-	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, BasaluffAutomaticRivalFight_18
+	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, BasaluffAutomaticRivalFight_19
 	msgbox BasaluffBrendan_NoMegaPostBattle
+BasaluffAutomaticRivalFight_18:
+	msgbox BasaluffBrendan_Goodbye
 BasaluffAutomaticRivalFight_1:
 	closemessage
 	safefollow
@@ -82,6 +77,7 @@ BasaluffAutomaticRivalFight_2:
 BasaluffAutomaticRivalFight_5:
 	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, BasaluffAutomaticRivalFight_15
 	msgbox BasaluffMay_NoMegaPostBattle
+	msgbox BasaluffMay_Goodbye2
 	goto BasaluffAutomaticRivalFight_1
 
 BasaluffAutomaticRivalFight_7:
@@ -110,11 +106,12 @@ BasaluffAutomaticRivalFight_14:
 
 BasaluffAutomaticRivalFight_15:
 	msgbox BasaluffMay_PostBattle
+	msgbox BasaluffMay_Goodbye
 	goto BasaluffAutomaticRivalFight_1
 
-BasaluffAutomaticRivalFight_18:
+BasaluffAutomaticRivalFight_19:
 	msgbox BasaluffBrendan_PostBattle
-	goto BasaluffAutomaticRivalFight_1
+	goto BasaluffAutomaticRivalFight_18
 
 
 BasalekTown_Sign1::
@@ -270,8 +267,11 @@ BasalekTown_RivalScript_22:
 	case 1, BasalekTown_RivalScript_37
 	case 2, BasalekTown_RivalScript_38
 BasalekTown_RivalScript_34:
-	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, BasalekTown_RivalScript_45
+	release
+	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, BasalekTown_RivalScript_46
 	msgbox BasaluffBrendan_NoMegaPostBattle
+BasalekTown_RivalScript_45:
+	msgbox BasaluffBrendan_Goodbye
 BasalekTown_RivalScript_9:
 	closemessage
 	safefollow
@@ -336,8 +336,10 @@ BasalekTown_RivalScript_18:
 	case 1, BasalekTown_RivalScript_29
 	case 2, BasalekTown_RivalScript_30
 BasalekTown_RivalScript_26:
+	release
 	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, BasalekTown_RivalScript_42
 	msgbox BasaluffMay_NoMegaPostBattle
+	msgbox BasaluffMay_Goodbye2
 	goto BasalekTown_RivalScript_9
 
 BasalekTown_RivalScript_15:
@@ -397,11 +399,12 @@ BasalekTown_RivalScript_39:
 
 BasalekTown_RivalScript_42:
 	msgbox BasaluffMay_PostBattle
+	msgbox BasaluffMay_Goodbye
 	goto BasalekTown_RivalScript_9
 
-BasalekTown_RivalScript_45:
+BasalekTown_RivalScript_46:
 	msgbox BasaluffBrendan_PostBattle
-	goto BasalekTown_RivalScript_9
+	goto BasalekTown_RivalScript_45
 
 
 TurnPlayerAndFollowerRight:
@@ -609,32 +612,89 @@ BasalekTown_RivalScript_Movement_9:
 	walk_in_place_fast_right
 	step_end
 
-BasaluffTown_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_1_Text_0:
-	.string "This is a test$"
-
 BasaluffMay_LetsStart::
-	.string "$"
+	.string "{RIVAL}: Alright, this should be\n"
+	.string "enough space for us to battle.\p"
+	.string "Let's go!$"
 
 BasalekMay_LostText::
-	.string "$"
+	.string "Wow!\n"
+	.string "{PLAYER}, you're strong!\p"
+	.string "I was worried that you might be\n"
+	.string "falling behind in your training.$"
 
 BasaluffMay_PostBattle::
-	.string "$"
+	.string "{RIVAL}: Oh wow,\n"
+	.string "That was a great battle!\p"
+	.string "It's nice to see you put that Mega\n"
+	.string "Ring into good use.\p"
+	.string "Even if Korrina had only given me\n"
+	.string "a ring, I'm not sure I could've\l"
+	.string "still beaten you!$"
 
 BasaluffMay_NoMegaPostBattle::
-	.string "$"
+	.string "{RIVAL}: That was a great battle, but\n"
+	.string "I must say, I'm a bit disappointed…\p"
+	.string "We got these great gifts from\n"
+	.string "my dad and Korrina, and you're\l"
+	.string "just letting them collect dust.\p"
+	.string "Or maybe, was it because I was so\n"
+	.string "weak that you didn't see the need\l"
+	.string "to use them in the first place…$"
+
+BasaluffMay_Goodbye::
+	.string "Anyways, I'm guessing you're\n"
+	.string "heading to Frosthearth City to\l"
+	.string "challenge the Pokémon Gym there?\p"
+	.string "I'm heading that way as well,\n"
+	.string "so maybe we'll meet again soon!\p"
+	.string "Well, anyway, see you!$"
+
+BasaluffMay_Goodbye2::
+	.string "A-Anyways, I'm guessing you're\n"
+	.string "heading to Frosthearth City to\l"
+	.string "challenge the Pokémon Gym there?\p"
+	.string "I'm heading that way as well,\n"
+	.string "so maybe we'll meet again soon!\p"
+	.string "Well, anyway, see you…$"
 
 BasaluffBrendan_LetsStart::
-	.string "$"
+	.string "{RIVAL}: Okay, this should be\n"
+	.string "enough space for us to battle.\p"
+	.string "Let's do this!$"
 
 BasalekBrendan_LostText::
-	.string "$"
+	.string "Hmm…\n"
+	.string "I see you've been training hard.\p"
+	.string "That stings a bit--I had a head start\n"
+	.string "on you as a trainer…$"
 
 BasaluffBrendan_PostBattle::
-	.string "$"
+	.string "{RIVAL}: That was a great battle!\p"
+	.string "It's nice to see you put that Mega\n"
+	.string "Ring into good use.\p"
+	.string "I'm not sure if I could've beaten\n"
+	.string "you even if you did not have it.$"
 
 BasaluffBrendan_NoMegaPostBattle::
-	.string "$"
+	.string "{RIVAL}: That was a great battle!\p"
+	.string "Though I must admit,\n"
+	.string "I'm a bit disappointed…\p"
+	.string "We got this cool stuff from\n"
+	.string "my dad and Korrina, so I was\l"
+	.string "kind of expecting to see you\l"
+	.string "use them in battle.\p"
+	.string "Or perhaps, I was so weak that you\n"
+	.string "didn't even see the need to use them\l"
+	.string "against me…$"
+
+BasaluffBrendan_Goodbye::
+	.string "Anyway, I'm guessing you're\n"
+	.string "heading to Frosthearth City to\l"
+	.string "challenge the Pokémon Gym there?\p"
+	.string "I'm heading that way as well,\n"
+	.string "so maybe we'll meet again soon!\p"
+	.string "Well, anyway, hang in there!$"
 
 BasalekTown_Sign1_Text::
 	.string "BASALEK TOWN\p"
@@ -643,12 +703,12 @@ BasalekTown_Sign1_Text::
 
 BasalekTown_Sign2_Text::
 	.string "{UP_ARROW} Route 17\n"
-	.string "{LEFT_ARROW} Basalek Tunnel\l"
+	.string "{LEFT_ARROW} Basalek Tunnels\l"
 	.string "{DOWN_ARROW} Route 16$"
 
 BasalekTown_Man5_Text::
 	.string "See that cave down there?\n"
-	.string "That's Basalek Tunnel.\p"
+	.string "That's Basalek Tunnels.\p"
 	.string "It's said that due to the oppressing\n"
 	.string "atmosphere, training there is more\l"
 	.string "efficient than anywhere else.\p"
@@ -679,8 +739,9 @@ BasalekTown_HealTrigger_Text::
 	.string "fully refreshed!$"
 
 BasalekTown_Beauty_Text::
-	.string "I've got some errands to run, but I\n"
-	.string "guess I can stay for another 5 minutes.$"
+	.string "I've got some errands to run,\n"
+	.string "but I guess I can stay for\l"
+	.string "another five minutes.$"
 
 BasalekTown_Text_HaveEggWillYouTakeIt::
 	.string "I recently found my Pokémon carrying\n"
@@ -725,22 +786,63 @@ BasalekTown_EggHatched::
 	.string "I knew I chose a caring trainer.$"
 
 BasaluffTown_Brendan_NoBails::
-	.string "$"
+	.string "{RIVAL}: Oh, hey {PLAYER}!\n"
+	.string "It's been a while, huh?\p"
+	.string "I was on my way to Route 17, but\n"
+	.string "the weather was so unbearably humid\l"
+	.string "that I just had to turn back and\l"
+	.string "get myself some extra drinks for\l"
+	.string "the journey.\p"
+	.string "Anyway, enough about me.\p"
+	.string "How about we have ourselves\n"
+	.string "a Pokémon battle?\p"
+	.string "I'm curious to see if you've mastered\n"
+	.string "using the Mega Evolution technique.$"
 
 BasaluffTown_Brendan_1Bail::
-	.string "$"
+	.string "{RIVAL}: You weren't trying to\n"
+	.string "make a break for it while I was\l"
+	.string "patiently waiting inside the Mart,\l"
+	.string "were you?\p"
+	.string "Well, I hope you're prepared,\n"
+	.string "because here I come!$"
 
 BasaluffTown_Brendan_2Bails::
-	.string "$"
+	.string "{RIVAL}: I had a feeling you might\n"
+	.string "be walking out on me, just like you did\l"
+	.string "back at the Coralgrove Harbor.\p"
+	.string "Well, you're not fooling me again.\n"
+	.string "Get ready, because here I come!$"
 
 BasaluffTown_May_NoBails::
-	.string "$"
+	.string "{RIVAL}: Oh, hi {PLAYER}!\n"
+	.string "Long time no see!\p"
+	.string "I was on my way to Route 17,\n"
+	.string "but  had to turn back just to\l"
+	.string "get myself some extra drinks for\l"
+	.string "the journey.\p"
+	.string "I honestly don't know how people can\n"
+	.string "even live in this humid atmosphere.\p"
+	.string "Anyways, enough about me.\p"
+	.string "How about we have ourselves\n"
+	.string "a Pokémon battle?\p"
+	.string "I'm curious to see if you've mastered\n"
+	.string "using the Mega Evolution technique.$"
 
 BasaluffTown_May_1Bail::
-	.string "$"
+	.string "{RIVAL}: You weren't trying to\n"
+	.string "bail on me while I patiently waited\l"
+	.string "for you inside the Mart?\p"
+	.string "Well, I hope you've prepared yourself,\n"
+	.string "because here I come!$"
 
 BasaluffTown_May_2Bails::
-	.string "$"
+	.string "{RIVAL}: Aha!\n"
+	.string "I knew you'd try to bail on me!\p"
+	.string "I'm not going to let you fool me\n"
+	.string "like you fooled me back at the\l"
+	.string "Coralgrove Harbor!\p"
+	.string "Get ready, because here I come!$"
 
 BasalekTown_LevelChecker_NoMatch::
 	.string "…I saw it!\n"

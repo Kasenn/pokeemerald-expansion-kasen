@@ -24,6 +24,7 @@
 #include "constants/items.h"
 #include "constants/layouts.h"
 #include "constants/weather.h"
+#include "event_object_movement.h"
 
 extern const u8 EventScript_SprayWoreOff[];
 
@@ -911,6 +912,10 @@ static void UpdateChainFishingStreak()
 void FishingWildEncounter(u8 rod)
 {
     u16 species;
+    struct ObjectEvent *playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+    s16 x = playerObjEvent->currentCoords.x;
+    s16 y = playerObjEvent->currentCoords.y;
+    MoveCoords(playerObjEvent->facingDirection, &x, &y);
 
     gIsFishingEncounter = TRUE;
     if (CheckFeebas() == TRUE)
@@ -928,25 +933,33 @@ void FishingWildEncounter(u8 rod)
         CreateWildMon(species, level);
         FlagSet(FLAG_TEMP_3);
     }
-    else if((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE16)
-         && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE16))
-         && gObjectEvents[gPlayerAvatar.objectEventId].currentCoords.y <= 50 + MAP_OFFSET)
+    else if (MetatileBehavior_IsFishableLava(MapGridGetMetatileBehaviorAt(x, y)))
     {
-        u8 rodVariable = 5;
+        u8 rodVariable;
+        u8 areaBonus;
 
         switch (rod)
         {
-            case OLD_ROD:
-                rodVariable = 10;
-                break;
             case GOOD_ROD:
                 rodVariable = 20;
                 break;
             case SUPER_ROD:
                 rodVariable = 30;
                 break;
+            default:
+                rodVariable = 10;
+                break;
         }
-        u8 level = (rodVariable + (Random() % 6));
+        if (MAP(ROUTE18))
+        {
+            areaBonus = 2;
+        }
+        else
+        {
+            areaBonus = 0;
+        }
+
+        u8 level = (rodVariable + areaBonus + (Random() % 6));
         species = Random() % 2;
 
         if (species == 1)

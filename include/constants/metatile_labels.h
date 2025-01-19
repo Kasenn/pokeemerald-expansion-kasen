@@ -222,6 +222,10 @@
 #define METATILE_Fortree_WoodBridge1_Bottom                0x29F
 #define METATILE_Fortree_WoodBridge1_Top                   0x297
 
+// gTileset_Frostfire
+#define METATILE_Frostfire_FrosthearthDoor  0x23E
+#define METATILE_Frostfire_PWT_Door         0x3FA
+
 // gTileset_General
 #define METATILE_General_BlueCaveIndent        0x1B0
 #define METATILE_General_BlueCaveOpen          0x1B1

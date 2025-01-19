@@ -1,0 +1,79 @@
+mapscripts FrigidFrontier6_MapScripts {}
+
+script FrigidFrontier_Pryce{
+    lock
+    faceplayer
+    if(checkplayergender == MALE){
+        bufferstring(STR_VAR_1, "lad")
+    }
+    else{
+        bufferstring(STR_VAR_1, "lass")
+    }
+    msgbox(EscortOldManToSafety)
+    if(flag(FLAG_FIND_PRYCE_QUEST)){
+        msgbox(EscortPryceToSafety)
+    }
+    closemessage
+    setflag(FLAG_ESCORTING_PRYCE)
+    setfollower(2, FOLLOWER_FLAG_CLEAR_ON_WHITE_OUT, FrigidFrontier_PryceYapping)
+    release
+    end
+}
+script FrigidFrontier_PryceYapping{
+    facefollower
+    if(checkplayergender == MALE){
+        bufferstring(STR_VAR_1, "lad")
+    }
+    else{
+        bufferstring(STR_VAR_1, "lass")
+    }
+    msgbox(FrigidFrontier_PryceYapping_Text)
+    release
+}
+text FrigidFrontier_PryceYapping_Text{
+    "I must say, I'm glad a fine {STR_VAR_1}\n"
+    "like yourself came along.\p"
+    "I'm not sure how much longer\n"
+    "I could've lasted here by myself."
+}
+text EscortPryceToSafety{
+    "You're here looking for the\n"
+    "Frosthearth City Gym Leader?\p"
+    "Well, as it would happen to be,\n"
+    "you're looking at the man himself.\p"
+    "But enough chit-chat, let's get\n"
+    "going before we both freeze."
+}
+text EscortOldManToSafety{
+    "Ah, you, young {STR_VAR_1}.\p"
+    "I seem to have gotten myself in\n"
+    "a bit of a pickle.\p"
+    "I was exploring this frozen wasteland,\n"
+    "and seem to have gotten myself lost.\p"
+    "Do you think you could lead me out\n"
+    "of this maze?\l"
+    "I'd be ever so grateful.\p"
+    "Mind you, my body isn't quite as spry\n"
+    "as it used to be, so I implore you to\l"
+    "slow down your pace a bit.\p"
+    "With that out of the way,\n"
+    "shall we get going?"
+}
+text PryceLetsNotGoIn{
+    "Old man: This cave is definitely not\n"
+    "where we came from.\p"
+    "Come on, let's try another direction."
+}
+
+script PryceBlockCave{
+    lockall
+    delay(15)
+    turnobject(OBJ_EVENT_ID_FOLLOW_ME, DIR_NORTH)
+    delay(15)
+    msgbox(PryceLetsNotGoIn)
+    closemessage
+    applymovement(0xFF, Walk1Down)
+    applymovement(OBJ_EVENT_ID_FOLLOW_ME, moves(face_left, lock_facing_direction, walk_right, unlock_facing_direction))
+    waitmovement(0)
+    releaseall
+}

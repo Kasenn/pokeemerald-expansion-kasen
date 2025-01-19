@@ -577,6 +577,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Shuppet,           OBJ_EVENT_PAL_SHUPPET},
     {gObjectEventPalette_KrokorokPlayer,           OBJ_EVENT_PAL_KROKOROK},
     {gObjectEventPalette_Kasen,           OBJ_EVENT_PAL_KASEN},
+    {gObjectEventPalette_Pryce,           OBJ_EVENT_PAL_PRYCE},
     {gObjectEventPalette_Brock,           OBJ_EVENT_PAL_BROCK},
     {gObjectEventPalette_SSTidalRear,           OBJ_EVENT_PAL_SS_TIDAL_REAR},
     {gObjectEventPalette_BwAceSwimmer,           OBJ_EVENT_PAL_BW_ACE_SWIMMER},
@@ -10149,6 +10150,9 @@ void GroundEffect_SpawnOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *
         if((MAP(SAFARI_ZONE_MOUNTAIN)) || (MAP(DESERT_CLIFFS))){
             FieldEffectStart(FLDEFF_TALL_GRASS_MOUNTAIN);  
         }
+        else if((MAP(ROUTE18)) || (MAP(SNOWY_RIDGE))){
+            FieldEffectStart(FLDEFF_TALL_GRASS_SNOW);  
+        }
         else{
             FieldEffectStart(FLDEFF_TALL_GRASS_AUTUMN);
         }
@@ -10171,7 +10175,10 @@ void GroundEffect_StepOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *s
     // if (objEvent->localId == OBJ_EVENT_ID_PLAYER)
     //     PlaySE(SPECIES_HOOPA);
     if (MetatileBehavior_IsTallGrassAutumn(objEvent->currentMetatileBehavior)){
-        if((MAP(SAFARI_ZONE_MOUNTAIN)) || (MAP(DESERT_CLIFFS))){
+        if((MAP(ROUTE18)) || (MAP(SNOWY_RIDGE))){
+            FieldEffectStart(FLDEFF_TALL_GRASS_SNOW);  
+        }
+        else if((MAP(SAFARI_ZONE_MOUNTAIN)) || (MAP(DESERT_CLIFFS))){
             FieldEffectStart(FLDEFF_TALL_GRASS_MOUNTAIN);  
         }
         else{

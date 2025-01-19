@@ -372,6 +372,7 @@ const u16 gFieldEffectObjectPalette2[] = INCBIN_U16("graphics/field_effects/pale
 const u16 gFieldEffectObjectPalette3[] = INCBIN_U16("graphics/field_effects/palettes/general_3.gbapal");
 const u16 gFieldEffectObjectPalette4[] = INCBIN_U16("graphics/field_effects/palettes/general_4.gbapal");
 const u16 gFieldEffectObjectPalette5[] = INCBIN_U16("graphics/field_effects/palettes/general_5.gbapal");
+const u16 gFieldEffectObjectPalette6[] = INCBIN_U16("graphics/field_effects/palettes/general_6.gbapal");
 const u32 gFieldEffectObjectPic_GroundImpactDust[] = INCBIN_U32("graphics/field_effects/pics/ground_impact_dust.4bpp");
 const u32 gFieldEffectObjectPic_JumpTallGrass[] = INCBIN_U32("graphics/field_effects/pics/jump_tall_grass.4bpp");
 const u32 gUnusedGrass3[] = INCBIN_U32("graphics/field_effects/pics/unused_grass_3.4bpp");
@@ -541,6 +542,9 @@ const u32 gObjectEventPic_Kasen[] = INCBIN_U32("graphics/object_events/pics/peop
 const u16 gObjectEventPalette_Kasen[] = INCBIN_U16("graphics/object_events/pics/people/kasen.gbapal");
 const u32 gObjectEventPic_Brock[] = INCBIN_U32("graphics/object_events/pics/people/brock.4bpp");
 const u16 gObjectEventPalette_Brock[] = INCBIN_U16("graphics/object_events/pics/people/brock.gbapal");
+const u32 gObjectEventPic_Pryce[] = INCBIN_U32("graphics/object_events/pics/people/pryce.4bpp");
+const u16 gObjectEventPalette_Pryce[] = INCBIN_U16("graphics/object_events/pics/people/pryce.gbapal");
+
 
 const u32 gObjectEventPic_Giovanni[] = INCBIN_U32("graphics/object_events/pics/people/giovanni.4bpp");
 const u16 gObjectEventPalette_Giovanni[] = INCBIN_U16("graphics/object_events/pics/people/giovanni.gbapal");

@@ -5,7 +5,7 @@
   "music": "MUS_MT_CHIMNEY",
   "region_map_section": "MAPSEC_BARREN_WASTES",
   "requires_flash": false,
-  "weather": "WEATHER_BLIZZARD",
+  "weather": "WEATHER_SNOW",
   "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
   "allow_escaping": true,

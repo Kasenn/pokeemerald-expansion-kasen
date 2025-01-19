@@ -127,11 +127,11 @@ R16Tr2_Intro::
 	.string "Think you can keep up?$"
 
 R16Tr2_Lose::
-	.string "Being a good swimmer doesn't make"
+	.string "Being a good swimmer doesn't make\n"
 	.string "me any better as a trainer…$"
 
 R16Tr2_PostBattle::
-	.string "I want to be with my water Pokémon."
+	.string "I want to be with my Water Pokémon.\n"
 	.string "That's why I swim.$"
 
 R16Tr5_Intro::
@@ -196,17 +196,15 @@ R16Tr9_PostBattle::
 	.string "me up, baby!$"
 
 R16Tr10_Intro::
-	.string "Freeze!\n"
-	.string "This is a stick up!$"
+	.string "My Pokémon knows the most powerful\n"
+	.string "move in the world. Observe!$"
 
 R16Tr10_Lose::
-	.string "I was just kidding!\p"
-	.string "I wasn't really going to rob\n"
-	.string "you, I promise!$"
+	.string "Not the winning move…$"
 
 R16Tr10_PostBattle::
-	.string "Please forgive me!\n"
-	.string "It was just a joke!$"
+	.string "I thought with enough firepower,\n"
+	.string "we'd be unbeatable…$"
 
 R16Tr11_Intro::
 	.string "I may look old, but underestimate me,\n"

@@ -66,11 +66,11 @@ text R16Tr2_Intro {
     "Think you can keep up?"
 }
 text R16Tr2_Lose {
-    "Being a good swimmer doesn't make"
+    "Being a good swimmer doesn't make\n"
     "me any better as a trainer…"
 }
 text R16Tr2_PostBattle {
-    "I want to be with my water Pokémon."
+    "I want to be with my Water Pokémon.\n"
     "That's why I swim."
 }
 
@@ -171,17 +171,15 @@ script Route16_Tr10_NinjaBoy {
     end
 }
 text R16Tr10_Intro {
-    "Freeze!\n"
-    "This is a stick up!"
+    "My Pokémon knows the most powerful\n"
+    "move in the world. Observe!"
 }
 text R16Tr10_Lose {
-    "I was just kidding!\p"
-    "I wasn't really going to rob\n"
-    "you, I promise!"
+    "Not the winning move…"
 }
 text R16Tr10_PostBattle {
-    "Please forgive me!\n"
-    "It was just a joke!"
+    "I thought with enough firepower,\n"
+    "we'd be unbeatable…"
 }
 
 script Route16_Tr11_ExpertF {

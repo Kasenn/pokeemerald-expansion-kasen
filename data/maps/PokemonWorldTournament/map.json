@@ -2,23 +2,17 @@
   "id": "MAP_POKEMON_WORLD_TOURNAMENT",
   "name": "PokemonWorldTournament",
   "layout": "LAYOUT_POKEMON_WORLD_TOURNAMENT",
-  "music": "MUS_PWTLOBBY",
-  "region_map_section": "MAPSEC_ALDELEAF_CITY",
+  "music": "MUS_B_TOWER",
+  "region_map_section": "MAPSEC_FROSTFIRE_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": true,
-  "show_map_name": true,
+  "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": [
-    {
-      "map": "MAP_FROSTFIRE_CITY",
-      "offset": -8,
-      "direction": "down"
-    }
-  ],
+  "connections": 0,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_TEALA",
@@ -30,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "BattleFrontier_BattleFactoryLobby_EventScript_SinglesAttendant",
       "flag": "0"
     },
     {
@@ -43,7 +37,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "BattleFrontier_BattleFactoryLobby_EventScript_DoublesAttendant",
       "flag": "0"
     },
     {
@@ -188,58 +182,6 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
-      "x": 11,
-      "y": 25,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "FortreeCity_DecorationShop_EventScript_ClerkDesks",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
-      "x": 13,
-      "y": 25,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "FortreeCity_DecorationShop_EventScript_ClerkChairs",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
-      "x": 11,
-      "y": 27,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "BattleFrontier_Lounge7_EventScript_LeftMoveTutor",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
-      "x": 13,
-      "y": 27,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "BattleFrontier_Lounge7_EventScript_RightMoveTutor",
-      "flag": "0"
     }
   ],
   "warp_events": [
@@ -247,22 +189,22 @@
       "x": 12,
       "y": 29,
       "elevation": 0,
-      "dest_map": "MAP_SANDSTONE_CITY",
-      "dest_warp_id": "11"
+      "dest_map": "MAP_FROSTFIRE_CITY",
+      "dest_warp_id": "0"
     },
     {
       "x": 11,
       "y": 29,
       "elevation": 0,
-      "dest_map": "MAP_SANDSTONE_CITY",
-      "dest_warp_id": "11"
+      "dest_map": "MAP_FROSTFIRE_CITY",
+      "dest_warp_id": "0"
     },
     {
       "x": 13,
       "y": 29,
       "elevation": 0,
-      "dest_map": "MAP_SANDSTONE_CITY",
-      "dest_warp_id": "11"
+      "dest_map": "MAP_FROSTFIRE_CITY",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

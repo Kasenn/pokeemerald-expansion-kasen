@@ -266,12 +266,12 @@ Route120_EventScript_RouteSign121::
 	end
 
 Route120_EventScript_Colin::
-	trainerbattle_single TRAINER_COLIN, Route120_Text_ColinIntro, Route120_Text_ColinDefeat
+	trainerbattle_single TRAINER_R18_TR4_HIKER2, Route120_Text_ColinIntro, Route120_Text_ColinDefeat
 	msgbox Route120_Text_ColinPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route120_EventScript_Robert::
-	trainerbattle_single TRAINER_ROBERT_1, Route120_Text_RobertIntro, Route120_Text_RobertDefeat, Route120_EventScript_RegisterRobert
+	trainerbattle_single TRAINER_R18_TR5_RANGER_F, Route120_Text_RobertIntro, Route120_Text_RobertDefeat, Route120_EventScript_RegisterRobert
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route120_EventScript_RematchRobert
 	msgbox Route120_Text_RobertPostBattle, MSGBOX_DEFAULT
@@ -282,12 +282,12 @@ Route120_EventScript_RegisterRobert::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route120_Text_RobertRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_ROBERT_1
+	register_matchcall TRAINER_R18_TR5_RANGER_F
 	release
 	end
 
 Route120_EventScript_RematchRobert::
-	trainerbattle_rematch TRAINER_ROBERT_1, Route120_Text_RobertRematchIntro, Route120_Text_RobertRematchDefeat
+	trainerbattle_rematch TRAINER_R18_TR5_RANGER_F, Route120_Text_RobertRematchIntro, Route120_Text_RobertRematchDefeat
 	msgbox Route120_Text_RobertPostRematch, MSGBOX_AUTOCLOSE
 	end
 

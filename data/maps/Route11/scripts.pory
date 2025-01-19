@@ -452,7 +452,7 @@ script RewardBP{
     buffernumberstring (STR_VAR_1, VAR_0x8004)
     special(GiveFrontierBattlePoints)
     playfanfare(MUS_OBTAIN_B_POINTS)
-    msgbox("Earned {STR_VAR_1} BP!", MSGBOX_DEFAULT)
+    message("Earned {STR_VAR_1} BP!")
     waitfanfare
     if(!flag(FLAG_INTRO_TO_BP)){
         msgbox(ExplainBP, MSGBOX_DEFAULT)

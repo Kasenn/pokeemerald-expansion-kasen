@@ -2,7 +2,7 @@
   "id": "MAP_ROUTE18",
   "name": "Route18",
   "layout": "LAYOUT_ROUTE18",
-  "music": "MUS_ROUTE113",
+  "music": "MUS_UNDERWATER",
   "region_map_section": "MAPSEC_NEWROUTE_18",
   "requires_flash": false,
   "weather": "WEATHER_SNOW",
@@ -22,13 +22,18 @@
       "map": "MAP_ROUTE17",
       "offset": -14,
       "direction": "left"
+    },
+    {
+      "map": "MAP_SNOWY_RIDGE",
+      "offset": 63,
+      "direction": "up"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_ZYGARDE_CELL",
-      "x": 44,
-      "y": 29,
+      "x": 49,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -63,6 +68,149 @@
       "trainer_sight_or_berry_tree_id": "BERRY_TREE_ROUTE_110_YACHE_2",
       "script": "BerryTreeScript",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HIKER",
+      "x": 17,
+      "y": 21,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Route18_Tr1_Hiker1",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+      "x": 20,
+      "y": 27,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route18_Tr2_RangerM",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 34,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_ICY_ROCK",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ROUTE18_ITEM1"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HIKER",
+      "x": 65,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "Route18_Tr4_Hiker2",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAN_5",
+      "x": 47,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Route18_Tr3_Kindler",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
+      "x": 69,
+      "y": 20,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "Route18_Tr5_RangerF",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
+      "x": 96,
+      "y": 29,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route18_Tr9_AceTrainerM",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MANIAC",
+      "x": 91,
+      "y": 17,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route18_Tr7_Pokemaniac",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_2",
+      "x": 78,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Route18_Tr6_Scientist",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GEN4_BREEDER_M",
+      "x": 88,
+      "y": 24,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "1",
+      "script": "Route18_Tr8_BreederM",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 82,
+      "y": 20,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_ICE_HEAL",
+      "script": "NULL",
+      "flag": "FLAG_ROUTE18_ITEM2"
     }
   ],
   "warp_events": [
@@ -79,12 +227,41 @@
       "elevation": 0,
       "dest_map": "MAP_ROUTE112_CABLE_CAR_STATION",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 82,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_SNOWY_RIDGE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 83,
+      "y": 0,
+      "elevation": 0,
+      "dest_map": "MAP_SNOWY_RIDGE",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [
 
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 68,
+      "y": 12,
+      "elevation": 0,
+      "item": "ITEM_MAX_REPEL",
+      "flag": "FLAG_ROUTE18_ITEM3"
+    },
+    {
+      "type": "hidden_item",
+      "x": 99,
+      "y": 34,
+      "elevation": 0,
+      "item": "ITEM_BIG_MUSHROOM",
+      "flag": "FLAG_ROUTE18_ITEM4"
+    }
   ]
 }

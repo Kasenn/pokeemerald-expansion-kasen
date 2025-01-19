@@ -331,6 +331,7 @@
 #define OBJ_EVENT_GFX_MAY_FERTILIZING_RS        325
 #define OBJ_EVENT_GFX_BROCK                     326
 #define OBJ_EVENT_GFX_VERDANT_SPHERE            327
+#define OBJ_EVENT_GFX_PRYCE                     328
 
 
 
@@ -338,7 +339,7 @@
 // NOTE: The maximum amount of object events has been expanded from 255 to 65535.
 // Since dynamic graphics ids still require at least 16 free values, the actual limit
 // is 65519, but even considering follower Pokémon, this should be more than enough :)
-#define NUM_OBJ_EVENT_GFX                        328
+#define NUM_OBJ_EVENT_GFX                        329
 
 
 // These are dynamic object gfx ids.
@@ -580,6 +581,7 @@
 #define OBJ_EVENT_PAL_MAY_RS                0x1182
 #define OBJ_EVENT_PAL_BROCK                 0x1183
 #define OBJ_EVENT_PAL_VERDANT_SPHERE        0x1184
+#define OBJ_EVENT_PAL_PRYCE        0x1185
 
 // Used as a placeholder follower graphic
 #define OBJ_EVENT_PAL_TAG_SUBSTITUTE              0x7611

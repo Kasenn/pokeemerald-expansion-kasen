@@ -17824,7 +17824,9 @@
       }
     ],
     "PreEvoMoves": [],
-    "TMMoves": [],
+    "TMMoves": [
+      "MOVE_ROCK_CLIMB"
+    ],
     "EggMoves": [],
     "TutorMoves": [
       "MOVE_AERIAL_ACE",

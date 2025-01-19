@@ -9254,7 +9254,8 @@ static void HandleScriptMegaPrimalBurst(u32 caseId, u32 battler, u32 type)
         if (side == B_SIDE_OPPONENT)
             SetBattlerShadowSpriteCallback(battler, gBattleMons[battler].species);
         if (type == HANDLE_TYPE_MEGA_EVOLUTION){
-            FlagSet(FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE);
+            if (side == B_SIDE_PLAYER)
+                FlagSet(FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE);
             SetGimmickAsActivated(battler, GIMMICK_MEGA);
         }
         if (type == HANDLE_TYPE_ULTRA_BURST)

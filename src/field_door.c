@@ -66,6 +66,7 @@ static const u8 sDoorAnimTiles_Slateport[] = INCBIN_U8("graphics/door_anims/slat
 static const u16 sDoorNullPalette14[16] = {};
 static const u8 sDoorAnimTiles_Dewford[] = INCBIN_U8("graphics/door_anims/dewford.4bpp");
 static const u8 sDoorAnimTiles_Basaluff[] = INCBIN_U8("graphics/door_anims/basaluff.4bpp");
+static const u8 sDoorAnimTiles_Frosthearth[] = INCBIN_U8("graphics/door_anims/frosthearth.4bpp");
 static const u16 sDoorNullPalette15[16] = {};
 static const u8 sDoorAnimTiles_Contest[] = INCBIN_U8("graphics/door_anims/contest.4bpp");
 static const u16 sDoorNullPalette16[16] = {};
@@ -262,6 +263,7 @@ static const struct DoorGraphics sDoorAnimGraphicsTable[] =
     {METATILE_Slateport_Door,                               DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Slateport, sDoorAnimPalettes_Slateport},
     {METATILE_Dewford_Door,                                 DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Dewford, sDoorAnimPalettes_Dewford},
     {METATILE_Basaluff_BasaluffDoor,                        DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Basaluff, sDoorAnimPalettes_Basaluff},
+    {METATILE_Frostfire_FrosthearthDoor,                        DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Frosthearth, sDoorAnimPalettes_Basaluff},
     {METATILE_Mossdeep_Kaolisle_Door,                       DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Dewford, sDoorAnimPalettes_Dewford},
     {METATILE_General_Door_Contest,                         DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_Contest, sDoorAnimPalettes_Contest},
     {METATILE_Lilycove_Door,                                DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Lilycove, sDoorAnimPalettes_Lilycove},
@@ -292,7 +294,7 @@ static const struct DoorGraphics sDoorAnimGraphicsTable[] =
     // The metatile for this door doesn't seem to correspond to a door in any Emerald tileset. Given the surrounding door animations, it was likely cut from the Battle Frontier.
     // From the palettes array we know it uses palette 9, and the door's shadow looks correct using either the Battle Tent or Battle Frontier Outside's 9th palette.
     {0x3B0,                                                 DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_UnusedBattleFrontier, sDoorAnimPalettes_UnusedBattleFrontier},
-    {METATILE_BattleFrontierOutsideWest_Door_BattleDome,    DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_BattleDome, sDoorAnimPalettes_BattleDome},
+    {METATILE_Frostfire_PWT_Door,    DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_BattleDome, sDoorAnimPalettes_BattleDome},
     {METATILE_BattleFrontierOutsideWest_Door_BattleFactory, DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_BattleFactory, sDoorAnimPalettes_BattleFactory},
     {METATILE_BattleFrontierOutsideEast_Door_BattleTower,   DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_BattleTower, sDoorAnimPalettes_BattleTower},
     {METATILE_BattleFrontierOutsideEast_Door_BattleArena,   DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_BattleArena, sDoorAnimPalettes_BattleArena},

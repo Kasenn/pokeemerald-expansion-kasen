@@ -231,12 +231,12 @@ BattleFrontier_BattleFactoryBattleRoom_Movement_NolandMoveToBattle:
 BattleFrontier_BattleFactoryBattleRoom_EventScript_WarpToLobby::
 	copyvar VAR_RESULT, VAR_FRONTIER_BATTLE_MODE
 	goto_if_eq VAR_RESULT, FRONTIER_MODE_DOUBLES, BattleFrontier_BattleFactoryBattleRoom_EventScript_WarpToLobbyDoubles
-	warp MAP_BATTLE_FRONTIER_BATTLE_FACTORY_LOBBY, 4, 8
+	warp MAP_POKEMON_WORLD_TOURNAMENT, 11, 9
 	waitstate
 	end
 
 BattleFrontier_BattleFactoryBattleRoom_EventScript_WarpToLobbyDoubles::
-	warp MAP_BATTLE_FRONTIER_BATTLE_FACTORY_LOBBY, 14, 8
+	warp MAP_POKEMON_WORLD_TOURNAMENT, 3, 9 @ MAP_BATTLE_FRONTIER_BATTLE_FACTORY_LOBBY
 	waitstate
 	end
 

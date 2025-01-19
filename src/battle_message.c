@@ -3615,6 +3615,8 @@ static const u8 sText_HeardOfMegaEvos[] = _("Have you heard of Mega Evolution?{P
 static const u8 sText_HopeYoureReady[] = _("You're doing great, but this is where\nyour luck runs out!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_LetsHaveFun[] = _("Let's have some real fun!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}");
 static const u8 sText_MinaTest[] = _("{PLAY_BGM MUS_ABW_RIVAL}We're not done yet.{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}");
+static const u8 sText_BrendanMegaEvolve1[] = _("Okay!\nLet's see what we can do with this!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}");
+static const u8 sText_MayMegaEvolve1[] = _("Alright!\nTime to see what this thing can do!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}");
 
 static const struct TrainerSlide sTrainerSlides[] =
 {
@@ -3653,10 +3655,7 @@ static const struct TrainerSlide sTrainerSlides[] =
     {
         .trainerId = TRAINER_LEADER_ACEROLA,
         .isFrontierTrainer = FALSE,
-        // .msgLastSwitchIn = sText_KorrinaLastPokemon,
-        // .msgFirstDown = sText_DontGetCockyKid,
         .msgMegaEvolution = sText_LetsHaveFun,
-        // .msgBeforeFirstTurn = sText_HeardOfMegaEvos,
     },
     {
         .trainerId = TRAINER_LEADER_JASMINE,
@@ -3668,6 +3667,41 @@ static const struct TrainerSlide sTrainerSlides[] =
         .isFrontierTrainer = FALSE,
         .msgLastSwitchIn = sText_MinaTest,
     },
+    {
+        .trainerId = TRAINER_BASALEK_BRENDAN_PIPLUP,
+        .isFrontierTrainer = FALSE,
+        .msgMegaEvolution = sText_BrendanMegaEvolve1,
+    },
+    {
+        .trainerId = TRAINER_BASALEK_BRENDAN_ROWLET,
+        .isFrontierTrainer = FALSE,
+        .msgMegaEvolution = sText_BrendanMegaEvolve1,
+    },
+    {
+        .trainerId = TRAINER_BASALEK_BRENDAN_TORCHIC,
+        .isFrontierTrainer = FALSE,
+        .msgMegaEvolution = sText_BrendanMegaEvolve1,
+    },
+    {
+        .trainerId = TRAINER_BASALEK_MAY_PIPLUP,
+        .isFrontierTrainer = FALSE,
+        .msgMegaEvolution = sText_MayMegaEvolve1,
+    },
+    {
+        .trainerId = TRAINER_BASALEK_MAY_ROWLET,
+        .isFrontierTrainer = FALSE,
+        .msgMegaEvolution = sText_MayMegaEvolve1,
+    },
+    {
+        .trainerId = TRAINER_BASALEK_MAY_TORCHIC,
+        .isFrontierTrainer = FALSE,
+        .msgMegaEvolution = sText_MayMegaEvolve1,
+    },
+    {
+        .trainerId = TRAINER_BASALTUNNEL_TR12_BROCK,
+        .isFrontierTrainer = FALSE,
+        .msgMegaEvolution = COMPOUND_STRING("Not bad, but this is the end!{PAUSE 90}"),
+    }
 };
 
 static u32 GetEnemyMonCount(u32 firstId, u32 lastId, bool32 onlyAlive)

@@ -19,24 +19,16 @@ DesertCliffs_MapScripts_MAP_SCRIPT_ON_RESUME_3:
 
 DesertCliffs_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setescapewarp MAP_DESERT_CLIFFS, 15, 79
-	checkitem ITEM_ESCAPE_ROPE
-	compare VAR_RESULT, TRUE
-	goto_if_eq DesertCliffs_MapScripts_MAP_SCRIPT_ON_TRANSITION_2
-DesertCliffs_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
 	setflag FLAG_HIDE_TERRAKION
 	compare VAR_SPHERES_FOUND, 4
-	goto_if_ge DesertCliffs_MapScripts_MAP_SCRIPT_ON_TRANSITION_4
+	goto_if_ge DesertCliffs_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
 	return
 
-DesertCliffs_MapScripts_MAP_SCRIPT_ON_TRANSITION_2:
-	setflag FLAG_TEMP_A
-	goto DesertCliffs_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
-
-DesertCliffs_MapScripts_MAP_SCRIPT_ON_TRANSITION_4:
-	goto_if_unset FLAG_DEFEATED_TERRAKION, DesertCliffs_MapScripts_MAP_SCRIPT_ON_TRANSITION_6
+DesertCliffs_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
+	goto_if_unset FLAG_DEFEATED_TERRAKION, DesertCliffs_MapScripts_MAP_SCRIPT_ON_TRANSITION_3
 	return
 
-DesertCliffs_MapScripts_MAP_SCRIPT_ON_TRANSITION_6:
+DesertCliffs_MapScripts_MAP_SCRIPT_ON_TRANSITION_3:
 	clearflag FLAG_HIDE_TERRAKION
 	return
 
@@ -86,9 +78,32 @@ DesertCliffs_Terrakion_8:
 
 
 DesertCliff_Sign::
+	checkitem ITEM_ESCAPE_ROPE
+	compare VAR_RESULT, FALSE
+	goto_if_eq DesertCliff_Sign_2
 	msgbox DesertCliff_Sign_Text, MSGBOX_SIGN
 	return
 
+DesertCliff_Sign_2:
+	msgbox DesertCliff_Sign_TextRope
+	finditem ITEM_ESCAPE_ROPE
+	release
+	end
+
 
 DesertCliff_Sign_Text::
-	.string "$"
+	.string "Notice from the Pokémon Rangers:\p"
+	.string "The cliffs before you can be\n"
+	.string "treacherous to climb.\p"
+	.string "Make sure to bring an Escape Rope\n"
+	.string "or a Pokémon with Fly with you!$"
+
+DesertCliff_Sign_TextRope::
+	.string "Notice from the Pokémon Rangers:\p"
+	.string "The cliffs before you can be\n"
+	.string "treacherous to climb.\p"
+	.string "Make sure to bring an Escape Rope\n"
+	.string "or a Pokémon with Fly with you!\p"
+	.string "…\p"
+	.string "There seems to be a piece of rope\n"
+	.string "hanging from the sign.$"

@@ -75,7 +75,7 @@ FortreeCity_Gym_EventScript_Jared::
 	end
 
 FortreeCity_Gym_EventScript_Edwardo::
-	trainerbattle_single TRAINER_EDWARDO, FortreeCity_Gym_Text_EdwardoIntro, FortreeCity_Gym_Text_EdwardoDefeat
+	trainerbattle_single TRAINER_R18_TR3_KINDLER, FortreeCity_Gym_Text_EdwardoIntro, FortreeCity_Gym_Text_EdwardoDefeat
 	msgbox FortreeCity_Gym_Text_EdwardoPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -90,7 +90,7 @@ FortreeCity_Gym_EventScript_Ashley::
 	end
 
 FortreeCity_Gym_EventScript_Humberto::
-	trainerbattle_single TRAINER_HUMBERTO, FortreeCity_Gym_Text_HumbertoIntro, FortreeCity_Gym_Text_HumbertoDefeat
+	trainerbattle_single TRAINER_R18_TR1_HIKER1, FortreeCity_Gym_Text_HumbertoIntro, FortreeCity_Gym_Text_HumbertoDefeat
 	msgbox FortreeCity_Gym_Text_HumbertoPostBattle, MSGBOX_AUTOCLOSE
 	end
 

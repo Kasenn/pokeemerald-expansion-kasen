@@ -164,6 +164,7 @@ static const u16 sRegionMap_SpecialPlaceLocations[][2] =
     {MAPSEC_FLOWER_FIELDS,              MAPSEC_NEWROUTE_5},
     {MAPSEC_DESERT_CLIFFS,              MAPSEC_NEWROUTE_6},
     {MAPSEC_HIDDEN_CLEARING,              MAPSEC_NEWROUTE_12},
+    {MAPSEC_SNOWY_RIDGE,              MAPSEC_NEWROUTE_18},
     {MAPSEC_BERRY_FIELDS,                 MAPSEC_NEWROUTE_15},
     {MAPSEC_SERPENT_CAVE,                 MAPSEC_NEWROUTE_10},
     {MAPSEC_WINDPLUME_MOUNTAIN,                 MAPSEC_WINDPLUME_VALLEY},

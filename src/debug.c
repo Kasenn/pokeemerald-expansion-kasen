@@ -2563,8 +2563,8 @@ static void DebugAction_FlagsVars_FlagsSelect(u8 taskId)
     {
         PlaySE(SE_SELECT);
         gTasks[taskId].tInput += sPowersOfTen[gTasks[taskId].tDigit];
-        if (gTasks[taskId].tInput >= FLAGS_COUNT)
-            gTasks[taskId].tInput = FLAGS_COUNT - 1;
+        if (gTasks[taskId].tInput >= FLAGS_COUNT + 1000)
+            gTasks[taskId].tInput = FLAGS_COUNT + 1000 - 1;
     }
     if (JOY_NEW(DPAD_DOWN))
     {
