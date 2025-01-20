@@ -8,13 +8,21 @@ script Route18_Tr1_Hiker1 {
     end
 }
 text R18Tr1_Intro {
-    ""
+    "My legs are solid from pounding up\n"
+    "and down the mountains.\p"
+    "They're not going to buckle easily,\n"
+    "friend!"
 }
 text R18Tr1_Lose {
-    ""
+    "Ouch! My legs cramped up!"
 }
 text R18Tr1_PostBattle {
-    ""
+    "Try hiking, and I mean really\n"
+    "pounding, on these mountain trails\l"
+    "with a heavy pack weighing dozens of\l"
+    "pounds.\p"
+    "That, my friend, will get your body\n"
+    "into serious shape."
 }
 
 script Route18_Tr2_RangerM {
@@ -23,7 +31,8 @@ script Route18_Tr2_RangerM {
     end
 }
 text R18Tr2_Intro {
-    ""
+    "Freeze!\n"
+    "Show me how you battle!"
 }
 text R18Tr2_Lose {
     ""
@@ -53,13 +62,18 @@ script Route18_Tr4_Hiker2 {
     end
 }
 text R18Tr4_Intro {
-    ""
+    "Hahahaha!\n"
+    "How about we have a battle?\l"
+    "You and me!\l"
+    "Hahahaha!"
 }
 text R18Tr4_Lose {
-    ""
+    "I lost!\n"
+    "Hahahaha!"
 }
 text R18Tr4_PostBattle {
-    ""
+    "Hahahahaha! Something flew up my nose!\n"
+    "Hahahaha-hatchoo!"
 }
 
 script Route18_Tr5_RangerF {

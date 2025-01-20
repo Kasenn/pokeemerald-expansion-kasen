@@ -324,3 +324,9 @@ const u16 gMetatileAttributes_DesertCliff[] = INCBIN_U16("data/tilesets/secondar
 
 const u16 gMetatiles_Frostfire[] = INCBIN_U16("data/tilesets/secondary/frostfire/metatiles.bin");
 const u16 gMetatileAttributes_Frostfire[] = INCBIN_U16("data/tilesets/secondary/frostfire/metatile_attributes.bin");
+
+const u16 gMetatiles_Crystalpine[] = INCBIN_U16("data/tilesets/secondary/crystalpine/metatiles.bin");
+const u16 gMetatileAttributes_Crystalpine[] = INCBIN_U16("data/tilesets/secondary/crystalpine/metatile_attributes.bin");
+
+const u16 gMetatiles_Everfrost[] = INCBIN_U16("data/tilesets/secondary/everfrost/metatiles.bin");
+const u16 gMetatileAttributes_Everfrost[] = INCBIN_U16("data/tilesets/secondary/everfrost/metatile_attributes.bin");

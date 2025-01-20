@@ -450,6 +450,12 @@ void PlayCryInternal(u16 species, s8 pan, s8 volume, u8 priority, u8 mode)
         break;
     }
 
+    if (gSpeciesInfo[species].isMegaEvolution)
+    {
+        pitch = pitch * 106 / 100;
+        chorus = chorus * 110 / 100;
+    }
+
     SetPokemonCryVolume(volume);
     SetPokemonCryPanpot(pan);
     SetPokemonCryPitch(pitch);

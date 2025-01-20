@@ -150,16 +150,25 @@ R18_Ace_PostBattle_5:
 
 
 R18Tr1_Intro::
-	.string "$"
+	.string "My legs are solid from pounding up\n"
+	.string "and down the mountains.\p"
+	.string "They're not going to buckle easily,\n"
+	.string "friend!$"
 
 R18Tr1_Lose::
-	.string "$"
+	.string "Ouch! My legs cramped up!$"
 
 R18Tr1_PostBattle::
-	.string "$"
+	.string "Try hiking, and I mean really\n"
+	.string "pounding, on these mountain trails\l"
+	.string "with a heavy pack weighing dozens of\l"
+	.string "pounds.\p"
+	.string "That, my friend, will get your body\n"
+	.string "into serious shape.$"
 
 R18Tr2_Intro::
-	.string "$"
+	.string "Freeze!\n"
+	.string "Show me how you battle!$"
 
 R18Tr2_Lose::
 	.string "$"
@@ -177,13 +186,18 @@ R18Tr3_PostBattle::
 	.string "$"
 
 R18Tr4_Intro::
-	.string "$"
+	.string "Hahahaha!\n"
+	.string "How about we have a battle?\l"
+	.string "You and me!\l"
+	.string "Hahahaha!$"
 
 R18Tr4_Lose::
-	.string "$"
+	.string "I lost!\n"
+	.string "Hahahaha!$"
 
 R18Tr4_PostBattle::
-	.string "$"
+	.string "Hahahahaha! Something flew up my nose!\n"
+	.string "Hahahaha-hatchoo!$"
 
 R18Tr5_Intro::
 	.string "$"

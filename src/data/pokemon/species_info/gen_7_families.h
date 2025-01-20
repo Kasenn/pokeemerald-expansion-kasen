@@ -224,7 +224,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .types = { TYPE_GRASS, TYPE_GHOST },
         .abilities = { ABILITY_LONG_REACH, ABILITY_LONG_REACH, ABILITY_LONG_REACH },
         .weight = 366,
-        .cryId = CRY_DECIDUEYE_MEGA,
+        .cryId = CRY_DECIDUEYE,
         .description = COMPOUND_STRING(
             "Decidueye is cool and cautious.\n"
             "It fires arrow quills from its wings with\n"
@@ -514,7 +514,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .baseSpAttack  = 80,
         .baseSpDefense = 80,
         .abilities = {ABILITY_SEARING_RAGE, ABILITY_SEARING_RAGE, ABILITY_SEARING_RAGE},
-        .cryId = CRY_INCINEROAR_MEGA,
+        .cryId = CRY_INCINEROAR,
         .frontPic = gMonFrontPic_IncineroarMega,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 0,

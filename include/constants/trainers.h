@@ -128,7 +128,8 @@
 #define TRAINER_PIC_BW_ACE_TRAINER_F_SWIMMER                  110
 #define TRAINER_PIC_PETREL      111
 #define TRAINER_PIC_BROCK       112
-#define TRAINER_PIC_COUNT                 113
+#define TRAINER_PIC_BLAINE      113
+#define TRAINER_PIC_COUNT                 114
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0

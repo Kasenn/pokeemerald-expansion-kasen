@@ -1254,3 +1254,25 @@ const struct Tileset gTileset_Frostfire =
     .metatileAttributes = gMetatileAttributes_Frostfire,
     .callback = InitTilesetAnim_Frostfire,
 };
+
+const struct Tileset gTileset_Crystalpine =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Crystalpine,
+    .palettes = gTilesetPalettes_Crystalpine,
+    .metatiles = gMetatiles_Crystalpine,
+    .metatileAttributes = gMetatileAttributes_Crystalpine,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Everfrost =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Everfrost,
+    .palettes = gTilesetPalettes_Everfrost,
+    .metatiles = gMetatiles_Everfrost,
+    .metatileAttributes = gMetatileAttributes_Everfrost,
+    .callback = NULL,
+};

@@ -264,3 +264,17 @@ text Route1_Sign_Text{
     "while some areas may be too small\l"
     "for certain larger species."
 }
+
+script R18_PlayerTipsSign{
+    msgbox(R18_PlayerTipsSign_Text, MSGBOX_SIGN)
+}
+text R18_PlayerTipsSign_Text{
+    "Trainer Tips\p"
+    "Ice-type Pokémon are strengthened by\n"
+    "snowfall, massively increasing their\l"
+    "Defense stat.\p"
+    "This benefit does not apply in\n"
+    "a blizzard, a weather so intense,\l"
+    "it will cause damage to any\l"
+    "non-Ice-type Pokémon."
+}

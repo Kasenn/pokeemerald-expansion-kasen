@@ -130,6 +130,11 @@ Route1_Sign::
 	return
 
 
+R18_PlayerTipsSign::
+	msgbox R18_PlayerTipsSign_Text, MSGBOX_SIGN
+	return
+
+
 Route2_Landslide_Text_0:
 	.string "Looks like the route to Coralgrove City\nis buried under a landslide.\pI guess I need to take the detour\nthrough Windy Woods…$"
 
@@ -288,3 +293,13 @@ Route1_Sign_Text::
 	.string "against letting Pokémon walk freely,\l"
 	.string "while some areas may be too small\l"
 	.string "for certain larger species.$"
+
+R18_PlayerTipsSign_Text::
+	.string "Trainer Tips\p"
+	.string "Ice-type Pokémon are strengthened by\n"
+	.string "snowfall, massively increasing their\l"
+	.string "Defense stat.\p"
+	.string "This benefit does not apply in\n"
+	.string "a blizzard, a weather so intense,\l"
+	.string "it will cause damage to any\l"
+	.string "non-Ice-type Pokémon.$"

@@ -657,9 +657,9 @@ static void SpriteCB_HikerGoingUp(struct Sprite *sprite)
         switch (sprite->sSameDir)
         {
         case FALSE:
-            sprite->x++;
+            sprite->x += 2;
             if ((sprite->sTimer % 4) == 0)
-                sprite->y++;
+                sprite->y += 2;
             break;
         case TRUE:
             // Hiker moves slower if travelling with the Cable Car
@@ -677,7 +677,7 @@ static void SpriteCB_HikerGoingUp(struct Sprite *sprite)
     }
 }
 
-static void SpriteCB_HikerGoingDown(struct Sprite *sprite)
+static void UNUSED SpriteCB_HikerGoingDown(struct Sprite *sprite)
 {
     if (sprite->sTimer == 0)
         sprite->y += 16 + sprite->centerToCornerVecY;
@@ -792,21 +792,7 @@ static void CreateCableCarSprites(void)
         [FEMALE] = OBJ_EVENT_GFX_RIVAL_MAY_NORMAL
     };
     u16 rval = Random();
-    u16 hikerGraphicsIds[4] = {
-        OBJ_EVENT_GFX_HIKER,
-        OBJ_EVENT_GFX_CAMPER,
-        OBJ_EVENT_GFX_PICNICKER,
-        OBJ_EVENT_GFX_ZIGZAGOON_1
-    };
-    s16 hikerCoords[2][2] = {
-        {   0,  80 }, // Going up
-        { 240, 146 }  // Going down
-    };
     u8 hikerMovementDelayTable[4] = { 0, 60, 120, 170};
-    void (*hikerCallbacks[2])(struct Sprite *) = {
-        SpriteCB_HikerGoingUp,
-        SpriteCB_HikerGoingDown
-    };
 
     switch (GOING_DOWN)
     {
@@ -874,14 +860,19 @@ static void CreateCableCarSprites(void)
         gSprites[spriteId].y2 = 8;
     }
 
-    // 1/64 chance for an NPC to appear hiking on the ground below the Cable Car
-    if ((rval % 64) == 0)
+    // 1/5 chance for an NPC to appear hiking on the ground below the Cable Car
+    if (!FlagGet(FLAG_FIRST_SPHEAL_ROLL))
+    {
+        rval = 5;
+        FlagSet(FLAG_FIRST_SPHEAL_ROLL);
+    }
+    if ((rval % 5) == 0)
     {
         // BUGFIX: The - 1 in the below ARRAY_COUNT means the Zigzagoon is never used
 #ifdef BUGFIX
-        spriteId = CreateObjectGraphicsSprite(hikerGraphicsIds[rval % ARRAY_COUNT(hikerGraphicsIds)], hikerCallbacks[GOING_DOWN], hikerCoords[GOING_DOWN][0], hikerCoords[GOING_DOWN][1], 106);
+        spriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_SPHEAL, SpriteCB_HikerGoingUp, 0, 79, 106);
 #else
-        spriteId = CreateObjectGraphicsSprite(hikerGraphicsIds[rval % (ARRAY_COUNT(hikerGraphicsIds) - 1)], hikerCallbacks[GOING_DOWN], hikerCoords[GOING_DOWN][0], hikerCoords[GOING_DOWN][1], 106);
+        spriteId = CreateObjectGraphicsSprite(OBJ_EVENT_GFX_SPHEAL, SpriteCB_HikerGoingUp, 0, 78, 106);
 #endif
         if (spriteId != MAX_SPRITES)
         {
@@ -890,35 +881,17 @@ static void CreateCableCarSprites(void)
             gSprites[spriteId].y2 = -gSprites[spriteId].centerToCornerVecY;
 
             // Randomly choose which direction the NPC is going
+            StartSpriteAnim(&gSprites[spriteId], ANIM_STD_GO_EAST);
             if (!GOING_DOWN)
             {
-                if (rval % 2)
-                {
-                    StartSpriteAnim(&gSprites[spriteId], ANIM_STD_GO_WEST);
-                    gSprites[spriteId].sSameDir = TRUE;
-                    gSprites[spriteId].y += 2;
-                }
-                else
-                {
-                    StartSpriteAnim(&gSprites[spriteId], ANIM_STD_GO_EAST);
-                    gSprites[spriteId].sSameDir = FALSE;
-                }
+                gSprites[spriteId].sSameDir = FALSE;
+                gSprites[spriteId].sDelay = (hikerMovementDelayTable[rval % ARRAY_COUNT(hikerMovementDelayTable)]) + 90;
             }
             else
             {
-                if (rval % 2)
-                {
-                    StartSpriteAnim(&gSprites[spriteId], ANIM_STD_GO_EAST);
-                    gSprites[spriteId].sSameDir = TRUE;
-                    gSprites[spriteId].y += 2;
-                }
-                else
-                {
-                    StartSpriteAnim(&gSprites[spriteId], ANIM_STD_GO_WEST);
-                    gSprites[spriteId].sSameDir = FALSE;
-                }
+                gSprites[spriteId].sSameDir = TRUE;
+                gSprites[spriteId].sDelay = hikerMovementDelayTable[rval % ARRAY_COUNT(hikerMovementDelayTable)];
             }
-            gSprites[spriteId].sDelay = hikerMovementDelayTable[rval % ARRAY_COUNT(hikerMovementDelayTable)];
         }
     }
 }
