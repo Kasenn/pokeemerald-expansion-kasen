@@ -415,12 +415,7 @@ Debug_Script_1_12:
 
 
 Debug_Script_2::
-	waitse
-	delay 16
-	playmoncry SPECIES_BLAZIKEN, CRY_MODE_NORMAL
-	waitmoncry
-	playmoncry SPECIES_BLAZIKEN_MEGA, CRY_MODE_NORMAL
-	waitmoncry
+	trainerbattle_two_trainers TRAINER_LEADER_BLAINE, R15_AceM_Lose, TRAINER_LEADER_PRYCE, R15_AceF_Lose
 	return
 
 
@@ -501,11 +496,12 @@ ResetAdamantTower_8:
 	end
 
 
-MtChimney_CableCarStation_EventScript_Attendant2::
-	msgbox EndOfBeta, MSGBOX_NPC
+EndOfBetaBlock::
+	msgbox EndOfBeta, MSGBOX_AUTOCLOSE
+	applymovement 0xFF, Walk1Up
+	waitmovement 0
+	release
 	end
-	goto MtChimney_CableCarStation_EventScript_Attendant
-	return
 
 
 BarrenWastes_Block1::
@@ -774,8 +770,6 @@ PartyHasBeenReset::
 
 EndOfBeta::
 	.string "This is currently the end of beta.\p"
-	.string "The next update should be bringing\n"
-	.string "the cable car back online.\p"
 	.string "In the meanwhile, why don't you\n"
 	.string "try exploring some other areas?$"
 

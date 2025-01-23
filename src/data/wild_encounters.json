@@ -20395,29 +20395,29 @@
             "encounter_rate": 4,
             "mons": [
               {
-                "min_level": 28,
-                "max_level": 31,
+                "min_level": 30,
+                "max_level": 33,
                 "species": "SPECIES_TENTACOOL"
               },
               {
-                "min_level": 28,
-                "max_level": 31,
-                "species": "SPECIES_WINGULL"
+                "min_level": 30,
+                "max_level": 33,
+                "species": "SPECIES_SPHEAL"
               },
               {
-                "min_level": 33,
-                "max_level": 36,
-                "species": "SPECIES_PELIPPER"
+                "min_level": 35,
+                "max_level": 38,
+                "species": "SPECIES_SPHEAL"
               },
               {
-                "min_level": 33,
-                "max_level": 36,
+                "min_level": 35,
+                "max_level": 38,
                 "species": "SPECIES_TENTACRUEL"
               },
               {
-                "min_level": 33,
-                "max_level": 36,
-                "species": "SPECIES_TENTACRUEL"
+                "min_level": 35,
+                "max_level": 38,
+                "species": "SPECIES_SEALEO"
               }
             ]
           },

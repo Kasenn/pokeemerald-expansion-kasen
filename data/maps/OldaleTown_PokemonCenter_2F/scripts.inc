@@ -134,6 +134,13 @@ LevelTraining8::
 	return
 
 
+LevelTraining9::
+	setvar VAR_POKECENTER_TRAINING, 9
+	setvar VAR_0x8008, 10
+	goto LevelTrainingCheck
+	return
+
+
 LevelTrainingCheck::
 	lock
 	buffernumberstring STR_VAR_1, VAR_0x8008
@@ -156,10 +163,11 @@ LevelTrainingMain::
 	case 6, LevelTrainingMain_8
 	case 7, LevelTrainingMain_9
 	case 8, LevelTrainingMain_10
+	case 9, LevelTrainingMain_11
 LevelTrainingMain_1:
 	msgbox RecommendedLevel, MSGBOX_YESNO
 	compare VAR_RESULT, YES
-	goto_if_eq LevelTrainingMain_11
+	goto_if_eq LevelTrainingMain_12
 	setvar VAR_POKECENTER_TRAINING, 0
 	special CloseBattlePointsWindow
 	release
@@ -206,106 +214,121 @@ LevelTrainingMain_10:
 	goto LevelTrainingMain_1
 
 LevelTrainingMain_11:
+	buffernumberstring STR_VAR_3, 45
+	buffernumberstring STR_VAR_2, 52
+	goto LevelTrainingMain_1
+
+LevelTrainingMain_12:
 	switch VAR_POKECENTER_TRAINING
-	case 1, LevelTrainingMain_16
-	case 2, LevelTrainingMain_17
-	case 3, LevelTrainingMain_18
-	case 4, LevelTrainingMain_19
-	case 5, LevelTrainingMain_20
-	case 6, LevelTrainingMain_21
-	case 7, LevelTrainingMain_22
-	case 8, LevelTrainingMain_23
-LevelTrainingMain_14:
+	case 1, LevelTrainingMain_17
+	case 2, LevelTrainingMain_18
+	case 3, LevelTrainingMain_19
+	case 4, LevelTrainingMain_20
+	case 5, LevelTrainingMain_21
+	case 6, LevelTrainingMain_22
+	case 7, LevelTrainingMain_23
+	case 8, LevelTrainingMain_24
+	case 9, LevelTrainingMain_25
+LevelTrainingMain_15:
 	compare VAR_RESULT, PARTY_SIZE
-	goto_if_eq LevelTrainingMain_25
-LevelTrainingMain_24:
+	goto_if_eq LevelTrainingMain_27
+LevelTrainingMain_26:
 	special CloseBattlePointsWindow
 	copyvar VAR_0x8004, VAR_0x8008
 	special TakeFrontierBattlePoints
 	switch VAR_POKECENTER_TRAINING
-	case 1, LevelTrainingMain_29
-	case 2, LevelTrainingMain_30
-	case 3, LevelTrainingMain_31
-	case 4, LevelTrainingMain_32
-	case 5, LevelTrainingMain_33
-	case 6, LevelTrainingMain_34
-	case 7, LevelTrainingMain_35
-	case 8, LevelTrainingMain_36
-LevelTrainingMain_27:
+	case 1, LevelTrainingMain_31
+	case 2, LevelTrainingMain_32
+	case 3, LevelTrainingMain_33
+	case 4, LevelTrainingMain_34
+	case 5, LevelTrainingMain_35
+	case 6, LevelTrainingMain_36
+	case 7, LevelTrainingMain_37
+	case 8, LevelTrainingMain_38
+	case 9, LevelTrainingMain_39
+LevelTrainingMain_29:
 	setvar VAR_POKECENTER_TRAINING, 0
 	end
 
-LevelTrainingMain_16:
-	checkpartylevel 12
-	goto LevelTrainingMain_14
-
 LevelTrainingMain_17:
-	checkpartylevel 14
-	goto LevelTrainingMain_14
+	checkpartylevel 12
+	goto LevelTrainingMain_15
 
 LevelTrainingMain_18:
-	checkpartylevel 22
-	goto LevelTrainingMain_14
+	checkpartylevel 14
+	goto LevelTrainingMain_15
 
 LevelTrainingMain_19:
-	checkpartylevel 29
-	goto LevelTrainingMain_14
+	checkpartylevel 22
+	goto LevelTrainingMain_15
 
 LevelTrainingMain_20:
-	checkpartylevel 34
-	goto LevelTrainingMain_14
+	checkpartylevel 29
+	goto LevelTrainingMain_15
 
 LevelTrainingMain_21:
 	checkpartylevel 34
-	goto LevelTrainingMain_14
+	goto LevelTrainingMain_15
 
 LevelTrainingMain_22:
-	checkpartylevel 38
-	goto LevelTrainingMain_14
+	checkpartylevel 34
+	goto LevelTrainingMain_15
 
 LevelTrainingMain_23:
+	checkpartylevel 38
+	goto LevelTrainingMain_15
+
+LevelTrainingMain_24:
 	checkpartylevel 45
-	goto LevelTrainingMain_14
+	goto LevelTrainingMain_15
 
 LevelTrainingMain_25:
+	checkpartylevel 53
+	goto LevelTrainingMain_15
+
+LevelTrainingMain_27:
 	msgbox YourPokemonIsAboveLevel, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
-	goto_if_eq LevelTrainingMain_37
-	goto LevelTrainingMain_24
-
-LevelTrainingMain_29:
-	trainerbattle_no_intro TRAINER_EXPBOT_1, TrainingFinished
-	goto LevelTrainingMain_27
-
-LevelTrainingMain_30:
-	trainerbattle_no_intro TRAINER_EXPBOT_2, TrainingFinished
-	goto LevelTrainingMain_27
+	goto_if_eq LevelTrainingMain_40
+	goto LevelTrainingMain_26
 
 LevelTrainingMain_31:
-	trainerbattle_no_intro TRAINER_RANDALL, TrainingFinished
-	goto LevelTrainingMain_27
+	trainerbattle_no_intro TRAINER_EXPBOT_1, TrainingFinished
+	goto LevelTrainingMain_29
 
 LevelTrainingMain_32:
-	trainerbattle_no_intro TRAINER_SHORESLATE_NURSE, TrainingFinished
-	goto LevelTrainingMain_27
+	trainerbattle_no_intro TRAINER_EXPBOT_2, TrainingFinished
+	goto LevelTrainingMain_29
 
 LevelTrainingMain_33:
-	trainerbattle_no_intro TRAINER_MARIGORGE_NURSE, TrainingFinished
-	goto LevelTrainingMain_27
+	trainerbattle_no_intro TRAINER_RANDALL, TrainingFinished
+	goto LevelTrainingMain_29
 
 LevelTrainingMain_34:
-	trainerbattle_no_intro TRAINER_ROCKLIFFE_NURSE, TrainingFinished
-	goto LevelTrainingMain_27
+	trainerbattle_no_intro TRAINER_SHORESLATE_NURSE, TrainingFinished
+	goto LevelTrainingMain_29
 
 LevelTrainingMain_35:
-	trainerbattle_no_intro TRAINER_SANDSTONE_NURSE, TrainingFinished
-	goto LevelTrainingMain_27
+	trainerbattle_no_intro TRAINER_MARIGORGE_NURSE, TrainingFinished
+	goto LevelTrainingMain_29
 
 LevelTrainingMain_36:
-	trainerbattle_no_intro TRAINER_DRISLEDGE_NURSE, TrainingFinished
-	goto LevelTrainingMain_27
+	trainerbattle_no_intro TRAINER_ROCKLIFFE_NURSE, TrainingFinished
+	goto LevelTrainingMain_29
 
 LevelTrainingMain_37:
+	trainerbattle_no_intro TRAINER_SANDSTONE_NURSE, TrainingFinished
+	goto LevelTrainingMain_29
+
+LevelTrainingMain_38:
+	trainerbattle_no_intro TRAINER_DRISLEDGE_NURSE, TrainingFinished
+	goto LevelTrainingMain_29
+
+LevelTrainingMain_39:
+	trainerbattle_no_intro TRAINER_FROSTHEARTH_NURSE, TrainingFinished
+	goto LevelTrainingMain_29
+
+LevelTrainingMain_40:
 	setvar VAR_POKECENTER_TRAINING, 0
 	release
 	special CloseBattlePointsWindow

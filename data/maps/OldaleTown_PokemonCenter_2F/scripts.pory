@@ -133,6 +133,11 @@ script LevelTraining8{
 	setvar(VAR_0x8008, 10)
 	goto(LevelTrainingCheck)
 }
+script LevelTraining9{
+	setvar(VAR_POKECENTER_TRAINING, 9)
+	setvar(VAR_0x8008, 10)
+	goto(LevelTrainingCheck)
+}
 
 script LevelTrainingCheck{
 	lock
@@ -148,7 +153,7 @@ script LevelTrainingMain{
 	special(ShowBattlePointsWindow)
 	switch(var(VAR_POKECENTER_TRAINING)){
 		case 1:									// Primrose Town
-			buffernumberstring(STR_VAR_3, 6)			// Level of team
+			buffernumberstring(STR_VAR_3, 6)			// Level of trainer team
 			buffernumberstring(STR_VAR_2, 11)			// Recommended level
 		case 2:									// Coralgrove City & Azuretide Town
 			buffernumberstring(STR_VAR_3, 8)
@@ -171,6 +176,9 @@ script LevelTrainingMain{
 		case 8:									// Drisledge & Amberock
 			buffernumberstring(STR_VAR_3, 40)
 			buffernumberstring(STR_VAR_2, 44)
+		case 9:									// Frosthearth City
+			buffernumberstring(STR_VAR_3, 45)
+			buffernumberstring(STR_VAR_2, 52)
 	}
     msgbox(RecommendedLevel, MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES){
@@ -191,6 +199,8 @@ script LevelTrainingMain{
 				checkpartylevel(38)
 			case 8:
 				checkpartylevel(45)
+			case 9:
+				checkpartylevel(53)
 		}
 		if(var(VAR_RESULT) == PARTY_SIZE){
 			msgbox(YourPokemonIsAboveLevel, MSGBOX_YESNO)
@@ -221,6 +231,8 @@ script LevelTrainingMain{
 				trainerbattle_no_intro(TRAINER_SANDSTONE_NURSE, TrainingFinished)
 			case 8:
 				trainerbattle_no_intro(TRAINER_DRISLEDGE_NURSE, TrainingFinished)
+			case 9:
+				trainerbattle_no_intro(TRAINER_FROSTHEARTH_NURSE, TrainingFinished)
 		}
 		setvar(VAR_POKECENTER_TRAINING, 0)
 		end

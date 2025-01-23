@@ -62,7 +62,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Frosthearth_FilmingCrew",
-      "flag": "0"
+      "flag": "FLAG_BADGE06_GET"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_REPORTER_F",
@@ -74,8 +74,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Frosthearth_FilmingCrew",
+      "flag": "FLAG_BADGE06_GET"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LAND_SWIMMER_F",
@@ -470,7 +470,78 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 52,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "EndOfBetaBlock"
+    },
+    {
+      "type": "trigger",
+      "x": 53,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "EndOfBetaBlock"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "BasalekTown_HealTrigger2"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "BasalekTown_HealTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "BasalekTown_HealTrigger2"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "BasalekTown_HealTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 45,
+      "y": 35,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "BasalekTown_HealTrigger2"
+    },
+    {
+      "type": "trigger",
+      "x": 45,
+      "y": 36,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "BasalekTown_HealTrigger"
+    }
   ],
   "bg_events": [
     {
@@ -518,7 +589,7 @@
       "x": 42,
       "y": 44,
       "elevation": 0,
-      "item": "ITEM_ICE_GEM",
+      "item": "ITEM_SNOWBALL",
       "flag": "FLAG_FROSTFIRE_ITEM1"
     },
     {
@@ -528,6 +599,22 @@
       "elevation": 0,
       "item": "ITEM_BURN_HEAL",
       "flag": "FLAG_FROSTFIRE_ITEM2"
+    },
+    {
+      "type": "sign",
+      "x": 14,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FrostHearth_Sign6"
+    },
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 28,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "FrostHearth_Sign7"
     }
   ]
 }

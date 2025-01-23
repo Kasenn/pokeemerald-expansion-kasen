@@ -21,6 +21,7 @@
 #define WEATHER_ROUTE123_CYCLE          21
 #define WEATHER_STRONG_WINDS            22
 #define WEATHER_BLIZZARD                23
+#define WEATHER_ROUTE18_CYCLE           24
 
 // These are used in maps' coord_weather_event entries.
 // They are not a one-to-one mapping with the engine's

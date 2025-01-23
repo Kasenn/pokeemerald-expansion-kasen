@@ -1160,7 +1160,7 @@ static const struct TrainerMon sParty_Ricky1[] = {
     },
     {
         .lvl = 13,
-        .species = SPECIES_MEOWTH,
+        .species = SPECIES_RATTATA,
     }
 };
 
@@ -4046,9 +4046,40 @@ static const struct TrainerMon sParty_R12Tr6_Triath[] = {
 
 static const struct TrainerMon sParty_R12Tr7_Triath[] = {
     {
-    .lvl = 100,
-    .species = SPECIES_ABRA,
-    .moves = {MOVE_HIDDEN_POWER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .lvl = 45,
+    .species = SPECIES_EXPBOT,
+    .heldItem = ITEM_TOXIC_ORB,
+    .moves = {MOVE_HEALING_WISH}
+    },
+    {
+    .lvl = 45,
+    .species = SPECIES_EXPBOT,
+    .heldItem = ITEM_TOXIC_ORB,
+    .moves = {MOVE_HEALING_WISH}
+    },
+    {
+    .lvl = 45,
+    .species = SPECIES_EXPBOT,
+    .heldItem = ITEM_TOXIC_ORB,
+    .moves = {MOVE_HEALING_WISH}
+    },
+    {
+    .lvl = 45,
+    .species = SPECIES_EXPBOT,
+    .heldItem = ITEM_TOXIC_ORB,
+    .moves = {MOVE_HEALING_WISH}
+    },
+    {
+    .lvl = 45,
+    .species = SPECIES_EXPBOT,
+    .heldItem = ITEM_TOXIC_ORB,
+    .moves = {MOVE_HEALING_WISH}
+    },
+    {
+    .lvl = 45,
+    .species = SPECIES_EXPBOT,
+    .heldItem = ITEM_TOXIC_ORB,
+    .moves = {MOVE_MEMENTO}
     }
 };
 
@@ -6707,96 +6738,92 @@ static const struct TrainerMon sParty_TRAINER_BASALTUNNEL_TR12_BROCK[] = {
 static const struct TrainerMon sParty_TRAINER_R18_TR1_HIKER1[] = {
     {
     .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .lvl = 43,
-    .species = SPECIES_GOLDUCK,
+    .lvl = 42,
+    .species = SPECIES_GRAVELER,
     },
     {
     .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
     .lvl = 43,
-    .species = SPECIES_GOLDUCK,
+    .species = SPECIES_CRYOGONAL,
     },
 };
 
 static const struct TrainerMon sParty_TRAINER_R18_TR2_RANGER_M[] = {
     {
     .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .lvl = 43,
-    .species = SPECIES_GOLDUCK,
+    .lvl = 41,
+    .species = SPECIES_RUFFLET,
     },
     {
     .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .lvl = 43,
-    .species = SPECIES_GOLDUCK,
+    .lvl = 44,
+    .species = SPECIES_BRAVIARY,
+    .moves = {MOVE_ESPER_WING, MOVE_AIR_SLASH, MOVE_WHIRLWIND, MOVE_CRUSH_CLAW}
     },
 };
 
-static const struct TrainerMon sParty_TRAINER_R18_TR3_KINDLER[] = {
+static const struct TrainerMon sParty_TRAINER_R18_TR3_KINDLER[] = { //one super op mon
     {
-    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(252, 0, 120, 0, 0, 132),
     .lvl = 43,
     .species = SPECIES_MAGMORTAR,
+    .moves = {MOVE_LAVA_PLUME, MOVE_CONFUSE_RAY, MOVE_FIRE_BLAST, MOVE_THUNDER_PUNCH},
+    .nature = NATURE_SASSY,
     },
 };
 
 static const struct TrainerMon sParty_TRAINER_R18_TR4_HIKER2[] = {
     {
     .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .lvl = 43,
-    .species = SPECIES_GOLDUCK,
+    .lvl = 42,
+    .species = SPECIES_ONIX,
     },
     {
     .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .lvl = 43,
-    .species = SPECIES_GOLDUCK,
+    .lvl = 44,
+    .species = SPECIES_TORKOAL,
     },
 };
 
 static const struct TrainerMon sParty_TRAINER_R18_TR5_RANGER_F[] = {
     {
     .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .lvl = 43,
-    .species = SPECIES_GOLDUCK,
+    .lvl = 39,
+    .species = SPECIES_SNORUNT,
     },
     {
     .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .lvl = 43,
-    .species = SPECIES_GOLDUCK,
+    .lvl = 40,
+    .species = SPECIES_SEALEO,
+    .moves = {MOVE_HAIL, MOVE_BODY_SLAM, MOVE_AURORA_BEAM, MOVE_ICE_BALL}
     },
     {
     .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .lvl = 43,
-    .species = SPECIES_GOLDUCK,
+    .lvl = 41,
+    .species = SPECIES_RATICATE,
     },
 };
 
 static const struct TrainerMon sParty_TRAINER_R18_TR6_SCIENTIST[] = {
     {
     .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .lvl = 43,
-    .species = SPECIES_GOLDUCK,
+    .lvl = 44,
+    .species = SPECIES_MAGNEZONE,
     },
 };
 
 static const struct TrainerMon sParty_TRAINER_R18_TR7_POKEMANIAC[] = {
     {
     .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .lvl = 43,
-    .species = SPECIES_GOLDUCK,
+    .lvl = 42,
+    .species = SPECIES_GLALIE,
+    .moves = {MOVE_FREEZE_DRY, MOVE_CRUNCH, MOVE_FROST_BREATH, MOVE_PROTECT}
     },
     {
     .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
     .lvl = 43,
-    .species = SPECIES_GOLDUCK,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .lvl = 43,
-    .species = SPECIES_GOLDUCK,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .lvl = 43,
-    .species = SPECIES_GOLDUCK,
+    .species = SPECIES_WEEZING,
     },
 };
 
@@ -6804,35 +6831,42 @@ static const struct TrainerMon sParty_TRAINER_R18_TR8_BREEDER_M[] = {
     {
     .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
     .lvl = 43,
-    .species = SPECIES_GOLDUCK,
+    .species = SPECIES_TORKOAL,
     },
     {
     .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
     .lvl = 43,
-    .species = SPECIES_GOLDUCK,
+    .species = SPECIES_JYNX,
     },
 };
 
 static const struct TrainerMon sParty_TRAINER_R18_TR9_ACE_TRAINER_M[] = {
     {
-    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .lvl = 43,
-    .species = SPECIES_GOLDUCK,
+    .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
+    .lvl = 48,
+    .species = SPECIES_CRYOGONAL,
+    .moves = {MOVE_CONFUSE_RAY, MOVE_ANCIENT_POWER, MOVE_FREEZE_DRY, MOVE_SIGNAL_BEAM},
     },
     {
-    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .lvl = 43,
-    .species = SPECIES_GOLDUCK,
+    .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
+    .lvl = 49,
+    .species = SPECIES_NINETALES_ALOLA,
+    .ability = ABILITY_SNOW_CLOAK,
+    .moves = {MOVE_BLIZZARD, MOVE_EXTRASENSORY, MOVE_DAZZLING_GLEAM, MOVE_NASTY_PLOT},
     },
     {
-    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .lvl = 43,
-    .species = SPECIES_GOLDUCK,
+    .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
+    .lvl = 51,
+    .species = SPECIES_CLOYSTER,
+    .ability = ABILITY_SKILL_LINK,
+    .moves = {MOVE_SHELL_SMASH, MOVE_ICICLE_SPEAR, MOVE_SURF, MOVE_ROCK_BLAST},
     },
     {
-    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .lvl = 43,
-    .species = SPECIES_GOLDUCK,
+    .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
+    .lvl = 52,
+    .species = SPECIES_GLALIE,
+    .heldItem = ITEM_GLALITITE,
+    .moves = {MOVE_FREEZE_DRY, MOVE_BLIZZARD, MOVE_CRUNCH, MOVE_EARTHQUAKE},
     },
 };
 

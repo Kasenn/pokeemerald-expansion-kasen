@@ -1255,7 +1255,112 @@ static const struct InGameTrade sIngameTrades[] =
         .otGender = FEMALE,
         .sheen = 10,
         .requestedSpecies = SPECIES_AUDINO
-    }
+    },
+    [INGAME_TRADE_WEEZING] =
+    {
+        .nickname = _("Charles"),
+        .species = SPECIES_WEEZING_GALAR,
+        .ivs = {8, 29, 28, 19, 22, 20},
+        .otId = 03606,
+        .abilityNum = 0,
+        .conditions = {5, 5, 5, 5, 5},
+        .personality = 0x7D + NATURE_LAX,
+        .mailNum = -1,
+        .otName = _("Brett"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_WEEZING
+    },
+    [INGAME_TRADE_FARFETCHD] =
+    {
+        .nickname = _("Quackling"),
+        .species = SPECIES_FARFETCHD_GALAR,
+        .ivs = {29, 28, 21, 25, 13, 0},
+        .otId = 41555,
+        .abilityNum = 0,
+        .conditions = {5, 5, 5, 5, 5},
+        .personality = 0x7D + NATURE_QUIRKY,
+        .mailNum = -1,
+        .otName = _("Johnny"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_FARFETCHD
+    },
+    [INGAME_TRADE_MRMIME] =
+    {
+        .nickname = _("Gogo"),
+        .species = SPECIES_MR_MIME_GALAR,
+        .ivs = {23, 26, 18, 15, 8, 5},
+        .otId = 36022,
+        .abilityNum = 1,
+        .conditions = {5, 5, 5, 5, 5},
+        .personality = 0x64 + NATURE_JOLLY,
+        .mailNum = -1,
+        .otName = _("Diana"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_MR_MIME
+    },
+    [INGAME_TRADE_RATTATA] =
+    {
+        .nickname = _("Pip"),
+        .species = SPECIES_RATTATA_ALOLA,
+        .ivs = {31, 31, 31, 31, 31, 31},
+        .otId = 17993,
+        .abilityNum = 1,
+        .conditions = {5, 5, 5, 5, 5},
+        .personality = 0x7D + NATURE_ADAMANT,
+        .mailNum = -1,
+        .otName = _("Joey"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_RATTATA
+    },
+    [INGAME_TRADE_GEODUDE] =
+    {
+        .nickname = _("Bolt"),
+        .species = SPECIES_GEODUDE_ALOLA,
+        .ivs = {3, 29, 7, 25, 23, 24},
+        .otId = 44228,
+        .abilityNum = 0,
+        .conditions = {5, 5, 5, 5, 5},
+        .personality = 0x7D + NATURE_RELAXED,
+        .mailNum = -1,
+        .otName = _("Terry"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_GEODUDE
+    },
+    [INGAME_TRADE_GRIMER] =
+    {
+        .nickname = _("Tox"),
+        .species = SPECIES_GRIMER_ALOLA,
+        .ivs = {20, 20, 10, 17, 23, 28},
+        .otId = 33671,
+        .abilityNum = 0,
+        .conditions = {5, 5, 5, 5, 5},
+        .personality = 0x64 + NATURE_JOLLY,
+        .mailNum = -1,
+        .otName = _("Vanessa"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_GRIMER
+    },
+    [INGAME_TRADE_DARUMAKA] =
+    {
+        .nickname = _("Yeti"),
+        .species = SPECIES_DARUMAKA_GALAR,
+        .ivs = {12, 4, 10, 19, 10, 3},
+        .otId = 14679,
+        .abilityNum = 0,
+        .conditions = {5, 5, 5, 5, 5},
+        .personality = 0x64 + NATURE_NAUGHTY,
+        .mailNum = -1,
+        .otName = _("Hilda"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_DARUMAKA
+    },
 };
 
 static const u16 sIngameTradeMail[][MAIL_WORDS_COUNT + 1] =

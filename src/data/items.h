@@ -8328,9 +8328,9 @@ const struct Item gItemsInfo[] =
         .holdEffect = HOLD_EFFECT_SNOWBALL,
         .holdEffectParam = 0,
         .description = COMPOUND_STRING(
-            "Raises Atk if its\n"
-            "holder is hit by an\n"
-            "Ice-type move."),
+            "Raises Atk if\n"
+            "the holder is hit by\n"
+            "an Ice-type move."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
@@ -14904,5 +14904,21 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .iconPic = gItemIcon_ChargedOrb,
         .iconPalette = gItemIconPalette_ChargedOrb,
+    },
+
+    [ITEM_DISC_FRAGMENT] =
+    {
+        .name = _("Disc Fragment"),
+        .price = 0,
+        .description = COMPOUND_STRING(         
+            "Fragment of\n"
+            "what looks like\n"
+            "a TM disc."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_BrokenTM,
+        .iconPalette = gItemIconPalette_PsychicTMHM,
     },
 };

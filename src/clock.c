@@ -57,6 +57,7 @@ static void UpdatePerDay(struct Time *localTime)
         daysSince = localTime->days - *days;
         ClearDailyFlags();
         RandomizeDailyVariables();
+        RandomizeFanClubTrade();
         SetGrottos();
         UpdateVarsAndFlags();
         // UpdateDewfordTrendPerDay(daysSince);

@@ -277,9 +277,9 @@
 #define VAR_BASALEK_LEVEL_REWARD                               0x4100
 #define VAR_HOUNDOOMS_DEFEATED                               0x4101
 #define VAR_ROCK_CLIMB_USED                               0x4102
-#define VAR_UNUSED_0x4103                               0x4103
-#define VAR_UNUSED_0x4104                               0x4104
-#define VAR_UNUSED_0x4105                               0x4105
+#define VAR_FROSTHEARTH_TYPE_CHECK                               0x4103
+#define VAR_MOTEL_CUSTOMERS                               0x4104
+#define VAR_FROSTHEARTH_TRADE_MON                               0x4105
 #define VAR_UNUSED_0x4106                               0x4106
 #define VAR_UNUSED_0x4107                               0x4107
 #define VAR_UNUSED_0x4108                               0x4108

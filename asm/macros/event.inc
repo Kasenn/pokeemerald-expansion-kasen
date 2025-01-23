@@ -2013,6 +2013,13 @@
 	.2byte \monLevel
 	.endm
 
+	@ buffers the name of the type to the specied string variable.
+	.macro buffertypename stringVarId:req, type:req
+	callnative ScrCmd_buffertypename
+	stringvar \stringVarId
+	.2byte \type
+	.endm
+
 	@ Opens the Pokemart system, offering the specified products for sale.
 	@ Products should be a list of .2byte item values preceded by an .align 2
 	@ Uses BP as currency, with the prices based on the .bpCost value

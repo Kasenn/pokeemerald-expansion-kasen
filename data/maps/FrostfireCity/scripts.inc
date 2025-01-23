@@ -27,6 +27,16 @@ FrostHearth_Sign5::
 	return
 
 
+FrostHearth_Sign6::
+	msgbox FrostHearth_Sign6_Text, MSGBOX_SIGN
+	return
+
+
+FrostHearth_Sign7::
+	msgbox FrostHearth_Sign7_Text, MSGBOX_SIGN
+	return
+
+
 Frosthearth_GymUnavailable::
 	msgbox Frosthearth_GymUnavailable_Text, MSGBOX_NPC
 	setflag FLAG_FIND_PRYCE_QUEST
@@ -141,6 +151,14 @@ FrostHearth_Sign4_Text::
 
 FrostHearth_Sign5_Text::
 	.string "The Pokémon World Tournament$"
+
+FrostHearth_Sign6_Text::
+	.string "Mr. Hyper's Hyper Training School\n"
+	.string "“Train your Pokémon like a pro!”$"
+
+FrostHearth_Sign7_Text::
+	.string "FROSTHEARTH CITY\n"
+	.string "“The capitol of the north.”$"
 
 Frosthearth_GymUnavailable_Text::
 	.string "I'm sorry, but we can't currently\n"

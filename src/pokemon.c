@@ -6155,76 +6155,47 @@ bool8 IsTradedMon(struct Pokemon *mon)
 
 bool8 IsLevelCapped(struct Pokemon *mon)
 {
-    u8 level = GetMonData(mon, MON_DATA_LEVEL, NULL);
+    u8 monLevel = GetMonData(mon, MON_DATA_LEVEL, NULL);
+    u8 maxLevel = 0;
 
-    if(VarGet(VAR_POKECENTER_TRAINING) == 0){
+    switch (VarGet(VAR_POKECENTER_TRAINING))
+    {
+        case 0:
+            return FALSE;
+            break;
+        case 1:
+            maxLevel = 12;
+            break;
+        case 2:
+            maxLevel = 14;
+            break;
+        case 3:
+            maxLevel = 22;
+            break;
+        case 4:
+            maxLevel = 29;
+            break;
+        case 5:
+        case 6:
+            maxLevel = 34;
+            break;
+        case 7:
+            maxLevel = 38;
+            break;
+        case 8:
+            maxLevel = 45;
+            break;
+        case 9:
+            maxLevel = 53;
+            break;
+    }
+
+    if(monLevel >= maxLevel){
+        return TRUE;
+    }
+    else{
         return FALSE;
     }
-    if(VarGet(VAR_POKECENTER_TRAINING) == 1){
-        if(level >= 12){
-            return TRUE;
-        }
-        else{
-            return FALSE;
-        }
-    }
-    if(VarGet(VAR_POKECENTER_TRAINING) == 2){
-        if(level >= 14){
-            return TRUE;
-        }
-        else{
-            return FALSE;
-        }
-    }
-    if(VarGet(VAR_POKECENTER_TRAINING) == 3){
-        if(level >= 22){
-            return TRUE;
-        }
-        else{
-            return FALSE;
-        }
-    }
-    if(VarGet(VAR_POKECENTER_TRAINING) == 4){
-        if(level >= 29){
-            return TRUE;
-        }
-        else{
-            return FALSE;
-        }
-    }
-    if(VarGet(VAR_POKECENTER_TRAINING) == 5){
-        if(level >= 34){
-            return TRUE;
-        }
-        else{
-            return FALSE;
-        }
-    }
-    if(VarGet(VAR_POKECENTER_TRAINING) == 6){
-        if(level >= 34){
-            return TRUE;
-        }
-        else{
-            return FALSE;
-        }
-    }
-    if(VarGet(VAR_POKECENTER_TRAINING) == 7){
-        if(level >= 38){
-            return TRUE;
-        }
-        else{
-            return FALSE;
-        }
-    }
-    if(VarGet(VAR_POKECENTER_TRAINING) == 8){
-        if(level >= 45){
-            return TRUE;
-        }
-        else{
-            return FALSE;
-        }
-    }
-    return 0;
 }
 
 bool8 IsOtherTrainer(u32 otId, u8 *otName)

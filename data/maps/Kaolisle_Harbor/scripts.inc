@@ -77,6 +77,7 @@ Harbor_BoardFerryGoingEast::
 	delay 30
 	hideobjectat 3, MAP_KAOLISLE_HARBOR
 	hideobjectat 3, MAP_CORALGROVE_HARVOR_INTERIOR
+	hideobjectat 3, MAP_FROSTHEARTH_CITY_HARBOR
 	call_if_eq VAR_FACING, DIR_NORTH, Harbor_BoardFerryNorth
 	call_if_eq VAR_FACING, DIR_EAST, Harbor_BoardFerryEast
 	delay 30

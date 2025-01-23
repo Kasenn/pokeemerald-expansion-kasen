@@ -1,6 +1,7 @@
 #include "global.h"
 #include "frontier_util.h"
 #include "battle_setup.h"
+#include "battle_main.h"
 #include "berry.h"
 #include "clock.h"
 #include "coins.h"
@@ -2942,4 +2943,13 @@ void ScrCmd_matchpartylevel(struct ScriptContext *ctx)
             break;
         }
     }
+}
+
+bool8 ScrCmd_buffertypename(struct ScriptContext *ctx)
+{
+    u8 stringVarIndex = ScriptReadByte(ctx);
+    u16 type = VarGet(ScriptReadHalfword(ctx));
+
+    StringCopy(sScriptStringVars[stringVarIndex], gTypesInfo[type].name);
+    return FALSE;
 }

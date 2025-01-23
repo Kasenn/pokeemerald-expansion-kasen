@@ -1,0 +1,249 @@
+mapscripts FrosthearthCity_House1_MapScripts {
+    
+}
+
+script Frosthearth_HyperTraining_Guru{
+    if(!flag(FLAG_INTRODUCTION_TO_HYPER_TRAINING)){
+        setflag(FLAG_INTRODUCTION_TO_HYPER_TRAINING)
+        msgbox(HyperTrainingIntro_Text, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    if(msgbox(InterestedInHyperTraining, MSGBOX_YESNO) == FALSE){
+        msgbox(NotInterestedInHyperTraining, MSGBOX_AUTOCLOSE)
+        end
+    }
+    if(checkitem(ITEM_BOTTLE_CAP) == FALSE){
+        if(checkitem(ITEM_GOLD_BOTTLE_CAP) == FALSE){
+            msgbox(NoBottleCaps, MSGBOX_AUTOCLOSE)
+            end
+        }
+    }
+    removeallitem(ITEM_BOTTLE_CAP)
+    removeallitem(ITEM_GOLD_BOTTLE_CAP)
+    msgbox(CheatingAndy, MSGBOX_AUTOCLOSE)
+    end
+}
+
+text HyperTrainingIntro_Text{
+    "The name's Mr. Hyper!\p"
+    "You want to know why I'm so hyper?\p"
+    "Because I can help Pokémon do\n"
+    "Hyper Training!\p"
+    "Allow me to explain!\p"
+    "Hyper Training is a way to help\n"
+    "Pokémon that have reached Lv. 50\l"
+    "become even stronger!\p"
+    "This special training can help them\n"
+    "increase their strength and HP and\l"
+    "other stats!\p"
+    "If you want me to train up your\n"
+    "Pokémon, bring me some Bottle Caps.\l"
+    "I collect them.\p"
+    "A regular Bottle Cap will get you\n"
+    "training for a single stat.\p"
+    "But bring me a rare Gold Bottle Cap,\n"
+    "and I'll train up all your Pokémon's\l"
+    "stats to the max at once!"
+}
+
+text InterestedInHyperTraining{
+    "Want to try some of my Hyper Training\n"
+    "to boost your Pokémon's stats?"
+}
+text NotInterestedInHyperTraining{
+    "Then come back anytime!\p"
+    "Mr. Hyper will always be hyped up\n"
+    "to see you!"
+}
+text NoBottleCaps{
+    "Oh no… No, no, no!\p"
+    "You don't have a Bottle Cap or a\n"
+    "Gold Bottle Cap! Not even one!"
+}
+text CheatingAndy{
+    "There's no way you could have obtained\n"
+    "these Bottle Caps legitimately!\p"
+    "I have no choice but to\n"
+    "confiscate them!"
+}
+
+script Frosthearth_TypeChecker{
+    if(var(VAR_FROSTHEARTH_TYPE_CHECK) == TYPE_ELECTRIC || var(VAR_FROSTHEARTH_TYPE_CHECK) == TYPE_ICE){
+        bufferstring(STR_VAR_2, "an")
+    }
+    else{
+        bufferstring(STR_VAR_2, "a")
+    }
+    buffertypename(STR_VAR_1, VAR_FROSTHEARTH_TYPE_CHECK)
+    lock
+    faceplayer
+    if(flag(FLAG_DAILY_FROSTHEARTH_TYPE_CHECK)){
+        msgbox(TypeCheckerComeBackTomorrow, MSGBOX_AUTOCLOSE)
+        end
+    }
+    msgbox(LookingForType)
+    copyvar(VAR_0x8004, VAR_FROSTHEARTH_TYPE_CHECK)
+    special(IsTypeInParty)
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    msgbox(YouHaveTypeInParty)
+    switch(var(VAR_FROSTHEARTH_TYPE_CHECK)){
+        case TYPE_NORMAL:
+            giveitem(ITEM_NORMAL_GEM)
+        case TYPE_FIGHTING:
+            giveitem(ITEM_FIGHTING_GEM)
+        case TYPE_FLYING:
+            giveitem(ITEM_FLYING_GEM)
+        case TYPE_POISON:
+            giveitem(ITEM_POISON_GEM)
+        case TYPE_GROUND:
+            giveitem(ITEM_GROUND_GEM)
+        case TYPE_ROCK:
+            giveitem(ITEM_ROCK_GEM)
+        case TYPE_BUG:
+            giveitem(ITEM_BUG_GEM)
+        case TYPE_GHOST:
+            giveitem(ITEM_GHOST_GEM)
+        case TYPE_STEEL:
+            giveitem(ITEM_STEEL_GEM)
+        case TYPE_FIRE:
+            giveitem(ITEM_FIRE_GEM)
+        case TYPE_WATER:
+            giveitem(ITEM_WATER_GEM)
+        case TYPE_GRASS:
+            giveitem(ITEM_GRASS_GEM)
+        case TYPE_ELECTRIC:
+            giveitem(ITEM_ELECTRIC_GEM)
+        case TYPE_PSYCHIC:
+            giveitem(ITEM_PSYCHIC_GEM)
+        case TYPE_ICE:
+            giveitem(ITEM_ICE_GEM)
+        case TYPE_DRAGON:
+            giveitem(ITEM_DRAGON_GEM)
+        case TYPE_DARK:
+            giveitem(ITEM_DARK_GEM)
+        case TYPE_FAIRY:
+            giveitem(ITEM_FAIRY_GEM)
+    }
+    if(var(VAR_RESULT) == FALSE){
+        goto(ZeBagIsFull)
+    }
+    setflag(FLAG_DAILY_FROSTHEARTH_TYPE_CHECK)
+    release
+    end
+}
+
+text TypeCheckerComeBackTomorrow{
+    "That was a fun little sport.\p"
+    "Come back tomorrow, and I might\n"
+    "have something new to give."
+}
+text LookingForType{
+    "You know what?\p"
+    "Today, I would really fancy seeing\n"
+    "{STR_VAR_2} {STR_VAR_1}-type Pokémon.\p"
+    "If you can show me one,\n"
+    "I'll give you something nice."
+}
+text YouHaveTypeInParty{
+    "Oh, but you do have\n"
+    "{STR_VAR_2} {STR_VAR_1}-type Pokémon!\p"
+    "Well, a promise's a promise.\n"
+    "Here you go!"
+}
+
+script Frosthearth_House2_Man{
+    msgbox(Frosthearth_House2_Man_Text, MSGBOX_NPC)
+}
+script Frosthearth_House2_Woman{
+    msgbox(Frosthearth_House2_Woman_Text, MSGBOX_NPC)
+}
+
+text Frosthearth_House2_Man_Text{
+    "Living up here ain't too bad.\p"
+    "The heat rising from the ground is\n"
+    "keeping our homes all nice and cozy."
+}
+text Frosthearth_House2_Woman_Text{
+    "Most of the time, the snowfall is\n"
+    "actually pretty relaxing.\p"
+    "What isn't relaxing though,\n"
+    "are the occasional blizzards."
+}
+
+script Frosthearth_House4_Woman{
+    msgbox(Frosthearth_House4_Woman_Text, MSGBOX_NPC)
+}
+text Frosthearth_House4_Woman_Text{
+    "Have you heard the latest news?\p"
+    "Some people have reported seeing\n"
+    "windows to alternate universes\l"
+    "appearing in the wilds.\p"
+    "Sounds to me like crazy people talk."
+}
+
+script Frosthearth_Harbor_Sailor{
+    msgbox(Frosthearth_Harbor_Sailor_Text, MSGBOX_NPC)
+}
+script Frosthearth_Harbor_OldWoman{
+    msgbox(Frosthearth_Harbor_OldWoman_Text, MSGBOX_NPC)
+}
+
+text Frosthearth_Harbor_Sailor_Text{
+    "In order to sail in these parts\n"
+    "of the world, the ships must have\l"
+    "strengthened hulls that can withstand\l"
+    "the impact of the ice hitting the\l"
+    "ship's bow."
+}
+text Frosthearth_Harbor_OldWoman_Text{
+    "Many tourists visit Frosthearth City\n"
+    "to watch the battles at the\l"
+    "Pokémon World Tournament, or to\l"
+    "relax by the hot springs.\p"
+    "This city has something for everyone!"
+}
+
+script FrosthearthHarbor_Attendant{
+    lock
+    faceplayer
+    if(msgbox(Frosthearth_Text_GetAboard, MSGBOX_YESNO) == FALSE){
+        goto(Harbor_ComeAgain)
+    }
+    message("Where would you like to sail?")
+    waitmessage
+    dynmultichoice(23, 0, FALSE, 4, 0, 0, "Coralgrove City", "Azuretide Town", "Shoreslate City", "Kaolisle City", "Rockliffe Town", "Nevermind")
+    switch(var(VAR_RESULT)){
+        case 0:
+            call(Harbor_BoardFerryGoingEast)     // make sure the attendant is id 3 and boat is id 4
+	        warp(MAP_CORALGROVE_HARVOR_INTERIOR, 7, 10)
+        case 1:
+            call(Harbor_BoardFerryGoingEast)
+	        warp(MAP_COAST_TOWN_HARBOR, 16, 10)
+        case 2:
+            call(Harbor_BoardFerryGoingEast)
+	        warp(MAP_SHORESLATE_HARBOR, 16, 10)
+        case 3:
+            call(Harbor_BoardFerryGoingEast)
+	        warp(MAP_KAOLISLE_HARBOR, 7, 10)
+        case 4:
+            call(Harbor_BoardFerryGoingEast)
+	        warp(MAP_ROCKLIFFE_HARBOR, 8, 3)
+        case 5:
+        case MULTI_B_PRESSED:
+            goto(Harbor_ComeAgain)
+    }
+	waitstate
+	release
+	end
+}
+
+text Frosthearth_Text_GetAboard{
+    "The ferry is about to leave\n"
+    "the port soon.\p"
+	"Would you like to board the ferry?"
+}

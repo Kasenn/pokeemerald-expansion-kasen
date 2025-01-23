@@ -23,8 +23,11 @@ text IllTakeYourBPNow{
 }
 
 text BP_Mart_Greetings{
-    "We got the moves,\n"
-    "we got the groove."
+    "Hello!\p"
+	"Welcome to the\n"
+	"Exchange Service Corner!\p"
+	"Would you like to trade in your BP\n"
+	"for some exquisite moves?"
 }
 
 text BP_Mart_Greetings2{
@@ -41,14 +44,19 @@ text PleaseSaveSomeBp{
 }
 
 mart BP_Mart_Moves{
-    MOVE_THUNDER_PUNCH
-    MOVE_FIRE_PUNCH
-    MOVE_ICE_PUNCH
-    MOVE_DRAIN_PUNCH
-    MOVE_KNOCK_OFF
+    MOVE_SPITE
+    MOVE_AFTER_YOU
+    MOVE_ALLY_SWITCH
+    MOVE_GRAVITY
+    MOVE_TELEKINESIS
+    MOVE_ROLE_PLAY
+    MOVE_WONDER_ROOM
+    MOVE_AQUA_TAIL
+    MOVE_GASTRO_ACID
+    MOVE_SEED_BOMB
+    MOVE_LASER_FOCUS
     MOVE_SUPER_FANG
     MOVE_DUAL_CHOP
-    MOVE_ENDEAVOR
     MOVE_NONE
 }
 
@@ -63,135 +71,139 @@ script BP_Mart_ItemShop{
 }
 
 mart BP_Mart_Items{
-    ITEM_TOXIC_ORB
-    ITEM_FLAME_ORB
-    ITEM_IRON_BALL
-    ITEM_RING_TARGET
     ITEM_WHITE_HERB
-    ITEM_MENTAL_HERB
     ITEM_POWER_HERB
-    ITEM_FOCUS_SASH
-    ITEM_AIR_BALLOON
+    ITEM_ABSORB_BULB
+    ITEM_CELL_BATTERY
+    ITEM_LUMINOUS_MOSS
+    ITEM_SNOWBALL
     ITEM_RED_CARD
     ITEM_EJECT_BUTTON
+    ITEM_RARE_CANDY
+    ITEM_ABILITY_CAPSULE
     ITEM_NONE
 }
 
-script TestDir{
-    lock
-    switch(var(VAR_FACING)){
-        case DIR_NORTH:
-            msgbox("facing north")
-        case DIR_WEST:
-            msgbox("facing west")
-        case DIR_EAST:
-            msgbox("facing east")
-        case DIR_SOUTH:
-            msgbox("facing south")
-    }
-    release
-}
-
-// mapscripts TestMap_MapScripts{
-//     MAP_SCRIPT_ON_TRANSITION: RandomizeWarp
-// }
-
-// script RandomizeWarp{
-//     random(3)
-//     copyvar(VAR_TEMP_1, VAR_RESULT)
-// }
-
-// script WarpTile1{
-//     if(var(VAR_TEMP_1) == 0){
-//         warpteleport()  // correct warp
-//     }
-//     else{
-//         warpteleport()  // wrong warp
-//     }
-// }
-
-// script WarpTile2{
-//     if(var(VAR_TEMP_1) == 1){
-//         warpteleport()  // correct warp
-//     }
-//     else{
-//         warpteleport()  // wrong warp
-//     }
-// }
-
-// script WarpTile3{
-//     if(var(VAR_TEMP_1) == 2){
-//         warpteleport()  // correct warp
-//     }
-//     else{
-//         warpteleport()  // wrong warp
-//     }
-// }
-
-// script WarpTile4{
-//     if(var(VAR_TEMP_1) == 3){
-//         warpteleport()  // correct warp
-//     }
-//     else{
-//         warpteleport()  // wrong warp
-//     }
-// }
-
-script DebugGuy{
+script BP_Mart_ItemShop2{
     lock
     faceplayer
-    msgbox(EnableMoveInfo, MSGBOX_YESNO)
-    if(var(VAR_RESULT) == FALSE){
-        clearflag(FLAG_TEMP_1)
-        clearflag(FLAG_TEMP_2)
-        msgbox(BasicMenu)
-        release
-        end
+    message(BP_Mart_Greetings2)
+    waitmessage
+    if(flag(FLAG_LATIAS_ROAMING) || flag(FLAG_LATIOS_ROAMING)){
+        bpmart(BP_Mart_Items2LegendaryOn, FALSE)    // TRUE for move tutor, FALSE for item shop
     }
-    setflag(FLAG_TEMP_1)
-    msgbox(EnableContestInfo, MSGBOX_YESNO)
-    if(var(VAR_RESULT) == FALSE){
-        clearflag(FLAG_TEMP_2)
-        msgbox(MoveInfoEnabled)
-        release
-        end
+    else{
+        bpmart(BP_Mart_Items2, FALSE)    // TRUE for move tutor, FALSE for item shop
     }
-    setflag(FLAG_TEMP_2)
-    msgbox(EverythingEnabled)
+    msgbox(PleaseSaveSomeBp)
     release
 }
 
-text EnableMoveInfo{
-    "Enable move info window?"
+mart BP_Mart_Items2{
+    ITEM_VENUSAURITE
+    ITEM_CHARIZARDITE_X
+    ITEM_CHARIZARDITE_Y
+    ITEM_BLASTOISINITE
+    ITEM_GARDEVOIRITE
+    ITEM_GALLADITE
+    ITEM_SABLENITE
+    ITEM_BANETTITE
+    ITEM_NONE
 }
-text BasicMenu{
-    "Move Tutor set to default."
-}
-text EnableContestInfo{
-    "Enable contest move info?"
-}
-text MoveInfoEnabled{
-    "Move Tutor set to show\n"
-    "basic move info."
-}
-text EverythingEnabled{
-    "Move Tutor set to show\n"
-    "all move info."
+mart BP_Mart_Items2LegendaryOn{
+    ITEM_VENUSAURITE
+    ITEM_CHARIZARDITE_X
+    ITEM_CHARIZARDITE_Y
+    ITEM_BLASTOISINITE
+    ITEM_GARDEVOIRITE
+    ITEM_GALLADITE
+    ITEM_SABLENITE
+    ITEM_BANETTITE
+    ITEM_LATIASITE
+    ITEM_LATIOSITE
+    ITEM_NONE
 }
 
-// "It's the Pokémon World Tournament!\n"
-// "It's all in the name!\p"
-// "Trainers have gathered\n"
-// "from all over the world!
+script FeatureNotReady{
+    msgbox(FeatureNotReady_Text, MSGBOX_NPC)
+}
+text FeatureNotReady_Text{
+    "This feature is not currently\n"
+    "available.\p"
+    "We apologize for the inconvenience."
+}
 
-// "Someday, I'll be a famous guy!\p"
-// "But for now, I'm just a spectator here."
+script WorldTournamentYoungster{
+    msgbox(WorldTournamentYoungster_Text, MSGBOX_NPC)
+}
+script WorldTournamentGentleman{
+    msgbox(WorldTournamentGentleman_Text, MSGBOX_NPC)
+}
+script WorldTournamentAceTrainer{
+    msgbox(WorldTournamentAceTrainer_Text, MSGBOX_NPC)
+}
+script WorldTournamentScientist{
+    msgbox(WorldTournamentScientist_Text, MSGBOX_NPC)
+}
+script WorldTournamentHiker{
+    msgbox(WorldTournamentHiker_Text, MSGBOX_NPC)
+}
+script WorldTournamentMan5{
+    msgbox(WorldTournamentMan5_Text, MSGBOX_NPC)
+}
+script WorldTournamentGirl3{
+    msgbox(WorldTournamentGirl3_Text, MSGBOX_NPC)
+}
+script WorldTournamentLeftBouncer{
+    msgbox(WorldTournamentLeftBouncer_Text, MSGBOX_NPC)
+}
+script WorldTournamentRightBouncer{
+    msgbox(WorldTournamentRightBouncer_Text, MSGBOX_NPC)
+}
 
-// "Many trainers from far away will come\n"
-// "to participate!"
-
-// "It's crazy popular! This is what\n"
-// "packed to the rafters means!"
-
-// "That's the Pokemon World Tournament\n"
-// "for you! It's packed with spectators!"
+text WorldTournamentYoungster_Text{
+    "Someday, I'll be a famous guy!\p"
+    "But for now, I'm just a spectator\n"
+    "here."
+}
+text WorldTournamentGentleman_Text{
+    "The Pokémon World Tournament\n"
+    "attracts big names as well.\p"
+    "I'm pretty sure I saw Aaron,\n"
+    "the Gym Leader of Coralgrove City\l"
+    "waltz in not too long ago."
+}
+text WorldTournamentAceTrainer_Text{
+    "It's the Pokémon World Tournament!\n"
+    "It's all in the name!\p"
+    "Trainers have gathered\n"
+    "from all over the world!"
+}
+text WorldTournamentScientist_Text{
+    "The crowd will go wild for\n"
+    "my Pokémon!"
+}
+text WorldTournamentHiker_Text{
+    "Many trainers from far away\n"
+    "will come to participate!"
+}
+text WorldTournamentMan5_Text{
+    "I'm not much of a trainer myself,\n"
+    "but my brother has come real close\l"
+    "to winning in the past.\p"
+    "If we cheer loud enough,\n"
+    "he'll definitely win this time!"
+}
+text WorldTournamentGirl3_Text{
+    "The competition is really fierce\n"
+    "this time around.\p"
+    "I can't wait to see who wins!"
+}
+text WorldTournamentLeftBouncer_Text{
+    "That's the Pokemon World Tournament\n"
+    "for you! It's packed with spectators!"
+}
+text WorldTournamentRightBouncer_Text{
+    "It's crazy popular! This is what\n"
+    "packed to the rafters means!"
+}

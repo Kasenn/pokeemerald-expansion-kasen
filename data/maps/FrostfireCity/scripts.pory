@@ -17,6 +17,12 @@ script FrostHearth_Sign4{
 script FrostHearth_Sign5{
     msgbox(FrostHearth_Sign5_Text, MSGBOX_SIGN)
 }
+script FrostHearth_Sign6{
+    msgbox(FrostHearth_Sign6_Text, MSGBOX_SIGN)
+}
+script FrostHearth_Sign7{
+    msgbox(FrostHearth_Sign7_Text, MSGBOX_SIGN)
+}
 
 text FrostHearth_Sign1_Text{
     "Frosthearth City Pokémon Gym\n"
@@ -34,6 +40,14 @@ text FrostHearth_Sign4_Text{
 }
 text FrostHearth_Sign5_Text{
     "The Pokémon World Tournament"
+}
+text FrostHearth_Sign6_Text{
+    "Mr. Hyper's Hyper Training School\n"
+    "“Train your Pokémon like a pro!”"
+}
+text FrostHearth_Sign7_Text{
+    "FROSTHEARTH CITY\n"
+	"“The capitol of the north.”"
 }
 
 script Frosthearth_GymUnavailable{

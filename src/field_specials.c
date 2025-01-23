@@ -1300,6 +1300,27 @@ void IsGrassTypeInParty(void)
     gSpecialVar_Result = FALSE;
 }
 
+void IsTypeInParty(void)
+{
+    u8 i;
+    u16 species;
+    struct Pokemon *pokemon;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        pokemon = &gPlayerParty[i];
+        if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
+        {
+            species = GetMonData(pokemon, MON_DATA_SPECIES);
+            if (gSpeciesInfo[species].types[0] == gSpecialVar_0x8004 || gSpeciesInfo[species].types[1] == gSpecialVar_0x8004)
+            {
+                gSpecialVar_Result = TRUE;
+                return;
+            }
+        }
+    }
+    gSpecialVar_Result = FALSE;
+}
+
 void IsFireTypeInParty(void)
 {
     u8 i;

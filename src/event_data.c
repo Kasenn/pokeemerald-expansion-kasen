@@ -55,9 +55,48 @@ void ClearDailyFlags(void)
     memset(&gSaveBlock1Ptr->flags[DAILY_FLAGS_START / 8], 0, DAILY_FLAGS_SIZE);
 }
 
+static const u16 sTradeFlags[] =
+{
+    FLAG_TRADED_WEEZING,
+    FLAG_TRADED_FARFETCHD,
+    FLAG_TRADED_MR_MIME,
+    FLAG_TRADED_RATTATA,
+    FLAG_TRADED_GEODUDE,
+    FLAG_TRADED_GRIMER,
+    FLAG_TRADED_DARUMAKA,
+};
+
+void RandomizeFanClubTrade(void)
+{
+    u32 rand;
+    u8 i, completedTrades = 0;
+    u8 numOfTrades = ARRAY_COUNT(sTradeFlags);
+
+    for (i = 0; i < numOfTrades; i++)
+    {
+        if (FlagGet(sTradeFlags[i]))
+        {
+            completedTrades++;
+        }
+    }
+    if (completedTrades == numOfTrades)
+    {
+        VarSet(VAR_FROSTHEARTH_TRADE_MON, 0);
+        return;
+    }
+
+    do
+    {
+        rand = (Random() % numOfTrades);
+    } while (FlagGet(sTradeFlags[rand]));
+
+    VarSet(VAR_FROSTHEARTH_TRADE_MON, rand + 1);
+}
+
 void RandomizeDailyVariables(void)
 {
     u32 rand;
+    u32 type = TYPE_NONE;
 
     // Kaolisle Hotel Heart Scale NPC
     rand = (Random() % 50) + 1;
@@ -65,7 +104,16 @@ void RandomizeDailyVariables(void)
     VarSet(VAR_BPBEAUTY_STATE, 0);
 
     // Basalek Town level checker
-    VarSet(VAR_BASALEK_LEVEL_CHECK, (Random() % 100 + 1));
+    VarSet (VAR_BASALEK_LEVEL_CHECK, (Random() % 100 + 1));
+
+    while (type == TYPE_NONE || type == TYPE_MYSTERY || type == TYPE_STELLAR)
+    {
+        type = Random() % NUMBER_OF_MON_TYPES;
+    }
+    VarSet(VAR_FROSTHEARTH_TYPE_CHECK, type);
+
+    rand = (Random() % 4) + 1;
+    VarSet(VAR_MOTEL_CUSTOMERS, rand);
 }
 
 void SetGrottos(void)

@@ -9123,7 +9123,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .name = COMPOUND_STRING("Gravity"),
         .bpCost = (B_MOVE_TUTOR_COSTS <= GEN_5) ? 32 : 8,
         .description = COMPOUND_STRING(
-            "Gravity is intensified\n"
+            "Gravity is intensified,\n"
             "negating levitation."),
         .effect = EFFECT_GRAVITY,
         .power = 0,

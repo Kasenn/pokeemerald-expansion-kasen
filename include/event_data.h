@@ -5,6 +5,7 @@ void InitEventData(void);
 void ClearTempFieldEventData(void);
 void ClearDailyFlags(void);
 void RandomizeDailyVariables(void);
+void RandomizeFanClubTrade(void);
 void SetGrottos(void);
 void DisableNationalPokedex(void);
 void EnableNationalPokedex(void);

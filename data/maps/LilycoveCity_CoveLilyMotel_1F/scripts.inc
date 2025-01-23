@@ -29,6 +29,7 @@ LilycoveCity_CoveLilyMotel_1F_EventScript_AquaHideoutBusted::
 	end
 
 LilycoveCity_CoveLilyMotel_1F_EventScript_GameClear::
+	lock
 	msgbox LilycoveCity_CoveLilyMotel_1F_Text_HouseSittingMonCaughtBurglar, MSGBOX_DEFAULT
 	applymovement LOCALID_OWNER, Common_Movement_FacePlayer
 	waitmovement 0
@@ -112,20 +113,16 @@ LilycoveCity_CoveLilyMotel_1F_Text_HeardAquaHideoutBusted:
 	.string "GAME something…$"
 
 LilycoveCity_CoveLilyMotel_1F_Text_HouseSittingMonCaughtBurglar:
-	.string "Amazing! A house-sitting POKéMON\n"
+	.string "Amazing! A house-sitting Pokémon\n"
 	.string "caught a burglar?\p"
 	.string "That's something. If we had a tough\n"
-	.string "POKéMON as a security guard…\p"
+	.string "Pokémon as a security guard…\p"
 	.string "We would be able to provide our guests\n"
 	.string "with greater safety.$"
 
 LilycoveCity_CoveLilyMotel_1F_Text_BetterGetWorkingOnGuestsDinner:
-	.string "Oh, sorry, sorry!\n"
-	.string "I was too involved in watching TV.\p"
-	.string "Oh, yes. A big group of guests arrived\n"
-	.string "a little while ago.\p"
-	.string "They booked in as GAME FREAK,\n"
-	.string "so I guess they must make games.\p"
-	.string "Uh-oh, I'd better get working on\n"
-	.string "their dinner!$"
+	.string "Uh oh, I completely forgot!\p"
+	.string "I've got a lot of guests upstairs\n"
+	.string "and I haven't even started working on\l"
+	.string "their dinner yet!$"
 

@@ -246,7 +246,7 @@
 #define TRAINER_R12_TR4_TRIATHLETE_M2                       240
 #define TRAINER_R12_TR5_TRIATHLETE_M3                       241
 #define TRAINER_R12_TR6_TRIATHLETE_F3                       242
-#define TRAINER_UNUSED_243                                  243
+#define TRAINER_FROSTHEARTH_NURSE                                  243
 #define TRAINER_R16_TR5_SWIMMER_F                                 244
 #define TRAINER_R12_TR9_PSYCHIC_M                           245
 #define TRAINER_R12_TR10_HIKER                              246
@@ -414,8 +414,8 @@
 #define TRAINER_R18_TR7_POKEMANIAC                     408
 #define TRAINER_R18_TR8_BREEDER_M                    409
 #define TRAINER_R18_TR9_ACE_TRAINER_M                    410
-#define TRAINER_ROBERT_4                    411
-#define TRAINER_ROBERT_5                    412
+#define TRAINER_LEADER_PRYCE                    411
+#define TRAINER_LEADER_BLAINE                    412
 #define TRAINER_ALEX                        413
 #define TRAINER_BECK                        414
 #define TRAINER_YASU                        415

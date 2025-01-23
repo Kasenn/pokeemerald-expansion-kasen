@@ -7510,7 +7510,7 @@ Altaria
 Level: 35
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 
-=== TRAINER_ROBERT_4 ===
+=== TRAINER_LEADER_PRYCE ===
 Name: ROBERT
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7527,7 +7527,7 @@ Altaria
 Level: 38
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
-=== TRAINER_ROBERT_5 ===
+=== TRAINER_LEADER_BLAINE ===
 Name: ROBERT
 Class: Bird Keeper
 Pic: Bird Keeper

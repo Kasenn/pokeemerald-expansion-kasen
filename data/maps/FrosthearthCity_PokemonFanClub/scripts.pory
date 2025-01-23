@@ -1,0 +1,163 @@
+const FLAG_WEEZING = FLAG_TEMP_1
+const FLAG_FARFETCHD = FLAG_TEMP_2
+const FLAG_MR_MIME = FLAG_TEMP_3
+const FLAG_RATTATA = FLAG_TEMP_4
+const FLAG_GEODUDE = FLAG_TEMP_5
+const FLAG_GRIMER = FLAG_TEMP_6
+const FLAG_DARUMAKA = FLAG_TEMP_7
+
+mapscripts FrosthearthCity_PokemonFanClub_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        setflag(FLAG_WEEZING)
+        setflag(FLAG_FARFETCHD)
+        setflag(FLAG_MR_MIME)
+        setflag(FLAG_RATTATA)
+        setflag(FLAG_GEODUDE)
+        setflag(FLAG_GRIMER)
+        setflag(FLAG_DARUMAKA)
+        switch(var(VAR_FROSTHEARTH_TRADE_MON)){
+            case 1:
+                clearflag(FLAG_WEEZING)
+            case 2:
+                clearflag(FLAG_FARFETCHD)
+            case 3:
+                clearflag(FLAG_MR_MIME)
+            case 4:
+                clearflag(FLAG_RATTATA)
+            case 5:
+                clearflag(FLAG_GEODUDE)
+            case 6:
+                clearflag(FLAG_GRIMER)
+            case 7:
+                clearflag(FLAG_DARUMAKA)
+        }
+    }
+}
+
+script Frosthearth_FanClubTrader_Weezing{
+    lock
+    faceplayer
+    if(flag(FLAG_TRADED_WEEZING)){
+        goto(FanClubTradeCompleted)
+    }
+    setvar(VAR_0x8008, INGAME_TRADE_WEEZING)
+    copyvar(VAR_0x8004, VAR_0x8008)
+    specialvar(VAR_0x8009, GetInGameTradeSpeciesInfo)
+    msgbox(FanClub_WantToTradeWeezing, MSGBOX_YESNO)
+    call(FanClub_TradeSetup)
+	setflag(FLAG_TRADED_WEEZING)
+	release
+	end
+}
+script Frosthearth_FanClubTrader_Farfetchd{
+    lock
+    faceplayer
+    if(flag(FLAG_TRADED_FARFETCHD)){
+        goto(FanClubTradeCompleted)
+    }
+    setvar(VAR_0x8008, INGAME_TRADE_FARFETCHD)
+    copyvar(VAR_0x8004, VAR_0x8008)
+    specialvar(VAR_0x8009, GetInGameTradeSpeciesInfo)
+    msgbox(FanClub_WantToTradeFarfetchd, MSGBOX_YESNO)
+    call(FanClub_TradeSetup)
+	setflag(FLAG_TRADED_FARFETCHD)
+	release
+	end
+}
+script Frosthearth_FanClubTrader_MrMime{
+    lock
+    faceplayer
+    if(flag(FLAG_TRADED_MR_MIME)){
+        goto(FanClubTradeCompleted)
+    }
+    setvar(VAR_0x8008, INGAME_TRADE_MRMIME)
+    copyvar(VAR_0x8004, VAR_0x8008)
+    specialvar(VAR_0x8009, GetInGameTradeSpeciesInfo)
+    msgbox(FanClub_WantToTradeMrMime, MSGBOX_YESNO)
+    call(FanClub_TradeSetup)
+	setflag(FLAG_TRADED_MR_MIME)
+	release
+	end
+}
+script Frosthearth_FanClubTrader_Rattata{
+    lock
+    faceplayer
+    if(flag(FLAG_TRADED_RATTATA)){
+        goto(FanClubTradeCompleted)
+    }
+    setvar(VAR_0x8008, INGAME_TRADE_RATTATA)
+    copyvar(VAR_0x8004, VAR_0x8008)
+    specialvar(VAR_0x8009, GetInGameTradeSpeciesInfo)
+    msgbox(FanClub_WantToTradeRattata, MSGBOX_YESNO)
+    call(FanClub_TradeSetup)
+	setflag(FLAG_TRADED_RATTATA)
+	release
+	end
+}
+script Frosthearth_FanClubTrader_Geodude{
+    lock
+    faceplayer
+    if(flag(FLAG_TRADED_GEODUDE)){
+        goto(FanClubTradeCompleted)
+    }
+    setvar(VAR_0x8008, INGAME_TRADE_GEODUDE)
+    copyvar(VAR_0x8004, VAR_0x8008)
+    specialvar(VAR_0x8009, GetInGameTradeSpeciesInfo)
+    msgbox(FanClub_WantToTradeGeodude, MSGBOX_YESNO)
+    call(FanClub_TradeSetup)
+	setflag(FLAG_TRADED_GEODUDE)
+	release
+	end
+}
+script Frosthearth_FanClubTrader_Grimer{
+    lock
+    faceplayer
+    if(flag(FLAG_TRADED_GRIMER)){
+        goto(FanClubTradeCompleted)
+    }
+    setvar(VAR_0x8008, INGAME_TRADE_GRIMER)
+    copyvar(VAR_0x8004, VAR_0x8008)
+    specialvar(VAR_0x8009, GetInGameTradeSpeciesInfo)
+    msgbox(FanClub_WantToTradeGrimer, MSGBOX_YESNO)
+    call(FanClub_TradeSetup)
+	setflag(FLAG_TRADED_GRIMER)
+	release
+	end
+}
+script Frosthearth_FanClubTrader_Darumaka{
+    lock
+    faceplayer
+    if(flag(FLAG_TRADED_DARUMAKA)){
+        goto(FanClubTradeCompleted)
+    }
+    setvar(VAR_0x8008, INGAME_TRADE_DARUMAKA)
+    copyvar(VAR_0x8004, VAR_0x8008)
+    specialvar(VAR_0x8009, GetInGameTradeSpeciesInfo)
+    msgbox(FanClub_WantToTradeDarumaka, MSGBOX_YESNO)
+    call(FanClub_TradeSetup)
+	setflag(FLAG_TRADED_DARUMAKA)
+	release
+	end
+}
+
+text FanClub_WantToTradeWeezing{
+    ""
+}
+text FanClub_WantToTradeFarfetchd{
+    ""
+}
+text FanClub_WantToTradeMrMime{
+    ""
+}
+text FanClub_WantToTradeRattata{
+    ""
+}
+text FanClub_WantToTradeGeodude{
+    ""
+}
+text FanClub_WantToTradeGrimer{
+    ""
+}
+text FanClub_WantToTradeDarumaka{
+    ""
+}

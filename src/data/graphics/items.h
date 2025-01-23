@@ -2110,6 +2110,8 @@ const u32 gItemIconPalette_VerdantSphere[] = INCBIN_U32("graphics/items/icons/ve
 const u32 gItemIcon_ChargedOrb[] = INCBIN_U32("graphics/items/icons/charged_orb.4bpp.lz");
 const u32 gItemIconPalette_ChargedOrb[] = INCBIN_U32("graphics/items/icons/charged_orb.gbapal.lz");
 
+const u32 gItemIcon_BrokenTM[] = INCBIN_U32("graphics/items/icons/tm_broken.4bpp.lz");
+
 const u32 gItemIcon_HistoryBook[] = INCBIN_U32("graphics/items/icons/history_book.4bpp.lz");
 const u32 gItemIconPalette_HistoryBook[] = INCBIN_U32("graphics/items/icon_palettes/history_book.gbapal.lz");
 

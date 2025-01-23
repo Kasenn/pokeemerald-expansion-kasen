@@ -2325,9 +2325,9 @@ void Wind_InitVars(void)
     gWeatherPtr->initStep = 0;
     gWeatherPtr->weatherGfxLoaded = 0;
     gWeatherPtr->targetColorMapIndex = 0;
-    if (GetSavedWeather() == WEATHER_BLIZZARD){
-        gWeatherPtr->targetColorMapIndex = 3;
-    }
+    // if (GetSavedWeather() == WEATHER_BLIZZARD){
+    //     gWeatherPtr->targetColorMapIndex = 3;
+    // }
     gWeatherPtr->colorMapStepDelay = 20;
     if (!gWeatherPtr->windSpritesCreated)
     {
@@ -2905,6 +2905,13 @@ static const u8 sWeatherCycleRoute123[WEATHER_CYCLE_LENGTH] =
     WEATHER_RAIN,
     WEATHER_SUNNY,
 };
+static const u8 sWeatherCycleRoute18[WEATHER_CYCLE_LENGTH] =
+{
+    WEATHER_BLIZZARD,
+    WEATHER_SNOW,
+    WEATHER_SNOW,
+    WEATHER_SNOW,
+};
 
 static u8 TranslateWeatherNum(u8 weather)
 {
@@ -2930,6 +2937,7 @@ static u8 TranslateWeatherNum(u8 weather)
     case WEATHER_BLIZZARD:       return WEATHER_BLIZZARD;
     case WEATHER_ROUTE119_CYCLE:     return sWeatherCycleRoute119[gSaveBlock1Ptr->weatherCycleStage];
     case WEATHER_ROUTE123_CYCLE:     return sWeatherCycleRoute123[gSaveBlock1Ptr->weatherCycleStage];
+    case WEATHER_ROUTE18_CYCLE:     return sWeatherCycleRoute18[gSaveBlock1Ptr->weatherCycleStage];
     default:                         return WEATHER_NONE;
     }
 }

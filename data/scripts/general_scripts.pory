@@ -418,12 +418,7 @@ script Debug_Script_1{              // Set team level
     end
     }
 script Debug_Script_2{              // 
-    waitse
-    delay(16)
-    playmoncry(SPECIES_BLAZIKEN, CRY_MODE_NORMAL)
-    waitmoncry
-    playmoncry(SPECIES_BLAZIKEN_MEGA, CRY_MODE_NORMAL)
-    waitmoncry
+    trainerbattle_two_trainers(TRAINER_LEADER_BLAINE, R15_AceM_Lose, TRAINER_LEADER_PRYCE, R15_AceF_Lose)
     return
 }
 script Debug_Script_3{              // 
@@ -533,16 +528,16 @@ text PartyHasBeenReset{
     "Team has been set to lvl 38."
 }
 
-script MtChimney_CableCarStation_EventScript_Attendant2{
-    msgbox(EndOfBeta, MSGBOX_NPC)
+script EndOfBetaBlock{
+    msgbox(EndOfBeta, MSGBOX_AUTOCLOSE)
+    applymovement(0xFF, Walk1Up)
+    waitmovement(0)
+    release
     end
-    goto(MtChimney_CableCarStation_EventScript_Attendant)
 }
 
 text EndOfBeta{
     "This is currently the end of beta.\p"
-    "The next update should be bringing\n"
-    "the cable car back online.\p"
     "In the meanwhile, why don't you\n"
     "try exploring some other areas?"
 }

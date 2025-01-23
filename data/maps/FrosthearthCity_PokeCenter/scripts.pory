@@ -1,0 +1,69 @@
+mapscripts FrosthearthCity_PokeCenter_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        setrespawn(HEAL_LOCATION_FROSTFIRE_CITY)
+    }
+}
+
+script Frosthearth_PokeCenter_Woman{
+    msgbox(Frosthearth_PokeCenter_Woman_Text, MSGBOX_NPC)
+}
+script Frosthearth_PokeCenter_Man{
+    msgbox(Frosthearth_PokeCenter_Man_Text, MSGBOX_NPC)
+}
+
+text Frosthearth_PokeCenter_Woman_Text{
+    "I brought my newly-hatched Pokémon\n"
+    "to train here, and the speed at which\l"
+    "it grew is astounding!"
+}
+text Frosthearth_PokeCenter_Man_Text{
+    "As convenient as Pokémon Centers\n"
+    "are as a place of healing,\l"
+    "they just can't beat the feeling\l"
+    "you get from taking a dip in a\l"
+    "hot spring."
+}
+
+script Frosthearth_Mart_Man{
+    if(var(VAR_SPHERES_FOUND) >= 4){
+        msgbox(Frosthearth_Mart_Man_Legendary, MSGBOX_NPC)
+    }
+    else{
+        msgbox(Frosthearth_Mart_Man_Text, MSGBOX_NPC)
+    }
+}
+script Frosthearth_Mart_Lass{
+    msgbox(Frosthearth_Mart_Lass_Text, MSGBOX_NPC)
+}
+
+text Frosthearth_Mart_Man_Legendary{
+    "On my way here, I saw this majestic\n"
+    "looking Pokémon leaping over the\l"
+    "trees and the mountains.\p"
+    "I think I saw it heading towards\n"
+    "the huge mountain just north of\l"
+    "Route 18."
+}
+text Frosthearth_Mart_Man_Text{
+    "I swear I've never seen a single\n"
+    "store selling Ethers.\p"
+    "Where do they come from?\p"
+    "How come they're so hard to\n"
+    "come by?"
+}
+text Frosthearth_Mart_Lass_Text{
+    "My Pokémon has been working\n"
+    "extra hard, so I'm rewarding it by\l"
+    "letting it pick any treat it wants."
+}
+
+script Frosthearth_Mart_Bounsweet{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_BOUNSWEET, CRY_MODE_NORMAL)
+	msgbox("Bounsweet: Beleleen!")
+	waitmoncry
+	release
+	end
+}

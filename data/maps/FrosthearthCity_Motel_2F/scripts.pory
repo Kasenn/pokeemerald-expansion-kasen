@@ -1,0 +1,206 @@
+mapscripts FrosthearthCity_Motel_2F_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        setflag(FLAG_TEMP_1)
+        setflag(FLAG_TEMP_2)
+        setflag(FLAG_TEMP_3)
+        setflag(FLAG_TEMP_4)
+        switch(var(VAR_MOTEL_CUSTOMERS)){
+            case 1:
+                clearflag(FLAG_TEMP_1)
+            case 2:
+                clearflag(FLAG_TEMP_2)
+            case 3:
+                clearflag(FLAG_TEMP_3)
+            case 4:
+                clearflag(FLAG_TEMP_4)
+        }
+    }
+}
+
+script Frosthearth_MotelGuest1_OldMan{
+    msgbox(Frosthearth_MotelGuest1_OldMan_Text, MSGBOX_NPC)
+}
+script Frosthearth_MotelGuest1_Man{
+    msgbox(Frosthearth_MotelGuest1_Man_Text, MSGBOX_NPC)
+}
+script Frosthearth_MotelGuest1_Woman{
+    msgbox(Frosthearth_MotelGuest1_Woman_Text, MSGBOX_NPC)
+}
+script Frosthearth_MotelGuest1_Hiker{
+    msgbox(Frosthearth_MotelGuest1_Hiker_Text, MSGBOX_NPC)
+}
+script Frosthearth_MotelGuest1_Twin{
+    msgbox(Frosthearth_MotelGuest1_Twin_Text, MSGBOX_NPC)
+}
+text Frosthearth_MotelGuest1_OldMan_Text{
+    "Where's the soup?!"
+}
+text Frosthearth_MotelGuest1_Man_Text{
+    "It's surprisingly hard to find any\n"
+    "lodging in this city.\p"
+    "We had to book our reservation\n"
+    "weeks in advance."
+}
+text Frosthearth_MotelGuest1_Woman_Text{
+    "Are you a tourist as well?\p"
+    "Trainer or not, you should\n"
+    "definitely check out the\l"
+    "Pokémon World Tournament!"
+}
+text Frosthearth_MotelGuest1_Hiker_Text{
+    "Once we're done eating, we'll be\n"
+    "heading to the wilderness to see if\l"
+    "we can find any interesting Pokémon."
+}
+text Frosthearth_MotelGuest1_Twin_Text{
+    "I hope daddy can get me a Spheal!\n"
+    "They're so cute!"
+}
+script Frosthearth_MotelGuest2_Mother{
+    msgbox(Frosthearth_MotelGuest2_Mother_Text, MSGBOX_NPC)
+}
+script Frosthearth_MotelGuest2_Father{
+    msgbox(Frosthearth_MotelGuest2_Father_Text, MSGBOX_NPC)
+}
+script Frosthearth_MotelGuest2_Son{
+    msgbox(Frosthearth_MotelGuest2_Son_Text, MSGBOX_NPC)
+}
+script Frosthearth_MotelGuest2_Daughter{
+    msgbox(Frosthearth_MotelGuest2_Daughter_Text, MSGBOX_NPC)
+}
+text Frosthearth_MotelGuest2_Mother_Text{
+    "I can't wait to explore the city.\p"
+    "I just hope our dinner will be\n"
+    "ready soon."
+}
+text Frosthearth_MotelGuest2_Father_Text{
+    "Frosthearth seems like the ultimate\n"
+    "tourist spot.\p"
+    "Whatever your interests are, there's\n"
+    "bound to be something for you here."
+}
+text Frosthearth_MotelGuest2_Son_Text{
+    "I can't wait to take part in the\n"
+    "Pokémon World Tournament!"
+}
+text Frosthearth_MotelGuest2_Daughter_Text{
+    "I can't decide what I want to do.\p"
+    "Relaxing in the hot pool sounds nice,\n"
+    "but I also want to go out there and\l"
+    "see what exotic Pokémon I can find!"
+}
+script Frosthearth_MotelGuest3_Sailor1{
+    msgbox(Frosthearth_MotelGuest3_Sailor1_Text, MSGBOX_NPC)
+}
+script Frosthearth_MotelGuest3_Sailor2{
+    msgbox(Frosthearth_MotelGuest3_Sailor2_Text, MSGBOX_NPC)
+}
+script Frosthearth_MotelGuest3_Sailor3{
+    msgbox(Frosthearth_MotelGuest3_Sailor3_Text, MSGBOX_NPC)
+}
+script Frosthearth_MotelGuest3_Sailor4{
+    msgbox(Frosthearth_MotelGuest3_Sailor4_Text, MSGBOX_NPC)
+}
+script Frosthearth_MotelGuest3_Sailor5{
+    msgbox(Frosthearth_MotelGuest3_Sailor5_Text, MSGBOX_NPC)
+}
+script Frosthearth_MotelGuest3_Sailor6{
+    msgbox(Frosthearth_MotelGuest3_Sailor6_Text, MSGBOX_NPC)
+}
+script Frosthearth_MotelGuest3_Sailor7{
+    msgbox(Frosthearth_MotelGuest3_Sailor7_Text, MSGBOX_NPC)
+}
+text Frosthearth_MotelGuest3_Sailor1_Text{
+    "Sailing is hard work.\p"
+    "Us sailors need to take a break\n"
+    "every now and then, too!"
+}
+text Frosthearth_MotelGuest3_Sailor2_Text{
+    "We only just stepped off the boat,\n"
+    "but I'm already starting to miss it…"
+}
+text Frosthearth_MotelGuest3_Sailor3_Text{
+    "Boy, the chef sure is taking his\n"
+    "sweet time.\p"
+    "I hope the food is worth the wait."
+}
+text Frosthearth_MotelGuest3_Sailor4_Text{
+    "Have you ever been to Skyloch\n"
+    "Village?\p"
+    "I swear I once saw a golden Magikarp\n"
+    "swimming in the lake there!"
+}
+text Frosthearth_MotelGuest3_Sailor5_Text{
+    "Very few ships travel to Frosthearth\n"
+    "City due to the freezing conditions.\p"
+    "You don't want to miss your ride,\n"
+    "or you might be stuck waiting here\l"
+    "for a long time."
+}
+text Frosthearth_MotelGuest3_Sailor6_Text{
+    "I'm hungry…\p"
+    "Maybe I ought to grab a snack\n"
+    "from the Mart."
+}
+text Frosthearth_MotelGuest3_Sailor7_Text{
+    "Some sailors have reported seeing an\n"
+    "unregistered vessel sailing the seas.\p"
+    "Attempts have been made to contact\n"
+    "the ship, but they never answer\l"
+    "when hailed, and generally seem to\l"
+    "keep their distance from everyone."
+}
+script Frosthearth_MotelGuest4_AceTrainerF{
+    msgbox(Frosthearth_MotelGuest4_AceTrainerF_Text, MSGBOX_NPC)
+}
+script Frosthearth_MotelGuest4_AceTrainerM{
+    msgbox(Frosthearth_MotelGuest4_AceTrainerM_Text, MSGBOX_NPC)
+}
+text Frosthearth_MotelGuest4_AceTrainerF_Text{
+    "I'm so proud of our Pokémon!"
+}
+text Frosthearth_MotelGuest4_AceTrainerM_Text{
+    "We scored a big victory at the\n"
+    "Pokémon World Tournament,\l"
+    "so we're celebrating with our Pokémon!"
+}
+script Frosthearth_MotelGuest4_Linoone{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_LINOONE, CRY_MODE_NORMAL)
+	msgbox("Linoone: Gumomoh?")
+	waitmoncry
+	release
+	end
+}
+script Frosthearth_MotelGuest4_Toxicroak{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_TOXICROAK, CRY_MODE_NORMAL)
+	msgbox("Toxicroak: Ribbit!")
+	waitmoncry
+	release
+	end
+}
+script Frosthearth_MotelGuest4_Durant{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_DURANT, CRY_MODE_NORMAL)
+	msgbox("Durant: Skree!")
+	waitmoncry
+	release
+	end
+}
+script Frosthearth_MotelGuest4_Espeon{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_ESPEON, CRY_MODE_NORMAL)
+	msgbox("Espeon: Myu-myuu?")
+	waitmoncry
+	release
+	end
+}
