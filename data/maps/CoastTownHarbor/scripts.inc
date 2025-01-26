@@ -16,6 +16,9 @@ HarborSetFlags_1:
 CoastTownHarbor_Attendant::
 	lock
 	faceplayer
+	call ExpandedBoatNetwork
+	goto_if_set FLAG_EXPANDED_BOAT_NETWORK, CoastTownHarbor_Attendant_2
+CoastTownHarbor_Attendant_1:
 	msgbox CoastTownHarbor_Text_GetAboard, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, CoastTownHarbor_EventScript_ComeAgain
 	call CoastTownHarbor_EventScript_BoardFerry
@@ -23,6 +26,67 @@ CoastTownHarbor_Attendant::
 	waitstate
 	release
 	end
+
+CoastTownHarbor_Attendant_2:
+	goto AzuretideHarbor_TakeAFerry
+	goto CoastTownHarbor_Attendant_1
+
+
+AzuretideHarbor_TakeAFerry::
+	call InitBoatMultichoice
+	dynmultipush AzuretideHarbor_TakeAFerry_Text_0, 0
+	dynmultipush AzuretideHarbor_TakeAFerry_Text_1, 1
+	dynmultipush AzuretideHarbor_TakeAFerry_Text_2, 2
+	dynmultipush AzuretideHarbor_TakeAFerry_Text_3, 3
+	goto_if_set FLAG_VISITED_FROSTFIRE, AzuretideHarbor_TakeAFerry_2
+AzuretideHarbor_TakeAFerry_1:
+	dynmultipush AzuretideHarbor_TakeAFerry_Text_5, 5
+	dynmultistack 23, 0, FALSE, 4, FALSE, 0, 0
+	switch VAR_RESULT
+	case 0, AzuretideHarbor_TakeAFerry_6
+	case 1, AzuretideHarbor_TakeAFerry_7
+	case 2, AzuretideHarbor_TakeAFerry_8
+	case 3, AzuretideHarbor_TakeAFerry_9
+	case 4, AzuretideHarbor_TakeAFerry_10
+	case 5, AzuretideHarbor_TakeAFerry_11
+	case MULTI_B_PRESSED, AzuretideHarbor_TakeAFerry_11
+AzuretideHarbor_TakeAFerry_4:
+	waitstate
+	release
+	end
+
+AzuretideHarbor_TakeAFerry_2:
+	dynmultipush AzuretideHarbor_TakeAFerry_Text_4, 4
+	goto AzuretideHarbor_TakeAFerry_1
+
+AzuretideHarbor_TakeAFerry_6:
+	call CoastTownHarbor_EventScript_BoardFerry
+	warp MAP_CORALGROVE_HARVOR_INTERIOR, 7, 10
+	goto AzuretideHarbor_TakeAFerry_4
+
+AzuretideHarbor_TakeAFerry_7:
+	call CoastTownHarbor_EventScript_BoardFerry
+	warp MAP_SHORESLATE_HARBOR, 16, 10
+	goto AzuretideHarbor_TakeAFerry_4
+
+AzuretideHarbor_TakeAFerry_8:
+	call CoastTownHarbor_EventScript_BoardFerry
+	warp MAP_KAOLISLE_HARBOR, 7, 10
+	goto AzuretideHarbor_TakeAFerry_4
+
+AzuretideHarbor_TakeAFerry_9:
+	call CoastTownHarbor_EventScript_BoardFerry
+	warp MAP_ROCKLIFFE_HARBOR, 8, 3
+	goto AzuretideHarbor_TakeAFerry_4
+
+AzuretideHarbor_TakeAFerry_10:
+	call CoastTownHarbor_EventScript_BoardFerry
+	warp MAP_FROSTHEARTH_CITY_HARBOR, 7, 10
+	goto AzuretideHarbor_TakeAFerry_4
+
+AzuretideHarbor_TakeAFerry_11:
+	goto Harbor_ComeAgain
+	goto AzuretideHarbor_TakeAFerry_4
 
 
 CoastTownHarbor_EventScript_BoardFerry::
@@ -101,6 +165,24 @@ CoastTownHarbor_Sailor::
 	release
 	end
 
+
+AzuretideHarbor_TakeAFerry_Text_0:
+	.string "Coralgrove City$"
+
+AzuretideHarbor_TakeAFerry_Text_1:
+	.string "Shoreslate City$"
+
+AzuretideHarbor_TakeAFerry_Text_2:
+	.string "Kaolisle City$"
+
+AzuretideHarbor_TakeAFerry_Text_3:
+	.string "Rockliffe Town$"
+
+AzuretideHarbor_TakeAFerry_Text_4:
+	.string "Frosthearth City$"
+
+AzuretideHarbor_TakeAFerry_Text_5:
+	.string "Nevermind$"
 
 CoastTownHarbor_Boy_Text_0:
 	.string "This is my first time stepping\non the mainland.\pIs this how the astronauts felt when\nthey first stepped on the Moon?$"

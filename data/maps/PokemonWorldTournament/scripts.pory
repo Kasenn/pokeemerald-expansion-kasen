@@ -207,3 +207,215 @@ text WorldTournamentRightBouncer_Text{
     "It's crazy popular! This is what\n"
     "packed to the rafters means!"
 }
+
+script PokemonWorldTournament_LeftAttendant{
+    if(flag(FLAG_TEMP_1)){
+        message(WelcomeToPWT_Short)
+    }
+    else{
+        message(WelcomeToPWT)
+    }
+    waitmessage
+    setflag(FLAG_TEMP_1)
+    dynmultichoice(23, 0, FALSE, 3, 0, 0, "Participate", "Info", "Quit")
+    switch(var(VAR_RESULT)){
+        case 0:
+            goto(PWT_Participate)
+        case 1:
+            goto(PWT_Info)
+        case 2:
+        case MULTI_B_PRESSED:
+            msgbox("We hope to see you again!", MSGBOX_SIGN)
+            end
+    }
+}
+
+text WelcomeToPWT{
+    "Welcome to the\n"
+    "Pokémon World Tournament!\p"
+    "Would you like to participate\n"
+    "in the tournament?"
+}
+text WelcomeToPWT_Short{
+    "Would you like to participate\n"
+    "in the tournament?"
+}
+
+script PWT_Info{
+    message(PWT_Info_WhichTournament)
+    waitmessage
+    dynmultichoice(23, 0, FALSE, 6, 0, 0, "About battle formats", "Frosthearth", "Rental", "Mix", "Back")
+    switch(var(VAR_RESULT)){
+        case 0:
+            goto(PWT_Info_BattleFormats)
+        case 1:
+            goto(PWT_Info_Frosthearth)
+        case 2:
+            goto(PWT_Info_Rental)
+        case 3:
+            goto(PWT_Info_Mix)
+        case 4:
+        case MULTI_B_PRESSED:
+            goto(PokemonWorldTournament_LeftAttendant)
+    }
+}
+text PWT_Info_WhichTournament{
+    "Which tournament do you\n"
+    "want to know about?"
+}
+script PWT_Info_BattleFormats{
+    msgbox(PWT_Info_BattleFormats_Text)
+    goto(PWT_Info)
+}
+text PWT_Info_BattleFormats_Text{
+    "There are two battle formats\n"
+    "to a tournament:\l"
+    "Single and Double.\p"
+    "Single Battles need three Pokémon,\n"
+    "while Double Battles need four.\p"
+    "Double battles give you more points\n"
+    "when you manage to win, so jump in!\l"
+    "It's worthwhile to try it!"
+}
+script PWT_Info_Frosthearth{
+    msgbox(PWT_Info_Frosthearth_Text)
+    goto(PWT_Info)
+}
+text PWT_Info_Frosthearth_Text{
+    "Frosthearth Tournament is a tournament\n"
+    "where anything goes.\p"
+    "You may use any Pokémon or\n"
+    "held items of your choice.\p"
+    "For these battles, all Pokémon\n"
+    "will be set to Level 25.\p"
+    "The winner will be rewarded\n"
+    "with BP.\l"
+    "Good luck!"
+}
+script PWT_Info_Rental{
+    msgbox(PWT_Info_Rental_Text)
+    goto(PWT_Info)
+}
+text PWT_Info_Rental_Text{
+    "Rental Tournament is a unique\n"
+    "tournament where we prepare\l"
+    "the Pokémon with which you\l"
+    "will battle.\p"
+    "Rental Pokémon will be randomly\n"
+    "selected for you.\l"
+    "So luck plays a big part!\p"
+    "The winner will be rewarded\n"
+    "with BP.\l"
+    "Good luck!"
+}
+script PWT_Info_Mix{
+    msgbox(PWT_Info_Mix_Text)
+    goto(PWT_Info)
+}
+text PWT_Info_Mix_Text{
+    "Mix Tournament is a unique tournament\n"
+    "where you and your opponent swap\l"
+    "Pokémon before battling.\p"
+    "You'll normally swap one Pokémon,\n"
+    "but you'll swap two in Double Battles.\p"
+    "Swapped Pokémon will be returned\n"
+    "after the battle, so don't be alarmed.\p"
+    "For these battles, all Pokémon\n"
+    "will be set to Level 50.\p"
+    "The winner will be rewarded\n"
+    "with BP.\l"
+    "Good luck!"
+}
+
+script PWT_Participate{
+    message(PWT_Participate_Text)
+    waitmessage
+    dynmultichoice(23, 0, FALSE, 6, 0, 0, "Frosthearth", "Rental", "Mix", "Back")
+        switch(var(VAR_RESULT)){
+        case 0:
+            goto(PWT_Participate_Frosthearth)
+        case 1:
+            goto(PWT_Participate_Rental)
+        case 2:
+            goto(PWT_Participate_Mix)
+        case 3:
+        case MULTI_B_PRESSED:
+            goto(PokemonWorldTournament_LeftAttendant)
+    }
+}
+text PWT_Participate_Text{
+    "Which tournament\n"
+    "will you participate in?"
+}
+text WhichBattleFormat{
+    "Which battle format\n"
+    "will you choose?"
+}
+
+script PWT_Participate_Frosthearth{
+    message(WhichBattleFormat)
+    waitmessage
+    dynmultichoice(23, 0, FALSE, 6, 0, 0, "Single Battle", "Double Battle", "Back")
+    switch(var(VAR_RESULT)){
+        case 0:
+            goto(PWT_Frosthearth_Single)
+        case 1:
+            goto(PWT_Frosthearth_Double)
+        case 2:
+        case MULTI_B_PRESSED:
+            goto(PWT_Participate)
+    }
+}
+script PWT_Participate_Rental{
+    message(WhichBattleFormat)
+    waitmessage
+    dynmultichoice(23, 0, FALSE, 6, 0, 0, "Single Battle", "Double Battle", "Back")
+    switch(var(VAR_RESULT)){
+        case 0:
+            goto(PWT_Rental_Single)
+        case 1:
+            goto(PWT_Rental_Double)
+        case 2:
+        case MULTI_B_PRESSED:
+            goto(PWT_Participate)
+    }
+}
+script PWT_Participate_Mix{
+    message(WhichBattleFormat)
+    waitmessage
+    dynmultichoice(23, 0, FALSE, 6, 0, 0, "Single Battle", "Double Battle", "Back")
+    switch(var(VAR_RESULT)){
+        case 0:
+            goto(PWT_Mix_Single)
+        case 1:
+            goto(PWT_Mix_Double)
+        case 2:
+        case MULTI_B_PRESSED:
+            goto(PWT_Participate)
+    }
+}
+
+script PWT_Frosthearth_Single{
+    msgbox(FeatureNotReady_Text, MSGBOX_NPC)
+    end
+}
+script PWT_Frosthearth_Double{
+    msgbox(FeatureNotReady_Text, MSGBOX_NPC)
+    end
+}
+script PWT_Rental_Single{
+    msgbox(FeatureNotReady_Text, MSGBOX_NPC)
+    end
+}
+script PWT_Rental_Double{
+    msgbox(FeatureNotReady_Text, MSGBOX_NPC)
+    end
+}
+script PWT_Mix_Single{
+    msgbox(FeatureNotReady_Text, MSGBOX_NPC)
+    end
+}
+script PWT_Mix_Double{
+    msgbox(FeatureNotReady_Text, MSGBOX_NPC)
+    end
+}

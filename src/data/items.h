@@ -11995,16 +11995,20 @@ const struct Item gItemsInfo[] =
         .secondaryId = MOVE_FLASH_CANNON, // Not In-Game Yet
     },
 
-    [ITEM_TM_MYSTICAL_FIRE] =
+    [ITEM_TM_ICE_BURN] =
     {
         .name = _("TM92"),
         .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .description = COMPOUND_STRING(
+            "On the second turn,\n"
+            "a freezing wind surrounds\n"
+            "the target. May leave\n"
+            "the target with a burn."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_MYSTICAL_FIRE, // Not In-Game Yet
+        .secondaryId = MOVE_ICE_BURN,
     },
 
     [ITEM_TM_CHARGE_BEAM] =

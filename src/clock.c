@@ -12,6 +12,7 @@
 #include "overworld.h"
 #include "wallclock.h"
 #include "constants/form_change_types.h"
+#include "item.h"
 
 static void UpdatePerDay(struct Time *localTime);
 static void UpdatePerMinute(struct Time *localTime);
@@ -44,6 +45,10 @@ void UpdateVarsAndFlags(void)
         PlantBerryTree(BERRY_TREE_ROUTE_110_YACHE_1, ITEM_TO_BERRY(ITEM_YACHE_BERRY), BERRY_STAGE_BERRIES, FALSE);
         PlantBerryTree(BERRY_TREE_ROUTE_110_YACHE_2, ITEM_TO_BERRY(ITEM_YACHE_BERRY), BERRY_STAGE_BERRIES, FALSE);
         VarSet(VAR_DEBUG, 1);
+    }
+    if (CheckBagHasItem(ITEM_TM_FALSE_SWIPE, 1))
+    {
+        FlagSet(FLAG_PRINCIPAL_IN_SCHOOL);
     }
 }
 

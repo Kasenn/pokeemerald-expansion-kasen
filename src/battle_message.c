@@ -3702,7 +3702,12 @@ static const struct TrainerSlide sTrainerSlides[] =
         .trainerId = TRAINER_BASALTUNNEL_TR12_BROCK,
         .isFrontierTrainer = FALSE,
         .msgMegaEvolution = COMPOUND_STRING("Not bad, but this is the end!{PAUSE 90}"),
-    }
+    },
+    {
+        .trainerId = TRAINER_LEADER_BLAINE,
+        .isFrontierTrainer = FALSE,
+        .msgMegaEvolution = COMPOUND_STRING("This battle has gone on for too long.\nIt's time to end it.{PAUSE 90}"),
+    },
 };
 
 static u32 GetEnemyMonCount(u32 firstId, u32 lastId, bool32 onlyAlive)

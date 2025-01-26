@@ -2752,6 +2752,7 @@ bool8 ScrCmd_removeobjectbyflag(struct ScriptContext *ctx)
 {
     u8 i;
     u16 flag = ScriptReadHalfword(ctx);
+
     FlagSet(flag);
 
     for (i = 0; i < gMapHeader.events->objectEventCount; i++)
@@ -2908,7 +2909,8 @@ void DismountPlayer(void)
     {
         SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
         Overworld_ClearSavedMusic();
-        Overworld_PlaySpecialMapMusic();
+        Overworld_ChangeMusicToDefault();
+        // Overworld_PlaySpecialMapMusic();
     }
 }
 

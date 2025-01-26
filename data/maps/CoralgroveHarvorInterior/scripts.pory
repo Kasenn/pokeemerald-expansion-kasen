@@ -3,6 +3,10 @@ mapscripts CoralgroveHarvorInterior_MapScripts {}
 script CoralgroveHarbor_Attendant{
     lock
     faceplayer
+    call(ExpandedBoatNetwork)
+    if(flag(FLAG_EXPANDED_BOAT_NETWORK)){
+        goto(CoralgroveHarbor_TakeAFerry)
+    }
 	msgbox(CoralgroveHarbor_Text_GetAboard, MSGBOX_YESNO)
 	goto_if_eq(VAR_RESULT, NO, Harbor_ComeAgain)
     call(Harbor_BoardFerryGoingEast)     // make sure the attendant is id 3 and boat is id 4
@@ -15,6 +19,68 @@ text CoralgroveHarbor_Text_GetAboard{
     "We are just about to depart for the\n"
 	"small mainland town of Azuretide.\p"
 	"Would you like to board the ferry?"
+}
+
+script CoralgroveHarbor_TakeAFerry{
+    call(InitBoatMultichoice)
+    dynmultipush("Azuretide Town", 0)
+    dynmultipush("Shoreslate City", 1)
+    dynmultipush("Kaolisle City", 2)
+    dynmultipush("Rockliffe Town", 3)
+    if(flag(FLAG_VISITED_FROSTFIRE)){
+        dynmultipush("Frosthearth City", 4)
+    }
+    dynmultipush("Nevermind", 5)
+    dynmultistack(23, 0, FALSE, 4, FALSE, 0, 0)
+    switch(var(VAR_RESULT)){
+        case 0:
+            call(Harbor_BoardFerryGoingEast)     // make sure the attendant is id 3 and boat is id 4
+	        warp(MAP_COAST_TOWN_HARBOR, 16, 10)
+        case 1:
+            call(Harbor_BoardFerryGoingEast)
+	        warp(MAP_SHORESLATE_HARBOR, 16, 10)
+        case 2:
+            call(Harbor_BoardFerryGoingEast)
+	        warp(MAP_KAOLISLE_HARBOR, 7, 10)
+        case 3:
+            call(Harbor_BoardFerryGoingEast)
+	        warp(MAP_ROCKLIFFE_HARBOR, 8, 3)
+        case 4:
+            call(Harbor_BoardFerryGoingEast)
+	        warp(MAP_FROSTHEARTH_CITY_HARBOR, 7, 10)
+        case 5:
+        case MULTI_B_PRESSED:
+            goto(Harbor_ComeAgain)
+    }
+	waitstate
+	release
+	end
+}
+
+script InitBoatMultichoice{
+    if(msgbox(Frosthearth_Text_GetAboard, MSGBOX_YESNO) == FALSE){
+        goto(Harbor_ComeAgain)
+    }
+    message("Where would you like to sail?")
+    waitmessage
+    return
+}
+
+script ExpandedBoatNetwork{
+    if(flag(FLAG_BADGE03_GET)){
+        if(!flag(FLAG_EXPANDED_BOAT_NETWORK)){
+            msgbox(WeHaveExpandedOurNetwork)
+            setflag(FLAG_EXPANDED_BOAT_NETWORK)
+        }
+    }
+    return
+}
+text WeHaveExpandedOurNetwork{
+    "We have recently expanded our\n"
+    "operations, and the ferry will\l"
+    "now travel to a wider selection of\l"
+    "locations.\p"
+    "Now, with that out of the way…"
 }
 
 script CoralgroveHarvorInterior_LittleGirl{

@@ -7506,7 +7506,7 @@
       "name": "FrosthearthCity_Gym_Layout",
       "width": 60,
       "height": 60,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_SootopolisGym",
       "border_filepath": "data/layouts/FrosthearthCity_Gym/border.bin",
       "blockdata_filepath": "data/layouts/FrosthearthCity_Gym/map.bin"

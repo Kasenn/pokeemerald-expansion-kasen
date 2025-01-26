@@ -10547,7 +10547,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
             sPicTable_Rufflet,
             SIZE_32x32,
             SHADOW_SIZE_M,
-            TRACKS_FOOT,
+            TRACKS_SPOT,
             gOverworldPalette_Rufflet,
             gShinyOverworldPalette_Rufflet
         )

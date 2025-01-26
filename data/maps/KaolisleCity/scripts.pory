@@ -337,6 +337,10 @@ text KaolisleCity_Lass_Couple_Text{
 }
 
 script KaolisleCity_MysteryMan{
+    if(defeated(TRAINER_KAOLISLE_CELEBI_TR2)){
+        msgbox(KaolisleCity_MysteryMan_AfterBattleGossip, MSGBOX_NPC)
+        end
+    }
     lock
     if(flag(FLAG_TEMP_4)){
         faceplayer
@@ -353,17 +357,30 @@ script KaolisleCity_MysteryMan{
         setflag(FLAG_TEMP_4)
         end
     }
-    if(flag(FLAG_BADGE04_GET)){
-        msgbox(KaolisleCity_MysteryMan_4Badges, MSGBOX_NPC)
-    }
-    elif(flag(FLAG_BADGE03_GET)){
-        msgbox(KaolisleCity_MysteryMan_3Badges, MSGBOX_NPC)
-    }
     else{
-        msgbox(KaolisleCity_MysteryMan_2Badges, MSGBOX_NPC)
+        call(CountGymBadges)
+        switch(var(VAR_RESULT)){
+            case 0:
+            case 1:
+            case 2:
+                msgbox(KaolisleCity_MysteryMan_2Badges, MSGBOX_NPC)
+                turnobject(7, DIR_NORTH)
+                end
+            case 3:
+                msgbox(KaolisleCity_MysteryMan_3Badges, MSGBOX_NPC)
+                turnobject(7, DIR_NORTH)
+                end
+            case 4:
+            case 5:
+                msgbox(KaolisleCity_MysteryMan_4Badges, MSGBOX_NPC)
+                turnobject(7, DIR_NORTH)
+                end
+            case 6:
+            case 7:
+            case 8:
+                goto(KaolisleCity_MysteryMan_Battle)
+        }
     }
-    turnobject(7, DIR_NORTH)
-    end
 }
 text KaolisleCity_MysteryMan_Text{
     "Some days I gaze in Its direction,\n"
@@ -832,4 +849,105 @@ script KaolisleBirdMain{
 text NudgeMon{
     "You give the {STR_VAR_1} a nudge,\n"
     "and it starts flying towards home."
+}
+
+script KaolisleCity_MysteryMan_Battle{
+    checkpartylevel(55)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(Kaolisle_AbsolutelyCertain, MSGBOX_YESNO)
+    }
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(KaolisleCity_MysteryMan_Decline, MSGBOX_NPC)
+        turnobject(7, DIR_NORTH)
+        setflag(FLAG_TEMP_4)
+        end
+    }
+    msgbox(KaolisleCity_MysteryMan_Battle_Intro)
+    trainerbattle_no_intro(TRAINER_KAOLISLE_CELEBI_TR2, KaolisleCity_MysteryMan_Battle_Lose)
+    msgbox(KaolisleCity_MysteryMan_PostBattle)
+    msgbox(KaolisleCity_MysteryMan_PostBattle2)
+    giveitem(ITEM_DISC_FRAGMENT)
+    if(checkitem(ITEM_DISC_FRAGMENT, 2) == TRUE){
+        msgbox(Kaolisle_ExplainFragmentShort)
+    }
+    else{
+        msgbox(Kaolisle_ExplainFragment)
+    }
+    release
+    end
+}
+
+text KaolisleCity_MysteryMan_Battle_Intro{
+    "This is going to be fun!"
+}
+text KaolisleCity_MysteryMan_Battle_Lose{
+    "My!\n"
+    "Such vigor!\p"
+    "I've never seen anything\n"
+    "like it before!"
+}
+text KaolisleCity_MysteryMan_PostBattle{
+    "Ah, what a fun battle that was.\p"
+    "I'm glad an old husk like me\n"
+    "could still enjoy the thrill\l"
+    "of a Pokémon Battle."
+}
+text KaolisleCity_MysteryMan_PostBattle2{
+    "You know what, grand battles\n"
+    "require grand prizes.\p"
+    "I think I should have some\n"
+    "candy in one of my pockets…\p"
+    "…Oh!\p"
+    "Actually, I think I may have\n"
+    "something even better than candy.\p"
+    "Here, take this."
+}
+text Kaolisle_ExplainFragment{
+    "It may look like junk now,\n"
+    "but trust me, that thing\l"
+    "is a key to something important.\p"
+    "Before it can be used however,\n"
+    "you will need to find other fragments\l"
+    "like it.\p"
+    "There should be four fragments.\p"
+    "Once you have collected them all,\n"
+    "bring them to our eldest.\p"
+    "She may be able to piece the\n"
+    "fragments together.\p"
+    "My old friends should have hopefully\n"
+    "kept their fragments safe.\p"
+    "I don't know where they\n"
+    "currently reside, but I remember\l"
+    "one of them mentioning about\l"
+    "moving somewhere very cold."
+}
+text KaolisleCity_MysteryMan_AfterBattleGossip{
+    "There should be four fragments.\p"
+    "Once you have collected them all,\n"
+    "bring them to our eldest.\p"
+    "She may be able to piece the\n"
+    "fragments together.\p"
+    "My old friends should have hopefully\n"
+    "kept their fragments safe.\p"
+    "I don't know where they\n"
+    "currently reside, but I remember\l"
+    "one of them mentioning about\l"
+    "moving somewhere very cold."
+}
+text Kaolisle_AbsolutelyCertain{
+    "Are you absolutely certain you want\n"
+    "to challenge me? I'm pretty strong."
+}
+text Kaolisle_ExplainFragmentShort{
+    "There should be four fragments.\p"
+    "Once you have collected them all,\n"
+    "bring them to our eldest.\p"
+    "She may be able to piece the\n"
+    "fragments together.\p"
+    "My old friends should have hopefully\n"
+    "kept their fragments safe.\p"
+    "I don't know where they\n"
+    "currently reside, but I remember\l"
+    "one of them mentioning about\l"
+    "moving somewhere very cold."
 }

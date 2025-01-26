@@ -153,6 +153,8 @@ const u32 gTrainerPalette_SchoolKidF[] = INCBIN_U32("graphics/trainers/front_pic
 
 const u32 gTrainerFrontPic_SrAndJr[] = INCBIN_U32("graphics/trainers/front_pics/sr_and_jr.4bpp.lz");
 const u32 gTrainerPalette_SrAndJr[] = INCBIN_U32("graphics/trainers/front_pics/sr_and_jr.gbapal.lz");
+const u32 gTrainerFrontPic_Senior[] = INCBIN_U32("graphics/trainers/front_pics/sr.4bpp.lz");
+const u32 gTrainerFrontPic_Junior[] = INCBIN_U32("graphics/trainers/front_pics/jr.4bpp.lz");
 
 const u32 gTrainerFrontPic_PokefanM[] = INCBIN_U32("graphics/trainers/front_pics/pokefan_m.4bpp.lz");
 const u32 gTrainerPalette_PokefanM[] = INCBIN_U32("graphics/trainers/front_pics/pokefan_m.gbapal.lz");
@@ -434,6 +436,8 @@ const struct TrainerSprite gTrainerSprites[] =
     TRAINER_SPRITE(TRAINER_PIC_SCHOOL_KID_M, gTrainerFrontPic_SchoolKidM, gTrainerPalette_SchoolKidM),
     TRAINER_SPRITE(TRAINER_PIC_SCHOOL_KID_F, gTrainerFrontPic_SchoolKidF, gTrainerPalette_SchoolKidF),
     TRAINER_SPRITE(TRAINER_PIC_SR_AND_JR, gTrainerFrontPic_SrAndJr, gTrainerPalette_SrAndJr),
+    TRAINER_SPRITE(TRAINER_PIC_SENIOR, gTrainerFrontPic_Senior, gTrainerPalette_SrAndJr),
+    TRAINER_SPRITE(TRAINER_PIC_JUNIOR, gTrainerFrontPic_Junior, gTrainerPalette_SrAndJr),
     TRAINER_SPRITE(TRAINER_PIC_POKEFAN_M, gTrainerFrontPic_PokefanM, gTrainerPalette_PokefanM),
     TRAINER_SPRITE(TRAINER_PIC_POKEFAN_F, gTrainerFrontPic_PokefanF, gTrainerPalette_PokefanF),
     TRAINER_SPRITE(TRAINER_PIC_YOUNGSTER, gTrainerFrontPic_Youngster, gTrainerPalette_Youngster),

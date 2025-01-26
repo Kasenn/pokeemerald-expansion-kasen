@@ -20,6 +20,7 @@
 #include "constants/items.h"
 #include "constants/songs.h"
 #include "constants/metatile_labels.h"
+#include "battle_setup.h"
 
 /*  This file handles some persistent tasks that run in the overworld.
  *  - Task_RunTimeBasedEvents: Periodically updates local time and RTC events. Also triggers ambient cries.
@@ -55,6 +56,7 @@ static void PacifidlogBridgePerStepCallback(u8);
 static void SootopolisGymIcePerStepCallback(u8);
 static void CrackedFloorPerStepCallback(u8);
 static void TeleportFloorPerStepCallback(u8);
+static void IcyGymFloorPerStepCallback(u8);
 static void Task_MuddySlope(u8);
 
 static const TaskFunc sPerStepCallbacks[] =
@@ -67,7 +69,9 @@ static const TaskFunc sPerStepCallbacks[] =
     [STEP_CB_TRUCK]             = EndTruckSequence,
     [STEP_CB_SECRET_BASE]       = CrackedFloorPerStepCallback,
     [STEP_CB_CRACKED_FLOOR]     = CrackedFloorPerStepCallback,
-    [STEP_CB_TELEPORT_FLOOR]    = TeleportFloorPerStepCallback
+    [STEP_CB_TELEPORT_FLOOR]    = TeleportFloorPerStepCallback,
+    [STEP_CB_ICY_GYM_FLOOR]     = IcyGymFloorPerStepCallback
+    
 };
 
 // Each array has 4 pairs of data, each pair representing two metatiles of a log and their relative position.
@@ -751,8 +755,73 @@ static void SootopolisGymIcePerStepCallback(u8 taskId)
 #undef tIceY
 #undef tDelay
 
+extern const u8 FrostGym_Tr1_Hiker1[];
+extern const u8 FrostGym_Tr2_Kindler1[];
+extern const u8 FrostGym_Tr3_Senior[];
+extern const u8 FrostGym_Tr4_Junior[];
+extern const u8 FrostGym_Tr5_RangerM[];
+extern const u8 FrostGym_Tr6_RangerF[];
+extern const u8 FrostGym_Tr7_Maniac[];
+extern const u8 FrostGym_Tr8_Collector[];
+extern const u8 FrostGym_Tr9_Kindler2[];
+extern const u8 FrostGym_Tr10_RangerF2[];
+
 #define tPrevX data[1]
 #define tPrevY data[2]
+
+static const struct {
+  s16 x;
+  s16 y;
+  u16 trainerFlag;
+  u8 playerDir;
+  const u8 *script;
+} sFrosthearthGymInfo[] = {
+    { 9, 40,  TRAINER_FROSTGYM_TR1_HIKER1,      DIR_WEST,   FrostGym_Tr1_Hiker1},
+    { 9, 39,  TRAINER_FROSTGYM_TR2_KINDLER1,    DIR_WEST,   FrostGym_Tr2_Kindler1},
+    {12, 23,  TRAINER_FROSTGYM_TR3_SENIOR,      DIR_EAST,   FrostGym_Tr3_Senior},
+    {12, 24,  TRAINER_FROSTGYM_TR4_JUNIOR,      DIR_EAST,   FrostGym_Tr4_Junior},
+    {17, 38,  TRAINER_FROSTGYM_TR5_RANGER_M,    DIR_EAST,   FrostGym_Tr5_RangerM},
+    {17, 37,  TRAINER_FROSTGYM_TR6_RANGER_F,    DIR_EAST,   FrostGym_Tr6_RangerF},
+    {28, 25,  TRAINER_FROSTGYM_TR7_MANIAC,      DIR_WEST,   FrostGym_Tr7_Maniac},
+    {28, 24,  TRAINER_FROSTGYM_TR8_COLLECTOR,   DIR_WEST,   FrostGym_Tr8_Collector},
+    {33, 29,  TRAINER_FROSTGYM_TR9_KINDLER2,    DIR_SOUTH,  FrostGym_Tr9_Kindler2},
+    {34, 29,  TRAINER_FROSTGYM_TR10_RANGER_F2,  DIR_EAST,   FrostGym_Tr10_RangerF2},
+    {34, 29,  TRAINER_FROSTGYM_TR10_RANGER_F2,  DIR_SOUTH,  FrostGym_Tr10_RangerF2}
+};
+
+static void IcyGymFloorPerStepCallback(u8 taskId)
+{
+    s16 x, y;
+    u32 i;
+    s16 *data = gTasks[taskId].data;
+    u8 spotsToCheck = ARRAY_COUNT(sFrosthearthGymInfo);
+    PlayerGetDestCoords(&x, &y);
+
+    // End if player is in a menu
+    if (ArePlayerFieldControlsLocked() == TRUE)
+        return;
+    // End if player hasn't moved
+    if (x == tPrevX && y == tPrevY)
+        return;
+
+    tPrevX = x;
+    tPrevY = y;
+
+    for (i = 0; i < spotsToCheck; i++)
+    {
+        if (x == (sFrosthearthGymInfo[i].x + MAP_OFFSET) && y == (sFrosthearthGymInfo[i].y + MAP_OFFSET))
+        {
+            if (!HasTrainerBeenFought(sFrosthearthGymInfo[i].trainerFlag))
+            {
+                if (GetPlayerFacingDirection() == sFrosthearthGymInfo[i].playerDir)
+                {
+                    ScriptContext_SetupScript(sFrosthearthGymInfo[i].script);
+                    break;
+                }
+            }
+        }
+    }
+}
 
 static void AshGrassPerStepCallback(u8 taskId)
 {

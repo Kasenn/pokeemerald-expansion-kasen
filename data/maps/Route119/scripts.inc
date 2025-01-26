@@ -404,12 +404,12 @@ Route119_EventScript_Phil::
 	end
 
 Route119_EventScript_Yasu::
-	trainerbattle_single TRAINER_YASU, Route119_Text_YasuIntro, Route119_Text_YasuDefeat
+	trainerbattle_single TRAINER_FROSTGYM_TR3_SENIOR, Route119_Text_YasuIntro, Route119_Text_YasuDefeat
 	msgbox Route119_Text_YasuPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route119_EventScript_Takashi::
-	trainerbattle_single TRAINER_TAKASHI, Route119_Text_TakashiIntro, Route119_Text_TakashiDefeat
+	trainerbattle_single TRAINER_FROSTGYM_TR4_JUNIOR, Route119_Text_TakashiIntro, Route119_Text_TakashiDefeat
 	msgbox Route119_Text_TakashiPostBattle, MSGBOX_AUTOCLOSE
 	end
 

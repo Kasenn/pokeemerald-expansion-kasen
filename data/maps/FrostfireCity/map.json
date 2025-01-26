@@ -79,7 +79,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LAND_SWIMMER_F",
-      "x": 43,
+      "x": 44,
       "y": 40,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -88,19 +88,6 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Frosthearth_Swimmer",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SCOTT",
-      "x": 45,
-      "y": 40,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Frosthearth_Scott",
       "flag": "0"
     },
     {
@@ -195,11 +182,11 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
-      "x": 41,
+      "graphics_id": "OBJ_EVENT_GFX_RICH_BOY",
+      "x": 42,
       "y": 18,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_UP_AND_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -342,7 +329,7 @@
       "x": 10,
       "y": 44,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -352,16 +339,16 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(RUFFLET)",
-      "x": 12,
+      "x": 11,
       "y": 10,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 3,
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Frosthearth_Rufflet",
-      "flag": "0"
+      "flag": "FLAG_TEMP_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_2",
@@ -388,6 +375,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Frosthearth_Girl3",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 44,
+      "y": 40,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Frosthearth_HardRock",
+      "flag": "FLAG_TEMP_1"
     }
   ],
   "warp_events": [

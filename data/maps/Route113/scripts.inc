@@ -78,7 +78,7 @@ Route113_EventScript_RematchMadeline::
 	end
 
 Route113_EventScript_Lao::
-	trainerbattle_single TRAINER_LAO_1, Route113_Text_LaoIntro, Route113_Text_LaoDefeat, Route113_EventScript_RegisterLao
+	trainerbattle_single TRAINER_FROSTGYM_TR7_MANIAC, Route113_Text_LaoIntro, Route113_Text_LaoDefeat, Route113_EventScript_RegisterLao
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route113_EventScript_RematchLao
 	msgbox Route113_Text_LaoPostBattle, MSGBOX_DEFAULT
@@ -89,17 +89,17 @@ Route113_EventScript_RegisterLao::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route113_Text_LaoRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_LAO_1
+	register_matchcall TRAINER_FROSTGYM_TR7_MANIAC
 	release
 	end
 
 Route113_EventScript_RematchLao::
-	trainerbattle_rematch TRAINER_LAO_1, Route113_Text_LaoRematchIntro, Route113_Text_LaoRematchDefeat
+	trainerbattle_rematch TRAINER_FROSTGYM_TR7_MANIAC, Route113_Text_LaoRematchIntro, Route113_Text_LaoRematchDefeat
 	msgbox Route113_Text_LaoPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route113_EventScript_Lung::
-	trainerbattle_single TRAINER_LUNG, Route113_Text_LungIntro, Route113_Text_LungDefeat
+	trainerbattle_single TRAINER_FROSTGYM_TR8_COLLECTOR, Route113_Text_LungIntro, Route113_Text_LungDefeat
 	msgbox Route113_Text_LungPostBattle, MSGBOX_AUTOCLOSE
 	end
 

@@ -110,50 +110,68 @@ CoastTown_Swimmer::
 
 
 AzureTide_MysteryWoman::
+	checktrainerflag TRAINER_AZURETIDE_CELEBI_TR1
+	goto_if 1, AzureTide_MysteryWoman_2
 	lock
-	goto_if_set FLAG_TEMP_3, AzureTide_MysteryWoman_2
+	goto_if_set FLAG_TEMP_3, AzureTide_MysteryWoman_5
 	msgbox AzureTide_MysteryWoman_Text, MSGBOX_DEFAULT
 	faceplayer
 	msgbox AzureTide_MysteryWoman_Text2, MSGBOX_YESNO
-AzureTide_MysteryWoman_1:
+AzureTide_MysteryWoman_4:
 	compare VAR_RESULT, FALSE
-	goto_if_eq AzureTide_MysteryWoman_6
-	goto_if_set FLAG_BADGE04_GET, AzureTide_MysteryWoman_10
-	goto_if_set FLAG_BADGE03_GET, AzureTide_MysteryWoman_13
-	goto_if_set FLAG_BADGE02_GET, AzureTide_MysteryWoman_16
-	goto_if_set FLAG_BADGE01_GET, AzureTide_MysteryWoman_18
+	goto_if_eq AzureTide_MysteryWoman_9
+	call CountGymBadges
+	switch VAR_RESULT
+	case 0, AzureTide_MysteryWoman_13
+	case 1, AzureTide_MysteryWoman_13
+	case 2, AzureTide_MysteryWoman_14
+	case 3, AzureTide_MysteryWoman_15
+	case 4, AzureTide_MysteryWoman_16
+	case 5, AzureTide_MysteryWoman_16
+	case 6, AzureTide_MysteryWoman_17
+	case 7, AzureTide_MysteryWoman_17
+	case 8, AzureTide_MysteryWoman_17
+AzureTide_MysteryWoman_8:
 	end
 
 AzureTide_MysteryWoman_2:
+	msgbox AzureTide_MysteryWoman_AfterBattleGossip, MSGBOX_NPC
+	end
+
+AzureTide_MysteryWoman_5:
 	faceplayer
 	msgbox AzureTide_MysteryWoman_TextShort, MSGBOX_YESNO
-	goto AzureTide_MysteryWoman_1
+	goto AzureTide_MysteryWoman_4
 
-AzureTide_MysteryWoman_6:
+AzureTide_MysteryWoman_9:
 	msgbox AzureTide_MysteryWoman_Decline, MSGBOX_NPC
 	setflag FLAG_TEMP_3
 	turnobject 7, DIR_WEST
 	end
 
-AzureTide_MysteryWoman_10:
-	msgbox AzureTide_MysteryWoman_Get6Badges, MSGBOX_NPC
+AzureTide_MysteryWoman_13:
+	msgbox AzureTide_MysteryWoman_1Badges, MSGBOX_NPC
 	turnobject 7, DIR_WEST
 	end
 
-AzureTide_MysteryWoman_13:
+AzureTide_MysteryWoman_14:
+	msgbox AzureTide_MysteryWoman_2Badges, MSGBOX_NPC
+	turnobject 7, DIR_WEST
+	end
+
+AzureTide_MysteryWoman_15:
 	msgbox AzureTide_MysteryWoman_3Badges, MSGBOX_NPC
 	turnobject 7, DIR_WEST
 	end
 
 AzureTide_MysteryWoman_16:
-	msgbox AzureTide_MysteryWoman_2Badges, MSGBOX_NPC
+	msgbox AzureTide_MysteryWoman_Get6Badges, MSGBOX_NPC
 	turnobject 7, DIR_WEST
 	end
 
-AzureTide_MysteryWoman_18:
-	msgbox AzureTide_MysteryWoman_1Badges, MSGBOX_NPC
-	turnobject 7, DIR_WEST
-	end
+AzureTide_MysteryWoman_17:
+	goto AzureTide_MysteryWoman_Battle
+	goto AzureTide_MysteryWoman_8
 
 
 Azuretide_HoneyTree::
@@ -299,6 +317,40 @@ Azuretide_Grotto_Entrance_2:
 	end
 
 
+AzureTide_MysteryWoman_Battle::
+	checkpartylevel 55
+	compare VAR_RESULT, FALSE
+	goto_if_eq AzureTide_MysteryWoman_Battle_2
+AzureTide_MysteryWoman_Battle_1:
+	compare VAR_RESULT, FALSE
+	goto_if_eq AzureTide_MysteryWoman_Battle_5
+	msgbox AzureTide_MysteryWoman_Battle_Intro
+	trainerbattle_no_intro TRAINER_AZURETIDE_CELEBI_TR1, AzureTide_MysteryWoman_Battle_Lose
+	msgbox AzureTide_MysteryWoman_PostBattle
+	giveitem ITEM_DISC_FRAGMENT
+	checkitem ITEM_DISC_FRAGMENT, 2
+	compare VAR_RESULT, TRUE
+	goto_if_eq AzureTide_MysteryWoman_Battle_8
+	msgbox AzureTide_ExplainFragment
+AzureTide_MysteryWoman_Battle_7:
+	release
+	end
+
+AzureTide_MysteryWoman_Battle_2:
+	msgbox AzureTide_AbsolutelyCertain, MSGBOX_YESNO
+	goto AzureTide_MysteryWoman_Battle_1
+
+AzureTide_MysteryWoman_Battle_5:
+	msgbox AzureTide_MysteryWoman_Decline, MSGBOX_NPC
+	setflag FLAG_TEMP_3
+	turnobject 7, DIR_WEST
+	end
+
+AzureTide_MysteryWoman_Battle_8:
+	msgbox AzureTide_ExplainFragmentShort
+	goto AzureTide_MysteryWoman_Battle_7
+
+
 CoastTown_Sign1_Text_0:
 	.string "Azuretide Harbor$"
 
@@ -440,3 +492,67 @@ AmphyPoints::
 	.string "towards the ranch and gesturing you\l"
 	.string "to follow.\p"
 	.string "Follow the Pokémon?$"
+
+AzureTide_MysteryWoman_Battle_Intro::
+	.string "Very well then.\p"
+	.string "Prepare yourself,\n"
+	.string "for I won't hold back!$"
+
+AzureTide_MysteryWoman_Battle_Lose::
+	.string "Ah, truly a worthy opponent!$"
+
+AzureTide_MysteryWoman_PostBattle::
+	.string "You young people really are\n"
+	.string "something else, huh.\p"
+	.string "You've managed to reach a level beyond\n"
+	.string "mine in just a fraction of the time.\p"
+	.string "…Oh!\p"
+	.string "Speaking of fractions, I just\n"
+	.string "remembered something.\p"
+	.string "Here, take this.$"
+
+AzureTide_ExplainFragment::
+	.string "It may look like junk now,\n"
+	.string "but trust me, that thing\l"
+	.string "is a key to something important.\p"
+	.string "Before it can be used however,\n"
+	.string "you will need to find other fragments\l"
+	.string "like it.\p"
+	.string "My old friends should have hopefully\n"
+	.string "kept their fragments safe.\p"
+	.string "I don't know where they\n"
+	.string "currently reside, but I remember\l"
+	.string "one of them mentioning about\l"
+	.string "moving somewhere warm.\p"
+	.string "There should be four fragments.\p"
+	.string "Once you have collected them all,\n"
+	.string "come back to me and I'll see if\l"
+	.string "I can piece the fragments together.$"
+
+AzureTide_MysteryWoman_AfterBattleGossip::
+	.string "There should be four fragments.\p"
+	.string "Once you have collected them all,\n"
+	.string "come back to me and I'll see if\l"
+	.string "I can piece the fragments together.\p"
+	.string "My old friends should have hopefully\n"
+	.string "kept their fragments safe.\p"
+	.string "I don't know where they\n"
+	.string "currently reside, but I remember\l"
+	.string "one of them mentioning about\l"
+	.string "moving somewhere warm.$"
+
+AzureTide_AbsolutelyCertain::
+	.string "Are you absolutely certain you want\n"
+	.string "to challenge me? I'm pretty strong.$"
+
+AzureTide_ExplainFragmentShort::
+	.string "There should be four fragments.\p"
+	.string "Once you have collected them all,\n"
+	.string "come back to me and I'll see if\l"
+	.string "I can piece the fragments together.\p"
+	.string "My old friends should have hopefully\n"
+	.string "kept their fragments safe.\p"
+	.string "I don't know where they\n"
+	.string "currently reside, but I remember\l"
+	.string "one of them mentioning about\l"
+	.string "moving somewhere warm.$"

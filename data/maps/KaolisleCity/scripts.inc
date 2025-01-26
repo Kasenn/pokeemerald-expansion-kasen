@@ -372,39 +372,62 @@ KaolisleCity_Lass_Couple::
 
 
 KaolisleCity_MysteryMan::
+	checktrainerflag TRAINER_KAOLISLE_CELEBI_TR2
+	goto_if 1, KaolisleCity_MysteryMan_2
 	lock
-	goto_if_set FLAG_TEMP_4, KaolisleCity_MysteryMan_2
+	goto_if_set FLAG_TEMP_4, KaolisleCity_MysteryMan_5
 	msgbox KaolisleCity_MysteryMan_Text, MSGBOX_DEFAULT
 	faceplayer
 	msgbox KaolisleCity_MysteryMan_Text2, MSGBOX_YESNO
-KaolisleCity_MysteryMan_1:
+KaolisleCity_MysteryMan_4:
 	compare VAR_RESULT, FALSE
-	goto_if_eq KaolisleCity_MysteryMan_6
-	goto_if_set FLAG_BADGE04_GET, KaolisleCity_MysteryMan_9
-	goto_if_set FLAG_BADGE03_GET, KaolisleCity_MysteryMan_10
-	msgbox KaolisleCity_MysteryMan_2Badges, MSGBOX_NPC
-KaolisleCity_MysteryMan_8:
-	turnobject 7, DIR_NORTH
-	end
+	goto_if_eq KaolisleCity_MysteryMan_8
+	call CountGymBadges
+	switch VAR_RESULT
+	case 0, KaolisleCity_MysteryMan_12
+	case 1, KaolisleCity_MysteryMan_12
+	case 2, KaolisleCity_MysteryMan_12
+	case 3, KaolisleCity_MysteryMan_13
+	case 4, KaolisleCity_MysteryMan_14
+	case 5, KaolisleCity_MysteryMan_14
+	case 6, KaolisleCity_MysteryMan_15
+	case 7, KaolisleCity_MysteryMan_15
+	case 8, KaolisleCity_MysteryMan_15
+	return
 
 KaolisleCity_MysteryMan_2:
+	msgbox KaolisleCity_MysteryMan_AfterBattleGossip, MSGBOX_NPC
+	end
+
+KaolisleCity_MysteryMan_5:
 	faceplayer
 	msgbox KaolisleCity_MysteryMan_TextShort, MSGBOX_YESNO
-	goto KaolisleCity_MysteryMan_1
+	goto KaolisleCity_MysteryMan_4
 
-KaolisleCity_MysteryMan_6:
+KaolisleCity_MysteryMan_8:
 	msgbox KaolisleCity_MysteryMan_Decline, MSGBOX_NPC
 	turnobject 7, DIR_NORTH
 	setflag FLAG_TEMP_4
 	end
 
-KaolisleCity_MysteryMan_9:
-	msgbox KaolisleCity_MysteryMan_4Badges, MSGBOX_NPC
-	goto KaolisleCity_MysteryMan_8
+KaolisleCity_MysteryMan_12:
+	msgbox KaolisleCity_MysteryMan_2Badges, MSGBOX_NPC
+	turnobject 7, DIR_NORTH
+	end
 
-KaolisleCity_MysteryMan_10:
+KaolisleCity_MysteryMan_13:
 	msgbox KaolisleCity_MysteryMan_3Badges, MSGBOX_NPC
-	goto KaolisleCity_MysteryMan_8
+	turnobject 7, DIR_NORTH
+	end
+
+KaolisleCity_MysteryMan_14:
+	msgbox KaolisleCity_MysteryMan_4Badges, MSGBOX_NPC
+	turnobject 7, DIR_NORTH
+	end
+
+KaolisleCity_MysteryMan_15:
+	goto KaolisleCity_MysteryMan_Battle
+	return
 
 
 KaolisleCity_ExpertM::
@@ -662,6 +685,41 @@ KaolisleBirdMain::
 	fadescreen FADE_FROM_BLACK
 	release
 	return
+
+
+KaolisleCity_MysteryMan_Battle::
+	checkpartylevel 55
+	compare VAR_RESULT, FALSE
+	goto_if_eq KaolisleCity_MysteryMan_Battle_2
+KaolisleCity_MysteryMan_Battle_1:
+	compare VAR_RESULT, FALSE
+	goto_if_eq KaolisleCity_MysteryMan_Battle_5
+	msgbox KaolisleCity_MysteryMan_Battle_Intro
+	trainerbattle_no_intro TRAINER_KAOLISLE_CELEBI_TR2, KaolisleCity_MysteryMan_Battle_Lose
+	msgbox KaolisleCity_MysteryMan_PostBattle
+	msgbox KaolisleCity_MysteryMan_PostBattle2
+	giveitem ITEM_DISC_FRAGMENT
+	checkitem ITEM_DISC_FRAGMENT, 2
+	compare VAR_RESULT, TRUE
+	goto_if_eq KaolisleCity_MysteryMan_Battle_8
+	msgbox Kaolisle_ExplainFragment
+KaolisleCity_MysteryMan_Battle_7:
+	release
+	end
+
+KaolisleCity_MysteryMan_Battle_2:
+	msgbox Kaolisle_AbsolutelyCertain, MSGBOX_YESNO
+	goto KaolisleCity_MysteryMan_Battle_1
+
+KaolisleCity_MysteryMan_Battle_5:
+	msgbox KaolisleCity_MysteryMan_Decline, MSGBOX_NPC
+	turnobject 7, DIR_NORTH
+	setflag FLAG_TEMP_4
+	end
+
+KaolisleCity_MysteryMan_Battle_8:
+	msgbox Kaolisle_ExplainFragmentShort
+	goto KaolisleCity_MysteryMan_Battle_7
 
 
 KaolisleCity_Zigzagoon_Text_0:
@@ -1010,3 +1068,77 @@ KaolisleCity_SignIntro_Text::
 NudgeMon::
 	.string "You give the {STR_VAR_1} a nudge,\n"
 	.string "and it starts flying towards home.$"
+
+KaolisleCity_MysteryMan_Battle_Intro::
+	.string "This is going to be fun!$"
+
+KaolisleCity_MysteryMan_Battle_Lose::
+	.string "My!\n"
+	.string "Such vigor!\p"
+	.string "I've never seen anything\n"
+	.string "like it before!$"
+
+KaolisleCity_MysteryMan_PostBattle::
+	.string "Ah, what a fun battle that was.\p"
+	.string "I'm glad an old husk like me\n"
+	.string "could still enjoy the thrill\l"
+	.string "of a Pokémon Battle.$"
+
+KaolisleCity_MysteryMan_PostBattle2::
+	.string "You know what, grand battles\n"
+	.string "require grand prizes.\p"
+	.string "I think I should have some\n"
+	.string "candy in one of my pockets…\p"
+	.string "…Oh!\p"
+	.string "Actually, I think I may have\n"
+	.string "something even better than candy.\p"
+	.string "Here, take this.$"
+
+Kaolisle_ExplainFragment::
+	.string "It may look like junk now,\n"
+	.string "but trust me, that thing\l"
+	.string "is a key to something important.\p"
+	.string "Before it can be used however,\n"
+	.string "you will need to find other fragments\l"
+	.string "like it.\p"
+	.string "There should be four fragments.\p"
+	.string "Once you have collected them all,\n"
+	.string "bring them to our eldest.\p"
+	.string "She may be able to piece the\n"
+	.string "fragments together.\p"
+	.string "My old friends should have hopefully\n"
+	.string "kept their fragments safe.\p"
+	.string "I don't know where they\n"
+	.string "currently reside, but I remember\l"
+	.string "one of them mentioning about\l"
+	.string "moving somewhere very cold.$"
+
+KaolisleCity_MysteryMan_AfterBattleGossip::
+	.string "There should be four fragments.\p"
+	.string "Once you have collected them all,\n"
+	.string "bring them to our eldest.\p"
+	.string "She may be able to piece the\n"
+	.string "fragments together.\p"
+	.string "My old friends should have hopefully\n"
+	.string "kept their fragments safe.\p"
+	.string "I don't know where they\n"
+	.string "currently reside, but I remember\l"
+	.string "one of them mentioning about\l"
+	.string "moving somewhere very cold.$"
+
+Kaolisle_AbsolutelyCertain::
+	.string "Are you absolutely certain you want\n"
+	.string "to challenge me? I'm pretty strong.$"
+
+Kaolisle_ExplainFragmentShort::
+	.string "There should be four fragments.\p"
+	.string "Once you have collected them all,\n"
+	.string "bring them to our eldest.\p"
+	.string "She may be able to piece the\n"
+	.string "fragments together.\p"
+	.string "My old friends should have hopefully\n"
+	.string "kept their fragments safe.\p"
+	.string "I don't know where they\n"
+	.string "currently reside, but I remember\l"
+	.string "one of them mentioning about\l"
+	.string "moving somewhere very cold.$"

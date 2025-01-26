@@ -14,6 +14,7 @@ FrigidFrontier_Pryce_1:
 	goto_if_set FLAG_FIND_PRYCE_QUEST, FrigidFrontier_Pryce_6
 FrigidFrontier_Pryce_5:
 	closemessage
+	dismountplayer
 	setflag FLAG_ESCORTING_PRYCE
 	setfollower 2, FOLLOWER_FLAG_CLEAR_ON_WHITE_OUT, FrigidFrontier_PryceYapping
 	release

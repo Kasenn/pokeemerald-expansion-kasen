@@ -7544,7 +7544,7 @@ Xatu
 Level: 41
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
-=== TRAINER_ALEX ===
+=== TRAINER_FROSTGYM_TR1_HIKER1 ===
 Name: ALEX
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7561,7 +7561,7 @@ Swellow
 Level: 33
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
-=== TRAINER_BECK ===
+=== TRAINER_FROSTGYM_TR2_KINDLER1 ===
 Name: BECK
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7574,7 +7574,7 @@ Tropius
 Level: 34
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_YASU ===
+=== TRAINER_FROSTGYM_TR3_SENIOR ===
 Name: YASU
 Class: Ninja Boy
 Pic: Ninja Boy
@@ -7587,7 +7587,7 @@ Ninjask
 Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_TAKASHI ===
+=== TRAINER_FROSTGYM_TR4_JUNIOR ===
 Name: TAKASHI
 Class: Ninja Boy
 Pic: Ninja Boy
@@ -7604,7 +7604,7 @@ Koffing
 Level: 25
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_DIANNE ===
+=== TRAINER_FROSTGYM_TR5_RANGER_M ===
 Name: DIANNE
 Class: Cooltrainer
 Pic: Cooltrainer F
@@ -7625,7 +7625,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Thunderbolt
 - Earthquake
 
-=== TRAINER_JANI ===
+=== TRAINER_FROSTGYM_TR6_RANGER_F ===
 Name: JANI
 Class: Tuber F
 Pic: Tuber F
@@ -7637,7 +7637,7 @@ Marill
 Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_LAO_1 ===
+=== TRAINER_FROSTGYM_TR7_MANIAC ===
 Name: LAO
 Class: Ninja Boy
 Pic: Ninja Boy
@@ -7669,7 +7669,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Sludge
 - Self Destruct
 
-=== TRAINER_LUNG ===
+=== TRAINER_FROSTGYM_TR8_COLLECTOR ===
 Name: LUNG
 Class: Ninja Boy
 Pic: Ninja Boy
@@ -7685,7 +7685,7 @@ Ninjask
 Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_LAO_2 ===
+=== TRAINER_FROSTGYM_TR9_KINDLER2 ===
 Name: LAO
 Class: Ninja Boy
 Pic: Ninja Boy
@@ -7722,7 +7722,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle
 - Sludge
 
-=== TRAINER_LAO_3 ===
+=== TRAINER_FROSTGYM_TR10_RANGER_F2 ===
 Name: LAO
 Class: Ninja Boy
 Pic: Ninja Boy
@@ -7759,7 +7759,7 @@ IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 - Tackle
 - Sludge
 
-=== TRAINER_LAO_4 ===
+=== TRAINER_AZURETIDE_CELEBI_TR1 ===
 Name: LAO
 Class: Ninja Boy
 Pic: Ninja Boy
@@ -7794,7 +7794,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 - Tackle
 - Sludge
 
-=== TRAINER_LAO_5 ===
+=== TRAINER_KAOLISLE_CELEBI_TR2 ===
 Name: LAO
 Class: Ninja Boy
 Pic: Ninja Boy

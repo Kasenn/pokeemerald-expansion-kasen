@@ -141,23 +141,60 @@ script Frosthearth_FanClubTrader_Darumaka{
 }
 
 text FanClub_WantToTradeWeezing{
-    ""
+    "My silly Weezing with its top hat\n"
+    "keeps bumping against everything and\l"
+    "wrecking everything.\p"
+    "I don't think I can keep him around\n"
+    "any longer.\p"
+    "I've heard that there are Weezings\n"
+    "without top hats.\p"
+    "If you have one, would you like to\n"
+    "trade it for my Weezing?"
 }
 text FanClub_WantToTradeFarfetchd{
-    ""
+    "I got this Farfetch'd when I was\n"
+    "visiting Galar some time ago.\p"
+    "It's cool and all, but I specialize\n"
+    "in Flying-type Pokémon, and this one\l"
+    "somehow isn't one.\p"
+    "Would you like to trade it for a\n"
+    "Flying-type Farfetch'd?"
 }
 text FanClub_WantToTradeMrMime{
-    ""
+    "I found this Mr. Mime the other day,\n"
+    "but I don't know…\l"
+    "It looks kinda weird…\p"
+    "Do you wanna trade it for a\n"
+    "regular Mr. Mime?"
 }
 text FanClub_WantToTradeRattata{
-    ""
+    "My Rattata is in the top percentage\n"
+    "of Rattatas.\p"
+    "However, I feel like normal Rattatas\n"
+    "aren't in the fashion anymore.\p"
+    "Do you have any exotic\n"
+    "Rattatas around here?\p"
+    "I'd happily trade mine for one."
 }
 text FanClub_WantToTradeGeodude{
-    ""
+    "My Geodude has this nasty habit of\n"
+    "zapping me every now and then.\p"
+    "Do you have a Geodude that isn't\n"
+    "an Electric-type?\p"
+    "I'll gladly trade mine for one."
 }
 text FanClub_WantToTradeGrimer{
-    ""
+    "I was fooled into buying this shiny\n"
+    "Grimer, when in fact it's just a\l"
+    "regular Grimer from another region!\p"
+    "Do you want it?\p"
+    "I'd be fine trading it for a\n"
+    "regular Grimer."
 }
 text FanClub_WantToTradeDarumaka{
-    ""
+    "I hear the Darumakas around here\n"
+    "are feisty and burn with passion.\p"
+    "I've got this much cooler Darumaka\n"
+    "from a much colder part of the world.\p"
+    "Care to trade?"
 }

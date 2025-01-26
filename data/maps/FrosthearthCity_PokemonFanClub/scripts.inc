@@ -183,22 +183,59 @@ Frosthearth_FanClubTrader_Darumaka_2:
 
 
 FanClub_WantToTradeWeezing::
-	.string "$"
+	.string "My silly Weezing with its top hat\n"
+	.string "keeps bumping against everything and\l"
+	.string "wrecking everything.\p"
+	.string "I don't think I can keep him around\n"
+	.string "any longer.\p"
+	.string "I've heard that there are Weezings\n"
+	.string "without top hats.\p"
+	.string "If you have one, would you like to\n"
+	.string "trade it for my Weezing?$"
 
 FanClub_WantToTradeFarfetchd::
-	.string "$"
+	.string "I got this Farfetch'd when I was\n"
+	.string "visiting Galar some time ago.\p"
+	.string "It's cool and all, but I specialize\n"
+	.string "in Flying-type Pokémon, and this one\l"
+	.string "somehow isn't one.\p"
+	.string "Would you like to trade it for a\n"
+	.string "Flying-type Farfetch'd?$"
 
 FanClub_WantToTradeMrMime::
-	.string "$"
+	.string "I found this Mr. Mime the other day,\n"
+	.string "but I don't know…\l"
+	.string "It looks kinda weird…\p"
+	.string "Do you wanna trade it for a\n"
+	.string "regular Mr. Mime?$"
 
 FanClub_WantToTradeRattata::
-	.string "$"
+	.string "My Rattata is in the top percentage\n"
+	.string "of Rattatas.\p"
+	.string "However, I feel like normal Rattatas\n"
+	.string "aren't in the fashion anymore.\p"
+	.string "Do you have any exotic\n"
+	.string "Rattatas around here?\p"
+	.string "I'd happily trade mine for one.$"
 
 FanClub_WantToTradeGeodude::
-	.string "$"
+	.string "My Geodude has this nasty habit of\n"
+	.string "zapping me every now and then.\p"
+	.string "Do you have a Geodude that isn't\n"
+	.string "an Electric-type?\p"
+	.string "I'll gladly trade mine for one.$"
 
 FanClub_WantToTradeGrimer::
-	.string "$"
+	.string "I was fooled into buying this shiny\n"
+	.string "Grimer, when in fact it's just a\l"
+	.string "regular Grimer from another region!\p"
+	.string "Do you want it?\p"
+	.string "I'd be fine trading it for a\n"
+	.string "regular Grimer.$"
 
 FanClub_WantToTradeDarumaka::
-	.string "$"
+	.string "I hear the Darumakas around here\n"
+	.string "are feisty and burn with passion.\p"
+	.string "I've got this much cooler Darumaka\n"
+	.string "from a much colder part of the world.\p"
+	.string "Care to trade?$"

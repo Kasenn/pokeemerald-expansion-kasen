@@ -13958,10 +13958,10 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
             "A powerful 2-turn move that\n"
             "may inflict a burn."),
         .effect = EFFECT_TWO_TURNS_ATTACK,
-        .power = 140,
+        .power = 130,
         .type = TYPE_ICE,
-        .accuracy = 90,
-        .pp = 5,
+        .accuracy = 100,
+        .pp = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,

@@ -578,6 +578,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_KrokorokPlayer,           OBJ_EVENT_PAL_KROKOROK},
     {gObjectEventPalette_Kasen,           OBJ_EVENT_PAL_KASEN},
     {gObjectEventPalette_Pryce,           OBJ_EVENT_PAL_PRYCE},
+    {gObjectEventPalette_Blaine,           OBJ_EVENT_PAL_BLAINE},
     {gObjectEventPalette_Brock,           OBJ_EVENT_PAL_BROCK},
     {gObjectEventPalette_SSTidalRear,           OBJ_EVENT_PAL_SS_TIDAL_REAR},
     {gObjectEventPalette_BwAceSwimmer,           OBJ_EVENT_PAL_BW_ACE_SWIMMER},
@@ -9932,7 +9933,7 @@ static u8 GetReflectionTypeByMetatileBehavior(u32 behavior)
     if (MetatileBehavior_IsIce(behavior))
         return REFL_TYPE_ICE;
     else if (MetatileBehavior_IsMirror(behavior))
-        return REFL_TYPE_MIRROR;
+        return REFL_TYPE_ICE;
     else if (MetatileBehavior_IsReflective(behavior))
         return REFL_TYPE_WATER;
     else
@@ -10252,8 +10253,8 @@ static void (*const sGroundSnowEffectTracksFuncs[])(struct ObjectEvent *objEvent
     [TRACKS_FOOT] = DoTracksGroundSnowEffect_Footprints,
     [TRACKS_BIKE_TIRE] = DoTracksGroundSnowEffect_BikeTireTracks,
     [TRACKS_SLITHER] = DoTracksGroundSnowEffect_SlitherTracks,
-    [TRACKS_SPOT] = DoTracksGroundSnowEffect_FootprintsC,
-    [TRACKS_BUG] = DoTracksGroundSnowEffect_FootprintsB,
+    [TRACKS_SPOT] = DoTracksGroundSnowEffect_FootprintsB,
+    [TRACKS_BUG] = DoTracksGroundSnowEffect_FootprintsC,
 };
 
 static void (*const sGroundEffectTracksMudFuncs[])(struct ObjectEvent *objEvent, struct Sprite *sprite, bool8 isMud) = {

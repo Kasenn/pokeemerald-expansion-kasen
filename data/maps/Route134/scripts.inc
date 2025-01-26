@@ -17,7 +17,7 @@ Route134_EventScript_Laurel::
 	end
 
 Route134_EventScript_Alex::
-	trainerbattle_single TRAINER_ALEX, Route134_Text_AlexIntro, Route134_Text_AlexDefeat
+	trainerbattle_single TRAINER_FROSTGYM_TR1_HIKER1, Route134_Text_AlexIntro, Route134_Text_AlexDefeat
 	msgbox Route134_Text_AlexPostBattle, MSGBOX_AUTOCLOSE
 	end
 

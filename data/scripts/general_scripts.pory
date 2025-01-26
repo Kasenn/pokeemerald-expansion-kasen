@@ -3,6 +3,36 @@
 //
 // General stuff
 //
+script CountGymBadges{
+    if(flag(FLAG_BADGE08_GET)){
+        setvar(VAR_RESULT, 8)
+    }
+    elif(flag(FLAG_BADGE07_GET)){
+        setvar(VAR_RESULT, 7)
+    }
+    elif(flag(FLAG_BADGE06_GET)){
+        setvar(VAR_RESULT, 6)
+    }
+    elif(flag(FLAG_BADGE05_GET)){
+        setvar(VAR_RESULT, 5)
+    }
+    elif(flag(FLAG_BADGE04_GET)){
+        setvar(VAR_RESULT, 4)
+    }
+    elif(flag(FLAG_BADGE03_GET)){
+        setvar(VAR_RESULT, 3)
+    }
+    elif(flag(FLAG_BADGE02_GET)){
+        setvar(VAR_RESULT, 2)
+    }
+    elif(flag(FLAG_BADGE01_GET)){
+        setvar(VAR_RESULT, 1)
+    }
+    else{
+        setvar(VAR_RESULT, 0)
+    }
+    return
+}
 script EventScript_UseRockClimb{
 	lockall
 	checkpartymove (MOVE_ROCK_CLIMB)

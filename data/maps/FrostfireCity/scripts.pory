@@ -1,5 +1,36 @@
+const X = VAR_TEMP_3
+const Y = VAR_TEMP_4
+const OBJ_RUFFLET = 25
+
 mapscripts FrostfireCity_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION{
+        setflag(FLAG_VISITED_FROSTFIRE)
+        switch(var(VAR_FROSTHEARTH_RUFFLET)){
+            case 2:
+                setobjectxyperm(OBJ_RUFFLET, 37, 11)
+            case 3:
+                setobjectxyperm(OBJ_RUFFLET, 47, 29)
+            case 4:
+                setobjectxyperm(OBJ_RUFFLET, 39, 41)
+            case 5:
+                setobjectxyperm(OBJ_RUFFLET, 7, 27)
+            case 6:
+                setobjectxyperm(OBJ_RUFFLET, 10, 43)
+        }
+        if(var(VAR_FROSTHEARTH_RUFFLET) == 0 || var(VAR_FROSTHEARTH_RUFFLET) == 10){
+            setflag(FLAG_TEMP_2)
+        }
+        switch(var(VAR_FROSTHEARTH_HARD_ROCK)){
+            case 0:
+                setflag(FLAG_TEMP_1)
+            case 1:
+                setobjectxyperm(28, 42, 40)
+            case 2:
+                setobjectxyperm(28, 46, 40)
+            case 3:
+                setflag(FLAG_TEMP_1)
+        }
+    }
 }
 
 script FrostHearth_Sign1{
@@ -57,77 +88,367 @@ script Frosthearth_GymUnavailable{
 text Frosthearth_GymUnavailable_Text{
 	"I'm sorry, but we can't currently\n"
 	"accept new challengers.\p"
-	"The Gym Leader went to explore\n"
+	"The Gym Leader has gone to explore\n"
     "the Frigid Frontier, and has yet\l"
     "to return."
 }
 
-script Frosthearth_Boy2{
-    
-}
-script Frosthearth_Rufflet{
-    
-}
 script Frosthearth_Maniac{
-    
+    msgbox(Frosthearth_Maniac_Text, MSGBOX_NPC)
+}
+text Frosthearth_Maniac_Text{
+    "Pokémon World Tournament…\p"
+    "So many great trainers have made\n"
+    "a name for themselves here.\p"
+    "I feel like I'm standing on\n"
+    "holy ground here!"
 }
 script Frosthearth_Man5{
-    
+    msgbox(Frosthearth_Man5_Text, MSGBOX_NPC)
+}
+text Frosthearth_Man5_Text{
+    "Anyone who seems themselves a\n"
+    "worthwhile trainer must participate\l"
+    "in the Pokémon World Tournament\l"
+    "at least once in their lifetime!"
 }
 script Frosthearth_NinjaBoy{
-    
+    msgbox(Frosthearth_NinjaBoy_Text, MSGBOX_NPC)
+}
+text Frosthearth_NinjaBoy_Text{
+    "I've just arrived in Frosthearth,\n"
+    "but I have no idea where I want\l"
+    "to go first."
 }
 script Frosthearth_Sailor{
-    
+    msgbox(Frosthearth_Sailor_Text, MSGBOX_NPC)
+}
+text Frosthearth_Sailor_Text{
+    "The ship here travels to other\n"
+    "well-established harbors.\p"
+    "If you're looking to get to Route 20,\n"
+    "you'll need to surf across the ocean,\l"
+    "or hire someone to ferry you over."
 }
 script Frosthearth_FilmingCrew{
-    
+    msgbox(Frosthearth_FilmingCrew_Text, MSGBOX_SIGN)
+}
+text Frosthearth_FilmingCrew_Text{
+    "The filming crew seems to be busy\n"
+    "filming some kind of documentary."
 }
 script Frosthearth_Lass1{
-    
+    msgbox(Frosthearth_Lass1_Text, MSGBOX_NPC)
 }
 script Frosthearth_Lass2{
-    
+    msgbox(Frosthearth_Lass2_Text, MSGBOX_NPC)
+}
+text Frosthearth_Lass1_Text{
+    "Have you been to the Frosthearth\n"
+    "Pokémon Gym?\p"
+    "They say there's no other\n"
+    "Pokémon Gym like it!"
+}
+text Frosthearth_Lass2_Text{
+    "You don't look like a local.\n"
+    "Aren't you cold in that get-up?"
 }
 script Frosthearth_OldMan{
-    
+    if(flag(FLAG_CHOCOLATE_FROM_OLD_MAN)){
+        msgbox(Frosthearth_OldMan_Text, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    msgbox(Frosthearth_OldMan_Text2)
+    giveitem(ITEM_RAGE_CANDY_BAR)
+    if(var(VAR_RESULT) == FALSE){
+        goto(ZeBagIsFull)
+    }
+    setflag(FLAG_CHOCOLATE_FROM_OLD_MAN)
+    release
+}
+text Frosthearth_OldMan_Text{
+    "Make sure to keep you and your\n"
+    "Pokémon warm in this weather."
+}
+text Frosthearth_OldMan_Text2{
+    "It's very important to keep your\n"
+    "energy levels up in cold weather.\p"
+    "Here, take this."
 }
 script Frosthearth_Twin{
-    
+    msgbox(Frosthearth_Twin_Text, MSGBOX_NPC)
 }
-script Frosthearth_LoneOldWoman{
-    
-}
-script Frosthearth_Swimmer{
-    
-}
-script Frosthearth_Scott{
-    
+text Frosthearth_Twin_Text{
+    "Did you know that sometimes the sky\n"
+    "catches on fire?\p"
+    "It's true!\p"
+    "The adults call it Ara…{PAUSE 48} Arora Bol…{PAUSE 48}\n"
+    "Aura…{PAUSE 96} The northern lights."
 }
 script Frosthearth_Girl{
-    
+    msgbox(Frosthearth_Girl_Text, MSGBOX_NPC)
+}
+text Frosthearth_Girl_Text{
+    "It's fun making snow angels\n"
+    "in the snow!"
 }
 script Frosthearth_HoundourTrainer{
-    
+    msgbox(Frosthearth_HoundourTrainer_Text, MSGBOX_NPC)
+    turnobject(VAR_LAST_TALKED, DIR_SOUTH)
+}
+text Frosthearth_HoundourTrainer_Text{
+    "I've been training my Pokémon\n"
+    "diligently, and soon we'll be\l"
+    "able to take on the Pokémon Gym!"
 }
 script Frosthearth_Houndour1{
-    
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_HOUNDOUR, CRY_MODE_NORMAL)
+	msgbox(Frosthearth_Houndour1_Text, MSGBOX_DEFAULT)
+	waitmoncry
+    turnobject(VAR_LAST_TALKED, DIR_SOUTH)
+	release
+	end
+}
+text Frosthearth_Houndour1_Text{
+    "Houndour: Bow! Bowwow!\p"
+    "The Houndour seems to be\n"
+    "paying close attention to\l"
+    "its owner's commands."
 }
 script Frosthearth_Houndour2{
-    
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_HOUNDOUR, CRY_MODE_NORMAL)
+	msgbox(Frosthearth_Houndour2_Text, MSGBOX_DEFAULT)
+	waitmoncry
+	release
+	end
+}
+text Frosthearth_Houndour2_Text{
+    "Houndour: Bow! Bowwow!\p"
+    "The Houndour seems to be\n"
+    "having hard time following\l"
+    "its owner's commands."
 }
 script Frosthearth_OldWomanSand{
-    
+    msgbox(Frosthearth_OldWomanSand_Text, MSGBOX_SIGN)
+}
+text Frosthearth_OldWomanSand_Text{
+    "Zzz…"
 }
 script Frosthearth_ExpertSand{
-    
+    msgbox(Frosthearth_ExpertSand_Text, MSGBOX_SIGN)
+}
+text Frosthearth_ExpertSand_Text{
+    "It is believed that the hot springs\n"
+    "can extend a person's life expectancy.\p"
+    "You may not believe it,\n"
+    "but I'm over 90 years old!"
 }
 script Frosthearth_Girl3{
-    
+    msgbox(Frosthearth_Girl3_Text, MSGBOX_NPC)
+}
+text Frosthearth_Girl3_Text{
+    "Coming from Basalek Town to\n"
+    "Frosthearth can be a bit of a shock.\p"
+    "That's why I'm acclimatizing by\n"
+    "resting in the hot spring."
 }
 script Frosthearth_OldWomanSprings1{
-    
+    msgbox(DoIKnowYou, MSGBOX_NPC)
+    turnobject(VAR_LAST_TALKED, DIR_EAST)
 }
 script Frosthearth_OldWomanSprings2{
-    
+    msgbox(DoIKnowYou, MSGBOX_NPC)
+    turnobject(VAR_LAST_TALKED, DIR_WEST) 
+}
+text DoIKnowYou{
+    "I'm sorry… Do I know you?"
+}
+script Frosthearth_LoneOldWoman{
+    msgbox(Frosthearth_LoneOldWoman_Text, MSGBOX_NPC)
+}
+text Frosthearth_LoneOldWoman_Text{
+    "There are many hot springs in\n"
+    "this city.\p"
+    "Many of the people end up going to\n"
+    "the one near the motel, so this one\l"
+    "ends up being all peaceful and quiet."
+}
+script Frosthearth_Swimmer{
+    if(var(VAR_FROSTHEARTH_HARD_ROCK) == 0){
+        lock
+        msgbox(RestingOnSomethingHard)
+        closemessage
+        getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+        addobject(28)
+        playse(SE_FALL)
+        safefollow
+        if(var(VAR_TEMP_0) == 45){  //throw rock left
+            applymovement(28, moves(walk_fast_left * 2))
+            setvar(VAR_FROSTHEARTH_HARD_ROCK, 1)
+        }
+        else{   //throw rock right
+            applymovement(28, moves(walk_fast_right * 2))
+            setvar(VAR_FROSTHEARTH_HARD_ROCK, 2)
+        }
+        waitmovement(0)
+        waitse
+        delay(30)
+        msgbox(NowThatsBetter)
+        release
+        end
+    }
+    else{
+        msgbox(FeelingMuchBetter, MSGBOX_SIGN)
+        end
+    }
+}
+
+text RestingOnSomethingHard{
+    "Ow ow ow!\p"
+    "I think I'm resting on a stone\n"
+    "or something."
+}
+text NowThatsBetter{
+    "Much better!"
+}
+text FeelingMuchBetter{
+    "Ahh…\p"
+    "Feeling much better now that\n"
+    "the stone is gone."
+}
+
+script Frosthearth_HardRock{
+    if(checkitemspace(ITEM_HARD_STONE) == TRUE){
+        setvar(VAR_FROSTHEARTH_HARD_ROCK, 3)
+    }
+    finditem(ITEM_HARD_STONE)
+}
+
+script Frosthearth_Boy2{
+    if(var(VAR_FROSTHEARTH_RUFFLET) == 0){
+        setvar(VAR_FROSTHEARTH_RUFFLET, 1)
+        clearflag(FLAG_TEMP_2)
+        msgbox(MissingRuffletStart, MSGBOX_NPC)
+        end
+    }
+    elif(var(VAR_FROSTHEARTH_RUFFLET) < 6){
+        msgbox(PleaseFindRufflet, MSGBOX_NPC)
+        end
+    }
+    elif(var(VAR_FROSTHEARTH_RUFFLET) == 6){
+        lock
+        faceplayer
+        msgbox(FindRuffletReward)
+        giveitem(ITEM_HEART_SCALE)
+        if(var(VAR_RESULT) == FALSE){
+            goto(ZeBagIsFull)
+        }
+        setvar(VAR_FROSTHEARTH_RUFFLET, 10)
+        release
+        end
+    }
+    else{
+        msgbox(ThankYouForFindingRufflet, MSGBOX_NPC)
+    }
+}
+text MissingRuffletStart{
+    "Have you seen a Rufflet\n"
+    "wandering around the city?\p"
+    "My pet Rufflet got spooked by\n"
+    "something, fled, and now I can\l"
+    "no longer find it."
+}
+text PleaseFindRufflet{
+    "If you spot a lost looking Rufflet,\n"
+    "try and catch it, okay?"
+}
+text FindRuffletReward{
+    "My Rufflet came running back to me\n"
+    "just before you arrived!\p"
+    "Thank you for helping me get it back!\p"
+    "I'm not sure how else to thank you,\n"
+    "so I hope this will suffice."
+}
+text ThankYouForFindingRufflet{
+    "Thank you for guiding my Rufflet\n"
+    "back to me!"
+}
+
+script Frosthearth_Rufflet{
+    lock
+	faceplayer
+	waitse
+    safefollow
+	playmoncry(SPECIES_RUFFLET, CRY_MODE_NORMAL)
+	waitmoncry
+    if(var(VAR_FROSTHEARTH_RUFFLET) >= 6){
+        release
+        end
+    }
+    delay(30)
+    addvar(VAR_FROSTHEARTH_RUFFLET, 1)
+    getplayerxy(X, Y)
+    switch(var(VAR_FROSTHEARTH_RUFFLET)){
+        case 2:
+            if(var(X) == 12){
+                applymovement(OBJ_RUFFLET, moves(walk_fast_down * 2, walk_fast_right * 3, walk_fast_down, walk_fast_right, walk_fast_down * 4))
+            }
+            else{
+                applymovement(OBJ_RUFFLET, moves(walk_fast_right * 2, walk_fast_down * 2, walk_fast_right * 2, walk_fast_down * 5))
+            }
+            waitmovement(0)
+            setobjectxy(OBJ_RUFFLET, 37, 11)
+            setobjectxyperm(OBJ_RUFFLET, 37, 11)
+        case 3:
+            if(var(X) == 37){
+                applymovement(OBJ_RUFFLET, moves(walk_fast_right * 8, walk_fast_down * 6))
+            }
+            else{
+                applymovement(OBJ_RUFFLET, moves(walk_fast_down * 7))
+            }
+            waitmovement(0)
+            setobjectxy(OBJ_RUFFLET, 47, 29)
+            setobjectxyperm(OBJ_RUFFLET, 47, 29)
+        case 4:
+            if(var(X) == 46){
+                applymovement(OBJ_RUFFLET, moves(walk_fast_right * 3, walk_fast_up * 6))
+            }
+            else{
+                applymovement(OBJ_RUFFLET, moves(walk_fast_left * 5, walk_diag_southwest * 2, walk_fast_left))
+            }
+            waitmovement(0)
+            setobjectxy(OBJ_RUFFLET, 39, 41)
+            setobjectxyperm(OBJ_RUFFLET, 39, 41)
+        case 5:
+            if(var(X) == 38){
+                applymovement(OBJ_RUFFLET, moves(walk_fast_up * 2, walk_fast_left * 11))
+            }
+            else{
+                applymovement(OBJ_RUFFLET, moves(walk_fast_left * 2, walk_fast_up * 2, walk_fast_left * 7))
+            }
+            waitmovement(0)
+            setobjectxy(OBJ_RUFFLET, 7, 27)
+            setobjectxyperm(OBJ_RUFFLET, 7, 27)
+        case 6:
+            if(var(X) == 8){
+                applymovement(OBJ_RUFFLET, moves(walk_fast_left, walk_fast_down * 3, walk_fast_right * 3, walk_fast_down * 6))
+            }
+            else{
+                applymovement(OBJ_RUFFLET, moves(walk_fast_right * 2, walk_fast_down * 7))
+            }
+            waitmovement(0)
+            setobjectxy(OBJ_RUFFLET, 10, 43)
+            setobjectxyperm(OBJ_RUFFLET, 10, 43)
+    }
+    delay(48)
+	release
+	end
 }

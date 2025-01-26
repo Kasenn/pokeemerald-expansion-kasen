@@ -280,8 +280,8 @@
 #define VAR_FROSTHEARTH_TYPE_CHECK                               0x4103
 #define VAR_MOTEL_CUSTOMERS                               0x4104
 #define VAR_FROSTHEARTH_TRADE_MON                               0x4105
-#define VAR_UNUSED_0x4106                               0x4106
-#define VAR_UNUSED_0x4107                               0x4107
+#define VAR_FROSTHEARTH_RUFFLET                               0x4106
+#define VAR_FROSTHEARTH_HARD_ROCK                               0x4107
 #define VAR_UNUSED_0x4108                               0x4108
 #define VAR_UNUSED_0x4109                               0x4109
 #define VAR_UNUSED_0x410A                               0x410A

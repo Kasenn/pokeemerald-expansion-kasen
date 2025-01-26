@@ -386,6 +386,8 @@ GymStartingMovement::
 	goto_if_eq GymStartingMovement_2
 	compare VAR_TEMP_0, 4
 	goto_if_eq GymStartingMovement_3
+	compare VAR_TEMP_0, 5
+	goto_if_eq GymStartingMovement_4
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
 	turnobject 1, DIR_WEST
 	applymovement OBJ_EVENT_ID_CAMERA, Walk3Right
@@ -407,6 +409,13 @@ GymStartingMovement_3:
 	applymovement OBJ_EVENT_ID_CAMERA, Walk3Left
 	goto GymStartingMovement_1
 
+GymStartingMovement_4:
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	turnobject 12, DIR_WEST
+	turnobject 13, DIR_WEST
+	applymovement OBJ_EVENT_ID_CAMERA, Walk3Right
+	goto GymStartingMovement_1
+
 
 GymMovementAfter::
 	special SpawnCameraObject
@@ -415,6 +424,8 @@ GymMovementAfter::
 	goto_if_eq GymMovementAfter_2
 	compare VAR_TEMP_0, 4
 	goto_if_eq GymMovementAfter_3
+	compare VAR_TEMP_0, 5
+	goto_if_eq GymMovementAfter_4
 	applymovement 1, Walk3Left
 	applymovement OBJ_EVENT_ID_PLAYER, Walk3Right
 GymMovementAfter_1:
@@ -432,6 +443,19 @@ GymMovementAfter_3:
 	applymovement OBJ_EVENT_ID_PLAYER, Walk3Left
 	goto GymMovementAfter_1
 
+GymMovementAfter_4:
+	applymovement 13, Walk3Left
+	applymovement OBJ_EVENT_ID_PLAYER, Walk3Right
+	applymovement 12, GymMovementAfter_Movement_0
+	goto GymMovementAfter_1
+
+
+GymMovementAfter_Movement_0:
+	walk_left
+	walk_down
+	walk_left
+	walk_left
+	step_end
 
 KaolGymQuake_Text_0:
 	.string "{PLAYER} pressed the button.\nAll buttons have been pressed.$"

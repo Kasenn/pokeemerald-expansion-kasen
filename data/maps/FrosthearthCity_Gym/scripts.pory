@@ -1,0 +1,927 @@
+const OBJ_KINDLER1 = 1
+const OBJ_HIKER = 2
+const OBJ_SENIOR = 3
+const OBJ_JUNIOR = 4
+const OBJ_RANGER_F1 = 5
+const OBJ_RANGER_M = 6
+const OBJ_MANIAC = 7
+const OBJ_COLLECTOR = 8
+const OBJ_KINDLER2 = 9
+const OBJ_RANGER_F = 10
+
+mapscripts FrosthearthCity_Gym_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        setflag(FLAG_TEMP_HIDE_FOLLOWER)
+        if(defeated(TRAINER_FROSTGYM_TR1_HIKER1) || defeated(TRAINER_FROSTGYM_TR2_KINDLER1))
+        {
+            setobjectxyperm(OBJ_HIKER, 7, 40)
+            setobjectxyperm(OBJ_KINDLER1, 7, 39)
+        }
+        if(defeated(TRAINER_FROSTGYM_TR3_SENIOR))
+        {
+            setobjectxyperm(OBJ_SENIOR, 14, 23)
+            setobjectxyperm(OBJ_JUNIOR, 14, 24)
+        }
+        if(defeated(TRAINER_FROSTGYM_TR5_RANGER_M) || defeated(TRAINER_FROSTGYM_TR6_RANGER_F))
+        {
+            setobjectxyperm(OBJ_RANGER_F1, 19, 37)
+            setobjectxyperm(OBJ_RANGER_M, 19, 38)
+        }
+        if(defeated(TRAINER_FROSTGYM_TR7_MANIAC) || defeated(TRAINER_FROSTGYM_TR8_COLLECTOR))
+        {
+            setobjectxyperm(OBJ_MANIAC, 26, 25)
+            setobjectxyperm(OBJ_COLLECTOR, 26, 24)
+        }
+        if(defeated(TRAINER_FROSTGYM_TR9_KINDLER2) || defeated(TRAINER_FROSTGYM_TR10_RANGER_F2))
+        {
+            setobjectxyperm(OBJ_KINDLER2, 33, 31)
+            setobjectxyperm(OBJ_RANGER_F, 34, 31)
+        }
+    }
+    MAP_SCRIPT_ON_RESUME{
+        setstepcallback(STEP_CB_ICY_GYM_FLOOR)
+    }
+}
+
+script CheckForLiveMons{
+    special(HasEnoughMonsForDoubleBattle)
+    if(var(VAR_RESULT) != PLAYER_HAS_TWO_USABLE_MONS){
+        release
+        end
+    }
+    else{
+        return
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+script FrostGym_Tr1_Hiker1{
+    if(!defeated(TRAINER_FROSTGYM_TR1_HIKER1)){
+        call(CheckForLiveMons)
+    }
+    lock
+    playbgm(MUS_ENCOUNTER_HIKER, FALSE)
+    applymovement(OBJ_HIKER, ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    goto(FrostGym_Tr1_Hiker1_Main)
+}
+script FrostGym_Tr1_Hiker1_Interact{
+    if(defeated(TRAINER_FROSTGYM_TR1_HIKER1)){
+        msgbox(FrostGymTr1_PostBattle, MSGBOX_NPC)
+        end
+    }
+    special(HasEnoughMonsForDoubleBattle)
+    if(var(VAR_RESULT) != PLAYER_HAS_TWO_USABLE_MONS){
+        msgbox(FrostGymTr1_NotEnoughMons, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    playbgm(MUS_ENCOUNTER_HIKER, FALSE)
+    goto(FrostGym_Tr1_Hiker1_Main)
+}
+script FrostGym_Tr1_Hiker1_Main{
+    msgbox(FrostGymTr1_Intro)
+    trainerbattle_two_trainers(TRAINER_FROSTGYM_TR1_HIKER1, FrostGymTr1_Lose, TRAINER_FROSTGYM_TR2_KINDLER1, FrostGymTr2_Lose)
+    delay(30)
+    applymovement(OBJ_HIKER, moves(lock_facing_direction, walk_left))
+    applymovement(OBJ_KINDLER1, moves(lock_facing_direction, walk_left))
+    waitmovement(0)
+    setobjectxyperm(OBJ_HIKER, 7, 40)
+    setobjectxyperm(OBJ_KINDLER1, 7, 39)
+    settrainerflag(TRAINER_FROSTGYM_TR1_HIKER1)
+    settrainerflag(TRAINER_FROSTGYM_TR2_KINDLER1)
+    release
+}
+text FrostGymTr1_Intro {
+    "Having trouble figuring out\n"
+    "the way?\p"
+    "Defeat us, and maybe the way\n"
+    "will become clear!"
+}
+text FrostGymTr1_Lose {
+    "Looks like we lost.\n"
+    "Best we step aside…"
+}
+text FrostGymTr1_PostBattle {
+    "In this gym, defeating other\n"
+    "trainers is your road to success!"
+}
+text FrostGymTr1_NotEnoughMons{
+    "You're going to need more Pokémon\n"
+    "if you want to battle us!"
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+script FrostGym_Tr2_Kindler1 {
+    if(!defeated(TRAINER_FROSTGYM_TR2_KINDLER1)){
+        call(CheckForLiveMons)
+    }
+    lock
+    playbgm(MUS_ENCOUNTER_HIKER, FALSE)
+    applymovement(OBJ_KINDLER1, ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    goto(FrostGym_Tr2_Kindler1_Main)
+}
+script FrostGym_Tr2_Kindler1_Interact{
+    if(defeated(TRAINER_FROSTGYM_TR2_KINDLER1)){
+        msgbox(FrostGymTr2_PostBattle, MSGBOX_NPC)
+        end
+    }
+    special(HasEnoughMonsForDoubleBattle)
+    if(var(VAR_RESULT) != PLAYER_HAS_TWO_USABLE_MONS){
+        msgbox(FrostGymTr2_NotEnoughMons, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    playbgm(MUS_ENCOUNTER_HIKER, FALSE)
+    goto(FrostGym_Tr2_Kindler1_Main)
+}
+script FrostGym_Tr2_Kindler1_Main{
+    msgbox(FrostGymTr2_Intro)
+    trainerbattle_two_trainers(TRAINER_FROSTGYM_TR2_KINDLER1, FrostGymTr2_Lose, TRAINER_FROSTGYM_TR1_HIKER1, FrostGymTr1_Lose)
+    delay(30)
+    applymovement(OBJ_HIKER, moves(lock_facing_direction, walk_left))
+    applymovement(OBJ_KINDLER1, moves(lock_facing_direction, walk_left))
+    waitmovement(0)
+    setobjectxyperm(OBJ_HIKER, 7, 40)
+    setobjectxyperm(OBJ_KINDLER1, 7, 39)
+    settrainerflag(TRAINER_FROSTGYM_TR1_HIKER1)
+    settrainerflag(TRAINER_FROSTGYM_TR2_KINDLER1)
+    release
+}
+text FrostGymTr2_Intro {
+    "Having trouble figuring out\n"
+    "the way?\p"
+    "Defeat us, and maybe the way\n"
+    "will become clear!"
+}
+text FrostGymTr2_Lose {
+    "I can't believe we lost…"
+}
+text FrostGymTr2_PostBattle {
+    "This gym is all about team play.\p"
+    "Even if you're taking on the\n"
+    "challenge alone, you still need to\l"
+    "consider the synergy between your\l"
+    "Pokémon."
+}
+text FrostGymTr2_NotEnoughMons{
+    "You're going to need more Pokémon\n"
+    "if you want to battle us!"
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+script FrostGym_Tr3_Senior {
+    if(!defeated(TRAINER_FROSTGYM_TR3_SENIOR)){
+        call(CheckForLiveMons)
+    }
+    lock
+    playbgm(MUS_ENCOUNTER_TWINS, FALSE)
+    applymovement(OBJ_SENIOR, ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    goto(FrostGym_Tr3_Senior_Main)
+}
+script FrostGym_Tr3_Senior_Interact{
+    if(defeated(TRAINER_FROSTGYM_TR3_SENIOR)){
+        msgbox(FrostGymTr3_PostBattle, MSGBOX_NPC)
+        end
+    }
+    special(HasEnoughMonsForDoubleBattle)
+    if(var(VAR_RESULT) != PLAYER_HAS_TWO_USABLE_MONS){
+        msgbox(FrostGymTr3_NotEnoughMons, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    playbgm(MUS_ENCOUNTER_TWINS, FALSE)
+    goto(FrostGym_Tr3_Senior_Main)
+}
+script FrostGym_Tr3_Senior_Main{
+    msgbox(FrostGymTr3_Intro)
+    trainerbattle_two_trainers(TRAINER_FROSTGYM_TR4_JUNIOR, FrostGymTr4_Lose, TRAINER_FROSTGYM_TR3_SENIOR, FrostGymTr3_Lose)
+    delay(30)
+    applymovement(OBJ_SENIOR, moves(lock_facing_direction, walk_right))
+    applymovement(OBJ_JUNIOR, moves(lock_facing_direction, walk_right))
+    waitmovement(0)
+    setobjectxyperm(OBJ_SENIOR, 14, 23)
+    setobjectxyperm(OBJ_JUNIOR, 14, 24)
+    settrainerflag(TRAINER_FROSTGYM_TR3_SENIOR)
+    settrainerflag(TRAINER_FROSTGYM_TR4_JUNIOR)
+    release
+}
+text FrostGymTr3_Intro {
+    "Well, sure.\n"
+    "I'm in the mood for it.\l"
+    "I'll teach you a little about Pokémon."
+}
+text FrostGymTr3_Lose {
+    "What an amazing battle style!"
+}
+text FrostGymTr3_PostBattle {
+    "I was teaching my junior Irene\n"
+    "about Pokémon."
+}
+text FrostGymTr3_NotEnoughMons{
+    "Giggle…\n"
+    "If you want to battle with us, just one\l"
+    "Pokémon isn't enough!"
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+script FrostGym_Tr4_Junior {
+    if(!defeated(TRAINER_FROSTGYM_TR4_JUNIOR)){
+        call(CheckForLiveMons)
+    }
+    lock
+    playbgm(MUS_ENCOUNTER_TWINS, FALSE)
+    applymovement(OBJ_JUNIOR, ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    goto(FrostGym_Tr4_Junior_Main)
+}
+script FrostGym_Tr4_Junior_Interact{
+    if(defeated(TRAINER_FROSTGYM_TR4_JUNIOR)){
+        msgbox(FrostGymTr4_PostBattle, MSGBOX_NPC)
+        end
+    }
+    special(HasEnoughMonsForDoubleBattle)
+    if(var(VAR_RESULT) != PLAYER_HAS_TWO_USABLE_MONS){
+        msgbox(FrostGymTr4_NotEnoughMons, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    playbgm(MUS_ENCOUNTER_TWINS, FALSE)
+    goto(FrostGym_Tr4_Junior_Main)
+}
+script FrostGym_Tr4_Junior_Main{
+    msgbox(FrostGymTr4_Intro)
+    trainerbattle_two_trainers(TRAINER_FROSTGYM_TR4_JUNIOR, FrostGymTr4_Lose, TRAINER_FROSTGYM_TR3_SENIOR, FrostGymTr3_Lose)
+    delay(30)
+    applymovement(OBJ_SENIOR, moves(lock_facing_direction, walk_right))
+    applymovement(OBJ_JUNIOR, moves(lock_facing_direction, walk_right))
+    waitmovement(0)
+    setobjectxyperm(OBJ_SENIOR, 14, 23)
+    setobjectxyperm(OBJ_JUNIOR, 14, 24)
+    settrainerflag(TRAINER_FROSTGYM_TR3_SENIOR)
+    settrainerflag(TRAINER_FROSTGYM_TR4_JUNIOR)
+    release
+}
+text FrostGymTr4_Intro {
+    "Who taught you about Pokémon?"
+}
+text FrostGymTr4_Lose {
+    "Aww… It's already over?"
+}
+text FrostGymTr4_PostBattle {
+    "I started training Pokémon\n"
+    "because Helena, my student mentor,\l"
+    "taught me!"
+}
+text FrostGymTr4_NotEnoughMons{
+    "Do you only have one Pokémon?\n"
+	"I think it must feel lonesome."
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+script FrostGym_Tr5_RangerM {
+    if(!defeated(TRAINER_FROSTGYM_TR5_RANGER_M)){
+        call(CheckForLiveMons)
+    }
+    lock
+    playbgm(MUS_ENCOUNTER_COOL, FALSE)
+    applymovement(OBJ_RANGER_M, ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    goto(FrostGym_Tr5_RangerM_Main)
+}
+script FrostGym_Tr5_RangerM_Interact{
+    if(defeated(TRAINER_FROSTGYM_TR5_RANGER_M)){
+        msgbox(FrostGymTr5_PostBattle, MSGBOX_NPC)
+        end
+    }
+    special(HasEnoughMonsForDoubleBattle)
+    if(var(VAR_RESULT) != PLAYER_HAS_TWO_USABLE_MONS){
+        msgbox(FrostGymTr5_NotEnoughMons, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    playbgm(MUS_ENCOUNTER_COOL, FALSE)
+    goto(FrostGym_Tr5_RangerM_Main)
+}
+script FrostGym_Tr5_RangerM_Main{
+    msgbox(FrostGymTr5_Intro)
+    trainerbattle_two_trainers(TRAINER_FROSTGYM_TR5_RANGER_M, FrostGymTr5_Lose, TRAINER_FROSTGYM_TR6_RANGER_F, FrostGymTr6_Lose)
+    delay(30)
+    applymovement(OBJ_RANGER_F1, moves(lock_facing_direction, walk_right))
+    applymovement(OBJ_RANGER_M, moves(lock_facing_direction, walk_right))
+    waitmovement(0)
+    setobjectxyperm(OBJ_RANGER_F1, 19, 37)
+    setobjectxyperm(OBJ_RANGER_M, 19, 38)
+    settrainerflag(TRAINER_FROSTGYM_TR5_RANGER_M)
+    settrainerflag(TRAINER_FROSTGYM_TR6_RANGER_F)
+    release
+}
+text FrostGymTr5_Intro {
+    "Prepare for trouble!\n"
+    "And make it double!"
+}
+text FrostGymTr5_Lose {
+    "Our teamwork could use some\n"
+    "improvement…"
+}
+text FrostGymTr5_PostBattle {
+    "It was Blaine's genius that came up\n"
+    "with the idea to incorporate\l"
+    "Pokémon battles with the gym puzzle."
+}
+text FrostGymTr5_NotEnoughMons{
+    "You're not trying to challenge us\n"
+    "with only one Pokémon, are you?"
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+script FrostGym_Tr6_RangerF {
+    if(!defeated(TRAINER_FROSTGYM_TR6_RANGER_F)){
+        call(CheckForLiveMons)
+    }
+    lock
+    playbgm(MUS_ENCOUNTER_COOL, FALSE)
+    applymovement(OBJ_RANGER_F1, ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    goto(FrostGym_Tr6_RangerF_Main)
+}
+script FrostGym_Tr6_RangerF_Interact{
+    if(defeated(TRAINER_FROSTGYM_TR6_RANGER_F)){
+        msgbox(FrostGymTr6_PostBattle, MSGBOX_NPC)
+        end
+    }
+    special(HasEnoughMonsForDoubleBattle)
+    if(var(VAR_RESULT) != PLAYER_HAS_TWO_USABLE_MONS){
+        msgbox(FrostGymTr6_NotEnoughMons, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    playbgm(MUS_ENCOUNTER_COOL, FALSE)
+    goto(FrostGym_Tr6_RangerF_Main)
+}
+script FrostGym_Tr6_RangerF_Main{
+    msgbox(FrostGymTr6_Intro)
+    trainerbattle_two_trainers(TRAINER_FROSTGYM_TR6_RANGER_F, FrostGymTr6_Lose, TRAINER_FROSTGYM_TR5_RANGER_M, FrostGymTr5_Lose)
+    delay(30)
+    applymovement(OBJ_RANGER_F1, moves(lock_facing_direction, walk_right))
+    applymovement(OBJ_RANGER_M, moves(lock_facing_direction, walk_right))
+    waitmovement(0)
+    setobjectxyperm(OBJ_RANGER_F1, 19, 37)
+    setobjectxyperm(OBJ_RANGER_M, 19, 38)
+    settrainerflag(TRAINER_FROSTGYM_TR5_RANGER_M)
+    settrainerflag(TRAINER_FROSTGYM_TR6_RANGER_F)
+    release
+}
+text FrostGymTr6_Intro {
+    "Prepare for trouble!\n"
+    "And make it double!"
+}
+text FrostGymTr6_Lose {
+    "I think we may need to look into\n"
+    "developing new synergies…"
+}
+text FrostGymTr6_PostBattle {
+    "Pryce is the mastermind behind the\n"
+    "gym challenge here.\p"
+    "He may be old, but his mind can\n"
+    "still come up with a lot of new ideas."
+}
+text FrostGymTr6_NotEnoughMons{
+    "You're not trying to challenge us\n"
+    "with only one Pokémon, are you?"
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+script FrostGym_Tr7_Maniac {
+    if(!defeated(TRAINER_FROSTGYM_TR7_MANIAC)){
+        call(CheckForLiveMons)
+    }
+    lock
+    playbgm(MUS_ENCOUNTER_SUSPICIOUS, FALSE)
+    applymovement(OBJ_MANIAC, ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    goto(FrostGym_Tr7_Maniac_Main)
+}
+script FrostGym_Tr7_Maniac_Interact{
+    if(defeated(TRAINER_FROSTGYM_TR7_MANIAC)){
+        msgbox(FrostGymTr7_PostBattle, MSGBOX_NPC)
+        end
+    }
+    special(HasEnoughMonsForDoubleBattle)
+    if(var(VAR_RESULT) != PLAYER_HAS_TWO_USABLE_MONS){
+        msgbox(FrostGymTr7_NotEnoughMons, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    playbgm(MUS_ENCOUNTER_SUSPICIOUS, FALSE)
+    goto(FrostGym_Tr7_Maniac_Main)
+}
+script FrostGym_Tr7_Maniac_Main{
+    msgbox(FrostGymTr7_Intro)
+    trainerbattle_two_trainers(TRAINER_FROSTGYM_TR7_MANIAC, FrostGymTr7_Lose, TRAINER_FROSTGYM_TR8_COLLECTOR, FrostGymTr8_Lose)
+    delay(30)
+    applymovement(OBJ_MANIAC, moves(lock_facing_direction, walk_left))
+    applymovement(OBJ_COLLECTOR, moves(lock_facing_direction, walk_left))
+    waitmovement(0)
+    setobjectxyperm(OBJ_MANIAC, 26, 25)
+    setobjectxyperm(OBJ_COLLECTOR, 26, 24)
+    settrainerflag(TRAINER_FROSTGYM_TR8_COLLECTOR)
+    settrainerflag(TRAINER_FROSTGYM_TR7_MANIAC)
+    release
+}
+text FrostGymTr7_Intro {
+    "Not bad getting this far.\n"
+    "Too bad it all ends here!"
+}
+text FrostGymTr7_Lose {
+    "No!\p"
+    "We were supposed to be\n"
+    "unstoppable!"
+}
+text FrostGymTr7_PostBattle {
+    "Yes yes, you beat us.\n"
+    "Feeling pretty proud, huh?"
+}
+text FrostGymTr7_NotEnoughMons{
+    "What's the matter?\n"
+    "Can't catch any Pokémon?\p"
+    "If you want to battle,\n"
+    "Catch more Pokémon first."
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+script FrostGym_Tr8_Collector {
+    if(!defeated(TRAINER_FROSTGYM_TR8_COLLECTOR)){
+        call(CheckForLiveMons)
+    }
+    lock
+    playbgm(MUS_ENCOUNTER_SUSPICIOUS, FALSE)
+    applymovement(OBJ_COLLECTOR, ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    goto(FrostGym_Tr8_Collector_Main)
+}
+script FrostGym_Tr8_Collector_Interact{
+    if(defeated(TRAINER_FROSTGYM_TR8_COLLECTOR)){
+        msgbox(FrostGymTr8_PostBattle, MSGBOX_NPC)
+        end
+    }
+    special(HasEnoughMonsForDoubleBattle)
+    if(var(VAR_RESULT) != PLAYER_HAS_TWO_USABLE_MONS){
+        msgbox(FrostGymTr8_NotEnoughMons, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    playbgm(MUS_ENCOUNTER_SUSPICIOUS, FALSE)
+    goto(FrostGym_Tr8_Collector_Main)
+}
+script FrostGym_Tr8_Collector_Main{
+    msgbox(FrostGymTr8_Intro)
+    trainerbattle_two_trainers(TRAINER_FROSTGYM_TR8_COLLECTOR, FrostGymTr8_Lose, TRAINER_FROSTGYM_TR7_MANIAC, FrostGymTr7_Lose)
+    delay(30)
+    applymovement(OBJ_MANIAC, moves(lock_facing_direction, walk_left))
+    applymovement(OBJ_COLLECTOR, moves(lock_facing_direction, walk_left))
+    waitmovement(0)
+    setobjectxyperm(OBJ_MANIAC, 26, 25)
+    setobjectxyperm(OBJ_COLLECTOR, 26, 24)
+    settrainerflag(TRAINER_FROSTGYM_TR8_COLLECTOR)
+    settrainerflag(TRAINER_FROSTGYM_TR7_MANIAC)
+    release
+}
+text FrostGymTr8_Intro {
+    "Not bad getting this far.\n"
+    "Too bad it all ends here!"
+}
+text FrostGymTr8_Lose {
+    "Sometimes I wonder why I\n"
+    "team up with this guy…"
+}
+text FrostGymTr8_PostBattle {
+    "You seem pretty strong.\p"
+    "If you ever feel like staying here\n"
+    "for a longer period of time,\l"
+    "let me know and maybe we can\l"
+    "partner up."
+}
+text FrostGymTr8_NotEnoughMons{
+    "What's the matter?\n"
+    "Can't catch any Pokémon?\p"
+    "If you want to battle,\n"
+    "Catch more Pokémon first."
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+script FrostGym_Tr9_Kindler2 {
+    if(!defeated(TRAINER_FROSTGYM_TR9_KINDLER2)){
+        call(CheckForLiveMons)
+    }
+    lock
+    playbgm(MUS_ENCOUNTER_HIKER, FALSE)
+    applymovement(OBJ_KINDLER2, ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    goto(FrostGym_Tr9_Kindler2_Main)
+}
+script FrostGym_Tr9_Kindler2_Interact{
+    if(defeated(TRAINER_FROSTGYM_TR9_KINDLER2)){
+        msgbox(FrostGymTr9_PostBattle, MSGBOX_NPC)
+        end
+    }
+    special(HasEnoughMonsForDoubleBattle)
+    if(var(VAR_RESULT) != PLAYER_HAS_TWO_USABLE_MONS){
+        msgbox(FrostGymTr9_NotEnoughMons, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    playbgm(MUS_ENCOUNTER_HIKER, FALSE)
+    goto(FrostGym_Tr9_Kindler2_Main)
+}
+script FrostGym_Tr9_Kindler2_Main{
+    msgbox(FrostGymTr9_Intro)
+    trainerbattle_two_trainers(TRAINER_FROSTGYM_TR9_KINDLER2, FrostGymTr9_Lose, TRAINER_FROSTGYM_TR10_RANGER_F2, FrostGymTr10_Lose)
+    delay(30)
+    applymovement(OBJ_KINDLER2, moves(lock_facing_direction, walk_down))
+    applymovement(OBJ_RANGER_F, moves(lock_facing_direction, walk_down))
+    waitmovement(0)
+    setobjectxyperm(OBJ_KINDLER2, 33, 31)
+    setobjectxyperm(OBJ_RANGER_F, 34, 31)
+    settrainerflag(TRAINER_FROSTGYM_TR9_KINDLER2)
+    settrainerflag(TRAINER_FROSTGYM_TR10_RANGER_F2)
+    release
+}
+text FrostGymTr9_Intro {
+    "I'm Blaine's most talented student.\n"
+    "You have no chance against me!"
+}
+text FrostGymTr9_Lose {
+    "I've let my teacher down…"
+}
+text FrostGymTr9_PostBattle {
+    "If you've gotten this far,\n"
+    "then it must mean you've beaten\l"
+    "everyone except the Gym Leaders.\p"
+    "Good luck."
+}
+text FrostGymTr9_NotEnoughMons{
+    "I'm sorry, but we only battle\n"
+    "in pairs.\p"
+    "If you want to battle us, make sure\n"
+    "you have at least two Pokémon first."
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+script FrostGym_Tr10_RangerF2 {
+    if(!defeated(TRAINER_FROSTGYM_TR10_RANGER_F2)){
+        call(CheckForLiveMons)
+    }
+    lock
+    playbgm(MUS_ENCOUNTER_COOL, FALSE)
+    applymovement(OBJ_RANGER_F, ExclamationMark)
+    waitmovement(0)
+    delay(48)
+    turnobject(0xFF, DIR_SOUTH)
+    goto(FrostGym_Tr10_RangerF2_Main)
+}
+script FrostGym_Tr10_RangerF2_Interact{
+    if(defeated(TRAINER_FROSTGYM_TR10_RANGER_F2)){
+        msgbox(FrostGymTr10_PostBattle, MSGBOX_NPC)
+        end
+    }
+    special(HasEnoughMonsForDoubleBattle)
+    if(var(VAR_RESULT) != PLAYER_HAS_TWO_USABLE_MONS){
+        msgbox(FrostGymTr10_NotEnoughMons, MSGBOX_NPC)
+        end
+    }
+    lock
+    faceplayer
+    playbgm(MUS_ENCOUNTER_COOL, FALSE)
+    goto(FrostGym_Tr10_RangerF2_Main)
+}
+script FrostGym_Tr10_RangerF2_Main{
+    msgbox(FrostGymTr10_Intro)
+    trainerbattle_two_trainers(TRAINER_FROSTGYM_TR10_RANGER_F2, FrostGymTr10_Lose, TRAINER_FROSTGYM_TR9_KINDLER2, FrostGymTr9_Lose)
+    delay(30)
+    applymovement(OBJ_KINDLER2, moves(lock_facing_direction, walk_down))
+    applymovement(OBJ_RANGER_F, moves(lock_facing_direction, walk_down))
+    waitmovement(0)
+    setobjectxyperm(OBJ_KINDLER2, 33, 31)
+    setobjectxyperm(OBJ_RANGER_F, 34, 31)
+    settrainerflag(TRAINER_FROSTGYM_TR9_KINDLER2)
+    settrainerflag(TRAINER_FROSTGYM_TR10_RANGER_F2)
+    release
+}
+text FrostGymTr10_Intro {
+    "I'm Pryce's most talented student.\n"
+    "You have no chance against me!"
+}
+text FrostGymTr10_Lose {
+    "Good job beating up a mere\n"
+    "student.\p"
+    "Now let's see if you can take\n"
+    "on the teacher!"
+}
+text FrostGymTr10_PostBattle {
+    "Just beyond here lies the\n"
+    "Gym Leaders' chamber.\p"
+    "I hope you're prepared for the\n"
+    "challenge ahead."
+}
+text FrostGymTr10_NotEnoughMons{
+    "I'm sorry, but we only battle\n"
+    "in pairs.\p"
+    "If you want to battle us, make sure\n"
+    "you have at least two Pokémon first."
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+script Frosthearth_Gym_Statue{
+    if(flag(FLAG_BADGE06_GET)){
+        msgbox(Frosthearth_Gym_Statue_Post, MSGBOX_NPC)
+    }
+    else{
+        msgbox(Frosthearth_Gym_Statue_Text, MSGBOX_NPC)
+    }
+}
+text Frosthearth_Gym_Statue_Text{
+    "Frosthearth City Pokémon Gym\p"
+	"Pryce and Blaine's certified\n"
+    "trainers:\l"
+    "{BROTHER}"
+}
+text Frosthearth_Gym_Statue_Post{
+    "Frosthearth City Pokémon Gym\p"
+	"Pryce and Blaine's certified\n"
+    "trainers:\l"
+    "{BROTHER}\l"
+	"{PLAYER}"
+}
+script Frosthearth_Gym_Guide{
+    if(flag(FLAG_BADGE06_GET)){
+        msgbox(Frosthearth_Gym_Guide_Post, MSGBOX_NPC)
+    }
+    else{
+        msgbox(Frosthearth_Gym_Guide_Text, MSGBOX_NPC)
+    }
+}
+text Frosthearth_Gym_Guide_Text{
+    "Yo, champ in the making!\p"
+    "Don't let the looks of the gym\n"
+    "deceive you!\p"
+    "The gym may look like it's all\n"
+    "frozen over, but the passion\l"
+    "of the trainers here burns bright!\p"
+    "Our Gym Leaders Pryce and Blaine\n"
+    "specialize in Ice- and Fire-type\l"
+    "Pokémon, so you best prepare\l"
+    "accordingly!\p"
+    "If you're feeling lost and can't\n"
+    "seem to find a way forward,\l"
+    "try battling some of the trainers\l"
+    "you see here.\p"
+    "Maybe they'll give you a\n"
+    "helping hand!\p"
+    "Anyway, that's enough from me.\n"
+    "Go get 'em, Champ!"
+}
+text Frosthearth_Gym_Guide_Post{
+    "Way to go, Champ!\p"
+    "Going against a Gym Leader\n"
+    "can be tough, but here you are,\l"
+    "having beaten two at the same time!\p"
+    "Keep pushing forward, and you'll\n"
+    "be challenging the Pokémon League\l"
+    "in no time!"
+}
+
+script FrosthearthGym_LeaderTrigger{
+    special(HasEnoughMonsForDoubleBattle)
+    if(var(VAR_RESULT) != PLAYER_HAS_TWO_USABLE_MONS){
+        release
+        end
+    }
+    setvar(VAR_TEMP_0, 5)
+    call(GymStartingMovement)
+    msgbox(BlainePryceIntro)
+    msgbox(BlainePryceIntro2)
+    msgbox(BlainePryceIntro3)
+    trainerbattle_two_trainers(TRAINER_LEADER_BLAINE, BlaineLoseText, TRAINER_LEADER_PRYCE, PryceLoseText)
+
+    goto(FrosthearthGym_PosBatEvent)
+}
+
+script FrosthearthGym_PosBatEvent{
+	call(GymMovementAfter)
+    msgbox(Pryce_AfterDefeat)
+	message(FrosthearthGym_ReceiveBadge)
+	waitmessage
+	call(Common_EventScript_PlayGymBadgeFanfare)
+	msgbox(Pryce_ExplainBadge)
+    closemessage
+	setflag(FLAG_BADGE06_GET)
+    applymovement(13, moves(walk_left, walk_in_place_fast_up))
+    applymovement(0xFF, moves(delay_16, walk_in_place_fast_down))
+    waitmovement(0)
+    msgbox(BlaineTakeThisTM)
+	giveitem(ITEM_TM_ICE_BURN)
+	msgbox (Blaine_ExplainIceBurn)
+    call(SetFrosthearthGymTrainerFlags)
+    closemessage
+    special(RemoveCameraObject)
+	release
+	end
+}
+script SetFrosthearthGymTrainerFlags{
+    settrainerflag(TRAINER_LEADER_PRYCE)
+    settrainerflag(TRAINER_LEADER_BLAINE)
+    settrainerflag(TRAINER_FROSTGYM_TR1_HIKER1)
+    settrainerflag(TRAINER_FROSTGYM_TR2_KINDLER1)
+    settrainerflag(TRAINER_FROSTGYM_TR3_SENIOR)
+    settrainerflag(TRAINER_FROSTGYM_TR4_JUNIOR)
+    settrainerflag(TRAINER_FROSTGYM_TR5_RANGER_M)
+    settrainerflag(TRAINER_FROSTGYM_TR6_RANGER_F)
+    settrainerflag(TRAINER_FROSTGYM_TR7_MANIAC)
+    settrainerflag(TRAINER_FROSTGYM_TR8_COLLECTOR)
+    settrainerflag(TRAINER_FROSTGYM_TR9_KINDLER2)
+    settrainerflag(TRAINER_FROSTGYM_TR10_RANGER_F2)
+    return
+}
+
+text Pryce_AfterDefeat{
+    "Pryce: You've surpassed my\n"
+    "expectations.\p"
+    "As one of the Gym Leaders of\n"
+    "this gym, I am authorized to\l"
+    "give you this."
+}
+text FrosthearthGym_ReceiveBadge{
+    "{PLAYER} received the Frostburn Badge\n"
+	"from Pryce!"
+}
+text Pryce_ExplainBadge{
+    "With the Frostburn Badge in your\n"
+    "possession, any traded Pokémon\l"
+    "up to level 80 should unquestionably\l"
+    "follow all of your commands."
+}
+text BlaineTakeThisTM{
+    "Blaine: Wait up, kiddo!\p"
+    "Here, you can have this,\n"
+    "too!"
+}
+text Blaine_ExplainIceBurn{
+    "That TM contains the move\n"
+    "Ice Burn.\p"
+    "It's a really powerful Ice-type\n"
+    "attack that can leave the opponent\l"
+    "with a very nasty burn.\p"
+    "Do be careful though!\p"
+    "It takes a while to charge up\n"
+    "the move, leaving your Pokémon\l"
+    "vulnerable to attacks!"
+}
+text BlainePryceIntro{
+    "Pryce: Welcome, challenger.\p"
+    "I'm surprised to see you again\n"
+    "so soon."
+}
+text BlainePryceIntro2{
+    "Blaine: So this is the kid you\n"
+    "were talking about?\p"
+    "Interesting…\p"
+    "I'm curious to see if they'll\n"
+    "measure up to your praises."
+}
+text BlainePryceIntro3{
+    "Blaine: In any case…\p"
+    "Yes, welcome, challenger!\n"
+    "I am Blaine!\p"
+    "Pryce: And I am Pryce!\p"
+    "Blaine: Together we are the Gym\n"
+    "Leaders of the Frosthearth\l"
+    "Pokémon Gym!\p"
+    "I hope you are well prepared\n"
+    "for both ends of the extremes,\l"
+    "for our Pokémon will incinerate,\l"
+    "Pryce: And freeze any challengers!"
+}
+text BlaineLoseText{
+    "What?! Our combination\n"
+    "was shattered!\p"
+    "This was not the outcome\n"
+    "I expected to see!"
+}
+text PryceLoseText{
+    "Hmph…\p"
+    "When I first laid my eyes on you,\n"
+    "I knew one day you would surpass me.\p"
+    "I just didn't imagine that day\n"
+    "to be so soon…"
+}
+
+script FrosthearthGym_PryceTalk{
+    if(flag(FLAG_BADGE06_GET)){
+        msgbox(FrosthearthGym_PrycePosBat, MSGBOX_NPC)
+    }
+	else{
+        special(HasEnoughMonsForDoubleBattle)
+        if(var(VAR_RESULT) != PLAYER_HAS_TWO_USABLE_MONS){
+            msgbox(PryceNotEnoughMons, MSGBOX_NPC)
+        }
+		else{
+            msgbox(PryceGoStandInArena, MSGBOX_NPC)
+        }
+		turnobject(12, DIR_WEST)
+    }
+}
+
+script FrosthearthGym_BlaineTalk{
+    if(flag(FLAG_BADGE06_GET)){
+        msgbox(FrosthearthGym_BlainePosBat, MSGBOX_NPC)
+    }
+	else{
+        special(HasEnoughMonsForDoubleBattle)
+        if(var(VAR_RESULT) != PLAYER_HAS_TWO_USABLE_MONS){
+            msgbox(BlaineNotEnoughMons, MSGBOX_NPC)
+        }
+		else{
+            msgbox(BlaineGoStandInArena, MSGBOX_NPC)
+        }
+		turnobject(13, DIR_WEST)
+    }
+}
+
+text FrosthearthGym_PrycePosBat{
+    "Make sure to always keep your\n"
+    "head cool, and you'll end up\l"
+    "doing great things.\p"
+    "I'm sure of it!"
+}
+text PryceNotEnoughMons{
+    "Ah, my savior has arrived.\p"
+    "I had a feeling we'd be meeting\n"
+    "again sooner or later.\p"
+    "Before we begin, do make sure\n"
+    "you have at least two Pokémon\l"
+    "that are ready to battle.\p"
+    "Once ready, take your place on\n"
+    "the other side of the arena."
+}
+text PryceGoStandInArena{
+    "Ah, my savior has arrived.\p"
+    "I had a feeling we'd be meeting\n"
+    "again sooner or later.\p"
+    "Go on, take your place on the other\n"
+    "side of the arena and we may begin."
+}
+text FrosthearthGym_BlainePosBat{
+    "I can see the fire burning in\n"
+    "your heart.\p"
+    "You're gonna go far, kid!"
+}
+text BlaineNotEnoughMons{
+    "Ah, a new challenger has arrived.\p"
+    "Oh, but you seem to be running low\n"
+    "on Pokémon.\p"
+    "Make sure you have at least two\n"
+    "Pokémon that are ready to battle.\p"
+    "Once you've done that, go ahead and\n"
+    "stand right over there on the other\l"
+    "side of the arena, and we may begin."
+}
+text BlaineGoStandInArena{
+    "Ah, a new challenger has arrived.\p"
+    "If you're ready, go ahead and\n"
+    "stand right over there on the other\l"
+    "side of the arena, and we may begin."
+}

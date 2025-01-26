@@ -5,53 +5,117 @@ Kaolisle_Harbor_MapScripts::
 KaolisleHarbor_Attendant::
 	lock
 	faceplayer
+	call ExpandedBoatNetwork
+	goto_if_set FLAG_EXPANDED_BOAT_NETWORK, KaolisleHarbor_Attendant_2
+KaolisleHarbor_Attendant_1:
 	msgbox KaolisleHarbor_Text_GetAboard, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Harbor_ComeAgain
 	message KaolisleHarbor_Attendant_Text_0
 	waitmessage
 	multichoice 23, 0, MULTI_BOATFROMKAOLISLE, 0
 	switch VAR_RESULT
-	case 0, KaolisleHarbor_Attendant_3
-	case 1, KaolisleHarbor_Attendant_4
-	case 2, KaolisleHarbor_Attendant_5
-	case MULTI_B_PRESSED, KaolisleHarbor_Attendant_6
-KaolisleHarbor_Attendant_1:
+	case 0, KaolisleHarbor_Attendant_6
+	case 1, KaolisleHarbor_Attendant_7
+	case 2, KaolisleHarbor_Attendant_8
+	case MULTI_B_PRESSED, KaolisleHarbor_Attendant_9
+KaolisleHarbor_Attendant_4:
 	waitstate
 	release
 	end
 
-KaolisleHarbor_Attendant_3:
-	call Harbor_BoardFerryGoingEast
-	warp MAP_SHORESLATE_HARBOR, 16, 10
-	goto KaolisleHarbor_Attendant_1
-
-KaolisleHarbor_Attendant_4:
-	goto_if_unset FLAG_BADGE03_GET, KaolisleHarbor_Attendant_8
-KaolisleHarbor_Attendant_7:
-	call Harbor_BoardFerryGoingEast
-	warp MAP_ROCKLIFFE_HARBOR, 8, 3
-	goto KaolisleHarbor_Attendant_1
-
-KaolisleHarbor_Attendant_5:
-	goto Harbor_ComeAgain
+KaolisleHarbor_Attendant_2:
+	goto KaolisleHarbor_TakeAFerry
 	goto KaolisleHarbor_Attendant_1
 
 KaolisleHarbor_Attendant_6:
-	goto Harbor_ComeAgain
-	goto KaolisleHarbor_Attendant_1
-
-KaolisleHarbor_Attendant_8:
-	msgbox SailToShoreslateInstead, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
-	goto_if_eq KaolisleHarbor_Attendant_11
-KaolisleHarbor_Attendant_10:
 	call Harbor_BoardFerryGoingEast
 	warp MAP_SHORESLATE_HARBOR, 16, 10
-	goto KaolisleHarbor_Attendant_7
+	goto KaolisleHarbor_Attendant_4
+
+KaolisleHarbor_Attendant_7:
+	goto_if_unset FLAG_BADGE03_GET, KaolisleHarbor_Attendant_11
+KaolisleHarbor_Attendant_10:
+	call Harbor_BoardFerryGoingEast
+	warp MAP_ROCKLIFFE_HARBOR, 8, 3
+	goto KaolisleHarbor_Attendant_4
+
+KaolisleHarbor_Attendant_8:
+	goto Harbor_ComeAgain
+	goto KaolisleHarbor_Attendant_4
+
+KaolisleHarbor_Attendant_9:
+	goto Harbor_ComeAgain
+	goto KaolisleHarbor_Attendant_4
 
 KaolisleHarbor_Attendant_11:
-	goto Harbor_ComeAgain
+	msgbox SailToShoreslateInstead, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq KaolisleHarbor_Attendant_14
+KaolisleHarbor_Attendant_13:
+	call Harbor_BoardFerryGoingEast
+	warp MAP_SHORESLATE_HARBOR, 16, 10
 	goto KaolisleHarbor_Attendant_10
+
+KaolisleHarbor_Attendant_14:
+	goto Harbor_ComeAgain
+	goto KaolisleHarbor_Attendant_13
+
+
+KaolisleHarbor_TakeAFerry::
+	call InitBoatMultichoice
+	dynmultipush KaolisleHarbor_TakeAFerry_Text_0, 0
+	dynmultipush KaolisleHarbor_TakeAFerry_Text_1, 1
+	dynmultipush KaolisleHarbor_TakeAFerry_Text_2, 2
+	dynmultipush KaolisleHarbor_TakeAFerry_Text_3, 3
+	goto_if_set FLAG_VISITED_FROSTFIRE, KaolisleHarbor_TakeAFerry_2
+KaolisleHarbor_TakeAFerry_1:
+	dynmultipush KaolisleHarbor_TakeAFerry_Text_5, 5
+	dynmultistack 23, 0, FALSE, 4, FALSE, 0, 0
+	switch VAR_RESULT
+	case 0, KaolisleHarbor_TakeAFerry_6
+	case 1, KaolisleHarbor_TakeAFerry_7
+	case 2, KaolisleHarbor_TakeAFerry_8
+	case 3, KaolisleHarbor_TakeAFerry_9
+	case 4, KaolisleHarbor_TakeAFerry_10
+	case 5, KaolisleHarbor_TakeAFerry_11
+	case MULTI_B_PRESSED, KaolisleHarbor_TakeAFerry_11
+KaolisleHarbor_TakeAFerry_4:
+	waitstate
+	release
+	end
+
+KaolisleHarbor_TakeAFerry_2:
+	dynmultipush KaolisleHarbor_TakeAFerry_Text_4, 4
+	goto KaolisleHarbor_TakeAFerry_1
+
+KaolisleHarbor_TakeAFerry_6:
+	call Harbor_BoardFerryGoingEast
+	warp MAP_CORALGROVE_HARVOR_INTERIOR, 7, 10
+	goto KaolisleHarbor_TakeAFerry_4
+
+KaolisleHarbor_TakeAFerry_7:
+	call Harbor_BoardFerryGoingEast
+	warp MAP_COAST_TOWN_HARBOR, 16, 10
+	goto KaolisleHarbor_TakeAFerry_4
+
+KaolisleHarbor_TakeAFerry_8:
+	call Harbor_BoardFerryGoingEast
+	warp MAP_SHORESLATE_HARBOR, 16, 10
+	goto KaolisleHarbor_TakeAFerry_4
+
+KaolisleHarbor_TakeAFerry_9:
+	call Harbor_BoardFerryGoingEast
+	warp MAP_ROCKLIFFE_HARBOR, 8, 3
+	goto KaolisleHarbor_TakeAFerry_4
+
+KaolisleHarbor_TakeAFerry_10:
+	call Harbor_BoardFerryGoingEast
+	warp MAP_FROSTHEARTH_CITY_HARBOR, 7, 10
+	goto KaolisleHarbor_TakeAFerry_4
+
+KaolisleHarbor_TakeAFerry_11:
+	goto Harbor_ComeAgain
+	goto KaolisleHarbor_TakeAFerry_4
 
 
 KaolisleHarbor_Man::
@@ -127,6 +191,24 @@ Movement_FerryDepart_East:
 
 KaolisleHarbor_Attendant_Text_0:
 	.string "Where would you like to sail?$"
+
+KaolisleHarbor_TakeAFerry_Text_0:
+	.string "Coralgrove City$"
+
+KaolisleHarbor_TakeAFerry_Text_1:
+	.string "Azuretide Town$"
+
+KaolisleHarbor_TakeAFerry_Text_2:
+	.string "Shoreslate City$"
+
+KaolisleHarbor_TakeAFerry_Text_3:
+	.string "Rockliffe Town$"
+
+KaolisleHarbor_TakeAFerry_Text_4:
+	.string "Frosthearth City$"
+
+KaolisleHarbor_TakeAFerry_Text_5:
+	.string "Nevermind$"
 
 SailToShoreslateInstead::
 	.string "I'm sorry, but the harbor at Rockliffe\n"

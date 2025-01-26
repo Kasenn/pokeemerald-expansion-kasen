@@ -2576,7 +2576,7 @@ static void Mugshots_CreateTrainerPics(struct Task *task)
     gReservedSpritePaletteCount = 12;
 
     task->tPlayerSpriteId = CreateTrainerSprite(PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender),
-                                                DISPLAY_WIDTH + 32,
+                                                DISPLAY_WIDTH + 48,
                                                 106,
                                                 0, gDecompressionBuffer);
 

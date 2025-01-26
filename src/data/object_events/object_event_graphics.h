@@ -544,6 +544,9 @@ const u32 gObjectEventPic_Brock[] = INCBIN_U32("graphics/object_events/pics/peop
 const u16 gObjectEventPalette_Brock[] = INCBIN_U16("graphics/object_events/pics/people/brock.gbapal");
 const u32 gObjectEventPic_Pryce[] = INCBIN_U32("graphics/object_events/pics/people/pryce.4bpp");
 const u16 gObjectEventPalette_Pryce[] = INCBIN_U16("graphics/object_events/pics/people/pryce.gbapal");
+const u32 gObjectEventPic_Blaine[] = INCBIN_U32("graphics/object_events/pics/people/blaine.4bpp");
+const u16 gObjectEventPalette_Blaine[] = INCBIN_U16("graphics/object_events/pics/people/blaine.gbapal");
+
 
 
 const u32 gObjectEventPic_Giovanni[] = INCBIN_U32("graphics/object_events/pics/people/giovanni.4bpp");

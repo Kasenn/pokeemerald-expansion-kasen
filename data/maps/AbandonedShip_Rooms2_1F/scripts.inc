@@ -40,7 +40,7 @@ AbandonedShip_Rooms2_1F_EventScript_KiraRematch::
 	end
 
 AbandonedShip_Rooms2_1F_EventScript_Jani::
-	trainerbattle_single TRAINER_JANI, AbandonedShip_Rooms2_1F_Text_JaniIntro, AbandonedShip_Rooms2_1F_Text_JaniDefeat
+	trainerbattle_single TRAINER_FROSTGYM_TR6_RANGER_F, AbandonedShip_Rooms2_1F_Text_JaniIntro, AbandonedShip_Rooms2_1F_Text_JaniDefeat
 	msgbox AbandonedShip_Rooms2_1F_Text_JaniPostBattle, MSGBOX_AUTOCLOSE
 	end
 

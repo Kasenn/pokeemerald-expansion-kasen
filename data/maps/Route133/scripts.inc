@@ -22,7 +22,7 @@ Route133_EventScript_Warren::
 	end
 
 Route133_EventScript_Beck::
-	trainerbattle_single TRAINER_BECK, Route133_Text_BeckIntro, Route133_Text_BeckDefeat
+	trainerbattle_single TRAINER_FROSTGYM_TR2_KINDLER1, Route133_Text_BeckIntro, Route133_Text_BeckDefeat
 	msgbox Route133_Text_BeckPostBattle, MSGBOX_AUTOCLOSE
 	end
 

@@ -14,6 +14,7 @@ script FrigidFrontier_Pryce{
         msgbox(EscortPryceToSafety)
     }
     closemessage
+    dismountplayer
     setflag(FLAG_ESCORTING_PRYCE)
     setfollower(2, FOLLOWER_FLAG_CLEAR_ON_WHITE_OUT, FrigidFrontier_PryceYapping)
     release

@@ -1,3 +1,49 @@
+CountGymBadges::
+	goto_if_set FLAG_BADGE08_GET, CountGymBadges_2
+	goto_if_set FLAG_BADGE07_GET, CountGymBadges_3
+	goto_if_set FLAG_BADGE06_GET, CountGymBadges_4
+	goto_if_set FLAG_BADGE05_GET, CountGymBadges_5
+	goto_if_set FLAG_BADGE04_GET, CountGymBadges_6
+	goto_if_set FLAG_BADGE03_GET, CountGymBadges_7
+	goto_if_set FLAG_BADGE02_GET, CountGymBadges_8
+	goto_if_set FLAG_BADGE01_GET, CountGymBadges_9
+	setvar VAR_RESULT, 0
+CountGymBadges_1:
+	return
+
+CountGymBadges_2:
+	setvar VAR_RESULT, 8
+	goto CountGymBadges_1
+
+CountGymBadges_3:
+	setvar VAR_RESULT, 7
+	goto CountGymBadges_1
+
+CountGymBadges_4:
+	setvar VAR_RESULT, 6
+	goto CountGymBadges_1
+
+CountGymBadges_5:
+	setvar VAR_RESULT, 5
+	goto CountGymBadges_1
+
+CountGymBadges_6:
+	setvar VAR_RESULT, 4
+	goto CountGymBadges_1
+
+CountGymBadges_7:
+	setvar VAR_RESULT, 3
+	goto CountGymBadges_1
+
+CountGymBadges_8:
+	setvar VAR_RESULT, 2
+	goto CountGymBadges_1
+
+CountGymBadges_9:
+	setvar VAR_RESULT, 1
+	goto CountGymBadges_1
+
+
 EventScript_UseRockClimb::
 	lockall
 	checkpartymove MOVE_ROCK_CLIMB

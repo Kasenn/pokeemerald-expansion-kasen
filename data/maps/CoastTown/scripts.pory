@@ -132,6 +132,10 @@ script CoastTown_Swimmer{
 }
 
 script AzureTide_MysteryWoman{
+    if(defeated(TRAINER_AZURETIDE_CELEBI_TR1)){
+        msgbox(AzureTide_MysteryWoman_AfterBattleGossip, MSGBOX_NPC)
+        end
+    }
     lock
     if(flag(FLAG_TEMP_3)){
         faceplayer
@@ -149,25 +153,30 @@ script AzureTide_MysteryWoman{
         end
     }
     else{
-        if(flag(FLAG_BADGE04_GET)){
-            msgbox(AzureTide_MysteryWoman_Get6Badges, MSGBOX_NPC)
-            turnobject(7, DIR_WEST)
-            end
-        }
-        if(flag(FLAG_BADGE03_GET)){
-            msgbox(AzureTide_MysteryWoman_3Badges, MSGBOX_NPC)
-            turnobject(7, DIR_WEST)
-            end
-        }
-        if(flag(FLAG_BADGE02_GET)){
-            msgbox(AzureTide_MysteryWoman_2Badges, MSGBOX_NPC)
-            turnobject(7, DIR_WEST)
-            end
-        }
-        if(flag(FLAG_BADGE01_GET)){
-            msgbox(AzureTide_MysteryWoman_1Badges, MSGBOX_NPC)
-            turnobject(7, DIR_WEST)
-            end
+        call(CountGymBadges)
+        switch(var(VAR_RESULT)){
+            case 0:
+            case 1:
+                msgbox(AzureTide_MysteryWoman_1Badges, MSGBOX_NPC)
+                turnobject(7, DIR_WEST)
+                end
+            case 2:
+                msgbox(AzureTide_MysteryWoman_2Badges, MSGBOX_NPC)
+                turnobject(7, DIR_WEST)
+                end
+            case 3:
+                msgbox(AzureTide_MysteryWoman_3Badges, MSGBOX_NPC)
+                turnobject(7, DIR_WEST)
+                end
+            case 4:
+            case 5:
+                msgbox(AzureTide_MysteryWoman_Get6Badges, MSGBOX_NPC)
+                turnobject(7, DIR_WEST)
+                end
+            case 6:
+            case 7:
+            case 8:
+                goto(AzureTide_MysteryWoman_Battle)
         }
     }
     end
@@ -354,4 +363,95 @@ script Azuretide_Grotto_Entrance{
     warp(MAP_AZURETIDE_GROTTO, 6, 19)
     waitstate
     release
+}
+
+script AzureTide_MysteryWoman_Battle{
+    checkpartylevel(55)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(AzureTide_AbsolutelyCertain, MSGBOX_YESNO)
+    }
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(AzureTide_MysteryWoman_Decline, MSGBOX_NPC)
+        setflag(FLAG_TEMP_3)
+        turnobject(7, DIR_WEST)
+        end
+    }
+    msgbox(AzureTide_MysteryWoman_Battle_Intro)
+    trainerbattle_no_intro(TRAINER_AZURETIDE_CELEBI_TR1, AzureTide_MysteryWoman_Battle_Lose)
+    msgbox(AzureTide_MysteryWoman_PostBattle)
+    giveitem(ITEM_DISC_FRAGMENT)
+    if(checkitem(ITEM_DISC_FRAGMENT, 2) == TRUE){
+        msgbox(AzureTide_ExplainFragmentShort)
+    }
+    else{
+        msgbox(AzureTide_ExplainFragment)
+    }
+    release
+    end
+}
+
+text AzureTide_MysteryWoman_Battle_Intro{
+    "Very well then.\p"
+    "Prepare yourself,\n"
+    "for I won't hold back!"
+}
+text AzureTide_MysteryWoman_Battle_Lose{
+    "Ah, truly a worthy opponent!"
+}
+text AzureTide_MysteryWoman_PostBattle{
+    "You young people really are\n"
+    "something else, huh.\p"
+    "You've managed to reach a level beyond\n"
+    "mine in just a fraction of the time.\p"
+    "…Oh!\p"
+    "Speaking of fractions, I just\n"
+    "remembered something.\p"
+    "Here, take this."
+}
+text AzureTide_ExplainFragment{
+    "It may look like junk now,\n"
+    "but trust me, that thing\l"
+    "is a key to something important.\p"
+    "Before it can be used however,\n"
+    "you will need to find other fragments\l"
+    "like it.\p"
+    "My old friends should have hopefully\n"
+    "kept their fragments safe.\p"
+    "I don't know where they\n"
+    "currently reside, but I remember\l"
+    "one of them mentioning about\l"
+    "moving somewhere warm.\p"
+    "There should be four fragments.\p"
+    "Once you have collected them all,\n"
+    "come back to me and I'll see if\l"
+    "I can piece the fragments together."
+}
+text AzureTide_MysteryWoman_AfterBattleGossip{
+    "There should be four fragments.\p"
+    "Once you have collected them all,\n"
+    "come back to me and I'll see if\l"
+    "I can piece the fragments together.\p"
+    "My old friends should have hopefully\n"
+    "kept their fragments safe.\p"
+    "I don't know where they\n"
+    "currently reside, but I remember\l"
+    "one of them mentioning about\l"
+    "moving somewhere warm."
+}
+text AzureTide_AbsolutelyCertain{
+    "Are you absolutely certain you want\n"
+    "to challenge me? I'm pretty strong."
+}
+
+text AzureTide_ExplainFragmentShort{
+    "There should be four fragments.\p"
+    "Once you have collected them all,\n"
+    "come back to me and I'll see if\l"
+    "I can piece the fragments together.\p"
+    "My old friends should have hopefully\n"
+    "kept their fragments safe.\p"
+    "I don't know where they\n"
+    "currently reside, but I remember\l"
+    "one of them mentioning about\l"
+    "moving somewhere warm."
 }

@@ -12,10 +12,49 @@ script HarborSetFlags{
 script CoastTownHarbor_Attendant{
     lock
     faceplayer
+	call(ExpandedBoatNetwork)
+    if(flag(FLAG_EXPANDED_BOAT_NETWORK)){
+        goto(AzuretideHarbor_TakeAFerry)
+    }
 	msgbox(CoastTownHarbor_Text_GetAboard, MSGBOX_YESNO)
 	goto_if_eq(VAR_RESULT, NO, CoastTownHarbor_EventScript_ComeAgain)
 	call(CoastTownHarbor_EventScript_BoardFerry)
 	warp(MAP_CORALGROVE_HARVOR_INTERIOR, 7, 10)
+	waitstate
+	release
+	end
+}
+script AzuretideHarbor_TakeAFerry{
+    call(InitBoatMultichoice)
+    dynmultipush("Coralgrove City", 0)
+    dynmultipush("Shoreslate City", 1)
+    dynmultipush("Kaolisle City", 2)
+    dynmultipush("Rockliffe Town", 3)
+    if(flag(FLAG_VISITED_FROSTFIRE)){
+        dynmultipush("Frosthearth City", 4)
+    }
+    dynmultipush("Nevermind", 5)
+    dynmultistack(23, 0, FALSE, 4, FALSE, 0, 0)
+    switch(var(VAR_RESULT)){
+        case 0:
+            call(CoastTownHarbor_EventScript_BoardFerry)     // make sure the attendant is id 3 and boat is id 4
+	        warp(MAP_CORALGROVE_HARVOR_INTERIOR, 7, 10)
+        case 1:
+            call(CoastTownHarbor_EventScript_BoardFerry)
+	        warp(MAP_SHORESLATE_HARBOR, 16, 10)
+        case 2:
+            call(CoastTownHarbor_EventScript_BoardFerry)
+	        warp(MAP_KAOLISLE_HARBOR, 7, 10)
+        case 3:
+            call(CoastTownHarbor_EventScript_BoardFerry)
+	        warp(MAP_ROCKLIFFE_HARBOR, 8, 3)
+        case 4:
+            call(CoastTownHarbor_EventScript_BoardFerry)
+	        warp(MAP_FROSTHEARTH_CITY_HARBOR, 7, 10)
+        case 5:
+        case MULTI_B_PRESSED:
+            goto(Harbor_ComeAgain)
+    }
 	waitstate
 	release
 	end
