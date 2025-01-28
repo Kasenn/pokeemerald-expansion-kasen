@@ -472,6 +472,7 @@ struct SpeciesInfo /*0xC4*/
 #if P_GENDER_DIFFERENCES
     const void* overworldPaletteFemale;
     const void* overworldShinyPaletteFemale;
+    const struct LevelUpMove *moveReminderLearnset;
 #endif //P_GENDER_DIFFERENCES
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
@@ -806,6 +807,7 @@ const u8 *GetSpeciesPokedexDescription(u16 species);
 u16 GetSpeciesHeight(u16 species);
 u16 GetSpeciesWeight(u16 species);
 const struct LevelUpMove *GetSpeciesLevelUpLearnset(u16 species);
+const struct LevelUpMove *GetSpeciesMoveReminderLearnset(u16 species);
 const u16 *GetSpeciesTeachableLearnset(u16 species);
 const u16 *GetSpeciesEggMoves(u16 species);
 const struct Evolution *GetSpeciesEvolutions(u16 species);
