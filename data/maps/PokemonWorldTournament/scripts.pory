@@ -1,4 +1,15 @@
-mapscripts PokemonWorldTournament_MapScripts {}
+mapscripts PokemonWorldTournament_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_TEMP_CHALLENGE_STATUS, 0: BattleFrontier_BattleFactoryLobby_EventScript_GetChallengeStatus
+        VAR_TEMP_CHALLENGE_STATUS, CHALLENGE_STATUS_SAVING: BattleFrontier_BattleFactoryLobby_EventScript_QuitWithoutSaving
+        VAR_TEMP_CHALLENGE_STATUS, CHALLENGE_STATUS_PAUSED: BattleFrontier_BattleFactoryLobby_EventScript_ResumeChallenge
+        VAR_TEMP_CHALLENGE_STATUS, CHALLENGE_STATUS_WON: BattleFrontier_BattleFactoryLobby_EventScript_WonChallenge
+        VAR_TEMP_CHALLENGE_STATUS, CHALLENGE_STATUS_LOST: BattleFrontier_BattleFactoryLobby_EventScript_LostChallenge
+    ]
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
+        VAR_TEMP_1, 0: BattleFrontier_BattleFactoryLobby_EventScript_TurnPlayerNorth
+    ]
+}
 
 raw`@hasMoveTutor` // if P_LEARNSET_HELPER_TEACHABLE is set to TRUE, adding this line makes the python script recognize the file and
                    // add any moves found in this file automatically.
@@ -396,11 +407,39 @@ script PWT_Participate_Mix{
 }
 
 script PWT_Frosthearth_Single{
+
+
     msgbox(FeatureNotReady_Text, MSGBOX_NPC)
     end
 }
 script PWT_Frosthearth_Double{
-    msgbox(FeatureNotReady_Text, MSGBOX_NPC)
+    // setvar(VAR_FRONTIER_FACILITY, FRONTIER_FACILITY_TOWER)
+	setvar(VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES)
+	special(SavePlayerParty)
+    frontier_checkineligible
+    if(var(VAR_0x8004) == TRUE){
+        bufferstring(STR_VAR_2, "four")
+        msgbox(BattleFrontier_BattleArenaLobby_Text_NotEnoughValidMonsLvOpen)
+        release
+        end
+    }
+	frontier_set(FRONTIER_DATA_LVL_MODE, FRONTIER_DATA_LVL_MODE)
+	msgbox (BattleFrontier_BattleTowerLobby_Text_PleaseSelectFourMons, MSGBOX_DEFAULT)
+	fadescreen (FADE_TO_BLACK)
+	callnative (RemoveFollowingPokemon)
+	// call (BattleFrontier_EventScript_GetLvlMode)
+	// copyvar (VAR_0x8004, VAR_RESULT)
+	setvar (VAR_0x8005, FRONTIER_DOUBLES_PARTY_SIZE)
+	special (ChoosePartyForBattleFrontier)
+	waitstate
+	goto_if_eq (VAR_RESULT, 0, BattleFrontier_BattleArenaLobby_EventScript_LoadPartyAndCancelChallenge)
+	msgbox(BattleFrontier_BattleArenaLobby_Text_OkayToSave, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == TRUE){
+        goto(BattleFrontier_BattleArenaLobby_EventScript_SaveBeforeChallenge)
+    }
+    else{
+        goto(BattleFrontier_BattleArenaLobby_EventScript_LoadPartyAndCancelChallenge)
+    }
     end
 }
 script PWT_Rental_Single{
@@ -418,4 +457,28 @@ script PWT_Mix_Single{
 script PWT_Mix_Double{
     msgbox(FeatureNotReady_Text, MSGBOX_NPC)
     end
+}
+
+text PWT_NotEnoughValidMons{
+    "My dear challenger!\p"
+	"You do not have the {STR_VAR_2} Pokémon\n"
+	"required for entry.\p"
+    "Please note that certain Legendary\n"
+    "Pokémon may be ineligible to enter.\p"
+	"Eggs{STR_VAR_1} ineligible.\p"
+	"When you have made your preparations,\n"
+	"please do return."
+}
+
+script Pwt_Incomplete{
+    msgbox(Pwt_Incomplete_Text, MSGBOX_NPC)
+}
+text Pwt_Incomplete_Text{
+    "Hello, and welcome to the\n"
+    "Pokémon World Tournament!\p"
+    "…Is what I would normally say.\p"
+    "The Pokémon World Tournament\n"
+    "is still under construction,\l"
+    "so we are currently hosting\l"
+    "Battle Factory here."
 }

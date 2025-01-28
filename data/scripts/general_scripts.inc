@@ -461,22 +461,33 @@ Debug_Script_1_12:
 
 
 Debug_Script_2::
-	trainerbattle_two_trainers TRAINER_LEADER_BLAINE, R15_AceM_Lose, TRAINER_LEADER_PRYCE, R15_AceF_Lose
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( CROBAT )
+	addobject 18
+	release
+	delay 120
 	return
 
 
 Debug_Script_3::
-	additem ITEM_STEEL_SPHERE
-	additem ITEM_STONE_SPHERE
-	additem ITEM_VERDANT_SPHERE
+	removeobject 18
+	release
+	delay 120
 	return
 
 
 Debug_Script_4::
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( PIKACHU )
+	addobject 18
+	release
+	delay 120
 	return
 
 
 Debug_Script_5::
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( BLAZIKEN )
+	addobject 18
+	release
+	delay 120
 	return
 
 

@@ -3664,7 +3664,7 @@ static const struct TrainerMon sParty_Route11Brendan_Piplup[] = {
     .moves = {MOVE_PSYCHIC, MOVE_DRAINING_KISS},
     },
     {
-    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
     .lvl = 35,
     .species = SPECIES_DARTRIX,
     .nature = NATURE_SERIOUS,
@@ -3762,7 +3762,7 @@ static const struct TrainerMon sParty_Route11Brendan_Piplup_Angry[] = {
     .moves = {MOVE_PSYCHIC, MOVE_DRAINING_KISS, MOVE_MAGICAL_LEAF, MOVE_CALM_MIND},
     },
     {
-    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
     .lvl = 36,
     .species = SPECIES_DECIDUEYE,
     .nature = NATURE_SERIOUS,
@@ -3859,7 +3859,7 @@ static const struct TrainerMon sParty_Route11May_Piplup[] = {
     .moves = {MOVE_PSYCHO_CUT, MOVE_AERIAL_ACE, MOVE_SLASH}
     },
     {
-    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
     .lvl = 35,
     .species = SPECIES_DARTRIX,
     .nature = NATURE_SERIOUS,
@@ -3957,7 +3957,7 @@ static const struct TrainerMon sParty_Route11May_Piplup_Angry[] = {
     .moves = {MOVE_PSYCHO_CUT, MOVE_NIGHT_SLASH, MOVE_SWORDS_DANCE, MOVE_ROCK_SLIDE}
     },
     {
-    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
+    .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
     .lvl = 36,
     .species = SPECIES_DECIDUEYE,
     .nature = NATURE_SERIOUS,
@@ -6200,7 +6200,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_MAY_ROWLET[] = {
 
 static const struct TrainerMon sParty_TRAINER_BASALEK_MAY_TORCHIC[] = {
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 44,
         .species = SPECIES_STARAPTOR,
         .nature = NATURE_IMPISH,
@@ -6208,7 +6208,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_MAY_TORCHIC[] = {
         .gender = TRAINER_MON_FEMALE,
     },
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 45,
         .species = SPECIES_GALLADE,
         .nature = NATURE_MILD,
@@ -6217,7 +6217,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_MAY_TORCHIC[] = {
         .ability = ABILITY_STEADFAST,
     },
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 45,
         .species = SPECIES_CLODSIRE,
         .nature = NATURE_ADAMANT,
@@ -6226,7 +6226,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_MAY_TORCHIC[] = {
         .gender = TRAINER_MON_FEMALE,
     },
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 46,
         .species = SPECIES_CRUSTLE,
         .nature = NATURE_SASSY,
@@ -6235,7 +6235,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_MAY_TORCHIC[] = {
         .gender = TRAINER_MON_FEMALE,
     },
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 48,
         .species = SPECIES_EMPOLEON,
         .nature = NATURE_SERIOUS,
@@ -6247,7 +6247,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_MAY_TORCHIC[] = {
 
 static const struct TrainerMon sParty_TRAINER_BASALEK_MAY_PIPLUP[] = {
         {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 44,
         .species = SPECIES_STARAPTOR,
         .nature = NATURE_IMPISH,
@@ -6255,7 +6255,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_MAY_PIPLUP[] = {
         .gender = TRAINER_MON_FEMALE,
     },
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 45,
         .species = SPECIES_GALLADE,
         .nature = NATURE_MILD,
@@ -6264,7 +6264,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_MAY_PIPLUP[] = {
         .ability = ABILITY_STEADFAST,
     },
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 45,
         .species = SPECIES_CLODSIRE,
         .nature = NATURE_ADAMANT,
@@ -6273,7 +6273,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_MAY_PIPLUP[] = {
         .gender = TRAINER_MON_FEMALE,
     },
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 46,
         .species = SPECIES_CRUSTLE,
         .nature = NATURE_SASSY,
@@ -6282,7 +6282,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_MAY_PIPLUP[] = {
         .gender = TRAINER_MON_FEMALE,
     },
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 48,
         .species = SPECIES_DECIDUEYE,
         .nature = NATURE_SERIOUS,
@@ -6294,7 +6294,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_MAY_PIPLUP[] = {
 
 static const struct TrainerMon sParty_TRAINER_BASALEK_BRENDAN_ROWLET[] = {
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 44,
         .species = SPECIES_STARAPTOR,
         .nature = NATURE_IMPISH,
@@ -6302,7 +6302,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_BRENDAN_ROWLET[] = {
         .gender = TRAINER_MON_MALE,
     },
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 45,
         .species = SPECIES_GARDEVOIR,
         .nature = NATURE_MILD,
@@ -6311,7 +6311,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_BRENDAN_ROWLET[] = {
         .ability = ABILITY_TRACE,
     },
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 45,
         .species = SPECIES_CLODSIRE,
         .nature = NATURE_ADAMANT,
@@ -6320,7 +6320,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_BRENDAN_ROWLET[] = {
         .gender = TRAINER_MON_MALE,
     },
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 46,
         .species = SPECIES_CRUSTLE,
         .nature = NATURE_SASSY,
@@ -6329,7 +6329,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_BRENDAN_ROWLET[] = {
         .gender = TRAINER_MON_MALE,
     },
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 48,
         .species = SPECIES_BLAZIKEN,
         .nature = NATURE_SERIOUS,
@@ -6341,7 +6341,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_BRENDAN_ROWLET[] = {
 
 static const struct TrainerMon sParty_TRAINER_BASALEK_BRENDAN_TORCHIC[] = {
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 44,
         .species = SPECIES_STARAPTOR,
         .nature = NATURE_IMPISH,
@@ -6349,7 +6349,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_BRENDAN_TORCHIC[] = {
         .gender = TRAINER_MON_MALE,
     },
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 45,
         .species = SPECIES_GARDEVOIR,
         .nature = NATURE_MILD,
@@ -6358,7 +6358,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_BRENDAN_TORCHIC[] = {
         .ability = ABILITY_TRACE,
     },
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 45,
         .species = SPECIES_CLODSIRE,
         .nature = NATURE_ADAMANT,
@@ -6367,7 +6367,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_BRENDAN_TORCHIC[] = {
         .gender = TRAINER_MON_MALE,
     },
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 46,
         .species = SPECIES_CRUSTLE,
         .nature = NATURE_SASSY,
@@ -6376,7 +6376,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_BRENDAN_TORCHIC[] = {
         .gender = TRAINER_MON_MALE,
     },
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 48,
         .species = SPECIES_EMPOLEON,
         .nature = NATURE_SERIOUS,
@@ -6388,7 +6388,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_BRENDAN_TORCHIC[] = {
 
 static const struct TrainerMon sParty_TRAINER_BASALEK_BRENDAN_PIPLUP[] = {
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 44,
         .species = SPECIES_STARAPTOR,
         .nature = NATURE_IMPISH,
@@ -6396,7 +6396,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_BRENDAN_PIPLUP[] = {
         .gender = TRAINER_MON_MALE,
     },
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 45,
         .species = SPECIES_GARDEVOIR,
         .nature = NATURE_MILD,
@@ -6405,7 +6405,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_BRENDAN_PIPLUP[] = {
         .ability = ABILITY_TRACE,
     },
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 45,
         .species = SPECIES_CLODSIRE,
         .nature = NATURE_ADAMANT,
@@ -6414,7 +6414,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_BRENDAN_PIPLUP[] = {
         .gender = TRAINER_MON_MALE,
     },
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 46,
         .species = SPECIES_CRUSTLE,
         .nature = NATURE_SASSY,
@@ -6423,7 +6423,7 @@ static const struct TrainerMon sParty_TRAINER_BASALEK_BRENDAN_PIPLUP[] = {
         .gender = TRAINER_MON_MALE,
     },
     {
-        .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
+        .iv = TRAINER_PARTY_IVS(8, 8, 8, 8 ,8 ,8),
         .lvl = 48,
         .species = SPECIES_DECIDUEYE,
         .nature = NATURE_SERIOUS,
@@ -6873,21 +6873,17 @@ static const struct TrainerMon sParty_TRAINER_R18_TR9_ACE_TRAINER_M[] = {
 static const struct TrainerMon sParty_TRAINER_LEADER_PRYCE[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
-    .lvl = 50,
-    .species = SPECIES_CRYOGONAL,
-    .moves = {MOVE_CONFUSE_RAY, MOVE_ANCIENT_POWER, MOVE_FREEZE_DRY, MOVE_SIGNAL_BEAM},
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
     .lvl = 51,
     .species = SPECIES_GLALIE,
-    .moves = {MOVE_FREEZE_DRY, MOVE_ICE_BURN, MOVE_CRUNCH, MOVE_IRON_HEAD}
+    .moves = {MOVE_FREEZE_DRY, MOVE_ICE_BURN, MOVE_CRUNCH, MOVE_IRON_HEAD},
+    .ev = TRAINER_PARTY_EVS(0, 0, 100, 0, 0, 100)
     },
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
     .lvl = 52,
     .species = SPECIES_MAMOSWINE,
-    .moves = {MOVE_EARTHQUAKE, MOVE_BLIZZARD, MOVE_ICE_FANG, MOVE_ANCIENT_POWER}
+    .moves = {MOVE_EARTHQUAKE, MOVE_BLIZZARD, MOVE_ICE_FANG, MOVE_ANCIENT_POWER},
+    .ev = TRAINER_PARTY_EVS(0, 0, 100, 0, 0, 100)
     },
 };
 
@@ -6896,20 +6892,23 @@ static const struct TrainerMon sParty_TRAINER_LEADER_BLAINE[] = {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
     .lvl = 51,
     .species = SPECIES_NINETALES,
-    .moves = {MOVE_FLAMETHROWER, MOVE_WILL_O_WISP, MOVE_EXTRASENSORY, MOVE_HEX}
+    .moves = {MOVE_FLAMETHROWER, MOVE_WILL_O_WISP, MOVE_EXTRASENSORY, MOVE_HEX},
+    .ev = TRAINER_PARTY_EVS(0, 0, 100, 0, 0, 100)
     },
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
     .lvl = 52,
     .species = SPECIES_DARMANITAN,
-    .moves = {MOVE_THRASH, MOVE_BELLY_DRUM, MOVE_FIRE_PUNCH, MOVE_HAMMER_ARM}
+    .moves = {MOVE_THRASH, MOVE_BELLY_DRUM, MOVE_FIRE_PUNCH, MOVE_HAMMER_ARM},
+    .ev = TRAINER_PARTY_EVS(0, 0, 100, 0, 0, 100)
     },
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
     .lvl = 53,
     .species = SPECIES_CAMERUPT,
     .heldItem = ITEM_CAMERUPTITE,
-    .moves = {MOVE_ROCK_SLIDE, MOVE_ERUPTION, MOVE_EARTHQUAKE, MOVE_LAVA_PLUME}
+    .moves = {MOVE_ROCK_SLIDE, MOVE_ERUPTION, MOVE_EARTHQUAKE, MOVE_LAVA_PLUME},
+    .ev = TRAINER_PARTY_EVS(0, 0, 100, 0, 0, 100)
     },
 };
 

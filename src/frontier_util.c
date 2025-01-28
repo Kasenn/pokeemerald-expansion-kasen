@@ -677,8 +677,8 @@ static const u8 sBattlePointAwards[NUM_FRONTIER_FACILITIES][FRONTIER_MODE_COUNT]
     },
     [FRONTIER_FACILITY_FACTORY] =
     {
-        [FRONTIER_MODE_SINGLES]     = {  3,  3,  4,  4,  5,  5,  6,  6,  7,  7,  8,  8,  9,  9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 15, 15, 15, 15 },
-        [FRONTIER_MODE_DOUBLES]     = {  4,  4,  5,  5,  6,  6,  7,  7,  8,  8,  9,  9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 15, 15, 15, 15, 15, 15 },
+        [FRONTIER_MODE_SINGLES]     = {  9,  9, 12, 12, 15, 15, 18, 18, 21, 21, 24, 24, 27, 27, 30, 30, 33, 33, 36, 36, 39, 39, 42, 42, 45, 45, 45, 45, 45, 45 },
+        [FRONTIER_MODE_DOUBLES]     = { 12, 12, 15, 15, 18, 18, 21, 21, 24, 24, 27, 27, 30, 30, 33, 33, 36, 36, 39, 39, 42, 42, 45, 45, 45, 45, 45, 45, 45, 45 },
     },
     [FRONTIER_FACILITY_PIKE] =
     {
@@ -1972,21 +1972,11 @@ static void AppendIfValid(u16 species, u16 heldItem, u16 hp, u8 lvlMode, u8 monL
         return;
     if (gSpeciesInfo[species].isFrontierBanned)
         return;
-    if (lvlMode == FRONTIER_LVL_50 && monLevel > FRONTIER_MAX_LEVEL_50)
-        return;
 
     for (i = 0; i < *count && speciesArray[i] != species; i++)
         ;
     if (i != *count)
         return;
-
-    if (heldItem != 0)
-    {
-        for (i = 0; i < *count && itemsArray[i] != heldItem; i++)
-            ;
-        if (i != *count)
-            return;
-    }
 
     speciesArray[*count] = species;
     itemsArray[*count] = heldItem;
@@ -2037,15 +2027,9 @@ static void CheckPartyIneligibility(void)
             u16 heldItem = GetMonData(&gPlayerParty[monId], MON_DATA_HELD_ITEM);
             u8 level = GetMonData(&gPlayerParty[monId], MON_DATA_LEVEL);
             u16 hp = GetMonData(&gPlayerParty[monId], MON_DATA_HP);
-            if (VarGet(VAR_FRONTIER_FACILITY) == FRONTIER_FACILITY_PYRAMID)
-            {
-                if (heldItem == ITEM_NONE)
-                    AppendIfValid(species, heldItem, hp, gSpecialVar_Result, level, speciesArray, itemArray, &numEligibleMons);
-            }
-            else
-            {
-                AppendIfValid(species, heldItem, hp, gSpecialVar_Result, level, speciesArray, itemArray, &numEligibleMons);
-            }
+            
+            AppendIfValid(species, heldItem, hp, gSpecialVar_Result, level, speciesArray, itemArray, &numEligibleMons);
+
             monId++;
             if (monId >= PARTY_SIZE)
                 monId = 0;

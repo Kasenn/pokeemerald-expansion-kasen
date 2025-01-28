@@ -1,5 +1,19 @@
 PokemonWorldTournament_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, PokemonWorldTournament_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, PokemonWorldTournament_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE
 	.byte 0
+
+PokemonWorldTournament_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_TEMP_CHALLENGE_STATUS, 0, BattleFrontier_BattleFactoryLobby_EventScript_GetChallengeStatus
+	map_script_2 VAR_TEMP_CHALLENGE_STATUS, CHALLENGE_STATUS_SAVING, BattleFrontier_BattleFactoryLobby_EventScript_QuitWithoutSaving
+	map_script_2 VAR_TEMP_CHALLENGE_STATUS, CHALLENGE_STATUS_PAUSED, BattleFrontier_BattleFactoryLobby_EventScript_ResumeChallenge
+	map_script_2 VAR_TEMP_CHALLENGE_STATUS, CHALLENGE_STATUS_WON, BattleFrontier_BattleFactoryLobby_EventScript_WonChallenge
+	map_script_2 VAR_TEMP_CHALLENGE_STATUS, CHALLENGE_STATUS_LOST, BattleFrontier_BattleFactoryLobby_EventScript_LostChallenge
+	.2byte 0
+
+PokemonWorldTournament_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE:
+	map_script_2 VAR_TEMP_1, 0, BattleFrontier_BattleFactoryLobby_EventScript_TurnPlayerNorth
+	.2byte 0
 
 
 @hasMoveTutor
@@ -355,8 +369,35 @@ PWT_Frosthearth_Single::
 
 
 PWT_Frosthearth_Double::
-	msgbox FeatureNotReady_Text, MSGBOX_NPC
+	setvar VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES
+	special SavePlayerParty
+	frontier_checkineligible
+	compare VAR_0x8004, TRUE
+	goto_if_eq PWT_Frosthearth_Double_2
+	frontier_set FRONTIER_DATA_LVL_MODE, FRONTIER_DATA_LVL_MODE
+	msgbox BattleFrontier_BattleTowerLobby_Text_PleaseSelectFourMons, MSGBOX_DEFAULT
+	fadescreen FADE_TO_BLACK
+	callnative RemoveFollowingPokemon
+	setvar VAR_0x8005, FRONTIER_DOUBLES_PARTY_SIZE
+	special ChoosePartyForBattleFrontier
+	waitstate
+	goto_if_eq VAR_RESULT, 0, BattleFrontier_BattleArenaLobby_EventScript_LoadPartyAndCancelChallenge
+	msgbox BattleFrontier_BattleArenaLobby_Text_OkayToSave, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
+	goto_if_eq PWT_Frosthearth_Double_5
+	goto BattleFrontier_BattleArenaLobby_EventScript_LoadPartyAndCancelChallenge
+PWT_Frosthearth_Double_4:
 	end
+
+PWT_Frosthearth_Double_2:
+	bufferstring STR_VAR_2, PWT_Frosthearth_Double_Text_0
+	msgbox BattleFrontier_BattleArenaLobby_Text_NotEnoughValidMonsLvOpen
+	release
+	end
+
+PWT_Frosthearth_Double_5:
+	goto BattleFrontier_BattleArenaLobby_EventScript_SaveBeforeChallenge
+	goto PWT_Frosthearth_Double_4
 
 
 PWT_Rental_Single::
@@ -377,6 +418,11 @@ PWT_Mix_Single::
 PWT_Mix_Double::
 	msgbox FeatureNotReady_Text, MSGBOX_NPC
 	end
+
+
+Pwt_Incomplete::
+	msgbox Pwt_Incomplete_Text, MSGBOX_NPC
+	return
 
 
 PokemonWorldTournament_LeftAttendant_Text_0:
@@ -411,6 +457,9 @@ PWT_Participate_Frosthearth_Text_0:
 
 PWT_Participate_Frosthearth_Text_1:
 	.string "Double Battle$"
+
+PWT_Frosthearth_Double_Text_0:
+	.string "four$"
 
 IllTakeYourBPNow::
 	.string "I'll be taking your BP now.$"
@@ -552,3 +601,22 @@ PWT_Participate_Text::
 WhichBattleFormat::
 	.string "Which battle format\n"
 	.string "will you choose?$"
+
+PWT_NotEnoughValidMons::
+	.string "My dear challenger!\p"
+	.string "You do not have the {STR_VAR_2} Pokémon\n"
+	.string "required for entry.\p"
+	.string "Please note that certain Legendary\n"
+	.string "Pokémon may be ineligible to enter.\p"
+	.string "Eggs{STR_VAR_1} ineligible.\p"
+	.string "When you have made your preparations,\n"
+	.string "please do return.$"
+
+Pwt_Incomplete_Text::
+	.string "Hello, and welcome to the\n"
+	.string "Pokémon World Tournament!\p"
+	.string "…Is what I would normally say.\p"
+	.string "The Pokémon World Tournament\n"
+	.string "is still under construction,\l"
+	.string "so we are currently hosting\l"
+	.string "Battle Factory here.$"

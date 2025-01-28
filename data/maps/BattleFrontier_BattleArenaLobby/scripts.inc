@@ -167,7 +167,7 @@ BattleFrontier_BattleArenaLobby_EventScript_EnterChallenge::
 	closemessage
 	frontier_get FRONTIER_DATA_LVL_MODE
 	call_if_eq VAR_RESULT, FRONTIER_LVL_50, BattleFrontier_BattleArenaLobby_EventScript_WalkToDoorLv50
-	call_if_eq VAR_RESULT, FRONTIER_LVL_OPEN, BattleFrontier_BattleArenaLobby_EventScript_WalkToDoorLvOpen
+	call_if_eq VAR_RESULT, FRONTIER_LVL_OPEN, BattleFrontier_BattleArenaLobby_EventScript_WalkToDoorLv50
 	warp MAP_BATTLE_FRONTIER_BATTLE_ARENA_CORRIDOR, 9, 13
 	setvar VAR_TEMP_CHALLENGE_STATUS, 0
 	waitstate
@@ -204,27 +204,19 @@ BattleFrontier_BattleArenaLobby_EventScript_EndCancelChallenge::
 	end
 
 BattleFrontier_BattleArenaLobby_EventScript_WalkToDoorLv50::
-	applymovement LOCALID_ATTENDANT, BattleFrontier_BattleArenaLobby_Movement_AttendantWalkToLeftDoor
+	applymovement 14, BattleFrontier_BattleArenaLobby_Movement_AttendantWalkToLeftDoor
 	applymovement OBJ_EVENT_ID_PLAYER, BattleFrontier_BattleArenaLobby_Movement_PlayerWalkToLeftDoor
 	waitmovement 0
-	opendoor 2, 2
-	waitdooranim
-	applymovement LOCALID_ATTENDANT, BattleFrontier_BattleArenaLobby_Movement_AttendantEnterDoor
-	applymovement OBJ_EVENT_ID_PLAYER, BattleFrontier_BattleArenaLobby_Movement_PlayerEnterDoor
-	waitmovement 0
-	closedoor 2, 2
-	waitdooranim
 	return
 
 BattleFrontier_BattleArenaLobby_Movement_AttendantWalkToLeftDoor:
 	walk_up
 	walk_up
+	walk_right
 	walk_up
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
+	walk_up
+	walk_up
+	walk_up
 	walk_up
 	step_end
 
@@ -237,13 +229,12 @@ BattleFrontier_BattleArenaLobby_Movement_PlayerWalkToLeftDoor:
 	walk_up
 	walk_up
 	walk_up
+	walk_right
 	walk_up
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_left
-	walk_in_place_faster_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
 	step_end
 
 BattleFrontier_BattleArenaLobby_Movement_PlayerEnterDoor:
@@ -391,8 +382,8 @@ BattleFrontier_BattleArenaLobby_Text_ExplainChallenge:
 	.string "we will present you with Battle Points.$"
 
 BattleFrontier_BattleArenaLobby_Text_OkayToSave:
-	.string "Before showing you to the BATTLE\n"
-	.string "ARENA, you must save. Is that okay?$"
+	.string "Before showing you to the arena,\n"
+	.string "you must save. Is that okay?$"
 
 BattleFrontier_BattleArenaLobby_Text_WhichLevelMode:
 	.string "The BATTLE ARENA offers two levels\n"
@@ -431,7 +422,7 @@ BattleFrontier_BattleArenaLobby_Text_NotEnoughValidMonsLv50:
 
 BattleFrontier_BattleArenaLobby_Text_GuideYouToArena:
 	.string "I shall now guide you to\n"
-	.string "the BATTLE ARENA.$"
+	.string "the tournament arena.$"
 
 BattleFrontier_BattleArenaLobby_Text_DidntSaveBeforeShuttingDown:
 	.string "My dear challenger!\p"

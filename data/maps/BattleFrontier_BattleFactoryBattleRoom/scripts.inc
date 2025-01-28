@@ -236,7 +236,7 @@ BattleFrontier_BattleFactoryBattleRoom_EventScript_WarpToLobby::
 	end
 
 BattleFrontier_BattleFactoryBattleRoom_EventScript_WarpToLobbyDoubles::
-	warp MAP_POKEMON_WORLD_TOURNAMENT, 3, 9 @ MAP_BATTLE_FRONTIER_BATTLE_FACTORY_LOBBY
+	warp MAP_POKEMON_WORLD_TOURNAMENT, 13, 9 @ MAP_BATTLE_FRONTIER_BATTLE_FACTORY_LOBBY
 	waitstate
 	end
 
