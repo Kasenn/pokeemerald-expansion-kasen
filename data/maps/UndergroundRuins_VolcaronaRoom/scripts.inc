@@ -6,7 +6,7 @@ VolcaronaBattle::
 	playmoncry SPECIES_VOLCARONA, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_VOLCARONA, 30, ITEM_SILVER_POWDER
+	createmon 1, 0, SPECIES_VOLCARONA, 30, ITEM_SILVER_POWDER, move1 = MOVE_FLAME_CHARGE, move2 = MOVE_GUST, move3 = MOVE_BUG_BITE, move4 = MOVE_QUIVER_DANCE
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
