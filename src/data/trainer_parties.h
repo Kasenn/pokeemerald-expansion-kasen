@@ -1500,7 +1500,7 @@ static const struct TrainerMon sParty_Mary[] = {
     {
     .lvl = 20,
     .species = SPECIES_STUNFISK,
-    .moves = {MOVE_MUD_SHOT, MOVE_CHARGE_BEAM, MOVE_WATER_GUN, MOVE_REVENGE}
+    .moves = {MOVE_MUD_SHOT, MOVE_CHARGE_BEAM, MOVE_WATER_GUN, MOVE_BIDE}
     },
     {
     .lvl = 22,
@@ -1540,7 +1540,7 @@ static const struct TrainerMon sParty_WpvTr3Battlegirl[] = {
     .iv = TRAINER_PARTY_IVS(5, 5, 5, 5, 5, 5),
     .lvl = 15,
     .species = SPECIES_ARCHEN,
-    .moves = {MOVE_BOUNCE, MOVE_PLUCK, MOVE_ANCIENT_POWER, MOVE_DRAGON_BREATH}
+    .moves = {MOVE_BOUNCE, MOVE_PLUCK, MOVE_ROCK_THROW, MOVE_QUICK_ATTACK}
     },
     {
     .iv = TRAINER_PARTY_IVS(5, 5, 5, 5, 5, 5),
@@ -5400,7 +5400,7 @@ static const struct TrainerMon sParty_DRISLEDGEGYM_TRAINER5[] = {
     .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
     .lvl = 39,
     .species = SPECIES_COFAGRIGUS,
-    .moves = {MOVE_SHADOW_CLAW, MOVE_CURSE, MOVE_MEAN_LOOK, MOVE_WILL_O_WISP}
+    .moves = {MOVE_HEX, MOVE_CURSE, MOVE_SCARY_FACE, MOVE_WILL_O_WISP}
     }
 };
 
@@ -5749,14 +5749,14 @@ static const struct TrainerMon sParty_TRAINER_R9_TR5_SWIMMER_F[] = {
     .lvl = 37,
     .species = SPECIES_TIRTOUGA,
     .ability = ABILITY_STURDY,
-    .moves = {MOVE_CRUNCH, MOVE_ROCK_SLIDE, MOVE_CURSE, MOVE_AQUA_TAIL},
+    .moves = {MOVE_CRUNCH, MOVE_SMACK_DOWN, MOVE_CURSE, MOVE_BRINE},
     },
     {
     .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
     .lvl = 40,
     .species = SPECIES_CARRACOSTA,
     .ability = ABILITY_STURDY,
-    .moves = {MOVE_CRUNCH, MOVE_ROCK_SLIDE, MOVE_CURSE, MOVE_AQUA_TAIL},
+    .moves = {MOVE_CRUNCH, MOVE_SMACK_DOWN, MOVE_CURSE, MOVE_BRINE},
     },
 };
 
@@ -5941,7 +5941,7 @@ static const struct TrainerMon sParty_TRAINER_R10_TR6_HIKER[] = {
     .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
     .lvl = 40,
     .species = SPECIES_CARRACOSTA,
-    .moves = {MOVE_CRUNCH, MOVE_ROCK_SLIDE, MOVE_CURSE, MOVE_AQUA_TAIL},
+    .moves = {MOVE_CRUNCH, MOVE_SMACK_DOWN, MOVE_CURSE, MOVE_BRINE},
     },
 };
 
@@ -6538,7 +6538,7 @@ static const struct TrainerMon sParty_TRAINER_R17_TR7_HIKER2[] = {
     .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
     .lvl = 44,
     .species = SPECIES_CRYOGONAL,
-    .moves = {MOVE_RECOVER, MOVE_FREEZE_DRY, MOVE_NIGHT_SLASH, MOVE_ANCIENT_POWER},
+    .moves = {MOVE_CONFUSE_RAY, MOVE_ICE_BEAM, MOVE_NIGHT_SLASH, MOVE_ANCIENT_POWER},
     },
 };
 
@@ -6752,6 +6752,7 @@ static const struct TrainerMon sParty_TRAINER_R18_TR1_HIKER1[] = {
     .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
     .lvl = 43,
     .species = SPECIES_CRYOGONAL,
+    .moves = {MOVE_CONFUSE_RAY, MOVE_ICE_BEAM, MOVE_NIGHT_SLASH, MOVE_ANCIENT_POWER},
     },
 };
 
@@ -6944,7 +6945,7 @@ static const struct TrainerMon sParty_TRAINER_FROSTGYM_TR2_KINDLER1[] = {
     .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
     .lvl = 45,
     .species = SPECIES_DARMANITAN,
-    .moves = {MOVE_FLARE_BLITZ, MOVE_BELLY_DRUM, MOVE_UPROAR, MOVE_HAMMER_ARM}
+    .moves = {MOVE_FLARE_BLITZ, MOVE_BELLY_DRUM, MOVE_THRASH, MOVE_HAMMER_ARM}
     },
 };
 
@@ -12909,7 +12910,7 @@ static const struct TrainerMon sParty_TRAINER_CASUAL_IRIS[] = {
     .species = SPECIES_ARCHEOPS,
     .gender = TRAINER_MON_MALE,
     .heldItem = ITEM_NONE,
-    .moves = {MOVE_DRAGON_CLAW, MOVE_THRASH, MOVE_ROCK_SLIDE, MOVE_PLUCK}
+    .moves = {MOVE_U_TURN, MOVE_CRUNCH, MOVE_ACROBATICS, MOVE_DOUBLE_TEAM}
     },
     {
     .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),

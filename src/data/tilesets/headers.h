@@ -1276,3 +1276,16 @@ const struct Tileset gTileset_Everfrost =
     .metatileAttributes = gMetatileAttributes_Everfrost,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Crowd =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_Crowd,
+    .palettes = gTilesetPalettes_Crowd,
+    .metatiles = gMetatiles_Crowd,
+    .metatileAttributes = gMetatileAttributes_Crowd,
+    .callback = InitTilesetAnim_Crowd,
+};
+
+// InitTilesetAnim_General

@@ -62,7 +62,7 @@ static const struct TrainerMon sParty_BrendanRowletPartner[] = {
         .species = SPECIES_CRUSTLE,
         .nature = NATURE_SASSY,
         .ability = ABILITY_STURDY,
-        .moves = {MOVE_FLAIL, MOVE_ROCK_SLIDE, MOVE_SLASH, MOVE_BUG_BITE},
+        .moves = {MOVE_FEINT_ATTACK, MOVE_ROCK_SLIDE, MOVE_SLASH, MOVE_BUG_BITE},
         .gender = TRAINER_MON_MALE,
     },
     {
@@ -113,7 +113,7 @@ static const struct TrainerMon sParty_BrendanTorchicPartner[] = {
         .species = SPECIES_CRUSTLE,
         .nature = NATURE_SASSY,
         .ability = ABILITY_STURDY,
-        .moves = {MOVE_FLAIL, MOVE_ROCK_SLIDE, MOVE_SLASH, MOVE_BUG_BITE},
+        .moves = {MOVE_FEINT_ATTACK, MOVE_ROCK_SLIDE, MOVE_SLASH, MOVE_BUG_BITE},
         .gender = TRAINER_MON_MALE,
     },
     {
@@ -164,7 +164,7 @@ static const struct TrainerMon sParty_BrendanPiplupPartner[] = {
         .species = SPECIES_CRUSTLE,
         .nature = NATURE_SASSY,
         .ability = ABILITY_STURDY,
-        .moves = {MOVE_FLAIL, MOVE_ROCK_SLIDE, MOVE_SLASH, MOVE_BUG_BITE},
+        .moves = {MOVE_FEINT_ATTACK, MOVE_ROCK_SLIDE, MOVE_SLASH, MOVE_BUG_BITE},
         .gender = TRAINER_MON_MALE,
     },
     {
@@ -215,7 +215,7 @@ static const struct TrainerMon sParty_MayRowletPartner[] = {
         .species = SPECIES_CRUSTLE,
         .nature = NATURE_SASSY,
         .ability = ABILITY_STURDY,
-        .moves = {MOVE_FLAIL, MOVE_ROCK_SLIDE, MOVE_SLASH, MOVE_BUG_BITE},
+        .moves = {MOVE_FEINT_ATTACK, MOVE_ROCK_SLIDE, MOVE_SLASH, MOVE_BUG_BITE},
         .gender = TRAINER_MON_FEMALE,
     },
     {
@@ -266,7 +266,7 @@ static const struct TrainerMon sParty_MayTorchicPartner[] = {
         .species = SPECIES_CRUSTLE,
         .nature = NATURE_SASSY,
         .ability = ABILITY_STURDY,
-        .moves = {MOVE_FLAIL, MOVE_ROCK_SLIDE, MOVE_SLASH, MOVE_BUG_BITE},
+        .moves = {MOVE_FEINT_ATTACK, MOVE_ROCK_SLIDE, MOVE_SLASH, MOVE_BUG_BITE},
         .gender = TRAINER_MON_FEMALE,
     },
     {
@@ -317,7 +317,7 @@ static const struct TrainerMon sParty_MayPiplupPartner[] = {
         .species = SPECIES_CRUSTLE,
         .nature = NATURE_SASSY,
         .ability = ABILITY_STURDY,
-        .moves = {MOVE_FLAIL, MOVE_ROCK_SLIDE, MOVE_SLASH, MOVE_BUG_BITE},
+        .moves = {MOVE_FEINT_ATTACK, MOVE_ROCK_SLIDE, MOVE_SLASH, MOVE_BUG_BITE},
         .gender = TRAINER_MON_FEMALE,
     },
     {

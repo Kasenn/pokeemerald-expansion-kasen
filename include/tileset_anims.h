@@ -37,5 +37,6 @@ void InitTilesetAnim_BattleDome(void);
 void InitTilesetAnim_BattlePyramid(void);
 void InitTilesetAnim_MirageTower(void);
 void InitTilesetAnim_Drisledge(void);
+void InitTilesetAnim_Crowd(void);
 
 #endif // GUARD_TILESET_ANIMS_H

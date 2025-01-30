@@ -1536,12 +1536,16 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     u32 defParam = GetBattlerHoldEffectParam(battlerDef);
     u32 atkAlly = BATTLE_PARTNER(battlerAtk);
     u32 atkAllyAbility = GetBattlerAbility(atkAlly);
+    s32 moveType = GetMoveType(move);
+
 
     gPotentialItemEffectBattler = battlerDef;
     accStage = gBattleMons[battlerAtk].statStages[STAT_ACC];
     evasionStage = gBattleMons[battlerDef].statStages[STAT_EVASION];
     if (atkAbility == ABILITY_UNAWARE || atkAbility == ABILITY_KEEN_EYE || atkAbility == ABILITY_MINDS_EYE
             || (B_ILLUMINATE_EFFECT >= GEN_9 && atkAbility == ABILITY_ILLUMINATE))
+        evasionStage = DEFAULT_STAT_STAGE;
+    if (atkAbility == ABILITY_DATA_BREACH && moveType == TYPE_NORMAL)
         evasionStage = DEFAULT_STAT_STAGE;
     if (gMovesInfo[move].ignoresTargetDefenseEvasionStages)
         evasionStage = DEFAULT_STAT_STAGE;

@@ -10554,7 +10554,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sRuffletLevelUpLearnset,
         .teachableLearnset = sRuffletTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_BRAVIARY},
-                                {EVO_NONE, 0, SPECIES_BRAVIARY_HISUIAN}),
+                                {EVO_ITEM, ITEM_ANCIENT_STONE, SPECIES_BRAVIARY_HISUIAN}),
     },
 
     [SPECIES_BRAVIARY_HISUIAN] =
@@ -10618,7 +10618,6 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sBraviaryLevelUpLearnset,
         .teachableLearnset = sBraviaryTeachableLearnset,
         .formSpeciesIdTable = sBraviaryFormSpeciesIdTable,
-        .evolutions = EVOLUTION({EVO_ITEM, ITEM_ANCIENT_STONE, SPECIES_BRAVIARY_HISUIAN}),
     },
 
 #if P_HISUIAN_FORMS

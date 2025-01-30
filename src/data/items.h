@@ -8798,6 +8798,7 @@ const struct Item gItemsInfo[] =
     [ITEM_METRONOME] =
     {
         .name = _("Metronome"),
+        .price = (I_PRICE >= GEN_9) ? 15000 : ((I_PRICE >= GEN_7) ? 4000 : 200),
         .bpCost = 48,
         .holdEffect = HOLD_EFFECT_METRONOME,
         .holdEffectParam = 20,
@@ -13987,6 +13988,7 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_HERBAL_MIX,
         .flingPower = 30,
+        .effect = gItemEffect_HerbalMix,
         .iconPic = gItemIcon_HerbalMix,
         .iconPalette = gItemIconPalette_HerbalMix,
     },

@@ -9964,6 +9964,14 @@ static inline u32 CalcAttackStat(struct DamageCalculationData *damageCalcData, u
                 RecordAbilityBattle(battlerDef, ABILITY_THICK_FAT);
         }
         break;
+    case ABILITY_HIVE_LEADER:
+        if (moveType == TYPE_FIRE)
+        {
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.5));
+            if (damageCalcData->updateFlags)
+                RecordAbilityBattle(battlerDef, ABILITY_HIVE_LEADER);
+        }
+        break;
     }
 
     // ally's abilities
@@ -10085,7 +10093,7 @@ static inline u32 CalcDefenseStat(struct DamageCalculationData *damageCalcData, 
     // pokemon with unaware ignore defense stat changes while dealing damage
     if (atkAbility == ABILITY_UNAWARE)
         defStage = DEFAULT_STAT_STAGE;
-    if (atkAbility == ABILITY_DATA_BREACH)
+    if (atkAbility == ABILITY_DATA_BREACH && moveType == TYPE_NORMAL)
         defStage = DEFAULT_STAT_STAGE;
     // certain moves also ignore stat changes
     if (gMovesInfo[move].ignoresTargetDefenseEvasionStages)
@@ -10174,6 +10182,7 @@ static inline u32 CalcDefenseStat(struct DamageCalculationData *damageCalcData, 
         || (gBattleMons[battlerDef].species != SPECIES_LILLIGANT)
         || (gBattleMons[battlerDef].species != SPECIES_ZOROARK)
         || (gBattleMons[battlerDef].species != SPECIES_BRAVIARY)
+        || (gBattleMons[battlerDef].species != SPECIES_BRAVIARY_HISUIAN)
         || (gBattleMons[battlerDef].species != SPECIES_GOODRA)
         || (gBattleMons[battlerDef].species != SPECIES_DECIDUEYE)
         || (gBattleMons[battlerDef].species != SPECIES_AVALUGG)))
@@ -10345,7 +10354,7 @@ static inline uq4_12_t GetScreensModifier(u32 move, u32 battlerAtk, u32 battlerD
     bool32 reflect = (sideStatus & SIDE_STATUS_REFLECT) && IS_MOVE_PHYSICAL(move);
     bool32 auroraVeil = sideStatus & SIDE_STATUS_AURORA_VEIL;
 
-    if (isCrit || abilityAtk == ABILITY_INFILTRATOR || gProtectStructs[battlerAtk].confusionSelfDmg)
+    if (isCrit || abilityAtk == ABILITY_INFILTRATOR || abilityAtk == ABILITY_DATA_BREACH || gProtectStructs[battlerAtk].confusionSelfDmg)
         return UQ_4_12(1.0);
     if (reflect || lightScreen || auroraVeil)
         return (IsDoubleBattle()) ? UQ_4_12(0.667) : UQ_4_12(0.5);

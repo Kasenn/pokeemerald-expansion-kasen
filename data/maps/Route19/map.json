@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_FROSTFIRE_CITY",
-      "offset": 26,
+      "offset": 0,
       "direction": "left"
     },
     {

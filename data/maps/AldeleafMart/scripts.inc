@@ -18,6 +18,9 @@ Aldeleaf_Mart_Text_SomeItemsOnlyAtMart::
 	.string "useful when you're in a hurry.$"
 
 Aldeleaf_Mart_Text_GreatBallIsBetter::
-	.string "I was hoping to find Great Balls here\n"
-	.string "but it seems this mart's selection\l"
-	.string "is a bit limited…$"
+	.string "Did you know that most marts\n"
+	.string "sell the same items?\p"
+	.string "It doesn't matter if you're\n"
+	.string "visiting Aldeleaf or Coralgrove,\l"
+	.string "you should be able to find\l"
+	.string "the same range of products.$"

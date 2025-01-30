@@ -14,7 +14,10 @@ text Aldeleaf_Mart_Text_SomeItemsOnlyAtMart{
 	"useful when you're in a hurry."
 }
 text Aldeleaf_Mart_Text_GreatBallIsBetter{
-	"I was hoping to find Great Balls here\n"
-	"but it seems this mart's selection\l"
-	"is a bit limited…"
+	"Did you know that most marts\n"
+	"sell the same items?\p"
+	"It doesn't matter if you're\n"
+	"visiting Aldeleaf or Coralgrove,\l"
+	"you should be able to find\l"
+	"the same range of products."
 }

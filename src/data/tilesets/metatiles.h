@@ -330,3 +330,6 @@ const u16 gMetatileAttributes_Crystalpine[] = INCBIN_U16("data/tilesets/secondar
 
 const u16 gMetatiles_Everfrost[] = INCBIN_U16("data/tilesets/secondary/everfrost/metatiles.bin");
 const u16 gMetatileAttributes_Everfrost[] = INCBIN_U16("data/tilesets/secondary/everfrost/metatile_attributes.bin");
+
+const u16 gMetatiles_Crowd[] = INCBIN_U16("data/tilesets/primary/crowd/metatiles.bin");
+const u16 gMetatileAttributes_Crowd[] = INCBIN_U16("data/tilesets/primary/crowd/metatile_attributes.bin");

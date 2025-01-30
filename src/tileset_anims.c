@@ -24,6 +24,7 @@ static void (*sSecondaryTilesetAnimCallback)(u16);
 static void _InitPrimaryTilesetAnimation(void);
 static void _InitSecondaryTilesetAnimation(void);
 static void TilesetAnim_General(u16);
+static void TilesetAnim_Crowd(u16);
 static void TilesetAnim_Building(u16);
 static void TilesetAnim_Rustboro(u16);
 static void TilesetAnim_Dewford(u16);
@@ -55,6 +56,11 @@ static void QueueAnimTiles_Amberock_Water(u16);
 static void QueueAnimTiles_General_SandWaterEdge(u16);
 static void QueueAnimTiles_General_Waterfall(u16);
 static void QueueAnimTiles_General_LandWaterEdge(u16);
+static void QueueAnimTiles_Crowd_Normal(u16);
+static void QueueAnimTiles_Crowd_Slow(u16);
+static void QueueAnimTiles_Crowd_Slower(u16);
+static void QueueAnimTiles_Crowd_Slowlier(u16);
+static void QueueAnimTiles_Crowd_Slowest(u16);
 static void QueueAnimTiles_Building_TVTurnedOn(u16);
 // static void QueueAnimTiles_Rustboro_WindyWater(u16, u8);
 static void QueueAnimTiles_Rustboro_Fountain(u16);
@@ -96,6 +102,37 @@ const u16 *const gTilesetAnims_General_Flower[] = {
     gTilesetAnims_General_Flower_Frame1,
     gTilesetAnims_General_Flower_Frame0,
     gTilesetAnims_General_Flower_Frame2
+};
+
+const u16 gTilesetAnims_Crowd1_Frame0[] = INCBIN_U16("data/tilesets/primary/crowd/anim/crowd1/1.4bpp");
+const u16 gTilesetAnims_Crowd1_Frame1[] = INCBIN_U16("data/tilesets/primary/crowd/anim/crowd1/0.4bpp");
+const u16 *const gTilesetAnims_Crowd1[] = {
+    gTilesetAnims_Crowd1_Frame0,
+    gTilesetAnims_Crowd1_Frame1
+};
+const u16 gTilesetAnims_Crowd2_Frame0[] = INCBIN_U16("data/tilesets/primary/crowd/anim/crowd2/1.4bpp");
+const u16 gTilesetAnims_Crowd2_Frame1[] = INCBIN_U16("data/tilesets/primary/crowd/anim/crowd2/0.4bpp");
+const u16 *const gTilesetAnims_Crowd2[] = {
+    gTilesetAnims_Crowd2_Frame0,
+    gTilesetAnims_Crowd2_Frame1
+};
+const u16 gTilesetAnims_Crowd3_Frame0[] = INCBIN_U16("data/tilesets/primary/crowd/anim/crowd3/1.4bpp");
+const u16 gTilesetAnims_Crowd3_Frame1[] = INCBIN_U16("data/tilesets/primary/crowd/anim/crowd3/0.4bpp");
+const u16 *const gTilesetAnims_Crowd3[] = {
+    gTilesetAnims_Crowd3_Frame0,
+    gTilesetAnims_Crowd3_Frame1
+};
+const u16 gTilesetAnims_Crowd4_Frame0[] = INCBIN_U16("data/tilesets/primary/crowd/anim/crowd4/1.4bpp");
+const u16 gTilesetAnims_Crowd4_Frame1[] = INCBIN_U16("data/tilesets/primary/crowd/anim/crowd4/0.4bpp");
+const u16 *const gTilesetAnims_Crowd4[] = {
+    gTilesetAnims_Crowd4_Frame0,
+    gTilesetAnims_Crowd4_Frame1
+};
+const u16 gTilesetAnims_Crowd5_Frame0[] = INCBIN_U16("data/tilesets/primary/crowd/anim/crowd5/1.4bpp");
+const u16 gTilesetAnims_Crowd5_Frame1[] = INCBIN_U16("data/tilesets/primary/crowd/anim/crowd5/0.4bpp");
+const u16 *const gTilesetAnims_Crowd5[] = {
+    gTilesetAnims_Crowd5_Frame0,
+    gTilesetAnims_Crowd5_Frame1
 };
 
 const u16 gTilesetAnims_General_Water_Frame0[] = INCBIN_U16("data/tilesets/primary/general/anim/water/0.4bpp");
@@ -775,6 +812,13 @@ void InitTilesetAnim_General(void)
     sPrimaryTilesetAnimCallback = TilesetAnim_General;
 }
 
+void InitTilesetAnim_Crowd(void)
+{
+    sPrimaryTilesetAnimCounter = 0;
+    sPrimaryTilesetAnimCounterMax = 256;
+    sPrimaryTilesetAnimCallback = TilesetAnim_Crowd;
+}
+
 void InitTilesetAnim_Building(void)
 {
     sPrimaryTilesetAnimCounter = 0;
@@ -794,6 +838,51 @@ static void TilesetAnim_General(u16 timer)
         QueueAnimTiles_General_Waterfall(timer / 16);
     if (timer % 16 == 4)
         QueueAnimTiles_General_LandWaterEdge(timer / 16);
+}
+
+static void TilesetAnim_Crowd(u16 timer)
+{
+    if (timer % 12 == 0)
+        QueueAnimTiles_Crowd_Normal(timer / 16);
+    if (timer % 13 == 1)
+        QueueAnimTiles_Crowd_Slow(timer / 16);
+    if (timer % 15 == 2)
+        QueueAnimTiles_Crowd_Slower(timer / 16);
+    if (timer % 13 == 3)
+        QueueAnimTiles_Crowd_Slowlier(timer / 16);
+    if (timer % 13 == 4)
+        QueueAnimTiles_Crowd_Slowest(timer / 16);
+}
+
+static void QueueAnimTiles_Crowd_Normal(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Crowd1);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Crowd1[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(16)), 18 * TILE_SIZE_4BPP);
+
+}
+static void QueueAnimTiles_Crowd_Slow(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Crowd2);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Crowd2[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(34)), 18 * TILE_SIZE_4BPP);
+
+}
+static void QueueAnimTiles_Crowd_Slower(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Crowd3);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Crowd3[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(52)), 18 * TILE_SIZE_4BPP);
+
+}
+static void QueueAnimTiles_Crowd_Slowlier(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Crowd4);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Crowd4[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(70)), 18 * TILE_SIZE_4BPP);
+
+}
+static void QueueAnimTiles_Crowd_Slowest(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_Crowd5);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Crowd5[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(88)), 6 * TILE_SIZE_4BPP);
+
 }
 
 static void TilesetAnim_Building(u16 timer)

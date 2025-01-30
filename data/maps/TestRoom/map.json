@@ -2,7 +2,7 @@
   "id": "MAP_TEST_ROOM",
   "name": "TestRoom",
   "layout": "LAYOUT_TEST_ROOM",
-  "music": "MUS_ROUTE119",
+  "music": "MUS_B_DOME",
   "region_map_section": "MAPSEC_ALDELEAF_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -84,8 +84,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PRYCE",
-      "x": 19,
-      "y": 10,
+      "x": 6,
+      "y": 34,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
       "movement_range_x": 4,
@@ -97,8 +97,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PRYCE",
-      "x": 15,
-      "y": 14,
+      "x": 2,
+      "y": 38,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_RIGHT_DOWN_LEFT",
       "movement_range_x": 3,
@@ -110,8 +110,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PRYCE",
-      "x": 14,
-      "y": 14,
+      "x": 1,
+      "y": 38,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_UP_AND_DOWN",
       "movement_range_x": 4,
@@ -123,8 +123,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PRYCE",
-      "x": 25,
-      "y": 12,
+      "x": 12,
+      "y": 36,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
       "movement_range_x": 0,
@@ -136,8 +136,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PRYCE",
-      "x": 24,
-      "y": 14,
+      "x": 11,
+      "y": 38,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE",
       "movement_range_x": 0,
@@ -149,8 +149,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PRYCE",
-      "x": 18,
-      "y": 11,
+      "x": 5,
+      "y": 35,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_LEFT_UP_RIGHT",
       "movement_range_x": 3,
@@ -162,8 +162,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PRYCE",
-      "x": 23,
-      "y": 10,
+      "x": 10,
+      "y": 34,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 2,
@@ -267,8 +267,8 @@
   ],
   "warp_events": [
     {
-      "x": 13,
-      "y": 50,
+      "x": 3,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_TEST_ROOM",
       "dest_warp_id": "0"

@@ -461,18 +461,109 @@ Debug_Script_1_12:
 
 
 Debug_Script_2::
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( CROBAT )
-	addobject 18
+	dynmultichoice 23, 0, TRUE, 6, 0, 0, Debug_Script_2_Text_0, Debug_Script_2_Text_1, Debug_Script_2_Text_2, Debug_Script_2_Text_3, Debug_Script_2_Text_4, Debug_Script_2_Text_5
+	switch VAR_RESULT
+	case 0, Debug_Script_2_3
+	case 1, Debug_Script_2_4
+	case 2, Debug_Script_2_5
+	case 3, Debug_Script_2_6
+	case 4, Debug_Script_2_7
+	case 5, Debug_Script_2_8
+Debug_Script_2_1:
 	release
-	delay 120
 	return
+
+Debug_Script_2_3:
+	givemon SPECIES_PORYGON_Z_MEGA, 50, move1 = MOVE_TACKLE, move2 = MOVE_SWIFT, move3 = MOVE_BRICK_BREAK, move4 = MOVE_GROWL
+	goto Debug_Script_2_1
+
+Debug_Script_2_4:
+	givemon SPECIES_PORYGON_Z_MEGA, 50, move1 = MOVE_YAWN, move2 = MOVE_HYPNOSIS, move3 = MOVE_LOVELY_KISS
+	goto Debug_Script_2_1
+
+Debug_Script_2_5:
+	givemon SPECIES_PORYGON_Z_MEGA, 50, move1 = MOVE_TOXIC_THREAD, move2 = MOVE_SECRET_POWER
+	goto Debug_Script_2_1
+
+Debug_Script_2_6:
+	givemon SPECIES_PORYGON_Z_MEGA, 50, move1 = MOVE_WILL_O_WISP, move2 = MOVE_TRI_ATTACK
+	goto Debug_Script_2_1
+
+Debug_Script_2_7:
+	givemon SPECIES_PORYGON_Z_MEGA, 50, move1 = MOVE_ICE_BEAM, move2 = MOVE_TRI_ATTACK
+	goto Debug_Script_2_1
+
+Debug_Script_2_8:
+	givemon SPECIES_PORYGON_Z_MEGA, 50, move1 = MOVE_THUNDER_WAVE, move2 = MOVE_GLARE
+	goto Debug_Script_2_1
 
 
 Debug_Script_3::
-	removeobject 18
-	release
-	delay 120
+	dynmultichoice 23, 0, TRUE, 6, 0, 0, Debug_Script_3_Text_0, Debug_Script_3_Text_1, Debug_Script_3_Text_2, Debug_Script_3_Text_3, Debug_Script_3_Text_4, Debug_Script_3_Text_5, Debug_Script_3_Text_6, Debug_Script_3_Text_7, Debug_Script_3_Text_8, Debug_Script_3_Text_9, Debug_Script_3_Text_10, Debug_Script_3_Text_11
+	switch VAR_RESULT
+	case 0, Debug_Script_3_3
+	case 1, Debug_Script_3_4
+	case 2, Debug_Script_3_5
+	case 3, Debug_Script_3_6
+	case 4, Debug_Script_3_7
+	case 5, Debug_Script_3_8
+	case 6, Debug_Script_3_9
+	case 7, Debug_Script_3_10
+	case 8, Debug_Script_3_11
+	case 9, Debug_Script_3_12
+	case 10, Debug_Script_3_13
+	case 11, Debug_Script_3_14
+Debug_Script_3_1:
+	dowildbattle
 	return
+
+Debug_Script_3_3:
+	createmon 1, 0, SPECIES_TREVENANT, 45, move1 = MOVE_REFLECT
+	goto Debug_Script_3_1
+
+Debug_Script_3_4:
+	createmon 1, 0, SPECIES_TREVENANT, 45, move1 = MOVE_LIGHT_SCREEN
+	goto Debug_Script_3_1
+
+Debug_Script_3_5:
+	createmon 1, 0, SPECIES_TREVENANT, 45, move1 = MOVE_SAFEGUARD
+	goto Debug_Script_3_1
+
+Debug_Script_3_6:
+	createmon 1, 0, SPECIES_TREVENANT, 45, move1 = MOVE_MIST
+	goto Debug_Script_3_1
+
+Debug_Script_3_7:
+	createmon 1, 0, SPECIES_TREVENANT, 45, move1 = MOVE_AURORA_VEIL
+	goto Debug_Script_3_1
+
+Debug_Script_3_8:
+	createmon 1, 0, SPECIES_TREVENANT, 45, move1 = MOVE_SUBSTITUTE
+	goto Debug_Script_3_1
+
+Debug_Script_3_9:
+	createmon 1, 0, SPECIES_TREVENANT, 45, move1 = MOVE_TACKLE
+	goto Debug_Script_3_1
+
+Debug_Script_3_10:
+	createmon 1, 0, SPECIES_BLAZIKEN, 100, move1 = MOVE_SPLASH
+	goto Debug_Script_3_1
+
+Debug_Script_3_11:
+	createmon 1, 0, SPECIES_GLALIE, 100, move1 = MOVE_SPLASH
+	goto Debug_Script_3_1
+
+Debug_Script_3_12:
+	createmon 1, 0, SPECIES_ELECTIVIRE, 100, move1 = MOVE_SPLASH
+	goto Debug_Script_3_1
+
+Debug_Script_3_13:
+	createmon 1, 0, SPECIES_ARBOK, 100, move1 = MOVE_SPLASH
+	goto Debug_Script_3_1
+
+Debug_Script_3_14:
+	createmon 1, 0, SPECIES_ARCANINE, 100, move1 = MOVE_SPLASH
+	goto Debug_Script_3_1
 
 
 Debug_Script_4::
@@ -627,6 +718,60 @@ Debug_Script_1_Text_15:
 
 Debug_Script_1_Text_16:
 	.string "Team set to level 45.$"
+
+Debug_Script_2_Text_0:
+	.string "Tkl,Swf,Brck,Grwl$"
+
+Debug_Script_2_Text_1:
+	.string "sleep$"
+
+Debug_Script_2_Text_2:
+	.string "poison$"
+
+Debug_Script_2_Text_3:
+	.string "burn$"
+
+Debug_Script_2_Text_4:
+	.string "freeze$"
+
+Debug_Script_2_Text_5:
+	.string "paralysis$"
+
+Debug_Script_3_Text_0:
+	.string "Reflect$"
+
+Debug_Script_3_Text_1:
+	.string "Light Screen$"
+
+Debug_Script_3_Text_2:
+	.string "Safeguard$"
+
+Debug_Script_3_Text_3:
+	.string "Mist$"
+
+Debug_Script_3_Text_4:
+	.string "Aurora Veil$"
+
+Debug_Script_3_Text_5:
+	.string "Substitute$"
+
+Debug_Script_3_Text_6:
+	.string "Tackle$"
+
+Debug_Script_3_Text_7:
+	.string "Burn$"
+
+Debug_Script_3_Text_8:
+	.string "Freeze$"
+
+Debug_Script_3_Text_9:
+	.string "Paralysis$"
+
+Debug_Script_3_Text_10:
+	.string "Poison$"
+
+Debug_Script_3_Text_11:
+	.string "arc$"
 
 FollowerSpottedAnItemNearby_Text::
 	.string "{STR_VAR_1} seems to have spotted\n"

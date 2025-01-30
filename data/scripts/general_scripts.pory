@@ -448,17 +448,52 @@ script Debug_Script_1{              // Set team level
     end
     }
 script Debug_Script_2{              // 
-    setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(CROBAT))
-    addobject(18)
+    dynmultichoice(23, 0, TRUE, 6, 0, 0, "Tkl,Swf,Brck,Grwl", "sleep", "poison", "burn", "freeze", "paralysis")
+    switch(var(VAR_RESULT)){
+        case 0:
+            givemon(SPECIES_PORYGON_Z_MEGA, 50, move1 = MOVE_TACKLE, move2 = MOVE_SWIFT, move3 = MOVE_BRICK_BREAK, move4 = MOVE_GROWL)
+        case 1:
+            givemon(SPECIES_PORYGON_Z_MEGA, 50, move1 = MOVE_YAWN, move2 = MOVE_HYPNOSIS, move3 = MOVE_LOVELY_KISS)
+        case 2:
+            givemon(SPECIES_PORYGON_Z_MEGA, 50, move1 = MOVE_TOXIC_THREAD, move2 = MOVE_SECRET_POWER)
+        case 3:
+            givemon(SPECIES_PORYGON_Z_MEGA, 50, move1 = MOVE_WILL_O_WISP, move2 = MOVE_TRI_ATTACK)
+        case 4:
+            givemon(SPECIES_PORYGON_Z_MEGA, 50, move1 = MOVE_ICE_BEAM, move2 = MOVE_TRI_ATTACK)
+        case 5:
+            givemon(SPECIES_PORYGON_Z_MEGA, 50, move1 = MOVE_THUNDER_WAVE, move2 = MOVE_GLARE)
+    }
     release
-    delay(120)
-    return
 }
 script Debug_Script_3{              // 
-    removeobject(18)
-    release
-    delay(120)
-    return
+    dynmultichoice(23, 0, TRUE, 6, 0, 0, "Reflect", "Light Screen", "Safeguard", "Mist", "Aurora Veil", "Substitute", "Tackle", "Burn", "Freeze", "Paralysis", "Poison", "arc")
+    switch(var(VAR_RESULT)){
+        case 0:
+            createmon(1, 0, SPECIES_TREVENANT, 45, move1 = MOVE_REFLECT)
+        case 1:
+            createmon(1, 0, SPECIES_TREVENANT, 45, move1 = MOVE_LIGHT_SCREEN)
+        case 2:
+            createmon(1, 0, SPECIES_TREVENANT, 45, move1 = MOVE_SAFEGUARD)
+        case 3:
+            createmon(1, 0, SPECIES_TREVENANT, 45, move1 = MOVE_MIST)
+        case 4:
+            createmon(1, 0, SPECIES_TREVENANT, 45, move1 = MOVE_AURORA_VEIL)
+        case 5:
+            createmon(1, 0, SPECIES_TREVENANT, 45, move1 = MOVE_SUBSTITUTE)
+        case 6:
+            createmon(1, 0, SPECIES_TREVENANT, 45, move1 = MOVE_TACKLE)
+        case 7:
+            createmon(1, 0, SPECIES_BLAZIKEN, 100, move1 = MOVE_SPLASH)
+        case 8:
+            createmon(1, 0, SPECIES_GLALIE, 100, move1 = MOVE_SPLASH)
+        case 9:
+            createmon(1, 0, SPECIES_ELECTIVIRE, 100, move1 = MOVE_SPLASH)
+        case 10:
+            createmon(1, 0, SPECIES_ARBOK, 100, move1 = MOVE_SPLASH)
+        case 11:
+            createmon(1, 0, SPECIES_ARCANINE, 100, move1 = MOVE_SPLASH)
+    }
+    dowildbattle
 }
 script Debug_Script_4{
     setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(PIKACHU))
