@@ -5650,7 +5650,7 @@ BattleScript_AmphyInterrupts::
 	hpthresholds BS_TARGET
 	trytoclearprimalweather
 	flushtextbox
-	switchinanim BS_TARGET, 0
+	switchinanim BS_TARGET, 0, FALSE
 	waitstate
 	setbyte sSHIFT_SWITCHED, 1
 	printstring STRINGID_JASMINE_AMPHY

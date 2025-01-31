@@ -1,17 +1,3 @@
-	.ifndef SCRIPT_CMD_TABLE_ENTRY_MACRO
-	.set SCRIPT_CMD_TABLE_ENTRY_MACRO, 1
-	.macro script_cmd_table_entry constant:req value:req
-	.if ALLOCATE_SCRIPT_CMD_TABLE
-	.4byte \value
-	.else
-	enum \constant
-	.endif
-	.endm
-	.endif
-
-
-	enum_start
-	.if ALLOCATE_SCRIPT_CMD_TABLE
 	.align 2
 gScriptCmdTable::
 	.4byte ScrCmd_nop      	                        @ 0x00
@@ -259,7 +245,5 @@ gScriptCmdTable::
 	.4byte ScrCmd_howmanybox						@ 0xf2
 	.4byte ScrCmd_getobjectxy						@ 0xf3
 
-	.if ALLOCATE_SCRIPT_CMD_TABLE
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop
-	.endif

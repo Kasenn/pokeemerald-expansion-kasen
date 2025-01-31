@@ -10967,7 +10967,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .makesContact = TRUE,
         .additionalEffects = ADDITIONAL_EFFECTS(
         {
-            .moveEffect = MOVE_EFFECT_RAPID_SPIN,
+            .moveEffect = EFFECT_RAPID_SPIN,
             .self = TRUE,
         },
         {
