@@ -1508,7 +1508,12 @@ static void Task_BuyHowManyDialogueInit(u8 taskId)
     if (MARTBP)
         maxQuantity = gSaveBlock2Ptr->frontier.battlePoints / sShopData->totalCost;
     else
-        maxQuantity = GetMoney(&gSaveBlock1Ptr->money) / sShopData->totalCost;
+    {
+        if (sShopData->totalCost == 0)
+            maxQuantity = MAX_BAG_ITEM_CAPACITY;
+        else
+            maxQuantity = GetMoney(&gSaveBlock1Ptr->money) / sShopData->totalCost;
+    }
 
     if (maxQuantity > MAX_BAG_ITEM_CAPACITY)
         sShopData->maxQuantity = MAX_BAG_ITEM_CAPACITY;
