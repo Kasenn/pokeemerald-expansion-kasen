@@ -1787,95 +1787,95 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
     [FRONTIER_TRAINER_BRYON] = {
         .facilityClass = FACILITY_CLASS_COOLTRAINER_M,
         .trainerName = _("Bryon"),
-        .speechBefore = COMPOUND_STRING("My EC_WORD_BARRAGE, will EC_WORD_SLAM, you!"),
-        .speechWin    = COMPOUND_STRING("You didn't EC_WORD_COUNT_ON, any EC_WORD_LESS,?"),
-        .speechLose   = COMPOUND_STRING("I just don't get EC_WORD_IT…"),
+        .speechBefore = COMPOUND_STRING("My barrage will slam you!"),
+        .speechWin    = COMPOUND_STRING("You didn't count_on any less?"),
+        .speechLose   = COMPOUND_STRING("I just don't get it…"),
         .monSet = gBattleFrontierTrainerMons_Bryon
     },
     [FRONTIER_TRAINER_AVA] = {
         .facilityClass = FACILITY_CLASS_COOLTRAINER_F,
         .trainerName = _("Ava"),
-        .speechBefore = COMPOUND_STRING("I am a treasure of this EC_WORD_WORLD"),
-        .speechWin    = COMPOUND_STRING("My EC_WORD_WORLD, is EC_WORD_FULL, of EC_WORD_WONDER"),
+        .speechBefore = COMPOUND_STRING("I am a treasure of this world."),
+        .speechWin    = COMPOUND_STRING("My world is full of wonder."),
         .speechLose   = COMPOUND_STRING("Why are you so terrible?"),
         .monSet = gBattleFrontierTrainerMons_Ava
     },
     [FRONTIER_TRAINER_MIRIAM] = {
         .facilityClass = FACILITY_CLASS_COOLTRAINER_F,
         .trainerName = _("Miriam"),
-        .speechBefore = COMPOUND_STRING("Oh a trainer with a EC_WORD_SCARY_FACE"),
-        .speechWin    = COMPOUND_STRING("Ahaha you only look EC_WORD_SCARY!"),
-        .speechLose   = COMPOUND_STRING("Aiyeeh! you really are scary."),
+        .speechBefore = COMPOUND_STRING("Oh, a trainer with a scary face."),
+        .speechWin    = COMPOUND_STRING("Ahaha you only look scary!"),
+        .speechLose   = COMPOUND_STRING("Aiyeeh! You really are scary."),
         .monSet = gBattleFrontierTrainerMons_Miriam
     },
     [FRONTIER_TRAINER_CARRIE] = {
         .facilityClass = FACILITY_CLASS_COOLTRAINER_F,
         .trainerName = _("Carrie"),
-        .speechBefore = COMPOUND_STRING("I will show you EC_WORD_GUTSY!"),
+        .speechBefore = COMPOUND_STRING("I will show you gutsy!"),
         .speechWin    = COMPOUND_STRING("It's all about guts!"),
-        .speechLose   = COMPOUND_STRING("Oh EC_WORD_NO… EC_WORD_SELF_DESTRUCT, EC_WORD_MODE!"),
+        .speechLose   = COMPOUND_STRING("Oh no… Self-Destruct mode!"),
         .monSet = gBattleFrontierTrainerMons_Carrie
     },
     [FRONTIER_TRAINER_GILLIAN2] = {
         .facilityClass = FACILITY_CLASS_COOLTRAINER_F,
         .trainerName = _("Gillian"),
-        .speechBefore = COMPOUND_STRING("I EC_WORD_SEEK, a EC_WORD_TRULY, great battle."),
-        .speechWin    = COMPOUND_STRING("I need EC_WORD_A_LOT, better EC_WORD_BATTLE…"),
-        .speechLose   = COMPOUND_STRING("That was a little too much to EC_WORD_TAKE"),
+        .speechBefore = COMPOUND_STRING("I seek a truly great battle."),
+        .speechWin    = COMPOUND_STRING("I need a_lot better battle…"),
+        .speechLose   = COMPOUND_STRING("That was a little too much\nto take."),
         .monSet = gBattleFrontierTrainerMons_Gillian2
     },
     [FRONTIER_TRAINER_TYLER] = {
         .facilityClass = FACILITY_CLASS_PKMN_RANGER_M,
         .trainerName = _("Tyler"),
-        .speechBefore = COMPOUND_STRING("Yo! let's EC_WORD_GO!!"),
-        .speechWin    = COMPOUND_STRING("Yo! I won EC_WORD_YO"),
-        .speechLose   = COMPOUND_STRING("Yo! I lost EC_WORD_YO"),
+        .speechBefore = COMPOUND_STRING("Yo! Let's go!!"),
+        .speechWin    = COMPOUND_STRING("Yo! I won yo!"),
+        .speechLose   = COMPOUND_STRING("Yo! I lost yo."),
         .monSet = gBattleFrontierTrainerMons_Tyler
     },
     [FRONTIER_TRAINER_CHAZ] = {
         .facilityClass = FACILITY_CLASS_PKMN_RANGER_M,
         .trainerName = _("Chaz"),
         .speechBefore = COMPOUND_STRING("My Pokémon have too much power."),
-        .speechWin    = COMPOUND_STRING("They have more power EC_WORD_NOW!"),
-        .speechLose   = COMPOUND_STRING("Yeah take down their power a tiny bit please."),
+        .speechWin    = COMPOUND_STRING("They have more power now!"),
+        .speechLose   = COMPOUND_STRING("Yeah take down their\npower a tiny bit please."),
         .monSet = gBattleFrontierTrainerMons_Chaz
     },
     [FRONTIER_TRAINER_NELSON] = {
         .facilityClass = FACILITY_CLASS_PKMN_RANGER_M,
         .trainerName = _("Nelson"),
-        .speechBefore = COMPOUND_STRING("Well then, will this Pokémon work?"),
-        .speechWin    = COMPOUND_STRING("I see that it was EC_WORD_TOO_STRONG"),
-        .speechLose   = COMPOUND_STRING("It didn't EC_WORD_MATCH_UP, well I EC_WORD_THINK"),
+        .speechBefore = COMPOUND_STRING("Well then, will this\nPokémon work?"),
+        .speechWin    = COMPOUND_STRING("I see that it was too strong."),
+        .speechLose   = COMPOUND_STRING("It didn't match up well, I think."),
         .monSet = gBattleFrontierTrainerMons_Nelson
     },
     [FRONTIER_TRAINER_SHANIA] = {
         .facilityClass = FACILITY_CLASS_PKMN_RANGER_F,
         .trainerName = _("Shania"),
-        .speechBefore = COMPOUND_STRING("All my Pokémon absolutely adore me."),
-        .speechWin    = COMPOUND_STRING("Happiness is a Pokémon with EC_WORD_CUTE_CHARM"),
-        .speechLose   = COMPOUND_STRING("You're so mean to cute Pokémon."),
+        .speechBefore = COMPOUND_STRING("All my Pokémon\nabsolutely adore me."),
+        .speechWin    = COMPOUND_STRING("Happiness is a Pokémon\nwith cute charm."),
+        .speechLose   = COMPOUND_STRING("You're so mean\nto cute Pokémon."),
         .monSet = gBattleFrontierTrainerMons_Shania
     },
     [FRONTIER_TRAINER_STELLA] = {
         .facilityClass = FACILITY_CLASS_PKMN_RANGER_F,
         .trainerName = _("Stella"),
         .speechBefore = COMPOUND_STRING("I want to see your Pokémon."),
-        .speechWin    = COMPOUND_STRING("Well aren't they EC_WORD_BORING,? EC_WORD_AHAHA"),
-        .speechLose   = COMPOUND_STRING("Your Pokémon are EC_WORD_SOMETHING, EC_WORD_ELSE, EC_WORD_ALL_RIGHT"),
+        .speechWin    = COMPOUND_STRING("Well, aren't they boring?\nAhaha."),
+        .speechLose   = COMPOUND_STRING("Your Pokémon are something else\nall right."),
         .monSet = gBattleFrontierTrainerMons_Stella
     },
     [FRONTIER_TRAINER_DORINE] = {
         .facilityClass = FACILITY_CLASS_PKMN_RANGER_F,
         .trainerName = _("Dorine"),
         .speechBefore = COMPOUND_STRING("I am young and strong!"),
-        .speechWin    = COMPOUND_STRING("See? aren't I good?"),
-        .speechLose   = COMPOUND_STRING("This isn't working out at EC_WORD_ALL"),
+        .speechWin    = COMPOUND_STRING("See? Aren't I good?"),
+        .speechLose   = COMPOUND_STRING("This isn't working out at all."),
         .monSet = gBattleFrontierTrainerMons_Dorine
     },
     [FRONTIER_TRAINER_MADDOX] = {
         .facilityClass = FACILITY_CLASS_DRAGON_TAMER,
         .trainerName = _("Maddox"),
-        .speechBefore = COMPOUND_STRING("Dragon Pokémon are my no. 1 EC_WORD_CHOICE"),
+        .speechBefore = COMPOUND_STRING("Dragon Pokémon are my\nno. 1 choice."),
         .speechWin    = COMPOUND_STRING("It's no secret Dragon Pokémon win."),
         .speechLose   = COMPOUND_STRING("Dragon Pokémon should not lose!"),
         .monSet = gBattleFrontierTrainerMons_Maddox
@@ -1891,32 +1891,32 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
     [FRONTIER_TRAINER_TREVON] = {
         .facilityClass = FACILITY_CLASS_DRAGON_TAMER,
         .trainerName = _("Trevon"),
-        .speechBefore = COMPOUND_STRING("I am living only with Dragon Pokémon."),
+        .speechBefore = COMPOUND_STRING("I am living only with\nDragon Pokémon."),
         .speechWin    = COMPOUND_STRING("The way I am living is perfect."),
-        .speechLose   = COMPOUND_STRING("You've destroyed the way I am EC_WORD_LIVING"),
+        .speechLose   = COMPOUND_STRING("You've destroyed the way\nI am living."),
         .monSet = gBattleFrontierTrainerMons_Trevon
     },
     [FRONTIER_TRAINER_MATEO] = {
         .facilityClass = FACILITY_CLASS_BLACK_BELT,
         .trainerName = _("Mateo"),
-        .speechBefore = COMPOUND_STRING("This should be over soon EC_WORD_ENOUGH"),
+        .speechBefore = COMPOUND_STRING("This should be over soon enough."),
         .speechWin    = COMPOUND_STRING("Well that didn't take very much."),
-        .speechLose   = COMPOUND_STRING("I can't lose so EC_WORD_SOON!"),
+        .speechLose   = COMPOUND_STRING("I can't lose so soon!"),
         .monSet = gBattleFrontierTrainerMons_Mateo
     },
     [FRONTIER_TRAINER_BRET] = {
         .facilityClass = FACILITY_CLASS_BLACK_BELT,
         .trainerName = _("Bret"),
-        .speechBefore = COMPOUND_STRING("I like EC_WORD_ROCK_SOLID, Pokémon the best."),
-        .speechWin    = COMPOUND_STRING("Toughness is the way to EC_WORD_GO"),
-        .speechLose   = COMPOUND_STRING("I also have a EC_WORD_PLUSH_DOLL, EC_WORD_COLLECTION"),
+        .speechBefore = COMPOUND_STRING("I like rock solid\nPokémon the best."),
+        .speechWin    = COMPOUND_STRING("Toughness is the way to go."),
+        .speechLose   = COMPOUND_STRING("I also have a\nplush doll collection."),
         .monSet = gBattleFrontierTrainerMons_Bret
     },
     [FRONTIER_TRAINER_RAUL] = {
         .facilityClass = FACILITY_CLASS_BLACK_BELT,
         .trainerName = _("Raul"),
-        .speechBefore = COMPOUND_STRING("I EC_WORD_REJECT, every weak trainer."),
-        .speechWin    = COMPOUND_STRING("Humph! another weak EC_WORD_TRAINER…"),
+        .speechBefore = COMPOUND_STRING("I reject every weak trainer."),
+        .speechWin    = COMPOUND_STRING("Humph! Another weak trainer…"),
         .speechLose   = COMPOUND_STRING("There is nothing weak about you."),
         .monSet = gBattleFrontierTrainerMons_Raul
     },
@@ -1924,14 +1924,14 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
         .facilityClass = FACILITY_CLASS_BATTLE_GIRL,
         .trainerName = _("Kay"),
         .speechBefore = COMPOUND_STRING("And yet another battle?"),
-        .speechWin    = COMPOUND_STRING("I won but I am EC_WORD_TIRED…"),
-        .speechLose   = COMPOUND_STRING("Good it's over at EC_WORD_LAST…"),
+        .speechWin    = COMPOUND_STRING("I won but I am tired…"),
+        .speechLose   = COMPOUND_STRING("Good it's over at last…"),
         .monSet = gBattleFrontierTrainerMons_Kay
     },
     [FRONTIER_TRAINER_ELENA] = {
         .facilityClass = FACILITY_CLASS_BATTLE_GIRL,
         .trainerName = _("Elena"),
-        .speechBefore = COMPOUND_STRING("A battle girl that's me!"),
+        .speechBefore = COMPOUND_STRING("A battle girl, that's me!"),
         .speechWin    = COMPOUND_STRING("Isn't a battle girl awesome?"),
         .speechLose   = COMPOUND_STRING("You dislike a battle girl?"),
         .monSet = gBattleFrontierTrainerMons_Elena
@@ -1939,33 +1939,33 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
     [FRONTIER_TRAINER_ALANA] = {
         .facilityClass = FACILITY_CLASS_BATTLE_GIRL,
         .trainerName = _("Alana"),
-        .speechBefore = COMPOUND_STRING("Eat my invincible EC_WORD_ATTACK, you!"),
-        .speechWin    = COMPOUND_STRING("You have much to EC_WORD_LEARN"),
-        .speechLose   = COMPOUND_STRING("So much for my invincible EC_WORD_ATTACK"),
+        .speechBefore = COMPOUND_STRING("Eat my invincible attack, you!"),
+        .speechWin    = COMPOUND_STRING("You have much to learn."),
+        .speechLose   = COMPOUND_STRING("So much for my invincible attack."),
         .monSet = gBattleFrontierTrainerMons_Alana
     },
     [FRONTIER_TRAINER_ALEXAS] = {
         .facilityClass = FACILITY_CLASS_EXPERT_M,
         .trainerName = _("Alexas"),
-        .speechBefore = COMPOUND_STRING("Good to EC_WORD_MEET_YOU, young trainer!"),
-        .speechWin    = COMPOUND_STRING("Wahahaha! EC_WORD_GIVE, it up"),
-        .speechLose   = COMPOUND_STRING("You are a strong trainer EC_WORD_KID"),
+        .speechBefore = COMPOUND_STRING("Good to meet you, young trainer!"),
+        .speechWin    = COMPOUND_STRING("Wahahaha! Give it up."),
+        .speechLose   = COMPOUND_STRING("You are a strong trainer kid."),
         .monSet = gBattleFrontierTrainerMons_Alexas
     },
     [FRONTIER_TRAINER_WESTON] = {
         .facilityClass = FACILITY_CLASS_EXPERT_M,
         .trainerName = _("Weston"),
         .speechBefore = COMPOUND_STRING("I don't play down all right?"),
-        .speechWin    = COMPOUND_STRING("You're far too easy to EC_WORD_ATTACK"),
-        .speechLose   = COMPOUND_STRING("Well EC_WORD_WELL… I EC_WORD_SURRENDER…"),
+        .speechWin    = COMPOUND_STRING("You're far too easy to attack."),
+        .speechLose   = COMPOUND_STRING("Well well… I surrender…"),
         .monSet = gBattleFrontierTrainerMons_Weston
     },
     [FRONTIER_TRAINER_JASPER] = {
         .facilityClass = FACILITY_CLASS_EXPERT_M,
         .trainerName = _("Jasper"),
-        .speechBefore = COMPOUND_STRING("I am not old I am EC_WORD_SKILLED!"),
+        .speechBefore = COMPOUND_STRING("I am not old I am skilled!"),
         .speechWin    = COMPOUND_STRING("Skilled, that's what I am!"),
-        .speechLose   = COMPOUND_STRING("I am EC_WORD_SHOCKED,! down I EC_WORD_GO"),
+        .speechLose   = COMPOUND_STRING("I am shocked! Down I go."),
         .monSet = gBattleFrontierTrainerMons_Jasper
     },
     [FRONTIER_TRAINER_NADIA] = {
@@ -1973,29 +1973,29 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
         .trainerName = _("Nadia"),
         .speechBefore = COMPOUND_STRING("You can't beat me down!"),
         .speechWin    = COMPOUND_STRING("Hah! I beat you."),
-        .speechLose   = COMPOUND_STRING("I am beat up and EC_WORD_DOWNCAST…"),
+        .speechLose   = COMPOUND_STRING("I am beat up and downcast…"),
         .monSet = gBattleFrontierTrainerMons_Nadia
     },
     [FRONTIER_TRAINER_MIRANDA] = {
         .facilityClass = FACILITY_CLASS_EXPERT_F,
         .trainerName = _("Miranda"),
-        .speechBefore = COMPOUND_STRING("Well well, let's EC_WORD_START"),
+        .speechBefore = COMPOUND_STRING("Well well, let's start."),
         .speechWin    = COMPOUND_STRING("What? done so soon?"),
-        .speechLose   = COMPOUND_STRING("Well I see that I am too weak"),
+        .speechLose   = COMPOUND_STRING("Well, I see that I am too weak."),
         .monSet = gBattleFrontierTrainerMons_Miranda
     },
     [FRONTIER_TRAINER_EMMA] = {
         .facilityClass = FACILITY_CLASS_EXPERT_F,
         .trainerName = _("Emma"),
-        .speechBefore = COMPOUND_STRING("I've been EC_WORD_HEARING, about you."),
-        .speechWin    = COMPOUND_STRING("I think I've EC_WORD_MISHEARD, things."),
-        .speechLose   = COMPOUND_STRING("What I've been EC_WORD_HEARING, is EC_WORD_RIGHT"),
+        .speechBefore = COMPOUND_STRING("I've been hearing about you."),
+        .speechWin    = COMPOUND_STRING("I think I've misheard things."),
+        .speechLose   = COMPOUND_STRING("What I've been hearing is right."),
         .monSet = gBattleFrontierTrainerMons_Emma
     },
     [FRONTIER_TRAINER_DESERT_TR5_HIKERO] = {
         .facilityClass = FACILITY_CLASS_PSYCHIC_M,
         .trainerName = _("Rolando"),
-        .speechBefore = COMPOUND_STRING("I am a EC_WORD_SUPER, Pokémon hero!"),
+        .speechBefore = COMPOUND_STRING("I am a super Pokémon hero!"),
         .speechWin    = COMPOUND_STRING("Was that enough for you?"),
         .speechLose   = COMPOUND_STRING("You should not beat a hero."),
         .monSet = gBattleFrontierTrainerMons_Rolando
@@ -2003,7 +2003,7 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
     [FRONTIER_TRAINER_DESERT_TR7_PICNICKER3LY] = {
         .facilityClass = FACILITY_CLASS_PSYCHIC_M,
         .trainerName = _("Stanly"),
-        .speechBefore = COMPOUND_STRING("This should be an easy EC_WORD_MATCH"),
+        .speechBefore = COMPOUND_STRING("This should be an easy match."),
         .speechWin    = COMPOUND_STRING("It really was easy."),
         .speechLose   = COMPOUND_STRING("Are you happy now?"),
         .monSet = gBattleFrontierTrainerMons_Stanly
@@ -2013,22 +2013,22 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
         .trainerName = _("Dario"),
         .speechBefore = COMPOUND_STRING("My foresight says I will win."),
         .speechWin    = COMPOUND_STRING("My foresight has been perfect."),
-        .speechLose   = COMPOUND_STRING("I didn't see this EC_WORD_REVERSAL)…"),
+        .speechLose   = COMPOUND_STRING("I didn't see this reversal…"),
         .monSet = gBattleFrontierTrainerMons_Dario
     },
     [FRONTIER_TRAINER_KARLEE] = {
         .facilityClass = FACILITY_CLASS_PSYCHIC_F,
         .trainerName = _("Karlee"),
-        .speechBefore = COMPOUND_STRING("Something good will come of EC_WORD_THIS"),
-        .speechWin    = COMPOUND_STRING("You see? EC_WORD_FANTASTIC,!"),
-        .speechLose   = COMPOUND_STRING("That EC_WORD_SOMETHING, good went to you."),
+        .speechBefore = COMPOUND_STRING("Something good will come of this."),
+        .speechWin    = COMPOUND_STRING("You see? Fantastic!"),
+        .speechLose   = COMPOUND_STRING("That something good went to you."),
         .monSet = gBattleFrontierTrainerMons_Karlee
     },
     [FRONTIER_TRAINER_JAYLIN] = {
         .facilityClass = FACILITY_CLASS_PSYCHIC_F,
         .trainerName = _("Jaylin"),
         .speechBefore = COMPOUND_STRING("Every trainer has been too weak…"),
-        .speechWin    = COMPOUND_STRING("It's making me EC_WORD_YAWN, that battle."),
+        .speechWin    = COMPOUND_STRING("It's making me yawn that battle."),
         .speechLose   = COMPOUND_STRING("I slept and so I lost."),
         .monSet = gBattleFrontierTrainerMons_Jaylin
     },
@@ -2037,7 +2037,7 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
         .trainerName = _("Ingrid"),
         .speechBefore = COMPOUND_STRING("I am not a very mean trainer."),
         .speechWin    = COMPOUND_STRING("Wasn't that a good match?"),
-        .speechLose   = COMPOUND_STRING("I lost cause you're EC_WORD_MEAN…"),
+        .speechLose   = COMPOUND_STRING("I lost cause you're mean…"),
         .monSet = gBattleFrontierTrainerMons_Ingrid
     },
     [FRONTIER_TRAINER_DELILAH] = {
@@ -2051,8 +2051,8 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
     [FRONTIER_TRAINER_CARLY] = {
         .facilityClass = FACILITY_CLASS_HEX_MANIAC,
         .trainerName = _("Carly"),
-        .speechBefore = COMPOUND_STRING("I will EC_WORD_SCATTER, some EC_WORD_POISON_POWDER, EC_WORD_ABOUT"),
-        .speechWin    = COMPOUND_STRING("It's scary how my strategy EC_WORD_WORKS"),
+        .speechBefore = COMPOUND_STRING("I will scatter some\npoison powder about."),
+        .speechWin    = COMPOUND_STRING("It's scary how my strategy works."),
         .speechLose   = COMPOUND_STRING("I dislike you and your Pokémon."),
         .monSet = gBattleFrontierTrainerMons_Carly
     },
@@ -2060,7 +2060,7 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
         .facilityClass = FACILITY_CLASS_HEX_MANIAC,
         .trainerName = _("Lexie"),
         .speechBefore = COMPOUND_STRING("Want to see scary Pokémon?"),
-        .speechWin    = COMPOUND_STRING("Wasn't that scary EC_WORD_EH_QUES"),
+        .speechWin    = COMPOUND_STRING("Wasn't that scary, eh?"),
         .speechLose   = COMPOUND_STRING("You're more scary than my Pokémon."),
         .monSet = gBattleFrontierTrainerMons_Lexie
     },
@@ -2069,31 +2069,31 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
         .trainerName = _("Miller"),
         .speechBefore = COMPOUND_STRING("Hello? Hello?!"),
         .speechWin    = COMPOUND_STRING("Hello mother! I won!"),
-        .speechLose   = COMPOUND_STRING("My EC_WORD_PHONE, isn't EC_WORD_WORKING…"),
+        .speechLose   = COMPOUND_STRING("My phone isn't working…"),
         .monSet = gBattleFrontierTrainerMons_Miller
     },
     [FRONTIER_TRAINER_MARV] = {
         .facilityClass = FACILITY_CLASS_POKEMANIAC,
         .trainerName = _("Marv"),
         .speechBefore = COMPOUND_STRING("You can lose your swagger now."),
-        .speechWin    = COMPOUND_STRING("There is no swagger left EC_WORD_EH_QUES"),
-        .speechLose   = COMPOUND_STRING("Go on swagger all you EC_WORD_WANT"),
+        .speechWin    = COMPOUND_STRING("There is no swagger left, eh?"),
+        .speechLose   = COMPOUND_STRING("Go on, swagger all you want."),
         .monSet = gBattleFrontierTrainerMons_Marv
     },
     [FRONTIER_TRAINER_LAYTON] = {
         .facilityClass = FACILITY_CLASS_POKEMANIAC,
         .trainerName = _("Layton"),
-        .speechBefore = COMPOUND_STRING("I know I am totally EC_WORD_COOL!"),
+        .speechBefore = COMPOUND_STRING("I know I am totally cool!"),
         .speechWin    = COMPOUND_STRING("You can look up to me."),
-        .speechLose   = COMPOUND_STRING("You're cool! no EC_WORD_REALLY!"),
+        .speechLose   = COMPOUND_STRING("You're cool! No, really!"),
         .monSet = gBattleFrontierTrainerMons_Layton
     },
     [FRONTIER_TRAINER_BROOKS] = {
         .facilityClass = FACILITY_CLASS_GENTLEMAN,
         .trainerName = _("Brooks"),
-        .speechBefore = COMPOUND_STRING("This is a high EC_WORD_LEVEL, battle."),
-        .speechWin    = COMPOUND_STRING("That was high EC_WORD_LEVEL, and exciting EC_WORD_TOO"),
-        .speechLose   = COMPOUND_STRING("You're too high in EC_WORD_LEVEL…"),
+        .speechBefore = COMPOUND_STRING("This is a high level battle."),
+        .speechWin    = COMPOUND_STRING("That was high level\nand exciting too."),
+        .speechLose   = COMPOUND_STRING("You're too high in level…"),
         .monSet = gBattleFrontierTrainerMons_Brooks
     },
     [FRONTIER_TRAINER_GREGORY] = {
@@ -2101,15 +2101,15 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
         .trainerName = _("Gregory"),
         .speechBefore = COMPOUND_STRING("I am not that old yet."),
         .speechWin    = COMPOUND_STRING("Who says I am too old?"),
-        .speechLose   = COMPOUND_STRING("Please I am really not that EC_WORD_OLD"),
+        .speechLose   = COMPOUND_STRING("Please, I am really not\nthat old."),
         .monSet = gBattleFrontierTrainerMons_Gregory
     },
     [FRONTIER_TRAINER_REESE] = {
         .facilityClass = FACILITY_CLASS_GENTLEMAN,
         .trainerName = _("Reese"),
-        .speechBefore = COMPOUND_STRING("I've a EC_WORD_COUPLE, things."),
-        .speechWin    = COMPOUND_STRING("Don't EC_WORD_DIET, play EC_WORD_SPORTS, EC_WORD_INSTEAD"),
-        .speechLose   = COMPOUND_STRING("Instead of EC_WORD_TELEVISION, get a EC_WORD_BOOK"),
+        .speechBefore = COMPOUND_STRING("I've a couple things."),
+        .speechWin    = COMPOUND_STRING("Don't diet, play sports instead."),
+        .speechLose   = COMPOUND_STRING("Instead of television, get a book."),
         .monSet = gBattleFrontierTrainerMons_Reese
     },
     [FRONTIER_TRAINER_MASON] = {
@@ -2117,7 +2117,7 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
         .trainerName = _("Mason"),
         .speechBefore = COMPOUND_STRING("Please don't make this scary."),
         .speechWin    = COMPOUND_STRING("Thank you… I am happy now."),
-        .speechLose   = COMPOUND_STRING("I am EC_WORD_DISAPPOINTED…"),
+        .speechLose   = COMPOUND_STRING("I am disappointed…"),
         .monSet = gBattleFrontierTrainerMons_Mason
     },
     [FRONTIER_TRAINER_TOBY] = {
@@ -2125,126 +2125,126 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
         .trainerName = _("Toby"),
         .speechBefore = COMPOUND_STRING("Listen up, I always win."),
         .speechWin    = COMPOUND_STRING("I am a genius or what?"),
-        .speechLose   = COMPOUND_STRING("I can beat you at EC_WORD_SMARTNESS"),
+        .speechLose   = COMPOUND_STRING("I can beat you at smartness."),
         .monSet = gBattleFrontierTrainerMons_Toby
     },
     [FRONTIER_TRAINER_DOROTHY] = {
         .facilityClass = FACILITY_CLASS_RUNNING_TRIATHLETE_F,
         .trainerName = _("Dorothy"),
-        .speechBefore = COMPOUND_STRING("The EC_WORD_SPORTS, EC_WORD_WORLD, should accept Pokémon."),
-        .speechWin    = COMPOUND_STRING("Thank you! that win was refreshing."),
-        .speechLose   = COMPOUND_STRING("Thank you! that loss was refreshing."),
+        .speechBefore = COMPOUND_STRING("The sports world should\naccept Pokémon."),
+        .speechWin    = COMPOUND_STRING("Thank you!\nThat win was refreshing."),
+        .speechLose   = COMPOUND_STRING("Thank you!\nThat loss was refreshing."),
         .monSet = gBattleFrontierTrainerMons_Dorothy
     },
     [FRONTIER_TRAINER_PIPER] = {
         .facilityClass = FACILITY_CLASS_RUNNING_TRIATHLETE_F,
         .trainerName = _("Piper"),
-        .speechBefore = COMPOUND_STRING("Come on you need a speed boost?"),
-        .speechWin    = COMPOUND_STRING("You need to show more EC_WORD_GUTS"),
+        .speechBefore = COMPOUND_STRING("Come on,\nyou need a speed boost?"),
+        .speechWin    = COMPOUND_STRING("You need to show more guts."),
         .speechLose   = COMPOUND_STRING("Oh you!"),
         .monSet = gBattleFrontierTrainerMons_Piper
     },
     [FRONTIER_TRAINER_FINN] = {
         .facilityClass = FACILITY_CLASS_SWIMMING_TRIATHLETE_M,
         .trainerName = _("Finn"),
-        .speechBefore = COMPOUND_STRING("Not another trainer EC_WORD_BATTLE…"),
-        .speechWin    = COMPOUND_STRING("Won't this EC_WORD_EVER, EC_WORD_END,?"),
-        .speechLose   = COMPOUND_STRING("I finally get to EC_WORD_REST, EC_WORD_A_LITTLE"),
+        .speechBefore = COMPOUND_STRING("Not another trainer battle…"),
+        .speechWin    = COMPOUND_STRING("Won't this ever end?"),
+        .speechLose   = COMPOUND_STRING("I finally get to rest a little"),
         .monSet = gBattleFrontierTrainerMons_Finn
     },
     [FRONTIER_TRAINER_SAMIR] = {
         .facilityClass = FACILITY_CLASS_SWIMMING_TRIATHLETE_M,
         .trainerName = _("Samir"),
-        .speechBefore = COMPOUND_STRING("I dive EC_WORD_BELOW, the EC_WORD_SURF)!"),
-        .speechWin    = COMPOUND_STRING("Yahoo take a dive you!"),
-        .speechLose   = COMPOUND_STRING("I am going to EC_WORD_SINK…"),
+        .speechBefore = COMPOUND_STRING("I dive below the surf!"),
+        .speechWin    = COMPOUND_STRING("Yahoo take a dive, you!"),
+        .speechLose   = COMPOUND_STRING("I am going to sink…"),
         .monSet = gBattleFrontierTrainerMons_Samir
     },
     [FRONTIER_TRAINER_FIONA] = {
         .facilityClass = FACILITY_CLASS_SWIMMING_TRIATHLETE_F,
         .trainerName = _("Fiona"),
-        .speechBefore = COMPOUND_STRING("Did you EC_WORD_LIMBER, up EC_WORD_BEFORE,?"),
-        .speechWin    = COMPOUND_STRING("You need to be more EC_WORD_READY"),
-        .speechLose   = COMPOUND_STRING("Being EC_WORD_LIMBER, didn't work for me."),
+        .speechBefore = COMPOUND_STRING("Did you limber up before?"),
+        .speechWin    = COMPOUND_STRING("You need to be more ready."),
+        .speechLose   = COMPOUND_STRING("Being limber didn't work for me."),
         .monSet = gBattleFrontierTrainerMons_Fiona
     },
     [FRONTIER_TRAINER_GLORIA] = {
         .facilityClass = FACILITY_CLASS_SWIMMING_TRIATHLETE_F,
         .trainerName = _("Gloria"),
-        .speechBefore = COMPOUND_STRING("I like to EC_WORD_ATTACK, with EC_WORD_SUCTION_CUPS"),
-        .speechWin    = COMPOUND_STRING("Giggle… it's over for you."),
-        .speechLose   = COMPOUND_STRING("I don't get how EC_WORD_SUCTION_CUPS, EC_WORD_WORK"),
+        .speechBefore = COMPOUND_STRING("I like to attack with\nsuction cups."),
+        .speechWin    = COMPOUND_STRING("Giggle… It's over for you."),
+        .speechLose   = COMPOUND_STRING("I don't get how suction cups work."),
         .monSet = gBattleFrontierTrainerMons_Gloria
     },
     [FRONTIER_TRAINER_NICO] = {
         .facilityClass = FACILITY_CLASS_CYCLING_TRIATHLETE_M,
         .trainerName = _("Nico"),
-        .speechBefore = COMPOUND_STRING("Like a EC_WORD_SONIC_BOOM, EC_WORD_I_VE_ARRIVED"),
-        .speechWin    = COMPOUND_STRING("Sorry to make you so EC_WORD_DOWNCAST"),
-        .speechLose   = COMPOUND_STRING("I am going with a EC_WORD_SUPERSONIC, EC_WORD_SPEED_BOOST"),
+        .speechBefore = COMPOUND_STRING("Like a sonic boom I've arrived."),
+        .speechWin    = COMPOUND_STRING("Sorry to make you so downcast."),
+        .speechLose   = COMPOUND_STRING("I am going with a\nsupersonic speed boost."),
         .monSet = gBattleFrontierTrainerMons_Nico
     },
     [FRONTIER_TRAINER_JEREMY] = {
         .facilityClass = FACILITY_CLASS_CYCLING_TRIATHLETE_M,
         .trainerName = _("Jeremy"),
-        .speechBefore = COMPOUND_STRING("A Pokémon master that's my dream."),
-        .speechWin    = COMPOUND_STRING("My dream isn't far EC_WORD_OFF!"),
-        .speechLose   = COMPOUND_STRING("What I dream isn't EC_WORD_HAPPENING…"),
+        .speechBefore = COMPOUND_STRING("A Pokémon master, that's my dream."),
+        .speechWin    = COMPOUND_STRING("My dream isn't far off!"),
+        .speechLose   = COMPOUND_STRING("What I dream isn't happening…"),
         .monSet = gBattleFrontierTrainerMons_Jeremy
     },
     [FRONTIER_TRAINER_CAITLIN] = {
         .facilityClass = FACILITY_CLASS_CYCLING_TRIATHLETE_F,
         .trainerName = _("Caitlin"),
         .speechBefore = COMPOUND_STRING("Don't you think I am cute?"),
-        .speechWin    = COMPOUND_STRING("There is more to me than EC_WORD_CUTENESS"),
+        .speechWin    = COMPOUND_STRING("There is more to me than cuteness."),
         .speechLose   = COMPOUND_STRING("My cute charm doesn't attract you?"),
         .monSet = gBattleFrontierTrainerMons_Caitlin
     },
     [FRONTIER_TRAINER_REENA] = {
         .facilityClass = FACILITY_CLASS_CYCLING_TRIATHLETE_F,
         .trainerName = _("Reena"),
-        .speechBefore = COMPOUND_STRING("I am always happy happy EC_WORD_HAPPY!"),
-        .speechWin    = COMPOUND_STRING("Oh EC_WORD_YAY,! yahoo for me."),
+        .speechBefore = COMPOUND_STRING("I am always happy happy happy!"),
+        .speechWin    = COMPOUND_STRING("Oh yay! Yahoo for me."),
         .speechLose   = COMPOUND_STRING("Yahoo! I am happy for you."),
         .monSet = gBattleFrontierTrainerMons_Reena
     },
     [FRONTIER_TRAINER_AVERY] = {
         .facilityClass = FACILITY_CLASS_BUG_MANIAC,
         .trainerName = _("Avery"),
-        .speechBefore = COMPOUND_STRING("I've got EC_WORD_A_LOT, of bug Pokémon."),
-        .speechWin    = COMPOUND_STRING("My bug Pokémon are all EC_WORD_UNBELIEVABLE"),
-        .speechLose   = COMPOUND_STRING("My bug Pokémon are all EC_WORD_UPSIDE_DOWN"),
+        .speechBefore = COMPOUND_STRING("I've got a_lot of Bug Pokémon."),
+        .speechWin    = COMPOUND_STRING("My Bug Pokémon are all\nunbelievable."),
+        .speechLose   = COMPOUND_STRING("My Bug Pokémon are all\nupside-down."),
         .monSet = gBattleFrontierTrainerMons_Avery
     },
     [FRONTIER_TRAINER_LIAM] = {
         .facilityClass = FACILITY_CLASS_BUG_MANIAC,
         .trainerName = _("Liam"),
-        .speechBefore = COMPOUND_STRING("We really dislike fire and Flying"),
-        .speechWin    = COMPOUND_STRING("Bug Pokémon aren't bad EC_WORD_HEY_QUES"),
-        .speechLose   = COMPOUND_STRING("You know what we dislike EC_WORD_HEY_QUES"),
+        .speechBefore = COMPOUND_STRING("We really dislike Fire and Flying."),
+        .speechWin    = COMPOUND_STRING("Bug Pokémon aren't bad, hey?"),
+        .speechLose   = COMPOUND_STRING("You know what we dislike, hey?"),
         .monSet = gBattleFrontierTrainerMons_Liam
     },
     [FRONTIER_TRAINER_THEO] = {
         .facilityClass = FACILITY_CLASS_FISHERMAN,
         .trainerName = _("Theo"),
-        .speechBefore = COMPOUND_STRING("Fishing is my EC_WORD_CHOICE, in EC_WORD_LIFE"),
-        .speechWin    = COMPOUND_STRING("Water Pokémon attract me without EC_WORD_END"),
-        .speechLose   = COMPOUND_STRING("Don't EC_WORD_COUNT_ON, that EC_WORD_HAPPENING, another EC_WORD_TIME"),
+        .speechBefore = COMPOUND_STRING("Fishing is my choice in life."),
+        .speechWin    = COMPOUND_STRING("Water Pokémon attract me\nwithout end."),
+        .speechLose   = COMPOUND_STRING("Don't count on that\nhappening another time."),
         .monSet = gBattleFrontierTrainerMons_Theo
     },
     [FRONTIER_TRAINER_BAILEY] = {
         .facilityClass = FACILITY_CLASS_FISHERMAN,
         .trainerName = _("Bailey"),
-        .speechBefore = COMPOUND_STRING("I am an adult I battle easy."),
-        .speechWin    = COMPOUND_STRING("I am an adult I swallow EC_WORD_JOY"),
-        .speechLose   = COMPOUND_STRING("I am an adult I swallow EC_WORD_FRUSTRATION"),
+        .speechBefore = COMPOUND_STRING("I am an adult,\nI battle easy."),
+        .speechWin    = COMPOUND_STRING("I am an adult,\nI swallow joy."),
+        .speechLose   = COMPOUND_STRING("I am an adult,\nI swallow frustration."),
         .monSet = gBattleFrontierTrainerMons_Bailey
     },
     [FRONTIER_TRAINER_HUGO] = {
         .facilityClass = FACILITY_CLASS_RUIN_MANIAC,
         .trainerName = _("Hugo"),
-        .speechBefore = COMPOUND_STRING("I try the best I EC_WORD_CAN"),
-        .speechWin    = COMPOUND_STRING("I EC_WORD_CAN_WIN, if I try EC_WORD_ENOUGH"),
+        .speechBefore = COMPOUND_STRING("I try the best I can."),
+        .speechWin    = COMPOUND_STRING("I can_win if I try EC_WORD_ENOUGH"),
         .speechLose   = COMPOUND_STRING("I did try didn't I?"),
         .monSet = gBattleFrontierTrainerMons_Hugo
     },
@@ -2252,7 +2252,7 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
         .facilityClass = FACILITY_CLASS_RUIN_MANIAC,
         .trainerName = _("Bryce"),
         .speechBefore = COMPOUND_STRING("I was on vacation until only EC_WORD_YESTERDAY"),
-        .speechWin    = COMPOUND_STRING("I haven't lost my EC_WORD_SKILL, yet."),
+        .speechWin    = COMPOUND_STRING("I haven't lost my skill yet."),
         .speechLose   = COMPOUND_STRING("That's EC_WORD_IT… I need EC_WORD_SLEEP"),
         .monSet = gBattleFrontierTrainerMons_Bryce
     },
@@ -2275,7 +2275,7 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
     [FRONTIER_TRAINER_CHARLES] = {
         .facilityClass = FACILITY_CLASS_GUITARIST,
         .trainerName = _("Charles"),
-        .speechBefore = COMPOUND_STRING("It's EC_WORD_HOPELESS, to EC_WORD_STRUGGLE, with me."),
+        .speechBefore = COMPOUND_STRING("It's hopeless to struggle with me."),
         .speechWin    = COMPOUND_STRING("Submission was your only EC_WORD_CHOICE"),
         .speechLose   = COMPOUND_STRING("I am going down down down!"),
         .monSet = gBattleFrontierTrainerMons_Charles
@@ -2283,7 +2283,7 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
     [FRONTIER_TRAINER_RAYMOND] = {
         .facilityClass = FACILITY_CLASS_GUITARIST,
         .trainerName = _("Raymond"),
-        .speechBefore = COMPOUND_STRING("Want to hear my EC_WORD_SONG,?"),
+        .speechBefore = COMPOUND_STRING("Want to hear my song?"),
         .speechWin    = COMPOUND_STRING("Satisfied that's what I am!"),
         .speechLose   = COMPOUND_STRING("Satisfied is what I can't EC_WORD_BE"),
         .monSet = gBattleFrontierTrainerMons_Raymond
@@ -2291,7 +2291,7 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
     [FRONTIER_TRAINER_DIRK] = {
         .facilityClass = FACILITY_CLASS_BIRD_KEEPER,
         .trainerName = _("Dirk"),
-        .speechBefore = COMPOUND_STRING("Flying Pokémon are EC_WORD_ABOVE, the EC_WORD_REST"),
+        .speechBefore = COMPOUND_STRING("Flying Pokémon are above the EC_WORD_REST"),
         .speechWin    = COMPOUND_STRING("You can't win! Flying Pokémon EC_WORD_RULE"),
         .speechLose   = COMPOUND_STRING("Aren't there more Flying Pokémon?"),
         .monSet = gBattleFrontierTrainerMons_Dirk
@@ -2299,7 +2299,7 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
     [FRONTIER_TRAINER_HAROLD] = {
         .facilityClass = FACILITY_CLASS_BIRD_KEEPER,
         .trainerName = _("Harold"),
-        .speechBefore = COMPOUND_STRING("My Pokémon EC_WORD_APPEAL, to you?"),
+        .speechBefore = COMPOUND_STRING("My Pokémon appeal to you?"),
         .speechWin    = COMPOUND_STRING("You do like my Pokémon?"),
         .speechLose   = COMPOUND_STRING("So you dislike my Pokémon?"),
         .monSet = gBattleFrontierTrainerMons_Harold
@@ -2307,25 +2307,25 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
     [FRONTIER_TRAINER_OMAR] = {
         .facilityClass = FACILITY_CLASS_SAILOR,
         .trainerName = _("Omar"),
-        .speechBefore = COMPOUND_STRING("Let me win in EC_WORD_RETURN, for a EC_WORD_PRESENT"),
-        .speechWin    = COMPOUND_STRING("Here you are some EC_WORD_TOXIC, EC_WORD_SWEETS"),
+        .speechBefore = COMPOUND_STRING("Let me win in return for a EC_WORD_PRESENT"),
+        .speechWin    = COMPOUND_STRING("Here you are some toxic EC_WORD_SWEETS"),
         .speechLose   = COMPOUND_STRING("Your present? what for?!"),
         .monSet = gBattleFrontierTrainerMons_Omar
     },
     [FRONTIER_TRAINER_PETER] = {
         .facilityClass = FACILITY_CLASS_SAILOR,
         .trainerName = _("Peter"),
-        .speechBefore = COMPOUND_STRING("I EC_WORD_BRAG, about my happiness OK?"),
-        .speechWin    = COMPOUND_STRING("You have to EC_WORD_LISTEN, to me EC_WORD_BRAG"),
-        .speechLose   = COMPOUND_STRING("I am disappointed you won't EC_WORD_LISTEN, EC_WORD_TO_ME"),
+        .speechBefore = COMPOUND_STRING("I brag about my happiness OK?"),
+        .speechWin    = COMPOUND_STRING("You have to listen to me EC_WORD_BRAG"),
+        .speechLose   = COMPOUND_STRING("I am disappointed you won't listen EC_WORD_TO_ME"),
         .monSet = gBattleFrontierTrainerMons_Peter
     },
     [FRONTIER_TRAINER_DEV] = {
         .facilityClass = FACILITY_CLASS_HIKER,
         .trainerName = _("Dev"),
         .speechBefore = COMPOUND_STRING("Come on let's get a move EC_WORD_ON"),
-        .speechWin    = COMPOUND_STRING("I get to EC_WORD_NAP, after EC_WORD_THAT"),
-        .speechLose   = COMPOUND_STRING("I need to EC_WORD_NAP, after EC_WORD_THAT"),
+        .speechWin    = COMPOUND_STRING("I get to nap after EC_WORD_THAT"),
+        .speechLose   = COMPOUND_STRING("I need to nap after EC_WORD_THAT"),
         .monSet = gBattleFrontierTrainerMons_Dev
     },
     [FRONTIER_TRAINER_COREY] = {
@@ -2333,7 +2333,7 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
         .trainerName = _("Corey"),
         .speechBefore = COMPOUND_STRING("Let's teach you how tough EC_WORD_I_AM"),
         .speechWin    = COMPOUND_STRING("Look at me make a EC_WORD_BRICK_BREAK"),
-        .speechLose   = COMPOUND_STRING("My frustration is EC_WORD_CLOSE, to EC_WORD_ERUPTION"),
+        .speechLose   = COMPOUND_STRING("My frustration is close to EC_WORD_ERUPTION"),
         .monSet = gBattleFrontierTrainerMons_Corey
     },
     [FRONTIER_TRAINER_ANDRE] = {
@@ -2341,7 +2341,7 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
         .trainerName = _("Andre"),
         .speechBefore = COMPOUND_STRING("Now this is a perfect EC_WORD_FLAME_BODY"),
         .speechWin    = COMPOUND_STRING("Look at my fiery EC_WORD_DANCE!"),
-        .speechLose   = COMPOUND_STRING("You want an EC_WORD_EXPLOSION, here?"),
+        .speechLose   = COMPOUND_STRING("You want an explosion here?"),
         .monSet = gBattleFrontierTrainerMons_Andre
     },
     [FRONTIER_TRAINER_FERRIS] = {
@@ -2355,9 +2355,9 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
     [FRONTIER_TRAINER_ALIVIA] = {
         .facilityClass = FACILITY_CLASS_PARASOL_LADY,
         .trainerName = _("Alivia"),
-        .speechBefore = COMPOUND_STRING("I am feeling EC_WORD_GIDDY, so should you."),
-        .speechWin    = COMPOUND_STRING("It was all EC_WORD_TOGETHER, too easy."),
-        .speechLose   = COMPOUND_STRING("I will EC_WORD_GIDDY, up and EC_WORD_AWAY"),
+        .speechBefore = COMPOUND_STRING("I am feeling giddy so should you."),
+        .speechWin    = COMPOUND_STRING("It was all together too easy."),
+        .speechLose   = COMPOUND_STRING("I will giddy up and EC_WORD_AWAY"),
         .monSet = gBattleFrontierTrainerMons_Alivia
     },
     [FRONTIER_TRAINER_PAIGE] = {
@@ -2395,8 +2395,8 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
     [FRONTIER_TRAINER_GRETEL] = {
         .facilityClass = FACILITY_CLASS_AROMA_LADY,
         .trainerName = _("Gretel"),
-        .speechBefore = COMPOUND_STRING("I cause EC_WORD_OUTRAGE, as a trainer."),
-        .speechWin    = COMPOUND_STRING("It's only EC_WORD_NATURAL, EC_WORD_SEE_YA, EC_WORD_BYE_BYE!"),
+        .speechBefore = COMPOUND_STRING("I cause outrage as a trainer."),
+        .speechWin    = COMPOUND_STRING("It's only natural see_ya EC_WORD_BYE_BYE!"),
         .speechLose   = COMPOUND_STRING("It's hard to believe but EC_WORD_CONGRATS"),
         .monSet = gBattleFrontierTrainerMons_Gretel
     }
