@@ -1088,6 +1088,8 @@ struct SaveBlock1
     /*0x3???*/ u8 dexSeen[NUM_DEX_FLAG_BYTES];
     /*0x3???*/ u8 dexCaught[NUM_DEX_FLAG_BYTES];
     /*0x08*/   u8 followerIndex;
+    /*0x???*/  struct Pokeblock pokeblocks[POKEBLOCKS_COUNT];
+               u16 berryBlenderRecords[3];
 };
 
 extern struct SaveBlock1* gSaveBlock1Ptr;

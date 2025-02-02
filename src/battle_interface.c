@@ -312,6 +312,7 @@ static void Task_FreeAbilityPopUpGfx(u8);
 
 static void SpriteCB_LastUsedBall(struct Sprite *);
 static void SpriteCB_LastUsedBallWin(struct Sprite *);
+static void SpriteCB_MoveInfoWin(struct Sprite *sprite);
 
 static const struct OamData sOamData_64x32 =
 {
@@ -845,6 +846,7 @@ u8 CreateBattlerHealthboxSprites(u8 battlerId)
 
     gBattleStruct->ballSpriteIds[0] = MAX_SPRITES;
     gBattleStruct->ballSpriteIds[1] = MAX_SPRITES;
+    gBattleStruct->moveInfoSpriteId = MAX_SPRITES;
 
     return healthboxLeftSpriteId;
 }
@@ -3069,6 +3071,36 @@ static const struct SpriteTemplate sSpriteTemplate_LastUsedBallWindow =
     .callback = SpriteCB_LastUsedBallWin
 };
 
+#define MOVE_INFO_WINDOW_TAG 0xE722
+
+static const struct OamData sOamData_MoveInfoWindow =
+{
+    .y = 0,
+    .affineMode = 0,
+    .objMode = 0,
+    .mosaic = 0,
+    .bpp = 0,
+    .shape = SPRITE_SHAPE(32x32),
+    .x = 0,
+    .matrixNum = 0,
+    .size = SPRITE_SIZE(32x32),
+    .tileNum = 0,
+    .priority = 1,
+    .paletteNum = 0,
+    .affineParam = 0,
+};
+
+static const struct SpriteTemplate sSpriteTemplate_MoveInfoWindow =
+{
+    .tileTag = MOVE_INFO_WINDOW_TAG,
+    .paletteTag = ABILITY_POP_UP_TAG,
+    .oam = &sOamData_MoveInfoWindow,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCB_MoveInfoWin
+};
+
 #if B_LAST_USED_BALL_BUTTON == R_BUTTON && B_LAST_USED_BALL_CYCLE == TRUE
     static const u8 ALIGNED(4) sLastUsedBallWindowGfx[] = INCBIN_U8("graphics/battle_interface/last_used_ball_r_cycle.4bpp");
 #elif B_LAST_USED_BALL_CYCLE == TRUE
@@ -3081,6 +3113,17 @@ static const struct SpriteTemplate sSpriteTemplate_LastUsedBallWindow =
 static const struct SpriteSheet sSpriteSheet_LastUsedBallWindow =
 {
     sLastUsedBallWindowGfx, sizeof(sLastUsedBallWindowGfx), LAST_BALL_WINDOW_TAG
+};
+
+#if B_MOVE_DESCRIPTION_BUTTON == R_BUTTON
+static const u8 sMoveInfoWindowGfx[] = INCBIN_U8("graphics/battle_interface/move_info_window_r.4bpp");
+#else
+static const u8 sMoveInfoWindowGfx[] = INCBIN_U8("graphics/battle_interface/move_info_window_l.4bpp");
+#endif
+
+static const struct SpriteSheet sSpriteSheet_MoveInfoWindow =
+{
+    sMoveInfoWindowGfx, sizeof(sMoveInfoWindowGfx), MOVE_INFO_WINDOW_TAG
 };
 
 #define LAST_USED_BALL_X_F    14
@@ -3157,6 +3200,7 @@ void TryAddLastUsedBallItemSprites(void)
                                                        LAST_BALL_WIN_X_0,
                                                        LAST_USED_WIN_Y, 5);
         gSprites[gBattleStruct->ballSpriteIds[1]].sHide = FALSE;   // restore
+        gSprites[gBattleStruct->moveInfoSpriteId].sHide = TRUE;
         gLastUsedBallMenuPresent = TRUE;
     }
     if (B_LAST_USED_BALL_CYCLE == TRUE)
@@ -3177,6 +3221,32 @@ static void DestroyLastUsedBallGfx(struct Sprite *sprite)
     FreeSpritePaletteByTag(102);
     DestroySprite(sprite);
     gBattleStruct->ballSpriteIds[0] = MAX_SPRITES;
+}
+
+void TryToAddMoveInfoWindow(void)
+{
+    LoadSpritePalette(&sSpritePalette_AbilityPopUp[gSaveBlock2Ptr->battleInterfaceColor]);
+    if (GetSpriteTileStartByTag(MOVE_INFO_WINDOW_TAG) == 0xFFFF)
+        LoadSpriteSheet(&sSpriteSheet_MoveInfoWindow);
+
+    if (gBattleStruct->moveInfoSpriteId == MAX_SPRITES)
+    {
+        gBattleStruct->moveInfoSpriteId = CreateSprite(&sSpriteTemplate_MoveInfoWindow, LAST_BALL_WIN_X_0, LAST_USED_WIN_Y + 32, 6);
+        gSprites[gBattleStruct->moveInfoSpriteId].sHide = FALSE;   // restore
+    }
+}
+
+void TryToHideMoveInfoWindow(void)
+{
+    gSprites[gBattleStruct->moveInfoSpriteId].sHide = TRUE;   // Hide
+}
+
+static void DestroyMoveInfoWinGfx(struct Sprite *sprite)
+{
+    FreeSpriteTilesByTag(MOVE_INFO_WINDOW_TAG);
+    FreeSpritePaletteByTag(ABILITY_POP_UP_TAG);
+    DestroySprite(sprite);
+    gBattleStruct->moveInfoSpriteId = MAX_SPRITES;
 }
 
 static void SpriteCB_LastUsedBallWin(struct Sprite *sprite)
@@ -3212,6 +3282,23 @@ static void SpriteCB_LastUsedBall(struct Sprite *sprite)
     else
     {
         if (sprite->x != LAST_USED_BALL_X_F)
+            sprite->x++;
+    }
+}
+
+static void SpriteCB_MoveInfoWin(struct Sprite *sprite)
+{    
+    if (sprite->sHide)
+    {
+        if (sprite->x != LAST_BALL_WIN_X_0)
+            sprite->x--;
+
+        if (sprite->x == LAST_BALL_WIN_X_0)
+            DestroyMoveInfoWinGfx(sprite);
+    }
+    else
+    {
+        if (sprite->x != LAST_BALL_WIN_X_F)
             sprite->x++;
     }
 }

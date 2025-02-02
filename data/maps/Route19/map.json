@@ -5,7 +5,7 @@
   "music": "MUS_ROUTE113",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
+  "weather": "WEATHER_SNOW",
   "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -20,15 +20,15 @@
     },
     {
       "map": "MAP_ROUTE20",
-      "offset": 14,
+      "offset": 8,
       "direction": "right"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_ZYGARDE_CELL",
-      "x": 25,
-      "y": 32,
+      "x": 31,
+      "y": 59,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -40,8 +40,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ZYGARDE_CELL",
-      "x": 44,
-      "y": 16,
+      "x": 38,
+      "y": 2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,

@@ -94343,6 +94343,7 @@
       "MOVE_ROOST",
       "MOVE_SAFEGUARD",
       "MOVE_FRUSTRATION",
+      "MOVE_FLY",
       "MOVE_SOLAR_BEAM",
       "MOVE_SMACK_DOWN",
       "MOVE_RETURN",

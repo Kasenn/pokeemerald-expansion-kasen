@@ -19,14 +19,14 @@
       "direction": "right"
     },
     {
-      "map": "MAP_ROUTE17",
-      "offset": -14,
-      "direction": "left"
-    },
-    {
       "map": "MAP_SNOWY_RIDGE",
       "offset": 63,
       "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE17",
+      "offset": -13,
+      "direction": "left"
     }
   ],
   "object_events": [

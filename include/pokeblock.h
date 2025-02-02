@@ -48,7 +48,7 @@ extern s16 gPokeblockGain;
 void ChooseMonToGivePokeblock(struct Pokeblock *pokeblock, void (*callback)(void));
 
 // pokeblock feed
-// void PreparePokeblockFeedScene(void);
+void PreparePokeblockFeedScene(void);
 
 // pokeblock
 extern const s8 gPokeblockFlavorCompatibilityTable[NUM_NATURES * FLAVOR_COUNT];

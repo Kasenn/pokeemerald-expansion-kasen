@@ -43670,6 +43670,7 @@ static const u16 sDecidueyeTeachableLearnset[] = {
     MOVE_ENERGY_BALL,
     MOVE_FACADE,
     MOVE_FALSE_SWIPE,
+    MOVE_FLY,
     MOVE_GIGA_DRAIN,
     MOVE_GIGA_IMPACT,
     MOVE_GRASS_KNOT,

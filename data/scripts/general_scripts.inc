@@ -461,41 +461,10 @@ Debug_Script_1_12:
 
 
 Debug_Script_2::
-	dynmultichoice 23, 0, TRUE, 6, 0, 0, Debug_Script_2_Text_0, Debug_Script_2_Text_1, Debug_Script_2_Text_2, Debug_Script_2_Text_3, Debug_Script_2_Text_4, Debug_Script_2_Text_5
-	switch VAR_RESULT
-	case 0, Debug_Script_2_3
-	case 1, Debug_Script_2_4
-	case 2, Debug_Script_2_5
-	case 3, Debug_Script_2_6
-	case 4, Debug_Script_2_7
-	case 5, Debug_Script_2_8
-Debug_Script_2_1:
+	additem ITEM_POKEBLOCK_CASE
+	call BerryBlender_EventScript_BerryBlender3
 	release
 	return
-
-Debug_Script_2_3:
-	givemon SPECIES_PORYGON_Z_MEGA, 50, move1 = MOVE_TACKLE, move2 = MOVE_SWIFT, move3 = MOVE_BRICK_BREAK, move4 = MOVE_GROWL
-	goto Debug_Script_2_1
-
-Debug_Script_2_4:
-	givemon SPECIES_PORYGON_Z_MEGA, 50, move1 = MOVE_YAWN, move2 = MOVE_HYPNOSIS, move3 = MOVE_LOVELY_KISS
-	goto Debug_Script_2_1
-
-Debug_Script_2_5:
-	givemon SPECIES_PORYGON_Z_MEGA, 50, move1 = MOVE_TOXIC_THREAD, move2 = MOVE_SECRET_POWER
-	goto Debug_Script_2_1
-
-Debug_Script_2_6:
-	givemon SPECIES_PORYGON_Z_MEGA, 50, move1 = MOVE_WILL_O_WISP, move2 = MOVE_TRI_ATTACK
-	goto Debug_Script_2_1
-
-Debug_Script_2_7:
-	givemon SPECIES_PORYGON_Z_MEGA, 50, move1 = MOVE_ICE_BEAM, move2 = MOVE_TRI_ATTACK
-	goto Debug_Script_2_1
-
-Debug_Script_2_8:
-	givemon SPECIES_PORYGON_Z_MEGA, 50, move1 = MOVE_THUNDER_WAVE, move2 = MOVE_GLARE
-	goto Debug_Script_2_1
 
 
 Debug_Script_3::
@@ -718,24 +687,6 @@ Debug_Script_1_Text_15:
 
 Debug_Script_1_Text_16:
 	.string "Team set to level 45.$"
-
-Debug_Script_2_Text_0:
-	.string "Tkl,Swf,Brck,Grwl$"
-
-Debug_Script_2_Text_1:
-	.string "sleep$"
-
-Debug_Script_2_Text_2:
-	.string "poison$"
-
-Debug_Script_2_Text_3:
-	.string "burn$"
-
-Debug_Script_2_Text_4:
-	.string "freeze$"
-
-Debug_Script_2_Text_5:
-	.string "paralysis$"
 
 Debug_Script_3_Text_0:
 	.string "Reflect$"
