@@ -3761,7 +3761,7 @@ void TryDropStrangeSeed(void)
 void ShowBerryBlenderRecordWindow(void)
 {
     s32 i;
-    s32 xPos;
+    s32 xPos, yPos;
     struct WindowTemplate winTemplate;
     u8 text[32];
 

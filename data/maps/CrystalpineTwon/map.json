@@ -27,6 +27,11 @@
       "map": "MAP_ROUTE24",
       "offset": -30,
       "direction": "right"
+    },
+    {
+      "map": "MAP_CRYSTALPINE_FILLER1",
+      "offset": 0,
+      "direction": "left"
     }
   ],
   "object_events": [

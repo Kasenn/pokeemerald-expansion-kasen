@@ -22,6 +22,11 @@
       "map": "MAP_ROUTE22_PART2",
       "offset": 48,
       "direction": "left"
+    },
+    {
+      "map": "MAP_CRYSTALPINE_FILLER1",
+      "offset": 11,
+      "direction": "up"
     }
   ],
   "object_events": [

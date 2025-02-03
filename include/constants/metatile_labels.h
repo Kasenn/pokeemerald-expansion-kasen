@@ -151,6 +151,9 @@
 #define METATILE_Contest_FloorShadow         0x261
 #define METATILE_Contest_WallShadow          0x221
 
+// gTileset_Crystalpine
+#define METATILE_Crystalpine_CrystalpineDoor  0x237
+
 // gTileset_Dewford
 #define METATILE_Dewford_BattleTent_Door   0x3D4
 #define METATILE_Dewford_Door              0x225

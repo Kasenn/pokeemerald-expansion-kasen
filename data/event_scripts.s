@@ -1798,3 +1798,9 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/FrosthearthCity_Gym/scripts.inc"
 
 	.include "data/maps/FrosthearthCity_Motel_2F/scripts.inc"
+
+	.include "data/maps/Crystalpine_Filler1/scripts.inc"
+
+	.include "data/maps/Route24_Filler/scripts.inc"
+
+	.include "data/maps/Route20_Filler/scripts.inc"

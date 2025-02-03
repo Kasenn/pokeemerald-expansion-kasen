@@ -939,6 +939,9 @@
 #define MAP_WINDYWOODS_FIX              (17 | (52 << 8))
 #define MAP_BASALEK_TUNNELS_COPY        (18 | (52 << 8))
 #define MAP_ROUTE6FILLER                (19 | (52 << 8))
+#define MAP_CRYSTALPINE_FILLER1         (20 | (52 << 8))
+#define MAP_ROUTE24_FILLER              (21 | (52 << 8))
+#define MAP_ROUTE20_FILLER              (22 | (52 << 8))
 
 #define MAP_GROUPS_COUNT 53
 
