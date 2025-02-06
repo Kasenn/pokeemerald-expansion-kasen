@@ -1804,3 +1804,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Route24_Filler/scripts.inc"
 
 	.include "data/maps/Route20_Filler/scripts.inc"
+
+	.include "data/maps/Route22_Filler/scripts.inc"
+
+	.include "data/maps/Route21_Filler/scripts.inc"

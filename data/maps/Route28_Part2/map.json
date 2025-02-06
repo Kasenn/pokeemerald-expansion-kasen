@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_ICEPERCH_CITY",
-      "offset": -12,
+      "offset": -6,
       "direction": "up"
     }
   ],

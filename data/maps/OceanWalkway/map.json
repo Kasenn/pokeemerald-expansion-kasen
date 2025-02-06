@@ -12,7 +12,18 @@
   "allow_running": false,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": [
+    {
+      "map": "MAP_ROUTE13",
+      "offset": 0,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_GALEWIND_CITY",
+      "offset": 52,
+      "direction": "up"
+    }
+  ],
   "object_events": [
 
   ],

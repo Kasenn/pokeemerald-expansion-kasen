@@ -1289,3 +1289,14 @@ const struct Tileset gTileset_Crowd =
 };
 
 // InitTilesetAnim_General
+
+const struct Tileset gTileset_MagicForest =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_MagicForest,
+    .palettes = gTilesetPalettes_MagicForest,
+    .metatiles = gMetatiles_MagicForest,
+    .metatileAttributes = gMetatileAttributes_MagicForest,
+    .callback = InitTilesetAnim_Mauville,
+};

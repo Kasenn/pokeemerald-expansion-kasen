@@ -14,14 +14,14 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
+      "map": "MAP_EVERFROST_TOWN",
+      "offset": 1,
+      "direction": "right"
+    },
+    {
       "map": "MAP_ROUTE24",
       "offset": -43,
       "direction": "down"
-    },
-    {
-      "map": "MAP_EVERFROST_TOWN",
-      "offset": -1,
-      "direction": "right"
     }
   ],
   "object_events": [

@@ -942,6 +942,8 @@
 #define MAP_CRYSTALPINE_FILLER1         (20 | (52 << 8))
 #define MAP_ROUTE24_FILLER              (21 | (52 << 8))
 #define MAP_ROUTE20_FILLER              (22 | (52 << 8))
+#define MAP_ROUTE22_FILLER              (23 | (52 << 8))
+#define MAP_ROUTE21_FILLER              (24 | (52 << 8))
 
 #define MAP_GROUPS_COUNT 53
 

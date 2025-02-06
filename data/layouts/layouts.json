@@ -27,7 +27,7 @@
       "width": 40,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mauville",
+      "secondary_tileset": "gTileset_Unused1",
       "border_filepath": "data/layouts/MauvilleCity/border.bin",
       "blockdata_filepath": "data/layouts/MauvilleCity/map.bin"
     },
@@ -257,7 +257,7 @@
       "width": 40,
       "height": 100,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mauville",
+      "secondary_tileset": "gTileset_Unused1",
       "border_filepath": "data/layouts/Route110/border.bin",
       "blockdata_filepath": "data/layouts/Route110/map.bin"
     },
@@ -267,7 +267,7 @@
       "width": 40,
       "height": 140,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mauville",
+      "secondary_tileset": "gTileset_Unused1",
       "border_filepath": "data/layouts/Route111/border.bin",
       "blockdata_filepath": "data/layouts/Route111/map.bin"
     },
@@ -327,7 +327,7 @@
       "width": 60,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mauville",
+      "secondary_tileset": "gTileset_Unused1",
       "border_filepath": "data/layouts/Route117/border.bin",
       "blockdata_filepath": "data/layouts/Route117/map.bin"
     },
@@ -337,7 +337,7 @@
       "width": 80,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mauville",
+      "secondary_tileset": "gTileset_Unused1",
       "border_filepath": "data/layouts/Route118/border.bin",
       "blockdata_filepath": "data/layouts/Route118/map.bin"
     },
@@ -3917,7 +3917,7 @@
       "width": 40,
       "height": 140,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mauville",
+      "secondary_tileset": "gTileset_Unused1",
       "border_filepath": "data/layouts/Route111_NoMirageTower/border.bin",
       "blockdata_filepath": "data/layouts/Route111_NoMirageTower/map.bin"
     },
@@ -5794,7 +5794,7 @@
     {
       "id": "LAYOUT_ROUTE13",
       "name": "Route13_Layout",
-      "width": 37,
+      "width": 31,
       "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_CyclingRoad",
@@ -6205,7 +6205,7 @@
       "id": "LAYOUT_ROUTE22",
       "name": "Route22_Layout",
       "width": 40,
-      "height": 64,
+      "height": 54,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Drisledge",
       "border_filepath": "data/layouts/Route22/border.bin",
@@ -6404,7 +6404,7 @@
     {
       "id": "LAYOUT_EVERFROST_TOWN",
       "name": "EverfrostTown_Layout",
-      "width": 40,
+      "width": 34,
       "height": 30,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
@@ -6434,7 +6434,7 @@
     {
       "id": "LAYOUT_ICEPERCH_CITY",
       "name": "IceperchCity_Layout",
-      "width": 60,
+      "width": 54,
       "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
@@ -6455,7 +6455,7 @@
       "id": "LAYOUT_GALEWIND_CITY",
       "name": "GalewindCity_Layout",
       "width": 40,
-      "height": 50,
+      "height": 42,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/GalewindCity/border.bin",
@@ -6564,7 +6564,7 @@
     {
       "id": "LAYOUT_ROUTE21",
       "name": "Route21_Layout",
-      "width": 40,
+      "width": 47,
       "height": 82,
       "primary_tileset": "gTileset_General2",
       "secondary_tileset": "gTileset_Crystalpine",
@@ -6574,10 +6574,10 @@
     {
       "id": "LAYOUT_ROUTE22_PART2",
       "name": "Route22_Part2_Layout",
-      "width": 145,
-      "height": 35,
+      "width": 96,
+      "height": 71,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "secondary_tileset": "gTileset_MagicForest",
       "border_filepath": "data/layouts/Route22_Part2/border.bin",
       "blockdata_filepath": "data/layouts/Route22_Part2/map.bin"
     },
@@ -6604,8 +6604,8 @@
     {
       "id": "LAYOUT_ROUTE26",
       "name": "Route26_Layout",
-      "width": 60,
-      "height": 40,
+      "width": 46,
+      "height": 70,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Route26/border.bin",
@@ -6614,7 +6614,7 @@
     {
       "id": "LAYOUT_ROUTE27",
       "name": "Route27_Layout",
-      "width": 100,
+      "width": 98,
       "height": 75,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
@@ -6624,7 +6624,7 @@
     {
       "id": "LAYOUT_ROUTE27_PART2",
       "name": "Route27_Part2_Layout",
-      "width": 30,
+      "width": 26,
       "height": 75,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
@@ -6635,7 +6635,7 @@
       "id": "LAYOUT_ROUTE28_PART2",
       "name": "Route28_Part2_Layout",
       "width": 30,
-      "height": 119,
+      "height": 123,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Route28_Part2/border.bin",
@@ -7264,7 +7264,7 @@
     {
       "id": "LAYOUT_OCEAN_WALKWAY",
       "name": "OceanWalkway_Layout",
-      "width": 120,
+      "width": 85,
       "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_CyclingRoad",
@@ -7550,6 +7550,26 @@
       "secondary_tileset": "gTileset_Crystalpine",
       "border_filepath": "data/layouts/Route20_Filler/border.bin",
       "blockdata_filepath": "data/layouts/Route20_Filler/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE22_FILLER",
+      "name": "Route22_Filler_Layout",
+      "width": 25,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Drisledge",
+      "border_filepath": "data/layouts/Route22_Filler/border.bin",
+      "blockdata_filepath": "data/layouts/Route22_Filler/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE21_FILLER",
+      "name": "Route21_Filler_Layout",
+      "width": 24,
+      "height": 35,
+      "primary_tileset": "gTileset_General2",
+      "secondary_tileset": "gTileset_Crystalpine",
+      "border_filepath": "data/layouts/Route21_Filler/border.bin",
+      "blockdata_filepath": "data/layouts/Route21_Filler/map.bin"
     }
   ]
 }

@@ -333,3 +333,6 @@ const u16 gMetatileAttributes_Everfrost[] = INCBIN_U16("data/tilesets/secondary/
 
 const u16 gMetatiles_Crowd[] = INCBIN_U16("data/tilesets/primary/crowd/metatiles.bin");
 const u16 gMetatileAttributes_Crowd[] = INCBIN_U16("data/tilesets/primary/crowd/metatile_attributes.bin");
+
+const u16 gMetatiles_MagicForest[] = INCBIN_U16("data/tilesets/secondary/magic_forest/metatiles.bin");
+const u16 gMetatileAttributes_MagicForest[] = INCBIN_U16("data/tilesets/secondary/magic_forest/metatile_attributes.bin");

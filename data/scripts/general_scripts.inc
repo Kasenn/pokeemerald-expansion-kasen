@@ -50,7 +50,7 @@ EventScript_UseRockClimb::
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantRockClimb
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	setfieldeffectargument 0, VAR_RESULT
-	compare VAR_ROCK_CLIMB_USED, 3
+	compare VAR_ROCK_CLIMB_USED, 2
 	goto_if_lt EventScript_UseRockClimb_2
 EventScript_UseRockClimb_1:
 	msgbox Text_MonUsedRockClimb, MSGBOX_DEFAULT

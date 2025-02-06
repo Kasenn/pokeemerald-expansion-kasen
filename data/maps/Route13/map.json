@@ -20,8 +20,13 @@
     },
     {
       "map": "MAP_GALEWIND_CITY",
-      "offset": 43,
+      "offset": 37,
       "direction": "up"
+    },
+    {
+      "map": "MAP_OCEAN_WALKWAY",
+      "offset": 0,
+      "direction": "right"
     }
   ],
   "object_events": [

@@ -14,8 +14,8 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ROUTE13",
-      "offset": -100,
+      "map": "MAP_OCEAN_WALKWAY",
+      "offset": -52,
       "direction": "down"
     }
   ],
