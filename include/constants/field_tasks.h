@@ -11,5 +11,6 @@
 #define STEP_CB_CRACKED_FLOOR       7
 #define STEP_CB_TELEPORT_FLOOR      8
 #define STEP_CB_ICY_GYM_FLOOR       9
+#define STEP_CB_ROPE_BRIDGE         10
 
 #endif // GUARD_CONSTANTS_FIELD_TASKS_H

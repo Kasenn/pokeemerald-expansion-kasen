@@ -52,6 +52,7 @@ struct PacifidlogMetatileOffsets
 static void DummyPerStepCallback(u8);
 static void AshGrassPerStepCallback(u8);
 static void FortreeBridgePerStepCallback(u8);
+static void RopeBridgePerStepCallback(u8);
 static void PacifidlogBridgePerStepCallback(u8);
 static void SootopolisGymIcePerStepCallback(u8);
 static void CrackedFloorPerStepCallback(u8);
@@ -70,8 +71,8 @@ static const TaskFunc sPerStepCallbacks[] =
     [STEP_CB_SECRET_BASE]       = CrackedFloorPerStepCallback,
     [STEP_CB_CRACKED_FLOOR]     = CrackedFloorPerStepCallback,
     [STEP_CB_TELEPORT_FLOOR]    = TeleportFloorPerStepCallback,
-    [STEP_CB_ICY_GYM_FLOOR]     = IcyGymFloorPerStepCallback
-    
+    [STEP_CB_ICY_GYM_FLOOR]     = IcyGymFloorPerStepCallback,
+    [STEP_CB_ROPE_BRIDGE]     = RopeBridgePerStepCallback,
 };
 
 // Each array has 4 pairs of data, each pair representing two metatiles of a log and their relative position.
@@ -822,6 +823,59 @@ static void IcyGymFloorPerStepCallback(u8 taskId)
         }
     }
 }
+
+extern const u8 RopeBridgeScript[];
+
+static void RopeBridgePerStepCallback(u8 taskId)
+{
+    s16 x, y;
+    s16 *data = gTasks[taskId].data;
+    // struct ObjectEvent *playerObj = &gObjectEvents[gPlayerAvatar.objectEventId];
+    // struct Sprite *playerSprite = &gSprites[playerObj->spriteId];
+    u8 sFramesStandingStill = VarGet(VAR_TEMP_0);
+    PlayerGetDestCoords(&x, &y);
+    u8 elevation = PlayerGetElevation();
+
+    if (x == tPrevX && y == tPrevY)
+    {
+        if (MetatileBehavior_IsRopeBridge(MapGridGetMetatileBehaviorAt(x, y)) && elevation == 4)
+        {
+            sFramesStandingStill++;
+            DebugPrintfLevel(MGBA_LOG_WARN, "%d", sFramesStandingStill);
+            if (sFramesStandingStill == 90)
+            {
+                sFramesStandingStill = 0;
+                // if (sFramesStandingStill % 30 == 0)
+                // {
+                //     playerSprite->x2 ^= -1;
+                //     // playerSprite->x -= 8;
+                //     // playerSprite->x2 -= 8;
+                //     // playerSprite->centerToCornerVecX -= 8;
+                // }
+                VarSet(VAR_TEMP_0, sFramesStandingStill);
+                ScriptContext_SetupScript(RopeBridgeScript);
+                return;
+            }
+        }
+        else
+        {
+            sFramesStandingStill = 0;
+            VarSet(VAR_TEMP_0, sFramesStandingStill);
+            return;
+        }
+    }
+    else
+    {
+        sFramesStandingStill = 0;
+    }
+
+    VarSet(VAR_TEMP_0, sFramesStandingStill);
+
+    // Store the new position for the next check
+    tPrevX = x;
+    tPrevY = y;
+}
+
 
 static void AshGrassPerStepCallback(u8 taskId)
 {

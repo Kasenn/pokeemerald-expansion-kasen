@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_OCEAN_WALKWAY",
-      "offset": -52,
+      "offset": -48,
       "direction": "down"
     }
   ],

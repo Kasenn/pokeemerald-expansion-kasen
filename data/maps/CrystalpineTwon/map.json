@@ -3,7 +3,7 @@
   "name": "CrystalpineTwon",
   "layout": "LAYOUT_CRYSTALPINE_TWON",
   "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_TOWN_WIP8",
+  "region_map_section": "MAPSEC_CRYSTALPINE_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",

@@ -94,6 +94,7 @@ struct Trainer
              u8 startingStatus:6;    // this trainer starts a battle with a given status. see include/constants/battle.h for values
     /*0x1F*/ u8 mugshotColor;
     /*0x20*/ u8 partySize;
+             s8 extendedBpCap;
 };
 
 struct TrainerClass

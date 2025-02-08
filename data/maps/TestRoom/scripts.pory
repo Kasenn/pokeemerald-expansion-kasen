@@ -10,6 +10,9 @@ mapscripts TestRoom_MapScripts {
     // MAP_SCRIPT_ON_FRAME_TABLE[
     //     VAR_TEMP_0, 0: TestFollowerMacro
     // ]
+    MAP_SCRIPT_ON_RESUME{
+        setstepcallback(STEP_CB_ROPE_BRIDGE)
+    }
 }
 
 const X = VAR_0x8001

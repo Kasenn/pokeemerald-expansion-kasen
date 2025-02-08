@@ -115,7 +115,7 @@
 #define MAPSEC_TOWN_WIP6                    0x6F
 #define MAPSEC_FROSTFIRE_CITY                    0x70
 #define MAPSEC_BASALEK_TOWN                    0x71
-#define MAPSEC_TOWN_WIP8                    0x72
+#define MAPSEC_CRYSTALPINE_TOWN                    0x72
 #define MAPSEC_TOWN_WIP9                    0x73
 #define MAPSEC_TOWN_WIP10                   0x74
 #define MAPSEC_CITY_WIP6                    0x75

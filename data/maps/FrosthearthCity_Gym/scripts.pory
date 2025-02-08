@@ -792,7 +792,10 @@ text Pryce_ExplainBadge{
     "With the Frostburn Badge in your\n"
     "possession, any traded Pokémon\l"
     "up to level 80 should unquestionably\l"
-    "follow all of your commands."
+    "follow all of your commands.\p"
+    "You will also be able to earn\n"
+    "increased amount of BP from\l"
+    "certain high-level trainers."
 }
 text BlaineTakeThisTM{
     "Blaine: Wait up, kiddo!\p"

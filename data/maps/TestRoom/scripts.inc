@@ -1,5 +1,10 @@
 TestRoom_MapScripts::
+	map_script MAP_SCRIPT_ON_RESUME, TestRoom_MapScripts_MAP_SCRIPT_ON_RESUME
 	.byte 0
+
+TestRoom_MapScripts_MAP_SCRIPT_ON_RESUME:
+	setstepcallback STEP_CB_ROPE_BRIDGE
+	return
 
 
 TestFollowerMacro::

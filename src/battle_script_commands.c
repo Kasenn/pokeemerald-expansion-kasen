@@ -8064,29 +8064,38 @@ static u32 GetTrainerMoneyToGive(u16 trainerId)
     return moneyReward;
 }
 
+static inline const u8 GetTrainerBpCapFromId(u16 trainerId)
+{
+    return gTrainers[SanitizeTrainerId(trainerId)].extendedBpCap;
+}
+
 static void Cmd_getmoneyreward(void)
 {
     CMD_ARGS(const u8 *jumpInstr);
 
     u32 money;
-    u32 battlePoints = 0;
+    u8 bpCap, battlePoints;
     u8 sPartyLevel = 1;
+
+    battlePoints = 0;
+    bpCap = 3;
+    if (GetTrainerBpCapFromId(gTrainerBattleOpponent_A) && FlagGet(FLAG_BADGE06_GET))
+    {
+        bpCap = 5;
+    }
 
     if (gBattleOutcome == B_OUTCOME_WON)
     {
         money = GetTrainerMoneyToGive(gTrainerBattleOpponent_A);
         if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
             money += GetTrainerMoneyToGive(gTrainerBattleOpponent_B);
+        if (gBattleTypeFlags & (BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_DOUBLE))
+            bpCap = bpCap * 2;
             
         battlePoints = money / 500;
-        if (gBattleTypeFlags & (BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_DOUBLE)){
-            if (battlePoints > 6)
-                battlePoints = 6;
-        }
-        else{
-            if (battlePoints > 3)
-            battlePoints = 3;
-        }
+
+        if (battlePoints > bpCap)
+            battlePoints = bpCap;
         
         if (FlagGet(FLAG_SYSTEM_NOREWARDBATTLES))
         {

@@ -1,5 +1,12 @@
 // This file is meant for general scripts that have no other place to go, as well as debug scripts
 
+script RopeBridgeScript{
+    playse(SE_LEDGE)
+    applymovement(0xFF, moves(lock_anim, lock_facing_direction, jump_right, unlock_anim, unlock_facing_direction))
+    waitmovement(0)
+    release
+}
+
 //
 // General stuff
 //

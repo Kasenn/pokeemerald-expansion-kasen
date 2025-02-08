@@ -1208,6 +1208,14 @@ bool8 MetatileBehavior_IsFortreeBridge(u8 metatileBehavior)
         return FALSE;
 }
 
+bool8 MetatileBehavior_IsRopeBridge(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_ROPE_BRIDGE)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 bool8 MetatileBehavior_IsPacifidlogVerticalLogTop(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_PACIFIDLOG_VERTICAL_LOG_TOP)

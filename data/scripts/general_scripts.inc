@@ -1,3 +1,11 @@
+RopeBridgeScript::
+	playse SE_LEDGE
+	applymovement 0xFF, RopeBridgeScript_Movement_0
+	waitmovement 0
+	release
+	return
+
+
 CountGymBadges::
 	goto_if_set FLAG_BADGE08_GET, CountGymBadges_2
 	goto_if_set FLAG_BADGE07_GET, CountGymBadges_3
@@ -636,6 +644,14 @@ BarrenWastes_Block2::
 	release
 	end
 
+
+RopeBridgeScript_Movement_0:
+	lock_anim
+	lock_facing_direction
+	jump_right
+	unlock_anim
+	unlock_facing_direction
+	step_end
 
 Debug_Script_1_Text_0:
 	.string "Gym 1 (lvl 14)$"

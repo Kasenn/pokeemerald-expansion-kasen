@@ -2,7 +2,7 @@
   "id": "MAP_TEST_ROOM",
   "name": "TestRoom",
   "layout": "LAYOUT_TEST_ROOM",
-  "music": "MUS_B_DOME",
+  "music": "MUS_ROUTE110",
   "region_map_section": "MAPSEC_ALDELEAF_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -267,8 +267,8 @@
   ],
   "warp_events": [
     {
-      "x": 3,
-      "y": 15,
+      "x": 48,
+      "y": 45,
       "elevation": 0,
       "dest_map": "MAP_TEST_ROOM",
       "dest_warp_id": "0"
