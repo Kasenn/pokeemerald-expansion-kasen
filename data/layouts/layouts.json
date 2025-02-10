@@ -6434,10 +6434,10 @@
     {
       "id": "LAYOUT_ICEPERCH_CITY",
       "name": "IceperchCity_Layout",
-      "width": 54,
-      "height": 40,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "width": 62,
+      "height": 49,
+      "primary_tileset": "gTileset_General2",
+      "secondary_tileset": "gTileset_Everfrost",
       "border_filepath": "data/layouts/IceperchCity/border.bin",
       "blockdata_filepath": "data/layouts/IceperchCity/map.bin"
     },
@@ -6447,7 +6447,7 @@
       "width": 50,
       "height": 90,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "secondary_tileset": "gTileset_EverGrande",
       "border_filepath": "data/layouts/SnowcrestCity/border.bin",
       "blockdata_filepath": "data/layouts/SnowcrestCity/map.bin"
     },
@@ -6616,28 +6616,28 @@
       "name": "Route27_Layout",
       "width": 98,
       "height": 75,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "primary_tileset": "gTileset_General2",
+      "secondary_tileset": "gTileset_Everfrost",
       "border_filepath": "data/layouts/Route27/border.bin",
       "blockdata_filepath": "data/layouts/Route27/map.bin"
     },
     {
       "id": "LAYOUT_ROUTE27_PART2",
       "name": "Route27_Part2_Layout",
-      "width": 26,
+      "width": 31,
       "height": 75,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "primary_tileset": "gTileset_General2",
+      "secondary_tileset": "gTileset_Everfrost",
       "border_filepath": "data/layouts/Route27_Part2/border.bin",
       "blockdata_filepath": "data/layouts/Route27_Part2/map.bin"
     },
     {
       "id": "LAYOUT_ROUTE28_PART2",
       "name": "Route28_Part2_Layout",
-      "width": 30,
-      "height": 123,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "width": 45,
+      "height": 105,
+      "primary_tileset": "gTileset_General2",
+      "secondary_tileset": "gTileset_Everfrost",
       "border_filepath": "data/layouts/Route28_Part2/border.bin",
       "blockdata_filepath": "data/layouts/Route28_Part2/map.bin"
     },
@@ -6646,8 +6646,8 @@
       "name": "Route29_Layout",
       "width": 90,
       "height": 40,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "primary_tileset": "gTileset_General2",
+      "secondary_tileset": "gTileset_Everfrost",
       "border_filepath": "data/layouts/Route29/border.bin",
       "blockdata_filepath": "data/layouts/Route29/map.bin"
     },
@@ -7570,6 +7570,36 @@
       "secondary_tileset": "gTileset_Crystalpine",
       "border_filepath": "data/layouts/Route21_Filler/border.bin",
       "blockdata_filepath": "data/layouts/Route21_Filler/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE26_FILLER",
+      "name": "Route26_Filler_Layout",
+      "width": 24,
+      "height": 18,
+      "primary_tileset": "gTileset_General2",
+      "secondary_tileset": "gTileset_Everfrost",
+      "border_filepath": "data/layouts/Route26_Filler/border.bin",
+      "blockdata_filepath": "data/layouts/Route26_Filler/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE28_PART2_SIDE_AREA",
+      "name": "Route28_Part2_SideArea_Layout",
+      "width": 25,
+      "height": 22,
+      "primary_tileset": "gTileset_General2",
+      "secondary_tileset": "gTileset_Everfrost",
+      "border_filepath": "data/layouts/Route28_Part2_SideArea/border.bin",
+      "blockdata_filepath": "data/layouts/Route28_Part2_SideArea/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE28_FILLER",
+      "name": "Route28_Filler_Layout",
+      "width": 45,
+      "height": 11,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Everfrost",
+      "border_filepath": "data/layouts/Route28_Filler/border.bin",
+      "blockdata_filepath": "data/layouts/Route28_Filler/map.bin"
     }
   ]
 }

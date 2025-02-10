@@ -22,6 +22,11 @@
       "map": "MAP_WINDPLUME_RIDGE",
       "offset": 50,
       "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE28_FILLER",
+      "offset": 12,
+      "direction": "up"
     }
   ],
   "object_events": [

@@ -126,7 +126,8 @@
     "FrigidFrontier7",
     "FrigidFrontier8",
     "FrigidFrontier9",
-    "FrigidFrontier10"
+    "FrigidFrontier10",
+    "Route28_Part2_SideArea"
   ],
   "gMapGroup_RouteInteriors": [
     "Route7_Grotto",
@@ -967,7 +968,8 @@
     "AlteringCave",
     "MeteorFalls_StevensCave",
     "MtChimney",
-    "AmberockTest"
+    "AmberockTest",
+    "Route28_Filler"
   ],
   "gMapGroup_IndoorRoute124": [
     "TestRoom",
@@ -994,6 +996,7 @@
     "Route24_Filler",
     "Route20_Filler",
     "Route22_Filler",
-    "Route21_Filler"
+    "Route21_Filler",
+    "Route26_Filler"
   ]
 }

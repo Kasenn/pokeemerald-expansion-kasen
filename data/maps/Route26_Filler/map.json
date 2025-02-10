@@ -1,0 +1,39 @@
+{
+  "id": "MAP_ROUTE26_FILLER",
+  "name": "Route26_Filler",
+  "layout": "LAYOUT_ROUTE26_FILLER",
+  "music": "MUS_DUMMY",
+  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_ROUTE26",
+      "offset": -35,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_EVERFROST_TOWN",
+      "offset": -10,
+      "direction": "down"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

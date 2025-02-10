@@ -22,6 +22,11 @@
       "map": "MAP_ROUTE26",
       "offset": -53,
       "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE26_FILLER",
+      "offset": 10,
+      "direction": "up"
     }
   ],
   "object_events": [
