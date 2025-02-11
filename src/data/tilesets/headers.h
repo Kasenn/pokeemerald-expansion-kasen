@@ -1300,3 +1300,14 @@ const struct Tileset gTileset_MagicForest =
     .metatileAttributes = gMetatileAttributes_MagicForest,
     .callback = InitTilesetAnim_Mauville,
 };
+
+const struct Tileset gTileset_Iceperch =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Iceperch,
+    .palettes = gTilesetPalettes_Iceperch,
+    .metatiles = gMetatiles_Iceperch,
+    .metatileAttributes = gMetatileAttributes_Iceperch,
+    .callback = NULL,
+};
