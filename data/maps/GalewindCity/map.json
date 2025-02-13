@@ -15,15 +15,15 @@
   "connections": [
     {
       "map": "MAP_OCEAN_WALKWAY",
-      "offset": -48,
+      "offset": -47,
       "direction": "down"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_ZYGARDE_CELL",
-      "x": 18,
-      "y": 21,
+      "x": 25,
+      "y": 2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,

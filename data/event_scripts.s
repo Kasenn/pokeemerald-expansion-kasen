@@ -1814,3 +1814,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Route28_Part2_SideArea/scripts.inc"
 
 	.include "data/maps/Route28_Filler/scripts.inc"
+
+	.include "data/maps/SnowcrestCity_Part2/scripts.inc"

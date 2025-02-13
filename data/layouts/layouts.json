@@ -5096,8 +5096,8 @@
       "name": "TestRoom_Layout",
       "width": 60,
       "height": 60,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Frostfire",
+      "primary_tileset": "gTileset_General2",
+      "secondary_tileset": "gTileset_Iceperch",
       "border_filepath": "data/layouts/TestRoom/border.bin",
       "blockdata_filepath": "data/layouts/TestRoom/map.bin"
     },
@@ -6434,8 +6434,8 @@
     {
       "id": "LAYOUT_ICEPERCH_CITY",
       "name": "IceperchCity_Layout",
-      "width": 62,
-      "height": 49,
+      "width": 65,
+      "height": 51,
       "primary_tileset": "gTileset_General2",
       "secondary_tileset": "gTileset_Iceperch",
       "border_filepath": "data/layouts/IceperchCity/border.bin",
@@ -6444,20 +6444,20 @@
     {
       "id": "LAYOUT_SNOWCREST_CITY",
       "name": "SnowcrestCity_Layout",
-      "width": 72,
-      "height": 79,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_EverGrande",
+      "width": 49,
+      "height": 31,
+      "primary_tileset": "gTileset_General2",
+      "secondary_tileset": "gTileset_Iceperch",
       "border_filepath": "data/layouts/SnowcrestCity/border.bin",
       "blockdata_filepath": "data/layouts/SnowcrestCity/map.bin"
     },
     {
       "id": "LAYOUT_GALEWIND_CITY",
       "name": "GalewindCity_Layout",
-      "width": 47,
-      "height": 52,
+      "width": 59,
+      "height": 55,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_WipCity1",
+      "secondary_tileset": "gTileset_Galewind",
       "border_filepath": "data/layouts/GalewindCity/border.bin",
       "blockdata_filepath": "data/layouts/GalewindCity/map.bin"
     },
@@ -6624,7 +6624,7 @@
     {
       "id": "LAYOUT_ROUTE27_PART2",
       "name": "Route27_Part2_Layout",
-      "width": 31,
+      "width": 32,
       "height": 75,
       "primary_tileset": "gTileset_General2",
       "secondary_tileset": "gTileset_Iceperch",
@@ -6644,7 +6644,7 @@
     {
       "id": "LAYOUT_ROUTE29",
       "name": "Route29_Layout",
-      "width": 90,
+      "width": 106,
       "height": 50,
       "primary_tileset": "gTileset_General2",
       "secondary_tileset": "gTileset_Iceperch",
@@ -7265,7 +7265,7 @@
       "id": "LAYOUT_OCEAN_WALKWAY",
       "name": "OceanWalkway_Layout",
       "width": 85,
-      "height": 40,
+      "height": 44,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_CyclingRoad",
       "border_filepath": "data/layouts/OceanWalkway/border.bin",
@@ -7600,6 +7600,16 @@
       "secondary_tileset": "gTileset_Everfrost",
       "border_filepath": "data/layouts/Route28_Filler/border.bin",
       "blockdata_filepath": "data/layouts/Route28_Filler/map.bin"
+    },
+    {
+      "id": "LAYOUT_SNOWCREST_CITY_PART2",
+      "name": "SnowcrestCity_Part2_Layout",
+      "width": 72,
+      "height": 53,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_EverGrande",
+      "border_filepath": "data/layouts/SnowcrestCity_Part2/border.bin",
+      "blockdata_filepath": "data/layouts/SnowcrestCity_Part2/map.bin"
     }
   ]
 }

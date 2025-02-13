@@ -15,8 +15,13 @@
   "connections": [
     {
       "map": "MAP_ROUTE29",
-      "offset": 55,
+      "offset": 7,
       "direction": "left"
+    },
+    {
+      "map": "MAP_SNOWCREST_CITY_PART2",
+      "offset": 18,
+      "direction": "up"
     }
   ],
   "object_events": [

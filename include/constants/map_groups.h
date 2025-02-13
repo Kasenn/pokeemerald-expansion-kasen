@@ -79,6 +79,7 @@
 #define MAP_FRIGID_FRONTIER9        (70 | (0 << 8))
 #define MAP_FRIGID_FRONTIER10       (71 | (0 << 8))
 #define MAP_ROUTE28_PART2_SIDE_AREA (72 | (0 << 8))
+#define MAP_SNOWCREST_CITY_PART2    (73 | (0 << 8))
 
 // gMapGroup_RouteInteriors
 #define MAP_ROUTE7_GROTTO                 (0 | (1 << 8))

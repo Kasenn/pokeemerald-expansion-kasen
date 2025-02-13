@@ -339,3 +339,6 @@ const u16 gMetatileAttributes_MagicForest[] = INCBIN_U16("data/tilesets/secondar
 
 const u16 gMetatiles_Iceperch[] = INCBIN_U16("data/tilesets/secondary/iceperch/metatiles.bin");
 const u16 gMetatileAttributes_Iceperch[] = INCBIN_U16("data/tilesets/secondary/iceperch/metatile_attributes.bin");
+
+const u16 gMetatiles_Galewind[] = INCBIN_U16("data/tilesets/secondary/galewind/metatiles.bin");
+const u16 gMetatileAttributes_Galewind[] = INCBIN_U16("data/tilesets/secondary/galewind/metatile_attributes.bin");

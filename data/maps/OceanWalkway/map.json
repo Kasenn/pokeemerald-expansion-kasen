@@ -15,12 +15,12 @@
   "connections": [
     {
       "map": "MAP_ROUTE13",
-      "offset": 0,
+      "offset": 4,
       "direction": "left"
     },
     {
       "map": "MAP_GALEWIND_CITY",
-      "offset": 48,
+      "offset": 47,
       "direction": "up"
     }
   ],

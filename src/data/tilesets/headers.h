@@ -1311,3 +1311,14 @@ const struct Tileset gTileset_Iceperch =
     .metatileAttributes = gMetatileAttributes_Iceperch,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Galewind =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Galewind,
+    .palettes = gTilesetPalettes_Galewind,
+    .metatiles = gMetatiles_Galewind,
+    .metatileAttributes = gMetatileAttributes_Galewind,
+    .callback = NULL,
+};

@@ -2473,3 +2473,22 @@ const u16 gTilesetPalettes_Iceperch[][16] =
 };
 
 const u32 gTilesetTiles_Iceperch[] = INCBIN_U32("data/tilesets/secondary/iceperch/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Galewind[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/galewind/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/galewind/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/galewind/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/galewind/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/galewind/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/galewind/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/galewind/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/galewind/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/galewind/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/galewind/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/galewind/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/galewind/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/galewind/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Galewind[] = INCBIN_U32("data/tilesets/secondary/galewind/tiles.4bpp.lz");

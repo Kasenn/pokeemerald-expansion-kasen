@@ -291,7 +291,30 @@ bool8 MetatileBehavior_IsSandOrDeepSand(u8 metatileBehavior)
 bool8 MetatileBehavior_IsSnow(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_LOW_SNOW
-     || metatileBehavior == MB_LOW_SNOW_ENCOUNTERS)
+     || metatileBehavior == MB_LOW_SNOW_ENCOUNTERS
+     || metatileBehavior == MB_NORMAL_SNOW)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsNormalSnow(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_NORMAL_SNOW)
+        return TRUE;
+    else
+        return FALSE;
+}
+bool8 MetatileBehavior_IsMediumSnow(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_MEDIUM_SNOW)
+        return TRUE;
+    else
+        return FALSE;
+}
+bool8 MetatileBehavior_IsDeepSnow(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_DEEP_SNOW)
         return TRUE;
     else
         return FALSE;
