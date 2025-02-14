@@ -6434,7 +6434,7 @@
     {
       "id": "LAYOUT_ICEPERCH_CITY",
       "name": "IceperchCity_Layout",
-      "width": 65,
+      "width": 69,
       "height": 51,
       "primary_tileset": "gTileset_General2",
       "secondary_tileset": "gTileset_Iceperch",
@@ -6447,7 +6447,7 @@
       "width": 49,
       "height": 31,
       "primary_tileset": "gTileset_General2",
-      "secondary_tileset": "gTileset_Iceperch",
+      "secondary_tileset": "gTileset_VictoryRoad",
       "border_filepath": "data/layouts/SnowcrestCity/border.bin",
       "blockdata_filepath": "data/layouts/SnowcrestCity/map.bin"
     },
@@ -6644,10 +6644,10 @@
     {
       "id": "LAYOUT_ROUTE29",
       "name": "Route29_Layout",
-      "width": 106,
+      "width": 102,
       "height": 50,
       "primary_tileset": "gTileset_General2",
-      "secondary_tileset": "gTileset_Iceperch",
+      "secondary_tileset": "gTileset_VictoryRoad",
       "border_filepath": "data/layouts/Route29/border.bin",
       "blockdata_filepath": "data/layouts/Route29/map.bin"
     },

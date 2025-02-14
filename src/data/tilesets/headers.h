@@ -1322,3 +1322,14 @@ const struct Tileset gTileset_Galewind =
     .metatileAttributes = gMetatileAttributes_Galewind,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_VictoryRoad =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_VictoryRoad,
+    .palettes = gTilesetPalettes_VictoryRoad,
+    .metatiles = gMetatiles_VictoryRoad,
+    .metatileAttributes = gMetatileAttributes_VictoryRoad,
+    .callback = NULL,
+};

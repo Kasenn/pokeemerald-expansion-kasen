@@ -342,3 +342,6 @@ const u16 gMetatileAttributes_Iceperch[] = INCBIN_U16("data/tilesets/secondary/i
 
 const u16 gMetatiles_Galewind[] = INCBIN_U16("data/tilesets/secondary/galewind/metatiles.bin");
 const u16 gMetatileAttributes_Galewind[] = INCBIN_U16("data/tilesets/secondary/galewind/metatile_attributes.bin");
+
+const u16 gMetatiles_VictoryRoad[] = INCBIN_U16("data/tilesets/secondary/victory_road/metatiles.bin");
+const u16 gMetatileAttributes_VictoryRoad[] = INCBIN_U16("data/tilesets/secondary/victory_road/metatile_attributes.bin");
