@@ -1334,12 +1334,33 @@ BattleScript_VCreateStatLossRet:
 	return
 
 BattleScript_SpectralThiefSteal::
+	setbyte sB_ANIM_TURN, 1
+	playmoveanimation BS_ATTACKER, MOVE_SPECTRAL_THIEF
+	waitanimation
+	setbyte sB_ANIM_TURN, 0
 	printstring STRINGID_SPECTRALTHIEFSTEAL
 	waitmessage B_WAIT_TIME_LONG
 	setbyte sB_ANIM_ARG2, 0
 	playanimation BS_ATTACKER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
 	spectralthiefprintstats
-	return
+	flushtextbox
+	goto BattleScript_EffectSpectralThiefFromDamage
+
+BattleScript_EffectSpectralThief::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	typecalc
+	tryspectralthiefsteal BattleScript_SpectralThiefSteal
+BattleScript_EffectSpectralThiefFromDamage:
+	critcalc
+	damagecalc
+	adjustdamage
+	call BattleScript_Hit_RetFromAtkAnimation
+	tryfaintmon BS_TARGET
+	moveendall
+	end
 
 BattleScript_EffectPartingShot::
 	attackcanceler
@@ -1843,25 +1864,17 @@ BattleScript_EffectFinalGambit::
 	jumpifmovehadnoeffect BattleScript_MoveEnd
 	goto BattleScript_MoveEnd
 
-BattleScript_EffectHitSwitchTarget::
-	call BattleScript_EffectHit_Ret
-	tryfaintmon BS_TARGET
-	jumpiffainted BS_TARGET, TRUE, BattleScript_MoveEnd
-	jumpifability BS_TARGET, ABILITY_SUCTION_CUPS, BattleScript_AbilityPreventsPhasingOut
-	jumpifability BS_TARGET, ABILITY_GUARD_DOG, BattleScript_MoveEnd
-	jumpifstatus3 BS_TARGET, STATUS3_ROOTED, BattleScript_PrintMonIsRooted
-	jumpiftargetdynamaxed BattleScript_HitSwitchTargetDynamaxed
-	tryhitswitchtarget BattleScript_MoveEnd
+BattleScript_TryHitSwitchTarget::
 	forcerandomswitch BattleScript_HitSwitchTargetForceRandomSwitchFailed
-	goto BattleScript_MoveEnd
+	return
 
-BattleScript_HitSwitchTargetDynamaxed:
+BattleScript_HitSwitchTargetDynamaxed::
 	printstring STRINGID_MOVEBLOCKEDBYDYNAMAX
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_HitSwitchTargetForceRandomSwitchFailed:
 	hitswitchtargetfailed
 	setbyte sSWITCH_CASE, B_SWITCH_NORMAL
-	goto BattleScript_MoveEnd
+	return
 
 BattleScript_EffectToxicThread::
 	setstatchanger STAT_SPEED, 1, TRUE
@@ -6927,6 +6940,12 @@ BattleScript_PrintMonIsRooted::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
+BattleScript_PrintMonIsRootedRet::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNANCHOREDITSELF
+	waitmessage B_WAIT_TIME_LONG
+	return
+
 BattleScript_AtkDefDown::
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_ATK, STAT_CHANGE_CANT_PREVENT | STAT_CHANGE_NEGATIVE | STAT_CHANGE_MULTIPLE_STATS
@@ -7977,8 +7996,12 @@ BattleScript_IntimidateEffect:
 	printstring STRINGID_PKMNCUTSATTACKWITH
 BattleScript_IntimidateEffect_WaitString:
 	waitmessage B_WAIT_TIME_LONG
+	saveattacker
+	savetarget
 	copybyte sBATTLER, gBattlerTarget
 	call BattleScript_TryIntimidateHoldEffects
+	restoreattacker
+	restoretarget
 BattleScript_IntimidateLoopIncrement:
 	addbyte gBattlerTarget, 1
 	jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_IntimidateLoop
@@ -8414,11 +8437,15 @@ BattleScript_FlashFireBoost::
 	goto BattleScript_MoveEnd
 
 BattleScript_AbilityPreventsPhasingOut::
+	call BattleScript_AbilityPreventsPhasingOutRet
+	goto BattleScript_MoveEnd
+
+BattleScript_AbilityPreventsPhasingOutRet::
 	pause B_WAIT_TIME_SHORT
-	call BattleScript_AbilityPopUp
+	call BattleScript_AbilityPopUpTarget
 	printstring STRINGID_PKMNANCHORSITSELFWITH
 	waitmessage B_WAIT_TIME_LONG
-	goto BattleScript_MoveEnd
+	return
 
 BattleScript_AbilityNoStatLoss::
 	pause B_WAIT_TIME_SHORT
