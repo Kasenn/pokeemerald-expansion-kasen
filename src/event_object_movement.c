@@ -2141,7 +2141,7 @@ struct ObjectEvent *GetFollowerObject(void)
 }
 
 // Return graphicsInfo for a pokemon species & form
-const struct ObjectEventGraphicsInfo *SpeciesToGraphicsInfo(u16 species, u8 form)
+const struct ObjectEventGraphicsInfo *SpeciesToGraphicsInfo(u32 species, bool32 shiny, bool32 female)
 {
     const struct ObjectEventGraphicsInfo *graphicsInfo = NULL;
 #if OW_POKEMON_OBJECT_EVENTS
@@ -2349,9 +2349,9 @@ static bool8 GetMonInfo(struct Pokemon *mon, u32 *species, bool32 *shiny, bool32
 }
 
 // Retrieve graphic information about the following pokemon, if any
-bool8 GetFollowerInfo(u16 *species, u8 *form, u8 *shiny)
+bool8 GetFollowerInfo(u32 *species, bool32 *form, bool32 *female)
 {
-    return GetMonInfo(GetFirstLiveMon(), species, shiny, female);
+    return GetMonInfo(GetFirstLiveMon(), species, form, female);
 }
 
 // Update following pokemon if any
@@ -2376,7 +2376,7 @@ void UpdateFollowingPokemon(void)
      || FlagGet(FLAG_PARTNER_HEALS)
      || gSaveBlock2Ptr->follower.inProgress)
     {
-        if (gSaveBlock2Ptr->follower.inProgress && (gMapHeader.mapType == MAP_TYPE_INDOOR && SpeciesToGraphicsInfo(species, form)->oam->size > ST_OAM_SIZE_2))
+        if (gSaveBlock2Ptr->follower.inProgress && (gMapHeader.mapType == MAP_TYPE_INDOOR && SpeciesToGraphicsInfo(species, shiny, female)->oam->size > ST_OAM_SIZE_2))
             return;
             
         RemoveFollowingPokemon();
@@ -2422,15 +2422,15 @@ void ReturnFollowingMonToBall(void)
 {
     struct ObjectEvent *objectEvent = GetFollowerObject();
     struct Sprite *sprite = &gSprites[objectEvent->spriteId];
-    u16 species;
-    bool8 shiny;
-    u8 form;
+    u32 species;
+    bool32 shiny;
+    bool32 form;
 
     if (OW_POKEMON_OBJECT_EVENTS == FALSE
      || OW_FOLLOWERS_ENABLED == FALSE
      || !GetFollowerInfo(&species, &form, &shiny)
-     || SpeciesToGraphicsInfo(species, form) == NULL
-     || (gMapHeader.mapType == MAP_TYPE_INDOOR && SpeciesToGraphicsInfo(species, form)->oam->size > ST_OAM_SIZE_2)
+     || SpeciesToGraphicsInfo(species, form, shiny) == NULL
+     || (gMapHeader.mapType == MAP_TYPE_INDOOR && SpeciesToGraphicsInfo(species, form, shiny)->oam->size > ST_OAM_SIZE_2)
      || FlagGet(FLAG_TEMP_HIDE_FOLLOWER))
     {
         RemoveFollowingPokemon();
@@ -3093,7 +3093,7 @@ const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u16 graphicsId)
         graphicsId = VarGetObjectEventGraphicsId(graphicsId - OBJ_EVENT_GFX_VARS);
 
     // if (graphicsId == OBJ_EVENT_GFX_BARD)
-    //     return gMauvilleOldManGraphicsInfoPointers[GetCurrentMauvilleOldMan()];
+    //     return OBJ_EVENT_GFX_BARD;
 
     if (graphicsId & OBJ_EVENT_MON)
         return SpeciesToGraphicsInfo(graphicsId & OBJ_EVENT_MON_SPECIES_MASK, graphicsId & OBJ_EVENT_MON_SHINY, graphicsId & OBJ_EVENT_MON_FEMALE);
