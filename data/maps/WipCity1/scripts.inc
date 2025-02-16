@@ -673,7 +673,7 @@ Aldeleaf_Sign2_Text::
 	.string "Leader: Volkner$"
 
 Aldeleaf_Sign3_Text::
-	.string "{UP_ARROW} Route 28\n"
+	.string "{UP_ARROW} Route 30\n"
 	.string "{RIGHT_ARROW} Windplume Valley$"
 
 Aldeleaf_Sign4_Text::

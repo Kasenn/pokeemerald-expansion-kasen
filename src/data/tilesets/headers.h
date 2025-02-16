@@ -1333,3 +1333,14 @@ const struct Tileset gTileset_VictoryRoad =
     .metatileAttributes = gMetatileAttributes_VictoryRoad,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Powerplant =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Powerplant,
+    .palettes = gTilesetPalettes_Powerplant,
+    .metatiles = gMetatiles_Powerplant,
+    .metatileAttributes = gMetatileAttributes_Powerplant,
+    .callback = NULL,
+};

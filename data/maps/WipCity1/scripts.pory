@@ -558,7 +558,7 @@ text Aldeleaf_Sign2_Text{
 	"Leader: Volkner"
 }
 text Aldeleaf_Sign3_Text{
-	"{UP_ARROW} Route 28\n"
+	"{UP_ARROW} Route 30\n"
 	"{RIGHT_ARROW} Windplume Valley"
 }
 text Aldeleaf_Sign4_Text{

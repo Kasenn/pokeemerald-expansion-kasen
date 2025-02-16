@@ -345,3 +345,6 @@ const u16 gMetatileAttributes_Galewind[] = INCBIN_U16("data/tilesets/secondary/g
 
 const u16 gMetatiles_VictoryRoad[] = INCBIN_U16("data/tilesets/secondary/victory_road/metatiles.bin");
 const u16 gMetatileAttributes_VictoryRoad[] = INCBIN_U16("data/tilesets/secondary/victory_road/metatile_attributes.bin");
+
+const u16 gMetatiles_Powerplant[] = INCBIN_U16("data/tilesets/secondary/powerplant/metatiles.bin");
+const u16 gMetatileAttributes_Powerplant[] = INCBIN_U16("data/tilesets/secondary/powerplant/metatile_attributes.bin");

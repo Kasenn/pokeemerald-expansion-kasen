@@ -406,7 +406,7 @@ static const u8 sMapHealLocations[][3] =
     [MAPSEC_GALEWIND_CITY]  = {MAP_GROUP(GALEWIND_CITY), MAP_NUM(GALEWIND_CITY), HEAL_LOCATION_GALEWIND_CITY},
     [MAPSEC_TOWN_WIP10]     = {MAP_GROUP(EVERFROST_TOWN), MAP_NUM(EVERFROST_TOWN), HEAL_LOCATION_EVERFROST_TOWN},
     [MAPSEC_CITY_WIP6]      = {MAP_GROUP(ICEPERCH_CITY), MAP_NUM(ICEPERCH_CITY), HEAL_LOCATION_ICEPERCH_CITY},
-    [MAPSEC_SNOWCREST_CITY] = {MAP_GROUP(SNOWCREST_CITY), MAP_NUM(SNOWCREST_CITY), HEAL_LOCATION_SNOWCREST_CITY},
+    [MAPSEC_SNOWCREST_CITY] = {MAP_GROUP(SNOWCREST_CITY_PART2), MAP_NUM(SNOWCREST_CITY_PART2), HEAL_LOCATION_SNOWCREST_CITY_PART2},
     [MAPSEC_ROUTE_104] = {MAP_GROUP(ROUTE104), MAP_NUM(ROUTE104), HEAL_LOCATION_NONE},
     [MAPSEC_ROUTE_105] = {MAP_GROUP(ROUTE105), MAP_NUM(ROUTE105), HEAL_LOCATION_NONE},
     [MAPSEC_ROUTE_106] = {MAP_GROUP(ROUTE106), MAP_NUM(ROUTE106), HEAL_LOCATION_NONE},
@@ -447,7 +447,7 @@ static const struct MultiNameFlyDest sMultiNameFlyDestinations[] =
 {
     {
         .name = sEverGrandeCityNames,
-        .mapSecId = MAPSEC_EVER_GRANDE_CITY,
+        .mapSecId = MAPSEC_SNOWCREST_CITY,
         .flag = FLAG_LANDMARK_POKEMON_LEAGUE
     }
 };
@@ -1744,7 +1744,11 @@ u8 *GetMapName(u8 *dest, u16 regionMapId, u16 padLength)
     // {
     //     str = GetSecretBaseMapName(dest);
     // }
-    if (regionMapId < MAPSEC_NONE)
+    if (MAP(SNOWCREST_CITY))
+    {
+        str = StringCopy(dest, gText_PokemonCenter);
+    }
+    else if (regionMapId < MAPSEC_NONE)
     {
         str = StringCopy(dest, gRegionMapEntries[regionMapId].name);
     }
@@ -2175,6 +2179,9 @@ static void CB_ExitFlyMap(void)
                     break;
                 case MAPSEC_EVER_GRANDE_CITY:
                     SetWarpDestinationToHealLocation(FlagGet(FLAG_LANDMARK_POKEMON_LEAGUE) && sFlyMap->regionMap.posWithinMapSec == 0 ? HEAL_LOCATION_EVER_GRANDE_CITY_POKEMON_LEAGUE : HEAL_LOCATION_EVER_GRANDE_CITY);
+                    break;
+                case MAPSEC_SNOWCREST_CITY:
+                    SetWarpDestinationToHealLocation(FlagGet(FLAG_LANDMARK_POKEMON_LEAGUE) && sFlyMap->regionMap.posWithinMapSec == 0 ? HEAL_LOCATION_SNOWCREST_CITY_PART2 : HEAL_LOCATION_SNOWCREST_CITY);
                     break;
                 default:
                     if (sMapHealLocations[sFlyMap->regionMap.mapSecId][2] != HEAL_LOCATION_NONE)

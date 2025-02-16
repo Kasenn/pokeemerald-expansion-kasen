@@ -2,8 +2,8 @@
   "id": "MAP_ROUTE29",
   "name": "Route29",
   "layout": "LAYOUT_ROUTE29",
-  "music": "MUS_ROUTE113",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "music": "MUS_ROUTE119",
+  "region_map_section": "MAPSEC_NEWROUTE_29",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",
@@ -20,7 +20,7 @@
     },
     {
       "map": "MAP_SNOWCREST_CITY",
-      "offset": -7,
+      "offset": -38,
       "direction": "right"
     }
   ],

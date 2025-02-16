@@ -538,7 +538,7 @@ LastMetInRoute28::
 	.string "How are your Pokémon doing?\n"
 	.string "Last time we met was in I believe…\p"
 	.string "Oh yeah!\p"
-	.string "We met at Route 28, right?\n"
+	.string "We met at Route 30, right?\n"
 	.string "The one north of Aldeleaf City!\p"
 	.string "Man, it sure has been a while.\p"
 	.string "You know, I remember being really\n"

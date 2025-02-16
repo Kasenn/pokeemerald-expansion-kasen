@@ -142,9 +142,9 @@
 #define MAPSEC_DESERT_CLIFFS                  0x8A
 #define MAPSEC_HIDDEN_CLEARING              0x8B
 #define MAPSEC_SNOWY_RIDGE                0x8C
-#define MAPSEC_CERULEAN_CAVE                0x8D
+#define MAPSEC_MAGIC_FOREST                0x8D
 #define MAPSEC_POWER_PLANT                  0x8E
-#define MAPSEC_ONE_ISLAND                   0x8F
+#define MAPSEC_NEWROUTE_27_PART2                   0x8F
 #define MAPSEC_TWO_ISLAND                   0x90
 #define MAPSEC_THREE_ISLAND                 0x91
 #define MAPSEC_FOUR_ISLAND                  0x92
