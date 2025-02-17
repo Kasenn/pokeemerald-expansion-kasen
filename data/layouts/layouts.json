@@ -7575,7 +7575,7 @@
       "id": "LAYOUT_ROUTE26_FILLER",
       "name": "Route26_Filler_Layout",
       "width": 24,
-      "height": 18,
+      "height": 25,
       "primary_tileset": "gTileset_General2",
       "secondary_tileset": "gTileset_Everfrost",
       "border_filepath": "data/layouts/Route26_Filler/border.bin",

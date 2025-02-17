@@ -25,15 +25,15 @@
     },
     {
       "map": "MAP_ROUTE26_FILLER",
-      "offset": 35,
+      "offset": 28,
       "direction": "left"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_ZYGARDE_CELL",
-      "x": 12,
-      "y": 18,
+      "x": 7,
+      "y": 23,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
