@@ -14,16 +14,6 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_TEST_WALL",
-      "offset": 12,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_TEST_ROOM_COPY",
-      "offset": -28,
-      "direction": "right"
-    },
-    {
       "map": "MAP_TEST_ROOM_COPY",
       "offset": 28,
       "direction": "left"

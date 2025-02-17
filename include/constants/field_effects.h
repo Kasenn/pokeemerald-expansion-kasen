@@ -87,6 +87,7 @@
 #define FLDEFF_TRACKS_SPOT_SNOW          82
 #define FLDEFF_TRACKS_BUG_SNOW           83
 #define FLDEFF_TALL_GRASS_SNOW           84
+#define FLDEFF_SNOW_PILE                 85
 
 
 #define FLDEFFOBJ_SHADOW_S              0
@@ -139,6 +140,7 @@
 #define FLDEFFOBJ_TRACKS_SPOT_SNOW      47
 #define FLDEFFOBJ_TRACKS_BUG_SNOW       48
 #define FLDEFFOBJ_DEEP_SNOW_FOOTPRINTS  49
+#define FLDEFFOBJ_SNOW_PILE 50
 
 #define FLDEFF_PAL_TAG_CUT_GRASS          0x1000
 #define FLDEFF_PAL_TAG_SECRET_POWER_TREE  0x1003

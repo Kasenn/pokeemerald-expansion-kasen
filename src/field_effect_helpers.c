@@ -1559,7 +1559,20 @@ u32 FldEff_SandPile(void)
 {
     u8 objectEventId = GetObjectEventIdByLocalIdAndMap(gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2]);
     struct ObjectEvent *objectEvent = &gObjectEvents[objectEventId];
-    u8 spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_SAND_PILE], 0, 0, 0);
+    u8 pileType;
+
+    if (MAP(TEST_ROOM))
+    {
+        pileType = FLDEFFOBJ_SNOW_PILE;
+    }
+    else
+    {
+        pileType = FLDEFFOBJ_SAND_PILE;
+    }
+
+    u8 spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[pileType], 0, 0, 0);
+
+
     if (spriteId != MAX_SPRITES)
     {
         const struct ObjectEventGraphicsInfo *graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
@@ -1608,10 +1621,19 @@ u32 FldEff_MudPile(void)
 void UpdateSandPileFieldEffect(struct Sprite *sprite)
 {
     u8 objectEventId;
+    u8 fieldEffect;
 
     if (TryGetObjectEventIdByLocalIdAndMap(sprite->sLocalId, sprite->sMapNum, sprite->sMapGroup, &objectEventId) || !gObjectEvents[objectEventId].inSandPile)
     {
-        FieldEffectStop(sprite, FLDEFF_SAND_PILE);
+        if (MAP(TEST_ROOM))
+        {
+            fieldEffect = FLDEFF_SNOW_PILE;
+        }
+        else
+        {
+            fieldEffect = FLDEFF_SAND_PILE;
+        }
+        FieldEffectStop(sprite, fieldEffect);
     }
     else
     {
@@ -1637,7 +1659,7 @@ void UpdateMudPileFieldEffect(struct Sprite *sprite)
     s16 x;
     s16 y;
 
-    if (TryGetObjectEventIdByLocalIdAndMap(sprite->data[0], sprite->data[1], sprite->data[2], &objectEventId) || !gObjectEvents[objectEventId].inMudPile)
+    if (TryGetObjectEventIdByLocalIdAndMap(sprite->data[0], sprite->data[1], sprite->data[2], &objectEventId) || !gObjectEvents[objectEventId].inSandPile)
     {
         FieldEffectStop(sprite, FLDEFF_MUD_PILE);
     }

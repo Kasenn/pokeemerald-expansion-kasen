@@ -93,12 +93,19 @@ static void PlayerAvatarTransition_Surfing(struct ObjectEvent *);
 static void PlayerAvatarTransition_Underwater(struct ObjectEvent *);
 static void PlayerAvatarTransition_ReturnToField(struct ObjectEvent *);
 
+static void PlayerAvatarTransition4PxSnow(struct ObjectEvent *);
+static void PlayerAvatarTransition6PxSnow(struct ObjectEvent *);
+static void PlayerAvatarTransition8PxSnow(struct ObjectEvent *);
+static void PlayerAvatarTransition10PxSnow(struct ObjectEvent *);
+
 static bool8 PlayerAnimIsMultiFrameStationary(void);
 static bool8 PlayerAnimIsMultiFrameStationaryAndStateNotTurning(void);
 static bool8 PlayerIsAnimActive(void);
 static bool8 PlayerCheckIfAnimFinishedOrInactive(void);
 
 static void PlayerWalkSlow(u8 direction);
+static void PlayerWalkSuperSlow(u8 direction);
+static void PlayerRunSuperSlow(u8 direction);
 static void PlayerRunSlow(u8 direction);
 static void PlayerRun(u8);
 static void PlayerNotOnBikeCollide(u8);
@@ -248,6 +255,10 @@ static void (*const sPlayerAvatarTransitionFuncs[])(struct ObjectEvent *) =
     [PLAYER_AVATAR_STATE_DASH]         = PlayerAvatarTransition_Dummy,
     [PLAYER_AVATAR_STATE_ROCK_CLIMBING]       = PlayerAvatarTransition_RockClimbing,
     [PLAYER_AVATAR_STATE_KROKOROK]     = PlayerAvatarTransition_Krokorok,
+    [PLAYER_AVATAR_STATE_4PX_SNOW]     = PlayerAvatarTransition_Normal,
+    [PLAYER_AVATAR_STATE_6PX_SNOW]     = PlayerAvatarTransition_Normal,
+    [PLAYER_AVATAR_STATE_8PX_SNOW]     = PlayerAvatarTransition_Normal,
+    [PLAYER_AVATAR_STATE_10PX_SNOW]    = PlayerAvatarTransition_Normal,
 };
 
 static bool8 (*const sArrowWarpMetatileBehaviorChecks[])(u8) =
@@ -284,7 +295,11 @@ static const u16 sPlayerAvatarGfxIds[][2] =
     [PLAYER_AVATAR_STATE_WATERING]      = {OBJ_EVENT_GFX_BRENDAN_WATERING,          OBJ_EVENT_GFX_MAY_WATERING},
     [PLAYER_AVATAR_STATE_VSSEEKER]      = {OBJ_EVENT_GFX_BRENDAN_FIELD_MOVE,        OBJ_EVENT_GFX_MAY_FIELD_MOVE},
     [PLAYER_AVATAR_STATE_KROKOROK]      = {OBJ_EVENT_GFX_KROKOROK,                  OBJ_EVENT_GFX_KROKOROK},
-    [PLAYER_AVATAR_STATE_FERTILIZING]   = {OBJ_EVENT_GFX_BRENDAN_FERTILIZING,      OBJ_EVENT_GFX_MAY_FERTILIZING},
+    [PLAYER_AVATAR_STATE_FERTILIZING]   = {OBJ_EVENT_GFX_BRENDAN_FERTILIZING,       OBJ_EVENT_GFX_MAY_FERTILIZING},
+    [PLAYER_AVATAR_STATE_4PX_SNOW]      = {OBJ_EVENT_GFX_BRENDAN_4PX_SNOW,          OBJ_EVENT_GFX_MAY_4PX_SNOW},
+    [PLAYER_AVATAR_STATE_6PX_SNOW]      = {OBJ_EVENT_GFX_BRENDAN_6PX_SNOW,          OBJ_EVENT_GFX_MAY_6PX_SNOW},
+    [PLAYER_AVATAR_STATE_8PX_SNOW]      = {OBJ_EVENT_GFX_BRENDAN_8PX_SNOW,          OBJ_EVENT_GFX_MAY_8PX_SNOW},
+    [PLAYER_AVATAR_STATE_10PX_SNOW]     = {OBJ_EVENT_GFX_BRENDAN_10PX_SNOW,         OBJ_EVENT_GFX_MAY_10PX_SNOW},
 };
 
 static const u16 sPlayerAvatarOrasGfxIds[][2] =
@@ -300,6 +315,10 @@ static const u16 sPlayerAvatarOrasGfxIds[][2] =
     [PLAYER_AVATAR_STATE_VSSEEKER]      = {OBJ_EVENT_GFX_BRENDAN_FIELD_MOVE,        OBJ_EVENT_GFX_MAY_FIELD_MOVE},
     [PLAYER_AVATAR_STATE_KROKOROK]      = {OBJ_EVENT_GFX_KROKOROK,                  OBJ_EVENT_GFX_KROKOROK},
     [PLAYER_AVATAR_STATE_FERTILIZING]   = {OBJ_EVENT_GFX_BRENDAN_FERTILIZING_ORAS,      OBJ_EVENT_GFX_MAY_FERTILIZING_ORAS},
+    [PLAYER_AVATAR_STATE_4PX_SNOW]      = {OBJ_EVENT_GFX_BRENDAN_ORAS_4PX_SNOW,          OBJ_EVENT_GFX_MAY_ORAS_4PX_SNOW},
+    [PLAYER_AVATAR_STATE_6PX_SNOW]      = {OBJ_EVENT_GFX_BRENDAN_ORAS_6PX_SNOW,          OBJ_EVENT_GFX_MAY_ORAS_6PX_SNOW},
+    [PLAYER_AVATAR_STATE_8PX_SNOW]      = {OBJ_EVENT_GFX_BRENDAN_ORAS_8PX_SNOW,          OBJ_EVENT_GFX_MAY_ORAS_8PX_SNOW},
+    [PLAYER_AVATAR_STATE_10PX_SNOW]     = {OBJ_EVENT_GFX_BRENDAN_ORAS_10PX_SNOW,         OBJ_EVENT_GFX_MAY_ORAS_10PX_SNOW},
 };
 
 static const u16 sPlayerAvatarRSGfxIds[][2] =
@@ -315,6 +334,10 @@ static const u16 sPlayerAvatarRSGfxIds[][2] =
     [PLAYER_AVATAR_STATE_VSSEEKER]      = {OBJ_EVENT_GFX_BRENDAN_FIELD_MOVE,        OBJ_EVENT_GFX_MAY_FIELD_MOVE},
     [PLAYER_AVATAR_STATE_KROKOROK]      = {OBJ_EVENT_GFX_KROKOROK,                  OBJ_EVENT_GFX_KROKOROK},
     [PLAYER_AVATAR_STATE_FERTILIZING]   = {OBJ_EVENT_GFX_BRENDAN_FERTILIZING_RS,      OBJ_EVENT_GFX_MAY_FERTILIZING_RS},
+    [PLAYER_AVATAR_STATE_4PX_SNOW]      = {OBJ_EVENT_GFX_BRENDAN_RS_4PX_SNOW,          OBJ_EVENT_GFX_MAY_RS_4PX_SNOW},
+    [PLAYER_AVATAR_STATE_6PX_SNOW]      = {OBJ_EVENT_GFX_BRENDAN_RS_6PX_SNOW,          OBJ_EVENT_GFX_MAY_RS_6PX_SNOW},
+    [PLAYER_AVATAR_STATE_8PX_SNOW]      = {OBJ_EVENT_GFX_BRENDAN_RS_8PX_SNOW,          OBJ_EVENT_GFX_MAY_RS_8PX_SNOW},
+    [PLAYER_AVATAR_STATE_10PX_SNOW]     = {OBJ_EVENT_GFX_BRENDAN_RS_10PX_SNOW,         OBJ_EVENT_GFX_MAY_RS_10PX_SNOW},
 };
 
 static const u16 sFRLGAvatarGfxIds[GENDER_COUNT] =
@@ -329,7 +352,7 @@ static const u16 sRSAvatarGfxIds[GENDER_COUNT] =
     [FEMALE] = OBJ_EVENT_GFX_LINK_RS_MAY
 };
 
-static const u8 sPlayerAvatarGfxToStateFlag[GENDER_COUNT][6][2] =
+static const u16 sPlayerAvatarGfxToStateFlag[GENDER_COUNT][10][2] =
 {
     [MALE] =
     {
@@ -339,6 +362,10 @@ static const u8 sPlayerAvatarGfxToStateFlag[GENDER_COUNT][6][2] =
         {OBJ_EVENT_GFX_BRENDAN_SURFING,    PLAYER_AVATAR_FLAG_SURFING},
         {OBJ_EVENT_GFX_BRENDAN_UNDERWATER, PLAYER_AVATAR_FLAG_UNDERWATER},
         {OBJ_EVENT_GFX_KROKOROK,           PLAYER_AVATAR_FLAG_KROKOROK},
+        {OBJ_EVENT_GFX_BRENDAN_4PX_SNOW,     PLAYER_AVATAR_FLAG_ON_FOOT},
+        {OBJ_EVENT_GFX_BRENDAN_6PX_SNOW,     PLAYER_AVATAR_FLAG_ON_FOOT},
+        {OBJ_EVENT_GFX_BRENDAN_8PX_SNOW,     PLAYER_AVATAR_FLAG_ON_FOOT},
+        {OBJ_EVENT_GFX_BRENDAN_10PX_SNOW,    PLAYER_AVATAR_FLAG_ON_FOOT},
     },
     [FEMALE] =
     {
@@ -348,10 +375,14 @@ static const u8 sPlayerAvatarGfxToStateFlag[GENDER_COUNT][6][2] =
         {OBJ_EVENT_GFX_MAY_SURFING,        PLAYER_AVATAR_FLAG_SURFING},
         {OBJ_EVENT_GFX_MAY_UNDERWATER,     PLAYER_AVATAR_FLAG_UNDERWATER},
         {OBJ_EVENT_GFX_KROKOROK,           PLAYER_AVATAR_FLAG_KROKOROK},
+        {OBJ_EVENT_GFX_MAY_4PX_SNOW,     PLAYER_AVATAR_FLAG_ON_FOOT},
+        {OBJ_EVENT_GFX_MAY_6PX_SNOW,     PLAYER_AVATAR_FLAG_ON_FOOT},
+        {OBJ_EVENT_GFX_MAY_8PX_SNOW,     PLAYER_AVATAR_FLAG_ON_FOOT},
+        {OBJ_EVENT_GFX_MAY_10PX_SNOW,    PLAYER_AVATAR_FLAG_ON_FOOT},
     }
 };
 
-static const u8 sPlayerAvatarGfxToStateFlagOras[GENDER_COUNT][6][2] =
+static const u16 sPlayerAvatarGfxToStateFlagOras[GENDER_COUNT][10][2] =
 {
     [MALE] =
     {
@@ -361,6 +392,10 @@ static const u8 sPlayerAvatarGfxToStateFlagOras[GENDER_COUNT][6][2] =
         {OBJ_EVENT_GFX_BRENDAN_SURFING_ORAS,    PLAYER_AVATAR_FLAG_SURFING},
         {OBJ_EVENT_GFX_BRENDAN_UNDERWATER, PLAYER_AVATAR_FLAG_UNDERWATER},
         {OBJ_EVENT_GFX_KROKOROK,           PLAYER_AVATAR_FLAG_KROKOROK},
+        {OBJ_EVENT_GFX_BRENDAN_ORAS_4PX_SNOW,     PLAYER_AVATAR_FLAG_ON_FOOT},
+        {OBJ_EVENT_GFX_BRENDAN_ORAS_6PX_SNOW,     PLAYER_AVATAR_FLAG_ON_FOOT},
+        {OBJ_EVENT_GFX_BRENDAN_ORAS_8PX_SNOW,     PLAYER_AVATAR_FLAG_ON_FOOT},
+        {OBJ_EVENT_GFX_BRENDAN_ORAS_10PX_SNOW,    PLAYER_AVATAR_FLAG_ON_FOOT},
     },
     [FEMALE] =
     {
@@ -370,10 +405,14 @@ static const u8 sPlayerAvatarGfxToStateFlagOras[GENDER_COUNT][6][2] =
         {OBJ_EVENT_GFX_MAY_SURFING_ORAS,        PLAYER_AVATAR_FLAG_SURFING},
         {OBJ_EVENT_GFX_MAY_UNDERWATER_ORAS,     PLAYER_AVATAR_FLAG_UNDERWATER},
         {OBJ_EVENT_GFX_KROKOROK,           PLAYER_AVATAR_FLAG_KROKOROK},
+        {OBJ_EVENT_GFX_MAY_ORAS_4PX_SNOW,     PLAYER_AVATAR_FLAG_ON_FOOT},
+        {OBJ_EVENT_GFX_MAY_ORAS_6PX_SNOW,     PLAYER_AVATAR_FLAG_ON_FOOT},
+        {OBJ_EVENT_GFX_MAY_ORAS_8PX_SNOW,     PLAYER_AVATAR_FLAG_ON_FOOT},
+        {OBJ_EVENT_GFX_MAY_ORAS_10PX_SNOW,    PLAYER_AVATAR_FLAG_ON_FOOT},
     }
 };
 
-static const u16 sPlayerAvatarGfxToStateFlagRS[GENDER_COUNT][6][2] =
+static const u16 sPlayerAvatarGfxToStateFlagRS[GENDER_COUNT][10][2] =
 {
     [MALE] =
     {
@@ -383,6 +422,10 @@ static const u16 sPlayerAvatarGfxToStateFlagRS[GENDER_COUNT][6][2] =
         {OBJ_EVENT_GFX_BRENDAN_SURFING_RS,    PLAYER_AVATAR_FLAG_SURFING},
         {OBJ_EVENT_GFX_BRENDAN_UNDERWATER, PLAYER_AVATAR_FLAG_UNDERWATER},
         {OBJ_EVENT_GFX_KROKOROK,           PLAYER_AVATAR_FLAG_KROKOROK},
+        {OBJ_EVENT_GFX_BRENDAN_RS_4PX_SNOW,     PLAYER_AVATAR_FLAG_ON_FOOT},
+        {OBJ_EVENT_GFX_BRENDAN_RS_6PX_SNOW,     PLAYER_AVATAR_FLAG_ON_FOOT},
+        {OBJ_EVENT_GFX_BRENDAN_RS_8PX_SNOW,     PLAYER_AVATAR_FLAG_ON_FOOT},
+        {OBJ_EVENT_GFX_BRENDAN_RS_10PX_SNOW,    PLAYER_AVATAR_FLAG_ON_FOOT},
     },
     [FEMALE] =
     {
@@ -392,6 +435,10 @@ static const u16 sPlayerAvatarGfxToStateFlagRS[GENDER_COUNT][6][2] =
         {OBJ_EVENT_GFX_MAY_SURFING_RS,        PLAYER_AVATAR_FLAG_SURFING},
         {OBJ_EVENT_GFX_MAY_UNDERWATER,     PLAYER_AVATAR_FLAG_UNDERWATER},
         {OBJ_EVENT_GFX_KROKOROK,           PLAYER_AVATAR_FLAG_KROKOROK},
+        {OBJ_EVENT_GFX_MAY_RS_4PX_SNOW,     PLAYER_AVATAR_FLAG_ON_FOOT},
+        {OBJ_EVENT_GFX_MAY_RS_6PX_SNOW,     PLAYER_AVATAR_FLAG_ON_FOOT},
+        {OBJ_EVENT_GFX_MAY_RS_8PX_SNOW,     PLAYER_AVATAR_FLAG_ON_FOOT},
+        {OBJ_EVENT_GFX_MAY_RS_10PX_SNOW,    PLAYER_AVATAR_FLAG_ON_FOOT},
     }
 };
 
@@ -786,7 +833,11 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
     if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_UNDERWATER) && (heldKeys & B_BUTTON) && FlagGet(FLAG_SYS_B_DASH) && !FlagGet(FLAG_ESCORTING_PRYCE)
      && IsRunningDisallowed(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior) == 0 && !FollowerComingThroughDoor())
     {
-        if (ObjectMovingOnRockStairs(&gObjectEvents[gPlayerAvatar.objectEventId], direction))
+        if (ObjectMovingInDeepSnow(&gObjectEvents[gPlayerAvatar.objectEventId], direction))
+            PlayerRunSuperSlow(direction);
+        else if (ObjectMovingInMediumSnow(&gObjectEvents[gPlayerAvatar.objectEventId], direction))
+            PlayerRunSlow(direction);
+        else if (ObjectMovingOnRockStairs(&gObjectEvents[gPlayerAvatar.objectEventId], direction))
             PlayerRunSlow(direction);
         else
             PlayerRun(direction);
@@ -796,7 +847,11 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
     }
     else
     {
-        if (ObjectMovingOnRockStairs(&gObjectEvents[gPlayerAvatar.objectEventId], direction))
+        if (ObjectMovingInDeepSnow(&gObjectEvents[gPlayerAvatar.objectEventId], direction))
+            PlayerWalkSuperSlow(direction);
+        else if (ObjectMovingInMediumSnow(&gObjectEvents[gPlayerAvatar.objectEventId], direction))
+            PlayerWalkSlow(direction);
+        else if (ObjectMovingOnRockStairs(&gObjectEvents[gPlayerAvatar.objectEventId], direction))
             PlayerWalkSlow(direction);
         else
             PlayerWalkNormal(direction);
@@ -983,8 +1038,8 @@ void SetPlayerAvatarTransitionFlags(u16 transitionFlags)
 
 static void DoPlayerAvatarTransition(void)
 {
-    u8 i;
-    u8 flags = gPlayerAvatar.transitionFlags;
+    u16 i;
+    u16 flags = gPlayerAvatar.transitionFlags;
 
     if (flags != 0)
     {
@@ -1004,7 +1059,23 @@ static void PlayerAvatarTransition_Dummy(struct ObjectEvent *objEvent)
 
 static void PlayerAvatarTransition_Normal(struct ObjectEvent *objEvent)
 {
-    ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_NORMAL));
+    u8 avatarState = PLAYER_AVATAR_STATE_NORMAL;
+    switch (objEvent->snowDepth)
+    {
+        case 1:
+            avatarState = PLAYER_AVATAR_STATE_4PX_SNOW;
+            break;
+        case 2:
+            avatarState = PLAYER_AVATAR_STATE_6PX_SNOW;
+            break;
+        case 3:
+            avatarState = PLAYER_AVATAR_STATE_8PX_SNOW;
+            break;
+        case 4:
+            avatarState = PLAYER_AVATAR_STATE_10PX_SNOW;
+            break;
+    }
+    ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(avatarState));
     ObjectEventTurn(objEvent, objEvent->movementDirection);
     SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_ON_FOOT);
 }
@@ -1014,6 +1085,34 @@ static void PlayerAvatarTransition_Krokorok(struct ObjectEvent *objEvent)
     ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_KROKOROK));
     ObjectEventTurn(objEvent, objEvent->movementDirection);
     SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_KROKOROK);
+}
+
+static void UNUSED PlayerAvatarTransition4PxSnow(struct ObjectEvent *objEvent)
+{
+    ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_4PX_SNOW));
+    ObjectEventTurn(objEvent, objEvent->movementDirection);
+    SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_ON_FOOT);
+}
+
+static void UNUSED PlayerAvatarTransition6PxSnow(struct ObjectEvent *objEvent)
+{
+    ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_6PX_SNOW));
+    ObjectEventTurn(objEvent, objEvent->movementDirection);
+    SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_ON_FOOT);
+}
+
+static void UNUSED PlayerAvatarTransition8PxSnow(struct ObjectEvent *objEvent)
+{
+    ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_8PX_SNOW));
+    ObjectEventTurn(objEvent, objEvent->movementDirection);
+    SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_ON_FOOT);
+}
+
+static void UNUSED PlayerAvatarTransition10PxSnow(struct ObjectEvent *objEvent)
+{
+    ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_10PX_SNOW));
+    ObjectEventTurn(objEvent, objEvent->movementDirection);
+    SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_ON_FOOT);
 }
 
 // static void PlayerAvatarTransition_MachBike(struct ObjectEvent *objEvent)
@@ -1157,6 +1256,16 @@ static void PlayerWalkSlow(u8 direction)
 static void PlayerRunSlow(u8 direction)
 {
     PlayerSetAnimId(GetPlayerRunSlowMovementAction(direction), 2);
+}
+
+// super slow
+static void PlayerWalkSuperSlow(u8 direction)
+{
+    PlayerSetAnimId(GetWalkSuperSlowMovementAction(direction), 2);
+}
+static void PlayerRunSuperSlow(u8 direction)
+{
+    PlayerSetAnimId(GetPlayerRunSuperSlowMovementAction(direction), 2);
 }
 
 // normal speed (1 speed)
@@ -1490,6 +1599,18 @@ u8 GetPlayerAvatarGenderByGraphicsId(u16 gfxId)
     case OBJ_EVENT_GFX_MAY_WATERING_ORAS:
     case OBJ_EVENT_GFX_MAY_ROCK_CLIMBING_ORAS:
     case OBJ_EVENT_GFX_MAY_ROCK_CLIMBING:
+    case OBJ_EVENT_GFX_MAY_4PX_SNOW:
+    case OBJ_EVENT_GFX_MAY_6PX_SNOW:
+    case OBJ_EVENT_GFX_MAY_8PX_SNOW:
+    case OBJ_EVENT_GFX_MAY_10PX_SNOW:
+    case OBJ_EVENT_GFX_MAY_ORAS_4PX_SNOW:
+    case OBJ_EVENT_GFX_MAY_ORAS_6PX_SNOW:
+    case OBJ_EVENT_GFX_MAY_ORAS_8PX_SNOW:
+    case OBJ_EVENT_GFX_MAY_ORAS_10PX_SNOW:
+    case OBJ_EVENT_GFX_MAY_RS_4PX_SNOW:
+    case OBJ_EVENT_GFX_MAY_RS_6PX_SNOW:
+    case OBJ_EVENT_GFX_MAY_RS_8PX_SNOW:
+    case OBJ_EVENT_GFX_MAY_RS_10PX_SNOW:
         return FEMALE;
     default:
         return MALE;
@@ -1624,9 +1745,9 @@ u16 GetPlayerAvatarGraphicsIdByCurrentState(void)
     return 0;
 }
 
-void SetPlayerAvatarExtraStateTransition(u16 graphicsId, u8 transitionFlag)
+void SetPlayerAvatarExtraStateTransition(u16 graphicsId, u16 transitionFlag)
 {
-    u8 stateFlag = GetPlayerAvatarStateTransitionByGraphicsId(graphicsId, gPlayerAvatar.gender);
+    u16 stateFlag = GetPlayerAvatarStateTransitionByGraphicsId(graphicsId, gPlayerAvatar.gender);
 
     gPlayerAvatar.transitionFlags |= stateFlag | transitionFlag;
     DoPlayerAvatarTransition();
@@ -2814,6 +2935,76 @@ bool8 ObjectMovingOnRockStairs(struct ObjectEvent *objectEvent, u8 direction)
             return MetatileBehavior_IsRockStairs(MapGridGetMetatileBehaviorAt(x,y));
         case DIR_WEST:
         case DIR_EAST:
+        case DIR_NORTHEAST:
+        case DIR_NORTHWEST:
+        case DIR_SOUTHWEST:
+        case DIR_SOUTHEAST:
+            // // directionOverwrite is only used for sideways stairs motion
+            // if (objectEvent->directionOverwrite)
+            //     return TRUE;
+        default:
+            return FALSE;
+        }
+    #else
+        return FALSE;
+    #endif
+}
+
+bool8 ObjectMovingInMediumSnow(struct ObjectEvent *objectEvent, u8 direction)
+{
+    #if SLOW_MOVEMENT_ON_STAIRS == TRUE
+        s16 x = objectEvent->currentCoords.x;
+        s16 y = objectEvent->currentCoords.y;
+
+        // TODO followers on sideways stairs
+        // if (IsFollowerVisible() && GetFollowerObject() != NULL && (objectEvent->isPlayer || objectEvent->localId == OBJ_EVENT_ID_FOLLOWER))
+        //     return FALSE;
+
+        switch (direction)
+        {
+        case DIR_NORTH:
+            return MetatileBehavior_IsDeepSnow(MapGridGetMetatileBehaviorAt(x,y));
+        case DIR_SOUTH:
+            return MetatileBehavior_IsDeepSnow(MapGridGetMetatileBehaviorAt(x,y));
+        case DIR_WEST:
+            return MetatileBehavior_IsDeepSnow(MapGridGetMetatileBehaviorAt(x,y));
+        case DIR_EAST:
+            return MetatileBehavior_IsDeepSnow(MapGridGetMetatileBehaviorAt(x,y));
+        case DIR_NORTHEAST:
+        case DIR_NORTHWEST:
+        case DIR_SOUTHWEST:
+        case DIR_SOUTHEAST:
+            // // directionOverwrite is only used for sideways stairs motion
+            // if (objectEvent->directionOverwrite)
+            //     return TRUE;
+        default:
+            return FALSE;
+        }
+    #else
+        return FALSE;
+    #endif
+}
+
+bool8 ObjectMovingInDeepSnow(struct ObjectEvent *objectEvent, u8 direction)
+{
+    #if SLOW_MOVEMENT_ON_STAIRS == TRUE
+        s16 x = objectEvent->currentCoords.x;
+        s16 y = objectEvent->currentCoords.y;
+
+        // TODO followers on sideways stairs
+        // if (IsFollowerVisible() && GetFollowerObject() != NULL && (objectEvent->isPlayer || objectEvent->localId == OBJ_EVENT_ID_FOLLOWER))
+        //     return FALSE;
+
+        switch (direction)
+        {
+        case DIR_NORTH:
+            return MetatileBehavior_IsSuperDeepSnow(MapGridGetMetatileBehaviorAt(x,y));
+        case DIR_SOUTH:
+            return MetatileBehavior_IsSuperDeepSnow(MapGridGetMetatileBehaviorAt(x,y));
+        case DIR_WEST:
+            return MetatileBehavior_IsSuperDeepSnow(MapGridGetMetatileBehaviorAt(x,y));
+        case DIR_EAST:
+            return MetatileBehavior_IsSuperDeepSnow(MapGridGetMetatileBehaviorAt(x,y));
         case DIR_NORTHEAST:
         case DIR_NORTHWEST:
         case DIR_SOUTHWEST:

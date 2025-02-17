@@ -259,6 +259,14 @@
 #define MOVEMENT_ACTION_RUN_UP_SLOW                     0xA8
 #define MOVEMENT_ACTION_RUN_LEFT_SLOW                   0xA9
 #define MOVEMENT_ACTION_RUN_RIGHT_SLOW                  0xAA
+#define MOVEMENT_ACTION_WALK_SUPER_SLOW_DOWN                  0xAB
+#define MOVEMENT_ACTION_WALK_SUPER_SLOW_UP                    0xAC
+#define MOVEMENT_ACTION_WALK_SUPER_SLOW_LEFT                  0xAD
+#define MOVEMENT_ACTION_WALK_SUPER_SLOW_RIGHT                 0xAE
+#define MOVEMENT_ACTION_RUN_DOWN_SUPER_SLOW                   0xAF
+#define MOVEMENT_ACTION_RUN_UP_SUPER_SLOW                     0xB0
+#define MOVEMENT_ACTION_RUN_LEFT_SUPER_SLOW                   0xB1
+#define MOVEMENT_ACTION_RUN_RIGHT_SUPER_SLOW                  0xB2
 
 #define MOVEMENT_ACTION_STEP_END 0xFE
 #define MOVEMENT_ACTION_NONE     0xFF

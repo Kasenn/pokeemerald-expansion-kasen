@@ -6703,3 +6703,142 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFertilizingRS =
     .anims = sAnimTable_Standard,
     .images = sPicTable_MayFertilizingRS,
 };
+
+#define PLAYER_OBJ_INFO_SNOW                        \
+    .tileTag = TAG_NONE,                            \
+    .size = 512,                                    \
+    .width = 16,                                    \
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE, \
+    .height = 32,                                   \
+    .paletteSlot = PALSLOT_PLAYER,                  \
+    .shadowSize = SHADOW_SIZE_M,                    \
+    .inanimate = FALSE,                             \
+    .compressed = FALSE,                            \
+    .oam = &gObjectEventBaseOam_16x32,              \
+    .subspriteTables = sOamTables_16x32,            \
+    .affineAnims = gDummySpriteAffineAnimTable,     \
+    .tracks = TRACKS_FOOT,                          \
+    .anims = sAnimTable_Standard,                   \
+
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_4PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
+    .images = sPicTable_BrendanSnow4Px,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_6PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
+    .images = sPicTable_BrendanSnow6Px,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_8PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
+    .images = sPicTable_BrendanSnow8Px,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_10PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
+    .images = sPicTable_BrendanSnow10Px,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_ORAS_4PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_BRENDAN_ORAS,
+    .images = sPicTable_BrendanOrasSnow4Px,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_ORAS_6PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_BRENDAN_ORAS,
+    .images = sPicTable_BrendanOrasSnow6Px,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_ORAS_8PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_BRENDAN_ORAS,
+    .images = sPicTable_BrendanOrasSnow8Px,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_ORAS_10PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_BRENDAN_ORAS,
+    .images = sPicTable_BrendanOrasSnow10Px,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_RS_4PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
+    .images = sPicTable_BrendanRSSnow4Px,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_RS_6PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
+    .images = sPicTable_BrendanRSSnow6Px,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_RS_8PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
+    .images = sPicTable_BrendanRSSnow8Px,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_RS_10PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
+    .images = sPicTable_BrendanRSSnow10Px,
+};
+/////////////////
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_4PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
+    .images = sPicTable_MaySnow4Px,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_6PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
+    .images = sPicTable_MaySnow6Px,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_8PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
+    .images = sPicTable_MaySnow8Px,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_10PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
+    .images = sPicTable_MaySnow10Px,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_ORAS_4PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_MAY_ORAS,
+    .images = sPicTable_MayOrasSnow4Px,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_ORAS_6PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_MAY_ORAS,
+    .images = sPicTable_MayOrasSnow6Px,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_ORAS_8PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_MAY_ORAS,
+    .images = sPicTable_MayOrasSnow8Px,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_ORAS_10PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_MAY_ORAS,
+    .images = sPicTable_MayOrasSnow10Px,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_RS_4PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
+    .images = sPicTable_MayRSSnow4Px,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_RS_6PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
+    .images = sPicTable_MayRSSnow6Px,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_RS_8PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
+    .images = sPicTable_MayRSSnow8Px,
+};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_RS_10PX_SNOW = {
+    PLAYER_OBJ_INFO_SNOW
+    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
+    .images = sPicTable_MayRSSnow10Px,
+};

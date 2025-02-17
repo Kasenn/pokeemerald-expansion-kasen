@@ -893,6 +893,12 @@ static const struct SpriteFrameImage sPicTable_SandPile[] = {
     overworld_frame(gFieldEffectObjectPic_SandPile, 2, 1, 2),
 };
 
+static const struct SpriteFrameImage sPicTable_SnowPile[] = {
+    overworld_frame(gFieldEffectObjectPic_SnowPile, 2, 1, 0),
+    overworld_frame(gFieldEffectObjectPic_SnowPile, 2, 1, 1),
+    overworld_frame(gFieldEffectObjectPic_SnowPile, 2, 1, 2),
+};
+
 static const union AnimCmd sAnim_SandPile[] =
 {
     ANIMCMD_FRAME(0, 4),
@@ -912,6 +918,16 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_SandPile = {
     .oam = &gObjectEventBaseOam_16x8,
     .anims = sAnimTable_SandPile,
     .images = sPicTable_SandPile,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = UpdateSandPileFieldEffect,
+};
+
+const struct SpriteTemplate gFieldEffectObjectTemplate_SnowPile = {
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_3,
+    .oam = &gObjectEventBaseOam_16x8,
+    .anims = sAnimTable_SandPile,
+    .images = sPicTable_SnowPile,
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = UpdateSandPileFieldEffect,
 };

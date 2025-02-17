@@ -187,7 +187,6 @@ struct ObjectEvent
              u32 inShortGrass:1;
              u32 inShallowFlowingWater:1;
              u32 inSandPile:1;
-             u32 inMudPile:1;
              u32 inHotSprings:1;
              u32 hasShadow:1;
              u32 spriteAnimPausedBackup:1;
@@ -196,7 +195,7 @@ struct ObjectEvent
              u32 fixedPriority:1;
              u32 hideReflection:1;
              u32 shiny:1; // OW mon shininess
-             u32 padding:2;
+             u32 snowDepth:3;
     /*0x04*/ u16 graphicsId; // 11 bits for species; high 5 bits for form
     /*0x06*/ u8 movementType;
     /*0x07*/ u8 trainerType;
@@ -261,6 +260,10 @@ enum {
     PLAYER_AVATAR_STATE_VSSEEKER,
     PLAYER_AVATAR_STATE_ROCK_CLIMBING,
     PLAYER_AVATAR_STATE_FERTILIZING,
+    PLAYER_AVATAR_STATE_4PX_SNOW,
+    PLAYER_AVATAR_STATE_6PX_SNOW,
+    PLAYER_AVATAR_STATE_8PX_SNOW,
+    PLAYER_AVATAR_STATE_10PX_SNOW,
 };
 
 #define PLAYER_AVATAR_FLAG_ON_FOOT      (1 << PLAYER_AVATAR_STATE_NORMAL)

@@ -3,7 +3,7 @@
 
 void PlayerStep(u8 direction, u16 newKeys, u16 heldKeys);
 void ClearPlayerAvatarInfo(void);
-void SetPlayerAvatarExtraStateTransition(u16, u8);
+void SetPlayerAvatarExtraStateTransition(u16, u16);
 u8 GetPlayerAvatarGenderByGraphicsId(u16);
 bool8 TestPlayerAvatarFlags(u8);
 u8 GetPlayerAvatarSpriteId(void);
@@ -68,6 +68,8 @@ void SetPlayerInvisibility(bool8 invisible);
 u8 player_get_pos_including_state_based_drift(s16 *x, s16 *y);
 void StartFishing(u8 rod);
 bool8 ObjectMovingOnRockStairs(struct ObjectEvent *objectEvent, u8 direction);
+bool8 ObjectMovingInMediumSnow(struct ObjectEvent *objectEvent, u8 direction);
+bool8 ObjectMovingInDeepSnow(struct ObjectEvent *objectEvent, u8 direction);
 //sideways stairs
 u8 GetRightSideStairsDirection(u8 direction);
 u8 GetLeftSideStairsDirection(u8 direction);

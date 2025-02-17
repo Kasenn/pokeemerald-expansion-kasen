@@ -50,6 +50,10 @@ static const u8 sTileBitAttributes[NUM_METATILE_BEHAVIORS] =
     [MB_THIN_ICE]                        = TILE_FLAG_UNUSED,
     [MB_CRACKED_ICE]                     = TILE_FLAG_UNUSED,
     [MB_HOT_SPRINGS]                     = TILE_FLAG_UNUSED | TILE_FLAG_FOLLOWER_BANNED,
+    [MB_NORMAL_SNOW]                     = TILE_FLAG_UNUSED | TILE_FLAG_FOLLOWER_BANNED,
+    [MB_MEDIUM_SNOW]                     = TILE_FLAG_UNUSED | TILE_FLAG_FOLLOWER_BANNED,
+    [MB_DEEP_SNOW]                     = TILE_FLAG_UNUSED | TILE_FLAG_FOLLOWER_BANNED,
+    [MB_SUPERDEEP_SNOW]                     = TILE_FLAG_UNUSED | TILE_FLAG_FOLLOWER_BANNED,
     [MB_LAVARIDGE_GYM_B1F_WARP]          = TILE_FLAG_UNUSED,
     [MB_SEAWEED_NO_SURFACING]            = TILE_FLAG_UNUSED | TILE_FLAG_SURFABLE | TILE_FLAG_HAS_ENCOUNTERS,
     [MB_REFLECTION_UNDER_BRIDGE]         = TILE_FLAG_UNUSED,
@@ -291,8 +295,7 @@ bool8 MetatileBehavior_IsSandOrDeepSand(u8 metatileBehavior)
 bool8 MetatileBehavior_IsSnow(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_LOW_SNOW
-     || metatileBehavior == MB_LOW_SNOW_ENCOUNTERS
-     || metatileBehavior == MB_NORMAL_SNOW)
+     || metatileBehavior == MB_LOW_SNOW_ENCOUNTERS)
         return TRUE;
     else
         return FALSE;
@@ -315,6 +318,25 @@ bool8 MetatileBehavior_IsMediumSnow(u8 metatileBehavior)
 bool8 MetatileBehavior_IsDeepSnow(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_DEEP_SNOW)
+        return TRUE;
+    else
+        return FALSE;
+}
+bool8 MetatileBehavior_IsSuperDeepSnow(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_SUPERDEEP_SNOW)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_CreatesPileAroundPlayer(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_DEEP_SAND
+     || metatileBehavior == MB_NORMAL_SNOW
+     || metatileBehavior == MB_MEDIUM_SNOW
+     || metatileBehavior == MB_DEEP_SNOW
+     || metatileBehavior == MB_SUPERDEEP_SNOW)
         return TRUE;
     else
         return FALSE;
@@ -1518,6 +1540,10 @@ bool8 MetatileBehavior_IsRunningDisallowed(u8 metatileBehavior)
      || metatileBehavior == MB_HOT_SPRINGS
      || metatileBehavior == MB_MUD
      || metatileBehavior == MB_MUD_TREASURE
+     || metatileBehavior == MB_NORMAL_SNOW
+     || metatileBehavior == MB_MEDIUM_SNOW
+     || metatileBehavior == MB_DEEP_SNOW
+     || metatileBehavior == MB_SUPERDEEP_SNOW
      || MetatileBehavior_IsPacifidlogLog(metatileBehavior) != FALSE)
         return TRUE;
     else

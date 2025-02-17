@@ -363,6 +363,30 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MaySurfingR
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFishingRS;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayWateringRS;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFieldMoveRS;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_4PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_4PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_6PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_6PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_8PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_8PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_10PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_10PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_ORAS_4PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_ORAS_4PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_ORAS_6PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_ORAS_6PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_ORAS_8PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_ORAS_8PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_ORAS_10PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_ORAS_10PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_RS_4PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_RS_4PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_RS_6PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_RS_6PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_RS_8PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_RS_8PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_RS_10PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_RS_10PX_SNOW;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_NEWPIKACHU] =                     &gObjectEventGraphicsInfo_NewPikachu,
@@ -626,7 +650,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_IRIS] =                     &gObjectEventGraphicsInfo_Iris,
     [OBJ_EVENT_GFX_MIMIKYU] =                 &gObjectEventGraphicsInfo_Mimikyu,
     [OBJ_EVENT_GFX_BANETTE] =                   &gObjectEventGraphicsInfo_Banette,
-    [OBJ_EVENT_GFX_GASTLY] =                    &gObjectEventGraphicsInfo_Gastly ,
+    [OBJ_EVENT_GFX_GASTLY] =                    &gObjectEventGraphicsInfo_Gastly,
     [OBJ_EVENT_GFX_GENGAR] =                    &gObjectEventGraphicsInfo_Gengar,
     [OBJ_EVENT_GFX_HAUNTER] =                   &gObjectEventGraphicsInfo_Haunter,
     [OBJ_EVENT_GFX_LITWICK] =                   &gObjectEventGraphicsInfo_Litwick,
@@ -717,6 +741,30 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MAY_WATERING_RS       ] =         &gObjectEventGraphicsInfo_MayWateringRS,
     [OBJ_EVENT_GFX_MAY_FIELD_MOVE_RS     ] =         &gObjectEventGraphicsInfo_MayFieldMoveRS,
     [OBJ_EVENT_GFX_MAY_FERTILIZING_RS    ] =         &gObjectEventGraphicsInfo_MayFertilizingRS,
+    [OBJ_EVENT_GFX_BRENDAN_4PX_SNOW      ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_4PX_SNOW,
+    [OBJ_EVENT_GFX_MAY_4PX_SNOW          ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_4PX_SNOW,
+    [OBJ_EVENT_GFX_BRENDAN_6PX_SNOW      ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_6PX_SNOW,
+    [OBJ_EVENT_GFX_MAY_6PX_SNOW          ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_6PX_SNOW,
+    [OBJ_EVENT_GFX_BRENDAN_8PX_SNOW      ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_8PX_SNOW,
+    [OBJ_EVENT_GFX_MAY_8PX_SNOW          ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_8PX_SNOW,
+    [OBJ_EVENT_GFX_BRENDAN_10PX_SNOW     ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_10PX_SNOW,
+    [OBJ_EVENT_GFX_MAY_10PX_SNOW         ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_10PX_SNOW,
+    [OBJ_EVENT_GFX_BRENDAN_ORAS_4PX_SNOW ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_ORAS_4PX_SNOW,
+    [OBJ_EVENT_GFX_MAY_ORAS_4PX_SNOW     ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_ORAS_4PX_SNOW,
+    [OBJ_EVENT_GFX_BRENDAN_ORAS_6PX_SNOW ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_ORAS_6PX_SNOW,
+    [OBJ_EVENT_GFX_MAY_ORAS_6PX_SNOW     ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_ORAS_6PX_SNOW,
+    [OBJ_EVENT_GFX_BRENDAN_ORAS_8PX_SNOW ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_ORAS_8PX_SNOW,
+    [OBJ_EVENT_GFX_MAY_ORAS_8PX_SNOW     ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_ORAS_8PX_SNOW,
+    [OBJ_EVENT_GFX_BRENDAN_ORAS_10PX_SNOW] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_ORAS_10PX_SNOW,
+    [OBJ_EVENT_GFX_MAY_ORAS_10PX_SNOW    ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_ORAS_10PX_SNOW,
+    [OBJ_EVENT_GFX_BRENDAN_RS_4PX_SNOW   ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_RS_4PX_SNOW,
+    [OBJ_EVENT_GFX_MAY_RS_4PX_SNOW       ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_RS_4PX_SNOW,
+    [OBJ_EVENT_GFX_BRENDAN_RS_6PX_SNOW   ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_RS_6PX_SNOW,
+    [OBJ_EVENT_GFX_MAY_RS_6PX_SNOW       ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_RS_6PX_SNOW,
+    [OBJ_EVENT_GFX_BRENDAN_RS_8PX_SNOW   ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_RS_8PX_SNOW,
+    [OBJ_EVENT_GFX_MAY_RS_8PX_SNOW       ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_RS_8PX_SNOW,
+    [OBJ_EVENT_GFX_BRENDAN_RS_10PX_SNOW  ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_RS_10PX_SNOW,
+    [OBJ_EVENT_GFX_MAY_RS_10PX_SNOW      ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_RS_10PX_SNOW,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

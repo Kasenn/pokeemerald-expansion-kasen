@@ -334,13 +334,38 @@
 #define OBJ_EVENT_GFX_PRYCE                     328
 #define OBJ_EVENT_GFX_BLAINE                     329
 
+#define OBJ_EVENT_GFX_BRENDAN_4PX_SNOW              330
+#define OBJ_EVENT_GFX_MAY_4PX_SNOW                  331
+#define OBJ_EVENT_GFX_BRENDAN_6PX_SNOW              332
+#define OBJ_EVENT_GFX_MAY_6PX_SNOW                  333
+#define OBJ_EVENT_GFX_BRENDAN_8PX_SNOW              334
+#define OBJ_EVENT_GFX_MAY_8PX_SNOW                  335
+#define OBJ_EVENT_GFX_BRENDAN_10PX_SNOW             336
+#define OBJ_EVENT_GFX_MAY_10PX_SNOW                 337
+#define OBJ_EVENT_GFX_BRENDAN_ORAS_4PX_SNOW         338
+#define OBJ_EVENT_GFX_MAY_ORAS_4PX_SNOW             339
+#define OBJ_EVENT_GFX_BRENDAN_ORAS_6PX_SNOW         340
+#define OBJ_EVENT_GFX_MAY_ORAS_6PX_SNOW             341
+#define OBJ_EVENT_GFX_BRENDAN_ORAS_8PX_SNOW         342
+#define OBJ_EVENT_GFX_MAY_ORAS_8PX_SNOW             343
+#define OBJ_EVENT_GFX_BRENDAN_ORAS_10PX_SNOW        344
+#define OBJ_EVENT_GFX_MAY_ORAS_10PX_SNOW            345
+#define OBJ_EVENT_GFX_BRENDAN_RS_4PX_SNOW           346
+#define OBJ_EVENT_GFX_MAY_RS_4PX_SNOW               347
+#define OBJ_EVENT_GFX_BRENDAN_RS_6PX_SNOW           348
+#define OBJ_EVENT_GFX_MAY_RS_6PX_SNOW               349
+#define OBJ_EVENT_GFX_BRENDAN_RS_8PX_SNOW           350
+#define OBJ_EVENT_GFX_MAY_RS_8PX_SNOW               351
+#define OBJ_EVENT_GFX_BRENDAN_RS_10PX_SNOW          352
+#define OBJ_EVENT_GFX_MAY_RS_10PX_SNOW              353
+
 
 
 
 // NOTE: The maximum amount of object events has been expanded from 255 to 65535.
 // Since dynamic graphics ids still require at least 16 free values, the actual limit
 // is 65519, but even considering follower Pokémon, this should be more than enough :)
-#define NUM_OBJ_EVENT_GFX                        330
+#define NUM_OBJ_EVENT_GFX                        354
 
 
 // These are dynamic object gfx ids.

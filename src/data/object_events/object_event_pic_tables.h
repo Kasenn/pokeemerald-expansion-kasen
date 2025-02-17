@@ -2860,3 +2860,77 @@ static const struct SpriteFrameImage sPicTable_MayFertilizingRS[] = {
     overworld_frame(gObjectEventPic_MayFertilizingRS, 4, 4, 5),
     overworld_frame(gObjectEventPic_MayFertilizingRS, 4, 4, 5),
 };
+
+static const struct SpriteFrameImage sPicTable_BrendanSnow4Px[] = {
+    overworld_ascending_frames(gObjectEventPic_BrendanSnow4Px, 2, 4),
+};
+static const struct SpriteFrameImage sPicTable_BrendanSnow6Px[] = {
+    overworld_ascending_frames(gObjectEventPic_BrendanSnow6Px, 2, 4),
+};
+static const struct SpriteFrameImage sPicTable_BrendanSnow8Px[] = {
+    overworld_ascending_frames(gObjectEventPic_BrendanSnow8Px, 2, 4),
+};
+static const struct SpriteFrameImage sPicTable_BrendanSnow10Px[] = {
+    overworld_ascending_frames(gObjectEventPic_BrendanSnow10Px, 2, 4),
+};
+static const struct SpriteFrameImage sPicTable_BrendanOrasSnow4Px[] = {
+    overworld_ascending_frames(gObjectEventPic_BrendanOrasSnow4Px, 2, 4),
+};
+static const struct SpriteFrameImage sPicTable_BrendanOrasSnow6Px[] = {
+    overworld_ascending_frames(gObjectEventPic_BrendanOrasSnow6Px, 2, 4),
+};
+static const struct SpriteFrameImage sPicTable_BrendanOrasSnow8Px[] = {
+    overworld_ascending_frames(gObjectEventPic_BrendanOrasSnow8Px, 2, 4),
+};
+static const struct SpriteFrameImage sPicTable_BrendanOrasSnow10Px[] = {
+    overworld_ascending_frames(gObjectEventPic_BrendanOrasSnow10Px, 2, 4),
+};
+static const struct SpriteFrameImage sPicTable_BrendanRSSnow4Px[] = {
+    overworld_ascending_frames(gObjectEventPic_BrendanRSSnow4Px, 2, 4),
+};
+static const struct SpriteFrameImage sPicTable_BrendanRSSnow6Px[] = {
+    overworld_ascending_frames(gObjectEventPic_BrendanRSSnow6Px, 2, 4),
+};
+static const struct SpriteFrameImage sPicTable_BrendanRSSnow8Px[] = {
+    overworld_ascending_frames(gObjectEventPic_BrendanRSSnow8Px, 2, 4),
+};
+static const struct SpriteFrameImage sPicTable_BrendanRSSnow10Px[] = {
+    overworld_ascending_frames(gObjectEventPic_BrendanRSSnow10Px, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_MaySnow4Px[] = {
+    overworld_ascending_frames(gObjectEventPic_MaySnow4Px, 2, 4),
+};
+static const struct SpriteFrameImage sPicTable_MaySnow6Px[] = {
+    overworld_ascending_frames(gObjectEventPic_MaySnow6Px, 2, 4),
+};
+static const struct SpriteFrameImage sPicTable_MaySnow8Px[] = {
+    overworld_ascending_frames(gObjectEventPic_MaySnow8Px, 2, 4),
+};
+static const struct SpriteFrameImage sPicTable_MaySnow10Px[] = {
+    overworld_ascending_frames(gObjectEventPic_MaySnow10Px, 2, 4),
+};
+static const struct SpriteFrameImage sPicTable_MayOrasSnow4Px[] = {
+    overworld_ascending_frames(gObjectEventPic_MayOrasSnow4Px, 2, 4),
+};
+static const struct SpriteFrameImage sPicTable_MayOrasSnow6Px[] = {
+    overworld_ascending_frames(gObjectEventPic_MayOrasSnow6Px, 2, 4),
+};
+static const struct SpriteFrameImage sPicTable_MayOrasSnow8Px[] = {
+    overworld_ascending_frames(gObjectEventPic_MayOrasSnow8Px, 2, 4),
+};
+static const struct SpriteFrameImage sPicTable_MayOrasSnow10Px[] = {
+    overworld_ascending_frames(gObjectEventPic_MayOrasSnow10Px, 2, 4),
+};
+static const struct SpriteFrameImage sPicTable_MayRSSnow4Px[] = {
+    overworld_ascending_frames(gObjectEventPic_MayRSSnow4Px, 2, 4),
+};
+static const struct SpriteFrameImage sPicTable_MayRSSnow6Px[] = {
+    overworld_ascending_frames(gObjectEventPic_MayRSSnow6Px, 2, 4),
+};
+static const struct SpriteFrameImage sPicTable_MayRSSnow8Px[] = {
+    overworld_ascending_frames(gObjectEventPic_MayRSSnow8Px, 2, 4),
+};
+static const struct SpriteFrameImage sPicTable_MayRSSnow10Px[] = {
+    overworld_ascending_frames(gObjectEventPic_MayRSSnow10Px, 2, 4),
+};

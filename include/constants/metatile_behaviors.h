@@ -172,7 +172,7 @@
 #define MB_NORMAL_SNOW 0xA8
 #define MB_MEDIUM_SNOW 0xA9
 #define MB_DEEP_SNOW 0xAA
-#define MB_UNUSED_AB 0xAB
+#define MB_SUPERDEEP_SNOW 0xAB
 #define MB_UNUSED_AC 0xAC
 #define MB_UNUSED_AD 0xAD
 #define MB_UNUSED_AE 0xAE

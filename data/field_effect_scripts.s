@@ -91,6 +91,7 @@ gFieldEffectScriptPointers::
 	.4byte gFieldEffectScript_TracksSpotSnow 				@ FLDEFF_TRACKS_SPOT_SNOW
 	.4byte gFieldEffectScript_TracksBugSnow 				@ FLDEFF_TRACKS_BUG_SNOW
 	.4byte gFieldEffectScript_TallGrassSnow         @ FLDEFF_TALL_GRASS_SNOW
+	.4byte gFieldEffectScript_SnowPile                  @ FLDEFF_SNOW_PILE
 
 
 gFieldEffectScript_ExclamationMarkIcon1::
@@ -260,6 +261,10 @@ gFieldEffectScript_UseDig::
 
 gFieldEffectScript_SandPile::
 	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect0, FldEff_SandPile
+	field_eff_end
+
+gFieldEffectScript_SnowPile::
+	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect5, FldEff_SandPile
 	field_eff_end
 
 gFieldEffectScript_ShortGrass::

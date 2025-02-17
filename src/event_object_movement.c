@@ -140,6 +140,8 @@ static void GetGroundEffectFlags_MudHeap(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_ShallowFlowingWater(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_ShortGrass(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_HotSprings(struct ObjectEvent *, u32 *);
+static void GetGroundEffectFlags_DeepSnow(struct ObjectEvent *, u32 *);
+static void GetGroundEffectFlags_DeepSnow2(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_TallGrassOnBeginStep(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_LongGrassOnBeginStep(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_Tracks(struct ObjectEvent *, u32 *);
@@ -211,6 +213,8 @@ static void DoShadowFieldEffect(struct ObjectEvent *);
 static void SetJumpSpriteData(struct Sprite *, u8, u8, u8);
 static void SetWalkSlowSpriteData(struct Sprite *, u8);
 static bool8 UpdateWalkSlowAnim(struct Sprite *);
+static void SetWalkSuperSlowSpriteData(struct Sprite *, u8);
+static bool8 UpdateWalkSuperSlowAnim(struct Sprite *);
 static u8 DoJumpSpriteMovement(struct Sprite *);
 static u8 DoJumpSpecialSpriteMovement(struct Sprite *);
 static void CreateLevitateMovementTask(struct ObjectEvent *);
@@ -227,6 +231,7 @@ static u16 GetUnownSpecies(struct Pokemon *mon);
 static const struct SpriteFrameImage sPicTable_PechaBerryTree[];
 
 static void StartSlowRunningAnim(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction);
+static void StartSuperSlowRunningAnim(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction);
 
 const u8 gReflectionEffectPaletteMap[16] = {
         [PALSLOT_PLAYER]                 = PALSLOT_PLAYER_REFLECTION,
@@ -1334,6 +1339,26 @@ const u8 gRunSlowMovementActions[] = {
     [DIR_SOUTHEAST]  = MOVEMENT_ACTION_RUN_RIGHT_SLOW,
     [DIR_NORTHWEST]  = MOVEMENT_ACTION_RUN_LEFT_SLOW,
     [DIR_NORTHEAST]  = MOVEMENT_ACTION_RUN_RIGHT_SLOW,
+};
+
+const u8 gWalkSuperSlowMovementActions[] = {
+    [DIR_NONE] = MOVEMENT_ACTION_WALK_SUPER_SLOW_DOWN,
+    [DIR_SOUTH] = MOVEMENT_ACTION_WALK_SUPER_SLOW_DOWN,
+    [DIR_NORTH] = MOVEMENT_ACTION_WALK_SUPER_SLOW_UP,
+    [DIR_WEST] = MOVEMENT_ACTION_WALK_SUPER_SLOW_LEFT,
+    [DIR_EAST] = MOVEMENT_ACTION_WALK_SUPER_SLOW_RIGHT,
+};
+
+const u8 gRunSuperSlowMovementActions[] = {
+    [DIR_NONE]  = MOVEMENT_ACTION_RUN_DOWN_SUPER_SLOW,
+    [DIR_SOUTH] = MOVEMENT_ACTION_RUN_DOWN_SUPER_SLOW,
+    [DIR_NORTH] = MOVEMENT_ACTION_RUN_UP_SUPER_SLOW,
+    [DIR_WEST]  = MOVEMENT_ACTION_RUN_LEFT_SUPER_SLOW,
+    [DIR_EAST]  = MOVEMENT_ACTION_RUN_RIGHT_SUPER_SLOW,
+    [DIR_SOUTHWEST]  = MOVEMENT_ACTION_RUN_LEFT_SUPER_SLOW,
+    [DIR_SOUTHEAST]  = MOVEMENT_ACTION_RUN_RIGHT_SUPER_SLOW,
+    [DIR_NORTHWEST]  = MOVEMENT_ACTION_RUN_LEFT_SUPER_SLOW,
+    [DIR_NORTHEAST]  = MOVEMENT_ACTION_RUN_RIGHT_SUPER_SLOW,
 };
 
 static const u8 sOppositeDirections[] = {
@@ -2939,8 +2964,8 @@ static void ResetObjectEventFldEffData(struct ObjectEvent *objectEvent)
     objectEvent->inShortGrass = FALSE;
     objectEvent->inShallowFlowingWater = FALSE;
     objectEvent->inSandPile = FALSE;
-    objectEvent->inMudPile = FALSE;
     objectEvent->inHotSprings = FALSE;
+    objectEvent->snowDepth = 0;
     ObjectEventClearHeldMovement(objectEvent);
 }
 
@@ -6729,6 +6754,10 @@ u8 ObjectEventGetHeldMovementActionId(struct ObjectEvent *objectEvent)
     return MOVEMENT_ACTION_NONE;
 }
 
+static void UNUSED PlayerSinkInSnow(struct ObjectEvent *objEvent)
+{
+}
+
 void UpdateObjectEventCurrentMovement(struct ObjectEvent *objectEvent, struct Sprite *sprite, bool8 (*callback)(struct ObjectEvent *, struct Sprite *))
 {
     DoGroundEffects_OnSpawn(objectEvent, sprite);
@@ -6760,6 +6789,8 @@ u8 name(u32 idx)\
 dirn_to_anim(GetFaceDirectionMovementAction, gFaceDirectionMovementActions);
 dirn_to_anim(GetWalkSlowMovementAction, gWalkSlowMovementActions);
 dirn_to_anim(GetPlayerRunSlowMovementAction, gRunSlowMovementActions);
+dirn_to_anim(GetWalkSuperSlowMovementAction, gWalkSuperSlowMovementActions);
+dirn_to_anim(GetPlayerRunSuperSlowMovementAction, gRunSuperSlowMovementActions);
 dirn_to_anim(GetWalkNormalMovementAction, gWalkNormalMovementActions);
 dirn_to_anim(GetWalkFastMovementAction, gWalkFastMovementActions);
 dirn_to_anim(GetRideWaterCurrentMovementAction, gRideWaterCurrentMovementActions);
@@ -6957,6 +6988,40 @@ static void InitWalkSlow(struct ObjectEvent *objectEvent, struct Sprite *sprite,
 static bool8 UpdateWalkSlow(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     if (UpdateWalkSlowAnim(sprite))
+    {
+        ShiftStillObjectEventCoords(objectEvent);
+        objectEvent->triggerGroundEffectsOnStop = TRUE;
+        sprite->animPaused = TRUE;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+static void InitNpcForWalkSuperSlow(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction)
+{
+    s16 x;
+    s16 y;
+
+    x = objectEvent->currentCoords.x;
+    y = objectEvent->currentCoords.y;
+    SetObjectEventDirection(objectEvent, direction);
+    MoveCoords(direction, &x, &y);
+    ShiftObjectEventCoords(objectEvent, x, y);
+    SetWalkSuperSlowSpriteData(sprite, direction);
+    sprite->animPaused = FALSE;
+    objectEvent->triggerGroundEffectsOnMove = TRUE;
+    sprite->sActionFuncId = 1;
+}
+
+static void InitWalkSuperSlow(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction)
+{
+    InitNpcForWalkSuperSlow(objectEvent, sprite, direction);
+    SetStepAnimHandleAlternation(objectEvent, sprite, GetMoveDirectionAnimNum(objectEvent->facingDirection));
+}
+
+static bool8 UpdateWalkSuperSlow(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (UpdateWalkSuperSlowAnim(sprite))
     {
         ShiftStillObjectEventCoords(objectEvent);
         objectEvent->triggerGroundEffectsOnStop = TRUE;
@@ -9578,6 +9643,7 @@ static void GetAllGroundEffectFlags_OnSpawn(struct ObjectEvent *objEvent, u32 *f
     GetGroundEffectFlags_ShallowFlowingWater(objEvent, flags);
     GetGroundEffectFlags_ShortGrass(objEvent, flags);
     GetGroundEffectFlags_HotSprings(objEvent, flags);
+    GetGroundEffectFlags_DeepSnow(objEvent, flags);
 }
 
 static void GetAllGroundEffectFlags_OnBeginStep(struct ObjectEvent *objEvent, u32 *flags)
@@ -9594,6 +9660,7 @@ static void GetAllGroundEffectFlags_OnBeginStep(struct ObjectEvent *objEvent, u3
     GetGroundEffectFlags_Puddle(objEvent, flags);
     GetGroundEffectFlags_ShortGrass(objEvent, flags);
     GetGroundEffectFlags_HotSprings(objEvent, flags);
+    GetGroundEffectFlags_DeepSnow(objEvent, flags);
 }
 
 static void GetAllGroundEffectFlags_OnFinishStep(struct ObjectEvent *objEvent, u32 *flags)
@@ -9606,6 +9673,7 @@ static void GetAllGroundEffectFlags_OnFinishStep(struct ObjectEvent *objEvent, u
     GetGroundEffectFlags_Ripple(objEvent, flags);
     GetGroundEffectFlags_ShortGrass(objEvent, flags);
     GetGroundEffectFlags_HotSprings(objEvent, flags);
+    GetGroundEffectFlags_DeepSnow2(objEvent, flags);
     GetGroundEffectFlags_Seaweed(objEvent, flags);
     GetGroundEffectFlags_JumpLanding(objEvent, flags);
 }
@@ -9684,10 +9752,10 @@ static void GetGroundEffectFlags_TracksMud(struct ObjectEvent *objEvent, u32 *fl
     if (MetatileBehavior_IsMud(objEvent->currentMetatileBehavior)
         && MetatileBehavior_IsMud(objEvent->previousMetatileBehavior))
     {
-        if (!objEvent->inMudPile)
+        if (!objEvent->inSandPile)
         {
-            objEvent->inMudPile = FALSE;
-            objEvent->inMudPile = TRUE;
+            objEvent->inSandPile = FALSE;
+            objEvent->inSandPile = TRUE;
             *flags |= GROUND_EFFECT_FLAG_MUD_PILE;
         }
     }
@@ -9696,8 +9764,8 @@ static void GetGroundEffectFlags_TracksMud(struct ObjectEvent *objEvent, u32 *fl
 
 static void GetGroundEffectFlags_SandHeap(struct ObjectEvent *objEvent, u32 *flags)
 {
-    if (MetatileBehavior_IsDeepSand(objEvent->currentMetatileBehavior)
-        && MetatileBehavior_IsDeepSand(objEvent->previousMetatileBehavior))
+    if (MetatileBehavior_CreatesPileAroundPlayer(objEvent->currentMetatileBehavior)
+        && MetatileBehavior_CreatesPileAroundPlayer(objEvent->previousMetatileBehavior))
     {
         if (!objEvent->inSandPile)
         {
@@ -9718,10 +9786,10 @@ static void GetGroundEffectFlags_MudHeap(struct ObjectEvent *objEvent, u32 *flag
     if (MetatileBehavior_IsMud(objEvent->currentMetatileBehavior)
         && MetatileBehavior_IsMud(objEvent->previousMetatileBehavior))
     {
-        if (!objEvent->inMudPile)
+        if (!objEvent->inSandPile)
         {
-            objEvent->inMudPile = FALSE;
-            objEvent->inMudPile = TRUE;
+            objEvent->inSandPile = FALSE;
+            objEvent->inSandPile = TRUE;
             *flags |= GROUND_EFFECT_FLAG_MUD_PILE;
         }
     }
@@ -9738,7 +9806,7 @@ static void GetGroundEffectFlags_MudHeap(struct ObjectEvent *objEvent, u32 *flag
 
     else
     {
-        objEvent->inMudPile = FALSE;
+        objEvent->inSandPile = FALSE;
     }
 }
 
@@ -9798,6 +9866,122 @@ static void GetGroundEffectFlags_ShortGrass(struct ObjectEvent *objEvent, u32 *f
     else
     {
         objEvent->inShortGrass = FALSE;
+    }
+}
+
+static void GetGroundEffectFlags_DeepSnow2(struct ObjectEvent *objEvent, u32 *flags)
+{
+    u8 avatarState = PLAYER_AVATAR_STATE_NORMAL;
+    switch (objEvent->snowDepth)
+    {
+        case 1:
+            avatarState = PLAYER_AVATAR_STATE_4PX_SNOW;
+            break;
+        case 2:
+            avatarState = PLAYER_AVATAR_STATE_6PX_SNOW;
+            break;
+        case 3:
+            avatarState = PLAYER_AVATAR_STATE_8PX_SNOW;
+            break;
+        case 4:
+            avatarState = PLAYER_AVATAR_STATE_10PX_SNOW;
+            break;
+    }
+    
+    // ObjectEventTurn(objEvent, objEvent->movementDirection);
+    // SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_ON_FOOT);
+    // SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
+    if (MetatileBehavior_IsNormalSnow(objEvent->currentMetatileBehavior)
+        && MetatileBehavior_IsNormalSnow(objEvent->previousMetatileBehavior))
+    {
+        // && objEvent->snowDepth != 1)
+        objEvent->snowDepth = 1;
+        *flags |= GROUND_EFFECT_FLAG_SAND_PILE;
+        if (objEvent->isPlayer)
+        {
+            ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(avatarState));
+            // SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
+        }
+    }
+    else if (MetatileBehavior_IsMediumSnow(objEvent->currentMetatileBehavior)
+        && MetatileBehavior_IsMediumSnow(objEvent->previousMetatileBehavior))
+        // && objEvent->snowDepth != 2)
+    {
+        objEvent->snowDepth = 2;
+        *flags |= GROUND_EFFECT_FLAG_SAND_PILE;
+        if (objEvent->isPlayer)
+        {
+            ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(avatarState));
+            // SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
+        }
+    }
+    else if (MetatileBehavior_IsDeepSnow(objEvent->currentMetatileBehavior)
+        && MetatileBehavior_IsDeepSnow(objEvent->previousMetatileBehavior))
+        // && objEvent->snowDepth != 3)
+    {
+        objEvent->snowDepth = 3;
+        *flags |= GROUND_EFFECT_FLAG_SAND_PILE;
+        if (objEvent->isPlayer)
+        {
+            ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(avatarState));
+            // SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
+        }
+    }
+    else if (MetatileBehavior_IsSuperDeepSnow(objEvent->currentMetatileBehavior)
+        && MetatileBehavior_IsSuperDeepSnow(objEvent->previousMetatileBehavior))
+        // && objEvent->snowDepth != 4)
+    {
+        objEvent->snowDepth = 4;
+        *flags |= GROUND_EFFECT_FLAG_SAND_PILE;
+        if (objEvent->isPlayer)
+        {
+            ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(avatarState));
+            // SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
+        }
+    }
+    else
+    {
+        objEvent->snowDepth = 0;
+    }
+}
+
+static void GetGroundEffectFlags_DeepSnow(struct ObjectEvent *objEvent, u32 *flags)
+{
+    
+    // ObjectEventTurn(objEvent, objEvent->movementDirection);
+    // SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_ON_FOOT);
+    // SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
+    if (MetatileBehavior_IsNormalSnow(objEvent->currentMetatileBehavior)
+        && MetatileBehavior_IsNormalSnow(objEvent->previousMetatileBehavior))
+        // && objEvent->snowDepth != 1)
+    {
+        objEvent->snowDepth = 1;
+        *flags |= GROUND_EFFECT_FLAG_SAND_PILE;
+    }
+    else if (MetatileBehavior_IsMediumSnow(objEvent->currentMetatileBehavior)
+        && MetatileBehavior_IsMediumSnow(objEvent->previousMetatileBehavior))
+        // && objEvent->snowDepth != 2)
+    {
+        objEvent->snowDepth = 2;
+        *flags |= GROUND_EFFECT_FLAG_SAND_PILE;
+    }
+    else if (MetatileBehavior_IsDeepSnow(objEvent->currentMetatileBehavior)
+        && MetatileBehavior_IsDeepSnow(objEvent->previousMetatileBehavior))
+        // && objEvent->snowDepth != 3)
+    {
+        objEvent->snowDepth = 3;
+        *flags |= GROUND_EFFECT_FLAG_SAND_PILE;
+    }
+    else if (MetatileBehavior_IsSuperDeepSnow(objEvent->currentMetatileBehavior)
+        && MetatileBehavior_IsSuperDeepSnow(objEvent->previousMetatileBehavior))
+        // && objEvent->snowDepth != 4)
+    {
+        objEvent->snowDepth = 4;
+        *flags |= GROUND_EFFECT_FLAG_SAND_PILE;
+    }
+    else
+    {
+        objEvent->snowDepth = 0;
     }
 }
 
@@ -10406,7 +10590,16 @@ void GroundEffect_StepOnPuddle(struct ObjectEvent *objEvent, struct Sprite *spri
 
 void GroundEffect_SandHeap(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
-    StartFieldEffectForObjectEvent(FLDEFF_SAND_PILE, objEvent);
+    u8 fieldEffect;
+    if (MAP(TEST_ROOM))
+    {
+        fieldEffect = FLDEFF_SNOW_PILE;
+    }
+    else
+    {
+        fieldEffect = FLDEFF_SAND_PILE;
+    }
+    StartFieldEffectForObjectEvent(fieldEffect, objEvent);
 }
 
 void GroundEffect_MudHeap(struct ObjectEvent *objEvent, struct Sprite *sprite)
@@ -10544,9 +10737,9 @@ void filters_out_some_ground_effects(struct ObjectEvent *objEvent, u32 *flags)
     {
         objEvent->inShortGrass = 0;
         objEvent->inSandPile = 0;
-        objEvent->inMudPile = 0;
         objEvent->inShallowFlowingWater = 0;
         objEvent->inHotSprings = 0;
+        objEvent->snowDepth= 0;
         *flags &= ~(GROUND_EFFECT_FLAG_HOT_SPRINGS
                   | GROUND_EFFECT_FLAG_SHORT_GRASS
                   | GROUND_EFFECT_FLAG_SAND_PILE
@@ -10819,6 +11012,35 @@ static void SetWalkSlowSpriteData(struct Sprite *sprite, u8 direction)
 static bool8 UpdateWalkSlowAnim(struct Sprite *sprite)
 {
     if (!(sprite->sTimer & 1))
+    {
+        Step1(sprite, sprite->sDirection);
+        sprite->sNumSteps++;
+    }
+
+    sprite->sTimer++;
+
+    if (sprite->sNumSteps > 15)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+#undef sTimer
+#undef sNumSteps
+
+#define sTimer     data[4]
+#define sNumSteps  data[5]
+
+static void SetWalkSuperSlowSpriteData(struct Sprite *sprite, u8 direction)
+{
+    sprite->sDirection = direction;
+    sprite->sTimer = 0;
+    sprite->sNumSteps = 0;
+}
+
+static bool8 UpdateWalkSuperSlowAnim(struct Sprite *sprite)
+{
+    if (!(sprite->sTimer & 3)) // Move every 4 frames instead of 2
     {
         Step1(sprite, sprite->sDirection);
         sprite->sNumSteps++;
@@ -11569,6 +11791,11 @@ static void StartSlowRunningAnim(struct ObjectEvent *objectEvent, struct Sprite 
     InitNpcForWalkSlow(objectEvent, sprite, direction);
     SetStepAnimHandleAlternation(objectEvent, sprite, GetRunningDirectionAnimNum(objectEvent->facingDirection));
 }
+static void StartSuperSlowRunningAnim(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction)
+{
+    InitNpcForWalkSuperSlow(objectEvent, sprite, direction);
+    SetStepAnimHandleAlternation(objectEvent, sprite, GetRunningDirectionAnimNum(objectEvent->facingDirection));
+}
 
 bool8 MovementActionFunc_RunSlowDown_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
@@ -11737,4 +11964,115 @@ static u16 GetUnownSpecies(struct Pokemon *mon)
     if (form == 0)
         return SPECIES_UNOWN;
     return SPECIES_UNOWN_B + form - 1;
+}
+
+
+bool8 MovementAction_WalkSuperSlowDown_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    InitWalkSuperSlow(objectEvent, sprite, DIR_SOUTH);
+    return MovementAction_WalkSuperSlowDown_Step1(objectEvent, sprite);
+}
+
+bool8 MovementAction_WalkSuperSlowDown_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (UpdateWalkSuperSlow(objectEvent, sprite))
+    {
+        sprite->sActionFuncId = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 MovementAction_WalkSuperSlowUp_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    InitWalkSuperSlow(objectEvent, sprite, DIR_NORTH);
+    return MovementAction_WalkSuperSlowUp_Step1(objectEvent, sprite);
+}
+
+bool8 MovementAction_WalkSuperSlowUp_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (UpdateWalkSuperSlow(objectEvent, sprite))
+    {
+        sprite->sActionFuncId = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 MovementAction_WalkSuperSlowLeft_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (objectEvent->directionOverwrite)
+        InitWalkSuperSlow(objectEvent, sprite, objectEvent->directionOverwrite);
+    else
+        InitWalkSuperSlow(objectEvent, sprite, DIR_WEST);
+    return MovementAction_WalkSuperSlowLeft_Step1(objectEvent, sprite);
+}
+
+bool8 MovementAction_WalkSuperSlowLeft_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (UpdateWalkSuperSlow(objectEvent, sprite))
+    {
+        sprite->sActionFuncId = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 MovementAction_WalkSuperSlowRight_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (objectEvent->directionOverwrite)
+        InitWalkSuperSlow(objectEvent, sprite, objectEvent->directionOverwrite);
+    else
+        InitWalkSuperSlow(objectEvent, sprite, DIR_EAST);
+    return MovementAction_WalkSuperSlowRight_Step1(objectEvent, sprite);
+}
+
+bool8 MovementAction_WalkSuperSlowRight_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (UpdateWalkSuperSlow(objectEvent, sprite))
+    {
+        sprite->sActionFuncId = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 MovementActionFunc_RunSuperSlowDown_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    StartSuperSlowRunningAnim(objectEvent, sprite, DIR_SOUTH);
+    return MovementActionFunc_RunSuperSlow_Step1(objectEvent, sprite);
+}
+
+bool8 MovementActionFunc_RunSuperSlowUp_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    StartSuperSlowRunningAnim(objectEvent, sprite, DIR_NORTH);
+    return MovementActionFunc_RunSuperSlow_Step1(objectEvent, sprite);
+}
+
+bool8 MovementActionFunc_RunSuperSlowLeft_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (objectEvent->directionOverwrite)
+        StartSuperSlowRunningAnim(objectEvent, sprite, objectEvent->directionOverwrite);
+    else
+        StartSuperSlowRunningAnim(objectEvent, sprite, DIR_WEST);
+    return MovementActionFunc_RunSuperSlow_Step1(objectEvent, sprite);
+}
+
+bool8 MovementActionFunc_RunSuperSlowRight_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (objectEvent->directionOverwrite)
+        StartSuperSlowRunningAnim(objectEvent, sprite, objectEvent->directionOverwrite);
+    else
+        StartSuperSlowRunningAnim(objectEvent, sprite, DIR_EAST);
+    return MovementActionFunc_RunSuperSlow_Step1(objectEvent, sprite);
+}
+
+bool8 MovementActionFunc_RunSuperSlow_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (UpdateMovementNormal(objectEvent, sprite))
+    {
+        sprite->sActionFuncId = 2;
+        return TRUE;
+    }
+    return FALSE;
 }
