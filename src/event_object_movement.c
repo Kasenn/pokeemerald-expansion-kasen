@@ -140,8 +140,6 @@ static void GetGroundEffectFlags_MudHeap(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_ShallowFlowingWater(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_ShortGrass(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_HotSprings(struct ObjectEvent *, u32 *);
-static void GetGroundEffectFlags_DeepSnow(struct ObjectEvent *, u32 *);
-static void GetGroundEffectFlags_DeepSnow2(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_TallGrassOnBeginStep(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_LongGrassOnBeginStep(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_Tracks(struct ObjectEvent *, u32 *);
@@ -232,6 +230,8 @@ static const struct SpriteFrameImage sPicTable_PechaBerryTree[];
 
 static void StartSlowRunningAnim(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction);
 static void StartSuperSlowRunningAnim(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction);
+static void UpdatePlayerDeepSnowDepth(struct ObjectEvent *);
+
 
 const u8 gReflectionEffectPaletteMap[16] = {
         [PALSLOT_PLAYER]                 = PALSLOT_PLAYER_REFLECTION,
@@ -9643,7 +9643,6 @@ static void GetAllGroundEffectFlags_OnSpawn(struct ObjectEvent *objEvent, u32 *f
     GetGroundEffectFlags_ShallowFlowingWater(objEvent, flags);
     GetGroundEffectFlags_ShortGrass(objEvent, flags);
     GetGroundEffectFlags_HotSprings(objEvent, flags);
-    GetGroundEffectFlags_DeepSnow(objEvent, flags);
 }
 
 static void GetAllGroundEffectFlags_OnBeginStep(struct ObjectEvent *objEvent, u32 *flags)
@@ -9660,7 +9659,6 @@ static void GetAllGroundEffectFlags_OnBeginStep(struct ObjectEvent *objEvent, u3
     GetGroundEffectFlags_Puddle(objEvent, flags);
     GetGroundEffectFlags_ShortGrass(objEvent, flags);
     GetGroundEffectFlags_HotSprings(objEvent, flags);
-    GetGroundEffectFlags_DeepSnow(objEvent, flags);
 }
 
 static void GetAllGroundEffectFlags_OnFinishStep(struct ObjectEvent *objEvent, u32 *flags)
@@ -9673,7 +9671,7 @@ static void GetAllGroundEffectFlags_OnFinishStep(struct ObjectEvent *objEvent, u
     GetGroundEffectFlags_Ripple(objEvent, flags);
     GetGroundEffectFlags_ShortGrass(objEvent, flags);
     GetGroundEffectFlags_HotSprings(objEvent, flags);
-    GetGroundEffectFlags_DeepSnow2(objEvent, flags);
+    UpdatePlayerDeepSnowDepth(objEvent);
     GetGroundEffectFlags_Seaweed(objEvent, flags);
     GetGroundEffectFlags_JumpLanding(objEvent, flags);
 }
@@ -9869,119 +9867,43 @@ static void GetGroundEffectFlags_ShortGrass(struct ObjectEvent *objEvent, u32 *f
     }
 }
 
-static void GetGroundEffectFlags_DeepSnow2(struct ObjectEvent *objEvent, u32 *flags)
+static void UpdatePlayerDeepSnowDepth(struct ObjectEvent *objEvent)
 {
-    u8 avatarState = PLAYER_AVATAR_STATE_NORMAL;
-    switch (objEvent->snowDepth)
-    {
-        case 1:
-            avatarState = PLAYER_AVATAR_STATE_4PX_SNOW;
-            break;
-        case 2:
-            avatarState = PLAYER_AVATAR_STATE_6PX_SNOW;
-            break;
-        case 3:
-            avatarState = PLAYER_AVATAR_STATE_8PX_SNOW;
-            break;
-        case 4:
-            avatarState = PLAYER_AVATAR_STATE_10PX_SNOW;
-            break;
-    }
-    
-    // ObjectEventTurn(objEvent, objEvent->movementDirection);
-    // SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_ON_FOOT);
-    // SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
-    if (MetatileBehavior_IsNormalSnow(objEvent->currentMetatileBehavior)
-        && MetatileBehavior_IsNormalSnow(objEvent->previousMetatileBehavior))
-    {
-        // && objEvent->snowDepth != 1)
-        objEvent->snowDepth = 1;
-        *flags |= GROUND_EFFECT_FLAG_SAND_PILE;
-        if (objEvent->isPlayer)
-        {
-            ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(avatarState));
-            // SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
-        }
-    }
-    else if (MetatileBehavior_IsMediumSnow(objEvent->currentMetatileBehavior)
-        && MetatileBehavior_IsMediumSnow(objEvent->previousMetatileBehavior))
-        // && objEvent->snowDepth != 2)
-    {
-        objEvent->snowDepth = 2;
-        *flags |= GROUND_EFFECT_FLAG_SAND_PILE;
-        if (objEvent->isPlayer)
-        {
-            ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(avatarState));
-            // SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
-        }
-    }
-    else if (MetatileBehavior_IsDeepSnow(objEvent->currentMetatileBehavior)
-        && MetatileBehavior_IsDeepSnow(objEvent->previousMetatileBehavior))
-        // && objEvent->snowDepth != 3)
-    {
-        objEvent->snowDepth = 3;
-        *flags |= GROUND_EFFECT_FLAG_SAND_PILE;
-        if (objEvent->isPlayer)
-        {
-            ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(avatarState));
-            // SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
-        }
-    }
-    else if (MetatileBehavior_IsSuperDeepSnow(objEvent->currentMetatileBehavior)
-        && MetatileBehavior_IsSuperDeepSnow(objEvent->previousMetatileBehavior))
-        // && objEvent->snowDepth != 4)
-    {
-        objEvent->snowDepth = 4;
-        *flags |= GROUND_EFFECT_FLAG_SAND_PILE;
-        if (objEvent->isPlayer)
-        {
-            ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(avatarState));
-            // SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
-        }
-    }
-    else
-    {
-        objEvent->snowDepth = 0;
-    }
-}
+    s16 x = objEvent->currentCoords.x;
+    s16 y = objEvent->currentCoords.y;
 
-static void GetGroundEffectFlags_DeepSnow(struct ObjectEvent *objEvent, u32 *flags)
-{
-    
-    // ObjectEventTurn(objEvent, objEvent->movementDirection);
-    // SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_ON_FOOT);
-    // SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
-    if (MetatileBehavior_IsNormalSnow(objEvent->currentMetatileBehavior)
-        && MetatileBehavior_IsNormalSnow(objEvent->previousMetatileBehavior))
-        // && objEvent->snowDepth != 1)
+    if (objEvent->isPlayer)
     {
-        objEvent->snowDepth = 1;
-        *flags |= GROUND_EFFECT_FLAG_SAND_PILE;
-    }
-    else if (MetatileBehavior_IsMediumSnow(objEvent->currentMetatileBehavior)
-        && MetatileBehavior_IsMediumSnow(objEvent->previousMetatileBehavior))
-        // && objEvent->snowDepth != 2)
-    {
-        objEvent->snowDepth = 2;
-        *flags |= GROUND_EFFECT_FLAG_SAND_PILE;
-    }
-    else if (MetatileBehavior_IsDeepSnow(objEvent->currentMetatileBehavior)
-        && MetatileBehavior_IsDeepSnow(objEvent->previousMetatileBehavior))
-        // && objEvent->snowDepth != 3)
-    {
-        objEvent->snowDepth = 3;
-        *flags |= GROUND_EFFECT_FLAG_SAND_PILE;
-    }
-    else if (MetatileBehavior_IsSuperDeepSnow(objEvent->currentMetatileBehavior)
-        && MetatileBehavior_IsSuperDeepSnow(objEvent->previousMetatileBehavior))
-        // && objEvent->snowDepth != 4)
-    {
-        objEvent->snowDepth = 4;
-        *flags |= GROUND_EFFECT_FLAG_SAND_PILE;
-    }
-    else
-    {
-        objEvent->snowDepth = 0;
+        if (MetatileBehavior_IsNormalSnow(MapGridGetMetatileBehaviorAt(x,y))
+        && objEvent->snowDepth != 1)
+        {
+            objEvent->snowDepth = 1;
+            ScriptContext_SetupScript(Script_SinkOrRisePlayer);
+        }
+        else if (MetatileBehavior_IsMediumSnow(MapGridGetMetatileBehaviorAt(x,y))
+        && objEvent->snowDepth != 2)
+        {
+            objEvent->snowDepth = 2;
+            ScriptContext_SetupScript(Script_SinkOrRisePlayer);
+        }
+        else if (MetatileBehavior_IsDeepSnow(MapGridGetMetatileBehaviorAt(x,y))
+        && objEvent->snowDepth != 3)
+        {
+            objEvent->snowDepth = 3;
+            ScriptContext_SetupScript(Script_SinkOrRisePlayer);
+        }
+        else if (MetatileBehavior_IsSuperDeepSnow(MapGridGetMetatileBehaviorAt(x,y))
+        && objEvent->snowDepth != 4)
+        {
+            objEvent->snowDepth = 4;
+            ScriptContext_SetupScript(Script_SinkOrRisePlayer);
+        }
+        else if (MetatileBehavior_IsSnow(MapGridGetMetatileBehaviorAt(x,y))
+        && objEvent->snowDepth != 0)
+        {
+            objEvent->snowDepth = 0;
+            ScriptContext_SetupScript(Script_SinkOrRisePlayer);
+        }
     }
 }
 

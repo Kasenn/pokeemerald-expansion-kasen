@@ -6,6 +6,10 @@ script RopeBridgeScript{
     waitmovement(0)
     release
 }
+script Script_SinkOrRisePlayer{
+    playersinkinsnow
+    release
+}
 
 //
 // General stuff

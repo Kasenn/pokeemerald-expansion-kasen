@@ -833,9 +833,9 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
     if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_UNDERWATER) && (heldKeys & B_BUTTON) && FlagGet(FLAG_SYS_B_DASH) && !FlagGet(FLAG_ESCORTING_PRYCE)
      && IsRunningDisallowed(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior) == 0 && !FollowerComingThroughDoor())
     {
-        if (ObjectMovingInDeepSnow(&gObjectEvents[gPlayerAvatar.objectEventId], direction))
+        if (ObjectMovingInDeepSnow(&gObjectEvents[gPlayerAvatar.objectEventId]))
             PlayerRunSuperSlow(direction);
-        else if (ObjectMovingInMediumSnow(&gObjectEvents[gPlayerAvatar.objectEventId], direction))
+        else if (ObjectMovingInMediumSnow(&gObjectEvents[gPlayerAvatar.objectEventId]))
             PlayerRunSlow(direction);
         else if (ObjectMovingOnRockStairs(&gObjectEvents[gPlayerAvatar.objectEventId], direction))
             PlayerRunSlow(direction);
@@ -847,9 +847,9 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
     }
     else
     {
-        if (ObjectMovingInDeepSnow(&gObjectEvents[gPlayerAvatar.objectEventId], direction))
+        if (ObjectMovingInDeepSnow(&gObjectEvents[gPlayerAvatar.objectEventId]))
             PlayerWalkSuperSlow(direction);
-        else if (ObjectMovingInMediumSnow(&gObjectEvents[gPlayerAvatar.objectEventId], direction))
+        else if (ObjectMovingInMediumSnow(&gObjectEvents[gPlayerAvatar.objectEventId]))
             PlayerWalkSlow(direction);
         else if (ObjectMovingOnRockStairs(&gObjectEvents[gPlayerAvatar.objectEventId], direction))
             PlayerWalkSlow(direction);
@@ -2950,73 +2950,18 @@ bool8 ObjectMovingOnRockStairs(struct ObjectEvent *objectEvent, u8 direction)
     #endif
 }
 
-bool8 ObjectMovingInMediumSnow(struct ObjectEvent *objectEvent, u8 direction)
+bool8 ObjectMovingInMediumSnow(struct ObjectEvent *objectEvent)
 {
-    #if SLOW_MOVEMENT_ON_STAIRS == TRUE
-        s16 x = objectEvent->currentCoords.x;
-        s16 y = objectEvent->currentCoords.y;
+    s16 x = objectEvent->currentCoords.x;
+    s16 y = objectEvent->currentCoords.y;
 
-        // TODO followers on sideways stairs
-        // if (IsFollowerVisible() && GetFollowerObject() != NULL && (objectEvent->isPlayer || objectEvent->localId == OBJ_EVENT_ID_FOLLOWER))
-        //     return FALSE;
-
-        switch (direction)
-        {
-        case DIR_NORTH:
-            return MetatileBehavior_IsDeepSnow(MapGridGetMetatileBehaviorAt(x,y));
-        case DIR_SOUTH:
-            return MetatileBehavior_IsDeepSnow(MapGridGetMetatileBehaviorAt(x,y));
-        case DIR_WEST:
-            return MetatileBehavior_IsDeepSnow(MapGridGetMetatileBehaviorAt(x,y));
-        case DIR_EAST:
-            return MetatileBehavior_IsDeepSnow(MapGridGetMetatileBehaviorAt(x,y));
-        case DIR_NORTHEAST:
-        case DIR_NORTHWEST:
-        case DIR_SOUTHWEST:
-        case DIR_SOUTHEAST:
-            // // directionOverwrite is only used for sideways stairs motion
-            // if (objectEvent->directionOverwrite)
-            //     return TRUE;
-        default:
-            return FALSE;
-        }
-    #else
-        return FALSE;
-    #endif
+    return MetatileBehavior_IsDeepSnow(MapGridGetMetatileBehaviorAt(x,y));
 }
 
-bool8 ObjectMovingInDeepSnow(struct ObjectEvent *objectEvent, u8 direction)
+bool8 ObjectMovingInDeepSnow(struct ObjectEvent *objectEvent)
 {
-    #if SLOW_MOVEMENT_ON_STAIRS == TRUE
-        s16 x = objectEvent->currentCoords.x;
-        s16 y = objectEvent->currentCoords.y;
+    s16 x = objectEvent->currentCoords.x;
+    s16 y = objectEvent->currentCoords.y;
 
-        // TODO followers on sideways stairs
-        // if (IsFollowerVisible() && GetFollowerObject() != NULL && (objectEvent->isPlayer || objectEvent->localId == OBJ_EVENT_ID_FOLLOWER))
-        //     return FALSE;
-
-        switch (direction)
-        {
-        case DIR_NORTH:
-            return MetatileBehavior_IsSuperDeepSnow(MapGridGetMetatileBehaviorAt(x,y));
-        case DIR_SOUTH:
-            return MetatileBehavior_IsSuperDeepSnow(MapGridGetMetatileBehaviorAt(x,y));
-        case DIR_WEST:
-            return MetatileBehavior_IsSuperDeepSnow(MapGridGetMetatileBehaviorAt(x,y));
-        case DIR_EAST:
-            return MetatileBehavior_IsSuperDeepSnow(MapGridGetMetatileBehaviorAt(x,y));
-        case DIR_NORTHEAST:
-        case DIR_NORTHWEST:
-        case DIR_SOUTHWEST:
-        case DIR_SOUTHEAST:
-            // // directionOverwrite is only used for sideways stairs motion
-            // if (objectEvent->directionOverwrite)
-            //     return TRUE;
-        default:
-            return FALSE;
-        }
-    #else
-        return FALSE;
-    #endif
+    return MetatileBehavior_IsSuperDeepSnow(MapGridGetMetatileBehaviorAt(x,y));
 }
-

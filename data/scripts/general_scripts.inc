@@ -6,6 +6,12 @@ RopeBridgeScript::
 	return
 
 
+Script_SinkOrRisePlayer::
+	playersinkinsnow
+	release
+	return
+
+
 CountGymBadges::
 	goto_if_set FLAG_BADGE08_GET, CountGymBadges_2
 	goto_if_set FLAG_BADGE07_GET, CountGymBadges_3

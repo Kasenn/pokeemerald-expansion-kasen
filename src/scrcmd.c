@@ -2930,6 +2930,11 @@ void DismountPlayer(void)
     }
 }
 
+void PlayerSinkInSnow(void)
+{
+    SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
+}
+
 void CheckFoughtTrainers(void)
 {
     u16 i;
