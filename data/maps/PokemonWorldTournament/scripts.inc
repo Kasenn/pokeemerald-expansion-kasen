@@ -619,4 +619,4 @@ Pwt_Incomplete_Text::
 	.string "The Pokémon World Tournament\n"
 	.string "is still under construction,\l"
 	.string "so we are currently hosting\l"
-	.string "Battle Factory here.$"
+	.string "Battle Factory here instead.$"

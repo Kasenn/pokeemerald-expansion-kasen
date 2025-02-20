@@ -5,19 +5,25 @@ Amberock_PokeballFactory_MapScripts::
 	.byte 0
 
 Amberock_PokeballFactory_MapScripts_MAP_SCRIPT_ON_TRANSITION:
-	goto_if_set FLAG_DISGUISED_AS_KROKOROK, Amberock_PokeballFactory_MapScripts_MAP_SCRIPT_ON_TRANSITION_2
+	goto_if_unset FLAG_MSG_FROM_CLAY, Amberock_PokeballFactory_MapScripts_MAP_SCRIPT_ON_TRANSITION_2
 Amberock_PokeballFactory_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
+	goto_if_set FLAG_DISGUISED_AS_KROKOROK, Amberock_PokeballFactory_MapScripts_MAP_SCRIPT_ON_TRANSITION_5
+Amberock_PokeballFactory_MapScripts_MAP_SCRIPT_ON_TRANSITION_4:
 	compare VAR_AMBEROCK_STORY, STORY_AMBEROCK_FOUND_PETREL
-	goto_if_ge Amberock_PokeballFactory_MapScripts_MAP_SCRIPT_ON_TRANSITION_4
+	goto_if_ge Amberock_PokeballFactory_MapScripts_MAP_SCRIPT_ON_TRANSITION_7
 	return
 
 Amberock_PokeballFactory_MapScripts_MAP_SCRIPT_ON_TRANSITION_2:
+	setvar VAR_TEMP_8, 1
+	goto Amberock_PokeballFactory_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
+
+Amberock_PokeballFactory_MapScripts_MAP_SCRIPT_ON_TRANSITION_5:
 	setflag FLAG_TEMP_HIDE_FOLLOWER
 	setflag FLAG_SYS_USE_STRENGTH
 	setflag FLAG_TEMP_2
-	goto Amberock_PokeballFactory_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
+	goto Amberock_PokeballFactory_MapScripts_MAP_SCRIPT_ON_TRANSITION_4
 
-Amberock_PokeballFactory_MapScripts_MAP_SCRIPT_ON_TRANSITION_4:
+Amberock_PokeballFactory_MapScripts_MAP_SCRIPT_ON_TRANSITION_7:
 	setflag FLAG_TEMP_1
 	return
 
@@ -26,6 +32,7 @@ Amberock_PokeballFactory_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE:
 	.2byte 0
 
 Amberock_PokeballFactory_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_TEMP_8, 1, MsgFromClay
 	map_script_2 VAR_BOULDER_ID, 35, Factory_DoBoulderCheck
 	.2byte 0
 
@@ -63,273 +70,31 @@ Factory_BusyKrokorok::
 	return
 
 
-Amberock_Factory_RocketTrigger1_1::
-	setvar VAR_TEMP_1, 25
-	setvar VAR_TEMP_2, DIR_WEST
+Amberock_Factory_RocketWarpTo4::
 	setvar VAR_TEMP_3, 4
 	goto Amberock_Factory_MainRocket
 	return
 
 
-Amberock_Factory_RocketTrigger1_2::
-	setvar VAR_TEMP_1, 25
-	setvar VAR_TEMP_2, DIR_SOUTH
-	setvar VAR_TEMP_3, 4
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger1_3::
-	setvar VAR_TEMP_1, 25
-	setvar VAR_TEMP_2, DIR_EAST
-	setvar VAR_TEMP_3, 4
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger1_4::
-	setvar VAR_TEMP_1, 25
-	setvar VAR_TEMP_2, DIR_NORTH
-	setvar VAR_TEMP_3, 4
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger2_1::
-	setvar VAR_TEMP_1, 24
-	setvar VAR_TEMP_2, DIR_SOUTH
+Amberock_Factory_RocketWarpTo5::
 	setvar VAR_TEMP_3, 5
 	goto Amberock_Factory_MainRocket
 	return
 
 
-Amberock_Factory_RocketTrigger2_2::
-	setvar VAR_TEMP_1, 24
-	setvar VAR_TEMP_2, DIR_EAST
-	setvar VAR_TEMP_3, 5
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger2_3::
-	setvar VAR_TEMP_1, 24
-	setvar VAR_TEMP_2, DIR_NORTH
-	setvar VAR_TEMP_3, 5
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger3_1::
-	setvar VAR_TEMP_1, 11
-	setvar VAR_TEMP_2, DIR_SOUTH
+Amberock_Factory_RocketWarpTo6::
 	setvar VAR_TEMP_3, 6
 	goto Amberock_Factory_MainRocket
 	return
 
 
-Amberock_Factory_RocketTrigger3_2::
-	setvar VAR_TEMP_1, 11
-	setvar VAR_TEMP_2, DIR_WEST
-	setvar VAR_TEMP_3, 6
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger4_1::
-	setvar VAR_TEMP_1, 28
-	setvar VAR_TEMP_2, DIR_EAST
-	setvar VAR_TEMP_3, 6
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger4_2::
-	setvar VAR_TEMP_1, 28
-	setvar VAR_TEMP_2, DIR_NORTH
-	setvar VAR_TEMP_3, 6
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger5_1::
-	setvar VAR_TEMP_1, 12
-	setvar VAR_TEMP_2, DIR_SOUTH
-	setvar VAR_TEMP_3, 6
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger5_2::
-	setvar VAR_TEMP_1, 12
-	setvar VAR_TEMP_2, DIR_WEST
-	setvar VAR_TEMP_3, 6
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger6_1::
-	setvar VAR_TEMP_1, 13
-	setvar VAR_TEMP_2, DIR_SOUTH
+Amberock_Factory_RocketWarpTo7::
 	setvar VAR_TEMP_3, 7
 	goto Amberock_Factory_MainRocket
 	return
 
 
-Amberock_Factory_RocketTrigger6_2::
-	setvar VAR_TEMP_1, 13
-	setvar VAR_TEMP_2, DIR_NORTH
-	setvar VAR_TEMP_3, 7
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger6_3::
-	setvar VAR_TEMP_1, 13
-	setvar VAR_TEMP_2, DIR_WEST
-	setvar VAR_TEMP_3, 7
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger7_1::
-	setvar VAR_TEMP_1, 29
-	setvar VAR_TEMP_2, DIR_EAST
-	setvar VAR_TEMP_3, 8
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger7_2::
-	setvar VAR_TEMP_1, 29
-	setvar VAR_TEMP_2, DIR_WEST
-	setvar VAR_TEMP_3, 8
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger7_3::
-	setvar VAR_TEMP_1, 29
-	setvar VAR_TEMP_2, DIR_NORTH
-	setvar VAR_TEMP_3, 8
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger8_1::
-	setvar VAR_TEMP_1, 14
-	setvar VAR_TEMP_2, DIR_EAST
-	setvar VAR_TEMP_3, 8
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger8_2::
-	setvar VAR_TEMP_1, 14
-	setvar VAR_TEMP_2, DIR_SOUTH
-	setvar VAR_TEMP_3, 8
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger9_1::
-	setvar VAR_TEMP_1, 30
-	setvar VAR_TEMP_2, DIR_EAST
-	setvar VAR_TEMP_3, 8
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger9_2::
-	setvar VAR_TEMP_1, 30
-	setvar VAR_TEMP_2, DIR_SOUTH
-	setvar VAR_TEMP_3, 8
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger9_3::
-	setvar VAR_TEMP_1, 30
-	setvar VAR_TEMP_2, DIR_WEST
-	setvar VAR_TEMP_3, 8
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger10_1::
-	setvar VAR_TEMP_1, 1
-	setvar VAR_TEMP_2, DIR_SOUTH
-	setvar VAR_TEMP_3, 8
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger10_2::
-	setvar VAR_TEMP_1, 1
-	setvar VAR_TEMP_2, DIR_WEST
-	setvar VAR_TEMP_3, 8
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger10_3::
-	setvar VAR_TEMP_1, 1
-	setvar VAR_TEMP_2, DIR_NORTH
-	setvar VAR_TEMP_3, 8
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger10_4::
-	setvar VAR_TEMP_1, 1
-	setvar VAR_TEMP_2, DIR_EAST
-	setvar VAR_TEMP_3, 8
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger11_1::
-	setvar VAR_TEMP_1, 2
-	setvar VAR_TEMP_2, DIR_WEST
-	setvar VAR_TEMP_3, 8
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger11_2::
-	setvar VAR_TEMP_1, 2
-	setvar VAR_TEMP_2, DIR_NORTH
-	setvar VAR_TEMP_3, 8
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger11_3::
-	setvar VAR_TEMP_1, 2
-	setvar VAR_TEMP_2, DIR_EAST
-	setvar VAR_TEMP_3, 8
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger11_4::
-	setvar VAR_TEMP_1, 2
-	setvar VAR_TEMP_2, DIR_SOUTH
-	setvar VAR_TEMP_3, 8
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger12_1::
-	setvar VAR_TEMP_1, 1
-	setvar VAR_TEMP_2, DIR_WEST
-	setvar VAR_TEMP_3, 8
-	goto Amberock_Factory_MainRocket
-	return
-
-
-Amberock_Factory_RocketTrigger12_2::
-	setvar VAR_TEMP_1, 1
-	setvar VAR_TEMP_2, DIR_SOUTH
+Amberock_Factory_RocketWarpTo8::
 	setvar VAR_TEMP_3, 8
 	goto Amberock_Factory_MainRocket
 	return
@@ -337,69 +102,49 @@ Amberock_Factory_RocketTrigger12_2::
 
 Amberock_Factory_MainRocket::
 	lock
+	applymovement VAR_LAST_TALKED, Common_Movement_FacePlayer
+	waitmovement 0
 	delay 15
 	playse SE_PIN
-	switch VAR_TEMP_2
-	case DIR_NORTH, Amberock_Factory_MainRocket_3
-	case DIR_WEST, Amberock_Factory_MainRocket_4
-	case DIR_EAST, Amberock_Factory_MainRocket_5
-	case DIR_SOUTH, Amberock_Factory_MainRocket_6
-Amberock_Factory_MainRocket_1:
-	applymovement VAR_TEMP_1, ExclamationMark
+	applymovement VAR_LAST_TALKED, ExclamationMark
 	waitmovement 0
 	delay 60
 	msgbox GetBackToWork
 	closemessage
 	switch VAR_TEMP_3
-	case 2, Amberock_Factory_MainRocket_9
-	case 4, Amberock_Factory_MainRocket_10
-	case 5, Amberock_Factory_MainRocket_11
-	case 6, Amberock_Factory_MainRocket_12
-	case 7, Amberock_Factory_MainRocket_13
-	case 8, Amberock_Factory_MainRocket_14
-Amberock_Factory_MainRocket_7:
+	case 2, Amberock_Factory_MainRocket_3
+	case 4, Amberock_Factory_MainRocket_4
+	case 5, Amberock_Factory_MainRocket_5
+	case 6, Amberock_Factory_MainRocket_6
+	case 7, Amberock_Factory_MainRocket_7
+	case 8, Amberock_Factory_MainRocket_8
+Amberock_Factory_MainRocket_1:
 	waitstate
 	return
 
 Amberock_Factory_MainRocket_3:
-	turnobject VAR_TEMP_1, DIR_NORTH
+	warpsilent MAP_AMBEROCK_POKEBALL_FACTORY, 2
 	goto Amberock_Factory_MainRocket_1
 
 Amberock_Factory_MainRocket_4:
-	turnobject VAR_TEMP_1, DIR_WEST
+	warpsilent MAP_AMBEROCK_POKEBALL_FACTORY, 4
 	goto Amberock_Factory_MainRocket_1
 
 Amberock_Factory_MainRocket_5:
-	turnobject VAR_TEMP_1, DIR_EAST
+	warpsilent MAP_AMBEROCK_POKEBALL_FACTORY, 5
 	goto Amberock_Factory_MainRocket_1
 
 Amberock_Factory_MainRocket_6:
-	turnobject VAR_TEMP_1, DIR_SOUTH
+	warpsilent MAP_AMBEROCK_POKEBALL_FACTORY, 6
 	goto Amberock_Factory_MainRocket_1
 
-Amberock_Factory_MainRocket_9:
-	warpsilent MAP_AMBEROCK_POKEBALL_FACTORY, 2
-	goto Amberock_Factory_MainRocket_7
-
-Amberock_Factory_MainRocket_10:
-	warpsilent MAP_AMBEROCK_POKEBALL_FACTORY, 4
-	goto Amberock_Factory_MainRocket_7
-
-Amberock_Factory_MainRocket_11:
-	warpsilent MAP_AMBEROCK_POKEBALL_FACTORY, 5
-	goto Amberock_Factory_MainRocket_7
-
-Amberock_Factory_MainRocket_12:
-	warpsilent MAP_AMBEROCK_POKEBALL_FACTORY, 6
-	goto Amberock_Factory_MainRocket_7
-
-Amberock_Factory_MainRocket_13:
+Amberock_Factory_MainRocket_7:
 	warpsilent MAP_AMBEROCK_POKEBALL_FACTORY, 7
-	goto Amberock_Factory_MainRocket_7
+	goto Amberock_Factory_MainRocket_1
 
-Amberock_Factory_MainRocket_14:
+Amberock_Factory_MainRocket_8:
 	warpsilent MAP_AMBEROCK_POKEBALL_FACTORY, 8
-	goto Amberock_Factory_MainRocket_7
+	goto Amberock_Factory_MainRocket_1
 
 
 FactoryEmployee_Basement::
@@ -501,6 +246,7 @@ Amberock_Factory_Generator_8:
 MsgFromClay::
 	msgbox MsgFromClay_Text, MSGBOX_SIGN
 	setflag FLAG_MSG_FROM_CLAY
+	setvar VAR_TEMP_8, 0
 	release
 	return
 

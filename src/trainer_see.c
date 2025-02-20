@@ -375,7 +375,7 @@ bool8 CheckForTrainersWantingBattle(void)
 
         if (!gObjectEvents[i].active)
             continue;
-        if (gObjectEvents[i].trainerType != TRAINER_TYPE_NORMAL && gObjectEvents[i].trainerType != TRAINER_TYPE_BURIED)
+        if (gObjectEvents[i].trainerType != TRAINER_TYPE_NORMAL && gObjectEvents[i].trainerType != TRAINER_TYPE_BURIED && gObjectEvents[i].trainerType != TRAINER_TYPE_SCRIPTED)
             continue;
 
         numTrainers = CheckTrainer(i);
@@ -390,6 +390,24 @@ bool8 CheckForTrainersWantingBattle(void)
         if (GetMonsStateToDoubles_2() != PLAYER_HAS_TWO_USABLE_MONS) // one trainer found and cant have a double battle
             break;
     }
+
+    // u8 trainerObjEventId = gApproachingTrainers[gNoOfApproachingTrainers - 1].objectEventId;
+    
+    // if (gObjectEvents[trainerObjEventId].trainerType == TRAINER_TYPE_SCRIPTED)
+    // {
+    //     DebugPrintfLevel(MGBA_LOG_WARN, "1");
+        
+    //     const u8 *trainerScript = gApproachingTrainers[gNoOfApproachingTrainers - 1].trainerScriptPtr;
+
+    //     gSelectedObjectEvent = trainerObjEventId;
+    //     gSpecialVar_LastTalked = gObjectEvents[trainerObjEventId].localId;
+    //     DebugPrintfLevel(MGBA_LOG_WARN, "2");
+    //     ScriptContext_SetupScript(trainerScript);
+    //     DebugPrintfLevel(MGBA_LOG_WARN, "3");
+    //     LockPlayerFieldControls();
+    //     return TRUE;
+    // }
+
 
     if (gNoOfApproachingTrainers == 1)
     {
@@ -479,7 +497,7 @@ static u8 GetTrainerApproachDistance(struct ObjectEvent *trainerObj)
     u8 approachDistance;
 
     PlayerGetDestCoords(&x, &y);
-    if (trainerObj->trainerType == TRAINER_TYPE_NORMAL)  // can only see in one direction
+    if (trainerObj->trainerType == TRAINER_TYPE_NORMAL || trainerObj->trainerType == TRAINER_TYPE_SCRIPTED)  // can only see in one direction
     {
         approachDistance = sDirectionalApproachDistanceFuncs[trainerObj->facingDirection - 1](trainerObj, trainerObj->trainerRange_berryTreeId, x, y);
         return CheckPathBetweenTrainerAndPlayer(trainerObj, approachDistance, trainerObj->facingDirection);

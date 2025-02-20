@@ -44,6 +44,15 @@ Frosthearth_Mart_Bounsweet::
 	end
 
 
+FrosthearthPokeCenter_EventScript_Nurse::
+	setvar VAR_0x800B, 3
+	call Common_EventScript_PkmnCenterNurse
+	waitmessage
+	waitbuttonpress
+	release
+	end
+
+
 Frosthearth_Mart_Bounsweet_Text_0:
 	.string "Bounsweet: Beleleen!$"
 

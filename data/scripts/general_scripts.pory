@@ -459,52 +459,18 @@ script Debug_Script_1{              // Set team level
     end
     }
 script Debug_Script_2{              // 
-    additem(ITEM_POKEBLOCK_CASE)
-    call(BerryBlender_EventScript_BerryBlender3)
+    callnative(ZeroStrangeSeedIndex)
+    msgbox("game ready for update.\nremember to save!")
     release
+    end
 }
 script Debug_Script_3{              // 
-    dynmultichoice(23, 0, TRUE, 6, 0, 0, "Reflect", "Light Screen", "Safeguard", "Mist", "Aurora Veil", "Substitute", "Tackle", "Burn", "Freeze", "Paralysis", "Poison", "arc")
-    switch(var(VAR_RESULT)){
-        case 0:
-            createmon(1, 0, SPECIES_TREVENANT, 45, move1 = MOVE_REFLECT)
-        case 1:
-            createmon(1, 0, SPECIES_TREVENANT, 45, move1 = MOVE_LIGHT_SCREEN)
-        case 2:
-            createmon(1, 0, SPECIES_TREVENANT, 45, move1 = MOVE_SAFEGUARD)
-        case 3:
-            createmon(1, 0, SPECIES_TREVENANT, 45, move1 = MOVE_MIST)
-        case 4:
-            createmon(1, 0, SPECIES_TREVENANT, 45, move1 = MOVE_AURORA_VEIL)
-        case 5:
-            createmon(1, 0, SPECIES_TREVENANT, 45, move1 = MOVE_SUBSTITUTE)
-        case 6:
-            createmon(1, 0, SPECIES_TREVENANT, 45, move1 = MOVE_TACKLE)
-        case 7:
-            createmon(1, 0, SPECIES_BLAZIKEN, 100, move1 = MOVE_SPLASH)
-        case 8:
-            createmon(1, 0, SPECIES_GLALIE, 100, move1 = MOVE_SPLASH)
-        case 9:
-            createmon(1, 0, SPECIES_ELECTIVIRE, 100, move1 = MOVE_SPLASH)
-        case 10:
-            createmon(1, 0, SPECIES_ARBOK, 100, move1 = MOVE_SPLASH)
-        case 11:
-            createmon(1, 0, SPECIES_ARCANINE, 100, move1 = MOVE_SPLASH)
-    }
-    dowildbattle
+    return
 }
 script Debug_Script_4{
-    setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(PIKACHU))
-    addobject(18)
-    release
-    delay(120)
-    return   
+    return
 }
 script Debug_Script_5{
-    setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(BLAZIKEN))
-    addobject(18)
-    release
-    delay(120)
     return
 }
 script Debug_Script_6{

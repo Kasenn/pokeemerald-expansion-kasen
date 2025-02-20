@@ -1344,8 +1344,16 @@ void ConfigureAndSetUpOneTrainerBattle(u8 trainerObjEventId, const u8 *trainerSc
 {
     gSelectedObjectEvent = trainerObjEventId;
     gSpecialVar_LastTalked = gObjectEvents[trainerObjEventId].localId;
-    BattleSetup_ConfigureTrainerBattle(trainerScript + 1);
-    ScriptContext_SetupScript(EventScript_StartTrainerApproach);
+
+    if (gObjectEvents[trainerObjEventId].trainerType == 4)
+    {
+        ScriptContext_SetupScript(trainerScript);
+    }
+    else
+    {
+        BattleSetup_ConfigureTrainerBattle(trainerScript + 1);
+        ScriptContext_SetupScript(EventScript_StartTrainerApproach);
+    }
     LockPlayerFieldControls();
 }
 

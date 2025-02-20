@@ -370,18 +370,16 @@ text Amberock_Clay_Text{
     "their kindness, so they might not\l"
     "like it if they spot a Krokorok\l"
     "wandering around aimlessly.\p"
-    "Try to avoid their sight, and\n"
-    "do not veer too close to one,\l"
-    "lest they hear you."
+    "Try to avoid their sight\n"
+    "the best ye can."
 }
 text ClayTip{
     "Clay: Team Rocket ain't known for\n"
     "their kindness, so they might not\l"
     "like it if they spot a Krokorok\l"
     "wandering around aimlessly.\p"
-    "Try to avoid their sight, and\n"
-    "do not veer too close to one,\l"
-    "lest they hear you."
+    "Try to avoid their sight\n"
+    "the best ye can."
 }
 
 script Amberock_Volkner{

@@ -1176,18 +1176,16 @@ Amberock_Clay_Text::
 	.string "their kindness, so they might not\l"
 	.string "like it if they spot a Krokorok\l"
 	.string "wandering around aimlessly.\p"
-	.string "Try to avoid their sight, and\n"
-	.string "do not veer too close to one,\l"
-	.string "lest they hear you.$"
+	.string "Try to avoid their sight\n"
+	.string "the best ye can.$"
 
 ClayTip::
 	.string "Clay: Team Rocket ain't known for\n"
 	.string "their kindness, so they might not\l"
 	.string "like it if they spot a Krokorok\l"
 	.string "wandering around aimlessly.\p"
-	.string "Try to avoid their sight, and\n"
-	.string "do not veer too close to one,\l"
-	.string "lest they hear you.$"
+	.string "Try to avoid their sight\n"
+	.string "the best ye can.$"
 
 Amberock_Volkner_Text::
 	.string "The objective is simple: find out who\n"

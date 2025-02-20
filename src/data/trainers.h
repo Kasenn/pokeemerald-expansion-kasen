@@ -4965,7 +4965,7 @@
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER_DOUBLE,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_TWINS,
-        .trainerPic = TRAINER_PIC_SENIOR,
+        .trainerPic = TRAINER_PIC_JUNIOR,
         .trainerName = _("Helena"),
         .items = {},
         .doubleBattle = FALSE,
@@ -4976,7 +4976,7 @@
     {
         .trainerClass = TRAINER_CLASS_GYMMEMBER_DOUBLE,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_TWINS,
-        .trainerPic = TRAINER_PIC_JUNIOR,
+        .trainerPic = TRAINER_PIC_SENIOR,
         .trainerName = _("Irene"),
         .items = {},
         .doubleBattle = FALSE,

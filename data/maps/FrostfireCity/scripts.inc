@@ -174,7 +174,7 @@ Frosthearth_Girl::
 
 Frosthearth_HoundourTrainer::
 	msgbox Frosthearth_HoundourTrainer_Text, MSGBOX_NPC
-	turnobject VAR_LAST_TALKED, DIR_SOUTH
+	turnobject VAR_LAST_TALKED, DIR_NORTH
 	return
 
 

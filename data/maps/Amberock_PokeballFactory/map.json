@@ -152,9 +152,9 @@
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_SCRIPTED",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Amberock_Factory_RocketWarpTo6",
       "flag": "0"
     },
     {
@@ -162,38 +162,38 @@
       "x": 22,
       "y": 17,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_SCRIPTED",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "Amberock_Factory_RocketWarpTo6",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 38,
+      "x": 36,
       "y": 8,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
+      "movement_range_x": 2,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_SCRIPTED",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Amberock_Factory_RocketWarpTo7",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_F",
-      "x": 12,
-      "y": 5,
+      "x": 5,
+      "y": 8,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_SCRIPTED",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "Amberock_Factory_RocketWarpTo8",
       "flag": "0"
     },
     {
@@ -315,15 +315,15 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 8,
-      "y": 33,
+      "x": 9,
+      "y": 32,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_SCRIPTED",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Amberock_Factory_RocketWarpTo5",
       "flag": "0"
     },
     {
@@ -331,12 +331,12 @@
       "x": 22,
       "y": 35,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_SCRIPTED",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Amberock_Factory_RocketWarpTo4",
       "flag": "0"
     },
     {
@@ -370,12 +370,12 @@
       "x": 19,
       "y": 21,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_SCRIPTED",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Amberock_Factory_RocketWarpTo6",
       "flag": "0"
     },
     {
@@ -386,9 +386,9 @@
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_SCRIPTED",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Amberock_Factory_RocketWarpTo8",
       "flag": "0"
     },
     {
@@ -396,12 +396,12 @@
       "x": 6,
       "y": 13,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_SCRIPTED",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Amberock_Factory_RocketWarpTo8",
       "flag": "0"
     },
     {
@@ -546,6 +546,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "KrokBall2",
       "flag": "FLAG_FACTORY_ITEM_2"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
+      "x": 17,
+      "y": 28,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_SCRIPTED",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "Amberock_Factory_RocketWarpTo6",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -630,312 +643,6 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 21,
-      "y": 35,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger1_1"
-    },
-    {
-      "type": "trigger",
-      "x": 22,
-      "y": 36,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger1_2"
-    },
-    {
-      "type": "trigger",
-      "x": 8,
-      "y": 34,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger2_1"
-    },
-    {
-      "type": "trigger",
-      "x": 9,
-      "y": 33,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger2_2"
-    },
-    {
-      "type": "trigger",
-      "x": 8,
-      "y": 32,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger2_3"
-    },
-    {
-      "type": "trigger",
-      "x": 23,
-      "y": 35,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger1_3"
-    },
-    {
-      "type": "trigger",
-      "x": 20,
-      "y": 26,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger3_1"
-    },
-    {
-      "type": "trigger",
-      "x": 19,
-      "y": 25,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger3_2"
-    },
-    {
-      "type": "trigger",
-      "x": 18,
-      "y": 25,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger3_2"
-    },
-    {
-      "type": "trigger",
-      "x": 17,
-      "y": 25,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger3_2"
-    },
-    {
-      "type": "trigger",
-      "x": 20,
-      "y": 21,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger4_1"
-    },
-    {
-      "type": "trigger",
-      "x": 19,
-      "y": 20,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger4_2"
-    },
-    {
-      "type": "trigger",
-      "x": 22,
-      "y": 18,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger5_1"
-    },
-    {
-      "type": "trigger",
-      "x": 22,
-      "y": 19,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger5_1"
-    },
-    {
-      "type": "trigger",
-      "x": 22,
-      "y": 20,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger5_1"
-    },
-    {
-      "type": "trigger",
-      "x": 21,
-      "y": 17,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger5_2"
-    },
-    {
-      "type": "trigger",
-      "x": 38,
-      "y": 9,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger6_1"
-    },
-    {
-      "type": "trigger",
-      "x": 38,
-      "y": 7,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger6_2"
-    },
-    {
-      "type": "trigger",
-      "x": 37,
-      "y": 8,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger6_3"
-    },
-    {
-      "type": "trigger",
-      "x": 36,
-      "y": 8,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger6_3"
-    },
-    {
-      "type": "trigger",
-      "x": 34,
-      "y": 8,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger6_3"
-    },
-    {
-      "type": "trigger",
-      "x": 35,
-      "y": 8,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger6_3"
-    },
-    {
-      "type": "trigger",
-      "x": 32,
-      "y": 8,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger6_3"
-    },
-    {
-      "type": "trigger",
-      "x": 33,
-      "y": 8,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger6_3"
-    },
-    {
-      "type": "trigger",
-      "x": 13,
-      "y": 9,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger7_1"
-    },
-    {
-      "type": "trigger",
-      "x": 11,
-      "y": 9,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger7_2"
-    },
-    {
-      "type": "trigger",
-      "x": 12,
-      "y": 8,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger7_3"
-    },
-    {
-      "type": "trigger",
-      "x": 12,
-      "y": 7,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger7_3"
-    },
-    {
-      "type": "trigger",
-      "x": 13,
-      "y": 5,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger8_1"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger9_1"
-    },
-    {
-      "type": "trigger",
-      "x": 6,
-      "y": 14,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger9_2"
-    },
-    {
-      "type": "trigger",
-      "x": 5,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger9_3"
-    },
-    {
-      "type": "trigger",
-      "x": 22,
-      "y": 34,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger1_4"
-    },
-    {
-      "type": "trigger",
-      "x": 12,
-      "y": 6,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "Amberock_Factory_RocketTrigger8_2"
-    },
-    {
-      "type": "trigger",
       "x": 28,
       "y": 6,
       "elevation": 0,
@@ -969,42 +676,6 @@
       "var": "VAR_AMBEROCK_STORY",
       "var_value": "1",
       "script": "Factory_KrokorokPetrelCutScene"
-    },
-    {
-      "type": "trigger",
-      "x": 19,
-      "y": 37,
-      "elevation": 0,
-      "var": "FLAG_MSG_FROM_CLAY",
-      "var_value": "0",
-      "script": "MsgFromClay"
-    },
-    {
-      "type": "trigger",
-      "x": 20,
-      "y": 36,
-      "elevation": 0,
-      "var": "FLAG_MSG_FROM_CLAY",
-      "var_value": "0",
-      "script": "MsgFromClay"
-    },
-    {
-      "type": "trigger",
-      "x": 21,
-      "y": 36,
-      "elevation": 0,
-      "var": "FLAG_MSG_FROM_CLAY",
-      "var_value": "0",
-      "script": "MsgFromClay"
-    },
-    {
-      "type": "trigger",
-      "x": 22,
-      "y": 37,
-      "elevation": 0,
-      "var": "FLAG_MSG_FROM_CLAY",
-      "var_value": "0",
-      "script": "MsgFromClay"
     }
   ],
   "bg_events": [

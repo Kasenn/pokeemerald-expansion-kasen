@@ -2997,3 +2997,14 @@ bool8 ScrFunc_hidefollower(struct ScriptContext *ctx)
     // execute next script command with no delay
     return TRUE;
 }
+
+void ZeroStrangeSeedIndex(void)
+{
+    u8 i;
+
+    for (i = 0; i < 11; i++)
+    {
+        gSaveBlock1Ptr->strangeSeedDropOld[i] = 0;
+    }
+    gSaveBlock1Ptr->strangeSeedIndexOld = 0;
+}
