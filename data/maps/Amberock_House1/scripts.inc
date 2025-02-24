@@ -27,6 +27,9 @@ Amberock_House3_HPChecker_1:
 	waitstate
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
 	goto_if_eq Amberock_House3_HPChecker_9
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+	compare VAR_RESULT, SPECIES_EGG
+	goto_if_eq Amberock_House3_HPChecker_12
 	special ReadMonHiddenPowerType
 	special BufferMonNickname
 	setflag FLAG_TEMP_1
@@ -44,6 +47,11 @@ Amberock_House3_HPChecker_6:
 
 Amberock_House3_HPChecker_9:
 	msgbox DontCheckHP, MSGBOX_NPC
+	end
+
+Amberock_House3_HPChecker_12:
+	msgbox CantEvaluateEgg
+	release
 	end
 
 
@@ -136,6 +144,10 @@ WhichPokemonToAscertain::
 DontCheckHP::
 	.string "Come seek me if you change\n"
 	.string "your mind.$"
+
+CantEvaluateEgg::
+	.string "I'm sorry, but I cannot evaluate\n"
+	.string "a Pokémon that has not hatched yet.$"
 
 YourMonHPis::
 	.string "Hm… Let's see…\p"

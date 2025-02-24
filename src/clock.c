@@ -13,6 +13,7 @@
 #include "wallclock.h"
 #include "constants/form_change_types.h"
 #include "item.h"
+#include "random.h"
 
 static void UpdatePerDay(struct Time *localTime);
 static void UpdatePerMinute(struct Time *localTime);
@@ -46,9 +47,31 @@ void UpdateVarsAndFlags(void)
         PlantBerryTree(BERRY_TREE_ROUTE_110_YACHE_2, ITEM_TO_BERRY(ITEM_YACHE_BERRY), BERRY_STAGE_BERRIES, FALSE);
         VarSet(VAR_DEBUG, 1);
     }
-    if (CheckBagHasItem(ITEM_TM_FALSE_SWIPE, 1))
+    if (CheckBagHasItem(ITEM_TM_FALSE_SWIPE, 1) && !FlagGet(FLAG_PRINCIPAL_IN_SCHOOL))
     {
         FlagSet(FLAG_PRINCIPAL_IN_SCHOOL);
+    }
+    if (VarGet(VAR_DEBUG) == 1)
+    {
+        u16 i;
+        struct BagPocket *itemPocket;
+
+        itemPocket = &gBagPockets[TMHM_POCKET];
+    
+        for (i = BAG_TMHM_COUNT - 3; i < BAG_TMHM_COUNT; i++)
+        {
+            gBagPockets[TMHM_POCKET].itemSlots[i].itemId = ITEM_NONE;
+            SetBagItemQuantity(&itemPocket->itemSlots[i].quantity, 0);
+        }
+
+        for (i = 0; i < 11; i++)
+        {
+            u8 rand = Random() % 100;
+            gSaveBlock1Ptr->strangeSeedDrop[i] = rand;
+        }
+        gSaveBlock1Ptr->strangeSeedIndex = 0;
+
+        VarSet(VAR_DEBUG, 2);
     }
 }
 
@@ -64,7 +87,6 @@ static void UpdatePerDay(struct Time *localTime)
         RandomizeDailyVariables();
         RandomizeFanClubTrade();
         SetGrottos();
-        UpdateVarsAndFlags();
         // UpdateDewfordTrendPerDay(daysSince);
         UpdateTVShowsPerDay(daysSince);
         UpdateWeatherPerDay(daysSince);
@@ -91,6 +113,7 @@ static void UpdatePerMinute(struct Time *localTime)
     {
         if (minutes >= 0)
         {
+            UpdateVarsAndFlags();
             BerryTreeTimeUpdate(minutes);
             gSaveBlock2Ptr->lastBerryTreeUpdate = *localTime;
             FormChangeTimeUpdate();

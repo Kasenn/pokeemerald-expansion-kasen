@@ -1,8 +1,10 @@
 FrostfireCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, FrostfireCity_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
 FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	setflag FLAG_TEMP_3
 	setflag FLAG_VISITED_FROSTFIRE
 	switch VAR_FROSTHEARTH_RUFFLET
 	case 2, FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_3
@@ -17,10 +19,14 @@ FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
 	goto_if_eq FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_9
 FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_8:
 	switch VAR_FROSTHEARTH_HARD_ROCK
-	case 0, FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_14
-	case 1, FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_15
-	case 2, FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_16
-	case 3, FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_17
+	case 0, FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_15
+	case 1, FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_16
+	case 2, FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_17
+	case 3, FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_18
+FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_13:
+	getplayerxy VAR_TEMP_3, VAR_TEMP_4
+	compare VAR_WINS_AT_PWT, 3
+	goto_if_ge FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_20
 	return
 
 FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_3:
@@ -47,21 +53,54 @@ FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_9:
 	setflag FLAG_TEMP_2
 	goto FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_8
 
-FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_14:
-	setflag FLAG_TEMP_1
-	return
-
 FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_15:
-	setobjectxyperm 28, 42, 40
-	return
+	setflag FLAG_TEMP_1
+	goto FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_13
 
 FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_16:
-	setobjectxyperm 28, 46, 40
-	return
+	setobjectxyperm 28, 42, 40
+	goto FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_13
 
 FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_17:
+	setobjectxyperm 28, 46, 40
+	goto FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_13
+
+FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_18:
 	setflag FLAG_TEMP_1
+	goto FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_13
+
+FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_19:
+	setvar VAR_TEMP_5, 1
+	goto_if_set FLAG_BOTTLECAPS_WAITING, FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_23
 	return
+
+FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_20:
+	compare VAR_TEMP_3, 24
+	goto_if_eq FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_19
+	return
+
+FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_23:
+	copyvar VAR_TEMP_7, VAR_WINS_AT_PWT
+FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_26:
+	compare VAR_TEMP_7, 3
+	goto_if_ge FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_27
+	checkitemspace ITEM_BOTTLE_CAP, VAR_TEMP_6
+	compare VAR_RESULT, FALSE
+	goto_if_eq FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_29
+	return
+
+FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_27:
+	subvar VAR_TEMP_7, 3
+	addvar VAR_TEMP_6, 1
+	goto FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_26
+
+FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION_29:
+	setvar VAR_TEMP_5, 0
+	return
+
+FrostfireCity_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_TEMP_5, 1, FrosthearthBottleCapReward
+	.2byte 0
 
 
 FrostHearth_Sign1::
@@ -413,6 +452,53 @@ Frosthearth_Rufflet_28:
 	goto Frosthearth_Rufflet_27
 
 
+FrosthearthBottleCapReward::
+	setvar VAR_TEMP_5, 0
+	applymovement 29, FrosthearthBottleCapReward_Movement_0
+	waitmovement 0
+FrosthearthBottleCapReward_2:
+	compare VAR_WINS_AT_PWT, 3
+	goto_if_ge FrosthearthBottleCapReward_3
+	compare VAR_TEMP_6, 1
+	goto_if_eq FrosthearthBottleCapReward_6
+	msgbox FrosthearthBottleCapRewardPlural
+FrosthearthBottleCapReward_5:
+	giveitem ITEM_BOTTLE_CAP, VAR_TEMP_6
+	compare VAR_RESULT, FALSE
+	goto_if_eq FrosthearthBottleCapReward_10
+	msgbox BottleCapGuyCheersOn
+FrosthearthBottleCapReward_9:
+	closemessage
+	applymovement 29, FrosthearthBottleCapReward_Movement_1
+	waitmovement 0
+	delay 30
+	removeobject 0
+	release
+	return
+
+FrosthearthBottleCapReward_3:
+	subvar VAR_WINS_AT_PWT, 3
+	addvar VAR_TEMP_6, 1
+	goto FrosthearthBottleCapReward_2
+
+FrosthearthBottleCapReward_6:
+	msgbox FrosthearthBottleCapRewardSingular
+	goto FrosthearthBottleCapReward_5
+
+FrosthearthBottleCapReward_10:
+	msgbox GiveCapsLater
+FrosthearthBottleCapReward_14:
+	compare VAR_TEMP_6, 0
+	goto_if_ne FrosthearthBottleCapReward_15
+	setflag FLAG_BOTTLECAPS_WAITING
+	goto FrosthearthBottleCapReward_9
+
+FrosthearthBottleCapReward_15:
+	subvar VAR_TEMP_6, 1
+	addvar VAR_WINS_AT_PWT, 3
+	goto FrosthearthBottleCapReward_14
+
+
 Frosthearth_Swimmer_Movement_0:
 	walk_fast_left
 	walk_fast_left
@@ -557,6 +643,30 @@ Frosthearth_Rufflet_Movement_9:
 	walk_fast_down
 	walk_fast_down
 	walk_fast_down
+	step_end
+
+FrosthearthBottleCapReward_Movement_0:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	step_end
+
+FrosthearthBottleCapReward_Movement_1:
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
 	step_end
 
 FrostHearth_Sign1_Text::
@@ -726,3 +836,15 @@ FindRuffletReward::
 ThankYouForFindingRufflet::
 	.string "Thank you for guiding my Rufflet\n"
 	.string "back to me!$"
+
+FrosthearthBottleCapRewardSingular::
+	.string "wip$"
+
+FrosthearthBottleCapRewardPlural::
+	.string "wip$"
+
+GiveCapsLater::
+	.string "wip$"
+
+BottleCapGuyCheersOn::
+	.string "wip$"

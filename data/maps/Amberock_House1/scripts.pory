@@ -50,6 +50,12 @@ script Amberock_House3_HPChecker{
         msgbox(DontCheckHP, MSGBOX_NPC)
         end
     }
+    specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+    if(var(VAR_RESULT) == SPECIES_EGG){
+        msgbox(CantEvaluateEgg)
+        release
+        end
+    }
     special(ReadMonHiddenPowerType)
     special(BufferMonNickname)
     setflag(FLAG_TEMP_1)
@@ -74,6 +80,10 @@ text WhichPokemonToAscertain{
 text DontCheckHP{
     "Come seek me if you change\n"
     "your mind."
+}
+text CantEvaluateEgg{
+    "I'm sorry, but I cannot evaluate\n"
+    "a Pokémon that has not hatched yet."
 }
 text YourMonHPis{
     "Hm… Let's see…\p"

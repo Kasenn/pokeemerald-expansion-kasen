@@ -39,7 +39,7 @@ u16 GetBagItemQuantity(u16 *quantity)
     return gSaveBlock2Ptr->encryptionKey ^ *quantity;
 }
 
-static void SetBagItemQuantity(u16 *quantity, u16 newValue)
+void SetBagItemQuantity(u16 *quantity, u16 newValue)
 {
     *quantity =  newValue ^ gSaveBlock2Ptr->encryptionKey;
 }

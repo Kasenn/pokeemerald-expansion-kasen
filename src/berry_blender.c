@@ -3737,25 +3737,25 @@ static bool8 PrintBlendingRanking(void)
 
 void TryDropStrangeSeed(void)
 {
-    u8 slot = gSaveBlock1Ptr->strangeSeedIndexOld;
+    u8 slot = gSaveBlock1Ptr->strangeSeedIndex;
     u8 i;
 
     for (i = 0; i < 11; i++)
     {
-        if (gSaveBlock1Ptr->strangeSeedDropOld[i] == 0)
+        if (gSaveBlock1Ptr->strangeSeedDrop[i] == 0)
         {
             u8 rand = Random() % 100;
-            gSaveBlock1Ptr->strangeSeedDropOld[i] = rand;
+            gSaveBlock1Ptr->strangeSeedDrop[i] = rand;
         }
     }
-    gSpecialVar_0x8004 = gSaveBlock1Ptr->strangeSeedDropOld[slot];
-    gSaveBlock1Ptr->strangeSeedDropOld[slot] = 0;
+    gSpecialVar_0x8004 = gSaveBlock1Ptr->strangeSeedDrop[slot];
+    gSaveBlock1Ptr->strangeSeedDrop[slot] = 0;
     if (slot == 10)
         slot = 0;
     else
         slot++;
-    
-    gSaveBlock1Ptr->strangeSeedIndexOld = slot;
+
+    gSaveBlock1Ptr->strangeSeedIndex = slot;
 }
 
 void ShowBerryBlenderRecordWindow(void)

@@ -514,7 +514,7 @@ static const u8 sDebugText_Sound[] =         _("Sound…{CLEAR_TO 110}{RIGHT_ARR
 static const u8 sDebugText_Cancel[] =        _("Cancel");
 // Script menu
 static const u8 sDebugText_Util_Script_1[] = _("Set Team Level");
-static const u8 sDebugText_Util_Script_2[] = _("Update");
+static const u8 sDebugText_Util_Script_2[] = _("Check Values");
 static const u8 sDebugText_Util_Script_3[] = _("Script 3");
 static const u8 sDebugText_Util_Script_4[] = _("Script 4");
 static const u8 sDebugText_Util_Script_5[] = _("Script 5");

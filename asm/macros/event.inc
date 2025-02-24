@@ -2083,6 +2083,12 @@
 	.2byte \level
 	.endm
 
+	@checks if the mon is high enough level for hyper trainerbattle_single
+	.macro checkhypertraininglevel level:req
+	callnative ScrCmd_IsSelectedMonRequiredLevel
+	.2byte \level
+	.endm
+
 	@ Gives a specific amount of BP
 	.macro addbp amount:req
 	callnative ScrCmd_addbp

@@ -259,7 +259,7 @@ script TrainingClubNpc{
 	waitmessage
 	dynmultipush("EV Training", 0)
 	dynmultipush("Level Training", 1)
-	dynmultipush("Nevermind", 2)
+	dynmultipush("Never mind", 2)
 	dynmultistack(23, 0, FALSE, 3, FALSE, 0, NULL)
 	switch(var(VAR_RESULT)){
 		case 0:

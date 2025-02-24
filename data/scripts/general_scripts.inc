@@ -476,12 +476,19 @@ Debug_Script_1_12:
 
 Debug_Script_2::
 	callnative ZeroStrangeSeedIndex
-	msgbox Debug_Script_2_Text_0
+	msgbox Debug_Script_2_Text_0, MSGBOX_GETPOINTS
 	release
 	end
 
 
 Debug_Script_3::
+	hypertrain STAT_SPDEF, 0
+	hypertrain 0, 1
+	hypertrain 1, 1
+	hypertrain 2, 1
+	hypertrain 3, 1
+	hypertrain 4, 1
+	hypertrain 5, 1
 	return
 
 
@@ -639,7 +646,7 @@ Debug_Script_1_Text_16:
 	.string "Team set to level 45.$"
 
 Debug_Script_2_Text_0:
-	.string "game ready for update.\nremember to save!$"
+	.string "{STR_VAR_1}$"
 
 FollowerSpottedAnItemNearby_Text::
 	.string "{STR_VAR_1} seems to have spotted\n"

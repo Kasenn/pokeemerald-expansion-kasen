@@ -17711,7 +17711,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .name = COMPOUND_STRING("Decorate"),
         .description = COMPOUND_STRING(
             "The user sharply raises\n"
-            "the target's Atk and Sp.Atk."),
+            "the target's Atk and Sp. Atk."),
         .effect = EFFECT_DECORATE,
         .power = 0,
         .type = TYPE_FAIRY,

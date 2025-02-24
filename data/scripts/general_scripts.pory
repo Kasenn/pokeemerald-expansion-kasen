@@ -460,11 +460,19 @@ script Debug_Script_1{              // Set team level
     }
 script Debug_Script_2{              // 
     callnative(ZeroStrangeSeedIndex)
-    msgbox("game ready for update.\nremember to save!")
+    msgbox("{STR_VAR_1}", MSGBOX_GETPOINTS)
     release
     end
 }
 script Debug_Script_3{              // 
+    // givemon(SPECIES_BLAZIKEN, 100, 0,0,0,0,0,0,0,0,0,0,0, 0, 30, 26, 16, 31, 31)
+    hypertrain(STAT_SPDEF, 0)
+    hypertrain(0, 1)
+    hypertrain(1, 1)
+    hypertrain(2, 1)
+    hypertrain(3, 1)
+    hypertrain(4, 1)
+    hypertrain(5, 1)
     return
 }
 script Debug_Script_4{

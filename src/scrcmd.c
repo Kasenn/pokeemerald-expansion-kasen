@@ -57,6 +57,7 @@
 #include "malloc.h"
 #include "constants/event_objects.h"
 #include "constants/map_types.h"
+#include "item.h"
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(struct ScriptContext *ctx);
@@ -3004,7 +3005,23 @@ void ZeroStrangeSeedIndex(void)
 
     for (i = 0; i < 11; i++)
     {
-        gSaveBlock1Ptr->strangeSeedDropOld[i] = 0;
+        ConvertIntToDecimalStringN(gStringVar2, gSaveBlock1Ptr->strangeSeedDrop[i], STR_CONV_MODE_LEFT_ALIGN, 3);
+        StringAppend(gStringVar1, gStringVar2);
+        StringAppend(gStringVar1, COMPOUND_STRING(","));
     }
-    gSaveBlock1Ptr->strangeSeedIndexOld = 0;
+}
+
+void ScrCmd_IsSelectedMonRequiredLevel(struct ScriptContext *ctx)
+{
+    u8 requiredLevel = VarGet(ScriptReadHalfword(ctx));
+    u8 monLevel = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_LEVEL, 0);
+
+    if (monLevel >= requiredLevel)
+    {
+        gSpecialVar_Result = TRUE;
+    }
+    else
+    {
+        gSpecialVar_Result = FALSE;
+    }
 }

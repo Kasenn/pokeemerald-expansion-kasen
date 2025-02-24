@@ -205,7 +205,7 @@ ShoreslateHarbor_TakeAFerry_Text_4:
 	.string "Frosthearth City$"
 
 ShoreslateHarbor_TakeAFerry_Text_5:
-	.string "Nevermind$"
+	.string "Never mind$"
 
 SailToKaolisleInstead::
 	.string "I'm sorry, but the harbor at Rockliffe\n"

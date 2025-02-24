@@ -13,10 +13,42 @@ Frosthearth_HyperTraining_Guru::
 	compare VAR_RESULT, FALSE
 	goto_if_eq Frosthearth_HyperTraining_Guru_8
 Frosthearth_HyperTraining_Guru_7:
-	removeallitem ITEM_BOTTLE_CAP
-	removeallitem ITEM_GOLD_BOTTLE_CAP
-	msgbox CheatingAndy, MSGBOX_AUTOCLOSE
-	end
+	msgbox ChooseMonForHyperTraining
+	special ChoosePartyMon
+	waitstate
+	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
+	goto_if_eq Frosthearth_HyperTraining_Guru_11
+	checkhypertraininglevel 50
+	compare VAR_RESULT, FALSE
+	goto_if_eq Frosthearth_HyperTraining_Guru_16
+	canhypertrain STAT_HP, VAR_0x8004
+	compare VAR_RESULT, TRUE
+	goto_if_eq Frosthearth_HyperTraining_Guru_19
+Frosthearth_HyperTraining_Guru_18:
+	canhypertrain STAT_ATK, VAR_0x8004
+	compare VAR_RESULT, FALSE
+	goto_if_eq Frosthearth_HyperTraining_Guru_22
+Frosthearth_HyperTraining_Guru_21:
+	canhypertrain STAT_DEF, VAR_0x8004
+	compare VAR_RESULT, FALSE
+	goto_if_eq Frosthearth_HyperTraining_Guru_25
+Frosthearth_HyperTraining_Guru_24:
+	canhypertrain STAT_SPEED, VAR_0x8004
+	compare VAR_RESULT, FALSE
+	goto_if_eq Frosthearth_HyperTraining_Guru_28
+Frosthearth_HyperTraining_Guru_27:
+	canhypertrain STAT_SPATK, VAR_0x8004
+	compare VAR_RESULT, FALSE
+	goto_if_eq Frosthearth_HyperTraining_Guru_31
+Frosthearth_HyperTraining_Guru_30:
+	canhypertrain STAT_SPDEF, VAR_0x8004
+	compare VAR_RESULT, FALSE
+	goto_if_eq Frosthearth_HyperTraining_Guru_34
+Frosthearth_HyperTraining_Guru_33:
+	compare VAR_TEMP_0, 6
+	goto_if_eq Frosthearth_HyperTraining_Guru_37
+	goto SelectHyperTraining
+	return
 
 Frosthearth_HyperTraining_Guru_2:
 	setflag FLAG_INTRODUCTION_TO_HYPER_TRAINING
@@ -30,12 +62,434 @@ Frosthearth_HyperTraining_Guru_5:
 Frosthearth_HyperTraining_Guru_8:
 	checkitem ITEM_GOLD_BOTTLE_CAP
 	compare VAR_RESULT, FALSE
-	goto_if_eq Frosthearth_HyperTraining_Guru_10
+	goto_if_eq Frosthearth_HyperTraining_Guru_13
 	goto Frosthearth_HyperTraining_Guru_7
 
-Frosthearth_HyperTraining_Guru_10:
+Frosthearth_HyperTraining_Guru_11:
+	msgbox NotInterestedInHyperTraining, MSGBOX_AUTOCLOSE
+	end
+
+Frosthearth_HyperTraining_Guru_13:
 	msgbox NoBottleCaps, MSGBOX_AUTOCLOSE
 	end
+
+Frosthearth_HyperTraining_Guru_16:
+	bufferpartymonnick STR_VAR_1, VAR_0x8004
+	msgbox SelectedMonNotHighEnoughForHyperTraining, MSGBOX_AUTOCLOSE
+	end
+
+Frosthearth_HyperTraining_Guru_19:
+	addvar VAR_TEMP_0, 1
+	goto Frosthearth_HyperTraining_Guru_18
+
+Frosthearth_HyperTraining_Guru_22:
+	addvar VAR_TEMP_0, 1
+	goto Frosthearth_HyperTraining_Guru_21
+
+Frosthearth_HyperTraining_Guru_25:
+	addvar VAR_TEMP_0, 1
+	goto Frosthearth_HyperTraining_Guru_24
+
+Frosthearth_HyperTraining_Guru_28:
+	addvar VAR_TEMP_0, 1
+	goto Frosthearth_HyperTraining_Guru_27
+
+Frosthearth_HyperTraining_Guru_31:
+	addvar VAR_TEMP_0, 1
+	goto Frosthearth_HyperTraining_Guru_30
+
+Frosthearth_HyperTraining_Guru_34:
+	addvar VAR_TEMP_0, 1
+	goto Frosthearth_HyperTraining_Guru_33
+
+Frosthearth_HyperTraining_Guru_37:
+	msgbox MonFullyHyperTrained, MSGBOX_AUTOCLOSE
+	end
+
+
+SelectHyperTraining::
+	message UseWhichBottleCaps
+	waitmessage
+	checkitem ITEM_BOTTLE_CAP
+	compare VAR_RESULT, TRUE
+	goto_if_eq SelectHyperTraining_2
+SelectHyperTraining_1:
+	checkitem ITEM_GOLD_BOTTLE_CAP
+	compare VAR_RESULT, TRUE
+	goto_if_eq SelectHyperTraining_5
+SelectHyperTraining_4:
+	dynmultipush SelectHyperTraining_Text_2, 2
+	dynmultistack 23, 0, FALSE, 4, FALSE, 0, 0
+	switch VAR_RESULT
+	case 0, SelectHyperTraining_8
+	case 1, SelectHyperTraining_9
+	case 2, SelectHyperTraining_10
+	case MULTI_B_PRESSED, SelectHyperTraining_10
+	return
+
+SelectHyperTraining_2:
+	checkitemquant ITEM_BOTTLE_CAP
+	buffernumberstring STR_VAR_1, VAR_0x8005
+	dynmultipush SelectHyperTraining_Text_0, 0
+	goto SelectHyperTraining_1
+
+SelectHyperTraining_5:
+	checkitemquant ITEM_GOLD_BOTTLE_CAP
+	buffernumberstring STR_VAR_2, VAR_0x8005
+	dynmultipush SelectHyperTraining_Text_1, 1
+	goto SelectHyperTraining_4
+
+SelectHyperTraining_8:
+	goto HyperTrainingNormalBottleCap
+	return
+
+SelectHyperTraining_9:
+	goto HyperTrainingGoldBottleCap
+	return
+
+SelectHyperTraining_10:
+	msgbox NotInterestedInHyperTraining, MSGBOX_AUTOCLOSE
+	end
+
+
+HyperTrainingNormalBottleCap::
+	message WhichStatToTrain
+	waitmessage
+	canhypertrain STAT_HP, VAR_0x8004
+	compare VAR_RESULT, 0
+	goto_if_ne HyperTrainingNormalBottleCap_2
+	dynmultipush HyperTrainingNormalBottleCap_Text_1, 0
+HyperTrainingNormalBottleCap_1:
+	canhypertrain STAT_ATK, VAR_0x8004
+	compare VAR_RESULT, 0
+	goto_if_ne HyperTrainingNormalBottleCap_6
+	dynmultipush HyperTrainingNormalBottleCap_Text_3, 1
+HyperTrainingNormalBottleCap_5:
+	canhypertrain STAT_DEF, VAR_0x8004
+	compare VAR_RESULT, 0
+	goto_if_ne HyperTrainingNormalBottleCap_10
+	dynmultipush HyperTrainingNormalBottleCap_Text_5, 2
+HyperTrainingNormalBottleCap_9:
+	canhypertrain STAT_SPATK, VAR_0x8004
+	compare VAR_RESULT, 0
+	goto_if_ne HyperTrainingNormalBottleCap_14
+	dynmultipush HyperTrainingNormalBottleCap_Text_7, 3
+HyperTrainingNormalBottleCap_13:
+	canhypertrain STAT_SPDEF, VAR_0x8004
+	compare VAR_RESULT, 0
+	goto_if_ne HyperTrainingNormalBottleCap_18
+	dynmultipush HyperTrainingNormalBottleCap_Text_9, 4
+HyperTrainingNormalBottleCap_17:
+	canhypertrain STAT_SPEED, VAR_0x8004
+	compare VAR_RESULT, 0
+	goto_if_ne HyperTrainingNormalBottleCap_22
+	dynmultipush HyperTrainingNormalBottleCap_Text_11, 5
+HyperTrainingNormalBottleCap_21:
+	dynmultipush HyperTrainingNormalBottleCap_Text_12, 6
+	dynmultistack 23, 0, FALSE, 7, FALSE, 0, 0
+	switch VAR_RESULT
+	case 0, HyperTrainingNormalBottleCap_26
+	case 1, HyperTrainingNormalBottleCap_27
+	case 2, HyperTrainingNormalBottleCap_28
+	case 3, HyperTrainingNormalBottleCap_29
+	case 4, HyperTrainingNormalBottleCap_30
+	case 5, HyperTrainingNormalBottleCap_31
+	case 6, HyperTrainingNormalBottleCap_32
+	case MULTI_B_PRESSED, HyperTrainingNormalBottleCap_32
+	return
+
+HyperTrainingNormalBottleCap_2:
+	dynmultipush HyperTrainingNormalBottleCap_Text_0, 0
+	goto HyperTrainingNormalBottleCap_1
+
+HyperTrainingNormalBottleCap_6:
+	dynmultipush HyperTrainingNormalBottleCap_Text_2, 1
+	goto HyperTrainingNormalBottleCap_5
+
+HyperTrainingNormalBottleCap_10:
+	dynmultipush HyperTrainingNormalBottleCap_Text_4, 2
+	goto HyperTrainingNormalBottleCap_9
+
+HyperTrainingNormalBottleCap_14:
+	dynmultipush HyperTrainingNormalBottleCap_Text_6, 3
+	goto HyperTrainingNormalBottleCap_13
+
+HyperTrainingNormalBottleCap_18:
+	dynmultipush HyperTrainingNormalBottleCap_Text_8, 4
+	goto HyperTrainingNormalBottleCap_17
+
+HyperTrainingNormalBottleCap_22:
+	dynmultipush HyperTrainingNormalBottleCap_Text_10, 5
+	goto HyperTrainingNormalBottleCap_21
+
+HyperTrainingNormalBottleCap_26:
+	canhypertrain STAT_HP, VAR_0x8004
+	compare VAR_RESULT, FALSE
+	goto_if_eq HyperTrainingNormalBottleCap_34
+HyperTrainingNormalBottleCap_33:
+	goto Hypertrain_Hp
+	return
+
+HyperTrainingNormalBottleCap_27:
+	canhypertrain STAT_ATK, VAR_0x8004
+	compare VAR_RESULT, FALSE
+	goto_if_eq HyperTrainingNormalBottleCap_37
+HyperTrainingNormalBottleCap_36:
+	goto Hypertrain_Atk
+	return
+
+HyperTrainingNormalBottleCap_28:
+	canhypertrain STAT_DEF, VAR_0x8004
+	compare VAR_RESULT, FALSE
+	goto_if_eq HyperTrainingNormalBottleCap_40
+HyperTrainingNormalBottleCap_39:
+	goto Hypertrain_Def
+	return
+
+HyperTrainingNormalBottleCap_29:
+	canhypertrain STAT_SPATK, VAR_0x8004
+	compare VAR_RESULT, FALSE
+	goto_if_eq HyperTrainingNormalBottleCap_43
+HyperTrainingNormalBottleCap_42:
+	goto Hypertrain_SpAtk
+	return
+
+HyperTrainingNormalBottleCap_30:
+	canhypertrain STAT_SPDEF, VAR_0x8004
+	compare VAR_RESULT, FALSE
+	goto_if_eq HyperTrainingNormalBottleCap_46
+HyperTrainingNormalBottleCap_45:
+	goto Hypertrain_SpDef
+	return
+
+HyperTrainingNormalBottleCap_31:
+	canhypertrain STAT_SPEED, VAR_0x8004
+	compare VAR_RESULT, FALSE
+	goto_if_eq HyperTrainingNormalBottleCap_49
+HyperTrainingNormalBottleCap_48:
+	goto Hypertrain_Speed
+	return
+
+HyperTrainingNormalBottleCap_32:
+	goto SelectHyperTraining
+	return
+
+HyperTrainingNormalBottleCap_34:
+	goto HyperTrainingCapped
+	goto HyperTrainingNormalBottleCap_33
+
+HyperTrainingNormalBottleCap_37:
+	goto HyperTrainingCapped
+	goto HyperTrainingNormalBottleCap_36
+
+HyperTrainingNormalBottleCap_40:
+	goto HyperTrainingCapped
+	goto HyperTrainingNormalBottleCap_39
+
+HyperTrainingNormalBottleCap_43:
+	goto HyperTrainingCapped
+	goto HyperTrainingNormalBottleCap_42
+
+HyperTrainingNormalBottleCap_46:
+	goto HyperTrainingCapped
+	goto HyperTrainingNormalBottleCap_45
+
+HyperTrainingNormalBottleCap_49:
+	goto HyperTrainingCapped
+	goto HyperTrainingNormalBottleCap_48
+
+
+HyperTrainingCapped::
+	msgbox CantHypertrainThatStat
+	goto HyperTrainingNormalBottleCap
+	return
+
+
+Hypertrain_Hp::
+	msgbox Hypertrain_Hp_Text, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Hypertrain_Hp_2
+Hypertrain_Hp_1:
+	call Hypertraining_Start
+	hypertrain STAT_HP, VAR_0x8004
+	msgbox MonHasBeenHyperTrainedInHp
+	removeitem ITEM_BOTTLE_CAP, 1
+	msgbox ComeBackForMoreHyperTraining
+	release
+	end
+
+Hypertrain_Hp_2:
+	goto HyperTrainingNormalBottleCap
+	goto Hypertrain_Hp_1
+
+
+Hypertrain_Atk::
+	msgbox Hypertrain_Atk_Text, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Hypertrain_Atk_2
+Hypertrain_Atk_1:
+	call Hypertraining_Start
+	hypertrain STAT_ATK, VAR_0x8004
+	msgbox MonHasBeenHyperTrainedInAtk
+	removeitem ITEM_BOTTLE_CAP, 1
+	msgbox ComeBackForMoreHyperTraining
+	release
+	end
+
+Hypertrain_Atk_2:
+	goto HyperTrainingNormalBottleCap
+	goto Hypertrain_Atk_1
+
+
+Hypertrain_Def::
+	msgbox Hypertrain_Def_Text, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Hypertrain_Def_2
+Hypertrain_Def_1:
+	call Hypertraining_Start
+	hypertrain STAT_DEF, VAR_0x8004
+	msgbox MonHasBeenHyperTrainedInDef
+	removeitem ITEM_BOTTLE_CAP, 1
+	msgbox ComeBackForMoreHyperTraining
+	release
+	end
+
+Hypertrain_Def_2:
+	goto HyperTrainingNormalBottleCap
+	goto Hypertrain_Def_1
+
+
+Hypertrain_SpAtk::
+	msgbox Hypertrain_SpAtk_Text, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Hypertrain_SpAtk_2
+Hypertrain_SpAtk_1:
+	call Hypertraining_Start
+	hypertrain STAT_SPATK, VAR_0x8004
+	msgbox MonHasBeenHyperTrainedInSpAtk
+	removeitem ITEM_BOTTLE_CAP, 1
+	msgbox ComeBackForMoreHyperTraining
+	release
+	end
+
+Hypertrain_SpAtk_2:
+	goto HyperTrainingNormalBottleCap
+	goto Hypertrain_SpAtk_1
+
+
+Hypertrain_SpDef::
+	msgbox Hypertrain_SpDef_Text, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Hypertrain_SpDef_2
+Hypertrain_SpDef_1:
+	call Hypertraining_Start
+	hypertrain STAT_SPDEF, VAR_0x8004
+	msgbox MonHasBeenHyperTrainedInSpDef
+	removeitem ITEM_BOTTLE_CAP, 1
+	msgbox ComeBackForMoreHyperTraining
+	release
+	end
+
+Hypertrain_SpDef_2:
+	goto HyperTrainingNormalBottleCap
+	goto Hypertrain_SpDef_1
+
+
+Hypertrain_Speed::
+	msgbox Hypertrain_Speed_Text, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq Hypertrain_Speed_2
+Hypertrain_Speed_1:
+	call Hypertraining_Start
+	hypertrain STAT_SPEED, VAR_0x8004
+	msgbox MonHasBeenHyperTrainedInSpeed
+	removeitem ITEM_BOTTLE_CAP, 1
+	msgbox ComeBackForMoreHyperTraining
+	release
+	end
+
+Hypertrain_Speed_2:
+	goto HyperTrainingNormalBottleCap
+	goto Hypertrain_Speed_1
+
+
+Hypertraining_Start::
+	msgbox LetsHyperTrain
+	closemessage
+	fadescreen FADE_TO_BLACK
+	playse SE_EXP
+	waitse
+	playfanfare MUS_LEVEL_UP
+	waitfanfare
+	delay 60
+	fadescreen FADE_FROM_BLACK
+	bufferpartymonnick STR_VAR_1, VAR_0x8004
+	return
+
+
+HyperTrainingGoldBottleCap::
+	msgbox WillCostGoldCap, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq HyperTrainingGoldBottleCap_2
+HyperTrainingGoldBottleCap_1:
+	call Hypertraining_Start
+	canhypertrain STAT_HP, VAR_0x8004
+	compare VAR_RESULT, 0
+	goto_if_ne HyperTrainingGoldBottleCap_5
+HyperTrainingGoldBottleCap_4:
+	canhypertrain STAT_ATK, VAR_0x8004
+	compare VAR_RESULT, 0
+	goto_if_ne HyperTrainingGoldBottleCap_8
+HyperTrainingGoldBottleCap_7:
+	canhypertrain STAT_DEF, VAR_0x8004
+	compare VAR_RESULT, 0
+	goto_if_ne HyperTrainingGoldBottleCap_11
+HyperTrainingGoldBottleCap_10:
+	canhypertrain STAT_SPEED, VAR_0x8004
+	compare VAR_RESULT, 0
+	goto_if_ne HyperTrainingGoldBottleCap_14
+HyperTrainingGoldBottleCap_13:
+	canhypertrain STAT_SPATK, VAR_0x8004
+	compare VAR_RESULT, 0
+	goto_if_ne HyperTrainingGoldBottleCap_17
+HyperTrainingGoldBottleCap_16:
+	canhypertrain STAT_SPDEF, VAR_0x8004
+	compare VAR_RESULT, 0
+	goto_if_ne HyperTrainingGoldBottleCap_20
+HyperTrainingGoldBottleCap_19:
+	msgbox MonIsNowFullyHyperTrained
+	removeitem ITEM_GOLD_BOTTLE_CAP, 1
+	msgbox ComeBackForMoreHyperTraining
+	release
+	end
+
+HyperTrainingGoldBottleCap_2:
+	goto SelectHyperTraining
+	goto HyperTrainingGoldBottleCap_1
+
+HyperTrainingGoldBottleCap_5:
+	hypertrain STAT_HP, VAR_0x8004
+	goto HyperTrainingGoldBottleCap_4
+
+HyperTrainingGoldBottleCap_8:
+	hypertrain STAT_ATK, VAR_0x8004
+	goto HyperTrainingGoldBottleCap_7
+
+HyperTrainingGoldBottleCap_11:
+	hypertrain STAT_DEF, VAR_0x8004
+	goto HyperTrainingGoldBottleCap_10
+
+HyperTrainingGoldBottleCap_14:
+	hypertrain STAT_SPEED, VAR_0x8004
+	goto HyperTrainingGoldBottleCap_13
+
+HyperTrainingGoldBottleCap_17:
+	hypertrain STAT_SPATK, VAR_0x8004
+	goto HyperTrainingGoldBottleCap_16
+
+HyperTrainingGoldBottleCap_20:
+	hypertrain STAT_SPDEF, VAR_0x8004
+	goto HyperTrainingGoldBottleCap_19
 
 
 Frosthearth_TypeChecker::
@@ -205,7 +659,7 @@ FrosthearthHarbor_Attendant::
 FrosthearthHarbor_Attendant_1:
 	message FrosthearthHarbor_Attendant_Text_0
 	waitmessage
-	dynmultichoice 23, 0, FALSE, 4, 0, 0, FrosthearthHarbor_Attendant_Text_1, FrosthearthHarbor_Attendant_Text_2, FrosthearthHarbor_Attendant_Text_3, FrosthearthHarbor_Attendant_Text_4, FrosthearthHarbor_Attendant_Text_5, FrosthearthHarbor_Attendant_Text_6
+	dynmultichoice 23, 0, FALSE, 4, 0, 0, FrosthearthHarbor_Attendant_Text_1, FrosthearthHarbor_Attendant_Text_2, FrosthearthHarbor_Attendant_Text_3, FrosthearthHarbor_Attendant_Text_4, FrosthearthHarbor_Attendant_Text_5, SelectHyperTraining_Text_2
 	switch VAR_RESULT
 	case 0, FrosthearthHarbor_Attendant_6
 	case 1, FrosthearthHarbor_Attendant_7
@@ -253,6 +707,54 @@ FrosthearthHarbor_Attendant_11:
 	goto FrosthearthHarbor_Attendant_4
 
 
+SelectHyperTraining_Text_0:
+	.string "Bottle Caps (Have {STR_VAR_1})$"
+
+SelectHyperTraining_Text_1:
+	.string "Gold Bottle Caps (Have {STR_VAR_2})$"
+
+SelectHyperTraining_Text_2:
+	.string "Never mind$"
+
+HyperTrainingNormalBottleCap_Text_0:
+	.string "HP$"
+
+HyperTrainingNormalBottleCap_Text_1:
+	.string "{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}HP$"
+
+HyperTrainingNormalBottleCap_Text_2:
+	.string "Attack$"
+
+HyperTrainingNormalBottleCap_Text_3:
+	.string "{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}Attack$"
+
+HyperTrainingNormalBottleCap_Text_4:
+	.string "Defense$"
+
+HyperTrainingNormalBottleCap_Text_5:
+	.string "{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}Defense$"
+
+HyperTrainingNormalBottleCap_Text_6:
+	.string "Sp. Atk$"
+
+HyperTrainingNormalBottleCap_Text_7:
+	.string "{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}Sp. Atk$"
+
+HyperTrainingNormalBottleCap_Text_8:
+	.string "Sp. Def$"
+
+HyperTrainingNormalBottleCap_Text_9:
+	.string "{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}Sp. Def$"
+
+HyperTrainingNormalBottleCap_Text_10:
+	.string "Speed$"
+
+HyperTrainingNormalBottleCap_Text_11:
+	.string "{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}Speed$"
+
+HyperTrainingNormalBottleCap_Text_12:
+	.string "Back$"
+
 Frosthearth_TypeChecker_Text_0:
 	.string "an$"
 
@@ -277,8 +779,74 @@ FrosthearthHarbor_Attendant_Text_4:
 FrosthearthHarbor_Attendant_Text_5:
 	.string "Rockliffe Town$"
 
-FrosthearthHarbor_Attendant_Text_6:
-	.string "Nevermind$"
+ChooseMonForHyperTraining::
+	.string "wip$"
+
+SelectedMonNotHighEnoughForHyperTraining::
+	.string "wip$"
+
+MonFullyHyperTrained::
+	.string "wip$"
+
+UseWhichBottleCaps::
+	.string "wip$"
+
+GoldTrainingWillOverwrite::
+	.string "wip$"
+
+LetsHyperTrain::
+	.string "wip$"
+
+MonIsNowFullyHyperTrained::
+	.string "wip$"
+
+ComeBackForMoreHyperTraining::
+	.string "wip$"
+
+WillCostGoldCap::
+	.string "wip$"
+
+CantHypertrainThatStat::
+	.string "wip$"
+
+WhichStatToTrain::
+	.string "wip$"
+
+Hypertrain_Hp_Text::
+	.string "wip$"
+
+Hypertrain_Atk_Text::
+	.string "wip$"
+
+Hypertrain_Def_Text::
+	.string "wip$"
+
+Hypertrain_SpAtk_Text::
+	.string "wip$"
+
+Hypertrain_SpDef_Text::
+	.string "wip$"
+
+Hypertrain_Speed_Text::
+	.string "wip$"
+
+MonHasBeenHyperTrainedInHp::
+	.string "wip$"
+
+MonHasBeenHyperTrainedInAtk::
+	.string "wip$"
+
+MonHasBeenHyperTrainedInDef::
+	.string "wip$"
+
+MonHasBeenHyperTrainedInSpAtk::
+	.string "wip$"
+
+MonHasBeenHyperTrainedInSpDef::
+	.string "wip$"
+
+MonHasBeenHyperTrainedInSpeed::
+	.string "wip$"
 
 HyperTrainingIntro_Text::
 	.string "The name's Mr. Hyper!\p"
@@ -306,6 +874,8 @@ InterestedInHyperTraining::
 	.string "to boost your Pokémon's stats?$"
 
 NotInterestedInHyperTraining::
+	.string "Not interested in Hyper Training\n"
+	.string "at this time?\p"
 	.string "Then come back anytime!\p"
 	.string "Mr. Hyper will always be hyped up\n"
 	.string "to see you!$"

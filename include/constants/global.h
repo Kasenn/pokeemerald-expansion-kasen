@@ -64,7 +64,7 @@
 #define BAG_ITEMS_COUNT 100
 #define BAG_KEYITEMS_COUNT 80   // should be able to contain all  
 #define BAG_POKEBALLS_COUNT 30  // room for 1 extra
-#define BAG_TMHM_COUNT 108      // can contain all
+#define BAG_TMHM_COUNT 111      // can contain all
 #define BAG_BERRIES_COUNT 69    // can contain all
 #define BAG_MEDICINE_COUNT 80   // 9 more than currently planned
 #define BAG_MEGASTONE_COUNT 50  // should be able to contain all

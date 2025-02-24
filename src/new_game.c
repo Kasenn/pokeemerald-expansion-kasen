@@ -156,9 +156,9 @@ void InitStrangeSeeds(void)
     for (i = 0; i < 11; i++)
     {
         u8 rand = Random() % 100;
-        gSaveBlock1Ptr->strangeSeedDropOld[i] = rand;
+        gSaveBlock1Ptr->strangeSeedDrop[i] = rand;
     }
-    gSaveBlock1Ptr->strangeSeedIndexOld = 0;
+    gSaveBlock1Ptr->strangeSeedIndex = 0;
 }
 
 void NewGameInitData(void)

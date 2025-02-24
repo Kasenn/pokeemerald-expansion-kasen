@@ -52,6 +52,7 @@ BattleFrontier_BattleFactoryLobby_EventScript_DefeatedFactoryHead::
 	msgbox BattleFrontier_BattleFactoryLobby_Text_CongratsForDefeatingHead, MSGBOX_DEFAULT
 	waitmessage
 BattleFrontier_BattleFactoryLobby_EventScript_GiveBattlePoints::
+	addvar 1, VAR_WINS_AT_PWT
 	msgbox BattleFrontier_BattleFactoryLobby_Text_AwardBattlePoints, MSGBOX_DEFAULT
 	frontier_givepoints
 	msgbox BattleFrontier_Text_ObtainedXBattlePoints, MSGBOX_GETPOINTS

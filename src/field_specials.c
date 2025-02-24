@@ -1004,6 +1004,11 @@ static bool32 IsBuildingPCTile2(u32 tileId)
     return gMapHeader.mapLayout->primaryTileset == &gTileset_Building2 && (tileId == METATILE_Building2_PC_On || tileId == METATILE_Building2_PC_Off);
 }
 
+static bool32 IsBuildingPCTile3(u32 tileId)
+{
+    return gMapHeader.mapLayout->primaryTileset == &gTileset_PokemonWorldTournament && (tileId == METATILE_Building2_PC_On || tileId == METATILE_Building2_PC_Off);
+}
+
 static bool32 IsPlayerHousePCTile(u32 tileId)
 {
     return gMapHeader.mapLayout->secondaryTileset == &gTileset_BrendansMaysHouse
@@ -1021,7 +1026,7 @@ static bool8 IsPlayerInFrontOfPC(void)
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
     tileInFront = MapGridGetMetatileIdAt(x, y);
 
-    return IsBuildingPCTile(tileInFront) || IsPlayerHousePCTile(tileInFront) || IsBuildingPCTile2(tileInFront);
+    return IsBuildingPCTile(tileInFront) || IsPlayerHousePCTile(tileInFront) || IsBuildingPCTile2(tileInFront) || IsBuildingPCTile3(tileInFront);
 }
 
 // Task data for Task_PCTurnOnEffect and Task_LotteryCornerComputerEffect

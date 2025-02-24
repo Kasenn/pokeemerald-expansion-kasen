@@ -208,7 +208,7 @@ KaolisleHarbor_TakeAFerry_Text_4:
 	.string "Frosthearth City$"
 
 KaolisleHarbor_TakeAFerry_Text_5:
-	.string "Nevermind$"
+	.string "Never mind$"
 
 SailToShoreslateInstead::
 	.string "I'm sorry, but the harbor at Rockliffe\n"

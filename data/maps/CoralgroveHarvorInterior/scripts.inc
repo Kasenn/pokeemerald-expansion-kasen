@@ -143,7 +143,7 @@ CoralgroveHarbor_TakeAFerry_Text_4:
 	.string "Frosthearth City$"
 
 CoralgroveHarbor_TakeAFerry_Text_5:
-	.string "Nevermind$"
+	.string "Never mind$"
 
 InitBoatMultichoice_Text_0:
 	.string "Where would you like to sail?$"

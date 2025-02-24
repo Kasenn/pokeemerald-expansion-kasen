@@ -134,7 +134,7 @@ RockliffeHarbor_TakeAFerry_Text_4:
 	.string "Frosthearth City$"
 
 RockliffeHarbor_TakeAFerry_Text_5:
-	.string "Nevermind$"
+	.string "Never mind$"
 
 RockliffeHarbor_Text_GetAboard::
 	.string "This ferry travels to Shoreslate City\n"

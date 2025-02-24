@@ -403,7 +403,7 @@ TrainingClubNpc_Text_1:
 	.string "Level Training$"
 
 TrainingClubNpc_Text_2:
-	.string "Nevermind$"
+	.string "Never mind$"
 
 EVTraining_Intro::
 	.string "This is the EV Training Service.\n"

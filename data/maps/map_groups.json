@@ -414,7 +414,8 @@
     "FrosthearthCity_Mart",
     "FrosthearthCity_Harbor",
     "FrosthearthCity_Gym",
-    "FrosthearthCity_Motel_2F"
+    "FrosthearthCity_Motel_2F",
+    "PokemonWorldTournament"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -974,7 +975,6 @@
   ],
   "gMapGroup_IndoorRoute124": [
     "TestRoom",
-    "PokemonWorldTournament",
     "Maptest",
     "TestWall",
     "TestRoomCopy",

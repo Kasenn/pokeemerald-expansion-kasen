@@ -4,6 +4,7 @@ const OBJ_RUFFLET = 25
 
 mapscripts FrostfireCity_MapScripts {
     MAP_SCRIPT_ON_TRANSITION{
+        setflag(FLAG_TEMP_3)
         setflag(FLAG_VISITED_FROSTFIRE)
         switch(var(VAR_FROSTHEARTH_RUFFLET)){
             case 2:
@@ -30,7 +31,25 @@ mapscripts FrostfireCity_MapScripts {
             case 3:
                 setflag(FLAG_TEMP_1)
         }
+        getplayerxy(X, Y)
+        if(var(VAR_WINS_AT_PWT) >= 3 && var(X) == 24){
+            setvar(VAR_TEMP_5, 1)
+            if(flag(FLAG_BOTTLECAPS_WAITING)){
+                copyvar(VAR_TEMP_7, VAR_WINS_AT_PWT)
+                while(var(VAR_TEMP_7) >= 3){
+                    subvar(VAR_TEMP_7, 3)
+                    addvar(VAR_TEMP_6, 1)
+                }
+                checkitemspace(ITEM_BOTTLE_CAP, VAR_TEMP_6)
+                if(var(VAR_RESULT) == FALSE){
+                    setvar(VAR_TEMP_5, 0)
+                }
+            }
+        }
     }
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_TEMP_5, 1: FrosthearthBottleCapReward
+    ]
 }
 
 script FrostHearth_Sign1{
@@ -451,4 +470,51 @@ script Frosthearth_Rufflet{
     delay(48)
 	release
 	end
+}
+
+script FrosthearthBottleCapReward{
+    setvar(VAR_TEMP_5, 0)
+    applymovement(29, moves(walk_right * 8, walk_up))
+    waitmovement(0)
+    while(var(VAR_WINS_AT_PWT) >= 3){
+        subvar(VAR_WINS_AT_PWT, 3)
+        addvar(VAR_TEMP_6, 1)
+    }
+    if(var(VAR_TEMP_6) == 1){
+        msgbox(FrosthearthBottleCapRewardSingular)
+    }
+    else{
+        msgbox(FrosthearthBottleCapRewardPlural)
+    }
+    giveitem(ITEM_BOTTLE_CAP, VAR_TEMP_6)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(GiveCapsLater)
+        while(var(VAR_TEMP_6) != 0){
+            subvar(VAR_TEMP_6, 1)
+            addvar(VAR_WINS_AT_PWT, 3)
+        }
+        setflag(FLAG_BOTTLECAPS_WAITING)
+    }
+    else{
+        msgbox(BottleCapGuyCheersOn)
+    }
+    closemessage
+    applymovement(29, moves(walk_down, walk_right * 8))
+    waitmovement(0)
+    delay(30)
+    removeobject(0)
+    release
+}
+
+text FrosthearthBottleCapRewardSingular{
+    "wip"
+}
+text FrosthearthBottleCapRewardPlural{
+    "wip"
+}
+text GiveCapsLater{
+    "wip"
+}
+text BottleCapGuyCheersOn{
+    "wip"
 }

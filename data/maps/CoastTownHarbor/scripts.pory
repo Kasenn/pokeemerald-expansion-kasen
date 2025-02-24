@@ -33,7 +33,7 @@ script AzuretideHarbor_TakeAFerry{
     if(flag(FLAG_VISITED_FROSTFIRE)){
         dynmultipush("Frosthearth City", 4)
     }
-    dynmultipush("Nevermind", 5)
+    dynmultipush("Never mind", 5)
     dynmultistack(23, 0, FALSE, 4, FALSE, 0, 0)
     switch(var(VAR_RESULT)){
         case 0:

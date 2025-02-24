@@ -182,7 +182,7 @@ AzuretideHarbor_TakeAFerry_Text_4:
 	.string "Frosthearth City$"
 
 AzuretideHarbor_TakeAFerry_Text_5:
-	.string "Nevermind$"
+	.string "Never mind$"
 
 CoastTownHarbor_Boy_Text_0:
 	.string "This is my first time stepping\non the mainland.\pIs this how the astronauts felt when\nthey first stepped on the Moon?$"

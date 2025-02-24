@@ -21,6 +21,9 @@
         "checkitemtype": {
             "var_name": "VAR_RESULT"
         },
+        "canhypertrain": {
+            "var_name": "VAR_RESULT"
+        },
         "addpcitem": {
             "var_name": "VAR_RESULT"
         },

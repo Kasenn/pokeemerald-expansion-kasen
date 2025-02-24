@@ -2,6 +2,9 @@ mapscripts FrosthearthCity_House1_MapScripts {
     
 }
 
+const VAR_MON_SLOT = VAR_0x8004
+const VAR_NUMBER_OF_STATS_TRAINED = VAR_TEMP_0
+
 script Frosthearth_HyperTraining_Guru{
     if(!flag(FLAG_INTRODUCTION_TO_HYPER_TRAINING)){
         setflag(FLAG_INTRODUCTION_TO_HYPER_TRAINING)
@@ -20,10 +23,342 @@ script Frosthearth_HyperTraining_Guru{
             end
         }
     }
-    removeallitem(ITEM_BOTTLE_CAP)
-    removeallitem(ITEM_GOLD_BOTTLE_CAP)
-    msgbox(CheatingAndy, MSGBOX_AUTOCLOSE)
+    msgbox(ChooseMonForHyperTraining)
+    special(ChoosePartyMon)
+    waitstate
+    if(var(VAR_MON_SLOT) == PARTY_NOTHING_CHOSEN){
+        msgbox(NotInterestedInHyperTraining, MSGBOX_AUTOCLOSE)
+        end
+    }
+    checkhypertraininglevel(50)
+    if(var(VAR_RESULT) == FALSE){
+        bufferpartymonnick(STR_VAR_1, VAR_MON_SLOT)
+        msgbox(SelectedMonNotHighEnoughForHyperTraining, MSGBOX_AUTOCLOSE)
+        end
+    }
+    if(canhypertrain(STAT_HP, VAR_MON_SLOT) == TRUE){
+        addvar(VAR_NUMBER_OF_STATS_TRAINED, 1)
+    }
+    if(canhypertrain(STAT_ATK, VAR_MON_SLOT) == FALSE){
+        addvar(VAR_NUMBER_OF_STATS_TRAINED, 1)
+    }
+    if(canhypertrain(STAT_DEF, VAR_MON_SLOT) == FALSE){
+        addvar(VAR_NUMBER_OF_STATS_TRAINED, 1)
+    }
+    if(canhypertrain(STAT_SPEED, VAR_MON_SLOT) == FALSE){
+        addvar(VAR_NUMBER_OF_STATS_TRAINED, 1)
+    }
+    if(canhypertrain(STAT_SPATK, VAR_MON_SLOT) == FALSE){
+        addvar(VAR_NUMBER_OF_STATS_TRAINED, 1)
+    }
+    if(canhypertrain(STAT_SPDEF, VAR_MON_SLOT) == FALSE){
+        addvar(VAR_NUMBER_OF_STATS_TRAINED, 1)              
+    }
+    if(var(VAR_NUMBER_OF_STATS_TRAINED) == 6){
+        msgbox(MonFullyHyperTrained, MSGBOX_AUTOCLOSE)
+        end
+    }
+    goto(SelectHyperTraining)
+}
+script SelectHyperTraining{
+    message(UseWhichBottleCaps)
+    waitmessage
+    if(checkitem(ITEM_BOTTLE_CAP) == TRUE){
+        checkitemquant(ITEM_BOTTLE_CAP)
+        buffernumberstring(STR_VAR_1, VAR_0x8005)
+        dynmultipush("Bottle Caps (Have {STR_VAR_1})", 0)
+    }
+    if(checkitem(ITEM_GOLD_BOTTLE_CAP) == TRUE){
+        checkitemquant(ITEM_GOLD_BOTTLE_CAP)
+        buffernumberstring(STR_VAR_2, VAR_0x8005)
+        dynmultipush("Gold Bottle Caps (Have {STR_VAR_2})", 1)
+    }
+    dynmultipush("Never mind", 2)
+    dynmultistack(23, 0, FALSE, 4, FALSE, 0, 0)
+    switch(var(VAR_RESULT)){
+        case 0: // use normal cap
+            goto(HyperTrainingNormalBottleCap)
+        case 1: // use gold cap
+            goto(HyperTrainingGoldBottleCap)
+        case 2: // cancel
+        case MULTI_B_PRESSED:
+            msgbox(NotInterestedInHyperTraining, MSGBOX_AUTOCLOSE)
+            end
+    }
+}
+script HyperTrainingNormalBottleCap{
+    message(WhichStatToTrain)
+    waitmessage
+    // HP
+    if(canhypertrain(STAT_HP, VAR_MON_SLOT)){
+        dynmultipush("HP", 0)
+    }
+    else{
+        dynmultipush("{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}HP", 0)
+    }
+    // Atk
+    if(canhypertrain(STAT_ATK, VAR_MON_SLOT)){
+        dynmultipush("Attack", 1)
+    }
+    else{
+        dynmultipush("{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}Attack", 1)
+    }
+    // Def
+    if(canhypertrain(STAT_DEF, VAR_MON_SLOT)){
+        dynmultipush("Defense", 2)
+    }
+    else{
+        dynmultipush("{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}Defense", 2)
+    }
+    // Sp. Atk
+    if(canhypertrain(STAT_SPATK, VAR_MON_SLOT)){
+        dynmultipush("Sp. Atk", 3)
+    }
+    else{
+        dynmultipush("{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}Sp. Atk", 3)
+    }
+    // Sp. Def
+    if(canhypertrain(STAT_SPDEF, VAR_MON_SLOT)){
+        dynmultipush("Sp. Def", 4)
+    }
+    else{
+        dynmultipush("{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}Sp. Def", 4)
+    }
+    // Speed
+    if(canhypertrain(STAT_SPEED, VAR_MON_SLOT)){
+        dynmultipush("Speed", 5)
+    }
+    else{
+        dynmultipush("{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}Speed", 5)
+    }
+    dynmultipush("Back", 6)
+
+    dynmultistack(23, 0, FALSE, 7, FALSE, 0, 0)
+    switch(var(VAR_RESULT)){
+        case 0:
+            if(canhypertrain(STAT_HP, VAR_MON_SLOT) == FALSE){
+                goto(HyperTrainingCapped)
+            }
+            goto(Hypertrain_Hp)
+        case 1:
+            if(canhypertrain(STAT_ATK, VAR_MON_SLOT) == FALSE){
+                goto(HyperTrainingCapped)
+            }
+            goto(Hypertrain_Atk)
+        case 2:
+            if(canhypertrain(STAT_DEF, VAR_MON_SLOT) == FALSE){
+                goto(HyperTrainingCapped)
+            }
+            goto(Hypertrain_Def)
+        case 3:
+            if(canhypertrain(STAT_SPATK, VAR_MON_SLOT) == FALSE){
+                goto(HyperTrainingCapped)
+            }
+            goto(Hypertrain_SpAtk)
+        case 4:
+            if(canhypertrain(STAT_SPDEF, VAR_MON_SLOT) == FALSE){
+                goto(HyperTrainingCapped)
+            }
+            goto(Hypertrain_SpDef)
+        case 5:
+            if(canhypertrain(STAT_SPEED, VAR_MON_SLOT) == FALSE){
+                goto(HyperTrainingCapped)
+            }
+            goto(Hypertrain_Speed)
+        case 6:
+        case MULTI_B_PRESSED:
+            goto(SelectHyperTraining)
+    }
+}
+script HyperTrainingCapped{
+    msgbox(CantHypertrainThatStat)
+    goto(HyperTrainingNormalBottleCap)
+}
+script Hypertrain_Hp{
+    if(msgbox(Hypertrain_Hp_Text, MSGBOX_YESNO) == FALSE){
+        goto(HyperTrainingNormalBottleCap)
+    }
+    call(Hypertraining_Start)
+    hypertrain(STAT_HP, VAR_MON_SLOT)
+    msgbox(MonHasBeenHyperTrainedInHp)
+    removeitem(ITEM_BOTTLE_CAP, 1)
+    msgbox(ComeBackForMoreHyperTraining)
+    release
     end
+}
+script Hypertrain_Atk{
+    if(msgbox(Hypertrain_Atk_Text, MSGBOX_YESNO) == FALSE){
+        goto(HyperTrainingNormalBottleCap)
+    }
+    call(Hypertraining_Start)
+    hypertrain(STAT_ATK, VAR_MON_SLOT)
+    msgbox(MonHasBeenHyperTrainedInAtk)
+    removeitem(ITEM_BOTTLE_CAP, 1)
+    msgbox(ComeBackForMoreHyperTraining)
+    release
+    end
+}
+script Hypertrain_Def{
+    if(msgbox(Hypertrain_Def_Text, MSGBOX_YESNO) == FALSE){
+        goto(HyperTrainingNormalBottleCap)
+    }
+    call(Hypertraining_Start)
+    hypertrain(STAT_DEF, VAR_MON_SLOT)
+    msgbox(MonHasBeenHyperTrainedInDef)
+    removeitem(ITEM_BOTTLE_CAP, 1)
+    msgbox(ComeBackForMoreHyperTraining)
+    release
+    end
+}
+script Hypertrain_SpAtk{
+    if(msgbox(Hypertrain_SpAtk_Text, MSGBOX_YESNO) == FALSE){
+        goto(HyperTrainingNormalBottleCap)
+    }
+    call(Hypertraining_Start)
+    hypertrain(STAT_SPATK, VAR_MON_SLOT)
+    msgbox(MonHasBeenHyperTrainedInSpAtk)
+    removeitem(ITEM_BOTTLE_CAP, 1)
+    msgbox(ComeBackForMoreHyperTraining)
+    release
+    end
+}
+script Hypertrain_SpDef{
+    if(msgbox(Hypertrain_SpDef_Text, MSGBOX_YESNO) == FALSE){
+        goto(HyperTrainingNormalBottleCap)
+    }
+    call(Hypertraining_Start)
+    hypertrain(STAT_SPDEF, VAR_MON_SLOT)
+    msgbox(MonHasBeenHyperTrainedInSpDef)
+    removeitem(ITEM_BOTTLE_CAP, 1)
+    msgbox(ComeBackForMoreHyperTraining)
+    release
+    end
+}
+script Hypertrain_Speed{
+    if(msgbox(Hypertrain_Speed_Text, MSGBOX_YESNO) == FALSE){
+        goto(HyperTrainingNormalBottleCap)
+    }
+    call(Hypertraining_Start)
+    hypertrain(STAT_SPEED, VAR_MON_SLOT)
+    msgbox(MonHasBeenHyperTrainedInSpeed)
+    removeitem(ITEM_BOTTLE_CAP, 1)
+    msgbox(ComeBackForMoreHyperTraining)
+    release
+    end
+}
+
+script Hypertraining_Start{
+    msgbox(LetsHyperTrain)
+    closemessage
+    fadescreen(FADE_TO_BLACK)
+    playse(SE_EXP)
+    waitse
+    playfanfare(MUS_LEVEL_UP)
+    waitfanfare
+    delay(60)
+    fadescreen(FADE_FROM_BLACK)
+    bufferpartymonnick(STR_VAR_1, VAR_MON_SLOT)
+    return
+}
+
+script HyperTrainingGoldBottleCap{
+    if(msgbox(WillCostGoldCap, MSGBOX_YESNO) == FALSE){
+        goto(SelectHyperTraining)
+    }
+    call(Hypertraining_Start)
+    if(canhypertrain(STAT_HP, VAR_MON_SLOT)){
+        hypertrain(STAT_HP, VAR_MON_SLOT)
+    }
+    if(canhypertrain(STAT_ATK, VAR_MON_SLOT)){
+        hypertrain(STAT_ATK, VAR_MON_SLOT)
+    }
+    if(canhypertrain(STAT_DEF, VAR_MON_SLOT)){
+        hypertrain(STAT_DEF, VAR_MON_SLOT)
+    }
+    if(canhypertrain(STAT_SPEED, VAR_MON_SLOT)){
+        hypertrain(STAT_SPEED, VAR_MON_SLOT)
+    }
+    if(canhypertrain(STAT_SPATK, VAR_MON_SLOT)){
+        hypertrain(STAT_SPATK, VAR_MON_SLOT)
+    }
+    if(canhypertrain(STAT_SPDEF, VAR_MON_SLOT)){
+        hypertrain(STAT_SPDEF, VAR_MON_SLOT)
+    }
+    msgbox(MonIsNowFullyHyperTrained)
+    removeitem(ITEM_GOLD_BOTTLE_CAP, 1)
+    msgbox(ComeBackForMoreHyperTraining)
+    release
+    end
+}
+
+text ChooseMonForHyperTraining{
+    "wip"
+}
+text SelectedMonNotHighEnoughForHyperTraining{
+    "wip"
+}
+text MonFullyHyperTrained{
+    "wip"
+}
+text UseWhichBottleCaps{
+    "wip"
+}
+text GoldTrainingWillOverwrite{
+    "wip"
+}
+text LetsHyperTrain{
+    "wip"
+}
+text MonIsNowFullyHyperTrained{
+    "wip"
+}
+text ComeBackForMoreHyperTraining{
+    "wip"
+}
+text WillCostGoldCap{
+    "wip"
+}
+text CantHypertrainThatStat{
+    "wip"
+}
+text WhichStatToTrain{
+    "wip"
+}
+text Hypertrain_Hp_Text{
+    "wip"
+}
+text Hypertrain_Atk_Text{
+    "wip"
+}
+text Hypertrain_Def_Text{
+    "wip"
+}
+text Hypertrain_SpAtk_Text{
+    "wip"
+}
+text Hypertrain_SpDef_Text{
+    "wip"
+}
+text Hypertrain_Speed_Text{
+    "wip"
+}
+text MonHasBeenHyperTrainedInHp{
+    "wip"
+}
+text MonHasBeenHyperTrainedInAtk{
+    "wip"
+}
+text MonHasBeenHyperTrainedInDef{
+    "wip"
+}
+text MonHasBeenHyperTrainedInSpAtk{
+    "wip"
+}
+text MonHasBeenHyperTrainedInSpDef{
+    "wip"
+}
+text MonHasBeenHyperTrainedInSpeed{
+    "wip"
 }
 
 text HyperTrainingIntro_Text{
@@ -53,6 +388,8 @@ text InterestedInHyperTraining{
     "to boost your Pokémon's stats?"
 }
 text NotInterestedInHyperTraining{
+    "Not interested in Hyper Training\n"
+    "at this time?\p"
     "Then come back anytime!\p"
     "Mr. Hyper will always be hyped up\n"
     "to see you!"
@@ -216,7 +553,7 @@ script FrosthearthHarbor_Attendant{
     }
     message("Where would you like to sail?")
     waitmessage
-    dynmultichoice(23, 0, FALSE, 4, 0, 0, "Coralgrove City", "Azuretide Town", "Shoreslate City", "Kaolisle City", "Rockliffe Town", "Nevermind")
+    dynmultichoice(23, 0, FALSE, 4, 0, 0, "Coralgrove City", "Azuretide Town", "Shoreslate City", "Kaolisle City", "Rockliffe Town", "Never mind")
     switch(var(VAR_RESULT)){
         case 0:
             call(Harbor_BoardFerryGoingEast)     // make sure the attendant is id 3 and boat is id 4
