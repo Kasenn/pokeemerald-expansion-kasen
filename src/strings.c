@@ -1616,15 +1616,15 @@ const u8 gText_ExpShareOn[] = _("The Exp. Share has been turned on.{PAUSE_UNTIL_
 const u8 gText_ExpShareOff[] = _("The Exp. Share has been turned off.{PAUSE_UNTIL_PRESS}");
 
 const u8 gText_HpTraining[] = _("HP");
-const u8 gText_AtkTraining[] = _("ATTACK");
-const u8 gText_SpAtkTraining[] = _("SP.ATK");
-const u8 gText_DefTraining[] = _("DEFENSE");
-const u8 gText_SpDefTraining[] = _("SP.DEF");
-const u8 gText_SpeedTraining[] = _("SPEED");
+const u8 gText_AtkTraining[] = _("Attack");
+const u8 gText_SpAtkTraining[] = _("Sp. Atk");
+const u8 gText_DefTraining[] = _("Defense");
+const u8 gText_SpDefTraining[] = _("Sp. Def");
+const u8 gText_SpeedTraining[] = _("Speed");
 
 const u8 gText_Aldeleaf[] = _("Aldeleaf City");
 const u8 gText_Shoreslate[] = _("Shoreslate City");
-const u8 gText_Nevermind[] = _("Nevermind");
+const u8 gText_Nevermind[] = _("Never mind");
 const u8 gText_YesQuestion[] = _("Yes?");
 const u8 gText_NoQuestion[] = _("No?");
 
