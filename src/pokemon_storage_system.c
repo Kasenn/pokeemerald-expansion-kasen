@@ -106,6 +106,11 @@ enum {
     MSG_CHANGED_TO_ITEM,
     MSG_CANT_STORE_MAIL,
     MSG_TALK_TO_PARTNER,
+    MSG_JUDGE_POKE1,
+    MSG_JUDGE_POKE2,
+    MSG_JUDGE_POKE3,
+    MSG_JUDGE_POKE4,
+    MSG_JUDGE_POKE5,
 };
 
 // IDs for how to resolve variables in the above messages
@@ -140,6 +145,7 @@ enum {
     MENU_SWITCH,
     MENU_BAG,
     MENU_INFO,
+    MENU_JUDGE,
     MENU_SCENERY_1,
     MENU_SCENERY_2,
     MENU_SCENERY_3,
@@ -351,6 +357,7 @@ enum {
     WIN_DISPLAY_INFO,
     WIN_MESSAGE,
     WIN_ITEM_DESC,
+    WIN_JUDGE_INFO,
 };
 
 struct Wallpaper
@@ -590,6 +597,7 @@ EWRAM_DATA static u8 sMovingMonOrigBoxId = 0;
 EWRAM_DATA static u8 sMovingMonOrigBoxPos = 0;
 EWRAM_DATA static bool8 sAutoActionOn = 0;
 EWRAM_DATA static bool8 sJustOpenedBag = 0;
+EWRAM_DATA static bool8 sIsJudgeWindowOpen = 0;
 EWRAM_DATA u8 gDontCompact = 0;
 
 #define FOLLOWER_IN_HAND 0xFD
@@ -896,6 +904,11 @@ static void UnkUtil_DmaRun(struct UnkUtilData *);
 void SetMonFormPSS(struct BoxPokemon *boxMon);
 void UpdateSpeciesSpritePSS(struct BoxPokemon *boxmon);
 
+// IV Judge
+static void Task_ShowJudgeWindow(u8);
+static void CloseJudgeWindow(void);
+static void PrintJudgeInfo(u8);
+
 static const u8 gText_JustOnePkmn[] = _("There is just one Pokémon with you.");
 static const u8 gText_PartyFull[] = _("Your party is full!");
 static const u8 gText_Box[] = _("Box");
@@ -1021,6 +1034,15 @@ static const struct WindowTemplate sWindowTemplates[] =
         .paletteNum = 15,
         .baseBlock = 0x14,
     },
+    [WIN_JUDGE_INFO] = {
+        .bg = 0,
+        .tilemapLeft = 11,
+        .tilemapTop = 4,
+        .width = 18,
+        .height = 11,
+        .paletteNum = 15,
+        .baseBlock = 0xC0,
+    },
     DUMMY_WIN_TEMPLATE
 };
 
@@ -1121,6 +1143,11 @@ static const struct StorageMessage sMessages[] =
     [MSG_ITEM_IS_HELD]         = {COMPOUND_STRING("{DYNAMIC 0} is now held."),   MSG_VAR_ITEM_NAME},
     [MSG_CHANGED_TO_ITEM]      = {COMPOUND_STRING("Changed to {DYNAMIC 0}."),    MSG_VAR_ITEM_NAME},
     [MSG_CANT_STORE_MAIL]      = {COMPOUND_STRING("Mail can't be stored!"),      MSG_VAR_NONE},
+    [MSG_JUDGE_POKE1]          = {COMPOUND_STRING("Decent potential"),           MSG_VAR_NONE},
+    [MSG_JUDGE_POKE2]          = {COMPOUND_STRING("Above-average potential"),    MSG_VAR_NONE},
+    [MSG_JUDGE_POKE3]          = {COMPOUND_STRING("Fantastic potential"),        MSG_VAR_NONE},
+    [MSG_JUDGE_POKE4]          = {COMPOUND_STRING("Outstanding potential!"),     MSG_VAR_NONE},
+    [MSG_JUDGE_POKE5]          = {COMPOUND_STRING("Unknown potential"),          MSG_VAR_NONE},
 };
 
 static const struct WindowTemplate sYesNoWindowTemplate =
@@ -2715,6 +2742,10 @@ static void Task_OnSelectedMon(u8 taskId)
             PlaySE(SE_SELECT);
             SetPokeStorageTask(Task_ShowMarkMenu);
             break;
+        case MENU_JUDGE:
+            PlaySE(SE_SELECT);
+            SetPokeStorageTask(Task_ShowJudgeWindow);
+            break;
         case MENU_TAKE:
             PlaySE(SE_SELECT);
             SetPokeStorageTask(Task_TakeItemForMoving);
@@ -3081,6 +3112,208 @@ static void Task_ReleaseMon(u8 taskId)
         break;
     }
 }
+
+#define sHpIV        data[1]
+#define sAtkIV       data[2]
+#define sDefIV       data[3]
+#define sSpAtkIV     data[4]
+#define sSpDefIV     data[5]
+#define sspeedIV     data[6]
+
+static const u8 sHyperTraining[] =
+{
+    MON_DATA_HYPER_TRAINED_HP,
+    MON_DATA_HYPER_TRAINED_ATK,
+    MON_DATA_HYPER_TRAINED_DEF,
+    MON_DATA_HYPER_TRAINED_SPATK,
+    MON_DATA_HYPER_TRAINED_SPDEF,
+    MON_DATA_HYPER_TRAINED_SPEED,
+};
+static const u8 sIVs[] =
+{
+    MON_DATA_HP_IV,
+    MON_DATA_ATK_IV,
+    MON_DATA_DEF_IV,
+    MON_DATA_SPATK_IV,
+    MON_DATA_SPDEF_IV,
+    MON_DATA_SPEED_IV,
+};
+
+static s16 IsMonEgg(u16 boxId)
+{
+    if (sIsMonBeingMoved)
+        return GetMonData(&sStorage->movingMon, MON_DATA_IS_EGG);
+
+    if (sCursorArea == CURSOR_AREA_IN_PARTY)
+        return GetMonData(&gPlayerParty[sCursorPosition], MON_DATA_IS_EGG);
+
+    return GetBoxMonDataAt(boxId, sCursorPosition, MON_DATA_IS_EGG);
+
+}
+
+static void Task_ShowJudgeWindow(u8 taskId)
+{
+    switch (sStorage->state)
+    {
+    case 0:
+        struct Task *task = &gTasks[taskId];
+        u16 boxId = StorageGetCurrentBox();
+        u8 i;
+        sIsJudgeWindowOpen = TRUE;
+        u8 isEgg = IsMonEgg(boxId);
+
+        if (!isEgg)
+        {
+            if (sIsMonBeingMoved)
+            {
+                for (i = 0; i < ARRAY_COUNT(sHyperTraining); i++)
+                {
+                    task->data[1 + i] = GetMonData(&sStorage->movingMon, sHyperTraining[i]) ? -1 : GetMonData(&sStorage->movingMon, sIVs[i]);
+                }
+            }
+            else if (sCursorArea == CURSOR_AREA_IN_PARTY)
+            {
+                for (i = 0; i < ARRAY_COUNT(sHyperTraining); i++)
+                {
+                    task->data[1 + i] = GetMonData(&gPlayerParty[sCursorPosition], sHyperTraining[i]) ? -1 : GetMonData(&gPlayerParty[sCursorPosition], sIVs[i]);
+                }
+            }
+            else
+            {
+                for (i = 0; i < ARRAY_COUNT(sHyperTraining); i++)
+                {
+                    task->data[1 + i] = GetBoxMonDataAt(boxId, sCursorPosition, sHyperTraining[i]) ? -1 : GetBoxMonDataAt(boxId, sCursorPosition, sIVs[i]);
+                }
+            }    
+        }
+        sStorage->state++;
+        break;
+    case 1:
+        PrintJudgeInfo(taskId);
+        sStorage->state++;
+        break;
+    case 2:
+        SetPokeStorageTask(Task_PokeStorageMain);
+        break;
+    }
+}
+
+static void CloseJudgeWindow(void)
+{
+    sIsJudgeWindowOpen = 0;
+    ClearStdWindowAndFrameToTransparent(WIN_JUDGE_INFO, FALSE);
+    ClearBottomWindow();
+}
+
+static const u8 *const sStatStrings[NUM_STATS] =
+{
+    COMPOUND_STRING("HP"),
+    COMPOUND_STRING("Attack"),
+    COMPOUND_STRING("Sp. Atk"),
+    COMPOUND_STRING("Defense"),
+    COMPOUND_STRING("Sp. Def"),
+    COMPOUND_STRING("Speed"),
+};
+
+static const u8 *const sStatRanks[] =
+{
+    COMPOUND_STRING("No Good"),
+    COMPOUND_STRING("Decent"),
+    COMPOUND_STRING("Pretty Good"),
+    COMPOUND_STRING("Very Good"),
+    COMPOUND_STRING("Fantastic"),
+    COMPOUND_STRING("Best"),
+    COMPOUND_STRING("Hyper Trained!"),
+    COMPOUND_STRING("???"),
+};
+
+static s16 GetStatRank(s16 iv)
+{
+    if (iv < 0)
+        return 6;
+    if (iv < 1)
+        return 0;
+    if (iv < 16)
+        return 1;
+    if (iv < 26)
+        return 2;
+    if (iv < 30)
+        return 3;
+    if (iv < 31)
+        return 4;
+
+    return 5;
+}
+static s16 GetPotentialRank(s16 totalIVs)
+{
+    if (totalIVs < 91)
+        return MSG_JUDGE_POKE1;
+    if (totalIVs < 121)
+        return MSG_JUDGE_POKE2;
+    if (totalIVs < 151)
+        return MSG_JUDGE_POKE3;
+
+    return MSG_JUDGE_POKE4;
+}
+
+static void PrintJudgeInfo(u8 taskId)
+{
+    u8 i;
+    u16 boxId = StorageGetCurrentBox();
+    struct Task *task = &gTasks[taskId];
+    u16 xPos;
+    s16 totalIVs= 0;
+    s16 j = 0;
+    u8 isEgg = IsMonEgg(boxId);
+
+    const s16 sSavedIvs[] =
+    {
+        task->sHpIV,
+        task->sAtkIV,
+        task->sDefIV,
+        task->sSpAtkIV,
+        task->sSpDefIV,
+        task->sspeedIV,
+    };
+
+    FillWindowPixelBuffer(WIN_JUDGE_INFO, PIXEL_FILL(1));
+
+    for (i = 0; i < ARRAY_COUNT(sSavedIvs); i++)
+    {
+        j = isEgg ? 7 : GetStatRank(sSavedIvs[i]);
+        xPos = GetStringRightAlignXOffset(FONT_NORMAL, sStatRanks[j], 140);
+
+        if (!isEgg)
+        {
+            if (sSavedIvs[i] == -1)
+                totalIVs += 31;
+            else
+                totalIVs += sSavedIvs[i];
+        }
+
+        AddTextPrinterParameterized(WIN_JUDGE_INFO, FONT_NORMAL, sStatStrings[i], 0, (14 * i) + 1, TEXT_SKIP_DRAW, NULL);
+        AddTextPrinterParameterized(WIN_JUDGE_INFO, FONT_NORMAL, sStatRanks[j], xPos, (14 * i) + 1, TEXT_SKIP_DRAW, NULL);            
+    }
+
+    if (isEgg)
+        PrintMessage(MSG_JUDGE_POKE5);
+    else
+        PrintMessage(GetPotentialRank(totalIVs));
+
+
+    DrawTextBorderOuter(WIN_JUDGE_INFO, 2, 14);
+    PutWindowTilemap(WIN_JUDGE_INFO);
+    CopyWindowToVram(WIN_JUDGE_INFO, COPYWIN_GFX);
+    ScheduleBgCopyTilemapToVram(0);
+}
+
+
+#undef sHpIV    
+#undef sAtkIV   
+#undef sDefIV   
+#undef sSpAtkIV 
+#undef sSpDefIV 
+#undef sspeedIV 
 
 static void Task_ShowMarkMenu(u8 taskId)
 {
@@ -7210,6 +7443,20 @@ static u8 InBoxInput_Normal(void)
         sStorage->cursorHorizontalWrap = 0;
         sStorage->cursorFlipTimer = 0;
 
+        if (sIsJudgeWindowOpen)
+        {
+            if (JOY_REPEAT(DPAD_ANY) || JOY_NEW(START_BUTTON | SELECT_BUTTON))
+            {
+                CloseJudgeWindow();
+            }
+            else if (JOY_NEW(A_BUTTON | B_BUTTON | L_BUTTON | R_BUTTON))
+            {
+                PlaySE(SE_SELECT);
+                CloseJudgeWindow();
+                return 0;
+            }
+        }
+
         if (JOY_REPEAT(DPAD_UP))
         {
             retVal = INPUT_MOVE_CURSOR;
@@ -7317,6 +7564,14 @@ static u8 InBoxInput_Normal(void)
                 return INPUT_SCROLL_LEFT;
             if (JOY_HELD(R_BUTTON))
                 return INPUT_SCROLL_RIGHT;
+        }
+        else
+        {
+            if(JOY_NEW(L_BUTTON) && (GetBoxMonDataAt(gPokemonStoragePtr->currentBox, sCursorPosition, MON_DATA_SPECIES_OR_EGG) != SPECIES_NONE || sIsMonBeingMoved))
+            {
+                PlaySE(SE_SELECT);
+                SetPokeStorageTask(Task_ShowJudgeWindow);
+            }
         }
 
         if (JOY_NEW(SELECT_BUTTON))
@@ -7509,6 +7764,20 @@ static u8 HandleInput_InParty(void)
         gotoBox = FALSE;
         retVal = INPUT_NONE;
 
+        if (sIsJudgeWindowOpen)
+        {
+            if (JOY_REPEAT(DPAD_ANY) || JOY_NEW(SELECT_BUTTON))
+            {
+                CloseJudgeWindow();
+            }
+            else if (JOY_NEW(A_BUTTON | B_BUTTON | L_BUTTON | R_BUTTON | START_BUTTON))
+            {
+                PlaySE(SE_SELECT);
+                CloseJudgeWindow();
+                return 0;
+            }
+        }
+
         if (JOY_REPEAT(DPAD_UP))
         {
             if (--cursorPosition < 0)
@@ -7603,6 +7872,11 @@ static u8 HandleInput_InParty(void)
             ToggleCursorAutoAction();
             return INPUT_NONE;
         }
+        else if(JOY_NEW(L_BUTTON) && (GetMonData(&gPlayerParty[cursorPosition], MON_DATA_SPECIES_OR_EGG) != SPECIES_NONE || sIsMonBeingMoved))
+        {
+            PlaySE(SE_SELECT);
+            SetPokeStorageTask(Task_ShowJudgeWindow);
+        }
 
     } while (0);
 
@@ -7626,6 +7900,20 @@ static u8 HandleInput_OnBox(void)
         sStorage->cursorHorizontalWrap = 0;
         sStorage->cursorVerticalWrap = 0;
         sStorage->cursorFlipTimer = 0;
+
+        if (sIsJudgeWindowOpen)
+        {
+            if (JOY_REPEAT(DPAD_ANY) || JOY_NEW(START_BUTTON | SELECT_BUTTON))
+            {
+                CloseJudgeWindow();
+            }
+            else if (JOY_NEW(A_BUTTON | B_BUTTON | L_BUTTON | R_BUTTON))
+            {
+                PlaySE(SE_SELECT);
+                CloseJudgeWindow();
+                return 0;
+            }
+        }
 
         if (JOY_REPEAT(DPAD_UP))
         {
@@ -7654,6 +7942,11 @@ static u8 HandleInput_OnBox(void)
                 return INPUT_SCROLL_LEFT;
             if (JOY_HELD(R_BUTTON))
                 return INPUT_SCROLL_RIGHT;
+        }
+        else if(JOY_NEW(L_BUTTON) && sIsMonBeingMoved)
+        {
+            PlaySE(SE_SELECT);
+            SetPokeStorageTask(Task_ShowJudgeWindow);
         }
 
         if (JOY_NEW(A_BUTTON))
@@ -7700,6 +7993,20 @@ static u8 HandleInput_OnButtons(void)
         sStorage->cursorVerticalWrap = 0;
         sStorage->cursorFlipTimer = 0;
 
+        if (sIsJudgeWindowOpen)
+        {
+            if (JOY_REPEAT(DPAD_ANY) || JOY_NEW(START_BUTTON | SELECT_BUTTON))
+            {
+                CloseJudgeWindow();
+            }
+            else if (JOY_NEW(A_BUTTON | B_BUTTON | L_BUTTON | R_BUTTON))
+            {
+                PlaySE(SE_SELECT);
+                CloseJudgeWindow();
+                return 0;
+            }
+        }
+
         if (JOY_REPEAT(DPAD_UP))
         {
             retVal = INPUT_MOVE_CURSOR;
@@ -7735,6 +8042,12 @@ static u8 HandleInput_OnButtons(void)
             if (++cursorPosition > 1)
                 cursorPosition = 0;
             break;
+        }
+
+        if(JOY_NEW(L_BUTTON) && sIsMonBeingMoved)
+        {
+            PlaySE(SE_SELECT);
+            SetPokeStorageTask(Task_ShowJudgeWindow);
         }
 
         // Button was pressed, determine which
@@ -7851,6 +8164,7 @@ static bool8 SetMenuTexts_Mon(void)
             SetMenuText(MENU_STORE);
     }
 
+    SetMenuText(MENU_JUDGE);
     SetMenuText(MENU_MARK);
     SetMenuText(MENU_RELEASE);
     SetMenuText(MENU_CANCEL);
@@ -8047,6 +8361,7 @@ static void CreateCursorSprites(void)
 
 static void ToggleCursorAutoAction(void)
 {
+    PlaySE(SE_SELECT);
     sAutoActionOn = !sAutoActionOn;
     sStorage->cursorSprite->oam.paletteNum = sStorage->cursorPalNums[sAutoActionOn];
 }
@@ -8132,6 +8447,7 @@ static const u8 *const sMenuTexts[] =
     [MENU_WALLPAPER]  = COMPOUND_STRING("Wallpaper"),
     [MENU_NAME]       = COMPOUND_STRING("Name"),
     [MENU_TAKE]       = COMPOUND_STRING("Take"),
+    [MENU_JUDGE]      = COMPOUND_STRING("Judge"),
     [MENU_GIVE]       = gPCText_Give,
     [MENU_GIVE_2]     = gPCText_Give,
     [MENU_SWITCH]     = COMPOUND_STRING("Switch"),
