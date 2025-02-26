@@ -2190,15 +2190,27 @@ static void CB_ExitFlyMap(void)
                         SetWarpDestinationToMapWarp(sMapHealLocations[sFlyMap->regionMap.mapSecId][0], sMapHealLocations[sFlyMap->regionMap.mapSecId][1], WARP_ID_NONE);
                     break;
                 }
+                FlagClear(FLAG_OPENED_MAP_FROM_SIGN);
                 ReturnToFieldFromFlyMapSelect();
             }
             else
             {
-                SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);
+                if (FlagGet(FLAG_OPENED_MAP_FROM_SIGN))
+                {
+                    FlagClear(FLAG_OPENED_MAP_FROM_SIGN);
+                    SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+                }
+                else
+                    SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);
             }
             TRY_FREE_AND_SET_NULL(sFlyMap);
             FreeAllWindowBuffers();
         }
         break;
     }
+}
+
+void OpenFlyMapFromSign(void)
+{
+    SetMainCallback2(CB2_OpenFlyMap);
 }

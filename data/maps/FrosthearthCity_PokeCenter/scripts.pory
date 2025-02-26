@@ -76,3 +76,64 @@ script FrosthearthPokeCenter_EventScript_Nurse{
 	release
 	end
 }
+
+script FrosthearthPokeCenter_Lanette{
+    lock
+	faceplayer
+	msgbox(FrosthearthPokeCenter_Lanette_Text)
+	playfanfare(MUS_OBTAIN_TMHM)
+    message(CanNowUseIVChecker)
+    waitmessage
+    waitfanfare
+    delay(30)
+    msgbox(FrosthearthPokeCenter_Lanette_ExplainIVFunction)
+    msgbox(FrosthearthPokeCenter_Lanette_Goodbye)
+    closemessage
+    applymovement(8, moves(delay_16 * 2, walk_down * 3, walk_left * 3, walk_down * 4, delay_8))
+    applymovement(0xFF, moves(lock_facing_direction, walk_down, unlock_facing_direction, face_left, lock_facing_direction, walk_right, unlock_facing_direction))
+    waitmovement(8)
+    playse(SE_SLIDING_DOOR)
+    removeobject(8)
+    setflag(FLAG_SYS_PC_LANETTE)
+    release
+}
+text FrosthearthPokeCenter_Lanette_Text{
+    "Oh, hello.\n"
+	"You are?\p"
+	"Okay, your name's {PLAYER}.\n"
+	"I can see that you're a trainer.\p"
+	"So that means you use the Pokémon\n"
+	"Storage System I developed.\p"
+	"How I arrived at that conclusion is\n"
+	"a simple deductive process.\p"
+	"You spoke to me because you wanted\n"
+	"to access something on this PC.\p"
+	"Oh, I'm sorry. I'm Lanette.\p"
+    "I'm the one behind the Pokémon Storage\n"
+    "System you've come to learn and love,\l"
+    "and I've just finished updating this\l"
+    "machine with my latest update!"
+}
+text CanNowUseIVChecker{
+    "The Judge function has been added\n"
+    "to your PC boxes!"
+}
+text FrosthearthPokeCenter_Lanette_ExplainIVFunction{
+    "When accessing your PC boxes,\n"
+    "you can now use the Judge function\l"
+    "and analyze a chosen Pokémon to see\l"
+    "its biggest strengths and weaknesses.\p"
+    "To access the Judge function, simply\n"
+    "select a Pokémon, and choose “Judge”.\p"
+    "You can also access the Judge\n"
+    "function by pressing the L Button\l"
+    "when using the normal Button Mode."
+}
+text FrosthearthPokeCenter_Lanette_Goodbye{
+    "Anyway, I should be heading out now.\n"
+    "I've still got lots of PCs to update!\p"
+    "Honestly, I'm glad to meet you--it's\n"
+	"great you're using the Storage System.\p"
+	"If you're ever visiting Valorwatch City,\n"
+    "drop by and say hello!"
+}

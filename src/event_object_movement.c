@@ -10442,7 +10442,7 @@ static void DoTracksGroundEffect_FootprintsC(struct ObjectEvent *objEvent, struc
     FieldEffectStart(otherFootprintsB_FieldEffectData[isDeepSand]);
 }
 
-static void DoTracksGroundEffect_BikeTireTracks(struct ObjectEvent *objEvent, struct Sprite *sprite, bool8 isDeepSand) //wip
+static void DoTracksGroundEffect_BikeTireTracks(struct ObjectEvent *objEvent, struct Sprite *sprite, bool8 isDeepSand)
 {
     //  Specifies which bike track shape to show next.
     //  For example, when the bike turns from up to right, it will show
@@ -10471,7 +10471,7 @@ static void DoTracksGroundEffect_BikeTireTracks(struct ObjectEvent *objEvent, st
     }
 }
 
-static void DoTracksGroundEffect_SlitherTracks(struct ObjectEvent *objEvent, struct Sprite *sprite, u8 a) //wip
+static void DoTracksGroundEffect_SlitherTracks(struct ObjectEvent *objEvent, struct Sprite *sprite, u8 a)
 {
     //  Specifies which bike track shape to show next.
     //  For example, when the bike turns from up to right, it will show
@@ -11813,7 +11813,7 @@ static void DoTracksGroundSnowEffect_FootprintsC(struct ObjectEvent *objEvent, s
     FieldEffectStart(otherFootprintsB_FieldEffectData[isDeepSand]);
 }
 
-static void DoTracksGroundSnowEffect_BikeTireTracks(struct ObjectEvent *objEvent, struct Sprite *sprite, bool8 isDeepSand) //wip
+static void DoTracksGroundSnowEffect_BikeTireTracks(struct ObjectEvent *objEvent, struct Sprite *sprite, bool8 isDeepSand)
 {
     //  Specifies which bike track shape to show next.
     //  For example, when the bike turns from up to right, it will show
@@ -11842,7 +11842,7 @@ static void DoTracksGroundSnowEffect_BikeTireTracks(struct ObjectEvent *objEvent
     }
 }
 
-static void DoTracksGroundSnowEffect_SlitherTracks(struct ObjectEvent *objEvent, struct Sprite *sprite, u8 a) //wip
+static void DoTracksGroundSnowEffect_SlitherTracks(struct ObjectEvent *objEvent, struct Sprite *sprite, u8 a)
 {
     //  Specifies which bike track shape to show next.
     //  For example, when the bike turns from up to right, it will show

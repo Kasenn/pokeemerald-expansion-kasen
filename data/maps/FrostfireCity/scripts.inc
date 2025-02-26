@@ -461,12 +461,16 @@ FrosthearthBottleCapReward_2:
 	goto_if_ge FrosthearthBottleCapReward_3
 	compare VAR_TEMP_6, 1
 	goto_if_eq FrosthearthBottleCapReward_6
-	msgbox FrosthearthBottleCapRewardPlural
+	bufferstring STR_VAR_1, FrosthearthBottleCapReward_Text_2
+	bufferstring STR_VAR_2, FrosthearthBottleCapReward_Text_3
 FrosthearthBottleCapReward_5:
+	msgbox FrosthearthBottleCapReward_Text
 	giveitem ITEM_BOTTLE_CAP, VAR_TEMP_6
 	compare VAR_RESULT, FALSE
 	goto_if_eq FrosthearthBottleCapReward_10
-	msgbox BottleCapGuyCheersOn
+	goto_if_unset FLAG_BOTTLE_CAP_INTRO, FrosthearthBottleCapReward_18
+FrosthearthBottleCapReward_17:
+	msgbox BottleCapGuyCheersOn2
 FrosthearthBottleCapReward_9:
 	closemessage
 	applymovement 29, FrosthearthBottleCapReward_Movement_1
@@ -482,7 +486,8 @@ FrosthearthBottleCapReward_3:
 	goto FrosthearthBottleCapReward_2
 
 FrosthearthBottleCapReward_6:
-	msgbox FrosthearthBottleCapRewardSingular
+	bufferstring STR_VAR_1, FrosthearthBottleCapReward_Text_0
+	bufferstring STR_VAR_2, FrosthearthBottleCapReward_Text_1
 	goto FrosthearthBottleCapReward_5
 
 FrosthearthBottleCapReward_10:
@@ -497,6 +502,11 @@ FrosthearthBottleCapReward_15:
 	subvar VAR_TEMP_6, 1
 	addvar VAR_WINS_AT_PWT, 3
 	goto FrosthearthBottleCapReward_14
+
+FrosthearthBottleCapReward_18:
+	msgbox BottleCapGuyCheersOn
+	setflag FLAG_BOTTLE_CAP_INTRO
+	goto FrosthearthBottleCapReward_17
 
 
 Frosthearth_Swimmer_Movement_0:
@@ -669,6 +679,18 @@ FrosthearthBottleCapReward_Movement_1:
 	walk_right
 	step_end
 
+FrosthearthBottleCapReward_Text_0:
+	.string "this$"
+
+FrosthearthBottleCapReward_Text_1:
+	.string "that$"
+
+FrosthearthBottleCapReward_Text_2:
+	.string "these$"
+
+FrosthearthBottleCapReward_Text_3:
+	.string "those$"
+
 FrostHearth_Sign1_Text::
 	.string "Frosthearth City Pokémon Gym\n"
 	.string "Leaders: Blaine & Pryce$"
@@ -837,14 +859,29 @@ ThankYouForFindingRufflet::
 	.string "Thank you for guiding my Rufflet\n"
 	.string "back to me!$"
 
-FrosthearthBottleCapRewardSingular::
-	.string "wip$"
-
-FrosthearthBottleCapRewardPlural::
-	.string "wip$"
+FrosthearthBottleCapReward_Text::
+	.string "You're the kid who's been climbing\n"
+	.string "ranks in the Pokémon World Tournament.\p"
+	.string "Color me impressed!\p"
+	.string "I was going to use {STR_VAR_1} myself,\n"
+	.string "but now I want to see the heights you\l"
+	.string "can reach when your potential is\l"
+	.string "pushed to its limits.$"
 
 GiveCapsLater::
-	.string "wip$"
+	.string "Oh, but it looks like you don't\n"
+	.string "have room in your bag…\p"
+	.string "Well, you just keep on winning\n"
+	.string "and the next time we meet,\l"
+	.string "maybe I'll have an even bigger\l"
+	.string "prize for you!$"
 
 BottleCapGuyCheersOn::
-	.string "wip$"
+	.string "There's a great Pokémon master\n"
+	.string "residing in this city.\p"
+	.string "You should find him and bring\n"
+	.string "{STR_VAR_2} to him.$"
+
+BottleCapGuyCheersOn2::
+	.string "I hope you'll keep climbing the\n"
+	.string "ranks!$"

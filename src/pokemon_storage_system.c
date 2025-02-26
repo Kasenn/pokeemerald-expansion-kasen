@@ -3118,7 +3118,7 @@ static void Task_ReleaseMon(u8 taskId)
 #define sDefIV       data[3]
 #define sSpAtkIV     data[4]
 #define sSpDefIV     data[5]
-#define sspeedIV     data[6]
+#define sSpeedIV     data[6]
 
 static const u8 sHyperTraining[] =
 {
@@ -3273,7 +3273,7 @@ static void PrintJudgeInfo(u8 taskId)
         task->sDefIV,
         task->sSpAtkIV,
         task->sSpDefIV,
-        task->sspeedIV,
+        task->sSpeedIV,
     };
 
     FillWindowPixelBuffer(WIN_JUDGE_INFO, PIXEL_FILL(1));
@@ -3313,7 +3313,7 @@ static void PrintJudgeInfo(u8 taskId)
 #undef sDefIV   
 #undef sSpAtkIV 
 #undef sSpDefIV 
-#undef sspeedIV 
+#undef sSpeedIV 
 
 static void Task_ShowMarkMenu(u8 taskId)
 {
@@ -7567,7 +7567,7 @@ static u8 InBoxInput_Normal(void)
         }
         else
         {
-            if(JOY_NEW(L_BUTTON) && (GetBoxMonDataAt(gPokemonStoragePtr->currentBox, sCursorPosition, MON_DATA_SPECIES_OR_EGG) != SPECIES_NONE || sIsMonBeingMoved))
+            if(FlagGet(FLAG_SYS_PC_LANETTE) && JOY_NEW(L_BUTTON) && (GetBoxMonDataAt(gPokemonStoragePtr->currentBox, sCursorPosition, MON_DATA_SPECIES_OR_EGG) != SPECIES_NONE || sIsMonBeingMoved))
             {
                 PlaySE(SE_SELECT);
                 SetPokeStorageTask(Task_ShowJudgeWindow);
@@ -7872,7 +7872,7 @@ static u8 HandleInput_InParty(void)
             ToggleCursorAutoAction();
             return INPUT_NONE;
         }
-        else if(JOY_NEW(L_BUTTON) && (GetMonData(&gPlayerParty[cursorPosition], MON_DATA_SPECIES_OR_EGG) != SPECIES_NONE || sIsMonBeingMoved))
+        else if(FlagGet(FLAG_SYS_PC_LANETTE) && JOY_NEW(L_BUTTON) && (GetMonData(&gPlayerParty[cursorPosition], MON_DATA_SPECIES_OR_EGG) != SPECIES_NONE || sIsMonBeingMoved))
         {
             PlaySE(SE_SELECT);
             SetPokeStorageTask(Task_ShowJudgeWindow);
@@ -7943,7 +7943,7 @@ static u8 HandleInput_OnBox(void)
             if (JOY_HELD(R_BUTTON))
                 return INPUT_SCROLL_RIGHT;
         }
-        else if(JOY_NEW(L_BUTTON) && sIsMonBeingMoved)
+        else if(FlagGet(FLAG_SYS_PC_LANETTE) && JOY_NEW(L_BUTTON) && sIsMonBeingMoved)
         {
             PlaySE(SE_SELECT);
             SetPokeStorageTask(Task_ShowJudgeWindow);
@@ -8044,7 +8044,7 @@ static u8 HandleInput_OnButtons(void)
             break;
         }
 
-        if(JOY_NEW(L_BUTTON) && sIsMonBeingMoved)
+        if(FlagGet(FLAG_SYS_PC_LANETTE) && JOY_NEW(L_BUTTON) && sIsMonBeingMoved)
         {
             PlaySE(SE_SELECT);
             SetPokeStorageTask(Task_ShowJudgeWindow);
@@ -8164,7 +8164,8 @@ static bool8 SetMenuTexts_Mon(void)
             SetMenuText(MENU_STORE);
     }
 
-    SetMenuText(MENU_JUDGE);
+    if (FlagGet(FLAG_SYS_PC_LANETTE))
+        SetMenuText(MENU_JUDGE);
     SetMenuText(MENU_MARK);
     SetMenuText(MENU_RELEASE);
     SetMenuText(MENU_CANCEL);

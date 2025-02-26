@@ -482,21 +482,24 @@ Debug_Script_2::
 
 
 Debug_Script_3::
-	hypertrain STAT_SPDEF, 0
-	hypertrain 0, 1
-	hypertrain 1, 1
-	hypertrain 2, 1
-	hypertrain 3, 1
-	hypertrain 4, 1
-	hypertrain 5, 1
+	fadescreen FADE_TO_BLACK
+	special ChooseHalfPartyForBattle
+	waitstate
 	return
 
 
 Debug_Script_4::
+	setflag FLAG_OPENED_MAP_FROM_SIGN
+	fadescreen FADE_TO_BLACK
+	callnative OpenFlyMapFromSign
+	waitstate
+	msgbox Debug_Script_4_Text_0
+	release
 	return
 
 
 Debug_Script_5::
+	setflag FLAG_OPENED_MAP_FROM_SIGN
 	return
 
 
@@ -647,6 +650,9 @@ Debug_Script_1_Text_16:
 
 Debug_Script_2_Text_0:
 	.string "{STR_VAR_1}$"
+
+Debug_Script_4_Text_0:
+	.string "Test$"
 
 FollowerSpottedAnItemNearby_Text::
 	.string "{STR_VAR_1} seems to have spotted\n"

@@ -580,9 +580,9 @@ static void ShowClockWindow(void)
             hours = 12;
         }
     }
-    PutWindowTilemap(sClockWindowId);               //wip, maybe move these
-    DrawStdWindowFrame(sClockWindowId, FALSE);      //
-    RtcCalcLocalTime();                             //
+    PutWindowTilemap(sClockWindowId);               
+    DrawStdWindowFrame(sClockWindowId, FALSE);      
+    RtcCalcLocalTime();                             
     ConvertIntToDecimalStringN(gStringVar2, minutes, STR_CONV_MODE_LEADING_ZEROS, 2);
     ConvertIntToDecimalStringN(gStringVar1, hours, STR_CONV_MODE_RIGHT_ALIGN, 2);
     if (timeFormat == OPTIONS_24H_FORMAT)

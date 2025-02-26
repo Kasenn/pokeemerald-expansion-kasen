@@ -15,8 +15,13 @@
   "connections": [
     {
       "map": "MAP_ROUTE10",
-      "offset": -8,
+      "offset": 0,
       "direction": "down"
+    },
+    {
+      "map": "MAP_ROCKLIFFE_TOWN",
+      "offset": -14,
+      "direction": "left"
     }
   ],
   "object_events": [
@@ -24,7 +29,7 @@
   ],
   "warp_events": [
     {
-      "x": 9,
+      "x": 17,
       "y": 15,
       "elevation": 0,
       "dest_map": "MAP_SERPENT_CAVE_B1F",

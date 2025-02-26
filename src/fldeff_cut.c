@@ -281,7 +281,7 @@ static void FieldCallback_CutGrass(void)
     ScriptContext_SetupScript(EventScript_UseCutGrass);
 }
 
-bool8 FldEff_UseCutOnGrass(void)//wip
+bool8 FldEff_UseCutOnGrass(void)
 {
     u8 taskId = CreateFieldMoveTask();
 

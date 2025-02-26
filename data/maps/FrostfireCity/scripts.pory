@@ -481,11 +481,14 @@ script FrosthearthBottleCapReward{
         addvar(VAR_TEMP_6, 1)
     }
     if(var(VAR_TEMP_6) == 1){
-        msgbox(FrosthearthBottleCapRewardSingular)
+        bufferstring(STR_VAR_1, "this")
+        bufferstring(STR_VAR_2, "that")
     }
     else{
-        msgbox(FrosthearthBottleCapRewardPlural)
+        bufferstring(STR_VAR_1, "these")
+        bufferstring(STR_VAR_2, "those")
     }
+    msgbox(FrosthearthBottleCapReward_Text)
     giveitem(ITEM_BOTTLE_CAP, VAR_TEMP_6)
     if(var(VAR_RESULT) == FALSE){
         msgbox(GiveCapsLater)
@@ -496,7 +499,11 @@ script FrosthearthBottleCapReward{
         setflag(FLAG_BOTTLECAPS_WAITING)
     }
     else{
-        msgbox(BottleCapGuyCheersOn)
+        if(!flag(FLAG_BOTTLE_CAP_INTRO)){
+            msgbox(BottleCapGuyCheersOn)
+            setflag(FLAG_BOTTLE_CAP_INTRO)
+        }
+        msgbox(BottleCapGuyCheersOn2)
     }
     closemessage
     applymovement(29, moves(walk_down, walk_right * 8))
@@ -506,15 +513,30 @@ script FrosthearthBottleCapReward{
     release
 }
 
-text FrosthearthBottleCapRewardSingular{
-    "wip"
-}
-text FrosthearthBottleCapRewardPlural{
-    "wip"
+text FrosthearthBottleCapReward_Text{
+    "You're the kid who's been climbing\n"
+    "ranks in the Pokémon World Tournament.\p"
+    "Color me impressed!\p"
+    "I was going to use {STR_VAR_1} myself,\n"
+    "but now I want to see the heights you\l"
+    "can reach when your potential is\l"
+    "pushed to its limits."
 }
 text GiveCapsLater{
-    "wip"
+    "Oh, but it looks like you don't\n"
+    "have room in your bag…\p"
+    "Well, you just keep on winning\n"
+    "and the next time we meet,\l"
+    "maybe I'll have an even bigger\l"
+    "prize for you!"
 }
 text BottleCapGuyCheersOn{
-    "wip"
+    "There's a great Pokémon master\n"
+    "residing in this city.\p"
+    "You should find him and bring\n"
+    "{STR_VAR_2} to him."
+}
+text BottleCapGuyCheersOn2{
+    "I hope you'll keep climbing the\n"
+    "ranks!"
 }
