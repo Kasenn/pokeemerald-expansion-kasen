@@ -2024,6 +2024,12 @@
 	.2byte \type
 	.endm
 
+	@ set trainer defeated and give winning money and BP
+	.macro defeattrainer trainer:req
+	callnative ScrCmd_DefeatTrainer
+	.2byte \trainer
+	.endm
+
 	@ Opens the Pokemart system, offering the specified products for sale.
 	@ Products should be a list of .2byte item values preceded by an .align 2
 	@ Uses BP as currency, with the prices based on the .bpCost value

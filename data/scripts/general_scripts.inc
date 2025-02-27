@@ -482,9 +482,7 @@ Debug_Script_2::
 
 
 Debug_Script_3::
-	fadescreen FADE_TO_BLACK
-	special ChooseHalfPartyForBattle
-	waitstate
+	callnative NameStarterMon
 	return
 
 
@@ -589,6 +587,730 @@ BarrenWastes_Block2::
 	end
 
 
+SkipToShoreslate::
+	call ClearRoute1
+	call ClearRoute2
+	call ClearWindyWoods
+	call ClearCoralgrove
+	call ClearAzuretide
+	call ClearRoute4
+	call ClearRanch
+	call ClearAldeleaf
+	call ClearRoute28
+	call ClearWindplume
+	call ClearRoute5
+	call ClearFlowerFields
+	call ClearSkyloch
+	call ClearRoute6
+	call ClearRoute8
+	call ClearShoreslate
+	return
+
+
+ClearRoute1::
+	defeattrainer TRAINER_R1_COOLTRAINER
+	defeattrainer TRAINER_R1_YOUNGSTER
+	defeattrainer TRAINER_R1_FISHER
+	defeattrainer TRAINER_R1_BUG_CATCHER
+	defeattrainer TRAINER_R1_TUBER
+	addbp 10
+	additem ITEM_EXP_SHARE
+	setflag FLAG_INTRO_TO_BP
+	msgbox ClearRoute1_Text_0
+	return
+
+
+ClearRoute2::
+	setflag FLAG_HIDDEN_ITEM_ROUTE2_PEARL1
+	additem ITEM_PEARL
+	setflag FLAG_HIDDEN_ITEM_ROUTE2_BIGPEARL
+	additem ITEM_BIG_PEARL
+	defeattrainer TRAINER_GRUNT_MUSEUM_2
+	defeattrainer TRAINER_GRUNT_SPACE_CENTER_1
+	defeattrainer TRAINER_GRUNT_MT_PYRE_1
+	defeattrainer TRAINER_GRUNT_MT_PYRE_2
+	defeattrainer TRAINER_GRUNT_MT_PYRE_3
+	setflag FLAG_ITEM_ROUTE2_X_ATTACK
+	additem ITEM_X_ATTACK
+	setberrytree BERRY_TREE_ROUTE_102_ORAN, ITEM_TO_BERRY ( ITEM_ORAN_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree BERRY_TREE_ROUTE_102_PECHA, ITEM_TO_BERRY ( ITEM_PECHA_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree BERRY_TREE_ROUTE_103_CHERI_1, ITEM_TO_BERRY ( ITEM_CHERI_BERRY ), BERRY_STAGE_NO_BERRY
+	additem ITEM_ORAN_BERRY, 2
+	additem ITEM_CHERI_BERRY, 2
+	additem ITEM_PECHA_BERRY, 2
+	setflag FLAG_HIDDEN_ITEM_ROUTE2_GREAT_BALL
+	additem ITEM_GREAT_BALL
+	setflag FLAG_ITEM_ROUTE2_REVIVE
+	additem ITEM_REVIVE
+	trystrangeseed
+	compare VAR_0x8004, 60
+	goto_if_ge ClearRoute2_2
+ClearRoute2_1:
+	trystrangeseed
+	compare VAR_0x8004, 60
+	goto_if_ge ClearRoute2_5
+ClearRoute2_4:
+	trystrangeseed
+	compare VAR_0x8004, 60
+	goto_if_ge ClearRoute2_8
+ClearRoute2_7:
+	return
+
+ClearRoute2_2:
+	additem ITEM_STRANGE_SEED
+	goto ClearRoute2_1
+
+ClearRoute2_5:
+	additem ITEM_STRANGE_SEED
+	goto ClearRoute2_4
+
+ClearRoute2_8:
+	additem ITEM_STRANGE_SEED
+	goto ClearRoute2_7
+
+
+ClearWindyWoods::
+	setflag FLAG_ITEM_WW_PARLYZ
+	additem ITEM_PARLYZ_HEAL
+	setvar VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_EVENT_COMPLETED
+	defeattrainer TRAINER_WW_BUGCATCHER
+	defeattrainer TRAINER_WW_LADY
+	defeattrainer TRAINER_WW_BUGCATCHER_2
+	defeattrainer TRAINER_WW_CAMPER
+	defeattrainer TRAINER_WW_LASS
+	defeattrainer TRAINER_WW_YOUNGSTER
+	defeattrainer TRAINER_WW_ACE_TRAINER
+	defeattrainer TRAINER_SHELLY_SEAFLOOR_CAVERN
+	setflag FLAG_WW_COOLTRAINERREWARD
+	switch VAR_STARTER_MON
+	case 0, ClearWindyWoods_3
+	case 1, ClearWindyWoods_4
+	case 2, ClearWindyWoods_5
+ClearWindyWoods_1:
+	setflag FLAG_LANDMARK_WINDY_WOODS
+	setflag FLAG_GLADE_PUZZLE
+	setflag FLAG_LANDMARK_LOST_GLADE
+	addbp 10
+	return
+
+ClearWindyWoods_3:
+	additem ITEM_MIRACLE_SEED
+	goto ClearWindyWoods_1
+
+ClearWindyWoods_4:
+	additem ITEM_CHARCOAL
+	goto ClearWindyWoods_1
+
+ClearWindyWoods_5:
+	additem ITEM_MYSTIC_WATER
+	goto ClearWindyWoods_1
+
+
+ClearCoralgrove::
+	setvar VAR_MAIN_STORY_BITS, STORY_RIVAL_DEFEATED_OR_BAILED_ON
+	setflag FLAG_VISITED_RUSTBORO_CITY
+	setflag FLAG_0x267_CG_HIDEGHOST
+	setflag FLAG_CORALGROVE_CUTSCENE
+	clearflag FLAG_OBTAINED_PIDGEOTITE
+	setflag FLAG_HIDDEN_ITEM_CORALGROVE_RARECANDY
+	additem ITEM_RARE_CANDY
+	setflag FLAG_CORAL_GREATBALL
+	additem ITEM_GREAT_BALL
+	defeattrainer TRAINER_ARCHIE
+	defeattrainer TRAINER_LEAH
+	defeattrainer TRAINER_DAISY
+	defeattrainer TRAINER_ROSE_1
+	additem ITEM_TM_FALSE_SWIPE
+	defeattrainer TRAINER_CHIP
+	defeattrainer TRAINER_FOSTER
+	defeattrainer TRAINER_DUSTY_2
+	defeattrainer TRAINER_DUSTY_3
+	defeattrainer TRAINER_DUSTY_4
+	defeattrainer TRAINER_DUSTY_5
+	defeattrainer TRAINER_LEADER_AARON
+	setflag FLAG_BADGE01_GET
+	additem ITEM_TM_U_TURN
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq ClearCoralgrove_2
+	switch VAR_STARTER_MON
+	case 0, ClearCoralgrove_14
+	case 1, ClearCoralgrove_15
+	case 2, ClearCoralgrove_16
+ClearCoralgrove_1:
+	msgbox ClearCoralgrove_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
+	goto_if_eq ClearCoralgrove_6
+	setflag FLAG_RIVAL_HARBOR_ANGRY
+ClearCoralgrove_5:
+	setflag FLAG_DEFEATED_RIVAL_HARBOR
+	additem ITEM_TM_REST
+	additem ITEM_OLD_ROD
+	setflag FLAG_HARBOR_GREATBALL
+	additem ITEM_GREAT_BALL
+	setflag FLAG_HARBOR_PEARL
+	additem ITEM_PEARL
+	return
+
+ClearCoralgrove_2:
+	switch VAR_STARTER_MON
+	case 0, ClearCoralgrove_10
+	case 1, ClearCoralgrove_11
+	case 2, ClearCoralgrove_12
+	goto ClearCoralgrove_1
+
+ClearCoralgrove_6:
+	additem ITEM_ITEMFINDER
+	goto ClearCoralgrove_5
+
+ClearCoralgrove_10:
+	defeattrainer TRAINER_MAY_ROUTE_110_TREECKO
+	goto ClearCoralgrove_1
+
+ClearCoralgrove_11:
+	defeattrainer TRAINER_MAY_ROUTE_110_TORCHIC
+	goto ClearCoralgrove_1
+
+ClearCoralgrove_12:
+	defeattrainer TRAINER_MAY_ROUTE_110_MUDKIP
+	goto ClearCoralgrove_1
+
+ClearCoralgrove_14:
+	defeattrainer TRAINER_BRENDAN_ROUTE_110_TREECKO
+	goto ClearCoralgrove_1
+
+ClearCoralgrove_15:
+	defeattrainer TRAINER_BRENDAN_ROUTE_110_TORCHIC
+	goto ClearCoralgrove_1
+
+ClearCoralgrove_16:
+	defeattrainer TRAINER_BRENDAN_ROUTE_110_MUDKIP
+	goto ClearCoralgrove_1
+
+
+ClearAzuretide::
+	setflag FLAG_VISITED_AZURETIDE
+	additem ITEM_HONEY, 3
+	setflag FLAG_AZURETIDE_HONEY
+	additem ITEM_TOWN_MAP
+	setflag FLAG_COASTTOWN_PEARL
+	setflag FLAG_COASTTOWN_REDSHARD
+	setflag FLAG_COASTTOWN_HEATROCK
+	additem ITEM_PEARL
+	additem ITEM_RED_SHARD
+	additem ITEM_HEAT_ROCK
+	return
+
+
+ClearRoute4::
+	setberrytree BERRY_TREE_ROUTE_104_ORAN_1, ITEM_TO_BERRY ( ITEM_ORAN_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree BERRY_TREE_ROUTE_103_LEPPA, ITEM_TO_BERRY ( ITEM_PECHA_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree BERRY_TREE_ROUTE_103_CHERI_2, ITEM_TO_BERRY ( ITEM_CHERI_BERRY ), BERRY_STAGE_NO_BERRY
+	additem ITEM_ORAN_BERRY, 2
+	additem ITEM_LEPPA_BERRY, 2
+	additem ITEM_CHERI_BERRY, 2
+	trystrangeseed
+	compare VAR_0x8004, 60
+	goto_if_ge ClearRoute4_2
+ClearRoute4_1:
+	trystrangeseed
+	compare VAR_0x8004, 60
+	goto_if_ge ClearRoute4_5
+ClearRoute4_4:
+	trystrangeseed
+	compare VAR_0x8004, 60
+	goto_if_ge ClearRoute4_8
+ClearRoute4_7:
+	setflag FLAG_HIDDEN_ITEM_ROUTE3_POKEBALL
+	additem ITEM_POKE_BALL
+	setflag FLAG_ITEM_ROUTE3_ANTIDOTE
+	additem ITEM_ANTIDOTE
+	setflag FLAG_ITEM_ROUTE3_GIGADRAIN
+	additem ITEM_TM_GRASS_KNOT
+	setflag FLAG_HIDDEN_ITEM_ROUTE3_REVIVE
+	additem ITEM_REVIVE
+	setflag FLAG_HIDDEN_ITEM_ROUTE3_ETHER
+	additem ITEM_ETHER
+	setflag FLAG_HIDDEN_ITEM_ROUTE3_SUPERREPEL
+	additem ITEM_SUPER_REPEL
+	defeattrainer TRAINER_GABBY_AND_TY_3
+	defeattrainer TRAINER_GABBY_AND_TY_4
+	defeattrainer TRAINER_GABBY_AND_TY_5
+	defeattrainer TRAINER_GABBY_AND_TY_6
+	defeattrainer TRAINER_LOLA_1
+	defeattrainer TRAINER_GWEN
+	defeattrainer TRAINER_LOLA_2
+	defeattrainer TRAINER_LOLA_3
+	defeattrainer TRAINER_LOLA_4
+	defeattrainer TRAINER_LOLA_5
+	defeattrainer TRAINER_RICKY_1
+	defeattrainer TRAINER_SIMON
+	defeattrainer TRAINER_CHARLIE
+	defeattrainer TRAINER_RICKY_2
+	defeattrainer TRAINER_RICKY_3
+	return
+
+ClearRoute4_2:
+	additem ITEM_STRANGE_SEED
+	goto ClearRoute4_1
+
+ClearRoute4_5:
+	additem ITEM_STRANGE_SEED
+	goto ClearRoute4_4
+
+ClearRoute4_8:
+	additem ITEM_STRANGE_SEED
+	goto ClearRoute4_7
+
+
+ClearRanch::
+	setflag FLAG_RANCH_EVENT_NPC
+	setflag FLAG_LANDMARK_POKE_RANCH
+	setflag FLAG_RANCH_HELPED
+	clearflag FLAG_HIDE_RANCH_OWNER
+	setflag FLAG_HIDE_VOLKNER_2
+	additem ITEM_HM01
+	setflag FLAG_HIDE_VOLKNER_1
+	setflag FLAG_RECEIVED_HM_CUT
+	setflag FLAG_VOLKNER_HELPED
+	setflag FLAG_JASMINE_HELPED
+	setvar VAR_POKERANCH, 1
+	defeattrainer TRAINER_RICKY_4
+	defeattrainer TRAINER_RICKY_5
+	return
+
+
+ClearAldeleaf::
+	setflag FLAG_VISITED_WIP_CITY1
+	setflag FLAG_HIDE_AMPHAROS
+	defeattrainer TRAINER_VITO
+	setflag FLAG_SHELL_BELL_RECEIVED
+	additem ITEM_SHELL_BELL
+	additem ITEM_QUICK_BALL, 1
+	setflag FLAG_ALDELEAF_QUICK_BALL
+	setflag FLAG_KEY_RETURNED
+	additem ITEM_BLACK_FLUTE, 1
+	setflag FLAG_WHITEFLUTE_RECEIVED
+	additem ITEM_LAVA_COOKIE
+	setflag FLAG_RECEIVED_LAVA_COOKIE
+	setflag FLAG_TOUCHPOKEBALL
+	setflag FLAG_ALDELEAF_SWITCH1
+	setflag FLAG_ALDELEAF_SWITCH2
+	setflag FLAG_ALDELEAF_SWITCH3
+	setflag FLAG_ALDELEAF_SWITCH_ALL
+	setflag FLAG_ALDELEAF_MUSHROOM2
+	additem ITEM_TINY_MUSHROOM
+	setflag FLAG_ALDELEAF_LOST_KEY
+	defeattrainer TRAINER_PARKER
+	defeattrainer TRAINER_GEORGE
+	defeattrainer TRAINER_BERKE
+	defeattrainer TRAINER_BRAXTON
+	defeattrainer TRAINER_VINCENT
+	defeattrainer TRAINER_LEROY
+	defeattrainer TRAINER_WILTON_1
+	defeattrainer TRAINER_EDGAR
+	defeattrainer TRAINER_ALBERT
+	defeattrainer TRAINER_SAMUEL
+	defeattrainer TRAINER_OWEN
+	defeattrainer TRAINER_WILTON_2
+	defeattrainer TRAINER_WILTON_3
+	defeattrainer TRAINER_WILTON_4
+	defeattrainer TRAINER_WILTON_5
+	defeattrainer TRAINER_WARREN
+	defeattrainer TRAINER_LEADER_VOLKNER
+	setflag FLAG_DEFEATED_DEWFORD_GYM
+	setflag FLAG_BADGE02_GET
+	additem ITEM_TM_CHARGE_BEAM
+	setflag FLAG_ANGEREDGUYINALDELEAF
+	msgbox ClearAldeleaf_Text_0
+	return
+
+
+ClearRoute28::
+	setflag FLAG_ROUTE28_DESPAWN_BROTHER
+	msgbox ClearRoute28_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
+	goto_if_eq ClearRoute28_2
+ClearRoute28_1:
+	additem ITEM_TM_SECRET_POWER
+	additem ITEM_FULL_HEAL
+	defeattrainer TRAINER_R28_TR1_BUGCATCHER
+	defeattrainer TRAINER_R28_TR2_HIKER
+	defeattrainer TRAINER_R28_TR3_NINJABOY
+	defeattrainer TRAINER_R28_TR4_PSYCHIC
+	setflag FLAG_ROUTE28_TM
+	setflag FLAG_ROUTE28_ITEMBALL
+	setflag FLAG_ROUTE28_HIDDENBALL
+	additem ITEM_GREAT_BALL
+	return
+
+ClearRoute28_2:
+	switch VAR_STARTER_MON
+	case 0, ClearRoute28_5
+	case 1, ClearRoute28_6
+	case 2, ClearRoute28_7
+	goto ClearRoute28_1
+
+ClearRoute28_5:
+	defeattrainer TRAINER_BROTHER4_ROWLET
+	goto ClearRoute28_1
+
+ClearRoute28_6:
+	defeattrainer TRAINER_BROTHER4_TORCHIC
+	goto ClearRoute28_1
+
+ClearRoute28_7:
+	defeattrainer TRAINER_BROTHER4_PIPLUP
+	goto ClearRoute28_1
+
+
+ClearWindplume::
+	setflag FLAG_LANDMARK_WINDPLUME_VALLEY
+	defeattrainer TRAINER_WPV_TR1_BIRDKEEPER
+	defeattrainer TRAINER_WPV_TR2_TRIATH
+	defeattrainer TRAINER_WPV_TR3_BATTLEGIRL
+	defeattrainer TRAINER_WPV_TR4_CAMPER
+	defeattrainer TRAINER_WPV_TR5_BIRDKEEPER
+	defeattrainer TRAINER_WPV_TR6_MANIAC
+	defeattrainer TRAINER_WPV_TR7_BIRDKEEPER
+	defeattrainer TRAINER_WPV_TR8_NINJABOY
+	defeattrainer TRAINER_WPV_TR9_LASS
+	defeattrainer TRAINER_WPV_TR10_TRIATH
+	defeattrainer TRAINER_WPV_TR11_BIRDKEEPER
+	defeattrainer TRAINER_WPV_TR12_BATTLEGIRL
+	defeattrainer TRAINER_WPV_TR13_BIRDKEEPER
+	defeattrainer TRAINER_WPV_TR14_SKYLA
+	additem ITEM_HM02
+	setflag FLAG_RECEIVED_HM_FLY
+	additem ITEM_PRETTY_FEATHER, 6
+	additem ITEM_HYPER_POTION
+	additem ITEM_IRON_BALL
+	additem ITEM_ELIXIR
+	setflag FLAG_WPV_HYPER_POTION
+	setflag FLAG_WPV_FEATHER3
+	setflag FLAG_WPV_FEATHER1
+	setflag FLAG_WPV_FEATHER2
+	setflag FLAG_WPV_FEATHER4
+	setflag FLAG_WPV_IRON_BALL
+	setflag FLAG_WPV_ELIXIR
+	setflag FLAG_WPV_FEATHER5
+	setflag FLAG_WPV_FEATHER6
+	return
+
+
+ClearRoute5::
+	setberrytree 31, ITEM_TO_BERRY ( ITEM_ORAN_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree 21, ITEM_TO_BERRY ( ITEM_PECHA_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree 13, ITEM_TO_BERRY ( ITEM_CHERI_BERRY ), BERRY_STAGE_NO_BERRY
+	additem ITEM_PECHA_BERRY, 2
+	additem ITEM_RAWST_BERRY, 2
+	additem ITEM_SITRUS_BERRY, 2
+	trystrangeseed
+	compare VAR_0x8004, 60
+	goto_if_ge ClearRoute5_2
+ClearRoute5_1:
+	trystrangeseed
+	compare VAR_0x8004, 60
+	goto_if_ge ClearRoute5_5
+ClearRoute5_4:
+	trystrangeseed
+	compare VAR_0x8004, 60
+	goto_if_ge ClearRoute5_8
+ClearRoute5_7:
+	trystrangeseed
+	compare VAR_0x8004, 80
+	goto_if_ge ClearRoute5_11
+ClearRoute5_10:
+	trystrangeseed
+	compare VAR_0x8004, 80
+	goto_if_ge ClearRoute5_14
+ClearRoute5_13:
+	trystrangeseed
+	compare VAR_0x8004, 80
+	goto_if_ge ClearRoute5_17
+ClearRoute5_16:
+	trystrangeseed
+	compare VAR_0x8004, 80
+	goto_if_ge ClearRoute5_20
+ClearRoute5_19:
+	setflag FLAG_ROUTE5_HIDDENITEM1
+	setflag FLAG_ROUTE5_HIDDENITEM2
+	additem ITEM_TINY_MUSHROOM, 2
+	additem ITEM_SUPER_REPEL
+	additem ITEM_GREAT_BALL
+	additem ITEM_TM_ROCK_TOMB
+	setflag FLAG_ROUTE5_ITEM1
+	setflag FLAG_ROUTE5_ITEM2
+	setflag FLAG_ROUTE5_ITEM3
+	setflag FLAG_ROUTE5_HIDDENITEM5
+	setflag FLAG_ROUTE5_HIDDENITEM4
+	setflag FLAG_ROUTE5_HIDDENITEM3
+	additem ITEM_MAX_ETHER
+	defeattrainer TRAINER_R5_TR15_COOLTRAINER
+	defeattrainer TRAINER_R5_TR1_FISHER
+	defeattrainer TRAINER_R5_TR2_BEAUTY
+	defeattrainer TRAINER_R5_TR3_YOUNGCOUPLE
+	defeattrainer TRAINER_R5_TR4_LASS1
+	defeattrainer TRAINER_R5_TR5_POKEFAN_F
+	defeattrainer TRAINER_R5_TR6_LASS2
+	defeattrainer TRAINER_R5_TR7_GENTLEMAN
+	defeattrainer TRAINER_R5_TR8_YOUNGSTER
+	defeattrainer TRAINER_R5_TR9_TRIATHLETE
+	defeattrainer TRAINER_R5_TR10_RICHBOY
+	defeattrainer TRAINER_R5_TR11_MAN_5
+	defeattrainer TRAINER_R5_TR12_BUGCATCHER
+	defeattrainer TRAINER_R5_TR13_NINJABOY
+	defeattrainer TRAINER_R5_TR14_HIKER
+	additem ITEM_EVIOLITE
+	addbp 20
+	return
+
+ClearRoute5_2:
+	additem ITEM_STRANGE_SEED
+	goto ClearRoute5_1
+
+ClearRoute5_5:
+	additem ITEM_STRANGE_SEED
+	goto ClearRoute5_4
+
+ClearRoute5_8:
+	additem ITEM_STRANGE_SEED
+	goto ClearRoute5_7
+
+ClearRoute5_11:
+	additem ITEM_STRANGE_SEED
+	goto ClearRoute5_10
+
+ClearRoute5_14:
+	additem ITEM_STRANGE_SEED
+	goto ClearRoute5_13
+
+ClearRoute5_17:
+	additem ITEM_STRANGE_SEED
+	goto ClearRoute5_16
+
+ClearRoute5_20:
+	additem ITEM_STRANGE_SEED
+	goto ClearRoute5_19
+
+
+ClearFlowerFields::
+	setvar VAR_MINA_INTRO_QUEST, STORY_MINA_INTRODUCED
+	setflag FLAG_FLOWERFIELDS_ITEM_1
+	setflag FLAG_FLOWERFIELDS_ITEM_2
+	setflag FLAG_FLOWERFIELDS_ITEM_3
+	additem ITEM_ORAN_BERRY
+	additem ITEM_HONEY
+	additem ITEM_HONEY
+	setflag FLAG_LANDMARK_FLOWER_FIELDS
+	additem ITEM_RARE_CANDY
+	return
+
+
+ClearSkyloch::
+	setflag FLAG_VISITED_WIP_TOWN2
+	additem ITEM_OCCA_BERRY, 1
+	setflag FLAG_SKYLOCH_CASTELIACONE
+	additem ITEM_BERRY_JUICE, 1
+	setflag FLAG_SKYLOCH_JUICE
+	return
+
+
+ClearRoute6::
+	setflag FLAG_DEVON_RESCUED
+	defeattrainer TRAINER_R6_TR1_RANGER_M
+	defeattrainer TRAINER_R6_TR3_CAMPER_F
+	defeattrainer TRAINER_R6_TR5_HIKER
+	defeattrainer TRAINER_R6_TR6_CAMPER_M2
+	defeattrainer TRAINER_R6_TR7_KINDLER
+	return
+
+
+ClearRoute8::
+	additem ITEM_GREAT_BALL
+	additem ITEM_TM_ROCK_POLISH
+	defeattrainer TRAINER_R8_TR1_PARASOLLADY
+	defeattrainer TRAINER_R8_TR2_SRJR
+	defeattrainer TRAINER_R8_TR3_AROMALADY
+	defeattrainer TRAINER_R8_TR4_YOUNGSTER
+	defeattrainer TRAINER_R8_TR5_PSYCHIC_F
+	defeattrainer TRAINER_R8_TR6_ENTHUSIAST
+	defeattrainer TRAINER_R8_TR7_TRIATHLETE_M
+	defeattrainer TRAINER_R8_TR8_GENTLEMAN
+	defeattrainer TRAINER_R8_TR9_HIKER
+	defeattrainer TRAINER_R8_TR10_OLDCOUPLE
+	defeattrainer TRAINER_R8_TR11_BIRDKEEPER
+	setflag FLAG_ROUTE8_ITEM1
+	setflag FLAG_ROUTE8_ITEM2
+	setflag FLAG_ROUTE8_ITEM3
+	setflag FLAG_ROUTE8_ITEM5
+	setflag FLAG_ROUTE8_ITEM6
+	additem ITEM_REVIVE
+	additem ITEM_ORAN_BERRY
+	additem ITEM_FULL_HEAL
+	setflag FLAG_LANDMARK_FLOWER_SHOP
+	setflag FLAG_MET_PRETTY_PETAL_SHOP_OWNER
+	additem ITEM_WAILMER_PAIL
+	setflag FLAG_RECEIVED_WAILMER_PAIL
+	setberrytree 15, ITEM_TO_BERRY ( ITEM_ORAN_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree 22, ITEM_TO_BERRY ( ITEM_PECHA_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree 24, ITEM_TO_BERRY ( ITEM_CHERI_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree 33, ITEM_TO_BERRY ( ITEM_CHERI_BERRY ), BERRY_STAGE_NO_BERRY
+	additem ITEM_POMEG_BERRY, 2
+	additem ITEM_RAWST_BERRY, 2
+	additem ITEM_PECHA_BERRY, 2
+	additem ITEM_SITRUS_BERRY, 2
+	trystrangeseed
+	compare VAR_0x8004, 60
+	goto_if_ge ClearRoute8_2
+ClearRoute8_1:
+	trystrangeseed
+	compare VAR_0x8004, 60
+	goto_if_ge ClearRoute8_5
+ClearRoute8_4:
+	trystrangeseed
+	compare VAR_0x8004, 60
+	goto_if_ge ClearRoute8_8
+ClearRoute8_7:
+	trystrangeseed
+	compare VAR_0x8004, 60
+	goto_if_ge ClearRoute8_11
+ClearRoute8_10:
+	trystrangeseed
+	compare VAR_0x8004, 80
+	goto_if_ge ClearRoute8_14
+ClearRoute8_13:
+	trystrangeseed
+	compare VAR_0x8004, 80
+	goto_if_ge ClearRoute8_17
+ClearRoute8_16:
+	trystrangeseed
+	compare VAR_0x8004, 80
+	goto_if_ge ClearRoute8_20
+ClearRoute8_19:
+	trystrangeseed
+	compare VAR_0x8004, 80
+	goto_if_ge ClearRoute8_23
+ClearRoute8_22:
+	trystrangeseed
+	compare VAR_0x8004, 80
+	goto_if_ge ClearRoute8_26
+ClearRoute8_25:
+	trystrangeseed
+	compare VAR_0x8004, 80
+	goto_if_ge ClearRoute8_29
+ClearRoute8_28:
+	return
+
+ClearRoute8_2:
+	additem ITEM_STRANGE_SEED
+	goto ClearRoute8_1
+
+ClearRoute8_5:
+	additem ITEM_STRANGE_SEED
+	goto ClearRoute8_4
+
+ClearRoute8_8:
+	additem ITEM_STRANGE_SEED
+	goto ClearRoute8_7
+
+ClearRoute8_11:
+	additem ITEM_STRANGE_SEED
+	goto ClearRoute8_10
+
+ClearRoute8_14:
+	additem ITEM_STRANGE_SEED
+	goto ClearRoute8_13
+
+ClearRoute8_17:
+	additem ITEM_STRANGE_SEED
+	goto ClearRoute8_16
+
+ClearRoute8_20:
+	additem ITEM_STRANGE_SEED
+	goto ClearRoute8_19
+
+ClearRoute8_23:
+	additem ITEM_STRANGE_SEED
+	goto ClearRoute8_22
+
+ClearRoute8_26:
+	additem ITEM_STRANGE_SEED
+	goto ClearRoute8_25
+
+ClearRoute8_29:
+	additem ITEM_STRANGE_SEED
+	goto ClearRoute8_28
+
+
+ClearShoreslate::
+	additem ITEM_SUPER_POTION
+	setflag FLAG_RECEIVED_SHORESLATE_POTION
+	setrespawn HEAL_LOCATION_SHORESLATE_CITY
+	setflag FLAG_VISITED_SHORESLATE
+	setflag FLAG_ROUTE28_DESPAWN_BROTHER
+	additem ITEM_AIR_BALLOON
+	setflag FLAG_GIVEN_CASTELIATOGIRL
+	defeattrainer TRAINER_SHORESLATE_ROCKET
+	giveitem ITEM_GO_GOGGLES
+	setvar VAR_DESERT_BYPASS, 1
+	defeattrainer TRAINER_DC1F_ROCKET_1
+	defeattrainer TRAINER_DC1F_ROCKET_2
+	defeattrainer TRAINER_DC_BASEROCKET_1
+	defeattrainer TRAINER_DC_BASEROCKET_2
+	defeattrainer TRAINER_DC_BASEROCKET_3
+	defeattrainer TRAINER_DC_BASEROCKET_4
+	defeattrainer TRAINER_DC2F_ROCKET_1
+	defeattrainer TRAINER_DC2F_ROCKET_2
+	defeattrainer TRAINER_DC2F_ROCKET_3
+	defeattrainer TRAINER_DC2F_ROCKET_4
+	defeattrainer TRAINER_DC2F_ROCKET_5
+	defeattrainer TRAINER_DC3F_ROCKET_1
+	additem ITEM_SUPER_POTION
+	setflag FLAG_BASEMENT_SUPERPOTION
+	additem ITEM_QUICK_BALL
+	setflag FLAG_DEVONCORP_BASEMENT_BALL
+	setflag FLAG_DEVON_UNDER_ATTACK
+	setflag FLAG_HELPED_DEVON_CORP
+	clearflag FLAG_HIDE_SHORESLATE_BOAT
+	additem ITEM_HM05
+	setflag FLAG_RECEIVED_BIKE
+	additem ITEM_ACRO_BIKE
+	return
+
+
+Pearlwood_Debug::
+	goto_if_set FLAG_BADGE01_GET, Pearlwood_Debug_2
+	goto_if_unset FLAG_SYS_POKEDEX_GET, Pearlwood_Debug_5
+	msgbox Pearlwood_Debug_Text_2
+	call SkipToShoreslate
+	msgbox Pearlwood_Debug_Text_3, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
+	goto_if_eq Pearlwood_Debug_8
+	msgbox Pearlwood_Debug_Text_4
+	removeobject 7
+Pearlwood_Debug_7:
+	release
+	end
+
+Pearlwood_Debug_2:
+	msgbox Pearlwood_Debug_Text_0
+	removeobject 7
+	release
+	end
+
+Pearlwood_Debug_5:
+	msgbox Pearlwood_Debug_Text_1
+	release
+	end
+
+Pearlwood_Debug_8:
+	setflag FLAG_OPENED_MAP_FROM_SIGN
+	fadescreen FADE_TO_BLACK
+	callnative OpenFlyMapFromSign
+	goto Pearlwood_Debug_7
+
+
 RopeBridgeScript_Movement_0:
 	lock_anim
 	lock_facing_direction
@@ -653,6 +1375,33 @@ Debug_Script_2_Text_0:
 
 Debug_Script_4_Text_0:
 	.string "Test$"
+
+ClearRoute1_Text_0:
+	.string "Obtained Exp. Share.\nDon't forget to turn it on!$"
+
+ClearCoralgrove_Text_0:
+	.string "Was {RIVAL} defeated in\nCoralgrove Harbor?$"
+
+ClearAldeleaf_Text_0:
+	.string "Aldeleaf City has been cleared, but\nthe events with Mimikyu and Sudowoodo\lare still intact.$"
+
+ClearRoute28_Text_0:
+	.string "Has brother been defeated on the\nroute north of Aldeleaf City?$"
+
+Pearlwood_Debug_Text_0:
+	.string "Oops, I should no longer be here.\pBye!$"
+
+Pearlwood_Debug_Text_1:
+	.string "Come back after obtaining\nthe Pokédex.$"
+
+Pearlwood_Debug_Text_2:
+	.string "Hello, I am here to help you skip\na bunch of stuff you've already done.$"
+
+Pearlwood_Debug_Text_3:
+	.string "All items, trainers, and story events\nup to Shoreslate have been completed.\pYou will have to catch your own\nPokémon though.\pWould you like me to fly you\nsomewhere?$"
+
+Pearlwood_Debug_Text_4:
+	.string "Okay then.\nBye!$"
 
 FollowerSpottedAnItemNearby_Text::
 	.string "{STR_VAR_1} seems to have spotted\n"

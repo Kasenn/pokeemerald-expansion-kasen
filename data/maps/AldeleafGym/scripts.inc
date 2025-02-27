@@ -338,7 +338,6 @@ Aldeleaf_Gym_EventScript_VolknerDefeated::
 	setflag FLAG_DEFEATED_DEWFORD_GYM
 	setflag FLAG_BADGE02_GET
 	setflag FLAG_ALDELEAF_SWITCH_ALL
-	addvar VAR_ALDELEAF_GYM_STATE, 1
 	setvar VAR_0x8008, 2
 	call Common_EventScript_SetGymTrainers
 	special RemoveCameraObject

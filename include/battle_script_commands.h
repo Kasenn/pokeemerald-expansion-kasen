@@ -59,8 +59,14 @@ u8 GetFirstFaintedPartyIndex(u8 battlerId);
 bool32 IsMoveAffectedByParentalBond(u32 move, u32 battler);
 void SaveBattlerTarget(u32 battler);
 void SaveBattlerAttacker(u32 battler);
+u32 GetTrainerMoneyToGive(u16 trainerId);
 
 extern void (* const gBattleScriptingCommandsTable[])(void);
 extern const struct StatFractions gAccuracyStageRatios[];
+
+static inline const u8 GetTrainerBpCapFromId(u16 trainerId)
+{
+    return gTrainers[SanitizeTrainerId(trainerId)].extendedBpCap;
+}
 
 #endif // GUARD_BATTLE_SCRIPT_COMMANDS_H

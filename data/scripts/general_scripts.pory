@@ -465,9 +465,7 @@ script Debug_Script_2{              //
     end
 }
 script Debug_Script_3{              // 
-	fadescreen (FADE_TO_BLACK)
-	special (ChooseHalfPartyForBattle)
-	waitstate
+	callnative(NameStarterMon)
     return
 }
 script Debug_Script_4{
@@ -611,3 +609,563 @@ text EndOfBeta2{
     "In the meanwhile, why don't you\n"
     "try exploring some other areas?"
 }
+
+script SkipToShoreslate{
+    call(ClearRoute1)
+    call(ClearRoute2)
+    call(ClearWindyWoods)
+    call(ClearCoralgrove)
+    call(ClearAzuretide)
+    call(ClearRoute4)
+    call(ClearRanch)
+    call(ClearAldeleaf)
+    call(ClearRoute28)
+    call(ClearWindplume)
+    call(ClearRoute5)
+    call(ClearFlowerFields)
+    call(ClearSkyloch)
+    call(ClearRoute6)
+    call(ClearRoute8)
+    call(ClearShoreslate)
+}
+
+script ClearRoute1{
+    defeattrainer(TRAINER_R1_COOLTRAINER)
+    defeattrainer(TRAINER_R1_YOUNGSTER)
+    defeattrainer(TRAINER_R1_FISHER)
+    defeattrainer(TRAINER_R1_BUG_CATCHER)
+    defeattrainer(TRAINER_R1_TUBER)
+    addbp(10)
+    additem(ITEM_EXP_SHARE)
+    setflag(FLAG_INTRO_TO_BP)
+    msgbox("Obtained Exp. Share.\nDon't forget to turn it on!")
+}
+script ClearRoute2{
+    setflag(FLAG_HIDDEN_ITEM_ROUTE2_PEARL1)
+    additem(ITEM_PEARL)
+    setflag(FLAG_HIDDEN_ITEM_ROUTE2_BIGPEARL)
+    additem(ITEM_BIG_PEARL)
+    defeattrainer(TRAINER_GRUNT_MUSEUM_2)
+    defeattrainer(TRAINER_GRUNT_SPACE_CENTER_1)
+    defeattrainer(TRAINER_GRUNT_MT_PYRE_1)
+    defeattrainer(TRAINER_GRUNT_MT_PYRE_2)
+    defeattrainer(TRAINER_GRUNT_MT_PYRE_3)
+    setflag(FLAG_ITEM_ROUTE2_X_ATTACK)
+    additem(ITEM_X_ATTACK)
+    setberrytree(BERRY_TREE_ROUTE_102_ORAN,  ITEM_TO_BERRY(ITEM_ORAN_BERRY),  BERRY_STAGE_NO_BERRY)
+	setberrytree(BERRY_TREE_ROUTE_102_PECHA, ITEM_TO_BERRY(ITEM_PECHA_BERRY), BERRY_STAGE_NO_BERRY)
+    setberrytree(BERRY_TREE_ROUTE_103_CHERI_1, ITEM_TO_BERRY(ITEM_CHERI_BERRY), BERRY_STAGE_NO_BERRY)
+    additem(ITEM_ORAN_BERRY, 2)
+    additem(ITEM_CHERI_BERRY, 2)
+    additem(ITEM_PECHA_BERRY, 2)
+    setflag(FLAG_HIDDEN_ITEM_ROUTE2_GREAT_BALL)
+    additem(ITEM_GREAT_BALL)
+    setflag(FLAG_ITEM_ROUTE2_REVIVE)
+    additem(ITEM_REVIVE)
+    trystrangeseed
+    if(var(VAR_0x8004) >= 60){
+        additem(ITEM_STRANGE_SEED)
+    }
+    trystrangeseed
+    if(var(VAR_0x8004) >= 60){
+        additem(ITEM_STRANGE_SEED)
+    }
+    trystrangeseed
+    if(var(VAR_0x8004) >= 60){
+        additem(ITEM_STRANGE_SEED)
+    }
+    return
+}
+script ClearWindyWoods{
+    setflag(FLAG_ITEM_WW_PARLYZ)
+    additem(ITEM_PARLYZ_HEAL)
+    setvar(VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_EVENT_COMPLETED)
+    defeattrainer(TRAINER_WW_BUGCATCHER)
+    defeattrainer(TRAINER_WW_LADY)
+    defeattrainer(TRAINER_WW_BUGCATCHER_2)
+    defeattrainer(TRAINER_WW_CAMPER)
+    defeattrainer(TRAINER_WW_LASS)
+    defeattrainer(TRAINER_WW_YOUNGSTER)
+    defeattrainer(TRAINER_WW_ACE_TRAINER)
+    defeattrainer(TRAINER_SHELLY_SEAFLOOR_CAVERN)
+    setflag(FLAG_WW_COOLTRAINERREWARD)
+    switch(var(VAR_STARTER_MON)){
+        case 0:
+            additem(ITEM_MIRACLE_SEED)
+        case 1:
+            additem(ITEM_CHARCOAL)
+        case 2:
+            additem(ITEM_MYSTIC_WATER)
+    }
+    setflag(FLAG_LANDMARK_WINDY_WOODS)
+    setflag(FLAG_GLADE_PUZZLE)
+    setflag(FLAG_LANDMARK_LOST_GLADE)
+    addbp(10)
+    return
+}
+script ClearCoralgrove{
+    setvar(VAR_MAIN_STORY_BITS, STORY_RIVAL_DEFEATED_OR_BAILED_ON)
+    setflag(FLAG_VISITED_RUSTBORO_CITY)
+    setflag(FLAG_0x267_CG_HIDEGHOST)
+    setflag(FLAG_CORALGROVE_CUTSCENE)
+    clearflag(FLAG_OBTAINED_PIDGEOTITE)
+    setflag(FLAG_HIDDEN_ITEM_CORALGROVE_RARECANDY)
+    additem(ITEM_RARE_CANDY)
+    setflag(FLAG_CORAL_GREATBALL)
+    additem(ITEM_GREAT_BALL)
+    defeattrainer(TRAINER_ARCHIE)
+    defeattrainer(TRAINER_LEAH)
+    defeattrainer(TRAINER_DAISY)
+    defeattrainer(TRAINER_ROSE_1)
+    additem(ITEM_TM_FALSE_SWIPE)
+    defeattrainer(TRAINER_CHIP)
+	defeattrainer(TRAINER_FOSTER)
+	defeattrainer(TRAINER_DUSTY_2)
+	defeattrainer(TRAINER_DUSTY_3)
+	defeattrainer(TRAINER_DUSTY_4)
+	defeattrainer(TRAINER_DUSTY_5)
+    defeattrainer(TRAINER_LEADER_AARON)
+    setflag(FLAG_BADGE01_GET)
+	additem(ITEM_TM_U_TURN)
+    if(checkplayergender == MALE){
+        switch(var(VAR_STARTER_MON)){
+        case 0:
+            defeattrainer(TRAINER_MAY_ROUTE_110_TREECKO)
+        case 1:
+            defeattrainer(TRAINER_MAY_ROUTE_110_TORCHIC)
+        case 2:
+            defeattrainer(TRAINER_MAY_ROUTE_110_MUDKIP)
+        }
+    }
+    else{
+        switch(var(VAR_STARTER_MON)){
+        case 0:
+            defeattrainer(TRAINER_BRENDAN_ROUTE_110_TREECKO)
+        case 1:
+            defeattrainer(TRAINER_BRENDAN_ROUTE_110_TORCHIC)
+        case 2:
+            defeattrainer(TRAINER_BRENDAN_ROUTE_110_MUDKIP)
+        }
+    }
+    msgbox("Was {RIVAL} defeated in\nCoralgrove Harbor?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == TRUE){
+        additem(ITEM_ITEMFINDER)
+    }
+    else{
+        setflag(FLAG_RIVAL_HARBOR_ANGRY)
+    }
+    setflag(FLAG_DEFEATED_RIVAL_HARBOR)
+    additem(ITEM_TM_REST)
+    additem(ITEM_OLD_ROD)
+    setflag(FLAG_HARBOR_GREATBALL)
+    additem(ITEM_GREAT_BALL)
+    setflag(FLAG_HARBOR_PEARL)
+    additem(ITEM_PEARL)
+    return
+}
+script ClearAzuretide{
+    setflag(FLAG_VISITED_AZURETIDE)
+    additem(ITEM_HONEY, 3)
+    setflag(FLAG_AZURETIDE_HONEY)
+    additem(ITEM_TOWN_MAP)
+    setflag(FLAG_COASTTOWN_PEARL)
+    setflag(FLAG_COASTTOWN_REDSHARD)
+    setflag(FLAG_COASTTOWN_HEATROCK)
+    additem(ITEM_PEARL)
+    additem(ITEM_RED_SHARD)
+    additem(ITEM_HEAT_ROCK)
+    return
+}
+script ClearRoute4{
+    setberrytree(BERRY_TREE_ROUTE_104_ORAN_1,  ITEM_TO_BERRY(ITEM_ORAN_BERRY),  BERRY_STAGE_NO_BERRY)
+	setberrytree(BERRY_TREE_ROUTE_103_LEPPA, ITEM_TO_BERRY(ITEM_PECHA_BERRY), BERRY_STAGE_NO_BERRY)
+    setberrytree(BERRY_TREE_ROUTE_103_CHERI_2, ITEM_TO_BERRY(ITEM_CHERI_BERRY), BERRY_STAGE_NO_BERRY)
+    additem(ITEM_ORAN_BERRY, 2)
+    additem(ITEM_LEPPA_BERRY, 2)
+    additem(ITEM_CHERI_BERRY, 2)
+    trystrangeseed
+    if(var(VAR_0x8004) >= 60){additem(ITEM_STRANGE_SEED)}
+    trystrangeseed
+    if(var(VAR_0x8004) >= 60){additem(ITEM_STRANGE_SEED)}
+    trystrangeseed
+    if(var(VAR_0x8004) >= 60){additem(ITEM_STRANGE_SEED)}
+    setflag(FLAG_HIDDEN_ITEM_ROUTE3_POKEBALL)
+    additem(ITEM_POKE_BALL)
+    setflag(FLAG_ITEM_ROUTE3_ANTIDOTE)
+    additem(ITEM_ANTIDOTE)
+    setflag(FLAG_ITEM_ROUTE3_GIGADRAIN)
+    additem(ITEM_TM_GRASS_KNOT)
+    setflag(FLAG_HIDDEN_ITEM_ROUTE3_REVIVE)
+    additem(ITEM_REVIVE)
+    setflag(FLAG_HIDDEN_ITEM_ROUTE3_ETHER)
+    additem(ITEM_ETHER)
+    setflag(FLAG_HIDDEN_ITEM_ROUTE3_SUPERREPEL)
+    additem(ITEM_SUPER_REPEL)
+    defeattrainer(TRAINER_GABBY_AND_TY_3)
+    defeattrainer(TRAINER_GABBY_AND_TY_4)
+    defeattrainer(TRAINER_GABBY_AND_TY_5)
+    defeattrainer(TRAINER_GABBY_AND_TY_6)
+    defeattrainer(TRAINER_LOLA_1)
+    defeattrainer(TRAINER_GWEN)
+    defeattrainer(TRAINER_LOLA_2)
+    defeattrainer(TRAINER_LOLA_3)
+    defeattrainer(TRAINER_LOLA_4)
+    defeattrainer(TRAINER_LOLA_5)
+    defeattrainer(TRAINER_RICKY_1)
+    defeattrainer(TRAINER_SIMON)
+    defeattrainer(TRAINER_CHARLIE)
+    defeattrainer(TRAINER_RICKY_2)
+    defeattrainer(TRAINER_RICKY_3)
+    return
+}
+script ClearRanch{
+    setflag(FLAG_RANCH_EVENT_NPC)
+    setflag(FLAG_LANDMARK_POKE_RANCH)
+    setflag(FLAG_RANCH_HELPED)
+    clearflag(FLAG_HIDE_RANCH_OWNER)
+    setflag(FLAG_HIDE_VOLKNER_2)
+    additem(ITEM_HM01)
+    setflag(FLAG_HIDE_VOLKNER_1)
+    setflag(FLAG_RECEIVED_HM_CUT)
+    setflag(FLAG_VOLKNER_HELPED)
+    setflag(FLAG_JASMINE_HELPED)
+    setvar(VAR_POKERANCH, 1)
+    defeattrainer(TRAINER_RICKY_4)
+    defeattrainer(TRAINER_RICKY_5)
+    return
+}
+script ClearAldeleaf{
+    setflag(FLAG_VISITED_WIP_CITY1)
+	setflag(FLAG_HIDE_AMPHAROS)
+    defeattrainer(TRAINER_VITO)
+    setflag(FLAG_SHELL_BELL_RECEIVED)
+    additem(ITEM_SHELL_BELL)
+    additem(ITEM_QUICK_BALL, 1)
+	setflag(FLAG_ALDELEAF_QUICK_BALL)
+    setflag(FLAG_KEY_RETURNED)
+    additem(ITEM_BLACK_FLUTE, 1)
+    setflag(FLAG_WHITEFLUTE_RECEIVED)
+    additem(ITEM_LAVA_COOKIE)
+    setflag(FLAG_RECEIVED_LAVA_COOKIE)
+    setflag(FLAG_TOUCHPOKEBALL)
+    setflag(FLAG_ALDELEAF_SWITCH1)
+    setflag(FLAG_ALDELEAF_SWITCH2)
+    setflag(FLAG_ALDELEAF_SWITCH3)
+    setflag(FLAG_ALDELEAF_SWITCH_ALL)
+    setflag(FLAG_ALDELEAF_MUSHROOM2)
+    additem(ITEM_TINY_MUSHROOM)
+    setflag(FLAG_ALDELEAF_LOST_KEY)
+    defeattrainer(TRAINER_PARKER)
+	defeattrainer(TRAINER_GEORGE)
+	defeattrainer(TRAINER_BERKE)
+	defeattrainer(TRAINER_BRAXTON)
+	defeattrainer(TRAINER_VINCENT)
+	defeattrainer(TRAINER_LEROY)
+	defeattrainer(TRAINER_WILTON_1)
+	defeattrainer(TRAINER_EDGAR)
+	defeattrainer(TRAINER_ALBERT)
+	defeattrainer(TRAINER_SAMUEL)
+	defeattrainer(TRAINER_OWEN)
+	defeattrainer(TRAINER_WILTON_2)
+	defeattrainer(TRAINER_WILTON_3)
+	defeattrainer(TRAINER_WILTON_4)
+	defeattrainer(TRAINER_WILTON_5)
+	defeattrainer(TRAINER_WARREN)
+    defeattrainer(TRAINER_LEADER_VOLKNER)
+    setflag(FLAG_DEFEATED_DEWFORD_GYM)
+    setflag(FLAG_BADGE02_GET)
+    additem(ITEM_TM_CHARGE_BEAM)
+    setflag(FLAG_ANGEREDGUYINALDELEAF)
+    msgbox("Aldeleaf City has been cleared, but\nthe events with Mimikyu and Sudowoodo\lare still intact.")
+}
+script ClearRoute28{
+    setflag(FLAG_ROUTE28_DESPAWN_BROTHER)
+    msgbox("Has brother been defeated on the\nroute north of Aldeleaf City?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == TRUE){
+        switch(var(VAR_STARTER_MON)){
+        case 0:
+            defeattrainer(TRAINER_BROTHER4_ROWLET)
+        case 1:
+            defeattrainer(TRAINER_BROTHER4_TORCHIC)
+        case 2:
+            defeattrainer(TRAINER_BROTHER4_PIPLUP)
+        }
+
+    }
+    additem(ITEM_TM_SECRET_POWER)
+    additem(ITEM_FULL_HEAL)
+    defeattrainer(TRAINER_R28_TR1_BUGCATCHER)
+    defeattrainer(TRAINER_R28_TR2_HIKER)
+    defeattrainer(TRAINER_R28_TR3_NINJABOY)
+    defeattrainer(TRAINER_R28_TR4_PSYCHIC)
+    setflag(FLAG_ROUTE28_TM)
+    setflag(FLAG_ROUTE28_ITEMBALL)
+    setflag(FLAG_ROUTE28_HIDDENBALL)
+    additem(ITEM_GREAT_BALL)
+}
+script ClearWindplume{
+    setflag(FLAG_LANDMARK_WINDPLUME_VALLEY)
+    defeattrainer(TRAINER_WPV_TR1_BIRDKEEPER)
+    defeattrainer(TRAINER_WPV_TR2_TRIATH)
+    defeattrainer(TRAINER_WPV_TR3_BATTLEGIRL)
+    defeattrainer(TRAINER_WPV_TR4_CAMPER)
+    defeattrainer(TRAINER_WPV_TR5_BIRDKEEPER)
+    defeattrainer(TRAINER_WPV_TR6_MANIAC)
+    defeattrainer(TRAINER_WPV_TR7_BIRDKEEPER)
+    defeattrainer(TRAINER_WPV_TR8_NINJABOY)
+    defeattrainer(TRAINER_WPV_TR9_LASS)
+    defeattrainer(TRAINER_WPV_TR10_TRIATH)
+    defeattrainer(TRAINER_WPV_TR11_BIRDKEEPER)
+    defeattrainer(TRAINER_WPV_TR12_BATTLEGIRL)
+    defeattrainer(TRAINER_WPV_TR13_BIRDKEEPER)
+    defeattrainer(TRAINER_WPV_TR14_SKYLA)
+    additem(ITEM_HM02)
+    setflag(FLAG_RECEIVED_HM_FLY)
+    additem(ITEM_PRETTY_FEATHER, 6)
+    additem(ITEM_HYPER_POTION)
+    additem(ITEM_IRON_BALL)
+    additem(ITEM_ELIXIR)
+    setflag(FLAG_WPV_HYPER_POTION)
+    setflag(FLAG_WPV_FEATHER3)
+    setflag(FLAG_WPV_FEATHER1)
+    setflag(FLAG_WPV_FEATHER2)
+    setflag(FLAG_WPV_FEATHER4)
+    setflag(FLAG_WPV_IRON_BALL)
+    setflag(FLAG_WPV_ELIXIR)
+    setflag(FLAG_WPV_FEATHER5)
+    setflag(FLAG_WPV_FEATHER6)
+    return
+}
+script ClearRoute5{
+    setberrytree(31,  ITEM_TO_BERRY(ITEM_ORAN_BERRY),  BERRY_STAGE_NO_BERRY)
+	setberrytree(21, ITEM_TO_BERRY(ITEM_PECHA_BERRY), BERRY_STAGE_NO_BERRY)
+    setberrytree(13, ITEM_TO_BERRY(ITEM_CHERI_BERRY), BERRY_STAGE_NO_BERRY)
+    additem(ITEM_PECHA_BERRY, 2)
+    additem(ITEM_RAWST_BERRY, 2)
+    additem(ITEM_SITRUS_BERRY, 2)
+    trystrangeseed
+    if(var(VAR_0x8004) >= 60){
+        additem(ITEM_STRANGE_SEED)
+    }
+    trystrangeseed
+    if(var(VAR_0x8004) >= 60){
+        additem(ITEM_STRANGE_SEED)
+    }
+    trystrangeseed
+    if(var(VAR_0x8004) >= 60){
+        additem(ITEM_STRANGE_SEED)
+    }
+    trystrangeseed
+    if(var(VAR_0x8004) >= 80){additem(ITEM_STRANGE_SEED)}
+    trystrangeseed
+    if(var(VAR_0x8004) >= 80){additem(ITEM_STRANGE_SEED)}
+    trystrangeseed
+    if(var(VAR_0x8004) >= 80){additem(ITEM_STRANGE_SEED)}
+    trystrangeseed
+    if(var(VAR_0x8004) >= 80){additem(ITEM_STRANGE_SEED)}
+    setflag(FLAG_ROUTE5_HIDDENITEM1)
+    setflag(FLAG_ROUTE5_HIDDENITEM2)
+    additem(ITEM_TINY_MUSHROOM, 2)
+    additem(ITEM_SUPER_REPEL)
+    additem(ITEM_GREAT_BALL)
+    additem(ITEM_TM_ROCK_TOMB)
+    setflag(FLAG_ROUTE5_ITEM1)
+    setflag(FLAG_ROUTE5_ITEM2)
+    setflag(FLAG_ROUTE5_ITEM3)
+    setflag(FLAG_ROUTE5_HIDDENITEM5)
+    setflag(FLAG_ROUTE5_HIDDENITEM4)
+    setflag(FLAG_ROUTE5_HIDDENITEM3)
+    additem(ITEM_MAX_ETHER)
+    defeattrainer(TRAINER_R5_TR15_COOLTRAINER)
+    defeattrainer(TRAINER_R5_TR1_FISHER)
+    defeattrainer(TRAINER_R5_TR2_BEAUTY)
+    defeattrainer(TRAINER_R5_TR3_YOUNGCOUPLE)
+    defeattrainer(TRAINER_R5_TR4_LASS1)
+    defeattrainer(TRAINER_R5_TR5_POKEFAN_F)
+    defeattrainer(TRAINER_R5_TR6_LASS2)
+    defeattrainer(TRAINER_R5_TR7_GENTLEMAN)
+    defeattrainer(TRAINER_R5_TR8_YOUNGSTER)
+    defeattrainer(TRAINER_R5_TR9_TRIATHLETE)
+    defeattrainer(TRAINER_R5_TR10_RICHBOY)
+    defeattrainer(TRAINER_R5_TR11_MAN_5)
+    defeattrainer(TRAINER_R5_TR12_BUGCATCHER)
+    defeattrainer(TRAINER_R5_TR13_NINJABOY)
+    defeattrainer(TRAINER_R5_TR14_HIKER)
+    additem(ITEM_EVIOLITE)
+    addbp(20)
+    return
+}
+script ClearFlowerFields{
+    setvar(VAR_MINA_INTRO_QUEST, STORY_MINA_INTRODUCED)
+    setflag(FLAG_FLOWERFIELDS_ITEM_1)
+    setflag(FLAG_FLOWERFIELDS_ITEM_2)
+    setflag(FLAG_FLOWERFIELDS_ITEM_3)
+    additem(ITEM_ORAN_BERRY)
+    additem(ITEM_HONEY)
+    additem(ITEM_HONEY)
+    setflag(FLAG_LANDMARK_FLOWER_FIELDS)
+    additem(ITEM_RARE_CANDY)
+    return
+}
+script ClearSkyloch{
+    setflag(FLAG_VISITED_WIP_TOWN2)
+    additem(ITEM_OCCA_BERRY, 1)
+    setflag(FLAG_SKYLOCH_CASTELIACONE)
+    additem(ITEM_BERRY_JUICE, 1)
+    setflag(FLAG_SKYLOCH_JUICE)
+    return
+}
+script ClearRoute6{
+    setflag(FLAG_DEVON_RESCUED)
+    defeattrainer(TRAINER_R6_TR1_RANGER_M)
+    defeattrainer(TRAINER_R6_TR3_CAMPER_F)
+    defeattrainer(TRAINER_R6_TR5_HIKER)
+    defeattrainer(TRAINER_R6_TR6_CAMPER_M2)
+    defeattrainer(TRAINER_R6_TR7_KINDLER)
+    return
+}
+script ClearRoute8{
+    additem(ITEM_GREAT_BALL)
+    additem(ITEM_TM_ROCK_POLISH)
+    defeattrainer(TRAINER_R8_TR1_PARASOLLADY)
+    defeattrainer(TRAINER_R8_TR2_SRJR)
+    defeattrainer(TRAINER_R8_TR3_AROMALADY)
+    defeattrainer(TRAINER_R8_TR4_YOUNGSTER)
+    defeattrainer(TRAINER_R8_TR5_PSYCHIC_F)
+    defeattrainer(TRAINER_R8_TR6_ENTHUSIAST)
+    defeattrainer(TRAINER_R8_TR7_TRIATHLETE_M)
+    defeattrainer(TRAINER_R8_TR8_GENTLEMAN)
+    defeattrainer(TRAINER_R8_TR9_HIKER)
+    defeattrainer(TRAINER_R8_TR10_OLDCOUPLE)
+    defeattrainer(TRAINER_R8_TR11_BIRDKEEPER)
+    setflag(FLAG_ROUTE8_ITEM1)
+    setflag(FLAG_ROUTE8_ITEM2)
+    setflag(FLAG_ROUTE8_ITEM3)
+    setflag(FLAG_ROUTE8_ITEM5)
+    setflag(FLAG_ROUTE8_ITEM6)
+    additem(ITEM_REVIVE)
+    additem(ITEM_ORAN_BERRY)
+    additem(ITEM_FULL_HEAL)
+    setflag(FLAG_LANDMARK_FLOWER_SHOP)
+	setflag(FLAG_MET_PRETTY_PETAL_SHOP_OWNER)
+    additem(ITEM_WAILMER_PAIL)
+	setflag(FLAG_RECEIVED_WAILMER_PAIL)
+    setberrytree(15,  ITEM_TO_BERRY(ITEM_ORAN_BERRY),  BERRY_STAGE_NO_BERRY)
+	setberrytree(22, ITEM_TO_BERRY(ITEM_PECHA_BERRY), BERRY_STAGE_NO_BERRY)
+    setberrytree(24, ITEM_TO_BERRY(ITEM_CHERI_BERRY), BERRY_STAGE_NO_BERRY)
+    setberrytree(33, ITEM_TO_BERRY(ITEM_CHERI_BERRY), BERRY_STAGE_NO_BERRY)
+    additem(ITEM_POMEG_BERRY, 2)
+    additem(ITEM_RAWST_BERRY, 2)
+    additem(ITEM_PECHA_BERRY, 2)
+    additem(ITEM_SITRUS_BERRY, 2)
+    trystrangeseed
+    if(var(VAR_0x8004) >= 60){
+        additem(ITEM_STRANGE_SEED)
+    }
+    trystrangeseed
+    if(var(VAR_0x8004) >= 60){
+        additem(ITEM_STRANGE_SEED)
+    }
+    trystrangeseed
+    if(var(VAR_0x8004) >= 60){
+        additem(ITEM_STRANGE_SEED)
+    }
+    trystrangeseed
+    if(var(VAR_0x8004) >= 60){
+        additem(ITEM_STRANGE_SEED)
+    }
+    trystrangeseed
+    if(var(VAR_0x8004) >= 80){
+        additem(ITEM_STRANGE_SEED)
+    }
+        trystrangeseed
+    if(var(VAR_0x8004) >= 80){
+        additem(ITEM_STRANGE_SEED)
+    }
+
+    trystrangeseed
+    if(var(VAR_0x8004) >= 80){
+        additem(ITEM_STRANGE_SEED)
+    }
+
+    trystrangeseed
+    if(var(VAR_0x8004) >= 80){
+        additem(ITEM_STRANGE_SEED)
+    }
+
+    trystrangeseed
+    if(var(VAR_0x8004) >= 80){
+        additem(ITEM_STRANGE_SEED)
+    }
+
+    trystrangeseed
+    if(var(VAR_0x8004) >= 80){
+        additem(ITEM_STRANGE_SEED)
+    }
+    return
+}
+script ClearShoreslate{
+    additem(ITEM_SUPER_POTION)
+    setflag(FLAG_RECEIVED_SHORESLATE_POTION)
+	setrespawn(HEAL_LOCATION_SHORESLATE_CITY)
+    setflag(FLAG_VISITED_SHORESLATE)
+    setflag(FLAG_ROUTE28_DESPAWN_BROTHER)
+    additem(ITEM_AIR_BALLOON)
+    setflag(FLAG_GIVEN_CASTELIATOGIRL)
+    defeattrainer(TRAINER_SHORESLATE_ROCKET)
+    giveitem(ITEM_GO_GOGGLES)
+    setvar(VAR_DESERT_BYPASS, 1)
+    defeattrainer(TRAINER_DC1F_ROCKET_1)
+    defeattrainer(TRAINER_DC1F_ROCKET_2)
+    defeattrainer(TRAINER_DC_BASEROCKET_1)
+    defeattrainer(TRAINER_DC_BASEROCKET_2)
+    defeattrainer(TRAINER_DC_BASEROCKET_3)
+    defeattrainer(TRAINER_DC_BASEROCKET_4)
+    defeattrainer(TRAINER_DC2F_ROCKET_1)
+    defeattrainer(TRAINER_DC2F_ROCKET_2)
+    defeattrainer(TRAINER_DC2F_ROCKET_3)
+    defeattrainer(TRAINER_DC2F_ROCKET_4)
+    defeattrainer(TRAINER_DC2F_ROCKET_5)
+    defeattrainer(TRAINER_DC3F_ROCKET_1)
+    additem(ITEM_SUPER_POTION)
+    setflag(FLAG_BASEMENT_SUPERPOTION)
+    additem(ITEM_QUICK_BALL)
+    setflag(FLAG_DEVONCORP_BASEMENT_BALL)
+    setflag(FLAG_DEVON_UNDER_ATTACK)
+    setflag(FLAG_HELPED_DEVON_CORP)
+    clearflag(FLAG_HIDE_SHORESLATE_BOAT)
+    additem(ITEM_HM05)
+    setflag(FLAG_RECEIVED_BIKE)
+	additem(ITEM_ACRO_BIKE)
+    return
+}
+
+script Pearlwood_Debug{
+    if(flag(FLAG_BADGE01_GET)){
+        msgbox("Oops, I should no longer be here.\pBye!")
+        removeobject(7)
+        release
+        end
+    }
+    if(!flag(FLAG_SYS_POKEDEX_GET)){
+        msgbox("Come back after obtaining\nthe Pokédex.")
+        release
+        end
+    }
+    msgbox("Hello, I am here to help you skip\na bunch of stuff you've already done.")
+    call(SkipToShoreslate)
+    msgbox("All items, trainers, and story events\nup to Shoreslate have been completed.\pYou will have to catch your own\nPokémon though.\pWould you like me to fly you\nsomewhere?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == TRUE){
+        setflag(FLAG_OPENED_MAP_FROM_SIGN)
+        fadescreen(FADE_TO_BLACK)
+        callnative(OpenFlyMapFromSign)
+    }
+    else{
+        msgbox("Okay then.\nBye!")
+        removeobject(7)
+    }
+    release
+    end
+}
+
+

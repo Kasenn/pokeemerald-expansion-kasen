@@ -58,6 +58,7 @@
 #include "constants/event_objects.h"
 #include "constants/map_types.h"
 #include "item.h"
+#include "battle.h"
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(struct ScriptContext *ctx);
@@ -3024,4 +3025,41 @@ void ScrCmd_IsSelectedMonRequiredLevel(struct ScriptContext *ctx)
     {
         gSpecialVar_Result = FALSE;
     }
+}
+
+void ScrCmd_DefeatTrainer(struct ScriptContext *ctx)
+{
+    u16 trainer = VarGet(ScriptReadHalfword(ctx));
+    u32 money = 0;
+    u8 bpCap, battlePoints;
+    u32 lastMonLevel = 0;
+    u8 trainerMoney = 0;
+
+    const struct TrainerMon *party = GetTrainerPartyFromId(trainer);
+    lastMonLevel = party[GetTrainerPartySizeFromId(trainer) - 1].lvl;
+    trainerMoney = gTrainerClasses[GetTrainerClassFromId(trainer)].money ?: 5;
+
+    money = 4 * lastMonLevel * trainerMoney;
+
+
+    battlePoints = 0;
+    bpCap = 3;
+    if (GetTrainerBpCapFromId(trainer) && FlagGet(FLAG_BADGE06_GET))
+    {
+        bpCap = 5;
+    }
+
+    battlePoints = money / 500;
+
+    if (battlePoints > bpCap)
+        battlePoints = bpCap;
+    
+    AddMoney(&gSaveBlock1Ptr->money, money);
+    AddBattlePoints(battlePoints);
+    SetTrainerFlag(trainer);
+}
+
+void NameStarterMon(void)
+{
+    SetMonData(&gPlayerParty[0], MON_DATA_NICKNAME, COMPOUND_STRING("Whatever"));
 }

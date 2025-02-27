@@ -8005,7 +8005,7 @@ static void Cmd_hitanimation(void)
     }
 }
 
-static u32 GetTrainerMoneyToGive(u16 trainerId)
+u32 GetTrainerMoneyToGive(u16 trainerId)
 {
     u32 lastMonLevel = 0;
     u32 moneyReward;
@@ -8037,11 +8037,6 @@ static u32 GetTrainerMoneyToGive(u16 trainerId)
     }
 
     return moneyReward;
-}
-
-static inline const u8 GetTrainerBpCapFromId(u16 trainerId)
-{
-    return gTrainers[SanitizeTrainerId(trainerId)].extendedBpCap;
 }
 
 static void Cmd_getmoneyreward(void)
