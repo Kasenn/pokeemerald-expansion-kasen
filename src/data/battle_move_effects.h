@@ -425,6 +425,27 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .encourageEncore = TRUE,
     },
 
+    [EFFECT_HOLD_HANDS] =
+    {
+        .battleScript = BattleScript_EffectHoldHands,
+        .battleTvScore = 1,
+        .encourageEncore = TRUE,
+    },
+
+    [EFFECT_CELEBRATE] =
+    {
+        .battleScript = BattleScript_EffectCelebrate,
+        .battleTvScore = 1,
+        .encourageEncore = TRUE,
+    },
+
+    [EFFECT_HAPPY_HOUR] =
+    {
+        .battleScript = BattleScript_EffectHappyHour,
+        .battleTvScore = 1,
+        .encourageEncore = TRUE,
+    },
+
     [EFFECT_DISABLE] =
     {
         .battleScript = BattleScript_EffectDisable,
@@ -1893,12 +1914,6 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .battleTvScore = 0, // TODO: Assign points
     },
 
-    [EFFECT_SPARKLY_SWIRL] =
-    {
-        .battleScript = BattleScript_EffectSparklySwirl,
-        .battleTvScore = 0, // TODO: Assign points
-    },
-
     [EFFECT_HYPERSPACE_FURY] =
     {
         .battleScript = BattleScript_EffectHyperspaceFury,
@@ -1913,7 +1928,7 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
 
     [EFFECT_PHOTON_GEYSER] =
     {
-        .battleScript = BattleScript_EffectPhotonGeyser,
+        .battleScript = BattleScript_EffectDynamicCategory,
         .battleTvScore = 0, // TODO: Assign points
     },
 
@@ -2205,13 +2220,13 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
 
     [EFFECT_TERA_BLAST] =
     {
-        .battleScript = BattleScript_EffectPhotonGeyser,
+        .battleScript = BattleScript_EffectDynamicCategory,
         .battleTvScore = 0, // TODO: Assign points
     },
 
     [EFFECT_TERA_STARSTORM] =
     {
-        .battleScript = BattleScript_EffectPhotonGeyser,
+        .battleScript = BattleScript_EffectDynamicCategory,
         .battleTvScore = 0, // TODO: Assign points
     },
 

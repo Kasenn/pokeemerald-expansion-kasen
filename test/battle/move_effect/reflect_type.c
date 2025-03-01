@@ -1,9 +1,6 @@
 #include "global.h"
 #include "test/battle.h"
 
-TO_DO_BATTLE_TEST("Reflect Type fails if the user is Terastallized");
-TO_DO_BATTLE_TEST("Reflect Type succeeds against a Terastallized target and copies its Tera type");
-
 SINGLE_BATTLE_TEST("Reflect Type does not affect any of Arceus' forms")
 {
     u32 j;
@@ -86,7 +83,7 @@ SINGLE_BATTLE_TEST("Reflect Type does not affect any of Silvally's forms")
     }
 }
 
-SINGLE_BATTLE_TEST("Reflect Type does not affect Pokémon with no types")
+SINGLE_BATTLE_TEST("Reflect Type fails if the target has no types")
 {
     GIVEN {
         ASSUME(gSpeciesInfo[SPECIES_ARCANINE].types[0] == TYPE_FIRE);

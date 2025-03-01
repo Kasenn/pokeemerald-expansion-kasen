@@ -49,6 +49,7 @@ extern const struct SpriteTemplate gFieldEffectObjectTemplate_SpotTracksSnow;
 extern const struct SpriteTemplate gFieldEffectObjectTemplate_BugTracksSnow;
 extern const struct SpriteTemplate gFieldEffectObjectTemplate_BikeTireTracksSnow;
 extern const struct SpriteTemplate gFieldEffectObjectTemplate_DeepSnowFootprints;
+extern const struct SpriteTemplate gFieldEffectObjectTemplate_CaveDust;
 
 const struct SpriteTemplate *const gFieldEffectObjectTemplatePointers[] = {
     [FLDEFFOBJ_SHADOW_S]              = &gFieldEffectObjectTemplate_ShadowSmall,
@@ -102,4 +103,5 @@ const struct SpriteTemplate *const gFieldEffectObjectTemplatePointers[] = {
     [FLDEFFOBJ_TRACKS_BUG_SNOW]       = &gFieldEffectObjectTemplate_BugTracksSnow,
     [FLDEFFOBJ_BIKE_TIRE_TRACKS_SNOW] = &gFieldEffectObjectTemplate_BikeTireTracksSnow,
     [FLDEFFOBJ_DEEP_SNOW_FOOTPRINTS]  = &gFieldEffectObjectTemplate_DeepSnowFootprints,
+    [FLDEFFOBJ_CAVE_DUST]             = &gFieldEffectObjectTemplate_CaveDust,
 };

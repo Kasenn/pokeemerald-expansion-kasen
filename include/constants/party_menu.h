@@ -48,7 +48,7 @@
 #define PARTY_ACTION_CHOOSE_AND_CLOSE   11
 #define PARTY_ACTION_MOVE_TUTOR         12
 #define PARTY_ACTION_MINIGAME           13
-#define PARTY_ACTION_REUSABLE_ITEM      14  // Unused. The only reusable items are handled separately
+#define PARTY_ACTION_SEND_MON_TO_BOX    14
 #define PARTY_ACTION_CHOOSE_FAINTED_MON 15
 
 // IDs for DisplayPartyMenuStdMessage, to display the message at the bottom of the party menu
@@ -83,6 +83,9 @@
 #define PARTY_MSG_CHOOSE_SECOND_FUSION      28
 #define PARTY_MSG_CANT_FLY_NOW              29
 #define PARTY_MSG_DO_WHAT_WITH_FOLLOWER     30
+#define PARTY_MSG_NO_POKEMON                31
+#define PARTY_MSG_CHOOSE_MON_FOR_BOX        32
+
 #define PARTY_MSG_NONE                      127
 
 // IDs for DisplayPartyPokemonDescriptionText, to display a message in the party pokemon's box

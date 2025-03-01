@@ -57,8 +57,9 @@
 #define GAME_STAT_FOE_CRIT_PLAYER             53
 #define GAME_STAT_PLAYER_MISS_FOE             54
 #define GAME_STAT_FOE_MISS_PLAYER             55
+#define GAME_STAT_DEXNAV_SCANNED              56
 
-#define NUM_USED_GAME_STATS                   56
+#define NUM_USED_GAME_STATS                   57
 #define NUM_GAME_STATS                        64
 
 #endif // GUARD_CONSTANTS_GAME_STAT_H

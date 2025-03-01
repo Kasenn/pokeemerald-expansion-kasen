@@ -150,6 +150,9 @@ static const struct TilesPal sWindowFrames[WINDOW_FRAMES_COUNT] =
     {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal8},
 };
 
+static const u16 sTextWindowDexNavFrame[] = INCBIN_U16("graphics/text_window/dexnav_pal.gbapal");
+static const struct TilesPal sDexNavWindowFrame = {gTextWindowFrame1_Gfx, sTextWindowDexNavFrame};
+
 // code
 const struct TilesPal *GetWindowFrameTilesPal(u8 id)
 {
@@ -269,4 +272,10 @@ void LoadUserWindowBorderGfxOnBg(u8 bg, u16 destOffset, u8 palOffset)
 {
     LoadBgTiles(bg, sWindowFrames[gSaveBlock2Ptr->optionsWindowFrameType].tiles, 0x120, destOffset);
     LoadPalette(GetWindowFrameTilesPal(gSaveBlock2Ptr->optionsWindowFrameType)->pal, palOffset, PLTT_SIZE_4BPP);
+}
+
+void LoadDexNavWindowGfx(u8 windowId, u16 destOffset, u8 palOffset)
+{
+    LoadBgTiles(GetWindowAttribute(windowId, WINDOW_BG), sDexNavWindowFrame.tiles, 0x120, destOffset);
+    LoadPalette(sDexNavWindowFrame.pal, palOffset, 32);
 }
