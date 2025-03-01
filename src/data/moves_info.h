@@ -125,6 +125,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .assistBanned = TRUE,
         .battleAnimScript = gBattleAnimMove_None,
     },
+    
     [MOVE_NONE_SPECIAL] =
     {
         .name = COMPOUND_STRING("-"),
@@ -14435,7 +14436,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .zMove = { .powerOverride = 170 },
-        .argument = TYPE_FLYING,
+        .argument = { .type = TYPE_FLYING },
         .makesContact = FALSE,
         .gravityBanned = TRUE,
         .skyBattleBanned = TRUE,

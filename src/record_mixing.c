@@ -85,11 +85,11 @@ union PlayerRecord
 };
 
 static bool8 sReadyToReceive;
-static struct SecretBase *sSecretBasesSave;
+// static struct SecretBase *sSecretBasesSave;
 static TVShow *sTvShowsSave;
 static PokeNews *sPokeNewsSave;
-static OldMan *sOldManSave;
-static struct DewfordTrend *sDewfordTrendsSave;
+// static OldMan *sOldManSave;
+// static struct DewfordTrend *sDewfordTrendsSave;
 static struct RecordMixingDaycareMail *sRecordMixMailSave;
 static void *sBattleTowerSave;
 static LilycoveLady *sLilycoveLadySave;
@@ -187,11 +187,11 @@ static void SetSrcLookupPointers(void)
 
 static void PrepareUnknownExchangePacket(struct PlayerRecordRS *dest)
 {
-    memcpy(dest->secretBases, sSecretBasesSave, sizeof(dest->secretBases));
-    memcpy(dest->tvShows, sTvShowsSave, sizeof(dest->tvShows));
+    // memcpy(dest->secretBases, sSecretBasesSave, sizeof(dest->secretBases));
+    // memcpy(dest->tvShows, sTvShowsSave, sizeof(dest->tvShows));
     SanitizeTVShowLocationsForRuby(dest->tvShows);
-    memcpy(dest->pokeNews, sPokeNewsSave, sizeof(dest->pokeNews));
-    memcpy(&dest->oldMan, sOldManSave, sizeof(dest->oldMan));
+    // memcpy(dest->pokeNews, sPokeNewsSave, sizeof(dest->pokeNews));
+    // memcpy(&dest->oldMan, sOldManSave, sizeof(dest->oldMan));
     // memcpy(dest->dewfordTrends, sDewfordTrendsSave, sizeof(dest->dewfordTrends));
     GetRecordMixingDaycareMail(&dest->daycareMail);
     // EmeraldBattleTowerRecordToRuby(sBattleTowerSave, &dest->battleTowerRecord);
@@ -202,12 +202,12 @@ static void PrepareUnknownExchangePacket(struct PlayerRecordRS *dest)
 
 static void PrepareExchangePacketForRubySapphire(struct PlayerRecordRS *dest)
 {
-    memcpy(dest->secretBases, sSecretBasesSave, sizeof(dest->secretBases));
+    // memcpy(dest->secretBases, sSecretBasesSave, sizeof(dest->secretBases));
     // ClearJapaneseSecretBases(dest->secretBases);
-    memcpy(dest->tvShows, sTvShowsSave, sizeof(dest->tvShows));
+    // memcpy(dest->tvShows, sTvShowsSave, sizeof(dest->tvShows));
     SanitizeTVShowsForRuby(dest->tvShows);
-    memcpy(dest->pokeNews, sPokeNewsSave, sizeof(dest->pokeNews));
-    memcpy(&dest->oldMan, sOldManSave, sizeof(dest->oldMan));
+    // memcpy(dest->pokeNews, sPokeNewsSave, sizeof(dest->pokeNews));
+    // memcpy(&dest->oldMan, sOldManSave, sizeof(dest->oldMan));
     // SanitizeMauvilleOldManForRuby(&dest->oldMan);
     // memcpy(dest->dewfordTrends, sDewfordTrendsSave, sizeof(dest->dewfordTrends));
     GetRecordMixingDaycareMail(&dest->daycareMail);
@@ -234,15 +234,15 @@ static void PrepareExchangePacket(void)
     }
     else
     {
-        memcpy(sSentRecord->emerald.secretBases, sSecretBasesSave, sizeof(sSentRecord->emerald.secretBases));
-        memcpy(sSentRecord->emerald.tvShows, sTvShowsSave, sizeof(sSentRecord->emerald.tvShows));
-        memcpy(sSentRecord->emerald.pokeNews, sPokeNewsSave, sizeof(sSentRecord->emerald.pokeNews));
-        memcpy(&sSentRecord->emerald.oldMan, sOldManSave, sizeof(sSentRecord->emerald.oldMan));
-        memcpy(&sSentRecord->emerald.lilycoveLady, sLilycoveLadySave, sizeof(sSentRecord->emerald.lilycoveLady));
-        memcpy(sSentRecord->emerald.dewfordTrends, sDewfordTrendsSave, sizeof(sSentRecord->emerald.dewfordTrends));
-        GetRecordMixingDaycareMail(&sSentRecord->emerald.daycareMail);
-        memcpy(&sSentRecord->emerald.battleTowerRecord, sBattleTowerSave, sizeof(sSentRecord->emerald.battleTowerRecord));
-        SanitizeEmeraldBattleTowerRecord(&sSentRecord->emerald.battleTowerRecord);
+        // memcpy(sSentRecord->emerald.secretBases, sSecretBasesSave, sizeof(sSentRecord->emerald.secretBases));
+        // memcpy(sSentRecord->emerald.tvShows, sTvShowsSave, sizeof(sSentRecord->emerald.tvShows));
+        // memcpy(sSentRecord->emerald.pokeNews, sPokeNewsSave, sizeof(sSentRecord->emerald.pokeNews));
+        // memcpy(&sSentRecord->emerald.oldMan, sOldManSave, sizeof(sSentRecord->emerald.oldMan));
+        // memcpy(&sSentRecord->emerald.lilycoveLady, sLilycoveLadySave, sizeof(sSentRecord->emerald.lilycoveLady));
+        // memcpy(sSentRecord->emerald.dewfordTrends, sDewfordTrendsSave, sizeof(sSentRecord->emerald.dewfordTrends));
+        // GetRecordMixingDaycareMail(&sSentRecord->emerald.daycareMail);
+        // memcpy(&sSentRecord->emerald.battleTowerRecord, sBattleTowerSave, sizeof(sSentRecord->emerald.battleTowerRecord));
+        // SanitizeEmeraldBattleTowerRecord(&sSentRecord->emerald.battleTowerRecord);
 
         if (GetMultiplayerId() == 0)
             sSentRecord->emerald.giftItem = GetRecordMixingGift();
@@ -645,7 +645,7 @@ static void ReceiveOldManData(OldMan *records, size_t recordSize, u8 multiplayer
     // else
         // SanitizeReceivedEmeraldOldMan(oldMan, version, language);
 
-    memcpy(sOldManSave, (void *)records + recordSize * mixIndices[multiplayerId], sizeof(OldMan));
+    // memcpy(sOldManSave, (void *)records + recordSize * mixIndices[multiplayerId], sizeof(OldMan));
     // ResetMauvilleOldManFlag();
 }
 
@@ -1395,7 +1395,7 @@ static void SanitizeRubyBattleTowerRecord(struct RSBattleTowerRecord *src)
 
 }
 
-static void SanitizeEmeraldBattleTowerRecord(struct EmeraldBattleTowerRecord *dst)
+static void UNUSED SanitizeEmeraldBattleTowerRecord(struct EmeraldBattleTowerRecord *dst)
 {
     s32 i;
 

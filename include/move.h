@@ -135,6 +135,7 @@ struct MoveInfo
     u8 contestComboStarterId;
     u8 contestComboMoves[MAX_COMBO_MOVES];
     const u8 *battleAnimScript;
+    u16 bpCost;
 };
 
 extern const struct MoveInfo gMovesInfo[];

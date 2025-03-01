@@ -614,6 +614,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
             SIZE_32x32,
             SHADOW_SIZE_M,
             TRACKS_FOOT,
+            sAnimTable_Following,
             gOverworldPalette_Empoleon,
             gShinyOverworldPalette_Empoleon
         )                                
@@ -696,7 +697,9 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .frontPic = gMonFrontPic_EmpoleonMega,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 0,
-        .frontAnimFrames = sAnims_EmpoleonMega,
+        .frontAnimFrames = ANIM_FRAMES(
+            ANIMCMD_FRAME(0, 1),
+        ),
         .frontAnimId = ANIM_V_STRETCH,
         .backPic = gMonBackPic_EmpoleonMega,
         .backPicSize = MON_COORDS_SIZE(64, 64),

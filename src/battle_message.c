@@ -2113,7 +2113,7 @@ void BufferStringBattle(u16 stringID, u32 battler)
     case STRINGID_INTROMSG: // first battle msg
         if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
         {
-            u32 trainerClass = GetTrainerClassFromId(gTrainerBattleOpponent_A);
+            u32 trainerClass = GetTrainerClassFromId(TRAINER_BATTLE_PARAM.opponentA);
 
             if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
             {
@@ -2841,7 +2841,7 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst, u32 dstSize)
                 break;
             case B_TXT_TRAINER1_NAME: // trainer1 name
                 toCpy = BattleStringGetOpponentNameByTrainerId(TRAINER_BATTLE_PARAM.opponentA, text, multiplayerId, GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT));
-                if ((gTrainers[TRAINER_BATTLE_PARAM.opponentA].trainerClass == TRAINER_CLASS_RIVAL2) && !(gBattleTypeFlags & BATTLE_TYPE_FRONTIER))
+                if ((gTrainers[TRAINER_BATTLE_PARAM.opponentA]->trainerClass == TRAINER_CLASS_RIVAL2) && !(gBattleTypeFlags & BATTLE_TYPE_FRONTIER))
                     toCpy = GetExpandedPlaceholder(PLACEHOLDER_ID_BROTHER);
                 break;
             case B_TXT_TRAINER1_NAME_WITH_CLASS: // trainer1 name with trainer class
@@ -3061,7 +3061,7 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst, u32 dstSize)
                 break;
             case B_TXT_ATK_TRAINER_NAME:
                 toCpy = BattleStringGetTrainerName(text, multiplayerId, gBattlerAttacker);
-                if ((gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_RIVAL2) && !(gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
+                if ((gTrainers[TRAINER_BATTLE_PARAM.opponentA]->trainerClass == TRAINER_CLASS_RIVAL2) && !(gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
                     && (GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT))
                         toCpy = GetExpandedPlaceholder(PLACEHOLDER_ID_BROTHER);
                 break;

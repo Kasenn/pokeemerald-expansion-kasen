@@ -2148,13 +2148,6 @@ static void Cmd_adjustdamage(void)
             RecordItemEffectBattle(battlerDef, holdEffect);
             gSpecialStatuses[battlerDef].focusSashed = TRUE;
         }
-        else if (B_AFFECTION_MECHANICS == TRUE && GetBattlerSide(battlerDef) == B_SIDE_PLAYER && affectionScore >= AFFECTION_THREE_HEARTS)
-        {
-            if ((affectionScore == AFFECTION_FIVE_HEARTS && rand < 20)
-             || (affectionScore == AFFECTION_FOUR_HEARTS && rand < 15)
-             || (affectionScore == AFFECTION_THREE_HEARTS && rand < 10))
-                gSpecialStatuses[battlerDef].affectionEndured = TRUE;
-        }
 
         else if ((gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE) && (GetBattlerSide(battlerDef) == B_SIDE_PLAYER))
         {
@@ -2191,7 +2184,7 @@ static void Cmd_adjustdamage(void)
         }
         else if (gSpecialStatuses[battlerDef].affectionEndured)
         {
-            gMoveResultFlags |= MOVE_RESULT_FOE_ENDURED_AFFECTION;
+            gBattleStruct->moveResultFlags[battlerDef] |= MOVE_RESULT_FOE_ENDURED_AFFECTION;
         }
     }
 
@@ -2296,20 +2289,6 @@ static u32 UpdateEffectivenessResultFlagsForDoubleSpreadMoves(u32 resultFlags)
 
 static inline bool32 TryStrongWindsWeakenAttack(u32 battlerDef, u32 moveType)
 {
-    if (gBattleWeather & B_WEATHER_STRONG_WINDS && HasWeatherEffect())
-    {
-        if (GetMoveCategory(gCurrentMove) != DAMAGE_CATEGORY_STATUS
-         && IS_BATTLER_OF_TYPE(battlerDef, TYPE_FLYING)
-         && gTypeEffectivenessTable[moveType][TYPE_FLYING] >= UQ_4_12(2.0)
-         && !gBattleStruct->printedStrongWindsWeakenedAttack)
-        {
-            gBattleStruct->printedStrongWindsWeakenedAttack = TRUE;
-            BattleScriptPushCursor();
-            gBattlescriptCurrInstr = BattleScript_AttackWeakenedByStrongWinds;
-            return TRUE;
-        }
-    }
-
     return FALSE;
 }
 
@@ -2938,7 +2917,7 @@ static void Cmd_resultmessage(void)
             {
                 stringId = STRINGID_BUTITFAILED;
             }
-            else if (gMoveResultFlags & MOVE_RESULT_FOE_ENDURED_AFFECTION)
+            else if (*moveResultFlags & MOVE_RESULT_FOE_ENDURED_AFFECTION)
             {
                 gSpecialStatuses[gBattlerTarget].affectionEndured = FALSE;
                 *moveResultFlags &= ~MOVE_RESULT_FOE_ENDURED_AFFECTION;
@@ -5033,7 +5012,7 @@ static void Cmd_getexp(void)
     u32 holdEffect;
     s32 i; // also used as stringId
     u8 *expMonId = &gBattleStruct->expGetterMonId;
-    u8 trainerClass = gTrainers[gTrainerBattleOpponent_A].trainerClass;
+    u8 trainerClass = gTrainers[TRAINER_BATTLE_PARAM.opponentA]->trainerClass;
 
     gBattlerFainted = GetBattlerForBattleScript(cmd->battler);
 
@@ -7430,7 +7409,7 @@ static void Cmd_getswitchedmondata(void)
     if (gBattleTypeFlags & BATTLE_TYPE_JASMINE && !CanBattlerSwitch(battler))
     {
         FlagSet(FLAG_TEMP_1);
-        CreateNPCTrainerParty(&(gEnemyParty + 1)[0 + 1], gTrainerBattleOpponent_A, TRUE);
+        CreateNPCTrainerParty(&(gEnemyParty + 1)[0 + 1], TRAINER_BATTLE_PARAM.opponentA, TRUE);
         gBattleMons[gBattlerAttacker].species = SPECIES_GRENINJA_ASH;
     }
     else
@@ -8620,7 +8599,7 @@ u32 GetTrainerMoneyToGive(u16 trainerId)
     u32 lastMonLevel = 0;
     u32 moneyReward;
     u8 trainerMoney = 0;
-    u32 trainerClass = GetTrainerClassFromId(gTrainerBattleOpponent_A);
+    u32 trainerClass = GetTrainerClassFromId(TRAINER_BATTLE_PARAM.opponentA);
 
     if (trainerId == TRAINER_SECRET_BASE)
     {
@@ -8659,7 +8638,7 @@ static void Cmd_getmoneyreward(void)
 
     battlePoints = 0;
     bpCap = 3;
-    if (GetTrainerBpCapFromId(gTrainerBattleOpponent_A) && FlagGet(FLAG_BADGE06_GET))
+    if (GetTrainerBpCapFromId(TRAINER_BATTLE_PARAM.opponentA) && FlagGet(FLAG_BADGE06_GET))
     {
         bpCap = 5;
     }
@@ -10200,9 +10179,9 @@ static void Cmd_various(void)
         else
         {   
             // gBattleMoveDamage = GetNonDynamaxMaxHP(battler) / 16;
-            gBattleMoveDamage = GetStealthHazardDamage(gMovesInfo[MOVE_STEALTH_ROCK].type, battler);
-            if (gBattleMoveDamage == 0)
-                gBattleMoveDamage = 1;
+            gBattleStruct->moveDamage[battler] = GetStealthHazardDamage(gMovesInfo[MOVE_STEALTH_ROCK].type, battler);
+            if (gBattleStruct->moveDamage[battler] == 0)
+            gBattleStruct->moveDamage[battler] = 1;
 
             gBattlescriptCurrInstr = cmd->nextInstr;
         }

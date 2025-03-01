@@ -52,10 +52,24 @@ static bool32 ShouldRunTrainerSlideLastLowHp(u32 firstId, u32 lastId, u32 battle
 static void SetTrainerSlideParamters(u32 battler, u32* firstId, u32* lastId, u32* trainerId, u32* retValue);
 static bool32 IsSlideInitalizedOrPlayed(enum TrainerSlideType slideId);
 
+static const u8 sText_BrendanMegaEvolve1[] = _("Okay!\nLet's see what we can do with this!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}");
+static const u8 sText_MayMegaEvolve1[] = _("Alright!\nTime to see what this thing can do!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}");
+
 static const u8* const sTrainerSlides[DIFFICULTY_COUNT][TRAINERS_COUNT][TRAINER_SLIDE_COUNT] =
 {
     [DIFFICULTY_NORMAL] =
     {
+        [TRAINER_LEADER_KORRINA] =          {[TRAINER_SLIDE_MEGA_EVOLUTION] = COMPOUND_STRING("I hesitated doing this, but you've\nreally driven me into a corner here!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}")},
+        [TRAINER_LEADER_ACEROLA] =          {[TRAINER_SLIDE_MEGA_EVOLUTION] = COMPOUND_STRING("Let's have some real fun!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}")},
+        [TRAINER_BASALEK_BRENDAN_PIPLUP] =  {[TRAINER_SLIDE_MEGA_EVOLUTION] = sText_BrendanMegaEvolve1},
+        [TRAINER_BASALEK_BRENDAN_ROWLET] =  {[TRAINER_SLIDE_MEGA_EVOLUTION] = sText_BrendanMegaEvolve1},
+        [TRAINER_BASALEK_BRENDAN_TORCHIC] = {[TRAINER_SLIDE_MEGA_EVOLUTION] = sText_BrendanMegaEvolve1},
+        [TRAINER_BASALEK_MAY_PIPLUP] =      {[TRAINER_SLIDE_MEGA_EVOLUTION] = sText_MayMegaEvolve1},
+        [TRAINER_BASALEK_MAY_ROWLET] =      {[TRAINER_SLIDE_MEGA_EVOLUTION] = sText_MayMegaEvolve1},
+        [TRAINER_BASALEK_MAY_TORCHIC] =     {[TRAINER_SLIDE_MEGA_EVOLUTION] = sText_MayMegaEvolve1},
+        [TRAINER_BASALTUNNEL_TR12_BROCK] =  {[TRAINER_SLIDE_MEGA_EVOLUTION] = COMPOUND_STRING("Not bad, but this is the end!{PAUSE 90}")},
+        [TRAINER_LEADER_BLAINE] =           {[TRAINER_SLIDE_MEGA_EVOLUTION] = COMPOUND_STRING("This battle has gone on for too long.\nIt's time to end it.{PAUSE 90}")},
+        [TRAINER_LEADER_JASMINE] =          {[TRAINER_SLIDE_LAST_SWITCHIN] = COMPOUND_STRING("We're not giving up just yet!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}")},
     },
 };
 

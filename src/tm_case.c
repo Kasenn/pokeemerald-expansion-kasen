@@ -8,6 +8,7 @@
 #include "text_window.h"
 #include "menu.h"
 #include "menu_helpers.h"
+#include "move.h"
 #include "list_menu.h"
 #include "item.h"
 #include "item_menu.h"

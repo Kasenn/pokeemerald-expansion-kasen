@@ -318,8 +318,6 @@ void ItemUseOutOfBattle_Bike(u8 taskId)
 
 static void ItemUseOnFieldCB_Bike(u8 taskId)
 {
-    gUnusedBikeCameraAheadPanback = FALSE;
-
     // if(gSaveBlock2Ptr->playerBike != (MACH_BIKE || ACRO_BIKE))
     //     gSaveBlock2Ptr->playerBike = ACRO_BIKE;
     if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_BIKE)
@@ -813,7 +811,7 @@ void ItemUseOutOfBattle_SampleBox(u8 taskId)
 void ItemUseOutOfBattle_PowderJar(u8 taskId)
 {
     // ConvertIntToDecimalStringN(gStringVar1, GetBerryPowder(), STR_CONV_MODE_LEFT_ALIGN, 5);
-    StringExpandPlaceholders(gStringVar4, gText_PowderQty);
+    StringExpandPlaceholders(gStringVar4, sText_PowderQty);
 
     if (!gTasks[taskId].tUsingRegisteredKeyItem)
     {

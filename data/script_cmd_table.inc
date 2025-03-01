@@ -251,22 +251,23 @@ gScriptCmdTable::
 	script_cmd_table_entry SCR_OP_BUFFERITEMNAMEPLURAL          ScrCmd_bufferitemnameplural,        requests_effects=1  @ 0xe2
 	script_cmd_table_entry SCR_OP_DYNMULTICHOICE                ScrCmd_dynmultichoice,              requests_effects=1  @ 0xe3
 	script_cmd_table_entry SCR_OP_DYNMULTIPUSH                  ScrCmd_dynmultipush,                requests_effects=1  @ 0xe4
-	script_cmd_table_entry SCR_OP_WILDBATTLERANGE 				ScrCmd_setwildbattlelevelrange, 	requests_effects=1  @ 0xe5
-	script_cmd_table_entry SCR_OP_WARPHOLEXY 					ScrCmd_warpholexy,					requests_effects=1	@ 0xe6
-	script_cmd_table_entry SCR_OP_CHECKPARTYMON 				ScrCmd_checkpartymon,				requests_effects=1	@ 0xe7
-	script_cmd_table_entry SCR_OP_CHECKDEXMON 					ScrCmd_checkdexmon,					requests_effects=1	@ 0xe8
-	script_cmd_table_entry SCR_OP_SETFOLLOWER 					ScrCmd_setfollower,					requests_effects=1	@ 0xe9
-    script_cmd_table_entry SCR_OP_DESTROYFOLLOWER 				ScrCmd_destroyfollower,				requests_effects=1	@ 0xea
-    script_cmd_table_entry SCR_OP_FACEFOLLOWER 					ScrCmd_facefollower,				requests_effects=1	@ 0xeb
-    script_cmd_table_entry SCR_OP_CHECKFOLLOWER 				ScrCmd_checkfollower,				requests_effects=1	@ 0xec
-	script_cmd_table_entry SCR_OP_UPDATEFOLLOWINGMON 			ScrCmd_updatefollowingmon,			requests_effects=1	@ 0xed
-	script_cmd_table_entry SCR_OP_BALLFOLLOWINGMON 				ScrCmd_ballfollowingmon,			requests_effects=1	@ 0xee
-	script_cmd_table_entry SCR_OP_CHECKPARTYLEVEL 				ScrCmd_checkpartylevel,				requests_effects=1	@ 0xef
-	script_cmd_table_entry SCR_OP_BPMART 						ScrCmd_bpmart,						requests_effects=1  @ 0xf0
-	script_cmd_table_entry SCR_OP_GETFOLLOWERXY 				ScrCmd_getfollowerxy,				requests_effects=1	@ 0xf1
-	script_cmd_table_entry SCR_OP_HOWMANYBOX 					ScrCmd_howmanybox,					requests_effects=1	@ 0xf2
-	script_cmd_table_entry SCR_OP_GETOBJECTXY 					ScrCmd_getobjectxy,					requests_effects=1	@ 0xf3
+	script_cmd_table_entry SCR_OP_WILDBATTLERANGE 				ScrCmd_setwildbattlelevelrange, 	requests_effects=0  @ 0xe5
+	script_cmd_table_entry SCR_OP_WARPHOLEXY 					ScrCmd_warpholexy,					requests_effects=0	@ 0xe6
+	script_cmd_table_entry SCR_OP_CHECKPARTYMON 				ScrCmd_checkpartymon,				requests_effects=0	@ 0xe7
+	script_cmd_table_entry SCR_OP_CHECKDEXMON 					ScrCmd_checkdexmon,					requests_effects=0	@ 0xe8
+	script_cmd_table_entry SCR_OP_SETFOLLOWER 					ScrCmd_setfollower,					requests_effects=0	@ 0xe9
+    script_cmd_table_entry SCR_OP_DESTROYFOLLOWER 				ScrCmd_destroyfollower,				requests_effects=0	@ 0xea
+    script_cmd_table_entry SCR_OP_FACEFOLLOWER 					ScrCmd_facefollower,				requests_effects=0	@ 0xeb
+    script_cmd_table_entry SCR_OP_CHECKFOLLOWER 				ScrCmd_checkfollower,				requests_effects=0	@ 0xec
+	script_cmd_table_entry SCR_OP_UPDATEFOLLOWINGMON 			ScrCmd_updatefollowingmon,			requests_effects=0	@ 0xed
+	script_cmd_table_entry SCR_OP_BALLFOLLOWINGMON 				ScrCmd_ballfollowingmon,			requests_effects=0	@ 0xee
+	script_cmd_table_entry SCR_OP_CHECKPARTYLEVEL 				ScrCmd_checkpartylevel,				requests_effects=0	@ 0xef
+	script_cmd_table_entry SCR_OP_BPMART 						ScrCmd_bpmart,						requests_effects=0  @ 0xf0
+	script_cmd_table_entry SCR_OP_GETFOLLOWERXY 				ScrCmd_getfollowerxy,				requests_effects=0	@ 0xf1
+	script_cmd_table_entry SCR_OP_HOWMANYBOX 					ScrCmd_howmanybox,					requests_effects=0	@ 0xf2
+	script_cmd_table_entry SCR_OP_GETOBJECTXY 					ScrCmd_getobjectxy,					requests_effects=0	@ 0xf3
 
-
+	.if ALLOCATE_SCRIPT_CMD_TABLE
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop
+	.endif

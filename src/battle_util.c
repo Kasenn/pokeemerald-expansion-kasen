@@ -2935,15 +2935,15 @@ u8 DoBattlerEndTurnEffects(void)
                 u16 speAttack = CalculateMoveDamage(&damageCalcData, 40);
 
                 if (speAttack > physAttack)
-                    gBattleMoveDamage = speAttack;
+                    gBattleStruct->moveDamage[battler] = speAttack;
                 else
-                    gBattleMoveDamage = physAttack;
+                    gBattleStruct->moveDamage[battler] = physAttack;
 
-                if (gBattleMoveDamage > gBattleMons[gBattlerTarget].maxHP / 5)
-                    gBattleMoveDamage = gBattleMons[gBattlerTarget].maxHP / 5;
+                if (gBattleStruct->moveDamage[battler] > gBattleMons[gBattlerTarget].maxHP / 5)
+                    gBattleStruct->moveDamage[battler] = gBattleMons[gBattlerTarget].maxHP / 5;
 
-                if (gBattleMoveDamage == 0)
-                    gBattleMoveDamage = 1;
+                if (gBattleStruct->moveDamage[battler] == 0)
+                    gBattleStruct->moveDamage[battler] = 1;
                 BattleScriptExecute(BattleScript_MegaExhaustion);
                 effect++;
             }
@@ -4623,16 +4623,11 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect = (effect == 1) ? 2 : 0;
                 break;
             case STARTING_STATUS_ROCKY_TERRAIN:
-                if (!(gFieldStatuses & STATUS_FIELD_ROCKY_TERRAIN))
-                {
-                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_SET_ROCKY;
-                    gFieldStatuses |= STATUS_FIELD_ROCKY_TERRAIN;
-                    if (timerVal == 0)
-                        gFieldStatuses |= STATUS_FIELD_TERRAIN_PERMANENT;
-                    else
-                        gFieldTimers.terrainTimer = timerVal;
-                    effect = 2;
-                }
+                effect = SetStartingFieldStatus(STATUS_FIELD_ROCKY_TERRAIN,
+                                                B_MSG_TERRAIN_SET_ROCKY,
+                                                0,
+                                                &gFieldTimers.terrainTimer);
+                effect = (effect == 1) ? 2 : 0;
                 break;
             case STARTING_STATUS_PSYCHIC_TERRAIN:
                 effect = SetStartingFieldStatus(STATUS_FIELD_PSYCHIC_TERRAIN,
@@ -5939,16 +5934,16 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_SPIKE_BODY:
-            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+            if (!(gBattleStruct->moveResultFlags[gBattlerTarget] & MOVE_RESULT_NO_EFFECT)
                 && gBattleMons[gBattlerAttacker].hp != 0
                 && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
-                && TARGET_TURN_DAMAGED
+                && IsBattlerTurnDamaged(gBattlerTarget)
                 && GetBattlerHoldEffect(gBattlerAttacker, TRUE) != HOLD_EFFECT_PROTECTIVE_PADS
                 && IsMoveMakingContact(move, gBattlerAttacker))
                 {
-                        gBattleMoveDamage = GetNonDynamaxMaxHP(gBattlerAttacker) / (B_ROUGH_SKIN_DMG >= GEN_4 ? 6 : 6);
-                    if (gBattleMoveDamage == 0)
-                        gBattleMoveDamage = 1;
+                        gBattleStruct->moveDamage[battler] = GetNonDynamaxMaxHP(gBattlerAttacker) / (B_ROUGH_SKIN_DMG >= GEN_4 ? 6 : 6);
+                    if (gBattleStruct->moveDamage[battler] == 0)
+                        gBattleStruct->moveDamage[battler] = 1;
                     PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_RoughSkinActivates;
@@ -6145,10 +6140,10 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_HIVE_LEADER:
-            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+            if (!(gBattleStruct->moveResultFlags[gBattlerTarget] & MOVE_RESULT_NO_EFFECT)
              && IsBattlerAlive(gBattlerAttacker)
              && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
-             && TARGET_TURN_DAMAGED
+             && IsBattlerTurnDamaged(gBattlerTarget)
              && IsBattlerAlive(gBattlerTarget)
              && !(gBattleMons[gBattlerAttacker].status2 & STATUS2_WRAPPED)
              && GetBattlerHoldEffect(gBattlerAttacker, TRUE) != HOLD_EFFECT_PROTECTIVE_PADS
@@ -6366,13 +6361,13 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_HIVE_LEADER:
-            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+        if (!(gBattleStruct->moveResultFlags[gBattlerTarget] & MOVE_RESULT_NO_EFFECT)
              && IsBattlerAlive(gEffectBattler)
              && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
              && !(gBattleMons[gEffectBattler].status2 & STATUS2_WRAPPED)
              && GetBattlerHoldEffect(gBattlerAttacker, TRUE) != HOLD_EFFECT_PROTECTIVE_PADS
              && IsMoveMakingContact(move, gBattlerAttacker)
-             && TARGET_TURN_DAMAGED)
+             && IsBattlerTurnDamaged(gBattlerTarget)) // Need to actually hit the target
             {
                 gBattleMons[gEffectBattler].status2 |= STATUS2_WRAPPED;
                 if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_GRIP_CLAW)
@@ -7131,10 +7126,10 @@ static u8 HealSleepBerry(u32 battler, u32 itemId, bool32 end2)
 #endif
     )
     {
-        gBattleMoveDamage = gBattleMons[battler].maxHP / GetBattlerItemHoldEffectParam(battler, itemId);
-        if (gBattleMoveDamage == 0)
-            gBattleMoveDamage = 4;
-        gBattleMoveDamage *= -1;
+        gBattleStruct->moveDamage[battler] = gBattleMons[battler].maxHP / GetBattlerItemHoldEffectParam(battler, itemId);
+        if (gBattleStruct->moveDamage[battler] == 0)
+            gBattleStruct->moveDamage[battler] = 4;
+        gBattleStruct->moveDamage[battler] *= -1;
 
         gBattleScripting.battler = battler;
         if (end2)
@@ -9942,7 +9937,7 @@ static inline u32 CalcAttackStat(struct DamageCalculationData *damageCalcData, u
         break;
     case ABILITY_SEARING_RAGE:
         if ((gBattleMons[battlerAtk].hp <= (gBattleMons[battlerAtk].maxHP / 2))
-        && (IS_MOVE_PHYSICAL(move)))
+        && (IsBattleMovePhysical(move)))
         {
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         }

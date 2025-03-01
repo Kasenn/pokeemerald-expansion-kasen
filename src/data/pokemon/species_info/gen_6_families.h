@@ -251,7 +251,9 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .frontPic = gMonFrontPic_ChesnaughtMega,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 2,
-        .frontAnimFrames = sAnims_ChesnaughtMega,
+        .frontAnimFrames = ANIM_FRAMES(
+            ANIMCMD_FRAME(0, 1),
+        ),
         .frontAnimId = ANIM_GROW_IN_STAGES,
         .backPic = gMonBackPic_ChesnaughtMega,
         .backPicSize = MON_COORDS_SIZE(64, 56),

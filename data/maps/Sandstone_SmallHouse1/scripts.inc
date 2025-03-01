@@ -261,7 +261,7 @@ PreviewOutfit::
 	checkplayergender
 	compare VAR_RESULT, MALE
 	goto_if_eq PreviewOutfit_2
-	showmonpic SPECIES_KINGLER, 10, 3
+	showmonpic SPECIES_MAY_ORAS, 10, 3
 PreviewOutfit_1:
 	msgbox LooksGoodOnYou, MSGBOX_DEFAULT
 	closemessage
@@ -270,7 +270,7 @@ PreviewOutfit_1:
 	return
 
 PreviewOutfit_2:
-	showmonpic SPECIES_KRABBY, 10, 3
+	showmonpic SPECIES_BRENDAN_ORAS, 10, 3
 	goto PreviewOutfit_1
 
 

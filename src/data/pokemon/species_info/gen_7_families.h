@@ -245,7 +245,9 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .frontPic = gMonFrontPic_DecidueyeMega,
         .frontPicSize = MON_COORDS_SIZE(45, 64),
         .frontPicYOffset = 0,
-        .frontAnimFrames = sAnims_DecidueyeMega,
+        .frontAnimFrames = ANIM_FRAMES(
+            ANIMCMD_FRAME(0, 1),
+        ),
         .frontAnimId = ANIM_SHRINK_GROW_VIBRATE_FAST,
         .backPic = gMonBackPic_DecidueyeMega,
         .backPicSize = MON_COORDS_SIZE(46, 62),
@@ -534,7 +536,9 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .frontPic = gMonFrontPic_IncineroarMega,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 0,
-        .frontAnimFrames = sAnims_IncineroarMega,
+        .frontAnimFrames = ANIM_FRAMES(
+            ANIMCMD_FRAME(0, 1),
+        ),
         .frontAnimId = ANIM_V_SHAKE,
         .backPic = gMonBackPic_IncineroarMega,
         .backPicSize = MON_COORDS_SIZE(64, 56),

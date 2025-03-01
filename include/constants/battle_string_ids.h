@@ -730,24 +730,24 @@
 #define STRINGID_SENDCAUGHTMONPARTYORBOX              728
 #define STRINGID_PKMNSENTTOPCAFTERCATCH               729
 
-#define STRINGID_ITISWINDY                            725
-#define STRINGID_WEATHERWIND                          726
-#define STRINGID_PLAYERGOTMONEYANDBP                  727
-#define STRINGID_LAIDLOW                              728
-#define STRINGID_SLEEPBERRY                           729
-#define STRINGID_TARGETISHURTBYMEGAEXHAUSTION         730
-#define STRINGID_FORESTCURSE                          731
-#define STRINGID_NOWHITEOUT                           732
-#define STRINGID_NORUNNINGFROMGHOST                   733
-#define STRINGID_JASMINE_NOTGIVINGUPYET               734
-#define STRINGID_JASMINE_AMPHY                        735
-#define	STRINGID_HIVE_LEADER                          736
-#define STRINGID_ROCKYTERRAINDAMAGES                  737
-#define STRINGID_ROCKYTERRAINENDS                     738
-#define STRINGID_TERRAINBECOMESROCKY                  739
-#define STRINGID_ISCOVEREDWITHROCKS                   740
+#define STRINGID_ITISWINDY                            730
+#define STRINGID_WEATHERWIND                          731
+#define STRINGID_PLAYERGOTMONEYANDBP                  732
+#define STRINGID_LAIDLOW                              733
+#define STRINGID_SLEEPBERRY                           734
+#define STRINGID_TARGETISHURTBYMEGAEXHAUSTION         735
+#define STRINGID_FORESTCURSE                          736
+#define STRINGID_NOWHITEOUT                           737
+#define STRINGID_NORUNNINGFROMGHOST                   738
+#define STRINGID_JASMINE_NOTGIVINGUPYET               739
+#define STRINGID_JASMINE_AMPHY                        740
+#define	STRINGID_HIVE_LEADER                          741
+#define STRINGID_ROCKYTERRAINDAMAGES                  742
+#define STRINGID_ROCKYTERRAINENDS                     743
+#define STRINGID_TERRAINBECOMESROCKY                  744
+#define STRINGID_ISCOVEREDWITHROCKS                   745
 
-#define BATTLESTRINGS_COUNT                           741
+#define BATTLESTRINGS_COUNT                           746
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,

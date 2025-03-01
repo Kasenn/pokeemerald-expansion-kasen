@@ -2949,7 +2949,12 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .frontPicSize = MON_COORDS_SIZE(48, 48),
         .frontPicSizeFemale = MON_COORDS_SIZE(48, 48),
         .frontPicYOffset = 0,
-        .frontAnimFrames = sAnims_Pikachu,
+        .frontAnimFrames = ANIM_FRAMES(
+            ANIMCMD_FRAME(0, 15),
+            ANIMCMD_FRAME(1, 60),
+            ANIMCMD_FRAME(1, 20),
+            ANIMCMD_FRAME(0, 1),
+        ),
         .frontAnimId = ANIM_FLASH_YELLOW,
         .frontAnimDelay = 25,
         .backPic = gMonBackPic_Pikachu,
@@ -2967,6 +2972,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
             SIZE_32x32,
             SHADOW_SIZE_M,
             TRACKS_FOOT,
+            sAnimTable_Following,
             gOverworldPalette_Pikachu,
             gShinyOverworldPalette_Pikachu
         )
@@ -18358,7 +18364,9 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .frontPic = gMonFrontPic_PorygonZMega,
         .frontPicSize = MON_COORDS_SIZE(40, 56),
         .frontPicYOffset = 6,
-        .frontAnimFrames = sAnims_PorygonZMega,
+        .frontAnimFrames = ANIM_FRAMES(
+            ANIMCMD_FRAME(0, 1),
+        ),
         .frontAnimId = ANIM_CIRCLE_C_CLOCKWISE_SLOW,
         .enemyMonElevation = 12,
         .backPic = gMonBackPic_PorygonZMega,

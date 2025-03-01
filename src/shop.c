@@ -51,6 +51,8 @@
 
 #define MAX_ITEMS_SHOWN 8
 
+const u8 gTextSelect[] = _("{SELECT_BUTTON}");
+
 enum {
     WIN_BUY_SELL_QUIT,
     WIN_BUY_QUIT,

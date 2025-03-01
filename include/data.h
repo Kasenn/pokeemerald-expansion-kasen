@@ -212,9 +212,10 @@ static inline const struct Trainer *GetTrainerStructFromId(u16 trainerId)
 
 static inline const u8 GetTrainerClassFromId(u16 trainerId)
 {
-    if (trainerId == TRAINER_MAY_PLACEHOLDER)
-        return gSpecialVar_0x8000;
-    return gTrainers[SanitizeTrainerId(trainerId)].trainerClass;
+    u32 sanitizedTrainerId = SanitizeTrainerId(trainerId);
+    enum DifficultyLevel difficulty = GetTrainerDifficultyLevel(sanitizedTrainerId);
+
+    return gTrainers[difficulty][sanitizedTrainerId].trainerClass;
 }
 
 static inline const u8 *GetTrainerClassNameFromId(u16 trainerId)
@@ -228,8 +229,12 @@ static inline const u8 *GetTrainerClassNameFromId(u16 trainerId)
 
 static inline const u8 *GetTrainerNameFromId(u16 trainerId)
 {
-    if (trainerId == TRAINER_MAY_PLACEHOLDER)
-        return gStringVar1;
+    u32 sanitizedTrainerId = SanitizeTrainerId(trainerId);
+
+    enum DifficultyLevel difficulty = GetTrainerDifficultyLevel(sanitizedTrainerId);
+
+    enum DifficultyLevel partnerDifficulty = GetBattlePartnerDifficultyLevel(trainerId);
+
     if (trainerId > TRAINER_PARTNER(PARTNER_NONE))
         return gBattlePartners[partnerDifficulty][trainerId - TRAINER_PARTNER(PARTNER_NONE)].trainerName;
     return gTrainers[difficulty][sanitizedTrainerId].trainerName;
@@ -237,13 +242,14 @@ static inline const u8 *GetTrainerNameFromId(u16 trainerId)
 
 static inline const u8 GetTrainerPicFromId(u16 trainerId)
 {
-    if (trainerId == TRAINER_MAY_PLACEHOLDER)
-        return gSpecialVar_0x8001;
-    if (gTrainers[SanitizeTrainerId(trainerId)].trainerPic == TRAINER_PIC_BRENDAN && FlagGet(FLAG_RIVAL_COSTUME_CHANGE))
+    u32 sanitizedTrainerId = SanitizeTrainerId(trainerId);
+    enum DifficultyLevel difficulty = GetTrainerDifficultyLevel(sanitizedTrainerId);
+
+    if (gTrainers[difficulty][sanitizedTrainerId].trainerPic == TRAINER_PIC_BRENDAN && FlagGet(FLAG_RIVAL_COSTUME_CHANGE))
         return TRAINER_PIC_BRENDAN_ORAS;
-    if (gTrainers[SanitizeTrainerId(trainerId)].trainerPic == TRAINER_PIC_MAY && FlagGet(FLAG_RIVAL_COSTUME_CHANGE))
+    if (gTrainers[difficulty][sanitizedTrainerId].trainerPic == TRAINER_PIC_MAY && FlagGet(FLAG_RIVAL_COSTUME_CHANGE))
         return TRAINER_PIC_MAY_ORAS;
-    return gTrainers[SanitizeTrainerId(trainerId)].trainerPic;
+    return gTrainers[difficulty][sanitizedTrainerId].trainerPic;
 }
 
 static inline const u8 GetTrainerStartingStatusFromId(u16 trainerId)
@@ -279,9 +285,10 @@ static inline const u8 GetTrainerMugshotColorFromId(u16 trainerId)
 
 static inline const u16 *GetTrainerItemsFromId(u16 trainerId)
 {
-    // if (trainerId == TRAINER_MAY_PLACEHOLDER)
-    //     return gSpecialVar_0x8002;
-    return gTrainers[SanitizeTrainerId(trainerId)].items;
+    u32 sanitizedTrainerId = SanitizeTrainerId(trainerId);
+    enum DifficultyLevel difficulty = GetTrainerDifficultyLevel(sanitizedTrainerId);
+
+    return gTrainers[difficulty][sanitizedTrainerId].items;
 }
 
 static inline const struct TrainerMon *GetTrainerPartyFromId(u16 trainerId)
@@ -294,9 +301,10 @@ static inline const struct TrainerMon *GetTrainerPartyFromId(u16 trainerId)
 
 static inline const bool32 GetTrainerAIFlagsFromId(u16 trainerId)
 {
-    // if (trainerId == TRAINER_MAY_PLACEHOLDER)
-    //     return gSpecialVar_0x8003;
-    return gTrainers[SanitizeTrainerId(trainerId)].aiFlags;
+    u32 sanitizedTrainerId = SanitizeTrainerId(trainerId);
+    enum DifficultyLevel difficulty = GetTrainerDifficultyLevel(sanitizedTrainerId);
+
+    return gTrainers[difficulty][sanitizedTrainerId].aiFlags;
 }
 
 #endif // GUARD_DATA_H

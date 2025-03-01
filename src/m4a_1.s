@@ -2657,3 +2657,8 @@ _081DDD90:
 	thumb_func_end ply_mod
 
 	.align 2, 0 @ Don't pad with nop.
+
+	.bss
+sDecodingBuffer: @ Used as a buffer for audio decoded from compressed DPCM
+	.space 0x40
+	.size sDecodingBuffer, .-sDecodingBuffer

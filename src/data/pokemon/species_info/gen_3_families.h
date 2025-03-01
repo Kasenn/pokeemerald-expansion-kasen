@@ -10607,12 +10607,12 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .iconPalIndex = 2,
         SHADOW(0, -1, SHADOW_SIZE_M)
         FOOTPRINT(Spheal)
-        OVERWORLD2(
+        OVERWORLD(
             sPicTable_Spheal,
             SIZE_32x32,
             SHADOW_SIZE_M,
             TRACKS_FOOT,
-            sAnimTable_Following,
+            sAnimTable_Following_Spheal,
             gOverworldPalette_Spheal,
             gShinyOverworldPalette_Spheal
         )

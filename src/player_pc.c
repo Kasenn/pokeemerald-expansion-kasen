@@ -201,17 +201,17 @@ static const u8 *const sItemStorage_OptionDescriptions[] =
 
 static const struct MenuAction sPlayerPCMenuActions[] =
 {
-    [MENU_WITHDRAW] = { gText_WithdrawItem, {ItemStorage_Withdraw} },
-    [MENU_DEPOSIT]  = { gText_DepositItem,  {ItemStorage_Deposit} },
-    [MENU_TOSS]     = { gText_TossItem,     {ItemStorage_Toss} },
-    [MENU_TURNOFF]     = { gText_TurnOff,     {PlayerPC_TurnOff} }
+    [MENU_WITHDRAW] = { sText_WithdrawItem, {ItemStorage_Withdraw} },
+    [MENU_DEPOSIT]  = { sText_DepositItem,  {ItemStorage_Deposit} },
+    [MENU_TOSS]     = { sText_TossItem,     {ItemStorage_Toss} },
+    [MENU_TURNOFF]     = { COMPOUND_STRING("Turn Off"),     {PlayerPC_TurnOff} }
 };
 
 static const struct MenuAction sPlayerPCMenuActions2[] =
 {
-    [MENU_WITHDRAW] = { gText_WithdrawItem, {ItemStorage_Withdraw} },
-    [MENU_DEPOSIT]  = { gText_DepositItem,  {ItemStorage_Deposit} },
-    [MENU_TOSS]     = { gText_TossItem,     {ItemStorage_Toss} },
+    [MENU_WITHDRAW] = { sText_WithdrawItem, {ItemStorage_Withdraw} },
+    [MENU_DEPOSIT]  = { sText_DepositItem,  {ItemStorage_Deposit} },
+    [MENU_TOSS]     = { sText_TossItem,     {ItemStorage_Toss} },
     [MENU_TURNOFF]     = { gText_Cancel,     {PlayerPC_TurnOff} }
 };
 
@@ -238,7 +238,7 @@ static const struct MenuAction sItemStorage_MenuActions[] =
     [MENU_WITHDRAW] = { sText_WithdrawItem, {ItemStorage_Withdraw} },
     [MENU_DEPOSIT]  = { sText_DepositItem,  {ItemStorage_Deposit} },
     [MENU_TOSS]     = { sText_TossItem,     {ItemStorage_Toss} },
-    [MENU_EXIT]     = { sText_Cancel,       {PlayerPC_TurnOff} }
+    [MENU_EXIT]     = { gText_Cancel,       {PlayerPC_TurnOff} }
 };
 
 static const u16 sNewGamePCItems[][2] =

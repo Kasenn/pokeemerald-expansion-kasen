@@ -1246,7 +1246,7 @@ void ClearTrainerFlag(u16 trainerId)
 
 void BattleSetup_StartTrainerBattle(void)
 {
-    if (GetTrainerPicFromId(gTrainerBattleOpponent_A) == TRAINER_PIC_JASMINE)
+    if (GetTrainerPicFromId(TRAINER_BATTLE_PARAM.opponentA) == TRAINER_PIC_JASMINE)
         gBattleTypeFlags |= BATTLE_TYPE_JASMINE;
     if (gNoOfApproachingTrainers == 2) {
         if (gSaveBlock2Ptr->follower.battlePartner) {
@@ -1263,7 +1263,7 @@ void BattleSetup_StartTrainerBattle(void)
         }
         else if (gSaveBlock2Ptr->follower.battlePartner) {
             gBattleTypeFlags = (BATTLE_TYPE_MULTI | BATTLE_TYPE_INGAME_PARTNER | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TRAINER);
-            gTrainerBattleOpponent_B = 0xFFFF;
+            TRAINER_BATTLE_PARAM.opponentB = 0xFFFF;
         }
         else {
             gBattleTypeFlags = (BATTLE_TYPE_TRAINER);
@@ -1825,7 +1825,7 @@ static void ClearTrainerWantRematchState(const struct RematchTrainer *table, u16
 // {
 //     if (FlagGet(FLAG_HAS_MATCH_CALL))
 //     {
-//         u32 matchCallFlagId = GetTrainerMatchCallFlag(gTrainerBattleOpponent_A);
+//         u32 matchCallFlagId = GetTrainerMatchCallFlag(TRAINER_BATTLE_PARAM.opponentA);
 //         if (matchCallFlagId != 0xFFFF)
 //             FlagSet(matchCallFlagId);
 //     }

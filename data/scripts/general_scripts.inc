@@ -482,7 +482,6 @@ Debug_Script_2::
 
 
 Debug_Script_3::
-	callnative NameStarterMon
 	return
 
 

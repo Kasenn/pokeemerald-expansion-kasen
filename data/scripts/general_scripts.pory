@@ -465,7 +465,6 @@ script Debug_Script_2{              //
     end
 }
 script Debug_Script_3{              // 
-	callnative(NameStarterMon)
     return
 }
 script Debug_Script_4{

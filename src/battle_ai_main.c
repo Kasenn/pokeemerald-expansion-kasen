@@ -1397,9 +1397,9 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 ADJUST_SCORE(-8);
             break;
         case EFFECT_FLASH:
-            if (!ShouldLowerStat(battlerDef, aiData->abilities[battlerDef], STAT_ACC))
+            if (!ShouldLowerStat(battlerAtk, battlerDef, aiData->abilities[battlerDef], STAT_ACC))
                 ADJUST_SCORE(-10);
-            else if (!ShouldLowerStat(battlerDef, aiData->abilities[battlerDef], STAT_SPEED))
+            else if (!ShouldLowerStat(battlerAtk, battlerDef, aiData->abilities[battlerDef], STAT_SPEED))
                 ADJUST_SCORE(-8);
             break;
         case EFFECT_VENOM_DRENCH:
@@ -2503,6 +2503,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
               || (types[0] == TYPE_WATER && types[1] == TYPE_WATER && types[2] == TYPE_MYSTERY))
                 ADJUST_SCORE(-10);    // target is already water-only
             break;
+        }
         case EFFECT_FOREST_CURSE:
         case EFFECT_THIRD_TYPE:
             switch (move)
@@ -3446,7 +3447,7 @@ static u32 AI_CalcMoveEffectScore(u32 battlerAtk, u32 battlerDef, u32 move)
         ADJUST_SCORE(IncreaseStatUpScore(battlerAtk, battlerDef, STAT_CHANGE_DEF_2));
         break;
     case EFFECT_SPEED_UP:
-        if (AI_GetWeather(aiData) & B_WEATHER_STRONG_WINDS){
+        if (AI_GetWeather() & B_WEATHER_STRONG_WINDS){
             ADJUST_SCORE(-20);
         }
         else{
@@ -3454,7 +3455,7 @@ static u32 AI_CalcMoveEffectScore(u32 battlerAtk, u32 battlerDef, u32 move)
         }
         break;
     case EFFECT_SPEED_UP_2:
-        if (AI_GetWeather(aiData) & B_WEATHER_STRONG_WINDS){
+        if (AI_GetWeather() & B_WEATHER_STRONG_WINDS){
             ADJUST_SCORE(-20);
         }
         else{

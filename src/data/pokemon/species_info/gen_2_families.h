@@ -1365,7 +1365,9 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .frontPic = gMonFrontPic_AriadosMega,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 7,
-        .frontAnimFrames = sAnims_AriadosMega,
+        .frontAnimFrames = ANIM_FRAMES(
+            ANIMCMD_FRAME(0, 1),
+        ),
         .frontAnimId = ANIM_H_SHAKE,
         .backPic = gMonBackPic_AriadosMega,
         .backPicSize = MON_COORDS_SIZE(64, 48),
@@ -1381,6 +1383,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
             SIZE_32x32,
             SHADOW_SIZE_M,
             TRACKS_BUG,
+            sAnimTable_Following,
             gOverworldPalette_Ariados,
             gShinyOverworldPalette_Ariados
         )
