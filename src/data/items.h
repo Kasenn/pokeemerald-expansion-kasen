@@ -14014,8 +14014,8 @@ const struct Item gItemsInfo[] =
         .name = _("Written Note"),
         .price = 0,
         .description = COMPOUND_STRING(
-            "Jasmine's\n"
-            "handwritten note to\n"
+            "Jasmine's hand-\n"
+            "written note to\n"
             "herb shop clerk."),
         .importance = 1,
         .pocket = POCKET_KEY_ITEMS,

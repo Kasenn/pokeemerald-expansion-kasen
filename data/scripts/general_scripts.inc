@@ -482,6 +482,9 @@ Debug_Script_2::
 
 
 Debug_Script_3::
+	givemon SPECIES_GROWLITHE, 100, move1 = MOVE_BURN_UP, move2 = MOVE_REVELATION_DANCE
+	createmon 1, 0, SPECIES_TREVENANT, 100, move1 = MOVE_FORESTS_CURSE
+	dowildbattle
 	return
 
 

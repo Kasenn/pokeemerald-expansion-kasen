@@ -838,8 +838,9 @@
 	.byte 0x95
 	.endm
 
-	.macro unused_96
+	.macro forestscursetarget failInstr:req
 	.byte 0x96
+	.4byte \failInstr
 	.endm
 
 	.macro tryinfatuating failInstr:req

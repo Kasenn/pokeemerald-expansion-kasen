@@ -599,11 +599,11 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .categoryName = _("Emperor"),                       
         .height = 17,                                       
         .weight = 845,                                      
-        .description = COMPOUND_STRING(                     
-            "The three horns that extend from its beak\n"   
-            "attest to its power. It avoids unnecessary\n"  
-            "disputes, but it will decimate anything\n"     
-            "that threatens its pride."),                   
+        .description = COMPOUND_STRING(
+            "The three horns that extend from its\n"
+            "beak attest to its power. It avoids\n"
+            "unnecessary disputes, but it will decimate\n"
+            "anything that threatens its pride."),
         .pokemonScale = 259,                                
         .pokemonOffset = 0,                                 
         .trainerScale = 290,                                
@@ -672,10 +672,10 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .height = 17,                                       
         .weight = 845,                                      
         .description = COMPOUND_STRING(                     
-            "The three horns that extend from its beak\n"   
-            "attest to its power. It avoids unnecessary\n"  
-            "disputes, but it will decimate anything\n"     
-            "that threatens its pride."),                   
+            "The three horns that extend from its\n"
+            "beak attest to its power. It avoids\n"
+            "unnecessary disputes, but it will decimate\n"
+            "anything that threatens its pride."),
         .pokemonScale = 259,                                
         .pokemonOffset = 0,                                 
         .trainerScale = 290,                                

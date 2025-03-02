@@ -1681,7 +1681,7 @@ static bool32 EndTurnTerrain(u32 terrainFlag, u32 stringTableId)
             gBattleCommunication[MULTISTRING_CHOOSER] = stringTableId;
             if (terrainFlag & STATUS_FIELD_GRASSY_TERRAIN)
                 BattleScriptExecute(BattleScript_GrassyTerrainEnds);
-            if (terrainFlag & STATUS_FIELD_ROCKY_TERRAIN)
+            else if (terrainFlag & STATUS_FIELD_ROCKY_TERRAIN)
                 BattleScriptExecute(BattleScript_RockyTerrainEnds);
             else
                 BattleScriptExecute(BattleScript_TerrainEnds);

@@ -2307,12 +2307,12 @@
               {
                 "min_level": 21,
                 "max_level": 21,
-                "species": "SPECIES_WOOPER_PALDEAN"
+                "species": "SPECIES_WOOPER_OUTSIDER"
               },
               {
                 "min_level": 23,
                 "max_level": 23,
-                "species": "SPECIES_WOOPER_PALDEAN"
+                "species": "SPECIES_WOOPER_OUTSIDER"
               },
               {
                 "min_level": 21,
@@ -2337,7 +2337,7 @@
               {
                 "min_level": 21,
                 "max_level": 21,
-                "species": "SPECIES_SLIGGOO_HISUIAN"
+                "species": "SPECIES_GOOMY"
               },
               {
                 "min_level": 23,
@@ -2347,7 +2347,7 @@
               {
                 "min_level": 23,
                 "max_level": 23,
-                "species": "SPECIES_SLIGGOO_HISUIAN"
+                "species": "SPECIES_GOOMY"
               },
               {
                 "min_level": 25,
@@ -16241,7 +16241,7 @@
               {
                 "min_level": 25,
                 "max_level": 35,
-                "species": "SPECIES_WOOPER_PALDEAN"
+                "species": "SPECIES_WOOPER_OUTSIDER"
               },
               {
                 "min_level": 30,

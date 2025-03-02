@@ -1304,7 +1304,7 @@ static const struct InGameTrade sIngameTrades[] =
     [INGAME_TRADE_RATTATA] =
     {
         .nickname = _("Pip"),
-        .species = SPECIES_RATTATA_ALOLA,
+        .species = SPECIES_RATTATA_OUTSIDER,
         .ivs = {31, 31, 31, 31, 31, 31},
         .otId = 17993,
         .abilityNum = 1,

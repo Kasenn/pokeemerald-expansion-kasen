@@ -910,7 +910,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 case EFFECT_LEECH_SEED:
                     ADJUST_SCORE(-5);
                     break;
-                case EFFECT_FOREST_CURSE:
+                case EFFECT_FORESTS_CURSE:
                 case EFFECT_CURSE:
                     if (IS_BATTLER_OF_TYPE(battlerAtk, TYPE_GHOST)) // Don't use Curse if you're a ghost type vs a Magic Guard user, they'll take no damage.
                         ADJUST_SCORE(-5);
@@ -1450,10 +1450,6 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
         case EFFECT_PRESENT:
         case EFFECT_FIXED_DAMAGE_ARG:
         case EFFECT_FOCUS_PUNCH:
-            if (HasDamagingMove(battlerDef) && !((gBattleMons[battlerAtk].status2 & STATUS2_SUBSTITUTE)
-            || IsBattlerIncapacitated(battlerDef, aiData->abilities[battlerDef])
-            || gBattleMons[battlerDef].status2 & (STATUS2_INFATUATION | STATUS2_CONFUSION)))
-                ADJUST_SCORE(-10);
             // AI_CBM_HighRiskForDamage
             if (aiData->abilities[battlerDef] == ABILITY_WONDER_GUARD && effectiveness < UQ_4_12(2.0))
                 ADJUST_SCORE(-10);
@@ -2504,7 +2500,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 ADJUST_SCORE(-10);    // target is already water-only
             break;
         }
-        case EFFECT_FOREST_CURSE:
+        case EFFECT_FORESTS_CURSE:
         case EFFECT_THIRD_TYPE:
             switch (move)
             {
@@ -2520,15 +2516,11 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                     ADJUST_SCORE(-6);
 
                 if (IS_BATTLER_OF_TYPE(battlerDef, TYPE_GRASS) || PartnerMoveIsSameAsAttacker(BATTLE_PARTNER(battlerAtk), battlerDef, move, aiData->partnerMove) || GetActiveGimmick(battlerDef) == GIMMICK_TERA)
-                    ADJUST_SCORE(-10);
+                    ADJUST_SCORE(-3);
 
-                if (IS_BATTLER_OF_TYPE(battlerAtk, TYPE_GHOST))
+                if (!IS_BATTLER_OF_TYPE(battlerAtk, TYPE_GHOST))
                 {
-                    if (gBattleMons[battlerDef].status2 & STATUS2_CURSED
-                    || DoesPartnerHaveSameMoveEffect(BATTLE_PARTNER(battlerAtk), battlerDef, move, aiData->partnerMove))
-                        ADJUST_SCORE(-10);
-                    else if (aiData->hpPercents[battlerAtk] <= 50)
-                        ADJUST_SCORE(-6);
+                    ADJUST_SCORE(-30);
                 }
                 break;
             default:
@@ -3814,7 +3806,7 @@ static u32 AI_CalcMoveEffectScore(u32 battlerAtk, u32 battlerDef, u32 move)
         if (ShouldUseWishAromatherapy(battlerAtk, battlerDef, move))
             ADJUST_SCORE(DECENT_EFFECT);
         break;
-    case EFFECT_FOREST_CURSE:
+    case EFFECT_FORESTS_CURSE:
         if (aiData->abilities[battlerDef] == ABILITY_WONDER_GUARD)
             ADJUST_SCORE(DECENT_EFFECT); // Give target more weaknesses
         if (IS_BATTLER_OF_TYPE(battlerAtk, TYPE_GHOST))
@@ -5004,7 +4996,7 @@ static s32 AI_ForceSetupFirstTurn(u32 battlerAtk, u32 battlerDef, u32 move, s32 
     case EFFECT_SUBSTITUTE:
     case EFFECT_LEECH_SEED:
     case EFFECT_MINIMIZE:
-    case EFFECT_FOREST_CURSE:
+    case EFFECT_FORESTS_CURSE:
     case EFFECT_CURSE:
     case EFFECT_SWAGGER:
     case EFFECT_CAMOUFLAGE:

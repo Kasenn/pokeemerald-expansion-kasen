@@ -5782,7 +5782,7 @@ static const struct TrainerMon sParty_TRAINER_R9_TR7_HIKER[] = {
     {
     .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
     .lvl = 37,
-    .species = SPECIES_WOOPER_PALDEA,
+    .species = SPECIES_WOOPER_OUTSIDER,
     .ability = ABILITY_WATER_ABSORB,
     },
     {

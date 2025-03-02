@@ -1018,8 +1018,8 @@
 #define SPECIES_RAYQUAZA_MEGA                           953
 #define SPECIES_KYOGRE_PRIMAL                           954
 #define SPECIES_GROUDON_PRIMAL                          955
-#define SPECIES_RATTATA_ALOLA                           956
-#define SPECIES_RATICATE_ALOLA                          957
+#define SPECIES_RATTATA_OUTSIDER                           956
+#define SPECIES_RATICATE_OUTSIDER                          957
 #define SPECIES_RAICHU_ALOLA                            958
 #define SPECIES_SANDSHREW_ALOLA                         959
 #define SPECIES_SANDSLASH_ALOLA                         960
@@ -1027,8 +1027,8 @@
 #define SPECIES_NINETALES_ALOLA                         962
 #define SPECIES_DIGLETT_ALOLA                           963
 #define SPECIES_DUGTRIO_ALOLA                           964
-#define SPECIES_MEOWTH_ALOLA                            965
-#define SPECIES_PERSIAN_ALOLA                           966
+#define SPECIES_MEOWTH_OUTSIDER                            965
+#define SPECIES_PERSIAN_OUTSIDER                           966
 #define SPECIES_GEODUDE_ALOLA                           967
 #define SPECIES_GRAVELER_ALOLA                          968
 #define SPECIES_GOLEM_ALOLA                             969
@@ -1504,7 +1504,7 @@
 #define SPECIES_TAUROS_PALDEA_COMBAT                    1402
 #define SPECIES_TAUROS_PALDEA_BLAZE                     1403
 #define SPECIES_TAUROS_PALDEA_AQUA                      1404
-#define SPECIES_WOOPER_PALDEA                           1405
+#define SPECIES_WOOPER_OUTSIDER                           1405
 // ScarletANd Violet 1.2.0
 #define SPECIES_WALKING_WAKE                            1406
 #define SPECIES_IRON_LEAVES                             1407
@@ -1582,7 +1582,7 @@
 #define SPECIES_SPEWPA_JUNGLE                           1473
 #define SPECIES_SPEWPA_FANCY                            1474
 #define SPECIES_SPEWPA_POKEBALL                         1475
-#define SPECIES_RATICATE_ALOLA_TOTEM                    1476
+#define SPECIES_RATICATE_OUTSIDER_TOTEM                    1476
 #define SPECIES_GUMSHOOS_TOTEM                          1477
 #define SPECIES_VIKAVOLT_TOTEM                          1478
 #define SPECIES_LURANTIS_TOTEM                          1479
@@ -1665,8 +1665,6 @@
 
 #define SPECIES_SHINY_TAG 5000
 
-#define SPECIES_RATTATA_ALOLAN                   SPECIES_RATTATA_ALOLA                          
-#define SPECIES_RATICATE_ALOLAN                  SPECIES_RATICATE_ALOLA                         
 #define SPECIES_RAICHU_ALOLAN                    SPECIES_RAICHU_ALOLA                           
 #define SPECIES_SANDSHREW_ALOLAN                 SPECIES_SANDSHREW_ALOLA                        
 #define SPECIES_SANDSLASH_ALOLAN                 SPECIES_SANDSLASH_ALOLA                        
@@ -1674,8 +1672,6 @@
 #define SPECIES_NINETALES_ALOLAN                 SPECIES_NINETALES_ALOLA                        
 #define SPECIES_DIGLETT_ALOLAN                   SPECIES_DIGLETT_ALOLA                          
 #define SPECIES_DUGTRIO_ALOLAN                   SPECIES_DUGTRIO_ALOLA                          
-#define SPECIES_MEOWTH_ALOLAN                    SPECIES_MEOWTH_ALOLA                           
-#define SPECIES_PERSIAN_ALOLAN                   SPECIES_PERSIAN_ALOLA                          
 #define SPECIES_GEODUDE_ALOLAN                   SPECIES_GEODUDE_ALOLA                          
 #define SPECIES_GRAVELER_ALOLAN                  SPECIES_GRAVELER_ALOLA                         
 #define SPECIES_GOLEM_ALOLAN                     SPECIES_GOLEM_ALOLA                            
@@ -1725,7 +1721,6 @@
 #define SPECIES_GASTRODON_EAST_SEA               SPECIES_GASTRODON_EAST
 #define SPECIES_MEOWSTIC_MALE                    SPECIES_MEOWSTIC_M
 #define SPECIES_MEOWSTIC_FEMALE                  SPECIES_MEOWSTIC_F
-#define SPECIES_WOOPER_PALDEAN                   SPECIES_WOOPER_PALDEA
 
 
 

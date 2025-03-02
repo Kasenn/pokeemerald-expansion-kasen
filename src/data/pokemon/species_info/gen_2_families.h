@@ -360,7 +360,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sQuilavaLevelUpLearnset,
         .teachableLearnset = sQuilavaTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_TYPHLOSION},
-                                {EVO_NONE, 0, SPECIES_TYPHLOSION_HISUI}),
+                                {EVO_ITEM, ITEM_ANCIENT_STONE, SPECIES_TYPHLOSION_HISUI}),
     },
 
 #if P_UPDATED_EXP_YIELDS >= GEN_8
@@ -436,7 +436,6 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sTyphlosionLevelUpLearnset,
         .teachableLearnset = sTyphlosionTeachableLearnset,
         .formSpeciesIdTable = sTyphlosionFormSpeciesIdTable,
-        .evolutions = EVOLUTION({EVO_ITEM, ITEM_ANCIENT_STONE, SPECIES_TYPHLOSION_HISUIAN}),
     },
 
 #if P_HISUIAN_FORMS
@@ -3322,7 +3321,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
 #endif //P_FAMILY_YANMA
 
 #if P_FAMILY_WOOPER
-    [SPECIES_WOOPER_PALDEAN] =
+    [SPECIES_WOOPER_OUTSIDER] =
     {
         .baseHP        = 55,
         .baseAttack    = 45,
@@ -3331,6 +3330,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .baseSpAttack  = 25,
         .baseSpDefense = 25,
         .types = MON_TYPES(TYPE_WATER, TYPE_GROUND),
+        .isPaldeanForm = TRUE,
         .catchRate = 255,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 42 : 52,
         .evYield_HP = 1,
@@ -3541,7 +3541,6 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
             gOverworldPalette_WooperPaldea,
             gShinyOverworldPalette_WooperPaldea
         )
-        .isPaldeanForm = TRUE,
         .levelUpLearnset = sWooperPaldeaLevelUpLearnset,
         .teachableLearnset = sWooperPaldeaTeachableLearnset,
         .eggMoveLearnset = sWooperPaldeaEggMoveLearnset,
@@ -5058,7 +5057,6 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sQwilfishTeachableLearnset,
         .eggMoveLearnset = sQwilfishEggMoveLearnset,
         .formSpeciesIdTable = sQwilfishFormSpeciesIdTable,
-        .evolutions = EVOLUTION({EVO_ITEM, ITEM_ANCIENT_STONE, SPECIES_QWILFISH_HISUIAN}),
     },
 
 #if P_HISUIAN_FORMS
@@ -5512,7 +5510,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .formSpeciesIdTable = sSneaselFormSpeciesIdTable,
         .evolutions = EVOLUTION({EVO_ITEM_HOLD_NIGHT, ITEM_RAZOR_CLAW, SPECIES_WEAVILE},
                                 {EVO_ITEM_NIGHT, ITEM_RAZOR_CLAW, SPECIES_WEAVILE},
-                                {EVO_ITEM, ITEM_ANCIENT_STONE, SPECIES_SNEASEL_HISUIAN}),
+                                {EVO_ITEM, ITEM_ANCIENT_STONE, SPECIES_SNEASLER}),
     },
 
 #if P_GEN_4_CROSS_EVOS

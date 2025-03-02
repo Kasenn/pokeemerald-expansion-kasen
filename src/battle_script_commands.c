@@ -498,7 +498,7 @@ static void Cmd_setlightscreen(void);
 static void Cmd_tryKO(void);
 static void Cmd_damagetohalftargethp(void);
 static void Cmd_copybidedmg(void);
-static void Cmd_unused_96(void);
+// static void Cmd_unused_96(void);
 static void Cmd_tryinfatuating(void);
 static void Cmd_updatestatusicon(void);
 static void Cmd_setmist(void);
@@ -524,6 +524,7 @@ static void Cmd_settailwind(void);
 static void Cmd_tryspiteppreduce(void);
 static void Cmd_healpartystatus(void);
 static void Cmd_cursetarget(void);
+static void Cmd_forestscurse(void);
 static void Cmd_trysetspikes(void);
 static void Cmd_setforesight(void);
 static void Cmd_trysetperishsong(void);
@@ -758,7 +759,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_tryKO,                                   //0x93
     Cmd_damagetohalftargethp,                    //0x94
     Cmd_copybidedmg,                             //0x95
-    Cmd_unused_96,                               //0x96
+    Cmd_forestscurse,                            //0x96
     Cmd_tryinfatuating,                          //0x97
     Cmd_updatestatusicon,                        //0x98
     Cmd_setmist,                                 //0x99
@@ -13147,9 +13148,9 @@ static void Cmd_copybidedmg(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
-static void Cmd_unused_96(void)
-{
-}
+// static void Cmd_unused_96(void)
+// {
+// }
 
 static void Cmd_tryinfatuating(void)
 {
@@ -14066,6 +14067,39 @@ static void Cmd_healpartystatus(void)
     }
 
     gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+static void Cmd_forestscurse(void)
+{
+    CMD_ARGS(const u8 *failInstr);
+    u32 type = TYPE_GRASS;
+
+    if ((IS_BATTLER_OF_TYPE(gBattlerTarget, type) || GetActiveGimmick(gBattlerTarget) == GIMMICK_TERA)
+     && (gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED))
+    {
+        gBattlescriptCurrInstr = cmd->failInstr;
+    }
+    else
+    {
+        if (IS_BATTLER_OF_TYPE(gBattlerTarget, type) || GetActiveGimmick(gBattlerTarget) == GIMMICK_TERA){}
+        else
+        {
+            gBattleMons[gBattlerTarget].types[2] = type;
+            PREPARE_TYPE_BUFFER(gBattleTextBuff1, type);
+        }
+
+        if (gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED){}
+        else
+        {
+            gBattleMons[gBattlerTarget].status2 |= STATUS2_CURSED;
+            gBattleStruct->moveDamage[gBattlerAttacker] = GetNonDynamaxMaxHP(gBattlerAttacker) / 4;
+    
+            if (gBattleStruct->moveDamage[gBattlerAttacker] == 0)
+                gBattleStruct->moveDamage[gBattlerAttacker] = 1;
+        }    
+        
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
 }
 
 static void Cmd_cursetarget(void)

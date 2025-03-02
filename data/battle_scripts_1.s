@@ -4276,24 +4276,21 @@ BattleScript_DoGhostCurse::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectForestCurse::
-	jumpiftype BS_ATTACKER, TYPE_GHOST, BattleScript_ForestGhostCurse
+	jumpiftype BS_ATTACKER, TYPE_GHOST, BattleScript_ForestsCurseEqualByte
 	attackcanceler
+	jumpiftype BS_ATTACKER, TYPE_GHOST, BattleScript_DoForestsCurse
 	attackstring
 	ppreduce
-	jumpifstat BS_ATTACKER, CMP_GREATER_THAN, STAT_SPEED, MIN_STAT_STAGE, BattleScript_CurseTrySpeed
-	jumpifstat BS_ATTACKER, CMP_NOT_EQUAL, STAT_ATK, MAX_STAT_STAGE, BattleScript_CurseTrySpeed
-	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_DEF, MAX_STAT_STAGE, BattleScript_ButItFailed
-	goto BattleScript_CurseTrySpeed
-BattleScript_ForestGhostCurse::
-	jumpifbytenotequal gBattlerAttacker, gBattlerTarget, BattleScript_DoForestGhostCurse
+	goto BattleScript_ButItFailed
+BattleScript_ForestsCurseEqualByte::
+	jumpifbytenotequal gBattlerAttacker, gBattlerTarget, BattleScript_DoForestsCurse
 	getmovetarget BS_ATTACKER
-BattleScript_DoForestGhostCurse::
+BattleScript_DoForestsCurse::
 	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	attackstring
 	ppreduce
-	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
-	trysetthirdtype BS_TARGET, BattleScript_ButItFailed
-	cursetarget BattleScript_ButItFailed
+	forestscursetarget BattleScript_ButItFailed
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
 	setbyte sB_ANIM_TURN, 0
 	attackanimation

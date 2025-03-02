@@ -72,7 +72,7 @@ static const u16 sPidgeotFormSpeciesIdTable[] = {
 static const u16 sRattataFormSpeciesIdTable[] = {
     SPECIES_RATTATA,
 #if P_ALOLAN_FORMS
-    SPECIES_RATTATA_ALOLA,
+    SPECIES_RATTATA_OUTSIDER,
 #endif
     FORM_SPECIES_END,
 };
@@ -80,8 +80,8 @@ static const u16 sRattataFormSpeciesIdTable[] = {
 static const u16 sRaticateFormSpeciesIdTable[] = {
     SPECIES_RATICATE,
 #if P_ALOLAN_FORMS
-    SPECIES_RATICATE_ALOLA,
-    SPECIES_RATICATE_ALOLA_TOTEM,
+    SPECIES_RATICATE_OUTSIDER,
+    SPECIES_RATICATE_OUTSIDER_TOTEM,
 #endif
     FORM_SPECIES_END,
 };
@@ -190,22 +190,16 @@ static const u16 sDugtrioFormSpeciesIdTable[] = {
 #if P_FAMILY_MEOWTH
 static const u16 sMeowthFormSpeciesIdTable[] = {
     SPECIES_MEOWTH,
-#if P_ALOLAN_FORMS
-    SPECIES_MEOWTH_ALOLA,
-#endif
-#if P_GALARIAN_FORMS
+    SPECIES_MEOWTH_OUTSIDER,
     SPECIES_MEOWTH_GALAR,
-#endif
-#if P_GIGANTAMAX_FORMS
     SPECIES_MEOWTH_GMAX,
-#endif
     FORM_SPECIES_END,
 };
 
 static const u16 sPersianFormSpeciesIdTable[] = {
     SPECIES_PERSIAN,
 #if P_ALOLAN_FORMS
-    SPECIES_PERSIAN_ALOLA,
+    SPECIES_PERSIAN_OUTSIDER,
 #endif
     FORM_SPECIES_END,
 };
@@ -606,7 +600,7 @@ static const u16 sAmpharosFormSpeciesIdTable[] = {
 static const u16 sWooperFormSpeciesIdTable[] = {
     SPECIES_WOOPER,
 #if P_PALDEAN_FORMS
-    SPECIES_WOOPER_PALDEA,
+    SPECIES_WOOPER_OUTSIDER,
 #endif
     FORM_SPECIES_END,
 };

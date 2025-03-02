@@ -1911,6 +1911,30 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .validApprenticeMove = TRUE,
     },
 
+#if TESTING
+    [MOVE_STRENGTH] =
+    {
+        .name = COMPOUND_STRING("Strength"),
+        .description = COMPOUND_STRING(
+            "Builds enormous power,\n"
+            "then slams the foe."),
+        .effect = EFFECT_HIT,
+        .power = 80,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 15,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .contestEffect = CONTEST_EFFECT_STARTLE_MONS_SAME_TYPE_APPEAL,
+        .contestCategory = CONTEST_CATEGORY_TOUGH,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .battleAnimScript = gBattleAnimMove_Strength,
+        .validApprenticeMove = TRUE,
+    },
+#else
     [MOVE_STRENGTH] =
     {
         .name = COMPOUND_STRING("Strength"),
@@ -1937,6 +1961,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_Strength,
         .validApprenticeMove = TRUE,
     },
+#endif
 
     [MOVE_ABSORB] =
     {
@@ -5024,6 +5049,34 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .validApprenticeMove = TRUE,
     },
 
+#if TESTING
+    [MOVE_OCTAZOOKA] =
+    {
+        .name = COMPOUND_STRING("Octazooka"),
+        .description = COMPOUND_STRING(
+            "Fires a lump of ink to\n"
+            "damage and cut accuracy."),
+        .effect = EFFECT_HIT,
+        .power = 65,
+        .type = TYPE_WATER,
+        .accuracy = 85,
+        .pp = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .ballisticMove = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_ACC_MINUS_1,
+            .chance = 50,
+        }),
+        .contestEffect = CONTEST_EFFECT_STARTLE_MON_WITH_JUDGES_ATTENTION,
+        .contestCategory = CONTEST_CATEGORY_TOUGH,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_LOCK_ON, COMBO_STARTER_RAIN_DANCE},
+        .battleAnimScript = gBattleAnimMove_Octazooka,
+        .validApprenticeMove = TRUE,
+    },
+#else
     [MOVE_OCTAZOOKA] =
     {
         .name = COMPOUND_STRING("Octazooka"),
@@ -5050,6 +5103,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_Octazooka,
         .validApprenticeMove = TRUE,
     },
+#endif
 
     [MOVE_SPIKES] =
     {
@@ -14708,9 +14762,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Forest's Curse"),
         .description = COMPOUND_STRING(
-            "Curses the foe.\n"
-            "Also makes it Grass-type."),
-        .effect = EFFECT_FOREST_CURSE,
+            "Ghost Pokémon curses the\n"
+            "foe and makes it Grass-type."),
+        .effect = EFFECT_FORESTS_CURSE,
         .power = 0,
         .type = TYPE_GRASS,
         .accuracy = 100,
@@ -14721,13 +14775,6 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .argument = { .type = TYPE_GRASS },
         .zMove = { .effect = Z_EFFECT_ALL_STATS_UP_1 },
         .magicCoatAffected = TRUE,
-        .mirrorMoveBanned = TRUE,
-        .metronomeBanned = TRUE,
-        .mimicBanned = TRUE,
-        .copycatBanned = TRUE,
-        .sleepTalkBanned = FALSE,
-        .instructBanned = FALSE,
-        .assistBanned = TRUE,
         .contestEffect = CONTEST_EFFECT_WORSEN_CONDITION_OF_PREV_MONS,
         .contestCategory = CONTEST_CATEGORY_SMART,
         .contestComboStarterId = 0,

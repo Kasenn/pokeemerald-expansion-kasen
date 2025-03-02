@@ -4430,7 +4430,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .teachableLearnset = sGoomyTeachableLearnset,
         .eggMoveLearnset = sGoomyEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 40, SPECIES_SLIGGOO},
-                                {EVO_NONE, 0, SPECIES_SLIGGOO_HISUI}),
+                                {EVO_ITEM, ITEM_ANCIENT_STONE, SPECIES_SLIGGOO_HISUI}),
     },
 
     [SPECIES_SLIGGOO] =
@@ -4500,8 +4500,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .teachableLearnset = sSliggooTeachableLearnset,
         .formSpeciesIdTable = sSliggooFormSpeciesIdTable,
         .evolutions = EVOLUTION({EVO_LEVEL_RAIN, 50, SPECIES_GOODRA},
-                                {EVO_LEVEL_FOG, 50, SPECIES_GOODRA},
-                                {EVO_ITEM, ITEM_ANCIENT_STONE, SPECIES_SLIGGOO_HISUIAN}),
+                                {EVO_LEVEL_FOG, 50, SPECIES_GOODRA}),
     },
 
     [SPECIES_GOODRA] =
@@ -4571,7 +4570,6 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .levelUpLearnset = sGoodraLevelUpLearnset,
         .teachableLearnset = sGoodraTeachableLearnset,
         .formSpeciesIdTable = sGoodraFormSpeciesIdTable,
-        .evolutions = EVOLUTION({EVO_ITEM, ITEM_ANCIENT_STONE, SPECIES_GOODRA_HISUIAN}),
     },
 
 #if P_HISUIAN_FORMS
@@ -5520,7 +5518,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .teachableLearnset = sBergmiteTeachableLearnset,
         .eggMoveLearnset = sBergmiteEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 37, SPECIES_AVALUGG},
-                                {EVO_NONE, 0, SPECIES_AVALUGG_HISUI}),
+                                {EVO_ITEM, ITEM_ANCIENT_STONE, SPECIES_AVALUGG_HISUI}),
     },
 
     [SPECIES_AVALUGG] =
@@ -5589,7 +5587,6 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .levelUpLearnset = sAvaluggLevelUpLearnset,
         .teachableLearnset = sAvaluggTeachableLearnset,
         .formSpeciesIdTable = sAvaluggFormSpeciesIdTable,
-        .evolutions = EVOLUTION({EVO_ITEM, ITEM_ANCIENT_STONE, SPECIES_AVALUGG_HISUIAN}),
     },
 
 #if P_HISUIAN_FORMS

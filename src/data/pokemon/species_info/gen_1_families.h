@@ -2020,7 +2020,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #endif //P_FAMILY_PIDGEY
 
 #if P_FAMILY_RATTATA
-    [SPECIES_RATTATA_ALOLAN] =
+    [SPECIES_RATTATA_OUTSIDER] =
     {
         .baseHP        = 30,
         .baseAttack    = 56,
@@ -2029,6 +2029,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .baseSpAttack  = 25,
         .baseSpDefense = 35,
         .types = MON_TYPES(TYPE_NORMAL),
+        .isAlolanForm = TRUE,
         .catchRate = 255,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 51 : 57,
         .evYield_Speed = 1,
@@ -2100,10 +2101,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .teachableLearnset = sRattataTeachableLearnset,
         .eggMoveLearnset = sRattataEggMoveLearnset,
         .formSpeciesIdTable = sRattataFormSpeciesIdTable,
-        .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_RATICATE}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_RATICATE_OUTSIDER}),
     },
 
-    [SPECIES_RATICATE_ALOLAN] =
+    [SPECIES_RATICATE_OUTSIDER] =
     {
         .baseHP        = 55,
         .baseAttack    = 81,
@@ -2112,6 +2113,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .baseSpAttack  = 50,
         .baseSpDefense = 70,
         .types = MON_TYPES(TYPE_NORMAL),
+        .isAlolanForm = TRUE,
         .catchRate = 127,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 145 : 116,
         .evYield_Speed = 2,
@@ -2252,13 +2254,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
             gOverworldPalette_RattataAlola,
             gShinyOverworldPalette_RattataAlola
         )
-        .isAlolanForm = TRUE,
         .levelUpLearnset = sRattataAlolaLevelUpLearnset,
         .teachableLearnset = sRattataAlolaTeachableLearnset,
         .eggMoveLearnset = sRattataAlolaEggMoveLearnset,
         .formSpeciesIdTable = sRattataFormSpeciesIdTable,
-        .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_RATICATE},
-                                {EVO_NONE, 0, SPECIES_RATICATE_ALOLA_TOTEM}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_RATICATE}),
     },
 
     [SPECIES_RATICATE] =
@@ -2316,13 +2316,12 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
             gOverworldPalette_RaticateAlola,
             gShinyOverworldPalette_RaticateAlola
         )
-        .isAlolanForm = TRUE,
         .levelUpLearnset = sRaticateAlolaLevelUpLearnset,
         .teachableLearnset = sRaticateAlolaTeachableLearnset,
         .formSpeciesIdTable = sRaticateFormSpeciesIdTable,
     },
 
-    [SPECIES_RATICATE_ALOLA_TOTEM] =
+    [SPECIES_RATICATE_OUTSIDER_TOTEM] =
     {
         .baseHP        = 75,
         .baseAttack    = 71,
@@ -6773,7 +6772,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #endif //P_FAMILY_DIGLETT
 
 #if P_FAMILY_MEOWTH
-    [SPECIES_MEOWTH_ALOLAN] =
+    [SPECIES_MEOWTH_OUTSIDER] =
     {
         .baseHP        = 40,
         .baseAttack    = 45,
@@ -6782,6 +6781,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .baseSpAttack  = 40,
         .baseSpDefense = 40,
         .types = MON_TYPES(TYPE_NORMAL),
+        .isAlolanForm = TRUE,
         .catchRate = 255,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 58 : 69,
         .evYield_Speed = 1,
@@ -6849,10 +6849,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .eggMoveLearnset = sMeowthEggMoveLearnset,
         .formSpeciesIdTable = sMeowthFormSpeciesIdTable,
         .formChangeTable = sMeowthFormChangeTable,
-        .evolutions = EVOLUTION({EVO_LEVEL, 28, SPECIES_PERSIAN}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 28, SPECIES_PERSIAN_OUTSIDER}),
     },
 
-    [SPECIES_PERSIAN_ALOLAN] =
+    [SPECIES_PERSIAN_OUTSIDER] =
     {
         .baseHP        = 65,
         .baseAttack    = 70,
@@ -6861,6 +6861,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .baseSpAttack  = 65,
         .baseSpDefense = 65,
         .types = MON_TYPES(TYPE_NORMAL),
+        .isAlolanForm = TRUE,
         .catchRate = 90,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 154 : 148,
         .evYield_Speed = 2,
@@ -6984,12 +6985,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
             gOverworldPalette_MeowthAlola,
             gShinyOverworldPalette_MeowthAlola
         )
-        .isAlolanForm = TRUE,
         .levelUpLearnset = sMeowthAlolaLevelUpLearnset,
         .teachableLearnset = sMeowthAlolaTeachableLearnset,
         .eggMoveLearnset = sMeowthAlolaEggMoveLearnset,
         .formSpeciesIdTable = sMeowthFormSpeciesIdTable,
-        .evolutions = EVOLUTION({EVO_FRIENDSHIP, 0, SPECIES_PERSIAN_ALOLA}),
+        .evolutions = EVOLUTION({EVO_FRIENDSHIP, 0, SPECIES_PERSIAN}),
     },
 
     [SPECIES_PERSIAN] =
@@ -7051,7 +7051,6 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
             gOverworldPalette_PersianAlola,
             gShinyOverworldPalette_PersianAlola
         )
-        .isAlolanForm = TRUE,
         .levelUpLearnset = sPersianAlolaLevelUpLearnset,
         .teachableLearnset = sPersianAlolaTeachableLearnset,
         .formSpeciesIdTable = sPersianFormSpeciesIdTable,
@@ -7677,7 +7676,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .eggMoveLearnset = sGrowlitheEggMoveLearnset,
         .formSpeciesIdTable = sGrowlitheFormSpeciesIdTable,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_FIRE_STONE, SPECIES_ARCANINE},
-        {EVO_ITEM, ITEM_ANCIENT_STONE, SPECIES_GROWLITHE_HISUIAN}),
+                                {EVO_ITEM, ITEM_ANCIENT_STONE, SPECIES_ARCANINE_HISUIAN}),
     },
 
     [SPECIES_ARCANINE] =
@@ -7745,7 +7744,6 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sArcanineLevelUpLearnset,
         .teachableLearnset = sArcanineTeachableLearnset,
         .formSpeciesIdTable = sArcanineFormSpeciesIdTable,
-        .evolutions = EVOLUTION({EVO_ITEM, ITEM_ANCIENT_STONE, SPECIES_ARCANINE_HISUIAN}),
     },
 
 #if P_HISUIAN_FORMS
@@ -12601,7 +12599,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .teachableLearnset = sVoltorbTeachableLearnset,
         .formSpeciesIdTable = sVoltorbFormSpeciesIdTable,
         .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_ELECTRODE},
-        {EVO_ITEM, ITEM_ANCIENT_STONE, SPECIES_VOLTORB_HISUIAN}),
+                                {EVO_ITEM, ITEM_ANCIENT_STONE, SPECIES_ELECTRODE_HISUIAN}),
     },
 
     [SPECIES_ELECTRODE] =
@@ -12671,7 +12669,6 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sElectrodeLevelUpLearnset,
         .teachableLearnset = sElectrodeTeachableLearnset,
         .formSpeciesIdTable = sElectrodeFormSpeciesIdTable,
-        .evolutions = EVOLUTION({EVO_ITEM, ITEM_ANCIENT_STONE, SPECIES_ELECTRODE_HISUIAN}),
     },
 
 #if P_HISUIAN_FORMS
