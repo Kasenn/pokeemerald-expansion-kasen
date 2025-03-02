@@ -6,13 +6,12 @@ const VAR_MON_SLOT = VAR_0x8004
 const VAR_NUMBER_OF_STATS_TRAINED = VAR_TEMP_0
 
 script Frosthearth_HyperTraining_Guru{
-    if(!flag(FLAG_INTRODUCTION_TO_HYPER_TRAINING)){
-        setflag(FLAG_INTRODUCTION_TO_HYPER_TRAINING)
-        msgbox(HyperTrainingIntro_Text, MSGBOX_NPC)
-        end
-    }
     lock
     faceplayer
+    if(!flag(FLAG_INTRODUCTION_TO_HYPER_TRAINING)){
+        setflag(FLAG_INTRODUCTION_TO_HYPER_TRAINING)
+        msgbox(HyperTrainingIntro_Text)
+    }
     if(msgbox(InterestedInHyperTraining, MSGBOX_YESNO) == FALSE){
         msgbox(NotInterestedInHyperTraining, MSGBOX_AUTOCLOSE)
         end
@@ -31,12 +30,17 @@ script Frosthearth_HyperTraining_Guru{
         end
     }
     checkhypertraininglevel(50)
+    if(var(VAR_RESULT) == SPECIES_EGG){
+        msgbox(SelectedMonIsEgg, MSGBOX_AUTOCLOSE)
+        end
+    }
     if(var(VAR_RESULT) == FALSE){
         bufferpartymonnick(STR_VAR_1, VAR_MON_SLOT)
         msgbox(SelectedMonNotHighEnoughForHyperTraining, MSGBOX_AUTOCLOSE)
         end
     }
-    if(canhypertrain(STAT_HP, VAR_MON_SLOT) == TRUE){
+    setvar(VAR_NUMBER_OF_STATS_TRAINED, 0)
+    if(canhypertrain(STAT_HP, VAR_MON_SLOT) == FALSE){
         addvar(VAR_NUMBER_OF_STATS_TRAINED, 1)
     }
     if(canhypertrain(STAT_ATK, VAR_MON_SLOT) == FALSE){
@@ -87,6 +91,7 @@ script SelectHyperTraining{
     }
 }
 script HyperTrainingNormalBottleCap{
+    bufferpartymonnick(STR_VAR_1, VAR_MON_SLOT)
     message(WhichStatToTrain)
     waitmessage
     // HP
@@ -133,7 +138,7 @@ script HyperTrainingNormalBottleCap{
     }
     dynmultipush("Back", 6)
 
-    dynmultistack(23, 0, FALSE, 7, FALSE, 0, 0)
+    dynmultistack(23, 0, FALSE, 6, FALSE, 0, 0)
     switch(var(VAR_RESULT)){
         case 0:
             if(canhypertrain(STAT_HP, VAR_MON_SLOT) == FALSE){
@@ -175,76 +180,73 @@ script HyperTrainingCapped{
     goto(HyperTrainingNormalBottleCap)
 }
 script Hypertrain_Hp{
-    if(msgbox(Hypertrain_Hp_Text, MSGBOX_YESNO) == FALSE){
-        goto(HyperTrainingNormalBottleCap)
-    }
-    call(Hypertraining_Start)
+    bufferstring(STR_VAR_2, "HP")
+    call(Hypertrain_Stat_MainBody)
     hypertrain(STAT_HP, VAR_MON_SLOT)
-    msgbox(MonHasBeenHyperTrainedInHp)
+    msgbox(MonHasBeenHyperTrained)
     removeitem(ITEM_BOTTLE_CAP, 1)
     msgbox(ComeBackForMoreHyperTraining)
     release
     end
 }
 script Hypertrain_Atk{
-    if(msgbox(Hypertrain_Atk_Text, MSGBOX_YESNO) == FALSE){
-        goto(HyperTrainingNormalBottleCap)
-    }
-    call(Hypertraining_Start)
+    bufferstring(STR_VAR_2, "Attack")
+    call(Hypertrain_Stat_MainBody)
     hypertrain(STAT_ATK, VAR_MON_SLOT)
-    msgbox(MonHasBeenHyperTrainedInAtk)
+    msgbox(MonHasBeenHyperTrained)
     removeitem(ITEM_BOTTLE_CAP, 1)
     msgbox(ComeBackForMoreHyperTraining)
     release
     end
 }
 script Hypertrain_Def{
-    if(msgbox(Hypertrain_Def_Text, MSGBOX_YESNO) == FALSE){
-        goto(HyperTrainingNormalBottleCap)
-    }
-    call(Hypertraining_Start)
+    bufferstring(STR_VAR_2, "Defense")
+    call(Hypertrain_Stat_MainBody)
     hypertrain(STAT_DEF, VAR_MON_SLOT)
-    msgbox(MonHasBeenHyperTrainedInDef)
+    msgbox(MonHasBeenHyperTrained)
     removeitem(ITEM_BOTTLE_CAP, 1)
     msgbox(ComeBackForMoreHyperTraining)
     release
     end
 }
 script Hypertrain_SpAtk{
-    if(msgbox(Hypertrain_SpAtk_Text, MSGBOX_YESNO) == FALSE){
-        goto(HyperTrainingNormalBottleCap)
-    }
-    call(Hypertraining_Start)
+    bufferstring(STR_VAR_2, "Special Attack")
+    call(Hypertrain_Stat_MainBody)
     hypertrain(STAT_SPATK, VAR_MON_SLOT)
-    msgbox(MonHasBeenHyperTrainedInSpAtk)
+    msgbox(MonHasBeenHyperTrained)
     removeitem(ITEM_BOTTLE_CAP, 1)
     msgbox(ComeBackForMoreHyperTraining)
     release
     end
 }
 script Hypertrain_SpDef{
-    if(msgbox(Hypertrain_SpDef_Text, MSGBOX_YESNO) == FALSE){
-        goto(HyperTrainingNormalBottleCap)
-    }
-    call(Hypertraining_Start)
+    bufferstring(STR_VAR_2, "Special Defense")
+    call(Hypertrain_Stat_MainBody)
     hypertrain(STAT_SPDEF, VAR_MON_SLOT)
-    msgbox(MonHasBeenHyperTrainedInSpDef)
+    msgbox(MonHasBeenHyperTrained)
     removeitem(ITEM_BOTTLE_CAP, 1)
     msgbox(ComeBackForMoreHyperTraining)
     release
     end
 }
 script Hypertrain_Speed{
-    if(msgbox(Hypertrain_Speed_Text, MSGBOX_YESNO) == FALSE){
-        goto(HyperTrainingNormalBottleCap)
-    }
-    call(Hypertraining_Start)
+    bufferstring(STR_VAR_2, "Speed")
+    call(Hypertrain_Stat_MainBody)
     hypertrain(STAT_SPEED, VAR_MON_SLOT)
-    msgbox(MonHasBeenHyperTrainedInSpeed)
+    msgbox(MonHasBeenHyperTrained)
     removeitem(ITEM_BOTTLE_CAP, 1)
     msgbox(ComeBackForMoreHyperTraining)
     release
     end
+}
+
+script Hypertrain_Stat_MainBody{
+    bufferpartymonnick(STR_VAR_1, VAR_MON_SLOT)
+    if(msgbox(Hypertrain_Stat_Text, MSGBOX_YESNO) == FALSE){
+        goto(HyperTrainingNormalBottleCap)
+    }
+    call(Hypertraining_Start)
+    return
 }
 
 script Hypertraining_Start{
@@ -257,11 +259,11 @@ script Hypertraining_Start{
     waitfanfare
     delay(60)
     fadescreen(FADE_FROM_BLACK)
-    bufferpartymonnick(STR_VAR_1, VAR_MON_SLOT)
     return
 }
 
 script HyperTrainingGoldBottleCap{
+    bufferpartymonnick(STR_VAR_1, VAR_MON_SLOT)
     if(msgbox(WillCostGoldCap, MSGBOX_YESNO) == FALSE){
         goto(SelectHyperTraining)
     }
@@ -284,7 +286,7 @@ script HyperTrainingGoldBottleCap{
     if(canhypertrain(STAT_SPDEF, VAR_MON_SLOT)){
         hypertrain(STAT_SPDEF, VAR_MON_SLOT)
     }
-    msgbox(MonIsNowFullyHyperTrained)
+    msgbox(MonHasBeenHyperTrained)
     removeitem(ITEM_GOLD_BOTTLE_CAP, 1)
     msgbox(ComeBackForMoreHyperTraining)
     release
@@ -292,73 +294,62 @@ script HyperTrainingGoldBottleCap{
 }
 
 text ChooseMonForHyperTraining{
-    "wip"
+    "Which one of your Pokémon do you\n"
+    "want to do some Hyper Training on?"
 }
 text SelectedMonNotHighEnoughForHyperTraining{
-    "wip"
+    "Oh no… No, no, no!\p"
+    "That Pokémon hasn't leveled up\n"
+    "enough to be ready for my amazing\l"
+    "Hyper Training!\l"
+    "Only Pokémon that have reached\l"
+    "Lv. 50 can handle the hype!"
 }
 text MonFullyHyperTrained{
-    "wip"
+    "But that Pokémon is already so awesome\n"
+    "that it doesn't need any training!"
 }
 text UseWhichBottleCaps{
-    "wip"
-}
-text GoldTrainingWillOverwrite{
-    "wip"
+    "So will it be a Bottle Cap or\n"
+    "a Gold Bottle Cap?\p"
+    "See how many you've got and\n"
+    "let me know."
 }
 text LetsHyperTrain{
-    "wip"
+    "Then get hype!\p"
+    "I'm about to do some real Hyper\n"
+    "Training on {STR_VAR_1} here!"
 }
-text MonIsNowFullyHyperTrained{
-    "wip"
+text SelectedMonIsEgg{
+    "An Egg?!\p"
+    "I understand why you're hyped to\n"
+    "have one, but I can't train\l"
+    "that thing yet!"
 }
 text ComeBackForMoreHyperTraining{
-    "wip"
+    "Come back any time you want to\n"
+    "hype up any of your Pokémon!"
 }
 text WillCostGoldCap{
-    "wip"
+    "So you want me to get all of\n"
+    "{STR_VAR_1}'s stats hyped up?"
 }
 text CantHypertrainThatStat{
-    "wip"
+    "But that Pokémon is already so awesome\n"
+    "that it doesn't need any training\l"
+    "in that stat!"
 }
 text WhichStatToTrain{
-    "wip"
+    "Which one of {STR_VAR_1}'s stats do\n"
+    "you want to do some Hyper Training on?"
 }
-text Hypertrain_Hp_Text{
-    "wip"
+text Hypertrain_Stat_Text{
+    "So you want to have your Pokémon\n"
+    "Hyper Trained in {STR_VAR_2}?"
 }
-text Hypertrain_Atk_Text{
-    "wip"
-}
-text Hypertrain_Def_Text{
-    "wip"
-}
-text Hypertrain_SpAtk_Text{
-    "wip"
-}
-text Hypertrain_SpDef_Text{
-    "wip"
-}
-text Hypertrain_Speed_Text{
-    "wip"
-}
-text MonHasBeenHyperTrainedInHp{
-    "wip"
-}
-text MonHasBeenHyperTrainedInAtk{
-    "wip"
-}
-text MonHasBeenHyperTrainedInDef{
-    "wip"
-}
-text MonHasBeenHyperTrainedInSpAtk{
-    "wip"
-}
-text MonHasBeenHyperTrainedInSpDef{
-    "wip"
-}
-text MonHasBeenHyperTrainedInSpeed{
-    "wip"
+text MonHasBeenHyperTrained{
+    "All right! {STR_VAR_1} got even\n"
+    "stronger thanks to my Hyper Training!"
 }
 
 text HyperTrainingIntro_Text{
@@ -398,12 +389,6 @@ text NoBottleCaps{
     "Oh no… No, no, no!\p"
     "You don't have a Bottle Cap or a\n"
     "Gold Bottle Cap! Not even one!"
-}
-text CheatingAndy{
-    "There's no way you could have obtained\n"
-    "these Bottle Caps legitimately!\p"
-    "I have no choice but to\n"
-    "confiscate them!"
 }
 
 script Frosthearth_TypeChecker{

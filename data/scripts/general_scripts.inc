@@ -482,8 +482,9 @@ Debug_Script_2::
 
 
 Debug_Script_3::
-	givemon SPECIES_GROWLITHE, 100, move1 = MOVE_SKY_ATTACK, move2 = MOVE_REVELATION_DANCE
-	createmon 1, 0, SPECIES_TREVENANT, 100, move1 = MOVE_FORESTS_CURSE
+	callnative ZeroPlayerPartyMons
+	givemon SPECIES_PORYGON_Z_MEGA, 100, move1 = MOVE_WATER_GUN, move2 = MOVE_SWIFT
+	createmon 1, 0, SPECIES_TREVENANT, 100, move1 = MOVE_LIGHT_SCREEN
 	dowildbattle
 	return
 

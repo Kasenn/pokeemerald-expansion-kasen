@@ -3559,7 +3559,11 @@ void ScrCmd_IsSelectedMonRequiredLevel(struct ScriptContext *ctx)
     u8 requiredLevel = VarGet(ScriptReadHalfword(ctx));
     u8 monLevel = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_LEVEL, 0);
 
-    if (monLevel >= requiredLevel)
+    if (GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_IS_EGG, NULL))
+    {
+        gSpecialVar_Result = SPECIES_EGG;
+    }
+    else if (monLevel >= requiredLevel)
     {
         gSpecialVar_Result = TRUE;
     }
