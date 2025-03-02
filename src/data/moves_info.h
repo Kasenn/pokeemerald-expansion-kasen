@@ -14762,8 +14762,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Forest's Curse"),
         .description = COMPOUND_STRING(
-            "Ghost Pokémon curses the\n"
-            "foe and makes it Grass-type."),
+            "Curses the foe.\n"
+            "Also makes it Grass-type."),
         .effect = EFFECT_FORESTS_CURSE,
         .power = 0,
         .type = TYPE_GRASS,

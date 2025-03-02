@@ -3750,6 +3750,8 @@ BattleScript_PowerHerbActivation:
 BattleScript_WeatherWindActivation::
 	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
 	printstring STRINGID_WEATHERWIND
+	waitmessage B_WAIT_TIME_MED
+	printstring STRINGID_USEDMOVE
 	waitmessage B_WAIT_TIME_LONG
 	return
 
