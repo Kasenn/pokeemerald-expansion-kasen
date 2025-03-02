@@ -90,11 +90,11 @@ SINGLE_BATTLE_TEST("Freezing Glare shouldn't freeze Psychic-types")
 #endif
 {
     GIVEN {
-        ASSUME(gSpeciesInfo[SPECIES_ARTICUNO_GALAR].types[0] == TYPE_PSYCHIC);
+        ASSUME(gSpeciesInfo[SPECIES_ARTICUNO].types[0] == TYPE_PSYCHIC);
         ASSUME(MoveHasAdditionalEffect(MOVE_FREEZING_GLARE, MOVE_EFFECT_FREEZE_OR_FROSTBITE) == TRUE);
         ASSUME(GetMoveType(MOVE_FREEZING_GLARE) == TYPE_PSYCHIC);
-        PLAYER(SPECIES_ARTICUNO_GALAR);
-        OPPONENT(SPECIES_ARTICUNO_GALAR);
+        PLAYER(SPECIES_ARTICUNO);
+        OPPONENT(SPECIES_ARTICUNO);
     } WHEN {
         TURN { MOVE(player, MOVE_FREEZING_GLARE); }
     } SCENE {
