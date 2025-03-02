@@ -86,66 +86,30 @@ TEST("(Daycare) Shellos' form is always based on the mother's form")
 
 TEST("(Daycare) Pokémon with regional forms give the correct offspring")
 {
-    u32 region = 0, offspring = 0, species1 = 0, item1 = 0, species2 = 0, item2 = 0;
+    u32 offspring = 0, species1 = 0, item1 = 0, species2 = 0, item2 = 0;
 
     ZeroPlayerPartyMons();
 
-    region = GetCurrentRegion();
-    if (region == REGION_ALOLA) {
-        PARAMETRIZE { offspring=SPECIES_MEOWTH_ALOLA;  species1=SPECIES_MEOWTH;        item1=ITEM_NONE;      species2=SPECIES_MEOWTH_ALOLA;  item2=ITEM_NONE;      }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH_ALOLA;  species1=SPECIES_MEOWTH;        item1=ITEM_NONE;      species2=SPECIES_MEOWTH_ALOLA;  item2=ITEM_EVERSTONE; }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH_ALOLA;  species1=SPECIES_MEOWTH;        item1=ITEM_NONE;      species2=SPECIES_MEOWTH_GALAR;  item2=ITEM_NONE;      }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH_GALAR;  species1=SPECIES_MEOWTH;        item1=ITEM_NONE;      species2=SPECIES_MEOWTH_GALAR;  item2=ITEM_EVERSTONE; }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH_ALOLA;  species1=SPECIES_DIGLETT;       item1=ITEM_NONE;      species2=SPECIES_MEOWTH_GALAR;  item2=ITEM_NONE;      }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH_GALAR;  species1=SPECIES_DIGLETT;       item1=ITEM_NONE;      species2=SPECIES_MEOWTH_GALAR;  item2=ITEM_EVERSTONE; }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH_GALAR;  species1=SPECIES_PERRSERKER;    item1=ITEM_EVERSTONE; species2=SPECIES_PERSIAN;       item2=ITEM_NONE;      }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH;        species1=SPECIES_PERRSERKER;    item1=ITEM_EVERSTONE; species2=SPECIES_PERSIAN;       item2=ITEM_EVERSTONE; }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH;        species1=SPECIES_PERSIAN_ALOLA; item1=ITEM_EVERSTONE; species2=SPECIES_PERSIAN;       item2=ITEM_EVERSTONE; }
-    } else if (region == REGION_GALAR) {
-        PARAMETRIZE { offspring=SPECIES_MEOWTH_GALAR;  species1=SPECIES_MEOWTH;        item1=ITEM_NONE;      species2=SPECIES_MEOWTH_ALOLA;  item2=ITEM_NONE;      }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH_ALOLA;  species1=SPECIES_MEOWTH;        item1=ITEM_NONE;      species2=SPECIES_MEOWTH_ALOLA;  item2=ITEM_EVERSTONE; }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH_GALAR;  species1=SPECIES_MEOWTH;        item1=ITEM_NONE;      species2=SPECIES_MEOWTH_GALAR;  item2=ITEM_NONE;      }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH_GALAR;  species1=SPECIES_MEOWTH;        item1=ITEM_NONE;      species2=SPECIES_MEOWTH_GALAR;  item2=ITEM_EVERSTONE; }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH_GALAR;  species1=SPECIES_DIGLETT;       item1=ITEM_NONE;      species2=SPECIES_MEOWTH_GALAR;  item2=ITEM_NONE;      }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH_GALAR;  species1=SPECIES_DIGLETT;       item1=ITEM_NONE;      species2=SPECIES_MEOWTH_GALAR;  item2=ITEM_EVERSTONE; }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH_GALAR;  species1=SPECIES_PERRSERKER;    item1=ITEM_EVERSTONE; species2=SPECIES_PERSIAN;       item2=ITEM_NONE;      }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH;        species1=SPECIES_PERRSERKER;    item1=ITEM_EVERSTONE; species2=SPECIES_PERSIAN;       item2=ITEM_EVERSTONE; }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH;        species1=SPECIES_PERSIAN_ALOLA; item1=ITEM_EVERSTONE; species2=SPECIES_PERSIAN;       item2=ITEM_EVERSTONE; }
-    } else {
-        PARAMETRIZE { offspring=SPECIES_MEOWTH;        species1=SPECIES_MEOWTH;        item1=ITEM_NONE;      species2=SPECIES_MEOWTH_ALOLA,  item2=ITEM_NONE;      }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH_ALOLA;  species1=SPECIES_MEOWTH;        item1=ITEM_NONE;      species2=SPECIES_MEOWTH_ALOLA,  item2=ITEM_EVERSTONE; }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH;        species1=SPECIES_MEOWTH;        item1=ITEM_NONE;      species2=SPECIES_MEOWTH_GALAR,  item2=ITEM_NONE;      }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH_GALAR;  species1=SPECIES_MEOWTH;        item1=ITEM_NONE;      species2=SPECIES_MEOWTH_GALAR,  item2=ITEM_EVERSTONE; }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH;        species1=SPECIES_DIGLETT;       item1=ITEM_NONE;      species2=SPECIES_MEOWTH_GALAR,  item2=ITEM_NONE;      }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH_GALAR;  species1=SPECIES_DIGLETT;       item1=ITEM_NONE;      species2=SPECIES_MEOWTH_GALAR,  item2=ITEM_EVERSTONE; }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH_GALAR;  species1=SPECIES_PERRSERKER;    item1=ITEM_EVERSTONE; species2=SPECIES_PERSIAN,       item2=ITEM_NONE;      }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH;        species1=SPECIES_PERRSERKER;    item1=ITEM_EVERSTONE; species2=SPECIES_PERSIAN,       item2=ITEM_EVERSTONE; }
-        PARAMETRIZE { offspring=SPECIES_MEOWTH;        species1=SPECIES_PERSIAN_ALOLA; item1=ITEM_EVERSTONE; species2=SPECIES_PERSIAN,       item2=ITEM_EVERSTONE; }
-    }
+    PARAMETRIZE { offspring=SPECIES_MEOWTH;          species1=SPECIES_MEOWTH;           item1=ITEM_NONE;      species2=SPECIES_MEOWTH_OUTSIDER,  item2=ITEM_NONE;      }
+    PARAMETRIZE { offspring=SPECIES_MEOWTH_OUTSIDER; species1=SPECIES_MEOWTH;           item1=ITEM_NONE;      species2=SPECIES_MEOWTH_OUTSIDER,  item2=ITEM_EVERSTONE; }
+    PARAMETRIZE { offspring=SPECIES_MEOWTH;          species1=SPECIES_MEOWTH;           item1=ITEM_NONE;      species2=SPECIES_MEOWTH_GALAR,     item2=ITEM_NONE;      }
+    PARAMETRIZE { offspring=SPECIES_MEOWTH_GALAR;    species1=SPECIES_MEOWTH;           item1=ITEM_NONE;      species2=SPECIES_MEOWTH_GALAR,     item2=ITEM_EVERSTONE; }
+    PARAMETRIZE { offspring=SPECIES_MEOWTH;          species1=SPECIES_DIGLETT;          item1=ITEM_NONE;      species2=SPECIES_MEOWTH_GALAR,     item2=ITEM_NONE;      }
+    PARAMETRIZE { offspring=SPECIES_MEOWTH_GALAR;    species1=SPECIES_DIGLETT;          item1=ITEM_NONE;      species2=SPECIES_MEOWTH_GALAR,     item2=ITEM_EVERSTONE; }
+    PARAMETRIZE { offspring=SPECIES_MEOWTH_GALAR;    species1=SPECIES_PERRSERKER;       item1=ITEM_EVERSTONE; species2=SPECIES_PERSIAN,          item2=ITEM_NONE;      }
+    PARAMETRIZE { offspring=SPECIES_MEOWTH;          species1=SPECIES_PERRSERKER;       item1=ITEM_EVERSTONE; species2=SPECIES_PERSIAN,          item2=ITEM_EVERSTONE; }
+    PARAMETRIZE { offspring=SPECIES_MEOWTH;          species1=SPECIES_PERSIAN_OUTSIDER; item1=ITEM_EVERSTONE; species2=SPECIES_PERSIAN,          item2=ITEM_EVERSTONE; }
+    
+    PARAMETRIZE { offspring=SPECIES_SNEASEL;         species1=SPECIES_SNEASEL;          item1=ITEM_NONE;      species2=SPECIES_SNEASEL_HISUI,    item2=ITEM_NONE;      }
+    PARAMETRIZE { offspring=SPECIES_SNEASEL;         species1=SPECIES_SNEASEL;          item1=ITEM_EVERSTONE; species2=SPECIES_SNEASEL_HISUI,    item2=ITEM_NONE;      }
+    PARAMETRIZE { offspring=SPECIES_SNEASEL_HISUI;   species1=SPECIES_SNEASEL;          item1=ITEM_NONE;      species2=SPECIES_SNEASEL_HISUI,    item2=ITEM_EVERSTONE; }
+    PARAMETRIZE { offspring=SPECIES_SNEASEL;         species1=SPECIES_SNEASLER;         item1=ITEM_EVERSTONE; species2=SPECIES_WEAVILE,          item2=ITEM_EVERSTONE; }
+    
+    PARAMETRIZE { offspring=SPECIES_WOOPER;          species1=SPECIES_WOOPER;           item1=ITEM_NONE;      species2=SPECIES_WOOPER_OUTSIDER,  item2=ITEM_NONE;      }
+    PARAMETRIZE { offspring=SPECIES_WOOPER;          species1=SPECIES_WOOPER;           item1=ITEM_EVERSTONE; species2=SPECIES_WOOPER_OUTSIDER,  item2=ITEM_NONE;      }
+    PARAMETRIZE { offspring=SPECIES_WOOPER_OUTSIDER; species1=SPECIES_WOOPER;           item1=ITEM_NONE;      species2=SPECIES_WOOPER_OUTSIDER,  item2=ITEM_EVERSTONE; }
+    PARAMETRIZE { offspring=SPECIES_WOOPER_OUTSIDER; species1=SPECIES_CLODSIRE;         item1=ITEM_EVERSTONE; species2=SPECIES_QUAGSIRE,         item2=ITEM_EVERSTONE; }
 
-    if (region == REGION_HISUI) {
-        PARAMETRIZE { offspring=SPECIES_SNEASEL_HISUI; species1=SPECIES_SNEASEL;       item1=ITEM_NONE;      species2=SPECIES_SNEASEL_HISUI, item2=ITEM_NONE;      }
-        PARAMETRIZE { offspring=SPECIES_SNEASEL;       species1=SPECIES_SNEASEL;       item1=ITEM_EVERSTONE; species2=SPECIES_SNEASEL_HISUI, item2=ITEM_NONE;      }
-        PARAMETRIZE { offspring=SPECIES_SNEASEL_HISUI; species1=SPECIES_SNEASEL;       item1=ITEM_NONE;      species2=SPECIES_SNEASEL_HISUI, item2=ITEM_EVERSTONE; }
-        PARAMETRIZE { offspring=SPECIES_SNEASEL;       species1=SPECIES_SNEASLER;      item1=ITEM_EVERSTONE; species2=SPECIES_WEAVILE,       item2=ITEM_EVERSTONE; }
-    } else {
-        PARAMETRIZE { offspring=SPECIES_SNEASEL;       species1=SPECIES_SNEASEL;       item1=ITEM_NONE;      species2=SPECIES_SNEASEL_HISUI, item2=ITEM_NONE;      }
-        PARAMETRIZE { offspring=SPECIES_SNEASEL;       species1=SPECIES_SNEASEL;       item1=ITEM_EVERSTONE; species2=SPECIES_SNEASEL_HISUI, item2=ITEM_NONE;      }
-        PARAMETRIZE { offspring=SPECIES_SNEASEL_HISUI; species1=SPECIES_SNEASEL;       item1=ITEM_NONE;      species2=SPECIES_SNEASEL_HISUI, item2=ITEM_EVERSTONE; }
-        PARAMETRIZE { offspring=SPECIES_SNEASEL;       species1=SPECIES_SNEASLER;      item1=ITEM_EVERSTONE; species2=SPECIES_WEAVILE,       item2=ITEM_EVERSTONE; }
-    }
-
-    if (region == REGION_PALDEA) {
-        PARAMETRIZE { offspring=SPECIES_WOOPER_PALDEA; species1=SPECIES_WOOPER;        item1=ITEM_NONE;      species2=SPECIES_WOOPER_PALDEA, item2=ITEM_NONE;      }
-        PARAMETRIZE { offspring=SPECIES_WOOPER;        species1=SPECIES_WOOPER;        item1=ITEM_EVERSTONE; species2=SPECIES_WOOPER_PALDEA, item2=ITEM_NONE;      }
-        PARAMETRIZE { offspring=SPECIES_WOOPER_PALDEA; species1=SPECIES_WOOPER;        item1=ITEM_NONE;      species2=SPECIES_WOOPER_PALDEA, item2=ITEM_EVERSTONE; }
-        PARAMETRIZE { offspring=SPECIES_WOOPER;        species1=SPECIES_CLODSIRE;      item1=ITEM_EVERSTONE; species2=SPECIES_QUAGSIRE,      item2=ITEM_EVERSTONE; }
-    } else {
-        PARAMETRIZE { offspring=SPECIES_WOOPER;        species1=SPECIES_WOOPER;        item1=ITEM_NONE;      species2=SPECIES_WOOPER_PALDEA, item2=ITEM_NONE;      }
-        PARAMETRIZE { offspring=SPECIES_WOOPER;        species1=SPECIES_WOOPER;        item1=ITEM_EVERSTONE; species2=SPECIES_WOOPER_PALDEA, item2=ITEM_NONE;      }
-        PARAMETRIZE { offspring=SPECIES_WOOPER_PALDEA; species1=SPECIES_WOOPER;        item1=ITEM_NONE;      species2=SPECIES_WOOPER_PALDEA, item2=ITEM_EVERSTONE; }
-        PARAMETRIZE { offspring=SPECIES_WOOPER;        species1=SPECIES_CLODSIRE;      item1=ITEM_EVERSTONE; species2=SPECIES_QUAGSIRE,      item2=ITEM_EVERSTONE; }
-    }
     ASSUME(IsSpeciesEnabled(species1) == TRUE);
     ASSUME(IsSpeciesEnabled(species2) == TRUE);
     ASSUME(IsSpeciesEnabled(offspring) == TRUE);

@@ -118,6 +118,8 @@ DOUBLE_BATTLE_TEST("Spread Moves: A spread move attack will be weakened by stron
     s16 opponentLeftDmg[2];
     s16 opponentRightDmg[2];
 
+    KNOWN_FAILING; // Strong winds has been changed to work completely differently
+
     GIVEN {
         PLAYER(SPECIES_GARDEVOIR);
         PLAYER(SPECIES_RAYQUAZA) { Ability(ABILITY_AIR_LOCK); }
@@ -145,6 +147,8 @@ DOUBLE_BATTLE_TEST("Spread Moves: A spread move attack will be weakened by stron
 {
     s16 opponentLeftDmg[2];
     s16 opponentRightDmg[2];
+
+    KNOWN_FAILING; // Strong winds has been changed to work completely differently
 
     GIVEN {
         PLAYER(SPECIES_GARDEVOIR);

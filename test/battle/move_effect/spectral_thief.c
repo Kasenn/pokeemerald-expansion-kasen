@@ -34,7 +34,7 @@ SINGLE_BATTLE_TEST("Spectral Thief can't steal opponent's boost if target is imm
     GIVEN {
         ASSUME(gMovesInfo[MOVE_SWORDS_DANCE].effect == EFFECT_ATTACK_UP_2);
         ASSUME(gMovesInfo[MOVE_SPECTRAL_THIEF].effect == EFFECT_SPECTRAL_THIEF);
-        PLAYER(SPECIES_MEOWTH);
+        PLAYER(SPECIES_MEOWTH_OUTSIDER);
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
             TURN { MOVE(player, MOVE_SWORDS_DANCE); MOVE(opponent, MOVE_SPECTRAL_THIEF); }

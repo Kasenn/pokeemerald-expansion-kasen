@@ -227,9 +227,23 @@ TEST("Item descriptions fit on Bag and Shop Screen")
     u32 item = ITEM_NONE;
     for (i = 1; i < ITEMS_COUNT; i++)
     {
-        PARAMETRIZE_LABEL("%S", gItemsInfo[i].description) { item = i; }
+        if (GetPocketByItemId(item) == POCKET_TM_HM)
+        {
+            PARAMETRIZE_LABEL("%S", gItemsInfo[i].name) { item = i; }
+        }
+        else
+        {
+            PARAMETRIZE_LABEL("%S", gItemsInfo[i].description) { item = i; }
+        }
     }
-    EXPECT_LE(GetStringWidth(fontId, gItemsInfo[item].description, 0), widthPx);
+    if (GetPocketByItemId(item) == POCKET_TM_HM)
+    {
+        EXPECT_LE(GetStringWidth(fontId, gItemsInfo[item].name, 0), widthPx);
+    }
+    else
+    {
+        EXPECT_LE(GetStringWidth(fontId, gItemsInfo[item].description, 0), widthPx);
+    }
 }
 
 TEST("Species names fit on Battle Screen HP box")

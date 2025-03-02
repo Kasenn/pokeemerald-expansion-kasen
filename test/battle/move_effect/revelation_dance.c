@@ -6,7 +6,7 @@ ASSUMPTIONS
     ASSUME(GetMoveEffect(MOVE_REVELATION_DANCE) == EFFECT_REVELATION_DANCE);
     ASSUME(IsDanceMove(MOVE_REVELATION_DANCE));
     ASSUME(IsMoveEffectRemoveSpeciesType(MOVE_BURN_UP, MOVE_EFFECT_REMOVE_ARG_TYPE, TYPE_FIRE));
-    ASSUME(GetMoveEffect(MOVE_FORESTS_CURSE) == EFFECT_THIRD_TYPE);
+    ASSUME(GetMoveEffect(MOVE_FORESTS_CURSE) == EFFECT_FORESTS_CURSE);
     ASSUME(GetMoveArgType(MOVE_FORESTS_CURSE) == TYPE_GRASS);
     ASSUME(GetMoveEffect(MOVE_ROOST) == EFFECT_ROOST);
 }
@@ -19,7 +19,7 @@ SINGLE_BATTLE_TEST("Revelation Dance changes its type depending on the user's 1s
     PARAMETRIZE { speciesPlayer = SPECIES_ORICORIO_POM_POM; speciesOpponent = SPECIES_DUGTRIO; }
     PARAMETRIZE { speciesPlayer = SPECIES_ORICORIO_BAILE; speciesOpponent = SPECIES_BLASTOISE; }
     PARAMETRIZE { speciesPlayer = SPECIES_ORICORIO_PAU; speciesOpponent = SPECIES_LIEPARD; }
-    PARAMETRIZE { speciesPlayer = SPECIES_ORICORIO_SENSU; speciesOpponent = SPECIES_PERSIAN; }
+    PARAMETRIZE { speciesPlayer = SPECIES_ORICORIO_SENSU; speciesOpponent = SPECIES_PERSIAN_OUTSIDER; }
 
     GIVEN {
         PLAYER(speciesPlayer);

@@ -163,8 +163,11 @@ SINGLE_BATTLE_TEST("Powder fails if the target has Overcoat")
 
 DOUBLE_BATTLE_TEST("Powder still blocks the target's Fire type moves even if it was given Grass type")
 {
+
+    // KNOWN_FAILING;  // Forest's Curse has been redesigned
+
     GIVEN {
-        ASSUME(GetMoveEffect(MOVE_FORESTS_CURSE) == EFFECT_THIRD_TYPE);
+        ASSUME(GetMoveEffect(MOVE_FORESTS_CURSE) == EFFECT_FORESTS_CURSE);
         ASSUME(GetMoveArgType(MOVE_FORESTS_CURSE) == TYPE_GRASS);
         PLAYER(SPECIES_WOBBUFFET);
         PLAYER(SPECIES_WOBBUFFET);

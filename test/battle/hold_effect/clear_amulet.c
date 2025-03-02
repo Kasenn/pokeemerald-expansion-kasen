@@ -64,7 +64,7 @@ SINGLE_BATTLE_TEST("Clear Amulet prevents secondary effects that reduce stats")
     u32 move;
 
     PARAMETRIZE { move = MOVE_AURORA_BEAM; }
-    PARAMETRIZE { move = MOVE_ROCK_SMASH; }
+    PARAMETRIZE { move = MOVE_RAZOR_SHELL; }
     PARAMETRIZE { move = MOVE_SNARL; }
     PARAMETRIZE { move = MOVE_PSYCHIC; }
     PARAMETRIZE { move = MOVE_BUBBLE_BEAM; }
@@ -72,7 +72,7 @@ SINGLE_BATTLE_TEST("Clear Amulet prevents secondary effects that reduce stats")
 
     GIVEN {
         ASSUME(MoveHasAdditionalEffect(MOVE_AURORA_BEAM, MOVE_EFFECT_ATK_MINUS_1) == TRUE);
-        ASSUME(MoveHasAdditionalEffect(MOVE_ROCK_SMASH, MOVE_EFFECT_DEF_MINUS_1) == TRUE);
+        ASSUME(MoveHasAdditionalEffect(MOVE_RAZOR_SHELL, MOVE_EFFECT_DEF_MINUS_1) == TRUE);
         ASSUME(MoveHasAdditionalEffect(MOVE_BUBBLE_BEAM, MOVE_EFFECT_SPD_MINUS_1) == TRUE);
         ASSUME(MoveHasAdditionalEffect(MOVE_SNARL, MOVE_EFFECT_SP_ATK_MINUS_1) == TRUE);
         ASSUME(MoveHasAdditionalEffect(MOVE_PSYCHIC, MOVE_EFFECT_SP_DEF_MINUS_1) == TRUE);

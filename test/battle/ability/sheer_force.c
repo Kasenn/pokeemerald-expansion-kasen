@@ -602,6 +602,7 @@ static inline bool32 IsMoveSheerForceBoosted(u32 move)
         case MOVE_VOLT_TACKLE:
         case MOVE_WICKED_TORQUE:
         case MOVE_WILDBOLT_STORM:
+        case MOVE_WILD_CHARGE:
         case MOVE_ZING_ZAP:
         case MOVE_ELECTRO_SHOT:
         case MOVE_PSYCHIC_NOISE:
