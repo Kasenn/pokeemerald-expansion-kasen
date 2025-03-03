@@ -4384,6 +4384,14 @@ BattleScript_EffectSandstorm::
 	setfieldweather BATTLE_WEATHER_SANDSTORM
 	goto BattleScript_MoveWeatherChange
 
+BattleScript_WindStarter::
+	attackcanceler
+	attackstring
+	ppreduce
+	call BattleScript_CheckPrimalWeather
+	setfieldweather BATTLE_WEATHER_STRONG_WINDS
+	goto BattleScript_MoveWeatherChange
+
 BattleScript_EffectRollout::
 	attackcanceler
 	attackstring

@@ -66,7 +66,7 @@ SINGLE_BATTLE_TEST("Revelation Dance changes its type depending on the user's 2n
 SINGLE_BATTLE_TEST("Revelation Dance changes its type depending on the user's 3rd Type if it has no 1st or 2nd type")
 {
     GIVEN {
-        PLAYER(SPECIES_GROWLITHE);
+        PLAYER(SPECIES_GROWLITHE) {SpAttack(1); }
         OPPONENT(SPECIES_TREVENANT);
     } WHEN {
         TURN { MOVE(player, MOVE_BURN_UP); MOVE(opponent, MOVE_FORESTS_CURSE); }

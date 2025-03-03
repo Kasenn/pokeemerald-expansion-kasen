@@ -665,6 +665,7 @@ extern const u8 BattleScript_EffectSpikes[];
 extern const u8 BattleScript_EffectForesight[];
 extern const u8 BattleScript_EffectPerishSong[];
 extern const u8 BattleScript_EffectSandstorm[];
+extern const u8 BattleScript_WindStarter[];
 extern const u8 BattleScript_EffectEndure[];
 extern const u8 BattleScript_EffectRollout[];
 extern const u8 BattleScript_EffectSwagger[];

@@ -5396,6 +5396,32 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .validApprenticeMove = TRUE,
     },
 
+    [MOVE_WIND_STARTER] =
+    {
+        .name = COMPOUND_STRING("Wind Starter"),
+        .description = COMPOUND_STRING(
+            "Cannot be used"),
+        .effect = EFFECT_WIND_STARTER,
+        .power = 0,
+        .type = TYPE_FLYING,
+        .accuracy = 0,
+        .pp = 10,
+        .target = MOVE_TARGET_ALL_BATTLERS,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .zMove = { .effect = Z_EFFECT_SPD_UP_1 },
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .windMove = TRUE,
+        .metronomeBanned = TRUE,
+        .contestEffect = CONTEST_EFFECT_SCRAMBLE_NEXT_TURN_ORDER,
+        .contestCategory = CONTEST_CATEGORY_TOUGH,
+        .contestComboStarterId = COMBO_STARTER_SANDSTORM,
+        .contestComboMoves = {0},
+        .battleAnimScript = gBattleAnimMove_Tackle,
+        .validApprenticeMove = TRUE,
+    },
+
     [MOVE_GIGA_DRAIN] =
     {
         .name = COMPOUND_STRING("Giga Drain"),

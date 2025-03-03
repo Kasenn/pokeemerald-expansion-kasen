@@ -6,7 +6,7 @@ ASSUMPTIONS
     ASSUME(GetMoveEffect(MOVE_FORESTS_CURSE) == EFFECT_FORESTS_CURSE);
 }
 
-SINGLE_BATTLE_TEST("Forest's Curse only works for ghosts")
+SINGLE_BATTLE_TEST("My own: Forest's Curse only works for ghosts")
 {
     u16 species;
     PARAMETRIZE {species = SPECIES_TREVENANT;}
@@ -46,7 +46,7 @@ SINGLE_BATTLE_TEST("Forest's Curse only works for ghosts")
     }
 }
 
-SINGLE_BATTLE_TEST("Forest's Curse will curse even if target is grass-type")
+SINGLE_BATTLE_TEST("My own: Forest's Curse will curse even if target is grass-type")
 {
     GIVEN {
         PLAYER(SPECIES_TREVENANT);
@@ -66,7 +66,7 @@ SINGLE_BATTLE_TEST("Forest's Curse will curse even if target is grass-type")
     }
 }
 
-SINGLE_BATTLE_TEST("Forest's Curse will set third type even if target is cursed")
+SINGLE_BATTLE_TEST("My own: Forest's Curse will set third type even if target is cursed")
 {
     GIVEN {
         PLAYER(SPECIES_TREVENANT);

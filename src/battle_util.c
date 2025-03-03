@@ -10464,7 +10464,9 @@ static inline uq4_12_t GetScreensModifier(u32 move, u32 battlerAtk, u32 battlerD
     bool32 reflect = (sideStatus & SIDE_STATUS_REFLECT) && IsBattleMovePhysical(move);
     bool32 auroraVeil = sideStatus & SIDE_STATUS_AURORA_VEIL;
 
-    if (isCrit || abilityAtk == ABILITY_INFILTRATOR || abilityAtk == ABILITY_DATA_BREACH || gProtectStructs[battlerAtk].confusionSelfDmg)
+    if (abilityAtk == ABILITY_DATA_BREACH && GetMoveType(move) == TYPE_NORMAL)
+        return UQ_4_12(1.0);
+    if (isCrit || abilityAtk == ABILITY_INFILTRATOR || gProtectStructs[battlerAtk].confusionSelfDmg)
         return UQ_4_12(1.0);
     if (reflect || lightScreen || auroraVeil)
         return (IsDoubleBattle()) ? UQ_4_12(0.667) : UQ_4_12(0.5);

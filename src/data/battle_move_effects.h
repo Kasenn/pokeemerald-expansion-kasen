@@ -628,6 +628,13 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .encourageEncore = TRUE,
     },
 
+    [EFFECT_WIND_STARTER] =
+    {
+        .battleScript = BattleScript_WindStarter,
+        .battleTvScore = 4,
+        .encourageEncore = TRUE,
+    },
+
     [EFFECT_ENDURE] =
     {
         .battleScript = BattleScript_EffectEndure,

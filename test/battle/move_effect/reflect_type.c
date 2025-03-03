@@ -150,33 +150,31 @@ SINGLE_BATTLE_TEST("Reflect Type copies a target's pure type")
 
 SINGLE_BATTLE_TEST("Reflect Type defaults to Normal type for the user's types[0] and types[1] if the target only has a 3rd type")
 {
-    KNOWN_FAILING; // Forest's Curse has been redesigned
-
     GIVEN {
-        ASSUME(gSpeciesInfo[SPECIES_WOBBUFFET].types[0] == TYPE_PSYCHIC);
-        ASSUME(gSpeciesInfo[SPECIES_WOBBUFFET].types[1] == TYPE_PSYCHIC);
+        ASSUME(gSpeciesInfo[SPECIES_TREVENANT].types[0] == TYPE_GHOST);
+        ASSUME(gSpeciesInfo[SPECIES_TREVENANT].types[1] == TYPE_GRASS);
         ASSUME(gSpeciesInfo[SPECIES_ARCANINE].types[0] == TYPE_FIRE);
         ASSUME(gSpeciesInfo[SPECIES_ARCANINE].types[1] == TYPE_FIRE);
-        PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_ARCANINE);
+        PLAYER(SPECIES_TREVENANT);
+        OPPONENT(SPECIES_ARCANINE) { SpAttack(20); }
     } WHEN {
         TURN { MOVE(opponent, MOVE_BURN_UP); }
         TURN { MOVE(player, MOVE_FORESTS_CURSE); }
         TURN { MOVE(player, MOVE_REFLECT_TYPE); }
     } SCENE {
         // Turn 1
-        MESSAGE("Foe Arcanine used Burn Up!");
+        MESSAGE("The opposing Arcanine used Burn Up!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BURN_UP, opponent);
         HP_BAR(player);
-        MESSAGE("Foe Arcanine burned itself out!");
+        MESSAGE("The opposing Arcanine burned itself out!");
         // Turn 2
-        MESSAGE("Wobbuffet used Forest's Curse!");
+        MESSAGE("Trevenant used Forest's Curse!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FORESTS_CURSE, player);
-        MESSAGE("Grass type was added to Foe Arcanine!");
+        MESSAGE("Trevenant laid the forest's curse on The opposing Arcanine!");
         // Turn 3
-        MESSAGE("Wobbuffet used Reflect Type!");
+        MESSAGE("Trevenant used Reflect Type!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_REFLECT_TYPE, player);
-        MESSAGE("Wobbuffet's type changed to match the Foe Arcanine's!");
+        MESSAGE("Trevenant became the same type as the opposing Arcanine!");
     } THEN {
         EXPECT_EQ(player->types[0], TYPE_NORMAL);
         EXPECT_EQ(player->types[1], TYPE_NORMAL);
