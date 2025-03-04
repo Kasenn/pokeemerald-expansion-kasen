@@ -38,6 +38,10 @@
 #include "title_screen.h"
 #include "window.h"
 #include "mystery_gift_menu.h"
+#include "pokemon_icon.h"
+#include "shop.h"
+#include "region_map.h"
+#include "union_room_chat.h"
 
 /*
  * Main menu state machine
@@ -251,6 +255,7 @@ static void Task_NewGameBirchSpeech_FadePlayerToWhite(u8);
 static void Task_NewGameBirchSpeech_Cleanup(u8);
 static void SpriteCB_Null();
 static void Task_NewGameBirchSpeech_ReturnFromNamingScreenShowTextbox(u8);
+static void MainMenu_FormatSavegamePlayerLocation(void);
 static void MainMenu_FormatSavegamePlayer(void);
 static void MainMenu_FormatSavegamePokedex(void);
 static void MainMenu_FormatSavegameTime(void);
@@ -273,9 +278,9 @@ static const u8 gText_SaveFileErased[] = _("The save file has been erased\ndue t
 static const u8 gJPText_No1MSubCircuit[] = _("1Mサブきばんが ささっていません！");
 static const u8 gText_BatteryRunDry[] = _("The internal battery has run dry.\nThe game can be played.\pHowever, clock-based events will\nno longer occur.");
 
-static const u8 gText_MainMenuNewGame[] = _("NEW GAME");
-static const u8 gText_MainMenuContinue[] = _("CONTINUE");
-static const u8 gText_MainMenuOption[] = _("OPTION");
+static const u8 gText_MainMenuNewGame[] = _("New Game");
+static const u8 gText_MainMenuContinue[] = _("Continue");
+static const u8 gText_MainMenuOption[] = _("Option");
 static const u8 gText_MainMenuMysteryGift[] = _("MYSTERY GIFT");
 static const u8 gText_MainMenuMysteryGift2[] = _("MYSTERY GIFT");
 static const u8 gText_MainMenuMysteryEvents[] = _("MYSTERY EVENTS");
@@ -283,23 +288,23 @@ static const u8 gText_WirelessNotConnected[] = _("The Wireless Adapter is not\nc
 static const u8 gText_MysteryGiftCantUse[] = _("MYSTERY GIFT can't be used while\nthe Wireless Adapter is attached.");
 static const u8 gText_MysteryEventsCantUse[] = _("MYSTERY EVENTS can't be used while\nthe Wireless Adapter is attached.");
 
-static const u8 gText_ContinueMenuPlayer[] = _("PLAYER");
-static const u8 gText_ContinueMenuTime[] = _("TIME");
-static const u8 gText_ContinueMenuPokedex[] = _("POKéDEX");
-static const u8 gText_ContinueMenuBadges[] = _("BADGES");
+static const u8 gText_ContinueMenuPlayer[] = _("Player");
+static const u8 gText_ContinueMenuTime[] = _("Time:");
+static const u8 gText_ContinueMenuPokedex[] = _("Pokédex:");
+static const u8 gText_ContinueMenuBadges[] = _("Badges:");
 
 #define MENU_LEFT 2
 #define MENU_TOP_WIN0 1
 #define MENU_TOP_WIN1 5
 #define MENU_TOP_WIN2 1
-#define MENU_TOP_WIN3 9
-#define MENU_TOP_WIN4 13
-#define MENU_TOP_WIN5 17
-#define MENU_TOP_WIN6 21
+#define MENU_TOP_WIN3 13
+#define MENU_TOP_WIN4 17
+#define MENU_TOP_WIN5 21
+#define MENU_TOP_WIN6 25
 #define MENU_WIDTH 26
 #define MENU_HEIGHT_WIN0 2
 #define MENU_HEIGHT_WIN1 2
-#define MENU_HEIGHT_WIN2 6
+#define MENU_HEIGHT_WIN2 10
 #define MENU_HEIGHT_WIN3 2
 #define MENU_HEIGHT_WIN4 2
 #define MENU_HEIGHT_WIN5 2
@@ -358,7 +363,7 @@ static const struct WindowTemplate sWindowTemplates_MainMenu[] =
         .width = MENU_WIDTH,
         .height = MENU_HEIGHT_WIN3,
         .paletteNum = 15,
-        .baseBlock = 0x9D
+        .baseBlock = 0x9D + (26 * 4)
     },
     // OPTION / MYSTERY GIFT
     {
@@ -368,7 +373,7 @@ static const struct WindowTemplate sWindowTemplates_MainMenu[] =
         .width = MENU_WIDTH,
         .height = MENU_HEIGHT_WIN4,
         .paletteNum = 15,
-        .baseBlock = 0xD1
+        .baseBlock = 0xD1 + (26 * 4)
     },
     // OPTION / MYSTERY EVENTS
     {
@@ -402,6 +407,84 @@ static const struct WindowTemplate sWindowTemplates_MainMenu[] =
     },
     DUMMY_WIN_TEMPLATE
 };
+#define sMonIconStill data[5]
+static void SpriteCb_MonIcon(struct Sprite *sprite)
+{
+    if (!sprite->sMonIconStill)
+        UpdateMonIconFrame(sprite);
+}
+#undef sMonIconStill
+
+#define CONTINUE_MON_ICON_START_X  16
+#define CONTINUE_MON_ICON_START_Y  80
+#define CONTINUE_MON_ICON_PADDING  32
+
+
+void LoadMonIconPalettesTintedShop2(void)
+{
+    u8 i;
+    FreeMonIconPalettes();
+
+    for (i = 0; i < ARRAY_COUNT(gMonIconPaletteTable); i++)
+    {
+        LoadSpritePalette(&gMonIconPaletteTable[i]);
+        TintPalette_GrayScale2(&gPlttBufferUnfaded[0x170 + i*16], 16);
+    }
+}
+
+static void BlendMonPalette(void)
+{
+    u8 i;
+    for (i = 0; i < ARRAY_COUNT(gMonIconPaletteTable); i++)
+    {
+        BlendPalettes(PALETTES_OBJECTS, 8, RGB_BLACK);
+        // TransferPlttBuffer();
+    }
+    CpuCopy32(gPlttBufferFaded, gPlttBufferUnfaded, PLTT_SIZE);
+}
+
+
+static void DrawPartyMonIcons2(void)
+{
+    u8 i;
+    u16 species = 0;
+
+    LoadMonIconPalettesTintedShop2();
+
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG);
+
+        gMoveMenuSpriteIdData[i] = CreateMonIcon(species, SpriteCb_MonIcon, 32 + (i * 35), 72, 1, GetMonData(&gPlayerParty[0], MON_DATA_PERSONALITY));
+        gSprites[gMoveMenuSpriteIdData[i]].oam.priority = 0;
+        gMoveMenuSpriteIdPalette[i] = gSprites[gMoveMenuSpriteIdData[i]].oam.paletteNum; //save correct palette number to array    
+
+        StartSpriteAnim(&gSprites[gMoveMenuSpriteIdData[i]], 4); //full stop
+    }
+}
+
+static void UNUSED TintPartyMonIcons(bool8 fade)
+{
+    u8 i;
+
+    for (i = 0; i < gPlayerPartyCount; i++)
+    {
+        // SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_ALL);
+        // SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(7, 11));
+        // if (fade) 
+        // {
+        //     gSprites[gMoveMenuSpriteIdData[i]].oam.objMode = ST_OAM_OBJ_BLEND;
+        // }
+        // else
+        // {
+        //     gSprites[gMoveMenuSpriteIdData[i]].oam.objMode = ST_OAM_OBJ_NORMAL;//gMonIconPaletteIndices[species];
+        // }
+            LoadSpritePalette(&gMonIconPaletteTable[i]);
+            TintPalette_GrayScale2(&gPlttBufferUnfaded[0x170 + i*16], 16);
+    
+    }
+
+}
 
 static const struct WindowTemplate sNewGameBirchSpeechTextWindows[] =
 {
@@ -844,6 +927,9 @@ static void Task_DisplayMainMenu(u8 taskId)
                 DrawMainMenuWindowBorder(&sWindowTemplates_MainMenu[2], MAIN_MENU_BORDER_TILE);
                 DrawMainMenuWindowBorder(&sWindowTemplates_MainMenu[3], MAIN_MENU_BORDER_TILE);
                 DrawMainMenuWindowBorder(&sWindowTemplates_MainMenu[4], MAIN_MENU_BORDER_TILE);
+                DrawPartyMonIcons2();
+                if (tCurrItem != 0)
+                    BlendMonPalette();
                 break;
             case HAS_MYSTERY_GIFT:
                 FillWindowPixelBuffer(2, PIXEL_FILL(0xA));
@@ -924,6 +1010,9 @@ static bool8 HandleMainMenuInput(u8 taskId)
     {
         PlaySE(SE_SELECT);
         IsWirelessAdapterConnected();   // why bother calling this here? debug? Task_HandleMainMenuAPressed will check too
+        BlendPalettes(PALETTES_ALL, 0, RGB_BLACK);
+        // BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
+    
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
         gTasks[taskId].func = Task_HandleMainMenuAPressed;
     }
@@ -943,6 +1032,8 @@ static bool8 HandleMainMenuInput(u8 taskId)
             ChangeBgY(1, 0x2000, BG_COORD_SUB);
             gTasks[tScrollArrowTaskId].tArrowTaskIsScrolled = tIsScrolled = FALSE;
         }
+        if (tCurrItem <= 1)
+            LoadMonIconPalettesTintedShop2();
         tCurrItem--;
         sCurrItemAndOptionMenuCheck = tCurrItem;
         return TRUE;
@@ -955,6 +1046,8 @@ static bool8 HandleMainMenuInput(u8 taskId)
             ChangeBgY(1, 0x2000, BG_COORD_ADD);
             gTasks[tScrollArrowTaskId].tArrowTaskIsScrolled = tIsScrolled = TRUE;
         }
+        LoadMonIconPalettesTintedShop2();
+        BlendMonPalette();
         tCurrItem++;
         sCurrItemAndOptionMenuCheck = tCurrItem;
         return TRUE;
@@ -2374,17 +2467,58 @@ static void CreateMainMenuErrorWindow(const u8 *str)
 
 static void MainMenu_FormatSavegameText(void)
 {
+    MainMenu_FormatSavegamePlayerLocation();
     MainMenu_FormatSavegamePlayer();
     MainMenu_FormatSavegamePokedex();
     MainMenu_FormatSavegameTime();
     MainMenu_FormatSavegameBadges();
 }
 
+static u8 *StringDecap(u8 *dest, const u8 *src)
+{
+    u8 capitalize = 1;
+
+    while (*src != EOS)
+    {
+        if (capitalize)
+        {
+            *dest = *src;
+            capitalize = 0;
+        }
+        else if (*src == CHAR_SPACE || *src == CHAR_HYPHEN)
+        {
+            *dest = *src;
+            capitalize = 1;
+        }
+        else if (*src >= CHAR_A && *src <= CHAR_Z)
+            *dest = gCaseToggleTable[*src];
+        else
+            *dest = *src;
+        dest++;
+        src++;
+    }
+
+    *dest = EOS;
+    return dest;
+}
+
+static void MainMenu_FormatSavegamePlayerLocation(void)
+{
+    if (MAP(SNOWCREST_CITY))
+    {
+        StringDecap(gStringVar4, gText_PokemonCenter);
+    }
+    else
+    {
+        StringDecap(gStringVar4, gRegionMapEntries[GetCurrentRegionMapSectionId()].name);
+    }
+    AddTextPrinterParameterized3(2, FONT_NORMAL, 0, 33, sTextColor_MenuInfo, TEXT_SKIP_DRAW, gStringVar4);
+}
+
 static void MainMenu_FormatSavegamePlayer(void)
 {
-    StringExpandPlaceholders(gStringVar4, gText_ContinueMenuPlayer);
+    StringExpandPlaceholders(gStringVar4, gSaveBlock2Ptr->playerName);
     AddTextPrinterParameterized3(2, FONT_NORMAL, 0, 17, sTextColor_MenuInfo, TEXT_SKIP_DRAW, gStringVar4);
-    AddTextPrinterParameterized3(2, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, gSaveBlock2Ptr->playerName, 100), 17, sTextColor_MenuInfo, TEXT_SKIP_DRAW, gSaveBlock2Ptr->playerName);
 }
 
 static void MainMenu_FormatSavegameTime(void)
@@ -2412,9 +2546,9 @@ static void MainMenu_FormatSavegamePokedex(void)
         else
             dexCount = GetHoennPokedexCount(FLAG_GET_CAUGHT);
         StringExpandPlaceholders(gStringVar4, gText_ContinueMenuPokedex);
-        AddTextPrinterParameterized3(2, FONT_NORMAL, 0, 33, sTextColor_MenuInfo, TEXT_SKIP_DRAW, gStringVar4);
+        AddTextPrinterParameterized3(2, FONT_NORMAL, 0x6C, 1, sTextColor_MenuInfo, TEXT_SKIP_DRAW, gStringVar4);
         ConvertIntToDecimalStringN(str, dexCount, STR_CONV_MODE_LEFT_ALIGN, 4);
-        AddTextPrinterParameterized3(2, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, str, 100), 33, sTextColor_MenuInfo, TEXT_SKIP_DRAW, str);
+        AddTextPrinterParameterized3(2, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, str, 0xD0), 1, sTextColor_MenuInfo, TEXT_SKIP_DRAW, str);
     }
 }
 
