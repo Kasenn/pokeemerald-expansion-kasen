@@ -482,11 +482,15 @@ Debug_Script_2::
 
 
 Debug_Script_3::
-	callnative ZeroPlayerPartyMons
-	givemon SPECIES_PORYGON_Z_MEGA, 100, move1 = MOVE_WATER_GUN, move2 = MOVE_SWIFT
-	createmon 1, 0, SPECIES_TREVENANT, 100, move1 = MOVE_LIGHT_SCREEN
-	dowildbattle
+	goto_if_set FLAG_TEST_INTRO, Debug_Script_3_2
+	setflag FLAG_TEST_INTRO
+Debug_Script_3_1:
+	release
 	return
+
+Debug_Script_3_2:
+	clearflag FLAG_TEST_INTRO
+	goto Debug_Script_3_1
 
 
 Debug_Script_4::

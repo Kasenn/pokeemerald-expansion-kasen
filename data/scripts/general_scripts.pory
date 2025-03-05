@@ -465,10 +465,13 @@ script Debug_Script_2{              //
     end
 }
 script Debug_Script_3{              // 
-        callnative(ZeroPlayerPartyMons)
-        givemon(SPECIES_PORYGON_Z_MEGA, 100, move1 = MOVE_WATER_GUN, move2 = MOVE_SWIFT)
-        createmon(1, 0, SPECIES_TREVENANT, 100, move1 = MOVE_LIGHT_SCREEN)
-        dowildbattle
+    if(flag(FLAG_TEST_INTRO)){
+        clearflag(FLAG_TEST_INTRO)
+    }
+    else{
+        setflag(FLAG_TEST_INTRO)
+    }
+    release
     return
 }
 script Debug_Script_4{

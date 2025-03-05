@@ -51,6 +51,7 @@ static void CB2_GoToResetRtcScreen(void);
 static void CB2_GoToBerryFixScreen(void);
 static void CB2_GoToCopyrightScreen(void);
 static void UpdateLegendaryMarkingColor(u8);
+static void UpdateLegendaryMarkingColorAlternative(u8);
 
 static void SpriteCB_VersionBannerLeft(struct Sprite *sprite);
 static void SpriteCB_VersionBannerRight(struct Sprite *sprite);
@@ -62,6 +63,8 @@ static const u16 sUnusedUnknownPal[] = INCBIN_U16("graphics/title_screen/unused.
 
 static const u32 sTitleScreenRayquazaGfx[] = INCBIN_U32("graphics/title_screen/rayquaza.4bpp.lz");
 static const u32 sTitleScreenRayquazaTilemap[] = INCBIN_U32("graphics/title_screen/rayquaza.bin.lz");
+static const u32 sTitleScreenYveltalGfx[] = INCBIN_U32("graphics/title_screen/yveltal.4bpp.lz");
+static const u32 sTitleScreenYveltalTilemap[] = INCBIN_U32("graphics/title_screen/yveltal.bin.lz");
 static const u32 sTitleScreenLogoShineGfx[] = INCBIN_U32("graphics/title_screen/logo_shine.4bpp.lz");
 static const u32 sTitleScreenCloudsGfx[] = INCBIN_U32("graphics/title_screen/clouds.4bpp.lz");
 
@@ -499,7 +502,12 @@ static void SpriteCB_PokemonLogoShine(struct Sprite *sprite)
              || sprite->x == DISPLAY_WIDTH / 2 + (4 * SHINE_SPEED)
              || sprite->x == DISPLAY_WIDTH / 2 + (5 * SHINE_SPEED)
              || sprite->x == DISPLAY_WIDTH / 2 + (6 * SHINE_SPEED))
-                gPlttBufferFaded[0] = RGB(12, 24, 31);
+             {
+                if (FlagGet(FLAG_TEST_INTRO))
+                    gPlttBufferFaded[0] = RGB(12, 24, 31);
+                else
+                    gPlttBufferFaded[0] = RGB(21, 0, 5); 
+             }
             else
                 gPlttBufferFaded[0] = backgroundColor;
         }
@@ -598,10 +606,20 @@ void CB2_InitTitleScreen(void)
         // bg2
         LZ77UnCompVram(gTitleScreenPokemonLogoGfx, (void *)(BG_CHAR_ADDR(0)));
         LZ77UnCompVram(gTitleScreenPokemonLogoTilemap, (void *)(BG_SCREEN_ADDR(9)));
-        LoadPalette(gTitleScreenBgPalettes, BG_PLTT_ID(0), 15 * PLTT_SIZE_4BPP);
-        // bg3
-        LZ77UnCompVram(sTitleScreenRayquazaGfx, (void *)(BG_CHAR_ADDR(2)));
-        LZ77UnCompVram(sTitleScreenRayquazaTilemap, (void *)(BG_SCREEN_ADDR(26)));
+        if (FlagGet(FLAG_TEST_INTRO))
+        {
+            LoadPalette(gTitleScreenBgPalettesAlternative, BG_PLTT_ID(0), 15 * PLTT_SIZE_4BPP);
+            // bg3
+            LZ77UnCompVram(sTitleScreenRayquazaGfx, (void *)(BG_CHAR_ADDR(2)));
+            LZ77UnCompVram(sTitleScreenRayquazaTilemap, (void *)(BG_SCREEN_ADDR(26)));    
+        }
+        else
+        {
+            LoadPalette(gTitleScreenBgPalettes, BG_PLTT_ID(0), 15 * PLTT_SIZE_4BPP);
+            // bg3
+            LZ77UnCompVram(sTitleScreenYveltalGfx, (void *)(BG_CHAR_ADDR(2)));
+            LZ77UnCompVram(sTitleScreenYveltalTilemap, (void *)(BG_SCREEN_ADDR(26)));    
+        }
         // bg1
         LZ77UnCompVram(sTitleScreenCloudsGfx, (void *)(BG_CHAR_ADDR(3)));
         LZ77UnCompVram(gTitleScreenCloudsTilemap, (void *)(BG_SCREEN_ADDR(27)));
@@ -812,7 +830,10 @@ static void Task_TitleScreenPhase3(u8 taskId)
             gBattle_BG1_Y = gTasks[taskId].tBg1Y / 2;
             gBattle_BG1_X = 0;
         }
-        UpdateLegendaryMarkingColor(gTasks[taskId].tCounter);
+        if (FlagGet(FLAG_TEST_INTRO))
+            UpdateLegendaryMarkingColorAlternative(gTasks[taskId].tCounter);
+        else
+            UpdateLegendaryMarkingColor(gTasks[taskId].tCounter);
         if ((gMPlayInfo_BGM.status & 0xFFFF) == 0)
         {
             BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_WHITEALPHA);
@@ -855,6 +876,21 @@ static void CB2_GoToBerryFixScreen(void)
 }
 
 static void UpdateLegendaryMarkingColor(u8 frameNum)
+{
+    if ((frameNum % 4) == 0) // Change color every 4th frame
+    {
+        s32 intensity = (Cos(frameNum, 128) + 128); // Normalize to 0-256 range
+
+        s32 r = 3 + ((21 - 3) * intensity) / 256;
+        s32 g = 1 + ((0 - 1) * intensity) / 256;
+        s32 b = 9 + ((5 - 9) * intensity) / 256;
+
+        u16 color = RGB(r, g, b);
+        LoadPalette(&color, BG_PLTT_ID(14) + 4, sizeof(color)); 
+    }
+}
+
+static void UpdateLegendaryMarkingColorAlternative(u8 frameNum)
 {
     if ((frameNum % 4) == 0) // Change color every 4th frame
     {
