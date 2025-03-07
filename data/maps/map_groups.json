@@ -235,7 +235,8 @@
     "CoralgroveElevatorInt2",
     "CoralgroveHarvorInterior",
     "VerdanturfTown_House",
-    "CoralHarborHouse"
+    "CoralHarborHouse",
+    "Coralgrove_House"
   ],
   "gMapGroup_IndoorAzuretideTown": [
     "CoastTownHarbor",
@@ -998,6 +999,7 @@
     "Route20_Filler",
     "Route22_Filler",
     "Route21_Filler",
-    "Route26_Filler"
+    "Route26_Filler",
+    "Windywoods_Filler"
   ]
 }

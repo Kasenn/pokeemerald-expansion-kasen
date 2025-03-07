@@ -4485,7 +4485,7 @@
       "id": "LAYOUT_WINDY_WOODS",
       "name": "WindyWoods_Layout",
       "width": 78,
-      "height": 56,
+      "height": 58,
       "primary_tileset": "gTileset_DarkForest",
       "secondary_tileset": "gTileset_DarkForestSec",
       "border_filepath": "data/layouts/WindyWoods/border.bin",
@@ -4494,10 +4494,10 @@
     {
       "id": "LAYOUT_LOST_GLADE",
       "name": "LostGlade_Layout",
-      "width": 86,
-      "height": 50,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fortree",
+      "width": 100,
+      "height": 63,
+      "primary_tileset": "gTileset_DarkForest",
+      "secondary_tileset": "gTileset_DarkForestSec",
       "border_filepath": "data/layouts/LostGlade/border.bin",
       "blockdata_filepath": "data/layouts/LostGlade/map.bin"
     },
@@ -6484,7 +6484,7 @@
     {
       "id": "LAYOUT_WINDYWOODS_FIX",
       "name": "WindywoodsFix_Layout",
-      "width": 68,
+      "width": 78,
       "height": 10,
       "primary_tileset": "gTileset_DarkForest",
       "secondary_tileset": "gTileset_DarkForestSec",
@@ -7610,6 +7610,26 @@
       "secondary_tileset": "gTileset_EverGrande",
       "border_filepath": "data/layouts/SnowcrestCity_Part2/border.bin",
       "blockdata_filepath": "data/layouts/SnowcrestCity_Part2/map.bin"
+    },
+    {
+      "id": "LAYOUT_WINDYWOODS_FILLER",
+      "name": "Windywoods_Filler_Layout",
+      "width": 4,
+      "height": 56,
+      "primary_tileset": "gTileset_DarkForest",
+      "secondary_tileset": "gTileset_DarkForestSec",
+      "border_filepath": "data/layouts/Windywoods_Filler/border.bin",
+      "blockdata_filepath": "data/layouts/Windywoods_Filler/map.bin"
+    },
+    {
+      "id": "LAYOUT_CORALGROVE_HOUSE",
+      "name": "Coralgrove_House_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Coralgrove_House/border.bin",
+      "blockdata_filepath": "data/layouts/Coralgrove_House/map.bin"
     }
   ]
 }

@@ -113,7 +113,12 @@ static const u32 sAreaGlow_Pal[] = INCBIN_U32("graphics/pokedex/area_glow.gbapal
 static const u32 sAreaGlow_Gfx[] = INCBIN_U32("graphics/pokedex/area_glow.4bpp.lz");
 static const u32 sPokedexPlusHGSS_ScreenSelectBarSubmenu_Tilemap[] = INCBIN_U32("graphics/pokedex/hgss/SelectBar.bin.lz");
 
-static const u16 sSpeciesHiddenFromAreaScreen[] = { SPECIES_WYNAUT };
+static const u16 sSpeciesHiddenFromAreaScreen[] = {
+    SPECIES_WYNAUT,
+    SPECIES_ROWLET,
+    SPECIES_TORCHIC,
+    SPECIES_PIPLUP
+};
 
 static const u16 sMovingRegionMapSections[3] =
 {

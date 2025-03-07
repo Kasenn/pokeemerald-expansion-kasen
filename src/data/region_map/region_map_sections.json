@@ -35,8 +35,8 @@
     {
       "map_section": "MAPSEC_PETALBURG_WOODS2",
       "name": "LOST GLADE",
-      "x": 16,
-      "y": 8,
+      "x": 15,
+      "y": 7,
       "width": 1,
       "height": 1
     },
@@ -947,8 +947,8 @@
     {
       "map_section": "MAPSEC_PETALBURG_WOODS",
       "name": "WINDY WOODS",
-      "x": 16,
-      "y": 8,
+      "x": 15,
+      "y": 7,
       "width": 1,
       "height": 1
     },
@@ -1011,9 +1011,9 @@
     {
       "map_section": "MAPSEC_NEWROUTE_103",
       "name": "ROUTE 2",
-      "x": 16,
+      "x": 15,
       "y": 8,
-      "width": 1,
+      "width": 2,
       "height": 1
     },
     {

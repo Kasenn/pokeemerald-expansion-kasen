@@ -121,7 +121,6 @@ static const struct Landmark Landmark_HuntersHouse = {LandmarkName_HuntersHouse,
 static const struct Landmark Landmark_SkyPillar = {LandmarkName_SkyPillar, FLAG_LANDMARK_SKY_PILLAR};
 static const struct Landmark Landmark_MirageTower = {LandmarkName_MirageTower, FLAG_LANDMARK_MIRAGE_TOWER};
 static const struct Landmark Landmark_AlteringCave = {LandmarkName_AlteringCave, FLAG_LANDMARK_ALTERING_CAVE};
-static const struct Landmark Landmark_WindyWoods = {LandmarkName_WindyWoods, FLAG_LANDMARK_WINDY_WOODS};
 static const struct Landmark LandMark_LostGlade = {LandmarkName_LostGlade, FLAG_LANDMARK_LOST_GLADE};
 static const struct Landmark Landmark_DesertUnderpass = {LandmarkName_DesertUnderpass, FLAG_LANDMARK_DESERT_UNDERPASS};
 static const struct Landmark Landmark_TrainerHill = {LandmarkName_TrainerHill, FLAG_LANDMARK_TRAINER_HILL};
@@ -137,7 +136,6 @@ static const struct Landmark *const Landmarks_Desert[]  =
 static const struct Landmark *const Landmarks_Route3_0[]  =
 {
     &LandMark_LostGlade,
-    &Landmark_WindyWoods,
     NULL,
 };
 
@@ -435,7 +433,7 @@ static const struct Landmark *const Landmarks_MtChimney_2[]  =
 
 static const struct LandmarkList sLandmarkLists[] =
 {
-    {MAPSEC_NEWROUTE_103, 0, Landmarks_Route3_0},
+    {MAPSEC_PETALBURG_WOODS, 0, Landmarks_Route3_0},
     {MAPSEC_DESERT, 0, Landmarks_Desert},
     {MAPSEC_DESERT, 1, Landmarks_Desert},
     {MAPSEC_DESERT, 2, Landmarks_Desert},

@@ -164,6 +164,11 @@ CoralGrove_OLD_WOMAN::
 	return
 
 
+Coralgrove_Old_Woman2::
+	msgbox Coralgrove_Old_Woman2_Text, MSGBOX_NPC
+	return
+
+
 CoralGrove_OLD_MAN::
 	msgbox CoralGrove_OLD_MAN_Text_0, MSGBOX_NPC
 	return
@@ -256,6 +261,15 @@ Coralgrove_DroppedSomething::
 	.string "Did you see that?\p"
 	.string "I think that Pidgeot dropped\n"
 	.string "something in the ocean.$"
+
+Coralgrove_Old_Woman2_Text::
+	.string "Coralgrove is built on a massive\n"
+	.string "cliff that overlooks the ocean.\p"
+	.string "In olden days, in order to get down\n"
+	.string "to ocean level, people used to climb\l"
+	.string "precarious stairs carved into the\l"
+	.string "cliff face.\p"
+	.string "Nowadays we just use the elevator.$"
 
 Coral_Hiker_Text::
 	.string "There was a landslide between\n"

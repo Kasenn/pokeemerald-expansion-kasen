@@ -1819,3 +1819,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/SnowcrestCity_Part2/scripts.inc"
 	
 	.include "data/scripts/dexnav.inc"
+
+	.include "data/maps/Windywoods_Filler/scripts.inc"
+
+	.include "data/maps/Coralgrove_House/scripts.inc"

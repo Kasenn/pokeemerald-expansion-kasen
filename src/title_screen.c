@@ -52,6 +52,7 @@ static void CB2_GoToBerryFixScreen(void);
 static void CB2_GoToCopyrightScreen(void);
 static void UpdateLegendaryMarkingColor(u8);
 static void UpdateLegendaryMarkingColorAlternative(u8);
+static void PulseBackground(u8);
 
 static void SpriteCB_VersionBannerLeft(struct Sprite *sprite);
 static void SpriteCB_VersionBannerRight(struct Sprite *sprite);
@@ -834,6 +835,9 @@ static void Task_TitleScreenPhase3(u8 taskId)
             UpdateLegendaryMarkingColorAlternative(gTasks[taskId].tCounter);
         else
             UpdateLegendaryMarkingColor(gTasks[taskId].tCounter);
+
+        PulseBackground(gTasks[taskId].tCounter);
+
         if ((gMPlayInfo_BGM.status & 0xFFFF) == 0)
         {
             BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_WHITEALPHA);
@@ -875,6 +879,21 @@ static void CB2_GoToBerryFixScreen(void)
     }
 }
 
+static void PulseBackground(u8 frameNum)
+{
+    if ((frameNum % 4) == 0) // Change color every 4th frame
+    {
+        s32 intensity = (Cos(frameNum, 128) + 128); // Normalize to 0-256 range
+
+        s32 r = 9 * intensity / 256;
+        s32 g = 12 * intensity / 256;
+        s32 b = 21 * intensity / 256;
+
+        u16 color = RGB(r, g, b);
+        BlendPalettes(1 << 14, 1, color);
+    }
+}
+
 static void UpdateLegendaryMarkingColor(u8 frameNum)
 {
     if ((frameNum % 4) == 0) // Change color every 4th frame
@@ -882,8 +901,8 @@ static void UpdateLegendaryMarkingColor(u8 frameNum)
         s32 intensity = (Cos(frameNum, 128) + 128); // Normalize to 0-256 range
 
         s32 r = 3 + ((21 - 3) * intensity) / 256;
-        s32 g = 1 + ((0 - 1) * intensity) / 256;
-        s32 b = 9 + ((5 - 9) * intensity) / 256;
+        s32 g = 4 + ((0 - 1) * intensity) / 256;
+        s32 b = 7 + ((5 - 9) * intensity) / 256;
 
         u16 color = RGB(r, g, b);
         LoadPalette(&color, BG_PLTT_ID(14) + 4, sizeof(color)); 

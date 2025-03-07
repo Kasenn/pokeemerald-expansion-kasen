@@ -187,6 +187,7 @@
 #define MAP_CORALGROVE_HARVOR_INTERIOR      (13 | (5 << 8))
 #define MAP_VERDANTURF_TOWN_HOUSE           (14 | (5 << 8))
 #define MAP_CORAL_HARBOR_HOUSE              (15 | (5 << 8))
+#define MAP_CORALGROVE_HOUSE                (16 | (5 << 8))
 
 // gMapGroup_IndoorAzuretideTown
 #define MAP_COAST_TOWN_HARBOR                      (0 | (6 << 8))
@@ -948,6 +949,7 @@
 #define MAP_ROUTE22_FILLER              (22 | (52 << 8))
 #define MAP_ROUTE21_FILLER              (23 | (52 << 8))
 #define MAP_ROUTE26_FILLER              (24 | (52 << 8))
+#define MAP_WINDYWOODS_FILLER           (25 | (52 << 8))
 
 #define MAP_GROUPS_COUNT 53
 

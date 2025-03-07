@@ -475,36 +475,18 @@ Debug_Script_1_12:
 
 
 Debug_Script_2::
-	callnative ZeroStrangeSeedIndex
-	msgbox Debug_Script_2_Text_0, MSGBOX_GETPOINTS
-	release
 	end
 
 
 Debug_Script_3::
-	goto_if_set FLAG_TEST_INTRO, Debug_Script_3_2
-	setflag FLAG_TEST_INTRO
-Debug_Script_3_1:
-	release
 	return
-
-Debug_Script_3_2:
-	clearflag FLAG_TEST_INTRO
-	goto Debug_Script_3_1
 
 
 Debug_Script_4::
-	setflag FLAG_OPENED_MAP_FROM_SIGN
-	fadescreen FADE_TO_BLACK
-	callnative OpenFlyMapFromSign
-	waitstate
-	msgbox Debug_Script_4_Text_0
-	release
 	return
 
 
 Debug_Script_5::
-	setflag FLAG_OPENED_MAP_FROM_SIGN
 	return
 
 
@@ -517,7 +499,24 @@ Debug_Script_7::
 
 
 Debug_Script_8::
+	special EnterCode
+	waitstate
+	special GetCodeFeedback
+	compare VAR_RESULT, 1
+	goto_if_eq Debug_Script_8_2
+Debug_Script_8_1:
+	release
+	end
 	return
+
+Debug_Script_8_2:
+	goto_if_set FLAG_TEST_INTRO, Debug_Script_8_4
+	setflag FLAG_TEST_INTRO
+	goto Debug_Script_8_1
+
+Debug_Script_8_4:
+	clearflag FLAG_TEST_INTRO
+	goto Debug_Script_8_1
 
 
 ResetAdamantTower::
@@ -1376,12 +1375,6 @@ Debug_Script_1_Text_15:
 
 Debug_Script_1_Text_16:
 	.string "Team set to level 45.$"
-
-Debug_Script_2_Text_0:
-	.string "{STR_VAR_1}$"
-
-Debug_Script_4_Text_0:
-	.string "Test$"
 
 ClearRoute1_Text_0:
 	.string "Obtained Exp. Share.\nDon't forget to turn it on!$"

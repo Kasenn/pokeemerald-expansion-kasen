@@ -459,32 +459,15 @@ script Debug_Script_1{              // Set team level
     end
     }
 script Debug_Script_2{              // 
-    callnative(ZeroStrangeSeedIndex)
-    msgbox("{STR_VAR_1}", MSGBOX_GETPOINTS)
-    release
     end
 }
 script Debug_Script_3{              // 
-    if(flag(FLAG_TEST_INTRO)){
-        clearflag(FLAG_TEST_INTRO)
-    }
-    else{
-        setflag(FLAG_TEST_INTRO)
-    }
-    release
     return
 }
 script Debug_Script_4{
-    setflag(FLAG_OPENED_MAP_FROM_SIGN)
-    fadescreen(FADE_TO_BLACK)
-    callnative(OpenFlyMapFromSign)
-    waitstate
-    msgbox("Test")
-    release
     return
 }
 script Debug_Script_5{
-    setflag(FLAG_OPENED_MAP_FROM_SIGN)
     return
 }
 script Debug_Script_6{
@@ -494,6 +477,21 @@ script Debug_Script_7{
     return
 }
 script Debug_Script_8{
+    special(EnterCode)
+    waitstate
+    special(GetCodeFeedback)
+    if(var(VAR_RESULT) == 1)
+    {
+        if(flag(FLAG_TEST_INTRO)){
+            clearflag(FLAG_TEST_INTRO)
+        }
+        else{
+            setflag(FLAG_TEST_INTRO)
+        }
+    }
+    release
+    end
+
     return
 }
 //

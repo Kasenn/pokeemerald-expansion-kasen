@@ -8,15 +8,15 @@ R2ClearLandslide::
 	return
 
 R2ClearLandslide_1:
-	setmetatile 19, 7, 0x0AF, FALSE
-	setmetatile 20, 7, 0x0CF, FALSE
-	setmetatile 19, 8, 0x071, FALSE
-	setmetatile 19, 9, 0x0AF, FALSE
-	setmetatile 20, 9, 0x0CF, FALSE
-	setmetatile 20, 10, 0x071, FALSE
-	setmetatile 19, 11, 0x0AF, FALSE
-	setmetatile 20, 11, 0x0CF, FALSE
-	setmetatile 20, 12, 0x071, FALSE
+	setmetatile 74, 7, 0x0AF, FALSE
+	setmetatile 75, 7, 0x0CF, FALSE
+	setmetatile 75, 8, 0x071, FALSE
+	setmetatile 74, 9, 0x0AF, FALSE
+	setmetatile 75, 9, 0x0CF, FALSE
+	setmetatile 74, 10, 0x071, FALSE
+	setmetatile 74, 11, 0x0AF, FALSE
+	setmetatile 75, 11, 0x0CF, FALSE
+	setmetatile 74, 12, 0x071, FALSE
 	return
 
 

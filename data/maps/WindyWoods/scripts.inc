@@ -5,7 +5,6 @@ WindyWoods_MapScripts::
 	.byte 0
 
 WindyWoods_MapScripts_MAP_SCRIPT_ON_TRANSITION:
-	setflag FLAG_LANDMARK_WINDY_WOODS
 	compare VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_ROCKET_DEFEATED
 	goto_if_ne WindyWoods_MapScripts_MAP_SCRIPT_ON_TRANSITION_2
 WindyWoods_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
@@ -39,7 +38,7 @@ WindyWoods_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE:
 	.2byte 0
 
 WindyWoods_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_0:
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
 	return
 
 WindyWoods_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
@@ -223,7 +222,7 @@ WW_LittleGirl_1:
 
 WW_RocketStop1::
 	lock
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
 	setvar VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_1ST_STEP_TAKEN
 	msgbox WW_RocketStop1_Text_0, MSGBOX_SIGN
 	return
@@ -249,7 +248,7 @@ WW_RockPostBattle::
 	msgbox WW_RocketReward
 	closemessage
 	setvar VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_ROCKET_DEFEATED
-	warp MAP_WINDY_WOODS, 37, 13
+	warp MAP_WINDY_WOODS, 40, 13
 	waitstate
 	release
 	return
@@ -264,8 +263,8 @@ WW_BridgeScene2::
 	waitmovement 0
 	turnobject 5, DIR_SOUTH
 	msgbox DevonTalk1
-	turnobject 5, DIR_WEST
-	turnobject 12, DIR_WEST
+	turnobject 5, DIR_EAST
+	turnobject 12, DIR_EAST
 	checkplayergender
 	compare VAR_RESULT, MALE
 	goto_if_eq WW_BridgeScene2_2
@@ -292,15 +291,15 @@ WW_BridgeScene2_2:
 
 
 WW_DevonEnters:
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	face_up
 	step_end
 

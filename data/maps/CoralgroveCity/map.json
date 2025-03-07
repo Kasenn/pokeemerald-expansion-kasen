@@ -15,13 +15,13 @@
   "connections": [
     {
       "map": "MAP_ROUTE2",
-      "offset": 6,
+      "offset": -49,
       "direction": "down"
     },
     {
       "map": "MAP_WINDY_WOODS",
-      "offset": 12,
-      "direction": "right"
+      "offset": 9,
+      "direction": "left"
     }
   ],
   "object_events": [
@@ -40,12 +40,12 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 18,
+      "x": 17,
       "y": 47,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
-      "movement_range_y": 3,
+      "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Coralgrove_LASS",
@@ -53,8 +53,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_3",
-      "x": 17,
-      "y": 40,
+      "x": 22,
+      "y": 44,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -118,8 +118,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
-      "x": 9,
-      "y": 47,
+      "x": 41,
+      "y": 48,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -131,8 +131,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TWIN",
-      "x": 9,
-      "y": 48,
+      "x": 41,
+      "y": 49,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -223,15 +223,15 @@
   ],
   "warp_events": [
     {
-      "x": 41,
-      "y": 47,
+      "x": 7,
+      "y": 49,
       "elevation": 0,
       "dest_map": "MAP_WINDY_WOODS",
       "dest_warp_id": "2"
     },
     {
-      "x": 41,
-      "y": 46,
+      "x": 7,
+      "y": 48,
       "elevation": 0,
       "dest_map": "MAP_WINDY_WOODS",
       "dest_warp_id": "3"
@@ -245,14 +245,14 @@
     },
     {
       "x": 26,
-      "y": 43,
+      "y": 44,
       "elevation": 0,
       "dest_map": "MAP_RUSTBORO_CITY_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 34,
-      "y": 43,
+      "x": 12,
+      "y": 47,
       "elevation": 0,
       "dest_map": "MAP_CORAL_TRADE_HOUSE",
       "dest_warp_id": "0"
@@ -293,7 +293,7 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 10,
+      "x": 39,
       "y": 44,
       "elevation": 0,
       "dest_map": "MAP_SCHOOL_HALL",
@@ -312,6 +312,13 @@
       "elevation": 0,
       "dest_map": "MAP_ROUTE2",
       "dest_warp_id": "4"
+    },
+    {
+      "x": 32,
+      "y": 44,
+      "elevation": 0,
+      "dest_map": "MAP_CORALGROVE_HOUSE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
@@ -373,15 +380,15 @@
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 7,
-      "y": 43,
+      "x": 41,
+      "y": 38,
       "elevation": 0,
       "item": "ITEM_RARE_CANDY",
       "flag": "FLAG_HIDDEN_ITEM_CORALGROVE_RARECANDY"
     },
     {
       "type": "sign",
-      "x": 11,
+      "x": 40,
       "y": 45,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

@@ -123,7 +123,7 @@
 #define VAR_KAOLISLE_BIRDS                               0x4067
 #define VAR_FCCAVE                               0x4068 
 #define VAR_ROUTE110_STATE                               0x4069
-#define VAR_WEIRDCAVE_CORRECTSTEPS                               0x406A // Used to track the amount of correct steps in weird cave
+#define VAR_UNUSED_0x406A                               0x406A // Used to track the amount of correct steps in weird cave
 #define VAR_WEIRDCAVEROCKFORMATION                               0x406B // used to rotate the rock in weird cave Var
 #define VAR_WEIRDCAVE_PART2                               0x406C // used to set bgm after picking up the stone sphere
 #define VAR_CASTELIACONES_BOUGHT                               0x406D // 

@@ -134,6 +134,19 @@ script CoralGrove_OLD_WOMAN{
     release
 }
 
+script Coralgrove_Old_Woman2{
+    msgbox(Coralgrove_Old_Woman2_Text, MSGBOX_NPC)
+}
+text Coralgrove_Old_Woman2_Text{
+    "Coralgrove is built on a massive\n"
+    "cliff that overlooks the ocean.\p"
+    "In olden days, in order to get down\n"
+    "to ocean level, people used to climb\l"
+    "precarious stairs carved into the\l"
+    "cliff face.\p"
+    "Nowadays we just use the elevator."
+}
+
 script CoralGrove_OLD_MAN{
     msgbox("My wife often gets mesmerized\nby flowers.\pI don't really care about flowers\nbut better not let her catch on…", MSGBOX_NPC)
 }

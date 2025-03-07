@@ -1,6 +1,5 @@
 mapscripts WindyWoods_MapScripts{
     MAP_SCRIPT_ON_TRANSITION{
-        setflag(FLAG_LANDMARK_WINDY_WOODS)
         if(var(VAR_WINDYWOODS_STATE) != STORY_WINDY_WOODS_ROCKET_DEFEATED){
             setflag(FLAG_TEMP_1)
         }
@@ -13,7 +12,7 @@ mapscripts WindyWoods_MapScripts{
             setvar(VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_TALKED_TO_GIRL)
         }
     }
-    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[VAR_WINDYWOODS_STATE, 4{turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)}]
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[VAR_WINDYWOODS_STATE, 4{turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)}]
     MAP_SCRIPT_ON_FRAME_TABLE[VAR_WINDYWOODS_STATE, 4: WW_BridgeScene2]
 }
 
@@ -245,7 +244,7 @@ text WW_Help2{
 
 script WW_RocketStop1{
     lock
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
     setvar(VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_1ST_STEP_TAKEN)
     msgbox("That's far enough, pal.", MSGBOX_SIGN)
 }
@@ -268,7 +267,7 @@ script WW_RockPostBattle{
     msgbox(WW_RocketReward)
     closemessage
     setvar(VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_ROCKET_DEFEATED)
-    warp(MAP_WINDY_WOODS, 37, 13)
+    warp(MAP_WINDY_WOODS, 40, 13)
     waitstate
     release
 }
@@ -281,8 +280,8 @@ script WW_BridgeScene2{
     waitmovement(0)
     turnobject(LITTLE_GIRL, DIR_SOUTH)
     msgbox(DevonTalk1)
-    turnobject(LITTLE_GIRL, DIR_WEST)
-    turnobject(DEVON_DAD, DIR_WEST)
+    turnobject(LITTLE_GIRL, DIR_EAST)
+    turnobject(DEVON_DAD, DIR_EAST)
     if(checkplayergender == MALE){
         msgbox("Little girl: This brave boy saved me!")
     }
@@ -312,7 +311,7 @@ text WW_LittleGirlReward{
     "Little girl: Thank you for getting\nPoochie back!\pI wasn't sure if I would\never see him again…"
 }
 movement WW_DevonEnters{
-    walk_right * 9
+    walk_left * 9
     face_up
 }
 

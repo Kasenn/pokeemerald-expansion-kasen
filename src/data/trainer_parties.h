@@ -1581,7 +1581,7 @@ static const struct TrainerMon sParty_WpvTr5Birdkeeper[] = {
 static const struct TrainerMon sParty_WpvTr6Maniac[] = {
     {
     .iv = TRAINER_PARTY_IVS(5, 5, 5, 5, 5, 5),
-    .lvl = 18,
+    .lvl = 19,
     .species = SPECIES_SKARMORY,
     },
 };
@@ -1641,15 +1641,10 @@ static const struct TrainerMon sParty_WpvTr9Lass[] = {
 static const struct TrainerMon sParty_WpvTr10Triath[] = {
     {
     .iv = TRAINER_PARTY_IVS(5, 5, 5, 5, 5, 5),
-    .lvl = 16,
-    .species = SPECIES_DODUO,
-    .moves = {MOVE_PURSUIT, MOVE_FURY_ATTACK, MOVE_QUICK_ATTACK, MOVE_PECK}
+    .lvl = 19,
+    .species = SPECIES_PIDGEOTTO,
+    .moves = {MOVE_AERIAL_ACE, MOVE_SAND_ATTACK, MOVE_QUICK_ATTACK, MOVE_WHIRLWIND}
     },
-    {
-    .iv = TRAINER_PARTY_IVS(5, 5, 5, 5, 5, 5),
-    .lvl = 17,
-    .species = SPECIES_SKARMORY,
-    }
 };
 
 static const struct TrainerMon sParty_WpvTr11Birdkeeper[] = {
@@ -1673,24 +1668,15 @@ static const struct TrainerMon sParty_WpvTr12Battlegirl[] = {
     .species = SPECIES_ORICORIO_POM_POM,
     .moves = {MOVE_POUND, MOVE_GROWL, MOVE_AIR_CUTTER, MOVE_PECK}
     },
-    {
-    .iv = TRAINER_PARTY_IVS(5, 5, 5, 5, 5, 5),
-    .lvl = 17,
-    .species = SPECIES_HAWLUCHA,
-    }
 };
 
 static const struct TrainerMon sParty_WpvTr13Birdkeeper[] = {
     {
     .iv = TRAINER_PARTY_IVS(5, 5, 5, 5, 5, 5),
-    .lvl = 16,
-    .species = SPECIES_MURKROW,
+    .lvl = 17,
+    .species = SPECIES_ORICORIO,
+    .moves = {MOVE_POUND, MOVE_GROWL, MOVE_AIR_CUTTER, MOVE_PECK}
     },
-    {
-    .iv = TRAINER_PARTY_IVS(5, 5, 5, 5, 5, 5),
-    .lvl = 16,
-    .species = SPECIES_SKARMORY,
-    }
 };
 
 static const struct TrainerMon sParty_WpvTr14Skyla[] = {
