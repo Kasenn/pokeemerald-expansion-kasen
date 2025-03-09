@@ -201,7 +201,7 @@ R18Tr2_PostBattle::
 	.string "Pokémon's eyes.\p"
 	.string "They're saying,\n"
 	.string "“Get back up! I'm OK!”\p"
-	.string "Yep! I can understand my Pokémon's"
+	.string "Yep! I can understand my Pokémon's\n"
 	.string "feelings by looking into their eyes.$"
 
 R18Tr3_Intro::

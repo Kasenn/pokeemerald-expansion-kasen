@@ -2152,6 +2152,7 @@ static void Cmd_adjustdamage(void)
 
         else if ((gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE) && (GetBattlerSide(battlerDef) == B_SIDE_PLAYER))
         {
+            DebugPrintfLevel(MGBA_LOG_WARN, "does this happen?");
             gSpecialStatuses[gBattlerTarget].affectionEndured = TRUE;
         }
 
@@ -2159,7 +2160,7 @@ static void Cmd_adjustdamage(void)
             && !gProtectStructs[battlerDef].endured
             && !gSpecialStatuses[battlerDef].focusBanded
             && !gSpecialStatuses[battlerDef].focusSashed
-            && (B_AFFECTION_MECHANICS == FALSE || !gSpecialStatuses[battlerDef].affectionEndured)
+            && !gSpecialStatuses[battlerDef].affectionEndured
             && !gSpecialStatuses[battlerDef].sturdied)
             continue;
 

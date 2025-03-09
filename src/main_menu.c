@@ -277,6 +277,7 @@ static const u8 gText_SaveFileCorrupted[] = _("The save file is corrupted. The\n
 static const u8 gText_SaveFileErased[] = _("The save file has been erased\ndue to corruption or damage.");
 static const u8 gJPText_No1MSubCircuit[] = _("1Mサブきばんが ささっていません！");
 static const u8 gText_BatteryRunDry[] = _("The internal battery has run dry.\nThe game can be played.\pHowever, clock-based events will\nno longer occur.");
+static const u8 gText_ThisGameIsInBeta[] = _("This game is still in beta.\nExpect bugs and unfinished content!\pIf you paid for this game,\nyou've been scammed!");
 
 static const u8 gText_MainMenuNewGame[] = _("New Game");
 static const u8 gText_MainMenuContinue[] = _("Continue");
@@ -777,6 +778,10 @@ static void Task_MainMenuCheckSaveFile(u8 taskId)
                     tMenuType++;
                 break;
             case SAVE_STATUS_EMPTY:
+                CreateMainMenuErrorWindow(gText_ThisGameIsInBeta);
+                tMenuType = HAS_NO_SAVED_GAME;
+                gTasks[taskId].func = Task_WaitForSaveFileErrorWindow;
+                break;
             default:
                 tMenuType = HAS_NO_SAVED_GAME;
                 gTasks[taskId].func = Task_MainMenuCheckBattery;
