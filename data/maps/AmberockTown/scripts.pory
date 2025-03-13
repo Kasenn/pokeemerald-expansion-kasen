@@ -445,6 +445,8 @@ script Amberock_KrokorokGiovanniCutScene{
     applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left * 2, walk_up, walk_left, walk_in_place_fast_down))
     waitmovement(0)
     msgbox(ClayLetsBail)
+    msgbox(ClayLetsBailPart2)
+    msgbox(ClayLetsBailPart3)
     closemessage
     applymovement(OBJ_EVENT_ID_PLAYER, Walk2Right)
     waitmovement(0)
@@ -463,14 +465,19 @@ text ClayLetsBail{
     "the crates.\p"
     "It will take a while to grab\n"
     "everything, but we should be able to\l"
-    "finish before we are discovered.\p"
+    "finish before we are discovered."
+}
+text ClayLetsBailPart2{
     "???: Excellent. And what about\n"
-    "the research?\p"
+    "the research?"
+}
+text ClayLetsBailPart3{
     "Proton: Everything is going exactly\n"
-    "as planned.\l"
-    "Some of the smartest people I know\l"
+    "as planned.\p"
+    "Some of the smartest people I know\n"
     "are on the case."
 }
+
 text ClayLetsBail2{
     "Clay: It's just as we feared.\p"
     "This ain't some small\n"

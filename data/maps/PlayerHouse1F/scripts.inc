@@ -39,11 +39,14 @@ PlayerHouse1F_Intro::
 	waitmovement 0
 	delay 20
 	msgbox PlayerHouse1F_Disc1
+	msgbox PlayerHouse1F_Disc1Part2
 	closemessage
 	fadescreen FADE_TO_BLACK
 	delay 80
 	fadescreen FADE_FROM_BLACK
 	msgbox PlayerHouse1F_Disc2
+	msgbox PlayerHouse1F_Disc2Part2
+	msgbox PlayerHouse1F_Disc2Part3
 	closemessage
 	playse SE_PIN
 	applymovement 1, Common_Movement_ExclamationMark
@@ -183,16 +186,22 @@ PlayerHouse1F_LookPlayer::
 PlayerHouse1F_Disc1::
 	.string "Mom: So, {BROTHER},\n"
 	.string "how was your trip to Kanto?\p"
-	.string "Go on, I want to hear everything!\p"
+	.string "Go on, I want to hear everything!$"
+
+PlayerHouse1F_Disc1Part2::
 	.string "{BROTHER}: …$"
 
 PlayerHouse1F_Disc2::
 	.string "{BROTHER}: In the end, that Lance's\n"
-	.string "Dragonite was simply too strong…\p"
+	.string "Dragonite was simply too strong…$"
+
+PlayerHouse1F_Disc2Part2::
 	.string "Mom: Well, at least you tried\n"
 	.string "your best.\p"
 	.string "It sounds like you still had fun\n"
-	.string "in the end!\p"
+	.string "in the end!$"
+
+PlayerHouse1F_Disc2Part3::
 	.string "{BROTHER}: Anyway mom, aren't you\n"
 	.string "forgetting something?$"
 

@@ -121,11 +121,25 @@ Lab2_DexGet_7:
 	end
 
 Lab2_DexGet_2:
-	msgbox Lab2_DexTalkMay
+	msgbox Lab2_DexTalkMayA
+	msgbox Lab2_DexTalkMayB
+	msgbox Lab2_DexTalkMayC
+	msgbox Lab2_DexTalkMayD
+	msgbox Lab2_DexTalkMayE
+	msgbox Lab2_DexTalkMayF
+	msgbox Lab2_DexTalkMayG
+	msgbox Lab2_DexTalkMayH
 	goto Lab2_DexGet_1
 
 Lab2_DexGet_5:
-	msgbox Lab2_DexTalkBrendan
+	msgbox Lab2_DexTalkBrendanA
+	msgbox Lab2_DexTalkBrendanB
+	msgbox Lab2_DexTalkBrendanC
+	msgbox Lab2_DexTalkBrendanD
+	msgbox Lab2_DexTalkBrendanE
+	msgbox Lab2_DexTalkBrendanF
+	msgbox Lab2_DexTalkBrendanG
+	msgbox Lab2_DexTalkBrendanH
 	goto Lab2_DexGet_4
 
 Lab2_DexGet_8:
@@ -546,30 +560,88 @@ Lab2_PresentingBalls::
 	.string "You may only choose one so make\n"
 	.string "sure you decide carefully!$"
 
-Lab2_DexTalkMay::
-	.string "Prof. Birch: {RIVAL}, {PLAYER},\nis there something you need?\p"
-	.string "{RIVAL}: Oh boy, is there…\pYou gave {PLAYER} a Pokémon but\nnever gave him a Pokédex, dad!\pHow do you expect him to become\n a great trainer without one!?\p"
-	.string "Prof. Birch: Oh, it must've\nslipped my mind…\p"
-	.string "{RIVAL}: Slipped your mind!?\nYou're a Pokémon professor!\p"
-	.string "Surely you realize that giving one to\n{PLAYER} helps your research as well?\p"
-	.string "Prof. Birch: I know, I know.\nI'll get {PLAYER} one right away.\p"
-	.string "Now, let's see…\l… … … …\pAh, darn it.\pLooks like I don't have any extra\nlying around at this time…\p"
-	.string "{RIVAL}: Well we can't have {PLAYER}\nleaving empty-handed, now can we!?\p"
-	.string "Prof. Birch: Here, {PLAYER},\nyou can have mine.\lI'll order myself a new one.\p"
-	.string "{RIVAL}: Yay! Thanks, dad!\n$"
+Lab2_DexTalkMayA::
+	.string "Prof. Birch: {RIVAL}, {PLAYER},\n"
+	.string "is there something you need?$"
 
-Lab2_DexTalkBrendan::
-	.string "Prof. Birch: {RIVAL}, {PLAYER},\nis there something you need?\p"
-	.string "{RIVAL}: As a matter of fact, there is.\nYou never gave {PLAYER} a Pokédex!\p"
-	.string "How do you expect her to become\n a great trainer without one?\p"
-	.string "Prof. Birch: Oh, it must've\nslipped my mind…\p"
-	.string "{RIVAL}: Slipped your mind?\nAren't you a Pokémon professor?\p"
-	.string "Surely giving one to {PLAYER}\nhelps your research as well.\p"
-	.string "Prof. Birch: I know, I know.\nI'll get {PLAYER} one right away.\p"
-	.string "Now, let's see…\l… … … …\pAh, darn it.\pLooks like I don't have any extra\nlying around at this time…\p"
-	.string "{RIVAL}: Well we can't have {PLAYER}\nleaving empty-handed, now can we?\p"
-	.string "Prof. Birch: Yes, I know. {PLAYER},\nyou can have mine.\lI'll order myself a new one.\p"
-	.string "{RIVAL}: You're the best, dad!\n$"
+Lab2_DexTalkMayB::
+	.string "{RIVAL}: Oh boy, is there…\p"
+	.string "You gave {PLAYER} a Pokémon but\n"
+	.string "never gave him a Pokédex, dad!\p"
+	.string "How do you expect him to become\n"
+	.string "a great trainer without one?!$"
+
+Lab2_DexTalkMayC::
+	.string "Prof. Birch: Oh, it must've\n"
+	.string "slipped my mind…$"
+
+Lab2_DexTalkMayD::
+	.string "{RIVAL}: Slipped your mind?!\n"
+	.string "You're a Pokémon professor!\p"
+	.string "Surely you realize that giving one to\n"
+	.string "{PLAYER} helps your research as well?$"
+
+Lab2_DexTalkMayE::
+	.string "Prof. Birch: I know, I know.\n"
+	.string "I'll get {PLAYER} one right away.\p"
+	.string "Now, let's see…\p"
+	.string "… … … …\p"
+	.string "Ah, darn it.\p"
+	.string "Looks like I don't have any extra\n"
+	.string "lying around at this time…$"
+
+Lab2_DexTalkMayF::
+	.string "{RIVAL}: Well we can't have {PLAYER}\n"
+	.string "leaving empty-handed, now can we?!$"
+
+Lab2_DexTalkMayG::
+	.string "Prof. Birch: Here, {PLAYER},\n"
+	.string "you can have mine.\l"
+	.string "I'll order myself a new one.$"
+
+Lab2_DexTalkMayH::
+	.string "{RIVAL}: Yay! Thanks, dad!$"
+
+Lab2_DexTalkBrendanA::
+	.string "Prof. Birch: {RIVAL}, {PLAYER},\n"
+	.string "is there something you need?$"
+
+Lab2_DexTalkBrendanB::
+	.string "{RIVAL}: As a matter of fact, there is.\n"
+	.string "You never gave {PLAYER} a Pokédex!\p"
+	.string "How do you expect her to become\n"
+	.string "a great trainer without one?$"
+
+Lab2_DexTalkBrendanC::
+	.string "Prof. Birch: Oh, it must've\n"
+	.string "slipped my mind…$"
+
+Lab2_DexTalkBrendanD::
+	.string "{RIVAL}: Slipped your mind?\n"
+	.string "Aren't you a Pokémon professor?\p"
+	.string "Surely giving one to {PLAYER}\n"
+	.string "helps your research as well.$"
+
+Lab2_DexTalkBrendanE::
+	.string "Prof. Birch: I know, I know.\n"
+	.string "I'll get {PLAYER} one right away.\p"
+	.string "Now, let's see…\p"
+	.string "… … … …\p"
+	.string "Ah, darn it.\p"
+	.string "Looks like I don't have any extra\n"
+	.string "lying around at this time…$"
+
+Lab2_DexTalkBrendanF::
+	.string "{RIVAL}: Well we can't have {PLAYER}\n"
+	.string "leaving empty-handed, now can we?$"
+
+Lab2_DexTalkBrendanG::
+	.string "Prof. Birch: Yes, I know. {PLAYER},\n"
+	.string "you can have mine.\l"
+	.string "I'll order myself a new one.$"
+
+Lab2_DexTalkBrendanH::
+	.string "{RIVAL}: You're the best, dad!$"
 
 LabMegaStones::
 	.string "Prof. Birch: {RIVAL}, {PLAYER},\n"

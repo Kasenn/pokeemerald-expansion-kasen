@@ -340,9 +340,13 @@ PokeRanch_MareepTrigger_1:
 	waitmovement 18
 	waitmovement 19
 	goto_if_set FLAG_JASMINE_MET, PokeRanch_MareepTrigger_6
-	msgbox VolknerRant2, MSGBOX_DEFAULT
+	bufferstring STR_VAR_1, PokeRanch_MareepTrigger_Text_4
 PokeRanch_MareepTrigger_5:
-	waitmessage
+	msgbox VolknerRantA
+	msgbox VolknerRantB
+	msgbox VolknerRantC
+	msgbox VolknerRantD
+	msgbox VolknerRantE
 	closemessage
 	applymovement 12, MoveGrunt12
 	applymovement 13, Walk2Down
@@ -363,7 +367,7 @@ PokeRanch_MareepTrigger_2:
 	goto PokeRanch_MareepTrigger_1
 
 PokeRanch_MareepTrigger_6:
-	msgbox VolknerRant, MSGBOX_DEFAULT
+	bufferstring STR_VAR_1, PokeRanch_MareepTrigger_Text_3
 	goto PokeRanch_MareepTrigger_5
 
 
@@ -422,8 +426,8 @@ Ranch_FirstRocketWon::
 
 
 PokeRanch_SpecialBattleWon::
-	msgbox Ranch_RocketEscape, MSGBOX_DEFAULT
-	waitmessage
+	msgbox Ranch_RocketEscape
+	msgbox Ranch_RocketEscape2
 	closemessage
 	fadescreenswapbuffers FADE_TO_BLACK
 	fadenewbgm MUS_MUTED
@@ -444,9 +448,9 @@ PokeRanch_SpecialBattleWon::
 	fadenewbgm MUS_VERDANTURF
 	savebgm MUS_VERDANTURF
 	goto_if_set FLAG_JASMINE_HELPED, PokeRanch_SpecialBattleWon_2
-	msgbox Ranch_RocketEscapeFail2, MSGBOX_DEFAULT
+	msgbox Ranch_RocketEscapeFail
+	msgbox Ranch_RocketEscapeFail2
 PokeRanch_SpecialBattleWon_1:
-	waitmessage
 	safefollow
 	closemessage
 	applymovement 18, AfterBattleVolkner1
@@ -482,7 +486,8 @@ PokeRanch_SpecialBattleWon_9:
 	end
 
 PokeRanch_SpecialBattleWon_2:
-	msgbox Ranch_RocketEscapeFail, MSGBOX_DEFAULT
+	msgbox Ranch_RocketEscapeFail
+	msgbox Ranch_RocketEscapeFailPart2
 	goto PokeRanch_SpecialBattleWon_1
 
 PokeRanch_SpecialBattleWon_6:
@@ -605,6 +610,12 @@ PokeRanch_MareepTrigger_Text_1:
 PokeRanch_MareepTrigger_Text_2:
 	.string "NOT SO FAST!!$"
 
+PokeRanch_MareepTrigger_Text_3:
+	.string "Jasmine$"
+
+PokeRanch_MareepTrigger_Text_4:
+	.string "???$"
+
 PokeRanch_VolknerReward::
 	.string "Volkner: You've been a great help\n"
 	.string "around the farm.\p"
@@ -706,13 +717,17 @@ PokeRanchRocket2Defeat::
 
 Ranch_RocketEscape::
 	.string "Rocket Grunt 6: These guys are\n"
-	.string "way too strong!\p"
+	.string "way too strong!$"
+
+Ranch_RocketEscape2::
 	.string "Rocket Grunt 1: This calls for\n"
-	.string "a tactical retreat!\l"
+	.string "a tactical retreat!\p"
 	.string "They can't catch all of us!$"
 
 Ranch_RocketEscapeFail::
-	.string "Rocket Grunt 1: Drats…\p"
+	.string "Rocket Grunt 1: Drats…$"
+
+Ranch_RocketEscapeFailPart2::
 	.string "Volkner: The others may have escaped\n"
 	.string "but at least we caught someone who\l"
 	.string "was seemingly calling the shots here.\p"
@@ -724,7 +739,6 @@ Ranch_RocketEscapeFail::
 	.string "of the ranch.$"
 
 Ranch_RocketEscapeFail2::
-	.string "Rocket Grunt 1: Drats…\p"
 	.string "Volkner: The others may have escaped\n"
 	.string "but at least we caught someone who\l"
 	.string "was seemingly calling the shots here.\p"
@@ -756,34 +770,27 @@ RanchRocket2Challenge::
 	.string "Don't think you're out\n"
 	.string "of the woods yet!$"
 
-VolknerRant2::
-	.string "???: Looks like we arrived\n"
-	.string "just in time…\p"
-	.string "Volkner: I saw some of these guys\n"
-	.string "skulking in the woods so I knew\l"
-	.string "there was trouble about.\p"
-	.string "You're not taking anybody's\n"
-	.string "Pokémon today!\p"
-	.string "Rocket Grunt 3: There's two\n"
-	.string "gym leaders here!?\p"
-	.string "Rocket Grunt 5: We're done for!\p"
-	.string "Rocket Grunt 1: CALM YOURSELF!\n"
-	.string "We still outnumber them two-to-one!\p"
-	.string "Let's do this!$"
+VolknerRantA::
+	.string "{STR_VAR_1}: Looks like we arrived\n"
+	.string "just in time…$"
 
-VolknerRant::
-	.string "Jasmine: Looks like we arrived\n"
-	.string "just in time…\p"
+VolknerRantB::
 	.string "Volkner: I saw some of these guys\n"
-	.string "skulking in the woods so I knew\l"
+	.string "skulking in the woods, so I knew\l"
 	.string "there was trouble about.\p"
 	.string "You're not taking anybody's\n"
-	.string "Pokémon today!\p"
+	.string "Pokémon today!$"
+
+VolknerRantC::
 	.string "Rocket Grunt 3: There's two\n"
-	.string "gym leaders here!?\p"
-	.string "Rocket Grunt 5: We're done for!\p"
-	.string "Rocket Grunt 1: CALM YOURSELF!\n"
-	.string "We still outnumber them two-to-one!\p"
+	.string "gym leaders here!?$"
+
+VolknerRantD::
+	.string "Rocket Grunt 5: We're done for!$"
+
+VolknerRantE::
+	.string "Rocket Grunt 1: CALM YOURSELF!\p"
+	.string "We still outnumber them two-to-one!\n"
 	.string "Let's do this!$"
 
 RanchGrunt1::

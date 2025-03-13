@@ -28,11 +28,14 @@ script PlayerHouse1F_Intro{
     waitmovement(0)
     delay(20)
     msgbox(PlayerHouse1F_Disc1)
+    msgbox(PlayerHouse1F_Disc1Part2)
     closemessage
     fadescreen(FADE_TO_BLACK)
     delay(80)
     fadescreen(FADE_FROM_BLACK)
     msgbox(PlayerHouse1F_Disc2)
+    msgbox(PlayerHouse1F_Disc2Part2)
+    msgbox(PlayerHouse1F_Disc2Part3)
     closemessage
     playse(SE_PIN)
     applymovement(MOM, Common_Movement_ExclamationMark)
@@ -65,17 +68,23 @@ text PlayerHouse1F_LookPlayer{
 text PlayerHouse1F_Disc1{
     "Mom: So, {BROTHER},\n"
     "how was your trip to Kanto?\p"
-    "Go on, I want to hear everything!\p"
+    "Go on, I want to hear everything!"
+}
+text PlayerHouse1F_Disc1Part2{
     "{BROTHER}: …"
 }
 
 text PlayerHouse1F_Disc2{
     "{BROTHER}: In the end, that Lance's\n"
-    "Dragonite was simply too strong…\p"
+    "Dragonite was simply too strong…"
+}
+text PlayerHouse1F_Disc2Part2{
     "Mom: Well, at least you tried\n"
     "your best.\p"
     "It sounds like you still had fun\n"
-    "in the end!\p"
+    "in the end!"
+}
+text PlayerHouse1F_Disc2Part3{
     "{BROTHER}: Anyway mom, aren't you\n"
     "forgetting something?"
 }

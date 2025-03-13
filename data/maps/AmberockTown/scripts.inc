@@ -476,6 +476,8 @@ Amberock_KrokorokGiovanniCutScene::
 	applymovement OBJ_EVENT_ID_PLAYER, Amberock_KrokorokGiovanniCutScene_Movement_0
 	waitmovement 0
 	msgbox ClayLetsBail
+	msgbox ClayLetsBailPart2
+	msgbox ClayLetsBailPart3
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Walk2Right
 	waitmovement 0
@@ -1205,12 +1207,16 @@ ClayLetsBail::
 	.string "the crates.\p"
 	.string "It will take a while to grab\n"
 	.string "everything, but we should be able to\l"
-	.string "finish before we are discovered.\p"
+	.string "finish before we are discovered.$"
+
+ClayLetsBailPart2::
 	.string "???: Excellent. And what about\n"
-	.string "the research?\p"
+	.string "the research?$"
+
+ClayLetsBailPart3::
 	.string "Proton: Everything is going exactly\n"
-	.string "as planned.\l"
-	.string "Some of the smartest people I know\l"
+	.string "as planned.\p"
+	.string "Some of the smartest people I know\n"
 	.string "are on the case.$"
 
 ClayLetsBail2::

@@ -475,6 +475,7 @@ Debug_Script_1_12:
 
 
 Debug_Script_2::
+	call MauvilleCity_EventScript_Wally
 	end
 
 
@@ -1315,6 +1316,36 @@ Pearlwood_Debug_8:
 	fadescreen FADE_TO_BLACK
 	callnative OpenFlyMapFromSign
 	goto Pearlwood_Debug_7
+
+
+TestroomTrigger1::
+	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
+	lock
+	applymovement OBJ_EVENT_ID_FOLLOWER, Walk6Down
+	applymovement 0xFF, Walk6Down
+	waitmovement 0
+	release
+	end
+
+
+TestroomTrigger2::
+	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
+	lockall
+	applymovement OBJ_EVENT_ID_FOLLOWER, Walk6Down
+	applymovement 0xFF, Walk6Down
+	waitmovement 0
+	release
+	end
+
+
+TestroomTrigger3::
+	safefollow
+	lock
+	applymovement OBJ_EVENT_ID_FOLLOWER, Walk6Down
+	applymovement 0xFF, Walk6Down
+	waitmovement 0
+	release
+	end
 
 
 RopeBridgeScript_Movement_0:

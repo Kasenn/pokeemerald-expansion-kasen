@@ -85,10 +85,24 @@ script Lab2_DexGet{
     unlockfollowermovement
     lock
     if(checkplayergender == MALE){
-        msgbox(Lab2_DexTalkMay)
+        msgbox(Lab2_DexTalkMayA)
+        msgbox(Lab2_DexTalkMayB)
+        msgbox(Lab2_DexTalkMayC)
+        msgbox(Lab2_DexTalkMayD)
+        msgbox(Lab2_DexTalkMayE)
+        msgbox(Lab2_DexTalkMayF)
+        msgbox(Lab2_DexTalkMayG)
+        msgbox(Lab2_DexTalkMayH)
     }
     if(var(VAR_RESULT) == FEMALE){
-        msgbox(Lab2_DexTalkBrendan)
+        msgbox(Lab2_DexTalkBrendanA)
+        msgbox(Lab2_DexTalkBrendanB)
+        msgbox(Lab2_DexTalkBrendanC)
+        msgbox(Lab2_DexTalkBrendanD)
+        msgbox(Lab2_DexTalkBrendanE)
+        msgbox(Lab2_DexTalkBrendanF)
+        msgbox(Lab2_DexTalkBrendanG)
+        msgbox(Lab2_DexTalkBrendanH)
     }
     closemessage
     playfanfare(MUS_OBTAIN_TMHM)
@@ -126,32 +140,91 @@ script Lab2_DexGet{
     end
 }
 
-text Lab2_DexTalkMay{
-    "Prof. Birch: {RIVAL}, {PLAYER},\nis there something you need?\p"
-    "{RIVAL}: Oh boy, is there…\pYou gave {PLAYER} a Pokémon but\nnever gave him a Pokédex, dad!\pHow do you expect him to become\n a great trainer without one!?\p"
-    "Prof. Birch: Oh, it must've\nslipped my mind…\p"
-    "{RIVAL}: Slipped your mind!?\nYou're a Pokémon professor!\p"
-    "Surely you realize that giving one to\n{PLAYER} helps your research as well?\p"
-    "Prof. Birch: I know, I know.\nI'll get {PLAYER} one right away.\p"
-    "Now, let's see…\l… … … …\pAh, darn it.\pLooks like I don't have any extra\nlying around at this time…\p"
-    "{RIVAL}: Well we can't have {PLAYER}\nleaving empty-handed, now can we!?\p"
-    "Prof. Birch: Here, {PLAYER},\nyou can have mine.\lI'll order myself a new one.\p"
-    "{RIVAL}: Yay! Thanks, dad!\n"
+text Lab2_DexTalkMayA{
+    "Prof. Birch: {RIVAL}, {PLAYER},\n"
+    "is there something you need?"
+}
+text Lab2_DexTalkMayB{
+    "{RIVAL}: Oh boy, is there…\p"
+    "You gave {PLAYER} a Pokémon but\n"
+    "never gave him a Pokédex, dad!\p"
+    "How do you expect him to become\n"
+    "a great trainer without one?!"
+}
+text Lab2_DexTalkMayC{
+    "Prof. Birch: Oh, it must've\n"
+    "slipped my mind…"
+}
+text Lab2_DexTalkMayD{
+    "{RIVAL}: Slipped your mind?!\n"
+    "You're a Pokémon professor!\p"
+    "Surely you realize that giving one to\n"
+    "{PLAYER} helps your research as well?"
+}
+text Lab2_DexTalkMayE{
+    "Prof. Birch: I know, I know.\n"
+    "I'll get {PLAYER} one right away.\p"
+    "Now, let's see…\p"
+    "… … … …\p"
+    "Ah, darn it.\p"
+    "Looks like I don't have any extra\n"
+    "lying around at this time…"
+}
+text Lab2_DexTalkMayF{
+    "{RIVAL}: Well we can't have {PLAYER}\n"
+    "leaving empty-handed, now can we?!"
+}
+text Lab2_DexTalkMayG{
+    "Prof. Birch: Here, {PLAYER},\n"
+    "you can have mine.\l"
+    "I'll order myself a new one."
+}
+text Lab2_DexTalkMayH{
+    "{RIVAL}: Yay! Thanks, dad!"
 }
 
-text Lab2_DexTalkBrendan{
-    "Prof. Birch: {RIVAL}, {PLAYER},\nis there something you need?\p"
-    "{RIVAL}: As a matter of fact, there is.\nYou never gave {PLAYER} a Pokédex!\p"
-    "How do you expect her to become\n a great trainer without one?\p"
-    "Prof. Birch: Oh, it must've\nslipped my mind…\p"
-    "{RIVAL}: Slipped your mind?\nAren't you a Pokémon professor?\p"
-    "Surely giving one to {PLAYER}\nhelps your research as well.\p"
-    "Prof. Birch: I know, I know.\nI'll get {PLAYER} one right away.\p"
-    "Now, let's see…\l… … … …\pAh, darn it.\pLooks like I don't have any extra\nlying around at this time…\p"
-    "{RIVAL}: Well we can't have {PLAYER}\nleaving empty-handed, now can we?\p"
-    "Prof. Birch: Yes, I know. {PLAYER},\nyou can have mine.\lI'll order myself a new one.\p"
-    "{RIVAL}: You're the best, dad!\n"
+text Lab2_DexTalkBrendanA{
+    "Prof. Birch: {RIVAL}, {PLAYER},\n"
+    "is there something you need?"
 }
+text Lab2_DexTalkBrendanB{
+    "{RIVAL}: As a matter of fact, there is.\n"
+    "You never gave {PLAYER} a Pokédex!\p"
+    "How do you expect her to become\n"
+    "a great trainer without one?"
+}
+text Lab2_DexTalkBrendanC{
+    "Prof. Birch: Oh, it must've\n"
+    "slipped my mind…"
+}
+text Lab2_DexTalkBrendanD{
+    "{RIVAL}: Slipped your mind?\n"
+    "Aren't you a Pokémon professor?\p"
+    "Surely giving one to {PLAYER}\n"
+    "helps your research as well."
+}
+text Lab2_DexTalkBrendanE{
+    "Prof. Birch: I know, I know.\n"
+    "I'll get {PLAYER} one right away.\p"
+    "Now, let's see…\p"
+    "… … … …\p"
+    "Ah, darn it.\p"
+    "Looks like I don't have any extra\n"
+    "lying around at this time…"
+}
+text Lab2_DexTalkBrendanF{
+    "{RIVAL}: Well we can't have {PLAYER}\n"
+    "leaving empty-handed, now can we?"
+}
+text Lab2_DexTalkBrendanG{
+    "Prof. Birch: Yes, I know. {PLAYER},\n"
+    "you can have mine.\l"
+    "I'll order myself a new one."
+}
+text Lab2_DexTalkBrendanH{
+    "{RIVAL}: You're the best, dad!"
+}
+
 
 script Lab2_GetMegaStone{
     safefollow

@@ -24,13 +24,16 @@ mapscripts Amberock_PokeballFactory_B1F_NoLights_MapScripts {
 
 script BasementGrunts{
     msgbox(BasementGrunts_Text)
+    msgbox(BasementGrunts_Text2)
     release
 }
 text BasementGrunts_Text{
     "Grunt 1: What do we do?\n"
-    "We're going to be so fired.\p"
-    "Grunt 2: We're not at fault here.\n"
-    "Whoever is meant to control that\l"
+    "We're going to be so fired."
+}
+text BasementGrunts_Text2{
+    "Grunt 2: We're not at fault here.\p"
+    "Whoever is meant to control that\n"
     "Krokorok is the one getting fired!"
 }
 

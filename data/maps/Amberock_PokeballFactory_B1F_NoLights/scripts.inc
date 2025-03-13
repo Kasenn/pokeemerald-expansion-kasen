@@ -35,6 +35,7 @@ Amberock_PokeballFactory_B1F_NoLights_MapScripts_MAP_SCRIPT_ON_LOAD_1:
 
 BasementGrunts::
 	msgbox BasementGrunts_Text
+	msgbox BasementGrunts_Text2
 	release
 	return
 
@@ -47,9 +48,11 @@ FactoryEmployee_Basement2::
 
 BasementGrunts_Text::
 	.string "Grunt 1: What do we do?\n"
-	.string "We're going to be so fired.\p"
-	.string "Grunt 2: We're not at fault here.\n"
-	.string "Whoever is meant to control that\l"
+	.string "We're going to be so fired.$"
+
+BasementGrunts_Text2::
+	.string "Grunt 2: We're not at fault here.\p"
+	.string "Whoever is meant to control that\n"
 	.string "Krokorok is the one getting fired!$"
 
 FactoryEmployee_Basement2_Text::

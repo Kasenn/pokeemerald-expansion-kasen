@@ -259,8 +259,9 @@ BarnJasmine_EventHealMareep::
 	msgbox BarnJasmine_HandOverHerbalMix, MSGBOX_DEFAULT
 	waitfanfare
 	waitmessage
-	msgbox BarnJasmine_HealingMareep, MSGBOX_DEFAULT
-	waitmessage
+	msgbox BarnJasmine_HealingMareep
+	msgbox BarnJasmine_HealingMareep2
+	msgbox BarnJasmine_HealingMareep3
 	closemessage
 	fadescreen FADE_TO_BLACK
 	playfanfare MUS_HEAL
@@ -316,8 +317,12 @@ BarnJasmine_HealingMareep::
 	.string "Jasmine: Thank you so much\n"
 	.string "for your help.\p"
 	.string "Now I just need to mix these herbs with\n"
-	.string "some of this guy's favorite feed and…\p"
-	.string "Mareep: B-Baa…!\p"
+	.string "some of this guy's favorite feed and…$"
+
+BarnJasmine_HealingMareep2::
+	.string "Mareep: B-Baa…!$"
+
+BarnJasmine_HealingMareep3::
 	.string "Jasmine: I know, it probably\n"
 	.string "tastes awful…\l"
 	.string "But still, I need you to swallow it…$"
