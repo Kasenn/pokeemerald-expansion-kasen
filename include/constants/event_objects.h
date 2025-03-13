@@ -613,6 +613,7 @@
 #define OBJ_EVENT_PAL_VERDANT_SPHERE        0x1184
 #define OBJ_EVENT_PAL_PRYCE        0x1185
 #define OBJ_EVENT_PAL_BLAINE        0x1186
+#define OBJ_EVENT_PAL_TAG_RIDING_GOGOAT        0x1187
 
 // Used as a placeholder follower graphic
 #define OBJ_EVENT_PAL_TAG_SUBSTITUTE              0x7611

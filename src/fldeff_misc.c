@@ -502,7 +502,7 @@ static void SetCurrentSecretBase(void)
 
 static void AdjustSecretPowerSpritePixelOffsets(void)
 {
-    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_BIKE)
+    if (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_BIKE | PLAYER_AVATAR_FLAG_GOGOAT))
     {
         switch (gFieldEffectArguments[1])
         {

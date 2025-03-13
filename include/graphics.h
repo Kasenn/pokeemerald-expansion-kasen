@@ -3526,4 +3526,6 @@ extern const u32 gBattleIcons_Gfx2[];
 extern const u32 gBattleIcons_Pal1[];
 extern const u32 gBattleIcons_Pal2[];
 
+extern const u32 gObjectEventPal_Gogoat[];
+
 #endif //GUARD_GRAPHICS_H

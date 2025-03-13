@@ -318,23 +318,48 @@ void ItemUseOutOfBattle_Bike(u8 taskId)
 
 static void ItemUseOnFieldCB_Bike(u8 taskId)
 {
-    // if(gSaveBlock2Ptr->playerBike != (MACH_BIKE || ACRO_BIKE))
-    //     gSaveBlock2Ptr->playerBike = ACRO_BIKE;
-    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_BIKE)
+    if (FlagGet(FLAG_GOGOAT_RIDING))
     {
-        SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
-        Overworld_ClearSavedMusic();
-        Overworld_PlaySpecialMapMusic();
+        if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_GOGOAT)
+        {
+            struct Sprite *sprite = &gSprites[gPlayerAvatar.objectEventId];
+    
+            sprite->y2 += 8;
+            DestroySprite(&gSprites[gGogoatMountBody]);
+            DestroySprite(&gSprites[gGogoatMountHead]);
+
+            SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
+            Overworld_ClearSavedMusic();
+            Overworld_PlaySpecialMapMusic();    
+        }
+        else
+        {
+            SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_GOGOAT);
+            if (gSaveBlock1Ptr->location.mapNum != MAP_NUM(SANDSTONE_GYM_1F)
+            && gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(SANDSTONE_GYM_1F))
+            {
+                Overworld_SetSavedMusic(MUS_CYCLING);
+                Overworld_ChangeMusicTo(MUS_CYCLING);
+            }
+        }
     }
     else
     {
-        // gSaveBlock2Ptr->playerBike = ItemId_GetSecondaryId(gSpecialVar_ItemId);
-        SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_BIKE);
-        if (gSaveBlock1Ptr->location.mapNum != MAP_NUM(SANDSTONE_GYM_1F)
-        && gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(SANDSTONE_GYM_1F))
+        if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_BIKE)
         {
-            Overworld_SetSavedMusic(MUS_CYCLING);
-            Overworld_ChangeMusicTo(MUS_CYCLING);
+            SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
+            Overworld_ClearSavedMusic();
+            Overworld_PlaySpecialMapMusic();
+        }
+        else
+        {
+            SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_BIKE);
+            if (gSaveBlock1Ptr->location.mapNum != MAP_NUM(SANDSTONE_GYM_1F)
+            && gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(SANDSTONE_GYM_1F))
+            {
+                Overworld_SetSavedMusic(MUS_CYCLING);
+                Overworld_ChangeMusicTo(MUS_CYCLING);
+            }
         }
     }
     FollowMe_HandleBike();

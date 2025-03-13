@@ -643,6 +643,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
 #endif //OW_FOLLOWERS_POKEBALLS
     {gObjectEventPal_Substitute,            OBJ_EVENT_PAL_TAG_SUBSTITUTE},
     {gObjectEventPaletteEmotes,             OBJ_EVENT_PAL_TAG_EMOTES},
+    {gObjectEventPal_RidingGogoat,          OBJ_EVENT_PAL_TAG_RIDING_GOGOAT},
 #ifdef BUGFIX
     {NULL,                                  OBJ_EVENT_PAL_TAG_NONE},
 #else

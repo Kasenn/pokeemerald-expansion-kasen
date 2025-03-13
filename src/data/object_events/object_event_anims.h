@@ -2153,6 +2153,13 @@ static const union AnimCmd *const sAnimTable_Fishing[] = {
     [ANIM_HOOKED_POKEMON_EAST] = sAnim_HookedPokemonEast,
 };
 
+const union AnimCmd *const sAnimTable_RidingGogoat[] = {
+    [ANIM_STD_FACE_SOUTH] = sAnim_GoSouth2F,
+    [ANIM_STD_FACE_NORTH] = sAnim_GoNorth2F,
+    [ANIM_STD_FACE_WEST] = sAnim_GoWest2F,
+    [ANIM_STD_FACE_EAST] = sAnim_GoEast2F,
+};
+
 static const union AffineAnimCmd *const sAffineAnimTable_KyogreGroudon[] = {
     sAffineAnim_KyogreGroudon_GoSouthStart, // Used by Kyogre/Groudon when awakened
     sAffineAnim_KyogreGroudon_GoSouth,      // Used by Kyogre/Groudon when awakened

@@ -89,6 +89,8 @@
 #define FLDEFF_TALL_GRASS_SNOW           84
 #define FLDEFF_SNOW_PILE                 85
 #define FLDEFF_CAVE_DUST                 86
+#define FLDEFF_RIDING_GOGOAT             87
+#define FLDEFF_RIDING_GOGOAT_HEAD        88
 
 #define FLDEFFOBJ_SHADOW_S              0
 #define FLDEFFOBJ_SHADOW_M              1
@@ -142,6 +144,8 @@
 #define FLDEFFOBJ_DEEP_SNOW_FOOTPRINTS  49
 #define FLDEFFOBJ_SNOW_PILE             50
 #define FLDEFFOBJ_CAVE_DUST             51
+#define FLDEFFOBJ_RIDING_GOGOAT         52
+#define FLDEFFOBJ_RIDING_GOGOAT_HEAD    53
 
 #define FLDEFF_PAL_TAG_CUT_GRASS          0x1000
 #define FLDEFF_PAL_TAG_SECRET_POWER_TREE  0x1003

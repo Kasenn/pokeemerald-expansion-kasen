@@ -18,6 +18,7 @@
 #include "constants/songs.h"
 #include "constants/rgb.h"
 #include "constants/event_objects.h"
+#include "bike.h"
 
 #define OBJ_EVENT_PAL_TAG_NONE 0x11FF // duplicate of define in event_object_movement.c
 #define PAL_TAG_REFLECTION_OFFSET 0x2000 // reflection tag value is paletteTag + 0x2000
@@ -41,6 +42,7 @@ static void UpdateAshFieldEffect_End(struct Sprite *);
 static void SynchroniseSurfAnim(struct ObjectEvent *, struct Sprite *);
 static void SynchroniseSurfPosition(struct ObjectEvent *, struct Sprite *);
 static void UpdateBobbingEffect(struct ObjectEvent *, struct Sprite *, struct Sprite *);
+static void UpdateGogoatBobbing(struct ObjectEvent *, struct Sprite *, struct Sprite *);
 static void SpriteCB_UnderwaterSurfBlob(struct Sprite *);
 static u32 ShowDisguiseFieldEffect(u8, u8, u8);
 u32 FldEff_Shadow(void);
@@ -2128,3 +2130,100 @@ static void UpdateGrassFieldEffectSubpriority(struct Sprite *sprite, u8 elevatio
     }
 }
 
+// Sprite data for FLDEFF_RIDING_GOGOAT
+#define sBitfield     data[0]
+#define sPlayerOffset data[1]
+#define sPlayerObjId  data[2]
+#define sVelocity     data[3]
+#define sTimer        data[4]
+#define sIntervalIdx  data[5]
+#define sPrevX        data[6]
+#define sPrevY        data[7]
+
+void UpdateGogoatFieldEffect(struct Sprite *sprite)
+{
+    struct ObjectEvent *playerObj = &gObjectEvents[sprite->sPlayerObjId];
+    struct Sprite *playerSprite = &gSprites[playerObj->spriteId];
+    SynchroniseSurfAnim(playerObj, sprite);
+    SynchroniseSurfPosition(playerObj, sprite);
+    UpdateGogoatBobbing(playerObj, playerSprite, sprite);
+    sprite->oam.priority = playerSprite->oam.priority;
+}
+
+static void UpdateGogoatBobbing(struct ObjectEvent *playerObj, struct Sprite *playerSprite, struct Sprite *sprite)
+{
+    u8 interval = 0;
+
+    switch (GetPlayerSpeed())
+    {
+    case PLAYER_SPEED_FAST:
+        interval = 7;
+        break;
+    case PLAYER_SPEED_FASTEST:
+        interval = 5;
+        break;
+    case PLAYER_SPEED_NORMAL:
+    case PLAYER_SPEED_FASTER:
+    default:
+        interval = 9;
+        break;
+    }
+
+    sprite->sTimer++;
+    if (sprite->sTimer >= interval)
+    {
+        sprite->y2 ^= 1;
+        sprite->sTimer = 0;
+    }
+
+    playerSprite->y2 = sprite->y2;
+    sprite->x = playerSprite->x;
+    sprite->y = playerSprite->y + 8;
+}
+
+u32 FldEff_RidingGogoat(void)
+{
+    u8 spriteId;
+    
+    SetSpritePosToOffsetMapCoords((s16 *)&gFieldEffectArguments[0], (s16 *)&gFieldEffectArguments[1], 8, 8);
+    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_RIDING_GOGOAT], gFieldEffectArguments[0], gFieldEffectArguments[1], 150);
+    if (spriteId != MAX_SPRITES)
+    {
+        struct Sprite *sprite = &gSprites[spriteId];
+        sprite->coordOffsetEnabled = TRUE;
+        sprite->sPlayerObjId = gFieldEffectArguments[2];
+        sprite->oam.paletteNum = LoadObjectEventPalette(OBJ_EVENT_PAL_TAG_RIDING_GOGOAT);
+        sprite->y2 -= 8;
+    }
+
+    FieldEffectActiveListRemove(FLDEFF_RIDING_GOGOAT);
+    return spriteId;
+}
+
+u32 FldEff_RidingGogoatHead(void)
+{
+    u8 spriteId;
+    
+    SetSpritePosToOffsetMapCoords((s16 *)&gFieldEffectArguments[0], (s16 *)&gFieldEffectArguments[1], 8, 8);
+    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_RIDING_GOGOAT_HEAD], gFieldEffectArguments[0], gFieldEffectArguments[1], 0);
+    if (spriteId != MAX_SPRITES)
+    {
+        struct Sprite *sprite = &gSprites[spriteId];
+        sprite->coordOffsetEnabled = TRUE;
+        sprite->sPlayerObjId = gFieldEffectArguments[2];
+        sprite->oam.paletteNum = LoadObjectEventPalette(OBJ_EVENT_PAL_TAG_RIDING_GOGOAT);
+        sprite->y2 -= 8;
+    }
+
+    FieldEffectActiveListRemove(FLDEFF_RIDING_GOGOAT_HEAD);
+    return spriteId;
+}
+
+#undef sBitfield
+#undef sPlayerOffset
+#undef sPlayerObjId
+#undef sVelocity
+#undef sTimer
+#undef sIntervalIdx
+#undef sPrevX
+#undef sPrevY

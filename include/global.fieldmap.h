@@ -254,6 +254,7 @@ enum {
     PLAYER_AVATAR_STATE_CONTROLLABLE,
     PLAYER_AVATAR_STATE_FORCED,
     PLAYER_AVATAR_STATE_DASH,
+    PLAYER_AVATAR_STATE_GOGOAT,
     PLAYER_AVATAR_STATE_FIELD_MOVE,
     PLAYER_AVATAR_STATE_FISHING,
     PLAYER_AVATAR_STATE_WATERING,
@@ -274,6 +275,7 @@ enum {
 #define PLAYER_AVATAR_FLAG_CONTROLLABLE (1 << PLAYER_AVATAR_STATE_CONTROLLABLE)
 #define PLAYER_AVATAR_FLAG_FORCED_MOVE  (1 << PLAYER_AVATAR_STATE_FORCED)
 #define PLAYER_AVATAR_FLAG_DASH         (1 << PLAYER_AVATAR_STATE_DASH)
+#define PLAYER_AVATAR_FLAG_GOGOAT       (1 << PLAYER_AVATAR_STATE_GOGOAT)
 
 enum {
     PLAYER_AVATAR_GFX_FIELD_MOVE,
@@ -283,7 +285,8 @@ enum {
 
 // Player avatar flags for which follower Pokémon are hidden
 #define FOLLOWER_INVISIBLE_FLAGS       (PLAYER_AVATAR_FLAG_SURFING | PLAYER_AVATAR_FLAG_UNDERWATER | \
-                                        PLAYER_AVATAR_FLAG_BIKE | PLAYER_AVATAR_FLAG_FORCED_MOVE)
+                                        PLAYER_AVATAR_FLAG_BIKE | PLAYER_AVATAR_FLAG_FORCED_MOVE | \
+                                        PLAYER_AVATAR_FLAG_GOGOAT)
 
 enum
 {
@@ -336,8 +339,8 @@ enum
 
 struct PlayerAvatar
 {
-    /*0x00*/ u8 flags;
-    /*0x01*/ u8 transitionFlags; // used to be named bike, but its definitely not that. seems to be some transition flags
+    /*0x00*/ u32 flags;
+    /*0x01*/ u32 transitionFlags; // used to be named bike, but its definitely not that. seems to be some transition flags
     /*0x02*/ u8 runningState:7; // this is a static running state. 00 is not moving, 01 is turn direction, 02 is moving.
              u8 creeping:1;
     /*0x03*/ u8 tileTransitionState; // this is a transition running state: 00 is not moving, 01 is transition between tiles, 02 means you are on the frame in which you have centered on a tile but are about to keep moving, even if changing directions. 2 is also used for a ledge hop, since you are transitioning.

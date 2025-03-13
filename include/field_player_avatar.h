@@ -3,10 +3,10 @@
 
 void PlayerStep(u8 direction, u16 newKeys, u16 heldKeys);
 void ClearPlayerAvatarInfo(void);
-void SetPlayerAvatarExtraStateTransition(u16, u16);
+void SetPlayerAvatarExtraStateTransition(u16, u32);
 u8 GetPlayerAvatarGenderByGraphicsId(u16);
-bool8 TestPlayerAvatarFlags(u8);
-u8 GetPlayerAvatarSpriteId(void);
+u32 TestPlayerAvatarFlags(u32);
+u32 GetPlayerAvatarSpriteId(void);
 void PlayerGetDestCoords(s16 *, s16 *);
 u8 GetPlayerFacingDirection(void);
 u8 GetPlayerMovementDirection(void);
@@ -32,7 +32,7 @@ bool8 IsPlayerCollidingWithFarawayIslandMew(u8 direction);
 void PlayerOnBikeCollideWithFarawayIslandMew(u8 direction);
 u8 CheckForObjectEventCollision(struct ObjectEvent *objectEvent, s16 x, s16 y, u8 direction, u8 metatileBehavior);
 u8 PlayerGetElevation(void);
-void SetPlayerAvatarTransitionFlags(u16 transitionFlags);
+void SetPlayerAvatarTransitionFlags(u32 transitionFlags);
 void CancelPlayerForcedMovement(void);
 void InitPlayerAvatar(s16 x, s16 y, u8 direction, u8 gender);
 void PlayerFreeze(void);
@@ -42,7 +42,7 @@ void GetXYCoordsOneStepInFrontOfPlayer(s16 *xPtr, s16 *yPtr);
 u16 GetRivalAvatarGraphicsIdByStateIdAndGender(u8 state, u8 gender);
 void SetPlayerAvatarFieldMove(void);
 u16 GetPlayerAvatarGraphicsIdByCurrentState(void);
-void SetPlayerAvatarStateMask(u8 flags);
+void SetPlayerAvatarStateMask(u32 flags);
 u16 GetPlayerAvatarGraphicsIdByStateId(u8 state);
 u8 GetJumpSpecialMovementAction(u32);
 bool8 PartyHasMonWithSurf(void);
@@ -51,7 +51,7 @@ bool8 IsPlayerFacingFishableLava(void);
 bool8 IsPlayerSurfingNorth(void);
 void SetPlayerAvatarWatering(u8 direction);
 void SetPlayerAvatarFertilizing(u8 direction);
-u8 GetPlayerAvatarFlags(void);
+u32 GetPlayerAvatarFlags(void);
 void UpdatePlayerAvatarTransitionState(void);
 u16 GetFRLGAvatarGraphicsIdByGender(u8);
 u16 GetRSAvatarGraphicsIdByGender(u8);
@@ -73,5 +73,8 @@ bool8 ObjectMovingInDeepSnow(struct ObjectEvent *objectEvent);
 //sideways stairs
 u8 GetRightSideStairsDirection(u8 direction);
 u8 GetLeftSideStairsDirection(u8 direction);
+
+extern EWRAM_DATA u8 gGogoatMountBody;
+extern EWRAM_DATA u8 gGogoatMountHead;
 
 #endif // GUARD_FIELD_PLAYER_AVATAR_H

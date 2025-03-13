@@ -31,7 +31,7 @@
 
 struct InitialPlayerAvatarState
 {
-    u16 transitionFlags;
+    u32 transitionFlags;
     u8 direction;
 };
 

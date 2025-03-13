@@ -1490,3 +1490,41 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_CaveDust = {
 };
 
 const struct SpritePalette gSpritePalette_CaveDust = {gFieldEffectObjectPalette_CaveDust, FLDEFF_PAL_TAG_CAVE_DUST};
+
+static const struct SpriteFrameImage sPicTable_GogoatRide[] = {
+    overworld_frame(gFieldEffectObjectPic_RidingGogoat, 4, 4, 0),
+    overworld_frame(gFieldEffectObjectPic_RidingGogoat, 4, 4, 1),
+    overworld_frame(gFieldEffectObjectPic_RidingGogoat, 4, 4, 2),
+    overworld_frame(gFieldEffectObjectPic_RidingGogoat, 4, 4, 3),
+    overworld_frame(gFieldEffectObjectPic_RidingGogoat, 4, 4, 4),
+    overworld_frame(gFieldEffectObjectPic_RidingGogoat, 4, 4, 5),
+};
+
+static const struct SpriteFrameImage sPicTable_GogoatRideHead[] = {
+    overworld_frame(gFieldEffectObjectPic_RidingGogoatHead, 4, 4, 0),
+    overworld_frame(gFieldEffectObjectPic_RidingGogoatHead, 4, 4, 1),
+    overworld_frame(gFieldEffectObjectPic_RidingGogoatHead, 4, 4, 2),
+    overworld_frame(gFieldEffectObjectPic_RidingGogoatHead, 4, 4, 3),
+    overworld_frame(gFieldEffectObjectPic_RidingGogoatHead, 4, 4, 4),
+    overworld_frame(gFieldEffectObjectPic_RidingGogoatHead, 4, 4, 5),
+};
+
+const struct SpriteTemplate gFieldEffectObjectTemplate_RidingGogoat = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_RIDING_GOGOAT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .anims = sAnimTable_RidingGogoat,
+    .images = sPicTable_GogoatRide,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = UpdateGogoatFieldEffect,
+};
+
+const struct SpriteTemplate gFieldEffectObjectTemplate_RidingGogoatHead = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_RIDING_GOGOAT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .anims = sAnimTable_RidingGogoat,
+    .images = sPicTable_GogoatRideHead,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = UpdateGogoatFieldEffect,
+};

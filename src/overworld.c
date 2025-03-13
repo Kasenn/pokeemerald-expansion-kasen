@@ -179,8 +179,8 @@ static void SetKeyInterceptCallback(u16 (*func)(u32));
 static void SetFieldVBlankCallback(void);
 static void FieldClearVBlankHBlankCallbacks(void);
 static void TransitionMapMusic(void);
-static u8 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *, u16, u8);
-static u8 GetAdjustedInitialDirection(struct InitialPlayerAvatarState *, u8, u16, u8);
+static u32 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *, u16, u8);
+static u8 GetAdjustedInitialDirection(struct InitialPlayerAvatarState *, u32, u16, u8);
 static u16 GetCenterScreenMetatileBehavior(void);
 
 static void *sUnusedOverworldCallback;
@@ -988,6 +988,8 @@ void StoreInitialPlayerAvatarState(void)
         sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_SURFING;
     else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_UNDERWATER))
         sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_UNDERWATER;
+    else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_GOGOAT))
+        sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_GOGOAT;
     else
         sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_ON_FOOT;
 }
@@ -997,14 +999,14 @@ static struct InitialPlayerAvatarState *GetInitialPlayerAvatarState(void)
     struct InitialPlayerAvatarState playerStruct;
     u8 mapType = GetCurrentMapType();
     u16 metatileBehavior = GetCenterScreenMetatileBehavior();
-    u8 transitionFlags = GetAdjustedInitialTransitionFlags(&sInitialPlayerAvatarState, metatileBehavior, mapType);
+    u32 transitionFlags = GetAdjustedInitialTransitionFlags(&sInitialPlayerAvatarState, metatileBehavior, mapType);
     playerStruct.transitionFlags = transitionFlags;
     playerStruct.direction = GetAdjustedInitialDirection(&sInitialPlayerAvatarState, transitionFlags, metatileBehavior, mapType);
     sInitialPlayerAvatarState = playerStruct;
     return &sInitialPlayerAvatarState;
 }
 
-static u8 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *playerStruct, u16 metatileBehavior, u8 mapType)
+static u32 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *playerStruct, u16 metatileBehavior, u8 mapType)
 {
     if (mapType != MAP_TYPE_INDOOR && FlagGet(FLAG_SYS_CRUISE_MODE))
         return PLAYER_AVATAR_FLAG_ON_FOOT;
@@ -1016,11 +1018,13 @@ static u8 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *pla
         return PLAYER_AVATAR_FLAG_ON_FOOT;
     else if (playerStruct->transitionFlags == PLAYER_AVATAR_FLAG_BIKE)
         return PLAYER_AVATAR_FLAG_BIKE;
+    else if (playerStruct->transitionFlags == PLAYER_AVATAR_FLAG_GOGOAT)
+        return PLAYER_AVATAR_FLAG_GOGOAT;
     else
         return PLAYER_AVATAR_FLAG_ON_FOOT;
 }
 
-static u8 GetAdjustedInitialDirection(struct InitialPlayerAvatarState *playerStruct, u8 transitionFlags, u16 metatileBehavior, u8 mapType)
+static u8 GetAdjustedInitialDirection(struct InitialPlayerAvatarState *playerStruct, u32 transitionFlags, u16 metatileBehavior, u8 mapType)
 {
     if (FlagGet(FLAG_SYS_CRUISE_MODE) && mapType == MAP_TYPE_OCEAN_ROUTE)
         return DIR_EAST;
@@ -1322,7 +1326,7 @@ static void TransitionMapMusic(void)
         }
         if (newMusic != currentMusic)
         {
-            if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_BIKE))
+            if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_BIKE | PLAYER_AVATAR_FLAG_GOGOAT))
                 FadeOutAndFadeInNewMapMusic(newMusic, 4, 4);
             else
                 FadeOutAndPlayNewMapMusic(newMusic, 8);

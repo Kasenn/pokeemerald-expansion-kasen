@@ -130,10 +130,12 @@ void MovePlayerOnBike(u8 direction, u16 newKeys, u16 heldKeys)
 {
     if (gSaveBlock2Ptr->playerBike == MACH_BIKE)
         MovePlayerOnMachBike(direction, newKeys, heldKeys);
+    else if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_GOGOAT)
+        MovePlayerOnMachBike(direction, newKeys, heldKeys);
     else
         MovePlayerOnAcroBike(direction, newKeys, heldKeys);
     
-    if (JOY_NEW(L_BUTTON))
+    if ((JOY_NEW(L_BUTTON)) && !(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_GOGOAT))
     {
         if (gSaveBlock2Ptr->playerBike == MACH_BIKE)
         {
@@ -1054,7 +1056,7 @@ static void Bike_SetBikeStill(void)
 
 s16 GetPlayerSpeed(void)
 {
-    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_BIKE)
+    if (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_BIKE | PLAYER_AVATAR_FLAG_GOGOAT))
     {
         if (gSaveBlock2Ptr->playerBike == MACH_BIKE)
         {
