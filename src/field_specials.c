@@ -4543,8 +4543,16 @@ void EnterCode(void)
 void GetCodeFeedback(void)
 {
     static const u8 sText_SampleCode[] = _("Alttitle");
+    static const u8 sText_Betablock[] = _("Betablock");
+
     if (!StringCompare(gStringVar2, sText_SampleCode))
-        gSpecialVar_Result = 1;
+    {
+        FlagToggle(FLAG_TEST_INTRO);
+    }
+    else if (!StringCompare(gStringVar2, sText_Betablock))
+    {
+        FlagToggle(FLAG_BETA_BLOCK);
+    }   
     else
         gSpecialVar_Result = 0;
 }

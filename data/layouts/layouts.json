@@ -5097,7 +5097,7 @@
       "width": 60,
       "height": 60,
       "primary_tileset": "gTileset_General2",
-      "secondary_tileset": "gTileset_Iceperch",
+      "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/TestRoom/border.bin",
       "blockdata_filepath": "data/layouts/TestRoom/map.bin"
     },

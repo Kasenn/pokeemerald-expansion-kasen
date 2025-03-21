@@ -5030,9 +5030,9 @@
         .party = TRAINER_PARTY(s_Party_TRAINER_KAOLISLE_CELEBI_TR2),
     },
 
-    [DIFFICULTY_NORMAL][TRAINER_JOCELYN] =
+    [DIFFICULTY_NORMAL][TRAINER_R19_TR1_SWIMMER_F] =
     {
-        .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
+        .trainerClass = TRAINER_CLASS_SWIMMER_F,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_BATTLE_GIRL,
         .trainerName = _("JOCELYN"),
@@ -5042,7 +5042,7 @@
         .party = TRAINER_PARTY(sParty_Jocelyn),
     },
 
-    [DIFFICULTY_NORMAL][TRAINER_LAURA] =
+    [DIFFICULTY_NORMAL][TRAINER_R19_TR2_SWIMMER_M] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
@@ -5053,7 +5053,7 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Laura),
     },
-    [DIFFICULTY_NORMAL][TRAINER_CYNDY_1] =
+    [DIFFICULTY_NORMAL][TRAINER_R19_TR3_SWIMMER_M] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
@@ -5064,7 +5064,7 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Cyndy1),
     },
-    [DIFFICULTY_NORMAL][TRAINER_CORA] =
+    [DIFFICULTY_NORMAL][TRAINER_R19_TR4_SWIMMER_COUPLE] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
@@ -5075,7 +5075,7 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Cora),
     },
-    [DIFFICULTY_NORMAL][TRAINER_PAULA] =
+    [DIFFICULTY_NORMAL][TRAINER_R19_TR5_SWIMMER_F] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
@@ -5086,7 +5086,7 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Paula),
     },
-    [DIFFICULTY_NORMAL][TRAINER_CYNDY_2] =
+    [DIFFICULTY_NORMAL][TRAINER_R19_TR6_SWIMMER_M] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
@@ -5097,7 +5097,7 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Cyndy2),
     },
-    [DIFFICULTY_NORMAL][TRAINER_CYNDY_3] =
+    [DIFFICULTY_NORMAL][TRAINER_R19_TR7_BLACKBELT] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
@@ -5108,7 +5108,7 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Cyndy3),
     },
-    [DIFFICULTY_NORMAL][TRAINER_CYNDY_4] =
+    [DIFFICULTY_NORMAL][TRAINER_R19_TR8_HIKER] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
@@ -5119,7 +5119,7 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Cyndy4),
     },
-    [DIFFICULTY_NORMAL][TRAINER_CYNDY_5] =
+    [DIFFICULTY_NORMAL][TRAINER_R19_TR9_PICNICKER] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
@@ -5130,7 +5130,7 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Cyndy5),
     },
-    [DIFFICULTY_NORMAL][TRAINER_MADELINE_1] =
+    [DIFFICULTY_NORMAL][TRAINER_R19_TR10_SWIMMER_M] =
     {
         .trainerClass = TRAINER_CLASS_PARASOL_LADY,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,

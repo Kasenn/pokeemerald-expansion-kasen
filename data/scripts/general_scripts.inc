@@ -503,21 +503,9 @@ Debug_Script_8::
 	special EnterCode
 	waitstate
 	special GetCodeFeedback
-	compare VAR_RESULT, 1
-	goto_if_eq Debug_Script_8_2
-Debug_Script_8_1:
 	release
 	end
 	return
-
-Debug_Script_8_2:
-	goto_if_set FLAG_TEST_INTRO, Debug_Script_8_4
-	setflag FLAG_TEST_INTRO
-	goto Debug_Script_8_1
-
-Debug_Script_8_4:
-	clearflag FLAG_TEST_INTRO
-	goto Debug_Script_8_1
 
 
 ResetAdamantTower::
@@ -571,11 +559,16 @@ ResetAdamantTower_8:
 
 
 EndOfBetaBlock::
+	goto_if_unset FLAG_BETA_BLOCK, EndOfBetaBlock_2
+EndOfBetaBlock_1:
+	release
+	end
+
+EndOfBetaBlock_2:
 	msgbox EndOfBeta, MSGBOX_AUTOCLOSE
 	applymovement 0xFF, Walk1Up
 	waitmovement 0
-	release
-	end
+	goto EndOfBetaBlock_1
 
 
 BarrenWastes_Block1::
@@ -1316,36 +1309,6 @@ Pearlwood_Debug_8:
 	fadescreen FADE_TO_BLACK
 	callnative OpenFlyMapFromSign
 	goto Pearlwood_Debug_7
-
-
-TestroomTrigger1::
-	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
-	lock
-	applymovement OBJ_EVENT_ID_FOLLOWER, Walk6Down
-	applymovement 0xFF, Walk6Down
-	waitmovement 0
-	release
-	end
-
-
-TestroomTrigger2::
-	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
-	lockall
-	applymovement OBJ_EVENT_ID_FOLLOWER, Walk6Down
-	applymovement 0xFF, Walk6Down
-	waitmovement 0
-	release
-	end
-
-
-TestroomTrigger3::
-	safefollow
-	lock
-	applymovement OBJ_EVENT_ID_FOLLOWER, Walk6Down
-	applymovement 0xFF, Walk6Down
-	waitmovement 0
-	release
-	end
 
 
 RopeBridgeScript_Movement_0:

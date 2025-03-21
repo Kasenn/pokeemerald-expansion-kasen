@@ -7831,7 +7831,7 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Tackle
 - Sludge
 
-=== TRAINER_JOCELYN ===
+=== TRAINER_R19_TR1_SWIMMER_F ===
 Name: JOCELYN
 Class: Battle Girl
 Pic: Battle Girl
@@ -7844,7 +7844,7 @@ Meditite
 Level: 13
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 
-=== TRAINER_LAURA ===
+=== TRAINER_R19_TR2_SWIMMER_M ===
 Name: LAURA
 Class: Battle Girl
 Pic: Battle Girl
@@ -7857,7 +7857,7 @@ Meditite
 Level: 13
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
-=== TRAINER_CYNDY_1 ===
+=== TRAINER_R19_TR3_SWIMMER_M ===
 Name: CYNDY
 Class: Battle Girl
 Pic: Battle Girl
@@ -7874,7 +7874,7 @@ Makuhita
 Level: 18
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_CORA ===
+=== TRAINER_R19_TR4_SWIMMER_COUPLE ===
 Name: CORA
 Class: Battle Girl
 Pic: Battle Girl
@@ -7887,7 +7887,7 @@ Meditite
 Level: 27
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_PAULA ===
+=== TRAINER_R19_TR5_SWIMMER_F ===
 Name: PAULA
 Class: Battle Girl
 Pic: Battle Girl
@@ -7900,7 +7900,7 @@ Breloom
 Level: 27
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_CYNDY_2 ===
+=== TRAINER_R19_TR6_SWIMMER_M ===
 Name: CYNDY
 Class: Battle Girl
 Pic: Battle Girl
@@ -7917,7 +7917,7 @@ Makuhita
 Level: 26
 IVs: 13 HP / 13 Atk / 13 Def / 13 SpA / 13 SpD / 13 Spe
 
-=== TRAINER_CYNDY_3 ===
+=== TRAINER_R19_TR7_BLACKBELT ===
 Name: CYNDY
 Class: Battle Girl
 Pic: Battle Girl
@@ -7934,7 +7934,7 @@ Makuhita
 Level: 29
 IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 
-=== TRAINER_CYNDY_4 ===
+=== TRAINER_R19_TR8_HIKER ===
 Name: CYNDY
 Class: Battle Girl
 Pic: Battle Girl
@@ -7951,7 +7951,7 @@ Hariyama
 Level: 32
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 
-=== TRAINER_CYNDY_5 ===
+=== TRAINER_R19_TR9_PICNICKER ===
 Name: CYNDY
 Class: Battle Girl
 Pic: Battle Girl
@@ -7968,7 +7968,7 @@ Hariyama
 Level: 35
 IVs: 17 HP / 17 Atk / 17 Def / 17 SpA / 17 SpD / 17 Spe
 
-=== TRAINER_MADELINE_1 ===
+=== TRAINER_R19_TR10_SWIMMER_M ===
 Name: MADELINE
 Class: Parasol Lady
 Pic: Parasol Lady

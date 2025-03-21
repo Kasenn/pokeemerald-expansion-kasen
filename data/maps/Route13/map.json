@@ -20,7 +20,7 @@
     },
     {
       "map": "MAP_OCEAN_WALKWAY",
-      "offset": 0,
+      "offset": -4,
       "direction": "right"
     }
   ],

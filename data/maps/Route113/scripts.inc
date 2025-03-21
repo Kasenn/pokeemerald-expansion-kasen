@@ -57,7 +57,7 @@ Route113_EventScript_Dillon::
 	end
 
 Route113_EventScript_Madeline::
-	trainerbattle_single TRAINER_MADELINE_1, Route113_Text_MadelineIntro, Route113_Text_MadelineDefeat, Route113_EventScript_RegisterMadeline
+	trainerbattle_single TRAINER_R19_TR10_SWIMMER_M, Route113_Text_MadelineIntro, Route113_Text_MadelineDefeat, Route113_EventScript_RegisterMadeline
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route113_EventScript_RematchMadeline
 	msgbox Route113_Text_MadelinePostBattle, MSGBOX_DEFAULT
@@ -68,12 +68,12 @@ Route113_EventScript_RegisterMadeline::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route113_Text_MadelineRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_MADELINE_1
+	register_matchcall TRAINER_R19_TR10_SWIMMER_M
 	release
 	end
 
 Route113_EventScript_RematchMadeline::
-	trainerbattle_rematch TRAINER_MADELINE_1, Route113_Text_MadelineRematchIntro, Route113_Text_MadelineRematchDefeat
+	trainerbattle_rematch TRAINER_R19_TR10_SWIMMER_M, Route113_Text_MadelineRematchIntro, Route113_Text_MadelineRematchDefeat
 	msgbox Route113_Text_MadelinePostRematch, MSGBOX_AUTOCLOSE
 	end
 

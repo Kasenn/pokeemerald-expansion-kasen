@@ -481,15 +481,6 @@ script Debug_Script_8{
     special(EnterCode)
     waitstate
     special(GetCodeFeedback)
-    if(var(VAR_RESULT) == 1)
-    {
-        if(flag(FLAG_TEST_INTRO)){
-            clearflag(FLAG_TEST_INTRO)
-        }
-        else{
-            setflag(FLAG_TEST_INTRO)
-        }
-    }
     release
     end
 
@@ -582,9 +573,11 @@ text PartyHasBeenReset{
 }
 
 script EndOfBetaBlock{
-    msgbox(EndOfBeta, MSGBOX_AUTOCLOSE)
-    applymovement(0xFF, Walk1Up)
-    waitmovement(0)
+    if(!flag(FLAG_BETA_BLOCK)){
+        msgbox(EndOfBeta, MSGBOX_AUTOCLOSE)
+        applymovement(0xFF, Walk1Up)
+        waitmovement(0)
+    }
     release
     end
 }
