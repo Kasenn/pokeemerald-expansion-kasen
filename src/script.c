@@ -36,7 +36,7 @@ EWRAM_DATA u8 gMsgBoxIsCancelable = FALSE;
 
 extern ScrCmdFunc gScriptCmdTable[];
 extern ScrCmdFunc gScriptCmdTableEnd[];
-extern void *gNullScriptPtr;
+extern void * const gNullScriptPtr;
 
 void GetObjectEventTrainerRangeFromTemplate(void)
 {

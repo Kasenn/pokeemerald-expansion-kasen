@@ -266,6 +266,10 @@ gScriptCmdTable::
 	script_cmd_table_entry SCR_OP_GETFOLLOWERXY 				ScrCmd_getfollowerxy,				requests_effects=0	@ 0xf1
 	script_cmd_table_entry SCR_OP_HOWMANYBOX 					ScrCmd_howmanybox,					requests_effects=0	@ 0xf2
 	script_cmd_table_entry SCR_OP_GETOBJECTXY 					ScrCmd_getobjectxy,					requests_effects=0	@ 0xf3
+	script_cmd_table_entry SCR_OP_QUESTMENU                     ScrCmd_questmenu                  	requests_effects=0	@ 0xf4
+    script_cmd_table_entry SCR_OP_SUBQUESTMENU                  ScrCmd_subquestmenu                 requests_effects=0  @ 0xf5
+    script_cmd_table_entry SCR_OP_RETURNQUESTSTATE              ScrCmd_returnqueststate             requests_effects=0  @ 0xf6
+
 
 	.if ALLOCATE_SCRIPT_CMD_TABLE
 gScriptCmdTableEnd::
