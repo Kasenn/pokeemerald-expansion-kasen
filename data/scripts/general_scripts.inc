@@ -475,7 +475,7 @@ Debug_Script_1_12:
 
 
 Debug_Script_2::
-	call MauvilleCity_EventScript_Wally
+	setflag FLAG_SYS_JOURNAL_GET
 	end
 
 
