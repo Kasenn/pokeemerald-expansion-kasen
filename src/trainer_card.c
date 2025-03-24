@@ -95,17 +95,16 @@ struct TrainerCardData
 // EWRAM
 EWRAM_DATA struct TrainerCard gTrainerCards[4] = {0};
 EWRAM_DATA static struct TrainerCardData *sData = NULL;
-static EWRAM_DATA u8 sTrainerStatistics = 0;
+static EWRAM_DATA u8 sCurrentPage = 0;
+static EWRAM_DATA u8 sMaxPages = 0;
 
 //this file's functions
 static void VblankCb_TrainerCard(void);
 static void HblankCb_TrainerCard(void);
 static void BlinkTimeColon(void);
 static void CB2_TrainerCard(void);
-// static void CB2_Journal(void);
 static void CloseTrainerCard(u8 task);
 static bool8 PrintAllOnCardFront(void);
-static bool8 PrintAllOnJournal(void);
 static void DrawTrainerCardWindow(u8);
 static void CreateTrainerCardTrainerPic(void);
 static void DrawCardScreenBackground(u16 *);
@@ -113,13 +112,9 @@ static void DrawCardFrontOrBack(u16 *);
 static void DrawStarsAndBadgesOnCard(void);
 static void PrintTimeOnCard(void);
 static void FlipTrainerCard(void);
-static void FlipJournal(u8, s8);
 static bool8 IsCardFlipTaskActive(void);
-static bool8 IsJournalFlipTaskActive(void);
 static bool8 LoadCardGfx(void);
-static bool8 LoadJournalGfx(void);
 static void CB2_InitTrainerCard(void);
-static void CB2_InitJournal(void);
 static u32 GetCappedGameStat(u8 statId, u32 maxValue);
 static bool8 HasAllFrontierSymbols(void);
 static u8 GetRubyTrainerStars(struct TrainerCard *);
@@ -132,24 +127,16 @@ static void InitGpuRegs(void);
 static void ResetGpuRegs(void);
 static void InitBgsAndWindows(void);
 static void SetTrainerCardCb2(void);
-// static void SetJournalCb2(void);
 static void SetUpTrainerCardTask(void);
-static void SetUpJournalTask(void);
 static void InitTrainerCardData(void);
 static u8 GetSetCardType(void);
 static void PrintNameOnCardFront(void);
-static void PrintDayOnJournal(void);
 static void PrintIdOnCard(void);
 static void PrintMoneyOnCard(void);
-static void PrintActivityOnJournal(void);
 static void PrintPokedexOnCard(void);
 static void PrintProfilePhraseOnCard(void);
 static bool8 PrintAllOnCardBack(void);
 static void PrintNameOnCardBack(void);
-// static void PrintHofDebutTimeOnCard(void);
-// static void PrintLinkBattleResultsOnCard(void);
-// static void PrintTradesStringOnCard(void);
-// static void PrintBerryCrushStringOnCard(void);
 static void PrintStatistics1OnCardBack(void);
 static void PrintStatistics2OnCardBack(void);
 static void PrintStatistics3OnCardBack(void);
@@ -175,29 +162,29 @@ static void BufferBattleFacilityStats(void);
 static void PrintStatOnBackOfCard(u8 top, const u8 *str1, u8 *str2, const u8 *color);
 static void LoadStickerGfx(void);
 static u8 SetCardBgsAndPals(void);
-static u8 SetJournalPals(void);
 static void DrawCardBackStats(void);
 static void Task_DoCardFlipTask(u8);
-static void Task_DoJournalFlipTask(u8);
 static bool8 Task_BeginCardFlip(struct Task *task);
 static bool8 Task_AnimateCardFlipDown(struct Task *task);
 static bool8 Task_DrawFlippedCardSide(struct Task *task);
 static bool8 Task_SetCardFlipped(struct Task *task);
 static bool8 Task_AnimateCardFlipUp(struct Task *task);
 static bool8 Task_EndCardFlip(struct Task *task);
-static bool8 Task_BeginJournalFlip(struct Task *task);
-static bool8 Task_AnimateJournalFlipDown(struct Task *task);
-static bool8 Task_DrawFlippedJournalSide(struct Task *task);
-static bool8 Task_SetJournalFlipped(struct Task *task);
-static bool8 Task_AnimateJournalFlipUp(struct Task *task);
-static bool8 Task_EndJournalFlip(struct Task *task);
 static void UpdateCardFlipRegs(u16);
 static void LoadMonIconGfx(void);
-static void PssScrollRight(u8);
-static void PssScrollRightEnd(u8);
-static void PssScrollLeft(u8);
-static void PssScrollLeftEnd(u8);
-
+static void JournalScrollRight(u8);
+static void JournalScrollRightEnd(u8);
+static void JournalScrollLeft(u8);
+static void JournalScrollLeftEnd(u8);
+static bool8 PrintAllOnJournal(void);
+static void FlipJournal(u8, s8);
+static bool8 IsJournalFlipTaskActive(void);
+static bool8 LoadJournalGfx(void);
+static void CB2_InitJournal(void);
+static void SetUpJournalTask(void);
+static void PrintEntryOnJournal(void);
+static void PrintActivityOnJournal(void);
+static u8 SetJournalPalsAndBGs(void);
 
 static const u32 sTrainerCardStickers_Gfx[]      = INCBIN_U32("graphics/trainer_card/frlg/stickers.4bpp.lz");
 static const u16 sUnused_Pal[]                   = INCBIN_U16("graphics/trainer_card/unused.gbapal");
@@ -363,22 +350,6 @@ static bool8 (*const sTrainerCardFlipTasks[])(struct Task *) =
     Task_EndCardFlip,
 };
 
-static bool8 (*const sJournalFlipTasks[])(struct Task *) =
-{
-    Task_BeginJournalFlip,
-    Task_AnimateJournalFlipDown,
-    Task_DrawFlippedJournalSide,
-    Task_SetJournalFlipped,
-    Task_AnimateJournalFlipUp,
-    // Task_DrawFlippedCardSide,
-    // Task_SetCardFlipped,
-    // Task_AnimateCardFlipUp,
-    // Task_EndCardFlip,
-    
-    
-    Task_EndJournalFlip,
-};
-
 static void VblankCb_TrainerCard(void)
 {
     LoadOam();
@@ -408,16 +379,6 @@ static void CB2_TrainerCard(void)
     BuildOamBuffer();
     UpdatePaletteFade();
 }
-
-// static void CB2_Journal(void)
-// {
-//     RunTasks();
-//     AnimateSprites();
-//     BuildOamBuffer();
-//     UpdatePaletteFade();
-//     DebugPrintfLevel(MGBA_LOG_WARN, "are we getting this far?",  gPlayerAvatar.bikeSpeed);
-
-// }
 
 static void CloseTrainerCard(u8 taskId)
 {
@@ -569,7 +530,7 @@ static void Task_TrainerCard(u8 taskId)
         else if (JOY_NEW(DPAD_DOWN) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
         {
             sData->onBack = FALSE;
-            sTrainerStatistics++;
+            sCurrentPage++;
             FlipTrainerCard();
             PlaySE(SE_RG_CARD_OPEN);
             sData->mainState = STATE_HANDLE_INPUT_BACK_PAGE_2;
@@ -609,7 +570,7 @@ static void Task_TrainerCard(u8 taskId)
         else if (JOY_NEW(DPAD_UP) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
         {
             sData->onBack = FALSE;
-            sTrainerStatistics--;
+            sCurrentPage--;
             FlipTrainerCard();
             PlaySE(SE_RG_CARD_OPEN);
             sData->mainState = STATE_HANDLE_INPUT_BACK;
@@ -617,7 +578,7 @@ static void Task_TrainerCard(u8 taskId)
         else if (JOY_NEW(DPAD_DOWN) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
         {
             sData->onBack = FALSE;
-            sTrainerStatistics++;
+            sCurrentPage++;
             FlipTrainerCard();
             PlaySE(SE_RG_CARD_OPEN);
             sData->mainState = STATE_HANDLE_INPUT_BACK_PAGE_3;
@@ -657,7 +618,7 @@ static void Task_TrainerCard(u8 taskId)
         else if (JOY_NEW(DPAD_UP) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
         {
             sData->onBack = FALSE;
-            sTrainerStatistics--;
+            sCurrentPage--;
             FlipTrainerCard();
             PlaySE(SE_RG_CARD_OPEN);
             sData->mainState = STATE_HANDLE_INPUT_BACK_PAGE_2;
@@ -665,7 +626,7 @@ static void Task_TrainerCard(u8 taskId)
         else if (JOY_NEW(DPAD_DOWN) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
         {
             sData->onBack = FALSE;
-            sTrainerStatistics++;
+            sCurrentPage++;
             FlipTrainerCard();
             PlaySE(SE_RG_CARD_OPEN);
             sData->mainState = STATE_HANDLE_INPUT_BACK_PAGE_4;
@@ -705,7 +666,7 @@ static void Task_TrainerCard(u8 taskId)
         else if (JOY_NEW(DPAD_UP) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
         {
             sData->onBack = FALSE;
-            sTrainerStatistics--;
+            sCurrentPage--;
             FlipTrainerCard();
             PlaySE(SE_RG_CARD_OPEN);
             sData->mainState = STATE_HANDLE_INPUT_BACK_PAGE_3;
@@ -713,7 +674,7 @@ static void Task_TrainerCard(u8 taskId)
         else if (JOY_NEW(DPAD_DOWN) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
         {
             sData->onBack = FALSE;
-            sTrainerStatistics++;
+            sCurrentPage++;
             FlipTrainerCard();
             PlaySE(SE_RG_CARD_OPEN);
             sData->mainState = STATE_HANDLE_INPUT_BACK_PAGE_5;
@@ -753,7 +714,7 @@ static void Task_TrainerCard(u8 taskId)
         else if (JOY_NEW(DPAD_UP) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
         {
             sData->onBack = FALSE;
-            sTrainerStatistics--;
+            sCurrentPage--;
             FlipTrainerCard();
             PlaySE(SE_RG_CARD_OPEN);
             sData->mainState = STATE_HANDLE_INPUT_BACK_PAGE_4;
@@ -809,7 +770,6 @@ static void Task_Journal(u8 taskId)
         break;
     case 3:
         FillWindowPixelBuffer(WIN_TRAINER_PIC, PIXEL_FILL(0));
-        // CreateTrainerCardTrainerPic();
         DrawTrainerCardWindow(WIN_TRAINER_PIC);
         sData->mainState++;
         break;
@@ -821,158 +781,53 @@ static void Task_Journal(u8 taskId)
         DrawCardFrontOrBack(sData->frontTilemap);
         sData->mainState++;
         break;
-    case 6:
-        // DrawStarsAndBadgesOnCard();
-        sData->mainState++;
-        break;
     // Fade in
-    case 7:
-        if (gWirelessCommType == 1 && gReceivedRemoteLinkPlayers == TRUE)
-        {
-            LoadWirelessStatusIndicatorSpriteGfx();
-            CreateWirelessStatusIndicatorSprite(DISPLAY_WIDTH - 10, DISPLAY_HEIGHT - 10);
-        }
+    case 6:
         BlendPalettes(PALETTES_ALL, 16, sData->blendColor);
         BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, sData->blendColor);
         SetVBlankCallback(VblankCb_TrainerCard);
         sData->mainState++;
         break;
-    case 8:
+    case 7:
         if (!UpdatePaletteFade() && !IsDma3ManagerBusyWithBgCopy())
         {
             PlaySE(SE_RG_CARD_OPEN);
             sData->mainState = STATE_HANDLE_INPUT_FRONT;
         }
         break;
-    case 9:
+    case 8:
         if (!IsSEPlaying())
             sData->mainState++;
         break;
     case STATE_HANDLE_INPUT_FRONT:
-        // Blink the : in play time
         if (!gReceivedRemoteLinkPlayers && sData->timeColonNeedDraw)
         {
-            // PrintTimeOnCard();
             DrawTrainerCardWindow(WIN_CARD_TEXT);
-            // sData->timeColonNeedDraw = FALSE;
         }
-        if (JOY_NEW(A_BUTTON))
-        {
-            FillWindowPixelBuffer(WIN_CARD_TEXT, PIXEL_FILL(0));
-            // FillBgTilemapBufferRect_Palette0(3, 0, 0, 0, 0x20, 0x20);
-            // ShowBg(1);
-            // HideBg(0);
-            // HideBg(2);
-            // HideBg(3);
-            // PrintDayOnJournal();
-            // PrintActivityOnJournal();
-            // DrawTrainerCardWindow(WIN_CARD_TEXT);
-            // BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, sData->blendColor);
-            // sData->mainState = STATE_CLOSE_CARD;
-        }
-        else if (JOY_NEW(B_BUTTON))
+        if (JOY_NEW(A_BUTTON | B_BUTTON))
         {
             BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, sData->blendColor);
             sData->mainState = STATE_CLOSE_CARD;
         }
-        else if (JOY_NEW(DPAD_RIGHT) && (IsJournalFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
+        else if (JOY_NEW(DPAD_RIGHT) && !IsJournalFlipTaskActive() && sCurrentPage < sMaxPages)
         {
-            if (sTrainerStatistics != 3)
-            {
-                sData->onBack = TRUE;
-                sTrainerStatistics++;
-                FlipJournal(taskId, 1);
-                PlaySE(SE_RG_CARD_OPEN);
-                sData->mainState = STATE_HANDLE_INPUT_FRONT;
-            }
-        }
-        else if (JOY_NEW(DPAD_LEFT) && (IsJournalFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
-        {
-            if (sTrainerStatistics != 0)
-            {
-                sData->onBack = TRUE;
-                sTrainerStatistics--;
-                FlipJournal(taskId, -1);
-                PlaySE(SE_RG_CARD_OPEN);
-                sData->mainState = STATE_HANDLE_INPUT_FRONT;
-            }
-        }
-        break;
-    case STATE_WAIT_FLIP_TO_BACK:
-        if (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE)
-        {
+            sCurrentPage++;
+            FlipJournal(taskId, TRUE);
             PlaySE(SE_RG_CARD_OPEN);
-            sData->mainState = STATE_HANDLE_INPUT_BACK;
+        }
+        else if (JOY_NEW(DPAD_LEFT) && !IsJournalFlipTaskActive() && sCurrentPage != 0)
+        {
+            sCurrentPage--;
+            FlipJournal(taskId, FALSE);
+            PlaySE(SE_RG_CARD_OPEN);
         }
         break;
     case STATE_CLOSE_CARD:
         if (!UpdatePaletteFade())
             CloseTrainerCard(taskId);
         break;
-    case STATE_WAIT_FLIP_TO_FRONT:
-        if (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE)
-        {
-            sData->mainState = STATE_HANDLE_INPUT_FRONT;
-            PlaySE(SE_RG_CARD_OPEN);
-        }
-        break;
    }
 }
-// static void Task_HandleInput(u8 taskId)
-// {
-//     if (MenuHelpers_ShouldWaitForLinkRecv() != TRUE && !gPaletteFade.active)
-//     {
-//         if (JOY_NEW(DPAD_UP))
-//         {
-//             ChangeSummaryPokemon(taskId, -1);
-//         }
-//         else if (JOY_NEW(DPAD_DOWN))
-//         {
-//             ChangeSummaryPokemon(taskId, 1);
-//         }
-//         else if ((JOY_NEW(DPAD_LEFT)) || GetLRKeysPressed() == MENU_L_PRESSED)
-//         {
-//             ChangePage(taskId, -1);
-//         }
-//         else if ((JOY_NEW(DPAD_RIGHT)) || GetLRKeysPressed() == MENU_R_PRESSED)
-//         {
-//             ChangePage(taskId, 1);
-//         }
-//         else if (JOY_NEW(A_BUTTON))
-//         {
-//             if (sMonSummaryScreen->currPageIndex != PSS_PAGE_SKILLS)
-//             {
-//                 if (sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO)
-//                 {
-//                     StopPokemonAnimations();
-//                     PlaySE(SE_SELECT);
-//                     BeginCloseSummaryScreen(taskId);
-//                 }
-//                 else // Contest or Battle Moves
-//                 {
-//                     PlaySE(SE_SELECT);
-//                     SwitchToMoveSelection(taskId);
-//                 }
-//             }
-//         }
-//         else if (JOY_NEW(B_BUTTON))
-//         {
-//             StopPokemonAnimations();
-//             PlaySE(SE_SELECT);
-//             BeginCloseSummaryScreen(taskId);
-//         }
-//     #if DEBUG_POKEMON_SPRITE_VISUALIZER == TRUE
-//         else if (JOY_NEW(SELECT_BUTTON) && !gMain.inBattle)
-//         {
-//             sMonSummaryScreen->callback = CB2_Pokemon_Sprite_Visualizer;
-//             StopPokemonAnimations();
-//             PlaySE(SE_SELECT);
-//             CloseSummaryScreen(taskId);
-//         }
-//     #endif
-//     }
-// }
-
 
 static bool8 LoadCardGfx(void)
 {
@@ -1035,21 +890,13 @@ static bool8 LoadJournalGfx(void)
     switch (sData->gfxLoadState)
     {
     case 0:
-        LZ77UnCompWram(gJournal_Tilemap, sData->bgTilemap);
+        LZ77UnCompWram(gJournal_TilemapPageFlip, sData->bgTilemap);
         break;
     case 1:
-        LZ77UnCompWram(gJournal_Tilemap, sData->backTilemap);
-        break;
-    case 2:
         LZ77UnCompWram(gJournal_Tilemap, sData->frontTilemap);
         break;
-    case 3:
-        LZ77UnCompWram(sHoennTrainerCardBadges_Gfx, sData->badgeTiles);
-        break;
-    case 4:
+    case 2:
         LZ77UnCompWram(gJournal_Gfx, sData->cardTiles);
-        break;
-    case 5:
         break;
     default:
         sData->gfxLoadState = 0;
@@ -1064,7 +911,7 @@ static void CB2_InitTrainerCard(void)
     switch (gMain.state)
     {
     case 0:
-        sTrainerStatistics = 0;
+        sCurrentPage = 0;
         ResetGpuRegs();
         SetUpTrainerCardTask();
         gMain.state++;
@@ -1122,7 +969,6 @@ static void CB2_InitJournal(void)
     switch (gMain.state)
     {
     case 0:
-        sTrainerStatistics = 0;
         ResetGpuRegs();
         SetUpJournalTask();
         gMain.state++;
@@ -1154,19 +1000,11 @@ static void CB2_InitJournal(void)
             gMain.state++;
         break;
     case 7:
-        LoadStickerGfx();
-        gMain.state++;
-        break;
-    case 8:
         InitGpuRegs();
         gMain.state++;
         break;
-    case 9:
-        BufferTextsVarsForCardPage2();
-        gMain.state++;
-        break;
-    case 10:
-        if (SetJournalPals() == TRUE){
+    case 8:
+        if (SetJournalPalsAndBGs() == TRUE){
             gMain.state++;
         }
         break;
@@ -1410,17 +1248,6 @@ static void UpdateCardFlipRegs(u16 cardTop)
     SetGpuReg(REG_OFFSET_WIN0V, WIN_RANGE(sData->cardTop, DISPLAY_HEIGHT - sData->cardTop));
 }
 
-static void UpdateJounalFlipRegs(u16 cardTop)
-{
-    s8 blendY = (cardTop + 40) / 10;
-
-    if (blendY <= 4)
-        blendY = 0;
-    sData->flipBlendY = blendY;
-    SetGpuReg(REG_OFFSET_BLDY, sData->flipBlendY);
-    SetGpuReg(REG_OFFSET_WIN0H, WIN_RANGE(sData->cardTop, DISPLAY_WIDTH - sData->cardTop));
-}
-
 static void ResetGpuRegs(void)
 {
     SetVBlankCallback(NULL);
@@ -1454,18 +1281,11 @@ static void SetTrainerCardCb2(void)
     SetMainCallback2(CB2_TrainerCard);
 }
 
-// static void SetJournalCb2(void)
-// {
-//     SetMainCallback2(CB2_Journal);
-// }
-
 static void SetUpJournalTask(void)
 {
     ResetTasks();
     ScanlineEffect_Stop();
     CreateTask(Task_Journal, 0);
-    InitTrainerCardData();
-    SetDataFromTrainerCard();
 }
 
 static void SetUpTrainerCardTask(void)
@@ -1512,22 +1332,10 @@ static bool8 PrintAllOnJournal(void)
     switch (sData->printState)
     {
     case 0:
-        PrintDayOnJournal();
+        PrintEntryOnJournal();
         break;
     case 1:
-        // PrintIdOnCard();
-        break;
-    case 2:
         PrintActivityOnJournal();
-        break;
-    case 3:
-        // PrintPokedexOnCard();
-        break;
-    case 4:
-        // PrintTimeOnCard();
-        break;
-    case 5:
-        // PrintProfilePhraseOnCard();
         break;
     default:
         sData->printState = 0;
@@ -1608,7 +1416,7 @@ static void PrintNameOnCardFront(void)
         AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 16, 33, sTrainerCardTextColors, TEXT_SKIP_DRAW, buffer);
 }
 
-static const u8 sText_Day[] = _("Entry ");
+static const u8 sText_Entry[] = _("Entry ");
 static const u8 sText_Activity1[] = _("Started my journey.");
 static const u8 sText_Activity2[] = _("Battled against my rival.");
 static const u8 sText_Activity3[] = _("Helped a little girl retrieve her pet.");
@@ -1637,10 +1445,10 @@ static const u8 sText_Activity16[] = _("And it gets everywhere.");
 static const u8 sText_ActivityG[] = _("Saw some pretty cool Pokémon though.");
 static const u8 sText_ActivityH[] = _("Fell in a big hole.");
 
-static void PrintDayOnJournal(void)
+static void PrintEntryOnJournal(void)
 {
-    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 8, 8, sTrainerCardTextColors, TEXT_SKIP_DRAW, sText_Day);
-    ConvertIntToDecimalStringN(gStringVar1, sTrainerStatistics + 1, STR_CONV_MODE_LEFT_ALIGN, 5);
+    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 8, 8, sTrainerCardTextColors, TEXT_SKIP_DRAW, sText_Entry);
+    ConvertIntToDecimalStringN(gStringVar1, sCurrentPage + 1, STR_CONV_MODE_LEFT_ALIGN, 5);
     AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 40, 8, sTrainerCardTextColors, TEXT_SKIP_DRAW, gStringVar1);
 }
 
@@ -1683,12 +1491,12 @@ static const u8 *const sActivityList[4][6] =
 
 static void PrintActivityOnJournal(void)
 {
-    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 12, 24, sTrainerCardTextColors, TEXT_SKIP_DRAW, sActivityList[sTrainerStatistics][0]);
-    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 12, 40, sTrainerCardTextColors, TEXT_SKIP_DRAW, sActivityList[sTrainerStatistics][1]);
-    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 12, 56, sTrainerCardTextColors, TEXT_SKIP_DRAW, sActivityList[sTrainerStatistics][2]);
-    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 12, 72, sTrainerCardTextColors, TEXT_SKIP_DRAW, sActivityList[sTrainerStatistics][3]);
-    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 12, 88, sTrainerCardTextColors, TEXT_SKIP_DRAW, sActivityList[sTrainerStatistics][4]);
-    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 12, 104, sTrainerCardTextColors, TEXT_SKIP_DRAW, sActivityList[sTrainerStatistics][5]);
+    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 12, 24, sTrainerCardTextColors, TEXT_SKIP_DRAW, sActivityList[sCurrentPage][0]);
+    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 12, 40, sTrainerCardTextColors, TEXT_SKIP_DRAW, sActivityList[sCurrentPage][1]);
+    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 12, 56, sTrainerCardTextColors, TEXT_SKIP_DRAW, sActivityList[sCurrentPage][2]);
+    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 12, 72, sTrainerCardTextColors, TEXT_SKIP_DRAW, sActivityList[sCurrentPage][3]);
+    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 12, 88, sTrainerCardTextColors, TEXT_SKIP_DRAW, sActivityList[sCurrentPage][4]);
+    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 12, 104, sTrainerCardTextColors, TEXT_SKIP_DRAW, sActivityList[sCurrentPage][5]);
 }
 
 static void PrintIdOnCard(void)
@@ -1857,7 +1665,7 @@ static const u8 sText_StatsPage5[] = _("{DPAD_UP} Statistics  5/5");
 
 static void PrintNameOnCardBack(void)
 {
-    switch (sTrainerStatistics)
+    switch (sCurrentPage)
     {
         case 0:
             AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, sData->textPlayersCard, 216), 9, sTrainerCardTextColors, TEXT_SKIP_DRAW, sData->textPlayersCard);
@@ -2020,44 +1828,44 @@ static const u8 *const sStatDescriptions[5][6] =
 
 static void PrintStatistics1OnCardBack(void)
 {
-    ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sTrainerStatistics][0]), STR_CONV_MODE_LEFT_ALIGN, 9);
-    PrintStatOnBackOfCard(0, sStatDescriptions[sTrainerStatistics][0], gStringVar4, sTrainerCardStatColors);
+    ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sCurrentPage][0]), STR_CONV_MODE_LEFT_ALIGN, 9);
+    PrintStatOnBackOfCard(0, sStatDescriptions[sCurrentPage][0], gStringVar4, sTrainerCardStatColors);
 }
 static void PrintStatistics2OnCardBack(void)
 {
-    ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sTrainerStatistics][1]), STR_CONV_MODE_LEFT_ALIGN, 9);
-    PrintStatOnBackOfCard(1, sStatDescriptions[sTrainerStatistics][1], gStringVar4, sTrainerCardStatColors);
+    ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sCurrentPage][1]), STR_CONV_MODE_LEFT_ALIGN, 9);
+    PrintStatOnBackOfCard(1, sStatDescriptions[sCurrentPage][1], gStringVar4, sTrainerCardStatColors);
 }
 static void PrintStatistics3OnCardBack(void)
 {
-    if (sTrainerStatistics < 4)
+    if (sCurrentPage < 4)
     {
-        ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sTrainerStatistics][2]), STR_CONV_MODE_LEFT_ALIGN, 9);
-        PrintStatOnBackOfCard(2, sStatDescriptions[sTrainerStatistics][2], gStringVar4, sTrainerCardStatColors);
+        ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sCurrentPage][2]), STR_CONV_MODE_LEFT_ALIGN, 9);
+        PrintStatOnBackOfCard(2, sStatDescriptions[sCurrentPage][2], gStringVar4, sTrainerCardStatColors);
     }
 }
 static void PrintStatistics4OnCardBack(void)
 {
-    if (sTrainerStatistics < 4)
+    if (sCurrentPage < 4)
     {
-        ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sTrainerStatistics][3]), STR_CONV_MODE_LEFT_ALIGN, 9);
-        PrintStatOnBackOfCard(3, sStatDescriptions[sTrainerStatistics][3], gStringVar4, sTrainerCardStatColors);
+        ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sCurrentPage][3]), STR_CONV_MODE_LEFT_ALIGN, 9);
+        PrintStatOnBackOfCard(3, sStatDescriptions[sCurrentPage][3], gStringVar4, sTrainerCardStatColors);
     }
 }
 static void PrintStatistics5OnCardBack(void)
 {
-    if (sTrainerStatistics < 4)
+    if (sCurrentPage < 4)
     {
-        ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sTrainerStatistics][4]), STR_CONV_MODE_LEFT_ALIGN, 9);
-        PrintStatOnBackOfCard(4, sStatDescriptions[sTrainerStatistics][4], gStringVar4, sTrainerCardStatColors);
+        ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sCurrentPage][4]), STR_CONV_MODE_LEFT_ALIGN, 9);
+        PrintStatOnBackOfCard(4, sStatDescriptions[sCurrentPage][4], gStringVar4, sTrainerCardStatColors);
     }
 }
 static void PrintStatistics6OnCardBack(void)
 {
-    if (sTrainerStatistics < 4)
+    if (sCurrentPage < 4)
     {
-        ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sTrainerStatistics][5]), STR_CONV_MODE_LEFT_ALIGN, 9);
-        PrintStatOnBackOfCard(5, sStatDescriptions[sTrainerStatistics][5], gStringVar4, sTrainerCardStatColors);
+        ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sCurrentPage][5]), STR_CONV_MODE_LEFT_ALIGN, 9);
+        PrintStatOnBackOfCard(5, sStatDescriptions[sCurrentPage][5], gStringVar4, sTrainerCardStatColors);
     }
 }
 
@@ -2313,39 +2121,22 @@ static u8 SetCardBgsAndPals(void)
     return 0;
 }
 
-static u8 SetJournalPals(void)
+static u8 SetJournalPalsAndBGs(void)
 {
 
     switch (sData->bgPalLoadState)
     {
     case 0:
-        LoadBgTiles(3, sData->badgeTiles, ARRAY_COUNT(sData->badgeTiles), 0);
-        break;
-    case 1:
         LoadBgTiles(0, sData->cardTiles, 0x1800, 0);
         break;
-    case 2:
-        // if (sData->cardType != CARD_TYPE_FRLG)
-        // {
+    case 1:
         LoadPalette(gJournal_Pal, BG_PLTT_ID(0), 3 * PLTT_SIZE_4BPP);
-        //     LoadPalette(sHoennTrainerCardBadges_Pal, BG_PLTT_ID(3), PLTT_SIZE_4BPP);
-        //     if (sData->trainerCard.gender != MALE)
-        //         LoadPalette(sHoennTrainerCardFemaleBg_Pal, BG_PLTT_ID(1), PLTT_SIZE_4BPP);
-        // }
-        // else
-        // {
-        //     LoadPalette(sKantoTrainerCardPals[sData->trainerCard.stars], BG_PLTT_ID(0), 3 * PLTT_SIZE_4BPP);
-            // LoadPalette(sKantoTrainerCardBadges_Pal, BG_PLTT_ID(3), PLTT_SIZE_4BPP);
-            // if (sData->trainerCard.gender != MALE)
-                LoadPalette(gJournal_Pal, BG_PLTT_ID(1), PLTT_SIZE_4BPP);
-        // }
-        // LoadPalette(sTrainerCardStar_Pal, BG_PLTT_ID(4), PLTT_SIZE_4BPP);
         break;
-    case 3:
+    case 2:
         SetBgTilemapBuffer(0, sData->cardTilemapBuffer);
         SetBgTilemapBuffer(2, sData->bgTilemapBuffer);
         break;
-    case 4:
+    case 3:
         FillBgTilemapBufferRect_Palette0(0, 0, 0, 0, 32, 32);
         FillBgTilemapBufferRect_Palette0(2, 0, 0, 0, 32, 32);
         FillBgTilemapBufferRect_Palette0(3, 0, 0, 0, 32, 32);
@@ -2479,155 +2270,6 @@ u8 GetTrainerCardStars(u8 cardId)
 
 #define tFlipState data[0]
 #define tCardTop   data[1]
-#define tCardLeft   data[2]
-
-static void FlipJournal(u8 taskId, s8 delta)
-{
-    FillWindowPixelBuffer(WIN_CARD_TEXT, PIXEL_FILL(0));
-    // u8 taskId = CreateTask(Task_DoJournalFlipTask, 0);
-    // Task_DoJournalFlipTask(taskId);
-    // SetHBlankCallback(HblankCb_TrainerCard);
-    if (delta == 1)
-        SetTaskFuncWithFollowupFunc(taskId, PssScrollRight, gTasks[taskId].func);
-    else
-        SetTaskFuncWithFollowupFunc(taskId, PssScrollLeft, gTasks[taskId].func);
-}
-
-////////////////////////////////////////////////////////////////////////
-
-// static void ChangePage(u8 taskId, s8 delta)
-// {
-//     struct PokeSummary *summary = &sMonSummaryScreen->summary;
-//     s16 *data = gTasks[taskId].data;
-
-//     if (summary->isEgg)
-//         return;
-//     else if (delta == -1 && sMonSummaryScreen->currPageIndex == sMonSummaryScreen->minPageIndex)
-//         return;
-//     else if (delta == 1 && sMonSummaryScreen->currPageIndex == sMonSummaryScreen->maxPageIndex)
-//         return;
-
-//     PlaySE(SE_SELECT);
-//     ClearPageWindowTilemaps(sMonSummaryScreen->currPageIndex);
-//     sMonSummaryScreen->currPageIndex += delta;
-//     data[0] = 0;
-//     if (delta == 1)
-//         SetTaskFuncWithFollowupFunc(taskId, PssScrollRight, gTasks[taskId].func);
-//     else
-//         SetTaskFuncWithFollowupFunc(taskId, PssScrollLeft, gTasks[taskId].func);
-//     CreateTextPrinterTask(sMonSummaryScreen->currPageIndex);
-//     HidePageSpecificSprites();
-// }
-
-static void PssScrollRight(u8 taskId) // Scroll right
-{
-    s16 *data = gTasks[taskId].data;
-    if (data[0] == 0)
-    {
-        data[1] = 2;
-        SetBgAttribute(2, BG_ATTR_PRIORITY, 1);
-        SetBgAttribute(1, BG_ATTR_PRIORITY, 2);
-        ScheduleBgCopyTilemapToVram(2);
-        ChangeBgX(data[1], 0, BG_COORD_SET);
-        ShowBg(1);
-        ShowBg(2);
-    }
-    HideBg(1);
-    ChangeBgX(data[1], 0x2000, BG_COORD_ADD);
-    data[0] += 32;
-    if (data[0] > 0xFF)
-        gTasks[taskId].func = PssScrollRightEnd;
-}
-
-static void PssScrollRightEnd(u8 taskId) // display right
-{
-    s16 *data = gTasks[taskId].data;
-
-    data[1] = 0;
-    data[0] = 0;
-    SetBgAttribute(1, BG_ATTR_PRIORITY, 0);
-
-    ShowBg(3);
-    HideBg(2);
-
-    FillWindowPixelBuffer(WIN_CARD_TEXT, PIXEL_FILL(0));
-    // FillBgTilemapBufferRect_Palette0(3, 0, 0, 0, 0x20, 0x20);
-    PrintActivityOnJournal();
-    PrintDayOnJournal();
-    ShowBg(1);
-            
-    DrawTrainerCardWindow(WIN_CARD_TEXT);
-    SwitchTaskToFollowupFunc(taskId);
-}
-
-static void PssScrollLeft(u8 taskId) // Scroll left
-{
-    s16 *data = gTasks[taskId].data;
-    if (data[0] == 0)
-    {
-        data[1] = 2;
-        SetBgAttribute(2, BG_ATTR_PRIORITY, 1);
-        SetBgAttribute(1, BG_ATTR_PRIORITY, 2);
-        ScheduleBgCopyTilemapToVram(2);
-        ChangeBgX(data[1], 0x10000, BG_COORD_SET);
-        HideBg(1);
-        ShowBg(2);
-    }
-        
-
-    ChangeBgX(data[1], 0x2000, BG_COORD_SUB);
-    
-    data[0] += 32;
-    if (data[0] > 0xFF)
-        gTasks[taskId].func = PssScrollLeftEnd;
-}
-
-static void PssScrollLeftEnd(u8 taskId) // display left
-{
-    s16 *data = gTasks[taskId].data;
-    // if (sMonSummaryScreen->bgDisplayOrder == 0)
-    // {
-        SetBgAttribute(1, BG_ATTR_PRIORITY, 1);
-        SetBgAttribute(2, BG_ATTR_PRIORITY, 2);
-        ScheduleBgCopyTilemapToVram(2);
-    // }
-    // else
-    // {
-        // SetBgAttribute(2, BG_ATTR_PRIORITY, 1);
-        // SetBgAttribute(1, BG_ATTR_PRIORITY, 2);
-        // ScheduleBgCopyTilemapToVram(1);
-    // }
-    // if (sMonSummaryScreen->currPageIndex > 1)
-    // {
-        // SetBgTilemapBuffer(data[1], sMonSummaryScreen->bgTilemapBuffers[sMonSummaryScreen->currPageIndex - 1][0]);
-        // ChangeBgX(data[1], 0x10000, BG_COORD_SET);
-    // }
-    // sMonSummaryScreen->bgDisplayOrder ^= 1;
-    data[1] = 0;
-    data[0] = 0;
-    // DrawPagination();
-    // PutPageWindowTilemaps(sMonSummaryScreen->currPageIndex);
-    // SetTypeIcons();
-    // TryDrawExperienceProgressBar();
-    // FillWindowPixelBuffer(WIN_CARD_TEXT, PIXEL_FILL(0));
-    // FillBgTilemapBufferRect_Palette0(3, 0, 0, 0, 0x20, 0x20);
-    // PrintAllOnJournal();
-            // FillBgTilemapBufferRect_Palette0(3, 0, 0, 0, 0x20, 0x20);
-    FillWindowPixelBuffer(WIN_CARD_TEXT, PIXEL_FILL(0));
-    // FillBgTilemapBufferRect_Palette0(3, 0, 0, 0, 0x20, 0x20);
-    PrintActivityOnJournal();
-    PrintDayOnJournal();
-    ShowBg(1);
-    ShowBg(2);
-            
-    DrawTrainerCardWindow(WIN_CARD_TEXT);
-    // FillWindowPixelBuffer(WIN_CARD_TEXT, PIXEL_FILL(0));
-    // PrintAllOnJournal();
-    // DrawTrainerCardWindow(WIN_CARD_TEXT);
-    SwitchTaskToFollowupFunc(taskId);
-}
-
-////////////////////////////////////////////////////////////////////////
 
 static void FlipTrainerCard(void)
 {
@@ -2646,10 +2288,16 @@ static bool8 IsCardFlipTaskActive(void)
 
 static bool8 IsJournalFlipTaskActive(void)
 {
-    if (FindTaskIdByFunc(Task_DoJournalFlipTask) == TASK_NONE)
+    if (FuncIsActiveTask(JournalScrollRight))
         return TRUE;
-    else
-        return FALSE;
+    if (FuncIsActiveTask(JournalScrollRightEnd))
+        return TRUE;
+    if (FuncIsActiveTask(JournalScrollLeft))
+        return TRUE;
+    if (FuncIsActiveTask(JournalScrollLeftEnd))
+        return TRUE;
+
+    return FALSE;
 }
 
 static void Task_DoCardFlipTask(u8 taskId)
@@ -2658,27 +2306,7 @@ static void Task_DoCardFlipTask(u8 taskId)
         ;
 }
 
-static void Task_DoJournalFlipTask(u8 taskId)
-{
-    while(sJournalFlipTasks[gTasks[taskId].tFlipState](&gTasks[taskId]))
-        ;
-}
-
 static bool8 Task_BeginCardFlip(struct Task *task)
-{
-    u32 i;
-
-    HideBg(1);
-    HideBg(3);
-    ScanlineEffect_Stop();
-    ScanlineEffect_Clear();
-    for (i = 0; i < DISPLAY_HEIGHT; i++)
-        gScanlineEffectRegBuffers[1][i] = 0;
-    task->tFlipState++;
-    return FALSE;
-}
-
-static bool8 Task_BeginJournalFlip(struct Task *task)
 {
     u32 i;
 
@@ -2740,54 +2368,6 @@ static bool8 Task_AnimateCardFlipDown(struct Task *task)
     return FALSE;
 }
 
-#define CARD_FLIP_X ((DISPLAY_WIDTH / 2) - 3)
-
-static bool8 Task_AnimateJournalFlipDown(struct Task *task)
-{
-    u32 cardWidth, r5, r10, cardLeft, r6, var_24, cardRight, var;
-    s16 i;
-
-    sData->allowDMACopy = FALSE;
-    if (task->tCardLeft >= CARD_FLIP_X)
-        task->tCardLeft = CARD_FLIP_X;
-    else
-        task->tCardLeft += 7; // Move card 7 pixels to the left
-
-    sData->cardTop = task->tCardLeft;
-    UpdateJounalFlipRegs(task->tCardLeft); // Update graphics regs for left flip
-
-    cardLeft = task->tCardLeft;
-    cardRight = DISPLAY_WIDTH - cardLeft;
-    cardWidth = cardRight - cardLeft;
-    r6 = -cardLeft << 16;
-    r5 = (DISPLAY_WIDTH << 16) / cardWidth;
-    r5 -= 1 << 16;
-    var_24 = r6;
-    var_24 += r5 * cardWidth;
-    r10 = r5 / cardWidth;
-    r5 *= 2;
-
-    // Manipulate scanline effect for each horizontal line (instead of vertical)
-    for (i = 0; i < cardLeft; i++)
-        gScanlineEffectRegBuffers[0][i] = -i;
-    for (; i < (s16)cardRight; i++)
-    {
-        var = r6 >> 16;
-        r6 += r5;
-        r5 -= r10;
-        gScanlineEffectRegBuffers[0][i] = var;
-    }
-    var = var_24 >> 16;
-    for (; i < DISPLAY_WIDTH; i++)
-        gScanlineEffectRegBuffers[0][i] = var;
-
-    sData->allowDMACopy = TRUE;
-    if (task->tCardLeft >= CARD_FLIP_X)
-        task->tFlipState++;
-
-    return FALSE;
-}
-
 static bool8 Task_DrawFlippedCardSide(struct Task *task)
 {
     sData->allowDMACopy = FALSE;
@@ -2842,53 +2422,6 @@ static bool8 Task_DrawFlippedCardSide(struct Task *task)
     return FALSE;
 }
 
-static bool8 Task_DrawFlippedJournalSide(struct Task *task)
-{
-    sData->allowDMACopy = FALSE;
-    if (Overworld_IsRecvQueueAtMax() == TRUE)
-        return FALSE;
-
-    do
-    {
-        switch (sData->flipDrawState)
-        {
-        case 0:
-            FillWindowPixelBuffer(WIN_CARD_TEXT, PIXEL_FILL(0));
-            FillBgTilemapBufferRect_Palette0(3, 0, 0, 0, 0x20, 0x20);
-            break;
-        case 1:
-            if (!PrintAllOnJournal())
-                return FALSE;
-            break;
-        case 2:
-            if (!sData->onBack)
-                DrawCardFrontOrBack(sData->backTilemap);
-            else
-                DrawTrainerCardWindow(WIN_CARD_TEXT);
-            break;
-        case 3:
-            if (!sData->onBack)
-                DrawCardBackStats();
-            else
-                FillWindowPixelBuffer(WIN_TRAINER_PIC, PIXEL_FILL(0));
-            break;
-        case 4:
-            // if (sData->onBack)
-                // CreateTrainerCardTrainerPic();
-            break;
-        default:
-            task->tFlipState++;
-            sData->allowDMACopy = TRUE;
-            sData->flipDrawState = 0;
-            return FALSE;
-        }
-        sData->flipDrawState++;
-    } while (gReceivedRemoteLinkPlayers == 0);
-
-    return FALSE;
-}
-
-
 static bool8 Task_SetCardFlipped(struct Task *task)
 {
     sData->allowDMACopy = FALSE;
@@ -2903,26 +2436,6 @@ static bool8 Task_SetCardFlipped(struct Task *task)
     }
     DrawTrainerCardWindow(WIN_CARD_TEXT);
     sData->onBack ^= 1;
-    task->tFlipState++;
-    sData->allowDMACopy = TRUE;
-    PlaySE(SE_RG_CARD_FLIPPING);
-    return FALSE;
-}
-
-static bool8 Task_SetJournalFlipped(struct Task *task)
-{
-    sData->allowDMACopy = FALSE;
-
-    sData->onBack = FALSE;
-    // If on back of card, draw front of card because its being flipped
-    if (sData->onBack)
-    {
-        DrawTrainerCardWindow(WIN_TRAINER_PIC);
-        DrawCardScreenBackground(sData->bgTilemap);
-        DrawCardFrontOrBack(sData->frontTilemap);
-        DrawStarsAndBadgesOnCard();
-    }
-    DrawTrainerCardWindow(WIN_CARD_TEXT);
     task->tFlipState++;
     sData->allowDMACopy = TRUE;
     PlaySE(SE_RG_CARD_FLIPPING);
@@ -2974,52 +2487,6 @@ static bool8 Task_AnimateCardFlipUp(struct Task *task)
     return FALSE;
 }
 
-static bool8 Task_AnimateJournalFlipUp(struct Task *task)
-{
-    u32 cardWidth, r5, r10, cardLeft, r6, var_24, cardRight, var;
-    s16 i;
-
-    sData->allowDMACopy = FALSE;
-    if (task->tCardLeft <= 5)
-        task->tCardLeft = 0;
-    else
-        task->tCardLeft -= 5;  // Move card 5 pixels to the right
-
-    sData->cardTop = task->tCardLeft;
-    UpdateCardFlipRegs(task->tCardLeft);  // Update the horizontal flipping registers
-
-    cardLeft = task->tCardLeft;
-    cardRight = DISPLAY_WIDTH - cardLeft;
-    cardWidth = cardRight - cardLeft;
-    r6 = -cardLeft << 16;
-    r5 = (DISPLAY_WIDTH << 16) / cardWidth;
-    r5 -= 1 << 16;
-    var_24 = r6;
-    var_24 += r5 * cardWidth;
-    r10 = r5 / cardWidth;
-    r5 /= 2;
-
-    // Adjust the scanline effects for horizontal flipping
-    for (i = 0; i < cardLeft; i++)
-        gScanlineEffectRegBuffers[0][i] = -i;
-    for (; i < (s16)cardRight; i++)
-    {
-        var = r6 >> 16;
-        r6 += r5;
-        r5 += r10;
-        gScanlineEffectRegBuffers[0][i] = var;
-    }
-    var = var_24 >> 16;
-    for (; i < DISPLAY_WIDTH; i++)
-        gScanlineEffectRegBuffers[0][i] = var;
-
-    sData->allowDMACopy = TRUE;
-    if (task->tCardLeft <= 0)
-        task->tFlipState++;
-
-    return FALSE;
-}
-
 static bool8 Task_EndCardFlip(struct Task *task)
 {
     ShowBg(1);
@@ -3029,13 +2496,99 @@ static bool8 Task_EndCardFlip(struct Task *task)
     return FALSE;
 }
 
-static bool8 Task_EndJournalFlip(struct Task *task)
+#undef tFlipState
+#undef tCardTop
+
+#define tFrameCounter data[0]
+#define tBgId data[1]
+
+#define JOURNAL_BASE_BG     1
+#define JOURNAL_PAGE_FLIP   2
+
+#define HIGHEST_PRIORITY    0
+#define HIGHER_PRIORITY     1
+#define LOWER_PRIORITY      2
+
+static void FlipJournal(u8 taskId, s8 delta)
 {
-    ShowBg(1);
-    ShowBg(3);
-    SetHBlankCallback(NULL);
-    DestroyTask(FindTaskIdByFunc(Task_DoJournalFlipTask));
-    return FALSE;
+    FillWindowPixelBuffer(WIN_CARD_TEXT, PIXEL_FILL(0));
+
+    if (delta)
+        SetTaskFuncWithFollowupFunc(taskId, JournalScrollRight, gTasks[taskId].func);
+    else
+        SetTaskFuncWithFollowupFunc(taskId, JournalScrollLeft, gTasks[taskId].func);
+}
+
+static void JournalScrollRight(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+    if (tFrameCounter == 0)
+    {
+        tBgId = JOURNAL_PAGE_FLIP;
+        SetBgAttribute(JOURNAL_PAGE_FLIP, BG_ATTR_PRIORITY, HIGHER_PRIORITY);
+        SetBgAttribute(JOURNAL_BASE_BG, BG_ATTR_PRIORITY, LOWER_PRIORITY);
+        ScheduleBgCopyTilemapToVram(tBgId);
+        ChangeBgX(tBgId, 0, BG_COORD_SET);
+        ShowBg(JOURNAL_PAGE_FLIP);
+    }
+
+    ChangeBgX(tBgId, 0x2000, BG_COORD_ADD);
+    tFrameCounter += 32;
+    if (tFrameCounter > 0xFF)
+        gTasks[taskId].func = JournalScrollRightEnd;
+}
+
+static void JournalScrollRightEnd(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+
+    tBgId = 0;
+    tFrameCounter = 0;
+    SetBgAttribute(JOURNAL_BASE_BG, BG_ATTR_PRIORITY, HIGHEST_PRIORITY);
+    HideBg(JOURNAL_PAGE_FLIP);
+
+    FillWindowPixelBuffer(WIN_CARD_TEXT, PIXEL_FILL(0));
+    PrintActivityOnJournal();
+    PrintEntryOnJournal();
+            
+    DrawTrainerCardWindow(WIN_CARD_TEXT);
+    SwitchTaskToFollowupFunc(taskId);
+}
+
+static void JournalScrollLeft(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+    if (tFrameCounter == 0)
+    {
+        tBgId = JOURNAL_PAGE_FLIP;
+        SetBgAttribute(tBgId, BG_ATTR_PRIORITY, HIGHER_PRIORITY);
+        SetBgAttribute(JOURNAL_BASE_BG, BG_ATTR_PRIORITY, LOWER_PRIORITY);
+        ScheduleBgCopyTilemapToVram(tBgId);
+        ChangeBgX(tBgId, 0x10000, BG_COORD_SET);
+        ShowBg(tBgId);
+    }
+
+    ChangeBgX(tBgId, 0x2000, BG_COORD_SUB);
+    tFrameCounter += 32;
+    if (tFrameCounter > (0xFF - 32))
+        gTasks[taskId].func = JournalScrollLeftEnd;
+}
+
+static void JournalScrollLeftEnd(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+
+    tBgId = 0;
+    tFrameCounter = 0;
+    SetBgAttribute(JOURNAL_BASE_BG, BG_ATTR_PRIORITY, HIGHEST_PRIORITY);
+    HideBg(JOURNAL_PAGE_FLIP);
+
+    FillWindowPixelBuffer(WIN_CARD_TEXT, PIXEL_FILL(0));
+    PrintActivityOnJournal();
+    PrintEntryOnJournal();
+            
+    DrawTrainerCardWindow(WIN_CARD_TEXT);
+    SwitchTaskToFollowupFunc(taskId);
 }
 
 void ShowPlayerTrainerCard(void (*callback)(void))
@@ -3057,21 +2610,29 @@ void ShowPlayerTrainerCard(void (*callback)(void))
     SetMainCallback2(CB2_InitTrainerCard);
 }
 
+static const u16 sQuestFlags[] =
+{
+
+};
+
 void ShowPlayerJournal(void (*callback)(void))
 {
+    u16 i;
+
     sData = AllocZeroed(sizeof(*sData));
     sData->callback2 = callback;
-    if (callback == CB2_ReshowFrontierPass)
-        sData->blendColor = RGB_WHITE;
-    else
-        sData->blendColor = RGB_BLACK;
+    sData->blendColor = RGB_BLACK;
+    sCurrentPage = 0;
+    sMaxPages = 0;
 
-    if (InUnionRoom() == TRUE)
-        sData->isLink = TRUE;
-    else
-        sData->isLink = FALSE;
-    sData->language = GAME_LANGUAGE;
-    TrainerCard_GenerateCardForPlayer(&sData->trainerCard);
+    for (i = 0; i < ARRAY_COUNT(sQuestFlags); i++)
+    {
+        if (FlagGet(sQuestFlags[i]))
+        {
+            sMaxPages++;
+        }
+    }
+
     SetMainCallback2(CB2_InitJournal);
 }
 

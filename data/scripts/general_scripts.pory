@@ -459,7 +459,7 @@ script Debug_Script_1{              // Set team level
     end
     }
 script Debug_Script_2{              // 
-    call(MauvilleCity_EventScript_Wally)
+    setflag(FLAG_SYS_JOURNAL_GET)
     end
 }
 script Debug_Script_3{              // 

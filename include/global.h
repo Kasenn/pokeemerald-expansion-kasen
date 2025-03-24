@@ -1030,6 +1030,13 @@ struct ExternalEventFlags
 
 } __attribute__((packed));/*size = 0x15*/
 
+static const u16 sQuestStartFlags = 
+{
+    FLAG_ACEROLA_ITEM,
+};
+
+#define QUEST_COUNT     ARRAY_COUNT(sQuestStartFlags)
+
 struct SaveBlock1
 {
     /*0x00*/ struct Coords16 pos;
@@ -1094,6 +1101,8 @@ struct SaveBlock1
                u16 berryBlenderRecords[3];
                u8 strangeSeedIndex;
                u8 strangeSeedDrop[11];
+               u8 questOrder[QUEST_COUNT];
+               u8 questStatus[QUEST_COUNT];
 };
 
 extern struct SaveBlock1* gSaveBlock1Ptr;

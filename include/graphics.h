@@ -3400,6 +3400,7 @@ extern const u32 gHoennTrainerCardBg_Tilemap[];
 extern const u16 gJournal_Pal[];
 extern const u32 gJournal_Gfx[];
 extern const u32 gJournal_Tilemap[];
+extern const u32 gJournal_TilemapPageFlip[];
 
 // Frontier Pass
 extern const u32 gFrontierPassBg_Gfx[];
