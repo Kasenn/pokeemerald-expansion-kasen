@@ -144,21 +144,22 @@ TradeSeedsForFertilizer::
 	faceplayer
 	goto_if_set FLAG_MET_STRANGE_SEED_TRADER, TradeSeedsForFertilizer_2
 TradeSeedsForFertilizer_1:
-	msgbox SeenAnyStrangeSeeds
+	msgbox SeenAnyStrangeSeeds, MSGBOX_NPC
 	checkitem ITEM_STRANGE_SEED
 	compare VAR_RESULT, TRUE
-	goto_if_eq TradeSeedsForFertilizer_4
-	return
+	goto_if_eq TradeSeedsForFertilizer_5
+TradeSeedsForFertilizer_4:
+	end
 
 TradeSeedsForFertilizer_2:
 	checkitem ITEM_STRANGE_SEED
 	compare VAR_RESULT, TRUE
-	goto_if_eq TradeSeedsForFertilizer_7
-TradeSeedsForFertilizer_6:
+	goto_if_eq TradeSeedsForFertilizer_8
+TradeSeedsForFertilizer_7:
 	goto TradeSeedsGoodbye
 	goto TradeSeedsForFertilizer_1
 
-TradeSeedsForFertilizer_4:
+TradeSeedsForFertilizer_5:
 	playse SE_PIN
 	safefollow
 	applymovement 4, ExclamationMark
@@ -167,23 +168,23 @@ TradeSeedsForFertilizer_4:
 	setflag FLAG_MET_STRANGE_SEED_TRADER
 	msgbox CareToTradeSeeds, MSGBOX_YESNO
 	compare VAR_RESULT, TRUE
-	goto_if_eq TradeSeedsForFertilizer_9
+	goto_if_eq TradeSeedsForFertilizer_10
 	goto TradeSeedsGoodbye
-	return
+	goto TradeSeedsForFertilizer_4
 
-TradeSeedsForFertilizer_7:
+TradeSeedsForFertilizer_8:
 	msgbox HereToTradeMoreSeeds, MSGBOX_YESNO
 	compare VAR_RESULT, TRUE
-	goto_if_eq TradeSeedsForFertilizer_12
-	goto TradeSeedsForFertilizer_6
+	goto_if_eq TradeSeedsForFertilizer_13
+	goto TradeSeedsForFertilizer_7
 
-TradeSeedsForFertilizer_9:
+TradeSeedsForFertilizer_10:
 	goto TradeSeedsMain
-	return
+	goto TradeSeedsForFertilizer_4
 
-TradeSeedsForFertilizer_12:
+TradeSeedsForFertilizer_13:
 	goto TradeSeedsMain
-	goto TradeSeedsForFertilizer_6
+	goto TradeSeedsForFertilizer_7
 
 
 TradeSeedsMain::
@@ -476,6 +477,12 @@ Debug_Script_1_12:
 
 Debug_Script_2::
 	setflag FLAG_SYS_JOURNAL_GET
+	setquestflag FLAG_Q01_PRIMROSE_ORICORIO_START
+	setquestflag FLAG_Q03_AZURETIDE_OLD_WOMAN_START
+	setquestflag FLAG_Q06_MUSEUM_SMEARGLE_START
+	setquestflag FLAG_Q09_FLOWER_FIELDS_BERRYTRADE_START
+	setquestflag FLAG_Q02_ELEVATOR_RIVAL_START
+	setquestflag FLAG_Q05_ALDELEAF_CURSED_DOLL_START
 	end
 
 

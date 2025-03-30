@@ -130,7 +130,7 @@ script TradeSeedsForFertilizer{
         }
         goto(TradeSeedsGoodbye)
     }
-    msgbox(SeenAnyStrangeSeeds)
+    msgbox(SeenAnyStrangeSeeds, MSGBOX_NPC)
     if (checkitem(ITEM_STRANGE_SEED) == TRUE){
         playse(SE_PIN)
         safefollow
@@ -144,7 +144,9 @@ script TradeSeedsForFertilizer{
         else{
             goto(TradeSeedsGoodbye)
         }
-    }}
+    }
+    end
+}
 script TradeSeedsMain{
     checkitemquant(ITEM_STRANGE_SEED)
     if(msgbox(TradeHowManySeeds, MSGBOX_HOWMANY) == 0){
@@ -460,6 +462,12 @@ script Debug_Script_1{              // Set team level
     }
 script Debug_Script_2{              // 
     setflag(FLAG_SYS_JOURNAL_GET)
+    setquestflag(FLAG_Q01_PRIMROSE_ORICORIO_START)
+    setquestflag(FLAG_Q03_AZURETIDE_OLD_WOMAN_START)
+    setquestflag(FLAG_Q06_MUSEUM_SMEARGLE_START)
+    setquestflag(FLAG_Q09_FLOWER_FIELDS_BERRYTRADE_START)
+    setquestflag(FLAG_Q02_ELEVATOR_RIVAL_START)
+    setquestflag(FLAG_Q05_ALDELEAF_CURSED_DOLL_START)
     end
 }
 script Debug_Script_3{              // 

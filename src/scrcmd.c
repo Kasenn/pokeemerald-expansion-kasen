@@ -3611,3 +3611,17 @@ void Script_EndTrainerCanSeeIf(struct ScriptContext *ctx)
     if (ctx->breakOnTrainerBattle && sScriptConditionTable[condition][ctx->comparisonResult] == 1)
         StopScript(ctx);
 }
+
+bool8 ScrCmd_startquest(struct ScriptContext *ctx)
+{
+    u32 flagId = ScriptReadHalfword(ctx);
+    u16 var = VarGet(VAR_CURRENT_QUEST);
+
+    FlagSet(flagId);
+    gSaveBlock1Ptr->questFlag[var] = flagId - 0x1000;
+    gSaveBlock1Ptr->questOrder[var] = var;
+
+    VarSet(VAR_CURRENT_QUEST, var + 1);
+
+    return FALSE;
+}

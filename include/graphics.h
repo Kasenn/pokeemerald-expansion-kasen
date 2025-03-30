@@ -3397,10 +3397,14 @@ extern const u32 gKantoTrainerCardFront_Tilemap[];
 extern const u32 gHoennTrainerCardFrontLink_Tilemap[];
 extern const u32 gKantoTrainerCardFrontLink_Tilemap[];
 extern const u32 gHoennTrainerCardBg_Tilemap[];
-extern const u16 gJournal_Pal[];
-extern const u32 gJournal_Gfx[];
-extern const u32 gJournal_Tilemap[];
-extern const u32 gJournal_TilemapPageFlip[];
+extern const u16 gJournal_Pal_Female[];
+extern const u16 gJournal_Pal_Male[];
+extern const u32 gJournal_Gfx_Female[];
+extern const u32 gJournal_Tilemap_Female[];
+extern const u32 gJournal_TilemapPageFlip_Female[];
+extern const u32 gJournal_Gfx_Male[];
+extern const u32 gJournal_Tilemap_Male[];
+extern const u32 gJournal_TilemapPageFlip_Male[];
 
 // Frontier Pass
 extern const u32 gFrontierPassBg_Gfx[];

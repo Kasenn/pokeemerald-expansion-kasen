@@ -95,7 +95,8 @@ struct TrainerCardData
 // EWRAM
 EWRAM_DATA struct TrainerCard gTrainerCards[4] = {0};
 EWRAM_DATA static struct TrainerCardData *sData = NULL;
-static EWRAM_DATA u8 sCurrentPage = 0;
+EWRAM_DATA u8 gCurrentJournalPage = 0;
+static EWRAM_DATA u8 sTrainerStatistics = 0;
 static EWRAM_DATA u8 sMaxPages = 0;
 
 //this file's functions
@@ -530,7 +531,7 @@ static void Task_TrainerCard(u8 taskId)
         else if (JOY_NEW(DPAD_DOWN) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
         {
             sData->onBack = FALSE;
-            sCurrentPage++;
+            sTrainerStatistics++;
             FlipTrainerCard();
             PlaySE(SE_RG_CARD_OPEN);
             sData->mainState = STATE_HANDLE_INPUT_BACK_PAGE_2;
@@ -570,7 +571,7 @@ static void Task_TrainerCard(u8 taskId)
         else if (JOY_NEW(DPAD_UP) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
         {
             sData->onBack = FALSE;
-            sCurrentPage--;
+            sTrainerStatistics--;
             FlipTrainerCard();
             PlaySE(SE_RG_CARD_OPEN);
             sData->mainState = STATE_HANDLE_INPUT_BACK;
@@ -578,7 +579,7 @@ static void Task_TrainerCard(u8 taskId)
         else if (JOY_NEW(DPAD_DOWN) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
         {
             sData->onBack = FALSE;
-            sCurrentPage++;
+            sTrainerStatistics++;
             FlipTrainerCard();
             PlaySE(SE_RG_CARD_OPEN);
             sData->mainState = STATE_HANDLE_INPUT_BACK_PAGE_3;
@@ -618,7 +619,7 @@ static void Task_TrainerCard(u8 taskId)
         else if (JOY_NEW(DPAD_UP) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
         {
             sData->onBack = FALSE;
-            sCurrentPage--;
+            sTrainerStatistics--;
             FlipTrainerCard();
             PlaySE(SE_RG_CARD_OPEN);
             sData->mainState = STATE_HANDLE_INPUT_BACK_PAGE_2;
@@ -626,7 +627,7 @@ static void Task_TrainerCard(u8 taskId)
         else if (JOY_NEW(DPAD_DOWN) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
         {
             sData->onBack = FALSE;
-            sCurrentPage++;
+            sTrainerStatistics++;
             FlipTrainerCard();
             PlaySE(SE_RG_CARD_OPEN);
             sData->mainState = STATE_HANDLE_INPUT_BACK_PAGE_4;
@@ -666,7 +667,7 @@ static void Task_TrainerCard(u8 taskId)
         else if (JOY_NEW(DPAD_UP) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
         {
             sData->onBack = FALSE;
-            sCurrentPage--;
+            sTrainerStatistics--;
             FlipTrainerCard();
             PlaySE(SE_RG_CARD_OPEN);
             sData->mainState = STATE_HANDLE_INPUT_BACK_PAGE_3;
@@ -674,7 +675,7 @@ static void Task_TrainerCard(u8 taskId)
         else if (JOY_NEW(DPAD_DOWN) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
         {
             sData->onBack = FALSE;
-            sCurrentPage++;
+            sTrainerStatistics++;
             FlipTrainerCard();
             PlaySE(SE_RG_CARD_OPEN);
             sData->mainState = STATE_HANDLE_INPUT_BACK_PAGE_5;
@@ -714,7 +715,7 @@ static void Task_TrainerCard(u8 taskId)
         else if (JOY_NEW(DPAD_UP) && (IsCardFlipTaskActive() && Overworld_IsRecvQueueAtMax() != TRUE))
         {
             sData->onBack = FALSE;
-            sCurrentPage--;
+            sTrainerStatistics--;
             FlipTrainerCard();
             PlaySE(SE_RG_CARD_OPEN);
             sData->mainState = STATE_HANDLE_INPUT_BACK_PAGE_4;
@@ -809,15 +810,15 @@ static void Task_Journal(u8 taskId)
             BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, sData->blendColor);
             sData->mainState = STATE_CLOSE_CARD;
         }
-        else if (JOY_NEW(DPAD_RIGHT) && !IsJournalFlipTaskActive() && sCurrentPage < sMaxPages)
+        else if (JOY_NEW(DPAD_RIGHT) && !IsJournalFlipTaskActive() && gCurrentJournalPage < (sMaxPages - 1))
         {
-            sCurrentPage++;
+            gCurrentJournalPage++;
             FlipJournal(taskId, TRUE);
             PlaySE(SE_RG_CARD_OPEN);
         }
-        else if (JOY_NEW(DPAD_LEFT) && !IsJournalFlipTaskActive() && sCurrentPage != 0)
+        else if (JOY_NEW(DPAD_LEFT) && !IsJournalFlipTaskActive() && gCurrentJournalPage != 0)
         {
-            sCurrentPage--;
+            gCurrentJournalPage--;
             FlipJournal(taskId, FALSE);
             PlaySE(SE_RG_CARD_OPEN);
         }
@@ -890,13 +891,22 @@ static bool8 LoadJournalGfx(void)
     switch (sData->gfxLoadState)
     {
     case 0:
-        LZ77UnCompWram(gJournal_TilemapPageFlip, sData->bgTilemap);
+        if (gSaveBlock2Ptr->playerGender == FEMALE)
+            LZ77UnCompWram(gJournal_TilemapPageFlip_Female, sData->bgTilemap);
+        else
+            LZ77UnCompWram(gJournal_TilemapPageFlip_Male, sData->bgTilemap);
         break;
     case 1:
-        LZ77UnCompWram(gJournal_Tilemap, sData->frontTilemap);
+        if (gSaveBlock2Ptr->playerGender == FEMALE)
+            LZ77UnCompWram(gJournal_Tilemap_Female, sData->frontTilemap);
+        else
+            LZ77UnCompWram(gJournal_Tilemap_Male, sData->frontTilemap);
         break;
     case 2:
-        LZ77UnCompWram(gJournal_Gfx, sData->cardTiles);
+        if (gSaveBlock2Ptr->playerGender == FEMALE)
+            LZ77UnCompWram(gJournal_Gfx_Female, sData->cardTiles);
+        else
+            LZ77UnCompWram(gJournal_Gfx_Male, sData->cardTiles);
         break;
     default:
         sData->gfxLoadState = 0;
@@ -911,7 +921,7 @@ static void CB2_InitTrainerCard(void)
     switch (gMain.state)
     {
     case 0:
-        sCurrentPage = 0;
+        sTrainerStatistics = 0;
         ResetGpuRegs();
         SetUpTrainerCardTask();
         gMain.state++;
@@ -1417,86 +1427,222 @@ static void PrintNameOnCardFront(void)
 }
 
 static const u8 sText_Entry[] = _("Entry ");
-static const u8 sText_Activity1[] = _("Started my journey.");
-static const u8 sText_Activity2[] = _("Battled against my rival.");
-static const u8 sText_Activity3[] = _("Helped a little girl retrieve her pet.");
-static const u8 sText_Activity4[] = _("Saw a spooky ghost lady.");
-static const u8 sText_ActivityA[] = _("Obtained my 1st gym badge.");
-static const u8 sText_ActivityB[] = _(" ");
-
-static const u8 sText_Activity5[] = _("Helped out the local gym leader.");
-static const u8 sText_Activity6[] = _("Torchic evolved.");
-static const u8 sText_Activity7[] = _("Obtained my 2nd gym badge.");
-static const u8 sText_Activity8[] = _(" ");
-static const u8 sText_ActivityC[] = _(" ");
-static const u8 sText_ActivityD[] = _(" ");
-
-static const u8 sText_Activity9[] = _("Nothing interesting happened today.");
-static const u8 sText_Activity10[] = _(" ");
-static const u8 sText_Activity11[] = _(" ");
-static const u8 sText_Activity12[] = _(" ");
-static const u8 sText_ActivityE[] = _(" ");
-static const u8 sText_ActivityF[] = _(" ");
-
-static const u8 sText_Activity13[] = _("Traveled to a desert.");
-static const u8 sText_Activity14[] = _("I don't like sand.");
-static const u8 sText_Activity15[] = _("It's coarse and rough and irritating.");
-static const u8 sText_Activity16[] = _("And it gets everywhere.");
-static const u8 sText_ActivityG[] = _("Saw some pretty cool Pokémon though.");
-static const u8 sText_ActivityH[] = _("Fell in a big hole.");
 
 static void PrintEntryOnJournal(void)
 {
     AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 8, 8, sTrainerCardTextColors, TEXT_SKIP_DRAW, sText_Entry);
-    ConvertIntToDecimalStringN(gStringVar1, sCurrentPage + 1, STR_CONV_MODE_LEFT_ALIGN, 5);
+    ConvertIntToDecimalStringN(gStringVar1, gCurrentJournalPage + 1, STR_CONV_MODE_LEFT_ALIGN, 5);
     AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 40, 8, sTrainerCardTextColors, TEXT_SKIP_DRAW, gStringVar1);
 }
 
-static const u8 *const sActivityList[4][6] =
+const u16 gQuestStartFlags[] = 
 {
-    [0] = {
-        sText_Activity1,
-        sText_Activity2,
-        sText_Activity3,
-        sText_Activity4,
-        sText_ActivityA,
-        sText_ActivityB,
-    },
-    [1] = {
-        sText_Activity5,
-        sText_Activity6,
-        sText_Activity7,
-        sText_Activity8,
-        sText_ActivityC,
-        sText_ActivityD,
-    },
-    [2] = {
-        sText_Activity9,
-        sText_Activity10,
-        sText_Activity11,
-        sText_Activity12,
-        sText_ActivityE,
-        sText_ActivityF,
-    },
-    [3] = {
-        sText_Activity13,
-        sText_Activity14,
-        sText_Activity15,
-        sText_Activity16,
-        sText_ActivityG,
-        sText_ActivityH,
-    },
+    FLAG_Q01_PRIMROSE_ORICORIO_START,
+    FLAG_Q02_ELEVATOR_RIVAL_START,
+    FLAG_Q03_AZURETIDE_OLD_WOMAN_START,
+    FLAG_Q04_ALDELEAF_LOST_KEYS_START,
+    FLAG_Q05_ALDELEAF_CURSED_DOLL_START,
+    FLAG_Q06_MUSEUM_SMEARGLE_START,
+    FLAG_Q07_WINDPLUME_VALLEY_START,
+    FLAG_Q08_FLOWER_FIELDS_GRANBULL_START,
+    FLAG_Q09_FLOWER_FIELDS_BERRYTRADE_START,
+    FLAG_Q10_SKYLOCH_ICECREAM_START,
+    FLAG_Q11_SKYLOCH_RAICHUS_START,
+    FLAG_Q12_FLOWERSHOP_STRANGESEED_START,
+    FLAG_Q13_SHORESLATE_ICECREAM_START,
+    FLAG_Q14_SHORESLATE_FAVORITEMON_START,
+    FLAG_Q15_SHORESLATE_TOUGHGUY_START,
+    FLAG_Q16_GOGOGGLES_START,
+    FLAG_Q17_DESERT_WEIRDCAVE_START,
+    FLAG_Q18_DESERT_LIBRARYBOOK_START,
+    FLAG_Q19_MUDSCIENTIST_START,
+    FLAG_Q20_KAOLISLE_OLD_MAN_START,
+    FLAG_Q21_KAOLISLE_STARPIECE_START,
+    FLAG_Q22_KAOLISLE_FISHERMAN_START,
+    FLAG_Q23_KAOLISLE_OLDPENDANT_START,
+    FLAG_Q24_BATTLE_BUFFET_START,
+    FLAG_Q25_HOTEL_TROPICALSTONE_START,
+    FLAG_Q26_HOTEL_SHOW_TM_START,
+    FLAG_Q27_HOTEL_WILDKIDS_START,
+    FLAG_Q28_KAOLISLE_LOSTBIRDS_START,
+    FLAG_Q29_ROCKLIFFE_HEAVYMON_START,
+    FLAG_Q30_ROCKLIFFE_BEEDRILLS_START,
+    FLAG_Q31_ROUTE12_WEIRDCAVE_START,
+    FLAG_Q32_SANDSTONE_ANTIVIRUS_START,
+    FLAG_Q33_PROF_BIRCH_MEGASTONE_START,
+    FLAG_Q34_DADS_HOME_START,
+    FLAG_Q35_CHARRED_CRATE_START,
+    FLAG_Q36_TITANIUM_FISHING_START,
+    FLAG_Q37_BASALEK_LEVELMON_START,
+    FLAG_Q38_BASALEK_TUNNELS_START,
+    FLAG_Q39_FRIGIDFRONTIER_WEIRDCAVE_START,
+    FLAG_Q40_FROSTHEARTH_RUFFLET_START,
+    FLAG_Q41_FROSTHEARTH_TYPEMON_START,
+};
+
+const u16 gQuestEndFlags[] = 
+{
+    FLAG_Q01_PRIMROSE_ORICORIO_COMPLETE,
+    FLAG_Q02_ELEVATOR_RIVAL_COMPLETE,
+    FLAG_Q03_AZURETIDE_OLD_WOMAN_COMPLETE,
+    FLAG_Q04_ALDELEAF_LOST_KEYS_COMPLETE,
+    FLAG_Q05_ALDELEAF_CURSED_DOLL_COMPLETE,
+    FLAG_Q06_MUSEUM_SMEARGLE_COMPLETE,
+    FLAG_Q07_WINDPLUME_VALLEY_COMPLETE,
+    FLAG_Q08_FLOWER_FIELDS_GRANBULL_COMPLETE,
+    FLAG_Q09_FLOWER_FIELDS_BERRYTRADE_COMPLETE,
+    FLAG_Q10_SKYLOCH_ICECREAM_COMPLETE,
+    FLAG_Q11_SKYLOCH_RAICHUS_COMPLETE,
+    FLAG_Q12_FLOWERSHOP_STRANGESEED_COMPLETE,
+    FLAG_Q13_SHORESLATE_ICECREAM_COMPLETE,
+    FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE,
+    FLAG_Q15_SHORESLATE_TOUGHGUY_COMPLETE,
+    FLAG_Q16_GOGOGGLES_COMPLETE,
+    FLAG_Q17_DESERT_WEIRDCAVE_COMPLETE,
+    FLAG_Q18_DESERT_LIBRARYBOOK_COMPLETE,
+    FLAG_Q19_MUDSCIENTIST_COMPLETE,
+    FLAG_Q20_KAOLISLE_OLD_MAN_COMPLETE,
+    FLAG_Q21_KAOLISLE_STARPIECE_COMPLETE,
+    FLAG_Q22_KAOLISLE_FISHERMAN_COMPLETE,
+    FLAG_Q23_KAOLISLE_OLDPENDANT_COMPLETE,
+    FLAG_Q24_BATTLE_BUFFET_COMPLETE,
+    FLAG_Q25_HOTEL_TROPICALSTONE_COMPLETE,
+    FLAG_Q26_HOTEL_SHOW_TM_COMPLETE,
+    FLAG_Q27_HOTEL_WILDKIDS_COMPLETE,
+    FLAG_Q28_KAOLISLE_LOSTBIRDS_COMPLETE,
+    FLAG_Q29_ROCKLIFFE_HEAVYMON_COMPLETE,
+    FLAG_Q30_ROCKLIFFE_BEEDRILLS_COMPLETE,
+    FLAG_Q31_ROUTE12_WEIRDCAVE_COMPLETE,
+    FLAG_Q32_SANDSTONE_ANTIVIRUS_COMPLETE,
+    FLAG_Q33_PROF_BIRCH_MEGASTONE_COMPLETE,
+    FLAG_Q34_DADS_HOME_COMPLETE,
+    FLAG_Q35_CHARRED_CRATE_COMPLETE,
+    FLAG_Q36_TITANIUM_FISHING_COMPLETE,
+    FLAG_Q37_BASALEK_LEVELMON_COMPLETE,
+    FLAG_Q38_BASALEK_TUNNELS_COMPLETE,
+    FLAG_Q39_FRIGIDFRONTIER_WEIRDCAVE_COMPLETE,
+    FLAG_Q40_FROSTHEARTH_RUFFLET_COMPLETE,
+    FLAG_Q41_FROSTHEARTH_TYPEMON_COMPLETE,
+};
+
+enum {
+    Q01_PRIMROSE_ORICORIO_DESC,
+    Q02_ELEVATOR_RIVAL_DESC,
+    Q03_AZURETIDE_OLD_WOMAN_DESC,
+    Q04_ALDELEAF_LOST_KEYS_DESC,
+    Q05_ALDELEAF_CURSED_DOLL_DESC,
+    Q06_MUSEUM_SMEARGLE_DESC,
+    Q07_WINDPLUME_VALLEY_DESC,
+    Q08_FLOWER_FIELDS_GRANBULL_DESC,
+    Q09_FLOWER_FIELDS_BERRYTRADE_DESC,
+    Q10_SKYLOCH_ICECREAM_DESC,
+    Q11_SKYLOCH_RAICHUS_DESC,
+    Q12_FLOWERSHOP_STRANGESEED_DESC,
+    Q13_SHORESLATE_ICECREAM_DESC,
+    Q14_SHORESLATE_FAVORITEMON_DESC,
+    Q15_SHORESLATE_TOUGHGUY_DESC,
+    Q16_GOGOGGLES_DESC,
+    Q17_DESERT_WEIRDCAVE_DESC,
+    Q18_DESERT_LIBRARYBOOK_DESC,
+    Q19_MUDSCIENTIST_DESC,
+    Q20_KAOLISLE_OLD_MAN_DESC,
+    Q21_KAOLISLE_STARPIECE_DESC,
+    Q22_KAOLISLE_FISHERMAN_DESC,
+    Q23_KAOLISLE_OLDPENDANT_DESC,
+    Q24_BATTLE_BUFFET_DESC,
+    Q25_HOTEL_TROPICALSTONE_DESC,
+    Q26_HOTEL_SHOW_TM_DESC,
+    Q27_HOTEL_WILDKIDS_DESC,
+    Q28_KAOLISLE_LOSTBIRDS_DESC,
+    Q29_ROCKLIFFE_HEAVYMON_DESC,
+    Q30_ROCKLIFFE_BEEDRILLS_DESC,
+    Q31_ROUTE12_WEIRDCAVE_DESC,
+    Q32_SANDSTONE_ANTIVIRUS_DESC,
+    Q33_PROF_BIRCH_MEGASTONE_DESC,
+    Q34_DADS_HOME_DESC,
+    Q35_CHARRED_CRATE_DESC,
+    Q36_TITANIUM_FISHING_DESC,
+    Q37_BASALEK_LEVELMON_DESC,
+    Q38_BASALEK_TUNNELS_DESC,
+    Q39_FRIGIDFRONTIER_WEIRDCAVE_DESC,
+    Q40_FROSTHEARTH_RUFFLET_DESC,
+    Q41_FROSTHEARTH_TYPEMON_DESC,
+    Q_COUNT,
+    Q02_ELEVATOR_MALERIVAL_DESC
+};
+
+static const u8 *const sQuestDescription[] =
+{
+    [Q01_PRIMROSE_ORICORIO_DESC]                  = COMPOUND_STRING("A man in Primrose Town asked me \nto show him a bird that's been te\nrrorizing his garden."),
+    [Q02_ELEVATOR_RIVAL_DESC]                     = COMPOUND_STRING("May asked me if I wanted to battle her in the Coralgrove Elevator House. I should not keep her waiting."),
+    [Q02_ELEVATOR_MALERIVAL_DESC]                 = COMPOUND_STRING("Brendan asked me if I wanted to battle him in the Coralgrove Elevator House. I should not keep him waiting."),
+    [Q03_AZURETIDE_OLD_WOMAN_DESC]                = COMPOUND_STRING("An old woman wanted to challenge\n me to a Pokémon battle once I ga\nthered more badges and had a stronger team."),
+    [Q04_ALDELEAF_LOST_KEYS_DESC]                 = COMPOUND_STRING("A man in Aldeleaf City seems to \nhave lost his keys."),
+    [Q05_ALDELEAF_CURSED_DOLL_DESC]               = COMPOUND_STRING("A woman in Aldeleaf City seems t\no have acquired a cursed Pokémon do\nll. Maybe I can find an expert to help."),
+    [Q06_MUSEUM_SMEARGLE_DESC]                    = COMPOUND_STRING("A man in the Aldeleaf City Museu\nm was hoping to see a Pokémon that \ncould be considered an “artist”."),
+    [Q07_WINDPLUME_VALLEY_DESC]                   = COMPOUND_STRING("I've heard talks of Windplume Va\nlley, a gathering place for strong \nPokémon trainers. Maybe I should take on the challenge."),
+    [Q08_FLOWER_FIELDS_GRANBULL_DESC]             = COMPOUND_STRING("A woman in the Flower Fields ask\ned if I could calm down her out-of-\ncontrol Pokémon."),
+    [Q09_FLOWER_FIELDS_BERRYTRADE_DESC]           = COMPOUND_STRING("A woman in the Flower Fields is \nlooking for Oran Berries and is wil\nling to trade Honey for them."),
+    [Q10_SKYLOCH_ICECREAM_DESC]                   = COMPOUND_STRING(""),
+    [Q11_SKYLOCH_RAICHUS_DESC]                    = COMPOUND_STRING(""),
+    [Q12_FLOWERSHOP_STRANGESEED_DESC]             = COMPOUND_STRING(""),
+    [Q13_SHORESLATE_ICECREAM_DESC]                = COMPOUND_STRING(""),
+    [Q14_SHORESLATE_FAVORITEMON_DESC]             = COMPOUND_STRING(""),
+    [Q15_SHORESLATE_TOUGHGUY_DESC]                = COMPOUND_STRING(""),
+    [Q16_GOGOGGLES_DESC]                          = COMPOUND_STRING(""),
+    [Q17_DESERT_WEIRDCAVE_DESC]                   = COMPOUND_STRING(""),
+    [Q18_DESERT_LIBRARYBOOK_DESC]                 = COMPOUND_STRING(""),
+    [Q19_MUDSCIENTIST_DESC]                       = COMPOUND_STRING(""),
+    [Q20_KAOLISLE_OLD_MAN_DESC]                   = COMPOUND_STRING(""),
+    [Q21_KAOLISLE_STARPIECE_DESC]                 = COMPOUND_STRING(""),
+    [Q22_KAOLISLE_FISHERMAN_DESC]                 = COMPOUND_STRING(""),
+    [Q23_KAOLISLE_OLDPENDANT_DESC]                = COMPOUND_STRING(""),
+    [Q24_BATTLE_BUFFET_DESC]                      = COMPOUND_STRING(""),
+    [Q25_HOTEL_TROPICALSTONE_DESC]                = COMPOUND_STRING(""),
+    [Q26_HOTEL_SHOW_TM_DESC]                      = COMPOUND_STRING(""),
+    [Q27_HOTEL_WILDKIDS_DESC]                     = COMPOUND_STRING(""),
+    [Q28_KAOLISLE_LOSTBIRDS_DESC]                 = COMPOUND_STRING(""),
+    [Q29_ROCKLIFFE_HEAVYMON_DESC]                 = COMPOUND_STRING(""),
+    [Q30_ROCKLIFFE_BEEDRILLS_DESC]                = COMPOUND_STRING(""),
+    [Q31_ROUTE12_WEIRDCAVE_DESC]                  = COMPOUND_STRING(""),
+    [Q32_SANDSTONE_ANTIVIRUS_DESC]                = COMPOUND_STRING(""),
+    [Q33_PROF_BIRCH_MEGASTONE_DESC]               = COMPOUND_STRING(""),
+    [Q34_DADS_HOME_DESC]                          = COMPOUND_STRING(""),
+    [Q35_CHARRED_CRATE_DESC]                      = COMPOUND_STRING(""),
+    [Q36_TITANIUM_FISHING_DESC]                   = COMPOUND_STRING(""),
+    [Q37_BASALEK_LEVELMON_DESC]                   = COMPOUND_STRING(""),
+    [Q38_BASALEK_TUNNELS_DESC]                    = COMPOUND_STRING(""),
+    [Q39_FRIGIDFRONTIER_WEIRDCAVE_DESC]           = COMPOUND_STRING(""),
+    [Q40_FROSTHEARTH_RUFFLET_DESC]                = COMPOUND_STRING(""),
+    [Q41_FROSTHEARTH_TYPEMON_DESC]                = COMPOUND_STRING(""),
 };
 
 
 static void PrintActivityOnJournal(void)
 {
-    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 12, 24, sTrainerCardTextColors, TEXT_SKIP_DRAW, sActivityList[sCurrentPage][0]);
-    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 12, 40, sTrainerCardTextColors, TEXT_SKIP_DRAW, sActivityList[sCurrentPage][1]);
-    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 12, 56, sTrainerCardTextColors, TEXT_SKIP_DRAW, sActivityList[sCurrentPage][2]);
-    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 12, 72, sTrainerCardTextColors, TEXT_SKIP_DRAW, sActivityList[sCurrentPage][3]);
-    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 12, 88, sTrainerCardTextColors, TEXT_SKIP_DRAW, sActivityList[sCurrentPage][4]);
-    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 12, 104, sTrainerCardTextColors, TEXT_SKIP_DRAW, sActivityList[sCurrentPage][5]);
+    u16 i;
+    s16 stringId = 0;
+
+    for (i = 0; i < Q_COUNT; i++)
+    {
+        if (gCurrentJournalPage == gSaveBlock1Ptr->questOrder[i] && gSaveBlock1Ptr->questFlag[i] < FLAG_Q80_TEMP_END)
+        {
+            stringId = (gSaveBlock1Ptr->questFlag[i] + EXTENDED_FLAG_START);
+            break;
+        }
+    }
+    if (stringId == FLAG_Q02_ELEVATOR_RIVAL_START && gSaveBlock2Ptr->playerGender == FEMALE)
+    {
+        stringId = Q02_ELEVATOR_MALERIVAL_DESC;
+    }
+    else
+    {
+        stringId -= (EXTENDED_FLAG_START + 127);
+    }
+    if (stringId <= 0)
+        FillWindowPixelBuffer(WIN_CARD_TEXT, PIXEL_FILL(0));
+    else
+        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 12, 24, sTrainerCardTextColors, TEXT_SKIP_DRAW, sQuestDescription[stringId]);
 }
 
 static void PrintIdOnCard(void)
@@ -1665,7 +1811,7 @@ static const u8 sText_StatsPage5[] = _("{DPAD_UP} Statistics  5/5");
 
 static void PrintNameOnCardBack(void)
 {
-    switch (sCurrentPage)
+    switch (sTrainerStatistics)
     {
         case 0:
             AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, sData->textPlayersCard, 216), 9, sTrainerCardTextColors, TEXT_SKIP_DRAW, sData->textPlayersCard);
@@ -1828,44 +1974,44 @@ static const u8 *const sStatDescriptions[5][6] =
 
 static void PrintStatistics1OnCardBack(void)
 {
-    ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sCurrentPage][0]), STR_CONV_MODE_LEFT_ALIGN, 9);
-    PrintStatOnBackOfCard(0, sStatDescriptions[sCurrentPage][0], gStringVar4, sTrainerCardStatColors);
+    ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sTrainerStatistics][0]), STR_CONV_MODE_LEFT_ALIGN, 9);
+    PrintStatOnBackOfCard(0, sStatDescriptions[sTrainerStatistics][0], gStringVar4, sTrainerCardStatColors);
 }
 static void PrintStatistics2OnCardBack(void)
 {
-    ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sCurrentPage][1]), STR_CONV_MODE_LEFT_ALIGN, 9);
-    PrintStatOnBackOfCard(1, sStatDescriptions[sCurrentPage][1], gStringVar4, sTrainerCardStatColors);
+    ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sTrainerStatistics][1]), STR_CONV_MODE_LEFT_ALIGN, 9);
+    PrintStatOnBackOfCard(1, sStatDescriptions[sTrainerStatistics][1], gStringVar4, sTrainerCardStatColors);
 }
 static void PrintStatistics3OnCardBack(void)
 {
-    if (sCurrentPage < 4)
+    if (sTrainerStatistics < 4)
     {
-        ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sCurrentPage][2]), STR_CONV_MODE_LEFT_ALIGN, 9);
-        PrintStatOnBackOfCard(2, sStatDescriptions[sCurrentPage][2], gStringVar4, sTrainerCardStatColors);
+        ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sTrainerStatistics][2]), STR_CONV_MODE_LEFT_ALIGN, 9);
+        PrintStatOnBackOfCard(2, sStatDescriptions[sTrainerStatistics][2], gStringVar4, sTrainerCardStatColors);
     }
 }
 static void PrintStatistics4OnCardBack(void)
 {
-    if (sCurrentPage < 4)
+    if (sTrainerStatistics < 4)
     {
-        ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sCurrentPage][3]), STR_CONV_MODE_LEFT_ALIGN, 9);
-        PrintStatOnBackOfCard(3, sStatDescriptions[sCurrentPage][3], gStringVar4, sTrainerCardStatColors);
+        ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sTrainerStatistics][3]), STR_CONV_MODE_LEFT_ALIGN, 9);
+        PrintStatOnBackOfCard(3, sStatDescriptions[sTrainerStatistics][3], gStringVar4, sTrainerCardStatColors);
     }
 }
 static void PrintStatistics5OnCardBack(void)
 {
-    if (sCurrentPage < 4)
+    if (sTrainerStatistics < 4)
     {
-        ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sCurrentPage][4]), STR_CONV_MODE_LEFT_ALIGN, 9);
-        PrintStatOnBackOfCard(4, sStatDescriptions[sCurrentPage][4], gStringVar4, sTrainerCardStatColors);
+        ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sTrainerStatistics][4]), STR_CONV_MODE_LEFT_ALIGN, 9);
+        PrintStatOnBackOfCard(4, sStatDescriptions[sTrainerStatistics][4], gStringVar4, sTrainerCardStatColors);
     }
 }
 static void PrintStatistics6OnCardBack(void)
 {
-    if (sCurrentPage < 4)
+    if (sTrainerStatistics < 4)
     {
-        ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sCurrentPage][5]), STR_CONV_MODE_LEFT_ALIGN, 9);
-        PrintStatOnBackOfCard(5, sStatDescriptions[sCurrentPage][5], gStringVar4, sTrainerCardStatColors);
+        ConvertIntToDecimalStringN(gStringVar4, GetGameStat(sStatValues[sTrainerStatistics][5]), STR_CONV_MODE_LEFT_ALIGN, 9);
+        PrintStatOnBackOfCard(5, sStatDescriptions[sTrainerStatistics][5], gStringVar4, sTrainerCardStatColors);
     }
 }
 
@@ -2130,7 +2276,10 @@ static u8 SetJournalPalsAndBGs(void)
         LoadBgTiles(0, sData->cardTiles, 0x1800, 0);
         break;
     case 1:
-        LoadPalette(gJournal_Pal, BG_PLTT_ID(0), 3 * PLTT_SIZE_4BPP);
+        if (gSaveBlock2Ptr->playerGender == FEMALE)
+            LoadPalette(gJournal_Pal_Female, BG_PLTT_ID(0), 3 * PLTT_SIZE_4BPP);
+        else
+            LoadPalette(gJournal_Pal_Male, BG_PLTT_ID(0), 3 * PLTT_SIZE_4BPP);
         break;
     case 2:
         SetBgTilemapBuffer(0, sData->cardTilemapBuffer);
@@ -2610,11 +2759,6 @@ void ShowPlayerTrainerCard(void (*callback)(void))
     SetMainCallback2(CB2_InitTrainerCard);
 }
 
-static const u16 sQuestFlags[] =
-{
-
-};
-
 void ShowPlayerJournal(void (*callback)(void))
 {
     u16 i;
@@ -2622,12 +2766,11 @@ void ShowPlayerJournal(void (*callback)(void))
     sData = AllocZeroed(sizeof(*sData));
     sData->callback2 = callback;
     sData->blendColor = RGB_BLACK;
-    sCurrentPage = 0;
     sMaxPages = 0;
 
-    for (i = 0; i < ARRAY_COUNT(sQuestFlags); i++)
+    for (i = 0; i < ARRAY_COUNT(gQuestStartFlags); i++)
     {
-        if (FlagGet(sQuestFlags[i]))
+        if (FlagGet(gQuestStartFlags[i]) && !FlagGet(gQuestEndFlags[i]))
         {
             sMaxPages++;
         }

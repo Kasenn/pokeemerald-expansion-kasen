@@ -2723,6 +2723,12 @@
 	.2byte \amount
 	.endm
 
+	@ Sets quest flag to TRUE and records it in saveblock.
+	.macro setquestflag flag:req
+	callnative ScrCmd_startquest
+	.2byte \flag
+	.endm
+
 	@ Copies specified game stat to STR_VAR_1
 	.macro copygamestat stat:req
 	callnative ScrCmd_copygamestat

@@ -1980,10 +1980,16 @@ const u32 gKantoTrainerCardFront_Tilemap[] = INCBIN_U32("graphics/trainer_card/f
 const u32 gKantoTrainerCardBack_Tilemap[] = INCBIN_U32("graphics/trainer_card/frlg/back.bin.lz");
 const u32 gKantoTrainerCardFrontLink_Tilemap[] = INCBIN_U32("graphics/trainer_card/frlg/front_link.bin.lz");
 
-const u16 gJournal_Pal[] = INCBIN_U16("graphics/trainer_card/journal_pink.gbapal");
-const u32 gJournal_Gfx[] = INCBIN_U32("graphics/trainer_card/journal_tiles.4bpp.lz");
-const u32 gJournal_Tilemap[] = INCBIN_U32("graphics/trainer_card/journal.bin.lz");
-const u32 gJournal_TilemapPageFlip[] = INCBIN_U32("graphics/trainer_card/journal_bg.bin.lz");
+const u16 gJournal_Pal_Female[] = INCBIN_U16("graphics/trainer_card/journal/journal_female.gbapal");
+const u32 gJournal_Gfx_Female[] = INCBIN_U32("graphics/trainer_card/journal/journal_female.4bpp.lz");
+const u32 gJournal_Tilemap_Female[] = INCBIN_U32("graphics/trainer_card/journal/journal_female.bin.lz");
+const u32 gJournal_TilemapPageFlip_Female[] = INCBIN_U32("graphics/trainer_card/journal/journal_flippage_female.bin.lz");
+
+const u16 gJournal_Pal_Male[] = INCBIN_U16("graphics/trainer_card/journal/journal_male.gbapal");
+const u32 gJournal_Gfx_Male[] = INCBIN_U32("graphics/trainer_card/journal/journal_male.4bpp.lz");
+const u32 gJournal_Tilemap_Male[] = INCBIN_U32("graphics/trainer_card/journal/journal_male.bin.lz");
+const u32 gJournal_TilemapPageFlip_Male[] = INCBIN_U32("graphics/trainer_card/journal/journal_flippage_male.bin.lz");
+
 
 
 // Pokémon storage system

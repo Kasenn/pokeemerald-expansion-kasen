@@ -1,7 +1,6 @@
 static const struct TrainerMon sParty_Sawyer1[] = {
     {
     .lvl = 5,
-    // .iv = TRAINER_PARTY_IVS(0, 31, 0, 0, 31, 31),
     .nature = NATURE_ADAMANT,
     .species = SPECIES_SQUIRTLE,
     .gender = TRAINER_MON_MALE,

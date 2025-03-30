@@ -1,7 +1,7 @@
 #include "global.h"
 #include "test/battle.h"
 
-SINGLE_BATTLE_TEST("My own: Flying-type gets speed boost during strong winds and hastens certain 2-turn moves")
+SINGLE_BATTLE_TEST("My own Flying-type gets speed boost during strong winds and hastens certain 2-turn moves")
 {
     u32 species = 0;
     u32 move = 0;
@@ -60,9 +60,13 @@ SINGLE_BATTLE_TEST("My own: Flying-type gets speed boost during strong winds and
     }
 }
 
-SINGLE_BATTLE_TEST("Data Breach ignores target's defense and damage reductions when using normal-type moves 1")
+SINGLE_BATTLE_TEST("My own Data Breach ignores target's defense and damage reductions when using normal-type moves 1")
 {
-    s16 damage[4] = {0};
+    s16 damage1;
+    s16 damage2;
+    s16 damage3;
+    s16 damage4;
+    s16 damage5;
     
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET) {Ability(ABILITY_DATA_BREACH); Speed(2); }
@@ -77,20 +81,24 @@ SINGLE_BATTLE_TEST("Data Breach ignores target's defense and damage reductions w
         // player attacks against +2 Def/Sp.Def + Screen + Substitute
         TURN { MOVE(player, MOVE_TACKLE); }
     } SCENE {
-        HP_BAR(opponent, captureDamage: &damage[0]);
-        HP_BAR(opponent, captureDamage: &damage[1]);
-        HP_BAR(opponent, captureDamage: &damage[2]);
-        HP_BAR(opponent, captureDamage: &damage[3]);
+        HP_BAR(opponent, captureDamage: &damage1);
+        HP_BAR(opponent, captureDamage: &damage2);
+        HP_BAR(opponent, captureDamage: &damage3);
+        HP_BAR(opponent, captureDamage: &damage4);
+        HP_BAR(opponent, captureDamage: &damage5);
     } THEN {
-        EXPECT_EQ(damage[0], damage[1]);
-        EXPECT_EQ(damage[1], damage[2]);
-        EXPECT_EQ(damage[2], damage[3]);    
-        DebugPrintf("%d, %d, %d, %d", damage[0], damage[1], damage[2], damage[3]);
+        EXPECT_EQ(damage1, damage2);
+        EXPECT_EQ(damage2, damage3);
+        EXPECT_EQ(damage3, damage5);    
     }
 }
-SINGLE_BATTLE_TEST("Data Breach ignores target's defense and damage reductions when using normal-type moves 2")
+SINGLE_BATTLE_TEST("My own Data Breach ignores target's defense and damage reductions when using normal-type moves 2")
 {
-    s16 damage[4] = {0};
+    s16 damage1;
+    s16 damage2;
+    s16 damage3;
+    s16 damage4;
+    s16 damage5;
 
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET) {Ability(ABILITY_DATA_BREACH); Speed(2); }
@@ -105,20 +113,23 @@ SINGLE_BATTLE_TEST("Data Breach ignores target's defense and damage reductions w
         // player attacks against +2 Def/Sp.Def + Screen + Substitute
         TURN { MOVE(player, MOVE_SWIFT); }
     } SCENE {
-        HP_BAR(opponent, captureDamage: &damage[0]);
-        HP_BAR(opponent, captureDamage: &damage[1]);
-        HP_BAR(opponent, captureDamage: &damage[2]);
-        HP_BAR(opponent, captureDamage: &damage[3]);
+        HP_BAR(opponent, captureDamage: &damage1);
+        HP_BAR(opponent, captureDamage: &damage2);
+        HP_BAR(opponent, captureDamage: &damage3);
+        HP_BAR(opponent, captureDamage: &damage4);
+        HP_BAR(opponent, captureDamage: &damage5);
     } THEN {
-        EXPECT_EQ(damage[0], damage[1]);
-        EXPECT_EQ(damage[1], damage[2]);
-        EXPECT_EQ(damage[2], damage[3]);    
-        DebugPrintf("%d, %d, %d, %d", damage[0], damage[1], damage[2], damage[3]);
+        EXPECT_EQ(damage1, damage2);
+        EXPECT_EQ(damage2, damage3);
+        EXPECT_EQ(damage3, damage5);    
     }
 }
-SINGLE_BATTLE_TEST("Data Breach ignores target's defense and damage reductions when using normal-type moves 3")
+SINGLE_BATTLE_TEST("My own Data Breach ignores target's defense and damage reductions when using normal-type moves 3")
 {
-    s16 damage[3];
+    s16 damage1;
+    s16 damage2;
+    s16 damage3;
+
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET) {Ability(ABILITY_DATA_BREACH); Speed(2); }
         OPPONENT(SPECIES_WOBBUFFET) {Speed(1); }
@@ -130,18 +141,20 @@ SINGLE_BATTLE_TEST("Data Breach ignores target's defense and damage reductions w
         // player attacks against +2 Def/Sp.Def + Screen
         TURN { MOVE(player, MOVE_AQUA_JET); }
     } SCENE {
-        HP_BAR(opponent, captureDamage: &damage[0]);
-        HP_BAR(opponent, captureDamage: &damage[1]);
-        HP_BAR(opponent, captureDamage: &damage[2]);
+        HP_BAR(opponent, captureDamage: &damage1);
+        HP_BAR(opponent, captureDamage: &damage2);
+        HP_BAR(opponent, captureDamage: &damage3);
     } THEN {
-        EXPECT_GT(damage[0], damage[1]);
-        EXPECT_GT(damage[1], damage[2]);
-        DebugPrintf("%d, %d, %d,", damage[0], damage[1], damage[2]);
+        EXPECT_GT(damage1, damage2);
+        EXPECT_GT(damage2, damage3);
     }
 }
-SINGLE_BATTLE_TEST("Data Breach ignores target's defense and damage reductions when using normal-type moves 4")
+SINGLE_BATTLE_TEST("My own Data Breach ignores target's defense and damage reductions when using normal-type moves 4")
 {
-    s16 damage[3];
+    s16 damage1;
+    s16 damage2;
+    s16 damage3;
+
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET) {Ability(ABILITY_DATA_BREACH); Speed(2); }
         OPPONENT(SPECIES_WOBBUFFET) {Speed(1); }
@@ -153,12 +166,11 @@ SINGLE_BATTLE_TEST("Data Breach ignores target's defense and damage reductions w
         // player attacks against +2 Def/Sp.Def + Screen
         TURN { MOVE(player, MOVE_WATER_GUN); }
     } SCENE {
-        HP_BAR(opponent, captureDamage: &damage[0]);
-        HP_BAR(opponent, captureDamage: &damage[1]);
-        HP_BAR(opponent, captureDamage: &damage[2]);
+        HP_BAR(opponent, captureDamage: &damage1);
+        HP_BAR(opponent, captureDamage: &damage2);
+        HP_BAR(opponent, captureDamage: &damage3);
     } THEN {
-        EXPECT_GT(damage[0], damage[1]);
-        EXPECT_GT(damage[1], damage[2]);
-        DebugPrintf("%d, %d, %d,", damage[0], damage[1], damage[2]);
+        EXPECT_GT(damage1, damage2);
+        EXPECT_GT(damage2, damage3);
     }
 }
