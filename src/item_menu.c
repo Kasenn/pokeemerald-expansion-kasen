@@ -54,6 +54,7 @@
 #include "constants/items.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "journal_popup.h"
 
 #define TAG_POCKET_SCROLL_ARROW 110
 #define TAG_BAG_SCROLL_ARROW    111
@@ -2212,6 +2213,7 @@ bool8 UseRegisteredKeyItemOnField(u8 button)
     if (InUnionRoom() == TRUE || InBattlePyramid() || InBattlePike() || InMultiPartnerRoom() == TRUE)
         return FALSE;
     HideMapNamePopUpWindow();
+    HideJournalPopUpWindow();
     ChangeBgY_ScreenOff(0, 0, BG_COORD_SET);
 
     if (button >= 2 && button <= REGISTERED_ITEMS_MAX+2)

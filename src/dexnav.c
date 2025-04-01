@@ -59,6 +59,7 @@
 #include "constants/rgb.h"
 #include "constants/region_map_sections.h"
 #include "gba/m4a_internal.h"
+#include "journal_popup.h"
 
 #if DEXNAV_ENABLED
 STATIC_ASSERT(DN_FLAG_SEARCHING != 0, DNFlagSearching_Must_Not_Be_Zero);
@@ -986,6 +987,7 @@ bool8 TryStartDexNavSearch(void)
         return FALSE;
 
     HideMapNamePopUpWindow();
+    HideJournalPopUpWindow();
     ChangeBgY_ScreenOff(0, 0, 0);
     taskId = CreateTask(Task_InitDexNavSearch, 0);
     gTasks[taskId].tSpecies = val & DEXNAV_MASK_SPECIES;
@@ -2607,6 +2609,7 @@ bool8 TryFindHiddenPokemon(void)
         gTasks[taskId].tEnvironment = sDexNavSearchDataPtr->environment;
         gTasks[taskId].tRevealed = FALSE;
         HideMapNamePopUpWindow();
+        HideJournalPopUpWindow();
         ChangeBgY_ScreenOff(0, 0, 0);
         return FALSE;   // we dont actually want to enable the script context or the game will freeze
     }

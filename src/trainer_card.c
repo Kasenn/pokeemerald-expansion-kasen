@@ -180,7 +180,8 @@ static void JournalScrollLeftEnd(u8);
 static bool8 PrintAllOnJournal(void);
 static void FlipJournal(u8, s8);
 static bool8 IsJournalFlipTaskActive(void);
-static bool8 LoadJournalGfx(void);
+static bool8 LoadJournalGfxMale(void);
+static bool8 LoadJournalGfxFemale(void);
 static void CB2_InitJournal(void);
 static void SetUpJournalTask(void);
 static void PrintEntryOnJournal(void);
@@ -810,6 +811,23 @@ static void Task_Journal(u8 taskId)
             BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, sData->blendColor);
             sData->mainState = STATE_CLOSE_CARD;
         }
+        else if (JOY_NEW(DPAD_UP) && !IsJournalFlipTaskActive() && gCurrentJournalPage < (sMaxPages - 1))
+        {
+            gCurrentJournalPage += 10;
+            if (gCurrentJournalPage >= sMaxPages)
+                gCurrentJournalPage = sMaxPages - 1;
+            FlipJournal(taskId, TRUE);
+            PlaySE(SE_RG_CARD_OPEN);
+        }
+        else if (JOY_NEW(DPAD_DOWN) && !IsJournalFlipTaskActive() && gCurrentJournalPage != 0)
+        {
+            if (gCurrentJournalPage <= 10)
+                gCurrentJournalPage = 0;
+            else
+                gCurrentJournalPage -= 10;
+            FlipJournal(taskId, FALSE);
+            PlaySE(SE_RG_CARD_OPEN);
+        }
         else if (JOY_NEW(DPAD_RIGHT) && !IsJournalFlipTaskActive() && gCurrentJournalPage < (sMaxPages - 1))
         {
             gCurrentJournalPage++;
@@ -886,27 +904,39 @@ static bool8 LoadCardGfx(void)
     return FALSE;
 }
 
-static bool8 LoadJournalGfx(void)
+static bool8 LoadJournalGfxMale(void)
 {
     switch (sData->gfxLoadState)
     {
     case 0:
-        if (gSaveBlock2Ptr->playerGender == FEMALE)
-            LZ77UnCompWram(gJournal_TilemapPageFlip_Female, sData->bgTilemap);
-        else
-            LZ77UnCompWram(gJournal_TilemapPageFlip_Male, sData->bgTilemap);
+        LZ77UnCompWram(gJournal_TilemapPageFlip_Male, sData->bgTilemap);
         break;
     case 1:
-        if (gSaveBlock2Ptr->playerGender == FEMALE)
-            LZ77UnCompWram(gJournal_Tilemap_Female, sData->frontTilemap);
-        else
-            LZ77UnCompWram(gJournal_Tilemap_Male, sData->frontTilemap);
+        LZ77UnCompWram(gJournal_Tilemap_Male, sData->frontTilemap);
         break;
     case 2:
-        if (gSaveBlock2Ptr->playerGender == FEMALE)
-            LZ77UnCompWram(gJournal_Gfx_Female, sData->cardTiles);
-        else
-            LZ77UnCompWram(gJournal_Gfx_Male, sData->cardTiles);
+        LZ77UnCompWram(gJournal_Gfx_Male, sData->cardTiles);
+        break;
+    default:
+        sData->gfxLoadState = 0;
+        return TRUE;
+    }
+    sData->gfxLoadState++;
+    return FALSE;
+}
+
+static bool8 LoadJournalGfxFemale(void)
+{
+    switch (sData->gfxLoadState)
+    {
+    case 0:
+        LZ77UnCompWram(gJournal_TilemapPageFlip_Female, sData->bgTilemap);
+        break;
+    case 1:
+        LZ77UnCompWram(gJournal_Tilemap_Female, sData->frontTilemap);
+        break;
+    case 2:
+        LZ77UnCompWram(gJournal_Gfx_Female, sData->cardTiles);
         break;
     default:
         sData->gfxLoadState = 0;
@@ -1006,8 +1036,16 @@ static void CB2_InitJournal(void)
         gMain.state++;
         break;
     case 6:
-        if (LoadJournalGfx() == TRUE)
+        if (gSaveBlock2Ptr->playerGender == MALE)
+        {
+            if (LoadJournalGfxMale() == TRUE)
             gMain.state++;
+        }
+        else
+        {
+            if (LoadJournalGfxFemale() == TRUE)
+            gMain.state++;
+        }
         break;
     case 7:
         InitGpuRegs();
@@ -1568,55 +1606,56 @@ enum {
     Q40_FROSTHEARTH_RUFFLET_DESC,
     Q41_FROSTHEARTH_TYPEMON_DESC,
     Q_COUNT,
-    Q02_ELEVATOR_MALERIVAL_DESC
+    Q02_ELEVATOR_MALERIVAL_DESC,
+    Q15_SHORESLATE_TOUGHGIRL_DESC,
 };
 
 static const u8 *const sQuestDescription[] =
 {
-    [Q01_PRIMROSE_ORICORIO_DESC]                  = COMPOUND_STRING("A man in Primrose Town asked me \nto show him a bird that's been te\nrrorizing his garden."),
-    [Q02_ELEVATOR_RIVAL_DESC]                     = COMPOUND_STRING("May asked me if I wanted to battle her in the Coralgrove Elevator House. I should not keep her waiting."),
-    [Q02_ELEVATOR_MALERIVAL_DESC]                 = COMPOUND_STRING("Brendan asked me if I wanted to battle him in the Coralgrove Elevator House. I should not keep him waiting."),
-    [Q03_AZURETIDE_OLD_WOMAN_DESC]                = COMPOUND_STRING("An old woman wanted to challenge\n me to a Pokémon battle once I ga\nthered more badges and had a stronger team."),
-    [Q04_ALDELEAF_LOST_KEYS_DESC]                 = COMPOUND_STRING("A man in Aldeleaf City seems to \nhave lost his keys."),
-    [Q05_ALDELEAF_CURSED_DOLL_DESC]               = COMPOUND_STRING("A woman in Aldeleaf City seems t\no have acquired a cursed Pokémon do\nll. Maybe I can find an expert to help."),
-    [Q06_MUSEUM_SMEARGLE_DESC]                    = COMPOUND_STRING("A man in the Aldeleaf City Museu\nm was hoping to see a Pokémon that \ncould be considered an “artist”."),
-    [Q07_WINDPLUME_VALLEY_DESC]                   = COMPOUND_STRING("I've heard talks of Windplume Va\nlley, a gathering place for strong \nPokémon trainers. Maybe I should take on the challenge."),
-    [Q08_FLOWER_FIELDS_GRANBULL_DESC]             = COMPOUND_STRING("A woman in the Flower Fields ask\ned if I could calm down her out-of-\ncontrol Pokémon."),
-    [Q09_FLOWER_FIELDS_BERRYTRADE_DESC]           = COMPOUND_STRING("A woman in the Flower Fields is \nlooking for Oran Berries and is wil\nling to trade Honey for them."),
-    [Q10_SKYLOCH_ICECREAM_DESC]                   = COMPOUND_STRING(""),
-    [Q11_SKYLOCH_RAICHUS_DESC]                    = COMPOUND_STRING(""),
-    [Q12_FLOWERSHOP_STRANGESEED_DESC]             = COMPOUND_STRING(""),
-    [Q13_SHORESLATE_ICECREAM_DESC]                = COMPOUND_STRING(""),
-    [Q14_SHORESLATE_FAVORITEMON_DESC]             = COMPOUND_STRING(""),
-    [Q15_SHORESLATE_TOUGHGUY_DESC]                = COMPOUND_STRING(""),
-    [Q16_GOGOGGLES_DESC]                          = COMPOUND_STRING(""),
-    [Q17_DESERT_WEIRDCAVE_DESC]                   = COMPOUND_STRING(""),
-    [Q18_DESERT_LIBRARYBOOK_DESC]                 = COMPOUND_STRING(""),
-    [Q19_MUDSCIENTIST_DESC]                       = COMPOUND_STRING(""),
-    [Q20_KAOLISLE_OLD_MAN_DESC]                   = COMPOUND_STRING(""),
-    [Q21_KAOLISLE_STARPIECE_DESC]                 = COMPOUND_STRING(""),
-    [Q22_KAOLISLE_FISHERMAN_DESC]                 = COMPOUND_STRING(""),
-    [Q23_KAOLISLE_OLDPENDANT_DESC]                = COMPOUND_STRING(""),
-    [Q24_BATTLE_BUFFET_DESC]                      = COMPOUND_STRING(""),
-    [Q25_HOTEL_TROPICALSTONE_DESC]                = COMPOUND_STRING(""),
-    [Q26_HOTEL_SHOW_TM_DESC]                      = COMPOUND_STRING(""),
-    [Q27_HOTEL_WILDKIDS_DESC]                     = COMPOUND_STRING(""),
-    [Q28_KAOLISLE_LOSTBIRDS_DESC]                 = COMPOUND_STRING(""),
-    [Q29_ROCKLIFFE_HEAVYMON_DESC]                 = COMPOUND_STRING(""),
-    [Q30_ROCKLIFFE_BEEDRILLS_DESC]                = COMPOUND_STRING(""),
-    [Q31_ROUTE12_WEIRDCAVE_DESC]                  = COMPOUND_STRING(""),
-    [Q32_SANDSTONE_ANTIVIRUS_DESC]                = COMPOUND_STRING(""),
-    [Q33_PROF_BIRCH_MEGASTONE_DESC]               = COMPOUND_STRING(""),
-    [Q34_DADS_HOME_DESC]                          = COMPOUND_STRING(""),
-    [Q35_CHARRED_CRATE_DESC]                      = COMPOUND_STRING(""),
-    [Q36_TITANIUM_FISHING_DESC]                   = COMPOUND_STRING(""),
-    [Q37_BASALEK_LEVELMON_DESC]                   = COMPOUND_STRING(""),
-    [Q38_BASALEK_TUNNELS_DESC]                    = COMPOUND_STRING(""),
-    [Q39_FRIGIDFRONTIER_WEIRDCAVE_DESC]           = COMPOUND_STRING(""),
-    [Q40_FROSTHEARTH_RUFFLET_DESC]                = COMPOUND_STRING(""),
-    [Q41_FROSTHEARTH_TYPEMON_DESC]                = COMPOUND_STRING(""),
+    [Q01_PRIMROSE_ORICORIO_DESC]                  = COMPOUND_STRING("A man in Primrose Town asked me\nto show him a bird that's been\nterrorizing his prized garden."),
+    [Q02_ELEVATOR_RIVAL_DESC]                     = COMPOUND_STRING("May asked me if I wanted to\nbattle her in the Coralgrove\nElevator House.\nI shouldn't keep her waiting."),
+    [Q02_ELEVATOR_MALERIVAL_DESC]                 = COMPOUND_STRING("Brendan asked me if I wanted to\nbattle him in the Coralgrove\nElevator House.\nI shouldn't keep him waiting."),
+    [Q03_AZURETIDE_OLD_WOMAN_DESC]                = COMPOUND_STRING("An old woman in Azuretide Town\nwanted to challenge me to a Pokémon\nbattle once I gathered more badges\nand had a stronger team."),
+    [Q04_ALDELEAF_LOST_KEYS_DESC]                 = COMPOUND_STRING("A man in Aldeleaf City seems to\nhave lost the keys to his house."),
+    [Q05_ALDELEAF_CURSED_DOLL_DESC]               = COMPOUND_STRING("A woman in Aldeleaf City seems to\nbe having trouble with a Pikachu\ndoll she claims to be haunted."),
+    [Q06_MUSEUM_SMEARGLE_DESC]                    = COMPOUND_STRING("A man in the Aldeleaf City Museum\nwas wondering if there is a Pokémon\nthat could be seen as an “artist.”"),
+    [Q07_WINDPLUME_VALLEY_DESC]                   = COMPOUND_STRING("I've heard talks of Windplume\nValley, a gathering place for\nstrong Pokémon trainers.\nMaybe I should take on the\nchallenge."),
+    [Q08_FLOWER_FIELDS_GRANBULL_DESC]             = COMPOUND_STRING("A peculiar woman in the Flower\nFields asked if I could rein in\nher inattentive Pokémon."),
+    [Q09_FLOWER_FIELDS_BERRYTRADE_DESC]           = COMPOUND_STRING("A woman in the Flower Fields is\nlooking for Oran Berries and\nwould be willing to trade jars of\nHoney for them."),
+    [Q10_SKYLOCH_ICECREAM_DESC]                   = COMPOUND_STRING("A man in Skyloch Village seems to be\nhaving issues with the warm weather.\nMaybe I can find a way to cool\nhim off."),
+    [Q11_SKYLOCH_RAICHUS_DESC]                    = COMPOUND_STRING("A woman in Skyloch Village enamored\nwith Pikachus has asked me if\nI could show her two different\nevolutions of Pikachu."),
+    [Q12_FLOWERSHOP_STRANGESEED_DESC]             = COMPOUND_STRING("A woman in the Pretty Petal\nflower shop on Route 8 mentioned\nsomething about strange seeds that\ncan sometimes be found in trees.\nI should bring her some if I\nhappen to find any."),
+    [Q13_SHORESLATE_ICECREAM_DESC]                = COMPOUND_STRING("A little girl at the Shoreslate\nMarket seems to be down after\nnot being able to buy any\nice cream."),
+    [Q14_SHORESLATE_FAVORITEMON_DESC]             = COMPOUND_STRING("An older gentleman in Shoreslate\nCity asked me if I could show him\none of his three favorite Pokémon."),
+    [Q15_SHORESLATE_TOUGHGUY_DESC]                = COMPOUND_STRING("Some weird guy in Shoreslate City\nasked me if I was a tough guy.\nNo idea what that's about."),
+    [Q15_SHORESLATE_TOUGHGIRL_DESC]               = COMPOUND_STRING("Some weird guy in Shoreslate City\nasked me if I was a tough girl.\nNo idea what that's about."),
+    [Q16_GOGOGGLES_DESC]                          = COMPOUND_STRING("I have acquired the Go-Goggles.\nI should now be able to safely\ntraverse the Scorching Desert."),
+    [Q17_DESERT_WEIRDCAVE_DESC]                   = COMPOUND_STRING("I found some weird cave near the\nScorching Desert."),
+    [Q18_DESERT_LIBRARYBOOK_DESC]                 = COMPOUND_STRING("An archeologist in the Desert Ruins\nadviced me to borrow a book from\nSandstone City's library if I\nwant to read the Desert Ruins'\nglyphs myself."),
+    [Q19_MUDSCIENTIST_DESC]                       = COMPOUND_STRING("I met some weird “mud scientist”\nat Route 7 who wanted me to bring\nhim some mud samples."),
+    [Q20_KAOLISLE_OLD_MAN_DESC]                   = COMPOUND_STRING("An old man in Kaolisle City\nwould like to challenge me to a\nPokémon Battle once I've become\nstronger and gathered more badges"),
+    [Q21_KAOLISLE_STARPIECE_DESC]                 = COMPOUND_STRING("An old man in Kaolisle City\nmentioned something about a\nstar piece on Route 1.\nMaybe I should see if it's\nstill there."),
+    [Q22_KAOLISLE_FISHERMAN_DESC]                 = COMPOUND_STRING("A fisherman in Kaolisle City\nasked me if I could fetch his\nlucky lure from his house in\nSandstone City."),
+    [Q23_KAOLISLE_OLDPENDANT_DESC]                = COMPOUND_STRING("An old man in Kaolisle City\nasked me if I've come across\nan old pendant.\nI should bring it back to him\nif I find one."),
+    [Q24_BATTLE_BUFFET_DESC]                      = COMPOUND_STRING("I learned about a Battle Buffet\nthat's being held at the\nKaolisle Hotel.\nMaybe I ought to give it a try."),
+    [Q25_HOTEL_TROPICALSTONE_DESC]                = COMPOUND_STRING("A man staying at the Kaolisle Hotel\nasked me if I could show him a\nPokémon capable of using a\nTropical Stone."),
+    [Q26_HOTEL_SHOW_TM_DESC]                      = COMPOUND_STRING("A lady staying at Kaolisle Hotel\nasked me if I could show her a\nPokémon that knew how to use a\nspecific move.\nI forgot which move she was\ntalking about…"),
+    [Q27_HOTEL_WILDKIDS_DESC]                     = COMPOUND_STRING("An older gentleman at Kaolisle Hotel\nis having trouble sleeping due to\nthe racket coming from a nearby\nroom."),
+    [Q28_KAOLISLE_LOSTBIRDS_DESC]                 = COMPOUND_STRING("A man living near Kaolisle City\nseems to have lost all of his\nexotic birds.\nThey probably shouldn't have\ngotten far."),
+    [Q29_ROCKLIFFE_HEAVYMON_DESC]                 = COMPOUND_STRING("Two men in Rockliffe Town were\narguing about the weight of an\nAron and an Excadrill.\nI should show them my Pokédex if\nI ever manage to catch both\nof them."),
+    [Q30_ROCKLIFFE_BEEDRILLS_DESC]                = COMPOUND_STRING("I met a weird woman in\nRockliffe Town who seemed\nobsessed with Beedrills."),
+    [Q31_ROUTE12_WEIRDCAVE_DESC]                  = COMPOUND_STRING("I found a weird cave on Route 12."),
+    [Q32_SANDSTONE_ANTIVIRUS_DESC]                = COMPOUND_STRING("A man in Sandstone City asked me\nif I could help him with his PC."),
+    [Q33_PROF_BIRCH_MEGASTONE_DESC]               = COMPOUND_STRING("I should visit Prof. Birch and\nsee if he can shed some light on\nthe Mega phenomenon."),
+    [Q34_DADS_HOME_DESC]                          = COMPOUND_STRING("I heard dad's visiting home.\nI should go and visit before he\nleaves for another trip."),
+    [Q35_CHARRED_CRATE_DESC]                      = COMPOUND_STRING("I found a weird charred crate in\nthe backroom of the Drisledge Mart.\nWhat could have caused this?"),
+    [Q36_TITANIUM_FISHING_DESC]                   = COMPOUND_STRING("I have obtained a Titanium fishing\nline that should help me fish from\npools of lava.\nIf I'm successful, I should bring\nproof to the fishing guru in\nFishing Village."),
+    [Q37_BASALEK_LEVELMON_DESC]                   = COMPOUND_STRING("I met an older gentleman in\nBasalek Town who wanted me to show\nhim a Pokémon of a specific level.\nI forgot what level was he wanted\nto see…"),
+    [Q38_BASALEK_TUNNELS_DESC]                    = COMPOUND_STRING("I've discovered a training ground\nfor strong trainers called the\nBasalek Tunnels.\nMaybe I should take on the\nchallenge."),
+    [Q39_FRIGIDFRONTIER_WEIRDCAVE_DESC]           = COMPOUND_STRING("I found a weird cave in the\nFrigid Frontier."),
+    [Q40_FROSTHEARTH_RUFFLET_DESC]                = COMPOUND_STRING("A boy in Frosthearth City seems\nto have lost his Rufflet.\nSuch a small bird probably\nshouldn't have gotten far."),
+    [Q41_FROSTHEARTH_TYPEMON_DESC]                = COMPOUND_STRING("A man in Frosthearth City wanted to\nsee a Pokémon of specific type.\nI forgot which type it was…"),
 };
-
 
 static void PrintActivityOnJournal(void)
 {
@@ -1625,7 +1664,7 @@ static void PrintActivityOnJournal(void)
 
     for (i = 0; i < Q_COUNT; i++)
     {
-        if (gCurrentJournalPage == gSaveBlock1Ptr->questOrder[i] && gSaveBlock1Ptr->questFlag[i] < FLAG_Q80_TEMP_END)
+        if (gCurrentJournalPage == gSaveBlock1Ptr->questOrder[i])
         {
             stringId = (gSaveBlock1Ptr->questFlag[i] + EXTENDED_FLAG_START);
             break;
@@ -1635,11 +1674,15 @@ static void PrintActivityOnJournal(void)
     {
         stringId = Q02_ELEVATOR_MALERIVAL_DESC;
     }
+    else if (stringId == FLAG_Q15_SHORESLATE_TOUGHGUY_START && gSaveBlock2Ptr->playerGender == FEMALE)
+    {
+        stringId = Q15_SHORESLATE_TOUGHGIRL_DESC;
+    }
     else
     {
         stringId -= (EXTENDED_FLAG_START + 127);
     }
-    if (stringId <= 0)
+    if (stringId < 0)
         FillWindowPixelBuffer(WIN_CARD_TEXT, PIXEL_FILL(0));
     else
         AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 12, 24, sTrainerCardTextColors, TEXT_SKIP_DRAW, sQuestDescription[stringId]);
@@ -2774,6 +2817,10 @@ void ShowPlayerJournal(void (*callback)(void))
         {
             sMaxPages++;
         }
+    }
+    if (gCurrentJournalPage >= (sMaxPages))
+    {
+        gCurrentJournalPage = 0;
     }
 
     SetMainCallback2(CB2_InitJournal);

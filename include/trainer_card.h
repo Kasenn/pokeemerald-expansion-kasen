@@ -64,6 +64,7 @@ struct TrainerCard
 };
 
 extern struct TrainerCard gTrainerCards[4];
+extern EWRAM_DATA u8 gCurrentJournalPage;
 
 u32 CountPlayerTrainerStars(void);
 u8 GetTrainerCardStars(u8 cardId);

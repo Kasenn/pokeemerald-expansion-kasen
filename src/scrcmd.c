@@ -60,6 +60,8 @@
 #include "constants/map_types.h"
 #include "item.h"
 #include "battle.h"
+#include "trainer_card.h"
+#include "pokemon_icon.h"
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(struct ScriptContext *ctx);
@@ -3618,10 +3620,46 @@ bool8 ScrCmd_startquest(struct ScriptContext *ctx)
     u16 var = VarGet(VAR_CURRENT_QUEST);
 
     FlagSet(flagId);
-    gSaveBlock1Ptr->questFlag[var] = flagId - 0x1000;
+    gSaveBlock1Ptr->questFlag[var] = flagId - EXTENDED_FLAG_START;
     gSaveBlock1Ptr->questOrder[var] = var;
 
     VarSet(VAR_CURRENT_QUEST, var + 1);
 
     return FALSE;
+}
+
+void StartAllQuests(struct ScriptContext *ctx)
+{
+    u16 i;
+
+    for (i = 0; i < 41; i++)
+    {
+        FlagSet(FLAG_Q01_PRIMROSE_ORICORIO_START + i);
+        gSaveBlock1Ptr->questFlag[i] = (FLAG_Q01_PRIMROSE_ORICORIO_START + i - EXTENDED_FLAG_START);
+        gSaveBlock1Ptr->questOrder[i] = i;
+    }
+}
+
+void ScrCmd_finishquest(struct ScriptContext *ctx)
+{
+    u32 flagId = ScriptReadHalfword(ctx);
+    u16 i, j;
+
+    FlagSet(flagId);
+
+    flagId -= EXTENDED_FLAG_START;
+    for (i = 0; i < QUEST_COUNT; i++)
+    {
+        if (gSaveBlock1Ptr->questFlag[i] == flagId - QUEST_COUNT)
+        {
+            for (j = i; j < QUEST_COUNT - 1; j++)
+            {
+                gSaveBlock1Ptr->questFlag[j] = gSaveBlock1Ptr->questFlag[j + 1];
+            }
+
+            gSaveBlock1Ptr->questFlag[QUEST_COUNT - 1] = 0;
+
+            break;
+        }
+    }
 }

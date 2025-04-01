@@ -219,6 +219,29 @@ ChangePlayerOutfit::
 	end
 
 
+PlayerHouse_Journal::
+	lock
+	waitse
+	playfanfare MUS_OBTAIN_ITEM
+	removeobject VAR_LAST_TALKED
+	setmetatile 1, 1, 0x28E, TRUE
+	special DrawWholeMapView
+	message PlayerFoundJournal
+	waitfanfare
+	waitmessage
+	msgbox JournalIntroText
+	release
+	end
+
+
+HeresQuests::
+	msgbox HeresQuests_Text, MSGBOX_NPC
+	callnative StartAllQuests
+	special ShowJournalPopupAdd
+	release
+	return
+
+
 PlayerWardrobe_Text_0:
 	.string "Choose an outfit to wear.$"
 
@@ -255,3 +278,16 @@ ChangeOutfit2::
 SteppedAway::
 	.string "{PLAYER} stepped away from the\n"
 	.string "clothes rack.$"
+
+PlayerFoundJournal::
+	.string "{PLAYER} picked up a Journal!$"
+
+JournalIntroText::
+	.string "Certain events may be recorded in the\n"
+	.string "Journal when they are discovered.\p"
+	.string "The Journal can be accessed through\n"
+	.string "the Start Menu.$"
+
+HeresQuests_Text::
+	.string "Sup.\n"
+	.string "Here's a bunch of journal entries.$"

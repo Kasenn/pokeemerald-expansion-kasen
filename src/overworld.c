@@ -76,6 +76,7 @@
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
 #include "constants/event_object_movement.h"
+#include "journal_popup.h"
 
 STATIC_ASSERT((B_FLAG_FOLLOWERS_DISABLED == 0 || OW_FOLLOWERS_ENABLED), FollowersFlagAssignedWithoutEnablingThem);
 
@@ -1624,6 +1625,7 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
         {
             LockPlayerFieldControls();
             HideMapNamePopUpWindow();
+            HideJournalPopUpWindow();
         }
         else
         {

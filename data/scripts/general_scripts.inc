@@ -477,20 +477,25 @@ Debug_Script_1_12:
 
 Debug_Script_2::
 	setflag FLAG_SYS_JOURNAL_GET
-	setquestflag FLAG_Q01_PRIMROSE_ORICORIO_START
-	setquestflag FLAG_Q03_AZURETIDE_OLD_WOMAN_START
-	setquestflag FLAG_Q06_MUSEUM_SMEARGLE_START
-	setquestflag FLAG_Q09_FLOWER_FIELDS_BERRYTRADE_START
-	setquestflag FLAG_Q02_ELEVATOR_RIVAL_START
-	setquestflag FLAG_Q05_ALDELEAF_CURSED_DOLL_START
+	callnative StartAllQuests
 	end
 
 
 Debug_Script_3::
+	special ShowJournalPopupAdd
 	return
 
 
 Debug_Script_4::
+	completequest FLAG_Q01_PRIMROSE_ORICORIO_COMPLETE
+	completequest FLAG_Q02_ELEVATOR_RIVAL_COMPLETE
+	completequest FLAG_Q03_AZURETIDE_OLD_WOMAN_COMPLETE
+	completequest FLAG_Q04_ALDELEAF_LOST_KEYS_COMPLETE
+	completequest FLAG_Q05_ALDELEAF_CURSED_DOLL_COMPLETE
+	completequest FLAG_Q06_MUSEUM_SMEARGLE_COMPLETE
+	completequest FLAG_Q07_WINDPLUME_VALLEY_COMPLETE
+	completequest FLAG_Q08_FLOWER_FIELDS_GRANBULL_COMPLETE
+	special ShowJournalPopupRemove
 	return
 
 

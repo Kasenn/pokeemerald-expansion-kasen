@@ -175,3 +175,39 @@ script ChangePlayerOutfit{
     waitstate
     end
 }
+
+script PlayerHouse_Journal{
+    lock
+	waitse
+    playfanfare(MUS_OBTAIN_ITEM)
+    removeobject(VAR_LAST_TALKED)
+    setmetatile(1, 1, 0x28E, TRUE)
+    special(DrawWholeMapView)
+	message(PlayerFoundJournal)
+	waitfanfare
+	waitmessage
+	msgbox(JournalIntroText)
+	release
+	end
+}
+
+text PlayerFoundJournal{
+    "{PLAYER} picked up a Journal!"}
+text JournalIntroText{
+    "Certain events may be recorded in the\n"
+    "Journal when they are discovered.\p"
+    "The Journal can be accessed through\n"
+    "the Start Menu."
+}
+
+script HeresQuests{
+    msgbox(HeresQuests_Text, MSGBOX_NPC)
+    callnative(StartAllQuests)
+    special(ShowJournalPopupAdd)
+    release
+}
+
+text HeresQuests_Text{
+    "Sup.\n"
+    "Here's a bunch of journal entries."
+}

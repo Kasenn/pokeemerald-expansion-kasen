@@ -22,6 +22,7 @@
 #include "constants/weather.h"
 #include "config/general.h"
 #include "config/overworld.h"
+#include "journal_popup.h"
 
 // enums
 enum MapPopUp_Themes

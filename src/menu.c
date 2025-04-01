@@ -159,8 +159,7 @@ void InitStandardTextBoxWindows(void)
     InitWindows(sStandardTextBox_WindowTemplates);
     sStartMenuWindowId = WINDOW_NONE;
     sMapNamePopupWindowId = WINDOW_NONE;
-    if (OW_POPUP_GENERATION == GEN_5)
-        sSecondaryPopupWindowId = WINDOW_NONE;
+    sSecondaryPopupWindowId = WINDOW_NONE;
 }
 
 void FreeAllOverworldWindowBuffers(void)
@@ -665,9 +664,32 @@ u8 AddMapNamePopUpWindow(void)
     return sMapNamePopupWindowId;
 }
 
+u8 AddJournalPopUpWindow(void)
+{
+    if (sSecondaryPopupWindowId == WINDOW_NONE)
+    {
+        sSecondaryPopupWindowId = AddWindowParameterized(0, 15, 26, 14, 3, 14, 0x161);
+    }
+    return sSecondaryPopupWindowId;
+}
+
 u8 GetMapNamePopUpWindowId(void)
 {
     return sMapNamePopupWindowId;
+}
+
+u8 GetJournalPopUpWindowId(void)
+{
+    return sSecondaryPopupWindowId;
+}
+
+void RemoveJournalPopUpWindow(void)
+{
+    if (sSecondaryPopupWindowId != WINDOW_NONE)
+    {
+        RemoveWindow(sSecondaryPopupWindowId);
+        sSecondaryPopupWindowId = WINDOW_NONE;
+    }
 }
 
 void RemoveMapNamePopUpWindow(void)

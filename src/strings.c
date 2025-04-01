@@ -5,8 +5,8 @@
 
 ALIGNED(4)
 const u8 gText_ExpandedPlaceholder_Empty[] = _("");
-const u8 gText_ExpandedPlaceholder_Kun[] = _("her");
-const u8 gText_ExpandedPlaceholder_Chan[] = _("him");
+const u8 gText_ExpandedPlaceholder_Kun[] = _("");
+const u8 gText_ExpandedPlaceholder_Chan[] = _("");
 const u8 gText_ExpandedPlaceholder_Sapphire[] = _("SAPPHIRE");
 const u8 gText_ExpandedPlaceholder_Ruby[] = _("RUBY");
 const u8 gText_ExpandedPlaceholder_Emerald[] = _("EMERALD");

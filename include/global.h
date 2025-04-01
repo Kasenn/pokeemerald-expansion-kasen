@@ -26,6 +26,8 @@
 #define OUTFIT_ORAS         2
 #define OUTFIT_CONTEST      3
 
+#define QUEST_COUNT     80
+
 // Prevent cross-jump optimization.
 #define BLOCK_CROSS_JUMP asm("");
 
@@ -1094,8 +1096,8 @@ struct SaveBlock1
                u16 berryBlenderRecords[3];
                u8 strangeSeedIndex;
                u8 strangeSeedDrop[11];
-               u8 questOrder[80];
-               u8 questFlag[80];
+               u8 questOrder[QUEST_COUNT];
+               u8 questFlag[QUEST_COUNT];
 };
 
 extern struct SaveBlock1* gSaveBlock1Ptr;

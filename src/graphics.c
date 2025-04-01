@@ -1990,8 +1990,6 @@ const u32 gJournal_Gfx_Male[] = INCBIN_U32("graphics/trainer_card/journal/journa
 const u32 gJournal_Tilemap_Male[] = INCBIN_U32("graphics/trainer_card/journal/journal_male.bin.lz");
 const u32 gJournal_TilemapPageFlip_Male[] = INCBIN_U32("graphics/trainer_card/journal/journal_flippage_male.bin.lz");
 
-
-
 // Pokémon storage system
 
 const u32 gStorageSystemMenu_Gfx[] = INCBIN_U32("graphics/pokemon_storage/menu.4bpp.lz");

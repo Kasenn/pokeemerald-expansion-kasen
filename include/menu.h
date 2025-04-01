@@ -49,6 +49,7 @@ struct MenuAction
 extern const u16 gStandardMenuPalette[];
 extern EWRAM_DATA u8 gPopupTaskId;
 extern EWRAM_DATA u8 sYesNoWindowId;
+extern EWRAM_DATA u8 gJournalPopupTaskId;
 
 void FreeAllOverworldWindowBuffers(void);
 void InitStandardTextBoxWindows(void);
@@ -138,5 +139,8 @@ u8 AddSecondaryPopUpWindow(void);
 u8 GetSecondaryPopUpWindowId(void);
 void RemoveSecondaryPopUpWindow(void);
 void HBlankCB_DoublePopupWindow(void);
+u8 GetJournalPopUpWindowId(void);
+u8 AddJournalPopUpWindow(void);
+void RemoveJournalPopUpWindow(void);
 
 #endif // GUARD_MENU_H

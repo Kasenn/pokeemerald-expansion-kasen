@@ -2724,8 +2724,14 @@
 	.endm
 
 	@ Sets quest flag to TRUE and records it in saveblock.
-	.macro setquestflag flag:req
+	.macro startquest flag:req
 	callnative ScrCmd_startquest
+	.2byte \flag
+	.endm
+
+	@ Sets quest to complete and records it in saveblock.
+	.macro completequest flag:req
+	callnative ScrCmd_finishquest
 	.2byte \flag
 	.endm
 
