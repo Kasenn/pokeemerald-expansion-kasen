@@ -368,6 +368,13 @@
       "elevation": 0,
       "dest_map": "MAP_KAOLISLE_CITY",
       "dest_warp_id": "11"
+    },
+    {
+      "x": 13,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_KAOLISLE_HOTEL_1F",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

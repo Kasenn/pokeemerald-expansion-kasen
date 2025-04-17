@@ -344,20 +344,21 @@ BuffetFinale::
 	closemessage
 	playse SE_DING_DONG
 	waitse
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	turnobject 0xFF, DIR_NORTH
 	delay 20
 	msgbox WinnerComeForward
 	closemessage
 	delay 20
 	setvar VAR_KAOLISLE_HOTEL_STATE, 9
-	warpsilent MAP_KAOLISLE_HOTEL_1F, 13, 7
+	warpsilent MAP_KAOLISLE_HOTEL_1F, 4
+	waitstate
 	return
 
 
 BuffetLost::
 	delay 50
 	setvar VAR_KAOLISLE_HOTEL_STATE, 5
-	warpsilent MAP_KAOLISLE_HOTEL_1F, 13, 7
+	warpsilent MAP_KAOLISLE_HOTEL_1F, 4
 	waitstate
 	return
 
@@ -411,6 +412,8 @@ BuffetComplete::
 	closemessage
 	setflag FLAG_BUFFET_COMPLETE
 	clearflag FLAG_SYSTEM_NOREWARDBATTLES
+	goto_if_set FLAG_Q24_BATTLE_BUFFET_START, BuffetComplete_5
+BuffetComplete_4:
 	applymovement OBJ_EVENT_ID_PLAYER, Walk1Right
 	waitmovement 0
 	release
@@ -424,6 +427,11 @@ BuffetComplete_2:
 	clearflag FLAG_SYSTEM_NOREWARDBATTLES
 	release
 	end
+
+BuffetComplete_5:
+	completequest FLAG_Q24_BATTLE_BUFFET_COMPLETE
+	special ShowJournalPopupRemove
+	goto BuffetComplete_4
 
 
 BuffetLost2::
@@ -452,10 +460,17 @@ BuffetComeBackLater::
 	hidemoneybox
 	msgbox BuffetPleaseComeAgain, MSGBOX_DEFAULT
 	closemessage
+	goto_if_unset FLAG_Q24_BATTLE_BUFFET_START, BuffetComeBackLater_2
+BuffetComeBackLater_1:
 	applymovement OBJ_EVENT_ID_PLAYER, Walk1Right
 	waitmovement 0
 	release
 	end
+
+BuffetComeBackLater_2:
+	startquest FLAG_Q24_BATTLE_BUFFET_START
+	special ShowJournalPopupAdd
+	goto BuffetComeBackLater_1
 
 
 BuffetNotEnoughMoney::

@@ -52,14 +52,16 @@ Kaolisle_Hotel_5F_BPShopBeauty_5:
 	msgbox YourMonKnowsMove, MSGBOX_DEFAULT
 	checkitemspace ITEM_HEART_SCALE
 	compare VAR_RESULT, FALSE
-	goto_if_eq Kaolisle_Hotel_5F_BPShopBeauty_14
-Kaolisle_Hotel_5F_BPShopBeauty_13:
+	goto_if_eq Kaolisle_Hotel_5F_BPShopBeauty_17
+Kaolisle_Hotel_5F_BPShopBeauty_16:
 	waitse
 	giveitem ITEM_HEART_SCALE
 	waitfanfare
 	setvar VAR_BPBEAUTY_STATE, 2
 	closemessage
 	release
+	goto_if_set FLAG_Q26_HOTEL_SHOW_TM_START, Kaolisle_Hotel_5F_BPShopBeauty_21
+Kaolisle_Hotel_5F_BPShopBeauty_19:
 	end
 
 Kaolisle_Hotel_5F_BPShopBeauty_8:
@@ -68,11 +70,27 @@ Kaolisle_Hotel_5F_BPShopBeauty_8:
 
 Kaolisle_Hotel_5F_BPShopBeauty_10:
 	msgbox WouldLikeToSeeMove, MSGBOX_NPC
+	goto_if_unset FLAG_Q26_HOTEL_SHOW_TM_START, Kaolisle_Hotel_5F_BPShopBeauty_14
+Kaolisle_Hotel_5F_BPShopBeauty_13:
 	end
 
 Kaolisle_Hotel_5F_BPShopBeauty_14:
-	goto ZeBagIsFull
+	startquest FLAG_Q26_HOTEL_SHOW_TM_START
+	special ShowJournalPopupAdd
 	goto Kaolisle_Hotel_5F_BPShopBeauty_13
+
+Kaolisle_Hotel_5F_BPShopBeauty_17:
+	goto ZeBagIsFull
+	goto Kaolisle_Hotel_5F_BPShopBeauty_16
+
+Kaolisle_Hotel_5F_BPShopBeauty_20:
+	completequest FLAG_Q26_HOTEL_SHOW_TM_COMPLETE
+	special ShowJournalPopupRemove
+	goto Kaolisle_Hotel_5F_BPShopBeauty_19
+
+Kaolisle_Hotel_5F_BPShopBeauty_21:
+	goto_if_unset FLAG_Q26_HOTEL_SHOW_TM_COMPLETE, Kaolisle_Hotel_5F_BPShopBeauty_20
+	goto Kaolisle_Hotel_5F_BPShopBeauty_19
 
 
 SetAndCheckHeartScaleMove::
@@ -400,6 +418,8 @@ Kaolisle_Hotel_5F_Gentleman::
 	goto_if 1, Kaolisle_Hotel_5F_Gentleman_6
 Kaolisle_Hotel_5F_Gentleman_4:
 	msgbox Kaolisle_Hotel_5F_Gentleman_Text, MSGBOX_NPC
+	goto_if_unset FLAG_Q27_HOTEL_WILDKIDS_START, Kaolisle_Hotel_5F_Gentleman_10
+Kaolisle_Hotel_5F_Gentleman_9:
 	end
 
 Kaolisle_Hotel_5F_Gentleman_2:
@@ -416,12 +436,24 @@ Kaolisle_Hotel_5F_Gentleman_5:
 	closemessage
 	setflag FLAG_OBTAINED_ROSTEBERRIES
 	release
+	goto_if_set FLAG_Q27_HOTEL_WILDKIDS_START, Kaolisle_Hotel_5F_Gentleman_13
+Kaolisle_Hotel_5F_Gentleman_12:
 	end
 
 Kaolisle_Hotel_5F_Gentleman_6:
 	checktrainerflag TRAINER_HOTEL_KID2
 	goto_if 1, Kaolisle_Hotel_5F_Gentleman_5
 	goto Kaolisle_Hotel_5F_Gentleman_4
+
+Kaolisle_Hotel_5F_Gentleman_10:
+	startquest FLAG_Q27_HOTEL_WILDKIDS_START
+	special ShowJournalPopupAdd
+	goto Kaolisle_Hotel_5F_Gentleman_9
+
+Kaolisle_Hotel_5F_Gentleman_13:
+	completequest FLAG_Q27_HOTEL_WILDKIDS_COMPLETE
+	special ShowJournalPopupRemove
+	goto Kaolisle_Hotel_5F_Gentleman_12
 
 
 Kaolisle_Hotel_5F_TuberF::

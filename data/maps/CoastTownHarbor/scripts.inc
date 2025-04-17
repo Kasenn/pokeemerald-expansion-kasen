@@ -1,6 +1,22 @@
 CoastTownHarbor_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, HarborSetFlags
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, CoastTownHarbor_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
+
+CoastTownHarbor_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_TEMP_0, 1, CoastTownHarbor_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0
+	.2byte 0
+
+CoastTownHarbor_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0:
+	goto_if_set FLAG_Q02_ELEVATOR_RIVAL_START, CoastTownHarbor_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0_2
+CoastTownHarbor_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0_1:
+	setvar VAR_TEMP_0, 0
+	return
+
+CoastTownHarbor_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0_2:
+	completequest FLAG_Q02_ELEVATOR_RIVAL_COMPLETE
+	special ShowJournalPopupRemove
+	goto CoastTownHarbor_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0_1
 
 
 HarborSetFlags::
@@ -10,6 +26,7 @@ HarborSetFlags::
 HarborSetFlags_1:
 	setflag FLAG_DEFEATED_RIVAL_HARBOR
 	setflag FLAG_RIVAL_HARBOR_ANGRY
+	setvar VAR_TEMP_0, 1
 	return
 
 

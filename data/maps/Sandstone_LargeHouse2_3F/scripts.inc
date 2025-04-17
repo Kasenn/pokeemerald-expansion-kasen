@@ -29,6 +29,8 @@ Sandstone_BigHouse2_3F_Man_7:
 	goto_if_eq Sandstone_BigHouse2_3F_Man_13
 	msgbox GetAntiVirus, MSGBOX_NPC
 	setvar VAR_SANDSTONEPORYGON_STATE, 1
+	goto_if_unset FLAG_Q32_SANDSTONE_ANTIVIRUS_START, Sandstone_BigHouse2_3F_Man_16
+Sandstone_BigHouse2_3F_Man_15:
 	end
 
 Sandstone_BigHouse2_3F_Man_2:
@@ -52,13 +54,13 @@ Sandstone_BigHouse2_3F_Man_9:
 Sandstone_BigHouse2_3F_Man_13:
 	checkitem ITEM_ANTIVIRUS
 	compare VAR_RESULT, FALSE
-	goto_if_eq Sandstone_BigHouse2_3F_Man_16
+	goto_if_eq Sandstone_BigHouse2_3F_Man_19
 	msgbox InstallAntiVirus, MSGBOX_DEFAULT
 	closemessage
 	compare VAR_FACING, DIR_NORTH
-	goto_if_eq Sandstone_BigHouse2_3F_Man_19
+	goto_if_eq Sandstone_BigHouse2_3F_Man_22
 	applymovement 1, WalkSouthToBench
-Sandstone_BigHouse2_3F_Man_18:
+Sandstone_BigHouse2_3F_Man_21:
 	setvar VAR_SANDSTONEPORYGON_STATE, 2
 	setobjectxyperm 1, 13, 3
 	waitmovement 0
@@ -67,12 +69,17 @@ Sandstone_BigHouse2_3F_Man_18:
 	end
 
 Sandstone_BigHouse2_3F_Man_16:
+	startquest FLAG_Q32_SANDSTONE_ANTIVIRUS_START
+	special ShowJournalPopupAdd
+	goto Sandstone_BigHouse2_3F_Man_15
+
+Sandstone_BigHouse2_3F_Man_19:
 	msgbox INeedAntiVirus, MSGBOX_NPC
 	end
 
-Sandstone_BigHouse2_3F_Man_19:
+Sandstone_BigHouse2_3F_Man_22:
 	applymovement 1, WalkEastToBench
-	goto Sandstone_BigHouse2_3F_Man_18
+	goto Sandstone_BigHouse2_3F_Man_21
 
 
 Sandstone_BigHouse2_3F_PC::
@@ -116,7 +123,14 @@ PCAftermath::
 	waitmovement 0
 	delay 30
 	release
+	goto_if_set FLAG_Q32_SANDSTONE_ANTIVIRUS_START, PCAftermath_2
+PCAftermath_1:
 	end
+
+PCAftermath_2:
+	completequest FLAG_Q32_SANDSTONE_ANTIVIRUS_COMPLETE
+	special ShowJournalPopupRemove
+	goto PCAftermath_1
 
 
 WalkEastToBench:

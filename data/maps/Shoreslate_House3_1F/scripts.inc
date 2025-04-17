@@ -29,12 +29,14 @@ Shoreslate_House3_1F_BlackBelt_5:
 Shoreslate_House3_1F_BlackBelt_18:
 	checkitemspace ITEM_LUCARIONITE
 	compare VAR_RESULT, FALSE
-	goto_if_eq Shoreslate_House3_1F_BlackBelt_23
-Shoreslate_House3_1F_BlackBelt_22:
+	goto_if_eq Shoreslate_House3_1F_BlackBelt_26
+Shoreslate_House3_1F_BlackBelt_25:
 	giveitem ITEM_LUCARIONITE
 	waitmessage
 	waitse
 	msgbox LucarioniteGet, MSGBOX_NPC
+	goto_if_set FLAG_Q15_SHORESLATE_TOUGHGUY_START, Shoreslate_House3_1F_BlackBelt_29
+Shoreslate_House3_1F_BlackBelt_28:
 	end
 
 Shoreslate_House3_1F_BlackBelt_8:
@@ -47,6 +49,8 @@ Shoreslate_House3_1F_BlackBelt_11:
 	goto_if_eq Shoreslate_House3_1F_BlackBelt_15
 	msgbox Shoreslate_BlackBelt_Female_NoAura, MSGBOX_NPC
 Shoreslate_House3_1F_BlackBelt_14:
+	goto_if_unset FLAG_Q15_SHORESLATE_TOUGHGUY_START, Shoreslate_House3_1F_BlackBelt_23
+Shoreslate_House3_1F_BlackBelt_22:
 	end
 
 Shoreslate_House3_1F_BlackBelt_15:
@@ -58,8 +62,18 @@ Shoreslate_House3_1F_BlackBelt_19:
 	goto Shoreslate_House3_1F_BlackBelt_18
 
 Shoreslate_House3_1F_BlackBelt_23:
-	goto ZeBagIsFull
+	startquest FLAG_Q15_SHORESLATE_TOUGHGUY_START
+	special ShowJournalPopupAdd
 	goto Shoreslate_House3_1F_BlackBelt_22
+
+Shoreslate_House3_1F_BlackBelt_26:
+	goto ZeBagIsFull
+	goto Shoreslate_House3_1F_BlackBelt_25
+
+Shoreslate_House3_1F_BlackBelt_29:
+	completequest FLAG_Q15_SHORESLATE_TOUGHGUY_COMPLETE
+	special ShowJournalPopupRemove
+	goto Shoreslate_House3_1F_BlackBelt_28
 
 
 Shoreslate_House3_2F_Girl::

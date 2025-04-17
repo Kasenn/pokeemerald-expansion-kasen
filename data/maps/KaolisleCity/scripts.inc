@@ -413,21 +413,42 @@ KaolisleCity_MysteryMan_8:
 KaolisleCity_MysteryMan_12:
 	msgbox KaolisleCity_MysteryMan_2Badges, MSGBOX_NPC
 	turnobject 7, DIR_NORTH
+	goto_if_unset FLAG_Q20_KAOLISLE_OLD_MAN_START, KaolisleCity_MysteryMan_17
+KaolisleCity_MysteryMan_16:
 	end
 
 KaolisleCity_MysteryMan_13:
 	msgbox KaolisleCity_MysteryMan_3Badges, MSGBOX_NPC
 	turnobject 7, DIR_NORTH
+	goto_if_unset FLAG_Q20_KAOLISLE_OLD_MAN_START, KaolisleCity_MysteryMan_20
+KaolisleCity_MysteryMan_19:
 	end
 
 KaolisleCity_MysteryMan_14:
 	msgbox KaolisleCity_MysteryMan_4Badges, MSGBOX_NPC
 	turnobject 7, DIR_NORTH
+	goto_if_unset FLAG_Q20_KAOLISLE_OLD_MAN_START, KaolisleCity_MysteryMan_23
+KaolisleCity_MysteryMan_22:
 	end
 
 KaolisleCity_MysteryMan_15:
 	goto KaolisleCity_MysteryMan_Battle
 	return
+
+KaolisleCity_MysteryMan_17:
+	startquest FLAG_Q20_KAOLISLE_OLD_MAN_START
+	special ShowJournalPopupAdd
+	goto KaolisleCity_MysteryMan_16
+
+KaolisleCity_MysteryMan_20:
+	startquest FLAG_Q20_KAOLISLE_OLD_MAN_START
+	special ShowJournalPopupAdd
+	goto KaolisleCity_MysteryMan_19
+
+KaolisleCity_MysteryMan_23:
+	startquest FLAG_Q20_KAOLISLE_OLD_MAN_START
+	special ShowJournalPopupAdd
+	goto KaolisleCity_MysteryMan_22
 
 
 KaolisleCity_ExpertM::
@@ -465,6 +486,8 @@ KaolisleCity_Fisher1::
 	goto_if_set FLAG_QUEST_FOR_GOOD_ROD, KaolisleCity_Fisher1_8
 	msgbox KaolisleCity_Fisher1_Text, MSGBOX_NPC
 	setflag FLAG_QUEST_FOR_GOOD_ROD
+	goto_if_unset FLAG_Q22_KAOLISLE_FISHERMAN_START, KaolisleCity_Fisher1_14
+KaolisleCity_Fisher1_13:
 	end
 
 KaolisleCity_Fisher1_2:
@@ -480,11 +503,30 @@ KaolisleCity_Fisher1_5:
 	waitfanfare
 	setflag FLAG_RECEIVED_GOOD_ROD
 	msgbox HopeYouGetAlotOfFish, MSGBOX_NPC
+	goto_if_set FLAG_Q22_KAOLISLE_FISHERMAN_START, KaolisleCity_Fisher1_11
+KaolisleCity_Fisher1_10:
 	end
 
 KaolisleCity_Fisher1_8:
 	msgbox KaolisleCity_Fisher1_Text2, MSGBOX_NPC
+	goto_if_unset FLAG_Q22_KAOLISLE_FISHERMAN_START, KaolisleCity_Fisher1_17
+KaolisleCity_Fisher1_16:
 	end
+
+KaolisleCity_Fisher1_11:
+	completequest FLAG_Q22_KAOLISLE_FISHERMAN_COMPLETE
+	special ShowJournalPopupRemove
+	goto KaolisleCity_Fisher1_10
+
+KaolisleCity_Fisher1_14:
+	startquest FLAG_Q22_KAOLISLE_FISHERMAN_START
+	special ShowJournalPopupAdd
+	goto KaolisleCity_Fisher1_13
+
+KaolisleCity_Fisher1_17:
+	startquest FLAG_Q22_KAOLISLE_FISHERMAN_START
+	special ShowJournalPopupAdd
+	goto KaolisleCity_Fisher1_16
 
 
 KaolisleCity_Fisher2::
@@ -705,6 +747,8 @@ KaolisleCity_MysteryMan_Battle_1:
 	msgbox Kaolisle_ExplainFragment
 KaolisleCity_MysteryMan_Battle_7:
 	release
+	goto_if_set FLAG_Q20_KAOLISLE_OLD_MAN_START, KaolisleCity_MysteryMan_Battle_12
+KaolisleCity_MysteryMan_Battle_11:
 	end
 
 KaolisleCity_MysteryMan_Battle_2:
@@ -720,6 +764,11 @@ KaolisleCity_MysteryMan_Battle_5:
 KaolisleCity_MysteryMan_Battle_8:
 	msgbox Kaolisle_ExplainFragmentShort
 	goto KaolisleCity_MysteryMan_Battle_7
+
+KaolisleCity_MysteryMan_Battle_12:
+	completequest FLAG_Q20_KAOLISLE_OLD_MAN_COMPLETE
+	special ShowJournalPopupRemove
+	goto KaolisleCity_MysteryMan_Battle_11
 
 
 KaolisleCity_Zigzagoon_Text_0:

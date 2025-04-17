@@ -634,7 +634,7 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_GabbyAndTy3),
     },
-    [DIFFICULTY_NORMAL][TRAINER_GABBY_AND_TY_4] =
+    [DIFFICULTY_NORMAL][TRAINER_GABBY_AND_TY_4_UNUSED] =
     {
         .trainerClass = TRAINER_CLASS_LASS,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,

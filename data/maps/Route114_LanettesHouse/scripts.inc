@@ -45,9 +45,9 @@ LanettesHouse_Scientist::
 	buffernumberstring STR_VAR_2, VAR_MUD_SAMPLES
 	goto_if_unset FLAG_MUD_REWARD_WAITING, LanettesHouse_Scientist_24
 	compare VAR_MUD_SAMPLES, 30
-	goto_if_eq LanettesHouse_Scientist_27
+	goto_if_eq LanettesHouse_Scientist_30
 	compare VAR_MUD_SAMPLES, 2
-	goto_if_le LanettesHouse_Scientist_30
+	goto_if_le LanettesHouse_Scientist_33
 	msgbox GiveASpin, MSGBOX_NPC
 	return
 
@@ -96,6 +96,8 @@ LanettesHouse_Scientist_21:
 	waitmovement 0
 	delay 48
 	msgbox SampleBoxIntro3, MSGBOX_NPC
+	goto_if_unset FLAG_Q19_MUDSCIENTIST_START, LanettesHouse_Scientist_27
+LanettesHouse_Scientist_26:
 	end
 
 LanettesHouse_Scientist_24:
@@ -103,10 +105,15 @@ LanettesHouse_Scientist_24:
 	end
 
 LanettesHouse_Scientist_27:
+	startquest FLAG_Q19_MUDSCIENTIST_START
+	special ShowJournalPopupAdd
+	goto LanettesHouse_Scientist_26
+
+LanettesHouse_Scientist_30:
 	msgbox MudSamplesFull, MSGBOX_NPC
 	end
 
-LanettesHouse_Scientist_30:
+LanettesHouse_Scientist_33:
 	msgbox NotEnoughMudSamples, MSGBOX_NPC
 	end
 
@@ -226,106 +233,108 @@ ExtractBall::
 	goto_if_ne ExtractBall_17
 ExtractBall_7:
 	switch VAR_MUD_REWARD
-	case 0, ExtractBall_29
-	case 1, ExtractBall_29
-	case 2, ExtractBall_30
-	case 3, ExtractBall_30
-	case 4, ExtractBall_31
-	case 5, ExtractBall_31
-	case 6, ExtractBall_32
-	case 7, ExtractBall_32
-	case 8, ExtractBall_33
-	case 9, ExtractBall_33
-	case 10, ExtractBall_34
-	case 11, ExtractBall_34
-	case 12, ExtractBall_35
-	case 13, ExtractBall_35
-	case 14, ExtractBall_36
-	case 15, ExtractBall_36
-	case 16, ExtractBall_37
-	case 17, ExtractBall_37
-	case 18, ExtractBall_38
-	case 19, ExtractBall_38
-	case 20, ExtractBall_39
-	case 21, ExtractBall_39
-	case 22, ExtractBall_40
-	case 23, ExtractBall_40
-	case 24, ExtractBall_41
-	case 25, ExtractBall_41
-	case 26, ExtractBall_42
-	case 27, ExtractBall_42
-	case 28, ExtractBall_43
-	case 29, ExtractBall_43
-	case 30, ExtractBall_44
-	case 31, ExtractBall_44
-	case 32, ExtractBall_45
-	case 33, ExtractBall_45
-	case 34, ExtractBall_46
-	case 35, ExtractBall_46
-	case 36, ExtractBall_47
-	case 37, ExtractBall_47
-	case 38, ExtractBall_47
-	case 39, ExtractBall_47
-	case 40, ExtractBall_48
-	case 41, ExtractBall_48
-	case 42, ExtractBall_48
-	case 43, ExtractBall_48
-	case 44, ExtractBall_49
-	case 45, ExtractBall_49
-	case 46, ExtractBall_49
-	case 47, ExtractBall_49
-	case 48, ExtractBall_50
-	case 49, ExtractBall_50
-	case 50, ExtractBall_50
-	case 51, ExtractBall_50
-	case 52, ExtractBall_51
-	case 53, ExtractBall_51
-	case 54, ExtractBall_51
-	case 55, ExtractBall_51
-	case 56, ExtractBall_52
-	case 57, ExtractBall_52
-	case 58, ExtractBall_52
-	case 59, ExtractBall_52
-	case 60, ExtractBall_53
-	case 61, ExtractBall_53
-	case 62, ExtractBall_53
-	case 63, ExtractBall_53
-	case 64, ExtractBall_54
-	case 65, ExtractBall_54
-	case 66, ExtractBall_54
-	case 67, ExtractBall_54
-	case 68, ExtractBall_55
-	case 69, ExtractBall_55
-	case 70, ExtractBall_55
-	case 71, ExtractBall_55
-	case 72, ExtractBall_56
-	case 73, ExtractBall_56
-	case 74, ExtractBall_56
-	case 75, ExtractBall_56
-	case 76, ExtractBall_57
-	case 77, ExtractBall_57
-	case 78, ExtractBall_57
-	case 79, ExtractBall_57
-	case 80, ExtractBall_58
-	case 81, ExtractBall_58
-	case 82, ExtractBall_58
-	case 83, ExtractBall_58
-	case 84, ExtractBall_59
-	case 85, ExtractBall_60
-	case 86, ExtractBall_61
-	case 87, ExtractBall_62
-	case 88, ExtractBall_63
-	case 89, ExtractBall_63
-	case 90, ExtractBall_64
-	case 91, ExtractBall_64
-	case 92, ExtractBall_64
-	case 93, ExtractBall_64
-	case 94, ExtractBall_64
-	case 95, ExtractBall_64
-	case 96, ExtractBall_64
-	case 97, ExtractBall_64
-	case 98, ExtractBall_64
-	case 99, ExtractBall_64
+	case 0, ExtractBall_30
+	case 1, ExtractBall_30
+	case 2, ExtractBall_31
+	case 3, ExtractBall_31
+	case 4, ExtractBall_32
+	case 5, ExtractBall_32
+	case 6, ExtractBall_33
+	case 7, ExtractBall_33
+	case 8, ExtractBall_34
+	case 9, ExtractBall_34
+	case 10, ExtractBall_35
+	case 11, ExtractBall_35
+	case 12, ExtractBall_36
+	case 13, ExtractBall_36
+	case 14, ExtractBall_37
+	case 15, ExtractBall_37
+	case 16, ExtractBall_38
+	case 17, ExtractBall_38
+	case 18, ExtractBall_39
+	case 19, ExtractBall_39
+	case 20, ExtractBall_40
+	case 21, ExtractBall_40
+	case 22, ExtractBall_41
+	case 23, ExtractBall_41
+	case 24, ExtractBall_42
+	case 25, ExtractBall_42
+	case 26, ExtractBall_43
+	case 27, ExtractBall_43
+	case 28, ExtractBall_44
+	case 29, ExtractBall_44
+	case 30, ExtractBall_45
+	case 31, ExtractBall_45
+	case 32, ExtractBall_46
+	case 33, ExtractBall_46
+	case 34, ExtractBall_47
+	case 35, ExtractBall_47
+	case 36, ExtractBall_48
+	case 37, ExtractBall_48
+	case 38, ExtractBall_48
+	case 39, ExtractBall_48
+	case 40, ExtractBall_49
+	case 41, ExtractBall_49
+	case 42, ExtractBall_49
+	case 43, ExtractBall_49
+	case 44, ExtractBall_50
+	case 45, ExtractBall_50
+	case 46, ExtractBall_50
+	case 47, ExtractBall_50
+	case 48, ExtractBall_51
+	case 49, ExtractBall_51
+	case 50, ExtractBall_51
+	case 51, ExtractBall_51
+	case 52, ExtractBall_52
+	case 53, ExtractBall_52
+	case 54, ExtractBall_52
+	case 55, ExtractBall_52
+	case 56, ExtractBall_53
+	case 57, ExtractBall_53
+	case 58, ExtractBall_53
+	case 59, ExtractBall_53
+	case 60, ExtractBall_54
+	case 61, ExtractBall_54
+	case 62, ExtractBall_54
+	case 63, ExtractBall_54
+	case 64, ExtractBall_55
+	case 65, ExtractBall_55
+	case 66, ExtractBall_55
+	case 67, ExtractBall_55
+	case 68, ExtractBall_56
+	case 69, ExtractBall_56
+	case 70, ExtractBall_56
+	case 71, ExtractBall_56
+	case 72, ExtractBall_57
+	case 73, ExtractBall_57
+	case 74, ExtractBall_57
+	case 75, ExtractBall_57
+	case 76, ExtractBall_58
+	case 77, ExtractBall_58
+	case 78, ExtractBall_58
+	case 79, ExtractBall_58
+	case 80, ExtractBall_59
+	case 81, ExtractBall_59
+	case 82, ExtractBall_59
+	case 83, ExtractBall_59
+	case 84, ExtractBall_60
+	case 85, ExtractBall_61
+	case 86, ExtractBall_62
+	case 87, ExtractBall_63
+	case 88, ExtractBall_64
+	case 89, ExtractBall_64
+	case 90, ExtractBall_65
+	case 91, ExtractBall_65
+	case 92, ExtractBall_65
+	case 93, ExtractBall_65
+	case 94, ExtractBall_65
+	case 95, ExtractBall_65
+	case 96, ExtractBall_65
+	case 97, ExtractBall_65
+	case 98, ExtractBall_65
+	case 99, ExtractBall_65
+ExtractBall_28:
+	goto_if_set FLAG_Q19_MUDSCIENTIST_START, ExtractBall_67
 	return
 
 ExtractBall_2:
@@ -390,219 +399,228 @@ ExtractBall_17:
 	setvar VAR_MUD_REWARD_10, 0
 	goto ExtractBall_7
 
-ExtractBall_29:
+ExtractBall_30:
 	finditem ITEM_NORMAL_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
-	return
+	goto ExtractBall_28
 
-ExtractBall_30:
+ExtractBall_31:
 	finditem ITEM_FIRE_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
-	return
+	goto ExtractBall_28
 
-ExtractBall_31:
+ExtractBall_32:
 	finditem ITEM_WATER_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
-	return
+	goto ExtractBall_28
 
-ExtractBall_32:
+ExtractBall_33:
 	finditem ITEM_ELECTRIC_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
-	return
+	goto ExtractBall_28
 
-ExtractBall_33:
+ExtractBall_34:
 	finditem ITEM_GRASS_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
-	return
+	goto ExtractBall_28
 
-ExtractBall_34:
+ExtractBall_35:
 	finditem ITEM_ICE_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
-	return
+	goto ExtractBall_28
 
-ExtractBall_35:
+ExtractBall_36:
 	finditem ITEM_FIGHTING_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
-	return
+	goto ExtractBall_28
 
-ExtractBall_36:
+ExtractBall_37:
 	finditem ITEM_POISON_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
-	return
+	goto ExtractBall_28
 
-ExtractBall_37:
+ExtractBall_38:
 	finditem ITEM_GROUND_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
-	return
+	goto ExtractBall_28
 
-ExtractBall_38:
+ExtractBall_39:
 	finditem ITEM_FLYING_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
-	return
+	goto ExtractBall_28
 
-ExtractBall_39:
+ExtractBall_40:
 	finditem ITEM_PSYCHIC_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
-	return
+	goto ExtractBall_28
 
-ExtractBall_40:
+ExtractBall_41:
 	finditem ITEM_BUG_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
-	return
+	goto ExtractBall_28
 
-ExtractBall_41:
+ExtractBall_42:
 	finditem ITEM_ROCK_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
-	return
+	goto ExtractBall_28
 
-ExtractBall_42:
+ExtractBall_43:
 	finditem ITEM_GHOST_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
-	return
+	goto ExtractBall_28
 
-ExtractBall_43:
+ExtractBall_44:
 	finditem ITEM_DRAGON_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
-	return
+	goto ExtractBall_28
 
-ExtractBall_44:
+ExtractBall_45:
 	finditem ITEM_DARK_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
-	return
+	goto ExtractBall_28
 
-ExtractBall_45:
+ExtractBall_46:
 	finditem ITEM_STEEL_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
-	return
+	goto ExtractBall_28
 
-ExtractBall_46:
+ExtractBall_47:
 	finditem ITEM_FAIRY_GEM, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1000
-	return
+	goto ExtractBall_28
 
-ExtractBall_47:
+ExtractBall_48:
 	finditem ITEM_NUGGET
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
-	return
+	goto ExtractBall_28
 
-ExtractBall_48:
+ExtractBall_49:
 	finditem ITEM_PEARL, 2
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
-	return
+	goto ExtractBall_28
 
-ExtractBall_49:
+ExtractBall_50:
 	finditem ITEM_RARE_BONE
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
-	return
+	goto ExtractBall_28
 
-ExtractBall_50:
+ExtractBall_51:
 	finditem ITEM_RELIC_COPPER, 3
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
-	return
+	goto ExtractBall_28
 
-ExtractBall_51:
+ExtractBall_52:
 	finditem ITEM_RELIC_SILVER
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
-	return
+	goto ExtractBall_28
 
-ExtractBall_52:
+ExtractBall_53:
 	finditem ITEM_HEART_SCALE
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
-	return
+	goto ExtractBall_28
 
-ExtractBall_53:
+ExtractBall_54:
 	finditem ITEM_BIG_NUGGET
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
-	return
-
-ExtractBall_54:
-	finditem ITEM_BIG_PEARL
-	addvartovar
-	setvar VAR_MUD_REWARD, 1001
-	return
+	goto ExtractBall_28
 
 ExtractBall_55:
-	finditem ITEM_RED_SHARD
-	addvartovar
-	setvar VAR_MUD_REWARD, 1001
-	return
-
-ExtractBall_56:
-	finditem ITEM_BLUE_SHARD
-	addvartovar
-	setvar VAR_MUD_REWARD, 1001
-	return
-
-ExtractBall_57:
-	finditem ITEM_YELLOW_SHARD
-	addvartovar
-	setvar VAR_MUD_REWARD, 1001
-	return
-
-ExtractBall_58:
-	finditem ITEM_GREEN_SHARD
-	addvartovar
-	setvar VAR_MUD_REWARD, 1001
-	return
-
-ExtractBall_59:
 	finditem ITEM_BIG_PEARL
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
-	return
+	goto ExtractBall_28
 
-ExtractBall_60:
+ExtractBall_56:
 	finditem ITEM_RED_SHARD
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
-	return
+	goto ExtractBall_28
 
-ExtractBall_61:
+ExtractBall_57:
 	finditem ITEM_BLUE_SHARD
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
-	return
+	goto ExtractBall_28
 
-ExtractBall_62:
+ExtractBall_58:
 	finditem ITEM_YELLOW_SHARD
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
-	return
+	goto ExtractBall_28
 
-ExtractBall_63:
+ExtractBall_59:
 	finditem ITEM_GREEN_SHARD
 	addvartovar
 	setvar VAR_MUD_REWARD, 1001
-	return
+	goto ExtractBall_28
+
+ExtractBall_60:
+	finditem ITEM_BIG_PEARL
+	addvartovar
+	setvar VAR_MUD_REWARD, 1001
+	goto ExtractBall_28
+
+ExtractBall_61:
+	finditem ITEM_RED_SHARD
+	addvartovar
+	setvar VAR_MUD_REWARD, 1001
+	goto ExtractBall_28
+
+ExtractBall_62:
+	finditem ITEM_BLUE_SHARD
+	addvartovar
+	setvar VAR_MUD_REWARD, 1001
+	goto ExtractBall_28
+
+ExtractBall_63:
+	finditem ITEM_YELLOW_SHARD
+	addvartovar
+	setvar VAR_MUD_REWARD, 1001
+	goto ExtractBall_28
 
 ExtractBall_64:
+	finditem ITEM_GREEN_SHARD
+	addvartovar
+	setvar VAR_MUD_REWARD, 1001
+	goto ExtractBall_28
+
+ExtractBall_65:
 	call GrandPrizeRandomization
 	setvar VAR_MUD_REWARD, 1002
+	goto ExtractBall_28
+
+ExtractBall_66:
+	completequest FLAG_Q19_MUDSCIENTIST_COMPLETE
+	special ShowJournalPopupRemove
+	return
+
+ExtractBall_67:
+	goto_if_unset FLAG_Q19_MUDSCIENTIST_COMPLETE, ExtractBall_66
 	return
 
 

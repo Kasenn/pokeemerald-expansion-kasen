@@ -807,6 +807,11 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
             ScriptContext_SetupScript(MossdeepCity_SpaceCenter_2F_EventScript_RivalRayquazaCall);
             return TRUE;
         }
+        if (VarGet(VAR_DEBUG) == 2)
+        {
+            ScriptContext_SetupScript(Update3);
+            return TRUE;
+        }
         if (UpdateVsSeekerStepCounter())
         {
             ScriptContext_SetupScript(EventScript_VsSeekerChargingDone);

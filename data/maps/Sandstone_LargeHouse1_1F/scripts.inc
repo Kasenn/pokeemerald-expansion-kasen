@@ -130,6 +130,8 @@ Aldeleaf_Artist_5:
 
 Aldeleaf_Artist_8:
 	release
+	goto_if_unset FLAG_Q06_MUSEUM_SMEARGLE_START, Aldeleaf_Artist_14
+Aldeleaf_Artist_13:
 	end
 
 Aldeleaf_Artist_11:
@@ -137,13 +139,25 @@ Aldeleaf_Artist_11:
 	goto ZeBagIsFull
 	goto Aldeleaf_Artist_10
 
+Aldeleaf_Artist_14:
+	startquest FLAG_Q06_MUSEUM_SMEARGLE_START
+	special ShowJournalPopupAdd
+	goto Aldeleaf_Artist_13
+
 
 GivePaintBrush::
 	giveitem ITEM_PAINTBRUSH
 	waitfanfare
 	msgbox GiveToSmeargle, MSGBOX_NPC
 	setflag FLAG_OBTAINED_PAINTBRUSH
+	goto_if_set FLAG_Q06_MUSEUM_SMEARGLE_START, GivePaintBrush_2
+GivePaintBrush_1:
 	end
+
+GivePaintBrush_2:
+	completequest FLAG_Q06_MUSEUM_SMEARGLE_COMPLETE
+	special ShowJournalPopupRemove
+	goto GivePaintBrush_1
 
 
 Sandstone_BigHouse1_2F_Child1_Text::

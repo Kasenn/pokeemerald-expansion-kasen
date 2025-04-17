@@ -29,6 +29,12 @@ script NectarManiac{
             delay(48)
             msgbox(NectarManiac_OricorioFound, MSGBOX_NPC)
             setflag(FLAG_ORICORIO_SHOWN_TO_MANIAC)
+            release
+            if(flag(FLAG_Q01_PRIMROSE_ORICORIO_START)){
+                completequest(FLAG_Q01_PRIMROSE_ORICORIO_COMPLETE)
+                special(ShowJournalPopupRemove)
+            }
+            end
         }
         else{
             msgbox(DrewQuickSketch)
@@ -39,9 +45,13 @@ script NectarManiac{
             waitbuttonpress
             hidemonpic
             msgbox(NeverSaidWasAnArtist)
+            release
+            if(!flag(FLAG_Q01_PRIMROSE_ORICORIO_START)){
+                startquest(FLAG_Q01_PRIMROSE_ORICORIO_START)
+                special(ShowJournalPopupAdd)
+            }
+            end
         }
-        release
-	    end
     }
     msgbox(NectarManiac_GoRightIn, MSGBOX_NPC)
     end

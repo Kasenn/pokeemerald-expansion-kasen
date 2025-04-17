@@ -231,12 +231,19 @@ Library_HistoryBook_5:
 	compare VAR_RESULT, FALSE
 	goto_if_eq Library_HistoryBook_8
 	finditem ITEM_HISTORY_BOOK
+	goto_if_set FLAG_Q18_DESERT_LIBRARYBOOK_START, Library_HistoryBook_11
+Library_HistoryBook_10:
 	end
 
 Library_HistoryBook_8:
 	closemessage
 	release
 	end
+
+Library_HistoryBook_11:
+	completequest FLAG_Q18_DESERT_LIBRARYBOOK_COMPLETE
+	special ShowJournalPopupRemove
+	goto Library_HistoryBook_10
 
 
 EventScript_Bookcase1::

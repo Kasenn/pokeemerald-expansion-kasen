@@ -38,6 +38,10 @@ script DrisledgeMart_Box{
             clearflag(FLAG_TEMP_1)
         }
     }
+    if(!flag(FLAG_Q35_CHARRED_CRATE_START) && !flag(FLAG_LITWICK_CAUGHT)){
+        startquest(FLAG_Q35_CHARRED_CRATE_START)
+        special(ShowJournalPopupAdd)
+    }
 }
 text CharredBox{
     "It's an empty crate.\p"
@@ -249,6 +253,10 @@ script LitwickEligibleBall{
     release
     clearflag(FLAG_TEMP_2)
     addobject(2)
+    if(flag(FLAG_Q35_CHARRED_CRATE_START)){
+        completequest(FLAG_Q35_CHARRED_CRATE_COMPLETE)
+        special(ShowJournalPopupRemove)
+    }
 }
 
 text LitwickStaresAtYouShort{

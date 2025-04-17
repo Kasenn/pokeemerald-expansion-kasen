@@ -49,6 +49,10 @@ script Kaolisle_Hotel_2F_Man2{
         bufferspeciesname(STR_VAR_1, SPECIES_EXEGGCUTE)
         goto(Kaolisle_Hotel_2F_Man2_MonFound)
     }
+    if(!flag(FLAG_Q25_HOTEL_TROPICALSTONE_START)){
+        startquest(FLAG_Q25_HOTEL_TROPICALSTONE_START)
+        special(ShowJournalPopupAdd)
+    }
     end
 }
 script Kaolisle_Hotel_2F_Man2_MonFound{
@@ -62,6 +66,10 @@ script Kaolisle_Hotel_2F_Man2_MonFound{
     setflag(FLAG_OBTAINED_TROPICALSTONE)
     waitfanfare
     closemessage
+    if(flag(FLAG_Q25_HOTEL_TROPICALSTONE_START)){
+        completequest(FLAG_Q25_HOTEL_TROPICALSTONE_COMPLETE)
+        special(ShowJournalPopupRemove)
+    }
 }
 
 text Kaolisle_Hotel_DoorLocked_Text{

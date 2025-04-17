@@ -4436,9 +4436,9 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_JASMINE_AMPHY]                        = COMPOUND_STRING("Amphy?!\pYou're not supposed to\ncome out of your ball!\p… {PAUSE 48}… {PAUSE 48}…\pI'm sorry, but Amphy seems too\npersistent to back down now…\p"),
     [STRINGID_HIVE_LEADER]                          = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} has been afflicted\nwith an infestation by {B_DEF_NAME_WITH_PREFIX}"),
     [STRINGID_BLOCKEDBYSLEEPCLAUSE]                 = COMPOUND_STRING("Sleep Clause kept {B_DEF_NAME_WITH_PREFIX2} awake!"),
-    [STRINGID_SUPEREFFECTIVETWOFOES]                = COMPOUND_STRING("It's super effective on {B_DEF_NAME_WITH_PREFIX2} and {B_DEF_PARTNER_NAME}!"),
-    [STRINGID_NOTVERYEFFECTIVETWOFOES]              = COMPOUND_STRING("It's not very effective on {B_DEF_NAME_WITH_PREFIX2} and {B_DEF_PARTNER_NAME}!"),
-    [STRINGID_ITDOESNTAFFECTTWOFOES]                = COMPOUND_STRING("It doesn't affect {B_DEF_NAME_WITH_PREFIX2} and {B_DEF_PARTNER_NAME}…"),
+    [STRINGID_SUPEREFFECTIVETWOFOES]                = COMPOUND_STRING("It's super effective!"),
+    [STRINGID_NOTVERYEFFECTIVETWOFOES]              = COMPOUND_STRING("It's not very effective…"),
+    [STRINGID_ITDOESNTAFFECTTWOFOES]                = COMPOUND_STRING("It doesn't affect {B_DEF_NAME_WITH_PREFIX2}\nand {B_DEF_PARTNER_NAME}…"),
     [STRINGID_SENDCAUGHTMONPARTYORBOX]              = COMPOUND_STRING("Add {B_DEF_NAME} to your party?"),
     [STRINGID_PKMNSENTTOPCAFTERCATCH]               = gText_PkmnSentToPCAfterCatch,
 };

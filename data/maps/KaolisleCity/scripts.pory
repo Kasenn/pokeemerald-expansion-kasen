@@ -365,15 +365,27 @@ script KaolisleCity_MysteryMan{
             case 2:
                 msgbox(KaolisleCity_MysteryMan_2Badges, MSGBOX_NPC)
                 turnobject(7, DIR_NORTH)
+                if(!flag(FLAG_Q20_KAOLISLE_OLD_MAN_START)){
+                    startquest(FLAG_Q20_KAOLISLE_OLD_MAN_START)
+                    special(ShowJournalPopupAdd)
+                }
                 end
             case 3:
                 msgbox(KaolisleCity_MysteryMan_3Badges, MSGBOX_NPC)
                 turnobject(7, DIR_NORTH)
+                if(!flag(FLAG_Q20_KAOLISLE_OLD_MAN_START)){
+                    startquest(FLAG_Q20_KAOLISLE_OLD_MAN_START)
+                    special(ShowJournalPopupAdd)
+                }
                 end
             case 4:
             case 5:
                 msgbox(KaolisleCity_MysteryMan_4Badges, MSGBOX_NPC)
                 turnobject(7, DIR_NORTH)
+                if(!flag(FLAG_Q20_KAOLISLE_OLD_MAN_START)){
+                    startquest(FLAG_Q20_KAOLISLE_OLD_MAN_START)
+                    special(ShowJournalPopupAdd)
+                }
                 end
             case 6:
             case 7:
@@ -499,14 +511,26 @@ script KaolisleCity_Fisher1{
         waitfanfare
         setflag(FLAG_RECEIVED_GOOD_ROD)
         msgbox(HopeYouGetAlotOfFish, MSGBOX_NPC)
+        if(flag(FLAG_Q22_KAOLISLE_FISHERMAN_START)){
+            completequest(FLAG_Q22_KAOLISLE_FISHERMAN_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
         end
     }
     if(flag(FLAG_QUEST_FOR_GOOD_ROD)){
         msgbox(KaolisleCity_Fisher1_Text2, MSGBOX_NPC)
+        if(!flag(FLAG_Q22_KAOLISLE_FISHERMAN_START)){
+            startquest(FLAG_Q22_KAOLISLE_FISHERMAN_START)
+            special(ShowJournalPopupAdd)
+        }
         end
     }
     msgbox(KaolisleCity_Fisher1_Text, MSGBOX_NPC)
     setflag(FLAG_QUEST_FOR_GOOD_ROD)
+    if(!flag(FLAG_Q22_KAOLISLE_FISHERMAN_START)){
+        startquest(FLAG_Q22_KAOLISLE_FISHERMAN_START)
+        special(ShowJournalPopupAdd)
+    }
     end
 }
 text KaolisleCity_Fisher1_Text{
@@ -874,6 +898,10 @@ script KaolisleCity_MysteryMan_Battle{
         msgbox(Kaolisle_ExplainFragment)
     }
     release
+    if(flag(FLAG_Q20_KAOLISLE_OLD_MAN_START)){
+        completequest(FLAG_Q20_KAOLISLE_OLD_MAN_COMPLETE)
+        special(ShowJournalPopupRemove)
+    }
     end
 }
 

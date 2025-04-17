@@ -380,15 +380,15 @@ bool8 CheckForTrainersWantingBattle(void)
             continue;
 
         numTrainers = CheckTrainer(i);
-        if (numTrainers == 0xFF) // non-trainerbatle script
-        {
-            u32 objectEventId = gApproachingTrainers[gNoOfApproachingTrainers - 1].objectEventId;
-            gSelectedObjectEvent = objectEventId;
-            gSpecialVar_LastTalked = gObjectEvents[objectEventId].localId;
-            ScriptContext_SetupScript(EventScript_ObjectApproachPlayer);
-            LockPlayerFieldControls();
-            return TRUE;
-        }
+        // if (numTrainers == 0xFF) // non-trainerbatle script
+        // {
+        //     u32 objectEventId = gApproachingTrainers[gNoOfApproachingTrainers - 1].objectEventId;
+        //     gSelectedObjectEvent = objectEventId;
+        //     gSpecialVar_LastTalked = gObjectEvents[objectEventId].localId;
+        //     ScriptContext_SetupScript(EventScript_ObjectApproachPlayer);
+        //     LockPlayerFieldControls();
+        //     return TRUE;
+        // }
 
         if (numTrainers == 2)
             break;
@@ -402,22 +402,18 @@ bool8 CheckForTrainersWantingBattle(void)
             break;
     }
 
-    // u8 trainerObjEventId = gApproachingTrainers[gNoOfApproachingTrainers - 1].objectEventId;
+    u8 trainerObjEventId = gApproachingTrainers[gNoOfApproachingTrainers - 1].objectEventId;
     
-    // if (gObjectEvents[trainerObjEventId].trainerType == TRAINER_TYPE_SCRIPTED)
-    // {
-    //     DebugPrintfLevel(MGBA_LOG_WARN, "1");
-        
-    //     const u8 *trainerScript = gApproachingTrainers[gNoOfApproachingTrainers - 1].trainerScriptPtr;
+    if (gObjectEvents[trainerObjEventId].trainerType == TRAINER_TYPE_SCRIPTED)
+    {        
+        const u8 *trainerScript = gApproachingTrainers[gNoOfApproachingTrainers - 1].trainerScriptPtr;
 
-    //     gSelectedObjectEvent = trainerObjEventId;
-    //     gSpecialVar_LastTalked = gObjectEvents[trainerObjEventId].localId;
-    //     DebugPrintfLevel(MGBA_LOG_WARN, "2");
-    //     ScriptContext_SetupScript(trainerScript);
-    //     DebugPrintfLevel(MGBA_LOG_WARN, "3");
-    //     LockPlayerFieldControls();
-    //     return TRUE;
-    // }
+        gSelectedObjectEvent = trainerObjEventId;
+        gSpecialVar_LastTalked = gObjectEvents[trainerObjEventId].localId;
+        ScriptContext_SetupScript(trainerScript);
+        LockPlayerFieldControls();
+        return TRUE;
+    }
 
 
     if (gNoOfApproachingTrainers == 1)

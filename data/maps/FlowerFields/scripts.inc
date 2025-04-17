@@ -37,12 +37,18 @@ FlowerFields_MinaEvent_FrameTable_1:
 	turnobject 1, DIR_SOUTH
 	setvar VAR_MINA_INTRO_QUEST, STORY_MINA_QUEST_COMPLETE
 	release
+	goto_if_set FLAG_Q08_FLOWER_FIELDS_GRANBULL_START, FlowerFields_MinaEvent_FrameTable_4
 	return
 
 FlowerFields_MinaEvent_FrameTable_2:
 	setvar VAR_MINA_INTRO_QUEST, STORY_MINA_SPOKEN_WITH_AFTER_BATTLE
 	goto ZeBagIsFull
 	goto FlowerFields_MinaEvent_FrameTable_1
+
+FlowerFields_MinaEvent_FrameTable_4:
+	completequest FLAG_Q08_FLOWER_FIELDS_GRANBULL_COMPLETE
+	special ShowJournalPopupRemove
+	return
 
 
 FlowerFields_Combee::
@@ -158,7 +164,10 @@ FlowerFields_Mina_2:
 	msgbox GranbullBeingRowdy, MSGBOX_NPC
 	turnobject 1, DIR_SOUTH
 	setvar VAR_MINA_INTRO_QUEST, STORY_MINA_SPOKEN_TO
-	goto FlowerFields_Mina_1
+	release
+	goto_if_unset FLAG_Q08_FLOWER_FIELDS_GRANBULL_START, FlowerFields_Mina_16
+FlowerFields_Mina_15:
+	end
 
 FlowerFields_Mina_3:
 	msgbox AllIWantToDoIsPaintGranbull, MSGBOX_NPC
@@ -174,8 +183,8 @@ FlowerFields_Mina_5:
 	msgbox ThanksForBattlingGranbull
 	checkitemspace ITEM_RARE_CANDY
 	compare VAR_RESULT, FALSE
-	goto_if_eq FlowerFields_Mina_16
-FlowerFields_Mina_15:
+	goto_if_eq FlowerFields_Mina_19
+FlowerFields_Mina_18:
 	giveitem ITEM_RARE_CANDY
 	turnobject 1, DIR_SOUTH
 	setvar VAR_MINA_INTRO_QUEST, STORY_MINA_QUEST_COMPLETE
@@ -185,8 +194,8 @@ FlowerFields_Mina_6:
 	msgbox ThanksForBattlingGranbull_Short
 	checkitemspace ITEM_RARE_CANDY
 	compare VAR_RESULT, FALSE
-	goto_if_eq FlowerFields_Mina_19
-FlowerFields_Mina_18:
+	goto_if_eq FlowerFields_Mina_22
+FlowerFields_Mina_21:
 	giveitem ITEM_RARE_CANDY
 	turnobject 1, DIR_SOUTH
 	setvar VAR_MINA_INTRO_QUEST, STORY_MINA_QUEST_COMPLETE
@@ -199,14 +208,19 @@ FlowerFields_Mina_7:
 	goto FlowerFields_Mina_1
 
 FlowerFields_Mina_16:
-	setvar VAR_MINA_INTRO_QUEST, STORY_MINA_SPOKEN_WITH_AFTER_BATTLE
-	goto ZeBagIsFull
+	startquest FLAG_Q08_FLOWER_FIELDS_GRANBULL_START
+	special ShowJournalPopupAdd
 	goto FlowerFields_Mina_15
 
 FlowerFields_Mina_19:
 	setvar VAR_MINA_INTRO_QUEST, STORY_MINA_SPOKEN_WITH_AFTER_BATTLE
 	goto ZeBagIsFull
 	goto FlowerFields_Mina_18
+
+FlowerFields_Mina_22:
+	setvar VAR_MINA_INTRO_QUEST, STORY_MINA_SPOKEN_WITH_AFTER_BATTLE
+	goto ZeBagIsFull
+	goto FlowerFields_Mina_21
 
 
 FlowerFields_Granbull::
@@ -307,6 +321,8 @@ Route8_HoneyTrader_5:
 	compare VAR_RESULT, TRUE
 	goto_if_eq Route8_HoneyTrader_10
 	msgbox Route8_HoneyTrader_DontHaveBerries, MSGBOX_NPC
+	goto_if_unset FLAG_Q09_FLOWER_FIELDS_BERRYTRADE_START, Route8_HoneyTrader_16
+Route8_HoneyTrader_15:
 	end
 
 Route8_HoneyTrader_8:
@@ -322,6 +338,11 @@ Route8_HoneyTrader_10:
 Route8_HoneyTrader_13:
 	goto TradeBerriesMain
 	goto Route8_HoneyTrader_7
+
+Route8_HoneyTrader_16:
+	startquest FLAG_Q09_FLOWER_FIELDS_BERRYTRADE_START
+	special ShowJournalPopupAdd
+	goto Route8_HoneyTrader_15
 
 
 TradeBerriesMain::
@@ -394,7 +415,18 @@ TradeBerriesGoodbye::
 	setvar VAR_TEMP_1, 0
 	setvar VAR_TEMP_2, 0
 	msgbox ComeTradeWhenGetMoreBerries, MSGBOX_NPC
+	goto_if_set FLAG_Q09_FLOWER_FIELDS_BERRYTRADE_START, TradeBerriesGoodbye_3
+TradeBerriesGoodbye_1:
 	end
+
+TradeBerriesGoodbye_2:
+	completequest FLAG_Q09_FLOWER_FIELDS_BERRYTRADE_COMPLETE
+	special ShowJournalPopupRemove
+	goto TradeBerriesGoodbye_1
+
+TradeBerriesGoodbye_3:
+	goto_if_unset FLAG_Q09_FLOWER_FIELDS_BERRYTRADE_COMPLETE, TradeBerriesGoodbye_2
+	goto TradeBerriesGoodbye_1
 
 
 FlowerFields_Combee_Text_0:

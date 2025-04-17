@@ -88,6 +88,14 @@ script Kaolisle_Karatemaster{
     }
     msgbox(LostMemento, MSGBOX_DEFAULT)
     checkitem(ITEM_LOST_MEMENTO)
+    if(var(VAR_RESULT) == FALSE){
+        release
+        if(!flag(FLAG_Q23_KAOLISLE_OLDPENDANT_START)){
+            startquest(FLAG_Q23_KAOLISLE_OLDPENDANT_START)
+            special(ShowJournalPopupAdd)
+        }
+        end
+    }
     if(var(VAR_RESULT) == TRUE){
         playse(SE_PIN)
         safefollow
@@ -99,9 +107,13 @@ script Kaolisle_Karatemaster{
         setflag(FLAG_RECEIVED_HM_ROCK_SMASH)
         removeitem(ITEM_LOST_MEMENTO)
         msgbox(ExplainRockSmash, MSGBOX_DEFAULT)
+        release
+        if(flag(FLAG_Q23_KAOLISLE_OLDPENDANT_START)){
+            completequest(FLAG_Q23_KAOLISLE_OLDPENDANT_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
+        end
     }
-    release
-    end
 }
 
 text LostMemento{

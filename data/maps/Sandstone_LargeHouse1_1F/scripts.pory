@@ -157,6 +157,10 @@ script Aldeleaf_Artist{
     checkpartymon(SPECIES_SMEARGLE, 0)
     if(var(VAR_RESULT) == FALSE){
         release
+        if(!flag(FLAG_Q06_MUSEUM_SMEARGLE_START)){
+            startquest(FLAG_Q06_MUSEUM_SMEARGLE_START)
+            special(ShowJournalPopupAdd)
+        }
         end
     }
     playse(SE_PIN)
@@ -177,6 +181,10 @@ script GivePaintBrush{
     waitfanfare
     msgbox(GiveToSmeargle, MSGBOX_NPC)
     setflag(FLAG_OBTAINED_PAINTBRUSH)
+    if(flag(FLAG_Q06_MUSEUM_SMEARGLE_START)){
+        completequest(FLAG_Q06_MUSEUM_SMEARGLE_COMPLETE)
+        special(ShowJournalPopupRemove)
+    }
     end
 }
 

@@ -99,7 +99,7 @@ AT_Pedestal_Steel_2:
 	msgbox AT_Pedestal_Text2, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
 	goto_if_eq AT_Pedestal_Steel_7
-	removeitem ITEM_STEEL_SPHERE
+	removeallitem ITEM_STEEL_SPHERE
 	clearflag FLAG_PLACED_STEEL_SPHERE
 	addobject 6
 	removeobject 3
@@ -460,6 +460,8 @@ AT_TopEvent_16:
 	settrainerflag TRAINER_AT_5F_COOLTRAINER_F
 	delay 30
 	release
+	goto_if_unset FLAG_Q33_PROF_BIRCH_MEGASTONE_START, AT_TopEvent_24
+AT_TopEvent_23:
 	end
 
 AT_TopEvent_3:
@@ -520,6 +522,11 @@ AT_TopEvent_17:
 AT_TopEvent_20:
 	msgbox YouMetDadBrendan
 	goto AT_TopEvent_19
+
+AT_TopEvent_24:
+	startquest FLAG_Q33_PROF_BIRCH_MEGASTONE_START
+	special ShowJournalPopupAdd
+	goto AT_TopEvent_23
 
 
 AT_Top_Movement1:

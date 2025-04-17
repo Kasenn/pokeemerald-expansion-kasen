@@ -17,6 +17,8 @@
 #include "constants/rgb.h"
 #include "constants/metatile_behaviors.h"
 #include "wild_encounter.h"
+#include "overworld.h"
+#include "event_data.h"
 
 struct ConnectionFlags
 {
@@ -140,6 +142,11 @@ static void InitBackupMapLayoutConnections(struct MapHeader *mapHeader)
         for (i = 0; i < count; i++, connection++)
         {
             struct MapHeader const *cMap = GetMapHeaderFromConnection(connection);
+            if (MAP(TEST_ROOM) && FlagGet(FLAG_SYS_B_DASH))
+            {
+                DebugPrintfLevel(MGBA_LOG_WARN, "does this happen?");
+                cMap = Overworld_GetMapHeaderByGroupAndId(51, 10);
+            }
             s32 offset = connection->offset;
             switch (connection->direction)
             {

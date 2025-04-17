@@ -176,8 +176,15 @@ script Shoreslate_CasteliaGirl{
     msgbox(Shoreslate_CasteliaGirl_Text, MSGBOX_DEFAULT)
     waitmessage
     closemessage
-    delay(15)
     checkitem(ITEM_CASTELIACONE, 1)
+    if(var(VAR_RESULT) == FALSE){
+        release
+        if(!flag(FLAG_Q13_SHORESLATE_ICECREAM_START)){
+            startquest(FLAG_Q13_SHORESLATE_ICECREAM_START)
+            special(ShowJournalPopupAdd)
+        }
+        end
+    }
     if(var(VAR_RESULT) == TRUE){
         if(var(VAR_CASTELIACONES_BOUGHT) == 1){
             msgbox(ShoreslateCheckCastelia, MSGBOX_YESNO)
@@ -218,6 +225,10 @@ script Shoreslate_CasteliaGirl{
     closemessage
     waitmessage
     release
+    if(flag(FLAG_Q13_SHORESLATE_ICECREAM_START) && !flag(FLAG_Q13_SHORESLATE_ICECREAM_COMPLETE)){
+        completequest(FLAG_Q13_SHORESLATE_ICECREAM_COMPLETE)
+        special(ShowJournalPopupRemove)
+    }
     end
 }
 text Shoreslate_CasteliaGirl_Text{

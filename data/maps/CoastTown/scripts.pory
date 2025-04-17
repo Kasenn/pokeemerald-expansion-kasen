@@ -159,19 +159,35 @@ script AzureTide_MysteryWoman{
             case 1:
                 msgbox(AzureTide_MysteryWoman_1Badges, MSGBOX_NPC)
                 turnobject(7, DIR_WEST)
+                if(!flag(FLAG_Q03_AZURETIDE_OLD_WOMAN_START)){
+                    startquest(FLAG_Q03_AZURETIDE_OLD_WOMAN_START)
+                    special(ShowJournalPopupAdd)
+                }
                 end
             case 2:
                 msgbox(AzureTide_MysteryWoman_2Badges, MSGBOX_NPC)
                 turnobject(7, DIR_WEST)
+                if(!flag(FLAG_Q03_AZURETIDE_OLD_WOMAN_START)){
+                    startquest(FLAG_Q03_AZURETIDE_OLD_WOMAN_START)
+                    special(ShowJournalPopupAdd)
+                }
                 end
             case 3:
                 msgbox(AzureTide_MysteryWoman_3Badges, MSGBOX_NPC)
                 turnobject(7, DIR_WEST)
+                if(!flag(FLAG_Q03_AZURETIDE_OLD_WOMAN_START)){
+                    startquest(FLAG_Q03_AZURETIDE_OLD_WOMAN_START)
+                    special(ShowJournalPopupAdd)
+                }
                 end
             case 4:
             case 5:
                 msgbox(AzureTide_MysteryWoman_Get6Badges, MSGBOX_NPC)
                 turnobject(7, DIR_WEST)
+                if(!flag(FLAG_Q03_AZURETIDE_OLD_WOMAN_START)){
+                    startquest(FLAG_Q03_AZURETIDE_OLD_WOMAN_START)
+                    special(ShowJournalPopupAdd)
+                }
                 end
             case 6:
             case 7:
@@ -341,7 +357,7 @@ script Azuretide_Ampharos{
         end
     }
     setvar(VAR_RANCH_AMPHAROS, 1)
-    warp(MAP_ROUTE3, 91, 16)
+    warp(MAP_ROUTE3, 78, 12)
     waitstate
     end
 }
@@ -387,6 +403,10 @@ script AzureTide_MysteryWoman_Battle{
         msgbox(AzureTide_ExplainFragment)
     }
     release
+    if(flag(FLAG_Q03_AZURETIDE_OLD_WOMAN_START)){
+        completequest(FLAG_Q03_AZURETIDE_OLD_WOMAN_COMPLETE)
+        special(ShowJournalPopupRemove)
+    }
     end
 }
 

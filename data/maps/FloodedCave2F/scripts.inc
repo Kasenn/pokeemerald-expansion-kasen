@@ -1,22 +1,43 @@
 FloodedCave2F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, FC2F_Flags
 	map_script MAP_SCRIPT_ON_LOAD, FC2F_Flags
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, FloodedCave2F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
+
+FloodedCave2F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_TEMP_1, 1, FloodedCave2F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0
+	.2byte 0
+
+FloodedCave2F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0:
+	special ShowJournalPopupAdd
+	setvar VAR_TEMP_1, 0
+	return
 
 
 FC2F_Flags::
-	goto_if_set FLAG_HIDE_STONE_SPHERE_FC, FC2F_Flags_2
+	goto_if_unset FLAG_Q31_ROUTE12_WEIRDCAVE_START, FC2F_Flags_3
 FC2F_Flags_1:
+	goto_if_set FLAG_HIDE_STONE_SPHERE_FC, FC2F_Flags_7
+FC2F_Flags_6:
 	end
 
 FC2F_Flags_2:
+	startquest FLAG_Q31_ROUTE12_WEIRDCAVE_START
+	setvar VAR_TEMP_1, 1
+	goto FC2F_Flags_1
+
+FC2F_Flags_3:
+	goto_if_unset FLAG_FC_LOOTEDROCK, FC2F_Flags_2
+	goto FC2F_Flags_1
+
+FC2F_Flags_7:
 	setmetatile 6, 1, 0x219, TRUE
 	setmetatile 7, 1, 0x219, TRUE
 	setmetatile 8, 1, 0x219, TRUE
 	setmetatile 6, 2, 0x219, TRUE
 	setmetatile 7, 2, 0x219, TRUE
 	setmetatile 8, 2, 0x219, TRUE
-	goto FC2F_Flags_1
+	goto FC2F_Flags_6
 
 
 FloodedCave2F_ActivatePedestal::

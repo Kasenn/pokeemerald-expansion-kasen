@@ -75,10 +75,16 @@ R14_RR_Event_Trigger1::
 	setobjectxyperm 15, 41, 13
 	setobjectxy 15, 41, 13
 	setflag FLAG_HIDE_PLAYERS_HOUSE_DAD
+	goto_if_set FLAG_Q34_DADS_HOME_START, R14_RR_Event_Trigger1_2
+R14_RR_Event_Trigger1_1:
 	setflag FLAG_HIDE_LAB_RIVAL
 	setvar VAR_ROUTE14_ROCKET_EVENT, 1
 	release
 	end
+
+R14_RR_Event_Trigger1_2:
+	completequest FLAG_Q34_DADS_HOME_COMPLETE
+	goto R14_RR_Event_Trigger1_1
 
 
 R14_GruntEscapes:

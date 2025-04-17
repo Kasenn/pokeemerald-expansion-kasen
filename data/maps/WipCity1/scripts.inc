@@ -267,6 +267,8 @@ AldeleafCity_KeyMan::
 	goto_if_eq AldeleafCity_KeyMan_2
 AldeleafCity_KeyMan_1:
 	release
+	goto_if_unset FLAG_Q04_ALDELEAF_LOST_KEYS_START, AldeleafCity_KeyMan_5
+AldeleafCity_KeyMan_4:
 	end
 
 AldeleafCity_KeyMan_2:
@@ -299,6 +301,17 @@ AldeleafCity_KeyMan_2:
 	waitdooranim
 	hideobjectat 16, MAP_WIP_CITY1
 	setobjectxyperm 16, 0, 30
+	goto_if_set FLAG_Q04_ALDELEAF_LOST_KEYS_START, AldeleafCity_KeyMan_7
+	goto AldeleafCity_KeyMan_1
+
+AldeleafCity_KeyMan_5:
+	startquest FLAG_Q04_ALDELEAF_LOST_KEYS_START
+	special ShowJournalPopupAdd
+	goto AldeleafCity_KeyMan_4
+
+AldeleafCity_KeyMan_7:
+	completequest FLAG_Q04_ALDELEAF_LOST_KEYS_COMPLETE
+	special ShowJournalPopupRemove
 	goto AldeleafCity_KeyMan_1
 
 

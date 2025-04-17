@@ -137,14 +137,26 @@ script Kaolisle_BirdHouse_BirdMan{
     if(var(VAR_KAOLISLE_BIRDS) == 0){
         msgbox(PleaseHelpReturnBirds, MSGBOX_NPC)
         setvar(VAR_KAOLISLE_BIRDS, 100)
+        if(!flag(FLAG_Q28_KAOLISLE_LOSTBIRDS_START)){
+            startquest(FLAG_Q28_KAOLISLE_LOSTBIRDS_START)
+            special(ShowJournalPopupAdd)
+        }
         end
     }
     if(var(VAR_KAOLISLE_BIRDS) == 100){
         msgbox(PleaseHelpReturnBirds_Reminder, MSGBOX_NPC)
+        if(!flag(FLAG_Q28_KAOLISLE_LOSTBIRDS_START)){
+            startquest(FLAG_Q28_KAOLISLE_LOSTBIRDS_START)
+            special(ShowJournalPopupAdd)
+        }
         end
     }
     if(var(VAR_KAOLISLE_BIRDS) < 131){
         msgbox(SomeBirdsAreBack, MSGBOX_NPC)
+        if(!flag(FLAG_Q28_KAOLISLE_LOSTBIRDS_START)){
+            startquest(FLAG_Q28_KAOLISLE_LOSTBIRDS_START)
+            special(ShowJournalPopupAdd)
+        }
         end
     }
     else{
@@ -154,6 +166,10 @@ script Kaolisle_BirdHouse_BirdMan{
         giveitem(ITEM_TM_BULLET_SEED)
         if(var(VAR_RESULT) == FALSE){
             goto(ZeBagIsFull)
+        }
+        if(flag(FLAG_Q28_KAOLISLE_LOSTBIRDS_START)){
+            completequest(FLAG_Q28_KAOLISLE_LOSTBIRDS_COMPLETE)
+            special(ShowJournalPopupRemove)
         }
     }
     release

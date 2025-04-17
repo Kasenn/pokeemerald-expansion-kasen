@@ -30,6 +30,7 @@ Ttar_Trigger3::
 
 
 Ttar_MainEvent::
+	lock
 	delay 30
 	switch VAR_TEMP_1
 	case 1, Ttar_MainEvent_3
@@ -109,6 +110,7 @@ Ttar_MainEvent_Movement_0:
 	walk_fast_down
 	walk_fast_down
 	walk_fast_down
+	unlock_anim
 	step_end
 
 OverwhelmingAura::

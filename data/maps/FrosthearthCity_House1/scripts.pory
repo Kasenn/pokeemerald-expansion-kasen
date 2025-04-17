@@ -410,6 +410,10 @@ script Frosthearth_TypeChecker{
     special(IsTypeInParty)
     if(var(VAR_RESULT) == FALSE){
         release
+        if(!flag(FLAG_Q41_FROSTHEARTH_TYPEMON_START)){
+            startquest(FLAG_Q41_FROSTHEARTH_TYPEMON_START)
+            special(ShowJournalPopupAdd)
+        }
         end
     }
     msgbox(YouHaveTypeInParty)
@@ -456,6 +460,10 @@ script Frosthearth_TypeChecker{
     }
     setflag(FLAG_DAILY_FROSTHEARTH_TYPE_CHECK)
     release
+    if(flag(FLAG_Q41_FROSTHEARTH_TYPEMON_START) && !flag(FLAG_Q41_FROSTHEARTH_TYPEMON_COMPLETE)){
+        completequest(FLAG_Q41_FROSTHEARTH_TYPEMON_COMPLETE)
+        special(ShowJournalPopupRemove)
+    }
     end
 }
 

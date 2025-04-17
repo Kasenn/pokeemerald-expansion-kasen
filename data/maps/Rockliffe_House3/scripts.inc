@@ -12,17 +12,19 @@ Rockliffe_House1_OldWoman::
 	checkpartymon SPECIES_BEEDRILL, 0
 	compare VAR_RESULT, FALSE
 	goto_if_eq Rockliffe_House1_OldWoman_8
-	goto_if_unset FLAG_OBTAINED_MEGA_RING, Rockliffe_House1_OldWoman_11
+	goto_if_unset FLAG_OBTAINED_MEGA_RING, Rockliffe_House1_OldWoman_14
 	msgbox TakeBeedrillite, MSGBOX_DEFAULT
 	checkitemspace ITEM_BEEDRILLITE
 	compare VAR_RESULT, FALSE
-	goto_if_eq Rockliffe_House1_OldWoman_14
-Rockliffe_House1_OldWoman_13:
+	goto_if_eq Rockliffe_House1_OldWoman_20
+Rockliffe_House1_OldWoman_19:
 	giveitem ITEM_BEEDRILLITE
 	setflag FLAG_OBTAINED_BEEDRILLITE
 	waitse
 	waitmessage
 	closemessage
+	goto_if_set FLAG_Q30_ROCKLIFFE_BEEDRILLS_START, Rockliffe_House1_OldWoman_26
+Rockliffe_House1_OldWoman_25:
 	release
 	end
 
@@ -32,19 +34,45 @@ Rockliffe_House1_OldWoman_2:
 
 Rockliffe_House1_OldWoman_5:
 	msgbox ThatsAShame, MSGBOX_NPC
+	goto_if_unset FLAG_Q30_ROCKLIFFE_BEEDRILLS_START, Rockliffe_House1_OldWoman_11
+Rockliffe_House1_OldWoman_10:
 	end
 
 Rockliffe_House1_OldWoman_8:
 	msgbox YouDontHaveBeedrill, MSGBOX_NPC
+	goto_if_unset FLAG_Q30_ROCKLIFFE_BEEDRILLS_START, Rockliffe_House1_OldWoman_17
+Rockliffe_House1_OldWoman_16:
 	end
 
 Rockliffe_House1_OldWoman_11:
-	msgbox HaveBeedrillButNoRing, MSGBOX_NPC
-	end
+	startquest FLAG_Q30_ROCKLIFFE_BEEDRILLS_START
+	special ShowJournalPopupAdd
+	goto Rockliffe_House1_OldWoman_10
 
 Rockliffe_House1_OldWoman_14:
+	msgbox HaveBeedrillButNoRing, MSGBOX_NPC
+	goto_if_unset FLAG_Q30_ROCKLIFFE_BEEDRILLS_START, Rockliffe_House1_OldWoman_23
+Rockliffe_House1_OldWoman_22:
+	end
+
+Rockliffe_House1_OldWoman_17:
+	startquest FLAG_Q30_ROCKLIFFE_BEEDRILLS_START
+	special ShowJournalPopupAdd
+	goto Rockliffe_House1_OldWoman_16
+
+Rockliffe_House1_OldWoman_20:
 	goto ZeBagIsFull
-	goto Rockliffe_House1_OldWoman_13
+	goto Rockliffe_House1_OldWoman_19
+
+Rockliffe_House1_OldWoman_23:
+	startquest FLAG_Q30_ROCKLIFFE_BEEDRILLS_START
+	special ShowJournalPopupAdd
+	goto Rockliffe_House1_OldWoman_22
+
+Rockliffe_House1_OldWoman_26:
+	completequest FLAG_Q30_ROCKLIFFE_BEEDRILLS_COMPLETE
+	special ShowJournalPopupRemove
+	goto Rockliffe_House1_OldWoman_25
 
 
 RockliffeHouse3_Man1::
@@ -60,6 +88,8 @@ RockliffeHouse3_Man1::
 	goto_if_eq RockliffeHouse3_Man1_8
 RockliffeHouse3_Man1_7:
 	closemessage
+	goto_if_unset FLAG_Q29_ROCKLIFFE_HEAVYMON_START, RockliffeHouse3_Man1_14
+RockliffeHouse3_Man1_13:
 	release
 	end
 
@@ -82,6 +112,11 @@ RockliffeHouse3_Man1_11:
 	goto WeighsMoreResult
 	end
 
+RockliffeHouse3_Man1_14:
+	startquest FLAG_Q29_ROCKLIFFE_HEAVYMON_START
+	special ShowJournalPopupAdd
+	goto RockliffeHouse3_Man1_13
+
 
 WeighsMoreResult::
 	msgbox AronWeighsMore, MSGBOX_DEFAULT
@@ -94,12 +129,19 @@ WeighsMoreResult_1:
 	waitmessage
 	setflag FLAG_RECEIVED_METAL_COAT
 	closemessage
+	goto_if_set FLAG_Q29_ROCKLIFFE_HEAVYMON_START, WeighsMoreResult_5
+WeighsMoreResult_4:
 	release
 	end
 
 WeighsMoreResult_2:
 	goto ZeBagIsFull
 	goto WeighsMoreResult_1
+
+WeighsMoreResult_5:
+	completequest FLAG_Q29_ROCKLIFFE_HEAVYMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto WeighsMoreResult_4
 
 
 RockliffeHouse3_Man2::

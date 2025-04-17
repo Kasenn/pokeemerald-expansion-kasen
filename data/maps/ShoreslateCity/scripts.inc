@@ -118,52 +118,75 @@ Shoreslate_CasteliaGirl::
 	msgbox Shoreslate_CasteliaGirl_Text, MSGBOX_DEFAULT
 	waitmessage
 	closemessage
-	delay 15
 	checkitem ITEM_CASTELIACONE, 1
-	compare VAR_RESULT, TRUE
+	compare VAR_RESULT, FALSE
 	goto_if_eq Shoreslate_CasteliaGirl_2
-Shoreslate_CasteliaGirl_1:
+	compare VAR_RESULT, TRUE
+	goto_if_eq Shoreslate_CasteliaGirl_5
+Shoreslate_CasteliaGirl_4:
 	closemessage
 	waitmessage
 	release
+	goto_if_set FLAG_Q13_SHORESLATE_ICECREAM_START, Shoreslate_CasteliaGirl_12
+Shoreslate_CasteliaGirl_10:
 	end
 
 Shoreslate_CasteliaGirl_2:
-	compare VAR_CASTELIACONES_BOUGHT, 1
-	goto_if_eq Shoreslate_CasteliaGirl_5
-	msgbox ShoreslateCheckCastelias, MSGBOX_YESNO
-Shoreslate_CasteliaGirl_4:
-	compare VAR_RESULT, TRUE
-	goto_if_eq Shoreslate_CasteliaGirl_8
-	goto Shoreslate_CasteliaGirl_1
+	release
+	goto_if_unset FLAG_Q13_SHORESLATE_ICECREAM_START, Shoreslate_CasteliaGirl_8
+Shoreslate_CasteliaGirl_7:
+	end
 
 Shoreslate_CasteliaGirl_5:
-	msgbox ShoreslateCheckCastelia, MSGBOX_YESNO
+	compare VAR_CASTELIACONES_BOUGHT, 1
+	goto_if_eq Shoreslate_CasteliaGirl_16
+	msgbox ShoreslateCheckCastelias, MSGBOX_YESNO
+Shoreslate_CasteliaGirl_15:
+	compare VAR_RESULT, TRUE
+	goto_if_eq Shoreslate_CasteliaGirl_19
 	goto Shoreslate_CasteliaGirl_4
 
 Shoreslate_CasteliaGirl_8:
-	checkitem ITEM_CASTELIACONE, 4
-	compare VAR_RESULT, FALSE
-	goto_if_eq Shoreslate_CasteliaGirl_11
-Shoreslate_CasteliaGirl_10:
-	compare VAR_RESULT, TRUE
-	goto_if_eq Shoreslate_CasteliaGirl_13
-	goto Shoreslate_CasteliaGirl_1
+	startquest FLAG_Q13_SHORESLATE_ICECREAM_START
+	special ShowJournalPopupAdd
+	goto Shoreslate_CasteliaGirl_7
 
 Shoreslate_CasteliaGirl_11:
-	msgbox Shoreslate_CasteliaSecondThought, MSGBOX_NPC
+	completequest FLAG_Q13_SHORESLATE_ICECREAM_COMPLETE
+	special ShowJournalPopupRemove
 	goto Shoreslate_CasteliaGirl_10
 
-Shoreslate_CasteliaGirl_13:
+Shoreslate_CasteliaGirl_12:
+	goto_if_unset FLAG_Q13_SHORESLATE_ICECREAM_COMPLETE, Shoreslate_CasteliaGirl_11
+	goto Shoreslate_CasteliaGirl_10
+
+Shoreslate_CasteliaGirl_16:
+	msgbox ShoreslateCheckCastelia, MSGBOX_YESNO
+	goto Shoreslate_CasteliaGirl_15
+
+Shoreslate_CasteliaGirl_19:
+	checkitem ITEM_CASTELIACONE, 4
+	compare VAR_RESULT, FALSE
+	goto_if_eq Shoreslate_CasteliaGirl_22
+Shoreslate_CasteliaGirl_21:
+	compare VAR_RESULT, TRUE
+	goto_if_eq Shoreslate_CasteliaGirl_24
+	goto Shoreslate_CasteliaGirl_4
+
+Shoreslate_CasteliaGirl_22:
+	msgbox Shoreslate_CasteliaSecondThought, MSGBOX_NPC
+	goto Shoreslate_CasteliaGirl_21
+
+Shoreslate_CasteliaGirl_24:
 	removeitem ITEM_CASTELIACONE, 4
 	playfanfare MUS_OBTAIN_ITEM
 	message HandedOverCastelia
 	waitfanfare
 	checkplayergender
 	compare VAR_RESULT, MALE
-	goto_if_eq Shoreslate_CasteliaGirl_16
+	goto_if_eq Shoreslate_CasteliaGirl_27
 	msgbox ThankYouMsCastelia, MSGBOX_DEFAULT
-Shoreslate_CasteliaGirl_15:
+Shoreslate_CasteliaGirl_26:
 	giveitem ITEM_AIR_BALLOON
 	waitfanfare
 	msgbox GetHomeFast, MSGBOX_DEFAULT
@@ -174,11 +197,11 @@ Shoreslate_CasteliaGirl_15:
 	setflag FLAG_GIVEN_CASTELIATOGIRL
 	fadescreen FADE_FROM_BLACK
 	delay 15
-	goto Shoreslate_CasteliaGirl_1
+	goto Shoreslate_CasteliaGirl_4
 
-Shoreslate_CasteliaGirl_16:
+Shoreslate_CasteliaGirl_27:
 	msgbox ThankYouMrCastelia, MSGBOX_DEFAULT
-	goto Shoreslate_CasteliaGirl_15
+	goto Shoreslate_CasteliaGirl_26
 
 
 Shoreslate_CasteliaVendor::

@@ -67,7 +67,7 @@ script AT_Pedestal_Steel{
             release
             end
         }
-        removeitem(ITEM_STEEL_SPHERE)
+        removeallitem(ITEM_STEEL_SPHERE)
         clearflag(FLAG_PLACED_STEEL_SPHERE)
         addobject(6)
         removeobject(3)
@@ -401,6 +401,10 @@ script AT_TopEvent{
     settrainerflag(TRAINER_AT_5F_COOLTRAINER_F)
     delay(30)
     release
+    if(!flag(FLAG_Q33_PROF_BIRCH_MEGASTONE_START)){
+        startquest(FLAG_Q33_PROF_BIRCH_MEGASTONE_START)
+        special(ShowJournalPopupAdd)
+    }
     end}
 text YouTwoMadeIt{
     "Korrina: Oh hey, you two actually\n"

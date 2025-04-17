@@ -53,6 +53,8 @@ Kaolisle_Hotel_2F_Man2_4:
 	compare VAR_RESULT, TRUE
 	goto_if_eq Kaolisle_Hotel_2F_Man2_8
 Kaolisle_Hotel_2F_Man2_7:
+	goto_if_unset FLAG_Q25_HOTEL_TROPICALSTONE_START, Kaolisle_Hotel_2F_Man2_11
+Kaolisle_Hotel_2F_Man2_10:
 	end
 
 Kaolisle_Hotel_2F_Man2_2:
@@ -69,6 +71,11 @@ Kaolisle_Hotel_2F_Man2_8:
 	goto Kaolisle_Hotel_2F_Man2_MonFound
 	goto Kaolisle_Hotel_2F_Man2_7
 
+Kaolisle_Hotel_2F_Man2_11:
+	startquest FLAG_Q25_HOTEL_TROPICALSTONE_START
+	special ShowJournalPopupAdd
+	goto Kaolisle_Hotel_2F_Man2_10
+
 
 Kaolisle_Hotel_2F_Man2_MonFound::
 	lock
@@ -82,11 +89,17 @@ Kaolisle_Hotel_2F_Man2_MonFound_1:
 	setflag FLAG_OBTAINED_TROPICALSTONE
 	waitfanfare
 	closemessage
+	goto_if_set FLAG_Q25_HOTEL_TROPICALSTONE_START, Kaolisle_Hotel_2F_Man2_MonFound_4
 	return
 
 Kaolisle_Hotel_2F_Man2_MonFound_2:
 	goto ZeBagIsFull
 	goto Kaolisle_Hotel_2F_Man2_MonFound_1
+
+Kaolisle_Hotel_2F_Man2_MonFound_4:
+	completequest FLAG_Q25_HOTEL_TROPICALSTONE_COMPLETE
+	special ShowJournalPopupRemove
+	return
 
 
 Room201_Text_0:

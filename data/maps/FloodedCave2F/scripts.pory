@@ -1,9 +1,19 @@
 mapscripts FloodedCave2F_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: FC2F_Flags
     MAP_SCRIPT_ON_LOAD: FC2F_Flags
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_TEMP_1, 1 {
+            special(ShowJournalPopupAdd)
+            setvar(VAR_TEMP_1, 0)
+        }
+    ]
 }
 
 script FC2F_Flags{
+    if(!flag(FLAG_Q31_ROUTE12_WEIRDCAVE_START) && !flag(FLAG_FC_LOOTEDROCK)){
+        startquest(FLAG_Q31_ROUTE12_WEIRDCAVE_START)
+        setvar(VAR_TEMP_1, 1)
+    }
     if(flag(FLAG_HIDE_STONE_SPHERE_FC)){
         setmetatile(6, 1, 0x219, TRUE)
         setmetatile(7, 1, 0x219, TRUE)

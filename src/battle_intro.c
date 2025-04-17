@@ -26,6 +26,7 @@ static const TaskFunc sBattleIntroSlideFuncs[] =
 {
     [BATTLE_TERRAIN_GRASS]      = BattleIntroSlide1,
     [BATTLE_TERRAIN_LONG_GRASS] = BattleIntroSlide1,
+    [BATTLE_TERRAIN_LONG_GRASS_AUTUMN] = BattleIntroSlide1,
     [BATTLE_TERRAIN_SAND]       = BattleIntroSlide2,
     [BATTLE_TERRAIN_UNDERWATER] = BattleIntroSlide2,
     [BATTLE_TERRAIN_WATER]      = BattleIntroSlide2,
@@ -246,7 +247,7 @@ static void BattleIntroSlide1(u8 taskId)
         }
         else
         {
-            if (gTasks[taskId].tTerrain == BATTLE_TERRAIN_LONG_GRASS)
+            if (gTasks[taskId].tTerrain == BATTLE_TERRAIN_LONG_GRASS || gTasks[taskId].tTerrain == BATTLE_TERRAIN_LONG_GRASS_AUTUMN)
             {
                 if (gBattle_BG1_Y != (u16)(-80))
                     gBattle_BG1_Y -= 2;

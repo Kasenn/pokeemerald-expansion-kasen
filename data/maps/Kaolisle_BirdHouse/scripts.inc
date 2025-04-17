@@ -226,14 +226,16 @@ Kaolisle_BirdHouse_BirdMan::
 	compare VAR_KAOLISLE_BIRDS, 100
 	goto_if_eq Kaolisle_BirdHouse_BirdMan_8
 	compare VAR_KAOLISLE_BIRDS, 131
-	goto_if_lt Kaolisle_BirdHouse_BirdMan_11
+	goto_if_lt Kaolisle_BirdHouse_BirdMan_14
 	lock
 	faceplayer
 	msgbox TakeBulletSeed
 	giveitem ITEM_TM_BULLET_SEED
 	compare VAR_RESULT, FALSE
-	goto_if_eq Kaolisle_BirdHouse_BirdMan_14
-Kaolisle_BirdHouse_BirdMan_10:
+	goto_if_eq Kaolisle_BirdHouse_BirdMan_24
+Kaolisle_BirdHouse_BirdMan_23:
+	goto_if_set FLAG_Q28_KAOLISLE_LOSTBIRDS_START, Kaolisle_BirdHouse_BirdMan_26
+Kaolisle_BirdHouse_BirdMan_13:
 	release
 	end
 
@@ -244,19 +246,45 @@ Kaolisle_BirdHouse_BirdMan_2:
 Kaolisle_BirdHouse_BirdMan_5:
 	msgbox PleaseHelpReturnBirds, MSGBOX_NPC
 	setvar VAR_KAOLISLE_BIRDS, 100
+	goto_if_unset FLAG_Q28_KAOLISLE_LOSTBIRDS_START, Kaolisle_BirdHouse_BirdMan_11
+Kaolisle_BirdHouse_BirdMan_10:
 	end
 
 Kaolisle_BirdHouse_BirdMan_8:
 	msgbox PleaseHelpReturnBirds_Reminder, MSGBOX_NPC
+	goto_if_unset FLAG_Q28_KAOLISLE_LOSTBIRDS_START, Kaolisle_BirdHouse_BirdMan_18
+Kaolisle_BirdHouse_BirdMan_17:
 	end
 
 Kaolisle_BirdHouse_BirdMan_11:
-	msgbox SomeBirdsAreBack, MSGBOX_NPC
-	end
+	startquest FLAG_Q28_KAOLISLE_LOSTBIRDS_START
+	special ShowJournalPopupAdd
+	goto Kaolisle_BirdHouse_BirdMan_10
 
 Kaolisle_BirdHouse_BirdMan_14:
+	msgbox SomeBirdsAreBack, MSGBOX_NPC
+	goto_if_unset FLAG_Q28_KAOLISLE_LOSTBIRDS_START, Kaolisle_BirdHouse_BirdMan_21
+Kaolisle_BirdHouse_BirdMan_20:
+	end
+
+Kaolisle_BirdHouse_BirdMan_18:
+	startquest FLAG_Q28_KAOLISLE_LOSTBIRDS_START
+	special ShowJournalPopupAdd
+	goto Kaolisle_BirdHouse_BirdMan_17
+
+Kaolisle_BirdHouse_BirdMan_21:
+	startquest FLAG_Q28_KAOLISLE_LOSTBIRDS_START
+	special ShowJournalPopupAdd
+	goto Kaolisle_BirdHouse_BirdMan_20
+
+Kaolisle_BirdHouse_BirdMan_24:
 	goto ZeBagIsFull
-	goto Kaolisle_BirdHouse_BirdMan_10
+	goto Kaolisle_BirdHouse_BirdMan_23
+
+Kaolisle_BirdHouse_BirdMan_26:
+	completequest FLAG_Q28_KAOLISLE_LOSTBIRDS_COMPLETE
+	special ShowJournalPopupRemove
+	goto Kaolisle_BirdHouse_BirdMan_13
 
 
 KaolisleBirdHouse_Pikipek::

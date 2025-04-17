@@ -69,12 +69,20 @@ void ShowJournalPopup(void)
 
 void ShowJournalPopupAdd(void)
 {
+    if (!FlagGet(FLAG_SYS_JOURNAL_GET))
+    {
+        return;
+    }
     sIsQuestStarted = TRUE;
     ShowJournalPopup();
 }
 
 void ShowJournalPopupRemove(void)
 {
+    if (!FlagGet(FLAG_SYS_JOURNAL_GET))
+    {
+        return;
+    }
     sIsQuestStarted = FALSE;
     ShowJournalPopup();
 }

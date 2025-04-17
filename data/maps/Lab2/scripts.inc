@@ -167,13 +167,15 @@ Lab2_GetMegaStone_5:
 Lab2_GetMegaStone_19:
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED
 	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED
-	goto_if_eq Lab2_GetMegaStone_30
-Lab2_GetMegaStone_28:
+	goto_if_eq Lab2_GetMegaStone_33
+Lab2_GetMegaStone_31:
 	waitse
 Lab2_GetMegaStone_8:
 	goto_if_unset FLAG_HIDE_LAB_RIVAL, Lab2_GetMegaStone_13
 Lab2_GetMegaStone_12:
 	release
+	goto_if_set FLAG_Q33_PROF_BIRCH_MEGASTONE_START, Lab2_GetMegaStone_25
+Lab2_GetMegaStone_24:
 	end
 
 Lab2_GetMegaStone_2:
@@ -207,11 +209,11 @@ Lab2_GetMegaStone_13:
 	checkplayergender
 	checkplayergender
 	compare VAR_RESULT, MALE
-	goto_if_eq Lab2_GetMegaStone_25
+	goto_if_eq Lab2_GetMegaStone_28
 	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_GET_MEGA_STONE_LATER
-	goto_if_eq Lab2_GetMegaStone_36
+	goto_if_eq Lab2_GetMegaStone_39
 	msgbox GonnaTakeMyLeave_Brendan
-Lab2_GetMegaStone_24:
+Lab2_GetMegaStone_27:
 	applymovement 5, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	msgbox ThanksDadBirch
@@ -239,26 +241,31 @@ Lab2_GetMegaStone_23:
 	goto Lab2_GetMegaStone_19
 
 Lab2_GetMegaStone_25:
-	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_GET_MEGA_STONE_LATER
-	goto_if_eq Lab2_GetMegaStone_33
-	msgbox GonnaTakeMyLeave_May
+	completequest FLAG_Q33_PROF_BIRCH_MEGASTONE_COMPLETE
+	special ShowJournalPopupRemove
 	goto Lab2_GetMegaStone_24
 
-Lab2_GetMegaStone_29:
-	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED
-	goto Lab2_GetMegaStone_28
+Lab2_GetMegaStone_28:
+	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_GET_MEGA_STONE_LATER
+	goto_if_eq Lab2_GetMegaStone_36
+	msgbox GonnaTakeMyLeave_May
+	goto Lab2_GetMegaStone_27
 
-Lab2_GetMegaStone_30:
-	goto_if_set FLAG_RECEIVED_CAPSULE, Lab2_GetMegaStone_29
-	goto Lab2_GetMegaStone_28
+Lab2_GetMegaStone_32:
+	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED
+	goto Lab2_GetMegaStone_31
 
 Lab2_GetMegaStone_33:
-	msgbox GonnaGoAhead_May
-	goto Lab2_GetMegaStone_24
+	goto_if_set FLAG_RECEIVED_CAPSULE, Lab2_GetMegaStone_32
+	goto Lab2_GetMegaStone_31
 
 Lab2_GetMegaStone_36:
+	msgbox GonnaGoAhead_May
+	goto Lab2_GetMegaStone_27
+
+Lab2_GetMegaStone_39:
 	msgbox GonnaGoAhead_Brendan
-	goto Lab2_GetMegaStone_24
+	goto Lab2_GetMegaStone_27
 
 
 Lab2_Birch::
@@ -285,6 +292,7 @@ Lab2_Birch_3:
 
 Lab2_Birch_4:
 	msgbox YourFatherIsInTown, MSGBOX_NPC
+	goto_if_unset FLAG_Q34_DADS_HOME_START, Lab2_Birch_11
 	goto Lab2_Birch_1
 
 Lab2_Birch_5:
@@ -293,40 +301,45 @@ Lab2_Birch_5:
 	msgbox HeresYourStoneNow
 	checkitemspace ITEM_DECIDUEITE
 	compare VAR_RESULT, FALSE
-	goto_if_eq Lab2_Birch_11
+	goto_if_eq Lab2_Birch_13
 	switch VAR_STARTER_MON
-	case 0, Lab2_Birch_16
-	case 1, Lab2_Birch_17
-	case 2, Lab2_Birch_18
-Lab2_Birch_14:
+	case 0, Lab2_Birch_18
+	case 1, Lab2_Birch_19
+	case 2, Lab2_Birch_20
+Lab2_Birch_16:
 	waitse
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED
 	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED
-	goto_if_eq Lab2_Birch_20
+	goto_if_eq Lab2_Birch_22
 	goto Lab2_Birch_1
 
 Lab2_Birch_11:
+	startquest FLAG_Q34_DADS_HOME_START
+	special ShowJournalPopupAdd
+	goto Lab2_Birch_1
+
+Lab2_Birch_13:
 	msgbox ComeGetYourStoneLaterShort, MSGBOX_NPC
 	end
 
-Lab2_Birch_16:
-	giveitem ITEM_DECIDUEITE
-	goto Lab2_Birch_14
-
-Lab2_Birch_17:
-	giveitem ITEM_BLAZIKENITE
-	goto Lab2_Birch_14
-
 Lab2_Birch_18:
-	giveitem ITEM_EMPOLEONITE
-	goto Lab2_Birch_14
+	giveitem ITEM_DECIDUEITE
+	goto Lab2_Birch_16
 
 Lab2_Birch_19:
+	giveitem ITEM_BLAZIKENITE
+	goto Lab2_Birch_16
+
+Lab2_Birch_20:
+	giveitem ITEM_EMPOLEONITE
+	goto Lab2_Birch_16
+
+Lab2_Birch_21:
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED
 	goto Lab2_Birch_1
 
-Lab2_Birch_20:
-	goto_if_set FLAG_RECEIVED_CAPSULE, Lab2_Birch_19
+Lab2_Birch_22:
+	goto_if_set FLAG_RECEIVED_CAPSULE, Lab2_Birch_21
 	goto Lab2_Birch_1
 
 

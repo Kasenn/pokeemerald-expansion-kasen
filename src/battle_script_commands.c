@@ -980,6 +980,7 @@ static const u16 sNaturePowerMoves[BATTLE_TERRAIN_COUNT] =
 #if B_NATURE_POWER_MOVES >= GEN_7
     [BATTLE_TERRAIN_GRASS]      = MOVE_ENERGY_BALL,
     [BATTLE_TERRAIN_LONG_GRASS] = MOVE_ENERGY_BALL,
+    [BATTLE_TERRAIN_LONG_GRASS_AUTUMN] = MOVE_ENERGY_BALL,
     [BATTLE_TERRAIN_SAND]       = MOVE_EARTH_POWER,
     [BATTLE_TERRAIN_WATER]      = MOVE_HYDRO_PUMP,
     [BATTLE_TERRAIN_POND]       = MOVE_HYDRO_PUMP,
@@ -1090,6 +1091,7 @@ static const u8 sTerrainToType[BATTLE_TERRAIN_COUNT] =
 {
     [BATTLE_TERRAIN_GRASS]            = TYPE_GRASS,
     [BATTLE_TERRAIN_LONG_GRASS]       = TYPE_GRASS,
+    [BATTLE_TERRAIN_LONG_GRASS_AUTUMN]       = TYPE_GRASS,
     [BATTLE_TERRAIN_SAND]             = TYPE_GROUND,
     [BATTLE_TERRAIN_UNDERWATER]       = TYPE_WATER,
     [BATTLE_TERRAIN_WATER]            = TYPE_WATER,
@@ -4075,6 +4077,7 @@ void SetMoveEffect(bool32 primary, bool32 certain)
                         gBattleScripting.moveEffect = (B_SECRET_POWER_EFFECT >= GEN_5 ? MOVE_EFFECT_SPD_MINUS_1 : MOVE_EFFECT_ACC_MINUS_1);
                         break;
                     case BATTLE_TERRAIN_LONG_GRASS:
+                    case BATTLE_TERRAIN_LONG_GRASS_AUTUMN:
                         gBattleScripting.moveEffect = MOVE_EFFECT_SLEEP;
                         break;
                     case BATTLE_TERRAIN_MUD:
@@ -5014,7 +5017,7 @@ static void Cmd_getexp(void)
     u32 holdEffect;
     s32 i; // also used as stringId
     u8 *expMonId = &gBattleStruct->expGetterMonId;
-    u8 trainerClass = gTrainers[TRAINER_BATTLE_PARAM.opponentA]->trainerClass;
+    u8 trainerClass = GetTrainerClassFromId(TRAINER_BATTLE_PARAM.opponentA);
 
     gBattlerFainted = GetBattlerForBattleScript(cmd->battler);
 
@@ -5104,11 +5107,11 @@ static void Cmd_getexp(void)
             else
             {
                 *exp = calculatedExp;
-                if(trainerClass != TRAINER_CLASS_NURSE){
-                    gBattleStruct->expShareExpValue = calculatedExp / 10;
-                }
                 if(trainerClass == TRAINER_CLASS_NURSE){
                     gBattleStruct->expShareExpValue = calculatedExp;
+                }
+                else{
+                    gBattleStruct->expShareExpValue = calculatedExp / 10;
                 }
                 if (gBattleStruct->expShareExpValue == 0)
                     gBattleStruct->expShareExpValue = 1;
@@ -10182,6 +10185,10 @@ static void Cmd_various(void)
         {   
             // gBattleMoveDamage = GetNonDynamaxMaxHP(battler) / 16;
             gBattleStruct->moveDamage[battler] = GetStealthHazardDamage(gMovesInfo[MOVE_STEALTH_ROCK].type, battler);
+            if (gBattleStruct->moveDamage[battler] > (GetNonDynamaxMaxHP(battler) / 6))
+            {
+                gBattleStruct->moveDamage[battler] = (GetNonDynamaxMaxHP(battler) / 6);
+            }
             if (gBattleStruct->moveDamage[battler] == 0)
             gBattleStruct->moveDamage[battler] = 1;
 

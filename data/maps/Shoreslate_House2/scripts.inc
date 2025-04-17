@@ -25,6 +25,8 @@ Shoreslate_Guesser_11:
 	compare VAR_RESULT, TRUE
 	goto_if_eq Shoreslate_Guesser_28
 	msgbox Shoreslate_Starter_Incorrect, MSGBOX_NPC
+	goto_if_unset FLAG_Q14_SHORESLATE_FAVORITEMON_START, Shoreslate_Guesser_50
+Shoreslate_Guesser_49:
 	end
 
 Shoreslate_Guesser_2:
@@ -53,23 +55,29 @@ Shoreslate_Guesser_15:
 Shoreslate_Guesser_20:
 	goto_if_set FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_39
 Shoreslate_Guesser_37:
-	goto_if_unset FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_70
-Shoreslate_Guesser_68:
-	goto_if_unset FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_104
-Shoreslate_Guesser_102:
-	goto_if_set FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_137
-Shoreslate_Guesser_135:
+	goto_if_unset FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_73
+Shoreslate_Guesser_71:
+	goto_if_unset FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_117
+Shoreslate_Guesser_115:
+	goto_if_set FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_165
+Shoreslate_Guesser_163:
 	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
+	goto_if_set FLAG_Q14_SHORESLATE_FAVORITEMON_START, Shoreslate_Guesser_213
+Shoreslate_Guesser_211:
 	setflag FLAG_SHOWN_GRASS
 	end
-	goto_if_set FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_170
-Shoreslate_Guesser_168:
+	goto_if_set FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_247
+Shoreslate_Guesser_245:
 	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
+	goto_if_set FLAG_Q14_SHORESLATE_FAVORITEMON_START, Shoreslate_Guesser_273
+Shoreslate_Guesser_271:
 	setflag FLAG_SHOWN_GRASS
 	end
-	goto_if_unset FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_195
-Shoreslate_Guesser_193:
+	goto_if_unset FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_290
+Shoreslate_Guesser_288:
 	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
+	goto_if_set FLAG_Q14_SHORESLATE_FAVORITEMON_START, Shoreslate_Guesser_309
+Shoreslate_Guesser_307:
 	setflag FLAG_SHOWN_GRASS
 	end
 
@@ -77,25 +85,31 @@ Shoreslate_Guesser_18:
 	msgbox Shoreslate_Starter_Correct, MSGBOX_DEFAULT
 	goto_if_unset FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_32
 Shoreslate_Guesser_30:
-	goto_if_set FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_58
-Shoreslate_Guesser_56:
-	goto_if_unset FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_93
-Shoreslate_Guesser_91:
-	goto_if_unset FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_126
-Shoreslate_Guesser_124:
-	goto_if_set FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_159
-Shoreslate_Guesser_157:
+	goto_if_set FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_61
+Shoreslate_Guesser_59:
+	goto_if_unset FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_101
+Shoreslate_Guesser_99:
+	goto_if_unset FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_149
+Shoreslate_Guesser_147:
+	goto_if_set FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_197
+Shoreslate_Guesser_195:
 	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
+	goto_if_set FLAG_Q14_SHORESLATE_FAVORITEMON_START, Shoreslate_Guesser_237
+Shoreslate_Guesser_235:
 	setflag FLAG_SHOWN_FIRE
 	end
-	goto_if_set FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_188
-Shoreslate_Guesser_186:
+	goto_if_set FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_266
+Shoreslate_Guesser_264:
 	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
+	goto_if_set FLAG_Q14_SHORESLATE_FAVORITEMON_START, Shoreslate_Guesser_285
+Shoreslate_Guesser_283:
 	setflag FLAG_SHOWN_FIRE
 	end
-	goto_if_unset FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_209
-Shoreslate_Guesser_207:
+	goto_if_unset FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_302
+Shoreslate_Guesser_300:
 	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
+	goto_if_set FLAG_Q14_SHORESLATE_FAVORITEMON_START, Shoreslate_Guesser_321
+Shoreslate_Guesser_319:
 	setflag FLAG_SHOWN_FIRE
 	end
 
@@ -107,6 +121,8 @@ Shoreslate_Guesser_21:
 	case 2, Shoreslate_Guesser_48
 Shoreslate_Guesser_44:
 	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
+	goto_if_set FLAG_Q14_SHORESLATE_FAVORITEMON_START, Shoreslate_Guesser_84
+Shoreslate_Guesser_82:
 	setflag FLAG_SHOWN_GRASS
 	end
 
@@ -120,38 +136,46 @@ Shoreslate_Guesser_24:
 
 Shoreslate_Guesser_28:
 	msgbox Shoreslate_Starter_Correct, MSGBOX_DEFAULT
-	goto_if_unset FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_51
-Shoreslate_Guesser_49:
-	goto_if_set FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_81
-Shoreslate_Guesser_79:
-	goto_if_unset FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_115
-Shoreslate_Guesser_113:
-	goto_if_unset FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_148
-Shoreslate_Guesser_146:
+	goto_if_unset FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_54
+Shoreslate_Guesser_52:
+	goto_if_set FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_89
+Shoreslate_Guesser_87:
+	goto_if_unset FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_133
+Shoreslate_Guesser_131:
+	goto_if_unset FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_181
+Shoreslate_Guesser_179:
 	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
+	goto_if_set FLAG_Q14_SHORESLATE_FAVORITEMON_START, Shoreslate_Guesser_223
+Shoreslate_Guesser_221:
 	setflag FLAG_SHOWN_WATER
 	end
-	goto_if_set FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_177
-Shoreslate_Guesser_175:
-	goto_if_set FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_202
-Shoreslate_Guesser_200:
+	goto_if_set FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_254
+Shoreslate_Guesser_252:
+	goto_if_set FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_278
+Shoreslate_Guesser_276:
 	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
+	goto_if_set FLAG_Q14_SHORESLATE_FAVORITEMON_START, Shoreslate_Guesser_297
+Shoreslate_Guesser_295:
 	setflag FLAG_SHOWN_WATER
 	end
-	goto_if_unset FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_216
-Shoreslate_Guesser_214:
+	goto_if_unset FLAG_RECEIVED_CYNDAQUIL, Shoreslate_Guesser_314
+Shoreslate_Guesser_312:
 	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
+	goto_if_set FLAG_Q14_SHORESLATE_FAVORITEMON_START, Shoreslate_Guesser_326
+Shoreslate_Guesser_324:
 	setflag FLAG_SHOWN_WATER
 	end
 
 Shoreslate_Guesser_31:
 	random 3
 	switch VAR_RESULT
-	case 0, Shoreslate_Guesser_65
-	case 1, Shoreslate_Guesser_66
-	case 2, Shoreslate_Guesser_67
-Shoreslate_Guesser_63:
+	case 0, Shoreslate_Guesser_68
+	case 1, Shoreslate_Guesser_69
+	case 2, Shoreslate_Guesser_70
+Shoreslate_Guesser_66:
 	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
+	goto_if_set FLAG_Q14_SHORESLATE_FAVORITEMON_START, Shoreslate_Guesser_112
+Shoreslate_Guesser_110:
 	setflag FLAG_SHOWN_FIRE
 	end
 
@@ -166,10 +190,12 @@ Shoreslate_Guesser_34:
 Shoreslate_Guesser_38:
 	random 2
 	switch VAR_RESULT
-	case 0, Shoreslate_Guesser_77
-	case 1, Shoreslate_Guesser_78
-Shoreslate_Guesser_75:
+	case 0, Shoreslate_Guesser_80
+	case 1, Shoreslate_Guesser_81
+Shoreslate_Guesser_78:
 	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
+	goto_if_set FLAG_Q14_SHORESLATE_FAVORITEMON_START, Shoreslate_Guesser_128
+Shoreslate_Guesser_126:
 	setflag FLAG_SHOWN_GRASS
 	end
 
@@ -200,437 +226,649 @@ Shoreslate_Guesser_48:
 	goto Shoreslate_Guesser_44
 
 Shoreslate_Guesser_50:
-	random 3
-	switch VAR_RESULT
-	case 0, Shoreslate_Guesser_88
-	case 1, Shoreslate_Guesser_89
-	case 2, Shoreslate_Guesser_90
-Shoreslate_Guesser_86:
-	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
-	setflag FLAG_SHOWN_WATER
-	end
-
-Shoreslate_Guesser_51:
-	goto_if_unset FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_53
+	completequest FLAG_Q14_SHORESLATE_FAVORITEMON_START
+	special ShowJournalPopupAdd
 	goto Shoreslate_Guesser_49
 
 Shoreslate_Guesser_53:
-	goto_if_unset FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_50
-	goto Shoreslate_Guesser_49
-
-Shoreslate_Guesser_57:
-	random 2
+	random 3
 	switch VAR_RESULT
-	case 0, Shoreslate_Guesser_100
-	case 1, Shoreslate_Guesser_101
-Shoreslate_Guesser_98:
+	case 0, Shoreslate_Guesser_96
+	case 1, Shoreslate_Guesser_97
+	case 2, Shoreslate_Guesser_98
+Shoreslate_Guesser_94:
 	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
-	setflag FLAG_SHOWN_FIRE
+	goto_if_set FLAG_Q14_SHORESLATE_FAVORITEMON_START, Shoreslate_Guesser_144
+Shoreslate_Guesser_142:
+	setflag FLAG_SHOWN_WATER
 	end
 
-Shoreslate_Guesser_58:
-	goto_if_unset FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_60
-	goto Shoreslate_Guesser_56
+Shoreslate_Guesser_54:
+	goto_if_unset FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_56
+	goto Shoreslate_Guesser_52
+
+Shoreslate_Guesser_56:
+	goto_if_unset FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_53
+	goto Shoreslate_Guesser_52
 
 Shoreslate_Guesser_60:
-	goto_if_unset FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_57
-	goto Shoreslate_Guesser_56
+	random 2
+	switch VAR_RESULT
+	case 0, Shoreslate_Guesser_108
+	case 1, Shoreslate_Guesser_109
+Shoreslate_Guesser_106:
+	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
+	goto_if_set FLAG_Q14_SHORESLATE_FAVORITEMON_START, Shoreslate_Guesser_160
+Shoreslate_Guesser_158:
+	setflag FLAG_SHOWN_FIRE
+	end
 
-Shoreslate_Guesser_65:
+Shoreslate_Guesser_61:
+	goto_if_unset FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_63
+	goto Shoreslate_Guesser_59
+
+Shoreslate_Guesser_63:
+	goto_if_unset FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_60
+	goto Shoreslate_Guesser_59
+
+Shoreslate_Guesser_68:
 	call ReceivedEggJingle
 	giveegg SPECIES_CYNDAQUIL
 	setflag FLAG_RECEIVED_CYNDAQUIL
-	goto Shoreslate_Guesser_63
-
-Shoreslate_Guesser_66:
-	call ReceivedEggJingle
-	giveegg SPECIES_TOTODILE
-	setflag FLAG_RECEIVED_TOTODILE
-	goto Shoreslate_Guesser_63
-
-Shoreslate_Guesser_67:
-	call ReceivedEggJingle
-	giveegg SPECIES_CHIKORITA
-	setflag FLAG_RECEIVED_CHIKORITA
-	goto Shoreslate_Guesser_63
+	goto Shoreslate_Guesser_66
 
 Shoreslate_Guesser_69:
-	random 2
-	switch VAR_RESULT
-	case 0, Shoreslate_Guesser_111
-	case 1, Shoreslate_Guesser_112
-Shoreslate_Guesser_109:
-	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
-	setflag FLAG_SHOWN_GRASS
-	end
+	call ReceivedEggJingle
+	giveegg SPECIES_TOTODILE
+	setflag FLAG_RECEIVED_TOTODILE
+	goto Shoreslate_Guesser_66
 
 Shoreslate_Guesser_70:
-	goto_if_set FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_72
-	goto Shoreslate_Guesser_68
+	call ReceivedEggJingle
+	giveegg SPECIES_CHIKORITA
+	setflag FLAG_RECEIVED_CHIKORITA
+	goto Shoreslate_Guesser_66
 
 Shoreslate_Guesser_72:
-	goto_if_unset FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_69
-	goto Shoreslate_Guesser_68
-
-Shoreslate_Guesser_77:
-	call ReceivedEggJingle
-	giveegg SPECIES_TOTODILE
-	setflag FLAG_RECEIVED_TOTODILE
-	goto Shoreslate_Guesser_75
-
-Shoreslate_Guesser_78:
-	call ReceivedEggJingle
-	giveegg SPECIES_CHIKORITA
-	setflag FLAG_RECEIVED_CHIKORITA
-	goto Shoreslate_Guesser_75
-
-Shoreslate_Guesser_80:
 	random 2
 	switch VAR_RESULT
-	case 0, Shoreslate_Guesser_122
-	case 1, Shoreslate_Guesser_123
-Shoreslate_Guesser_120:
+	case 0, Shoreslate_Guesser_124
+	case 1, Shoreslate_Guesser_125
+Shoreslate_Guesser_122:
 	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
-	setflag FLAG_SHOWN_WATER
-	end
-
-Shoreslate_Guesser_81:
-	goto_if_unset FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_83
-	goto Shoreslate_Guesser_79
-
-Shoreslate_Guesser_83:
-	goto_if_unset FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_80
-	goto Shoreslate_Guesser_79
-
-Shoreslate_Guesser_88:
-	call ReceivedEggJingle
-	giveegg SPECIES_CYNDAQUIL
-	setflag FLAG_RECEIVED_CYNDAQUIL
-	goto Shoreslate_Guesser_86
-
-Shoreslate_Guesser_89:
-	call ReceivedEggJingle
-	giveegg SPECIES_TOTODILE
-	setflag FLAG_RECEIVED_TOTODILE
-	goto Shoreslate_Guesser_86
-
-Shoreslate_Guesser_90:
-	call ReceivedEggJingle
-	giveegg SPECIES_CHIKORITA
-	setflag FLAG_RECEIVED_CHIKORITA
-	goto Shoreslate_Guesser_86
-
-Shoreslate_Guesser_92:
-	random 2
-	switch VAR_RESULT
-	case 0, Shoreslate_Guesser_133
-	case 1, Shoreslate_Guesser_134
-Shoreslate_Guesser_131:
-	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
-	setflag FLAG_SHOWN_FIRE
-	end
-
-Shoreslate_Guesser_93:
-	goto_if_set FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_95
-	goto Shoreslate_Guesser_91
-
-Shoreslate_Guesser_95:
-	goto_if_unset FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_92
-	goto Shoreslate_Guesser_91
-
-Shoreslate_Guesser_100:
-	call ReceivedEggJingle
-	giveegg SPECIES_TOTODILE
-	setflag FLAG_RECEIVED_TOTODILE
-	goto Shoreslate_Guesser_98
-
-Shoreslate_Guesser_101:
-	call ReceivedEggJingle
-	giveegg SPECIES_CHIKORITA
-	setflag FLAG_RECEIVED_CHIKORITA
-	goto Shoreslate_Guesser_98
-
-Shoreslate_Guesser_103:
-	random 2
-	switch VAR_RESULT
-	case 0, Shoreslate_Guesser_144
-	case 1, Shoreslate_Guesser_145
-Shoreslate_Guesser_142:
-	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
+	goto_if_set FLAG_Q14_SHORESLATE_FAVORITEMON_START, Shoreslate_Guesser_176
+Shoreslate_Guesser_174:
 	setflag FLAG_SHOWN_GRASS
 	end
 
-Shoreslate_Guesser_104:
-	goto_if_unset FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_106
-	goto Shoreslate_Guesser_102
+Shoreslate_Guesser_73:
+	goto_if_set FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_75
+	goto Shoreslate_Guesser_71
 
-Shoreslate_Guesser_106:
-	goto_if_set FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_103
-	goto Shoreslate_Guesser_102
+Shoreslate_Guesser_75:
+	goto_if_unset FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_72
+	goto Shoreslate_Guesser_71
 
-Shoreslate_Guesser_111:
-	call ReceivedEggJingle
-	giveegg SPECIES_CYNDAQUIL
-	setflag FLAG_RECEIVED_CYNDAQUIL
-	goto Shoreslate_Guesser_109
-
-Shoreslate_Guesser_112:
-	call ReceivedEggJingle
-	giveegg SPECIES_CHIKORITA
-	setflag FLAG_RECEIVED_CHIKORITA
-	goto Shoreslate_Guesser_109
-
-Shoreslate_Guesser_114:
-	random 2
-	switch VAR_RESULT
-	case 0, Shoreslate_Guesser_155
-	case 1, Shoreslate_Guesser_156
-Shoreslate_Guesser_153:
-	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
-	setflag FLAG_SHOWN_WATER
-	end
-
-Shoreslate_Guesser_115:
-	goto_if_set FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_117
-	goto Shoreslate_Guesser_113
-
-Shoreslate_Guesser_117:
-	goto_if_unset FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_114
-	goto Shoreslate_Guesser_113
-
-Shoreslate_Guesser_122:
+Shoreslate_Guesser_80:
 	call ReceivedEggJingle
 	giveegg SPECIES_TOTODILE
 	setflag FLAG_RECEIVED_TOTODILE
-	goto Shoreslate_Guesser_120
+	goto Shoreslate_Guesser_78
 
-Shoreslate_Guesser_123:
+Shoreslate_Guesser_81:
 	call ReceivedEggJingle
 	giveegg SPECIES_CHIKORITA
 	setflag FLAG_RECEIVED_CHIKORITA
-	goto Shoreslate_Guesser_120
+	goto Shoreslate_Guesser_78
 
-Shoreslate_Guesser_125:
+Shoreslate_Guesser_83:
+	completequest FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto Shoreslate_Guesser_82
+
+Shoreslate_Guesser_84:
+	goto_if_unset FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE, Shoreslate_Guesser_83
+	goto Shoreslate_Guesser_82
+
+Shoreslate_Guesser_88:
 	random 2
 	switch VAR_RESULT
-	case 0, Shoreslate_Guesser_166
-	case 1, Shoreslate_Guesser_167
-Shoreslate_Guesser_164:
+	case 0, Shoreslate_Guesser_140
+	case 1, Shoreslate_Guesser_141
+Shoreslate_Guesser_138:
 	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
+	goto_if_set FLAG_Q14_SHORESLATE_FAVORITEMON_START, Shoreslate_Guesser_192
+Shoreslate_Guesser_190:
+	setflag FLAG_SHOWN_WATER
+	end
+
+Shoreslate_Guesser_89:
+	goto_if_unset FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_91
+	goto Shoreslate_Guesser_87
+
+Shoreslate_Guesser_91:
+	goto_if_unset FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_88
+	goto Shoreslate_Guesser_87
+
+Shoreslate_Guesser_96:
+	call ReceivedEggJingle
+	giveegg SPECIES_CYNDAQUIL
+	setflag FLAG_RECEIVED_CYNDAQUIL
+	goto Shoreslate_Guesser_94
+
+Shoreslate_Guesser_97:
+	call ReceivedEggJingle
+	giveegg SPECIES_TOTODILE
+	setflag FLAG_RECEIVED_TOTODILE
+	goto Shoreslate_Guesser_94
+
+Shoreslate_Guesser_98:
+	call ReceivedEggJingle
+	giveegg SPECIES_CHIKORITA
+	setflag FLAG_RECEIVED_CHIKORITA
+	goto Shoreslate_Guesser_94
+
+Shoreslate_Guesser_100:
+	random 2
+	switch VAR_RESULT
+	case 0, Shoreslate_Guesser_156
+	case 1, Shoreslate_Guesser_157
+Shoreslate_Guesser_154:
+	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
+	goto_if_set FLAG_Q14_SHORESLATE_FAVORITEMON_START, Shoreslate_Guesser_208
+Shoreslate_Guesser_206:
 	setflag FLAG_SHOWN_FIRE
 	end
 
-Shoreslate_Guesser_126:
-	goto_if_unset FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_128
-	goto Shoreslate_Guesser_124
+Shoreslate_Guesser_101:
+	goto_if_set FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_103
+	goto Shoreslate_Guesser_99
 
-Shoreslate_Guesser_128:
-	goto_if_set FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_125
-	goto Shoreslate_Guesser_124
+Shoreslate_Guesser_103:
+	goto_if_unset FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_100
+	goto Shoreslate_Guesser_99
 
-Shoreslate_Guesser_133:
-	call ReceivedEggJingle
-	giveegg SPECIES_CYNDAQUIL
-	setflag FLAG_RECEIVED_CYNDAQUIL
-	goto Shoreslate_Guesser_131
-
-Shoreslate_Guesser_134:
-	call ReceivedEggJingle
-	giveegg SPECIES_CHIKORITA
-	setflag FLAG_RECEIVED_CHIKORITA
-	goto Shoreslate_Guesser_131
-
-Shoreslate_Guesser_136:
-	call ReceivedEggJingle
-	giveegg SPECIES_CHIKORITA
-	setflag FLAG_RECEIVED_CHIKORITA
-	goto Shoreslate_Guesser_135
-
-Shoreslate_Guesser_137:
-	goto_if_set FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_139
-	goto Shoreslate_Guesser_135
-
-Shoreslate_Guesser_139:
-	goto_if_unset FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_136
-	goto Shoreslate_Guesser_135
-
-Shoreslate_Guesser_144:
-	call ReceivedEggJingle
-	giveegg SPECIES_CYNDAQUIL
-	setflag FLAG_RECEIVED_CYNDAQUIL
-	goto Shoreslate_Guesser_142
-
-Shoreslate_Guesser_145:
+Shoreslate_Guesser_108:
 	call ReceivedEggJingle
 	giveegg SPECIES_TOTODILE
 	setflag FLAG_RECEIVED_TOTODILE
-	goto Shoreslate_Guesser_142
+	goto Shoreslate_Guesser_106
 
-Shoreslate_Guesser_147:
+Shoreslate_Guesser_109:
+	call ReceivedEggJingle
+	giveegg SPECIES_CHIKORITA
+	setflag FLAG_RECEIVED_CHIKORITA
+	goto Shoreslate_Guesser_106
+
+Shoreslate_Guesser_111:
+	completequest FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto Shoreslate_Guesser_110
+
+Shoreslate_Guesser_112:
+	goto_if_unset FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE, Shoreslate_Guesser_111
+	goto Shoreslate_Guesser_110
+
+Shoreslate_Guesser_116:
 	random 2
 	switch VAR_RESULT
-	case 0, Shoreslate_Guesser_184
-	case 1, Shoreslate_Guesser_185
-Shoreslate_Guesser_182:
+	case 0, Shoreslate_Guesser_172
+	case 1, Shoreslate_Guesser_173
+Shoreslate_Guesser_170:
 	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
-	setflag FLAG_SHOWN_WATER
+	goto_if_set FLAG_Q14_SHORESLATE_FAVORITEMON_START, Shoreslate_Guesser_218
+Shoreslate_Guesser_216:
+	setflag FLAG_SHOWN_GRASS
 	end
 
-Shoreslate_Guesser_148:
-	goto_if_unset FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_150
-	goto Shoreslate_Guesser_146
+Shoreslate_Guesser_117:
+	goto_if_unset FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_119
+	goto Shoreslate_Guesser_115
 
-Shoreslate_Guesser_150:
-	goto_if_set FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_147
-	goto Shoreslate_Guesser_146
+Shoreslate_Guesser_119:
+	goto_if_set FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_116
+	goto Shoreslate_Guesser_115
 
-Shoreslate_Guesser_155:
+Shoreslate_Guesser_124:
 	call ReceivedEggJingle
 	giveegg SPECIES_CYNDAQUIL
 	setflag FLAG_RECEIVED_CYNDAQUIL
-	goto Shoreslate_Guesser_153
+	goto Shoreslate_Guesser_122
+
+Shoreslate_Guesser_125:
+	call ReceivedEggJingle
+	giveegg SPECIES_CHIKORITA
+	setflag FLAG_RECEIVED_CHIKORITA
+	goto Shoreslate_Guesser_122
+
+Shoreslate_Guesser_127:
+	completequest FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto Shoreslate_Guesser_126
+
+Shoreslate_Guesser_128:
+	goto_if_unset FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE, Shoreslate_Guesser_127
+	goto Shoreslate_Guesser_126
+
+Shoreslate_Guesser_132:
+	random 2
+	switch VAR_RESULT
+	case 0, Shoreslate_Guesser_188
+	case 1, Shoreslate_Guesser_189
+Shoreslate_Guesser_186:
+	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
+	goto_if_set FLAG_Q14_SHORESLATE_FAVORITEMON_START, Shoreslate_Guesser_232
+Shoreslate_Guesser_230:
+	setflag FLAG_SHOWN_WATER
+	end
+
+Shoreslate_Guesser_133:
+	goto_if_set FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_135
+	goto Shoreslate_Guesser_131
+
+Shoreslate_Guesser_135:
+	goto_if_unset FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_132
+	goto Shoreslate_Guesser_131
+
+Shoreslate_Guesser_140:
+	call ReceivedEggJingle
+	giveegg SPECIES_TOTODILE
+	setflag FLAG_RECEIVED_TOTODILE
+	goto Shoreslate_Guesser_138
+
+Shoreslate_Guesser_141:
+	call ReceivedEggJingle
+	giveegg SPECIES_CHIKORITA
+	setflag FLAG_RECEIVED_CHIKORITA
+	goto Shoreslate_Guesser_138
+
+Shoreslate_Guesser_143:
+	completequest FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto Shoreslate_Guesser_142
+
+Shoreslate_Guesser_144:
+	goto_if_unset FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE, Shoreslate_Guesser_143
+	goto Shoreslate_Guesser_142
+
+Shoreslate_Guesser_148:
+	random 2
+	switch VAR_RESULT
+	case 0, Shoreslate_Guesser_204
+	case 1, Shoreslate_Guesser_205
+Shoreslate_Guesser_202:
+	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
+	goto_if_set FLAG_Q14_SHORESLATE_FAVORITEMON_START, Shoreslate_Guesser_242
+Shoreslate_Guesser_240:
+	setflag FLAG_SHOWN_FIRE
+	end
+
+Shoreslate_Guesser_149:
+	goto_if_unset FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_151
+	goto Shoreslate_Guesser_147
+
+Shoreslate_Guesser_151:
+	goto_if_set FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_148
+	goto Shoreslate_Guesser_147
 
 Shoreslate_Guesser_156:
 	call ReceivedEggJingle
-	giveegg SPECIES_CHIKORITA
-	setflag FLAG_RECEIVED_CHIKORITA
-	goto Shoreslate_Guesser_153
+	giveegg SPECIES_CYNDAQUIL
+	setflag FLAG_RECEIVED_CYNDAQUIL
+	goto Shoreslate_Guesser_154
 
-Shoreslate_Guesser_158:
+Shoreslate_Guesser_157:
 	call ReceivedEggJingle
 	giveegg SPECIES_CHIKORITA
 	setflag FLAG_RECEIVED_CHIKORITA
-	goto Shoreslate_Guesser_157
+	goto Shoreslate_Guesser_154
 
 Shoreslate_Guesser_159:
-	goto_if_set FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_161
-	goto Shoreslate_Guesser_157
+	completequest FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto Shoreslate_Guesser_158
 
-Shoreslate_Guesser_161:
-	goto_if_unset FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_158
-	goto Shoreslate_Guesser_157
+Shoreslate_Guesser_160:
+	goto_if_unset FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE, Shoreslate_Guesser_159
+	goto Shoreslate_Guesser_158
 
-Shoreslate_Guesser_166:
-	call ReceivedEggJingle
-	giveegg SPECIES_CYNDAQUIL
-	setflag FLAG_RECEIVED_CYNDAQUIL
-	goto Shoreslate_Guesser_164
-
-Shoreslate_Guesser_167:
-	call ReceivedEggJingle
-	giveegg SPECIES_TOTODILE
-	setflag FLAG_RECEIVED_TOTODILE
-	goto Shoreslate_Guesser_164
-
-Shoreslate_Guesser_169:
-	call ReceivedEggJingle
-	giveegg SPECIES_TOTODILE
-	setflag FLAG_RECEIVED_TOTODILE
-	goto Shoreslate_Guesser_168
-
-Shoreslate_Guesser_170:
-	goto_if_unset FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_172
-	goto Shoreslate_Guesser_168
-
-Shoreslate_Guesser_172:
-	goto_if_set FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_169
-	goto Shoreslate_Guesser_168
-
-Shoreslate_Guesser_176:
+Shoreslate_Guesser_164:
 	call ReceivedEggJingle
 	giveegg SPECIES_CHIKORITA
 	setflag FLAG_RECEIVED_CHIKORITA
-	goto Shoreslate_Guesser_175
+	goto Shoreslate_Guesser_163
 
-Shoreslate_Guesser_177:
-	goto_if_set FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_179
-	goto Shoreslate_Guesser_175
+Shoreslate_Guesser_165:
+	goto_if_set FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_167
+	goto Shoreslate_Guesser_163
 
-Shoreslate_Guesser_179:
-	goto_if_unset FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_176
-	goto Shoreslate_Guesser_175
+Shoreslate_Guesser_167:
+	goto_if_unset FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_164
+	goto Shoreslate_Guesser_163
 
-Shoreslate_Guesser_184:
+Shoreslate_Guesser_172:
 	call ReceivedEggJingle
 	giveegg SPECIES_CYNDAQUIL
 	setflag FLAG_RECEIVED_CYNDAQUIL
-	goto Shoreslate_Guesser_182
+	goto Shoreslate_Guesser_170
 
-Shoreslate_Guesser_185:
+Shoreslate_Guesser_173:
 	call ReceivedEggJingle
 	giveegg SPECIES_TOTODILE
 	setflag FLAG_RECEIVED_TOTODILE
-	goto Shoreslate_Guesser_182
+	goto Shoreslate_Guesser_170
 
-Shoreslate_Guesser_187:
-	call ReceivedEggJingle
-	giveegg SPECIES_TOTODILE
-	setflag FLAG_RECEIVED_TOTODILE
-	goto Shoreslate_Guesser_186
+Shoreslate_Guesser_175:
+	completequest FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto Shoreslate_Guesser_174
+
+Shoreslate_Guesser_176:
+	goto_if_unset FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE, Shoreslate_Guesser_175
+	goto Shoreslate_Guesser_174
+
+Shoreslate_Guesser_180:
+	random 2
+	switch VAR_RESULT
+	case 0, Shoreslate_Guesser_228
+	case 1, Shoreslate_Guesser_229
+Shoreslate_Guesser_226:
+	msgbox Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC
+	goto_if_set FLAG_Q14_SHORESLATE_FAVORITEMON_START, Shoreslate_Guesser_261
+Shoreslate_Guesser_259:
+	setflag FLAG_SHOWN_WATER
+	end
+
+Shoreslate_Guesser_181:
+	goto_if_unset FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_183
+	goto Shoreslate_Guesser_179
+
+Shoreslate_Guesser_183:
+	goto_if_set FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_180
+	goto Shoreslate_Guesser_179
 
 Shoreslate_Guesser_188:
-	goto_if_unset FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_190
-	goto Shoreslate_Guesser_186
-
-Shoreslate_Guesser_190:
-	goto_if_set FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_187
-	goto Shoreslate_Guesser_186
-
-Shoreslate_Guesser_194:
 	call ReceivedEggJingle
 	giveegg SPECIES_CYNDAQUIL
 	setflag FLAG_RECEIVED_CYNDAQUIL
-	goto Shoreslate_Guesser_193
+	goto Shoreslate_Guesser_186
 
-Shoreslate_Guesser_195:
-	goto_if_set FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_197
-	goto Shoreslate_Guesser_193
+Shoreslate_Guesser_189:
+	call ReceivedEggJingle
+	giveegg SPECIES_CHIKORITA
+	setflag FLAG_RECEIVED_CHIKORITA
+	goto Shoreslate_Guesser_186
+
+Shoreslate_Guesser_191:
+	completequest FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto Shoreslate_Guesser_190
+
+Shoreslate_Guesser_192:
+	goto_if_unset FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE, Shoreslate_Guesser_191
+	goto Shoreslate_Guesser_190
+
+Shoreslate_Guesser_196:
+	call ReceivedEggJingle
+	giveegg SPECIES_CHIKORITA
+	setflag FLAG_RECEIVED_CHIKORITA
+	goto Shoreslate_Guesser_195
 
 Shoreslate_Guesser_197:
-	goto_if_set FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_194
-	goto Shoreslate_Guesser_193
+	goto_if_set FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_199
+	goto Shoreslate_Guesser_195
 
-Shoreslate_Guesser_201:
+Shoreslate_Guesser_199:
+	goto_if_unset FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_196
+	goto Shoreslate_Guesser_195
+
+Shoreslate_Guesser_204:
+	call ReceivedEggJingle
+	giveegg SPECIES_CYNDAQUIL
+	setflag FLAG_RECEIVED_CYNDAQUIL
+	goto Shoreslate_Guesser_202
+
+Shoreslate_Guesser_205:
 	call ReceivedEggJingle
 	giveegg SPECIES_TOTODILE
 	setflag FLAG_RECEIVED_TOTODILE
-	goto Shoreslate_Guesser_200
+	goto Shoreslate_Guesser_202
 
-Shoreslate_Guesser_202:
-	goto_if_unset FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_204
-	goto Shoreslate_Guesser_200
-
-Shoreslate_Guesser_204:
-	goto_if_set FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_201
-	goto Shoreslate_Guesser_200
+Shoreslate_Guesser_207:
+	completequest FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto Shoreslate_Guesser_206
 
 Shoreslate_Guesser_208:
-	call ReceivedEggJingle
-	giveegg SPECIES_CYNDAQUIL
-	setflag FLAG_RECEIVED_CYNDAQUIL
-	goto Shoreslate_Guesser_207
+	goto_if_unset FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE, Shoreslate_Guesser_207
+	goto Shoreslate_Guesser_206
 
-Shoreslate_Guesser_209:
-	goto_if_set FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_211
-	goto Shoreslate_Guesser_207
+Shoreslate_Guesser_212:
+	completequest FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto Shoreslate_Guesser_211
 
-Shoreslate_Guesser_211:
-	goto_if_set FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_208
-	goto Shoreslate_Guesser_207
+Shoreslate_Guesser_213:
+	goto_if_unset FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE, Shoreslate_Guesser_212
+	goto Shoreslate_Guesser_211
 
-Shoreslate_Guesser_215:
-	call ReceivedEggJingle
-	giveegg SPECIES_CYNDAQUIL
-	setflag FLAG_RECEIVED_CYNDAQUIL
-	goto Shoreslate_Guesser_214
-
-Shoreslate_Guesser_216:
-	goto_if_set FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_218
-	goto Shoreslate_Guesser_214
+Shoreslate_Guesser_217:
+	completequest FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto Shoreslate_Guesser_216
 
 Shoreslate_Guesser_218:
-	goto_if_set FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_215
-	goto Shoreslate_Guesser_214
+	goto_if_unset FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE, Shoreslate_Guesser_217
+	goto Shoreslate_Guesser_216
+
+Shoreslate_Guesser_222:
+	completequest FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto Shoreslate_Guesser_221
+
+Shoreslate_Guesser_223:
+	goto_if_unset FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE, Shoreslate_Guesser_222
+	goto Shoreslate_Guesser_221
+
+Shoreslate_Guesser_228:
+	call ReceivedEggJingle
+	giveegg SPECIES_CYNDAQUIL
+	setflag FLAG_RECEIVED_CYNDAQUIL
+	goto Shoreslate_Guesser_226
+
+Shoreslate_Guesser_229:
+	call ReceivedEggJingle
+	giveegg SPECIES_TOTODILE
+	setflag FLAG_RECEIVED_TOTODILE
+	goto Shoreslate_Guesser_226
+
+Shoreslate_Guesser_231:
+	completequest FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto Shoreslate_Guesser_230
+
+Shoreslate_Guesser_232:
+	goto_if_unset FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE, Shoreslate_Guesser_231
+	goto Shoreslate_Guesser_230
+
+Shoreslate_Guesser_236:
+	completequest FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto Shoreslate_Guesser_235
+
+Shoreslate_Guesser_237:
+	goto_if_unset FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE, Shoreslate_Guesser_236
+	goto Shoreslate_Guesser_235
+
+Shoreslate_Guesser_241:
+	completequest FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto Shoreslate_Guesser_240
+
+Shoreslate_Guesser_242:
+	goto_if_unset FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE, Shoreslate_Guesser_241
+	goto Shoreslate_Guesser_240
+
+Shoreslate_Guesser_246:
+	call ReceivedEggJingle
+	giveegg SPECIES_TOTODILE
+	setflag FLAG_RECEIVED_TOTODILE
+	goto Shoreslate_Guesser_245
+
+Shoreslate_Guesser_247:
+	goto_if_unset FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_249
+	goto Shoreslate_Guesser_245
+
+Shoreslate_Guesser_249:
+	goto_if_set FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_246
+	goto Shoreslate_Guesser_245
+
+Shoreslate_Guesser_253:
+	call ReceivedEggJingle
+	giveegg SPECIES_CHIKORITA
+	setflag FLAG_RECEIVED_CHIKORITA
+	goto Shoreslate_Guesser_252
+
+Shoreslate_Guesser_254:
+	goto_if_set FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_256
+	goto Shoreslate_Guesser_252
+
+Shoreslate_Guesser_256:
+	goto_if_unset FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_253
+	goto Shoreslate_Guesser_252
+
+Shoreslate_Guesser_260:
+	completequest FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto Shoreslate_Guesser_259
+
+Shoreslate_Guesser_261:
+	goto_if_unset FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE, Shoreslate_Guesser_260
+	goto Shoreslate_Guesser_259
+
+Shoreslate_Guesser_265:
+	call ReceivedEggJingle
+	giveegg SPECIES_TOTODILE
+	setflag FLAG_RECEIVED_TOTODILE
+	goto Shoreslate_Guesser_264
+
+Shoreslate_Guesser_266:
+	goto_if_unset FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_268
+	goto Shoreslate_Guesser_264
+
+Shoreslate_Guesser_268:
+	goto_if_set FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_265
+	goto Shoreslate_Guesser_264
+
+Shoreslate_Guesser_272:
+	completequest FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto Shoreslate_Guesser_271
+
+Shoreslate_Guesser_273:
+	goto_if_unset FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE, Shoreslate_Guesser_272
+	goto Shoreslate_Guesser_271
+
+Shoreslate_Guesser_277:
+	call ReceivedEggJingle
+	giveegg SPECIES_TOTODILE
+	setflag FLAG_RECEIVED_TOTODILE
+	goto Shoreslate_Guesser_276
+
+Shoreslate_Guesser_278:
+	goto_if_unset FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_280
+	goto Shoreslate_Guesser_276
+
+Shoreslate_Guesser_280:
+	goto_if_set FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_277
+	goto Shoreslate_Guesser_276
+
+Shoreslate_Guesser_284:
+	completequest FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto Shoreslate_Guesser_283
+
+Shoreslate_Guesser_285:
+	goto_if_unset FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE, Shoreslate_Guesser_284
+	goto Shoreslate_Guesser_283
+
+Shoreslate_Guesser_289:
+	call ReceivedEggJingle
+	giveegg SPECIES_CYNDAQUIL
+	setflag FLAG_RECEIVED_CYNDAQUIL
+	goto Shoreslate_Guesser_288
+
+Shoreslate_Guesser_290:
+	goto_if_set FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_292
+	goto Shoreslate_Guesser_288
+
+Shoreslate_Guesser_292:
+	goto_if_set FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_289
+	goto Shoreslate_Guesser_288
+
+Shoreslate_Guesser_296:
+	completequest FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto Shoreslate_Guesser_295
+
+Shoreslate_Guesser_297:
+	goto_if_unset FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE, Shoreslate_Guesser_296
+	goto Shoreslate_Guesser_295
+
+Shoreslate_Guesser_301:
+	call ReceivedEggJingle
+	giveegg SPECIES_CYNDAQUIL
+	setflag FLAG_RECEIVED_CYNDAQUIL
+	goto Shoreslate_Guesser_300
+
+Shoreslate_Guesser_302:
+	goto_if_set FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_304
+	goto Shoreslate_Guesser_300
+
+Shoreslate_Guesser_304:
+	goto_if_set FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_301
+	goto Shoreslate_Guesser_300
+
+Shoreslate_Guesser_308:
+	completequest FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto Shoreslate_Guesser_307
+
+Shoreslate_Guesser_309:
+	goto_if_unset FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE, Shoreslate_Guesser_308
+	goto Shoreslate_Guesser_307
+
+Shoreslate_Guesser_313:
+	call ReceivedEggJingle
+	giveegg SPECIES_CYNDAQUIL
+	setflag FLAG_RECEIVED_CYNDAQUIL
+	goto Shoreslate_Guesser_312
+
+Shoreslate_Guesser_314:
+	goto_if_set FLAG_RECEIVED_TOTODILE, Shoreslate_Guesser_316
+	goto Shoreslate_Guesser_312
+
+Shoreslate_Guesser_316:
+	goto_if_set FLAG_RECEIVED_CHIKORITA, Shoreslate_Guesser_313
+	goto Shoreslate_Guesser_312
+
+Shoreslate_Guesser_320:
+	completequest FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto Shoreslate_Guesser_319
+
+Shoreslate_Guesser_321:
+	goto_if_unset FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE, Shoreslate_Guesser_320
+	goto Shoreslate_Guesser_319
+
+Shoreslate_Guesser_325:
+	completequest FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto Shoreslate_Guesser_324
+
+Shoreslate_Guesser_326:
+	goto_if_unset FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE, Shoreslate_Guesser_325
+	goto Shoreslate_Guesser_324
 
 
 ReceivedEggJingle::

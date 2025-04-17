@@ -1,5 +1,7 @@
 FrigidFrontier_Cave_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, FrigidFrontier_Cave_MapScripts_MAP_SCRIPT_ON_LOAD
+	map_script MAP_SCRIPT_ON_TRANSITION, FrigidFrontier_Cave_MapScripts_MAP_SCRIPT_ON_TRANSITION
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, FrigidFrontier_Cave_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
 FrigidFrontier_Cave_MapScripts_MAP_SCRIPT_ON_LOAD:
@@ -13,6 +15,28 @@ FrigidFrontier_Cave_MapScripts_MAP_SCRIPT_ON_LOAD_1:
 	setmetatile 6, 2, 0x219, TRUE
 	setmetatile 7, 2, 0x219, TRUE
 	setmetatile 8, 2, 0x219, TRUE
+	return
+
+FrigidFrontier_Cave_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	goto_if_unset FLAG_Q39_FRIGIDFRONTIER_WEIRDCAVE_START, FrigidFrontier_Cave_MapScripts_MAP_SCRIPT_ON_TRANSITION_2
+	return
+
+FrigidFrontier_Cave_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
+	startquest FLAG_Q39_FRIGIDFRONTIER_WEIRDCAVE_START
+	setvar VAR_TEMP_1, 1
+	return
+
+FrigidFrontier_Cave_MapScripts_MAP_SCRIPT_ON_TRANSITION_2:
+	goto_if_unset FLAG_FRIGIDCAVE_VERDANT_SPHERE, FrigidFrontier_Cave_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
+	return
+
+FrigidFrontier_Cave_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_TEMP_1, 1, FrigidFrontier_Cave_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0
+	.2byte 0
+
+FrigidFrontier_Cave_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0:
+	special ShowJournalPopupAdd
+	setvar VAR_TEMP_1, 0
 	return
 
 

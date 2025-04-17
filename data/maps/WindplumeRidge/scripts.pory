@@ -35,6 +35,10 @@ script WindplumeRidge_RemoveWind{
 script HideAldeleafWoman{
     setflag(FLAG_DEFEATED_SUDOWOODO2)
     release
+    if(flag(FLAG_Q07_WINDPLUME_VALLEY_START) && !flag(FLAG_Q07_WINDPLUME_VALLEY_COMPLETE) && !defeated(TRAINER_WPV_TR14_SKYLA)){
+        completequest(FLAG_Q07_WINDPLUME_VALLEY_COMPLETE)
+        special(ShowJournalPopupRemove)
+    }
     end
 }
 script Windplume_IronBall{

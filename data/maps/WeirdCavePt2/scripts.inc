@@ -39,5 +39,12 @@ WeirdCave_LootRock::
 	waitmessage
 	playbgm MUS_SEALED_CHAMBER, TRUE
 	setvar VAR_WEIRDCAVE_PART2, 3
+	goto_if_set FLAG_Q17_DESERT_WEIRDCAVE_START, WeirdCave_LootRock_2
+WeirdCave_LootRock_1:
 	end
+
+WeirdCave_LootRock_2:
+	completequest FLAG_Q17_DESERT_WEIRDCAVE_COMPLETE
+	special ShowJournalPopupRemove
+	goto WeirdCave_LootRock_1
 

@@ -37,6 +37,10 @@ script Shoreslate_Guesser{
                     setflag(FLAG_RECEIVED_CHIKORITA)
             }
             msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        if(flag(FLAG_Q14_SHORESLATE_FAVORITEMON_START) && !flag(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)){
+            completequest(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
             setflag(FLAG_SHOWN_GRASS)
             end
         }
@@ -53,6 +57,10 @@ script Shoreslate_Guesser{
                     setflag(FLAG_RECEIVED_CHIKORITA)
             }
             msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        if(flag(FLAG_Q14_SHORESLATE_FAVORITEMON_START) && !flag(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)){
+            completequest(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
             setflag(FLAG_SHOWN_GRASS)
             end
         }
@@ -69,6 +77,10 @@ script Shoreslate_Guesser{
                     setflag(FLAG_RECEIVED_CHIKORITA)
             }
             msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        if(flag(FLAG_Q14_SHORESLATE_FAVORITEMON_START) && !flag(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)){
+            completequest(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
             setflag(FLAG_SHOWN_GRASS)
             end
         }
@@ -85,6 +97,10 @@ script Shoreslate_Guesser{
                     setflag(FLAG_RECEIVED_TOTODILE)
             }
             msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        if(flag(FLAG_Q14_SHORESLATE_FAVORITEMON_START) && !flag(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)){
+            completequest(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
             setflag(FLAG_SHOWN_GRASS)
             end
         }
@@ -94,6 +110,10 @@ script Shoreslate_Guesser{
             setflag(FLAG_RECEIVED_CHIKORITA)
         }
         msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        if(flag(FLAG_Q14_SHORESLATE_FAVORITEMON_START) && !flag(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)){
+            completequest(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
         setflag(FLAG_SHOWN_GRASS)
         end
         if((flag(FLAG_RECEIVED_CYNDAQUIL)) && (!flag(FLAG_RECEIVED_TOTODILE)) && (flag(FLAG_RECEIVED_CHIKORITA))){
@@ -102,6 +122,10 @@ script Shoreslate_Guesser{
             setflag(FLAG_RECEIVED_TOTODILE)
         }
         msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        if(flag(FLAG_Q14_SHORESLATE_FAVORITEMON_START) && !flag(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)){
+            completequest(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
         setflag(FLAG_SHOWN_GRASS)
         end
         if((!flag(FLAG_RECEIVED_CYNDAQUIL)) && (flag(FLAG_RECEIVED_TOTODILE)) && (flag(FLAG_RECEIVED_CHIKORITA))){
@@ -110,6 +134,10 @@ script Shoreslate_Guesser{
             setflag(FLAG_RECEIVED_CYNDAQUIL)
         }
         msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        if(flag(FLAG_Q14_SHORESLATE_FAVORITEMON_START) && !flag(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)){
+            completequest(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
         setflag(FLAG_SHOWN_GRASS)
         end
     }
@@ -134,6 +162,10 @@ script Shoreslate_Guesser{
                     setflag(FLAG_RECEIVED_CHIKORITA)
             }
             msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        if(flag(FLAG_Q14_SHORESLATE_FAVORITEMON_START) && !flag(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)){
+            completequest(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
             setflag(FLAG_SHOWN_FIRE)
             end
 
@@ -151,6 +183,10 @@ script Shoreslate_Guesser{
                     setflag(FLAG_RECEIVED_CHIKORITA)
             }
             msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        if(flag(FLAG_Q14_SHORESLATE_FAVORITEMON_START) && !flag(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)){
+            completequest(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
             setflag(FLAG_SHOWN_FIRE)
             end
         }
@@ -167,6 +203,10 @@ script Shoreslate_Guesser{
                     setflag(FLAG_RECEIVED_CHIKORITA)
             }
             msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        if(flag(FLAG_Q14_SHORESLATE_FAVORITEMON_START) && !flag(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)){
+            completequest(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
             setflag(FLAG_SHOWN_FIRE)
             end
         }
@@ -183,6 +223,10 @@ script Shoreslate_Guesser{
                     setflag(FLAG_RECEIVED_TOTODILE)
             }
             msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        if(flag(FLAG_Q14_SHORESLATE_FAVORITEMON_START) && !flag(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)){
+            completequest(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
             setflag(FLAG_SHOWN_FIRE)
             end
         }
@@ -192,6 +236,10 @@ script Shoreslate_Guesser{
             setflag(FLAG_RECEIVED_CHIKORITA)
         }
         msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        if(flag(FLAG_Q14_SHORESLATE_FAVORITEMON_START) && !flag(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)){
+            completequest(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
         setflag(FLAG_SHOWN_FIRE)
         end
         if((flag(FLAG_RECEIVED_CYNDAQUIL)) && (!flag(FLAG_RECEIVED_TOTODILE)) && (flag(FLAG_RECEIVED_CHIKORITA))){
@@ -200,6 +248,10 @@ script Shoreslate_Guesser{
             setflag(FLAG_RECEIVED_TOTODILE)
         }
         msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        if(flag(FLAG_Q14_SHORESLATE_FAVORITEMON_START) && !flag(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)){
+            completequest(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
         setflag(FLAG_SHOWN_FIRE)
         end
         if((!flag(FLAG_RECEIVED_CYNDAQUIL)) && (flag(FLAG_RECEIVED_TOTODILE)) && (flag(FLAG_RECEIVED_CHIKORITA))){
@@ -208,6 +260,10 @@ script Shoreslate_Guesser{
             setflag(FLAG_RECEIVED_CYNDAQUIL)
         }
         msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        if(flag(FLAG_Q14_SHORESLATE_FAVORITEMON_START) && !flag(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)){
+            completequest(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
         setflag(FLAG_SHOWN_FIRE)
         end
     }
@@ -232,6 +288,10 @@ script Shoreslate_Guesser{
                     setflag(FLAG_RECEIVED_CHIKORITA)
             }
             msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        if(flag(FLAG_Q14_SHORESLATE_FAVORITEMON_START) && !flag(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)){
+            completequest(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
             setflag(FLAG_SHOWN_WATER)
             end
         }
@@ -248,6 +308,10 @@ script Shoreslate_Guesser{
                     setflag(FLAG_RECEIVED_CHIKORITA)
             }
             msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        if(flag(FLAG_Q14_SHORESLATE_FAVORITEMON_START) && !flag(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)){
+            completequest(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
             setflag(FLAG_SHOWN_WATER)
             end
         }
@@ -264,6 +328,10 @@ script Shoreslate_Guesser{
                     setflag(FLAG_RECEIVED_CHIKORITA)
             }
             msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        if(flag(FLAG_Q14_SHORESLATE_FAVORITEMON_START) && !flag(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)){
+            completequest(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
             setflag(FLAG_SHOWN_WATER)
             end
         }
@@ -280,10 +348,18 @@ script Shoreslate_Guesser{
                     setflag(FLAG_RECEIVED_TOTODILE)
             }
             msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        if(flag(FLAG_Q14_SHORESLATE_FAVORITEMON_START) && !flag(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)){
+            completequest(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
             setflag(FLAG_SHOWN_WATER)
             end
         }
         msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        if(flag(FLAG_Q14_SHORESLATE_FAVORITEMON_START) && !flag(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)){
+            completequest(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
         setflag(FLAG_SHOWN_WATER)
         end
         if((flag(FLAG_RECEIVED_CYNDAQUIL)) && (flag(FLAG_RECEIVED_TOTODILE)) && (!flag(FLAG_RECEIVED_CHIKORITA))){
@@ -297,6 +373,10 @@ script Shoreslate_Guesser{
             setflag(FLAG_RECEIVED_TOTODILE)
         }
         msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        if(flag(FLAG_Q14_SHORESLATE_FAVORITEMON_START) && !flag(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)){
+            completequest(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
         setflag(FLAG_SHOWN_WATER)
         end
         if((!flag(FLAG_RECEIVED_CYNDAQUIL)) && (flag(FLAG_RECEIVED_TOTODILE)) && (flag(FLAG_RECEIVED_CHIKORITA))){
@@ -305,10 +385,18 @@ script Shoreslate_Guesser{
             setflag(FLAG_RECEIVED_CYNDAQUIL)
         }
         msgbox(Shoreslate_Starter_TakeCareOfTheEgg, MSGBOX_NPC)
+        if(flag(FLAG_Q14_SHORESLATE_FAVORITEMON_START) && !flag(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)){
+            completequest(FLAG_Q14_SHORESLATE_FAVORITEMON_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
         setflag(FLAG_SHOWN_WATER)
         end
     }
     msgbox(Shoreslate_Starter_Incorrect, MSGBOX_NPC)
+    if(!flag(FLAG_Q14_SHORESLATE_FAVORITEMON_START)){
+        completequest(FLAG_Q14_SHORESLATE_FAVORITEMON_START)
+        special(ShowJournalPopupAdd)
+    }
     end
 }
 

@@ -149,6 +149,8 @@ TradeSeedsForFertilizer_1:
 	compare VAR_RESULT, TRUE
 	goto_if_eq TradeSeedsForFertilizer_5
 TradeSeedsForFertilizer_4:
+	goto_if_unset FLAG_Q12_FLOWERSHOP_STRANGESEED_START, TradeSeedsForFertilizer_11
+TradeSeedsForFertilizer_10:
 	end
 
 TradeSeedsForFertilizer_2:
@@ -168,21 +170,26 @@ TradeSeedsForFertilizer_5:
 	setflag FLAG_MET_STRANGE_SEED_TRADER
 	msgbox CareToTradeSeeds, MSGBOX_YESNO
 	compare VAR_RESULT, TRUE
-	goto_if_eq TradeSeedsForFertilizer_10
+	goto_if_eq TradeSeedsForFertilizer_13
 	goto TradeSeedsGoodbye
 	goto TradeSeedsForFertilizer_4
 
 TradeSeedsForFertilizer_8:
 	msgbox HereToTradeMoreSeeds, MSGBOX_YESNO
 	compare VAR_RESULT, TRUE
-	goto_if_eq TradeSeedsForFertilizer_13
+	goto_if_eq TradeSeedsForFertilizer_16
 	goto TradeSeedsForFertilizer_7
 
-TradeSeedsForFertilizer_10:
+TradeSeedsForFertilizer_11:
+	startquest FLAG_Q12_FLOWERSHOP_STRANGESEED_START
+	special ShowJournalPopupAdd
+	goto TradeSeedsForFertilizer_10
+
+TradeSeedsForFertilizer_13:
 	goto TradeSeedsMain
 	goto TradeSeedsForFertilizer_4
 
-TradeSeedsForFertilizer_13:
+TradeSeedsForFertilizer_16:
 	goto TradeSeedsMain
 	goto TradeSeedsForFertilizer_7
 
@@ -257,7 +264,18 @@ TradeSeedsGoodbye::
 	setvar VAR_TEMP_1, 0
 	setvar VAR_TEMP_2, 0
 	msgbox ComeTradeWhenGetMoreSeeds, MSGBOX_NPC
+	goto_if_set FLAG_Q12_FLOWERSHOP_STRANGESEED_START, TradeSeedsGoodbye_3
+TradeSeedsGoodbye_1:
 	end
+
+TradeSeedsGoodbye_2:
+	completequest FLAG_Q12_FLOWERSHOP_STRANGESEED_COMPLETE
+	special ShowJournalPopupRemove
+	goto TradeSeedsGoodbye_1
+
+TradeSeedsGoodbye_3:
+	goto_if_unset FLAG_Q12_FLOWERSHOP_STRANGESEED_COMPLETE, TradeSeedsGoodbye_2
+	goto TradeSeedsGoodbye_1
 
 
 ZeBagIsFull::
@@ -476,8 +494,8 @@ Debug_Script_1_12:
 
 
 Debug_Script_2::
-	setflag FLAG_SYS_JOURNAL_GET
-	callnative StartAllQuests
+	callnative TestPlayerAvatarFlagDebug
+	msgbox Debug_Script_2_Text_0, MSGBOX_AUTOCLOSE
 	end
 
 
@@ -846,7 +864,7 @@ ClearRoute4_7:
 	setflag FLAG_HIDDEN_ITEM_ROUTE3_SUPERREPEL
 	additem ITEM_SUPER_REPEL
 	defeattrainer TRAINER_GABBY_AND_TY_3
-	defeattrainer TRAINER_GABBY_AND_TY_4
+	defeattrainer TRAINER_GABBY_AND_TY_4_UNUSED
 	defeattrainer TRAINER_GABBY_AND_TY_5
 	defeattrainer TRAINER_GABBY_AND_TY_6
 	defeattrainer TRAINER_LOLA_1
@@ -1323,6 +1341,49 @@ Pearlwood_Debug_8:
 	goto Pearlwood_Debug_7
 
 
+Update3::
+	msgbox NewUpdate, MSGBOX_POKENAV
+	goto_if_set FLAG_RECEIVED_TM_FLING, Update3_2
+Update3_1:
+	setflag FLAG_SYS_JOURNAL_GET
+	waitse
+	playfanfare MUS_OBTAIN_ITEM
+	message PlayerFoundJournal
+	waitfanfare
+	waitmessage
+	msgbox JournalIntroText
+	setvar VAR_DEBUG, 3
+	release
+	end
+
+Update3_2:
+	msgbox MixupWithTMs
+	removeitem ITEM_TM_TORMENT, 1
+	giveitem ITEM_TM_FLING
+	checkitemquant ITEM_TM_FLING
+	goto_if_set FLAG_ITEM_ROUTE_11_TORMENT, Update3_5
+Update3_4:
+	checkitemquant ITEM_TM_FLING
+	compare VAR_0x8005, 1
+	goto_if_gt Update3_8
+Update3_7:
+	closemessage
+	goto Update3_1
+
+Update3_5:
+	compare VAR_0x8005, 0
+	goto_if_eq Update3_10
+	goto Update3_4
+
+Update3_8:
+	removeitem ITEM_TM_FLING
+	goto Update3_7
+
+Update3_10:
+	additem ITEM_TM_TORMENT
+	goto Update3_4
+
+
 RopeBridgeScript_Movement_0:
 	lock_anim
 	lock_facing_direction
@@ -1381,6 +1442,9 @@ Debug_Script_1_Text_15:
 
 Debug_Script_1_Text_16:
 	.string "Team set to level 45.$"
+
+Debug_Script_2_Text_0:
+	.string "{STR_VAR_1}$"
 
 ClearRoute1_Text_0:
 	.string "Obtained Exp. Share.\nDon't forget to turn it on!$"
@@ -1615,3 +1679,11 @@ EndOfBeta2::
 	.string "This is currently the end of beta.\p"
 	.string "In the meanwhile, why don't you\n"
 	.string "try exploring some other areas?$"
+
+MixupWithTMs::
+	.string "There has been a mix-up with some\n"
+	.string "TM rewards.\p"
+	.string "Fixing the mix-up now.$"
+
+NewUpdate::
+	.string "A new update has been applied.$"

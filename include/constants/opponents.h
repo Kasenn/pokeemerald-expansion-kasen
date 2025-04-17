@@ -57,7 +57,7 @@
 #define TRAINER_LEADER_AARON               51
 #define TRAINER_EXPBOT_2               52
 #define TRAINER_GABBY_AND_TY_3               53
-#define TRAINER_GABBY_AND_TY_4               54
+#define TRAINER_GABBY_AND_TY_4_UNUSED               54
 #define TRAINER_GABBY_AND_TY_5               55
 #define TRAINER_GABBY_AND_TY_6               56
 #define TRAINER_LOLA_1                       57

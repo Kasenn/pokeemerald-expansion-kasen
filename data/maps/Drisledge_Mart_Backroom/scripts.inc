@@ -51,26 +51,37 @@ DrisledgeMart_Box::
 	gettime
 	copyvar VAR_TEMP_0, VAR_0x8000
 	compare VAR_TEMP_0, 6
-	goto_if_le DrisledgeMart_Box_4
+	goto_if_le DrisledgeMart_Box_5
 	compare VAR_TEMP_0, 18
-	goto_if_ge DrisledgeMart_Box_4
+	goto_if_ge DrisledgeMart_Box_5
 	checkitem ITEM_ZYGARDE_CUBE
 	compare VAR_RESULT, TRUE
-	goto_if_eq DrisledgeMart_Box_4
+	goto_if_eq DrisledgeMart_Box_5
+DrisledgeMart_Box_4:
+	goto_if_unset FLAG_Q35_CHARRED_CRATE_START, DrisledgeMart_Box_12
 	return
 
 DrisledgeMart_Box_2:
 	end
 
-DrisledgeMart_Box_4:
+DrisledgeMart_Box_5:
 	compare VAR_TEMP_1, 0
-	goto_if_eq DrisledgeMart_Box_10
+	goto_if_eq DrisledgeMart_Box_15
+	goto DrisledgeMart_Box_4
+
+DrisledgeMart_Box_11:
+	startquest FLAG_Q35_CHARRED_CRATE_START
+	special ShowJournalPopupAdd
 	return
 
-DrisledgeMart_Box_10:
+DrisledgeMart_Box_12:
+	goto_if_unset FLAG_LITWICK_CAUGHT, DrisledgeMart_Box_11
+	return
+
+DrisledgeMart_Box_15:
 	setvar VAR_TEMP_1, 1
 	clearflag FLAG_TEMP_1
-	return
+	goto DrisledgeMart_Box_4
 
 
 LitwickChase_1_Left::
@@ -417,6 +428,12 @@ LitwickEligibleBall::
 	release
 	clearflag FLAG_TEMP_2
 	addobject 2
+	goto_if_set FLAG_Q35_CHARRED_CRATE_START, LitwickEligibleBall_1
+	return
+
+LitwickEligibleBall_1:
+	completequest FLAG_Q35_CHARRED_CRATE_COMPLETE
+	special ShowJournalPopupRemove
 	return
 
 

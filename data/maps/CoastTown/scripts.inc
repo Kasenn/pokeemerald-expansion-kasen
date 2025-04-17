@@ -152,26 +152,54 @@ AzureTide_MysteryWoman_9:
 AzureTide_MysteryWoman_13:
 	msgbox AzureTide_MysteryWoman_1Badges, MSGBOX_NPC
 	turnobject 7, DIR_WEST
+	goto_if_unset FLAG_Q03_AZURETIDE_OLD_WOMAN_START, AzureTide_MysteryWoman_19
+AzureTide_MysteryWoman_18:
 	end
 
 AzureTide_MysteryWoman_14:
 	msgbox AzureTide_MysteryWoman_2Badges, MSGBOX_NPC
 	turnobject 7, DIR_WEST
+	goto_if_unset FLAG_Q03_AZURETIDE_OLD_WOMAN_START, AzureTide_MysteryWoman_22
+AzureTide_MysteryWoman_21:
 	end
 
 AzureTide_MysteryWoman_15:
 	msgbox AzureTide_MysteryWoman_3Badges, MSGBOX_NPC
 	turnobject 7, DIR_WEST
+	goto_if_unset FLAG_Q03_AZURETIDE_OLD_WOMAN_START, AzureTide_MysteryWoman_25
+AzureTide_MysteryWoman_24:
 	end
 
 AzureTide_MysteryWoman_16:
 	msgbox AzureTide_MysteryWoman_Get6Badges, MSGBOX_NPC
 	turnobject 7, DIR_WEST
+	goto_if_unset FLAG_Q03_AZURETIDE_OLD_WOMAN_START, AzureTide_MysteryWoman_28
+AzureTide_MysteryWoman_27:
 	end
 
 AzureTide_MysteryWoman_17:
 	goto AzureTide_MysteryWoman_Battle
 	goto AzureTide_MysteryWoman_8
+
+AzureTide_MysteryWoman_19:
+	startquest FLAG_Q03_AZURETIDE_OLD_WOMAN_START
+	special ShowJournalPopupAdd
+	goto AzureTide_MysteryWoman_18
+
+AzureTide_MysteryWoman_22:
+	startquest FLAG_Q03_AZURETIDE_OLD_WOMAN_START
+	special ShowJournalPopupAdd
+	goto AzureTide_MysteryWoman_21
+
+AzureTide_MysteryWoman_25:
+	startquest FLAG_Q03_AZURETIDE_OLD_WOMAN_START
+	special ShowJournalPopupAdd
+	goto AzureTide_MysteryWoman_24
+
+AzureTide_MysteryWoman_28:
+	startquest FLAG_Q03_AZURETIDE_OLD_WOMAN_START
+	special ShowJournalPopupAdd
+	goto AzureTide_MysteryWoman_27
 
 
 Azuretide_HoneyTree::
@@ -293,7 +321,7 @@ Azuretide_Ampharos::
 	compare VAR_RESULT, FALSE
 	goto_if_eq Azuretide_Ampharos_2
 	setvar VAR_RANCH_AMPHAROS, 1
-	warp MAP_ROUTE3, 91, 16
+	warp MAP_ROUTE3, 78, 12
 	waitstate
 	end
 
@@ -334,6 +362,8 @@ AzureTide_MysteryWoman_Battle_1:
 	msgbox AzureTide_ExplainFragment
 AzureTide_MysteryWoman_Battle_7:
 	release
+	goto_if_set FLAG_Q03_AZURETIDE_OLD_WOMAN_START, AzureTide_MysteryWoman_Battle_12
+AzureTide_MysteryWoman_Battle_11:
 	end
 
 AzureTide_MysteryWoman_Battle_2:
@@ -349,6 +379,11 @@ AzureTide_MysteryWoman_Battle_5:
 AzureTide_MysteryWoman_Battle_8:
 	msgbox AzureTide_ExplainFragmentShort
 	goto AzureTide_MysteryWoman_Battle_7
+
+AzureTide_MysteryWoman_Battle_12:
+	completequest FLAG_Q03_AZURETIDE_OLD_WOMAN_COMPLETE
+	special ShowJournalPopupRemove
+	goto AzureTide_MysteryWoman_Battle_11
 
 
 CoastTown_Sign1_Text_0:

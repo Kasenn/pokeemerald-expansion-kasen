@@ -1,4 +1,9 @@
 mapscripts Route3_MapScripts{
+	MAP_SCRIPT_ON_TRANSITION{
+		if(!flag(FLAG_BADGE02_GET)){
+        	setobjectmovementtype(23, MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP)
+    	}
+	}
 	MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE: TurnR3Player2
 	MAP_SCRIPT_ON_FRAME_TABLE[
 		VAR_RANCH_AMPHAROS, 1: AmphyScene
@@ -43,7 +48,7 @@ script Route3_Hiker{
 	end
 }
 script Route3_Lass{
-    trainerbattle_single(TRAINER_GABBY_AND_TY_4, Route3_LassIntro, Route3_LassDefeated)
+    trainerbattle_single(TRAINER_GABBY_AND_TY_4_UNUSED, Route3_LassIntro, Route3_LassDefeated)
 	msgbox(Route3_LassPostBattle, MSGBOX_AUTOCLOSE)
     waitmessage
 	end

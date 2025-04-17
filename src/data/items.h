@@ -11557,12 +11557,15 @@ const struct Item gItemsInfo[] =
         .name = _("TM59"),
         .bpCost = (I_PRICE_BP <= GEN_4) ? 80 : (I_PRICE_BP == GEN_5) ? 6 : (I_PRICE_BP <= GEN_7) ? 16 : 80,
         .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .description = COMPOUND_STRING(
+            "If the target is holding\n"
+            "a Berry, the Berry becomes\n"
+            "burnt up and unusable."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_INCINERATE, // Not In-Game Yet
+        .secondaryId = MOVE_INCINERATE,
     },
 
     [ITEM_TM_MEGAHORN] =

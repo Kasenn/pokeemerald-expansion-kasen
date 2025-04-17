@@ -442,6 +442,10 @@ script FishingVillage_FishingGuru{
     msgbox(FisherOfSomeRenown)
     giveitem(ITEM_TITANIUM_LINE)
     msgbox(FishInLava)
+    if(!flag(FLAG_Q36_TITANIUM_FISHING_START)){
+        startquest(FLAG_Q36_TITANIUM_FISHING_START)
+        special(ShowJournalPopupAdd)
+    }
     release
 }
 
@@ -451,9 +455,17 @@ script SuperRodQuestStarted{
     }
     if(flag(FLAG_TEMP_1)){
         msgbox(DontHaveSlugma, MSGBOX_NPC)
+        if(!flag(FLAG_Q36_TITANIUM_FISHING_START)){
+            startquest(FLAG_Q36_TITANIUM_FISHING_START)
+            special(ShowJournalPopupAdd)
+        }
     }
     else{
         msgbox(FishInLava, MSGBOX_NPC)
+        if(!flag(FLAG_Q36_TITANIUM_FISHING_START)){
+            startquest(FLAG_Q36_TITANIUM_FISHING_START)
+            special(ShowJournalPopupAdd)
+        }
     }
 }
 
@@ -507,7 +519,7 @@ text YouHaveSlugma{
     "Don't worry, the marks are only\n"
     "superficial.\l"
     "The line itself should have no trouble\l"
-    "tolerating the heat."
+    "tolerating the heat.\p"
     "Thank you for helping me test\n"
     "my theory.\p"
     "Here, I want you to have this!"

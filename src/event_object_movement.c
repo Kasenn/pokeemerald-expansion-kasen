@@ -644,6 +644,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Substitute,            OBJ_EVENT_PAL_TAG_SUBSTITUTE},
     {gObjectEventPaletteEmotes,             OBJ_EVENT_PAL_TAG_EMOTES},
     {gObjectEventPal_RidingGogoat,          OBJ_EVENT_PAL_TAG_RIDING_GOGOAT},
+    {gObjectEventPal_AutumnLongGrass,       FLDEFF_PAL_TAG_AUTUMN_LONG_GRASS},
 #ifdef BUGFIX
     {NULL,                                  OBJ_EVENT_PAL_TAG_NONE},
 #else
@@ -3243,6 +3244,11 @@ u8 LoadPlayerObjectEventPalette(u8 gender)
             paletteTag = OBJ_EVENT_PAL_TAG_MAY;
             break;
     }
+    return LoadObjectEventPalette(paletteTag);
+}
+
+u16 LoadFieldEffectPalette(u16 paletteTag)
+{
     return LoadObjectEventPalette(paletteTag);
 }
 

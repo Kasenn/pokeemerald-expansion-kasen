@@ -15,6 +15,10 @@ script Shoreslate_House3_1F_BlackBelt{
             else{
                 msgbox(Shoreslate_BlackBelt_Female_NoAura, MSGBOX_NPC)
             }
+            if(!flag(FLAG_Q15_SHORESLATE_TOUGHGUY_START)){
+                startquest(FLAG_Q15_SHORESLATE_TOUGHGUY_START)
+                special(ShowJournalPopupAdd)
+            }
             end
         }
         else{
@@ -34,6 +38,10 @@ script Shoreslate_House3_1F_BlackBelt{
             waitmessage
             waitse
             msgbox(LucarioniteGet, MSGBOX_NPC)
+            if(flag(FLAG_Q15_SHORESLATE_TOUGHGUY_START)){
+                completequest(FLAG_Q15_SHORESLATE_TOUGHGUY_COMPLETE)
+                special(ShowJournalPopupRemove)
+            }
             end
         }
     }

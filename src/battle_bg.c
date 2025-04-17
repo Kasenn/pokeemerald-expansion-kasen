@@ -630,6 +630,15 @@ const struct BattleBackground sBattleTerrainTable[] =
         .palette = gBattleTerrainPalette_LongGrass,
     },
 
+    [BATTLE_TERRAIN_LONG_GRASS_AUTUMN] =
+    {
+        .tileset = gBattleTerrainTiles_LongGrassAutumn,
+        .tilemap = gBattleTerrainTilemap_LongGrass,
+        .entryTileset = gBattleTerrainAnimTiles_LongGrass,
+        .entryTilemap = gBattleTerrainAnimTilemap_LongGrass,
+        .palette = gBattleTerrainPalette_LongGrassAutumn,
+    },
+
     [BATTLE_TERRAIN_SAND] =
     {
         .tileset = gBattleTerrainTiles_Sand,

@@ -29,6 +29,10 @@ script AldeleafPokeCenter1F_EventScript_Boy{
 }
 script AldeleafPokeCenter1F_EventScript_Girl{
 	msgbox(AldeleafPokeCenter1F_Text_HMCutNextDoor, MSGBOX_NPC)
+	if(!flag(FLAG_Q07_WINDPLUME_VALLEY_START)){
+		startquest(FLAG_Q07_WINDPLUME_VALLEY_START)
+		special(ShowJournalPopupAdd)
+	}
 	end
 }
 

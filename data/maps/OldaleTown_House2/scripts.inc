@@ -28,7 +28,7 @@ NectarManiac_2:
 	msgbox NectarManiac_Text
 	specialvar VAR_RESULT, CheckOricorio
 	compare VAR_RESULT, TRUE
-	goto_if_eq NectarManiac_5
+	goto_if_eq NectarManiac_4
 	msgbox DrewQuickSketch
 	message DrewQuickSketch2
 	waitmessage
@@ -37,11 +37,12 @@ NectarManiac_2:
 	waitbuttonpress
 	hidemonpic
 	msgbox NeverSaidWasAnArtist
-NectarManiac_4:
 	release
+	goto_if_unset FLAG_Q01_PRIMROSE_ORICORIO_START, NectarManiac_11
+NectarManiac_10:
 	end
 
-NectarManiac_5:
+NectarManiac_4:
 	safefollow
 	playse SE_PIN
 	applymovement 1, Common_Movement_ExclamationMark
@@ -49,7 +50,20 @@ NectarManiac_5:
 	delay 48
 	msgbox NectarManiac_OricorioFound, MSGBOX_NPC
 	setflag FLAG_ORICORIO_SHOWN_TO_MANIAC
-	goto NectarManiac_4
+	release
+	goto_if_set FLAG_Q01_PRIMROSE_ORICORIO_START, NectarManiac_8
+NectarManiac_7:
+	end
+
+NectarManiac_8:
+	completequest FLAG_Q01_PRIMROSE_ORICORIO_COMPLETE
+	special ShowJournalPopupRemove
+	goto NectarManiac_7
+
+NectarManiac_11:
+	startquest FLAG_Q01_PRIMROSE_ORICORIO_START
+	special ShowJournalPopupAdd
+	goto NectarManiac_10
 
 
 NectarManiac_OricorioFound::

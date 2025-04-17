@@ -1,5 +1,6 @@
 PlayerHouse2F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, PlayerHouse2F_MapScripts_MAP_SCRIPT_ON_TRANSITION
+	map_script MAP_SCRIPT_ON_LOAD, PlayerHouse2F_MapScripts_MAP_SCRIPT_ON_LOAD
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, PlayerHouse2F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
@@ -34,6 +35,14 @@ PlayerHouse2F_MapScripts_MAP_SCRIPT_ON_TRANSITION_8:
 
 PlayerHouse2F_MapScripts_MAP_SCRIPT_ON_TRANSITION_9:
 	goto_if_set FLAG_HIDE_PLAYERS_HOUSE_DAD, PlayerHouse2F_MapScripts_MAP_SCRIPT_ON_TRANSITION_8
+	return
+
+PlayerHouse2F_MapScripts_MAP_SCRIPT_ON_LOAD:
+	goto_if_set FLAG_SYS_JOURNAL_GET, PlayerHouse2F_MapScripts_MAP_SCRIPT_ON_LOAD_1
+	return
+
+PlayerHouse2F_MapScripts_MAP_SCRIPT_ON_LOAD_1:
+	setmetatile 1, 1, 0x28E, TRUE
 	return
 
 PlayerHouse2F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
@@ -87,6 +96,7 @@ Player2FSetClock_5:
 	fadescreen FADE_TO_BLACK
 	special StartWallClock
 	waitstate
+	msgbox MakeSureToPickUpJournal
 	release
 	return
 
@@ -291,3 +301,7 @@ JournalIntroText::
 HeresQuests_Text::
 	.string "Sup.\n"
 	.string "Here's a bunch of journal entries.$"
+
+MakeSureToPickUpJournal::
+	.string "I should also pick up the Journal\n"
+	.string "from the table before leaving…$"

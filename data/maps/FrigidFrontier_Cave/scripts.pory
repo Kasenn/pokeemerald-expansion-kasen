@@ -9,6 +9,18 @@ mapscripts FrigidFrontier_Cave_MapScripts{
             setmetatile(8, 2, 0x219, TRUE)
         }
     }
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_TEMP_1, 1 {
+            special(ShowJournalPopupAdd)
+            setvar(VAR_TEMP_1, 0)
+        }
+    ]
+    MAP_SCRIPT_ON_TRANSITION{
+        if(!flag(FLAG_Q39_FRIGIDFRONTIER_WEIRDCAVE_START) && !flag(FLAG_FRIGIDCAVE_VERDANT_SPHERE)){
+            startquest(FLAG_Q39_FRIGIDFRONTIER_WEIRDCAVE_START)
+            setvar(VAR_TEMP_1, 1)
+        }
+    }
 }
 
 script FrigidCave_ActivatePedestal{

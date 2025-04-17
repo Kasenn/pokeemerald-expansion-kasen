@@ -305,6 +305,10 @@ script Lab2_GetMegaStone{
         removeobject(RIVAL)
     }
     release
+    if(flag(FLAG_Q33_PROF_BIRCH_MEGASTONE_START)){
+        completequest(FLAG_Q33_PROF_BIRCH_MEGASTONE_COMPLETE)
+        special(ShowJournalPopupRemove)
+    }
     end
 }
 
@@ -460,6 +464,10 @@ script Lab2_Birch{
     }
     elif(var(VAR_PEARLWOOD_TOWN_STATE) == STORY_PEARLWOOD_MEGA_STONE_OBTAINED){
         msgbox(YourFatherIsInTown, MSGBOX_NPC)
+        if(!flag(FLAG_Q34_DADS_HOME_START)){
+            startquest(FLAG_Q34_DADS_HOME_START)
+            special(ShowJournalPopupAdd)
+        }
     }
     elif((var(VAR_PEARLWOOD_TOWN_STATE) == STORY_PEARLWOOD_GET_MEGA_STONE_LATER)){
         lock

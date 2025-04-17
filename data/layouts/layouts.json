@@ -57,7 +57,7 @@
       "width": 80,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lilycove",
+      "secondary_tileset": "gTileset_Amberock",
       "border_filepath": "data/layouts/LilycoveCity/border.bin",
       "blockdata_filepath": "data/layouts/LilycoveCity/map.bin"
     },
@@ -367,7 +367,7 @@
       "width": 80,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lilycove",
+      "secondary_tileset": "gTileset_Amberock",
       "border_filepath": "data/layouts/Route121/border.bin",
       "blockdata_filepath": "data/layouts/Route121/map.bin"
     },
@@ -377,7 +377,7 @@
       "width": 40,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lilycove",
+      "secondary_tileset": "gTileset_Amberock",
       "border_filepath": "data/layouts/Route122/border.bin",
       "blockdata_filepath": "data/layouts/Route122/map.bin"
     },
@@ -387,7 +387,7 @@
       "width": 140,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lilycove",
+      "secondary_tileset": "gTileset_Amberock",
       "border_filepath": "data/layouts/Route123/border.bin",
       "blockdata_filepath": "data/layouts/Route123/map.bin"
     },
@@ -4714,8 +4714,8 @@
     {
       "id": "LAYOUT_ROUTE3",
       "name": "Route3_Layout",
-      "width": 110,
-      "height": 40,
+      "width": 94,
+      "height": 35,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Lilycove",
       "border_filepath": "data/layouts/Route3/border.bin",
@@ -7630,6 +7630,16 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/Coralgrove_House/border.bin",
       "blockdata_filepath": "data/layouts/Coralgrove_House/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE3_COPY",
+      "name": "Route3_Copy_Layout",
+      "width": 90,
+      "height": 35,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Amberock",
+      "border_filepath": "data/layouts/Route3_Copy/border.bin",
+      "blockdata_filepath": "data/layouts/Route3_Copy/map.bin"
     }
   ]
 }

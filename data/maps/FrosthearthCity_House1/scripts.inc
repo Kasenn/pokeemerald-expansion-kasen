@@ -511,10 +511,12 @@ Frosthearth_TypeChecker_1:
 	case TYPE_FAIRY, Frosthearth_TypeChecker_32
 Frosthearth_TypeChecker_13:
 	compare VAR_RESULT, FALSE
-	goto_if_eq Frosthearth_TypeChecker_34
-Frosthearth_TypeChecker_33:
+	goto_if_eq Frosthearth_TypeChecker_37
+Frosthearth_TypeChecker_36:
 	setflag FLAG_DAILY_FROSTHEARTH_TYPE_CHECK
 	release
+	goto_if_set FLAG_Q41_FROSTHEARTH_TYPEMON_START, Frosthearth_TypeChecker_41
+Frosthearth_TypeChecker_39:
 	end
 
 Frosthearth_TypeChecker_2:
@@ -527,6 +529,8 @@ Frosthearth_TypeChecker_8:
 
 Frosthearth_TypeChecker_11:
 	release
+	goto_if_unset FLAG_Q41_FROSTHEARTH_TYPEMON_START, Frosthearth_TypeChecker_34
+Frosthearth_TypeChecker_33:
 	end
 
 Frosthearth_TypeChecker_15:
@@ -602,8 +606,22 @@ Frosthearth_TypeChecker_32:
 	goto Frosthearth_TypeChecker_13
 
 Frosthearth_TypeChecker_34:
-	goto ZeBagIsFull
+	startquest FLAG_Q41_FROSTHEARTH_TYPEMON_START
+	special ShowJournalPopupAdd
 	goto Frosthearth_TypeChecker_33
+
+Frosthearth_TypeChecker_37:
+	goto ZeBagIsFull
+	goto Frosthearth_TypeChecker_36
+
+Frosthearth_TypeChecker_40:
+	completequest FLAG_Q41_FROSTHEARTH_TYPEMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto Frosthearth_TypeChecker_39
+
+Frosthearth_TypeChecker_41:
+	goto_if_unset FLAG_Q41_FROSTHEARTH_TYPEMON_COMPLETE, Frosthearth_TypeChecker_40
+	goto Frosthearth_TypeChecker_39
 
 
 Frosthearth_House2_Man::

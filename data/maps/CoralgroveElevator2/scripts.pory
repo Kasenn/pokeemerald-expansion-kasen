@@ -93,6 +93,10 @@ script CoralgroveElevator2_Rival_May{
     else{
         msgbox("I get it, you want to prepare.\pWell, don't leave me hanging!")
         release
+        if(!flag(FLAG_Q02_ELEVATOR_RIVAL_START)){
+            startquest(FLAG_Q02_ELEVATOR_RIVAL_START)
+            special(ShowJournalPopupAdd)
+        }
         end
     }
 }
@@ -124,6 +128,10 @@ script CoralgroveElevator2_Rival_Brendan{
     else{
         msgbox("It's okay, take your time.\pI'll be waiting here.")
         release
+        if(!flag(FLAG_Q02_ELEVATOR_RIVAL_START)){
+            startquest(FLAG_Q02_ELEVATOR_RIVAL_START)
+            special(ShowJournalPopupAdd)
+        }
         end
     }
 }
@@ -277,6 +285,10 @@ script CoralgroveElevator2_RivalEnd{
 	savebgm(MUS_DUMMY)
 	fadedefaultbgm
 	releaseall
+    if(flag(FLAG_Q02_ELEVATOR_RIVAL_START)){
+        completequest(FLAG_Q02_ELEVATOR_RIVAL_COMPLETE)
+        special(ShowJournalPopupRemove)
+    }
 	end
 }
 movement Harbor_Movement_RivalExit1{

@@ -98,11 +98,13 @@ movement MoveGateLeft{
     lock_facing_direction
     lock_anim
     walk_left
+    unlock_anim
 }
 movement MoveGateRight{
     lock_facing_direction
     lock_anim
     walk_right
+    unlock_anim
 }
 text VolknerTakePrisoners{
     "Clay: These guards barely put up\n"

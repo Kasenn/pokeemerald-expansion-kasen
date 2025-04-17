@@ -271,6 +271,10 @@ script Library_HistoryBook{
             end
         }
         finditem(ITEM_HISTORY_BOOK)
+        if(flag(FLAG_Q18_DESERT_LIBRARYBOOK_START)){
+            completequest(FLAG_Q18_DESERT_LIBRARYBOOK_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
         end
     }
     msgbox(Library_HistoryBook_Text, MSGBOX_SIGN)

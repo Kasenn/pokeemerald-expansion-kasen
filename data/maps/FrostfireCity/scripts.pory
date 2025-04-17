@@ -356,10 +356,18 @@ script Frosthearth_Boy2{
         setvar(VAR_FROSTHEARTH_RUFFLET, 1)
         clearflag(FLAG_TEMP_2)
         msgbox(MissingRuffletStart, MSGBOX_NPC)
+        if(!flag(FLAG_Q40_FROSTHEARTH_RUFFLET_START)){
+            startquest(FLAG_Q40_FROSTHEARTH_RUFFLET_START)
+            special(ShowJournalPopupAdd)
+        }
         end
     }
     elif(var(VAR_FROSTHEARTH_RUFFLET) < 6){
         msgbox(PleaseFindRufflet, MSGBOX_NPC)
+        if(!flag(FLAG_Q40_FROSTHEARTH_RUFFLET_START)){
+            startquest(FLAG_Q40_FROSTHEARTH_RUFFLET_START)
+            special(ShowJournalPopupAdd)
+        }
         end
     }
     elif(var(VAR_FROSTHEARTH_RUFFLET) == 6){
@@ -372,6 +380,10 @@ script Frosthearth_Boy2{
         }
         setvar(VAR_FROSTHEARTH_RUFFLET, 10)
         release
+        if(flag(FLAG_Q40_FROSTHEARTH_RUFFLET_START)){
+            completequest(FLAG_Q40_FROSTHEARTH_RUFFLET_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
         end
     }
     else{

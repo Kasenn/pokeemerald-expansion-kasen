@@ -88,12 +88,19 @@ CoralgroveElevator2_Rival_May::
 	goto_if_eq CoralgroveElevator2_Rival_May_1
 	msgbox CoralgroveElevator2_Rival_May_Text_1
 	release
+	goto_if_unset FLAG_Q02_ELEVATOR_RIVAL_START, CoralgroveElevator2_Rival_May_5
+CoralgroveElevator2_Rival_May_4:
 	end
 
 CoralgroveElevator2_Rival_May_1:
 	msgbox CoralgroveElevator2_Rival_May_Text_0, MSGBOX_DEFAULT
 	goto CoralgroveElevator2_Rival_BATTLECONFIG
 	return
+
+CoralgroveElevator2_Rival_May_5:
+	startquest FLAG_Q02_ELEVATOR_RIVAL_START
+	special ShowJournalPopupAdd
+	goto CoralgroveElevator2_Rival_May_4
 
 
 CoralgroveElevator2_Rival_Brendan::
@@ -102,12 +109,19 @@ CoralgroveElevator2_Rival_Brendan::
 	goto_if_eq CoralgroveElevator2_Rival_Brendan_1
 	msgbox CoralgroveElevator2_Rival_Brendan_Text_0
 	release
+	goto_if_unset FLAG_Q02_ELEVATOR_RIVAL_START, CoralgroveElevator2_Rival_Brendan_5
+CoralgroveElevator2_Rival_Brendan_4:
 	end
 
 CoralgroveElevator2_Rival_Brendan_1:
 	msgbox CoralgroveElevator2_Rival_May_Text_0, MSGBOX_DEFAULT
 	goto CoralgroveElevator2_Rival_BATTLECONFIG
 	return
+
+CoralgroveElevator2_Rival_Brendan_5:
+	startquest FLAG_Q02_ELEVATOR_RIVAL_START
+	special ShowJournalPopupAdd
+	goto CoralgroveElevator2_Rival_Brendan_4
 
 
 CoralgroveElevator2_Rival_BATTLECONFIG::
@@ -221,7 +235,14 @@ CoralgroveElevator2_RivalEnd::
 	savebgm MUS_DUMMY
 	fadedefaultbgm
 	releaseall
+	goto_if_set FLAG_Q02_ELEVATOR_RIVAL_START, CoralgroveElevator2_RivalEnd_2
+CoralgroveElevator2_RivalEnd_1:
 	end
+
+CoralgroveElevator2_RivalEnd_2:
+	completequest FLAG_Q02_ELEVATOR_RIVAL_COMPLETE
+	special ShowJournalPopupRemove
+	goto CoralgroveElevator2_RivalEnd_1
 
 
 Harbor_Movement_RivalExit1:

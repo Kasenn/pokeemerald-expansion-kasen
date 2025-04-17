@@ -20,6 +20,7 @@ script Ttar_Trigger3{
 }
 
 script Ttar_MainEvent{
+    lock
     delay(30)
     switch(var(VAR_TEMP_1)){
         case 1:
@@ -33,6 +34,7 @@ script Ttar_MainEvent{
         lock_anim
         delay_16 * 2
         walk_fast_down * 6
+        unlock_anim
     ))
     waitmovement(0)
     playse(SE_M_EARTHQUAKE)

@@ -77,16 +77,42 @@ RuinsEntranceMan::
 	goto_if_set FLAG_ARCHEOLOGIST_TALKED_TO, RuinsEntranceMan_2
 	goto_if_set FLAG_DESERT_RUINS_OPENED, RuinsEntranceMan_5
 	msgbox RuinsEntranceMan_Text, MSGBOX_NPC
+	goto_if_unset FLAG_Q18_DESERT_LIBRARYBOOK_START, RuinsEntranceMan_14
+RuinsEntranceMan_12:
 	end
 
 RuinsEntranceMan_2:
 	msgbox RuinsEntranceMan_Text, MSGBOX_NPC
+	goto_if_unset FLAG_Q18_DESERT_LIBRARYBOOK_START, RuinsEntranceMan_9
+RuinsEntranceMan_7:
 	end
 
 RuinsEntranceMan_5:
 	setflag FLAG_ARCHEOLOGIST_TALKED_TO
 	msgbox RuinsEntranceMan_After, MSGBOX_NPC
 	end
+
+RuinsEntranceMan_8:
+	startquest FLAG_Q18_DESERT_LIBRARYBOOK_START
+	special ShowJournalPopupAdd
+	goto RuinsEntranceMan_7
+
+RuinsEntranceMan_9:
+	checkitem ITEM_HISTORY_BOOK
+	compare VAR_RESULT, FALSE
+	goto_if_eq RuinsEntranceMan_8
+	goto RuinsEntranceMan_7
+
+RuinsEntranceMan_13:
+	startquest FLAG_Q18_DESERT_LIBRARYBOOK_START
+	special ShowJournalPopupAdd
+	goto RuinsEntranceMan_12
+
+RuinsEntranceMan_14:
+	checkitem ITEM_HISTORY_BOOK
+	compare VAR_RESULT, FALSE
+	goto_if_eq RuinsEntranceMan_13
+	goto RuinsEntranceMan_12
 
 
 DesertRuins_WallText::

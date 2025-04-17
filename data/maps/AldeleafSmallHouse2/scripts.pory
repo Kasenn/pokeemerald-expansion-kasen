@@ -34,23 +34,43 @@ script AldeleafSmallHouse2_Woman{
     if(var(VAR_ALDELEAF_HOUSE) == 0){
         msgbox(AldeleafSmallHouse2_Woman_Intro, MSGBOX_NPC)
         setvar(VAR_ALDELEAF_HOUSE, 1)
+        if(!flag(FLAG_Q05_ALDELEAF_CURSED_DOLL_START)){
+            startquest(FLAG_Q05_ALDELEAF_CURSED_DOLL_START)
+            special(ShowJournalPopupAdd)
+        }
         end
     }
     if((var(VAR_ALDELEAF_HOUSE) == 1) || (var(VAR_ALDELEAF_HOUSE) == 5) || (var(VAR_ALDELEAF_HOUSE) == 7)){
         msgbox(AldeleafSmallHouse2_Woman_ISwear, MSGBOX_NPC)
+        if(!flag(FLAG_Q05_ALDELEAF_CURSED_DOLL_START)){
+            startquest(FLAG_Q05_ALDELEAF_CURSED_DOLL_START)
+            special(ShowJournalPopupAdd)
+        }
         end
     }
     if(var(VAR_ALDELEAF_HOUSE) == 2){
         msgbox(AldeleafSmallHouse2_Woman_NotMovingNow, MSGBOX_NPC)
+        if(!flag(FLAG_Q05_ALDELEAF_CURSED_DOLL_START)){
+            startquest(FLAG_Q05_ALDELEAF_CURSED_DOLL_START)
+            special(ShowJournalPopupAdd)
+        }
         setvar(VAR_ALDELEAF_HOUSE, 3)
         end
     }
     if(var(VAR_ALDELEAF_HOUSE) == 3){
         msgbox(AldeleafSmallHouse2_Woman_NotMovingNow, MSGBOX_NPC)
+        if(!flag(FLAG_Q05_ALDELEAF_CURSED_DOLL_START)){
+            startquest(FLAG_Q05_ALDELEAF_CURSED_DOLL_START)
+            special(ShowJournalPopupAdd)
+        }
         end
     }
     if(var(VAR_ALDELEAF_HOUSE) == 4){
         msgbox(AldeleafSmallHouse2_Woman_ItMovedAgain, MSGBOX_NPC)
+        if(!flag(FLAG_Q05_ALDELEAF_CURSED_DOLL_START)){
+            startquest(FLAG_Q05_ALDELEAF_CURSED_DOLL_START)
+            special(ShowJournalPopupAdd)
+        }
         setvar(VAR_ALDELEAF_HOUSE, 5)
         end
     }
@@ -66,19 +86,35 @@ script AldeleafSmallHouse2_Woman{
         }
         msgbox(AldeleafSmallHouse2_Woman_ItJustMoved, MSGBOX_NPC)
         setvar(VAR_ALDELEAF_HOUSE, 7)
+        if(!flag(FLAG_Q05_ALDELEAF_CURSED_DOLL_START)){
+            startquest(FLAG_Q05_ALDELEAF_CURSED_DOLL_START)
+            special(ShowJournalPopupAdd)
+        }
         end
     }
     if(var(VAR_ALDELEAF_HOUSE) == 8){
         msgbox(AldeleafSmallHouse2_Woman_ImMoving, MSGBOX_NPC)
         setvar(VAR_ALDELEAF_HOUSE, 9)
+        if(!flag(FLAG_Q05_ALDELEAF_CURSED_DOLL_START)){
+            startquest(FLAG_Q05_ALDELEAF_CURSED_DOLL_START)
+            special(ShowJournalPopupAdd)
+        }
         end
     }
     if(var(VAR_ALDELEAF_HOUSE) == 9){
         msgbox(AldeleafSmallHouse2_Woman_ImMoving, MSGBOX_NPC)
+        if(!flag(FLAG_Q05_ALDELEAF_CURSED_DOLL_START)){
+            startquest(FLAG_Q05_ALDELEAF_CURSED_DOLL_START)
+            special(ShowJournalPopupAdd)
+        }
         end
     }
     if(var(VAR_ALDELEAF_HOUSE) == 10){
         msgbox(AldeleafSmallHouse2_Woman_ImMoving, MSGBOX_NPC)
+        if(!flag(FLAG_Q05_ALDELEAF_CURSED_DOLL_START)){
+            startquest(FLAG_Q05_ALDELEAF_CURSED_DOLL_START)
+            special(ShowJournalPopupAdd)
+        }
         end
     }
     if(var(VAR_ALDELEAF_HOUSE) == 11){
@@ -164,6 +200,10 @@ script AldeleafSmallHouse2_Doll{
         waitmessage
         closemessage
         release
+        if(flag(FLAG_Q05_ALDELEAF_CURSED_DOLL_START)){
+            completequest(FLAG_Q05_ALDELEAF_CURSED_DOLL_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
         end
     }
     if(var(VAR_ALDELEAF_HOUSE) == 11){

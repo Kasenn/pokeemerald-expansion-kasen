@@ -72,6 +72,10 @@ script RuinsEntranceMan{
     setflag(FLAG_RECOMMEND_LIBRARY)
     if(flag(FLAG_ARCHEOLOGIST_TALKED_TO)){
         msgbox(RuinsEntranceMan_Text, MSGBOX_NPC)
+        if(!flag(FLAG_Q18_DESERT_LIBRARYBOOK_START) && checkitem(ITEM_HISTORY_BOOK) == FALSE){
+            startquest(FLAG_Q18_DESERT_LIBRARYBOOK_START)
+            special(ShowJournalPopupAdd)
+        }
         end
     }
     if(flag(FLAG_DESERT_RUINS_OPENED)){
@@ -80,6 +84,10 @@ script RuinsEntranceMan{
         end
     }
     msgbox(RuinsEntranceMan_Text, MSGBOX_NPC)
+    if(!flag(FLAG_Q18_DESERT_LIBRARYBOOK_START) && checkitem(ITEM_HISTORY_BOOK) == FALSE){
+        startquest(FLAG_Q18_DESERT_LIBRARYBOOK_START)
+        special(ShowJournalPopupAdd)
+    }
     end
 }
 

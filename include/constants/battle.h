@@ -496,9 +496,10 @@ enum MoveEffects
 #define BATTLE_TERRAIN_SPACE            20
 #define BATTLE_TERRAIN_ULTRA_SPACE      21
 #define BATTLE_TERRAIN_MUD              22
+#define BATTLE_TERRAIN_LONG_GRASS_AUTUMN       23
 // #define BATTLE_TERRAIN_SNOW             23
 
-#define BATTLE_TERRAIN_COUNT            23
+#define BATTLE_TERRAIN_COUNT            24
 
 #define B_WAIT_TIME_LONG        (B_WAIT_TIME_MULTIPLIER * 4)
 #define B_WAIT_TIME_MED         (B_WAIT_TIME_MULTIPLIER * 3)

@@ -30,6 +30,10 @@ script Kaolisle_Hotel_5F_BPShopBeauty{
         buffermovename(STR_VAR_2, VAR_HEARTSCALEMOVE2)
         if(var(VAR_RESULT) == PARTY_SIZE){
             msgbox(WouldLikeToSeeMove, MSGBOX_NPC)
+            if(!flag(FLAG_Q26_HOTEL_SHOW_TM_START)){
+                startquest(FLAG_Q26_HOTEL_SHOW_TM_START)
+                special(ShowJournalPopupAdd)
+            }
             end
         }
         else{
@@ -44,6 +48,10 @@ script Kaolisle_Hotel_5F_BPShopBeauty{
             setvar(VAR_BPBEAUTY_STATE, 2)
             closemessage
             release
+            if(flag(FLAG_Q26_HOTEL_SHOW_TM_START) && !flag(FLAG_Q26_HOTEL_SHOW_TM_COMPLETE)){
+                completequest(FLAG_Q26_HOTEL_SHOW_TM_COMPLETE)
+                special(ShowJournalPopupRemove)
+            }
             end
         }
     }
@@ -285,9 +293,17 @@ script Kaolisle_Hotel_5F_Gentleman{
         closemessage
         setflag(FLAG_OBTAINED_ROSTEBERRIES)
         release
+        if(flag(FLAG_Q27_HOTEL_WILDKIDS_START)){
+            completequest(FLAG_Q27_HOTEL_WILDKIDS_COMPLETE)
+            special(ShowJournalPopupRemove)
+        }
         end
     }
     msgbox(Kaolisle_Hotel_5F_Gentleman_Text, MSGBOX_NPC)
+    if(!flag(FLAG_Q27_HOTEL_WILDKIDS_START)){
+        startquest(FLAG_Q27_HOTEL_WILDKIDS_START)
+        special(ShowJournalPopupAdd)
+    }
     end
 }
 text Kaolisle_Hotel_5F_Gentleman_Text{

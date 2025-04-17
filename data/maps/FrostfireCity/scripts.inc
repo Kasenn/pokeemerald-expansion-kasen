@@ -331,10 +331,14 @@ Frosthearth_Boy2_1:
 	setvar VAR_FROSTHEARTH_RUFFLET, 1
 	clearflag FLAG_TEMP_2
 	msgbox MissingRuffletStart, MSGBOX_NPC
+	goto_if_unset FLAG_Q40_FROSTHEARTH_RUFFLET_START, Frosthearth_Boy2_9
+Frosthearth_Boy2_8:
 	end
 
 Frosthearth_Boy2_2:
 	msgbox PleaseFindRufflet, MSGBOX_NPC
+	goto_if_unset FLAG_Q40_FROSTHEARTH_RUFFLET_START, Frosthearth_Boy2_12
+Frosthearth_Boy2_11:
 	end
 
 Frosthearth_Boy2_3:
@@ -343,15 +347,32 @@ Frosthearth_Boy2_3:
 	msgbox FindRuffletReward
 	giveitem ITEM_HEART_SCALE
 	compare VAR_RESULT, FALSE
-	goto_if_eq Frosthearth_Boy2_9
-Frosthearth_Boy2_8:
+	goto_if_eq Frosthearth_Boy2_15
+Frosthearth_Boy2_14:
 	setvar VAR_FROSTHEARTH_RUFFLET, 10
 	release
+	goto_if_set FLAG_Q40_FROSTHEARTH_RUFFLET_START, Frosthearth_Boy2_18
+Frosthearth_Boy2_17:
 	end
 
 Frosthearth_Boy2_9:
-	goto ZeBagIsFull
+	startquest FLAG_Q40_FROSTHEARTH_RUFFLET_START
+	special ShowJournalPopupAdd
 	goto Frosthearth_Boy2_8
+
+Frosthearth_Boy2_12:
+	startquest FLAG_Q40_FROSTHEARTH_RUFFLET_START
+	special ShowJournalPopupAdd
+	goto Frosthearth_Boy2_11
+
+Frosthearth_Boy2_15:
+	goto ZeBagIsFull
+	goto Frosthearth_Boy2_14
+
+Frosthearth_Boy2_18:
+	completequest FLAG_Q40_FROSTHEARTH_RUFFLET_COMPLETE
+	special ShowJournalPopupRemove
+	goto Frosthearth_Boy2_17
 
 
 Frosthearth_Rufflet::

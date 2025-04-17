@@ -145,6 +145,10 @@ script LanettesHouse_Scientist{
         waitmovement(0)
         delay(48)
         msgbox(SampleBoxIntro3, MSGBOX_NPC)
+        if(!flag(FLAG_Q19_MUDSCIENTIST_START)){
+            startquest(FLAG_Q19_MUDSCIENTIST_START)
+            special(ShowJournalPopupAdd)
+        }
         end
     }
     buffernumberstring(STR_VAR_2, VAR_MUD_SAMPLES)
@@ -596,6 +600,10 @@ script ExtractBall{
         case 99:
             call(GrandPrizeRandomization)
             setvar(VAR_MUD_REWARD, 1002)
+    }
+    if(flag(FLAG_Q19_MUDSCIENTIST_START) && !flag(FLAG_Q19_MUDSCIENTIST_COMPLETE)){
+        completequest(FLAG_Q19_MUDSCIENTIST_COMPLETE)
+        special(ShowJournalPopupRemove)
     }
 }
 

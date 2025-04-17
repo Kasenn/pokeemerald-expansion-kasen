@@ -86,6 +86,8 @@ BasaltTunnel_Tr12_Brock_4:
 	waitfanfare
 	msgbox ExplainRockClimb
 	msgbox BasaltTr12_PostBattle
+	goto_if_set FLAG_Q38_BASALEK_TUNNELS_START, BasaltTunnel_Tr12_Brock_9
+BasaltTunnel_Tr12_Brock_8:
 	release
 	return
 
@@ -97,15 +99,31 @@ BasaltTunnel_Tr12_Brock_5:
 	msgbox BasaltTr12_IntroNo
 	goto BasaltTunnel_Tr12_Brock_4
 
+BasaltTunnel_Tr12_Brock_9:
+	completequest FLAG_Q38_BASALEK_TUNNELS_COMPLETE
+	special ShowJournalPopupRemove
+	goto BasaltTunnel_Tr12_Brock_8
+
 
 BasalekTunnelGreeter::
 	checktrainerflag TRAINER_BASALTUNNEL_TR12_BROCK
 	goto_if 1, BasalekTunnelGreeter_1
 	msgbox BasalekTunnelGreeter_Guide, MSGBOX_NPC
+	goto_if_unset FLAG_Q38_BASALEK_TUNNELS_START, BasalekTunnelGreeter_5
 	return
 
 BasalekTunnelGreeter_1:
 	msgbox BasalekTunnelGreeter_Victory, MSGBOX_NPC
+	return
+
+BasalekTunnelGreeter_4:
+	startquest FLAG_Q38_BASALEK_TUNNELS_START
+	special ShowJournalPopupAdd
+	return
+
+BasalekTunnelGreeter_5:
+	checktrainerflag TRAINER_BASALTUNNEL_TR12_BROCK
+	goto_if 0, BasalekTunnelGreeter_4
 	return
 
 

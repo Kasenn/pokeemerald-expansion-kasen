@@ -78,14 +78,22 @@ SkylochInt_FatMan_1:
 SkylochInt_FatMan_2:
 	msgbox SkylochInt_FatMan_Text, MSGBOX_DEFAULT
 	checkitem ITEM_CASTELIACONE
+	compare VAR_RESULT, FALSE
+	goto_if_eq SkylochInt_FatMan_6
+SkylochInt_FatMan_5:
 	compare VAR_RESULT, TRUE
-	goto_if_eq SkylochInt_FatMan_5
+	goto_if_eq SkylochInt_FatMan_8
 	goto SkylochInt_FatMan_1
 
-SkylochInt_FatMan_5:
+SkylochInt_FatMan_6:
+	release
+	goto_if_unset FLAG_Q10_SKYLOCH_ICECREAM_START, SkylochInt_FatMan_10
+	goto SkylochInt_FatMan_5
+
+SkylochInt_FatMan_8:
 	msgbox SkylochInt_FatMan_TextContinued, MSGBOX_YESNO
 	compare VAR_RESULT, FALSE
-	goto_if_eq SkylochInt_FatMan_7
+	goto_if_eq SkylochInt_FatMan_12
 	removeitem ITEM_CASTELIACONE, 1
 	msgbox SkylochInt_FatMan_TextThanks, MSGBOX_DEFAULT
 	giveitem ITEM_OCCA_BERRY, 1
@@ -94,11 +102,30 @@ SkylochInt_FatMan_5:
 	waitmessage
 	closemessage
 	release
+	goto_if_set FLAG_Q10_SKYLOCH_ICECREAM_START, SkylochInt_FatMan_19
+SkylochInt_FatMan_18:
 	end
 
-SkylochInt_FatMan_7:
-	msgbox SkylochInt_FatMan_Text_0, MSGBOX_NPC
+SkylochInt_FatMan_10:
+	startquest FLAG_Q10_SKYLOCH_ICECREAM_START
+	special ShowJournalPopupAdd
 	end
+
+SkylochInt_FatMan_12:
+	msgbox SkylochInt_FatMan_Text_0, MSGBOX_NPC
+	goto_if_unset FLAG_Q10_SKYLOCH_ICECREAM_START, SkylochInt_FatMan_16
+SkylochInt_FatMan_15:
+	end
+
+SkylochInt_FatMan_16:
+	startquest FLAG_Q10_SKYLOCH_ICECREAM_START
+	special ShowJournalPopupAdd
+	goto SkylochInt_FatMan_15
+
+SkylochInt_FatMan_19:
+	completequest FLAG_Q10_SKYLOCH_ICECREAM_COMPLETE
+	special ShowJournalPopupRemove
+	goto SkylochInt_FatMan_18
 
 
 SkylochInt_RestHouseOldWoman::
@@ -180,6 +207,8 @@ SkylochInt_PikachuWoman_4:
 	waitmessage
 	closemessage
 	release
+	goto_if_unset FLAG_Q11_SKYLOCH_RAICHUS_START, SkylochInt_PikachuWoman_8
+SkylochInt_PikachuWoman_7:
 	end
 
 SkylochInt_PikachuWoman_2:
@@ -189,23 +218,35 @@ SkylochInt_PikachuWoman_2:
 SkylochInt_PikachuWoman_5:
 	checkpartymon SPECIES_RAICHU_ALOLAN, 0
 	compare VAR_RESULT, TRUE
-	goto_if_eq SkylochInt_PikachuWoman_7
+	goto_if_eq SkylochInt_PikachuWoman_10
 	goto SkylochInt_PikachuWoman_4
 
-SkylochInt_PikachuWoman_7:
+SkylochInt_PikachuWoman_8:
+	startquest FLAG_Q11_SKYLOCH_RAICHUS_START
+	special ShowJournalPopupAdd
+	goto SkylochInt_PikachuWoman_7
+
+SkylochInt_PikachuWoman_10:
 	msgbox SkylochInt_PikachuWoman_2Raichus, MSGBOX_DEFAULT
 	checkitemspace ITEM_LIGHT_BALL
 	compare VAR_RESULT, FALSE
-	goto_if_eq SkylochInt_PikachuWoman_10
-SkylochInt_PikachuWoman_9:
+	goto_if_eq SkylochInt_PikachuWoman_13
+SkylochInt_PikachuWoman_12:
 	giveitem ITEM_LIGHT_BALL
 	setflag FLAG_RECEIVED_LIGHTBALL
 	msgbox ExplainLightBall, MSGBOX_NPC
+	goto_if_set FLAG_Q11_SKYLOCH_RAICHUS_START, SkylochInt_PikachuWoman_16
+SkylochInt_PikachuWoman_15:
 	end
 
-SkylochInt_PikachuWoman_10:
+SkylochInt_PikachuWoman_13:
 	goto ZeBagIsFull
-	goto SkylochInt_PikachuWoman_9
+	goto SkylochInt_PikachuWoman_12
+
+SkylochInt_PikachuWoman_16:
+	completequest FLAG_Q11_SKYLOCH_RAICHUS_COMPLETE
+	special ShowJournalPopupRemove
+	goto SkylochInt_PikachuWoman_15
 
 
 SkylochInt_Pikachu::

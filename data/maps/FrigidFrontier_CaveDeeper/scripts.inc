@@ -27,5 +27,12 @@ FrigidCave_LootRock::
 	finditem ITEM_VERDANT_SPHERE
 	waitmessage
 	playbgm MUS_SEALED_CHAMBER, TRUE
+	goto_if_set FLAG_Q39_FRIGIDFRONTIER_WEIRDCAVE_START, FrigidCave_LootRock_2
+FrigidCave_LootRock_1:
 	end
+
+FrigidCave_LootRock_2:
+	completequest FLAG_Q39_FRIGIDFRONTIER_WEIRDCAVE_COMPLETE
+	special ShowJournalPopupRemove
+	goto FrigidCave_LootRock_1
 

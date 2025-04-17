@@ -62,17 +62,23 @@ Kaolisle_Karatemaster::
 	goto_if_set FLAG_RECEIVED_HM_ROCK_SMASH, Kaolisle_Karatemaster_2
 	msgbox LostMemento, MSGBOX_DEFAULT
 	checkitem ITEM_LOST_MEMENTO
-	compare VAR_RESULT, TRUE
+	compare VAR_RESULT, FALSE
 	goto_if_eq Kaolisle_Karatemaster_5
-Kaolisle_Karatemaster_4:
-	release
-	end
+	compare VAR_RESULT, TRUE
+	goto_if_eq Kaolisle_Karatemaster_7
+	return
 
 Kaolisle_Karatemaster_2:
 	msgbox RockSmashMonComesOut_Text, MSGBOX_NPC
 	end
 
 Kaolisle_Karatemaster_5:
+	release
+	goto_if_unset FLAG_Q23_KAOLISLE_OLDPENDANT_START, Kaolisle_Karatemaster_10
+Kaolisle_Karatemaster_9:
+	end
+
+Kaolisle_Karatemaster_7:
 	playse SE_PIN
 	safefollow
 	applymovement 1, Common_Movement_ExclamationMark
@@ -83,7 +89,20 @@ Kaolisle_Karatemaster_5:
 	setflag FLAG_RECEIVED_HM_ROCK_SMASH
 	removeitem ITEM_LOST_MEMENTO
 	msgbox ExplainRockSmash, MSGBOX_DEFAULT
-	goto Kaolisle_Karatemaster_4
+	release
+	goto_if_set FLAG_Q23_KAOLISLE_OLDPENDANT_START, Kaolisle_Karatemaster_13
+Kaolisle_Karatemaster_12:
+	end
+
+Kaolisle_Karatemaster_10:
+	startquest FLAG_Q23_KAOLISLE_OLDPENDANT_START
+	special ShowJournalPopupAdd
+	goto Kaolisle_Karatemaster_9
+
+Kaolisle_Karatemaster_13:
+	completequest FLAG_Q23_KAOLISLE_OLDPENDANT_COMPLETE
+	special ShowJournalPopupRemove
+	goto Kaolisle_Karatemaster_12
 
 
 Kaolisle_SphealHouseLady::

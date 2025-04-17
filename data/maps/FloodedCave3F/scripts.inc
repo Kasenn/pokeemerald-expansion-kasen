@@ -40,5 +40,13 @@ FC3F_LootRock::
 	waitmessage
 	playbgm MUS_SEALED_CHAMBER, TRUE
 	setvar VAR_FCCAVE, 3
+	release
+	goto_if_set FLAG_Q31_ROUTE12_WEIRDCAVE_START, FC3F_LootRock_2
+FC3F_LootRock_1:
 	end
+
+FC3F_LootRock_2:
+	completequest FLAG_Q31_ROUTE12_WEIRDCAVE_COMPLETE
+	special ShowJournalPopupRemove
+	goto FC3F_LootRock_1
 

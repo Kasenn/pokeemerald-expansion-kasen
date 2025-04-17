@@ -711,3 +711,4 @@ const u16 gFieldEffectObjectPalette_CaveDust[] = INCBIN_U16("graphics/field_effe
 const u32 gFieldEffectObjectPic_RidingGogoat[] = INCBIN_U32("graphics/field_effects/pics/gogoat.4bpp");
 const u32 gFieldEffectObjectPic_RidingGogoatHead[] = INCBIN_U32("graphics/field_effects/pics/gogoat_head.4bpp");
 const u16 gObjectEventPal_RidingGogoat[] = INCBIN_U16("graphics/field_effects/pics/gogoat.gbapal");
+const u16 gObjectEventPal_AutumnLongGrass[] = INCBIN_U16("graphics/field_effects/palettes/autumnlonggrass.gbapal");

@@ -16,6 +16,11 @@ mapscripts PlayerHouse2F_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE[
         VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_INTRO: PlayerHouse2F_Intro
     ]
+    MAP_SCRIPT_ON_LOAD{
+        if(flag(FLAG_SYS_JOURNAL_GET)){
+            setmetatile(1, 1, 0x28E, TRUE)
+        }
+    }
 }
 
 const MOM = 1
@@ -79,6 +84,7 @@ script Player2FSetClock{
     fadescreen(FADE_TO_BLACK)
 	special(StartWallClock)
 	waitstate
+    msgbox(MakeSureToPickUpJournal)
 	release
 }
 
@@ -210,4 +216,9 @@ script HeresQuests{
 text HeresQuests_Text{
     "Sup.\n"
     "Here's a bunch of journal entries."
+}
+
+text MakeSureToPickUpJournal{
+    "I should also pick up the Journal\n"
+    "from the table before leaving…"
 }

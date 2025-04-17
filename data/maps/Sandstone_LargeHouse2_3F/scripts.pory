@@ -48,6 +48,10 @@ script Sandstone_BigHouse2_3F_Man{
     }
     msgbox(GetAntiVirus, MSGBOX_NPC)
     setvar(VAR_SANDSTONEPORYGON_STATE, 1)
+    if(!flag(FLAG_Q32_SANDSTONE_ANTIVIRUS_START)){
+        startquest(FLAG_Q32_SANDSTONE_ANTIVIRUS_START)
+        special(ShowJournalPopupAdd)
+    }
     end
 }
 
@@ -89,6 +93,10 @@ script PCAftermath{
     waitmovement(0)
     delay(30)
     release
+    if(flag(FLAG_Q32_SANDSTONE_ANTIVIRUS_START)){
+        completequest(FLAG_Q32_SANDSTONE_ANTIVIRUS_COMPLETE)
+        special(ShowJournalPopupRemove)
+    }
     end
 }
 

@@ -10,15 +10,27 @@ script Rockliffe_House1_OldWoman{
     msgbox(DoYouLikeBeedrills, MSGBOX_YESNO)
     if(var(VAR_RESULT) == FALSE){
         msgbox(ThatsAShame, MSGBOX_NPC)
+        if(!flag(FLAG_Q30_ROCKLIFFE_BEEDRILLS_START)){
+            startquest(FLAG_Q30_ROCKLIFFE_BEEDRILLS_START)
+            special(ShowJournalPopupAdd)
+        }
         end
     }
     checkpartymon(SPECIES_BEEDRILL, 0)
     if(var(VAR_RESULT) == FALSE){
         msgbox(YouDontHaveBeedrill, MSGBOX_NPC)
+        if(!flag(FLAG_Q30_ROCKLIFFE_BEEDRILLS_START)){
+            startquest(FLAG_Q30_ROCKLIFFE_BEEDRILLS_START)
+            special(ShowJournalPopupAdd)
+        }
         end
     }
     if(!flag(FLAG_OBTAINED_MEGA_RING)){
         msgbox(HaveBeedrillButNoRing, MSGBOX_NPC)
+        if(!flag(FLAG_Q30_ROCKLIFFE_BEEDRILLS_START)){
+            startquest(FLAG_Q30_ROCKLIFFE_BEEDRILLS_START)
+            special(ShowJournalPopupAdd)
+        }
         end
     }
     msgbox(TakeBeedrillite, MSGBOX_DEFAULT)
@@ -30,6 +42,10 @@ script Rockliffe_House1_OldWoman{
     waitse
     waitmessage
     closemessage
+    if(flag(FLAG_Q30_ROCKLIFFE_BEEDRILLS_START)){
+        completequest(FLAG_Q30_ROCKLIFFE_BEEDRILLS_COMPLETE)
+        special(ShowJournalPopupRemove)
+    }
     release
     end
 }
@@ -86,6 +102,10 @@ script RockliffeHouse3_Man1{
         msgbox(SeenExcadrillNotAron, MSGBOX_NPC)
     }
     closemessage
+    if(!flag(FLAG_Q29_ROCKLIFFE_HEAVYMON_START)){
+        startquest(FLAG_Q29_ROCKLIFFE_HEAVYMON_START)
+        special(ShowJournalPopupAdd)
+    }
     release
     end
 }
@@ -128,6 +148,10 @@ script WeighsMoreResult{
     waitmessage
     setflag(FLAG_RECEIVED_METAL_COAT)
     closemessage
+    if(flag(FLAG_Q29_ROCKLIFFE_HEAVYMON_START)){
+        completequest(FLAG_Q29_ROCKLIFFE_HEAVYMON_COMPLETE)
+        special(ShowJournalPopupRemove)
+    }
     release
     end
 }

@@ -389,6 +389,7 @@ const u8 gBattleBackgroundTerrainNames[][26] =
 {
     [BATTLE_TERRAIN_GRASS]      = _("NORMAL - GRASS           "),
     [BATTLE_TERRAIN_LONG_GRASS] = _("NORMAL - LONG GRASS      "),
+    [BATTLE_TERRAIN_LONG_GRASS_AUTUMN] = _("NORMAL - LONG GRASS A    "),
     [BATTLE_TERRAIN_SAND]       = _("NORMAL - SAND            "),
     [BATTLE_TERRAIN_UNDERWATER] = _("NORMAL - UNDERWATER      "),
     [BATTLE_TERRAIN_WATER]      = _("NORMAL - WATER           "),

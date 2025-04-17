@@ -415,6 +415,8 @@ FishingVillage_FishingGuru_10:
 	msgbox FisherOfSomeRenown
 	giveitem ITEM_TITANIUM_LINE
 	msgbox FishInLava
+	goto_if_unset FLAG_Q36_TITANIUM_FISHING_START, FishingVillage_FishingGuru_14
+FishingVillage_FishingGuru_13:
 	release
 	return
 
@@ -433,10 +435,15 @@ FishingVillage_FishingGuru_8:
 FishingVillage_FishingGuru_11:
 	checkitem ITEM_GOOD_ROD
 	compare VAR_RESULT, FALSE
-	goto_if_eq FishingVillage_FishingGuru_13
+	goto_if_eq FishingVillage_FishingGuru_16
 	goto FishingVillage_FishingGuru_10
 
-FishingVillage_FishingGuru_13:
+FishingVillage_FishingGuru_14:
+	startquest FLAG_Q36_TITANIUM_FISHING_START
+	special ShowJournalPopupAdd
+	goto FishingVillage_FishingGuru_13
+
+FishingVillage_FishingGuru_16:
 	msgbox NoFishingRod, MSGBOX_NPC
 	end
 
@@ -446,6 +453,7 @@ SuperRodQuestStarted::
 SuperRodQuestStarted_1:
 	goto_if_set FLAG_TEMP_1, SuperRodQuestStarted_4
 	msgbox FishInLava, MSGBOX_NPC
+	goto_if_unset FLAG_Q36_TITANIUM_FISHING_START, SuperRodQuestStarted_9
 	return
 
 SuperRodQuestStarted_2:
@@ -454,6 +462,17 @@ SuperRodQuestStarted_2:
 
 SuperRodQuestStarted_4:
 	msgbox DontHaveSlugma, MSGBOX_NPC
+	goto_if_unset FLAG_Q36_TITANIUM_FISHING_START, SuperRodQuestStarted_7
+	return
+
+SuperRodQuestStarted_7:
+	startquest FLAG_Q36_TITANIUM_FISHING_START
+	special ShowJournalPopupAdd
+	return
+
+SuperRodQuestStarted_9:
+	startquest FLAG_Q36_TITANIUM_FISHING_START
+	special ShowJournalPopupAdd
 	return
 
 
@@ -685,7 +704,7 @@ YouHaveSlugma::
 	.string "Don't worry, the marks are only\n"
 	.string "superficial.\l"
 	.string "The line itself should have no trouble\l"
-	.string "tolerating the heat."
+	.string "tolerating the heat.\p"
 	.string "Thank you for helping me test\n"
 	.string "my theory.\p"
 	.string "Here, I want you to have this!$"

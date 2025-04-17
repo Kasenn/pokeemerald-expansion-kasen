@@ -29,5 +29,9 @@ script WeirdCave_LootRock{
     waitmessage
     playbgm(MUS_SEALED_CHAMBER, TRUE)
     setvar(VAR_WEIRDCAVE_PART2, 3)
+    if(flag(FLAG_Q17_DESERT_WEIRDCAVE_START)){
+        completequest(FLAG_Q17_DESERT_WEIRDCAVE_COMPLETE)
+        special(ShowJournalPopupRemove)
+    }
     end
 }

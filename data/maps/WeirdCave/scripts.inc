@@ -1,64 +1,85 @@
 WeirdCave_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, WeirdCaveHideDoor
 	map_script MAP_SCRIPT_ON_TRANSITION, SetRockVar
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, WeirdCave_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
+
+WeirdCave_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_TEMP_1, 1, WeirdCave_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0
+	.2byte 0
+
+WeirdCave_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE_0:
+	special ShowJournalPopupAdd
+	setvar VAR_TEMP_1, 0
+	return
 
 
 WeirdCaveHideDoor::
-	goto_if_unset FLAG_WEIRDCAVESOLVED, WeirdCaveHideDoor_2
+	goto_if_unset FLAG_Q17_DESERT_WEIRDCAVE_START, WeirdCaveHideDoor_3
 WeirdCaveHideDoor_1:
+	goto_if_unset FLAG_WEIRDCAVESOLVED, WeirdCaveHideDoor_7
+WeirdCaveHideDoor_6:
 	switch VAR_WEIRDCAVEROCKFORMATION
-	case 0, WeirdCaveHideDoor_6
-	case 1, WeirdCaveHideDoor_7
-	case 2, WeirdCaveHideDoor_8
-	case 3, WeirdCaveHideDoor_9
-	case 4, WeirdCaveHideDoor_10
-	case 5, WeirdCaveHideDoor_11
-	case 6, WeirdCaveHideDoor_12
-WeirdCaveHideDoor_4:
+	case 0, WeirdCaveHideDoor_11
+	case 1, WeirdCaveHideDoor_12
+	case 2, WeirdCaveHideDoor_13
+	case 3, WeirdCaveHideDoor_14
+	case 4, WeirdCaveHideDoor_15
+	case 5, WeirdCaveHideDoor_16
+	case 6, WeirdCaveHideDoor_17
+WeirdCaveHideDoor_9:
 	end
 
 WeirdCaveHideDoor_2:
+	startquest FLAG_Q17_DESERT_WEIRDCAVE_START
+	setvar VAR_TEMP_1, 1
+	goto WeirdCaveHideDoor_1
+
+WeirdCaveHideDoor_3:
+	goto_if_unset FLAG_WEIRDCAVE_STONE, WeirdCaveHideDoor_2
+	goto WeirdCaveHideDoor_1
+
+WeirdCaveHideDoor_7:
 	setmetatile 6, 5, 0x219, TRUE
 	setmetatile 7, 5, 0x219, TRUE
 	setmetatile 8, 5, 0x219, TRUE
 	setmetatile 6, 6, 0x219, TRUE
 	setmetatile 7, 6, 0x219, TRUE
 	setmetatile 8, 6, 0x219, TRUE
-	goto WeirdCaveHideDoor_1
-
-WeirdCaveHideDoor_6:
-	setmetatile 5, 14, 0x211, FALSE
-	setmetatile 9, 8, 0x211, FALSE
-	setmetatile 5, 11, 0x211, FALSE
-	setmetatile 9, 14, 0x211, FALSE
-	setmetatile 5, 8, 0x211, FALSE
-	setmetatile 9, 11, 0x211, FALSE
-	goto WeirdCaveHideDoor_4
-
-WeirdCaveHideDoor_7:
-	setmetatile 5, 14, 0x211, FALSE
-	goto WeirdCaveHideDoor_4
-
-WeirdCaveHideDoor_8:
-	setmetatile 5, 11, 0x211, FALSE
-	goto WeirdCaveHideDoor_4
-
-WeirdCaveHideDoor_9:
-	setmetatile 9, 8, 0x211, FALSE
-	goto WeirdCaveHideDoor_4
-
-WeirdCaveHideDoor_10:
-	setmetatile 5, 8, 0x211, FALSE
-	goto WeirdCaveHideDoor_4
+	goto WeirdCaveHideDoor_6
 
 WeirdCaveHideDoor_11:
+	setmetatile 5, 14, 0x211, FALSE
+	setmetatile 9, 8, 0x211, FALSE
+	setmetatile 5, 11, 0x211, FALSE
+	setmetatile 9, 14, 0x211, FALSE
+	setmetatile 5, 8, 0x211, FALSE
 	setmetatile 9, 11, 0x211, FALSE
-	goto WeirdCaveHideDoor_4
+	goto WeirdCaveHideDoor_9
 
 WeirdCaveHideDoor_12:
+	setmetatile 5, 14, 0x211, FALSE
+	goto WeirdCaveHideDoor_9
+
+WeirdCaveHideDoor_13:
+	setmetatile 5, 11, 0x211, FALSE
+	goto WeirdCaveHideDoor_9
+
+WeirdCaveHideDoor_14:
+	setmetatile 9, 8, 0x211, FALSE
+	goto WeirdCaveHideDoor_9
+
+WeirdCaveHideDoor_15:
+	setmetatile 5, 8, 0x211, FALSE
+	goto WeirdCaveHideDoor_9
+
+WeirdCaveHideDoor_16:
+	setmetatile 9, 11, 0x211, FALSE
+	goto WeirdCaveHideDoor_9
+
+WeirdCaveHideDoor_17:
 	setmetatile 9, 14, 0x211, FALSE
-	goto WeirdCaveHideDoor_4
+	goto WeirdCaveHideDoor_9
 
 
 SetRockVar::

@@ -177,6 +177,10 @@ text BasalekTown_Sign2_Text{
 }
 script BasalekTown_Man5{
     msgbox(BasalekTown_Man5_Text, MSGBOX_NPC)
+    if(!flag(FLAG_Q38_BASALEK_TUNNELS_START) && !defeated(TRAINER_BASALTUNNEL_TR12_BROCK)){
+        startquest(FLAG_Q38_BASALEK_TUNNELS_START)
+        special(ShowJournalPopupAdd)
+    }
 }
 text BasalekTown_Man5_Text{
     "See that cave down there?\n"
@@ -538,6 +542,10 @@ script BasalekTown_LevelChecker{
     msgbox(BasalekTown_LevelChecker_NoMatch, MSGBOX_AUTOCLOSE)
     matchpartylevel(VAR_BASALEK_LEVEL_CHECK)
     if(var(VAR_RESULT) == FALSE){
+        if(!flag(FLAG_Q37_BASALEK_LEVELMON_START)){
+            startquest(FLAG_Q37_BASALEK_LEVELMON_START)
+            special(ShowJournalPopupAdd)
+        }
         end
     }
     msgbox(BasalekTown_LevelChecker_YesMatch)
@@ -560,6 +568,10 @@ script BasalekTown_LevelChecker{
         setvar(VAR_BASALEK_LEVEL_CHECK, 0)
     }
     msgbox(BasalekTown_LevelChecker_ComeAgain)
+    if(flag(FLAG_Q37_BASALEK_LEVELMON_START) && !flag(FLAG_Q37_BASALEK_LEVELMON_COMPLETE)){
+        completequest(FLAG_Q37_BASALEK_LEVELMON_COMPLETE)
+        special(ShowJournalPopupRemove)
+    }
     release
 }
 

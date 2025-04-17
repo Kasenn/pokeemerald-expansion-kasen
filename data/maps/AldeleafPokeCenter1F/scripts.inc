@@ -34,7 +34,14 @@ AldeleafPokeCenter1F_EventScript_Boy::
 
 AldeleafPokeCenter1F_EventScript_Girl::
 	msgbox AldeleafPokeCenter1F_Text_HMCutNextDoor, MSGBOX_NPC
+	goto_if_unset FLAG_Q07_WINDPLUME_VALLEY_START, AldeleafPokeCenter1F_EventScript_Girl_2
+AldeleafPokeCenter1F_EventScript_Girl_1:
 	end
+
+AldeleafPokeCenter1F_EventScript_Girl_2:
+	startquest FLAG_Q07_WINDPLUME_VALLEY_START
+	special ShowJournalPopupAdd
+	goto AldeleafPokeCenter1F_EventScript_Girl_1
 
 
 AldeleafPokeCenter1F_Text_PokemonHavePersonalities::

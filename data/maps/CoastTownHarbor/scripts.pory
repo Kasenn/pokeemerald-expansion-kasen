@@ -1,11 +1,21 @@
 mapscripts CoastTownHarbor_MapScripts{
 	MAP_SCRIPT_ON_TRANSITION: HarborSetFlags
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_TEMP_0, 1 {
+            if(flag(FLAG_Q02_ELEVATOR_RIVAL_START)){
+                completequest(FLAG_Q02_ELEVATOR_RIVAL_COMPLETE)
+                special(ShowJournalPopupRemove)
+            }
+            setvar(VAR_TEMP_0, 0)
+        }
+    ]
 }
 
 script HarborSetFlags{
 	if(!flag(FLAG_DEFEATED_RIVAL_HARBOR)){
 		setflag(FLAG_DEFEATED_RIVAL_HARBOR)
 		setflag(FLAG_RIVAL_HARBOR_ANGRY)
+        setvar(VAR_TEMP_0, 1)
 	}
 }
 

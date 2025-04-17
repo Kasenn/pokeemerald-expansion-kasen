@@ -256,8 +256,16 @@ script AldeleafCity_KeyMan{
 		waitdooranim
 		hideobjectat(16, MAP_WIP_CITY1)
 		setobjectxyperm(16, 0, 30)
+		if(flag(FLAG_Q04_ALDELEAF_LOST_KEYS_START)){
+			completequest(FLAG_Q04_ALDELEAF_LOST_KEYS_COMPLETE)
+			special(ShowJournalPopupRemove)
+		}
 	}
 	release
+	if(!flag(FLAG_Q04_ALDELEAF_LOST_KEYS_START)){
+		startquest(FLAG_Q04_ALDELEAF_LOST_KEYS_START)
+		special(ShowJournalPopupAdd)
+	}
 	end
 }
 script Aldeleaf_Sign{

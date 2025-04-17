@@ -203,6 +203,10 @@ script PlayerHouse1F_Dad{
     if(var(VAR_PEARLWOOD_TOWN_STATE) == STORY_PEARLWOOD_MEGA_STONE_OBTAINED){
         setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED)
     }
+    if(flag(FLAG_Q34_DADS_HOME_START)){
+        completequest(FLAG_Q34_DADS_HOME_COMPLETE)
+        special(ShowJournalPopupRemove)
+    }
     end
 }
 

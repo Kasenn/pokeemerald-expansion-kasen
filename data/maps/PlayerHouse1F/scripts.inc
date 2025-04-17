@@ -149,6 +149,8 @@ PlayerHouse1F_Dad_8:
 	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED
 	goto_if_eq PlayerHouse1F_Dad_12
 PlayerHouse1F_Dad_11:
+	goto_if_set FLAG_Q34_DADS_HOME_START, PlayerHouse1F_Dad_15
+PlayerHouse1F_Dad_14:
 	end
 
 PlayerHouse1F_Dad_2:
@@ -167,6 +169,11 @@ PlayerHouse1F_Dad_9:
 PlayerHouse1F_Dad_12:
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED
 	goto PlayerHouse1F_Dad_11
+
+PlayerHouse1F_Dad_15:
+	completequest FLAG_Q34_DADS_HOME_COMPLETE
+	special ShowJournalPopupRemove
+	goto PlayerHouse1F_Dad_14
 
 
 PlayerHouse1F_Intro_Text_0:

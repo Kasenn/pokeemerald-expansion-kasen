@@ -104,12 +104,14 @@ MoveGateLeft:
 	lock_facing_direction
 	lock_anim
 	walk_left
+	unlock_anim
 	step_end
 
 MoveGateRight:
 	lock_facing_direction
 	lock_anim
 	walk_right
+	unlock_anim
 	step_end
 
 Amberock_LeftRocketLeaves:

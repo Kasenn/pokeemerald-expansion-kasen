@@ -950,6 +950,7 @@
 #define MAP_ROUTE21_FILLER              (23 | (52 << 8))
 #define MAP_ROUTE26_FILLER              (24 | (52 << 8))
 #define MAP_WINDYWOODS_FILLER           (25 | (52 << 8))
+#define MAP_ROUTE3_COPY                 (26 | (52 << 8))
 
 #define MAP_GROUPS_COUNT 53
 

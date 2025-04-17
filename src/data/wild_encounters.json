@@ -13102,12 +13102,12 @@
               {
                 "min_level": 7,
                 "max_level": 8,
-                "species": "SPECIES_RATTATA"
+                "species": "SPECIES_MEOWTH"
               },
               {
                 "min_level": 7,
                 "max_level": 9,
-                "species": "SPECIES_RATTATA"
+                "species": "SPECIES_MEOWTH"
               },
               {
                 "min_level": 7,
@@ -13122,22 +13122,22 @@
               {
                 "min_level": 7,
                 "max_level": 8,
-                "species": "SPECIES_AUDINO"
+                "species": "SPECIES_MILTANK"
               },
               {
                 "min_level": 7,
                 "max_level": 8,
-                "species": "SPECIES_PONYTA"
+                "species": "SPECIES_MUDBRAY"
               },
               {
                 "min_level": 7,
                 "max_level": 9,
-                "species": "SPECIES_PONYTA"
+                "species": "SPECIES_MUDBRAY"
               },
               {
                 "min_level": 7,
                 "max_level": 8,
-                "species": "SPECIES_AUDINO"
+                "species": "SPECIES_MILTANK"
               }
             ]
           },

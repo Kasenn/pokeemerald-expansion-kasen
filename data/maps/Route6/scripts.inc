@@ -157,6 +157,7 @@ Route6_Movement_PlayerFall:
 	walk_fast_down
 	walk_fast_down
 	walk_fast_down
+	unlock_anim
 	step_end
 
 Route6_Trainer1_Ranger_M::

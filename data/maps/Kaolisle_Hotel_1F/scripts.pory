@@ -365,18 +365,19 @@ script BuffetFinale{
     closemessage
     playse(SE_DING_DONG)
     waitse
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    turnobject(0xFF, DIR_NORTH)
     delay(20)
     msgbox(WinnerComeForward)
     closemessage
     delay(20)
     setvar(VAR_KAOLISLE_HOTEL_STATE, 9)
-    warpsilent(MAP_KAOLISLE_HOTEL_1F, 13, 7)
+    warpsilent(MAP_KAOLISLE_HOTEL_1F, 4)
+    waitstate
 }
 script BuffetLost{
     delay(50)
     setvar(VAR_KAOLISLE_HOTEL_STATE, 5)
-    warpsilent(MAP_KAOLISLE_HOTEL_1F, 13, 7)
+    warpsilent(MAP_KAOLISLE_HOTEL_1F, 4)
     waitstate
 }
 text WinnerComeForward{
@@ -430,6 +431,10 @@ script BuffetComplete{
     closemessage
     setflag(FLAG_BUFFET_COMPLETE)
     clearflag(FLAG_SYSTEM_NOREWARDBATTLES)
+    if(flag(FLAG_Q24_BATTLE_BUFFET_START)){
+        completequest(FLAG_Q24_BATTLE_BUFFET_COMPLETE)
+        special(ShowJournalPopupRemove)
+    }
     applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
     waitmovement(0)
     release
@@ -471,6 +476,10 @@ script BuffetComeBackLater{
     hidemoneybox
     msgbox(BuffetPleaseComeAgain, MSGBOX_DEFAULT)
     closemessage
+    if(!flag(FLAG_Q24_BATTLE_BUFFET_START)){
+        startquest(FLAG_Q24_BATTLE_BUFFET_START)
+        special(ShowJournalPopupAdd)
+    }
     applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
     waitmovement(0)
     release

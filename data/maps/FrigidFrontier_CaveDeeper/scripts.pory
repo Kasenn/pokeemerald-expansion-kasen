@@ -20,5 +20,9 @@ script FrigidCave_LootRock{
     finditem(ITEM_VERDANT_SPHERE)
     waitmessage
     playbgm(MUS_SEALED_CHAMBER, TRUE)
+    if(flag(FLAG_Q39_FRIGIDFRONTIER_WEIRDCAVE_START)){
+        completequest(FLAG_Q39_FRIGIDFRONTIER_WEIRDCAVE_COMPLETE)
+        special(ShowJournalPopupRemove)
+    }
     end
 }

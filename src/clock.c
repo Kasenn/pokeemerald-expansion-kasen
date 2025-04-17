@@ -14,6 +14,8 @@
 #include "constants/form_change_types.h"
 #include "item.h"
 #include "random.h"
+#include "event_scripts.h"
+#include "script.h"
 
 static void UpdatePerDay(struct Time *localTime);
 static void UpdatePerMinute(struct Time *localTime);

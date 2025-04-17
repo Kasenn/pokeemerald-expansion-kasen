@@ -614,6 +614,7 @@
 #define OBJ_EVENT_PAL_PRYCE        0x1185
 #define OBJ_EVENT_PAL_BLAINE        0x1186
 #define OBJ_EVENT_PAL_TAG_RIDING_GOGOAT        0x1187
+#define FLDEFF_PAL_TAG_AUTUMN_LONG_GRASS        0x1188
 
 // Used as a placeholder follower graphic
 #define OBJ_EVENT_PAL_TAG_SUBSTITUTE              0x7611

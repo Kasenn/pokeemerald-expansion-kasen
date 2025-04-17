@@ -51,7 +51,23 @@ WindplumeRidge_RemoveWind::
 HideAldeleafWoman::
 	setflag FLAG_DEFEATED_SUDOWOODO2
 	release
+	goto_if_set FLAG_Q07_WINDPLUME_VALLEY_START, HideAldeleafWoman_4
+HideAldeleafWoman_1:
 	end
+
+HideAldeleafWoman_2:
+	completequest FLAG_Q07_WINDPLUME_VALLEY_COMPLETE
+	special ShowJournalPopupRemove
+	goto HideAldeleafWoman_1
+
+HideAldeleafWoman_3:
+	checktrainerflag TRAINER_WPV_TR14_SKYLA
+	goto_if 0, HideAldeleafWoman_2
+	goto HideAldeleafWoman_1
+
+HideAldeleafWoman_4:
+	goto_if_unset FLAG_Q07_WINDPLUME_VALLEY_COMPLETE, HideAldeleafWoman_3
+	goto HideAldeleafWoman_1
 
 
 Windplume_IronBall::

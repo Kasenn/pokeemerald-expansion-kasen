@@ -95,6 +95,9 @@ script R14_RR_Event_Trigger1{
     setobjectxyperm(15, 41, 13)
     setobjectxy(15, 41, 13)
     setflag(FLAG_HIDE_PLAYERS_HOUSE_DAD)
+    if(flag(FLAG_Q34_DADS_HOME_START)){
+        completequest(FLAG_Q34_DADS_HOME_COMPLETE)
+    }
     setflag(FLAG_HIDE_LAB_RIVAL)
     setvar(VAR_ROUTE14_ROCKET_EVENT, 1)
     release

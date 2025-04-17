@@ -1823,3 +1823,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Windywoods_Filler/scripts.inc"
 
 	.include "data/maps/Coralgrove_House/scripts.inc"
+
+	.include "data/maps/Route3_Copy/scripts.inc"

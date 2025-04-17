@@ -105,10 +105,22 @@ script SkylochInt_FatMan{
     if(!flag(FLAG_SKYLOCH_CASTELIACONE)){
         msgbox(SkylochInt_FatMan_Text, MSGBOX_DEFAULT)
         checkitem(ITEM_CASTELIACONE)
+        if(var(VAR_RESULT) == FALSE){
+            release
+            if(!flag(FLAG_Q10_SKYLOCH_ICECREAM_START)){
+                startquest(FLAG_Q10_SKYLOCH_ICECREAM_START)
+                special(ShowJournalPopupAdd)
+                end
+            }
+        }
         if(var(VAR_RESULT) == TRUE){
             msgbox(SkylochInt_FatMan_TextContinued, MSGBOX_YESNO)
             if(var(VAR_RESULT) == FALSE){
                 msgbox("Oh…", MSGBOX_NPC)
+                if(!flag(FLAG_Q10_SKYLOCH_ICECREAM_START)){
+                    startquest(FLAG_Q10_SKYLOCH_ICECREAM_START)
+                    special(ShowJournalPopupAdd)
+                }
                 end
             }
             else{
@@ -120,6 +132,10 @@ script SkylochInt_FatMan{
                 waitmessage
                 closemessage
                 release
+                if(flag(FLAG_Q10_SKYLOCH_ICECREAM_START)){
+                    completequest(FLAG_Q10_SKYLOCH_ICECREAM_COMPLETE)
+                    special(ShowJournalPopupRemove)
+                }
                 end
             }
         }
@@ -271,6 +287,10 @@ script SkylochInt_PikachuWoman{
             giveitem(ITEM_LIGHT_BALL)
             setflag(FLAG_RECEIVED_LIGHTBALL)
             msgbox(ExplainLightBall, MSGBOX_NPC)
+            if(flag(FLAG_Q11_SKYLOCH_RAICHUS_START)){
+                completequest(FLAG_Q11_SKYLOCH_RAICHUS_COMPLETE)
+                special(ShowJournalPopupRemove)
+            }
             end
         }
     }
@@ -278,6 +298,10 @@ script SkylochInt_PikachuWoman{
     waitmessage
     closemessage
     release
+    if(!flag(FLAG_Q11_SKYLOCH_RAICHUS_START)){
+        startquest(FLAG_Q11_SKYLOCH_RAICHUS_START)
+        special(ShowJournalPopupAdd)
+    }
     end
 }
 

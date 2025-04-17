@@ -562,6 +562,8 @@ u32 FldEff_LongGrass(void)
         sprite->sMapNum = gFieldEffectArguments[4]; // Also sLocalId
         sprite->sMapGroup = gFieldEffectArguments[5];
         sprite->sCurrentMap = gFieldEffectArguments[6];
+        if(MAP(ROUTE3))
+            sprite->oam.paletteNum = LoadFieldEffectPalette(FLDEFF_PAL_TAG_AUTUMN_LONG_GRASS);
 
         if (gFieldEffectArguments[7])
             SeekSpriteAnim(sprite, 6); // Skip to end of anim

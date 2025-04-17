@@ -203,7 +203,7 @@ SlateportCity_BattleTentLobby_EventScript_TormentGiver::
 	faceplayer
 	goto_if_set FLAG_RECEIVED_TM_FLING, SlateportCity_BattleTentLobby_EventScript_ReceivedTorment
 	msgbox SlateportCity_BattleTentLobby_Text_CouldntFindMonForMe, MSGBOX_DEFAULT
-	giveitem ITEM_TM_TORMENT
+	giveitem ITEM_TM_FLING
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_TM_FLING
 	msgbox SlateportCity_BattleTentLobby_Text_ExplainTorment, MSGBOX_DEFAULT

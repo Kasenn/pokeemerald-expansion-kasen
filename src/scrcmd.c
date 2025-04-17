@@ -3619,6 +3619,11 @@ bool8 ScrCmd_startquest(struct ScriptContext *ctx)
     u32 flagId = ScriptReadHalfword(ctx);
     u16 var = VarGet(VAR_CURRENT_QUEST);
 
+    if (!FlagGet(FLAG_SYS_JOURNAL_GET))
+    {
+        return FALSE;
+    }
+
     FlagSet(flagId);
     gSaveBlock1Ptr->questFlag[var] = flagId - EXTENDED_FLAG_START;
     gSaveBlock1Ptr->questOrder[var] = var;
@@ -3647,6 +3652,11 @@ void ScrCmd_finishquest(struct ScriptContext *ctx)
 
     FlagSet(flagId);
 
+    if (!FlagGet(FLAG_SYS_JOURNAL_GET))
+    {
+        return;
+    }
+
     flagId -= EXTENDED_FLAG_START;
     for (i = 0; i < QUEST_COUNT; i++)
     {
@@ -3662,4 +3672,9 @@ void ScrCmd_finishquest(struct ScriptContext *ctx)
             break;
         }
     }
+}
+
+void TestPlayerAvatarFlagDebug(void)
+{
+    ConvertIntToDecimalStringN(sScriptStringVars[0], gPlayerAvatar.flags, STR_CONV_MODE_LEFT_ALIGN, 3);
 }

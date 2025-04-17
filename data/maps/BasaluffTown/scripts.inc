@@ -126,6 +126,17 @@ BasalekTown_Sign2::
 
 BasalekTown_Man5::
 	msgbox BasalekTown_Man5_Text, MSGBOX_NPC
+	goto_if_unset FLAG_Q38_BASALEK_TUNNELS_START, BasalekTown_Man5_2
+	return
+
+BasalekTown_Man5_1:
+	startquest FLAG_Q38_BASALEK_TUNNELS_START
+	special ShowJournalPopupAdd
+	return
+
+BasalekTown_Man5_2:
+	checktrainerflag TRAINER_BASALTUNNEL_TR12_BROCK
+	goto_if 0, BasalekTown_Man5_1
 	return
 
 
@@ -430,14 +441,16 @@ BasalekTown_LevelChecker::
 	case 3, BasalekTown_LevelChecker_12
 BasalekTown_LevelChecker_7:
 	compare VAR_RESULT, FALSE
-	goto_if_eq BasalekTown_LevelChecker_14
-BasalekTown_LevelChecker_13:
+	goto_if_eq BasalekTown_LevelChecker_17
+BasalekTown_LevelChecker_16:
 	setflag FLAG_DAILY_BASALEK_CHECKER
 	addvar VAR_BASALEK_LEVEL_REWARD, 1
 	compare VAR_BASALEK_LEVEL_REWARD, 4
-	goto_if_eq BasalekTown_LevelChecker_17
-BasalekTown_LevelChecker_16:
+	goto_if_eq BasalekTown_LevelChecker_20
+BasalekTown_LevelChecker_19:
 	msgbox BasalekTown_LevelChecker_ComeAgain
+	goto_if_set FLAG_Q37_BASALEK_LEVELMON_START, BasalekTown_LevelChecker_24
+BasalekTown_LevelChecker_22:
 	release
 	return
 
@@ -446,6 +459,8 @@ BasalekTown_LevelChecker_2:
 	end
 
 BasalekTown_LevelChecker_5:
+	goto_if_unset FLAG_Q37_BASALEK_LEVELMON_START, BasalekTown_LevelChecker_14
+BasalekTown_LevelChecker_13:
 	end
 
 BasalekTown_LevelChecker_9:
@@ -465,12 +480,26 @@ BasalekTown_LevelChecker_12:
 	goto BasalekTown_LevelChecker_7
 
 BasalekTown_LevelChecker_14:
-	goto ZeBagIsFull
+	startquest FLAG_Q37_BASALEK_LEVELMON_START
+	special ShowJournalPopupAdd
 	goto BasalekTown_LevelChecker_13
 
 BasalekTown_LevelChecker_17:
-	setvar VAR_BASALEK_LEVEL_CHECK, 0
+	goto ZeBagIsFull
 	goto BasalekTown_LevelChecker_16
+
+BasalekTown_LevelChecker_20:
+	setvar VAR_BASALEK_LEVEL_CHECK, 0
+	goto BasalekTown_LevelChecker_19
+
+BasalekTown_LevelChecker_23:
+	completequest FLAG_Q37_BASALEK_LEVELMON_COMPLETE
+	special ShowJournalPopupRemove
+	goto BasalekTown_LevelChecker_22
+
+BasalekTown_LevelChecker_24:
+	goto_if_unset FLAG_Q37_BASALEK_LEVELMON_COMPLETE, BasalekTown_LevelChecker_23
+	goto BasalekTown_LevelChecker_22
 
 
 BasalekHouse1_Woman::

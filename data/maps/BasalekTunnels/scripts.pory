@@ -229,6 +229,10 @@ script BasaltTunnel_Tr12_Brock {
     waitfanfare
     msgbox(ExplainRockClimb)
     msgbox(BasaltTr12_PostBattle)
+    if(flag(FLAG_Q38_BASALEK_TUNNELS_START)){
+        completequest(FLAG_Q38_BASALEK_TUNNELS_COMPLETE)
+        special(ShowJournalPopupRemove)
+    }
     release
 }
 text BasaltTr12_Intro {
@@ -291,6 +295,10 @@ script BasalekTunnelGreeter{
     }
     else{
         msgbox(BasalekTunnelGreeter_Guide, MSGBOX_NPC)
+        if(!flag(FLAG_Q38_BASALEK_TUNNELS_START) && !defeated(TRAINER_BASALTUNNEL_TR12_BROCK)){
+            startquest(FLAG_Q38_BASALEK_TUNNELS_START)
+            special(ShowJournalPopupAdd)
+        }
     }
 }
 

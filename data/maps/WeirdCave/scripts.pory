@@ -1,8 +1,18 @@
 mapscripts WeirdCave_MapScripts{
     MAP_SCRIPT_ON_LOAD: WeirdCaveHideDoor
     MAP_SCRIPT_ON_TRANSITION: SetRockVar
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_TEMP_1, 1 {
+            special(ShowJournalPopupAdd)
+            setvar(VAR_TEMP_1, 0)
+        }
+    ]
 }
 script WeirdCaveHideDoor{
+    if(!flag(FLAG_Q17_DESERT_WEIRDCAVE_START) && !flag(FLAG_WEIRDCAVE_STONE)){
+        startquest(FLAG_Q17_DESERT_WEIRDCAVE_START)
+        setvar(VAR_TEMP_1, 1)
+    }
     if(!flag(FLAG_WEIRDCAVESOLVED)){
         setmetatile(6, 5, 0x219, TRUE)
         setmetatile(7, 5, 0x219, TRUE)
