@@ -1613,6 +1613,14 @@ bool8 MetatileBehavior_IsLockedDoor(u8 metatileBehavior)
         return FALSE;
 }
 
+bool8 MetatileBehavior_IsSeedDrop(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_SEED_DROP)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 bool8 MetatileBehavior_IsBookcase1(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_BOOKCASE_1)

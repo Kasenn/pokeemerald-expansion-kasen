@@ -154,6 +154,9 @@
 // gTileset_Crystalpine
 #define METATILE_Crystalpine_CrystalpineDoor  0x237
 
+// gTileset_DesertCliff
+#define METATILE_DesertCliff_DesertCliffs_TallGrass  0x3B5
+
 // gTileset_Dewford
 #define METATILE_Dewford_BattleTent_Door   0x3D4
 #define METATILE_Dewford_Door              0x225
@@ -264,6 +267,9 @@
 #define METATILE_General_SecretBase_TreeRight  0x027
 #define METATILE_General_SecretBase_VineLeft   0x036
 #define METATILE_General_SecretBase_VineRight  0x037
+#define METATILE_General_SeedDrop              0x077
+#define METATILE_General_SeedDropTreeLeft      0x07E
+#define METATILE_General_SeedDropTreeRight     0x07F
 #define METATILE_General_TallGrass             0x00D
 #define METATILE_General_TallGrass_TreeLeft    0x1C6
 #define METATILE_General_TallGrass_TreeRight   0x1C7

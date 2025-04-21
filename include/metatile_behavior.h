@@ -166,6 +166,7 @@ bool8 MetatileBehavior_IsPictureBookShelf(u8);
 bool8 MetatileBehavior_IsBookShelf(u8);
 bool8 MetatileBehavior_IsPokeCenterBookShelf(u8 tile, u8 playerDir);
 bool8 MetatileBehavior_IsVase(u8);
+bool8 MetatileBehavior_IsSeedDrop(u8);
 bool8 MetatileBehavior_IsLockedDoor(u8);
 bool8 MetatileBehavior_IsTrashCan(u8);
 bool8 MetatileBehavior_IsBookcase1(u8);

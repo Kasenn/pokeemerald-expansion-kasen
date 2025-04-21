@@ -22,6 +22,7 @@
 #include "constants/field_effects.h"
 #include "constants/songs.h"
 #include "constants/metatile_labels.h"
+#include "random.h"
 
 extern struct MapPosition gPlayerFacingPosition;
 
@@ -66,6 +67,7 @@ static bool8 sHyperCutTiles[CUT_HYPER_AREA];
 
 // EWRAM variables
 static EWRAM_DATA u8 *sCutGrassSpriteArrayPtr = NULL;
+static EWRAM_DATA u8 sCutGrassSeedDrops = 0;
 
 // const rom data
 static const struct HyperCutterUnk sHyperCutStruct[] =
@@ -288,6 +290,7 @@ bool8 FldEff_UseCutOnGrass(void)
     gTasks[taskId].data[8] = (u32)StartCutGrassFieldEffect >> 16;
     gTasks[taskId].data[9] = (u32)StartCutGrassFieldEffect;
     IncrementGameStat(GAME_STAT_USED_CUT);
+    sCutGrassSeedDrops = 0;
     return FALSE;
 }
 
@@ -354,55 +357,175 @@ bool8 FldEff_CutGrass(void)
 static void SetCutGrassMetatile(s16 x, s16 y)
 {
     s32 metatileId = MapGridGetMetatileIdAt(x, y);
+    bool8 seedDrop = FALSE;
+
+    if (sCutGrassSeedDrops < 3){
+        if (Random() % 20 == 1) {
+            seedDrop = TRUE;
+        }
+    }
 
     switch (metatileId)
     {
-    case METATILE_Mauville_LongGrass_Root:
-    case METATILE_Fortree_LongGrass_Root:
-    case METATILE_General_LongGrass:
-    case METATILE_General_TallGrass:
-        MapGridSetMetatileIdAt(x, y, METATILE_General_Grass);
+    // default grass
+    case METATILE_Mauville_LongGrass_Root:      // 0x2A3
+    case METATILE_Fortree_LongGrass_Root:       // 0x208
+    case METATILE_General_LongGrass:            // 0x015
+    case METATILE_General_TallGrass:            // 0x00D
+    case METATILE_Pearlwood_Secondary_Pearlwood_TallGrass:  // 0x295
+        if (seedDrop)
+        {
+            MapGridSetMetatileIdAt(x, y, METATILE_General_SeedDrop);            // 0x077
+            sCutGrassSeedDrops++;
+        }
+        else
+            MapGridSetMetatileIdAt(x, y, METATILE_General_Grass);               // 0x001
         break;
-    case METATILE_Mauville_MountainAndGrassRoot:
-        MapGridSetMetatileIdAt(x, y, 0x3B9);
+    case METATILE_General_TallGrass_TreeLeft:                                   // 0x1C6
+        if (seedDrop)
+        {
+            MapGridSetMetatileIdAt(x, y, METATILE_General_SeedDropTreeLeft);    // 0x07E
+            sCutGrassSeedDrops++;
+        }
+        else
+            MapGridSetMetatileIdAt(x, y, METATILE_General_Grass_TreeLeft);      // 0x1CE
         break;
-    case METATILE_Pearlwood_Secondary_Pearlwood_TallGrass:
-        MapGridSetMetatileIdAt(x, y, 0x001);
+    case METATILE_General_TallGrass_TreeRight:                                  // 0x1C7
+        if (seedDrop)
+        {
+            MapGridSetMetatileIdAt(x, y, METATILE_General_SeedDropTreeRight);   // 0x07F
+            sCutGrassSeedDrops++;
+        }
+        else
+            MapGridSetMetatileIdAt(x, y, METATILE_General_Grass_TreeRight);     // 0x1CF
         break;
-    case METATILE_Pearlwood_Secondary_Pearlwood_TallGrassTreeLeft:
-        MapGridSetMetatileIdAt(x, y, 0x1CE);
+
+    // pearlwood 3 sets of trees
+    case METATILE_Pearlwood_Secondary_Pearlwood_TallGrassTreeLeft:              // 0x296
+        if (seedDrop)
+        {
+            MapGridSetMetatileIdAt(x, y, 0x3BC);
+            sCutGrassSeedDrops++;
+        }
+        else
+            MapGridSetMetatileIdAt(x, y, 0x31C);
         break;
-    case METATILE_Pearlwood_Secondary_Pearlwood_TallGrassTreeRight:
-        MapGridSetMetatileIdAt(x, y, 0x1CF);
+    case METATILE_Pearlwood_Secondary_Pearlwood_TallGrassTreeRight:             // 0x297
+        if (seedDrop)
+        {
+            MapGridSetMetatileIdAt(x, y, 0x3BD);
+            sCutGrassSeedDrops++;
+        }
+        else
+            MapGridSetMetatileIdAt(x, y, 0x31D);
         break;
-    case METATILE_Mauville_TreeAndGrassRoot: 
-        MapGridSetMetatileIdAt(x, y, METATILE_General_Grass_TreeUp);
+    case 0x3A2:
+        if (seedDrop)
+        {
+            MapGridSetMetatileIdAt(x, y, 0x3BA);
+            sCutGrassSeedDrops++;
+        }
+        else
+            MapGridSetMetatileIdAt(x, y, 0x31A);
+        break;
+    case 0x3A3:
+        if (seedDrop)
+        {
+            MapGridSetMetatileIdAt(x, y, 0x3BB);
+            sCutGrassSeedDrops++;
+        }
+        else
+            MapGridSetMetatileIdAt(x, y, 0x31B);
+        break;
+    case 0x39A:
+        if (seedDrop)
+        {
+            MapGridSetMetatileIdAt(x, y, 0x3B8);
+            sCutGrassSeedDrops++;
+        }
+        else
+            MapGridSetMetatileIdAt(x, y, 0x318);
+        break;
+    case 0x39B:
+        if (seedDrop)
+        {
+            MapGridSetMetatileIdAt(x, y, 0x3B9);
+            sCutGrassSeedDrops++;
+        }
+        else
+            MapGridSetMetatileIdAt(x, y, 0x319);
+        break;
+
+    // windy woods 3 sets of trees
+    case 0x270:
+        if (seedDrop)
+        {
+            MapGridSetMetatileIdAt(x, y, 0x338);
+            sCutGrassSeedDrops++;
+        }
+        else
+            MapGridSetMetatileIdAt(x, y, 0x278);
+        break;
+    case 0x271:
+        if (seedDrop)
+        {
+            MapGridSetMetatileIdAt(x, y, 0x339);
+            sCutGrassSeedDrops++;
+        }
+        else
+            MapGridSetMetatileIdAt(x, y, 0x279);
+        break;
+    case 0x273:
+        if (seedDrop)
+        {
+            MapGridSetMetatileIdAt(x, y, 0x33A);
+            sCutGrassSeedDrops++;
+        }
+        else
+            MapGridSetMetatileIdAt(x, y, 0x27B);
+        break;
+    case 0x274:
+        if (seedDrop)
+        {
+            MapGridSetMetatileIdAt(x, y, 0x33B);
+            sCutGrassSeedDrops++;
+        }
+        else
+            MapGridSetMetatileIdAt(x, y, 0x27C);
+        break;
+    case 0x276:
+        if (seedDrop)
+        {
+            MapGridSetMetatileIdAt(x, y, 0x33C);
+            sCutGrassSeedDrops++;
+        }
+        else
+            MapGridSetMetatileIdAt(x, y, 0x27E);
+        break;
+    case 0x277:
+        if (seedDrop)
+        {
+            MapGridSetMetatileIdAt(x, y, 0x33D);
+            sCutGrassSeedDrops++;
+        }
+        else
+            MapGridSetMetatileIdAt(x, y, 0x27F);
+        break;
+
+    case 0x20A:
+    case METATILE_DesertCliff_DesertCliffs_TallGrass:                           // 0x3B5
+        MapGridSetMetatileIdAt(x, y, 0x071);
+        break;
+
+    case METATILE_Mauville_TreeAndGrassRoot:                                    // 0x2A4
+        MapGridSetMetatileIdAt(x, y, METATILE_General_Grass_TreeUp);            // 0x00E
         break;   
-    case METATILE_General_TallGrass_TreeLeft:
-        MapGridSetMetatileIdAt(x, y, METATILE_General_Grass_TreeLeft);
+    case METATILE_Lavaridge_NormalGrass:                                        // 0x206
+    case METATILE_Lavaridge_AshGrass:                                           // 0x207
+        MapGridSetMetatileIdAt(x, y, METATILE_Lavaridge_LavaField);             // 0x271
         break;
-    case METATILE_General_TallGrass_TreeRight:
-        MapGridSetMetatileIdAt(x, y, METATILE_General_Grass_TreeRight);
-        break;
-    case METATILE_Fortree_SecretBase_LongGrass_BottomLeft:
-        MapGridSetMetatileIdAt(x, y, METATILE_Fortree_SecretBase_LongGrass_TopLeft);
-        break;
-    case METATILE_Fortree_SecretBase_LongGrass_BottomMid:
-        MapGridSetMetatileIdAt(x, y, METATILE_Fortree_SecretBase_LongGrass_TopMid);
-        break;
-    case METATILE_Fortree_SecretBase_LongGrass_BottomRight:
-        MapGridSetMetatileIdAt(x, y, METATILE_Fortree_SecretBase_LongGrass_TopRight);
-        break;
-    case METATILE_Lavaridge_NormalGrass:
-    case METATILE_Lavaridge_AshGrass:
-        MapGridSetMetatileIdAt(x, y, METATILE_Lavaridge_LavaField);
-        break;
-    case METATILE_Fallarbor_NormalGrass:
-    case METATILE_Fallarbor_AshGrass:
-        MapGridSetMetatileIdAt(x, y, METATILE_Fallarbor_AshField);
-        break;
-    case METATILE_General_TallGrass_TreeUp:
-        MapGridSetMetatileIdAt(x, y, METATILE_General_Grass_TreeUp);
+    case METATILE_General_TallGrass_TreeUp:                                     // 0x025
+        MapGridSetMetatileIdAt(x, y, METATILE_General_Grass_TreeUp);            // 0x00E
         break;
     }
 }

@@ -345,6 +345,24 @@ text PlayerFoundZygardeCore{
 text gText_PutZygardeCoreInCube{
     "{PLAYER} stored the Zygarde Core\n"
     "in the Zygarde Cube."}
+
+script EventScript_CutGrassSeedDrop{
+    if(checkitemspace(ITEM_STRANGE_SEED) == FALSE){
+        goto(ZeBagIsFull)
+    }
+    waitse
+    additem(ITEM_STRANGE_SEED)
+    callnative(RevertSeedDropMetatile)
+    special(DrawWholeMapView)
+    message(BerryTree_Text_PickedTheSeed)
+	playfanfare(MUS_OBTAIN_BERRY)
+	waitmessage
+	waitfanfare
+    message(BerryTree_Text_PutAwaySeed)
+    waitmessage
+	waitbuttonpress
+    release
+}
 //
 // Leader test scripts
 //

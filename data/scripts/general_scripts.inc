@@ -399,6 +399,30 @@ ZygardeCore::
 	end
 
 
+EventScript_CutGrassSeedDrop::
+	checkitemspace ITEM_STRANGE_SEED
+	compare VAR_RESULT, FALSE
+	goto_if_eq EventScript_CutGrassSeedDrop_2
+EventScript_CutGrassSeedDrop_1:
+	waitse
+	additem ITEM_STRANGE_SEED
+	callnative RevertSeedDropMetatile
+	special DrawWholeMapView
+	message BerryTree_Text_PickedTheSeed
+	playfanfare MUS_OBTAIN_BERRY
+	waitmessage
+	waitfanfare
+	message BerryTree_Text_PutAwaySeed
+	waitmessage
+	waitbuttonpress
+	release
+	return
+
+EventScript_CutGrassSeedDrop_2:
+	goto ZeBagIsFull
+	goto EventScript_CutGrassSeedDrop_1
+
+
 IrisBattle::
 	trainerbattle_no_intro TRAINER_CASUAL_IRIS, RustboroCity_DevonCorp_1F_Rocket1_Defeat
 	return

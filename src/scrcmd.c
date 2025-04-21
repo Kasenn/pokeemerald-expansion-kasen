@@ -62,6 +62,7 @@
 #include "battle.h"
 #include "trainer_card.h"
 #include "pokemon_icon.h"
+#include "constants/metatile_labels.h"
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(struct ScriptContext *ctx);
@@ -3677,4 +3678,61 @@ void ScrCmd_finishquest(struct ScriptContext *ctx)
 void TestPlayerAvatarFlagDebug(void)
 {
     ConvertIntToDecimalStringN(sScriptStringVars[0], gPlayerAvatar.flags, STR_CONV_MODE_LEFT_ALIGN, 3);
+}
+
+void RevertSeedDropMetatile(void)
+{
+    s16 x, y;
+    GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
+
+    s32 metatileId = MapGridGetMetatileIdAt(x, y);
+
+    switch (metatileId)
+    {
+    case METATILE_General_SeedDrop:
+        MapGridSetMetatileIdAt(x, y, METATILE_General_Grass);
+        break;
+    case METATILE_General_SeedDropTreeLeft:
+        MapGridSetMetatileIdAt(x, y, METATILE_General_Grass_TreeLeft);
+        break;
+    case METATILE_General_SeedDropTreeRight:
+        MapGridSetMetatileIdAt(x, y, METATILE_General_Grass_TreeRight);
+        break;
+    case 0x3BC:
+        MapGridSetMetatileIdAt(x, y, 0x31C);
+        break;
+    case 0x3BD: 
+        MapGridSetMetatileIdAt(x, y, 0x31D);
+        break;
+    case 0x3BA:
+        MapGridSetMetatileIdAt(x, y, 0x31A);
+        break;
+    case 0x3BB:
+        MapGridSetMetatileIdAt(x, y, 0x31B);
+        break;
+    case 0x3B8:
+        MapGridSetMetatileIdAt(x, y, 0x318);
+        break;
+    case 0x3B9:
+        MapGridSetMetatileIdAt(x, y, 0x319);
+        break;
+    case 0x338:
+        MapGridSetMetatileIdAt(x, y, 0x278);
+        break;
+    case 0x339:
+        MapGridSetMetatileIdAt(x, y, 0x279);
+        break;
+    case 0x33A:
+        MapGridSetMetatileIdAt(x, y, 0x27B);
+        break;
+    case 0x33B:
+        MapGridSetMetatileIdAt(x, y, 0x27C);
+        break;
+    case 0x33C:
+        MapGridSetMetatileIdAt(x, y, 0x27E);
+        break;
+    case 0x33D:
+        MapGridSetMetatileIdAt(x, y, 0x27F);
+        break;
+    }
 }

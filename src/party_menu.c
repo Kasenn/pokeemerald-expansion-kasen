@@ -155,7 +155,6 @@ enum {
     FIELD_MOVE_SOFT_BOILED,
     FIELD_MOVE_SWEET_SCENT,
     FIELD_MOVE_ROCK_CLIMB,
-    FIELD_MOVE_TACKLE,
     FIELD_MOVES_COUNT
 };
 
@@ -4193,7 +4192,6 @@ static void CursorCb_FieldMove(u8 taskId)
             case FIELD_MOVE_SOFT_BOILED:
                 ChooseMonForSoftboiled(taskId);
                 break;
-            case FIELD_MOVE_TACKLE:
             case FIELD_MOVE_TELEPORT:
                 mapHeader = Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->lastHealLocation.mapGroup, gSaveBlock1Ptr->lastHealLocation.mapNum);
                 GetMapNameGeneric(gStringVar1, mapHeader->regionMapSectionId);
