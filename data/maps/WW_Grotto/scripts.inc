@@ -22,7 +22,7 @@ WW_Grotto_SetObject_2:
 	return
 
 WW_Grotto_SetObject_3:
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SWABLU )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( LEDYBA )
 	return
 
 
@@ -139,9 +139,9 @@ WW_GrottoPokemon_2:
 	goto WW_GrottoPokemon_1
 
 WW_GrottoPokemon_3:
-	playmoncry SPECIES_SWABLU, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_LEDYBA, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattlelevelrange SPECIES_SWABLU, 6, ITEM_NONE, SPECIES_NONE, 7
+	setwildbattlelevelrange SPECIES_LEDYBA, 6, ITEM_NONE, SPECIES_NONE, 7
 	goto WW_GrottoPokemon_1
 

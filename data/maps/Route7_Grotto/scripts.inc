@@ -20,7 +20,7 @@ ROUTE7_Grotto_SetObject_2:
 	goto ROUTE7_Grotto_SetObject_1
 
 ROUTE7_Grotto_SetObject_3:
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( ABSOL )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( LEDYBA )
 	goto ROUTE7_Grotto_SetObject_1
 
 ROUTE7_Grotto_SetObject_4:
@@ -133,10 +133,10 @@ ROUTE7_GrottoPokemon_1:
 	end
 
 ROUTE7_GrottoPokemon_2:
-	playmoncry SPECIES_ABSOL, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_LEDYBA, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattlelevelrange SPECIES_ABSOL, 15, ITEM_NONE, SPECIES_NONE, 19
+	setwildbattlelevelrange SPECIES_LEDYBA, 15, ITEM_NONE, SPECIES_NONE, 19
 	goto ROUTE7_GrottoPokemon_1
 
 ROUTE7_GrottoPokemon_3:

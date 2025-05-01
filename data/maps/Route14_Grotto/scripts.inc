@@ -11,7 +11,7 @@ ROUTE14_Grotto_SetObject::
 	goto_if_le ROUTE14_Grotto_SetObject_3
 	compare VAR_GROTTO_3, 79
 	goto_if_le ROUTE14_Grotto_SetObject_4
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( CUBCHOO )
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( LEDIAN )
 ROUTE14_Grotto_SetObject_1:
 	end
 
@@ -119,10 +119,10 @@ ROUTE14_GrottoPokemon::
 	goto_if_le ROUTE14_GrottoPokemon_2
 	compare VAR_GROTTO_3, 79
 	goto_if_le ROUTE14_GrottoPokemon_3
-	playmoncry SPECIES_CUBCHOO, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_LEDIAN, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattlelevelrange SPECIES_CUBCHOO, 30, ITEM_NONE, SPECIES_NONE, 33
+	setwildbattlelevelrange SPECIES_LEDIAN, 30, ITEM_NONE, SPECIES_NONE, 33
 ROUTE14_GrottoPokemon_1:
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle

@@ -235,7 +235,8 @@ struct SpecialStatus
     u8 criticalHit:1;
     // End of byte
     u8 enduredDamage:1;
-    u8 padding:7;
+    u8 rapidFistsState:2;
+    u8 padding:5;
 };
 
 struct SideTimer

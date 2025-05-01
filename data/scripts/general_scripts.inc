@@ -518,13 +518,15 @@ Debug_Script_1_12:
 
 
 Debug_Script_2::
-	callnative TestPlayerAvatarFlagDebug
-	msgbox Debug_Script_2_Text_0, MSGBOX_AUTOCLOSE
+	givemon SPECIES_LEDIAN, 50, abilityNum = 2, move1 = MOVE_POWER_UP_PUNCH, move2 = MOVE_MACH_PUNCH, move3 = MOVE_TACKLE
+	createmon 1, 0, SPECIES_SNORLAX, 70, ITEM_POKE_BALL, move1 = MOVE_SPLASH
+	dowildbattle
 	end
 
 
 Debug_Script_3::
-	special ShowJournalPopupAdd
+	callnative FixGrottoHiddenAbility
+	release
 	return
 
 
@@ -1408,6 +1410,23 @@ Update3_10:
 	goto Update3_4
 
 
+FixHiddenAbility::
+	lock
+	faceplayer
+	msgbox FixHiddenAbility_Text, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
+	goto_if_eq FixHiddenAbility_2
+	msgbox FindMeInAnyCenter
+FixHiddenAbility_1:
+	release
+	end
+
+FixHiddenAbility_2:
+	callnative FixGrottoHiddenAbility
+	msgbox AllGrottoMonsHaveBeenFixed
+	goto FixHiddenAbility_1
+
+
 RopeBridgeScript_Movement_0:
 	lock_anim
 	lock_facing_direction
@@ -1466,9 +1485,6 @@ Debug_Script_1_Text_15:
 
 Debug_Script_1_Text_16:
 	.string "Team set to level 45.$"
-
-Debug_Script_2_Text_0:
-	.string "{STR_VAR_1}$"
 
 ClearRoute1_Text_0:
 	.string "Obtained Exp. Share.\nDon't forget to turn it on!$"
@@ -1711,3 +1727,24 @@ MixupWithTMs::
 
 NewUpdate::
 	.string "A new update has been applied.$"
+
+FixHiddenAbility_Text::
+	.string "Hello, I am a fixer guy.\p"
+	.string "Have you found any hidden grottos\n"
+	.string "with Pokémon in them?\p"
+	.string "Those Pokémon were incorrectly\n"
+	.string "spawning with regular abilities,\l"
+	.string "instead of their intended hidden\l"
+	.string "abilities.\p"
+	.string "If you'd like, I can fix any grotto\n"
+	.string "Pokémon you have.$"
+
+AllGrottoMonsHaveBeenFixed::
+	.string "Done.\p"
+	.string "Any Pokémon obtained from a hidden\n"
+	.string "grotto should now be fixed.\p$"
+
+FindMeInAnyCenter::
+	.string "Very well.\p"
+	.string "If you need my services, you can\n"
+	.string "find me in almost any Pokémon Center.$"

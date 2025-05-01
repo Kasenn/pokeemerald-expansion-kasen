@@ -10347,6 +10347,13 @@ static inline uq4_12_t GetParentalBondModifier(u32 battlerAtk)
     return B_PARENTAL_BOND_DMG >= GEN_7 ? UQ_4_12(0.25) : UQ_4_12(0.5);
 }
 
+static inline uq4_12_t GetRapidFistsModifier(u32 battlerAtk)
+{
+    if (gSpecialStatuses[battlerAtk].rapidFistsState == RAPID_FISTS_1ST_HIT || gSpecialStatuses[battlerAtk].rapidFistsState == RAPID_FISTS_OFF)
+        return UQ_4_12(1.0);
+    return UQ_4_12(0.8);
+}
+
 static inline uq4_12_t GetSameTypeAttackBonusModifier(struct DamageCalculationData *damageCalcData, u32 abilityAtk)
 {
     u32 battlerAtk = damageCalcData->battlerAtk;
@@ -10671,6 +10678,7 @@ static inline s32 DoMoveDamageCalcVars(struct DamageCalculationData *damageCalcD
     dmg = CalculateBaseDamage(gBattleMovePower, userFinalAttack, gBattleMons[battlerAtk].level, targetFinalDefense);
     DAMAGE_APPLY_MODIFIER(GetTargetDamageModifier(damageCalcData));
     DAMAGE_APPLY_MODIFIER(GetParentalBondModifier(battlerAtk));
+    // DAMAGE_APPLY_MODIFIER(GetRapidFistsModifier(battlerAtk));
     DAMAGE_APPLY_MODIFIER(GetWeatherDamageModifier(damageCalcData, holdEffectAtk, holdEffectDef, weather));
     DAMAGE_APPLY_MODIFIER(GetCriticalModifier(damageCalcData->isCrit));
     DAMAGE_APPLY_MODIFIER(GetGlaiveRushModifier(battlerDef));

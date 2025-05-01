@@ -1422,6 +1422,13 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 10,
     },
 
+    [ABILITY_RAPID_FISTS] =
+    {
+        .name = _("Rapid Fists"),
+        .description = COMPOUND_STRING("Punching moves hit thrice."),
+        .aiRating = 10,
+    },
+
     [ABILITY_DARK_AURA] =
     {
         .name = _("Dark Aura"),

@@ -1203,6 +1203,18 @@ static void Cmd_attackcanceler(void)
         return;
     }
 
+    if (gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_OFF
+     && GetBattlerAbility(gBattlerAttacker) == ABILITY_RAPID_FISTS
+     && IsMoveAffectedByRapidFists(gCurrentMove, gBattlerAttacker)
+     && !(gAbsentBattlerFlags & (1u << gBattlerTarget))
+     && GetActiveGimmick(gBattlerAttacker) != GIMMICK_Z_MOVE)
+    {
+        gSpecialStatuses[gBattlerAttacker].rapidFistsState = RAPID_FISTS_1ST_HIT;
+        gMultiHitCounter = 3;
+        PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
+        return;
+    }
+
     if (AbilityBattleEffects(ABILITYEFFECT_MOVES_BLOCK, gBattlerTarget, 0, 0, 0))
         return;
     if (gMovesInfo[gCurrentMove].effect == EFFECT_PARALYZE && AbilityBattleEffects(ABILITYEFFECT_ABSORBING, gBattlerTarget, 0, 0, gCurrentMove))
@@ -1338,6 +1350,12 @@ static void Cmd_attackcanceler(void)
         if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_1ST_HIT)
         {
             gSpecialStatuses[gBattlerAttacker].parentalBondState = PARENTAL_BOND_OFF; // No second hit if first hit was blocked
+            gSpecialStatuses[gBattlerAttacker].multiHitOn = 0;
+            gMultiHitCounter = 0;
+        }
+        if (gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_1ST_HIT)
+        {
+            gSpecialStatuses[gBattlerAttacker].rapidFistsState = RAPID_FISTS_OFF; // No second hit if first hit was blocked
             gSpecialStatuses[gBattlerAttacker].multiHitOn = 0;
             gMultiHitCounter = 0;
         }
@@ -1638,7 +1656,9 @@ static void AccuracyCheck(bool32 recalcDragonDarts, const u8 *nextInstr, const u
                 AbilityBattleEffects(ABILITYEFFECT_ABSORBING, gBattlerTarget, 0, 0, gCurrentMove);
         }
     }
-    else if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_2ND_HIT
+    else if ((gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_2ND_HIT
+        || gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_2ND_HIT
+        || gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_3RD_HIT)
         || (gSpecialStatuses[gBattlerAttacker].multiHitOn
         && (abilityAtk == ABILITY_SKILL_LINK || holdEffectAtk == HOLD_EFFECT_LOADED_DICE
         || !(effect == EFFECT_TRIPLE_KICK || effect == EFFECT_POPULATION_BOMB))))
@@ -2406,6 +2426,12 @@ static void Cmd_attackanimation(void)
             return;
         }
 
+        if (gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_2ND_HIT || gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_3RD_HIT) // No animation on second hit
+        {
+            gBattlescriptCurrInstr = cmd->nextInstr;
+            return;
+        }
+
         if ((moveTarget & MOVE_TARGET_BOTH
              || moveTarget & MOVE_TARGET_FOES_AND_ALLY
              || moveTarget & MOVE_TARGET_DEPENDS)
@@ -3145,7 +3171,7 @@ void SetMoveEffect(bool32 primary, bool32 certain)
     if (gBattleScripting.moveEffect == 0)
         return;
 
-    if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_1ST_HIT
+    if ((gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_1ST_HIT || gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_1ST_HIT)
         && IsBattlerAlive(gBattlerTarget)
         && IsFinalStrikeEffect(gBattleScripting.moveEffect))
     {
@@ -6589,7 +6615,7 @@ static void Cmd_moveend(void)
              && IsBattlerTurnDamaged(gBattlerTarget)
              && IsBattlerAlive(gBattlerTarget)
              && IsBattlerAlive(gBattlerAttacker)
-             && gSpecialStatuses[gBattlerAttacker].parentalBondState != PARENTAL_BOND_1ST_HIT)
+             && (gSpecialStatuses[gBattlerAttacker].parentalBondState != PARENTAL_BOND_1ST_HIT || gSpecialStatuses[gBattlerAttacker].rapidFistsState != RAPID_FISTS_1ST_HIT))
             {
                 u32 targetAbility = GetBattlerAbility(gBattlerTarget);
                 if (targetAbility == ABILITY_GUARD_DOG)
@@ -6908,6 +6934,8 @@ static void Cmd_moveend(void)
                     {
                         if (gSpecialStatuses[gBattlerAttacker].parentalBondState)
                             gSpecialStatuses[gBattlerAttacker].parentalBondState--;
+                        if (gSpecialStatuses[gBattlerAttacker].rapidFistsState)
+                            gSpecialStatuses[gBattlerAttacker].rapidFistsState--;
 
                         gHitMarker |= (HITMARKER_NO_PPDEDUCT | HITMARKER_NO_ATTACKSTRING);
                         gBattleScripting.animTargetsHit = 0;
@@ -6931,6 +6959,7 @@ static void Cmd_moveend(void)
             }
             gMultiHitCounter = 0;
             gSpecialStatuses[gBattlerAttacker].parentalBondState = PARENTAL_BOND_OFF;
+            gSpecialStatuses[gBattlerAttacker].rapidFistsState = RAPID_FISTS_OFF;
             gSpecialStatuses[gBattlerAttacker].multiHitOn = 0;
             gBattleScripting.moveendState++;
             break;
@@ -7255,6 +7284,8 @@ static void Cmd_moveend(void)
             if (gCurrentMove != gLastResultingMoves[gBattlerAttacker] || gBattleStruct->moveResultFlags[gBattlerTarget] & MOVE_RESULT_NO_EFFECT || gHitMarker & HITMARKER_UNABLE_TO_USE_MOVE)
                 gBattleStruct->sameMoveTurns[gBattlerAttacker] = 0;
             else if (gCurrentMove == gLastResultingMoves[gBattlerAttacker] && gSpecialStatuses[gBattlerAttacker].parentalBondState != PARENTAL_BOND_1ST_HIT)
+                gBattleStruct->sameMoveTurns[gBattlerAttacker]++;
+            else if (gCurrentMove == gLastResultingMoves[gBattlerAttacker] && gSpecialStatuses[gBattlerAttacker].rapidFistsState != RAPID_FISTS_1ST_HIT)
                 gBattleStruct->sameMoveTurns[gBattlerAttacker]++;
             gBattleScripting.moveendState++;
             break;
@@ -14282,7 +14313,9 @@ static void Cmd_presentdamagecalculation(void)
      * damage, the second strike will always deal damage too. This is a simple way
      * to replicate that effect.
      */
-    if (gSpecialStatuses[gBattlerAttacker].parentalBondState != PARENTAL_BOND_2ND_HIT)
+    if (gSpecialStatuses[gBattlerAttacker].parentalBondState != PARENTAL_BOND_2ND_HIT
+     || gSpecialStatuses[gBattlerAttacker].rapidFistsState != RAPID_FISTS_2ND_HIT
+     || gSpecialStatuses[gBattlerAttacker].rapidFistsState != RAPID_FISTS_3RD_HIT)
     {
         if (rand < 102)
         {
@@ -16921,6 +16954,37 @@ bool32 IsMoveAffectedByParentalBond(u32 move, u32 battler)
 {
     if (move != MOVE_NONE && move != MOVE_UNAVAILABLE && move != MOVE_STRUGGLE
         && !IsMoveParentalBondBanned(move)
+        && GetMoveCategory(move) != DAMAGE_CATEGORY_STATUS
+        && GetMoveStrikeCount(move) < 2
+        && GetMoveEffect(move) != EFFECT_MULTI_HIT)
+    {
+        if (IsDoubleBattle())
+        {
+            switch (GetBattlerMoveTargetType(battler, move))
+            {
+            // Both foes are alive, spread move strikes once
+            case MOVE_TARGET_BOTH:
+                if (CountAliveMonsInBattle(BATTLE_ALIVE_SIDE, gBattlerTarget) >= 2)
+                    return FALSE;
+                break;
+            // Either both foes or one foe and its ally are alive; spread move strikes once
+            case MOVE_TARGET_FOES_AND_ALLY:
+                if (CountAliveMonsInBattle(BATTLE_ALIVE_EXCEPT_BATTLER, gBattlerAttacker) >= 2)
+                    return FALSE;
+                break;
+            default:
+            break;
+            }
+        }
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool32 IsMoveAffectedByRapidFists(u32 move, u32 battler)
+{
+    if (move != MOVE_NONE && move != MOVE_UNAVAILABLE && move != MOVE_STRUGGLE
+        && IsPunchingMove(move)
         && GetMoveCategory(move) != DAMAGE_CATEGORY_STATUS
         && GetMoveStrikeCount(move) < 2
         && GetMoveEffect(move) != EFFECT_MULTI_HIT)

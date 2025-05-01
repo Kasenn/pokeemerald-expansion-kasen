@@ -8,7 +8,7 @@ script ROUTE7_Grotto_SetObject{
         setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL)
     }
     elif(var(VAR_GROTTO_2) <= 59){
-        setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(ABSOL))
+        setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(LEDYBA))
     }
     elif(var(VAR_GROTTO_2) <= 79){
         setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(VULPIX_ALOLAN))
@@ -74,10 +74,10 @@ script ROUTE7_GrottoItem{
 
 script ROUTE7_GrottoPokemon{
     if(var(VAR_GROTTO_2) <= 59){
-        playmoncry(SPECIES_ABSOL, CRY_MODE_ENCOUNTER)
+        playmoncry(SPECIES_LEDYBA, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
-        setwildbattlelevelrange(SPECIES_ABSOL, 15, ITEM_NONE, SPECIES_NONE, 19)
+        setwildbattlelevelrange(SPECIES_LEDYBA, 15, ITEM_NONE, SPECIES_NONE, 19)
     }
     elif(var(VAR_GROTTO_2) <= 79){
         playmoncry(SPECIES_VULPIX_ALOLAN, CRY_MODE_ENCOUNTER)

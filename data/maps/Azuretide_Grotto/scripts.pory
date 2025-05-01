@@ -7,11 +7,14 @@ script Azuretide_Grotto_SetObject{
     if(var(VAR_GROTTO_5) <= 39){
         setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL)
     }
-    elif(var(VAR_GROTTO_5) <= 59){
+    elif(var(VAR_GROTTO_5) <= 54){
         setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(MUNNA))
     }
-    elif(var(VAR_GROTTO_5) <= 79){
+    elif(var(VAR_GROTTO_5) <= 69){
         setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(ELEKID))
+    }
+    elif(var(VAR_GROTTO_5) <= 84){
+        setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(LEDIAN))
     }
     else{
         setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(SNEASEL))
@@ -68,17 +71,23 @@ script Azuretide_GrottoItem{
 }
 
 script Azuretide_GrottoPokemon{
-    if(var(VAR_GROTTO_5) <= 59){
+    if(var(VAR_GROTTO_5) <= 54){
         playmoncry(SPECIES_MUNNA, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
         setwildbattlelevelrange(SPECIES_MUNNA, 33, ITEM_NONE, SPECIES_NONE, 36)
     }
-    elif(var(VAR_GROTTO_5) <= 79){
+    elif(var(VAR_GROTTO_5) <= 69){
         playmoncry(SPECIES_ELEKID, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
         setwildbattlelevelrange(SPECIES_ELEKID, 33, ITEM_NONE, SPECIES_NONE, 36)
+    }
+    elif(var(VAR_GROTTO_5) <= 84){
+        playmoncry(SPECIES_LEDIAN, CRY_MODE_ENCOUNTER)
+        delay(40)
+        waitmoncry
+        setwildbattlelevelrange(SPECIES_LEDIAN, 33, ITEM_NONE, SPECIES_NONE, 36)
     }
     else{
         playmoncry(SPECIES_SNEASEL, CRY_MODE_ENCOUNTER)

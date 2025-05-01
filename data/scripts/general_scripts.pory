@@ -487,12 +487,14 @@ script Debug_Script_1{              // Set team level
     end
     }
 script Debug_Script_2{              // 
-    callnative(TestPlayerAvatarFlagDebug)
-    msgbox("{STR_VAR_1}", MSGBOX_AUTOCLOSE)
+    givemon(SPECIES_LEDIAN, 50, abilityNum = 2, move1 = MOVE_POWER_UP_PUNCH, move2 = MOVE_MACH_PUNCH, move3 = MOVE_TACKLE)
+    createmon(1, 0, SPECIES_SNORLAX, 70, ITEM_POKE_BALL, move1 = MOVE_SPLASH)
+    dowildbattle
     end
 }
 script Debug_Script_3{              // 
-    special(ShowJournalPopupAdd)
+    callnative(FixGrottoHiddenAbility)
+    release
     return
 }
 script Debug_Script_4{
@@ -1243,4 +1245,41 @@ text MixupWithTMs{
 }
 text NewUpdate{
     "A new update has been applied."
+}
+
+script FixHiddenAbility{
+    lock
+    faceplayer
+    msgbox(FixHiddenAbility_Text, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == TRUE){
+        callnative(FixGrottoHiddenAbility)
+        msgbox(AllGrottoMonsHaveBeenFixed)
+    }
+    else{
+        msgbox(FindMeInAnyCenter)
+    }
+    release
+    end
+}
+
+text FixHiddenAbility_Text{
+    "Hello, I am a fixer guy.\p"
+    "Have you found any hidden grottos\n"
+    "with Pokémon in them?\p"
+    "Those Pokémon were incorrectly\n"
+    "spawning with regular abilities,\l"
+    "instead of their intended hidden\l"
+    "abilities.\p"
+    "If you'd like, I can fix any grotto\n"
+    "Pokémon you have."
+}
+text AllGrottoMonsHaveBeenFixed{
+    "Done.\p"
+    "Any Pokémon obtained from a hidden\n"
+    "grotto should now be fixed.\p"
+}
+text FindMeInAnyCenter{
+    "Very well.\p"
+    "If you need my services, you can\n"
+    "find me in almost any Pokémon Center."
 }

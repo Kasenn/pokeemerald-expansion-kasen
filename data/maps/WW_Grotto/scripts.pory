@@ -9,7 +9,7 @@ script WW_Grotto_SetObject{
         setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(TOGEPI))
     }
     elif(var(VAR_GROTTO_1) <= 79){
-        setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(SWABLU))
+        setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(LEDYBA))
     }
     else{
         setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(GLIGAR))
@@ -78,10 +78,10 @@ script WW_GrottoPokemon{
         setwildbattlelevelrange(SPECIES_TOGEPI, 6, ITEM_NONE, SPECIES_NONE, 7)
     }
     elif(var(VAR_GROTTO_1) <= 79){
-        playmoncry(SPECIES_SWABLU, CRY_MODE_ENCOUNTER)
+        playmoncry(SPECIES_LEDYBA, CRY_MODE_ENCOUNTER)
         delay(40)
         waitmoncry
-        setwildbattlelevelrange(SPECIES_SWABLU, 6, ITEM_NONE, SPECIES_NONE, 7)
+        setwildbattlelevelrange(SPECIES_LEDYBA, 6, ITEM_NONE, SPECIES_NONE, 7)
     }
     else{
         playmoncry(SPECIES_GLIGAR, CRY_MODE_ENCOUNTER)

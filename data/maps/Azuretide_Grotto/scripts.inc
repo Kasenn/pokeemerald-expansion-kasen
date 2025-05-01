@@ -7,10 +7,12 @@ Azuretide_Grotto_MapScripts::
 Azuretide_Grotto_SetObject::
 	compare VAR_GROTTO_5, 39
 	goto_if_le Azuretide_Grotto_SetObject_1
-	compare VAR_GROTTO_5, 59
+	compare VAR_GROTTO_5, 54
 	goto_if_le Azuretide_Grotto_SetObject_2
-	compare VAR_GROTTO_5, 79
+	compare VAR_GROTTO_5, 69
 	goto_if_le Azuretide_Grotto_SetObject_3
+	compare VAR_GROTTO_5, 84
+	goto_if_le Azuretide_Grotto_SetObject_4
 	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( SNEASEL )
 	return
 
@@ -24,6 +26,10 @@ Azuretide_Grotto_SetObject_2:
 
 Azuretide_Grotto_SetObject_3:
 	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( ELEKID )
+	return
+
+Azuretide_Grotto_SetObject_4:
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES ( LEDIAN )
 	return
 
 
@@ -110,10 +116,12 @@ Azuretide_GrottoItem_11:
 
 
 Azuretide_GrottoPokemon::
-	compare VAR_GROTTO_5, 59
+	compare VAR_GROTTO_5, 54
 	goto_if_le Azuretide_GrottoPokemon_2
-	compare VAR_GROTTO_5, 79
+	compare VAR_GROTTO_5, 69
 	goto_if_le Azuretide_GrottoPokemon_3
+	compare VAR_GROTTO_5, 84
+	goto_if_le Azuretide_GrottoPokemon_4
 	playmoncry SPECIES_SNEASEL, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
@@ -140,5 +148,12 @@ Azuretide_GrottoPokemon_3:
 	delay 40
 	waitmoncry
 	setwildbattlelevelrange SPECIES_ELEKID, 33, ITEM_NONE, SPECIES_NONE, 36
+	goto Azuretide_GrottoPokemon_1
+
+Azuretide_GrottoPokemon_4:
+	playmoncry SPECIES_LEDIAN, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setwildbattlelevelrange SPECIES_LEDIAN, 33, ITEM_NONE, SPECIES_NONE, 36
 	goto Azuretide_GrottoPokemon_1
 

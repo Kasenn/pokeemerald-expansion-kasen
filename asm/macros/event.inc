@@ -1560,6 +1560,11 @@
 	.byte SCR_OP_DOWILDBATTLE
 	.endm
 
+	@ Starts a wild battle against a mon with 100% guaranteed hidden ability
+	.macro dowildgrottobattle
+	callnative ScrCmd_dowildgrottobattle
+	.endm
+
 	@ Sets a relative address to be used by the other vcommands as part of a Mystery Gift script.
 	.macro setvaddress pointer:req
 	.byte SCR_OP_SETVADDRESS

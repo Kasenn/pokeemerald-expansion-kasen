@@ -545,6 +545,8 @@ static u8 GetLongGrassCaseAt(s16 x, s16 y)
 
     if (metatileId == METATILE_General_Grass)
         return LONG_GRASS_FIELD;
+    else if (metatileId == METATILE_General_SeedDrop)
+        return LONG_GRASS_FIELD;
     else if (metatileId == METATILE_Fortree_SecretBase_LongGrass_TopLeft)
         return LONG_GRASS_BASE_LEFT;
     else if (metatileId == METATILE_Fortree_SecretBase_LongGrass_TopMid)
@@ -583,7 +585,7 @@ static void SetCutGrassMetatiles(s16 x, s16 y)
                 break;
             }
         }
-        if (MapGridGetMetatileIdAt(currentX, lowerY) == METATILE_General_Grass)
+        if (MapGridGetMetatileIdAt(currentX, lowerY) == METATILE_General_Grass || MapGridGetMetatileIdAt(currentX, lowerY) == METATILE_General_SeedDrop)
         {
             if (MapGridGetMetatileIdAt(currentX, lowerY + 1) == METATILE_Mauville_LongGrass_Root)
                 MapGridSetMetatileIdAt(currentX, lowerY + 1, METATILE_General_Grass);
@@ -778,7 +780,7 @@ void FixLongGrassMetatilesWindowTop(s16 x, s16 y)
 
 void FixLongGrassMetatilesWindowBottom(s16 x, s16 y)
 {
-    if (MapGridGetMetatileIdAt(x, y) == METATILE_General_Grass)
+    if (MapGridGetMetatileIdAt(x, y) == METATILE_General_Grass || MapGridGetMetatileIdAt(x, y) == METATILE_General_SeedDrop)
     {
         u8 metatileBehavior = MapGridGetMetatileBehaviorAt(x, y + 1);
         if (MetatileBehavior_IsLongGrassSouthEdge(metatileBehavior))

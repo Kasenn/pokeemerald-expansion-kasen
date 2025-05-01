@@ -2680,6 +2680,29 @@ bool8 ScrCmd_dowildbattlenorunning(struct ScriptContext *ctx)
     return TRUE;
 }
 
+
+bool8 ScrCmd_dowildgrottobattle(struct ScriptContext *ctx)
+{
+    Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
+    u8 value = 2;
+
+    if (sIsScriptedWildDouble == FALSE)
+    {
+        SetMonData(&gEnemyParty[0], MON_DATA_ABILITY_NUM, &value);
+        BattleSetup_StartScriptedWildBattle();
+    }
+    else
+    {
+        SetMonData(&gEnemyParty[0], MON_DATA_ABILITY_NUM, &value);
+        SetMonData(&gEnemyParty[1], MON_DATA_ABILITY_NUM, &value);
+        BattleSetup_StartScriptedDoubleWildBattle();
+    }
+
+    ScriptContext_Stop();
+
+    return TRUE;
+}
+
 bool8 ScrCmd_pokemart(struct ScriptContext *ctx)
 {
     const void *ptr = (void *)ScriptReadWord(ctx);
@@ -3734,5 +3757,52 @@ void RevertSeedDropMetatile(void)
     case 0x33D:
         MapGridSetMetatileIdAt(x, y, 0x27F);
         break;
+    }
+}
+
+void FixGrottoHiddenAbility(void)
+{
+    u16 i, j;
+    u16 hiddenAbility = 2;
+
+    static u16 sGrottoMapsecs[] =
+    {
+        MAPSEC_HIDDENGROTTO_AZURETIDE,
+        MAPSEC_HIDDENGROTTO_WW,
+        MAPSEC_HIDDENGROTTO_ROUTE7,
+        MAPSEC_HIDDENGROTTO_ROUTE14,
+        MAPSEC_HIDDENGROTTO_ROUTE15,
+    };
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        for (j = 0; j < ARRAY_COUNT(sGrottoMapsecs); j++)
+        {
+            if (GetMonData(&gPlayerParty[i], MON_DATA_MET_LOCATION, NULL) == sGrottoMapsecs[j])
+            {
+                SetMonData(&gPlayerParty[i], MON_DATA_ABILITY_NUM, &hiddenAbility);
+                break;
+            }
+        }
+    }
+
+    int boxId, boxPosition;
+
+    for (boxId = 0; boxId < TOTAL_BOXES_COUNT; boxId++)
+    {
+        for (boxPosition = 0; boxPosition < IN_BOX_COUNT; boxPosition++)
+        {
+            if (GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SANITY_HAS_SPECIES))
+            {
+                for (j = 0; j < ARRAY_COUNT(sGrottoMapsecs); j++)
+                {
+                    if (GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_MET_LOCATION, NULL) == sGrottoMapsecs[j])
+                    {
+                        SetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_ABILITY_NUM, &hiddenAbility);
+                        break;
+                    }
+                }
+            }
+        }
     }
 }

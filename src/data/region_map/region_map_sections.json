@@ -49,7 +49,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_HIDDEN_GROTTO",
+      "map_section": "MAPSEC_HIDDENGROTTO_WW",
       "name": "HIDDEN GROTTO",
       "x": 16,
       "y": 8,
@@ -1065,7 +1065,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_HIDDENGROTTO_ROUTE_15",
+      "map_section": "MAPSEC_HIDDENGROTTO_ROUTE15",
       "name": "HIDDEN GROTTO",
       "x": 1,
       "y": 13,

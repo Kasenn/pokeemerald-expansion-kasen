@@ -544,17 +544,24 @@ static inline void CalcDynamicMoveDamage(struct DamageCalculationData *damageCal
     u32 effect = GetMoveEffect(move);
     s32 expected = *expectedDamage;
     s32 minimum = *minimumDamage;
+    u32 isPunchMove = IsPunchingMove(move);
 
     switch (effect)
     {
     case EFFECT_LEVEL_DAMAGE:
         expected = minimum = gBattleMons[damageCalcData->battlerAtk].level * (abilityAtk == ABILITY_PARENTAL_BOND ? 2 : 1);
+        if (abilityAtk == ABILITY_RAPID_FISTS && isPunchMove)
+            expected = minimum = gBattleMons[damageCalcData->battlerAtk].level * 3;
         break;
     case EFFECT_PSYWAVE:
         expected = minimum = gBattleMons[damageCalcData->battlerAtk].level * (abilityAtk == ABILITY_PARENTAL_BOND ? 2 : 1);
+        if (abilityAtk == ABILITY_RAPID_FISTS && isPunchMove)
+            expected = minimum = gBattleMons[damageCalcData->battlerAtk].level * 3;
         break;
     case EFFECT_FIXED_DAMAGE_ARG:
         expected = minimum = GetMoveFixedDamage(move) * (abilityAtk == ABILITY_PARENTAL_BOND ? 2 : 1);
+        if (abilityAtk == ABILITY_RAPID_FISTS && isPunchMove)
+            expected = minimum = GetMoveFixedDamage(move) * 3;
         break;
     case EFFECT_MULTI_HIT:
         if (move == MOVE_WATER_SHURIKEN && gBattleMons[damageCalcData->battlerAtk].species == SPECIES_GRENINJA_ASH)
@@ -587,6 +594,8 @@ static inline void CalcDynamicMoveDamage(struct DamageCalculationData *damageCal
         expected = minimum = (abilityAtk == ABILITY_PARENTAL_BOND
             ? max(2, gBattleMons[damageCalcData->battlerDef].hp * 3 / 4)
             : max(1, gBattleMons[damageCalcData->battlerDef].hp / 2));
+        if (abilityAtk == ABILITY_RAPID_FISTS && isPunchMove)
+            expected = minimum = max(3, gBattleMons[damageCalcData->battlerDef].hp * 1 / 8);
         break;
     case EFFECT_FINAL_GAMBIT:
         expected = minimum = gBattleMons[damageCalcData->battlerAtk].hp;

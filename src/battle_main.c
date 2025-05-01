@@ -5197,6 +5197,7 @@ static void TurnValuesCleanUp(bool8 var0)
             gBattleStruct->battlerState[i].commandingDondozo = FALSE;
 
         gSpecialStatuses[i].parentalBondState = PARENTAL_BOND_OFF;
+        gSpecialStatuses[i].rapidFistsState = RAPID_FISTS_OFF;
         gBattleStruct->battlerState[i].usedEjectItem = FALSE;
     }
 
