@@ -991,7 +991,6 @@ static const u16 sNaturePowerMoves[BATTLE_ENVIRONMENT_COUNT] =
     [BATTLE_ENVIRONMENT_SNOW]       = MOVE_ICE_BEAM,
     [BATTLE_ENVIRONMENT_LONG_GRASS_AUTUMN] = MOVE_ENERGY_BALL,
     [BATTLE_ENVIRONMENT_MUD]        = MOVE_MUD_BOMB,
-    [BATTLE_ENVIRONMENT_SNOW]       = MOVE_ICE_BEAM,
 #elif B_NATURE_POWER_MOVES == GEN_6
     [BATTLE_ENVIRONMENT_GRASS]      = MOVE_ENERGY_BALL,
     [BATTLE_ENVIRONMENT_LONG_GRASS] = MOVE_ENERGY_BALL,
@@ -1205,7 +1204,7 @@ static void Cmd_attackcanceler(void)
         return;
     }
 
-    if (gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_OFF
+    else if (gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_OFF
      && GetBattlerAbility(gBattlerAttacker) == ABILITY_RAPID_FISTS
      && IsMoveAffectedByRapidFists(gCurrentMove, gBattlerAttacker)
      && !(gAbsentBattlerFlags & (1u << gBattlerTarget))
@@ -1361,7 +1360,7 @@ static void Cmd_attackcanceler(void)
             gSpecialStatuses[gBattlerAttacker].multiHitOn = 0;
             gMultiHitCounter = 0;
         }
-        if (gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_1ST_HIT)
+        else if (gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_1ST_HIT)
         {
             gSpecialStatuses[gBattlerAttacker].rapidFistsState = RAPID_FISTS_OFF; // No second hit if first hit was blocked
             gSpecialStatuses[gBattlerAttacker].multiHitOn = 0;
@@ -1664,8 +1663,15 @@ static void AccuracyCheck(bool32 recalcDragonDarts, const u8 *nextInstr, const u
                 AbilityBattleEffects(ABILITYEFFECT_ABSORBING, gBattlerTarget, 0, 0, gCurrentMove);
         }
     }
-    else if ((gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_2ND_HIT
-        || gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_2ND_HIT
+    else if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_2ND_HIT
+        || (gSpecialStatuses[gBattlerAttacker].multiHitOn
+        && (abilityAtk == ABILITY_SKILL_LINK || holdEffectAtk == HOLD_EFFECT_LOADED_DICE
+        || !(effect == EFFECT_TRIPLE_KICK || effect == EFFECT_POPULATION_BOMB))))
+    {
+        // No acc checks for second hit of Parental Bond or multi hit moves, except Triple Kick/Triple Axel/Population Bomb
+        gBattlescriptCurrInstr = nextInstr;
+    }
+    else if ((gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_2ND_HIT
         || gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_3RD_HIT)
         || (gSpecialStatuses[gBattlerAttacker].multiHitOn
         && (abilityAtk == ABILITY_SKILL_LINK || holdEffectAtk == HOLD_EFFECT_LOADED_DICE
@@ -2436,7 +2442,7 @@ static void Cmd_attackanimation(void)
             return;
         }
 
-        if (gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_2ND_HIT || gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_3RD_HIT) // No animation on second hit
+        else if (gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_2ND_HIT || gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_3RD_HIT) // No animation on second hit
         {
             gBattlescriptCurrInstr = cmd->nextInstr;
             return;
@@ -3187,9 +3193,17 @@ void SetMoveEffect(bool32 primary, bool32 certain)
     if (gBattleScripting.moveEffect == 0)
         return;
 
-    if ((gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_1ST_HIT || gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_1ST_HIT)
+    if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_1ST_HIT
         && IsBattlerAlive(gBattlerTarget)
         && IsFinalStrikeEffect(gBattleScripting.moveEffect))
+    {
+        gBattlescriptCurrInstr++;
+        return;
+    }
+
+    else if (gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_1ST_HIT
+    && IsBattlerAlive(gBattlerTarget)
+    && IsFinalStrikeEffect(gBattleScripting.moveEffect))
     {
         gBattlescriptCurrInstr++;
         return;
@@ -6751,7 +6765,9 @@ static void Cmd_moveend(void)
              && IsBattlerAlive(gBattlerTarget)
              && IsBattlerAlive(gBattlerAttacker)
              && !(gStatuses3[BATTLE_PARTNER(gBattlerTarget)] & STATUS3_COMMANDER)
-             && (gSpecialStatuses[gBattlerAttacker].parentalBondState != PARENTAL_BOND_1ST_HIT || gSpecialStatuses[gBattlerAttacker].rapidFistsState != RAPID_FISTS_1ST_HIT))
+             && gSpecialStatuses[gBattlerAttacker].parentalBondState != PARENTAL_BOND_1ST_HIT
+             && gSpecialStatuses[gBattlerAttacker].rapidFistsState != RAPID_FISTS_1ST_HIT
+             && gSpecialStatuses[gBattlerAttacker].rapidFistsState != RAPID_FISTS_2ND_HIT)
             {
                 u32 targetAbility = GetBattlerAbility(gBattlerTarget);
                 if (targetAbility == ABILITY_GUARD_DOG)
@@ -7061,7 +7077,7 @@ static void Cmd_moveend(void)
                     {
                         if (gSpecialStatuses[gBattlerAttacker].parentalBondState)
                             gSpecialStatuses[gBattlerAttacker].parentalBondState--;
-                        if (gSpecialStatuses[gBattlerAttacker].rapidFistsState)
+                        else if (gSpecialStatuses[gBattlerAttacker].rapidFistsState)
                             gSpecialStatuses[gBattlerAttacker].rapidFistsState--;
 
                         gHitMarker |= (HITMARKER_NO_PPDEDUCT | HITMARKER_NO_ATTACKSTRING);
@@ -14478,9 +14494,7 @@ static void Cmd_presentdamagecalculation(void)
      * damage, the second strike will always deal damage too. This is a simple way
      * to replicate that effect.
      */
-    if (gSpecialStatuses[gBattlerAttacker].parentalBondState != PARENTAL_BOND_2ND_HIT
-     || gSpecialStatuses[gBattlerAttacker].rapidFistsState != RAPID_FISTS_2ND_HIT
-     || gSpecialStatuses[gBattlerAttacker].rapidFistsState != RAPID_FISTS_3RD_HIT)
+    if (gSpecialStatuses[gBattlerAttacker].parentalBondState != PARENTAL_BOND_2ND_HIT)
     {
         if (rand < 102)
         {
@@ -15972,7 +15986,7 @@ static void Cmd_settypetoenvironment(void)
         environmentType = TYPE_GRASS;
         break;
     case STATUS_FIELD_ROCKY_TERRAIN:
-        terrainType = TYPE_ROCK;
+        environmentType = TYPE_ROCK;
         break;
     case STATUS_FIELD_MISTY_TERRAIN:
         environmentType = TYPE_FAIRY;

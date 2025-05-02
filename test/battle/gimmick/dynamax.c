@@ -1131,8 +1131,8 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Gold Rush confuses both opponents and generat
 {
     GIVEN {
         ASSUME(MoveHasAdditionalEffect(MOVE_G_MAX_GOLD_RUSH, MOVE_EFFECT_CONFUSE_PAY_DAY_SIDE));
-        PLAYER(SPECIES_MEOWTH) { GigantamaxFactor(TRUE); }
-        PLAYER(SPECIES_PERSIAN);
+        PLAYER(SPECIES_MEOWTH_OUTSIDER) { GigantamaxFactor(TRUE); }
+        PLAYER(SPECIES_PERSIAN_OUTSIDER);
         OPPONENT(SPECIES_WOBBUFFET);
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {

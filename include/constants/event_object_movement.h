@@ -267,10 +267,6 @@
 #define MOVEMENT_ACTION_RUN_UP_SUPER_SLOW                     0xB0
 #define MOVEMENT_ACTION_RUN_LEFT_SUPER_SLOW                   0xB1
 #define MOVEMENT_ACTION_RUN_RIGHT_SUPER_SLOW                  0xB2
-#define MOVEMENT_ACTION_RUN_DOWN_SLOW                   0xB3    // slow running for rocky stairs
-#define MOVEMENT_ACTION_RUN_UP_SLOW                     0xB4
-#define MOVEMENT_ACTION_RUN_LEFT_SLOW                   0xB5
-#define MOVEMENT_ACTION_RUN_RIGHT_SLOW                  0xB6
 #define MOVEMENT_ACTION_WALK_SLOW_STAIRS_DOWN           0xB7
 #define MOVEMENT_ACTION_WALK_SLOW_STAIRS_UP             0xB8
 #define MOVEMENT_ACTION_WALK_SLOW_STAIRS_LEFT           0xB9

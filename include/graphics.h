@@ -313,7 +313,7 @@ extern const u32 gBattleEnvironmentPalette_StadiumPhoebe[];
 extern const u32 gBattleEnvironmentPalette_StadiumGlacia[];
 extern const u32 gBattleEnvironmentPalette_StadiumDrake[];
 extern const u32 gBattleEnvironmentPalette_StadiumWallace[];
-extern const u32 gBattleTerrainPalette_LongGrassAutumn[];
+extern const u32 gBattlePalette_LongGrassAutumn[];
 extern const u32 gBattleTerrainTiles_LongGrassAutumn[];
 extern const u32 gBattleTerrainPalette_Mud[];
 extern const u32 gBattleTerrainTiles_Mud[];

@@ -665,11 +665,11 @@ u8 BattleSetup_GetEnvironmentId(void)
     if ((GetSavedWeather() == WEATHER_SNOW || GetSavedWeather() == WEATHER_BLIZZARD)
     && (MetatileBehavior_IsTallGrassAutumn(tileBehavior)
      || MetatileBehavior_IsSnow(tileBehavior)))
-        return BATTLE_TERRAIN_SNOW;
+        return BATTLE_ENVIRONMENT_SNOW;
 
     if (MetatileBehavior_IsTallGrassAutumn(tileBehavior)
     && ((MAP(SAFARI_ZONE_MOUNTAIN)) || (MAP(DESERT_CLIFFS))))
-        return BATTLE_TERRAIN_MOUNTAIN;
+        return BATTLE_ENVIRONMENT_MOUNTAIN;
 
     if (MetatileBehavior_IsTallGrass(tileBehavior))
         return BATTLE_ENVIRONMENT_GRASS;

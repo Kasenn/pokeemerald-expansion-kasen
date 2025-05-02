@@ -633,10 +633,10 @@ const struct BattleBackground sBattleEnvironmentTable[] =
     [BATTLE_ENVIRONMENT_LONG_GRASS_AUTUMN] =
     {
         .tileset = gBattleTerrainTiles_LongGrassAutumn,
-        .tilemap = gBattleTerrainTilemap_LongGrass,
-        .entryTileset = gBattleTerrainAnimTiles_LongGrass,
-        .entryTilemap = gBattleTerrainAnimTilemap_LongGrass,
-        .palette = gBattleTerrainPalette_LongGrassAutumn,
+        .tilemap = gBattleEnvironmentTilemap_LongGrass,
+        .entryTileset = gBattleEnvironmentAnimTiles_LongGrass,
+        .entryTilemap = gBattleEnvironmentAnimTilemap_LongGrass,
+        .palette = gBattlePalette_LongGrassAutumn,
     },
 
     [BATTLE_ENVIRONMENT_SAND] =
@@ -688,8 +688,8 @@ const struct BattleBackground sBattleEnvironmentTable[] =
     {
         .tileset = gBattleTerrainTiles_Mud,
         .tilemap = gBattleTerrainTilemap_Mud,
-        .entryTileset = gBattleTerrainAnimTiles_Building,
-        .entryTilemap = gBattleTerrainAnimTilemap_Building,
+        .entryTileset = gBattleEnvironmentAnimTiles_Building,
+        .entryTilemap = gBattleEnvironmentAnimTilemap_Building,
         .palette = gBattleTerrainPalette_Mud,
     },
 
@@ -720,12 +720,12 @@ const struct BattleBackground sBattleEnvironmentTable[] =
         .palette = gBattleEnvironmentPalette_Plain,
     },
 
-    [BATTLE_TERRAIN_SNOW] =
+    [BATTLE_ENVIRONMENT_SNOW] =
     {
-        .tileset = gBattleTerrainTiles_Sand,
-        .tilemap = gBattleTerrainTilemap_Sand,
-        .entryTileset = gBattleTerrainAnimTiles_Sand,
-        .entryTilemap = gBattleTerrainAnimTilemap_Sand,
+        .tileset = gBattleEnvironmentTiles_Sand,
+        .tilemap = gBattleEnvironmentTilemap_Sand,
+        .entryTileset = gBattleEnvironmentAnimTiles_Sand,
+        .entryTilemap = gBattleEnvironmentAnimTilemap_Sand,
         .palette = gBattleTerrainPalette_Snow,
     },
 };
