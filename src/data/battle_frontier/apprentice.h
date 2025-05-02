@@ -298,7 +298,7 @@ const struct ApprenticeTrainer gApprentices[NUM_APPRENTICES] =
 {
     {
         .name = {_("サダヒロ"), _("ALANN"), _("ALAIN"), _("ADELFO"), _("CLAUS"), _("TEO")},
-        .otId = 0xBDC9,
+        .otId = 48585,
         .facilityClass = FACILITY_CLASS_BUG_CATCHER,
         .species = {SPECIES_BEAUTIFLY, SPECIES_DUSTOX, SPECIES_ILLUMISE, SPECIES_SHIFTRY, SPECIES_BRELOOM, SPECIES_NINJASK, SPECIES_SHEDINJA, SPECIES_PINSIR, SPECIES_HERACROSS, SPECIES_VOLBEAT},
         .id = 0,

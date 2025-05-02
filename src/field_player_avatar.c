@@ -110,6 +110,8 @@ static bool8 PlayerCheckIfAnimFinishedOrInactive(void);
 static void PlayerWalkSlow(u8 direction);
 static void PlayerWalkSuperSlow(u8 direction);
 static void PlayerRunSuperSlow(u8 direction);
+static void PlayerWalkSlowStairs(u8 direction);
+static void UNUSED PlayerWalkSlow(u8 direction);
 static void PlayerRunSlow(u8 direction);
 static void PlayerRun(u8);
 static void PlayerNotOnBikeCollide(u8);
@@ -274,7 +276,7 @@ static bool8 (*const sArrowWarpMetatileBehaviorChecks[])(u8) =
     [DIR_EAST - 1]  = MetatileBehavior_IsEastArrowWarp,
 };
 
-static const u16 sRivalAvatarGfxIds[][2] =
+static const u8 sRivalAvatarGfxIds[][GENDER_COUNT] =
 {
     [PLAYER_AVATAR_STATE_NORMAL]        = {OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL,     OBJ_EVENT_GFX_RIVAL_MAY_NORMAL},
     [PLAYER_AVATAR_STATE_BIKE]          = {OBJ_EVENT_GFX_RIVAL_BRENDAN_ACRO_BIKE,  OBJ_EVENT_GFX_RIVAL_MAY_ACRO_BIKE},
@@ -289,7 +291,7 @@ static const u16 sRivalAvatarGfxIds[][2] =
     [PLAYER_AVATAR_STATE_GOGOAT]        = {OBJ_EVENT_GFX_RIVAL_BRENDAN_SURFING,    OBJ_EVENT_GFX_RIVAL_MAY_SURFING},
 };
 
-static const u16 sPlayerAvatarGfxIds[][2] =
+static const u8 sPlayerAvatarGfxIds[][GENDER_COUNT] =
 {
     [PLAYER_AVATAR_STATE_NORMAL]        = {OBJ_EVENT_GFX_BRENDAN_NORMAL,            OBJ_EVENT_GFX_MAY_NORMAL},
     [PLAYER_AVATAR_STATE_BIKE]          = {OBJ_EVENT_GFX_BRENDAN_ACRO_BIKE,         OBJ_EVENT_GFX_MAY_ACRO_BIKE},
@@ -874,8 +876,10 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
             PlayerWalkSuperSlow(direction);
         else if (ObjectMovingInMediumSnow(&gObjectEvents[gPlayerAvatar.objectEventId]))
             PlayerWalkSlow(direction);
+        // else if (ObjectMovingOnRockStairs(&gObjectEvents[gPlayerAvatar.objectEventId], direction))
+        //     PlayerWalkSlow(direction);
         else if (ObjectMovingOnRockStairs(&gObjectEvents[gPlayerAvatar.objectEventId], direction))
-            PlayerWalkSlow(direction);
+            PlayerWalkSlowStairs(direction);
         else
             PlayerWalkNormal(direction);
     }
@@ -1286,8 +1290,14 @@ void PlayerSetAnimId(u8 movementActionId, u8 copyableMovement)
     }
 }
 
+// slow stairs (from FRLG--faster than slow)
+static void PlayerWalkSlowStairs(u8 direction)
+{
+    PlayerSetAnimId(GetWalkSlowStairsMovementAction(direction), 2);
+}
+
 // slow
-static void PlayerWalkSlow(u8 direction)
+static void UNUSED PlayerWalkSlow(u8 direction)
 {
     PlayerSetAnimId(GetWalkSlowMovementAction(direction), 2);
 }

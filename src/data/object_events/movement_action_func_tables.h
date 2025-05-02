@@ -280,6 +280,14 @@ u8 MovementActionFunc_RunSlowUp_Step0(struct ObjectEvent *objectEvent, struct Sp
 u8 MovementActionFunc_RunSlowLeft_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite);
 u8 MovementActionFunc_RunSlowRight_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite);
 u8 MovementActionFunc_RunSlow_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite);
+u8 MovementAction_WalkSlowStairsUp_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite);
+u8 MovementAction_WalkSlowStairsUp_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite);
+u8 MovementAction_WalkSlowStairsDown_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite);
+u8 MovementAction_WalkSlowStairsDown_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite);
+u8 MovementAction_WalkSlowStairsLeft_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite);
+u8 MovementAction_WalkSlowStairsLeft_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite);
+u8 MovementAction_WalkSlowStairsRight_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite);
+u8 MovementAction_WalkSlowStairsRight_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite);
 
 u8 MovementAction_WalkSuperSlowDown_Step0(struct ObjectEvent *, struct Sprite *);
 u8 MovementAction_WalkSuperSlowDown_Step1(struct ObjectEvent *, struct Sprite *);
@@ -468,6 +476,10 @@ u8 (*const gMovementActionFuncs_RunDownSlow[])(struct ObjectEvent *, struct Spri
 u8 (*const gMovementActionFuncs_RunUpSlow[])(struct ObjectEvent *, struct Sprite *);
 u8 (*const gMovementActionFuncs_RunLeftSlow[])(struct ObjectEvent *, struct Sprite *);
 u8 (*const gMovementActionFuncs_RunRightSlow[])(struct ObjectEvent *, struct Sprite *);
+u8 (*const gMovementActionFuncs_WalkSlowStairsDown[])(struct ObjectEvent *, struct Sprite *);
+u8 (*const gMovementActionFuncs_WalkSlowStairsUp[])(struct ObjectEvent *, struct Sprite *);
+u8 (*const gMovementActionFuncs_WalkSlowStairsLeft[])(struct ObjectEvent *, struct Sprite *);
+u8 (*const gMovementActionFuncs_WalkSlowStairsRight[])(struct ObjectEvent *, struct Sprite *);
 
 u8 (*const gMovementActionFuncs_WalkSuperSlowDown[])(struct ObjectEvent *, struct Sprite *);
 u8 (*const gMovementActionFuncs_WalkSuperSlowUp[])(struct ObjectEvent *, struct Sprite *);
@@ -660,6 +672,10 @@ u8 (*const *const gMovementActionFuncs[])(struct ObjectEvent *, struct Sprite *)
     [MOVEMENT_ACTION_RUN_UP_SUPER_SLOW] = gMovementActionFuncs_RunUpSuperSlow,
     [MOVEMENT_ACTION_RUN_LEFT_SUPER_SLOW] = gMovementActionFuncs_RunLeftSuperSlow,
     [MOVEMENT_ACTION_RUN_RIGHT_SUPER_SLOW] = gMovementActionFuncs_RunRightSuperSlow,
+    [MOVEMENT_ACTION_WALK_SLOW_STAIRS_DOWN] = gMovementActionFuncs_WalkSlowStairsDown,
+    [MOVEMENT_ACTION_WALK_SLOW_STAIRS_UP] = gMovementActionFuncs_WalkSlowStairsUp,
+    [MOVEMENT_ACTION_WALK_SLOW_STAIRS_LEFT]  = gMovementActionFuncs_WalkSlowStairsLeft,
+    [MOVEMENT_ACTION_WALK_SLOW_STAIRS_RIGHT]  = gMovementActionFuncs_WalkSlowStairsRight,
 };
 
 u8 (*const gMovementActionFuncs_FaceDown[])(struct ObjectEvent *, struct Sprite *) = {
@@ -1723,5 +1739,29 @@ u8 (*const gMovementActionFuncs_RunLeftSuperSlow[])(struct ObjectEvent *, struct
 u8 (*const gMovementActionFuncs_RunRightSuperSlow[])(struct ObjectEvent *, struct Sprite *) = {
     MovementActionFunc_RunSuperSlowRight_Step0,
     MovementActionFunc_RunSuperSlow_Step1,
+    MovementAction_PauseSpriteAnim,
+};
+
+bool8 (*const gMovementActionFuncs_WalkSlowStairsUp[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementAction_WalkSlowStairsUp_Step0,
+    MovementAction_WalkSlowStairsUp_Step1,
+    MovementAction_PauseSpriteAnim,
+};
+
+bool8 (*const gMovementActionFuncs_WalkSlowStairsDown[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementAction_WalkSlowStairsDown_Step0,
+    MovementAction_WalkSlowStairsDown_Step1,
+    MovementAction_PauseSpriteAnim,
+};
+
+bool8 (*const gMovementActionFuncs_WalkSlowStairsLeft[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementAction_WalkSlowStairsLeft_Step0,
+    MovementAction_WalkSlowStairsLeft_Step1,
+    MovementAction_PauseSpriteAnim,
+};
+
+bool8 (*const gMovementActionFuncs_WalkSlowStairsRight[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementAction_WalkSlowStairsRight_Step0,
+    MovementAction_WalkSlowStairsRight_Step1,
     MovementAction_PauseSpriteAnim,
 };
