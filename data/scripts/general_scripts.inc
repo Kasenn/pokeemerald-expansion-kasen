@@ -525,8 +525,14 @@ Debug_Script_2::
 
 
 Debug_Script_3::
-	callnative FixGrottoHiddenAbility
-	release
+	setflag FLAG_LATIAS_ROAMING
+	setvar VAR_0x8004, 0
+	special InitRoamer
+	setflag FLAG_LATIOS_ROAMING
+	setvar VAR_0x8004, 1
+	special InitRoamer
+	setseenmon SPECIES_LATIAS
+	setseenmon SPECIES_LATIOS
 	return
 
 
