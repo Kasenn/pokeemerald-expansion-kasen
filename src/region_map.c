@@ -27,6 +27,8 @@
 #include "constants/map_types.h"
 #include "constants/rgb.h"
 #include "constants/weather.h"
+#include "config/overworld.h"
+#include "roamer.h"
 
 /*
  *  This file handles region maps generally, and the map used when selecting a fly destination.
@@ -51,6 +53,7 @@ enum {
     TAG_CURSOR,
     TAG_PLAYER_ICON,
     TAG_FLY_ICON,
+    TAG_ROAMER_ICON,
 };
 
 // Window IDs for the fly map
@@ -101,6 +104,10 @@ static void SpriteCB_CursorMapFull(struct Sprite *sprite);
 static void FreeRegionMapCursorSprite(void);
 static void HideRegionMapPlayerIcon(void);
 static void UnhideRegionMapPlayerIcon(void);
+static void HideRegionMapRoamerIcons(void);
+static void UnhideRegionMapRoamerIcons(void);
+static void SpriteCB_RoamerIconMapZoomed(struct Sprite *sprite);
+static void SetRoamerIconPosition(struct Sprite *sprite, u16 mapSec, bool8 zoomed, bool8 unhide);
 static void SpriteCB_PlayerIconMapZoomed(struct Sprite *sprite);
 static void SpriteCB_PlayerIconMapFull(struct Sprite *sprite);
 static void SpriteCB_PlayerIcon(struct Sprite *sprite);
@@ -135,6 +142,10 @@ static const u8 sRegionMapPlayerIcon_MayGfxRS[] = INCBIN_U8("graphics/pokenav/re
 static const u16 sRegionMapPlayerIcon_BrendanPalRS[] = INCBIN_U16("graphics/pokenav/region_map/brendan_icon_rs.gbapal");
 static const u8 sRegionMapPlayerIcon_BrendanGfxRS[] = INCBIN_U8("graphics/pokenav/region_map/brendan_icon_rs.4bpp");
 
+static const u16 sRegionMapRoamerIcon_LatiasPal[] = INCBIN_U16("graphics/pokenav/region_map/latias_icon.gbapal");
+static const u8 sRegionMapRoamerIcon_LatiasGfx[] = INCBIN_U8("graphics/pokenav/region_map/latias_icon.4bpp");
+static const u16 sRegionMapRoamerIcon_LatiosPal[] = INCBIN_U16("graphics/pokenav/region_map/latios_icon.gbapal");
+static const u8 sRegionMapRoamerIcon_LatiosGfx[] = INCBIN_U8("graphics/pokenav/region_map/latios_icon.4bpp");
 
 #include "data/region_map/region_map_layout.h"
 #include "data/region_map/region_map_entries.h"
@@ -938,6 +949,9 @@ void SetRegionMapDataForZoom(void)
     sRegionMap->unk_06e = 0;
     FreeRegionMapCursorSprite();
     HideRegionMapPlayerIcon();
+    #if ROAMERS_ON_TOWN_MAP
+        HideRegionMapRoamerIcons();
+    #endif
 }
 
 bool8 UpdateRegionMapZoom(void)
@@ -960,6 +974,9 @@ bool8 UpdateRegionMapZoom(void)
         sRegionMap->inputCallback = (sRegionMap->zoomed == FALSE) ? ProcessRegionMapInput_Full : ProcessRegionMapInput_Zoomed;
         CreateRegionMapCursor(sRegionMap->cursorTileTag, sRegionMap->cursorPaletteTag);
         UnhideRegionMapPlayerIcon();
+        #if ROAMERS_ON_TOWN_MAP
+            UnhideRegionMapRoamerIcons();
+        #endif
         retVal = FALSE;
     }
     else
@@ -1656,6 +1673,124 @@ void CreateRegionMapPlayerIcon(u16 tileTag, u16 paletteTag)
     }
 }
 
+static void SetRoamerIconPosition(struct Sprite *sprite, u16 mapSec, bool8 zoomed, bool8 unhide)
+{
+    if (!zoomed)
+    {
+        sprite->x = gRegionMapEntries[mapSec].x * 8 + gRegionMapEntries[mapSec].width * 4 + 8;
+        sprite->y = gRegionMapEntries[mapSec].y * 8 + gRegionMapEntries[mapSec].height * 4 + 16;
+        sprite->callback = SpriteCallbackDummy;
+        if (unhide)
+        {
+            sprite->x2 = 0;
+            sprite->y2 = 0;
+        }
+    }
+    else
+    {
+        sprite->x = gRegionMapEntries[mapSec].x * 16 + gRegionMapEntries[mapSec].width * 8 - 40;
+        sprite->y = gRegionMapEntries[mapSec].y * 16 + gRegionMapEntries[mapSec].height * 8 - 40;
+        sprite->callback = SpriteCB_RoamerIconMapZoomed;
+    }
+
+    if (unhide)
+        sprite->invisible = FALSE;
+}
+
+static const struct {
+    u16 species;
+    const void * spriteSheet;
+    const u16 * spritePalette;
+} sRoamerInfo[] = {
+    {SPECIES_LATIAS, sRegionMapRoamerIcon_LatiasGfx, sRegionMapRoamerIcon_LatiasPal},
+    {SPECIES_LATIOS, sRegionMapRoamerIcon_LatiosGfx, sRegionMapRoamerIcon_LatiosPal}
+};
+
+void CreateRegionMapRoamerIcon(u16 tileTag, u16 paletteTag)
+{
+    u16 spriteId, i, j, mapSec;
+    u8 mapGroup, mapNum;
+    
+    struct Roamer *roamer;
+    struct SpriteTemplate template = {
+        .oam = &sRegionMapPlayerIconOam,
+        .anims = sRegionMapPlayerIconAnimTable,
+        .affineAnims = NULL,
+        .callback = SpriteCallbackDummy
+    };
+    struct SpriteSheet sheet = { .size = 0x80 };
+    struct SpritePalette palette;
+
+    for (i = 0; i < ROAMER_COUNT; i++)
+    {
+        roamer = &gSaveBlock1Ptr->roamer[i];
+
+        if (!roamer->active)
+            continue;
+
+        for (j = 0; j < ARRAY_COUNT(sRoamerInfo); j++)
+        {
+            if (sRoamerInfo[j].species == roamer->species)
+            {
+                sheet.data = sRoamerInfo[j].spriteSheet;
+                palette.data = sRoamerInfo[j].spritePalette;
+                
+                template.tileTag = tileTag + j;
+                template.paletteTag = paletteTag + j;
+                palette.tag = paletteTag + j;
+                sheet.tag = tileTag + j;
+            
+                LoadSpriteSheet(&sheet);
+                LoadSpritePalette(&palette);
+                spriteId = CreateSprite(&template, 0, 0, 1);
+                sRegionMap->roamerIconSprite[j] = &gSprites[spriteId];
+
+                GetRoamerLocation(i, &mapGroup, &mapNum);
+                mapSec = Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum)->regionMapSectionId;
+
+                SetRoamerIconPosition(sRegionMap->roamerIconSprite[j], mapSec, sRegionMap->zoomed, FALSE);
+            }
+        }
+    }
+}
+
+static void HideRegionMapRoamerIcons(void)
+{
+    u8 i;
+
+    for (i = 0; i < ROAMER_COUNT; i++)
+    {
+        if (sRegionMap->roamerIconSprite[i] != NULL)
+        {
+            sRegionMap->roamerIconSprite[i]->invisible = TRUE;
+            sRegionMap->roamerIconSprite[i]->callback = SpriteCallbackDummy;
+        }
+    }
+}
+
+static void UnhideRegionMapRoamerIcons(void)
+{
+    u8 i, j;
+    u16 mapSec = 0;
+    u8 mapGroup, mapNum;
+    struct Roamer *roamer;
+
+    for (i = 0; i < ROAMER_COUNT; i++)
+    {
+        roamer = &gSaveBlock1Ptr->roamer[i];
+        for (j = 0; j < ARRAY_COUNT(sRoamerInfo); j++)
+        {
+            if (sRoamerInfo[j].species == roamer->species && roamer->active)
+            {
+                GetRoamerLocation(i, &mapGroup, &mapNum);
+                mapSec = Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum)->regionMapSectionId;
+
+                SetRoamerIconPosition(sRegionMap->roamerIconSprite[j], mapSec, sRegionMap->zoomed, TRUE);
+            }
+        }
+    }
+}
+
 static void HideRegionMapPlayerIcon(void)
 {
     if (sRegionMap->playerIconSprite != NULL)
@@ -1692,6 +1827,18 @@ static void UnhideRegionMapPlayerIcon(void)
 #define sX       data[1]
 #define sVisible data[2]
 #define sTimer   data[7]
+
+static void SpriteCB_RoamerIconMapZoomed(struct Sprite *sprite)
+{
+    sprite->x2 = -2 * sRegionMap->scrollX;
+    sprite->y2 = -2 * sRegionMap->scrollY;
+    sprite->sY = sprite->y + sprite->y2 + sprite->centerToCornerVecY;
+    sprite->sX = sprite->x + sprite->x2 + sprite->centerToCornerVecX;
+    if (sprite->sY < -8 || sprite->sY > DISPLAY_HEIGHT + 8 || sprite->sX < -8 || sprite->sX > DISPLAY_WIDTH + 8)
+        sprite->invisible = TRUE;
+    else
+        sprite->invisible = FALSE;
+}
 
 static void SpriteCB_PlayerIconMapZoomed(struct Sprite *sprite)
 {
@@ -1873,6 +2020,9 @@ void CB2_OpenFlyMap(void)
         InitRegionMap(&sFlyMap->regionMap, FALSE);
         CreateRegionMapCursor(TAG_CURSOR, TAG_CURSOR);
         CreateRegionMapPlayerIcon(TAG_PLAYER_ICON, TAG_PLAYER_ICON);
+        #if ROAMERS_ON_FLY_MAP
+            CreateRegionMapRoamerIcon(TAG_ROAMER_ICON, TAG_ROAMER_ICON);
+        #endif    
         sFlyMap->mapSecId = sFlyMap->regionMap.mapSecId;
         StringFill(sFlyMap->nameBuffer, CHAR_SPACE, MAP_NAME_LENGTH);
         sDrawFlyDestTextWindow = TRUE;

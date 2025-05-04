@@ -19,6 +19,7 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "constants/region_map_sections.h"
+#include "config/overworld.h"
 
 #define GFXTAG_CITY_ZOOM 6
 #define PALTAG_CITY_ZOOM 11
@@ -339,6 +340,9 @@ static u32 LoopedTask_OpenRegionMap(s32 taskState)
         {
             CreateRegionMapPlayerIcon(4, 9);
             CreateRegionMapCursor(5, 10);
+            #if ROAMERS_ON_TOWN_MAP
+                CreateRegionMapRoamerIcon(7, 12);
+            #endif
             TrySetPlayerIconBlink();
         }
         else

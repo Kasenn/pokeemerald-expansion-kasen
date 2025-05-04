@@ -147,4 +147,8 @@
 // Berry Blender
 #define BERRY_BLENDER_THROW_ALL_BERRIES_AT_ONCE TRUE        // This is a small little addition, that basically speeds up the animation where all players' berries are thrown into the blender. Self-explanatory I hope!
 
+// Roamer Appearance
+#define ROAMERS_ON_FLY_MAP              TRUE    // Displays icons for active roamers on the fly map.
+#define ROAMERS_ON_TOWN_MAP             TRUE    // Displays icons for active roamers on the region/PokéNav map.
+
 #endif // GUARD_CONFIG_OVERWORLD_H

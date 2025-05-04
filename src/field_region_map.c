@@ -17,6 +17,7 @@
 #include "window.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "config/overworld.h"
 
 /*
  *  This is the type of map shown when interacting with the metatiles for
@@ -36,6 +37,7 @@ enum {
 enum {
     TAG_PLAYER_ICON,
     TAG_CURSOR,
+    TAG_ROAMER,
 };
 
 static EWRAM_DATA struct {
@@ -151,6 +153,9 @@ static void FieldUpdateRegionMap(void)
             InitRegionMap(&sFieldRegionMapHandler->regionMap, FALSE);
             CreateRegionMapPlayerIcon(TAG_PLAYER_ICON, TAG_PLAYER_ICON);
             CreateRegionMapCursor(TAG_CURSOR, TAG_CURSOR);
+            #if ROAMERS_ON_TOWN_MAP
+                CreateRegionMapRoamerIcon(TAG_ROAMER, TAG_ROAMER);
+            #endif
             sFieldRegionMapHandler->state++;
             break;
         case 1:

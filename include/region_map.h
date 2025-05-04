@@ -34,6 +34,7 @@ struct RegionMap {
     /*0x018*/ u8 (*inputCallback)(void);
     /*0x01c*/ struct Sprite *cursorSprite;
     /*0x020*/ struct Sprite *playerIconSprite;
+    /*?????*/ struct Sprite *roamerIconSprite[ROAMER_COUNT];
     /*0x024*/ s32 bg2x;
     /*0x028*/ s32 bg2y;
     /*0x02c*/ u32 bg2pa;
@@ -103,6 +104,7 @@ void FreeRegionMapIconResources(void);
 u16 GetRegionMapSecIdAt(u16 x, u16 y);
 void CreateRegionMapPlayerIcon(u16 tileTag, u16 paletteTag);
 void CreateRegionMapCursor(u16 tileTag, u16 paletteTag);
+void CreateRegionMapRoamerIcon(u16 tileTag, u16 paletteTag);
 bool32 IsEventIslandMapSecId(u8 mapSecId);
 u8 *GetMapName(u8 *, u16, u16);
 u8 *GetMapNameGeneric(u8 *dest, u16 mapSecId);
