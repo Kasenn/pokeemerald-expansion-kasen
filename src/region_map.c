@@ -1689,7 +1689,7 @@ static void SetRoamerIconPosition(struct Sprite *sprite, u16 mapSec, bool8 zoome
     else
     {
         sprite->x = gRegionMapEntries[mapSec].x * 16 + gRegionMapEntries[mapSec].width * 8 - 40;
-        sprite->y = gRegionMapEntries[mapSec].y * 16 + gRegionMapEntries[mapSec].height * 8 - 40;
+        sprite->y = gRegionMapEntries[mapSec].y * 16 + gRegionMapEntries[mapSec].height * 8 - 42;
         sprite->callback = SpriteCB_RoamerIconMapZoomed;
     }
 
