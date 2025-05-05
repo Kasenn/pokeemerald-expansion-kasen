@@ -150,5 +150,7 @@
 // Roamer Appearance
 #define ROAMERS_ON_FLY_MAP              TRUE    // Displays icons for active roamers on the fly map.
 #define ROAMERS_ON_TOWN_MAP             TRUE    // Displays icons for active roamers on the region/PokéNav map.
+#define ROAMER_ICONS_BLINK              TRUE    // Blinks the roamer icons every X frames.
+#define ROAMER_ICONS_BLINK_RATE         16      // The speed at which the icons blink. Default is 16. Smaller = faster. Also affects the blinking speed of the player icon when the player is in a cave.
 
 #endif // GUARD_CONFIG_OVERWORLD_H

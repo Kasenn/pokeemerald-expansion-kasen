@@ -108,6 +108,8 @@ static void HideRegionMapRoamerIcons(void);
 static void UnhideRegionMapRoamerIcons(void);
 static void SpriteCB_RoamerIconMapZoomed(struct Sprite *sprite);
 static void SetRoamerIconPosition(struct Sprite *sprite, u16 mapSec, bool8 zoomed, bool8 unhide);
+static void SpriteCB_RoamerIcon(struct Sprite *sprite);
+static void SpriteCB_RoamerIconMapFull(struct Sprite *sprite);
 static void SpriteCB_PlayerIconMapZoomed(struct Sprite *sprite);
 static void SpriteCB_PlayerIconMapFull(struct Sprite *sprite);
 static void SpriteCB_PlayerIcon(struct Sprite *sprite);
@@ -1679,7 +1681,7 @@ static void SetRoamerIconPosition(struct Sprite *sprite, u16 mapSec, bool8 zoome
     {
         sprite->x = gRegionMapEntries[mapSec].x * 8 + gRegionMapEntries[mapSec].width * 4 + 8;
         sprite->y = gRegionMapEntries[mapSec].y * 8 + gRegionMapEntries[mapSec].height * 4 + 16;
-        sprite->callback = SpriteCallbackDummy;
+        sprite->callback = SpriteCB_RoamerIconMapFull;
         if (unhide)
         {
             sprite->x2 = 0;
@@ -1826,7 +1828,6 @@ static void UnhideRegionMapPlayerIcon(void)
 #define sY       data[0]
 #define sX       data[1]
 #define sVisible data[2]
-#define sTimer   data[7]
 
 static void SpriteCB_RoamerIconMapZoomed(struct Sprite *sprite)
 {
@@ -1835,9 +1836,15 @@ static void SpriteCB_RoamerIconMapZoomed(struct Sprite *sprite)
     sprite->sY = sprite->y + sprite->y2 + sprite->centerToCornerVecY;
     sprite->sX = sprite->x + sprite->x2 + sprite->centerToCornerVecX;
     if (sprite->sY < -8 || sprite->sY > DISPLAY_HEIGHT + 8 || sprite->sX < -8 || sprite->sX > DISPLAY_WIDTH + 8)
-        sprite->invisible = TRUE;
+        sprite->sVisible = FALSE;
     else
-        sprite->invisible = FALSE;
+        sprite->sVisible = TRUE;
+
+    if (sprite->sVisible == TRUE)
+        SpriteCB_RoamerIcon(sprite);
+    else
+        sprite->invisible = TRUE;
+
 }
 
 static void SpriteCB_PlayerIconMapZoomed(struct Sprite *sprite)
@@ -1862,13 +1869,29 @@ static void SpriteCB_PlayerIconMapFull(struct Sprite *sprite)
     SpriteCB_PlayerIcon(sprite);
 }
 
+static void SpriteCB_RoamerIconMapFull(struct Sprite *sprite)
+{
+    SpriteCB_RoamerIcon(sprite);
+}
+
+static void SpriteCB_RoamerIcon(struct Sprite *sprite)
+{
+    #if ROAMER_ICONS_BLINK
+        if ((gMain.vblankCounter1 % ROAMER_ICONS_BLINK_RATE) == 0)
+        {
+            sprite->invisible = sprite->invisible ? FALSE : TRUE;
+        }
+    #else
+        sprite->invisible = FALSE;
+    #endif
+}
+
 static void SpriteCB_PlayerIcon(struct Sprite *sprite)
 {
     if (sRegionMap->blinkPlayerIcon)
     {
-        if (++sprite->sTimer > 16)
+        if ((gMain.vblankCounter1 % ROAMER_ICONS_BLINK_RATE) == 0)
         {
-            sprite->sTimer = 0;
             sprite->invisible = sprite->invisible ? FALSE : TRUE;
         }
     }
@@ -1887,7 +1910,6 @@ void TrySetPlayerIconBlink(void)
 #undef sY
 #undef sX
 #undef sVisible
-#undef sTimer
 
 u8 *GetMapName(u8 *dest, u16 regionMapId, u16 padLength)
 {
