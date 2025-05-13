@@ -3004,12 +3004,19 @@ void FillPartnerParty(u16 trainerId)
                 otID = ((firstIdPart % 72) * 1000) + ((secondIdPart % 23) * 10) + (thirdIdPart % 37) % 65536;
 
             personality = Random32();
-            if (i == 0)
-                l = VarGet(VAR_FIRST_MON);
-            if (i == 1)
-                l = VarGet(VAR_SECOND_MON);
-            if (i == 2)
-                l = VarGet(VAR_THIRD_MON);
+            if (trainerId == TRAINER_PARTNER(PARTNER_STEVEN))
+            {
+                l = i;
+            }
+            else
+            {
+                if (i == 0)
+                    l = VarGet(VAR_FIRST_MON);
+                if (i == 1)
+                    l = VarGet(VAR_SECOND_MON);
+                if (i == 2)
+                    l = VarGet(VAR_THIRD_MON);
+            }
             if (partyData[l].gender == TRAINER_MON_MALE)
                 personality = (personality & 0xFFFFFF00) | GeneratePersonalityForGender(MON_MALE, partyData[l].species);
             else if (partyData[l].gender == TRAINER_MON_FEMALE)
