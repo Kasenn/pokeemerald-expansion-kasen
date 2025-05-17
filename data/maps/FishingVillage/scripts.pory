@@ -4,7 +4,7 @@ mapscripts FishingVillage_MapScripts{
 
 script FishingVillage_DespawnBrother{
     setflag(FLAG_VISITED_FISHING_VILLAGE)
-    if(defeated(TRAINER_BROTHER5_ROWLET) || defeated(TRAINER_BROTHER5_TORCHIC) || defeated(TRAINER_BROTHER5_PIPLUP)){
+    if(defeated(TRAINER_BROTHER_5_FISHINGVILLAGE)){
         setflag(FLAG_TEMP_1)
         setvar(VAR_TEMP_1, 1)
     }
@@ -44,15 +44,9 @@ script FishVillage_Brother{
     if(flag(FLAG_KAOLISLE_BROTHER_INTRO)){
         addvar(VAR_TEMP_3, 1)
     }
-    if(defeated(TRAINER_BROTHER2_ROWLET)
-    || defeated(TRAINER_BROTHER3_ROWLET)
-    || defeated(TRAINER_BROTHER4_ROWLET)
-    || defeated(TRAINER_BROTHER2_TORCHIC)
-    || defeated(TRAINER_BROTHER3_TORCHIC)
-    || defeated(TRAINER_BROTHER4_TORCHIC)
-    || defeated(TRAINER_BROTHER2_PIPLUP)
-    || defeated(TRAINER_BROTHER3_PIPLUP)
-    || defeated(TRAINER_BROTHER4_PIPLUP)){
+    if(defeated(TRAINER_BROTHER_2_ROUTE28)
+    || defeated(TRAINER_BROTHER_3_ROUTE28)
+    || defeated(TRAINER_BROTHER_4_ROUTE28)){
         addvar(VAR_TEMP_3, 2)
     }
     switch(var(VAR_TEMP_3)){
@@ -65,45 +59,18 @@ script FishVillage_Brother{
         case 3:
             msgbox(LastMetInKaolisleHaveFought)
     }
-    if(defeated(TRAINER_BROTHER2_ROWLET)
-    || defeated(TRAINER_BROTHER3_ROWLET)
-    || defeated(TRAINER_BROTHER4_ROWLET)
-    || defeated(TRAINER_BROTHER2_TORCHIC)
-    || defeated(TRAINER_BROTHER3_TORCHIC)
-    || defeated(TRAINER_BROTHER4_TORCHIC)
-    || defeated(TRAINER_BROTHER2_PIPLUP)
-    || defeated(TRAINER_BROTHER3_PIPLUP)
-    || defeated(TRAINER_BROTHER4_PIPLUP)){
-        switch(var(VAR_STARTER_MON)){
-        case 0:
-            trainerbattle_no_intro(TRAINER_BROTHER5_ROWLET, FishingVillage_BrotherLost)
-        case 1:
-            trainerbattle_no_intro(TRAINER_BROTHER5_TORCHIC, FishingVillage_BrotherLost)
-        case 2:
-            trainerbattle_no_intro(TRAINER_BROTHER5_PIPLUP, FishingVillage_BrotherLost)
-        }
+    if(defeated(TRAINER_BROTHER_2_ROUTE28)
+    || defeated(TRAINER_BROTHER_3_ROUTE28)
+    || defeated(TRAINER_BROTHER_4_ROUTE28)){
+        trainerbattle_no_intro(TRAINER_BROTHER_5_FISHINGVILLAGE, FishingVillage_BrotherLost)
     }
     else{
         checkplayergender
         if(var(VAR_RESULT) == MALE){
-            switch(var(VAR_STARTER_MON)){
-            case 0:
-                trainerbattle_no_intro(TRAINER_BROTHER5_ROWLET, FishingVillage_BrotherLostFirstTimeAgainstMale)
-            case 1:
-                trainerbattle_no_intro(TRAINER_BROTHER5_TORCHIC, FishingVillage_BrotherLostFirstTimeAgainstMale)
-            case 2:
-                trainerbattle_no_intro(TRAINER_BROTHER5_PIPLUP, FishingVillage_BrotherLostFirstTimeAgainstMale)
-            }
+            trainerbattle_no_intro(TRAINER_BROTHER_5_FISHINGVILLAGE, FishingVillage_BrotherLostFirstTimeAgainstMale)
         }
         else{
-            switch(var(VAR_STARTER_MON)){
-            case 0:
-                trainerbattle_no_intro(TRAINER_BROTHER5_ROWLET, FishingVillage_BrotherLostFirstTime)
-            case 1:
-                trainerbattle_no_intro(TRAINER_BROTHER5_TORCHIC, FishingVillage_BrotherLostFirstTime)
-            case 2:
-                trainerbattle_no_intro(TRAINER_BROTHER5_PIPLUP, FishingVillage_BrotherLostFirstTime)
-            }
+            trainerbattle_no_intro(TRAINER_BROTHER_5_FISHINGVILLAGE, FishingVillage_BrotherLostFirstTime)
         }
     }
     if(flag(FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE)){

@@ -6,9 +6,9 @@ CoralgroveTradeSequence::
 	goto_if_set FLAG_CORALGROVE_TRADE_COMPLETED, CoralgroveTradeSequence_3
 CoralgroveTradeSequence_2:
 	switch VAR_STARTER_MON
-	case 0, CoralgroveTradeSequence_10
-	case 1, CoralgroveTradeSequence_11
-	case 2, CoralgroveTradeSequence_12
+	case SPECIES_ROWLET, CoralgroveTradeSequence_10
+	case SPECIES_TORCHIC, CoralgroveTradeSequence_11
+	case SPECIES_PIPLUP, CoralgroveTradeSequence_12
 	return
 
 CoralgroveTradeSequence_1:
@@ -30,9 +30,9 @@ CoralgroveTradeSequence_13:
 	goto_if_eq CoralgroveTradeSequence_18
 CoralgroveTradeSequence_17:
 	switch VAR_STARTER_MON
-	case 0, CoralgroveTradeSequence_22
-	case 1, CoralgroveTradeSequence_23
-	case 2, CoralgroveTradeSequence_24
+	case SPECIES_ROWLET, CoralgroveTradeSequence_22
+	case SPECIES_TORCHIC, CoralgroveTradeSequence_23
+	case SPECIES_PIPLUP, CoralgroveTradeSequence_24
 CoralgroveTradeSequence_20:
 	waitse
 	msgbox HoldTightToStone, MSGBOX_NPC

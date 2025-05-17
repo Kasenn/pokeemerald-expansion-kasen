@@ -26,9 +26,9 @@ Lab2_On_Transition_4:
 
 Lab2_On_Transition_2:
 	switch VAR_STARTER_MON
-	case 0, Lab2_On_Transition_8
-	case 1, Lab2_On_Transition_9
-	case 2, Lab2_On_Transition_10
+	case SPECIES_ROWLET, Lab2_On_Transition_8
+	case SPECIES_TORCHIC, Lab2_On_Transition_9
+	case SPECIES_PIPLUP, Lab2_On_Transition_10
 	goto Lab2_On_Transition_1
 
 Lab2_On_Transition_5:
@@ -161,9 +161,9 @@ Lab2_GetMegaStone_5:
 	compare VAR_RESULT, FALSE
 	goto_if_eq Lab2_GetMegaStone_9
 	switch VAR_STARTER_MON
-	case 0, Lab2_GetMegaStone_21
-	case 1, Lab2_GetMegaStone_22
-	case 2, Lab2_GetMegaStone_23
+	case SPECIES_ROWLET, Lab2_GetMegaStone_21
+	case SPECIES_TORCHIC, Lab2_GetMegaStone_22
+	case SPECIES_PIPLUP, Lab2_GetMegaStone_23
 Lab2_GetMegaStone_19:
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED
 	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED
@@ -303,9 +303,9 @@ Lab2_Birch_5:
 	compare VAR_RESULT, FALSE
 	goto_if_eq Lab2_Birch_13
 	switch VAR_STARTER_MON
-	case 0, Lab2_Birch_18
-	case 1, Lab2_Birch_19
-	case 2, Lab2_Birch_20
+	case SPECIES_ROWLET, Lab2_Birch_18
+	case SPECIES_TORCHIC, Lab2_Birch_19
+	case SPECIES_PIPLUP, Lab2_Birch_20
 Lab2_Birch_16:
 	waitse
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED
@@ -409,15 +409,15 @@ Lab_BallMain_5:
 	end
 
 Lab_BallMain_9:
-	setvar VAR_STARTER_MON, 0
+	setvar VAR_STARTER_MON, SPECIES_ROWLET
 	goto Lab_BallMain_7
 
 Lab_BallMain_10:
-	setvar VAR_STARTER_MON, 1
+	setvar VAR_STARTER_MON, SPECIES_TORCHIC
 	goto Lab_BallMain_7
 
 Lab_BallMain_11:
-	setvar VAR_STARTER_MON, 2
+	setvar VAR_STARTER_MON, SPECIES_PIPLUP
 	goto Lab_BallMain_7
 
 Lab_BallMain_13:

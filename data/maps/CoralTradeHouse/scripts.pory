@@ -24,11 +24,11 @@ script CoralgroveTradeSequence{
             goto(ZeBagIsFull)
         }
         switch(var(VAR_STARTER_MON)){
-            case 0:
+            case SPECIES_ROWLET:
                 giveitem(ITEM_CHESNAUGHTITE)
-            case 1:
+            case SPECIES_TORCHIC:
                 giveitem(ITEM_INCINEROARITE)
-            case 2:
+            case SPECIES_PIPLUP:
                 giveitem(ITEM_SWAMPERTITE)
         }
         waitse
@@ -38,11 +38,11 @@ script CoralgroveTradeSequence{
     }
     else{
         switch(var(VAR_STARTER_MON)){
-        case 0:
+        case SPECIES_ROWLET:
             goto(CoralgroveDartrixTrade)
-        case 1:
+        case SPECIES_TORCHIC:
             goto(CoralgroveCombuskenTrade)
-        case 2:
+        case SPECIES_PIPLUP:
             goto(CoralgrovePrinplupTrade)
         }
     }

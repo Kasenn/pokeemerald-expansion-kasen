@@ -3577,7 +3577,7 @@
       "width": 9,
       "height": 20,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_BattlePike",
+      "secondary_tileset": "gTileset_PWT",
       "border_filepath": "data/layouts/BattleFrontier_BattlePikeRoomWildMons/border.bin",
       "blockdata_filepath": "data/layouts/BattleFrontier_BattlePikeRoomWildMons/map.bin"
     },
@@ -5096,8 +5096,8 @@
       "name": "TestRoom_Layout",
       "width": 60,
       "height": 60,
-      "primary_tileset": "gTileset_General2",
-      "secondary_tileset": "gTileset_Cave",
+      "primary_tileset": "gTileset_Crowd",
+      "secondary_tileset": "gTileset_BattleDome",
       "border_filepath": "data/layouts/TestRoom/border.bin",
       "blockdata_filepath": "data/layouts/TestRoom/map.bin"
     },

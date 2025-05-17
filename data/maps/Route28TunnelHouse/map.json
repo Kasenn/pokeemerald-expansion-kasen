@@ -3,7 +3,7 @@
   "name": "Route28TunnelHouse",
   "layout": "LAYOUT_ROUTE28TUNNEL_HOUSE",
   "music": "MUS_POKE_MART",
-  "region_map_section": "MAPSEC_NEWROUTE_28",
+  "region_map_section": "MAPSEC_SINKO_ROUTE_30",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

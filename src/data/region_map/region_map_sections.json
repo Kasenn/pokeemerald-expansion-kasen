@@ -17,7 +17,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_ROUTE_101",
+      "map_section": "MAPSEC_SINKO_ROUTE_1",
       "name": "ROUTE 1",
       "x": 16,
       "y": 10,
@@ -25,7 +25,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_ROUTE_102",
+      "map_section": "MAPSEC_PRIMROSE_MEADOW",
       "name": "PRIMROSE MEADOW",
       "x": 17,
       "y": 9,
@@ -561,7 +561,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_3",
+      "map_section": "MAPSEC_SINKO_ROUTE_3",
       "name": "ROUTE 3",
       "x": 17,
       "y": 7,
@@ -569,7 +569,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_4",
+      "map_section": "MAPSEC_SINKO_ROUTE_4",
       "name": "ROUTE 4",
       "x": 20,
       "y": 7,
@@ -577,7 +577,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_5",
+      "map_section": "MAPSEC_SINKO_ROUTE_5",
       "name": "ROUTE 5",
       "x": 22,
       "y": 8,
@@ -585,7 +585,7 @@
       "height": 4
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_6",
+      "map_section": "MAPSEC_SINKO_ROUTE_6",
       "name": "ROUTE 6",
       "x": 23,
       "y": 12,
@@ -593,7 +593,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_7",
+      "map_section": "MAPSEC_SINKO_ROUTE_7",
       "name": "ROUTE 7",
       "x": 25,
       "y": 10,
@@ -601,7 +601,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_8",
+      "map_section": "MAPSEC_SINKO_ROUTE_8",
       "name": "ROUTE 8",
       "x": 20,
       "y": 12,
@@ -609,7 +609,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_9",
+      "map_section": "MAPSEC_SINKO_ROUTE_9",
       "name": "ROUTE 9",
       "x": 13,
       "y": 12,
@@ -617,7 +617,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_10",
+      "map_section": "MAPSEC_SINKO_ROUTE_10",
       "name": "ROUTE 10",
       "x": 10,
       "y": 14,
@@ -625,7 +625,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_11",
+      "map_section": "MAPSEC_SINKO_ROUTE_11",
       "name": "ROUTE 11",
       "x": 6,
       "y": 14,
@@ -633,7 +633,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_12",
+      "map_section": "MAPSEC_SINKO_ROUTE_12",
       "name": "ROUTE 12",
       "x": 6,
       "y": 13,
@@ -649,7 +649,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_13",
+      "map_section": "MAPSEC_SINKO_ROUTE_13",
       "name": "ROUTE 13",
       "x": 7,
       "y": 11,
@@ -657,7 +657,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_14",
+      "map_section": "MAPSEC_SINKO_ROUTE_14",
       "name": "ROUTE 14",
       "x": 2,
       "y": 11,
@@ -665,7 +665,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_15",
+      "map_section": "MAPSEC_SINKO_ROUTE_15",
       "name": "ROUTE 15",
       "x": 1,
       "y": 9,
@@ -673,7 +673,7 @@
       "height": 5
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_16",
+      "map_section": "MAPSEC_SINKO_ROUTE_16",
       "name": "ROUTE 16",
       "x": 1,
       "y": 3,
@@ -681,7 +681,7 @@
       "height": 5
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_17",
+      "map_section": "MAPSEC_SINKO_ROUTE_17",
       "name": "ROUTE 17",
       "x": 2,
       "y": 0,
@@ -689,7 +689,7 @@
       "height": 3
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_18",
+      "map_section": "MAPSEC_SINKO_ROUTE_18",
       "name": "ROUTE 18",
       "x": 3,
       "y": 0,
@@ -697,7 +697,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_19",
+      "map_section": "MAPSEC_SINKO_ROUTE_19",
       "name": "ROUTE 19",
       "x": 7,
       "y": 0,
@@ -705,7 +705,7 @@
       "height": 2
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_20",
+      "map_section": "MAPSEC_SINKO_ROUTE_20",
       "name": "ROUTE 20",
       "x": 10,
       "y": 1,
@@ -713,7 +713,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_21",
+      "map_section": "MAPSEC_SINKO_ROUTE_21",
       "name": "ROUTE 21",
       "x": 10,
       "y": 3,
@@ -721,7 +721,7 @@
       "height": 3
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_22",
+      "map_section": "MAPSEC_SINKO_ROUTE_22",
       "name": "ROUTE 22",
       "x": 6,
       "y": 5,
@@ -729,7 +729,7 @@
       "height": 2
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_23",
+      "map_section": "MAPSEC_SINKO_ROUTE_23",
       "name": "ROUTE 23",
       "x": 2,
       "y": 8,
@@ -737,7 +737,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_24",
+      "map_section": "MAPSEC_SINKO_ROUTE_24",
       "name": "ROUTE 24",
       "x": 11,
       "y": 2,
@@ -745,7 +745,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_25",
+      "map_section": "MAPSEC_SINKO_ROUTE_25",
       "name": "ROUTE 25",
       "x": 12,
       "y": 3,
@@ -753,7 +753,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_26",
+      "map_section": "MAPSEC_SINKO_ROUTE_26",
       "name": "ROUTE 26",
       "x": 16,
       "y": 3,
@@ -761,7 +761,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_27",
+      "map_section": "MAPSEC_SINKO_ROUTE_27",
       "name": "ROUTE 27",
       "x": 18,
       "y": 2,
@@ -769,7 +769,7 @@
       "height": 2
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_28",
+      "map_section": "MAPSEC_SINKO_ROUTE_30",
       "name": "ROUTE 30",
       "x": 22,
       "y": 5,
@@ -777,7 +777,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_29",
+      "map_section": "MAPSEC_SINKO_ROUTE_31",
       "name": "ROUTE 31",
       "x": 23,
       "y": 3,
@@ -977,7 +977,7 @@
       "height": 2
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_28_PART2",
+      "map_section": "MAPSEC_SINKO_ROUTE_29",
       "name": "ROUTE 29",
       "x": 22,
       "y": 4,
@@ -1009,7 +1009,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_103",
+      "map_section": "MAPSEC_SINKO_ROUTE_2",
       "name": "ROUTE 2",
       "x": 15,
       "y": 8,
@@ -1137,7 +1137,7 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_NEWROUTE_27_PART2",
+      "map_section": "MAPSEC_SINKO_ROUTE_28",
       "name": "ROUTE 28",
       "x": 20,
       "y": 2,

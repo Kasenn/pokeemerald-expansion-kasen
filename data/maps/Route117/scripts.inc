@@ -159,7 +159,7 @@ Route117_EventScript_RematchMaria::
 	end
 
 Route117_EventScript_Derek::
-	trainerbattle_single TRAINER_R11_BRENDAN_PIPLUP, Route117_Text_DerekIntro, Route117_Text_DerekDefeat
+	trainerbattle_single TRAINER_UNUSED_227_, Route117_Text_DerekIntro, Route117_Text_DerekDefeat
 	msgbox Route117_Text_DerekPostBattle, MSGBOX_AUTOCLOSE
 	end
 

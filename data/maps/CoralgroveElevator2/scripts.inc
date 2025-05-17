@@ -128,78 +128,14 @@ CoralgroveElevator2_Rival_BATTLECONFIG::
 	checkplayergender
 	compare VAR_RESULT, MALE
 	goto_if_eq CoralgroveElevator2_Rival_BATTLECONFIG_1
-	switch VAR_STARTER_MON
-	case 0, CoralgroveElevator2_Rival_BATTLECONFIG_9
-	case 1, CoralgroveElevator2_Rival_BATTLECONFIG_10
-	case 2, CoralgroveElevator2_Rival_BATTLECONFIG_11
+	trainerbattle_no_intro TRAINER_BRENDAN_CORALGROVE_ELEVATOR, CoralgroveElevator2_RivalDefeated
+	goto CoralgroveElevator2_AfterBrendanBattle
 	return
 
 CoralgroveElevator2_Rival_BATTLECONFIG_1:
-	switch VAR_STARTER_MON
-	case 0, CoralgroveElevator2_Rival_BATTLECONFIG_5
-	case 1, CoralgroveElevator2_Rival_BATTLECONFIG_6
-	case 2, CoralgroveElevator2_Rival_BATTLECONFIG_7
-	return
-
-CoralgroveElevator2_Rival_BATTLECONFIG_5:
-	call CoralgroveElevator2_StartMayBattleRowlet
-	return
-
-CoralgroveElevator2_Rival_BATTLECONFIG_6:
-	call CoralgroveElevator2_StartMayBattleTorchic
-	return
-
-CoralgroveElevator2_Rival_BATTLECONFIG_7:
-	call CoralgroveElevator2_StartMayBattlePiplup
-	return
-
-CoralgroveElevator2_Rival_BATTLECONFIG_9:
-	call CoralgroveElevator2_StartBrendanBattleRowlet
-	return
-
-CoralgroveElevator2_Rival_BATTLECONFIG_10:
-	call CoralgroveElevator2_StartBrendanBattleTorchic
-	return
-
-CoralgroveElevator2_Rival_BATTLECONFIG_11:
-	call CoralgroveElevator2_StartBrendanBattlePiplup
-	return
-
-
-CoralgroveElevator2_StartMayBattleRowlet::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_110_TREECKO, CoralgroveElevator2_RivalDefeated
+	trainerbattle_no_intro TRAINER_MAY_CORALGROVE_ELEVATOR, CoralgroveElevator2_RivalDefeated
 	goto CoralgroveElevator2_AfterMayBattle
-	end
-
-
-CoralgroveElevator2_StartMayBattleTorchic::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_110_TORCHIC, CoralgroveElevator2_RivalDefeated
-	goto CoralgroveElevator2_AfterMayBattle
-	end
-
-
-CoralgroveElevator2_StartMayBattlePiplup::
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_110_MUDKIP, CoralgroveElevator2_RivalDefeated
-	goto CoralgroveElevator2_AfterMayBattle
-	end
-
-
-CoralgroveElevator2_StartBrendanBattleRowlet::
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_110_TREECKO, CoralgroveElevator2_RivalDefeated
-	goto CoralgroveElevator2_AfterBrendanBattle
-	end
-
-
-CoralgroveElevator2_StartBrendanBattleTorchic::
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_110_TORCHIC, CoralgroveElevator2_RivalDefeated
-	goto CoralgroveElevator2_AfterBrendanBattle
-	end
-
-
-CoralgroveElevator2_StartBrendanBattlePiplup::
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_110_MUDKIP, CoralgroveElevator2_RivalDefeated
-	goto CoralgroveElevator2_AfterBrendanBattle
-	end
+	return
 
 
 CoralgroveElevator2_AfterMayBattle::

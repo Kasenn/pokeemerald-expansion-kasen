@@ -95,14 +95,7 @@ script Pearlwood_BrotherFightMain{
     msgbox(Pearlwood_Brother_Intro)
     setflag(FLAG_FIRST_BATTLE)
     setflag(FLAG_HEAL_AFTER_BATTLE)
-    switch(var(VAR_STARTER_MON)){
-        case 0:
-            trainerbattle_no_intro(TRAINER_BROTHER1_ROWLET, Pearlwood_Brother_Outro)
-        case 1:
-            trainerbattle_no_intro(TRAINER_BROTHER1_TORCHIC, Pearlwood_Brother_Outro)
-        case 2:
-            trainerbattle_no_intro(TRAINER_BROTHER1_PIPLUP, Pearlwood_Brother_Outro)
-    }
+    trainerbattle_no_intro(TRAINER_BROTHER_1_PEARLWOOD, Pearlwood_Brother_Outro)
     goto(PearlwoodWon)
 }
 

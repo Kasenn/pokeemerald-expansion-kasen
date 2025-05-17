@@ -3,7 +3,7 @@
   "name": "PrimroseMeadow",
   "layout": "LAYOUT_PRIMROSE_MEADOW",
   "music": "MUS_ROUTE101",
-  "region_map_section": "MAPSEC_ROUTE_102",
+  "region_map_section": "MAPSEC_PRIMROSE_MEADOW",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",

@@ -179,7 +179,7 @@ Route128_Movement_MaxieApproachPlayer:
 	step_end
 
 Route128_EventScript_Isaiah::
-	trainerbattle_single TRAINER_BASALEK_MAY_ROWLET, Route128_Text_IsaiahIntro, Route128_Text_IsaiahDefeat, Route128_EventScript_RegisterIsaiah
+	trainerbattle_single TRAINER_UNUSED_376_, Route128_Text_IsaiahIntro, Route128_Text_IsaiahDefeat, Route128_EventScript_RegisterIsaiah
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route128_EventScript_RematchIsaiah
 	msgbox Route128_Text_IsaiahPostBattle, MSGBOX_DEFAULT
@@ -190,12 +190,12 @@ Route128_EventScript_RegisterIsaiah::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route128_Text_IsaiahRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_BASALEK_MAY_ROWLET
+	register_matchcall TRAINER_UNUSED_376_
 	release
 	end
 
 Route128_EventScript_RematchIsaiah::
-	trainerbattle_rematch TRAINER_BASALEK_MAY_ROWLET, Route128_Text_IsaiahRematchIntro, Route128_Text_IsaiahRematchDefeat
+	trainerbattle_rematch TRAINER_UNUSED_376_, Route128_Text_IsaiahRematchIntro, Route128_Text_IsaiahRematchDefeat
 	msgbox Route128_Text_IsaiahPostRematch, MSGBOX_AUTOCLOSE
 	end
 

@@ -3,7 +3,7 @@
   "name": "Route28_Part2",
   "layout": "LAYOUT_ROUTE28_PART2",
   "music": "MUS_ROUTE122",
-  "region_map_section": "MAPSEC_NEWROUTE_28_PART2",
+  "region_map_section": "MAPSEC_SINKO_ROUTE_29",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",

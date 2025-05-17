@@ -3509,7 +3509,7 @@ void CheckFoughtTrainers(void)
 {
     u16 i;
 
-    for (i = 1; i < TRAINER_BASALEK_MAY_ROWLET; i++)
+    for (i = 1; i < TRAINER_UNUSED_376_; i++)
     {
         if (!HasTrainerBeenFought(i))
         {

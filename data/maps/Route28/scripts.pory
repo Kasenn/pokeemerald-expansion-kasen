@@ -73,40 +73,19 @@ script Route28_BrotherFight{
         msgbox(Route28_BrotherIntroAfterGym, MSGBOX_DEFAULT)
         waitmessage
         closemessage
-        switch(var(VAR_STARTER_MON)){
-        case 0:
-            trainerbattle_no_intro(TRAINER_BROTHER3_ROWLET, Route28_BrotherLost)
-        case 1:
-            trainerbattle_no_intro(TRAINER_BROTHER3_TORCHIC, Route28_BrotherLost)
-        case 2:
-            trainerbattle_no_intro(TRAINER_BROTHER3_PIPLUP, Route28_BrotherLost)
-        }
+        trainerbattle_no_intro(TRAINER_BROTHER_3_ROUTE28, Route28_BrotherLost)
     }
     elif(flag(FLAG_BADGE02_GET) && (flag(FLAG_RECEIVED_HM_FLY))){
         msgbox(Route28_BrotherIntroAfterGym, MSGBOX_DEFAULT)
         waitmessage
         closemessage
-        switch(var(VAR_STARTER_MON)){
-        case 0:
-            trainerbattle_no_intro(TRAINER_BROTHER4_ROWLET, Route28_BrotherLost)
-        case 1:
-            trainerbattle_no_intro(TRAINER_BROTHER4_TORCHIC, Route28_BrotherLost)
-        case 2:
-            trainerbattle_no_intro(TRAINER_BROTHER4_PIPLUP, Route28_BrotherLost)
-        }
+        trainerbattle_no_intro(TRAINER_BROTHER_4_ROUTE28, Route28_BrotherLost)
     }
     else{
         msgbox(Route28_BrotherIntro, MSGBOX_DEFAULT)
         waitmessage
         closemessage
-        switch(var(VAR_STARTER_MON)){
-        case 0:
-            trainerbattle_no_intro(TRAINER_BROTHER2_ROWLET, Route28_BrotherLost)
-        case 1:
-            trainerbattle_no_intro(TRAINER_BROTHER2_TORCHIC, Route28_BrotherLost)
-        case 2:
-            trainerbattle_no_intro(TRAINER_BROTHER2_PIPLUP, Route28_BrotherLost)
-        }
+        trainerbattle_no_intro(TRAINER_BROTHER_2_ROUTE28, Route28_BrotherLost)
     }
     if(flag(FLAG_BADGE02_GET)){
         msgbox(Route28_BrotherPostBattle, MSGBOX_DEFAULT)

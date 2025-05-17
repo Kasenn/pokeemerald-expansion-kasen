@@ -82,9 +82,9 @@ FortreeCity_Gym_SetGymTrainers::
 	return
 
 MossdeepCity_Gym_SetGymTrainers::
-	settrainerflag TRAINER_R11_MAY_PIPLUP
-	settrainerflag TRAINER_R11_MAY_ROWLET_ANGRY
-	settrainerflag TRAINER_R11_MAY_TORCHIC_ANGRY
+	settrainerflag TRAINER_UNUSED_233_
+	settrainerflag TRAINER_UNUSED_234_
+	settrainerflag TRAINER_UNUSED_235_
 	settrainerflag TRAINER_R16_TR5_SWIMMER_F
 	settrainerflag TRAINER_R12_TR9_PSYCHIC_M
 	settrainerflag TRAINER_R12_TR10_HIKER

@@ -623,47 +623,19 @@ script KorrinaMovesBack{
 }
 
 script R11_AngryMayBattleSetup{
-    switch(var(VAR_STARTER_MON)){
-        case 0:
-            trainerbattle_no_intro(TRAINER_R11_MAY_ROWLET_ANGRY, R11_AngryMayDefeated)
-        case 1:
-            trainerbattle_no_intro(TRAINER_R11_MAY_TORCHIC_ANGRY, R11_AngryMayDefeated)
-        case 2:
-            trainerbattle_no_intro(TRAINER_R11_MAY_PIPLUP_ANGRY, R11_AngryMayDefeated)
-    }
+    trainerbattle_no_intro(TRAINER_MAY_ROUTE_11_ANGRY, R11_AngryMayDefeated)
     goto(R11_RivalPostBattle)
 }
 script R11_AngryBrendanBattleSetup{
-    switch(var(VAR_STARTER_MON)){
-        case 0:
-            trainerbattle_no_intro(TRAINER_R11_BRENDAN_ROWLET_ANGRY, R11_AngryBrendanDefeated)
-        case 1:
-            trainerbattle_no_intro(TRAINER_R11_BRENDAN_TORCHIC_ANGRY, R11_AngryBrendanDefeated)
-        case 2:
-            trainerbattle_no_intro(TRAINER_R11_BRENDAN_PIPLUP_ANGRY, R11_AngryBrendanDefeated)
-    }
+    trainerbattle_no_intro(TRAINER_BRENDAN_ROUTE_11_ANGRY, R11_AngryBrendanDefeated)
     goto(R11_RivalPostBattle)
 }
 script R11_MayBattleSetup{
-    switch(var(VAR_STARTER_MON)){
-        case 0:
-            trainerbattle_no_intro(TRAINER_R11_MAY_ROWLET, R11_MayDefeated)
-        case 1:
-            trainerbattle_no_intro(TRAINER_R11_MAY_TORHIC, R11_MayDefeated)
-        case 2:
-            trainerbattle_no_intro(TRAINER_R11_MAY_PIPLUP, R11_MayDefeated)
-    }
+    trainerbattle_no_intro(TRAINER_MAY_ROUTE_11_NORMAL, R11_MayDefeated)
     goto(R11_RivalPostBattle)
 }
 script R11_BrendanBattleSetup{
-    switch(var(VAR_STARTER_MON)){
-        case 0:
-            trainerbattle_no_intro(TRAINER_R11_BRENDAN_ROWLET, R11_BrendanDefeated)
-        case 1:
-            trainerbattle_no_intro(TRAINER_R11_BRENDAN_TORCHIC, R11_BrendanDefeated)
-        case 2:
-            trainerbattle_no_intro(TRAINER_R11_BRENDAN_PIPLUP, R11_BrendanDefeated)
-    }
+    trainerbattle_no_intro(TRAINER_BRENDAN_ROUTE_11_NORMAL, R11_BrendanDefeated)
     goto(R11_RivalPostBattle)
 }
 

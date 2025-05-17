@@ -3476,6 +3476,46 @@ static void PrintMonAbilityDescription(void)
     PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), gAbilitiesInfo[ability].description, 0, 17, 0, 0);
 }
 
+static bool8 IsMapSecRoute(u8 metLoc)
+{
+    switch (metLoc){
+    case MAPSEC_SINKO_ROUTE_1:
+    case MAPSEC_SINKO_ROUTE_2:
+    case MAPSEC_SINKO_ROUTE_3:
+    case MAPSEC_SINKO_ROUTE_4:
+    case MAPSEC_SINKO_ROUTE_5:
+    case MAPSEC_SINKO_ROUTE_6:
+    case MAPSEC_SINKO_ROUTE_7:
+    case MAPSEC_SINKO_ROUTE_8:
+    case MAPSEC_SINKO_ROUTE_9:
+    case MAPSEC_SINKO_ROUTE_10:
+    case MAPSEC_SINKO_ROUTE_11:
+    case MAPSEC_SINKO_ROUTE_12:
+    case MAPSEC_SINKO_ROUTE_13:
+    case MAPSEC_SINKO_ROUTE_14:
+    case MAPSEC_SINKO_ROUTE_15:
+    case MAPSEC_SINKO_ROUTE_16:
+    case MAPSEC_SINKO_ROUTE_17:
+    case MAPSEC_SINKO_ROUTE_18:
+    case MAPSEC_SINKO_ROUTE_19:
+    case MAPSEC_SINKO_ROUTE_20:
+    case MAPSEC_SINKO_ROUTE_21:
+    case MAPSEC_SINKO_ROUTE_22:
+    case MAPSEC_SINKO_ROUTE_23:
+    case MAPSEC_SINKO_ROUTE_24:
+    case MAPSEC_SINKO_ROUTE_25:
+    case MAPSEC_SINKO_ROUTE_26:
+    case MAPSEC_SINKO_ROUTE_27:
+    case MAPSEC_SINKO_ROUTE_28:
+    case MAPSEC_SINKO_ROUTE_29:
+    case MAPSEC_SINKO_ROUTE_30:
+    case MAPSEC_SINKO_ROUTE_31:
+        return TRUE;
+    default:
+        return FALSE;
+    }
+}
+
 static void BufferMonTrainerMemo(void)
 {
     struct PokeSummary *sum = &sMonSummaryScreen->summary;
@@ -3494,12 +3534,14 @@ static void BufferMonTrainerMemo(void)
     {
         u8 *metLevelString = Alloc(32);
         u8 *metLocationString = Alloc(32);
+        u8 *metLocationStringDecap = Alloc(32);
         GetMetLevelString(metLevelString);
 
         if (sum->metLocation < MAPSEC_NONE)
         {
             GetMapNameHandleAquaHideout(metLocationString, sum->metLocation);
-            DynamicPlaceholderTextUtil_SetPlaceholderPtr(4, metLocationString);
+            StringDecap(metLocationStringDecap, metLocationString);
+            DynamicPlaceholderTextUtil_SetPlaceholderPtr(4, metLocationStringDecap);
         }
 
         if (sum->metLocation == METLOC_FATEFUL_ENCOUNTER)
@@ -3524,9 +3566,19 @@ static void BufferMonTrainerMemo(void)
             text = gText_XNatureObtainedInTrade;
         }
 
+        if (IsMapSecRoute(sum->metLocation))
+        {
+            DynamicPlaceholderTextUtil_SetPlaceholderPtr(6, COMPOUND_STRING("on"));
+        }
+        else
+        {
+            DynamicPlaceholderTextUtil_SetPlaceholderPtr(6, COMPOUND_STRING("in"));
+        }
+
         DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, text);
         Free(metLevelString);
         Free(metLocationString);
+        Free(metLocationStringDecap);
     }
 }
 

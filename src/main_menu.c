@@ -2480,34 +2480,6 @@ static void MainMenu_FormatSavegameText(void)
     MainMenu_FormatSavegameBadges();
 }
 
-static u8 *StringDecap(u8 *dest, const u8 *src)
-{
-    u8 capitalize = 1;
-
-    while (*src != EOS)
-    {
-        if (capitalize)
-        {
-            *dest = *src;
-            capitalize = 0;
-        }
-        else if (*src == CHAR_SPACE || *src == CHAR_HYPHEN)
-        {
-            *dest = *src;
-            capitalize = 1;
-        }
-        else if (*src >= CHAR_A && *src <= CHAR_Z)
-            *dest = gCaseToggleTable[*src];
-        else
-            *dest = *src;
-        dest++;
-        src++;
-    }
-
-    *dest = EOS;
-    return dest;
-}
-
 static void MainMenu_FormatSavegamePlayerLocation(void)
 {
     if (MAP(SNOWCREST_CITY))

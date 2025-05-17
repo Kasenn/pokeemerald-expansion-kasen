@@ -3,7 +3,7 @@
   "name": "Route14_CaveEntrance",
   "layout": "LAYOUT_ROUTE14_CAVE_ENTRANCE",
   "music": "MUS_ROUTE119",
-  "region_map_section": "MAPSEC_NEWROUTE_14",
+  "region_map_section": "MAPSEC_SINKO_ROUTE_14",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",

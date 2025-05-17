@@ -87,13 +87,16 @@ struct Trainer
 {
     /*0x00*/ u32 aiFlags;
     /*0x04*/ const struct TrainerMon *party;
+    /*0x04*/ const struct TrainerMon *partyGrass;
+    /*0x04*/ const struct TrainerMon *partyFire;
+    /*0x04*/ const struct TrainerMon *partyWater;
     /*0x08*/ u16 items[MAX_TRAINER_ITEMS];
     /*0x10*/ u8 trainerClass;
     /*0x11*/ u8 encounterMusic_gender; // last bit is gender
     /*0x12*/ u8 trainerPic;
     /*0x13*/ u8 trainerName[TRAINER_NAME_LENGTH + 1];
     /*0x1E*/ bool8 doubleBattle:1;
-             bool8 padding:1;
+             bool8 isRival:1;
              u8 startingStatus:6;    // this trainer starts a battle with a given status. see include/constants/battle.h for values
     /*0x1F*/ u8 mugshotColor;
     /*0x20*/ u8 partySize;
@@ -102,6 +105,8 @@ struct Trainer
     /*0x22*/ u8 poolRuleIndex;
     /*0x23*/ u8 poolPickIndex;
     /*0x24*/ u8 poolPruneIndex;
+             bool8 isGymTrainer:1;
+             bool8 padding:7;
 };
 
 struct TrainerClass
@@ -215,6 +220,14 @@ static inline const u8 GetTrainerClassFromId(u16 trainerId)
     u32 sanitizedTrainerId = SanitizeTrainerId(trainerId);
     enum DifficultyLevel difficulty = GetTrainerDifficultyLevel(sanitizedTrainerId);
 
+    if (gTrainers[difficulty][sanitizedTrainerId].isGymTrainer)
+    {
+        if (gTrainers[difficulty][sanitizedTrainerId].doubleBattle)
+            return TRAINER_CLASS_GYMMEMBER_DOUBLE;
+        else
+            return TRAINER_CLASS_GYMMEMBER;
+    }
+
     return gTrainers[difficulty][sanitizedTrainerId].trainerClass;
 }
 
@@ -296,7 +309,47 @@ static inline const struct TrainerMon *GetTrainerPartyFromId(u16 trainerId)
     u32 sanitizedTrainerId = SanitizeTrainerId(trainerId);
     enum DifficultyLevel difficulty = GetTrainerDifficultyLevel(sanitizedTrainerId);
 
-    return gTrainers[difficulty][sanitizedTrainerId].party;
+    if (gTrainers[difficulty][sanitizedTrainerId].isRival)
+    {
+        if (GetTrainerClassFromId(trainerId) == TRAINER_CLASS_BROTHER)
+        {
+            switch(VarGet(VAR_STARTER_MON))
+            {
+            case SPECIES_ROWLET:
+                return gTrainers[difficulty][sanitizedTrainerId].partyWater;
+                break;
+            case SPECIES_TORCHIC:
+                return gTrainers[difficulty][sanitizedTrainerId].partyGrass;
+                break;
+            case SPECIES_PIPLUP:
+                return gTrainers[difficulty][sanitizedTrainerId].partyFire;
+                break;
+            default:
+                return gTrainers[difficulty][sanitizedTrainerId].party;
+                break;
+            }
+        }
+        else // May & Brendan
+        {
+            switch(VarGet(VAR_STARTER_MON))
+            {
+            case SPECIES_ROWLET:
+                return gTrainers[difficulty][sanitizedTrainerId].partyFire;
+                break;
+            case SPECIES_TORCHIC:
+                return gTrainers[difficulty][sanitizedTrainerId].partyWater;
+                break;
+            case SPECIES_PIPLUP:
+                return gTrainers[difficulty][sanitizedTrainerId].partyGrass;
+                break;
+            default:
+                return gTrainers[difficulty][sanitizedTrainerId].party;
+                break;
+            }
+        }
+    }
+    else
+        return gTrainers[difficulty][sanitizedTrainerId].party;
 }
 
 static inline const bool32 GetTrainerAIFlagsFromId(u16 trainerId)

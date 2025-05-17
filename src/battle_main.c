@@ -365,14 +365,14 @@ const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
     [TRAINER_CLASS_ROCKET_ADMIN]     = { _("Executive"), 10},
     [TRAINER_CLASS_DARKNESS_ROCKET_ADMIN]     = { _("Executive"), 10},
     [TRAINER_CLASS_ELITE]            = { _("Elite Trainer"), 25},
-    [TRAINER_CLASS_NURSE]            = { _("Tutor"), 0},
+    [TRAINER_CLASS_NURSE]            = { _("{PKMN} Center"), 0},
     [TRAINER_CLASS_KASEN]            = { _("Game Dev"), 25},
     [TRAINER_CLASS_GYMMEMBER]        = { _("Gym Trainer"), 15},
     [TRAINER_CLASS_GYMMEMBER_DOUBLE] = { _("Gym Trainers"), 20},
     [TRAINER_CLASS_ENTHUSIAST]       = { _("{PKMN} Enthusiast"), 10, BALL_FRIEND},
     [TRAINER_CLASS_PAINTER]          = { _("Artist")},
     [TRAINER_CLASS_DANCER]           = { _("Dancer")},
-    [TRAINER_CLASS_RIVAL2]           = { _("{PKMN} Trainer"), 15},
+    [TRAINER_CLASS_BROTHER]           = { _("{PKMN} Trainer"), 15},
     [TRAINER_CLASS_SCIENTIST]        = { _("Scientist"), 8},
 };
 
@@ -1914,10 +1914,56 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
             u32 monIndex = monIndices[i];
             s32 ball = -1;
             u32 personalityHash = GeneratePartyHash(trainer, i);
-            const struct TrainerMon *partyData = trainer->party;
+            const struct TrainerMon *partyData = NULL;
             u32 otIdType = OT_ID_RANDOM_NO_SHINY;
             u32 fixedOtId = 0;
             u32 ability = 0;
+            
+            if (trainer->isRival)
+            {
+                if (trainer->trainerClass == TRAINER_CLASS_BROTHER)
+                {
+                    switch (VarGet(VAR_STARTER_MON))
+                    {
+                    case SPECIES_ROWLET:
+                        partyData = trainer->partyWater;
+                        break;
+                    case SPECIES_TORCHIC:
+                        partyData = trainer->partyGrass;
+                        break;
+                    case SPECIES_PIPLUP:
+                        partyData = trainer->partyFire;
+                        break;
+                    default:
+                        partyData = trainer->party;
+                        break;
+                    }   
+                }
+                else
+                {
+                    switch (VarGet(VAR_STARTER_MON))
+                    {
+                    case SPECIES_ROWLET:
+                        partyData = trainer->partyFire;
+                        break;
+                    case SPECIES_TORCHIC:
+                        partyData = trainer->partyWater;
+                        break;
+                    case SPECIES_PIPLUP:
+                        partyData = trainer->partyGrass;
+                        break;
+                    default:
+                        partyData = trainer->party;
+                        break;
+                    }
+                }
+            }
+
+            else
+            {
+                partyData = trainer->party;
+            }
+
 
             if (trainer->doubleBattle == TRUE)
                 personalityValue = 0x80;

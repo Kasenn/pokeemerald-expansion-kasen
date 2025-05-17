@@ -3,7 +3,7 @@
   "name": "Route10_Cave1",
   "layout": "LAYOUT_ROUTE10_CAVE1",
   "music": "MUS_ROUTE120",
-  "region_map_section": "MAPSEC_NEWROUTE_10",
+  "region_map_section": "MAPSEC_SINKO_ROUTE_10",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_OCEAN_ROUTE",

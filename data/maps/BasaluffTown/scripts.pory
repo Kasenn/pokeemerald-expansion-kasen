@@ -31,14 +31,7 @@ script BasaluffAutomaticRivalFight{
     setvar(RIVAL_TRIGGER, 0)
     if(checkplayergender == MALE){
         msgbox(BasaluffMay_LetsStart)
-        switch(var(VAR_STARTER_MON)){
-            case 0:
-                trainerbattle_no_intro(TRAINER_BASALEK_MAY_ROWLET, BasalekMay_LostText)
-            case 1:
-                trainerbattle_no_intro(TRAINER_BASALEK_MAY_TORCHIC, BasalekMay_LostText)
-            case 2:
-                trainerbattle_no_intro(TRAINER_BASALEK_MAY_PIPLUP, BasalekMay_LostText)
-        }
+        trainerbattle_no_intro(TRAINER_MAY_BASALEK_TOWN, BasalekMay_LostText)
         if(flag(FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE)){
             msgbox(BasaluffMay_PostBattle)
             msgbox(BasaluffMay_Goodbye)
@@ -50,14 +43,7 @@ script BasaluffAutomaticRivalFight{
     }
     else{
         msgbox(BasaluffBrendan_LetsStart)
-        switch(var(VAR_STARTER_MON)){
-            case 0:
-                trainerbattle_no_intro(TRAINER_BASALEK_BRENDAN_ROWLET, BasalekBrendan_LostText)
-            case 1:
-                trainerbattle_no_intro(TRAINER_BASALEK_BRENDAN_TORCHIC, BasalekBrendan_LostText)
-            case 2:
-                trainerbattle_no_intro(TRAINER_BASALEK_BRENDAN_PIPLUP, BasalekBrendan_LostText)
-        }
+        trainerbattle_no_intro(TRAINER_BRENDAN_BASALEK_TOWN, BasalekBrendan_LostText)
         if(flag(FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE)){
             msgbox(BasaluffBrendan_PostBattle)
         }
@@ -401,14 +387,7 @@ script BasalekTown_RivalScript{
         else{ // was not trying to bail
             msgbox(BasaluffTown_May_NoBails)
         }
-        switch(var(VAR_STARTER_MON)){
-            case 0:
-                trainerbattle_no_intro(TRAINER_BASALEK_MAY_ROWLET, BasalekMay_LostText)
-            case 1:
-                trainerbattle_no_intro(TRAINER_BASALEK_MAY_TORCHIC, BasalekMay_LostText)
-            case 2:
-                trainerbattle_no_intro(TRAINER_BASALEK_MAY_PIPLUP, BasalekMay_LostText)
-        }
+        trainerbattle_no_intro(TRAINER_MAY_BASALEK_TOWN, BasalekMay_LostText)
         release
         if(flag(FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE)){
             msgbox(BasaluffMay_PostBattle)
@@ -431,14 +410,7 @@ script BasalekTown_RivalScript{
         else{ // was not trying to bail
             msgbox(BasaluffTown_Brendan_NoBails)
         }
-        switch(var(VAR_STARTER_MON)){
-            case 0:
-                trainerbattle_no_intro(TRAINER_BASALEK_BRENDAN_ROWLET, BasalekBrendan_LostText)
-            case 1:
-                trainerbattle_no_intro(TRAINER_BASALEK_BRENDAN_TORCHIC, BasalekBrendan_LostText)
-            case 2:
-                trainerbattle_no_intro(TRAINER_BASALEK_BRENDAN_PIPLUP, BasalekBrendan_LostText)
-        }
+        trainerbattle_no_intro(TRAINER_BRENDAN_BASALEK_TOWN, BasalekBrendan_LostText)
         release
         if(flag(FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE)){
             msgbox(BasaluffBrendan_PostBattle)

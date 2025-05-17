@@ -518,9 +518,8 @@ Debug_Script_1_12:
 
 
 Debug_Script_2::
-	givemon SPECIES_LEDIAN, 50, abilityNum = 2, move1 = MOVE_POWER_UP_PUNCH, move2 = MOVE_MACH_PUNCH, move3 = MOVE_TACKLE
-	createmon 1, 0, SPECIES_SNORLAX, 70, ITEM_POKE_BALL, move1 = MOVE_SPLASH
-	dowildbattle
+	buffernumberstring STR_VAR_1, VAR_STARTER_MON
+	msgbox Debug_Script_2_Text_0
 	end
 
 
@@ -795,10 +794,7 @@ ClearCoralgrove::
 	checkplayergender
 	compare VAR_RESULT, MALE
 	goto_if_eq ClearCoralgrove_2
-	switch VAR_STARTER_MON
-	case 0, ClearCoralgrove_14
-	case 1, ClearCoralgrove_15
-	case 2, ClearCoralgrove_16
+	defeattrainer TRAINER_BRENDAN_CORALGROVE_ELEVATOR
 ClearCoralgrove_1:
 	msgbox ClearCoralgrove_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, TRUE
@@ -815,39 +811,12 @@ ClearCoralgrove_5:
 	return
 
 ClearCoralgrove_2:
-	switch VAR_STARTER_MON
-	case 0, ClearCoralgrove_10
-	case 1, ClearCoralgrove_11
-	case 2, ClearCoralgrove_12
+	defeattrainer TRAINER_MAY_CORALGROVE_ELEVATOR
 	goto ClearCoralgrove_1
 
 ClearCoralgrove_6:
 	additem ITEM_ITEMFINDER
 	goto ClearCoralgrove_5
-
-ClearCoralgrove_10:
-	defeattrainer TRAINER_MAY_ROUTE_110_TREECKO
-	goto ClearCoralgrove_1
-
-ClearCoralgrove_11:
-	defeattrainer TRAINER_MAY_ROUTE_110_TORCHIC
-	goto ClearCoralgrove_1
-
-ClearCoralgrove_12:
-	defeattrainer TRAINER_MAY_ROUTE_110_MUDKIP
-	goto ClearCoralgrove_1
-
-ClearCoralgrove_14:
-	defeattrainer TRAINER_BRENDAN_ROUTE_110_TREECKO
-	goto ClearCoralgrove_1
-
-ClearCoralgrove_15:
-	defeattrainer TRAINER_BRENDAN_ROUTE_110_TORCHIC
-	goto ClearCoralgrove_1
-
-ClearCoralgrove_16:
-	defeattrainer TRAINER_BRENDAN_ROUTE_110_MUDKIP
-	goto ClearCoralgrove_1
 
 
 ClearAzuretide::
@@ -1007,22 +976,7 @@ ClearRoute28_1:
 	return
 
 ClearRoute28_2:
-	switch VAR_STARTER_MON
-	case 0, ClearRoute28_5
-	case 1, ClearRoute28_6
-	case 2, ClearRoute28_7
-	goto ClearRoute28_1
-
-ClearRoute28_5:
-	defeattrainer TRAINER_BROTHER4_ROWLET
-	goto ClearRoute28_1
-
-ClearRoute28_6:
-	defeattrainer TRAINER_BROTHER4_TORCHIC
-	goto ClearRoute28_1
-
-ClearRoute28_7:
-	defeattrainer TRAINER_BROTHER4_PIPLUP
+	defeattrainer TRAINER_BROTHER_4_ROUTE28
 	goto ClearRoute28_1
 
 
@@ -1491,6 +1445,9 @@ Debug_Script_1_Text_15:
 
 Debug_Script_1_Text_16:
 	.string "Team set to level 45.$"
+
+Debug_Script_2_Text_0:
+	.string "{STR_VAR_1}$"
 
 ClearRoute1_Text_0:
 	.string "Obtained Exp. Share.\nDon't forget to turn it on!$"

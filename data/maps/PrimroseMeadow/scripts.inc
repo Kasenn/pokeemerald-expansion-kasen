@@ -19,11 +19,7 @@ PrimroseMeadow_EventScript_Rival_1:
 	compare VAR_RESULT, MALE
 	goto_if_eq PrimroseMeadow_EventScript_Rival_6
 	msgbox PRMeadow_Text_BrendanLetsBattle
-	switch VAR_STARTER_MON
-	case 0, PrimroseMeadow_EventScript_Rival_21
-	case 1, PrimroseMeadow_EventScript_Rival_22
-	case 2, PrimroseMeadow_EventScript_Rival_23
-PrimroseMeadow_EventScript_Rival_19:
+	trainerbattle_no_intro TRAINER_BRENDAN_PRIMROSE_MEADOW, PRMeadow_BrendanDefeated
 	msgbox PRMeadow_BrendanTimeToHeadBack, MSGBOX_DEFAULT
 PrimroseMeadow_EventScript_Rival_5:
 	closemessage
@@ -48,11 +44,7 @@ PrimroseMeadow_EventScript_Rival_2:
 
 PrimroseMeadow_EventScript_Rival_6:
 	msgbox PRMeadow_Text_MayLetsBattle
-	switch VAR_STARTER_MON
-	case 0, PrimroseMeadow_EventScript_Rival_16
-	case 1, PrimroseMeadow_EventScript_Rival_17
-	case 2, PrimroseMeadow_EventScript_Rival_18
-PrimroseMeadow_EventScript_Rival_14:
+	trainerbattle_no_intro TRAINER_MAY_PRIMROSE_MEADOW, PRMeadow_MayDefeated
 	msgbox PRMeadow_MayTimeToHeadBack, MSGBOX_DEFAULT
 	goto PrimroseMeadow_EventScript_Rival_5
 
@@ -64,8 +56,8 @@ PrimroseMeadow_EventScript_Rival_12:
 	applymovement OBJ_EVENT_ID_PLAYER, PRMeadow_Movement_WatchRivalExitFacingNorth
 	getfollowerxy VAR_TEMP_0, VAR_TEMP_1
 	compare VAR_TEMP_0, 9
-	goto_if_eq PrimroseMeadow_EventScript_Rival_26
-PrimroseMeadow_EventScript_Rival_25:
+	goto_if_eq PrimroseMeadow_EventScript_Rival_16
+PrimroseMeadow_EventScript_Rival_15:
 	applymovement 1, PRMeadow_Movement_RivalExitFacingNorth1
 	goto PrimroseMeadow_EventScript_Rival_9
 
@@ -74,38 +66,14 @@ PrimroseMeadow_EventScript_Rival_13:
 	applymovement 1, PRMeadow_Movement_RivalExit1
 	goto PrimroseMeadow_EventScript_Rival_9
 
-PrimroseMeadow_EventScript_Rival_16:
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_TREECKO, PRMeadow_MayDefeated
-	goto PrimroseMeadow_EventScript_Rival_14
-
-PrimroseMeadow_EventScript_Rival_17:
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_TORCHIC, PRMeadow_MayDefeated
-	goto PrimroseMeadow_EventScript_Rival_14
-
-PrimroseMeadow_EventScript_Rival_18:
-	trainerbattle_no_intro TRAINER_MAY_ROUTE_103_MUDKIP, PRMeadow_MayDefeated
-	goto PrimroseMeadow_EventScript_Rival_14
-
-PrimroseMeadow_EventScript_Rival_21:
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_TREECKO, PRMeadow_BrendanDefeated
-	goto PrimroseMeadow_EventScript_Rival_19
-
-PrimroseMeadow_EventScript_Rival_22:
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_TORCHIC, PRMeadow_BrendanDefeated
-	goto PrimroseMeadow_EventScript_Rival_19
-
-PrimroseMeadow_EventScript_Rival_23:
-	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_103_MUDKIP, PRMeadow_BrendanDefeated
-	goto PrimroseMeadow_EventScript_Rival_19
-
-PrimroseMeadow_EventScript_Rival_24:
+PrimroseMeadow_EventScript_Rival_14:
 	applymovement 1, PRMeadow_Movement_RivalExitFacingNorth2
 	goto PrimroseMeadow_EventScript_Rival_9
 
-PrimroseMeadow_EventScript_Rival_26:
+PrimroseMeadow_EventScript_Rival_16:
 	compare VAR_TEMP_1, 9
-	goto_if_eq PrimroseMeadow_EventScript_Rival_24
-	goto PrimroseMeadow_EventScript_Rival_25
+	goto_if_eq PrimroseMeadow_EventScript_Rival_14
+	goto PrimroseMeadow_EventScript_Rival_15
 
 
 PRMeadow_Movement_RivalExitFacingNorth1:

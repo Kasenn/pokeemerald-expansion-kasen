@@ -5680,7 +5680,7 @@ void BufferStringBattle(u16 stringID, u32 battler)
                         stringPtr = sText_LinkTrainerWantsToBattlePause;
                     else
                         stringPtr = sText_LinkTrainerWantsToBattle;
-                    if ((trainerClass == TRAINER_CLASS_RIVAL2) && !(gBattleTypeFlags & BATTLE_TYPE_FRONTIER))
+                    if ((trainerClass == TRAINER_CLASS_BROTHER) && !(gBattleTypeFlags & BATTLE_TYPE_FRONTIER))
                         stringPtr = sText_BrotherWantsToBattle;
                 }
             }
@@ -5694,7 +5694,7 @@ void BufferStringBattle(u16 stringID, u32 battler)
                     stringPtr = sText_TwoTrainersWantToBattle;
                 else
                     stringPtr = sText_Trainer1WantsToBattle;
-                if ((trainerClass == TRAINER_CLASS_RIVAL2) && !(gBattleTypeFlags & BATTLE_TYPE_FRONTIER))
+                if ((trainerClass == TRAINER_CLASS_BROTHER) && !(gBattleTypeFlags & BATTLE_TYPE_FRONTIER))
                         stringPtr = sText_BrotherWantsToBattle;
             }
         }
@@ -6385,7 +6385,7 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst, u32 dstSize)
                 break;
             case B_TXT_TRAINER1_NAME: // trainer1 name
                 toCpy = BattleStringGetOpponentNameByTrainerId(TRAINER_BATTLE_PARAM.opponentA, text, multiplayerId, GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT));
-                if ((gTrainers[TRAINER_BATTLE_PARAM.opponentA]->trainerClass == TRAINER_CLASS_RIVAL2) && !(gBattleTypeFlags & BATTLE_TYPE_FRONTIER))
+                if ((gTrainers[TRAINER_BATTLE_PARAM.opponentA]->trainerClass == TRAINER_CLASS_BROTHER) && !(gBattleTypeFlags & BATTLE_TYPE_FRONTIER))
                     toCpy = GetExpandedPlaceholder(PLACEHOLDER_ID_BROTHER);
                 break;
             case B_TXT_TRAINER1_NAME_WITH_CLASS: // trainer1 name with trainer class
@@ -6605,7 +6605,7 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst, u32 dstSize)
                 break;
             case B_TXT_ATK_TRAINER_NAME:
                 toCpy = BattleStringGetTrainerName(text, multiplayerId, gBattlerAttacker);
-                if ((gTrainers[TRAINER_BATTLE_PARAM.opponentA]->trainerClass == TRAINER_CLASS_RIVAL2) && !(gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
+                if ((gTrainers[TRAINER_BATTLE_PARAM.opponentA]->trainerClass == TRAINER_CLASS_BROTHER) && !(gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
                     && (GetBattlerSide(gBattlerAttacker) == B_SIDE_OPPONENT))
                         toCpy = GetExpandedPlaceholder(PLACEHOLDER_ID_BROTHER);
                 break;

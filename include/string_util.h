@@ -19,6 +19,7 @@ u8 *StringCopy_PlayerName(u8 *dest, const u8 *src);
 u8 *StringCopy(u8 *dest, const u8 *src);
 u8 *StringAppend(u8 *dest, const u8 *src);
 u8 *StringCopyN(u8 *dest, const u8 *src, u8 n);
+u8 *StringDecap(u8 *dest, const u8 *src);
 u8 *StringAppendN(u8 *dest, const u8 *src, u8 n);
 u16 StringLength(const u8 *str);
 u16 StringLineLength(const u8 *str);

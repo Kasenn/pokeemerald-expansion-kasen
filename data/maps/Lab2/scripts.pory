@@ -14,11 +14,11 @@ const RIVAL = 5
 script Lab2_On_Transition{
     if(flag(FLAG_SYS_POKEMON_GET)){
         switch(var(VAR_STARTER_MON)){
-            case 0:
+            case SPECIES_ROWLET:
                 setobjectxyperm(1, 20, 0)
-            case 1:
+            case SPECIES_TORCHIC:
                 setobjectxyperm(2, 20, 0)
-            case 2:
+            case SPECIES_PIPLUP:
                 setobjectxyperm(3, 20, 0)
         }
     }
@@ -256,11 +256,11 @@ script Lab2_GetMegaStone{
     }
     else{
         switch(var(VAR_STARTER_MON)){
-            case 0:
+            case SPECIES_ROWLET:
                 giveitem(ITEM_DECIDUEITE)
-            case 1:
+            case SPECIES_TORCHIC:
                 giveitem(ITEM_BLAZIKENITE)
-            case 2:
+            case SPECIES_PIPLUP:
                 giveitem(ITEM_EMPOLEONITE)
         }
         setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED)
@@ -479,11 +479,11 @@ script Lab2_Birch{
         }
         else{
             switch(var(VAR_STARTER_MON)){
-                case 0:
+                case SPECIES_ROWLET:
                     giveitem(ITEM_DECIDUEITE)
-                case 1:
+                case SPECIES_TORCHIC:
                     giveitem(ITEM_BLAZIKENITE)
-                case 2:
+                case SPECIES_PIPLUP:
                     giveitem(ITEM_EMPOLEONITE)
             }
             waitse
@@ -541,11 +541,11 @@ script Lab_BallMain{
     applymovement(VAR_LAST_TALKED, Walk1Up)
     switch(var(VAR_TEMP_3)){
         case SPECIES_ROWLET:
-            setvar(VAR_STARTER_MON, 0)
+            setvar(VAR_STARTER_MON, SPECIES_ROWLET)
         case SPECIES_TORCHIC:
-            setvar(VAR_STARTER_MON, 1)
+            setvar(VAR_STARTER_MON, SPECIES_TORCHIC)
         case SPECIES_PIPLUP:
-            setvar(VAR_STARTER_MON, 2)
+            setvar(VAR_STARTER_MON, SPECIES_PIPLUP)
     }
     setflag(FLAG_SYS_POKEMON_GET)
     setflag(FLAG_HEAL_AFTER_BATTLE)

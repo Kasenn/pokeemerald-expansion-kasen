@@ -2190,7 +2190,6 @@ static void Cmd_adjustdamage(void)
 
         else if ((gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE) && (GetBattlerSide(battlerDef) == B_SIDE_PLAYER))
         {
-            DebugPrintfLevel(MGBA_LOG_WARN, "does this happen?");
             gSpecialStatuses[gBattlerTarget].affectionEndured = TRUE;
         }
 

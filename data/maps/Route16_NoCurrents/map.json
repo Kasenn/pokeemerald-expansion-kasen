@@ -3,7 +3,7 @@
   "name": "Route16_NoCurrents",
   "layout": "LAYOUT_ROUTE16_NO_CURRENTS",
   "music": "MUS_ROUTE113",
-  "region_map_section": "MAPSEC_NEWROUTE_16",
+  "region_map_section": "MAPSEC_SINKO_ROUTE_16",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",

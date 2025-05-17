@@ -6045,7 +6045,7 @@ u16 GetBattleBGM(void)
             return MUS_VS_FRONTIER_BRAIN;
         case TRAINER_CLASS_CHAMPION:
             return MUS_VS_CHAMPION;
-        case TRAINER_CLASS_RIVAL2:
+        case TRAINER_CLASS_BROTHER:
         case TRAINER_CLASS_RIVAL:
             if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
                 return MUS_VS_RIVAL;
@@ -6408,7 +6408,7 @@ const u8 *GetTrainerPartnerName(void)
         }
         else if (gPartnerTrainerId == TRAINER_PARTNER(PARTNER_MAY_ROWLET))
         {
-            return GetTrainerNameFromId(TRAINER_MAY_ROUTE_103_MUDKIP);
+            return GetTrainerNameFromId(TRAINER_MAY_PRIMROSE_MEADOW);
         }
         else
         {

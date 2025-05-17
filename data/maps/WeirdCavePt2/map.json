@@ -3,7 +3,7 @@
   "name": "WeirdCavePt2",
   "layout": "LAYOUT_WEIRD_CAVE_PT2",
   "music": "MUS_NONE",
-  "region_map_section": "MAPSEC_NEWROUTE_6",
+  "region_map_section": "MAPSEC_SINKO_ROUTE_6",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

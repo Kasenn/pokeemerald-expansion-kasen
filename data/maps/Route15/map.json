@@ -3,7 +3,7 @@
   "name": "Route15",
   "layout": "LAYOUT_ROUTE15",
   "music": "MUS_ROUTE122",
-  "region_map_section": "MAPSEC_NEWROUTE_15",
+  "region_map_section": "MAPSEC_SINKO_ROUTE_15",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",

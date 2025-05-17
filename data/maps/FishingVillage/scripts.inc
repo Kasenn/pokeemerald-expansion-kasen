@@ -5,11 +5,7 @@ FishingVillage_MapScripts::
 
 FishingVillage_DespawnBrother::
 	setflag FLAG_VISITED_FISHING_VILLAGE
-	checktrainerflag TRAINER_BROTHER5_ROWLET
-	goto_if 1, FishingVillage_DespawnBrother_1
-	checktrainerflag TRAINER_BROTHER5_TORCHIC
-	goto_if 1, FishingVillage_DespawnBrother_1
-	checktrainerflag TRAINER_BROTHER5_PIPLUP
+	checktrainerflag TRAINER_BROTHER_5_FISHINGVILLAGE
 	goto_if 1, FishingVillage_DespawnBrother_1
 	return
 
@@ -54,67 +50,40 @@ FishVillage_Brother_1:
 	waitmovement 0
 	goto_if_set FLAG_KAOLISLE_BROTHER_INTRO, FishVillage_Brother_7
 FishVillage_Brother_6:
-	checktrainerflag TRAINER_BROTHER2_ROWLET
+	checktrainerflag TRAINER_BROTHER_2_ROUTE28
 	goto_if 1, FishVillage_Brother_10
-	checktrainerflag TRAINER_BROTHER3_ROWLET
+	checktrainerflag TRAINER_BROTHER_3_ROUTE28
 	goto_if 1, FishVillage_Brother_10
-	checktrainerflag TRAINER_BROTHER4_ROWLET
-	goto_if 1, FishVillage_Brother_10
-	checktrainerflag TRAINER_BROTHER2_TORCHIC
-	goto_if 1, FishVillage_Brother_10
-	checktrainerflag TRAINER_BROTHER3_TORCHIC
-	goto_if 1, FishVillage_Brother_10
-	checktrainerflag TRAINER_BROTHER4_TORCHIC
-	goto_if 1, FishVillage_Brother_10
-	checktrainerflag TRAINER_BROTHER2_PIPLUP
-	goto_if 1, FishVillage_Brother_10
-	checktrainerflag TRAINER_BROTHER3_PIPLUP
-	goto_if 1, FishVillage_Brother_10
-	checktrainerflag TRAINER_BROTHER4_PIPLUP
+	checktrainerflag TRAINER_BROTHER_4_ROUTE28
 	goto_if 1, FishVillage_Brother_10
 FishVillage_Brother_9:
 	switch VAR_TEMP_3
-	case 0, FishVillage_Brother_30
-	case 1, FishVillage_Brother_31
-	case 2, FishVillage_Brother_32
-	case 3, FishVillage_Brother_33
-FishVillage_Brother_28:
-	checktrainerflag TRAINER_BROTHER2_ROWLET
-	goto_if 1, FishVillage_Brother_35
-	checktrainerflag TRAINER_BROTHER3_ROWLET
-	goto_if 1, FishVillage_Brother_35
-	checktrainerflag TRAINER_BROTHER4_ROWLET
-	goto_if 1, FishVillage_Brother_35
-	checktrainerflag TRAINER_BROTHER2_TORCHIC
-	goto_if 1, FishVillage_Brother_35
-	checktrainerflag TRAINER_BROTHER3_TORCHIC
-	goto_if 1, FishVillage_Brother_35
-	checktrainerflag TRAINER_BROTHER4_TORCHIC
-	goto_if 1, FishVillage_Brother_35
-	checktrainerflag TRAINER_BROTHER2_PIPLUP
-	goto_if 1, FishVillage_Brother_35
-	checktrainerflag TRAINER_BROTHER3_PIPLUP
-	goto_if 1, FishVillage_Brother_35
-	checktrainerflag TRAINER_BROTHER4_PIPLUP
-	goto_if 1, FishVillage_Brother_35
+	case 0, FishVillage_Brother_18
+	case 1, FishVillage_Brother_19
+	case 2, FishVillage_Brother_20
+	case 3, FishVillage_Brother_21
+FishVillage_Brother_16:
+	checktrainerflag TRAINER_BROTHER_2_ROUTE28
+	goto_if 1, FishVillage_Brother_23
+	checktrainerflag TRAINER_BROTHER_3_ROUTE28
+	goto_if 1, FishVillage_Brother_23
+	checktrainerflag TRAINER_BROTHER_4_ROUTE28
+	goto_if 1, FishVillage_Brother_23
 	checkplayergender
 	compare VAR_RESULT, MALE
-	goto_if_eq FishVillage_Brother_62
-	switch VAR_STARTER_MON
-	case 0, FishVillage_Brother_75
-	case 1, FishVillage_Brother_76
-	case 2, FishVillage_Brother_77
-FishVillage_Brother_34:
-	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, FishVillage_Brother_55
+	goto_if_eq FishVillage_Brother_34
+	trainerbattle_no_intro TRAINER_BROTHER_5_FISHINGVILLAGE, FishingVillage_BrotherLostFirstTime
+FishVillage_Brother_22:
+	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, FishVillage_Brother_31
 	msgbox FishingVillageBrotherLeaves
-FishVillage_Brother_54:
+FishVillage_Brother_30:
 	closemessage
 	safefollow
 	switch VAR_TEMP_2
-	case 1, FishVillage_Brother_67
-	case 2, FishVillage_Brother_68
-	case 3, FishVillage_Brother_69
-FishVillage_Brother_65:
+	case 1, FishVillage_Brother_39
+	case 2, FishVillage_Brother_40
+	case 3, FishVillage_Brother_41
+FishVillage_Brother_37:
 	waitmovement 1
 	removeobject 1
 	setvar VAR_TEMP_1, 1
@@ -144,90 +113,48 @@ FishVillage_Brother_10:
 	addvar VAR_TEMP_3, 2
 	goto FishVillage_Brother_9
 
-FishVillage_Brother_30:
+FishVillage_Brother_18:
 	msgbox LastMetInPearlwood
-	goto FishVillage_Brother_28
+	goto FishVillage_Brother_16
+
+FishVillage_Brother_19:
+	msgbox LastMetInKaolisleNoFight
+	goto FishVillage_Brother_16
+
+FishVillage_Brother_20:
+	msgbox LastMetInRoute28
+	goto FishVillage_Brother_16
+
+FishVillage_Brother_21:
+	msgbox LastMetInKaolisleHaveFought
+	goto FishVillage_Brother_16
+
+FishVillage_Brother_23:
+	trainerbattle_no_intro TRAINER_BROTHER_5_FISHINGVILLAGE, FishingVillage_BrotherLost
+	goto FishVillage_Brother_22
 
 FishVillage_Brother_31:
-	msgbox LastMetInKaolisleNoFight
-	goto FishVillage_Brother_28
-
-FishVillage_Brother_32:
-	msgbox LastMetInRoute28
-	goto FishVillage_Brother_28
-
-FishVillage_Brother_33:
-	msgbox LastMetInKaolisleHaveFought
-	goto FishVillage_Brother_28
-
-FishVillage_Brother_35:
-	switch VAR_STARTER_MON
-	case 0, FishVillage_Brother_59
-	case 1, FishVillage_Brother_60
-	case 2, FishVillage_Brother_61
-	goto FishVillage_Brother_34
-
-FishVillage_Brother_55:
 	msgbox FishingVillageBrotherLeavesAfterMegaEvo
-	goto FishVillage_Brother_54
+	goto FishVillage_Brother_30
 
-FishVillage_Brother_59:
-	trainerbattle_no_intro TRAINER_BROTHER5_ROWLET, FishingVillage_BrotherLost
-	goto FishVillage_Brother_34
+FishVillage_Brother_34:
+	trainerbattle_no_intro TRAINER_BROTHER_5_FISHINGVILLAGE, FishingVillage_BrotherLostFirstTimeAgainstMale
+	goto FishVillage_Brother_22
 
-FishVillage_Brother_60:
-	trainerbattle_no_intro TRAINER_BROTHER5_TORCHIC, FishingVillage_BrotherLost
-	goto FishVillage_Brother_34
-
-FishVillage_Brother_61:
-	trainerbattle_no_intro TRAINER_BROTHER5_PIPLUP, FishingVillage_BrotherLost
-	goto FishVillage_Brother_34
-
-FishVillage_Brother_62:
-	switch VAR_STARTER_MON
-	case 0, FishVillage_Brother_71
-	case 1, FishVillage_Brother_72
-	case 2, FishVillage_Brother_73
-	goto FishVillage_Brother_34
-
-FishVillage_Brother_67:
+FishVillage_Brother_39:
 	applymovement 1, LeaveFishBrotherRight
 	applymovement OBJ_EVENT_ID_PLAYER, FishPlayerTurnRight
-	goto FishVillage_Brother_65
+	goto FishVillage_Brother_37
 
-FishVillage_Brother_68:
+FishVillage_Brother_40:
 	applymovement 1, LeaveFishBrotherLeft
 	applymovement OBJ_EVENT_ID_PLAYER, FishPlayerTurnLeft
-	goto FishVillage_Brother_65
+	goto FishVillage_Brother_37
 
-FishVillage_Brother_69:
+FishVillage_Brother_41:
 	applymovement 1, LeaveFishBrotherLeft
 	applymovement OBJ_EVENT_ID_PLAYER, FishPlayerTurnLeft
-	goto FishVillage_Brother_65
-
-FishVillage_Brother_71:
-	trainerbattle_no_intro TRAINER_BROTHER5_ROWLET, FishingVillage_BrotherLostFirstTimeAgainstMale
-	goto FishVillage_Brother_34
-
-FishVillage_Brother_72:
-	trainerbattle_no_intro TRAINER_BROTHER5_TORCHIC, FishingVillage_BrotherLostFirstTimeAgainstMale
-	goto FishVillage_Brother_34
-
-FishVillage_Brother_73:
-	trainerbattle_no_intro TRAINER_BROTHER5_PIPLUP, FishingVillage_BrotherLostFirstTimeAgainstMale
-	goto FishVillage_Brother_34
-
-FishVillage_Brother_75:
-	trainerbattle_no_intro TRAINER_BROTHER5_ROWLET, FishingVillage_BrotherLostFirstTime
-	goto FishVillage_Brother_34
-
-FishVillage_Brother_76:
-	trainerbattle_no_intro TRAINER_BROTHER5_TORCHIC, FishingVillage_BrotherLostFirstTime
-	goto FishVillage_Brother_34
-
-FishVillage_Brother_77:
-	trainerbattle_no_intro TRAINER_BROTHER5_PIPLUP, FishingVillage_BrotherLostFirstTime
-	goto FishVillage_Brother_34
+	goto FishVillage_Brother_37
 
 
 FishPlayerTurnRight:

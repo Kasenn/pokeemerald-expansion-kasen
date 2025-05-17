@@ -155,56 +155,14 @@ text CoralgroveElevator2_Rival_Brendan_Speech{
 }
 script CoralgroveElevator2_Rival_BATTLECONFIG{
     if(checkplayergender == MALE){
-        switch(var(VAR_STARTER_MON)){
-        case 0:
-            call(CoralgroveElevator2_StartMayBattleRowlet)
-        case 1:
-            call(CoralgroveElevator2_StartMayBattleTorchic)
-        case 2:
-            call(CoralgroveElevator2_StartMayBattlePiplup)
-        }
+        trainerbattle_no_intro(TRAINER_MAY_CORALGROVE_ELEVATOR, CoralgroveElevator2_RivalDefeated)
+	    goto(CoralgroveElevator2_AfterMayBattle)
     }
     else{
-        switch(var(VAR_STARTER_MON)){
-        case 0:
-            call(CoralgroveElevator2_StartBrendanBattleRowlet)
-        case 1:
-            call(CoralgroveElevator2_StartBrendanBattleTorchic)
-        case 2:
-            call(CoralgroveElevator2_StartBrendanBattlePiplup)
-        }
+        trainerbattle_no_intro(TRAINER_BRENDAN_CORALGROVE_ELEVATOR, CoralgroveElevator2_RivalDefeated)
+	    goto(CoralgroveElevator2_AfterBrendanBattle)
     }
 }
-
-script CoralgroveElevator2_StartMayBattleRowlet{
-	trainerbattle_no_intro(TRAINER_MAY_ROUTE_110_TREECKO, CoralgroveElevator2_RivalDefeated)
-	goto(CoralgroveElevator2_AfterMayBattle)
-	end}
-
-script CoralgroveElevator2_StartMayBattleTorchic{
-	trainerbattle_no_intro(TRAINER_MAY_ROUTE_110_TORCHIC, CoralgroveElevator2_RivalDefeated)
-	goto(CoralgroveElevator2_AfterMayBattle)
-	end}
-
-script CoralgroveElevator2_StartMayBattlePiplup{
-	trainerbattle_no_intro(TRAINER_MAY_ROUTE_110_MUDKIP, CoralgroveElevator2_RivalDefeated)
-	goto(CoralgroveElevator2_AfterMayBattle)
-	end}
-
-script CoralgroveElevator2_StartBrendanBattleRowlet{
-	trainerbattle_no_intro(TRAINER_BRENDAN_ROUTE_110_TREECKO, CoralgroveElevator2_RivalDefeated)
-	goto(CoralgroveElevator2_AfterBrendanBattle)
-	end}
-
-script CoralgroveElevator2_StartBrendanBattleTorchic{
-	trainerbattle_no_intro(TRAINER_BRENDAN_ROUTE_110_TORCHIC, CoralgroveElevator2_RivalDefeated)
-	goto(CoralgroveElevator2_AfterBrendanBattle)
-	end}
-
-script CoralgroveElevator2_StartBrendanBattlePiplup{
-	trainerbattle_no_intro(TRAINER_BRENDAN_ROUTE_110_MUDKIP, CoralgroveElevator2_RivalDefeated)
-	goto(CoralgroveElevator2_AfterBrendanBattle)
-	end}
 
 text CoralgroveElevator2_RivalDefeated{
     "Still can't defeat you, huh…"

@@ -49,14 +49,10 @@ BasaluffAutomaticRivalFight::
 	compare VAR_RESULT, MALE
 	goto_if_eq BasaluffAutomaticRivalFight_2
 	msgbox BasaluffBrendan_LetsStart
-	switch VAR_STARTER_MON
-	case 0, BasaluffAutomaticRivalFight_12
-	case 1, BasaluffAutomaticRivalFight_13
-	case 2, BasaluffAutomaticRivalFight_14
-BasaluffAutomaticRivalFight_10:
-	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, BasaluffAutomaticRivalFight_19
+	trainerbattle_no_intro TRAINER_BRENDAN_BASALEK_TOWN, BasalekBrendan_LostText
+	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, BasaluffAutomaticRivalFight_9
 	msgbox BasaluffBrendan_NoMegaPostBattle
-BasaluffAutomaticRivalFight_18:
+BasaluffAutomaticRivalFight_8:
 	msgbox BasaluffBrendan_Goodbye
 BasaluffAutomaticRivalFight_1:
 	closemessage
@@ -70,48 +66,20 @@ BasaluffAutomaticRivalFight_1:
 
 BasaluffAutomaticRivalFight_2:
 	msgbox BasaluffMay_LetsStart
-	switch VAR_STARTER_MON
-	case 0, BasaluffAutomaticRivalFight_7
-	case 1, BasaluffAutomaticRivalFight_8
-	case 2, BasaluffAutomaticRivalFight_9
-BasaluffAutomaticRivalFight_5:
-	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, BasaluffAutomaticRivalFight_15
+	trainerbattle_no_intro TRAINER_MAY_BASALEK_TOWN, BasalekMay_LostText
+	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, BasaluffAutomaticRivalFight_5
 	msgbox BasaluffMay_NoMegaPostBattle
 	msgbox BasaluffMay_Goodbye2
 	goto BasaluffAutomaticRivalFight_1
 
-BasaluffAutomaticRivalFight_7:
-	trainerbattle_no_intro TRAINER_BASALEK_MAY_ROWLET, BasalekMay_LostText
-	goto BasaluffAutomaticRivalFight_5
-
-BasaluffAutomaticRivalFight_8:
-	trainerbattle_no_intro TRAINER_BASALEK_MAY_TORCHIC, BasalekMay_LostText
-	goto BasaluffAutomaticRivalFight_5
-
-BasaluffAutomaticRivalFight_9:
-	trainerbattle_no_intro TRAINER_BASALEK_MAY_PIPLUP, BasalekMay_LostText
-	goto BasaluffAutomaticRivalFight_5
-
-BasaluffAutomaticRivalFight_12:
-	trainerbattle_no_intro TRAINER_BASALEK_BRENDAN_ROWLET, BasalekBrendan_LostText
-	goto BasaluffAutomaticRivalFight_10
-
-BasaluffAutomaticRivalFight_13:
-	trainerbattle_no_intro TRAINER_BASALEK_BRENDAN_TORCHIC, BasalekBrendan_LostText
-	goto BasaluffAutomaticRivalFight_10
-
-BasaluffAutomaticRivalFight_14:
-	trainerbattle_no_intro TRAINER_BASALEK_BRENDAN_PIPLUP, BasalekBrendan_LostText
-	goto BasaluffAutomaticRivalFight_10
-
-BasaluffAutomaticRivalFight_15:
+BasaluffAutomaticRivalFight_5:
 	msgbox BasaluffMay_PostBattle
 	msgbox BasaluffMay_Goodbye
 	goto BasaluffAutomaticRivalFight_1
 
-BasaluffAutomaticRivalFight_19:
+BasaluffAutomaticRivalFight_9:
 	msgbox BasaluffBrendan_PostBattle
-	goto BasaluffAutomaticRivalFight_18
+	goto BasaluffAutomaticRivalFight_8
 
 
 BasalekTown_Sign1::
@@ -273,15 +241,11 @@ BasalekTown_RivalScript_4:
 	goto_if_set FLAG_RIVAL_MET_IN_BASALEK_MART, BasalekTown_RivalScript_23
 	msgbox BasaluffTown_Brendan_NoBails
 BasalekTown_RivalScript_22:
-	switch VAR_STARTER_MON
-	case 0, BasalekTown_RivalScript_36
-	case 1, BasalekTown_RivalScript_37
-	case 2, BasalekTown_RivalScript_38
-BasalekTown_RivalScript_34:
+	trainerbattle_no_intro TRAINER_BRENDAN_BASALEK_TOWN, BasalekBrendan_LostText
 	release
-	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, BasalekTown_RivalScript_46
+	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, BasalekTown_RivalScript_33
 	msgbox BasaluffBrendan_NoMegaPostBattle
-BasalekTown_RivalScript_45:
+BasalekTown_RivalScript_32:
 	msgbox BasaluffBrendan_Goodbye
 BasalekTown_RivalScript_9:
 	closemessage
@@ -342,13 +306,9 @@ BasalekTown_RivalScript_10:
 	goto_if_set FLAG_RIVAL_MET_IN_BASALEK_MART, BasalekTown_RivalScript_19
 	msgbox BasaluffTown_May_NoBails
 BasalekTown_RivalScript_18:
-	switch VAR_STARTER_MON
-	case 0, BasalekTown_RivalScript_28
-	case 1, BasalekTown_RivalScript_29
-	case 2, BasalekTown_RivalScript_30
-BasalekTown_RivalScript_26:
+	trainerbattle_no_intro TRAINER_MAY_BASALEK_TOWN, BasalekMay_LostText
 	release
-	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, BasalekTown_RivalScript_42
+	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, BasalekTown_RivalScript_26
 	msgbox BasaluffMay_NoMegaPostBattle
 	msgbox BasaluffMay_Goodbye2
 	goto BasalekTown_RivalScript_9
@@ -367,55 +327,31 @@ BasalekTown_RivalScript_17:
 	goto BasalekTown_RivalScript_13
 
 BasalekTown_RivalScript_19:
-	goto_if_set FLAG_RIVAL_HARBOR_ANGRY, BasalekTown_RivalScript_31
+	goto_if_set FLAG_RIVAL_HARBOR_ANGRY, BasalekTown_RivalScript_29
 	msgbox BasaluffTown_May_1Bail
 	goto BasalekTown_RivalScript_18
 
 BasalekTown_RivalScript_23:
-	goto_if_set FLAG_RIVAL_HARBOR_ANGRY, BasalekTown_RivalScript_39
+	goto_if_set FLAG_RIVAL_HARBOR_ANGRY, BasalekTown_RivalScript_36
 	msgbox BasaluffTown_Brendan_1Bail
 	goto BasalekTown_RivalScript_22
 
-BasalekTown_RivalScript_28:
-	trainerbattle_no_intro TRAINER_BASALEK_MAY_ROWLET, BasalekMay_LostText
-	goto BasalekTown_RivalScript_26
-
-BasalekTown_RivalScript_29:
-	trainerbattle_no_intro TRAINER_BASALEK_MAY_TORCHIC, BasalekMay_LostText
-	goto BasalekTown_RivalScript_26
-
-BasalekTown_RivalScript_30:
-	trainerbattle_no_intro TRAINER_BASALEK_MAY_PIPLUP, BasalekMay_LostText
-	goto BasalekTown_RivalScript_26
-
-BasalekTown_RivalScript_31:
-	msgbox BasaluffTown_May_2Bails
-	goto BasalekTown_RivalScript_18
-
-BasalekTown_RivalScript_36:
-	trainerbattle_no_intro TRAINER_BASALEK_BRENDAN_ROWLET, BasalekBrendan_LostText
-	goto BasalekTown_RivalScript_34
-
-BasalekTown_RivalScript_37:
-	trainerbattle_no_intro TRAINER_BASALEK_BRENDAN_TORCHIC, BasalekBrendan_LostText
-	goto BasalekTown_RivalScript_34
-
-BasalekTown_RivalScript_38:
-	trainerbattle_no_intro TRAINER_BASALEK_BRENDAN_PIPLUP, BasalekBrendan_LostText
-	goto BasalekTown_RivalScript_34
-
-BasalekTown_RivalScript_39:
-	msgbox BasaluffTown_Brendan_2Bails
-	goto BasalekTown_RivalScript_22
-
-BasalekTown_RivalScript_42:
+BasalekTown_RivalScript_26:
 	msgbox BasaluffMay_PostBattle
 	msgbox BasaluffMay_Goodbye
 	goto BasalekTown_RivalScript_9
 
-BasalekTown_RivalScript_46:
+BasalekTown_RivalScript_29:
+	msgbox BasaluffTown_May_2Bails
+	goto BasalekTown_RivalScript_18
+
+BasalekTown_RivalScript_33:
 	msgbox BasaluffBrendan_PostBattle
-	goto BasalekTown_RivalScript_45
+	goto BasalekTown_RivalScript_32
+
+BasalekTown_RivalScript_36:
+	msgbox BasaluffTown_Brendan_2Bails
+	goto BasalekTown_RivalScript_22
 
 
 TurnPlayerAndFollowerRight:

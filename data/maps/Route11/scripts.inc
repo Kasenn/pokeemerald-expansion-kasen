@@ -472,91 +472,27 @@ KorrinaMovesBack::
 
 
 R11_AngryMayBattleSetup::
-	switch VAR_STARTER_MON
-	case 0, R11_AngryMayBattleSetup_3
-	case 1, R11_AngryMayBattleSetup_4
-	case 2, R11_AngryMayBattleSetup_5
-R11_AngryMayBattleSetup_1:
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_11_ANGRY, R11_AngryMayDefeated
 	goto R11_RivalPostBattle
 	return
-
-R11_AngryMayBattleSetup_3:
-	trainerbattle_no_intro TRAINER_R11_MAY_ROWLET_ANGRY, R11_AngryMayDefeated
-	goto R11_AngryMayBattleSetup_1
-
-R11_AngryMayBattleSetup_4:
-	trainerbattle_no_intro TRAINER_R11_MAY_TORCHIC_ANGRY, R11_AngryMayDefeated
-	goto R11_AngryMayBattleSetup_1
-
-R11_AngryMayBattleSetup_5:
-	trainerbattle_no_intro TRAINER_R11_MAY_PIPLUP_ANGRY, R11_AngryMayDefeated
-	goto R11_AngryMayBattleSetup_1
 
 
 R11_AngryBrendanBattleSetup::
-	switch VAR_STARTER_MON
-	case 0, R11_AngryBrendanBattleSetup_3
-	case 1, R11_AngryBrendanBattleSetup_4
-	case 2, R11_AngryBrendanBattleSetup_5
-R11_AngryBrendanBattleSetup_1:
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_11_ANGRY, R11_AngryBrendanDefeated
 	goto R11_RivalPostBattle
 	return
-
-R11_AngryBrendanBattleSetup_3:
-	trainerbattle_no_intro TRAINER_R11_BRENDAN_ROWLET_ANGRY, R11_AngryBrendanDefeated
-	goto R11_AngryBrendanBattleSetup_1
-
-R11_AngryBrendanBattleSetup_4:
-	trainerbattle_no_intro TRAINER_R11_BRENDAN_TORCHIC_ANGRY, R11_AngryBrendanDefeated
-	goto R11_AngryBrendanBattleSetup_1
-
-R11_AngryBrendanBattleSetup_5:
-	trainerbattle_no_intro TRAINER_R11_BRENDAN_PIPLUP_ANGRY, R11_AngryBrendanDefeated
-	goto R11_AngryBrendanBattleSetup_1
 
 
 R11_MayBattleSetup::
-	switch VAR_STARTER_MON
-	case 0, R11_MayBattleSetup_3
-	case 1, R11_MayBattleSetup_4
-	case 2, R11_MayBattleSetup_5
-R11_MayBattleSetup_1:
+	trainerbattle_no_intro TRAINER_MAY_ROUTE_11_NORMAL, R11_MayDefeated
 	goto R11_RivalPostBattle
 	return
-
-R11_MayBattleSetup_3:
-	trainerbattle_no_intro TRAINER_R11_MAY_ROWLET, R11_MayDefeated
-	goto R11_MayBattleSetup_1
-
-R11_MayBattleSetup_4:
-	trainerbattle_no_intro TRAINER_R11_MAY_TORHIC, R11_MayDefeated
-	goto R11_MayBattleSetup_1
-
-R11_MayBattleSetup_5:
-	trainerbattle_no_intro TRAINER_R11_MAY_PIPLUP, R11_MayDefeated
-	goto R11_MayBattleSetup_1
 
 
 R11_BrendanBattleSetup::
-	switch VAR_STARTER_MON
-	case 0, R11_BrendanBattleSetup_3
-	case 1, R11_BrendanBattleSetup_4
-	case 2, R11_BrendanBattleSetup_5
-R11_BrendanBattleSetup_1:
+	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_11_NORMAL, R11_BrendanDefeated
 	goto R11_RivalPostBattle
 	return
-
-R11_BrendanBattleSetup_3:
-	trainerbattle_no_intro TRAINER_R11_BRENDAN_ROWLET, R11_BrendanDefeated
-	goto R11_BrendanBattleSetup_1
-
-R11_BrendanBattleSetup_4:
-	trainerbattle_no_intro TRAINER_R11_BRENDAN_TORCHIC, R11_BrendanDefeated
-	goto R11_BrendanBattleSetup_1
-
-R11_BrendanBattleSetup_5:
-	trainerbattle_no_intro TRAINER_R11_BRENDAN_PIPLUP, R11_BrendanDefeated
-	goto R11_BrendanBattleSetup_1
 
 
 R11_RivalPostBattle::

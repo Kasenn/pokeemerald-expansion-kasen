@@ -90,29 +90,13 @@ Pearlwood_BrotherFightMain_1:
 	msgbox Pearlwood_Brother_Intro
 	setflag FLAG_FIRST_BATTLE
 	setflag FLAG_HEAL_AFTER_BATTLE
-	switch VAR_STARTER_MON
-	case 0, Pearlwood_BrotherFightMain_7
-	case 1, Pearlwood_BrotherFightMain_8
-	case 2, Pearlwood_BrotherFightMain_9
-Pearlwood_BrotherFightMain_5:
+	trainerbattle_no_intro TRAINER_BROTHER_1_PEARLWOOD, Pearlwood_Brother_Outro
 	goto PearlwoodWon
 	return
 
 Pearlwood_BrotherFightMain_2:
 	applymovement 3, Walk5Up
 	goto Pearlwood_BrotherFightMain_1
-
-Pearlwood_BrotherFightMain_7:
-	trainerbattle_no_intro TRAINER_BROTHER1_ROWLET, Pearlwood_Brother_Outro
-	goto Pearlwood_BrotherFightMain_5
-
-Pearlwood_BrotherFightMain_8:
-	trainerbattle_no_intro TRAINER_BROTHER1_TORCHIC, Pearlwood_Brother_Outro
-	goto Pearlwood_BrotherFightMain_5
-
-Pearlwood_BrotherFightMain_9:
-	trainerbattle_no_intro TRAINER_BROTHER1_PIPLUP, Pearlwood_Brother_Outro
-	goto Pearlwood_BrotherFightMain_5
 
 
 PearlwoodWon::

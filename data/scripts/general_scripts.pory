@@ -487,9 +487,8 @@ script Debug_Script_1{              // Set team level
     end
     }
 script Debug_Script_2{              // 
-    givemon(SPECIES_LEDIAN, 50, abilityNum = 2, move1 = MOVE_POWER_UP_PUNCH, move2 = MOVE_MACH_PUNCH, move3 = MOVE_TACKLE)
-    createmon(1, 0, SPECIES_SNORLAX, 70, ITEM_POKE_BALL, move1 = MOVE_SPLASH)
-    dowildbattle
+    buffernumberstring(STR_VAR_1, VAR_STARTER_MON)
+    msgbox("{STR_VAR_1}")
     end
 }
 script Debug_Script_3{              // 
@@ -773,24 +772,10 @@ script ClearCoralgrove{
     setflag(FLAG_BADGE01_GET)
 	additem(ITEM_TM_U_TURN)
     if(checkplayergender == MALE){
-        switch(var(VAR_STARTER_MON)){
-        case 0:
-            defeattrainer(TRAINER_MAY_ROUTE_110_TREECKO)
-        case 1:
-            defeattrainer(TRAINER_MAY_ROUTE_110_TORCHIC)
-        case 2:
-            defeattrainer(TRAINER_MAY_ROUTE_110_MUDKIP)
-        }
+        defeattrainer(TRAINER_MAY_CORALGROVE_ELEVATOR)
     }
     else{
-        switch(var(VAR_STARTER_MON)){
-        case 0:
-            defeattrainer(TRAINER_BRENDAN_ROUTE_110_TREECKO)
-        case 1:
-            defeattrainer(TRAINER_BRENDAN_ROUTE_110_TORCHIC)
-        case 2:
-            defeattrainer(TRAINER_BRENDAN_ROUTE_110_MUDKIP)
-        }
+        defeattrainer(TRAINER_BRENDAN_CORALGROVE_ELEVATOR)
     }
     msgbox("Was {RIVAL} defeated in\nCoralgrove Harbor?", MSGBOX_YESNO)
     if(var(VAR_RESULT) == TRUE){
@@ -927,15 +912,7 @@ script ClearRoute28{
     setflag(FLAG_ROUTE28_DESPAWN_BROTHER)
     msgbox("Has brother been defeated on the\nroute north of Aldeleaf City?", MSGBOX_YESNO)
     if(var(VAR_RESULT) == TRUE){
-        switch(var(VAR_STARTER_MON)){
-        case 0:
-            defeattrainer(TRAINER_BROTHER4_ROWLET)
-        case 1:
-            defeattrainer(TRAINER_BROTHER4_TORCHIC)
-        case 2:
-            defeattrainer(TRAINER_BROTHER4_PIPLUP)
-        }
-
+        defeattrainer(TRAINER_BROTHER_4_ROUTE28)
     }
     additem(ITEM_TM_SECRET_POWER)
     additem(ITEM_FULL_HEAL)

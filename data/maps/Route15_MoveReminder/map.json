@@ -3,7 +3,7 @@
   "name": "Route15_MoveReminder",
   "layout": "LAYOUT_ROUTE15_MOVE_REMINDER",
   "music": "MUS_RUSTBORO",
-  "region_map_section": "MAPSEC_NEWROUTE_15",
+  "region_map_section": "MAPSEC_SINKO_ROUTE_15",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

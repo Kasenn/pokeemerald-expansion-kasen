@@ -3,7 +3,7 @@
   "name": "Route27",
   "layout": "LAYOUT_ROUTE27",
   "music": "MUS_UNDERWATER",
-  "region_map_section": "MAPSEC_NEWROUTE_27",
+  "region_map_section": "MAPSEC_SINKO_ROUTE_27",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",
