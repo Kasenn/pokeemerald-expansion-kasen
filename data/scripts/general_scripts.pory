@@ -65,6 +65,23 @@ script EventScript_UseRockClimb{
 	goto (EventScript_EndRockClimb)
 }
 
+script EventScript_IceSmash{
+	lockall
+    if(!flag(FLAG_BADGE03_GET)){
+        goto(EventScript_CantSmashRock)
+    }
+	checkpartymove (MOVE_ROCK_SMASH)
+	goto_if_eq (VAR_RESULT, PARTY_SIZE, EventScript_CantSmashRock)
+	setfieldeffectargument (0, VAR_RESULT)
+	bufferpartymonnick (STR_VAR_1, VAR_RESULT)
+	buffermovename (STR_VAR_2, MOVE_ROCK_SMASH)
+	msgbox ("This block of ice appears to be fragile.\nWould you like to use Rock Smash?", MSGBOX_YESNO)
+	goto_if_eq (VAR_RESULT, NO, EventScript_CancelSmash)
+	msgbox (Text_MonUsedFieldMove, MSGBOX_DEFAULT)
+	closemessage
+    goto(EventScript_RockSmashCommon)
+}
+
 script FollowerSpottedAnItemNearby{
     playse(SE_PIN)
     applymovement(OBJ_EVENT_ID_FOLLOWER, Common_Movement_ExclamationMark)

@@ -516,6 +516,10 @@ static const struct SpriteFrameImage sPicTable_BreakableRock[] = {
     overworld_ascending_frames(gObjectEventPic_BreakableRock, 2, 2),
 };
 
+static const struct SpriteFrameImage sPicTable_BreakableIce[] = {
+    overworld_ascending_frames(gObjectEventPic_BreakableIce, 2, 2),
+};
+
 static const struct SpriteFrameImage sPicTable_StoneSphere[] = {
     overworld_frame(gObjectEventPic_StoneSphere, 2, 2, 0),
     overworld_frame(gObjectEventPic_StoneSphere, 2, 2, 1),
@@ -2265,6 +2269,18 @@ static const struct SpriteFrameImage sPicTable_ItemBallFloating[] = {
     overworld_frame(gObjectEventPic_ItemBallFloating, 2, 4, 1),
     overworld_frame(gObjectEventPic_ItemBallFloating, 2, 4, 1),
     overworld_frame(gObjectEventPic_ItemBallFloating, 2, 4, 1),
+};
+
+static const struct SpriteFrameImage sPicTable_BergmiteFloating[] = {
+    overworld_frame(gObjectEventPic_BergmiteFloating, 2, 4, 0),
+    overworld_frame(gObjectEventPic_BergmiteFloating, 2, 4, 1),
+    overworld_frame(gObjectEventPic_BergmiteFloating, 2, 4, 1),
+    overworld_frame(gObjectEventPic_BergmiteFloating, 2, 4, 1),
+    overworld_frame(gObjectEventPic_BergmiteFloating, 2, 4, 1),
+    overworld_frame(gObjectEventPic_BergmiteFloating, 2, 4, 1),
+    overworld_frame(gObjectEventPic_BergmiteFloating, 2, 4, 1),
+    overworld_frame(gObjectEventPic_BergmiteFloating, 2, 4, 1),
+    overworld_frame(gObjectEventPic_BergmiteFloating, 2, 4, 1),
 };
 
 static const struct SpriteFrameImage sPicTable_BigBoulderLeft[] = {

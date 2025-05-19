@@ -11447,12 +11447,16 @@ const struct Item gItemsInfo[] =
         .name = _("TM51"),
         .bpCost = (I_PRICE_BP <= GEN_5) ? 24 : 32,
         .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .description = COMPOUND_STRING(
+            "The user launches sharp\n"
+            "icicles at the foe.\n"
+            "It strikes two to five\n"
+            "times in a row."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_ICICLE_SPEAR, // Not In-Game Yet
+        .secondaryId = MOVE_ICICLE_SPEAR,
     },
 
     [ITEM_TM_FOCUS_BLAST] =

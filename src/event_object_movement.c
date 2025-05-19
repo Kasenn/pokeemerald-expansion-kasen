@@ -593,6 +593,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_SSTidalRear,           OBJ_EVENT_PAL_SS_TIDAL_REAR},
     {gObjectEventPalette_BwAceSwimmer,           OBJ_EVENT_PAL_BW_ACE_SWIMMER},
     {gObjectEventPalette_ItemBallFloating,           OBJ_EVENT_PAL_ITEM_BALL_FLOATING},
+    {gObjectEventPalette_BergmiteFloating,           OBJ_EVENT_PAL_BERGMITE_FLOATING},
+    {gObjectEventPalette_BreakableIce,           OBJ_EVENT_PAL_BREAKABLE_ICE},
     {gObjectEventPalette_Mina,           OBJ_EVENT_PAL_MINA},
     {gObjectEventPalette_IrisCasual,           OBJ_EVENT_PAL_IRIS_CASUAL},
     {gObjectEventPalette_Drayden,           OBJ_EVENT_PAL_DRAYDEN},

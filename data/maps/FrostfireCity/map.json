@@ -485,24 +485,6 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 52,
-      "y": 19,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EndOfBetaBlock"
-    },
-    {
-      "type": "trigger",
-      "x": 53,
-      "y": 19,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "EndOfBetaBlock"
-    },
-    {
-      "type": "trigger",
       "x": 23,
       "y": 21,
       "elevation": 0,

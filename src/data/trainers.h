@@ -30,6 +30,8 @@
 #define BASIC_AI        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT
 #define ADVANCED_AI     .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY
 
+#define MOREBP          .extendedBpCap = TRUE
+
 #define YOUNGSTER_INFO                                          \
     .trainerClass = TRAINER_CLASS_YOUNGSTER,                    \
     .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,      \
@@ -245,7 +247,7 @@
     .trainerClass = TRAINER_CLASS_ENTHUSIAST,                   \
     .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,      \
     .trainerPic = TRAINER_PIC_AFICIONADO_M,                     \
-    .extendedBpCap = TRUE,                                      \
+    MOREBP,                                                     \
     .doubleBattle = FALSE
 
 #define ENTHUSIAST_F_INFO                                       \
@@ -253,7 +255,7 @@
     .encounterMusic_gender = F_TRAINER_FEMALE |                 \
                              TRAINER_ENCOUNTER_MUSIC_FEMALE,    \
     .trainerPic = TRAINER_PIC_AFICIONADO_F,                     \
-    .extendedBpCap = TRUE,                                      \
+    MOREBP,                                                     \
     .doubleBattle = FALSE
 
 #define OLD_COUPLE_INFO                                         \
@@ -434,6 +436,12 @@
     .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,\
     .trainerPic = TRAINER_PIC_COLLECTOR,                        \
     .doubleBattle = FALSE
+
+#define SWIMMERS_INFO                                           \
+    .trainerClass = TRAINER_CLASS_SWIMMERS,                     \
+    .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SWIMMER,   \
+    .trainerPic = TRAINER_PIC_SWIMMERS,                         \
+    .doubleBattle = TRUE
 
 const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
 {
@@ -3719,9 +3727,9 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
     {
         EXPERT_F_INFO,
         ADVANCED_AI,
+        MOREBP,
         .trainerName = _("Aino"),
         .items = {ITEM_FULL_RESTORE},
-        .extendedBpCap = TRUE,
         .party = TRAINER_PARTY(s_Party_TRAINER_AZURETIDE_CELEBI_TR1),
     },
 
@@ -3729,122 +3737,92 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
     {
         EXPERT_M_INFO,
         ADVANCED_AI,
+        MOREBP,
         .trainerName = _("Pentti"),
-        .extendedBpCap = TRUE,
         .items = {ITEM_FULL_RESTORE},
         .party = TRAINER_PARTY(s_Party_TRAINER_KAOLISLE_CELEBI_TR2),
     },
 
     [DIFFICULTY_NORMAL][TRAINER_R19_TR1_SWIMMER_F] =
     {
-        .trainerClass = TRAINER_CLASS_SWIMMER_F,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
-        .trainerPic = TRAINER_PIC_BATTLE_GIRL,
-        .trainerName = _("JOCELYN"),
-        .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Jocelyn),
+        SWIMMER_F_INFO,
+        BASIC_AI,
+        MOREBP,
+        .trainerName = _("Jocelyn"),
+        .party = TRAINER_PARTY(sParty_TRAINER_R19_TR1_SWIMMER_F),
     },
 
     [DIFFICULTY_NORMAL][TRAINER_R19_TR2_SWIMMER_M] =
     {
-        .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
-        .trainerPic = TRAINER_PIC_BATTLE_GIRL,
-        .trainerName = _("LAURA"),
-        .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Laura),
+        SWIMMER_M_INFO,
+        BASIC_AI,
+        MOREBP,
+        .trainerName = _("Harold"),
+        .party = TRAINER_PARTY(sParty_TRAINER_R19_TR2_SWIMMER_M),
     },
     [DIFFICULTY_NORMAL][TRAINER_R19_TR3_SWIMMER_M] =
     {
-        .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
-        .trainerPic = TRAINER_PIC_BATTLE_GIRL,
-        .trainerName = _("CYNDY"),
-        .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Cyndy1),
+        SWIMMER_M_INFO,
+        BASIC_AI,
+        MOREBP,
+        .trainerName = _("Jeffery"),
+        .party = TRAINER_PARTY(sParty_TRAINER_R19_TR3_SWIMMER_M),
     },
     [DIFFICULTY_NORMAL][TRAINER_R19_TR4_SWIMMER_COUPLE] =
     {
-        .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
-        .trainerPic = TRAINER_PIC_BATTLE_GIRL,
-        .trainerName = _("CORA"),
-        .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Cora),
+        SWIMMERS_INFO,
+        BASIC_AI,
+        MOREBP,
+        .trainerName = _("Heidi & Jesse"),
+        .party = TRAINER_PARTY(sParty_TRAINER_R19_TR4_SWIMMER_COUPLE),
     },
     [DIFFICULTY_NORMAL][TRAINER_R19_TR5_SWIMMER_F] =
     {
-        .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
-        .trainerPic = TRAINER_PIC_BATTLE_GIRL,
-        .trainerName = _("PAULA"),
-        .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Paula),
+        SWIMMER_F_INFO,
+        BASIC_AI,
+        MOREBP,
+        .trainerName = _("Paula"),
+        .party = TRAINER_PARTY(sParty_TRAINER_R19_TR5_SWIMMER_F),
     },
     [DIFFICULTY_NORMAL][TRAINER_R19_TR6_SWIMMER_M] =
     {
-        .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
-        .trainerPic = TRAINER_PIC_BATTLE_GIRL,
-        .trainerName = _("CYNDY"),
-        .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Cyndy2),
+        SWIMMER_M_INFO,
+        BASIC_AI,
+        MOREBP,
+        .trainerName = _("Casey"),
+        .party = TRAINER_PARTY(sParty_TRAINER_R19_TR6_SWIMMER_M),
     },
     [DIFFICULTY_NORMAL][TRAINER_R19_TR7_BLACKBELT] =
     {
-        .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
-        .trainerPic = TRAINER_PIC_BATTLE_GIRL,
-        .trainerName = _("CYNDY"),
-        .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Cyndy3),
+        BLACK_BELT_INFO,
+        BASIC_AI,
+        MOREBP,
+        .trainerName = _("Duane"),
+        .party = TRAINER_PARTY(sParty_TRAINER_R19_TR7_BLACKBELT),
     },
     [DIFFICULTY_NORMAL][TRAINER_R19_TR8_HIKER] =
     {
-        .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
-        .trainerPic = TRAINER_PIC_BATTLE_GIRL,
-        .trainerName = _("CYNDY"),
-        .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Cyndy4),
+        HIKER_INFO,
+        BASIC_AI,
+        MOREBP,
+        .trainerName = _("Travis"),
+        .party = TRAINER_PARTY(sParty_TRAINER_R19_TR8_HIKER),
     },
     [DIFFICULTY_NORMAL][TRAINER_R19_TR9_PICNICKER] =
     {
-        .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
-        .trainerPic = TRAINER_PIC_BATTLE_GIRL,
-        .trainerName = _("CYNDY"),
-        .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Cyndy5),
+        PICNICKER_INFO,
+        BASIC_AI,
+        MOREBP,
+        .trainerName = _("Cyndy"),
+        .party = TRAINER_PARTY(sParty_TRAINER_R19_TR9_PICNICKER),
     },
     [DIFFICULTY_NORMAL][TRAINER_R19_TR10_SWIMMER_M] =
     {
-        .trainerClass = TRAINER_CLASS_PARASOL_LADY,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .trainerPic = TRAINER_PIC_PARASOL_LADY,
-        .trainerName = _("MADELINE"),
-        .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Madeline1),
+        SWIMMER_M_INFO,
+        BASIC_AI,
+        MOREBP,
+        .trainerName = _("Jared"),
+        .party = TRAINER_PARTY(sParty_TRAINER_R19_TR10_SWIMMER_M),
     },
     [DIFFICULTY_NORMAL][TRAINER_CLARISSA] =
     {

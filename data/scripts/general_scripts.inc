@@ -84,6 +84,27 @@ EventScript_UseRockClimb_2:
 	goto EventScript_UseRockClimb_1
 
 
+EventScript_IceSmash::
+	lockall
+	goto_if_unset FLAG_BADGE03_GET, EventScript_IceSmash_2
+EventScript_IceSmash_1:
+	checkpartymove MOVE_ROCK_SMASH
+	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantSmashRock
+	setfieldeffectargument 0, VAR_RESULT
+	bufferpartymonnick STR_VAR_1, VAR_RESULT
+	buffermovename STR_VAR_2, MOVE_ROCK_SMASH
+	msgbox EventScript_IceSmash_Text_0, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, EventScript_CancelSmash
+	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
+	closemessage
+	goto EventScript_RockSmashCommon
+	return
+
+EventScript_IceSmash_2:
+	goto EventScript_CantSmashRock
+	goto EventScript_IceSmash_1
+
+
 FollowerSpottedAnItemNearby::
 	playse SE_PIN
 	applymovement OBJ_EVENT_ID_FOLLOWER, Common_Movement_ExclamationMark
@@ -1394,6 +1415,9 @@ RopeBridgeScript_Movement_0:
 	unlock_anim
 	unlock_facing_direction
 	step_end
+
+EventScript_IceSmash_Text_0:
+	.string "This block of ice appears to be fragile.\nWould you like to use Rock Smash?$"
 
 Debug_Script_1_Text_0:
 	.string "Gym 1 (lvl 14)$"

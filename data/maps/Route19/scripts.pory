@@ -1,5 +1,34 @@
 mapscripts Route19_MapScripts {
-    
+    MAP_SCRIPT_ON_RESUME{
+        if(flag(FLAG_SYS_CTRL_OBJ_DELETE)){
+            specialvar(VAR_RESULT, GetBattleOutcome)
+            if(var(VAR_RESULT) == B_OUTCOME_CAUGHT){
+                removeobject(VAR_LAST_TALKED)
+                setmetatile(81, 3, 0x170, FALSE)
+                setmetatile(82, 3, 0x170, FALSE)
+                setmetatile(83, 3, 0x170, FALSE)
+                setmetatile(81, 4, 0x170, FALSE)
+                setmetatile(82, 4, 0x170, FALSE)
+                setmetatile(83, 4, 0x170, FALSE)
+                setmetatile(81, 5, 0x170, FALSE)
+                setmetatile(82, 5, 0x170, FALSE)
+                setmetatile(83, 5, 0x170, FALSE)
+            }
+        }
+    }
+    MAP_SCRIPT_ON_LOAD{
+        if(flag(FLAG_ROUTE19_BERGMITE)){
+            setmetatile(81, 3, 0x170, FALSE)
+            setmetatile(82, 3, 0x170, FALSE)
+            setmetatile(83, 3, 0x170, FALSE)
+            setmetatile(81, 4, 0x170, FALSE)
+            setmetatile(82, 4, 0x170, FALSE)
+            setmetatile(83, 4, 0x170, FALSE)
+            setmetatile(81, 5, 0x170, FALSE)
+            setmetatile(82, 5, 0x170, FALSE)
+            setmetatile(83, 5, 0x170, FALSE)
+        }
+    }
 }
 
 script Route19_Tr1_SwimmerF {
@@ -172,3 +201,74 @@ text R19Tr10_Lose {
 }
 text R19Tr10_PostBattle {
     ""}
+
+script Route19_Bergmite{
+    lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_BERGMITE, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+	setwildbattle(SPECIES_BERGMITE, 35)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    specialvar(VAR_RESULT, GetBattleOutcome)
+	if(var(VAR_RESULT) == B_OUTCOME_WON){
+        setflag(FLAG_ROUTE19_BERGMITE)
+	    fadescreenswapbuffers (FADE_TO_BLACK)
+	    removeobject (VAR_LAST_TALKED)
+        setmetatile(81, 3, 0x170, FALSE)
+        setmetatile(82, 3, 0x170, FALSE)
+        setmetatile(83, 3, 0x170, FALSE)
+        setmetatile(81, 4, 0x170, FALSE)
+        setmetatile(82, 4, 0x170, FALSE)
+        setmetatile(83, 4, 0x170, FALSE)
+        setmetatile(81, 5, 0x170, FALSE)
+        setmetatile(82, 5, 0x170, FALSE)
+        setmetatile(83, 5, 0x170, FALSE)
+        special(DrawWholeMapView)
+	    fadescreenswapbuffers (FADE_FROM_BLACK)
+	    release
+	    end
+    } 
+	if(var(VAR_RESULT) == B_OUTCOME_RAN){
+        setvar(VAR_0x8004, SPECIES_BERGMITE)
+        fadescreenswapbuffers(FADE_TO_BLACK)
+        removeobject(VAR_LAST_TALKED)
+        setmetatile(81, 3, 0x170, FALSE)
+        setmetatile(82, 3, 0x170, FALSE)
+        setmetatile(83, 3, 0x170, FALSE)
+        setmetatile(81, 4, 0x170, FALSE)
+        setmetatile(82, 4, 0x170, FALSE)
+        setmetatile(83, 4, 0x170, FALSE)
+        setmetatile(81, 5, 0x170, FALSE)
+        setmetatile(82, 5, 0x170, FALSE)
+        setmetatile(83, 5, 0x170, FALSE)
+        special(DrawWholeMapView)
+        fadescreenswapbuffers(FADE_FROM_BLACK)
+        bufferspeciesname(STR_VAR_1, VAR_0x8004)
+        msgbox(gText_LegendaryRanAway)
+    } 
+	if(var(VAR_RESULT) == B_OUTCOME_PLAYER_TELEPORTED){
+        setvar(VAR_0x8004, SPECIES_BERGMITE)
+        fadescreenswapbuffers(FADE_TO_BLACK)
+        removeobject(VAR_LAST_TALKED)
+        setmetatile(81, 3, 0x170, FALSE)
+        setmetatile(82, 3, 0x170, FALSE)
+        setmetatile(83, 3, 0x170, FALSE)
+        setmetatile(81, 4, 0x170, FALSE)
+        setmetatile(82, 4, 0x170, FALSE)
+        setmetatile(83, 4, 0x170, FALSE)
+        setmetatile(81, 5, 0x170, FALSE)
+        setmetatile(82, 5, 0x170, FALSE)
+        setmetatile(83, 5, 0x170, FALSE)
+        special(DrawWholeMapView)
+        fadescreenswapbuffers(FADE_FROM_BLACK)
+        bufferspeciesname(STR_VAR_1, VAR_0x8004)
+        msgbox(gText_LegendaryRanAway)
+    } 
+	setflag(FLAG_ROUTE19_BERGMITE)
+	release
+	end
+}

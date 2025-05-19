@@ -1,5 +1,46 @@
 Route19_MapScripts::
+	map_script MAP_SCRIPT_ON_RESUME, Route19_MapScripts_MAP_SCRIPT_ON_RESUME
+	map_script MAP_SCRIPT_ON_LOAD, Route19_MapScripts_MAP_SCRIPT_ON_LOAD
 	.byte 0
+
+Route19_MapScripts_MAP_SCRIPT_ON_RESUME:
+	goto_if_set FLAG_SYS_CTRL_OBJ_DELETE, Route19_MapScripts_MAP_SCRIPT_ON_RESUME_1
+	return
+
+Route19_MapScripts_MAP_SCRIPT_ON_RESUME_1:
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_CAUGHT
+	goto_if_eq Route19_MapScripts_MAP_SCRIPT_ON_RESUME_3
+	return
+
+Route19_MapScripts_MAP_SCRIPT_ON_RESUME_3:
+	removeobject VAR_LAST_TALKED
+	setmetatile 81, 3, 0x170, FALSE
+	setmetatile 82, 3, 0x170, FALSE
+	setmetatile 83, 3, 0x170, FALSE
+	setmetatile 81, 4, 0x170, FALSE
+	setmetatile 82, 4, 0x170, FALSE
+	setmetatile 83, 4, 0x170, FALSE
+	setmetatile 81, 5, 0x170, FALSE
+	setmetatile 82, 5, 0x170, FALSE
+	setmetatile 83, 5, 0x170, FALSE
+	return
+
+Route19_MapScripts_MAP_SCRIPT_ON_LOAD:
+	goto_if_set FLAG_ROUTE19_BERGMITE, Route19_MapScripts_MAP_SCRIPT_ON_LOAD_1
+	return
+
+Route19_MapScripts_MAP_SCRIPT_ON_LOAD_1:
+	setmetatile 81, 3, 0x170, FALSE
+	setmetatile 82, 3, 0x170, FALSE
+	setmetatile 83, 3, 0x170, FALSE
+	setmetatile 81, 4, 0x170, FALSE
+	setmetatile 82, 4, 0x170, FALSE
+	setmetatile 83, 4, 0x170, FALSE
+	setmetatile 81, 5, 0x170, FALSE
+	setmetatile 82, 5, 0x170, FALSE
+	setmetatile 83, 5, 0x170, FALSE
+	return
 
 
 Route19_Tr1_SwimmerF::
@@ -66,6 +107,87 @@ Route19_Tr10_SwimmerM::
 	trainerbattle_single TRAINER_R19_TR10_SWIMMER_M, R19Tr10_Intro, R19Tr10_Lose
 	msgbox R19Tr10_PostBattle, MSGBOX_AUTOCLOSE
 	end
+
+
+Route19_Bergmite::
+	lock
+	faceplayer
+	waitse
+	playmoncry SPECIES_BERGMITE, CRY_MODE_ENCOUNTER
+	delay 40
+	waitmoncry
+	setwildbattle SPECIES_BERGMITE, 35
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq Route19_Bergmite_2
+	compare VAR_RESULT, B_OUTCOME_RAN
+	goto_if_eq Route19_Bergmite_5
+Route19_Bergmite_4:
+	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
+	goto_if_eq Route19_Bergmite_8
+Route19_Bergmite_7:
+	setflag FLAG_ROUTE19_BERGMITE
+	release
+	end
+
+Route19_Bergmite_2:
+	setflag FLAG_ROUTE19_BERGMITE
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	setmetatile 81, 3, 0x170, FALSE
+	setmetatile 82, 3, 0x170, FALSE
+	setmetatile 83, 3, 0x170, FALSE
+	setmetatile 81, 4, 0x170, FALSE
+	setmetatile 82, 4, 0x170, FALSE
+	setmetatile 83, 4, 0x170, FALSE
+	setmetatile 81, 5, 0x170, FALSE
+	setmetatile 82, 5, 0x170, FALSE
+	setmetatile 83, 5, 0x170, FALSE
+	special DrawWholeMapView
+	fadescreenswapbuffers FADE_FROM_BLACK
+	release
+	end
+
+Route19_Bergmite_5:
+	setvar VAR_0x8004, SPECIES_BERGMITE
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	setmetatile 81, 3, 0x170, FALSE
+	setmetatile 82, 3, 0x170, FALSE
+	setmetatile 83, 3, 0x170, FALSE
+	setmetatile 81, 4, 0x170, FALSE
+	setmetatile 82, 4, 0x170, FALSE
+	setmetatile 83, 4, 0x170, FALSE
+	setmetatile 81, 5, 0x170, FALSE
+	setmetatile 82, 5, 0x170, FALSE
+	setmetatile 83, 5, 0x170, FALSE
+	special DrawWholeMapView
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, VAR_0x8004
+	msgbox gText_LegendaryRanAway
+	goto Route19_Bergmite_4
+
+Route19_Bergmite_8:
+	setvar VAR_0x8004, SPECIES_BERGMITE
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	setmetatile 81, 3, 0x170, FALSE
+	setmetatile 82, 3, 0x170, FALSE
+	setmetatile 83, 3, 0x170, FALSE
+	setmetatile 81, 4, 0x170, FALSE
+	setmetatile 82, 4, 0x170, FALSE
+	setmetatile 83, 4, 0x170, FALSE
+	setmetatile 81, 5, 0x170, FALSE
+	setmetatile 82, 5, 0x170, FALSE
+	setmetatile 83, 5, 0x170, FALSE
+	special DrawWholeMapView
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, VAR_0x8004
+	msgbox gText_LegendaryRanAway
+	goto Route19_Bergmite_7
 
 
 R19Tr1_Intro::

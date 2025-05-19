@@ -189,6 +189,9 @@ const u32 gTrainerPalette_SwimmingTriathleteM[] = INCBIN_U32("graphics/trainers/
 const u32 gTrainerFrontPic_SwimmingTriathleteF[] = INCBIN_U32("graphics/trainers/front_pics/swimming_triathlete_f.4bpp.lz");
 const u32 gTrainerPalette_SwimmingTriathleteF[] = INCBIN_U32("graphics/trainers/front_pics/swimming_triathlete_f.gbapal.lz");
 
+const u32 gTrainerFrontPic_Swimmers[] = INCBIN_U32("graphics/trainers/front_pics/swimmers.4bpp.lz");
+const u32 gTrainerPalette_Swimmers[] = INCBIN_U32("graphics/trainers/front_pics/swimmers.gbapal.lz");
+
 const u32 gTrainerFrontPic_DragonTamer[] = INCBIN_U32("graphics/trainers/front_pics/dragon_tamer.4bpp.lz");
 const u32 gTrainerPalette_DragonTamer[] = INCBIN_U32("graphics/trainers/front_pics/dragon_tamer.gbapal.lz");
 
@@ -449,6 +452,7 @@ const struct TrainerSprite gTrainerSprites[] =
     TRAINER_SPRITE(TRAINER_PIC_RUNNING_TRIATHLETE_F, gTrainerFrontPic_RunningTriathleteF, gTrainerPalette_RunningTriathleteF),
     TRAINER_SPRITE(TRAINER_PIC_SWIMMING_TRIATHLETE_M, gTrainerFrontPic_SwimmingTriathleteM, gTrainerPalette_SwimmingTriathleteM),
     TRAINER_SPRITE(TRAINER_PIC_SWIMMING_TRIATHLETE_F, gTrainerFrontPic_SwimmingTriathleteF, gTrainerPalette_SwimmingTriathleteF),
+    TRAINER_SPRITE(TRAINER_PIC_SWIMMERS, gTrainerFrontPic_Swimmers, gTrainerPalette_Swimmers),
     TRAINER_SPRITE(TRAINER_PIC_DRAGON_TAMER, gTrainerFrontPic_DragonTamer, gTrainerPalette_DragonTamer),
     TRAINER_SPRITE(TRAINER_PIC_NINJA_BOY, gTrainerFrontPic_NinjaBoy, gTrainerPalette_NinjaBoy),
     TRAINER_SPRITE(TRAINER_PIC_BATTLE_GIRL, gTrainerFrontPic_BattleGirl, gTrainerPalette_BattleGirl),

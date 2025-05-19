@@ -28,6 +28,14 @@
 
 #define QUEST_COUNT     80
 
+#define TRAINER_SCRIPT(trainer)                                \
+{                                                              \
+    script EventScript_trainer{                                \
+    trainerbattle_single(trainer, trainer_Intro, trainer_Lose) \
+    msgbox(trainer_PostBattle, MSGBOX_AUTOCLOSE)               \
+    }                                                          \
+}
+
 // Prevent cross-jump optimization.
 #define BLOCK_CROSS_JUMP asm("");
 

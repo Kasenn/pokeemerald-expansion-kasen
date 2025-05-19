@@ -60,22 +60,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
+      "trainer_sight_or_berry_tree_id": "ITEM_ICE_HEAL",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ROUTE19_ITEM2"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL_FLOATING",
-      "x": 76,
-      "y": 23,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ROUTE19_ITEM5"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL_FLOATING",
@@ -86,9 +73,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
+      "trainer_sight_or_berry_tree_id": "ITEM_TM_ICICLE_SPEAR",
       "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ROUTE19_ITEM4"
+      "flag": "FLAG_ROUTE19_ITEM5"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL_FLOATING",
@@ -99,7 +86,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
+      "trainer_sight_or_berry_tree_id": "ITEM_DIVE_BALL",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ROUTE19_ITEM1"
     },
@@ -113,7 +100,7 @@
       "movement_range_y": 4,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "NULL",
+      "script": "Route19_Tr7_BlackBelt",
       "flag": "0"
     },
     {
@@ -126,7 +113,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "2",
-      "script": "NULL",
+      "script": "Route19_Tr1_SwimmerF",
       "flag": "0"
     },
     {
@@ -139,7 +126,7 @@
       "movement_range_y": 6,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "NULL",
+      "script": "Route19_Tr3_SwimmerM",
       "flag": "0"
     },
     {
@@ -152,7 +139,7 @@
       "movement_range_y": 4,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "NULL",
+      "script": "Route19_Tr2_SwimmerM",
       "flag": "0"
     },
     {
@@ -165,7 +152,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "1",
-      "script": "NULL",
+      "script": "Route19_Tr4_SwimmerCoupleF",
       "flag": "0"
     },
     {
@@ -178,7 +165,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "1",
-      "script": "NULL",
+      "script": "Route19_Tr4_SwimmerCoupleM",
       "flag": "0"
     },
     {
@@ -191,7 +178,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "5",
-      "script": "NULL",
+      "script": "Route19_Tr5_SwimmerF",
       "flag": "0"
     },
     {
@@ -204,7 +191,7 @@
       "movement_range_y": 5,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "NULL",
+      "script": "Route19_Tr6_SwimmerM",
       "flag": "0"
     },
     {
@@ -217,7 +204,7 @@
       "movement_range_y": 5,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "NULL",
+      "script": "Route19_Tr10_SwimmerM",
       "flag": "0"
     },
     {
@@ -230,7 +217,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
-      "script": "NULL",
+      "script": "Route19_Tr8_Hiker",
       "flag": "0"
     },
     {
@@ -243,8 +230,34 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "NULL",
+      "script": "Route19_Tr9_Picnicker",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_FLOATING_BERGMITE",
+      "x": 82,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route19_Bergmite",
+      "flag": "FLAG_ROUTE19_BERGMITE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ICE",
+      "x": 84,
+      "y": 31,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_IceSmash",
+      "flag": "FLAG_TEMP_10"
     }
   ],
   "warp_events": [
@@ -259,7 +272,7 @@
       "x": 61,
       "y": 36,
       "elevation": 0,
-      "item": "ITEM_NONE",
+      "item": "ITEM_HP_UP",
       "flag": "FLAG_ROUTE19_ITEM3"
     }
   ]

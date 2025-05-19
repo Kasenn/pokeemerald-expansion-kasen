@@ -85,6 +85,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MartEmploye
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RooftopSaleWoman;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Teala;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BreakableRock;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BreakableIce;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PushableBoulder;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MrBrineysBoat;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayNormal;
@@ -220,6 +221,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BigBoulderL
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BigBoulderRight;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BwAceSwimmer;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemBallFloating;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BergmiteFloating;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ZygardeCell;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ZygardeCore;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Gen4_Breeder_M;
@@ -480,6 +482,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ROOFTOP_SALE_WOMAN] =       &gObjectEventGraphicsInfo_RooftopSaleWoman,
     [OBJ_EVENT_GFX_TEALA] =                    &gObjectEventGraphicsInfo_Teala,
     [OBJ_EVENT_GFX_BREAKABLE_ROCK] =           &gObjectEventGraphicsInfo_BreakableRock,
+    [OBJ_EVENT_GFX_BREAKABLE_ICE] =           &gObjectEventGraphicsInfo_BreakableIce,
     [OBJ_EVENT_GFX_PUSHABLE_BOULDER] =         &gObjectEventGraphicsInfo_PushableBoulder,
     [OBJ_EVENT_GFX_MR_BRINEYS_BOAT] =          &gObjectEventGraphicsInfo_MrBrineysBoat,
     [OBJ_EVENT_GFX_MAY_NORMAL] =               &gObjectEventGraphicsInfo_MayNormal,
@@ -765,6 +768,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MAY_RS_8PX_SNOW       ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_RS_8PX_SNOW,
     [OBJ_EVENT_GFX_BRENDAN_RS_10PX_SNOW  ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_RS_10PX_SNOW,
     [OBJ_EVENT_GFX_MAY_RS_10PX_SNOW      ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_RS_10PX_SNOW,
+    [OBJ_EVENT_GFX_FLOATING_BERGMITE] =                   &gObjectEventGraphicsInfo_BergmiteFloating,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

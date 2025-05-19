@@ -358,6 +358,8 @@
 #define OBJ_EVENT_GFX_MAY_RS_8PX_SNOW               351
 #define OBJ_EVENT_GFX_BRENDAN_RS_10PX_SNOW          352
 #define OBJ_EVENT_GFX_MAY_RS_10PX_SNOW              353
+#define OBJ_EVENT_GFX_FLOATING_BERGMITE             354
+#define OBJ_EVENT_GFX_BREAKABLE_ICE                 355
 
 
 
@@ -365,7 +367,7 @@
 // NOTE: The maximum amount of object events has been expanded from 255 to 65535.
 // Since dynamic graphics ids still require at least 16 free values, the actual limit
 // is 65519, but even considering follower Pokémon, this should be more than enough :)
-#define NUM_OBJ_EVENT_GFX                        354
+#define NUM_OBJ_EVENT_GFX                        356
 
 
 // These are dynamic object gfx ids.
@@ -615,6 +617,9 @@
 #define OBJ_EVENT_PAL_BLAINE        0x1186
 #define OBJ_EVENT_PAL_TAG_RIDING_GOGOAT        0x1187
 #define FLDEFF_PAL_TAG_AUTUMN_LONG_GRASS        0x1188
+#define OBJ_EVENT_PAL_BERGMITE_FLOATING                 0x1189
+#define OBJ_EVENT_PAL_BREAKABLE_ICE                     0x118A
+
 
 // Used as a placeholder follower graphic
 #define OBJ_EVENT_PAL_TAG_SUBSTITUTE              0x7611
