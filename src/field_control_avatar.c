@@ -859,8 +859,8 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
                 ClearTrainerFlag(TRAINER_BROTHER_5_FISHINGVILLAGE);
                 SetTrainerFlag(TRAINER_BROTHER_2_ROUTE28);
             }
-            if (HasTrainerBeenFought(TRAINER_UNUSED_6_)){
-                ClearTrainerFlag(TRAINER_UNUSED_6_);
+            if (HasTrainerBeenFought(TRAINER_BROTHER_6_ROUTE20)){
+                ClearTrainerFlag(TRAINER_BROTHER_6_ROUTE20);
                 SetTrainerFlag(TRAINER_BROTHER_2_ROUTE28);
             }
             ///

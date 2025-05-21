@@ -100,13 +100,13 @@ struct Trainer
              u8 startingStatus:6;    // this trainer starts a battle with a given status. see include/constants/battle.h for values
     /*0x1F*/ u8 mugshotColor;
     /*0x20*/ u8 partySize;
-             s8 extendedBpCap;
     /*0x21*/ u8 poolSize;
     /*0x22*/ u8 poolRuleIndex;
     /*0x23*/ u8 poolPickIndex;
     /*0x24*/ u8 poolPruneIndex;
              bool8 isGymTrainer:1;
-             bool8 padding:7;
+             bool8 extendedBpCap:1;
+             bool8 padding:6;
 };
 
 struct TrainerClass

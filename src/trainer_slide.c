@@ -70,6 +70,7 @@ static const u8* const sTrainerSlides[DIFFICULTY_COUNT][TRAINERS_COUNT][TRAINER_
         [TRAINER_BASALTUNNEL_TR12_BROCK] =  {[TRAINER_SLIDE_MEGA_EVOLUTION] = COMPOUND_STRING("Not bad, but this is the end!{PAUSE 90}")},
         [TRAINER_LEADER_BLAINE] =           {[TRAINER_SLIDE_MEGA_EVOLUTION] = COMPOUND_STRING("This battle has gone on for too long.\nIt's time to end it.{PAUSE 90}")},
         [TRAINER_LEADER_JASMINE] =          {[TRAINER_SLIDE_LAST_SWITCHIN] = COMPOUND_STRING("We're not giving up just yet!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}")},
+        [TRAINER_BROTHER_6_ROUTE20] =          {[TRAINER_SLIDE_LAST_SWITCHIN] = COMPOUND_STRING("Let's see how you deal with this!{PAUSE 90}")},
     },
 };
 

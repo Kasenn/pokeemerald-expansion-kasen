@@ -1882,6 +1882,10 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
 
     SetObjectSubpriorityByElevation(objectEvent->previousElevation, sprite, 1);
     UpdateObjectEventVisibility(objectEvent, sprite);
+    // if (objectEvent->graphicsId == OBJ_EVENT_GFX_FISHERMAN_SOUTH){
+    //     objectEvent->fixedPriority = TRUE;
+    //     sprite->subpriority = 0xFF;
+    // }
     return objectEventId;
 }
 

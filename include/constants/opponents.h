@@ -9,7 +9,7 @@
 #define TRAINER_BROTHER_3_ROUTE28               3
 #define TRAINER_BROTHER_4_ROUTE28               4
 #define TRAINER_BROTHER_5_FISHINGVILLAGE              5
-#define TRAINER_UNUSED_6_               6
+#define TRAINER_BROTHER_6_ROUTE20               6
 #define TRAINER_UNUSED_7_               7
 #define TRAINER_UNUSED_8_              8
 #define TRAINER_UNUSED_9_               9

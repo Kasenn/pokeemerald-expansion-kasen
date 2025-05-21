@@ -510,8 +510,16 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
         .partyWater = sParty_Brother5_Squirtle,
     },
 
-    [DIFFICULTY_NORMAL][TRAINER_UNUSED_6_] =
-    {},
+    [DIFFICULTY_NORMAL][TRAINER_BROTHER_6_ROUTE20] =
+    {
+        BROTHER_INFO,
+        ADVANCED_AI,
+        .items = {ITEM_HYPER_POTION},
+        .partySize = ARRAY_COUNT(sParty_Brother6_Bulbasaur),
+        .partyGrass = sParty_Brother6_Bulbasaur,
+        .partyFire = sParty_Brother6_Charmander,
+        .partyWater = sParty_Brother6_Squirtle,
+    },
 
     [DIFFICULTY_NORMAL][TRAINER_UNUSED_7_] =
     {},

@@ -1,0 +1,98 @@
+mapscripts Route20_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        if(defeated(TRAINER_BROTHER_6_ROUTE20)){
+            setflag(FLAG_TEMP_1)
+        }
+    }
+}
+
+const OBJ_BROTHER = 2
+
+script Route20_BrotherTrigger1{
+    setvar(VAR_TEMP_0, 1)
+    goto(Route20_BrotherTriggerMain)
+}
+script Route20_BrotherTrigger2{
+    setvar(VAR_TEMP_0, 2)
+    goto(Route20_BrotherTriggerMain)
+}
+script Route20_BrotherTrigger3{
+    setvar(VAR_TEMP_0, 3)
+    goto(Route20_BrotherTriggerMain)
+}
+script Route20_BrotherTrigger4{
+    setvar(VAR_TEMP_0, 4)
+    goto(Route20_BrotherTriggerMain)
+}
+script Route20_BrotherTrigger5{
+    setvar(VAR_TEMP_0, 5)
+    goto(Route20_BrotherTriggerMain)
+}
+script Route20_BrotherTrigger6{
+    setvar(VAR_TEMP_0, 6)
+    goto(Route20_BrotherTriggerMain)
+}
+
+script Route20_BrotherTriggerMain{
+    lockall
+    safefollow
+    playbgm(MUS_ENCOUNTER_BRENDAN, TRUE)
+    switch(var(VAR_TEMP_0)){
+        case 1:
+        case 2:
+            applymovement(OBJ_BROTHER, moves(walk_in_place_faster_left, emote_exclamation_mark, delay_16 * 3))
+        case 3:
+        case 4:
+        case 5:
+            applymovement(OBJ_BROTHER, moves(walk_in_place_faster_up, emote_exclamation_mark, delay_16 * 3))
+        case 6:
+            applymovement(OBJ_BROTHER, moves(walk_in_place_faster_right, emote_exclamation_mark, delay_16 * 3))
+    }
+    waitmovement(0)
+    delay(30)
+        switch(var(VAR_TEMP_0)){
+        case 1:
+            applymovement(OBJ_BROTHER, moves(walk_left))
+        case 2:
+            applymovement(OBJ_BROTHER, moves(walk_left, walk_up, walk_in_place_faster_left))
+        case 3:
+            applymovement(OBJ_BROTHER, moves(walk_up, walk_left, walk_in_place_faster_up))
+        case 4:
+            applymovement(OBJ_BROTHER, moves(walk_up))
+        case 5:
+            applymovement(OBJ_BROTHER, moves(walk_up, walk_right, walk_in_place_faster_up))
+        case 6:
+            applymovement(OBJ_BROTHER, moves(walk_right * 2, walk_up))
+    }
+    waitmovement(0)
+    msgbox(Route20_BrotherIntro)
+    trainerbattle_no_intro(TRAINER_BROTHER_6_ROUTE20, Route20_BrotherLost)
+    msgbox(Route20_BrotherPostBat, MSGBOX_AUTOCLOSE)
+    switch(var(VAR_TEMP_0)){
+        case 1:
+        case 2:
+        case 3:
+            applymovement(OBJ_BROTHER, moves(walk_right * 2, walk_down * 7))
+        case 4:
+            applymovement(OBJ_BROTHER, moves(walk_right, walk_down * 7))
+        case 5:
+        case 6:
+            applymovement(OBJ_BROTHER, moves(walk_down * 7))
+    }
+    waitmovement(0)
+    removeobject(OBJ_BROTHER)
+    savebgm(MUS_DUMMY)
+	fadedefaultbgm
+    release
+}
+
+text Route20_BrotherIntro{
+    "{BROTHER}: Yo, {PLAYER}!\n"
+    "Long time no see!"
+}
+text Route20_BrotherLost{
+    "I lost?!"
+}
+text Route20_BrotherPostBat{
+    "That was great"
+}

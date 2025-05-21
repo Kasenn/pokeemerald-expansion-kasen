@@ -45,8 +45,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_EXAMPLE",
-      "x": 31,
-      "y": 39,
+      "x": 29,
+      "y": 35,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -54,7 +54,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_1"
     }
   ],
   "warp_events": [
@@ -224,48 +224,57 @@
     },
     {
       "type": "trigger",
-      "x": 33,
-      "y": 37,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 32,
-      "y": 37,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
-      "x": 31,
-      "y": 37,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
-    },
-    {
-      "type": "trigger",
       "x": 30,
-      "y": 37,
+      "y": 33,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRAINER_FLAGS_START+TRAINER_BROTHER_6_ROUTE20",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route20_BrotherTrigger5"
     },
     {
       "type": "trigger",
       "x": 29,
-      "y": 37,
+      "y": 33,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "TRAINER_FLAGS_START+TRAINER_BROTHER_6_ROUTE20",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Route20_BrotherTrigger4"
+    },
+    {
+      "type": "trigger",
+      "x": 28,
+      "y": 33,
+      "elevation": 0,
+      "var": "TRAINER_FLAGS_START+TRAINER_BROTHER_6_ROUTE20",
+      "var_value": "0",
+      "script": "Route20_BrotherTrigger3"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 34,
+      "elevation": 0,
+      "var": "TRAINER_FLAGS_START+TRAINER_BROTHER_6_ROUTE20",
+      "var_value": "0",
+      "script": "Route20_BrotherTrigger2"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 35,
+      "elevation": 0,
+      "var": "TRAINER_FLAGS_START+TRAINER_BROTHER_6_ROUTE20",
+      "var_value": "0",
+      "script": "Route20_BrotherTrigger1"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 33,
+      "elevation": 0,
+      "var": "TRAINER_FLAGS_START+TRAINER_BROTHER_6_ROUTE20",
+      "var_value": "0",
+      "script": "Route20_BrotherTrigger6"
     }
   ],
   "bg_events": [

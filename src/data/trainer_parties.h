@@ -352,6 +352,117 @@ static const struct TrainerMon sParty_Brother5_Charmander[] = {
     }
 };
 
+static const struct TrainerMon sParty_Brother6_Squirtle[] = {
+    {
+    .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+    .lvl = 51,
+    .species = SPECIES_URSARING,
+    .moves = {MOVE_REST, MOVE_SNORE, MOVE_SLASH, MOVE_SHADOW_CLAW},
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+    .lvl = 50,
+    .species = SPECIES_ARCANINE,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_EXTREME_SPEED, MOVE_CRUNCH, MOVE_FIRE_FANG, MOVE_REVERSAL},
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+    .lvl = 52,
+    .species = SPECIES_ROSERADE,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_TOXIC, MOVE_LEECH_SEED, MOVE_GIGA_DRAIN, MOVE_GRASS_WHISTLE},
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+    .lvl = 52,
+    .species = SPECIES_BRAVIARY,
+    .moves = {MOVE_SUPERPOWER, MOVE_ESPER_WING, MOVE_AIR_SLASH, MOVE_WHIRLWIND}
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+    .lvl = 54,
+    .species = SPECIES_BLASTOISE,
+    .nature = NATURE_DOCILE,
+    .moves = {MOVE_FLASH_CANNON, MOVE_WATER_PULSE, MOVE_HYDRO_PUMP, MOVE_ICY_WIND},
+    .heldItem = ITEM_BLASTOISINITE,
+    }
+};
+
+static const struct TrainerMon sParty_Brother6_Bulbasaur[] = {
+    {
+    .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+    .lvl = 51,
+    .species = SPECIES_URSARING,
+    .moves = {MOVE_REST, MOVE_SNORE, MOVE_SLASH, MOVE_SHADOW_CLAW},
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+    .lvl = 50,
+    .species = SPECIES_MUDSDALE,
+    .nature = NATURE_NAIVE,
+    .moves = {MOVE_HEAVY_SLAM, MOVE_EARTHQUAKE, MOVE_DOUBLE_KICK, MOVE_IRON_HEAD},
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+    .lvl = 52,
+    .species = SPECIES_ARCANINE,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_EXTREME_SPEED, MOVE_CRUNCH, MOVE_FIRE_FANG, MOVE_REVERSAL},
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+    .lvl = 52,
+    .species = SPECIES_BRAVIARY,
+    .moves = {MOVE_SUPERPOWER, MOVE_ESPER_WING, MOVE_AIR_SLASH, MOVE_WHIRLWIND}
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+    .lvl = 54,
+    .species = SPECIES_VENUSAUR,
+    .nature = NATURE_HASTY,
+    .moves = {MOVE_LEECH_SEED, MOVE_SLEEP_POWDER, MOVE_STRENGTH, MOVE_PETAL_BLIZZARD},
+    .heldItem = ITEM_VENUSAURITE,
+    }
+};
+
+static const struct TrainerMon sParty_Brother6_Charmander[] = {
+    {
+    .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+    .lvl = 51,
+    .species = SPECIES_URSARING,
+    .moves = {MOVE_REST, MOVE_SNORE, MOVE_SLASH, MOVE_SHADOW_CLAW},
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+    .lvl = 50,
+    .species = SPECIES_ROSERADE,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_TOXIC, MOVE_LEECH_SEED, MOVE_GIGA_DRAIN, MOVE_GRASS_WHISTLE},
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+    .lvl = 52,
+    .species = SPECIES_MUDSDALE,
+    .nature = NATURE_NAIVE,
+    .moves = {MOVE_HEAVY_SLAM, MOVE_EARTHQUAKE, MOVE_DOUBLE_KICK, MOVE_IRON_HEAD},
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+    .lvl = 52,
+    .species = SPECIES_BRAVIARY,
+    .moves = {MOVE_SUPERPOWER, MOVE_ESPER_WING, MOVE_AIR_SLASH, MOVE_WHIRLWIND}
+    },
+    {
+    .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+    .lvl = 54,
+    .species = SPECIES_CHARIZARD,
+    .nature = NATURE_DOCILE,
+    .moves = {MOVE_AIR_SLASH, MOVE_DRAGON_CLAW, MOVE_FLAMETHROWER, MOVE_SOLAR_BEAM},
+    .heldItem = ITEM_CHARIZARDITE_Y,
+    }
+};
+
 static const struct TrainerMon sParty_GruntRusturfTunnel[] = {
     {
     .lvl = 3,

@@ -66,7 +66,7 @@ extern const struct StatFractions gAccuracyStageRatios[];
 
 static inline const u8 GetTrainerBpCapFromId(u16 trainerId)
 {
-    return gTrainers[SanitizeTrainerId(trainerId)]->extendedBpCap;
+    return gTrainers[1][SanitizeTrainerId(trainerId)].extendedBpCap;
 }
 
 #endif // GUARD_BATTLE_SCRIPT_COMMANDS_H
