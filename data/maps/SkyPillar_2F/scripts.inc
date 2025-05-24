@@ -391,9 +391,9 @@ MakeNewTeam_6:
 
 MakeNewTeam_7:
 	switch VAR_STARTER_MON
-	case 0, MakeNewTeam_19
-	case 1, MakeNewTeam_20
-	case 2, MakeNewTeam_21
+	case SPECIES_ROWLET, MakeNewTeam_19
+	case SPECIES_TORCHIC, MakeNewTeam_20
+	case SPECIES_PIPLUP, MakeNewTeam_21
 	goto MakeNewTeam_1
 
 MakeNewTeam_10:
@@ -417,9 +417,9 @@ MakeNewTeam_13:
 
 MakeNewTeam_14:
 	switch VAR_STARTER_MON
-	case 0, MakeNewTeam_33
-	case 1, MakeNewTeam_34
-	case 2, MakeNewTeam_35
+	case SPECIES_ROWLET, MakeNewTeam_33
+	case SPECIES_TORCHIC, MakeNewTeam_34
+	case SPECIES_PIPLUP, MakeNewTeam_35
 	goto MakeNewTeam_8
 
 MakeNewTeam_15:
@@ -459,9 +459,9 @@ MakeNewTeam_27:
 
 MakeNewTeam_28:
 	switch VAR_STARTER_MON
-	case 0, MakeNewTeam_43
-	case 1, MakeNewTeam_44
-	case 2, MakeNewTeam_45
+	case SPECIES_ROWLET, MakeNewTeam_43
+	case SPECIES_TORCHIC, MakeNewTeam_44
+	case SPECIES_PIPLUP, MakeNewTeam_45
 	goto MakeNewTeam_22
 
 MakeNewTeam_29:
@@ -676,9 +676,9 @@ RivalFirstPokemon_6:
 RivalFirstPokemon_7:
 	setvar VAR_FIRST_MON, 4
 	switch VAR_STARTER_MON
-	case 0, RivalFirstPokemon_12
-	case 1, RivalFirstPokemon_13
-	case 2, RivalFirstPokemon_14
+	case SPECIES_ROWLET, RivalFirstPokemon_12
+	case SPECIES_TORCHIC, RivalFirstPokemon_13
+	case SPECIES_PIPLUP, RivalFirstPokemon_14
 	goto RivalFirstPokemon_1
 
 RivalFirstPokemon_8:
@@ -739,9 +739,9 @@ RivalSecondPokemon_6:
 RivalSecondPokemon_7:
 	setvar VAR_SECOND_MON, 4
 	switch VAR_STARTER_MON
-	case 0, RivalSecondPokemon_15
-	case 1, RivalSecondPokemon_16
-	case 2, RivalSecondPokemon_17
+	case SPECIES_ROWLET, RivalSecondPokemon_15
+	case SPECIES_TORCHIC, RivalSecondPokemon_16
+	case SPECIES_PIPLUP, RivalSecondPokemon_17
 	goto RivalSecondPokemon_1
 
 RivalSecondPokemon_9:
@@ -826,9 +826,9 @@ RivalThirdPokemon_6:
 RivalThirdPokemon_7:
 	setvar VAR_THIRD_MON, 4
 	switch VAR_STARTER_MON
-	case 0, RivalThirdPokemon_17
-	case 1, RivalThirdPokemon_18
-	case 2, RivalThirdPokemon_19
+	case SPECIES_ROWLET, RivalThirdPokemon_17
+	case SPECIES_TORCHIC, RivalThirdPokemon_18
+	case SPECIES_PIPLUP, RivalThirdPokemon_19
 	goto RivalThirdPokemon_1
 
 RivalThirdPokemon_9:
@@ -899,9 +899,9 @@ DynMultiPartner_11:
 	dynmultipush DynMultiPartner_Text_9, 3
 DynMultiPartner_27:
 	switch VAR_STARTER_MON
-	case 0, DynMultiPartner_35
-	case 1, DynMultiPartner_36
-	case 2, DynMultiPartner_37
+	case SPECIES_ROWLET, DynMultiPartner_35
+	case SPECIES_TORCHIC, DynMultiPartner_36
+	case SPECIES_PIPLUP, DynMultiPartner_37
 DynMultiPartner_33:
 	return
 

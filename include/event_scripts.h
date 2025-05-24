@@ -596,6 +596,8 @@ extern const u8 EventScript_FallDownHoleMtPyre[];
 extern const u8 FollowerSpottedAnItemNearby[];
 extern const u8 Update3[];
 extern const u8 EventScript_CutGrassSeedDrop[];
+extern const u8 UnstuckPlayer[];
+extern const u8 Debug_Script_8[];
 
 // Secret Base
 extern const u8 SecretBase_EventScript_PC[];

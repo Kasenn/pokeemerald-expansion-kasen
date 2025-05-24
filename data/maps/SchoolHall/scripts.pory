@@ -23,7 +23,7 @@ script SchoolOldMan{
 script SchoolTeach{
     lock
     faceplayer
-    if(!defeated(TRAINER_ARCHIE) || (!defeated(TRAINER_LEAH)) || (!defeated(TRAINER_DAISY)) || (!defeated(TRAINER_ROSE_1))){
+    if(!defeated(TRAINER_SCHOOLHALL_1) || (!defeated(TRAINER_SCHOOLHALL_2)) || (!defeated(TRAINER_SCHOOLHALL_3)) || (!defeated(TRAINER_SCHOOLHALL_4))){
         msgbox("The students in this class room are\npracticing all sorts of strategies.\pIf you can defeat them all,\nI will give you a prize.", MSGBOX_DEFAULT)
         waitmessage
         closemessage
@@ -50,10 +50,10 @@ script SchoolTeach{
 script SchoolHallGirl3{
     lock
     faceplayer
-    if(!defeated(TRAINER_ARCHIE)){
+    if(!defeated(TRAINER_SCHOOLHALL_1)){
         msgbox("I'm studying Baton Pass strategies.\nWould you like to have a battle?", MSGBOX_YESNO)
         if(var(VAR_RESULT) == YES){
-            trainerbattle_no_intro(TRAINER_ARCHIE, SchoolHallGirl3Defeated)
+            trainerbattle_no_intro(TRAINER_SCHOOLHALL_1, SchoolHallGirl3Defeated)
             release
             end
         }
@@ -75,10 +75,10 @@ script SchoolHallGirl3{
 script SchoolHallKidM{
     lock
     faceplayer
-    if(!defeated(TRAINER_LEAH)){
+    if(!defeated(TRAINER_SCHOOLHALL_2)){
         msgbox("I'm studying Toxic strategies.\nWould you like to have a battle?", MSGBOX_YESNO)
         if(var(VAR_RESULT) == YES){
-            trainerbattle_no_intro(TRAINER_LEAH, SchoolHallKidMDefeated)
+            trainerbattle_no_intro(TRAINER_SCHOOLHALL_2, SchoolHallKidMDefeated)
             release
             end
         }
@@ -100,10 +100,10 @@ script SchoolHallKidM{
 script SchoolHallBoy2{
     lock
     faceplayer
-    if(!defeated(TRAINER_DAISY)){
+    if(!defeated(TRAINER_SCHOOLHALL_3)){
         msgbox("I'm studying Last Resort strategies.\nWould you like to have a battle?", MSGBOX_YESNO)
         if(var(VAR_RESULT) == YES){
-            trainerbattle_no_intro(TRAINER_DAISY, SchoolHallBoy2Defeated)
+            trainerbattle_no_intro(TRAINER_SCHOOLHALL_3, SchoolHallBoy2Defeated)
             release
             end
         }
@@ -125,10 +125,10 @@ script SchoolHallBoy2{
 script SchoolHallGirl2{
     lock
     faceplayer
-    if(!defeated(TRAINER_ROSE_1)){
+    if(!defeated(TRAINER_SCHOOLHALL_4)){
         msgbox("I'm studying Toxic Heal strategies.\nWould you like to have a battle?", MSGBOX_YESNO)
         if(var(VAR_RESULT) == YES){
-            trainerbattle_no_intro(TRAINER_ROSE_1, SchoolHallGirl2Defeated)
+            trainerbattle_no_intro(TRAINER_SCHOOLHALL_4, SchoolHallGirl2Defeated)
             release
             end
         }

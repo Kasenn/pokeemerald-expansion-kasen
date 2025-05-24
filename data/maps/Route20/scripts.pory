@@ -96,3 +96,8 @@ text Route20_BrotherLost{
 text Route20_BrotherPostBat{
     "That was great"
 }
+
+script Mirrortestnpc{
+    trainerbattle_single(TRAINER_CRISSY, "Saw you through the mirror!", "wip")
+    msgbox("wip", MSGBOX_AUTOCLOSE)
+}

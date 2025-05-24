@@ -33,6 +33,7 @@ Shoreslate_House3_1F_BlackBelt_18:
 Shoreslate_House3_1F_BlackBelt_25:
 	giveitem ITEM_LUCARIONITE
 	waitmessage
+	setflag FLAG_OBTAINED_LUCARIONITE
 	waitse
 	msgbox LucarioniteGet, MSGBOX_NPC
 	goto_if_set FLAG_Q15_SHORESLATE_TOUGHGUY_START, Shoreslate_House3_1F_BlackBelt_29

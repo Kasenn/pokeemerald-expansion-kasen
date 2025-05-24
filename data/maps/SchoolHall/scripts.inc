@@ -25,13 +25,13 @@ SchoolOldMan::
 SchoolTeach::
 	lock
 	faceplayer
-	checktrainerflag TRAINER_ARCHIE
+	checktrainerflag TRAINER_SCHOOLHALL_1
 	goto_if 0, SchoolTeach_1
-	checktrainerflag TRAINER_LEAH
+	checktrainerflag TRAINER_SCHOOLHALL_2
 	goto_if 0, SchoolTeach_1
-	checktrainerflag TRAINER_DAISY
+	checktrainerflag TRAINER_SCHOOLHALL_3
 	goto_if 0, SchoolTeach_1
-	checktrainerflag TRAINER_ROSE_1
+	checktrainerflag TRAINER_SCHOOLHALL_4
 	goto_if 0, SchoolTeach_1
 	checkitem ITEM_TM_FALSE_SWIPE
 	compare VAR_RESULT, TRUE
@@ -61,7 +61,7 @@ SchoolTeach_2:
 SchoolHallGirl3::
 	lock
 	faceplayer
-	checktrainerflag TRAINER_ARCHIE
+	checktrainerflag TRAINER_SCHOOLHALL_1
 	goto_if 0, SchoolHallGirl3_1
 	msgbox SchoolHallGirl3_Text_1, MSGBOX_NPC
 	waitmessage
@@ -78,7 +78,7 @@ SchoolHallGirl3_1:
 	end
 
 SchoolHallGirl3_4:
-	trainerbattle_no_intro TRAINER_ARCHIE, SchoolHallGirl3Defeated
+	trainerbattle_no_intro TRAINER_SCHOOLHALL_1, SchoolHallGirl3Defeated
 	release
 	end
 
@@ -86,7 +86,7 @@ SchoolHallGirl3_4:
 SchoolHallKidM::
 	lock
 	faceplayer
-	checktrainerflag TRAINER_LEAH
+	checktrainerflag TRAINER_SCHOOLHALL_2
 	goto_if 0, SchoolHallKidM_1
 	msgbox SchoolHallKidM_Text_1, MSGBOX_NPC
 	waitmessage
@@ -103,7 +103,7 @@ SchoolHallKidM_1:
 	end
 
 SchoolHallKidM_4:
-	trainerbattle_no_intro TRAINER_LEAH, SchoolHallKidMDefeated
+	trainerbattle_no_intro TRAINER_SCHOOLHALL_2, SchoolHallKidMDefeated
 	release
 	end
 
@@ -111,7 +111,7 @@ SchoolHallKidM_4:
 SchoolHallBoy2::
 	lock
 	faceplayer
-	checktrainerflag TRAINER_DAISY
+	checktrainerflag TRAINER_SCHOOLHALL_3
 	goto_if 0, SchoolHallBoy2_1
 	msgbox SchoolHallBoy2_Text_1, MSGBOX_NPC
 	waitmessage
@@ -128,7 +128,7 @@ SchoolHallBoy2_1:
 	end
 
 SchoolHallBoy2_4:
-	trainerbattle_no_intro TRAINER_DAISY, SchoolHallBoy2Defeated
+	trainerbattle_no_intro TRAINER_SCHOOLHALL_3, SchoolHallBoy2Defeated
 	release
 	end
 
@@ -136,7 +136,7 @@ SchoolHallBoy2_4:
 SchoolHallGirl2::
 	lock
 	faceplayer
-	checktrainerflag TRAINER_ROSE_1
+	checktrainerflag TRAINER_SCHOOLHALL_4
 	goto_if 0, SchoolHallGirl2_1
 	msgbox SchoolHallGirl2_Text_1, MSGBOX_NPC
 	waitmessage
@@ -153,7 +153,7 @@ SchoolHallGirl2_1:
 	end
 
 SchoolHallGirl2_4:
-	trainerbattle_no_intro TRAINER_ROSE_1, SchoolHallGirl2Defeated
+	trainerbattle_no_intro TRAINER_SCHOOLHALL_4, SchoolHallGirl2Defeated
 	release
 	end
 

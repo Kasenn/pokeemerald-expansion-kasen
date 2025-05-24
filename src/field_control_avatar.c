@@ -269,7 +269,10 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     {
         PlaySE(SE_WIN_OPEN);
         FreezeObjectEvents();
-        Debug_ShowMainMenu();
+        if (FlagGet(FLAG_ENABLE_DEBUG))
+            Debug_ShowMainMenu();
+        else
+            Debug_ShowMainMenuLimited();
         return TRUE;
     }
 #endif
@@ -278,7 +281,10 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     {
         PlaySE(SE_WIN_OPEN);
         FreezeObjectEvents();
-        Debug_ShowMainMenu();
+        if (FlagGet(FLAG_ENABLE_DEBUG))
+            Debug_ShowMainMenu();
+        else
+            Debug_ShowMainMenuLimited();
         return TRUE;
     }
 
@@ -822,200 +828,6 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
         {
             ScriptContext_SetupScript(MossdeepCity_SpaceCenter_2F_EventScript_RivalRayquazaCall);
             return TRUE;
-        }
-        if (VarGet(VAR_DEBUG) == 2)
-        {
-            ScriptContext_SetupScript(Update3);
-            return TRUE;
-        }
-        if (VarGet(VAR_DEBUG) == 3)
-        {
-            switch (VarGet(VAR_STARTER_MON))
-            {
-                case 0:
-                    VarSet(VAR_STARTER_MON, SPECIES_ROWLET);
-                    break;
-                case 1:
-                    VarSet(VAR_STARTER_MON, SPECIES_TORCHIC);
-                    break;
-                case 2:
-                    VarSet(VAR_STARTER_MON, SPECIES_PIPLUP);
-                    break;
-            }
-            if (HasTrainerBeenFought(TRAINER_BROTHER_2_ROUTE28)){
-                ClearTrainerFlag(TRAINER_BROTHER_2_ROUTE28);
-                SetTrainerFlag(TRAINER_BROTHER_1_PEARLWOOD);
-            }
-            if (HasTrainerBeenFought(TRAINER_BROTHER_3_ROUTE28)){
-                ClearTrainerFlag(TRAINER_BROTHER_3_ROUTE28);
-                SetTrainerFlag(TRAINER_BROTHER_1_PEARLWOOD);
-            }
-            ///
-            if (HasTrainerBeenFought(TRAINER_BROTHER_4_ROUTE28)){
-                ClearTrainerFlag(TRAINER_BROTHER_4_ROUTE28);
-                SetTrainerFlag(TRAINER_BROTHER_2_ROUTE28);
-            }
-            if (HasTrainerBeenFought(TRAINER_BROTHER_5_FISHINGVILLAGE)){
-                ClearTrainerFlag(TRAINER_BROTHER_5_FISHINGVILLAGE);
-                SetTrainerFlag(TRAINER_BROTHER_2_ROUTE28);
-            }
-            if (HasTrainerBeenFought(TRAINER_BROTHER_6_ROUTE20)){
-                ClearTrainerFlag(TRAINER_BROTHER_6_ROUTE20);
-                SetTrainerFlag(TRAINER_BROTHER_2_ROUTE28);
-            }
-            ///
-            if (HasTrainerBeenFought(TRAINER_UNUSED_7_)){
-                ClearTrainerFlag(TRAINER_UNUSED_7_);
-                SetTrainerFlag(TRAINER_BROTHER_3_ROUTE28);
-            }
-            if (HasTrainerBeenFought(TRAINER_UNUSED_8_)){
-                ClearTrainerFlag(TRAINER_UNUSED_8_);
-                SetTrainerFlag(TRAINER_BROTHER_3_ROUTE28);
-            }
-            if (HasTrainerBeenFought(TRAINER_UNUSED_9_)){
-                ClearTrainerFlag(TRAINER_UNUSED_9_);
-                SetTrainerFlag(TRAINER_BROTHER_3_ROUTE28);
-            }
-            ///
-            if (HasTrainerBeenFought(TRAINER_UNUSED_10_)){
-                ClearTrainerFlag(TRAINER_UNUSED_10_);
-                SetTrainerFlag(TRAINER_BROTHER_4_ROUTE28);
-            }
-            if (HasTrainerBeenFought(TRAINER_UNUSED_11_)){
-                ClearTrainerFlag(TRAINER_UNUSED_11_);
-                SetTrainerFlag(TRAINER_BROTHER_4_ROUTE28);
-            }
-            if (HasTrainerBeenFought(TRAINER_UNUSED_12_)){
-                ClearTrainerFlag(TRAINER_UNUSED_12_);
-                SetTrainerFlag(TRAINER_BROTHER_4_ROUTE28);
-            }
-            ///
-            if (HasTrainerBeenFought(TRAINER_UNUSED_13_)){
-                ClearTrainerFlag(TRAINER_UNUSED_13_);
-                SetTrainerFlag(TRAINER_BROTHER_5_FISHINGVILLAGE);
-            }
-            if (HasTrainerBeenFought(TRAINER_UNUSED_14_)){
-                ClearTrainerFlag(TRAINER_UNUSED_14_);
-                SetTrainerFlag(TRAINER_BROTHER_5_FISHINGVILLAGE);
-            }
-            if (HasTrainerBeenFought(TRAINER_UNUSED_15_)){
-                ClearTrainerFlag(TRAINER_UNUSED_15_);
-                SetTrainerFlag(TRAINER_BROTHER_5_FISHINGVILLAGE);
-            }
-            ///
-            if (HasTrainerBeenFought(TRAINER_BRENDAN_ROUTE_11_ANGRY)){
-                ClearTrainerFlag(TRAINER_BRENDAN_ROUTE_11_ANGRY);
-                SetTrainerFlag(TRAINER_BRENDAN_PRIMROSE_MEADOW);
-            }
-            if (HasTrainerBeenFought(TRAINER_UNUSED_526_)){
-                ClearTrainerFlag(TRAINER_UNUSED_526_);
-                SetTrainerFlag(TRAINER_BRENDAN_PRIMROSE_MEADOW);
-            }
-            if (HasTrainerBeenFought(TRAINER_MAY_ROUTE_11_ANGRY)){
-                ClearTrainerFlag(TRAINER_MAY_ROUTE_11_ANGRY);
-                SetTrainerFlag(TRAINER_MAY_PRIMROSE_MEADOW);
-            }
-            if (HasTrainerBeenFought(TRAINER_UNUSED_535_)){
-                ClearTrainerFlag(TRAINER_UNUSED_535_);
-                SetTrainerFlag(TRAINER_MAY_PRIMROSE_MEADOW);
-            }
-            ///
-            if (HasTrainerBeenFought(TRAINER_BRENDAN_BASALEK_TOWN)){
-                ClearTrainerFlag(TRAINER_BRENDAN_BASALEK_TOWN);
-                SetTrainerFlag(TRAINER_BRENDAN_CORALGROVE_ELEVATOR);
-            }
-            if (HasTrainerBeenFought(TRAINER_UNUSED_527_)){
-                ClearTrainerFlag(TRAINER_UNUSED_527_);
-                SetTrainerFlag(TRAINER_BRENDAN_CORALGROVE_ELEVATOR);
-            }
-            if (HasTrainerBeenFought(TRAINER_MAY_BASALEK_TOWN)){
-                ClearTrainerFlag(TRAINER_MAY_BASALEK_TOWN);
-                SetTrainerFlag(TRAINER_MAY_CORALGROVE_ELEVATOR);
-            }
-            if (HasTrainerBeenFought(TRAINER_UNUSED_536_)){
-                ClearTrainerFlag(TRAINER_UNUSED_536_);
-                SetTrainerFlag(TRAINER_MAY_CORALGROVE_ELEVATOR);
-            }
-            ///
-            if (HasTrainerBeenFought(TRAINER_UNUSED_234_)){
-                ClearTrainerFlag(TRAINER_UNUSED_234_);
-                SetTrainerFlag(TRAINER_MAY_ROUTE_11_ANGRY);
-            }
-            if (HasTrainerBeenFought(TRAINER_UNUSED_235_)){
-                ClearTrainerFlag(TRAINER_UNUSED_235_);
-                SetTrainerFlag(TRAINER_MAY_ROUTE_11_ANGRY);
-            }
-            if (HasTrainerBeenFought(TRAINER_UNUSED_236_)){
-                ClearTrainerFlag(TRAINER_UNUSED_236_);
-                SetTrainerFlag(TRAINER_MAY_ROUTE_11_ANGRY);
-            }
-            ///
-            if (HasTrainerBeenFought(TRAINER_UNUSED_228_)){
-                ClearTrainerFlag(TRAINER_UNUSED_228_);
-                SetTrainerFlag(TRAINER_BRENDAN_ROUTE_11_ANGRY);
-            }
-            if (HasTrainerBeenFought(TRAINER_UNUSED_229_)){
-                ClearTrainerFlag(TRAINER_UNUSED_229_);
-                SetTrainerFlag(TRAINER_BRENDAN_ROUTE_11_ANGRY);
-            }
-            if (HasTrainerBeenFought(TRAINER_UNUSED_230_)){
-                ClearTrainerFlag(TRAINER_UNUSED_230_);
-                SetTrainerFlag(TRAINER_BRENDAN_ROUTE_11_ANGRY);
-            }
-            ///
-            if (HasTrainerBeenFought(TRAINER_UNUSED_231_)){
-                ClearTrainerFlag(TRAINER_UNUSED_231_);
-                SetTrainerFlag(TRAINER_MAY_ROUTE_11_NORMAL);
-            }
-            if (HasTrainerBeenFought(TRAINER_UNUSED_232_)){
-                ClearTrainerFlag(TRAINER_UNUSED_232_);
-                SetTrainerFlag(TRAINER_MAY_ROUTE_11_NORMAL);
-            }
-            if (HasTrainerBeenFought(TRAINER_UNUSED_233_)){
-                ClearTrainerFlag(TRAINER_UNUSED_233_);
-                SetTrainerFlag(TRAINER_MAY_ROUTE_11_NORMAL);
-            }
-            ///
-            if (HasTrainerBeenFought(TRAINER_UNUSED_225_)){
-                ClearTrainerFlag(TRAINER_UNUSED_225_);
-                SetTrainerFlag(TRAINER_BRENDAN_ROUTE_11_NORMAL);
-            }
-            if (HasTrainerBeenFought(TRAINER_UNUSED_226_)){
-                ClearTrainerFlag(TRAINER_UNUSED_226_);
-                SetTrainerFlag(TRAINER_BRENDAN_ROUTE_11_NORMAL);
-            }
-            if (HasTrainerBeenFought(TRAINER_UNUSED_227_)){
-                ClearTrainerFlag(TRAINER_UNUSED_227_);
-                SetTrainerFlag(TRAINER_BRENDAN_ROUTE_11_NORMAL);
-            }
-            ///
-            if (HasTrainerBeenFought(TRAINER_UNUSED_376_)){
-                ClearTrainerFlag(TRAINER_UNUSED_376_);
-                SetTrainerFlag(TRAINER_MAY_BASALEK_TOWN);
-            }
-            if (HasTrainerBeenFought(TRAINER_UNUSED_377_)){
-                ClearTrainerFlag(TRAINER_UNUSED_377_);
-                SetTrainerFlag(TRAINER_MAY_BASALEK_TOWN);
-            }
-            if (HasTrainerBeenFought(TRAINER_UNUSED_378_)){
-                ClearTrainerFlag(TRAINER_UNUSED_378_);
-                SetTrainerFlag(TRAINER_MAY_BASALEK_TOWN);
-            }
-            ///
-            if (HasTrainerBeenFought(TRAINER_UNUSED_379_)){
-                ClearTrainerFlag(TRAINER_UNUSED_379_);
-                SetTrainerFlag(TRAINER_BRENDAN_BASALEK_TOWN);
-            }
-            if (HasTrainerBeenFought(TRAINER_UNUSED_380_)){
-                ClearTrainerFlag(TRAINER_UNUSED_380_);
-                SetTrainerFlag(TRAINER_BRENDAN_BASALEK_TOWN);
-            }
-            if (HasTrainerBeenFought(TRAINER_UNUSED_381_)){
-                ClearTrainerFlag(TRAINER_UNUSED_381_);
-                SetTrainerFlag(TRAINER_BRENDAN_BASALEK_TOWN);
-            }
-
-            VarSet(VAR_DEBUG, 4);
         }
         if (UpdateVsSeekerStepCounter())
         {

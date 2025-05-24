@@ -33,21 +33,21 @@ script SetupRivalPartner{
     if(var(VAR_RESULT) == MALE){
         if(flag(FLAG_RIVAL_COSTUME_CHANGE)){
             switch(var(VAR_STARTER_MON)){
-                case 0:
+                case SPECIES_ROWLET:
                     setvar(VAR_TOWER_PARTNER, 0)
-                case 1:
+                case SPECIES_TORCHIC:
                     setvar(VAR_TOWER_PARTNER, 1)
-                case 2:
+                case SPECIES_PIPLUP:
                     setvar(VAR_TOWER_PARTNER, 2)
             }
         }
         else{
             switch(var(VAR_STARTER_MON)){
-                case 0:
+                case SPECIES_ROWLET:
                     setvar(VAR_TOWER_PARTNER, 3)
-                case 1:
+                case SPECIES_TORCHIC:
                     setvar(VAR_TOWER_PARTNER, 4)
-                case 2:
+                case SPECIES_PIPLUP:
                     setvar(VAR_TOWER_PARTNER, 5)
             }
         }
@@ -55,21 +55,21 @@ script SetupRivalPartner{
     else{
         if(flag(FLAG_RIVAL_COSTUME_CHANGE)){
             switch(var(VAR_STARTER_MON)){
-                case 0:
+                case SPECIES_ROWLET:
                     setvar(VAR_TOWER_PARTNER, 6)
-                case 1:
+                case SPECIES_TORCHIC:
                     setvar(VAR_TOWER_PARTNER, 7)
-                case 2:
+                case SPECIES_PIPLUP:
                     setvar(VAR_TOWER_PARTNER, 8)
             }
         }
         else{
             switch(var(VAR_STARTER_MON)){
-                case 0:
+                case SPECIES_ROWLET:
                     setvar(VAR_TOWER_PARTNER, 9)
-                case 1:
+                case SPECIES_TORCHIC:
                     setvar(VAR_TOWER_PARTNER, 10)
-                case 2:
+                case SPECIES_PIPLUP:
                     setvar(VAR_TOWER_PARTNER, 11)
             }
         }

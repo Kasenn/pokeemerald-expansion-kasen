@@ -315,11 +315,11 @@ script MakeNewTeam{
             bufferspeciesname(STR_VAR_1, SPECIES_CRUSTLE)
         case 4:
             switch(var(VAR_STARTER_MON)){
-                case 0:
+                case SPECIES_ROWLET:
                     bufferspeciesname(STR_VAR_1, SPECIES_BLAZIKEN)
-                case 1:
+                case SPECIES_TORCHIC:
                     bufferspeciesname(STR_VAR_1, SPECIES_EMPOLEON)
-                case 2:
+                case SPECIES_PIPLUP:
                     bufferspeciesname(STR_VAR_1, SPECIES_DECIDUEYE)
             }
     }
@@ -340,11 +340,11 @@ script MakeNewTeam{
             bufferspeciesname(STR_VAR_2, SPECIES_CRUSTLE)
         case 4:
             switch(var(VAR_STARTER_MON)){
-                case 0:
+                case SPECIES_ROWLET:
                     bufferspeciesname(STR_VAR_2, SPECIES_BLAZIKEN)
-                case 1:
+                case SPECIES_TORCHIC:
                     bufferspeciesname(STR_VAR_2, SPECIES_EMPOLEON)
-                case 2:
+                case SPECIES_PIPLUP:
                     bufferspeciesname(STR_VAR_2, SPECIES_DECIDUEYE)
             }
     }
@@ -365,11 +365,11 @@ script MakeNewTeam{
             bufferspeciesname(STR_VAR_3, SPECIES_CRUSTLE)
         case 4:
             switch(var(VAR_STARTER_MON)){
-                case 0:
+                case SPECIES_ROWLET:
                     bufferspeciesname(STR_VAR_3, SPECIES_BLAZIKEN)
-                case 1:
+                case SPECIES_TORCHIC:
                     bufferspeciesname(STR_VAR_3, SPECIES_EMPOLEON)
-                case 2:
+                case SPECIES_PIPLUP:
                     bufferspeciesname(STR_VAR_3, SPECIES_DECIDUEYE)
             }
     }
@@ -549,11 +549,11 @@ script RivalFirstPokemon{
         case 4:
             setvar(VAR_FIRST_MON, 4)
             switch(var(VAR_STARTER_MON)){
-                case 0:
+                case SPECIES_ROWLET:
                     bufferspeciesname(STR_VAR_1, SPECIES_BLAZIKEN)
-                case 1:
+                case SPECIES_TORCHIC:
                     bufferspeciesname(STR_VAR_1, SPECIES_EMPOLEON)
-                case 2:
+                case SPECIES_PIPLUP:
                     bufferspeciesname(STR_VAR_1, SPECIES_DECIDUEYE)
             }
     }
@@ -585,11 +585,11 @@ script RivalSecondPokemon{
         case 4:
             setvar(VAR_SECOND_MON, 4)
             switch(var(VAR_STARTER_MON)){
-                case 0:
+                case SPECIES_ROWLET:
                     bufferspeciesname(STR_VAR_2, SPECIES_BLAZIKEN)
-                case 1:
+                case SPECIES_TORCHIC:
                     bufferspeciesname(STR_VAR_2, SPECIES_EMPOLEON)
-                case 2:
+                case SPECIES_PIPLUP:
                     bufferspeciesname(STR_VAR_2, SPECIES_DECIDUEYE)
             }
     }
@@ -639,11 +639,11 @@ script RivalThirdPokemon{
         case 4:
             setvar(VAR_THIRD_MON, 4)
             switch(var(VAR_STARTER_MON)){
-                case 0:
+                case SPECIES_ROWLET:
                     bufferspeciesname(STR_VAR_3, SPECIES_BLAZIKEN)
-                case 1:
+                case SPECIES_TORCHIC:
                     bufferspeciesname(STR_VAR_3, SPECIES_EMPOLEON)
-                case 2:
+                case SPECIES_PIPLUP:
                     bufferspeciesname(STR_VAR_3, SPECIES_DECIDUEYE)
             }
     }
@@ -704,21 +704,21 @@ script DynMultiPartner{
         dynmultipush("Crustle", 3)
     }
     switch(var(VAR_STARTER_MON)){
-        case 0:
+        case SPECIES_ROWLET:
             if((var(VAR_FIRST_MON) == 4) || (var(VAR_SECOND_MON) == 4)){
                 dynmultipush("{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}Blaziken", 4)
             }
             else{
                 dynmultipush("Blaziken", 4)
             }
-        case 1:
+        case SPECIES_TORCHIC:
             if((var(VAR_FIRST_MON) == 4) || (var(VAR_SECOND_MON) == 4)){
                 dynmultipush("{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}Empoleon", 4)
             }
             else{
                 dynmultipush("Empoleon", 4)
             }
-        case 2:
+        case SPECIES_PIPLUP:
             if((var(VAR_FIRST_MON) == 4) || (var(VAR_SECOND_MON) == 4)){
                 dynmultipush("{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}Decidueye", 4)
             }

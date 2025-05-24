@@ -163,6 +163,9 @@ static void RunTimeBasedEvents(s16 *data)
     case 0:
         if (gMain.vblankCounter1 & TIME_UPDATE_INTERVAL)
         {
+            // if (gMain.vblankCounter1 % 60 == 0)
+            //     DebugPrintf2("frame %d, task %d", gMain.vblankCounter1, tState);
+
             DoTimeBasedEvents();
             tState++;
         }
@@ -180,6 +183,9 @@ static void Task_RunTimeBasedEvents(u8 taskId)
 
     if (!ArePlayerFieldControlsLocked())
     {
+        // if (gMain.vblankCounter1 % 60 == 0)
+        // DebugPrintf2("frame %d", gMain.vblankCounter1);
+
         RunTimeBasedEvents(data);
         UpdateAmbientCry(&tAmbientCryState, (u16*) &tAmbientCryDelay);
         // DoIdleAnimation(&tIdleState, (u16*) &tIdleDelay);

@@ -75,9 +75,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "FLAG_ZYGARDE_CELL_79",
+      "trainer_sight_or_berry_tree_id": "0",
       "script": "ZygardeCell",
-      "flag": "0"
+      "flag": "FLAG_ZYGARDE_CELL_79"
     }
   ],
   "warp_events": [

@@ -157,9 +157,9 @@ WW_CoolTrainerEligible_5:
 WW_CoolTrainerPostBattle::
 	msgbox WW_CoolTrainerReward
 	switch VAR_STARTER_MON
-	case 0, WW_CoolTrainerPostBattle_3
-	case 1, WW_CoolTrainerPostBattle_4
-	case 2, WW_CoolTrainerPostBattle_5
+	case SPECIES_ROWLET, WW_CoolTrainerPostBattle_3
+	case SPECIES_TORCHIC, WW_CoolTrainerPostBattle_4
+	case SPECIES_PIPLUP, WW_CoolTrainerPostBattle_5
 WW_CoolTrainerPostBattle_1:
 	checkitemspace VAR_TEMP_0
 	compare VAR_RESULT, FALSE

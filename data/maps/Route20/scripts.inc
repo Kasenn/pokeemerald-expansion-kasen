@@ -138,6 +138,12 @@ Route20_BrotherTriggerMain_18:
 	goto Route20_BrotherTriggerMain_14
 
 
+Mirrortestnpc::
+	trainerbattle_single TRAINER_CRISSY, Mirrortestnpc_Text_0, Mirrortestnpc_Text_1
+	msgbox Mirrortestnpc_Text_1, MSGBOX_AUTOCLOSE
+	return
+
+
 Route20_BrotherTriggerMain_Movement_0:
 	walk_in_place_faster_left
 	emote_exclamation_mark
@@ -226,6 +232,12 @@ Route20_BrotherTriggerMain_Movement_11:
 	walk_down
 	walk_down
 	step_end
+
+Mirrortestnpc_Text_0:
+	.string "Saw you through the mirror!$"
+
+Mirrortestnpc_Text_1:
+	.string "wip$"
 
 Route20_BrotherIntro::
 	.string "{BROTHER}: Yo, {PLAYER}!\n"

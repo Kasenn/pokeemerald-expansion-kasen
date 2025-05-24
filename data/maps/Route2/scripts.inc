@@ -36,31 +36,31 @@ Route2_Revive::
 
 
 Route2_Fisher::
-	trainerbattle_single TRAINER_GRUNT_MUSEUM_2, Route2_Text_FisherIntro, Route2_Text_FisherDefeated
+	trainerbattle_single TRAINER_R2_FISHER, Route2_Text_FisherIntro, Route2_Text_FisherDefeated
 	msgbox Route2_Text_FisherPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route2_Lass::
-	trainerbattle_single TRAINER_GRUNT_SPACE_CENTER_1, Route2_Text_LassIntro, Route2_Text_LassDefeated
+	trainerbattle_single TRAINER_R2_LASS, Route2_Text_LassIntro, Route2_Text_LassDefeated
 	msgbox Route2_Text_LassPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route2_BlackBelt::
-	trainerbattle_single TRAINER_GRUNT_MT_PYRE_1, Route2_Text_BlackBeltIntro, Route2_Text_BlackBeltDefeated
+	trainerbattle_single TRAINER_R2_BLACKBELT, Route2_Text_BlackBeltIntro, Route2_Text_BlackBeltDefeated
 	msgbox Route2_Text_BlackBeltPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route2_Youngster::
-	trainerbattle_single TRAINER_GRUNT_MT_PYRE_2, Route2_Text_YoungsterIntro, Route2_Text_YoungsterDefeated
+	trainerbattle_single TRAINER_R2_YOUNGSTER, Route2_Text_YoungsterIntro, Route2_Text_YoungsterDefeated
 	msgbox Route2_Text_YoungsterPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route2_Girl3::
-	trainerbattle_single TRAINER_GRUNT_MT_PYRE_3, Route2_Text_Girl3Intro, Route2_Text_Girl3Defeated
+	trainerbattle_single TRAINER_R2_SCHOOL_KID_F, Route2_Text_Girl3Intro, Route2_Text_Girl3Defeated
 	msgbox Route2_Text_Girl3PostBattle, MSGBOX_AUTOCLOSE
 	end
 

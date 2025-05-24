@@ -584,35 +584,35 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
         .items = {ITEM_POTION},
         .party = TRAINER_PARTY(sParty_GruntMuseum1),
     },
-    [DIFFICULTY_NORMAL][TRAINER_GRUNT_MUSEUM_2] =
+    [DIFFICULTY_NORMAL][TRAINER_R2_FISHER] =
     {
         FISHERMAN_INFO,
         DUMB_AI,
         .trainerName = _("Andrew"),
         .party = TRAINER_PARTY(sParty_GruntMuseum2),
     },
-    [DIFFICULTY_NORMAL][TRAINER_GRUNT_SPACE_CENTER_1] =
+    [DIFFICULTY_NORMAL][TRAINER_R2_LASS] =
     {
         LASS_INFO,
         DUMB_AI,
         .trainerName = _("Tiana"),
         .party = TRAINER_PARTY(sParty_GruntSpaceCenter1),
     },
-    [DIFFICULTY_NORMAL][TRAINER_GRUNT_MT_PYRE_1] =
+    [DIFFICULTY_NORMAL][TRAINER_R2_BLACKBELT] =
     {
         BLACK_BELT_INFO,
         DUMB_AI,
         .trainerName = _("Zander"),
         .party = TRAINER_PARTY(sParty_GruntMtPyre1),
     },
-    [DIFFICULTY_NORMAL][TRAINER_GRUNT_MT_PYRE_2] =
+    [DIFFICULTY_NORMAL][TRAINER_R2_YOUNGSTER] =
     {
         YOUNGSTER_INFO,
         DUMB_AI,
         .trainerName = _("Billy"),
         .party = TRAINER_PARTY(sParty_GruntMtPyre2),
     },
-    [DIFFICULTY_NORMAL][TRAINER_GRUNT_MT_PYRE_3] =
+    [DIFFICULTY_NORMAL][TRAINER_R2_SCHOOL_KID_F] =
     {
         SCHOOL_KID_F_INFO,
         DUMB_AI,
@@ -682,7 +682,7 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
         .party = TRAINER_PARTY(sParty_ShellySeafloorCavern),
     },
 
-    [DIFFICULTY_NORMAL][TRAINER_ARCHIE] =
+    [DIFFICULTY_NORMAL][TRAINER_SCHOOLHALL_1] =
     {
         SCHOOL_KID_F_INFO,
         .trainerName = _("Robin"),
@@ -690,7 +690,7 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
         .party = TRAINER_PARTY(sParty_Archie),
     },
 
-    [DIFFICULTY_NORMAL][TRAINER_LEAH] =
+    [DIFFICULTY_NORMAL][TRAINER_SCHOOLHALL_2] =
     {
         SCHOOL_KID_M_INFO,
         ADVANCED_AI,
@@ -698,7 +698,7 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
         .party = TRAINER_PARTY(sParty_Leah),
     },
 
-    [DIFFICULTY_NORMAL][TRAINER_DAISY] =
+    [DIFFICULTY_NORMAL][TRAINER_SCHOOLHALL_3] =
     {
         SCHOOL_KID_M_INFO,
         ADVANCED_AI,
@@ -706,7 +706,7 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
         .party = TRAINER_PARTY(sParty_Daisy),
     },
 
-    [DIFFICULTY_NORMAL][TRAINER_ROSE_1] =
+    [DIFFICULTY_NORMAL][TRAINER_SCHOOLHALL_4] =
     {
         SCHOOL_KID_F_INFO,
         ADVANCED_AI,
@@ -814,35 +814,35 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
         NURSE_INFO,
         .party = TRAINER_PARTY(sParty_GabbyAndTy2),
     },
-    [DIFFICULTY_NORMAL][TRAINER_GABBY_AND_TY_3] =
+    [DIFFICULTY_NORMAL][TRAINER_R4_HIKER] =
     {
         HIKER_INFO,
         DUMB_AI,
         .trainerName = _("Flint"),
         .party = TRAINER_PARTY(sParty_GabbyAndTy3),
     },
-    [DIFFICULTY_NORMAL][TRAINER_GABBY_AND_TY_4_UNUSED] =
+    [DIFFICULTY_NORMAL][TRAINER_UNUSED_54_] =
     {
         LASS_INFO,
         DUMB_AI,
         .trainerName = _("Sydney"),
         .party = TRAINER_PARTY(sParty_GabbyAndTy4),
     },
-    [DIFFICULTY_NORMAL][TRAINER_GABBY_AND_TY_5] =
+    [DIFFICULTY_NORMAL][TRAINER_R4_POKEMANIAC] =
     {
         POKEMANIAC_INFO,
         DUMB_AI,
         .trainerName = _("Ross"),
         .party = TRAINER_PARTY(sParty_GabbyAndTy5),
     },
-    [DIFFICULTY_NORMAL][TRAINER_GABBY_AND_TY_6] =
+    [DIFFICULTY_NORMAL][TRAINER_R4_BUGCATCHER] =
     {
         BUG_CATCHER_INFO,
         DUMB_AI,
         .trainerName = _("Lewis"),
         .party = TRAINER_PARTY(sParty_GabbyAndTy6),
     },
-    [DIFFICULTY_NORMAL][TRAINER_LOLA_1] =
+    [DIFFICULTY_NORMAL][TRAINER_R4_TWINS] =
     {
         TWINS_INFO,
         DUMB_AI,
@@ -856,70 +856,70 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
         .trainerName = _("Howard"),
         .party = TRAINER_PARTY(sParty_TRAINER_R16_TR1_SWIMMER_M),
     },
-    [DIFFICULTY_NORMAL][TRAINER_GWEN] =
+    [DIFFICULTY_NORMAL][TRAINER_R4_TRIATHLETE] =
     {
         RUNNING_TRIATHLETE_F_INFO,
         DUMB_AI,
         .trainerName = _("Ashley"),
         .party = TRAINER_PARTY(sParty_Gwen),
     },
-    [DIFFICULTY_NORMAL][TRAINER_LOLA_2] =
+    [DIFFICULTY_NORMAL][TRAINER_R4_CAMPER] =
     {
         CAMPER_INFO,
         DUMB_AI,
         .trainerName = _("Vincent"),
         .party = TRAINER_PARTY(sParty_Lola2),
     },
-    [DIFFICULTY_NORMAL][TRAINER_LOLA_3] =
+    [DIFFICULTY_NORMAL][TRAINER_R4_COOL_F] =
     {
         BATTLE_GIRL_INFO,
         DUMB_AI,
         .trainerName = _("Serena"),
         .party = TRAINER_PARTY(sParty_Lola3),
     },
-    [DIFFICULTY_NORMAL][TRAINER_LOLA_4] =
+    [DIFFICULTY_NORMAL][TRAINER_R4_COOL_M] =
     {
         COOLTRAINER_M_INFO,
         ADVANCED_AI,
         .trainerName = _("Marcus"),
         .party = TRAINER_PARTY(sParty_Lola4),
     },
-    [DIFFICULTY_NORMAL][TRAINER_LOLA_5] =
+    [DIFFICULTY_NORMAL][TRAINER_R4_BIRDKEEPER] =
     {
         BIRD_KEEPER_INFO,
         DUMB_AI,
         .trainerName = _("Cole"),
         .party = TRAINER_PARTY(sParty_Lola5),
     },
-    [DIFFICULTY_NORMAL][TRAINER_RICKY_1] =
+    [DIFFICULTY_NORMAL][TRAINER_R4_YOUNGSTER] =
     {
         YOUNGSTER_INFO,
         DUMB_AI,
         .trainerName = _("Zack"),
         .party = TRAINER_PARTY(sParty_Ricky1),
     },
-    [DIFFICULTY_NORMAL][TRAINER_SIMON] =
+    [DIFFICULTY_NORMAL][TRAINER_R4_BIRDKEEPER_2] =
     {
         BIRD_KEEPER_INFO,
         DUMB_AI,
         .trainerName = _("Simon"),
         .party = TRAINER_PARTY(sParty_Simon),
     },
-    [DIFFICULTY_NORMAL][TRAINER_CHARLIE] =
+    [DIFFICULTY_NORMAL][TRAINER_R4_DOUBLE_LASS] =
     {
         LASS_INFO,
         DUMB_AI,
         .trainerName = _("Rose"),
         .party = TRAINER_PARTY(sParty_Charlie),
     },
-    [DIFFICULTY_NORMAL][TRAINER_RICKY_2] =
+    [DIFFICULTY_NORMAL][TRAINER_R4_DOUBLE_YOUNGSTER] =
     {
         YOUNGSTER_INFO,
         DUMB_AI,
         .trainerName = _("Duncan"),
         .party = TRAINER_PARTY(sParty_Ricky2),
     },
-    [DIFFICULTY_NORMAL][TRAINER_RICKY_3] =
+    [DIFFICULTY_NORMAL][TRAINER_R4_TRIATHLETE_2] =
     {
         RUNNING_TRIATHLETE_F_INFO,
         DUMB_AI,

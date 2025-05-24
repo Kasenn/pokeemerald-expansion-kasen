@@ -4544,6 +4544,7 @@ void GetCodeFeedback(void)
 {
     static const u8 sText_SampleCode[] = _("Alttitle");
     static const u8 sText_Betablock[] = _("Betablock");
+    static const u8 sText_EnableDebug[] = _("Debug");
 
     if (!StringCompare(gStringVar2, sText_SampleCode))
     {
@@ -4552,6 +4553,10 @@ void GetCodeFeedback(void)
     else if (!StringCompare(gStringVar2, sText_Betablock))
     {
         FlagToggle(FLAG_BETA_BLOCK);
+    }   
+    else if (!StringCompare(gStringVar2, sText_EnableDebug))
+    {
+        FlagToggle(FLAG_ENABLE_DEBUG);
     }   
     else
         gSpecialVar_Result = 0;

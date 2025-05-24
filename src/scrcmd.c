@@ -3606,6 +3606,12 @@ void ScrCmd_DefeatTrainer(struct ScriptContext *ctx)
     u8 bpCap, battlePoints;
     u32 lastMonLevel = 0;
     u8 trainerMoney = 0;
+    s32 exp = 0;
+    u8 i;
+    u16 xl = 0, l = 0, m = 0, s = 0, xs = 0;
+
+    if (FlagGet(TRAINER_FLAGS_START + trainer))
+        return;
 
     const struct TrainerMon *party = GetTrainerPartyFromId(trainer);
     lastMonLevel = party[GetTrainerPartySizeFromId(trainer) - 1].lvl;
@@ -3629,6 +3635,45 @@ void ScrCmd_DefeatTrainer(struct ScriptContext *ctx)
     AddMoney(&gSaveBlock1Ptr->money, money);
     AddBattlePoints(battlePoints);
     SetTrainerFlag(trainer);
+
+    for (i = 0; i < GetTrainerPartySizeFromId(trainer); i++)
+    {
+        exp += (gSpeciesInfo[party[i].species].expYield * party[i].lvl * 150) / 700;
+    }
+    while (exp >= 30000)
+    {
+        xl++;
+        exp -= 30000;
+    }
+    //
+    while (exp >= 10000)
+    {
+        l++;
+        exp -= 10000;
+    }
+    while (exp >= 3000)
+    {
+        m++;
+        exp -= 3000;
+    }
+    //
+    while (exp >= 800)
+    {
+        s++;
+        exp -= 800;
+    }
+    //
+    while (exp >= 100)
+    {
+        xs++;
+        exp -= 100;
+    }
+
+    AddBagItem(ITEM_EXP_CANDY_XL, xl);
+    AddBagItem(ITEM_EXP_CANDY_L, l);
+    AddBagItem(ITEM_EXP_CANDY_M, m);
+    AddBagItem(ITEM_EXP_CANDY_S, s);
+    AddBagItem(ITEM_EXP_CANDY_XS, xs);
 }
 
 void Script_EndTrainerCanSeeIf(struct ScriptContext *ctx)
@@ -3804,5 +3849,30 @@ void FixGrottoHiddenAbility(void)
                 }
             }
         }
+    }
+}
+
+static u16 BerryTypeToItemId(u16 berry)
+{
+    u16 item = berry - 1;
+
+    if (item > LAST_BERRY_INDEX - FIRST_BERRY_INDEX)
+        return FIRST_BERRY_INDEX;
+    else
+        return berry + FIRST_BERRY_INDEX - 1;
+}
+
+void ScrCmd_checkberrytree(struct ScriptContext *ctx)
+{
+    u8 id = ScriptReadByte(ctx);
+    u8 berry = GetBerryTypeByBerryTreeId(id);;
+    gSpecialVar_Result = FALSE;
+
+    if (gSaveBlock1Ptr->berryTrees[id].stage == BERRY_STAGE_BERRIES)
+    {
+        AddBagItem(BerryTypeToItemId(berry), gSaveBlock1Ptr->berryTrees[id].berryYield);
+        DebugPrintf2("added item %d", BerryTypeToItemId(berry));
+        RemoveBerryTree(id);
+        gSpecialVar_Result = TRUE;
     }
 }

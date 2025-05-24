@@ -468,7 +468,8 @@ script Debug_Script_1{              // Set team level
     dynmultipush("Gym 4 (lvl 38)", 5)
     dynmultipush("Post-Gym 4 (lvl 40)", 6)
     dynmultipush("Gym 5 (lvl 45)", 7)
-    dynmultipush("Cancel", 8)
+    dynmultipush("Gym 6 (lvl 53)", 8)
+    dynmultipush("Cancel", 9)
     dynmultistack(23, 0, FALSE, 5, FALSE, 0, NULL)
 	switch(var(VAR_RESULT)){
         case 0:
@@ -496,7 +497,9 @@ script Debug_Script_1{              // Set team level
             msgbox("Team set to level 45.")
             setpartylevel(45)
         case 8:
-            closemessage
+            msgbox("Team set to level 53.")
+            setpartylevel(53)
+        case 9:
         case MULTI_B_PRESSED:
             closemessage
     }
@@ -504,31 +507,12 @@ script Debug_Script_1{              // Set team level
     end
     }
 script Debug_Script_2{              // 
-    buffernumberstring(STR_VAR_1, VAR_STARTER_MON)
-    msgbox("{STR_VAR_1}")
-    end
+    return
 }
 script Debug_Script_3{              // 
-    setflag(FLAG_LATIAS_ROAMING)
-    setvar(VAR_0x8004, 0)
-    special(InitRoamer)
-    setflag(FLAG_LATIOS_ROAMING)
-    setvar(VAR_0x8004, 1)
-    special(InitRoamer)
-    setseenmon(SPECIES_LATIAS)
-    setseenmon(SPECIES_LATIOS)
     return
 }
 script Debug_Script_4{
-    completequest(FLAG_Q01_PRIMROSE_ORICORIO_COMPLETE)
-    completequest(FLAG_Q02_ELEVATOR_RIVAL_COMPLETE)
-    completequest(FLAG_Q03_AZURETIDE_OLD_WOMAN_COMPLETE)
-    completequest(FLAG_Q04_ALDELEAF_LOST_KEYS_COMPLETE)
-    completequest(FLAG_Q05_ALDELEAF_CURSED_DOLL_COMPLETE)
-    completequest(FLAG_Q06_MUSEUM_SMEARGLE_COMPLETE)
-    completequest(FLAG_Q07_WINDPLUME_VALLEY_COMPLETE)
-    completequest(FLAG_Q08_FLOWER_FIELDS_GRANBULL_COMPLETE)
-    special(ShowJournalPopupRemove)
     return
 }
 script Debug_Script_5{
@@ -544,6 +528,18 @@ script Debug_Script_8{
     special(EnterCode)
     waitstate
     special(GetCodeFeedback)
+    release
+    end
+
+    return
+}
+script Debug_Script_81{
+    special(EnterCode)
+    waitstate
+    special(GetCodeFeedback)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox("I'm sorry, but that's not a code\nI recognize.")
+    }
     release
     end
 
@@ -706,16 +702,16 @@ script ClearRoute2{
     additem(ITEM_PEARL)
     setflag(FLAG_HIDDEN_ITEM_ROUTE2_BIGPEARL)
     additem(ITEM_BIG_PEARL)
-    defeattrainer(TRAINER_GRUNT_MUSEUM_2)
-    defeattrainer(TRAINER_GRUNT_SPACE_CENTER_1)
-    defeattrainer(TRAINER_GRUNT_MT_PYRE_1)
-    defeattrainer(TRAINER_GRUNT_MT_PYRE_2)
-    defeattrainer(TRAINER_GRUNT_MT_PYRE_3)
+    defeattrainer(TRAINER_R2_FISHER)
+    defeattrainer(TRAINER_R2_LASS)
+    defeattrainer(TRAINER_R2_BLACKBELT)
+    defeattrainer(TRAINER_R2_YOUNGSTER)
+    defeattrainer(TRAINER_R2_SCHOOL_KID_F)
     setflag(FLAG_ITEM_ROUTE2_X_ATTACK)
     additem(ITEM_X_ATTACK)
-    setberrytree(BERRY_TREE_ROUTE_102_ORAN,  ITEM_TO_BERRY(ITEM_ORAN_BERRY),  BERRY_STAGE_NO_BERRY)
-	setberrytree(BERRY_TREE_ROUTE_102_PECHA, ITEM_TO_BERRY(ITEM_PECHA_BERRY), BERRY_STAGE_NO_BERRY)
-    setberrytree(BERRY_TREE_ROUTE_103_CHERI_1, ITEM_TO_BERRY(ITEM_CHERI_BERRY), BERRY_STAGE_NO_BERRY)
+    setberrytree(BERRY_TREE_ROUTE_2_ORAN,  ITEM_TO_BERRY(ITEM_ORAN_BERRY),  BERRY_STAGE_NO_BERRY)
+	setberrytree(BERRY_TREE_ROUTE_2_PECHA, ITEM_TO_BERRY(ITEM_PECHA_BERRY), BERRY_STAGE_NO_BERRY)
+    setberrytree(BERRY_TREE_ROUTE_2_CHERI, ITEM_TO_BERRY(ITEM_CHERI_BERRY), BERRY_STAGE_NO_BERRY)
     additem(ITEM_ORAN_BERRY, 2)
     additem(ITEM_CHERI_BERRY, 2)
     additem(ITEM_PECHA_BERRY, 2)
@@ -751,11 +747,11 @@ script ClearWindyWoods{
     defeattrainer(TRAINER_SHELLY_SEAFLOOR_CAVERN)
     setflag(FLAG_WW_COOLTRAINERREWARD)
     switch(var(VAR_STARTER_MON)){
-        case 0:
+        case SPECIES_ROWLET:
             additem(ITEM_MIRACLE_SEED)
-        case 1:
+        case SPECIES_TORCHIC:
             additem(ITEM_CHARCOAL)
-        case 2:
+        case SPECIES_PIPLUP:
             additem(ITEM_MYSTIC_WATER)
     }
     setflag(FLAG_LANDMARK_WINDY_WOODS)
@@ -774,10 +770,10 @@ script ClearCoralgrove{
     additem(ITEM_RARE_CANDY)
     setflag(FLAG_CORAL_GREATBALL)
     additem(ITEM_GREAT_BALL)
-    defeattrainer(TRAINER_ARCHIE)
-    defeattrainer(TRAINER_LEAH)
-    defeattrainer(TRAINER_DAISY)
-    defeattrainer(TRAINER_ROSE_1)
+    defeattrainer(TRAINER_SCHOOLHALL_1)
+    defeattrainer(TRAINER_SCHOOLHALL_2)
+    defeattrainer(TRAINER_SCHOOLHALL_3)
+    defeattrainer(TRAINER_SCHOOLHALL_4)
     additem(ITEM_TM_FALSE_SWIPE)
     defeattrainer(TRAINER_CHIP)
 	defeattrainer(TRAINER_FOSTER)
@@ -848,21 +844,21 @@ script ClearRoute4{
     additem(ITEM_ETHER)
     setflag(FLAG_HIDDEN_ITEM_ROUTE3_SUPERREPEL)
     additem(ITEM_SUPER_REPEL)
-    defeattrainer(TRAINER_GABBY_AND_TY_3)
-    defeattrainer(TRAINER_GABBY_AND_TY_4_UNUSED)
-    defeattrainer(TRAINER_GABBY_AND_TY_5)
-    defeattrainer(TRAINER_GABBY_AND_TY_6)
-    defeattrainer(TRAINER_LOLA_1)
-    defeattrainer(TRAINER_GWEN)
-    defeattrainer(TRAINER_LOLA_2)
-    defeattrainer(TRAINER_LOLA_3)
-    defeattrainer(TRAINER_LOLA_4)
-    defeattrainer(TRAINER_LOLA_5)
-    defeattrainer(TRAINER_RICKY_1)
-    defeattrainer(TRAINER_SIMON)
-    defeattrainer(TRAINER_CHARLIE)
-    defeattrainer(TRAINER_RICKY_2)
-    defeattrainer(TRAINER_RICKY_3)
+    defeattrainer(TRAINER_R4_HIKER)
+    defeattrainer(TRAINER_UNUSED_54_)
+    defeattrainer(TRAINER_R4_POKEMANIAC)
+    defeattrainer(TRAINER_R4_BUGCATCHER)
+    defeattrainer(TRAINER_R4_TWINS)
+    defeattrainer(TRAINER_R4_TRIATHLETE)
+    defeattrainer(TRAINER_R4_CAMPER)
+    defeattrainer(TRAINER_R4_COOL_F)
+    defeattrainer(TRAINER_R4_COOL_M)
+    defeattrainer(TRAINER_R4_BIRDKEEPER)
+    defeattrainer(TRAINER_R4_YOUNGSTER)
+    defeattrainer(TRAINER_R4_BIRDKEEPER_2)
+    defeattrainer(TRAINER_R4_DOUBLE_LASS)
+    defeattrainer(TRAINER_R4_DOUBLE_YOUNGSTER)
+    defeattrainer(TRAINER_R4_TRIATHLETE_2)
     return
 }
 script ClearRanch{
@@ -1205,81 +1201,4 @@ script Pearlwood_Debug{
     }
     release
     end
-}
-
-script Update3{
-    msgbox(NewUpdate, MSGBOX_POKENAV)
-    if(flag(FLAG_RECEIVED_TM_FLING)){
-        msgbox(MixupWithTMs)
-        removeitem(ITEM_TM_TORMENT, 1)
-        giveitem(ITEM_TM_FLING)
-        checkitemquant(ITEM_TM_FLING)
-        if(flag(FLAG_ITEM_ROUTE_11_TORMENT))
-        {
-            if(var(VAR_0x8005) == 0){
-                additem(ITEM_TM_TORMENT)
-            }
-        }
-        checkitemquant(ITEM_TM_FLING)
-        if(var(VAR_0x8005) > 1){
-            removeitem(ITEM_TM_FLING)
-        }
-        closemessage
-    }
-    setflag(FLAG_SYS_JOURNAL_GET)
-	waitse
-    playfanfare(MUS_OBTAIN_ITEM)
-	message(PlayerFoundJournal)
-	waitfanfare
-	waitmessage
-	msgbox(JournalIntroText)
-    setvar(VAR_DEBUG, 3)
-	release
-	end
-}
-
-text MixupWithTMs{
-    "There has been a mix-up with some\n"
-    "TM rewards.\p"
-    "Fixing the mix-up now."
-}
-text NewUpdate{
-    "A new update has been applied."
-}
-
-script FixHiddenAbility{
-    lock
-    faceplayer
-    msgbox(FixHiddenAbility_Text, MSGBOX_YESNO)
-    if(var(VAR_RESULT) == TRUE){
-        callnative(FixGrottoHiddenAbility)
-        msgbox(AllGrottoMonsHaveBeenFixed)
-    }
-    else{
-        msgbox(FindMeInAnyCenter)
-    }
-    release
-    end
-}
-
-text FixHiddenAbility_Text{
-    "Hello, I am a fixer guy.\p"
-    "Have you found any hidden grottos\n"
-    "with Pokémon in them?\p"
-    "Those Pokémon were incorrectly\n"
-    "spawning with regular abilities,\l"
-    "instead of their intended hidden\l"
-    "abilities.\p"
-    "If you'd like, I can fix any grotto\n"
-    "Pokémon you have."
-}
-text AllGrottoMonsHaveBeenFixed{
-    "Done.\p"
-    "Any Pokémon obtained from a hidden\n"
-    "grotto should now be fixed.\p"
-}
-text FindMeInAnyCenter{
-    "Very well.\p"
-    "If you need my services, you can\n"
-    "find me in almost any Pokémon Center."
 }

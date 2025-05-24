@@ -83,6 +83,11 @@ enum DebugMenu
     DEBUG_MENU_ITEM_CANCEL,
 };
 
+enum DebugMenuLimited{
+    DEBUG_MENU_ITEM_UNSTUCK = 8,
+    DEBUG_MENU_ITEM_ENTER_CODE = 9,
+};
+
 enum UtilDebugMenu
 {
     DEBUG_UTIL_MENU_ITEM_FLY,
@@ -333,6 +338,8 @@ static void DebugAction_Util_Script_7(u8 taskId);
 static void DebugAction_Util_Script_8(u8 taskId);
 
 static void DebugAction_OpenUtilitiesMenu(u8 taskId);
+static void DebugAction_OpenUnstuckMenu(u8 taskId);
+static void DebugAction_OpenEnterCodeMenu(u8 taskId);
 static void DebugAction_OpenPCBagMenu(u8 taskId);
 static void DebugAction_OpenPartyMenu(u8 taskId);
 static void DebugAction_OpenScriptsMenu(u8 taskId);
@@ -570,6 +577,13 @@ static const struct ListMenuItem sDebugMenu_Items_Main[] =
     [DEBUG_MENU_ITEM_CANCEL]        = {COMPOUND_STRING("Cancel"),                                   DEBUG_MENU_ITEM_CANCEL},
 };
 
+static const struct ListMenuItem sDebugMenu_Items_Limited[] =
+{
+    {COMPOUND_STRING("Unstuck{CLEAR_TO 110}{RIGHT_ARROW}"),       DEBUG_MENU_ITEM_UNSTUCK},
+    {COMPOUND_STRING("Enter Code{CLEAR_TO 110}{RIGHT_ARROW}"),    DEBUG_MENU_ITEM_ENTER_CODE},
+    {COMPOUND_STRING("Cancel"),                                   DEBUG_MENU_ITEM_CANCEL},
+};
+
 static const struct ListMenuItem sDebugMenu_Items_Utilities[] =
 {
     [DEBUG_UTIL_MENU_ITEM_FLY]             = {COMPOUND_STRING("Fly to map…{CLEAR_TO 110}{RIGHT_ARROW}"),       DEBUG_UTIL_MENU_ITEM_FLY},
@@ -742,6 +756,8 @@ static void (*const sDebugMenu_Actions_Main[])(u8) =
     [DEBUG_MENU_ITEM_FLAGVAR]       = DebugAction_OpenFlagsVarsMenu,
     //[DEBUG_MENU_ITEM_BATTLE]        = DebugAction_OpenBattleMenu,
     [DEBUG_MENU_ITEM_SOUND]         = DebugAction_OpenSoundMenu,
+    [DEBUG_MENU_ITEM_UNSTUCK]     = DebugAction_OpenUnstuckMenu,
+    [DEBUG_MENU_ITEM_ENTER_CODE]     = DebugAction_OpenEnterCodeMenu,
     [DEBUG_MENU_ITEM_CANCEL]        = DebugAction_Cancel
 };
 
@@ -924,6 +940,13 @@ static const struct ListMenuTemplate sDebugMenu_ListTemplate_Main =
     .totalItems = ARRAY_COUNT(sDebugMenu_Items_Main),
 };
 
+static const struct ListMenuTemplate sDebugMenu_ListTemplate_Limited =
+{
+    .items = sDebugMenu_Items_Limited,
+    .moveCursorFunc = ListMenuDefaultCursorMoveFunc,
+    .totalItems = ARRAY_COUNT(sDebugMenu_Items_Limited),
+};
+
 static const struct ListMenuTemplate sDebugMenu_ListTemplate_Utilities =
 {
     .items = sDebugMenu_Items_Utilities,
@@ -1019,6 +1042,15 @@ void Debug_ShowMainMenu(void)
     Debug_ShowMenu(DebugTask_HandleMenuInput_Main, sDebugMenu_ListTemplate_Main);
 }
 
+void Debug_ShowMainMenuLimited(void)
+{
+    sDebugBattleData = AllocZeroed(sizeof(*sDebugBattleData));
+    sDebugMenuListData = AllocZeroed(sizeof(*sDebugMenuListData));
+    Debug_InitDebugBattleData();
+
+    Debug_ShowMenu(DebugTask_HandleMenuInput_Main, sDebugMenu_ListTemplate_Limited);
+}
+
 static void Debug_ReShowMainMenu(void)
 {
     Debug_ShowMenu(DebugTask_HandleMenuInput_Main, sDebugMenu_ListTemplate_Main);
@@ -1095,6 +1127,22 @@ static void Debug_DestroyMenu_Full(u8 taskId)
     UnfreezeObjectEvents();
     Free(sDebugMenuListData);
     Free(sDebugBattleData);
+}
+
+static void DebugAction_OpenUnstuckMenu(u8 taskId)
+{
+    Debug_DestroyMenu_Full(taskId);
+    LockPlayerFieldControls();
+    FreezeObjectEvents();
+    ScriptContext_SetupScript(UnstuckPlayer);
+}
+
+static void DebugAction_OpenEnterCodeMenu(u8 taskId)
+{
+    Debug_DestroyMenu_Full(taskId);
+    LockPlayerFieldControls();
+    FreezeObjectEvents();
+    ScriptContext_SetupScript(Debug_Script_8);
 }
 
 static void Debug_DestroyMenu_Full_Script(u8 taskId, const u8 *script)

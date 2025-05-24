@@ -247,15 +247,11 @@ static void UpdateObjectReflectionSprite(struct Sprite *reflectionSprite)
     reflectionSprite->y2 = -mainSprite->y2;
     reflectionSprite->coordOffsetEnabled = mainSprite->coordOffsetEnabled;
     //reflection
-    // if(gSaveBlock1Ptr->location.mapNum == MAP_NUM(TEST_ROOM)){
-    // // if (MetatileBehavior_IsMirror(objectEvent->currentMetatileBehavior)){
-    //     reflectionSprite->y2 -= 40;
-    //     reflectionSprite->oam.matrixNum = mainSprite->oam.matrixNum;
-    //     if (objectEvent->facingDirection == DIR_NORTH){
-    //     }
-    //     else if (objectEvent->facingDirection == DIR_SOUTH){
-    //     }
-    // }
+    if(MAP(TEST_ROOM)){
+        reflectionSprite->oam.affineMode = ST_OAM_AFFINE_OFF;
+        reflectionSprite->y2 -= 40;
+        reflectionSprite->oam.matrixNum = mainSprite->oam.matrixNum & ST_OAM_HFLIP;
+    }
     if (objectEvent->graphicsId == OBJ_EVENT_GFX_FISHERMAN_SOUTH){
         reflectionSprite->y2 -= 16;
     }

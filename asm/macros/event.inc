@@ -2740,6 +2740,12 @@
 	.2byte \flag
 	.endm
 
+	@ Picks the specified berry tree if fully grown.
+	.macro pickberrytree treeId:req
+	callnative ScrCmd_checkberrytree
+	.2byte \treeId
+	.endm
+
 	@ Copies specified game stat to STR_VAR_1
 	.macro copygamestat stat:req
 	callnative ScrCmd_copygamestat

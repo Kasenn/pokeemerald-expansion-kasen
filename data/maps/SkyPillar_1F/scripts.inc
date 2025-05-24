@@ -23,9 +23,9 @@ SetupRivalPartner_1:
 	goto_if_eq SetupRivalPartner_5
 	goto_if_set FLAG_RIVAL_COSTUME_CHANGE, SetupRivalPartner_11
 	switch VAR_STARTER_MON
-	case 0, SetupRivalPartner_27
-	case 1, SetupRivalPartner_28
-	case 2, SetupRivalPartner_29
+	case SPECIES_ROWLET, SetupRivalPartner_27
+	case SPECIES_TORCHIC, SetupRivalPartner_28
+	case SPECIES_PIPLUP, SetupRivalPartner_29
 SetupRivalPartner_4:
 	end
 
@@ -36,23 +36,23 @@ SetupRivalPartner_2:
 SetupRivalPartner_5:
 	goto_if_set FLAG_RIVAL_COSTUME_CHANGE, SetupRivalPartner_8
 	switch VAR_STARTER_MON
-	case 0, SetupRivalPartner_19
-	case 1, SetupRivalPartner_20
-	case 2, SetupRivalPartner_21
+	case SPECIES_ROWLET, SetupRivalPartner_19
+	case SPECIES_TORCHIC, SetupRivalPartner_20
+	case SPECIES_PIPLUP, SetupRivalPartner_21
 	goto SetupRivalPartner_4
 
 SetupRivalPartner_8:
 	switch VAR_STARTER_MON
-	case 0, SetupRivalPartner_15
-	case 1, SetupRivalPartner_16
-	case 2, SetupRivalPartner_17
+	case SPECIES_ROWLET, SetupRivalPartner_15
+	case SPECIES_TORCHIC, SetupRivalPartner_16
+	case SPECIES_PIPLUP, SetupRivalPartner_17
 	goto SetupRivalPartner_4
 
 SetupRivalPartner_11:
 	switch VAR_STARTER_MON
-	case 0, SetupRivalPartner_23
-	case 1, SetupRivalPartner_24
-	case 2, SetupRivalPartner_25
+	case SPECIES_ROWLET, SetupRivalPartner_23
+	case SPECIES_TORCHIC, SetupRivalPartner_24
+	case SPECIES_PIPLUP, SetupRivalPartner_25
 	goto SetupRivalPartner_4
 
 SetupRivalPartner_15:

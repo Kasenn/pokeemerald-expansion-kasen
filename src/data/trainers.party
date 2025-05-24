@@ -394,7 +394,7 @@ Carvanha
 Level: 15
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_MUSEUM_2 ===
+=== TRAINER_R2_FISHER ===
 Name: GRUNT
 Class: Team Aqua
 Pic: Aqua Grunt M
@@ -411,7 +411,7 @@ Carvanha
 Level: 14
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_SPACE_CENTER_1 ===
+=== TRAINER_R2_LASS ===
 Name: GRUNT
 Class: Team Magma
 Pic: Magma Grunt M
@@ -424,7 +424,7 @@ Numel
 Level: 32
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_MT_PYRE_1 ===
+=== TRAINER_R2_BLACKBELT ===
 Name: GRUNT
 Class: Team Aqua
 Pic: Aqua Grunt M
@@ -437,7 +437,7 @@ Zubat
 Level: 32
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_MT_PYRE_2 ===
+=== TRAINER_R2_YOUNGSTER ===
 Name: GRUNT
 Class: Team Aqua
 Pic: Aqua Grunt M
@@ -450,7 +450,7 @@ Carvanha
 Level: 32
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_MT_PYRE_3 ===
+=== TRAINER_R2_SCHOOL_KID_F ===
 Name: GRUNT
 Class: Team Aqua
 Pic: Aqua Grunt M
@@ -588,7 +588,7 @@ Mightyena
 Level: 37
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_ARCHIE ===
+=== TRAINER_SCHOOLHALL_1 ===
 Name: ARCHIE
 Class: Aqua Leader
 Pic: Aqua Leader Archie
@@ -610,7 +610,7 @@ Sharpedo
 Level: 43
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
-=== TRAINER_LEAH ===
+=== TRAINER_SCHOOLHALL_2 ===
 Name: LEAH
 Class: Hex Maniac
 Pic: Hex Maniac
@@ -623,7 +623,7 @@ Spoink
 Level: 31
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_DAISY ===
+=== TRAINER_SCHOOLHALL_3 ===
 Name: DAISY
 Class: Aroma Lady
 Pic: Aroma Lady
@@ -640,7 +640,7 @@ Roselia
 Level: 14
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_ROSE_1 ===
+=== TRAINER_SCHOOLHALL_4 ===
 Name: ROSE
 Class: Aroma Lady
 Pic: Aroma Lady
@@ -956,7 +956,7 @@ Loudred
 Level: 27
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_GABBY_AND_TY_3 ===
+=== TRAINER_R4_HIKER ===
 Name: GABBY & TY
 Class: Interviewer
 Pic: Interviewer
@@ -973,7 +973,7 @@ Loudred
 Level: 30
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
-=== TRAINER_GABBY_AND_TY_4_UNUSED ===
+=== TRAINER_UNUSED_54_ ===
 Name: GABBY & TY
 Class: Interviewer
 Pic: Interviewer
@@ -990,7 +990,7 @@ Loudred
 Level: 33
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
-=== TRAINER_GABBY_AND_TY_5 ===
+=== TRAINER_R4_POKEMANIAC ===
 Name: GABBY & TY
 Class: Interviewer
 Pic: Interviewer
@@ -1007,7 +1007,7 @@ Loudred
 Level: 36
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
-=== TRAINER_GABBY_AND_TY_6 ===
+=== TRAINER_R4_BUGCATCHER ===
 Name: GABBY & TY
 Class: Interviewer
 Pic: Interviewer
@@ -1032,7 +1032,7 @@ IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 - Supersonic
 - Hyper Voice
 
-=== TRAINER_LOLA_1 ===
+=== TRAINER_R4_TWINS ===
 Name: LOLA
 Class: Tuber F
 Pic: Tuber F
@@ -1062,7 +1062,7 @@ Marill
 Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GWEN ===
+=== TRAINER_R4_TRIATHLETE ===
 Name: GWEN
 Class: Tuber F
 Pic: Tuber F
@@ -1075,7 +1075,7 @@ Marill
 Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_LOLA_2 ===
+=== TRAINER_R4_CAMPER ===
 Name: LOLA
 Class: Tuber F
 Pic: Tuber F
@@ -1092,7 +1092,7 @@ Marill
 Level: 26
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_LOLA_3 ===
+=== TRAINER_R4_COOL_F ===
 Name: LOLA
 Class: Tuber F
 Pic: Tuber F
@@ -1109,7 +1109,7 @@ Marill
 Level: 29
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 
-=== TRAINER_LOLA_4 ===
+=== TRAINER_R4_COOL_M ===
 Name: LOLA
 Class: Tuber F
 Pic: Tuber F
@@ -1126,7 +1126,7 @@ Marill
 Level: 32
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
-=== TRAINER_LOLA_5 ===
+=== TRAINER_R4_BIRDKEEPER ===
 Name: LOLA
 Class: Tuber F
 Pic: Tuber F
@@ -1143,7 +1143,7 @@ Azumarill
 Level: 35
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
-=== TRAINER_RICKY_1 ===
+=== TRAINER_R4_YOUNGSTER ===
 Name: RICKY
 Class: Tuber M
 Pic: Tuber M
@@ -1160,7 +1160,7 @@ IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 - Tail Whip
 - Surf
 
-=== TRAINER_SIMON ===
+=== TRAINER_R4_BIRDKEEPER_2 ===
 Name: SIMON
 Class: Tuber M
 Pic: Tuber M
@@ -1177,7 +1177,7 @@ Marill
 Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_CHARLIE ===
+=== TRAINER_R4_DOUBLE_LASS ===
 Name: CHARLIE
 Class: Tuber M
 Pic: Tuber M
@@ -1190,7 +1190,7 @@ Marill
 Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_RICKY_2 ===
+=== TRAINER_R4_DOUBLE_YOUNGSTER ===
 Name: RICKY
 Class: Tuber M
 Pic: Tuber M
@@ -1207,7 +1207,7 @@ IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 - Tail Whip
 - Surf
 
-=== TRAINER_RICKY_3 ===
+=== TRAINER_R4_TRIATHLETE_2 ===
 Name: RICKY
 Class: Tuber M
 Pic: Tuber M

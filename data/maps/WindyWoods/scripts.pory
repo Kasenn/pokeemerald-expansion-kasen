@@ -170,11 +170,11 @@ text WW_Text_CoolTrainerDefeated{
 script WW_CoolTrainerPostBattle{
     msgbox(WW_CoolTrainerReward)
     switch(var(VAR_STARTER_MON)){
-        case 0:
+        case SPECIES_ROWLET:
             setvar(VAR_TEMP_0, ITEM_MIRACLE_SEED)
-        case 1:
+        case SPECIES_TORCHIC:
             setvar(VAR_TEMP_0, ITEM_CHARCOAL)
-        case 2:
+        case SPECIES_PIPLUP:
             setvar(VAR_TEMP_0, ITEM_MYSTIC_WATER)
     }
     if(checkitemspace(VAR_TEMP_0) == FALSE){

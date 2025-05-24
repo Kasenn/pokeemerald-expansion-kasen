@@ -55,119 +55,119 @@ HideAmphyR3::
 
 
 Route3_Hiker::
-	trainerbattle_single TRAINER_GABBY_AND_TY_3, Route3_HikerIntro, Route3_HikerDefeated
+	trainerbattle_single TRAINER_R4_HIKER, Route3_HikerIntro, Route3_HikerDefeated
 	msgbox Route3_HikerPostBattle, MSGBOX_AUTOCLOSE
 	waitmessage
 	end
 
 
 Route3_Lass::
-	trainerbattle_single TRAINER_GABBY_AND_TY_4_UNUSED, Route3_LassIntro, Route3_LassDefeated
+	trainerbattle_single TRAINER_UNUSED_54_, Route3_LassIntro, Route3_LassDefeated
 	msgbox Route3_LassPostBattle, MSGBOX_AUTOCLOSE
 	waitmessage
 	end
 
 
 Route3_Maniac::
-	trainerbattle_single TRAINER_GABBY_AND_TY_5, Route3_ManiacIntro, Route3_ManiacDefeated
+	trainerbattle_single TRAINER_R4_POKEMANIAC, Route3_ManiacIntro, Route3_ManiacDefeated
 	msgbox Route3_ManiacPostBattle, MSGBOX_AUTOCLOSE
 	waitmessage
 	end
 
 
 Route3_BugCatcher::
-	trainerbattle_single TRAINER_GABBY_AND_TY_6, Route3_BugCatcherIntro, Route3_BugCatcherDefeated
+	trainerbattle_single TRAINER_R4_BUGCATCHER, Route3_BugCatcherIntro, Route3_BugCatcherDefeated
 	msgbox Route3_BugCatcherPostBattle, MSGBOX_AUTOCLOSE
 	waitmessage
 	end
 
 
 Route3_Twin1::
-	trainerbattle_double TRAINER_LOLA_1, Route3_Twin1Intro, Route3_Twin1Defeated, Route3_Twin1NotEnoughMons
+	trainerbattle_double TRAINER_R4_TWINS, Route3_Twin1Intro, Route3_Twin1Defeated, Route3_Twin1NotEnoughMons
 	msgbox Route3_Twin1PostBattle, MSGBOX_AUTOCLOSE
 	waitmessage
 	end
 
 
 Route3_Twin2::
-	trainerbattle_double TRAINER_LOLA_1, Route3_Twin2Intro, Route3_Twin2Defeated, Route3_Twin2NotEnoughMons
+	trainerbattle_double TRAINER_R4_TWINS, Route3_Twin2Intro, Route3_Twin2Defeated, Route3_Twin2NotEnoughMons
 	msgbox Route3_Twin2PostBattle, MSGBOX_AUTOCLOSE
 	waitmessage
 	end
 
 
 Route3_Triathlete::
-	trainerbattle_single TRAINER_GWEN, Route3_TriathleteIntro, Route3_TriathleteDefeated
+	trainerbattle_single TRAINER_R4_TRIATHLETE, Route3_TriathleteIntro, Route3_TriathleteDefeated
 	msgbox Route3_TriathletePostBattle, MSGBOX_AUTOCLOSE
 	waitmessage
 	end
 
 
 Route3_Camper::
-	trainerbattle_single TRAINER_LOLA_2, Route3_CamperIntro, Route3_CamperDefeated
+	trainerbattle_single TRAINER_R4_CAMPER, Route3_CamperIntro, Route3_CamperDefeated
 	msgbox Route3_CamperPostBattle, MSGBOX_AUTOCLOSE
 	waitmessage
 	end
 
 
 Route3_CoolF::
-	trainerbattle_single TRAINER_LOLA_3, Route3_CoolFIntro, Route3_CoolFDefeated
+	trainerbattle_single TRAINER_R4_COOL_F, Route3_CoolFIntro, Route3_CoolFDefeated
 	msgbox Route3_CoolFPostBattle, MSGBOX_AUTOCLOSE
 	waitmessage
 	end
 
 
 Route3_CoolM::
-	trainerbattle_single TRAINER_LOLA_4, Route3_CoolMIntro, Route3_CoolMDefeated
+	trainerbattle_single TRAINER_R4_COOL_M, Route3_CoolMIntro, Route3_CoolMDefeated
 	msgbox Route3_CoolMPostBattle, MSGBOX_AUTOCLOSE
 	waitmessage
 	end
 
 
 Route3_Bird1::
-	trainerbattle_single TRAINER_LOLA_5, Route3_Bird1Intro, Route3_Bird1Defeated
+	trainerbattle_single TRAINER_R4_BIRDKEEPER, Route3_Bird1Intro, Route3_Bird1Defeated
 	msgbox Route3_Bird1PostBattle, MSGBOX_AUTOCLOSE
 	waitmessage
 	end
 
 
 Route3_Youngster::
-	trainerbattle_single TRAINER_RICKY_1, Route3_YoungsterIntro, Route3_YoungsterDefeated
+	trainerbattle_single TRAINER_R4_YOUNGSTER, Route3_YoungsterIntro, Route3_YoungsterDefeated
 	msgbox Route3_YoungsterPostBattle, MSGBOX_AUTOCLOSE
 	waitmessage
 	end
 
 
 Route3_Bird2::
-	trainerbattle_single TRAINER_SIMON, Route3_Bird2Intro, Route3_Bird2Defeated
+	trainerbattle_single TRAINER_R4_BIRDKEEPER_2, Route3_Bird2Intro, Route3_Bird2Defeated
 	msgbox Route3_Bird2PostBattle, MSGBOX_AUTOCLOSE
 	waitmessage
 	end
 
 
 Route3_DoubleLass::
-	trainerbattle_single TRAINER_CHARLIE, Route3_DoubleLassIntro, Route3_DoubleLassDefeated
+	trainerbattle_single TRAINER_R4_DOUBLE_LASS, Route3_DoubleLassIntro, Route3_DoubleLassDefeated
 	msgbox Route3_DoubleLassPostBattle, MSGBOX_AUTOCLOSE
 	waitmessage
 	end
 
 
 Route3_DoubleBoy::
-	trainerbattle_single TRAINER_RICKY_2, Route3_DoubleBoyIntro, Route3_DoubleBoyDefeated
+	trainerbattle_single TRAINER_R4_DOUBLE_YOUNGSTER, Route3_DoubleBoyIntro, Route3_DoubleBoyDefeated
 	msgbox Route3_DoubleBoyPostBattle, MSGBOX_AUTOCLOSE
 	waitmessage
 	end
 
 
 Route3_HedgeRunner::
-	trainerbattle_single TRAINER_RICKY_3, Route3_HedgeRunnerIntro, Route3_HedgeRunnerDefeated
+	trainerbattle_single TRAINER_R4_TRIATHLETE_2, Route3_HedgeRunnerIntro, Route3_HedgeRunnerDefeated
 	msgbox Route3_HedgeRunnerPostBattle, MSGBOX_AUTOCLOSE
 	waitmessage
 	end
 
 
 TriggerGina::
-	checktrainerflag TRAINER_LOLA_1
+	checktrainerflag TRAINER_R4_TWINS
 	goto_if 0, TriggerGina_1
 	release
 	end
@@ -195,13 +195,13 @@ TriggerGina_5:
 	delay 10
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	msgbox Route3_Twin1Intro, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_LOLA_1, Route3_Twin1Defeated
+	trainerbattle_no_intro TRAINER_R4_TWINS, Route3_Twin1Defeated
 	waitmessage
 	end
 
 
 TriggerMia::
-	checktrainerflag TRAINER_LOLA_1
+	checktrainerflag TRAINER_R4_TWINS
 	goto_if 0, TriggerMia_1
 	release
 	end
@@ -229,7 +229,7 @@ TriggerMia_5:
 	delay 10
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	msgbox Route3_Twin2Intro, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_LOLA_1, Route3_Twin2Defeated
+	trainerbattle_no_intro TRAINER_R4_TWINS, Route3_Twin2Defeated
 	waitmessage
 	end
 

@@ -473,6 +473,7 @@ Debug_Script_1::
 	dynmultipush Debug_Script_1_Text_6, 6
 	dynmultipush Debug_Script_1_Text_7, 7
 	dynmultipush Debug_Script_1_Text_8, 8
+	dynmultipush Debug_Script_1_Text_9, 9
 	dynmultistack 23, 0, FALSE, 5, FALSE, 0, NULL
 	switch VAR_RESULT
 	case 0, Debug_Script_1_3
@@ -484,53 +485,55 @@ Debug_Script_1::
 	case 6, Debug_Script_1_9
 	case 7, Debug_Script_1_10
 	case 8, Debug_Script_1_11
+	case 9, Debug_Script_1_12
 	case MULTI_B_PRESSED, Debug_Script_1_12
 Debug_Script_1_1:
 	release
 	end
 
 Debug_Script_1_3:
-	msgbox Debug_Script_1_Text_9
+	msgbox Debug_Script_1_Text_10
 	setpartylevel 14
 	goto Debug_Script_1_1
 
 Debug_Script_1_4:
-	msgbox Debug_Script_1_Text_10
+	msgbox Debug_Script_1_Text_11
 	setpartylevel 22
 	goto Debug_Script_1_1
 
 Debug_Script_1_5:
-	msgbox Debug_Script_1_Text_11
+	msgbox Debug_Script_1_Text_12
 	setpartylevel 24
 	goto Debug_Script_1_1
 
 Debug_Script_1_6:
-	msgbox Debug_Script_1_Text_12
+	msgbox Debug_Script_1_Text_13
 	setpartylevel 29
 	goto Debug_Script_1_1
 
 Debug_Script_1_7:
-	msgbox Debug_Script_1_Text_13
+	msgbox Debug_Script_1_Text_14
 	setpartylevel 34
 	goto Debug_Script_1_1
 
 Debug_Script_1_8:
-	msgbox Debug_Script_1_Text_14
+	msgbox Debug_Script_1_Text_15
 	setpartylevel 38
 	goto Debug_Script_1_1
 
 Debug_Script_1_9:
-	msgbox Debug_Script_1_Text_15
+	msgbox Debug_Script_1_Text_16
 	setpartylevel 40
 	goto Debug_Script_1_1
 
 Debug_Script_1_10:
-	msgbox Debug_Script_1_Text_16
+	msgbox Debug_Script_1_Text_17
 	setpartylevel 45
 	goto Debug_Script_1_1
 
 Debug_Script_1_11:
-	closemessage
+	msgbox Debug_Script_1_Text_18
+	setpartylevel 53
 	goto Debug_Script_1_1
 
 Debug_Script_1_12:
@@ -539,33 +542,14 @@ Debug_Script_1_12:
 
 
 Debug_Script_2::
-	buffernumberstring STR_VAR_1, VAR_STARTER_MON
-	msgbox Debug_Script_2_Text_0
-	end
+	return
 
 
 Debug_Script_3::
-	setflag FLAG_LATIAS_ROAMING
-	setvar VAR_0x8004, 0
-	special InitRoamer
-	setflag FLAG_LATIOS_ROAMING
-	setvar VAR_0x8004, 1
-	special InitRoamer
-	setseenmon SPECIES_LATIAS
-	setseenmon SPECIES_LATIOS
 	return
 
 
 Debug_Script_4::
-	completequest FLAG_Q01_PRIMROSE_ORICORIO_COMPLETE
-	completequest FLAG_Q02_ELEVATOR_RIVAL_COMPLETE
-	completequest FLAG_Q03_AZURETIDE_OLD_WOMAN_COMPLETE
-	completequest FLAG_Q04_ALDELEAF_LOST_KEYS_COMPLETE
-	completequest FLAG_Q05_ALDELEAF_CURSED_DOLL_COMPLETE
-	completequest FLAG_Q06_MUSEUM_SMEARGLE_COMPLETE
-	completequest FLAG_Q07_WINDPLUME_VALLEY_COMPLETE
-	completequest FLAG_Q08_FLOWER_FIELDS_GRANBULL_COMPLETE
-	special ShowJournalPopupRemove
 	return
 
 
@@ -588,6 +572,22 @@ Debug_Script_8::
 	release
 	end
 	return
+
+
+Debug_Script_81::
+	special EnterCode
+	waitstate
+	special GetCodeFeedback
+	compare VAR_RESULT, FALSE
+	goto_if_eq Debug_Script_81_2
+Debug_Script_81_1:
+	release
+	end
+	return
+
+Debug_Script_81_2:
+	msgbox Debug_Script_81_Text_0
+	goto Debug_Script_81_1
 
 
 ResetAdamantTower::
@@ -707,16 +707,16 @@ ClearRoute2::
 	additem ITEM_PEARL
 	setflag FLAG_HIDDEN_ITEM_ROUTE2_BIGPEARL
 	additem ITEM_BIG_PEARL
-	defeattrainer TRAINER_GRUNT_MUSEUM_2
-	defeattrainer TRAINER_GRUNT_SPACE_CENTER_1
-	defeattrainer TRAINER_GRUNT_MT_PYRE_1
-	defeattrainer TRAINER_GRUNT_MT_PYRE_2
-	defeattrainer TRAINER_GRUNT_MT_PYRE_3
+	defeattrainer TRAINER_R2_FISHER
+	defeattrainer TRAINER_R2_LASS
+	defeattrainer TRAINER_R2_BLACKBELT
+	defeattrainer TRAINER_R2_YOUNGSTER
+	defeattrainer TRAINER_R2_SCHOOL_KID_F
 	setflag FLAG_ITEM_ROUTE2_X_ATTACK
 	additem ITEM_X_ATTACK
-	setberrytree BERRY_TREE_ROUTE_102_ORAN, ITEM_TO_BERRY ( ITEM_ORAN_BERRY ), BERRY_STAGE_NO_BERRY
-	setberrytree BERRY_TREE_ROUTE_102_PECHA, ITEM_TO_BERRY ( ITEM_PECHA_BERRY ), BERRY_STAGE_NO_BERRY
-	setberrytree BERRY_TREE_ROUTE_103_CHERI_1, ITEM_TO_BERRY ( ITEM_CHERI_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree BERRY_TREE_ROUTE_2_ORAN, ITEM_TO_BERRY ( ITEM_ORAN_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree BERRY_TREE_ROUTE_2_PECHA, ITEM_TO_BERRY ( ITEM_PECHA_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree BERRY_TREE_ROUTE_2_CHERI, ITEM_TO_BERRY ( ITEM_CHERI_BERRY ), BERRY_STAGE_NO_BERRY
 	additem ITEM_ORAN_BERRY, 2
 	additem ITEM_CHERI_BERRY, 2
 	additem ITEM_PECHA_BERRY, 2
@@ -765,9 +765,9 @@ ClearWindyWoods::
 	defeattrainer TRAINER_SHELLY_SEAFLOOR_CAVERN
 	setflag FLAG_WW_COOLTRAINERREWARD
 	switch VAR_STARTER_MON
-	case 0, ClearWindyWoods_3
-	case 1, ClearWindyWoods_4
-	case 2, ClearWindyWoods_5
+	case SPECIES_ROWLET, ClearWindyWoods_3
+	case SPECIES_TORCHIC, ClearWindyWoods_4
+	case SPECIES_PIPLUP, ClearWindyWoods_5
 ClearWindyWoods_1:
 	setflag FLAG_LANDMARK_WINDY_WOODS
 	setflag FLAG_GLADE_PUZZLE
@@ -798,10 +798,10 @@ ClearCoralgrove::
 	additem ITEM_RARE_CANDY
 	setflag FLAG_CORAL_GREATBALL
 	additem ITEM_GREAT_BALL
-	defeattrainer TRAINER_ARCHIE
-	defeattrainer TRAINER_LEAH
-	defeattrainer TRAINER_DAISY
-	defeattrainer TRAINER_ROSE_1
+	defeattrainer TRAINER_SCHOOLHALL_1
+	defeattrainer TRAINER_SCHOOLHALL_2
+	defeattrainer TRAINER_SCHOOLHALL_3
+	defeattrainer TRAINER_SCHOOLHALL_4
 	additem ITEM_TM_FALSE_SWIPE
 	defeattrainer TRAINER_CHIP
 	defeattrainer TRAINER_FOSTER
@@ -885,21 +885,21 @@ ClearRoute4_7:
 	additem ITEM_ETHER
 	setflag FLAG_HIDDEN_ITEM_ROUTE3_SUPERREPEL
 	additem ITEM_SUPER_REPEL
-	defeattrainer TRAINER_GABBY_AND_TY_3
-	defeattrainer TRAINER_GABBY_AND_TY_4_UNUSED
-	defeattrainer TRAINER_GABBY_AND_TY_5
-	defeattrainer TRAINER_GABBY_AND_TY_6
-	defeattrainer TRAINER_LOLA_1
-	defeattrainer TRAINER_GWEN
-	defeattrainer TRAINER_LOLA_2
-	defeattrainer TRAINER_LOLA_3
-	defeattrainer TRAINER_LOLA_4
-	defeattrainer TRAINER_LOLA_5
-	defeattrainer TRAINER_RICKY_1
-	defeattrainer TRAINER_SIMON
-	defeattrainer TRAINER_CHARLIE
-	defeattrainer TRAINER_RICKY_2
-	defeattrainer TRAINER_RICKY_3
+	defeattrainer TRAINER_R4_HIKER
+	defeattrainer TRAINER_UNUSED_54_
+	defeattrainer TRAINER_R4_POKEMANIAC
+	defeattrainer TRAINER_R4_BUGCATCHER
+	defeattrainer TRAINER_R4_TWINS
+	defeattrainer TRAINER_R4_TRIATHLETE
+	defeattrainer TRAINER_R4_CAMPER
+	defeattrainer TRAINER_R4_COOL_F
+	defeattrainer TRAINER_R4_COOL_M
+	defeattrainer TRAINER_R4_BIRDKEEPER
+	defeattrainer TRAINER_R4_YOUNGSTER
+	defeattrainer TRAINER_R4_BIRDKEEPER_2
+	defeattrainer TRAINER_R4_DOUBLE_LASS
+	defeattrainer TRAINER_R4_DOUBLE_YOUNGSTER
+	defeattrainer TRAINER_R4_TRIATHLETE_2
 	return
 
 ClearRoute4_2:
@@ -1348,66 +1348,6 @@ Pearlwood_Debug_8:
 	goto Pearlwood_Debug_7
 
 
-Update3::
-	msgbox NewUpdate, MSGBOX_POKENAV
-	goto_if_set FLAG_RECEIVED_TM_FLING, Update3_2
-Update3_1:
-	setflag FLAG_SYS_JOURNAL_GET
-	waitse
-	playfanfare MUS_OBTAIN_ITEM
-	message PlayerFoundJournal
-	waitfanfare
-	waitmessage
-	msgbox JournalIntroText
-	setvar VAR_DEBUG, 3
-	release
-	end
-
-Update3_2:
-	msgbox MixupWithTMs
-	removeitem ITEM_TM_TORMENT, 1
-	giveitem ITEM_TM_FLING
-	checkitemquant ITEM_TM_FLING
-	goto_if_set FLAG_ITEM_ROUTE_11_TORMENT, Update3_5
-Update3_4:
-	checkitemquant ITEM_TM_FLING
-	compare VAR_0x8005, 1
-	goto_if_gt Update3_8
-Update3_7:
-	closemessage
-	goto Update3_1
-
-Update3_5:
-	compare VAR_0x8005, 0
-	goto_if_eq Update3_10
-	goto Update3_4
-
-Update3_8:
-	removeitem ITEM_TM_FLING
-	goto Update3_7
-
-Update3_10:
-	additem ITEM_TM_TORMENT
-	goto Update3_4
-
-
-FixHiddenAbility::
-	lock
-	faceplayer
-	msgbox FixHiddenAbility_Text, MSGBOX_YESNO
-	compare VAR_RESULT, TRUE
-	goto_if_eq FixHiddenAbility_2
-	msgbox FindMeInAnyCenter
-FixHiddenAbility_1:
-	release
-	end
-
-FixHiddenAbility_2:
-	callnative FixGrottoHiddenAbility
-	msgbox AllGrottoMonsHaveBeenFixed
-	goto FixHiddenAbility_1
-
-
 RopeBridgeScript_Movement_0:
 	lock_anim
 	lock_facing_direction
@@ -1444,34 +1384,40 @@ Debug_Script_1_Text_7:
 	.string "Gym 5 (lvl 45)$"
 
 Debug_Script_1_Text_8:
-	.string "Cancel$"
+	.string "Gym 6 (lvl 53)$"
 
 Debug_Script_1_Text_9:
-	.string "Team set to level 14.$"
+	.string "Cancel$"
 
 Debug_Script_1_Text_10:
-	.string "Team set to level 22.$"
+	.string "Team set to level 14.$"
 
 Debug_Script_1_Text_11:
-	.string "Team set to level 24.$"
+	.string "Team set to level 22.$"
 
 Debug_Script_1_Text_12:
-	.string "Team set to level 29.$"
+	.string "Team set to level 24.$"
 
 Debug_Script_1_Text_13:
-	.string "Team set to level 34.$"
+	.string "Team set to level 29.$"
 
 Debug_Script_1_Text_14:
-	.string "Team set to level 38.$"
+	.string "Team set to level 34.$"
 
 Debug_Script_1_Text_15:
-	.string "Team set to level 40.$"
+	.string "Team set to level 38.$"
 
 Debug_Script_1_Text_16:
+	.string "Team set to level 40.$"
+
+Debug_Script_1_Text_17:
 	.string "Team set to level 45.$"
 
-Debug_Script_2_Text_0:
-	.string "{STR_VAR_1}$"
+Debug_Script_1_Text_18:
+	.string "Team set to level 53.$"
+
+Debug_Script_81_Text_0:
+	.string "I'm sorry, but that's not a code\nI recognize.$"
 
 ClearRoute1_Text_0:
 	.string "Obtained Exp. Share.\nDon't forget to turn it on!$"
@@ -1706,32 +1652,3 @@ EndOfBeta2::
 	.string "This is currently the end of beta.\p"
 	.string "In the meanwhile, why don't you\n"
 	.string "try exploring some other areas?$"
-
-MixupWithTMs::
-	.string "There has been a mix-up with some\n"
-	.string "TM rewards.\p"
-	.string "Fixing the mix-up now.$"
-
-NewUpdate::
-	.string "A new update has been applied.$"
-
-FixHiddenAbility_Text::
-	.string "Hello, I am a fixer guy.\p"
-	.string "Have you found any hidden grottos\n"
-	.string "with Pokémon in them?\p"
-	.string "Those Pokémon were incorrectly\n"
-	.string "spawning with regular abilities,\l"
-	.string "instead of their intended hidden\l"
-	.string "abilities.\p"
-	.string "If you'd like, I can fix any grotto\n"
-	.string "Pokémon you have.$"
-
-AllGrottoMonsHaveBeenFixed::
-	.string "Done.\p"
-	.string "Any Pokémon obtained from a hidden\n"
-	.string "grotto should now be fixed.\p$"
-
-FindMeInAnyCenter::
-	.string "Very well.\p"
-	.string "If you need my services, you can\n"
-	.string "find me in almost any Pokémon Center.$"

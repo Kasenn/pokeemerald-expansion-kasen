@@ -31,8 +31,10 @@ void InitTimeBasedEvents(void)
 
 void DoTimeBasedEvents(void)
 {
+    DebugPrintf2("Do we get here?");
     if (FlagGet(FLAG_SYS_CLOCK_SET) && !InPokemonCenter())
     {
+        DebugPrintf2("Do we get here? the 2nd");
         RtcCalcLocalTime();
         UpdatePerDay(&gLocalTime);
         UpdatePerMinute(&gLocalTime);

@@ -1,0 +1,4526 @@
+script Update3{
+    if(flag(FLAG_RECEIVED_TM_FLING)){
+        msgbox(MixupWithTMs)
+        removeitem(ITEM_TM_TORMENT, 1)
+        giveitem(ITEM_TM_FLING)
+        checkitemquant(ITEM_TM_FLING)
+        if(flag(FLAG_ITEM_ROUTE_11_TORMENT))
+        {
+            if(var(VAR_0x8005) == 0){
+                additem(ITEM_TM_TORMENT)
+            }
+        }
+        checkitemquant(ITEM_TM_FLING)
+        if(var(VAR_0x8005) > 1){
+            removeitem(ITEM_TM_FLING)
+        }
+        closemessage
+    }
+    setflag(FLAG_SYS_JOURNAL_GET)
+	waitse
+    playfanfare(MUS_OBTAIN_ITEM)
+	message(PlayerFoundJournal)
+	waitfanfare
+	waitmessage
+    setvar(VAR_DEBUG, 4)
+    call(Update4)
+    release
+}
+script Update4{
+    callnative(FixGrottoHiddenAbility)
+    switch (var(VAR_STARTER_MON))
+    {
+    case 0:
+        setvar(VAR_STARTER_MON, SPECIES_ROWLET)
+    case 1:
+        setvar(VAR_STARTER_MON, SPECIES_TORCHIC)
+    case 2:
+        setvar(VAR_STARTER_MON, SPECIES_PIPLUP)
+    }
+    if (defeated(TRAINER_BROTHER_2_ROUTE28)){
+        cleartrainerflag(TRAINER_BROTHER_2_ROUTE28)
+        settrainerflag(TRAINER_BROTHER_1_PEARLWOOD)
+    }
+    if (defeated(TRAINER_BROTHER_3_ROUTE28)){
+        cleartrainerflag(TRAINER_BROTHER_3_ROUTE28)
+        settrainerflag(TRAINER_BROTHER_1_PEARLWOOD)
+    }
+    ///
+    if (defeated(TRAINER_BROTHER_4_ROUTE28)){
+        cleartrainerflag(TRAINER_BROTHER_4_ROUTE28)
+        settrainerflag(TRAINER_BROTHER_2_ROUTE28)
+    }
+    if (defeated(TRAINER_BROTHER_5_FISHINGVILLAGE)){
+        cleartrainerflag(TRAINER_BROTHER_5_FISHINGVILLAGE)
+        settrainerflag(TRAINER_BROTHER_2_ROUTE28)
+    }
+    if (defeated(TRAINER_BROTHER_6_ROUTE20)){
+        cleartrainerflag(TRAINER_BROTHER_6_ROUTE20)
+        settrainerflag(TRAINER_BROTHER_2_ROUTE28)
+    }
+    ///
+    if (defeated(TRAINER_UNUSED_7_)){
+        cleartrainerflag(TRAINER_UNUSED_7_)
+        settrainerflag(TRAINER_BROTHER_3_ROUTE28)
+    }
+    if (defeated(TRAINER_UNUSED_8_)){
+        cleartrainerflag(TRAINER_UNUSED_8_)
+        settrainerflag(TRAINER_BROTHER_3_ROUTE28)
+    }
+    if (defeated(TRAINER_UNUSED_9_)){
+        cleartrainerflag(TRAINER_UNUSED_9_)
+        settrainerflag(TRAINER_BROTHER_3_ROUTE28)
+    }
+    ///
+    if (defeated(TRAINER_UNUSED_10_)){
+        cleartrainerflag(TRAINER_UNUSED_10_)
+        settrainerflag(TRAINER_BROTHER_4_ROUTE28)
+    }
+    if (defeated(TRAINER_UNUSED_11_)){
+        cleartrainerflag(TRAINER_UNUSED_11_)
+        settrainerflag(TRAINER_BROTHER_4_ROUTE28)
+    }
+    if (defeated(TRAINER_UNUSED_12_)){
+        cleartrainerflag(TRAINER_UNUSED_12_)
+        settrainerflag(TRAINER_BROTHER_4_ROUTE28)
+    }
+    ///
+    if (defeated(TRAINER_UNUSED_13_)){
+        cleartrainerflag(TRAINER_UNUSED_13_)
+        settrainerflag(TRAINER_BROTHER_5_FISHINGVILLAGE)
+    }
+    if (defeated(TRAINER_UNUSED_14_)){
+        cleartrainerflag(TRAINER_UNUSED_14_)
+        settrainerflag(TRAINER_BROTHER_5_FISHINGVILLAGE)
+    }
+    if (defeated(TRAINER_UNUSED_15_)){
+        cleartrainerflag(TRAINER_UNUSED_15_)
+        settrainerflag(TRAINER_BROTHER_5_FISHINGVILLAGE)
+    }
+    ///
+    if (defeated(TRAINER_BRENDAN_ROUTE_11_ANGRY)){
+        cleartrainerflag(TRAINER_BRENDAN_ROUTE_11_ANGRY)
+        settrainerflag(TRAINER_BRENDAN_PRIMROSE_MEADOW)
+    }
+    if (defeated(TRAINER_UNUSED_526_)){
+        cleartrainerflag(TRAINER_UNUSED_526_)
+        settrainerflag(TRAINER_BRENDAN_PRIMROSE_MEADOW)
+    }
+    if (defeated(TRAINER_MAY_ROUTE_11_ANGRY)){
+        cleartrainerflag(TRAINER_MAY_ROUTE_11_ANGRY)
+        settrainerflag(TRAINER_MAY_PRIMROSE_MEADOW)
+    }
+    if (defeated(TRAINER_UNUSED_535_)){
+        cleartrainerflag(TRAINER_UNUSED_535_)
+        settrainerflag(TRAINER_MAY_PRIMROSE_MEADOW)
+    }
+    ///
+    if (defeated(TRAINER_BRENDAN_BASALEK_TOWN)){
+        cleartrainerflag(TRAINER_BRENDAN_BASALEK_TOWN)
+        settrainerflag(TRAINER_BRENDAN_CORALGROVE_ELEVATOR)
+    }
+    if (defeated(TRAINER_UNUSED_527_)){
+        cleartrainerflag(TRAINER_UNUSED_527_)
+        settrainerflag(TRAINER_BRENDAN_CORALGROVE_ELEVATOR)
+    }
+    if (defeated(TRAINER_MAY_BASALEK_TOWN)){
+        cleartrainerflag(TRAINER_MAY_BASALEK_TOWN)
+        settrainerflag(TRAINER_MAY_CORALGROVE_ELEVATOR)
+    }
+    if (defeated(TRAINER_UNUSED_536_)){
+        cleartrainerflag(TRAINER_UNUSED_536_)
+        settrainerflag(TRAINER_MAY_CORALGROVE_ELEVATOR)
+    }
+    ///
+    if (defeated(TRAINER_UNUSED_234_)){
+        cleartrainerflag(TRAINER_UNUSED_234_)
+        settrainerflag(TRAINER_MAY_ROUTE_11_ANGRY)
+    }
+    if (defeated(TRAINER_UNUSED_235_)){
+        cleartrainerflag(TRAINER_UNUSED_235_)
+        settrainerflag(TRAINER_MAY_ROUTE_11_ANGRY)
+    }
+    if (defeated(TRAINER_UNUSED_236_)){
+        cleartrainerflag(TRAINER_UNUSED_236_)
+        settrainerflag(TRAINER_MAY_ROUTE_11_ANGRY)
+    }
+    ///
+    if (defeated(TRAINER_UNUSED_228_)){
+        cleartrainerflag(TRAINER_UNUSED_228_)
+        settrainerflag(TRAINER_BRENDAN_ROUTE_11_ANGRY)
+    }
+    if (defeated(TRAINER_UNUSED_229_)){
+        cleartrainerflag(TRAINER_UNUSED_229_)
+        settrainerflag(TRAINER_BRENDAN_ROUTE_11_ANGRY)
+    }
+    if (defeated(TRAINER_UNUSED_230_)){
+        cleartrainerflag(TRAINER_UNUSED_230_)
+        settrainerflag(TRAINER_BRENDAN_ROUTE_11_ANGRY)
+    }
+    ///
+    if (defeated(TRAINER_UNUSED_231_)){
+        cleartrainerflag(TRAINER_UNUSED_231_)
+        settrainerflag(TRAINER_MAY_ROUTE_11_NORMAL)
+    }
+    if (defeated(TRAINER_UNUSED_232_)){
+        cleartrainerflag(TRAINER_UNUSED_232_)
+        settrainerflag(TRAINER_MAY_ROUTE_11_NORMAL)
+    }
+    if (defeated(TRAINER_UNUSED_233_)){
+        cleartrainerflag(TRAINER_UNUSED_233_)
+        settrainerflag(TRAINER_MAY_ROUTE_11_NORMAL)
+    }
+    ///
+    if (defeated(TRAINER_UNUSED_225_)){
+        cleartrainerflag(TRAINER_UNUSED_225_)
+        settrainerflag(TRAINER_BRENDAN_ROUTE_11_NORMAL)
+    }
+    if (defeated(TRAINER_UNUSED_226_)){
+        cleartrainerflag(TRAINER_UNUSED_226_)
+        settrainerflag(TRAINER_BRENDAN_ROUTE_11_NORMAL)
+    }
+    if (defeated(TRAINER_UNUSED_227_)){
+        cleartrainerflag(TRAINER_UNUSED_227_)
+        settrainerflag(TRAINER_BRENDAN_ROUTE_11_NORMAL)
+    }
+    ///
+    if (defeated(TRAINER_UNUSED_376_)){
+        cleartrainerflag(TRAINER_UNUSED_376_)
+        settrainerflag(TRAINER_MAY_BASALEK_TOWN)
+    }
+    if (defeated(TRAINER_UNUSED_377_)){
+        cleartrainerflag(TRAINER_UNUSED_377_)
+        settrainerflag(TRAINER_MAY_BASALEK_TOWN)
+    }
+    if (defeated(TRAINER_UNUSED_378_)){
+        cleartrainerflag(TRAINER_UNUSED_378_)
+        settrainerflag(TRAINER_MAY_BASALEK_TOWN)
+    }
+    ///
+    if (defeated(TRAINER_UNUSED_379_)){
+        cleartrainerflag(TRAINER_UNUSED_379_)
+        settrainerflag(TRAINER_BRENDAN_BASALEK_TOWN)
+    }
+    if (defeated(TRAINER_UNUSED_380_)){
+        cleartrainerflag(TRAINER_UNUSED_380_)
+        settrainerflag(TRAINER_BRENDAN_BASALEK_TOWN)
+    }
+    if (defeated(TRAINER_UNUSED_381_)){
+        cleartrainerflag(TRAINER_UNUSED_381_)
+        settrainerflag(TRAINER_BRENDAN_BASALEK_TOWN)
+    }
+    msgbox(GrottoUpdate)
+    setvar(VAR_DEBUG, 4)
+}
+
+text MixupWithTMs{
+    "There has been a mix-up with some\n"
+    "TM rewards.\p"
+    "Fixing the mix-up now."
+}
+text NewUpdate{
+    "A new update has been applied."
+}
+
+script UpdateGuy{
+    faceplayer
+    msgbox(UpdateGuy_Text1)
+    if(!flag(FLAG_SYS_POKEDEX_GET)){
+        msgbox(UpdateGuy_Text2)
+        release
+        end
+    }
+    message(WhatWouldYouLikeToDo)
+    waitmessage
+    if(var(VAR_DEBUG) < 4){
+        dynmultipush("Update Game", 0)
+    }
+    dynmultipush("Set Team Level", 1)
+    dynmultipush("Skip Content", 2)
+    dynmultipush("Enter Code", 3)
+    if(flag(FLAG_OBTAINED_MEGA_RING)){
+        dynmultipush("Obtain Mega Mon", 4)
+    }
+    dynmultipush("Nevermind", 5)
+    dynmultistack(23, 0, FALSE, 6, FALSE, 0, 0)
+    switch(var(VAR_RESULT)){
+        case 0:
+            goto(UpdateGame)
+        case 1:
+            goto(Debug_Script_1)
+        case 2:
+            goto(SkipContent)
+        case 3:
+            goto(Debug_Script_81)
+        case 4:
+            goto(TestMegaMon)
+        case 5:
+        case MULTI_B_PRESSED:
+            msgbox("Goodbye.", MSGBOX_AUTOCLOSE)
+    }
+}
+
+text UpdateGuy_Text1{
+    "Hello, I am a debug guy.\p"
+    "I offer many services that can help\n"
+    "you with testing this game."
+}
+text UpdateGuy_Text2{
+    "Before I can offer you my services,\n"
+    "you must acquire a Pokédex."
+}
+text WhatWouldYouLikeToDo{
+    "What would you like to do?"
+}
+text GameIsUpToDate{
+    "Your game is now up-to-date.\p"
+    "If you need anything else,\n"
+    "let me know."
+}
+text GrottoUpdate{
+    "Any Pokémon you have acquired from\n"
+    "a grotto has been updated, and will\l"
+    "now have its hidden ability."
+}
+
+script UpdateGame{
+    switch(var(VAR_DEBUG)){
+        case 2:
+            call(Update3)
+            msgbox(GameIsUpToDate)
+        case 3:
+            call(Update4)
+            msgbox(GameIsUpToDate)
+        case 4:
+            msgbox(GameIsUpToDate)
+    }
+    release
+}
+
+script TestMegaMon{
+    message(WhichMonWouldYouTest)
+    waitmessage
+    setvar(VAR_0x8008, 40)
+    if(flag(FLAG_BADGE05_GET)){
+        setvar(VAR_0x8008, 45)
+    }
+    if(flag(FLAG_BADGE06_GET)){
+        setvar(VAR_0x8008, 53)
+    }
+    dynmultichoice(23, 0, FALSE, 5, 0, 0, "Decidueye", "Empoleon", "Chesnaught", "Incineroar", "Porygon-Z", "Ariados", "Nevermind")
+    switch(var(VAR_RESULT)){
+        case 0:
+            givemon(SPECIES_DECIDUEYE, VAR_0x8008, ITEM_DECIDUEITE)
+            bufferspeciesname(STR_VAR_1, SPECIES_DECIDUEYE)
+            setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_DECIDUEYE)
+            goto(ReceiveMegaStarter)
+        case 1:
+            givemon(SPECIES_EMPOLEON, VAR_0x8008, ITEM_EMPOLEONITE)
+            bufferspeciesname(STR_VAR_1, SPECIES_EMPOLEON)
+            setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_EMPOLEON)
+            goto(ReceiveMegaStarter)
+        case 2:
+            givemon(SPECIES_CHESNAUGHT, VAR_0x8008, ITEM_CHESNAUGHTITE)
+            bufferspeciesname(STR_VAR_1, SPECIES_CHESNAUGHT)
+            setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CHESNAUGHT)
+            goto(ReceiveMegaStarter)
+        case 3:
+            givemon(SPECIES_INCINEROAR, VAR_0x8008, ITEM_INCINEROARITE)
+            bufferspeciesname(STR_VAR_1, SPECIES_INCINEROAR)
+            setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_INCINEROAR)
+            goto(ReceiveMegaStarter)
+        case 4:
+            givemon(SPECIES_PORYGON_Z, VAR_0x8008, ITEM_PROCESSOR)
+            bufferspeciesname(STR_VAR_1, SPECIES_PORYGON_Z)
+            setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_PORYGON_Z)
+            goto(ReceiveMegaStarter)
+        case 5:
+            givemon(SPECIES_ARIADOS, VAR_0x8008, ITEM_ARIADOSITE)
+            bufferspeciesname(STR_VAR_1, SPECIES_ARIADOS)
+            setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ARIADOS)
+            goto(ReceiveMegaStarter)
+        case 6:
+        case MULTI_B_PRESSED:
+            msgbox("Goodbye", MSGBOX_AUTOCLOSE)
+            release
+            end
+    }
+}
+
+script UnstuckPlayer{
+    if(msgbox(UnstuckPlayer_Text, MSGBOX_YESNO) == FALSE){
+        release
+        end
+    }
+    warp(MAP_PEARLWOOD_POINT, 14, 24)
+    waitstate
+    release
+    end
+}
+
+text UnstuckPlayer_Text{
+    "This unstuck feature is meant to\n"
+    "avoid softlocking in the overworld.\p"
+    "Would you like to warp home?"
+}
+
+text Stor{"Story"}
+text Ite{"Items"}
+text Trai{"Trainers"}
+text Even{"Events"}
+
+const FLAG_ITEMS = FLAG_TEMP_3
+const FLAG_TRAINERS = FLAG_TEMP_4
+const FLAG_EVENTS = FLAG_TEMP_5
+const FLAG_MULTICHOICE = FLAG_TEMP_6
+const FLAG_SKIP_MULTIPLE = FLAG_TEMP_7
+const FLAG_DONT_REPEAT = FLAG_TEMP_8
+
+const VAR_SELECTION = VAR_TEMP_A
+const VAR_STORY_PART = VAR_TEMP_B
+
+const WINDY_WOODS   =    1
+const CORALGROVE_CITY =  2
+const POKEMON_RANCH =    3
+const ALDELEAF_CITY =    4
+const SHORESLATE_CITY =  5
+const KAOLISLE_CITY =    6
+const ROUTE_11 =         7
+const SANDSTONE_CITY =   8
+const ADAMANT_TOWER =    9
+const ROUTE_14 =         10
+const ROUTE_15 =         11
+const DRISLEDGE_TOWN =   12
+const AMBEROCK_TOWN =    13
+const BASALEK_TOWN =     14
+const FROSTHEARTH_CITY = 15
+
+script SkipContent{
+    if(!flag(FLAG_TEMP_1))
+    {
+        setflag(FLAG_TEMP_1)
+        msgbox(SkipContent_Text)
+    }
+    message(ChooseContentToSkip)
+    waitmessage
+
+    clearflag(FLAG_ITEMS)
+    clearflag(FLAG_TRAINERS)
+    clearflag(FLAG_EVENTS)
+    clearflag(FLAG_MULTICHOICE)
+    clearflag(FLAG_SKIP_MULTIPLE)
+    clearflag(FLAG_DONT_REPEAT)
+    setvar(VAR_STORY_PART, 0)
+
+    dynmultichoice(23, 0, FALSE, 6, VAR_SELECTION, 0,
+    "Route 1",
+    "Route 2",
+    "Windy Woods",
+    "Coralgrove City",
+    "Azuretide Town",
+    "Route 4",
+    "Pokémon Ranch",
+    "Aldeleaf City",
+    "Route 30",
+    "Windplume Valley",
+    "Route 5",
+    "Flower Fields",
+    "Skyloch Village",
+    "Route 6",
+    "Route 8",
+    "Shoreslate City",
+    "Scorched Desert",
+    "Route 7",
+    "Marigorge Town",
+    "Kaolisle City",
+    "Rockliffe Town",
+    "Route 11",
+    "Route 12",
+    "Sandstone City"
+    "Route 13",
+    "Adamant Tower",
+    "Route 14",
+    "Route 15",
+    "Fishing Village",
+    "Route 23",
+    "Drisledge Town",
+    "Amberock Town",
+    "Route 3",
+    "Route 9",
+    "Route 10",
+    "Windplume Mountain",
+    "Route 16",
+    "Basalek Town",
+    "Route 17",
+    "Route 18",
+    "Frosthearth City",
+    "Rock Climb",
+    "Desert Ruins",
+    "Safari Zone",
+    "Misc. Surfing",
+    "Cancel"
+    )
+    switch(var(VAR_RESULT)){
+        case 0:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_Route1)      //"Route 1",
+        case 1:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_Route2)      //"Route 2",
+        case 2:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_WindyWoods)      //"Windy Woods",
+        case 3:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_CoralgroveCity)      //"Coralgrove City",
+        case 4:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_AzuretideTown)      //"Azuretide Town",
+        case 5:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_Route4)      //"Route 4",
+        case 6:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_PokemonRanch)      //"Pokémon Ranch",
+        case 7:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_AldeleafCity)      //"Aldeleaf City",
+        case 8:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_Route30)      //"Route 30",
+        case 9:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_WindplumeValley)      //"Windplume Valley",
+        case 10:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_Route5)      //"Route 5",
+        case 11:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_FlowerFields)      //"Flower Fields",
+        case 12:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_SkylochVillage)      //"Skyloch Village",
+        case 13:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_Route6)      //"Route 6",
+        case 14:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_Route8)      //"Route 8",
+        case 15:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_ShoreslateCity)      //"Shoreslate City",
+        case 16:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_ScorchedDesert)      //"Scorched Desert",
+        case 17:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_Route7)      //"Route 7",
+        case 18:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_MarigorgeTown)      //"Marigorge Town",
+        case 19:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_KaolisleCity)      //"Kaolisle City",
+        case 20:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_RockliffeTown)      //"Rockliffe Town",
+        case 21:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_Route11)      //"Route 11",
+        case 22:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_Route12)      //"Route 12",
+        case 23:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_SandstoneCity)      //"Sandstone City"
+        case 24:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_Route13)      //"Route 13",
+        case 25:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_AdamantTower)      //"Adamant Tower",
+        case 26:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_Route14)      //"Route 14",
+        case 27:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_Route15)      //"Route 15",
+        case 28:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_FishingVillage)      //"Fishing Village",
+        case 29:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_Route23)      //"Route 23",
+        case 30:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_DrisledgeTown)      //"Drisledge Town",
+        case 31:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_AmberockTown)      //"Amberock Town",
+        case 32:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_Route3)      //"Route 3",
+        case 33:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_Route9)      //"Route 9",
+        case 34:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_Route10)      //"Route 10",
+        case 35:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_WindplumeMountain)      //"Windplume Mountain",
+        case 36:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_Route16)      //"Route 16",
+        case 37:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_BasalekTown)      //"Basalek Town",
+        case 38:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_Route17)      //"Route 17",
+        case 39:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_Route18)      //"Route 18",
+        case 40:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_FrosthearthCity)      //"Frosthearth City",
+        case 41:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_RockClimb)      //"Rock Climb",
+        case 42:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_DesertRuins)      //"Desert Ruins",
+        case 43:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_SafariZone)      //"Safari Zone",
+        case 44:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_MiscSurfing)      //"Misc. Surfing",
+        case 45:
+        case MULTI_B_PRESSED:
+            copyvar(VAR_SELECTION, VAR_RESULT)
+            goto(SkipContent_)      //"Cancel"
+    }
+}
+
+text SkipContent_Text{
+    "This feature allows you to skip\n"
+    "certain content or mark certain\l"
+    "things as completed.\p"
+    "Any story content up to the selected\n"
+    "area will be automatically completed.\p"
+    "You can also choose to automatically\n"
+    "complete other content, like looting\l"
+    "items, defeating trainers, and\l"
+    "completing other events in the area.\p"
+    "Do note that skipping story content\n"
+    "will also skip the story of all areas\l"
+    "before it.\p"
+    "Also, any event with a static\n"
+    "encounter (legendaries, waking up\l"
+    "Sudowoodo, etc.) will not be completed."
+}
+text ChooseContentToSkip{
+    "Choose the area you'd like to skip."
+}
+
+script SkipContent_{
+    call(SkipContent_BufferChoices)
+}
+
+script SkipContent_BufferChoices{
+    bufferstring(STR_VAR_1, "{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}")
+    if(flag(FLAG_ITEMS)){
+        dynmultipush("{STR_VAR_1}Items", 0)
+    }
+    else{
+        dynmultipush("Items", 0)
+    }
+    ///
+    if(flag(FLAG_TRAINERS)){
+        dynmultipush("{STR_VAR_1}Trainers", 1)
+    }
+    else{
+        dynmultipush("Trainers", 1)
+    }
+    ///
+    if(flag(FLAG_EVENTS)){
+        dynmultipush("{STR_VAR_1}Events", 2)
+    }
+    else{
+        dynmultipush("Events", 2)
+    }
+    ///
+    
+    dynmultipush("All", 3)
+    dynmultipush("Confirm", 4)
+    dynmultipush("Back", 5)
+    if(flag(FLAG_MULTICHOICE)){
+        message("Anything else?")
+    }
+    else{
+        message("Please choose the content you\nwant to complete.")
+    }
+    waitmessage
+    dynmultistack(23, 0, FALSE, 6, FALSE, 0, 0)
+    setflag(FLAG_MULTICHOICE)
+    switch(var(VAR_RESULT)){
+        case 0:
+            goto(BufferChoices0)
+        case 1:
+            goto(BufferChoices1)
+        case 2:
+            goto(BufferChoices2)
+        case 3:
+            goto(BufferChoices4)
+        case 5:
+        case MULTI_B_PRESSED:
+            goto(SkipContent)
+    }
+    return
+}
+
+script BufferChoices0{
+    if(!flag(FLAG_ITEMS)){
+        setflag(FLAG_ITEMS)
+    }
+    else{
+        clearflag(FLAG_ITEMS)
+    }
+    goto(SkipContent_BufferChoices)
+}
+script BufferChoices1{
+    if(!flag(FLAG_TRAINERS)){
+        setflag(FLAG_TRAINERS)
+    }
+    else{
+        clearflag(FLAG_TRAINERS)
+    }
+    goto(SkipContent_BufferChoices)
+}
+script BufferChoices2{
+    if(!flag(FLAG_EVENTS)){
+        setflag(FLAG_EVENTS)
+    }
+    else{
+        clearflag(FLAG_EVENTS)
+    }
+    goto(SkipContent_BufferChoices)
+}
+script BufferChoices4{
+    if(!flag(FLAG_ITEMS) || !flag(FLAG_TRAINERS) || !flag(FLAG_EVENTS)){
+        setflag(FLAG_ITEMS)
+        setflag(FLAG_TRAINERS)
+        setflag(FLAG_EVENTS)
+    }
+    else{
+        clearflag(FLAG_ITEMS)
+        clearflag(FLAG_TRAINERS)
+        clearflag(FLAG_EVENTS)
+    }
+    goto(SkipContent_BufferChoices)
+}
+
+script SkipContent_Route1{
+    bufferstring(STR_VAR_2, "Route 1")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_Route1)
+    goto(SkipContentEnd)
+}
+script SkipContent_Route2{
+    bufferstring(STR_VAR_2, "Route 2")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_Route2)
+    goto(SkipContentEnd)
+}
+script SkipContent_WindyWoods{
+    bufferstring(STR_VAR_2, "Windy Woods")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_WindyWoods)
+    goto(SkipContentEnd)
+}
+script SkipContent_CoralgroveCity{
+    bufferstring(STR_VAR_2, "Coralgrove City")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_CoralgroveCity)
+    goto(SkipContentEnd)
+}
+script SkipContent_AzuretideTown{
+    bufferstring(STR_VAR_2, "Azuretide Town")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_AzuretideTown)
+    goto(SkipContentEnd)
+}
+script SkipContent_Route4{
+    bufferstring(STR_VAR_2, "Route 4")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_Route4)
+    goto(SkipContentEnd)
+}
+script SkipContent_PokemonRanch{
+    bufferstring(STR_VAR_2, "Pokemon Ranch")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_PokemonRanch)
+    goto(SkipContentEnd)
+}
+script SkipContent_AldeleafCity{
+    bufferstring(STR_VAR_2, "Aldeleaf City")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_AldeleafCity)
+    goto(SkipContentEnd)
+}
+script SkipContent_Route30{
+    bufferstring(STR_VAR_2, "Route 30")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_Route30)
+    goto(SkipContentEnd)
+}
+script SkipContent_WindplumeValley{
+    bufferstring(STR_VAR_2, "Windplume Valley")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_WindplumeValley)
+    goto(SkipContentEnd)
+}
+script SkipContent_Route5{
+    bufferstring(STR_VAR_2, "Route 5")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_Route5)
+    goto(SkipContentEnd)
+}
+script SkipContent_FlowerFields{
+    bufferstring(STR_VAR_2, "Flower Fields")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_FlowerFields)
+    goto(SkipContentEnd)
+}
+script SkipContent_SkylochVillage{
+    bufferstring(STR_VAR_2, "Skyloch Village")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_SkylochVillage)
+    goto(SkipContentEnd)
+}
+script SkipContent_Route6{
+    bufferstring(STR_VAR_2, "Route 6")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_Route6)
+    goto(SkipContentEnd)
+}
+script SkipContent_Route8{
+    bufferstring(STR_VAR_2, "Route 8")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_Route8)
+    goto(SkipContentEnd)
+}
+script SkipContent_ShoreslateCity{
+    bufferstring(STR_VAR_2, "Shoreslate City")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_ShoreslateCity)
+    goto(SkipContentEnd)
+}
+script SkipContent_ScorchedDesert{
+    bufferstring(STR_VAR_2, "Scorched Desert")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_ScorchedDesert)
+    goto(SkipContentEnd)
+}
+script SkipContent_Route7{
+    bufferstring(STR_VAR_2, "Route 7")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_Route7)
+    goto(SkipContentEnd)
+}
+script SkipContent_MarigorgeTown{
+    bufferstring(STR_VAR_2, "Marigorge Town")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_MarigorgeTown)
+    goto(SkipContentEnd)
+}
+script SkipContent_KaolisleCity{
+    bufferstring(STR_VAR_2, "Kaolisle City")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_KaolisleCity)
+    goto(SkipContentEnd)
+}
+script SkipContent_RockliffeTown{
+    bufferstring(STR_VAR_2, "Rockliffe Town")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_RockliffeTown)
+    goto(SkipContentEnd)
+}
+script SkipContent_Route11{
+    bufferstring(STR_VAR_2, "Route 11")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_Route11)
+    goto(SkipContentEnd)
+}
+script SkipContent_Route12{
+    bufferstring(STR_VAR_2, "Route 12")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_Route12)
+    goto(SkipContentEnd)
+}
+script SkipContent_SandstoneCity{
+    bufferstring(STR_VAR_2, "Sandstone City")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_SandstoneCity)
+    goto(SkipContentEnd)
+}
+script SkipContent_Route13{
+    bufferstring(STR_VAR_2, "Route 13")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_Route13)
+    goto(SkipContentEnd)
+}
+script SkipContent_AdamantTower{
+    bufferstring(STR_VAR_2, "Adamant Tower")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_AdamantTower)
+    goto(SkipContentEnd)
+}
+script SkipContent_Route14{
+    bufferstring(STR_VAR_2, "Route 14")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_Route14)
+    goto(SkipContentEnd)
+}
+script SkipContent_Route15{
+    bufferstring(STR_VAR_2, "Route 15")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_Route15)
+    goto(SkipContentEnd)
+}
+script SkipContent_FishingVillage{
+    bufferstring(STR_VAR_2, "Fishing Village")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_FishingVillage)
+    goto(SkipContentEnd)
+}
+script SkipContent_Route23{
+    bufferstring(STR_VAR_2, "Route 23")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_Route23)
+    goto(SkipContentEnd)
+}
+script SkipContent_DrisledgeTown{
+    bufferstring(STR_VAR_2, "Drisledge Town")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_DrisledgeTown)
+    goto(SkipContentEnd)
+}
+script SkipContent_AmberockTown{
+    bufferstring(STR_VAR_2, "Amberock Town")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_AmberockTown)
+    goto(SkipContentEnd)
+}
+script SkipContent_Route3{
+    bufferstring(STR_VAR_2, "Route 3")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_Route3)
+    goto(SkipContentEnd)
+}
+script SkipContent_Route9{
+    bufferstring(STR_VAR_2, "Route 9")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_Route9)
+    goto(SkipContentEnd)
+}
+script SkipContent_Route10{
+    bufferstring(STR_VAR_2, "Route 10")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_Route10)
+    goto(SkipContentEnd)
+}
+script SkipContent_WindplumeMountain{
+    bufferstring(STR_VAR_2, "Windplume Mountain")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_WindplumeMountain)
+    goto(SkipContentEnd)
+}
+script SkipContent_Route16{
+    bufferstring(STR_VAR_2, "Route 16")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_Route16)
+    goto(SkipContentEnd)
+}
+script SkipContent_BasalekTown{
+    bufferstring(STR_VAR_2, "Basalek Town")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_BasalekTown)
+    goto(SkipContentEnd)
+}
+script SkipContent_Route17{
+    bufferstring(STR_VAR_2, "Route 17")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_Route17)
+    goto(SkipContentEnd)
+}
+script SkipContent_Route18{
+    bufferstring(STR_VAR_2, "Route 18")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_Route18)
+    goto(SkipContentEnd)
+}
+script SkipContent_FrosthearthCity{
+    bufferstring(STR_VAR_2, "Frosthearth City")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_FrosthearthCity)
+    goto(SkipContentEnd)
+}
+script SkipContent_RockClimb{
+    bufferstring(STR_VAR_2, "Rock Climb")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_RockClimb)
+    goto(SkipContentEnd)
+}
+script SkipContent_DesertRuins{
+    bufferstring(STR_VAR_2, "Desert Ruins")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_DesertRuins)
+    goto(SkipContentEnd)
+}
+script SkipContent_SafariZone{
+    bufferstring(STR_VAR_2, "Safari Zone")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_SafariZone)
+    goto(SkipContentEnd)
+}
+
+script SkipContent_MiscSurfing{
+    bufferstring(STR_VAR_2, "Misc. Surfing")
+    call(SkipContent_BufferChoices)
+    if(var(VAR_RESULT) == 5){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+            setflag(FLAG_SKIP_MULTIPLE)
+        }
+    }
+    call(ContentSkipper_SkipContent_MiscSurfing)
+    goto(SkipContentEnd)
+}
+
+text WantToSkipMultiple{
+    "You've chosen to skip {STR_VAR_2}.\p"
+    "All story content up to this area\n"
+    "will be completed, as well as any\l"
+    "additional content selected.\p"
+    "Would you also like to complete any\n"
+    "selected content from the previous\l"
+    "areas as well?"
+}
+text ContentHasBeenSkipped{
+    "Content has been skipped.\p"
+    "It is recommended to check your bag\n"
+    "for any new items.\p"
+    "Note that this doesn't automatically\n"
+    "catch any Pokémon for you."
+}
+
+script SkipContentEnd{
+    msgbox(ContentHasBeenSkipped)
+    release
+    end
+}
+
+script ContentSkipper_SkipContent_Route1{
+    //stuff
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Route_1)
+    }
+    return
+}
+script ContentSkipper_SkipContent_Route2{
+    //stuff
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Route_2)
+    }
+    return
+}
+script ContentSkipper_SkipContent_WindyWoods{
+    //stuff
+    setvar(VAR_STORY_PART, WINDY_WOODS)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Windy_Woods)
+    }
+    return
+}
+script ContentSkipper_SkipContent_CoralgroveCity{
+    //stuff
+    setvar(VAR_STORY_PART, CORALGROVE_CITY)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Coralgrove_City)
+    }
+    return
+}
+script ContentSkipper_SkipContent_AzuretideTown{
+    //stuff
+    setvar(VAR_STORY_PART, CORALGROVE_CITY)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Azuretide_Town)
+    }
+    return
+}
+script ContentSkipper_SkipContent_Route4{
+    //stuff
+    setvar(VAR_STORY_PART, CORALGROVE_CITY)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Route_4)
+    }
+    return
+}
+script ContentSkipper_SkipContent_PokemonRanch{
+    //stuff
+    setvar(VAR_STORY_PART, POKEMON_RANCH)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Pokemon_Ranch)
+    }
+    return
+}
+script ContentSkipper_SkipContent_AldeleafCity{
+    //stuff
+    setvar(VAR_STORY_PART, ALDELEAF_CITY)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Aldeleaf_City)
+    }
+    return
+}
+script ContentSkipper_SkipContent_Route30{
+    //stuff
+    setvar(VAR_STORY_PART, ALDELEAF_CITY)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Route_30)
+    }
+    return
+}
+script ContentSkipper_SkipContent_WindplumeValley{
+    //stuff
+    setvar(VAR_STORY_PART, ALDELEAF_CITY)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Windplume_Valley)
+    }
+    return
+}
+script ContentSkipper_SkipContent_Route5{
+    //stuff
+    setvar(VAR_STORY_PART, ALDELEAF_CITY)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Route_5)
+    }
+    return
+}
+script ContentSkipper_SkipContent_FlowerFields{
+    //stuff
+    setvar(VAR_STORY_PART, ALDELEAF_CITY)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Flower_Fields)
+    }
+    return
+}
+script ContentSkipper_SkipContent_SkylochVillage{
+    //stuff
+    setvar(VAR_STORY_PART, ALDELEAF_CITY)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Skyloch_Village)
+    }
+    return
+}
+script ContentSkipper_SkipContent_Route6{
+    //stuff
+    setvar(VAR_STORY_PART, ALDELEAF_CITY)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Route_6)
+    }
+    return
+}
+script ContentSkipper_SkipContent_Route8{
+    //stuff
+    setvar(VAR_STORY_PART, ALDELEAF_CITY)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Route_8)
+    }
+    return
+}
+script ContentSkipper_SkipContent_ShoreslateCity{
+    //stuff
+    setvar(VAR_STORY_PART, SHORESLATE_CITY)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Shoreslate_City)
+    }
+    return
+}
+script ContentSkipper_SkipContent_ScorchedDesert{
+    //stuff
+    setvar(VAR_STORY_PART, SHORESLATE_CITY)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Scorched_Desert)
+    }
+    return
+}
+script ContentSkipper_SkipContent_Route7{
+    //stuff
+    setvar(VAR_STORY_PART, SHORESLATE_CITY)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Route_7)
+    }
+    return
+}
+script ContentSkipper_SkipContent_MarigorgeTown{
+    //stuff
+    setvar(VAR_STORY_PART, SHORESLATE_CITY)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Marigorge_Town)
+    }
+    return
+}
+script ContentSkipper_SkipContent_KaolisleCity{
+    //stuff
+    setvar(VAR_STORY_PART, KAOLISLE_CITY)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Kaolisle_City)
+    }
+    return
+}
+script ContentSkipper_SkipContent_RockliffeTown{
+    //stuff
+    setvar(VAR_STORY_PART, KAOLISLE_CITY)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Rockliffe_Town)
+    }
+    return
+}
+script ContentSkipper_SkipContent_Route11{
+    //stuff
+    setvar(VAR_STORY_PART, ROUTE_11)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Route_11)
+    }
+    return
+}
+script ContentSkipper_SkipContent_Route12{
+    //stuff
+    setvar(VAR_STORY_PART, ROUTE_11)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Route_12)
+    }
+    return
+}
+script ContentSkipper_SkipContent_SandstoneCity{
+    //stuff
+    setvar(VAR_STORY_PART, SANDSTONE_CITY)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Sandstone_City)
+    }
+    return
+}
+script ContentSkipper_SkipContent_Route13{
+    //stuff
+    setvar(VAR_STORY_PART, SANDSTONE_CITY)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Route_13)
+    }
+    return
+}
+script ContentSkipper_SkipContent_AdamantTower{
+    //stuff
+    setvar(VAR_STORY_PART, ADAMANT_TOWER)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Adamant_Tower)
+    }
+    return
+}
+script ContentSkipper_SkipContent_Route14{
+    //stuff
+    setvar(VAR_STORY_PART, ROUTE_14)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Route_14)
+    }
+    return
+}
+script ContentSkipper_SkipContent_Route15{
+    //stuff
+    setvar(VAR_STORY_PART, ROUTE_15)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Route_15)
+    }
+    return
+}
+script ContentSkipper_SkipContent_FishingVillage{
+    //stuff
+    setvar(VAR_STORY_PART, ROUTE_15)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Fishing_Village)
+    }
+    return
+}
+script ContentSkipper_SkipContent_Route23{
+    //stuff
+    setvar(VAR_STORY_PART, ROUTE_15)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Route_23)
+    }
+    return
+}
+script ContentSkipper_SkipContent_DrisledgeTown{
+    //stuff
+    setvar(VAR_STORY_PART, DRISLEDGE_TOWN)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Drisledge_Town)
+    }
+    return
+}
+script ContentSkipper_SkipContent_AmberockTown{
+    //stuff
+    setvar(VAR_STORY_PART, AMBEROCK_TOWN)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Amberock_Town)
+    }
+    return
+}
+script ContentSkipper_SkipContent_Route3{
+    //stuff
+    setvar(VAR_STORY_PART, AMBEROCK_TOWN)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Route_3)
+    }
+    return
+}
+script ContentSkipper_SkipContent_Route9{
+    //stuff
+    setvar(VAR_STORY_PART, AMBEROCK_TOWN)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Route_9)
+    }
+    return
+}
+script ContentSkipper_SkipContent_Route10{
+    //stuff
+    setvar(VAR_STORY_PART, AMBEROCK_TOWN)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Route_10)
+    }
+    return
+}
+script ContentSkipper_SkipContent_WindplumeMountain{
+    //stuff
+    setvar(VAR_STORY_PART, AMBEROCK_TOWN)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Windplume_Mountain)
+    }
+    return
+}
+script ContentSkipper_SkipContent_Route16{
+    //stuff
+    setvar(VAR_STORY_PART, AMBEROCK_TOWN)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Route_16)
+    }
+    return
+}
+script ContentSkipper_SkipContent_BasalekTown{
+    //stuff
+    setvar(VAR_STORY_PART, BASALEK_TOWN)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Basalek_Town)
+    }
+    return
+}
+script ContentSkipper_SkipContent_Route17{
+    //stuff
+    setvar(VAR_STORY_PART, BASALEK_TOWN)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Route_17)
+    }
+    return
+}
+script ContentSkipper_SkipContent_Route18{
+    //stuff
+    setvar(VAR_STORY_PART, BASALEK_TOWN)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Route_18)
+    }
+    return
+}
+script ContentSkipper_SkipContent_FrosthearthCity{
+    //stuff
+    setvar(VAR_STORY_PART, FROSTHEARTH_CITY)
+    call(SkipStory)
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Frosthearth_City)
+    }
+    return
+}
+script ContentSkipper_SkipContent_RockClimb{
+    //stuff
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Rock_Climb)
+    }
+    return
+}
+script ContentSkipper_SkipContent_DesertRuins{
+    //stuff
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Desert_Ruins)
+    }
+    return
+}
+script ContentSkipper_SkipContent_SafariZone{
+    //stuff
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Safari_Zone)
+    }
+    return
+}
+
+script ContentSkipper_SkipContent_MiscSurfing{
+    //stuff
+    if(flag(FLAG_SKIP_MULTIPLE)){
+        call(CompleteAllAreas)
+    }
+    else{
+        call(CompleteArea_Misc_Surfing)
+    }
+    return
+}
+
+script SkipStory{
+    if(flag(FLAG_DONT_REPEAT)){
+        return
+    }
+    if(var(VAR_STORY_PART) >= WINDY_WOODS){
+        if(var(VAR_WINDYWOODS_STATE) < STORY_WINDY_WOODS_EVENT_COMPLETED){
+            setvar(VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_EVENT_COMPLETED)
+            additem(ITEM_LETTER)
+        }
+        defeattrainer(TRAINER_SHELLY_SEAFLOOR_CAVERN)
+        setflag(FLAG_LANDMARK_WINDY_WOODS)
+        setflag(FLAG_LANDMARK_LOST_GLADE)
+    }
+    if(var(VAR_STORY_PART) >= CORALGROVE_CITY){
+        if(var(VAR_MAIN_STORY_BITS) < STORY_RIVAL_DEFEATED_OR_BAILED_ON){
+            setvar(VAR_MAIN_STORY_BITS, STORY_RIVAL_DEFEATED_OR_BAILED_ON)
+        }
+        setflag(FLAG_VISITED_RUSTBORO_CITY)
+        defeattrainer(TRAINER_CHIP)
+        defeattrainer(TRAINER_FOSTER)
+        defeattrainer(TRAINER_DUSTY_2)
+        defeattrainer(TRAINER_DUSTY_3)
+        defeattrainer(TRAINER_DUSTY_4)
+        defeattrainer(TRAINER_DUSTY_5)
+        defeattrainer(TRAINER_LEADER_AARON)
+        if(checkitem(ITEM_TM_U_TURN) == FALSE){
+            additem(ITEM_TM_U_TURN)
+        }
+        setflag(FLAG_BADGE01_GET)
+        setflag(FLAG_DEFEATED_RIVAL_HARBOR)
+        msgbox("Was {RIVAL} defeated in\nCoralgrove Harbor?", MSGBOX_YESNO)
+        if(var(VAR_RESULT) == TRUE){
+            if(checkplayergender == MALE){
+                defeattrainer(TRAINER_MAY_CORALGROVE_ELEVATOR)
+            }
+            else{
+                defeattrainer(TRAINER_BRENDAN_CORALGROVE_ELEVATOR)
+            }
+            if(checkitem(ITEM_ITEMFINDER) == FALSE){
+                additem(ITEM_ITEMFINDER)
+            }
+        }
+        else{
+            setflag(FLAG_RIVAL_HARBOR_ANGRY)
+        }
+    }
+    if(var(VAR_STORY_PART) >= POKEMON_RANCH){
+        setflag(FLAG_RANCH_EVENT_NPC)
+        setflag(FLAG_LANDMARK_POKE_RANCH)
+        setflag(FLAG_RANCH_HELPED)
+        clearflag(FLAG_HIDE_RANCH_OWNER)
+        setflag(FLAG_HIDE_VOLKNER_2)
+        if(checkitem(ITEM_HM01) == FALSE){
+            giveitem(ITEM_HM01)
+        }
+        setflag(FLAG_HIDE_VOLKNER_1)
+        setflag(FLAG_RECEIVED_HM_CUT)
+        setflag(FLAG_VOLKNER_HELPED)
+        setflag(FLAG_JASMINE_HELPED)
+        setvar(VAR_POKERANCH, 1)
+        defeattrainer(TRAINER_RICKY_4)
+        defeattrainer(TRAINER_RICKY_5)
+    }
+    if(var(VAR_STORY_PART) >= ALDELEAF_CITY){
+        setflag(FLAG_VISITED_WIP_CITY1)
+        setflag(FLAG_HIDE_AMPHAROS)
+        setflag(FLAG_ALDELEAF_SWITCH1)
+        setflag(FLAG_ALDELEAF_SWITCH2)
+        setflag(FLAG_ALDELEAF_SWITCH3)
+        setflag(FLAG_ALDELEAF_SWITCH_ALL)
+        defeattrainer(TRAINER_PARKER)
+        defeattrainer(TRAINER_GEORGE)
+        defeattrainer(TRAINER_BERKE)
+        defeattrainer(TRAINER_BRAXTON)
+        defeattrainer(TRAINER_VINCENT)
+        defeattrainer(TRAINER_LEROY)
+        defeattrainer(TRAINER_WILTON_1)
+        defeattrainer(TRAINER_EDGAR)
+        defeattrainer(TRAINER_ALBERT)
+        defeattrainer(TRAINER_SAMUEL)
+        defeattrainer(TRAINER_OWEN)
+        defeattrainer(TRAINER_WILTON_2)
+        defeattrainer(TRAINER_WILTON_3)
+        defeattrainer(TRAINER_WILTON_4)
+        defeattrainer(TRAINER_WILTON_5)
+        defeattrainer(TRAINER_WARREN)
+        defeattrainer(TRAINER_LEADER_VOLKNER)
+        setflag(FLAG_DEFEATED_DEWFORD_GYM)
+        if(checkitem(ITEM_TM_CHARGE_BEAM) == FALSE){
+            additem(ITEM_TM_CHARGE_BEAM)
+        }
+        setflag(FLAG_BADGE02_GET)
+    }
+    if(var(VAR_STORY_PART) >= SHORESLATE_CITY){
+        setflag(FLAG_VISITED_SHORESLATE)
+        setflag(FLAG_ROUTE28_DESPAWN_BROTHER)
+        defeattrainer(TRAINER_SHORESLATE_ROCKET)
+        setvar(VAR_DESERT_BYPASS, 1)
+        defeattrainer(TRAINER_DC1F_ROCKET_1)
+        defeattrainer(TRAINER_DC1F_ROCKET_2)
+        defeattrainer(TRAINER_DC_BASEROCKET_1)
+        defeattrainer(TRAINER_DC_BASEROCKET_2)
+        defeattrainer(TRAINER_DC_BASEROCKET_3)
+        defeattrainer(TRAINER_DC_BASEROCKET_4)
+        defeattrainer(TRAINER_DC2F_ROCKET_1)
+        defeattrainer(TRAINER_DC2F_ROCKET_2)
+        defeattrainer(TRAINER_DC2F_ROCKET_3)
+        defeattrainer(TRAINER_DC2F_ROCKET_4)
+        defeattrainer(TRAINER_DC2F_ROCKET_5)
+        defeattrainer(TRAINER_DC3F_ROCKET_1)
+        setflag(FLAG_DEVON_UNDER_ATTACK)
+        setflag(FLAG_HELPED_DEVON_CORP)
+        clearflag(FLAG_HIDE_SHORESLATE_BOAT)
+        if(checkitem(ITEM_GO_GOGGLES) == FALSE){
+            giveitem(ITEM_GO_GOGGLES)
+            removeitem(ITEM_LETTER)
+        }
+        if(checkitem(ITEM_HM05) == FALSE){
+            giveitem(ITEM_HM05)
+        }
+        if(!flag(FLAG_RECEIVED_BIKE)){
+            giveitem(ITEM_ACRO_BIKE)
+        }
+        setflag(FLAG_RECEIVED_BIKE)
+    }
+    if(var(VAR_STORY_PART) >= KAOLISLE_CITY){
+        setflag(FLAG_KAOLISLE_GYM_SWITCH1)
+        setflag(FLAG_KAOLISLE_GYM_SWITCH2)
+        setflag(FLAG_KAOLISLE_GYM_SWITCH3)
+        setflag(FLAG_KAOLISLE_GYM_SWITCH4)
+        defeattrainer(TRAINER_KAOLGYM_TR1_CAMPER1)
+        defeattrainer(TRAINER_KAOLGYM_TR2_PICNICKER1)
+        defeattrainer(TRAINER_KAOLGYM_TR3_HIKER1)
+        defeattrainer(TRAINER_KAOLGYM_TR4_CAMPER2)
+        defeattrainer(TRAINER_KAOLGYM_TR5_HIKER2)
+        defeattrainer(TRAINER_KAOLGYM_TR6_HIKER3)
+        defeattrainer(TRAINER_KAOLGYM_TR7_PICNICKER2)
+        defeattrainer(TRAINER_KAOLGYM_TR8_CAMPER3)
+        defeattrainer(TRAINER_KAOLGYM_TR9_PICNICKER3)
+        defeattrainer(TRAINER_KAOLGYM_TR10_HIKER4)
+        defeattrainer(TRAINER_KAOLGYM_CLAY)
+        setflag(FLAG_BADGE03_GET)
+        setvar(VAR_KAOLISLE_HOTEL_STATE, 1)
+        clearflag(FLAG_HIDEJASMINE_HOTEL)
+        additem(ITEM_TM_STOMPING_TANTRUM)
+        setflag(FLAG_VISITED_KAOLISLE)
+        setflag(FLAG_KAOLISLE_BROTHER_INTRO)
+    }
+    if(var(VAR_STORY_PART) >= ROUTE_11){
+        setflag(FLAG_VISITED_SANDSTONE_CITY)
+        if(checkplayergender == MALE){
+            if(flag(FLAG_RIVAL_HARBOR_ANGRY)){
+                defeattrainer(TRAINER_MAY_ROUTE_11_ANGRY)
+            }
+            else{
+                defeattrainer(TRAINER_MAY_ROUTE_11_NORMAL)
+            }
+        }
+        else{
+            if(flag(FLAG_RIVAL_HARBOR_ANGRY)){
+                defeattrainer(TRAINER_BRENDAN_ROUTE_11_ANGRY)
+            }
+            else{
+                defeattrainer(TRAINER_BRENDAN_ROUTE_11_NORMAL)
+            }
+        }
+        if(checkitem(ITEM_ITEMFINDER) == FALSE){
+            giveitem(ITEM_ITEMFINDER)
+        }
+        setflag(FLAG_HIDE_ROUTE_110_RIVAL)
+        setflag(FLAG_HIDE_ROUTE_110_RIVAL_ON_BIKE)
+        setvar(VAR_GYM_TELEPORT, 1)
+        setflag(FLAG_HIDE_ROUTE_110_RIVAL_ON_BIKE)
+    }
+    if(var(VAR_STORY_PART) >= SANDSTONE_CITY){
+        if(!flag(FLAG_OBTAINED_MEGA_RING)){
+            setflag(FLAG_KORRINA_LEAVESGYM)
+        }
+        setvar(VAR_SANDSTONE_GYM_CHECKPOINTS, 2)
+        if(!flag(FLAG_BADGE04_GET)){
+            additem(ITEM_TM_POWER_UP_PUNCH)
+        }
+        setflag(FLAG_BADGE04_GET)
+        defeattrainer(TRAINER_LEADER_KORRINA)
+        defeattrainer(TRAINER_SANDGYM_TR1_CYCLISTM1)
+        defeattrainer(TRAINER_SANDGYM_TR2_CYCLISTF1)
+        defeattrainer(TRAINER_SANDGYM_TR3_CYCLISTF2)
+        defeattrainer(TRAINER_SANDGYM_TR4_CYCLISTM2)
+        defeattrainer(TRAINER_SANDGYM_TR5_CYCLISTF3)
+        defeattrainer(TRAINER_SANDGYM_TR6_CYCLISTM3)
+        defeattrainer(TRAINER_SANDGYM_TR7_CYCLISTM4)
+    }
+    if(var(VAR_STORY_PART) >= ADAMANT_TOWER){
+        defeattrainer(TRAINER_AT_2F_TR2_MAN3)
+        defeattrainer(TRAINER_AT_2F_TR2_WOMAN5)
+        defeattrainer(TRAINER_AT_2F_TR1_PSYCHIC)
+        defeattrainer(TRAINER_AT_2F_TR1_MAN5)
+        defeattrainer(TRAINER_AT_3F_TR1_EXPERT_M)
+        defeattrainer(TRAINER_AT_3F_TR1_EXPERT_F)
+        defeattrainer(TRAINER_AT_3F_TR2_HEXMANIAC)
+        defeattrainer(TRAINER_AT_3F_TR2_PSYCHICF)
+        defeattrainer(TRAINER_AT_4F_TR1_BLACKBELT)
+        defeattrainer(TRAINER_AT_4F_TR1_HEXMANIAC)
+        defeattrainer(TRAINER_AT_4F_TR2_LASS)
+        defeattrainer(TRAINER_AT_4F_TR2_YOUNGSTER)
+        defeattrainer(TRAINER_AT_4F_TR3_BATTLEGIRL)
+        defeattrainer(TRAINER_AT_4F_TR3_BLACKBELT)
+        defeattrainer(TRAINER_AT_5F_COOLTRAINER_M)
+        defeattrainer(TRAINER_AT_5F_COOLTRAINER_F)
+        if(checkitem(ITEM_MEGA_RING) == FALSE){
+            giveitem(ITEM_MEGA_RING)
+        }
+        setflag(FLAG_OBTAINED_MEGA_RING)
+        setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_RING_OBTAINED)
+        clearflag(FLAG_KORRINA_LEAVESGYM)
+        clearflag(FLAG_HIDE_PLAYERS_HOUSE_DAD)
+        clearflag(FLAG_HIDE_LAB_RIVAL)
+        setflag(FLAG_HIDE_LIBRARY_BIRCH)
+    }
+    if(var(VAR_STORY_PART) >= ROUTE_14){
+        setflag(FLAG_HIDE_PLAYERS_HOUSE_DAD)
+        setflag(FLAG_HIDE_LAB_RIVAL)
+        setvar(VAR_ROUTE14_ROCKET_EVENT, 3)
+    }
+    if(var(VAR_STORY_PART) >= ROUTE_15){
+        setflag(FLAG_ACEROLA_TALKED_TO)
+        setvar(VAR_ROUTE14_ROCKET_EVENT, 6)
+        defeattrainer(TRAINER_R15_TR18_BERRYROCKET)
+        defeattrainer(TRAINER_BROTHER_5_FISHINGVILLAGE)
+        setflag(FLAG_VISITED_FISHING_VILLAGE)
+    }
+    if(var(VAR_STORY_PART) >= DRISLEDGE_TOWN){
+	    setflag(FLAG_BADGE05_GET)
+        if(checkitem(ITEM_TM_SHADOW_CLAW) == FALSE){
+            additem(ITEM_TM_SHADOW_CLAW)
+        }
+        if(var(VAR_DRISLEDGE_TOWN_STATE) < 30){
+            setvar(VAR_DRISLEDGE_TOWN_STATE, 30)
+        }
+        defeattrainer(TRAINER_DRISLEDGEGYM_TRAINER1)
+        defeattrainer(TRAINER_DRISLEDGEGYM_TRAINER2)
+        defeattrainer(TRAINER_DRISLEDGEGYM_TRAINER3)
+        defeattrainer(TRAINER_DRISLEDGEGYM_TRAINER4)
+        defeattrainer(TRAINER_DRISLEDGEGYM_TRAINER5)
+        defeattrainer(TRAINER_DRISLEDGEGYM_TRAINER6)
+        defeattrainer(TRAINER_LEADER_ACEROLA)
+        if(checkitem(ITEM_HM03) == FALSE){
+            giveitem(ITEM_HM03)
+        }
+        setflag(FLAG_RECEIVED_HM_SURF)
+    }
+    if(var(VAR_STORY_PART) >= AMBEROCK_TOWN){
+        setvar(VAR_AMBEROCK_STORY, STORY_AMBEROCK_STORY_COMPLETE)
+        defeattrainer(TRAINER_FACTORY_ROCKET_1)
+        defeattrainer(TRAINER_FACTORY_ROCKET_2)
+        defeattrainer(TRAINER_FACTORY_ROCKET_3)
+        defeattrainer(TRAINER_FACTORY_ROCKET_4)
+        defeattrainer(TRAINER_FACTORY_ROCKET_5)
+        defeattrainer(TRAINER_FACTORY_ROCKET_PETREL)
+        if(!flag(FLAG_FACTORY_ITEM_1)){
+            setflag(FLAG_FACTORY_ITEM_1)
+            additem(ITEM_MAX_ELIXIR)
+        }
+        if(!flag(FLAG_FACTORY_ITEM_2)){
+            setflag(FLAG_FACTORY_ITEM_1)
+            additem(ITEM_X_ATTACK)
+        }
+        if(!flag(FLAG_FACTORY_ITEM_3)){
+            setflag(FLAG_FACTORY_ITEM_1)
+            additem(ITEM_HYPER_POTION)
+        }
+        removeitem(ITEM_RESEARCH_PAPERS)
+        giveitem(ITEM_ZYGARDE_CUBE)
+    }
+    if(var(VAR_STORY_PART) >= BASALEK_TOWN){
+        setflag(FLAG_RIVAL_MET_IN_BASALEK)
+        if(checkplayergender == MALE){
+            defeattrainer(TRAINER_MAY_BASALEK_TOWN)
+        }
+        else{
+            defeattrainer(TRAINER_BRENDAN_BASALEK_TOWN)
+        }
+    }
+    if(var(VAR_STORY_PART) >= FROSTHEARTH_CITY){
+        setflag(FLAG_PRYCE_ESCORTED)
+        addbp(10)
+        defeattrainer(TRAINER_LEADER_PRYCE)
+        defeattrainer(TRAINER_LEADER_BLAINE)
+        defeattrainer(TRAINER_FROSTGYM_TR1_HIKER1)
+        defeattrainer(TRAINER_FROSTGYM_TR2_KINDLER1)
+        defeattrainer(TRAINER_FROSTGYM_TR3_SENIOR)
+        defeattrainer(TRAINER_FROSTGYM_TR4_JUNIOR)
+        defeattrainer(TRAINER_FROSTGYM_TR5_RANGER_M)
+        defeattrainer(TRAINER_FROSTGYM_TR6_RANGER_F)
+        defeattrainer(TRAINER_FROSTGYM_TR7_MANIAC)
+        defeattrainer(TRAINER_FROSTGYM_TR8_COLLECTOR)
+        defeattrainer(TRAINER_FROSTGYM_TR9_KINDLER2)
+        defeattrainer(TRAINER_FROSTGYM_TR10_RANGER_F2)
+        setflag(FLAG_BADGE06_GET)
+        if(checkitem(ITEM_TM_ICE_BURN) == FALSE){
+            additem(ITEM_TM_ICE_BURN)
+        }
+    }
+    setflag(FLAG_DONT_REPEAT)
+}
+
+script CompleteAllAreas{
+    call(CompleteArea_Route_1)
+    if(var(VAR_SELECTION) ==  0){return} //Route 1
+    call(CompleteArea_Route_2)
+    if(var(VAR_SELECTION) ==  1){return} //Route 2
+    call(CompleteArea_Windy_Woods)
+    if(var(VAR_SELECTION) ==  2){return} //Windy Woods
+    call(CompleteArea_Coralgrove_City)
+    if(var(VAR_SELECTION) ==  3){return} //Coralgrove City
+    call(CompleteArea_Azuretide_Town)
+    if(var(VAR_SELECTION) ==  4){return} //Azuretide Town
+    call(CompleteArea_Route_4)
+    if(var(VAR_SELECTION) ==  5){return} //Route 4
+    call(CompleteArea_Pokemon_Ranch)
+    if(var(VAR_SELECTION) ==  6){return} //Pokémon Ranch
+    call(CompleteArea_Aldeleaf_City)
+    if(var(VAR_SELECTION) ==  7){return} //Aldeleaf City
+    call(CompleteArea_Route_30)
+    if(var(VAR_SELECTION) ==  8){return} //Route 30
+    call(CompleteArea_Windplume_Valley)
+    if(var(VAR_SELECTION) ==  9){return} //Windplume Valley
+    call(CompleteArea_Route_5)
+    if(var(VAR_SELECTION) == 10){return} //Route 5
+    call(CompleteArea_Flower_Fields)
+    if(var(VAR_SELECTION) == 11){return} //Flower Fields
+    call(CompleteArea_Skyloch_Village)
+    if(var(VAR_SELECTION) == 12){return} //Skyloch Village
+    call(CompleteArea_Route_6)
+    if(var(VAR_SELECTION) == 13){return} //Route 6
+    call(CompleteArea_Route_8)
+    if(var(VAR_SELECTION) == 14){return} //Route 8
+    call(CompleteArea_Shoreslate_City)
+    if(var(VAR_SELECTION) == 15){return} //Shoreslate City
+    call(CompleteArea_Scorched_Desert)
+    if(var(VAR_SELECTION) == 16){return} //Scorched Desert
+    call(CompleteArea_Route_7)
+    if(var(VAR_SELECTION) == 17){return} //Route 7
+    call(CompleteArea_Marigorge_Town)
+    if(var(VAR_SELECTION) == 18){return} //Marigorge Town
+    call(CompleteArea_Kaolisle_City)
+    if(var(VAR_SELECTION) == 19){return} //Kaolisle City
+    call(CompleteArea_Rockliffe_Town)
+    if(var(VAR_SELECTION) == 20){return} //Rockliffe Town
+    call(CompleteArea_Route_11)
+    if(var(VAR_SELECTION) == 21){return} //Route 11
+    call(CompleteArea_Route_12)
+    if(var(VAR_SELECTION) == 22){return} //Route 12
+    call(CompleteArea_Sandstone_City)
+    if(var(VAR_SELECTION) == 23){return} //Sandstone City
+    call(CompleteArea_Route_13)
+    if(var(VAR_SELECTION) == 24){return} //Route 13
+    call(CompleteArea_Adamant_Tower)
+    if(var(VAR_SELECTION) == 25){return} //Adamant Tower
+    call(CompleteArea_Route_14)
+    if(var(VAR_SELECTION) == 26){return} //Route 14
+    call(CompleteArea_Route_15)
+    if(var(VAR_SELECTION) == 27){return} //Route 15
+    call(CompleteArea_Fishing_Village)
+    if(var(VAR_SELECTION) == 28){return} //Fishing Village
+    call(CompleteArea_Route_23)
+    if(var(VAR_SELECTION) == 29){return} //Route 23
+    call(CompleteArea_Drisledge_Town)
+    if(var(VAR_SELECTION) == 30){return} //Drisledge Town
+    call(CompleteArea_Amberock_Town)
+    if(var(VAR_SELECTION) == 31){return} //Amberock Town
+    call(CompleteArea_Route_3)
+    if(var(VAR_SELECTION) == 32){return} //Route 3
+    call(CompleteArea_Route_9)
+    if(var(VAR_SELECTION) == 33){return} //Route 9
+    call(CompleteArea_Route_10)
+    if(var(VAR_SELECTION) == 34){return} //Route 10
+    call(CompleteArea_Windplume_Mountain)
+    if(var(VAR_SELECTION) == 35){return} //Windplume Mountain
+    call(CompleteArea_Route_16)
+    if(var(VAR_SELECTION) == 36){return} //Route 16
+    call(CompleteArea_Basalek_Town)
+    if(var(VAR_SELECTION) == 37){return} //Basalek Town
+    call(CompleteArea_Route_17)
+    if(var(VAR_SELECTION) == 38){return} //Route 17
+    call(CompleteArea_Route_18)
+    if(var(VAR_SELECTION) == 39){return} //Route 18
+    call(CompleteArea_Frosthearth_City)
+    if(var(VAR_SELECTION) == 40){return} //Frosthearth City
+    call(CompleteArea_Rock_Climb)
+    if(var(VAR_SELECTION) == 41){return} //Rock Climb
+    call(CompleteArea_Desert_Ruins)
+    if(var(VAR_SELECTION) == 42){return} //Desert Ruins
+    call(CompleteArea_Safari_Zone)
+    if(var(VAR_SELECTION) == 43){return} //Safari Zone
+    call(CompleteArea_Misc_Surfing)
+    if(var(VAR_SELECTION) == 44){return} //Misc. Surfing
+}
+
+script CompleteArea_Route_1{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_HIDDEN_ITEM_ROUTE1_SUPERPOTION)){
+            setflag(FLAG_HIDDEN_ITEM_ROUTE1_SUPERPOTION)
+            additem(ITEM_POTION)
+        }
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_R1_YOUNGSTER)
+        defeattrainer(TRAINER_R1_FISHER)
+        defeattrainer(TRAINER_R1_BUG_CATCHER)
+        defeattrainer(TRAINER_R1_TUBER)
+        if(!defeated(TRAINER_R1_COOLTRAINER)){
+            defeattrainer(TRAINER_R1_COOLTRAINER)
+            addbp(10)
+            giveitem(ITEM_EXP_SHARE)
+        }
+    }
+    if(flag(FLAG_EVENTS)){
+        setflag(FLAG_ORICORIO_SHOWN_TO_MANIAC)
+        if(flag(FLAG_Q01_PRIMROSE_ORICORIO_START)){
+            completequest(FLAG_Q01_PRIMROSE_ORICORIO_COMPLETE)
+        }
+    }
+    return
+}
+script CompleteArea_Route_2{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_HIDDEN_ITEM_ROUTE2_PEARL1)){
+            setflag(FLAG_HIDDEN_ITEM_ROUTE2_PEARL1)
+            additem(ITEM_PEARL)
+        }
+        if(!flag(FLAG_HIDDEN_ITEM_ROUTE2_BIGPEARL)){
+            setflag(FLAG_HIDDEN_ITEM_ROUTE2_BIGPEARL)
+            additem(ITEM_BIG_PEARL)
+        }
+        if(!flag(FLAG_HIDDEN_ITEM_ROUTE2_PEARL2)){
+            setflag(FLAG_HIDDEN_ITEM_ROUTE2_PEARL2)
+            additem(ITEM_PEARL)
+        }
+        if(!flag(FLAG_ITEM_ROUTE2_X_ATTACK)){
+            setflag(FLAG_ITEM_ROUTE2_X_ATTACK)
+            additem(ITEM_X_ATTACK)
+        }
+        if(!flag(FLAG_HIDDEN_ITEM_ROUTE2_GREAT_BALL)){
+            setflag(FLAG_HIDDEN_ITEM_ROUTE2_GREAT_BALL)
+            additem(ITEM_GREAT_BALL)
+        }
+        if(!flag(FLAG_ITEM_ROUTE2_REVIVE)){
+            setflag(FLAG_ITEM_ROUTE2_REVIVE)
+            additem(ITEM_REVIVE)
+        }
+        pickberrytree(BERRY_TREE_ROUTE_2_PECHA)
+        call(TryLootingStrangeSeed)
+        pickberrytree(BERRY_TREE_ROUTE_2_ORAN)
+        call(TryLootingStrangeSeed)
+        pickberrytree(BERRY_TREE_ROUTE_2_CHERI)
+        call(TryLootingStrangeSeed)
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_R2_FISHER)
+        defeattrainer(TRAINER_R2_LASS)
+        defeattrainer(TRAINER_R2_BLACKBELT)
+        defeattrainer(TRAINER_R2_YOUNGSTER)
+        defeattrainer(TRAINER_R2_SCHOOL_KID_F)
+    }
+    if(flag(FLAG_EVENTS)){
+        setflag(FLAG_ORICORIO_SHOWN_TO_MANIAC)
+        if(flag(FLAG_Q01_PRIMROSE_ORICORIO_START)){
+            completequest(FLAG_Q01_PRIMROSE_ORICORIO_COMPLETE)
+        }
+    }
+    return
+}
+script CompleteArea_Windy_Woods{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_ITEM_WW_PARLYZ)){
+            setflag(FLAG_ITEM_WW_PARLYZ)
+            additem(ITEM_PARALYZE_HEAL)
+        }
+        if(!flag(FLAG_HIDDEN_ITEM_WW_DAMP_ROCK)){
+            setflag(FLAG_HIDDEN_ITEM_WW_DAMP_ROCK)
+            additem(ITEM_DAMP_ROCK)
+        }
+        if(!flag(FLAG_ITEM_WW_CARBOS)){
+            setflag(FLAG_ITEM_WW_CARBOS)
+            additem(ITEM_CARBOS)
+        }
+        if(!flag(FLAG_HIDDEN_ITEM_WW_RARE_CANDY)){
+            setflag(FLAG_HIDDEN_ITEM_WW_RARE_CANDY)
+            additem(ITEM_RARE_CANDY)
+        }
+        if(!flag(FLAG_HIDDEN_ITEM_WW_ETHER)){
+            setflag(FLAG_HIDDEN_ITEM_WW_ETHER)
+            additem(ITEM_ETHER)
+        }
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_WW_BUGCATCHER)
+        defeattrainer(TRAINER_WW_LADY)
+        defeattrainer(TRAINER_WW_BUGCATCHER_2)
+        defeattrainer(TRAINER_WW_CAMPER)
+        defeattrainer(TRAINER_WW_LASS)
+        defeattrainer(TRAINER_WW_YOUNGSTER)
+        if(!defeated(TRAINER_WW_ACE_TRAINER)){
+            defeattrainer(TRAINER_WW_ACE_TRAINER)
+            setflag(FLAG_WW_COOLTRAINERREWARD)
+            addbp(10)
+            switch(var(VAR_STARTER_MON)){
+                case SPECIES_ROWLET:
+                    additem(ITEM_MIRACLE_SEED)
+                case SPECIES_TORCHIC:
+                    additem(ITEM_CHARCOAL)
+                case SPECIES_PIPLUP:
+                    additem(ITEM_MYSTIC_WATER)
+            }
+        }
+    }
+    if(flag(FLAG_EVENTS)){
+        setflag(FLAG_LANDMARK_LOST_GLADE)
+        setflag(FLAG_GLADE_PUZZLE)
+    }
+    return
+}
+script CompleteArea_Coralgrove_City{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_CORAL_GREATBALL)){
+            setflag(FLAG_CORAL_GREATBALL)
+            additem(ITEM_GREAT_BALL)
+        }
+        if(!flag(FLAG_HIDDEN_ITEM_CORALGROVE_RARECANDY)){
+            setflag(FLAG_HIDDEN_ITEM_CORALGROVE_RARECANDY)
+            additem(ITEM_RARE_CANDY)
+        }
+        if(!flag(FLAG_HARBOR_GREATBALL)){
+            setflag(FLAG_HARBOR_GREATBALL)
+            additem(ITEM_GREAT_BALL)
+        }
+        if(!flag(FLAG_HARBOR_PEARL)){
+            setflag(FLAG_HARBOR_PEARL)
+            additem(ITEM_PEARL)
+        }        
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_SCHOOLHALL_1)
+        defeattrainer(TRAINER_SCHOOLHALL_2)
+        defeattrainer(TRAINER_SCHOOLHALL_3)
+        defeattrainer(TRAINER_SCHOOLHALL_4)
+        if(checkitem(ITEM_TM_FALSE_SWIPE) == FALSE){
+            additem(ITEM_TM_FALSE_SWIPE)
+        }
+    }
+    if(flag(FLAG_EVENTS)){
+        setflag(FLAG_0x267_CG_HIDEGHOST)
+        if(!flag(FLAG_CORALGROVE_CUTSCENE)){
+            setflag(FLAG_CORALGROVE_CUTSCENE)
+            clearflag(FLAG_OBTAINED_PIDGEOTITE)
+        }
+        if(checkitem(ITEM_TM_REST) == FALSE){
+            additem(ITEM_TM_REST)
+        }
+        if(checkitem(ITEM_OLD_ROD) == FALSE){
+            additem(ITEM_OLD_ROD)
+        }
+    }
+    return
+}
+script CompleteArea_Azuretide_Town{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_COASTTOWN_PEARL)){
+            setflag(FLAG_COASTTOWN_PEARL)
+            additem(ITEM_PEARL)
+        }
+        if(!flag(FLAG_COASTTOWN_REDSHARD)){
+            setflag(FLAG_COASTTOWN_REDSHARD)
+            additem(ITEM_RED_SHARD)
+        }
+        if(!flag(FLAG_COASTTOWN_HEATROCK)){
+            setflag(FLAG_COASTTOWN_HEATROCK)
+            additem(ITEM_HEAT_ROCK)
+        }
+    }
+    if(flag(FLAG_EVENTS)){
+        if(!flag(FLAG_AZURETIDE_HONEY)){
+            additem(ITEM_HONEY, 3)
+            setflag(FLAG_AZURETIDE_HONEY)
+        }
+        if(checkitem(ITEM_TOWN_MAP) == FALSE){
+            additem(ITEM_TOWN_MAP)
+            removemoney(2000)
+        }
+    }
+    return
+}
+script CompleteArea_Route_4{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_ITEM_ROUTE3_ANTIDOTE)){
+            setflag(FLAG_ITEM_ROUTE3_ANTIDOTE)
+            additem(ITEM_ANTIDOTE)
+        }
+        if(!flag(FLAG_HIDDEN_ITEM_ROUTE3_POKEBALL)){
+            setflag(FLAG_HIDDEN_ITEM_ROUTE3_POKEBALL)
+            additem(ITEM_POKE_BALL)
+        }
+        if(!flag(FLAG_HIDDEN_ITEM_ROUTE3_SUPERREPEL)){
+            setflag(FLAG_HIDDEN_ITEM_ROUTE3_SUPERREPEL)
+            additem(ITEM_SUPER_REPEL)
+        }
+        if(!flag(FLAG_HIDDEN_ITEM_ROUTE3_REVIVE)){
+            setflag(FLAG_HIDDEN_ITEM_ROUTE3_REVIVE)
+            additem(ITEM_REVIVE)
+        }
+        if(!flag(FLAG_HIDDEN_ITEM_ROUTE3_ETHER)){
+            setflag(FLAG_HIDDEN_ITEM_ROUTE3_ETHER)
+            additem(ITEM_ETHER)
+        }
+        if(!flag(FLAG_ITEM_ROUTE3_GIGADRAIN)){
+            setflag(FLAG_ITEM_ROUTE3_GIGADRAIN)
+            additem(ITEM_TM_GRASS_KNOT)
+        }
+        pickberrytree(4)
+        call(TryLootingStrangeSeed)
+        pickberrytree(6)
+        call(TryLootingStrangeSeed)
+        pickberrytree(7)
+        call(TryLootingStrangeSeed)
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_R4_HIKER)
+        defeattrainer(TRAINER_R4_POKEMANIAC)
+        defeattrainer(TRAINER_R4_BUGCATCHER)
+        defeattrainer(TRAINER_R4_TWINS)
+        defeattrainer(TRAINER_R4_TRIATHLETE)
+        defeattrainer(TRAINER_R4_CAMPER)
+        defeattrainer(TRAINER_R4_COOL_F)
+        defeattrainer(TRAINER_R4_COOL_M)
+        defeattrainer(TRAINER_R4_BIRDKEEPER)
+        defeattrainer(TRAINER_R4_YOUNGSTER)
+        defeattrainer(TRAINER_R4_BIRDKEEPER_2)
+        defeattrainer(TRAINER_R4_DOUBLE_LASS)
+        defeattrainer(TRAINER_R4_DOUBLE_YOUNGSTER)
+        defeattrainer(TRAINER_R4_TRIATHLETE_2)
+    }
+    return
+}
+script CompleteArea_Pokemon_Ranch{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_HIDDEN_ITEM_RANCH)){
+            setflag(FLAG_HIDDEN_ITEM_RANCH)
+            additem(ITEM_RARE_CANDY)
+        }
+    }
+    if(flag(FLAG_EVENTS)){
+        if(flag(FLAG_OBTAINED_MEGA_RING) && !flag(FLAG_OBTAINED_AMPHAROSITE)){
+            additem(ITEM_AMPHAROSITE)
+            setflag(FLAG_OBTAINED_AMPHAROSITE)
+        }
+    }
+    return
+}
+script CompleteArea_Aldeleaf_City{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_ALDELEAF_LOST_KEY)){
+            setflag(FLAG_ALDELEAF_LOST_KEY)
+            additem(ITEM_LOST_KEY)
+        }
+        if(!flag(FLAG_ALDELEAF_MUSHROOM2)){
+            setflag(FLAG_ALDELEAF_MUSHROOM2)
+            additem(ITEM_TINY_MUSHROOM)
+        }
+        if(!flag(FLAG_ALDELEAF_MUSHROOM)){
+            setflag(FLAG_ALDELEAF_MUSHROOM)
+            additem(ITEM_TINY_MUSHROOM)
+        }
+    }
+    if(flag(FLAG_TRAINERS)){
+        if(!defeated(TRAINER_VITO)){
+            defeattrainer(TRAINER_VITO)
+            additem(ITEM_SHELL_BELL)
+		    setflag(FLAG_SHELL_BELL_RECEIVED)
+        }
+    }
+    if(flag(FLAG_EVENTS)){
+        removeitem(ITEM_LOST_KEY)
+        setflag(FLAG_ALDELEAF_LOST_KEY)
+		setflag(FLAG_KEY_RETURNED)
+		if(flag(FLAG_Q04_ALDELEAF_LOST_KEYS_START)){
+			completequest(FLAG_Q04_ALDELEAF_LOST_KEYS_COMPLETE)
+		}
+        if(!flag(FLAG_WHITEFLUTE_RECEIVED)){
+            additem(ITEM_BLACK_FLUTE, 1)
+            setflag(FLAG_WHITEFLUTE_RECEIVED)
+        }
+        if(flag(FLAG_OBTAINED_MEGA_RING)){
+            if(!flag(FLAG_OBTAINED_PAINTBRUSH)){
+                additem(ITEM_PAINTBRUSH)
+                setflag(FLAG_OBTAINED_PAINTBRUSH)
+                if(flag(FLAG_Q06_MUSEUM_SMEARGLE_START)){
+                    completequest(FLAG_Q06_MUSEUM_SMEARGLE_COMPLETE)
+                }
+            }
+        }
+        if(!flag(FLAG_ALDELEAF_QUICK_BALL)){
+            additem(ITEM_QUICK_BALL, 1)
+            setflag(FLAG_ALDELEAF_QUICK_BALL)
+        }
+        if(!flag(FLAG_RECEIVED_LAVA_COOKIE)){
+            additem(ITEM_LAVA_COOKIE, 1)
+            setflag(FLAG_RECEIVED_LAVA_COOKIE)
+        }
+    }
+    return
+}
+script CompleteArea_Route_30{
+    if(flag(FLAG_ITEMS)){
+        pickberrytree(8)
+        call(TryLootingStrangeSeed)
+        pickberrytree(10)
+        call(TryLootingStrangeSeed)
+        pickberrytree(11)
+        call(TryLootingStrangeSeed)
+        call(TryCuttingStrangeSeedTree)
+        if(!flag(FLAG_ROUTE28_TM)){
+            setflag(FLAG_ROUTE28_TM)
+            additem(ITEM_TM_SECRET_POWER)
+        }
+        if(!flag(FLAG_ROUTE28_ITEMBALL)){
+            setflag(FLAG_ROUTE28_ITEMBALL)
+            additem(ITEM_FULL_HEAL)
+        }
+        if(!flag(FLAG_ROUTE28_HIDDENBALL)){
+            setflag(FLAG_ROUTE28_HIDDENBALL)
+            additem(ITEM_GREAT_BALL)
+        }
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_R28_TR1_BUGCATCHER)
+        defeattrainer(TRAINER_R28_TR2_HIKER)
+        defeattrainer(TRAINER_R28_TR3_NINJABOY)
+        defeattrainer(TRAINER_R28_TR4_PSYCHIC)
+    }
+    if(flag(FLAG_EVENTS)){
+        setflag(FLAG_ROUTE28_DESPAWN_BROTHER)
+        defeattrainer(TRAINER_BROTHER_4_ROUTE28)
+    }
+    return
+}
+script CompleteArea_Windplume_Valley{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_WPV_FEATHER1)){
+            setflag(FLAG_WPV_FEATHER1)
+            additem(ITEM_PRETTY_FEATHER)
+        }
+        if(!flag(FLAG_WPV_HYPER_POTION)){
+            setflag(FLAG_WPV_HYPER_POTION)
+            additem(ITEM_HYPER_POTION)
+        }
+        if(!flag(FLAG_WPV_FEATHER2)){
+            setflag(FLAG_WPV_FEATHER2)
+            additem(ITEM_PRETTY_FEATHER)
+        }
+        if(!flag(FLAG_WPV_FEATHER3)){
+            setflag(FLAG_WPV_FEATHER3)
+            additem(ITEM_PRETTY_FEATHER)
+        }
+        if(!flag(FLAG_WPV_FEATHER4)){
+            setflag(FLAG_WPV_FEATHER4)
+            additem(ITEM_PRETTY_FEATHER)
+        }
+        if(!flag(FLAG_WPV_ELIXIR)){
+            setflag(FLAG_WPV_ELIXIR)
+            additem(ITEM_ELIXIR)
+        }
+        if(!flag(FLAG_WPV_IRON_BALL)){
+            setflag(FLAG_WPV_IRON_BALL)
+            additem(ITEM_IRON_BALL)
+        }
+        if(!flag(FLAG_WPV_FEATHER5)){
+            setflag(FLAG_WPV_FEATHER5)
+            additem(ITEM_PRETTY_FEATHER)
+        }
+        if(!flag(FLAG_WPV_FEATHER6)){
+            setflag(FLAG_WPV_FEATHER6)
+            additem(ITEM_PRETTY_FEATHER)
+        }
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_WPV_TR1_BIRDKEEPER)
+        defeattrainer(TRAINER_WPV_TR2_TRIATH)
+        defeattrainer(TRAINER_WPV_TR3_BATTLEGIRL)
+        defeattrainer(TRAINER_WPV_TR4_CAMPER)
+        defeattrainer(TRAINER_WPV_TR5_BIRDKEEPER)
+        defeattrainer(TRAINER_WPV_TR6_MANIAC)
+        defeattrainer(TRAINER_WPV_TR7_BIRDKEEPER)
+        defeattrainer(TRAINER_WPV_TR8_NINJABOY)
+        defeattrainer(TRAINER_WPV_TR9_LASS)
+        defeattrainer(TRAINER_WPV_TR10_TRIATH)
+        defeattrainer(TRAINER_WPV_TR11_BIRDKEEPER)
+        defeattrainer(TRAINER_WPV_TR12_BATTLEGIRL)
+        defeattrainer(TRAINER_WPV_TR13_BIRDKEEPER)
+        if(!defeated(TRAINER_WPV_TR14_SKYLA)){
+            giveitem(ITEM_HM02)
+            defeattrainer(TRAINER_WPV_TR14_SKYLA)
+            setflag(FLAG_RECEIVED_HM_FLY)
+        }
+    }
+    return
+}
+script CompleteArea_Route_5{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_ROUTE5_ITEM1)){
+            setflag(FLAG_ROUTE5_ITEM1)
+            additem(ITEM_SUPER_REPEL)
+        }
+        if(!flag(FLAG_ROUTE5_ITEM2)){
+            setflag(FLAG_ROUTE5_ITEM2)
+            additem(ITEM_GREAT_BALL)
+        }
+        if(!flag(FLAG_ROUTE5_ITEM3)){
+            setflag(FLAG_ROUTE5_ITEM3)
+            additem(ITEM_TM_ROCK_TOMB)
+        }
+        if(!flag(FLAG_ROUTE5_HIDDENITEM1)){
+            setflag(FLAG_ROUTE5_HIDDENITEM1)
+            additem(ITEM_TINY_MUSHROOM)
+        }
+        if(!flag(FLAG_ROUTE5_HIDDENITEM2)){
+            setflag(FLAG_ROUTE5_HIDDENITEM2)
+            additem(ITEM_TINY_MUSHROOM)
+        }
+        if(!flag(FLAG_ROUTE5_HIDDENITEM3)){
+            setflag(FLAG_ROUTE5_HIDDENITEM3)
+            additem(ITEM_MAX_ETHER)
+        }
+        if(!flag(FLAG_ROUTE5_HIDDENITEM4)){
+            setflag(FLAG_ROUTE5_HIDDENITEM4)
+            additem(ITEM_TINY_MUSHROOM)
+        }
+        if(!flag(FLAG_ROUTE5_HIDDENITEM5)){
+            setflag(FLAG_ROUTE5_HIDDENITEM5)
+            additem(ITEM_TINY_MUSHROOM)
+        }
+        call(TryCuttingStrangeSeedTree)
+        call(TryCuttingStrangeSeedTree)        
+        pickberrytree(13)
+        call(TryLootingStrangeSeed)
+        pickberrytree(21)
+        call(TryLootingStrangeSeed)
+        pickberrytree(31)
+        call(TryLootingStrangeSeed)
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_R5_TR1_FISHER)
+        defeattrainer(TRAINER_R5_TR2_BEAUTY)
+        defeattrainer(TRAINER_R5_TR3_YOUNGCOUPLE)
+        defeattrainer(TRAINER_R5_TR4_LASS1)
+        defeattrainer(TRAINER_R5_TR5_POKEFAN_F)
+        defeattrainer(TRAINER_R5_TR6_LASS2)
+        defeattrainer(TRAINER_R5_TR7_GENTLEMAN)
+        defeattrainer(TRAINER_R5_TR8_YOUNGSTER)
+        defeattrainer(TRAINER_R5_TR9_TRIATHLETE)
+        defeattrainer(TRAINER_R5_TR10_RICHBOY)
+        defeattrainer(TRAINER_R5_TR11_MAN_5)
+        defeattrainer(TRAINER_R5_TR12_BUGCATCHER)
+        defeattrainer(TRAINER_R5_TR13_NINJABOY)
+        defeattrainer(TRAINER_R5_TR14_HIKER)
+        if(!defeated(TRAINER_R5_TR15_COOLTRAINER)){
+            defeattrainer(TRAINER_R5_TR15_COOLTRAINER)
+            additem(ITEM_EVIOLITE)
+            addbp(20)
+        }  
+    }
+    return
+}
+script CompleteArea_Flower_Fields{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_HERACRONITE_OBTAINED) && flag(FLAG_OBTAINED_MEGA_RING)){
+            setflag(FLAG_HERACRONITE_OBTAINED)
+            additem(ITEM_HERACRONITE)
+        }
+        if(!flag(FLAG_FLOWERFIELDS_ITEM_1)){
+            setflag(FLAG_FLOWERFIELDS_ITEM_1)
+            additem(ITEM_ORAN_BERRY)
+        }
+        if(!flag(FLAG_FLOWERFIELDS_ITEM_3)){
+            setflag(FLAG_FLOWERFIELDS_ITEM_3)
+            additem(ITEM_HONEY)
+        }
+        if(!flag(FLAG_FLOWERFIELDS_ITEM_2)){
+            setflag(FLAG_FLOWERFIELDS_ITEM_2)
+            additem(ITEM_HONEY)
+        }
+    }
+    if(flag(FLAG_EVENTS)){
+        if(var(VAR_MINA_INTRO_QUEST) < STORY_MINA_QUEST_COMPLETE){
+            additem(ITEM_RARE_CANDY)
+            setvar(VAR_MINA_INTRO_QUEST, STORY_MINA_QUEST_COMPLETE)
+            if(flag(FLAG_Q08_FLOWER_FIELDS_GRANBULL_START)){
+                completequest(FLAG_Q08_FLOWER_FIELDS_GRANBULL_COMPLETE)
+            }
+        }
+    }
+    return
+}
+script CompleteArea_Skyloch_Village{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_SKYLOCH_JUICE)){
+            setflag(FLAG_SKYLOCH_JUICE)
+            additem(ITEM_BERRY_JUICE)
+        }
+    }
+    if(flag(FLAG_EVENTS)){
+        if(!flag(FLAG_SKYLOCH_CASTELIACONE)){
+            additem(ITEM_OCCA_BERRY, 1)
+            setflag(FLAG_SKYLOCH_CASTELIACONE)
+            if(flag(FLAG_Q10_SKYLOCH_ICECREAM_START)){
+                completequest(FLAG_Q10_SKYLOCH_ICECREAM_COMPLETE)
+            }
+        }
+        if(!flag(FLAG_RECEIVED_LIGHTBALL)){
+            additem(ITEM_LIGHT_BALL)
+            setflag(FLAG_RECEIVED_LIGHTBALL)
+            if(flag(FLAG_Q11_SKYLOCH_RAICHUS_START)){
+                completequest(FLAG_Q11_SKYLOCH_RAICHUS_COMPLETE)
+            }
+        }
+    }
+    return
+}
+script CompleteArea_Route_6{
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_R6_TR1_RANGER_M)
+        defeattrainer(TRAINER_R6_TR3_CAMPER_F)
+        defeattrainer(TRAINER_R6_TR5_HIKER)
+        defeattrainer(TRAINER_R6_TR6_CAMPER_M2)
+        defeattrainer(TRAINER_R6_TR7_KINDLER)
+    }
+    return
+}
+script CompleteArea_Route_8{
+    if(flag(FLAG_ITEMS)){
+        call(TryCuttingStrangeSeedTree)
+        call(TryCuttingStrangeSeedTree)
+        call(TryCuttingStrangeSeedTree)
+        if(!flag(FLAG_ROUTE8_ITEM2)){
+            setflag(FLAG_ROUTE8_ITEM2)
+            additem(ITEM_GREAT_BALL)
+        }
+        if(!flag(FLAG_ROUTE8_ITEM6)){
+            setflag(FLAG_ROUTE8_ITEM6)
+            additem(ITEM_TM_ROCK_POLISH)
+        }
+        if(!flag(FLAG_ROUTE8_ITEM3)){
+            setflag(FLAG_ROUTE8_ITEM3)
+            additem(ITEM_REVIVE)
+        }
+        if(!flag(FLAG_ROUTE8_ITEM1)){
+            setflag(FLAG_ROUTE8_ITEM1)
+            additem(ITEM_ORAN_BERRY)
+        }
+        if(!flag(FLAG_ROUTE8_ITEM5)){
+            setflag(FLAG_ROUTE8_ITEM5)
+            additem(ITEM_FULL_HEAL)
+        }
+        pickberrytree(15)
+        call(TryLootingStrangeSeed)
+        pickberrytree(22)
+        call(TryLootingStrangeSeed)
+        pickberrytree(24)
+        call(TryLootingStrangeSeed)
+        pickberrytree(33)
+        call(TryLootingStrangeSeed)
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_R8_TR1_PARASOLLADY)
+        defeattrainer(TRAINER_R8_TR2_SRJR)
+        defeattrainer(TRAINER_R8_TR3_AROMALADY)
+        defeattrainer(TRAINER_R8_TR4_YOUNGSTER)
+        defeattrainer(TRAINER_R8_TR5_PSYCHIC_F)
+        defeattrainer(TRAINER_R8_TR6_ENTHUSIAST)
+        defeattrainer(TRAINER_R8_TR7_TRIATHLETE_M)
+        defeattrainer(TRAINER_R8_TR8_GENTLEMAN)
+        defeattrainer(TRAINER_R8_TR9_HIKER)
+        defeattrainer(TRAINER_R8_TR10_OLDCOUPLE)
+        defeattrainer(TRAINER_R8_TR11_BIRDKEEPER)
+    }
+    if(flag(FLAG_EVENTS)){
+        setflag(FLAG_LANDMARK_FLOWER_SHOP)
+        if(!flag(FLAG_RECEIVED_WAILMER_PAIL)){
+            additem(ITEM_WAILMER_PAIL)
+	        setflag(FLAG_RECEIVED_WAILMER_PAIL)
+        }
+    }
+    return
+}
+script CompleteArea_Shoreslate_City{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_SHORESLATE_ITEM1)){
+            setflag(FLAG_SHORESLATE_ITEM1)
+            additem(ITEM_FULL_HEAL)
+        }
+        if(!flag(FLAG_BASEMENT_SUPERPOTION)){
+            setflag(FLAG_BASEMENT_SUPERPOTION)
+            additem(ITEM_SUPER_POTION)
+        }
+        if(!flag(FLAG_DEVONCORP_BASEMENT_BALL)){
+            setflag(FLAG_DEVONCORP_BASEMENT_BALL)
+            additem(ITEM_QUICK_BALL)
+        }
+    }
+    if(flag(FLAG_EVENTS)){
+        if(!flag(FLAG_OBTAINED_LUCARIONITE) && flag(FLAG_OBTAINED_MEGA_RING)){
+            additem(ITEM_LUCARIONITE)
+            setflag(FLAG_OBTAINED_LUCARIONITE)
+            if(flag(FLAG_Q15_SHORESLATE_TOUGHGUY_START)){
+                completequest(FLAG_Q15_SHORESLATE_TOUGHGUY_COMPLETE)
+            }
+        }
+        if(!flag(FLAG_RECEIVED_SHORESLATE_POTION)){
+            setflag(FLAG_RECEIVED_SHORESLATE_POTION)
+            additem(ITEM_SUPER_POTION)
+        }
+        if(!flag(FLAG_GIVEN_CASTELIATOGIRL)){
+            setflag(FLAG_GIVEN_CASTELIATOGIRL)
+            additem(ITEM_AIR_BALLOON)
+            if(flag(FLAG_Q13_SHORESLATE_ICECREAM_START)){
+                completequest(FLAG_Q13_SHORESLATE_ICECREAM_COMPLETE)
+            }
+        }
+    }
+    return
+}
+script CompleteArea_Scorched_Desert{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_DESERT_ITEM1)){
+            setflag(FLAG_DESERT_ITEM1)
+            additem(ITEM_TM_SANDSTORM)
+        }
+        if(!flag(FLAG_DESERT_ITEM4)){
+            setflag(FLAG_DESERT_ITEM4)
+            additem(ITEM_RARE_CANDY)
+        }
+        if(!flag(FLAG_DESERT_ITEM2)){
+            setflag(FLAG_DESERT_ITEM2)
+            additem(ITEM_STARDUST)
+        }
+        if(!flag(FLAG_DESERT_ITEM3)){
+            setflag(FLAG_DESERT_ITEM3)
+            additem(ITEM_HEART_SCALE)
+        }
+        if(!flag(FLAG_DESERT_ITEM5)){
+            setflag(FLAG_DESERT_ITEM5)
+            additem(ITEM_STARDUST)
+        }
+        if(!flag(FLAG_DESERT_ITEM6)){
+            setflag(FLAG_DESERT_ITEM6)
+            additem(ITEM_ELIXIR)
+        }
+        if(!flag(FLAG_DESERT_ITEM7)){
+            setflag(FLAG_DESERT_ITEM7)
+            additem(ITEM_STARDUST)
+        }
+        if(!flag(FLAG_DESERT_ITEM8)){
+            setflag(FLAG_DESERT_ITEM8)
+            additem(ITEM_PP_UP)
+        }
+        if(!flag(FLAG_DESERT_ITEM9)){
+            setflag(FLAG_DESERT_ITEM9)
+            additem(ITEM_REVIVE)
+        }
+        if(!flag(FLAG_DESERT_ITEM10)){
+            setflag(FLAG_DESERT_ITEM10)
+            additem(ITEM_HYPER_POTION)
+        }
+        if(checkitem(ITEM_ESCAPE_ROPE) == FALSE){
+            additem(ITEM_ESCAPE_ROPE)
+        }
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_DESERT_TR1_CAMPER)
+        defeattrainer(TRAINER_DESERT_TR2_CAMPER2)
+        defeattrainer(TRAINER_DESERT_TR3_PICNICKER)
+        defeattrainer(TRAINER_DESERT_TR4_PICNICKER2)
+        defeattrainer(TRAINER_DESERT_TR5_HIKER)
+        defeattrainer(TRAINER_DESERT_TR6_BLACKBELT)
+        defeattrainer(TRAINER_DESERT_TR7_PICNICKER3)
+        defeattrainer(TRAINER_DESERT_TR8_HIKER2)
+        defeattrainer(TRAINER_DESERT_TR9_HIKER3)
+        defeattrainer(TRAINER_DESERT_TR10_FIREBREATHER)
+        defeattrainer(TRAINER_DESERT_TR11_BLACKBELT2)
+        defeattrainer(TRAINER_DESERT_TR12_HIKER4)
+        defeattrainer(TRAINER_DESERT_TR13_PSYCHIC_F)
+        if(!defeated(TRAINER_DESERT_TR14_COOLTRAINER)){
+            defeattrainer(TRAINER_DESERT_TR14_COOLTRAINER)
+            additem(ITEM_SAFETY_GOGGLES)
+            setvar(VAR_DESERT_TRAINERS, 14)
+            addbp(20)
+        }
+    }
+    if(flag(FLAG_EVENTS)){
+        if(!flag(FLAG_WEIRDCAVESOLVED)){
+            additem(ITEM_STONE_SPHERE)
+            setflag(FLAG_WEIRDCAVE_STONE)
+            setvar(VAR_WEIRDCAVE_PART2, 3)
+            setflag(FLAG_WEIRDCAVESOLVED)
+            if(flag(FLAG_Q17_DESERT_WEIRDCAVE_START)){
+                completequest(FLAG_Q17_DESERT_WEIRDCAVE_COMPLETE)
+            }
+        }
+        setflag(FLAG_RECOMMEND_LIBRARY)
+        setflag(FLAG_DESERT_RUINS_OPENED)
+        if(!flag(FLAG_Q18_DESERT_LIBRARYBOOK_START) && checkitem(ITEM_HISTORY_BOOK) == FALSE){
+            startquest(FLAG_Q18_DESERT_LIBRARYBOOK_START)
+        }
+        if(checkitem(ITEM_ESCAPE_ROPE) == FALSE){
+            additem(ITEM_ESCAPE_ROPE)
+        }
+        setflag(FLAG_UNDERGROUNDRUINS_ITEM1)
+        setflag(FLAG_UNDERGROUNDRUINS_ITEM2)
+        setflag(FLAG_UNDERGROUNDRUINS_ITEM3)
+        setflag(FLAG_UNDERGROUNDRUINS_ITEM4)
+        setflag(FLAG_UNDERGROUNDRUINS_ITEM5)
+        setflag(FLAG_UNDERGROUNDRUINS_ITEM6)
+        setflag(FLAG_UNDERGROUNDRUINS_ITEM7)
+        setflag(FLAG_UNDERGROUNDRUINS_ITEM8)
+        call(GenerateRelic)
+        call(GenerateRelic)
+        call(GenerateRelic)
+        call(GenerateRelic)
+        additem(ITEM_RELIC_COPPER, 2)
+        additem(ITEM_RELIC_SILVER, 2)
+        if(!flag(FLAG_ITEM_UNDERGROUNDRUINS_TM_SANDSTORM)){
+            setflag(FLAG_ITEM_UNDERGROUNDRUINS_TM_SANDSTORM)
+            additem(ITEM_TM_ROCK_SLIDE)
+        }
+        call(DebugFossil)
+    }
+    return
+}
+script CompleteArea_Route_7{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_ROUTE7_ITEM4)){
+            setflag(FLAG_ROUTE7_ITEM4)
+            additem(ITEM_NET_BALL)
+        }
+        if(!flag(FLAG_ROUTE7_ITEM1)){
+            setflag(FLAG_ROUTE7_ITEM1)
+            additem(ITEM_HP_UP)
+        }
+        if(!flag(FLAG_ROUTE7_ITEM3)){
+            setflag(FLAG_ROUTE7_ITEM3)
+            additem(ITEM_RARE_BONE)
+        }
+        if(!flag(FLAG_ROUTE7_ITEM2)){
+            setflag(FLAG_ROUTE7_ITEM2)
+            additem(ITEM_FULL_HEAL)
+        }
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_R7_TR1_CAMPER)
+        defeattrainer(TRAINER_R7_TR2_PICNICKER)
+        defeattrainer(TRAINER_R7_TR3_NINJABOY)
+        defeattrainer(TRAINER_R7_TR4_BIRDKEEPER)
+        defeattrainer(TRAINER_R7_TR5_BLACKBELT)
+        defeattrainer(TRAINER_R7_TR6_PICNICKER2)
+        defeattrainer(TRAINER_R7_TR7_FISHERMAN)
+        defeattrainer(TRAINER_R7_TR8_HIKER)
+        defeattrainer(TRAINER_R7_TR9_PARASOLLADY)
+        defeattrainer(TRAINER_R7_TR10_NINJABOY)
+    }
+    if(flag(FLAG_EVENTS)){
+        if(checkitem(ITEM_SAMPLE_BOX) == FALSE){
+            additem(ITEM_SAMPLE_BOX)
+            if(!flag(FLAG_Q19_MUDSCIENTIST_START)){
+                startquest(FLAG_Q19_MUDSCIENTIST_START)
+            }
+        }
+    }
+    return
+}
+script CompleteArea_Marigorge_Town{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_MARIGORGE_ITEM2)){
+            setflag(FLAG_MARIGORGE_ITEM2)
+            additem(ITEM_HYPER_POTION)
+        }
+    }
+    return
+}
+script CompleteArea_Kaolisle_City{
+    if(checkitem(ITEM_ESCAPE_ROPE) == FALSE){
+        additem(ITEM_ESCAPE_ROPE)
+    }
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_KAOLISLE_ITEM7)){
+            setflag(FLAG_KAOLISLE_ITEM7)
+            additem(ITEM_QUICK_BALL)
+        }
+        if(!flag(FLAG_KAOLISLE_ITEM9)){
+            setflag(FLAG_KAOLISLE_ITEM9)
+            additem(ITEM_CALCIUM)
+        }
+        if(!flag(FLAG_KAOLISLE_ITEM8)){
+            setflag(FLAG_KAOLISLE_ITEM8)
+            additem(ITEM_REVIVE)
+        }
+        if(!flag(FLAG_KAOLISLE_ITEM1)){
+            setflag(FLAG_KAOLISLE_ITEM1)
+            additem(ITEM_STARDUST)
+        }
+        if(!flag(FLAG_KAOLISLE_ITEM4)){
+            setflag(FLAG_KAOLISLE_ITEM4)
+            additem(ITEM_PEARL)
+        }
+        if(!flag(FLAG_KAOLISLE_ITEM5)){
+            setflag(FLAG_KAOLISLE_ITEM5)
+            additem(ITEM_PEARL)
+        }
+        if(!flag(FLAG_KAOLISLE_ITEM6)){
+            setflag(FLAG_KAOLISLE_ITEM6)
+            additem(ITEM_SUN_STONE)
+        }
+        if(!flag(FLAG_KAOLISLE_ITEM3)){
+            setflag(FLAG_KAOLISLE_ITEM3)
+            additem(ITEM_PEARL)
+        }
+        if(!flag(FLAG_KAOLISLE_ITEM2)){
+            setflag(FLAG_KAOLISLE_ITEM2)
+            additem(ITEM_PEARL)
+        }
+        ////////////////////// Caves
+        if(!flag(FLAG_KAOLMINES_ITEM3)){
+            setflag(FLAG_KAOLMINES_ITEM3)
+            additem(ITEM_DUSK_BALL)
+        }
+        if(!flag(FLAG_KAOLMINES_ITEM4)){
+            setflag(FLAG_KAOLMINES_ITEM4)
+            additem(ITEM_HYPER_POTION)
+        }
+        if(!flag(FLAG_KAOLMINES_ITEM1)){
+            setflag(FLAG_KAOLMINES_ITEM1)
+            additem(ITEM_CALCIUM)
+        }
+        if(!flag(FLAG_KAOLMINES_ITEM6)){
+            setflag(FLAG_KAOLMINES_ITEM6)
+            additem(ITEM_RARE_CANDY)
+        }
+        if(!flag(FLAG_KAOLMINES_ITEM8)){
+            setflag(FLAG_KAOLMINES_ITEM8)
+            additem(ITEM_PROTEIN)
+        }
+        if(!flag(FLAG_KAOLMINES_ITEM10)){
+            setflag(FLAG_KAOLMINES_ITEM10)
+            additem(ITEM_PP_UP)
+        }
+        if(!flag(FLAG_KAOLMINES_ITEM9)){
+            setflag(FLAG_KAOLMINES_ITEM9)
+            additem(ITEM_ZINC)
+        }
+        if(!flag(FLAG_KAOLMINES_ITEM11)){
+            setflag(FLAG_KAOLMINES_ITEM11)
+            additem(ITEM_HP_UP)
+        }
+        if(!flag(FLAG_KAOLMINES_ITEM12)){
+            setflag(FLAG_KAOLMINES_ITEM12)
+            additem(ITEM_GREAT_BALL)
+        }
+        if(!flag(FLAG_KAOLMINES_ITEM13)){
+            setflag(FLAG_KAOLMINES_ITEM13)
+            additem(ITEM_CARBOS)
+        }
+        if(!flag(FLAG_KAOLMINES_ITEM14)){
+            setflag(FLAG_KAOLMINES_ITEM14)
+            additem(ITEM_TM_DIG)
+        }
+        if(!flag(FLAG_KAOLMINES_ITEM2)){
+            setflag(FLAG_KAOLMINES_ITEM2)
+            additem(ITEM_LOST_MEMENTO)
+        }
+        if(!flag(FLAG_KAOLMINES_ITEM5)){
+            setflag(FLAG_KAOLMINES_ITEM5)
+            call(DebugFossil)
+        }
+        if(!flag(FLAG_KAOLMINES_ITEM7)){
+            setflag(FLAG_KAOLMINES_ITEM7)
+            additem(ITEM_IRON)
+        }
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_KM_TR1_PICNICKER)
+        defeattrainer(TRAINER_KM_TR2_BLACKBELT)
+        defeattrainer(TRAINER_KM_TR3_CAMPER)
+        defeattrainer(TRAINER_KM_TR4_HIKER)
+        defeattrainer(TRAINER_KM_TR5_HIKER)
+        defeattrainer(TRAINER_KM_TR6_HIKER)
+        defeattrainer(TRAINER_KM_TR7_CAMPER)
+        defeattrainer(TRAINER_KM_TR8_PICNICKER)
+        defeattrainer(TRAINER_KM_TR9_BLACKBELT)
+        defeattrainer(TRAINER_KM_TR10_HIKER)
+    }
+    if(flag(FLAG_EVENTS)){
+        if(!flag(FLAG_RECEIVED_GOOD_ROD)){
+            setflag(FLAG_QUEST_FOR_GOOD_ROD)
+            removeitem(ITEM_LURE)
+            additem(ITEM_GOOD_ROD)
+            setflag(FLAG_RECEIVED_GOOD_ROD)
+            if(flag(FLAG_Q22_KAOLISLE_FISHERMAN_START)){
+                completequest(FLAG_Q22_KAOLISLE_FISHERMAN_COMPLETE)
+            }
+        }
+        setflag(FLAG_REVEAL_PEARLSTRING)
+        if(!flag(FLAG_OLDMAN_PEARLSTRING)){
+            setflag(FLAG_OLDMAN_PEARLSTRING)
+            additem(ITEM_PEARL_STRING)
+        }
+        if(!flag(FLAG_RECEIVED_HM_ROCK_SMASH)){
+            setflag(FLAG_KAOLMINES_ITEM2)
+            giveitem(ITEM_HM_ROCK_SMASH)
+            setflag(FLAG_RECEIVED_HM_ROCK_SMASH)
+            removeitem(ITEM_LOST_MEMENTO)
+            if(flag(FLAG_Q23_KAOLISLE_OLDPENDANT_START)){
+                special(ShowJournalPopupRemove)
+            }
+        }
+        if(!flag(FLAG_PIANOREWARD)){
+            additem(ITEM_HEART_SCALE, 2)
+            setflag(FLAG_PIANOREWARD)
+        }
+        if(!flag(FLAG_OBTAINED_BEACHBALL)){
+            additem(ITEM_DIVE_BALL)
+            setflag(FLAG_OBTAINED_BEACHBALL)
+        }
+        if(!flag(FLAG_HOTEL_FLYINGGEM)){
+            defeattrainer(TRAINER_HOTEL_BIRDKEEPER)
+            additem(ITEM_FLYING_GEM, 1)
+            setflag(FLAG_HOTEL_FLYINGGEM)
+        }
+        if(!flag(FLAG_BUFFET_COMPLETE)){
+            additem(ITEM_LEFTOVERS)
+            addbp(30)
+            setflag(FLAG_BUFFET_COMPLETE)
+            if(flag(FLAG_Q24_BATTLE_BUFFET_START)){
+                completequest(FLAG_Q24_BATTLE_BUFFET_COMPLETE)
+            }
+        }
+        if(!flag(FLAG_OBTAINED_TROPICALSTONE)){
+            additem(ITEM_TROPICAL_STONE)
+            setflag(FLAG_OBTAINED_TROPICALSTONE)
+            if(flag(FLAG_Q25_HOTEL_TROPICALSTONE_START)){
+                completequest(FLAG_Q25_HOTEL_TROPICALSTONE_COMPLETE)
+            }
+        }
+        if(!flag(FLAG_OBTAINED_ECHOEDVOICE)){
+            additem(ITEM_TM_ECHOED_VOICE)
+            setflag(FLAG_OBTAINED_ECHOEDVOICE)
+        }
+        if(!flag(FLAG_OBTAINED_ROSTEBERRIES)){
+            defeattrainer(TRAINER_HOTEL_KID1)
+            defeattrainer(TRAINER_HOTEL_KID2)
+            additem(ITEM_ROSTE_BERRY, 2)
+            setflag(FLAG_OBTAINED_ROSTEBERRIES)
+            if(flag(FLAG_Q27_HOTEL_WILDKIDS_START)){
+                completequest(FLAG_Q27_HOTEL_WILDKIDS_COMPLETE)
+            }
+        }
+    }
+    return
+}
+script CompleteArea_Rockliffe_Town{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_ROCKLIFFE_ITEM2)){
+            setflag(FLAG_ROCKLIFFE_ITEM2)
+            additem(ITEM_CALCIUM)
+        }
+        if(!flag(FLAG_ROCKLIFFE_ITEM1)){
+            setflag(FLAG_ROCKLIFFE_ITEM1)
+            additem(ITEM_SUPER_POTION)
+        }
+    }
+    if(flag(FLAG_EVENTS)){
+        if(!flag(FLAG_OBTAINED_BEEDRILLITE) && flag(FLAG_OBTAINED_MEGA_RING)){
+            additem(ITEM_BEEDRILLITE)
+            setflag(FLAG_OBTAINED_BEEDRILLITE)
+            if(flag(FLAG_Q30_ROCKLIFFE_BEEDRILLS_START)){
+                completequest(FLAG_Q30_ROCKLIFFE_BEEDRILLS_COMPLETE)
+            }
+        }
+        if(!flag(FLAG_RECEIVED_METAL_COAT)){
+            additem(ITEM_METAL_COAT)
+            setflag(FLAG_RECEIVED_METAL_COAT)
+            if(flag(FLAG_Q29_ROCKLIFFE_HEAVYMON_START)){
+                completequest(FLAG_Q29_ROCKLIFFE_HEAVYMON_COMPLETE)
+            }
+        }
+        if(!flag(FLAG_RECEIVED_TM_FLING)){
+            additem(ITEM_TM_FLING)
+            setflag(FLAG_RECEIVED_TM_FLING)
+        }
+    }
+    return
+}
+script CompleteArea_Route_11{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_ITEM_ROUTE_11_SUPER_REPEL)){
+            setflag(FLAG_ITEM_ROUTE_11_SUPER_REPEL)
+            additem(ITEM_SUPER_REPEL)
+        }
+        if(!flag(FLAG_ITEM_ROUTE_11_ZINC)){
+            setflag(FLAG_ITEM_ROUTE_11_ZINC)
+            additem(ITEM_ZINC)
+        }
+        if(!flag(FLAG_ITEM_ROUTE_11_HYPER_POTION)){
+            setflag(FLAG_ITEM_ROUTE_11_HYPER_POTION)
+            additem(ITEM_HYPER_POTION)
+        }
+        if(!flag(FLAG_ROUTE11_GREATBALL)){
+            setflag(FLAG_ROUTE11_GREATBALL)
+            additem(ITEM_GREAT_BALL)
+        }
+        if(!flag(FLAG_ROUTE11_HONEY)){
+            setflag(FLAG_ROUTE11_HONEY)
+            additem(ITEM_HONEY)
+        }
+        if(!flag(FLAG_ROUTE11_RARECANDY)){
+            setflag(FLAG_ROUTE11_RARECANDY)
+            additem(ITEM_RARE_CANDY)
+        }
+        if(!flag(FLAG_ITEM_ROUTE_11_ELIXIR)){
+            setflag(FLAG_ITEM_ROUTE_11_ELIXIR)
+            additem(ITEM_ELIXIR)
+        }
+        call(TryCuttingStrangeSeedTree)
+        call(TryCuttingStrangeSeedTree)
+        call(TryCuttingStrangeSeedTree)
+        call(TryCuttingStrangeSeedTree)
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_R11_TR1_LASS)
+        defeattrainer(TRAINER_R11_TR2_BIRDKEEPER)
+        defeattrainer(TRAINER_R11_TR3_BUGCATCHER)
+        defeattrainer(TRAINER_R11_TR4_NINJABOY)
+        defeattrainer(TRAINER_R11_TR5_POKEMANIAC)
+        defeattrainer(TRAINER_R11_TR6_TRIATHLETE_F)
+        defeattrainer(TRAINER_R11_TR7_HIKER)
+        defeattrainer(TRAINER_R11_TR8_NINJABOY_2)
+        defeattrainer(TRAINER_R11_TR9_NINJABOY_3)
+        defeattrainer(TRAINER_R11_TR10_CYCLER_M)
+        defeattrainer(TRAINER_R11_TR11_BLACKBELT)
+        defeattrainer(TRAINER_R11_TR12_EXPERT)
+        defeattrainer(TRAINER_R11_TR13_PSYCHIC_F)
+        if(!defeated(TRAINER_R11_TR14_ACETRAINER_F)){
+            defeattrainer(TRAINER_R11_TR14_ACETRAINER_F)
+            additem(ITEM_LUCKY_EGG)
+            setvar(VAR_R11_TRAINERS, 12)
+            addbp(25)
+        }
+    }
+    if(flag(FLAG_EVENTS)){
+        setflag(FLAG_LANDMARK_POKEMON_DAYCARE)
+        if(!flag(FLAG_ITEM_ROUTE_11_TORMENT)){
+            additem(ITEM_TM_TORMENT)
+            setflag(FLAG_ITEM_ROUTE_11_TORMENT)
+        }
+    }
+    return
+}
+script CompleteArea_Route_12{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_R12_ITEM3)){
+            setflag(FLAG_R12_ITEM3)
+            additem(ITEM_PP_UP)
+        }
+        if(!flag(FLAG_R12_ITEM2)){
+            setflag(FLAG_R12_ITEM2)
+            additem(ITEM_HYPER_POTION)
+        }
+        if(!flag(FLAG_R12_ITEM1)){
+            setflag(FLAG_R12_ITEM1)
+            additem(ITEM_TM42)
+        }
+        if(!flag(FLAG_FC_ITEM1)){
+            setflag(FLAG_FC_ITEM1)
+            additem(ITEM_FULL_HEAL)
+        }
+        if(!flag(FLAG_FC_ITEM2)){
+            setflag(FLAG_FC_ITEM2)
+            additem(ITEM_PEARL)
+        }
+        if(!flag(FLAG_FC_ITEM3)){
+            setflag(FLAG_FC_ITEM3)
+            additem(ITEM_BIG_PEARL)
+        }
+        if(!flag(FLAG_FC_ITEM4)){
+            setflag(FLAG_FC_ITEM4)
+            additem(ITEM_CARBOS)
+        }
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_R12_TR1_TRIATHLETE_F)
+        defeattrainer(TRAINER_R12_TR2_TRIATHLETE_M)
+        defeattrainer(TRAINER_R12_TR3_TRIATHLETE_F2)
+        defeattrainer(TRAINER_R12_TR4_TRIATHLETE_M2)
+        defeattrainer(TRAINER_R12_TR5_TRIATHLETE_M3)
+        defeattrainer(TRAINER_R12_TR6_TRIATHLETE_F3)
+        defeattrainer(TRAINER_R12_TR9_PSYCHIC_M)
+        defeattrainer(TRAINER_R12_TR10_HIKER)
+        defeattrainer(TRAINER_R12_TR11_LASS)
+        defeattrainer(TRAINER_R12_TR12_BUGMANIAC)
+        defeattrainer(TRAINER_R12_TR13_NINJABOY)
+        defeattrainer(TRAINER_FC_TR1_BLACKBELT)
+        defeattrainer(TRAINER_FC_TR2_BATTLEGIRL)
+        defeattrainer(TRAINER_FC_TR3_CAMPER)
+        defeattrainer(TRAINER_FC_TR4_HIKER)
+    }
+    if(flag(FLAG_EVENTS)){
+        if(!flag(FLAG_RECEIVED_HM_STRENGTH)){
+            giveitem(ITEM_HM_STRENGTH)
+            setflag(FLAG_RECEIVED_HM_STRENGTH)
+        }
+        if(!flag(FLAG_FC_LOOTEDROCK)){
+            setflag(FLAG_HIDE_STONE_SPHERE_FC)
+            if(checkitem(ITEM_STONE_SPHERE) == FALSE){
+                additem(ITEM_STONE_SPHERE)
+            }
+            setflag(FLAG_FC_LOOTEDROCK)
+            additem(ITEM_STEEL_SPHERE)
+            setvar(VAR_FCCAVE, 3)
+            if(flag(FLAG_Q31_ROUTE12_WEIRDCAVE_START)){
+                completequest(FLAG_Q31_ROUTE12_WEIRDCAVE_COMPLETE)
+            }
+        }
+        if(!flag(FLAG_R12_XSPEED)){
+            additem(ITEM_X_SPEED)
+            setflag(FLAG_R12_XSPEED)
+        }
+    }
+    return
+}
+script CompleteArea_Sandstone_City{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_SANDSTONE_HIDDENITEM_1)){
+            setflag(FLAG_SANDSTONE_HIDDENITEM_1)
+            additem(ITEM_SUPER_REPEL)
+        }
+        if(!flag(FLAG_SANDSTONE_HIDDENITEM_2)){
+            setflag(FLAG_SANDSTONE_HIDDENITEM_2)
+            additem(ITEM_MAX_POTION)
+        }
+    }
+    if(flag(FLAG_EVENTS)){
+        if(!flag(FLAG_SANDSTONE_BALLOON)){
+            additem(ITEM_AIR_BALLOON)
+            setflag(FLAG_SANDSTONE_BALLOON)
+        }
+        if(!flag(FLAG_SANDSTONE_ULTRABALL)){
+            additem(ITEM_ULTRA_BALL)
+            setflag(FLAG_SANDSTONE_ULTRABALL)
+        }
+        if(!flag(FLAG_SANDSTONE_LAVACOOKIE)){
+            additem(ITEM_LAVA_COOKIE)
+            setflag(FLAG_SANDSTONE_LAVACOOKIE)
+        }
+        if(!flag(FLAG_SANDSTONE_DUSKBALLS)){
+            additem(ITEM_DUSK_BALL, 2)
+            setflag(FLAG_SANDSTONE_DUSKBALLS)
+        }
+        if(!flag(FLAG_RECEIVED_SANDSTONE_BERRY)){
+            additem(ITEM_CHOPLE_BERRY)
+            setflag(FLAG_RECEIVED_SANDSTONE_BERRY)
+        }
+    }
+    return
+}
+script CompleteArea_Route_13{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_R13_ITEM1)){
+            setflag(FLAG_R13_ITEM1)
+            additem(ITEM_HYPER_POTION)
+        }
+    }
+    return
+}
+script CompleteArea_Adamant_Tower{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_AT_ITEM1)){
+            setflag(FLAG_AT_ITEM1)
+            additem(ITEM_NUGGET)
+        }
+        if(!flag(FLAG_AT_ITEM2)){
+            setflag(FLAG_AT_ITEM2)
+            additem(ITEM_HYPER_POTION)
+        }
+        if(!flag(FLAG_AT_ITEM3)){
+            setflag(FLAG_AT_ITEM3)
+            additem(ITEM_PP_UP)
+        }
+    }
+    return
+}
+script CompleteArea_Route_14{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_R14_ITEM1)){
+            setflag(FLAG_R14_ITEM1)
+            additem(ITEM_PP_UP)
+        }
+        if(!flag(FLAG_R14_ITEM2)){
+            setflag(FLAG_R14_ITEM2)
+            additem(ITEM_HYPER_POTION)
+        }
+        if(!flag(FLAG_R14_ITEM3)){
+            setflag(FLAG_R14_ITEM3)
+            additem(ITEM_ELIXIR)
+        }
+        if(!flag(FLAG_R14_ITEM4)){
+            setflag(FLAG_R14_ITEM4)
+            additem(ITEM_BIG_MUSHROOM)
+        }
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_R14_TR1_RUNNING_F)
+        defeattrainer(TRAINER_R14_TR2_HIKER)
+        defeattrainer(TRAINER_R14_TR3_PARASOLLADY)
+        defeattrainer(TRAINER_R14_TR4_FISHER)
+        defeattrainer(TRAINER_R14_TR5_PARASOLLADY2)
+        defeattrainer(TRAINER_R14_TR6_NINJABOY)
+        defeattrainer(TRAINER_R14_TR7_ROCKER)
+        defeattrainer(TRAINER_R14_TR8_MANIAC)
+    }
+    return
+}
+script CompleteArea_Route_15{
+    if(flag(FLAG_ITEMS)){
+        call(TryCuttingStrangeSeedTree)
+        call(TryCuttingStrangeSeedTree)
+        call(TryCuttingStrangeSeedTree)
+        call(TryCuttingStrangeSeedTree)
+        call(TryCuttingStrangeSeedTree)
+        if(!flag(FLAG_ROUTE15_ITEM7)){
+            setflag(FLAG_ROUTE15_ITEM7)
+            additem(ITEM_BIG_MUSHROOM)
+        }
+        if(!flag(FLAG_ROUTE15_ITEM6)){
+            setflag(FLAG_ROUTE15_ITEM6)
+            additem(ITEM_TINY_MUSHROOM)
+        }
+        if(!flag(FLAG_BERRYFIELDS_ITEM)){
+            setflag(FLAG_BERRYFIELDS_ITEM)
+            additem(ITEM_PP_UP)
+        }
+        if(!flag(FLAG_ROUTE15_ITEM5)){
+            setflag(FLAG_ROUTE15_ITEM5)
+            additem(ITEM_SUN_STONE)
+        }
+        if(!flag(FLAG_ROUTE15_ITEM4)){
+            setflag(FLAG_ROUTE15_ITEM4)
+            additem(ITEM_HYPER_POTION)
+        }
+        if(!flag(FLAG_ROUTE15_ITEM3)){
+            setflag(FLAG_ROUTE15_ITEM3)
+            additem(ITEM_MAX_REPEL)
+        }
+        if(!flag(FLAG_ROUTE15_ITEM2)){
+            setflag(FLAG_ROUTE15_ITEM2)
+            additem(ITEM_HYPER_POTION)
+        }
+        if(!flag(FLAG_ROUTE15_ITEM1)){
+            setflag(FLAG_ROUTE15_ITEM1)
+            additem(ITEM_ZINC)
+        }
+
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_R15_TR1_BIRDKEEPER)
+        defeattrainer(TRAINER_R15_TR2_RANGERF)
+        defeattrainer(TRAINER_R15_TR3_RANGERM)
+        defeattrainer(TRAINER_R15_TR4_GENTLEMAN)
+        defeattrainer(TRAINER_R15_TR5_NINJABOY1)
+        defeattrainer(TRAINER_R15_TR6_NINJABOY2)
+        defeattrainer(TRAINER_R15_TR7_BUGCATCHER)
+        defeattrainer(TRAINER_R15_TR8_BUGCATCHER2)
+        defeattrainer(TRAINER_R15_TR9_BEAUTY)
+        defeattrainer(TRAINER_R15_TR10_FISHER)
+        defeattrainer(TRAINER_R15_TR13_COOLTRAINER)
+        defeattrainer(TRAINER_R15_TR14_LASS)
+        defeattrainer(TRAINER_R15_TR15_SCIENTIST)
+        defeattrainer(TRAINER_R15_TR16_AROMALADY)
+        defeattrainer(TRAINER_R15_TR17_NINJABOY3)
+        if(!defeated(TRAINER_R15_ACETRAINER_F) && !defeated(TRAINER_R15_ACETRAINER_M)){
+            additem(ITEM_ROCKY_HELMET)
+            defeattrainer(TRAINER_R15_ACETRAINER_F)
+            defeattrainer(TRAINER_R15_ACETRAINER_M)
+            addbp(25)
+            if(var(VAR_ROUTE14_ROCKET_EVENT) < 7){
+                setvar(VAR_ROUTE14_ROCKET_EVENT, 7)
+            }
+        }
+        pickberrytree(BERRY_TREE_ROUTE_123_POMEG_7)
+        call(TryLootingStrangeSeed)
+        pickberrytree(BERRY_TREE_ROUTE_123_POMEG_2)
+        call(TryLootingStrangeSeed)
+        pickberrytree(BERRY_TREE_ROUTE_123_POMEG_4)
+        call(TryLootingStrangeSeed)
+        pickberrytree(BERRY_TREE_ROUTE_123_POMEG_5)
+        call(TryLootingStrangeSeed)
+        pickberrytree(BERRY_TREE_ROUTE_123_POMEG_3)
+        call(TryLootingStrangeSeed)
+        pickberrytree(BERRY_TREE_ROUTE_123_POMEG_6)
+        call(TryLootingStrangeSeed)
+        pickberrytree(BERRY_TREE_ROUTE_123_GREPA_7)
+        call(TryLootingStrangeSeed)
+        pickberrytree(BERRY_TREE_ROUTE_123_GREPA_2)
+        call(TryLootingStrangeSeed)
+        pickberrytree(BERRY_TREE_ROUTE_123_GREPA_4)
+        call(TryLootingStrangeSeed)
+        pickberrytree(BERRY_TREE_ROUTE_123_GREPA_5)
+        call(TryLootingStrangeSeed)
+        pickberrytree(BERRY_TREE_ROUTE_123_GREPA_3)
+        call(TryLootingStrangeSeed)
+        pickberrytree(BERRY_TREE_ROUTE_123_GREPA_6)
+        call(TryLootingStrangeSeed)
+        pickberrytree(BERRY_TREE_ROUTE_123_QUALOT_7)
+        call(TryLootingStrangeSeed)
+        pickberrytree(BERRY_TREE_ROUTE_123_QUALOT_2)
+        call(TryLootingStrangeSeed)
+        pickberrytree(BERRY_TREE_ROUTE_123_QUALOT_4)
+        call(TryLootingStrangeSeed)
+        pickberrytree(BERRY_TREE_ROUTE_123_QUALOT_5)
+        call(TryLootingStrangeSeed)
+        pickberrytree(BERRY_TREE_ROUTE_123_QUALOT_3)
+        call(TryLootingStrangeSeed)
+        pickberrytree(BERRY_TREE_ROUTE_123_QUALOT_6)
+        call(TryLootingStrangeSeed)
+    }
+    return
+}
+script CompleteArea_Fishing_Village{
+    if(flag(FLAG_EVENTS)){
+        if(!flag(FLAG_RECEIVED_GYARADOSITE)){
+            setflag(FLAG_FISHINGVILLAGE_GYARADOS_REWARD)
+            additem(ITEM_GYARADOSITE)
+            setflag(FLAG_RECEIVED_GYARADOSITE)
+        }
+        if(checkitem(ITEM_SUPER_POTION) == FALSE){
+            setflag(FLAG_USED_TITANIUM_LINE)
+            additem(ITEM_SUPER_ROD)
+            if(checkitem(ITEM_TITANIUM_LINE) == FALSE){
+                additem(ITEM_TITANIUM_LINE)
+            }
+        }
+    }
+    return
+}
+script CompleteArea_Route_23{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_ROUTE23_ITEM1)){
+            setflag(FLAG_ROUTE23_ITEM1)
+            additem(ITEM_REVIVAL_HERB)
+        }
+        if(!flag(FLAG_ROUTE23_ITEM2)){
+            setflag(FLAG_ROUTE23_ITEM2)
+            additem(ITEM_CALCIUM)
+        }
+        if(!flag(FLAG_ROUTE23_ITEM3)){
+            setflag(FLAG_ROUTE23_ITEM3)
+            additem(ITEM_ELIXIR)
+        }
+        if(!flag(FLAG_ROUTE23_ITEM4)){
+            setflag(FLAG_ROUTE23_ITEM4)
+            additem(ITEM_PP_UP)
+        }
+
+        pickberrytree(BERRY_TREE_ROUTE_123_LEPPA_1)
+        call(TryLootingStrangeSeed)
+        pickberrytree(BERRY_TREE_ROUTE_123_SOIL)
+        call(TryLootingStrangeSeed)
+        pickberrytree(BERRY_TREE_ROUTE_123_LEPPA_2)
+        call(TryLootingStrangeSeed)
+        call(TryCuttingStrangeSeedTree)
+        call(TryCuttingStrangeSeedTree)
+        call(TryCuttingStrangeSeedTree)
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_R23_TR1_BREEDER_M)
+        defeattrainer(TRAINER_R23_TR2_MANIAC)
+        defeattrainer(TRAINER_R23_TR3_TWINS)
+        defeattrainer(TRAINER_R23_TR4_BREEDER_F)
+        defeattrainer(TRAINER_R23_TR5_HEXMANIAC_1)
+        defeattrainer(TRAINER_R23_TR6_PSYCHIC_M)
+        defeattrainer(TRAINER_R23_TR7_HEXMANIAC_2)
+        defeattrainer(TRAINER_R23_TR8_TRIATHLETE_F)
+        defeattrainer(TRAINER_R23_TR9_FISHERMAN)
+        defeattrainer(TRAINER_R23_TR10_BATTLEGIRL)
+        defeattrainer(TRAINER_R23_TR11_NINJABOY)
+        if(!defeated(TRAINER_R23_TR12_ACETRAINER)){
+            defeattrainer(TRAINER_R23_TR12_ACETRAINER)
+            additem(ITEM_CHOICE_SCARF)
+            setflag(FLAG_OBTAINED_CHOICE_SCARF)
+            addbp(30)
+        }
+    }
+    return
+}
+script CompleteArea_Drisledge_Town{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_DRISLEDGE_ITEM1)){
+            setflag(FLAG_DRISLEDGE_ITEM1)
+            additem(ITEM_POKE_DOLL)
+        }
+    }
+    if(flag(FLAG_EVENTS)){
+        if(!flag(FLAG_DRISLEDGE_ITEM2)){
+            additem(ITEM_ORAN_BERRY)
+            setflag(FLAG_DRISLEDGE_ITEM2)
+        }
+        if(!flag(FLAG_DRISLEDGE_ITEM3)){
+            additem(ITEM_COLBUR_BERRY)
+            setflag(FLAG_DRISLEDGE_ITEM3)
+        }
+        if(!flag(FLAG_ACEROLA_ITEM)){
+            additem(ITEM_TM_CAPTIVATE)
+            setflag(FLAG_ACEROLA_ITEM)
+        }
+        if(!flag(FLAG_DRISLEDGE_ITEM4)){
+            additem(ITEM_SPELL_TAG)
+            setflag(FLAG_DRISLEDGE_ITEM4)
+        }
+        if(!flag(FLAG_OBTAINED_GENGARITE)){
+            additem(ITEM_GENGARITE)
+            setflag(FLAG_OBTAINED_GENGARITE)
+        }
+    }
+    return
+}
+script CompleteArea_Amberock_Town{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_GAME_CORNER_TRASHITEM)){
+            setflag(FLAG_GAME_CORNER_TRASHITEM)
+            additem(ITEM_FULL_RESTORE)
+        }
+    }
+    if(flag(FLAG_EVENTS)){
+        if(checkitem(ITEM_COIN_CASE) == FALSE){
+            additem(ITEM_COIN_CASE)
+        }
+    }
+    return
+}
+script CompleteArea_Route_3{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_COAST_ITEM1)){
+            setflag(FLAG_COAST_ITEM1)
+            additem(ITEM_STAR_PIECE)
+        }
+        if(!flag(FLAG_COAST_ITEM2)){
+            setflag(FLAG_COAST_ITEM2)
+            additem(ITEM_STARDUST)
+        }
+        if(!flag(FLAG_COAST_ITEM3)){
+            setflag(FLAG_COAST_ITEM3)
+            additem(ITEM_PEARL)
+        }
+        if(!flag(FLAG_COAST_ITEM4)){
+            setflag(FLAG_COAST_ITEM4)
+            additem(ITEM_HEART_SCALE)
+        }
+        if(!flag(FLAG_COAST_ITEM5)){
+            setflag(FLAG_COAST_ITEM5)
+            additem(ITEM_PP_UP)
+        }
+        if(!flag(FLAG_COAST_ITEM6)){
+            setflag(FLAG_COAST_ITEM6)
+            additem(ITEM_PEARL)
+        }
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_R3_TR1_SWIMMER_F)
+        defeattrainer(TRAINER_R3_TR2_SWIMMER_M)
+        defeattrainer(TRAINER_R3_TR3_SWIMMER_OLDSISTER)
+        defeattrainer(TRAINER_R3_TR4_TUBER)
+        defeattrainer(TRAINER_R3_TR5_FISHERMAN)
+        defeattrainer(TRAINER_R3_TR6_LANDSWIMMER_1)
+        defeattrainer(TRAINER_R3_TR7_LANDSWIMMER_2)
+        defeattrainer(TRAINER_R3_TR8_SAILOR)
+        defeattrainer(TRAINER_R3_TR9_SWIMMER_M1)
+        defeattrainer(TRAINER_R3_TR10_SWIMMER_M2)
+        defeattrainer(TRAINER_R3_TR11_SWIMMER_F1)
+    }
+    return
+}
+script CompleteArea_Route_9{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_ROUTE9_ITEM1)){
+            setflag(FLAG_ROUTE9_ITEM1)
+            additem(ITEM_TM_FLIP_TURN)
+        }
+        if(!flag(FLAG_ROUTE9_ITEM2)){
+            setflag(FLAG_ROUTE9_ITEM2)
+            additem(ITEM_CARBOS)
+        }
+        if(!flag(FLAG_ROUTE9_ITEM3)){
+            setflag(FLAG_ROUTE9_ITEM3)
+            additem(ITEM_MAX_REVIVE)
+        }
+        if(!flag(FLAG_ROUTE9_ITEM4)){
+            setflag(FLAG_ROUTE9_ITEM4)
+            additem(ITEM_HYPER_POTION)
+        }
+        if(!flag(FLAG_ROUTE9_ITEM5)){
+            setflag(FLAG_ROUTE9_ITEM5)
+            additem(ITEM_HEART_SCALE)
+        }
+        if(!flag(FLAG_ROUTE9_ITEM6)){
+            setflag(FLAG_ROUTE9_ITEM6)
+            additem(ITEM_RARE_CANDY)
+        }
+        if(!flag(FLAG_ROUTE9_ITEM7)){
+            setflag(FLAG_ROUTE9_ITEM7)
+            additem(ITEM_HEART_SCALE)
+        }
+        if(!flag(FLAG_ROUTE9_ITEM8)){
+            setflag(FLAG_ROUTE9_ITEM8)
+            additem(ITEM_BIG_PEARL)
+        }
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_R9_TR1_SWIMMER_M)
+        defeattrainer(TRAINER_R9_TR2_BLACKBELT)
+        defeattrainer(TRAINER_R9_TR3_BIRDKEEPER)
+        defeattrainer(TRAINER_R9_TR4_BATTLEGIRL)
+        defeattrainer(TRAINER_R9_TR5_SWIMMER_F)
+        defeattrainer(TRAINER_R9_TR6_FISHERMAN)
+        defeattrainer(TRAINER_R9_TR7_HIKER)
+        defeattrainer(TRAINER_R9_TR8_COLLECTOR)
+        defeattrainer(TRAINER_R9_TR9_SWIMMER_M2)
+        defeattrainer(TRAINER_R9_TR10_LANDSWIMMER)
+    }
+    return
+}
+script CompleteArea_Route_10{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_ROUTE10_ITEM8)){
+            setflag(FLAG_ROUTE10_ITEM8)
+            additem(ITEM_DIVE_BALL)
+        }
+        if(!flag(FLAG_ROUTE10_ITEM6)){
+            setflag(FLAG_ROUTE10_ITEM6)
+            additem(ITEM_TM_SCALD)
+        }
+        if(!flag(FLAG_ROUTE10_ITEM7)){
+            setflag(FLAG_ROUTE10_ITEM7)
+            additem(ITEM_MAX_REPEL)
+        }
+        if(!flag(FLAG_ROUTE10_ITEM5)){
+            setflag(FLAG_ROUTE10_ITEM5)
+            additem(ITEM_HEART_SCALE)
+        }
+        if(!flag(FLAG_ROUTE10_ITEM4)){
+            setflag(FLAG_ROUTE10_ITEM4)
+            additem(ITEM_HEART_SCALE)
+        }
+        if(!flag(FLAG_ROUTE10_ITEM3)){
+            setflag(FLAG_ROUTE10_ITEM3)
+            additem(ITEM_CALCIUM)
+        }
+        if(!flag(FLAG_ROUTE10_ITEM2)){
+            setflag(FLAG_ROUTE10_ITEM2)
+            additem(ITEM_STARDUST)
+        }
+        if(!flag(FLAG_ROUTE10_ITEM1)){
+            setflag(FLAG_ROUTE10_ITEM1)
+            additem(ITEM_BERRY_JUICE)
+        }
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_R10_TR2_SWIMMER_F1)
+        defeattrainer(TRAINER_R10_TR3_FISHERMAN)
+        defeattrainer(TRAINER_R10_TR4_SWIMMER_M1)
+        defeattrainer(TRAINER_R10_TR5_BLACKBELT)
+        defeattrainer(TRAINER_R10_TR6_HIKER)
+        defeattrainer(TRAINER_R10_TR7_SWIMMER_F2)
+        defeattrainer(TRAINER_R10_TR8_SWIMMER_M2)
+        defeattrainer(TRAINER_R10_TR9_BATTLEGIRL)
+        defeattrainer(TRAINER_R10_TR10_TUBER_M)
+        if(!defeated(TRAINER_R10_TR1_ACESWIMMER)){
+            additem(ITEM_BLUNDER_POLICY)
+            defeattrainer(TRAINER_R10_TR1_ACESWIMMER)
+            setflag(FLAG_OBTAINED_BLUNDER_POLICY)
+            addbp(30)
+        }
+    }
+    if(flag(FLAG_EVENTS)){
+        setflag(FLAG_SERPENTCAVE_BOULDER_1)
+        setflag(FLAG_SERPENTCAVE_BOULDER_2)
+        setflag(FLAG_SERPENTCAVE_BOULDER_3)
+        setflag(FLAG_SERPENTCAVE_BOULDER_4)
+        if(var(VAR_SERPENTCAVE_WATER_LEVEL) < 4){
+            setvar(VAR_SERPENTCAVE_WATER_LEVEL, 4)
+        }
+        if(!flag(FLAG_SERPENTCAVE_ITEM1)){
+            setflag(FLAG_SERPENTCAVE_ITEM1)
+            additem(ITEM_MOON_STONE)
+        }
+        if(!flag(FLAG_SERPENTCAVE_ITEM2)){
+            setflag(FLAG_SERPENTCAVE_ITEM2)
+            additem(ITEM_ETHER)
+        }
+        if(!flag(FLAG_SERPENTCAVE_ITEM4)){
+            setflag(FLAG_SERPENTCAVE_ITEM4)
+            additem(ITEM_FULL_HEAL)
+        }
+        if(!flag(FLAG_SERPENTCAVE_ITEM3)){
+            setflag(FLAG_SERPENTCAVE_ITEM3)
+            additem(ITEM_MAX_REPEL)
+        }
+        if(!flag(FLAG_SERPENTCAVE_DRAGONFANG)){
+            setflag(FLAG_SERPENTCAVE_DRAGONFANG)
+            additem(ITEM_DRAGON_FANG)
+        }
+        if(var(VAR_SERPENTCAVE_STORY) < STORY_SERPENTCAVE_OBTAINED_MEGA_STONE){
+            setvar(VAR_SERPENTCAVE_STORY, STORY_SERPENTCAVE_OBTAINED_MEGA_STONE)
+        }
+        defeattrainer(TRAINER_CASUAL_IRIS)
+        additem(ITEM_GARCHOMPITE)
+    }
+    return
+}
+script CompleteArea_Windplume_Mountain{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_WINDPLUME_MT_ITEM_2)){
+            setflag(FLAG_WINDPLUME_MT_ITEM_2)
+            additem(ITEM_ETHER)
+        }
+        if(!flag(FLAG_WINDPLUME_MT_ITEM_4)){
+            setflag(FLAG_WINDPLUME_MT_ITEM_4)
+            additem(ITEM_MAX_REPEL)
+        }
+        if(!flag(FLAG_WINDPLUME_MT_ITEM_3)){
+            setflag(FLAG_WINDPLUME_MT_ITEM_3)
+            additem(ITEM_MOON_STONE)
+        }
+        if(!flag(FLAG_WINDPLUME_MT_ITEM_5)){
+            setflag(FLAG_WINDPLUME_MT_ITEM_5)
+            additem(ITEM_ELIXIR)
+        }
+        if(!flag(FLAG_WINDPLUME_MT_ITEM_6)){
+            setflag(FLAG_WINDPLUME_MT_ITEM_6)
+            additem(ITEM_TM_FOCUS_BLAST)
+        }
+        if(!flag(FLAG_WINDPLUME_MT_ITEM_7)){
+            setflag(FLAG_WINDPLUME_MT_ITEM_7)
+            additem(ITEM_STARDUST)
+        }
+        if(!flag(FLAG_WINDPLUME_MT_ITEM_8)){
+            setflag(FLAG_WINDPLUME_MT_ITEM_8)
+            additem(ITEM_PP_UP)
+        }
+        if(!flag(FLAG_WINDPLUME_MT_ITEM_9)){
+            setflag(FLAG_WINDPLUME_MT_ITEM_9)
+            additem(ITEM_REVIVE)
+        }
+        if(!flag(FLAG_WINDPLUME_MT_ITEM_10)){
+            setflag(FLAG_WINDPLUME_MT_ITEM_10)
+            additem(ITEM_NUGGET)
+        }
+        if(!flag(FLAG_WINDPLUME_MT_ITEM_11)){
+            setflag(FLAG_WINDPLUME_MT_ITEM_11)
+            additem(ITEM_BLACK_GLASSES)
+        }
+        if(!flag(FLAG_WINDPLUME_MT_ITEM_12)){
+            setflag(FLAG_WINDPLUME_MT_ITEM_12)
+            additem(ITEM_ULTRA_BALL)
+        }
+        if(!flag(FLAG_WINDPLUME_MT_ITEM_13)){
+            setflag(FLAG_WINDPLUME_MT_ITEM_13)
+            call(DebugFossil)
+        }
+        if(!flag(FLAG_WINDPLUME_MT_ITEM_14)){
+            setflag(FLAG_WINDPLUME_MT_ITEM_14)
+            additem(ITEM_MAX_POTION)
+        }
+        if(!flag(FLAG_WINDPLUME_MT_ITEM_15)){
+            setflag(FLAG_WINDPLUME_MT_ITEM_15)
+            additem(ITEM_RARE_CANDY)
+        }
+        if(!flag(FLAG_WINDPLUME_MT_ITEM_16)){
+            setflag(FLAG_WINDPLUME_MT_ITEM_16)
+            additem(ITEM_STARDUST)
+        }
+        if(!flag(FLAG_WINDPLUME_MT_ITEM_17)){
+            setflag(FLAG_WINDPLUME_MT_ITEM_17)
+            additem(ITEM_FLOAT_STONE)
+        }
+    }
+    return
+}
+script CompleteArea_Route_16{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_ROUTE16_ITEM1)){
+            setflag(FLAG_ROUTE16_ITEM1)
+            additem(ITEM_STARDUST)
+        }
+        if(!flag(FLAG_ROUTE16_ITEM2)){
+            setflag(FLAG_ROUTE16_ITEM2)
+            additem(ITEM_PEARL)
+        }
+        if(!flag(FLAG_ROUTE16_ITEM3)){
+            setflag(FLAG_ROUTE16_ITEM3)
+            additem(ITEM_FULL_HEAL)
+        }
+        if(!flag(FLAG_ROUTE16_ITEM4)){
+            setflag(FLAG_ROUTE16_ITEM4)
+            additem(ITEM_NUGGET)
+        }
+        if(!flag(FLAG_ROUTE16_ITEM5)){
+            setflag(FLAG_ROUTE16_ITEM5)
+            additem(ITEM_HYPER_POTION)
+        }
+        if(!flag(FLAG_ROUTE16_ITEM6)){
+            setflag(FLAG_ROUTE16_ITEM6)
+            additem(ITEM_HP_UP)
+        }
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_R16_TR1_SWIMMER_M)
+        defeattrainer(TRAINER_R16_TR2_SWIMMER_F)
+        defeattrainer(TRAINER_R16_TR12_NINJABOY2)
+        defeattrainer(TRAINER_R16_TR5_SWIMMER_F)
+        defeattrainer(TRAINER_R16_TR6_SWIMMER_F)
+        defeattrainer(TRAINER_R16_TR7_GUITARIST)
+        defeattrainer(TRAINER_R16_TR8_HIKER)
+        defeattrainer(TRAINER_R16_TR9_BEAUTY)
+        defeattrainer(TRAINER_R16_TR10_NINJABOY)
+        defeattrainer(TRAINER_R16_TR11_EXPERT_F)
+    }
+    return
+}
+script CompleteArea_Basalek_Town{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_BASALEK_ITEM2)){
+            setflag(FLAG_BASALEK_ITEM2)
+            additem(ITEM_ETHER)
+        }
+        if(!flag(FLAG_BASALEK_ITEM1)){
+            setflag(FLAG_BASALEK_ITEM1)
+            additem(ITEM_BURN_HEAL)
+        }
+        if(!flag(FLAG_BASALEK_TUNNEL_ITEM3)){
+            setflag(FLAG_BASALEK_TUNNEL_ITEM3)
+            additem(ITEM_HYPER_POTION)
+        }
+        if(!flag(FLAG_BASALEK_TUNNEL_ITEM2)){
+            setflag(FLAG_BASALEK_TUNNEL_ITEM2)
+            additem(ITEM_MAX_REVIVE)
+        }
+        if(!flag(FLAG_BASALEK_TUNNEL_ITEM1)){
+            setflag(FLAG_BASALEK_TUNNEL_ITEM1)
+            additem(ITEM_STEELIXITE)
+        }
+        if(!flag(FLAG_BASALEK_TUNNEL_ITEM4)){
+            setflag(FLAG_BASALEK_TUNNEL_ITEM4)
+            additem(ITEM_TM_INCINERATE)
+        }
+        if(!flag(FLAG_BASALEK_TUNNEL_ITEM5)){
+            setflag(FLAG_BASALEK_TUNNEL_ITEM5)
+            additem(ITEM_NUGGET)
+        }
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_BASALTUNNEL_TR1_HIKER1)
+        defeattrainer(TRAINER_BASALTUNNEL_TR2_BLACKBELT)
+        defeattrainer(TRAINER_BASALTUNNEL_TR3_PICNICKER)
+        defeattrainer(TRAINER_BASALTUNNEL_TR4_FIREBREATHER)
+        defeattrainer(TRAINER_BASALTUNNEL_TR5_BLACKBELT2)
+        defeattrainer(TRAINER_BASALTUNNEL_TR6_CAMPERM)
+        defeattrainer(TRAINER_BASALTUNNEL_TR7_PICNICKER2)
+        defeattrainer(TRAINER_BASALTUNNEL_TR8_HIKER2)
+        defeattrainer(TRAINER_BASALTUNNEL_TR9_BEAUTY)
+        defeattrainer(TRAINER_BASALTUNNEL_TR10_FIREBREATHER2)
+        defeattrainer(TRAINER_BASALTUNNEL_TR11_HIKER3)
+        if(!defeated(TRAINER_BASALTUNNEL_TR12_BROCK)){
+            defeattrainer(TRAINER_BASALTUNNEL_TR12_BROCK)
+            giveitem(ITEM_HM_ROCK_CLIMB)
+            if(flag(FLAG_Q38_BASALEK_TUNNELS_START)){
+                completequest(FLAG_Q38_BASALEK_TUNNELS_COMPLETE)
+            }
+        }
+    }
+    if(flag(FLAG_EVENTS)){
+        if(!flag(FLAG_BASALEK_WOMAN_LEMONADE)){
+            additem(ITEM_FRESH_WATER)
+            setflag(FLAG_BASALEK_WOMAN_LEMONADE)
+        }
+    }
+    return
+}
+script CompleteArea_Route_17{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_ROUTE17_ITEM1)){
+            setflag(FLAG_ROUTE17_ITEM1)
+            additem(ITEM_MAX_REPEL)
+        }
+        if(!flag(FLAG_ROUTE17_ITEM2)){
+            setflag(FLAG_ROUTE17_ITEM2)
+            additem(ITEM_NUGGET)
+        }
+        if(!flag(FLAG_ROUTE17_ITEM3)){
+            setflag(FLAG_ROUTE17_ITEM3)
+            additem(ITEM_TM_TOXIC)
+        }
+        if(!flag(FLAG_ROUTE17_ITEM4)){
+            setflag(FLAG_ROUTE17_ITEM4)
+            additem(ITEM_HEAVY_BALL)
+        }
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_R17_TR1_CAMPER_M)
+        defeattrainer(TRAINER_R17_TR2_PICNICKER1)
+        defeattrainer(TRAINER_R17_TR3_PICNICKER2)
+        defeattrainer(TRAINER_R17_TR4_MANIAC)
+        defeattrainer(TRAINER_R17_TR5_SCIENTIST)
+        defeattrainer(TRAINER_R17_TR6_HIKER1)
+        defeattrainer(TRAINER_R17_TR7_HIKER2)
+        defeattrainer(TRAINER_R17_TR8_COOLTRAINER)
+    }
+    return
+}
+script CompleteArea_Route_18{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_ROUTE18_ITEM1)){
+            setflag(FLAG_ROUTE18_ITEM1)
+            additem(ITEM_ICY_ROCK)
+        }
+        if(!flag(FLAG_ROUTE18_ITEM3)){
+            setflag(FLAG_ROUTE18_ITEM3)
+            additem(ITEM_MAX_REPEL)
+        }
+        if(!flag(FLAG_ROUTE18_ITEM2)){
+            setflag(FLAG_ROUTE18_ITEM2)
+            additem(ITEM_ICE_HEAL)
+        }
+        if(!flag(FLAG_ROUTE18_ITEM4)){
+            setflag(FLAG_ROUTE18_ITEM4)
+            additem(ITEM_BIG_MUSHROOM)
+        }
+        pickberrytree(BERRY_TREE_ROUTE_110_YACHE_1)
+        call(TryLootingStrangeSeed)
+        pickberrytree(BERRY_TREE_ROUTE_110_YACHE_2)
+        call(TryLootingStrangeSeed)
+    }
+    if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_R18_TR1_HIKER1)
+        defeattrainer(TRAINER_R18_TR2_RANGER_M)
+        defeattrainer(TRAINER_R18_TR3_KINDLER)
+        defeattrainer(TRAINER_R18_TR4_HIKER2)
+        defeattrainer(TRAINER_R18_TR5_RANGER_F)
+        defeattrainer(TRAINER_R18_TR6_SCIENTIST)
+        defeattrainer(TRAINER_R18_TR7_POKEMANIAC)
+        defeattrainer(TRAINER_R18_TR8_BREEDER_M)
+        if(!defeated(TRAINER_R18_TR9_ACE_TRAINER_M)){
+            defeattrainer(TRAINER_R18_TR9_ACE_TRAINER_M)
+            additem(ITEM_LOADED_DICE)
+            setflag(FLAG_OBTAINED_LOADED_DICE)
+        }
+    }
+    return
+}
+script CompleteArea_Frosthearth_City{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_FRIGIDFRONTIER_ITEM1)){
+            setflag(FLAG_FRIGIDFRONTIER_ITEM1)
+            additem(ITEM_TM_HAIL)
+        }
+        if(!flag(FLAG_FRIGIDFRONTIER_ITEM2)){
+            setflag(FLAG_FRIGIDFRONTIER_ITEM2)
+            additem(ITEM_YACHE_BERRY)
+        }
+        if(!flag(FLAG_FRIGIDFRONTIER_ITEM3)){
+            setflag(FLAG_FRIGIDFRONTIER_ITEM3)
+            additem(ITEM_COMET_SHARD)
+        }
+        if(!flag(FLAG_FRIGIDFRONTIER_ITEM4)){
+            setflag(FLAG_FRIGIDFRONTIER_ITEM4)
+            additem(ITEM_MAX_ELIXIR)
+        }
+        if(!flag(FLAG_FRIGIDFRONTIER_ITEM5)){
+            setflag(FLAG_FRIGIDFRONTIER_ITEM5)
+            additem(ITEM_RARE_CANDY)
+        }
+        if(!flag(FLAG_FRIGIDFRONTIER_ITEM6)){
+            setflag(FLAG_FRIGIDFRONTIER_ITEM6)
+            additem(ITEM_MAX_POTION)
+        }
+        if(!flag(FLAG_FROSTFIRE_ITEM3)){
+            setflag(FLAG_FROSTFIRE_ITEM3)
+            additem(ITEM_X_SPEED)
+        }
+        if(!flag(FLAG_FROSTFIRE_ITEM2)){
+            setflag(FLAG_FROSTFIRE_ITEM2)
+            additem(ITEM_BURN_HEAL)
+        }
+        if(!flag(FLAG_FROSTFIRE_ITEM1)){
+            setflag(FLAG_FROSTFIRE_ITEM1)
+            additem(ITEM_SNOWBALL)
+        }
+    }
+    if(flag(FLAG_EVENTS)){
+        if(!flag(FLAG_FRIGIDCAVE_VERDANT_SPHERE)){
+            setflag(FLAG_FRIGIDCAVE_VERDANT_SPHERE)
+            additem(ITEM_VERDANT_SPHERE)
+            setflag(FLAG_FRIGIDCAVE_HIDE_STEEL_SPHERE)
+            clearflag(FLAG_FRIGIDCAVE_DOOR_OPEN)
+            if(flag(FLAG_Q39_FRIGIDFRONTIER_WEIRDCAVE_START)){
+                completequest(FLAG_Q39_FRIGIDFRONTIER_WEIRDCAVE_COMPLETE)
+            }
+            if(checkitem(ITEM_STEEL_SPHERE) == FALSE){
+                additem(ITEM_STEEL_SPHERE)
+            }
+        }
+        if(!flag(FLAG_CHOCOLATE_FROM_OLD_MAN)){
+            additem(ITEM_RAGE_CANDY_BAR)
+            setflag(FLAG_CHOCOLATE_FROM_OLD_MAN)
+        }
+        if(var(VAR_FROSTHEARTH_RUFFLET) < 10){
+            additem(ITEM_HEART_SCALE)
+            setvar(VAR_FROSTHEARTH_RUFFLET, 10)
+            if(flag(FLAG_Q40_FROSTHEARTH_RUFFLET_START)){
+                completequest(FLAG_Q40_FROSTHEARTH_RUFFLET_COMPLETE)
+            }
+        }
+        if(var(VAR_FROSTHEARTH_HARD_ROCK) < 3){
+            setvar(VAR_FROSTHEARTH_HARD_ROCK, 3)
+            additem(ITEM_HARD_STONE)
+        }
+    }
+    return
+}
+script CompleteArea_Rock_Climb{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_KAOLISLE_ITEM10)){
+            setflag(FLAG_KAOLISLE_ITEM10)
+            additem(ITEM_SMOOTH_ROCK)
+        }
+        if(!flag(FLAG_ROUTE12_SIDEITEM)){
+            setflag(FLAG_ROUTE12_SIDEITEM)
+            additem(ITEM_TM_IRON_TAIL)
+        }
+        if(!flag(FLAG_ROUTE23_ITEM5)){
+            setflag(FLAG_ROUTE23_ITEM5)
+            additem(ITEM_PP_MAX)
+        }
+        if(!flag(FLAG_AMBEROCK_ITEM2)){
+            setflag(FLAG_AMBEROCK_ITEM2)
+            additem(ITEM_MAX_ELIXIR)
+        }
+        if(!flag(FLAG_SUNKEN_CAVERN_ITEM1)){
+            setflag(FLAG_SUNKEN_CAVERN_ITEM1)
+            additem(ITEM_MAX_REPEL)
+        }
+        if(!flag(FLAG_SUNKEN_CAVERN_ITEM2)){
+            setflag(FLAG_SUNKEN_CAVERN_ITEM2)
+            additem(ITEM_CARBOS)
+        }
+        if(!flag(FLAG_SUNKEN_CAVERN_ITEM3)){
+            setflag(FLAG_SUNKEN_CAVERN_ITEM3)
+            additem(ITEM_STAR_PIECE)
+        }
+        if(!flag(FLAG_SUNKEN_CAVERN_ITEM4)){
+            setflag(FLAG_SUNKEN_CAVERN_ITEM4)
+            additem(ITEM_MAX_POTION)
+        }
+        if(!flag(FLAG_SUNKEN_CAVERN_ITEM5)){
+            setflag(FLAG_SUNKEN_CAVERN_ITEM5)
+            additem(ITEM_NUGGET)
+        }
+        if(!flag(FLAG_SUNKEN_CAVERN_ITEM6)){
+            setflag(FLAG_SUNKEN_CAVERN_ITEM6)
+            additem(ITEM_TM_DARK_PULSE)
+        }
+        if(!flag(FLAG_SUNKEN_CAVERN_ITEM7)){
+            setflag(FLAG_SUNKEN_CAVERN_ITEM7)
+            additem(ITEM_SOUL_DEW)
+        }
+    }
+    if(flag(FLAG_EVENTS)){
+        if(var(VAR_HOUNDOOMS_DEFEATED) < 4){
+            setvar(VAR_HOUNDOOMS_DEFEATED, 4)
+            setflag(FLAG_ITEM_HOUNDOOMINITE)
+            additem(ITEM_HOUNDOOMINITE)
+        }
+    }
+    return
+}
+script CompleteArea_Desert_Ruins{
+    if(flag(FLAG_ITEMS)){
+        if(checkitem(ITEM_HM_STRENGTH) && checkitem(ITEM_HM_ROCK_SMASH)){
+            if(!flag(FLAG_RUINS_4F_ITEM1)){
+                setflag(FLAG_RUINS_4F_ITEM1)
+                additem(ITEM_RELIC_GOLD)
+            }
+            if(!flag(FLAG_RUINS_4F_ITEM2)){
+                setflag(FLAG_RUINS_4F_ITEM2)
+                additem(ITEM_RELIC_VASE)
+            }
+            if(!flag(FLAG_RUINS_4F_ITEM3)){
+                setflag(FLAG_RUINS_4F_ITEM3)
+                additem(ITEM_RELIC_VASE)
+            }
+            if(!flag(FLAG_RUINS_4F_ITEM4)){
+                setflag(FLAG_RUINS_4F_ITEM4)
+                additem(ITEM_SUN_STONE)
+            }
+            if(!flag(FLAG_RUINS_4F_ITEM5)){
+                setflag(FLAG_RUINS_4F_ITEM5)
+                additem(ITEM_RELIC_GOLD)
+            }
+            call(DebugFossil)
+            if(checkitem(ITEM_HM_SURF)){
+                if(!flag(FLAG_UNDERGROUNDRUINS_FULLRESTORE)){
+                    setflag(FLAG_UNDERGROUNDRUINS_FULLRESTORE)
+                    additem(ITEM_FULL_RESTORE)
+                }
+            }
+            if(checkitem(ITEM_HM_ROCK_CLIMB)){
+                if(!flag(FLAG_RELIC_CROWN)){
+                    setflag(FLAG_RELIC_CROWN)
+                    additem(ITEM_RELIC_CROWN)
+                }
+            }
+        }
+    }
+    return
+}
+script CompleteArea_Safari_Zone{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_ITEM_SAFARI_SOUTH_RARE_CANDY)){
+            setflag(FLAG_ITEM_SAFARI_SOUTH_RARE_CANDY)
+            additem(ITEM_RARE_CANDY)
+        }
+        if(!flag(FLAG_HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_FULL_RESTORE)){
+            setflag(FLAG_HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_FULL_RESTORE)
+            additem(ITEM_FULL_RESTORE)
+        }
+        if(!flag(FLAG_HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_PP_UP)){
+            setflag(FLAG_HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_PP_UP)
+            additem(ITEM_PP_UP)
+        }
+        if(checkitem(ITEM_HM_STRENGTH)){
+            if(!flag(FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL)){
+                setflag(FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL)
+                additem(ITEM_BIG_PEARL)
+            }
+            if(!flag(FLAG_ITEM_SAFARI_ZONE_SOUTH_WEST_MAX_REVIVE)){
+                setflag(FLAG_ITEM_SAFARI_ZONE_SOUTH_WEST_MAX_REVIVE)
+                additem(ITEM_MAX_REVIVE)
+            }
+            if(!flag(FLAG_HIDDEN_ITEM_SAFARI_ZONE_NORTH_EAST_RARE_CANDY)){
+                setflag(FLAG_HIDDEN_ITEM_SAFARI_ZONE_NORTH_EAST_RARE_CANDY)
+                additem(ITEM_RARE_CANDY)
+            }
+            if(!flag(FLAG_HIDDEN_ITEM_SAFARI_ZONE_NORTH_EAST_ZINC)){
+                setflag(FLAG_HIDDEN_ITEM_SAFARI_ZONE_NORTH_EAST_ZINC)
+                additem(ITEM_ZINC)
+            }
+            if(!flag(FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET)){
+                setflag(FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET)
+                additem(ITEM_NUGGET)
+            }
+        }
+        if(checkitem(ITEM_HM_ROCK_SMASH)){
+            if(!flag(FLAG_SAFARI_NW_ITEM1)){
+                setflag(FLAG_SAFARI_NW_ITEM1)
+                additem(ITEM_HYPER_POTION)
+            }
+            if(!flag(FLAG_SAFARI_NW_ITEM2)){
+                setflag(FLAG_SAFARI_NW_ITEM2)
+                additem(ITEM_MAX_REVIVE)
+            }
+            if(!flag(FLAG_SAFARI_NW_ITEM3)){
+                setflag(FLAG_SAFARI_NW_ITEM3)
+                additem(ITEM_GREAT_BALL)
+            }
+            if(!flag(FLAG_SAFARI_NW_ITEM4)){
+                setflag(FLAG_SAFARI_NW_ITEM4)
+                additem(ITEM_ETHER)
+            }
+        }
+        if(checkitem(ITEM_HM_SURF)){
+            if(!flag(FLAG_SAFARIMOUNTAIN_ITEM7)){
+                setflag(FLAG_SAFARIMOUNTAIN_ITEM7)
+                additem(ITEM_PEARL)
+            }
+            if(!flag(FLAG_SAFARIMOUNTAIN_ITEM6)){
+                setflag(FLAG_SAFARIMOUNTAIN_ITEM6)
+                additem(ITEM_TROPICAL_STONE)
+            }
+            if(!flag(FLAG_SAFARIMOUNTAIN_ITEM5)){
+                setflag(FLAG_SAFARIMOUNTAIN_ITEM5)
+                additem(ITEM_FULL_RESTORE)
+            }
+            if(!flag(FLAG_SAFARIMOUNTAIN_ITEM4)){
+                setflag(FLAG_SAFARIMOUNTAIN_ITEM4)
+                additem(ITEM_SOFT_SAND)
+            }
+            if(!flag(FLAG_SAFARIMOUNTAIN_ITEM3)){
+                setflag(FLAG_SAFARIMOUNTAIN_ITEM3)
+                additem(ITEM_IRON)
+            }
+        }
+        if(checkitem(ITEM_HM_WATERFALL)){
+            if(!flag(FLAG_SAFARIMOUNTAIN_ITEM2)){
+                setflag(FLAG_SAFARIMOUNTAIN_ITEM2)
+                additem(ITEM_KINGS_ROCK)
+            }
+            if(!flag(FLAG_SAFARIMOUNTAIN_ITEM1)){
+                setflag(FLAG_SAFARIMOUNTAIN_ITEM1)
+                additem(ITEM_TM_GIGA_IMPACT)
+            }
+        }
+    }
+    return
+}
+script CompleteArea_Misc_Surfing{
+    if(flag(FLAG_ITEMS)){
+        if(!flag(FLAG_ITEM_ROUTE1_TM03)){
+            setflag(FLAG_ITEM_ROUTE1_TM03)
+            additem(ITEM_TM_SMART_STRIKE)
+        }
+        if(!flag(FLAG_HIDDEN_ITEM_ROUTE2_HARDSTONE)){
+            setflag(FLAG_HIDDEN_ITEM_ROUTE2_HARDSTONE)
+            additem(ITEM_HARD_STONE)
+        }
+        if(!flag(FLAG_WW_WATERSTONE)){
+            setflag(FLAG_WW_WATERSTONE)
+            additem(ITEM_WATER_STONE)
+        }
+        if(!flag(FLAG_OBTAINED_PIDGEOTITE)){
+            setflag(FLAG_OBTAINED_PIDGEOTITE)
+            additem(ITEM_PIDGEOTITE)
+        }
+        if(!flag(FLAG_ROUTE3_ITEM1)){
+            setflag(FLAG_ROUTE3_ITEM1)
+            additem(ITEM_PP_UP)
+        }
+        if(!flag(FLAG_ROUTE5_ITEM4)){
+            setflag(FLAG_ROUTE5_ITEM4)
+            additem(ITEM_NUGGET)
+        }
+        if(!flag(FLAG_ROUTE7_WHITE_HERB)){
+            setflag(FLAG_ROUTE7_WHITE_HERB)
+            additem(ITEM_WHITE_HERB)
+        }
+        if(!flag(FLAG_ROUTE8_ITEM4)){
+            setflag(FLAG_ROUTE8_ITEM4)
+            additem(ITEM_HP_UP)
+        }
+        if(!flag(FLAG_SHORESLATE_ITEM2)){
+            setflag(FLAG_SHORESLATE_ITEM2)
+            additem(ITEM_ELIXIR)
+        }
+        if(!flag(FLAG_ROUTE7_ITEM6)){
+            setflag(FLAG_ROUTE7_ITEM6)
+            additem(ITEM_MAX_ETHER)
+        }
+        if(!flag(FLAG_MARIGORGE_ITEM3)){
+            setflag(FLAG_MARIGORGE_ITEM3)
+            additem(ITEM_PP_UP)
+        }
+        if(!flag(FLAG_MARIGORGE_ITEM1)){
+            setflag(FLAG_MARIGORGE_ITEM1)
+            additem(ITEM_SUN_STONE)
+        }
+        if(!flag(FLAG_OBTAINED_AGGRONITE)){
+            setflag(FLAG_OBTAINED_AGGRONITE)
+            additem(ITEM_AGGRONITE)
+        }
+        if(!flag(FLAG_ROCKLIFFE_ITEM3)){
+            setflag(FLAG_ROCKLIFFE_ITEM3)
+            additem(ITEM_RARE_CANDY)
+        }
+        if(!flag(FLAG_FLOODEDCAVE_FOSSIL)){
+            setflag(FLAG_FLOODEDCAVE_FOSSIL)
+            call(DebugFossil)
+        }
+        if(!flag(FLAG_R14_ITEM5)){
+            setflag(FLAG_R14_ITEM5)
+            additem(ITEM_TM_HIDDEN_POWER)
+        }
+        if(!flag(FLAG_R14_ITEM6)){
+            setflag(FLAG_R14_ITEM6)
+            additem(ITEM_MAX_ETHER)
+        }
+    }
+    if(flag(FLAG_EVENTS)){
+        if(var(VAR_KAOLISLE_BIRDS) < 131){
+            setvar(VAR_KAOLISLE_BIRDS, 131)
+            additem(ITEM_TM_BULLET_SEED)
+            if(flag(FLAG_Q28_KAOLISLE_LOSTBIRDS_START)){
+                completequest(FLAG_Q28_KAOLISLE_LOSTBIRDS_COMPLETE)
+            }
+        }
+    }
+    return
+}
+
+script TryLootingStrangeSeed{
+    if(var(VAR_RESULT) == FALSE){
+        return
+    }
+    trystrangeseed
+    if(var(VAR_0x8004) >= 60){
+        additem(ITEM_STRANGE_SEED)
+    }
+    return
+}
+script TryCuttingStrangeSeedTree{
+    trystrangeseed
+    if(var(VAR_0x8004) >= 80){
+        additem(ITEM_STRANGE_SEED)
+    }
+}
+script GenerateRelic{
+    random(100)
+    if(var(VAR_RESULT) <= 65){
+        additem(ITEM_RELIC_COPPER)
+    }
+    elif(var(VAR_RESULT) >= 94){
+        additem(ITEM_RELIC_GOLD)
+    }
+    else{
+        additem(ITEM_RELIC_SILVER)
+    }
+    return
+}
+
+script DebugFossil{
+    random(11)
+    switch(var(VAR_RESULT)){
+        case 0:
+            goto(LootHelix2)
+        case 1:
+            goto(LootDome2)
+         case 2:
+            goto(LootOldAmber2)
+        case 3:
+            goto(LootRoot2)
+        case 4:
+            goto(LootClaw2)
+        case 5:
+            goto(LootSkull2)
+        case 6:
+            goto(LootArmor2)
+        case 7:
+            goto(LootCover2)
+        case 8:
+            goto(LootPlume2)
+        case 9:
+            goto(LootJaw2)
+        case 10:
+            goto(LootSail2)
+    }
+    return
+}
+
+script LootHelix2{
+    if(flag(FLAG_OBTAINED_HELIX_FOSSIL)){
+        goto(DebugFossil)
+    }
+    additem(ITEM_HELIX_FOSSIL)
+    setflag(FLAG_OBTAINED_HELIX_FOSSIL)
+    return
+}
+script LootDome2{
+    if(flag(FLAG_OBTAINED_DOME_FOSSIL)){
+        goto(DebugFossil)
+    }
+    additem(ITEM_DOME_FOSSIL)
+    setflag(FLAG_OBTAINED_DOME_FOSSIL)
+    return
+}
+script LootOldAmber2{
+    if(flag(FLAG_OBTAINED_OLDAMBER_FOSSIL)){
+        goto(DebugFossil)
+    }
+    additem(ITEM_OLD_AMBER)
+    setflag(FLAG_OBTAINED_OLDAMBER_FOSSIL)
+    return
+}
+script LootRoot2{
+    if(flag(FLAG_OBTAINED_ROOT_FOSSIL)){
+        goto(DebugFossil)
+    }
+    additem(ITEM_ROOT_FOSSIL)
+    setflag(FLAG_OBTAINED_ROOT_FOSSIL)
+    return
+}
+script LootClaw2{
+    if(flag(FLAG_OBTAINED_CLAW_FOSSIL)){
+        goto(DebugFossil)
+    }
+    additem(ITEM_CLAW_FOSSIL)
+    setflag(FLAG_OBTAINED_CLAW_FOSSIL)
+    return
+}
+script LootSkull2{
+    if(flag(FLAG_OBTAINED_SKULL_FOSSIL)){
+        goto(DebugFossil)
+    }
+    additem(ITEM_SKULL_FOSSIL)
+    setflag(FLAG_OBTAINED_SKULL_FOSSIL)
+    return
+}
+script LootArmor2{
+    if(flag(FLAG_OBTAINED_ARMOR_FOSSIL)){
+        goto(DebugFossil)
+    }
+    additem(ITEM_ARMOR_FOSSIL)
+    setflag(FLAG_OBTAINED_ARMOR_FOSSIL)
+    return
+}
+script LootCover2{
+    if(flag(FLAG_OBTAINED_COVER_FOSSIL)){
+        goto(DebugFossil)
+    }
+    additem(ITEM_COVER_FOSSIL)
+    setflag(FLAG_OBTAINED_COVER_FOSSIL)
+    return
+}
+script LootPlume2{
+    if(flag(FLAG_OBTAINED_PLUME_FOSSIL)){
+        goto(DebugFossil)
+    }
+    additem(ITEM_PLUME_FOSSIL)
+    setflag(FLAG_OBTAINED_PLUME_FOSSIL)
+    return
+}
+script LootJaw2{
+    if(flag(FLAG_OBTAINED_JAW_FOSSIL)){
+        goto(DebugFossil)
+    }
+    additem(ITEM_JAW_FOSSIL)
+    setflag(FLAG_OBTAINED_JAW_FOSSIL)
+    return
+}
+script LootSail2{
+    if(flag(FLAG_OBTAINED_SAIL_FOSSIL)){
+        goto(DebugFossil)
+    }
+    additem(ITEM_SAIL_FOSSIL)
+    setflag(FLAG_OBTAINED_SAIL_FOSSIL)
+    return
+}
+
+
+// ROM:    29744956 B        32 MB     88.65%
