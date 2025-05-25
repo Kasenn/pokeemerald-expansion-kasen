@@ -241,7 +241,10 @@ script UpdateGuy{
     if(flag(FLAG_OBTAINED_MEGA_RING)){
         dynmultipush("Obtain Mega Mon", 4)
     }
-    dynmultipush("Nevermind", 5)
+    if(flag(FLAG_ENABLE_SECRET_SHOP)){
+        dynmultipush("Secret Shop", 5)
+    }
+    dynmultipush("Nevermind", 6)
     dynmultistack(23, 0, FALSE, 6, FALSE, 0, 0)
     switch(var(VAR_RESULT)){
         case 0:
@@ -255,6 +258,8 @@ script UpdateGuy{
         case 4:
             goto(TestMegaMon)
         case 5:
+            goto(SecretShopScript)
+        case 6:
         case MULTI_B_PRESSED:
             msgbox("Goodbye.", MSGBOX_AUTOCLOSE)
     }
@@ -412,54 +417,53 @@ script SkipContent{
     clearflag(FLAG_DONT_REPEAT)
     setvar(VAR_STORY_PART, 0)
 
-    dynmultichoice(23, 0, FALSE, 6, VAR_SELECTION, 0,
-    "Route 1",
-    "Route 2",
-    "Windy Woods",
-    "Coralgrove City",
-    "Azuretide Town",
-    "Route 4",
-    "Pokémon Ranch",
-    "Aldeleaf City",
-    "Route 30",
-    "Windplume Valley",
-    "Route 5",
-    "Flower Fields",
-    "Skyloch Village",
-    "Route 6",
-    "Route 8",
-    "Shoreslate City",
-    "Scorched Desert",
-    "Route 7",
-    "Marigorge Town",
-    "Kaolisle City",
-    "Rockliffe Town",
-    "Route 11",
-    "Route 12",
-    "Sandstone City"
-    "Route 13",
-    "Adamant Tower",
-    "Route 14",
-    "Route 15",
-    "Fishing Village",
-    "Route 23",
-    "Drisledge Town",
-    "Amberock Town",
-    "Route 3",
-    "Route 9",
-    "Route 10",
-    "Windplume Mountain",
-    "Route 16",
-    "Basalek Town",
-    "Route 17",
-    "Route 18",
-    "Frosthearth City",
-    "Rock Climb",
-    "Desert Ruins",
-    "Safari Zone",
-    "Misc. Surfing",
-    "Cancel"
-    )
+    dynmultipush("Route 1", 0)
+    dynmultipush("Route 2", 1)
+    dynmultipush("Windy Woods", 2)
+    dynmultipush("Coralgrove City", 3)
+    dynmultipush("Azuretide Town", 4)
+    dynmultipush("Route 4", 5)
+    dynmultipush("Pokémon Ranch", 6)
+    dynmultipush("Aldeleaf City", 7)
+    dynmultipush("Route 30", 8)
+    dynmultipush("Windplume Valley", 9)
+    dynmultipush("Route 5", 10)
+    dynmultipush("Flower Fields", 11)
+    dynmultipush("Skyloch Village", 12)
+    dynmultipush("Route 6", 13)
+    dynmultipush("Route 8", 14)
+    dynmultipush("Shoreslate City", 15)
+    dynmultipush("Scorched Desert", 16)
+    dynmultipush("Route 7", 17)
+    dynmultipush("Marigorge Town", 18)
+    dynmultipush("Kaolisle City", 19)
+    dynmultipush("Rockliffe Town", 20)
+    dynmultipush("Route 11", 21)
+    dynmultipush("Route 12", 22)
+    dynmultipush("Sandstone City", 23)
+    dynmultipush("Route 13", 24)
+    dynmultipush("Adamant Tower", 25)
+    dynmultipush("Route 14", 26)
+    dynmultipush("Route 15", 27)
+    dynmultipush("Fishing Village", 28)
+    dynmultipush("Route 23", 29)
+    dynmultipush("Drisledge Town", 30)
+    dynmultipush("Amberock Town", 31)
+    dynmultipush("Route 3", 32)
+    dynmultipush("Route 9", 33)
+    dynmultipush("Route 10", 34)
+    dynmultipush("Windplume Mountain", 35)
+    dynmultipush("Route 16", 36)
+    dynmultipush("Basalek Town", 37)
+    dynmultipush("Route 17", 38)
+    dynmultipush("Route 18", 39)
+    dynmultipush("Frosthearth City", 40)
+    dynmultipush("Rock Climb(!)", 41)
+    dynmultipush("Desert Ruins(!)", 42)
+    dynmultipush("Safari Zone(!)", 43)
+    dynmultipush("Misc. Surfing(!)", 44)
+    dynmultipush("Cancel", 45)
+    dynmultistack(23, 0, FALSE, 6, 0, VAR_SELECTION, 0)
     switch(var(VAR_RESULT)){
         case 0:
             copyvar(VAR_SELECTION, VAR_RESULT)
@@ -724,8 +728,8 @@ script BufferChoices4{
 script SkipContent_Route1{
     bufferstring(STR_VAR_2, "Route 1")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -735,8 +739,8 @@ script SkipContent_Route1{
 script SkipContent_Route2{
     bufferstring(STR_VAR_2, "Route 2")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -746,8 +750,8 @@ script SkipContent_Route2{
 script SkipContent_WindyWoods{
     bufferstring(STR_VAR_2, "Windy Woods")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -757,8 +761,8 @@ script SkipContent_WindyWoods{
 script SkipContent_CoralgroveCity{
     bufferstring(STR_VAR_2, "Coralgrove City")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -768,8 +772,8 @@ script SkipContent_CoralgroveCity{
 script SkipContent_AzuretideTown{
     bufferstring(STR_VAR_2, "Azuretide Town")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -779,8 +783,8 @@ script SkipContent_AzuretideTown{
 script SkipContent_Route4{
     bufferstring(STR_VAR_2, "Route 4")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -790,8 +794,8 @@ script SkipContent_Route4{
 script SkipContent_PokemonRanch{
     bufferstring(STR_VAR_2, "Pokemon Ranch")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -801,8 +805,8 @@ script SkipContent_PokemonRanch{
 script SkipContent_AldeleafCity{
     bufferstring(STR_VAR_2, "Aldeleaf City")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -812,8 +816,8 @@ script SkipContent_AldeleafCity{
 script SkipContent_Route30{
     bufferstring(STR_VAR_2, "Route 30")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -823,8 +827,8 @@ script SkipContent_Route30{
 script SkipContent_WindplumeValley{
     bufferstring(STR_VAR_2, "Windplume Valley")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -834,8 +838,8 @@ script SkipContent_WindplumeValley{
 script SkipContent_Route5{
     bufferstring(STR_VAR_2, "Route 5")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -845,8 +849,8 @@ script SkipContent_Route5{
 script SkipContent_FlowerFields{
     bufferstring(STR_VAR_2, "Flower Fields")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -856,8 +860,8 @@ script SkipContent_FlowerFields{
 script SkipContent_SkylochVillage{
     bufferstring(STR_VAR_2, "Skyloch Village")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -867,8 +871,8 @@ script SkipContent_SkylochVillage{
 script SkipContent_Route6{
     bufferstring(STR_VAR_2, "Route 6")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -878,8 +882,8 @@ script SkipContent_Route6{
 script SkipContent_Route8{
     bufferstring(STR_VAR_2, "Route 8")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -889,8 +893,8 @@ script SkipContent_Route8{
 script SkipContent_ShoreslateCity{
     bufferstring(STR_VAR_2, "Shoreslate City")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -900,8 +904,8 @@ script SkipContent_ShoreslateCity{
 script SkipContent_ScorchedDesert{
     bufferstring(STR_VAR_2, "Scorched Desert")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -911,8 +915,8 @@ script SkipContent_ScorchedDesert{
 script SkipContent_Route7{
     bufferstring(STR_VAR_2, "Route 7")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -922,8 +926,8 @@ script SkipContent_Route7{
 script SkipContent_MarigorgeTown{
     bufferstring(STR_VAR_2, "Marigorge Town")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -933,8 +937,8 @@ script SkipContent_MarigorgeTown{
 script SkipContent_KaolisleCity{
     bufferstring(STR_VAR_2, "Kaolisle City")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -944,8 +948,8 @@ script SkipContent_KaolisleCity{
 script SkipContent_RockliffeTown{
     bufferstring(STR_VAR_2, "Rockliffe Town")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -955,8 +959,8 @@ script SkipContent_RockliffeTown{
 script SkipContent_Route11{
     bufferstring(STR_VAR_2, "Route 11")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -966,8 +970,8 @@ script SkipContent_Route11{
 script SkipContent_Route12{
     bufferstring(STR_VAR_2, "Route 12")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -977,8 +981,8 @@ script SkipContent_Route12{
 script SkipContent_SandstoneCity{
     bufferstring(STR_VAR_2, "Sandstone City")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -988,8 +992,8 @@ script SkipContent_SandstoneCity{
 script SkipContent_Route13{
     bufferstring(STR_VAR_2, "Route 13")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -999,8 +1003,8 @@ script SkipContent_Route13{
 script SkipContent_AdamantTower{
     bufferstring(STR_VAR_2, "Adamant Tower")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -1010,8 +1014,8 @@ script SkipContent_AdamantTower{
 script SkipContent_Route14{
     bufferstring(STR_VAR_2, "Route 14")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -1021,8 +1025,8 @@ script SkipContent_Route14{
 script SkipContent_Route15{
     bufferstring(STR_VAR_2, "Route 15")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -1032,8 +1036,8 @@ script SkipContent_Route15{
 script SkipContent_FishingVillage{
     bufferstring(STR_VAR_2, "Fishing Village")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -1043,8 +1047,8 @@ script SkipContent_FishingVillage{
 script SkipContent_Route23{
     bufferstring(STR_VAR_2, "Route 23")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -1054,8 +1058,8 @@ script SkipContent_Route23{
 script SkipContent_DrisledgeTown{
     bufferstring(STR_VAR_2, "Drisledge Town")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -1065,8 +1069,8 @@ script SkipContent_DrisledgeTown{
 script SkipContent_AmberockTown{
     bufferstring(STR_VAR_2, "Amberock Town")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -1076,8 +1080,8 @@ script SkipContent_AmberockTown{
 script SkipContent_Route3{
     bufferstring(STR_VAR_2, "Route 3")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -1087,8 +1091,8 @@ script SkipContent_Route3{
 script SkipContent_Route9{
     bufferstring(STR_VAR_2, "Route 9")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -1098,8 +1102,8 @@ script SkipContent_Route9{
 script SkipContent_Route10{
     bufferstring(STR_VAR_2, "Route 10")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -1109,8 +1113,8 @@ script SkipContent_Route10{
 script SkipContent_WindplumeMountain{
     bufferstring(STR_VAR_2, "Windplume Mountain")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -1120,8 +1124,8 @@ script SkipContent_WindplumeMountain{
 script SkipContent_Route16{
     bufferstring(STR_VAR_2, "Route 16")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -1131,8 +1135,8 @@ script SkipContent_Route16{
 script SkipContent_BasalekTown{
     bufferstring(STR_VAR_2, "Basalek Town")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -1142,8 +1146,8 @@ script SkipContent_BasalekTown{
 script SkipContent_Route17{
     bufferstring(STR_VAR_2, "Route 17")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -1153,8 +1157,8 @@ script SkipContent_Route17{
 script SkipContent_Route18{
     bufferstring(STR_VAR_2, "Route 18")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -1164,8 +1168,8 @@ script SkipContent_Route18{
 script SkipContent_FrosthearthCity{
     bufferstring(STR_VAR_2, "Frosthearth City")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
+    if(var(VAR_RESULT) == 4){
+        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == TRUE){
             setflag(FLAG_SKIP_MULTIPLE)
         }
     }
@@ -1175,10 +1179,8 @@ script SkipContent_FrosthearthCity{
 script SkipContent_RockClimb{
     bufferstring(STR_VAR_2, "Rock Climb")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
-            setflag(FLAG_SKIP_MULTIPLE)
-        }
+    if(var(VAR_RESULT) == 4){
+        msgbox("Do note that this option only skips\nmiscellaneous Rock Climb related areas.")
     }
     call(ContentSkipper_SkipContent_RockClimb)
     goto(SkipContentEnd)
@@ -1186,10 +1188,8 @@ script SkipContent_RockClimb{
 script SkipContent_DesertRuins{
     bufferstring(STR_VAR_2, "Desert Ruins")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
-            setflag(FLAG_SKIP_MULTIPLE)
-        }
+    if(var(VAR_RESULT) == 4){
+        msgbox("Do note that this option only skips\nDesert Ruins and only based on\lacquired HMs.")
     }
     call(ContentSkipper_SkipContent_DesertRuins)
     goto(SkipContentEnd)
@@ -1197,10 +1197,8 @@ script SkipContent_DesertRuins{
 script SkipContent_SafariZone{
     bufferstring(STR_VAR_2, "Safari Zone")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
-            setflag(FLAG_SKIP_MULTIPLE)
-        }
+    if(var(VAR_RESULT) == 4){
+        msgbox("Do note that this option only skips\nSafari Zone and only based on\lacquired HMs.")
     }
     call(ContentSkipper_SkipContent_SafariZone)
     goto(SkipContentEnd)
@@ -1209,10 +1207,8 @@ script SkipContent_SafariZone{
 script SkipContent_MiscSurfing{
     bufferstring(STR_VAR_2, "Misc. Surfing")
     call(SkipContent_BufferChoices)
-    if(var(VAR_RESULT) == 5){
-        if(msgbox(WantToSkipMultiple, MSGBOX_YESNO) == FALSE){
-            setflag(FLAG_SKIP_MULTIPLE)
-        }
+    if(var(VAR_RESULT) == 4){
+        msgbox("Do note that this option only skips\nmiscellaneous Surf related areas.")
     }
     call(ContentSkipper_SkipContent_MiscSurfing)
     goto(SkipContentEnd)
@@ -1730,44 +1726,20 @@ script ContentSkipper_SkipContent_FrosthearthCity{
     return
 }
 script ContentSkipper_SkipContent_RockClimb{
-    //stuff
-    if(flag(FLAG_SKIP_MULTIPLE)){
-        call(CompleteAllAreas)
-    }
-    else{
-        call(CompleteArea_Rock_Climb)
-    }
+    call(CompleteArea_Rock_Climb)
     return
 }
 script ContentSkipper_SkipContent_DesertRuins{
-    //stuff
-    if(flag(FLAG_SKIP_MULTIPLE)){
-        call(CompleteAllAreas)
-    }
-    else{
-        call(CompleteArea_Desert_Ruins)
-    }
+    call(CompleteArea_Desert_Ruins)
     return
 }
 script ContentSkipper_SkipContent_SafariZone{
-    //stuff
-    if(flag(FLAG_SKIP_MULTIPLE)){
-        call(CompleteAllAreas)
-    }
-    else{
-        call(CompleteArea_Safari_Zone)
-    }
+    call(CompleteArea_Safari_Zone)
     return
 }
 
 script ContentSkipper_SkipContent_MiscSurfing{
-    //stuff
-    if(flag(FLAG_SKIP_MULTIPLE)){
-        call(CompleteAllAreas)
-    }
-    else{
-        call(CompleteArea_Misc_Surfing)
-    }
+    call(CompleteArea_Misc_Surfing)
     return
 }
 
@@ -1801,20 +1773,22 @@ script SkipStory{
         }
         setflag(FLAG_BADGE01_GET)
         setflag(FLAG_DEFEATED_RIVAL_HARBOR)
-        msgbox("Was {RIVAL} defeated in\nCoralgrove Harbor?", MSGBOX_YESNO)
-        if(var(VAR_RESULT) == TRUE){
-            if(checkplayergender == MALE){
-                defeattrainer(TRAINER_MAY_CORALGROVE_ELEVATOR)
+        if(defeated(TRAINER_MAY_CORALGROVE_ELEVATOR) || defeated(TRAINER_BRENDAN_CORALGROVE_ELEVATOR)){
+            msgbox("Was {RIVAL} defeated in\nCoralgrove Harbor?", MSGBOX_YESNO)
+            if(var(VAR_RESULT) == TRUE){
+                if(checkplayergender == MALE){
+                    defeattrainer(TRAINER_MAY_CORALGROVE_ELEVATOR)
+                }
+                else{
+                    defeattrainer(TRAINER_BRENDAN_CORALGROVE_ELEVATOR)
+                }
+                if(checkitem(ITEM_ITEMFINDER) == FALSE){
+                    additem(ITEM_ITEMFINDER)
+                }
             }
             else{
-                defeattrainer(TRAINER_BRENDAN_CORALGROVE_ELEVATOR)
+                setflag(FLAG_RIVAL_HARBOR_ANGRY)
             }
-            if(checkitem(ITEM_ITEMFINDER) == FALSE){
-                additem(ITEM_ITEMFINDER)
-            }
-        }
-        else{
-            setflag(FLAG_RIVAL_HARBOR_ANGRY)
         }
     }
     if(var(VAR_STORY_PART) >= POKEMON_RANCH){
@@ -1989,6 +1963,14 @@ script SkipStory{
         clearflag(FLAG_HIDE_PLAYERS_HOUSE_DAD)
         clearflag(FLAG_HIDE_LAB_RIVAL)
         setflag(FLAG_HIDE_LIBRARY_BIRCH)
+        switch(var(VAR_STARTER_MON)){
+            case SPECIES_ROWLET:
+                additem(ITEM_DECIDUEITE)
+            case SPECIES_TORCHIC:
+                additem(ITEM_BLAZIKENITE)
+            case SPECIES_PIPLUP:
+                additem(ITEM_EMPOLEONITE)
+        }
     }
     if(var(VAR_STORY_PART) >= ROUTE_14){
         setflag(FLAG_HIDE_PLAYERS_HOUSE_DAD)
@@ -2042,8 +2024,10 @@ script SkipStory{
             setflag(FLAG_FACTORY_ITEM_1)
             additem(ITEM_HYPER_POTION)
         }
-        removeitem(ITEM_RESEARCH_PAPERS)
-        giveitem(ITEM_ZYGARDE_CUBE)
+        if(checkitem(ITEM_ZYGARDE_CUBE) == FALSE){
+            removeitem(ITEM_RESEARCH_PAPERS)
+            giveitem(ITEM_ZYGARDE_CUBE)
+        }
     }
     if(var(VAR_STORY_PART) >= BASALEK_TOWN){
         setflag(FLAG_RIVAL_MET_IN_BASALEK)
@@ -3367,6 +3351,13 @@ script CompleteArea_Adamant_Tower{
             additem(ITEM_PP_UP)
         }
     }
+    if(flag(FLAG_EVENTS)){
+        setflag(FLAG_HIDE_PLAYERS_HOUSE_DAD)
+        additem(ITEM_ABILITY_CAPSULE)
+        if(var(VAR_PEARLWOOD_TOWN_STATE) >= STORY_PEARLWOOD_MEGA_STONE_OBTAINED){
+            setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED)
+        }
+    }
     return
 }
 script CompleteArea_Route_14{
@@ -3791,8 +3782,10 @@ script CompleteArea_Route_10{
         if(var(VAR_SERPENTCAVE_STORY) < STORY_SERPENTCAVE_OBTAINED_MEGA_STONE){
             setvar(VAR_SERPENTCAVE_STORY, STORY_SERPENTCAVE_OBTAINED_MEGA_STONE)
         }
-        defeattrainer(TRAINER_CASUAL_IRIS)
-        additem(ITEM_GARCHOMPITE)
+        if(!defeated(TRAINER_CASUAL_IRIS)){
+            defeattrainer(TRAINER_CASUAL_IRIS)
+            additem(ITEM_GARCHOMPITE)
+        }
     }
     return
 }
@@ -4522,5 +4515,35 @@ script LootSail2{
     return
 }
 
+script SecretShopScript{
+    message("What're you buyin?")
+    waitmessage
+    setflag(FLAG_FREE_MART)
+    pokemart(SecretShopScript_Mart)
+    msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+    clearflag(FLAG_FREE_MART)
+	release
+	end
+}
+
+mart SecretShopScript_Mart{
+    ITEM_RARE_CANDY
+    ITEM_EXP_CANDY_XL
+    ITEM_MASTER_BALL
+    ITEM_ABILITY_CAPSULE
+    ITEM_ABILITY_PATCH
+    ITEM_PP_MAX
+    ITEM_FRESH_START_MOCHI
+    ITEM_HP_UP
+    ITEM_PROTEIN
+    ITEM_IRON
+    ITEM_CALCIUM
+    ITEM_ZINC
+    ITEM_CARBOS
+    ITEM_NONE
+}
+
 
 // ROM:    29744956 B        32 MB     88.65%
+
+// ROM:    29766628 B        32 MB     88.71%

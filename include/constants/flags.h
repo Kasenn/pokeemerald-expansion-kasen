@@ -986,7 +986,7 @@
 #define FLAG_HIDE_METEOR_FALLS_1F_1R_COZMO                          0x3AE
 #define FLAG_HIDE_AQUA_HIDEOUT_B2F_SUBMARINE_SHADOW                 0x3AF
 #define FLAG_HIDE_ROUTE_128_ARCHIE                                  0x3B0
-#define FLAG_HIDE_ROUTE_128_MAXIE                                   0x3B1
+#define FLAG_FREE_MART                                   0x3B1
 #define FLAG_HIDE_SEAFLOOR_CAVERN_AQUA_GRUNTS                       0x3B2
 #define FLAG_HIDE_ROUTE_116_DEVON_EMPLOYEE                          0x3B3
 #define FLAG_HIDE_SLATEPORT_CITY_TM_SALESMAN                        0x3B4
@@ -1942,7 +1942,7 @@
 #define FLAG_Q78_TEMP_END                              (EXTENDED_FLAG_START + 284)
 #define FLAG_Q79_TEMP_END                              (EXTENDED_FLAG_START + 285)
 #define FLAG_Q80_TEMP_END                              (EXTENDED_FLAG_START + 286)
-#define FLAG_HIDE_HIDDENABILITY_FIXER			    (EXTENDED_FLAG_START + 287)
+#define FLAG_ENABLE_SECRET_SHOP			    (EXTENDED_FLAG_START + 287)
 #define FLAG_UNUSED_EXTENDED_0289			    (EXTENDED_FLAG_START + 288)
 #define FLAG_UNUSED_EXTENDED_0290			    (EXTENDED_FLAG_START + 289)
 #define FLAG_UNUSED_EXTENDED_0291			    (EXTENDED_FLAG_START + 290)

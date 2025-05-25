@@ -229,6 +229,16 @@ struct Time
 #include "constants/items.h"
 #define ITEM_FLAGS_COUNT ((ITEMS_COUNT / 8) + ((ITEMS_COUNT % 8) ? 1 : 0))
 
+#define GROTTOS_COUNT   20
+struct HiddenGrotto
+{
+    u32 isMon:1;
+    u32 currentId:11;
+    u32 isMonPrev:1;
+    u32 prevId:11;
+    u32 padding:8;
+};
+
 struct SaveBlock3
 {
 #if OW_USE_FAKE_RTC
@@ -241,6 +251,8 @@ struct SaveBlock3
     u8 dexNavSearchLevels[NUM_SPECIES];
 #endif
     u8 dexNavChain;
+    u8 padding[3];
+    struct HiddenGrotto hiddenGrottos[GROTTOS_COUNT];
 }; /* max size 1624 bytes */
 
 extern struct SaveBlock3 *gSaveBlock3Ptr;

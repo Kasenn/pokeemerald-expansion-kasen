@@ -398,16 +398,19 @@ UpdateGuy_4:
 	dynmultipush UpdateGuy_Text_3, 3
 	goto_if_set FLAG_OBTAINED_MEGA_RING, UpdateGuy_8
 UpdateGuy_7:
-	dynmultipush UpdateGuy_Text_5, 5
+	goto_if_set FLAG_ENABLE_SECRET_SHOP, UpdateGuy_11
+UpdateGuy_10:
+	dynmultipush UpdateGuy_Text_6, 6
 	dynmultistack 23, 0, FALSE, 6, FALSE, 0, 0
 	switch VAR_RESULT
-	case 0, UpdateGuy_11
-	case 1, UpdateGuy_12
-	case 2, UpdateGuy_13
-	case 3, UpdateGuy_14
-	case 4, UpdateGuy_15
-	case 5, UpdateGuy_16
-	case MULTI_B_PRESSED, UpdateGuy_16
+	case 0, UpdateGuy_14
+	case 1, UpdateGuy_15
+	case 2, UpdateGuy_16
+	case 3, UpdateGuy_17
+	case 4, UpdateGuy_18
+	case 5, UpdateGuy_19
+	case 6, UpdateGuy_20
+	case MULTI_B_PRESSED, UpdateGuy_20
 	return
 
 UpdateGuy_2:
@@ -424,27 +427,35 @@ UpdateGuy_8:
 	goto UpdateGuy_7
 
 UpdateGuy_11:
+	dynmultipush UpdateGuy_Text_5, 5
+	goto UpdateGuy_10
+
+UpdateGuy_14:
 	goto UpdateGame
 	return
 
-UpdateGuy_12:
+UpdateGuy_15:
 	goto Debug_Script_1
 	return
 
-UpdateGuy_13:
+UpdateGuy_16:
 	goto SkipContent
 	return
 
-UpdateGuy_14:
+UpdateGuy_17:
 	goto Debug_Script_81
 	return
 
-UpdateGuy_15:
+UpdateGuy_18:
 	goto TestMegaMon
 	return
 
-UpdateGuy_16:
-	msgbox UpdateGuy_Text_6, MSGBOX_AUTOCLOSE
+UpdateGuy_19:
+	goto SecretShopScript
+	return
+
+UpdateGuy_20:
+	msgbox UpdateGuy_Text_7, MSGBOX_AUTOCLOSE
 	return
 
 
@@ -480,7 +491,7 @@ TestMegaMon::
 TestMegaMon_1:
 	goto_if_set FLAG_BADGE06_GET, TestMegaMon_5
 TestMegaMon_4:
-	dynmultichoice 23, 0, FALSE, 5, 0, 0, TestMegaMon_Text_0, TestMegaMon_Text_1, TestMegaMon_Text_2, TestMegaMon_Text_3, TestMegaMon_Text_4, TestMegaMon_Text_5, UpdateGuy_Text_5
+	dynmultichoice 23, 0, FALSE, 5, 0, 0, TestMegaMon_Text_0, TestMegaMon_Text_1, TestMegaMon_Text_2, TestMegaMon_Text_3, TestMegaMon_Text_4, TestMegaMon_Text_5, UpdateGuy_Text_6
 	switch VAR_RESULT
 	case 0, TestMegaMon_8
 	case 1, TestMegaMon_9
@@ -574,7 +585,53 @@ SkipContent_1:
 	clearflag FLAG_TEMP_7
 	clearflag FLAG_TEMP_8
 	setvar VAR_TEMP_B, 0
-	dynmultichoice 23, 0, FALSE, 6, VAR_TEMP_A, 0, SkipContent_Text_0, SkipContent_Text_1, SkipContent_Text_2, SkipContent_Text_3, SkipContent_Text_4, SkipContent_Text_5, SkipContent_Text_6, SkipContent_Text_7, SkipContent_Text_8, SkipContent_Text_9, SkipContent_Text_10, SkipContent_Text_11, SkipContent_Text_12, SkipContent_Text_13, SkipContent_Text_14, SkipContent_Text_15, SkipContent_Text_16, SkipContent_Text_17, SkipContent_Text_18, SkipContent_Text_19, SkipContent_Text_20, SkipContent_Text_21, SkipContent_Text_22, SkipContent_Text_23, SkipContent_Text_24, SkipContent_Text_25, SkipContent_Text_26, SkipContent_Text_27, SkipContent_Text_28, SkipContent_Text_29, SkipContent_Text_30, SkipContent_Text_31, SkipContent_Text_32, SkipContent_Text_33, SkipContent_Text_34, SkipContent_Text_35, SkipContent_Text_36, SkipContent_Text_37, SkipContent_Text_38, SkipContent_Text_39, SkipContent_Text_40, SkipContent_Text_41, SkipContent_Text_42, SkipContent_Text_43, SkipContent_Text_44
+	dynmultipush SkipContent_Text_0, 0
+	dynmultipush SkipContent_Text_1, 1
+	dynmultipush SkipContent_Text_2, 2
+	dynmultipush SkipContent_Text_3, 3
+	dynmultipush SkipContent_Text_4, 4
+	dynmultipush SkipContent_Text_5, 5
+	dynmultipush SkipContent_Text_6, 6
+	dynmultipush SkipContent_Text_7, 7
+	dynmultipush SkipContent_Text_8, 8
+	dynmultipush SkipContent_Text_9, 9
+	dynmultipush SkipContent_Text_10, 10
+	dynmultipush SkipContent_Text_11, 11
+	dynmultipush SkipContent_Text_12, 12
+	dynmultipush SkipContent_Text_13, 13
+	dynmultipush SkipContent_Text_14, 14
+	dynmultipush SkipContent_Text_15, 15
+	dynmultipush SkipContent_Text_16, 16
+	dynmultipush SkipContent_Text_17, 17
+	dynmultipush SkipContent_Text_18, 18
+	dynmultipush SkipContent_Text_19, 19
+	dynmultipush SkipContent_Text_20, 20
+	dynmultipush SkipContent_Text_21, 21
+	dynmultipush SkipContent_Text_22, 22
+	dynmultipush SkipContent_Text_23, 23
+	dynmultipush SkipContent_Text_24, 24
+	dynmultipush SkipContent_Text_25, 25
+	dynmultipush SkipContent_Text_26, 26
+	dynmultipush SkipContent_Text_27, 27
+	dynmultipush SkipContent_Text_28, 28
+	dynmultipush SkipContent_Text_29, 29
+	dynmultipush SkipContent_Text_30, 30
+	dynmultipush SkipContent_Text_31, 31
+	dynmultipush SkipContent_Text_32, 32
+	dynmultipush SkipContent_Text_33, 33
+	dynmultipush SkipContent_Text_34, 34
+	dynmultipush SkipContent_Text_35, 35
+	dynmultipush SkipContent_Text_36, 36
+	dynmultipush SkipContent_Text_37, 37
+	dynmultipush SkipContent_Text_38, 38
+	dynmultipush SkipContent_Text_39, 39
+	dynmultipush SkipContent_Text_40, 40
+	dynmultipush SkipContent_Text_41, 41
+	dynmultipush SkipContent_Text_42, 42
+	dynmultipush SkipContent_Text_43, 43
+	dynmultipush SkipContent_Text_44, 44
+	dynmultipush SkipContent_Text_45, 45
+	dynmultistack 23, 0, FALSE, 6, 0, VAR_TEMP_A, 0
 	switch VAR_RESULT
 	case 0, SkipContent_5
 	case 1, SkipContent_6
@@ -990,7 +1047,7 @@ BufferChoices4_2:
 SkipContent_Route1::
 	bufferstring STR_VAR_2, SkipContent_Text_0
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route1_2
 SkipContent_Route1_1:
 	call ContentSkipper_SkipContent_Route1
@@ -999,7 +1056,7 @@ SkipContent_Route1_1:
 
 SkipContent_Route1_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_Route1_4
 	goto SkipContent_Route1_1
 
@@ -1011,7 +1068,7 @@ SkipContent_Route1_4:
 SkipContent_Route2::
 	bufferstring STR_VAR_2, SkipContent_Text_1
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route2_2
 SkipContent_Route2_1:
 	call ContentSkipper_SkipContent_Route2
@@ -1020,7 +1077,7 @@ SkipContent_Route2_1:
 
 SkipContent_Route2_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_Route2_4
 	goto SkipContent_Route2_1
 
@@ -1032,7 +1089,7 @@ SkipContent_Route2_4:
 SkipContent_WindyWoods::
 	bufferstring STR_VAR_2, SkipContent_Text_2
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_WindyWoods_2
 SkipContent_WindyWoods_1:
 	call ContentSkipper_SkipContent_WindyWoods
@@ -1041,7 +1098,7 @@ SkipContent_WindyWoods_1:
 
 SkipContent_WindyWoods_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_WindyWoods_4
 	goto SkipContent_WindyWoods_1
 
@@ -1053,7 +1110,7 @@ SkipContent_WindyWoods_4:
 SkipContent_CoralgroveCity::
 	bufferstring STR_VAR_2, SkipContent_Text_3
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_CoralgroveCity_2
 SkipContent_CoralgroveCity_1:
 	call ContentSkipper_SkipContent_CoralgroveCity
@@ -1062,7 +1119,7 @@ SkipContent_CoralgroveCity_1:
 
 SkipContent_CoralgroveCity_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_CoralgroveCity_4
 	goto SkipContent_CoralgroveCity_1
 
@@ -1074,7 +1131,7 @@ SkipContent_CoralgroveCity_4:
 SkipContent_AzuretideTown::
 	bufferstring STR_VAR_2, SkipContent_Text_4
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_AzuretideTown_2
 SkipContent_AzuretideTown_1:
 	call ContentSkipper_SkipContent_AzuretideTown
@@ -1083,7 +1140,7 @@ SkipContent_AzuretideTown_1:
 
 SkipContent_AzuretideTown_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_AzuretideTown_4
 	goto SkipContent_AzuretideTown_1
 
@@ -1095,7 +1152,7 @@ SkipContent_AzuretideTown_4:
 SkipContent_Route4::
 	bufferstring STR_VAR_2, SkipContent_Text_5
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route4_2
 SkipContent_Route4_1:
 	call ContentSkipper_SkipContent_Route4
@@ -1104,7 +1161,7 @@ SkipContent_Route4_1:
 
 SkipContent_Route4_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_Route4_4
 	goto SkipContent_Route4_1
 
@@ -1116,7 +1173,7 @@ SkipContent_Route4_4:
 SkipContent_PokemonRanch::
 	bufferstring STR_VAR_2, SkipContent_PokemonRanch_Text_0
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_PokemonRanch_2
 SkipContent_PokemonRanch_1:
 	call ContentSkipper_SkipContent_PokemonRanch
@@ -1125,7 +1182,7 @@ SkipContent_PokemonRanch_1:
 
 SkipContent_PokemonRanch_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_PokemonRanch_4
 	goto SkipContent_PokemonRanch_1
 
@@ -1137,7 +1194,7 @@ SkipContent_PokemonRanch_4:
 SkipContent_AldeleafCity::
 	bufferstring STR_VAR_2, SkipContent_Text_7
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_AldeleafCity_2
 SkipContent_AldeleafCity_1:
 	call ContentSkipper_SkipContent_AldeleafCity
@@ -1146,7 +1203,7 @@ SkipContent_AldeleafCity_1:
 
 SkipContent_AldeleafCity_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_AldeleafCity_4
 	goto SkipContent_AldeleafCity_1
 
@@ -1158,7 +1215,7 @@ SkipContent_AldeleafCity_4:
 SkipContent_Route30::
 	bufferstring STR_VAR_2, SkipContent_Text_8
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route30_2
 SkipContent_Route30_1:
 	call ContentSkipper_SkipContent_Route30
@@ -1167,7 +1224,7 @@ SkipContent_Route30_1:
 
 SkipContent_Route30_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_Route30_4
 	goto SkipContent_Route30_1
 
@@ -1179,7 +1236,7 @@ SkipContent_Route30_4:
 SkipContent_WindplumeValley::
 	bufferstring STR_VAR_2, SkipContent_Text_9
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_WindplumeValley_2
 SkipContent_WindplumeValley_1:
 	call ContentSkipper_SkipContent_WindplumeValley
@@ -1188,7 +1245,7 @@ SkipContent_WindplumeValley_1:
 
 SkipContent_WindplumeValley_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_WindplumeValley_4
 	goto SkipContent_WindplumeValley_1
 
@@ -1200,7 +1257,7 @@ SkipContent_WindplumeValley_4:
 SkipContent_Route5::
 	bufferstring STR_VAR_2, SkipContent_Text_10
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route5_2
 SkipContent_Route5_1:
 	call ContentSkipper_SkipContent_Route5
@@ -1209,7 +1266,7 @@ SkipContent_Route5_1:
 
 SkipContent_Route5_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_Route5_4
 	goto SkipContent_Route5_1
 
@@ -1221,7 +1278,7 @@ SkipContent_Route5_4:
 SkipContent_FlowerFields::
 	bufferstring STR_VAR_2, SkipContent_Text_11
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_FlowerFields_2
 SkipContent_FlowerFields_1:
 	call ContentSkipper_SkipContent_FlowerFields
@@ -1230,7 +1287,7 @@ SkipContent_FlowerFields_1:
 
 SkipContent_FlowerFields_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_FlowerFields_4
 	goto SkipContent_FlowerFields_1
 
@@ -1242,7 +1299,7 @@ SkipContent_FlowerFields_4:
 SkipContent_SkylochVillage::
 	bufferstring STR_VAR_2, SkipContent_Text_12
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_SkylochVillage_2
 SkipContent_SkylochVillage_1:
 	call ContentSkipper_SkipContent_SkylochVillage
@@ -1251,7 +1308,7 @@ SkipContent_SkylochVillage_1:
 
 SkipContent_SkylochVillage_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_SkylochVillage_4
 	goto SkipContent_SkylochVillage_1
 
@@ -1263,7 +1320,7 @@ SkipContent_SkylochVillage_4:
 SkipContent_Route6::
 	bufferstring STR_VAR_2, SkipContent_Text_13
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route6_2
 SkipContent_Route6_1:
 	call ContentSkipper_SkipContent_Route6
@@ -1272,7 +1329,7 @@ SkipContent_Route6_1:
 
 SkipContent_Route6_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_Route6_4
 	goto SkipContent_Route6_1
 
@@ -1284,7 +1341,7 @@ SkipContent_Route6_4:
 SkipContent_Route8::
 	bufferstring STR_VAR_2, SkipContent_Text_14
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route8_2
 SkipContent_Route8_1:
 	call ContentSkipper_SkipContent_Route8
@@ -1293,7 +1350,7 @@ SkipContent_Route8_1:
 
 SkipContent_Route8_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_Route8_4
 	goto SkipContent_Route8_1
 
@@ -1305,7 +1362,7 @@ SkipContent_Route8_4:
 SkipContent_ShoreslateCity::
 	bufferstring STR_VAR_2, SkipContent_Text_15
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_ShoreslateCity_2
 SkipContent_ShoreslateCity_1:
 	call ContentSkipper_SkipContent_ShoreslateCity
@@ -1314,7 +1371,7 @@ SkipContent_ShoreslateCity_1:
 
 SkipContent_ShoreslateCity_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_ShoreslateCity_4
 	goto SkipContent_ShoreslateCity_1
 
@@ -1326,7 +1383,7 @@ SkipContent_ShoreslateCity_4:
 SkipContent_ScorchedDesert::
 	bufferstring STR_VAR_2, SkipContent_Text_16
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_ScorchedDesert_2
 SkipContent_ScorchedDesert_1:
 	call ContentSkipper_SkipContent_ScorchedDesert
@@ -1335,7 +1392,7 @@ SkipContent_ScorchedDesert_1:
 
 SkipContent_ScorchedDesert_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_ScorchedDesert_4
 	goto SkipContent_ScorchedDesert_1
 
@@ -1347,7 +1404,7 @@ SkipContent_ScorchedDesert_4:
 SkipContent_Route7::
 	bufferstring STR_VAR_2, SkipContent_Text_17
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route7_2
 SkipContent_Route7_1:
 	call ContentSkipper_SkipContent_Route7
@@ -1356,7 +1413,7 @@ SkipContent_Route7_1:
 
 SkipContent_Route7_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_Route7_4
 	goto SkipContent_Route7_1
 
@@ -1368,7 +1425,7 @@ SkipContent_Route7_4:
 SkipContent_MarigorgeTown::
 	bufferstring STR_VAR_2, SkipContent_Text_18
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_MarigorgeTown_2
 SkipContent_MarigorgeTown_1:
 	call ContentSkipper_SkipContent_MarigorgeTown
@@ -1377,7 +1434,7 @@ SkipContent_MarigorgeTown_1:
 
 SkipContent_MarigorgeTown_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_MarigorgeTown_4
 	goto SkipContent_MarigorgeTown_1
 
@@ -1389,7 +1446,7 @@ SkipContent_MarigorgeTown_4:
 SkipContent_KaolisleCity::
 	bufferstring STR_VAR_2, SkipContent_Text_19
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_KaolisleCity_2
 SkipContent_KaolisleCity_1:
 	call ContentSkipper_SkipContent_KaolisleCity
@@ -1398,7 +1455,7 @@ SkipContent_KaolisleCity_1:
 
 SkipContent_KaolisleCity_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_KaolisleCity_4
 	goto SkipContent_KaolisleCity_1
 
@@ -1410,7 +1467,7 @@ SkipContent_KaolisleCity_4:
 SkipContent_RockliffeTown::
 	bufferstring STR_VAR_2, SkipContent_Text_20
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_RockliffeTown_2
 SkipContent_RockliffeTown_1:
 	call ContentSkipper_SkipContent_RockliffeTown
@@ -1419,7 +1476,7 @@ SkipContent_RockliffeTown_1:
 
 SkipContent_RockliffeTown_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_RockliffeTown_4
 	goto SkipContent_RockliffeTown_1
 
@@ -1431,7 +1488,7 @@ SkipContent_RockliffeTown_4:
 SkipContent_Route11::
 	bufferstring STR_VAR_2, SkipContent_Text_21
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route11_2
 SkipContent_Route11_1:
 	call ContentSkipper_SkipContent_Route11
@@ -1440,7 +1497,7 @@ SkipContent_Route11_1:
 
 SkipContent_Route11_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_Route11_4
 	goto SkipContent_Route11_1
 
@@ -1452,7 +1509,7 @@ SkipContent_Route11_4:
 SkipContent_Route12::
 	bufferstring STR_VAR_2, SkipContent_Text_22
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route12_2
 SkipContent_Route12_1:
 	call ContentSkipper_SkipContent_Route12
@@ -1461,7 +1518,7 @@ SkipContent_Route12_1:
 
 SkipContent_Route12_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_Route12_4
 	goto SkipContent_Route12_1
 
@@ -1471,9 +1528,9 @@ SkipContent_Route12_4:
 
 
 SkipContent_SandstoneCity::
-	bufferstring STR_VAR_2, SkipContent_SandstoneCity_Text_0
+	bufferstring STR_VAR_2, SkipContent_Text_23
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_SandstoneCity_2
 SkipContent_SandstoneCity_1:
 	call ContentSkipper_SkipContent_SandstoneCity
@@ -1482,7 +1539,7 @@ SkipContent_SandstoneCity_1:
 
 SkipContent_SandstoneCity_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_SandstoneCity_4
 	goto SkipContent_SandstoneCity_1
 
@@ -1492,9 +1549,9 @@ SkipContent_SandstoneCity_4:
 
 
 SkipContent_Route13::
-	bufferstring STR_VAR_2, SkipContent_Route13_Text_0
+	bufferstring STR_VAR_2, SkipContent_Text_24
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route13_2
 SkipContent_Route13_1:
 	call ContentSkipper_SkipContent_Route13
@@ -1503,7 +1560,7 @@ SkipContent_Route13_1:
 
 SkipContent_Route13_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_Route13_4
 	goto SkipContent_Route13_1
 
@@ -1513,9 +1570,9 @@ SkipContent_Route13_4:
 
 
 SkipContent_AdamantTower::
-	bufferstring STR_VAR_2, SkipContent_Text_24
+	bufferstring STR_VAR_2, SkipContent_Text_25
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_AdamantTower_2
 SkipContent_AdamantTower_1:
 	call ContentSkipper_SkipContent_AdamantTower
@@ -1524,7 +1581,7 @@ SkipContent_AdamantTower_1:
 
 SkipContent_AdamantTower_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_AdamantTower_4
 	goto SkipContent_AdamantTower_1
 
@@ -1534,9 +1591,9 @@ SkipContent_AdamantTower_4:
 
 
 SkipContent_Route14::
-	bufferstring STR_VAR_2, SkipContent_Text_25
+	bufferstring STR_VAR_2, SkipContent_Text_26
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route14_2
 SkipContent_Route14_1:
 	call ContentSkipper_SkipContent_Route14
@@ -1545,7 +1602,7 @@ SkipContent_Route14_1:
 
 SkipContent_Route14_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_Route14_4
 	goto SkipContent_Route14_1
 
@@ -1555,9 +1612,9 @@ SkipContent_Route14_4:
 
 
 SkipContent_Route15::
-	bufferstring STR_VAR_2, SkipContent_Text_26
+	bufferstring STR_VAR_2, SkipContent_Text_27
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route15_2
 SkipContent_Route15_1:
 	call ContentSkipper_SkipContent_Route15
@@ -1566,7 +1623,7 @@ SkipContent_Route15_1:
 
 SkipContent_Route15_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_Route15_4
 	goto SkipContent_Route15_1
 
@@ -1576,9 +1633,9 @@ SkipContent_Route15_4:
 
 
 SkipContent_FishingVillage::
-	bufferstring STR_VAR_2, SkipContent_Text_27
+	bufferstring STR_VAR_2, SkipContent_Text_28
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_FishingVillage_2
 SkipContent_FishingVillage_1:
 	call ContentSkipper_SkipContent_FishingVillage
@@ -1587,7 +1644,7 @@ SkipContent_FishingVillage_1:
 
 SkipContent_FishingVillage_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_FishingVillage_4
 	goto SkipContent_FishingVillage_1
 
@@ -1597,9 +1654,9 @@ SkipContent_FishingVillage_4:
 
 
 SkipContent_Route23::
-	bufferstring STR_VAR_2, SkipContent_Text_28
+	bufferstring STR_VAR_2, SkipContent_Text_29
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route23_2
 SkipContent_Route23_1:
 	call ContentSkipper_SkipContent_Route23
@@ -1608,7 +1665,7 @@ SkipContent_Route23_1:
 
 SkipContent_Route23_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_Route23_4
 	goto SkipContent_Route23_1
 
@@ -1618,9 +1675,9 @@ SkipContent_Route23_4:
 
 
 SkipContent_DrisledgeTown::
-	bufferstring STR_VAR_2, SkipContent_Text_29
+	bufferstring STR_VAR_2, SkipContent_Text_30
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_DrisledgeTown_2
 SkipContent_DrisledgeTown_1:
 	call ContentSkipper_SkipContent_DrisledgeTown
@@ -1629,7 +1686,7 @@ SkipContent_DrisledgeTown_1:
 
 SkipContent_DrisledgeTown_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_DrisledgeTown_4
 	goto SkipContent_DrisledgeTown_1
 
@@ -1639,9 +1696,9 @@ SkipContent_DrisledgeTown_4:
 
 
 SkipContent_AmberockTown::
-	bufferstring STR_VAR_2, SkipContent_Text_30
+	bufferstring STR_VAR_2, SkipContent_Text_31
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_AmberockTown_2
 SkipContent_AmberockTown_1:
 	call ContentSkipper_SkipContent_AmberockTown
@@ -1650,7 +1707,7 @@ SkipContent_AmberockTown_1:
 
 SkipContent_AmberockTown_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_AmberockTown_4
 	goto SkipContent_AmberockTown_1
 
@@ -1660,9 +1717,9 @@ SkipContent_AmberockTown_4:
 
 
 SkipContent_Route3::
-	bufferstring STR_VAR_2, SkipContent_Text_31
+	bufferstring STR_VAR_2, SkipContent_Text_32
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route3_2
 SkipContent_Route3_1:
 	call ContentSkipper_SkipContent_Route3
@@ -1671,7 +1728,7 @@ SkipContent_Route3_1:
 
 SkipContent_Route3_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_Route3_4
 	goto SkipContent_Route3_1
 
@@ -1681,9 +1738,9 @@ SkipContent_Route3_4:
 
 
 SkipContent_Route9::
-	bufferstring STR_VAR_2, SkipContent_Text_32
+	bufferstring STR_VAR_2, SkipContent_Text_33
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route9_2
 SkipContent_Route9_1:
 	call ContentSkipper_SkipContent_Route9
@@ -1692,7 +1749,7 @@ SkipContent_Route9_1:
 
 SkipContent_Route9_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_Route9_4
 	goto SkipContent_Route9_1
 
@@ -1702,9 +1759,9 @@ SkipContent_Route9_4:
 
 
 SkipContent_Route10::
-	bufferstring STR_VAR_2, SkipContent_Text_33
+	bufferstring STR_VAR_2, SkipContent_Text_34
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route10_2
 SkipContent_Route10_1:
 	call ContentSkipper_SkipContent_Route10
@@ -1713,7 +1770,7 @@ SkipContent_Route10_1:
 
 SkipContent_Route10_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_Route10_4
 	goto SkipContent_Route10_1
 
@@ -1723,9 +1780,9 @@ SkipContent_Route10_4:
 
 
 SkipContent_WindplumeMountain::
-	bufferstring STR_VAR_2, SkipContent_Text_34
+	bufferstring STR_VAR_2, SkipContent_Text_35
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_WindplumeMountain_2
 SkipContent_WindplumeMountain_1:
 	call ContentSkipper_SkipContent_WindplumeMountain
@@ -1734,7 +1791,7 @@ SkipContent_WindplumeMountain_1:
 
 SkipContent_WindplumeMountain_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_WindplumeMountain_4
 	goto SkipContent_WindplumeMountain_1
 
@@ -1744,9 +1801,9 @@ SkipContent_WindplumeMountain_4:
 
 
 SkipContent_Route16::
-	bufferstring STR_VAR_2, SkipContent_Text_35
+	bufferstring STR_VAR_2, SkipContent_Text_36
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route16_2
 SkipContent_Route16_1:
 	call ContentSkipper_SkipContent_Route16
@@ -1755,7 +1812,7 @@ SkipContent_Route16_1:
 
 SkipContent_Route16_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_Route16_4
 	goto SkipContent_Route16_1
 
@@ -1765,9 +1822,9 @@ SkipContent_Route16_4:
 
 
 SkipContent_BasalekTown::
-	bufferstring STR_VAR_2, SkipContent_Text_36
+	bufferstring STR_VAR_2, SkipContent_Text_37
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_BasalekTown_2
 SkipContent_BasalekTown_1:
 	call ContentSkipper_SkipContent_BasalekTown
@@ -1776,7 +1833,7 @@ SkipContent_BasalekTown_1:
 
 SkipContent_BasalekTown_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_BasalekTown_4
 	goto SkipContent_BasalekTown_1
 
@@ -1786,9 +1843,9 @@ SkipContent_BasalekTown_4:
 
 
 SkipContent_Route17::
-	bufferstring STR_VAR_2, SkipContent_Text_37
+	bufferstring STR_VAR_2, SkipContent_Text_38
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route17_2
 SkipContent_Route17_1:
 	call ContentSkipper_SkipContent_Route17
@@ -1797,7 +1854,7 @@ SkipContent_Route17_1:
 
 SkipContent_Route17_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_Route17_4
 	goto SkipContent_Route17_1
 
@@ -1807,9 +1864,9 @@ SkipContent_Route17_4:
 
 
 SkipContent_Route18::
-	bufferstring STR_VAR_2, SkipContent_Text_38
+	bufferstring STR_VAR_2, SkipContent_Text_39
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route18_2
 SkipContent_Route18_1:
 	call ContentSkipper_SkipContent_Route18
@@ -1818,7 +1875,7 @@ SkipContent_Route18_1:
 
 SkipContent_Route18_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_Route18_4
 	goto SkipContent_Route18_1
 
@@ -1828,9 +1885,9 @@ SkipContent_Route18_4:
 
 
 SkipContent_FrosthearthCity::
-	bufferstring STR_VAR_2, SkipContent_Text_39
+	bufferstring STR_VAR_2, SkipContent_Text_40
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_FrosthearthCity_2
 SkipContent_FrosthearthCity_1:
 	call ContentSkipper_SkipContent_FrosthearthCity
@@ -1839,7 +1896,7 @@ SkipContent_FrosthearthCity_1:
 
 SkipContent_FrosthearthCity_2:
 	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipContent_FrosthearthCity_4
 	goto SkipContent_FrosthearthCity_1
 
@@ -1849,9 +1906,9 @@ SkipContent_FrosthearthCity_4:
 
 
 SkipContent_RockClimb::
-	bufferstring STR_VAR_2, SkipContent_Text_40
+	bufferstring STR_VAR_2, SkipContent_RockClimb_Text_0
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_RockClimb_2
 SkipContent_RockClimb_1:
 	call ContentSkipper_SkipContent_RockClimb
@@ -1859,20 +1916,14 @@ SkipContent_RockClimb_1:
 	return
 
 SkipContent_RockClimb_2:
-	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
-	goto_if_eq SkipContent_RockClimb_4
-	goto SkipContent_RockClimb_1
-
-SkipContent_RockClimb_4:
-	setflag FLAG_TEMP_7
+	msgbox SkipContent_RockClimb_Text_1
 	goto SkipContent_RockClimb_1
 
 
 SkipContent_DesertRuins::
-	bufferstring STR_VAR_2, SkipContent_Text_41
+	bufferstring STR_VAR_2, SkipContent_DesertRuins_Text_0
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_DesertRuins_2
 SkipContent_DesertRuins_1:
 	call ContentSkipper_SkipContent_DesertRuins
@@ -1880,20 +1931,14 @@ SkipContent_DesertRuins_1:
 	return
 
 SkipContent_DesertRuins_2:
-	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
-	goto_if_eq SkipContent_DesertRuins_4
-	goto SkipContent_DesertRuins_1
-
-SkipContent_DesertRuins_4:
-	setflag FLAG_TEMP_7
+	msgbox SkipContent_DesertRuins_Text_1
 	goto SkipContent_DesertRuins_1
 
 
 SkipContent_SafariZone::
-	bufferstring STR_VAR_2, SkipContent_Text_42
+	bufferstring STR_VAR_2, SkipContent_SafariZone_Text_0
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_SafariZone_2
 SkipContent_SafariZone_1:
 	call ContentSkipper_SkipContent_SafariZone
@@ -1901,20 +1946,14 @@ SkipContent_SafariZone_1:
 	return
 
 SkipContent_SafariZone_2:
-	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
-	goto_if_eq SkipContent_SafariZone_4
-	goto SkipContent_SafariZone_1
-
-SkipContent_SafariZone_4:
-	setflag FLAG_TEMP_7
+	msgbox SkipContent_SafariZone_Text_1
 	goto SkipContent_SafariZone_1
 
 
 SkipContent_MiscSurfing::
-	bufferstring STR_VAR_2, SkipContent_Text_43
+	bufferstring STR_VAR_2, SkipContent_MiscSurfing_Text_0
 	call SkipContent_BufferChoices
-	compare VAR_RESULT, 5
+	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_MiscSurfing_2
 SkipContent_MiscSurfing_1:
 	call ContentSkipper_SkipContent_MiscSurfing
@@ -1922,13 +1961,7 @@ SkipContent_MiscSurfing_1:
 	return
 
 SkipContent_MiscSurfing_2:
-	msgbox WantToSkipMultiple, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
-	goto_if_eq SkipContent_MiscSurfing_4
-	goto SkipContent_MiscSurfing_1
-
-SkipContent_MiscSurfing_4:
-	setflag FLAG_TEMP_7
+	msgbox SkipContent_MiscSurfing_Text_1
 	goto SkipContent_MiscSurfing_1
 
 
@@ -2468,47 +2501,23 @@ ContentSkipper_SkipContent_FrosthearthCity_2:
 
 
 ContentSkipper_SkipContent_RockClimb::
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_RockClimb_2
 	call CompleteArea_Rock_Climb
-ContentSkipper_SkipContent_RockClimb_1:
 	return
-
-ContentSkipper_SkipContent_RockClimb_2:
-	call CompleteAllAreas
-	goto ContentSkipper_SkipContent_RockClimb_1
 
 
 ContentSkipper_SkipContent_DesertRuins::
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_DesertRuins_2
 	call CompleteArea_Desert_Ruins
-ContentSkipper_SkipContent_DesertRuins_1:
 	return
-
-ContentSkipper_SkipContent_DesertRuins_2:
-	call CompleteAllAreas
-	goto ContentSkipper_SkipContent_DesertRuins_1
 
 
 ContentSkipper_SkipContent_SafariZone::
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_SafariZone_2
 	call CompleteArea_Safari_Zone
-ContentSkipper_SkipContent_SafariZone_1:
 	return
-
-ContentSkipper_SkipContent_SafariZone_2:
-	call CompleteAllAreas
-	goto ContentSkipper_SkipContent_SafariZone_1
 
 
 ContentSkipper_SkipContent_MiscSurfing::
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_MiscSurfing_2
 	call CompleteArea_Misc_Surfing
-ContentSkipper_SkipContent_MiscSurfing_1:
 	return
-
-ContentSkipper_SkipContent_MiscSurfing_2:
-	call CompleteAllAreas
-	goto ContentSkipper_SkipContent_MiscSurfing_1
 
 
 SkipStory::
@@ -2529,35 +2538,35 @@ SkipStory_19:
 	goto_if_ge SkipStory_29
 SkipStory_28:
 	compare VAR_TEMP_B, 6
-	goto_if_ge SkipStory_38
-SkipStory_37:
+	goto_if_ge SkipStory_39
+SkipStory_38:
 	compare VAR_TEMP_B, 7
 	goto_if_ge SkipStory_48
 SkipStory_47:
 	compare VAR_TEMP_B, 8
-	goto_if_ge SkipStory_56
-SkipStory_55:
+	goto_if_ge SkipStory_58
+SkipStory_57:
 	compare VAR_TEMP_B, 9
-	goto_if_ge SkipStory_66
-SkipStory_65:
+	goto_if_ge SkipStory_70
+SkipStory_69:
 	compare VAR_TEMP_B, 10
-	goto_if_ge SkipStory_81
-SkipStory_80:
+	goto_if_ge SkipStory_85
+SkipStory_84:
 	compare VAR_TEMP_B, 11
-	goto_if_ge SkipStory_90
-SkipStory_89:
+	goto_if_ge SkipStory_94
+SkipStory_93:
 	compare VAR_TEMP_B, 12
-	goto_if_ge SkipStory_93
-SkipStory_92:
+	goto_if_ge SkipStory_101
+SkipStory_100:
 	compare VAR_TEMP_B, 13
-	goto_if_ge SkipStory_96
-SkipStory_95:
+	goto_if_ge SkipStory_104
+SkipStory_103:
 	compare VAR_TEMP_B, 14
-	goto_if_ge SkipStory_102
-SkipStory_101:
+	goto_if_ge SkipStory_110
+SkipStory_109:
 	compare VAR_TEMP_B, 15
-	goto_if_ge SkipStory_111
-SkipStory_110:
+	goto_if_ge SkipStory_119
+SkipStory_118:
 	setflag FLAG_TEMP_8
 	return
 
@@ -2591,10 +2600,10 @@ SkipStory_16:
 SkipStory_25:
 	setflag FLAG_BADGE01_GET
 	setflag FLAG_DEFEATED_RIVAL_HARBOR
-	msgbox SkipStory_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, TRUE
-	goto_if_eq SkipStory_34
-	setflag FLAG_RIVAL_HARBOR_ANGRY
+	checktrainerflag TRAINER_MAY_CORALGROVE_ELEVATOR
+	goto_if 1, SkipStory_34
+	checktrainerflag TRAINER_BRENDAN_CORALGROVE_ELEVATOR
+	goto_if 1, SkipStory_34
 	goto SkipStory_7
 
 SkipStory_11:
@@ -2687,14 +2696,14 @@ SkipStory_29:
 	clearflag FLAG_HIDE_SHORESLATE_BOAT
 	checkitem ITEM_GO_GOGGLES
 	compare VAR_RESULT, FALSE
-	goto_if_eq SkipStory_41
-SkipStory_40:
+	goto_if_eq SkipStory_42
+SkipStory_41:
 	checkitem ITEM_HM05
 	compare VAR_RESULT, FALSE
 	goto_if_eq SkipStory_51
 SkipStory_50:
-	goto_if_unset FLAG_RECEIVED_BIKE, SkipStory_63
-SkipStory_62:
+	goto_if_unset FLAG_RECEIVED_BIKE, SkipStory_65
+SkipStory_64:
 	setflag FLAG_RECEIVED_BIKE
 	goto SkipStory_28
 
@@ -2703,17 +2712,13 @@ SkipStory_32:
 	goto SkipStory_31
 
 SkipStory_34:
-	checkplayergender
-	compare VAR_RESULT, MALE
+	msgbox SkipStory_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, TRUE
 	goto_if_eq SkipStory_44
-	defeattrainer TRAINER_BRENDAN_CORALGROVE_ELEVATOR
-SkipStory_43:
-	checkitem ITEM_ITEMFINDER
-	compare VAR_RESULT, FALSE
-	goto_if_eq SkipStory_53
+	setflag FLAG_RIVAL_HARBOR_ANGRY
 	goto SkipStory_7
 
-SkipStory_38:
+SkipStory_39:
 	setflag FLAG_KAOLISLE_GYM_SWITCH1
 	setflag FLAG_KAOLISLE_GYM_SWITCH2
 	setflag FLAG_KAOLISLE_GYM_SWITCH3
@@ -2735,29 +2740,36 @@ SkipStory_38:
 	additem ITEM_TM_STOMPING_TANTRUM
 	setflag FLAG_VISITED_KAOLISLE
 	setflag FLAG_KAOLISLE_BROTHER_INTRO
-	goto SkipStory_37
+	goto SkipStory_38
 
-SkipStory_41:
+SkipStory_42:
 	giveitem ITEM_GO_GOGGLES
 	removeitem ITEM_LETTER
-	goto SkipStory_40
+	goto SkipStory_41
 
 SkipStory_44:
-	defeattrainer TRAINER_MAY_CORALGROVE_ELEVATOR
-	goto SkipStory_43
+	checkplayergender
+	compare VAR_RESULT, MALE
+	goto_if_eq SkipStory_54
+	defeattrainer TRAINER_BRENDAN_CORALGROVE_ELEVATOR
+SkipStory_53:
+	checkitem ITEM_ITEMFINDER
+	compare VAR_RESULT, FALSE
+	goto_if_eq SkipStory_67
+	goto SkipStory_7
 
 SkipStory_48:
 	setflag FLAG_VISITED_SANDSTONE_CITY
 	checkplayergender
 	compare VAR_RESULT, MALE
-	goto_if_eq SkipStory_59
-	goto_if_set FLAG_RIVAL_HARBOR_ANGRY, SkipStory_77
+	goto_if_eq SkipStory_61
+	goto_if_set FLAG_RIVAL_HARBOR_ANGRY, SkipStory_81
 	defeattrainer TRAINER_BRENDAN_ROUTE_11_NORMAL
-SkipStory_58:
+SkipStory_60:
 	checkitem ITEM_ITEMFINDER
 	compare VAR_RESULT, FALSE
-	goto_if_eq SkipStory_72
-SkipStory_71:
+	goto_if_eq SkipStory_76
+SkipStory_75:
 	setflag FLAG_HIDE_ROUTE_110_RIVAL
 	setflag FLAG_HIDE_ROUTE_110_RIVAL_ON_BIKE
 	setvar VAR_GYM_TELEPORT, 1
@@ -2768,16 +2780,16 @@ SkipStory_51:
 	giveitem ITEM_HM05
 	goto SkipStory_50
 
-SkipStory_53:
-	additem ITEM_ITEMFINDER
-	goto SkipStory_7
+SkipStory_54:
+	defeattrainer TRAINER_MAY_CORALGROVE_ELEVATOR
+	goto SkipStory_53
 
-SkipStory_56:
-	goto_if_unset FLAG_OBTAINED_MEGA_RING, SkipStory_69
-SkipStory_68:
+SkipStory_58:
+	goto_if_unset FLAG_OBTAINED_MEGA_RING, SkipStory_73
+SkipStory_72:
 	setvar VAR_SANDSTONE_GYM_CHECKPOINTS, 2
-	goto_if_unset FLAG_BADGE04_GET, SkipStory_87
-SkipStory_86:
+	goto_if_unset FLAG_BADGE04_GET, SkipStory_91
+SkipStory_90:
 	setflag FLAG_BADGE04_GET
 	defeattrainer TRAINER_LEADER_KORRINA
 	defeattrainer TRAINER_SANDGYM_TR1_CYCLISTM1
@@ -2787,18 +2799,22 @@ SkipStory_86:
 	defeattrainer TRAINER_SANDGYM_TR5_CYCLISTF3
 	defeattrainer TRAINER_SANDGYM_TR6_CYCLISTM3
 	defeattrainer TRAINER_SANDGYM_TR7_CYCLISTM4
-	goto SkipStory_55
+	goto SkipStory_57
 
-SkipStory_59:
-	goto_if_set FLAG_RIVAL_HARBOR_ANGRY, SkipStory_74
+SkipStory_61:
+	goto_if_set FLAG_RIVAL_HARBOR_ANGRY, SkipStory_78
 	defeattrainer TRAINER_MAY_ROUTE_11_NORMAL
-	goto SkipStory_58
+	goto SkipStory_60
 
-SkipStory_63:
+SkipStory_65:
 	giveitem ITEM_ACRO_BIKE
-	goto SkipStory_62
+	goto SkipStory_64
 
-SkipStory_66:
+SkipStory_67:
+	additem ITEM_ITEMFINDER
+	goto SkipStory_7
+
+SkipStory_70:
 	defeattrainer TRAINER_AT_2F_TR2_MAN3
 	defeattrainer TRAINER_AT_2F_TR2_WOMAN5
 	defeattrainer TRAINER_AT_2F_TR1_PSYCHIC
@@ -2817,63 +2833,79 @@ SkipStory_66:
 	defeattrainer TRAINER_AT_5F_COOLTRAINER_F
 	checkitem ITEM_MEGA_RING
 	compare VAR_RESULT, FALSE
-	goto_if_eq SkipStory_84
-SkipStory_83:
+	goto_if_eq SkipStory_88
+SkipStory_87:
 	setflag FLAG_OBTAINED_MEGA_RING
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_RING_OBTAINED
 	clearflag FLAG_KORRINA_LEAVESGYM
 	clearflag FLAG_HIDE_PLAYERS_HOUSE_DAD
 	clearflag FLAG_HIDE_LAB_RIVAL
 	setflag FLAG_HIDE_LIBRARY_BIRCH
-	goto SkipStory_65
+	switch VAR_STARTER_MON
+	case SPECIES_ROWLET, SkipStory_97
+	case SPECIES_TORCHIC, SkipStory_98
+	case SPECIES_PIPLUP, SkipStory_99
+	goto SkipStory_69
 
-SkipStory_69:
+SkipStory_73:
 	setflag FLAG_KORRINA_LEAVESGYM
-	goto SkipStory_68
+	goto SkipStory_72
 
-SkipStory_72:
+SkipStory_76:
 	giveitem ITEM_ITEMFINDER
-	goto SkipStory_71
+	goto SkipStory_75
 
-SkipStory_74:
+SkipStory_78:
 	defeattrainer TRAINER_MAY_ROUTE_11_ANGRY
-	goto SkipStory_58
-
-SkipStory_77:
-	defeattrainer TRAINER_BRENDAN_ROUTE_11_ANGRY
-	goto SkipStory_58
+	goto SkipStory_60
 
 SkipStory_81:
+	defeattrainer TRAINER_BRENDAN_ROUTE_11_ANGRY
+	goto SkipStory_60
+
+SkipStory_85:
 	setflag FLAG_HIDE_PLAYERS_HOUSE_DAD
 	setflag FLAG_HIDE_LAB_RIVAL
 	setvar VAR_ROUTE14_ROCKET_EVENT, 3
-	goto SkipStory_80
+	goto SkipStory_84
 
-SkipStory_84:
+SkipStory_88:
 	giveitem ITEM_MEGA_RING
-	goto SkipStory_83
+	goto SkipStory_87
 
-SkipStory_87:
+SkipStory_91:
 	additem ITEM_TM_POWER_UP_PUNCH
-	goto SkipStory_86
+	goto SkipStory_90
 
-SkipStory_90:
+SkipStory_94:
 	setflag FLAG_ACEROLA_TALKED_TO
 	setvar VAR_ROUTE14_ROCKET_EVENT, 6
 	defeattrainer TRAINER_R15_TR18_BERRYROCKET
 	defeattrainer TRAINER_BROTHER_5_FISHINGVILLAGE
 	setflag FLAG_VISITED_FISHING_VILLAGE
-	goto SkipStory_89
+	goto SkipStory_93
 
-SkipStory_93:
+SkipStory_97:
+	additem ITEM_DECIDUEITE
+	goto SkipStory_69
+
+SkipStory_98:
+	additem ITEM_BLAZIKENITE
+	goto SkipStory_69
+
+SkipStory_99:
+	additem ITEM_EMPOLEONITE
+	goto SkipStory_69
+
+SkipStory_101:
 	setflag FLAG_BADGE05_GET
 	checkitem ITEM_TM_SHADOW_CLAW
 	compare VAR_RESULT, FALSE
-	goto_if_eq SkipStory_99
-SkipStory_98:
+	goto_if_eq SkipStory_107
+SkipStory_106:
 	compare VAR_DRISLEDGE_TOWN_STATE, 30
-	goto_if_lt SkipStory_108
-SkipStory_107:
+	goto_if_lt SkipStory_116
+SkipStory_115:
 	defeattrainer TRAINER_DRISLEDGEGYM_TRAINER1
 	defeattrainer TRAINER_DRISLEDGEGYM_TRAINER2
 	defeattrainer TRAINER_DRISLEDGEGYM_TRAINER3
@@ -2883,12 +2915,12 @@ SkipStory_107:
 	defeattrainer TRAINER_LEADER_ACEROLA
 	checkitem ITEM_HM03
 	compare VAR_RESULT, FALSE
-	goto_if_eq SkipStory_120
-SkipStory_119:
+	goto_if_eq SkipStory_128
+SkipStory_127:
 	setflag FLAG_RECEIVED_HM_SURF
-	goto SkipStory_92
+	goto SkipStory_100
 
-SkipStory_96:
+SkipStory_104:
 	setvar VAR_AMBEROCK_STORY, STORY_AMBEROCK_STORY_COMPLETE
 	defeattrainer TRAINER_FACTORY_ROCKET_1
 	defeattrainer TRAINER_FACTORY_ROCKET_2
@@ -2896,38 +2928,39 @@ SkipStory_96:
 	defeattrainer TRAINER_FACTORY_ROCKET_4
 	defeattrainer TRAINER_FACTORY_ROCKET_5
 	defeattrainer TRAINER_FACTORY_ROCKET_PETREL
-	goto_if_unset FLAG_FACTORY_ITEM_1, SkipStory_105
-SkipStory_104:
-	goto_if_unset FLAG_FACTORY_ITEM_2, SkipStory_117
-SkipStory_116:
-	goto_if_unset FLAG_FACTORY_ITEM_3, SkipStory_125
+	goto_if_unset FLAG_FACTORY_ITEM_1, SkipStory_113
+SkipStory_112:
+	goto_if_unset FLAG_FACTORY_ITEM_2, SkipStory_125
 SkipStory_124:
-	removeitem ITEM_RESEARCH_PAPERS
-	giveitem ITEM_ZYGARDE_CUBE
-	goto SkipStory_95
+	goto_if_unset FLAG_FACTORY_ITEM_3, SkipStory_133
+SkipStory_132:
+	checkitem ITEM_ZYGARDE_CUBE
+	compare VAR_RESULT, FALSE
+	goto_if_eq SkipStory_135
+	goto SkipStory_103
 
-SkipStory_99:
+SkipStory_107:
 	additem ITEM_TM_SHADOW_CLAW
-	goto SkipStory_98
+	goto SkipStory_106
 
-SkipStory_102:
+SkipStory_110:
 	setflag FLAG_RIVAL_MET_IN_BASALEK
 	checkplayergender
 	compare VAR_RESULT, MALE
-	goto_if_eq SkipStory_113
+	goto_if_eq SkipStory_121
 	defeattrainer TRAINER_BRENDAN_BASALEK_TOWN
-	goto SkipStory_101
+	goto SkipStory_109
 
-SkipStory_105:
+SkipStory_113:
 	setflag FLAG_FACTORY_ITEM_1
 	additem ITEM_MAX_ELIXIR
-	goto SkipStory_104
+	goto SkipStory_112
 
-SkipStory_108:
+SkipStory_116:
 	setvar VAR_DRISLEDGE_TOWN_STATE, 30
-	goto SkipStory_107
+	goto SkipStory_115
 
-SkipStory_111:
+SkipStory_119:
 	setflag FLAG_PRYCE_ESCORTED
 	addbp 10
 	defeattrainer TRAINER_LEADER_PRYCE
@@ -2945,30 +2978,35 @@ SkipStory_111:
 	setflag FLAG_BADGE06_GET
 	checkitem ITEM_TM_ICE_BURN
 	compare VAR_RESULT, FALSE
-	goto_if_eq SkipStory_122
-	goto SkipStory_110
+	goto_if_eq SkipStory_130
+	goto SkipStory_118
 
-SkipStory_113:
+SkipStory_121:
 	defeattrainer TRAINER_MAY_BASALEK_TOWN
-	goto SkipStory_101
-
-SkipStory_117:
-	setflag FLAG_FACTORY_ITEM_1
-	additem ITEM_X_ATTACK
-	goto SkipStory_116
-
-SkipStory_120:
-	giveitem ITEM_HM03
-	goto SkipStory_119
-
-SkipStory_122:
-	additem ITEM_TM_ICE_BURN
-	goto SkipStory_110
+	goto SkipStory_109
 
 SkipStory_125:
 	setflag FLAG_FACTORY_ITEM_1
-	additem ITEM_HYPER_POTION
+	additem ITEM_X_ATTACK
 	goto SkipStory_124
+
+SkipStory_128:
+	giveitem ITEM_HM03
+	goto SkipStory_127
+
+SkipStory_130:
+	additem ITEM_TM_ICE_BURN
+	goto SkipStory_118
+
+SkipStory_133:
+	setflag FLAG_FACTORY_ITEM_1
+	additem ITEM_HYPER_POTION
+	goto SkipStory_132
+
+SkipStory_135:
+	removeitem ITEM_RESEARCH_PAPERS
+	giveitem ITEM_ZYGARDE_CUBE
+	goto SkipStory_103
 
 
 CompleteAllAreas::
@@ -5209,27 +5247,40 @@ CompleteArea_Route_13_4:
 CompleteArea_Adamant_Tower::
 	goto_if_set FLAG_TEMP_3, CompleteArea_Adamant_Tower_2
 CompleteArea_Adamant_Tower_1:
+	goto_if_set FLAG_TEMP_5, CompleteArea_Adamant_Tower_5
+CompleteArea_Adamant_Tower_4:
 	return
 
 CompleteArea_Adamant_Tower_2:
-	goto_if_unset FLAG_AT_ITEM1, CompleteArea_Adamant_Tower_5
-CompleteArea_Adamant_Tower_4:
-	goto_if_unset FLAG_AT_ITEM2, CompleteArea_Adamant_Tower_8
+	goto_if_unset FLAG_AT_ITEM1, CompleteArea_Adamant_Tower_8
 CompleteArea_Adamant_Tower_7:
-	goto_if_unset FLAG_AT_ITEM3, CompleteArea_Adamant_Tower_10
+	goto_if_unset FLAG_AT_ITEM2, CompleteArea_Adamant_Tower_13
+CompleteArea_Adamant_Tower_12:
+	goto_if_unset FLAG_AT_ITEM3, CompleteArea_Adamant_Tower_15
 	goto CompleteArea_Adamant_Tower_1
 
 CompleteArea_Adamant_Tower_5:
-	setflag FLAG_AT_ITEM1
-	additem ITEM_NUGGET
+	setflag FLAG_HIDE_PLAYERS_HOUSE_DAD
+	additem ITEM_ABILITY_CAPSULE
+	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED
+	goto_if_ge CompleteArea_Adamant_Tower_10
 	goto CompleteArea_Adamant_Tower_4
 
 CompleteArea_Adamant_Tower_8:
-	setflag FLAG_AT_ITEM2
-	additem ITEM_HYPER_POTION
+	setflag FLAG_AT_ITEM1
+	additem ITEM_NUGGET
 	goto CompleteArea_Adamant_Tower_7
 
 CompleteArea_Adamant_Tower_10:
+	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED
+	goto CompleteArea_Adamant_Tower_4
+
+CompleteArea_Adamant_Tower_13:
+	setflag FLAG_AT_ITEM2
+	additem ITEM_HYPER_POTION
+	goto CompleteArea_Adamant_Tower_12
+
+CompleteArea_Adamant_Tower_15:
 	setflag FLAG_AT_ITEM3
 	additem ITEM_PP_UP
 	goto CompleteArea_Adamant_Tower_1
@@ -5826,8 +5877,8 @@ CompleteArea_Route_10_48:
 	compare VAR_SERPENTCAVE_STORY, STORY_SERPENTCAVE_OBTAINED_MEGA_STONE
 	goto_if_lt CompleteArea_Route_10_54
 CompleteArea_Route_10_53:
-	defeattrainer TRAINER_CASUAL_IRIS
-	additem ITEM_GARCHOMPITE
+	checktrainerflag TRAINER_CASUAL_IRIS
+	goto_if 0, CompleteArea_Route_10_56
 	goto CompleteArea_Route_10_10
 
 CompleteArea_Route_10_13:
@@ -5904,6 +5955,11 @@ CompleteArea_Route_10_51:
 CompleteArea_Route_10_54:
 	setvar VAR_SERPENTCAVE_STORY, STORY_SERPENTCAVE_OBTAINED_MEGA_STONE
 	goto CompleteArea_Route_10_53
+
+CompleteArea_Route_10_56:
+	defeattrainer TRAINER_CASUAL_IRIS
+	additem ITEM_GARCHOMPITE
+	goto CompleteArea_Route_10_10
 
 
 CompleteArea_Windplume_Mountain::
@@ -7153,6 +7209,34 @@ LootSail2_2:
 	goto LootSail2_1
 
 
+SecretShopScript::
+	message SecretShopScript_Text_0
+	waitmessage
+	setflag FLAG_FREE_MART
+	pokemart SecretShopScript_Mart
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	clearflag FLAG_FREE_MART
+	release
+	end
+
+
+	.align 2
+SecretShopScript_Mart:
+	.2byte ITEM_RARE_CANDY
+	.2byte ITEM_EXP_CANDY_XL
+	.2byte ITEM_MASTER_BALL
+	.2byte ITEM_ABILITY_CAPSULE
+	.2byte ITEM_ABILITY_PATCH
+	.2byte ITEM_PP_MAX
+	.2byte ITEM_FRESH_START_MOCHI
+	.2byte ITEM_HP_UP
+	.2byte ITEM_PROTEIN
+	.2byte ITEM_IRON
+	.2byte ITEM_CALCIUM
+	.2byte ITEM_ZINC
+	.2byte ITEM_CARBOS
+	.2byte ITEM_NONE
+
 UpdateGuy_Text_0:
 	.string "Update Game$"
 
@@ -7169,9 +7253,12 @@ UpdateGuy_Text_4:
 	.string "Obtain Mega Mon$"
 
 UpdateGuy_Text_5:
-	.string "Nevermind$"
+	.string "Secret Shop$"
 
 UpdateGuy_Text_6:
+	.string "Nevermind$"
+
+UpdateGuy_Text_7:
 	.string "Goodbye.$"
 
 TestMegaMon_Text_0:
@@ -7265,70 +7352,72 @@ SkipContent_Text_22:
 	.string "Route 12$"
 
 SkipContent_Text_23:
-	.string "Sandstone City"
-	.string "Route 13$"
+	.string "Sandstone City$"
 
 SkipContent_Text_24:
-	.string "Adamant Tower$"
+	.string "Route 13$"
 
 SkipContent_Text_25:
-	.string "Route 14$"
+	.string "Adamant Tower$"
 
 SkipContent_Text_26:
-	.string "Route 15$"
+	.string "Route 14$"
 
 SkipContent_Text_27:
-	.string "Fishing Village$"
+	.string "Route 15$"
 
 SkipContent_Text_28:
-	.string "Route 23$"
+	.string "Fishing Village$"
 
 SkipContent_Text_29:
-	.string "Drisledge Town$"
+	.string "Route 23$"
 
 SkipContent_Text_30:
-	.string "Amberock Town$"
+	.string "Drisledge Town$"
 
 SkipContent_Text_31:
-	.string "Route 3$"
+	.string "Amberock Town$"
 
 SkipContent_Text_32:
-	.string "Route 9$"
+	.string "Route 3$"
 
 SkipContent_Text_33:
-	.string "Route 10$"
+	.string "Route 9$"
 
 SkipContent_Text_34:
-	.string "Windplume Mountain$"
+	.string "Route 10$"
 
 SkipContent_Text_35:
-	.string "Route 16$"
+	.string "Windplume Mountain$"
 
 SkipContent_Text_36:
-	.string "Basalek Town$"
+	.string "Route 16$"
 
 SkipContent_Text_37:
-	.string "Route 17$"
+	.string "Basalek Town$"
 
 SkipContent_Text_38:
-	.string "Route 18$"
+	.string "Route 17$"
 
 SkipContent_Text_39:
-	.string "Frosthearth City$"
+	.string "Route 18$"
 
 SkipContent_Text_40:
-	.string "Rock Climb$"
+	.string "Frosthearth City$"
 
 SkipContent_Text_41:
-	.string "Desert Ruins$"
+	.string "Rock Climb(!)$"
 
 SkipContent_Text_42:
-	.string "Safari Zone$"
+	.string "Desert Ruins(!)$"
 
 SkipContent_Text_43:
-	.string "Misc. Surfing$"
+	.string "Safari Zone(!)$"
 
 SkipContent_Text_44:
+	.string "Misc. Surfing(!)$"
+
+SkipContent_Text_45:
 	.string "Cancel$"
 
 SkipContent_BufferChoices_Text_0:
@@ -7370,14 +7459,35 @@ SkipContent_BufferChoices_Text_11:
 SkipContent_PokemonRanch_Text_0:
 	.string "Pokemon Ranch$"
 
-SkipContent_SandstoneCity_Text_0:
-	.string "Sandstone City$"
+SkipContent_RockClimb_Text_0:
+	.string "Rock Climb$"
 
-SkipContent_Route13_Text_0:
-	.string "Route 13$"
+SkipContent_RockClimb_Text_1:
+	.string "Do note that this option only skips\nmiscellaneous Rock Climb related areas.$"
+
+SkipContent_DesertRuins_Text_0:
+	.string "Desert Ruins$"
+
+SkipContent_DesertRuins_Text_1:
+	.string "Do note that this option only skips\nDesert Ruins and only based on\lacquired HMs.$"
+
+SkipContent_SafariZone_Text_0:
+	.string "Safari Zone$"
+
+SkipContent_SafariZone_Text_1:
+	.string "Do note that this option only skips\nSafari Zone and only based on\lacquired HMs.$"
+
+SkipContent_MiscSurfing_Text_0:
+	.string "Misc. Surfing$"
+
+SkipContent_MiscSurfing_Text_1:
+	.string "Do note that this option only skips\nmiscellaneous Surf related areas.$"
 
 SkipStory_Text_0:
 	.string "Was {RIVAL} defeated in\nCoralgrove Harbor?$"
+
+SecretShopScript_Text_0:
+	.string "What're you buyin?$"
 
 MixupWithTMs::
 	.string "There has been a mix-up with some\n"

@@ -3599,81 +3599,79 @@ void ScrCmd_IsSelectedMonRequiredLevel(struct ScriptContext *ctx)
     }
 }
 
+#define XL_CANDY_EXP    30000
+#define L_CANDY_EXP     10000
+#define M_CANDY_EXP     3000
+#define S_CANDY_EXP     800
+#define XS_CANDY_EXP    100
+
 void ScrCmd_DefeatTrainer(struct ScriptContext *ctx)
 {
     u16 trainer = VarGet(ScriptReadHalfword(ctx));
-    u32 money = 0;
-    u8 bpCap, battlePoints;
-    u32 lastMonLevel = 0;
-    u8 trainerMoney = 0;
-    s32 exp = 0;
-    u8 i;
-    u16 xl = 0, l = 0, m = 0, s = 0, xs = 0;
 
     if (FlagGet(TRAINER_FLAGS_START + trainer))
         return;
+    SetTrainerFlag(trainer);
 
     const struct TrainerMon *party = GetTrainerPartyFromId(trainer);
-    lastMonLevel = party[GetTrainerPartySizeFromId(trainer) - 1].lvl;
-    trainerMoney = gTrainerClasses[GetTrainerClassFromId(trainer)].money ?: 5;
-
-    money = 4 * lastMonLevel * trainerMoney;
-
-
-    battlePoints = 0;
-    bpCap = 3;
-    if (GetTrainerBpCapFromId(trainer) && FlagGet(FLAG_BADGE06_GET))
-    {
-        bpCap = 5;
-    }
-
-    battlePoints = money / 500;
+    u8 partySize = GetTrainerPartySizeFromId(trainer);
+    u8 lastMonLevel = party[partySize - 1].lvl;
+    u8 trainerMoney = gTrainerClasses[GetTrainerClassFromId(trainer)].money ?: 5;
+    u32 money = 4 * lastMonLevel * trainerMoney;
+    u8 battlePoints = money / 500;
+    u8 bpCap = (GetTrainerBpCapFromId(trainer) && FlagGet(FLAG_BADGE06_GET)) ? 5 : 3;
+    
+    s32 exp = 0;
+    u8 i;
+    u16 xl = 0, l = 0, m = 0, s = 0, xs = 0;
 
     if (battlePoints > bpCap)
         battlePoints = bpCap;
     
     AddMoney(&gSaveBlock1Ptr->money, money);
     AddBattlePoints(battlePoints);
-    SetTrainerFlag(trainer);
 
-    for (i = 0; i < GetTrainerPartySizeFromId(trainer); i++)
+    for (i = 0; i < partySize; i++)
     {
         exp += (gSpeciesInfo[party[i].species].expYield * party[i].lvl * 150) / 700;
+        // Base trainer exp without scaling and without any exp boosts
     }
-    while (exp >= 30000)
+    while (exp >= XL_CANDY_EXP)
     {
         xl++;
-        exp -= 30000;
+        exp -= XL_CANDY_EXP;
     }
-    //
-    while (exp >= 10000)
+    while (exp >= L_CANDY_EXP)
     {
         l++;
-        exp -= 10000;
+        exp -= L_CANDY_EXP;
     }
-    while (exp >= 3000)
+    while (exp >= M_CANDY_EXP)
     {
         m++;
-        exp -= 3000;
+        exp -= M_CANDY_EXP;
     }
-    //
-    while (exp >= 800)
+    while (exp >= S_CANDY_EXP)
     {
         s++;
-        exp -= 800;
+        exp -= S_CANDY_EXP;
     }
-    //
-    while (exp >= 100)
+    while (exp >= XS_CANDY_EXP)
     {
         xs++;
-        exp -= 100;
+        exp -= XS_CANDY_EXP;
     }
 
-    AddBagItem(ITEM_EXP_CANDY_XL, xl);
-    AddBagItem(ITEM_EXP_CANDY_L, l);
-    AddBagItem(ITEM_EXP_CANDY_M, m);
-    AddBagItem(ITEM_EXP_CANDY_S, s);
-    AddBagItem(ITEM_EXP_CANDY_XS, xs);
+    if (xl)
+        AddBagItem(ITEM_EXP_CANDY_XL, xl);
+    if (l)
+        AddBagItem(ITEM_EXP_CANDY_L, l);
+    if (m)
+        AddBagItem(ITEM_EXP_CANDY_M, m);
+    if (s)
+        AddBagItem(ITEM_EXP_CANDY_S, s);
+    if (xs)
+        AddBagItem(ITEM_EXP_CANDY_XS, xs);
 }
 
 void Script_EndTrainerCanSeeIf(struct ScriptContext *ctx)
@@ -3871,7 +3869,6 @@ void ScrCmd_checkberrytree(struct ScriptContext *ctx)
     if (gSaveBlock1Ptr->berryTrees[id].stage == BERRY_STAGE_BERRIES)
     {
         AddBagItem(BerryTypeToItemId(berry), gSaveBlock1Ptr->berryTrees[id].berryYield);
-        DebugPrintf2("added item %d", BerryTypeToItemId(berry));
         RemoveBerryTree(id);
         gSpecialVar_Result = TRUE;
     }

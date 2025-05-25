@@ -31,10 +31,8 @@ void InitTimeBasedEvents(void)
 
 void DoTimeBasedEvents(void)
 {
-    DebugPrintf2("Do we get here?");
     if (FlagGet(FLAG_SYS_CLOCK_SET) && !InPokemonCenter())
     {
-        DebugPrintf2("Do we get here? the 2nd");
         RtcCalcLocalTime();
         UpdatePerDay(&gLocalTime);
         UpdatePerMinute(&gLocalTime);
@@ -117,15 +115,16 @@ static void UpdatePerMinute(struct Time *localTime)
     {
         if (minutes >= 0)
         {
-            UpdateVarsAndFlags();
+            if (VarGet(VAR_DEBUG) < 2)
+                UpdateVarsAndFlags();
             BerryTreeTimeUpdate(minutes);
             gSaveBlock2Ptr->lastBerryTreeUpdate = *localTime;
-            FormChangeTimeUpdate();
+            // FormChangeTimeUpdate();
         }
     }
 }
 
-static void FormChangeTimeUpdate()
+static void UNUSED FormChangeTimeUpdate()
 {
     s32 i;
     for (i = 0; i < PARTY_SIZE; i++)
