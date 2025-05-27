@@ -1817,11 +1817,13 @@ static void DebugAction_Util_Fly(u8 taskId)
     FlagSet(FLAG_VISITED_AMBEROCK);
     FlagSet(FLAG_VISITED_BASALEK);
     FlagSet(FLAG_VISITED_FROSTFIRE);
-    FlagSet(FLAG_VISITED_CRYSTALPINE);
-    FlagSet(FLAG_VISITED_EVERFROST);
-    FlagSet(FLAG_VISITED_ICEPERCH);
-    FlagSet(FLAG_VISITED_SNOWCREST);
-    FlagSet(FLAG_VISITED_GALEWIND);
+    if(FlagGet(FLAG_BETA_BLOCK)){
+        FlagSet(FLAG_VISITED_CRYSTALPINE);
+        FlagSet(FLAG_VISITED_EVERFROST);
+        FlagSet(FLAG_VISITED_ICEPERCH);
+        FlagSet(FLAG_VISITED_SNOWCREST);
+        FlagSet(FLAG_VISITED_GALEWIND);
+    }
     Debug_DestroyMenu_Full(taskId);
     SetMainCallback2(CB2_OpenFlyMap);
 }
