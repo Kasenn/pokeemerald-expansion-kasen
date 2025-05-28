@@ -4,6 +4,9 @@
 // gTileset_Amberock
 #define METATILE_Amberock_NormalDoor  0x349
 
+// gTileset_Autumn
+#define METATILE_Autumn_BP_Shop  0x0F8
+
 // gTileset_Basaluff
 #define METATILE_Basaluff_BasaluffDoor  0x242
 
@@ -151,6 +154,9 @@
 #define METATILE_Contest_FloorShadow         0x261
 #define METATILE_Contest_WallShadow          0x221
 
+// gTileset_Coralgrove
+#define METATILE_Coralgrove_BP_Shop  0x0F8
+
 // gTileset_Crystalpine
 #define METATILE_Crystalpine_CrystalpineDoor  0x237
 
@@ -234,6 +240,7 @@
 #define METATILE_Frostfire_PWT_Door         0x3FA
 
 // gTileset_General
+#define METATILE_General_BP_Shop               0x0F8
 #define METATILE_General_BlueCaveIndent        0x1B0
 #define METATILE_General_BlueCaveOpen          0x1B1
 #define METATILE_General_CalmWater             0x170
@@ -276,6 +283,9 @@
 #define METATILE_General_TallGrass_TreeUp      0x025
 #define METATILE_General_YellowCaveIndent      0x1A8
 #define METATILE_General_YellowCaveOpen        0x1A9
+
+// gTileset_General2
+#define METATILE_General2_BP_Shop  0x0F8
 
 // gTileset_GenericBuilding
 #define METATILE_GenericBuilding_TableEdge               0x2F1
@@ -425,7 +435,7 @@
 #define METATILE_Pacifidlog_SubmergedLogs_VerticalBottom       0x262
 #define METATILE_Pacifidlog_SubmergedLogs_VerticalTop          0x25A
 
-// gTileset_Pearlwood
+// gTileset_Pearlwood_Secondary
 #define METATILE_Pearlwood_Secondary_Pearlwood_TallGrass           0x295
 #define METATILE_Pearlwood_Secondary_Pearlwood_TallGrassTreeLeft   0x296
 #define METATILE_Pearlwood_Secondary_Pearlwood_TallGrassTreeRight  0x297

@@ -848,17 +848,6 @@ const struct Tileset gTileset_gTileset_Birchseed =
     .callback = NULL,
 };
 
-const struct Tileset gTileset_CoralGrove =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_CoralGrove,
-    .palettes = gTilesetPalettes_CoralGrove,
-    .metatiles = gMetatiles_CoralGrove,
-    .metatileAttributes = gMetatileAttributes_CoralGrove,
-    .callback = InitTilesetAnim_Mauville,
-};
-
 const struct Tileset gTileset_Coralgrove =
 {
     .isCompressed = TRUE,
@@ -867,28 +856,6 @@ const struct Tileset gTileset_Coralgrove =
     .palettes = gTilesetPalettes_Coralgrove,
     .metatiles = gMetatiles_Coralgrove,
     .metatileAttributes = gMetatileAttributes_Coralgrove,
-    .callback = InitTilesetAnim_General,
-};
-
-const struct Tileset gTileset_Start =
-{
-    .isCompressed = TRUE,
-    .isSecondary = FALSE,
-    .tiles = gTilesetTiles_Start,
-    .palettes = gTilesetPalettes_Start,
-    .metatiles = gMetatiles_Start,
-    .metatileAttributes = gMetatileAttributes_Start,
-    .callback = NULL,
-};
-
-const struct Tileset gTileset_Pearlwood =
-{
-    .isCompressed = TRUE,
-    .isSecondary = FALSE,
-    .tiles = gTilesetTiles_Pearlwood,
-    .palettes = gTilesetPalettes_Pearlwood,
-    .metatiles = gMetatiles_Pearlwood,
-    .metatileAttributes = gMetatileAttributes_Pearlwood,
     .callback = InitTilesetAnim_General,
 };
 
@@ -933,17 +900,6 @@ const struct Tileset gTileset_DarkForestSec =
     .palettes = gTilesetPalettes_DarkForestSec,
     .metatiles = gMetatiles_DarkForestSec,
     .metatileAttributes = gMetatileAttributes_DarkForestSec,
-    .callback = InitTilesetAnim_General,
-};
-
-const struct Tileset gTileset_Pearlwood_PRIMROSEFLOWERS =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_Pearlwood_PRIMROSEFLOWERS,
-    .palettes = gTilesetPalettes_Pearlwood_PRIMROSEFLOWERS,
-    .metatiles = gMetatiles_Pearlwood_PRIMROSEFLOWERS,
-    .metatileAttributes = gMetatileAttributes_Pearlwood_PRIMROSEFLOWERS,
     .callback = InitTilesetAnim_General,
 };
 
@@ -1342,5 +1298,49 @@ const struct Tileset gTileset_Powerplant =
     .palettes = gTilesetPalettes_Powerplant,
     .metatiles = gMetatiles_Powerplant,
     .metatileAttributes = gMetatileAttributes_Powerplant,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Autumn =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_Autumn,
+    .palettes = gTilesetPalettes_Autumn,
+    .metatiles = gMetatiles_Autumn,
+    .metatileAttributes = gMetatileAttributes_Autumn,
+    .callback = InitTilesetAnim_General,
+};
+
+const struct Tileset gTileset_Primrose_Secondary =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Primrose_Secondary,
+    .palettes = gTilesetPalettes_Primrose_Secondary,
+    .metatiles = gMetatiles_Primrose_Secondary,
+    .metatileAttributes = gMetatileAttributes_Primrose_Secondary,
+    .callback = InitTilesetAnim_General,
+};
+
+const struct Tileset gTileset_Coralgrove_Secondary =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Coralgrove_Secondary,
+    .palettes = gTilesetPalettes_Coralgrove_Secondary,
+    .metatiles = gMetatiles_Coralgrove_Secondary,
+    .metatileAttributes = gMetatileAttributes_Coralgrove_Secondary,
+    .callback = InitTilesetAnim_Mauville,
+};
+
+const struct Tileset gTileset_Coralgrove_Harbor =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Coralgrove_Harbor,
+    .palettes = gTilesetPalettes_Coralgrove_Harbor,
+    .metatiles = gMetatiles_Coralgrove_Harbor,
+    .metatileAttributes = gMetatileAttributes_Coralgrove_Harbor,
     .callback = NULL,
 };

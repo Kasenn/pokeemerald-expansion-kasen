@@ -4426,7 +4426,7 @@
       "name": "NewRoute101_Layout",
       "width": 49,
       "height": 40,
-      "primary_tileset": "gTileset_Pearlwood",
+      "primary_tileset": "gTileset_Autumn",
       "secondary_tileset": "gTileset_Pearlwood_Secondary",
       "border_filepath": "data/layouts/NewRoute101/border.bin",
       "blockdata_filepath": "data/layouts/NewRoute101/map.bin"
@@ -4456,7 +4456,7 @@
       "name": "PearlwoodPoint_Layout",
       "width": 36,
       "height": 37,
-      "primary_tileset": "gTileset_Pearlwood",
+      "primary_tileset": "gTileset_Autumn",
       "secondary_tileset": "gTileset_Pearlwood_Secondary",
       "border_filepath": "data/layouts/PearlwoodPoint/border.bin",
       "blockdata_filepath": "data/layouts/PearlwoodPoint/map.bin"
@@ -4466,8 +4466,8 @@
       "name": "PrimroseTown_Layout",
       "width": 37,
       "height": 30,
-      "primary_tileset": "gTileset_Pearlwood",
-      "secondary_tileset": "gTileset_Pearlwood_PRIMROSEFLOWERS",
+      "primary_tileset": "gTileset_Autumn",
+      "secondary_tileset": "gTileset_Primrose_Secondary",
       "border_filepath": "data/layouts/PrimroseTown/border.bin",
       "blockdata_filepath": "data/layouts/PrimroseTown/map.bin"
     },
@@ -4476,7 +4476,7 @@
       "name": "Route2_Layout",
       "width": 95,
       "height": 37,
-      "primary_tileset": "gTileset_Pearlwood",
+      "primary_tileset": "gTileset_Autumn",
       "secondary_tileset": "gTileset_Pearlwood_Secondary",
       "border_filepath": "data/layouts/Route2/border.bin",
       "blockdata_filepath": "data/layouts/Route2/map.bin"
@@ -4507,7 +4507,7 @@
       "width": 58,
       "height": 66,
       "primary_tileset": "gTileset_Coralgrove",
-      "secondary_tileset": "gTileset_CoralGrove",
+      "secondary_tileset": "gTileset_Coralgrove_Secondary",
       "border_filepath": "data/layouts/CoralgroveCity/border.bin",
       "blockdata_filepath": "data/layouts/CoralgroveCity/map.bin"
     },
@@ -4537,7 +4537,7 @@
       "width": 58,
       "height": 62,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Slateport",
+      "secondary_tileset": "gTileset_Coralgrove_Harbor",
       "border_filepath": "data/layouts/CoralgroveHarbor/border.bin",
       "blockdata_filepath": "data/layouts/CoralgroveHarbor/map.bin"
     },
@@ -4636,7 +4636,7 @@
       "name": "PrimroseMeadow_Layout",
       "width": 37,
       "height": 36,
-      "primary_tileset": "gTileset_Pearlwood",
+      "primary_tileset": "gTileset_Autumn",
       "secondary_tileset": "gTileset_Pearlwood_Secondary",
       "border_filepath": "data/layouts/PrimroseMeadow/border.bin",
       "blockdata_filepath": "data/layouts/PrimroseMeadow/map.bin"
@@ -5486,7 +5486,7 @@
       "name": "Kaolisle_Mines_Layout",
       "width": 45,
       "height": 37,
-      "primary_tileset": "gTileset_Start",
+      "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Kaolisle_Mines/border.bin",
       "blockdata_filepath": "data/layouts/Kaolisle_Mines/map.bin"
@@ -7166,8 +7166,8 @@
       "name": "PrimroseTown_Copy_Layout",
       "width": 37,
       "height": 30,
-      "primary_tileset": "gTileset_Pearlwood",
-      "secondary_tileset": "gTileset_Pearlwood_PRIMROSEFLOWERS",
+      "primary_tileset": "gTileset_Autumn",
+      "secondary_tileset": "gTileset_Primrose_Secondary",
       "border_filepath": "data/layouts/PrimroseTown_Copy/border.bin",
       "blockdata_filepath": "data/layouts/PrimroseTown_Copy/map.bin"
     },
