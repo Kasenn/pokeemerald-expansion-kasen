@@ -215,7 +215,7 @@ static const u8 sDoorAnimPalettes_SootopolisPeakedRoof[] = {ALL_SAME(6)};
 static const u8 sDoorAnimPalettes_Sootopolis[] = {ALL_SAME(6)};
 static const u8 sDoorAnimPalettes_Dewford[] = {TOP2_DIFF(0, 5)};
 static const u8 sDoorAnimPalettes_Basaluff[] = {ALL_SAME(7)};
-static const u8 sDoorAnimPalettes_Slateport[] = {TOP2_DIFF(6, 1)};
+static const u8 sDoorAnimPalettes_Slateport[] = {TOP2_DIFF(7, 1)};
 static const u8 sDoorAnimPalettes_Mauville[] = {ALL_SAME(7)};
 static const u8 sDoorAnimPalettes_Verdanturf[] = {TOP2_DIFF(6, 5)};
 static const u8 sDoorAnimPalettes_Drisledge[] = {TOP2_DIFF(8, 5)};
@@ -271,6 +271,11 @@ static const struct DoorGraphics sPearlwoodDoors[] =
     {DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Oldale, sDoorAnimPalettes_Oldale},
 };
 
+static const struct DoorGraphics sCoralgroveDoors[] = {
+    {DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Verdanturf, sDoorAnimPalettes_Verdanturf},
+    {DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Slateport, sDoorAnimPalettes_Slateport}
+};
+
 static const struct DoorGraphics sAldeleafDoors[] =
 {
     {DOOR_SOUND_SLIDING,  1, sDoorAnimTiles_AldeleafSlideDoor, sDoorAnimPalettes_AldeleafDoor},
@@ -320,8 +325,6 @@ static const struct DoorGraphics sHotelDoors[] =
     {DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_AbandonedShip, sDoorAnimPalettes_AbandonedShip}
 };
 
-static const struct DoorGraphics sCoralgroveDoors[] = {{DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Verdanturf, sDoorAnimPalettes_Verdanturf},};
-static const struct DoorGraphics sSlateportDoors[] = {{DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Slateport, sDoorAnimPalettes_Slateport}};
 static const struct DoorGraphics sLilycoveDoors[] = {{DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Lilycove, sDoorAnimPalettes_Lilycove}};
 static const struct DoorGraphics sRanchDoors[] = {{DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_LilycoveWooden, sDoorAnimPalettes_LilycoveWooden}};
 static const struct DoorGraphics sSkylochDoors[] = {{DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Verdanturf, sDoorAnimPalettes_Verdanturf}};
@@ -337,7 +340,6 @@ static const struct NewDoorGraphics sDoorAnimGraphicsTable[] =
 {
     {&gTileset_Pearlwood_Secondary,     DOORS(sPearlwoodDoors)},
     {&gTileset_Coralgrove_Secondary,    DOORS(sCoralgroveDoors)},
-    {&gTileset_Slateport,               DOORS(sSlateportDoors)},
     {&gTileset_Lilycove,                DOORS(sLilycoveDoors)},
     {&gTileset_Ranch,                   DOORS(sRanchDoors)},
     {&gTileset_WipCity1,                DOORS(sAldeleafDoors)},

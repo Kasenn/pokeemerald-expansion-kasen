@@ -2511,22 +2511,3 @@ const u16 gTilesetPalettes_Coralgrove_Secondary[][16] =
 };
 
 const u32 gTilesetTiles_Coralgrove_Secondary[] = INCBIN_U32("data/tilesets/secondary/coralgrove_secondary/tiles.4bpp.lz");
-
-const u16 gTilesetPalettes_Coralgrove_Harbor[][16] =
-{
-    INCBIN_U16("data/tilesets/secondary/coralgrove_harbor/palettes/00.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/coralgrove_harbor/palettes/01.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/coralgrove_harbor/palettes/02.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/coralgrove_harbor/palettes/03.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/coralgrove_harbor/palettes/04.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/coralgrove_harbor/palettes/05.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/coralgrove_harbor/palettes/06.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/coralgrove_harbor/palettes/07.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/coralgrove_harbor/palettes/08.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/coralgrove_harbor/palettes/09.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/coralgrove_harbor/palettes/10.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/coralgrove_harbor/palettes/11.gbapal"),
-    INCBIN_U16("data/tilesets/secondary/coralgrove_harbor/palettes/12.gbapal"),
-};
-
-const u32 gTilesetTiles_Coralgrove_Harbor[] = INCBIN_U32("data/tilesets/secondary/coralgrove_harbor/tiles.4bpp.lz");

@@ -345,6 +345,3 @@ const u16 gMetatileAttributes_Primrose_Secondary[] = INCBIN_U16("data/tilesets/s
 
 const u16 gMetatiles_Coralgrove_Secondary[] = INCBIN_U16("data/tilesets/secondary/coralgrove_secondary/metatiles.bin");
 const u16 gMetatileAttributes_Coralgrove_Secondary[] = INCBIN_U16("data/tilesets/secondary/coralgrove_secondary/metatile_attributes.bin");
-
-const u16 gMetatiles_Coralgrove_Harbor[] = INCBIN_U16("data/tilesets/secondary/coralgrove_harbor/metatiles.bin");
-const u16 gMetatileAttributes_Coralgrove_Harbor[] = INCBIN_U16("data/tilesets/secondary/coralgrove_harbor/metatile_attributes.bin");

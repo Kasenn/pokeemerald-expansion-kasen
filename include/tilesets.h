@@ -16,7 +16,6 @@ TILESET(gTileset_BrendansMaysHouse);
 
 TILESET(gTileset_Pearlwood_Secondary);
 TILESET(gTileset_Coralgrove_Secondary);
-TILESET(gTileset_Slateport);
 TILESET(gTileset_Lilycove);
 TILESET(gTileset_Ranch);
 TILESET(gTileset_WipCity1);
