@@ -14,26 +14,22 @@ TILESET(gTileset_Building2);
 TILESET(gTileset_PokemonWorldTournament);
 TILESET(gTileset_BrendansMaysHouse);
 
-TILESET(gTileset_Pearlwood_Secondary);
+TILESET(gTileset_Pearlwood);
 TILESET(gTileset_Coralgrove_Secondary);
-TILESET(gTileset_Lilycove);
-TILESET(gTileset_Ranch);
-TILESET(gTileset_WipCity1);
-TILESET(gTileset_Mauville);
-TILESET(gTileset_Fallarbor);
+TILESET(gTileset_Marigorge);
 TILESET(gTileset_SafariSec);
 TILESET(gTileset_Shoreslate);
-TILESET(gTileset_Mossdeep);
-TILESET(gTileset_Dewford);
-TILESET(gTileset_CyclingRoad);
-TILESET(gTileset_NewSandstoneCity);
+TILESET(gTileset_Kaolisle);
+TILESET(gTileset_Rockliffe);
+TILESET(gTileset_MiscRoutes);
+TILESET(gTileset_Sandstone);
 TILESET(gTileset_Drisledge);
 TILESET(gTileset_Amberock);
 TILESET(gTileset_Basaluff);
-TILESET(gTileset_Frostfire);
+TILESET(gTileset_Frosthearth);
 TILESET(gTileset_Shop);
-TILESET(gTileset_gTileset_Hotel);
-TILESET(gTileset_InsideShip);
+TILESET(gTileset_Hotel);
+TILESET(gTileset_Aldeleaf);
 
 #undef TILESET
 

@@ -27,6 +27,11 @@
       "map": "MAP_SAFARI_ZONE_NORTHEAST",
       "offset": -43,
       "direction": "right"
+    },
+    {
+      "map": "MAP_MARIGORGE_TOWN",
+      "offset": -51,
+      "direction": "down"
     }
   ],
   "object_events": [

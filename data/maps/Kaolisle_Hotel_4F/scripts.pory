@@ -5,7 +5,7 @@ mapscripts Kaolisle_Hotel_4F_MapScripts{
 
 script LockDoorAfterGym {
     if(flag(FLAG_BADGE03_GET)){
-        setmetatile(4, 5, 0x0B3, TRUE)
+        setmetatile(4, 5, 0x213, TRUE)
     }
     end
 }

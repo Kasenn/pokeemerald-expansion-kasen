@@ -163,11 +163,6 @@
 // gTileset_DesertCliff
 #define METATILE_DesertCliff_DesertCliffs_TallGrass  0x3B5
 
-// gTileset_Dewford
-#define METATILE_Dewford_BattleTent_Door   0x3D4
-#define METATILE_Dewford_Door              0x225
-#define METATILE_Dewford_Door_BattleTower  0x25D
-
 // gTileset_Drisledge
 #define METATILE_Drisledge_DrisledgeDoor                      0x305
 #define METATILE_Drisledge_METATILE_General_TallGrass_TreeUp  0x204
@@ -201,23 +196,6 @@
 #define METATILE_Facility_NewMauvilleDoor_Open_Tile4    0x2CC
 #define METATILE_Facility_NewMauvilleDoor_Open_Tile5    0x2CD
 
-// gTileset_Fallarbor
-#define METATILE_Fallarbor_AshField                  0x218
-#define METATILE_Fallarbor_AshGrass                  0x20A
-#define METATILE_Fallarbor_BrownCaveEntrance_Bottom  0x261
-#define METATILE_Fallarbor_BrownCaveEntrance_Top     0x259
-#define METATILE_Fallarbor_BrownCaveIndent           0x208
-#define METATILE_Fallarbor_BrownCaveOpen             0x210
-#define METATILE_Fallarbor_BrownRockWall             0x265
-#define METATILE_Fallarbor_Door_BattleTent           0x36C
-#define METATILE_Fallarbor_Door_DarkRoof             0x2F7
-#define METATILE_Fallarbor_Door_LightRoof            0x2A5
-#define METATILE_Fallarbor_Door_SafariZone           0x38A
-#define METATILE_Fallarbor_NormalGrass               0x212
-#define METATILE_Fallarbor_RedCaveEntrance_Bottom    0x34F
-#define METATILE_Fallarbor_RedCaveEntrance_Top       0x347
-#define METATILE_Fallarbor_RedRockWall               0x269
-
 // gTileset_Fortree
 #define METATILE_Fortree_BridgeOverGrass_Lowered           0x24F
 #define METATILE_Fortree_BridgeOverGrass_Raised            0x24E
@@ -234,10 +212,6 @@
 #define METATILE_Fortree_SecretBase_ShrubOpen              0x278
 #define METATILE_Fortree_WoodBridge1_Bottom                0x29F
 #define METATILE_Fortree_WoodBridge1_Top                   0x297
-
-// gTileset_Frostfire
-#define METATILE_Frostfire_FrosthearthDoor  0x23E
-#define METATILE_Frostfire_PWT_Door         0x3FA
 
 // gTileset_General
 #define METATILE_General_BP_Shop               0x0F8
@@ -284,13 +258,17 @@
 #define METATILE_General_YellowCaveIndent      0x1A8
 #define METATILE_General_YellowCaveOpen        0x1A9
 
-// gTileset_General2
+// gTileset_Winter
 #define METATILE_General2_BP_Shop  0x0F8
 
 // gTileset_GenericBuilding
 #define METATILE_GenericBuilding_TableEdge               0x2F1
 #define METATILE_GenericBuilding_TrickHouse_Door_Closed  0x21B
 #define METATILE_GenericBuilding_TrickHouse_Stairs_Down  0x219
+
+// gTileset_Hotel
+#define METATILE_Hotel_Door_Elevator   0x285
+#define METATILE_Hotel_Door_Elevator2  0x303
 
 // gTileset_InsideOfTruck
 #define METATILE_InsideOfTruck_DoorClosedFloor_Bottom  0x21D
@@ -401,13 +379,6 @@
 #define METATILE_MeteorFalls_CaveEntrance_Right   0x24F
 #define METATILE_MeteorFalls_CaveEntrance_Top     0x246
 
-// gTileset_Mossdeep
-#define METATILE_Mossdeep_Door              0x2A1
-#define METATILE_Mossdeep_Door_PokeShop     0x302
-#define METATILE_Mossdeep_Door_SpaceCenter  0x2ED
-#define METATILE_Mossdeep_Kaol_SlidingDoor  0x3ED
-#define METATILE_Mossdeep_Kaolisle_Door     0x2FE
-
 // gTileset_MossdeepGameCorner
 #define METATILE_MossdeepGameCorner_CounterClosed_Bottom  0x232
 #define METATILE_MossdeepGameCorner_CounterClosed_Top     0x22A
@@ -435,7 +406,7 @@
 #define METATILE_Pacifidlog_SubmergedLogs_VerticalBottom       0x262
 #define METATILE_Pacifidlog_SubmergedLogs_VerticalTop          0x25A
 
-// gTileset_Pearlwood_Secondary
+// gTileset_Pearlwood
 #define METATILE_Pearlwood_Secondary_Pearlwood_TallGrass           0x295
 #define METATILE_Pearlwood_Secondary_Pearlwood_TallGrassTreeLeft   0x296
 #define METATILE_Pearlwood_Secondary_Pearlwood_TallGrassTreeRight  0x297
@@ -482,11 +453,6 @@
 #define METATILE_PokemonCenter_Floor_Plain_Alt           0x2E4
 #define METATILE_PokemonCenter_Floor_ShadowTop           0x21E
 #define METATILE_PokemonCenter_Floor_ShadowTop_Alt       0x2DC
-
-// gTileset_SandstoneCity
-#define METATILE_SandstoneCity_BPShop         0x241
-#define METATILE_SandstoneCity_SSSmall        0x380
-#define METATILE_SandstoneCity_SandstoneDoor  0x381
 
 // gTileset_SecretBase
 #define METATILE_SecretBase_AttractMat_BottomLeft       0x313
@@ -831,23 +797,45 @@
 #define METATILE_Underwater_FloorShadow  0x228
 #define METATILE_Underwater_RockWall     0x21E
 
-// gTileset_WipCity1
-#define METATILE_WipCity1_AldeleafSlidingDoor  0x30D
-#define METATILE_WipCity1_Door_PokeShop        0x2D9
-
-// gTileset_gTileset_Hotel
-#define METATILE_Hotel_Door_Elevator   0x285
-#define METATILE_Hotel_Door_Elevator2  0x303
-
 // Other
-#define METATILE_RSMossdeepGym_RedArrow_Down   0x205
-#define METATILE_RSMossdeepGym_RedArrow_Left   0x20C
-#define METATILE_RSMossdeepGym_RedArrow_Right  0x204
-#define METATILE_RSMossdeepGym_RedArrow_Up     0x20D
-#define METATILE_RSMossdeepGym_Switch_Down     0x239
-#define METATILE_RSMossdeepGym_Switch_Up       0x238
-#define METATILE_Rustboro_Door_Gray            0x21F
-#define METATILE_Rustboro_Door_PokeShop        0x379
-#define METATILE_Rustboro_Door_Tan             0x22F
+#define METATILE_Dewford_BattleTent_Door             0x3D4
+#define METATILE_Dewford_Door                        0x225
+#define METATILE_Dewford_Door_BattleTower            0x25D
+#define METATILE_Fallarbor_AshField                  0x218
+#define METATILE_Fallarbor_AshGrass                  0x20A
+#define METATILE_Fallarbor_BrownCaveEntrance_Bottom  0x261
+#define METATILE_Fallarbor_BrownCaveEntrance_Top     0x259
+#define METATILE_Fallarbor_BrownCaveIndent           0x208
+#define METATILE_Fallarbor_BrownCaveOpen             0x210
+#define METATILE_Fallarbor_BrownRockWall             0x265
+#define METATILE_Fallarbor_Door_BattleTent           0x36C
+#define METATILE_Fallarbor_Door_DarkRoof             0x2F7
+#define METATILE_Fallarbor_Door_LightRoof            0x2A5
+#define METATILE_Fallarbor_Door_SafariZone           0x38A
+#define METATILE_Fallarbor_NormalGrass               0x212
+#define METATILE_Fallarbor_RedCaveEntrance_Bottom    0x34F
+#define METATILE_Fallarbor_RedCaveEntrance_Top       0x347
+#define METATILE_Fallarbor_RedRockWall               0x269
+#define METATILE_Frostfire_FrosthearthDoor           0x23E
+#define METATILE_Frostfire_PWT_Door                  0x3FA
+#define METATILE_Mossdeep_Door                       0x2A1
+#define METATILE_Mossdeep_Door_PokeShop              0x302
+#define METATILE_Mossdeep_Door_SpaceCenter           0x2ED
+#define METATILE_Mossdeep_Kaol_SlidingDoor           0x3ED
+#define METATILE_Mossdeep_Kaolisle_Door              0x2FE
+#define METATILE_RSMossdeepGym_RedArrow_Down         0x205
+#define METATILE_RSMossdeepGym_RedArrow_Left         0x20C
+#define METATILE_RSMossdeepGym_RedArrow_Right        0x204
+#define METATILE_RSMossdeepGym_RedArrow_Up           0x20D
+#define METATILE_RSMossdeepGym_Switch_Down           0x239
+#define METATILE_RSMossdeepGym_Switch_Up             0x238
+#define METATILE_Rustboro_Door_Gray                  0x21F
+#define METATILE_Rustboro_Door_PokeShop              0x379
+#define METATILE_Rustboro_Door_Tan                   0x22F
+#define METATILE_SandstoneCity_BPShop                0x241
+#define METATILE_SandstoneCity_SSSmall               0x380
+#define METATILE_SandstoneCity_SandstoneDoor         0x381
+#define METATILE_WipCity1_AldeleafSlidingDoor        0x30D
+#define METATILE_WipCity1_Door_PokeShop              0x2D9
 
 #endif // GUARD_METATILE_LABELS_H

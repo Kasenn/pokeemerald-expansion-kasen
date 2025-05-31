@@ -117,7 +117,7 @@
       "width": 20,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Dewford",
+      "secondary_tileset": "gTileset_Rockliffe",
       "border_filepath": "data/layouts/DewfordTown/border.bin",
       "blockdata_filepath": "data/layouts/DewfordTown/map.bin"
     },
@@ -137,7 +137,7 @@
       "width": 20,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fallarbor",
+      "secondary_tileset": "gTileset_Aldeleaf",
       "border_filepath": "data/layouts/FallarborTown/border.bin",
       "blockdata_filepath": "data/layouts/FallarborTown/map.bin"
     },
@@ -207,7 +207,7 @@
       "width": 40,
       "height": 80,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Dewford",
+      "secondary_tileset": "gTileset_Rockliffe",
       "border_filepath": "data/layouts/Route105/border.bin",
       "blockdata_filepath": "data/layouts/Route105/map.bin"
     },
@@ -217,7 +217,7 @@
       "width": 80,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Dewford",
+      "secondary_tileset": "gTileset_Rockliffe",
       "border_filepath": "data/layouts/Route106/border.bin",
       "blockdata_filepath": "data/layouts/Route106/map.bin"
     },
@@ -227,7 +227,7 @@
       "width": 60,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Dewford",
+      "secondary_tileset": "gTileset_Rockliffe",
       "border_filepath": "data/layouts/Route107/border.bin",
       "blockdata_filepath": "data/layouts/Route107/map.bin"
     },
@@ -287,7 +287,7 @@
       "width": 100,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fallarbor",
+      "secondary_tileset": "gTileset_Aldeleaf",
       "border_filepath": "data/layouts/Route113/border.bin",
       "blockdata_filepath": "data/layouts/Route113/map.bin"
     },
@@ -297,7 +297,7 @@
       "width": 40,
       "height": 80,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fallarbor",
+      "secondary_tileset": "gTileset_Aldeleaf",
       "border_filepath": "data/layouts/Route114/border.bin",
       "blockdata_filepath": "data/layouts/Route114/map.bin"
     },
@@ -307,7 +307,7 @@
       "width": 40,
       "height": 80,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fallarbor",
+      "secondary_tileset": "gTileset_Aldeleaf",
       "border_filepath": "data/layouts/Route115/border.bin",
       "blockdata_filepath": "data/layouts/Route115/map.bin"
     },
@@ -647,7 +647,7 @@
       "width": 18,
       "height": 28,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_DewfordGym",
+      "secondary_tileset": "gTileset_RockliffeGym",
       "border_filepath": "data/layouts/DewfordTown_Gym/border.bin",
       "blockdata_filepath": "data/layouts/DewfordTown_Gym/map.bin"
     },
@@ -1197,7 +1197,7 @@
       "width": 13,
       "height": 26,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fallarbor",
+      "secondary_tileset": "gTileset_Aldeleaf",
       "border_filepath": "data/layouts/Route114_FossilManiacsTunnel/border.bin",
       "blockdata_filepath": "data/layouts/Route114_FossilManiacsTunnel/map.bin"
     },
@@ -2407,7 +2407,7 @@
       "width": 40,
       "height": 40,
       "primary_tileset": "gTileset_SafariPrime",
-      "secondary_tileset": "gTileset_SafariSec",
+      "secondary_tileset": "gTileset_Marigorge",
       "border_filepath": "data/layouts/SafariZone_South/border.bin",
       "blockdata_filepath": "data/layouts/SafariZone_South/map.bin"
     },
@@ -4037,7 +4037,7 @@
       "width": 30,
       "height": 30,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Dewford",
+      "secondary_tileset": "gTileset_Rockliffe",
       "border_filepath": "data/layouts/BirthIsland_Exterior/border.bin",
       "blockdata_filepath": "data/layouts/BirthIsland_Exterior/map.bin"
     },
@@ -4207,7 +4207,7 @@
       "width": 21,
       "height": 24,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Dewford",
+      "secondary_tileset": "gTileset_Rockliffe",
       "border_filepath": "data/layouts/NavelRock_Exterior/border.bin",
       "blockdata_filepath": "data/layouts/NavelRock_Exterior/map.bin"
     },
@@ -4427,7 +4427,7 @@
       "width": 49,
       "height": 40,
       "primary_tileset": "gTileset_Autumn",
-      "secondary_tileset": "gTileset_Pearlwood_Secondary",
+      "secondary_tileset": "gTileset_Pearlwood",
       "border_filepath": "data/layouts/NewRoute101/border.bin",
       "blockdata_filepath": "data/layouts/NewRoute101/map.bin"
     },
@@ -4457,7 +4457,7 @@
       "width": 36,
       "height": 37,
       "primary_tileset": "gTileset_Autumn",
-      "secondary_tileset": "gTileset_Pearlwood_Secondary",
+      "secondary_tileset": "gTileset_Pearlwood",
       "border_filepath": "data/layouts/PearlwoodPoint/border.bin",
       "blockdata_filepath": "data/layouts/PearlwoodPoint/map.bin"
     },
@@ -4477,7 +4477,7 @@
       "width": 95,
       "height": 37,
       "primary_tileset": "gTileset_Autumn",
-      "secondary_tileset": "gTileset_Pearlwood_Secondary",
+      "secondary_tileset": "gTileset_Pearlwood",
       "border_filepath": "data/layouts/Route2/border.bin",
       "blockdata_filepath": "data/layouts/Route2/map.bin"
     },
@@ -4486,7 +4486,7 @@
       "name": "WindyWoods_Layout",
       "width": 78,
       "height": 58,
-      "primary_tileset": "gTileset_DarkForest",
+      "primary_tileset": "gTileset_Autumn",
       "secondary_tileset": "gTileset_DarkForestSec",
       "border_filepath": "data/layouts/WindyWoods/border.bin",
       "blockdata_filepath": "data/layouts/WindyWoods/map.bin"
@@ -4496,7 +4496,7 @@
       "name": "LostGlade_Layout",
       "width": 100,
       "height": 63,
-      "primary_tileset": "gTileset_DarkForest",
+      "primary_tileset": "gTileset_Autumn",
       "secondary_tileset": "gTileset_DarkForestSec",
       "border_filepath": "data/layouts/LostGlade/border.bin",
       "blockdata_filepath": "data/layouts/LostGlade/map.bin"
@@ -4506,7 +4506,7 @@
       "name": "CoralgroveCity_Layout",
       "width": 58,
       "height": 66,
-      "primary_tileset": "gTileset_Coralgrove",
+      "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Coralgrove_Secondary",
       "border_filepath": "data/layouts/CoralgroveCity/border.bin",
       "blockdata_filepath": "data/layouts/CoralgroveCity/map.bin"
@@ -4637,7 +4637,7 @@
       "width": 37,
       "height": 36,
       "primary_tileset": "gTileset_Autumn",
-      "secondary_tileset": "gTileset_Pearlwood_Secondary",
+      "secondary_tileset": "gTileset_Pearlwood",
       "border_filepath": "data/layouts/PrimroseMeadow/border.bin",
       "blockdata_filepath": "data/layouts/PrimroseMeadow/map.bin"
     },
@@ -4707,7 +4707,7 @@
       "width": 50,
       "height": 53,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lilycove",
+      "secondary_tileset": "gTileset_Aldeleaf",
       "border_filepath": "data/layouts/CoastTown/border.bin",
       "blockdata_filepath": "data/layouts/CoastTown/map.bin"
     },
@@ -4717,7 +4717,7 @@
       "width": 94,
       "height": 35,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lilycove",
+      "secondary_tileset": "gTileset_Aldeleaf",
       "border_filepath": "data/layouts/Route3/border.bin",
       "blockdata_filepath": "data/layouts/Route3/map.bin"
     },
@@ -4747,7 +4747,7 @@
       "width": 52,
       "height": 57,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Ranch",
+      "secondary_tileset": "gTileset_Aldeleaf",
       "border_filepath": "data/layouts/PokeRanch/border.bin",
       "blockdata_filepath": "data/layouts/PokeRanch/map.bin"
     },
@@ -4817,7 +4817,7 @@
       "width": 54,
       "height": 60,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_WipCity1",
+      "secondary_tileset": "gTileset_Aldeleaf",
       "border_filepath": "data/layouts/WipCity1/border.bin",
       "blockdata_filepath": "data/layouts/WipCity1/map.bin"
     },
@@ -4837,7 +4837,7 @@
       "width": 40,
       "height": 100,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_WipCity1",
+      "secondary_tileset": "gTileset_Aldeleaf",
       "border_filepath": "data/layouts/Route5/border.bin",
       "blockdata_filepath": "data/layouts/Route5/map.bin"
     },
@@ -4847,7 +4847,7 @@
       "width": 50,
       "height": 50,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mauville",
+      "secondary_tileset": "gTileset_Coralgrove_Secondary",
       "border_filepath": "data/layouts/Town_Wip2/border.bin",
       "blockdata_filepath": "data/layouts/Town_Wip2/map.bin"
     },
@@ -5307,7 +5307,7 @@
       "width": 80,
       "height": 60,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fallarbor",
+      "secondary_tileset": "gTileset_Marigorge",
       "border_filepath": "data/layouts/Route8/border.bin",
       "blockdata_filepath": "data/layouts/Route8/map.bin"
     },
@@ -5327,7 +5327,7 @@
       "width": 66,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fallarbor",
+      "secondary_tileset": "gTileset_Marigorge",
       "border_filepath": "data/layouts/MarigorgeTown/border.bin",
       "blockdata_filepath": "data/layouts/MarigorgeTown/map.bin"
     },
@@ -5427,7 +5427,7 @@
       "width": 87,
       "height": 85,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mossdeep",
+      "secondary_tileset": "gTileset_Kaolisle",
       "border_filepath": "data/layouts/KaolisleCity/border.bin",
       "blockdata_filepath": "data/layouts/KaolisleCity/map.bin"
     },
@@ -5557,7 +5557,7 @@
       "width": 47,
       "height": 24,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_gTileset_Hotel",
+      "secondary_tileset": "gTileset_Hotel",
       "border_filepath": "data/layouts/Kaolisle_Hotel_1F/border.bin",
       "blockdata_filepath": "data/layouts/Kaolisle_Hotel_1F/map.bin"
     },
@@ -5587,7 +5587,7 @@
       "width": 37,
       "height": 13,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_InsideShip",
+      "secondary_tileset": "gTileset_Hotel",
       "border_filepath": "data/layouts/Kaolisle_Hotel_3F/border.bin",
       "blockdata_filepath": "data/layouts/Kaolisle_Hotel_3F/map.bin"
     },
@@ -5597,7 +5597,7 @@
       "width": 37,
       "height": 13,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_InsideShip",
+      "secondary_tileset": "gTileset_Hotel",
       "border_filepath": "data/layouts/Kaolisle_Hotel_5F/border.bin",
       "blockdata_filepath": "data/layouts/Kaolisle_Hotel_5F/map.bin"
     },
@@ -5637,7 +5637,7 @@
       "width": 37,
       "height": 13,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_InsideShip",
+      "secondary_tileset": "gTileset_Hotel",
       "border_filepath": "data/layouts/Kaolisle_Hotel_2F/border.bin",
       "blockdata_filepath": "data/layouts/Kaolisle_Hotel_2F/map.bin"
     },
@@ -5647,7 +5647,7 @@
       "width": 37,
       "height": 13,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_InsideShip",
+      "secondary_tileset": "gTileset_Hotel",
       "border_filepath": "data/layouts/Kaolisle_Hotel_4F/border.bin",
       "blockdata_filepath": "data/layouts/Kaolisle_Hotel_4F/map.bin"
     },
@@ -5677,7 +5677,7 @@
       "width": 150,
       "height": 30,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mossdeep",
+      "secondary_tileset": "gTileset_Kaolisle",
       "border_filepath": "data/layouts/Route10/border.bin",
       "blockdata_filepath": "data/layouts/Route10/map.bin"
     },
@@ -5687,7 +5687,7 @@
       "width": 43,
       "height": 58,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Dewford",
+      "secondary_tileset": "gTileset_Rockliffe",
       "border_filepath": "data/layouts/RockliffeTown/border.bin",
       "blockdata_filepath": "data/layouts/RockliffeTown/map.bin"
     },
@@ -5777,7 +5777,7 @@
       "width": 48,
       "height": 82,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_CyclingRoad",
+      "secondary_tileset": "gTileset_MiscRoutes",
       "border_filepath": "data/layouts/Route12/border.bin",
       "blockdata_filepath": "data/layouts/Route12/map.bin"
     },
@@ -5787,7 +5787,7 @@
       "width": 77,
       "height": 69,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_NewSandstoneCity",
+      "secondary_tileset": "gTileset_Sandstone",
       "border_filepath": "data/layouts/SandstoneCity/border.bin",
       "blockdata_filepath": "data/layouts/SandstoneCity/map.bin"
     },
@@ -5797,7 +5797,7 @@
       "width": 31,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_CyclingRoad",
+      "secondary_tileset": "gTileset_MiscRoutes",
       "border_filepath": "data/layouts/Route13/border.bin",
       "blockdata_filepath": "data/layouts/Route13/map.bin"
     },
@@ -5867,7 +5867,7 @@
       "width": 41,
       "height": 99,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_CyclingRoad",
+      "secondary_tileset": "gTileset_MiscRoutes",
       "border_filepath": "data/layouts/Route12_SideArea/border.bin",
       "blockdata_filepath": "data/layouts/Route12_SideArea/map.bin"
     },
@@ -6017,7 +6017,7 @@
       "width": 45,
       "height": 50,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_DewfordGym",
+      "secondary_tileset": "gTileset_RockliffeGym",
       "border_filepath": "data/layouts/Sandstone_Gym_1F/border.bin",
       "blockdata_filepath": "data/layouts/Sandstone_Gym_1F/map.bin"
     },
@@ -6127,7 +6127,7 @@
       "width": 40,
       "height": 48,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fallarbor",
+      "secondary_tileset": "gTileset_Marigorge",
       "border_filepath": "data/layouts/WindplumePeak/border.bin",
       "blockdata_filepath": "data/layouts/WindplumePeak/map.bin"
     },
@@ -6137,7 +6137,7 @@
       "width": 28,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mossdeep",
+      "secondary_tileset": "gTileset_Kaolisle",
       "border_filepath": "data/layouts/Route10_Cave1/border.bin",
       "blockdata_filepath": "data/layouts/Route10_Cave1/map.bin"
     },
@@ -6147,7 +6147,7 @@
       "width": 20,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mossdeep",
+      "secondary_tileset": "gTileset_Kaolisle",
       "border_filepath": "data/layouts/Route10_Cave2/border.bin",
       "blockdata_filepath": "data/layouts/Route10_Cave2/map.bin"
     },
@@ -6406,7 +6406,7 @@
       "name": "EverfrostTown_Layout",
       "width": 34,
       "height": 37,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_Winter",
       "secondary_tileset": "gTileset_Everfrost",
       "border_filepath": "data/layouts/EverfrostTown/border.bin",
       "blockdata_filepath": "data/layouts/EverfrostTown/map.bin"
@@ -6416,8 +6416,8 @@
       "name": "FrostfireCity_Layout",
       "width": 70,
       "height": 64,
-      "primary_tileset": "gTileset_General2",
-      "secondary_tileset": "gTileset_Frostfire",
+      "primary_tileset": "gTileset_Winter",
+      "secondary_tileset": "gTileset_Frosthearth",
       "border_filepath": "data/layouts/FrostfireCity/border.bin",
       "blockdata_filepath": "data/layouts/FrostfireCity/map.bin"
     },
@@ -6426,7 +6426,7 @@
       "name": "CrystalpineTwon_Layout",
       "width": 40,
       "height": 27,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_Winter",
       "secondary_tileset": "gTileset_Crystalpine",
       "border_filepath": "data/layouts/CrystalpineTwon/border.bin",
       "blockdata_filepath": "data/layouts/CrystalpineTwon/map.bin"
@@ -6436,7 +6436,7 @@
       "name": "IceperchCity_Layout",
       "width": 71,
       "height": 51,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_Winter",
       "secondary_tileset": "gTileset_Iceperch",
       "border_filepath": "data/layouts/IceperchCity/border.bin",
       "blockdata_filepath": "data/layouts/IceperchCity/map.bin"
@@ -6446,7 +6446,7 @@
       "name": "SnowcrestCity_Layout",
       "width": 49,
       "height": 62,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_Winter",
       "secondary_tileset": "gTileset_VictoryRoad",
       "border_filepath": "data/layouts/SnowcrestCity/border.bin",
       "blockdata_filepath": "data/layouts/SnowcrestCity/map.bin"
@@ -6486,7 +6486,7 @@
       "name": "WindywoodsFix_Layout",
       "width": 78,
       "height": 10,
-      "primary_tileset": "gTileset_DarkForest",
+      "primary_tileset": "gTileset_Autumn",
       "secondary_tileset": "gTileset_DarkForestSec",
       "border_filepath": "data/layouts/WindywoodsFix/border.bin",
       "blockdata_filepath": "data/layouts/WindywoodsFix/map.bin"
@@ -6536,8 +6536,8 @@
       "name": "Route18_Layout",
       "width": 110,
       "height": 41,
-      "primary_tileset": "gTileset_General2",
-      "secondary_tileset": "gTileset_Frostfire",
+      "primary_tileset": "gTileset_Winter",
+      "secondary_tileset": "gTileset_Frosthearth",
       "border_filepath": "data/layouts/Route18/border.bin",
       "blockdata_filepath": "data/layouts/Route18/map.bin"
     },
@@ -6546,7 +6546,7 @@
       "name": "Route19_Layout",
       "width": 89,
       "height": 74,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_Winter",
       "secondary_tileset": "gTileset_Crystalpine",
       "border_filepath": "data/layouts/Route19/border.bin",
       "blockdata_filepath": "data/layouts/Route19/map.bin"
@@ -6556,7 +6556,7 @@
       "name": "Route20_Layout",
       "width": 52,
       "height": 50,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_Winter",
       "secondary_tileset": "gTileset_Crystalpine",
       "border_filepath": "data/layouts/Route20/border.bin",
       "blockdata_filepath": "data/layouts/Route20/map.bin"
@@ -6566,7 +6566,7 @@
       "name": "Route21_Layout",
       "width": 47,
       "height": 82,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_Winter",
       "secondary_tileset": "gTileset_Crystalpine",
       "border_filepath": "data/layouts/Route21/border.bin",
       "blockdata_filepath": "data/layouts/Route21/map.bin"
@@ -6586,7 +6586,7 @@
       "name": "Route24_Layout",
       "width": 67,
       "height": 50,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_Winter",
       "secondary_tileset": "gTileset_Crystalpine",
       "border_filepath": "data/layouts/Route24/border.bin",
       "blockdata_filepath": "data/layouts/Route24/map.bin"
@@ -6596,7 +6596,7 @@
       "name": "Route25_Layout",
       "width": 90,
       "height": 41,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_Winter",
       "secondary_tileset": "gTileset_Everfrost",
       "border_filepath": "data/layouts/Route25/border.bin",
       "blockdata_filepath": "data/layouts/Route25/map.bin"
@@ -6606,7 +6606,7 @@
       "name": "Route26_Layout",
       "width": 46,
       "height": 75,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_Winter",
       "secondary_tileset": "gTileset_Everfrost",
       "border_filepath": "data/layouts/Route26/border.bin",
       "blockdata_filepath": "data/layouts/Route26/map.bin"
@@ -6616,7 +6616,7 @@
       "name": "Route27_Layout",
       "width": 98,
       "height": 75,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_Winter",
       "secondary_tileset": "gTileset_Everfrost",
       "border_filepath": "data/layouts/Route27/border.bin",
       "blockdata_filepath": "data/layouts/Route27/map.bin"
@@ -6626,7 +6626,7 @@
       "name": "Route27_Part2_Layout",
       "width": 32,
       "height": 75,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_Winter",
       "secondary_tileset": "gTileset_Iceperch",
       "border_filepath": "data/layouts/Route27_Part2/border.bin",
       "blockdata_filepath": "data/layouts/Route27_Part2/map.bin"
@@ -6636,7 +6636,7 @@
       "name": "Route28_Part2_Layout",
       "width": 45,
       "height": 105,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_Winter",
       "secondary_tileset": "gTileset_Iceperch",
       "border_filepath": "data/layouts/Route28_Part2/border.bin",
       "blockdata_filepath": "data/layouts/Route28_Part2/map.bin"
@@ -6646,7 +6646,7 @@
       "name": "Route29_Layout",
       "width": 106,
       "height": 50,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_Winter",
       "secondary_tileset": "gTileset_VictoryRoad",
       "border_filepath": "data/layouts/Route29/border.bin",
       "blockdata_filepath": "data/layouts/Route29/map.bin"
@@ -6657,7 +6657,7 @@
       "width": 140,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_CyclingRoad",
+      "secondary_tileset": "gTileset_MiscRoutes",
       "border_filepath": "data/layouts/Route13Alternative/border.bin",
       "blockdata_filepath": "data/layouts/Route13Alternative/map.bin"
     },
@@ -6717,7 +6717,7 @@
       "width": 77,
       "height": 69,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_NewSandstoneCity",
+      "secondary_tileset": "gTileset_Sandstone",
       "border_filepath": "data/layouts/SandstoneCityAlt/border.bin",
       "blockdata_filepath": "data/layouts/SandstoneCityAlt/map.bin"
     },
@@ -7267,7 +7267,7 @@
       "width": 85,
       "height": 44,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_CyclingRoad",
+      "secondary_tileset": "gTileset_MiscRoutes",
       "border_filepath": "data/layouts/OceanWalkway/border.bin",
       "blockdata_filepath": "data/layouts/OceanWalkway/map.bin"
     },
@@ -7407,7 +7407,7 @@
       "width": 40,
       "height": 80,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Frostfire",
+      "secondary_tileset": "gTileset_Frosthearth",
       "border_filepath": "data/layouts/SnowyRidge/border.bin",
       "blockdata_filepath": "data/layouts/SnowyRidge/map.bin"
     },
@@ -7526,7 +7526,7 @@
       "name": "Crystalpine_Filler1_Layout",
       "width": 6,
       "height": 27,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_Winter",
       "secondary_tileset": "gTileset_Crystalpine",
       "border_filepath": "data/layouts/Crystalpine_Filler1/border.bin",
       "blockdata_filepath": "data/layouts/Crystalpine_Filler1/map.bin"
@@ -7536,7 +7536,7 @@
       "name": "Route24_Filler_Layout",
       "width": 7,
       "height": 8,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_Winter",
       "secondary_tileset": "gTileset_Crystalpine",
       "border_filepath": "data/layouts/Route24_Filler/border.bin",
       "blockdata_filepath": "data/layouts/Route24_Filler/map.bin"
@@ -7546,7 +7546,7 @@
       "name": "Route20_Filler_Layout",
       "width": 4,
       "height": 30,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_Winter",
       "secondary_tileset": "gTileset_Crystalpine",
       "border_filepath": "data/layouts/Route20_Filler/border.bin",
       "blockdata_filepath": "data/layouts/Route20_Filler/map.bin"
@@ -7566,7 +7566,7 @@
       "name": "Route21_Filler_Layout",
       "width": 24,
       "height": 35,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_Winter",
       "secondary_tileset": "gTileset_Crystalpine",
       "border_filepath": "data/layouts/Route21_Filler/border.bin",
       "blockdata_filepath": "data/layouts/Route21_Filler/map.bin"
@@ -7576,7 +7576,7 @@
       "name": "Route26_Filler_Layout",
       "width": 24,
       "height": 25,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_Winter",
       "secondary_tileset": "gTileset_Everfrost",
       "border_filepath": "data/layouts/Route26_Filler/border.bin",
       "blockdata_filepath": "data/layouts/Route26_Filler/map.bin"
@@ -7586,7 +7586,7 @@
       "name": "Route28_Part2_SideArea_Layout",
       "width": 29,
       "height": 22,
-      "primary_tileset": "gTileset_General2",
+      "primary_tileset": "gTileset_Winter",
       "secondary_tileset": "gTileset_Powerplant",
       "border_filepath": "data/layouts/Route28_Part2_SideArea/border.bin",
       "blockdata_filepath": "data/layouts/Route28_Part2_SideArea/map.bin"
@@ -7616,7 +7616,7 @@
       "name": "Windywoods_Filler_Layout",
       "width": 4,
       "height": 56,
-      "primary_tileset": "gTileset_DarkForest",
+      "primary_tileset": "gTileset_Autumn",
       "secondary_tileset": "gTileset_DarkForestSec",
       "border_filepath": "data/layouts/Windywoods_Filler/border.bin",
       "blockdata_filepath": "data/layouts/Windywoods_Filler/map.bin"

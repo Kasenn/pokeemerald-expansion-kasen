@@ -10,7 +10,7 @@ LockDoorAfterGym_1:
 	end
 
 LockDoorAfterGym_2:
-	setmetatile 4, 5, 0x0B3, TRUE
+	setmetatile 4, 5, 0x213, TRUE
 	goto LockDoorAfterGym_1
 
 

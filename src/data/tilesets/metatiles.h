@@ -214,20 +214,11 @@ const u16 gMetatileAttributes_UnionRoom[] = INCBIN_U16("data/tilesets/secondary/
 const u16 gMetatiles_gTileset_Birchseed[] = INCBIN_U16("data/tilesets/secondary/town_1/metatiles.bin");
 const u16 gMetatileAttributes_gTileset_Birchseed[] = INCBIN_U16("data/tilesets/secondary/town_1/metatile_attributes.bin");
 
-const u16 gMetatiles_Coralgrove[] = INCBIN_U16("data/tilesets/primary/coralgrove/metatiles.bin");
-const u16 gMetatileAttributes_Coralgrove[] = INCBIN_U16("data/tilesets/primary/coralgrove/metatile_attributes.bin");
-
 const u16 gMetatiles_Pearlwood_Secondary[] = INCBIN_U16("data/tilesets/secondary/pearlwood_secondary/metatiles.bin");
 const u16 gMetatileAttributes_Pearlwood_Secondary[] = INCBIN_U16("data/tilesets/secondary/pearlwood_secondary/metatile_attributes.bin");
 
-const u16 gMetatiles_DarkForest[] = INCBIN_U16("data/tilesets/primary/dark_forest/metatiles.bin");
-const u16 gMetatileAttributes_DarkForest[] = INCBIN_U16("data/tilesets/primary/dark_forest/metatile_attributes.bin");
-
 const u16 gMetatiles_DarkForestSec[] = INCBIN_U16("data/tilesets/secondary/dark_forest_sec/metatiles.bin");
 const u16 gMetatileAttributes_DarkForestSec[] = INCBIN_U16("data/tilesets/secondary/dark_forest_sec/metatile_attributes.bin");
-
-const u16 gMetatiles_WipCity1[] = INCBIN_U16("data/tilesets/secondary/wip_city_1/metatiles.bin");
-const u16 gMetatileAttributes_WipCity1[] = INCBIN_U16("data/tilesets/secondary/wip_city_1/metatile_attributes.bin");
 
 const u16 gMetatiles_CaveTiles[] = INCBIN_U16("data/tilesets/secondary/cave_tiles/metatiles.bin");
 const u16 gMetatileAttributes_CaveTiles[] = INCBIN_U16("data/tilesets/secondary/cave_tiles/metatile_attributes.bin");
@@ -246,9 +237,6 @@ const u16 gMetatileAttributes_gTileset_Hotel[] = INCBIN_U16("data/tilesets/secon
 
 const u16 gMetatiles_CyclingRoad[] = INCBIN_U16("data/tilesets/secondary/cycling_road/metatiles.bin");
 const u16 gMetatileAttributes_CyclingRoad[] = INCBIN_U16("data/tilesets/secondary/cycling_road/metatile_attributes.bin");
-
-const u16 gMetatiles_SandstoneCity[] = INCBIN_U16("data/tilesets/secondary/sandstone_city/metatiles.bin");
-const u16 gMetatileAttributes_SandstoneCity[] = INCBIN_U16("data/tilesets/secondary/sandstone_city/metatile_attributes.bin");
 
 const u16 gMetatiles_Fortree2[] = INCBIN_U16("data/tilesets/secondary/fortree_2/metatiles.bin");
 const u16 gMetatileAttributes_Fortree2[] = INCBIN_U16("data/tilesets/secondary/fortree_2/metatile_attributes.bin");
@@ -345,3 +333,6 @@ const u16 gMetatileAttributes_Primrose_Secondary[] = INCBIN_U16("data/tilesets/s
 
 const u16 gMetatiles_Coralgrove_Secondary[] = INCBIN_U16("data/tilesets/secondary/coralgrove_secondary/metatiles.bin");
 const u16 gMetatileAttributes_Coralgrove_Secondary[] = INCBIN_U16("data/tilesets/secondary/coralgrove_secondary/metatile_attributes.bin");
+
+const u16 gMetatiles_Aldeleaf[] = INCBIN_U16("data/tilesets/secondary/aldeleaf/metatiles.bin");
+const u16 gMetatileAttributes_Aldeleaf[] = INCBIN_U16("data/tilesets/secondary/aldeleaf/metatile_attributes.bin");

@@ -228,12 +228,11 @@ static const u8 sDoorAnimPalettes_KaolSlidingDoor[] = {ALL_SAME(6)};
 static const u8 sDoorAnimPalettes_SafariZone[] = {ALL_SAME(12)};
 static const u8 sDoorAnimPalettes_MossdeepSpaceCenter[] = {ALL_SAME(8)};
 static const u8 sDoorAnimPalettes_CableClub[] = {ALL_SAME(6)};
-static const u8 sDoorAnimPalettes_AbandonedShip[] = {ALL_SAME(7)};
+static const u8 sDoorAnimPalettes_AbandonedShip[] = {ALL_SAME(9)};
 static const u8 sDoorAnimPalettes_FallarborDarkRoof[] = {TOP2_DIFF(11, 7)};
 static const u8 sDoorAnimPalettes_AbandonedShipRoom[] = {ALL_SAME(7)};
 static const u8 sDoorAnimPalettes_LilycoveDeptStoreElevator[] = {TOP2_DIFF(6, 7)};
-static const u8 sDoorAnimPalettes_HotelElevator[] = {TOP2_DIFF(7, 11)};
-static const u8 sDoorAnimPalettes_HotelElevator2[] = {TOP2_DIFF(9, 7)};
+static const u8 sDoorAnimPalettes_HotelElevator[] = {TOP2_DIFF(9, 7)};
 static const u8 sDoorAnimPalettes_BattleTowerOld[] = {ALL_SAME(9)};
 static const u8 sDoorAnimPalettes_BattleTowerElevator[] = {ALL_SAME(7)};
 static const u8 sDoorAnimPalettes_UnusedBattleFrontier[] = {ALL_SAME(9)};
@@ -261,7 +260,7 @@ static const struct DoorGraphics sPrimaryDoors[] =
     {DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_PokeCenter, sDoorAnimPalettes_PokeCenter},   // METATILE_General_Door_PokeCenter
     {DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_Gym, sDoorAnimPalettes_Gym},                 // METATILE_General_Door_Gym
     {DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_Contest, sDoorAnimPalettes_Contest},         // METATILE_General_Door_Contest
-    {DOOR_SOUND_SLIDING,  1, sDoorAnimTiles_PokeCenter, sDoorAnimPalettes_PokeShop}     // METATILE_General_BP_Shop
+    {DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_PokeCenter, sDoorAnimPalettes_PokeShop}     // METATILE_General_BP_Shop
 };       
 
 static const struct DoorGraphics sPearlwoodDoors[] =
@@ -278,8 +277,9 @@ static const struct DoorGraphics sCoralgroveDoors[] = {
 
 static const struct DoorGraphics sAldeleafDoors[] =
 {
+    {DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Lilycove, sDoorAnimPalettes_Lilycove},
     {DOOR_SOUND_SLIDING,  1, sDoorAnimTiles_AldeleafSlideDoor, sDoorAnimPalettes_AldeleafDoor},
-    {DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Lilycove, sDoorAnimPalettes_Lilycove}
+    {DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_LilycoveWooden, sDoorAnimPalettes_LilycoveWooden}
 };
 
 static const struct DoorGraphics sMarigorgeDoors[] =
@@ -325,39 +325,29 @@ static const struct DoorGraphics sHotelDoors[] =
     {DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_AbandonedShip, sDoorAnimPalettes_AbandonedShip}
 };
 
-static const struct DoorGraphics sLilycoveDoors[] = {{DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Lilycove, sDoorAnimPalettes_Lilycove}};
-static const struct DoorGraphics sRanchDoors[] = {{DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_LilycoveWooden, sDoorAnimPalettes_LilycoveWooden}};
-static const struct DoorGraphics sSkylochDoors[] = {{DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Verdanturf, sDoorAnimPalettes_Verdanturf}};
 static const struct DoorGraphics sShoreslateDoors[] = {{DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_RustboroGray, sDoorAnimPalettes_RustboroGray},};
-static const struct DoorGraphics sSafariZoneDoors[] = {{DOOR_SOUND_SLIDING,  1, sDoorAnimTiles_SafariZone, sDoorAnimPalettes_SafariZone}};
-static const struct DoorGraphics sCyclingRoadDoors[] = {{DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Mauville, sDoorAnimPalettes_Mauville}};
-static const struct DoorGraphics sAmberockDoors[] ={{DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Amberock, sDoorAnimPalettes_Amberock}};
-static const struct DoorGraphics sBasalekDoors[] ={{DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Basaluff, sDoorAnimPalettes_Basaluff}};
-static const struct DoorGraphics sShopElevator[] ={{DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_LilycoveDeptStoreElevator, sDoorAnimPalettes_LilycoveDeptStoreElevator}};
-static const struct DoorGraphics sHotelElevator[] ={{DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_HotelElevator, sDoorAnimPalettes_HotelElevator2}};
+static const struct DoorGraphics sMiscRouteDoors[] = {{DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Mauville, sDoorAnimPalettes_Mauville}};
+static const struct DoorGraphics sAmberockDoors[] = {{DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Amberock, sDoorAnimPalettes_Amberock}};
+static const struct DoorGraphics sBasalekDoors[] = {{DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Basaluff, sDoorAnimPalettes_Basaluff}};
+static const struct DoorGraphics sShopElevator[] = {{DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_LilycoveDeptStoreElevator, sDoorAnimPalettes_LilycoveDeptStoreElevator}};
 
 static const struct NewDoorGraphics sDoorAnimGraphicsTable[] =
 {
-    {&gTileset_Pearlwood_Secondary,     DOORS(sPearlwoodDoors)},
+    {&gTileset_Pearlwood,               DOORS(sPearlwoodDoors)},
     {&gTileset_Coralgrove_Secondary,    DOORS(sCoralgroveDoors)},
-    {&gTileset_Lilycove,                DOORS(sLilycoveDoors)},
-    {&gTileset_Ranch,                   DOORS(sRanchDoors)},
-    {&gTileset_WipCity1,                DOORS(sAldeleafDoors)},
-    {&gTileset_Mauville,                DOORS(sSkylochDoors)},
-    {&gTileset_Fallarbor,               DOORS(sMarigorgeDoors)},
-    {&gTileset_SafariSec,               DOORS(sSafariZoneDoors)},
+    {&gTileset_Aldeleaf,                DOORS(sAldeleafDoors)},
+    {&gTileset_Marigorge,               DOORS(sMarigorgeDoors)},
     {&gTileset_Shoreslate,              DOORS(sShoreslateDoors)},
-    {&gTileset_Mossdeep,                DOORS(sKaolisleDoors)},
-    {&gTileset_Dewford,                 DOORS(sRockliffeDoors)},
-    {&gTileset_CyclingRoad,             DOORS(sCyclingRoadDoors)},
-    {&gTileset_NewSandstoneCity,        DOORS(sSandstoneDoors)},
+    {&gTileset_Kaolisle,                DOORS(sKaolisleDoors)},
+    {&gTileset_Rockliffe,               DOORS(sRockliffeDoors)},
+    {&gTileset_MiscRoutes,              DOORS(sMiscRouteDoors)},
+    {&gTileset_Sandstone,               DOORS(sSandstoneDoors)},
     {&gTileset_Drisledge,               DOORS(sDrisledgeDoors)},
     {&gTileset_Amberock,                DOORS(sAmberockDoors)},
     {&gTileset_Basaluff,                DOORS(sBasalekDoors)},
-    {&gTileset_Frostfire,               DOORS(sFrosthearthDoors)},
+    {&gTileset_Frosthearth,             DOORS(sFrosthearthDoors)},
     {&gTileset_Shop,                    DOORS(sShopElevator)},
-    {&gTileset_gTileset_Hotel,          DOORS(sHotelElevator)},
-    {&gTileset_InsideShip,              DOORS(sHotelDoors)}
+    {&gTileset_Hotel,                   DOORS(sHotelDoors)}
 };
 
 // static const struct DoorGraphics sDoorAnimGraphicsTable[] =
