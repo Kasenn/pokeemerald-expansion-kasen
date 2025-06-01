@@ -48,6 +48,7 @@
 #include "constants/items.h"
 #include "tx_registered_items_menu.h"
 #include "difficulty.h"
+#include "follower_npc.h"
 
 extern const u8 EventScript_ResetAllMapFlags[];
 
@@ -132,7 +133,7 @@ static void ClearFrontierRecord(void)
 
 static void WarpToTruck(void)
 {
-    SetWarpDestination(MAP_GROUP(PLAYER_HOUSE2F), MAP_NUM(PLAYER_HOUSE2F), WARP_ID_NONE, 1, 4);
+    SetWarpDestination(MAP_GROUP(MAP_PLAYER_HOUSE2F), MAP_NUM(MAP_PLAYER_HOUSE2F), WARP_ID_NONE, 1, 4);
     WarpIntoMap();
 }
 
@@ -229,6 +230,7 @@ void NewGameInitData(void)
     SetCurrentDifficultyLevel(DIFFICULTY_NORMAL);
     ResetItemFlags();
     ResetDexNav();
+    ClearFollowerNPCData();
 }
 
 static void ResetMiniGamesRecords(void)

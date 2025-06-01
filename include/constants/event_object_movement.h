@@ -250,27 +250,32 @@
 #define MOVEMENT_ACTION_EMOTE_DOUBLE_EXCL_MARK          0x9F
 #define MOVEMENT_ACTION_EXIT_POKEBALL                   0xA0
 #define MOVEMENT_ACTION_ENTER_POKEBALL                  0xA1
-#define MOVEMENT_ACTION_JUMP_3_DOWN                     0xA2
-#define MOVEMENT_ACTION_JUMP_3_UP                       0xA3
-#define MOVEMENT_ACTION_JUMP_3_LEFT                     0xA4
-#define MOVEMENT_ACTION_JUMP_3_RIGHT                    0xA5
-#define MOVEMENT_ACTION_ABRA_SPIN                       0xA6
-#define MOVEMENT_ACTION_RUN_DOWN_SLOW                   0xA7    // slow running for rocky stairs
-#define MOVEMENT_ACTION_RUN_UP_SLOW                     0xA8
-#define MOVEMENT_ACTION_RUN_LEFT_SLOW                   0xA9
-#define MOVEMENT_ACTION_RUN_RIGHT_SLOW                  0xAA
-#define MOVEMENT_ACTION_WALK_SUPER_SLOW_DOWN                  0xAB
-#define MOVEMENT_ACTION_WALK_SUPER_SLOW_UP                    0xAC
-#define MOVEMENT_ACTION_WALK_SUPER_SLOW_LEFT                  0xAD
-#define MOVEMENT_ACTION_WALK_SUPER_SLOW_RIGHT                 0xAE
-#define MOVEMENT_ACTION_RUN_DOWN_SUPER_SLOW                   0xAF
-#define MOVEMENT_ACTION_RUN_UP_SUPER_SLOW                     0xB0
-#define MOVEMENT_ACTION_RUN_LEFT_SUPER_SLOW                   0xB1
-#define MOVEMENT_ACTION_RUN_RIGHT_SUPER_SLOW                  0xB2
-#define MOVEMENT_ACTION_WALK_SLOW_STAIRS_DOWN           0xB7
-#define MOVEMENT_ACTION_WALK_SLOW_STAIRS_UP             0xB8
-#define MOVEMENT_ACTION_WALK_SLOW_STAIRS_LEFT           0xB9
-#define MOVEMENT_ACTION_WALK_SLOW_STAIRS_RIGHT          0xBA
+#define MOVEMENT_ACTION_RUN_DOWN_SLOW                   0xA2    // slow running for rocky stairs
+#define MOVEMENT_ACTION_RUN_UP_SLOW                     0xA3
+#define MOVEMENT_ACTION_RUN_LEFT_SLOW                   0xA4
+#define MOVEMENT_ACTION_RUN_RIGHT_SLOW                  0xA5
+#define MOVEMENT_ACTION_WALK_SLOW_STAIRS_DOWN           0xA6
+#define MOVEMENT_ACTION_WALK_SLOW_STAIRS_UP             0xA7
+#define MOVEMENT_ACTION_WALK_SLOW_STAIRS_LEFT           0xA8
+#define MOVEMENT_ACTION_WALK_SLOW_STAIRS_RIGHT          0xA9
+#define MOVEMENT_ACTION_SURF_STILL_DOWN                 0xAA
+#define MOVEMENT_ACTION_SURF_STILL_UP                   0xAB
+#define MOVEMENT_ACTION_SURF_STILL_LEFT                 0xAC
+#define MOVEMENT_ACTION_SURF_STILL_RIGHT                0xAD
+#define MOVEMENT_ACTION_JUMP_3_DOWN                     0xAE
+#define MOVEMENT_ACTION_JUMP_3_UP                       0xAF
+#define MOVEMENT_ACTION_JUMP_3_LEFT                     0xB0
+#define MOVEMENT_ACTION_JUMP_3_RIGHT                    0xB1
+#define MOVEMENT_ACTION_ABRA_SPIN                       0xB2
+#define MOVEMENT_ACTION_WALK_SUPER_SLOW_DOWN            0xB3
+#define MOVEMENT_ACTION_WALK_SUPER_SLOW_UP              0xB4
+#define MOVEMENT_ACTION_WALK_SUPER_SLOW_LEFT            0xB5
+#define MOVEMENT_ACTION_WALK_SUPER_SLOW_RIGHT           0xB6
+#define MOVEMENT_ACTION_RUN_DOWN_SUPER_SLOW             0xB7
+#define MOVEMENT_ACTION_RUN_UP_SUPER_SLOW               0xB8
+#define MOVEMENT_ACTION_RUN_LEFT_SUPER_SLOW             0xB9
+#define MOVEMENT_ACTION_RUN_RIGHT_SUPER_SLOW            0xBA
+
 
 #define MOVEMENT_ACTION_STEP_END 0xFE
 #define MOVEMENT_ACTION_NONE     0xFF

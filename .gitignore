@@ -67,3 +67,4 @@ Stitch_From_BasaluffTown.png
 *.smol
 *.fastSmol
 *.smolTM
+__pycache__

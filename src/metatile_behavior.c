@@ -550,7 +550,7 @@ bool8 MetatileBehavior_PointPlayerSouth(u8 metatileBehavior)
         return FALSE;
 }
 
-bool8 Unref_MetatileBehavior_IsArrowWarp(u8 metatileBehavior)
+bool8 UNUSED Unref_MetatileBehavior_IsArrowWarp(u8 metatileBehavior)
 {
     u8 isArrowWarp = FALSE;
 

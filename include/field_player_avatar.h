@@ -2,12 +2,13 @@
 #define GUARD_FIELD_PLAYER_AVATAR_H
 
 void PlayerStep(u8 direction, u16 newKeys, u16 heldKeys);
+bool8 TryDoMetatileBehaviorForcedMovement();
 void ClearPlayerAvatarInfo(void);
-void SetPlayerAvatarExtraStateTransition(u16, u32);
-u8 GetPlayerAvatarGenderByGraphicsId(u16);
-u32 TestPlayerAvatarFlags(u32);
-u32 GetPlayerAvatarSpriteId(void);
-void PlayerGetDestCoords(s16 *, s16 *);
+void SetPlayerAvatarExtraStateTransition(u16 graphicsId, u32 transitionFlag);
+u8 GetPlayerAvatarGenderByGraphicsId(u16 gfxId);
+u8 TestPlayerAvatarFlags(u32 flag);
+u8 GetPlayerAvatarSpriteId(void);
+void PlayerGetDestCoords(s16 *x, s16 *y);
 u8 GetPlayerFacingDirection(void);
 u8 GetPlayerMovementDirection(void);
 u8 PlayerGetCopyableMovement(void);
@@ -37,7 +38,7 @@ void CancelPlayerForcedMovement(void);
 void InitPlayerAvatar(s16 x, s16 y, u8 direction, u8 gender);
 void PlayerFreeze(void);
 void StopPlayerAvatar(void);
-void SetSpinStartFacingDir(u8);
+void SetSpinStartFacingDir(u8 direction);
 void GetXYCoordsOneStepInFrontOfPlayer(s16 *xPtr, s16 *yPtr);
 u16 GetRivalAvatarGraphicsIdByStateIdAndGender(u8 state, u8 gender);
 void SetPlayerAvatarFieldMove(void);
@@ -53,8 +54,8 @@ void SetPlayerAvatarWatering(u8 direction);
 void SetPlayerAvatarFertilizing(u8 direction);
 u32 GetPlayerAvatarFlags(void);
 void UpdatePlayerAvatarTransitionState(void);
-u16 GetFRLGAvatarGraphicsIdByGender(u8);
-u16 GetRSAvatarGraphicsIdByGender(u8);
+u16 GetFRLGAvatarGraphicsIdByGender(u8 gender);
+u16 GetRSAvatarGraphicsIdByGender(u8 gender);
 void PlayerWheelieInPlace(u8 direction);
 void PlayerWheelieMove(u8 direction);
 void PlayerPopWheelieWhileMoving(u8 direction);
@@ -73,6 +74,9 @@ bool8 ObjectMovingInDeepSnow(struct ObjectEvent *objectEvent);
 //sideways stairs
 u8 GetRightSideStairsDirection(u8 direction);
 u8 GetLeftSideStairsDirection(u8 direction);
+void UpdateSpinData(void);
+void ResetSpinTimer(void);
+bool32 CanTriggerSpinEvolution();
 
 extern EWRAM_DATA u8 gGogoatMountBody;
 extern EWRAM_DATA u8 gGogoatMountHead;

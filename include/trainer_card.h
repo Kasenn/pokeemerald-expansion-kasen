@@ -72,6 +72,6 @@ void CopyTrainerCardData(struct TrainerCard *dst, struct TrainerCard *src, u8 ga
 void ShowPlayerTrainerCard(void (*callback)(void));
 void ShowPlayerJournal(void (*callback)(void));
 void ShowTrainerCardInLink(u8 cardId, void (*callback)(void));
-void TrainerCard_GenerateCardForLinkPlayer(struct TrainerCard *);
+void TrainerCard_GenerateCardForLinkPlayer(struct TrainerCard *trainerCard);
 
 #endif // GUARD_TRAINER_CARD_H

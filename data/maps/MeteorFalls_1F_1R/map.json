@@ -28,6 +28,7 @@
       "flag": "FLAG_HIDE_METEOR_FALLS_TEAM_MAGMA"
     },
     {
+      "local_id": "LOCALID_METEOR_FALLS_MAGMA_GRUNT_2",
       "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
       "x": 14,
       "y": 21,
@@ -41,6 +42,7 @@
       "flag": "FLAG_HIDE_METEOR_FALLS_TEAM_MAGMA"
     },
     {
+      "local_id": "LOCALID_METEOR_FALLS_ARCHIE",
       "graphics_id": "OBJ_EVENT_GFX_KORRINA",
       "x": 6,
       "y": 20,
@@ -54,6 +56,7 @@
       "flag": "FLAG_HIDE_METEOR_FALLS_TEAM_AQUA"
     },
     {
+      "local_id": "LOCALID_METEOR_FALLS_AQUA_GRUNT_1",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_ADMIN_M",
       "x": 6,
       "y": 20,
@@ -67,6 +70,7 @@
       "flag": "FLAG_HIDE_METEOR_FALLS_TEAM_AQUA"
     },
     {
+      "local_id": "LOCALID_METEOR_FALLS_AQUA_GRUNT_2",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_ADMIN_M",
       "x": 6,
       "y": 21,

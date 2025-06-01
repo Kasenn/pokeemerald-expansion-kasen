@@ -43,19 +43,19 @@ Common_Movement_WalkInPlaceFasterDown:
 	walk_in_place_faster_down
 	step_end
 
-Common_Movement_FaceRight:
+Common_Movement_FaceRight::
 	face_right
 	step_end
 
-Common_Movement_FaceLeft:
+Common_Movement_FaceLeft::
 	face_left
 	step_end
 
-Common_Movement_FaceDown:
+Common_Movement_FaceDown::
 	face_down
 	step_end
 
-Common_Movement_FaceUp:
+Common_Movement_FaceUp::
 	face_up
 	step_end
 
@@ -95,7 +95,7 @@ Common_Movement_Delay32:
 	delay_16
 	step_end
 
-Common_Movement_WalkUp:
+Common_Movement_WalkUp::
 	walk_up
 	step_end
 

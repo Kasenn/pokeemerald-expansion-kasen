@@ -85,6 +85,7 @@
 #define PARTY_MSG_DO_WHAT_WITH_FOLLOWER     30
 #define PARTY_MSG_NO_POKEMON                31
 #define PARTY_MSG_CHOOSE_MON_FOR_BOX        32
+#define PARTY_MSG_MOVE_ITEM_WHERE           33
 
 #define PARTY_MSG_NONE                      127
 

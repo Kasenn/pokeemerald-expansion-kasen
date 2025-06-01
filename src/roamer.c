@@ -19,7 +19,7 @@ EWRAM_DATA static u8 sLocationHistory[ROAMER_COUNT][3][2] = {0};
 EWRAM_DATA static u8 sRoamerLocation[ROAMER_COUNT][2] = {0};
 EWRAM_DATA u8 gEncounteredRoamerIndex = 0;
 
-#define ___ MAP_NUM(UNDEFINED) // For empty spots in the location table
+#define ___ MAP_NUM(MAP_UNDEFINED) // For empty spots in the location table
 
 // Note: There are two potential softlocks that can occur with this table if its maps are
 //       changed in particular ways. They can be avoided by ensuring the following:
@@ -35,33 +35,33 @@ EWRAM_DATA u8 gEncounteredRoamerIndex = 0;
 //         from that map when it lands there.
 static const u8 sRoamerLocations[][6] =
 {
-    { MAP_NUM(ROUTE3) , MAP_NUM(ROUTE5) , MAP_NUM(ROUTE28), ___, ___, ___ },
-    { MAP_NUM(ROUTE5) , MAP_NUM(ROUTE6) , MAP_NUM(ROUTE28), MAP_NUM(ROUTE3), MAP_NUM(ROUTE7), ___ },
-    { MAP_NUM(ROUTE6) , MAP_NUM(ROUTE5) , MAP_NUM(ROUTE7) , MAP_NUM(DESERT), ___, ___ },
-    { MAP_NUM(DESERT) , MAP_NUM(ROUTE6) , MAP_NUM(ROUTE8) , ___, ___, ___ },
-    { MAP_NUM(ROUTE7) , MAP_NUM(ROUTE6) , MAP_NUM(ROUTE5) , MAP_NUM(ROUTE9), ___, ___ },
-    { MAP_NUM(ROUTE8) , MAP_NUM(DESERT) , MAP_NUM(ROUTE28), ___, ___, ___ },
-    { MAP_NUM(ROUTE9) , MAP_NUM(ROUTE8) , MAP_NUM(ROUTE10), ___, ___, ___ },
-    { MAP_NUM(ROUTE10), MAP_NUM(ROUTE9) , MAP_NUM(ROUTE11), ___, ___, ___ },
-    { MAP_NUM(ROUTE11), MAP_NUM(ROUTE10), MAP_NUM(ROUTE12), ___, ___, ___ },
-    { MAP_NUM(ROUTE12), MAP_NUM(ROUTE11), MAP_NUM(ROUTE14), ___, ___, ___ },
-    { MAP_NUM(ROUTE14), MAP_NUM(ROUTE12), MAP_NUM(ROUTE15), ___, ___, ___ },
-    { MAP_NUM(ROUTE15), MAP_NUM(ROUTE14), MAP_NUM(ROUTE16), MAP_NUM(ROUTE23), ___, ___ },
-    { MAP_NUM(ROUTE16), MAP_NUM(ROUTE15), MAP_NUM(ROUTE17), MAP_NUM(ROUTE23), ___, ___ },
-    { MAP_NUM(ROUTE17), MAP_NUM(ROUTE16), MAP_NUM(ROUTE18), ___, ___, ___ },
-    { MAP_NUM(ROUTE18), MAP_NUM(ROUTE17), MAP_NUM(ROUTE19), ___, ___, ___ },
-    { MAP_NUM(ROUTE19), MAP_NUM(ROUTE18), MAP_NUM(ROUTE20), ___, ___, ___ },
-    { MAP_NUM(ROUTE20), MAP_NUM(ROUTE19), MAP_NUM(ROUTE21), MAP_NUM(ROUTE24), ___, ___ },
-    { MAP_NUM(ROUTE21), MAP_NUM(ROUTE20), MAP_NUM(ROUTE22), MAP_NUM(ROUTE24), ___, ___ },
-    { MAP_NUM(ROUTE22), MAP_NUM(ROUTE21), MAP_NUM(ROUTE23), ___, ___, ___ },
-    { MAP_NUM(ROUTE23), MAP_NUM(ROUTE22), MAP_NUM(ROUTE15), MAP_NUM(ROUTE16), ___, ___ },
-    { MAP_NUM(ROUTE24), MAP_NUM(ROUTE20), MAP_NUM(ROUTE21), MAP_NUM(ROUTE25), ___, ___ },
-    { MAP_NUM(ROUTE25), MAP_NUM(ROUTE24), MAP_NUM(ROUTE26), ___, ___, ___ },
-    { MAP_NUM(ROUTE26), MAP_NUM(ROUTE25), MAP_NUM(ROUTE27), ___, ___, ___ },
-    { MAP_NUM(ROUTE27), MAP_NUM(ROUTE26), MAP_NUM(ROUTE28_PART2), MAP_NUM(ROUTE29), ___, ___ },
-    { MAP_NUM(ROUTE28), MAP_NUM(ROUTE28_PART2), MAP_NUM(ROUTE3), MAP_NUM(ROUTE5), ___, ___ },
-    { MAP_NUM(ROUTE28_PART2), MAP_NUM(ROUTE28), MAP_NUM(ROUTE27), MAP_NUM(ROUTE29), ___, ___ },
-    { MAP_NUM(ROUTE29), MAP_NUM(ROUTE28), MAP_NUM(ROUTE27), ___, ___, ___ },
+    { MAP_NUM(MAP_ROUTE3) , MAP_NUM(MAP_ROUTE5) , MAP_NUM(MAP_ROUTE28), ___, ___, ___ },
+    { MAP_NUM(MAP_ROUTE5) , MAP_NUM(MAP_ROUTE6) , MAP_NUM(MAP_ROUTE28), MAP_NUM(MAP_ROUTE3), MAP_NUM(MAP_ROUTE7), ___ },
+    { MAP_NUM(MAP_ROUTE6) , MAP_NUM(MAP_ROUTE5) , MAP_NUM(MAP_ROUTE7) , MAP_NUM(MAP_DESERT), ___, ___ },
+    { MAP_NUM(MAP_DESERT) , MAP_NUM(MAP_ROUTE6) , MAP_NUM(MAP_ROUTE8) , ___, ___, ___ },
+    { MAP_NUM(MAP_ROUTE7) , MAP_NUM(MAP_ROUTE6) , MAP_NUM(MAP_ROUTE5) , MAP_NUM(MAP_ROUTE9), ___, ___ },
+    { MAP_NUM(MAP_ROUTE8) , MAP_NUM(MAP_DESERT) , MAP_NUM(MAP_ROUTE28), ___, ___, ___ },
+    { MAP_NUM(MAP_ROUTE9) , MAP_NUM(MAP_ROUTE8) , MAP_NUM(MAP_ROUTE10), ___, ___, ___ },
+    { MAP_NUM(MAP_ROUTE10), MAP_NUM(MAP_ROUTE9) , MAP_NUM(MAP_ROUTE11), ___, ___, ___ },
+    { MAP_NUM(MAP_ROUTE11), MAP_NUM(MAP_ROUTE10), MAP_NUM(MAP_ROUTE12), ___, ___, ___ },
+    { MAP_NUM(MAP_ROUTE12), MAP_NUM(MAP_ROUTE11), MAP_NUM(MAP_ROUTE14), ___, ___, ___ },
+    { MAP_NUM(MAP_ROUTE14), MAP_NUM(MAP_ROUTE12), MAP_NUM(MAP_ROUTE15), ___, ___, ___ },
+    { MAP_NUM(MAP_ROUTE15), MAP_NUM(MAP_ROUTE14), MAP_NUM(MAP_ROUTE16), MAP_NUM(MAP_ROUTE23), ___, ___ },
+    { MAP_NUM(MAP_ROUTE16), MAP_NUM(MAP_ROUTE15), MAP_NUM(MAP_ROUTE17), MAP_NUM(MAP_ROUTE23), ___, ___ },
+    { MAP_NUM(MAP_ROUTE17), MAP_NUM(MAP_ROUTE16), MAP_NUM(MAP_ROUTE18), ___, ___, ___ },
+    { MAP_NUM(MAP_ROUTE18), MAP_NUM(MAP_ROUTE17), MAP_NUM(MAP_ROUTE19), ___, ___, ___ },
+    { MAP_NUM(MAP_ROUTE19), MAP_NUM(MAP_ROUTE18), MAP_NUM(MAP_ROUTE20), ___, ___, ___ },
+    { MAP_NUM(MAP_ROUTE20), MAP_NUM(MAP_ROUTE19), MAP_NUM(MAP_ROUTE21), MAP_NUM(MAP_ROUTE24), ___, ___ },
+    { MAP_NUM(MAP_ROUTE21), MAP_NUM(MAP_ROUTE20), MAP_NUM(MAP_ROUTE22), MAP_NUM(MAP_ROUTE24), ___, ___ },
+    { MAP_NUM(MAP_ROUTE22), MAP_NUM(MAP_ROUTE21), MAP_NUM(MAP_ROUTE23), ___, ___, ___ },
+    { MAP_NUM(MAP_ROUTE23), MAP_NUM(MAP_ROUTE22), MAP_NUM(MAP_ROUTE15), MAP_NUM(MAP_ROUTE16), ___, ___ },
+    { MAP_NUM(MAP_ROUTE24), MAP_NUM(MAP_ROUTE20), MAP_NUM(MAP_ROUTE21), MAP_NUM(MAP_ROUTE25), ___, ___ },
+    { MAP_NUM(MAP_ROUTE25), MAP_NUM(MAP_ROUTE24), MAP_NUM(MAP_ROUTE26), ___, ___, ___ },
+    { MAP_NUM(MAP_ROUTE26), MAP_NUM(MAP_ROUTE25), MAP_NUM(MAP_ROUTE27), ___, ___, ___ },
+    { MAP_NUM(MAP_ROUTE27), MAP_NUM(MAP_ROUTE26), MAP_NUM(MAP_ROUTE28_PART2), MAP_NUM(MAP_ROUTE29), ___, ___ },
+    { MAP_NUM(MAP_ROUTE28), MAP_NUM(MAP_ROUTE28_PART2), MAP_NUM(MAP_ROUTE3), MAP_NUM(MAP_ROUTE5), ___, ___ },
+    { MAP_NUM(MAP_ROUTE28_PART2), MAP_NUM(MAP_ROUTE28), MAP_NUM(MAP_ROUTE27), MAP_NUM(MAP_ROUTE29), ___, ___ },
+    { MAP_NUM(MAP_ROUTE29), MAP_NUM(MAP_ROUTE28), MAP_NUM(MAP_ROUTE27), ___, ___, ___ },
 };
 
 #undef ___
@@ -226,7 +226,7 @@ void RoamerMove(u32 roamerIndex)
                     mapNum = sRoamerLocations[locSet][(Random() % (NUM_LOCATIONS_PER_SET - 1)) + 1];
                 } while ((sLocationHistory[roamerIndex][2][MAP_GRP] == ROAMER_MAP_GROUP
                         && sLocationHistory[roamerIndex][2][MAP_NUM] == mapNum)
-                        || mapNum == MAP_NUM(UNDEFINED));
+                        || mapNum == MAP_NUM(MAP_UNDEFINED));
                 sRoamerLocation[roamerIndex][MAP_NUM] = mapNum;
                 return;
             }

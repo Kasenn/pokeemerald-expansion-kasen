@@ -278,13 +278,12 @@ BattleScript_ActionLayLow:
     end2
 
 BattleScript_TrainerASlideMsgRet::
-	handletrainerslidemsg BS_SCRIPTING, 0
 	trainerslidein BS_OPPONENT1
-	handletrainerslidemsg BS_SCRIPTING, 1
+	handletrainerslidemsg BS_SCRIPTING, PRINT_SLIDE_MESSAGE
 	waitstate
 	trainerslideout BS_OPPONENT1
 	waitstate
-	handletrainerslidemsg BS_SCRIPTING, 2
+	handletrainerslidemsg BS_SCRIPTING, RESTORE_BATTLER_SLIDE_CONTROL
 	return
 
 BattleScript_TrainerASlideMsgEnd2::
@@ -292,13 +291,12 @@ BattleScript_TrainerASlideMsgEnd2::
 	end2
 
 BattleScript_TrainerBSlideMsgRet::
-	handletrainerslidemsg BS_SCRIPTING, 0
 	trainerslidein BS_OPPONENT2
-	handletrainerslidemsg BS_SCRIPTING, 1
+	handletrainerslidemsg BS_SCRIPTING, PRINT_SLIDE_MESSAGE
 	waitstate
 	trainerslideout BS_OPPONENT2
 	waitstate
-	handletrainerslidemsg BS_SCRIPTING, 2
+	handletrainerslidemsg BS_SCRIPTING, RESTORE_BATTLER_SLIDE_CONTROL
 	return
 
 BattleScript_TrainerBSlideMsgEnd2::
