@@ -142,4 +142,4 @@ const u16 gBerryPalette_Jaboca[] = INCBIN_U16("graphics/berries/jaboca.gbapal");
 const u16 gBerryPalette_Rowap[] = INCBIN_U16("graphics/berries/rowap.gbapal");
 const u16 gBerryPalette_Kee[] = INCBIN_U16("graphics/berries/kee.gbapal");
 const u16 gBerryPalette_Maranga[] = INCBIN_U16("graphics/berries/maranga.gbapal");
-const u32 gBerryPalette_Roste[] = INCBIN_U32("graphics/berries/roste.gbapal.lz");
+const u16 gBerryPalette_Roste[] = INCBIN_U16("graphics/berries/roste.gbapal");

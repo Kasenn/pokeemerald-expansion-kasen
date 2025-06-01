@@ -33,7 +33,6 @@
 #include "string_util.h"
 #include "task.h"
 #include "text.h"
-#include "follow_me.h"
 #include "constants/event_object_movement.h"
 #include "constants/event_objects.h"
 #include "constants/heal_locations.h"
@@ -426,8 +425,6 @@ static void Task_ExitNonAnimDoor(u8 taskId)
         }
         break;
     case 3:
-        FollowMe_SetIndicatorToComeOutDoor();
-        FollowMe_WarpSetEnd();
         UnlockPlayerFieldControls();
         DestroyTask(taskId);
         break;
@@ -752,69 +749,9 @@ void Task_DoDoorWarp(u8 taskId)
         PlaySE(GetDoorSoundEffect(*x, *y - 1));
         if (followerObject)
         {
-        case 0:
-            if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_DASH))
-                SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT); //Stop running
-
-            gSaveBlock2Ptr->follower.comeOutDoorStairs = 0; //Just in case came out and when right back in
-            FreezeObjectEvents();
-            PlayerGetDestCoords(x, y);
-            PlaySE(GetDoorSoundEffect(*x, *y - 1));
-            task->data[1] = FieldAnimateDoorOpen(*x, *y - 1);
-            task->data[0] = 1;
-            break;
-        case 1:
-            if (task->data[1] < 0 || gTasks[task->data[1]].isActive != TRUE)
-            {
-                ObjectEventClearHeldMovementIfActive(&gObjectEvents[playerObjId]);
-                ObjectEventSetHeldMovement(&gObjectEvents[playerObjId], MOVEMENT_ACTION_WALK_NORMAL_UP);
-
-                if (gSaveBlock2Ptr->follower.inProgress && !gObjectEvents[followerObjId].invisible)
-                {
-                    u8 newState = DetermineFollowerState(&gObjectEvents[followerObjId], MOVEMENT_ACTION_WALK_NORMAL_UP,
-                                                        DetermineFollowerDirection(&gObjectEvents[playerObjId], &gObjectEvents[followerObjId]));
-                    ObjectEventClearHeldMovementIfActive(&gObjectEvents[followerObjId]);
-                    ObjectEventSetHeldMovement(&gObjectEvents[followerObjId], newState);
-                }
-
-                task->data[0] = 2;
-            }
-            break;
-        case 2:
-            if (IsPlayerStandingStill())
-            {
-                if (!gSaveBlock2Ptr->follower.inProgress || gObjectEvents[followerObjId].invisible) //Don't close door on follower
-                    task->data[1] = FieldAnimateDoorClose(*x, *y - 1);
-                ObjectEventClearHeldMovementIfFinished(&gObjectEvents[playerObjId]);
-                SetPlayerVisibility(0);
-                task->data[0] = 3;
-            }
-            break;
-        case 3:
-            if (task->data[1] < 0 || gTasks[task->data[1]].isActive != TRUE)
-            {
-                task->data[0] = 4;
-            }
-            break;
-        case 4:
-            if (gSaveBlock2Ptr->follower.inProgress)
-            {
-                ObjectEventClearHeldMovementIfActive(&gObjectEvents[followerObjId]);
-                ObjectEventSetHeldMovement(&gObjectEvents[followerObjId], MOVEMENT_ACTION_WALK_NORMAL_UP);
-            }
-
-            TryFadeOutOldMapMusic();
-            WarpFadeOutScreen();
-            PlayRainStoppingSoundEffect();
-            task->data[0] = 0;
-            task->func = Task_WarpAndLoadMap;
-            break;
-        case 5:
-            TryFadeOutOldMapMusic();
-            PlayRainStoppingSoundEffect();
-            task->data[0] = 0;
-            task->func = Task_WarpAndLoadMap;
-            break;
+            // Put follower into pokeball
+            ClearObjectEventMovement(followerObject, &gSprites[followerObject->spriteId]);
+            ObjectEventSetHeldMovement(followerObject, MOVEMENT_ACTION_ENTER_POKEBALL);
         }
         task->tDoorTask = FieldAnimateDoorOpen(*x, *y - 1);
         task->tState = DOORWARP_START_WALK_UP;

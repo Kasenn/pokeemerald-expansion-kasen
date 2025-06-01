@@ -1739,7 +1739,7 @@ static void OpenContextMenu(u8 taskId)
                 break;
             case KEYITEMS_POCKET:
                 gBagMenu->contextMenuItemsPtr = gBagMenu->contextMenuItemsBuffer;
-                if (ItemId_GetFieldFunc(gSpecialVar_ItemId) == ItemUseOutOfBattle_CannotUse){
+                if (GetItemFieldFunc(gSpecialVar_ItemId) == ItemUseOutOfBattle_CannotUse){
                     gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_Cancel);
                     memcpy(&gBagMenu->contextMenuItemsBuffer, &sContextMenuItems_Cancel, sizeof(sContextMenuItems_Cancel));
                 }
@@ -2066,7 +2066,7 @@ static void ItemMenu_Give(u8 taskId)
         {
             DisplayItemMessage(taskId, FONT_NORMAL, gText_CantWriteMail, HandleErrorMessage);
         }
-        else if (!ItemId_GetImportance(gSpecialVar_ItemId))
+        else if (!GetItemImportance(gSpecialVar_ItemId))
         {
             if (CalculatePlayerPartyCount() == 0)
             {
@@ -3499,8 +3499,8 @@ static s8 CompareItemsAlphabetically(struct ItemSlot* itemSlot1, struct ItemSlot
     else if (item2 == ITEM_NONE)
         return -1;
 
-    name1 = ItemId_GetName(item1);
-    name2 = ItemId_GetName(item2);
+    name1 = GetItemName(item1);
+    name2 = GetItemName(item2);
 
     for (i = 0; ; ++i)
     {

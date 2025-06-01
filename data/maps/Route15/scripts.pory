@@ -48,7 +48,7 @@ script R15_Acerola{
     else{
         msgbox(AcerolaYouMustBeBusy)
         closemessage
-        // checkfollower
+        // checkfollowernpc
         // if(var(VAR_RESULT) == TRUE){
             safefollow
             applymovement(OBJ_EVENT_ID_FOLLOWER, Common_Movement_QuestionMark)

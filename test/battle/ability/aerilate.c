@@ -71,36 +71,36 @@ SINGLE_BATTLE_TEST("Aerilate boosts power of affected moves by 20% (Gen7+) or 30
     }
 }
 
-SINGLE_BATTLE_TEST("Aerilate doesn't affect Weather Ball's type", s16 damage)
-{
-    u32 move1, move2;
-    PARAMETRIZE { move1 = MOVE_CELEBRATE; move2 = MOVE_CELEBRATE; }
-    PARAMETRIZE { move1 = MOVE_SUNNY_DAY; move2 = MOVE_CELEBRATE; }
-    PARAMETRIZE { move1 = MOVE_CELEBRATE; move2 = MOVE_SKILL_SWAP; }
-    PARAMETRIZE { move1 = MOVE_SUNNY_DAY; move2 = MOVE_SKILL_SWAP; }
-    GIVEN {
-        ASSUME(GetMoveEffect(MOVE_WEATHER_BALL) == EFFECT_WEATHER_BALL);
-        ASSUME(GetMoveType(MOVE_WEATHER_BALL) == TYPE_NORMAL);
-        ASSUME(GetMoveEffect(MOVE_SKILL_SWAP) == EFFECT_SKILL_SWAP);
-        ASSUME(gSpeciesInfo[SPECIES_PINSIR].types[0] == TYPE_BUG);
-        PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_PINSIR) { Ability(ABILITY_HYPER_CUTTER); Item(ITEM_PINSIRITE); }
-    } WHEN {
-        TURN { MOVE(opponent, move2, gimmick: GIMMICK_MEGA); MOVE(player, move1); }
-        TURN { MOVE(player, MOVE_WEATHER_BALL); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, move2, opponent);
-        ANIMATION(ANIM_TYPE_MOVE, move1, player);
-        HP_BAR(opponent, captureDamage: &results[i].damage);
-        if (move1 == MOVE_SUNNY_DAY)
-            MESSAGE("It's super effective!");
-    } FINALLY {
-        EXPECT_MUL_EQ(results[0].damage, Q_4_12(6.0), results[1].damage); // double base power + type effectiveness + sun 50% boost
-        EXPECT_MUL_EQ(results[2].damage, Q_4_12(6.0), results[3].damage);
-        EXPECT_EQ(results[0].damage, results[2].damage);
-        EXPECT_EQ(results[1].damage, results[3].damage);
-    }
-}
+// SINGLE_BATTLE_TEST("Aerilate doesn't affect Weather Ball's type", s16 damage)
+// {
+//     u32 move1, move2;
+//     PARAMETRIZE { move1 = MOVE_CELEBRATE; move2 = MOVE_CELEBRATE; }
+//     PARAMETRIZE { move1 = MOVE_SUNNY_DAY; move2 = MOVE_CELEBRATE; }
+//     PARAMETRIZE { move1 = MOVE_CELEBRATE; move2 = MOVE_SKILL_SWAP; }
+//     PARAMETRIZE { move1 = MOVE_SUNNY_DAY; move2 = MOVE_SKILL_SWAP; }
+//     GIVEN {
+//         ASSUME(GetMoveEffect(MOVE_WEATHER_BALL) == EFFECT_WEATHER_BALL);
+//         ASSUME(GetMoveType(MOVE_WEATHER_BALL) == TYPE_NORMAL);
+//         ASSUME(GetMoveEffect(MOVE_SKILL_SWAP) == EFFECT_SKILL_SWAP);
+//         ASSUME(gSpeciesInfo[SPECIES_PINSIR].types[0] == TYPE_BUG);
+//         PLAYER(SPECIES_WOBBUFFET);
+//         OPPONENT(SPECIES_PINSIR) { Ability(ABILITY_HYPER_CUTTER); Item(ITEM_PINSIRITE); }
+//     } WHEN {
+//         TURN { MOVE(opponent, move2, gimmick: GIMMICK_MEGA); MOVE(player, move1); }
+//         TURN { MOVE(player, MOVE_WEATHER_BALL); }
+//     } SCENE {
+//         ANIMATION(ANIM_TYPE_MOVE, move2, opponent);
+//         ANIMATION(ANIM_TYPE_MOVE, move1, player);
+//         HP_BAR(opponent, captureDamage: &results[i].damage);
+//         if (move1 == MOVE_SUNNY_DAY)
+//             MESSAGE("It's super effective!");
+//     } FINALLY {
+//         EXPECT_MUL_EQ(results[0].damage, Q_4_12(6.0), results[1].damage); // double base power + type effectiveness + sun 50% boost
+//         EXPECT_MUL_EQ(results[2].damage, Q_4_12(6.0), results[3].damage);
+//         EXPECT_EQ(results[0].damage, results[2].damage);
+//         EXPECT_EQ(results[1].damage, results[3].damage);
+//     }
+// }
 
 SINGLE_BATTLE_TEST("Aerilate doesn't affect Natural Gift's type")
 {

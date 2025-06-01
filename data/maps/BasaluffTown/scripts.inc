@@ -125,10 +125,10 @@ BasalekTown_OldMan::
 
 BasalekTown_HealTrigger::
 	lock
-	fadescreen FADE_TO_WHITE
+	fadescreenswapbuffers FADE_TO_WHITE
 	special HealPlayerParty
 	setrespawn HEAL_LOCATION_BASALUFF_TOWN
-	fadescreen FADE_FROM_WHITE
+	fadescreenswapbuffers FADE_FROM_WHITE
 	msgbox BasalekTown_HealTrigger_Text
 	setvar VAR_TEMP_0, 1
 	release

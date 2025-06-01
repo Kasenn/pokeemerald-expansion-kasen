@@ -538,7 +538,7 @@ static const struct CompressedSpriteSheet sSpriteSheet_TimeLabel =
     .tag = TIME_LABEL_TAG,
 };
 
-static const struct CompressedSpritePalette sSpritePalette_TimeLabel [2] =
+static const struct SpritePalette sSpritePalette_TimeLabel [2] =
 {
     {
     .data = gTime_PalMale,
@@ -557,9 +557,9 @@ static void AddTimeLabelObject(u16 x, u16 y)
         xToAdd = 2;
     LoadCompressedSpriteSheet(&sSpriteSheet_TimeLabel);
     if(gSaveBlock2Ptr->playerGender == MALE)
-        LoadCompressedSpritePalette(&sSpritePalette_TimeLabel[0]);
+        LoadSpritePalette(&sSpritePalette_TimeLabel[0]);
     else
-        LoadCompressedSpritePalette(&sSpritePalette_TimeLabel[1]);
+        LoadSpritePalette(&sSpritePalette_TimeLabel[1]);
     sTimeLabelSpriteId = CreateSprite(&sSpriteTemplate_TimeLabel, x + xToAdd, y, 0);
     sIsClockOnScreen = TRUE;
 }

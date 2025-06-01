@@ -131,6 +131,156 @@
       "map": "MAP_BATTLE_FRONTIER_OUTSIDE_EAST",
       "x": 3,
       "y": 52
+    },
+    {
+      "id": "HEAL_LOCATION_PEARLWOOD_POINT",
+      "map": "MAP_PEARLWOOD_POINT",
+      "x": 14,
+      "y": 24
+    },
+    {
+      "id": "HEAL_LOCATION_PRIMROSE_TOWN",
+      "map": "MAP_PRIMROSE_TOWN",
+      "x": 11,
+      "y": 21
+    },
+    {
+      "id": "HEAL_LOCATION_CORALGROVE_CITY",
+      "map": "MAP_CORALGROVE_CITY",
+      "x": 26,
+      "y": 45
+    },
+    {
+      "id": "HEAL_LOCATION_PLAYER_HOUSE2F",
+      "map": "MAP_PLAYER_HOUSE2F",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "HEAL_LOCATION_COAST_TOWN",
+      "map": "MAP_COAST_TOWN",
+      "x": 39,
+      "y": 14
+    },
+    {
+      "id": "HEAL_LOCATION_ALDELEAF_CITY",
+      "map": "MAP_WIP_CITY1",
+      "x": 14,
+      "y": 38
+    },
+    {
+      "id": "HEAL_LOCATION_SKYLOCH_VILLAGE",
+      "map": "MAP_TOWN_WIP2",
+      "x": 25,
+      "y": 10
+    },
+    {
+      "id": "HEAL_LOCATION_SHORESLATE_CITY",
+      "map": "MAP_SHORESLATE_CITY",
+      "x": 45,
+      "y": 12
+    },
+    {
+      "id": "HEAL_LOCATION_MARIGORGE_TOWN",
+      "map": "MAP_MARIGORGE_TOWN",
+      "x": 37,
+      "y": 19
+    },
+    {
+      "id": "HEAL_LOCATION_KAOLISLE_CITY",
+      "map": "MAP_KAOLISLE_CITY",
+      "x": 39,
+      "y": 27
+    },
+    {
+      "id": "HEAL_LOCATION_ROCKLIFFE_TOWN",
+      "map": "MAP_ROCKLIFFE_TOWN",
+      "x": 23,
+      "y": 24
+    },
+    {
+      "id": "HEAL_LOCATION_SANDSTONE_CITY",
+      "map": "MAP_SANDSTONE_CITY",
+      "x": 39,
+      "y": 32
+    },
+    {
+      "id": "HEAL_LOCATION_FISHING_VILLAGE",
+      "map": "MAP_FISHING_VILLAGE",
+      "x": 15,
+      "y": 24
+    },
+    {
+      "id": "HEAL_LOCATION_DRISLEDGE_TOWN",
+      "map": "MAP_DRISLEDGE_TOWN",
+      "x": 17,
+      "y": 25
+    },
+    {
+      "id": "HEAL_LOCATION_FISH_VILLAGE_FILLER",
+      "map": "MAP_FISH_VILLAGE_FILLER",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "HEAL_LOCATION_AMBEROCK_TOWN",
+      "map": "MAP_AMBEROCK_TOWN",
+      "x": 61,
+      "y": 30
+    },
+    {
+      "id": "HEAL_LOCATION_BASALUFF_TOWN",
+      "map": "MAP_BASALUFF_TOWN",
+      "x": 20,
+      "y": 16
+    },
+    {
+      "id": "HEAL_LOCATION_EVERFROST_TOWN",
+      "map": "MAP_EVERFROST_TOWN",
+      "x": 11,
+      "y": 9
+    },
+    {
+      "id": "HEAL_LOCATION_FROSTFIRE_CITY",
+      "map": "MAP_FROSTFIRE_CITY",
+      "x": 30,
+      "y": 32
+    },
+    {
+      "id": "HEAL_LOCATION_CRYSTALPINE_TWON",
+      "map": "MAP_CRYSTALPINE_TWON",
+      "x": 16,
+      "y": 10
+    },
+    {
+      "id": "HEAL_LOCATION_ICEPERCH_CITY",
+      "map": "MAP_ICEPERCH_CITY",
+      "x": 24,
+      "y": 21
+    },
+    {
+      "id": "HEAL_LOCATION_SNOWCREST_CITY",
+      "map": "MAP_SNOWCREST_CITY",
+      "x": 34,
+      "y": 49
+    },
+    {
+      "id": "HEAL_LOCATION_GALEWIND_CITY",
+      "map": "MAP_GALEWIND_CITY",
+      "x": 19,
+      "y": 26
+    },
+    {
+      "id": "HEAL_LOCATION_SANDSTONE_CITY_ALT",
+      "map": "MAP_SANDSTONE_CITY_ALT",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "HEAL_LOCATION_SNOWCREST_CITY_PART2",
+      "map": "MAP_SNOWCREST_CITY_PART2",
+      "x": 26,
+      "y": 6
     }
   ]
 }

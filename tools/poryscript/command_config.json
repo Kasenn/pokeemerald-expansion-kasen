@@ -96,7 +96,7 @@
         "msgbox": {
             "var_name": "VAR_RESULT"
         },
-        "checkfollower": {
+        "checkfollowernpc": {
             "var_name": "VAR_RESULT"
         }
     }

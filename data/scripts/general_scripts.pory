@@ -56,12 +56,11 @@ script EventScript_UseRockClimb{
         addvar(VAR_ROCK_CLIMB_USED, 1)
     }
 	msgbox (Text_MonUsedRockClimb, MSGBOX_DEFAULT)
-	call (FollowerIntoPlayerScript)
-    callnative (HideFollower)
+	// call (FollowerIntoPlayerScript)
+    // callnative (HideFollower)
 	applymovement (OBJ_EVENT_ID_FOLLOWER, EnterPokeballMovement)
 	waitmovement (0)
 	dofieldeffect (FLDEFF_USE_ROCK_CLIMB)
-	callnative (FollowMe_WarpSetEnd)
 	goto (EventScript_EndRockClimb)
 }
 

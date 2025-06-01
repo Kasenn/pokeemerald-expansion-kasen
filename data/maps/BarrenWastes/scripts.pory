@@ -66,7 +66,7 @@ script PryceEscortedOut8{
 script PryceEscortedOutMain{
     lock
     delay(30)
-    facefollower
+    facefollowernpc
     delay(10)
     setvar(VAR_0x8004, 10)
     if(checkplayergender == MALE){
@@ -87,32 +87,32 @@ script PryceEscortedOutMain{
     }
     switch(var(VAR_TEMP_2)){
         case 1:
-            applymovement(OBJ_EVENT_ID_FOLLOW_ME, moves(walk_up, walk_right * 9))
+            applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_up, walk_right * 9))
             applymovement(0xFF, moves(delay_16, walk_in_place_up, delay_16, walk_in_place_right))
         case 2:
-            applymovement(OBJ_EVENT_ID_FOLLOW_ME, moves(walk_up, walk_right * 9))
+            applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_up, walk_right * 9))
             applymovement(0xFF, moves(delay_16, walk_in_place_up, delay_16, walk_in_place_right))
         case 3:
-            applymovement(OBJ_EVENT_ID_FOLLOW_ME, moves(walk_down, walk_right * 9))
+            applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_down, walk_right * 9))
             applymovement(0xFF, moves(delay_16, walk_in_place_down, delay_16, walk_in_place_right))
         case 4:
-            applymovement(OBJ_EVENT_ID_FOLLOW_ME, moves(walk_down, walk_right * 9))
+            applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_down, walk_right * 9))
             applymovement(0xFF, moves(delay_16, walk_in_place_down, delay_16, walk_in_place_right))
         case 5:
-            applymovement(OBJ_EVENT_ID_FOLLOW_ME, moves(walk_right, walk_down * 8))
+            applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_right, walk_down * 8))
             applymovement(0xFF, moves(delay_16, walk_in_place_right, delay_16, walk_in_place_down))
         case 6:
-            applymovement(OBJ_EVENT_ID_FOLLOW_ME, moves(walk_right, walk_down * 8))
+            applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_right, walk_down * 8))
             applymovement(0xFF, moves(delay_16, walk_in_place_right, delay_16, walk_in_place_down))
         case 7:
-            applymovement(OBJ_EVENT_ID_FOLLOW_ME, moves(walk_left, walk_down * 8))
+            applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_left, walk_down * 8))
             applymovement(0xFF, moves(delay_16, walk_in_place_left, delay_16, walk_in_place_down))
         case 8:
-            applymovement(OBJ_EVENT_ID_FOLLOW_ME, moves(walk_left, walk_down * 8))
+            applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_left, walk_down * 8))
             applymovement(0xFF, moves(delay_16, walk_in_place_left, delay_16, walk_in_place_down))
     }
-    waitmovement(OBJ_EVENT_ID_FOLLOW_ME)
-    destroyfollower
+    waitmovement(OBJ_EVENT_ID_NPC_FOLLOWER)
+    destroyfollowernpc
     delay(60)
     clearflag(FLAG_ESCORTING_PRYCE)
     clearflag(FLAG_TEMP_1)

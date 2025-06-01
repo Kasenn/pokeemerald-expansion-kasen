@@ -225,7 +225,7 @@ void NewGameInitData(void)
     WipeTrainerNameRecords();
     ResetTrainerHillResults();
     // ResetContestLinkResults();
-    memset(&gSaveBlock2Ptr->follower, 0, sizeof(gSaveBlock2Ptr->follower));
+    memset(&gSaveBlock2Ptr->NPCfollower, 0, sizeof(gSaveBlock2Ptr->NPCfollower));
     gSaveBlock1Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
     SetCurrentDifficultyLevel(DIFFICULTY_NORMAL);
     ResetItemFlags();

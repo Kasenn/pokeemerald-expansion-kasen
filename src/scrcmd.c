@@ -3271,76 +3271,6 @@ bool8 ScrCmd_bpmart(struct ScriptContext *ctx)
     return TRUE;
 }
 
-// follow me script commands
-#include "follow_me.h"
-bool8 ScrCmd_setfollower(struct ScriptContext *ctx)
-{
-    u8 localId = ScriptReadByte(ctx);
-    u16 flags = ScriptReadHalfword(ctx);
-    u8 setScript = ScriptReadByte(ctx);
-    u16 battlePartner = ScriptReadHalfword(ctx);
-
-    gSaveBlock2Ptr->follower.battlePartner = battlePartner;
-    SetUpFollowerSprite(localId, flags, setScript);
-    return FALSE;
-}
-
-bool8 ScrCmd_destroyfollower(struct ScriptContext *ctx)
-{
-    gSaveBlock2Ptr->follower.battlePartner = 0;
-    DestroyFollower();
-    if (OW_FOLLOWERS_ENABLED == TRUE) {
-        UpdateFollowingPokemon();
-    }
-    return FALSE;
-}
-
-bool8 ScrCmd_facefollower(struct ScriptContext *ctx)
-{
-    PlayerFaceFollowerSprite();
-    return FALSE;
-}
-
-bool8 ScrCmd_checkfollower(struct ScriptContext *ctx)
-{
-    CheckPlayerHasFollower();
-    return FALSE;
-}
-
-bool8 ScrCmd_updatefollowingmon(struct ScriptContext *ctx)
-{
-    if (OW_FOLLOWERS_ENABLED == TRUE) {
-        UpdateFollowingPokemon();
-    }
-    return FALSE;
-}
-
-bool8 ScrCmd_ballfollowingmon(struct ScriptContext *ctx)
-{
-    u32 species;
-    bool32 shiny;
-    bool32 female;
-    // u16 species;
-    // bool8 shiny;
-    // u8 form;
-
-    if (OW_POKEMON_OBJECT_EVENTS == FALSE
-     || OW_FOLLOWERS_ENABLED == FALSE
-     || !GetFollowerInfo(&species, &shiny, &female)
-     || SpeciesToGraphicsInfo(species, shiny, female) == NULL
-     || (gMapHeader.mapType == MAP_TYPE_INDOOR && SpeciesToGraphicsInfo(species, shiny, female)->oam->size > ST_OAM_SIZE_2)
-     || FlagGet(FLAG_TEMP_HIDE_FOLLOWER)
-     || gSaveBlock2Ptr->follower.inProgress
-     || !FlagGet(FLAG_SYS_POKEMON_GET))
-    {
-        return FALSE;
-    }
-    else {
-        ReturnFollowingMonToBall();
-    }
-    return FALSE;
-}
-
 bool8 ScrCmd_removeobjectbyflag(struct ScriptContext *ctx)
 {
     u8 i;
@@ -3384,25 +3314,25 @@ void TintWorld(void)
 
 void StorePCLocation(void)
 {
-    if (MAP(OLDALE_TOWN_POKEMON_CENTER_1F))
+    if (MAP(MAP_OLDALE_TOWN_POKEMON_CENTER_1F))
         VarSet(VAR_OBJ_GFX_ID_F, 0);
-    else if (MAP(RUSTBORO_CITY_POKEMON_CENTER_1F))
+    else if (MAP(MAP_RUSTBORO_CITY_POKEMON_CENTER_1F))
         VarSet(VAR_OBJ_GFX_ID_F, 1);
-    else if (MAP(DEWFORD_TOWN_POKEMON_CENTER_1F))
+    else if (MAP(MAP_DEWFORD_TOWN_POKEMON_CENTER_1F))
         VarSet(VAR_OBJ_GFX_ID_F, 2);
-    else if (MAP(ALDELEAF_POKE_CENTER1F))
+    else if (MAP(MAP_ALDELEAF_POKE_CENTER1F))
         VarSet(VAR_OBJ_GFX_ID_F, 3);
-    else if (MAP(SHORESLATE_POKECENTER_1F))
+    else if (MAP(MAP_SHORESLATE_POKECENTER_1F))
         VarSet(VAR_OBJ_GFX_ID_F, 4);
-    else if (MAP(MARIGORGE_POKECENTER_1F))
+    else if (MAP(MAP_MARIGORGE_POKECENTER_1F))
         VarSet(VAR_OBJ_GFX_ID_F, 5);
-    else if (MAP(KAOLISLE_POKECENTER_1F))
+    else if (MAP(MAP_KAOLISLE_POKECENTER_1F))
         VarSet(VAR_OBJ_GFX_ID_F, 6);
-    else if (MAP(ROCKLIFFE_POKECENTER_1F))
+    else if (MAP(MAP_ROCKLIFFE_POKECENTER_1F))
         VarSet(VAR_OBJ_GFX_ID_F, 7);
-    else if (MAP(SANDSTONE_POKECENTER_1F))
+    else if (MAP(MAP_SANDSTONE_POKECENTER_1F))
         VarSet(VAR_OBJ_GFX_ID_F, 8);
-    else if (MAP(DRISLEDGE_POKECENTER_1F))
+    else if (MAP(MAP_DRISLEDGE_POKECENTER_1F))
         VarSet(VAR_OBJ_GFX_ID_F, 9);
 }
 

@@ -7,7 +7,7 @@ AdamantTowerExterior_MapScripts::
 AdamantExteriorSetObject::
 	goto_if_unset FLAG_SHOWED_BADGE, AdamantExteriorSetObject_2
 AdamantExteriorSetObject_1:
-	checkfollower
+	checkfollowernpc
 	compare VAR_RESULT, TRUE
 	goto_if_eq AdamantExteriorSetObject_5
 AdamantExteriorSetObject_4:
@@ -18,7 +18,7 @@ AdamantExteriorSetObject_2:
 	goto AdamantExteriorSetObject_1
 
 AdamantExteriorSetObject_5:
-	destroyfollower
+	destroyfollowernpc
 	clearflag FLAG_OBTAINED_MEGA_RING
 	clearflag FLAG_PARTNER_HEALS
 	setflag FLAG_REUNITE_WITH_RIVAL

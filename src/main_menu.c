@@ -2482,7 +2482,7 @@ static void MainMenu_FormatSavegameText(void)
 
 static void MainMenu_FormatSavegamePlayerLocation(void)
 {
-    if (MAP(SNOWCREST_CITY))
+    if (MAP(MAP_SNOWCREST_CITY))
     {
         StringDecap(gStringVar4, gText_PokemonCenter);
     }

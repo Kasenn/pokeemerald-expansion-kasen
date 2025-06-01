@@ -2551,7 +2551,7 @@ static void CreateWindSprites(void)
     {
         LoadSpriteSheet(&sWindSpriteSheet);
         //gSandstormWeatherPalette
-        if (MAP(WINDPLUME_MOUNTAIN_PEAK))
+        if (MAP(MAP_WINDPLUME_MOUNTAIN_PEAK))
         {
             LoadCustomWeatherSpritePalette(gDarkWindWeatherPalette);
         }

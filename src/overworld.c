@@ -68,7 +68,6 @@
 #include "wild_encounter.h"
 #include "vs_seeker.h"
 #include "frontier_util.h"
-#include "follow_me.h"
 #include "constants/abilities.h"
 #include "constants/event_object_movement.h"
 #include "constants/event_objects.h"
@@ -1189,13 +1188,13 @@ static bool16 IsInfiltratedDevonCorp(struct WarpData *warp)
 {
     if (FlagGet(FLAG_DEVON_UNDER_ATTACK))
         return FALSE;
-    else if (warp->mapGroup != MAP_GROUP(RUSTBORO_CITY_DEVON_CORP_1F))
+    else if (warp->mapGroup != MAP_GROUP(MAP_RUSTBORO_CITY_DEVON_CORP_1F))
         return FALSE;
-    else if (warp->mapNum == MAP_NUM(RUSTBORO_CITY_DEVON_CORP_1F)
-     || warp->mapNum == MAP_NUM(RUSTBORO_CITY_DEVON_CORP_1F)
-     || warp->mapNum == MAP_NUM(RUSTBORO_CITY_DEVON_CORP_2F)
-     || warp->mapNum == MAP_NUM(RUSTBORO_CITY_DEVON_CORP_3F)
-     || warp->mapNum == MAP_NUM(DEVON_CORP_BASEMENT))
+    else if (warp->mapNum == MAP_NUM(MAP_RUSTBORO_CITY_DEVON_CORP_1F)
+     || warp->mapNum == MAP_NUM(MAP_RUSTBORO_CITY_DEVON_CORP_1F)
+     || warp->mapNum == MAP_NUM(MAP_RUSTBORO_CITY_DEVON_CORP_2F)
+     || warp->mapNum == MAP_NUM(MAP_RUSTBORO_CITY_DEVON_CORP_3F)
+     || warp->mapNum == MAP_NUM(MAP_DEVON_CORP_BASEMENT))
         return TRUE;
     else
         return FALSE;
@@ -1205,8 +1204,8 @@ static bool16 IsInfiltratedPokeBallFactory(struct WarpData *warp)
 {
     if (FlagGet(FLAG_DISGUISED_AS_KROKOROK)
     && (
-        (warp->mapGroup == MAP_GROUP(AMBEROCK_TOWN) && warp->mapNum == MAP_NUM(AMBEROCK_TOWN))
-     || (warp->mapGroup == MAP_GROUP(AMBEROCK_TEST) && warp->mapNum == MAP_NUM(AMBEROCK_TEST))
+        (warp->mapGroup == MAP_GROUP(MAP_AMBEROCK_TOWN) && warp->mapNum == MAP_NUM(MAP_AMBEROCK_TOWN))
+     || (warp->mapGroup == MAP_GROUP(MAP_AMBEROCK_TEST) && warp->mapNum == MAP_NUM(MAP_AMBEROCK_TEST))
     ))
         return TRUE;
     else
@@ -1477,7 +1476,7 @@ static void ChooseAmbientCrySpecies(void)
         sIsAmbientCryWaterMon = TRUE;
         sAmbientCrySpecies = GetLocalWaterMon();
     }
-    else if( gSaveBlock1Ptr->location.mapNum == MAP_NUM(CORALGROVE_CITY))
+    else if( gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_CORALGROVE_CITY))
     {
         sAmbientCrySpecies = SPECIES_NONE;
     }
@@ -2070,6 +2069,7 @@ void CB2_ContinueSavedGame(void)
     FieldClearVBlankHBlankCallbacks();
     StopMapMusic();
     ResetSafariZoneFlag_();
+    FlagClear(FLAG_FREE_MART);
     if (gSaveFileStatus == SAVE_STATUS_ERROR)
         ResetWinStreaks();
 
@@ -2541,7 +2541,6 @@ static void InitObjectEventsLocal(void)
     FollowerNPC_HandleSprite();
     UpdateFollowingPokemon();
     TryRunOnWarpIntoMapScript();
-    FollowMe_HandleSprite();
 }
 
 static void InitObjectEventsReturnToField(void)

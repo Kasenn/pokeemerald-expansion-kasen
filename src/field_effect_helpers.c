@@ -67,7 +67,7 @@ void SetUpShadow(struct ObjectEvent *objectEvent)
     FldEff_Shadow();
 }
 
-void SetUpReflection(struct ObjectEvent *objectEvent, struct Sprite *sprite, bool8 stillReflection, bool8 isMirror)
+void SetUpReflection(struct ObjectEvent *objectEvent, struct Sprite *sprite, bool8 stillReflection)
 {
     struct Sprite *reflectionSprite;
     //reflection
@@ -249,7 +249,7 @@ static void UpdateObjectReflectionSprite(struct Sprite *reflectionSprite)
     reflectionSprite->y2 = -mainSprite->y2;
     reflectionSprite->coordOffsetEnabled = mainSprite->coordOffsetEnabled;
     //reflection
-    if(MAP(TEST_ROOM)){
+    if(MAP(MAP_TEST_ROOM)){
         reflectionSprite->oam.affineMode = ST_OAM_AFFINE_OFF;
         reflectionSprite->y2 -= 40;
         reflectionSprite->oam.matrixNum = mainSprite->oam.matrixNum & ST_OAM_HFLIP;
@@ -575,7 +575,7 @@ u32 FldEff_LongGrass(void)
         sprite->sMapNum = gFieldEffectArguments[4]; // Also sLocalId
         sprite->sMapGroup = gFieldEffectArguments[5];
         sprite->sCurrentMap = gFieldEffectArguments[6];
-        if(MAP(ROUTE3))
+        if(MAP(MAP_ROUTE3))
             sprite->oam.paletteNum = LoadFieldEffectPalette(FLDEFF_PAL_TAG_AUTUMN_LONG_GRASS);
 
         if (gFieldEffectArguments[7])
@@ -1581,7 +1581,7 @@ u32 FldEff_SandPile(void)
     struct ObjectEvent *objectEvent = &gObjectEvents[objectEventId];
     u8 pileType;
 
-    if (MAP(TEST_ROOM))
+    if (MAP(MAP_TEST_ROOM))
     {
         pileType = FLDEFFOBJ_SNOW_PILE;
     }
@@ -1645,7 +1645,7 @@ void UpdateSandPileFieldEffect(struct Sprite *sprite)
 
     if (TryGetObjectEventIdByLocalIdAndMap(sprite->sLocalId, sprite->sMapNum, sprite->sMapGroup, &objectEventId) || !gObjectEvents[objectEventId].inSandPile)
     {
-        if (MAP(TEST_ROOM))
+        if (MAP(MAP_TEST_ROOM))
         {
             fieldEffect = FLDEFF_SNOW_PILE;
         }

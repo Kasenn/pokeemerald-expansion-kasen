@@ -4186,7 +4186,7 @@ static void DebugAction_PCBag_Fill_PocketMedicine(u8 taskId)
 
     for (itemId = 1; itemId < ITEMS_COUNT; itemId++)
     {
-        if (ItemId_GetPocket(itemId) == POCKET_MEDICINE && CheckBagHasSpace(itemId, 1))
+        if (GetItemPocket(itemId) == POCKET_MEDICINE && CheckBagHasSpace(itemId, 1))
             AddBagItem(itemId, 1);
     }
 }
@@ -4196,7 +4196,7 @@ static void DebugAction_PCBag_Fill_PocketMegaStone(u8 taskId)
 
     for (itemId = 1; itemId < ITEMS_COUNT; itemId++)
     {
-        if (ItemId_GetPocket(itemId) == POCKET_MEGA_STONES && CheckBagHasSpace(itemId, 1))
+        if (GetItemPocket(itemId) == POCKET_MEGA_STONES && CheckBagHasSpace(itemId, 1))
             AddBagItem(itemId, 1);
     }
 }

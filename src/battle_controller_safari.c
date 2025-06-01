@@ -133,7 +133,7 @@ static const u16 *const sHealthBoxColor[] =
     gBattleInterface_BallStatusBarPal8, //gBattleInterface_BallStatusBarPal8,
 };
 
-static const u32 *const sBattleTextboxColor[] =
+static const u16 *const sBattleTextboxColor[] =
 {
     gBattleTextboxPalette,
     gBattleTextboxPalette2,
@@ -244,7 +244,7 @@ static void HandleInputChooseAction(u32 battler)
                 gSaveBlock2Ptr->battleInterfaceColor++;
             u16 color = gSaveBlock2Ptr->battleInterfaceColor;
             LoadPalette(sHealthBoxColor[color], OBJ_PLTT_ID(4), PLTT_SIZEOF(8));
-            LoadCompressedPalette(sBattleTextboxColor[color], BG_PLTT_ID(0), TILE_SIZE_4BPP);
+            LoadPalette(sBattleTextboxColor[color], BG_PLTT_ID(0), TILE_SIZE_4BPP);
         }
         else if (JOY_NEW(DPAD_LEFT))
         {
@@ -255,7 +255,7 @@ static void HandleInputChooseAction(u32 battler)
                 gSaveBlock2Ptr->battleInterfaceColor--;
             u16 color = gSaveBlock2Ptr->battleInterfaceColor;
             LoadPalette(sHealthBoxColor[color], OBJ_PLTT_ID(4), PLTT_SIZEOF(8));
-            LoadCompressedPalette(sBattleTextboxColor[color], BG_PLTT_ID(0), TILE_SIZE_4BPP);
+            LoadPalette(sBattleTextboxColor[color], BG_PLTT_ID(0), TILE_SIZE_4BPP);
         }
     }
 

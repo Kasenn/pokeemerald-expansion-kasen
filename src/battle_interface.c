@@ -1914,6 +1914,20 @@ static void TryAddPokeballIconToHealthbox(u8 healthboxSpriteId, bool8 noStatus)
         CpuFill32(0, (void *)(OBJ_VRAM0 + (gSprites[healthBarSpriteId].oam.tileNum + 8) * TILE_SIZE_4BPP), 32);
 }
 
+u32 WhichBattleCoords(u32 battlerId) // 0 - singles, 1 - doubles
+{
+    if (GetBattlerPosition(battlerId) == B_POSITION_PLAYER_LEFT
+        && gPlayerPartyCount == 1
+        && !(gBattleTypeFlags & BATTLE_TYPE_MULTI))
+        return 0;
+    else if (GetBattlerPosition(battlerId) == B_POSITION_OPPONENT_LEFT
+             && gEnemyPartyCount == 1
+             && !(gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS))
+        return 0;
+    else
+        return IsDoubleBattle();
+}
+
 static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
 {
     s32 i;
@@ -1978,7 +1992,7 @@ static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
     }
     else
     {
-        if (!WhichBattleCoords(battlerId) && GetBattlerSide(battlerId) == B_SIDE_PLAYER)
+        if (!WhichBattleCoords(battler) && GetBattlerSide(battler) == B_SIDE_PLAYER)
         {
             for (i = 0; i < 3; i++)
             {
@@ -2028,7 +2042,7 @@ static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
 static u8 GetStatusIconForBattlerId(u8 statusElementId, u8 battler)
 {
     u8 ret = statusElementId;
-    u8 isDoubles = WhichBattleCoords(battlerId);
+    u8 isDoubles = WhichBattleCoords(battler);
 
     switch (statusElementId)
     {

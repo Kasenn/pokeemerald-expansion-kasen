@@ -2221,6 +2221,7 @@ static void Cmd_adjustdamage(void)
     u32 battlerDef;
     u32 rand = Random() % 100;
     // u32 affectionScore = GetBattlerAffectionHearts(gBattlerTarget);
+    u32 affectionScore = GetBattlerAffectionHearts(gBattlerTarget);
     u32 moveTarget = GetBattlerMoveTargetType(gBattlerAttacker, gCurrentMove);
     enum BattleMoveEffects moveEffect = GetMoveEffect(gCurrentMove);
     bool32 calcSpreadMoveDamage = IsSpreadMove(moveTarget) && !IsBattleMoveStatus(gCurrentMove);
@@ -10098,7 +10099,7 @@ static void HandleScriptMegaPrimalBurst(u32 caseId, u32 battler, u32 type)
         if (!IsOnPlayerSide(battler))
             SetBattlerShadowSpriteCallback(battler, gBattleMons[battler].species);
         if (type == HANDLE_TYPE_MEGA_EVOLUTION){
-            if (side == B_SIDE_PLAYER)
+            if (IsOnPlayerSide(battler))
                 FlagSet(FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE);
             SetGimmickAsActivated(battler, GIMMICK_MEGA);
         }
@@ -17221,7 +17222,7 @@ void ApplyExperienceMultipliers(s32 *expAmount, u8 expGetterMonId, u8 faintedBat
         *expAmount = 0;
     if (holdEffect == HOLD_EFFECT_LUCKY_EGG)
         *expAmount = (*expAmount * 150) / 100;
-    if (MAP(BASALEK_TUNNELS))
+    if (MAP(MAP_BASALEK_TUNNELS))
         *expAmount = (*expAmount * 110) / 100;
     if (B_UNEVOLVED_EXP_MULTIPLIER >= GEN_6 && IsMonPastEvolutionLevel(&gPlayerParty[expGetterMonId]))
         *expAmount = (*expAmount * 4915) / 4096;

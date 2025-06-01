@@ -39,7 +39,6 @@
 #include "trainer_see.h"
 #include "trainer_hill.h"
 #include "util.h"
-#include "follow_me.h"
 #include "wild_encounter.h"
 #include "constants/event_object_movement.h"
 #include "constants/abilities.h"
@@ -2441,10 +2440,7 @@ void UpdateFollowingPokemon(void)
      || PlayerHasFollowerNPC()
      || FlagGet(FLAG_PARTNER_HEALS)
      )
-    {
-        if (gSaveBlock2Ptr->follower.inProgress && (gMapHeader.mapType == MAP_TYPE_INDOOR && SpeciesToGraphicsInfo(species, shiny, female)->oam->size > ST_OAM_SIZE_2))
-            return;
-            
+    {            
         RemoveFollowingPokemon();
         return;
     }
@@ -3429,7 +3425,7 @@ u8 LoadObjectEventPalette(u16 paletteTag)
     if (i == 0xFF)
         return i;
     u8 palIndex = LoadSpritePaletteIfTagExists(&sObjectEventSpritePalettes[i]);
-    UpdateSpritePaletteWithWeather(palIndex);
+    UpdateSpritePaletteWithWeather(palIndex, TRUE);
     return palIndex;
 }
 
@@ -7740,7 +7736,7 @@ bool8 MovementAction_Jump3Down_Step1(struct ObjectEvent *objectEvent, struct Spr
 {
     if (DoJumpAnim(objectEvent, sprite))
     {
-        objectEvent->hasShadow = FALSE;
+        objectEvent->noShadow = TRUE;
         sprite->sActionFuncId = 2;
         return TRUE;
     }
@@ -7757,7 +7753,7 @@ bool8 MovementAction_Jump3Up_Step1(struct ObjectEvent *objectEvent, struct Sprit
 {
     if (DoJumpAnim(objectEvent, sprite))
     {
-        objectEvent->hasShadow = FALSE;
+        objectEvent->noShadow = TRUE;
         sprite->sActionFuncId = 2;
         return TRUE;
     }
@@ -7774,7 +7770,7 @@ bool8 MovementAction_Jump3Left_Step1(struct ObjectEvent *objectEvent, struct Spr
 {
     if (DoJumpAnim(objectEvent, sprite))
     {
-        objectEvent->hasShadow = FALSE;
+        objectEvent->noShadow = TRUE;
         sprite->sActionFuncId = 2;
         return TRUE;
     }
@@ -7791,7 +7787,7 @@ bool8 MovementAction_Jump3Right_Step1(struct ObjectEvent *objectEvent, struct Sp
 {
     if (DoJumpAnim(objectEvent, sprite))
     {
-        objectEvent->hasShadow = FALSE;
+        objectEvent->noShadow = TRUE;
         sprite->sActionFuncId = 2;
         return TRUE;
     }
@@ -10470,10 +10466,10 @@ void GroundEffect_SpawnOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *
     gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
     gFieldEffectArguments[7] = TRUE; // skip to end of anim
     if (MetatileBehavior_IsTallGrassAutumn(objEvent->currentMetatileBehavior)){
-        if((MAP(SAFARI_ZONE_MOUNTAIN)) || (MAP(DESERT_CLIFFS))){
+        if((MAP(MAP_SAFARI_ZONE_MOUNTAIN)) || (MAP(MAP_DESERT_CLIFFS))){
             FieldEffectStart(FLDEFF_TALL_GRASS_MOUNTAIN);  
         }
-        else if((MAP(ROUTE18)) || (MAP(SNOWY_RIDGE))){
+        else if((MAP(MAP_ROUTE18)) || (MAP(MAP_SNOWY_RIDGE))){
             FieldEffectStart(FLDEFF_TALL_GRASS_SNOW);  
         }
         else{
@@ -10498,10 +10494,10 @@ void GroundEffect_StepOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *s
     // if (objEvent->localId == OBJ_EVENT_ID_PLAYER)
     //     PlaySE(SPECIES_HOOPA);
     if (MetatileBehavior_IsTallGrassAutumn(objEvent->currentMetatileBehavior)){
-        if((MAP(ROUTE18)) || (MAP(SNOWY_RIDGE))){
+        if((MAP(MAP_ROUTE18)) || (MAP(MAP_SNOWY_RIDGE))){
             FieldEffectStart(FLDEFF_TALL_GRASS_SNOW);  
         }
-        else if((MAP(SAFARI_ZONE_MOUNTAIN)) || (MAP(DESERT_CLIFFS))){
+        else if((MAP(MAP_SAFARI_ZONE_MOUNTAIN)) || (MAP(MAP_DESERT_CLIFFS))){
             FieldEffectStart(FLDEFF_TALL_GRASS_MOUNTAIN);  
         }
         else{
@@ -10543,17 +10539,17 @@ void GroundEffect_StepOnLongGrass(struct ObjectEvent *objEvent, struct Sprite *s
 
 void GroundEffect_WaterReflection(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
-    SetUpReflection(objEvent, sprite, FALSE, FALSE);
+    SetUpReflection(objEvent, sprite, FALSE);
 }
 
 void GroundEffect_IceReflection(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
-    SetUpReflection(objEvent, sprite, TRUE, FALSE);
+    SetUpReflection(objEvent, sprite, TRUE);
 }
 
 void GroundEffect_MirrorReflection(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
-    SetUpReflection(objEvent, sprite, TRUE, TRUE);
+    SetUpReflection(objEvent, sprite, TRUE);
 }
 
 void GroundEffect_FlowingWater(struct ObjectEvent *objEvent, struct Sprite *sprite)
@@ -10760,7 +10756,7 @@ void GroundEffect_StepOnPuddle(struct ObjectEvent *objEvent, struct Sprite *spri
 void GroundEffect_SandHeap(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
     u8 fieldEffect;
-    if (MAP(TEST_ROOM))
+    if (MAP(MAP_TEST_ROOM))
     {
         fieldEffect = FLDEFF_SNOW_PILE;
     }
@@ -11916,20 +11912,6 @@ void RunMiniStep(struct Sprite *sprite, u8 speed, u8 currentFrame)
     sNpcStepFuncTables[speed][currentFrame](sprite, sprite->data[3]);
 }
 
-bool8 PlayerIsUnderWaterfall(struct ObjectEvent *objectEvent)
-{
-    s16 x;
-    s16 y;
-
-    x = objectEvent->currentCoords.x;
-    y = objectEvent->currentCoords.y;
-    MoveCoordsInDirection(DIR_NORTH, &x, &y, 0, 1);
-    if (MetatileBehavior_IsWaterfall(MapGridGetMetatileBehaviorAt(x, y)))
-        return TRUE;
-
-    return FALSE;
-}
-
 bool8 MovementAction_EmoteX_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     ObjectEventGetLocalIdAndMap(objectEvent, &gFieldEffectArguments[0], &gFieldEffectArguments[1], &gFieldEffectArguments[2]);
@@ -12358,6 +12340,15 @@ bool8 MovementActionFunc_RunSuperSlowRight_Step0(struct ObjectEvent *objectEvent
 }
 
 bool8 MovementActionFunc_RunSuperSlow_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (UpdateMovementNormal(objectEvent, sprite))
+    {
+        sprite->sActionFuncId = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
 static void InitMovementSurfStill(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction, u8 speed)
 {
     u8 (*functions[ARRAY_COUNT(sDirectionAnimFuncsBySpeed)])(u8);

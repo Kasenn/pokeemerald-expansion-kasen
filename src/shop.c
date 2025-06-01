@@ -1448,7 +1448,7 @@ static void Task_BuyMenu(u8 taskId)
                 else if (MARTBP)
                 { 
                     CopyItemName(itemId, gStringVar1);
-                    if (ItemId_GetImportance(itemId) || !(gSaveBlock2Ptr->frontier.battlePoints >= (sShopData->totalCost * 2)))
+                    if (GetItemImportance(itemId) || !(gSaveBlock2Ptr->frontier.battlePoints >= (sShopData->totalCost * 2)))
                     {
                         ConvertIntToDecimalStringN(gStringVar2, sShopData->totalCost, STR_CONV_MODE_LEFT_ALIGN, 6);
                         StringExpandPlaceholders(gStringVar4, gText_YouWantedVar1ThatllBeVar2_Bp);
@@ -1456,7 +1456,7 @@ static void Task_BuyMenu(u8 taskId)
                         sShopData->totalCost = ItemId_GetBpPrice(tItemId) * tItemCount;
                         BuyMenuDisplayMessage(taskId, gStringVar4, BuyMenuConfirmPurchase);
                     }
-                    else if (ItemId_GetPocket(itemId) == POCKET_TM_HM)
+                    else if (GetItemPocket(itemId) == POCKET_TM_HM)
                     {
                         StringCopy(gStringVar2, GetMoveName(ItemIdToBattleMoveId(itemId)));
                         BuyMenuDisplayMessage(taskId, gText_Var1CertainlyHowMany2, Task_BuyHowManyDialogueInit);

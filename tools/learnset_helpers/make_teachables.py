@@ -35,6 +35,8 @@ import typing
 CONFIG_ENABLED_PAT = re.compile(r"#define P_LEARNSET_HELPER_TEACHABLE\s+(?P<cfg_val>[^ ]*)")
 INCFILE_HAS_TUTOR_PAT = re.compile(r"special ChooseMonForMoveTutor")
 INCFILE_MOVE_PAT = re.compile(r"setvar VAR_0x8005, (MOVE_.*)")
+INCFILE_HAS_HASMOVETUTOR_PAT = re.compile(r"hasMoveTutor")
+MOVE_CONST_PAT = re.compile(r"\b(MOVE_[A-Z0-9_]+)\b")
 TMHM_MACRO_PAT = re.compile(r"F\((\w+)\)")
 UNIVERSAL_MOVES_PAT = re.compile(r"static const u16 sUniversalMoves\[\]\s*=\s*{((.|\n)*?)\n};")
 TEACHABLE_ARRAY_DECL_PAT = re.compile(r"(?P<decl>static const u16 s(?P<name>\w+)TeachableLearnset\[\]) = {[\s\S]*?};")
@@ -54,17 +56,23 @@ def enabled() -> bool:
 
 def extract_repo_tutors() -> typing.Generator[str, None, None]:
     """
-    Yield MOVE constants which are *likely* assigned to a move tutor. This isn't
-    foolproof, but it's suitable.
+    Yield MOVE constants which are *likely* assigned to a move tutor. This includes:
+    - Scripts using 'special ChooseMonForMoveTutor' and setvar with MOVE_*
+    - Scripts using 'hasMoveTutor' with any MOVE_* present
     """
     for inc_fname in chain(glob.glob("./data/scripts/*.inc"), glob.glob("./data/maps/*/scripts.inc")):
         with open(inc_fname, "r") as inc_fp:
             incfile = inc_fp.read()
-            if not INCFILE_HAS_TUTOR_PAT.search(incfile):
-                continue
 
-            for move in INCFILE_MOVE_PAT.finditer(incfile):
-                yield move.group(1)
+            # Extract from ChooseMonForMoveTutor
+            if INCFILE_HAS_TUTOR_PAT.search(incfile):
+                for move in INCFILE_MOVE_PAT.finditer(incfile):
+                    yield move.group(1)
+
+            # Extract from hasMoveTutor
+            if INCFILE_HAS_HASMOVETUTOR_PAT.search(incfile):
+                for move in MOVE_CONST_PAT.finditer(incfile):
+                    yield move.group(1)
 
 
 def extract_repo_tms() -> typing.Generator[str, None, None]:

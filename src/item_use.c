@@ -41,7 +41,6 @@
 #include "task.h"
 #include "text.h"
 #include "vs_seeker.h"
-#include "follow_me.h"
 #include "tm_case.h"
 #include "constants/event_bg.h"
 #include "constants/event_objects.h"
@@ -335,8 +334,8 @@ static void ItemUseOnFieldCB_Bike(u8 taskId)
         else
         {
             SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_GOGOAT);
-            if (gSaveBlock1Ptr->location.mapNum != MAP_NUM(SANDSTONE_GYM_1F)
-            && gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(SANDSTONE_GYM_1F))
+            if (gSaveBlock1Ptr->location.mapNum != MAP_NUM(MAP_SANDSTONE_GYM_1F)
+            && gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(MAP_SANDSTONE_GYM_1F))
             {
                 Overworld_SetSavedMusic(MUS_CYCLING);
                 Overworld_ChangeMusicTo(MUS_CYCLING);
@@ -354,8 +353,8 @@ static void ItemUseOnFieldCB_Bike(u8 taskId)
         else
         {
             SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_BIKE);
-            if (gSaveBlock1Ptr->location.mapNum != MAP_NUM(SANDSTONE_GYM_1F)
-            && gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(SANDSTONE_GYM_1F))
+            if (gSaveBlock1Ptr->location.mapNum != MAP_NUM(MAP_SANDSTONE_GYM_1F)
+            && gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(MAP_SANDSTONE_GYM_1F))
             {
                 Overworld_SetSavedMusic(MUS_CYCLING);
                 Overworld_ChangeMusicTo(MUS_CYCLING);

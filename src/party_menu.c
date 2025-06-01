@@ -67,7 +67,6 @@
 #include "trade.h"
 #include "union_room.h"
 #include "window.h"
-#include "follow_me.h"
 #include "constants/battle.h"
 #include "constants/battle_frontier.h"
 #include "constants/field_effects.h"
@@ -416,7 +415,6 @@ static void DisplayCantUseFlyMessage(void);
 static void Task_FieldMoveExitAreaYesNo(u8);
 static void Task_HandleFieldMoveExitAreaYesNoInput(u8);
 static void Task_FieldMoveWaitForFade(u8);
-static void Task_HideFollowerForTeleport(u8);
 static u16 GetFieldMoveMonSpecies(void);
 static void UpdatePartyMonHPBar(u8, struct Pokemon *);
 static void SpriteCB_UpdatePartyMonIcon(struct Sprite *);
@@ -4424,11 +4422,6 @@ static void FieldCallback_Waterfall(void)
 static bool8 SetUpFieldMove_Waterfall(void)
 {
     s16 x, y;
-    if (!CheckFollowerFlag(FOLLOWER_FLAG_CAN_WATERFALL))
-        return FALSE;
-
-    if (!CheckFollowerFlag(FOLLOWER_FLAG_CAN_WATERFALL))
-        return FALSE;
 
     if (!CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_WATERFALL))
         return FALSE;

@@ -310,14 +310,14 @@ RusturfTunnel_EventScript_Grunt::
 	waitmovement 0
 	removeobject LOCALID_RUSTURF_TUNNEL_GRUNT
 	delay 50
-	addobject LOCALID_RUSTURF_TUNNEL_BRINEY
-	applymovement LOCALID_RUSTURF_TUNNEL_BRINEY, RusturfTunnel_Movement_BrineyApproachPeeko1
+	addobject 0
+	applymovement 0, RusturfTunnel_Movement_BrineyApproachPeeko1
 	waitmovement 0
 	applymovement LOCALID_PLAYER, RusturfTunnel_Movement_PlayerMoveAsideForBriney
-	applymovement LOCALID_RUSTURF_TUNNEL_BRINEY, RusturfTunnel_Movement_BrineyApproachPeeko2
+	applymovement 0, RusturfTunnel_Movement_BrineyApproachPeeko2
 	waitmovement 0
 	msgbox RusturfTunnel_Text_PeekoGladToSeeYouSafe, MSGBOX_DEFAULT
-	applymovement LOCALID_RUSTURF_TUNNEL_BRINEY, Common_Movement_FacePlayer
+	applymovement 0, Common_Movement_FacePlayer
 	waitmovement 0
 	message RusturfTunnel_Text_ThankYouLetsGoHomePeeko
 	waitmessage
@@ -327,10 +327,10 @@ RusturfTunnel_EventScript_Grunt::
 	waitmoncry
 	closemessage
 	applymovement LOCALID_PLAYER, RusturfTunnel_Movement_PlayerWatchBrineyExit
-	applymovement LOCALID_RUSTURF_TUNNEL_BRINEY, RusturfTunnel_Movement_BrineyExit
+	applymovement 0, RusturfTunnel_Movement_BrineyExit
 	applymovement LOCALID_RUSTURF_TUNNEL_PEEKO, RusturfTunnel_Movement_PeekoExit
 	waitmovement 0
-	removeobject LOCALID_RUSTURF_TUNNEL_BRINEY
+	removeobject 0
 	removeobject LOCALID_RUSTURF_TUNNEL_PEEKO
 	clearflag FLAG_DEVON_GOODS_STOLEN
 	setflag FLAG_RECOVERED_DEVON_GOODS

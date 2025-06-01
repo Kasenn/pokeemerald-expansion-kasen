@@ -23,7 +23,6 @@
 #include "strings.h"
 #include "task.h"
 #include "tv.h"
-#include "follow_me.h"
 #include "wild_encounter.h"
 #include "constants/abilities.h"
 #include "constants/event_objects.h"
@@ -2137,7 +2136,7 @@ static bool8 PushBoulder_End(struct Task *task, struct ObjectEvent *player, stru
         ObjectEventClearHeldMovementIfFinished(boulder);
         gPlayerAvatar.preventStep = FALSE;
         UnlockPlayerFieldControls();
-        if (MAP(AMBEROCK_POKEBALL_FACTORY)){
+        if (MAP(MAP_AMBEROCK_POKEBALL_FACTORY)){
             VarSet(VAR_BOULDER_ID, boulder->localId);
                 // u8 metatileBehavior = boulder->currentMetatileBehavior;
 

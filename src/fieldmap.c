@@ -142,7 +142,7 @@ static void InitBackupMapLayoutConnections(struct MapHeader *mapHeader)
         for (i = 0; i < count; i++, connection++)
         {
             struct MapHeader const *cMap = GetMapHeaderFromConnection(connection);
-            if (MAP(TEST_ROOM) && FlagGet(FLAG_SYS_B_DASH))
+            if (MAP(MAP_TEST_ROOM) && FlagGet(FLAG_SYS_B_DASH))
             {
                 DebugPrintfLevel(MGBA_LOG_WARN, "does this happen?");
                 cMap = Overworld_GetMapHeaderByGroupAndId(51, 10);

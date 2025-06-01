@@ -425,7 +425,7 @@ static void InitPlayerPCMenu(u8 taskId)
     windowTemplate.width = GetMaxWidthInSubsetOfMenuTable(sPlayerPCMenuActions, sTopMenuOptionOrder, sTopMenuNumOptions);
     tWindowId = AddWindow(&windowTemplate);
     SetStandardWindowBorderStyle(tWindowId, FALSE);
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PLAYER_HOUSE2F))
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_PLAYER_HOUSE2F))
     {
         PrintMenuActionTextsInUpperLeftCorner(tWindowId, sTopMenuNumOptions, sPlayerPCMenuActions, sTopMenuOptionOrder);
     }
@@ -519,7 +519,7 @@ static void UNUSED PlayerPC_Decoration(u8 taskId)
 
 static void PlayerPC_TurnOff(u8 taskId)
 {
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PLAYER_HOUSE2F))
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_PLAYER_HOUSE2F))
     {
         ItemStorage_EraseMainMenu(taskId);
         ScriptContext_SetupScript(LittlerootTown_BrendansHouse_2F_EventScript_TurnOffPlayerPC);
@@ -538,7 +538,7 @@ static void InitItemStorageMenu(u8 taskId, u8 var)
 
     data = gTasks[taskId].data;
     windowTemplate = sWindowTemplates_MainMenus[WIN_ITEM_STORAGE_MENU];
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PLAYER_HOUSE2F))
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_PLAYER_HOUSE2F))
     {
         windowTemplate.width = GetMaxWidthInMenuTable(sPlayerPCMenuActions, ARRAY_COUNT(sPlayerPCMenuActions));
         tWindowId = AddWindow(&windowTemplate);
@@ -681,7 +681,7 @@ static void ItemStorage_Enter(u8 taskId, bool8 toss)
 static void ItemStorage_Exit(u8 taskId)
 {
     ItemStorage_EraseMainMenu(taskId);
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PLAYER_HOUSE2F)) // Flimsy way to determine if Bedroom PC is in use
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_PLAYER_HOUSE2F)) // Flimsy way to determine if Bedroom PC is in use
     {
         ScriptContext_SetupScript(LittlerootTown_BrendansHouse_2F_EventScript_TurnOffPlayerPC);
         DestroyTask(taskId);

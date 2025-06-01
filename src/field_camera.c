@@ -218,7 +218,7 @@ void DrawDoorMetatileAt(int x, int y, u16 *tiles)
 
     if (offset >= 0)
     {
-        if(MAP(TOWN_WIP2)){
+        if(MAP(MAP_TOWN_WIP2)){
             DrawMetatile(0xFE, tiles, offset);
         }
         else{

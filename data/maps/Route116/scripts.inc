@@ -12,7 +12,7 @@ Route116_OnTransition:
 	end
 
 Route116_EventScript_SetWandasBoyfriendPos::
-	setobjectxyperm LOCALID_ROUTE116_WANDAS_BF, 38, 10
+	setobjectxyperm 0, 38, 10
 	return
 
 Route116_OnLoad:

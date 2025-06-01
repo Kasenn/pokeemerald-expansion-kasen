@@ -659,7 +659,7 @@ static void HandleLongGrassOnHyper(u8 caseId, s16 x, s16 y)
             switch (GetLongGrassCaseAt(newX, y + 3))
             {
             case LONG_GRASS_FIELD:
-                if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE11)){
+                if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE11)){
                     MapGridSetMetatileIdAt(newX, y + 3, METATILE_Mauville_LongGrass_Root);
                 }
                 else{

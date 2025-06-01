@@ -5,6 +5,10 @@
 // DO NOT MODIFY THIS FILE! It is auto-generated from data/maps/map_groups.json
 //
 
+//
+// DO NOT MODIFY THIS FILE! It is auto-generated from data/maps/map_groups.json
+//
+
 // gMapGroup_RoutesAndTowns
 #define MAP_BARREN_WASTES           (0 | (0 << 8))
 #define MAP_PRIMROSE_MEADOW         (1 | (0 << 8))

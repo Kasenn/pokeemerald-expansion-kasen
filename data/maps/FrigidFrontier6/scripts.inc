@@ -16,7 +16,7 @@ FrigidFrontier_Pryce_5:
 	closemessage
 	dismountplayer
 	setflag FLAG_ESCORTING_PRYCE
-	setfollower 2, FOLLOWER_FLAG_CLEAR_ON_WHITE_OUT, FrigidFrontier_PryceYapping
+	setfollowernpc 2, FOLLOWER_NPC_FLAG_CLEAR_ON_WHITE_OUT, FrigidFrontier_PryceYapping
 	release
 	end
 
@@ -30,7 +30,7 @@ FrigidFrontier_Pryce_6:
 
 
 FrigidFrontier_PryceYapping::
-	facefollower
+	facefollowernpc
 	checkplayergender
 	compare VAR_RESULT, MALE
 	goto_if_eq FrigidFrontier_PryceYapping_2
@@ -48,12 +48,12 @@ FrigidFrontier_PryceYapping_2:
 PryceBlockCave::
 	lockall
 	delay 15
-	turnobject OBJ_EVENT_ID_FOLLOW_ME, DIR_NORTH
+	turnobject OBJ_EVENT_ID_NPC_FOLLOWER, DIR_NORTH
 	delay 15
 	msgbox PryceLetsNotGoIn
 	closemessage
 	applymovement 0xFF, Walk1Down
-	applymovement OBJ_EVENT_ID_FOLLOW_ME, PryceBlockCave_Movement_0
+	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, PryceBlockCave_Movement_0
 	waitmovement 0
 	releaseall
 	return

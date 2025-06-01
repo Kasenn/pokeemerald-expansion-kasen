@@ -100,7 +100,7 @@
 #define OW_ENABLE_DNS                   TRUE    // If set to TRUE, the overworld will be tinted depending on time of day.
 
 // Object Event Shadows
-#define OW_OBJECT_VANILLA_SHADOWS      FALSE    // In vanilla shadows in the overworld are only shown when jumping.
+#define OW_OBJECT_VANILLA_SHADOWS      TRUE    // In vanilla shadows in the overworld are only shown when jumping.
 
 #define MAY_OUTFIT_CHANGE       0x881
 #define BRENDAN_OUTFIT_CHANGE   0x882

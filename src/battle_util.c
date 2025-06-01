@@ -3405,7 +3405,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             effect++;
         }
         else if (B_OVERWORLD_FOG >= GEN_8
-              && (MAP(BASALEK_TUNNELS))
+              && (MAP(MAP_BASALEK_TUNNELS))
               && !(gFieldStatuses & STATUS_FIELD_ROCKY_TERRAIN))
         {
             gFieldStatuses = STATUS_FIELD_ROCKY_TERRAIN;
@@ -5720,6 +5720,9 @@ bool32 CanSetNonVolatileStatus(u32 battlerAtk, u32 battlerDef, u32 abilityAtk, u
     const u8 *battleScript = NULL;
     u32 sideBattler = ABILITY_NONE;
     bool32 abilityAffected = FALSE;
+
+    if (abilityAtk == ABILITY_DATA_BREACH && GetBattleMoveType(gCurrentMove) == TYPE_NORMAL)
+        return TRUE;
 
     // Move specific checks
     switch (effect)

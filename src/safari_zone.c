@@ -108,7 +108,7 @@ bool8 SafariZoneTakeStep(void)
         return FALSE;
     }
 
-    if(gSaveBlock1Ptr->location.mapNum != MAP_NUM(SAFARI_ZONE_REST_HOUSE)){
+    if(gSaveBlock1Ptr->location.mapNum != MAP_NUM(MAP_SAFARI_ZONE_REST_HOUSE)){
         DecrementFeederStepCounters();
         sSafariZoneStepCounter--;
     }

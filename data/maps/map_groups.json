@@ -427,9 +427,7 @@
     "NewBirchLab",
     "Town1House1"
   ],
-  "gMapGroup_IndoorOldale": [
-
-  ],
+  "gMapGroup_IndoorOldale": [],
   "gMapGroup_IndoorDewford": [
     "DewfordTown_House1",
     "DewfordTown_Gym",
@@ -613,9 +611,7 @@
     "Route114_FossilManiacsTunnel",
     "Route114_LanettesHouse"
   ],
-  "gMapGroup_IndoorRoute115": [
-
-  ],
+  "gMapGroup_IndoorRoute115": [],
   "gMapGroup_IndoorRoute116": [
     "Route116_TunnelersRestHouse"
   ],

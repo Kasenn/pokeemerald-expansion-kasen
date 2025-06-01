@@ -329,11 +329,6 @@ static void DoBattlePikeWildBattle(void)
 
 static void DoTrainerBattle(void)
 {
-    if (gSaveBlock2Ptr->follower.battlePartner) {
-        SavePlayerParty();
-        gPartnerTrainerId = TRAINER_PARTNER(gSaveBlock2Ptr->follower.battlePartner);
-        FillPartnerParty(gPartnerTrainerId);
-    }
     CreateBattleStartTask(GetTrainerBattleTransition(), 0);
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
     IncrementGameStat(GAME_STAT_TRAINER_BATTLES);
@@ -367,7 +362,7 @@ void BattleSetup_StartScriptedWildBattle(void)
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_EndScriptedWildBattle;
     gBattleTypeFlags = 0;
-    if (MAP(DRISLEDGE_GYM)){
+    if (MAP(MAP_DRISLEDGE_GYM)){
         gBattleTypeFlags = BATTLE_TYPE_GHOST;
     }
     CreateBattleStartTask(GetWildBattleTransition(), 0);
@@ -532,12 +527,6 @@ static void CB2_EndWildBattle(void)
     CpuFill16(0, (void *)(BG_PLTT), BG_PLTT_SIZE);
     ResetOamRange(0, 128);
     
-    if (gSaveBlock2Ptr->follower.battlePartner && F_FLAG_PARTNER_WILD_BATTLES != 0
-     && (FlagGet(F_FLAG_PARTNER_WILD_BATTLES) || F_FLAG_PARTNER_WILD_BATTLES == ALWAYS))
-    {
-        LoadLastThreeMons();
-    }
-
     if (IsNPCFollowerWildBattle())
     {
         RestorePartyAfterFollowerNPCBattle();
@@ -596,14 +585,14 @@ u8 BattleSetup_GetEnvironmentId(void)
         return BATTLE_ENVIRONMENT_SNOW;
 
     if (MetatileBehavior_IsTallGrassAutumn(tileBehavior)
-    && ((MAP(SAFARI_ZONE_MOUNTAIN)) || (MAP(DESERT_CLIFFS))))
+    && ((MAP(MAP_SAFARI_ZONE_MOUNTAIN)) || (MAP(MAP_DESERT_CLIFFS))))
         return BATTLE_ENVIRONMENT_MOUNTAIN;
 
     if (MetatileBehavior_IsTallGrass(tileBehavior))
         return BATTLE_ENVIRONMENT_GRASS;
     if (MetatileBehavior_IsLongGrass(tileBehavior))
     {
-        if(MAP(ROUTE3))
+        if(MAP(MAP_ROUTE3))
             return BATTLE_ENVIRONMENT_LONG_GRASS_AUTUMN;
         else
             return BATTLE_ENVIRONMENT_LONG_GRASS;
@@ -738,7 +727,7 @@ u8 GetWildBattleTransition(void)
     u8 enemyLevel = GetMonData(&gEnemyParty[0], MON_DATA_LEVEL);
     u8 playerLevel = GetSumOfPlayerPartyLevel(1);
 
-    if (MAP(UNDERGROUND_RUINS_5F))
+    if (MAP(MAP_UNDERGROUND_RUINS_5F))
     {
         gQueuedStatBoosts[B_POSITION_OPPONENT_LEFT].stats |= (1 << 0);  // Set Attack bit
         gQueuedStatBoosts[B_POSITION_OPPONENT_LEFT].statChanges[0] = 1; // Set Attack to +1
@@ -1138,11 +1127,6 @@ void SetTrainerFacingDirection(void)
 u8 GetTrainerBattleMode(void)
 {
     return TRAINER_BATTLE_PARAM.mode;
-}
-
-bool8 GetFollowerPartner(void)
-{
-    return gSaveBlock2Ptr->follower.battlePartner;
 }
 
 bool8 GetTrainerFlag(void)

@@ -1174,7 +1174,7 @@ enum TerrainStringID
 // gStartingStatusStringIds
 enum StartingStatusStringID
 {
-    B_MSG_SET_TRICK_ROOM = (B_MSG_TERRAIN_SET_GRASSY + 1),
+    B_MSG_SET_TRICK_ROOM = (B_MSG_TERRAIN_SET_ROCKY + 1),
     B_MSG_SET_MAGIC_ROOM,
     B_MSG_SET_WONDER_ROOM,
     B_MSG_SET_TAILWIND,

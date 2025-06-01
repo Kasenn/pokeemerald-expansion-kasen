@@ -1386,7 +1386,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
                 totalRerolls += 1;
             if (FlagGet(FLAG_INCREASED_SHINY_ODDS))
                 totalRerolls += 4;
-            if (MAP(FLOWER_FIELDS))
+            if (MAP(MAP_FLOWER_FIELDS))
                 totalRerolls += 8;
             if (I_FISHING_CHAIN && gIsFishingEncounter)
                 totalRerolls += CalculateChainFishingShinyRolls();

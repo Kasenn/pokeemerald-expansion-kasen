@@ -107,10 +107,10 @@ SetupRivalPartner_29:
 FollowerStaysBehind::
 	lock
 	playse SE_PIN
-	applymovement OBJ_EVENT_ID_FOLLOW_ME, Common_Movement_ExclamationMark
+	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 48
-	facefollower
+	facefollowernpc
 	delay 15
 	checkplayergender
 	compare VAR_RESULT, MALE

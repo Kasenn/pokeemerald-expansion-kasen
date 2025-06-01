@@ -8326,7 +8326,7 @@ BattleScript_RockyTerrainDamages::
 	datahpupdate BS_ATTACKER
 	tryfaintmon BS_ATTACKER
 	checkteamslost BattleScript_DoTurnDmgEnd
-	return
+	end2
 
 BattleScript_AbilityNoSpecificStatLoss::
 	pause B_WAIT_TIME_SHORT
@@ -10217,7 +10217,7 @@ BattleScript_QuestionForfeitBattle::
 	endselectionscript
 
 BattleScript_ForfeitBattleGaveMoney::
-	getmoneyreward
+	@getmoneyreward
 .if B_WHITEOUT_MONEY >= GEN_4
 	printstring STRINGID_FORFEITBATTLEGAVEMONEY
 .else

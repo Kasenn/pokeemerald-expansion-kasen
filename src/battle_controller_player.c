@@ -121,7 +121,7 @@ static const u16 *const sHealthBoxColor[] =
     gBattleInterface_BallStatusBarPal8, //gBattleInterface_BallStatusBarPal8,
 };
 
-static const u32 *const sBattleTextboxColor[] =
+static const u16 *const sBattleTextboxColor[] =
 {
     gBattleTextboxPalette,
     gBattleTextboxPalette2,
@@ -424,7 +424,7 @@ static void HandleInputChooseAction(u32 battler)
             // FillAroundBattleWindows();    
             // CopyToBgTilemapBuffer(0, gBattleTextboxTilemap, 0, 0);
             // CopyBgTilemapBufferToVram(0);
-            // LoadCompressedPalette(sBattleTextboxColor[color], BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
+            // LoadPalette(sBattleTextboxColor[color], BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
             // LoadBattleMenuWindowGfx();
             // if (B_TERRAIN_BG_CHANGE == TRUE)
             //     DrawTerrainTypeBattleBackground();
@@ -464,7 +464,7 @@ static void HandleInputChooseAction(u32 battler)
                 gSaveBlock2Ptr->battleInterfaceColor++;
             u16 color = gSaveBlock2Ptr->battleInterfaceColor;
             LoadPalette(sHealthBoxColor[color], OBJ_PLTT_ID(4), PLTT_SIZEOF(8));
-            LoadCompressedPalette(sBattleTextboxColor[color], BG_PLTT_ID(0), TILE_SIZE_4BPP);
+            LoadPalette(sBattleTextboxColor[color], BG_PLTT_ID(0), TILE_SIZE_4BPP);
         }
         else if (JOY_NEW(DPAD_LEFT))
         {
@@ -475,7 +475,7 @@ static void HandleInputChooseAction(u32 battler)
                 gSaveBlock2Ptr->battleInterfaceColor--;
             u16 color = gSaveBlock2Ptr->battleInterfaceColor;
             LoadPalette(sHealthBoxColor[color], OBJ_PLTT_ID(4), PLTT_SIZEOF(8));
-            LoadCompressedPalette(sBattleTextboxColor[color], BG_PLTT_ID(0), TILE_SIZE_4BPP);
+            LoadPalette(sBattleTextboxColor[color], BG_PLTT_ID(0), TILE_SIZE_4BPP);
         }
     }
 
@@ -2606,6 +2606,7 @@ enum
 
 static bool32 ShouldShowTypeEffectiveness(u32 targetId)
 {
+    return FALSE;
     if (B_SHOW_EFFECTIVENESS == SHOW_EFFECTIVENESS_CAUGHT)
         return GetSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[targetId].species), FLAG_GET_CAUGHT);
 
@@ -2655,6 +2656,7 @@ static u32 CheckTargetTypeEffectiveness(u32 battler)
 
 static void MoveSelectionDisplayMoveEffectiveness(u32 foeEffectiveness, u32 battler)
 {
+    return;
     static const u8 noIcon[] =  _("");
     static const u8 effectiveIcon[] =  _("{CIRCLE_HOLLOW}");
     static const u8 superEffectiveIcon[] =  _("{CIRCLE_DOT}");

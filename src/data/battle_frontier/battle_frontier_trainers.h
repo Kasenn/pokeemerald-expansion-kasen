@@ -197,7 +197,7 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
         .trainerName = _("Kipp"),
         .speechBefore = COMPOUND_STRING("If I win I am going to go surf."),
         .speechWin    = COMPOUND_STRING("Yeah! I am off to surf!"),
-        .speechLose   = COMPOUND_STRING("Oh no! a whirlpool!"),
+        .speechLose   = COMPOUND_STRING("Oh no! A whirlpool!"),
         .monSet = (const u16[]){FRONTIER_MONS_TUBER_1}
     },
     [FRONTIER_TRAINER_JASON] = {

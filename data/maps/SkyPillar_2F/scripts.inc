@@ -10,7 +10,7 @@ SkyPillar_2F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 
 
 SetRivalTowerLoc::
-	checkfollower
+	checkfollowernpc
 	compare VAR_RESULT, FALSE
 	goto_if_eq SetRivalTowerLoc_1
 	return
@@ -335,14 +335,14 @@ TestFollower::
 	faceplayer
 	msgbox TestFollower_Text_0
 	closemessage
-	setfollower 6, FOLLOWER_FLAG_ALL, MakeNewTeam
+	setfollowernpc 6, FOLLOWER_NPC_FLAG_ALL, MakeNewTeam
 	release
 	end
 
 
 MakeNewTeam::
 	lock
-	facefollower
+	facefollowernpc
 	switch VAR_FIRST_MON
 	case 0, MakeNewTeam_3
 	case 1, MakeNewTeam_4
@@ -549,7 +549,7 @@ UnitedWithRival_1:
 	setvar VAR_TEMP_0, 0
 	setflag FLAG_PARTNER_HEALS
 	special HealPlayerParty
-	setfollower 6, FOLLOWER_FLAG_ALL, MakeNewTeam
+	setfollowernpc 6, FOLLOWER_NPC_FLAG_ALL, MakeNewTeam
 	release
 	end
 
@@ -579,7 +579,7 @@ MeetingRivalInTheTower_1:
 	setvar VAR_TEMP_3, 1
 	setflag FLAG_PARTNER_HEALS
 	special HealPlayerParty
-	setfollower 6, FOLLOWER_FLAG_ALL, MakeNewTeam
+	setfollowernpc 6, FOLLOWER_NPC_FLAG_ALL, MakeNewTeam
 	msgbox InitialPartnerSetup
 	goto BeginPartnerSetup
 	return

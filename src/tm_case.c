@@ -449,9 +449,9 @@ static bool8 HandleLoadTMCaseGraphicsAndPalettes(void)
         break;
     case 3:
         if (gSaveBlock2Ptr->playerGender == MALE)
-            LoadCompressedPalette(gTMCaseMenu_Male_Pal, 0, 0x80);
+            LoadPalette(gTMCaseMenu_Male_Pal, 0, 0x80);
         else
-            LoadCompressedPalette(gTMCaseMenu_Female_Pal, 0, 0x80);
+            LoadPalette(gTMCaseMenu_Female_Pal, 0, 0x80);
         sTMCaseDynamicResources->seqId++;
         break;
     case 4:
@@ -551,7 +551,7 @@ static void TMCase_ItemPrintFunc(u8 windowId, u32 itemId, u8 y)
 {
     if (itemId != -2)
     {
-        if (!ItemId_GetImportance(BagGetItemIdByPocketPosition(POCKET_TM_HM, itemId)))
+        if (!GetItemImportance(BagGetItemIdByPocketPosition(POCKET_TM_HM, itemId)))
         {
             // ConvertIntToDecimalStringN(gStringVar1, BagGetQuantityByPocketPosition(POCKET_TM_HM, itemId), STR_CONV_MODE_RIGHT_ALIGN, 3);
             // StringExpandPlaceholders(gStringVar4, gText_xVar1);
@@ -572,7 +572,7 @@ static void TMCase_MoveCursor_UpdatePrintedDescription(s32 itemIndex)
     u16 itemId = BagGetItemIdByPocketPosition(POCKET_TM_HM, itemIndex);
     if (itemIndex != -2)
     {
-        str = ItemId_GetDescription(itemId);
+        str = GetItemDescription(itemId);
     }
     else
     {
@@ -921,7 +921,7 @@ static void Task_SelectTMAction_Type3(u8 taskId)
 {
     s16 * data = gTasks[taskId].data;
 
-    if (!ItemId_GetImportance(BagGetItemIdByPocketPosition(POCKET_TM_HM, data[1])))
+    if (!GetItemImportance(BagGetItemIdByPocketPosition(POCKET_TM_HM, data[1])))
     {
         sTMCaseDynamicResources->savedCallback = CB2_ReturnToPokeStorage;
         Task_BeginFadeOutFromTMCase(taskId);

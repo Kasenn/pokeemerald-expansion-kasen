@@ -74,6 +74,8 @@ enum FirstEventBlock
     FIRST_EVENT_BLOCK_SEA_OF_FIRE_DAMAGE,
     FIRST_EVENT_BLOCK_THRASH, // Thrash isn't handled here in vanilla but for now it is that best place for it.
     FIRST_EVENT_BLOCK_GRASSY_TERRAIN_HEAL,
+    FIRST_EVENT_BLOCK_ROCKY_TERRAIN_DAMAGE,
+    FIRST_EVENT_BLOCK_MEGA_EXHAUSTION,
     FIRST_EVENT_BLOCK_ABILITIES,
     FIRST_EVENT_BLOCK_HEAL_ITEMS,
 };
@@ -495,6 +497,59 @@ static bool32 HandleEndTurnFirstEventBlock(u32 battler)
             gBattlerAttacker = battler;
             gBattleStruct->moveDamage[battler] = -(GetNonDynamaxMaxHP(battler) / 16);
             BattleScriptExecute(BattleScript_GrassyTerrainHeals);
+            effect = TRUE;
+        }
+        gBattleStruct->eventBlockCounter++;
+        break;
+    case FIRST_EVENT_BLOCK_ROCKY_TERRAIN_DAMAGE:
+        if ((gFieldStatuses & STATUS_FIELD_ROCKY_TERRAIN)
+        && IsBattlerAlive(battler)
+        && IsBattlerGrounded(battler)
+        && !(IS_BATTLER_OF_TYPE(battler, TYPE_ROCK)
+          || IS_BATTLER_OF_TYPE(battler, TYPE_GROUND)
+          || IS_BATTLER_OF_TYPE(battler, TYPE_STEEL)))
+        {
+            gBattlerAttacker = battler;
+            gBattleStruct->moveDamage[battler] = GetStealthHazardDamage(gMovesInfo[MOVE_STEALTH_ROCK].type, battler);
+            if (gBattleStruct->moveDamage[battler] > (GetNonDynamaxMaxHP(battler) / 6))
+            {
+                gBattleStruct->moveDamage[battler] = (GetNonDynamaxMaxHP(battler) / 6);
+            }
+            if (gBattleStruct->moveDamage[battler] == 0)
+            gBattleStruct->moveDamage[battler] = 1;
+
+            BattleScriptExecute(BattleScript_RockyTerrainDamages);
+            effect = TRUE;
+        }
+        gBattleStruct->eventBlockCounter++;
+        break;
+    case FIRST_EVENT_BLOCK_MEGA_EXHAUSTION:
+        if (IsBattlerMegaEvolved(battler) && IsBattlerAlive(battler))
+        {
+            gBattlerTarget = battler;
+
+            struct DamageCalculationData damageCalcData;
+            damageCalcData.battlerAtk = damageCalcData.battlerDef = gBattlerAttacker;
+            damageCalcData.move = MOVE_NONE;
+            damageCalcData.moveType = TYPE_MYSTERY;
+            damageCalcData.isCrit = FALSE;
+            damageCalcData.randomFactor = FALSE;
+            damageCalcData.updateFlags = TRUE;
+            u16 physAttack = CalculateMoveDamage(&damageCalcData, 40);
+            damageCalcData.move = MOVE_NONE_SPECIAL;
+            u16 speAttack = CalculateMoveDamage(&damageCalcData, 40);
+
+            if (speAttack > physAttack)
+                gBattleStruct->moveDamage[battler] = speAttack;
+            else
+                gBattleStruct->moveDamage[battler] = physAttack;
+
+            if (gBattleStruct->moveDamage[battler] > gBattleMons[gBattlerTarget].maxHP / 5)
+                gBattleStruct->moveDamage[battler] = gBattleMons[gBattlerTarget].maxHP / 5;
+
+            if (gBattleStruct->moveDamage[battler] == 0)
+                gBattleStruct->moveDamage[battler] = 1;
+            BattleScriptExecute(BattleScript_MegaExhaustion);
             effect = TRUE;
         }
         gBattleStruct->eventBlockCounter++;
@@ -1341,6 +1396,8 @@ static bool32 HandleEndTurnTerrain(u32 battler)
         effect = EndTurnTerrain(STATUS_FIELD_GRASSY_TERRAIN, B_MSG_TERRAIN_END_GRASSY);
     else if (gFieldStatuses & STATUS_FIELD_PSYCHIC_TERRAIN)
         effect = EndTurnTerrain(STATUS_FIELD_PSYCHIC_TERRAIN, B_MSG_TERRAIN_END_PSYCHIC);
+    else if (gFieldStatuses & STATUS_FIELD_ROCKY_TERRAIN)
+        effect = EndTurnTerrain(STATUS_FIELD_ROCKY_TERRAIN, B_MSG_TERRAIN_END_ROCKY);
 
     return effect;
 }

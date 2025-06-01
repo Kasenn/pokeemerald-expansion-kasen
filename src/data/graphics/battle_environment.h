@@ -58,11 +58,11 @@ const u16 gBattleEnvironmentPalette_StadiumWallace[] = INCBIN_U16("graphics/batt
 const u16 gBattleEnvironmentPalette_Rayquaza[] = INCBIN_U16("graphics/battle_environment/sky/palette.gbapal");
 
 const u32 gBattleTerrainTiles_LongGrassAutumn[] = INCBIN_U32("graphics/battle_terrain/long_grass/tiles_autumn.4bpp.lz");
-const u32 gBattleTerrainPalette_Snow[] = INCBIN_U32("graphics/battle_terrain/sand/palette_snow.gbapal.lz");
-const u32 gBattleTerrainPalette_Mud[] = INCBIN_U32("graphics/battle_terrain/rock/palette2.gbapal.lz");
+const u16 gBattleTerrainPalette_Snow[] = INCBIN_U16("graphics/battle_terrain/sand/palette_snow.gbapal");
+const u16 gBattleTerrainPalette_Mud[] = INCBIN_U16("graphics/battle_terrain/rock/palette2.gbapal");
 const u32 gBattleTerrainTiles_Mud[] = INCBIN_U32("graphics/battle_terrain/rock/tiles.4bpp.lz");
 const u32 gBattleTerrainTilemap_Mud[] = INCBIN_U32("graphics/battle_terrain/rock/map.bin.lz");
-const u32 gBattlePalette_LongGrassAutumn[] = INCBIN_U32("graphics/battle_terrain/long_grass/palette_autumn.gbapal.lz");
+const u16 gBattlePalette_LongGrassAutumn[] = INCBIN_U16("graphics/battle_terrain/long_grass/palette_autumn.gbapal");
 
 
 const u32 gBattleEnvironmentAnimTiles_TallGrass[] = INCBIN_U32("graphics/battle_environment/tall_grass/anim_tiles.4bpp.lz");

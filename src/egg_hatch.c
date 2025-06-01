@@ -488,7 +488,7 @@ static void Task_EggHatch(u8 taskId)
     }
 }
 
-static const u32 *const sBattleTextboxColor[] =
+static const u16 *const sBattleTextboxColor[] =
 {
     gBattleTextboxPalette,
     gBattleTextboxPalette2,

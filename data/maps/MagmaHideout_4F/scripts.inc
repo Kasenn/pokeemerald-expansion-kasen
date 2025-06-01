@@ -64,7 +64,7 @@ MagmaHideout_4F_EventScript_Maxie::
 	setvar VAR_SLATEPORT_HARBOR_STATE, 1
 	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_MAGMA_HIDEOUT_4F_MAXIE
-	removeobject LOCALID_MAGMA_HIDEOUT_4F_GRUNT_1
+	removeobject 0
 	removeobject LOCALID_MAGMA_HIDEOUT_4F_GRUNT_2
 	removeobject LOCALID_MAGMA_HIDEOUT_4F_GRUNT_3
 	removeobject LOCALID_MAGMA_HIDEOUT_4F_TABITHA

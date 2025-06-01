@@ -27,7 +27,6 @@
 #include "event_data.h"
 #include "evolution_scene.h"
 #include "event_scripts.h"
-#include "follow_me.h"
 #include "field_weather.h"
 #include "follower_npc.h"
 #include "graphics.h"
@@ -1446,8 +1445,8 @@ static void CB2_PreInitIngamePlayerPartnerBattle(void)
         *savedCallback = gMain.savedCallback;
         *savedBattleTypeFlags = gBattleTypeFlags;
         gMain.savedCallback = CB2_PreInitIngamePlayerPartnerBattle;
-        if (!PlayerHasFollowerNPC() || !FollowerNPCIsBattlePartner() || (FNPC_NPC_FOLLOWER_PARTY_PREVIEW && FollowerNPCIsBattlePartner()))
-            ShowPartyMenuToShowcaseMultiBattleParty();
+        // if (!PlayerHasFollowerNPC() || !FollowerNPCIsBattlePartner() || (FNPC_NPC_FOLLOWER_PARTY_PREVIEW && FollowerNPCIsBattlePartner()))
+        //     ShowPartyMenuToShowcaseMultiBattleParty();
 
         break;
     case 1:
@@ -5839,12 +5838,6 @@ static void ReturnFromBattleToOverworld(void)
 
     m4aSongNumStop(SE_LOW_HEALTH);
     SetMainCallback2(gMain.savedCallback);
-
-    // if you experience the follower de-syncing with the player after battle, set POST_BATTLE_FOLLOWER_FIX to TRUE in include/constants/global.h
-    #if POST_BATTLE_FOLLOWER_FIX
-        FollowMe_WarpSetEnd();
-        gObjectEvents[GetFollowerObjectId()].invisible = TRUE;
-    #endif
 }
 
 void RunBattleScriptCommands_PopCallbacksStack(void)

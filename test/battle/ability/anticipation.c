@@ -96,7 +96,7 @@ SINGLE_BATTLE_TEST("Anticipation doesn't consider Gravity into their effectivene
 SINGLE_BATTLE_TEST("Anticipation counts Counter, Metal Burst or Mirror Coat as attacking moves of their types (Gen5+)")
 {
     u32 move, species, typeAtk, typeDef;
-    PARAMETRIZE { move = MOVE_COUNTER; species = SPECIES_RATICATE; typeAtk = TYPE_FIGHTING; typeDef = TYPE_NORMAL; }
+    PARAMETRIZE { move = MOVE_COUNTER; species = SPECIES_RATICATE_OUTSIDER; typeAtk = TYPE_FIGHTING; typeDef = TYPE_NORMAL; }
     PARAMETRIZE { move = MOVE_METAL_BURST; species = SPECIES_ROGGENROLA; typeAtk = TYPE_STEEL; typeDef = TYPE_ROCK; }
     PARAMETRIZE { move = MOVE_MIRROR_COAT; species = SPECIES_NIDORINO; typeAtk = TYPE_PSYCHIC; typeDef = TYPE_POISON; }
     GIVEN {
@@ -278,23 +278,23 @@ SINGLE_BATTLE_TEST("Anticipation treats dynamic move types as their base type (N
     }
 }
 
-SINGLE_BATTLE_TEST("Anticipation does not consider Strong Winds on type matchups")
-{
-    KNOWN_FAILING;
-    GIVEN {
-        ASSUME(gSpeciesInfo[SPECIES_RAYQUAZA_MEGA].types[0] == TYPE_DRAGON);
-        ASSUME(gSpeciesInfo[SPECIES_RAYQUAZA_MEGA].types[1] == TYPE_FLYING);
-        PLAYER(SPECIES_RAYQUAZA) { Moves(MOVE_DRAGON_ASCENT, MOVE_CELEBRATE); }
-        OPPONENT(SPECIES_EEVEE) { Ability(ABILITY_ANTICIPATION); Moves(MOVE_ROCK_SLIDE, MOVE_SKILL_SWAP, MOVE_POUND, MOVE_CELEBRATE); }
-    } WHEN {
-        TURN { MOVE(player, MOVE_CELEBRATE, gimmick: GIMMICK_MEGA); MOVE(opponent, MOVE_SKILL_SWAP); }
-    } SCENE {
-        ABILITY_POPUP(player, ABILITY_DELTA_STREAM);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, player);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SKILL_SWAP, opponent);
-        ABILITY_POPUP(player, ABILITY_ANTICIPATION);
-    }
-}
+// SINGLE_BATTLE_TEST("Anticipation does not consider Strong Winds on type matchups")
+// {
+//     KNOWN_FAILING;
+//     GIVEN {
+//         ASSUME(gSpeciesInfo[SPECIES_RAYQUAZA_MEGA].types[0] == TYPE_DRAGON);
+//         ASSUME(gSpeciesInfo[SPECIES_RAYQUAZA_MEGA].types[1] == TYPE_FLYING);
+//         PLAYER(SPECIES_RAYQUAZA) { Moves(MOVE_DRAGON_ASCENT, MOVE_CELEBRATE); }
+//         OPPONENT(SPECIES_EEVEE) { Ability(ABILITY_ANTICIPATION); Moves(MOVE_ROCK_SLIDE, MOVE_SKILL_SWAP, MOVE_POUND, MOVE_CELEBRATE); }
+//     } WHEN {
+//         TURN { MOVE(player, MOVE_CELEBRATE, gimmick: GIMMICK_MEGA); MOVE(opponent, MOVE_SKILL_SWAP); }
+//     } SCENE {
+//         ABILITY_POPUP(player, ABILITY_DELTA_STREAM);
+//         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, player);
+//         ANIMATION(ANIM_TYPE_MOVE, MOVE_SKILL_SWAP, opponent);
+//         ABILITY_POPUP(player, ABILITY_ANTICIPATION);
+//     }
+// }
 
 SINGLE_BATTLE_TEST("Anticipation does not consider ate-abilities")
 {

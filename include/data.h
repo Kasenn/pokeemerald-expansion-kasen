@@ -101,8 +101,7 @@ struct Trainer
     /*0x11*/ u8 encounterMusic_gender; // last bit is gender
     /*0x12*/ u8 trainerPic;
     /*0x13*/ u8 trainerName[TRAINER_NAME_LENGTH + 1];
-    /*0x1E*/ bool8 doubleBattle:1;
-             bool8 isRival:1;
+    /*0x1E*/ u8 battleType:2;
              u8 startingStatus:6;    // this trainer starts a battle with a given status. see include/constants/battle.h for values
     /*0x1F*/ u8 mugshotColor;
     /*0x20*/ u8 partySize;
@@ -112,8 +111,8 @@ struct Trainer
     /*0x24*/ u8 poolPruneIndex;
              bool8 isGymTrainer:1;
              bool8 extendedBpCap:1;
-             u8 battleType:2;
-             bool8 padding:4;
+             bool8 isRival:1;
+             bool8 padding:5;
 };
 
 struct TrainerClass
@@ -230,7 +229,7 @@ static inline const u8 GetTrainerClassFromId(u16 trainerId)
 
     if (gTrainers[difficulty][sanitizedTrainerId].isGymTrainer)
     {
-        if (gTrainers[difficulty][sanitizedTrainerId].doubleBattle)
+        if (gTrainers[difficulty][sanitizedTrainerId].battleType == TRAINER_BATTLE_TYPE_DOUBLES)
             return TRAINER_CLASS_GYMMEMBER_DOUBLE;
         else
             return TRAINER_CLASS_GYMMEMBER;

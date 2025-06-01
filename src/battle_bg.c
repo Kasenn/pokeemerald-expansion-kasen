@@ -884,7 +884,7 @@ void DrawMainBattleBackground(void)
     }
 }
 
-static const u32 *const sBattleTextboxColor[] =
+static const u16 *const sBattleTextboxColor[] =
 {
     gBattleTextboxPalette,
     gBattleTextboxPalette2,

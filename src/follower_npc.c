@@ -72,46 +72,46 @@ void SetFollowerNPCData(enum FollowerNPCDataTypes type, u32 value)
     switch (type)
     {
     case FNPC_DATA_IN_PROGRESS:
-        gSaveBlock3Ptr->NPCfollower.inProgress = value;
+        gSaveBlock2Ptr->NPCfollower.inProgress = value;
         break;
     case FNPC_DATA_WARP_END:
-        gSaveBlock3Ptr->NPCfollower.warpEnd = value;
+        gSaveBlock2Ptr->NPCfollower.warpEnd = value;
         break;
     case FNPC_DATA_SURF_BLOB:
-        gSaveBlock3Ptr->NPCfollower.createSurfBlob = value;
+        gSaveBlock2Ptr->NPCfollower.createSurfBlob = value;
         break;
     case FNPC_DATA_COME_OUT_DOOR:
-        gSaveBlock3Ptr->NPCfollower.comeOutDoorStairs = value;
+        gSaveBlock2Ptr->NPCfollower.comeOutDoorStairs = value;
         break;
     case FNPC_DATA_OBJ_ID:
-        gSaveBlock3Ptr->NPCfollower.objId = value;
+        gSaveBlock2Ptr->NPCfollower.objId = value;
         break;
     case FNPC_DATA_CURRENT_SPRITE:
-        gSaveBlock3Ptr->NPCfollower.currentSprite = value;
+        gSaveBlock2Ptr->NPCfollower.currentSprite = value;
         break;
     case FNPC_DATA_DELAYED_STATE:
-        gSaveBlock3Ptr->NPCfollower.delayedState = value;
+        gSaveBlock2Ptr->NPCfollower.delayedState = value;
         break;
     case FNPC_DATA_MAP_ID:
-        gSaveBlock3Ptr->NPCfollower.map.id = value;
+        gSaveBlock2Ptr->NPCfollower.map.id = value;
         break;
     case FNPC_DATA_MAP_NUM:
-        gSaveBlock3Ptr->NPCfollower.map.number = value;
+        gSaveBlock2Ptr->NPCfollower.map.number = value;
         break;
     case FNPC_DATA_MAP_GROUP:
-        gSaveBlock3Ptr->NPCfollower.map.group = value;
+        gSaveBlock2Ptr->NPCfollower.map.group = value;
         break;
     case FNPC_DATA_EVENT_FLAG:
-        gSaveBlock3Ptr->NPCfollower.flag = value;
+        gSaveBlock2Ptr->NPCfollower.flag = value;
         break;
     case FNPC_DATA_GFX_ID:
-        gSaveBlock3Ptr->NPCfollower.graphicsId = value;
+        gSaveBlock2Ptr->NPCfollower.graphicsId = value;
         break;
     case FNPC_DATA_FOLLOWER_FLAGS:
-        gSaveBlock3Ptr->NPCfollower.flags = value;
+        gSaveBlock2Ptr->NPCfollower.flags = value;
         break;
     case FNPC_DATA_BATTLE_PARTNER:
-        gSaveBlock3Ptr->NPCfollower.battlePartner = value;
+        gSaveBlock2Ptr->NPCfollower.battlePartner = value;
         break;
     }
 #endif
@@ -120,15 +120,15 @@ void SetFollowerNPCData(enum FollowerNPCDataTypes type, u32 value)
 static void SetFollowerNPCScriptPointer(const u8 *script)
 {
 #if FNPC_ENABLE_NPC_FOLLOWERS
-    gSaveBlock3Ptr->NPCfollower.script = script;
+    gSaveBlock2Ptr->NPCfollower.script = script;
 #endif
 }
 
 static void PlayerLogCoordinates(struct ObjectEvent *player)
 {
 #if FNPC_ENABLE_NPC_FOLLOWERS
-    gSaveBlock3Ptr->NPCfollower.log.x = player->currentCoords.x;
-    gSaveBlock3Ptr->NPCfollower.log.y = player->currentCoords.y;
+    gSaveBlock2Ptr->NPCfollower.log.x = player->currentCoords.x;
+    gSaveBlock2Ptr->NPCfollower.log.y = player->currentCoords.y;
 #endif
 }
 
@@ -136,7 +136,7 @@ const u8 *GetFollowerNPCScriptPointer(void)
 {
 #if FNPC_ENABLE_NPC_FOLLOWERS
     if (PlayerHasFollowerNPC())
-        return gSaveBlock3Ptr->NPCfollower.script;
+        return gSaveBlock2Ptr->NPCfollower.script;
 
 #endif
     return NULL;
@@ -148,33 +148,33 @@ u32 GetFollowerNPCData(enum FollowerNPCDataTypes type)
     switch (type)
     {
     case FNPC_DATA_IN_PROGRESS:
-        return gSaveBlock3Ptr->NPCfollower.inProgress;
+        return gSaveBlock2Ptr->NPCfollower.inProgress;
     case FNPC_DATA_WARP_END:
-        return gSaveBlock3Ptr->NPCfollower.warpEnd;
+        return gSaveBlock2Ptr->NPCfollower.warpEnd;
     case FNPC_DATA_SURF_BLOB:
-        return gSaveBlock3Ptr->NPCfollower.createSurfBlob;
+        return gSaveBlock2Ptr->NPCfollower.createSurfBlob;
     case FNPC_DATA_COME_OUT_DOOR:
-        return gSaveBlock3Ptr->NPCfollower.comeOutDoorStairs;
+        return gSaveBlock2Ptr->NPCfollower.comeOutDoorStairs;
     case FNPC_DATA_OBJ_ID:
-        return gSaveBlock3Ptr->NPCfollower.objId;
+        return gSaveBlock2Ptr->NPCfollower.objId;
     case FNPC_DATA_CURRENT_SPRITE:
-        return gSaveBlock3Ptr->NPCfollower.currentSprite;
+        return gSaveBlock2Ptr->NPCfollower.currentSprite;
     case FNPC_DATA_DELAYED_STATE:
-        return gSaveBlock3Ptr->NPCfollower.delayedState;
+        return gSaveBlock2Ptr->NPCfollower.delayedState;
     case FNPC_DATA_MAP_ID:
-        return gSaveBlock3Ptr->NPCfollower.map.id;
+        return gSaveBlock2Ptr->NPCfollower.map.id;
     case FNPC_DATA_MAP_NUM:
-        return gSaveBlock3Ptr->NPCfollower.map.number;
+        return gSaveBlock2Ptr->NPCfollower.map.number;
     case FNPC_DATA_MAP_GROUP:
-        return gSaveBlock3Ptr->NPCfollower.map.group;
+        return gSaveBlock2Ptr->NPCfollower.map.group;
     case FNPC_DATA_EVENT_FLAG:
-        return gSaveBlock3Ptr->NPCfollower.flag;
+        return gSaveBlock2Ptr->NPCfollower.flag;
     case FNPC_DATA_GFX_ID:
-        return gSaveBlock3Ptr->NPCfollower.graphicsId;
+        return gSaveBlock2Ptr->NPCfollower.graphicsId;
     case FNPC_DATA_FOLLOWER_FLAGS:
-        return gSaveBlock3Ptr->NPCfollower.flags;
+        return gSaveBlock2Ptr->NPCfollower.flags;
     case FNPC_DATA_BATTLE_PARTNER:
-        return gSaveBlock3Ptr->NPCfollower.battlePartner;
+        return gSaveBlock2Ptr->NPCfollower.battlePartner;
     }
 #endif
     return 0;
@@ -183,7 +183,7 @@ u32 GetFollowerNPCData(enum FollowerNPCDataTypes type)
 void ClearFollowerNPCData(void)
 {
 #if FNPC_ENABLE_NPC_FOLLOWERS
-    memset(&gSaveBlock3Ptr->NPCfollower, 0, sizeof(gSaveBlock3Ptr->NPCfollower));
+    memset(&gSaveBlock2Ptr->NPCfollower, 0, sizeof(gSaveBlock2Ptr->NPCfollower));
 #endif
 }
 
@@ -731,7 +731,7 @@ u32 DetermineFollowerNPCState(struct ObjectEvent *follower, u32 state, u32 direc
     if (IsStateMovement(state) && delayedState)
     {
         // Lock face direction for Acro side jump.
-        if (delayedState == MOVEMENT_ACTION_JUMP_DOWN && TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_ACRO_BIKE))
+        if (delayedState == MOVEMENT_ACTION_JUMP_DOWN && TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_BIKE))
             follower->facingDirectionLocked = TRUE;
 
         newState = delayedState + (direction -1);
@@ -900,7 +900,7 @@ u32 DetermineFollowerNPCState(struct ObjectEvent *follower, u32 state, u32 direc
         // Acro side hop.
         if (delayedState == MOVEMENT_ACTION_JUMP_DOWN)
         {
-            if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_ACRO_BIKE))
+            if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_BIKE))
                 follower->facingDirectionLocked = TRUE;
 
             return newState;
@@ -1174,10 +1174,10 @@ void FollowerNPC_HandleSprite(void)
 {
     if (CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_BIKE))
     {
-        if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_MACH_BIKE)
+        if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_BIKE)
             SetFollowerNPCSprite(FOLLOWER_NPC_SPRITE_INDEX_MACH_BIKE);
-        else if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_ACRO_BIKE)
-            SetFollowerNPCSprite(FOLLOWER_NPC_SPRITE_INDEX_ACRO_BIKE);
+        // else if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_ACRO_BIKE)
+        //     SetFollowerNPCSprite(FOLLOWER_NPC_SPRITE_INDEX_ACRO_BIKE);
     }
     else if (gMapHeader.mapType == MAP_TYPE_UNDERWATER)
     {
@@ -1314,14 +1314,14 @@ void FollowerNPC_HandleBike(void)
     if (GetFollowerNPCData(FNPC_DATA_CURRENT_SPRITE) == FOLLOWER_NPC_SPRITE_INDEX_SURF)
         return;
 
-    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_MACH_BIKE && FollowerNPCCanBike() && GetFollowerNPCData(FNPC_DATA_COME_OUT_DOOR) != FNPC_DOOR_NEEDS_TO_EXIT) //Coming out door
+    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_BIKE && FollowerNPCCanBike() && GetFollowerNPCData(FNPC_DATA_COME_OUT_DOOR) != FNPC_DOOR_NEEDS_TO_EXIT) //Coming out door
     {
         SetFollowerNPCSprite(FOLLOWER_NPC_SPRITE_INDEX_MACH_BIKE);
     }
-    else if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_ACRO_BIKE && FollowerNPCCanBike() && GetFollowerNPCData(FNPC_DATA_COME_OUT_DOOR) != FNPC_DOOR_NEEDS_TO_EXIT) //Coming out door
-    {
-        SetFollowerNPCSprite(FOLLOWER_NPC_SPRITE_INDEX_ACRO_BIKE);
-    }
+    // else if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_ACRO_BIKE && FollowerNPCCanBike() && GetFollowerNPCData(FNPC_DATA_COME_OUT_DOOR) != FNPC_DOOR_NEEDS_TO_EXIT) //Coming out door
+    // {
+    //     SetFollowerNPCSprite(FOLLOWER_NPC_SPRITE_INDEX_ACRO_BIKE);
+    // }
     else
     {
         SetFollowerNPCSprite(FOLLOWER_NPC_SPRITE_INDEX_NORMAL);

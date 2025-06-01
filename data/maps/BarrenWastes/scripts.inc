@@ -74,7 +74,7 @@ PryceEscortedOut8::
 PryceEscortedOutMain::
 	lock
 	delay 30
-	facefollower
+	facefollowernpc
 	delay 10
 	setvar VAR_0x8004, 10
 	checkplayergender
@@ -97,8 +97,8 @@ PryceEscortedOutMain_5:
 	case 7, PryceEscortedOutMain_17
 	case 8, PryceEscortedOutMain_18
 PryceEscortedOutMain_9:
-	waitmovement OBJ_EVENT_ID_FOLLOW_ME
-	destroyfollower
+	waitmovement OBJ_EVENT_ID_NPC_FOLLOWER
+	destroyfollowernpc
 	delay 60
 	clearflag FLAG_ESCORTING_PRYCE
 	clearflag FLAG_TEMP_1
@@ -117,42 +117,42 @@ PryceEscortedOutMain_6:
 	goto PryceEscortedOutMain_5
 
 PryceEscortedOutMain_11:
-	applymovement OBJ_EVENT_ID_FOLLOW_ME, PryceEscortedOutMain_Movement_0
+	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, PryceEscortedOutMain_Movement_0
 	applymovement 0xFF, PryceEscortedOutMain_Movement_1
 	goto PryceEscortedOutMain_9
 
 PryceEscortedOutMain_12:
-	applymovement OBJ_EVENT_ID_FOLLOW_ME, PryceEscortedOutMain_Movement_0
+	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, PryceEscortedOutMain_Movement_0
 	applymovement 0xFF, PryceEscortedOutMain_Movement_1
 	goto PryceEscortedOutMain_9
 
 PryceEscortedOutMain_13:
-	applymovement OBJ_EVENT_ID_FOLLOW_ME, PryceEscortedOutMain_Movement_2
+	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, PryceEscortedOutMain_Movement_2
 	applymovement 0xFF, PryceEscortedOutMain_Movement_3
 	goto PryceEscortedOutMain_9
 
 PryceEscortedOutMain_14:
-	applymovement OBJ_EVENT_ID_FOLLOW_ME, PryceEscortedOutMain_Movement_2
+	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, PryceEscortedOutMain_Movement_2
 	applymovement 0xFF, PryceEscortedOutMain_Movement_3
 	goto PryceEscortedOutMain_9
 
 PryceEscortedOutMain_15:
-	applymovement OBJ_EVENT_ID_FOLLOW_ME, PryceEscortedOutMain_Movement_4
+	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, PryceEscortedOutMain_Movement_4
 	applymovement 0xFF, PryceEscortedOutMain_Movement_5
 	goto PryceEscortedOutMain_9
 
 PryceEscortedOutMain_16:
-	applymovement OBJ_EVENT_ID_FOLLOW_ME, PryceEscortedOutMain_Movement_4
+	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, PryceEscortedOutMain_Movement_4
 	applymovement 0xFF, PryceEscortedOutMain_Movement_5
 	goto PryceEscortedOutMain_9
 
 PryceEscortedOutMain_17:
-	applymovement OBJ_EVENT_ID_FOLLOW_ME, PryceEscortedOutMain_Movement_6
+	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, PryceEscortedOutMain_Movement_6
 	applymovement 0xFF, PryceEscortedOutMain_Movement_7
 	goto PryceEscortedOutMain_9
 
 PryceEscortedOutMain_18:
-	applymovement OBJ_EVENT_ID_FOLLOW_ME, PryceEscortedOutMain_Movement_6
+	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, PryceEscortedOutMain_Movement_6
 	applymovement 0xFF, PryceEscortedOutMain_Movement_7
 	goto PryceEscortedOutMain_9
 

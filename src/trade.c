@@ -2948,7 +2948,7 @@ void LinkTradeDrawWindow(void)
     CopyWindowToVram(0, COPYWIN_FULL);
 }
 
-static const u32 *const sBattleTextboxColor[] =
+static const u16 *const sBattleTextboxColor[] =
 {
     gBattleTextboxPalette,
     gBattleTextboxPalette2,

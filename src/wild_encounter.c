@@ -169,8 +169,8 @@ static bool8 CheckFeebas(void)
 
 static bool8 CheckFishingVillage(void)
 {
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(FISHING_VILLAGE)
-     && gSaveBlock1Ptr->location.mapNum == MAP_NUM(FISHING_VILLAGE))
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_FISHING_VILLAGE)
+     && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_FISHING_VILLAGE))
     {
         if (Random() % 100 < 5)
             return TRUE;
@@ -1050,7 +1050,7 @@ void FishingWildEncounter(u8 rod)
                 rodVariable = 10;
                 break;
         }
-        if (MAP(ROUTE18))
+        if (MAP(MAP_ROUTE18))
         {
             areaBonus = 2;
         }

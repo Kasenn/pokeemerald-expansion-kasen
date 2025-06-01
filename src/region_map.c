@@ -211,6 +211,8 @@ static const u16 sMarineCaveMapSecIds[] =
     MAPSEC_UNDERWATER_MARINE_CAVE
 };
 
+#define FLYABLE_MAPSEC_COUNT                21
+
 static const u16 sFlyableMapSecIds[FLYABLE_MAPSEC_COUNT] =
 {
     MAPSEC_OLDALE_TOWN,
@@ -1239,7 +1241,7 @@ static void InitMapBasedOnPlayerLocation(void)
         GetMarineCaveCoords(&sRegionMap->cursorPosX, &sRegionMap->cursorPosY);
         return;
     }
-    if (MAP(SOUTHERN_DESERT))
+    if (MAP(MAP_SOUTHERN_DESERT))
     {
         y += 2;
         x++;
@@ -1920,7 +1922,7 @@ u8 *GetMapName(u8 *dest, u16 regionMapId, u16 padLength)
     // {
     //     str = GetSecretBaseMapName(dest);
     // }
-    if (MAP(SNOWCREST_CITY))
+    if (MAP(MAP_SNOWCREST_CITY))
     {
         str = StringCopy(dest, gText_PokemonCenter);
     }

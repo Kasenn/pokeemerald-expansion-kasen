@@ -153,7 +153,7 @@ const struct SpritePalette gBagPaletteTable =
     gBagPalette, TAG_BAG_GFX
 };
 
-const struct CompressedSpritePalette gBagPaletteTableOras =
+const struct SpritePalette gBagPaletteTableOras =
 {
     gBagPaletteOras, TAG_BAG_GFX
 };

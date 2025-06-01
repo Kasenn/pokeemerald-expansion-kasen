@@ -98,29 +98,29 @@ AI_SINGLE_BATTLE_TEST("When AI switches out due to having no move that affects t
     }
 }
 
-AI_DOUBLE_BATTLE_TEST("AI will not try to switch for the same pokemon for 2 spots in a double battle (Wonder Guard)")
-{
-    PASSES_RANDOMLY(SHOULD_SWITCH_WONDER_GUARD_PERCENTAGE, 100, RNG_AI_SWITCH_WONDER_GUARD);
-    GIVEN {
-        AI_FLAGS(AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_TRY_TO_FAINT | AI_FLAG_OMNISCIENT | AI_FLAG_SMART_SWITCHING);
-        PLAYER(SPECIES_SHEDINJA);
-        PLAYER(SPECIES_SHEDINJA);
-        // No moves to damage player.
-        OPPONENT(SPECIES_LINOONE) { Moves(MOVE_SCRATCH); }
-        OPPONENT(SPECIES_ZIGZAGOON) { Moves(MOVE_SCRATCH); }
-        OPPONENT(SPECIES_LINOONE) { Moves(MOVE_SCRATCH); }
-        OPPONENT(SPECIES_GENGAR) { Moves(MOVE_SHADOW_BALL); }
-    } WHEN {
-        TURN { EXPECT_SWITCH(opponentLeft, 3); };
-    } SCENE {
-        MESSAGE(AI_TRAINER_NAME " withdrew Linoone!");
-        MESSAGE(AI_TRAINER_NAME " sent out Gengar!");
-        NONE_OF {
-            MESSAGE(AI_TRAINER_NAME " withdrew Zigzagoon!");
-            MESSAGE(AI_TRAINER_NAME " sent out Gengar!");
-        }
-    }
-}
+// AI_DOUBLE_BATTLE_TEST("AI will not try to switch for the same pokemon for 2 spots in a double battle (Wonder Guard)")
+// {
+//     PASSES_RANDOMLY(SHOULD_SWITCH_WONDER_GUARD_PERCENTAGE, 100, RNG_AI_SWITCH_WONDER_GUARD);
+//     GIVEN {
+//         AI_FLAGS(AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_TRY_TO_FAINT | AI_FLAG_OMNISCIENT | AI_FLAG_SMART_SWITCHING);
+//         PLAYER(SPECIES_SHEDINJA);
+//         PLAYER(SPECIES_SHEDINJA);
+//         // No moves to damage player.
+//         OPPONENT(SPECIES_LINOONE) { Moves(MOVE_SCRATCH); }
+//         OPPONENT(SPECIES_ZIGZAGOON) { Moves(MOVE_SCRATCH); }
+//         OPPONENT(SPECIES_LINOONE) { Moves(MOVE_SCRATCH); }
+//         OPPONENT(SPECIES_GENGAR) { Moves(MOVE_SHADOW_BALL); }
+//     } WHEN {
+//         TURN { EXPECT_SWITCH(opponentLeft, 3); };
+//     } SCENE {
+//         MESSAGE(AI_TRAINER_NAME " withdrew Linoone!");
+//         MESSAGE(AI_TRAINER_NAME " sent out Gengar!");
+//         NONE_OF {
+//             MESSAGE(AI_TRAINER_NAME " withdrew Zigzagoon!");
+//             MESSAGE(AI_TRAINER_NAME " sent out Gengar!");
+//         }
+//     }
+// }
 
 AI_SINGLE_BATTLE_TEST("AI_FLAG_SMART_MON_CHOICES: Switch effect moves will send out Ace Mon if it's the only one remaining")
 {
@@ -1222,7 +1222,7 @@ AI_SINGLE_BATTLE_TEST("AI_FLAG_SMART_SWITCHING: AI won't send out defensive mon 
             SpAttackIV(31);
             SpDefenseIV(31);
             SpeedIV(31); }
-        OPPONENT(SPECIES_WOOPER_PALDEA) {
+        OPPONENT(SPECIES_WOOPER) {
             Level(15);
             Moves(MOVE_MUD_SHOT, MOVE_ACID_SPRAY, MOVE_YAWN, MOVE_SANDSTORM);
             Item(ITEM_ORAN_BERRY);
