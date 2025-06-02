@@ -2332,6 +2332,54 @@ static const struct SpriteFrameImage sPicTable_Drayden[] = {
     overworld_frame(gObjectEventPic_Drayden, 2, 4, 8),
 };
 
+static const struct SpriteFrameImage sPicTable_SPIRIT_GREEN[] = {
+    overworld_frame(gObjectEventPic_SPIRIT_GREEN, 2, 4, 0),
+    overworld_frame(gObjectEventPic_SPIRIT_GREEN, 2, 4, 1),
+    overworld_frame(gObjectEventPic_SPIRIT_GREEN, 2, 4, 2),
+    overworld_frame(gObjectEventPic_SPIRIT_GREEN, 2, 4, 3),
+    overworld_frame(gObjectEventPic_SPIRIT_GREEN, 2, 4, 4),
+    overworld_frame(gObjectEventPic_SPIRIT_GREEN, 2, 4, 5),
+    overworld_frame(gObjectEventPic_SPIRIT_GREEN, 2, 4, 6),
+    overworld_frame(gObjectEventPic_SPIRIT_GREEN, 2, 4, 7),
+    overworld_frame(gObjectEventPic_SPIRIT_GREEN, 2, 4, 8),
+};
+
+static const struct SpriteFrameImage sPicTable_SPIRIT_YELLOW[] = {
+    overworld_frame(gObjectEventPic_SPIRIT_YELLOW, 2, 4, 0),
+    overworld_frame(gObjectEventPic_SPIRIT_YELLOW, 2, 4, 1),
+    overworld_frame(gObjectEventPic_SPIRIT_YELLOW, 2, 4, 2),
+    overworld_frame(gObjectEventPic_SPIRIT_YELLOW, 2, 4, 3),
+    overworld_frame(gObjectEventPic_SPIRIT_YELLOW, 2, 4, 4),
+    overworld_frame(gObjectEventPic_SPIRIT_YELLOW, 2, 4, 5),
+    overworld_frame(gObjectEventPic_SPIRIT_YELLOW, 2, 4, 6),
+    overworld_frame(gObjectEventPic_SPIRIT_YELLOW, 2, 4, 7),
+    overworld_frame(gObjectEventPic_SPIRIT_YELLOW, 2, 4, 8),
+};
+
+static const struct SpriteFrameImage sPicTable_SPIRIT_BLUE[] = {
+    overworld_frame(gObjectEventPic_SPIRIT_BLUE, 2, 4, 0),
+    overworld_frame(gObjectEventPic_SPIRIT_BLUE, 2, 4, 1),
+    overworld_frame(gObjectEventPic_SPIRIT_BLUE, 2, 4, 2),
+    overworld_frame(gObjectEventPic_SPIRIT_BLUE, 2, 4, 3),
+    overworld_frame(gObjectEventPic_SPIRIT_BLUE, 2, 4, 4),
+    overworld_frame(gObjectEventPic_SPIRIT_BLUE, 2, 4, 5),
+    overworld_frame(gObjectEventPic_SPIRIT_BLUE, 2, 4, 6),
+    overworld_frame(gObjectEventPic_SPIRIT_BLUE, 2, 4, 7),
+    overworld_frame(gObjectEventPic_SPIRIT_BLUE, 2, 4, 8),
+};
+
+static const struct SpriteFrameImage sPicTable_SPIRIT_RED[] = {
+    overworld_frame(gObjectEventPic_SPIRIT_RED, 2, 4, 0),
+    overworld_frame(gObjectEventPic_SPIRIT_RED, 2, 4, 1),
+    overworld_frame(gObjectEventPic_SPIRIT_RED, 2, 4, 2),
+    overworld_frame(gObjectEventPic_SPIRIT_RED, 2, 4, 3),
+    overworld_frame(gObjectEventPic_SPIRIT_RED, 2, 4, 4),
+    overworld_frame(gObjectEventPic_SPIRIT_RED, 2, 4, 5),
+    overworld_frame(gObjectEventPic_SPIRIT_RED, 2, 4, 6),
+    overworld_frame(gObjectEventPic_SPIRIT_RED, 2, 4, 7),
+    overworld_frame(gObjectEventPic_SPIRIT_RED, 2, 4, 8),
+};
+
 static const struct SpriteFrameImage sPicTable_Gen4_Breeder_M[] = {
     overworld_frame(gObjectEventPic_Gen4_Breeder_M, 2, 4, 0),
     overworld_frame(gObjectEventPic_Gen4_Breeder_M, 2, 4, 1),

@@ -501,7 +501,7 @@ static void ShowSafariBallsWindow(void)
 
 
 
-#define TIME_LABEL_TAG 0x2722
+#define TIME_LABEL_TAG 0xA722
 
 static const struct OamData sOamData_TimeLabel =
 {

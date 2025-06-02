@@ -1429,6 +1429,43 @@ static const union AnimCmd *const sAnimTable_QuintyPlump[] = {
     [ANIM_STD_GO_FASTEST_EAST] = sAnim_QuintyPlumpGoFastestEast,
 };
 
+static const union AnimCmd sAnim_Spirit[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(1, 8),
+    ANIMCMD_FRAME(2, 8),
+    ANIMCMD_FRAME(3, 8),
+    ANIMCMD_FRAME(4, 8),
+    ANIMCMD_FRAME(5, 8),
+    ANIMCMD_FRAME(6, 8),
+    ANIMCMD_FRAME(7, 8),
+    ANIMCMD_FRAME(8, 8),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnimTable_Spirit[] = {
+    [ANIM_STD_FACE_SOUTH] = sAnim_Spirit,
+    [ANIM_STD_FACE_NORTH] = sAnim_Spirit,
+    [ANIM_STD_FACE_WEST] = sAnim_Spirit,
+    [ANIM_STD_FACE_EAST] = sAnim_Spirit,
+    [ANIM_STD_GO_SOUTH] = sAnim_Spirit,
+    [ANIM_STD_GO_NORTH] = sAnim_Spirit,
+    [ANIM_STD_GO_WEST] = sAnim_Spirit,
+    [ANIM_STD_GO_EAST] = sAnim_Spirit,
+    [ANIM_STD_GO_FAST_SOUTH] = sAnim_Spirit,
+    [ANIM_STD_GO_FAST_NORTH] = sAnim_Spirit,
+    [ANIM_STD_GO_FAST_WEST] = sAnim_Spirit,
+    [ANIM_STD_GO_FAST_EAST] = sAnim_Spirit,
+    [ANIM_STD_GO_FASTER_SOUTH] = sAnim_Spirit,
+    [ANIM_STD_GO_FASTER_NORTH] = sAnim_Spirit,
+    [ANIM_STD_GO_FASTER_WEST] = sAnim_Spirit,
+    [ANIM_STD_GO_FASTER_EAST] = sAnim_Spirit,
+    [ANIM_STD_GO_FASTEST_SOUTH] = sAnim_Spirit,
+    [ANIM_STD_GO_FASTEST_NORTH] = sAnim_Spirit,
+    [ANIM_STD_GO_FASTEST_WEST] = sAnim_Spirit,
+    [ANIM_STD_GO_FASTEST_EAST] = sAnim_Spirit,
+};
+
 static const union AnimCmd *const sAnimTable_Standard[] = {
     [ANIM_STD_FACE_SOUTH] = sAnim_FaceSouth,
     [ANIM_STD_FACE_NORTH] = sAnim_FaceNorth,

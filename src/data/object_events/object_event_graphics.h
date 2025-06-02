@@ -721,3 +721,13 @@ const u32 gFieldEffectObjectPic_RidingGogoat[] = INCBIN_U32("graphics/field_effe
 const u32 gFieldEffectObjectPic_RidingGogoatHead[] = INCBIN_U32("graphics/field_effects/pics/gogoat_head.4bpp");
 const u16 gObjectEventPal_RidingGogoat[] = INCBIN_U16("graphics/field_effects/pics/gogoat.gbapal");
 const u16 gObjectEventPal_AutumnLongGrass[] = INCBIN_U16("graphics/field_effects/palettes/autumnlonggrass.gbapal");
+
+const u32 gObjectEventPic_SPIRIT_RED[] = INCBIN_U32("graphics/object_events/pics/misc/spirit_red1.4bpp");
+const u16 gObjectEventPalette_SPIRIT_RED[] = INCBIN_U16("graphics/object_events/pics/misc/spirit_red1.gbapal");
+const u32 gObjectEventPic_SPIRIT_GREEN[] = INCBIN_U32("graphics/object_events/pics/misc/spirit_green1.4bpp");
+const u16 gObjectEventPalette_SPIRIT_GREEN[] = INCBIN_U16("graphics/object_events/pics/misc/spirit_green1.gbapal");
+const u32 gObjectEventPic_SPIRIT_YELLOW[] = INCBIN_U32("graphics/object_events/pics/misc/spirit_yellow1.4bpp");
+const u16 gObjectEventPalette_SPIRIT_YELLOW[] = INCBIN_U16("graphics/object_events/pics/misc/spirit_yellow1.gbapal");
+const u32 gObjectEventPic_SPIRIT_BLUE[] = INCBIN_U32("graphics/object_events/pics/misc/spirit_blue1.4bpp");
+const u16 gObjectEventPalette_SPIRIT_BLUE[] = INCBIN_U16("graphics/object_events/pics/misc/spirit_blue1.gbapal");
+

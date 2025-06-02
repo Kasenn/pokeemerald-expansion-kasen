@@ -364,13 +364,17 @@
 #define OBJ_EVENT_GFX_FLOATING_BERGMITE             354
 #define OBJ_EVENT_GFX_BREAKABLE_ICE                 355
 #define OBJ_EVENT_GFX_LIGHT_SPRITE               356
+#define OBJ_EVENT_GFX_SPIRIT_BLUE               357
+#define OBJ_EVENT_GFX_SPIRIT_YELLOW               358
+#define OBJ_EVENT_GFX_SPIRIT_GREEN               359
+#define OBJ_EVENT_GFX_SPIRIT_RED               360
 
 
 
 // NOTE: The maximum amount of object events has been expanded from 255 to 65535.
 // Since dynamic graphics ids still require at least 16 free values, the actual limit
 // is 65519, but even considering follower Pokémon, this should be more than enough :)
-#define NUM_OBJ_EVENT_GFX                        357
+#define NUM_OBJ_EVENT_GFX                        361
 
 
 // These are dynamic object gfx ids.
@@ -619,6 +623,10 @@
 #define OBJ_EVENT_PAL_TAG_LIGHT_2                 0x8002
 #define OBJ_EVENT_PAL_TAG_EMOTES                  0x8003
 #define OBJ_EVENT_PAL_TAG_NEON_LIGHT              0x8004
+#define OBJ_EVENT_PAL_SPIRIT_BLUE                 0x8005
+#define OBJ_EVENT_PAL_SPIRIT_RED                 0x8006
+#define OBJ_EVENT_PAL_SPIRIT_YELLOW                 0x8007
+#define OBJ_EVENT_PAL_SPIRIT_GREEN                 0x8008
 // Not a real OW palette tag; used for the white flash applied to followers
 #define OBJ_EVENT_PAL_TAG_WHITE                   (OBJ_EVENT_PAL_TAG_NONE - 1)
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF

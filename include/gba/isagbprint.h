@@ -32,6 +32,7 @@ void AGBPrintInit(void);
 
 #define DebugPrintf(pBuf, ...) MgbaPrintf(MGBA_LOG_INFO, pBuf, ## __VA_ARGS__)
 #define DebugPrintf2(pBuf, ...) MgbaPrintf(MGBA_LOG_WARN, pBuf, ## __VA_ARGS__)
+#define DebugQuickTest      DebugPrintf2("Does this happen?")
 #define DebugAssert(pFile, nLine, pExpression, nStopProgram) MgbaAssert(pFile, nLine, pExpression, nStopProgram)
 #define DebugPrintfLevel(level, pBuf, ...) MgbaPrintf(level, pBuf, ## __VA_ARGS__)
 

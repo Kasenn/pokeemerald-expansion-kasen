@@ -230,6 +230,10 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AggronMount
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Gen4_Breeder_F;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Breeder;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Drayden;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SPIRIT_BLUE;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SPIRIT_RED;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SPIRIT_YELLOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SPIRIT_GREEN;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_IrisCasual;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mina;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayOras;
@@ -701,6 +705,10 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_GEN4_BREEDER_F] =                   &gObjectEventGraphicsInfo_Gen4_Breeder_F,
     [OBJ_EVENT_GFX_BREEDER] =                   &gObjectEventGraphicsInfo_Breeder,
     [OBJ_EVENT_GFX_DRAYDEN] =                   &gObjectEventGraphicsInfo_Drayden,
+    [OBJ_EVENT_GFX_SPIRIT_BLUE] =               &gObjectEventGraphicsInfo_SPIRIT_BLUE,
+    [OBJ_EVENT_GFX_SPIRIT_YELLOW] =             &gObjectEventGraphicsInfo_SPIRIT_YELLOW,
+    [OBJ_EVENT_GFX_SPIRIT_GREEN] =              &gObjectEventGraphicsInfo_SPIRIT_GREEN,
+    [OBJ_EVENT_GFX_SPIRIT_RED] =                &gObjectEventGraphicsInfo_SPIRIT_RED,
     [OBJ_EVENT_GFX_IRIS_CASUAL] =                   &gObjectEventGraphicsInfo_IrisCasual,
     [OBJ_EVENT_GFX_MINA] =                   &gObjectEventGraphicsInfo_Mina,
     [OBJ_EVENT_GFX_PIDGEOTTO] =                   &gObjectEventGraphicsInfo_Pidgeotto,

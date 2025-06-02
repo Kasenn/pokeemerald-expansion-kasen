@@ -610,6 +610,10 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Mina,           OBJ_EVENT_PAL_MINA},
     {gObjectEventPalette_IrisCasual,           OBJ_EVENT_PAL_IRIS_CASUAL},
     {gObjectEventPalette_Drayden,           OBJ_EVENT_PAL_DRAYDEN},
+    {gObjectEventPalette_SPIRIT_BLUE,      OBJ_EVENT_PAL_SPIRIT_BLUE},
+    {gObjectEventPalette_SPIRIT_RED,       OBJ_EVENT_PAL_SPIRIT_RED},
+    {gObjectEventPalette_SPIRIT_YELLOW,        OBJ_EVENT_PAL_SPIRIT_YELLOW},
+    {gObjectEventPalette_SPIRIT_GREEN,     OBJ_EVENT_PAL_SPIRIT_GREEN},
     {gObjectEventPalette_Breeder,           OBJ_EVENT_PAL_BREEDER},
     {gObjectEventPalette_BigBoulder,           OBJ_EVENT_PAL_BIG_BOULDER},
     {gObjectEventPalette_ZygardeCell,           OBJ_EVENT_PAL_ZYGARDE_CELL},
@@ -1839,6 +1843,19 @@ u16 LoadSheetGraphicsInfo(const struct ObjectEventGraphicsInfo *info, u16 uuid, 
     return tag;
 }
 
+void AnimateSpirits(struct Sprite *sprite)
+{
+    if (gTimeOfDay != TIME_NIGHT)
+    {
+        sprite->invisible = TRUE;
+        return;
+    }
+    if (sprite->invisible)
+        sprite->invisible = FALSE;
+
+    sprite->animPaused = FALSE;
+}
+
 static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEventTemplate, struct SpriteTemplate *spriteTemplate, u8 mapNum, u8 mapGroup, s16 cameraX, s16 cameraY)
 {
     u8 spriteId;
@@ -1898,10 +1915,20 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
 
     SetObjectSubpriorityByElevation(objectEvent->previousElevation, sprite, 1);
     UpdateObjectEventVisibility(objectEvent, sprite);
-    // if (objectEvent->graphicsId == OBJ_EVENT_GFX_FISHERMAN_SOUTH){
-    //     objectEvent->fixedPriority = TRUE;
-    //     sprite->subpriority = 0xFF;
-    // }
+    if (objectEvent->graphicsId == OBJ_EVENT_GFX_LIGHT_SPRITE){
+        objectEvent->fixedPriority = TRUE;
+        sprite->subpriority = 0xFF;
+    }
+    if (objectEvent->graphicsId >= OBJ_EVENT_GFX_SPIRIT_BLUE && objectEvent->graphicsId <= OBJ_EVENT_GFX_SPIRIT_RED)
+    {
+        sprite->y -= 2;
+        sprite->x += 1;
+        objectEvent->fixedPriority = TRUE;
+        sprite->subpriority = 0;
+        objectEvent->currentElevation = 4;
+        objectEvent->previousElevation = 4;
+        sprite->callback = AnimateSpirits;
+    }
     return objectEventId;
 }
 
@@ -2937,7 +2964,8 @@ static void SpawnLightSprite(s16 x, s16 y, s16 camX, s16 camY, u32 lightType)
     case LIGHT_TYPE_BALL:
         sprite->centerToCornerVecX = -(32 >> 1);
         sprite->centerToCornerVecY = -(32 >> 1);
-        sprite->oam.priority = 1;
+        sprite->oam.priority = 2;
+        sprite->subpriority = 0xFF;
         sprite->oam.objMode = ST_OAM_OBJ_BLEND;
         sprite->oam.affineMode = ST_OAM_AFFINE_NORMAL;
         sprite->x += 8;
@@ -3151,6 +3179,20 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
 
         ResetObjectEventFldEffData(objectEvent);
         SetObjectSubpriorityByElevation(objectEvent->previousElevation, sprite, 1);
+        if (objectEvent->graphicsId == OBJ_EVENT_GFX_LIGHT_SPRITE){
+            objectEvent->fixedPriority = TRUE;
+            sprite->subpriority = 0xFF;
+        }
+        if (objectEvent->graphicsId >= OBJ_EVENT_GFX_SPIRIT_BLUE && objectEvent->graphicsId <= OBJ_EVENT_GFX_SPIRIT_RED)
+        {
+            sprite->y -= 2;
+            sprite->x += 1;
+            objectEvent->fixedPriority = TRUE;
+            sprite->subpriority = 0;
+            objectEvent->currentElevation = 4;
+            objectEvent->previousElevation = 4;
+            sprite->callback = AnimateSpirits;
+        }
     }
 }
 
