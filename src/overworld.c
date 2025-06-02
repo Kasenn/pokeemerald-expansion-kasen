@@ -221,6 +221,7 @@ EWRAM_DATA static bool8 sIsAmbientCryWaterMon = FALSE;
 EWRAM_DATA static u8 sHoursOverride = 0; // used to override apparent time of day hours
 EWRAM_DATA struct LinkPlayerObjectEvent gLinkPlayerObjectEvents[4] = {0};
 EWRAM_DATA bool8 gExitStairsMovementDisabled = FALSE;
+EWRAM_DATA bool8 gWarpInProgress = FALSE;
 
 static const struct WarpData sDummyWarpData =
 {
@@ -920,6 +921,7 @@ static void LoadMapFromWarp(bool32 a1)
 {
     bool8 isOutdoors;
     bool8 isIndoors;
+    gWarpInProgress = FALSE;
 
     LoadCurrentMapData();
     if (!(sObjectEventLoadFlag & SKIP_OBJECT_EVENT_LOAD))
@@ -1725,6 +1727,8 @@ void UpdateTimeOfDay(void)
 // Whether a map type is naturally lit/outside
 bool32 MapHasNaturalLight(u8 mapType)
 {
+    if (gWarpInProgress)
+        return FALSE;
     return (OW_ENABLE_DNS
          && (mapType == MAP_TYPE_TOWN
           || mapType == MAP_TYPE_CITY
