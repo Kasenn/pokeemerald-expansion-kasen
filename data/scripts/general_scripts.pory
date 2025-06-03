@@ -506,12 +506,19 @@ script Debug_Script_1{              // Set team level
     end
     }
 script Debug_Script_2{              // 
+    setvar(VAR_0x8005, 999)
+    msgbox("How many minutes should pass\nevery second?", MSGBOX_HOWMANY)
+    copyvar(VAR_TIME_CONTROL, VAR_RESULT)
+    subvar(VAR_TIME_CONTROL, 1)
+    release
     return
 }
 script Debug_Script_3{              // 
+    setvar(VAR_TIME_CONTROL, 0)
     return
 }
 script Debug_Script_4{
+    callnative(ResetAnimCounter)
     return
 }
 script Debug_Script_5{

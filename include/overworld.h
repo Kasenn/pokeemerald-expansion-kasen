@@ -64,6 +64,7 @@ extern bool8 gSkipShowMonAnim;
 extern u8 gTimeOfDay;
 extern s16 gTimeUpdateCounter;
 extern bool8 gWarpInProgress;
+extern bool8 gEnchantedForestNight;
 
 extern struct TimeBlendSettings gTimeBlend;
 

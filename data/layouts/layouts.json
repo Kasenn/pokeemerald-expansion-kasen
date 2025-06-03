@@ -6574,8 +6574,8 @@
     {
       "id": "LAYOUT_ROUTE22_PART2",
       "name": "Route22_Part2_Layout",
-      "width": 96,
-      "height": 71,
+      "width": 47,
+      "height": 50,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_MagicForest",
       "border_filepath": "data/layouts/Route22_Part2/border.bin",
@@ -7640,6 +7640,26 @@
       "secondary_tileset": "gTileset_Amberock",
       "border_filepath": "data/layouts/Route3_Copy/border.bin",
       "blockdata_filepath": "data/layouts/Route3_Copy/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE22_PART2_WEST",
+      "name": "Route22_Part2_West_Layout",
+      "width": 49,
+      "height": 50,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MagicForest",
+      "border_filepath": "data/layouts/Route22_Part2_West/border.bin",
+      "blockdata_filepath": "data/layouts/Route22_Part2_West/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE22_PART2_TOP",
+      "name": "Route22_Part2_Top_Layout",
+      "width": 96,
+      "height": 21,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MagicForest",
+      "border_filepath": "data/layouts/Route22_Part2_Top/border.bin",
+      "blockdata_filepath": "data/layouts/Route22_Part2_Top/map.bin"
     }
   ]
 }

@@ -224,6 +224,7 @@ extern const u8 gText_Peak[];
 extern const u8 gText_SafariBallStock[];
 extern const u8 gText_BattlePyramidFloor[];
 extern const u8 gText_Clock[];
+extern const u8 gText_ClockQuestion[];
 extern const u8 gText_ClockPM[];
 extern const u8 gText_ClockAM[];
 

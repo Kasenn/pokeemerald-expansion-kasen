@@ -154,9 +154,6 @@
 #define METATILE_Contest_FloorShadow         0x261
 #define METATILE_Contest_WallShadow          0x221
 
-// gTileset_Coralgrove
-#define METATILE_Coralgrove_BP_Shop  0x0F8
-
 // gTileset_Crystalpine
 #define METATILE_Crystalpine_CrystalpineDoor  0x237
 
@@ -257,9 +254,6 @@
 #define METATILE_General_TallGrass_TreeUp      0x025
 #define METATILE_General_YellowCaveIndent      0x1A8
 #define METATILE_General_YellowCaveOpen        0x1A9
-
-// gTileset_Winter
-#define METATILE_General2_BP_Shop  0x0F8
 
 // gTileset_GenericBuilding
 #define METATILE_GenericBuilding_TableEdge               0x2F1
@@ -798,6 +792,7 @@
 #define METATILE_Underwater_RockWall     0x21E
 
 // Other
+#define METATILE_Coralgrove_BP_Shop                  0x0F8
 #define METATILE_Dewford_BattleTent_Door             0x3D4
 #define METATILE_Dewford_Door                        0x225
 #define METATILE_Dewford_Door_BattleTower            0x25D
@@ -818,6 +813,7 @@
 #define METATILE_Fallarbor_RedRockWall               0x269
 #define METATILE_Frostfire_FrosthearthDoor           0x23E
 #define METATILE_Frostfire_PWT_Door                  0x3FA
+#define METATILE_General2_BP_Shop                    0x0F8
 #define METATILE_Mossdeep_Door                       0x2A1
 #define METATILE_Mossdeep_Door_PokeShop              0x302
 #define METATILE_Mossdeep_Door_SpaceCenter           0x2ED

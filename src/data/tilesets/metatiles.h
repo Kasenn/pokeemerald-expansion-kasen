@@ -336,3 +336,6 @@ const u16 gMetatileAttributes_Coralgrove_Secondary[] = INCBIN_U16("data/tilesets
 
 const u16 gMetatiles_Aldeleaf[] = INCBIN_U16("data/tilesets/secondary/aldeleaf/metatiles.bin");
 const u16 gMetatileAttributes_Aldeleaf[] = INCBIN_U16("data/tilesets/secondary/aldeleaf/metatile_attributes.bin");
+
+const u16 gMetatiles_EnchantedForest[] = INCBIN_U16("data/tilesets/primary/enchanted_forest/metatiles.bin");
+const u16 gMetatileAttributes_EnchantedForest[] = INCBIN_U16("data/tilesets/primary/enchanted_forest/metatile_attributes.bin");

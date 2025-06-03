@@ -1082,6 +1082,7 @@ const u8 gText_MenuRest[] = _("Rest");
 const u8 gText_MenuDexNav[] = _("Dexnav");
 const u8 gText_SafariBallStock[] = _("Safari Balls\nStock: {STR_VAR_1}/30\nSteps\n{STR_VAR_2}/500");
 const u8 gText_Clock[] = _("{STR_VAR_1}:{STR_VAR_2}");
+const u8 gText_ClockQuestion[] = _("??:??");
 const u8 gText_ClockPM[] = _("{STR_VAR_1}:{STR_VAR_2} PM");
 const u8 gText_ClockAM[] = _("{STR_VAR_1}:{STR_VAR_2} AM");
 const u8 gText_BattlePyramidFloor[] = _("Battle Pyramid\n{STR_VAR_1}");

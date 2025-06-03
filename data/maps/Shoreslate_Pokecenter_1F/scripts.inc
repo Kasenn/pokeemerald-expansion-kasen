@@ -1,39 +1,51 @@
 Shoreslate_Pokecenter_1F_MapScripts::
+# 2 "data/maps/Shoreslate_Pokecenter_1F/scripts.pory"
 	map_script MAP_SCRIPT_ON_TRANSITION, ShoreslatePokeCenter1F_OnTransition
 	.byte 0
 
 
 ShoreslatePokeCenter1F_OnTransition::
+# 6 "data/maps/Shoreslate_Pokecenter_1F/scripts.pory"
 	setrespawn HEAL_LOCATION_SHORESLATE_CITY
+# 7 "data/maps/Shoreslate_Pokecenter_1F/scripts.pory"
 	call Common_EventScript_UpdateBrineyLocation
 	end
 
 
 ShoreslatePokeCenter1F_EventScript_Nurse::
+# 12 "data/maps/Shoreslate_Pokecenter_1F/scripts.pory"
 	setvar VAR_0x800B, 3
+# 13 "data/maps/Shoreslate_Pokecenter_1F/scripts.pory"
 	call Common_EventScript_PkmnCenterNurse
+# 14 "data/maps/Shoreslate_Pokecenter_1F/scripts.pory"
 	waitmessage
+# 15 "data/maps/Shoreslate_Pokecenter_1F/scripts.pory"
 	waitbuttonpress
+# 16 "data/maps/Shoreslate_Pokecenter_1F/scripts.pory"
 	release
 	end
 
 
 ShoreslatePokeCenter1F_OldWoman::
+# 21 "data/maps/Shoreslate_Pokecenter_1F/scripts.pory"
 	msgbox ShoreslatePokeCenter1F_OldWoman_Text, MSGBOX_NPC
 	end
 
 
 ShoreslatePokeCenter1F_Boy::
+# 25 "data/maps/Shoreslate_Pokecenter_1F/scripts.pory"
 	msgbox ShoreslatePokeCenter1F_Boy_Text, MSGBOX_NPC
 	end
 
 
 ShoreslatePokeCenter1F_LittleGirl::
+# 29 "data/maps/Shoreslate_Pokecenter_1F/scripts.pory"
 	msgbox ShoreslatePokeCenter1F_LittleGirl_Text, MSGBOX_NPC
 	end
 
 
 ShoreslatePokeCenter1F_OldWoman_Text::
+# 33 "data/maps/Shoreslate_Pokecenter_1F/scripts.pory"
 	.string "Have you heard of the Devon\n"
 	.string "Corporation?\p"
 	.string "They create a lot of products that many\n"
@@ -45,12 +57,14 @@ ShoreslatePokeCenter1F_OldWoman_Text::
 	.string "Pokémon Center!$"
 
 ShoreslatePokeCenter1F_Boy_Text::
+# 44 "data/maps/Shoreslate_Pokecenter_1F/scripts.pory"
 	.string "Have you been to the upstairs to\n"
 	.string "check the training area?\p"
 	.string "My Pokémon grew stronger training here\n"
 	.string "than they did when I visited Aldeleaf!$"
 
 ShoreslatePokeCenter1F_LittleGirl_Text::
+# 50 "data/maps/Shoreslate_Pokecenter_1F/scripts.pory"
 	.string "According to this book, on rare\n"
 	.string "occasions, a Pokémon can be born with\l"
 	.string "atypical coloration.\l"

@@ -118,7 +118,7 @@
 #define VAR_POKERANCH                              0x4062
 #define VAR_ROUTE104_STATE                               0x4063
 #define VAR_ALDELEAF_GYM_STEPS                               0x4064
-#define VAR_UNUSED_0x4065                              0x4065
+#define VAR_TIME_CONTROL                              0x4065
 #define VAR_ALDELEAF_HOUSE                               0x4066 // used for the aldeleaf mimikyu event
 #define VAR_KAOLISLE_BIRDS                               0x4067
 #define VAR_FCCAVE                               0x4068 

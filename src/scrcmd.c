@@ -3906,3 +3906,11 @@ void ScrCmd_checkberrytree(struct ScriptContext *ctx)
         gSpecialVar_Result = TRUE;
     }
 }
+
+void ScrCmd_SetupEnchantedForestFlags(void)
+{
+    if (FlagGet(FLAG_ENCHANTED_FOREST_NIGHT))
+        gEnchantedForestNight = TRUE;
+    else
+        gEnchantedForestNight = FALSE;
+}

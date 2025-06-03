@@ -79,6 +79,7 @@
 #include "constants/weather.h"
 #include "constants/event_object_movement.h"
 #include "journal_popup.h"
+#include "constants/rgb.h"
 
 STATIC_ASSERT((B_FLAG_FOLLOWERS_DISABLED == 0 || OW_FOLLOWERS_ENABLED), FollowersFlagAssignedWithoutEnablingThem);
 
@@ -222,6 +223,7 @@ EWRAM_DATA static u8 sHoursOverride = 0; // used to override apparent time of da
 EWRAM_DATA struct LinkPlayerObjectEvent gLinkPlayerObjectEvents[4] = {0};
 EWRAM_DATA bool8 gExitStairsMovementDisabled = FALSE;
 EWRAM_DATA bool8 gWarpInProgress = FALSE;
+EWRAM_DATA bool8 gEnchantedForestNight = FALSE;
 
 static const struct WarpData sDummyWarpData =
 {
@@ -400,6 +402,7 @@ void Overworld_ResetStateAfterFly(void)
     FlagClear(FLAG_PARTNER_HEALS);
     FlagClear(FLAG_HEAL_AFTER_BATTLE);
     FlagClear(FLAG_DESERT_STEPS);
+    FlagClear(FLAG_TIME_STOP);
     VarSet(VAR_POKECENTER_TRAINING, 0);
     VarSet(VAR_SHINY_MULTIPLIER, 0);
 }
@@ -411,6 +414,7 @@ void Overworld_ResetStateAfterTeleport(void)
     FlagClear(FLAG_SYS_CRUISE_MODE);
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
+    FlagClear(FLAG_TIME_STOP);
     FlagClear(FLAG_SYS_USE_FLASH);
     FlagClear(FLAG_INCREASED_SHINY_ODDS);
     FlagClear(FLAG_SYSTEM_NOREWARDBATTLES);
@@ -429,6 +433,7 @@ void Overworld_ResetStateAfterDigEscRope(void)
     FlagClear(FLAG_SYS_CRUISE_MODE);
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
+    FlagClear(FLAG_TIME_STOP);
     FlagClear(FLAG_SYS_USE_FLASH);
     FlagClear(FLAG_INCREASED_SHINY_ODDS);
     FlagClear(FLAG_SYSTEM_NOREWARDBATTLES);
@@ -485,6 +490,7 @@ static void Overworld_ResetStateAfterWhiteOut(void)
     FlagClear(FLAG_SYS_CRUISE_MODE);
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
+    FlagClear(FLAG_TIME_STOP);
     FlagClear(FLAG_SYS_USE_FLASH);
     if (B_RESET_FLAGS_VARS_AFTER_WHITEOUT == TRUE)
         Overworld_ResetBattleFlagsAndVars();
@@ -2074,6 +2080,10 @@ void CB2_ContinueSavedGame(void)
     StopMapMusic();
     ResetSafariZoneFlag_();
     FlagClear(FLAG_FREE_MART);
+    if (FlagGet(FLAG_ENCHANTED_FOREST_NIGHT))
+        gEnchantedForestNight = TRUE;
+    else
+        gEnchantedForestNight = FALSE;
     if (gSaveFileStatus == SAVE_STATUS_ERROR)
         ResetWinStreaks();
 

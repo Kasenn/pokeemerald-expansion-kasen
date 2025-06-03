@@ -1,195 +1,251 @@
 Route2_MapScripts::
+# 2 "data/maps/Route2/scripts.pory"
 	map_script MAP_SCRIPT_ON_LOAD, R2ClearLandslide
 	.byte 0
 
 
 R2ClearLandslide::
+# 6 "data/maps/Route2/scripts.pory"
 	goto_if_set FLAG_VISITED_RUSTBORO_CITY, R2ClearLandslide_1
 	return
 
 R2ClearLandslide_1:
+# 7 "data/maps/Route2/scripts.pory"
 	setmetatile 74, 7, 0x0AF, FALSE
+# 8 "data/maps/Route2/scripts.pory"
 	setmetatile 75, 7, 0x0CF, FALSE
+# 9 "data/maps/Route2/scripts.pory"
 	setmetatile 75, 8, 0x071, FALSE
+# 10 "data/maps/Route2/scripts.pory"
 	setmetatile 74, 9, 0x0AF, FALSE
+# 11 "data/maps/Route2/scripts.pory"
 	setmetatile 75, 9, 0x0CF, FALSE
+# 12 "data/maps/Route2/scripts.pory"
 	setmetatile 74, 10, 0x071, FALSE
+# 13 "data/maps/Route2/scripts.pory"
 	setmetatile 74, 11, 0x0AF, FALSE
+# 14 "data/maps/Route2/scripts.pory"
 	setmetatile 75, 11, 0x0CF, FALSE
+# 15 "data/maps/Route2/scripts.pory"
 	setmetatile 74, 12, 0x071, FALSE
 	return
 
 
 Route2_Landslide::
+# 20 "data/maps/Route2/scripts.pory"
 	msgbox Route2_Landslide_Text_0, MSGBOX_NPC
 	end
 
 
 Route2_X_Attack::
+# 25 "data/maps/Route2/scripts.pory"
 	finditem ITEM_X_ATTACK
 	return
 
 
 Route2_Revive::
+# 29 "data/maps/Route2/scripts.pory"
 	finditem ITEM_REVIVE
 	return
 
 
 Route2_Fisher::
+# 33 "data/maps/Route2/scripts.pory"
 	trainerbattle_single TRAINER_R2_FISHER, Route2_Text_FisherIntro, Route2_Text_FisherDefeated
+# 34 "data/maps/Route2/scripts.pory"
 	msgbox Route2_Text_FisherPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route2_Lass::
+# 48 "data/maps/Route2/scripts.pory"
 	trainerbattle_single TRAINER_R2_LASS, Route2_Text_LassIntro, Route2_Text_LassDefeated
+# 49 "data/maps/Route2/scripts.pory"
 	msgbox Route2_Text_LassPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route2_BlackBelt::
+# 64 "data/maps/Route2/scripts.pory"
 	trainerbattle_single TRAINER_R2_BLACKBELT, Route2_Text_BlackBeltIntro, Route2_Text_BlackBeltDefeated
+# 65 "data/maps/Route2/scripts.pory"
 	msgbox Route2_Text_BlackBeltPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route2_Youngster::
+# 79 "data/maps/Route2/scripts.pory"
 	trainerbattle_single TRAINER_R2_YOUNGSTER, Route2_Text_YoungsterIntro, Route2_Text_YoungsterDefeated
+# 80 "data/maps/Route2/scripts.pory"
 	msgbox Route2_Text_YoungsterPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route2_Girl3::
+# 94 "data/maps/Route2/scripts.pory"
 	trainerbattle_single TRAINER_R2_SCHOOL_KID_F, Route2_Text_Girl3Intro, Route2_Text_Girl3Defeated
+# 95 "data/maps/Route2/scripts.pory"
 	msgbox Route2_Text_Girl3PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route2_Sign::
+# 109 "data/maps/Route2/scripts.pory"
 	msgbox Route2_Sign_Text, MSGBOX_SIGN
 	return
 
 
 WindyWoods_Sign::
+# 117 "data/maps/Route2/scripts.pory"
 	msgbox WindyWoods_Sign_Text, MSGBOX_SIGN
 	return
 
 
 Primrose_Sign2::
+# 128 "data/maps/Route2/scripts.pory"
 	msgbox Primrose_Sign2_Text, MSGBOX_SIGN
 	return
 
 
 Route3_Sign2::
+# 137 "data/maps/Route2/scripts.pory"
 	msgbox Route3_Sign2_Text, MSGBOX_SIGN
 	return
 
 
 Route5_Sign::
+# 146 "data/maps/Route2/scripts.pory"
 	msgbox Route5_Sign_Text, MSGBOX_SIGN
 	return
 
 
 Route5_Sign2::
+# 158 "data/maps/Route2/scripts.pory"
 	msgbox Route5_Sign2_Text, MSGBOX_SIGN
 	return
 
 
 Route7_Sign::
+# 167 "data/maps/Route2/scripts.pory"
 	msgbox Route7_Sign_Text, MSGBOX_SIGN
 	return
 
 
 Desert_Sign::
+# 179 "data/maps/Route2/scripts.pory"
 	msgbox Desert_Sign_Text, MSGBOX_SIGN
 	return
 
 
 Route11_Sign::
+# 192 "data/maps/Route2/scripts.pory"
 	msgbox Route11_Sign_Text, MSGBOX_SIGN
 	return
 
 
 Route14_TrainerTips::
+# 205 "data/maps/Route2/scripts.pory"
 	msgbox Route14_TrainerTips_Text, MSGBOX_SIGN
 	return
 
 
 Route23_Sign::
+# 216 "data/maps/Route2/scripts.pory"
 	msgbox Route23_Sign_Text, MSGBOX_SIGN
 	return
 
 
 Route8_Sign2::
+# 230 "data/maps/Route2/scripts.pory"
 	msgbox Route8_Sign2_Text, MSGBOX_SIGN
 	return
 
 
 Route1_Sign::
+# 245 "data/maps/Route2/scripts.pory"
 	msgbox Route1_Sign_Text, MSGBOX_SIGN
 	return
 
 
 R18_PlayerTipsSign::
+# 269 "data/maps/Route2/scripts.pory"
 	msgbox R18_PlayerTipsSign_Text, MSGBOX_SIGN
 	return
 
 
 Route2_Landslide_Text_0:
+# 20 "data/maps/Route2/scripts.pory"
 	.string "Looks like the route to Coralgrove City\nis buried under a landslide.\pI guess I need to take the detour\nthrough Windy Woods…$"
 
 Route2_Text_FisherIntro::
+# 37 "data/maps/Route2/scripts.pory"
 	.string "Hope you're ready for\na splash-tacular match!$"
 
 Route2_Text_FisherDefeated::
+# 40 "data/maps/Route2/scripts.pory"
 	.string "Guess I bait off more than\nI could chew…$"
 
 Route2_Text_FisherPostBattle::
+# 43 "data/maps/Route2/scripts.pory"
 	.string "I really floundered that battle, huh…$"
 
 Route2_Text_LassIntro::
+# 52 "data/maps/Route2/scripts.pory"
 	.string "Behold the power of fairy!$"
 
 Route2_Text_LassDefeated::
+# 55 "data/maps/Route2/scripts.pory"
 	.string "My little baby!$"
 
 Route2_Text_LassPostBattle::
+# 58 "data/maps/Route2/scripts.pory"
 	.string "You're mean! You didn't\n"
 	.string "have to battle so seriously!$"
 
 Route2_Text_BlackBeltIntro::
+# 68 "data/maps/Route2/scripts.pory"
 	.string "You are getting in the way\nof my training regimen!$"
 
 Route2_Text_BlackBeltDefeated::
+# 71 "data/maps/Route2/scripts.pory"
 	.string "Magnificent display of skill!$"
 
 Route2_Text_BlackBeltPostBattle::
+# 74 "data/maps/Route2/scripts.pory"
 	.string "You have potential to become\na great black belt.\pIf you're interested,\ndrop by our dojo in Sandstone City.$"
 
 Route2_Text_YoungsterIntro::
+# 83 "data/maps/Route2/scripts.pory"
 	.string "Our eyes met so you\nknow what that means!$"
 
 Route2_Text_YoungsterDefeated::
+# 86 "data/maps/Route2/scripts.pory"
 	.string "You must've cheated somehow…$"
 
 Route2_Text_YoungsterPostBattle::
+# 89 "data/maps/Route2/scripts.pory"
 	.string "You're older than me so you were\nsupposed to let me win!$"
 
 Route2_Text_Girl3Intro::
+# 98 "data/maps/Route2/scripts.pory"
 	.string "Even Pokémon battles\ncan teach you something!$"
 
 Route2_Text_Girl3Defeated::
+# 101 "data/maps/Route2/scripts.pory"
 	.string "This was a learning experience.$"
 
 Route2_Text_Girl3PostBattle::
+# 104 "data/maps/Route2/scripts.pory"
 	.string "As long as I learned something,\nthis was still a positive experience.$"
 
 Route2_Sign_Text::
+# 111 "data/maps/Route2/scripts.pory"
 	.string "{UP_ARROW} Coralgrove City\n"
 	.string "{RIGHT_ARROW} Windy Woods\l"
 	.string "{DOWN_ARROW} Primrose Town$"
 
 WindyWoods_Sign_Text::
+# 119 "data/maps/Route2/scripts.pory"
 	.string "Trainer Tips\p"
 	.string "To quickly throw a Poké Ball\n"
 	.string "in battle, press the R button.\p"
@@ -198,16 +254,19 @@ WindyWoods_Sign_Text::
 	.string "right on the D-Pad.$"
 
 Primrose_Sign2_Text::
+# 130 "data/maps/Route2/scripts.pory"
 	.string "{UP_ARROW} Route 2\n"
 	.string "{RIGHT_ARROW} Primrose Meadow\l"
 	.string "{DOWN_ARROW} Route 1$"
 
 Route3_Sign2_Text::
+# 139 "data/maps/Route2/scripts.pory"
 	.string "{UP_ARROW} Pokémon Ranch\n"
 	.string "{RIGHT_ARROW} Aldeleaf City\l"
 	.string "{LEFT_ARROW} Azuretide Town$"
 
 Route5_Sign_Text::
+# 148 "data/maps/Route2/scripts.pory"
 	.string "Trainer Tips\p"
 	.string "Making Pokémon battle weaker opponents\n"
 	.string "makes it grow slower than normal.\p"
@@ -216,11 +275,13 @@ Route5_Sign_Text::
 	.string "will grant the Pokémon extra experience.$"
 
 Route5_Sign2_Text::
+# 160 "data/maps/Route2/scripts.pory"
 	.string "{UP_ARROW} Aldeleaf City\n"
 	.string "{RIGHT_ARROW} Flower Fields\l"
 	.string "{DOWN_ARROW} Skyloch Village$"
 
 Route7_Sign_Text::
+# 169 "data/maps/Route2/scripts.pory"
 	.string "Trainer Tips\p"
 	.string "Running causes a lot of ruckus,\n"
 	.string "making you the center of attention.\p"
@@ -229,6 +290,7 @@ Route7_Sign_Text::
 	.string "consider slowing down your pace.$"
 
 Desert_Sign_Text::
+# 181 "data/maps/Route2/scripts.pory"
 	.string "Trainer Tips\p"
 	.string "Some Pokémon have strong trapping\n"
 	.string "abilities that stop trainers from\l"
@@ -238,6 +300,7 @@ Desert_Sign_Text::
 	.string "for long enough to allow escape.$"
 
 Route11_Sign_Text::
+# 194 "data/maps/Route2/scripts.pory"
 	.string "Trainer Tips\p"
 	.string "Pokémon with the move Cut can\n"
 	.string "cut down long grass, making\l"
@@ -247,6 +310,7 @@ Route11_Sign_Text::
 	.string "of grass at a time.$"
 
 Route14_TrainerTips_Text::
+# 207 "data/maps/Route2/scripts.pory"
 	.string "Trainer Tips\p"
 	.string "When in battle and choosing a move,\n"
 	.string "pressing the L button will display\l"
@@ -254,6 +318,7 @@ Route14_TrainerTips_Text::
 	.string "chosen move.$"
 
 Route23_Sign_Text::
+# 218 "data/maps/Route2/scripts.pory"
 	.string "Trainer Tips\p"
 	.string "Some Pokémon like to make their\n"
 	.string "home in small hidden grottos\l"
@@ -264,6 +329,7 @@ Route23_Sign_Text::
 	.string "undisturbed for some time.$"
 
 Route8_Sign2_Text::
+# 232 "data/maps/Route2/scripts.pory"
 	.string "Trainer Tips\p"
 	.string "A lot can happen on the road,\n"
 	.string "and some of these events are\l"
@@ -275,6 +341,7 @@ Route8_Sign2_Text::
 	.string "press the A-button.$"
 
 Route1_Sign_Text::
+# 247 "data/maps/Route2/scripts.pory"
 	.string "Trainer Tips\p"
 	.string "If you ever feel lonely on your\n"
 	.string "travels, simply let your Pokémon\l"
@@ -295,6 +362,7 @@ Route1_Sign_Text::
 	.string "for certain larger species.$"
 
 R18_PlayerTipsSign_Text::
+# 271 "data/maps/Route2/scripts.pory"
 	.string "Trainer Tips\p"
 	.string "Ice-type Pokémon are strengthened by\n"
 	.string "snowfall, massively increasing their\l"

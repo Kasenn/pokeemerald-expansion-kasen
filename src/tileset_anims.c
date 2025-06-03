@@ -6,6 +6,11 @@
 #include "task.h"
 #include "battle_transition.h"
 #include "fieldmap.h"
+#include "trig.h"
+#include "constants/rgb.h"
+#include "overworld.h"
+#include "constants/rtc.h"
+#include "script.h"
 
 static EWRAM_DATA struct {
     const u16 *src;
@@ -30,6 +35,7 @@ static void TilesetAnim_Rustboro(u16);
 static void TilesetAnim_Dewford(u16);
 static void TilesetAnim_Slateport(u16);
 static void TilesetAnim_Mauville(u16);
+static void TilesetAnim_MagicForest(u16);
 static void TilesetAnim_FlowerField(u16);
 static void TilesetAnim_Lavaridge(u16);
 static void TilesetAnim_Frostfire(u16);
@@ -51,6 +57,7 @@ static void TilesetAnim_MirageTower(u16);
 static void TilesetAnim_Drisledge(u16);
 static void TilesetAnim_BattleDome(u16);
 static void QueueAnimTiles_General_Flower(u16);
+static void QueueAnimTiles_EnchantedForest_Mushroom(u16);
 static void QueueAnimTiles_General_Water(u16);
 static void QueueAnimTiles_Amberock_Water(u16);
 static void QueueAnimTiles_General_SandWaterEdge(u16);
@@ -102,6 +109,28 @@ const u16 *const gTilesetAnims_General_Flower[] = {
     gTilesetAnims_General_Flower_Frame1,
     gTilesetAnims_General_Flower_Frame0,
     gTilesetAnims_General_Flower_Frame2
+};
+
+const u16 gTilesetAnims_EnchantedForest_Mushroom1_Frame1[] = INCBIN_U16("data/tilesets/secondary/magic_forest/anim/mushroom_1/frame2.4bpp");
+const u16 gTilesetAnims_EnchantedForest_Mushroom1_Frame0[] = INCBIN_U16("data/tilesets/secondary/magic_forest/anim/mushroom_1/frame1.4bpp");
+const u16 gTilesetAnims_EnchantedForest_Mushroom1_Frame2[] = INCBIN_U16("data/tilesets/secondary/magic_forest/anim/mushroom_1/frame3.4bpp");
+
+const u16 gTilesetAnims_EnchantedForest_Mushroom2_Frame1[] = INCBIN_U16("data/tilesets/secondary/magic_forest/anim/mushroom_2/frame2.4bpp");
+const u16 gTilesetAnims_EnchantedForest_Mushroom2_Frame0[] = INCBIN_U16("data/tilesets/secondary/magic_forest/anim/mushroom_2/frame1.4bpp");
+const u16 gTilesetAnims_EnchantedForest_Mushroom2_Frame2[] = INCBIN_U16("data/tilesets/secondary/magic_forest/anim/mushroom_2/frame3.4bpp");
+
+
+const u16 *const gTilesetAnims_EnchantedForestMushroom1[] = {
+    gTilesetAnims_EnchantedForest_Mushroom1_Frame0,
+    gTilesetAnims_EnchantedForest_Mushroom1_Frame1,
+    gTilesetAnims_EnchantedForest_Mushroom1_Frame0,
+    gTilesetAnims_EnchantedForest_Mushroom1_Frame2
+};
+const u16 *const gTilesetAnims_EnchantedForestMushroom2[] = {
+    gTilesetAnims_EnchantedForest_Mushroom2_Frame0,
+    gTilesetAnims_EnchantedForest_Mushroom2_Frame1,
+    gTilesetAnims_EnchantedForest_Mushroom2_Frame0,
+    gTilesetAnims_EnchantedForest_Mushroom2_Frame2
 };
 
 const u16 gTilesetAnims_Crowd1_Frame0[] = INCBIN_U16("data/tilesets/primary/crowd/anim/crowd1/1.4bpp");
@@ -897,6 +926,13 @@ static void QueueAnimTiles_General_Flower(u16 timer)
     AppendTilesetAnimToBuffer(gTilesetAnims_General_Flower[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(508)), 4 * TILE_SIZE_4BPP);
 }
 
+static void QueueAnimTiles_EnchantedForest_Mushroom(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_EnchantedForestMushroom1);
+    AppendTilesetAnimToBuffer(gTilesetAnims_EnchantedForestMushroom1[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x2E0)), 4 * TILE_SIZE_4BPP);
+    AppendTilesetAnimToBuffer(gTilesetAnims_EnchantedForestMushroom2[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x2F0)), 4 * TILE_SIZE_4BPP);
+}
+
 static void QueueAnimTiles_General_Water(u16 timer)
 {
     u8 i = timer % ARRAY_COUNT(gTilesetAnims_General_Water);
@@ -955,6 +991,19 @@ void InitTilesetAnim_Mauville(void)
     sSecondaryTilesetAnimCounter = sPrimaryTilesetAnimCounter;
     sSecondaryTilesetAnimCounterMax = sPrimaryTilesetAnimCounterMax;
     sSecondaryTilesetAnimCallback = TilesetAnim_Mauville;
+}
+
+void ResetAnimCounter(void)
+{
+    sPrimaryTilesetAnimCounter = 128;
+    sSecondaryTilesetAnimCounter = 128;
+}
+
+void InitTilesetAnim_MagicForest(void)
+{
+    sSecondaryTilesetAnimCounter = sPrimaryTilesetAnimCounter;
+    sSecondaryTilesetAnimCounterMax = sPrimaryTilesetAnimCounterMax;
+    sSecondaryTilesetAnimCallback = TilesetAnim_MagicForest;
 }
 
 void InitTilesetAnim_FlowerField(void)
@@ -1180,6 +1229,44 @@ static void TilesetAnim_Mauville(u16 timer)
         QueueAnimTiles_Mauville_Flowers(timer / 8, 6);
     if (timer % 8 == 7)
         QueueAnimTiles_Mauville_Flowers(timer / 8, 7);
+}
+
+static const struct RGBColor {
+    u8 r, g, b;
+} sBaseColors[5] = {
+    { 16, 20, 18 }, // ID 7 blend
+    { 19, 18, 19 }, // ID 8 blend
+    { 17, 17, 15 }, // ID 9 blend
+    { 14, 21, 14 }, // ID 10 blend
+    { 19, 20, 10 }, // ID 11 blend
+};
+
+static void TilesetAnim_MagicForest(u16 timer)
+{
+    if (timer % 16 == 0 && gEnchantedForestNight)
+        QueueAnimTiles_EnchantedForest_Mushroom(timer / 16);
+
+    if (!gWarpInProgress && !gPaletteFade.active && gEnchantedForestNight && !ArePlayerFieldControlsLocked())
+    {
+        if ((timer % 4) != 0)
+            return;
+
+        s32 cosVal = Cos(timer, 128);
+        s32 factor = -((cosVal + 128) * 72) / 256;
+        u16 i;
+
+        for (i = 0; i < 5; i++)
+        {
+            struct RGBColor base = sBaseColors[i];
+
+            u8 r = base.r + ((31 - base.r) * factor) / 256;
+            u8 g = base.g + ((31 - base.g) * factor) / 256;
+            u8 b = base.b + ((31 - base.b) * factor) / 256;
+
+            u16 color = RGB(r, g, b);
+            LoadPalette(&color, BG_PLTT_ID(7 + i) + 1, sizeof(color));
+        }
+    }
 }
 
 static void TilesetAnim_FlowerField(u16 timer)

@@ -1215,7 +1215,7 @@ const struct Tileset gTileset_MagicForest =
     .palettes = gTilesetPalettes_MagicForest,
     .metatiles = gMetatiles_MagicForest,
     .metatileAttributes = gMetatileAttributes_MagicForest,
-    .callback = InitTilesetAnim_Mauville,
+    .callback = InitTilesetAnim_MagicForest,
 };
 
 const struct Tileset gTileset_Iceperch =
@@ -1303,5 +1303,16 @@ const struct Tileset gTileset_Aldeleaf =
     .palettes = gTilesetPalettes_Aldeleaf,
     .metatiles = gMetatiles_Aldeleaf,
     .metatileAttributes = gMetatileAttributes_Aldeleaf,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_EnchantedForest =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_EnchantedForest,
+    .palettes = gTilesetPalettes_EnchantedForest,
+    .metatiles = gMetatiles_EnchantedForest,
+    .metatileAttributes = gMetatileAttributes_EnchantedForest,
     .callback = NULL,
 };

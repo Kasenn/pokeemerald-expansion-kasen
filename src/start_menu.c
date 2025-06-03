@@ -592,7 +592,11 @@ static void ShowClockWindow(void)
     RtcCalcLocalTime();                             
     ConvertIntToDecimalStringN(gStringVar2, minutes, STR_CONV_MODE_LEADING_ZEROS, 2);
     ConvertIntToDecimalStringN(gStringVar1, hours, STR_CONV_MODE_RIGHT_ALIGN, 2);
-    if (timeFormat == OPTIONS_24H_FORMAT)
+    if (FlagGet(FLAG_ENCHANTED_FOREST_NIGHT))
+    {
+        StringExpandPlaceholders(gStringVar4, gText_ClockQuestion);
+    }
+    else if (timeFormat == OPTIONS_24H_FORMAT)
     {
         StringExpandPlaceholders(gStringVar4, gText_Clock);
     }

@@ -12,6 +12,7 @@ void InitTilesetAnim_Rustboro(void);
 void InitTilesetAnim_Dewford(void);
 void InitTilesetAnim_Slateport(void);
 void InitTilesetAnim_Mauville(void);
+void InitTilesetAnim_MagicForest(void);
 void InitTilesetAnim_FlowerField(void);
 void InitTilesetAnim_Lavaridge(void);
 void InitTilesetAnim_Frostfire(void);

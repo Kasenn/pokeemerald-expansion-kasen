@@ -1,246 +1,371 @@
 UndergroundRuins_1F_MapScripts::
+# 2 "data/maps/UndergroundRuins_1F/scripts.pory"
 	map_script MAP_SCRIPT_ON_TRANSITION, SetRuinsFlag
+# 3 "data/maps/UndergroundRuins_1F/scripts.pory"
 	map_script MAP_SCRIPT_ON_LOAD, DesertRuin1FTileSet
 	.byte 0
 
 
 SetRuinsFlag::
+# 7 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setflag FLAG_LANDMARK_DESERT_RUINS
 	end
 
 
 DesertRuin1FTileSet::
+# 12 "data/maps/UndergroundRuins_1F/scripts.pory"
 	goto_if_unset FLAG_DESERT_RUINS_OPENED, DesertRuin1FTileSet_2
 DesertRuin1FTileSet_1:
 	end
 
 DesertRuin1FTileSet_2:
+# 13 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 4, 3, 0x245, TRUE
+# 14 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 5, 3, 0x245, TRUE
+# 15 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 6, 3, 0x245, TRUE
+# 16 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 7, 3, 0x245, TRUE
+# 17 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 8, 3, 0x245, TRUE
+# 18 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 9, 3, 0x245, TRUE
+# 19 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 10, 3, 0x245, TRUE
+# 20 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 4, 4, 0x245, TRUE
+# 21 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 5, 4, 0x245, TRUE
+# 22 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 6, 4, 0x245, TRUE
+# 23 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 7, 4, 0x245, TRUE
+# 24 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 8, 4, 0x245, TRUE
+# 25 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 9, 4, 0x245, TRUE
+# 26 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 10, 4, 0x245, TRUE
+# 27 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 4, 5, 0x245, TRUE
+# 28 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 5, 5, 0x245, TRUE
+# 29 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 6, 5, 0x245, TRUE
+# 30 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 7, 5, 0x245, TRUE
+# 31 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 8, 5, 0x245, TRUE
+# 32 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 9, 5, 0x245, TRUE
+# 33 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 10, 5, 0x245, TRUE
+# 34 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 4, 6, 0x245, TRUE
+# 35 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 5, 6, 0x245, TRUE
+# 36 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 6, 6, 0x245, TRUE
+# 37 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 7, 6, 0x245, TRUE
+# 38 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 8, 6, 0x245, TRUE
+# 39 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 9, 6, 0x245, TRUE
+# 40 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 10, 6, 0x245, TRUE
+# 41 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 4, 7, 0x245, TRUE
+# 42 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 5, 7, 0x245, TRUE
+# 43 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 6, 7, 0x245, TRUE
+# 44 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 7, 7, 0x245, TRUE
+# 45 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 8, 7, 0x245, TRUE
+# 46 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 9, 7, 0x245, TRUE
+# 47 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 10, 7, 0x245, TRUE
+# 48 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 4, 8, 0x245, TRUE
+# 49 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 5, 8, 0x245, TRUE
+# 50 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 6, 8, 0x245, TRUE
+# 51 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 7, 8, 0x245, TRUE
+# 52 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 8, 8, 0x245, TRUE
+# 53 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 9, 8, 0x245, TRUE
+# 54 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 10, 8, 0x245, TRUE
+# 55 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 4, 9, 0x219, TRUE
+# 56 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 5, 9, 0x219, TRUE
+# 57 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 6, 9, 0x219, TRUE
+# 58 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 7, 9, 0x219, TRUE
+# 59 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 8, 9, 0x219, TRUE
+# 60 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 9, 9, 0x219, TRUE
+# 61 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 10, 9, 0x219, TRUE
+# 62 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 5, 10, 0x219, TRUE
+# 63 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 6, 10, 0x219, TRUE
+# 64 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 7, 10, 0x219, TRUE
+# 65 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 8, 10, 0x219, TRUE
+# 66 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setmetatile 9, 10, 0x219, TRUE
 	goto DesertRuin1FTileSet_1
 
 
 RuinsEntranceMan::
+# 72 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setflag FLAG_RECOMMEND_LIBRARY
+# 73 "data/maps/UndergroundRuins_1F/scripts.pory"
 	goto_if_set FLAG_ARCHEOLOGIST_TALKED_TO, RuinsEntranceMan_2
+# 81 "data/maps/UndergroundRuins_1F/scripts.pory"
 	goto_if_set FLAG_DESERT_RUINS_OPENED, RuinsEntranceMan_5
+# 86 "data/maps/UndergroundRuins_1F/scripts.pory"
 	msgbox RuinsEntranceMan_Text, MSGBOX_NPC
+# 87 "data/maps/UndergroundRuins_1F/scripts.pory"
 	goto_if_unset FLAG_Q18_DESERT_LIBRARYBOOK_START, RuinsEntranceMan_14
 RuinsEntranceMan_12:
 	end
 
 RuinsEntranceMan_2:
+# 74 "data/maps/UndergroundRuins_1F/scripts.pory"
 	msgbox RuinsEntranceMan_Text, MSGBOX_NPC
+# 75 "data/maps/UndergroundRuins_1F/scripts.pory"
 	goto_if_unset FLAG_Q18_DESERT_LIBRARYBOOK_START, RuinsEntranceMan_9
 RuinsEntranceMan_7:
 	end
 
 RuinsEntranceMan_5:
+# 82 "data/maps/UndergroundRuins_1F/scripts.pory"
 	setflag FLAG_ARCHEOLOGIST_TALKED_TO
+# 83 "data/maps/UndergroundRuins_1F/scripts.pory"
 	msgbox RuinsEntranceMan_After, MSGBOX_NPC
 	end
 
 RuinsEntranceMan_8:
+# 76 "data/maps/UndergroundRuins_1F/scripts.pory"
 	startquest FLAG_Q18_DESERT_LIBRARYBOOK_START
+# 77 "data/maps/UndergroundRuins_1F/scripts.pory"
 	special ShowJournalPopupAdd
 	goto RuinsEntranceMan_7
 
 RuinsEntranceMan_9:
 	checkitem ITEM_HISTORY_BOOK
+# 0 "data/maps/UndergroundRuins_1F/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq RuinsEntranceMan_8
 	goto RuinsEntranceMan_7
 
 RuinsEntranceMan_13:
+# 88 "data/maps/UndergroundRuins_1F/scripts.pory"
 	startquest FLAG_Q18_DESERT_LIBRARYBOOK_START
+# 89 "data/maps/UndergroundRuins_1F/scripts.pory"
 	special ShowJournalPopupAdd
 	goto RuinsEntranceMan_12
 
 RuinsEntranceMan_14:
 	checkitem ITEM_HISTORY_BOOK
+# 0 "data/maps/UndergroundRuins_1F/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq RuinsEntranceMan_13
 	goto RuinsEntranceMan_12
 
 
 DesertRuins_WallText::
+# 117 "data/maps/UndergroundRuins_1F/scripts.pory"
 	checkitem ITEM_HISTORY_BOOK
+# 118 "data/maps/UndergroundRuins_1F/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq DesertRuins_WallText_1
+# 123 "data/maps/UndergroundRuins_1F/scripts.pory"
 	lock
+# 124 "data/maps/UndergroundRuins_1F/scripts.pory"
 	msgbox TranslateWallText1, MSGBOX_YESNO
+# 125 "data/maps/UndergroundRuins_1F/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq DesertRuins_WallText_5
+# 130 "data/maps/UndergroundRuins_1F/scripts.pory"
 	msgbox WallText1Translated, MSGBOX_SIGN
 	end
 
 DesertRuins_WallText_1:
+# 119 "data/maps/UndergroundRuins_1F/scripts.pory"
 	msgbox DesertRuins_WallText_Text1, MSGBOX_SIGN
 	end
 
 DesertRuins_WallText_5:
+# 126 "data/maps/UndergroundRuins_1F/scripts.pory"
 	closemessage
+# 127 "data/maps/UndergroundRuins_1F/scripts.pory"
 	release
 	end
 
 
 DesertRuins_WallText2::
+# 145 "data/maps/UndergroundRuins_1F/scripts.pory"
 	checkitem ITEM_HISTORY_BOOK
+# 146 "data/maps/UndergroundRuins_1F/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq DesertRuins_WallText2_1
+# 151 "data/maps/UndergroundRuins_1F/scripts.pory"
 	lock
+# 152 "data/maps/UndergroundRuins_1F/scripts.pory"
 	msgbox TranslateWallText1, MSGBOX_YESNO
+# 153 "data/maps/UndergroundRuins_1F/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq DesertRuins_WallText2_5
+# 158 "data/maps/UndergroundRuins_1F/scripts.pory"
 	msgbox WallTextTranslated2, MSGBOX_SIGN
 	end
 
 DesertRuins_WallText2_1:
+# 147 "data/maps/UndergroundRuins_1F/scripts.pory"
 	msgbox DesertRuins_WallText_Text1, MSGBOX_SIGN
 	end
 
 DesertRuins_WallText2_5:
+# 154 "data/maps/UndergroundRuins_1F/scripts.pory"
 	closemessage
+# 155 "data/maps/UndergroundRuins_1F/scripts.pory"
 	release
 	end
 
 
 DesertRuins_WallText3::
+# 163 "data/maps/UndergroundRuins_1F/scripts.pory"
 	checkitem ITEM_HISTORY_BOOK
+# 164 "data/maps/UndergroundRuins_1F/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq DesertRuins_WallText3_1
+# 169 "data/maps/UndergroundRuins_1F/scripts.pory"
 	lock
+# 170 "data/maps/UndergroundRuins_1F/scripts.pory"
 	msgbox TranslateWallText1, MSGBOX_YESNO
+# 171 "data/maps/UndergroundRuins_1F/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq DesertRuins_WallText3_5
+# 176 "data/maps/UndergroundRuins_1F/scripts.pory"
 	msgbox WallTextTranslated3, MSGBOX_SIGN
 	end
 
 DesertRuins_WallText3_1:
+# 165 "data/maps/UndergroundRuins_1F/scripts.pory"
 	msgbox DesertRuins_WallText_Text1, MSGBOX_SIGN
 	end
 
 DesertRuins_WallText3_5:
+# 172 "data/maps/UndergroundRuins_1F/scripts.pory"
 	closemessage
+# 173 "data/maps/UndergroundRuins_1F/scripts.pory"
 	release
 	end
 
 
 DesertRuins_WallText4::
+# 181 "data/maps/UndergroundRuins_1F/scripts.pory"
 	checkitem ITEM_HISTORY_BOOK
+# 182 "data/maps/UndergroundRuins_1F/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq DesertRuins_WallText4_1
+# 187 "data/maps/UndergroundRuins_1F/scripts.pory"
 	lock
+# 188 "data/maps/UndergroundRuins_1F/scripts.pory"
 	msgbox TranslateWallText1, MSGBOX_YESNO
+# 189 "data/maps/UndergroundRuins_1F/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq DesertRuins_WallText4_5
+# 194 "data/maps/UndergroundRuins_1F/scripts.pory"
 	msgbox WallTextTranslated4, MSGBOX_SIGN
 	end
 
 DesertRuins_WallText4_1:
+# 183 "data/maps/UndergroundRuins_1F/scripts.pory"
 	msgbox DesertRuins_WallText_Text1, MSGBOX_SIGN
 	end
 
 DesertRuins_WallText4_5:
+# 190 "data/maps/UndergroundRuins_1F/scripts.pory"
 	closemessage
+# 191 "data/maps/UndergroundRuins_1F/scripts.pory"
 	release
 	end
 
 
 DesertRuins_WallText5::
+# 199 "data/maps/UndergroundRuins_1F/scripts.pory"
 	checkitem ITEM_HISTORY_BOOK
+# 200 "data/maps/UndergroundRuins_1F/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq DesertRuins_WallText5_1
+# 205 "data/maps/UndergroundRuins_1F/scripts.pory"
 	lock
+# 206 "data/maps/UndergroundRuins_1F/scripts.pory"
 	msgbox TranslateWallText1, MSGBOX_YESNO
+# 207 "data/maps/UndergroundRuins_1F/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq DesertRuins_WallText5_5
+# 212 "data/maps/UndergroundRuins_1F/scripts.pory"
 	msgbox WallTextTranslated5, MSGBOX_SIGN
 	end
 
 DesertRuins_WallText5_1:
+# 201 "data/maps/UndergroundRuins_1F/scripts.pory"
 	msgbox DesertRuins_WallText_Text1, MSGBOX_SIGN
 	end
 
 DesertRuins_WallText5_5:
+# 208 "data/maps/UndergroundRuins_1F/scripts.pory"
 	closemessage
+# 209 "data/maps/UndergroundRuins_1F/scripts.pory"
 	release
 	end
 
 
 DesertRuins_WallText6::
 	checkitem ITEM_HISTORY_BOOK
+# 0 "data/maps/UndergroundRuins_1F/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq DesertRuins_WallText6_2
+# 221 "data/maps/UndergroundRuins_1F/scripts.pory"
 	lock
 	msgbox TranslateWallText1, MSGBOX_YESNO
+# 0 "data/maps/UndergroundRuins_1F/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq DesertRuins_WallText6_5
+# 226 "data/maps/UndergroundRuins_1F/scripts.pory"
 	msgbox WallTextTranslated6, MSGBOX_SIGN
 	end
 
 DesertRuins_WallText6_2:
+# 218 "data/maps/UndergroundRuins_1F/scripts.pory"
 	msgbox DesertRuins_WallText_Text1, MSGBOX_SIGN
 	end
 
 DesertRuins_WallText6_5:
+# 223 "data/maps/UndergroundRuins_1F/scripts.pory"
 	release
 	end
 
 
 RuinsEntranceMan_After::
+# 94 "data/maps/UndergroundRuins_1F/scripts.pory"
 	.string "What?! The wall collapsed and revealed\n"
 	.string "a new floor to the ruins?!\p"
 	.string "And what's more, there's even more\n"
@@ -250,6 +375,7 @@ RuinsEntranceMan_After::
 	.string "reading through this!$"
 
 RuinsEntranceMan_Text::
+# 103 "data/maps/UndergroundRuins_1F/scripts.pory"
 	.string "This wall documents some of the last\n"
 	.string "days of an ancient civilization.\p"
 	.string "There's a mention of the entire sky\n"
@@ -263,16 +389,19 @@ RuinsEntranceMan_Text::
 	.string "a book on ancient Sinko history.$"
 
 DesertRuins_WallText_Text1::
+# 134 "data/maps/UndergroundRuins_1F/scripts.pory"
 	.string "The wall is covered in a bunch of\n"
 	.string "indecipherable glyphs.$"
 
 TranslateWallText1::
+# 138 "data/maps/UndergroundRuins_1F/scripts.pory"
 	.string "The wall is covered in a bunch of\n"
 	.string "indecipherable glyphs.\p"
 	.string "Would you like to attempt to translate\n"
 	.string "them using the History Book?$"
 
 WallText1Translated::
+# 231 "data/maps/UndergroundRuins_1F/scripts.pory"
 	.string "Some of the glyphs are missing, but you\n"
 	.string "can make out the following text:\p"
 	.string "“The skies ____ ______ __________ red.\p"
@@ -288,6 +417,7 @@ WallText1Translated::
 	.string "The glyphs end abruptly.$"
 
 WallTextTranslated2::
+# 246 "data/maps/UndergroundRuins_1F/scripts.pory"
 	.string "Some of the glyphs are missing, but you\n"
 	.string "can make out the following text:\p"
 	.string "“The _____ ____ been ___________ yellow\n"
@@ -299,6 +429,7 @@ WallTextTranslated2::
 	.string "some _______ god?”$"
 
 WallTextTranslated3::
+# 257 "data/maps/UndergroundRuins_1F/scripts.pory"
 	.string "Some of the glyphs are missing, but you\n"
 	.string "can make out the following text:\p"
 	.string "“____ noticed many of the _______\n"
@@ -309,6 +440,7 @@ WallTextTranslated3::
 	.string "lack of ____ force has me _________…”$"
 
 WallTextTranslated4::
+# 267 "data/maps/UndergroundRuins_1F/scripts.pory"
 	.string "Some of the glyphs are missing, but you\n"
 	.string "can make out the following text:\p"
 	.string "“_________ is happening. ___ skies ____\n"
@@ -321,6 +453,7 @@ WallTextTranslated4::
 	.string "_______ __ hard to stay awake lately.”$"
 
 WallTextTranslated5::
+# 279 "data/maps/UndergroundRuins_1F/scripts.pory"
 	.string "Some of the glyphs are missing, but you\n"
 	.string "can make out the following text:\p"
 	.string "“The King _____ us to ____ digging\n"
@@ -333,6 +466,7 @@ WallTextTranslated5::
 	.string "Still, everyday __ ____ forward…”$"
 
 WallTextTranslated6::
+# 291 "data/maps/UndergroundRuins_1F/scripts.pory"
 	.string "Some of the glyphs are missing, but you\n"
 	.string "can make out the following text:\p"
 	.string "__ found an object _______ __\n"

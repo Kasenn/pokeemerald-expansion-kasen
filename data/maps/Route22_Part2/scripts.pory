@@ -1,0 +1,24 @@
+const X = VAR_TEMP_1
+const Y = VAR_TEMP_2
+
+mapscripts Route22_Part2_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        setflag(FLAG_TIME_STOP)
+        getplayerxy(X, Y)
+        if(var(X) == 39){
+            gettimeofday
+            if(var(VAR_0x8000) == TIME_EVENING || var(VAR_0x8000) == TIME_NIGHT)
+            {
+                setflag(FLAG_ENCHANTED_FOREST_NIGHT)
+                callnative(ScrCmd_SetupEnchantedForestFlags)
+                callnative(ResetAnimCounter)
+            }
+            else
+            {
+                clearflag(FLAG_ENCHANTED_FOREST_NIGHT)
+                callnative(ScrCmd_SetupEnchantedForestFlags)
+            }
+        }
+    }
+}
+
