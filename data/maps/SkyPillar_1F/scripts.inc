@@ -25,7 +25,7 @@ SetupRivalPartner_1:
 # 31 "data/maps/SkyPillar_1F/scripts.pory"
 	checkplayergender
 # 32 "data/maps/SkyPillar_1F/scripts.pory"
-	call Common_EventScript_SetupRivalGfxId
+	call SetupRivalGfxId
 # 33 "data/maps/SkyPillar_1F/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq SetupRivalPartner_5

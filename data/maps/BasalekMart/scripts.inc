@@ -5,7 +5,7 @@ BasalekMart_MapScripts::
 
 BasalekMart_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 # 3 "data/maps/BasalekMart/scripts.pory"
-	call Common_EventScript_SetupRivalGfxId
+	call SetupRivalGfxId
 # 4 "data/maps/BasalekMart/scripts.pory"
 	goto_if_set FLAG_RIVAL_MET_IN_BASALEK, BasalekMart_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
 	return

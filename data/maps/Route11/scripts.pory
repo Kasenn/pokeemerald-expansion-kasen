@@ -45,7 +45,7 @@ script Route11_BrokenBridge{
         setmetatile(88, 12, 0x2D7, TRUE)
     }
     call(Route11_TryMoveDayCareMan)
-    call(Common_EventScript_SetupRivalGfxId)
+    call(SetupRivalGfxId)
     call(Common_EventScript_SetupRivalOnBikeGfxId)
     end
 }

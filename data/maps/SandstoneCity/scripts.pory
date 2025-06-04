@@ -224,7 +224,7 @@ script SandstoneRivalTrigger4{
 
 script SandstoneRival{
     setflag(FLAG_RIVAL_COSTUME_CHANGE)
-    call(Common_EventScript_SetupRivalGfxId)
+    call(SetupRivalGfxId)
     lock
 	delay(5)
     opendoor(51, 22)

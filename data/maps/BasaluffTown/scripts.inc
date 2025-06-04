@@ -11,7 +11,7 @@ BasaluffTown_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 # 8 "data/maps/BasaluffTown/scripts.pory"
 	setflag FLAG_VISITED_BASALEK
 # 9 "data/maps/BasaluffTown/scripts.pory"
-	call Common_EventScript_SetupRivalGfxId
+	call SetupRivalGfxId
 # 10 "data/maps/BasaluffTown/scripts.pory"
 	getplayerxy VAR_TEMP_3, VAR_TEMP_4
 # 11 "data/maps/BasaluffTown/scripts.pory"

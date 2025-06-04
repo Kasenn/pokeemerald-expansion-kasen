@@ -58,6 +58,7 @@ static void TilesetAnim_Drisledge(u16);
 static void TilesetAnim_BattleDome(u16);
 static void QueueAnimTiles_General_Flower(u16);
 static void QueueAnimTiles_EnchantedForest_Mushroom(u16);
+static void QueueAnimTiles_EnchantedForest_MushroomDay(u16);
 static void QueueAnimTiles_General_Water(u16);
 static void QueueAnimTiles_Amberock_Water(u16);
 static void QueueAnimTiles_General_SandWaterEdge(u16);
@@ -131,6 +132,18 @@ const u16 *const gTilesetAnims_EnchantedForestMushroom2[] = {
     gTilesetAnims_EnchantedForest_Mushroom2_Frame1,
     gTilesetAnims_EnchantedForest_Mushroom2_Frame0,
     gTilesetAnims_EnchantedForest_Mushroom2_Frame2
+};
+const u16 *const gTilesetAnims_EnchantedForestMushroom3[] = {
+    gTilesetAnims_EnchantedForest_Mushroom1_Frame0,
+    gTilesetAnims_EnchantedForest_Mushroom1_Frame0,
+    gTilesetAnims_EnchantedForest_Mushroom1_Frame0,
+    gTilesetAnims_EnchantedForest_Mushroom1_Frame0
+};
+const u16 *const gTilesetAnims_EnchantedForestMushroom4[] = {
+    gTilesetAnims_EnchantedForest_Mushroom2_Frame0,
+    gTilesetAnims_EnchantedForest_Mushroom2_Frame0,
+    gTilesetAnims_EnchantedForest_Mushroom2_Frame0,
+    gTilesetAnims_EnchantedForest_Mushroom2_Frame0
 };
 
 const u16 gTilesetAnims_Crowd1_Frame0[] = INCBIN_U16("data/tilesets/primary/crowd/anim/crowd1/1.4bpp");
@@ -933,6 +946,13 @@ static void QueueAnimTiles_EnchantedForest_Mushroom(u16 timer)
     AppendTilesetAnimToBuffer(gTilesetAnims_EnchantedForestMushroom2[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x2F0)), 4 * TILE_SIZE_4BPP);
 }
 
+static void UNUSED QueueAnimTiles_EnchantedForest_MushroomDay(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_EnchantedForestMushroom1);
+    AppendTilesetAnimToBuffer(gTilesetAnims_EnchantedForestMushroom3[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x2E0)), 4 * TILE_SIZE_4BPP);
+    AppendTilesetAnimToBuffer(gTilesetAnims_EnchantedForestMushroom4[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x2F0)), 4 * TILE_SIZE_4BPP);
+}
+
 static void QueueAnimTiles_General_Water(u16 timer)
 {
     u8 i = timer % ARRAY_COUNT(gTilesetAnims_General_Water);
@@ -1234,16 +1254,16 @@ static void TilesetAnim_Mauville(u16 timer)
 static const struct RGBColor {
     u8 r, g, b;
 } sBaseColors[5] = {
-    { 16, 20, 18 }, // ID 7 blend
-    { 19, 18, 19 }, // ID 8 blend
-    { 17, 17, 15 }, // ID 9 blend
-    { 14, 21, 14 }, // ID 10 blend
-    { 19, 20, 10 }, // ID 11 blend
+    { 18, 22, 20 }, // ID 7 blend
+    { 21, 20, 21 }, // ID 8 blend
+    { 19, 19, 17 }, // ID 9 blend
+    { 16, 23, 16 }, // ID 10 blend
+    { 21, 22, 12 }, // ID 11 blend
 };
 
 static void TilesetAnim_MagicForest(u16 timer)
 {
-    if (timer % 16 == 0 && gEnchantedForestNight)
+    if (timer % 16 == 0 && gTimeOfDay == TIME_NIGHT)
         QueueAnimTiles_EnchantedForest_Mushroom(timer / 16);
 
     if (!gWarpInProgress && !gPaletteFade.active && gEnchantedForestNight && !ArePlayerFieldControlsLocked())
@@ -1252,7 +1272,7 @@ static void TilesetAnim_MagicForest(u16 timer)
             return;
 
         s32 cosVal = Cos(timer, 128);
-        s32 factor = -((cosVal + 128) * 72) / 256;
+        s32 factor = -((cosVal + 128) * 102) / 256;
         u16 i;
 
         for (i = 0; i < 5; i++)

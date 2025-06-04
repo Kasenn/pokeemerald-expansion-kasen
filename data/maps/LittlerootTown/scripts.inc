@@ -87,7 +87,7 @@ LittlerootTown_OnTransition:
 # 44 "data/maps/LittlerootTown/scripts.pory"
 	setflag FLAG_VISITED_LITTLEROOT_TOWN
 # 45 "data/maps/LittlerootTown/scripts.pory"
-	call Common_EventScript_SetupRivalGfxId
+	call SetupRivalGfxId
 # 46 "data/maps/LittlerootTown/scripts.pory"
 	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_MoveMomToMaysDoor
 # 47 "data/maps/LittlerootTown/scripts.pory"

@@ -1,6 +1,6 @@
 mapscripts BasalekMart_MapScripts {
     MAP_SCRIPT_ON_TRANSITION{
-        call(Common_EventScript_SetupRivalGfxId)
+        call(SetupRivalGfxId)
         if(flag(FLAG_RIVAL_MET_IN_BASALEK)){
             setflag(FLAG_TEMP_1)
         }

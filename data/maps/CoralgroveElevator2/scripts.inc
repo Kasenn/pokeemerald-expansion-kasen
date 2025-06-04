@@ -1,6 +1,6 @@
 CoralgroveElevator2_MapScripts::
 # 2 "data/maps/CoralgroveElevator2/scripts.pory"
-	map_script MAP_SCRIPT_ON_TRANSITION, Common_EventScript_SetupRivalGfxId
+	map_script MAP_SCRIPT_ON_TRANSITION, SetupRivalGfxId
 	.byte 0
 
 

@@ -11,7 +11,7 @@ Pearlwood_MaysHouse2F_SetRival::
 	goto_if_eq Pearlwood_MaysHouse2F_SetRival_2
 Pearlwood_MaysHouse2F_SetRival_1:
 # 11 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
-	call Common_EventScript_SetupRivalGfxId
+	call SetupRivalGfxId
 	return
 
 Pearlwood_MaysHouse2F_SetRival_2:

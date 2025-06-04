@@ -29,7 +29,7 @@ script SetupRivalPartner{
         setflag(FLAG_TEMP_1)
     }
     checkplayergender
-    call(Common_EventScript_SetupRivalGfxId)
+    call(SetupRivalGfxId)
     if(var(VAR_RESULT) == MALE){
         if(flag(FLAG_RIVAL_COSTUME_CHANGE)){
             switch(var(VAR_STARTER_MON)){

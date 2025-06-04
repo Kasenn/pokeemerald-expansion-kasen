@@ -6,7 +6,7 @@ const OBJ_RIVAL = 10
 mapscripts BasaluffTown_MapScripts{
     MAP_SCRIPT_ON_TRANSITION{
         setflag(FLAG_VISITED_BASALEK)
-        call(Common_EventScript_SetupRivalGfxId)
+        call(SetupRivalGfxId)
         getplayerxy(X, Y)
         if(var(X) == 23 && var(Y) == 16){
             setvar(RIVAL_TRIGGER, 1)

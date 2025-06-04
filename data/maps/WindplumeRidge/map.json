@@ -252,9 +252,7 @@
       "flag": "FLAG_ZYGARDE_CELL_15"
     }
   ],
-  "warp_events": [
-
-  ],
+  "warp_events": [],
   "coord_events": [
     {
       "type": "trigger",

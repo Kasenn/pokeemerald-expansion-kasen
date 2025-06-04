@@ -12,9 +12,10 @@
   "allow_running": true,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
+      "local_id": "LOCALID_LAB_BALL_1",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 8,
       "y": 3,
@@ -24,10 +25,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Lab2_Ball1",
-      "flag": "FLAG_TEMP_3"
+      "script": "Lab_Ball_Rowlet",
+      "flag": "FLAG_TEMP_1"
     },
     {
+      "local_id": "LOCALID_LAB_BALL_2",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 9,
       "y": 3,
@@ -37,10 +39,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Lab2_Ball2",
-      "flag": "0"
+      "script": "Lab_Ball_Torchic",
+      "flag": "FLAG_TEMP_2"
     },
     {
+      "local_id": "LOCALID_LAB_BALL_3",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 10,
       "y": 3,
@@ -50,10 +53,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Lab2_Ball3",
+      "script": "Lab_Ball_Piplup",
       "flag": "FLAG_TEMP_3"
     },
     {
+      "local_id": "LOCALID_LAB_BIRCH",
       "graphics_id": "OBJ_EVENT_GFX_PROF_BIRCH",
       "x": 6,
       "y": 5,
@@ -63,10 +67,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Lab2_Birch",
+      "script": "Lab_Birch",
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_LAB_RIVAL",
       "graphics_id": "OBJ_EVENT_GFX_VAR_0",
       "x": 7,
       "y": 6,
@@ -115,43 +120,25 @@
       "x": 6,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_PEARLWOOD_TOWN_STATE",
-      "var_value": "4",
-      "script": "Lab2_NoLeave"
+      "var": "FLAG_SYS_POKEMON_GET",
+      "var_value": "0",
+      "script": "Lab_NoLeave"
     },
     {
       "type": "trigger",
       "x": 7,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_PEARLWOOD_TOWN_STATE",
-      "var_value": "4",
-      "script": "Lab2_NoLeave"
-    },
-    {
-      "type": "trigger",
-      "x": 6,
-      "y": 12,
-      "elevation": 0,
-      "var": "VAR_PEARLWOOD_TOWN_STATE",
-      "var_value": "4",
-      "script": "Lab2_NoLeave"
-    },
-    {
-      "type": "trigger",
-      "x": 7,
-      "y": 12,
-      "elevation": 0,
-      "var": "VAR_PEARLWOOD_TOWN_STATE",
-      "var_value": "4",
-      "script": "Lab2_NoLeave"
+      "var": "FLAG_SYS_POKEMON_GET",
+      "var_value": "0",
+      "script": "Lab_NoLeave"
     },
     {
       "type": "trigger",
       "x": 10,
       "y": 5,
       "elevation": 0,
-      "var": "VAR_TEMP_5",
+      "var": "FLAG_TEMP_4",
       "var_value": "1",
       "script": "Lab_FollowerEvent"
     },
@@ -160,7 +147,7 @@
       "x": 11,
       "y": 4,
       "elevation": 0,
-      "var": "VAR_TEMP_5",
+      "var": "FLAG_TEMP_4",
       "var_value": "1",
       "script": "Lab_FollowerEvent"
     },
@@ -169,7 +156,7 @@
       "x": 9,
       "y": 4,
       "elevation": 0,
-      "var": "VAR_TEMP_5",
+      "var": "FLAG_TEMP_4",
       "var_value": "1",
       "script": "Lab_FollowerEvent"
     },
@@ -178,7 +165,7 @@
       "x": 9,
       "y": 5,
       "elevation": 0,
-      "var": "VAR_TEMP_5",
+      "var": "FLAG_TEMP_4",
       "var_value": "1",
       "script": "Lab_FollowerEvent"
     },
@@ -187,7 +174,7 @@
       "x": 8,
       "y": 4,
       "elevation": 0,
-      "var": "VAR_TEMP_5",
+      "var": "FLAG_TEMP_4",
       "var_value": "1",
       "script": "Lab_FollowerEvent"
     },
@@ -196,7 +183,7 @@
       "x": 10,
       "y": 4,
       "elevation": 0,
-      "var": "VAR_TEMP_5",
+      "var": "FLAG_TEMP_4",
       "var_value": "1",
       "script": "Lab_FollowerEvent"
     },
@@ -205,7 +192,7 @@
       "x": 8,
       "y": 5,
       "elevation": 0,
-      "var": "VAR_TEMP_5",
+      "var": "FLAG_TEMP_4",
       "var_value": "1",
       "script": "Lab_FollowerEvent"
     },
@@ -214,7 +201,7 @@
       "x": 7,
       "y": 4,
       "elevation": 0,
-      "var": "VAR_TEMP_5",
+      "var": "FLAG_TEMP_4",
       "var_value": "1",
       "script": "Lab_FollowerEvent"
     },
@@ -223,7 +210,7 @@
       "x": 7,
       "y": 2,
       "elevation": 0,
-      "var": "VAR_TEMP_5",
+      "var": "FLAG_TEMP_4",
       "var_value": "1",
       "script": "Lab_FollowerEvent2"
     },
@@ -232,7 +219,7 @@
       "x": 6,
       "y": 3,
       "elevation": 0,
-      "var": "VAR_TEMP_5",
+      "var": "FLAG_TEMP_4",
       "var_value": "1",
       "script": "Lab_FollowerEvent2"
     },
@@ -241,7 +228,7 @@
       "x": 8,
       "y": 2,
       "elevation": 0,
-      "var": "VAR_TEMP_5",
+      "var": "FLAG_TEMP_4",
       "var_value": "1",
       "script": "Lab_FollowerEvent2"
     },
@@ -250,7 +237,7 @@
       "x": 9,
       "y": 2,
       "elevation": 0,
-      "var": "VAR_TEMP_5",
+      "var": "FLAG_TEMP_4",
       "var_value": "1",
       "script": "Lab_FollowerEvent2"
     },
@@ -259,7 +246,7 @@
       "x": 10,
       "y": 2,
       "elevation": 0,
-      "var": "VAR_TEMP_5",
+      "var": "FLAG_TEMP_4",
       "var_value": "1",
       "script": "Lab_FollowerEvent2"
     },
@@ -268,7 +255,7 @@
       "x": 11,
       "y": 3,
       "elevation": 0,
-      "var": "VAR_TEMP_5",
+      "var": "FLAG_TEMP_4",
       "var_value": "1",
       "script": "Lab_FollowerEvent"
     },
@@ -277,7 +264,7 @@
       "x": 7,
       "y": 3,
       "elevation": 0,
-      "var": "VAR_TEMP_5",
+      "var": "FLAG_TEMP_4",
       "var_value": "1",
       "script": "Lab_FollowerEvent2"
     }

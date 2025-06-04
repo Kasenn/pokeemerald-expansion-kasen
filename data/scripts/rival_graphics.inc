@@ -1,27 +1,3 @@
-Common_EventScript_SetupRivalGfxId::
-	checkplayergender
-	goto_if_eq VAR_RESULT, MALE, EventScript_SetupRivalGfxIdFemale
-	goto_if_eq VAR_RESULT, FEMALE, EventScript_SetupRivalGfxIdMale
-	end
-
-EventScript_SetupRivalGfxIdFemale::
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL
-	goto_if_set FLAG_RIVAL_COSTUME_CHANGE, EventScript_SetupRivalGfxIdFemaleOras
-	return
-
-EventScript_SetupRivalGfxIdMale::
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL
-	goto_if_set FLAG_RIVAL_COSTUME_CHANGE, EventScript_SetupRivalGfxIdMaleOras
-	return
-
-EventScript_SetupRivalGfxIdMaleOras::
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_NORMAL_ORAS
-	return
-
-EventScript_SetupRivalGfxIdFemaleOras::
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_NORMAL_ORAS
-	return
-
 Common_EventScript_SetupRivalOnBikeGfxId::
 	checkplayergender
 	goto_if_eq VAR_RESULT, MALE, EventScript_SetupRivalOnBikeGfxIdFemale
@@ -47,7 +23,7 @@ EventScript_SetupRivalOnBikeGfxIdFemaleOras::
 	return
 
 @ Unused
-Common_EventScript_SetupRivalGfxIdSameGender::
+Script_SetupRivalGfxIdSameGender::
 	checkplayergender
 	goto_if_eq VAR_RESULT, MALE, EventScript_SetupRivalGfxIdMale2
 	goto_if_eq VAR_RESULT, FEMALE, EventScript_SetupRivalGfxIdFemale2

@@ -13,7 +13,7 @@ Route11_BrokenBridge_1:
 # 47 "data/maps/Route11/scripts.pory"
 	call Route11_TryMoveDayCareMan
 # 48 "data/maps/Route11/scripts.pory"
-	call Common_EventScript_SetupRivalGfxId
+	call SetupRivalGfxId
 # 49 "data/maps/Route11/scripts.pory"
 	call Common_EventScript_SetupRivalOnBikeGfxId
 	end

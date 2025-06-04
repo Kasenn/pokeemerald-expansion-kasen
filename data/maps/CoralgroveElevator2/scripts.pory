@@ -1,5 +1,5 @@
 mapscripts CoralgroveElevator2_MapScripts{
-    MAP_SCRIPT_ON_TRANSITION: Common_EventScript_SetupRivalGfxId
+    MAP_SCRIPT_ON_TRANSITION: SetupRivalGfxId
 }
 
 script CoralgroveElevator2_Bail{

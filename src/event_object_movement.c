@@ -2928,6 +2928,7 @@ void UpdateLightSprite(struct Sprite *sprite)
         break;
     case LIGHT_TYPE_PKMN_CENTER_SIGN:
     case LIGHT_TYPE_POKE_MART_SIGN:
+    case LIGHT_TYPE_BP_SHOP_SIGN:
         Weather_SetBlendCoeffs(12, BASE_SHADOW_INTENSITY);
         sprite->invisible = FALSE;
         break;
@@ -2976,6 +2977,7 @@ static void SpawnLightSprite(s16 x, s16 y, s16 camX, s16 camY, u32 lightType)
         break;
     case LIGHT_TYPE_PKMN_CENTER_SIGN:
     case LIGHT_TYPE_POKE_MART_SIGN:
+    case LIGHT_TYPE_BP_SHOP_SIGN:
         sprite->centerToCornerVecX = -(16 >> 1);
         sprite->centerToCornerVecY = -(16 >> 1);
         sprite->oam.priority = 2;

@@ -1133,6 +1133,15 @@
       "y": 2,
       "width": 1,
       "height": 2
+    },
+    {
+      "id": "MAPSEC_VICTORY_ROAD"
+    },
+    {
+      "id": "MAPSEC_ROUTE_128"
+    },
+    {
+      "id": "MAPSEC_EVER_GRANDE_CITY"
     }
   ]
 }

@@ -1,60 +1,332 @@
+const BALL_ROWLET = FLAG_TEMP_1
+const BALL_TORCHIC = FLAG_TEMP_2
+const BALL_PIPLUP = FLAG_TEMP_3
+const FOLLOWER_TRIGGER = FLAG_TEMP_4
+const ALTERNATIVE_DIRECTION = FLAG_TEMP_5
+const STARTER = VAR_TEMP_3
+
 mapscripts Lab2_MapScripts{ 
-    MAP_SCRIPT_ON_TRANSITION: Lab2_On_Transition
+    MAP_SCRIPT_ON_TRANSITION{
+        // Handle ball visibility
+        if(var(VAR_PEARLWOOD_TOWN_STATE) >= STORY_PEARLWOOD_RIVAL_FOUGHT_IN_MEADOW){
+            setflag(BALL_ROWLET)
+            setflag(BALL_TORCHIC)
+            setflag(BALL_PIPLUP)
+        }
+        elif(flag(FLAG_SYS_POKEMON_GET)){
+            switch(var(VAR_STARTER_MON)){
+            case SPECIES_ROWLET:
+                setflag(BALL_ROWLET)
+            case SPECIES_TORCHIC:
+                setflag(BALL_TORCHIC)
+            case SPECIES_PIPLUP:
+                setflag(BALL_PIPLUP)
+            }
+        }
+        // Handle rival appearance and visibility
+        if(var(VAR_PEARLWOOD_TOWN_STATE) != STORY_PEARLWOOD_RIVAL_FOUGHT_IN_MEADOW
+        || var(VAR_PEARLWOOD_TOWN_STATE) != STORY_PEARLWOOD_MEGA_RING_OBTAINED){
+            setflag(FLAG_HIDE_LAB_RIVAL)
+        }
+        else{
+            call(SetupRivalGfxId)
+        }
+    }
     MAP_SCRIPT_ON_FRAME_TABLE [
-        VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_RECEIVED_RUNNING_SHOES:       Lab2_Intro
-        VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MET_RIVAL:                    Lab2_Intro
-        VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_RIVAL_FOUGHT_IN_MEADOW:       Lab2_DexGet
-        VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_RING_OBTAINED:           Lab2_GetMegaStone
+        VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_RECEIVED_RUNNING_SHOES:       Lab_Intro
+        VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MET_RIVAL:                    Lab_Intro
+        VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_RIVAL_FOUGHT_IN_MEADOW:       Lab_DexGet
+        VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_RING_OBTAINED:           Lab_GetMegaStone
     ]
 }
 
-const PROF = 4
-const RIVAL = 5
-
-script Lab2_On_Transition{
-    if(flag(FLAG_SYS_POKEMON_GET)){
-        switch(var(VAR_STARTER_MON)){
-            case SPECIES_ROWLET:
-                setobjectxyperm(1, 20, 0)
-            case SPECIES_TORCHIC:
-                setobjectxyperm(2, 20, 0)
-            case SPECIES_PIPLUP:
-                setobjectxyperm(3, 20, 0)
-        }
-    }
-    if(var(VAR_PEARLWOOD_TOWN_STATE) >= STORY_PEARLWOOD_RIVAL_FOUGHT_IN_MEADOW){
-        setobjectxyperm(1, 20, 0)
-        setobjectxyperm(2, 20, 0)
-        setobjectxyperm(3, 20, 0)
-    }
-    if(var(VAR_PEARLWOOD_TOWN_STATE) == STORY_PEARLWOOD_RIVAL_FOUGHT_IN_MEADOW
-    || var(VAR_PEARLWOOD_TOWN_STATE) == STORY_PEARLWOOD_MEGA_RING_OBTAINED){
-        call(Common_EventScript_SetupRivalGfxId)
-        clearflag(FLAG_HIDE_LAB_RIVAL)
-    }
-    else{
-        setflag(FLAG_HIDE_LAB_RIVAL)
-    }
-}
-
-script Lab2_Intro{
-    safefollow
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk6Up)
-    waitmovement(0)
-    lock
-    msgbox(Lab2_Intro_Speech)
-    closemessage
+script Lab_Intro{
+    waitmove(0xFF, Walk6Up)
+    lockall
+    msgbox(Lab_Intro_Speech, MSGBOX_AUTOCLOSE)
     delay(20)
-    turnobject(PROF, DIR_EAST)
+    turnobject(LOCALID_LAB_BIRCH, DIR_EAST)
     delay(20)
-    msgbox(Lab2_PresentingBalls)
-    closemessage
-    delay(20)
+    msgbox(Lab_Intro_Speech2, MSGBOX_AUTOCLOSE)
     setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_PROF_INTRO)
     release
 }
 
-text Lab2_Intro_Speech{
+script Lab_Ball_Rowlet{
+    setvar(STARTER, SPECIES_ROWLET)
+    goto(Lab_BallMain)
+}
+script Lab_Ball_Torchic{
+    setvar(STARTER, SPECIES_TORCHIC)
+    goto(Lab_BallMain)
+}
+script Lab_Ball_Piplup{
+    setvar(STARTER, SPECIES_PIPLUP)
+    goto(Lab_BallMain)
+}
+script Lab_BallMain{
+    if(flag(FLAG_SYS_POKEMON_GET)){
+        msgbox("You already received a Pokémon.", MSGBOX_SIGN)
+        end
+    }
+    lock
+    waitse
+    playmoncry(STARTER, CRY_MODE_NORMAL)
+    defaultmonpic(STARTER)
+    waitmoncry
+    bufferspeciesname(STR_VAR_1, STARTER)
+    if(msgbox("Do you want to choose {STR_VAR_1}?", MSGBOX_YESNO) == FALSE){
+        hidemonpic
+        msgbox(Lab_NotChosen, MSGBOX_AUTOCLOSE)
+        end
+    }
+    givemon(STARTER, 5)
+    playfanfare(MUS_OBTAIN_ITEM)
+    message("{PLAYER} received the {STR_VAR_1}!")
+    waitmessage
+    waitfanfare
+    removeobject(VAR_LAST_TALKED)
+    switch(var(STARTER)){
+        case SPECIES_ROWLET:
+            setvar(VAR_STARTER_MON, SPECIES_ROWLET)
+        case SPECIES_TORCHIC:
+            setvar(VAR_STARTER_MON, SPECIES_TORCHIC)
+        case SPECIES_PIPLUP:
+            setvar(VAR_STARTER_MON, SPECIES_PIPLUP)
+    }
+    setflag(FLAG_SYS_POKEMON_GET)
+    setflag(FLAG_HEAL_AFTER_BATTLE)     // Janky way to make sure the player can't access the follower party menu too early
+    setflag(FOLLOWER_TRIGGER)
+    setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_PKMN_OBTAINED)
+    msgbox("Do you want to give a nickname\nto your new Pokémon?", MSGBOX_YESNO)
+    hidemonpic
+    if(var(VAR_RESULT) == YES){
+        call(Common_EventScript_GetGiftMonPartySlot)
+        call(Common_EventScript_NameReceivedPartyMon)
+    }
+    callnative(UpdateFollowingPokemon)
+    release
+}
+
+script Lab_NoLeave{
+    lock
+    msgbox("{COLOR RED}{SHADOW LIGHT_RED}You haven't chosen a Pokémon yet!", MSGBOX_AUTOCLOSE)
+    waitmove(OBJ_EVENT_ID_PLAYER, Walk1Up)
+    release
+}
+
+script Lab_FollowerEvent2{
+    setflag(ALTERNATIVE_DIRECTION)
+    goto(Lab_FollowerEvent)
+}
+
+script Lab_FollowerEvent{
+    safefollow
+    unlockfollowermovement
+    lock
+    playse(SE_PIN)
+    if(flag(ALTERNATIVE_DIRECTION)){
+        turnobject(LOCALID_LAB_BIRCH, DIR_NORTH)
+    }
+    else{
+        turnobject(LOCALID_LAB_BIRCH, DIR_EAST)
+    }
+    waitmove(LOCALID_LAB_BIRCH, ExclamationMark)
+    delay(48)
+    msgbox(BirchSurprised)
+    msgbox("{COLOR RED}{SHADOW LIGHT_RED}You can use the party menu to set\na preferred Pokémon, withdraw your\lcurrent one, or let another one out.", MSGBOX_AUTOCLOSE)
+    clearflag(FOLLOWER_TRIGGER)
+    clearflag(FLAG_HEAL_AFTER_BATTLE)
+}
+
+script Lab_DexGet{
+    safefollow
+    waitmove(OBJ_EVENT_ID_PLAYER, Walk6Up)
+    unlockfollowermovement
+    lock
+    if(checkplayergender == MALE){
+        msgbox(Lab_DexTalkMayA)
+        msgbox(Lab_DexTalkMayB)
+        msgbox(Lab_DexTalkMayC)
+        msgbox(Lab_DexTalkMayD)
+        msgbox(Lab_DexTalkMayE)
+        msgbox(Lab_DexTalkMayF)
+        msgbox(Lab_DexTalkMayG)
+        msgbox(Lab_DexTalkMayH, MSGBOX_AUTOCLOSE)
+    }
+    if(var(VAR_RESULT) == FEMALE){
+        msgbox(Lab_DexTalkBrendanA)
+        msgbox(Lab_DexTalkBrendanB)
+        msgbox(Lab_DexTalkBrendanC)
+        msgbox(Lab_DexTalkBrendanD)
+        msgbox(Lab_DexTalkBrendanE)
+        msgbox(Lab_DexTalkBrendanF)
+        msgbox(Lab_DexTalkBrendanG)
+        msgbox(Lab_DexTalkBrendanH, MSGBOX_AUTOCLOSE)
+    }
+    playfanfare(MUS_OBTAIN_TMHM)
+    message("Obtained the Pokédex!")
+    waitmessage
+    waitfanfare
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+    turnobject(LOCALID_LAB_RIVAL, DIR_WEST)
+    msgbox("{RIVAL}: Here, you can have\nthese as well.")
+    giveitem(ITEM_POKE_BALL, 5)
+    msgbox("{RIVAL}: Now you can start catching\nyour own Pokémon and we can see which\lof us can fill our Pokédex faster!")
+    if(checkplayergender == MALE){
+        msgbox("Last one out the door is a rotten egg!", MSGBOX_AUTOCLOSE)
+    }
+    else{
+        msgbox("Come on, let's go catch some Pokémon!", MSGBOX_AUTOCLOSE)
+    }
+    applymovement(OBJ_EVENT_ID_FOLLOWER, LabFaceDown)
+	applymovement(OBJ_EVENT_ID_PLAYER, LabFaceDown)
+	applymovement(LOCALID_LAB_RIVAL, Lab_Movement_RivalExit1)
+	waitmovement(0)
+    delay(60)
+	removeobject(LOCALID_LAB_RIVAL)
+	savebgm(MUS_DUMMY)
+    turnobject(OBJ_EVENT_ID_FOLLOWER, DIR_NORTH)
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+	fadedefaultbgm
+    delay(25)
+    msgbox("Prof. Birch: Sigh…\pSometimes I wonder\nwhere {RIVAL} gets all that energy…", MSGBOX_AUTOCLOSE)
+    special(SetUnlockedPokedexFlags)
+    setflag(FLAG_SYS_POKEDEX_GET)
+    setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_DEX_OBTAINED)
+}
+
+script Lab_GetMegaStone{
+    safefollow
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk6Up)
+    waitmovement(0)
+    if(flag(FLAG_HIDE_LAB_RIVAL)){
+        msgbox(LabMegaStonesWithoutRival)
+    }
+    else{
+        msgbox(LabMegaStones)
+    }
+    closemessage
+    if(flag(FLAG_CORALGROVE_TRADE_COMPLETED)){
+        playse(SE_PIN)
+        applymovement(LOCALID_LAB_BIRCH, Common_Movement_QuestionMark)
+        waitmovement(0)
+        delay(30)
+        msgbox(TradedAwayStarter, MSGBOX_AUTOCLOSE)
+        closemessage
+    }
+    switch(var(VAR_STARTER_MON)){
+        case SPECIES_ROWLET:
+            giveitem(ITEM_DECIDUEITE)
+        case SPECIES_TORCHIC:
+            giveitem(ITEM_BLAZIKENITE)
+        case SPECIES_PIPLUP:
+            giveitem(ITEM_EMPOLEONITE)
+    }
+    if(flag(FLAG_RECEIVED_CAPSULE)){
+        setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED)
+    }
+    else{
+        setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED)
+    }
+    if(!flag(FLAG_HIDE_LAB_RIVAL)){
+        closemessage
+        delay(24)
+        waitmove(LOCALID_LAB_BIRCH, ProfBackAndForth)
+        applymovement(LOCALID_LAB_RIVAL, Common_Movement_WalkInPlaceFasterLeft)
+        waitmove(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight)
+        if(checkplayergender == MALE){
+            msgbox(GonnaTakeMyLeave_May)
+        }
+        else{
+            msgbox(GonnaTakeMyLeave_Brendan)
+        }
+        waitmove(LOCALID_LAB_RIVAL, Common_Movement_WalkInPlaceFasterUp)
+        msgbox(ThanksDadBirch, MSGBOX_AUTOCLOSE)
+        applymovement(LOCALID_LAB_RIVAL, Walk7Down)
+        applymovement(OBJ_EVENT_ID_PLAYER, TurnPlayer)
+        waitmovement(LOCALID_LAB_RIVAL)
+        removeobject(LOCALID_LAB_RIVAL)
+    }
+    if(flag(FLAG_Q33_PROF_BIRCH_MEGASTONE_START)){
+        completequest(FLAG_Q33_PROF_BIRCH_MEGASTONE_COMPLETE)
+        special(ShowJournalPopupRemove)
+    }
+    release
+}
+
+script Lab_Birch{
+    switch(var(VAR_PEARLWOOD_TOWN_STATE)){
+        case STORY_PEARLWOOD_PROF_INTRO:
+            msgbox(PickABall, MSGBOX_NPC)
+        case STORY_PEARLWOOD_PKMN_OBTAINED:
+        case STORY_PEARLWOOD_BROTHER_FOUGHT:
+        case STORY_PEARLWOOD_GIVEN_GOODBYE_TO_MOM:
+        case STORY_PEARLWOOD_RIVAL_FOUGHT_IN_MEADOW:
+            msgbox(TakeCareOfPokemon, MSGBOX_NPC)
+        case STORY_PEARLWOOD_GET_MEGA_STONE_LATER:
+            call(Lab_GetMegaStoneLater)
+        case STORY_PEARLWOOD_MEGA_STONE_OBTAINED:
+            msgbox(YourFatherIsInTown, MSGBOX_NPC)
+            if(!flag(FLAG_Q34_DADS_HOME_START)){
+                startquest(FLAG_Q34_DADS_HOME_START)
+                special(ShowJournalPopupAdd)
+            }
+        case STORY_PEARLWOOD_MEGA_EVENT_COMPLETED:
+        case STORY_PEARLWOOD_DEX_OBTAINED:
+        case STORY_PEARLWOOD_MEGA_RING_OBTAINED:
+            call(ProfBirch_EventScript_RatePokedexOrRegister)
+    }
+    release
+}
+
+script Lab_GetMegaStoneLater{
+    lock
+    faceplayer
+    msgbox(HeresYourStoneNow)
+    switch(var(VAR_STARTER_MON)){
+        case SPECIES_ROWLET:
+            giveitem(ITEM_DECIDUEITE)
+        case SPECIES_TORCHIC:
+            giveitem(ITEM_BLAZIKENITE)
+        case SPECIES_PIPLUP:
+            giveitem(ITEM_EMPOLEONITE)
+    }
+    if(flag(FLAG_RECEIVED_CAPSULE)){
+        setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED)
+    }
+    else{
+        setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED)
+    }
+}
+
+movement SpawnFollower{
+    set_visible
+    exit_pokeball
+}
+movement Lab_Movement_RivalExit1{
+	player_run_down * 3
+	player_run_left * 1
+    player_run_down * 5
+}
+movement LabFaceDown{
+	delay_16
+	walk_in_place_faster_down
+}
+movement ProfBackAndForth{
+    walk_right
+    walk_in_place_faster_down
+    delay_16 * 6
+    walk_left
+    walk_in_place_faster_down
+    step_end
+}
+movement TurnPlayer{
+    walk_in_place_faster_right
+    walk_in_place_faster_down
+}
+
+text Lab_Intro_Speech{
     "Prof. Birch: Hello!\n"
     "You must be {PLAYER}!\p"
     "As you may know, it is customary in\n"
@@ -68,7 +340,7 @@ text Lab2_Intro_Speech{
     "your decision."
 }
 
-text Lab2_PresentingBalls{
+text Lab_Intro_Speech2{
     "Over there on the table lies three\n"
     "Poké Balls. Each of them stores\l"
     "some very rare Pokémon.\p"
@@ -77,91 +349,40 @@ text Lab2_PresentingBalls{
     "You may only choose one so make\n"
     "sure you decide carefully!"
 }
-
-script Lab2_DexGet{
-    safefollow
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk6Up)
-    waitmovement(0)
-    unlockfollowermovement
-    lock
-    if(checkplayergender == MALE){
-        msgbox(Lab2_DexTalkMayA)
-        msgbox(Lab2_DexTalkMayB)
-        msgbox(Lab2_DexTalkMayC)
-        msgbox(Lab2_DexTalkMayD)
-        msgbox(Lab2_DexTalkMayE)
-        msgbox(Lab2_DexTalkMayF)
-        msgbox(Lab2_DexTalkMayG)
-        msgbox(Lab2_DexTalkMayH)
-    }
-    if(var(VAR_RESULT) == FEMALE){
-        msgbox(Lab2_DexTalkBrendanA)
-        msgbox(Lab2_DexTalkBrendanB)
-        msgbox(Lab2_DexTalkBrendanC)
-        msgbox(Lab2_DexTalkBrendanD)
-        msgbox(Lab2_DexTalkBrendanE)
-        msgbox(Lab2_DexTalkBrendanF)
-        msgbox(Lab2_DexTalkBrendanG)
-        msgbox(Lab2_DexTalkBrendanH)
-    }
-    closemessage
-    playfanfare(MUS_OBTAIN_TMHM)
-    message("Obtained the Pokédex!")
-    waitmessage
-    waitfanfare
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
-    turnobject(RIVAL, DIR_WEST)
-    msgbox("{RIVAL}: Here, you can have\nthese as well.")
-    giveitem(ITEM_POKE_BALL, 5)
-    msgbox("{RIVAL}: Now you can start catching\nyour own Pokémon and we can see which\lof us can fill our Pokédex faster!")
-    if(checkplayergender == MALE){
-        msgbox("Last one out the door is a rotten egg!")
-    }
-    else{
-        msgbox("Come on, let's go catch some Pokémon!")
-    }
-    closemessage
-    applymovement(OBJ_EVENT_ID_FOLLOWER, Lab2FaceDown)
-	applymovement(OBJ_EVENT_ID_PLAYER, Lab2FaceDown)
-	applymovement(RIVAL, Lab2_Movement_RivalExit1)
-	waitmovement(0)
-    delay(60)
-	removeobject(RIVAL)
-	savebgm(MUS_DUMMY)
-    turnobject(OBJ_EVENT_ID_FOLLOWER, DIR_NORTH)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
-	fadedefaultbgm
-    delay(25)
-    msgbox("Prof. Birch: Sigh…\pSometimes I wonder\nwhere {RIVAL} gets all that energy…", MSGBOX_DEFAULT)
-    special(SetUnlockedPokedexFlags)
-    setflag(FLAG_SYS_POKEDEX_GET)
-    setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_DEX_OBTAINED)
-	release
-    end
+text BirchSurprised{
+    "Prof. Birch: Oh my!\p"
+    "I knew these little fellas were\n"
+    "energetic, but I never expected one\l"
+    "to bust out of its ball like that!\p"
+    "Now that you two are partners,\n"
+    "I'm sure it will go back inside\l"
+    "its ball if you simply ask it nicely."
 }
-
-text Lab2_DexTalkMayA{
+text Lab_NotChosen{
+    "Take your time."
+}
+text Lab_DexTalkMayA{
     "Prof. Birch: {RIVAL}, {PLAYER},\n"
     "is there something you need?"
 }
-text Lab2_DexTalkMayB{
+text Lab_DexTalkMayB{
     "{RIVAL}: Oh boy, is there…\p"
     "You gave {PLAYER} a Pokémon but\n"
     "never gave him a Pokédex, dad!\p"
     "How do you expect him to become\n"
     "a great trainer without one?!"
 }
-text Lab2_DexTalkMayC{
+text Lab_DexTalkMayC{
     "Prof. Birch: Oh, it must've\n"
     "slipped my mind…"
 }
-text Lab2_DexTalkMayD{
+text Lab_DexTalkMayD{
     "{RIVAL}: Slipped your mind?!\n"
     "You're a Pokémon professor!\p"
     "Surely you realize that giving one to\n"
     "{PLAYER} helps your research as well?"
 }
-text Lab2_DexTalkMayE{
+text Lab_DexTalkMayE{
     "Prof. Birch: I know, I know.\n"
     "I'll get {PLAYER} one right away.\p"
     "Now, let's see…\p"
@@ -170,40 +391,40 @@ text Lab2_DexTalkMayE{
     "Looks like I don't have any extra\n"
     "lying around at this time…"
 }
-text Lab2_DexTalkMayF{
+text Lab_DexTalkMayF{
     "{RIVAL}: Well we can't have {PLAYER}\n"
     "leaving empty-handed, now can we?!"
 }
-text Lab2_DexTalkMayG{
+text Lab_DexTalkMayG{
     "Prof. Birch: Here, {PLAYER},\n"
     "you can have mine.\l"
     "I'll order myself a new one."
 }
-text Lab2_DexTalkMayH{
+text Lab_DexTalkMayH{
     "{RIVAL}: Yay! Thanks, dad!"
 }
 
-text Lab2_DexTalkBrendanA{
+text Lab_DexTalkBrendanA{
     "Prof. Birch: {RIVAL}, {PLAYER},\n"
     "is there something you need?"
 }
-text Lab2_DexTalkBrendanB{
+text Lab_DexTalkBrendanB{
     "{RIVAL}: As a matter of fact, there is.\n"
     "You never gave {PLAYER} a Pokédex!\p"
     "How do you expect her to become\n"
     "a great trainer without one?"
 }
-text Lab2_DexTalkBrendanC{
+text Lab_DexTalkBrendanC{
     "Prof. Birch: Oh, it must've\n"
     "slipped my mind…"
 }
-text Lab2_DexTalkBrendanD{
+text Lab_DexTalkBrendanD{
     "{RIVAL}: Slipped your mind?\n"
     "Aren't you a Pokémon professor?\p"
     "Surely giving one to {PLAYER}\n"
     "helps your research as well."
 }
-text Lab2_DexTalkBrendanE{
+text Lab_DexTalkBrendanE{
     "Prof. Birch: I know, I know.\n"
     "I'll get {PLAYER} one right away.\p"
     "Now, let's see…\p"
@@ -212,106 +433,18 @@ text Lab2_DexTalkBrendanE{
     "Looks like I don't have any extra\n"
     "lying around at this time…"
 }
-text Lab2_DexTalkBrendanF{
+text Lab_DexTalkBrendanF{
     "{RIVAL}: Well we can't have {PLAYER}\n"
     "leaving empty-handed, now can we?"
 }
-text Lab2_DexTalkBrendanG{
+text Lab_DexTalkBrendanG{
     "Prof. Birch: Yes, I know. {PLAYER},\n"
     "you can have mine.\l"
     "I'll order myself a new one."
 }
-text Lab2_DexTalkBrendanH{
+text Lab_DexTalkBrendanH{
     "{RIVAL}: You're the best, dad!"
 }
-
-
-script Lab2_GetMegaStone{
-    safefollow
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk6Up)
-    waitmovement(0)
-    if(flag(FLAG_HIDE_LAB_RIVAL)){
-        msgbox(LabMegaStonesWithoutRival)
-    }
-    else{
-        msgbox(LabMegaStones)
-    }
-    closemessage
-    if(flag(FLAG_CORALGROVE_TRADE_COMPLETED)){
-        playse(SE_PIN)
-        applymovement(PROF, Common_Movement_QuestionMark)
-        waitmovement(0)
-        delay(30)
-        msgbox(TradedAwayStarter)
-        closemessage
-    }
-    if(checkitemspace(ITEM_DECIDUEITE) == FALSE){
-        if(flag(FLAG_HIDE_LAB_RIVAL)){
-            msgbox(ComeGetYourStoneLaterWithoutRival)
-        }
-        else{
-            msgbox(ComeGetYourStoneLater)
-        }
-        setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_GET_MEGA_STONE_LATER)
-    }
-    else{
-        switch(var(VAR_STARTER_MON)){
-            case SPECIES_ROWLET:
-                giveitem(ITEM_DECIDUEITE)
-            case SPECIES_TORCHIC:
-                giveitem(ITEM_BLAZIKENITE)
-            case SPECIES_PIPLUP:
-                giveitem(ITEM_EMPOLEONITE)
-        }
-        setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED)
-        if(var(VAR_PEARLWOOD_TOWN_STATE) == STORY_PEARLWOOD_MEGA_STONE_OBTAINED
-        && flag(FLAG_RECEIVED_CAPSULE)){
-            setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED)
-        }
-        waitse
-    }
-    if(!flag(FLAG_HIDE_LAB_RIVAL)){
-        closemessage
-        delay(24)
-        applymovement(PROF, ProfBackAndForth)
-        waitmovement(0)
-        applymovement(RIVAL, Common_Movement_WalkInPlaceFasterLeft)
-        applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight)
-        waitmovement(0)
-        checkplayergender
-        if(checkplayergender == MALE){
-            if(var(VAR_PEARLWOOD_TOWN_STATE) == STORY_PEARLWOOD_GET_MEGA_STONE_LATER){
-                msgbox(GonnaGoAhead_May)
-            }
-            else{
-                msgbox(GonnaTakeMyLeave_May)
-            }
-        }
-        else{
-            if(var(VAR_PEARLWOOD_TOWN_STATE) == STORY_PEARLWOOD_GET_MEGA_STONE_LATER){
-                msgbox(GonnaGoAhead_Brendan)
-            }
-            else{
-                msgbox(GonnaTakeMyLeave_Brendan)
-            }
-        }
-        applymovement(RIVAL, Common_Movement_WalkInPlaceFasterUp)
-        waitmovement(0)
-        msgbox(ThanksDadBirch)
-        closemessage
-        applymovement(RIVAL, RivalLeavesLab)
-        applymovement(OBJ_EVENT_ID_PLAYER, TurnPlayer)
-        waitmovement(RIVAL)
-        removeobject(RIVAL)
-    }
-    release
-    if(flag(FLAG_Q33_PROF_BIRCH_MEGASTONE_START)){
-        completequest(FLAG_Q33_PROF_BIRCH_MEGASTONE_COMPLETE)
-        special(ShowJournalPopupRemove)
-    }
-    end
-}
-
 text LabMegaStones{
     "Prof. Birch: {RIVAL}, {PLAYER},\n"
     "what a pleasant surprise.\l"
@@ -377,28 +510,6 @@ text TradedAwayStarter{
     "person who traded you it originally?\p"
     "In any case, here you go."
 }
-text ComeGetYourStoneLater{
-    "Prof. Birch: It seems your bag is\n"
-    "currently too full to carry this stone.\p"
-    "I will give {RIVAL}'s stone to them,\n"
-    "and once you've made enough space in\l"
-    "your bag, you too can have yours."
-}
-text ComeGetYourStoneLaterWithoutRival{
-    "Prof. Birch: It seems your bag is\n"
-    "currently too full to carry this stone.\p"
-    "You will need to clear some space in\n"
-    "your bag before I can give this to you."
-}
-text GonnaGoAhead_May{
-    "{RIVAL}: I can't wait to see this\n"
-    "thing in action!\p"
-    "You make sure you grab yours as well,\n"
-    "{PLAYER}!\p"
-    "I don't want to hear you whining that\n"
-    "you lost because you didn't know how\l"
-    "to use Mega Evolution!"
-}
 text GonnaTakeMyLeave_May{
     "{RIVAL}: I can't wait to see this\n"
     "thing in action!\p"
@@ -407,15 +518,6 @@ text GonnaTakeMyLeave_May{
     "I don't want to hear you whining that\n"
     "you lost because you didn't know how\l"
     "to use Mega Evolution!"
-}
-text GonnaGoAhead_Brendan{
-    "{RIVAL}: I can't wait to see this\n"
-    "thing in action!\p"
-    "Make sure you grab yours before you\n"
-    "leave, {PLAYER}.\p"
-    "I don't want to hear any complaints\n"
-    "about how you lost because you didn't\l"
-    "know how to Mega Evolve your Pokémon."
 }
 text GonnaTakeMyLeave_Brendan{
     "{RIVAL}: I can't wait to see this\n"
@@ -448,189 +550,4 @@ text YourFatherIsInTown{
 text HeresYourStoneNow{
     "Prof. Birch: I hope you've made enough\n"
     "space in your bag to hold this stone."
-}
-text ComeGetYourStoneLaterShort{
-    "No, looks like your bag is still full.\p"
-    "You will need to make some room in your\n"
-    "bag before I can give this to you."
-}
-
-script Lab2_Birch{
-    if(var(VAR_PEARLWOOD_TOWN_STATE) == STORY_PEARLWOOD_PROF_INTRO){
-        msgbox(PickABall, MSGBOX_NPC)
-    }
-    elif(var(VAR_PEARLWOOD_TOWN_STATE) <= STORY_PEARLWOOD_DEX_OBTAINED){
-        msgbox(TakeCareOfPokemon, MSGBOX_NPC)
-    }
-    elif(var(VAR_PEARLWOOD_TOWN_STATE) == STORY_PEARLWOOD_MEGA_STONE_OBTAINED){
-        msgbox(YourFatherIsInTown, MSGBOX_NPC)
-        if(!flag(FLAG_Q34_DADS_HOME_START)){
-            startquest(FLAG_Q34_DADS_HOME_START)
-            special(ShowJournalPopupAdd)
-        }
-    }
-    elif((var(VAR_PEARLWOOD_TOWN_STATE) == STORY_PEARLWOOD_GET_MEGA_STONE_LATER)){
-        lock
-        faceplayer
-        msgbox(HeresYourStoneNow)
-        if(checkitemspace(ITEM_DECIDUEITE) == FALSE){
-            msgbox(ComeGetYourStoneLaterShort, MSGBOX_NPC)
-            end
-        }
-        else{
-            switch(var(VAR_STARTER_MON)){
-                case SPECIES_ROWLET:
-                    giveitem(ITEM_DECIDUEITE)
-                case SPECIES_TORCHIC:
-                    giveitem(ITEM_BLAZIKENITE)
-                case SPECIES_PIPLUP:
-                    giveitem(ITEM_EMPOLEONITE)
-            }
-            waitse
-            setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED)
-            if(var(VAR_PEARLWOOD_TOWN_STATE) == STORY_PEARLWOOD_MEGA_STONE_OBTAINED
-            && flag(FLAG_RECEIVED_CAPSULE)){
-                setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED)
-            }
-        }
-    }
-    else{
-        call(ProfBirch_EventScript_RatePokedexOrRegister)
-    }
-    release
-    end
-}
-
-script Lab2_Ball1{
-    setvar(VAR_TEMP_3, SPECIES_ROWLET)
-    goto(Lab_BallMain)
-}
-script Lab2_Ball2{
-    setvar(VAR_TEMP_3, SPECIES_TORCHIC)
-    goto(Lab_BallMain)
-}
-script Lab2_Ball3{
-    setvar(VAR_TEMP_3, SPECIES_PIPLUP)
-    goto(Lab_BallMain)
-}
-script Lab_BallMain{
-    if(flag(FLAG_SYS_POKEMON_GET)){
-        msgbox("You already received a Pokémon.", MSGBOX_SIGN)
-        end
-    }
-    lock
-    waitse
-    playmoncry(VAR_TEMP_3, CRY_MODE_NORMAL)
-    showmonpic(VAR_TEMP_3, 10, 3)
-    waitmoncry
-    bufferspeciesname(STR_VAR_1, VAR_TEMP_3)
-    msgbox("Do you want to choose {STR_VAR_1}?", MSGBOX_YESNO)
-    if(var(VAR_RESULT) == FALSE){
-        hidemonpic
-        msgbox(Lab2_NotChosen)
-        release
-        end
-    }
-    givemon(VAR_TEMP_3, 5)
-    playfanfare(MUS_OBTAIN_ITEM)
-    message("{PLAYER} received the {STR_VAR_1}!")
-    waitmessage
-    waitfanfare
-    setobjectxy(VAR_LAST_TALKED, 20, 0)
-    setobjectxyperm(VAR_LAST_TALKED, 20, 0)
-    applymovement(VAR_LAST_TALKED, Walk1Up)
-    switch(var(VAR_TEMP_3)){
-        case SPECIES_ROWLET:
-            setvar(VAR_STARTER_MON, SPECIES_ROWLET)
-        case SPECIES_TORCHIC:
-            setvar(VAR_STARTER_MON, SPECIES_TORCHIC)
-        case SPECIES_PIPLUP:
-            setvar(VAR_STARTER_MON, SPECIES_PIPLUP)
-    }
-    setflag(FLAG_SYS_POKEMON_GET)
-    setflag(FLAG_HEAL_AFTER_BATTLE)
-    setvar(VAR_TEMP_5, 1)
-    setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_PKMN_OBTAINED)
-    msgbox("Do you want to give a nickname\nto your new Pokémon?", MSGBOX_YESNO)
-    hidemonpic
-    if(var(VAR_RESULT) == YES){
-        call(Common_EventScript_GetGiftMonPartySlot)
-        call(Common_EventScript_NameReceivedPartyMon)
-    }
-    callnative(UpdateFollowingPokemon)
-    release
-}
-script Lab_FollowerEvent2{
-    setflag(FLAG_TEMP_10)
-    goto(Lab_FollowerEvent)
-}
-script Lab_FollowerEvent{
-    safefollow
-    unlockfollowermovement
-    lock
-    playse(SE_PIN)
-    if(flag(FLAG_TEMP_10)){
-        turnobject(PROF, DIR_NORTH)
-    }
-    else{
-        turnobject(PROF, DIR_EAST)
-    }
-    applymovement(PROF, ExclamationMark)
-    waitmovement(0)
-    delay(48)
-    msgbox(BirchSurprised)
-    msgbox("{COLOR RED}{SHADOW LIGHT_RED}You can use the party menu to set\na preferred Pokémon, withdraw your\lcurrent one, or let another one out.")
-    setvar(VAR_TEMP_5, 0)
-    clearflag(FLAG_HEAL_AFTER_BATTLE)
-    release
-}
-text BirchSurprised{
-    "Prof. Birch: Oh my!\p"
-    "I knew these little fellas were\n"
-    "energetic, but I never expected one\l"
-    "to bust out of its ball like that!\p"
-    "Now that you two are partners,\n"
-    "I'm sure it will go back inside\l"
-    "its ball if you simply ask it nicely."
-}
-
-text Lab2_NotChosen{
-    "Take your time."
-}
-script Lab2_NoLeave{
-    lock
-    msgbox("{COLOR RED}{SHADOW LIGHT_RED}You haven't chosen a Pokémon yet!")
-    closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Up)
-    waitmovement(0)
-    release
-}
-
-movement SpawnFollower{
-    set_visible
-    exit_pokeball
-}
-movement Lab2_Movement_RivalExit1{
-	player_run_down * 3
-	player_run_left * 1
-    player_run_down * 5
-}
-movement Lab2FaceDown{
-	delay_16
-	walk_in_place_faster_down
-}
-movement ProfBackAndForth{
-    walk_right
-    walk_in_place_faster_down
-    delay_16 * 6
-    walk_left
-    walk_in_place_faster_down
-    step_end
-}
-movement RivalLeavesLab{
-    walk_down * 7
-}
-movement TurnPlayer{
-    walk_in_place_faster_right
-    walk_in_place_faster_down
 }

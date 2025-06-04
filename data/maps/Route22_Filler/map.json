@@ -14,26 +14,13 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
     {
-      "map": "MAP_ROUTE22_PART2",
-      "offset": -21,
-      "direction": "right"
-    },
-    {
       "map": "MAP_ROUTE22",
       "offset": 0,
       "direction": "left"
     }
   ],
-  "object_events": [
-
-  ],
-  "warp_events": [
-
-  ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
-  ]
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": []
 }

@@ -202,7 +202,7 @@ SandstoneRival::
 # 226 "data/maps/SandstoneCity/scripts.pory"
 	setflag FLAG_RIVAL_COSTUME_CHANGE
 # 227 "data/maps/SandstoneCity/scripts.pory"
-	call Common_EventScript_SetupRivalGfxId
+	call SetupRivalGfxId
 # 228 "data/maps/SandstoneCity/scripts.pory"
 	lock
 # 229 "data/maps/SandstoneCity/scripts.pory"

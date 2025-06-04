@@ -3910,7 +3910,13 @@ void ScrCmd_checkberrytree(struct ScriptContext *ctx)
 void ScrCmd_SetupEnchantedForestFlags(void)
 {
     if (FlagGet(FLAG_ENCHANTED_FOREST_NIGHT))
+    {
+        gTimeOfDay = TIME_NIGHT;
         gEnchantedForestNight = TRUE;
+    }
     else
+    {
+        gTimeOfDay = TIME_DAY;
         gEnchantedForestNight = FALSE;
+    }
 }

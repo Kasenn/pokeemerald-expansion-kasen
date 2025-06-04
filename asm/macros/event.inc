@@ -2776,6 +2776,15 @@
 	.macro fertilizeberry
 	callnative BerryTreeUseFertilizer
 	.endm
+
+	.macro waitmove localId:req, movements:req
+	applymovement \localId, \movements
+	waitmovement \localId
+	.endm
+
+	.macro defaultmonpic species:req
+	showmonpic \species, 10, 3
+	.endm
 	
 @ Follower NPCs
 

@@ -5,7 +5,7 @@ EverGrandeCity_ChampionsRoom_MapScripts::
 	.byte 0
 
 EverGrandeCity_ChampionsRoom_OnTransition:
-	call Common_EventScript_SetupRivalGfxId
+	call SetupRivalGfxId
 	end
 
 EverGrandeCity_ChampionsRoom_OnWarp:

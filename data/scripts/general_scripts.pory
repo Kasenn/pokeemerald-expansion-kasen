@@ -14,6 +14,25 @@ script Script_SinkOrRisePlayer{
 //
 // General stuff
 //
+script SetupRivalGfxId{
+    if(checkplayergender == MALE){
+        if(flag(FLAG_RIVAL_COSTUME_CHANGE)){
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_NORMAL_ORAS)
+        }
+        else{
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL)
+        }
+    }
+    else{
+        if(flag(FLAG_RIVAL_COSTUME_CHANGE)){
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_NORMAL_ORAS)
+        }
+        else{
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL)
+        }
+    }
+}
+
 script CountGymBadges{
     if(flag(FLAG_BADGE08_GET)){
         setvar(VAR_RESULT, 8)

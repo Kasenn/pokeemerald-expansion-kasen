@@ -437,6 +437,7 @@
 #define LIGHT_TYPE_BALL             0
 #define LIGHT_TYPE_PKMN_CENTER_SIGN 1
 #define LIGHT_TYPE_POKE_MART_SIGN   2
+#define LIGHT_TYPE_BP_SHOP_SIGN     3
 
 #define FIRST_DECORATION_SPRITE_GFX OBJ_EVENT_GFX_PICHU_DOLL
 
@@ -455,13 +456,13 @@
 #define LOCALID_NONE                         0
 #define LOCALID_CAMERA                     127
 #define LOCALID_BERRY_BLENDER_PLAYER_END   240 // This will use 5 (MAX_RFU_PLAYERS) IDs ending at 240, i.e. 236-240
-#define LOCALID_PLAYER                     255
+#define LOCALID_PLAYER                     0xFF
 #define OBJ_EVENT_ID_FOLLOWER 0xFE
 #define OBJ_EVENT_ID_NPC_FOLLOWER 0xFD
 
 // Aliases for old names. "object event id" normally refers to an index into gObjectEvents, which these are not.
 #define OBJ_EVENT_ID_CAMERA LOCALID_CAMERA
-#define OBJ_EVENT_ID_PLAYER LOCALID_PLAYER
+#define OBJ_EVENT_ID_PLAYER LOCALID_PLAYER // for conflict purposes
 
 // Moved from src/event_object_movement.c so that they're accesible from other files.
 #define OBJ_EVENT_PAL_TAG_BRENDAN                 0x1100

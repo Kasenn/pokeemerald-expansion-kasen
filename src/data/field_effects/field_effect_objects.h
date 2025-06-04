@@ -45,6 +45,10 @@ const struct SpriteFrameImage gFieldEffectObjectPicTable_MartLight[] = {
     obj_frame_tiles(gFieldEffectObjectPic_MartLight),
 };
 
+const struct SpriteFrameImage gFieldEffectObjectPicTable_BPShopLight[] = {
+    obj_frame_tiles(gFieldEffectObjectPic_BPShopLight),
+};
+
 const struct SpriteTemplate gFieldEffectObjectTemplate_BallLight = {
     .tileTag = OBJ_EVENT_PAL_TAG_LIGHT,
     .paletteTag = OBJ_EVENT_PAL_TAG_LIGHT,
@@ -75,10 +79,21 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_MartLight = {
     .callback = UpdateLightSprite,
 };
 
+const struct SpriteTemplate gFieldEffectObjectTemplate_BPShopLight = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_NEON_LIGHT,
+    .oam = &gObjectEventBaseOam_16x16,
+    .anims = sAnimTable_Inanimate,
+    .images = gFieldEffectObjectPicTable_BPShopLight,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = UpdateLightSprite,
+};
+
 const struct SpriteTemplate *const gFieldEffectLightTemplates[] = {
     &gFieldEffectObjectTemplate_BallLight,
     &gFieldEffectObjectTemplate_PokeCenterLight,
     &gFieldEffectObjectTemplate_MartLight,
+    &gFieldEffectObjectTemplate_BPShopLight,
 };
 
 const struct SpriteTemplate gFieldEffectObjectTemplate_ShadowSmall = {

@@ -408,12 +408,8 @@
       "flag": "FLAG_ZYGARDE_CELL_16"
     }
   ],
-  "warp_events": [
-
-  ],
-  "coord_events": [
-
-  ],
+  "warp_events": [],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "hidden_item",
