@@ -4477,7 +4477,7 @@
       "width": 95,
       "height": 37,
       "primary_tileset": "gTileset_Autumn",
-      "secondary_tileset": "gTileset_Pearlwood",
+      "secondary_tileset": "gTileset_Primrose_Secondary",
       "border_filepath": "data/layouts/Route2/border.bin",
       "blockdata_filepath": "data/layouts/Route2/map.bin"
     },

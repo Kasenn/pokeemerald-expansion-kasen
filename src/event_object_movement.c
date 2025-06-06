@@ -614,6 +614,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_SPIRIT_RED,       OBJ_EVENT_PAL_SPIRIT_RED},
     {gObjectEventPalette_SPIRIT_YELLOW,        OBJ_EVENT_PAL_SPIRIT_YELLOW},
     {gObjectEventPalette_SPIRIT_GREEN,     OBJ_EVENT_PAL_SPIRIT_GREEN},
+    {gObjectEventPalette_Mart_Door,      OBJ_EVENT_PAL_MART_DOOR},
     {gObjectEventPalette_Breeder,           OBJ_EVENT_PAL_BREEDER},
     {gObjectEventPalette_BigBoulder,           OBJ_EVENT_PAL_BIG_BOULDER},
     {gObjectEventPalette_ZygardeCell,           OBJ_EVENT_PAL_ZYGARDE_CELL},

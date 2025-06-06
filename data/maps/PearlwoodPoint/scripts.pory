@@ -1,48 +1,39 @@
+const FLAG_BROTHER = FLAG_TEMP_1
+const TRIGGER = VAR_TEMP_1
+const BROTHER_TRIGGER = VAR_TEMP_2
+
 mapscripts PearlwoodPoint_MapScripts{
-    MAP_SCRIPT_ON_TRANSITION: Pearlwood_Visited
-}
-
-const LASS = 2
-const BROTHER = 3
-const GIRL = 4
-
-script Pearlwood_Visited{
-    setflag(FLAG_VISITED_PEARLWOOD_POINT)
-    if(var(VAR_PEARLWOOD_TOWN_STATE) != STORY_PEARLWOOD_PKMN_OBTAINED){
-        setflag(FLAG_TEMP_1)
+    MAP_SCRIPT_ON_TRANSITION{
+        setflag(FLAG_VISITED_PEARLWOOD_POINT)
+        if(var(VAR_PEARLWOOD_TOWN_STATE) != STORY_PEARLWOOD_PKMN_OBTAINED){setflag(FLAG_TEMP_1)}
     }
 }
 
 script Pearlwood_Point_NoPokemon1{
-    setvar(VAR_TEMP_1, 1)
+    setvar(TRIGGER, 1)
     goto(Pearlwood_Point_NoPokemon)
 }
 
 script Pearlwood_Point_NoPokemon2{
-    setvar(VAR_TEMP_1, 2)
+    setvar(TRIGGER, 2)
     goto(Pearlwood_Point_NoPokemon)
 }
 
 script Pearlwood_Point_NoPokemon{
     lock
-    turnobject(LASS, DIR_SOUTH)
+    turnobject(LOCALID_PEARLWOOD_LASS, DIR_SOUTH)
     playse(SE_PIN)
-    applymovement(LASS, Common_Movement_ExclamationMark)
-    waitmovement(0)
+    waitmove(LOCALID_PEARLWOOD_LASS, ExclamationMark)
     delay(48)
-    msgbox(Pearlwood_Point_WatchOut)
-    closemessage
-    if(var(VAR_TEMP_1) == 1){
+    msgbox(Pearlwood_Point_WatchOut, MSGBOX_AUTOCLOSE)
+    if(var(TRIGGER) == 1){
         turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
     }
     else{
-        applymovement(OBJ_EVENT_ID_PLAYER, Walk1Up)
-        waitmovement(0)
+        waitmove(OBJ_EVENT_ID_PLAYER, Walk1Up)
     }
-    msgbox(Pearlwood_Point_WildPokemon)
-    closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Left)
-    waitmovement(0)
+    msgbox(Pearlwood_Point_WildPokemon, MSGBOX_AUTOCLOSE)
+    waitmove(OBJ_EVENT_ID_PLAYER, Walk1Left)
     release
 }
 text Pearlwood_Point_WatchOut{
@@ -65,11 +56,11 @@ text Pearlwood_Point_Dangerous{
 }
 
 script Pearlwood_BrotherFightRight{
-    setvar(VAR_TEMP_2, 1)
+    setvar(BROTHER_TRIGGER, 1)
     goto(Pearlwood_BrotherFightMain)
 }
 script Pearlwood_BrotherFightLeft{
-    setvar(VAR_TEMP_2, 2)
+    setvar(BROTHER_TRIGGER, 2)
     goto(Pearlwood_BrotherFightMain)
 }
 
@@ -77,18 +68,14 @@ script Pearlwood_BrotherFightMain{
     lock
     safefollow
     playse(SE_PIN)
-    msgbox("???: {PLAYER}!")
-    closemessage
+    msgbox("???: {PLAYER}!", MSGBOX_AUTOCLOSE)
     delay(30)
-    if(var(VAR_TEMP_2) == 1){
-        applymovement(BROTHER, Walk5Up)
+    if(var(BROTHER_TRIGGER) == 1){
+        waitmove(LOCALID_PEARLWOOD_BROTHER, Walk5Up)
     }
     else{
-        applymovement(BROTHER, Walk1Left)
-        waitmovement(0)
-        applymovement(BROTHER, Walk5Up)
+        waitmove(LOCALID_PEARLWOOD_BROTHER, moves(walk_left, walk_up *5))
     }
-    waitmovement(0)
     msgbox(BrotherFightIntro)
     setflag(FLAG_CONTINUE_AFTER_WHITEOUT)
     playbgm(MUS_ENCOUNTER_MALE, FALSE)
@@ -123,43 +110,29 @@ text Pearlwood_Brother_Outro{
 
 script PearlwoodWon{
     safefollow
-    clearflag(FLAG_FIRST_BATTLE)
+    if(checkplayergender == MALE){bufferstring(STR_VAR_1, "she")}
+    else{bufferstring(STR_VAR_1, "he")}
     if(var(VAR_RESULT) == B_OUTCOME_WON){
-        if(checkplayergender == MALE){
-            bufferstring(STR_VAR_1, "she")
-        }
-        else{
-            bufferstring(STR_VAR_1, "he")
-        }
-        msgbox(PearlwoodBrotherPrize)
+        msgbox(PearlwoodBrotherPrize, MSGBOX_AUTOCLOSE)
     }
 	else{
-        if(checkplayergender == MALE){
-            bufferstring(STR_VAR_1, "she")
-        }
-        else{
-            bufferstring(STR_VAR_1, "he")
-        }
-        msgbox(PlayerHouse1F_Apology)
+        msgbox(PlayerHouse1F_Apology, MSGBOX_AUTOCLOSE)
     }
-    closemessage
     playse(SE_PIN)
-    applymovement(BROTHER, ExclamationMark)
-    waitmovement(0)
+    waitmove(LOCALID_PEARLWOOD_BROTHER, ExclamationMark)
     delay(48)
     msgbox(BrotherWatch)
     playfanfare(MUS_OBTAIN_ITEM)
     message(ObtainedWatch)
     waitfanfare
     msgbox(ViewClock)
-    msgbox(BrotherGoodbye)
-    closemessage
+    msgbox(BrotherGoodbye, MSGBOX_AUTOCLOSE)
+    waitmove(LOCALID_PEARLWOOD_BROTHER, Walk5Down)
+    removeobject(LOCALID_PEARLWOOD_BROTHER)
     clearflag(FLAG_CONTINUE_AFTER_WHITEOUT)
-    applymovement(BROTHER, Walk5Down)
-	waitmovement(0)
-    removeobject(BROTHER)
-    setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_BROTHER_FOUGHT)
+    clearflag(FLAG_FIRST_BATTLE)
     clearflag(FLAG_HEAL_AFTER_BATTLE)
+    setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_BROTHER_FOUGHT)
     delay(30)
 	release
 }
@@ -231,7 +204,7 @@ text Pearlwood_Point_FatMan_Text{
 
 script Pearlwood_Point_LittleGirl{
     msgbox(Pearlwood_Point_LittleGirl_Text, MSGBOX_NPC)
-    turnobject(GIRL, DIR_NORTH)
+    turnobject(LOCALID_PEARLWOOD_LITTLE_BOY, DIR_NORTH)
 }
 text Pearlwood_Point_LittleGirl_Text{
     "Shh!\p"

@@ -368,13 +368,14 @@
 #define OBJ_EVENT_GFX_SPIRIT_YELLOW               358
 #define OBJ_EVENT_GFX_SPIRIT_GREEN               359
 #define OBJ_EVENT_GFX_SPIRIT_RED               360
+#define OBJ_EVENT_GFX_MART_DOOR                 361
 
 
 
 // NOTE: The maximum amount of object events has been expanded from 255 to 65535.
 // Since dynamic graphics ids still require at least 16 free values, the actual limit
 // is 65519, but even considering follower Pokémon, this should be more than enough :)
-#define NUM_OBJ_EVENT_GFX                        361
+#define NUM_OBJ_EVENT_GFX                        362
 
 
 // These are dynamic object gfx ids.
@@ -616,6 +617,7 @@
 #define FLDEFF_PAL_TAG_AUTUMN_LONG_GRASS        0x1188
 #define OBJ_EVENT_PAL_BERGMITE_FLOATING                 0x1189
 #define OBJ_EVENT_PAL_BREAKABLE_ICE                     0x118A
+#define OBJ_EVENT_PAL_MART_DOOR                     0x118B
 
 
 // Used as a placeholder follower graphic

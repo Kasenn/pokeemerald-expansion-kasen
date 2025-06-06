@@ -732,3 +732,6 @@ const u16 gObjectEventPalette_SPIRIT_YELLOW[] = INCBIN_U16("graphics/object_even
 const u32 gObjectEventPic_SPIRIT_BLUE[] = INCBIN_U32("graphics/object_events/pics/misc/spirit_blue1.4bpp");
 const u16 gObjectEventPalette_SPIRIT_BLUE[] = INCBIN_U16("graphics/object_events/pics/misc/spirit_blue1.gbapal");
 
+const u32 gObjectEventPic_Mart_Door[] = INCBIN_U32("graphics/object_events/pics/misc/mart_door.4bpp");
+const u16 gObjectEventPalette_Mart_Door[] = INCBIN_U16("graphics/object_events/pics/misc/mart_door.gbapal");
+

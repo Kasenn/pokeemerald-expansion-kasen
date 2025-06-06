@@ -341,7 +341,8 @@ static void CB2_LoadCableCar(void)
         gMain.state++;
         break;
     case 8:
-        BeginNormalPaletteFade(PALETTES_ALL, 3, 16, 0, RGB_BLACK);
+        BeginTimeOfDayPaletteFade(PALETTES_ALL, 3, 16, 0, &gTimeBlend.startBlend, &gTimeBlend.endBlend, gTimeBlend.weight, RGB_BLACK);
+        // BeginNormalPaletteFade(PALETTES_ALL, 3, 16, 0, RGB_BLACK);
         FadeInNewBGM(MUS_CABLE_CAR, 1);
         SetBgRegs(TRUE);
         gMain.state++;
@@ -459,7 +460,8 @@ static void Task_CableCar(u8 taskId)
         if (sCableCar->timer == 570)
         {
             sCableCar->state = 3;
-            BeginNormalPaletteFade(PALETTES_ALL, 3, 0, 16, RGB_BLACK);
+            // BeginNormalPaletteFade(PALETTES_ALL, 3, 0, 16, RGB_BLACK);
+            BeginTimeOfDayPaletteFade(PALETTES_ALL, 3, 0, 16, &gTimeBlend.startBlend, &gTimeBlend.endBlend, gTimeBlend.weight, RGB_BLACK);
             FadeOutBGM(4);
         }
         break;

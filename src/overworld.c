@@ -402,7 +402,7 @@ void Overworld_ResetStateAfterFly(void)
     FlagClear(FLAG_PARTNER_HEALS);
     FlagClear(FLAG_HEAL_AFTER_BATTLE);
     FlagClear(FLAG_DESERT_STEPS);
-    FlagClear(FLAG_TIME_STOP);
+    FlagSet(FLAG_TIME_STOP);
     VarSet(VAR_POKECENTER_TRAINING, 0);
     VarSet(VAR_SHINY_MULTIPLIER, 0);
 }
@@ -414,7 +414,7 @@ void Overworld_ResetStateAfterTeleport(void)
     FlagClear(FLAG_SYS_CRUISE_MODE);
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
-    FlagClear(FLAG_TIME_STOP);
+    FlagSet(FLAG_TIME_STOP);
     FlagClear(FLAG_SYS_USE_FLASH);
     FlagClear(FLAG_INCREASED_SHINY_ODDS);
     FlagClear(FLAG_SYSTEM_NOREWARDBATTLES);
@@ -433,7 +433,7 @@ void Overworld_ResetStateAfterDigEscRope(void)
     FlagClear(FLAG_SYS_CRUISE_MODE);
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
-    FlagClear(FLAG_TIME_STOP);
+    FlagSet(FLAG_TIME_STOP);
     FlagClear(FLAG_SYS_USE_FLASH);
     FlagClear(FLAG_INCREASED_SHINY_ODDS);
     FlagClear(FLAG_SYSTEM_NOREWARDBATTLES);
@@ -490,7 +490,7 @@ static void Overworld_ResetStateAfterWhiteOut(void)
     FlagClear(FLAG_SYS_CRUISE_MODE);
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
-    FlagClear(FLAG_TIME_STOP);
+    FlagSet(FLAG_TIME_STOP);
     FlagClear(FLAG_SYS_USE_FLASH);
     if (B_RESET_FLAGS_VARS_AFTER_WHITEOUT == TRUE)
         Overworld_ResetBattleFlagsAndVars();
@@ -1733,7 +1733,7 @@ void UpdateTimeOfDay(void)
 // Whether a map type is naturally lit/outside
 bool32 MapHasNaturalLight(u8 mapType)
 {
-    if (gWarpInProgress)
+    if (gWarpInProgress || (gWeatherPtr->currWeather == WEATHER_SHADE && gLocalTime.hours > 12 && gLocalTime.hours < 20))
         return FALSE;
     return (OW_ENABLE_DNS
          && (mapType == MAP_TYPE_TOWN
@@ -1781,6 +1781,23 @@ void UpdatePalettesWithTime(u32 palettes)
 {
     if (!MapHasNaturalLight(gMapHeader.mapType))
         return;
+    u32 i;
+    u32 mask = 1 << 16;
+    if (palettes >= (1 << 16))
+        for (i = 0; i < 16; i++, mask <<= 1)
+        {
+            if (IS_BLEND_IMMUNE_TAG(GetSpritePaletteTagByPaletteNum(i)))
+                palettes &= ~(mask);
+        }
+
+    palettes &= PALETTES_MAP | PALETTES_OBJECTS; // Don't blend UI pals
+    if (!palettes)
+        return;
+    TimeMixPalettes(palettes, gPlttBufferUnfaded, gPlttBufferFaded, &gTimeBlend.startBlend, &gTimeBlend.endBlend, gTimeBlend.weight);
+}
+
+void UpdatePalettesWithTimeSpecial(u32 palettes)
+{
     u32 i;
     u32 mask = 1 << 16;
     if (palettes >= (1 << 16))

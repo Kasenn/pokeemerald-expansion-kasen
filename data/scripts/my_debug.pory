@@ -602,8 +602,9 @@ script SkipContent{
             goto(SkipContent_MiscSurfing)      //"Misc. Surfing",
         case 45:
         case MULTI_B_PRESSED:
-            copyvar(VAR_SELECTION, VAR_RESULT)
-            goto(SkipContent_)      //"Cancel"
+            msgbox("Goodbye", MSGBOX_AUTOCLOSE)
+            release
+            end
     }
 }
 
@@ -626,10 +627,6 @@ text SkipContent_Text{
 }
 text ChooseContentToSkip{
     "Choose the area you'd like to skip."
-}
-
-script SkipContent_{
-    call(SkipContent_BufferChoices)
 }
 
 script SkipContent_BufferChoices{

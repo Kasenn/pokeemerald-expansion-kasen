@@ -1,3 +1,41 @@
+MAJOR BUGS!!!
+fix fadescreens
+fix lighting settings everywhere
+fix lighting in enchanted forest
+fix lighting around lava
+fix lighting in drisledge?
+fix all areas with shade
+
+fix harbor boats
+azuretide
+ranch
+aldeleaf
+skyloch + reflections on main house and sign
+route 8
+shoreslate
+route 7
+marigorge
+safari zone
+kaolisle
+rockliffe
+route 11
+route 12
+sandstone
+route 13
+skyway
+route 14
+berry farm
+route 15
+fishing village
+amberock
+drisledge
+route 16
+basalek
+route 17
+route 18
+route 19
+frosthearth
+
 route 19
 	items
 	wild encounters
