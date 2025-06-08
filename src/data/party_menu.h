@@ -515,6 +515,17 @@ static const struct WindowTemplate sFollowerSetWindowTemplate =
     .baseBlock = 0x39D,
 };
 
+static const struct WindowTemplate sFollowerSetWindowTemplate2 =
+{
+    .bg = 2,
+    .tilemapLeft = 23,
+    .tilemapTop = 13,
+    .width = 6,
+    .height = 6,
+    .paletteNum = 14,
+    .baseBlock = 0x39D,
+};
+
 static const struct WindowTemplate sMailReadTakeWindowTemplate =
 {
     .bg = 2,
