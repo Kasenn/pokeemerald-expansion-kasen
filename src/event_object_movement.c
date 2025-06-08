@@ -1916,12 +1916,12 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
 
     SetObjectSubpriorityByElevation(objectEvent->previousElevation, sprite, 1);
     UpdateObjectEventVisibility(objectEvent, sprite);
-    if (objectEvent->graphicsId == OBJ_EVENT_GFX_LIGHT_SPRITE){
-        objectEvent->fixedPriority = TRUE;
-        sprite->subpriority = 1;
-        objectEvent->currentElevation = 4;
-        objectEvent->previousElevation = 4;
-    }
+    // if (objectEvent->graphicsId == OBJ_EVENT_GFX_LIGHT_SPRITE){
+    //     objectEvent->fixedPriority = TRUE;
+    //     sprite->subpriority = 1;
+    //     objectEvent->currentElevation = 4;
+    //     objectEvent->previousElevation = 4;
+    // }
     if (objectEvent->graphicsId >= OBJ_EVENT_GFX_SPIRIT_BLUE && objectEvent->graphicsId <= OBJ_EVENT_GFX_SPIRIT_RED)
     {
         sprite->y -= 2;
@@ -2969,11 +2969,6 @@ static void SpawnLightSprite(s16 x, s16 y, s16 camX, s16 camY, u32 lightType)
     case LIGHT_TYPE_BALL:
         sprite->centerToCornerVecX = -(32 >> 1);
         sprite->centerToCornerVecY = -(32 >> 1);
-        if(MAP(MAP_SHORESLATE_CITY))
-            sprite->oam.priority = 2;
-        else
-            sprite->oam.priority = 1;
-        sprite->subpriority = 0xFF;
         sprite->oam.objMode = ST_OAM_OBJ_BLEND;
         sprite->oam.affineMode = ST_OAM_AFFINE_NORMAL;
         sprite->x += 8;
@@ -3188,12 +3183,12 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
 
         ResetObjectEventFldEffData(objectEvent);
         SetObjectSubpriorityByElevation(objectEvent->previousElevation, sprite, 1);
-        if (objectEvent->graphicsId == OBJ_EVENT_GFX_LIGHT_SPRITE){
-            objectEvent->fixedPriority = TRUE;
-            sprite->subpriority = 1;
-            objectEvent->currentElevation = 4;
-            objectEvent->previousElevation = 4;
-        }
+        // if (objectEvent->graphicsId == OBJ_EVENT_GFX_LIGHT_SPRITE){
+        //     objectEvent->fixedPriority = TRUE;
+        //     sprite->subpriority = 1;
+        //     objectEvent->currentElevation = 4;
+        //     objectEvent->previousElevation = 4;
+        // }
         if (objectEvent->graphicsId >= OBJ_EVENT_GFX_SPIRIT_BLUE && objectEvent->graphicsId <= OBJ_EVENT_GFX_SPIRIT_RED)
         {
             sprite->y -= 2;
