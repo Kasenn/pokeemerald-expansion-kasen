@@ -1316,3 +1316,14 @@ const struct Tileset gTileset_EnchantedForest =
     .metatileAttributes = gMetatileAttributes_EnchantedForest,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Skyloch =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Skyloch,
+    .palettes = gTilesetPalettes_Skyloch,
+    .metatiles = gMetatiles_Skyloch,
+    .metatileAttributes = gMetatileAttributes_Skyloch,
+    .callback = NULL,
+};

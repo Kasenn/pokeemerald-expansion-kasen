@@ -365,6 +365,21 @@ void BattleSetup_StartScriptedWildBattle(void)
     if (MAP(MAP_DRISLEDGE_GYM)){
         gBattleTypeFlags = BATTLE_TYPE_GHOST;
     }
+    if (FlagGet(FLAG_CHANCE_TO_HIDDEN_ABILITY))
+    {
+        u8 value;
+        u8 random = Random() % 10;
+        
+        if (random <= 3)
+            value = 0;
+        else if (random <= 7)
+            value = 1;
+        else
+            value = 2;
+
+        SetMonData(&gEnemyParty[0], MON_DATA_ABILITY_NUM, &value);
+        FlagClear(FLAG_CHANCE_TO_HIDDEN_ABILITY);
+    }
     CreateBattleStartTask(GetWildBattleTransition(), 0);
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
     IncrementGameStat(GAME_STAT_WILD_BATTLES);

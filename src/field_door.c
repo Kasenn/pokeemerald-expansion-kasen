@@ -279,7 +279,13 @@ static const struct DoorGraphics sAldeleafDoors[] =
 {
     {DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Lilycove, sDoorAnimPalettes_Lilycove},
     {DOOR_SOUND_SLIDING,  1, sDoorAnimTiles_AldeleafSlideDoor, sDoorAnimPalettes_AldeleafDoor},
-    {DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_LilycoveWooden, sDoorAnimPalettes_LilycoveWooden}
+    {DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_LilycoveWooden, sDoorAnimPalettes_LilycoveWooden},
+    {DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_General, sDoorAnimPalettes_General}
+};
+
+static const struct DoorGraphics sSkylochDoors[] = {
+    {DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Verdanturf, sDoorAnimPalettes_Verdanturf},
+    {DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_General, sDoorAnimPalettes_General}
 };
 
 static const struct DoorGraphics sMarigorgeDoors[] =
@@ -338,6 +344,7 @@ static const struct NewDoorGraphics sDoorAnimGraphicsTable[] =
     {&gTileset_Primrose_Secondary,      DOORS(sPrimroseDoors)},
     {&gTileset_Coralgrove_Secondary,    DOORS(sCoralgroveDoors)},
     {&gTileset_Aldeleaf,                DOORS(sAldeleafDoors)},
+    {&gTileset_Skyloch,                 DOORS(sSkylochDoors)},
     {&gTileset_Marigorge,               DOORS(sMarigorgeDoors)},
     {&gTileset_Shoreslate,              DOORS(sShoreslateDoors)},
     {&gTileset_Kaolisle,                DOORS(sKaolisleDoors)},

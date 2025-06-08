@@ -1,3 +1,8 @@
+#define ZOBJ_PIC(name)  \
+static const struct SpriteFrameImage sPicTable_##name[] = { \
+    obj_frame_tiles(gObjectEventPic_##name), \
+};
+
 static const struct SpriteFrameImage sPicTable_BrendanNormal[] = {
     overworld_ascending_frames(gObjectEventPic_BrendanNormalRunning, 2, 4),
 };
@@ -3003,3 +3008,7 @@ static const struct SpriteFrameImage sPicTable_MayRSSnow8Px[] = {
 static const struct SpriteFrameImage sPicTable_MayRSSnow10Px[] = {
     overworld_ascending_frames(gObjectEventPic_MayRSSnow10Px, 2, 4),
 };
+
+ZOBJ_PIC(SHORESLATE_WINDOW1)
+
+#undef ZOBJ_PIC

@@ -402,7 +402,7 @@ void Overworld_ResetStateAfterFly(void)
     FlagClear(FLAG_PARTNER_HEALS);
     FlagClear(FLAG_HEAL_AFTER_BATTLE);
     FlagClear(FLAG_DESERT_STEPS);
-    FlagSet(FLAG_TIME_STOP);
+    FlagClear(FLAG_TIME_STOP);
     VarSet(VAR_POKECENTER_TRAINING, 0);
     VarSet(VAR_SHINY_MULTIPLIER, 0);
 }
@@ -414,7 +414,7 @@ void Overworld_ResetStateAfterTeleport(void)
     FlagClear(FLAG_SYS_CRUISE_MODE);
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
-    FlagSet(FLAG_TIME_STOP);
+    FlagClear(FLAG_TIME_STOP);
     FlagClear(FLAG_SYS_USE_FLASH);
     FlagClear(FLAG_INCREASED_SHINY_ODDS);
     FlagClear(FLAG_SYSTEM_NOREWARDBATTLES);
@@ -433,7 +433,7 @@ void Overworld_ResetStateAfterDigEscRope(void)
     FlagClear(FLAG_SYS_CRUISE_MODE);
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
-    FlagSet(FLAG_TIME_STOP);
+    FlagClear(FLAG_TIME_STOP);
     FlagClear(FLAG_SYS_USE_FLASH);
     FlagClear(FLAG_INCREASED_SHINY_ODDS);
     FlagClear(FLAG_SYSTEM_NOREWARDBATTLES);
@@ -490,7 +490,7 @@ static void Overworld_ResetStateAfterWhiteOut(void)
     FlagClear(FLAG_SYS_CRUISE_MODE);
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
-    FlagSet(FLAG_TIME_STOP);
+    FlagClear(FLAG_TIME_STOP);
     FlagClear(FLAG_SYS_USE_FLASH);
     if (B_RESET_FLAGS_VARS_AFTER_WHITEOUT == TRUE)
         Overworld_ResetBattleFlagsAndVars();
@@ -1815,8 +1815,8 @@ void UpdatePalettesWithTimeSpecial(u32 palettes)
 
 u8 UpdateSpritePaletteWithTime(u8 paletteNum)
 {
-    if (MapHasNaturalLight(gMapHeader.mapType)
-     && !IS_BLEND_IMMUNE_TAG(GetSpritePaletteTagByPaletteNum(paletteNum)))
+    if (MapHasNaturalLight(gMapHeader.mapType))
+    //  && !IS_BLEND_IMMUNE_TAG(GetSpritePaletteTagByPaletteNum(paletteNum)))
         TimeMixPalettes(1, &gPlttBufferUnfaded[OBJ_PLTT_ID(paletteNum)], &gPlttBufferFaded[OBJ_PLTT_ID(paletteNum)], &gTimeBlend.startBlend, &gTimeBlend.endBlend, gTimeBlend.weight);
     return paletteNum;
 }

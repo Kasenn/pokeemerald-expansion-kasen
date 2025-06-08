@@ -1,3 +1,6 @@
+#define ZOBJ_ENTRY1(name)  extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_##name
+#define ZOBJ_ENTRY2(name)    [OBJ_EVENT_GFX_##name] =               &gObjectEventGraphicsInfo_##name
+
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanNormal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanMachBike;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanSurfing;
@@ -395,6 +398,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_G
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_RS_8PX_SNOW;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_RS_10PX_SNOW;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_RS_10PX_SNOW;
+ZOBJ_ENTRY1(SHORESLATE_WINDOW1);
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_NEWPIKACHU] =                     &gObjectEventGraphicsInfo_NewPikachu,
@@ -781,6 +785,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MAY_RS_10PX_SNOW      ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_RS_10PX_SNOW,
     [OBJ_EVENT_GFX_FLOATING_BERGMITE] =                   &gObjectEventGraphicsInfo_BergmiteFloating,
     [OBJ_EVENT_GFX_LIGHT_SPRITE] =             &gObjectEventGraphicsInfo_BallLight,
+    ZOBJ_ENTRY2(SHORESLATE_WINDOW1),
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {
@@ -792,3 +797,6 @@ const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[
     [MAUVILLE_MAN_UNUSED1]     = &gObjectEventGraphicsInfo_UnusedMauvilleOldMan1,
     [MAUVILLE_MAN_UNUSED2]     = &gObjectEventGraphicsInfo_UnusedMauvilleOldMan2,
 };
+
+#undef ZOBJ_ENTRY1
+#undef ZOBJ_ENTRY2

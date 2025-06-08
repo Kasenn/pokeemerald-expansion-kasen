@@ -1142,6 +1142,18 @@
     },
     {
       "id": "MAPSEC_EVER_GRANDE_CITY"
+    },
+    {
+      "id": "MAPSEC_ROUTE_120"
+    },
+    {
+      "id": "MAPSEC_ROUTE_121"
+    },
+    {
+      "id": "MAPSEC_ROUTE_104"
+    },
+    {
+      "id": "MAPSEC_ROUTE_116"
     }
   ]
 }

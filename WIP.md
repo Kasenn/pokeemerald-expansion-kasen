@@ -1,16 +1,40 @@
+wild encounter changes
+general change: bidoof/lillipup and pidgey/starly are day encounters, while alolan rattata and hoothoot are night encounters. there may be some cross-over, but it's rare.
+day/night cycle only affects regular land encounters (grottos and honey trees excluded)
+
+route 1: removed pichu
+primrose town: combee and cutiefly removed. can still be found at the flower field
+primrose meadow: using the repel trick at lvl 5 gives 50/50 chance of weedle/scatterbug during the night, and riolu/kricketot during the day
+route 2: removed ekans and marill. growlithe much higher chance to appear, as well as riolu/ralts during day/night
+windy woods: removed starly. removed murkrow from day encounters, much higher chance to encounter during the night. pinsir can be repel tricked at level 7
+lost glade: removed scyther. vulpix has higher chance to appear
+coralgrove city: chance to encounter gastly increases the darker it gets
+route 4: helioptile encounter rate up during day, alolan meowth down. reverse during the night
+pokemon ranch: psyduck removed, mudbray and mareep rates up. during night, mareep and phantump rates are reverse
+windplume valley: doduo removed. drifloon added to night encounters.
+route 30: rockruff removed. shinx rate up. shinx and houndour rates reversed during the night
+route 5: ralts removed, timburr rate up. magnemite rate down during the day, shroomish rate up, reverse at night
+route 7: dreepy removed from day encounters. encounter rate during night increased. 33% encounter rate with repel trick at level 25
+route 8: dewpider rate up. stunfisk rate up during the night, while dewpider rate goes down
+safari zone area 1 (starter area, swamp): removed gloom and reduced oddish rates during the day, increased goomy and wooper rate. during night reduces tympole and wooper rate, increases yanma rate
+safari zone area 2 (bottom right, forest): zorua and exeggcute rates reversed during the night
+safari zone area 4 (middle right, savannah): removed donphan from from night encounters, with phanpy rates heavily reduced. increased rate for falinks, gligar, and pawniard
+route 11: spinarak and ariados removed from day encounters, audino replaced with snubbull. budew and roselia removed from night encounters, spinarak and ariados rate up
+route 12: fletchling and fletchinder replaced with doduo. togedemaru removed. hawlucha rates up. espurr replaced by misdreavus during the night
+adamant tower: misdreavus removed. impidimp/morgrem removed from floor 5
+route 14: removed snubbul and stunfisk. wimpod removed from day encounters, higher encounter rate during the night
+route 15: pachirisu removed from night encounters, wimpod removed from day encounters
+route 23: wimpod removed from day encounters, petilil and cottonee removed from day encounters, gastly added to night encounters
+
 MAJOR BUGS!!!
 fix fadescreens
-fix lighting settings everywhere
 fix lighting in enchanted forest
 fix lighting around lava
 fix lighting in drisledge?
 fix all areas with shade
+add more regular mons in grottos?
+give honey tree mons chance to get hidden abilities? honey tree mons now have 20% chance to have a hidden ability
 
-fix harbor boats
-azuretide
-ranch
-aldeleaf
-skyloch + reflections on main house and sign
 route 8
 shoreslate
 route 7

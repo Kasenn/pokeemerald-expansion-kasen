@@ -63,6 +63,8 @@
                                 min(LOCALID_PLAYER, \
                                     LOCALID_BERRY_BLENDER_PLAYER_END - MAX_RFU_PLAYERS + 1)))
 
+#define ZOBJ(name)      {gObjectEventPalette_##name,      OBJ_EVENT_PAL_##name}
+
 // The object event templates on a map cannot use the special IDs listed above or they can behave unexpectedly.
 // For more details on these special IDs see their definitions in 'include/constants/event_objects.h'.
 // OBJECT_EVENT_TEMPLATES_COUNT should always be low enough that it doesn't overlap with these IDs.
@@ -668,13 +670,11 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_RidingGogoat,          OBJ_EVENT_PAL_TAG_RIDING_GOGOAT},
     {gObjectEventPal_AutumnLongGrass,       FLDEFF_PAL_TAG_AUTUMN_LONG_GRASS},
     {gObjectEventPaletteNeonLight,          OBJ_EVENT_PAL_TAG_NEON_LIGHT},
-#ifdef BUGFIX
+    ZOBJ(SHORESLATE_WINDOW1),
     {NULL,                                  OBJ_EVENT_PAL_TAG_NONE},
-#else
-    {}, // BUG: FindObjectEventPaletteIndexByTag looks for OBJ_EVENT_PAL_TAG_NONE and not 0x0.
-        // If it's looking for a tag that isn't in this table, the game locks in an infinite loop.
-#endif
 };
+
+#undef ZOBJ
 
 static const u16 sReflectionPaletteTags_Brendan[] = {
     OBJ_EVENT_PAL_TAG_BRENDAN_REFLECTION,
@@ -2969,7 +2969,10 @@ static void SpawnLightSprite(s16 x, s16 y, s16 camX, s16 camY, u32 lightType)
     case LIGHT_TYPE_BALL:
         sprite->centerToCornerVecX = -(32 >> 1);
         sprite->centerToCornerVecY = -(32 >> 1);
-        sprite->oam.priority = 1;
+        if(MAP(MAP_SHORESLATE_CITY))
+            sprite->oam.priority = 2;
+        else
+            sprite->oam.priority = 1;
         sprite->subpriority = 0xFF;
         sprite->oam.objMode = ST_OAM_OBJ_BLEND;
         sprite->oam.affineMode = ST_OAM_AFFINE_NORMAL;

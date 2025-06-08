@@ -532,8 +532,9 @@ script Debug_Script_2{              //
     release
     return
 }
-script Debug_Script_3{              // 
-    setvar(VAR_TIME_CONTROL, 0)
+script Debug_Script_3{              //
+    waitse
+    playse(SE_M_TAKE_DOWN)
     return
 }
 script Debug_Script_4{

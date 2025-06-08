@@ -200,7 +200,7 @@ Route1_Text_YoungsterDefeated::
 
 Route1_Text_YoungsterPostBattle::
 # 25 "data/maps/NewRoute101/scripts.pory"
-	.string "I'm looking for a Pichu.\pMy friend told me he saw one\non this route the other day.$"
+	.string "I'm looking for a Rattata.\pMy friend told me he saw one\non this route the other day.$"
 
 Route1_Text_TuberIntro::
 # 34 "data/maps/NewRoute101/scripts.pory"

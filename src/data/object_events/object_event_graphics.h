@@ -1,3 +1,6 @@
+#define ZOBJ_PIC(name)   const u32 gObjectEventPic_##name[]=INCBIN_U32
+#define ZOBJ_PAL(name)   const u16 gObjectEventPalette_##name[]=INCBIN_U16
+
 const u32 gObjectEventPic_BrendanNormalRunning[] = INCBIN_U32("graphics/object_events/pics/people/brendan/walking.4bpp", "graphics/object_events/pics/people/brendan/running.4bpp");
 const u16 gObjectEventPal_Brendan[] = INCBIN_U16("graphics/object_events/palettes/brendan.gbapal");
 const u32 gObjectEventPic_RubySapphireBrendanNormal[] = INCBIN_U32("graphics/object_events/pics/people/ruby_sapphire_brendan/walking.4bpp");
@@ -735,3 +738,8 @@ const u16 gObjectEventPalette_SPIRIT_BLUE[] = INCBIN_U16("graphics/object_events
 const u32 gObjectEventPic_Mart_Door[] = INCBIN_U32("graphics/object_events/pics/misc/mart_door.4bpp");
 const u16 gObjectEventPalette_Mart_Door[] = INCBIN_U16("graphics/object_events/pics/misc/mart_door.gbapal");
 
+const u32 gObjectEventPic_SHORESLATE_WINDOW1[] = INCBIN_U32("graphics/object_events/pics/lights/SHORESLATE_WINDOW1.4bpp");
+const u16 gObjectEventPalette_SHORESLATE_WINDOW1[] = INCBIN_U16("graphics/object_events/pics/lights/SHORESLATE_WINDOW1.gbapal");
+
+#undef ZOBJ_PIC
+#undef ZOBJ_PAL

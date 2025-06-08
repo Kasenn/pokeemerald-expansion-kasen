@@ -279,6 +279,9 @@ $(OBJEVENTGFXDIR)/people/breeder.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/drayden.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
+$(OBJEVENTGFXDIR)/lights/SHORESLATE_WINDOW1.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
 $(OBJEVENTGFXDIR)/misc/spirit_blue1.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 

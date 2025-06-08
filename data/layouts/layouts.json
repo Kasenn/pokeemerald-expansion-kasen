@@ -37,7 +37,7 @@
       "width": 40,
       "height": 60,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Shoreslate",
+      "secondary_tileset": "gTileset_BattleArena",
       "border_filepath": "data/layouts/RustboroCity/border.bin",
       "blockdata_filepath": "data/layouts/RustboroCity/map.bin"
     },
@@ -197,7 +197,7 @@
       "width": 40,
       "height": 80,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Shoreslate",
+      "secondary_tileset": "gTileset_BattleArena",
       "border_filepath": "data/layouts/Route104/border.bin",
       "blockdata_filepath": "data/layouts/Route104/map.bin"
     },
@@ -317,7 +317,7 @@
       "width": 100,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Shoreslate",
+      "secondary_tileset": "gTileset_BattleArena",
       "border_filepath": "data/layouts/Route116/border.bin",
       "blockdata_filepath": "data/layouts/Route116/map.bin"
     },
@@ -1347,7 +1347,7 @@
       "width": 48,
       "height": 44,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Shoreslate",
+      "secondary_tileset": "gTileset_BattleArena",
       "border_filepath": "data/layouts/PetalburgWoods/border.bin",
       "blockdata_filepath": "data/layouts/PetalburgWoods/map.bin"
     },
@@ -2867,7 +2867,7 @@
       "width": 1,
       "height": 1,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Shoreslate",
+      "secondary_tileset": "gTileset_BattleArena",
       "border_filepath": "data/layouts/Route104_Prototype/border.bin",
       "blockdata_filepath": "data/layouts/Route104_Prototype/map.bin"
     },
@@ -2897,7 +2897,7 @@
       "width": 33,
       "height": 30,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Shoreslate",
+      "secondary_tileset": "gTileset_BattleArena",
       "border_filepath": "data/layouts/SouthernIsland_Exterior/border.bin",
       "blockdata_filepath": "data/layouts/SouthernIsland_Exterior/map.bin"
     },
@@ -2907,7 +2907,7 @@
       "width": 27,
       "height": 24,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Shoreslate",
+      "secondary_tileset": "gTileset_BattleArena",
       "border_filepath": "data/layouts/SouthernIsland_Interior/border.bin",
       "blockdata_filepath": "data/layouts/SouthernIsland_Interior/map.bin"
     },
@@ -4017,7 +4017,7 @@
       "width": 34,
       "height": 46,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Shoreslate",
+      "secondary_tileset": "gTileset_BattleArena",
       "border_filepath": "data/layouts/FarawayIsland_Entrance/border.bin",
       "blockdata_filepath": "data/layouts/FarawayIsland_Entrance/map.bin"
     },
@@ -4847,7 +4847,7 @@
       "width": 50,
       "height": 50,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Coralgrove_Secondary",
+      "secondary_tileset": "gTileset_Skyloch",
       "border_filepath": "data/layouts/Town_Wip2/border.bin",
       "blockdata_filepath": "data/layouts/Town_Wip2/map.bin"
     },

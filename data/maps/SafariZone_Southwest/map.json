@@ -62,9 +62,7 @@
       "flag": "FLAG_SAFARIMOUNTAIN_ITEM4"
     }
   ],
-  "warp_events": [
-
-  ],
+  "warp_events": [],
   "coord_events": [
     {
       "type": "weather",
