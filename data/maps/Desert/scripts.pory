@@ -88,7 +88,7 @@ script ScorchedDesert_TriggerQuakes{
             delay(10)
             playse(SE_SWITCH)
             getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
-            setmetatile(VAR_TEMP_1, VAR_TEMP_2, 0x3DF, FALSE)
+            setmetatile(VAR_TEMP_1, VAR_TEMP_2, 0x2A3, FALSE)
             setobjectxy(OBJ_EVENT_ID_PLAYER, VAR_TEMP_1, VAR_TEMP_2)
             special(DrawWholeMapView)
             goto(ScorchedDesert_FallThroughFloor)

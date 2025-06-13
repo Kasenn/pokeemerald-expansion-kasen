@@ -333,7 +333,7 @@ static const struct DoorGraphics sHotelDoors[] =
 
 static const struct DoorGraphics sPrimroseDoors[] = {{DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_General, sDoorAnimPalettes_General}};
 static const struct DoorGraphics sShoreslateDoors[] = {{DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_RustboroGray, sDoorAnimPalettes_RustboroGray}};
-static const struct DoorGraphics sMiscRouteDoors[] = {{DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Mauville, sDoorAnimPalettes_Mauville}};
+static const struct DoorGraphics sMiscRouteDoors[] = {{DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_CyclingRoad, sDoorAnimPalettes_CyclingRoad}};
 static const struct DoorGraphics sAmberockDoors[] = {{DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Amberock, sDoorAnimPalettes_Amberock}};
 static const struct DoorGraphics sBasalekDoors[] = {{DOOR_SOUND_NORMAL,  1, sDoorAnimTiles_Basaluff, sDoorAnimPalettes_Basaluff}};
 static const struct DoorGraphics sShopElevator[] = {{DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_LilycoveDeptStoreElevator, sDoorAnimPalettes_LilycoveDeptStoreElevator}};

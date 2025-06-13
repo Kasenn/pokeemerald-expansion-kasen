@@ -1746,7 +1746,7 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
         .party = TRAINER_PARTY(sParty_Route7Tr2_Picnicker),
     },
 
-    [DIFFICULTY_NORMAL][TRAINER_R7_TR3_NINJABOY] =
+    [DIFFICULTY_NORMAL][TRAINER_UNUSED_172_] =
     {
         NINJA_BOY_INFO,
         DUMB_AI,

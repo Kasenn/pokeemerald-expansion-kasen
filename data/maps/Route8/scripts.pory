@@ -3,12 +3,24 @@ mapscripts Route8_MapScripts{
     MAP_SCRIPT_ON_LOAD: LoadMudTile
 }
 
+const FLAG_DRY = FLAG_TEMP_1
+const FLAG_WET = FLAG_TEMP_2
+
 script InitRoute8{
     if(flag(FLAG_DEVON_UNDER_ATTACK)){
         setflag(FLAG_DEVON_RESCUED)
     }
     clearflag(FLAG_INCREASED_SHINY_ODDS)
     clearflag(FLAG_DESERT_STEPS)
+    callnative(ScrCmd_GetDayForRoute7)
+    if(var(VAR_0x8000) == TRUE){
+        setmaplayoutindex(LAYOUT_ROUTE8_DRY)
+        setflag(FLAG_WET)
+    }
+    else{
+        setmaplayoutindex(LAYOUT_ROUTE8)
+        setflag(FLAG_DRY)
+    }
     checkitem(ITEM_SAMPLE_BOX)
     end
 }
@@ -664,7 +676,7 @@ text Route7_Trainer2_Picnicker_PostBattle{
 }
 
 script Route7_Trainer3_Ninjaboy {
-    trainerbattle_single(TRAINER_R7_TR3_NINJABOY, Route7_Trainer3_Ninjaboy_Intro, Route7_Trainer3_Ninjaboy_Defeat)
+    trainerbattle_single(TRAINER_UNUSED_172_, Route7_Trainer3_Ninjaboy_Intro, Route7_Trainer3_Ninjaboy_Defeat)
     msgbox(Route7_Trainer3_Ninjaboy_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -846,4 +858,43 @@ text Route8_SoMuchMud_Text{
     "How is a fine lady such as myself\n"
     "expected to get across without\l"
     "getting my dress dirty?"
+}
+
+script Route7_Wooper_Wet{
+    setvar(VAR_TEMP_0, SPECIES_WOOPER)
+    goto(Route7_Wooper_Main)
+}
+script Route7_Wooper_Dry{
+    setvar(VAR_TEMP_0, SPECIES_WOOPER_OUTSIDER)
+    goto(Route7_Wooper_Main)
+}
+script Route7_Wooper_Main{
+    lock
+	faceplayer
+	waitse
+    playmoncry(VAR_TEMP_0, CRY_MODE_FAINT)
+    msgbox("Wooper: Woop…")
+    waitmoncry
+    release
+    end
+}
+script Route7_Youngster_Wet{
+    msgbox(Route7_Youngster_Wet_Text, MSGBOX_NPC)
+}
+script Route7_Youngster_Dry{
+    msgbox(Route7_Youngster_Dry_Text, MSGBOX_NPC)
+}
+text Route7_Youngster_Wet_Text{
+    "I heard there was supposed to be\n"
+    "a huge pond here that Pokémon could\l"
+    "freely swim in.\p"
+    "I guess it's too warm for that\n"
+    "right now…"
+}
+text Route7_Youngster_Dry_Text{
+    "I heard there was supposed to be\n"
+    "a huge mud pool here that Pokémon\l"
+    "could freely frolic in.\p"
+    "I guess it's too wet for that\n"
+    "right now…"
 }

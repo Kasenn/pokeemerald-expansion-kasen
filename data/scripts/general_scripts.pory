@@ -533,8 +533,7 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{              //
-    waitse
-    playse(SE_M_TAKE_DOWN)
+    trainerbattle_no_intro(TRAINER_BROTHER_6_ROUTE20, "GG")
     return
 }
 script Debug_Script_4{

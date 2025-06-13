@@ -3920,3 +3920,11 @@ void ScrCmd_SetupEnchantedForestFlags(void)
         gEnchantedForestNight = FALSE;
     }
 }
+
+void ScrCmd_GetDayForRoute7(void)
+{
+    if (gLocalTime.days % 2 == 0)
+        gSpecialVar_0x8000 = TRUE;
+    else
+        gSpecialVar_0x8000 = FALSE;
+}

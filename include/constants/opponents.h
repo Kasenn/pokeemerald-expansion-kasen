@@ -175,7 +175,7 @@
 #define TRAINER_DESERT_TR14_COOLTRAINER                     169
 #define TRAINER_R7_TR1_CAMPER                               170
 #define TRAINER_R7_TR2_PICNICKER                            171
-#define TRAINER_R7_TR3_NINJABOY                             172
+#define TRAINER_UNUSED_172_                             172
 #define TRAINER_R7_TR4_BIRDKEEPER                           173
 #define TRAINER_R7_TR5_BLACKBELT                            174
 #define TRAINER_R7_TR6_PICNICKER2                           175

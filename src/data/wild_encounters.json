@@ -56874,7 +56874,7 @@
           "map": "MAP_ROUTE8",
           "base_label": "gRoute80_Morning",
           "land_mons": {
-            "encounter_rate": 25,
+            "encounter_rate": 15,
             "mons": [
               {
                 "min_level": 19,
@@ -57033,7 +57033,7 @@
           "map": "MAP_ROUTE8",
           "base_label": "gRoute80_Day",
           "land_mons": {
-            "encounter_rate": 25,
+            "encounter_rate": 15,
             "mons": [
               {
                 "min_level": 19,
@@ -57192,7 +57192,7 @@
           "map": "MAP_ROUTE8",
           "base_label": "gRoute80_Evening",
           "land_mons": {
-            "encounter_rate": 25,
+            "encounter_rate": 15,
             "mons": [
               {
                 "min_level": 19,
@@ -57351,7 +57351,7 @@
           "map": "MAP_ROUTE8",
           "base_label": "gRoute80_Night",
           "land_mons": {
-            "encounter_rate": 25,
+            "encounter_rate": 15,
             "mons": [
               {
                 "min_level": 19,

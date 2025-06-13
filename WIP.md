@@ -27,6 +27,7 @@ route 15: pachirisu removed from night encounters, wimpod removed from day encou
 route 23: wimpod removed from day encounters, petilil and cottonee removed from day encounters, gastly added to night encounters
 
 MAJOR BUGS!!!
+fix debug menu
 fix fadescreens
 fix lighting in enchanted forest
 fix lighting around lava
@@ -35,15 +36,11 @@ fix all areas with shade
 add more regular mons in grottos?
 give honey tree mons chance to get hidden abilities? honey tree mons now have 20% chance to have a hidden ability
 
-route 8
-shoreslate
-route 7
-marigorge
-safari zone
-kaolisle
+fix lights next to devon corp
+fix aldeleaf lights
+
 rockliffe
 route 11
-route 12
 sandstone
 route 13
 skyway

@@ -6432,7 +6432,7 @@ CompleteArea_Route_7_5:
 # 2914 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_R7_TR2_PICNICKER
 # 2915 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R7_TR3_NINJABOY
+	defeattrainer TRAINER_UNUSED_172_
 # 2916 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_R7_TR4_BIRDKEEPER
 # 2917 "data/scripts/my_debug.pory"

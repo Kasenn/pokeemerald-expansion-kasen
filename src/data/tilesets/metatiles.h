@@ -226,12 +226,6 @@ const u16 gMetatileAttributes_CaveTiles[] = INCBIN_U16("data/tilesets/secondary/
 const u16 gMetatiles_General2[] = INCBIN_U16("data/tilesets/primary/general2/metatiles.bin");
 const u16 gMetatileAttributes_General2[] = INCBIN_U16("data/tilesets/primary/general2/metatile_attributes.bin");
 
-const u16 gMetatiles_SafariPrime[] = INCBIN_U16("data/tilesets/primary/safari_prime/metatiles.bin");
-const u16 gMetatileAttributes_SafariPrime[] = INCBIN_U16("data/tilesets/primary/safari_prime/metatile_attributes.bin");
-
-const u16 gMetatiles_SafariSec[] = INCBIN_U16("data/tilesets/secondary/safari_sec/metatiles.bin");
-const u16 gMetatileAttributes_SafariSec[] = INCBIN_U16("data/tilesets/secondary/safari_sec/metatile_attributes.bin");
-
 const u16 gMetatiles_gTileset_Hotel[] = INCBIN_U16("data/tilesets/secondary/hotel/metatiles.bin");
 const u16 gMetatileAttributes_gTileset_Hotel[] = INCBIN_U16("data/tilesets/secondary/hotel/metatile_attributes.bin");
 
@@ -342,3 +336,6 @@ const u16 gMetatileAttributes_EnchantedForest[] = INCBIN_U16("data/tilesets/prim
 
 const u16 gMetatiles_Skyloch[] = INCBIN_U16("data/tilesets/secondary/skyloch/metatiles.bin");
 const u16 gMetatileAttributes_Skyloch[] = INCBIN_U16("data/tilesets/secondary/skyloch/metatile_attributes.bin");
+
+const u16 gMetatiles_Summer[] = INCBIN_U16("data/tilesets/primary/summer/metatiles.bin");
+const u16 gMetatileAttributes_Summer[] = INCBIN_U16("data/tilesets/primary/summer/metatile_attributes.bin");

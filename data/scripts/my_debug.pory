@@ -2912,7 +2912,7 @@ script CompleteArea_Route_7{
     if(flag(FLAG_TRAINERS)){
         defeattrainer(TRAINER_R7_TR1_CAMPER)
         defeattrainer(TRAINER_R7_TR2_PICNICKER)
-        defeattrainer(TRAINER_R7_TR3_NINJABOY)
+        defeattrainer(TRAINER_UNUSED_172_)
         defeattrainer(TRAINER_R7_TR4_BIRDKEEPER)
         defeattrainer(TRAINER_R7_TR5_BLACKBELT)
         defeattrainer(TRAINER_R7_TR6_PICNICKER2)

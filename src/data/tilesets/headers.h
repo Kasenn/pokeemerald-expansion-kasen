@@ -897,28 +897,6 @@ const struct Tileset gTileset_CaveTiles =
     .callback = NULL,
 };
 
-const struct Tileset gTileset_SafariPrime =
-{
-    .isCompressed = TRUE,
-    .isSecondary = FALSE,
-    .tiles = gTilesetTiles_SafariPrime,
-    .palettes = gTilesetPalettes_SafariPrime,
-    .metatiles = gMetatiles_SafariPrime,
-    .metatileAttributes = gMetatileAttributes_SafariPrime,
-    .callback = InitTilesetAnim_General,
-};
-
-const struct Tileset gTileset_SafariSec =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_SafariSec,
-    .palettes = gTilesetPalettes_SafariSec,
-    .metatiles = gMetatiles_SafariSec,
-    .metatileAttributes = gMetatileAttributes_SafariSec,
-    .callback = InitTilesetAnim_General,
-};
-
 const struct Tileset gTileset_Hotel =
 {
     .isCompressed = TRUE,
@@ -1326,4 +1304,15 @@ const struct Tileset gTileset_Skyloch =
     .metatiles = gMetatiles_Skyloch,
     .metatileAttributes = gMetatileAttributes_Skyloch,
     .callback = NULL,
+};
+
+const struct Tileset gTileset_Summer =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_Summer,
+    .palettes = gTilesetPalettes_Summer,
+    .metatiles = gMetatiles_Summer,
+    .metatileAttributes = gMetatileAttributes_Summer,
+    .callback = InitTilesetAnim_General,
 };

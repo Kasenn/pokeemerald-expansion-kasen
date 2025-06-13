@@ -184,7 +184,7 @@ ScorchedDesert_TriggerQuakes_12:
 # 90 "data/maps/Desert/scripts.pory"
 	getplayerxy VAR_TEMP_1, VAR_TEMP_2
 # 91 "data/maps/Desert/scripts.pory"
-	setmetatile VAR_TEMP_1, VAR_TEMP_2, 0x3DF, FALSE
+	setmetatile VAR_TEMP_1, VAR_TEMP_2, 0x2A3, FALSE
 # 92 "data/maps/Desert/scripts.pory"
 	setobjectxy OBJ_EVENT_ID_PLAYER, VAR_TEMP_1, VAR_TEMP_2
 # 93 "data/maps/Desert/scripts.pory"
