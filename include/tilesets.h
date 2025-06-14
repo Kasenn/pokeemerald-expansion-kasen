@@ -31,6 +31,7 @@ TILESET(gTileset_Hotel);
 TILESET(gTileset_Aldeleaf);
 TILESET(gTileset_Primrose_Secondary);
 TILESET(gTileset_Skyloch);
+TILESET(gTileset_Mauville);
 
 #undef TILESET
 

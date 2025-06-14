@@ -194,7 +194,7 @@ static const u8 sDoorAnimPalettes_General[]                 = {ALL_SAME(1)};
 static const u8 sDoorAnimPalettes_General2[]                = {TOP2_DIFF(8, 5)};
 static const u8 sDoorAnimPalettes_Amberock[]                = {ALL_SAME(5)};
 static const u8 sDoorAnimPalettes_DrapeDoor[]               = {ALL_SAME(11)};
-static const u8 sDoorAnimPalettes_Sandstone[]               = {TOP4_DIFF(11, 5)};
+static const u8 sDoorAnimPalettes_Sandstone[]               = {ALL_SAME(10)};
 static const u8 sDoorAnimPalettes_PokeCenter[]              = {ALL_SAME(1)};
 static const u8 sDoorAnimPalettes_PokeShop[]                = {TOP2_DIFF(5, 1)};
 static const u8 sDoorAnimPalettes_AldeleafDoor[]            = {TOP4_DIFF(9, 5)};
@@ -356,7 +356,8 @@ static const struct NewDoorGraphics sDoorAnimGraphicsTable[] =
     {&gTileset_Basaluff,                DOORS(sBasalekDoors)},
     {&gTileset_Frosthearth,             DOORS(sFrosthearthDoors)},
     {&gTileset_Shop,                    DOORS(sShopElevator)},
-    {&gTileset_Hotel,                   DOORS(sHotelDoors)}
+    {&gTileset_Hotel,                   DOORS(sHotelDoors)},
+    {&gTileset_Mauville,                DOORS(sPrimroseDoors)},
 };
 
 // static const struct DoorGraphics sDoorAnimGraphicsTable[] =

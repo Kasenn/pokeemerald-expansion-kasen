@@ -39,8 +39,6 @@ give honey tree mons chance to get hidden abilities? honey tree mons now have 20
 fix lights next to devon corp
 fix aldeleaf lights
 
-rockliffe
-route 11
 sandstone
 route 13
 skyway
