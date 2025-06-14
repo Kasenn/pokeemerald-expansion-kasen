@@ -6717,7 +6717,7 @@
       "width": 77,
       "height": 69,
       "primary_tileset": "gTileset_Summer",
-      "secondary_tileset": "gTileset_Sandstone",
+      "secondary_tileset": "gTileset_BattleArena",
       "border_filepath": "data/layouts/SandstoneCityAlt/border.bin",
       "blockdata_filepath": "data/layouts/SandstoneCityAlt/map.bin"
     },
