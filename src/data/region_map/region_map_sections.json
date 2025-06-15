@@ -1157,6 +1157,18 @@
     },
     {
       "id": "MAPSEC_VERDANTURF_TOWN"
+    },
+    {
+      "id": "MAPSEC_LITTLEROOT_TOWN"
+    },
+    {
+      "id": "MAPSEC_LAVARIDGE_TOWN"
+    },
+    {
+      "id": "MAPSEC_FALLARBOR_TOWN"
+    },
+    {
+      "id": "MAPSEC_DEWFORD_TOWN"
     }
   ]
 }

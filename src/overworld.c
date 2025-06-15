@@ -402,7 +402,7 @@ void Overworld_ResetStateAfterFly(void)
     FlagClear(FLAG_PARTNER_HEALS);
     FlagClear(FLAG_HEAL_AFTER_BATTLE);
     FlagClear(FLAG_DESERT_STEPS);
-    FlagClear(FLAG_TIME_STOP);
+    FlagSet(FLAG_TIME_STOP);
     VarSet(VAR_POKECENTER_TRAINING, 0);
     VarSet(VAR_SHINY_MULTIPLIER, 0);
 }
@@ -414,7 +414,7 @@ void Overworld_ResetStateAfterTeleport(void)
     FlagClear(FLAG_SYS_CRUISE_MODE);
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
-    FlagClear(FLAG_TIME_STOP);
+    FlagSet(FLAG_TIME_STOP);
     FlagClear(FLAG_SYS_USE_FLASH);
     FlagClear(FLAG_INCREASED_SHINY_ODDS);
     FlagClear(FLAG_SYSTEM_NOREWARDBATTLES);
@@ -433,7 +433,7 @@ void Overworld_ResetStateAfterDigEscRope(void)
     FlagClear(FLAG_SYS_CRUISE_MODE);
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
-    FlagClear(FLAG_TIME_STOP);
+    FlagSet(FLAG_TIME_STOP);
     FlagClear(FLAG_SYS_USE_FLASH);
     FlagClear(FLAG_INCREASED_SHINY_ODDS);
     FlagClear(FLAG_SYSTEM_NOREWARDBATTLES);
@@ -490,7 +490,7 @@ static void Overworld_ResetStateAfterWhiteOut(void)
     FlagClear(FLAG_SYS_CRUISE_MODE);
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
-    FlagClear(FLAG_TIME_STOP);
+    FlagSet(FLAG_TIME_STOP);
     FlagClear(FLAG_SYS_USE_FLASH);
     if (B_RESET_FLAGS_VARS_AFTER_WHITEOUT == TRUE)
         Overworld_ResetBattleFlagsAndVars();
@@ -1674,10 +1674,26 @@ const struct BlendSettings gTimeOfDayBlend[] =
 
 void UpdateTimeOfDay(void)
 {
+    s32 hourOverride = VarGet(VAR_HOUR_OVERRIDE);
     s32 hours, minutes;
     RtcCalcLocalTime();
     hours = sHoursOverride ? sHoursOverride : gLocalTime.hours;
     minutes = sHoursOverride ? 0 : gLocalTime.minutes;
+
+    if (hourOverride)
+    {
+        minutes = 0;
+
+        if (hourOverride > hours)
+            hours = hourOverride;
+        
+        else if (gTimeOfDay >= TIME_EVENING)
+        {
+            hours = 24 - hourOverride;
+        }
+    }
+
+    DebugPrintf2("%d", hours);
 
     if (IsBetweenHours(hours, MORNING_HOUR_BEGIN, MORNING_HOUR_MIDDLE)) // night->morning
     {

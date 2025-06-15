@@ -40,14 +40,7 @@ fix lights next to devon corp
 fix aldeleaf lights
 add lights to sandstone?
 
-route 13
-skyway
-route 14
-berry farm
-route 15
-fishing village
 amberock
-drisledge
 route 16
 basalek
 route 17

@@ -358,6 +358,7 @@ static const struct NewDoorGraphics sDoorAnimGraphicsTable[] =
     {&gTileset_Shop,                    DOORS(sShopElevator)},
     {&gTileset_Hotel,                   DOORS(sHotelDoors)},
     {&gTileset_Mauville,                DOORS(sPrimroseDoors)},
+    {&gTileset_Fortree2,                DOORS(sPrimroseDoors)}
 };
 
 // static const struct DoorGraphics sDoorAnimGraphicsTable[] =
