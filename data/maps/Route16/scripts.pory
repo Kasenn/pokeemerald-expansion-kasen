@@ -6,9 +6,14 @@ mapscripts Route16_MapScripts {
             setflag(FLAG_TEMP_1)
             clearflag(FLAG_TEMP_6)
         }
+        getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+        if(var(VAR_TEMP_0) == 0){
+            setvar(VAR_HOUR_OVERRIDE, 12)
+        }
     }
     MAP_SCRIPT_ON_RESUME{
-        setstepcallback(STEP_CB_ASH)
+        // setstepcallback(STEP_CB_ASH)
+        setstepcallback(STEP_CB_ROUTE_16)
     }
 }
 

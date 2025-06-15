@@ -6,618 +6,622 @@ FishingVillage_MapScripts::
 
 FishingVillage_DespawnBrother::
 # 6 "data/maps/FishingVillage/scripts.pory"
-	setflag FLAG_VISITED_FISHING_VILLAGE
+	setvar VAR_HOUR_OVERRIDE, 0
 # 7 "data/maps/FishingVillage/scripts.pory"
+	setvar VAR_MINUTE_OVERRIDE, 0
+# 8 "data/maps/FishingVillage/scripts.pory"
+	setflag FLAG_VISITED_FISHING_VILLAGE
+# 9 "data/maps/FishingVillage/scripts.pory"
 	checktrainerflag TRAINER_BROTHER_5_FISHINGVILLAGE
 	goto_if 1, FishingVillage_DespawnBrother_1
 	return
 
 FishingVillage_DespawnBrother_1:
-# 8 "data/maps/FishingVillage/scripts.pory"
+# 10 "data/maps/FishingVillage/scripts.pory"
 	setflag FLAG_TEMP_1
-# 9 "data/maps/FishingVillage/scripts.pory"
+# 11 "data/maps/FishingVillage/scripts.pory"
 	setvar VAR_TEMP_1, 1
 	return
 
 
 FishVillage_Brother1::
-# 14 "data/maps/FishingVillage/scripts.pory"
+# 16 "data/maps/FishingVillage/scripts.pory"
 	setvar VAR_TEMP_2, 1
-# 15 "data/maps/FishingVillage/scripts.pory"
+# 17 "data/maps/FishingVillage/scripts.pory"
 	goto FishVillage_Brother
 	return
 
 
 FishVillage_Brother2::
-# 18 "data/maps/FishingVillage/scripts.pory"
+# 20 "data/maps/FishingVillage/scripts.pory"
 	setvar VAR_TEMP_2, 2
-# 19 "data/maps/FishingVillage/scripts.pory"
+# 21 "data/maps/FishingVillage/scripts.pory"
 	goto FishVillage_Brother
 	return
 
 
 FishVillage_Brother3::
-# 22 "data/maps/FishingVillage/scripts.pory"
+# 24 "data/maps/FishingVillage/scripts.pory"
 	setvar VAR_TEMP_2, 3
-# 23 "data/maps/FishingVillage/scripts.pory"
+# 25 "data/maps/FishingVillage/scripts.pory"
 	goto FishVillage_Brother
 	return
 
 
 FishVillage_Brother::
-# 27 "data/maps/FishingVillage/scripts.pory"
-	lock
-# 28 "data/maps/FishingVillage/scripts.pory"
-	turnobject 1, DIR_SOUTH
 # 29 "data/maps/FishingVillage/scripts.pory"
-	playse SE_PIN
+	lock
 # 30 "data/maps/FishingVillage/scripts.pory"
-	safefollow
+	turnobject 1, DIR_SOUTH
 # 31 "data/maps/FishingVillage/scripts.pory"
-	applymovement 1, ExclamationMark
+	playse SE_PIN
 # 32 "data/maps/FishingVillage/scripts.pory"
-	waitmovement 0
+	safefollow
 # 33 "data/maps/FishingVillage/scripts.pory"
-	delay 48
+	applymovement 1, ExclamationMark
 # 34 "data/maps/FishingVillage/scripts.pory"
-	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
+	waitmovement 0
 # 35 "data/maps/FishingVillage/scripts.pory"
-	switch VAR_TEMP_2
+	delay 48
 # 36 "data/maps/FishingVillage/scripts.pory"
-	case 1, FishVillage_Brother_3
+	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
+# 37 "data/maps/FishingVillage/scripts.pory"
+	switch VAR_TEMP_2
 # 38 "data/maps/FishingVillage/scripts.pory"
-	case 2, FishVillage_Brother_4
+	case 1, FishVillage_Brother_3
 # 40 "data/maps/FishingVillage/scripts.pory"
+	case 2, FishVillage_Brother_4
+# 42 "data/maps/FishingVillage/scripts.pory"
 	case 3, FishVillage_Brother_5
 FishVillage_Brother_1:
-# 43 "data/maps/FishingVillage/scripts.pory"
+# 45 "data/maps/FishingVillage/scripts.pory"
 	waitmovement 0
-# 44 "data/maps/FishingVillage/scripts.pory"
+# 46 "data/maps/FishingVillage/scripts.pory"
 	goto_if_set FLAG_KAOLISLE_BROTHER_INTRO, FishVillage_Brother_7
 FishVillage_Brother_6:
-# 47 "data/maps/FishingVillage/scripts.pory"
+# 49 "data/maps/FishingVillage/scripts.pory"
 	checktrainerflag TRAINER_BROTHER_2_ROUTE28
 	goto_if 1, FishVillage_Brother_10
-# 48 "data/maps/FishingVillage/scripts.pory"
+# 50 "data/maps/FishingVillage/scripts.pory"
 	checktrainerflag TRAINER_BROTHER_3_ROUTE28
 	goto_if 1, FishVillage_Brother_10
-# 49 "data/maps/FishingVillage/scripts.pory"
+# 51 "data/maps/FishingVillage/scripts.pory"
 	checktrainerflag TRAINER_BROTHER_4_ROUTE28
 	goto_if 1, FishVillage_Brother_10
 FishVillage_Brother_9:
-# 52 "data/maps/FishingVillage/scripts.pory"
+# 54 "data/maps/FishingVillage/scripts.pory"
 	switch VAR_TEMP_3
-# 53 "data/maps/FishingVillage/scripts.pory"
-	case 0, FishVillage_Brother_18
 # 55 "data/maps/FishingVillage/scripts.pory"
-	case 1, FishVillage_Brother_19
+	case 0, FishVillage_Brother_18
 # 57 "data/maps/FishingVillage/scripts.pory"
-	case 2, FishVillage_Brother_20
+	case 1, FishVillage_Brother_19
 # 59 "data/maps/FishingVillage/scripts.pory"
+	case 2, FishVillage_Brother_20
+# 61 "data/maps/FishingVillage/scripts.pory"
 	case 3, FishVillage_Brother_21
 FishVillage_Brother_16:
-# 62 "data/maps/FishingVillage/scripts.pory"
+# 64 "data/maps/FishingVillage/scripts.pory"
 	checktrainerflag TRAINER_BROTHER_2_ROUTE28
 	goto_if 1, FishVillage_Brother_23
-# 63 "data/maps/FishingVillage/scripts.pory"
+# 65 "data/maps/FishingVillage/scripts.pory"
 	checktrainerflag TRAINER_BROTHER_3_ROUTE28
 	goto_if 1, FishVillage_Brother_23
-# 64 "data/maps/FishingVillage/scripts.pory"
+# 66 "data/maps/FishingVillage/scripts.pory"
 	checktrainerflag TRAINER_BROTHER_4_ROUTE28
 	goto_if 1, FishVillage_Brother_23
-# 68 "data/maps/FishingVillage/scripts.pory"
+# 70 "data/maps/FishingVillage/scripts.pory"
 	checkplayergender
-# 69 "data/maps/FishingVillage/scripts.pory"
+# 71 "data/maps/FishingVillage/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq FishVillage_Brother_34
-# 73 "data/maps/FishingVillage/scripts.pory"
+# 75 "data/maps/FishingVillage/scripts.pory"
 	trainerbattle_no_intro TRAINER_BROTHER_5_FISHINGVILLAGE, FishingVillage_BrotherLostFirstTime
 FishVillage_Brother_22:
-# 76 "data/maps/FishingVillage/scripts.pory"
+# 78 "data/maps/FishingVillage/scripts.pory"
 	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, FishVillage_Brother_31
-# 80 "data/maps/FishingVillage/scripts.pory"
+# 82 "data/maps/FishingVillage/scripts.pory"
 	msgbox FishingVillageBrotherLeaves
 FishVillage_Brother_30:
-# 82 "data/maps/FishingVillage/scripts.pory"
-	closemessage
-# 83 "data/maps/FishingVillage/scripts.pory"
-	safefollow
 # 84 "data/maps/FishingVillage/scripts.pory"
-	switch VAR_TEMP_2
+	closemessage
 # 85 "data/maps/FishingVillage/scripts.pory"
+	safefollow
+# 86 "data/maps/FishingVillage/scripts.pory"
+	switch VAR_TEMP_2
+# 87 "data/maps/FishingVillage/scripts.pory"
 	case 1, FishVillage_Brother_39
-# 88 "data/maps/FishingVillage/scripts.pory"
+# 90 "data/maps/FishingVillage/scripts.pory"
 	case 2, FishVillage_Brother_40
-# 91 "data/maps/FishingVillage/scripts.pory"
+# 93 "data/maps/FishingVillage/scripts.pory"
 	case 3, FishVillage_Brother_41
 FishVillage_Brother_37:
-# 95 "data/maps/FishingVillage/scripts.pory"
-	waitmovement 1
-# 96 "data/maps/FishingVillage/scripts.pory"
-	removeobject 1
 # 97 "data/maps/FishingVillage/scripts.pory"
-	setvar VAR_TEMP_1, 1
+	waitmovement 1
 # 98 "data/maps/FishingVillage/scripts.pory"
-	delay 45
+	removeobject 1
 # 99 "data/maps/FishingVillage/scripts.pory"
-	savebgm MUS_DUMMY
+	setvar VAR_TEMP_1, 1
 # 100 "data/maps/FishingVillage/scripts.pory"
-	fadedefaultbgm
+	delay 45
 # 101 "data/maps/FishingVillage/scripts.pory"
+	savebgm MUS_DUMMY
+# 102 "data/maps/FishingVillage/scripts.pory"
+	fadedefaultbgm
+# 103 "data/maps/FishingVillage/scripts.pory"
 	release
 	return
 
 FishVillage_Brother_3:
-# 37 "data/maps/FishingVillage/scripts.pory"
+# 39 "data/maps/FishingVillage/scripts.pory"
 	applymovement 1, MoveFishBrother1
 	goto FishVillage_Brother_1
 
 FishVillage_Brother_4:
-# 39 "data/maps/FishingVillage/scripts.pory"
+# 41 "data/maps/FishingVillage/scripts.pory"
 	applymovement 1, Walk2Down
 	goto FishVillage_Brother_1
 
 FishVillage_Brother_5:
-# 41 "data/maps/FishingVillage/scripts.pory"
+# 43 "data/maps/FishingVillage/scripts.pory"
 	applymovement 1, MoveFishBrother3
 	goto FishVillage_Brother_1
 
 FishVillage_Brother_7:
-# 45 "data/maps/FishingVillage/scripts.pory"
+# 47 "data/maps/FishingVillage/scripts.pory"
 	addvar VAR_TEMP_3, 1
 	goto FishVillage_Brother_6
 
 FishVillage_Brother_10:
-# 50 "data/maps/FishingVillage/scripts.pory"
+# 52 "data/maps/FishingVillage/scripts.pory"
 	addvar VAR_TEMP_3, 2
 	goto FishVillage_Brother_9
 
 FishVillage_Brother_18:
-# 54 "data/maps/FishingVillage/scripts.pory"
+# 56 "data/maps/FishingVillage/scripts.pory"
 	msgbox LastMetInPearlwood
 	goto FishVillage_Brother_16
 
 FishVillage_Brother_19:
-# 56 "data/maps/FishingVillage/scripts.pory"
+# 58 "data/maps/FishingVillage/scripts.pory"
 	msgbox LastMetInKaolisleNoFight
 	goto FishVillage_Brother_16
 
 FishVillage_Brother_20:
-# 58 "data/maps/FishingVillage/scripts.pory"
+# 60 "data/maps/FishingVillage/scripts.pory"
 	msgbox LastMetInRoute28
 	goto FishVillage_Brother_16
 
 FishVillage_Brother_21:
-# 60 "data/maps/FishingVillage/scripts.pory"
+# 62 "data/maps/FishingVillage/scripts.pory"
 	msgbox LastMetInKaolisleHaveFought
 	goto FishVillage_Brother_16
 
 FishVillage_Brother_23:
-# 65 "data/maps/FishingVillage/scripts.pory"
+# 67 "data/maps/FishingVillage/scripts.pory"
 	trainerbattle_no_intro TRAINER_BROTHER_5_FISHINGVILLAGE, FishingVillage_BrotherLost
 	goto FishVillage_Brother_22
 
 FishVillage_Brother_31:
-# 77 "data/maps/FishingVillage/scripts.pory"
+# 79 "data/maps/FishingVillage/scripts.pory"
 	msgbox FishingVillageBrotherLeavesAfterMegaEvo
 	goto FishVillage_Brother_30
 
 FishVillage_Brother_34:
-# 70 "data/maps/FishingVillage/scripts.pory"
+# 72 "data/maps/FishingVillage/scripts.pory"
 	trainerbattle_no_intro TRAINER_BROTHER_5_FISHINGVILLAGE, FishingVillage_BrotherLostFirstTimeAgainstMale
 	goto FishVillage_Brother_22
 
 FishVillage_Brother_39:
-# 86 "data/maps/FishingVillage/scripts.pory"
+# 88 "data/maps/FishingVillage/scripts.pory"
 	applymovement 1, LeaveFishBrotherRight
-# 87 "data/maps/FishingVillage/scripts.pory"
+# 89 "data/maps/FishingVillage/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, FishPlayerTurnRight
 	goto FishVillage_Brother_37
 
 FishVillage_Brother_40:
-# 89 "data/maps/FishingVillage/scripts.pory"
+# 91 "data/maps/FishingVillage/scripts.pory"
 	applymovement 1, LeaveFishBrotherLeft
-# 90 "data/maps/FishingVillage/scripts.pory"
+# 92 "data/maps/FishingVillage/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, FishPlayerTurnLeft
 	goto FishVillage_Brother_37
 
 FishVillage_Brother_41:
-# 92 "data/maps/FishingVillage/scripts.pory"
+# 94 "data/maps/FishingVillage/scripts.pory"
 	applymovement 1, LeaveFishBrotherLeft
-# 93 "data/maps/FishingVillage/scripts.pory"
+# 95 "data/maps/FishingVillage/scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, FishPlayerTurnLeft
 	goto FishVillage_Brother_37
 
 
-# 205 "data/maps/FishingVillage/scripts.pory"
-FishPlayerTurnRight:
-# 206 "data/maps/FishingVillage/scripts.pory"
-	delay_16
 # 207 "data/maps/FishingVillage/scripts.pory"
-	walk_in_place_fast_right
-# 208 "data/maps/FishingVillage/scripts.pory"
-	delay_16
+FishPlayerTurnRight:
 # 208 "data/maps/FishingVillage/scripts.pory"
 	delay_16
 # 209 "data/maps/FishingVillage/scripts.pory"
+	walk_in_place_fast_right
+# 210 "data/maps/FishingVillage/scripts.pory"
+	delay_16
+# 210 "data/maps/FishingVillage/scripts.pory"
+	delay_16
+# 211 "data/maps/FishingVillage/scripts.pory"
 	walk_in_place_fast_down
 	step_end
 
-# 211 "data/maps/FishingVillage/scripts.pory"
-FishPlayerTurnLeft:
-# 212 "data/maps/FishingVillage/scripts.pory"
-	delay_16
 # 213 "data/maps/FishingVillage/scripts.pory"
-	walk_in_place_fast_left
-# 214 "data/maps/FishingVillage/scripts.pory"
-	delay_16
+FishPlayerTurnLeft:
 # 214 "data/maps/FishingVillage/scripts.pory"
 	delay_16
 # 215 "data/maps/FishingVillage/scripts.pory"
+	walk_in_place_fast_left
+# 216 "data/maps/FishingVillage/scripts.pory"
+	delay_16
+# 216 "data/maps/FishingVillage/scripts.pory"
+	delay_16
+# 217 "data/maps/FishingVillage/scripts.pory"
 	walk_in_place_fast_down
 	step_end
 
-# 217 "data/maps/FishingVillage/scripts.pory"
+# 219 "data/maps/FishingVillage/scripts.pory"
 LeaveFishBrotherRight:
-# 218 "data/maps/FishingVillage/scripts.pory"
+# 220 "data/maps/FishingVillage/scripts.pory"
 	walk_right
-# 219 "data/maps/FishingVillage/scripts.pory"
+# 221 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 219 "data/maps/FishingVillage/scripts.pory"
+# 221 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 219 "data/maps/FishingVillage/scripts.pory"
+# 221 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 219 "data/maps/FishingVillage/scripts.pory"
+# 221 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 219 "data/maps/FishingVillage/scripts.pory"
+# 221 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 219 "data/maps/FishingVillage/scripts.pory"
+# 221 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 219 "data/maps/FishingVillage/scripts.pory"
+# 221 "data/maps/FishingVillage/scripts.pory"
 	walk_down
 	step_end
 
-# 221 "data/maps/FishingVillage/scripts.pory"
+# 223 "data/maps/FishingVillage/scripts.pory"
 LeaveFishBrotherLeft:
-# 222 "data/maps/FishingVillage/scripts.pory"
+# 224 "data/maps/FishingVillage/scripts.pory"
 	walk_left
-# 223 "data/maps/FishingVillage/scripts.pory"
+# 225 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 223 "data/maps/FishingVillage/scripts.pory"
+# 225 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 223 "data/maps/FishingVillage/scripts.pory"
+# 225 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 223 "data/maps/FishingVillage/scripts.pory"
+# 225 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 223 "data/maps/FishingVillage/scripts.pory"
+# 225 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 223 "data/maps/FishingVillage/scripts.pory"
+# 225 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 223 "data/maps/FishingVillage/scripts.pory"
+# 225 "data/maps/FishingVillage/scripts.pory"
 	walk_down
 	step_end
 
 FishVillage_Sign1::
-# 227 "data/maps/FishingVillage/scripts.pory"
+# 229 "data/maps/FishingVillage/scripts.pory"
 	msgbox FishVillage_Sign1_Text, MSGBOX_SIGN
 	return
 
 
 FishVillage_Sign2::
-# 230 "data/maps/FishingVillage/scripts.pory"
+# 232 "data/maps/FishingVillage/scripts.pory"
 	msgbox FishVillage_Sign2_Text, MSGBOX_SIGN
 	return
 
 
 FishVillage_Sign3::
-# 233 "data/maps/FishingVillage/scripts.pory"
+# 235 "data/maps/FishingVillage/scripts.pory"
 	msgbox FishVillage_Sign3_Text, MSGBOX_SIGN
 	return
 
 
 FishVillage_Woman2::
-# 236 "data/maps/FishingVillage/scripts.pory"
+# 238 "data/maps/FishingVillage/scripts.pory"
 	msgbox FishVillage_Woman2_Text, MSGBOX_NPC
 	return
 
 
 FishVillage_Fisherman1::
-# 239 "data/maps/FishingVillage/scripts.pory"
+# 241 "data/maps/FishingVillage/scripts.pory"
 	goto_if_set FLAG_RECEIVED_GYARADOSITE, FishVillage_Fisherman1_2
-# 242 "data/maps/FishingVillage/scripts.pory"
+# 244 "data/maps/FishingVillage/scripts.pory"
 	goto_if_set FLAG_TEMP_3, FishVillage_Fisherman1_3
-# 246 "data/maps/FishingVillage/scripts.pory"
+# 248 "data/maps/FishingVillage/scripts.pory"
 	msgbox FishVillage_Fisherman1_Text, MSGBOX_NPC
 FishVillage_Fisherman1_1:
-# 248 "data/maps/FishingVillage/scripts.pory"
+# 250 "data/maps/FishingVillage/scripts.pory"
 	turnobject 3, DIR_NORTH
 	return
 
 FishVillage_Fisherman1_2:
-# 240 "data/maps/FishingVillage/scripts.pory"
+# 242 "data/maps/FishingVillage/scripts.pory"
 	msgbox StillCantBelieveIt, MSGBOX_NPC
 	goto FishVillage_Fisherman1_1
 
 FishVillage_Fisherman1_3:
-# 243 "data/maps/FishingVillage/scripts.pory"
+# 245 "data/maps/FishingVillage/scripts.pory"
 	msgbox FishVillage_Fisherman1_Text2, MSGBOX_NPC
 	goto FishVillage_Fisherman1_1
 
 
 FishVillage_Fisherman2::
-# 251 "data/maps/FishingVillage/scripts.pory"
+# 253 "data/maps/FishingVillage/scripts.pory"
 	msgbox FishVillage_Fisherman2_Text, MSGBOX_NPC
-# 252 "data/maps/FishingVillage/scripts.pory"
+# 254 "data/maps/FishingVillage/scripts.pory"
 	turnobject 5, DIR_NORTH
 	return
 
 
 FishVillage_Man1::
-# 255 "data/maps/FishingVillage/scripts.pory"
+# 257 "data/maps/FishingVillage/scripts.pory"
 	goto_if_set FLAG_TEMP_3, FishVillage_Man1_2
-# 274 "data/maps/FishingVillage/scripts.pory"
+# 276 "data/maps/FishingVillage/scripts.pory"
 	msgbox FishVillage_Man1_Text, MSGBOX_NPC
-# 275 "data/maps/FishingVillage/scripts.pory"
+# 277 "data/maps/FishingVillage/scripts.pory"
 	turnobject 6, DIR_NORTH
 	return
 
 FishVillage_Man1_2:
-# 256 "data/maps/FishingVillage/scripts.pory"
-	lock
-# 257 "data/maps/FishingVillage/scripts.pory"
-	faceplayer
 # 258 "data/maps/FishingVillage/scripts.pory"
-	msgbox CaughtGyarados
+	lock
 # 259 "data/maps/FishingVillage/scripts.pory"
-	closemessage
+	faceplayer
 # 260 "data/maps/FishingVillage/scripts.pory"
-	safefollow
+	msgbox CaughtGyarados
 # 261 "data/maps/FishingVillage/scripts.pory"
-	switch VAR_FACING
+	closemessage
 # 262 "data/maps/FishingVillage/scripts.pory"
-	case DIR_EAST, FishVillage_Man1_6
+	safefollow
 # 263 "data/maps/FishingVillage/scripts.pory"
-	case DIR_NORTH, FishVillage_Man1_6
+	switch VAR_FACING
+# 264 "data/maps/FishingVillage/scripts.pory"
+	case DIR_EAST, FishVillage_Man1_6
 # 265 "data/maps/FishingVillage/scripts.pory"
+	case DIR_NORTH, FishVillage_Man1_6
+# 267 "data/maps/FishingVillage/scripts.pory"
 	case DIR_WEST, FishVillage_Man1_7
 FishVillage_Man1_4:
-# 268 "data/maps/FishingVillage/scripts.pory"
-	waitmovement 0
-# 269 "data/maps/FishingVillage/scripts.pory"
-	setflag FLAG_FISHINGVILLAGE_GYARADOS_REWARD
 # 270 "data/maps/FishingVillage/scripts.pory"
-	removeobject 6
+	waitmovement 0
 # 271 "data/maps/FishingVillage/scripts.pory"
+	setflag FLAG_FISHINGVILLAGE_GYARADOS_REWARD
+# 272 "data/maps/FishingVillage/scripts.pory"
+	removeobject 6
+# 273 "data/maps/FishingVillage/scripts.pory"
 	release
 	end
 
 FishVillage_Man1_6:
-# 264 "data/maps/FishingVillage/scripts.pory"
+# 266 "data/maps/FishingVillage/scripts.pory"
 	applymovement 6, MoveElderDirNorth
 	goto FishVillage_Man1_4
 
 FishVillage_Man1_7:
-# 266 "data/maps/FishingVillage/scripts.pory"
+# 268 "data/maps/FishingVillage/scripts.pory"
 	applymovement 6, MoveElderDirWest
 	goto FishVillage_Man1_4
 
 
 FishVillage_Woman5::
-# 278 "data/maps/FishingVillage/scripts.pory"
+# 280 "data/maps/FishingVillage/scripts.pory"
 	msgbox FishVillage_Woman5_Text, MSGBOX_NPC
-# 279 "data/maps/FishingVillage/scripts.pory"
+# 281 "data/maps/FishingVillage/scripts.pory"
 	turnobject 4, DIR_NORTH
 	return
 
 
-# 295 "data/maps/FishingVillage/scripts.pory"
+# 297 "data/maps/FishingVillage/scripts.pory"
 MoveElderDirNorth:
-# 296 "data/maps/FishingVillage/scripts.pory"
+# 298 "data/maps/FishingVillage/scripts.pory"
 	walk_right
-# 296 "data/maps/FishingVillage/scripts.pory"
+# 298 "data/maps/FishingVillage/scripts.pory"
 	walk_right
-# 297 "data/maps/FishingVillage/scripts.pory"
+# 299 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 297 "data/maps/FishingVillage/scripts.pory"
+# 299 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 297 "data/maps/FishingVillage/scripts.pory"
+# 299 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 297 "data/maps/FishingVillage/scripts.pory"
+# 299 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 297 "data/maps/FishingVillage/scripts.pory"
+# 299 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 297 "data/maps/FishingVillage/scripts.pory"
+# 299 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 297 "data/maps/FishingVillage/scripts.pory"
+# 299 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 297 "data/maps/FishingVillage/scripts.pory"
+# 299 "data/maps/FishingVillage/scripts.pory"
 	walk_down
 	step_end
 
-# 299 "data/maps/FishingVillage/scripts.pory"
+# 301 "data/maps/FishingVillage/scripts.pory"
 MoveElderDirWest:
-# 300 "data/maps/FishingVillage/scripts.pory"
+# 302 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 301 "data/maps/FishingVillage/scripts.pory"
+# 303 "data/maps/FishingVillage/scripts.pory"
 	walk_right
-# 301 "data/maps/FishingVillage/scripts.pory"
+# 303 "data/maps/FishingVillage/scripts.pory"
 	walk_right
-# 302 "data/maps/FishingVillage/scripts.pory"
+# 304 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 302 "data/maps/FishingVillage/scripts.pory"
+# 304 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 302 "data/maps/FishingVillage/scripts.pory"
+# 304 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 302 "data/maps/FishingVillage/scripts.pory"
+# 304 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 302 "data/maps/FishingVillage/scripts.pory"
+# 304 "data/maps/FishingVillage/scripts.pory"
 	walk_down
-# 302 "data/maps/FishingVillage/scripts.pory"
+# 304 "data/maps/FishingVillage/scripts.pory"
 	walk_down
 	step_end
 
 FishingVillage_OldWoman::
-# 356 "data/maps/FishingVillage/scripts.pory"
+# 358 "data/maps/FishingVillage/scripts.pory"
 	msgbox FishingVillage_OldWoman_Text, MSGBOX_NPC
 	return
 
 
-# 367 "data/maps/FishingVillage/scripts.pory"
-ExclamationMark:
-# 368 "data/maps/FishingVillage/scripts.pory"
-	emote_exclamation_mark
 # 369 "data/maps/FishingVillage/scripts.pory"
+ExclamationMark:
+# 370 "data/maps/FishingVillage/scripts.pory"
+	emote_exclamation_mark
+# 371 "data/maps/FishingVillage/scripts.pory"
 	step_end
 
-# 371 "data/maps/FishingVillage/scripts.pory"
-MoveFishBrother1:
-# 372 "data/maps/FishingVillage/scripts.pory"
-	walk_down
 # 373 "data/maps/FishingVillage/scripts.pory"
-	walk_left
+MoveFishBrother1:
 # 374 "data/maps/FishingVillage/scripts.pory"
 	walk_down
 # 375 "data/maps/FishingVillage/scripts.pory"
+	walk_left
+# 376 "data/maps/FishingVillage/scripts.pory"
+	walk_down
+# 377 "data/maps/FishingVillage/scripts.pory"
 	step_end
 
-# 377 "data/maps/FishingVillage/scripts.pory"
-MoveFishBrother3:
-# 378 "data/maps/FishingVillage/scripts.pory"
-	walk_down
 # 379 "data/maps/FishingVillage/scripts.pory"
-	walk_right
+MoveFishBrother3:
 # 380 "data/maps/FishingVillage/scripts.pory"
 	walk_down
 # 381 "data/maps/FishingVillage/scripts.pory"
+	walk_right
+# 382 "data/maps/FishingVillage/scripts.pory"
+	walk_down
+# 383 "data/maps/FishingVillage/scripts.pory"
 	step_end
 
 FishingVillage_FishingGuru::
-# 385 "data/maps/FishingVillage/scripts.pory"
-	lock
-# 386 "data/maps/FishingVillage/scripts.pory"
-	faceplayer
 # 387 "data/maps/FishingVillage/scripts.pory"
-	checkitem ITEM_SUPER_ROD
+	lock
 # 388 "data/maps/FishingVillage/scripts.pory"
+	faceplayer
+# 389 "data/maps/FishingVillage/scripts.pory"
+	checkitem ITEM_SUPER_ROD
+# 390 "data/maps/FishingVillage/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq FishingVillage_FishingGuru_2
-# 392 "data/maps/FishingVillage/scripts.pory"
+# 394 "data/maps/FishingVillage/scripts.pory"
 	checkitem ITEM_TITANIUM_LINE
-# 393 "data/maps/FishingVillage/scripts.pory"
+# 395 "data/maps/FishingVillage/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq FishingVillage_FishingGuru_5
 FishingVillage_FishingGuru_4:
-# 396 "data/maps/FishingVillage/scripts.pory"
+# 398 "data/maps/FishingVillage/scripts.pory"
 	msgbox ImFishingGuru, MSGBOX_YESNO
-# 397 "data/maps/FishingVillage/scripts.pory"
+# 399 "data/maps/FishingVillage/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq FishingVillage_FishingGuru_8
-# 401 "data/maps/FishingVillage/scripts.pory"
+# 403 "data/maps/FishingVillage/scripts.pory"
 	checkitem ITEM_OLD_ROD
-# 402 "data/maps/FishingVillage/scripts.pory"
+# 404 "data/maps/FishingVillage/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq FishingVillage_FishingGuru_11
 FishingVillage_FishingGuru_10:
-# 409 "data/maps/FishingVillage/scripts.pory"
-	msgbox FisherOfSomeRenown
-# 410 "data/maps/FishingVillage/scripts.pory"
-	giveitem ITEM_TITANIUM_LINE
 # 411 "data/maps/FishingVillage/scripts.pory"
-	msgbox FishInLava
+	msgbox FisherOfSomeRenown
 # 412 "data/maps/FishingVillage/scripts.pory"
+	giveitem ITEM_TITANIUM_LINE
+# 413 "data/maps/FishingVillage/scripts.pory"
+	msgbox FishInLava
+# 414 "data/maps/FishingVillage/scripts.pory"
 	goto_if_unset FLAG_Q36_TITANIUM_FISHING_START, FishingVillage_FishingGuru_14
 FishingVillage_FishingGuru_13:
-# 416 "data/maps/FishingVillage/scripts.pory"
+# 418 "data/maps/FishingVillage/scripts.pory"
 	release
 	return
 
 FishingVillage_FishingGuru_2:
-# 389 "data/maps/FishingVillage/scripts.pory"
+# 391 "data/maps/FishingVillage/scripts.pory"
 	msgbox EnjoySuperRod, MSGBOX_NPC
 	end
 
 FishingVillage_FishingGuru_5:
-# 394 "data/maps/FishingVillage/scripts.pory"
+# 396 "data/maps/FishingVillage/scripts.pory"
 	goto SuperRodQuestStarted
 	goto FishingVillage_FishingGuru_4
 
 FishingVillage_FishingGuru_8:
-# 398 "data/maps/FishingVillage/scripts.pory"
+# 400 "data/maps/FishingVillage/scripts.pory"
 	msgbox GuruHonest, MSGBOX_NPC
 	end
 
 FishingVillage_FishingGuru_11:
-# 403 "data/maps/FishingVillage/scripts.pory"
+# 405 "data/maps/FishingVillage/scripts.pory"
 	checkitem ITEM_GOOD_ROD
-# 404 "data/maps/FishingVillage/scripts.pory"
+# 406 "data/maps/FishingVillage/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq FishingVillage_FishingGuru_16
 	goto FishingVillage_FishingGuru_10
 
 FishingVillage_FishingGuru_14:
-# 413 "data/maps/FishingVillage/scripts.pory"
+# 415 "data/maps/FishingVillage/scripts.pory"
 	startquest FLAG_Q36_TITANIUM_FISHING_START
-# 414 "data/maps/FishingVillage/scripts.pory"
+# 416 "data/maps/FishingVillage/scripts.pory"
 	special ShowJournalPopupAdd
 	goto FishingVillage_FishingGuru_13
 
 FishingVillage_FishingGuru_16:
-# 405 "data/maps/FishingVillage/scripts.pory"
+# 407 "data/maps/FishingVillage/scripts.pory"
 	msgbox NoFishingRod, MSGBOX_NPC
 	end
 
 
 SuperRodQuestStarted::
-# 420 "data/maps/FishingVillage/scripts.pory"
+# 422 "data/maps/FishingVillage/scripts.pory"
 	goto_if_set FLAG_USED_TITANIUM_LINE, SuperRodQuestStarted_2
 SuperRodQuestStarted_1:
-# 423 "data/maps/FishingVillage/scripts.pory"
+# 425 "data/maps/FishingVillage/scripts.pory"
 	goto_if_set FLAG_TEMP_1, SuperRodQuestStarted_4
-# 431 "data/maps/FishingVillage/scripts.pory"
+# 433 "data/maps/FishingVillage/scripts.pory"
 	msgbox FishInLava, MSGBOX_NPC
-# 432 "data/maps/FishingVillage/scripts.pory"
+# 434 "data/maps/FishingVillage/scripts.pory"
 	goto_if_unset FLAG_Q36_TITANIUM_FISHING_START, SuperRodQuestStarted_9
 	return
 
 SuperRodQuestStarted_2:
-# 421 "data/maps/FishingVillage/scripts.pory"
+# 423 "data/maps/FishingVillage/scripts.pory"
 	goto SuperRodReward
 	goto SuperRodQuestStarted_1
 
 SuperRodQuestStarted_4:
-# 424 "data/maps/FishingVillage/scripts.pory"
+# 426 "data/maps/FishingVillage/scripts.pory"
 	msgbox DontHaveSlugma, MSGBOX_NPC
-# 425 "data/maps/FishingVillage/scripts.pory"
+# 427 "data/maps/FishingVillage/scripts.pory"
 	goto_if_unset FLAG_Q36_TITANIUM_FISHING_START, SuperRodQuestStarted_7
 	return
 
 SuperRodQuestStarted_7:
-# 426 "data/maps/FishingVillage/scripts.pory"
+# 428 "data/maps/FishingVillage/scripts.pory"
 	startquest FLAG_Q36_TITANIUM_FISHING_START
-# 427 "data/maps/FishingVillage/scripts.pory"
+# 429 "data/maps/FishingVillage/scripts.pory"
 	special ShowJournalPopupAdd
 	return
 
 SuperRodQuestStarted_9:
-# 433 "data/maps/FishingVillage/scripts.pory"
+# 435 "data/maps/FishingVillage/scripts.pory"
 	startquest FLAG_Q36_TITANIUM_FISHING_START
-# 434 "data/maps/FishingVillage/scripts.pory"
+# 436 "data/maps/FishingVillage/scripts.pory"
 	special ShowJournalPopupAdd
 	return
 
 
 SuperRodReward::
-# 501 "data/maps/FishingVillage/scripts.pory"
-	msgbox YouHaveSlugma
-# 502 "data/maps/FishingVillage/scripts.pory"
-	giveitem ITEM_SUPER_ROD
 # 503 "data/maps/FishingVillage/scripts.pory"
+	msgbox YouHaveSlugma
+# 504 "data/maps/FishingVillage/scripts.pory"
+	giveitem ITEM_SUPER_ROD
+# 505 "data/maps/FishingVillage/scripts.pory"
 	msgbox EnjoySuperRod, MSGBOX_NPC
 	end
 
 
 FishingVillageBrotherLeaves::
-# 103 "data/maps/FishingVillage/scripts.pory"
+# 105 "data/maps/FishingVillage/scripts.pory"
 	.string "{BROTHER}: Okay, I must admit,\n"
 	.string "that was pretty good.\p"
 	.string "Looks like I have to take it up\n"
@@ -631,7 +635,7 @@ FishingVillageBrotherLeaves::
 	.string "Later!$"
 
 FishingVillageBrotherLeavesAfterMegaEvo::
-# 116 "data/maps/FishingVillage/scripts.pory"
+# 118 "data/maps/FishingVillage/scripts.pory"
 	.string "{BROTHER}: No way did your Pokémon\n"
 	.string "just Mega Evolve!\p"
 	.string "Hmph, looks like I'm the one\n"
@@ -645,24 +649,24 @@ FishingVillageBrotherLeavesAfterMegaEvo::
 	.string "Later!$"
 
 FishingVillage_BrotherLost::
-# 129 "data/maps/FishingVillage/scripts.pory"
+# 131 "data/maps/FishingVillage/scripts.pory"
 	.string "I can't believe I lost yet again!\n"
 	.string "What a terrible role model I am…$"
 
 FishingVillage_BrotherLostFirstTimeAgainstMale::
-# 133 "data/maps/FishingVillage/scripts.pory"
+# 135 "data/maps/FishingVillage/scripts.pory"
 	.string "I can't believe I actually lost\n"
 	.string "against my little brother.\l"
 	.string "What a terrible role model I am…$"
 
 FishingVillage_BrotherLostFirstTime::
-# 138 "data/maps/FishingVillage/scripts.pory"
+# 140 "data/maps/FishingVillage/scripts.pory"
 	.string "I can't believe I actually lost\n"
 	.string "against my little sister.\l"
 	.string "What a terrible role model I am…$"
 
 LastMetInPearlwood::
-# 143 "data/maps/FishingVillage/scripts.pory"
+# 145 "data/maps/FishingVillage/scripts.pory"
 	.string "{BROTHER}: Yo, {PLAYER}!\n"
 	.string "Long time no see!\p"
 	.string "How are your Pokémon doing?\n"
@@ -676,7 +680,7 @@ LastMetInPearlwood::
 	.string "your Pokémon properly!$"
 
 LastMetInKaolisleNoFight::
-# 156 "data/maps/FishingVillage/scripts.pory"
+# 158 "data/maps/FishingVillage/scripts.pory"
 	.string "{BROTHER}: Yo, {PLAYER}!\n"
 	.string "Long time no see!\p"
 	.string "How are your Pokémon doing?\n"
@@ -692,7 +696,7 @@ LastMetInKaolisleNoFight::
 	.string "you have caught!$"
 
 LastMetInRoute28::
-# 171 "data/maps/FishingVillage/scripts.pory"
+# 173 "data/maps/FishingVillage/scripts.pory"
 	.string "{BROTHER}: Yo, {PLAYER}!\n"
 	.string "Long time no see!\p"
 	.string "How are your Pokémon doing?\n"
@@ -710,7 +714,7 @@ LastMetInRoute28::
 	.string "holding back!$"
 
 LastMetInKaolisleHaveFought::
-# 188 "data/maps/FishingVillage/scripts.pory"
+# 190 "data/maps/FishingVillage/scripts.pory"
 	.string "{BROTHER}: Yo, {PLAYER}!\n"
 	.string "Long time no see!\p"
 	.string "How are your Pokémon doing?\n"
@@ -727,7 +731,7 @@ LastMetInKaolisleHaveFought::
 	.string "because I won't be going easy on you!$"
 
 CaughtGyarados::
-# 282 "data/maps/FishingVillage/scripts.pory"
+# 284 "data/maps/FishingVillage/scripts.pory"
 	.string "Oh, I saw you reeling in that\n"
 	.string "Gyarados.\p"
 	.string "Seeing such an aspiring angler has\n"
@@ -741,21 +745,21 @@ CaughtGyarados::
 	.string "side of the village.$"
 
 FishVillage_Sign1_Text::
-# 305 "data/maps/FishingVillage/scripts.pory"
+# 307 "data/maps/FishingVillage/scripts.pory"
 	.string "Fishing Guru's House$"
 
 FishVillage_Sign2_Text::
-# 308 "data/maps/FishingVillage/scripts.pory"
+# 310 "data/maps/FishingVillage/scripts.pory"
 	.string "Rest House$"
 
 FishVillage_Sign3_Text::
-# 311 "data/maps/FishingVillage/scripts.pory"
+# 313 "data/maps/FishingVillage/scripts.pory"
 	.string "{UP_ARROW} Fishing Village\n"
 	.string "{RIGHT_ARROW} Route 23\l"
 	.string "{DOWN_ARROW} Route 15$"
 
 FishVillage_Woman2_Text::
-# 316 "data/maps/FishingVillage/scripts.pory"
+# 318 "data/maps/FishingVillage/scripts.pory"
 	.string "The Fishing Village is a small\n"
 	.string "community that attracts people from\l"
 	.string "around the world.\p"
@@ -763,14 +767,14 @@ FishVillage_Woman2_Text::
 	.string "people are able to fish up!$"
 
 FishVillage_Fisherman1_Text::
-# 323 "data/maps/FishingVillage/scripts.pory"
+# 325 "data/maps/FishingVillage/scripts.pory"
 	.string "I've heard some people say they've\n"
 	.string "managed to fish up even Gyarados here!\p"
 	.string "If you ask me, I say all those\n"
 	.string "people are liars.$"
 
 FishVillage_Fisherman1_Text2::
-# 329 "data/maps/FishingVillage/scripts.pory"
+# 331 "data/maps/FishingVillage/scripts.pory"
 	.string "No way did you fish up a Gyarados!\p"
 	.string "You should let the eldest in the\n"
 	.string "village know.\p"
@@ -778,29 +782,29 @@ FishVillage_Fisherman1_Text2::
 	.string "middle pier.$"
 
 StillCantBelieveIt::
-# 336 "data/maps/FishingVillage/scripts.pory"
+# 338 "data/maps/FishingVillage/scripts.pory"
 	.string "Had I not seen you reel that Gyarados\n"
 	.string "with my own eyes, I would probably\l"
 	.string "still believe it all to be a big lie.$"
 
 FishVillage_Fisherman2_Text::
-# 341 "data/maps/FishingVillage/scripts.pory"
+# 343 "data/maps/FishingVillage/scripts.pory"
 	.string "Some think fishing is boring.\n"
 	.string "I could not disagree more.$"
 
 FishVillage_Man1_Text::
-# 345 "data/maps/FishingVillage/scripts.pory"
+# 347 "data/maps/FishingVillage/scripts.pory"
 	.string "I believe there is something in these\n"
 	.string "waters, something no man has witnessed\l"
 	.string "in ages.\p"
 	.string "I plan to find what that is.$"
 
 FishVillage_Woman5_Text::
-# 351 "data/maps/FishingVillage/scripts.pory"
+# 353 "data/maps/FishingVillage/scripts.pory"
 	.string "Can't a girl fish in peace?$"
 
 FishingVillage_OldWoman_Text::
-# 358 "data/maps/FishingVillage/scripts.pory"
+# 360 "data/maps/FishingVillage/scripts.pory"
 	.string "There's not a whole lot going around\n"
 	.string "in these parts of the region.\p"
 	.string "There's no boat connection to the\n"
@@ -809,18 +813,18 @@ FishingVillage_OldWoman_Text::
 	.string "practically a ghost town.$"
 
 ImFishingGuru::
-# 439 "data/maps/FishingVillage/scripts.pory"
+# 441 "data/maps/FishingVillage/scripts.pory"
 	.string "People call me the Fishing Guru.\p"
 	.string "Let me guess, you are interested in\n"
 	.string "one of my fishing rods?$"
 
 GuruHonest::
-# 444 "data/maps/FishingVillage/scripts.pory"
+# 446 "data/maps/FishingVillage/scripts.pory"
 	.string "Understandable. Fishing isn't for\n"
 	.string "everyone.$"
 
 NoFishingRod::
-# 448 "data/maps/FishingVillage/scripts.pory"
+# 450 "data/maps/FishingVillage/scripts.pory"
 	.string "You don't even have a fishing rod\n"
 	.string "of your own.\p"
 	.string "Do you expect me to give out one of\n"
@@ -829,7 +833,7 @@ NoFishingRod::
 	.string "Please leave.$"
 
 FisherOfSomeRenown::
-# 456 "data/maps/FishingVillage/scripts.pory"
+# 458 "data/maps/FishingVillage/scripts.pory"
 	.string "I notice you are carrying a fishing\n"
 	.string "rod of sorts.\l"
 	.string "That's good.\p"
@@ -838,7 +842,7 @@ FisherOfSomeRenown::
 	.string "dedication to this art.$"
 
 FishInLava::
-# 464 "data/maps/FishingVillage/scripts.pory"
+# 466 "data/maps/FishingVillage/scripts.pory"
 	.string "On the island to the north,\n"
 	.string "one can find pools of lava.\p"
 	.string "I know this might sound crazy,\n"
@@ -852,13 +856,13 @@ FishInLava::
 	.string "giving you one of my rods.$"
 
 DontHaveSlugma::
-# 477 "data/maps/FishingVillage/scripts.pory"
+# 479 "data/maps/FishingVillage/scripts.pory"
 	.string "Have you been to the north yet?\p"
 	.string "That Titanium Line doesn't look like\n"
 	.string "it's seen a whole lot of action.$"
 
 YouHaveSlugma::
-# 482 "data/maps/FishingVillage/scripts.pory"
+# 484 "data/maps/FishingVillage/scripts.pory"
 	.string "Ah, your Titanium Line!\p"
 	.string "I see marks on it that only molten\n"
 	.string "lava could cause.\p"
@@ -871,7 +875,7 @@ YouHaveSlugma::
 	.string "Here, I want you to have this!$"
 
 EnjoySuperRod::
-# 494 "data/maps/FishingVillage/scripts.pory"
+# 496 "data/maps/FishingVillage/scripts.pory"
 	.string "The world is your Cloyster.\p"
 	.string "Go out there, and discover the secrets\n"
 	.string "of the deep abyss!$"

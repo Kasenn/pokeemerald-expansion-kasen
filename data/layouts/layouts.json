@@ -5486,8 +5486,8 @@
       "name": "Kaolisle_Mines_Layout",
       "width": 45,
       "height": 37,
-      "primary_tileset": "gTileset_Summer",
-      "secondary_tileset": "gTileset_Cave",
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_KaolCaves",
       "border_filepath": "data/layouts/Kaolisle_Mines/border.bin",
       "blockdata_filepath": "data/layouts/Kaolisle_Mines/map.bin"
     },

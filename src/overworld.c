@@ -403,6 +403,8 @@ void Overworld_ResetStateAfterFly(void)
     FlagClear(FLAG_HEAL_AFTER_BATTLE);
     FlagClear(FLAG_DESERT_STEPS);
     FlagSet(FLAG_TIME_STOP);
+    VarSet(VAR_HOUR_OVERRIDE, 0);
+    VarSet(VAR_MINUTE_OVERRIDE, 0);
     VarSet(VAR_POKECENTER_TRAINING, 0);
     VarSet(VAR_SHINY_MULTIPLIER, 0);
 }
@@ -415,6 +417,8 @@ void Overworld_ResetStateAfterTeleport(void)
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagSet(FLAG_TIME_STOP);
+    VarSet(VAR_HOUR_OVERRIDE, 0);
+    VarSet(VAR_MINUTE_OVERRIDE, 0);
     FlagClear(FLAG_SYS_USE_FLASH);
     FlagClear(FLAG_INCREASED_SHINY_ODDS);
     FlagClear(FLAG_SYSTEM_NOREWARDBATTLES);
@@ -434,6 +438,8 @@ void Overworld_ResetStateAfterDigEscRope(void)
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagSet(FLAG_TIME_STOP);
+    VarSet(VAR_HOUR_OVERRIDE, 0);
+    VarSet(VAR_MINUTE_OVERRIDE, 0);
     FlagClear(FLAG_SYS_USE_FLASH);
     FlagClear(FLAG_INCREASED_SHINY_ODDS);
     FlagClear(FLAG_SYSTEM_NOREWARDBATTLES);
@@ -491,6 +497,8 @@ static void Overworld_ResetStateAfterWhiteOut(void)
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagSet(FLAG_TIME_STOP);
+    VarSet(VAR_HOUR_OVERRIDE, 0);
+    VarSet(VAR_MINUTE_OVERRIDE, 0);
     FlagClear(FLAG_SYS_USE_FLASH);
     if (B_RESET_FLAGS_VARS_AFTER_WHITEOUT == TRUE)
         Overworld_ResetBattleFlagsAndVars();
@@ -1672,28 +1680,41 @@ const struct BlendSettings gTimeOfDayBlend[] =
 
 #define MORNING_HOUR_MIDDLE (MORNING_HOUR_BEGIN + ((MORNING_HOUR_END - MORNING_HOUR_BEGIN) / 2))
 
+static u8 GetTimeBrightness(u8 hour)
+{
+    if (IsBetweenHours(hour, NIGHT_HOUR_BEGIN, MORNING_HOUR_BEGIN))
+        return 0;
+    else if (IsBetweenHours(hour, MORNING_HOUR_BEGIN, MORNING_HOUR_END))
+        return 1;
+    else if (IsBetweenHours(hour, MORNING_HOUR_END, EVENING_HOUR_BEGIN))
+        return 2;
+    else if (IsBetweenHours(hour, EVENING_HOUR_BEGIN, NIGHT_HOUR_BEGIN))
+        return 1;
+    return 0;
+}
+
 void UpdateTimeOfDay(void)
 {
     s32 hourOverride = VarGet(VAR_HOUR_OVERRIDE);
+    s32 minuteOverride = VarGet(VAR_MINUTE_OVERRIDE);
     s32 hours, minutes;
     RtcCalcLocalTime();
     hours = sHoursOverride ? sHoursOverride : gLocalTime.hours;
     minutes = sHoursOverride ? 0 : gLocalTime.minutes;
 
-    if (hourOverride)
+    if (hourOverride >= 1 || minuteOverride >= 1)
     {
-        minutes = 0;
+        u8 realBrightness = GetTimeBrightness(hours);
+        u8 lavaBrightness = GetTimeBrightness(hourOverride);
 
-        if (hourOverride > hours)
-            hours = hourOverride;
-        
-        else if (gTimeOfDay >= TIME_EVENING)
+        if (lavaBrightness > realBrightness)
         {
-            hours = 24 - hourOverride;
+            hours = hourOverride;
+            minutes = minuteOverride;
         }
     }
 
-    DebugPrintf2("%d", hours);
+    DebugPrintf2("%d:%d", hours, minutes);
 
     if (IsBetweenHours(hours, MORNING_HOUR_BEGIN, MORNING_HOUR_MIDDLE)) // night->morning
     {

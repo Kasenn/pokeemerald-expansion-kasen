@@ -15,6 +15,7 @@ mapscripts BasaluffTown_MapScripts{
             setobjectxyperm(OBJ_RIVAL, 24, 16)
             setobjectmovementtype(OBJ_RIVAL, MOVEMENT_TYPE_FACE_LEFT)
         }
+        setvar(VAR_HOUR_OVERRIDE, 12)
     }
     MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
         RIVAL_TRIGGER, 1{

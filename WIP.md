@@ -40,9 +40,7 @@ fix lights next to devon corp
 fix aldeleaf lights
 add lights to sandstone?
 
-amberock
 route 16
-basalek
 route 17
 route 18
 route 19

@@ -1316,3 +1316,14 @@ const struct Tileset gTileset_Summer =
     .metatileAttributes = gMetatileAttributes_Summer,
     .callback = InitTilesetAnim_General,
 };
+
+const struct Tileset gTileset_KaolCaves =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_KaolCaves,
+    .palettes = gTilesetPalettes_KaolCaves,
+    .metatiles = gMetatiles_KaolCaves,
+    .metatileAttributes = gMetatileAttributes_KaolCaves,
+    .callback = NULL,
+};

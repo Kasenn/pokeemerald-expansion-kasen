@@ -59,6 +59,7 @@ static void CrackedFloorPerStepCallback(u8);
 static void TeleportFloorPerStepCallback(u8);
 static void IcyGymFloorPerStepCallback(u8);
 static void Task_MuddySlope(u8);
+static void Route16PerStepCallback(u8);
 
 static const TaskFunc sPerStepCallbacks[] =
 {
@@ -73,6 +74,7 @@ static const TaskFunc sPerStepCallbacks[] =
     [STEP_CB_TELEPORT_FLOOR]    = TeleportFloorPerStepCallback,
     [STEP_CB_ICY_GYM_FLOOR]     = IcyGymFloorPerStepCallback,
     [STEP_CB_ROPE_BRIDGE]     = RopeBridgePerStepCallback,
+    [STEP_CB_ROUTE_16]     = Route16PerStepCallback,
 };
 
 // Each array has 4 pairs of data, each pair representing two metatiles of a log and their relative position.
@@ -828,6 +830,57 @@ static void IcyGymFloorPerStepCallback(u8 taskId)
             }
         }
     }
+}
+
+#define Y_MIN 50
+#define Y_MAX 132
+
+static void Route16PerStepCallback(u8 taskId)
+{
+    s16 x, y;
+    s16 *data = gTasks[taskId].data;
+    u16 *ashGatherCount;
+    PlayerGetDestCoords(&x, &y);
+
+    // End if player hasn't moved
+    if (x == tPrevX && y == tPrevY)
+        return;
+
+    tPrevX = x;
+    tPrevY = y;
+
+    if (MetatileBehavior_IsAshGrass(MapGridGetMetatileBehaviorAt(x, y)))
+    {
+        // Remove ash from grass
+        if (MapGridGetMetatileIdAt(x, y) == METATILE_Fallarbor_AshGrass)
+            StartAshFieldEffect(x, y, METATILE_Fallarbor_NormalGrass, 4);
+        else
+            StartAshFieldEffect(x, y, METATILE_Lavaridge_NormalGrass, 4);
+
+        // Try to gather ash
+        if (CheckBagHasItem(ITEM_SOOT_SACK, 1))
+        {
+            ashGatherCount = GetVarPointer(VAR_ASH_GATHER_COUNT);
+            if (*ashGatherCount < 9999)
+                (*ashGatherCount)++;
+        }
+    }
+
+    if (y < Y_MIN)
+        y = Y_MIN;
+    else if (y > Y_MAX)
+        y = Y_MAX;
+
+    s16 range = Y_MAX - Y_MIN;
+    s16 offsetY = Y_MAX - y;
+    s32 totalMinutes = (offsetY * 12 * 60) / range;
+    s16 hours = totalMinutes / 60;
+    s16 minutes = totalMinutes % 60;
+
+    VarSet(VAR_HOUR_OVERRIDE, hours);
+    VarSet(VAR_MINUTE_OVERRIDE, minutes);
+
+    gTimeUpdateCounter = 0;
 }
 
 extern const u8 RopeBridgeScript[];

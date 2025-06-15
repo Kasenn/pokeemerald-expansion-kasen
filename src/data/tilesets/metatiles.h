@@ -339,3 +339,6 @@ const u16 gMetatileAttributes_Skyloch[] = INCBIN_U16("data/tilesets/secondary/sk
 
 const u16 gMetatiles_Summer[] = INCBIN_U16("data/tilesets/primary/summer/metatiles.bin");
 const u16 gMetatileAttributes_Summer[] = INCBIN_U16("data/tilesets/primary/summer/metatile_attributes.bin");
+
+const u16 gMetatiles_KaolCaves[] = INCBIN_U16("data/tilesets/secondary/kaol_caves/metatiles.bin");
+const u16 gMetatileAttributes_KaolCaves[] = INCBIN_U16("data/tilesets/secondary/kaol_caves/metatile_attributes.bin");

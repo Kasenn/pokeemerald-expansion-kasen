@@ -533,7 +533,8 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{              //
-    trainerbattle_no_intro(TRAINER_BROTHER_6_ROUTE20, "GG")
+    setflag(FLAG_NO_WILD_ENCOUNTERS)
+    release
     return
 }
 script Debug_Script_4{

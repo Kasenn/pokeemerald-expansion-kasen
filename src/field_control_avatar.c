@@ -198,9 +198,6 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         return TRUE;
     if (input->tookStep)
     {
-        VarSet(VAR_HOUR_OVERRIDE, VarGet(VAR_HOUR_OVERRIDE) + 1);
-        if (VarGet(VAR_HOUR_OVERRIDE) > 12)
-            VarSet(VAR_HOUR_OVERRIDE, 0);
         IncrementGameStat(GAME_STAT_STEPS);
         // IncrementBirthIslandRockStepCount();
         if (TryStartStepBasedScript(&position, metatileBehavior, playerDirection) == TRUE)

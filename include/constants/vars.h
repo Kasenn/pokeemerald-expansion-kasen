@@ -286,7 +286,7 @@
 #define VAR_WINS_AT_PWT                               0x4109
 #define VAR_CURRENT_QUEST                               0x410A
 #define VAR_HOUR_OVERRIDE                               0x410B
-#define VAR_UNUSED_0x410C                               0x410C
+#define VAR_MINUTE_OVERRIDE                               0x410C
 #define VAR_UNUSED_0x410D                               0x410D
 #define VAR_UNUSED_0x410E                               0x410E
 #define VAR_UNUSED_0x410F                               0x410F

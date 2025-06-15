@@ -3,6 +3,8 @@ mapscripts FishingVillage_MapScripts{
 }
 
 script FishingVillage_DespawnBrother{
+    setvar(VAR_HOUR_OVERRIDE, 0)
+    setvar(VAR_MINUTE_OVERRIDE, 0)
     setflag(FLAG_VISITED_FISHING_VILLAGE)
     if(defeated(TRAINER_BROTHER_5_FISHINGVILLAGE)){
         setflag(FLAG_TEMP_1)

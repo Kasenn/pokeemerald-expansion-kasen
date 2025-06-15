@@ -2473,3 +2473,22 @@ const u16 gTilesetPalettes_Summer[][16] =
 };
 
 const u32 gTilesetTiles_Summer[] = INCBIN_U32("data/tilesets/primary/summer/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_KaolCaves[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/kaol_caves/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/kaol_caves/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/kaol_caves/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/kaol_caves/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/kaol_caves/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/kaol_caves/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/kaol_caves/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/kaol_caves/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/kaol_caves/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/kaol_caves/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/kaol_caves/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/kaol_caves/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/kaol_caves/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_KaolCaves[] = INCBIN_U32("data/tilesets/secondary/kaol_caves/tiles.4bpp.lz");
