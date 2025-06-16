@@ -13,5 +13,7 @@
 #define STEP_CB_ICY_GYM_FLOOR       9
 #define STEP_CB_ROPE_BRIDGE         10
 #define STEP_CB_ROUTE_16            11
+#define STEP_CB_ROUTE_17            12
+#define STEP_CB_ROUTE_18            13
 
 #endif // GUARD_CONSTANTS_FIELD_TASKS_H

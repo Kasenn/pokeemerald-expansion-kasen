@@ -4,9 +4,12 @@ mapscripts Route17_MapScripts {
         if(var(VAR_TEMP_4) == 15){
             setweather(WEATHER_SNOW)
         }
+        if(var(VAR_TEMP_4) < 69){
+            setvar(VAR_HOUR_OVERRIDE, 12)
+        }
     }
     MAP_SCRIPT_ON_RESUME{
-        setstepcallback(STEP_CB_ASH)
+        setstepcallback(STEP_CB_ROUTE_17)
     }
 }
 

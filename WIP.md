@@ -30,7 +30,6 @@ MAJOR BUGS!!!
 fix debug menu
 fix fadescreens
 fix lighting in enchanted forest
-fix lighting around lava
 fix lighting in drisledge?
 fix all areas with shade
 add more regular mons in grottos?
@@ -40,10 +39,6 @@ fix lights next to devon corp
 fix aldeleaf lights
 add lights to sandstone?
 
-route 16
-route 17
-route 18
-route 19
 frosthearth
 
 route 19

@@ -1714,8 +1714,6 @@ void UpdateTimeOfDay(void)
         }
     }
 
-    DebugPrintf2("%d:%d", hours, minutes);
-
     if (IsBetweenHours(hours, MORNING_HOUR_BEGIN, MORNING_HOUR_MIDDLE)) // night->morning
     {
         gTimeBlend.startBlend = gTimeOfDayBlend[TIME_NIGHT];

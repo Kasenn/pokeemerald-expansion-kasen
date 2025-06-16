@@ -60,6 +60,8 @@ static void TeleportFloorPerStepCallback(u8);
 static void IcyGymFloorPerStepCallback(u8);
 static void Task_MuddySlope(u8);
 static void Route16PerStepCallback(u8);
+static void Route17PerStepCallback(u8);
+static void Route18PerStepCallback(u8);
 
 static const TaskFunc sPerStepCallbacks[] =
 {
@@ -75,6 +77,8 @@ static const TaskFunc sPerStepCallbacks[] =
     [STEP_CB_ICY_GYM_FLOOR]     = IcyGymFloorPerStepCallback,
     [STEP_CB_ROPE_BRIDGE]     = RopeBridgePerStepCallback,
     [STEP_CB_ROUTE_16]     = Route16PerStepCallback,
+    [STEP_CB_ROUTE_17]     = Route17PerStepCallback,
+    [STEP_CB_ROUTE_18]     = Route18PerStepCallback,
 };
 
 // Each array has 4 pairs of data, each pair representing two metatiles of a log and their relative position.
@@ -879,6 +883,121 @@ static void Route16PerStepCallback(u8 taskId)
 
     VarSet(VAR_HOUR_OVERRIDE, hours);
     VarSet(VAR_MINUTE_OVERRIDE, minutes);
+
+    gTimeUpdateCounter = 0;
+}
+
+#undef Y_MIN
+#undef Y_MAX
+
+#define Y_MIN 15
+#define Y_MAX 40
+
+static void Route17PerStepCallback(u8 taskId)
+{
+    s16 x, y;
+    s16 *data = gTasks[taskId].data;
+    u16 *ashGatherCount;
+    PlayerGetDestCoords(&x, &y);
+
+    // End if player hasn't moved
+    if (x == tPrevX && y == tPrevY)
+        return;
+
+    tPrevX = x;
+    tPrevY = y;
+
+    if (MetatileBehavior_IsAshGrass(MapGridGetMetatileBehaviorAt(x, y)))
+    {
+        // Remove ash from grass
+        if (MapGridGetMetatileIdAt(x, y) == METATILE_Fallarbor_AshGrass)
+            StartAshFieldEffect(x, y, METATILE_Fallarbor_NormalGrass, 4);
+        else
+            StartAshFieldEffect(x, y, METATILE_Lavaridge_NormalGrass, 4);
+
+        // Try to gather ash
+        if (CheckBagHasItem(ITEM_SOOT_SACK, 1))
+        {
+            ashGatherCount = GetVarPointer(VAR_ASH_GATHER_COUNT);
+            if (*ashGatherCount < 9999)
+                (*ashGatherCount)++;
+        }
+    }
+
+    if (y < Y_MIN)
+        y = Y_MIN;
+    else if (y > Y_MAX)
+        y = Y_MAX;
+
+    s16 range = Y_MAX - Y_MIN;
+    s16 offsetY = y - Y_MIN;
+    s32 totalMinutes = (offsetY * 12 * 60) / range;
+    s16 hours = totalMinutes / 60;
+    s16 minutes = totalMinutes % 60;
+
+    VarSet(VAR_HOUR_OVERRIDE, hours);
+    VarSet(VAR_MINUTE_OVERRIDE, minutes);
+
+    gTimeUpdateCounter = 0;
+}
+
+#undef Y_MIN
+#undef Y_MAX
+
+#define X_PLATEAU_START 58
+#define X_PLATEAU_END   102
+#define X_MAX           115
+#define X_MIN           45
+
+static void Route18PerStepCallback(u8 taskId)
+{
+    s16 x, y;
+    s16 *data = gTasks[taskId].data;
+    PlayerGetDestCoords(&x, &y);
+
+    // End if player hasn't moved
+    if (x == tPrevX && y == tPrevY)
+        return;
+
+    tPrevX = x;
+    tPrevY = y;
+
+    if (x < X_PLATEAU_START)
+    {
+        // Left slope: Map [X_MIN, X_PLATEAU_START) -> [0:00 to 12:00]
+        s16 range = X_PLATEAU_START - X_MIN;
+        s16 offsetX = x - X_MIN;
+        s32 totalMinutes = (offsetX * 12 * 60) / range;
+        s16 hours = totalMinutes / 60;
+        s16 minutes = totalMinutes % 60;
+
+        VarSet(VAR_HOUR_OVERRIDE, hours);
+        VarSet(VAR_MINUTE_OVERRIDE, minutes);
+    }
+    else if (x <= X_PLATEAU_END)
+    {
+        // Plateau: full daylight
+        VarSet(VAR_HOUR_OVERRIDE, 12);
+        VarSet(VAR_MINUTE_OVERRIDE, 0);
+    }
+    else if (x <= X_MAX)
+    {
+        // Right slope: Map (X_PLATEAU_END, X_MAX] -> [12:00 to 0:00]
+        s16 range = X_MAX - X_PLATEAU_END;
+        s16 offsetX = X_MAX - x;
+        s32 totalMinutes = (offsetX * 12 * 60) / range;
+        s16 hours = totalMinutes / 60;
+        s16 minutes = totalMinutes % 60;
+
+        VarSet(VAR_HOUR_OVERRIDE, hours);
+        VarSet(VAR_MINUTE_OVERRIDE, minutes);
+    }
+    else
+    {
+        // Just in case x > X_MAX somehow
+        VarSet(VAR_HOUR_OVERRIDE, 0);
+        VarSet(VAR_MINUTE_OVERRIDE, 0);
+    }
 
     gTimeUpdateCounter = 0;
 }
