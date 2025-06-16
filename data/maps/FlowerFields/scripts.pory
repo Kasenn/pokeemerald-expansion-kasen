@@ -74,6 +74,7 @@ script FlowerFields_HoneyTree{
         else{
             setwildbattlelevelrange(SPECIES_CUTIEFLY, 12, ITEM_NONE, SPECIES_NONE, 15)
         }
+        setflag(FLAG_CHANCE_TO_HIDDEN_ABILITY)
         dowildbattle
     }
     release
@@ -90,6 +91,7 @@ script FlowerFields_HoneyTree2{
         closemessage
         removeitem(ITEM_HONEY, 1)
         setwildbattlelevelrange(SPECIES_HERACROSS, 20, ITEM_NONE, SPECIES_NONE, 25)
+        setflag(FLAG_CHANCE_TO_HIDDEN_ABILITY)
         dowildbattle
     }
     release

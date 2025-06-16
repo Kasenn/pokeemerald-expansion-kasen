@@ -309,6 +309,7 @@ script Azuretide_HoneyTree{
             if(var(VAR_RESULT) == 9){
                 setwildbattle(SPECIES_MUNCHLAX, 8)
             }
+            setflag(FLAG_CHANCE_TO_HIDDEN_ABILITY)
             dowildbattle
             release
             end

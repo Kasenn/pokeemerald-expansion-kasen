@@ -74,6 +74,7 @@ script Route6_HoneyTree{
             if(var(VAR_RESULT) == 9){
                 setwildbattlelevelrange(SPECIES_MUNCHLAX, 13, ITEM_NONE, SPECIES_NONE, 17)
             }
+            setflag(FLAG_CHANCE_TO_HIDDEN_ABILITY)
             dowildbattle
             release
             end

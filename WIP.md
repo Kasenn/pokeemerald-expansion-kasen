@@ -27,6 +27,7 @@ route 15: pachirisu removed from night encounters, wimpod removed from day encou
 route 23: wimpod removed from day encounters, petilil and cottonee removed from day encounters, gastly added to night encounters
 
 MAJOR BUGS!!!
+fix grass cutting
 fix debug menu
 fix fadescreens
 fix lighting in enchanted forest
@@ -38,8 +39,6 @@ give honey tree mons chance to get hidden abilities? honey tree mons now have 20
 fix lights next to devon corp
 fix aldeleaf lights
 add lights to sandstone?
-
-frosthearth
 
 route 19
 	items

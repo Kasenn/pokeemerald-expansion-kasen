@@ -295,6 +295,7 @@ script R12_HoneyTree{
                 case 9:
                     setwildbattlelevelrange(SPECIES_MUNCHLAX, 23, ITEM_NONE, SPECIES_NONE, 26)
             }
+            setflag(FLAG_CHANCE_TO_HIDDEN_ABILITY)
             dowildbattle
             release
             end
