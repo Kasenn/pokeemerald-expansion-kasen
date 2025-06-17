@@ -29,8 +29,6 @@ route 23: wimpod removed from day encounters, petilil and cottonee removed from 
 
 MAJOR BUGS!!!
 fix grass cutting
-fix debug menu
-fix fadescreens
 fix lighting in drisledge?
 fix all areas with shade
 add more regular mons in grottos?

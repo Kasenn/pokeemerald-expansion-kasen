@@ -329,10 +329,10 @@ script AT_TopEvent{
     msgbox(IDontHaveStones)
     msgbox(ReturnToGym)
     closemessage
-    fadescreen(FADE_TO_BLACK)
+    fadescreenswapbuffers(FADE_TO_BLACK)
     delay(15)
     removeobject(2)
-    fadescreen(FADE_FROM_BLACK)
+    fadescreenswapbuffers(FADE_FROM_BLACK)
     delay(48)
     applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, Walk1Left)
     waitmovement(0)

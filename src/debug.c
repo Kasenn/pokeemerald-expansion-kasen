@@ -85,9 +85,13 @@ enum DebugMenu
     //DEBUG_MENU_ITEM_BATTLE,
     DEBUG_MENU_ITEM_SOUND,
     DEBUG_MENU_ITEM_ROMINFO,
+    DEBUG_MENU_ITEM_CANCEL,
+};
+
+enum
+{
     DEBUG_MENU_ITEM_UNSTUCK,
     DEBUG_MENU_ITEM_ENTER_CODE,
-    DEBUG_MENU_ITEM_CANCEL,
 };
 
 enum UtilDebugMenu
@@ -868,9 +872,16 @@ static void (*const sDebugMenu_Actions_Main[])(u8) =
     [DEBUG_MENU_ITEM_FLAGVAR]       = DebugAction_OpenFlagsVarsMenu,
     //[DEBUG_MENU_ITEM_BATTLE]        = DebugAction_OpenBattleMenu,
     [DEBUG_MENU_ITEM_SOUND]         = DebugAction_OpenSoundMenu,
+    // [DEBUG_MENU_ITEM_UNSTUCK]     = DebugAction_OpenUnstuckMenu,
+    // [DEBUG_MENU_ITEM_ENTER_CODE]     = DebugAction_OpenEnterCodeMenu,
+    [DEBUG_MENU_ITEM_ROMINFO]       = DebugAction_OpenROMInfoMenu,
+    [DEBUG_MENU_ITEM_CANCEL]        = DebugAction_Cancel
+};
+
+static void (*const sDebugMenu_Actions_MainLimited[])(u8) =
+{
     [DEBUG_MENU_ITEM_UNSTUCK]     = DebugAction_OpenUnstuckMenu,
     [DEBUG_MENU_ITEM_ENTER_CODE]     = DebugAction_OpenEnterCodeMenu,
-    [DEBUG_MENU_ITEM_ROMINFO]       = DebugAction_OpenROMInfoMenu,
     [DEBUG_MENU_ITEM_CANCEL]        = DebugAction_Cancel
 };
 
@@ -1651,8 +1662,16 @@ static void DebugTask_HandleMenuInput_Main(u8 taskId)
     if (JOY_NEW(A_BUTTON))
     {
         PlaySE(SE_SELECT);
-        if ((func = sDebugMenu_Actions_Main[input]) != NULL)
+        if (FlagGet(FLAG_ENABLE_DEBUG))
+        {
+            if ((func = sDebugMenu_Actions_Main[input]) != NULL)
             func(taskId);
+        }
+        else
+        {
+            if ((func = sDebugMenu_Actions_MainLimited[input]) != NULL)
+            func(taskId);
+        }
     }
     else if (JOY_NEW(B_BUTTON))
     {

@@ -586,13 +586,13 @@ AT_TopEvent_1:
 # 331 "data/maps/SkyPillar_Top/scripts.pory"
 	closemessage
 # 332 "data/maps/SkyPillar_Top/scripts.pory"
-	fadescreen FADE_TO_BLACK
+	fadescreenswapbuffers FADE_TO_BLACK
 # 333 "data/maps/SkyPillar_Top/scripts.pory"
 	delay 15
 # 334 "data/maps/SkyPillar_Top/scripts.pory"
 	removeobject 2
 # 335 "data/maps/SkyPillar_Top/scripts.pory"
-	fadescreen FADE_FROM_BLACK
+	fadescreenswapbuffers FADE_FROM_BLACK
 # 336 "data/maps/SkyPillar_Top/scripts.pory"
 	delay 48
 # 337 "data/maps/SkyPillar_Top/scripts.pory"

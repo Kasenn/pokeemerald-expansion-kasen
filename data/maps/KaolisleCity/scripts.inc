@@ -1044,7 +1044,7 @@ KaolisleBirdMain::
 # 863 "data/maps/KaolisleCity/scripts.pory"
 	closemessage
 # 864 "data/maps/KaolisleCity/scripts.pory"
-	fadescreen FADE_TO_BLACK
+	fadescreenswapbuffers FADE_TO_BLACK
 # 865 "data/maps/KaolisleCity/scripts.pory"
 	delay 15
 # 866 "data/maps/KaolisleCity/scripts.pory"
@@ -1052,71 +1052,73 @@ KaolisleBirdMain::
 # 867 "data/maps/KaolisleCity/scripts.pory"
 	closemessage
 # 868 "data/maps/KaolisleCity/scripts.pory"
-	removeobject VAR_LAST_TALKED
+	hideobjectat VAR_LAST_TALKED, MAP_KAOLISLE_CITY
 # 869 "data/maps/KaolisleCity/scripts.pory"
-	fadescreen FADE_FROM_BLACK
+	fadescreenswapbuffers FADE_FROM_BLACK
 # 870 "data/maps/KaolisleCity/scripts.pory"
+	removeobject VAR_LAST_TALKED
+# 871 "data/maps/KaolisleCity/scripts.pory"
 	release
 	return
 
 
 KaolisleCity_MysteryMan_Battle::
-# 879 "data/maps/KaolisleCity/scripts.pory"
-	checkpartylevel 55
 # 880 "data/maps/KaolisleCity/scripts.pory"
+	checkpartylevel 55
+# 881 "data/maps/KaolisleCity/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq KaolisleCity_MysteryMan_Battle_2
 KaolisleCity_MysteryMan_Battle_1:
-# 883 "data/maps/KaolisleCity/scripts.pory"
+# 884 "data/maps/KaolisleCity/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq KaolisleCity_MysteryMan_Battle_5
-# 889 "data/maps/KaolisleCity/scripts.pory"
-	msgbox KaolisleCity_MysteryMan_Battle_Intro
 # 890 "data/maps/KaolisleCity/scripts.pory"
-	trainerbattle_no_intro TRAINER_KAOLISLE_CELEBI_TR2, KaolisleCity_MysteryMan_Battle_Lose
+	msgbox KaolisleCity_MysteryMan_Battle_Intro
 # 891 "data/maps/KaolisleCity/scripts.pory"
-	msgbox KaolisleCity_MysteryMan_PostBattle
+	trainerbattle_no_intro TRAINER_KAOLISLE_CELEBI_TR2, KaolisleCity_MysteryMan_Battle_Lose
 # 892 "data/maps/KaolisleCity/scripts.pory"
-	msgbox KaolisleCity_MysteryMan_PostBattle2
+	msgbox KaolisleCity_MysteryMan_PostBattle
 # 893 "data/maps/KaolisleCity/scripts.pory"
+	msgbox KaolisleCity_MysteryMan_PostBattle2
+# 894 "data/maps/KaolisleCity/scripts.pory"
 	giveitem ITEM_DISC_FRAGMENT
 	checkitem ITEM_DISC_FRAGMENT, 2
 # 0 "data/maps/KaolisleCity/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq KaolisleCity_MysteryMan_Battle_8
-# 898 "data/maps/KaolisleCity/scripts.pory"
+# 899 "data/maps/KaolisleCity/scripts.pory"
 	msgbox Kaolisle_ExplainFragment
 KaolisleCity_MysteryMan_Battle_7:
-# 900 "data/maps/KaolisleCity/scripts.pory"
-	release
 # 901 "data/maps/KaolisleCity/scripts.pory"
+	release
+# 902 "data/maps/KaolisleCity/scripts.pory"
 	goto_if_set FLAG_Q20_KAOLISLE_OLD_MAN_START, KaolisleCity_MysteryMan_Battle_12
 KaolisleCity_MysteryMan_Battle_11:
 	end
 
 KaolisleCity_MysteryMan_Battle_2:
-# 881 "data/maps/KaolisleCity/scripts.pory"
+# 882 "data/maps/KaolisleCity/scripts.pory"
 	msgbox Kaolisle_AbsolutelyCertain, MSGBOX_YESNO
 	goto KaolisleCity_MysteryMan_Battle_1
 
 KaolisleCity_MysteryMan_Battle_5:
-# 884 "data/maps/KaolisleCity/scripts.pory"
-	msgbox KaolisleCity_MysteryMan_Decline, MSGBOX_NPC
 # 885 "data/maps/KaolisleCity/scripts.pory"
-	turnobject 7, DIR_NORTH
+	msgbox KaolisleCity_MysteryMan_Decline, MSGBOX_NPC
 # 886 "data/maps/KaolisleCity/scripts.pory"
+	turnobject 7, DIR_NORTH
+# 887 "data/maps/KaolisleCity/scripts.pory"
 	setflag FLAG_TEMP_4
 	end
 
 KaolisleCity_MysteryMan_Battle_8:
-# 895 "data/maps/KaolisleCity/scripts.pory"
+# 896 "data/maps/KaolisleCity/scripts.pory"
 	msgbox Kaolisle_ExplainFragmentShort
 	goto KaolisleCity_MysteryMan_Battle_7
 
 KaolisleCity_MysteryMan_Battle_12:
-# 902 "data/maps/KaolisleCity/scripts.pory"
-	completequest FLAG_Q20_KAOLISLE_OLD_MAN_COMPLETE
 # 903 "data/maps/KaolisleCity/scripts.pory"
+	completequest FLAG_Q20_KAOLISLE_OLD_MAN_COMPLETE
+# 904 "data/maps/KaolisleCity/scripts.pory"
 	special ShowJournalPopupRemove
 	goto KaolisleCity_MysteryMan_Battle_11
 
@@ -1522,30 +1524,30 @@ KaolisleCity_SignIntro_Text::
 	.string "“The cleanest city in the world.”$"
 
 NudgeMon::
-# 873 "data/maps/KaolisleCity/scripts.pory"
+# 874 "data/maps/KaolisleCity/scripts.pory"
 	.string "You give the {STR_VAR_1} a nudge,\n"
 	.string "and it starts flying towards home.$"
 
 KaolisleCity_MysteryMan_Battle_Intro::
-# 908 "data/maps/KaolisleCity/scripts.pory"
+# 909 "data/maps/KaolisleCity/scripts.pory"
 	.string "This is going to be fun!$"
 
 KaolisleCity_MysteryMan_Battle_Lose::
-# 911 "data/maps/KaolisleCity/scripts.pory"
+# 912 "data/maps/KaolisleCity/scripts.pory"
 	.string "My!\n"
 	.string "Such vigor!\p"
 	.string "I've never seen anything\n"
 	.string "like it before!$"
 
 KaolisleCity_MysteryMan_PostBattle::
-# 917 "data/maps/KaolisleCity/scripts.pory"
+# 918 "data/maps/KaolisleCity/scripts.pory"
 	.string "Ah, what a fun battle that was.\p"
 	.string "I'm glad an old husk like me\n"
 	.string "could still enjoy the thrill\l"
 	.string "of a Pokémon Battle.$"
 
 KaolisleCity_MysteryMan_PostBattle2::
-# 923 "data/maps/KaolisleCity/scripts.pory"
+# 924 "data/maps/KaolisleCity/scripts.pory"
 	.string "You know what, grand battles\n"
 	.string "require grand prizes.\p"
 	.string "I think I should have some\n"
@@ -1556,7 +1558,7 @@ KaolisleCity_MysteryMan_PostBattle2::
 	.string "Here, take this.$"
 
 Kaolisle_ExplainFragment::
-# 933 "data/maps/KaolisleCity/scripts.pory"
+# 934 "data/maps/KaolisleCity/scripts.pory"
 	.string "It may look like junk now,\n"
 	.string "but trust me, that thing\l"
 	.string "is a key to something important.\p"
@@ -1576,7 +1578,7 @@ Kaolisle_ExplainFragment::
 	.string "moving somewhere very cold.$"
 
 KaolisleCity_MysteryMan_AfterBattleGossip::
-# 952 "data/maps/KaolisleCity/scripts.pory"
+# 953 "data/maps/KaolisleCity/scripts.pory"
 	.string "There should be four fragments.\p"
 	.string "Once you have collected them all,\n"
 	.string "bring them to our eldest.\p"
@@ -1590,12 +1592,12 @@ KaolisleCity_MysteryMan_AfterBattleGossip::
 	.string "moving somewhere very cold.$"
 
 Kaolisle_AbsolutelyCertain::
-# 965 "data/maps/KaolisleCity/scripts.pory"
+# 966 "data/maps/KaolisleCity/scripts.pory"
 	.string "Are you absolutely certain you want\n"
 	.string "to challenge me? I'm pretty strong.$"
 
 Kaolisle_ExplainFragmentShort::
-# 969 "data/maps/KaolisleCity/scripts.pory"
+# 970 "data/maps/KaolisleCity/scripts.pory"
 	.string "There should be four fragments.\p"
 	.string "Once you have collected them all,\n"
 	.string "bring them to our eldest.\p"

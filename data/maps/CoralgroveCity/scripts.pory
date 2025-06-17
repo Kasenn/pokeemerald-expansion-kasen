@@ -37,15 +37,16 @@ script CoralHideGhost{
     delay(60)
     msgbox("No, you're not the one…")
     closemessage
-    fadescreenspeed(FADE_TO_WHITE,2)
+    fadescreenswapbuffers(FADE_TO_WHITE)
     setflag(FLAG_0x267_CG_HIDEGHOST)
     clearflag(FLAG_TEMP_2)
-    removeobject(11)
+    hideobjectat(11, MAP_CORALGROVE_CITY)
     delay(30)
-    fadescreenspeed(FADE_FROM_WHITE,2)
+    fadescreenswapbuffers(FADE_FROM_WHITE)
     delay(90)
     fadeinbgm(0)
     delay(60)
+    removeobject(11)
     release
 }
 

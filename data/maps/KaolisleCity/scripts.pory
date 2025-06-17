@@ -861,12 +861,13 @@ script KaolisleBirdMain{
     waitmoncry
 	msgbox("This looks to be one of the\nlost {STR_VAR_1}s.")
     closemessage
-    fadescreen(FADE_TO_BLACK)
+    fadescreenswapbuffers(FADE_TO_BLACK)
     delay(15)
     msgbox(NudgeMon)
     closemessage
+    hideobjectat(VAR_LAST_TALKED, MAP_KAOLISLE_CITY)
+    fadescreenswapbuffers(FADE_FROM_BLACK)
     removeobject(VAR_LAST_TALKED)
-    fadescreen(FADE_FROM_BLACK)
 	release
 }
 

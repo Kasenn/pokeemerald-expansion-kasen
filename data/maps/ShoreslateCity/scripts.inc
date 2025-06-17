@@ -162,13 +162,13 @@ Shoreslate_CasteliaGirl::
 	compare VAR_RESULT, TRUE
 	goto_if_eq Shoreslate_CasteliaGirl_5
 Shoreslate_CasteliaGirl_4:
-# 225 "data/maps/ShoreslateCity/scripts.pory"
-	closemessage
 # 226 "data/maps/ShoreslateCity/scripts.pory"
-	waitmessage
+	closemessage
 # 227 "data/maps/ShoreslateCity/scripts.pory"
-	release
+	waitmessage
 # 228 "data/maps/ShoreslateCity/scripts.pory"
+	release
+# 229 "data/maps/ShoreslateCity/scripts.pory"
 	goto_if_set FLAG_Q13_SHORESLATE_ICECREAM_START, Shoreslate_CasteliaGirl_12
 Shoreslate_CasteliaGirl_10:
 	end
@@ -201,14 +201,14 @@ Shoreslate_CasteliaGirl_8:
 	goto Shoreslate_CasteliaGirl_7
 
 Shoreslate_CasteliaGirl_11:
-# 229 "data/maps/ShoreslateCity/scripts.pory"
-	completequest FLAG_Q13_SHORESLATE_ICECREAM_COMPLETE
 # 230 "data/maps/ShoreslateCity/scripts.pory"
+	completequest FLAG_Q13_SHORESLATE_ICECREAM_COMPLETE
+# 231 "data/maps/ShoreslateCity/scripts.pory"
 	special ShowJournalPopupRemove
 	goto Shoreslate_CasteliaGirl_10
 
 Shoreslate_CasteliaGirl_12:
-# 228 "data/maps/ShoreslateCity/scripts.pory"
+# 229 "data/maps/ShoreslateCity/scripts.pory"
 	goto_if_unset FLAG_Q13_SHORESLATE_ICECREAM_COMPLETE, Shoreslate_CasteliaGirl_11
 	goto Shoreslate_CasteliaGirl_10
 
@@ -260,17 +260,19 @@ Shoreslate_CasteliaGirl_26:
 # 215 "data/maps/ShoreslateCity/scripts.pory"
 	closemessage
 # 216 "data/maps/ShoreslateCity/scripts.pory"
-	fadescreen FADE_TO_BLACK
+	fadescreenswapbuffers FADE_TO_BLACK
 # 217 "data/maps/ShoreslateCity/scripts.pory"
 	delay 15
 # 218 "data/maps/ShoreslateCity/scripts.pory"
-	removeobject 24
+	hideobjectat 24, MAP_SHORESLATE_CITY
 # 219 "data/maps/ShoreslateCity/scripts.pory"
 	setflag FLAG_GIVEN_CASTELIATOGIRL
 # 220 "data/maps/ShoreslateCity/scripts.pory"
-	fadescreen FADE_FROM_BLACK
+	fadescreenswapbuffers FADE_FROM_BLACK
 # 221 "data/maps/ShoreslateCity/scripts.pory"
 	delay 15
+# 222 "data/maps/ShoreslateCity/scripts.pory"
+	removeobject 24
 	goto Shoreslate_CasteliaGirl_4
 
 Shoreslate_CasteliaGirl_27:
@@ -280,272 +282,272 @@ Shoreslate_CasteliaGirl_27:
 
 
 Shoreslate_CasteliaVendor::
-# 278 "data/maps/ShoreslateCity/scripts.pory"
+# 279 "data/maps/ShoreslateCity/scripts.pory"
 	compare VAR_CASTELIACONES_BOUGHT, 8
 	goto_if_ge Shoreslate_CasteliaVendor_2
-# 282 "data/maps/ShoreslateCity/scripts.pory"
-	faceplayer
 # 283 "data/maps/ShoreslateCity/scripts.pory"
-	lock
+	faceplayer
 # 284 "data/maps/ShoreslateCity/scripts.pory"
+	lock
+# 285 "data/maps/ShoreslateCity/scripts.pory"
 	compare VAR_TEMP_5, 0
 	goto_if_eq Shoreslate_CasteliaVendor_5
-# 298 "data/maps/ShoreslateCity/scripts.pory"
-	showmoneybox 0, 0
 # 299 "data/maps/ShoreslateCity/scripts.pory"
-	msgbox Shoreslate_CasteliaVendor_InterestInConesShort, MSGBOX_YESNO
+	showmoneybox 0, 0
 # 300 "data/maps/ShoreslateCity/scripts.pory"
+	msgbox Shoreslate_CasteliaVendor_InterestInConesShort, MSGBOX_YESNO
+# 301 "data/maps/ShoreslateCity/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq Shoreslate_CasteliaVendor_7
-# 305 "data/maps/ShoreslateCity/scripts.pory"
-	msgbox Shoreslate_CasteliaVendor_ThatsShame, MSGBOX_NPC
 # 306 "data/maps/ShoreslateCity/scripts.pory"
+	msgbox Shoreslate_CasteliaVendor_ThatsShame, MSGBOX_NPC
+# 307 "data/maps/ShoreslateCity/scripts.pory"
 	hidemoneybox
 	end
 
 Shoreslate_CasteliaVendor_2:
-# 279 "data/maps/ShoreslateCity/scripts.pory"
+# 280 "data/maps/ShoreslateCity/scripts.pory"
 	msgbox Shoreslate_CasteliaVendor_OutOfCones, MSGBOX_NPC
 	end
 
 Shoreslate_CasteliaVendor_5:
-# 285 "data/maps/ShoreslateCity/scripts.pory"
-	showmoneybox 0, 0
 # 286 "data/maps/ShoreslateCity/scripts.pory"
-	setvar VAR_TEMP_5, 1
+	showmoneybox 0, 0
 # 287 "data/maps/ShoreslateCity/scripts.pory"
-	msgbox Shoreslate_CasteliaVendor_InterestInCones, MSGBOX_YESNO
+	setvar VAR_TEMP_5, 1
 # 288 "data/maps/ShoreslateCity/scripts.pory"
+	msgbox Shoreslate_CasteliaVendor_InterestInCones, MSGBOX_YESNO
+# 289 "data/maps/ShoreslateCity/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq Shoreslate_CasteliaVendor_10
-# 293 "data/maps/ShoreslateCity/scripts.pory"
-	msgbox Shoreslate_CasteliaVendor_ThatsShame, MSGBOX_NPC
 # 294 "data/maps/ShoreslateCity/scripts.pory"
+	msgbox Shoreslate_CasteliaVendor_ThatsShame, MSGBOX_NPC
+# 295 "data/maps/ShoreslateCity/scripts.pory"
 	hidemoneybox
 	end
 
 Shoreslate_CasteliaVendor_7:
-# 301 "data/maps/ShoreslateCity/scripts.pory"
+# 302 "data/maps/ShoreslateCity/scripts.pory"
 	goto HowManyCastelias
 	end
 
 Shoreslate_CasteliaVendor_10:
-# 289 "data/maps/ShoreslateCity/scripts.pory"
+# 290 "data/maps/ShoreslateCity/scripts.pory"
 	goto HowManyCastelias
 	end
 
 
 HowManyCastelias::
-# 311 "data/maps/ShoreslateCity/scripts.pory"
-	message HowManyCastelias_Text_0
 # 312 "data/maps/ShoreslateCity/scripts.pory"
-	waitmessage
+	message HowManyCastelias_Text_0
 # 313 "data/maps/ShoreslateCity/scripts.pory"
-	multichoice 23, 0, 9, 0
+	waitmessage
 # 314 "data/maps/ShoreslateCity/scripts.pory"
-	switch VAR_RESULT
+	multichoice 23, 0, 9, 0
 # 315 "data/maps/ShoreslateCity/scripts.pory"
+	switch VAR_RESULT
+# 316 "data/maps/ShoreslateCity/scripts.pory"
 	case 0, HowManyCastelias_2
-# 317 "data/maps/ShoreslateCity/scripts.pory"
+# 318 "data/maps/ShoreslateCity/scripts.pory"
 	case 1, HowManyCastelias_3
-# 319 "data/maps/ShoreslateCity/scripts.pory"
+# 320 "data/maps/ShoreslateCity/scripts.pory"
 	case 2, HowManyCastelias_4
-# 321 "data/maps/ShoreslateCity/scripts.pory"
+# 322 "data/maps/ShoreslateCity/scripts.pory"
 	case MULTI_B_PRESSED, HowManyCastelias_5
 	return
 
 HowManyCastelias_2:
-# 316 "data/maps/ShoreslateCity/scripts.pory"
+# 317 "data/maps/ShoreslateCity/scripts.pory"
 	goto Buy1Castelia
 	return
 
 HowManyCastelias_3:
-# 318 "data/maps/ShoreslateCity/scripts.pory"
+# 319 "data/maps/ShoreslateCity/scripts.pory"
 	goto Buy4Castelia
 	return
 
 HowManyCastelias_4:
-# 320 "data/maps/ShoreslateCity/scripts.pory"
+# 321 "data/maps/ShoreslateCity/scripts.pory"
 	goto CancelBuyingCastelia
 	return
 
 HowManyCastelias_5:
-# 322 "data/maps/ShoreslateCity/scripts.pory"
+# 323 "data/maps/ShoreslateCity/scripts.pory"
 	goto CancelBuyingCastelia
 	return
 
 
 Buy1Castelia::
-# 326 "data/maps/ShoreslateCity/scripts.pory"
+# 327 "data/maps/ShoreslateCity/scripts.pory"
 	hidemoneybox
 	checkitemspace ITEM_CASTELIACONE, 1
 # 0 "data/maps/ShoreslateCity/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq Buy1Castelia_2
-# 331 "data/maps/ShoreslateCity/scripts.pory"
-	checkmoney 350
 # 332 "data/maps/ShoreslateCity/scripts.pory"
+	checkmoney 350
+# 333 "data/maps/ShoreslateCity/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq Buy1Castelia_5
-# 336 "data/maps/ShoreslateCity/scripts.pory"
-	playfanfare MUS_OBTAIN_ITEM
 # 337 "data/maps/ShoreslateCity/scripts.pory"
-	message Bought1Castelia
+	playfanfare MUS_OBTAIN_ITEM
 # 338 "data/maps/ShoreslateCity/scripts.pory"
-	waitfanfare
+	message Bought1Castelia
 # 339 "data/maps/ShoreslateCity/scripts.pory"
-	msgbox Put1CasteliaInPocket, MSGBOX_DEFAULT
+	waitfanfare
 # 340 "data/maps/ShoreslateCity/scripts.pory"
-	removemoney 350
+	msgbox Put1CasteliaInPocket, MSGBOX_DEFAULT
 # 341 "data/maps/ShoreslateCity/scripts.pory"
-	additem ITEM_CASTELIACONE, 1
+	removemoney 350
 # 342 "data/maps/ShoreslateCity/scripts.pory"
-	addvar VAR_CASTELIACONES_BOUGHT, 1
+	additem ITEM_CASTELIACONE, 1
 # 343 "data/maps/ShoreslateCity/scripts.pory"
-	waitmessage
+	addvar VAR_CASTELIACONES_BOUGHT, 1
 # 344 "data/maps/ShoreslateCity/scripts.pory"
-	closemessage
+	waitmessage
 # 345 "data/maps/ShoreslateCity/scripts.pory"
-	msgbox Buy1Castelia_Text_0, MSGBOX_NPC
+	closemessage
 # 346 "data/maps/ShoreslateCity/scripts.pory"
+	msgbox Buy1Castelia_Text_0, MSGBOX_NPC
+# 347 "data/maps/ShoreslateCity/scripts.pory"
 	release
 	end
 
 Buy1Castelia_2:
-# 328 "data/maps/ShoreslateCity/scripts.pory"
+# 329 "data/maps/ShoreslateCity/scripts.pory"
 	msgbox NotRoomForCastelias, MSGBOX_NPC
 	end
 
 Buy1Castelia_5:
-# 333 "data/maps/ShoreslateCity/scripts.pory"
+# 334 "data/maps/ShoreslateCity/scripts.pory"
 	msgbox NotMoneyForCastelias, MSGBOX_NPC
 	end
 
 
 Buy4Castelia::
-# 357 "data/maps/ShoreslateCity/scripts.pory"
+# 358 "data/maps/ShoreslateCity/scripts.pory"
 	hidemoneybox
 	checkitemspace ITEM_CASTELIACONE, 4
 # 0 "data/maps/ShoreslateCity/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq Buy4Castelia_2
-# 362 "data/maps/ShoreslateCity/scripts.pory"
-	checkmoney 1050
 # 363 "data/maps/ShoreslateCity/scripts.pory"
+	checkmoney 1050
+# 364 "data/maps/ShoreslateCity/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq Buy4Castelia_5
-# 367 "data/maps/ShoreslateCity/scripts.pory"
-	playfanfare MUS_OBTAIN_ITEM
 # 368 "data/maps/ShoreslateCity/scripts.pory"
-	message Bought4Castelia
+	playfanfare MUS_OBTAIN_ITEM
 # 369 "data/maps/ShoreslateCity/scripts.pory"
-	waitfanfare
+	message Bought4Castelia
 # 370 "data/maps/ShoreslateCity/scripts.pory"
-	msgbox Put4CasteliaInPocket, MSGBOX_DEFAULT
+	waitfanfare
 # 371 "data/maps/ShoreslateCity/scripts.pory"
-	removemoney 1050
+	msgbox Put4CasteliaInPocket, MSGBOX_DEFAULT
 # 372 "data/maps/ShoreslateCity/scripts.pory"
-	additem ITEM_CASTELIACONE, 4
+	removemoney 1050
 # 373 "data/maps/ShoreslateCity/scripts.pory"
-	addvar VAR_CASTELIACONES_BOUGHT, 4
+	additem ITEM_CASTELIACONE, 4
 # 374 "data/maps/ShoreslateCity/scripts.pory"
-	waitmessage
+	addvar VAR_CASTELIACONES_BOUGHT, 4
 # 375 "data/maps/ShoreslateCity/scripts.pory"
-	closemessage
+	waitmessage
 # 376 "data/maps/ShoreslateCity/scripts.pory"
-	msgbox Buy1Castelia_Text_0, MSGBOX_NPC
+	closemessage
 # 377 "data/maps/ShoreslateCity/scripts.pory"
+	msgbox Buy1Castelia_Text_0, MSGBOX_NPC
+# 378 "data/maps/ShoreslateCity/scripts.pory"
 	release
 	end
 
 Buy4Castelia_2:
-# 359 "data/maps/ShoreslateCity/scripts.pory"
+# 360 "data/maps/ShoreslateCity/scripts.pory"
 	msgbox NotRoomForCastelias, MSGBOX_NPC
 	end
 
 Buy4Castelia_5:
-# 364 "data/maps/ShoreslateCity/scripts.pory"
+# 365 "data/maps/ShoreslateCity/scripts.pory"
 	msgbox NotMoneyForCastelias, MSGBOX_NPC
 	end
 
 
 CancelBuyingCastelia::
-# 389 "data/maps/ShoreslateCity/scripts.pory"
-	msgbox Shoreslate_CasteliaVendor_ThatsShame, MSGBOX_NPC
 # 390 "data/maps/ShoreslateCity/scripts.pory"
+	msgbox Shoreslate_CasteliaVendor_ThatsShame, MSGBOX_NPC
+# 391 "data/maps/ShoreslateCity/scripts.pory"
 	hidemoneybox
 	end
 
 
 Shoreslate_DevonExteriorTrigger::
-# 429 "data/maps/ShoreslateCity/scripts.pory"
+# 430 "data/maps/ShoreslateCity/scripts.pory"
 	compare VAR_TEMP_6, 1
 	goto_if_eq Shoreslate_DevonExteriorTrigger_2
-# 442 "data/maps/ShoreslateCity/scripts.pory"
-	safefollow
 # 443 "data/maps/ShoreslateCity/scripts.pory"
-	lock
+	safefollow
 # 444 "data/maps/ShoreslateCity/scripts.pory"
-	delay 5
+	lock
 # 445 "data/maps/ShoreslateCity/scripts.pory"
-	turnobject 1, DIR_SOUTH
+	delay 5
 # 446 "data/maps/ShoreslateCity/scripts.pory"
-	delay 5
+	turnobject 1, DIR_SOUTH
 # 447 "data/maps/ShoreslateCity/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-# 448 "data/maps/ShoreslateCity/scripts.pory"
-	msgbox ShoreSlate_NotGettingThrough, MSGBOX_DEFAULT
-# 449 "data/maps/ShoreslateCity/scripts.pory"
-	waitmessage
-# 450 "data/maps/ShoreslateCity/scripts.pory"
-	closemessage
-# 451 "data/maps/ShoreslateCity/scripts.pory"
-	setvar VAR_TEMP_6, 1
-# 452 "data/maps/ShoreslateCity/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Walk1Right
-# 453 "data/maps/ShoreslateCity/scripts.pory"
-	waitmovement 0
-# 454 "data/maps/ShoreslateCity/scripts.pory"
 	delay 5
+# 448 "data/maps/ShoreslateCity/scripts.pory"
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+# 449 "data/maps/ShoreslateCity/scripts.pory"
+	msgbox ShoreSlate_NotGettingThrough, MSGBOX_DEFAULT
+# 450 "data/maps/ShoreslateCity/scripts.pory"
+	waitmessage
+# 451 "data/maps/ShoreslateCity/scripts.pory"
+	closemessage
+# 452 "data/maps/ShoreslateCity/scripts.pory"
+	setvar VAR_TEMP_6, 1
+# 453 "data/maps/ShoreslateCity/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, Walk1Right
+# 454 "data/maps/ShoreslateCity/scripts.pory"
+	waitmovement 0
 # 455 "data/maps/ShoreslateCity/scripts.pory"
+	delay 5
+# 456 "data/maps/ShoreslateCity/scripts.pory"
 	release
 	end
 
 Shoreslate_DevonExteriorTrigger_2:
-# 430 "data/maps/ShoreslateCity/scripts.pory"
-	lock
 # 431 "data/maps/ShoreslateCity/scripts.pory"
-	delay 5
+	lock
 # 432 "data/maps/ShoreslateCity/scripts.pory"
-	turnobject 1, DIR_SOUTH
-# 433 "data/maps/ShoreslateCity/scripts.pory"
 	delay 5
+# 433 "data/maps/ShoreslateCity/scripts.pory"
+	turnobject 1, DIR_SOUTH
 # 434 "data/maps/ShoreslateCity/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	delay 5
 # 435 "data/maps/ShoreslateCity/scripts.pory"
-	msgbox ShoreSlate_YouDeaf, MSGBOX_DEFAULT
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 # 436 "data/maps/ShoreslateCity/scripts.pory"
-	waitmessage
+	msgbox ShoreSlate_YouDeaf, MSGBOX_DEFAULT
 # 437 "data/maps/ShoreslateCity/scripts.pory"
-	closemessage
+	waitmessage
 # 438 "data/maps/ShoreslateCity/scripts.pory"
-	trainerbattle_no_intro TRAINER_SHORESLATE_ROCKET, ShoreSlateRocketDefeat
+	closemessage
 # 439 "data/maps/ShoreslateCity/scripts.pory"
+	trainerbattle_no_intro TRAINER_SHORESLATE_ROCKET, ShoreSlateRocketDefeat
+# 440 "data/maps/ShoreslateCity/scripts.pory"
 	release
 	end
 
 
 Shoreslate_RocketM::
-# 466 "data/maps/ShoreslateCity/scripts.pory"
+# 467 "data/maps/ShoreslateCity/scripts.pory"
 	checktrainerflag TRAINER_SHORESLATE_ROCKET
 	goto_if 0, Shoreslate_RocketM_2
-# 470 "data/maps/ShoreslateCity/scripts.pory"
+# 471 "data/maps/ShoreslateCity/scripts.pory"
 	msgbox ShoreSlate_RocketWontStop, MSGBOX_NPC
 Shoreslate_RocketM_1:
 	end
 
 Shoreslate_RocketM_2:
-# 467 "data/maps/ShoreslateCity/scripts.pory"
+# 468 "data/maps/ShoreslateCity/scripts.pory"
 	msgbox ShoreSlate_RocketStop, MSGBOX_NPC
 	goto Shoreslate_RocketM_1
 
@@ -569,11 +571,11 @@ Shoreslate_Sign4_Text_0:
 	.string "Shoreslate Bike Shop$"
 
 HowManyCastelias_Text_0:
-# 311 "data/maps/ShoreslateCity/scripts.pory"
+# 312 "data/maps/ShoreslateCity/scripts.pory"
 	.string "How many Casteliacones\nwould you like to buy?$"
 
 Buy1Castelia_Text_0:
-# 345 "data/maps/ShoreslateCity/scripts.pory"
+# 346 "data/maps/ShoreslateCity/scripts.pory"
 	.string "Please come again!$"
 
 Shoreslate_NinjaBoy_Text::
@@ -668,7 +670,7 @@ Shoreslate_Man1_Text::
 	.string "Goldeen…$"
 
 Shoreslate_CasteliaGirl_Text::
-# 234 "data/maps/ShoreslateCity/scripts.pory"
+# 235 "data/maps/ShoreslateCity/scripts.pory"
 	.string "Sniff… My daddy gave me money to buy\n"
 	.string "ice cream for the whole family but\l"
 	.string "when I got here, I could no longer\l"
@@ -676,88 +678,88 @@ Shoreslate_CasteliaGirl_Text::
 	.string "What do I do…$"
 
 ShoreslateCheckCastelia::
-# 241 "data/maps/ShoreslateCity/scripts.pory"
+# 242 "data/maps/ShoreslateCity/scripts.pory"
 	.string "You recall buying a Casteliacone.\n"
 	.string "Would you like to offer it to the\l"
 	.string "little girl?$"
 
 ShoreslateCheckCastelias::
-# 246 "data/maps/ShoreslateCity/scripts.pory"
+# 247 "data/maps/ShoreslateCity/scripts.pory"
 	.string "You recall buying some Casteliacones.\n"
 	.string "Would you like to offer them to the\l"
 	.string "little girl?$"
 
 Shoreslate_CasteliaSecondThought::
-# 251 "data/maps/ShoreslateCity/scripts.pory"
+# 252 "data/maps/ShoreslateCity/scripts.pory"
 	.string "On second thought, maybe you should\n"
 	.string "get some more Casteliacones first.\l"
 	.string "She did mention “the whole family.”$"
 
 HandedOverCastelia::
-# 256 "data/maps/ShoreslateCity/scripts.pory"
+# 257 "data/maps/ShoreslateCity/scripts.pory"
 	.string "{PLAYER} handed 4 Casteliacones\n"
 	.string "to the little girl.$"
 
 ThankYouMrCastelia::
-# 260 "data/maps/ShoreslateCity/scripts.pory"
+# 261 "data/maps/ShoreslateCity/scripts.pory"
 	.string "Wow! Thanks mister!\n"
 	.string "You are the best!\p"
 	.string "Umm, my hands are getting a bit full\n"
 	.string "so here, you can have this.$"
 
 ThankYouMsCastelia::
-# 266 "data/maps/ShoreslateCity/scripts.pory"
+# 267 "data/maps/ShoreslateCity/scripts.pory"
 	.string "Wow! Thanks big sis!\n"
 	.string "You are the best!\p"
 	.string "Umm, my hands are getting a bit full\n"
 	.string "so here, you can have this.$"
 
 GetHomeFast::
-# 272 "data/maps/ShoreslateCity/scripts.pory"
+# 273 "data/maps/ShoreslateCity/scripts.pory"
 	.string "I need to get back before these melt.\n"
 	.string "Thanks again!$"
 
 Bought1Castelia::
-# 349 "data/maps/ShoreslateCity/scripts.pory"
+# 350 "data/maps/ShoreslateCity/scripts.pory"
 	.string "{PLAYER} bought a Casteliacone!$"
 
 Put1CasteliaInPocket::
-# 352 "data/maps/ShoreslateCity/scripts.pory"
+# 353 "data/maps/ShoreslateCity/scripts.pory"
 	.string "{PLAYER} put away the Casteliacone\n"
 	.string "in the Items pocket.$"
 
 Bought4Castelia::
-# 380 "data/maps/ShoreslateCity/scripts.pory"
+# 381 "data/maps/ShoreslateCity/scripts.pory"
 	.string "{PLAYER} bought a pack of 4\n"
 	.string "Casteliacones!$"
 
 Put4CasteliaInPocket::
-# 384 "data/maps/ShoreslateCity/scripts.pory"
+# 385 "data/maps/ShoreslateCity/scripts.pory"
 	.string "{PLAYER} put away the Casteliacones\n"
 	.string "in the Items pocket.$"
 
 Shoreslate_CasteliaVendor_OutOfCones::
-# 393 "data/maps/ShoreslateCity/scripts.pory"
+# 394 "data/maps/ShoreslateCity/scripts.pory"
 	.string "I'm sorry, but we have run out of\n"
 	.string "Casteliacones for the day.\p"
 	.string "We should have a new shipment\n"
 	.string "coming in tomorrow.$"
 
 Shoreslate_CasteliaVendor_ThatsShame::
-# 399 "data/maps/ShoreslateCity/scripts.pory"
+# 400 "data/maps/ShoreslateCity/scripts.pory"
 	.string "That's a shame…\p"
 	.string "Well, let me know if you\n"
 	.string "change your mind!$"
 
 Shoreslate_CasteliaVendor_InterestInConesShort::
-# 404 "data/maps/ShoreslateCity/scripts.pory"
+# 405 "data/maps/ShoreslateCity/scripts.pory"
 	.string "Would you like to buy some\n"
 	.string "Casteliacones?\l"
 	.string "One cone costs ¥350 but a pack\l"
 	.string "of 4 costs only ¥1050!$"
 
 Shoreslate_CasteliaVendor_InterestInCones::
-# 410 "data/maps/ShoreslateCity/scripts.pory"
+# 411 "data/maps/ShoreslateCity/scripts.pory"
 	.string "I have recently acquired the coolest\n"
 	.string "commodity all the way from Unova.\p"
 	.string "That's right! It's everyone's favorite\n"
@@ -768,36 +770,36 @@ Shoreslate_CasteliaVendor_InterestInCones::
 	.string "of 4 costs only ¥1050!$"
 
 NotRoomForCastelias::
-# 420 "data/maps/ShoreslateCity/scripts.pory"
+# 421 "data/maps/ShoreslateCity/scripts.pory"
 	.string "I'm sorry, but you don't have room\n"
 	.string "to carry any more Casteliacones…$"
 
 NotMoneyForCastelias::
-# 424 "data/maps/ShoreslateCity/scripts.pory"
+# 425 "data/maps/ShoreslateCity/scripts.pory"
 	.string "I'm sorry, but you can't afford that…$"
 
 ShoreSlate_NotGettingThrough::
-# 459 "data/maps/ShoreslateCity/scripts.pory"
+# 460 "data/maps/ShoreslateCity/scripts.pory"
 	.string "Back off, pal.\n"
 	.string "Nobody's going through here.\l"
 	.string "This is your last and only warning!$"
 
 ShoreSlate_RocketStop::
-# 475 "data/maps/ShoreslateCity/scripts.pory"
+# 476 "data/maps/ShoreslateCity/scripts.pory"
 	.string "The offices are closed. By the boss's\n"
 	.string "orders, nobody is allowed to enter.$"
 
 ShoreSlate_RocketWontStop::
-# 479 "data/maps/ShoreslateCity/scripts.pory"
+# 480 "data/maps/ShoreslateCity/scripts.pory"
 	.string "Guh…\n"
 	.string "How could this happen…$"
 
 ShoreSlate_YouDeaf::
-# 483 "data/maps/ShoreslateCity/scripts.pory"
+# 484 "data/maps/ShoreslateCity/scripts.pory"
 	.string "I warned you!$"
 
 ShoreSlateRocketDefeat::
-# 486 "data/maps/ShoreslateCity/scripts.pory"
+# 487 "data/maps/ShoreslateCity/scripts.pory"
 	.string "What do I do…\p"
 	.string "The boss is definitely going\n"
 	.string "to be mad…$"
