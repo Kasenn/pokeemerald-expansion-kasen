@@ -354,11 +354,192 @@ bool8 FldEff_CutGrass(void)
     return FALSE;
 }
 
+static s32 GetRoute18GrassMetatile(s32 metatileId, bool8 seedDrop)
+{
+    if (seedDrop)
+    {
+        sCutGrassSeedDrops++;
+        switch (metatileId)
+        {
+        case 0x206: return 0x2BC;
+        case 0x207: return 0x2CB;
+        case 0x21D: return 0x2BB;
+        case 0x225: return 0x2C3;
+        case 0x226: return 0x2C4;
+        case 0x227: return 0x2C6;
+        case 0x27C: return 0x2C7;
+        case 0x27E: return 0x2BD;
+        case 0x27F: return 0x2C5;
+        }
+    }
+    else
+    {
+        switch (metatileId)
+        {
+        case 0x206: return 0x2BC;
+        case 0x207: return 0x2CB;
+        case 0x21D: return 0x2BB;
+        case 0x225: return 0x2C3;
+        case 0x226: return 0x2C4;
+        case 0x227: return 0x2C6;
+        case 0x27C: return 0x2C7;
+        case 0x27E: return 0x2BD;
+        case 0x27F: return 0x2C5;
+        }
+    }
+    return 0;
+}
+
+static s32 GetWindyWoodsGrassMetatile(s32 metatileId, bool8 seedDrop)
+{
+    if (seedDrop)
+    {
+        sCutGrassSeedDrops++;
+        switch (metatileId)
+        {
+        case METATILE_General_TallGrass: return METATILE_General_SeedDrop;
+        case 0x270: return 0x338;
+        case 0x271: return 0x339;
+        case 0x273: return 0x33A;
+        case 0x274: return 0x33B;
+        case 0x276: return 0x33C;
+        case 0x277: return 0x33D;
+        }
+    }
+    else
+    {
+        switch (metatileId)
+        {
+        case METATILE_General_TallGrass: return METATILE_General_Grass;
+        case 0x270: return 0x278;
+        case 0x271: return 0x279;
+        case 0x273: return 0x27B;
+        case 0x274: return 0x27C;
+        case 0x276: return 0x27E;
+        case 0x277: return 0x27F;
+        }
+    }
+    return 0;
+}
+
+static s32 GetPearlwoodGrassMetatile(s32 metatileId, bool8 seedDrop)
+{
+    if (seedDrop)
+    {
+        sCutGrassSeedDrops++;
+        switch (metatileId)
+        {
+        case METATILE_General_TallGrass: return METATILE_General_SeedDrop;
+        case METATILE_Pearlwood_Secondary_Pearlwood_TallGrass: return METATILE_General_SeedDrop;
+        case METATILE_Pearlwood_Secondary_Pearlwood_TallGrassTreeLeft: return 0x3BC;
+        case METATILE_Pearlwood_Secondary_Pearlwood_TallGrassTreeRight: return 0x3BD;
+        case 0x3A2: return 0x3BA;
+        case 0x3A3: return 0x3BB;
+        case 0x39A: return 0x3B8;
+        case 0x39B: return 0x3B9;
+        }
+    }
+    else
+    {
+        switch (metatileId)
+        {
+        case METATILE_General_TallGrass: return METATILE_General_Grass;
+        case METATILE_Pearlwood_Secondary_Pearlwood_TallGrass: return METATILE_General_Grass;
+        case METATILE_Pearlwood_Secondary_Pearlwood_TallGrassTreeLeft: return 0x31C;
+        case METATILE_Pearlwood_Secondary_Pearlwood_TallGrassTreeRight: return 0x31D;
+        case 0x3A2: return 0x31A;
+        case 0x3A3: return 0x31B;
+        case 0x39A: return 0x318;
+        case 0x39B: return 0x319;
+        }
+    }
+    return 0;
+}
+
+static s32 GetSafariMountainGrassMetatile(s32 metatileId, bool8 seedDrop)
+{
+    if (seedDrop)
+    {
+        sCutGrassSeedDrops++;
+        switch (metatileId)
+        {
+        case 0x20A: return 0x20B;
+        case 0x3B4: return 0x3B6;
+        }
+    }
+    else
+    {
+        switch (metatileId)
+        {
+        case 0x20A: return 0x071;
+        case 0x3B4: return 0x3DD;
+        }
+    }
+    return 0;
+}
+
+static s32 GetDesertCliffsGrassMetatile(s32 metatileId, bool8 seedDrop)
+{
+    if (seedDrop)
+    {
+        sCutGrassSeedDrops++;
+        return 0x20B;
+    }
+    return 0x071;
+}
+
+static s32 GetAshGrassMetatile(s32 metatileId, bool8 seedDrop)
+{
+    if (seedDrop)
+    {
+        sCutGrassSeedDrops++;
+        return 0x328;
+    }
+    return METATILE_Lavaridge_LavaField;
+}
+
+static s32 GetGenericGrassMetatile(s32 metatileId, bool8 seedDrop)
+{
+    if (seedDrop)
+    {
+        sCutGrassSeedDrops++;
+        switch (metatileId)
+        {
+        case METATILE_Mauville_LongGrass_Root: return METATILE_General_SeedDrop;
+        case METATILE_Fortree_LongGrass_Root: return METATILE_General_SeedDrop;
+        case METATILE_General_LongGrass: return METATILE_General_SeedDrop;
+        case METATILE_General_TallGrass: return METATILE_General_SeedDrop;
+        case METATILE_General_TallGrass_TreeLeft: return METATILE_General_SeedDropTreeLeft;
+        case METATILE_General_TallGrass_TreeRight: return METATILE_General_SeedDropTreeRight;
+        case METATILE_Mauville_TreeAndGrassRoot: return METATILE_General_Grass_TreeUp;
+        case METATILE_General_TallGrass_TreeUp: return 0x026;
+        }
+    }
+    else
+    {
+        switch (metatileId)
+        {
+        case METATILE_Mauville_LongGrass_Root: return METATILE_General_Grass;
+        case METATILE_Fortree_LongGrass_Root: return METATILE_General_Grass;
+        case METATILE_General_LongGrass: return METATILE_General_Grass;
+        case METATILE_General_TallGrass: return METATILE_General_Grass;
+        case METATILE_General_TallGrass_TreeLeft: return METATILE_General_Grass_TreeLeft;
+        case METATILE_General_TallGrass_TreeRight: return METATILE_General_Grass_TreeRight;
+        case METATILE_Mauville_TreeAndGrassRoot: return METATILE_General_Grass_TreeUp;
+        case METATILE_General_TallGrass_TreeUp: return METATILE_General_Grass_TreeUp;
+        }
+    }
+    return 0;
+}
+
 // set map grid metatile depending on x, y
 static void SetCutGrassMetatile(s16 x, s16 y)
 {
     s32 metatileId = MapGridGetMetatileIdAt(x, y);
+    s32 newMetatileId = 0;
     bool8 seedDrop = FALSE;
+    const struct Tileset *secondary = gMapHeader.mapLayout->secondaryTileset;
+    const struct Tileset *primary = gMapHeader.mapLayout->primaryTileset;
 
     if (sCutGrassSeedDrops < 3){
         if (Random() % 20 == 1) {
@@ -366,251 +547,22 @@ static void SetCutGrassMetatile(s16 x, s16 y)
         }
     }
 
-    if (gMapHeader.mapLayout->secondaryTileset == &gTileset_Route18)
-    {
-        switch (metatileId)
-        {
-        case 0x206:
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, 0x292);
-                sCutGrassSeedDrops++;
-            }
-            else {MapGridSetMetatileIdAt(x, y, 0x2BC);}
-            break;
-        case 0x207:
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, 0x29C);
-                sCutGrassSeedDrops++;
-            }
-            else {MapGridSetMetatileIdAt(x, y, 0x2CB);}
-            break;
-        case 0x21D:
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, 0x291);
-                sCutGrassSeedDrops++;
-            }
-            else {MapGridSetMetatileIdAt(x, y, 0x2BB);}
-            break;
-        case 0x225:
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, 0x299);
-                sCutGrassSeedDrops++;
-            }
-            else {MapGridSetMetatileIdAt(x, y, 0x2C3);}
-            break;
-        case 0x226:
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, 0x29A);
-                sCutGrassSeedDrops++;
-            }
-            else {MapGridSetMetatileIdAt(x, y, 0x2C4);}
-            break;
-        case 0x227:
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, 0x294);
-                sCutGrassSeedDrops++;
-            }
-            else {MapGridSetMetatileIdAt(x, y, 0x2C6);}
-            break;
-        case 0x27C:
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, 0x295);
-                sCutGrassSeedDrops++;
-            }
-            else {MapGridSetMetatileIdAt(x, y, 0x2C7);}
-            break;
-        case 0x27E:
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, 0x293);
-                sCutGrassSeedDrops++;
-            }
-            else {MapGridSetMetatileIdAt(x, y, 0x2BD);}
-            break;
-        case 0x27F:
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, 0x29B);
-                sCutGrassSeedDrops++;
-            }
-            else {MapGridSetMetatileIdAt(x, y, 0x2C5);}
-            break;
-        }
-    }
-
+    if (secondary == &gTileset_Route18)
+        newMetatileId = GetRoute18GrassMetatile(metatileId, seedDrop);
+    else if (secondary == &gTileset_DarkForestSec)
+        newMetatileId = GetWindyWoodsGrassMetatile(metatileId, seedDrop);
+    else if (primary == &gTileset_Summer)
+        newMetatileId = GetPearlwoodGrassMetatile(metatileId, seedDrop);
+    else if (MAP(MAP_SAFARI_ZONE_MOUNTAIN))
+        newMetatileId = GetSafariMountainGrassMetatile(metatileId, seedDrop);
+    else if (MAP(MAP_DESERT_CLIFFS))
+        newMetatileId = GetDesertCliffsGrassMetatile(metatileId, seedDrop);
+    else if (MAP(MAP_ROUTE16))
+        newMetatileId = GetAshGrassMetatile(metatileId, seedDrop);
     else
-    {
-        switch (metatileId)
-        {
-        // default grass
-        case METATILE_Mauville_LongGrass_Root:      // 0x2A3
-        case METATILE_Fortree_LongGrass_Root:       // 0x208
-        case METATILE_General_LongGrass:            // 0x015
-        case METATILE_General_TallGrass:            // 0x00D
-        case METATILE_Pearlwood_Secondary_Pearlwood_TallGrass:  // 0x295
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, METATILE_General_SeedDrop);            // 0x077
-                sCutGrassSeedDrops++;
-            }
-            else
-                MapGridSetMetatileIdAt(x, y, METATILE_General_Grass);               // 0x001
-            break;
-        case METATILE_General_TallGrass_TreeLeft:                                   // 0x1C6
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, METATILE_General_SeedDropTreeLeft);    // 0x07E
-                sCutGrassSeedDrops++;
-            }
-            else
-                MapGridSetMetatileIdAt(x, y, METATILE_General_Grass_TreeLeft);      // 0x1CE
-            break;
-        case METATILE_General_TallGrass_TreeRight:                                  // 0x1C7
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, METATILE_General_SeedDropTreeRight);   // 0x07F
-                sCutGrassSeedDrops++;
-            }
-            else
-                MapGridSetMetatileIdAt(x, y, METATILE_General_Grass_TreeRight);     // 0x1CF
-            break;
+        newMetatileId = GetGenericGrassMetatile(metatileId, seedDrop);
 
-        // pearlwood 3 sets of trees
-        case METATILE_Pearlwood_Secondary_Pearlwood_TallGrassTreeLeft:              // 0x296
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, 0x3BC);
-                sCutGrassSeedDrops++;
-            }
-            else
-                MapGridSetMetatileIdAt(x, y, 0x31C);
-            break;
-        case METATILE_Pearlwood_Secondary_Pearlwood_TallGrassTreeRight:             // 0x297
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, 0x3BD);
-                sCutGrassSeedDrops++;
-            }
-            else
-                MapGridSetMetatileIdAt(x, y, 0x31D);
-            break;
-        case 0x3A2:
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, 0x3BA);
-                sCutGrassSeedDrops++;
-            }
-            else
-                MapGridSetMetatileIdAt(x, y, 0x31A);
-            break;
-        case 0x3A3:
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, 0x3BB);
-                sCutGrassSeedDrops++;
-            }
-            else
-                MapGridSetMetatileIdAt(x, y, 0x31B);
-            break;
-        case 0x39A:
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, 0x3B8);
-                sCutGrassSeedDrops++;
-            }
-            else
-                MapGridSetMetatileIdAt(x, y, 0x318);
-            break;
-        case 0x39B:
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, 0x3B9);
-                sCutGrassSeedDrops++;
-            }
-            else
-                MapGridSetMetatileIdAt(x, y, 0x319);
-            break;
-
-        // windy woods 3 sets of trees
-        case 0x270:
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, 0x338);
-                sCutGrassSeedDrops++;
-            }
-            else
-                MapGridSetMetatileIdAt(x, y, 0x278);
-            break;
-        case 0x271:
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, 0x339);
-                sCutGrassSeedDrops++;
-            }
-            else
-                MapGridSetMetatileIdAt(x, y, 0x279);
-            break;
-        case 0x273:
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, 0x33A);
-                sCutGrassSeedDrops++;
-            }
-            else
-                MapGridSetMetatileIdAt(x, y, 0x27B);
-            break;
-        case 0x274:
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, 0x33B);
-                sCutGrassSeedDrops++;
-            }
-            else
-                MapGridSetMetatileIdAt(x, y, 0x27C);
-            break;
-        case 0x276:
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, 0x33C);
-                sCutGrassSeedDrops++;
-            }
-            else
-                MapGridSetMetatileIdAt(x, y, 0x27E);
-            break;
-        case 0x277:
-            if (seedDrop)
-            {
-                MapGridSetMetatileIdAt(x, y, 0x33D);
-                sCutGrassSeedDrops++;
-            }
-            else
-                MapGridSetMetatileIdAt(x, y, 0x27F);
-            break;
-
-        case 0x20A:
-        case METATILE_DesertCliff_DesertCliffs_TallGrass:                           // 0x3B5
-            MapGridSetMetatileIdAt(x, y, 0x071);
-            break;
-
-        case METATILE_Mauville_TreeAndGrassRoot:                                    // 0x2A4
-            MapGridSetMetatileIdAt(x, y, METATILE_General_Grass_TreeUp);            // 0x00E
-            break;   
-        case METATILE_Lavaridge_NormalGrass:                                        // 0x206
-        case METATILE_Lavaridge_AshGrass:                                           // 0x207
-            MapGridSetMetatileIdAt(x, y, METATILE_Lavaridge_LavaField);             // 0x271
-            break;
-        case METATILE_General_TallGrass_TreeUp:                                     // 0x025
-            MapGridSetMetatileIdAt(x, y, METATILE_General_Grass_TreeUp);            // 0x00E
-            break;
-        }
-    }
+    MapGridSetMetatileIdAt(x, y, newMetatileId);
 }
 
 enum

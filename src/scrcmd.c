@@ -3777,101 +3777,64 @@ void TestPlayerAvatarFlagDebug(void)
     ConvertIntToDecimalStringN(sScriptStringVars[0], gPlayerAvatar.flags, STR_CONV_MODE_LEFT_ALIGN, 3);
 }
 
+static s32 GetRoute18CleanMetatile(s32 metatileId)
+{
+    switch (metatileId)
+    {
+        case 0x292: return 0x2BC;
+        case 0x29C: return 0x2CB;
+        case 0x291: return 0x2BB;
+        case 0x299: return 0x2C3;
+        case 0x29A: return 0x2C4;
+        case 0x294: return 0x2C6;
+        case 0x295: return 0x2C7;
+        case 0x293: return 0x2BD;
+        case 0x29B: return 0x2C5;
+        default: return 0x000;
+    }
+}
+
+static s32 GetCleanMetatile(s32 metatileId)
+{
+    switch (metatileId)
+    {
+        case METATILE_General_SeedDrop: return METATILE_General_Grass;
+        case METATILE_General_SeedDropTreeLeft: return METATILE_General_Grass_TreeLeft;
+        case METATILE_General_SeedDropTreeRight: return METATILE_General_Grass_TreeRight;
+        case 0x3BC: return 0x31C;
+        case 0x3BD: return 0x31D;
+        case 0x3BA: return 0x31A;
+        case 0x3BB: return 0x31B;
+        case 0x3B8: return 0x318;
+        case 0x3B9: return 0x319;
+        case 0x338: return 0x278;
+        case 0x339: return 0x279;
+        case 0x33A: return 0x27B;
+        case 0x33B: return 0x27C;
+        case 0x33C: return 0x27E;
+        case 0x33D: return 0x27F;
+        case 0x328: return 0x271;
+        case 0x20B: return 0x071;
+        case 0x3B6: return 0x3DD;
+        case 0x026: return METATILE_General_Grass_TreeUp;
+        default: return 0x000;
+    }
+}
+
 void RevertSeedDropMetatile(void)
 {
     s16 x, y;
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
 
     s32 metatileId = MapGridGetMetatileIdAt(x, y);
+    s32 newMetatileId = 0;
 
     if (gMapHeader.mapLayout->secondaryTileset == &gTileset_Route18)
-    {
-        switch (metatileId)
-        {
-        case 0x292:
-            MapGridSetMetatileIdAt(x, y, 0x2BC);
-            break;
-        case 0x29C:
-            MapGridSetMetatileIdAt(x, y, 0x2CB);
-            break;
-        case 0x291:
-            MapGridSetMetatileIdAt(x, y, 0x2BB);
-            break;
-        case 0x299:
-            MapGridSetMetatileIdAt(x, y, 0x2C3);
-            break;
-        case 0x29A:
-            MapGridSetMetatileIdAt(x, y, 0x2C4);
-            break;
-        case 0x294:
-            MapGridSetMetatileIdAt(x, y, 0x2C6);
-            break;
-        case 0x295:
-            MapGridSetMetatileIdAt(x, y, 0x2C7);
-            break;
-        case 0x293:
-            MapGridSetMetatileIdAt(x, y, 0x2BD);
-            break;
-        case 0x29B:
-            MapGridSetMetatileIdAt(x, y, 0x2C5);
-            break;
-        default:
-            MapGridSetMetatileIdAt(x, y, 0x000);
-            break;
-        }
-    }
-
+        newMetatileId = GetRoute18CleanMetatile(metatileId);
     else
-    {
-        switch (metatileId)
-        {
-        case METATILE_General_SeedDrop:
-            MapGridSetMetatileIdAt(x, y, METATILE_General_Grass);
-            break;
-        case METATILE_General_SeedDropTreeLeft:
-            MapGridSetMetatileIdAt(x, y, METATILE_General_Grass_TreeLeft);
-            break;
-        case METATILE_General_SeedDropTreeRight:
-            MapGridSetMetatileIdAt(x, y, METATILE_General_Grass_TreeRight);
-            break;
-        case 0x3BC:
-            MapGridSetMetatileIdAt(x, y, 0x31C);
-            break;
-        case 0x3BD: 
-            MapGridSetMetatileIdAt(x, y, 0x31D);
-            break;
-        case 0x3BA:
-            MapGridSetMetatileIdAt(x, y, 0x31A);
-            break;
-        case 0x3BB:
-            MapGridSetMetatileIdAt(x, y, 0x31B);
-            break;
-        case 0x3B8:
-            MapGridSetMetatileIdAt(x, y, 0x318);
-            break;
-        case 0x3B9:
-            MapGridSetMetatileIdAt(x, y, 0x319);
-            break;
-        case 0x338:
-            MapGridSetMetatileIdAt(x, y, 0x278);
-            break;
-        case 0x339:
-            MapGridSetMetatileIdAt(x, y, 0x279);
-            break;
-        case 0x33A:
-            MapGridSetMetatileIdAt(x, y, 0x27B);
-            break;
-        case 0x33B:
-            MapGridSetMetatileIdAt(x, y, 0x27C);
-            break;
-        case 0x33C:
-            MapGridSetMetatileIdAt(x, y, 0x27E);
-            break;
-        case 0x33D:
-            MapGridSetMetatileIdAt(x, y, 0x27F);
-            break;
-        }
-    }
+        newMetatileId = GetCleanMetatile(metatileId);
+
+    MapGridSetMetatileIdAt(x, y, newMetatileId);
 }
 
 void FixGrottoHiddenAbility(void)
