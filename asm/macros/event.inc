@@ -2596,17 +2596,17 @@
 	@ Warp commands can be given either the id of which warp location to go to on the destination map
 	@ or a pair of x/y coordinates to go to directly on the destination map.
 	.macro warpholexy map:req, a, b, c
-	.byte SCR_OP_WARPHOLEXY
+	callnative ScrCmd_warpholexy
 	formatwarp \map, \a, \b, \c
 	.endm
 
-	@ Checks the player's party for the specified 'species'.
-	@ If 'partynumber' is set to '1', checks only for the first Pokemon in the party.
-	@ Sets VAR_RESULT as TRUE/FALSE whether the 'species' is found.
-	.macro checkpartymon species:req, partynumber:req
-	.byte SCR_OP_CHECKPARTYMON
+	@ Checks the player's party for the specified species.
+	@ If 'leadmononly' is set to 'TRUE', checks only for the first Pokemon in the party.
+	@ Sets VAR_RESULT as TRUE/FALSE whether the species is found, and stores the slot of the Pokemon in VAR_0x8000.
+	.macro checkpartymon species:req, leadmononly:req
+	callnative ScrCmd_checkpartymon
 	.2byte \species
-	.byte \partynumber
+	.byte \leadmononly
 	.endm
 
 	@ Checks if the player has caught the specified Pokemon. Sets VAR_RESULT to TRUE if the player has
@@ -2630,10 +2630,25 @@
 	.2byte \monLevel
 	.endm
 
-	@ buffers the name of the type to the specied string variable.
+	@ buffers the name of the type to the specified string variable.
 	.macro buffertypename stringVarId:req, type:req
 	callnative ScrCmd_buffertypename
 	stringvar \stringVarId
+	.2byte \type
+	.endm
+
+	@ Stores the hidden power type of a Pokemon to VAR_0x8000
+	@ and buffers the name of the type to the specified string variable.
+	@ Use together with a special like ChoosePartyMon.
+	.macro gethiddenpowertype stringVarId:req
+	callnative ScrCmd_gethiddenpowertype
+	stringvar \stringVarId
+	.endm
+
+	@ Checks if a Pokemon of the specified type is in the party.
+	@ Sets VAR_RESULT as TRUE/FALSE and VAR_0x8000 to the party slot of the matching Pokemon.
+	.macro istypeinparty type:req
+	callnative ScrCmd_IsTypeInParty
 	.2byte \type
 	.endm
 	
@@ -2651,7 +2666,7 @@
 	.endm
 
 
-	@ set trainer defeated and give winning money and BP
+	@ set trainer defeated and give winning money and exp
 	.macro defeattrainer trainer:req
 	callnative ScrCmd_DefeatTrainer
 	.2byte \trainer
@@ -2702,9 +2717,8 @@
 	formatwarp \map, \a, \b, \c
 	.endm
 
-	@ Attempts to despawn the specified (localId) object on the specified map.
-	@ It also sets the object's visibility flag if it has one.
-	@ If no map is specified, then the current map is used.
+	@ Attempts to remove all objects on the current map with the specified flag.
+	@ Also sets the flag.
 	.macro removeobjectbyflag flag:req
 	callnative ScrCmd_removeobjectbyflag
 	.2byte \flag
@@ -2716,9 +2730,12 @@
 	.2byte \level
 	.endm
 
-	@checks if the mon is high enough level for hyper trainerbattle_single
-	.macro checkhypertraininglevel level:req
-	callnative ScrCmd_IsSelectedMonRequiredLevel
+	@ Checks if the chosen Pokemon matches the required level.
+	@ Use together with special ChoosePartyMon for example.
+	@ Sets VAR_RESULT to TRUE if Pokemon is same level or higher than the specified level,
+	@ and records the Pokemon's level to VAR_0x8000.
+	.macro checkmonlevel level:req
+	callnative ScrCmd_checkmonlevel
 	.2byte \level
 	.endm
 

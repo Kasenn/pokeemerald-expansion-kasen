@@ -1318,8 +1318,9 @@ void IsGrassTypeInParty(void)
     gSpecialVar_Result = FALSE;
 }
 
-void IsTypeInParty(void)
+bool8 ScrCmd_IsTypeInParty(struct ScriptContext *ctx)
 {
+    u16 type = VarGet(ScriptReadHalfword(ctx));
     u8 i;
     u16 species;
     struct Pokemon *pokemon;
@@ -1329,14 +1330,17 @@ void IsTypeInParty(void)
         if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
         {
             species = GetMonData(pokemon, MON_DATA_SPECIES);
-            if (gSpeciesInfo[species].types[0] == gSpecialVar_0x8004 || gSpeciesInfo[species].types[1] == gSpecialVar_0x8004)
+            if (gSpeciesInfo[species].types[0] == type || gSpeciesInfo[species].types[1] == type)
             {
                 gSpecialVar_Result = TRUE;
-                return;
+                gSpecialVar_0x8000 = i;
+                return TRUE;
             }
         }
     }
     gSpecialVar_Result = FALSE;
+    gSpecialVar_0x8000 = PARTY_SIZE;
+    return FALSE;
 }
 
 void IsFireTypeInParty(void)

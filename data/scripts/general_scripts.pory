@@ -525,10 +525,20 @@ script Debug_Script_1{              // Set team level
     end
     }
 script Debug_Script_2{              // 
-    setvar(VAR_0x8005, 999)
-    msgbox("How many minutes should pass\nevery second?", MSGBOX_HOWMANY)
-    copyvar(VAR_TIME_CONTROL, VAR_RESULT)
-    subvar(VAR_TIME_CONTROL, 1)
+    if(flag(FLAG_PERMA_NIGHT)){
+        msgbox("Would you like to turn off\nthe permanent night?", MSGBOX_YESNO)
+        if(var(VAR_RESULT) == TRUE){
+            msgbox("Setting time back to normal.", MSGBOX_AUTOCLOSE)
+            clearflag(FLAG_PERMA_NIGHT)
+        }
+    }
+    else{
+        msgbox("Would you like to turn on\nthe permanent night?", MSGBOX_YESNO)
+        if(var(VAR_RESULT) == TRUE){
+            msgbox("Setting time to permanent night.", MSGBOX_AUTOCLOSE)
+            setflag(FLAG_PERMA_NIGHT)
+        }
+    }
     release
     return
 }

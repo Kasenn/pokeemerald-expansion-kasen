@@ -191,7 +191,7 @@ static const struct DoorAnimFrame sBigDoorCloseAnimFrames[] =
 #define TOP4_DIFF(val1,val2) val1, val1, val1, val1, val2, val2, val2, val2
 
 static const u8 sDoorAnimPalettes_General[]                 = {ALL_SAME(1)};
-static const u8 sDoorAnimPalettes_General2[]                = {TOP2_DIFF(8, 5)};
+static const u8 sDoorAnimPalettes_General2[]                = {TOP2_DIFF(6, 5)};
 static const u8 sDoorAnimPalettes_Amberock[]                = {ALL_SAME(5)};
 static const u8 sDoorAnimPalettes_DrapeDoor[]               = {ALL_SAME(11)};
 static const u8 sDoorAnimPalettes_Sandstone[]               = {ALL_SAME(10)};

@@ -29,7 +29,7 @@ script Frosthearth_HyperTraining_Guru{
         msgbox(NotInterestedInHyperTraining, MSGBOX_AUTOCLOSE)
         end
     }
-    checkhypertraininglevel(50)
+    checkmonlevel(50)
     if(var(VAR_RESULT) == SPECIES_EGG){
         msgbox(SelectedMonIsEgg, MSGBOX_AUTOCLOSE)
         end
@@ -406,8 +406,7 @@ script Frosthearth_TypeChecker{
         end
     }
     msgbox(LookingForType)
-    copyvar(VAR_0x8004, VAR_FROSTHEARTH_TYPE_CHECK)
-    special(IsTypeInParty)
+    istypeinparty(VAR_FROSTHEARTH_TYPE_CHECK)
     if(var(VAR_RESULT) == FALSE){
         release
         if(!flag(FLAG_Q41_FROSTHEARTH_TYPEMON_START)){

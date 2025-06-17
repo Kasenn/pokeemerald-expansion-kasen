@@ -295,7 +295,6 @@ gSpecials::
 	def_special TryUpdateRusturfTunnelState
 	def_special IsGrassTypeInParty
 	def_special IsFireTypeInParty
-	def_special IsTypeInParty
 	def_special DoContestHallWarp
 	def_special LoadWallyZigzagoon
 	def_special IsStarterInParty
@@ -481,7 +480,6 @@ gSpecials::
 	def_special Script_GetChosenMonDefensiveIVs
 	def_special NameBrother
 	def_special SetDrisledgeWeather
-	def_special ReadMonHiddenPowerType
 	def_special UseBlankMessageToCancelPokemonPic
 	def_special EnterCode
 	def_special GetCodeFeedback

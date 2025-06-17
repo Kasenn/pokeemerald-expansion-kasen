@@ -56,7 +56,7 @@ script Amberock_House3_HPChecker{
         release
         end
     }
-    special(ReadMonHiddenPowerType)
+    gethiddenpowertype(STR_VAR_3)
     special(BufferMonNickname)
     setflag(FLAG_TEMP_1)
     msgbox(YourMonHPis)

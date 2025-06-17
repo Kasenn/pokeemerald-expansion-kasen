@@ -29,7 +29,7 @@ Frosthearth_HyperTraining_Guru_7:
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
 	goto_if_eq Frosthearth_HyperTraining_Guru_11
 # 32 "data/maps/FrosthearthCity_House1/scripts.pory"
-	checkhypertraininglevel 50
+	checkmonlevel 50
 # 33 "data/maps/FrosthearthCity_House1/scripts.pory"
 	compare VAR_RESULT, SPECIES_EGG
 	goto_if_eq Frosthearth_HyperTraining_Guru_16
@@ -679,62 +679,60 @@ Frosthearth_TypeChecker_1:
 # 408 "data/maps/FrosthearthCity_House1/scripts.pory"
 	msgbox LookingForType
 # 409 "data/maps/FrosthearthCity_House1/scripts.pory"
-	copyvar VAR_0x8004, VAR_FROSTHEARTH_TYPE_CHECK
+	istypeinparty VAR_FROSTHEARTH_TYPE_CHECK
 # 410 "data/maps/FrosthearthCity_House1/scripts.pory"
-	special IsTypeInParty
-# 411 "data/maps/FrosthearthCity_House1/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq Frosthearth_TypeChecker_11
-# 419 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 418 "data/maps/FrosthearthCity_House1/scripts.pory"
 	msgbox YouHaveTypeInParty
-# 420 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 419 "data/maps/FrosthearthCity_House1/scripts.pory"
 	switch VAR_FROSTHEARTH_TYPE_CHECK
-# 421 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 420 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case TYPE_NORMAL, Frosthearth_TypeChecker_15
-# 423 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 422 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case TYPE_FIGHTING, Frosthearth_TypeChecker_16
-# 425 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 424 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case TYPE_FLYING, Frosthearth_TypeChecker_17
-# 427 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 426 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case TYPE_POISON, Frosthearth_TypeChecker_18
-# 429 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 428 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case TYPE_GROUND, Frosthearth_TypeChecker_19
-# 431 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 430 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case TYPE_ROCK, Frosthearth_TypeChecker_20
-# 433 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 432 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case TYPE_BUG, Frosthearth_TypeChecker_21
-# 435 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 434 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case TYPE_GHOST, Frosthearth_TypeChecker_22
-# 437 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 436 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case TYPE_STEEL, Frosthearth_TypeChecker_23
-# 439 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 438 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case TYPE_FIRE, Frosthearth_TypeChecker_24
-# 441 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 440 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case TYPE_WATER, Frosthearth_TypeChecker_25
-# 443 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 442 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case TYPE_GRASS, Frosthearth_TypeChecker_26
-# 445 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 444 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case TYPE_ELECTRIC, Frosthearth_TypeChecker_27
-# 447 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 446 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case TYPE_PSYCHIC, Frosthearth_TypeChecker_28
-# 449 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 448 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case TYPE_ICE, Frosthearth_TypeChecker_29
-# 451 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 450 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case TYPE_DRAGON, Frosthearth_TypeChecker_30
-# 453 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 452 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case TYPE_DARK, Frosthearth_TypeChecker_31
-# 455 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 454 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case TYPE_FAIRY, Frosthearth_TypeChecker_32
 Frosthearth_TypeChecker_13:
-# 458 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 457 "data/maps/FrosthearthCity_House1/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq Frosthearth_TypeChecker_37
 Frosthearth_TypeChecker_36:
-# 461 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 460 "data/maps/FrosthearthCity_House1/scripts.pory"
 	setflag FLAG_DAILY_FROSTHEARTH_TYPE_CHECK
-# 462 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 461 "data/maps/FrosthearthCity_House1/scripts.pory"
 	release
-# 463 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 462 "data/maps/FrosthearthCity_House1/scripts.pory"
 	goto_if_set FLAG_Q41_FROSTHEARTH_TYPEMON_START, Frosthearth_TypeChecker_41
 Frosthearth_TypeChecker_39:
 	end
@@ -750,239 +748,239 @@ Frosthearth_TypeChecker_8:
 	end
 
 Frosthearth_TypeChecker_11:
-# 412 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 411 "data/maps/FrosthearthCity_House1/scripts.pory"
 	release
-# 413 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 412 "data/maps/FrosthearthCity_House1/scripts.pory"
 	goto_if_unset FLAG_Q41_FROSTHEARTH_TYPEMON_START, Frosthearth_TypeChecker_34
 Frosthearth_TypeChecker_33:
 	end
 
 Frosthearth_TypeChecker_15:
-# 422 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 421 "data/maps/FrosthearthCity_House1/scripts.pory"
 	giveitem ITEM_NORMAL_GEM
 	goto Frosthearth_TypeChecker_13
 
 Frosthearth_TypeChecker_16:
-# 424 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 423 "data/maps/FrosthearthCity_House1/scripts.pory"
 	giveitem ITEM_FIGHTING_GEM
 	goto Frosthearth_TypeChecker_13
 
 Frosthearth_TypeChecker_17:
-# 426 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 425 "data/maps/FrosthearthCity_House1/scripts.pory"
 	giveitem ITEM_FLYING_GEM
 	goto Frosthearth_TypeChecker_13
 
 Frosthearth_TypeChecker_18:
-# 428 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 427 "data/maps/FrosthearthCity_House1/scripts.pory"
 	giveitem ITEM_POISON_GEM
 	goto Frosthearth_TypeChecker_13
 
 Frosthearth_TypeChecker_19:
-# 430 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 429 "data/maps/FrosthearthCity_House1/scripts.pory"
 	giveitem ITEM_GROUND_GEM
 	goto Frosthearth_TypeChecker_13
 
 Frosthearth_TypeChecker_20:
-# 432 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 431 "data/maps/FrosthearthCity_House1/scripts.pory"
 	giveitem ITEM_ROCK_GEM
 	goto Frosthearth_TypeChecker_13
 
 Frosthearth_TypeChecker_21:
-# 434 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 433 "data/maps/FrosthearthCity_House1/scripts.pory"
 	giveitem ITEM_BUG_GEM
 	goto Frosthearth_TypeChecker_13
 
 Frosthearth_TypeChecker_22:
-# 436 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 435 "data/maps/FrosthearthCity_House1/scripts.pory"
 	giveitem ITEM_GHOST_GEM
 	goto Frosthearth_TypeChecker_13
 
 Frosthearth_TypeChecker_23:
-# 438 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 437 "data/maps/FrosthearthCity_House1/scripts.pory"
 	giveitem ITEM_STEEL_GEM
 	goto Frosthearth_TypeChecker_13
 
 Frosthearth_TypeChecker_24:
-# 440 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 439 "data/maps/FrosthearthCity_House1/scripts.pory"
 	giveitem ITEM_FIRE_GEM
 	goto Frosthearth_TypeChecker_13
 
 Frosthearth_TypeChecker_25:
-# 442 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 441 "data/maps/FrosthearthCity_House1/scripts.pory"
 	giveitem ITEM_WATER_GEM
 	goto Frosthearth_TypeChecker_13
 
 Frosthearth_TypeChecker_26:
-# 444 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 443 "data/maps/FrosthearthCity_House1/scripts.pory"
 	giveitem ITEM_GRASS_GEM
 	goto Frosthearth_TypeChecker_13
 
 Frosthearth_TypeChecker_27:
-# 446 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 445 "data/maps/FrosthearthCity_House1/scripts.pory"
 	giveitem ITEM_ELECTRIC_GEM
 	goto Frosthearth_TypeChecker_13
 
 Frosthearth_TypeChecker_28:
-# 448 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 447 "data/maps/FrosthearthCity_House1/scripts.pory"
 	giveitem ITEM_PSYCHIC_GEM
 	goto Frosthearth_TypeChecker_13
 
 Frosthearth_TypeChecker_29:
-# 450 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 449 "data/maps/FrosthearthCity_House1/scripts.pory"
 	giveitem ITEM_ICE_GEM
 	goto Frosthearth_TypeChecker_13
 
 Frosthearth_TypeChecker_30:
-# 452 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 451 "data/maps/FrosthearthCity_House1/scripts.pory"
 	giveitem ITEM_DRAGON_GEM
 	goto Frosthearth_TypeChecker_13
 
 Frosthearth_TypeChecker_31:
-# 454 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 453 "data/maps/FrosthearthCity_House1/scripts.pory"
 	giveitem ITEM_DARK_GEM
 	goto Frosthearth_TypeChecker_13
 
 Frosthearth_TypeChecker_32:
-# 456 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 455 "data/maps/FrosthearthCity_House1/scripts.pory"
 	giveitem ITEM_FAIRY_GEM
 	goto Frosthearth_TypeChecker_13
 
 Frosthearth_TypeChecker_34:
-# 414 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 413 "data/maps/FrosthearthCity_House1/scripts.pory"
 	startquest FLAG_Q41_FROSTHEARTH_TYPEMON_START
-# 415 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 414 "data/maps/FrosthearthCity_House1/scripts.pory"
 	special ShowJournalPopupAdd
 	goto Frosthearth_TypeChecker_33
 
 Frosthearth_TypeChecker_37:
-# 459 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 458 "data/maps/FrosthearthCity_House1/scripts.pory"
 	goto ZeBagIsFull
 	goto Frosthearth_TypeChecker_36
 
 Frosthearth_TypeChecker_40:
-# 464 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 463 "data/maps/FrosthearthCity_House1/scripts.pory"
 	completequest FLAG_Q41_FROSTHEARTH_TYPEMON_COMPLETE
-# 465 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 464 "data/maps/FrosthearthCity_House1/scripts.pory"
 	special ShowJournalPopupRemove
 	goto Frosthearth_TypeChecker_39
 
 Frosthearth_TypeChecker_41:
-# 463 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 462 "data/maps/FrosthearthCity_House1/scripts.pory"
 	goto_if_unset FLAG_Q41_FROSTHEARTH_TYPEMON_COMPLETE, Frosthearth_TypeChecker_40
 	goto Frosthearth_TypeChecker_39
 
 
 Frosthearth_House2_Man::
-# 490 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 489 "data/maps/FrosthearthCity_House1/scripts.pory"
 	msgbox Frosthearth_House2_Man_Text, MSGBOX_NPC
 	return
 
 
 Frosthearth_House2_Woman::
-# 493 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 492 "data/maps/FrosthearthCity_House1/scripts.pory"
 	msgbox Frosthearth_House2_Woman_Text, MSGBOX_NPC
 	return
 
 
 Frosthearth_House4_Woman::
-# 509 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 508 "data/maps/FrosthearthCity_House1/scripts.pory"
 	msgbox Frosthearth_House4_Woman_Text, MSGBOX_NPC
 	return
 
 
 Frosthearth_Harbor_Sailor::
-# 520 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 519 "data/maps/FrosthearthCity_House1/scripts.pory"
 	msgbox Frosthearth_Harbor_Sailor_Text, MSGBOX_NPC
 	return
 
 
 Frosthearth_Harbor_OldWoman::
-# 523 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 522 "data/maps/FrosthearthCity_House1/scripts.pory"
 	msgbox Frosthearth_Harbor_OldWoman_Text, MSGBOX_NPC
 	return
 
 
 FrosthearthHarbor_Attendant::
-# 542 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 541 "data/maps/FrosthearthCity_House1/scripts.pory"
 	lock
-# 543 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 542 "data/maps/FrosthearthCity_House1/scripts.pory"
 	faceplayer
 	msgbox Frosthearth_Text_GetAboard, MSGBOX_YESNO
 # 0 "data/maps/FrosthearthCity_House1/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq FrosthearthHarbor_Attendant_2
 FrosthearthHarbor_Attendant_1:
-# 547 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 546 "data/maps/FrosthearthCity_House1/scripts.pory"
 	message FrosthearthHarbor_Attendant_Text_0
-# 548 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 547 "data/maps/FrosthearthCity_House1/scripts.pory"
 	waitmessage
-# 549 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 548 "data/maps/FrosthearthCity_House1/scripts.pory"
 	dynmultichoice 23, 0, FALSE, 4, 0, 0, FrosthearthHarbor_Attendant_Text_1, FrosthearthHarbor_Attendant_Text_2, FrosthearthHarbor_Attendant_Text_3, FrosthearthHarbor_Attendant_Text_4, FrosthearthHarbor_Attendant_Text_5, SelectHyperTraining_Text_2
-# 550 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 549 "data/maps/FrosthearthCity_House1/scripts.pory"
 	switch VAR_RESULT
-# 551 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 550 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case 0, FrosthearthHarbor_Attendant_6
-# 554 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 553 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case 1, FrosthearthHarbor_Attendant_7
-# 557 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 556 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case 2, FrosthearthHarbor_Attendant_8
-# 560 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 559 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case 3, FrosthearthHarbor_Attendant_9
-# 563 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 562 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case 4, FrosthearthHarbor_Attendant_10
-# 566 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 565 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case 5, FrosthearthHarbor_Attendant_11
-# 567 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 566 "data/maps/FrosthearthCity_House1/scripts.pory"
 	case MULTI_B_PRESSED, FrosthearthHarbor_Attendant_11
 FrosthearthHarbor_Attendant_4:
-# 570 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 569 "data/maps/FrosthearthCity_House1/scripts.pory"
 	waitstate
-# 571 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 570 "data/maps/FrosthearthCity_House1/scripts.pory"
 	release
 	end
 
 FrosthearthHarbor_Attendant_2:
-# 545 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 544 "data/maps/FrosthearthCity_House1/scripts.pory"
 	goto Harbor_ComeAgain
 	goto FrosthearthHarbor_Attendant_1
 
 FrosthearthHarbor_Attendant_6:
-# 552 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 551 "data/maps/FrosthearthCity_House1/scripts.pory"
 	call Harbor_BoardFerryGoingEast
-# 553 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 552 "data/maps/FrosthearthCity_House1/scripts.pory"
 	warp MAP_CORALGROVE_HARVOR_INTERIOR, 7, 10
 	goto FrosthearthHarbor_Attendant_4
 
 FrosthearthHarbor_Attendant_7:
-# 555 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 554 "data/maps/FrosthearthCity_House1/scripts.pory"
 	call Harbor_BoardFerryGoingEast
-# 556 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 555 "data/maps/FrosthearthCity_House1/scripts.pory"
 	warp MAP_COAST_TOWN_HARBOR, 16, 10
 	goto FrosthearthHarbor_Attendant_4
 
 FrosthearthHarbor_Attendant_8:
-# 558 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 557 "data/maps/FrosthearthCity_House1/scripts.pory"
 	call Harbor_BoardFerryGoingEast
-# 559 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 558 "data/maps/FrosthearthCity_House1/scripts.pory"
 	warp MAP_SHORESLATE_HARBOR, 16, 10
 	goto FrosthearthHarbor_Attendant_4
 
 FrosthearthHarbor_Attendant_9:
-# 561 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 560 "data/maps/FrosthearthCity_House1/scripts.pory"
 	call Harbor_BoardFerryGoingEast
-# 562 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 561 "data/maps/FrosthearthCity_House1/scripts.pory"
 	warp MAP_KAOLISLE_HARBOR, 7, 10
 	goto FrosthearthHarbor_Attendant_4
 
 FrosthearthHarbor_Attendant_10:
-# 564 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 563 "data/maps/FrosthearthCity_House1/scripts.pory"
 	call Harbor_BoardFerryGoingEast
-# 565 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 564 "data/maps/FrosthearthCity_House1/scripts.pory"
 	warp MAP_ROCKLIFFE_HARBOR, 8, 3
 	goto FrosthearthHarbor_Attendant_4
 
 FrosthearthHarbor_Attendant_11:
-# 568 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 567 "data/maps/FrosthearthCity_House1/scripts.pory"
 	goto Harbor_ComeAgain
 	goto FrosthearthHarbor_Attendant_4
 
@@ -1068,27 +1066,27 @@ Frosthearth_TypeChecker_Text_1:
 	.string "a$"
 
 FrosthearthHarbor_Attendant_Text_0:
-# 547 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 546 "data/maps/FrosthearthCity_House1/scripts.pory"
 	.string "Where would you like to sail?$"
 
 FrosthearthHarbor_Attendant_Text_1:
-# 549 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 548 "data/maps/FrosthearthCity_House1/scripts.pory"
 	.string "Coralgrove City$"
 
 FrosthearthHarbor_Attendant_Text_2:
-# 549 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 548 "data/maps/FrosthearthCity_House1/scripts.pory"
 	.string "Azuretide Town$"
 
 FrosthearthHarbor_Attendant_Text_3:
-# 549 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 548 "data/maps/FrosthearthCity_House1/scripts.pory"
 	.string "Shoreslate City$"
 
 FrosthearthHarbor_Attendant_Text_4:
-# 549 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 548 "data/maps/FrosthearthCity_House1/scripts.pory"
 	.string "Kaolisle City$"
 
 FrosthearthHarbor_Attendant_Text_5:
-# 549 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 548 "data/maps/FrosthearthCity_House1/scripts.pory"
 	.string "Rockliffe Town$"
 
 ChooseMonForHyperTraining::
@@ -1203,13 +1201,13 @@ NoBottleCaps::
 	.string "Gold Bottle Cap! Not even one!$"
 
 TypeCheckerComeBackTomorrow::
-# 470 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 469 "data/maps/FrosthearthCity_House1/scripts.pory"
 	.string "That was a fun little sport.\p"
 	.string "Come back tomorrow, and I might\n"
 	.string "have something new to give.$"
 
 LookingForType::
-# 475 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 474 "data/maps/FrosthearthCity_House1/scripts.pory"
 	.string "You know what?\p"
 	.string "Today, I would really fancy seeing\n"
 	.string "{STR_VAR_2} {STR_VAR_1}-type Pokémon.\p"
@@ -1217,27 +1215,27 @@ LookingForType::
 	.string "I'll give you something nice.$"
 
 YouHaveTypeInParty::
-# 482 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 481 "data/maps/FrosthearthCity_House1/scripts.pory"
 	.string "Oh, but you do have\n"
 	.string "{STR_VAR_2} {STR_VAR_1}-type Pokémon!\p"
 	.string "Well, a promise's a promise.\n"
 	.string "Here you go!$"
 
 Frosthearth_House2_Man_Text::
-# 496 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 495 "data/maps/FrosthearthCity_House1/scripts.pory"
 	.string "Living up here ain't too bad.\p"
 	.string "The heat rising from the ground is\n"
 	.string "keeping our homes all nice and cozy.$"
 
 Frosthearth_House2_Woman_Text::
-# 501 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 500 "data/maps/FrosthearthCity_House1/scripts.pory"
 	.string "Most of the time, the snowfall is\n"
 	.string "actually pretty relaxing.\p"
 	.string "What isn't relaxing though,\n"
 	.string "are the occasional blizzards.$"
 
 Frosthearth_House4_Woman_Text::
-# 511 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 510 "data/maps/FrosthearthCity_House1/scripts.pory"
 	.string "Have you heard the latest news?\p"
 	.string "Some people have reported seeing\n"
 	.string "windows to alternate universes\l"
@@ -1245,7 +1243,7 @@ Frosthearth_House4_Woman_Text::
 	.string "Sounds to me like crazy people talk.$"
 
 Frosthearth_Harbor_Sailor_Text::
-# 526 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 525 "data/maps/FrosthearthCity_House1/scripts.pory"
 	.string "In order to sail in these parts\n"
 	.string "of the world, the ships must have\l"
 	.string "strengthened hulls that can withstand\l"
@@ -1253,7 +1251,7 @@ Frosthearth_Harbor_Sailor_Text::
 	.string "ship's bow.$"
 
 Frosthearth_Harbor_OldWoman_Text::
-# 533 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 532 "data/maps/FrosthearthCity_House1/scripts.pory"
 	.string "Many tourists visit Frosthearth City\n"
 	.string "to watch the battles at the\l"
 	.string "Pokémon World Tournament, or to\l"
@@ -1261,7 +1259,7 @@ Frosthearth_Harbor_OldWoman_Text::
 	.string "This city has something for everyone!$"
 
 Frosthearth_Text_GetAboard::
-# 575 "data/maps/FrosthearthCity_House1/scripts.pory"
+# 574 "data/maps/FrosthearthCity_House1/scripts.pory"
 	.string "The ferry is about to leave\n"
 	.string "the port soon.\p"
 	.string "Would you like to board the ferry?$"

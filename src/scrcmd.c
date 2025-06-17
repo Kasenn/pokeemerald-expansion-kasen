@@ -672,7 +672,7 @@ bool8 ScrCmd_checkitemquantity(struct ScriptContext *ctx)
 {
     u16 itemId = VarGet(ScriptReadHalfword(ctx));
 
-    gSpecialVar_0x8005 = CheckBagItemQuantity(itemId);
+    gSpecialVar_0x8005 = CountTotalItemQuantityInBag(itemId);
     return FALSE;
 }
 
@@ -1061,22 +1061,17 @@ bool8 ScrCmd_warpholexy(struct ScriptContext *ctx)
 bool8 ScrCmd_checkpartymon(struct ScriptContext *ctx)
 {
     u16 species = ScriptReadHalfword(ctx);
-    u8 partynumber = ScriptReadByte(ctx);
+    u8 leadmononly = ScriptReadByte(ctx);
     u8 i;
+    u8 slots = (leadmononly == TRUE) ? 1 : PARTY_SIZE;
 
-    if(partynumber == 1){
-        if (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES_OR_EGG, 0) == species){
+    for (i = 0; i < slots; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, 0) == species)
+        {
+            gSpecialVar_0x8000 = i;
             gSpecialVar_Result = TRUE;
             return TRUE;
-        }
-    }
-    else{
-        for (i = 0; i < PARTY_SIZE; i++)
-        {
-            if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, 0) == species){
-                gSpecialVar_Result = TRUE;
-                return TRUE;
-            }
         }
     }
     gSpecialVar_Result = FALSE;
@@ -3542,10 +3537,12 @@ void ZeroStrangeSeedIndex(void)
     }
 }
 
-void ScrCmd_IsSelectedMonRequiredLevel(struct ScriptContext *ctx)
+void ScrCmd_checkmonlevel(struct ScriptContext *ctx)
 {
     u8 requiredLevel = VarGet(ScriptReadHalfword(ctx));
     u8 monLevel = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_LEVEL, 0);
+
+    gSpecialVar_0x8000 = monLevel;
 
     if (GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_IS_EGG, NULL))
     {
@@ -3927,4 +3924,24 @@ void ScrCmd_GetDayForRoute7(void)
         gSpecialVar_0x8000 = TRUE;
     else
         gSpecialVar_0x8000 = FALSE;
+}
+
+bool8 ScrCmd_gethiddenpowertype(struct ScriptContext *ctx)
+{
+    u8 stringVarIndex = ScriptReadByte(ctx);
+    u8 slot = gSpecialVar_0x8004;
+
+    u32 typeBits = ((GetMonData(&gPlayerParty[slot], MON_DATA_HP_IV) & 1) << 0)
+        | ((GetMonData(&gPlayerParty[slot], MON_DATA_ATK_IV) & 1) << 1)
+        | ((GetMonData(&gPlayerParty[slot], MON_DATA_DEF_IV) & 1) << 2)
+        | ((GetMonData(&gPlayerParty[slot], MON_DATA_SPEED_IV) & 1) << 3)
+        | ((GetMonData(&gPlayerParty[slot], MON_DATA_SPATK_IV) & 1) << 4)
+        | ((GetMonData(&gPlayerParty[slot], MON_DATA_SPDEF_IV) & 1) << 5);
+
+    u8 type = ((NUMBER_OF_MON_TYPES - 6) * typeBits) / 63 + 2;
+    if (type >= TYPE_MYSTERY)
+        type++;
+
+    StringCopy(sScriptStringVars[stringVarIndex], gTypesInfo[type].name);
+    return FALSE;
 }

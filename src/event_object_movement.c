@@ -2969,7 +2969,7 @@ static void SpawnLightSprite(s16 x, s16 y, s16 camX, s16 camY, u32 lightType)
     case LIGHT_TYPE_BALL:
         sprite->centerToCornerVecX = -(32 >> 1);
         sprite->centerToCornerVecY = -(32 >> 1);
-        if(MAP(MAP_SHORESLATE_CITY))
+        if((MAP(MAP_SHORESLATE_CITY)) || (MAP(MAP_WIP_CITY1)) || (MAP(MAP_SANDSTONE_CITY)) || (MAP(MAP_FROSTFIRE_CITY)))
             sprite->oam.priority = 2;
         else
             sprite->oam.priority = 1;

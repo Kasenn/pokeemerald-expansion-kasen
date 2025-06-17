@@ -303,13 +303,13 @@ Azuretide_HoneyTree::
 # 273 "data/maps/CoastTown/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq Azuretide_HoneyTree_4
-# 324 "data/maps/CoastTown/scripts.pory"
-	msgbox HoneyTree_NoHoney, MSGBOX_SIGN
 # 325 "data/maps/CoastTown/scripts.pory"
-	waitmessage
+	msgbox HoneyTree_NoHoney, MSGBOX_SIGN
 # 326 "data/maps/CoastTown/scripts.pory"
-	closemessage
+	waitmessage
 # 327 "data/maps/CoastTown/scripts.pory"
+	closemessage
+# 328 "data/maps/CoastTown/scripts.pory"
 	release
 	end
 
@@ -330,11 +330,11 @@ Azuretide_HoneyTree_4:
 # 276 "data/maps/CoastTown/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq Azuretide_HoneyTree_7
-# 317 "data/maps/CoastTown/scripts.pory"
-	waitmessage
 # 318 "data/maps/CoastTown/scripts.pory"
-	closemessage
+	waitmessage
 # 319 "data/maps/CoastTown/scripts.pory"
+	closemessage
+# 320 "data/maps/CoastTown/scripts.pory"
 	release
 	end
 
@@ -390,8 +390,10 @@ Azuretide_HoneyTree_34:
 	goto_if_eq Azuretide_HoneyTree_38
 Azuretide_HoneyTree_37:
 # 312 "data/maps/CoastTown/scripts.pory"
-	dowildbattle
+	setflag FLAG_CHANCE_TO_HIDDEN_ABILITY
 # 313 "data/maps/CoastTown/scripts.pory"
+	dowildbattle
+# 314 "data/maps/CoastTown/scripts.pory"
 	release
 	end
 
@@ -447,112 +449,112 @@ Azuretide_HoneyTree_38:
 
 
 Azuretide_Ampharos::
-# 349 "data/maps/CoastTown/scripts.pory"
-	lock
 # 350 "data/maps/CoastTown/scripts.pory"
-	faceplayer
+	lock
 # 351 "data/maps/CoastTown/scripts.pory"
-	waitse
+	faceplayer
 # 352 "data/maps/CoastTown/scripts.pory"
-	playmoncry SPECIES_AMPHAROS, CRY_MODE_NORMAL
+	waitse
 # 353 "data/maps/CoastTown/scripts.pory"
-	waitmoncry
+	playmoncry SPECIES_AMPHAROS, CRY_MODE_NORMAL
 # 354 "data/maps/CoastTown/scripts.pory"
-	msgbox AmphyPoints, MSGBOX_YESNO
+	waitmoncry
 # 355 "data/maps/CoastTown/scripts.pory"
+	msgbox AmphyPoints, MSGBOX_YESNO
+# 356 "data/maps/CoastTown/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq Azuretide_Ampharos_2
-# 359 "data/maps/CoastTown/scripts.pory"
-	setvar VAR_RANCH_AMPHAROS, 1
 # 360 "data/maps/CoastTown/scripts.pory"
-	warp MAP_ROUTE3, 78, 12
+	setvar VAR_RANCH_AMPHAROS, 1
 # 361 "data/maps/CoastTown/scripts.pory"
+	warp MAP_ROUTE3, 78, 12
+# 362 "data/maps/CoastTown/scripts.pory"
 	waitstate
 	end
 
 Azuretide_Ampharos_2:
-# 356 "data/maps/CoastTown/scripts.pory"
+# 357 "data/maps/CoastTown/scripts.pory"
 	release
 	end
 
 
 Azuretide_Grotto_Entrance::
-# 373 "data/maps/CoastTown/scripts.pory"
-	lock
 # 374 "data/maps/CoastTown/scripts.pory"
-	msgbox GoInsideGrotto, MSGBOX_YESNO
+	lock
 # 375 "data/maps/CoastTown/scripts.pory"
+	msgbox GoInsideGrotto, MSGBOX_YESNO
+# 376 "data/maps/CoastTown/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq Azuretide_Grotto_Entrance_2
-# 379 "data/maps/CoastTown/scripts.pory"
-	warp MAP_AZURETIDE_GROTTO, 6, 19
 # 380 "data/maps/CoastTown/scripts.pory"
-	waitstate
+	warp MAP_AZURETIDE_GROTTO, 6, 19
 # 381 "data/maps/CoastTown/scripts.pory"
+	waitstate
+# 382 "data/maps/CoastTown/scripts.pory"
 	release
 	return
 
 Azuretide_Grotto_Entrance_2:
-# 376 "data/maps/CoastTown/scripts.pory"
+# 377 "data/maps/CoastTown/scripts.pory"
 	release
 	end
 
 
 AzureTide_MysteryWoman_Battle::
-# 385 "data/maps/CoastTown/scripts.pory"
-	checkpartylevel 55
 # 386 "data/maps/CoastTown/scripts.pory"
+	checkpartylevel 55
+# 387 "data/maps/CoastTown/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq AzureTide_MysteryWoman_Battle_2
 AzureTide_MysteryWoman_Battle_1:
-# 389 "data/maps/CoastTown/scripts.pory"
+# 390 "data/maps/CoastTown/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq AzureTide_MysteryWoman_Battle_5
-# 395 "data/maps/CoastTown/scripts.pory"
-	msgbox AzureTide_MysteryWoman_Battle_Intro
 # 396 "data/maps/CoastTown/scripts.pory"
-	trainerbattle_no_intro TRAINER_AZURETIDE_CELEBI_TR1, AzureTide_MysteryWoman_Battle_Lose
+	msgbox AzureTide_MysteryWoman_Battle_Intro
 # 397 "data/maps/CoastTown/scripts.pory"
-	msgbox AzureTide_MysteryWoman_PostBattle
+	trainerbattle_no_intro TRAINER_AZURETIDE_CELEBI_TR1, AzureTide_MysteryWoman_Battle_Lose
 # 398 "data/maps/CoastTown/scripts.pory"
+	msgbox AzureTide_MysteryWoman_PostBattle
+# 399 "data/maps/CoastTown/scripts.pory"
 	giveitem ITEM_DISC_FRAGMENT
 	checkitem ITEM_DISC_FRAGMENT, 2
 # 0 "data/maps/CoastTown/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq AzureTide_MysteryWoman_Battle_8
-# 403 "data/maps/CoastTown/scripts.pory"
+# 404 "data/maps/CoastTown/scripts.pory"
 	msgbox AzureTide_ExplainFragment
 AzureTide_MysteryWoman_Battle_7:
-# 405 "data/maps/CoastTown/scripts.pory"
-	release
 # 406 "data/maps/CoastTown/scripts.pory"
+	release
+# 407 "data/maps/CoastTown/scripts.pory"
 	goto_if_set FLAG_Q03_AZURETIDE_OLD_WOMAN_START, AzureTide_MysteryWoman_Battle_12
 AzureTide_MysteryWoman_Battle_11:
 	end
 
 AzureTide_MysteryWoman_Battle_2:
-# 387 "data/maps/CoastTown/scripts.pory"
+# 388 "data/maps/CoastTown/scripts.pory"
 	msgbox AzureTide_AbsolutelyCertain, MSGBOX_YESNO
 	goto AzureTide_MysteryWoman_Battle_1
 
 AzureTide_MysteryWoman_Battle_5:
-# 390 "data/maps/CoastTown/scripts.pory"
-	msgbox AzureTide_MysteryWoman_Decline, MSGBOX_NPC
 # 391 "data/maps/CoastTown/scripts.pory"
-	setflag FLAG_TEMP_3
+	msgbox AzureTide_MysteryWoman_Decline, MSGBOX_NPC
 # 392 "data/maps/CoastTown/scripts.pory"
+	setflag FLAG_TEMP_3
+# 393 "data/maps/CoastTown/scripts.pory"
 	turnobject 7, DIR_WEST
 	end
 
 AzureTide_MysteryWoman_Battle_8:
-# 400 "data/maps/CoastTown/scripts.pory"
+# 401 "data/maps/CoastTown/scripts.pory"
 	msgbox AzureTide_ExplainFragmentShort
 	goto AzureTide_MysteryWoman_Battle_7
 
 AzureTide_MysteryWoman_Battle_12:
-# 407 "data/maps/CoastTown/scripts.pory"
-	completequest FLAG_Q03_AZURETIDE_OLD_WOMAN_COMPLETE
 # 408 "data/maps/CoastTown/scripts.pory"
+	completequest FLAG_Q03_AZURETIDE_OLD_WOMAN_COMPLETE
+# 409 "data/maps/CoastTown/scripts.pory"
 	special ShowJournalPopupRemove
 	goto AzureTide_MysteryWoman_Battle_11
 
@@ -704,40 +706,40 @@ AzureTide_MysteryWoman_1Badges::
 	.string "before taking on my challenge.$"
 
 HoneyUsedOnTree::
-# 332 "data/maps/CoastTown/scripts.pory"
+# 333 "data/maps/CoastTown/scripts.pory"
 	.string "You slather some honey on the tree…\p"
 	.string "…\p"
 	.string "…\p"
 	.string "The honey lured in a wild Pokémon!$"
 
 HoneyTree_NoHoney::
-# 339 "data/maps/CoastTown/scripts.pory"
+# 340 "data/maps/CoastTown/scripts.pory"
 	.string "It's a honey tree.$"
 
 HoneyTree_YesHoney::
-# 343 "data/maps/CoastTown/scripts.pory"
+# 344 "data/maps/CoastTown/scripts.pory"
 	.string "It's a honey tree. Would you\n"
 	.string "like to slather some honey on it?$"
 
 AmphyPoints::
-# 365 "data/maps/CoastTown/scripts.pory"
+# 366 "data/maps/CoastTown/scripts.pory"
 	.string "The Ampharos seems to be pointing\n"
 	.string "towards the ranch and gesturing you\l"
 	.string "to follow.\p"
 	.string "Follow the Pokémon?$"
 
 AzureTide_MysteryWoman_Battle_Intro::
-# 413 "data/maps/CoastTown/scripts.pory"
+# 414 "data/maps/CoastTown/scripts.pory"
 	.string "Very well then.\p"
 	.string "Prepare yourself,\n"
 	.string "for I won't hold back!$"
 
 AzureTide_MysteryWoman_Battle_Lose::
-# 418 "data/maps/CoastTown/scripts.pory"
+# 419 "data/maps/CoastTown/scripts.pory"
 	.string "Ah, truly a worthy opponent!$"
 
 AzureTide_MysteryWoman_PostBattle::
-# 421 "data/maps/CoastTown/scripts.pory"
+# 422 "data/maps/CoastTown/scripts.pory"
 	.string "You young people really are\n"
 	.string "something else, huh.\p"
 	.string "You've managed to reach a level beyond\n"
@@ -748,7 +750,7 @@ AzureTide_MysteryWoman_PostBattle::
 	.string "Here, take this.$"
 
 AzureTide_ExplainFragment::
-# 431 "data/maps/CoastTown/scripts.pory"
+# 432 "data/maps/CoastTown/scripts.pory"
 	.string "It may look like junk now,\n"
 	.string "but trust me, that thing\l"
 	.string "is a key to something important.\p"
@@ -767,7 +769,7 @@ AzureTide_ExplainFragment::
 	.string "I can piece the fragments together.$"
 
 AzureTide_MysteryWoman_AfterBattleGossip::
-# 449 "data/maps/CoastTown/scripts.pory"
+# 450 "data/maps/CoastTown/scripts.pory"
 	.string "There should be four fragments.\p"
 	.string "Once you have collected them all,\n"
 	.string "come back to me and I'll see if\l"
@@ -780,12 +782,12 @@ AzureTide_MysteryWoman_AfterBattleGossip::
 	.string "moving somewhere warm.$"
 
 AzureTide_AbsolutelyCertain::
-# 461 "data/maps/CoastTown/scripts.pory"
+# 462 "data/maps/CoastTown/scripts.pory"
 	.string "Are you absolutely certain you want\n"
 	.string "to challenge me? I'm pretty strong.$"
 
 AzureTide_ExplainFragmentShort::
-# 466 "data/maps/CoastTown/scripts.pory"
+# 467 "data/maps/CoastTown/scripts.pory"
 	.string "There should be four fragments.\p"
 	.string "Once you have collected them all,\n"
 	.string "come back to me and I'll see if\l"

@@ -46,7 +46,7 @@ Amberock_House3_HPChecker_1:
 	compare VAR_RESULT, SPECIES_EGG
 	goto_if_eq Amberock_House3_HPChecker_12
 # 59 "data/maps/Amberock_House1/scripts.pory"
-	special ReadMonHiddenPowerType
+	gethiddenpowertype STR_VAR_3
 # 60 "data/maps/Amberock_House1/scripts.pory"
 	special BufferMonNickname
 # 61 "data/maps/Amberock_House1/scripts.pory"

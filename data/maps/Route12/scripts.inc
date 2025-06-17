@@ -163,7 +163,7 @@ R12_HoneyTree::
 # 267 "data/maps/Route12/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq R12_HoneyTree_1
-# 310 "data/maps/Route12/scripts.pory"
+# 311 "data/maps/Route12/scripts.pory"
 	msgbox HoneyTree_NoHoney, MSGBOX_SIGN
 	end
 
@@ -173,11 +173,11 @@ R12_HoneyTree_1:
 # 270 "data/maps/Route12/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq R12_HoneyTree_4
-# 303 "data/maps/Route12/scripts.pory"
-	waitmessage
 # 304 "data/maps/Route12/scripts.pory"
-	closemessage
+	waitmessage
 # 305 "data/maps/Route12/scripts.pory"
+	closemessage
+# 306 "data/maps/Route12/scripts.pory"
 	release
 	end
 
@@ -216,8 +216,10 @@ R12_HoneyTree_4:
 	case 9, R12_HoneyTree_18
 R12_HoneyTree_7:
 # 298 "data/maps/Route12/scripts.pory"
-	dowildbattle
+	setflag FLAG_CHANCE_TO_HIDDEN_ABILITY
 # 299 "data/maps/Route12/scripts.pory"
+	dowildbattle
+# 300 "data/maps/Route12/scripts.pory"
 	release
 	end
 

@@ -32,7 +32,6 @@ void SetDaycareCompatibilityString(void);
 bool8 NameHasGenderSymbol(const u8 *name, u8 genderRatio);
 void ShowDaycareLevelMenu(void);
 void ChooseSendDaycareMon(void);
-void ReadMonHiddenPowerType(void);
 u8 GetEggMovesBySpecies(u16 species, u16 *eggMoves);
 bool8 SpeciesCanLearnEggMove(u16 species, u16 move);
 void StorePokemonInDaycare(struct Pokemon *mon, struct DaycareMon *daycareMon);

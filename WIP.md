@@ -1,4 +1,5 @@
 wild encounter changes
+honey tree mons now have 20% chance to have a hidden ability
 general change: bidoof/lillipup and pidgey/starly are day encounters, while alolan rattata and hoothoot are night encounters. there may be some cross-over, but it's rare.
 day/night cycle only affects regular land encounters (grottos and honey trees excluded)
 
@@ -24,21 +25,17 @@ route 12: fletchling and fletchinder replaced with doduo. togedemaru removed. ha
 adamant tower: misdreavus removed. impidimp/morgrem removed from floor 5
 route 14: removed snubbul and stunfisk. wimpod removed from day encounters, higher encounter rate during the night
 route 15: pachirisu removed from night encounters, wimpod removed from day encounters
-route 23: wimpod removed from day encounters, petilil and cottonee removed from day encounters, gastly added to night encounters
+route 23: wimpod removed from day encounters, petilil and cottonee removed from night encounters, gastly added to night encounters
 
 MAJOR BUGS!!!
 fix grass cutting
 fix debug menu
 fix fadescreens
-fix lighting in enchanted forest
 fix lighting in drisledge?
 fix all areas with shade
 add more regular mons in grottos?
-give honey tree mons chance to get hidden abilities? honey tree mons now have 20% chance to have a hidden ability
 
-fix lights next to devon corp
-fix aldeleaf lights
-add lights to sandstone?
+add pc/mart/bpshop signs back once they're fixed
 
 route 19
 	items
