@@ -33,6 +33,7 @@ TILESET(gTileset_Primrose_Secondary);
 TILESET(gTileset_Skyloch);
 TILESET(gTileset_Mauville);
 TILESET(gTileset_Fortree2);
+TILESET(gTileset_Route18);
 
 #undef TILESET
 

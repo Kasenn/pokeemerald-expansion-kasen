@@ -6534,10 +6534,10 @@
     {
       "id": "LAYOUT_ROUTE18",
       "name": "Route18_Layout",
-      "width": 110,
+      "width": 113,
       "height": 41,
       "primary_tileset": "gTileset_Winter",
-      "secondary_tileset": "gTileset_Frosthearth",
+      "secondary_tileset": "gTileset_Route18",
       "border_filepath": "data/layouts/Route18/border.bin",
       "blockdata_filepath": "data/layouts/Route18/map.bin"
     },
@@ -7407,7 +7407,7 @@
       "width": 40,
       "height": 80,
       "primary_tileset": "gTileset_Summer",
-      "secondary_tileset": "gTileset_Frosthearth",
+      "secondary_tileset": "gTileset_Route18",
       "border_filepath": "data/layouts/SnowyRidge/border.bin",
       "blockdata_filepath": "data/layouts/SnowyRidge/map.bin"
     },

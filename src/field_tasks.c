@@ -946,7 +946,7 @@ static void Route17PerStepCallback(u8 taskId)
 
 #define X_PLATEAU_START 58
 #define X_PLATEAU_END   102
-#define X_MAX           115
+#define X_MAX           112
 #define X_MIN           45
 
 static void Route18PerStepCallback(u8 taskId)

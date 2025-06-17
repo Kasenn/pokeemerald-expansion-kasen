@@ -1,5 +1,7 @@
 mapscripts SnowyRidge_MapScripts {
     MAP_SCRIPT_ON_TRANSITION{
+		setvar(VAR_HOUR_OVERRIDE, 0)
+		setvar(VAR_MINUTE_OVERRIDE, 0)
         setflag(FLAG_LANDMARK_SNOWY_RIDGE)
         setescapewarp(MAP_SNOWY_RIDGE, 28, 61)
     }

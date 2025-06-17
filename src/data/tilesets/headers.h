@@ -1327,3 +1327,14 @@ const struct Tileset gTileset_KaolCaves =
     .metatileAttributes = gMetatileAttributes_KaolCaves,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Route18 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Route18,
+    .palettes = gTilesetPalettes_Route18,
+    .metatiles = gMetatiles_Route18,
+    .metatileAttributes = gMetatileAttributes_Route18,
+    .callback = InitTilesetAnim_Frostfire,
+};

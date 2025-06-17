@@ -342,3 +342,6 @@ const u16 gMetatileAttributes_Summer[] = INCBIN_U16("data/tilesets/primary/summe
 
 const u16 gMetatiles_KaolCaves[] = INCBIN_U16("data/tilesets/secondary/kaol_caves/metatiles.bin");
 const u16 gMetatileAttributes_KaolCaves[] = INCBIN_U16("data/tilesets/secondary/kaol_caves/metatile_attributes.bin");
+
+const u16 gMetatiles_Route18[] = INCBIN_U16("data/tilesets/secondary/route_18/metatiles.bin");
+const u16 gMetatileAttributes_Route18[] = INCBIN_U16("data/tilesets/secondary/route_18/metatile_attributes.bin");

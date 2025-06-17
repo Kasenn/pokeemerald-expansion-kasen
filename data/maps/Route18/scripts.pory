@@ -4,6 +4,11 @@ mapscripts Route18_MapScripts {
         if(var(VAR_SPHERES_FOUND) >= 4){
             setflag(FLAG_TEMP_1)
         }
+        getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+        if(var(VAR_TEMP_1) == 0){
+            setvar(VAR_HOUR_OVERRIDE, 12)
+            setvar(VAR_MINUTE_OVERRIDE, 0)
+        }
     }
     MAP_SCRIPT_ON_RESUME{
         setstepcallback(STEP_CB_ROUTE_18)

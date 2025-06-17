@@ -66,6 +66,7 @@
 #include "trainer_card.h"
 #include "pokemon_icon.h"
 #include "constants/metatile_labels.h"
+#include "tilesets.h"
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(struct ScriptContext *ctx);
@@ -3783,53 +3784,93 @@ void RevertSeedDropMetatile(void)
 
     s32 metatileId = MapGridGetMetatileIdAt(x, y);
 
-    switch (metatileId)
+    if (gMapHeader.mapLayout->secondaryTileset == &gTileset_Route18)
     {
-    case METATILE_General_SeedDrop:
-        MapGridSetMetatileIdAt(x, y, METATILE_General_Grass);
-        break;
-    case METATILE_General_SeedDropTreeLeft:
-        MapGridSetMetatileIdAt(x, y, METATILE_General_Grass_TreeLeft);
-        break;
-    case METATILE_General_SeedDropTreeRight:
-        MapGridSetMetatileIdAt(x, y, METATILE_General_Grass_TreeRight);
-        break;
-    case 0x3BC:
-        MapGridSetMetatileIdAt(x, y, 0x31C);
-        break;
-    case 0x3BD: 
-        MapGridSetMetatileIdAt(x, y, 0x31D);
-        break;
-    case 0x3BA:
-        MapGridSetMetatileIdAt(x, y, 0x31A);
-        break;
-    case 0x3BB:
-        MapGridSetMetatileIdAt(x, y, 0x31B);
-        break;
-    case 0x3B8:
-        MapGridSetMetatileIdAt(x, y, 0x318);
-        break;
-    case 0x3B9:
-        MapGridSetMetatileIdAt(x, y, 0x319);
-        break;
-    case 0x338:
-        MapGridSetMetatileIdAt(x, y, 0x278);
-        break;
-    case 0x339:
-        MapGridSetMetatileIdAt(x, y, 0x279);
-        break;
-    case 0x33A:
-        MapGridSetMetatileIdAt(x, y, 0x27B);
-        break;
-    case 0x33B:
-        MapGridSetMetatileIdAt(x, y, 0x27C);
-        break;
-    case 0x33C:
-        MapGridSetMetatileIdAt(x, y, 0x27E);
-        break;
-    case 0x33D:
-        MapGridSetMetatileIdAt(x, y, 0x27F);
-        break;
+        switch (metatileId)
+        {
+        case 0x292:
+            MapGridSetMetatileIdAt(x, y, 0x2BC);
+            break;
+        case 0x29C:
+            MapGridSetMetatileIdAt(x, y, 0x2CB);
+            break;
+        case 0x291:
+            MapGridSetMetatileIdAt(x, y, 0x2BB);
+            break;
+        case 0x299:
+            MapGridSetMetatileIdAt(x, y, 0x2C3);
+            break;
+        case 0x29A:
+            MapGridSetMetatileIdAt(x, y, 0x2C4);
+            break;
+        case 0x294:
+            MapGridSetMetatileIdAt(x, y, 0x2C6);
+            break;
+        case 0x295:
+            MapGridSetMetatileIdAt(x, y, 0x2C7);
+            break;
+        case 0x293:
+            MapGridSetMetatileIdAt(x, y, 0x2BD);
+            break;
+        case 0x29B:
+            MapGridSetMetatileIdAt(x, y, 0x2C5);
+            break;
+        default:
+            MapGridSetMetatileIdAt(x, y, 0x000);
+            break;
+        }
+    }
+
+    else
+    {
+        switch (metatileId)
+        {
+        case METATILE_General_SeedDrop:
+            MapGridSetMetatileIdAt(x, y, METATILE_General_Grass);
+            break;
+        case METATILE_General_SeedDropTreeLeft:
+            MapGridSetMetatileIdAt(x, y, METATILE_General_Grass_TreeLeft);
+            break;
+        case METATILE_General_SeedDropTreeRight:
+            MapGridSetMetatileIdAt(x, y, METATILE_General_Grass_TreeRight);
+            break;
+        case 0x3BC:
+            MapGridSetMetatileIdAt(x, y, 0x31C);
+            break;
+        case 0x3BD: 
+            MapGridSetMetatileIdAt(x, y, 0x31D);
+            break;
+        case 0x3BA:
+            MapGridSetMetatileIdAt(x, y, 0x31A);
+            break;
+        case 0x3BB:
+            MapGridSetMetatileIdAt(x, y, 0x31B);
+            break;
+        case 0x3B8:
+            MapGridSetMetatileIdAt(x, y, 0x318);
+            break;
+        case 0x3B9:
+            MapGridSetMetatileIdAt(x, y, 0x319);
+            break;
+        case 0x338:
+            MapGridSetMetatileIdAt(x, y, 0x278);
+            break;
+        case 0x339:
+            MapGridSetMetatileIdAt(x, y, 0x279);
+            break;
+        case 0x33A:
+            MapGridSetMetatileIdAt(x, y, 0x27B);
+            break;
+        case 0x33B:
+            MapGridSetMetatileIdAt(x, y, 0x27C);
+            break;
+        case 0x33C:
+            MapGridSetMetatileIdAt(x, y, 0x27E);
+            break;
+        case 0x33D:
+            MapGridSetMetatileIdAt(x, y, 0x27F);
+            break;
+        }
     }
 }
 

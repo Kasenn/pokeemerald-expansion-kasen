@@ -1680,16 +1680,42 @@ const struct BlendSettings gTimeOfDayBlend[] =
 
 #define MORNING_HOUR_MIDDLE (MORNING_HOUR_BEGIN + ((MORNING_HOUR_END - MORNING_HOUR_BEGIN) / 2))
 
-static u8 GetTimeBrightness(u8 hour)
+static u8 InterpolateBrightness(u8 startBrightness, u8 endBrightness, u8 hour, u8 minute, u8 startHour, u8 endHour)
 {
-    if (IsBetweenHours(hour, NIGHT_HOUR_BEGIN, MORNING_HOUR_BEGIN))
+    u16 totalMinutes = (endHour - startHour) * 60;
+    u16 currentMinutes = (hour - startHour) * 60 + minute;
+
+    if (currentMinutes >= totalMinutes)
+        return endBrightness;
+    return startBrightness + ((endBrightness - startBrightness) * currentMinutes) / totalMinutes;
+}
+
+static u8 GetSmoothBrightnessValue(u8 hour, u8 minute)
+{
+    if (IsBetweenHours(hour, MORNING_HOUR_BEGIN, MORNING_HOUR_MIDDLE))
+    {
+        return InterpolateBrightness(0, 85, hour, minute, MORNING_HOUR_BEGIN, MORNING_HOUR_MIDDLE);
+    }
+    else if (IsBetweenHours(hour, MORNING_HOUR_MIDDLE, MORNING_HOUR_END))
+    {
+        return InterpolateBrightness(85, 170, hour, minute, MORNING_HOUR_MIDDLE, MORNING_HOUR_END);
+    }
+    else if (IsBetweenHours(hour, EVENING_HOUR_BEGIN, EVENING_HOUR_END))
+    {
+        return InterpolateBrightness(170, 85, hour, minute, EVENING_HOUR_BEGIN, EVENING_HOUR_END);
+    }
+    else if (IsBetweenHours(hour, NIGHT_HOUR_BEGIN, NIGHT_HOUR_BEGIN + 1))
+    {
+        return InterpolateBrightness(85, 0, hour, minute, NIGHT_HOUR_BEGIN, NIGHT_HOUR_BEGIN + 1);
+    }
+    else if (IsBetweenHours(hour, NIGHT_HOUR_BEGIN, MORNING_HOUR_BEGIN))
+    {
         return 0;
-    else if (IsBetweenHours(hour, MORNING_HOUR_BEGIN, MORNING_HOUR_END))
-        return 1;
+    }
     else if (IsBetweenHours(hour, MORNING_HOUR_END, EVENING_HOUR_BEGIN))
-        return 2;
-    else if (IsBetweenHours(hour, EVENING_HOUR_BEGIN, NIGHT_HOUR_BEGIN))
-        return 1;
+    {
+        return 170;
+    }
     return 0;
 }
 
@@ -1710,10 +1736,10 @@ void UpdateTimeOfDay(void)
 
     if (hourOverride >= 1 || minuteOverride >= 1)
     {
-        u8 realBrightness = GetTimeBrightness(hours);
-        u8 lavaBrightness = GetTimeBrightness(hourOverride);
+        u8 realBrightness = GetSmoothBrightnessValue(hours, minutes);
+        u8 overrideBrightness = GetSmoothBrightnessValue(hourOverride, minuteOverride);
 
-        if (lavaBrightness > realBrightness)
+        if (overrideBrightness > realBrightness)
         {
             hours = hourOverride;
             minutes = minuteOverride;
