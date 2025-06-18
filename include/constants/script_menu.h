@@ -5,7 +5,7 @@
 
 #define MAX_MULTICHOICE_WIDTH 28
 
-#define MULTI_B_PRESSED  127
+#define MULTI_B_PRESSED  0xFFFF
 
 // Multichoice Ids
 #define MULTI_BRINEY_ON_DEWFORD            0

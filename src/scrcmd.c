@@ -3949,3 +3949,28 @@ bool8 ScrCmd_gethiddenpowertype(struct ScriptContext *ctx)
     StringCopy(sScriptStringVars[stringVarIndex], gTypesInfo[type].name);
     return FALSE;
 }
+
+void ScrCmd_FossilToPokemon(void)
+{
+    u16 species = 1;
+
+    switch(VarGet(VAR_WHICH_FOSSIL_REVIVED))
+    {
+    case ITEM_HELIX_FOSSIL:    species = SPECIES_OMANYTE;     break;
+    case ITEM_DOME_FOSSIL:     species = SPECIES_KABUTO;      break;
+    case ITEM_OLD_AMBER:       species = SPECIES_AERODACTYL;  break;
+    case ITEM_ROOT_FOSSIL:     species = SPECIES_LILEEP;      break;
+    case ITEM_CLAW_FOSSIL:     species = SPECIES_ANORITH;     break;
+    case ITEM_ARMOR_FOSSIL:    species = SPECIES_CRANIDOS;    break;
+    case ITEM_SKULL_FOSSIL:    species = SPECIES_SHIELDON;    break;
+    case ITEM_COVER_FOSSIL:    species = SPECIES_TIRTOUGA;    break;
+    case ITEM_PLUME_FOSSIL:    species = SPECIES_ARCHEN;      break;
+    case ITEM_JAW_FOSSIL:      species = SPECIES_TYRUNT;      break;
+    case ITEM_SAIL_FOSSIL:     species = SPECIES_AMAURA;      break;
+    case SPECIES_DRACOZOLT:    species = SPECIES_DRACOZOLT;   break;
+    case SPECIES_ARCTOZOLT:    species = SPECIES_ARCTOZOLT;   break;
+    case SPECIES_DRACOVISH:    species = SPECIES_DRACOVISH;   break;
+    case SPECIES_ARCTOVISH:    species = SPECIES_ARCTOVISH;   break;
+    }
+    VarSet(VAR_TEMP_TRANSFERRED_SPECIES, species);
+}
