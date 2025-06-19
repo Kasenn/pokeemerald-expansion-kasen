@@ -104,8 +104,6 @@ Sandstone_BigHouse1_1F_Youngster::
 	copyvar VAR_0x8005, VAR_0x8004
 # 95 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
 	specialvar VAR_RESULT, GetTradeSpecies
-# 96 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
-	goto_if_ne VAR_RESULT, VAR_0x8009, SmeargleNotRequestedMon
 # 97 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
 	copyvar VAR_0x8004, VAR_0x8008
 # 98 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"

@@ -27,13 +27,9 @@ route 14: removed snubbul and stunfisk. wimpod removed from day encounters, high
 route 15: pachirisu removed from night encounters, wimpod removed from day encounters
 route 23: wimpod removed from day encounters, petilil and cottonee removed from night encounters, gastly added to night encounters
 
-MAJOR BUGS!!!
-make coralgrove and ranch grass cuttable?
-fix lighting in drisledge?
-fix all areas with shade
 add more regular mons in grottos?
-
 add pc/mart/bpshop signs back once they're fixed
+research a fix for shade weathers?
 
 route 19
 	items
