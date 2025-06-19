@@ -256,6 +256,15 @@ struct NPCFollower
     u16 battlePartner; // If you have more than 255 total battle partners defined, change this to a u16
 };
 
+struct WarpData
+{
+    s8 mapGroup;
+    s8 mapNum;
+    s8 warpId;
+    //u8 padding;
+    s16 x, y;
+};
+
 #include "constants/items.h"
 #define ITEM_FLAGS_COUNT ((ITEMS_COUNT / 8) + ((ITEMS_COUNT % 8) ? 1 : 0))
 
@@ -283,6 +292,10 @@ struct SaveBlock3
     u8 dexNavChain;
     u8 padding[3];
     struct HiddenGrotto hiddenGrottos[GROTTOS_COUNT];
+    struct WarpData flyCheckpoint;
+    u8 flyMapSec;
+    struct WarpData previousFlyCheckpoint;
+    u8 previousFlyMapSec;
 }; /* max size 1624 bytes */
 
 extern struct SaveBlock3 *gSaveBlock3Ptr;
@@ -657,16 +670,6 @@ struct SecretBase
 #include "global.berry.h"
 #include "global.tv.h"
 #include "pokemon.h"
-
-struct WarpData
-{
-    s8 mapGroup;
-    s8 mapNum;
-    s8 warpId;
-    //u8 padding;
-    s16 x, y;
-};
-
 
 struct Pokeblock
 {

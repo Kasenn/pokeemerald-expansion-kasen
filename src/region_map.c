@@ -70,6 +70,7 @@ struct MultiNameFlyDest
     u16 flag;
 };
 
+static EWRAM_DATA bool8 sUseFlyCheckpoint = FALSE;
 static EWRAM_DATA struct RegionMap *sRegionMap = NULL;
 
 static EWRAM_DATA struct {
@@ -119,7 +120,7 @@ static void SetFlyMapCallback(void callback(void));
 static void DrawFlyDestTextWindow(void);
 static void LoadFlyDestIcons(void);
 static void CreateFlyDestIcons(void);
-// static void TryCreateRedOutlineFlyDestIcons(void);
+static void TryCreateRedOutlineFlyDestIcons(void);
 static void SpriteCB_FlyDestIcon(struct Sprite *sprite);
 static void CB_FadeInFlyMap(void);
 static void CB_HandleFlyMapInput(void);
@@ -2184,7 +2185,7 @@ static void LoadFlyDestIcons(void)
     LoadSpriteSheet(&sheet);
     LoadSpritePalette(&sFlyTargetIconsSpritePalette);
     CreateFlyDestIcons();
-    // TryCreateRedOutlineFlyDestIcons();
+    TryCreateRedOutlineFlyDestIcons();
 }
 
 // Sprite data for SpriteCB_FlyDestIcon
@@ -2235,35 +2236,31 @@ static void CreateFlyDestIcons(void)
 
 // Draw a red outline box on the mapsec if its corresponding flag has been set
 // Only used for Battle Frontier, but set up to handle more
-// static void TryCreateRedOutlineFlyDestIcons(void)
-// {
-//     u16 i;
-//     u16 x;
-//     u16 y;
-//     u16 width;
-//     u16 height;
-//     u16 mapSecId;
-//     u8 spriteId;
+static void TryCreateRedOutlineFlyDestIcons(void)
+{
+    u16 x;
+    u16 y;
+    u16 width;
+    u16 height;
+    u16 mapSecId;
+    u8 spriteId;
 
-//     for (i = 0; sRedOutlineFlyDestinations[i][1] != MAPSEC_NONE; i++)
-//     {
-//         if (FlagGet(sRedOutlineFlyDestinations[i][0]))
-//         {
-//             mapSecId = sRedOutlineFlyDestinations[i][1];
-//             GetMapSecDimensions(mapSecId, &x, &y, &width, &height);
-//             x = (x + MAPCURSOR_X_MIN) * 8;
-//             y = (y + MAPCURSOR_Y_MIN) * 8;
-//             spriteId = CreateSprite(&sFlyDestIconSpriteTemplate, x, y, 10);
-//             if (spriteId != MAX_SPRITES)
-//             {
-//                 gSprites[spriteId].oam.size = SPRITE_SIZE(16x16);
-//                 gSprites[spriteId].callback = SpriteCB_FlyDestIcon;
-//                 StartSpriteAnim(&gSprites[spriteId], FLYDESTICON_RED_OUTLINE);
-//                 gSprites[spriteId].sIconMapSec = mapSecId;
-//             }
-//         }
-//     }
-// }
+    if (FlagGet(FLAG_UNLOCKED_FLY_CHECKPOINT))
+    {
+        mapSecId = gSaveBlock3Ptr->previousFlyMapSec;
+        GetMapSecDimensions(mapSecId, &x, &y, &width, &height);
+        x = (x + MAPCURSOR_X_MIN) * 8;
+        y = (y + MAPCURSOR_Y_MIN) * 8;
+        spriteId = CreateSprite(&sFlyDestIconSpriteTemplate, x, y, 10);
+        if (spriteId != MAX_SPRITES)
+        {
+            gSprites[spriteId].oam.size = SPRITE_SIZE(16x16);
+            gSprites[spriteId].callback = SpriteCB_FlyDestIcon;
+            StartSpriteAnim(&gSprites[spriteId], FLYDESTICON_RED_OUTLINE);
+            gSprites[spriteId].sIconMapSec = mapSecId;
+        }
+    }
+}
 
 // Flickers fly destination icon color (by hiding the fly icon sprite) if the cursor is currently on it
 static void SpriteCB_FlyDestIcon(struct Sprite *sprite)
@@ -2317,7 +2314,14 @@ static void CB_HandleFlyMapInput(void)
             DrawFlyDestTextWindow();
             break;
         case MAP_INPUT_A_BUTTON:
-            if (sFlyMap->regionMap.mapSecType == MAPSECTYPE_CITY_CANFLY || sFlyMap->regionMap.mapSecType == MAPSECTYPE_BATTLE_FRONTIER)
+            if (sFlyMap->regionMap.mapSecId == gSaveBlock3Ptr->flyMapSec)
+            {
+                sUseFlyCheckpoint = TRUE;
+                m4aSongNumStart(SE_SELECT);
+                sFlyMap->choseFlyLocation = TRUE;
+                SetFlyMapCallback(CB_ExitFlyMap);
+            }
+            else if (sFlyMap->regionMap.mapSecType == MAPSECTYPE_CITY_CANFLY || sFlyMap->regionMap.mapSecType == MAPSECTYPE_BATTLE_FRONTIER)
             {
                 m4aSongNumStart(SE_SELECT);
                 sFlyMap->choseFlyLocation = TRUE;
@@ -2348,7 +2352,25 @@ static void CB_ExitFlyMap(void)
             if (sFlyMap->choseFlyLocation)
             {
                 struct RegionMap* tempRegionMap = &sFlyMap->regionMap;
-
+                if(!FlagGet(FLAG_UNLOCKED_FLY_CHECKPOINT))
+                {
+                    gSaveBlock3Ptr->previousFlyCheckpoint.mapGroup = gSaveBlock1Ptr->location.mapGroup;
+                    gSaveBlock3Ptr->previousFlyCheckpoint.mapNum = gSaveBlock1Ptr->location.mapNum;
+                    gSaveBlock3Ptr->previousFlyCheckpoint.warpId = gSaveBlock1Ptr->location.warpId;
+                    gSaveBlock3Ptr->previousFlyCheckpoint.x = gSaveBlock1Ptr->pos.x;
+                    gSaveBlock3Ptr->previousFlyCheckpoint.y = gSaveBlock1Ptr->pos.y;
+                    gSaveBlock3Ptr->previousFlyMapSec = GetCurrentRegionMapSectionId();
+                }
+                if (gMapHeader.mapType == MAP_TYPE_ROUTE)
+                {
+                    FlagSet(FLAG_UNLOCKED_FLY_CHECKPOINT);
+                    gSaveBlock3Ptr->flyCheckpoint.mapGroup = gSaveBlock1Ptr->location.mapGroup;
+                    gSaveBlock3Ptr->flyCheckpoint.mapNum = gSaveBlock1Ptr->location.mapNum;
+                    gSaveBlock3Ptr->flyCheckpoint.warpId = gSaveBlock1Ptr->location.warpId;
+                    gSaveBlock3Ptr->flyCheckpoint.x = gSaveBlock1Ptr->pos.x;
+                    gSaveBlock3Ptr->flyCheckpoint.y = gSaveBlock1Ptr->pos.y;
+                    gSaveBlock3Ptr->flyMapSec = GetCurrentRegionMapSectionId();
+                }
                 FlagClear(FLAG_OPENED_MAP_FROM_SIGN);
                 SetFlyDestination(tempRegionMap);
                 ReturnToFieldFromFlyMapSelect();
@@ -2396,7 +2418,12 @@ void SetFlyDestination(struct RegionMap* regionMap)
 {
     u32 flyDestination = FilterFlyDestination(regionMap);
 
-    if (flyDestination != WARP_ID_NONE)
+    if (sUseFlyCheckpoint)
+    {
+        sUseFlyCheckpoint = FALSE;
+        SetWarpDestination(gSaveBlock3Ptr->previousFlyCheckpoint.mapGroup, gSaveBlock3Ptr->previousFlyCheckpoint.mapNum, WARP_ID_NONE, gSaveBlock3Ptr->previousFlyCheckpoint.x, gSaveBlock3Ptr->previousFlyCheckpoint.y);
+    }
+    else if (flyDestination != WARP_ID_NONE)
         SetWarpDestinationToHealLocation(flyDestination);
     else
         SetWarpDestinationToMapWarp(sMapHealLocations[regionMap->mapSecId][0], sMapHealLocations[regionMap->mapSecId][1], WARP_ID_NONE);
