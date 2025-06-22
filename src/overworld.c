@@ -403,6 +403,7 @@ void Overworld_ResetStateAfterFly(void)
     FlagClear(FLAG_HEAL_AFTER_BATTLE);
     FlagClear(FLAG_DESERT_STEPS);
     FlagClear(FLAG_TIME_STOP);
+    FlagClear(FLAG_FOLLOWER_STAYS_PUT);
     VarSet(VAR_HOUR_OVERRIDE, 0);
     VarSet(VAR_MINUTE_OVERRIDE, 0);
     VarSet(VAR_POKECENTER_TRAINING, 0);
@@ -417,6 +418,7 @@ void Overworld_ResetStateAfterTeleport(void)
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagClear(FLAG_TIME_STOP);
+    FlagClear(FLAG_FOLLOWER_STAYS_PUT);
     VarSet(VAR_HOUR_OVERRIDE, 0);
     VarSet(VAR_MINUTE_OVERRIDE, 0);
     FlagClear(FLAG_SYS_USE_FLASH);
@@ -438,6 +440,7 @@ void Overworld_ResetStateAfterDigEscRope(void)
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagClear(FLAG_TIME_STOP);
+    FlagClear(FLAG_FOLLOWER_STAYS_PUT);
     VarSet(VAR_HOUR_OVERRIDE, 0);
     VarSet(VAR_MINUTE_OVERRIDE, 0);
     FlagClear(FLAG_SYS_USE_FLASH);
@@ -497,6 +500,7 @@ static void Overworld_ResetStateAfterWhiteOut(void)
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagClear(FLAG_TIME_STOP);
+    FlagClear(FLAG_FOLLOWER_STAYS_PUT);
     VarSet(VAR_HOUR_OVERRIDE, 0);
     VarSet(VAR_MINUTE_OVERRIDE, 0);
     FlagClear(FLAG_SYS_USE_FLASH);
@@ -1731,6 +1735,11 @@ void UpdateTimeOfDay(void)
     if (FlagGet(FLAG_PERMA_NIGHT))
     {
         hours = 0;
+        minutes = 0;
+    }
+    if (MAP(MAP_LATIAS_ISLAND))
+    {
+        hours = 12;
         minutes = 0;
     }
 

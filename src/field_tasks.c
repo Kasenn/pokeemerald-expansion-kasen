@@ -21,6 +21,8 @@
 #include "constants/songs.h"
 #include "constants/metatile_labels.h"
 #include "battle_setup.h"
+#include "field_specials.h"
+#include "event_object_movement.h"
 
 /*  This file handles some persistent tasks that run in the overworld.
  *  - Task_RunTimeBasedEvents: Periodically updates local time and RTC events. Also triggers ambient cries.
@@ -62,6 +64,7 @@ static void Task_MuddySlope(u8);
 static void Route16PerStepCallback(u8);
 static void Route17PerStepCallback(u8);
 static void Route18PerStepCallback(u8);
+static void LatiasIslandPerStepCallback(u8);
 
 static const TaskFunc sPerStepCallbacks[] =
 {
@@ -79,6 +82,7 @@ static const TaskFunc sPerStepCallbacks[] =
     [STEP_CB_ROUTE_16]     = Route16PerStepCallback,
     [STEP_CB_ROUTE_17]     = Route17PerStepCallback,
     [STEP_CB_ROUTE_18]     = Route18PerStepCallback,
+    [STEP_CB_LATIASISLAND] = LatiasIslandPerStepCallback,
 };
 
 // Each array has 4 pairs of data, each pair representing two metatiles of a log and their relative position.
@@ -1003,6 +1007,284 @@ static void Route18PerStepCallback(u8 taskId)
 }
 
 extern const u8 RopeBridgeScript[];
+extern const u8 FreeLatiasIslandSwitch1[];
+extern const u8 SteppedOffofSwitch1[];
+extern const u8 SteppedOffofSwitch2[];
+extern const u8 SteppedOffofSwitch3[];
+extern const u8 SteppedOffofSwitch4[];
+extern const u8 SteppedOffofSwitch5[];
+extern const u8 SteppedOffofSwitch6[];
+extern const u8 SteppedOffofSwitch7[];
+
+void LatiasIslandSwitchOne(void)
+{
+    if (VarGet(VAR_TEMP_0) == 100)
+    {
+        s16 x, y;
+        PlayerGetDestCoords(&x, &y);
+        s16 n = gMapHeader.events->objectEventCount;
+        s16 i;
+        bool8 switchOneTriggered = FALSE;
+        struct ObjectEvent *followerObject = GetFollowerObject();
+
+        for (i = 0; i < n; i++)
+        {
+            if (gObjectEvents[i].active && 
+                gObjectEvents[i].currentCoords.x - MAP_OFFSET == 39 &&
+                gObjectEvents[i].currentCoords.y - MAP_OFFSET == 55)
+            {
+                switchOneTriggered = TRUE;
+                break;
+            }
+        }
+
+        if (x == 39 + MAP_OFFSET && y == 55 + MAP_OFFSET)
+            switchOneTriggered = TRUE;
+        else if(VarGet(VAR_MON_ON_SWITCH_X) == 1)
+            switchOneTriggered = TRUE;
+
+        if (followerObject)
+        {
+            if (followerObject->currentCoords.x - MAP_OFFSET == 39 && followerObject->currentCoords.y - MAP_OFFSET == 55)
+                switchOneTriggered = TRUE;
+        }
+
+        if (!switchOneTriggered)
+        {
+            LockPlayerFieldControls();
+            ScriptContext_SetupScript(SteppedOffofSwitch1);
+        }
+    }
+}
+
+void LatiasIslandPuzzleTwo(void)
+{
+    s16 x, y;
+    PlayerGetDestCoords(&x, &y);
+    s16 n = gMapHeader.events->objectEventCount;
+    s16 i;
+    struct ObjectEvent *followerObject = GetFollowerObject();
+    bool8 switchTwoTriggered = FALSE;
+    bool8 switchThreeTriggered = FALSE;
+
+    if (FlagGet(FLAG_LATIASISLE_PUZZLE2_SOLVED))
+    {
+        switchTwoTriggered = TRUE;
+    }
+
+    if (VarGet(VAR_LATIAS_ISLE_SWITCH_2) == 100)
+    {
+        for (i = 0; i < n; i++)
+        {
+            if (gObjectEvents[i].active && 
+                gObjectEvents[i].currentCoords.x - MAP_OFFSET == 36 &&
+                gObjectEvents[i].currentCoords.y - MAP_OFFSET == 38)
+            {
+                switchTwoTriggered = TRUE;
+                break;
+            }
+        }
+
+        if (x == 36 + MAP_OFFSET && y == 38 + MAP_OFFSET)
+            switchTwoTriggered = TRUE;
+        else if(VarGet(VAR_MON_ON_SWITCH_X) == 2)
+            switchTwoTriggered = TRUE;
+
+        if (followerObject)
+        {
+            if (followerObject->currentCoords.x - MAP_OFFSET == 36 && followerObject->currentCoords.y - MAP_OFFSET == 38)
+                switchTwoTriggered = TRUE;
+        }
+        
+        if (!switchTwoTriggered)
+        {
+            LockPlayerFieldControls();
+            ScriptContext_SetupScript(SteppedOffofSwitch2);
+        }
+    }
+    if (VarGet(VAR_LATIAS_ISLE_SWITCH_3) == 100)
+    {
+        for (i = 0; i < n; i++)
+        {
+            if (gObjectEvents[i].active && 
+                gObjectEvents[i].currentCoords.x - MAP_OFFSET == 44 &&
+                gObjectEvents[i].currentCoords.y - MAP_OFFSET == 38)
+            {
+                switchThreeTriggered = TRUE;
+                break;
+            }
+        }
+
+        if (x == 44 + MAP_OFFSET && y == 38 + MAP_OFFSET)
+            switchThreeTriggered = TRUE;
+        else if(VarGet(VAR_MON_ON_SWITCH_X) == 3)
+            switchThreeTriggered = TRUE;
+
+        if (followerObject)
+        {
+            if (followerObject->currentCoords.x - MAP_OFFSET == 44 && followerObject->currentCoords.y - MAP_OFFSET == 38)
+                switchThreeTriggered = TRUE;
+        }
+
+        if (!switchThreeTriggered)
+        {
+            LockPlayerFieldControls();
+            ScriptContext_SetupScript(SteppedOffofSwitch3);
+        }
+    }
+}
+
+void LatiasIslandPuzzleThree(void)
+{
+    s16 x, y;
+    PlayerGetDestCoords(&x, &y);
+    s16 n = gMapHeader.events->objectEventCount;
+    s16 i;
+    struct ObjectEvent *followerObject = GetFollowerObject();
+    bool8 switchFourTriggered = FALSE;
+    bool8 switchFiveTriggered = FALSE;
+    bool8 switchSixTriggered = FALSE;
+    bool8 switchSevenTriggered = FALSE;
+
+    if (VarGet(VAR_LATIAS_ISLE_SWITCH_4) == 100)
+    {
+        for (i = 0; i < n; i++)
+        {
+            if (gObjectEvents[i].active && 
+                gObjectEvents[i].currentCoords.x - MAP_OFFSET == 36 &&
+                gObjectEvents[i].currentCoords.y - MAP_OFFSET == 21)
+            {
+                switchFourTriggered = TRUE;
+                break;
+            }
+        }
+
+        if (x == 36 + MAP_OFFSET && y == 21 + MAP_OFFSET)
+            switchFourTriggered = TRUE;
+        else if(VarGet(VAR_MON_ON_SWITCH_X) == 4)
+            switchFourTriggered = TRUE;
+
+        if (followerObject)
+        {
+            if (followerObject->currentCoords.x - MAP_OFFSET == 36 && followerObject->currentCoords.y - MAP_OFFSET == 21)
+                switchFourTriggered = TRUE;
+        }
+        
+        if (!switchFourTriggered)
+        {
+            LockPlayerFieldControls();
+            ScriptContext_SetupScript(SteppedOffofSwitch4);
+        }
+    }
+    if (VarGet(VAR_LATIAS_ISLE_SWITCH_5) == 100)
+    {
+        for (i = 0; i < n; i++)
+        {
+            if (gObjectEvents[i].active && 
+                gObjectEvents[i].currentCoords.x - MAP_OFFSET == 34 &&
+                gObjectEvents[i].currentCoords.y - MAP_OFFSET == 13)
+            {
+                switchFiveTriggered = TRUE;
+                break;
+            }
+        }
+
+        if (x == 34 + MAP_OFFSET && y == 13 + MAP_OFFSET)
+            switchFiveTriggered = TRUE;
+        else if(VarGet(VAR_MON_ON_SWITCH_X) == 5)
+            switchFiveTriggered = TRUE;
+
+        if (followerObject)
+        {
+            if (followerObject->currentCoords.x - MAP_OFFSET == 34 && followerObject->currentCoords.y - MAP_OFFSET == 13)
+                switchFiveTriggered = TRUE;
+        }
+        
+        if (!switchFiveTriggered)
+        {
+            LockPlayerFieldControls();
+            ScriptContext_SetupScript(SteppedOffofSwitch5);
+        }
+    }
+    if (VarGet(VAR_LATIAS_ISLE_SWITCH_6) == 100)
+    {
+        for (i = 0; i < n; i++)
+        {
+            if (gObjectEvents[i].active && 
+                gObjectEvents[i].currentCoords.x - MAP_OFFSET == 47 &&
+                gObjectEvents[i].currentCoords.y - MAP_OFFSET == 11)
+            {
+                switchSixTriggered = TRUE;
+                break;
+            }
+        }
+
+        if (x == 47 + MAP_OFFSET && y == 11 + MAP_OFFSET)
+            switchSixTriggered = TRUE;
+        else if(VarGet(VAR_MON_ON_SWITCH_X) == 6)
+            switchSixTriggered = TRUE;
+
+        if (followerObject)
+        {
+            if (followerObject->currentCoords.x - MAP_OFFSET == 47 && followerObject->currentCoords.y - MAP_OFFSET == 11)
+                switchSixTriggered = TRUE;
+        }
+        
+        if (!switchSixTriggered)
+        {
+            LockPlayerFieldControls();
+            ScriptContext_SetupScript(SteppedOffofSwitch6);
+        }
+    }
+    if (VarGet(VAR_LATIAS_ISLE_SWITCH_7) == 100)
+    {
+        for (i = 0; i < n; i++)
+        {
+            if (gObjectEvents[i].active && 
+                gObjectEvents[i].currentCoords.x - MAP_OFFSET == 50 &&
+                gObjectEvents[i].currentCoords.y - MAP_OFFSET == 20)
+            {
+                switchSevenTriggered = TRUE;
+                break;
+            }
+        }
+
+        if (x == 50 + MAP_OFFSET && y == 20 + MAP_OFFSET)
+            switchSevenTriggered = TRUE;
+        else if(VarGet(VAR_MON_ON_SWITCH_X) == 7)
+            switchSevenTriggered = TRUE;
+
+        if (followerObject)
+        {
+            if (followerObject->currentCoords.x - MAP_OFFSET == 50 && followerObject->currentCoords.y - MAP_OFFSET == 20)
+                switchSevenTriggered = TRUE;
+        }
+        
+        if (!switchSevenTriggered)
+        {
+            LockPlayerFieldControls();
+            ScriptContext_SetupScript(SteppedOffofSwitch7);
+        }
+    }
+}
+
+static void LatiasIslandPerStepCallback(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+
+    if (ArePlayerFieldControlsLocked())
+        return;
+
+    if (++data[1] >= 90)
+    {
+        ShakeCameraParameterized(0, 1, 30, 2);
+        data[1] = 0;
+    }
+
+    LatiasIslandSwitchOne();
+    LatiasIslandPuzzleTwo();
+    LatiasIslandPuzzleThree();
+}
 
 static void RopeBridgePerStepCallback(u8 taskId)
 {

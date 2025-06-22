@@ -1338,3 +1338,14 @@ const struct Tileset gTileset_Route18 =
     .metatileAttributes = gMetatileAttributes_Route18,
     .callback = InitTilesetAnim_Frostfire,
 };
+
+const struct Tileset gTileset_LatiIsles =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_LatiIsles,
+    .palettes = gTilesetPalettes_LatiIsles,
+    .metatiles = gMetatiles_LatiIsles,
+    .metatileAttributes = gMetatileAttributes_LatiIsles,
+    .callback = NULL,
+};

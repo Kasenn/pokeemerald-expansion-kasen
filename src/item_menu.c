@@ -1933,12 +1933,18 @@ static void RemoveContextWindow(void)
 
 static void ItemMenu_UseOutOfBattle(u8 taskId)
 {
+    const u8 sText_BlockItem[] = _("Can't use items on your Pokémon\nwhile some of them are away!");
+
     if (GetItemFieldFunc(gSpecialVar_ItemId))
     {
         RemoveContextWindow();
         if (CalculatePlayerPartyCount() == 0 && GetItemType(gSpecialVar_ItemId) == ITEM_USE_PARTY_MENU)
         {
             PrintThereIsNoPokemon(taskId);
+        }
+        else if (FlagGet(FLAG_FOLLOWER_STAYS_PUT) && GetItemType(gSpecialVar_ItemId) == ITEM_USE_PARTY_MENU)
+        {
+            DisplayItemMessage(taskId, FONT_NORMAL, sText_BlockItem, HandleErrorMessage);
         }
         else
         {
@@ -2100,7 +2106,7 @@ static void PrintItemCantBeHeld(u8 taskId)
 
 static void HandleErrorMessage(u8 taskId)
 {
-    if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW(A_BUTTON | B_BUTTON))
     {
         PlaySE(SE_SELECT);
         CloseItemMessage(taskId);

@@ -2715,6 +2715,16 @@ void GetFollowerAction(struct ScriptContext *ctx) // Essentially a big switch fo
     };
     u32 i, j;
     bool32 pickedCondition = FALSE;
+    s16 x, y;
+    if (MAP(MAP_LATIAS_ISLAND))
+    {
+        GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
+        if (MapGridGetMetatileBehaviorAt(x, y) == MB_STRENGTH_BUTTON)
+        {
+            ScriptCall(ctx, FollowerStayPut);
+            return;
+        }
+    }
     if (sFollowerItemFinderStepCounter >= 24)
     {
         ScriptCall(ctx, FollowerAfterFindingItem);
@@ -5952,6 +5962,8 @@ bool8 MovementType_FollowPlayer_Active(struct ObjectEvent *objectEvent, struct S
         sprite->sTypeFuncId = 2; // movement action sets state to 0
         return TRUE;
     }
+    if (FlagGet(FLAG_FOLLOWER_STAYS_PUT))
+        return gFollowPlayerMovementFuncs[COPY_MOVE_EMPTY_1](objectEvent, sprite, GetPlayerMovementDirection(), NULL);
     return gFollowPlayerMovementFuncs[PlayerGetCopyableMovement()](objectEvent, sprite, GetPlayerMovementDirection(), NULL);
 }
 

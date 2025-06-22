@@ -1289,7 +1289,7 @@ static const struct OamData sOamData_FogH =
     .matrixNum = 0,
     .size = SPRITE_SIZE(64x64),
     .tileNum = 0,
-    .priority = 2,
+    .priority = 3,
     .paletteNum = 0,
     .affineParam = 0,
 };

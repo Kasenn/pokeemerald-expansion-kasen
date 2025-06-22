@@ -1,0 +1,417 @@
+const SWITCH_1 = VAR_TEMP_0
+const X = VAR_TEMP_1
+const Y = VAR_TEMP_2
+const MON_ON_SWITCH_X = VAR_TEMP_3
+const SPECIES = VAR_TEMP_4
+const SWITCH_2 = VAR_TEMP_5
+const SWITCH_3 = VAR_TEMP_6
+const SWITCH_4 = VAR_TEMP_7
+const SWITCH_5 = VAR_TEMP_8
+const SWITCH_6 = VAR_TEMP_9
+const SWITCH_7 = VAR_TEMP_A
+const ROCK_X = VAR_0x8001
+const ROCK_Y = VAR_0x8002
+
+mapscripts LatiasIsland_MapScripts {
+    MAP_SCRIPT_ON_RESUME{
+        setstepcallback(STEP_CB_LATIASISLAND)
+    }
+    MAP_SCRIPT_ON_TRANSITION{
+        clearflag(FLAG_FOLLOWER_STAYS_PUT)
+        if(flag(FLAG_LATIASISLE_PUZZLE2_SOLVED)){
+            setvar(SWITCH_2, 100)
+            setobjectxyperm(LOCALID_PUZZLE2_BOULDER, 36, 38)
+        }
+    }
+    MAP_SCRIPT_ON_LOAD{
+        if(var(SWITCH_1) != 100){
+            setmetatile(36, 59, 0x3BC, 1)
+            setmetatile(36, 60, METATILE_LatiIsles_LI_BarrierUp, 1)
+        }
+        if(var(SWITCH_2) != 100 && var(SWITCH_3) != 100){
+            setmetatile(40, 38, METATILE_LatiIsles_LI_BarrierUp, 1)
+            setmetatile(41, 38, METATILE_LatiIsles_LI_BarrierUp, 1)
+        }
+        if(var(SWITCH_4) != 100 && var(SWITCH_5) != 100 && var(SWITCH_6) != 100 && var(SWITCH_7) != 100){
+            setmetatile(36, 17, METATILE_LatiIsles_LI_BarrierUp, 1)
+            setmetatile(36, 18, METATILE_LatiIsles_LI_BarrierUp, 1)
+        }
+        switch(var(MON_ON_SWITCH_X)){
+            case 1:
+                setmetatile(39, 55, METATILE_LatiIsles_LatiasIsland_SwitchDown, TRUE)
+                setmetatile(36, 59, 0x3C8, 0)
+                setmetatile(36, 60, METATILE_LatiIsles_LI_BarrierDown, 0)
+                setvar(SWITCH_1, 100)
+            case 2:
+                setmetatile(36, 38, METATILE_LatiIsles_LatiasIsland_SwitchDown, TRUE)
+                setvar(SWITCH_2, 100)
+            case 3:
+                setmetatile(44, 38, METATILE_LatiIsles_LatiasIsland_SwitchDown, TRUE)
+                setvar(SWITCH_3, 100)
+            case 4:
+                setmetatile(36, 21, METATILE_LatiIsles_LatiasIsland_SwitchDown, TRUE)
+                setvar(SWITCH_4, 100)
+            case 5:
+                setmetatile(34, 13, METATILE_LatiIsles_LatiasIsland_SwitchDown, TRUE)
+                setvar(SWITCH_5, 100)
+            case 6:
+                setmetatile(47, 11, METATILE_LatiIsles_LatiasIsland_SwitchDown, TRUE)
+                setvar(SWITCH_6, 100)
+            case 7:
+                setmetatile(50, 20, METATILE_LatiIsles_LatiasIsland_SwitchDown, TRUE)
+                setvar(SWITCH_7, 100)
+        }
+        if(var(SWITCH_2) == 100 && var(SWITCH_3) == 100){
+            setmetatile(40, 38, METATILE_LatiIsles_LI_BarrierDown, FALSE)
+            setmetatile(41, 38, METATILE_LatiIsles_LI_BarrierDown, FALSE)
+        }
+        if(var(SWITCH_4) == 100 && var(SWITCH_5) == 100 && var(SWITCH_6) == 100 && var(SWITCH_7) == 100){
+            setmetatile(36, 17, METATILE_LatiIsles_LI_BarrierDown, FALSE)
+            setmetatile(36, 18, METATILE_LatiIsles_LI_BarrierDown, FALSE)
+        }
+    }
+}
+
+script LatiasIsland_Switch1{
+    if(var(SWITCH_1) == 100){
+        release
+        end
+    }
+    setmetatile(36, 59, 0x3C8, 0)
+	setmetatile(36, 60, METATILE_LatiIsles_LI_BarrierDown, 0)
+    setmetatile(39, 55, METATILE_LatiIsles_LatiasIsland_SwitchDown, FALSE)
+	playse(SE_M_STRENGTH)
+	special(DrawWholeMapView)
+	waitse
+	setvar(SWITCH_1, 100)
+	release
+}
+script SteppedOffofSwitch1{
+    setmetatile(39, 55, METATILE_LatiIsles_LatiasIsland_SwitchUp, FALSE)
+    setmetatile(36, 59, 0x3BC, TRUE)
+    setmetatile(36, 60, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+    playse(SE_M_STRENGTH)
+    waitse
+    setvar(VAR_TEMP_0, 0)
+    special(DrawWholeMapView)
+}
+
+script FollowerStayPut{
+    faceplayer
+    bufferlivemonnickname(0)
+    getfollowerxy(X, Y)
+    if(flag(FLAG_FOLLOWER_STAYS_PUT)){
+        msgbox(FollowerStayPut_Follow, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == TRUE){
+            setvar(MON_ON_SWITCH_X, 0)
+            clearflag(FLAG_FOLLOWER_STAYS_PUT)
+            setmetatile(X, Y, METATILE_LatiIsles_LatiasIsland_SwitchDown, FALSE)
+            msgbox(FollowerStayPut_Follow2)
+        }
+        else{
+            msgbox(FollowerStayPut_Text2)
+            turnobject(OBJ_EVENT_ID_FOLLOWER, DIR_SOUTH)
+        }
+    }
+    else{
+        msgbox(FollowerStayPut_Text, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == TRUE)
+        {
+            if(var(X) == 39 && var(Y) == 55){
+                setvar(MON_ON_SWITCH_X, 1)
+            }
+            elif(var(X) == 36 && var(Y) == 38){
+                setvar(MON_ON_SWITCH_X, 2)
+            }
+            elif(var(X) == 44 && var(Y) == 38){
+                setvar(MON_ON_SWITCH_X, 3)
+            }
+            elif(var(X) == 36 && var(Y) == 21){
+                setvar(MON_ON_SWITCH_X, 4)
+            }
+            elif(var(X) == 34 && var(Y) == 13){
+                setvar(MON_ON_SWITCH_X, 5)
+            }
+            elif(var(X) == 47 && var(Y) == 11){
+                setvar(MON_ON_SWITCH_X, 6)
+            }
+            elif(var(X) == 50 && var(Y) == 20){
+                setvar(MON_ON_SWITCH_X, 7)
+            }
+            setflag(FLAG_FOLLOWER_STAYS_PUT)
+            setmetatile(X, Y, METATILE_LatiIsles_LatiasIsland_SwitchDown, TRUE)
+            turnobject(OBJ_EVENT_ID_FOLLOWER, DIR_SOUTH)
+            msgbox(FollowerStayPut_Text2)
+        }
+    }
+    release
+}
+
+text FollowerStayPut_Follow{
+    "{STR_VAR_1} is currently\n"
+    "holding down a pressure plate.\p"
+    "Instruct it to follow you again?"
+}
+text FollowerStayPut_Follow2{
+    "{STR_VAR_1} is following you again."
+}
+text FollowerStayPut_Text{
+    "There seems to be a pressure plate\n"
+    "here.\p"
+    "Instruct {STR_VAR_1} to hold\n"
+    "the plate down?"
+}
+text FollowerStayPut_Text2{
+    "{STR_VAR_1} is holding the\n"
+    "pressure plate down."
+}
+
+script LatiasIsland_CallBackMon1{
+    if(var(MON_ON_SWITCH_X) == 1){
+        playse(SE_SELECT)
+        msgbox(LatiasIsland_CallBackMon1_Text, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == TRUE){
+            waitmove(OBJ_EVENT_ID_FOLLOWER, moves(enter_pokeball set_invisible))
+            callnative(RemoveFollowingPokemon)
+            clearflag(FLAG_FOLLOWER_STAYS_PUT)
+            setvar(MON_ON_SWITCH_X, 0)
+            setvar(SWITCH_1, 0)
+            setmetatile(36, 59, 0x3BC, TRUE)
+            setmetatile(36, 60, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+            setmetatile(39, 55, METATILE_LatiIsles_LatiasIsland_SwitchUp, FALSE)
+            playse(SE_M_STRENGTH)
+            special(DrawWholeMapView)
+            callnative(UpdateFollowingPokemon)
+        }
+    }
+    release
+}
+
+script LatiasIsland_CallBackMon2{
+    if(var(MON_ON_SWITCH_X) == 3){
+        setflag(FLAG_LATIASISLE_PUZZLE2_SOLVED)
+        playse(SE_SELECT)
+        msgbox(LatiasIsland_CallBackMon1_Text, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == TRUE){
+            waitmove(OBJ_EVENT_ID_FOLLOWER, moves(enter_pokeball set_invisible))
+            callnative(RemoveFollowingPokemon)
+            clearflag(FLAG_FOLLOWER_STAYS_PUT)
+            setvar(MON_ON_SWITCH_X, 0)
+            setvar(SWITCH_3, 0)
+            setmetatile(40, 38, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+            setmetatile(41, 38, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+            setmetatile(44, 38, METATILE_LatiIsles_LatiasIsland_SwitchUp, FALSE)
+            playse(SE_M_STRENGTH)
+            special(DrawWholeMapView)
+            callnative(UpdateFollowingPokemon)
+        }
+    }
+    release
+}
+
+text LatiasIsland_CallBackMon1_Text{
+    "You can see your Pokémon from here.\n"
+    "Want to return it to its ball?"
+}
+
+script LatiasIsland_Switch2{
+    if(var(SWITCH_2) == 100){
+        release
+        end
+    }
+    setmetatile(36, 38, METATILE_LatiIsles_LatiasIsland_SwitchDown, FALSE)
+	setvar(SWITCH_2, 100)
+    getobjectxy(VAR_BOULDER_ID)
+    if(var(ROCK_X) == 36 && var(ROCK_Y) == 38){
+        copyobjectxytoperm(VAR_BOULDER_ID)
+    }
+    if(var(SWITCH_3) == 100){
+        setmetatile(40, 38, METATILE_LatiIsles_LI_BarrierDown, 0)
+        setmetatile(41, 38, METATILE_LatiIsles_LI_BarrierDown, 0)
+        playse(SE_M_STRENGTH)
+        waitse
+    }
+    else{
+        playse(SE_SWITCH)
+        waitse
+    }
+    special(DrawWholeMapView)
+	release
+}
+script SteppedOffofSwitch2{
+    delay(16)
+    setmetatile(36, 38, METATILE_LatiIsles_LatiasIsland_SwitchUp, FALSE)
+    special(DrawWholeMapView)
+    if (var(SWITCH_3) == 100)
+    {
+        setmetatile(40, 38, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+        setmetatile(41, 38, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+        special(DrawWholeMapView)
+        playse(SE_M_STRENGTH)
+        waitse
+    }
+    else{
+        playse(SE_SWITCH)
+        waitse
+    }
+    setvar(VAR_TEMP_5, 0)
+}
+///////////////////////////////////////////////////
+script LatiasIsland_Switch3{
+    if(var(SWITCH_3) == 100){
+        release
+        end
+    }
+    setmetatile(44, 38, METATILE_LatiIsles_LatiasIsland_SwitchDown, FALSE)
+	setvar(SWITCH_3, 100)
+    if(var(SWITCH_2) == 100){
+        setmetatile(40, 38, METATILE_LatiIsles_LI_BarrierDown, 0)
+        setmetatile(41, 38, METATILE_LatiIsles_LI_BarrierDown, 0)
+        playse(SE_M_STRENGTH)
+        waitse
+    }
+    else{
+        playse(SE_SWITCH)
+        waitse
+    }
+    special(DrawWholeMapView)
+	release
+}
+script SteppedOffofSwitch3{
+    delay(16)
+    setmetatile(44, 38, METATILE_LatiIsles_LatiasIsland_SwitchUp, FALSE)
+    special(DrawWholeMapView)
+    if (var(SWITCH_2) == 100)
+    {
+        setmetatile(40, 38, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+        setmetatile(41, 38, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+        special(DrawWholeMapView)
+        playse(SE_M_STRENGTH)
+        waitse
+    }
+    else{
+        playse(SE_SWITCH)
+        waitse
+    }
+    setvar(SWITCH_3, 0)
+}
+///////////////////////////////////////////////////
+script LatiasIsland_Switch4{
+    if(var(SWITCH_4) == 100){
+        release
+        end
+    }
+    setmetatile(36, 21, METATILE_LatiIsles_LatiasIsland_SwitchDown, FALSE)
+	setvar(SWITCH_4, 100)
+    getobjectxy(VAR_BOULDER_ID)
+    if(var(ROCK_X) == 36 && var(ROCK_Y) == 21){
+        copyobjectxytoperm(VAR_BOULDER_ID)
+    }
+    call(LatiIsle_LowerLastPuzzleBarriers)
+    special(DrawWholeMapView)
+	release
+}
+script LatiasIsland_Switch5{
+    if(var(SWITCH_5) == 100){
+        release
+        end
+    }
+    setmetatile(34, 13, METATILE_LatiIsles_LatiasIsland_SwitchDown, FALSE)
+	setvar(SWITCH_5, 100)
+    getobjectxy(VAR_BOULDER_ID)
+    if(var(ROCK_X) == 34 && var(ROCK_Y) == 13){
+        copyobjectxytoperm(VAR_BOULDER_ID)
+    }
+    call(LatiIsle_LowerLastPuzzleBarriers)
+    special(DrawWholeMapView)
+	release
+}
+script LatiasIsland_Switch6{
+    if(var(SWITCH_6) == 100){
+        release
+        end
+    }
+    setmetatile(47, 11, METATILE_LatiIsles_LatiasIsland_SwitchDown, FALSE)
+	setvar(SWITCH_6, 100)
+    getobjectxy(VAR_BOULDER_ID)
+    if(var(ROCK_X) == 47 && var(ROCK_Y) == 11){
+        copyobjectxytoperm(VAR_BOULDER_ID)
+    }
+    call(LatiIsle_LowerLastPuzzleBarriers)
+    special(DrawWholeMapView)
+	release
+}
+script LatiasIsland_Switch7{
+    if(var(SWITCH_7) == 100){
+        release
+        end
+    }
+    setmetatile(50, 20, METATILE_LatiIsles_LatiasIsland_SwitchDown, FALSE)
+	setvar(SWITCH_7, 100)
+    getobjectxy(VAR_BOULDER_ID)
+    if(var(ROCK_X) == 50 && var(ROCK_Y) == 20){
+        copyobjectxytoperm(VAR_BOULDER_ID)
+    }
+    call(LatiIsle_LowerLastPuzzleBarriers)
+    special(DrawWholeMapView)
+	release
+}
+
+
+script LatiIsle_LowerLastPuzzleBarriers{
+    if(var(SWITCH_4) == 100 && var(SWITCH_5) == 100 && var(SWITCH_6) == 100 && var(SWITCH_7) == 100){
+        setmetatile(36, 17, METATILE_LatiIsles_LI_BarrierDown, 0)
+        setmetatile(36, 18, METATILE_LatiIsles_LI_BarrierDown, 0)
+        playse(SE_M_STRENGTH)
+        waitse
+    }
+    else{
+        playse(SE_SWITCH)
+        waitse
+    }
+    return
+}
+
+script SteppedOffofSwitch4{
+    delay(16)
+    setmetatile(36, 21, METATILE_LatiIsles_LatiasIsland_SwitchUp, FALSE)
+    call(SteppedOffofSwitchGlobal)
+    setvar(SWITCH_4, 0)
+}
+
+script SteppedOffofSwitch5{
+    delay(16)
+    setmetatile(34, 13, METATILE_LatiIsles_LatiasIsland_SwitchUp, FALSE)
+    call(SteppedOffofSwitchGlobal)
+    setvar(SWITCH_5, 0)
+}
+
+script SteppedOffofSwitch6{
+    delay(16)
+    setmetatile(47, 11, METATILE_LatiIsles_LatiasIsland_SwitchUp, FALSE)
+    call(SteppedOffofSwitchGlobal)
+    setvar(SWITCH_6, 0)
+}
+
+script SteppedOffofSwitch7{
+    delay(16)
+    setmetatile(50, 20, METATILE_LatiIsles_LatiasIsland_SwitchUp, FALSE)
+    call(SteppedOffofSwitchGlobal)
+    setvar(SWITCH_7, 0)
+}
+
+script SteppedOffofSwitchGlobal{
+    special(DrawWholeMapView)
+    if(var(SWITCH_4) == 100 && var(SWITCH_5) == 100 && var(SWITCH_6) == 100 && var(SWITCH_7) == 100){
+        setmetatile(40, 38, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+        setmetatile(41, 38, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+        special(DrawWholeMapView)
+        playse(SE_M_STRENGTH)
+        waitse
+    }
+    else{
+        playse(SE_SWITCH)
+        waitse
+    }
+    return
+}

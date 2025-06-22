@@ -279,6 +279,12 @@
 #define METATILE_InsideShip_IntactDoor_Bottom_Locked    0x233
 #define METATILE_InsideShip_IntactDoor_Bottom_Unlocked  0x22B
 
+// gTileset_LatiIsles
+#define METATILE_LatiIsles_LI_BarrierDown           0x3C9
+#define METATILE_LatiIsles_LI_BarrierUp             0x3C4
+#define METATILE_LatiIsles_LatiasIsland_SwitchDown  0x3C7
+#define METATILE_LatiIsles_LatiasIsland_SwitchUp    0x3C6
+
 // gTileset_Lavaridge
 #define METATILE_Lavaridge_AshGrass             0x207
 #define METATILE_Lavaridge_CaveEntrance_Bottom  0x25E

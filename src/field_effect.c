@@ -1461,12 +1461,12 @@ static void FieldCallback_FlyIntoMap(void)
     Overworld_PlaySpecialMapMusic();
     FadeInFromBlack();
     CreateTask(Task_FlyIntoMap, 0);
-    gSaveBlock3Ptr->previousFlyCheckpoint.mapGroup = gSaveBlock3Ptr->flyCheckpoint.mapGroup;
-    gSaveBlock3Ptr->previousFlyCheckpoint.mapNum = gSaveBlock3Ptr->flyCheckpoint.mapNum;
-    gSaveBlock3Ptr->previousFlyCheckpoint.warpId = gSaveBlock3Ptr->flyCheckpoint.warpId;
-    gSaveBlock3Ptr->previousFlyCheckpoint.x = gSaveBlock3Ptr->flyCheckpoint.x;
-    gSaveBlock3Ptr->previousFlyCheckpoint.y = gSaveBlock3Ptr->flyCheckpoint.y;
-    gSaveBlock3Ptr->previousFlyMapSec = gSaveBlock3Ptr->flyMapSec;
+    // gSaveBlock3Ptr->previousFlyCheckpoint.mapGroup = gSaveBlock3Ptr->flyCheckpoint.mapGroup;
+    // gSaveBlock3Ptr->previousFlyCheckpoint.mapNum = gSaveBlock3Ptr->flyCheckpoint.mapNum;
+    // gSaveBlock3Ptr->previousFlyCheckpoint.warpId = gSaveBlock3Ptr->flyCheckpoint.warpId;
+    // gSaveBlock3Ptr->previousFlyCheckpoint.x = gSaveBlock3Ptr->flyCheckpoint.x;
+    // gSaveBlock3Ptr->previousFlyCheckpoint.y = gSaveBlock3Ptr->flyCheckpoint.y;
+    // gSaveBlock3Ptr->previousFlyMapSec = gSaveBlock3Ptr->flyMapSec;
     gObjectEvents[gPlayerAvatar.objectEventId].invisible = TRUE;
     if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING)
     {

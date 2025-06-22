@@ -869,12 +869,14 @@ static void CB2_GiveStarter(void)
     starterMon = GetStarterPokemon(gSpecialVar_Result);
     ScriptGiveMon(starterMon, 5, ITEM_NONE);
     ResetTasks();
-    PlayBattleBGM();
-    SetMainCallback2(CB2_StartFirstBattle);
-    BattleTransition_Start(B_TRANSITION_BLUR);
+    BeginNormalPaletteFade(PALETTES_ALL, 0, 0x10, 0, 0);
+    SetMainCallback2(CB2_ReturnToFieldContinueScript);
+    // PlayBattleBGM();
+    // SetMainCallback2(CB2_StartFirstBattle);
+    // BattleTransition_Start(B_TRANSITION_BLUR);
 }
 
-static void CB2_StartFirstBattle(void)
+static void UNUSED CB2_StartFirstBattle(void)
 {
     UpdatePaletteFade();
     RunTasks();

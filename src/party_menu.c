@@ -2942,7 +2942,7 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
     }
 
     if (GetMonData(&mons[slotId], MON_DATA_SPECIES) != SPECIES_NONE || GetMonData(&mons[slotId], MON_DATA_IS_EGG) == FALSE)
-        if (FlagGet(FLAG_PARTNER_HEALS) == FALSE && FlagGet(FLAG_HEAL_AFTER_BATTLE) == FALSE)
+        if (FlagGet(FLAG_PARTNER_HEALS) == FALSE && FlagGet(FLAG_HEAL_AFTER_BATTLE) == FALSE && FlagGet(FLAG_FOLLOWER_STAYS_PUT) == FALSE)
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_FOLLOWER);
 
     if (!InBattlePike())
@@ -3132,19 +3132,33 @@ static void CB2_ReturnToPartyMenuFromSummaryScreen(void)
     InitPartyMenu(gPartyMenu.menuType, KEEP_PARTY_LAYOUT, gPartyMenu.action, TRUE, PARTY_MSG_DO_WHAT_WITH_MON, Task_TryCreateSelectionWindow, gPartyMenu.exitCallback);
 }
 
+const u8 gText_CantSwitchNow[] = _("Can't switch Pokémon when one of them\nis instructed to stay put.{PAUSE_UNTIL_PRESS}");
+
 static void CursorCb_Switch(u8 taskId)
 {
-    // Reset follower steps when the party leader is changed, but only if the follower is not set
-    if ((gPartyMenu.slotId == 0 || gPartyMenu.slotId2 == 0) && gSaveBlock1Ptr->followerIndex == OW_FOLLOWER_NOT_SET)
-        gFollowerSteps = 0;
-    PlaySE(SE_SELECT);
-    gPartyMenu.action = PARTY_ACTION_SWITCH;
-    PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
-    PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
-    DisplayPartyMenuStdMessage(PARTY_MSG_MOVE_TO_WHERE);
-    AnimatePartySlot(gPartyMenu.slotId, 1);
-    gPartyMenu.slotId2 = gPartyMenu.slotId;
-    gTasks[taskId].func = Task_HandleChooseMonInput;
+    if (FlagGet(FLAG_FOLLOWER_STAYS_PUT))
+    {
+        PlaySE(SE_FAILURE);
+        PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
+        PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
+        DisplayPartyMenuMessage(gText_CantSwitchNow, FALSE);
+        ScheduleBgCopyTilemapToVram(2);
+        gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+    }
+    else
+    {
+        // Reset follower steps when the party leader is changed, but only if the follower is not set
+        if ((gPartyMenu.slotId == 0 || gPartyMenu.slotId2 == 0) && gSaveBlock1Ptr->followerIndex == OW_FOLLOWER_NOT_SET)
+            gFollowerSteps = 0;
+        PlaySE(SE_SELECT);
+        gPartyMenu.action = PARTY_ACTION_SWITCH;
+        PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
+        PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
+        DisplayPartyMenuStdMessage(PARTY_MSG_MOVE_TO_WHERE);
+        AnimatePartySlot(gPartyMenu.slotId, 1);
+        gPartyMenu.slotId2 = gPartyMenu.slotId;
+        gTasks[taskId].func = Task_HandleChooseMonInput;
+    }
 }
 
 static void CursorCb_Follower(u8 taskId)

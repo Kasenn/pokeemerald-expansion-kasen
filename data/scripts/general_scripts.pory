@@ -543,9 +543,7 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{              //
-    setflag(FLAG_NO_WILD_ENCOUNTERS)
-    release
-    return
+    special(ChooseStarter)
 }
 script Debug_Script_4{
     callnative(ResetAnimCounter)

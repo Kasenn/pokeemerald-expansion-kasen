@@ -121,6 +121,8 @@ static void Task_LotteryCornerComputerEffect(u8);
 static void LotteryCornerComputerEffect(struct Task *);
 static void Task_ShakeCamera(u8);
 static void StopCameraShake(u8);
+static void Task_ShakeCameraSpecial(u8);
+static void StopCameraShakeSpecial(u8);
 static void Task_MoveElevator(u8);
 static void MoveElevatorWindowLights(u16, bool8);
 static void Task_MoveElevatorWindowLights(u8);
@@ -1580,6 +1582,17 @@ void ShakeCamera(void)
     PlaySE(SE_M_STRENGTH);
 }
 
+void ShakeCameraParameterized(u16 horizontalPan, u16 verticalPan, u16 delay, u16 numShakes)
+{
+    u8 taskId = CreateTask(Task_ShakeCameraSpecial, 9);
+    gTasks[taskId].tHorizontalPan = horizontalPan;
+    gTasks[taskId].tDelayCounter = 0;
+    gTasks[taskId].tNumShakes = numShakes;
+    gTasks[taskId].tDelay = delay;
+    gTasks[taskId].tVerticalPan = verticalPan;
+    SetCameraPanningCallback(NULL);
+}
+
 static void Task_ShakeCamera(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
@@ -1600,10 +1613,35 @@ static void Task_ShakeCamera(u8 taskId)
     }
 }
 
+static void Task_ShakeCameraSpecial(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+
+    tDelayCounter++;
+    if (tDelayCounter % tDelay == 0)
+    {
+        tDelayCounter = 0;
+        tNumShakes--;
+        tHorizontalPan = -tHorizontalPan;
+        tVerticalPan = -tVerticalPan;
+        SetCameraPanning(tHorizontalPan, tVerticalPan);
+        if (tNumShakes == 0)
+        {
+            StopCameraShakeSpecial(taskId);
+            InstallCameraPanAheadCallback();
+        }
+    }
+}
+
 static void StopCameraShake(u8 taskId)
 {
     DestroyTask(taskId);
     ScriptContext_Enable();
+}
+
+static void StopCameraShakeSpecial(u8 taskId)
+{
+    DestroyTask(taskId);
 }
 
 #undef tHorizontalPan

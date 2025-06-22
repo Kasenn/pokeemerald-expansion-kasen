@@ -7670,6 +7670,16 @@
       "secondary_tileset": "gTileset_Marigorge",
       "border_filepath": "data/layouts/Route8_dry/border.bin",
       "blockdata_filepath": "data/layouts/Route8_dry/map.bin"
+    },
+    {
+      "id": "LAYOUT_LATIAS_ISLAND",
+      "name": "LatiasIsland_Layout",
+      "width": 64,
+      "height": 72,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_LatiIsles",
+      "border_filepath": "data/layouts/LatiasIsland/border.bin",
+      "blockdata_filepath": "data/layouts/LatiasIsland/map.bin"
     }
   ]
 }

@@ -2127,6 +2127,25 @@ static bool8 PushBoulder_Move(struct Task *task, struct ObjectEvent *player, str
     return FALSE;
 }
 
+void HandleBoulderActivateVictoryRoadSwitch(u16 x, u16 y)
+{
+    int i;
+    const struct CoordEvent * events = gMapHeader.events->coordEvents;
+    int n = gMapHeader.events->coordEventCount;
+
+    if (MapGridGetMetatileBehaviorAt(x, y) == MB_STRENGTH_BUTTON)
+    {
+        for (i = 0; i < n; i++)
+        {
+            if (events[i].x + MAP_OFFSET == x && events[i].y + MAP_OFFSET == y)
+            {
+                ScriptContext_SetupScript(events[i].script);
+                LockPlayerFieldControls();
+            }
+        }
+    }
+}
+
 static bool8 PushBoulder_End(struct Task *task, struct ObjectEvent *player, struct ObjectEvent *boulder)
 {
     if (ObjectEventCheckHeldMovementStatus(player)
@@ -2138,17 +2157,10 @@ static bool8 PushBoulder_End(struct Task *task, struct ObjectEvent *player, stru
         UnlockPlayerFieldControls();
         if (MAP(MAP_AMBEROCK_POKEBALL_FACTORY)){
             VarSet(VAR_BOULDER_ID, boulder->localId);
-                // u8 metatileBehavior = boulder->currentMetatileBehavior;
-
-                // if (sForcedMovementTestFuncs[10](metatileBehavior))
-                //     ObjectEventSetHeldMovement(boulder, GetWalkFastMovementAction(DIR_SOUTH));
-                // else if (sForcedMovementTestFuncs[11](metatileBehavior))
-                //     ObjectEventSetHeldMovement(boulder, GetWalkFastMovementAction(DIR_NORTH));
-                // else if (sForcedMovementTestFuncs[12](metatileBehavior))
-                //     ObjectEventSetHeldMovement(boulder, GetWalkFastMovementAction(DIR_WEST));
-                // else if (sForcedMovementTestFuncs[13](metatileBehavior))
-                //     ObjectEventSetHeldMovement(boulder, GetWalkFastMovementAction(DIR_EAST));
-                // return FALSE;
+        }
+        if (MAP(MAP_LATIAS_ISLAND)){
+            VarSet(VAR_BOULDER_ID, boulder->localId);
+            HandleBoulderActivateVictoryRoadSwitch(boulder->currentCoords.x, boulder->currentCoords.y);
         }
         DestroyTask(FindTaskIdByFunc(Task_PushBoulder));
     }
