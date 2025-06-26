@@ -9,6 +9,7 @@ extern const u8 FollowerAfterFindingItem[];
 extern const u8 FollowerStayPut[];
 extern const u8 LatiasIsland_CallBackMon1[];
 extern const u8 LatiasIsland_CallBackMon2[];
+extern const u8 LatiasIsland_CallBackMon3[];
 
 extern const u8 EventScript_FollowerIsShivering[];
 extern const u8 EventScript_FollowerNostalgia[];

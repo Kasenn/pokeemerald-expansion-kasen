@@ -224,6 +224,7 @@ EWRAM_DATA struct LinkPlayerObjectEvent gLinkPlayerObjectEvents[4] = {0};
 EWRAM_DATA bool8 gExitStairsMovementDisabled = FALSE;
 EWRAM_DATA bool8 gWarpInProgress = FALSE;
 EWRAM_DATA bool8 gEnchantedForestNight = FALSE;
+EWRAM_DATA bool8 gOpenedMapFromItem = FALSE;
 
 static const struct WarpData sDummyWarpData =
 {
@@ -403,6 +404,7 @@ void Overworld_ResetStateAfterFly(void)
     FlagClear(FLAG_HEAL_AFTER_BATTLE);
     FlagClear(FLAG_DESERT_STEPS);
     FlagClear(FLAG_TIME_STOP);
+    FlagClear(FLAG_PERMA_DAY);
     FlagClear(FLAG_FOLLOWER_STAYS_PUT);
     VarSet(VAR_HOUR_OVERRIDE, 0);
     VarSet(VAR_MINUTE_OVERRIDE, 0);
@@ -418,6 +420,7 @@ void Overworld_ResetStateAfterTeleport(void)
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagClear(FLAG_TIME_STOP);
+    FlagClear(FLAG_PERMA_DAY);
     FlagClear(FLAG_FOLLOWER_STAYS_PUT);
     VarSet(VAR_HOUR_OVERRIDE, 0);
     VarSet(VAR_MINUTE_OVERRIDE, 0);
@@ -440,6 +443,7 @@ void Overworld_ResetStateAfterDigEscRope(void)
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagClear(FLAG_TIME_STOP);
+    FlagClear(FLAG_PERMA_DAY);
     FlagClear(FLAG_FOLLOWER_STAYS_PUT);
     VarSet(VAR_HOUR_OVERRIDE, 0);
     VarSet(VAR_MINUTE_OVERRIDE, 0);
@@ -500,6 +504,7 @@ static void Overworld_ResetStateAfterWhiteOut(void)
     FlagClear(FLAG_SYS_SAFARI_MODE);
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagClear(FLAG_TIME_STOP);
+    FlagClear(FLAG_PERMA_DAY);
     FlagClear(FLAG_FOLLOWER_STAYS_PUT);
     VarSet(VAR_HOUR_OVERRIDE, 0);
     VarSet(VAR_MINUTE_OVERRIDE, 0);
@@ -1737,7 +1742,7 @@ void UpdateTimeOfDay(void)
         hours = 0;
         minutes = 0;
     }
-    if (MAP(MAP_LATIAS_ISLAND))
+    if (FlagGet(FLAG_PERMA_DAY))
     {
         hours = 12;
         minutes = 0;

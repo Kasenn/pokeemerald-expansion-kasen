@@ -355,39 +355,39 @@ u8 GetSSTidalLocation(s8 *mapGroup, s8 *mapNum, s16 *x, s16 *y)
     case SS_TIDAL_DEPART_SLATEPORT:
         if (*varCruiseStepCount < 60)
         {
-            *mapNum = MAP_NUM(MAP_ROUTE134);
+            *mapNum = MAP_NUM(MAP_LATIAS_ISLAND);
             *x = *varCruiseStepCount + 19;
         }
         else if (*varCruiseStepCount < 140)
         {
-            *mapNum = MAP_NUM(MAP_ROUTE133);
+            *mapNum = MAP_NUM(MAP_LATIAS_ISLAND);
             *x = *varCruiseStepCount - 60;
         }
         else
         {
-            *mapNum = MAP_NUM(MAP_ROUTE132);
+            *mapNum = MAP_NUM(MAP_LATIAS_ISLAND);
             *x = *varCruiseStepCount - 140;
         }
         break;
     case SS_TIDAL_HALFWAY_SLATEPORT:
         if (*varCruiseStepCount < 66)
         {
-            *mapNum = MAP_NUM(MAP_ROUTE132);
+            *mapNum = MAP_NUM(MAP_LATIAS_ISLAND);
             *x = 65 - *varCruiseStepCount;
         }
         else if (*varCruiseStepCount < 146)
         {
-            *mapNum = MAP_NUM(MAP_ROUTE133);
+            *mapNum = MAP_NUM(MAP_LATIAS_ISLAND);
             *x = 145 - *varCruiseStepCount;
         }
         else
         {
-            *mapNum = MAP_NUM(MAP_ROUTE134);
+            *mapNum = MAP_NUM(MAP_LATIAS_ISLAND);
             *x = 224 - *varCruiseStepCount;
         }
         break;
     }
-    *mapGroup = MAP_GROUP(MAP_ROUTE132);
+    *mapGroup = MAP_GROUP(MAP_LATIAS_ISLAND);
     *y = 20;
     return SS_TIDAL_LOCATION_CURRENTS;
 }

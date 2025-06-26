@@ -332,7 +332,8 @@ static bool8 TryStartInteractionScript(struct MapPosition *position, u16 metatil
      && script != LanettesHouse_Extractinator
      && script != EventScript_PC
      && script != LatiasIsland_CallBackMon1
-     && script != LatiasIsland_CallBackMon2)
+     && script != LatiasIsland_CallBackMon2
+     && script != LatiasIsland_CallBackMon3)
         PlaySE(SE_SELECT);
 
     ScriptContext_SetupScript(script);

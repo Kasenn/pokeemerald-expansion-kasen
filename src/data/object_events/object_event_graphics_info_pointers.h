@@ -399,6 +399,16 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_G
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_RS_10PX_SNOW;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_RS_10PX_SNOW;
 ZOBJ_ENTRY1(SHORESLATE_WINDOW1);
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SpecialLatias;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SpecialLatiasHead;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SpecialLatiasShiny;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SpecialLatiasShinyHead;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SpecialLatios;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SpecialLatiosHead;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SpecialLatiosShiny;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SpecialLatiosShinyHead;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LatiBallUp;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LatiBallDown;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_NEWPIKACHU] =                     &gObjectEventGraphicsInfo_NewPikachu,
@@ -785,6 +795,17 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MAY_RS_10PX_SNOW      ] =         &gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_RS_10PX_SNOW,
     [OBJ_EVENT_GFX_FLOATING_BERGMITE] =                   &gObjectEventGraphicsInfo_BergmiteFloating,
     [OBJ_EVENT_GFX_LIGHT_SPRITE] =             &gObjectEventGraphicsInfo_BallLight,
+    [OBJ_EVENT_GFX_SPECIAL_LATIAS] =             &gObjectEventGraphicsInfo_SpecialLatias,
+    [OBJ_EVENT_GFX_SPECIAL_LATIAS_HEAD] =        &gObjectEventGraphicsInfo_SpecialLatiasHead,
+    [OBJ_EVENT_GFX_SPECIAL_LATIAS_SHINY] =             &gObjectEventGraphicsInfo_SpecialLatiasShiny,
+    [OBJ_EVENT_GFX_SPECIAL_LATIAS_SHINY_HEAD] =        &gObjectEventGraphicsInfo_SpecialLatiasShinyHead,
+    [OBJ_EVENT_GFX_SPECIAL_LATIOS] =       &gObjectEventGraphicsInfo_SpecialLatios,
+    [OBJ_EVENT_GFX_SPECIAL_LATIOS_HEAD] =  &gObjectEventGraphicsInfo_SpecialLatiosHead,
+    [OBJ_EVENT_GFX_SPECIAL_LATIOS_SHINY] =       &gObjectEventGraphicsInfo_SpecialLatiosShiny,
+    [OBJ_EVENT_GFX_SPECIAL_LATIOS_SHINY_HEAD] =  &gObjectEventGraphicsInfo_SpecialLatiosShinyHead,
+    [OBJ_EVENT_GFX_LATI_BALL_DOWN] = &gObjectEventGraphicsInfo_LatiBallDown,
+    [OBJ_EVENT_GFX_LATI_BALL_UP] = &gObjectEventGraphicsInfo_LatiBallUp,
+
     ZOBJ_ENTRY2(SHORESLATE_WINDOW1),
 };
 

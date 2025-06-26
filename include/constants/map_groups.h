@@ -86,7 +86,6 @@
 #define MAP_FRIGID_FRONTIER10       (73 | (0 << 8))
 #define MAP_ROUTE28_PART2_SIDE_AREA (74 | (0 << 8))
 #define MAP_SNOWCREST_CITY_PART2    (75 | (0 << 8))
-#define MAP_LATIAS_ISLAND           (76 | (0 << 8))
 
 // gMapGroup_RouteInteriors
 #define MAP_ROUTE7_GROTTO                 (0 | (1 << 8))
@@ -108,6 +107,7 @@
 #define MAP_ROUTE13_GATE_HOUSE            (16 | (1 << 8))
 #define MAP_ROUTE119_WEATHER_INSTITUTE_1F (17 | (1 << 8))
 #define MAP_ROUTE119_WEATHER_INSTITUTE_2F (18 | (1 << 8))
+#define MAP_LATIAS_ISLAND                 (19 | (1 << 8))
 
 // gMapGroup_Dungeons
 #define MAP_WINDY_WOODS                      (0 | (2 << 8))

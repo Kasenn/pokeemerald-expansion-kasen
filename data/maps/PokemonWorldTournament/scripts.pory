@@ -100,12 +100,7 @@ script BP_Mart_ItemShop2{
     faceplayer
     message(BP_Mart_Greetings2)
     waitmessage
-    if(flag(FLAG_LATIAS_ROAMING) || flag(FLAG_LATIOS_ROAMING)){
-        bpmart(BP_Mart_Items2LegendaryOn, FALSE)    // TRUE for move tutor, FALSE for item shop
-    }
-    else{
-        bpmart(BP_Mart_Items2, FALSE)    // TRUE for move tutor, FALSE for item shop
-    }
+    bpmart(BP_Mart_Items2, FALSE)    // TRUE for move tutor, FALSE for item shop
     msgbox(PleaseSaveSomeBp)
     release
 }

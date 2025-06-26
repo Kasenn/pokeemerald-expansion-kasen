@@ -741,5 +741,19 @@ const u16 gObjectEventPalette_Mart_Door[] = INCBIN_U16("graphics/object_events/p
 const u32 gObjectEventPic_SHORESLATE_WINDOW1[] = INCBIN_U32("graphics/object_events/pics/lights/SHORESLATE_WINDOW1.4bpp");
 const u16 gObjectEventPalette_SHORESLATE_WINDOW1[] = INCBIN_U16("graphics/object_events/pics/lights/SHORESLATE_WINDOW1.gbapal");
 
+const u16 gObjectEventPalette_Latias[]      = INCBIN_U16("graphics/object_events/pics/pokemon/latias_normal.gbapal");
+const u16 gObjectEventPalette_LatiasShiny[] = INCBIN_U16("graphics/object_events/pics/pokemon/latias_shiny.gbapal");
+const u16 gObjectEventPalette_Latios[]      = INCBIN_U16("graphics/object_events/pics/pokemon/latios_normal.gbapal");
+const u16 gObjectEventPalette_LatiosShiny[] = INCBIN_U16("graphics/object_events/pics/pokemon/latios_shiny.gbapal");
+
+const u32 gObjectEventPic_LatiasSpecial[]          = INCBIN_U32("graphics/object_events/pics/pokemon/latias.4bpp");
+const u32 gObjectEventPic_LatiasSpecialHead[]      = INCBIN_U32("graphics/object_events/pics/pokemon/latias_head.4bpp");
+const u32 gObjectEventPic_LatiosSpecial[]          = INCBIN_U32("graphics/object_events/pics/pokemon/latios.4bpp");
+const u32 gObjectEventPic_LatiosSpecialHead[]      = INCBIN_U32("graphics/object_events/pics/pokemon/latios_head.4bpp");
+
+const u16 gObjectEventPalette_LatiBall[] = INCBIN_U16("graphics/object_events/pics/pokemon/ball_lati_up.gbapal");
+const u32 gObjectEventPic_LatiBallUp[]      = INCBIN_U32("graphics/object_events/pics/pokemon/ball_lati_up.4bpp");
+const u32 gObjectEventPic_LatiBallDown[]      = INCBIN_U32("graphics/object_events/pics/pokemon/ball_lati_down.4bpp");
+
 #undef ZOBJ_PIC
 #undef ZOBJ_PAL

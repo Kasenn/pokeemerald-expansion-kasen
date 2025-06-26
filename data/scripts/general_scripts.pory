@@ -543,7 +543,8 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{              //
-    special(ChooseStarter)
+    clearflag(FLAG_NO_WILD_ENCOUNTERS)
+    special(LatiRide)
 }
 script Debug_Script_4{
     callnative(ResetAnimCounter)

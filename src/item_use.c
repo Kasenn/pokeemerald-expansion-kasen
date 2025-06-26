@@ -276,6 +276,7 @@ static void Task_OpenRegisteredTownMap(u8 taskId)
 
 void ItemUseOutOfBattle_TownMap(u8 taskId)
 {
+    gOpenedMapFromItem = TRUE;
     if (gTasks[taskId].tUsingRegisteredKeyItem != TRUE)
     {
         gBagMenu->newScreenCallback = CB2_OpenTownMapFromBag;

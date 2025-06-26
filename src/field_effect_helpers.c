@@ -257,6 +257,9 @@ static void UpdateObjectReflectionSprite(struct Sprite *reflectionSprite)
     if (objectEvent->graphicsId == OBJ_EVENT_GFX_FISHERMAN_SOUTH){
         reflectionSprite->y2 -= 16;
     }
+    if (objectEvent->graphicsId >= OBJ_EVENT_GFX_SPECIAL_LATIAS && objectEvent->graphicsId <= OBJ_EVENT_GFX_LATI_BALL_UP){
+        reflectionSprite->y2 += 8;
+    }
 
     if (objectEvent->hideReflection == TRUE)
         reflectionSprite->invisible = TRUE;

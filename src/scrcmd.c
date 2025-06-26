@@ -1072,6 +1072,10 @@ bool8 ScrCmd_checkpartymon(struct ScriptContext *ctx)
         {
             gSpecialVar_0x8000 = i;
             gSpecialVar_Result = TRUE;
+            if (GetMonData(&gPlayerParty[i], MON_DATA_IS_SHINY, 0))
+                gSpecialVar_0x800A = TRUE;
+            else
+                gSpecialVar_0x800A = FALSE;
             return TRUE;
         }
     }
@@ -3973,4 +3977,23 @@ void ScrCmd_FossilToPokemon(void)
     case SPECIES_ARCTOVISH:    species = SPECIES_ARCTOVISH;   break;
     }
     VarSet(VAR_TEMP_TRANSFERRED_SPECIES, species);
+}
+
+void LatisWarp(void)
+{
+    switch (gSpecialVar_0x8004)
+    {
+        case 1:
+            SetWarpDestination(MAP_GROUP(MAP_LATIAS_ISLAND), MAP_NUM(MAP_LATIAS_ISLAND), WARP_ID_NONE, 15, 66);
+            break;
+        case 2:
+            SetWarpDestination(MAP_GROUP(MAP_TOWN_WIP2), MAP_NUM(MAP_TOWN_WIP2), WARP_ID_NONE, 25, 28);
+            break;
+        case 3:
+            SetWarpDestination(MAP_GROUP(MAP_ROUTE112_CABLE_CAR_STATION), MAP_NUM(MAP_ROUTE112_CABLE_CAR_STATION), WARP_ID_NONE, 6, 4); // WIP
+            break;
+        case 4:
+            SetWarpDestination(MAP_GROUP(MAP_ROUTE23LAKE), MAP_NUM(MAP_ROUTE23LAKE), WARP_ID_NONE, 19, 15);
+            break;
+    }
 }

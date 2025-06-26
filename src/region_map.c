@@ -120,7 +120,7 @@ static void SetFlyMapCallback(void callback(void));
 static void DrawFlyDestTextWindow(void);
 static void LoadFlyDestIcons(void);
 static void CreateFlyDestIcons(void);
-// static void TryCreateRedOutlineFlyDestIcons(void);
+static void TryCreateRedOutlineFlyDestIcons(void);
 static void SpriteCB_FlyDestIcon(struct Sprite *sprite);
 static void CB_FadeInFlyMap(void);
 static void CB_HandleFlyMapInput(void);
@@ -132,6 +132,7 @@ static const u32 sRegionMapCursorLargeGfxLZ[] = INCBIN_U32("graphics/pokenav/reg
 static const u16 sRegionMapBg_Pal[] = INCBIN_U16("graphics/pokenav/region_map/map.gbapal");
 static const u32 sRegionMapBg_GfxLZ[] = INCBIN_U32("graphics/pokenav/region_map/map.8bpp.lz");
 static const u32 sRegionMapBg_TilemapLZ[] = INCBIN_U32("graphics/pokenav/region_map/map.bin.lz");
+static const u32 sRegionMapBg_TilemapLZEmpty[] = INCBIN_U32("graphics/pokenav/region_map/map_empty.bin.lz");
 static const u16 sRegionMapPlayerIcon_BrendanPal[] = INCBIN_U16("graphics/pokenav/region_map/brendan_icon.gbapal");
 static const u8 sRegionMapPlayerIcon_BrendanGfx[] = INCBIN_U8("graphics/pokenav/region_map/brendan_icon.4bpp");
 static const u16 sRegionMapPlayerIcon_MayPal[] = INCBIN_U16("graphics/pokenav/region_map/may_icon.gbapal");
@@ -667,11 +668,19 @@ bool8 LoadRegionMapGfx(void)
         if (sRegionMap->bgManaged)
         {
             if (!FreeTempTileDataBuffersIfPossible())
-                DecompressAndCopyTileDataToVram(sRegionMap->bgNum, sRegionMapBg_TilemapLZ, 0, 0, 1);
+            {
+                if(MAP(MAP_LATIAS_ISLAND) && !gOpenedMapFromItem)
+                    DecompressAndCopyTileDataToVram(sRegionMap->bgNum, sRegionMapBg_TilemapLZEmpty, 0, 0, 1);
+                else
+                    DecompressAndCopyTileDataToVram(sRegionMap->bgNum, sRegionMapBg_TilemapLZ, 0, 0, 1);
+            }
         }
         else
         {
-            LZ77UnCompVram(sRegionMapBg_TilemapLZ, (u16 *)BG_SCREEN_ADDR(28));
+            if(MAP(MAP_LATIAS_ISLAND) && !gOpenedMapFromItem)
+                LZ77UnCompVram(sRegionMapBg_TilemapLZEmpty, (u16 *)BG_SCREEN_ADDR(28));
+            else
+                LZ77UnCompVram(sRegionMapBg_TilemapLZ, (u16 *)BG_SCREEN_ADDR(28));
         }
         break;
     case 2:
@@ -1102,10 +1111,7 @@ static void InitMapBasedOnPlayerLocation(void)
     u16 xOnMap;
     struct WarpData *warp;
 
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SS_TIDAL_CORRIDOR)
-        && (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SS_TIDAL_CORRIDOR)
-            || gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SS_TIDAL_LOWER_DECK)
-            || gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SS_TIDAL_ROOMS)))
+    if (MAP(MAP_LATIAS_ISLAND) && !gOpenedMapFromItem)
     {
         RegionMap_InitializeStateBasedOnSSTidalLocation();
         return;
@@ -1253,7 +1259,7 @@ static void InitMapBasedOnPlayerLocation(void)
     sRegionMap->cursorPosY = gRegionMapEntries[sRegionMap->mapSecId].y + y + MAPCURSOR_Y_MIN;
 }
 
-static void RegionMap_InitializeStateBasedOnSSTidalLocation(void)
+static void  RegionMap_InitializeStateBasedOnSSTidalLocation(void)
 {
     u16 y;
     u16 x;
@@ -1268,18 +1274,6 @@ static void RegionMap_InitializeStateBasedOnSSTidalLocation(void)
     x = 0;
     switch (GetSSTidalLocation(&mapGroup, &mapNum, &xOnMap, &yOnMap))
     {
-    case SS_TIDAL_LOCATION_SLATEPORT:
-        sRegionMap->mapSecId = MAPSEC_SLATEPORT_CITY;
-        break;
-    case SS_TIDAL_LOCATION_LILYCOVE:
-        sRegionMap->mapSecId = MAPSEC_LILYCOVE_CITY;
-        break;
-    case SS_TIDAL_LOCATION_ROUTE124:
-        sRegionMap->mapSecId = MAPSEC_ROUTE_124;
-        break;
-    case SS_TIDAL_LOCATION_ROUTE131:
-        sRegionMap->mapSecId = MAPSEC_ROUTE_131;
-        break;
     default:
     case SS_TIDAL_LOCATION_CURRENTS:
         mapHeader = Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum);
@@ -1301,8 +1295,8 @@ static void RegionMap_InitializeStateBasedOnSSTidalLocation(void)
         break;
     }
     sRegionMap->playerIsInCave = FALSE;
-    sRegionMap->cursorPosX = gRegionMapEntries[sRegionMap->mapSecId].x + x + MAPCURSOR_X_MIN;
-    sRegionMap->cursorPosY = gRegionMapEntries[sRegionMap->mapSecId].y + y + MAPCURSOR_Y_MIN;
+    sRegionMap->cursorPosX = 14 + MAPCURSOR_X_MIN;
+    sRegionMap->cursorPosY = 7 + MAPCURSOR_Y_MIN;
 }
 
 static u8 GetMapsecType(u16 mapSecId)
@@ -1343,6 +1337,12 @@ static u8 GetMapsecType(u16 mapSecId)
         return FlagGet(FLAG_VISITED_SOOTOPOLIS_CITY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_EVER_GRANDE_CITY:
         return FlagGet(FLAG_VISITED_EVER_GRANDE_CITY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_ABANDONED_SHIP:
+        if ((MAP(MAP_LATIAS_ISLAND)) && !gOpenedMapFromItem)
+            return MAPSECTYPE_BATTLE_FRONTIER;
+        else
+            return MAPSECTYPE_NONE;
+        // return FlagGet(FLAG_VISITED_EVER_GRANDE_CITY) ? MAPSECTYPE_BATTLE_FRONTIER : MAPSECTYPE_NONE;
     // case MAPSEC_BATTLE_FRONTIER:
     //     return FlagGet(FLAG_LANDMARK_BATTLE_FRONTIER) ? MAPSECTYPE_BATTLE_FRONTIER : MAPSECTYPE_NONE;
     case MAPSEC_SOUTHERN_ISLAND:
@@ -1627,6 +1627,11 @@ void CreateRegionMapPlayerIcon(u16 tileTag, u16 paletteTag)
         sRegionMap->playerIconSprite = NULL;
         return;
     }
+    else if ((MAP(MAP_LATIAS_ISLAND)) && gOpenedMapFromItem)
+    {
+        sRegionMap->playerIconSprite = NULL;
+        return;
+    }
     if (gSaveBlock2Ptr->playerGender == FEMALE){
         switch (VarGet(VAR_CHOSEN_OUTFIT)){
             case OUTFIT_RUBYSAPPHIRE:
@@ -1713,6 +1718,8 @@ static const struct {
 
 void CreateRegionMapRoamerIcon(u16 tileTag, u16 paletteTag)
 {
+    if (MAP(MAP_LATIAS_ISLAND) && !gOpenedMapFromItem)
+        return;
     u16 spriteId, i, j, mapSec;
     u8 mapGroup, mapNum;
     
@@ -2013,6 +2020,7 @@ void CB2_OpenFlyMap(void)
         SetGpuReg(REG_OFFSET_BG3HOFS, 0);
         SetGpuReg(REG_OFFSET_BG3VOFS, 0);
         sFlyMap = Alloc(sizeof(*sFlyMap));
+        gOpenedMapFromItem = FALSE;
         if (sFlyMap == NULL)
         {
             SetMainCallback2(CB2_ReturnToFieldWithOpenMenu);
@@ -2119,7 +2127,17 @@ static void DrawFlyDestTextWindow(void)
     bool32 namePrinted;
     const u8 *name;
 
-    if (sFlyMap->regionMap.mapSecType > MAPSECTYPE_NONE && sFlyMap->regionMap.mapSecType < NUM_MAPSEC_TYPES)
+    if (MAP(MAP_LATIAS_ISLAND) && !gOpenedMapFromItem)
+    {
+        ClearStdWindowAndFrameToTransparent(WIN_MAPSEC_NAME, FALSE);
+        DrawStdFrameWithCustomTileAndPalette(WIN_MAPSEC_NAME, FALSE, 101, 13);
+        if (sRegionMap->cursorPosX == 25 && sRegionMap->cursorPosY == 13)
+        // if (sFlyMap->regionMap.mapSecId == MAPSEC_DESERT)
+            AddTextPrinterParameterized(WIN_MAPSEC_NAME, FONT_NORMAL, COMPOUND_STRING("BACK TO SURFACE"), 0, 1, 0, NULL);
+        else
+            AddTextPrinterParameterized(WIN_MAPSEC_NAME, FONT_NORMAL, COMPOUND_STRING("UNKNOWN AREA"), 0, 1, 0, NULL);
+    }
+    else if (sFlyMap->regionMap.mapSecType > MAPSECTYPE_NONE && sFlyMap->regionMap.mapSecType < NUM_MAPSEC_TYPES)
     {
         namePrinted = FALSE;
         for (i = 0; i < ARRAY_COUNT(sMultiNameFlyDestinations); i++)
@@ -2184,8 +2202,12 @@ static void LoadFlyDestIcons(void)
     sheet.tag = TAG_FLY_ICON;
     LoadSpriteSheet(&sheet);
     LoadSpritePalette(&sFlyTargetIconsSpritePalette);
+    if (MAP(MAP_LATIAS_ISLAND) && !gOpenedMapFromItem)
+    {
+        TryCreateRedOutlineFlyDestIcons();
+        return;
+    }
     CreateFlyDestIcons();
-    // TryCreateRedOutlineFlyDestIcons();
 }
 
 // Sprite data for SpriteCB_FlyDestIcon
@@ -2231,6 +2253,28 @@ static void CreateFlyDestIcons(void)
             gSprites[spriteId].sIconMapSec = sFlyableMapSecIds[mapSecIndex];
         }
         canFlyFlagIndex++;
+    }
+}
+
+static void TryCreateRedOutlineFlyDestIcons(void)
+{
+    u16 x;
+    u16 y;
+    u16 width;
+    u16 height;
+    u16 mapSecId = MAPSEC_DESERT;
+    u8 spriteId;
+
+    GetMapSecDimensions(MAPSEC_DESERT, &x, &y, &width, &height);
+    x = (x + MAPCURSOR_X_MIN) * 8;
+    y = (y + MAPCURSOR_Y_MIN) * 8;
+    spriteId = CreateSprite(&sFlyDestIconSpriteTemplate, x, y, 10);
+    if (spriteId != MAX_SPRITES)
+    {
+        gSprites[spriteId].oam.size = SPRITE_SIZE(16x16);
+        gSprites[spriteId].callback = SpriteCB_FlyDestIcon;
+        StartSpriteAnim(&gSprites[spriteId], FLYDESTICON_RED_OUTLINE);
+        gSprites[spriteId].sIconMapSec = mapSecId;
     }
 }
 
@@ -2321,7 +2365,16 @@ static void CB_HandleFlyMapInput(void)
             //     sFlyMap->choseFlyLocation = TRUE;
             //     SetFlyMapCallback(CB_ExitFlyMap);
             // }
-           if (sFlyMap->regionMap.mapSecType == MAPSECTYPE_CITY_CANFLY || sFlyMap->regionMap.mapSecType == MAPSECTYPE_BATTLE_FRONTIER)
+            if (MAP(MAP_LATIAS_ISLAND) && !gOpenedMapFromItem)
+            {
+                if(sRegionMap->cursorPosX == 25 && sRegionMap->cursorPosY == 13)
+                {
+                    m4aSongNumStart(SE_SELECT);
+                    sFlyMap->choseFlyLocation = TRUE;
+                    SetFlyMapCallback(CB_ExitFlyMap);
+                }
+            }
+           else if (sFlyMap->regionMap.mapSecType == MAPSECTYPE_CITY_CANFLY || sFlyMap->regionMap.mapSecType == MAPSECTYPE_BATTLE_FRONTIER)
             {
                 m4aSongNumStart(SE_SELECT);
                 sFlyMap->choseFlyLocation = TRUE;
@@ -2423,7 +2476,9 @@ void SetFlyDestination(struct RegionMap* regionMap)
     //     sUseFlyCheckpoint = FALSE;
     //     SetWarpDestination(gSaveBlock3Ptr->previousFlyCheckpoint.mapGroup, gSaveBlock3Ptr->previousFlyCheckpoint.mapNum, WARP_ID_NONE, gSaveBlock3Ptr->previousFlyCheckpoint.x, gSaveBlock3Ptr->previousFlyCheckpoint.y);
     // }
-   if (flyDestination != WARP_ID_NONE)
+    if (MAP(MAP_LATIAS_ISLAND) && !gOpenedMapFromItem)
+        SetWarpDestinationToMapWarp(MAP_GROUP(MAP_TOWN_WIP2), MAP_NUM(MAP_TOWN_WIP2), 4);
+    else if (flyDestination != WARP_ID_NONE)
         SetWarpDestinationToHealLocation(flyDestination);
     else
         SetWarpDestinationToMapWarp(sMapHealLocations[regionMap->mapSecId][0], sMapHealLocations[regionMap->mapSecId][1], WARP_ID_NONE);

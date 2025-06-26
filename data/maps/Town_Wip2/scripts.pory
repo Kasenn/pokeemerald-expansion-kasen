@@ -2,7 +2,13 @@ mapscripts Town_Wip2_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: Skyloch_SetFlag
 }
 script Skyloch_SetFlag{
+    call(Amberock_SetPlayerModel)
+    checkpartymon(SPECIES_LATIAS, FALSE)
+    setflag(FLAG_TEMP_4)
+    setflag(FLAG_TEMP_5)
     setflag(FLAG_TEMP_1)
+    setflag(FLAG_TEMP_2)
+    setflag(FLAG_TEMP_3)
     setflag(FLAG_VISITED_WIP_TOWN2)
     setflag(FLAG_INCREASED_SHINY_ODDS)
     end
@@ -357,7 +363,63 @@ text Route23Lake_Hiker_Text{
     "I doubt it's simple coincidence."
 }
 
+text LatiasWantsToTakeYouSomewhere{
+    "Looks like {STR_VAR_1} wants to\n"
+    "take you somewhere.\p"
+    "Would you like to hop on its back?"
+}
+
 script TriggerLatiasRoam{
+    checkpartymon(SPECIES_LATIAS, FALSE)
+    if(var(VAR_RESULT) == TRUE){
+        bufferpartymonnick(STR_VAR_1, VAR_0x8000)
+        if(var(VAR_0x800A) == TRUE){
+            setvar(VAR_TEMP_0, LOCALID_RIDE_SHINY_LATIAS)
+        }
+        else{
+            setvar(VAR_TEMP_0, LOCALID_RIDE_LATIAS)
+        }
+        setflag(FLAG_OVERRIDE_FOLLOWER_DIRECTION)
+        setvar(VAR_FACING, DIR_SOUTH)
+        waitmove(LOCALID_LATIBALL_SKYLOCH, moves(set_visible, delay_1 * 3, lati_ball))
+        // applymovement(VAR_TEMP_0, moves(exit_pokeball))
+        addobject(VAR_TEMP_0)
+        // showobjectat(VAR_TEMP_0, MAP_TOWN_WIP2)
+        removeobject(LOCALID_LATIBALL_SKYLOCH)
+        msgbox(LatiasWantsToTakeYouSomewhere, MSGBOX_YESNO)
+        closemessage
+        if(var(VAR_RESULT) == FALSE){
+            waitmove(VAR_TEMP_0, moves(enter_pokeball set_invisible))
+            removeobject(VAR_TEMP_0)
+            clearflag(FLAG_OVERRIDE_FOLLOWER_DIRECTION)
+            clearflag(FLAG_STOP_GROUND_EFFECTS)
+        }
+        else{
+            turnobject(VAR_TEMP_0, DIR_NORTH)
+            addobject(LOCALID_FAKE_PLAYER_SKYLOCH)
+            setobjectsubpriority(LOCALID_FAKE_PLAYER_SKYLOCH, MAP_TOWN_WIP2, 0)
+            hideobjectat(LOCALID_PLAYER, MAP_TOWN_WIP2)
+            setflag(FLAG_STOP_GROUND_EFFECTS)
+            waitmove(LOCALID_FAKE_PLAYER_SKYLOCH, moves(jump_2_up, lock_anim))
+            call(SetSittingPlayerModel)
+            removeobject(LOCALID_FAKE_PLAYER_SKYLOCH)
+            setobjectxyperm(LOCALID_FAKE_PLAYER_SKYLOCH, 25, 26)
+            addobject(LOCALID_FAKE_PLAYER_SKYLOCH)
+            setobjectsubpriority(LOCALID_FAKE_PLAYER_SKYLOCH, MAP_TOWN_WIP2, 0)
+            delay(16)
+            applymovement(VAR_TEMP_0, PlayerAndLatiasLeave2)
+            applymovement(LOCALID_FAKE_PLAYER_SKYLOCH, moves(lock_anim, walk_slow_up, walk_up * 2, walk_faster_up * 5))
+            waitmovement(0)
+            clearflag(FLAG_STOP_GROUND_EFFECTS)
+            clearflag(FLAG_OVERRIDE_FOLLOWER_DIRECTION)
+            setvar(VAR_0x8004, 1)
+            callnative(LatisWarp)
+            special(LatiRide)
+            waitstate
+        }
+        release
+        end
+    }
     if(checkitem(ITEM_SOUL_DEW) == FALSE){
         release
         end
@@ -368,21 +430,35 @@ script TriggerLatiasRoam{
     delay(60)
 	msgbox(SoulDewStartsShining, MSGBOX_SIGN)
 	playse(SE_M_DETECT)
-	dofieldeffectsparkle(25, 26, 0)
+	dofieldeffectsparkle(25, 28, 0)
 	waitfieldeffect(FLDEFF_SPARKLE)
 	setvar(VAR_RESULT, 2)
 	playse(SE_ORB)
 	special(DoOrbEffect)
     delay(150)
     waitstate
-    addobject(8)
+    random(65535)
+    if(var(VAR_RESULT) < 32){
+        setflag(FLAG_LATIAS_SHINY)
+    }
+    if(flag(FLAG_LATIAS_SHINY)){
+        addobject(9)
+    }
+    else{
+        addobject(8)
+    }
     special(FadeOutOrbEffect)
 	waitstate
     delay(60)
     playse(SE_M_FLY)
     waitse
     delay(30)
-    applymovement(8, moves(walk_slow_down * 6))
+    if(flag(FLAG_LATIAS_SHINY)){
+        applymovement(9, moves(walk_slow_down * 6))
+    }
+    else{
+        applymovement(8, moves(walk_slow_down * 6))
+    }
     waitmovement(0)
     delay(60)
     playmoncry(SPECIES_LATIAS, CRY_MODE_NORMAL)
@@ -393,7 +469,12 @@ script TriggerLatiasRoam{
     msgbox(LatisRegistered, MSGBOX_SIGN)
     delay(60)
     playse(SE_M_FLY)
-    applymovement(8, moves(walk_fast_up * 7))
+    if(flag(FLAG_LATIAS_SHINY)){
+        applymovement(9, moves(walk_fast_up * 7))
+    }
+    else{
+        applymovement(8, moves(walk_fast_up * 7))
+    }
     waitmovement(0)
     waitse
     delay(60)
@@ -402,6 +483,7 @@ script TriggerLatiasRoam{
     setvar(VAR_0x8004, 0)
     special(InitRoamer)
     removeobject(8)
+    removeobject(9)
     fadeinbgm(0)
     delay(48)
     end

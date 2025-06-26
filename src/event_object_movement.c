@@ -670,6 +670,11 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_RidingGogoat,          OBJ_EVENT_PAL_TAG_RIDING_GOGOAT},
     {gObjectEventPal_AutumnLongGrass,       FLDEFF_PAL_TAG_AUTUMN_LONG_GRASS},
     {gObjectEventPaletteNeonLight,          OBJ_EVENT_PAL_TAG_NEON_LIGHT},
+    {gObjectEventPalette_Latias,             OBJ_EVENT_PAL_LATIAS},
+    {gObjectEventPalette_LatiasShiny,        OBJ_EVENT_PAL_LATIAS_SHINY},
+    {gObjectEventPalette_Latios,             OBJ_EVENT_PAL_LATIOS},
+    {gObjectEventPalette_LatiosShiny,        OBJ_EVENT_PAL_LATIOS_SHINY},
+    {gObjectEventPalette_LatiBall,        OBJ_EVENT_PAL_LATI_BALL},
     ZOBJ(SHORESLATE_WINDOW1),
     {NULL,                                  OBJ_EVENT_PAL_TAG_NONE},
 };
@@ -1906,6 +1911,9 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
     }
     if (objectEvent->graphicsId == OBJ_EVENT_GFX_FISHERMAN_SOUTH){
         sprite->y += 8;
+    }
+    if (objectEvent->graphicsId >= OBJ_EVENT_GFX_SPECIAL_LATIAS && objectEvent->graphicsId <= OBJ_EVENT_GFX_LATI_BALL_UP){
+        sprite->y -= 8;
     }
     sprite->coordOffsetEnabled = TRUE;
     sprite->sObjEventId = objectEventId;
@@ -3180,6 +3188,9 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
         }
         if (objectEvent->graphicsId == OBJ_EVENT_GFX_FISHERMAN_SOUTH){
             sprite->y += 8;
+        }
+        if (objectEvent->graphicsId >= OBJ_EVENT_GFX_SPECIAL_LATIAS && objectEvent->graphicsId <= OBJ_EVENT_GFX_LATI_BALL_UP){
+            sprite->y -= 8;
         }
         sprite->images = graphicsInfo->images;
         if (objectEvent->movementType == MOVEMENT_TYPE_PLAYER)
@@ -6786,6 +6797,8 @@ u32 GetObjectObjectCollidesWith(struct ObjectEvent *objectEvent, s16 x, s16 y, b
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
     {
         curObject = &gObjectEvents[i];
+        if (curObject->graphicsId >= OBJ_EVENT_GFX_SPECIAL_LATIAS && curObject->graphicsId <= OBJ_EVENT_GFX_LATI_BALL_UP)
+            return OBJECT_EVENTS_COUNT;
         // if (curObject->graphicsId > OBJ_EVENT_GFX_SPECIES(BULBASAUR) && curObject->graphicsId < OBJ_EVENT_GFX_SPECIES(MIRAIDON))
         //     return FALSE;
         // if (curObject->mapNum == MAP_NUM(KAOLISLE_CITY)
@@ -8024,7 +8037,7 @@ static u8 LoadFillColorPalette(u16 color, u16 paletteTag, struct Sprite *sprite)
 static void ObjectEventSetPokeballGfx(struct ObjectEvent *objEvent)
 {
     #if OW_FOLLOWERS_POKEBALLS
-    enum PokeBall ball = BALL_STRANGE;
+    enum PokeBall ball = BALL_POKE;
     if (objEvent->localId == OBJ_EVENT_ID_FOLLOWER)
     {
         struct Pokemon *mon = GetFirstLiveMon();
@@ -8051,6 +8064,8 @@ static void ObjectEventSetPokeballGfx(struct ObjectEvent *objEvent)
 bool8 MovementAction_ExitPokeball_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     u32 direction = gObjectEvents[gPlayerAvatar.objectEventId].facingDirection;
+    if (FlagGet(FLAG_OVERRIDE_FOLLOWER_DIRECTION))
+        direction = gSpecialVar_Facing;
     u16 graphicsId = objectEvent->graphicsId;
     objectEvent->invisible = FALSE;
     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_DASH))
@@ -8949,6 +8964,13 @@ bool8 MovementAction_NurseJoyBowDown_Step0(struct ObjectEvent *objectEvent, stru
 bool8 MovementAction_AbraSpin_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     StartSpriteAnimInDirection(objectEvent, sprite, DIR_SOUTH, ANIM_ABRA_SPIN);
+    return FALSE;
+}
+
+
+bool8 MovementAction_LatiBall_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    StartSpriteAnimInDirection(objectEvent, sprite, DIR_SOUTH, ANIM_LATI_BALL);
     return FALSE;
 }
 
@@ -10532,7 +10554,7 @@ void GroundEffect_SpawnOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *
     gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
     gFieldEffectArguments[7] = TRUE; // skip to end of anim
     if (MetatileBehavior_IsTallGrassAutumn(objEvent->currentMetatileBehavior)){
-        if((MAP(MAP_SAFARI_ZONE_MOUNTAIN)) || (MAP(MAP_DESERT_CLIFFS))){
+        if((MAP(MAP_SAFARI_ZONE_MOUNTAIN)) || (MAP(MAP_DESERT_CLIFFS)) || (MAP(MAP_LATIAS_ISLAND))){
             FieldEffectStart(FLDEFF_TALL_GRASS_MOUNTAIN);  
         }
         else if((MAP(MAP_ROUTE18)) || (MAP(MAP_SNOWY_RIDGE))){
@@ -10563,7 +10585,7 @@ void GroundEffect_StepOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *s
         if((MAP(MAP_ROUTE18)) || (MAP(MAP_SNOWY_RIDGE))){
             FieldEffectStart(FLDEFF_TALL_GRASS_SNOW);  
         }
-        else if((MAP(MAP_SAFARI_ZONE_MOUNTAIN)) || (MAP(MAP_DESERT_CLIFFS))){
+        else if((MAP(MAP_SAFARI_ZONE_MOUNTAIN)) || (MAP(MAP_DESERT_CLIFFS)) || (MAP(MAP_LATIAS_ISLAND))){
             FieldEffectStart(FLDEFF_TALL_GRASS_MOUNTAIN);  
         }
         else{
@@ -10993,7 +11015,7 @@ static void DoGroundEffects_OnSpawn(struct ObjectEvent *objEvent, struct Sprite 
     u32 flags;
 
 #ifdef BUGFIX
-    if (objEvent->triggerGroundEffectsOnMove && objEvent->localId != OBJ_EVENT_ID_CAMERA)
+    if (objEvent->triggerGroundEffectsOnMove && objEvent->localId != OBJ_EVENT_ID_CAMERA && !FlagGet(FLAG_STOP_GROUND_EFFECTS))
 #else
     if (objEvent->triggerGroundEffectsOnMove)
 #endif
@@ -11015,7 +11037,7 @@ static void DoGroundEffects_OnBeginStep(struct ObjectEvent *objEvent, struct Spr
     u32 flags;
 
 #ifdef BUGFIX
-    if (objEvent->triggerGroundEffectsOnMove && objEvent->localId != OBJ_EVENT_ID_CAMERA)
+    if (objEvent->triggerGroundEffectsOnMove && objEvent->localId != OBJ_EVENT_ID_CAMERA && !FlagGet(FLAG_STOP_GROUND_EFFECTS))
 #else
     if (objEvent->triggerGroundEffectsOnMove)
 #endif
@@ -11038,7 +11060,7 @@ static void DoGroundEffects_OnFinishStep(struct ObjectEvent *objEvent, struct Sp
     u32 flags;
 
 #ifdef BUGFIX
-    if (objEvent->triggerGroundEffectsOnStop && objEvent->localId != OBJ_EVENT_ID_CAMERA)
+    if (objEvent->triggerGroundEffectsOnStop && objEvent->localId != OBJ_EVENT_ID_CAMERA && !FlagGet(FLAG_STOP_GROUND_EFFECTS))
 #else
     if (objEvent->triggerGroundEffectsOnStop)
 #endif

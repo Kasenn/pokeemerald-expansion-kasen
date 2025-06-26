@@ -1833,3 +1833,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Route22_Part2_Top/scripts.inc"
 
 	.include "data/maps/LatiasIsland/scripts.inc"
+
+	.include "data/maps/LatiosIsland/scripts.inc"

@@ -39,7 +39,7 @@ struct WeatherCallbacks
 };
 
 // This file's functions.
-static bool8 LightenSpritePaletteInFog(u8);
+// static bool8 LightenSpritePaletteInFog(u8);
 static void UpdateWeatherColorMap(void);
 static void ApplyColorMap(u8 startPalIndex, u8 numPalettes, s8 colorMapIndex);
 static void ApplyColorMapWithBlend(u8 startPalIndex, u8 numPalettes, s8 colorMapIndex, u8 blendCoeff, u32 blendColor);
@@ -665,8 +665,8 @@ static void ApplyDroughtColorMapWithBlend(s8 colorMapIndex, u8 blendCoeff, u32 b
 // blendCoeff & blendColor are the *fade* colors, not fog colors
 static void ApplyFogBlend(u8 blendCoeff, u32 blendColor)
 {
-    u32 curPalIndex;
-    u16 fogCoeff = min((gTimeOfDay + 1) * 4, 12);
+    // u32 curPalIndex;
+    // u16 fogCoeff = min((gTimeOfDay + 1) * 4, 12);
 
     // First blend all palettes with time
     UpdateAltBgPalettes(PALETTES_BG);
@@ -676,11 +676,11 @@ static void ApplyFogBlend(u8 blendCoeff, u32 blendColor)
     BlendPalettesFine(PALETTES_MAP, gPlttBufferFaded, gPlttBufferFaded, blendCoeff, blendColor);
 
     // Do fog blending on marked sprite palettes
-    for (curPalIndex = 16; curPalIndex < 32; curPalIndex++)
-    {
-        if (LightenSpritePaletteInFog(curPalIndex))
-            BlendPalettesFine(1, gPlttBufferFaded + PLTT_ID(curPalIndex), gPlttBufferFaded + PLTT_ID(curPalIndex), fogCoeff, RGB(28, 31, 28));
-    }
+    // for (curPalIndex = 16; curPalIndex < 32; curPalIndex++)
+    // {
+    //     if (LightenSpritePaletteInFog(curPalIndex))
+    //         BlendPalettesFine(1, gPlttBufferFaded + PLTT_ID(curPalIndex), gPlttBufferFaded + PLTT_ID(curPalIndex), fogCoeff, RGB(28, 31, 28));
+    // }
     // Finally blend all sprite palettes faded->faded with fadeIn color
     BlendPalettesFine(PALETTES_OBJECTS, gPlttBufferFaded, gPlttBufferFaded, blendCoeff, blendColor);
 }
@@ -694,21 +694,21 @@ static void MarkFogSpritePalToLighten(u8 paletteIndex)
     }
 }
 
-static bool8 LightenSpritePaletteInFog(u8 paletteIndex)
-{
-    u32 i;
+// static bool8 LightenSpritePaletteInFog(u8 paletteIndex)
+// {
+//     u32 i;
 
-    if (paletteIndex >= 16 && IS_BLEND_IMMUNE_TAG(GetSpritePaletteTagByPaletteNum(paletteIndex - 16)))
-        return FALSE;
+//     if (paletteIndex >= 16 && IS_BLEND_IMMUNE_TAG(GetSpritePaletteTagByPaletteNum(paletteIndex - 16)))
+//         return FALSE;
 
-    for (i = 0; i < gWeatherPtr->lightenedFogSpritePalsCount; i++)
-    {
-        if (gWeatherPtr->lightenedFogSpritePals[i] == paletteIndex)
-            return TRUE;
-    }
+//     for (i = 0; i < gWeatherPtr->lightenedFogSpritePalsCount; i++)
+//     {
+//         if (gWeatherPtr->lightenedFogSpritePals[i] == paletteIndex)
+//             return TRUE;
+//     }
 
-    return FALSE;
-}
+//     return FALSE;
+// }
 
 void ApplyWeatherColorMapIfIdle(s8 colorMapIndex)
 {
@@ -888,7 +888,7 @@ void UpdateSpritePaletteWithWeather(u8 spritePaletteIndex, bool8 allowFog)
                 CpuFastCopy(gPlttBufferUnfaded + paletteIndex, gPlttBufferFaded + paletteIndex, PLTT_SIZE_4BPP);
                 UpdateSpritePaletteWithTime(spritePaletteIndex);
                 // Then blend faded->faded with fog coeff
-                BlendPalettesFine(1, gPlttBufferFaded + paletteIndex, gPlttBufferFaded + paletteIndex, i, RGB(28, 31, 28));
+                // BlendPalettesFine(1, gPlttBufferFaded + paletteIndex, gPlttBufferFaded + paletteIndex, i, RGB(28, 31, 28));
             }
             else
             {

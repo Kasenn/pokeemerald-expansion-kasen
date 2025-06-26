@@ -7680,6 +7680,16 @@
       "secondary_tileset": "gTileset_LatiIsles",
       "border_filepath": "data/layouts/LatiasIsland/border.bin",
       "blockdata_filepath": "data/layouts/LatiasIsland/map.bin"
+    },
+    {
+      "id": "LAYOUT_LATIOS_ISLAND",
+      "name": "LatiosIsland_Layout",
+      "width": 80,
+      "height": 80,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_LatiIsles",
+      "border_filepath": "data/layouts/LatiosIsland/border.bin",
+      "blockdata_filepath": "data/layouts/LatiosIsland/map.bin"
     }
   ]
 }

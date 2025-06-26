@@ -1347,5 +1347,5 @@ const struct Tileset gTileset_LatiIsles =
     .palettes = gTilesetPalettes_LatiIsles,
     .metatiles = gMetatiles_LatiIsles,
     .metatileAttributes = gMetatileAttributes_LatiIsles,
-    .callback = NULL,
+    .callback = InitTilesetAnim_LatiIsles,
 };

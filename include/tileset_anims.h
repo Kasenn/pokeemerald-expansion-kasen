@@ -16,6 +16,7 @@ void InitTilesetAnim_MagicForest(void);
 void InitTilesetAnim_FlowerField(void);
 void InitTilesetAnim_Lavaridge(void);
 void InitTilesetAnim_Frostfire(void);
+void InitTilesetAnim_LatiIsles(void);
 void InitTilesetAnim_Fallarbor(void);
 void InitTilesetAnim_Fortree(void);
 void InitTilesetAnim_Lilycove(void);

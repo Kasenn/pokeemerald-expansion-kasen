@@ -207,6 +207,9 @@ static void CreateCloudSprites(void)
             sprite = gWeatherPtr->sprites.s1.cloudSprites[i];
             SetSpritePosToMapCoords(sCloudSpriteMapCoords[i].x + MAP_OFFSET, sCloudSpriteMapCoords[i].y + MAP_OFFSET, &sprite->x, &sprite->y);
             sprite->coordOffsetEnabled = TRUE;
+            // if(FlagGet(FLAG_TEMP_1)){
+            //     sprite->vFlip = TRUE;
+            // }
         }
         else
         {
@@ -236,6 +239,11 @@ static void DestroyCloudSprites(void)
 
 static void UpdateCloudSprite(struct Sprite *sprite)
 {
+    // if(FlagGet(FLAG_TEMP_1))
+    //     sprite->oam.matrixNum = ST_OAM_VFLIP;
+    // else
+    //     sprite->oam.matrixNum = 0;
+
     // Move 1 pixel left every 2 frames.
     sprite->data[0] = (sprite->data[0] + 1) & 1;
     if (sprite->data[0])

@@ -92,9 +92,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "trainer_sight_or_berry_tree_id": "ITEM_ETHER",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_LATIASISLAND_ITEM_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -102,6 +102,103 @@
       "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_ETHER",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_LATIASISLAND_ITEM_2"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 13,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_LATIASITE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_LATIASISLAND_ITEM_3"
+    },
+    {
+      "local_id": "LOCALID_LATIASISLAND_LATIAS",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIAL_LATIAS",
+      "x": 15,
+      "y": 69,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_FAKE_PLAYER",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_1",
+      "x": 15,
+      "y": 66,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_8"
+    },
+    {
+      "local_id": "LOCALID_LATIASISLAND_LATIAS_HEAD",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIAL_LATIAS_HEAD",
+      "x": 15,
+      "y": 69,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_LATIASISLAND_LATIAS_SHINY",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIAL_LATIAS_SHINY",
+      "x": 15,
+      "y": 69,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_LATIASISLAND_LATIAS_SHINY_HEAD",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIAL_LATIAS_SHINY_HEAD",
+      "x": 15,
+      "y": 69,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_LATIASISLAND_LATIBALL",
+      "graphics_id": "OBJ_EVENT_GFX_LATI_BALL_DOWN",
+      "x": 15,
+      "y": 69,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -182,6 +279,33 @@
       "var": "VAR_TEMP_9",
       "var_value": "0",
       "script": "LatiasIsland_Switch6"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "LatiasIsland_DontAbandonMon"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "LatiasIsland_DontAbandonMon"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 66,
+      "elevation": 0,
+      "var": "VAR_TEMP_8",
+      "var_value": "0",
+      "script": "LatiasIsland_ReturnToSkyloch"
     }
   ],
   "bg_events": [
@@ -200,6 +324,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_SOUTH",
       "script": "LatiasIsland_CallBackMon2"
+    },
+    {
+      "type": "sign",
+      "x": 34,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "LatiasIsland_CallBackMon3"
     }
   ]
 }

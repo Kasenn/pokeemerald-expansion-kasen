@@ -140,536 +140,526 @@ BP_Mart_ItemShop2::
 # 102 "data/maps/PokemonWorldTournament/scripts.pory"
 	waitmessage
 # 103 "data/maps/PokemonWorldTournament/scripts.pory"
-	goto_if_set FLAG_LATIAS_ROAMING, BP_Mart_ItemShop2_2
-# 103 "data/maps/PokemonWorldTournament/scripts.pory"
-	goto_if_set FLAG_LATIOS_ROAMING, BP_Mart_ItemShop2_2
-# 107 "data/maps/PokemonWorldTournament/scripts.pory"
 	bpmart BP_Mart_Items2, FALSE
-BP_Mart_ItemShop2_1:
-# 109 "data/maps/PokemonWorldTournament/scripts.pory"
+# 104 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox PleaseSaveSomeBp
-# 110 "data/maps/PokemonWorldTournament/scripts.pory"
+# 105 "data/maps/PokemonWorldTournament/scripts.pory"
 	release
 	return
 
-BP_Mart_ItemShop2_2:
-# 104 "data/maps/PokemonWorldTournament/scripts.pory"
-	bpmart BP_Mart_Items2LegendaryOn, FALSE
-	goto BP_Mart_ItemShop2_1
-
 
 	.align 2
-# 113 "data/maps/PokemonWorldTournament/scripts.pory"
+# 108 "data/maps/PokemonWorldTournament/scripts.pory"
 BP_Mart_Items2:
-# 114 "data/maps/PokemonWorldTournament/scripts.pory"
+# 109 "data/maps/PokemonWorldTournament/scripts.pory"
 	.2byte ITEM_VENUSAURITE
-# 115 "data/maps/PokemonWorldTournament/scripts.pory"
+# 110 "data/maps/PokemonWorldTournament/scripts.pory"
 	.2byte ITEM_CHARIZARDITE_X
-# 116 "data/maps/PokemonWorldTournament/scripts.pory"
+# 111 "data/maps/PokemonWorldTournament/scripts.pory"
 	.2byte ITEM_CHARIZARDITE_Y
-# 117 "data/maps/PokemonWorldTournament/scripts.pory"
+# 112 "data/maps/PokemonWorldTournament/scripts.pory"
 	.2byte ITEM_BLASTOISINITE
-# 118 "data/maps/PokemonWorldTournament/scripts.pory"
+# 113 "data/maps/PokemonWorldTournament/scripts.pory"
 	.2byte ITEM_GARDEVOIRITE
-# 119 "data/maps/PokemonWorldTournament/scripts.pory"
+# 114 "data/maps/PokemonWorldTournament/scripts.pory"
 	.2byte ITEM_GALLADITE
-# 120 "data/maps/PokemonWorldTournament/scripts.pory"
+# 115 "data/maps/PokemonWorldTournament/scripts.pory"
 	.2byte ITEM_SABLENITE
-# 121 "data/maps/PokemonWorldTournament/scripts.pory"
+# 116 "data/maps/PokemonWorldTournament/scripts.pory"
 	.2byte ITEM_BANETTITE
 	.2byte ITEM_NONE
 
 	.align 2
-# 124 "data/maps/PokemonWorldTournament/scripts.pory"
+# 119 "data/maps/PokemonWorldTournament/scripts.pory"
 BP_Mart_Items2LegendaryOn:
-# 125 "data/maps/PokemonWorldTournament/scripts.pory"
+# 120 "data/maps/PokemonWorldTournament/scripts.pory"
 	.2byte ITEM_VENUSAURITE
-# 126 "data/maps/PokemonWorldTournament/scripts.pory"
+# 121 "data/maps/PokemonWorldTournament/scripts.pory"
 	.2byte ITEM_CHARIZARDITE_X
-# 127 "data/maps/PokemonWorldTournament/scripts.pory"
+# 122 "data/maps/PokemonWorldTournament/scripts.pory"
 	.2byte ITEM_CHARIZARDITE_Y
-# 128 "data/maps/PokemonWorldTournament/scripts.pory"
+# 123 "data/maps/PokemonWorldTournament/scripts.pory"
 	.2byte ITEM_BLASTOISINITE
-# 129 "data/maps/PokemonWorldTournament/scripts.pory"
+# 124 "data/maps/PokemonWorldTournament/scripts.pory"
 	.2byte ITEM_GARDEVOIRITE
-# 130 "data/maps/PokemonWorldTournament/scripts.pory"
+# 125 "data/maps/PokemonWorldTournament/scripts.pory"
 	.2byte ITEM_GALLADITE
-# 131 "data/maps/PokemonWorldTournament/scripts.pory"
+# 126 "data/maps/PokemonWorldTournament/scripts.pory"
 	.2byte ITEM_SABLENITE
-# 132 "data/maps/PokemonWorldTournament/scripts.pory"
+# 127 "data/maps/PokemonWorldTournament/scripts.pory"
 	.2byte ITEM_BANETTITE
-# 133 "data/maps/PokemonWorldTournament/scripts.pory"
+# 128 "data/maps/PokemonWorldTournament/scripts.pory"
 	.2byte ITEM_LATIASITE
-# 134 "data/maps/PokemonWorldTournament/scripts.pory"
+# 129 "data/maps/PokemonWorldTournament/scripts.pory"
 	.2byte ITEM_LATIOSITE
 	.2byte ITEM_NONE
 
 FeatureNotReady::
-# 139 "data/maps/PokemonWorldTournament/scripts.pory"
+# 134 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox FeatureNotReady_Text, MSGBOX_NPC
 	return
 
 
 WorldTournamentYoungster::
-# 148 "data/maps/PokemonWorldTournament/scripts.pory"
+# 143 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox WorldTournamentYoungster_Text, MSGBOX_NPC
 	return
 
 
 WorldTournamentGentleman::
-# 151 "data/maps/PokemonWorldTournament/scripts.pory"
+# 146 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox WorldTournamentGentleman_Text, MSGBOX_NPC
 	return
 
 
 WorldTournamentAceTrainer::
-# 154 "data/maps/PokemonWorldTournament/scripts.pory"
+# 149 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox WorldTournamentAceTrainer_Text, MSGBOX_NPC
 	return
 
 
 WorldTournamentScientist::
-# 157 "data/maps/PokemonWorldTournament/scripts.pory"
+# 152 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox WorldTournamentScientist_Text, MSGBOX_NPC
 	return
 
 
 WorldTournamentHiker::
-# 160 "data/maps/PokemonWorldTournament/scripts.pory"
+# 155 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox WorldTournamentHiker_Text, MSGBOX_NPC
 	return
 
 
 WorldTournamentMan5::
-# 163 "data/maps/PokemonWorldTournament/scripts.pory"
+# 158 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox WorldTournamentMan5_Text, MSGBOX_NPC
 	return
 
 
 WorldTournamentGirl3::
-# 166 "data/maps/PokemonWorldTournament/scripts.pory"
+# 161 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox WorldTournamentGirl3_Text, MSGBOX_NPC
 	return
 
 
 WorldTournamentLeftBouncer::
-# 169 "data/maps/PokemonWorldTournament/scripts.pory"
+# 164 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox WorldTournamentLeftBouncer_Text, MSGBOX_NPC
 	return
 
 
 WorldTournamentRightBouncer::
-# 172 "data/maps/PokemonWorldTournament/scripts.pory"
+# 167 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox WorldTournamentRightBouncer_Text, MSGBOX_NPC
 	return
 
 
 PokemonWorldTournament_LeftAttendant::
-# 223 "data/maps/PokemonWorldTournament/scripts.pory"
+# 218 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto_if_set FLAG_TEMP_1, PokemonWorldTournament_LeftAttendant_2
-# 227 "data/maps/PokemonWorldTournament/scripts.pory"
+# 222 "data/maps/PokemonWorldTournament/scripts.pory"
 	message WelcomeToPWT
 PokemonWorldTournament_LeftAttendant_1:
-# 229 "data/maps/PokemonWorldTournament/scripts.pory"
+# 224 "data/maps/PokemonWorldTournament/scripts.pory"
 	waitmessage
-# 230 "data/maps/PokemonWorldTournament/scripts.pory"
+# 225 "data/maps/PokemonWorldTournament/scripts.pory"
 	setflag FLAG_TEMP_1
-# 231 "data/maps/PokemonWorldTournament/scripts.pory"
+# 226 "data/maps/PokemonWorldTournament/scripts.pory"
 	dynmultichoice 23, 0, FALSE, 3, 0, 0, PokemonWorldTournament_LeftAttendant_Text_0, PokemonWorldTournament_LeftAttendant_Text_1, PokemonWorldTournament_LeftAttendant_Text_2
-# 232 "data/maps/PokemonWorldTournament/scripts.pory"
+# 227 "data/maps/PokemonWorldTournament/scripts.pory"
 	switch VAR_RESULT
-# 233 "data/maps/PokemonWorldTournament/scripts.pory"
+# 228 "data/maps/PokemonWorldTournament/scripts.pory"
 	case 0, PokemonWorldTournament_LeftAttendant_6
-# 235 "data/maps/PokemonWorldTournament/scripts.pory"
+# 230 "data/maps/PokemonWorldTournament/scripts.pory"
 	case 1, PokemonWorldTournament_LeftAttendant_7
-# 237 "data/maps/PokemonWorldTournament/scripts.pory"
+# 232 "data/maps/PokemonWorldTournament/scripts.pory"
 	case 2, PokemonWorldTournament_LeftAttendant_8
-# 238 "data/maps/PokemonWorldTournament/scripts.pory"
+# 233 "data/maps/PokemonWorldTournament/scripts.pory"
 	case MULTI_B_PRESSED, PokemonWorldTournament_LeftAttendant_8
 	return
 
 PokemonWorldTournament_LeftAttendant_2:
-# 224 "data/maps/PokemonWorldTournament/scripts.pory"
+# 219 "data/maps/PokemonWorldTournament/scripts.pory"
 	message WelcomeToPWT_Short
 	goto PokemonWorldTournament_LeftAttendant_1
 
 PokemonWorldTournament_LeftAttendant_6:
-# 234 "data/maps/PokemonWorldTournament/scripts.pory"
+# 229 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PWT_Participate
 	return
 
 PokemonWorldTournament_LeftAttendant_7:
-# 236 "data/maps/PokemonWorldTournament/scripts.pory"
+# 231 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PWT_Info
 	return
 
 PokemonWorldTournament_LeftAttendant_8:
-# 239 "data/maps/PokemonWorldTournament/scripts.pory"
+# 234 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox PokemonWorldTournament_LeftAttendant_Text_3, MSGBOX_SIGN
 	end
 
 
 PWT_Info::
-# 256 "data/maps/PokemonWorldTournament/scripts.pory"
+# 251 "data/maps/PokemonWorldTournament/scripts.pory"
 	message PWT_Info_WhichTournament
-# 257 "data/maps/PokemonWorldTournament/scripts.pory"
+# 252 "data/maps/PokemonWorldTournament/scripts.pory"
 	waitmessage
-# 258 "data/maps/PokemonWorldTournament/scripts.pory"
+# 253 "data/maps/PokemonWorldTournament/scripts.pory"
 	dynmultichoice 23, 0, FALSE, 6, 0, 0, PWT_Info_Text_0, PWT_Info_Text_1, PWT_Info_Text_2, PWT_Info_Text_3, PWT_Info_Text_4
-# 259 "data/maps/PokemonWorldTournament/scripts.pory"
+# 254 "data/maps/PokemonWorldTournament/scripts.pory"
 	switch VAR_RESULT
-# 260 "data/maps/PokemonWorldTournament/scripts.pory"
+# 255 "data/maps/PokemonWorldTournament/scripts.pory"
 	case 0, PWT_Info_2
-# 262 "data/maps/PokemonWorldTournament/scripts.pory"
+# 257 "data/maps/PokemonWorldTournament/scripts.pory"
 	case 1, PWT_Info_3
-# 264 "data/maps/PokemonWorldTournament/scripts.pory"
+# 259 "data/maps/PokemonWorldTournament/scripts.pory"
 	case 2, PWT_Info_4
-# 266 "data/maps/PokemonWorldTournament/scripts.pory"
+# 261 "data/maps/PokemonWorldTournament/scripts.pory"
 	case 3, PWT_Info_5
-# 268 "data/maps/PokemonWorldTournament/scripts.pory"
+# 263 "data/maps/PokemonWorldTournament/scripts.pory"
 	case 4, PWT_Info_6
-# 269 "data/maps/PokemonWorldTournament/scripts.pory"
+# 264 "data/maps/PokemonWorldTournament/scripts.pory"
 	case MULTI_B_PRESSED, PWT_Info_6
 	return
 
 PWT_Info_2:
-# 261 "data/maps/PokemonWorldTournament/scripts.pory"
+# 256 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PWT_Info_BattleFormats
 	return
 
 PWT_Info_3:
-# 263 "data/maps/PokemonWorldTournament/scripts.pory"
+# 258 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PWT_Info_Frosthearth
 	return
 
 PWT_Info_4:
-# 265 "data/maps/PokemonWorldTournament/scripts.pory"
+# 260 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PWT_Info_Rental
 	return
 
 PWT_Info_5:
-# 267 "data/maps/PokemonWorldTournament/scripts.pory"
+# 262 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PWT_Info_Mix
 	return
 
 PWT_Info_6:
-# 270 "data/maps/PokemonWorldTournament/scripts.pory"
+# 265 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PokemonWorldTournament_LeftAttendant
 	return
 
 
 PWT_Info_BattleFormats::
-# 278 "data/maps/PokemonWorldTournament/scripts.pory"
+# 273 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox PWT_Info_BattleFormats_Text
-# 279 "data/maps/PokemonWorldTournament/scripts.pory"
+# 274 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PWT_Info
 	return
 
 
 PWT_Info_Frosthearth::
-# 292 "data/maps/PokemonWorldTournament/scripts.pory"
+# 287 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox PWT_Info_Frosthearth_Text
-# 293 "data/maps/PokemonWorldTournament/scripts.pory"
+# 288 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PWT_Info
 	return
 
 
 PWT_Info_Rental::
-# 307 "data/maps/PokemonWorldTournament/scripts.pory"
+# 302 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox PWT_Info_Rental_Text
-# 308 "data/maps/PokemonWorldTournament/scripts.pory"
+# 303 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PWT_Info
 	return
 
 
 PWT_Info_Mix::
-# 323 "data/maps/PokemonWorldTournament/scripts.pory"
+# 318 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox PWT_Info_Mix_Text
-# 324 "data/maps/PokemonWorldTournament/scripts.pory"
+# 319 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PWT_Info
 	return
 
 
 PWT_Participate::
-# 342 "data/maps/PokemonWorldTournament/scripts.pory"
+# 337 "data/maps/PokemonWorldTournament/scripts.pory"
 	message PWT_Participate_Text
-# 343 "data/maps/PokemonWorldTournament/scripts.pory"
+# 338 "data/maps/PokemonWorldTournament/scripts.pory"
 	waitmessage
-# 344 "data/maps/PokemonWorldTournament/scripts.pory"
+# 339 "data/maps/PokemonWorldTournament/scripts.pory"
 	dynmultichoice 23, 0, FALSE, 6, 0, 0, PWT_Info_Text_1, PWT_Info_Text_2, PWT_Info_Text_3, PWT_Info_Text_4
-# 345 "data/maps/PokemonWorldTournament/scripts.pory"
+# 340 "data/maps/PokemonWorldTournament/scripts.pory"
 	switch VAR_RESULT
-# 346 "data/maps/PokemonWorldTournament/scripts.pory"
+# 341 "data/maps/PokemonWorldTournament/scripts.pory"
 	case 0, PWT_Participate_2
-# 348 "data/maps/PokemonWorldTournament/scripts.pory"
+# 343 "data/maps/PokemonWorldTournament/scripts.pory"
 	case 1, PWT_Participate_3
-# 350 "data/maps/PokemonWorldTournament/scripts.pory"
+# 345 "data/maps/PokemonWorldTournament/scripts.pory"
 	case 2, PWT_Participate_4
-# 352 "data/maps/PokemonWorldTournament/scripts.pory"
+# 347 "data/maps/PokemonWorldTournament/scripts.pory"
 	case 3, PWT_Participate_5
-# 353 "data/maps/PokemonWorldTournament/scripts.pory"
+# 348 "data/maps/PokemonWorldTournament/scripts.pory"
 	case MULTI_B_PRESSED, PWT_Participate_5
 	return
 
 PWT_Participate_2:
-# 347 "data/maps/PokemonWorldTournament/scripts.pory"
+# 342 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PWT_Participate_Frosthearth
 	return
 
 PWT_Participate_3:
-# 349 "data/maps/PokemonWorldTournament/scripts.pory"
+# 344 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PWT_Participate_Rental
 	return
 
 PWT_Participate_4:
-# 351 "data/maps/PokemonWorldTournament/scripts.pory"
+# 346 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PWT_Participate_Mix
 	return
 
 PWT_Participate_5:
-# 354 "data/maps/PokemonWorldTournament/scripts.pory"
+# 349 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PokemonWorldTournament_LeftAttendant
 	return
 
 
 PWT_Participate_Frosthearth::
-# 367 "data/maps/PokemonWorldTournament/scripts.pory"
+# 362 "data/maps/PokemonWorldTournament/scripts.pory"
 	message WhichBattleFormat
-# 368 "data/maps/PokemonWorldTournament/scripts.pory"
+# 363 "data/maps/PokemonWorldTournament/scripts.pory"
 	waitmessage
-# 369 "data/maps/PokemonWorldTournament/scripts.pory"
+# 364 "data/maps/PokemonWorldTournament/scripts.pory"
 	dynmultichoice 23, 0, FALSE, 6, 0, 0, PWT_Participate_Frosthearth_Text_0, PWT_Participate_Frosthearth_Text_1, PWT_Info_Text_4
-# 370 "data/maps/PokemonWorldTournament/scripts.pory"
+# 365 "data/maps/PokemonWorldTournament/scripts.pory"
 	switch VAR_RESULT
-# 371 "data/maps/PokemonWorldTournament/scripts.pory"
+# 366 "data/maps/PokemonWorldTournament/scripts.pory"
 	case 0, PWT_Participate_Frosthearth_2
-# 373 "data/maps/PokemonWorldTournament/scripts.pory"
+# 368 "data/maps/PokemonWorldTournament/scripts.pory"
 	case 1, PWT_Participate_Frosthearth_3
-# 375 "data/maps/PokemonWorldTournament/scripts.pory"
+# 370 "data/maps/PokemonWorldTournament/scripts.pory"
 	case 2, PWT_Participate_Frosthearth_4
-# 376 "data/maps/PokemonWorldTournament/scripts.pory"
+# 371 "data/maps/PokemonWorldTournament/scripts.pory"
 	case MULTI_B_PRESSED, PWT_Participate_Frosthearth_4
 	return
 
 PWT_Participate_Frosthearth_2:
-# 372 "data/maps/PokemonWorldTournament/scripts.pory"
+# 367 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PWT_Frosthearth_Single
 	return
 
 PWT_Participate_Frosthearth_3:
-# 374 "data/maps/PokemonWorldTournament/scripts.pory"
+# 369 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PWT_Frosthearth_Double
 	return
 
 PWT_Participate_Frosthearth_4:
-# 377 "data/maps/PokemonWorldTournament/scripts.pory"
+# 372 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PWT_Participate
 	return
 
 
 PWT_Participate_Rental::
-# 381 "data/maps/PokemonWorldTournament/scripts.pory"
+# 376 "data/maps/PokemonWorldTournament/scripts.pory"
 	message WhichBattleFormat
-# 382 "data/maps/PokemonWorldTournament/scripts.pory"
+# 377 "data/maps/PokemonWorldTournament/scripts.pory"
 	waitmessage
-# 383 "data/maps/PokemonWorldTournament/scripts.pory"
+# 378 "data/maps/PokemonWorldTournament/scripts.pory"
 	dynmultichoice 23, 0, FALSE, 6, 0, 0, PWT_Participate_Frosthearth_Text_0, PWT_Participate_Frosthearth_Text_1, PWT_Info_Text_4
-# 384 "data/maps/PokemonWorldTournament/scripts.pory"
+# 379 "data/maps/PokemonWorldTournament/scripts.pory"
 	switch VAR_RESULT
-# 385 "data/maps/PokemonWorldTournament/scripts.pory"
+# 380 "data/maps/PokemonWorldTournament/scripts.pory"
 	case 0, PWT_Participate_Rental_2
-# 387 "data/maps/PokemonWorldTournament/scripts.pory"
+# 382 "data/maps/PokemonWorldTournament/scripts.pory"
 	case 1, PWT_Participate_Rental_3
-# 389 "data/maps/PokemonWorldTournament/scripts.pory"
+# 384 "data/maps/PokemonWorldTournament/scripts.pory"
 	case 2, PWT_Participate_Rental_4
-# 390 "data/maps/PokemonWorldTournament/scripts.pory"
+# 385 "data/maps/PokemonWorldTournament/scripts.pory"
 	case MULTI_B_PRESSED, PWT_Participate_Rental_4
 	return
 
 PWT_Participate_Rental_2:
-# 386 "data/maps/PokemonWorldTournament/scripts.pory"
+# 381 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PWT_Rental_Single
 	return
 
 PWT_Participate_Rental_3:
-# 388 "data/maps/PokemonWorldTournament/scripts.pory"
+# 383 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PWT_Rental_Double
 	return
 
 PWT_Participate_Rental_4:
-# 391 "data/maps/PokemonWorldTournament/scripts.pory"
+# 386 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PWT_Participate
 	return
 
 
 PWT_Participate_Mix::
-# 395 "data/maps/PokemonWorldTournament/scripts.pory"
+# 390 "data/maps/PokemonWorldTournament/scripts.pory"
 	message WhichBattleFormat
-# 396 "data/maps/PokemonWorldTournament/scripts.pory"
+# 391 "data/maps/PokemonWorldTournament/scripts.pory"
 	waitmessage
-# 397 "data/maps/PokemonWorldTournament/scripts.pory"
+# 392 "data/maps/PokemonWorldTournament/scripts.pory"
 	dynmultichoice 23, 0, FALSE, 6, 0, 0, PWT_Participate_Frosthearth_Text_0, PWT_Participate_Frosthearth_Text_1, PWT_Info_Text_4
-# 398 "data/maps/PokemonWorldTournament/scripts.pory"
+# 393 "data/maps/PokemonWorldTournament/scripts.pory"
 	switch VAR_RESULT
-# 399 "data/maps/PokemonWorldTournament/scripts.pory"
+# 394 "data/maps/PokemonWorldTournament/scripts.pory"
 	case 0, PWT_Participate_Mix_2
-# 401 "data/maps/PokemonWorldTournament/scripts.pory"
+# 396 "data/maps/PokemonWorldTournament/scripts.pory"
 	case 1, PWT_Participate_Mix_3
-# 403 "data/maps/PokemonWorldTournament/scripts.pory"
+# 398 "data/maps/PokemonWorldTournament/scripts.pory"
 	case 2, PWT_Participate_Mix_4
-# 404 "data/maps/PokemonWorldTournament/scripts.pory"
+# 399 "data/maps/PokemonWorldTournament/scripts.pory"
 	case MULTI_B_PRESSED, PWT_Participate_Mix_4
 	return
 
 PWT_Participate_Mix_2:
-# 400 "data/maps/PokemonWorldTournament/scripts.pory"
+# 395 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PWT_Mix_Single
 	return
 
 PWT_Participate_Mix_3:
-# 402 "data/maps/PokemonWorldTournament/scripts.pory"
+# 397 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PWT_Mix_Double
 	return
 
 PWT_Participate_Mix_4:
-# 405 "data/maps/PokemonWorldTournament/scripts.pory"
+# 400 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto PWT_Participate
 	return
 
 
 PWT_Frosthearth_Single::
-# 412 "data/maps/PokemonWorldTournament/scripts.pory"
+# 407 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox FeatureNotReady_Text, MSGBOX_NPC
 	end
 
 
 PWT_Frosthearth_Double::
-# 417 "data/maps/PokemonWorldTournament/scripts.pory"
+# 412 "data/maps/PokemonWorldTournament/scripts.pory"
 	setvar VAR_FRONTIER_BATTLE_MODE, FRONTIER_MODE_DOUBLES
-# 418 "data/maps/PokemonWorldTournament/scripts.pory"
+# 413 "data/maps/PokemonWorldTournament/scripts.pory"
 	special SavePlayerParty
-# 419 "data/maps/PokemonWorldTournament/scripts.pory"
+# 414 "data/maps/PokemonWorldTournament/scripts.pory"
 	frontier_checkineligible
-# 420 "data/maps/PokemonWorldTournament/scripts.pory"
+# 415 "data/maps/PokemonWorldTournament/scripts.pory"
 	compare VAR_0x8004, TRUE
 	goto_if_eq PWT_Frosthearth_Double_2
-# 426 "data/maps/PokemonWorldTournament/scripts.pory"
+# 421 "data/maps/PokemonWorldTournament/scripts.pory"
 	frontier_set FRONTIER_DATA_LVL_MODE, FRONTIER_DATA_LVL_MODE
-# 427 "data/maps/PokemonWorldTournament/scripts.pory"
+# 422 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox BattleFrontier_BattleTowerLobby_Text_PleaseSelectFourMons, MSGBOX_DEFAULT
-# 428 "data/maps/PokemonWorldTournament/scripts.pory"
+# 423 "data/maps/PokemonWorldTournament/scripts.pory"
 	fadescreen FADE_TO_BLACK
-# 429 "data/maps/PokemonWorldTournament/scripts.pory"
+# 424 "data/maps/PokemonWorldTournament/scripts.pory"
 	callnative RemoveFollowingPokemon
-# 432 "data/maps/PokemonWorldTournament/scripts.pory"
+# 427 "data/maps/PokemonWorldTournament/scripts.pory"
 	setvar VAR_0x8005, FRONTIER_DOUBLES_PARTY_SIZE
-# 433 "data/maps/PokemonWorldTournament/scripts.pory"
+# 428 "data/maps/PokemonWorldTournament/scripts.pory"
 	special ChoosePartyForBattleFrontier
-# 434 "data/maps/PokemonWorldTournament/scripts.pory"
+# 429 "data/maps/PokemonWorldTournament/scripts.pory"
 	waitstate
-# 435 "data/maps/PokemonWorldTournament/scripts.pory"
+# 430 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto_if_eq VAR_RESULT, 0, BattleFrontier_BattleArenaLobby_EventScript_LoadPartyAndCancelChallenge
-# 436 "data/maps/PokemonWorldTournament/scripts.pory"
+# 431 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox BattleFrontier_BattleArenaLobby_Text_OkayToSave, MSGBOX_YESNO
-# 437 "data/maps/PokemonWorldTournament/scripts.pory"
+# 432 "data/maps/PokemonWorldTournament/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq PWT_Frosthearth_Double_5
-# 441 "data/maps/PokemonWorldTournament/scripts.pory"
+# 436 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto BattleFrontier_BattleArenaLobby_EventScript_LoadPartyAndCancelChallenge
 PWT_Frosthearth_Double_4:
 	end
 
 PWT_Frosthearth_Double_2:
-# 421 "data/maps/PokemonWorldTournament/scripts.pory"
+# 416 "data/maps/PokemonWorldTournament/scripts.pory"
 	bufferstring STR_VAR_2, PWT_Frosthearth_Double_Text_0
-# 422 "data/maps/PokemonWorldTournament/scripts.pory"
+# 417 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox BattleFrontier_BattleArenaLobby_Text_NotEnoughValidMonsLvOpen
-# 423 "data/maps/PokemonWorldTournament/scripts.pory"
+# 418 "data/maps/PokemonWorldTournament/scripts.pory"
 	release
 	end
 
 PWT_Frosthearth_Double_5:
-# 438 "data/maps/PokemonWorldTournament/scripts.pory"
+# 433 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto BattleFrontier_BattleArenaLobby_EventScript_SaveBeforeChallenge
 	goto PWT_Frosthearth_Double_4
 
 
 PWT_Rental_Single::
-# 446 "data/maps/PokemonWorldTournament/scripts.pory"
+# 441 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox FeatureNotReady_Text, MSGBOX_NPC
 	end
 
 
 PWT_Rental_Double::
-# 450 "data/maps/PokemonWorldTournament/scripts.pory"
+# 445 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox FeatureNotReady_Text, MSGBOX_NPC
 	end
 
 
 PWT_Mix_Single::
-# 454 "data/maps/PokemonWorldTournament/scripts.pory"
+# 449 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox FeatureNotReady_Text, MSGBOX_NPC
 	end
 
 
 PWT_Mix_Double::
-# 458 "data/maps/PokemonWorldTournament/scripts.pory"
+# 453 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox FeatureNotReady_Text, MSGBOX_NPC
 	end
 
 
 Pwt_Incomplete::
-# 474 "data/maps/PokemonWorldTournament/scripts.pory"
+# 469 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox Pwt_Incomplete_Text, MSGBOX_NPC
 	return
 
 
 PokemonWorldTournament_LeftAttendant_Text_0:
-# 231 "data/maps/PokemonWorldTournament/scripts.pory"
+# 226 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "Participate$"
 
 PokemonWorldTournament_LeftAttendant_Text_1:
-# 231 "data/maps/PokemonWorldTournament/scripts.pory"
+# 226 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "Info$"
 
 PokemonWorldTournament_LeftAttendant_Text_2:
-# 231 "data/maps/PokemonWorldTournament/scripts.pory"
+# 226 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "Quit$"
 
 PokemonWorldTournament_LeftAttendant_Text_3:
-# 239 "data/maps/PokemonWorldTournament/scripts.pory"
+# 234 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "We hope to see you again!$"
 
 PWT_Info_Text_0:
-# 258 "data/maps/PokemonWorldTournament/scripts.pory"
+# 253 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "About battle formats$"
 
 PWT_Info_Text_1:
-# 258 "data/maps/PokemonWorldTournament/scripts.pory"
+# 253 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "Frosthearth$"
 
 PWT_Info_Text_2:
-# 258 "data/maps/PokemonWorldTournament/scripts.pory"
+# 253 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "Rental$"
 
 PWT_Info_Text_3:
-# 258 "data/maps/PokemonWorldTournament/scripts.pory"
+# 253 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "Mix$"
 
 PWT_Info_Text_4:
-# 258 "data/maps/PokemonWorldTournament/scripts.pory"
+# 253 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "Back$"
 
 PWT_Participate_Frosthearth_Text_0:
-# 369 "data/maps/PokemonWorldTournament/scripts.pory"
+# 364 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "Single Battle$"
 
 PWT_Participate_Frosthearth_Text_1:
-# 369 "data/maps/PokemonWorldTournament/scripts.pory"
+# 364 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "Double Battle$"
 
 PWT_Frosthearth_Double_Text_0:
-# 421 "data/maps/PokemonWorldTournament/scripts.pory"
+# 416 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "four$"
 
 IllTakeYourBPNow::
@@ -698,19 +688,19 @@ PleaseSaveSomeBp::
 	.string "and come see us again.$"
 
 FeatureNotReady_Text::
-# 141 "data/maps/PokemonWorldTournament/scripts.pory"
+# 136 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "This feature is not currently\n"
 	.string "available.\p"
 	.string "We apologize for the inconvenience.$"
 
 WorldTournamentYoungster_Text::
-# 175 "data/maps/PokemonWorldTournament/scripts.pory"
+# 170 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "Someday, I'll be a famous guy!\p"
 	.string "But for now, I'm just a spectator\n"
 	.string "here.$"
 
 WorldTournamentGentleman_Text::
-# 180 "data/maps/PokemonWorldTournament/scripts.pory"
+# 175 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "The Pokémon World Tournament\n"
 	.string "attracts big names as well.\p"
 	.string "I'm pretty sure I saw Aaron,\n"
@@ -718,24 +708,24 @@ WorldTournamentGentleman_Text::
 	.string "waltz in not too long ago.$"
 
 WorldTournamentAceTrainer_Text::
-# 187 "data/maps/PokemonWorldTournament/scripts.pory"
+# 182 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "It's the Pokémon World Tournament!\n"
 	.string "It's all in the name!\p"
 	.string "Trainers have gathered\n"
 	.string "from all over the world!$"
 
 WorldTournamentScientist_Text::
-# 193 "data/maps/PokemonWorldTournament/scripts.pory"
+# 188 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "The crowd will go wild for\n"
 	.string "my Pokémon!$"
 
 WorldTournamentHiker_Text::
-# 197 "data/maps/PokemonWorldTournament/scripts.pory"
+# 192 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "Many trainers from far away\n"
 	.string "will come to participate!$"
 
 WorldTournamentMan5_Text::
-# 201 "data/maps/PokemonWorldTournament/scripts.pory"
+# 196 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "I'm not much of a trainer myself,\n"
 	.string "but my brother has come real close\l"
 	.string "to winning in the past.\p"
@@ -743,40 +733,40 @@ WorldTournamentMan5_Text::
 	.string "he'll definitely win this time!$"
 
 WorldTournamentGirl3_Text::
-# 208 "data/maps/PokemonWorldTournament/scripts.pory"
+# 203 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "The competition is really fierce\n"
 	.string "this time around.\p"
 	.string "I can't wait to see who wins!$"
 
 WorldTournamentLeftBouncer_Text::
-# 213 "data/maps/PokemonWorldTournament/scripts.pory"
+# 208 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "That's the Pokemon World Tournament\n"
 	.string "for you! It's packed with spectators!$"
 
 WorldTournamentRightBouncer_Text::
-# 217 "data/maps/PokemonWorldTournament/scripts.pory"
+# 212 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "It's crazy popular! This is what\n"
 	.string "packed to the rafters means!$"
 
 WelcomeToPWT::
-# 244 "data/maps/PokemonWorldTournament/scripts.pory"
+# 239 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "Welcome to the\n"
 	.string "Pokémon World Tournament!\p"
 	.string "Would you like to participate\n"
 	.string "in the tournament?$"
 
 WelcomeToPWT_Short::
-# 250 "data/maps/PokemonWorldTournament/scripts.pory"
+# 245 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "Would you like to participate\n"
 	.string "in the tournament?$"
 
 PWT_Info_WhichTournament::
-# 273 "data/maps/PokemonWorldTournament/scripts.pory"
+# 268 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "Which tournament do you\n"
 	.string "want to know about?$"
 
 PWT_Info_BattleFormats_Text::
-# 281 "data/maps/PokemonWorldTournament/scripts.pory"
+# 276 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "There are two battle formats\n"
 	.string "to a tournament:\l"
 	.string "Single and Double.\p"
@@ -787,7 +777,7 @@ PWT_Info_BattleFormats_Text::
 	.string "It's worthwhile to try it!$"
 
 PWT_Info_Frosthearth_Text::
-# 295 "data/maps/PokemonWorldTournament/scripts.pory"
+# 290 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "Frosthearth Tournament is a tournament\n"
 	.string "where anything goes.\p"
 	.string "You may use any Pokémon or\n"
@@ -799,7 +789,7 @@ PWT_Info_Frosthearth_Text::
 	.string "Good luck!$"
 
 PWT_Info_Rental_Text::
-# 310 "data/maps/PokemonWorldTournament/scripts.pory"
+# 305 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "Rental Tournament is a unique\n"
 	.string "tournament where we prepare\l"
 	.string "the Pokémon with which you\l"
@@ -812,7 +802,7 @@ PWT_Info_Rental_Text::
 	.string "Good luck!$"
 
 PWT_Info_Mix_Text::
-# 326 "data/maps/PokemonWorldTournament/scripts.pory"
+# 321 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "Mix Tournament is a unique tournament\n"
 	.string "where you and your opponent swap\l"
 	.string "Pokémon before battling.\p"
@@ -827,17 +817,17 @@ PWT_Info_Mix_Text::
 	.string "Good luck!$"
 
 PWT_Participate_Text::
-# 357 "data/maps/PokemonWorldTournament/scripts.pory"
+# 352 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "Which tournament\n"
 	.string "will you participate in?$"
 
 WhichBattleFormat::
-# 361 "data/maps/PokemonWorldTournament/scripts.pory"
+# 356 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "Which battle format\n"
 	.string "will you choose?$"
 
 PWT_NotEnoughValidMons::
-# 462 "data/maps/PokemonWorldTournament/scripts.pory"
+# 457 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "My dear challenger!\p"
 	.string "You do not have the {STR_VAR_2} Pokémon\n"
 	.string "required for entry.\p"
@@ -848,7 +838,7 @@ PWT_NotEnoughValidMons::
 	.string "please do return.$"
 
 Pwt_Incomplete_Text::
-# 476 "data/maps/PokemonWorldTournament/scripts.pory"
+# 471 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "Hello, and welcome to the\n"
 	.string "Pokémon World Tournament!\p"
 	.string "…Is what I would normally say.\p"

@@ -22,14 +22,27 @@ script TriggerLatiosRoam{
 	special(DoOrbEffect)
     delay(150)
     waitstate
-    addobject(2)
+    if(var(VAR_RESULT) < 32){
+        setflag(FLAG_LATIOS_SHINY)
+    }
+    if(flag(FLAG_LATIOS_SHINY)){
+        addobject(3)
+    }
+    else{
+        addobject(2)
+    }
     special(FadeOutOrbEffect)
 	waitstate
     delay(60)
     playse(SE_M_FLY)
     waitse
     delay(30)
-    applymovement(2, moves(walk_slow_down * 5))
+    if(flag(FLAG_LATIOS_SHINY)){
+        applymovement(3, moves(walk_slow_down * 5))
+    }
+    else{
+        applymovement(2, moves(walk_slow_down * 5))
+    }
     waitmovement(0)
     delay(60)
     playmoncry(SPECIES_LATIOS, CRY_MODE_NORMAL)
@@ -40,7 +53,12 @@ script TriggerLatiosRoam{
     msgbox(LatisRegistered, MSGBOX_SIGN)
     delay(60)
     playse(SE_M_FLY)
-    applymovement(2, moves(walk_fast_up * 6))
+    if(flag(FLAG_LATIOS_SHINY)){
+        applymovement(3, moves(walk_fast_up * 6))
+    }
+    else{
+        applymovement(2, moves(walk_fast_up * 6))
+    }
     waitmovement(0)
     waitse
     delay(60)
@@ -49,6 +67,7 @@ script TriggerLatiosRoam{
     setvar(VAR_0x8004, 1)
     special(InitRoamer)
     removeobject(2)
+    removeobject(3)
     fadeinbgm(0)
     delay(48)
     end

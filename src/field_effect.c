@@ -77,7 +77,8 @@ static void PokeballGlowEffect_Idle(struct Sprite *);
 static void SpriteCB_PokeballGlow(struct Sprite *);
 
 static void Task_UseFly(u8);
-static void FieldCallback_FlyIntoMap(void);
+void FieldCallback_FlyIntoMap(void);
+void FieldCallback_FlyIntoMapSpecial(void);
 static void Task_FlyIntoMap(u8);
 
 static void Task_FallWarpFieldEffect(u8);
@@ -1456,10 +1457,34 @@ static void Task_UseFly(u8 taskId)
 
 #undef taskState
 
-static void FieldCallback_FlyIntoMap(void)
+void FieldCallback_FlyIntoMap(void)
 {
     Overworld_PlaySpecialMapMusic();
     FadeInFromBlack();
+    CreateTask(Task_FlyIntoMap, 0);
+    // gSaveBlock3Ptr->previousFlyCheckpoint.mapGroup = gSaveBlock3Ptr->flyCheckpoint.mapGroup;
+    // gSaveBlock3Ptr->previousFlyCheckpoint.mapNum = gSaveBlock3Ptr->flyCheckpoint.mapNum;
+    // gSaveBlock3Ptr->previousFlyCheckpoint.warpId = gSaveBlock3Ptr->flyCheckpoint.warpId;
+    // gSaveBlock3Ptr->previousFlyCheckpoint.x = gSaveBlock3Ptr->flyCheckpoint.x;
+    // gSaveBlock3Ptr->previousFlyCheckpoint.y = gSaveBlock3Ptr->flyCheckpoint.y;
+    // gSaveBlock3Ptr->previousFlyMapSec = gSaveBlock3Ptr->flyMapSec;
+    gObjectEvents[gPlayerAvatar.objectEventId].invisible = TRUE;
+    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING)
+    {
+        ObjectEventTurn(&gObjectEvents[gPlayerAvatar.objectEventId], DIR_WEST);
+    }
+    LockPlayerFieldControls();
+    FreezeObjectEvents();
+    gFieldCallback = NULL;
+}
+
+void FieldCallback_FlyIntoMapSpecial(void)
+{
+    Overworld_PlaySpecialMapMusic();
+    if (gSpecialVar_0x8004 == 2 || gSpecialVar_0x8004 == 4)
+        FadeInFromBlack();
+    else
+        FadeInFromWhite();
     CreateTask(Task_FlyIntoMap, 0);
     // gSaveBlock3Ptr->previousFlyCheckpoint.mapGroup = gSaveBlock3Ptr->flyCheckpoint.mapGroup;
     // gSaveBlock3Ptr->previousFlyCheckpoint.mapNum = gSaveBlock3Ptr->flyCheckpoint.mapNum;

@@ -3009,6 +3009,29 @@ static const struct SpriteFrameImage sPicTable_MayRSSnow10Px[] = {
     overworld_ascending_frames(gObjectEventPic_MayRSSnow10Px, 2, 4),
 };
 
+static const struct SpriteFrameImage sPicTable_SpecialLatias[] = {
+    overworld_ascending_frames(gObjectEventPic_LatiasSpecial, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SpecialLatiasHead[] = {
+    overworld_ascending_frames(gObjectEventPic_LatiasSpecialHead, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SpecialLatios[] = {
+    overworld_ascending_frames(gObjectEventPic_LatiosSpecial, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SpecialLatiosHead[] = {
+    overworld_ascending_frames(gObjectEventPic_LatiosSpecialHead, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_LatiBallUp[] = {
+    overworld_ascending_frames(gObjectEventPic_LatiBallUp, 4, 4),
+};
+static const struct SpriteFrameImage sPicTable_LatiBallDown[] = {
+    overworld_ascending_frames(gObjectEventPic_LatiBallDown, 4, 4),
+};
+
 ZOBJ_PIC(SHORESLATE_WINDOW1)
 
 #undef ZOBJ_PIC

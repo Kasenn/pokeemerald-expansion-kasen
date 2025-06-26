@@ -83117,6 +83117,282 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_LATIAS_ISLAND",
+          "base_label": "gLatiasIsland_Day",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 42,
+                "max_level": 45,
+                "species": "SPECIES_DRAGONAIR"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_ALTARIA"
+              },
+              {
+                "min_level": 41,
+                "max_level": 44,
+                "species": "SPECIES_DRIFLOON"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 41,
+                "max_level": 44,
+                "species": "SPECIES_ALTARIA"
+              },
+              {
+                "min_level": 41,
+                "max_level": 44,
+                "species": "SPECIES_DRIFBLIM"
+              },
+              {
+                "min_level": 41,
+                "max_level": 44,
+                "species": "SPECIES_ALTARIA"
+              },
+              {
+                "min_level": 42,
+                "max_level": 45,
+                "species": "SPECIES_DRIFBLIM"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_LATIAS_ISLAND",
+          "base_label": "gLatiasIsland_Evening",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 42,
+                "max_level": 45,
+                "species": "SPECIES_DRAGONAIR"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_ALTARIA"
+              },
+              {
+                "min_level": 41,
+                "max_level": 44,
+                "species": "SPECIES_DRIFLOON"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 41,
+                "max_level": 44,
+                "species": "SPECIES_ALTARIA"
+              },
+              {
+                "min_level": 41,
+                "max_level": 44,
+                "species": "SPECIES_DRIFBLIM"
+              },
+              {
+                "min_level": 41,
+                "max_level": 44,
+                "species": "SPECIES_ALTARIA"
+              },
+              {
+                "min_level": 42,
+                "max_level": 45,
+                "species": "SPECIES_DRIFBLIM"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_LATIAS_ISLAND",
+          "base_label": "gLatiasIsland_Night",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 42,
+                "max_level": 45,
+                "species": "SPECIES_DRAGONAIR"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_ALTARIA"
+              },
+              {
+                "min_level": 41,
+                "max_level": 44,
+                "species": "SPECIES_DRIFLOON"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 41,
+                "max_level": 44,
+                "species": "SPECIES_ALTARIA"
+              },
+              {
+                "min_level": 41,
+                "max_level": 44,
+                "species": "SPECIES_DRIFBLIM"
+              },
+              {
+                "min_level": 41,
+                "max_level": 44,
+                "species": "SPECIES_ALTARIA"
+              },
+              {
+                "min_level": 42,
+                "max_level": 45,
+                "species": "SPECIES_DRIFBLIM"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_LATIAS_ISLAND",
+          "base_label": "gLatiasIsland_Morning",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 42,
+                "max_level": 45,
+                "species": "SPECIES_DRAGONAIR"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_ALTARIA"
+              },
+              {
+                "min_level": 41,
+                "max_level": 44,
+                "species": "SPECIES_DRIFLOON"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 41,
+                "max_level": 44,
+                "species": "SPECIES_ALTARIA"
+              },
+              {
+                "min_level": 41,
+                "max_level": 44,
+                "species": "SPECIES_DRIFBLIM"
+              },
+              {
+                "min_level": 41,
+                "max_level": 44,
+                "species": "SPECIES_ALTARIA"
+              },
+              {
+                "min_level": 42,
+                "max_level": 45,
+                "species": "SPECIES_DRIFBLIM"
+              }
+            ]
+          }
         }
       ]
     },

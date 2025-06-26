@@ -291,6 +291,16 @@ void DoStandardWildBattle_Debug(void)
 
 void BattleSetup_StartRoamerBattle(void)
 {
+    if(FlagGet(FLAG_LATIAS_SHINY) && GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL) == SPECIES_LATIAS)
+    {
+        bool8 isShiny   = TRUE;
+        SetMonData(&gEnemyParty[0], MON_DATA_IS_SHINY, &isShiny);
+    }
+    else if(FlagGet(FLAG_LATIOS_SHINY) && GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL) == SPECIES_LATIOS)
+    {
+        bool8 isShiny   = TRUE;
+        SetMonData(&gEnemyParty[0], MON_DATA_IS_SHINY, &isShiny);
+    }
     LockPlayerFieldControls();
     FreezeObjectEvents();
     StopPlayerAvatar();

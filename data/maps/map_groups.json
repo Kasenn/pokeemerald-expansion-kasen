@@ -130,8 +130,7 @@
     "FrigidFrontier9",
     "FrigidFrontier10",
     "Route28_Part2_SideArea",
-    "SnowcrestCity_Part2",
-    "LatiasIsland"
+    "SnowcrestCity_Part2"
   ],
   "gMapGroup_RouteInteriors": [
     "Route7_Grotto",
@@ -152,7 +151,9 @@
     "Route13Alternative",
     "Route13_GateHouse",
     "Route119_WeatherInstitute_1F",
-    "Route119_WeatherInstitute_2F"
+    "Route119_WeatherInstitute_2F",
+    "LatiasIsland",
+    "LatiosIsland"
   ],
   "gMapGroup_Dungeons": [
     "WindyWoods",

@@ -482,10 +482,15 @@ static s32 GetDesertCliffsGrassMetatile(s32 metatileId, bool8 seedDrop)
 {
     if (seedDrop)
     {
-        sCutGrassSeedDrops++;
-        return 0x20B;
+        if (metatileId == 0x3B5)
+        {
+            sCutGrassSeedDrops++;
+            return 0x20B;
+        }
     }
-    return 0x071;
+    if (metatileId == 0x3B5)
+        return 0x071;
+    return 0;
 }
 
 static s32 GetAshGrassMetatile(s32 metatileId, bool8 seedDrop)
@@ -555,7 +560,7 @@ static void SetCutGrassMetatile(s16 x, s16 y)
         newMetatileId = GetPearlwoodGrassMetatile(metatileId, seedDrop);
     else if (MAP(MAP_SAFARI_ZONE_MOUNTAIN))
         newMetatileId = GetSafariMountainGrassMetatile(metatileId, seedDrop);
-    else if (MAP(MAP_DESERT_CLIFFS))
+    else if ((MAP(MAP_DESERT_CLIFFS)) || (MAP(MAP_LATIAS_ISLAND)))
         newMetatileId = GetDesertCliffsGrassMetatile(metatileId, seedDrop);
     else if (MAP(MAP_ROUTE16))
         newMetatileId = GetAshGrassMetatile(metatileId, seedDrop);

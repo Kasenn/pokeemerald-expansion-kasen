@@ -300,10 +300,6 @@ script Lab_GetMegaStoneLater{
     }
 }
 
-movement SpawnFollower{
-    set_visible
-    exit_pokeball
-}
 movement Lab_Movement_RivalExit1{
 	player_run_down * 3
 	player_run_left * 1

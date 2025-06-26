@@ -11,16 +11,34 @@ const SWITCH_6 = VAR_TEMP_9
 const SWITCH_7 = VAR_TEMP_A
 const ROCK_X = VAR_0x8001
 const ROCK_Y = VAR_0x8002
+const FLAG_SWITCH_4 = FLAG_TEMP_4
+const FLAG_SWITCH_5 = FLAG_TEMP_5
+const FLAG_SWITCH_6 = FLAG_TEMP_6
+const FLAG_SWITCH_7 = FLAG_TEMP_7
+const FLAG_PLAYER = FLAG_TEMP_8
+const LATI_BODY = VAR_TEMP_B
+const LATI_HEAD = VAR_TEMP_C
 
 mapscripts LatiasIsland_MapScripts {
     MAP_SCRIPT_ON_RESUME{
         setstepcallback(STEP_CB_LATIASISLAND)
     }
     MAP_SCRIPT_ON_TRANSITION{
+        setflag(FLAG_PERMA_DAY)
+        setflag(FLAG_PLAYER)
+        call(Amberock_SetPlayerModel)
         clearflag(FLAG_FOLLOWER_STAYS_PUT)
         if(flag(FLAG_LATIASISLE_PUZZLE2_SOLVED)){
             setvar(SWITCH_2, 100)
             setobjectxyperm(LOCALID_PUZZLE2_BOULDER, 36, 38)
+        }
+        if(flag(FLAG_LATIASISLE_PUZZLE3_SOLVED)){
+            setvar(SWITCH_4, 100)
+            setvar(SWITCH_6, 100)
+            setvar(SWITCH_7, 100)
+            setobjectxyperm(LOCALID_PUZZLE3_BOULDER_1, 36, 21)
+            setobjectxyperm(LOCALID_PUZZLE3_BOULDER_2, 47, 11)
+            setobjectxyperm(LOCALID_PUZZLE3_BOULDER_3, 50, 20)
         }
     }
     MAP_SCRIPT_ON_LOAD{
@@ -96,6 +114,22 @@ script SteppedOffofSwitch1{
     special(DrawWholeMapView)
 }
 
+script LatiasIsland_DontAbandonMon{
+    if(var(MON_ON_SWITCH_X) == 0){
+        release
+        end
+    }
+    setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+    bufferlivemonnickname(0)
+    msgbox(LatiasIsland_DontAbandonMon_Text, MSGBOX_AUTOCLOSE)
+    waitmove(LOCALID_PLAYER, Walk1Right)
+    release
+}
+
+text LatiasIsland_DontAbandonMon_Text{
+    "Can't leave {STR_VAR_1} behind…"
+}
+
 script FollowerStayPut{
     faceplayer
     bufferlivemonnickname(0)
@@ -105,6 +139,7 @@ script FollowerStayPut{
         if(var(VAR_RESULT) == TRUE){
             setvar(MON_ON_SWITCH_X, 0)
             clearflag(FLAG_FOLLOWER_STAYS_PUT)
+            clearflag(FLAG_SWITCH_5)
             setmetatile(X, Y, METATILE_LatiIsles_LatiasIsland_SwitchDown, FALSE)
             msgbox(FollowerStayPut_Follow2)
         }
@@ -131,6 +166,7 @@ script FollowerStayPut{
             }
             elif(var(X) == 34 && var(Y) == 13){
                 setvar(MON_ON_SWITCH_X, 5)
+                setflag(FLAG_SWITCH_5)
             }
             elif(var(X) == 47 && var(Y) == 11){
                 setvar(MON_ON_SWITCH_X, 6)
@@ -201,6 +237,29 @@ script LatiasIsland_CallBackMon2{
             setmetatile(40, 38, METATILE_LatiIsles_LI_BarrierUp, TRUE)
             setmetatile(41, 38, METATILE_LatiIsles_LI_BarrierUp, TRUE)
             setmetatile(44, 38, METATILE_LatiIsles_LatiasIsland_SwitchUp, FALSE)
+            playse(SE_M_STRENGTH)
+            special(DrawWholeMapView)
+            callnative(UpdateFollowingPokemon)
+        }
+    }
+    release
+}
+
+script LatiasIsland_CallBackMon3{
+    if(var(MON_ON_SWITCH_X) == 5){
+        setflag(FLAG_LATIASISLE_PUZZLE3_SOLVED)
+        playse(SE_SELECT)
+        msgbox(LatiasIsland_CallBackMon1_Text, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == TRUE){
+            waitmove(OBJ_EVENT_ID_FOLLOWER, moves(enter_pokeball set_invisible))
+            callnative(RemoveFollowingPokemon)
+            clearflag(FLAG_FOLLOWER_STAYS_PUT)
+            setvar(MON_ON_SWITCH_X, 0)
+            setvar(SWITCH_5, 0)
+            clearflag(FLAG_SWITCH_5)
+            setmetatile(36, 17, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+            setmetatile(36, 18, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+            setmetatile(34, 13, METATILE_LatiIsles_LatiasIsland_SwitchUp, FALSE)
             playse(SE_M_STRENGTH)
             special(DrawWholeMapView)
             callnative(UpdateFollowingPokemon)
@@ -306,6 +365,7 @@ script LatiasIsland_Switch4{
     getobjectxy(VAR_BOULDER_ID)
     if(var(ROCK_X) == 36 && var(ROCK_Y) == 21){
         copyobjectxytoperm(VAR_BOULDER_ID)
+        setflag(FLAG_SWITCH_4)
     }
     call(LatiIsle_LowerLastPuzzleBarriers)
     special(DrawWholeMapView)
@@ -321,6 +381,7 @@ script LatiasIsland_Switch5{
     getobjectxy(VAR_BOULDER_ID)
     if(var(ROCK_X) == 34 && var(ROCK_Y) == 13){
         copyobjectxytoperm(VAR_BOULDER_ID)
+        setflag(FLAG_SWITCH_5)
     }
     call(LatiIsle_LowerLastPuzzleBarriers)
     special(DrawWholeMapView)
@@ -336,6 +397,7 @@ script LatiasIsland_Switch6{
     getobjectxy(VAR_BOULDER_ID)
     if(var(ROCK_X) == 47 && var(ROCK_Y) == 11){
         copyobjectxytoperm(VAR_BOULDER_ID)
+        setflag(FLAG_SWITCH_6)
     }
     call(LatiIsle_LowerLastPuzzleBarriers)
     special(DrawWholeMapView)
@@ -351,6 +413,7 @@ script LatiasIsland_Switch7{
     getobjectxy(VAR_BOULDER_ID)
     if(var(ROCK_X) == 50 && var(ROCK_Y) == 20){
         copyobjectxytoperm(VAR_BOULDER_ID)
+        setflag(FLAG_SWITCH_7)
     }
     call(LatiIsle_LowerLastPuzzleBarriers)
     special(DrawWholeMapView)
@@ -360,6 +423,12 @@ script LatiasIsland_Switch7{
 
 script LatiIsle_LowerLastPuzzleBarriers{
     if(var(SWITCH_4) == 100 && var(SWITCH_5) == 100 && var(SWITCH_6) == 100 && var(SWITCH_7) == 100){
+        setmetatile(36, 17, METATILE_LatiIsles_LI_BarrierDown, 0)
+        setmetatile(36, 18, METATILE_LatiIsles_LI_BarrierDown, 0)
+        playse(SE_M_STRENGTH)
+        waitse
+    }
+    elif(flag(FLAG_SWITCH_4) && flag(FLAG_SWITCH_5) && flag(FLAG_SWITCH_6) && flag(FLAG_SWITCH_7)){
         setmetatile(36, 17, METATILE_LatiIsles_LI_BarrierDown, 0)
         setmetatile(36, 18, METATILE_LatiIsles_LI_BarrierDown, 0)
         playse(SE_M_STRENGTH)
@@ -403,8 +472,8 @@ script SteppedOffofSwitch7{
 script SteppedOffofSwitchGlobal{
     special(DrawWholeMapView)
     if(var(SWITCH_4) == 100 && var(SWITCH_5) == 100 && var(SWITCH_6) == 100 && var(SWITCH_7) == 100){
-        setmetatile(40, 38, METATILE_LatiIsles_LI_BarrierUp, TRUE)
-        setmetatile(41, 38, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+        setmetatile(36, 17, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+        setmetatile(36, 18, METATILE_LatiIsles_LI_BarrierUp, TRUE)
         special(DrawWholeMapView)
         playse(SE_M_STRENGTH)
         waitse
@@ -414,4 +483,93 @@ script SteppedOffofSwitchGlobal{
         waitse
     }
     return
+}
+
+script LatiasIsland_ReturnToSkyloch{
+    msgbox(LatiasIsland_ReturnToSkyloch_Text, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    closemessage
+    checkpartymon(SPECIES_LATIAS, FALSE)
+    bufferpartymonnick(STR_VAR_1, VAR_0x8000)
+    if(var(VAR_0x800A) == TRUE){
+        setvar(LATI_BODY, LOCALID_LATIASISLAND_LATIAS_SHINY)
+        setvar(LATI_HEAD, LOCALID_LATIASISLAND_LATIAS_SHINY_HEAD)
+    }
+    else{
+        setvar(LATI_BODY, LOCALID_LATIASISLAND_LATIAS)
+        setvar(LATI_HEAD, LOCALID_LATIASISLAND_LATIAS_HEAD)
+    }
+        setflag(FLAG_OVERRIDE_FOLLOWER_DIRECTION)
+        setvar(VAR_FACING, DIR_SOUTH)
+        waitmove(LOCALID_LATIASISLAND_LATIBALL, moves(set_visible, delay_1 * 3, lati_ball))
+        showobjectat(LATI_BODY, MAP_LATIAS_ISLAND)
+        showobjectat(LATI_HEAD, MAP_LATIAS_ISLAND)
+        removeobject(LOCALID_LATIASISLAND_LATIBALL)
+        delay(16)
+        addobject(LOCALID_FAKE_PLAYER)
+        setobjectsubpriority(LOCALID_FAKE_PLAYER, MAP_LATIAS_ISLAND, 0)
+        hideobjectat(LOCALID_PLAYER, MAP_LATIAS_ISLAND)
+        setobjectsubpriority(LATI_HEAD, MAP_LATIAS_ISLAND, 0)
+        waitmove(LOCALID_FAKE_PLAYER, moves(jump_2_down, lock_anim))
+        call(SetSittingPlayerModel)
+        removeobject(LOCALID_FAKE_PLAYER)
+        setobjectxyperm(LOCALID_FAKE_PLAYER, 15, 68)
+        addobject(LOCALID_FAKE_PLAYER)
+        setobjectsubpriority(LOCALID_FAKE_PLAYER, MAP_LATIAS_ISLAND, 1)
+        delay(16)
+        applymovement(LATI_BODY, PlayerAndLatiasLeave)
+        applymovement(LATI_HEAD, PlayerAndLatiasLeave)
+        applymovement(LOCALID_FAKE_PLAYER, moves(lock_anim, walk_slow_down, walk_down * 2, walk_faster_down * 4))
+        waitmovement(0)
+        clearflag(FLAG_STOP_GROUND_EFFECTS)
+        clearflag(FLAG_OVERRIDE_FOLLOWER_DIRECTION)
+        setvar(VAR_0x8004, 2)
+        callnative(LatisWarp)
+        special(LatiRide)
+        waitstate
+
+
+
+
+
+
+
+
+    // closemessage
+    // waitmove(LOCALID_LATIAS, SpawnFollower)
+    // playmoncry(SPECIES_LATIAS, CRY_MODE_NORMAL)
+    // waitmoncry
+    // clearflag(FLAG_PLAYER)
+    // addobject(LOCALID_FAKE_PLAYER)
+    // hideobjectat(LOCALID_PLAYER, MAP_LATIAS_ISLAND)
+    // turnobject(LOCALID_LATIAS, DIR_SOUTH)
+    // waitmove(LOCALID_FAKE_PLAYER, moves(jump_special_down, delay_16, lock_anim))
+    // applymovement(LOCALID_LATIAS, PlayerAndLatiasLeave)
+    // applymovement(LOCALID_FAKE_PLAYER, moves(lock_anim, walk_slow_down, walk_down * 2, walk_faster_down * 3))
+    // waitmovement(0)
+    // warpsilent(MAP_LATIAS_ISLAND, 4)
+    // waitstate
+}
+
+text LatiasIsland_ReturnToSkyloch_Text{
+    "Send out Latias and return\n"
+    "back to Skyloch Village?"
+}
+
+movement SpawnFollower{
+    set_visible
+    exit_pokeball
+}
+movement PlayerAndLatiasLeave{
+    walk_slow_down
+    walk_down * 2
+    walk_faster_down * 4
+}
+movement PlayerAndLatiasLeave2{
+    walk_slow_up
+    walk_up * 2
+    walk_faster_up * 5
 }

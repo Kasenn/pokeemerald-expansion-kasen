@@ -39,6 +39,7 @@ static void TilesetAnim_MagicForest(u16);
 static void TilesetAnim_FlowerField(u16);
 static void TilesetAnim_Lavaridge(u16);
 static void TilesetAnim_Frostfire(u16);
+static void TilesetAnim_LatiIsles(u16);
 static void TilesetAnim_EverGrande(u16);
 static void TilesetAnim_Pacifidlog(u16);
 static void TilesetAnim_Kaolisle(u16);
@@ -86,6 +87,7 @@ static void BlendAnimPalette_BattleDome_FloorLights(u16);
 static void BlendAnimPalette_BattleDome_FloorLightsNoBlend(u16);
 static void QueueAnimTiles_Lavaridge_Steam(u8);
 static void QueueAnimTiles_Lavaridge_Lava(u16);
+static void QueueAnimTiles_LatiIsles_Water(u16);
 static void QueueAnimTiles_EverGrande_Flowers(u16, u8);
 // static void QueueAnimTiles_Pacifidlog_LogBridges(u8);
 static void QueueAnimTiles_Pacifidlog_WaterCurrents(u8);
@@ -528,6 +530,27 @@ const u16 *const gTilesetAnims_Lavaridge_Cave_Lava[] = {
     gTilesetAnims_Lavaridge_Cave_Lava_Frame3
 };
 
+const u16 gTilesetAnims_LatiIsles_Water_Frame0[] = INCBIN_U16("data/tilesets/secondary/lati_isles/anim/water/waterframe01.4bpp");
+const u16 gTilesetAnims_LatiIsles_Water_Frame1[] = INCBIN_U16("data/tilesets/secondary/lati_isles/anim/water/waterframe11.4bpp");
+const u16 gTilesetAnims_LatiIsles_Water_Frame2[] = INCBIN_U16("data/tilesets/secondary/lati_isles/anim/water/waterframe21.4bpp");
+const u16 gTilesetAnims_LatiIsles_Water_Frame3[] = INCBIN_U16("data/tilesets/secondary/lati_isles/anim/water/waterframe31.4bpp");
+const u16 gTilesetAnims_LatiIsles_Water_Frame4[] = INCBIN_U16("data/tilesets/secondary/lati_isles/anim/water/waterframe41.4bpp");
+const u16 gTilesetAnims_LatiIsles_Water_Frame5[] = INCBIN_U16("data/tilesets/secondary/lati_isles/anim/water/waterframe51.4bpp");
+const u16 gTilesetAnims_LatiIsles_Water_Frame6[] = INCBIN_U16("data/tilesets/secondary/lati_isles/anim/water/waterframe61.4bpp");
+const u16 gTilesetAnims_LatiIsles_Water_Frame7[] = INCBIN_U16("data/tilesets/secondary/lati_isles/anim/water/waterframe71.4bpp");
+
+const u16 *const gTilesetAnims_LatiIsles_Water[] = {
+    gTilesetAnims_LatiIsles_Water_Frame7,
+    gTilesetAnims_LatiIsles_Water_Frame6,
+    gTilesetAnims_LatiIsles_Water_Frame5,
+    gTilesetAnims_LatiIsles_Water_Frame4,
+    gTilesetAnims_LatiIsles_Water_Frame3,
+    gTilesetAnims_LatiIsles_Water_Frame2,
+    gTilesetAnims_LatiIsles_Water_Frame1,
+    gTilesetAnims_LatiIsles_Water_Frame0
+};
+
+
 const u16 gTilesetAnims_EverGrande_Flowers_Frame0[] = INCBIN_U16("data/tilesets/secondary/ever_grande/anim/flowers/0.4bpp");
 const u16 gTilesetAnims_EverGrande_Flowers_Frame1[] = INCBIN_U16("data/tilesets/secondary/ever_grande/anim/flowers/1.4bpp");
 const u16 gTilesetAnims_EverGrande_Flowers_Frame2[] = INCBIN_U16("data/tilesets/secondary/ever_grande/anim/flowers/2.4bpp");
@@ -849,8 +872,11 @@ static void _InitSecondaryTilesetAnimation(void)
 
 void InitTilesetAnim_General(void)
 {
+    u16 maxFrames = 256;
+    if (MAP(MAP_LATIAS_ISLAND))
+        maxFrames = 512;
     sPrimaryTilesetAnimCounter = 0;
-    sPrimaryTilesetAnimCounterMax = 256;
+    sPrimaryTilesetAnimCounterMax = maxFrames;
     sPrimaryTilesetAnimCallback = TilesetAnim_General;
 }
 
@@ -1045,6 +1071,13 @@ void InitTilesetAnim_Frostfire(void)
     sSecondaryTilesetAnimCounter = sPrimaryTilesetAnimCounter;
     sSecondaryTilesetAnimCounterMax = sPrimaryTilesetAnimCounterMax;
     sSecondaryTilesetAnimCallback = TilesetAnim_Frostfire;
+}
+
+void InitTilesetAnim_LatiIsles(void)
+{
+    sSecondaryTilesetAnimCounter = sPrimaryTilesetAnimCounter;
+    sSecondaryTilesetAnimCounterMax = sPrimaryTilesetAnimCounterMax;
+    sSecondaryTilesetAnimCallback = TilesetAnim_LatiIsles;
 }
 
 
@@ -1327,6 +1360,12 @@ static void TilesetAnim_Frostfire(u16 timer)
         QueueAnimTiles_Lavaridge_Lava(timer / 16);
 }
 
+static void TilesetAnim_LatiIsles(u16 timer)
+{
+    if (timer % 64 == 0)
+        QueueAnimTiles_LatiIsles_Water(timer / 64);
+}
+
 static void TilesetAnim_EverGrande(u16 timer)
 {
     if (timer % 8 == 0)
@@ -1488,6 +1527,12 @@ static void QueueAnimTiles_Lavaridge_Lava(u16 timer)
 {
     u16 i = timer % ARRAY_COUNT(gTilesetAnims_Lavaridge_Cave_Lava);
     AppendTilesetAnimToBuffer(gTilesetAnims_Lavaridge_Cave_Lava[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 160)), 4 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_LatiIsles_Water(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_LatiIsles_Water);
+    AppendTilesetAnimToBuffer(gTilesetAnims_LatiIsles_Water[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_TOTAL - 20)), 4 * TILE_SIZE_4BPP);
 }
 
 static void QueueAnimTiles_EverGrande_Flowers(u16 timer_div, u8 timer_mod)

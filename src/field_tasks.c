@@ -1146,6 +1146,22 @@ void LatiasIslandPuzzleThree(void)
     bool8 switchSixTriggered = FALSE;
     bool8 switchSevenTriggered = FALSE;
 
+    if (FlagGet(FLAG_TEMP_4))
+        switchFourTriggered = TRUE;
+    if (FlagGet(FLAG_TEMP_5))
+        switchFiveTriggered = TRUE;
+    if (FlagGet(FLAG_TEMP_6))
+        switchSixTriggered = TRUE;
+    if (FlagGet(FLAG_TEMP_7))
+        switchSevenTriggered = TRUE;
+
+    if (FlagGet(FLAG_LATIASISLE_PUZZLE3_SOLVED))
+    {
+        switchFourTriggered = TRUE;
+        switchSixTriggered = TRUE;
+        switchSevenTriggered = TRUE;
+    }
+
     if (VarGet(VAR_LATIAS_ISLE_SWITCH_4) == 100)
     {
         for (i = 0; i < n; i++)

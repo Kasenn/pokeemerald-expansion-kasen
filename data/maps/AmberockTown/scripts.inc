@@ -1751,6 +1751,64 @@ SetPlayerKrokorokModel_2:
 	goto SetPlayerKrokorokModel_1
 
 
+SetSittingPlayerModel::
+	checkplayergender
+# 0 "data/maps/AmberockTown/scripts.pory"
+	compare VAR_RESULT, MALE
+	goto_if_eq SetSittingPlayerModel_2
+# 1079 "data/maps/AmberockTown/scripts.pory"
+	switch VAR_CHOSEN_OUTFIT
+# 1080 "data/maps/AmberockTown/scripts.pory"
+	case 0, SetSittingPlayerModel_10
+# 1082 "data/maps/AmberockTown/scripts.pory"
+	case 1, SetSittingPlayerModel_11
+# 1084 "data/maps/AmberockTown/scripts.pory"
+	case 2, SetSittingPlayerModel_12
+SetSittingPlayerModel_1:
+	return
+
+SetSittingPlayerModel_2:
+# 1069 "data/maps/AmberockTown/scripts.pory"
+	switch VAR_CHOSEN_OUTFIT
+# 1070 "data/maps/AmberockTown/scripts.pory"
+	case 0, SetSittingPlayerModel_6
+# 1072 "data/maps/AmberockTown/scripts.pory"
+	case 1, SetSittingPlayerModel_7
+# 1074 "data/maps/AmberockTown/scripts.pory"
+	case 2, SetSittingPlayerModel_8
+	goto SetSittingPlayerModel_1
+
+SetSittingPlayerModel_6:
+# 1071 "data/maps/AmberockTown/scripts.pory"
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_SURFING_RS
+	goto SetSittingPlayerModel_1
+
+SetSittingPlayerModel_7:
+# 1073 "data/maps/AmberockTown/scripts.pory"
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_BRENDAN_SURFING
+	goto SetSittingPlayerModel_1
+
+SetSittingPlayerModel_8:
+# 1075 "data/maps/AmberockTown/scripts.pory"
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_SURFING_ORAS
+	goto SetSittingPlayerModel_1
+
+SetSittingPlayerModel_10:
+# 1081 "data/maps/AmberockTown/scripts.pory"
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_SURFING_RS
+	goto SetSittingPlayerModel_1
+
+SetSittingPlayerModel_11:
+# 1083 "data/maps/AmberockTown/scripts.pory"
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_MAY_SURFING
+	goto SetSittingPlayerModel_1
+
+SetSittingPlayerModel_12:
+# 1085 "data/maps/AmberockTown/scripts.pory"
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_SURFING_ORAS
+	goto SetSittingPlayerModel_1
+
+
 # 176 "data/maps/AmberockTown/scripts.pory"
 Amberock_GroupGoesToGate_Movement_0:
 # 176 "data/maps/AmberockTown/scripts.pory"
