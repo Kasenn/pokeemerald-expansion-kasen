@@ -374,6 +374,7 @@ const u32 gFieldEffectObjectPic_Ash[] = INCBIN_U32("graphics/field_effects/pics/
 const u32 gFieldEffectObjectPic_Arrow[] = INCBIN_U32("graphics/field_effects/pics/arrow.4bpp");
 const u16 gFieldEffectObjectPalette0[] = INCBIN_U16("graphics/field_effects/palettes/general_0.gbapal");
 const u16 gFieldEffectObjectPalette1[] = INCBIN_U16("graphics/field_effects/palettes/general_1.gbapal");
+const u16 gFieldEffectObjectRedGrass[] = INCBIN_U16("graphics/field_effects/pics/tall_grass_red.gbapal");
 const u16 gFieldEffectObjectPalette2[] = INCBIN_U16("graphics/field_effects/palettes/general_2.gbapal");
 const u16 gFieldEffectObjectPalette3[] = INCBIN_U16("graphics/field_effects/palettes/general_3.gbapal");
 const u16 gFieldEffectObjectPalette4[] = INCBIN_U16("graphics/field_effects/palettes/general_4.gbapal");

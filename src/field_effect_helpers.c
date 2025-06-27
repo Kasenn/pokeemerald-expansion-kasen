@@ -450,17 +450,18 @@ u32 FldEff_TallGrass(void)
     s16 x = gFieldEffectArguments[0];
     s16 y = gFieldEffectArguments[1];
     u16 tileBehavior;
+    u16 fldEffObj = FLDEFFOBJ_TALL_GRASS;
 
     tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
     SetSpritePosToOffsetMapCoords(&x, &y, 8, 8);
-    if (MetatileBehavior_IsTallGrassAutumn(tileBehavior))
-    {
-        spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_TALL_GRASS_AUTUMN], x, y, 0);
-    }
-    else
-    {
-        spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_TALL_GRASS], x, y, 0);
-    }
+
+    if (MetatileBehavior_IsTallGrassRed(tileBehavior))
+        fldEffObj = FLDEFFOBJ_TALL_GRASS_RED;
+    else if (MetatileBehavior_IsTallGrassAutumn(tileBehavior))
+        fldEffObj = FLDEFFOBJ_TALL_GRASS_AUTUMN;
+
+    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[fldEffObj], x, y, 0);
+
     if (spriteId != MAX_SPRITES)
     {
         struct Sprite *sprite = &gSprites[spriteId];
@@ -503,7 +504,20 @@ void UpdateTallGrassFieldEffect(struct Sprite *sprite)
      || !MetatileBehavior_IsTallGrass(metatileBehavior)
      || (sprite->sObjectMoved && sprite->animEnded))
     {
-        FieldEffectStop(sprite, FLDEFF_TALL_GRASS);
+        u16 fldEff = FLDEFF_TALL_GRASS;
+
+        if (MetatileBehavior_IsTallGrassAutumn(metatileBehavior)){
+            if((MAP(MAP_SAFARI_ZONE_MOUNTAIN)) || (MAP(MAP_DESERT_CLIFFS)) || (MAP(MAP_LATIAS_ISLAND)))
+                fldEff = FLDEFF_TALL_GRASS_MOUNTAIN;  
+            else if((MAP(MAP_ROUTE18)) || (MAP(MAP_SNOWY_RIDGE)))
+                fldEff = FLDEFF_TALL_GRASS_SNOW;
+            else
+                fldEff = FLDEFF_TALL_GRASS_AUTUMN;
+        }
+        else if(MetatileBehavior_IsTallGrassRed(metatileBehavior))
+            fldEff = FLDEFF_TALL_GRASS_RED;
+
+        FieldEffectStop(sprite, fldEff);
     }
     else
     {

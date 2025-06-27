@@ -92,6 +92,7 @@
 #define FLDEFF_RIDING_GOGOAT             87
 #define FLDEFF_RIDING_GOGOAT_HEAD        88
 #define FLDEFF_DEFOG                     89
+#define FLDEFF_TALL_GRASS_RED            90
 
 #define FLDEFFOBJ_SHADOW_S              0
 #define FLDEFFOBJ_SHADOW_M              1
@@ -147,6 +148,7 @@
 #define FLDEFFOBJ_CAVE_DUST             51
 #define FLDEFFOBJ_RIDING_GOGOAT         52
 #define FLDEFFOBJ_RIDING_GOGOAT_HEAD    53
+#define FLDEFFOBJ_TALL_GRASS_RED        54
 
 #define FLDEFF_PAL_TAG_CUT_GRASS          0x1000
 #define FLDEFF_PAL_TAG_SECRET_POWER_TREE  0x1003

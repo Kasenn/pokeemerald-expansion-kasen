@@ -10553,20 +10553,21 @@ void GroundEffect_SpawnOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *
     gFieldEffectArguments[5] = objEvent->mapGroup;
     gFieldEffectArguments[6] = (u8)gSaveBlock1Ptr->location.mapNum << 8 | (u8)gSaveBlock1Ptr->location.mapGroup;
     gFieldEffectArguments[7] = TRUE; // skip to end of anim
+
+    u16 fldEff = FLDEFF_TALL_GRASS;
+
     if (MetatileBehavior_IsTallGrassAutumn(objEvent->currentMetatileBehavior)){
-        if((MAP(MAP_SAFARI_ZONE_MOUNTAIN)) || (MAP(MAP_DESERT_CLIFFS)) || (MAP(MAP_LATIAS_ISLAND))){
-            FieldEffectStart(FLDEFF_TALL_GRASS_MOUNTAIN);  
-        }
-        else if((MAP(MAP_ROUTE18)) || (MAP(MAP_SNOWY_RIDGE))){
-            FieldEffectStart(FLDEFF_TALL_GRASS_SNOW);  
-        }
-        else{
-            FieldEffectStart(FLDEFF_TALL_GRASS_AUTUMN);
-        }
+        if((MAP(MAP_SAFARI_ZONE_MOUNTAIN)) || (MAP(MAP_DESERT_CLIFFS)) || (MAP(MAP_LATIAS_ISLAND)))
+            fldEff = FLDEFF_TALL_GRASS_MOUNTAIN;  
+        else if((MAP(MAP_ROUTE18)) || (MAP(MAP_SNOWY_RIDGE)))
+            fldEff = FLDEFF_TALL_GRASS_SNOW;
+        else
+            fldEff = FLDEFF_TALL_GRASS_AUTUMN;
     }
-    if (!MetatileBehavior_IsTallGrassAutumn(objEvent->currentMetatileBehavior)){
-        FieldEffectStart(FLDEFF_TALL_GRASS);
-    }
+    else if(MetatileBehavior_IsTallGrassRed(objEvent->currentMetatileBehavior))
+        fldEff = FLDEFF_TALL_GRASS_RED;
+
+    FieldEffectStart(fldEff);
 }
 
 void GroundEffect_StepOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)
@@ -10581,20 +10582,21 @@ void GroundEffect_StepOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *s
     gFieldEffectArguments[7] = FALSE; // don't skip to end of anim
     // if (objEvent->localId == OBJ_EVENT_ID_PLAYER)
     //     PlaySE(SPECIES_HOOPA);
+    
+    u16 fldEff = FLDEFF_TALL_GRASS;
+
     if (MetatileBehavior_IsTallGrassAutumn(objEvent->currentMetatileBehavior)){
-        if((MAP(MAP_ROUTE18)) || (MAP(MAP_SNOWY_RIDGE))){
-            FieldEffectStart(FLDEFF_TALL_GRASS_SNOW);  
-        }
-        else if((MAP(MAP_SAFARI_ZONE_MOUNTAIN)) || (MAP(MAP_DESERT_CLIFFS)) || (MAP(MAP_LATIAS_ISLAND))){
-            FieldEffectStart(FLDEFF_TALL_GRASS_MOUNTAIN);  
-        }
-        else{
-            FieldEffectStart(FLDEFF_TALL_GRASS_AUTUMN);
-        }
+        if((MAP(MAP_SAFARI_ZONE_MOUNTAIN)) || (MAP(MAP_DESERT_CLIFFS)) || (MAP(MAP_LATIAS_ISLAND)))
+            fldEff = FLDEFF_TALL_GRASS_MOUNTAIN;  
+        else if((MAP(MAP_ROUTE18)) || (MAP(MAP_SNOWY_RIDGE)))
+            fldEff = FLDEFF_TALL_GRASS_SNOW;
+        else
+            fldEff = FLDEFF_TALL_GRASS_AUTUMN;
     }
-    if (!MetatileBehavior_IsTallGrassAutumn(objEvent->currentMetatileBehavior)){
-        FieldEffectStart(FLDEFF_TALL_GRASS);
-    }
+    else if(MetatileBehavior_IsTallGrassRed(objEvent->currentMetatileBehavior))
+        fldEff = FLDEFF_TALL_GRASS_RED;
+
+    FieldEffectStart(fldEff);
 }
 
 void GroundEffect_SpawnOnLongGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)

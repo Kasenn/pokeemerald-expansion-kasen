@@ -96,6 +96,7 @@ gFieldEffectScriptPointers::
 	.4byte gFieldEffectScript_RidingGogoat              @ FLDEFF_RIDING_GOGOAT
 	.4byte gFieldEffectScript_RidingGogoatHead          @ FLDEFF_RIDING_GOGOAT_HEAD
 	.4byte gFieldEffectScript_Defog                     @ FLDEFF_DEFOG
+	.4byte gFieldEffectScript_TallGrassRed				@ FLDEFF_TALL_GRASS_RED
 
 gFieldEffectScript_ExclamationMarkIcon1::
 	field_eff_callnative FldEff_ExclamationMarkIcon
@@ -458,3 +459,7 @@ gFieldEffectScript_RidingGogoatHead::
 gFieldEffectScript_Defog::
     field_eff_callnative FldEff_Defog
     field_eff_end
+
+gFieldEffectScript_TallGrassRed::
+	field_eff_loadfadedpal_callnative gFldEffPal_RedGrass, FldEff_TallGrass
+	field_eff_end

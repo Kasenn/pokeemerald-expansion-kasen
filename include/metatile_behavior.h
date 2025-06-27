@@ -185,6 +185,7 @@ bool8 MetatileBehavior_PointPlayerEast(u8);
 bool8 MetatileBehavior_PointPlayerNorth(u8);
 bool8 MetatileBehavior_PointPlayerSouth(u8);
 bool8 MetatileBehavior_IsTallGrassAutumn(u8);
+bool8 MetatileBehavior_IsTallGrassRed(u8);
 bool8 MetatileBehavior_IsRockWall(u8);
 bool8 MetatileBehavior_IsRopeBridge(u8);
 bool8 MetatileBehavior_IsRegionMap(u8 tile, u8 playerDir);
