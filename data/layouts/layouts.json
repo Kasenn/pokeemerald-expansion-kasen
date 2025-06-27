@@ -7684,8 +7684,8 @@
     {
       "id": "LAYOUT_LATIOS_ISLAND",
       "name": "LatiosIsland_Layout",
-      "width": 80,
-      "height": 80,
+      "width": 53,
+      "height": 76,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_LatiIsles",
       "border_filepath": "data/layouts/LatiosIsland/border.bin",
