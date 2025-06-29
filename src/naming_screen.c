@@ -44,7 +44,7 @@ enum {
 };
 
 #define KBROW_COUNT 4
-#define KBCOL_COUNT 8
+#define KBCOL_COUNT 11
 
 enum {
     GFXTAG_BACK_BUTTON,
@@ -84,7 +84,6 @@ enum {
 // The constants for the pages are needlessly complicated because GF didn't keep the indexing order consistent
 // This set is used for sNamingScreen->currentPage. It uses the order that the pages are cycled in
 enum {
-    KBPAGE_SYMBOLS,
     KBPAGE_LETTERS_UPPER,
     KBPAGE_LETTERS_LOWER,
     KBPAGE_COUNT,
@@ -94,7 +93,6 @@ enum {
 enum {
     KEYBOARD_LETTERS_LOWER,
     KEYBOARD_LETTERS_UPPER,
-    KEYBOARD_SYMBOLS,
 };
 
 // This set is used for getting the gfx/pal tags of the page's swap button
@@ -279,34 +277,26 @@ static const struct WindowTemplate sWindowTemplates[WIN_COUNT + 1] =
 // The keys shown on the keyboard are handled separately by sNamingScreenKeyboardText
 static const u8 sKeyboardChars[KBPAGE_COUNT][KBROW_COUNT][KBCOL_COUNT] = {
     [KEYBOARD_LETTERS_LOWER] = {
-        __("abcdef ."),
-        __("ghijkl ,"),
-        __("mnopqrs "),
-        __("tuvwxyz "),
+        __("1234567890 "),
+        __("qwertyuiop "),
+        __("asdfghjkl  "),
+        __("zxcvbnm,.!?"),
     },
     [KEYBOARD_LETTERS_UPPER] = {
-        __("ABCDEF ."),
-        __("GHIJKL ,"),
-        __("MNOPQRS "),
-        __("TUVWXYZ "),
-    },
-    [KEYBOARD_SYMBOLS] = {
-        __("01234   "),
-        __("56789   "),
-        __("!?♂♀/-  "),
-        __("…“”‘'   "),
+        __("♂♀/-…“”‘'  "),
+        __("QWERTYUIOP "),
+        __("ASDFGHJKL  "),
+        __("ZXCVBNM,.!?"),
     }
 };
 
 static const u8 sPageColumnCounts[KBPAGE_COUNT] = {
     [KEYBOARD_LETTERS_LOWER] = KBCOL_COUNT,
     [KEYBOARD_LETTERS_UPPER] = KBCOL_COUNT,
-    [KEYBOARD_SYMBOLS]       = 6
 };
 static const u8 sPageColumnXPos[KBPAGE_COUNT][KBCOL_COUNT] = {
-    [KEYBOARD_LETTERS_LOWER] = {0, 12, 24, 56, 68, 80, 92, 123},
-    [KEYBOARD_LETTERS_UPPER] = {0, 12, 24, 56, 68, 80, 92, 123},
-    [KEYBOARD_SYMBOLS]       = {0, 22, 44, 66, 88, 110}
+    [KEYBOARD_LETTERS_LOWER] = {0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120},
+    [KEYBOARD_LETTERS_UPPER] = {0, 12, 24, 36, 48, 60, 72, 84, 96, 108, 120},
 };
 
 static const struct NamingScreenTemplate *const sNamingScreenTemplates[];
@@ -583,21 +573,18 @@ static void Task_NamingScreen(u8 taskId)
 // Which gfx/pal to load for the swap page button
 static const u8 sPageToNextGfxId[KBPAGE_COUNT] =
 {
-    [KBPAGE_SYMBOLS]       = PAGE_SWAP_UPPER,
     [KBPAGE_LETTERS_UPPER] = PAGE_SWAP_LOWER,
-    [KBPAGE_LETTERS_LOWER] = PAGE_SWAP_OTHERS
+    [KBPAGE_LETTERS_LOWER] = PAGE_SWAP_UPPER
 };
 
 static const u8 sPageToNextKeyboardId[KBPAGE_COUNT] =
 {
-    [KBPAGE_SYMBOLS]       = KEYBOARD_LETTERS_UPPER,
     [KBPAGE_LETTERS_UPPER] = KEYBOARD_LETTERS_LOWER,
-    [KBPAGE_LETTERS_LOWER] = KEYBOARD_SYMBOLS
+    [KBPAGE_LETTERS_LOWER] = KEYBOARD_LETTERS_UPPER
 };
 
 static const u8 sPageToKeyboardId[KBPAGE_COUNT] =
 {
-    [KBPAGE_SYMBOLS]       = KEYBOARD_SYMBOLS,
     [KBPAGE_LETTERS_UPPER] = KEYBOARD_LETTERS_UPPER,
     [KBPAGE_LETTERS_LOWER] = KEYBOARD_LETTERS_LOWER
 };
@@ -840,7 +827,7 @@ static bool8 PageSwapAnimState_1(struct Task *task)
         &sNamingScreen->bg1vOffset
     };
 
-    task->tFrameCount += 4;
+    task->tFrameCount += 8;
     *vOffsets[sNamingScreen->bgToReveal] = Sin(task->tFrameCount, 40);
     *vOffsets[sNamingScreen->bgToHide] = Sin((task->tFrameCount + 128) & 0xFF, 40);
     if (task->tFrameCount >= 64)
@@ -862,7 +849,7 @@ static bool8 PageSwapAnimState_2(struct Task *task)
         &sNamingScreen->bg1vOffset
     };
 
-    task->tFrameCount += 4;
+    task->tFrameCount += 8;
     *vOffsets[sNamingScreen->bgToReveal] = Sin(task->tFrameCount, 40);
     *vOffsets[sNamingScreen->bgToHide] = Sin((task->tFrameCount + 128) & 0xFF, 40);
     if (task->tFrameCount >= 128)
@@ -1118,7 +1105,7 @@ static void CreateCursorSprite(void)
     gSprites[sNamingScreen->cursorSpriteId].oam.objMode = ST_OAM_OBJ_BLEND;
     gSprites[sNamingScreen->cursorSpriteId].sColorIncr = 1; // ? immediately overwritten
     gSprites[sNamingScreen->cursorSpriteId].sColorIncr = 2;
-    SetCursorPos(0, 0);
+    SetCursorPos(0, 1);
 }
 
 static void SetCursorPos(s16 x, s16 y)
@@ -1971,14 +1958,12 @@ static const u8 sFillValues[KBPAGE_COUNT] =
 {
     [KEYBOARD_LETTERS_LOWER] = PIXEL_FILL(14),
     [KEYBOARD_LETTERS_UPPER] = PIXEL_FILL(13),
-    [KEYBOARD_SYMBOLS]       = PIXEL_FILL(15)
 };
 
 static const u8 *const sKeyboardTextColors[KBPAGE_COUNT] =
 {
     [KEYBOARD_LETTERS_LOWER] = sTextColorStruct.colors[1],
     [KEYBOARD_LETTERS_UPPER] = sTextColorStruct.colors[0],
-    [KEYBOARD_SYMBOLS]       = sTextColorStruct.colors[2]
 };
 
 static void PrintKeyboardKeys(u8 window, u8 page)
@@ -1995,9 +1980,8 @@ static void PrintKeyboardKeys(u8 window, u8 page)
 
 static const u8 *const sNextKeyboardPageTilemaps[] =
 {
-    [KBPAGE_SYMBOLS] = gNamingScreenKeyboardUpper_Tilemap,
     [KBPAGE_LETTERS_UPPER] = gNamingScreenKeyboardLower_Tilemap, // lower
-    [KBPAGE_LETTERS_LOWER] = gNamingScreenKeyboardSymbols_Tilemap  // symbols
+    [KBPAGE_LETTERS_LOWER] = gNamingScreenKeyboardUpper_Tilemap  // symbols
 };
 
 // There are always 2 keyboard pages drawn, the current page and the one that will shown next if the player swaps
@@ -2593,25 +2577,18 @@ static const u8 *const sNamingScreenKeyboardText[KBPAGE_COUNT][KBROW_COUNT] =
 {
     [KEYBOARD_LETTERS_LOWER] =
     {
-        gText_NamingScreenKeyboard_abcdef,
-        gText_NamingScreenKeyboard_ghijkl,
-        gText_NamingScreenKeyboard_mnopqrs,
-        gText_NamingScreenKeyboard_tuvwxyz
+        gText_NamingScreenKeyboard_numerals,
+        gText_NamingScreenKeyboard_qwerty,
+        gText_NamingScreenKeyboard_asdfgh,
+        gText_NamingScreenKeyboard_zxcvbn
     },
     [KEYBOARD_LETTERS_UPPER] =
     {
-        gText_NamingScreenKeyboard_ABCDEF,
-        gText_NamingScreenKeyboard_GHIJKL,
-        gText_NamingScreenKeyboard_MNOPQRS,
-        gText_NamingScreenKeyboard_TUVWXYZ
-    },
-    [KEYBOARD_SYMBOLS] =
-    {
-        gText_NamingScreenKeyboard_01234,
-        gText_NamingScreenKeyboard_56789,
-        gText_NamingScreenKeyboard_Symbols1,
-        gText_NamingScreenKeyboard_Symbols2
-    },
+        gText_NamingScreenKeyboard_numeralsCaps,
+        gText_NamingScreenKeyboard_QWERTY,
+        gText_NamingScreenKeyboard_ASDFGH,
+        gText_NamingScreenKeyboard_ZXCVBN
+    }
 };
 
 static const struct SpriteSheet sSpriteSheets[] =
