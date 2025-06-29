@@ -52,6 +52,7 @@
 #include "rtc.h"
 #include "graphics.h"
 #include "decompress.h"
+#include "constants/story.h"
 
 // Menu actions
 enum
@@ -708,7 +709,7 @@ static bool32 InitStartMenuStep(void)
             ShowSafariBallsWindow();
         else if (InBattlePyramid())
             ShowPyramidFloorWindow();
-        else if (VarGet(VAR_PEARLWOOD_TOWN_STATE) > 5
+        else if (VarGet(VAR_PEARLWOOD_TOWN_STATE) > STORY_PEARLWOOD_INTRO_COMPLETED
         && !FlagGet(FLAG_SYS_SAFARI_MODE))
         {
             if (gSaveBlock2Ptr->optionsTimeFormat == OPTIONS_24H_FORMAT)
@@ -730,7 +731,7 @@ static bool32 InitStartMenuStep(void)
     case 5:
         sStartMenuCursorPos = InitMenuNormal(GetStartMenuWindowId(), FONT_NORMAL, 0, 9, 16, sNumStartMenuActions, sStartMenuCursorPos);
         CopyWindowToVram(GetStartMenuWindowId(), COPYWIN_MAP);
-        if (VarGet(VAR_PEARLWOOD_TOWN_STATE) > 5
+        if (VarGet(VAR_PEARLWOOD_TOWN_STATE) > STORY_PEARLWOOD_INTRO_COMPLETED
         && !FlagGet(FLAG_SYS_SAFARI_MODE))
             AddTimeLabelObject(19, 9);
         return TRUE;
@@ -816,7 +817,7 @@ void ShowStartMenu(void)
 
 static bool8 HandleStartMenuInput(void)
 {
-    if (VarGet(VAR_PEARLWOOD_TOWN_STATE) > 5
+    if (VarGet(VAR_PEARLWOOD_TOWN_STATE) > STORY_PEARLWOOD_INTRO_COMPLETED
     && !FlagGet(FLAG_SYS_SAFARI_MODE))
         ShowClockWindow();
 

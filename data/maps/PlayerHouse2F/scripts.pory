@@ -17,8 +17,8 @@ mapscripts PlayerHouse2F_MapScripts {
         VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_INTRO: PlayerHouse2F_Intro
     ]
     MAP_SCRIPT_ON_LOAD{
-        if(flag(FLAG_SYS_JOURNAL_GET)){
-            setmetatile(1, 1, 0x28E, TRUE)
+        if(flag(FLAG_SYS_B_DASH)){
+            setmetatile(5, 7, 0x295, FALSE)
         }
     }
 }
@@ -51,8 +51,8 @@ text PlayerHouse2F_Intro_Text{
     "Mom: Rise and shine,\n"
     "{PLAYER}!\p"
     "Today's a very special day so\n"
-    "when you're ready, come on\l"
-    "downstairs.\p"
+    "when you're ready, grab your shoes,\l"
+    "and come on downstairs.\p"
     "Oh but first, don't forget to\n"
     "set your new clock!"
 }
@@ -65,8 +65,23 @@ script PlayerHouse2F_ClockReminder{
     waitmovement(0)
     release
 }
+
 text PlayerHouse2F_ClockReminder_Text{
     "Better set the clock before\n"
+    "heading downstairs."
+}
+
+script PlayerHouse2F_ShoesReminder{
+    lock
+    msgbox(PlayerHouse2F_ShoesReminder_Text)
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Left)
+    waitmovement(0)
+    release
+}
+
+text PlayerHouse2F_ShoesReminder_Text{
+    "Better put on the shoes before\n"
     "heading downstairs."
 }
 
@@ -84,7 +99,6 @@ script Player2FSetClock{
     fadescreen(FADE_TO_BLACK)
 	special(StartWallClock)
 	waitstate
-    msgbox(MakeSureToPickUpJournal)
 	release
 }
 
@@ -187,7 +201,7 @@ script PlayerHouse_Journal{
 	waitse
     playfanfare(MUS_OBTAIN_ITEM)
     removeobject(VAR_LAST_TALKED)
-    setmetatile(1, 1, 0x28E, TRUE)
+    setmetatile(5, 7, 0x295, FALSE)
     special(DrawWholeMapView)
 	message(PlayerFoundJournal)
 	waitfanfare
@@ -198,13 +212,17 @@ script PlayerHouse_Journal{
 }
 
 text PlayerFoundJournal{
-    "{PLAYER} picked up a Journal!"}
+    "{PLAYER} obtained the running shoes!"}
 text JournalIntroText{
-    "Certain events may be recorded in the\n"
-    "Journal when they are discovered.\p"
-    "The Journal can be accessed through\n"
-    "the Start Menu."
+    "{COLOR RED}{SHADOW LIGHT_RED}Press the B Button while wearing these\n"
+    "running shoes to run extra-fast!"
 }
+
+    // "Certain events may be recorded in the\n"
+    // "Journal when they are discovered.\p"
+    // "The Journal can be accessed through\n"
+    // "the Start Menu."
+
 
 script HeresQuests{
     msgbox(HeresQuests_Text, MSGBOX_NPC)

@@ -211,592 +211,603 @@ Mart_Clerk::
 	message gText_HowMayIServeYou
 # 223 "data/maps/Shoreslate_Mart/scripts.pory"
 	waitmessage
-# 224 "data/maps/Shoreslate_Mart/scripts.pory"
-	goto_if_set FLAG_BADGE08_GET, Mart_Clerk_2
-# 227 "data/maps/Shoreslate_Mart/scripts.pory"
-	goto_if_set FLAG_BADGE07_GET, Mart_Clerk_3
-# 230 "data/maps/Shoreslate_Mart/scripts.pory"
-	goto_if_set FLAG_BADGE06_GET, Mart_Clerk_4
-# 233 "data/maps/Shoreslate_Mart/scripts.pory"
-	goto_if_set FLAG_BADGE05_GET, Mart_Clerk_5
-# 236 "data/maps/Shoreslate_Mart/scripts.pory"
-	goto_if_set FLAG_BADGE04_GET, Mart_Clerk_6
-# 239 "data/maps/Shoreslate_Mart/scripts.pory"
-	goto_if_set FLAG_BADGE03_GET, Mart_Clerk_7
-# 242 "data/maps/Shoreslate_Mart/scripts.pory"
-	goto_if_set FLAG_BADGE02_GET, Mart_Clerk_8
-# 245 "data/maps/Shoreslate_Mart/scripts.pory"
-	goto_if_set FLAG_BADGE01_GET, Mart_Clerk_9
-# 249 "data/maps/Shoreslate_Mart/scripts.pory"
-	goto_if_set FLAG_SYS_POKEDEX_GET, Mart_Clerk_19
-# 253 "data/maps/Shoreslate_Mart/scripts.pory"
+	checkitem ITEM_TOWN_MAP
+# 0 "data/maps/Shoreslate_Mart/scripts.pory"
+	compare VAR_RESULT, FALSE
+	goto_if_eq Mart_Clerk_2
+# 259 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE08_GET, Mart_Clerk_22
+# 262 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE07_GET, Mart_Clerk_23
+# 265 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE06_GET, Mart_Clerk_24
+# 268 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE05_GET, Mart_Clerk_25
+# 271 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE04_GET, Mart_Clerk_26
+# 274 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE03_GET, Mart_Clerk_27
+# 277 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE02_GET, Mart_Clerk_28
+# 280 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE01_GET, Mart_Clerk_29
+# 284 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_SYS_POKEDEX_GET, Mart_Clerk_42
+# 288 "data/maps/Shoreslate_Mart/scripts.pory"
 	pokemart Mart_NoBadges
 Mart_Clerk_1:
-# 256 "data/maps/Shoreslate_Mart/scripts.pory"
+# 292 "data/maps/Shoreslate_Mart/scripts.pory"
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-# 257 "data/maps/Shoreslate_Mart/scripts.pory"
+# 293 "data/maps/Shoreslate_Mart/scripts.pory"
 	release
 	end
 
 Mart_Clerk_2:
 # 225 "data/maps/Shoreslate_Mart/scripts.pory"
-	pokemart Mart_8Badges
-	goto Mart_Clerk_1
-
-Mart_Clerk_3:
+	goto_if_set FLAG_BADGE08_GET, Mart_Clerk_5
 # 228 "data/maps/Shoreslate_Mart/scripts.pory"
-	pokemart Mart_7Badges
-	goto Mart_Clerk_1
-
-Mart_Clerk_4:
+	goto_if_set FLAG_BADGE07_GET, Mart_Clerk_6
 # 231 "data/maps/Shoreslate_Mart/scripts.pory"
-	pokemart Mart_7Badges
+	goto_if_set FLAG_BADGE06_GET, Mart_Clerk_7
+# 234 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE05_GET, Mart_Clerk_8
+# 237 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE04_GET, Mart_Clerk_9
+# 240 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE03_GET, Mart_Clerk_10
+# 243 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE02_GET, Mart_Clerk_11
+# 246 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE01_GET, Mart_Clerk_12
+# 250 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_SYS_POKEDEX_GET, Mart_Clerk_39
+# 254 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart Mart_NoBadgesMap
 	goto Mart_Clerk_1
 
 Mart_Clerk_5:
-# 234 "data/maps/Shoreslate_Mart/scripts.pory"
-	pokemart Mart_4Badges
+# 226 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart Mart_8BadgesMap
 	goto Mart_Clerk_1
 
 Mart_Clerk_6:
-# 237 "data/maps/Shoreslate_Mart/scripts.pory"
-	pokemart Mart_4Badges
+# 229 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart Mart_7BadgesMap
 	goto Mart_Clerk_1
 
 Mart_Clerk_7:
-# 240 "data/maps/Shoreslate_Mart/scripts.pory"
-	pokemart Mart_3Badges
+# 232 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart Mart_7BadgesMap
 	goto Mart_Clerk_1
 
 Mart_Clerk_8:
-# 243 "data/maps/Shoreslate_Mart/scripts.pory"
-	pokemart Mart_2Badges
+# 235 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart Mart_4BadgesMap
 	goto Mart_Clerk_1
 
 Mart_Clerk_9:
-# 246 "data/maps/Shoreslate_Mart/scripts.pory"
+# 238 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart Mart_4BadgesMap
+	goto Mart_Clerk_1
+
+Mart_Clerk_10:
+# 241 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart Mart_3BadgesMap
+	goto Mart_Clerk_1
+
+Mart_Clerk_11:
+# 244 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart Mart_2BadgesMap
+	goto Mart_Clerk_1
+
+Mart_Clerk_12:
+# 247 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart Mart_1BadgesMap
+	goto Mart_Clerk_1
+
+Mart_Clerk_22:
+# 260 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart Mart_8Badges
+	goto Mart_Clerk_1
+
+Mart_Clerk_23:
+# 263 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart Mart_7Badges
+	goto Mart_Clerk_1
+
+Mart_Clerk_24:
+# 266 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart Mart_7Badges
+	goto Mart_Clerk_1
+
+Mart_Clerk_25:
+# 269 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart Mart_4Badges
+	goto Mart_Clerk_1
+
+Mart_Clerk_26:
+# 272 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart Mart_4Badges
+	goto Mart_Clerk_1
+
+Mart_Clerk_27:
+# 275 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart Mart_3Badges
+	goto Mart_Clerk_1
+
+Mart_Clerk_28:
+# 278 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart Mart_2Badges
+	goto Mart_Clerk_1
+
+Mart_Clerk_29:
+# 281 "data/maps/Shoreslate_Mart/scripts.pory"
 	pokemart Mart_1Badges
 	goto Mart_Clerk_1
 
-Mart_Clerk_19:
-# 250 "data/maps/Shoreslate_Mart/scripts.pory"
+Mart_Clerk_39:
+# 251 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart Mart_NoBadgesExpandedMap
+	goto Mart_Clerk_1
+
+Mart_Clerk_42:
+# 285 "data/maps/Shoreslate_Mart/scripts.pory"
 	pokemart Mart_NoBadgesExpanded
 	goto Mart_Clerk_1
 
 
 	.align 2
-# 261 "data/maps/Shoreslate_Mart/scripts.pory"
-Mart_NoBadges:
-# 262 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POTION
-# 263 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_ANTIDOTE
-	.2byte ITEM_NONE
-
-	.align 2
-# 266 "data/maps/Shoreslate_Mart/scripts.pory"
-Mart_NoBadgesExpanded:
-# 267 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POKE_BALL
-# 268 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POTION
-# 269 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_ANTIDOTE
-# 270 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_PARALYZE_HEAL
-	.2byte ITEM_NONE
-
-	.align 2
-# 273 "data/maps/Shoreslate_Mart/scripts.pory"
-Mart_1Badges:
-# 274 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POKE_BALL
-# 275 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_GREAT_BALL
-# 276 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POTION
-# 277 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_SUPER_POTION
-# 278 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_ANTIDOTE
-# 279 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_PARALYZE_HEAL
-# 280 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_AWAKENING
-# 281 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_BURN_HEAL
-# 282 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_ICE_HEAL
-# 283 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_REPEL
-	.2byte ITEM_NONE
-
-	.align 2
-# 286 "data/maps/Shoreslate_Mart/scripts.pory"
-Mart_2Badges:
-# 287 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POKE_BALL
-# 288 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_GREAT_BALL
-# 289 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POTION
-# 290 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_SUPER_POTION
-# 291 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_REVIVE
-# 292 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_ANTIDOTE
-# 293 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_PARALYZE_HEAL
-# 294 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_AWAKENING
-# 295 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_BURN_HEAL
-# 296 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_ICE_HEAL
 # 297 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_REPEL
+Mart_NoBadges:
+# 298 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POTION
+# 299 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ANTIDOTE
 	.2byte ITEM_NONE
 
 	.align 2
-# 300 "data/maps/Shoreslate_Mart/scripts.pory"
-Mart_3Badges:
-# 301 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POKE_BALL
 # 302 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_GREAT_BALL
+Mart_NoBadgesExpanded:
 # 303 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POTION
+	.2byte ITEM_POKE_BALL
 # 304 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_POTION
 # 305 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_ANTIDOTE
 # 306 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_REVIVE
-# 307 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_ANTIDOTE
-# 308 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_NONE
+
+	.align 2
 # 309 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_AWAKENING
+Mart_1Badges:
 # 310 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_POKE_BALL
 # 311 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_GREAT_BALL
 # 312 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_REPEL
+	.2byte ITEM_POTION
 # 313 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_SUPER_REPEL
+	.2byte ITEM_SUPER_POTION
 # 314 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POKE_DOLL
-	.2byte ITEM_NONE
-
-	.align 2
+	.2byte ITEM_ANTIDOTE
+# 315 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_PARALYZE_HEAL
+# 316 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_AWAKENING
 # 317 "data/maps/Shoreslate_Mart/scripts.pory"
-Mart_4Badges:
+	.2byte ITEM_BURN_HEAL
 # 318 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POKE_BALL
+	.2byte ITEM_ICE_HEAL
 # 319 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_GREAT_BALL
-# 320 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_ULTRA_BALL
-# 321 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POTION
+	.2byte ITEM_REPEL
+	.2byte ITEM_NONE
+
+	.align 2
 # 322 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_SUPER_POTION
+Mart_2Badges:
 # 323 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_POKE_BALL
 # 324 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_REVIVE
+	.2byte ITEM_GREAT_BALL
 # 325 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_POTION
 # 326 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_SUPER_POTION
 # 327 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_AWAKENING
+	.2byte ITEM_REVIVE
 # 328 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ANTIDOTE
 # 329 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_PARALYZE_HEAL
 # 330 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_AWAKENING
 # 331 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_REPEL
+	.2byte ITEM_BURN_HEAL
 # 332 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_SUPER_REPEL
+	.2byte ITEM_ICE_HEAL
 # 333 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_MAX_REPEL
-# 334 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POKE_DOLL
+	.2byte ITEM_REPEL
 	.2byte ITEM_NONE
 
 	.align 2
+# 336 "data/maps/Shoreslate_Mart/scripts.pory"
+Mart_3Badges:
 # 337 "data/maps/Shoreslate_Mart/scripts.pory"
-Mart_7Badges:
+	.2byte ITEM_POKE_BALL
 # 338 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
 # 339 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_POTION
 # 340 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_SUPER_POTION
 # 341 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POTION
+	.2byte ITEM_HYPER_POTION
 # 342 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_REVIVE
 # 343 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_ANTIDOTE
 # 344 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_MAX_POTION
+	.2byte ITEM_PARALYZE_HEAL
 # 345 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_REVIVE
+	.2byte ITEM_AWAKENING
 # 346 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_BURN_HEAL
 # 347 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_ICE_HEAL
 # 348 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_AWAKENING
+	.2byte ITEM_REPEL
 # 349 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_SUPER_REPEL
 # 350 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_ICE_HEAL
-# 351 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_FULL_HEAL
-# 352 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_REPEL
+	.2byte ITEM_POKE_DOLL
+	.2byte ITEM_NONE
+
+	.align 2
 # 353 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_SUPER_REPEL
+Mart_4Badges:
 # 354 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_POKE_BALL
 # 355 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POKE_DOLL
-	.2byte ITEM_NONE
-
-	.align 2
+	.2byte ITEM_GREAT_BALL
+# 356 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ULTRA_BALL
+# 357 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POTION
 # 358 "data/maps/Shoreslate_Mart/scripts.pory"
-Mart_8Badges:
-# 359 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POKE_BALL
-# 360 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_GREAT_BALL
-# 361 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_ULTRA_BALL
-# 362 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POTION
-# 363 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_SUPER_POTION
-# 364 "data/maps/Shoreslate_Mart/scripts.pory"
+# 359 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_HYPER_POTION
-# 365 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_MAX_POTION
-# 366 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_FULL_RESTORE
-# 367 "data/maps/Shoreslate_Mart/scripts.pory"
+# 360 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_REVIVE
-# 368 "data/maps/Shoreslate_Mart/scripts.pory"
+# 361 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_ANTIDOTE
-# 369 "data/maps/Shoreslate_Mart/scripts.pory"
+# 362 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_PARALYZE_HEAL
-# 370 "data/maps/Shoreslate_Mart/scripts.pory"
+# 363 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_AWAKENING
-# 371 "data/maps/Shoreslate_Mart/scripts.pory"
+# 364 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_BURN_HEAL
-# 372 "data/maps/Shoreslate_Mart/scripts.pory"
+# 365 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_ICE_HEAL
-# 373 "data/maps/Shoreslate_Mart/scripts.pory"
+# 366 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_FULL_HEAL
-# 374 "data/maps/Shoreslate_Mart/scripts.pory"
+# 367 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_REPEL
-# 375 "data/maps/Shoreslate_Mart/scripts.pory"
+# 368 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_SUPER_REPEL
-# 376 "data/maps/Shoreslate_Mart/scripts.pory"
+# 369 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_MAX_REPEL
-# 377 "data/maps/Shoreslate_Mart/scripts.pory"
+# 370 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_POKE_DOLL
 	.2byte ITEM_NONE
 
-Rockliffe_TM_Mart_Clerk::
-# 382 "data/maps/Shoreslate_Mart/scripts.pory"
-	lock
-# 383 "data/maps/Shoreslate_Mart/scripts.pory"
-	faceplayer
-# 384 "data/maps/Shoreslate_Mart/scripts.pory"
-	message gText_HowMayIServeYou
-# 385 "data/maps/Shoreslate_Mart/scripts.pory"
-	waitmessage
-# 386 "data/maps/Shoreslate_Mart/scripts.pory"
-	pokemart Mart_TM1
-# 387 "data/maps/Shoreslate_Mart/scripts.pory"
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-# 388 "data/maps/Shoreslate_Mart/scripts.pory"
-	release
-	end
-
-
 	.align 2
-# 392 "data/maps/Shoreslate_Mart/scripts.pory"
-Mart_TM1:
-# 393 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_TM_FRUSTRATION
-# 394 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_TM_RETURN
-# 395 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_TM_LIGHT_SCREEN
-# 396 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_TM_REFLECT
-# 397 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_TM_SAFEGUARD
-	.2byte ITEM_NONE
-
-Mart_ClerkSandStoneLeft::
-# 402 "data/maps/Shoreslate_Mart/scripts.pory"
-	lock
-# 403 "data/maps/Shoreslate_Mart/scripts.pory"
-	faceplayer
-# 404 "data/maps/Shoreslate_Mart/scripts.pory"
-	message gText_HowMayIServeYou
-# 405 "data/maps/Shoreslate_Mart/scripts.pory"
-	waitmessage
-# 406 "data/maps/Shoreslate_Mart/scripts.pory"
-	goto_if_set FLAG_BADGE08_GET, Mart_ClerkSandStoneLeft_2
-# 409 "data/maps/Shoreslate_Mart/scripts.pory"
-	goto_if_set FLAG_BADGE07_GET, Mart_ClerkSandStoneLeft_3
-# 412 "data/maps/Shoreslate_Mart/scripts.pory"
-	goto_if_set FLAG_BADGE06_GET, Mart_ClerkSandStoneLeft_4
-# 415 "data/maps/Shoreslate_Mart/scripts.pory"
-	goto_if_set FLAG_BADGE05_GET, Mart_ClerkSandStoneLeft_5
-# 418 "data/maps/Shoreslate_Mart/scripts.pory"
-	goto_if_set FLAG_BADGE04_GET, Mart_ClerkSandStoneLeft_6
-# 422 "data/maps/Shoreslate_Mart/scripts.pory"
-	pokemart SSLeftMart_3Badges
-Mart_ClerkSandStoneLeft_1:
-# 424 "data/maps/Shoreslate_Mart/scripts.pory"
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-# 425 "data/maps/Shoreslate_Mart/scripts.pory"
-	release
-	end
-
-Mart_ClerkSandStoneLeft_2:
-# 407 "data/maps/Shoreslate_Mart/scripts.pory"
-	pokemart SSLeftMart_8Badges
-	goto Mart_ClerkSandStoneLeft_1
-
-Mart_ClerkSandStoneLeft_3:
-# 410 "data/maps/Shoreslate_Mart/scripts.pory"
-	pokemart SSLeftMart_7Badges
-	goto Mart_ClerkSandStoneLeft_1
-
-Mart_ClerkSandStoneLeft_4:
-# 413 "data/maps/Shoreslate_Mart/scripts.pory"
-	pokemart SSLeftMart_6Badges
-	goto Mart_ClerkSandStoneLeft_1
-
-Mart_ClerkSandStoneLeft_5:
-# 416 "data/maps/Shoreslate_Mart/scripts.pory"
-	pokemart SSLeftMart_4Badges
-	goto Mart_ClerkSandStoneLeft_1
-
-Mart_ClerkSandStoneLeft_6:
-# 419 "data/maps/Shoreslate_Mart/scripts.pory"
-	pokemart SSLeftMart_4Badges
-	goto Mart_ClerkSandStoneLeft_1
-
-
-Mart_ClerkSandStoneRight::
-# 430 "data/maps/Shoreslate_Mart/scripts.pory"
-	lock
-# 431 "data/maps/Shoreslate_Mart/scripts.pory"
-	faceplayer
-# 432 "data/maps/Shoreslate_Mart/scripts.pory"
-	message gText_HowMayIServeYou
-# 433 "data/maps/Shoreslate_Mart/scripts.pory"
-	waitmessage
-# 434 "data/maps/Shoreslate_Mart/scripts.pory"
-	goto_if_set FLAG_BADGE08_GET, Mart_ClerkSandStoneRight_2
-# 437 "data/maps/Shoreslate_Mart/scripts.pory"
-	goto_if_set FLAG_BADGE07_GET, Mart_ClerkSandStoneRight_3
-# 440 "data/maps/Shoreslate_Mart/scripts.pory"
-	goto_if_set FLAG_BADGE06_GET, Mart_ClerkSandStoneRight_4
-# 443 "data/maps/Shoreslate_Mart/scripts.pory"
-	goto_if_set FLAG_BADGE05_GET, Mart_ClerkSandStoneRight_5
-# 446 "data/maps/Shoreslate_Mart/scripts.pory"
-	goto_if_set FLAG_BADGE04_GET, Mart_ClerkSandStoneRight_6
-# 450 "data/maps/Shoreslate_Mart/scripts.pory"
-	pokemart SSRightMart_3Badges
-Mart_ClerkSandStoneRight_1:
-# 452 "data/maps/Shoreslate_Mart/scripts.pory"
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-# 453 "data/maps/Shoreslate_Mart/scripts.pory"
-	release
-	end
-
-Mart_ClerkSandStoneRight_2:
-# 435 "data/maps/Shoreslate_Mart/scripts.pory"
-	pokemart SSRightMart_8Badges
-	goto Mart_ClerkSandStoneRight_1
-
-Mart_ClerkSandStoneRight_3:
-# 438 "data/maps/Shoreslate_Mart/scripts.pory"
-	pokemart SSRightMart_7Badges
-	goto Mart_ClerkSandStoneRight_1
-
-Mart_ClerkSandStoneRight_4:
-# 441 "data/maps/Shoreslate_Mart/scripts.pory"
-	pokemart SSRightMart_7Badges
-	goto Mart_ClerkSandStoneRight_1
-
-Mart_ClerkSandStoneRight_5:
-# 444 "data/maps/Shoreslate_Mart/scripts.pory"
-	pokemart SSRightMart_4Badges
-	goto Mart_ClerkSandStoneRight_1
-
-Mart_ClerkSandStoneRight_6:
-# 447 "data/maps/Shoreslate_Mart/scripts.pory"
-	pokemart SSRightMart_4Badges
-	goto Mart_ClerkSandStoneRight_1
-
-
-	.align 2
-# 457 "data/maps/Shoreslate_Mart/scripts.pory"
-SSLeftMart_3Badges:
-# 458 "data/maps/Shoreslate_Mart/scripts.pory"
+# 373 "data/maps/Shoreslate_Mart/scripts.pory"
+Mart_7Badges:
+# 374 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_POKE_BALL
-# 459 "data/maps/Shoreslate_Mart/scripts.pory"
+# 375 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_GREAT_BALL
-# 460 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_HEAL_BALL
-# 461 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_NET_BALL
-# 462 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_REPEAT_BALL
-# 463 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_NEST_BALL
-# 464 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_DIVE_BALL
-# 465 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_DREAM_BALL
-	.2byte ITEM_NONE
-
-	.align 2
-# 468 "data/maps/Shoreslate_Mart/scripts.pory"
-SSLeftMart_4Badges:
-# 469 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POKE_BALL
-# 470 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_GREAT_BALL
-# 471 "data/maps/Shoreslate_Mart/scripts.pory"
+# 376 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_ULTRA_BALL
-# 472 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_HEAL_BALL
-# 473 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_NET_BALL
-# 474 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_REPEAT_BALL
-# 475 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_NEST_BALL
-# 476 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_DIVE_BALL
-# 477 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_DREAM_BALL
-# 478 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_LUXURY_BALL
-	.2byte ITEM_NONE
-
-	.align 2
-# 481 "data/maps/Shoreslate_Mart/scripts.pory"
-SSLeftMart_6Badges:
-# 482 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POKE_BALL
-# 483 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_GREAT_BALL
-# 484 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_ULTRA_BALL
-# 485 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_HEAL_BALL
-# 486 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_NET_BALL
-# 487 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_REPEAT_BALL
-# 488 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_NEST_BALL
-# 489 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_DIVE_BALL
-# 490 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_DREAM_BALL
-# 491 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_LUXURY_BALL
-# 492 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_DUSK_BALL
-	.2byte ITEM_NONE
-
-	.align 2
-# 495 "data/maps/Shoreslate_Mart/scripts.pory"
-SSLeftMart_7Badges:
-# 496 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POKE_BALL
-# 497 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_GREAT_BALL
-# 498 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_ULTRA_BALL
-# 499 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_HEAL_BALL
-# 500 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_NET_BALL
-# 501 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_REPEAT_BALL
-# 502 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_NEST_BALL
-# 503 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_DIVE_BALL
-# 504 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_DREAM_BALL
-# 505 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_LUXURY_BALL
-# 506 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_DUSK_BALL
-# 507 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_QUICK_BALL
-	.2byte ITEM_NONE
-
-	.align 2
-# 510 "data/maps/Shoreslate_Mart/scripts.pory"
-SSLeftMart_8Badges:
-# 511 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POKE_BALL
-# 512 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_GREAT_BALL
-# 513 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_ULTRA_BALL
-# 514 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_HEAL_BALL
-# 515 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_NET_BALL
-# 516 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_REPEAT_BALL
-# 517 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_NEST_BALL
-# 518 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_DIVE_BALL
-# 519 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_DREAM_BALL
-# 520 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_LUXURY_BALL
-# 521 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_DUSK_BALL
-# 522 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_QUICK_BALL
-# 523 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_TIMER_BALL
-	.2byte ITEM_NONE
-
-	.align 2
-# 527 "data/maps/Shoreslate_Mart/scripts.pory"
-SSRightMart_3Badges:
-# 528 "data/maps/Shoreslate_Mart/scripts.pory"
+# 377 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_POTION
-# 529 "data/maps/Shoreslate_Mart/scripts.pory"
+# 378 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_SUPER_POTION
-# 530 "data/maps/Shoreslate_Mart/scripts.pory"
+# 379 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_HYPER_POTION
+# 380 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_MAX_POTION
+# 381 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REVIVE
+# 382 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ANTIDOTE
+# 383 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_PARALYZE_HEAL
+# 384 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_AWAKENING
+# 385 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_BURN_HEAL
+# 386 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ICE_HEAL
+# 387 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_FULL_HEAL
+# 388 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REPEL
+# 389 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_REPEL
+# 390 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_MAX_REPEL
+# 391 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_DOLL
+	.2byte ITEM_NONE
+
+	.align 2
+# 394 "data/maps/Shoreslate_Mart/scripts.pory"
+Mart_8Badges:
+# 395 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_BALL
+# 396 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_GREAT_BALL
+# 397 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ULTRA_BALL
+# 398 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POTION
+# 399 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_POTION
+# 400 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_HYPER_POTION
+# 401 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_MAX_POTION
+# 402 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_FULL_RESTORE
+# 403 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REVIVE
+# 404 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ANTIDOTE
+# 405 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_PARALYZE_HEAL
+# 406 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_AWAKENING
+# 407 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_BURN_HEAL
+# 408 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ICE_HEAL
+# 409 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_FULL_HEAL
+# 410 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REPEL
+# 411 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_REPEL
+# 412 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_MAX_REPEL
+# 413 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_DOLL
+	.2byte ITEM_NONE
+
+	.align 2
+# 417 "data/maps/Shoreslate_Mart/scripts.pory"
+Mart_NoBadgesMap:
+# 418 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_TOWN_MAP
+# 419 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POTION
+# 420 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_NONE
+
+	.align 2
+# 423 "data/maps/Shoreslate_Mart/scripts.pory"
+Mart_NoBadgesExpandedMap:
+# 424 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_TOWN_MAP
+# 425 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_BALL
+# 426 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POTION
+# 427 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ANTIDOTE
+# 428 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_NONE
+
+	.align 2
+# 431 "data/maps/Shoreslate_Mart/scripts.pory"
+Mart_1BadgesMap:
+# 432 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_TOWN_MAP
+# 433 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_BALL
+# 434 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_GREAT_BALL
+# 435 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POTION
+# 436 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_POTION
+# 437 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ANTIDOTE
+# 438 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_PARALYZE_HEAL
+# 439 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_AWAKENING
+# 440 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_BURN_HEAL
+# 441 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ICE_HEAL
+# 442 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REPEL
+	.2byte ITEM_NONE
+
+	.align 2
+# 445 "data/maps/Shoreslate_Mart/scripts.pory"
+Mart_2BadgesMap:
+# 446 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_TOWN_MAP
+# 447 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_BALL
+# 448 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_GREAT_BALL
+# 449 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POTION
+# 450 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_POTION
+# 451 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REVIVE
+# 452 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ANTIDOTE
+# 453 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_PARALYZE_HEAL
+# 454 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_AWAKENING
+# 455 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_BURN_HEAL
+# 456 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ICE_HEAL
+# 457 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REPEL
+	.2byte ITEM_NONE
+
+	.align 2
+# 460 "data/maps/Shoreslate_Mart/scripts.pory"
+Mart_3BadgesMap:
+# 461 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_TOWN_MAP
+# 462 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_BALL
+# 463 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_GREAT_BALL
+# 464 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POTION
+# 465 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_POTION
+# 466 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_HYPER_POTION
+# 467 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REVIVE
+# 468 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ANTIDOTE
+# 469 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_PARALYZE_HEAL
+# 470 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_AWAKENING
+# 471 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_BURN_HEAL
+# 472 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ICE_HEAL
+# 473 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REPEL
+# 474 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_REPEL
+# 475 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_DOLL
+	.2byte ITEM_NONE
+
+	.align 2
+# 478 "data/maps/Shoreslate_Mart/scripts.pory"
+Mart_4BadgesMap:
+# 479 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_TOWN_MAP
+# 480 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_BALL
+# 481 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_GREAT_BALL
+# 482 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ULTRA_BALL
+# 483 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POTION
+# 484 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_POTION
+# 485 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_HYPER_POTION
+# 486 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REVIVE
+# 487 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ANTIDOTE
+# 488 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_PARALYZE_HEAL
+# 489 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_AWAKENING
+# 490 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_BURN_HEAL
+# 491 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ICE_HEAL
+# 492 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_FULL_HEAL
+# 493 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REPEL
+# 494 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_REPEL
+# 495 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_MAX_REPEL
+# 496 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_DOLL
+	.2byte ITEM_NONE
+
+	.align 2
+# 499 "data/maps/Shoreslate_Mart/scripts.pory"
+Mart_7BadgesMap:
+# 500 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_TOWN_MAP
+# 501 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_BALL
+# 502 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_GREAT_BALL
+# 503 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ULTRA_BALL
+# 504 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POTION
+# 505 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_POTION
+# 506 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_HYPER_POTION
+# 507 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_MAX_POTION
+# 508 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REVIVE
+# 509 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ANTIDOTE
+# 510 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_PARALYZE_HEAL
+# 511 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_AWAKENING
+# 512 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_BURN_HEAL
+# 513 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ICE_HEAL
+# 514 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_FULL_HEAL
+# 515 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REPEL
+# 516 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_REPEL
+# 517 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_MAX_REPEL
+# 518 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_DOLL
+	.2byte ITEM_NONE
+
+	.align 2
+# 521 "data/maps/Shoreslate_Mart/scripts.pory"
+Mart_8BadgesMap:
+# 522 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_TOWN_MAP
+# 523 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_BALL
+# 524 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_GREAT_BALL
+# 525 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ULTRA_BALL
+# 526 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POTION
+# 527 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_POTION
+# 528 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_HYPER_POTION
+# 529 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_MAX_POTION
+# 530 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_FULL_RESTORE
 # 531 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_REVIVE
 # 532 "data/maps/Shoreslate_Mart/scripts.pory"
@@ -810,201 +821,694 @@ SSRightMart_3Badges:
 # 536 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_ICE_HEAL
 # 537 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_REPEL
+	.2byte ITEM_FULL_HEAL
 # 538 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_SUPER_REPEL
+	.2byte ITEM_REPEL
 # 539 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_REPEL
+# 540 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_MAX_REPEL
+# 541 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_POKE_DOLL
 	.2byte ITEM_NONE
 
-	.align 2
-# 542 "data/maps/Shoreslate_Mart/scripts.pory"
-SSRightMart_4Badges:
-# 543 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POTION
-# 544 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_SUPER_POTION
-# 545 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_HYPER_POTION
+Rockliffe_TM_Mart_Clerk::
 # 546 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_REVIVE
+	lock
 # 547 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_ANTIDOTE
+	faceplayer
 # 548 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_PARALYZE_HEAL
+	message gText_HowMayIServeYou
 # 549 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_AWAKENING
+	waitmessage
 # 550 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_BURN_HEAL
+	pokemart Mart_TM1
 # 551 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_ICE_HEAL
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 # 552 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_FULL_HEAL
-# 553 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_REPEL
-# 554 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_SUPER_REPEL
-# 555 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_MAX_REPEL
+	release
+	end
+
+
+	.align 2
 # 556 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POKE_DOLL
-	.2byte ITEM_NONE
-
-	.align 2
+Mart_TM1:
+# 557 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_TM_FRUSTRATION
+# 558 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_TM_RETURN
 # 559 "data/maps/Shoreslate_Mart/scripts.pory"
-SSRightMart_7Badges:
+	.2byte ITEM_TM_LIGHT_SCREEN
 # 560 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_POTION
+	.2byte ITEM_TM_REFLECT
 # 561 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_SUPER_POTION
-# 562 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_HYPER_POTION
-# 563 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_MAX_POTION
-# 564 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_REVIVE
-# 565 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_TM_SAFEGUARD
+	.2byte ITEM_NONE
+
+Mart_ClerkSandStoneLeft::
 # 566 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_PARALYZE_HEAL
+	lock
 # 567 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_AWAKENING
+	faceplayer
 # 568 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_BURN_HEAL
+	message gText_HowMayIServeYou
 # 569 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_ICE_HEAL
+	waitmessage
 # 570 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_FULL_HEAL
-# 571 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_REPEL
-# 572 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_SUPER_REPEL
+	goto_if_set FLAG_BADGE08_GET, Mart_ClerkSandStoneLeft_2
 # 573 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_MAX_REPEL
+	goto_if_set FLAG_BADGE07_GET, Mart_ClerkSandStoneLeft_3
+# 576 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE06_GET, Mart_ClerkSandStoneLeft_4
+# 579 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE05_GET, Mart_ClerkSandStoneLeft_5
+# 582 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE04_GET, Mart_ClerkSandStoneLeft_6
+# 586 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart SSLeftMart_3Badges
+Mart_ClerkSandStoneLeft_1:
+# 588 "data/maps/Shoreslate_Mart/scripts.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 589 "data/maps/Shoreslate_Mart/scripts.pory"
+	release
+	end
+
+Mart_ClerkSandStoneLeft_2:
+# 571 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart SSLeftMart_8Badges
+	goto Mart_ClerkSandStoneLeft_1
+
+Mart_ClerkSandStoneLeft_3:
 # 574 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart SSLeftMart_7Badges
+	goto Mart_ClerkSandStoneLeft_1
+
+Mart_ClerkSandStoneLeft_4:
+# 577 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart SSLeftMart_6Badges
+	goto Mart_ClerkSandStoneLeft_1
+
+Mart_ClerkSandStoneLeft_5:
+# 580 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart SSLeftMart_4Badges
+	goto Mart_ClerkSandStoneLeft_1
+
+Mart_ClerkSandStoneLeft_6:
+# 583 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart SSLeftMart_4Badges
+	goto Mart_ClerkSandStoneLeft_1
+
+
+Mart_ClerkSandStoneRight::
+# 594 "data/maps/Shoreslate_Mart/scripts.pory"
+	lock
+# 595 "data/maps/Shoreslate_Mart/scripts.pory"
+	faceplayer
+# 596 "data/maps/Shoreslate_Mart/scripts.pory"
+	message gText_HowMayIServeYou
+# 597 "data/maps/Shoreslate_Mart/scripts.pory"
+	waitmessage
+	checkitem ITEM_TOWN_MAP
+# 0 "data/maps/Shoreslate_Mart/scripts.pory"
+	compare VAR_RESULT, FALSE
+	goto_if_eq Mart_ClerkSandStoneRight_2
+# 619 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE08_GET, Mart_ClerkSandStoneRight_16
+# 622 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE07_GET, Mart_ClerkSandStoneRight_17
+# 625 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE06_GET, Mart_ClerkSandStoneRight_18
+# 628 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE05_GET, Mart_ClerkSandStoneRight_19
+# 631 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE04_GET, Mart_ClerkSandStoneRight_20
+# 635 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart SSRightMart_3Badges
+Mart_ClerkSandStoneRight_1:
+# 638 "data/maps/Shoreslate_Mart/scripts.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 639 "data/maps/Shoreslate_Mart/scripts.pory"
+	release
+	end
+
+Mart_ClerkSandStoneRight_2:
+# 599 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE08_GET, Mart_ClerkSandStoneRight_5
+# 602 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE07_GET, Mart_ClerkSandStoneRight_6
+# 605 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE06_GET, Mart_ClerkSandStoneRight_7
+# 608 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE05_GET, Mart_ClerkSandStoneRight_8
+# 611 "data/maps/Shoreslate_Mart/scripts.pory"
+	goto_if_set FLAG_BADGE04_GET, Mart_ClerkSandStoneRight_9
+# 615 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart SSRightMart_3BadgesMap
+	goto Mart_ClerkSandStoneRight_1
+
+Mart_ClerkSandStoneRight_5:
+# 600 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart SSRightMart_8BadgesMap
+	goto Mart_ClerkSandStoneRight_1
+
+Mart_ClerkSandStoneRight_6:
+# 603 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart SSRightMart_7BadgesMap
+	goto Mart_ClerkSandStoneRight_1
+
+Mart_ClerkSandStoneRight_7:
+# 606 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart SSRightMart_7BadgesMap
+	goto Mart_ClerkSandStoneRight_1
+
+Mart_ClerkSandStoneRight_8:
+# 609 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart SSRightMart_4BadgesMap
+	goto Mart_ClerkSandStoneRight_1
+
+Mart_ClerkSandStoneRight_9:
+# 612 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart SSRightMart_4BadgesMap
+	goto Mart_ClerkSandStoneRight_1
+
+Mart_ClerkSandStoneRight_16:
+# 620 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart SSRightMart_8Badges
+	goto Mart_ClerkSandStoneRight_1
+
+Mart_ClerkSandStoneRight_17:
+# 623 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart SSRightMart_7Badges
+	goto Mart_ClerkSandStoneRight_1
+
+Mart_ClerkSandStoneRight_18:
+# 626 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart SSRightMart_7Badges
+	goto Mart_ClerkSandStoneRight_1
+
+Mart_ClerkSandStoneRight_19:
+# 629 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart SSRightMart_4Badges
+	goto Mart_ClerkSandStoneRight_1
+
+Mart_ClerkSandStoneRight_20:
+# 632 "data/maps/Shoreslate_Mart/scripts.pory"
+	pokemart SSRightMart_4Badges
+	goto Mart_ClerkSandStoneRight_1
+
+
+	.align 2
+# 643 "data/maps/Shoreslate_Mart/scripts.pory"
+SSLeftMart_3Badges:
+# 644 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_BALL
+# 645 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_GREAT_BALL
+# 646 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_HEAL_BALL
+# 647 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_NET_BALL
+# 648 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REPEAT_BALL
+# 649 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_NEST_BALL
+# 650 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_DIVE_BALL
+# 651 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_NONE
+
+	.align 2
+# 654 "data/maps/Shoreslate_Mart/scripts.pory"
+SSLeftMart_4Badges:
+# 655 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_BALL
+# 656 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_GREAT_BALL
+# 657 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ULTRA_BALL
+# 658 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_HEAL_BALL
+# 659 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_NET_BALL
+# 660 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REPEAT_BALL
+# 661 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_NEST_BALL
+# 662 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_DIVE_BALL
+# 663 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_DREAM_BALL
+# 664 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_NONE
+
+	.align 2
+# 667 "data/maps/Shoreslate_Mart/scripts.pory"
+SSLeftMart_6Badges:
+# 668 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_BALL
+# 669 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_GREAT_BALL
+# 670 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ULTRA_BALL
+# 671 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_HEAL_BALL
+# 672 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_NET_BALL
+# 673 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REPEAT_BALL
+# 674 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_NEST_BALL
+# 675 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_DIVE_BALL
+# 676 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_DREAM_BALL
+# 677 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_LUXURY_BALL
+# 678 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_DUSK_BALL
+	.2byte ITEM_NONE
+
+	.align 2
+# 681 "data/maps/Shoreslate_Mart/scripts.pory"
+SSLeftMart_7Badges:
+# 682 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_BALL
+# 683 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_GREAT_BALL
+# 684 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ULTRA_BALL
+# 685 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_HEAL_BALL
+# 686 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_NET_BALL
+# 687 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REPEAT_BALL
+# 688 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_NEST_BALL
+# 689 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_DIVE_BALL
+# 690 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_DREAM_BALL
+# 691 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_LUXURY_BALL
+# 692 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_DUSK_BALL
+# 693 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_QUICK_BALL
+	.2byte ITEM_NONE
+
+	.align 2
+# 696 "data/maps/Shoreslate_Mart/scripts.pory"
+SSLeftMart_8Badges:
+# 697 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_BALL
+# 698 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_GREAT_BALL
+# 699 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ULTRA_BALL
+# 700 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_HEAL_BALL
+# 701 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_NET_BALL
+# 702 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REPEAT_BALL
+# 703 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_NEST_BALL
+# 704 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_DIVE_BALL
+# 705 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_DREAM_BALL
+# 706 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_LUXURY_BALL
+# 707 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_DUSK_BALL
+# 708 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_QUICK_BALL
+# 709 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_TIMER_BALL
+	.2byte ITEM_NONE
+
+	.align 2
+# 713 "data/maps/Shoreslate_Mart/scripts.pory"
+SSRightMart_3Badges:
+# 714 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POTION
+# 715 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_POTION
+# 716 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_HYPER_POTION
+# 717 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REVIVE
+# 718 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ANTIDOTE
+# 719 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_PARALYZE_HEAL
+# 720 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_AWAKENING
+# 721 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_BURN_HEAL
+# 722 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ICE_HEAL
+# 723 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REPEL
+# 724 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_REPEL
+# 725 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_POKE_DOLL
 	.2byte ITEM_NONE
 
 	.align 2
-# 577 "data/maps/Shoreslate_Mart/scripts.pory"
-SSRightMart_8Badges:
-# 578 "data/maps/Shoreslate_Mart/scripts.pory"
+# 728 "data/maps/Shoreslate_Mart/scripts.pory"
+SSRightMart_4Badges:
+# 729 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_POTION
-# 579 "data/maps/Shoreslate_Mart/scripts.pory"
+# 730 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_SUPER_POTION
-# 580 "data/maps/Shoreslate_Mart/scripts.pory"
+# 731 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_HYPER_POTION
-# 581 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_MAX_POTION
-# 582 "data/maps/Shoreslate_Mart/scripts.pory"
-	.2byte ITEM_FULL_RESTORE
-# 583 "data/maps/Shoreslate_Mart/scripts.pory"
+# 732 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_REVIVE
-# 584 "data/maps/Shoreslate_Mart/scripts.pory"
+# 733 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_ANTIDOTE
-# 585 "data/maps/Shoreslate_Mart/scripts.pory"
+# 734 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_PARALYZE_HEAL
-# 586 "data/maps/Shoreslate_Mart/scripts.pory"
+# 735 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_AWAKENING
-# 587 "data/maps/Shoreslate_Mart/scripts.pory"
+# 736 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_BURN_HEAL
-# 588 "data/maps/Shoreslate_Mart/scripts.pory"
+# 737 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_ICE_HEAL
-# 589 "data/maps/Shoreslate_Mart/scripts.pory"
+# 738 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_FULL_HEAL
-# 590 "data/maps/Shoreslate_Mart/scripts.pory"
+# 739 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_REPEL
-# 591 "data/maps/Shoreslate_Mart/scripts.pory"
+# 740 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_SUPER_REPEL
-# 592 "data/maps/Shoreslate_Mart/scripts.pory"
+# 741 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_MAX_REPEL
-# 593 "data/maps/Shoreslate_Mart/scripts.pory"
+# 742 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_DOLL
+	.2byte ITEM_NONE
+
+	.align 2
+# 745 "data/maps/Shoreslate_Mart/scripts.pory"
+SSRightMart_7Badges:
+# 746 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POTION
+# 747 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_POTION
+# 748 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_HYPER_POTION
+# 749 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_MAX_POTION
+# 750 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REVIVE
+# 751 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ANTIDOTE
+# 752 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_PARALYZE_HEAL
+# 753 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_AWAKENING
+# 754 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_BURN_HEAL
+# 755 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ICE_HEAL
+# 756 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_FULL_HEAL
+# 757 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REPEL
+# 758 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_REPEL
+# 759 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_MAX_REPEL
+# 760 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_DOLL
+	.2byte ITEM_NONE
+
+	.align 2
+# 763 "data/maps/Shoreslate_Mart/scripts.pory"
+SSRightMart_8Badges:
+# 764 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POTION
+# 765 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_POTION
+# 766 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_HYPER_POTION
+# 767 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_MAX_POTION
+# 768 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_FULL_RESTORE
+# 769 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REVIVE
+# 770 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ANTIDOTE
+# 771 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_PARALYZE_HEAL
+# 772 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_AWAKENING
+# 773 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_BURN_HEAL
+# 774 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ICE_HEAL
+# 775 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_FULL_HEAL
+# 776 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REPEL
+# 777 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_REPEL
+# 778 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_MAX_REPEL
+# 779 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_DOLL
+	.2byte ITEM_NONE
+
+	.align 2
+# 783 "data/maps/Shoreslate_Mart/scripts.pory"
+SSRightMart_3BadgesMap:
+# 784 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_TOWN_MAP
+# 785 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POTION
+# 786 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_POTION
+# 787 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_HYPER_POTION
+# 788 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REVIVE
+# 789 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ANTIDOTE
+# 790 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_PARALYZE_HEAL
+# 791 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_AWAKENING
+# 792 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_BURN_HEAL
+# 793 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ICE_HEAL
+# 794 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REPEL
+# 795 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_REPEL
+# 796 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_DOLL
+	.2byte ITEM_NONE
+
+	.align 2
+# 799 "data/maps/Shoreslate_Mart/scripts.pory"
+SSRightMart_4BadgesMap:
+# 800 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_TOWN_MAP
+# 801 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POTION
+# 802 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_POTION
+# 803 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_HYPER_POTION
+# 804 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REVIVE
+# 805 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ANTIDOTE
+# 806 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_PARALYZE_HEAL
+# 807 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_AWAKENING
+# 808 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_BURN_HEAL
+# 809 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ICE_HEAL
+# 810 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_FULL_HEAL
+# 811 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REPEL
+# 812 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_REPEL
+# 813 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_MAX_REPEL
+# 814 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_DOLL
+	.2byte ITEM_NONE
+
+	.align 2
+# 817 "data/maps/Shoreslate_Mart/scripts.pory"
+SSRightMart_7BadgesMap:
+# 818 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_TOWN_MAP
+# 819 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POTION
+# 820 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_POTION
+# 821 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_HYPER_POTION
+# 822 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_MAX_POTION
+# 823 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REVIVE
+# 824 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ANTIDOTE
+# 825 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_PARALYZE_HEAL
+# 826 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_AWAKENING
+# 827 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_BURN_HEAL
+# 828 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ICE_HEAL
+# 829 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_FULL_HEAL
+# 830 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REPEL
+# 831 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_REPEL
+# 832 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_MAX_REPEL
+# 833 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POKE_DOLL
+	.2byte ITEM_NONE
+
+	.align 2
+# 836 "data/maps/Shoreslate_Mart/scripts.pory"
+SSRightMart_8BadgesMap:
+# 837 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_TOWN_MAP
+# 838 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_POTION
+# 839 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_POTION
+# 840 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_HYPER_POTION
+# 841 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_MAX_POTION
+# 842 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_FULL_RESTORE
+# 843 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REVIVE
+# 844 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ANTIDOTE
+# 845 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_PARALYZE_HEAL
+# 846 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_AWAKENING
+# 847 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_BURN_HEAL
+# 848 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_ICE_HEAL
+# 849 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_FULL_HEAL
+# 850 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_REPEL
+# 851 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_SUPER_REPEL
+# 852 "data/maps/Shoreslate_Mart/scripts.pory"
+	.2byte ITEM_MAX_REPEL
+# 853 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_POKE_DOLL
 	.2byte ITEM_NONE
 
 StoneMart_ClerkLeft::
-# 598 "data/maps/Shoreslate_Mart/scripts.pory"
+# 858 "data/maps/Shoreslate_Mart/scripts.pory"
 	lock
-# 599 "data/maps/Shoreslate_Mart/scripts.pory"
+# 859 "data/maps/Shoreslate_Mart/scripts.pory"
 	faceplayer
-# 600 "data/maps/Shoreslate_Mart/scripts.pory"
+# 860 "data/maps/Shoreslate_Mart/scripts.pory"
 	message gText_HowMayIServeYou
-# 601 "data/maps/Shoreslate_Mart/scripts.pory"
+# 861 "data/maps/Shoreslate_Mart/scripts.pory"
 	waitmessage
-# 602 "data/maps/Shoreslate_Mart/scripts.pory"
+# 862 "data/maps/Shoreslate_Mart/scripts.pory"
 	pokemart Mart_Stones1
-# 603 "data/maps/Shoreslate_Mart/scripts.pory"
+# 863 "data/maps/Shoreslate_Mart/scripts.pory"
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-# 604 "data/maps/Shoreslate_Mart/scripts.pory"
+# 864 "data/maps/Shoreslate_Mart/scripts.pory"
 	release
 	end
 
 
 	.align 2
-# 607 "data/maps/Shoreslate_Mart/scripts.pory"
+# 867 "data/maps/Shoreslate_Mart/scripts.pory"
 Mart_Stones1:
-# 608 "data/maps/Shoreslate_Mart/scripts.pory"
+# 868 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_SHINY_STONE
-# 609 "data/maps/Shoreslate_Mart/scripts.pory"
+# 869 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_DUSK_STONE
-# 610 "data/maps/Shoreslate_Mart/scripts.pory"
+# 870 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_DAWN_STONE
-# 611 "data/maps/Shoreslate_Mart/scripts.pory"
+# 871 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_ICE_STONE
 	.2byte ITEM_NONE
 
 StoneMart_ClerkRight::
-# 615 "data/maps/Shoreslate_Mart/scripts.pory"
+# 875 "data/maps/Shoreslate_Mart/scripts.pory"
 	lock
-# 616 "data/maps/Shoreslate_Mart/scripts.pory"
+# 876 "data/maps/Shoreslate_Mart/scripts.pory"
 	faceplayer
-# 617 "data/maps/Shoreslate_Mart/scripts.pory"
+# 877 "data/maps/Shoreslate_Mart/scripts.pory"
 	message gText_HowMayIServeYou
-# 618 "data/maps/Shoreslate_Mart/scripts.pory"
+# 878 "data/maps/Shoreslate_Mart/scripts.pory"
 	waitmessage
-# 619 "data/maps/Shoreslate_Mart/scripts.pory"
+# 879 "data/maps/Shoreslate_Mart/scripts.pory"
 	compare VAR_SANDSTONEPORYGON_STATE, 3
 	goto_if_eq StoneMart_ClerkRight_2
-# 623 "data/maps/Shoreslate_Mart/scripts.pory"
+# 883 "data/maps/Shoreslate_Mart/scripts.pory"
 	pokemart Mart_AV
 StoneMart_ClerkRight_1:
-# 625 "data/maps/Shoreslate_Mart/scripts.pory"
+# 885 "data/maps/Shoreslate_Mart/scripts.pory"
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-# 626 "data/maps/Shoreslate_Mart/scripts.pory"
+# 886 "data/maps/Shoreslate_Mart/scripts.pory"
 	release
 	end
 
 StoneMart_ClerkRight_2:
-# 620 "data/maps/Shoreslate_Mart/scripts.pory"
+# 880 "data/maps/Shoreslate_Mart/scripts.pory"
 	pokemart Mart_NoAV
 	goto StoneMart_ClerkRight_1
 
 
 	.align 2
-# 629 "data/maps/Shoreslate_Mart/scripts.pory"
+# 889 "data/maps/Shoreslate_Mart/scripts.pory"
 Mart_NoAV:
-# 630 "data/maps/Shoreslate_Mart/scripts.pory"
+# 890 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_UP_GRADE
-# 631 "data/maps/Shoreslate_Mart/scripts.pory"
+# 891 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_DUBIOUS_DISC
-# 632 "data/maps/Shoreslate_Mart/scripts.pory"
+# 892 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_ROTOM_CATALOG
-# 633 "data/maps/Shoreslate_Mart/scripts.pory"
+# 893 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_PROCESSOR
 	.2byte ITEM_NONE
 
 	.align 2
-# 636 "data/maps/Shoreslate_Mart/scripts.pory"
+# 896 "data/maps/Shoreslate_Mart/scripts.pory"
 Mart_AV:
-# 637 "data/maps/Shoreslate_Mart/scripts.pory"
+# 897 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_ANTIVIRUS
-# 638 "data/maps/Shoreslate_Mart/scripts.pory"
+# 898 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_UP_GRADE
-# 639 "data/maps/Shoreslate_Mart/scripts.pory"
+# 899 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_DUBIOUS_DISC
-# 640 "data/maps/Shoreslate_Mart/scripts.pory"
+# 900 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_ROTOM_CATALOG
-# 641 "data/maps/Shoreslate_Mart/scripts.pory"
+# 901 "data/maps/Shoreslate_Mart/scripts.pory"
 	.2byte ITEM_PROCESSOR
 	.2byte ITEM_NONE
 

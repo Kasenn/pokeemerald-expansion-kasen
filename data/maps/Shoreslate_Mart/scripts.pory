@@ -221,36 +221,72 @@ script Mart_Clerk{
 	faceplayer
 	message(gText_HowMayIServeYou)
 	waitmessage
-    if(flag(FLAG_BADGE08_GET)){
-        pokemart(Mart_8Badges)
-    }
-    elif(flag(FLAG_BADGE07_GET)){
-        pokemart(Mart_7Badges)
-    }
-    elif(flag(FLAG_BADGE06_GET)){
-        pokemart(Mart_7Badges)
-    }
-    elif(flag(FLAG_BADGE05_GET)){
-        pokemart(Mart_4Badges)
-    }
-    elif(flag(FLAG_BADGE04_GET)){
-        pokemart(Mart_4Badges)
-    }
-    elif(flag(FLAG_BADGE03_GET)){
-        pokemart(Mart_3Badges)
-    }
-    elif(flag(FLAG_BADGE02_GET)){
-        pokemart(Mart_2Badges)
-    }
-    elif(flag(FLAG_BADGE01_GET)){
-        pokemart(Mart_1Badges)
-    }
-    else{
-        if(flag(FLAG_SYS_POKEDEX_GET)){
-            pokemart(Mart_NoBadgesExpanded)
+    if(checkitem(ITEM_TOWN_MAP) == FALSE){
+        if(flag(FLAG_BADGE08_GET)){
+            pokemart(Mart_8BadgesMap)
+        }
+        elif(flag(FLAG_BADGE07_GET)){
+            pokemart(Mart_7BadgesMap)
+        }
+        elif(flag(FLAG_BADGE06_GET)){
+            pokemart(Mart_7BadgesMap)
+        }
+        elif(flag(FLAG_BADGE05_GET)){
+            pokemart(Mart_4BadgesMap)
+        }
+        elif(flag(FLAG_BADGE04_GET)){
+            pokemart(Mart_4BadgesMap)
+        }
+        elif(flag(FLAG_BADGE03_GET)){
+            pokemart(Mart_3BadgesMap)
+        }
+        elif(flag(FLAG_BADGE02_GET)){
+            pokemart(Mart_2BadgesMap)
+        }
+        elif(flag(FLAG_BADGE01_GET)){
+            pokemart(Mart_1BadgesMap)
         }
         else{
-            pokemart(Mart_NoBadges)
+            if(flag(FLAG_SYS_POKEDEX_GET)){
+                pokemart(Mart_NoBadgesExpandedMap)
+            }
+            else{
+                pokemart(Mart_NoBadgesMap)
+            }
+        }
+    }
+    else{
+        if(flag(FLAG_BADGE08_GET)){
+            pokemart(Mart_8Badges)
+        }
+        elif(flag(FLAG_BADGE07_GET)){
+            pokemart(Mart_7Badges)
+        }
+        elif(flag(FLAG_BADGE06_GET)){
+            pokemart(Mart_7Badges)
+        }
+        elif(flag(FLAG_BADGE05_GET)){
+            pokemart(Mart_4Badges)
+        }
+        elif(flag(FLAG_BADGE04_GET)){
+            pokemart(Mart_4Badges)
+        }
+        elif(flag(FLAG_BADGE03_GET)){
+            pokemart(Mart_3Badges)
+        }
+        elif(flag(FLAG_BADGE02_GET)){
+            pokemart(Mart_2Badges)
+        }
+        elif(flag(FLAG_BADGE01_GET)){
+            pokemart(Mart_1Badges)
+        }
+        else{
+            if(flag(FLAG_SYS_POKEDEX_GET)){
+                pokemart(Mart_NoBadgesExpanded)
+            }
+            else{
+                pokemart(Mart_NoBadges)
+            }
         }
     }
     msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
@@ -378,6 +414,134 @@ mart Mart_8Badges{
 	ITEM_NONE
 }
 
+mart Mart_NoBadgesMap{
+    ITEM_TOWN_MAP
+	ITEM_POTION
+	ITEM_ANTIDOTE
+	ITEM_NONE
+}
+mart Mart_NoBadgesExpandedMap{
+    ITEM_TOWN_MAP
+	ITEM_POKE_BALL
+	ITEM_POTION
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+	ITEM_NONE
+}
+mart Mart_1BadgesMap{
+    ITEM_TOWN_MAP
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+	ITEM_POTION
+    ITEM_SUPER_POTION
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_REPEL
+	ITEM_NONE
+}
+mart Mart_2BadgesMap{
+    ITEM_TOWN_MAP
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+	ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_REPEL
+	ITEM_NONE
+}
+mart Mart_3BadgesMap{
+    ITEM_TOWN_MAP
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+	ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_POKE_DOLL
+	ITEM_NONE
+}
+mart Mart_4BadgesMap{
+    ITEM_TOWN_MAP
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+	ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_FULL_HEAL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_POKE_DOLL
+	ITEM_NONE
+}
+mart Mart_7BadgesMap{
+    ITEM_TOWN_MAP
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+	ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_MAX_POTION
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_FULL_HEAL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_POKE_DOLL
+	ITEM_NONE
+}
+mart Mart_8BadgesMap{
+    ITEM_TOWN_MAP
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+	ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_MAX_POTION
+    ITEM_FULL_RESTORE
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_FULL_HEAL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_POKE_DOLL
+	ITEM_NONE
+}
+
 script Rockliffe_TM_Mart_Clerk{
     lock
 	faceplayer
@@ -431,23 +595,45 @@ script Mart_ClerkSandStoneRight{
 	faceplayer
 	message(gText_HowMayIServeYou)
 	waitmessage
-    if(flag(FLAG_BADGE08_GET)){
-        pokemart(SSRightMart_8Badges)
-    }
-    elif(flag(FLAG_BADGE07_GET)){
-        pokemart(SSRightMart_7Badges)
-    }
-    elif(flag(FLAG_BADGE06_GET)){
-        pokemart(SSRightMart_7Badges)
-    }
-    elif(flag(FLAG_BADGE05_GET)){
-        pokemart(SSRightMart_4Badges)
-    }
-    elif(flag(FLAG_BADGE04_GET)){
-        pokemart(SSRightMart_4Badges)
+    if(checkitem(ITEM_TOWN_MAP) == FALSE){
+        if(flag(FLAG_BADGE08_GET)){
+            pokemart(SSRightMart_8BadgesMap)
+        }
+        elif(flag(FLAG_BADGE07_GET)){
+            pokemart(SSRightMart_7BadgesMap)
+        }
+        elif(flag(FLAG_BADGE06_GET)){
+            pokemart(SSRightMart_7BadgesMap)
+        }
+        elif(flag(FLAG_BADGE05_GET)){
+            pokemart(SSRightMart_4BadgesMap)
+        }
+        elif(flag(FLAG_BADGE04_GET)){
+            pokemart(SSRightMart_4BadgesMap)
+        }
+        else{
+            pokemart(SSRightMart_3BadgesMap)
+        }
     }
     else{
-        pokemart(SSRightMart_3Badges)
+        if(flag(FLAG_BADGE08_GET)){
+            pokemart(SSRightMart_8Badges)
+        }
+        elif(flag(FLAG_BADGE07_GET)){
+            pokemart(SSRightMart_7Badges)
+        }
+        elif(flag(FLAG_BADGE06_GET)){
+            pokemart(SSRightMart_7Badges)
+        }
+        elif(flag(FLAG_BADGE05_GET)){
+            pokemart(SSRightMart_4Badges)
+        }
+        elif(flag(FLAG_BADGE04_GET)){
+            pokemart(SSRightMart_4Badges)
+        }
+        else{
+            pokemart(SSRightMart_3Badges)
+        }
     }
     msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 	release
@@ -575,6 +761,80 @@ mart SSRightMart_7Badges{
 	ITEM_NONE
 }
 mart SSRightMart_8Badges{
+	ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_MAX_POTION
+    ITEM_FULL_RESTORE
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_FULL_HEAL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_POKE_DOLL
+	ITEM_NONE
+}
+
+mart SSRightMart_3BadgesMap{
+    ITEM_TOWN_MAP
+	ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_POKE_DOLL
+	ITEM_NONE
+}
+mart SSRightMart_4BadgesMap{
+    ITEM_TOWN_MAP
+	ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_FULL_HEAL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_POKE_DOLL
+	ITEM_NONE
+}
+mart SSRightMart_7BadgesMap{
+    ITEM_TOWN_MAP
+	ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_MAX_POTION
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_FULL_HEAL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_POKE_DOLL
+	ITEM_NONE
+}
+mart SSRightMart_8BadgesMap{
+    ITEM_TOWN_MAP
 	ITEM_POTION
     ITEM_SUPER_POTION
     ITEM_HYPER_POTION

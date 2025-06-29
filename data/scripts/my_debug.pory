@@ -289,6 +289,8 @@ text GrottoUpdate{
 }
 
 script UpdateGame{
+    setflag(FLAG_SYS_B_DASH)
+    setflag(FLAG_SYS_JOURNAL_GET)
     switch(var(VAR_DEBUG)){
         case 2:
             call(Update3)

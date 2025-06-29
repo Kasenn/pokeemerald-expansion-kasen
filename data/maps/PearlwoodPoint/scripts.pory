@@ -123,9 +123,10 @@ script PearlwoodWon{
     delay(48)
     msgbox(BrotherWatch)
     playfanfare(MUS_OBTAIN_ITEM)
-    message(ObtainedWatch)
+    setflag(FLAG_SYS_JOURNAL_GET)
+    message("{PLAYER} obtained the Journal!")
     waitfanfare
-    msgbox(ViewClock)
+    msgbox(ViewJournal)
     msgbox(BrotherGoodbye, MSGBOX_AUTOCLOSE)
     waitmove(LOCALID_PEARLWOOD_BROTHER, Walk5Down)
     removeobject(LOCALID_PEARLWOOD_BROTHER)
@@ -135,6 +136,13 @@ script PearlwoodWon{
     setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_BROTHER_FOUGHT)
     delay(30)
 	release
+}
+
+text ViewJournal{
+    "{COLOR RED}{SHADOW LIGHT_RED}Certain events may be recorded in the\n"
+    "Journal when they are discovered.\p"
+    "The Journal can be accessed through\n"
+    "the Start Menu."
 }
 
 text BrotherWatch{
@@ -150,7 +158,7 @@ text ViewClock{
     "pressing the START button!"
 }
 text BrotherGoodbye{
-    "{BROTHER}: Catch ya later!"
+    "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}{BROTHER}: Catch ya later!"
 }
 
 text PlayerHouse1F_Apology{

@@ -12,17 +12,33 @@ script BasalekMart_Clerk{
 	faceplayer
 	message(gText_HowMayIServeYou)
 	waitmessage
-    if(flag(FLAG_BADGE08_GET)){
-        pokemart(BasalekMart_8Badges)
+    if(checkitem(ITEM_TOWN_MAP) == FALSE){
+        if(flag(FLAG_BADGE08_GET)){
+            pokemart(BasalekMart_8BadgesMap)
+        }
+        elif(flag(FLAG_BADGE07_GET)){
+            pokemart(BasalekMart_7BadgesMap)
+        }
+        elif(flag(FLAG_BADGE06_GET)){
+            pokemart(BasalekMart_7BadgesMap)
+        }
+        elif(flag(FLAG_BADGE05_GET)){
+            pokemart(BasalekMart_4BadgesMap)
+        }
     }
-    elif(flag(FLAG_BADGE07_GET)){
-        pokemart(BasalekMart_7Badges)
-    }
-    elif(flag(FLAG_BADGE06_GET)){
-        pokemart(BasalekMart_7Badges)
-    }
-    elif(flag(FLAG_BADGE05_GET)){
-        pokemart(BasalekMart_4Badges)
+    else{
+        if(flag(FLAG_BADGE08_GET)){
+            pokemart(BasalekMart_8Badges)
+        }
+        elif(flag(FLAG_BADGE07_GET)){
+            pokemart(BasalekMart_7Badges)
+        }
+        elif(flag(FLAG_BADGE06_GET)){
+            pokemart(BasalekMart_7Badges)
+        }
+        elif(flag(FLAG_BADGE05_GET)){
+            pokemart(BasalekMart_4Badges)
+        }
     }
     msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 	release
@@ -70,6 +86,71 @@ mart BasalekMart_7Badges{
 	ITEM_NONE
 }
 mart BasalekMart_8Badges{
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+	ITEM_POTION
+    ITEM_FRESH_WATER
+    ITEM_SODA_POP
+    ITEM_LEMONADE
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_FULL_HEAL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_POKE_DOLL
+	ITEM_NONE
+}
+
+mart BasalekMart_4BadgesMap{
+    ITEM_TOWN_MAP
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+	ITEM_FRESH_WATER
+    ITEM_SODA_POP
+    ITEM_LEMONADE
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_FULL_HEAL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_POKE_DOLL
+	ITEM_NONE
+}
+mart BasalekMart_7BadgesMap{
+    ITEM_TOWN_MAP
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+	ITEM_FRESH_WATER
+    ITEM_SODA_POP
+    ITEM_LEMONADE
+    ITEM_REVIVE
+	ITEM_ANTIDOTE
+	ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_FULL_HEAL
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_POKE_DOLL
+	ITEM_NONE
+}
+mart BasalekMart_8BadgesMap{
+    ITEM_TOWN_MAP
     ITEM_POKE_BALL
     ITEM_GREAT_BALL
     ITEM_ULTRA_BALL

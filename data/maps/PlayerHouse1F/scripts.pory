@@ -47,12 +47,13 @@ script PlayerHouse1F_Intro{
     closemessage
     msgbox("Oh, and one more thing.")
     playfanfare(MUS_OBTAIN_ITEM)
-    message("{COLOR RED}{SHADOW LIGHT_RED}Obtained the running shoes!")
+    message(ObtainedWatch)
+    // message("{COLOR RED}{SHADOW LIGHT_RED}Obtained the running shoes!")
     waitfanfare
     waitmessage
-    setflag(FLAG_SYS_B_DASH)
     setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_RECEIVED_RUNNING_SHOES)
-    msgbox("Mom: Now you can zip around everywhere\nmuch faster!")
+    msgbox(ViewClock)
+    // msgbox("Mom: Now you can zip around everywhere\nmuch faster!")
     closemessage
     delay(30)
     turnobject(MOM, DIR_WEST)
