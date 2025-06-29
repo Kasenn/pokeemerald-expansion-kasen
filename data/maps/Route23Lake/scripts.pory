@@ -1,10 +1,66 @@
 mapscripts Route23Lake_MapScripts{
     MAP_SCRIPT_ON_TRANSITION{
+        call(Amberock_SetPlayerModel)
+        checkpartymon(SPECIES_LATIAS, FALSE)
+        setflag(FLAG_TEMP_4)
+        setflag(FLAG_TEMP_5)
+        setflag(FLAG_TEMP_2)
+        setflag(FLAG_TEMP_3)
         setflag(FLAG_TEMP_1)
     }
 }
 
 script TriggerLatiosRoam{
+    checkpartymon(SPECIES_LATIOS, FALSE)
+    if(var(VAR_RESULT) == TRUE){
+        bufferpartymonnick(STR_VAR_1, VAR_0x8000)
+        if(var(VAR_0x800A) == TRUE){
+            setvar(VAR_TEMP_0, LOCALID_RIDE_SHINY_LATIOS)
+        }
+        else{
+            setvar(VAR_TEMP_0, LOCALID_RIDE_LATIOS)
+        }
+        setflag(FLAG_OVERRIDE_FOLLOWER_DIRECTION)
+        setvar(VAR_FACING, DIR_SOUTH)
+        waitmove(LOCALID_LATIBALL_ROUTE23, moves(set_visible, delay_1 * 3, lati_ball))
+        // applymovement(VAR_TEMP_0, moves(exit_pokeball))
+        addobject(VAR_TEMP_0)
+        // showobjectat(VAR_TEMP_0, MAP_ROUTE23LAKE)
+        removeobject(LOCALID_LATIBALL_ROUTE23)
+        msgbox(LatiasWantsToTakeYouSomewhere, MSGBOX_YESNO)
+        closemessage
+        if(var(VAR_RESULT) == FALSE){
+            waitmove(VAR_TEMP_0, moves(enter_pokeball set_invisible))
+            removeobject(VAR_TEMP_0)
+            clearflag(FLAG_OVERRIDE_FOLLOWER_DIRECTION)
+            clearflag(FLAG_STOP_GROUND_EFFECTS)
+        }
+        else{
+            turnobject(VAR_TEMP_0, DIR_NORTH)
+            addobject(LOCALID_FAKE_PLAYER_ROUTE23)
+            setobjectsubpriority(LOCALID_FAKE_PLAYER_ROUTE23, MAP_ROUTE23LAKE, 0)
+            hideobjectat(LOCALID_PLAYER, MAP_ROUTE23LAKE)
+            setflag(FLAG_STOP_GROUND_EFFECTS)
+            waitmove(LOCALID_FAKE_PLAYER_ROUTE23, moves(jump_2_up, lock_anim))
+            call(SetSittingPlayerModel)
+            removeobject(LOCALID_FAKE_PLAYER_ROUTE23)
+            setobjectxyperm(LOCALID_FAKE_PLAYER_ROUTE23, 19, 13)
+            addobject(LOCALID_FAKE_PLAYER_ROUTE23)
+            setobjectsubpriority(LOCALID_FAKE_PLAYER_ROUTE23, MAP_ROUTE23LAKE, 0)
+            delay(16)
+            applymovement(VAR_TEMP_0, PlayerAndLatiasLeave2)
+            applymovement(LOCALID_FAKE_PLAYER_ROUTE23, moves(lock_anim, walk_slow_up, walk_up * 2, walk_faster_up * 5))
+            waitmovement(0)
+            clearflag(FLAG_STOP_GROUND_EFFECTS)
+            clearflag(FLAG_OVERRIDE_FOLLOWER_DIRECTION)
+            setvar(VAR_0x8004, 3)
+            callnative(LatisWarp)
+            special(LatiRide)
+            waitstate
+        }
+        release
+        end
+    }
     if(checkitem(ITEM_SOUL_DEW) == FALSE){
         release
         end
@@ -22,6 +78,7 @@ script TriggerLatiosRoam{
 	special(DoOrbEffect)
     delay(150)
     waitstate
+    random(65535)
     if(var(VAR_RESULT) < 32){
         setflag(FLAG_LATIOS_SHINY)
     }

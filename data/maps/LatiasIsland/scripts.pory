@@ -1,7 +1,6 @@
-const SWITCH_1 = VAR_TEMP_0
 const X = VAR_TEMP_1
 const Y = VAR_TEMP_2
-const MON_ON_SWITCH_X = VAR_TEMP_3
+const SWITCH_1 = VAR_TEMP_3
 const SPECIES = VAR_TEMP_4
 const SWITCH_2 = VAR_TEMP_5
 const SWITCH_3 = VAR_TEMP_6
@@ -24,6 +23,7 @@ mapscripts LatiasIsland_MapScripts {
         setstepcallback(STEP_CB_LATIASISLAND)
     }
     MAP_SCRIPT_ON_TRANSITION{
+        setvar(VAR_SHINY_MULTIPLIER, 8)
         setflag(FLAG_PERMA_DAY)
         setflag(FLAG_PLAYER)
         call(Amberock_SetPlayerModel)
@@ -54,7 +54,7 @@ mapscripts LatiasIsland_MapScripts {
             setmetatile(36, 17, METATILE_LatiIsles_LI_BarrierUp, 1)
             setmetatile(36, 18, METATILE_LatiIsles_LI_BarrierUp, 1)
         }
-        switch(var(MON_ON_SWITCH_X)){
+        switch(var(VAR_MON_ON_SWITCH_X)){
             case 1:
                 setmetatile(39, 55, METATILE_LatiIsles_LatiasIsland_SwitchDown, TRUE)
                 setmetatile(36, 59, 0x3C8, 0)
@@ -115,7 +115,7 @@ script SteppedOffofSwitch1{
 }
 
 script LatiasIsland_DontAbandonMon{
-    if(var(MON_ON_SWITCH_X) == 0){
+    if(var(VAR_MON_ON_SWITCH_X) == 0){
         release
         end
     }
@@ -130,14 +130,14 @@ text LatiasIsland_DontAbandonMon_Text{
     "Can't leave {STR_VAR_1} behind…"
 }
 
-script FollowerStayPut{
+script FollowerStayPutLatias{
     faceplayer
     bufferlivemonnickname(0)
     getfollowerxy(X, Y)
     if(flag(FLAG_FOLLOWER_STAYS_PUT)){
         msgbox(FollowerStayPut_Follow, MSGBOX_YESNO)
         if(var(VAR_RESULT) == TRUE){
-            setvar(MON_ON_SWITCH_X, 0)
+            setvar(VAR_MON_ON_SWITCH_X, 0)
             clearflag(FLAG_FOLLOWER_STAYS_PUT)
             clearflag(FLAG_SWITCH_5)
             setmetatile(X, Y, METATILE_LatiIsles_LatiasIsland_SwitchDown, FALSE)
@@ -153,26 +153,26 @@ script FollowerStayPut{
         if(var(VAR_RESULT) == TRUE)
         {
             if(var(X) == 39 && var(Y) == 55){
-                setvar(MON_ON_SWITCH_X, 1)
+                setvar(VAR_MON_ON_SWITCH_X, 1)
             }
             elif(var(X) == 36 && var(Y) == 38){
-                setvar(MON_ON_SWITCH_X, 2)
+                setvar(VAR_MON_ON_SWITCH_X, 2)
             }
             elif(var(X) == 44 && var(Y) == 38){
-                setvar(MON_ON_SWITCH_X, 3)
+                setvar(VAR_MON_ON_SWITCH_X, 3)
             }
             elif(var(X) == 36 && var(Y) == 21){
-                setvar(MON_ON_SWITCH_X, 4)
+                setvar(VAR_MON_ON_SWITCH_X, 4)
             }
             elif(var(X) == 34 && var(Y) == 13){
-                setvar(MON_ON_SWITCH_X, 5)
+                setvar(VAR_MON_ON_SWITCH_X, 5)
                 setflag(FLAG_SWITCH_5)
             }
             elif(var(X) == 47 && var(Y) == 11){
-                setvar(MON_ON_SWITCH_X, 6)
+                setvar(VAR_MON_ON_SWITCH_X, 6)
             }
             elif(var(X) == 50 && var(Y) == 20){
-                setvar(MON_ON_SWITCH_X, 7)
+                setvar(VAR_MON_ON_SWITCH_X, 7)
             }
             setflag(FLAG_FOLLOWER_STAYS_PUT)
             setmetatile(X, Y, METATILE_LatiIsles_LatiasIsland_SwitchDown, TRUE)
@@ -203,14 +203,14 @@ text FollowerStayPut_Text2{
 }
 
 script LatiasIsland_CallBackMon1{
-    if(var(MON_ON_SWITCH_X) == 1){
+    if(var(VAR_MON_ON_SWITCH_X) == 1){
         playse(SE_SELECT)
         msgbox(LatiasIsland_CallBackMon1_Text, MSGBOX_YESNO)
         if(var(VAR_RESULT) == TRUE){
             waitmove(OBJ_EVENT_ID_FOLLOWER, moves(enter_pokeball set_invisible))
             callnative(RemoveFollowingPokemon)
             clearflag(FLAG_FOLLOWER_STAYS_PUT)
-            setvar(MON_ON_SWITCH_X, 0)
+            setvar(VAR_MON_ON_SWITCH_X, 0)
             setvar(SWITCH_1, 0)
             setmetatile(36, 59, 0x3BC, TRUE)
             setmetatile(36, 60, METATILE_LatiIsles_LI_BarrierUp, TRUE)
@@ -224,7 +224,7 @@ script LatiasIsland_CallBackMon1{
 }
 
 script LatiasIsland_CallBackMon2{
-    if(var(MON_ON_SWITCH_X) == 3){
+    if(var(VAR_MON_ON_SWITCH_X) == 3){
         setflag(FLAG_LATIASISLE_PUZZLE2_SOLVED)
         playse(SE_SELECT)
         msgbox(LatiasIsland_CallBackMon1_Text, MSGBOX_YESNO)
@@ -232,7 +232,7 @@ script LatiasIsland_CallBackMon2{
             waitmove(OBJ_EVENT_ID_FOLLOWER, moves(enter_pokeball set_invisible))
             callnative(RemoveFollowingPokemon)
             clearflag(FLAG_FOLLOWER_STAYS_PUT)
-            setvar(MON_ON_SWITCH_X, 0)
+            setvar(VAR_MON_ON_SWITCH_X, 0)
             setvar(SWITCH_3, 0)
             setmetatile(40, 38, METATILE_LatiIsles_LI_BarrierUp, TRUE)
             setmetatile(41, 38, METATILE_LatiIsles_LI_BarrierUp, TRUE)
@@ -246,7 +246,7 @@ script LatiasIsland_CallBackMon2{
 }
 
 script LatiasIsland_CallBackMon3{
-    if(var(MON_ON_SWITCH_X) == 5){
+    if(var(VAR_MON_ON_SWITCH_X) == 5){
         setflag(FLAG_LATIASISLE_PUZZLE3_SOLVED)
         playse(SE_SELECT)
         msgbox(LatiasIsland_CallBackMon1_Text, MSGBOX_YESNO)
@@ -254,7 +254,7 @@ script LatiasIsland_CallBackMon3{
             waitmove(OBJ_EVENT_ID_FOLLOWER, moves(enter_pokeball set_invisible))
             callnative(RemoveFollowingPokemon)
             clearflag(FLAG_FOLLOWER_STAYS_PUT)
-            setvar(MON_ON_SWITCH_X, 0)
+            setvar(VAR_MON_ON_SWITCH_X, 0)
             setvar(SWITCH_5, 0)
             clearflag(FLAG_SWITCH_5)
             setmetatile(36, 17, METATILE_LatiIsles_LI_BarrierUp, TRUE)
@@ -502,56 +502,34 @@ script LatiasIsland_ReturnToSkyloch{
         setvar(LATI_BODY, LOCALID_LATIASISLAND_LATIAS)
         setvar(LATI_HEAD, LOCALID_LATIASISLAND_LATIAS_HEAD)
     }
-        setflag(FLAG_OVERRIDE_FOLLOWER_DIRECTION)
-        setvar(VAR_FACING, DIR_SOUTH)
-        waitmove(LOCALID_LATIASISLAND_LATIBALL, moves(set_visible, delay_1 * 3, lati_ball))
-        showobjectat(LATI_BODY, MAP_LATIAS_ISLAND)
-        showobjectat(LATI_HEAD, MAP_LATIAS_ISLAND)
-        removeobject(LOCALID_LATIASISLAND_LATIBALL)
-        delay(16)
-        addobject(LOCALID_FAKE_PLAYER)
-        setobjectsubpriority(LOCALID_FAKE_PLAYER, MAP_LATIAS_ISLAND, 0)
-        hideobjectat(LOCALID_PLAYER, MAP_LATIAS_ISLAND)
-        setobjectsubpriority(LATI_HEAD, MAP_LATIAS_ISLAND, 0)
-        waitmove(LOCALID_FAKE_PLAYER, moves(jump_2_down, lock_anim))
-        call(SetSittingPlayerModel)
-        removeobject(LOCALID_FAKE_PLAYER)
-        setobjectxyperm(LOCALID_FAKE_PLAYER, 15, 68)
-        addobject(LOCALID_FAKE_PLAYER)
-        setobjectsubpriority(LOCALID_FAKE_PLAYER, MAP_LATIAS_ISLAND, 1)
-        delay(16)
-        applymovement(LATI_BODY, PlayerAndLatiasLeave)
-        applymovement(LATI_HEAD, PlayerAndLatiasLeave)
-        applymovement(LOCALID_FAKE_PLAYER, moves(lock_anim, walk_slow_down, walk_down * 2, walk_faster_down * 4))
-        waitmovement(0)
-        clearflag(FLAG_STOP_GROUND_EFFECTS)
-        clearflag(FLAG_OVERRIDE_FOLLOWER_DIRECTION)
-        setvar(VAR_0x8004, 2)
-        callnative(LatisWarp)
-        special(LatiRide)
-        waitstate
-
-
-
-
-
-
-
-
-    // closemessage
-    // waitmove(LOCALID_LATIAS, SpawnFollower)
-    // playmoncry(SPECIES_LATIAS, CRY_MODE_NORMAL)
-    // waitmoncry
-    // clearflag(FLAG_PLAYER)
-    // addobject(LOCALID_FAKE_PLAYER)
-    // hideobjectat(LOCALID_PLAYER, MAP_LATIAS_ISLAND)
-    // turnobject(LOCALID_LATIAS, DIR_SOUTH)
-    // waitmove(LOCALID_FAKE_PLAYER, moves(jump_special_down, delay_16, lock_anim))
-    // applymovement(LOCALID_LATIAS, PlayerAndLatiasLeave)
-    // applymovement(LOCALID_FAKE_PLAYER, moves(lock_anim, walk_slow_down, walk_down * 2, walk_faster_down * 3))
-    // waitmovement(0)
-    // warpsilent(MAP_LATIAS_ISLAND, 4)
-    // waitstate
+    setflag(FLAG_OVERRIDE_FOLLOWER_DIRECTION)
+    setvar(VAR_FACING, DIR_SOUTH)
+    waitmove(LOCALID_LATIASISLAND_LATIBALL, moves(set_visible, delay_1 * 3, lati_ball))
+    showobjectat(LATI_BODY, MAP_LATIAS_ISLAND)
+    showobjectat(LATI_HEAD, MAP_LATIAS_ISLAND)
+    removeobject(LOCALID_LATIASISLAND_LATIBALL)
+    delay(16)
+    addobject(LOCALID_FAKE_PLAYER)
+    setobjectsubpriority(LOCALID_FAKE_PLAYER, MAP_LATIAS_ISLAND, 0)
+    hideobjectat(LOCALID_PLAYER, MAP_LATIAS_ISLAND)
+    setobjectsubpriority(LATI_HEAD, MAP_LATIAS_ISLAND, 0)
+    waitmove(LOCALID_FAKE_PLAYER, moves(jump_2_down, lock_anim))
+    call(SetSittingPlayerModel)
+    removeobject(LOCALID_FAKE_PLAYER)
+    setobjectxyperm(LOCALID_FAKE_PLAYER, 15, 68)
+    addobject(LOCALID_FAKE_PLAYER)
+    setobjectsubpriority(LOCALID_FAKE_PLAYER, MAP_LATIAS_ISLAND, 1)
+    delay(16)
+    applymovement(LATI_BODY, PlayerAndLatiasLeave)
+    applymovement(LATI_HEAD, PlayerAndLatiasLeave)
+    applymovement(LOCALID_FAKE_PLAYER, moves(lock_anim, walk_slow_down, walk_down * 2, walk_faster_down * 4))
+    waitmovement(0)
+    clearflag(FLAG_STOP_GROUND_EFFECTS)
+    clearflag(FLAG_OVERRIDE_FOLLOWER_DIRECTION)
+    setvar(VAR_0x8004, 2)
+    callnative(LatisWarp)
+    special(LatiRide)
+    waitstate
 }
 
 text LatiasIsland_ReturnToSkyloch_Text{

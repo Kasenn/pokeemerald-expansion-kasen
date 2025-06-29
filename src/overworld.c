@@ -225,6 +225,7 @@ EWRAM_DATA bool8 gExitStairsMovementDisabled = FALSE;
 EWRAM_DATA bool8 gWarpInProgress = FALSE;
 EWRAM_DATA bool8 gEnchantedForestNight = FALSE;
 EWRAM_DATA bool8 gOpenedMapFromItem = FALSE;
+EWRAM_DATA bool8 gOnLatiIslands = FALSE;
 
 static const struct WarpData sDummyWarpData =
 {
@@ -392,6 +393,7 @@ void DoWhiteOut(void)
 
 void Overworld_ResetStateAfterFly(void)
 {
+    
     ResetInitialPlayerAvatarState();
     FlagClear(FLAG_SYS_CYCLING_ROAD);
     FlagClear(FLAG_SYS_CRUISE_MODE);
@@ -414,6 +416,7 @@ void Overworld_ResetStateAfterFly(void)
 
 void Overworld_ResetStateAfterTeleport(void)
 {
+    gOnLatiIslands = FALSE;
     ResetInitialPlayerAvatarState();
     FlagClear(FLAG_SYS_CYCLING_ROAD);
     FlagClear(FLAG_SYS_CRUISE_MODE);
@@ -437,6 +440,7 @@ void Overworld_ResetStateAfterTeleport(void)
 
 void Overworld_ResetStateAfterDigEscRope(void)
 {
+    gOnLatiIslands = FALSE;
     ResetInitialPlayerAvatarState();
     FlagClear(FLAG_SYS_CYCLING_ROAD);
     FlagClear(FLAG_SYS_CRUISE_MODE);
@@ -497,6 +501,7 @@ void Overworld_ResetBattleFlagsAndVars(void)
 
 static void Overworld_ResetStateAfterWhiteOut(void)
 {
+    gOnLatiIslands = FALSE;
     ResetInitialPlayerAvatarState();
     FlagClear(FLAG_ESCORTING_PRYCE);
     FlagClear(FLAG_SYS_CYCLING_ROAD);

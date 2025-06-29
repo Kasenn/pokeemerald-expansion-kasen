@@ -544,10 +544,10 @@ script Debug_Script_2{              //
 }
 script Debug_Script_3{              //
     clearflag(FLAG_NO_WILD_ENCOUNTERS)
-    special(LatiRide)
 }
 script Debug_Script_4{
-    callnative(ResetAnimCounter)
+    setwildbattle (SPECIES_RAYQUAZA, 70)
+	special (BattleSetup_StartLegendaryBattle)
     return
 }
 script Debug_Script_5{

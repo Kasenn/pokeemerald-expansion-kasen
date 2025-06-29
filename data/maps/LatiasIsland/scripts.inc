@@ -1,18 +1,20 @@
 LatiasIsland_MapScripts::
-# 23 "data/maps/LatiasIsland/scripts.pory"
+# 22 "data/maps/LatiasIsland/scripts.pory"
 	map_script MAP_SCRIPT_ON_RESUME, LatiasIsland_MapScripts_MAP_SCRIPT_ON_RESUME
-# 26 "data/maps/LatiasIsland/scripts.pory"
+# 25 "data/maps/LatiasIsland/scripts.pory"
 	map_script MAP_SCRIPT_ON_TRANSITION, LatiasIsland_MapScripts_MAP_SCRIPT_ON_TRANSITION
 # 44 "data/maps/LatiasIsland/scripts.pory"
 	map_script MAP_SCRIPT_ON_LOAD, LatiasIsland_MapScripts_MAP_SCRIPT_ON_LOAD
 	.byte 0
 
 LatiasIsland_MapScripts_MAP_SCRIPT_ON_RESUME:
-# 24 "data/maps/LatiasIsland/scripts.pory"
+# 23 "data/maps/LatiasIsland/scripts.pory"
 	setstepcallback STEP_CB_LATIASISLAND
 	return
 
 LatiasIsland_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+# 26 "data/maps/LatiasIsland/scripts.pory"
+	setvar VAR_SHINY_MULTIPLIER, 8
 # 27 "data/maps/LatiasIsland/scripts.pory"
 	setflag FLAG_PERMA_DAY
 # 28 "data/maps/LatiasIsland/scripts.pory"
@@ -52,7 +54,7 @@ LatiasIsland_MapScripts_MAP_SCRIPT_ON_TRANSITION_4:
 
 LatiasIsland_MapScripts_MAP_SCRIPT_ON_LOAD:
 # 45 "data/maps/LatiasIsland/scripts.pory"
-	compare VAR_TEMP_0, 100
+	compare VAR_TEMP_3, 100
 	goto_if_ne LatiasIsland_MapScripts_MAP_SCRIPT_ON_LOAD_2
 LatiasIsland_MapScripts_MAP_SCRIPT_ON_LOAD_1:
 # 49 "data/maps/LatiasIsland/scripts.pory"
@@ -64,7 +66,7 @@ LatiasIsland_MapScripts_MAP_SCRIPT_ON_LOAD_4:
 	goto_if_ne LatiasIsland_MapScripts_MAP_SCRIPT_ON_LOAD_12
 LatiasIsland_MapScripts_MAP_SCRIPT_ON_LOAD_9:
 # 57 "data/maps/LatiasIsland/scripts.pory"
-	switch VAR_TEMP_3
+	switch VAR_MON_ON_SWITCH_X
 # 58 "data/maps/LatiasIsland/scripts.pory"
 	case 1, LatiasIsland_MapScripts_MAP_SCRIPT_ON_LOAD_20
 # 63 "data/maps/LatiasIsland/scripts.pory"
@@ -142,7 +144,7 @@ LatiasIsland_MapScripts_MAP_SCRIPT_ON_LOAD_20:
 # 61 "data/maps/LatiasIsland/scripts.pory"
 	setmetatile 36, 60, METATILE_LatiIsles_LI_BarrierDown, 0
 # 62 "data/maps/LatiasIsland/scripts.pory"
-	setvar VAR_TEMP_0, 100
+	setvar VAR_TEMP_3, 100
 	goto LatiasIsland_MapScripts_MAP_SCRIPT_ON_LOAD_18
 
 LatiasIsland_MapScripts_MAP_SCRIPT_ON_LOAD_21:
@@ -228,7 +230,7 @@ LatiasIsland_MapScripts_MAP_SCRIPT_ON_LOAD_37:
 
 LatiasIsland_Switch1::
 # 94 "data/maps/LatiasIsland/scripts.pory"
-	compare VAR_TEMP_0, 100
+	compare VAR_TEMP_3, 100
 	goto_if_eq LatiasIsland_Switch1_2
 # 98 "data/maps/LatiasIsland/scripts.pory"
 	setmetatile 36, 59, 0x3C8, 0
@@ -243,7 +245,7 @@ LatiasIsland_Switch1::
 # 103 "data/maps/LatiasIsland/scripts.pory"
 	waitse
 # 104 "data/maps/LatiasIsland/scripts.pory"
-	setvar VAR_TEMP_0, 100
+	setvar VAR_TEMP_3, 100
 # 105 "data/maps/LatiasIsland/scripts.pory"
 	release
 	return
@@ -274,7 +276,7 @@ SteppedOffofSwitch1::
 
 LatiasIsland_DontAbandonMon::
 # 118 "data/maps/LatiasIsland/scripts.pory"
-	compare VAR_TEMP_3, 0
+	compare VAR_MON_ON_SWITCH_X, 0
 	goto_if_eq LatiasIsland_DontAbandonMon_2
 # 122 "data/maps/LatiasIsland/scripts.pory"
 	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
@@ -294,7 +296,7 @@ LatiasIsland_DontAbandonMon_2:
 	end
 
 
-FollowerStayPut::
+FollowerStayPutLatias::
 # 134 "data/maps/LatiasIsland/scripts.pory"
 	faceplayer
 # 135 "data/maps/LatiasIsland/scripts.pory"
@@ -302,32 +304,32 @@ FollowerStayPut::
 # 136 "data/maps/LatiasIsland/scripts.pory"
 	getfollowerxy VAR_TEMP_1, VAR_TEMP_2
 # 137 "data/maps/LatiasIsland/scripts.pory"
-	goto_if_set FLAG_FOLLOWER_STAYS_PUT, FollowerStayPut_2
+	goto_if_set FLAG_FOLLOWER_STAYS_PUT, FollowerStayPutLatias_2
 # 152 "data/maps/LatiasIsland/scripts.pory"
 	msgbox FollowerStayPut_Text, MSGBOX_YESNO
 # 153 "data/maps/LatiasIsland/scripts.pory"
 	compare VAR_RESULT, TRUE
-	goto_if_eq FollowerStayPut_8
-FollowerStayPut_1:
+	goto_if_eq FollowerStayPutLatias_8
+FollowerStayPutLatias_1:
 # 183 "data/maps/LatiasIsland/scripts.pory"
 	release
 	return
 
-FollowerStayPut_2:
+FollowerStayPutLatias_2:
 # 138 "data/maps/LatiasIsland/scripts.pory"
 	msgbox FollowerStayPut_Follow, MSGBOX_YESNO
 # 139 "data/maps/LatiasIsland/scripts.pory"
 	compare VAR_RESULT, TRUE
-	goto_if_eq FollowerStayPut_5
+	goto_if_eq FollowerStayPutLatias_5
 # 147 "data/maps/LatiasIsland/scripts.pory"
 	msgbox FollowerStayPut_Text2
 # 148 "data/maps/LatiasIsland/scripts.pory"
 	turnobject OBJ_EVENT_ID_FOLLOWER, DIR_SOUTH
-	goto FollowerStayPut_1
+	goto FollowerStayPutLatias_1
 
-FollowerStayPut_5:
+FollowerStayPutLatias_5:
 # 140 "data/maps/LatiasIsland/scripts.pory"
-	setvar VAR_TEMP_3, 0
+	setvar VAR_MON_ON_SWITCH_X, 0
 # 141 "data/maps/LatiasIsland/scripts.pory"
 	clearflag FLAG_FOLLOWER_STAYS_PUT
 # 142 "data/maps/LatiasIsland/scripts.pory"
@@ -336,37 +338,37 @@ FollowerStayPut_5:
 	setmetatile VAR_TEMP_1, VAR_TEMP_2, METATILE_LatiIsles_LatiasIsland_SwitchDown, FALSE
 # 144 "data/maps/LatiasIsland/scripts.pory"
 	msgbox FollowerStayPut_Follow2
-	goto FollowerStayPut_1
+	goto FollowerStayPutLatias_1
 
-FollowerStayPut_8:
+FollowerStayPutLatias_8:
 # 155 "data/maps/LatiasIsland/scripts.pory"
 	compare VAR_TEMP_1, 39
-	goto_if_eq FollowerStayPut_36
-FollowerStayPut_34:
+	goto_if_eq FollowerStayPutLatias_36
+FollowerStayPutLatias_34:
 # 158 "data/maps/LatiasIsland/scripts.pory"
 	compare VAR_TEMP_1, 36
-	goto_if_eq FollowerStayPut_33
-FollowerStayPut_31:
+	goto_if_eq FollowerStayPutLatias_33
+FollowerStayPutLatias_31:
 # 161 "data/maps/LatiasIsland/scripts.pory"
 	compare VAR_TEMP_1, 44
-	goto_if_eq FollowerStayPut_30
-FollowerStayPut_28:
+	goto_if_eq FollowerStayPutLatias_30
+FollowerStayPutLatias_28:
 # 164 "data/maps/LatiasIsland/scripts.pory"
 	compare VAR_TEMP_1, 36
-	goto_if_eq FollowerStayPut_27
-FollowerStayPut_25:
+	goto_if_eq FollowerStayPutLatias_27
+FollowerStayPutLatias_25:
 # 167 "data/maps/LatiasIsland/scripts.pory"
 	compare VAR_TEMP_1, 34
-	goto_if_eq FollowerStayPut_24
-FollowerStayPut_22:
+	goto_if_eq FollowerStayPutLatias_24
+FollowerStayPutLatias_22:
 # 171 "data/maps/LatiasIsland/scripts.pory"
 	compare VAR_TEMP_1, 47
-	goto_if_eq FollowerStayPut_21
-FollowerStayPut_19:
+	goto_if_eq FollowerStayPutLatias_21
+FollowerStayPutLatias_19:
 # 174 "data/maps/LatiasIsland/scripts.pory"
 	compare VAR_TEMP_1, 50
-	goto_if_eq FollowerStayPut_18
-FollowerStayPut_10:
+	goto_if_eq FollowerStayPutLatias_18
+FollowerStayPutLatias_10:
 # 177 "data/maps/LatiasIsland/scripts.pory"
 	setflag FLAG_FOLLOWER_STAYS_PUT
 # 178 "data/maps/LatiasIsland/scripts.pory"
@@ -375,91 +377,91 @@ FollowerStayPut_10:
 	turnobject OBJ_EVENT_ID_FOLLOWER, DIR_SOUTH
 # 180 "data/maps/LatiasIsland/scripts.pory"
 	msgbox FollowerStayPut_Text2
-	goto FollowerStayPut_1
+	goto FollowerStayPutLatias_1
 
-FollowerStayPut_11:
+FollowerStayPutLatias_11:
 # 156 "data/maps/LatiasIsland/scripts.pory"
-	setvar VAR_TEMP_3, 1
-	goto FollowerStayPut_10
+	setvar VAR_MON_ON_SWITCH_X, 1
+	goto FollowerStayPutLatias_10
 
-FollowerStayPut_12:
+FollowerStayPutLatias_12:
 # 159 "data/maps/LatiasIsland/scripts.pory"
-	setvar VAR_TEMP_3, 2
-	goto FollowerStayPut_10
+	setvar VAR_MON_ON_SWITCH_X, 2
+	goto FollowerStayPutLatias_10
 
-FollowerStayPut_13:
+FollowerStayPutLatias_13:
 # 162 "data/maps/LatiasIsland/scripts.pory"
-	setvar VAR_TEMP_3, 3
-	goto FollowerStayPut_10
+	setvar VAR_MON_ON_SWITCH_X, 3
+	goto FollowerStayPutLatias_10
 
-FollowerStayPut_14:
+FollowerStayPutLatias_14:
 # 165 "data/maps/LatiasIsland/scripts.pory"
-	setvar VAR_TEMP_3, 4
-	goto FollowerStayPut_10
+	setvar VAR_MON_ON_SWITCH_X, 4
+	goto FollowerStayPutLatias_10
 
-FollowerStayPut_15:
+FollowerStayPutLatias_15:
 # 168 "data/maps/LatiasIsland/scripts.pory"
-	setvar VAR_TEMP_3, 5
+	setvar VAR_MON_ON_SWITCH_X, 5
 # 169 "data/maps/LatiasIsland/scripts.pory"
 	setflag FLAG_TEMP_5
-	goto FollowerStayPut_10
+	goto FollowerStayPutLatias_10
 
-FollowerStayPut_16:
+FollowerStayPutLatias_16:
 # 172 "data/maps/LatiasIsland/scripts.pory"
-	setvar VAR_TEMP_3, 6
-	goto FollowerStayPut_10
+	setvar VAR_MON_ON_SWITCH_X, 6
+	goto FollowerStayPutLatias_10
 
-FollowerStayPut_17:
+FollowerStayPutLatias_17:
 # 175 "data/maps/LatiasIsland/scripts.pory"
-	setvar VAR_TEMP_3, 7
-	goto FollowerStayPut_10
+	setvar VAR_MON_ON_SWITCH_X, 7
+	goto FollowerStayPutLatias_10
 
-FollowerStayPut_18:
+FollowerStayPutLatias_18:
 # 174 "data/maps/LatiasIsland/scripts.pory"
 	compare VAR_TEMP_2, 20
-	goto_if_eq FollowerStayPut_17
-	goto FollowerStayPut_10
+	goto_if_eq FollowerStayPutLatias_17
+	goto FollowerStayPutLatias_10
 
-FollowerStayPut_21:
+FollowerStayPutLatias_21:
 # 171 "data/maps/LatiasIsland/scripts.pory"
 	compare VAR_TEMP_2, 11
-	goto_if_eq FollowerStayPut_16
-	goto FollowerStayPut_19
+	goto_if_eq FollowerStayPutLatias_16
+	goto FollowerStayPutLatias_19
 
-FollowerStayPut_24:
+FollowerStayPutLatias_24:
 # 167 "data/maps/LatiasIsland/scripts.pory"
 	compare VAR_TEMP_2, 13
-	goto_if_eq FollowerStayPut_15
-	goto FollowerStayPut_22
+	goto_if_eq FollowerStayPutLatias_15
+	goto FollowerStayPutLatias_22
 
-FollowerStayPut_27:
+FollowerStayPutLatias_27:
 # 164 "data/maps/LatiasIsland/scripts.pory"
 	compare VAR_TEMP_2, 21
-	goto_if_eq FollowerStayPut_14
-	goto FollowerStayPut_25
+	goto_if_eq FollowerStayPutLatias_14
+	goto FollowerStayPutLatias_25
 
-FollowerStayPut_30:
+FollowerStayPutLatias_30:
 # 161 "data/maps/LatiasIsland/scripts.pory"
 	compare VAR_TEMP_2, 38
-	goto_if_eq FollowerStayPut_13
-	goto FollowerStayPut_28
+	goto_if_eq FollowerStayPutLatias_13
+	goto FollowerStayPutLatias_28
 
-FollowerStayPut_33:
+FollowerStayPutLatias_33:
 # 158 "data/maps/LatiasIsland/scripts.pory"
 	compare VAR_TEMP_2, 38
-	goto_if_eq FollowerStayPut_12
-	goto FollowerStayPut_31
+	goto_if_eq FollowerStayPutLatias_12
+	goto FollowerStayPutLatias_31
 
-FollowerStayPut_36:
+FollowerStayPutLatias_36:
 # 155 "data/maps/LatiasIsland/scripts.pory"
 	compare VAR_TEMP_2, 55
-	goto_if_eq FollowerStayPut_11
-	goto FollowerStayPut_34
+	goto_if_eq FollowerStayPutLatias_11
+	goto FollowerStayPutLatias_34
 
 
 LatiasIsland_CallBackMon1::
 # 206 "data/maps/LatiasIsland/scripts.pory"
-	compare VAR_TEMP_3, 1
+	compare VAR_MON_ON_SWITCH_X, 1
 	goto_if_eq LatiasIsland_CallBackMon1_2
 LatiasIsland_CallBackMon1_1:
 # 223 "data/maps/LatiasIsland/scripts.pory"
@@ -484,9 +486,9 @@ LatiasIsland_CallBackMon1_4:
 # 212 "data/maps/LatiasIsland/scripts.pory"
 	clearflag FLAG_FOLLOWER_STAYS_PUT
 # 213 "data/maps/LatiasIsland/scripts.pory"
-	setvar VAR_TEMP_3, 0
+	setvar VAR_MON_ON_SWITCH_X, 0
 # 214 "data/maps/LatiasIsland/scripts.pory"
-	setvar VAR_TEMP_0, 0
+	setvar VAR_TEMP_3, 0
 # 215 "data/maps/LatiasIsland/scripts.pory"
 	setmetatile 36, 59, 0x3BC, TRUE
 # 216 "data/maps/LatiasIsland/scripts.pory"
@@ -504,7 +506,7 @@ LatiasIsland_CallBackMon1_4:
 
 LatiasIsland_CallBackMon2::
 # 227 "data/maps/LatiasIsland/scripts.pory"
-	compare VAR_TEMP_3, 3
+	compare VAR_MON_ON_SWITCH_X, 3
 	goto_if_eq LatiasIsland_CallBackMon2_2
 LatiasIsland_CallBackMon2_1:
 # 245 "data/maps/LatiasIsland/scripts.pory"
@@ -531,7 +533,7 @@ LatiasIsland_CallBackMon2_4:
 # 234 "data/maps/LatiasIsland/scripts.pory"
 	clearflag FLAG_FOLLOWER_STAYS_PUT
 # 235 "data/maps/LatiasIsland/scripts.pory"
-	setvar VAR_TEMP_3, 0
+	setvar VAR_MON_ON_SWITCH_X, 0
 # 236 "data/maps/LatiasIsland/scripts.pory"
 	setvar VAR_TEMP_6, 0
 # 237 "data/maps/LatiasIsland/scripts.pory"
@@ -551,7 +553,7 @@ LatiasIsland_CallBackMon2_4:
 
 LatiasIsland_CallBackMon3::
 # 249 "data/maps/LatiasIsland/scripts.pory"
-	compare VAR_TEMP_3, 5
+	compare VAR_MON_ON_SWITCH_X, 5
 	goto_if_eq LatiasIsland_CallBackMon3_2
 LatiasIsland_CallBackMon3_1:
 # 268 "data/maps/LatiasIsland/scripts.pory"
@@ -578,7 +580,7 @@ LatiasIsland_CallBackMon3_4:
 # 256 "data/maps/LatiasIsland/scripts.pory"
 	clearflag FLAG_FOLLOWER_STAYS_PUT
 # 257 "data/maps/LatiasIsland/scripts.pory"
-	setvar VAR_TEMP_3, 0
+	setvar VAR_MON_ON_SWITCH_X, 0
 # 258 "data/maps/LatiasIsland/scripts.pory"
 	setvar VAR_TEMP_8, 0
 # 259 "data/maps/LatiasIsland/scripts.pory"
@@ -1179,49 +1181,49 @@ LatiasIsland_ReturnToSkyloch_5:
 	goto LatiasIsland_ReturnToSkyloch_4
 
 
-# 562 "data/maps/LatiasIsland/scripts.pory"
+# 540 "data/maps/LatiasIsland/scripts.pory"
 SpawnFollower:
-# 563 "data/maps/LatiasIsland/scripts.pory"
+# 541 "data/maps/LatiasIsland/scripts.pory"
 	set_visible
-# 564 "data/maps/LatiasIsland/scripts.pory"
+# 542 "data/maps/LatiasIsland/scripts.pory"
 	exit_pokeball
 	step_end
 
-# 566 "data/maps/LatiasIsland/scripts.pory"
+# 544 "data/maps/LatiasIsland/scripts.pory"
 PlayerAndLatiasLeave:
-# 567 "data/maps/LatiasIsland/scripts.pory"
+# 545 "data/maps/LatiasIsland/scripts.pory"
 	walk_slow_down
-# 568 "data/maps/LatiasIsland/scripts.pory"
+# 546 "data/maps/LatiasIsland/scripts.pory"
 	walk_down
-# 568 "data/maps/LatiasIsland/scripts.pory"
+# 546 "data/maps/LatiasIsland/scripts.pory"
 	walk_down
-# 569 "data/maps/LatiasIsland/scripts.pory"
+# 547 "data/maps/LatiasIsland/scripts.pory"
 	walk_faster_down
-# 569 "data/maps/LatiasIsland/scripts.pory"
+# 547 "data/maps/LatiasIsland/scripts.pory"
 	walk_faster_down
-# 569 "data/maps/LatiasIsland/scripts.pory"
+# 547 "data/maps/LatiasIsland/scripts.pory"
 	walk_faster_down
-# 569 "data/maps/LatiasIsland/scripts.pory"
+# 547 "data/maps/LatiasIsland/scripts.pory"
 	walk_faster_down
 	step_end
 
-# 571 "data/maps/LatiasIsland/scripts.pory"
+# 549 "data/maps/LatiasIsland/scripts.pory"
 PlayerAndLatiasLeave2:
-# 572 "data/maps/LatiasIsland/scripts.pory"
+# 550 "data/maps/LatiasIsland/scripts.pory"
 	walk_slow_up
-# 573 "data/maps/LatiasIsland/scripts.pory"
+# 551 "data/maps/LatiasIsland/scripts.pory"
 	walk_up
-# 573 "data/maps/LatiasIsland/scripts.pory"
+# 551 "data/maps/LatiasIsland/scripts.pory"
 	walk_up
-# 574 "data/maps/LatiasIsland/scripts.pory"
+# 552 "data/maps/LatiasIsland/scripts.pory"
 	walk_faster_up
-# 574 "data/maps/LatiasIsland/scripts.pory"
+# 552 "data/maps/LatiasIsland/scripts.pory"
 	walk_faster_up
-# 574 "data/maps/LatiasIsland/scripts.pory"
+# 552 "data/maps/LatiasIsland/scripts.pory"
 	walk_faster_up
-# 574 "data/maps/LatiasIsland/scripts.pory"
+# 552 "data/maps/LatiasIsland/scripts.pory"
 	walk_faster_up
-# 574 "data/maps/LatiasIsland/scripts.pory"
+# 552 "data/maps/LatiasIsland/scripts.pory"
 	walk_faster_up
 	step_end
 
@@ -1307,6 +1309,6 @@ LatiasIsland_CallBackMon1_Text::
 	.string "Want to return it to its ball?$"
 
 LatiasIsland_ReturnToSkyloch_Text::
-# 557 "data/maps/LatiasIsland/scripts.pory"
+# 535 "data/maps/LatiasIsland/scripts.pory"
 	.string "Send out Latias and return\n"
 	.string "back to Skyloch Village?$"

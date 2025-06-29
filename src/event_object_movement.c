@@ -2724,12 +2724,15 @@ void GetFollowerAction(struct ScriptContext *ctx) // Essentially a big switch fo
     u32 i, j;
     bool32 pickedCondition = FALSE;
     s16 x, y;
-    if (MAP(MAP_LATIAS_ISLAND))
+    if (gOnLatiIslands)
     {
         GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
         if (MapGridGetMetatileBehaviorAt(x, y) == MB_STRENGTH_BUTTON)
         {
-            ScriptCall(ctx, FollowerStayPut);
+            if (MAP(MAP_LATIAS_ISLAND))
+                ScriptCall(ctx, FollowerStayPutLatias);
+            else
+                ScriptCall(ctx, FollowerStayPutLatios);
             return;
         }
     }
@@ -10557,7 +10560,7 @@ void GroundEffect_SpawnOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *
     u16 fldEff = FLDEFF_TALL_GRASS;
 
     if (MetatileBehavior_IsTallGrassAutumn(objEvent->currentMetatileBehavior)){
-        if((MAP(MAP_SAFARI_ZONE_MOUNTAIN)) || (MAP(MAP_DESERT_CLIFFS)) || (MAP(MAP_LATIAS_ISLAND)))
+        if((MAP(MAP_SAFARI_ZONE_MOUNTAIN)) || (MAP(MAP_DESERT_CLIFFS)) || gOnLatiIslands)
             fldEff = FLDEFF_TALL_GRASS_MOUNTAIN;  
         else if((MAP(MAP_ROUTE18)) || (MAP(MAP_SNOWY_RIDGE)))
             fldEff = FLDEFF_TALL_GRASS_SNOW;
@@ -10586,7 +10589,7 @@ void GroundEffect_StepOnTallGrass(struct ObjectEvent *objEvent, struct Sprite *s
     u16 fldEff = FLDEFF_TALL_GRASS;
 
     if (MetatileBehavior_IsTallGrassAutumn(objEvent->currentMetatileBehavior)){
-        if((MAP(MAP_SAFARI_ZONE_MOUNTAIN)) || (MAP(MAP_DESERT_CLIFFS)) || (MAP(MAP_LATIAS_ISLAND)))
+        if((MAP(MAP_SAFARI_ZONE_MOUNTAIN)) || (MAP(MAP_DESERT_CLIFFS)) || gOnLatiIslands)
             fldEff = FLDEFF_TALL_GRASS_MOUNTAIN;  
         else if((MAP(MAP_ROUTE18)) || (MAP(MAP_SNOWY_RIDGE)))
             fldEff = FLDEFF_TALL_GRASS_SNOW;

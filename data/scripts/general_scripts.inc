@@ -867,14 +867,14 @@ Debug_Script_2_7:
 Debug_Script_3::
 # 546 "data/scripts/general_scripts.pory"
 	clearflag FLAG_NO_WILD_ENCOUNTERS
-# 547 "data/scripts/general_scripts.pory"
-	special LatiRide
 	return
 
 
 Debug_Script_4::
+# 549 "data/scripts/general_scripts.pory"
+	setwildbattle SPECIES_RAYQUAZA, 70
 # 550 "data/scripts/general_scripts.pory"
-	callnative ResetAnimCounter
+	special BattleSetup_StartLegendaryBattle
 	return
 
 

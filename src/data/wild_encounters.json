@@ -83393,6 +83393,75 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_LATIOS_ISLAND",
+          "base_label": "gLatiosIsland",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 42,
+                "max_level": 45,
+                "species": "SPECIES_DRAGONAIR"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_ALTARIA"
+              },
+              {
+                "min_level": 41,
+                "max_level": 44,
+                "species": "SPECIES_DRIFLOON"
+              },
+              {
+                "min_level": 40,
+                "max_level": 43,
+                "species": "SPECIES_SWABLU"
+              },
+              {
+                "min_level": 41,
+                "max_level": 44,
+                "species": "SPECIES_ALTARIA"
+              },
+              {
+                "min_level": 41,
+                "max_level": 44,
+                "species": "SPECIES_DRIFBLIM"
+              },
+              {
+                "min_level": 41,
+                "max_level": 44,
+                "species": "SPECIES_ALTARIA"
+              },
+              {
+                "min_level": 42,
+                "max_level": 45,
+                "species": "SPECIES_DRIFBLIM"
+              }
+            ]
+          }
         }
       ]
     },

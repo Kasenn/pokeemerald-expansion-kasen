@@ -209,6 +209,7 @@ static void Task_LoadLatiRide(u8 taskId)
 
 void LatiRide(void)
 {
+    VarSet(VAR_SHINY_MULTIPLIER, 0);
     LockPlayerFieldControls();
     CreateTask(Task_LoadLatiRide, 1);
     if (SCENE == LATIAS_GOING_DOWN || SCENE == LATIOS_GOING_DOWN)

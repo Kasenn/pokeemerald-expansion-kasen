@@ -669,7 +669,7 @@ bool8 LoadRegionMapGfx(void)
         {
             if (!FreeTempTileDataBuffersIfPossible())
             {
-                if(MAP(MAP_LATIAS_ISLAND) && !gOpenedMapFromItem)
+                if(gOnLatiIslands && !gOpenedMapFromItem)
                     DecompressAndCopyTileDataToVram(sRegionMap->bgNum, sRegionMapBg_TilemapLZEmpty, 0, 0, 1);
                 else
                     DecompressAndCopyTileDataToVram(sRegionMap->bgNum, sRegionMapBg_TilemapLZ, 0, 0, 1);
@@ -677,7 +677,7 @@ bool8 LoadRegionMapGfx(void)
         }
         else
         {
-            if(MAP(MAP_LATIAS_ISLAND) && !gOpenedMapFromItem)
+            if(gOnLatiIslands && !gOpenedMapFromItem)
                 LZ77UnCompVram(sRegionMapBg_TilemapLZEmpty, (u16 *)BG_SCREEN_ADDR(28));
             else
                 LZ77UnCompVram(sRegionMapBg_TilemapLZ, (u16 *)BG_SCREEN_ADDR(28));
@@ -1111,7 +1111,7 @@ static void InitMapBasedOnPlayerLocation(void)
     u16 xOnMap;
     struct WarpData *warp;
 
-    if (MAP(MAP_LATIAS_ISLAND) && !gOpenedMapFromItem)
+    if (gOnLatiIslands && !gOpenedMapFromItem)
     {
         RegionMap_InitializeStateBasedOnSSTidalLocation();
         return;
@@ -1338,7 +1338,7 @@ static u8 GetMapsecType(u16 mapSecId)
     case MAPSEC_EVER_GRANDE_CITY:
         return FlagGet(FLAG_VISITED_EVER_GRANDE_CITY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_ABANDONED_SHIP:
-        if ((MAP(MAP_LATIAS_ISLAND)) && !gOpenedMapFromItem)
+        if (gOnLatiIslands && !gOpenedMapFromItem)
             return MAPSECTYPE_BATTLE_FRONTIER;
         else
             return MAPSECTYPE_NONE;
@@ -1627,7 +1627,7 @@ void CreateRegionMapPlayerIcon(u16 tileTag, u16 paletteTag)
         sRegionMap->playerIconSprite = NULL;
         return;
     }
-    else if ((MAP(MAP_LATIAS_ISLAND)) && gOpenedMapFromItem)
+    else if (gOnLatiIslands && gOpenedMapFromItem)
     {
         sRegionMap->playerIconSprite = NULL;
         return;
@@ -1718,7 +1718,7 @@ static const struct {
 
 void CreateRegionMapRoamerIcon(u16 tileTag, u16 paletteTag)
 {
-    if (MAP(MAP_LATIAS_ISLAND) && !gOpenedMapFromItem)
+    if (gOnLatiIslands && !gOpenedMapFromItem)
         return;
     u16 spriteId, i, j, mapSec;
     u8 mapGroup, mapNum;
@@ -2127,7 +2127,7 @@ static void DrawFlyDestTextWindow(void)
     bool32 namePrinted;
     const u8 *name;
 
-    if (MAP(MAP_LATIAS_ISLAND) && !gOpenedMapFromItem)
+    if (gOnLatiIslands && !gOpenedMapFromItem)
     {
         ClearStdWindowAndFrameToTransparent(WIN_MAPSEC_NAME, FALSE);
         DrawStdFrameWithCustomTileAndPalette(WIN_MAPSEC_NAME, FALSE, 101, 13);
@@ -2202,7 +2202,7 @@ static void LoadFlyDestIcons(void)
     sheet.tag = TAG_FLY_ICON;
     LoadSpriteSheet(&sheet);
     LoadSpritePalette(&sFlyTargetIconsSpritePalette);
-    if (MAP(MAP_LATIAS_ISLAND) && !gOpenedMapFromItem)
+    if (gOnLatiIslands && !gOpenedMapFromItem)
     {
         TryCreateRedOutlineFlyDestIcons();
         return;
@@ -2365,7 +2365,7 @@ static void CB_HandleFlyMapInput(void)
             //     sFlyMap->choseFlyLocation = TRUE;
             //     SetFlyMapCallback(CB_ExitFlyMap);
             // }
-            if (MAP(MAP_LATIAS_ISLAND) && !gOpenedMapFromItem)
+            if (gOnLatiIslands && !gOpenedMapFromItem)
             {
                 if(sRegionMap->cursorPosX == 25 && sRegionMap->cursorPosY == 13)
                 {
@@ -2476,7 +2476,7 @@ void SetFlyDestination(struct RegionMap* regionMap)
     //     sUseFlyCheckpoint = FALSE;
     //     SetWarpDestination(gSaveBlock3Ptr->previousFlyCheckpoint.mapGroup, gSaveBlock3Ptr->previousFlyCheckpoint.mapNum, WARP_ID_NONE, gSaveBlock3Ptr->previousFlyCheckpoint.x, gSaveBlock3Ptr->previousFlyCheckpoint.y);
     // }
-    if (MAP(MAP_LATIAS_ISLAND) && !gOpenedMapFromItem)
+    if (gOnLatiIslands && !gOpenedMapFromItem)
         SetWarpDestinationToMapWarp(MAP_GROUP(MAP_TOWN_WIP2), MAP_NUM(MAP_TOWN_WIP2), 4);
     else if (flyDestination != WARP_ID_NONE)
         SetWarpDestinationToHealLocation(flyDestination);

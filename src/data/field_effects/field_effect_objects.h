@@ -5,7 +5,7 @@ const struct SpritePalette gSpritePalette_GeneralFieldEffect4 = {gFieldEffectObj
 const struct SpritePalette gSpritePalette_GeneralFieldEffect3 = {gFieldEffectObjectPalette3, FLDEFF_PAL_TAG_GENERAL_3};
 const struct SpritePalette gSpritePalette_GeneralFieldEffect5 = {gFieldEffectObjectPalette5, FLDEFF_PAL_TAG_GENERAL_3};
 const struct SpritePalette gSpritePalette_GeneralFieldEffect6 = {gFieldEffectObjectPalette6, FLDEFF_PAL_TAG_GENERAL_2};
-const struct SpritePalette gFldEffPal_RedGrass = {gFieldEffectObjectRedGrass, FLDEFF_PAL_TAG_GENERAL_1}; // Using this FLDEFF_PAL_TAG assumes that the red grass
+const struct SpritePalette gFldEffPal_RedGrass = {gFieldEffectObjectRedGrass, FLDEFF_PAL_TAG_GENERAL_2}; // Using this FLDEFF_PAL_TAG assumes that the red grass
                                                                                                          // will never be used in the same area as regular green grass
 
 static const union AnimCmd sAnim_Shadow[] =
@@ -191,7 +191,7 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_TallGrassAutumn = {
 
 const struct SpriteTemplate gFieldEffectObjectTemplate_TallGrassRed = {
     .tileTag = TAG_NONE,
-    .paletteTag = FLDEFF_PAL_TAG_GENERAL_1,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_2,
     .oam = &gObjectEventBaseOam_16x16,
     .anims = sAnimTable_TallGrass,
     .images = sPicTable_TallGrass,

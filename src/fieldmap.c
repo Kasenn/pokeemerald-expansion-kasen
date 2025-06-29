@@ -69,6 +69,8 @@ const struct MapHeader *const GetMapHeaderFromConnection(const struct MapConnect
 void InitMap(void)
 {
     InitMapLayoutData(&gMapHeader);
+    if ((MAP(MAP_LATIAS_ISLAND)) ||(MAP(MAP_LATIOS_ISLAND)))
+        gOnLatiIslands = TRUE;
     // SetOccupiedSecretBaseEntranceMetatiles(gMapHeader.events);
     RunOnLoadMapScript();
 }
@@ -76,6 +78,8 @@ void InitMap(void)
 void InitMapFromSavedGame(void)
 {
     InitMapLayoutData(&gMapHeader);
+    if ((MAP(MAP_LATIAS_ISLAND)) ||(MAP(MAP_LATIOS_ISLAND)))
+        gOnLatiIslands = TRUE;
     // InitSecretBaseAppearance(FALSE);
     // SetOccupiedSecretBaseEntranceMetatiles(gMapHeader.events);
     LoadSavedMapView();

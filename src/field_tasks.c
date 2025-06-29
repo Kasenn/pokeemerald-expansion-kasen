@@ -65,6 +65,7 @@ static void Route16PerStepCallback(u8);
 static void Route17PerStepCallback(u8);
 static void Route18PerStepCallback(u8);
 static void LatiasIslandPerStepCallback(u8);
+static void LatiosIslandPerStepCallback(u8);
 
 static const TaskFunc sPerStepCallbacks[] =
 {
@@ -83,6 +84,7 @@ static const TaskFunc sPerStepCallbacks[] =
     [STEP_CB_ROUTE_17]     = Route17PerStepCallback,
     [STEP_CB_ROUTE_18]     = Route18PerStepCallback,
     [STEP_CB_LATIASISLAND] = LatiasIslandPerStepCallback,
+    [STEP_CB_LATIOSISLAND] = LatiosIslandPerStepCallback,
 };
 
 // Each array has 4 pairs of data, each pair representing two metatiles of a log and their relative position.
@@ -1007,7 +1009,6 @@ static void Route18PerStepCallback(u8 taskId)
 }
 
 extern const u8 RopeBridgeScript[];
-extern const u8 FreeLatiasIslandSwitch1[];
 extern const u8 SteppedOffofSwitch1[];
 extern const u8 SteppedOffofSwitch2[];
 extern const u8 SteppedOffofSwitch3[];
@@ -1300,6 +1301,111 @@ static void LatiasIslandPerStepCallback(u8 taskId)
     LatiasIslandSwitchOne();
     LatiasIslandPuzzleTwo();
     LatiasIslandPuzzleThree();
+}
+
+extern const u8 SteppedOffofSwitch1_Latios[];
+extern const u8 SteppedOffofSwitch2_Latios[];
+extern const u8 SteppedOffofSwitch3_Latios[];
+extern const u8 SteppedOffofSwitch4_Latios[];
+extern const u8 SteppedOffofSwitch5_Latios[];
+extern const u8 SteppedOffofSwitch6_Latios[];
+
+#define LATIOS_ISLAND_TRIGGERS  6
+
+#define SWITCH_1_X      9
+#define SWITCH_1_Y      48
+
+#define SWITCH_2_X      18
+#define SWITCH_2_Y      48
+
+#define SWITCH_3_X      20
+#define SWITCH_3_Y      30
+
+#define SWITCH_4_X      37
+#define SWITCH_4_Y      28
+
+#define SWITCH_5_X      41
+#define SWITCH_5_Y      25
+
+#define SWITCH_6_X      37
+#define SWITCH_6_Y      22
+
+static const struct {
+  u16 var;
+  s16 x;
+  s16 y;
+  const u8 *script;
+} sLatiosIslandInfo[LATIOS_ISLAND_TRIGGERS] = {
+    {VAR_TEMP_1, SWITCH_1_X, SWITCH_1_Y, SteppedOffofSwitch1_Latios},
+    {VAR_TEMP_2, SWITCH_2_X, SWITCH_2_Y, SteppedOffofSwitch2_Latios},
+    {VAR_TEMP_3, SWITCH_3_X, SWITCH_3_Y, SteppedOffofSwitch3_Latios},
+    {VAR_TEMP_4, SWITCH_4_X, SWITCH_4_Y, SteppedOffofSwitch4_Latios},
+    {VAR_TEMP_5, SWITCH_5_X, SWITCH_5_Y, SteppedOffofSwitch5_Latios},
+    {VAR_TEMP_6, SWITCH_6_X, SWITCH_6_Y, SteppedOffofSwitch6_Latios},
+};
+
+
+void LatiosIslandSwitch(void)
+{
+    s16 x, y;
+    PlayerGetDestCoords(&x, &y);
+    s16 n = gMapHeader.events->objectEventCount;
+    struct ObjectEvent *followerObject = GetFollowerObject();
+    u16 i;
+
+    for (i = 0; i < LATIOS_ISLAND_TRIGGERS; i++)
+    {
+        if (VarGet(sLatiosIslandInfo[i].var) == 100)
+        {
+            bool8 switchTriggered = FALSE;
+            u16 j;
+
+            for (j = 0; j < n; j++)
+            {
+                if (gObjectEvents[j].active && 
+                    gObjectEvents[j].currentCoords.x - MAP_OFFSET == sLatiosIslandInfo[i].x &&
+                    gObjectEvents[j].currentCoords.y - MAP_OFFSET == sLatiosIslandInfo[i].y)
+                {
+                    switchTriggered = TRUE;
+                    break;
+                }
+            }
+
+            if (i == 0 && FlagGet(FLAG_LATIOSISLE_PUZZLE1_SOLVED))
+                switchTriggered = TRUE;
+            else if (i == 3 && FlagGet(FLAG_LATIOSISLE_PUZZLE2_SOLVED))
+                switchTriggered = TRUE;
+            else if (x == sLatiosIslandInfo[i].x + MAP_OFFSET && y == sLatiosIslandInfo[i].y + MAP_OFFSET)
+                switchTriggered = TRUE;
+            else if(VarGet(VAR_MON_ON_SWITCH_X) == i + 1)
+                switchTriggered = TRUE;
+            else if (followerObject && (followerObject->currentCoords.x - MAP_OFFSET == sLatiosIslandInfo[i].x && followerObject->currentCoords.y - MAP_OFFSET == sLatiosIslandInfo[i].y))
+                switchTriggered = TRUE;
+
+            if (!switchTriggered)
+            {
+                LockPlayerFieldControls();
+                ScriptContext_SetupScript(sLatiosIslandInfo[i].script);
+                break;
+            }
+        }
+    }
+}
+
+static void LatiosIslandPerStepCallback(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+
+    if (ArePlayerFieldControlsLocked())
+        return;
+
+    if (++data[1] >= 90)
+    {
+        ShakeCameraParameterized(0, 1, 30, 2);
+        data[1] = 0;
+    }
+
+    LatiosIslandSwitch();
 }
 
 static void RopeBridgePerStepCallback(u8 taskId)

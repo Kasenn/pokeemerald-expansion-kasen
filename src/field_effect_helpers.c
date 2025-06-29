@@ -19,6 +19,7 @@
 #include "constants/rgb.h"
 #include "constants/event_objects.h"
 #include "bike.h"
+#include "overworld.h"
 
 #define OBJ_EVENT_PAL_TAG_NONE 0x11FF // duplicate of define in event_object_movement.c
 #define PAL_TAG_REFLECTION_OFFSET 0x2000 // reflection tag value is paletteTag + 0x2000
@@ -507,7 +508,7 @@ void UpdateTallGrassFieldEffect(struct Sprite *sprite)
         u16 fldEff = FLDEFF_TALL_GRASS;
 
         if (MetatileBehavior_IsTallGrassAutumn(metatileBehavior)){
-            if((MAP(MAP_SAFARI_ZONE_MOUNTAIN)) || (MAP(MAP_DESERT_CLIFFS)) || (MAP(MAP_LATIAS_ISLAND)))
+            if((MAP(MAP_SAFARI_ZONE_MOUNTAIN)) || (MAP(MAP_DESERT_CLIFFS)) || gOnLatiIslands)
                 fldEff = FLDEFF_TALL_GRASS_MOUNTAIN;  
             else if((MAP(MAP_ROUTE18)) || (MAP(MAP_SNOWY_RIDGE)))
                 fldEff = FLDEFF_TALL_GRASS_SNOW;

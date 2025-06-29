@@ -66,6 +66,7 @@ extern s16 gTimeUpdateCounter;
 extern bool8 gWarpInProgress;
 extern bool8 gEnchantedForestNight;
 extern bool8 gOpenedMapFromItem;
+extern bool8 gOnLatiIslands;
 
 extern struct TimeBlendSettings gTimeBlend;
 

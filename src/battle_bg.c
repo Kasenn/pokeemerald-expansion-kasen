@@ -693,6 +693,15 @@ const struct BattleBackground sBattleEnvironmentTable[] =
         .palette = gBattleTerrainPalette_Mud,
     },
 
+    [BATTLE_ENVIRONMENT_SOARING] =
+    {
+        .tileset = gBattleEnvironmentTiles_Rayquaza,
+        .tilemap = gBattleEnvironmentTilemap_Rayquaza,
+        .entryTileset = gBattleEnvironmentAnimTiles_Rayquaza,
+        .entryTilemap = gBattleEnvironmentAnimTilemap_Rayquaza,
+        .palette = gBattleEnvironmentPalette_Rayquaza,
+    },
+
     [BATTLE_ENVIRONMENT_CAVE] =
     {
         .tileset = gBattleEnvironmentTiles_Cave,

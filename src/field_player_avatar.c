@@ -2158,7 +2158,7 @@ static bool8 PushBoulder_End(struct Task *task, struct ObjectEvent *player, stru
         if (MAP(MAP_AMBEROCK_POKEBALL_FACTORY)){
             VarSet(VAR_BOULDER_ID, boulder->localId);
         }
-        if (MAP(MAP_LATIAS_ISLAND)){
+        if (gOnLatiIslands){
             VarSet(VAR_BOULDER_ID, boulder->localId);
             HandleBoulderActivateVictoryRoadSwitch(boulder->currentCoords.x, boulder->currentCoords.y);
         }

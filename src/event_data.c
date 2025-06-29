@@ -2,6 +2,7 @@
 #include "event_data.h"
 #include "pokedex.h"
 #include "random.h"
+#include "overworld.h"
 
 #define SPECIAL_FLAGS_SIZE  (NUM_SPECIAL_FLAGS / 8)  // 8 flags per byte
 #define TEMP_FLAGS_SIZE     (NUM_TEMP_FLAGS / 8)
@@ -67,6 +68,7 @@ void ClearTempFieldEventData(void)
     FlagClear(FLAG_SYS_USE_STRENGTH);
     FlagClear(FLAG_SYS_CTRL_OBJ_DELETE);
     FlagClear(FLAG_NURSE_UNION_ROOM_REMINDER);
+    gOnLatiIslands = FALSE;
 }
 
 void ClearDailyFlags(void)

@@ -873,7 +873,7 @@ static void _InitSecondaryTilesetAnimation(void)
 void InitTilesetAnim_General(void)
 {
     u16 maxFrames = 256;
-    if (MAP(MAP_LATIAS_ISLAND))
+    if (gOnLatiIslands)
         maxFrames = 512;
     sPrimaryTilesetAnimCounter = 0;
     sPrimaryTilesetAnimCounterMax = maxFrames;

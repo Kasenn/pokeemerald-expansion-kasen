@@ -5096,7 +5096,7 @@
       "name": "TestRoom_Layout",
       "width": 60,
       "height": 60,
-      "primary_tileset": "gTileset_Crowd",
+      "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_BattleDome",
       "border_filepath": "data/layouts/TestRoom/border.bin",
       "blockdata_filepath": "data/layouts/TestRoom/map.bin"
@@ -7685,7 +7685,7 @@
       "id": "LAYOUT_LATIOS_ISLAND",
       "name": "LatiosIsland_Layout",
       "width": 53,
-      "height": 76,
+      "height": 79,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_LatiIsles",
       "border_filepath": "data/layouts/LatiosIsland/border.bin",

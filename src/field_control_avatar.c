@@ -333,7 +333,13 @@ static bool8 TryStartInteractionScript(struct MapPosition *position, u16 metatil
      && script != EventScript_PC
      && script != LatiasIsland_CallBackMon1
      && script != LatiasIsland_CallBackMon2
-     && script != LatiasIsland_CallBackMon3)
+     && script != LatiasIsland_CallBackMon3
+     && script != LatiosIsland_CallBackMon1
+     && script != LatiosIsland_CallBackMon2
+     && script != LatiosIsland_CallBackMon3
+     && script != LatiosIsland_CallBackMon4
+     && script != LatiosIsland_CallBackMon5
+     && script != LatiosIsland_CallBackMon6)
         PlaySE(SE_SELECT);
 
     ScriptContext_SetupScript(script);

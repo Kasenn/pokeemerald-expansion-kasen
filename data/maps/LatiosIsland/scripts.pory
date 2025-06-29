@@ -1,0 +1,574 @@
+const SWITCH_1 = VAR_TEMP_1
+const SWITCH_2 = VAR_TEMP_2
+const SWITCH_3 = VAR_TEMP_3
+const SWITCH_4 = VAR_TEMP_4
+const SWITCH_5 = VAR_TEMP_5
+const SWITCH_6 = VAR_TEMP_6
+
+const X = VAR_TEMP_7
+const Y = VAR_TEMP_8
+const ROCK_X = VAR_0x8001
+const ROCK_Y = VAR_0x8002
+
+const SPECIES = VAR_TEMP_9
+const LATI_BODY = VAR_TEMP_A
+const LATI_HEAD = VAR_TEMP_B
+
+const FLAG_PLAYER = FLAG_TEMP_8
+const FLAG_PUZZLE1_SWITCH_1 = FLAG_TEMP_1
+const FLAG_PUZZLE2_SWITCH_1 = FLAG_TEMP_A
+
+const SWITCH_1_X = 9
+const SWITCH_1_Y = 48
+const WALL_1_PART_1_X = 11
+const WALL_1_PART_1_Y = 49
+const WALL_1_PART_2_X = 12
+const WALL_1_PART_2_Y = 49
+const WALL_1_PART_3_X = 11
+const WALL_1_PART_3_Y = 35
+const WALL_1_PART_4_X = 12
+const WALL_1_PART_4_Y = 35
+
+const SWITCH_2_X = 18
+const SWITCH_2_Y = 48
+const WALL_2_PART_1_X = 19
+const WALL_2_PART_1_Y = 51
+const WALL_2_PART_2_X = 19
+const WALL_2_PART_2_Y = 52
+
+const SWITCH_3_X = 20
+const SWITCH_3_Y = 30
+const WALL_3_PART_1_X = 19
+const WALL_3_PART_1_Y = 33
+const WALL_3_PART_2_X = 19
+const WALL_3_PART_2_Y = 34
+
+const SWITCH_4_X = 37
+const SWITCH_4_Y = 28
+const WALL_4_PART_1_X = 40
+const WALL_4_PART_1_Y = 29
+const WALL_4_PART_2_X = 41
+const WALL_4_PART_2_Y = 29
+
+const SWITCH_5_X = 41
+const SWITCH_5_Y = 25
+const WALL_5_PART_1_X = 37
+const WALL_5_PART_1_Y = 26
+const WALL_5_PART_2_X = 38
+const WALL_5_PART_2_Y = 26
+
+const SWITCH_6_X = 37
+const SWITCH_6_Y = 22
+const WALL_6_PART_1_X = 40
+const WALL_6_PART_1_Y = 23
+const WALL_6_PART_2_X = 41
+const WALL_6_PART_2_Y = 23
+
+
+mapscripts LatiosIsland_MapScripts {
+    MAP_SCRIPT_ON_RESUME{
+        setstepcallback(STEP_CB_LATIOSISLAND)
+    }
+    MAP_SCRIPT_ON_TRANSITION{
+        setvar(VAR_SHINY_MULTIPLIER, 8)
+        setflag(FLAG_PERMA_DAY)
+        setflag(FLAG_PLAYER)
+        call(Amberock_SetPlayerModel)
+        clearflag(FLAG_FOLLOWER_STAYS_PUT)
+        if(flag(FLAG_LATIOSISLE_PUZZLE1_SOLVED)){
+            setvar(SWITCH_1, 100)
+            setobjectxyperm(LOCALID_LATIOSISLAND_ROCK_1, SWITCH_1_X, SWITCH_1_Y)
+        }
+        if(flag(FLAG_LATIOSISLE_PUZZLE2_SOLVED)){
+            setvar(SWITCH_4, 100)
+            setobjectxyperm(LOCALID_LATIOSISLAND_ROCK_2, SWITCH_4_X, SWITCH_4_Y)
+        }
+    }
+    MAP_SCRIPT_ON_LOAD{
+        if(var(SWITCH_1) != 100){
+            setmetatile(WALL_1_PART_1_X, WALL_1_PART_1_Y, METATILE_LatiIsles_LI_BarrierUp, 1)
+            setmetatile(WALL_1_PART_2_X, WALL_1_PART_2_Y, METATILE_LatiIsles_LI_BarrierUp, 1)
+            setmetatile(WALL_1_PART_3_X, WALL_1_PART_3_Y, METATILE_LatiIsles_LI_BarrierUp, 1)
+            setmetatile(WALL_1_PART_4_X, WALL_1_PART_4_Y, METATILE_LatiIsles_LI_BarrierUp, 1)
+        }
+        if(var(SWITCH_2) != 100){
+            setmetatile(WALL_2_PART_1_X, WALL_2_PART_1_Y, METATILE_LatiIsles_LI_BarrierUp, 1)
+            setmetatile(WALL_2_PART_2_X, WALL_2_PART_2_Y, METATILE_LatiIsles_LI_BarrierUp, 1)
+        }
+        if(var(SWITCH_3) != 100){
+            setmetatile(WALL_3_PART_1_X, WALL_3_PART_1_Y, METATILE_LatiIsles_LI_BarrierUp, 1)
+            setmetatile(WALL_3_PART_2_X, WALL_3_PART_2_Y, METATILE_LatiIsles_LI_BarrierUp, 1)
+        }
+        if(var(SWITCH_4) != 100){
+            setmetatile(WALL_4_PART_1_X, WALL_4_PART_1_Y, METATILE_LatiIsles_LI_BarrierUp, 1)
+            setmetatile(WALL_4_PART_2_X, WALL_4_PART_2_Y, METATILE_LatiIsles_LI_BarrierUp, 1)
+        }
+        if(var(SWITCH_5) != 100){
+            setmetatile(WALL_5_PART_1_X, WALL_5_PART_1_Y, METATILE_LatiIsles_LI_BarrierUp, 1)
+            setmetatile(WALL_5_PART_2_X, WALL_5_PART_2_Y, METATILE_LatiIsles_LI_BarrierUp, 1)
+        }
+        if(var(SWITCH_6) != 100){
+            setmetatile(WALL_6_PART_1_X, WALL_6_PART_1_Y, METATILE_LatiIsles_LI_BarrierUp, 1)
+            setmetatile(WALL_6_PART_2_X, WALL_6_PART_2_Y, METATILE_LatiIsles_LI_BarrierUp, 1)
+        }
+        switch(var(VAR_MON_ON_SWITCH_X)){
+            case 1:
+                setmetatile(WALL_1_PART_1_X, WALL_1_PART_1_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+                setmetatile(WALL_1_PART_2_X, WALL_1_PART_2_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+                setmetatile(WALL_1_PART_3_X, WALL_1_PART_3_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+                setmetatile(WALL_1_PART_4_X, WALL_1_PART_4_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+                setvar(SWITCH_1, 100)
+            case 2:
+                setmetatile(WALL_2_PART_1_X, WALL_2_PART_1_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+                setmetatile(WALL_2_PART_2_X, WALL_2_PART_2_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+                setvar(SWITCH_2, 100)
+            case 3:
+                setmetatile(WALL_3_PART_1_X, WALL_3_PART_1_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+                setmetatile(WALL_3_PART_2_X, WALL_3_PART_2_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+                setvar(SWITCH_3, 100)
+            case 4:
+                setmetatile(WALL_4_PART_1_X, WALL_4_PART_1_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+                setmetatile(WALL_4_PART_2_X, WALL_4_PART_2_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+                setvar(SWITCH_4, 100)
+            case 5:
+                setmetatile(WALL_5_PART_1_X, WALL_5_PART_1_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+                setmetatile(WALL_5_PART_2_X, WALL_5_PART_2_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+                setvar(SWITCH_5, 100)
+            case 6:
+                setmetatile(WALL_6_PART_1_X, WALL_6_PART_1_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+                setmetatile(WALL_6_PART_2_X, WALL_6_PART_2_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+                setvar(SWITCH_6, 100)
+        }
+        if(var(SWITCH_1) == 100){
+            setmetatile(WALL_1_PART_1_X, WALL_1_PART_1_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+            setmetatile(WALL_1_PART_2_X, WALL_1_PART_2_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+            setmetatile(WALL_1_PART_3_X, WALL_1_PART_3_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+            setmetatile(WALL_1_PART_4_X, WALL_1_PART_4_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+        }
+        if(var(SWITCH_2) == 100){
+            setmetatile(WALL_2_PART_1_X, WALL_2_PART_1_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+            setmetatile(WALL_2_PART_2_X, WALL_2_PART_2_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+        }
+        if(var(SWITCH_3) == 100){
+            setmetatile(WALL_3_PART_1_X, WALL_3_PART_1_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+            setmetatile(WALL_3_PART_2_X, WALL_3_PART_2_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+        }
+        if(var(SWITCH_4) == 100){
+            setmetatile(WALL_4_PART_1_X, WALL_4_PART_1_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+            setmetatile(WALL_4_PART_2_X, WALL_4_PART_2_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+        }
+        if(var(SWITCH_5) == 100){
+            setmetatile(WALL_5_PART_1_X, WALL_5_PART_1_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+            setmetatile(WALL_5_PART_2_X, WALL_5_PART_2_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+        }
+        if(var(SWITCH_6) == 100){
+            setmetatile(WALL_6_PART_1_X, WALL_6_PART_1_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+            setmetatile(WALL_6_PART_2_X, WALL_6_PART_2_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+        }
+    }
+}
+
+script LatiosIsland_Switch1{
+    if(var(SWITCH_1) == 100){
+        release
+        end
+    }
+    getobjectxy(VAR_BOULDER_ID)
+    if(var(ROCK_X) == SWITCH_1_X && var(ROCK_Y) == SWITCH_1_Y){
+        copyobjectxytoperm(VAR_BOULDER_ID)
+        setflag(FLAG_LATIOSISLE_PUZZLE1_SOLVED)
+    }
+    setmetatile(WALL_1_PART_1_X, WALL_1_PART_1_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+    setmetatile(WALL_1_PART_2_X, WALL_1_PART_2_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+    setmetatile(WALL_1_PART_3_X, WALL_1_PART_3_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+    setmetatile(WALL_1_PART_4_X, WALL_1_PART_4_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+    setmetatile(SWITCH_1_X, SWITCH_1_Y, METATILE_LatiIsles_LatiasIsland_SwitchDown, FALSE)
+	playse(SE_M_STRENGTH)
+	special(DrawWholeMapView)
+	waitse
+	setvar(SWITCH_1, 100)
+	release
+}
+script LatiosIsland_Switch2{
+    if(var(SWITCH_2) == 100){
+        release
+        end
+    }
+    setmetatile(WALL_2_PART_1_X, WALL_2_PART_1_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+    setmetatile(WALL_2_PART_2_X, WALL_2_PART_2_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+    setmetatile(SWITCH_2_X, SWITCH_2_Y, METATILE_LatiIsles_LatiasIsland_SwitchDown, FALSE)
+	playse(SE_M_STRENGTH)
+	special(DrawWholeMapView)
+	waitse
+	setvar(SWITCH_2, 100)
+	release
+}
+script LatiosIsland_Switch3{
+    if(var(SWITCH_3) == 100){
+        release
+        end
+    }
+    setmetatile(WALL_3_PART_1_X, WALL_3_PART_1_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+    setmetatile(WALL_3_PART_2_X, WALL_3_PART_2_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+    setmetatile(SWITCH_3_X, SWITCH_3_Y, METATILE_LatiIsles_LatiasIsland_SwitchDown, FALSE)
+	playse(SE_M_STRENGTH)
+	special(DrawWholeMapView)
+	waitse
+	setvar(SWITCH_3, 100)
+	release
+}
+script LatiosIsland_Switch4{
+    if(var(SWITCH_4) == 100){
+        release
+        end
+    }
+    getobjectxy(VAR_BOULDER_ID)
+    if(var(ROCK_X) == SWITCH_4_X && var(ROCK_Y) == SWITCH_4_Y){
+        copyobjectxytoperm(VAR_BOULDER_ID)
+        setflag(FLAG_LATIOSISLE_PUZZLE2_SOLVED)
+    }
+    setmetatile(WALL_4_PART_1_X, WALL_4_PART_1_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+    setmetatile(WALL_4_PART_2_X, WALL_4_PART_2_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+    setmetatile(SWITCH_4_X, SWITCH_4_Y, METATILE_LatiIsles_LatiasIsland_SwitchDown, FALSE)
+	playse(SE_M_STRENGTH)
+	special(DrawWholeMapView)
+	waitse
+	setvar(SWITCH_4, 100)
+	release
+}
+script LatiosIsland_Switch5{
+    if(var(SWITCH_5) == 100){
+        release
+        end
+    }
+    setmetatile(WALL_5_PART_1_X, WALL_5_PART_1_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+    setmetatile(WALL_5_PART_2_X, WALL_5_PART_2_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+    setmetatile(SWITCH_5_X, SWITCH_5_Y, METATILE_LatiIsles_LatiasIsland_SwitchDown, FALSE)
+	playse(SE_M_STRENGTH)
+	special(DrawWholeMapView)
+	waitse
+	setvar(SWITCH_5, 100)
+	release
+}
+script LatiosIsland_Switch6{
+    if(var(SWITCH_6) == 100){
+        release
+        end
+    }
+    setmetatile(WALL_6_PART_1_X, WALL_6_PART_1_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+    setmetatile(WALL_6_PART_2_X, WALL_6_PART_2_Y, METATILE_LatiIsles_LI_BarrierDown, 0)
+    setmetatile(SWITCH_6_X, SWITCH_6_Y, METATILE_LatiIsles_LatiasIsland_SwitchDown, FALSE)
+	playse(SE_M_STRENGTH)
+	special(DrawWholeMapView)
+	waitse
+	setvar(SWITCH_6, 100)
+	release
+}
+
+script SteppedOffofSwitch1_Latios{
+    setmetatile(SWITCH_1_X, SWITCH_1_Y, METATILE_LatiIsles_LatiasIsland_SwitchUp, FALSE)
+    setmetatile(WALL_1_PART_1_X, WALL_1_PART_1_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+    setmetatile(WALL_1_PART_2_X, WALL_1_PART_2_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+    setmetatile(WALL_1_PART_3_X, WALL_1_PART_3_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+    setmetatile(WALL_1_PART_4_X, WALL_1_PART_4_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+    playse(SE_M_STRENGTH)
+    waitse
+    setvar(SWITCH_1, 0)
+    special(DrawWholeMapView)
+}
+script SteppedOffofSwitch2_Latios{
+    setmetatile(SWITCH_2_X, SWITCH_2_Y, METATILE_LatiIsles_LatiasIsland_SwitchUp, FALSE)
+    setmetatile(WALL_2_PART_1_X, WALL_2_PART_1_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+    setmetatile(WALL_2_PART_2_X, WALL_2_PART_2_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+    playse(SE_M_STRENGTH)
+    waitse
+    setvar(SWITCH_2, 0)
+    special(DrawWholeMapView)
+}
+script SteppedOffofSwitch3_Latios{
+    setmetatile(SWITCH_3_X, SWITCH_3_Y, METATILE_LatiIsles_LatiasIsland_SwitchUp, FALSE)
+    setmetatile(WALL_3_PART_1_X, WALL_3_PART_1_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+    setmetatile(WALL_3_PART_2_X, WALL_3_PART_2_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+    playse(SE_M_STRENGTH)
+    waitse
+    setvar(SWITCH_3, 0)
+    special(DrawWholeMapView)
+}
+script SteppedOffofSwitch4_Latios{
+    setmetatile(SWITCH_4_X, SWITCH_4_Y, METATILE_LatiIsles_LatiasIsland_SwitchUp, FALSE)
+    setmetatile(WALL_4_PART_1_X, WALL_4_PART_1_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+    setmetatile(WALL_4_PART_2_X, WALL_4_PART_2_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+    playse(SE_M_STRENGTH)
+    waitse
+    setvar(SWITCH_4, 0)
+    special(DrawWholeMapView)
+}
+script SteppedOffofSwitch5_Latios{
+    setmetatile(SWITCH_5_X, SWITCH_5_Y, METATILE_LatiIsles_LatiasIsland_SwitchUp, FALSE)
+    setmetatile(WALL_5_PART_1_X, WALL_5_PART_1_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+    setmetatile(WALL_5_PART_2_X, WALL_5_PART_2_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+    playse(SE_M_STRENGTH)
+    waitse
+    setvar(SWITCH_5, 0)
+    special(DrawWholeMapView)
+}
+script SteppedOffofSwitch6_Latios{
+    setmetatile(SWITCH_6_X, SWITCH_6_Y, METATILE_LatiIsles_LatiasIsland_SwitchUp, FALSE)
+    setmetatile(WALL_6_PART_1_X, WALL_6_PART_1_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+    setmetatile(WALL_6_PART_2_X, WALL_6_PART_2_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+    playse(SE_M_STRENGTH)
+    waitse
+    setvar(SWITCH_6, 0)
+    special(DrawWholeMapView)
+}
+
+script FollowerStayPutLatios{
+    faceplayer
+    bufferlivemonnickname(0)
+    getfollowerxy(X, Y)
+    if(flag(FLAG_FOLLOWER_STAYS_PUT)){
+        msgbox(FollowerStayPut_Follow, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == TRUE){
+            setvar(VAR_MON_ON_SWITCH_X, 0)
+            clearflag(FLAG_FOLLOWER_STAYS_PUT)
+            setmetatile(X, Y, METATILE_LatiIsles_LatiasIsland_SwitchDown, FALSE)
+            msgbox(FollowerStayPut_Follow2)
+        }
+        else{
+            msgbox(FollowerStayPut_Text2)
+            turnobject(OBJ_EVENT_ID_FOLLOWER, DIR_SOUTH)
+        }
+    }
+    else{
+        msgbox(FollowerStayPut_Text, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == TRUE)
+        {
+            if(var(X) == SWITCH_1_X && var(Y) == SWITCH_1_Y){
+                setvar(VAR_MON_ON_SWITCH_X, 1)
+            }
+            elif(var(X) == SWITCH_2_X && var(Y) == SWITCH_2_Y){
+                setvar(VAR_MON_ON_SWITCH_X, 2)
+            }
+            elif(var(X) == SWITCH_3_X && var(Y) == SWITCH_3_Y){
+                setvar(VAR_MON_ON_SWITCH_X, 3)
+            }
+            elif(var(X) == SWITCH_4_X && var(Y) == SWITCH_4_Y){
+                setvar(VAR_MON_ON_SWITCH_X, 4)
+            }
+            elif(var(X) == SWITCH_5_X && var(Y) == SWITCH_5_Y){
+                setvar(VAR_MON_ON_SWITCH_X, 5)
+            }
+            elif(var(X) == SWITCH_6_X && var(Y) == SWITCH_6_Y){
+                setvar(VAR_MON_ON_SWITCH_X, 6)
+            }
+            setflag(FLAG_FOLLOWER_STAYS_PUT)
+            setmetatile(X, Y, METATILE_LatiIsles_LatiasIsland_SwitchDown, TRUE)
+            turnobject(OBJ_EVENT_ID_FOLLOWER, DIR_SOUTH)
+            msgbox(FollowerStayPut_Text2)
+        }
+    }
+    release
+}
+
+script LatiosIsland_CallBackMon1{
+    if(var(VAR_MON_ON_SWITCH_X) == 1){
+        playse(SE_SELECT)
+        msgbox(LatiasIsland_CallBackMon1_Text, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == TRUE){
+            getobjectxy(LOCALID_LATIOSISLAND_ROCK_1)
+            if((var(ROCK_X) == 11 || var(ROCK_X) == 12) && var(ROCK_Y) == 49){
+                msgbox(ShouldMoveRockFirst)
+                release
+                end
+            }
+            waitmove(OBJ_EVENT_ID_FOLLOWER, moves(enter_pokeball set_invisible))
+            callnative(RemoveFollowingPokemon)
+            clearflag(FLAG_FOLLOWER_STAYS_PUT)
+            setvar(VAR_MON_ON_SWITCH_X, 0)
+            setvar(SWITCH_1, 0)
+            setmetatile(WALL_1_PART_1_X, WALL_1_PART_1_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+            setmetatile(WALL_1_PART_2_X, WALL_1_PART_2_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+            setmetatile(WALL_1_PART_3_X, WALL_1_PART_3_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+            setmetatile(WALL_1_PART_4_X, WALL_1_PART_4_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+            setmetatile(SWITCH_1_X, SWITCH_1_Y, METATILE_LatiIsles_LatiasIsland_SwitchUp, FALSE)
+            playse(SE_M_STRENGTH)
+            special(DrawWholeMapView)
+            callnative(UpdateFollowingPokemon)
+        }
+    }
+    release
+}
+
+text ShouldMoveRockFirst{
+    "Should probably move the boulder\n"
+    "first before moving the Pokémon…"
+}
+
+script LatiosIsland_CallBackMon2{
+    if(var(VAR_MON_ON_SWITCH_X) == 2){
+        playse(SE_SELECT)
+        msgbox(LatiasIsland_CallBackMon1_Text, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == TRUE){
+            getobjectxy(LOCALID_LATIOSISLAND_ROCK_1)
+            if(var(ROCK_X) == 19){
+                msgbox(ShouldMoveRockFirst)
+                release
+                end
+            }
+            waitmove(OBJ_EVENT_ID_FOLLOWER, moves(enter_pokeball set_invisible))
+            callnative(RemoveFollowingPokemon)
+            clearflag(FLAG_FOLLOWER_STAYS_PUT)
+            setvar(VAR_MON_ON_SWITCH_X, 0)
+            setvar(SWITCH_2, 0)
+            setmetatile(WALL_2_PART_1_X, WALL_2_PART_1_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+            setmetatile(WALL_2_PART_2_X, WALL_2_PART_2_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+            setmetatile(SWITCH_2_X, SWITCH_2_Y, METATILE_LatiIsles_LatiasIsland_SwitchUp, FALSE)
+            playse(SE_M_STRENGTH)
+            special(DrawWholeMapView)
+            callnative(UpdateFollowingPokemon)
+        }
+    }
+    release
+}
+
+script LatiosIsland_CallBackMon3 {
+    if (var(VAR_MON_ON_SWITCH_X) == 3) {
+        playse(SE_SELECT)
+        msgbox(LatiasIsland_CallBackMon1_Text, MSGBOX_YESNO)
+        if (var(VAR_RESULT) == TRUE) {
+            waitmove(OBJ_EVENT_ID_FOLLOWER, moves(enter_pokeball set_invisible))
+            callnative(RemoveFollowingPokemon)
+            clearflag(FLAG_FOLLOWER_STAYS_PUT)
+            setvar(VAR_MON_ON_SWITCH_X, 0)
+            setvar(SWITCH_3, 0)
+            setmetatile(WALL_3_PART_1_X, WALL_3_PART_1_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+            setmetatile(WALL_3_PART_2_X, WALL_3_PART_2_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+            setmetatile(SWITCH_3_X, SWITCH_3_Y, METATILE_LatiIsles_LatiasIsland_SwitchUp, FALSE)
+            playse(SE_M_STRENGTH)
+            special(DrawWholeMapView)
+            callnative(UpdateFollowingPokemon)
+        }
+    }
+    release
+}
+
+script LatiosIsland_CallBackMon4 {
+    if (var(VAR_MON_ON_SWITCH_X) == 4) {
+        playse(SE_SELECT)
+        msgbox(LatiasIsland_CallBackMon1_Text, MSGBOX_YESNO)
+        if (var(VAR_RESULT) == TRUE) {
+            waitmove(OBJ_EVENT_ID_FOLLOWER, moves(enter_pokeball set_invisible))
+            callnative(RemoveFollowingPokemon)
+            clearflag(FLAG_FOLLOWER_STAYS_PUT)
+            setvar(VAR_MON_ON_SWITCH_X, 0)
+            setvar(SWITCH_4, 0)
+            setmetatile(WALL_4_PART_1_X, WALL_4_PART_1_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+            setmetatile(WALL_4_PART_2_X, WALL_4_PART_2_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+            setmetatile(SWITCH_4_X, SWITCH_4_Y, METATILE_LatiIsles_LatiasIsland_SwitchUp, FALSE)
+            playse(SE_M_STRENGTH)
+            special(DrawWholeMapView)
+            callnative(UpdateFollowingPokemon)
+        }
+    }
+    release
+}
+
+script LatiosIsland_CallBackMon5 {
+    if (var(VAR_MON_ON_SWITCH_X) == 5) {
+        playse(SE_SELECT)
+        msgbox(LatiasIsland_CallBackMon1_Text, MSGBOX_YESNO)
+        if (var(VAR_RESULT) == TRUE) {
+            getobjectxy(LOCALID_LATIOSISLAND_ROCK_1)
+            if((var(ROCK_X) == 37 || var(ROCK_X) == 38) && var(ROCK_Y) == 26){
+                msgbox(ShouldMoveRockFirst)
+                release
+                end
+            }
+            waitmove(OBJ_EVENT_ID_FOLLOWER, moves(enter_pokeball set_invisible))
+            callnative(RemoveFollowingPokemon)
+            clearflag(FLAG_FOLLOWER_STAYS_PUT)
+            setvar(VAR_MON_ON_SWITCH_X, 0)
+            setvar(SWITCH_5, 0)
+            setmetatile(WALL_5_PART_1_X, WALL_5_PART_1_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+            setmetatile(WALL_5_PART_2_X, WALL_5_PART_2_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+            setmetatile(SWITCH_5_X, SWITCH_5_Y, METATILE_LatiIsles_LatiasIsland_SwitchUp, FALSE)
+            playse(SE_M_STRENGTH)
+            special(DrawWholeMapView)
+            callnative(UpdateFollowingPokemon)
+        }
+    }
+    release
+}
+
+script LatiosIsland_CallBackMon6 {
+    if (var(VAR_MON_ON_SWITCH_X) == 6) {
+        playse(SE_SELECT)
+        msgbox(LatiasIsland_CallBackMon1_Text, MSGBOX_YESNO)
+        if (var(VAR_RESULT) == TRUE) {
+            waitmove(OBJ_EVENT_ID_FOLLOWER, moves(enter_pokeball set_invisible))
+            callnative(RemoveFollowingPokemon)
+            clearflag(FLAG_FOLLOWER_STAYS_PUT)
+            setvar(VAR_MON_ON_SWITCH_X, 0)
+            setvar(SWITCH_6, 0)
+            setmetatile(WALL_6_PART_1_X, WALL_6_PART_1_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+            setmetatile(WALL_6_PART_2_X, WALL_6_PART_2_Y, METATILE_LatiIsles_LI_BarrierUp, TRUE)
+            setmetatile(SWITCH_6_X, SWITCH_6_Y, METATILE_LatiIsles_LatiasIsland_SwitchUp, FALSE)
+            playse(SE_M_STRENGTH)
+            special(DrawWholeMapView)
+            callnative(UpdateFollowingPokemon)
+        }
+    }
+    release
+}
+
+text LatiosIsland_ReturnToRoute23_Text{
+    "Send out Latios and return\n"
+    "back to Route 23?"
+}
+
+script LatiosIsland_ReturnToRoute23{
+    msgbox(LatiosIsland_ReturnToRoute23_Text, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    closemessage
+    checkpartymon(SPECIES_LATIOS, FALSE)
+    bufferpartymonnick(STR_VAR_1, VAR_0x8000)
+    if(var(VAR_0x800A) == TRUE){
+        setvar(LATI_BODY, LOCALID_LATIOSISLAND_LATIOS_SHINY)
+        setvar(LATI_HEAD, LOCALID_LATIOSISLAND_LATIOS_SHINY_HEAD)
+    }
+    else{
+        setvar(LATI_BODY, LOCALID_LATIOSISLAND_LATIOS)
+        setvar(LATI_HEAD, LOCALID_LATIOSISLAND_LATIOS_HEAD)
+    }
+    setflag(FLAG_OVERRIDE_FOLLOWER_DIRECTION)
+    setvar(VAR_FACING, DIR_SOUTH)
+    waitmove(LOCALID_LATIOSISLAND_LATIBALL, moves(set_visible, delay_1 * 3, lati_ball))
+    showobjectat(LATI_BODY, MAP_LATIOS_ISLAND)
+    showobjectat(LATI_HEAD, MAP_LATIOS_ISLAND)
+    removeobject(LOCALID_LATIOSISLAND_LATIBALL)
+    delay(16)
+    addobject(LOCALID_FAKE_PLAYER)
+    setobjectsubpriority(LOCALID_FAKE_PLAYER, MAP_LATIOS_ISLAND, 0)
+    hideobjectat(LOCALID_PLAYER, MAP_LATIOS_ISLAND)
+    setobjectsubpriority(LATI_HEAD, MAP_LATIOS_ISLAND, 0)
+    waitmove(LOCALID_FAKE_PLAYER, moves(jump_2_down, lock_anim))
+    call(SetSittingPlayerModel)
+    removeobject(LOCALID_FAKE_PLAYER)
+    setobjectxyperm(LOCALID_FAKE_PLAYER, 17, 74)
+    addobject(LOCALID_FAKE_PLAYER)
+    setobjectsubpriority(LOCALID_FAKE_PLAYER, MAP_LATIOS_ISLAND, 1)
+    delay(16)
+    applymovement(LATI_BODY, PlayerAndLatiasLeave)
+    applymovement(LATI_HEAD, PlayerAndLatiasLeave)
+    applymovement(LOCALID_FAKE_PLAYER, moves(lock_anim, walk_slow_down, walk_down * 2, walk_faster_down * 4))
+    waitmovement(0)
+    clearflag(FLAG_STOP_GROUND_EFFECTS)
+    clearflag(FLAG_OVERRIDE_FOLLOWER_DIRECTION)
+    setvar(VAR_0x8004, 4)
+    callnative(LatisWarp)
+    special(LatiRide)
+    waitstate
+}

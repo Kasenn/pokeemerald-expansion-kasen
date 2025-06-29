@@ -604,6 +604,9 @@ u8 BattleSetup_GetEnvironmentId(void)
 
     tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
     
+    if (gOnLatiIslands)
+        return BATTLE_ENVIRONMENT_SOARING;
+
     if ((GetSavedWeather() == WEATHER_SNOW || GetSavedWeather() == WEATHER_BLIZZARD)
     && (MetatileBehavior_IsTallGrassAutumn(tileBehavior)
      || MetatileBehavior_IsSnow(tileBehavior)))

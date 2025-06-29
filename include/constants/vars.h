@@ -432,7 +432,7 @@
 #define VAR_LATIAS_ISLE_SWITCH_5        VAR_TEMP_8
 #define VAR_LATIAS_ISLE_SWITCH_6        VAR_TEMP_9
 #define VAR_LATIAS_ISLE_SWITCH_7        VAR_TEMP_A
-#define VAR_MON_ON_SWITCH_X             VAR_TEMP_3
+#define VAR_MON_ON_SWITCH_X      VAR_TEMP_0
 
 #if TESTING
 #define TESTING_VARS_START             0x9000

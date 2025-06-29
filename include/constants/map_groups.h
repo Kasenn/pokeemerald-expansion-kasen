@@ -108,6 +108,7 @@
 #define MAP_ROUTE119_WEATHER_INSTITUTE_1F (17 | (1 << 8))
 #define MAP_ROUTE119_WEATHER_INSTITUTE_2F (18 | (1 << 8))
 #define MAP_LATIAS_ISLAND                 (19 | (1 << 8))
+#define MAP_LATIOS_ISLAND                 (20 | (1 << 8))
 
 // gMapGroup_Dungeons
 #define MAP_WINDY_WOODS                      (0 | (2 << 8))

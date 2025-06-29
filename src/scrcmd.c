@@ -3820,6 +3820,7 @@ static s32 GetCleanMetatile(s32 metatileId)
         case 0x328: return 0x271;
         case 0x20B: return 0x071;
         case 0x3B6: return 0x3DD;
+        case 0x3A9: return 0x32C;
         case 0x026: return METATILE_General_Grass_TreeUp;
         default: return 0x000;
     }
@@ -3990,7 +3991,7 @@ void LatisWarp(void)
             SetWarpDestination(MAP_GROUP(MAP_TOWN_WIP2), MAP_NUM(MAP_TOWN_WIP2), WARP_ID_NONE, 25, 28);
             break;
         case 3:
-            SetWarpDestination(MAP_GROUP(MAP_ROUTE112_CABLE_CAR_STATION), MAP_NUM(MAP_ROUTE112_CABLE_CAR_STATION), WARP_ID_NONE, 6, 4); // WIP
+            SetWarpDestination(MAP_GROUP(MAP_LATIOS_ISLAND), MAP_NUM(MAP_LATIOS_ISLAND), WARP_ID_NONE, 17, 72);
             break;
         case 4:
             SetWarpDestination(MAP_GROUP(MAP_ROUTE23LAKE), MAP_NUM(MAP_ROUTE23LAKE), WARP_ID_NONE, 19, 15);
