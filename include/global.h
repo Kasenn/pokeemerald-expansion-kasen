@@ -624,7 +624,8 @@ struct SaveBlock2
              u16 regionMapZoom:1; // whether the map is zoomed in
              u16 playerBike:1;
              u16 optionsTimeFormat:1;
-             //u16 padding1:2;
+             u16 optionsNamingScreen:1;
+             //u16 padding1:1;
     /*0x18*/ struct Pokedex pokedex;
     /*0x98*/ struct Time localTimeOffset;
     /*0xA0*/ struct Time lastBerryTreeUpdate;

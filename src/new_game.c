@@ -103,6 +103,7 @@ static void SetDefaultOptions(void)
     gSaveBlock2Ptr->optionsBattleSceneOff = FALSE;
     gSaveBlock2Ptr->optionsTimeFormat = OPTIONS_12H_FORMAT;
     gSaveBlock2Ptr->regionMapZoom = FALSE;
+    gSaveBlock2Ptr->optionsNamingScreen = OPTIONS_NAMING_SCREEN_ABC;
 }
 
 static void ClearPokedexFlags(void)
