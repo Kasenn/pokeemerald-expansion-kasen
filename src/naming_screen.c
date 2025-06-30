@@ -2171,7 +2171,7 @@ static const u32 *const sNextKeyboardPageTilemaps[] =
     [KBPAGE_LETTERS_LOWER] = gNamingScreenKeyboardSymbols_Tilemap  // symbols
 };
 
-static const u8 *const sNextKeyboardPageTilemapsQwerty[] =
+static const u32 *const sNextKeyboardPageTilemapsQwerty[] =
 {
     [KBPAGE_LETTERS_UPPER_QWERTY] = gNamingScreenKeyboardLower_Tilemap, // lower
     [KBPAGE_LETTERS_LOWER_QWERTY] = gNamingScreenKeyboardUpper_Tilemap  // symbols
