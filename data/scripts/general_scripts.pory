@@ -543,11 +543,28 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{              //
-    clearflag(FLAG_NO_WILD_ENCOUNTERS)
+    checkpartymon(SPECIES_PIKACHU, FALSE)
+    if(var(VAR_RESULT) == TRUE){
+        msgbox("true")
+    }
+    else{
+        msgbox("false")
+    }
+    checkpartymon(SPECIES_LATIAS, FALSE)
+    if(var(VAR_RESULT) == TRUE){
+        buffernumberstring(STR_VAR_1, VAR_0x8000)
+        msgbox("true, {STR_VAR_1}")
+    }
+    else{
+        msgbox("false")
+    }
+    return
 }
 script Debug_Script_4{
-    setwildbattle (SPECIES_RAYQUAZA, 70)
-	special (BattleSetup_StartLegendaryBattle)
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    subvar(VAR_TEMP_0, 1)
+    addvar(VAR_TEMP_1, 3)
+    teleportcamera(VAR_TEMP_0, VAR_TEMP_1)
     return
 }
 script Debug_Script_5{

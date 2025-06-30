@@ -67,6 +67,7 @@
 #include "pokemon_icon.h"
 #include "constants/metatile_labels.h"
 #include "tilesets.h"
+#include "field_camera.h"
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(struct ScriptContext *ctx);
@@ -3997,4 +3998,13 @@ void LatisWarp(void)
             SetWarpDestination(MAP_GROUP(MAP_ROUTE23LAKE), MAP_NUM(MAP_ROUTE23LAKE), WARP_ID_NONE, 19, 15);
             break;
     }
+}
+
+bool8 ScrCmd_teleportcamera(struct ScriptContext *ctx)
+{
+    s16 x = VarGet(ScriptReadHalfword(ctx));
+    s16 y = VarGet(ScriptReadHalfword(ctx));
+
+    MoveCameraAndRedrawMap(x, y);
+    return FALSE;
 }
