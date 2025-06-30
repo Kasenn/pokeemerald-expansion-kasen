@@ -32,18 +32,13 @@ add pc/mart/bpshop signs back once they're fixed
 research a fix for shade weathers?
 
 route 19
-	items
-	wild encounters
 	check layout
 	trainers
-		info
 		teams
 		dialogue
-	remove beta check
 route 20
 	gogoat racing minigame
 		leash item that boosts traded mon speed
-	wild encounters
 	NPCs (no trainers)
 	items
 crystalpine town

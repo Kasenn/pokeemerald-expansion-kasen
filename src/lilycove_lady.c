@@ -718,10 +718,10 @@
 //     *dest = sContestLadyPtr->language;
 // }
 
-// void BufferContestName(u8 *dest, u8 category)
-// {
-//     StringCopy(dest, sContestLadyValues[category].contestName);
-// }
+void BufferContestName(u8 *dest, u8 category)
+{
+    StringCopy(dest, sContestLadyValues[category].contestName);
+}
 
 // // Used by the Contest Lady's TV show to determine how well she performed
 // u8 GetContestLadyPokeblockState(void)

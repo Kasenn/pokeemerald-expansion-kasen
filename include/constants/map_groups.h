@@ -960,6 +960,8 @@
 #define MAP_WINDYWOODS_FILLER           (25 | (52 << 8))
 #define MAP_ROUTE3_COPY                 (26 | (52 << 8))
 
-#define MAP_GROUPS_COUNT 53
+// gMapGroup_IndoorCrystalpine
+
+#define MAP_GROUPS_COUNT 54
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

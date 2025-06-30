@@ -22,8 +22,7 @@ script Update3{
 	message(PlayerFoundJournal)
 	waitfanfare
 	waitmessage
-    setvar(VAR_DEBUG, 4)
-    call(Update4)
+    setvar(VAR_DEBUG, 3)
     release
 }
 script Update4{
@@ -232,7 +231,7 @@ script UpdateGuy{
     }
     message(WhatWouldYouLikeToDo)
     waitmessage
-    if(var(VAR_DEBUG) < 4){
+    if(var(VAR_DEBUG) < 5){
         dynmultipush("Update Game", 0)
     }
     dynmultipush("Set Team Level", 1)
@@ -289,18 +288,19 @@ text GrottoUpdate{
 }
 
 script UpdateGame{
-    setflag(FLAG_SYS_B_DASH)
-    setflag(FLAG_SYS_JOURNAL_GET)
-    switch(var(VAR_DEBUG)){
-        case 2:
-            call(Update3)
-            msgbox(GameIsUpToDate)
-        case 3:
-            call(Update4)
-            msgbox(GameIsUpToDate)
-        case 4:
-            msgbox(GameIsUpToDate)
+    if(var(VAR_DEBUG) == 2){
+        call(Update3)
     }
+    if(var(VAR_DEBUG) == 3){
+        call(Update4)
+    }
+    if(var(VAR_DEBUG) == 4){
+        setflag(FLAG_SYS_B_DASH)
+        setflag(FLAG_SYS_JOURNAL_GET)
+        callnative(ClearAllContestWinnerPics)
+        setvar(VAR_DEBUG, 5)
+    }
+    msgbox(GameIsUpToDate)
     release
 }
 

@@ -165,7 +165,7 @@ void SetContestWinnerForPainting(int contestWinnerId)
 {
     u8 *saveIdx = &gCurContestWinnerSaveIdx;
     u8 *isForArtist = &gCurContestWinnerIsForArtist;
-    // gCurContestWinner = 0;
+    gCurContestWinner = gSaveBlock3Ptr->contestWinners[contestWinnerId - 1];
     *saveIdx = contestWinnerId - 1;
     *isForArtist = FALSE;
 }
@@ -290,7 +290,7 @@ static void PrintContestPaintingCaption(u8 contestType, bool8 isForArtist)
     if (contestType < MUSEUM_CONTEST_WINNERS_START)
     {
         // Contest Hall caption
-        // BufferContestName(gStringVar1, category);
+        BufferContestName(gStringVar1, category);
         StringAppend(gStringVar1, gText_Space);
         StringAppend(gStringVar1, sContestRankNames[gContestPaintingWinner->contestRank]);
         StringCopy(gStringVar2, gContestPaintingWinner->trainerName);
@@ -363,7 +363,7 @@ static void VBlankCB_ContestPainting(void)
 static void InitContestMonPixels(u16 species, bool8 backPic)
 {
     const void *pal = GetMonSpritePalFromSpeciesAndPersonality(species, gContestPaintingWinner->isShiny, gContestPaintingWinner->personality);
-    LZDecompressVram(pal, gContestPaintingMonPalette);
+    memcpy(gContestPaintingMonPalette, pal, PLTT_SIZE_4BPP);
     if (!backPic)
     {
         HandleLoadSpecialPokePic(TRUE,

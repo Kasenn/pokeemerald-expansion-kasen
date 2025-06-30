@@ -256,6 +256,19 @@ struct NPCFollower
     u16 battlePartner; // If you have more than 255 total battle partners defined, change this to a u16
 };
 
+struct ContestWinner
+{
+    u32 personality;
+    u32 trainerId;
+    u16 species;
+    u8 contestCategory;
+    u8 monName[VANILLA_POKEMON_NAME_LENGTH + 1];
+    u8 trainerName[PLAYER_NAME_LENGTH + 1];
+    u8 contestRank:7;
+    bool8 isShiny:1;
+    //u8 padding;
+};
+
 #include "constants/items.h"
 #define ITEM_FLAGS_COUNT ((ITEMS_COUNT / 8) + ((ITEMS_COUNT % 8) ? 1 : 0))
 
@@ -283,6 +296,7 @@ struct SaveBlock3
     u8 dexNavChain;
     u8 padding[3];
     struct HiddenGrotto hiddenGrottos[GROTTOS_COUNT];
+    struct ContestWinner contestWinners[NUM_CONTEST_WINNERS];
 }; /* max size 1624 bytes */
 
 extern struct SaveBlock3 *gSaveBlock3Ptr;
@@ -823,19 +837,6 @@ struct RecordMixingGift
 {
     int checksum;
     struct RecordMixingGiftData data;
-};
-
-struct ContestWinner
-{
-    u32 personality;
-    u32 trainerId;
-    u16 species;
-    u8 contestCategory;
-    u8 monName[VANILLA_POKEMON_NAME_LENGTH + 1];
-    u8 trainerName[PLAYER_NAME_LENGTH + 1];
-    u8 contestRank:7;
-    bool8 isShiny:1;
-    //u8 padding;
 };
 
 struct Mail

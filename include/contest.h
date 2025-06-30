@@ -354,10 +354,10 @@ void MakeContestantNervous(u8 p);
 s8 Contest_GetMoveExcitement(u16 move);
 bool8 IsContestantAllowedToCombo(u8 contestant);
 void Contest_PrintTextToBg0WindowAt(u32 windowId, u8 *currChar, s32 x, s32 y, s32 fontId);
-// void ResetContestLinkResults(void);
+void ResetContestLinkResults(void);
 bool8 SaveContestWinner(u8 rank);
 u8 GetContestWinnerSaveIdx(u8 rank, bool8 shift);
-// void ClearContestWinnerPicsInContestHall(void);
+void ClearContestWinnerPicsInContestHall(void);
 void StripPlayerAndMonNamesForLinkContest(struct ContestPokemon *mon, s32 language);
 
 #endif //GUARD_CONTEST_H

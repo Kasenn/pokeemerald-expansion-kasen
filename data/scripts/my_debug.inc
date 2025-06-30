@@ -15,10 +15,8 @@ Update3_1:
 # 24 "data/scripts/my_debug.pory"
 	waitmessage
 # 25 "data/scripts/my_debug.pory"
-	setvar VAR_DEBUG, 4
+	setvar VAR_DEBUG, 3
 # 26 "data/scripts/my_debug.pory"
-	call Update4
-# 27 "data/scripts/my_debug.pory"
 	release
 	return
 
@@ -62,624 +60,627 @@ Update3_10:
 
 
 Update4::
-# 30 "data/scripts/my_debug.pory"
+# 29 "data/scripts/my_debug.pory"
 	callnative FixGrottoHiddenAbility
-# 31 "data/scripts/my_debug.pory"
+# 30 "data/scripts/my_debug.pory"
 	switch VAR_STARTER_MON
-# 33 "data/scripts/my_debug.pory"
+# 32 "data/scripts/my_debug.pory"
 	case 0, Update4_3
-# 35 "data/scripts/my_debug.pory"
+# 34 "data/scripts/my_debug.pory"
 	case 1, Update4_4
-# 37 "data/scripts/my_debug.pory"
+# 36 "data/scripts/my_debug.pory"
 	case 2, Update4_5
 Update4_1:
-# 40 "data/scripts/my_debug.pory"
+# 39 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_BROTHER_2_ROUTE28
 	goto_if 1, Update4_7
 Update4_6:
-# 44 "data/scripts/my_debug.pory"
+# 43 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_BROTHER_3_ROUTE28
 	goto_if 1, Update4_10
 Update4_9:
-# 49 "data/scripts/my_debug.pory"
+# 48 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_BROTHER_4_ROUTE28
 	goto_if 1, Update4_13
 Update4_12:
-# 53 "data/scripts/my_debug.pory"
+# 52 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_BROTHER_5_FISHINGVILLAGE
 	goto_if 1, Update4_16
 Update4_15:
-# 57 "data/scripts/my_debug.pory"
+# 56 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_BROTHER_6_ROUTE20
 	goto_if 1, Update4_19
 Update4_18:
-# 62 "data/scripts/my_debug.pory"
+# 61 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_7_
 	goto_if 1, Update4_22
 Update4_21:
-# 66 "data/scripts/my_debug.pory"
+# 65 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_8_
 	goto_if 1, Update4_25
 Update4_24:
-# 70 "data/scripts/my_debug.pory"
+# 69 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_9_
 	goto_if 1, Update4_28
 Update4_27:
-# 75 "data/scripts/my_debug.pory"
+# 74 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_10_
 	goto_if 1, Update4_31
 Update4_30:
-# 79 "data/scripts/my_debug.pory"
+# 78 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_11_
 	goto_if 1, Update4_34
 Update4_33:
-# 83 "data/scripts/my_debug.pory"
+# 82 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_12_
 	goto_if 1, Update4_37
 Update4_36:
-# 88 "data/scripts/my_debug.pory"
+# 87 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_13_
 	goto_if 1, Update4_40
 Update4_39:
-# 92 "data/scripts/my_debug.pory"
+# 91 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_14_
 	goto_if 1, Update4_43
 Update4_42:
-# 96 "data/scripts/my_debug.pory"
+# 95 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_15_
 	goto_if 1, Update4_46
 Update4_45:
-# 101 "data/scripts/my_debug.pory"
+# 100 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_BRENDAN_ROUTE_11_ANGRY
 	goto_if 1, Update4_49
 Update4_48:
-# 105 "data/scripts/my_debug.pory"
+# 104 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_526_
 	goto_if 1, Update4_52
 Update4_51:
-# 109 "data/scripts/my_debug.pory"
+# 108 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_MAY_ROUTE_11_ANGRY
 	goto_if 1, Update4_55
 Update4_54:
-# 113 "data/scripts/my_debug.pory"
+# 112 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_535_
 	goto_if 1, Update4_58
 Update4_57:
-# 118 "data/scripts/my_debug.pory"
+# 117 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_BRENDAN_BASALEK_TOWN
 	goto_if 1, Update4_61
 Update4_60:
-# 122 "data/scripts/my_debug.pory"
+# 121 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_527_
 	goto_if 1, Update4_64
 Update4_63:
-# 126 "data/scripts/my_debug.pory"
+# 125 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_MAY_BASALEK_TOWN
 	goto_if 1, Update4_67
 Update4_66:
-# 130 "data/scripts/my_debug.pory"
+# 129 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_536_
 	goto_if 1, Update4_70
 Update4_69:
-# 135 "data/scripts/my_debug.pory"
+# 134 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_234_
 	goto_if 1, Update4_73
 Update4_72:
-# 139 "data/scripts/my_debug.pory"
+# 138 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_235_
 	goto_if 1, Update4_76
 Update4_75:
-# 143 "data/scripts/my_debug.pory"
+# 142 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_236_
 	goto_if 1, Update4_79
 Update4_78:
-# 148 "data/scripts/my_debug.pory"
+# 147 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_228_
 	goto_if 1, Update4_82
 Update4_81:
-# 152 "data/scripts/my_debug.pory"
+# 151 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_229_
 	goto_if 1, Update4_85
 Update4_84:
-# 156 "data/scripts/my_debug.pory"
+# 155 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_230_
 	goto_if 1, Update4_88
 Update4_87:
-# 161 "data/scripts/my_debug.pory"
+# 160 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_231_
 	goto_if 1, Update4_91
 Update4_90:
-# 165 "data/scripts/my_debug.pory"
+# 164 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_232_
 	goto_if 1, Update4_94
 Update4_93:
-# 169 "data/scripts/my_debug.pory"
+# 168 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_233_
 	goto_if 1, Update4_97
 Update4_96:
-# 174 "data/scripts/my_debug.pory"
+# 173 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_225_
 	goto_if 1, Update4_100
 Update4_99:
-# 178 "data/scripts/my_debug.pory"
+# 177 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_226_
 	goto_if 1, Update4_103
 Update4_102:
-# 182 "data/scripts/my_debug.pory"
+# 181 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_227_
 	goto_if 1, Update4_106
 Update4_105:
-# 187 "data/scripts/my_debug.pory"
+# 186 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_376_
 	goto_if 1, Update4_109
 Update4_108:
-# 191 "data/scripts/my_debug.pory"
+# 190 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_377_
 	goto_if 1, Update4_112
 Update4_111:
-# 195 "data/scripts/my_debug.pory"
+# 194 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_378_
 	goto_if 1, Update4_115
 Update4_114:
-# 200 "data/scripts/my_debug.pory"
+# 199 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_379_
 	goto_if 1, Update4_118
 Update4_117:
-# 204 "data/scripts/my_debug.pory"
+# 203 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_380_
 	goto_if 1, Update4_121
 Update4_120:
-# 208 "data/scripts/my_debug.pory"
+# 207 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_UNUSED_381_
 	goto_if 1, Update4_124
 Update4_123:
-# 212 "data/scripts/my_debug.pory"
+# 211 "data/scripts/my_debug.pory"
 	msgbox GrottoUpdate
-# 213 "data/scripts/my_debug.pory"
+# 212 "data/scripts/my_debug.pory"
 	setvar VAR_DEBUG, 4
 	return
 
 Update4_3:
-# 34 "data/scripts/my_debug.pory"
+# 33 "data/scripts/my_debug.pory"
 	setvar VAR_STARTER_MON, SPECIES_ROWLET
 	goto Update4_1
 
 Update4_4:
-# 36 "data/scripts/my_debug.pory"
+# 35 "data/scripts/my_debug.pory"
 	setvar VAR_STARTER_MON, SPECIES_TORCHIC
 	goto Update4_1
 
 Update4_5:
-# 38 "data/scripts/my_debug.pory"
+# 37 "data/scripts/my_debug.pory"
 	setvar VAR_STARTER_MON, SPECIES_PIPLUP
 	goto Update4_1
 
 Update4_7:
-# 41 "data/scripts/my_debug.pory"
+# 40 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_BROTHER_2_ROUTE28
-# 42 "data/scripts/my_debug.pory"
+# 41 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BROTHER_1_PEARLWOOD
 	goto Update4_6
 
 Update4_10:
-# 45 "data/scripts/my_debug.pory"
+# 44 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_BROTHER_3_ROUTE28
-# 46 "data/scripts/my_debug.pory"
+# 45 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BROTHER_1_PEARLWOOD
 	goto Update4_9
 
 Update4_13:
-# 50 "data/scripts/my_debug.pory"
+# 49 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_BROTHER_4_ROUTE28
-# 51 "data/scripts/my_debug.pory"
+# 50 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BROTHER_2_ROUTE28
 	goto Update4_12
 
 Update4_16:
-# 54 "data/scripts/my_debug.pory"
+# 53 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_BROTHER_5_FISHINGVILLAGE
-# 55 "data/scripts/my_debug.pory"
+# 54 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BROTHER_2_ROUTE28
 	goto Update4_15
 
 Update4_19:
-# 58 "data/scripts/my_debug.pory"
+# 57 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_BROTHER_6_ROUTE20
-# 59 "data/scripts/my_debug.pory"
+# 58 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BROTHER_2_ROUTE28
 	goto Update4_18
 
 Update4_22:
-# 63 "data/scripts/my_debug.pory"
+# 62 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_7_
-# 64 "data/scripts/my_debug.pory"
+# 63 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BROTHER_3_ROUTE28
 	goto Update4_21
 
 Update4_25:
-# 67 "data/scripts/my_debug.pory"
+# 66 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_8_
-# 68 "data/scripts/my_debug.pory"
+# 67 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BROTHER_3_ROUTE28
 	goto Update4_24
 
 Update4_28:
-# 71 "data/scripts/my_debug.pory"
+# 70 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_9_
-# 72 "data/scripts/my_debug.pory"
+# 71 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BROTHER_3_ROUTE28
 	goto Update4_27
 
 Update4_31:
-# 76 "data/scripts/my_debug.pory"
+# 75 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_10_
-# 77 "data/scripts/my_debug.pory"
+# 76 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BROTHER_4_ROUTE28
 	goto Update4_30
 
 Update4_34:
-# 80 "data/scripts/my_debug.pory"
+# 79 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_11_
-# 81 "data/scripts/my_debug.pory"
+# 80 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BROTHER_4_ROUTE28
 	goto Update4_33
 
 Update4_37:
-# 84 "data/scripts/my_debug.pory"
+# 83 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_12_
-# 85 "data/scripts/my_debug.pory"
+# 84 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BROTHER_4_ROUTE28
 	goto Update4_36
 
 Update4_40:
-# 89 "data/scripts/my_debug.pory"
+# 88 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_13_
-# 90 "data/scripts/my_debug.pory"
+# 89 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BROTHER_5_FISHINGVILLAGE
 	goto Update4_39
 
 Update4_43:
-# 93 "data/scripts/my_debug.pory"
+# 92 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_14_
-# 94 "data/scripts/my_debug.pory"
+# 93 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BROTHER_5_FISHINGVILLAGE
 	goto Update4_42
 
 Update4_46:
-# 97 "data/scripts/my_debug.pory"
+# 96 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_15_
-# 98 "data/scripts/my_debug.pory"
+# 97 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BROTHER_5_FISHINGVILLAGE
 	goto Update4_45
 
 Update4_49:
-# 102 "data/scripts/my_debug.pory"
+# 101 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_BRENDAN_ROUTE_11_ANGRY
-# 103 "data/scripts/my_debug.pory"
+# 102 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BRENDAN_PRIMROSE_MEADOW
 	goto Update4_48
 
 Update4_52:
-# 106 "data/scripts/my_debug.pory"
+# 105 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_526_
-# 107 "data/scripts/my_debug.pory"
+# 106 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BRENDAN_PRIMROSE_MEADOW
 	goto Update4_51
 
 Update4_55:
-# 110 "data/scripts/my_debug.pory"
+# 109 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_MAY_ROUTE_11_ANGRY
-# 111 "data/scripts/my_debug.pory"
+# 110 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_MAY_PRIMROSE_MEADOW
 	goto Update4_54
 
 Update4_58:
-# 114 "data/scripts/my_debug.pory"
+# 113 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_535_
-# 115 "data/scripts/my_debug.pory"
+# 114 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_MAY_PRIMROSE_MEADOW
 	goto Update4_57
 
 Update4_61:
-# 119 "data/scripts/my_debug.pory"
+# 118 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_BRENDAN_BASALEK_TOWN
-# 120 "data/scripts/my_debug.pory"
+# 119 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BRENDAN_CORALGROVE_ELEVATOR
 	goto Update4_60
 
 Update4_64:
-# 123 "data/scripts/my_debug.pory"
+# 122 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_527_
-# 124 "data/scripts/my_debug.pory"
+# 123 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BRENDAN_CORALGROVE_ELEVATOR
 	goto Update4_63
 
 Update4_67:
-# 127 "data/scripts/my_debug.pory"
+# 126 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_MAY_BASALEK_TOWN
-# 128 "data/scripts/my_debug.pory"
+# 127 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_MAY_CORALGROVE_ELEVATOR
 	goto Update4_66
 
 Update4_70:
-# 131 "data/scripts/my_debug.pory"
+# 130 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_536_
-# 132 "data/scripts/my_debug.pory"
+# 131 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_MAY_CORALGROVE_ELEVATOR
 	goto Update4_69
 
 Update4_73:
-# 136 "data/scripts/my_debug.pory"
+# 135 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_234_
-# 137 "data/scripts/my_debug.pory"
+# 136 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_MAY_ROUTE_11_ANGRY
 	goto Update4_72
 
 Update4_76:
-# 140 "data/scripts/my_debug.pory"
+# 139 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_235_
-# 141 "data/scripts/my_debug.pory"
+# 140 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_MAY_ROUTE_11_ANGRY
 	goto Update4_75
 
 Update4_79:
-# 144 "data/scripts/my_debug.pory"
+# 143 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_236_
-# 145 "data/scripts/my_debug.pory"
+# 144 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_MAY_ROUTE_11_ANGRY
 	goto Update4_78
 
 Update4_82:
-# 149 "data/scripts/my_debug.pory"
+# 148 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_228_
-# 150 "data/scripts/my_debug.pory"
+# 149 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BRENDAN_ROUTE_11_ANGRY
 	goto Update4_81
 
 Update4_85:
-# 153 "data/scripts/my_debug.pory"
+# 152 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_229_
-# 154 "data/scripts/my_debug.pory"
+# 153 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BRENDAN_ROUTE_11_ANGRY
 	goto Update4_84
 
 Update4_88:
-# 157 "data/scripts/my_debug.pory"
+# 156 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_230_
-# 158 "data/scripts/my_debug.pory"
+# 157 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BRENDAN_ROUTE_11_ANGRY
 	goto Update4_87
 
 Update4_91:
-# 162 "data/scripts/my_debug.pory"
+# 161 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_231_
-# 163 "data/scripts/my_debug.pory"
+# 162 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_MAY_ROUTE_11_NORMAL
 	goto Update4_90
 
 Update4_94:
-# 166 "data/scripts/my_debug.pory"
+# 165 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_232_
-# 167 "data/scripts/my_debug.pory"
+# 166 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_MAY_ROUTE_11_NORMAL
 	goto Update4_93
 
 Update4_97:
-# 170 "data/scripts/my_debug.pory"
+# 169 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_233_
-# 171 "data/scripts/my_debug.pory"
+# 170 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_MAY_ROUTE_11_NORMAL
 	goto Update4_96
 
 Update4_100:
-# 175 "data/scripts/my_debug.pory"
+# 174 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_225_
-# 176 "data/scripts/my_debug.pory"
+# 175 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BRENDAN_ROUTE_11_NORMAL
 	goto Update4_99
 
 Update4_103:
-# 179 "data/scripts/my_debug.pory"
+# 178 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_226_
-# 180 "data/scripts/my_debug.pory"
+# 179 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BRENDAN_ROUTE_11_NORMAL
 	goto Update4_102
 
 Update4_106:
-# 183 "data/scripts/my_debug.pory"
+# 182 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_227_
-# 184 "data/scripts/my_debug.pory"
+# 183 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BRENDAN_ROUTE_11_NORMAL
 	goto Update4_105
 
 Update4_109:
-# 188 "data/scripts/my_debug.pory"
+# 187 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_376_
-# 189 "data/scripts/my_debug.pory"
+# 188 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_MAY_BASALEK_TOWN
 	goto Update4_108
 
 Update4_112:
-# 192 "data/scripts/my_debug.pory"
+# 191 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_377_
-# 193 "data/scripts/my_debug.pory"
+# 192 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_MAY_BASALEK_TOWN
 	goto Update4_111
 
 Update4_115:
-# 196 "data/scripts/my_debug.pory"
+# 195 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_378_
-# 197 "data/scripts/my_debug.pory"
+# 196 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_MAY_BASALEK_TOWN
 	goto Update4_114
 
 Update4_118:
-# 201 "data/scripts/my_debug.pory"
+# 200 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_379_
-# 202 "data/scripts/my_debug.pory"
+# 201 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BRENDAN_BASALEK_TOWN
 	goto Update4_117
 
 Update4_121:
-# 205 "data/scripts/my_debug.pory"
+# 204 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_380_
-# 206 "data/scripts/my_debug.pory"
+# 205 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BRENDAN_BASALEK_TOWN
 	goto Update4_120
 
 Update4_124:
-# 209 "data/scripts/my_debug.pory"
+# 208 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_381_
-# 210 "data/scripts/my_debug.pory"
+# 209 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BRENDAN_BASALEK_TOWN
 	goto Update4_123
 
 
 UpdateGuy::
-# 226 "data/scripts/my_debug.pory"
+# 225 "data/scripts/my_debug.pory"
 	faceplayer
-# 227 "data/scripts/my_debug.pory"
+# 226 "data/scripts/my_debug.pory"
 	msgbox UpdateGuy_Text1
-# 228 "data/scripts/my_debug.pory"
+# 227 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SYS_POKEDEX_GET, UpdateGuy_2
-# 233 "data/scripts/my_debug.pory"
+# 232 "data/scripts/my_debug.pory"
 	message WhatWouldYouLikeToDo
-# 234 "data/scripts/my_debug.pory"
+# 233 "data/scripts/my_debug.pory"
 	waitmessage
-# 235 "data/scripts/my_debug.pory"
-	compare VAR_DEBUG, 4
+# 234 "data/scripts/my_debug.pory"
+	compare VAR_DEBUG, 5
 	goto_if_lt UpdateGuy_5
 UpdateGuy_4:
-# 238 "data/scripts/my_debug.pory"
+# 237 "data/scripts/my_debug.pory"
 	dynmultipush UpdateGuy_Text_1, 1
-# 239 "data/scripts/my_debug.pory"
+# 238 "data/scripts/my_debug.pory"
 	dynmultipush UpdateGuy_Text_2, 2
-# 240 "data/scripts/my_debug.pory"
+# 239 "data/scripts/my_debug.pory"
 	dynmultipush UpdateGuy_Text_3, 3
-# 241 "data/scripts/my_debug.pory"
+# 240 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_OBTAINED_MEGA_RING, UpdateGuy_8
 UpdateGuy_7:
-# 244 "data/scripts/my_debug.pory"
+# 243 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_ENABLE_SECRET_SHOP, UpdateGuy_11
 UpdateGuy_10:
-# 247 "data/scripts/my_debug.pory"
+# 246 "data/scripts/my_debug.pory"
 	dynmultipush UpdateGuy_Text_6, 6
-# 248 "data/scripts/my_debug.pory"
+# 247 "data/scripts/my_debug.pory"
 	dynmultistack 23, 0, FALSE, 6, FALSE, 0, 0
-# 249 "data/scripts/my_debug.pory"
+# 248 "data/scripts/my_debug.pory"
 	switch VAR_RESULT
-# 250 "data/scripts/my_debug.pory"
+# 249 "data/scripts/my_debug.pory"
 	case 0, UpdateGuy_14
-# 252 "data/scripts/my_debug.pory"
+# 251 "data/scripts/my_debug.pory"
 	case 1, UpdateGuy_15
-# 254 "data/scripts/my_debug.pory"
+# 253 "data/scripts/my_debug.pory"
 	case 2, UpdateGuy_16
-# 256 "data/scripts/my_debug.pory"
+# 255 "data/scripts/my_debug.pory"
 	case 3, UpdateGuy_17
-# 258 "data/scripts/my_debug.pory"
+# 257 "data/scripts/my_debug.pory"
 	case 4, UpdateGuy_18
-# 260 "data/scripts/my_debug.pory"
+# 259 "data/scripts/my_debug.pory"
 	case 5, UpdateGuy_19
-# 262 "data/scripts/my_debug.pory"
+# 261 "data/scripts/my_debug.pory"
 	case 6, UpdateGuy_20
-# 263 "data/scripts/my_debug.pory"
+# 262 "data/scripts/my_debug.pory"
 	case MULTI_B_PRESSED, UpdateGuy_20
 	return
 
 UpdateGuy_2:
-# 229 "data/scripts/my_debug.pory"
+# 228 "data/scripts/my_debug.pory"
 	msgbox UpdateGuy_Text2
-# 230 "data/scripts/my_debug.pory"
+# 229 "data/scripts/my_debug.pory"
 	release
 	end
 
 UpdateGuy_5:
-# 236 "data/scripts/my_debug.pory"
+# 235 "data/scripts/my_debug.pory"
 	dynmultipush UpdateGuy_Text_0, 0
 	goto UpdateGuy_4
 
 UpdateGuy_8:
-# 242 "data/scripts/my_debug.pory"
+# 241 "data/scripts/my_debug.pory"
 	dynmultipush UpdateGuy_Text_4, 4
 	goto UpdateGuy_7
 
 UpdateGuy_11:
-# 245 "data/scripts/my_debug.pory"
+# 244 "data/scripts/my_debug.pory"
 	dynmultipush UpdateGuy_Text_5, 5
 	goto UpdateGuy_10
 
 UpdateGuy_14:
-# 251 "data/scripts/my_debug.pory"
+# 250 "data/scripts/my_debug.pory"
 	goto UpdateGame
 	return
 
 UpdateGuy_15:
-# 253 "data/scripts/my_debug.pory"
+# 252 "data/scripts/my_debug.pory"
 	goto Debug_Script_1
 	return
 
 UpdateGuy_16:
-# 255 "data/scripts/my_debug.pory"
+# 254 "data/scripts/my_debug.pory"
 	goto SkipContent
 	return
 
 UpdateGuy_17:
-# 257 "data/scripts/my_debug.pory"
+# 256 "data/scripts/my_debug.pory"
 	goto Debug_Script_81
 	return
 
 UpdateGuy_18:
-# 259 "data/scripts/my_debug.pory"
+# 258 "data/scripts/my_debug.pory"
 	goto TestMegaMon
 	return
 
 UpdateGuy_19:
-# 261 "data/scripts/my_debug.pory"
+# 260 "data/scripts/my_debug.pory"
 	goto SecretShopScript
 	return
 
 UpdateGuy_20:
-# 264 "data/scripts/my_debug.pory"
+# 263 "data/scripts/my_debug.pory"
 	msgbox UpdateGuy_Text_7, MSGBOX_AUTOCLOSE
 	return
 
 
 UpdateGame::
-# 292 "data/scripts/my_debug.pory"
-	setflag FLAG_SYS_B_DASH
-# 293 "data/scripts/my_debug.pory"
-	setflag FLAG_SYS_JOURNAL_GET
-# 294 "data/scripts/my_debug.pory"
-	switch VAR_DEBUG
-# 295 "data/scripts/my_debug.pory"
-	case 2, UpdateGame_3
-# 298 "data/scripts/my_debug.pory"
-	case 3, UpdateGame_4
-# 301 "data/scripts/my_debug.pory"
-	case 4, UpdateGame_5
+# 291 "data/scripts/my_debug.pory"
+	compare VAR_DEBUG, 2
+	goto_if_eq UpdateGame_2
 UpdateGame_1:
+# 294 "data/scripts/my_debug.pory"
+	compare VAR_DEBUG, 3
+	goto_if_eq UpdateGame_5
+UpdateGame_4:
+# 297 "data/scripts/my_debug.pory"
+	compare VAR_DEBUG, 4
+	goto_if_eq UpdateGame_8
+UpdateGame_7:
+# 303 "data/scripts/my_debug.pory"
+	msgbox GameIsUpToDate
 # 304 "data/scripts/my_debug.pory"
 	release
 	return
 
-UpdateGame_3:
-# 296 "data/scripts/my_debug.pory"
+UpdateGame_2:
+# 292 "data/scripts/my_debug.pory"
 	call Update3
-# 297 "data/scripts/my_debug.pory"
-	msgbox GameIsUpToDate
-	goto UpdateGame_1
-
-UpdateGame_4:
-# 299 "data/scripts/my_debug.pory"
-	call Update4
-# 300 "data/scripts/my_debug.pory"
-	msgbox GameIsUpToDate
 	goto UpdateGame_1
 
 UpdateGame_5:
-# 302 "data/scripts/my_debug.pory"
-	msgbox GameIsUpToDate
-	goto UpdateGame_1
+# 295 "data/scripts/my_debug.pory"
+	call Update4
+	goto UpdateGame_4
+
+UpdateGame_8:
+# 298 "data/scripts/my_debug.pory"
+	setflag FLAG_SYS_B_DASH
+# 299 "data/scripts/my_debug.pory"
+	setflag FLAG_SYS_JOURNAL_GET
+# 300 "data/scripts/my_debug.pory"
+	callnative ClearAllContestWinnerPics
+# 301 "data/scripts/my_debug.pory"
+	setvar VAR_DEBUG, 5
+	goto UpdateGame_7
 
 
 TestMegaMon::
@@ -10303,35 +10304,35 @@ SecretShopScript_Mart:
 	.2byte ITEM_NONE
 
 UpdateGuy_Text_0:
-# 236 "data/scripts/my_debug.pory"
+# 235 "data/scripts/my_debug.pory"
 	.string "Update Game$"
 
 UpdateGuy_Text_1:
-# 238 "data/scripts/my_debug.pory"
+# 237 "data/scripts/my_debug.pory"
 	.string "Set Team Level$"
 
 UpdateGuy_Text_2:
-# 239 "data/scripts/my_debug.pory"
+# 238 "data/scripts/my_debug.pory"
 	.string "Skip Content$"
 
 UpdateGuy_Text_3:
-# 240 "data/scripts/my_debug.pory"
+# 239 "data/scripts/my_debug.pory"
 	.string "Enter Code$"
 
 UpdateGuy_Text_4:
-# 242 "data/scripts/my_debug.pory"
+# 241 "data/scripts/my_debug.pory"
 	.string "Obtain Mega Mon$"
 
 UpdateGuy_Text_5:
-# 245 "data/scripts/my_debug.pory"
+# 244 "data/scripts/my_debug.pory"
 	.string "Secret Shop$"
 
 UpdateGuy_Text_6:
-# 247 "data/scripts/my_debug.pory"
+# 246 "data/scripts/my_debug.pory"
 	.string "Nevermind$"
 
 UpdateGuy_Text_7:
-# 264 "data/scripts/my_debug.pory"
+# 263 "data/scripts/my_debug.pory"
 	.string "Goodbye.$"
 
 TestMegaMon_Text_0:
@@ -10639,38 +10640,38 @@ SecretShopScript_Text_0:
 	.string "What're you buyin?$"
 
 MixupWithTMs::
-# 216 "data/scripts/my_debug.pory"
+# 215 "data/scripts/my_debug.pory"
 	.string "There has been a mix-up with some\n"
 	.string "TM rewards.\p"
 	.string "Fixing the mix-up now.$"
 
 NewUpdate::
-# 221 "data/scripts/my_debug.pory"
+# 220 "data/scripts/my_debug.pory"
 	.string "A new update has been applied.$"
 
 UpdateGuy_Text1::
-# 268 "data/scripts/my_debug.pory"
+# 267 "data/scripts/my_debug.pory"
 	.string "Hello, I am a debug guy.\p"
 	.string "I offer many services that can help\n"
 	.string "you with testing this game.$"
 
 UpdateGuy_Text2::
-# 273 "data/scripts/my_debug.pory"
+# 272 "data/scripts/my_debug.pory"
 	.string "Before I can offer you my services,\n"
 	.string "you must acquire a Pokédex.$"
 
 WhatWouldYouLikeToDo::
-# 277 "data/scripts/my_debug.pory"
+# 276 "data/scripts/my_debug.pory"
 	.string "What would you like to do?$"
 
 GameIsUpToDate::
-# 280 "data/scripts/my_debug.pory"
+# 279 "data/scripts/my_debug.pory"
 	.string "Your game is now up-to-date.\p"
 	.string "If you need anything else,\n"
 	.string "let me know.$"
 
 GrottoUpdate::
-# 285 "data/scripts/my_debug.pory"
+# 284 "data/scripts/my_debug.pory"
 	.string "Any Pokémon you have acquired from\n"
 	.string "a grotto has been updated, and will\l"
 	.string "now have its hidden ability.$"
