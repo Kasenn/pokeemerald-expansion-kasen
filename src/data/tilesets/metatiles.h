@@ -348,3 +348,6 @@ const u16 gMetatileAttributes_Route18[] = INCBIN_U16("data/tilesets/secondary/ro
 
 const u16 gMetatiles_LatiIsles[] = INCBIN_U16("data/tilesets/secondary/lati_isles/metatiles.bin");
 const u16 gMetatileAttributes_LatiIsles[] = INCBIN_U16("data/tilesets/secondary/lati_isles/metatile_attributes.bin");
+
+const u16 gMetatiles_Route19[] = INCBIN_U16("data/tilesets/secondary/route_19/metatiles.bin");
+const u16 gMetatileAttributes_Route19[] = INCBIN_U16("data/tilesets/secondary/route_19/metatile_attributes.bin");

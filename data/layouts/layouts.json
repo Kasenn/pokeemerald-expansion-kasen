@@ -4584,7 +4584,7 @@
     {
       "id": "LAYOUT_PLAYER_HOUSE2F",
       "name": "PlayerHouse2F_Layout",
-      "width": 14,
+      "width": 9,
       "height": 8,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_BrendansMaysHouse",
@@ -5096,7 +5096,7 @@
       "name": "TestRoom_Layout",
       "width": 60,
       "height": 60,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_Crowd",
       "secondary_tileset": "gTileset_BattleDome",
       "border_filepath": "data/layouts/TestRoom/border.bin",
       "blockdata_filepath": "data/layouts/TestRoom/map.bin"
@@ -6084,7 +6084,7 @@
     {
       "id": "LAYOUT_PLAYER_HOUSE2F_MAY",
       "name": "PlayerHouse2F_May_Layout",
-      "width": 14,
+      "width": 9,
       "height": 8,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_BrendansMaysHouse",
@@ -6547,7 +6547,7 @@
       "width": 89,
       "height": 74,
       "primary_tileset": "gTileset_Winter",
-      "secondary_tileset": "gTileset_Crystalpine",
+      "secondary_tileset": "gTileset_Route19",
       "border_filepath": "data/layouts/Route19/border.bin",
       "blockdata_filepath": "data/layouts/Route19/map.bin"
     },

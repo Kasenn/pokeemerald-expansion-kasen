@@ -1,10 +1,10 @@
+const FLAG_MOM = FLAG_TEMP_1
+
 mapscripts PlayerHouse2F_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION {
+    MAP_SCRIPT_ON_TRANSITION{
+        setflag(FLAG_MOM)
         if(checkplayergender == FEMALE){
             setmaplayoutindex(LAYOUT_PLAYER_HOUSE2F_MAY)
-        }
-        if(var(VAR_PEARLWOOD_TOWN_STATE) >= STORY_PEARLWOOD_INTRO_COMPLETED){
-            setflag(FLAG_TEMP_1)
         }
         if(var(VAR_PEARLWOOD_TOWN_STATE) >= STORY_PEARLWOOD_MEGA_RING_OBTAINED
         && flag(FLAG_HIDE_PLAYERS_HOUSE_DAD)
@@ -23,26 +23,19 @@ mapscripts PlayerHouse2F_MapScripts {
     }
 }
 
-const MOM = 1
-
 script PlayerHouse2F_Intro{
     delay(60)
-    setobjectxy(MOM, 7, 1)
-    showobjectat(MOM, MAP_PLAYER_HOUSE2F)
+    addobject(LOCALID_PLAYERROOM_MOM)
     delay(60)
-    applymovement(MOM, Walk1Down)
-    waitmovement(0)
-    turnobject(MOM, DIR_WEST)
+    waitmove(LOCALID_PLAYERROOM_MOM, Walk1Down)
+    turnobject(LOCALID_PLAYERROOM_MOM, DIR_WEST)
     delay(10)
-    msgbox(PlayerHouse2F_Intro_Text)
-    closemessage
+    msgbox(PlayerHouse2F_Intro_Text, MSGBOX_AUTOCLOSE)
     delay(30)
-    applymovement(MOM, Walk1Up)
-    waitmovement(0)
-    removeobject(MOM)
+    waitmove(LOCALID_PLAYERROOM_MOM, Walk1Up)
+    removeobject(LOCALID_PLAYERROOM_MOM)
     delay(30)
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
-    waitmovement(0)
+    waitmove(OBJ_EVENT_ID_PLAYER, Walk1Right)
     setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_INTRO_COMPLETED)
     setrespawn(HEAL_LOCATION_PLAYER_HOUSE2F)
     release
@@ -59,10 +52,8 @@ text PlayerHouse2F_Intro_Text{
 
 script PlayerHouse2F_ClockReminder{
     lock
-    msgbox(PlayerHouse2F_ClockReminder_Text)
-    closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Left)
-    waitmovement(0)
+    msgbox(PlayerHouse2F_ClockReminder_Text, MSGBOX_AUTOCLOSE)
+    waitmove(OBJ_EVENT_ID_PLAYER, Walk1Left)
     release
 }
 
@@ -73,10 +64,8 @@ text PlayerHouse2F_ClockReminder_Text{
 
 script PlayerHouse2F_ShoesReminder{
     lock
-    msgbox(PlayerHouse2F_ShoesReminder_Text)
-    closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Left)
-    waitmovement(0)
+    msgbox(PlayerHouse2F_ShoesReminder_Text, MSGBOX_AUTOCLOSE)
+    waitmove(OBJ_EVENT_ID_PLAYER, Walk1Left)
     release
 }
 
@@ -196,47 +185,23 @@ script ChangePlayerOutfit{
     end
 }
 
-script PlayerHouse_Journal{
+script PlayerHouse_Shoes{
     lock
 	waitse
     playfanfare(MUS_OBTAIN_ITEM)
     removeobject(VAR_LAST_TALKED)
     setmetatile(5, 7, 0x295, FALSE)
     special(DrawWholeMapView)
-	message(PlayerFoundJournal)
+	message(PlayerFoundShoes)
 	waitfanfare
 	waitmessage
-	msgbox(JournalIntroText)
-	release
+	msgbox(ShoesIntroText, MSGBOX_AUTOCLOSE)
 	end
 }
 
-text PlayerFoundJournal{
+text PlayerFoundShoes{
     "{PLAYER} obtained the running shoes!"}
-text JournalIntroText{
+text ShoesIntroText{
     "{COLOR RED}{SHADOW LIGHT_RED}Press the B Button while wearing these\n"
     "running shoes to run extra-fast!"
-}
-
-    // "Certain events may be recorded in the\n"
-    // "Journal when they are discovered.\p"
-    // "The Journal can be accessed through\n"
-    // "the Start Menu."
-
-
-script HeresQuests{
-    msgbox(HeresQuests_Text, MSGBOX_NPC)
-    callnative(StartAllQuests)
-    special(ShowJournalPopupAdd)
-    release
-}
-
-text HeresQuests_Text{
-    "Sup.\n"
-    "Here's a bunch of journal entries."
-}
-
-text MakeSureToPickUpJournal{
-    "I should also pick up the Journal\n"
-    "from the table before leaving…"
 }

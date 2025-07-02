@@ -17,11 +17,6 @@ script Update3{
         closemessage
     }
     setflag(FLAG_SYS_JOURNAL_GET)
-	waitse
-    playfanfare(MUS_OBTAIN_ITEM)
-	message(PlayerFoundJournal)
-	waitfanfare
-	waitmessage
     setvar(VAR_DEBUG, 3)
     release
 }
