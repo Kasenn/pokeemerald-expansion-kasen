@@ -11,7 +11,7 @@ mapscripts Kaolisle_Hotel_1F_MapScripts{
     ]
 }
 script SetPlayerDirAfterBuffet{
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    turnobject(LOCALID_PLAYER, DIR_NORTH)
     addvar(VAR_KAOLISLE_HOTEL_STATE, 1)
 }
 
@@ -21,9 +21,7 @@ script JasmineLeavesHotel{
     turnobject(24, DIR_SOUTH)
     playse(SE_PIN)
     safefollow
-	applymovement(24, Common_Movement_ExclamationMark)
-	waitmovement(0)
-	delay(70)
+    exclamationmark(24)
     applymovement(24, HotelWalkDown2)
     applymovement(25, HotelWalkDown2)
     waitmovement(0)
@@ -233,7 +231,7 @@ script BuffetOfferSoup{
 
 script Hotel_BuffetTrigger{
     lock
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    turnobject(LOCALID_PLAYER, DIR_NORTH)
     delay(20)
     if((defeated(TRAINER_BUFFET_1))
     &&(defeated(TRAINER_BUFFET_2))
@@ -295,7 +293,7 @@ script BuffetDineHere{
     goto(WalkToFirstTable)
 }
 script WalkToFirstTable{
-    applymovement(OBJ_EVENT_ID_PLAYER, WalkTo1stTable)
+    applymovement(LOCALID_PLAYER, WalkTo1stTable)
     waitmovement(0)
     msgbox(BuffetTr1_Intro)
     trainerbattle_no_intro(TRAINER_BUFFET_1, BuffetTr1_Lose)
@@ -307,7 +305,7 @@ script WalkToFirstTable{
 script WalkToSecondTable{
     msgbox(BuffetTr1_PostBattle)
     closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, WalkTo2ndTable)
+    applymovement(LOCALID_PLAYER, WalkTo2ndTable)
     waitmovement(0)
     msgbox(EatMeal, MSGBOX_YESNO)
     closemessage
@@ -324,7 +322,7 @@ script WalkToSecondTable{
 script WalkToThirdTable{
     msgbox(BuffetTr2_PostBattle)
     closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, WalkTo3rdTable)
+    applymovement(LOCALID_PLAYER, WalkTo3rdTable)
     waitmovement(0)
     if(!flag(FLAG_TEMP_4)){
         msgbox(EatMeal, MSGBOX_YESNO)
@@ -344,7 +342,7 @@ script WalkToFourthTable{
     call(BuffetOfferSoup)
     msgbox(BuffetTr3_PostBattle)
     closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, WalkTo2ndTable)
+    applymovement(LOCALID_PLAYER, WalkTo2ndTable)
     waitmovement(0)
     if(!flag(FLAG_TEMP_4)){
         msgbox(EatMeal, MSGBOX_YESNO)
@@ -365,7 +363,7 @@ script BuffetFinale{
     closemessage
     playse(SE_DING_DONG)
     waitse
-    turnobject(0xFF, DIR_NORTH)
+    turnobject(LOCALID_PLAYER, DIR_NORTH)
     delay(20)
     msgbox(WinnerComeForward)
     closemessage
@@ -412,7 +410,7 @@ script BuffetComplete{
     if(checkitemspace(ITEM_LEFTOVERS) == FALSE){
         msgbox(NotEnoughRoomLeftovers, MSGBOX_DEFAULT)
         closemessage
-        applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
+        applymovement(LOCALID_PLAYER, Walk1Right)
         waitmovement(0)
         clearflag(FLAG_SYSTEM_NOREWARDBATTLES)
         release
@@ -435,7 +433,7 @@ script BuffetComplete{
         completequest(FLAG_Q24_BATTLE_BUFFET_COMPLETE)
         special(ShowJournalPopupRemove)
     }
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
+    applymovement(LOCALID_PLAYER, Walk1Right)
     waitmovement(0)
     release
     end
@@ -454,7 +452,7 @@ script BuffetLost2{
     clearflag(FLAG_CONTINUE_AFTER_WHITEOUT)
     clearflag(FLAG_SYSTEM_NOREWARDBATTLES)
     setvar(VAR_KAOLISLE_HOTEL_STATE, 7)
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
+    applymovement(LOCALID_PLAYER, Walk1Right)
     waitmovement(0)
     release
     end
@@ -480,7 +478,7 @@ script BuffetComeBackLater{
         startquest(FLAG_Q24_BATTLE_BUFFET_START)
         special(ShowJournalPopupAdd)
     }
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
+    applymovement(LOCALID_PLAYER, Walk1Right)
     waitmovement(0)
     release
     end
@@ -489,7 +487,7 @@ script BuffetNotEnoughMoney{
     msgbox(BuffetNotEnoughMoney_Text, MSGBOX_DEFAULT)
     closemessage
     hidemoneybox
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
+    applymovement(LOCALID_PLAYER, Walk1Right)
     waitmovement(0)
     release
     end
@@ -498,7 +496,7 @@ script BuffetAlreadyCompleted{
     msgbox(BuffetAlreadyCompleted_Text, MSGBOX_DEFAULT)
     closemessage
     safefollow
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
+    applymovement(LOCALID_PLAYER, Walk1Right)
     waitmovement(0)
     release
     end
@@ -743,14 +741,12 @@ script Hotel_PrivateParty{
     lock
     playse(SE_PIN)
     safefollow
-	applymovement(1, Common_Movement_ExclamationMark)
-	waitmovement(0)
-	delay(40)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    exclamationmark(1)
+    turnobject(LOCALID_PLAYER, DIR_NORTH)
     delay(20)
     msgbox(Hotel_PrivateParty_Text, MSGBOX_DEFAULT)
     closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Left)
+    applymovement(LOCALID_PLAYER, Walk1Left)
     waitmovement(0)
     release
     end

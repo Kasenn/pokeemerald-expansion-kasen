@@ -14,9 +14,7 @@ script PrimroseMeadow_EventScript_Rival{
 		playbgm(MUS_ENCOUNTER_MAY, TRUE)
 	}
 	faceplayer
-	applymovement(1, Common_Movement_ExclamationMark)
-	waitmovement(0)
-	delay(48)
+	exclamationmark(1)
 	if(var(VAR_RESULT) == MALE){
 		msgbox(PRMeadow_Text_MayLetsBattle)
 		trainerbattle_no_intro(TRAINER_MAY_PRIMROSE_MEADOW, PRMeadow_MayDefeated)
@@ -34,7 +32,7 @@ script PrimroseMeadow_EventScript_Rival{
 		case DIR_SOUTH:
 			applymovement(1, PRMeadow_Movement_RivalExit1)
 		case DIR_NORTH:
-			applymovement(OBJ_EVENT_ID_PLAYER, PRMeadow_Movement_WatchRivalExitFacingNorth)
+			applymovement(LOCALID_PLAYER, PRMeadow_Movement_WatchRivalExitFacingNorth)
 			getfollowerxy(VAR_TEMP_0, VAR_TEMP_1)
 			if(var(VAR_TEMP_0) == 9 && var(VAR_TEMP_1) == 9){
 				applymovement(1, PRMeadow_Movement_RivalExitFacingNorth2)
@@ -44,7 +42,7 @@ script PrimroseMeadow_EventScript_Rival{
 			}
 		case DIR_EAST:
 		case DIR_WEST:
-			applymovement(OBJ_EVENT_ID_PLAYER, PRMeadow_Movement_WatchRivalExitFacingEastOrWest)
+			applymovement(LOCALID_PLAYER, PRMeadow_Movement_WatchRivalExitFacingEastOrWest)
 			applymovement(1, PRMeadow_Movement_RivalExit1)
 	}
 	waitmovement(0)

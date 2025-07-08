@@ -12,37 +12,26 @@ mapscripts PlayerHouse1F_MapScripts {
     ]
 }
 
-const MOM = 1
-
 script PlayerHouse1F_Intro{
     lock
-    turnobject(MOM, DIR_NORTH)
+    turnobject(LOCALID_MOM, DIR_NORTH)
     playse(SE_PIN)
-    applymovement(MOM, Common_Movement_ExclamationMark)
-    waitmovement(0)
-    delay(48)
-    msgbox(PlayerHouse1F_LookPlayer)
-    closemessage
-    turnobject(MOM, DIR_WEST)
-    applymovement(OBJ_EVENT_ID_PLAYER, PlayerHouse1F_PlayerSitTable)
-    waitmovement(0)
-    delay(20)
+    exclamationmark(LOCALID_MOM)
+    msgbox(PlayerHouse1F_LookPlayer, MSGBOX_AUTOCLOSE)
+    turnobject(LOCALID_MOM, DIR_WEST)
+    waitmove(LOCALID_PLAYER, PlayerHouse1F_PlayerSitTable)
     msgbox(PlayerHouse1F_Disc1)
-    msgbox(PlayerHouse1F_Disc1Part2)
-    closemessage
+    msgbox(PlayerHouse1F_Disc1Part2, MSGBOX_AUTOCLOSE)
     fadescreen(FADE_TO_BLACK)
     delay(80)
     fadescreen(FADE_FROM_BLACK)
     msgbox(PlayerHouse1F_Disc2)
     msgbox(PlayerHouse1F_Disc2Part2)
-    msgbox(PlayerHouse1F_Disc2Part3)
-    closemessage
+    msgbox(PlayerHouse1F_Disc2Part3, MSGBOX_AUTOCLOSE)
     playse(SE_PIN)
-    applymovement(MOM, Common_Movement_ExclamationMark)
-    waitmovement(0)
-    delay(48)
-    turnobject(MOM, DIR_SOUTH)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    exclamationmark(LOCALID_MOM)
+    turnobject(LOCALID_MOM, DIR_SOUTH)
+    turnobject(LOCALID_PLAYER, DIR_NORTH)
     msgbox(PlayerHouse1F_Disc3)
     closemessage
     msgbox("Oh, and one more thing.")
@@ -56,7 +45,7 @@ script PlayerHouse1F_Intro{
     // msgbox("Mom: Now you can zip around everywhere\nmuch faster!")
     closemessage
     delay(30)
-    turnobject(MOM, DIR_WEST)
+    turnobject(LOCALID_MOM, DIR_WEST)
     release
 }
 
@@ -108,6 +97,7 @@ text PlayerHouse1F_Disc3{
 movement PlayerHouse1F_PlayerSitTable{
     walk_down * 4
     walk_left * 3
+    delay_16
 }
 
 script PlayerHouse1F_Brother{

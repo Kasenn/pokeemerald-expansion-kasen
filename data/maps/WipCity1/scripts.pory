@@ -147,22 +147,20 @@ script AldeleafTriggerMain{
 	playse(SE_PIN)
 	turnobject(18, DIR_WEST)
 	safefollow
-	applymovement(18, Common_Movement_ExclamationMark)
-	waitmovement(0)
-	delay(48)
+	exclamationmark(18)
 	switch(var(VAR_TEMP_5)){
 		case 1:
-			applymovement(OBJ_EVENT_ID_PLAYER, Walk2Right)
+			applymovement(LOCALID_PLAYER, Walk2Right)
 		case 2:
-			applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
+			applymovement(LOCALID_PLAYER, Walk1Right)
 		case 3:
-			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceRight)
+			applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceRight)
 	}
 	waitmovement(0)
 	delay(10)
 	msgbox(DangerousOutside_Text)
 	closemessage
-	applymovement(OBJ_EVENT_ID_PLAYER, Walk1Down)
+	applymovement(LOCALID_PLAYER, Walk1Down)
 	waitmovement(0)
 	delay(10)
 	release
@@ -185,20 +183,18 @@ script AldeleafTriggerMain2{
 	playse(SE_PIN)
 	turnobject(19, DIR_EAST)
 	safefollow
-	applymovement(19, Common_Movement_ExclamationMark)
-	waitmovement(0)
-	delay(48)
+	exclamationmark(19)
 	switch(var(VAR_TEMP_5)){
 		case 4:
-			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceLeft)
+			applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceLeft)
 		case 5:
-			applymovement(OBJ_EVENT_ID_PLAYER, Walk1Left)
+			applymovement(LOCALID_PLAYER, Walk1Left)
 	}
 	waitmovement(0)
 	delay(10)
 	msgbox(DangerousOutside_Text)
 	closemessage
-	applymovement(OBJ_EVENT_ID_PLAYER, Walk1Up)
+	applymovement(LOCALID_PLAYER, Walk1Up)
 	waitmovement(0)
 	delay(10)
 	release
@@ -228,10 +224,9 @@ script AldeleafCity_KeyMan{
 	checkitem(ITEM_LOST_KEY)
 	if(var(VAR_RESULT) == TRUE){
 		safefollow
-		applymovement(16, Common_Movement_ExclamationMark)
 		playse(SE_PIN)
 		faceplayer
-		delay(60)
+		exclamationmark(16)
 		msgbox(AldeleafCity_KeyMan_MyKey, MSGBOX_DEFAULT)
 		waitmessage
 		closemessage

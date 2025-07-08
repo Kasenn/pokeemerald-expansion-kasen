@@ -71,8 +71,7 @@ movement DevonRocketMove4{
 script DevonTurnRocket{
     playse(SE_PIN)
     turnobject(3, DIR_WEST)
-    applymovement(3, Common_Movement_ExclamationMark)
-    delay(60)
+    exclamationmark(3)
     return
 }
 script DevonCorpRocketMainEvent{

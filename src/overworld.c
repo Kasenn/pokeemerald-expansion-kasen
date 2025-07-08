@@ -905,6 +905,9 @@ void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum)
 {
     SetWarpDestination(mapGroup, mapNum, WARP_ID_NONE, -1, -1);
 
+    if ((MAP(MAP_TEST_ROOM)) && FlagGet(FLAG_ALT_CONNECTION))
+        SetWarpDestination(51, 10, WARP_ID_NONE, -1, -1);
+
     // Dont transition map music between BF Outside West/East
     TransitionMapMusic();
     ApplyCurrentWarp();

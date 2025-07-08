@@ -517,18 +517,16 @@ script AcerolaDanceTriggerMain{
     applymovement(6, FacePlayer)
     waitmovement(0)
     playse(SE_PIN)
-    applymovement(6, ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(6)
     switch(var(VAR_TEMP_5)){
         case 1:
-            turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+            turnobject(LOCALID_PLAYER, DIR_EAST)
         case 2:
-            turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+            turnobject(LOCALID_PLAYER, DIR_SOUTH)
         case 3:
-            turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+            turnobject(LOCALID_PLAYER, DIR_WEST)
         case 4:
-            turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+            turnobject(LOCALID_PLAYER, DIR_NORTH)
     }
     delay(15)
     checkplayergender

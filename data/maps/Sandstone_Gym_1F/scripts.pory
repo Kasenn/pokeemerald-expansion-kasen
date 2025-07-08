@@ -76,12 +76,9 @@ script SandStoneNoBike{
     playse(SE_PIN)
     turnobject(9, DIR_NORTH)
     safefollow
-    applymovement(9, Common_Movement_ExclamationMark)
-	waitmovement(0)
-	applymovement(9, Common_Movement_Delay48)
-	waitmovement(0)
+    exclamationmark(9)
     applymovement(9, TurnLeft)
-    applymovement(OBJ_EVENT_ID_PLAYER, MoveDown1)
+    applymovement(LOCALID_PLAYER, MoveDown1)
     waitmovement(0)
     msgbox(YouHaveNoBike)
     closemessage

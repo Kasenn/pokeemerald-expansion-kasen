@@ -63,9 +63,7 @@ script LitwickChase_1_Main{
         turnobject(1, DIR_WEST)
     }
     safefollow
-    applymovement(1, ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(1)
     applymovement(1, LitwickEscape1)
     waitmovement(0)
     setobjectxyperm(1, 14, 4)
@@ -85,9 +83,7 @@ script LitwickChase_2{
     if(var(VAR_TEMP_1) != 13 && var(VAR_TEMP_2) != 3){
         safefollow
     }
-    applymovement(1, ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(1)
     if(var(VAR_FACING) == DIR_EAST){
         applymovement(1, LitwickEscape2North)
     }
@@ -118,9 +114,7 @@ script LitwickChase_3{
     if(var(VAR_TEMP_1) != 2 && var(VAR_TEMP_2) != 3){
         safefollow
     }
-    applymovement(1, ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(1)
     if(var(VAR_FACING) == DIR_EAST){
         if(var(VAR_TEMP_1) == 1 && var(VAR_TEMP_2 == 4)){
             applymovement(1, LitwickEscape3NorthLong)

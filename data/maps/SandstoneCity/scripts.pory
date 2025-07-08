@@ -230,13 +230,13 @@ script SandstoneRival{
     opendoor(51, 22)
     if(var(TRIGGER) == 1){
         delay(10)
-        turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+        turnobject(LOCALID_PLAYER, DIR_NORTH)
     }
     waitdooranim
     addobject(RIVAL)
     switch(var(TRIGGER)){
         case 1:
-            applymovement(OBJ_EVENT_ID_PLAYER, Sandstone_PushPlayerDown)
+            applymovement(LOCALID_PLAYER, Sandstone_PushPlayerDown)
             applymovement(RIVAL, Walk1Down)
             waitmovement(0)
             closedoor(51, 22)
@@ -244,7 +244,7 @@ script SandstoneRival{
         case 2:
             safefollow
             applymovement(RIVAL, Walk1Down)
-            turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+            turnobject(LOCALID_PLAYER, DIR_NORTH)
             waitmovement(0)
             closedoor(51, 22)
             waitdooranim
@@ -254,7 +254,7 @@ script SandstoneRival{
             waitmovement(0)
             closedoor(51, 22)
             waitdooranim
-            turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+            turnobject(LOCALID_PLAYER, DIR_NORTH)
             applymovement(RIVAL, Walk1Down)
             waitmovement(0)
         case 4:
@@ -263,7 +263,7 @@ script SandstoneRival{
             waitmovement(0)
             closedoor(51, 22)
             waitdooranim
-            turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+            turnobject(LOCALID_PLAYER, DIR_NORTH)
             applymovement(RIVAL, Walk2Down)
             waitmovement(0)
     }
@@ -291,15 +291,15 @@ script SandstoneRival{
         case 2:
         	applymovement(RIVAL, Sandstone_RivalExitAfterStore)
             delay(32)
-            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft)
+            applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft)
         case 3:
             applymovement(RIVAL, Sandstone_RivalExitAfterStore2)
             delay(16)
-            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft)
+            applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft)
         case 4:
             applymovement(RIVAL, Walk8Left)
             delay(16)
-            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft)
+            applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft)
     }
 	waitmovement(RIVAL)
 	removeobject(RIVAL)

@@ -543,21 +543,13 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{              //
-    checkpartymon(SPECIES_PIKACHU, FALSE)
-    if(var(VAR_RESULT) == TRUE){
-        msgbox("true")
+    if(flag(FLAG_ALT_CONNECTION)){
+        clearflag(FLAG_ALT_CONNECTION)
     }
     else{
-        msgbox("false")
+        setflag(FLAG_ALT_CONNECTION)
     }
-    checkpartymon(SPECIES_LATIAS, FALSE)
-    if(var(VAR_RESULT) == TRUE){
-        buffernumberstring(STR_VAR_1, VAR_0x8000)
-        msgbox("true, {STR_VAR_1}")
-    }
-    else{
-        msgbox("false")
-    }
+    release
     return
 }
 script Debug_Script_4{

@@ -40,15 +40,15 @@ text ClayTooStrong5_Text{
 script GiovanniEscapesFactory{
     lock
     safefollow
-    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left * 5, walk_up, walk_left))
+    applymovement(LOCALID_PLAYER, moves(walk_left * 5, walk_up, walk_left))
     applymovement(2, moves(walk_slow_left * 7))
     delay(16)
     applymovement(1, moves(walk_slow_left * 7))
-    waitmovement(OBJ_EVENT_ID_PLAYER)
+    waitmovement(LOCALID_PLAYER)
     waitmovement(1)
     msgbox(ClayWasTooLate, MSGBOX_AUTOCLOSE)
     delay(8)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+    turnobject(LOCALID_PLAYER, DIR_SOUTH)
     turnobject(5, DIR_NORTH)
     delay(8)
     msgbox(ClayWillTakeRockets, MSGBOX_AUTOCLOSE)

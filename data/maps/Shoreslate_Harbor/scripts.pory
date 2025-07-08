@@ -117,7 +117,7 @@ script Harbor_BoardFerryGoingWest{
 	call_if_eq(VAR_FACING, DIR_NORTH, ShoreslateHarbor_EventScript_BoardFerryNorth)
 	call_if_eq(VAR_FACING, DIR_WEST,  ShoreslateHarbor_EventScript_BoardFerryWest)
 	delay(30)
-	hideobjectat(OBJ_EVENT_ID_PLAYER, 0)
+	hideobjectat(LOCALID_PLAYER, 0)
 	call(Common2_EventScript_FerryDepart4)
 	return
 }
@@ -139,12 +139,12 @@ script ShoreslateHarbor_EventScript_ComeAgain{
 }
 
 script ShoreslateHarbor_EventScript_BoardFerryWest{
-	applymovement(OBJ_EVENT_ID_PLAYER, CoastTownHarbor_Movement_BoardFerryWest)
+	applymovement(LOCALID_PLAYER, CoastTownHarbor_Movement_BoardFerryWest)
 	waitmovement(0)
 	return
  }
 script ShoreslateHarbor_EventScript_BoardFerryNorth{
-	applymovement(OBJ_EVENT_ID_PLAYER, Walk1Up)
+	applymovement(LOCALID_PLAYER, Walk1Up)
 	waitmovement(0)
 	return
 }

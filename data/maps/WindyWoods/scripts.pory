@@ -12,7 +12,7 @@ mapscripts WindyWoods_MapScripts{
             setvar(VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_TALKED_TO_GIRL)
         }
     }
-    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[VAR_WINDYWOODS_STATE, 4{turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)}]
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[VAR_WINDYWOODS_STATE, 4{turnobject(LOCALID_PLAYER, DIR_WEST)}]
     MAP_SCRIPT_ON_FRAME_TABLE[VAR_WINDYWOODS_STATE, 4: WW_BridgeScene2]
 }
 
@@ -209,10 +209,8 @@ script WW_HelpGirl{
     safefollow
     turnobject(LITTLE_GIRL, DIR_SOUTH)
     playse(SE_PIN)
-    applymovement(LITTLE_GIRL, Common_Movement_ExclamationMark)
-    waitmovement(0)
-    delay(48)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    exclamationmark(LITTLE_GIRL)
+    turnobject(LOCALID_PLAYER, DIR_NORTH)
     clearflag(FLAG_TEMP_2)
     setvar(VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_TALKED_TO_GIRL)
     msgbox(WW_Help)
@@ -244,7 +242,7 @@ text WW_Help2{
 
 script WW_RocketStop1{
     lock
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+    turnobject(LOCALID_PLAYER, DIR_WEST)
     setvar(VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_1ST_STEP_TAKEN)
     msgbox("That's far enough, pal.", MSGBOX_SIGN)
 }

@@ -141,9 +141,7 @@ script LanettesHouse_Scientist{
         closemessage
         playse(SE_PIN)
         safefollow
-        applymovement(1, Common_Movement_ExclamationMark)
-        waitmovement(0)
-        delay(48)
+        exclamationmark(1)
         msgbox(SampleBoxIntro3, MSGBOX_NPC)
         if(!flag(FLAG_Q19_MUDSCIENTIST_START)){
             startquest(FLAG_Q19_MUDSCIENTIST_START)

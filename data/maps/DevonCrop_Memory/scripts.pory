@@ -1,7 +1,7 @@
 mapscripts DevonCrop_Memory_MapScripts {
     MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
         VAR_TEMP_0, 0{
-            turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+            turnobject(LOCALID_PLAYER, DIR_EAST)
             callnative(TintWorld)
         }
     ]

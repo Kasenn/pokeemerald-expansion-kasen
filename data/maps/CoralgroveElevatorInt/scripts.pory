@@ -5,14 +5,14 @@ mapscripts CoralgroveElevatorInt_MapScripts {
 }
 
 script CGC_ElevatorUp{
-    applymovement(OBJ_EVENT_ID_PLAYER, ElevatorUp_MoveUp)
+    applymovement(LOCALID_PLAYER, ElevatorUp_MoveUp)
     waitmovement(0)
 	setvar(VAR_0x8005, 7)
     setvar(VAR_0x8006, 1)
     special(MoveElevator)
 	waitstate
     waitse
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Down)
+    applymovement(LOCALID_PLAYER, Walk1Down)
     waitmovement(0)
     warp(MAP_CORALGROVE_ELEVATOR2, 1, 9)
     waitstate

@@ -102,9 +102,7 @@ script PokeRanch_Volkner{
             waitmessage
             closemessage
             playse(SE_PIN)
-            applymovement(10, Common_Movement_ExclamationMark)
-            waitmovement(0)
-            delay(40)
+            exclamationmark(10)
             msgbox(PokeRanch_VolknerIntroContinued, MSGBOX_DEFAULT)
             waitmessage
             closemessage
@@ -305,10 +303,10 @@ script PokeRanch_MareepTrigger{
     msgbox("???: WE GOT YOU NOW!", MSGBOX_DEFAULT)
     waitmessage
     closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark)
+    applymovement(LOCALID_PLAYER, Common_Movement_QuestionMark)
     waitmovement(0)
     delay(90)
-    applymovement(OBJ_EVENT_ID_PLAYER, RanchMovePlayer)
+    applymovement(LOCALID_PLAYER, RanchMovePlayer)
     waitmovement(0)
     playbgm(MUS_ENCOUNTER_MAGMA, TRUE)
     setobjectxy(19, 44, 8)
@@ -421,7 +419,7 @@ movement TurnGrunt17{
 
 script Ranch_FirstRocketWon{
     delay(20)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+    turnobject(LOCALID_PLAYER, DIR_WEST)
     delay(20)
     msgbox(RanchRocket2Challenge, MSGBOX_DEFAULT)
     waitmessage
@@ -455,7 +453,7 @@ script PokeRanch_SpecialBattleWon{
     turnobject(18, DIR_SOUTH)
     turnobject(19, DIR_SOUTH)
     turnobject(13, DIR_NORTH)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    turnobject(LOCALID_PLAYER, DIR_NORTH)
     delay(40)
     fadescreenswapbuffers(FADE_FROM_BLACK)
     delay(40)

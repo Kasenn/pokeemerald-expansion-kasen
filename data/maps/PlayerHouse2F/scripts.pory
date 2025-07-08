@@ -35,7 +35,7 @@ script PlayerHouse2F_Intro{
     waitmove(LOCALID_PLAYERROOM_MOM, Walk1Up)
     removeobject(LOCALID_PLAYERROOM_MOM)
     delay(30)
-    waitmove(OBJ_EVENT_ID_PLAYER, Walk1Right)
+    waitmove(LOCALID_PLAYER, Walk1Right)
     setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_INTRO_COMPLETED)
     setrespawn(HEAL_LOCATION_PLAYER_HOUSE2F)
     release
@@ -53,7 +53,7 @@ text PlayerHouse2F_Intro_Text{
 script PlayerHouse2F_ClockReminder{
     lock
     msgbox(PlayerHouse2F_ClockReminder_Text, MSGBOX_AUTOCLOSE)
-    waitmove(OBJ_EVENT_ID_PLAYER, Walk1Left)
+    waitmove(LOCALID_PLAYER, Walk1Left)
     release
 }
 
@@ -65,7 +65,7 @@ text PlayerHouse2F_ClockReminder_Text{
 script PlayerHouse2F_ShoesReminder{
     lock
     msgbox(PlayerHouse2F_ShoesReminder_Text, MSGBOX_AUTOCLOSE)
-    waitmove(OBJ_EVENT_ID_PLAYER, Walk1Left)
+    waitmove(LOCALID_PLAYER, Walk1Left)
     release
 }
 

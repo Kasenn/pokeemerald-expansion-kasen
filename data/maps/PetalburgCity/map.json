@@ -5,7 +5,7 @@
   "music": "MUS_PETALBURG",
   "region_map_section": "MAPSEC_TOWN_WIP5",
   "requires_flash": false,
-  "weather": "WEATHER_ABNORMAL",
+  "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_CITY",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -13,11 +13,6 @@
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
-    {
-      "map": "MAP_ROUTE104",
-      "offset": -50,
-      "direction": "left"
-    },
     {
       "map": "MAP_ROUTE102",
       "offset": 10,
@@ -213,8 +208,8 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 8,
-      "y": 10,
+      "x": 16,
+      "y": 0,
       "elevation": 3,
       "var": "VAR_PETALBURG_CITY_STATE",
       "var_value": "0",
@@ -222,8 +217,8 @@
     },
     {
       "type": "trigger",
-      "x": 8,
-      "y": 11,
+      "x": 16,
+      "y": 1,
       "elevation": 3,
       "var": "VAR_PETALBURG_CITY_STATE",
       "var_value": "0",
@@ -231,8 +226,8 @@
     },
     {
       "type": "trigger",
-      "x": 8,
-      "y": 12,
+      "x": 16,
+      "y": 2,
       "elevation": 3,
       "var": "VAR_PETALBURG_CITY_STATE",
       "var_value": "0",
@@ -240,8 +235,8 @@
     },
     {
       "type": "trigger",
-      "x": 8,
-      "y": 13,
+      "x": 16,
+      "y": 3,
       "elevation": 3,
       "var": "VAR_PETALBURG_CITY_STATE",
       "var_value": "0",
@@ -249,8 +244,8 @@
     },
     {
       "type": "trigger",
-      "x": 4,
-      "y": 10,
+      "x": 12,
+      "y": 0,
       "elevation": 3,
       "var": "VAR_SCOTT_PETALBURG_ENCOUNTER",
       "var_value": "0",
@@ -258,8 +253,8 @@
     },
     {
       "type": "trigger",
-      "x": 4,
-      "y": 11,
+      "x": 12,
+      "y": 1,
       "elevation": 3,
       "var": "VAR_SCOTT_PETALBURG_ENCOUNTER",
       "var_value": "0",
@@ -267,8 +262,8 @@
     },
     {
       "type": "trigger",
-      "x": 4,
-      "y": 12,
+      "x": 12,
+      "y": 2,
       "elevation": 3,
       "var": "VAR_SCOTT_PETALBURG_ENCOUNTER",
       "var_value": "0",
@@ -276,8 +271,8 @@
     },
     {
       "type": "trigger",
-      "x": 4,
-      "y": 13,
+      "x": 12,
+      "y": 3,
       "elevation": 3,
       "var": "VAR_SCOTT_PETALBURG_ENCOUNTER",
       "var_value": "0",

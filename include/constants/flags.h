@@ -1590,7 +1590,7 @@
 #define FLAG_DAILY_GROTTO_5                           (DAILY_FLAGS_START + 0x17) // 
 #define FLAG_DAILY_BASALEK_CHECKER                           (DAILY_FLAGS_START + 0x18) // 
 #define FLAG_DAILY_FROSTHEARTH_TYPE_CHECK                           (DAILY_FLAGS_START + 0x19) // 
-#define FLAG_UNUSED_0x93A                           (DAILY_FLAGS_START + 0x1A) // 
+#define FLAG_ALT_CONNECTION                           (DAILY_FLAGS_START + 0x1A) // 
 #define FLAG_UNUSED_0x93B                           (DAILY_FLAGS_START + 0x1B) // 
 #define FLAG_UNUSED_0x93C                           (DAILY_FLAGS_START + 0x1C) // 
 #define FLAG_UNUSED_0x93D                           (DAILY_FLAGS_START + 0x1D) // 

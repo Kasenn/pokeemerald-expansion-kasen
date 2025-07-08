@@ -141,9 +141,7 @@ script Office_PetrelFight{
     safefollow
     playse(SE_PIN)
     turnobject(PETREL, DIR_WEST)
-    applymovement(PETREL, ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(PETREL)
     if(flag(UPPER_TRIGGER)){
         applymovement(PETREL, Walk1Left)
     }

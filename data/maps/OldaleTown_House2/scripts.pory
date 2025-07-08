@@ -8,7 +8,7 @@ script NotMyNectar{
     msgbox(NotMyNectar_Text, MSGBOX_NPC)
     waitmessage
     closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Down)
+    applymovement(LOCALID_PLAYER, Walk1Down)
     waitmovement(0)
     delay(30)
     release
@@ -24,9 +24,7 @@ script NectarManiac{
         if(var(VAR_RESULT) == TRUE){
             safefollow
             playse(SE_PIN)
-            applymovement(1, Common_Movement_ExclamationMark)
-            waitmovement(0)
-            delay(48)
+            exclamationmark(1)
             msgbox(NectarManiac_OricorioFound, MSGBOX_NPC)
             setflag(FLAG_ORICORIO_SHOWN_TO_MANIAC)
             release

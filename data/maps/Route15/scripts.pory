@@ -52,37 +52,37 @@ script R15_Acerola{
         // if(var(VAR_RESULT) == TRUE){
             safefollow
             applymovement(OBJ_EVENT_ID_FOLLOWER, Common_Movement_QuestionMark)
-            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark)
+            applymovement(LOCALID_PLAYER, Common_Movement_QuestionMark)
             if(var(VAR_FACING) == DIR_NORTH){
-                turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+                turnobject(LOCALID_PLAYER, DIR_SOUTH)
                 turnobject(OBJ_EVENT_ID_FOLLOWER, DIR_SOUTH)
                 waitmovement(0)
                 delay(100)
-                turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+                turnobject(LOCALID_PLAYER, DIR_NORTH)
                 turnobject(OBJ_EVENT_ID_FOLLOWER, DIR_NORTH)
             }
             elif(var(VAR_FACING) == DIR_SOUTH){
-                turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+                turnobject(LOCALID_PLAYER, DIR_NORTH)
                 turnobject(OBJ_EVENT_ID_FOLLOWER, DIR_NORTH)
                 waitmovement(0)
                 delay(100)
-                turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+                turnobject(LOCALID_PLAYER, DIR_SOUTH)
                 turnobject(OBJ_EVENT_ID_FOLLOWER, DIR_SOUTH)
             }
             elif(var(VAR_FACING) == DIR_EAST){
-                turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+                turnobject(LOCALID_PLAYER, DIR_WEST)
                 turnobject(OBJ_EVENT_ID_FOLLOWER, DIR_WEST)
                 waitmovement(0)
                 delay(100)
-                turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+                turnobject(LOCALID_PLAYER, DIR_EAST)
                 turnobject(OBJ_EVENT_ID_FOLLOWER, DIR_EAST)
             }
             else{
-                turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+                turnobject(LOCALID_PLAYER, DIR_EAST)
                 turnobject(OBJ_EVENT_ID_FOLLOWER, DIR_EAST)
                 waitmovement(0)
                 delay(100)
-                turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+                turnobject(LOCALID_PLAYER, DIR_WEST)
                 turnobject(OBJ_EVENT_ID_FOLLOWER, DIR_WEST)
             }
         delay(48)
@@ -152,9 +152,7 @@ script R15_RR_Escapes{
     turnobject(18, DIR_NORTH)
     playse(SE_PIN)
     safefollow
-    applymovement(18, Common_Movement_ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(18)
     applymovement(18, R15_GruntEscapes)
     waitmovement(0)
     removeobject(18)

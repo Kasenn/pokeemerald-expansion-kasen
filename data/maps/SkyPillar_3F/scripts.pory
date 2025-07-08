@@ -53,21 +53,15 @@ script Tower_3F_Tr1_Battle{
     playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
     switch(var(VAR_TEMP_2)){
         case 1:
-            applymovement(2, Common_Movement_ExclamationMark)
-            waitmovement(0)
-            applymovement(2, Common_Movement_Delay48)
-            waitmovement(0)
-            turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+            exclamationmark(2)
+            turnobject(LOCALID_PLAYER, DIR_WEST)
             msgbox(Tr1_3F_ExpertMIntro)
         case 2:
             faceplayer
             msgbox(Tr1_3F_ExpertMIntro)
         case 3:
-            applymovement(1, Common_Movement_ExclamationMark)
-            waitmovement(0)
-            applymovement(1, Common_Movement_Delay48)
-            waitmovement(0)
-            turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+            exclamationmark(1)
+            turnobject(LOCALID_PLAYER, DIR_WEST)
             msgbox(Tr1_3F_ExpertFIntro)
         case 4:
             faceplayer
@@ -176,11 +170,8 @@ script Tower_3F_Tr2_Battle{
     playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
     switch(var(VAR_TEMP_2)){
         case 1:
-            applymovement(3, Common_Movement_ExclamationMark)
-            waitmovement(0)
-            applymovement(3, Common_Movement_Delay48)
-            waitmovement(0)
-            turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+            exclamationmark(3)
+            turnobject(LOCALID_PLAYER, DIR_NORTH)
             msgbox(Tr2_3F_HexManiacIntro)
         case 2:
             faceplayer

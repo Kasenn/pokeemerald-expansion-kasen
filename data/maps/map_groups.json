@@ -52,8 +52,8 @@
     "gMapGroup_IndoorRoute123",
     "gMapGroup_IndoorRoute119",
     "gMapGroup_OldAreas",
-    "gMapGroup_IndoorRoute124",
-    "gMapGroup_IndoorCrystalpine"
+    "gMapGroup_IndoorCrystalpine",
+    "gMapGroup_IndoorRoute124"
   ],
   "gMapGroup_RoutesAndTowns": [
     "BarrenWastes",
@@ -975,6 +975,7 @@
     "AmberockTest",
     "Route28_Filler"
   ],
+  "gMapGroup_IndoorCrystalpine": [],
   "gMapGroup_IndoorRoute124": [
     "TestRoom",
     "Maptest",
@@ -1003,6 +1004,5 @@
     "Route26_Filler",
     "Windywoods_Filler",
     "Route3_Copy"
-  ],
-  "gMapGroup_IndoorCrystalpine": []
+  ]
 }

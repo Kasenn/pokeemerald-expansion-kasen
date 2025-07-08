@@ -139,7 +139,7 @@ script R14_BlockAccessToFacility{
     }
     closemessage
     safefollow
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Down)
+    applymovement(LOCALID_PLAYER, Walk1Down)
     waitmovement(0)
     release
 }
@@ -195,16 +195,14 @@ script R14_HelpScientist{
     }
     waitmovement(0)
     playse(SE_PIN)
-    applymovement(15, Common_Movement_ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(15)
     switch(var(VAR_TEMP_1)){
         case 1:
-            turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+            turnobject(LOCALID_PLAYER, DIR_EAST)
         case 2:
-            turnobject(OBJ_EVENT_ID_PLAYER, DIR_SOUTH)
+            turnobject(LOCALID_PLAYER, DIR_SOUTH)
         case 3:
-            turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+            turnobject(LOCALID_PLAYER, DIR_WEST)
     }
     delay(15)
     msgbox(R14_Robbed)
@@ -230,9 +228,7 @@ script R14_ChaseAfterRocket{
     }
     playse(SE_PIN)
     safefollow
-    applymovement(17, Common_Movement_ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(17)
     applymovement(17, R14_GruntEscapes2)
     waitmovement(0)
     removeobject(17)

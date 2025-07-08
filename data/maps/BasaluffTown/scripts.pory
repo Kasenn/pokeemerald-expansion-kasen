@@ -19,7 +19,7 @@ mapscripts BasaluffTown_MapScripts{
     }
     MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
         RIVAL_TRIGGER, 1{
-            turnobject(0xFF, DIR_EAST)
+            turnobject(LOCALID_PLAYER, DIR_EAST)
         }
     ]
     MAP_SCRIPT_ON_FRAME_TABLE[
@@ -345,36 +345,36 @@ script BasalekTown_RivalScript{
         case 1:
             applymovement(OBJ_RIVAL, moves(walk_right * 4, walk_up * 3, walk_in_place_fast_left))
             delay(48)
-            applymovement(0xFF, moves(walk_in_place_fast_down))
+            applymovement(LOCALID_PLAYER, moves(walk_in_place_fast_down))
             applymovement(OBJ_EVENT_ID_FOLLOWER, moves(walk_in_place_fast_down))
             unlockfollowermovement
             delay(64)
-            applymovement(0xFF, moves(walk_in_place_fast_right))
+            applymovement(LOCALID_PLAYER, moves(walk_in_place_fast_right))
             applymovement(OBJ_EVENT_ID_FOLLOWER, moves(walk_in_place_fast_right))
             unlockfollowermovement
         case 2:
             applymovement(OBJ_RIVAL, moves(walk_right * 5, walk_up * 3, walk_in_place_fast_left))
             delay(64)
-            applymovement(0xFF, moves(walk_in_place_fast_down))
+            applymovement(LOCALID_PLAYER, moves(walk_in_place_fast_down))
             applymovement(OBJ_EVENT_ID_FOLLOWER, moves(walk_in_place_fast_down))
             unlockfollowermovement
             delay(64)
-            applymovement(0xFF, moves(walk_in_place_fast_right))
+            applymovement(LOCALID_PLAYER, moves(walk_in_place_fast_right))
             applymovement(OBJ_EVENT_ID_FOLLOWER, moves(walk_in_place_fast_right))
             unlockfollowermovement
         case 3:
             applymovement(OBJ_RIVAL, moves(walk_right * 4, walk_up * 3, walk_in_place_fast_right))
             delay(64)
-            applymovement(0xFF, moves(walk_in_place_fast_down))
+            applymovement(LOCALID_PLAYER, moves(walk_in_place_fast_down))
             applymovement(OBJ_EVENT_ID_FOLLOWER, moves(walk_in_place_fast_down))
             unlockfollowermovement
             delay(48)
-            applymovement(0xFF, moves(walk_in_place_fast_left))
+            applymovement(LOCALID_PLAYER, moves(walk_in_place_fast_left))
             applymovement(OBJ_EVENT_ID_FOLLOWER, moves(walk_in_place_fast_left))
             unlockfollowermovement
     }
     waitmovement(OBJ_RIVAL)
-    waitmovement(0xFF)
+    waitmovement(LOCALID_PLAYER)
     delay(24)
     if(checkplayergender == MALE){
         if(flag(FLAG_RIVAL_MET_IN_BASALEK_MART)){ // bailing on rival
@@ -430,10 +430,10 @@ script BasalekTown_RivalScript{
             applymovement(OBJ_RIVAL, moves(walk_up, walk_right, walk_up, walk_right, walk_up, walk_right * 6))
         case 3:
             applymovement(OBJ_RIVAL, moves(walk_up, walk_right, walk_up, walk_right, walk_up, walk_right * 7))
-            applymovement(0xFF, moves(delay_16 * 3, walk_in_place_fast_up, delay_16 * 4, walk_in_place_fast_right))
+            applymovement(LOCALID_PLAYER, moves(delay_16 * 3, walk_in_place_fast_up, delay_16 * 4, walk_in_place_fast_right))
     }
     waitmovement(OBJ_RIVAL)
-    waitmovement(0xFF)
+    waitmovement(LOCALID_PLAYER)
     setflag(FLAG_RIVAL_MET_IN_BASALEK)
     removeobject(OBJ_RIVAL)
     release

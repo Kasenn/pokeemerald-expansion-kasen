@@ -18,7 +18,7 @@ script FlowerFields_MinaEvent_FrameTable{
     waitmoncry
     delay(15)
     turnobject(1, DIR_EAST)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+    turnobject(LOCALID_PLAYER, DIR_WEST)
     delay(5)
     msgbox(ThanksForBattlingGranbull)
     if(checkitemspace(ITEM_RARE_CANDY) == FALSE){

@@ -28,17 +28,13 @@ script Tower_4F_Tr1_Battle{
     special(SavePlayerParty)
     special(SetPlayerParty)
     playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
-    applymovement(6, Common_Movement_ExclamationMark)
-    waitmovement(0)
-    delay(48)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+    exclamationmark(6)
+    turnobject(LOCALID_PLAYER, DIR_EAST)
     msgbox(Tr1_4F_BlackbeltIntro)
     closemessage
     playbgm(MUS_ENCOUNTER_SUSPICIOUS, FALSE)
-    applymovement(5, Common_Movement_ExclamationMark)
-    waitmovement(0)
-    delay(48)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+    exclamationmark(5)
+    turnobject(LOCALID_PLAYER, DIR_WEST)
     msgbox(Tr1_4F_HexManiacIntro)
     closemessage
     switch(var(VAR_TOWER_PARTNER)){
@@ -144,19 +140,13 @@ script Tower_4F_Tr2_Battle{
     switch(var(VAR_TEMP_2)){
         case 1:
             playbgm(MUS_ENCOUNTER_MALE, FALSE)
-            applymovement(3, Common_Movement_ExclamationMark)
-            waitmovement(0)
-            applymovement(3, Common_Movement_Delay48)
-            waitmovement(0)
-            turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+            exclamationmark(3)
+            turnobject(LOCALID_PLAYER, DIR_NORTH)
             msgbox(Tr2_4F_LassIntro)
         case 2:
             playbgm(MUS_ENCOUNTER_FEMALE, FALSE)
-            applymovement(4, Common_Movement_ExclamationMark)
-            waitmovement(0)
-            applymovement(4, Common_Movement_Delay48)
-            waitmovement(0)
-            turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+            exclamationmark(4)
+            turnobject(LOCALID_PLAYER, DIR_NORTH)
             msgbox(Tr2_4F_YoungsterIntro)
         case 3:
             playbgm(MUS_ENCOUNTER_MALE, FALSE)
@@ -271,21 +261,15 @@ script Tower_4F_Tr3_Battle{
     playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
     switch(var(VAR_TEMP_2)){
         case 1:
-            applymovement(1, Common_Movement_ExclamationMark)
-            waitmovement(0)
-            applymovement(1, Common_Movement_Delay48)
-            waitmovement(0)
-            turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+            exclamationmark(1)
+            turnobject(LOCALID_PLAYER, DIR_WEST)
             msgbox(Tr3_4F_BlackBeltIntro)
         case 2:
             faceplayer
             msgbox(Tr3_4F_BlackBeltIntro)
         case 3:
-            applymovement(2, Common_Movement_ExclamationMark)
-            waitmovement(0)
-            applymovement(2, Common_Movement_Delay48)
-            waitmovement(0)
-            turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+            exclamationmark(2)
+            turnobject(LOCALID_PLAYER, DIR_WEST)
             msgbox(Tr3_4F_BattleGirlIntro)
     }
     closemessage

@@ -187,9 +187,7 @@ script BerryWoman{
     closemessage
     if(var(VAR_RESULT) == TRUE){
         playse(SE_PIN)
-        applymovement(1, ExclamationMark)
-        waitmovement(0)
-        delay(48)
+        exclamationmark(1)
         msgbox(BerryLadyHaveABerry)
         if(checkitemspace(ITEM_CHOPLE_BERRY) == FALSE){
             goto(ZeBagIsFull)

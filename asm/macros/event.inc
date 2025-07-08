@@ -626,6 +626,20 @@
 		.endif
 	.endm
 
+	@ Applies exclamation mark to object and waits the default amount
+	.macro exclamationmark localId:req, localId2
+		.ifnb \localId2
+			applymovement \localId, Common_Movement_ExclamationMark
+			applymovement \localId2, Common_Movement_ExclamationMark
+			waitmovement \localId2
+			delay 48
+		.else
+			applymovement \localId, Common_Movement_ExclamationMark
+			waitmovement \localId
+			delay 48
+		.endif
+	.endm
+
 	@ Blocks script execution until the movements being applied to the specified (localId) object finish.
 	@ If localId is LOCALID_NONE (0), then the id of the last-moved object will be used instead.
 	@ If the specified object is not currently being manipulated with applymovement, then this command does nothing.

@@ -32,10 +32,8 @@ script CoralgroveElevator2_Trigger1{
     safefollow
     turnobject(1, DIR_WEST)
     playse(SE_PIN)
-    applymovement(1, Common_Movement_ExclamationMark)
-    waitmovement(0)
-    delay(40)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+    exclamationmark(1)
+    turnobject(LOCALID_PLAYER, DIR_EAST)
     waitmovement(0)
     goto(CoralgroveElevator2_Rival)
 }
@@ -44,10 +42,8 @@ script CoralgroveElevator2_Trigger2{
     safefollow
     turnobject(1, DIR_EAST)
     playse(SE_PIN)
-    applymovement(1, Common_Movement_ExclamationMark)
-    waitmovement(0)
-    delay(40)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+    exclamationmark(1)
+    turnobject(LOCALID_PLAYER, DIR_WEST)
     waitmovement(0)
     goto(CoralgroveElevator2_Rival)
 }

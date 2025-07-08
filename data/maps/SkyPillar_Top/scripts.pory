@@ -106,40 +106,40 @@ script CheckSphereEvent {
     delay(30)
     getplayerxy(X, Y)
     if(var(X) == 9-1 && var(Y) == 7){
-        applymovement(0xFF, moves(walk_up, walk_right * 3, walk_in_place_up))
+        applymovement(LOCALID_PLAYER, moves(walk_up, walk_right * 3, walk_in_place_up))
     }
     elif(var(X) == 9+1 && var(Y) == 7){
-        applymovement(0xFF, moves(walk_right, walk_up))
+        applymovement(LOCALID_PLAYER, moves(walk_right, walk_up))
     }
     elif(var(X) == 9 && var(Y) == 7-1){
-        applymovement(0xFF, moves(walk_right * 2, walk_in_place_up))
+        applymovement(LOCALID_PLAYER, moves(walk_right * 2, walk_in_place_up))
     }
     elif(var(X) == 9 && var(Y) == 7+1){
-        applymovement(0xFF, moves(walk_right, walk_up, walk_right, walk_up))
+        applymovement(LOCALID_PLAYER, moves(walk_right, walk_up, walk_right, walk_up))
     }
     elif(var(X) == 11-1 && var(Y) == 8){
-        applymovement(0xFF, moves(walk_up, walk_right, walk_up))
+        applymovement(LOCALID_PLAYER, moves(walk_up, walk_right, walk_up))
     }
     elif(var(X) == 11+1 && var(Y) == 8){
-        applymovement(0xFF, moves(walk_up, walk_left, walk_up))
+        applymovement(LOCALID_PLAYER, moves(walk_up, walk_left, walk_up))
     }
     elif(var(X) == 11 && var(Y) == 8-1){
-        applymovement(0xFF, moves(walk_up))
+        applymovement(LOCALID_PLAYER, moves(walk_up))
     }
     elif(var(X) == 11 && var(Y) == 8+1){
-        applymovement(0xFF, moves(walk_right, walk_up * 2, walk_left, walk_up))
+        applymovement(LOCALID_PLAYER, moves(walk_right, walk_up * 2, walk_left, walk_up))
     }
     elif(var(X) == 13-1 && var(Y) == 7){
-        applymovement(0xFF, moves(walk_left, walk_up))
+        applymovement(LOCALID_PLAYER, moves(walk_left, walk_up))
     }
     elif(var(X) == 13+1 && var(Y) == 7){
-        applymovement(0xFF, moves(walk_up, walk_left * 3, walk_in_place_up))
+        applymovement(LOCALID_PLAYER, moves(walk_up, walk_left * 3, walk_in_place_up))
     }
     elif(var(X) == 13 && var(Y) == 7-1){
-        applymovement(0xFF, moves(walk_left * 2, walk_in_place_up))
+        applymovement(LOCALID_PLAYER, moves(walk_left * 2, walk_in_place_up))
     }
     else{
-        applymovement(0xFF, moves(walk_left, walk_up, walk_left, walk_up))
+        applymovement(LOCALID_PLAYER, moves(walk_left, walk_up, walk_left, walk_up))
     }
     waitmovement(0)
     fadeoutbgm(0)
@@ -287,25 +287,25 @@ script AT_TopEvent{
     lock
     switch(var(VAR_TEMP_5)){
         case 1:
-            applymovement(OBJ_EVENT_ID_PLAYER, AT_Top_Movement1)
+            applymovement(LOCALID_PLAYER, AT_Top_Movement1)
             applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, AT_Top_Movement1Follower)
         case 2:
-            applymovement(OBJ_EVENT_ID_PLAYER, AT_Top_Movement2)
+            applymovement(LOCALID_PLAYER, AT_Top_Movement2)
             applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, AT_Top_Movement2Follower)
         case 3:
-            applymovement(OBJ_EVENT_ID_PLAYER, Walk2Up)
+            applymovement(LOCALID_PLAYER, Walk2Up)
             applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, AT_Top_Movement3Follower)
         case 4:
-            applymovement(OBJ_EVENT_ID_PLAYER, AT_Top_Movement4)
+            applymovement(LOCALID_PLAYER, AT_Top_Movement4)
             applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, AT_Top_Movement4Follower)
         case 5:
-            applymovement(OBJ_EVENT_ID_PLAYER, AT_Top_Movement5)
+            applymovement(LOCALID_PLAYER, AT_Top_Movement5)
             applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, AT_Top_Movement5Follower)
         case 6:
-            applymovement(OBJ_EVENT_ID_PLAYER, AT_Top_Movement6)
+            applymovement(LOCALID_PLAYER, AT_Top_Movement6)
             applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, AT_Top_Movement6Follower)
     }
-    waitmovement(OBJ_EVENT_ID_PLAYER)
+    waitmovement(LOCALID_PLAYER)
     waitmovement(OBJ_EVENT_ID_NPC_FOLLOWER)
     delay(30)
     applymovement(2, TurnKorrina)
@@ -336,7 +336,7 @@ script AT_TopEvent{
     delay(48)
     applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, Walk1Left)
     waitmovement(0)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+    turnobject(LOCALID_PLAYER, DIR_EAST)
     checkplayergender
     if(var(VAR_RESULT) == MALE){
         msgbox(LetsGoMeetDadBrendan)
@@ -347,9 +347,7 @@ script AT_TopEvent{
     closemessage
     if(flag(FLAG_HIDE_LIBRARY_BIRCH)){
         playse(SE_PIN)
-        applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, Common_Movement_ExclamationMark)
-        waitmovement(0)
-        delay(48)
+        exclamationmark(OBJ_EVENT_ID_NPC_FOLLOWER)
         if(var(VAR_RESULT) == MALE){
             msgbox(YouMetDadBrendan)
         }
@@ -610,9 +608,7 @@ script AT_Custodian{
         waitse
         playse(SE_PIN)
         safefollow
-        applymovement(1, Common_Movement_ExclamationMark)
-        waitmovement(0)
-        delay(48)
+        exclamationmark(1)
         msgbox(ThatsVerdantSphere)
         setvar(VAR_SPHERES_FOUND, 3)
         release
@@ -632,9 +628,7 @@ script AT_Custodian{
         }
         playse(SE_PIN)
         safefollow
-        applymovement(1, Common_Movement_ExclamationMark)
-        waitmovement(0)
-        delay(48)
+        exclamationmark(1)
         msgbox(ThatsSteelSphere)
         setvar(VAR_SPHERES_FOUND, 2)
         release
@@ -647,9 +641,7 @@ script AT_Custodian{
     if(var(VAR_RESULT) == TRUE){
         playse(SE_PIN)
         safefollow
-        applymovement(1, Common_Movement_ExclamationMark)
-        waitmovement(0)
-        delay(48)
+        exclamationmark(1)
         msgbox(ThatsStoneSphere)
         setvar(VAR_SPHERES_FOUND, 1)
     }

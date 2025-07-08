@@ -88,28 +88,28 @@ script PryceEscortedOutMain{
     switch(var(VAR_TEMP_2)){
         case 1:
             applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_up, walk_right * 9))
-            applymovement(0xFF, moves(delay_16, walk_in_place_up, delay_16, walk_in_place_right))
+            applymovement(LOCALID_PLAYER, moves(delay_16, walk_in_place_up, delay_16, walk_in_place_right))
         case 2:
             applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_up, walk_right * 9))
-            applymovement(0xFF, moves(delay_16, walk_in_place_up, delay_16, walk_in_place_right))
+            applymovement(LOCALID_PLAYER, moves(delay_16, walk_in_place_up, delay_16, walk_in_place_right))
         case 3:
             applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_down, walk_right * 9))
-            applymovement(0xFF, moves(delay_16, walk_in_place_down, delay_16, walk_in_place_right))
+            applymovement(LOCALID_PLAYER, moves(delay_16, walk_in_place_down, delay_16, walk_in_place_right))
         case 4:
             applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_down, walk_right * 9))
-            applymovement(0xFF, moves(delay_16, walk_in_place_down, delay_16, walk_in_place_right))
+            applymovement(LOCALID_PLAYER, moves(delay_16, walk_in_place_down, delay_16, walk_in_place_right))
         case 5:
             applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_right, walk_down * 8))
-            applymovement(0xFF, moves(delay_16, walk_in_place_right, delay_16, walk_in_place_down))
+            applymovement(LOCALID_PLAYER, moves(delay_16, walk_in_place_right, delay_16, walk_in_place_down))
         case 6:
             applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_right, walk_down * 8))
-            applymovement(0xFF, moves(delay_16, walk_in_place_right, delay_16, walk_in_place_down))
+            applymovement(LOCALID_PLAYER, moves(delay_16, walk_in_place_right, delay_16, walk_in_place_down))
         case 7:
             applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_left, walk_down * 8))
-            applymovement(0xFF, moves(delay_16, walk_in_place_left, delay_16, walk_in_place_down))
+            applymovement(LOCALID_PLAYER, moves(delay_16, walk_in_place_left, delay_16, walk_in_place_down))
         case 8:
             applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(walk_left, walk_down * 8))
-            applymovement(0xFF, moves(delay_16, walk_in_place_left, delay_16, walk_in_place_down))
+            applymovement(LOCALID_PLAYER, moves(delay_16, walk_in_place_left, delay_16, walk_in_place_down))
     }
     waitmovement(OBJ_EVENT_ID_NPC_FOLLOWER)
     destroyfollowernpc

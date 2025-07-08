@@ -218,7 +218,7 @@ script AldeleafBigHouse3_3F_PokeBall{
     waitfanfare
     msgbox(AldeleafBigHouse3_3F_PokeBall_Name, MSGBOX_YESNO)
     msgbox(AldeleafBigHouse3_3F_PokeBall_Stop, MSGBOX_DEFAULT)
-    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark)
+    applymovement(LOCALID_PLAYER, Common_Movement_QuestionMark)
     closemessage
     clearflag(FLAG_HIDE3FMAN)
     addobject(2, MAP_ALDELEAF_BIG_HOUSE3_3F)
@@ -227,12 +227,12 @@ script AldeleafBigHouse3_3F_PokeBall{
     delay(30)
     if(var(VAR_FACING) == DIR_SOUTH){
         applymovement(2, AldeleafBigHouse3_3F_MoveLong, MAP_ALDELEAF_BIG_HOUSE3_3F)
-        applymovement(OBJ_EVENT_ID_PLAYER, PlayerLooksLeft)
+        applymovement(LOCALID_PLAYER, PlayerLooksLeft)
         setvar(VAR_TEMP_2, DIR_SOUTH)
     }
     if(var(VAR_FACING) == DIR_EAST){
         applymovement(2, AldeleafBigHouse3_3F_MoveShort, MAP_ALDELEAF_BIG_HOUSE3_3F)
-        applymovement(OBJ_EVENT_ID_PLAYER, PlayerLooksLeft)
+        applymovement(LOCALID_PLAYER, PlayerLooksLeft)
         setvar(VAR_TEMP_2, DIR_EAST)
     }
     waitmovement(2, MAP_ALDELEAF_BIG_HOUSE3_3F)
@@ -247,7 +247,7 @@ script AldeleafBigHouse3_3F_PokeBall{
     if(var(VAR_TEMP_2) == DIR_EAST){
         applymovement(2, AldeleafBigHouse3_3F_MovesToTableLong, MAP_ALDELEAF_BIG_HOUSE3_3F)
         delay(20)
-        turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+        turnobject(LOCALID_PLAYER, DIR_NORTH)
     }
     waitmovement(2)
     showobjectat(1, MAP_ALDELEAF_BIG_HOUSE3_3F)
@@ -329,7 +329,7 @@ script AldeleafBigHouse3_2F_Hide3FMan{
         waitmessage
         closemessage
         safefollow
-        applymovement(OBJ_EVENT_ID_PLAYER, Walk1Down)
+        applymovement(LOCALID_PLAYER, Walk1Down)
         waitmovement(0)
     }
     release

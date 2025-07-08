@@ -267,7 +267,7 @@ script Solo_HealPkmn{
     playse(SE_LEDGE)
     setmetatile(6, 8, 0x053, TRUE)
     special(DrawWholeMapView)
-    applymovement(OBJ_EVENT_ID_PLAYER, HopOverLedgeToNorth)
+    applymovement(LOCALID_PLAYER, HopOverLedgeToNorth)
     delay(22)
     setmetatile(6, 8, 0x036, TRUE)
     setmetatile(6, 9, 0x054, TRUE)
@@ -281,7 +281,7 @@ script Solo_HealPkmn{
     closemessage
     delay(20)
     playse(SE_LEDGE)
-    applymovement(OBJ_EVENT_ID_PLAYER, HopOverLedgeToSouth)
+    applymovement(LOCALID_PLAYER, HopOverLedgeToSouth)
     delay(8)
     setmetatile(6, 8, 0x053, TRUE)
     setmetatile(6, 9, 0x205, TRUE)

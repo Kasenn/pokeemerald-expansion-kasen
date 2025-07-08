@@ -122,7 +122,7 @@
       "elevation": 0,
       "var": "FLAG_SYS_POKEMON_GET",
       "var_value": "0",
-      "script": "Lab_NoLeave"
+      "script": "Lab_NoPokemon"
     },
     {
       "type": "trigger",
@@ -131,7 +131,7 @@
       "elevation": 0,
       "var": "FLAG_SYS_POKEMON_GET",
       "var_value": "0",
-      "script": "Lab_NoLeave"
+      "script": "Lab_NoPokemon"
     },
     {
       "type": "trigger",

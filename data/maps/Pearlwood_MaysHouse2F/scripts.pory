@@ -17,17 +17,13 @@ script Pearlwood_MaysHouse2F_Rival{
         waitse
         playse(SE_PIN)
         safefollow
-        applymovement(RIVAL, Common_Movement_ExclamationMark)
-        waitmovement(0)
+        exclamationmark(RIVAL)
         faceplayer
-        delay(48)
         msgbox(Pearlwood_MaysHouse2F_Intro)
         closemessage
         delay(20)
         playse(SE_PIN)
-        applymovement(RIVAL, Common_Movement_ExclamationMark)
-        waitmovement(0)
-        delay(48)
+        exclamationmark(RIVAL)
         setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MET_RIVAL)
         if(checkplayergender == MALE){
             msgbox(Pearlwood_MaysHouse2F_Intro2_MalePC)

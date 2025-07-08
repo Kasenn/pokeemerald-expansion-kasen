@@ -220,7 +220,7 @@ script Aldeleaf_Gym_Volkner_Talk{
 script Aldeleaf_Gym_EventScript_Volkner{
 	lock
 	delay(10)
-	turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+	turnobject(LOCALID_PLAYER, DIR_EAST)
 	turnobject(18, DIR_WEST)
 	special(SpawnCameraObject)
 	applymovement(OBJ_EVENT_ID_CAMERA, Walk3Right)
@@ -237,7 +237,7 @@ script Aldeleaf_Gym_EventScript_VolknerDefeated{
 	special(SpawnCameraObject)
 	delay(30)
 	applymovement(18, Walk3Left)
-	applymovement(OBJ_EVENT_ID_PLAYER, Walk3Right)
+	applymovement(LOCALID_PLAYER, Walk3Right)
 	waitmovement(0)
 	delay(15)
 	message(Aldeleaf_Gym_Text_ReceivedThunderBadge)

@@ -17,15 +17,15 @@ script BerryFields_Rocket{
     msgbox(IWasDecoy)
     closemessage
     if(var(VAR_FACING) == DIR_SOUTH){
-        applymovement(OBJ_EVENT_ID_PLAYER, BerryFields_PushPlayerAsideForGrunt)
+        applymovement(LOCALID_PLAYER, BerryFields_PushPlayerAsideForGrunt)
         applymovement(13, GruntEscapesNorth)
     }
     elif(var(VAR_FACING) == DIR_EAST){
-        applymovement(OBJ_EVENT_ID_PLAYER, BerryFields_PushPlayerAsideForGrunt)
+        applymovement(LOCALID_PLAYER, BerryFields_PushPlayerAsideForGrunt)
         applymovement(13, GruntEscapesNorth)
     }
     else{
-        applymovement(OBJ_EVENT_ID_PLAYER, BerryFields_PushPlayerAsideForGrunt2)
+        applymovement(LOCALID_PLAYER, BerryFields_PushPlayerAsideForGrunt2)
         applymovement(13, GruntEscapesNorth)
     }
     waitmovement(0)
@@ -114,15 +114,13 @@ script Berryfields_Blockade{
     }
     playse(SE_PIN)
     safefollow
-    applymovement(14, Common_Movement_ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(14)
     waitse
 	playmoncry(SPECIES_POOCHYENA, CRY_MODE_NORMAL)
 	msgbox(BerryFields_Poochyena_Text, MSGBOX_DEFAULT)
     closemessage
 	waitmoncry
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Up)
+    applymovement(LOCALID_PLAYER, Walk1Up)
     waitmovement(0)
     turnobject(14, DIR_NORTH)
 	release

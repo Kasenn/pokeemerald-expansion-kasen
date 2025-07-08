@@ -501,23 +501,23 @@ script GymStartingMovement{
 	delay(10)
     special(SpawnCameraObject)
     if(var(VAR_TEMP_0) == 3){
-        turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+        turnobject(LOCALID_PLAYER, DIR_WEST)
         turnobject(1, DIR_EAST)
         applymovement(OBJ_EVENT_ID_CAMERA, Walk3Left)
     }
     elif(var(VAR_TEMP_0) == 4){
-        turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+        turnobject(LOCALID_PLAYER, DIR_WEST)
         turnobject(20, DIR_EAST)
         applymovement(OBJ_EVENT_ID_CAMERA, Walk3Left)
     }
     elif(var(VAR_TEMP_0) == 5){
-        turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+        turnobject(LOCALID_PLAYER, DIR_EAST)
         turnobject(12, DIR_WEST)
         turnobject(13, DIR_WEST)
         applymovement(OBJ_EVENT_ID_CAMERA, Walk3Right)
     }
     else{
-        turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+        turnobject(LOCALID_PLAYER, DIR_EAST)
         turnobject(1, DIR_WEST)
         applymovement(OBJ_EVENT_ID_CAMERA, Walk3Right)
     }
@@ -532,20 +532,20 @@ script GymMovementAfter{
 	delay(30)
     if(var(VAR_TEMP_0) == 3){
         applymovement(1, Walk3Right)
-        applymovement(OBJ_EVENT_ID_PLAYER, Walk3Left)
+        applymovement(LOCALID_PLAYER, Walk3Left)
     }
     elif(var(VAR_TEMP_0) == 4){
         applymovement(20, Walk3Right)
-        applymovement(OBJ_EVENT_ID_PLAYER, Walk3Left)
+        applymovement(LOCALID_PLAYER, Walk3Left)
     }
     elif(var(VAR_TEMP_0) == 5){
         applymovement(13, Walk3Left)
-        applymovement(OBJ_EVENT_ID_PLAYER, Walk3Right)
+        applymovement(LOCALID_PLAYER, Walk3Right)
         applymovement(12, moves(walk_left, walk_down, walk_left * 2))
     }
     else{
         applymovement(1, Walk3Left)
-        applymovement(OBJ_EVENT_ID_PLAYER, Walk3Right)
+        applymovement(LOCALID_PLAYER, Walk3Right)
     }
 	waitmovement(0)
 	delay(15)

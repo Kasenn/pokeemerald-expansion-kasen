@@ -63,9 +63,7 @@ script FrostGym_Tr1_Hiker1{
     }
     lock
     playbgm(MUS_ENCOUNTER_HIKER, FALSE)
-    applymovement(OBJ_HIKER, ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(OBJ_HIKER)
     goto(FrostGym_Tr1_Hiker1_Main)
 }
 script FrostGym_Tr1_Hiker1_Interact{
@@ -123,9 +121,7 @@ script FrostGym_Tr2_Kindler1 {
     }
     lock
     playbgm(MUS_ENCOUNTER_HIKER, FALSE)
-    applymovement(OBJ_KINDLER1, ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(OBJ_KINDLER1)
     goto(FrostGym_Tr2_Kindler1_Main)
 }
 script FrostGym_Tr2_Kindler1_Interact{
@@ -185,9 +181,7 @@ script FrostGym_Tr3_Senior {
     }
     lock
     playbgm(MUS_ENCOUNTER_TWINS, FALSE)
-    applymovement(OBJ_SENIOR, ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(OBJ_SENIOR)
     goto(FrostGym_Tr3_Senior_Main)
 }
 script FrostGym_Tr3_Senior_Interact{
@@ -244,9 +238,7 @@ script FrostGym_Tr4_Junior {
     }
     lock
     playbgm(MUS_ENCOUNTER_TWINS, FALSE)
-    applymovement(OBJ_JUNIOR, ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(OBJ_JUNIOR)
     goto(FrostGym_Tr4_Junior_Main)
 }
 script FrostGym_Tr4_Junior_Interact{
@@ -301,9 +293,7 @@ script FrostGym_Tr5_RangerM {
     }
     lock
     playbgm(MUS_ENCOUNTER_COOL, FALSE)
-    applymovement(OBJ_RANGER_M, ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(OBJ_RANGER_M)
     goto(FrostGym_Tr5_RangerM_Main)
 }
 script FrostGym_Tr5_RangerM_Interact{
@@ -360,9 +350,7 @@ script FrostGym_Tr6_RangerF {
     }
     lock
     playbgm(MUS_ENCOUNTER_COOL, FALSE)
-    applymovement(OBJ_RANGER_F1, ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(OBJ_RANGER_F1)
     goto(FrostGym_Tr6_RangerF_Main)
 }
 script FrostGym_Tr6_RangerF_Interact{
@@ -420,9 +408,7 @@ script FrostGym_Tr7_Maniac {
     }
     lock
     playbgm(MUS_ENCOUNTER_SUSPICIOUS, FALSE)
-    applymovement(OBJ_MANIAC, ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(OBJ_MANIAC)
     goto(FrostGym_Tr7_Maniac_Main)
 }
 script FrostGym_Tr7_Maniac_Interact{
@@ -481,9 +467,7 @@ script FrostGym_Tr8_Collector {
     }
     lock
     playbgm(MUS_ENCOUNTER_SUSPICIOUS, FALSE)
-    applymovement(OBJ_COLLECTOR, ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(OBJ_COLLECTOR)
     goto(FrostGym_Tr8_Collector_Main)
 }
 script FrostGym_Tr8_Collector_Interact{
@@ -544,9 +528,7 @@ script FrostGym_Tr9_Kindler2 {
     }
     lock
     playbgm(MUS_ENCOUNTER_HIKER, FALSE)
-    applymovement(OBJ_KINDLER2, ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(OBJ_KINDLER2)
     goto(FrostGym_Tr9_Kindler2_Main)
 }
 script FrostGym_Tr9_Kindler2_Interact{
@@ -605,10 +587,8 @@ script FrostGym_Tr10_RangerF2 {
     }
     lock
     playbgm(MUS_ENCOUNTER_COOL, FALSE)
-    applymovement(OBJ_RANGER_F, ExclamationMark)
-    waitmovement(0)
-    delay(48)
-    turnobject(0xFF, DIR_SOUTH)
+    exclamationmark(OBJ_RANGER_F)
+    turnobject(LOCALID_PLAYER, DIR_SOUTH)
     goto(FrostGym_Tr10_RangerF2_Main)
 }
 script FrostGym_Tr10_RangerF2_Interact{
@@ -750,7 +730,7 @@ script FrosthearthGym_PosBatEvent{
     closemessage
 	setflag(FLAG_BADGE06_GET)
     applymovement(13, moves(walk_left, walk_in_place_fast_up))
-    applymovement(0xFF, moves(delay_16, walk_in_place_fast_down))
+    applymovement(LOCALID_PLAYER, moves(delay_16, walk_in_place_fast_down))
     waitmovement(0)
     msgbox(BlaineTakeThisTM)
 	giveitem(ITEM_TM_ICE_BURN)

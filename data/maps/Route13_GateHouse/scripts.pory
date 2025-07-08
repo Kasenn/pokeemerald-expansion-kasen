@@ -19,22 +19,20 @@ script R13_GateHouseMain{
     lock
     safefollow
     playse(SE_PIN)
-    applymovement(1, ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(1)
     switch(var(VAR_TEMP_1)){
         case 1:
-            turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+            turnobject(LOCALID_PLAYER, DIR_NORTH)
         case 2:
-            applymovement(OBJ_EVENT_ID_PLAYER, Walk1Up)
+            applymovement(LOCALID_PLAYER, Walk1Up)
             waitmovement(0)
         case 3:
-            applymovement(OBJ_EVENT_ID_PLAYER, Walk2Up)
+            applymovement(LOCALID_PLAYER, Walk2Up)
             waitmovement(0)
     }
     msgbox(R13_StormAhead)
     closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Left)
+    applymovement(LOCALID_PLAYER, Walk1Left)
     waitmovement(0)
     release
     end

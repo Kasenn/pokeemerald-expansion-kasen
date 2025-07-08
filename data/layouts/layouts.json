@@ -5096,8 +5096,8 @@
       "name": "TestRoom_Layout",
       "width": 60,
       "height": 60,
-      "primary_tileset": "gTileset_Crowd",
-      "secondary_tileset": "gTileset_BattleDome",
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/TestRoom/border.bin",
       "blockdata_filepath": "data/layouts/TestRoom/map.bin"
     },

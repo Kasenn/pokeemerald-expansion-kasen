@@ -43,10 +43,7 @@ script AT_2F_Tr2_Right{
 script Tower_2F_Tr2_Battle{
     lock
     playbgm(MUS_ENCOUNTER_COOL, FALSE)
-    applymovement(1, Common_Movement_ExclamationMark)
-    waitmovement(0)
-	applymovement(1, Common_Movement_Delay48)
-	waitmovement(0)
+    exclamationmark(1)
     if(var(VAR_TEMP_2) == 1){
         applymovement(1, Walk2Left)
     }
@@ -54,14 +51,11 @@ script Tower_2F_Tr2_Battle{
         applymovement(1, Walk1Left)
     }
     waitmovement(0)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+    turnobject(LOCALID_PLAYER, DIR_EAST)
     msgbox(Tr2_2F_Man3Intro)
     closemessage
     playbgm(MUS_ENCOUNTER_COOL, FALSE)
-    applymovement(2, Common_Movement_ExclamationMark)
-    waitmovement(0)
-	applymovement(2, Common_Movement_Delay48)
-	waitmovement(0)
+    exclamationmark(2)
     if(var(VAR_TEMP_2) == 1){
         applymovement(2, Walk1Right)
     }
@@ -69,7 +63,7 @@ script Tower_2F_Tr2_Battle{
         applymovement(2, Walk2Right)
     }
     waitmovement(0)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+    turnobject(LOCALID_PLAYER, DIR_WEST)
     msgbox(Tr2_2F_Woman5Intro)
     closemessage
     switch(var(VAR_TOWER_PARTNER)){
@@ -172,27 +166,21 @@ script Tower_2F_Tr1_Battle{
     playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
     special(SavePlayerParty)
     special(SetPlayerParty)
-    applymovement(4, Common_Movement_ExclamationMark)
-    waitmovement(0)
-	applymovement(4, Common_Movement_Delay48)
-	waitmovement(0)
+    exclamationmark(4)
     if(var(VAR_TEMP_2) == 1){
         applymovement(4, Walk1Left)
     }
     waitmovement(0)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_EAST)
+    turnobject(LOCALID_PLAYER, DIR_EAST)
     msgbox(Tr1_2F_PsychicIntro)
     closemessage
     playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
-    applymovement(5, Common_Movement_ExclamationMark)
-    waitmovement(0)
-	applymovement(5, Common_Movement_Delay48)
-	waitmovement(0)
+    exclamationmark(5)
     if(var(VAR_TEMP_2) == 2){
         applymovement(5, Walk1Right)
     }
     waitmovement(0)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+    turnobject(LOCALID_PLAYER, DIR_WEST)
     msgbox(Tr1_2F_Man5Intro)
     closemessage
     switch(var(VAR_TOWER_PARTNER)){
@@ -437,9 +425,7 @@ script UnitedWithRival{
     delay(24)
     turnobject(6, DIR_NORTH)
     playse(SE_PIN)
-    applymovement(6, Common_Movement_ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(6)
     checkplayergender
     if(var(VAR_RESULT) == MALE){
         msgbox(YoureBackMay)
@@ -461,9 +447,7 @@ script MeetingRivalInTheTower{
     delay(24)
     playse(SE_PIN)
     turnobject(6, DIR_WEST)
-    applymovement(6, Common_Movement_ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(6)
     applymovement(6, Tower2FRival)
     waitmovement(0)
     if(checkplayergender == MALE){

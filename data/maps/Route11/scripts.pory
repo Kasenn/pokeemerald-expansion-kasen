@@ -486,15 +486,13 @@ script R11_RivalEvent{
 	applymovement(8, Common_Movement_WalkInPlaceFasterDown)
 	waitmovement(0)
     playse(SE_PIN)
-    applymovement(8, Common_Movement_ExclamationMark)
-	waitmovement(0)
     turnobject(9, DIR_SOUTH)
-	delay(70)
+    exclamationmark(8)
     if(var(VAR_TEMP_1) == 1){
-        applymovement(OBJ_EVENT_ID_PLAYER, R11_Move1)
+        applymovement(LOCALID_PLAYER, R11_Move1)
     }
     else{
-       applymovement(OBJ_EVENT_ID_PLAYER, Walk2Up) 
+       applymovement(LOCALID_PLAYER, Walk2Up) 
     }
     waitmovement(0)
     checkplayergender
@@ -581,11 +579,9 @@ script KorrinaIntro{
     closemessage
     playse(SE_PIN)
     safefollow
-    applymovement(8, Common_Movement_ExclamationMark)
-	waitmovement(0)
-    delay(40)
+    exclamationmark(8)
     turnobject(8, DIR_WEST)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+    turnobject(LOCALID_PLAYER, DIR_WEST)
     delay(30)
     if(flag(FLAG_RIVAL_HARBOR_ANGRY)){
         msgbox(ThisPersonIsAngry, MSGBOX_DEFAULT)
@@ -600,7 +596,7 @@ script KorrinaIntro{
     msgbox(KorrinaIntro_Text, MSGBOX_DEFAULT)
     closemessage
     delay(30)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    turnobject(LOCALID_PLAYER, DIR_NORTH)
     turnobject(8, DIR_SOUTH)
     delay(30)
     return
@@ -610,14 +606,14 @@ script KorrinaMovesBack{
     safefollow
     applymovement(9, KorrinaInPlace)
     waitmovement(0)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+    turnobject(LOCALID_PLAYER, DIR_WEST)
     delay(10)
     msgbox(KorrinaGiveRoom, MSGBOX_DEFAULT)
     closemessage
     applymovement(9, KorrinaMoveBack)
     waitmovement(0)
     delay(20)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    turnobject(LOCALID_PLAYER, DIR_NORTH)
     delay(40)
     return
 }
@@ -652,13 +648,13 @@ script R11_RivalPostBattle{
     applymovement(9, KorrinaMoveForward)
     waitmovement(0)
     delay(10)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_WEST)
+    turnobject(LOCALID_PLAYER, DIR_WEST)
     delay(30)
     msgbox(KorrinaComeChallenge, MSGBOX_DEFAULT)
     closemessage
     applymovement(9, R11KorrinaLeaves)
     waitmovement(0)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    turnobject(LOCALID_PLAYER, DIR_NORTH)
     delay(30)
     checkitem(ITEM_DOWSING_MACHINE)
     if(var(VAR_RESULT) == FALSE){

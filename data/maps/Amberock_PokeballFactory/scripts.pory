@@ -89,9 +89,7 @@ script Amberock_Factory_MainRocket{
     waitmovement(0)
     delay(15)
     playse(SE_PIN)
-    applymovement(VAR_LAST_TALKED, ExclamationMark)
-    waitmovement(0)
-    delay(60)
+    exclamationmark(VAR_LAST_TALKED)
     msgbox(GetBackToWork)
     closemessage
     switch(var(VAR_WARP_ID)){

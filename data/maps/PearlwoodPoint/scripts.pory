@@ -23,17 +23,16 @@ script Pearlwood_Point_NoPokemon{
     lock
     turnobject(LOCALID_PEARLWOOD_LASS, DIR_SOUTH)
     playse(SE_PIN)
-    waitmove(LOCALID_PEARLWOOD_LASS, ExclamationMark)
-    delay(48)
+    exclamationmark(LOCALID_PEARLWOOD_LASS)
     msgbox(Pearlwood_Point_WatchOut, MSGBOX_AUTOCLOSE)
     if(var(TRIGGER) == 1){
-        turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+        turnobject(LOCALID_PLAYER, DIR_NORTH)
     }
     else{
-        waitmove(OBJ_EVENT_ID_PLAYER, Walk1Up)
+        waitmove(LOCALID_PLAYER, Walk1Up)
     }
     msgbox(Pearlwood_Point_WildPokemon, MSGBOX_AUTOCLOSE)
-    waitmove(OBJ_EVENT_ID_PLAYER, Walk1Left)
+    waitmove(LOCALID_PLAYER, Walk1Left)
     release
 }
 text Pearlwood_Point_WatchOut{
@@ -119,8 +118,7 @@ script PearlwoodWon{
         msgbox(PlayerHouse1F_Apology, MSGBOX_AUTOCLOSE)
     }
     playse(SE_PIN)
-    waitmove(LOCALID_PEARLWOOD_BROTHER, ExclamationMark)
-    delay(48)
+    exclamationmark(LOCALID_PEARLWOOD_BROTHER)
     msgbox(BrotherWatch)
     playfanfare(MUS_OBTAIN_ITEM)
     setflag(FLAG_SYS_JOURNAL_GET)

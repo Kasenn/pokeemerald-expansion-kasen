@@ -649,9 +649,7 @@ script IrisGoodbye{
             turnobject(31, DIR_SOUTH)
     }
     playse(SE_PIN)
-    applymovement(31, ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(31)
     switch(var(CAVE_ENTRANCE)){
         case 0:
         case 2:

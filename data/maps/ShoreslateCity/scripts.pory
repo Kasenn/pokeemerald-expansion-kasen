@@ -432,7 +432,7 @@ script Shoreslate_DevonExteriorTrigger{
             delay(5)
             turnobject(1, DIR_SOUTH)
             delay(5)
-            turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+            turnobject(LOCALID_PLAYER, DIR_NORTH)
             msgbox(ShoreSlate_YouDeaf, MSGBOX_DEFAULT)
             waitmessage
             closemessage
@@ -445,12 +445,12 @@ script Shoreslate_DevonExteriorTrigger{
         delay(5)
         turnobject(1, DIR_SOUTH)
         delay(5)
-        turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+        turnobject(LOCALID_PLAYER, DIR_NORTH)
         msgbox(ShoreSlate_NotGettingThrough, MSGBOX_DEFAULT)
         waitmessage
         closemessage
         setvar(VAR_TEMP_6, 1)
-        applymovement(OBJ_EVENT_ID_PLAYER, Walk1Right)
+        applymovement(LOCALID_PLAYER, Walk1Right)
         waitmovement(0)
         delay(5)
         release

@@ -90,7 +90,7 @@ script FrosthearthPokeCenter_Lanette{
     msgbox(FrosthearthPokeCenter_Lanette_Goodbye)
     closemessage
     applymovement(8, moves(delay_16 * 2, walk_down * 3, walk_left * 3, walk_down * 4, delay_8))
-    applymovement(0xFF, moves(lock_facing_direction, walk_down, unlock_facing_direction, face_left, lock_facing_direction, walk_right, unlock_facing_direction))
+    applymovement(LOCALID_PLAYER, moves(lock_facing_direction, walk_down, unlock_facing_direction, face_left, lock_facing_direction, walk_right, unlock_facing_direction))
     waitmovement(8)
     playse(SE_SLIDING_DOOR)
     removeobject(8)

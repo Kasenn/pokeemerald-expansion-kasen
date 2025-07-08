@@ -71,9 +71,9 @@ script TriggerGengariteEvent{
     turnobject(4, DIR_SOUTH)
     playse(SE_PIN)
     safefollow
-    applymovement(2, ExclamationMark)
-    applymovement(3, ExclamationMark)
-    applymovement(4, ExclamationMark)
+    applymovement(2, Common_Movement_ExclamationMark)
+    applymovement(3, Common_Movement_ExclamationMark)
+    applymovement(4, Common_Movement_ExclamationMark)
     waitmovement(0)
     delay(48)
     applymovement(2, RunFastRight2)

@@ -89,7 +89,7 @@ script ScorchedDesert_TriggerQuakes{
             playse(SE_SWITCH)
             getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
             setmetatile(VAR_TEMP_1, VAR_TEMP_2, 0x2A3, FALSE)
-            setobjectxy(OBJ_EVENT_ID_PLAYER, VAR_TEMP_1, VAR_TEMP_2)
+            setobjectxy(LOCALID_PLAYER, VAR_TEMP_1, VAR_TEMP_2)
             special(DrawWholeMapView)
             goto(ScorchedDesert_FallThroughFloor)
         }
@@ -100,7 +100,7 @@ script ScorchedDesert_TriggerQuakes{
 script ScorchedDesert_FallThroughFloor{
 	lock
 	delay(20)
-	applymovement(OBJ_EVENT_ID_PLAYER, ScorchedDesert_FallThroughFloorMovement)
+	applymovement(LOCALID_PLAYER, ScorchedDesert_FallThroughFloorMovement)
 	waitmovement(0)
 	playse(SE_FALL)
 	delay(60)
@@ -581,7 +581,7 @@ script BlockSouthernDesert{
     msgbox(StrongSandstorm)
     closemessage
     safefollow
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk1Up)
+    applymovement(LOCALID_PLAYER, Walk1Up)
     waitmovement(0)
     release
 }

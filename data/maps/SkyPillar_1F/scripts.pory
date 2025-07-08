@@ -80,9 +80,7 @@ script SetupRivalPartner{
 script FollowerStaysBehind{
     lock
     playse(SE_PIN)
-    applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, Common_Movement_ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(OBJ_EVENT_ID_NPC_FOLLOWER)
     facefollowernpc
     delay(15)
     if(checkplayergender == MALE){

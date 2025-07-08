@@ -224,7 +224,7 @@ text ChangeOutfit{
 
 script WardrobeDoor{
     waitdooranim
-    applymovement(OBJ_EVENT_ID_PLAYER, WardrobeUp)
+    applymovement(LOCALID_PLAYER, WardrobeUp)
     waitmovement(0)
     return
 }

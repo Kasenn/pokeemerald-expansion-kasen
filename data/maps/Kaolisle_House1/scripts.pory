@@ -99,9 +99,7 @@ script Kaolisle_Karatemaster{
     if(var(VAR_RESULT) == TRUE){
         playse(SE_PIN)
         safefollow
-	    applymovement(1, Common_Movement_ExclamationMark)
-	    waitmovement(0)
-	    delay(40)
+        exclamationmark(1)
         msgbox(FoundMemento, MSGBOX_DEFAULT)
         giveitem(ITEM_HM_ROCK_SMASH)
         setflag(FLAG_RECEIVED_HM_ROCK_SMASH)

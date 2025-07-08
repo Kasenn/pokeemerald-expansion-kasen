@@ -48,9 +48,7 @@ script AdamantExterior_Man3{
     msgbox(AdamantExterior_Man3_NoAccess)
     closemessage
     playse(SE_PIN)
-    applymovement(1, Common_Movement_ExclamationMark)
-    waitmovement(0)
-    delay(48)
+    exclamationmark(1)
     msgbox(AdamantDidntSeeBadge)
     closemessage
     if(var(VAR_FACING) == DIR_WEST){

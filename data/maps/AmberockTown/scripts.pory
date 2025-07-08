@@ -24,7 +24,7 @@ const FLAG_TEAM_ROCKET = FLAG_TEMP_A
 const FLAG_BOAT = FLAG_TEMP_B
 const FLAG_HIKER = FLAG_TEMP_C
 const FLAG_GATE_NINJA = FLAG_TEMP_D
-const PLAYER = OBJ_EVENT_ID_PLAYER
+const PLAYER = LOCALID_PLAYER
 const NPC_KROKOROK = 9
 const NPC_CLAY = 10
 const NPC_PLAYER = 11
@@ -178,9 +178,7 @@ script Amberock_GroupGoesToGate{
     removeobject(NPC_KROKOROK)
     if(flag(FLAG_FACTORY_ITEM_1) || flag(FLAG_FACTORY_ITEM_2) || flag(FLAG_FACTORY_ITEM_3)){
         playse(SE_PIN)
-        applymovement(NPC_CLAY, ExclamationMark)
-        waitmovement(0)
-        delay(48)
+        exclamationmark(NPC_CLAY)
         turnobject(NPC_CLAY, DIR_SOUTH)
         delay(15)
         msgbox(KrokorokWasCarryingSomething, MSGBOX_AUTOCLOSE)
@@ -306,10 +304,7 @@ script Amberock_KrokorokIntro{
     playse(SE_PIN)
     turnobject(NPC_CLAY, DIR_SOUTH)
     turnobject(NPC_VOLKNER, DIR_SOUTH)
-    applymovement(NPC_CLAY, ExclamationMark)
-    applymovement(NPC_VOLKNER, ExclamationMark)
-    waitmovement(0)
-    delay(64)
+    exclamationmark(NPC_CLAY, NPC_VOLKNER)
     dismountplayer
     applymovement(PLAYER, Walk2Up)
     waitmovement(0)
@@ -444,13 +439,13 @@ script Amberock_KrokorokGiovanniCutScene{
     delay(15)
     msgbox(GiovanniWeAreOnSchedule)
     closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left * 2, walk_up, walk_left, walk_in_place_fast_down))
+    applymovement(LOCALID_PLAYER, moves(walk_left * 2, walk_up, walk_left, walk_in_place_fast_down))
     waitmovement(0)
     msgbox(ClayLetsBail)
     msgbox(ClayLetsBailPart2)
     msgbox(ClayLetsBailPart3)
     closemessage
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk2Right)
+    applymovement(LOCALID_PLAYER, Walk2Right)
     waitmovement(0)
     msgbox(ClayLetsBail2)
     setvar(VAR_AMBEROCK_STORY, STORY_AMBEROCK_FOUND_GIOVANNI)
@@ -704,7 +699,7 @@ script Amberock_Papers{
             applymovement(1, MoveScientist1)
     }
     waitmovement(0)
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    turnobject(LOCALID_PLAYER, DIR_NORTH)
     delay(24)
     if(flag(FLAG_TEMP_A)){
         msgbox(OurPapersAlternative)
@@ -866,7 +861,7 @@ script AmberockAlternativeCutscene{
     switch(var(VAR_FACING)){
         case DIR_WEST:
         case DIR_EAST:
-            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceDown)
+            applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceDown)
     }
     waitmovement(0)
     special(SpawnCameraObject)

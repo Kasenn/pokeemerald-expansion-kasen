@@ -73,7 +73,7 @@ script PryceBlockCave{
     delay(15)
     msgbox(PryceLetsNotGoIn)
     closemessage
-    applymovement(0xFF, Walk1Down)
+    applymovement(LOCALID_PLAYER, Walk1Down)
     applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, moves(face_left, lock_facing_direction, walk_right, unlock_facing_direction))
     waitmovement(0)
     releaseall

@@ -39,16 +39,10 @@ script Tower_5F_Tr1_Battle{
     playbgm(MUS_ENCOUNTER_COOL, FALSE)
     switch(var(VAR_TEMP_2)){
         case 1:
-            applymovement(2, Common_Movement_ExclamationMark)
-            waitmovement(0)
-            applymovement(2, Common_Movement_Delay48)
-            waitmovement(0)
+            exclamationmark(2)
             msgbox(Tr1_5F_MaleIntro)
         case 2:
-            applymovement(1, Common_Movement_ExclamationMark)
-            waitmovement(0)
-            applymovement(1, Common_Movement_Delay48)
-            waitmovement(0)
+            exclamationmark(1)
             msgbox(Tr1_5F_FemaleIntro)
     }
     closemessage

@@ -61,14 +61,14 @@ script TestBoundary{
     showobjectat(KYOGRE, MAP_TEST_ROOM)
     hideobjectat(GROUDON_TESTMAP, MAP_TEST_ROOM)
     applymovement(KYOGRE, Walk6Left)
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk6invis)
+    applymovement(LOCALID_PLAYER, Walk6invis)
     waitmovement(0)
 
     //after map transition
     turnobject(GROUDON_PETALBURG, DIR_WEST)
     showobjectat(GROUDON_PETALBURG, MAP_PETALBURG_CITY)
     applymovement(KYOGRE, TurnInvisible, MAP_TEST_ROOM)
-    applymovement(OBJ_EVENT_ID_PLAYER, MakeVisible)
+    applymovement(LOCALID_PLAYER, MakeVisible)
     waitmovement(0, MAP_TEST_ROOM)
     release
 }
@@ -96,7 +96,7 @@ script TestMovementScript{
     else{
         msgbox("{STR_VAR_1}", MSGBOX_NPC)
     }
-    applymovement(OBJ_EVENT_ID_PLAYER, Walk3Up)
+    applymovement(LOCALID_PLAYER, Walk3Up)
     waitmovement(0)
     addvar(VAR_TEMP_0, 1)
     release
@@ -113,7 +113,7 @@ script TestMovementScript{
     // }
 }
 
-const PLAYER = OBJ_EVENT_ID_PLAYER
+const PLAYER = LOCALID_PLAYER
 const KROKOROK = 1
 const FAKE = 2
 const FLAG_FAKE = FLAG_TEMP_3
