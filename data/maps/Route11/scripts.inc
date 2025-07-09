@@ -448,458 +448,450 @@ R11_RivalEvent::
 # 488 "data/maps/Route11/scripts.pory"
 	playse SE_PIN
 # 489 "data/maps/Route11/scripts.pory"
-	applymovement 8, Common_Movement_ExclamationMark
-# 490 "data/maps/Route11/scripts.pory"
-	waitmovement 0
-# 491 "data/maps/Route11/scripts.pory"
 	turnobject 9, DIR_SOUTH
-# 492 "data/maps/Route11/scripts.pory"
-	delay 70
-# 493 "data/maps/Route11/scripts.pory"
+# 490 "data/maps/Route11/scripts.pory"
+	exclamationmark 8
+# 491 "data/maps/Route11/scripts.pory"
 	compare VAR_TEMP_1, 1
 	goto_if_eq R11_RivalEvent_2
-# 497 "data/maps/Route11/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Walk2Up
+# 495 "data/maps/Route11/scripts.pory"
+	applymovement LOCALID_PLAYER, Walk2Up
 R11_RivalEvent_1:
-# 499 "data/maps/Route11/scripts.pory"
+# 497 "data/maps/Route11/scripts.pory"
 	waitmovement 0
-# 500 "data/maps/Route11/scripts.pory"
+# 498 "data/maps/Route11/scripts.pory"
 	checkplayergender
-# 501 "data/maps/Route11/scripts.pory"
+# 499 "data/maps/Route11/scripts.pory"
 	goto_if_set FLAG_RIVAL_HARBOR_ANGRY, R11_RivalEvent_5
-# 505 "data/maps/Route11/scripts.pory"
+# 503 "data/maps/Route11/scripts.pory"
 	goto R11_RivalNotAngry
 	return
 
 R11_RivalEvent_2:
-# 494 "data/maps/Route11/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, R11_Move1
+# 492 "data/maps/Route11/scripts.pory"
+	applymovement LOCALID_PLAYER, R11_Move1
 	goto R11_RivalEvent_1
 
 R11_RivalEvent_5:
-# 502 "data/maps/Route11/scripts.pory"
+# 500 "data/maps/Route11/scripts.pory"
 	goto R11_RivalAngry
 	return
 
 
-# 509 "data/maps/Route11/scripts.pory"
+# 507 "data/maps/Route11/scripts.pory"
 R11_Move1:
+# 508 "data/maps/Route11/scripts.pory"
+	walk_up
+# 509 "data/maps/Route11/scripts.pory"
+	walk_right
 # 510 "data/maps/Route11/scripts.pory"
 	walk_up
-# 511 "data/maps/Route11/scripts.pory"
-	walk_right
+	step_end
+
 # 512 "data/maps/Route11/scripts.pory"
-	walk_up
-	step_end
-
-# 514 "data/maps/Route11/scripts.pory"
 KorrinaMove1:
-# 515 "data/maps/Route11/scripts.pory"
+# 513 "data/maps/Route11/scripts.pory"
 	walk_down
-# 516 "data/maps/Route11/scripts.pory"
+# 514 "data/maps/Route11/scripts.pory"
 	walk_in_place_right
+# 515 "data/maps/Route11/scripts.pory"
+	face_right
+	step_end
+
 # 517 "data/maps/Route11/scripts.pory"
-	face_right
-	step_end
-
-# 519 "data/maps/Route11/scripts.pory"
 KorrinaInPlace:
-# 520 "data/maps/Route11/scripts.pory"
+# 518 "data/maps/Route11/scripts.pory"
 	walk_in_place_right
+# 519 "data/maps/Route11/scripts.pory"
+	face_right
+	step_end
+
 # 521 "data/maps/Route11/scripts.pory"
-	face_right
-	step_end
-
-# 523 "data/maps/Route11/scripts.pory"
 KorrinaMoveBack:
-# 524 "data/maps/Route11/scripts.pory"
+# 522 "data/maps/Route11/scripts.pory"
 	walk_left
-# 524 "data/maps/Route11/scripts.pory"
+# 522 "data/maps/Route11/scripts.pory"
 	walk_left
-# 525 "data/maps/Route11/scripts.pory"
+# 523 "data/maps/Route11/scripts.pory"
 	walk_in_place_right
+# 524 "data/maps/Route11/scripts.pory"
+	face_right
+	step_end
+
 # 526 "data/maps/Route11/scripts.pory"
-	face_right
-	step_end
-
-# 528 "data/maps/Route11/scripts.pory"
 KorrinaMoveForward:
-# 529 "data/maps/Route11/scripts.pory"
+# 527 "data/maps/Route11/scripts.pory"
 	walk_right
-# 529 "data/maps/Route11/scripts.pory"
+# 527 "data/maps/Route11/scripts.pory"
 	walk_right
-# 530 "data/maps/Route11/scripts.pory"
+# 528 "data/maps/Route11/scripts.pory"
 	face_right
 	step_end
 
-# 532 "data/maps/Route11/scripts.pory"
+# 530 "data/maps/Route11/scripts.pory"
 R11KorrinaLeaves:
-# 533 "data/maps/Route11/scripts.pory"
+# 531 "data/maps/Route11/scripts.pory"
 	walk_up
-# 533 "data/maps/Route11/scripts.pory"
+# 531 "data/maps/Route11/scripts.pory"
 	walk_up
-# 534 "data/maps/Route11/scripts.pory"
+# 532 "data/maps/Route11/scripts.pory"
 	walk_left
-# 535 "data/maps/Route11/scripts.pory"
+# 533 "data/maps/Route11/scripts.pory"
 	walk_up
-# 535 "data/maps/Route11/scripts.pory"
+# 533 "data/maps/Route11/scripts.pory"
 	walk_up
-# 535 "data/maps/Route11/scripts.pory"
+# 533 "data/maps/Route11/scripts.pory"
 	walk_up
-# 535 "data/maps/Route11/scripts.pory"
+# 533 "data/maps/Route11/scripts.pory"
 	walk_up
 	step_end
 
-# 537 "data/maps/Route11/scripts.pory"
+# 535 "data/maps/Route11/scripts.pory"
 R11RivalLeaves:
+# 536 "data/maps/Route11/scripts.pory"
+	walk_up
+# 537 "data/maps/Route11/scripts.pory"
+	walk_left
+# 537 "data/maps/Route11/scripts.pory"
+	walk_left
 # 538 "data/maps/Route11/scripts.pory"
 	walk_up
-# 539 "data/maps/Route11/scripts.pory"
-	walk_left
-# 539 "data/maps/Route11/scripts.pory"
-	walk_left
-# 540 "data/maps/Route11/scripts.pory"
+# 538 "data/maps/Route11/scripts.pory"
 	walk_up
-# 540 "data/maps/Route11/scripts.pory"
+# 538 "data/maps/Route11/scripts.pory"
 	walk_up
-# 540 "data/maps/Route11/scripts.pory"
+# 538 "data/maps/Route11/scripts.pory"
 	walk_up
-# 540 "data/maps/Route11/scripts.pory"
-	walk_up
-# 540 "data/maps/Route11/scripts.pory"
+# 538 "data/maps/Route11/scripts.pory"
 	walk_up
 	step_end
 
 R11_RivalAngry::
-# 544 "data/maps/Route11/scripts.pory"
+# 542 "data/maps/Route11/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq R11_RivalAngry_2
-# 548 "data/maps/Route11/scripts.pory"
+# 546 "data/maps/Route11/scripts.pory"
 	msgbox BrendanAngryIntro, MSGBOX_DEFAULT
 R11_RivalAngry_1:
-# 550 "data/maps/Route11/scripts.pory"
+# 548 "data/maps/Route11/scripts.pory"
 	call KorrinaIntro
-# 551 "data/maps/Route11/scripts.pory"
+# 549 "data/maps/Route11/scripts.pory"
 	msgbox RivalAngry_Text, MSGBOX_DEFAULT
-# 552 "data/maps/Route11/scripts.pory"
+# 550 "data/maps/Route11/scripts.pory"
 	call KorrinaMovesBack
-# 553 "data/maps/Route11/scripts.pory"
+# 551 "data/maps/Route11/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq R11_RivalAngry_6
-# 557 "data/maps/Route11/scripts.pory"
+# 555 "data/maps/Route11/scripts.pory"
 	goto R11_AngryBrendanBattleSetup
 R11_RivalAngry_5:
 	end
 
 R11_RivalAngry_2:
-# 545 "data/maps/Route11/scripts.pory"
+# 543 "data/maps/Route11/scripts.pory"
 	msgbox MayAngryIntro, MSGBOX_DEFAULT
 	goto R11_RivalAngry_1
 
 R11_RivalAngry_6:
-# 554 "data/maps/Route11/scripts.pory"
+# 552 "data/maps/Route11/scripts.pory"
 	goto R11_AngryMayBattleSetup
 	goto R11_RivalAngry_5
 
 
 R11_RivalNotAngry::
-# 562 "data/maps/Route11/scripts.pory"
+# 560 "data/maps/Route11/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq R11_RivalNotAngry_2
-# 566 "data/maps/Route11/scripts.pory"
+# 564 "data/maps/Route11/scripts.pory"
 	msgbox BrendanNotAngryIntro, MSGBOX_DEFAULT
 R11_RivalNotAngry_1:
-# 568 "data/maps/Route11/scripts.pory"
+# 566 "data/maps/Route11/scripts.pory"
 	call KorrinaIntro
-# 569 "data/maps/Route11/scripts.pory"
+# 567 "data/maps/Route11/scripts.pory"
 	msgbox RivalNotAngry_Text, MSGBOX_DEFAULT
-# 570 "data/maps/Route11/scripts.pory"
+# 568 "data/maps/Route11/scripts.pory"
 	call KorrinaMovesBack
-# 571 "data/maps/Route11/scripts.pory"
+# 569 "data/maps/Route11/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq R11_RivalNotAngry_6
-# 575 "data/maps/Route11/scripts.pory"
+# 573 "data/maps/Route11/scripts.pory"
 	goto R11_BrendanBattleSetup
 R11_RivalNotAngry_5:
 	end
 
 R11_RivalNotAngry_2:
-# 563 "data/maps/Route11/scripts.pory"
+# 561 "data/maps/Route11/scripts.pory"
 	msgbox MayNotAngryIntro, MSGBOX_DEFAULT
 	goto R11_RivalNotAngry_1
 
 R11_RivalNotAngry_6:
-# 572 "data/maps/Route11/scripts.pory"
+# 570 "data/maps/Route11/scripts.pory"
 	goto R11_MayBattleSetup
 	goto R11_RivalNotAngry_5
 
 
 KorrinaIntro::
-# 581 "data/maps/Route11/scripts.pory"
+# 579 "data/maps/Route11/scripts.pory"
 	closemessage
-# 582 "data/maps/Route11/scripts.pory"
+# 580 "data/maps/Route11/scripts.pory"
 	playse SE_PIN
-# 583 "data/maps/Route11/scripts.pory"
+# 581 "data/maps/Route11/scripts.pory"
 	safefollow
-# 584 "data/maps/Route11/scripts.pory"
-	applymovement 8, Common_Movement_ExclamationMark
-# 585 "data/maps/Route11/scripts.pory"
-	waitmovement 0
-# 586 "data/maps/Route11/scripts.pory"
-	delay 40
-# 587 "data/maps/Route11/scripts.pory"
+# 582 "data/maps/Route11/scripts.pory"
+	exclamationmark 8
+# 583 "data/maps/Route11/scripts.pory"
 	turnobject 8, DIR_WEST
-# 588 "data/maps/Route11/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
-# 589 "data/maps/Route11/scripts.pory"
+# 584 "data/maps/Route11/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_WEST
+# 585 "data/maps/Route11/scripts.pory"
 	delay 30
-# 590 "data/maps/Route11/scripts.pory"
+# 586 "data/maps/Route11/scripts.pory"
 	goto_if_set FLAG_RIVAL_HARBOR_ANGRY, KorrinaIntro_2
-# 594 "data/maps/Route11/scripts.pory"
+# 590 "data/maps/Route11/scripts.pory"
 	msgbox ThisPersonIs, MSGBOX_DEFAULT
 KorrinaIntro_1:
-# 596 "data/maps/Route11/scripts.pory"
+# 592 "data/maps/Route11/scripts.pory"
 	closemessage
-# 597 "data/maps/Route11/scripts.pory"
+# 593 "data/maps/Route11/scripts.pory"
 	applymovement 9, KorrinaMove1
-# 598 "data/maps/Route11/scripts.pory"
+# 594 "data/maps/Route11/scripts.pory"
 	waitmovement 0
-# 599 "data/maps/Route11/scripts.pory"
+# 595 "data/maps/Route11/scripts.pory"
 	delay 30
-# 600 "data/maps/Route11/scripts.pory"
+# 596 "data/maps/Route11/scripts.pory"
 	msgbox KorrinaIntro_Text, MSGBOX_DEFAULT
-# 601 "data/maps/Route11/scripts.pory"
+# 597 "data/maps/Route11/scripts.pory"
 	closemessage
-# 602 "data/maps/Route11/scripts.pory"
+# 598 "data/maps/Route11/scripts.pory"
 	delay 30
-# 603 "data/maps/Route11/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-# 604 "data/maps/Route11/scripts.pory"
+# 599 "data/maps/Route11/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_NORTH
+# 600 "data/maps/Route11/scripts.pory"
 	turnobject 8, DIR_SOUTH
-# 605 "data/maps/Route11/scripts.pory"
+# 601 "data/maps/Route11/scripts.pory"
 	delay 30
 	return
 
 KorrinaIntro_2:
-# 591 "data/maps/Route11/scripts.pory"
+# 587 "data/maps/Route11/scripts.pory"
 	msgbox ThisPersonIsAngry, MSGBOX_DEFAULT
 	goto KorrinaIntro_1
 
 
 KorrinaMovesBack::
-# 609 "data/maps/Route11/scripts.pory"
+# 605 "data/maps/Route11/scripts.pory"
 	closemessage
-# 610 "data/maps/Route11/scripts.pory"
+# 606 "data/maps/Route11/scripts.pory"
 	safefollow
-# 611 "data/maps/Route11/scripts.pory"
+# 607 "data/maps/Route11/scripts.pory"
 	applymovement 9, KorrinaInPlace
-# 612 "data/maps/Route11/scripts.pory"
+# 608 "data/maps/Route11/scripts.pory"
 	waitmovement 0
-# 613 "data/maps/Route11/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
-# 614 "data/maps/Route11/scripts.pory"
+# 609 "data/maps/Route11/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_WEST
+# 610 "data/maps/Route11/scripts.pory"
 	delay 10
-# 615 "data/maps/Route11/scripts.pory"
+# 611 "data/maps/Route11/scripts.pory"
 	msgbox KorrinaGiveRoom, MSGBOX_DEFAULT
-# 616 "data/maps/Route11/scripts.pory"
+# 612 "data/maps/Route11/scripts.pory"
 	closemessage
-# 617 "data/maps/Route11/scripts.pory"
+# 613 "data/maps/Route11/scripts.pory"
 	applymovement 9, KorrinaMoveBack
-# 618 "data/maps/Route11/scripts.pory"
+# 614 "data/maps/Route11/scripts.pory"
 	waitmovement 0
-# 619 "data/maps/Route11/scripts.pory"
+# 615 "data/maps/Route11/scripts.pory"
 	delay 20
-# 620 "data/maps/Route11/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-# 621 "data/maps/Route11/scripts.pory"
+# 616 "data/maps/Route11/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_NORTH
+# 617 "data/maps/Route11/scripts.pory"
 	delay 40
 	return
 
 
 R11_AngryMayBattleSetup::
-# 626 "data/maps/Route11/scripts.pory"
+# 622 "data/maps/Route11/scripts.pory"
 	trainerbattle_no_intro TRAINER_MAY_ROUTE_11_ANGRY, R11_AngryMayDefeated
-# 627 "data/maps/Route11/scripts.pory"
+# 623 "data/maps/Route11/scripts.pory"
 	goto R11_RivalPostBattle
 	return
 
 
 R11_AngryBrendanBattleSetup::
-# 630 "data/maps/Route11/scripts.pory"
+# 626 "data/maps/Route11/scripts.pory"
 	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_11_ANGRY, R11_AngryBrendanDefeated
-# 631 "data/maps/Route11/scripts.pory"
+# 627 "data/maps/Route11/scripts.pory"
 	goto R11_RivalPostBattle
 	return
 
 
 R11_MayBattleSetup::
-# 634 "data/maps/Route11/scripts.pory"
+# 630 "data/maps/Route11/scripts.pory"
 	trainerbattle_no_intro TRAINER_MAY_ROUTE_11_NORMAL, R11_MayDefeated
-# 635 "data/maps/Route11/scripts.pory"
+# 631 "data/maps/Route11/scripts.pory"
 	goto R11_RivalPostBattle
 	return
 
 
 R11_BrendanBattleSetup::
-# 638 "data/maps/Route11/scripts.pory"
+# 634 "data/maps/Route11/scripts.pory"
 	trainerbattle_no_intro TRAINER_BRENDAN_ROUTE_11_NORMAL, R11_BrendanDefeated
-# 639 "data/maps/Route11/scripts.pory"
+# 635 "data/maps/Route11/scripts.pory"
 	goto R11_RivalPostBattle
 	return
 
 
 R11_RivalPostBattle::
-# 643 "data/maps/Route11/scripts.pory"
+# 639 "data/maps/Route11/scripts.pory"
 	checkplayergender
-# 644 "data/maps/Route11/scripts.pory"
+# 640 "data/maps/Route11/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq R11_RivalPostBattle_2
-# 648 "data/maps/Route11/scripts.pory"
+# 644 "data/maps/Route11/scripts.pory"
 	msgbox R11_BrendanPostText, MSGBOX_DEFAULT
 R11_RivalPostBattle_1:
-# 650 "data/maps/Route11/scripts.pory"
+# 646 "data/maps/Route11/scripts.pory"
 	closemessage
-# 651 "data/maps/Route11/scripts.pory"
+# 647 "data/maps/Route11/scripts.pory"
 	safefollow
-# 652 "data/maps/Route11/scripts.pory"
+# 648 "data/maps/Route11/scripts.pory"
 	applymovement 9, KorrinaMoveForward
-# 653 "data/maps/Route11/scripts.pory"
+# 649 "data/maps/Route11/scripts.pory"
 	waitmovement 0
-# 654 "data/maps/Route11/scripts.pory"
+# 650 "data/maps/Route11/scripts.pory"
 	delay 10
-# 655 "data/maps/Route11/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
-# 656 "data/maps/Route11/scripts.pory"
+# 651 "data/maps/Route11/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_WEST
+# 652 "data/maps/Route11/scripts.pory"
 	delay 30
-# 657 "data/maps/Route11/scripts.pory"
+# 653 "data/maps/Route11/scripts.pory"
 	msgbox KorrinaComeChallenge, MSGBOX_DEFAULT
-# 658 "data/maps/Route11/scripts.pory"
+# 654 "data/maps/Route11/scripts.pory"
 	closemessage
-# 659 "data/maps/Route11/scripts.pory"
+# 655 "data/maps/Route11/scripts.pory"
 	applymovement 9, R11KorrinaLeaves
-# 660 "data/maps/Route11/scripts.pory"
+# 656 "data/maps/Route11/scripts.pory"
 	waitmovement 0
-# 661 "data/maps/Route11/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-# 662 "data/maps/Route11/scripts.pory"
+# 657 "data/maps/Route11/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_NORTH
+# 658 "data/maps/Route11/scripts.pory"
 	delay 30
-# 663 "data/maps/Route11/scripts.pory"
+# 659 "data/maps/Route11/scripts.pory"
 	checkitem ITEM_DOWSING_MACHINE
-# 664 "data/maps/Route11/scripts.pory"
+# 660 "data/maps/Route11/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq R11_RivalPostBattle_6
 R11_RivalPostBattle_5:
-# 682 "data/maps/Route11/scripts.pory"
+# 678 "data/maps/Route11/scripts.pory"
 	goto R11_RivalExits
 	return
 
 R11_RivalPostBattle_2:
-# 645 "data/maps/Route11/scripts.pory"
+# 641 "data/maps/Route11/scripts.pory"
 	msgbox R11_MayPostText, MSGBOX_DEFAULT
 	goto R11_RivalPostBattle_1
 
 R11_RivalPostBattle_6:
-# 665 "data/maps/Route11/scripts.pory"
+# 661 "data/maps/Route11/scripts.pory"
 	checkplayergender
-# 666 "data/maps/Route11/scripts.pory"
+# 662 "data/maps/Route11/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq R11_RivalPostBattle_9
-# 670 "data/maps/Route11/scripts.pory"
+# 666 "data/maps/Route11/scripts.pory"
 	msgbox R11_BrendanGiveDowsingMchn, MSGBOX_DEFAULT
 R11_RivalPostBattle_8:
-# 672 "data/maps/Route11/scripts.pory"
+# 668 "data/maps/Route11/scripts.pory"
 	giveitem ITEM_DOWSING_MACHINE
-# 673 "data/maps/Route11/scripts.pory"
+# 669 "data/maps/Route11/scripts.pory"
 	waitse
-# 674 "data/maps/Route11/scripts.pory"
+# 670 "data/maps/Route11/scripts.pory"
 	waitmessage
-# 675 "data/maps/Route11/scripts.pory"
+# 671 "data/maps/Route11/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq R11_RivalPostBattle_12
-# 679 "data/maps/Route11/scripts.pory"
+# 675 "data/maps/Route11/scripts.pory"
 	msgbox R11_BrendanDowsing, MSGBOX_DEFAULT
 	goto R11_RivalPostBattle_5
 
 R11_RivalPostBattle_9:
-# 667 "data/maps/Route11/scripts.pory"
+# 663 "data/maps/Route11/scripts.pory"
 	msgbox R11_MayGiveDowsingMchn, MSGBOX_DEFAULT
 	goto R11_RivalPostBattle_8
 
 R11_RivalPostBattle_12:
-# 676 "data/maps/Route11/scripts.pory"
+# 672 "data/maps/Route11/scripts.pory"
 	msgbox R11_MayDowsing, MSGBOX_DEFAULT
 	goto R11_RivalPostBattle_5
 
 
 R11_RivalExits::
-# 686 "data/maps/Route11/scripts.pory"
+# 682 "data/maps/Route11/scripts.pory"
 	checkplayergender
-# 687 "data/maps/Route11/scripts.pory"
+# 683 "data/maps/Route11/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq R11_RivalExits_2
-# 693 "data/maps/Route11/scripts.pory"
+# 689 "data/maps/Route11/scripts.pory"
 	msgbox R11BrendanChallengeKorrina, MSGBOX_DEFAULT
-# 694 "data/maps/Route11/scripts.pory"
+# 690 "data/maps/Route11/scripts.pory"
 	closemessage
-# 695 "data/maps/Route11/scripts.pory"
+# 691 "data/maps/Route11/scripts.pory"
 	delay 15
 R11_RivalExits_1:
-# 697 "data/maps/Route11/scripts.pory"
+# 693 "data/maps/Route11/scripts.pory"
 	setflag FLAG_HIDE_ROUTE_110_RIVAL
-# 698 "data/maps/Route11/scripts.pory"
+# 694 "data/maps/Route11/scripts.pory"
 	clearflag FLAG_HIDE_ROUTE_110_RIVAL_ON_BIKE
-# 699 "data/maps/Route11/scripts.pory"
+# 695 "data/maps/Route11/scripts.pory"
 	call Common_EventScript_SetupRivalOnBikeGfxId
-# 700 "data/maps/Route11/scripts.pory"
+# 696 "data/maps/Route11/scripts.pory"
 	hideobjectat 8, MAP_ROUTE11
-# 701 "data/maps/Route11/scripts.pory"
+# 697 "data/maps/Route11/scripts.pory"
 	addobject 28
-# 702 "data/maps/Route11/scripts.pory"
+# 698 "data/maps/Route11/scripts.pory"
 	showobjectat 28, MAP_ROUTE11
-# 703 "data/maps/Route11/scripts.pory"
+# 699 "data/maps/Route11/scripts.pory"
 	special DrawWholeMapView
-# 704 "data/maps/Route11/scripts.pory"
+# 700 "data/maps/Route11/scripts.pory"
 	delay 40
-# 705 "data/maps/Route11/scripts.pory"
+# 701 "data/maps/Route11/scripts.pory"
 	safefollow
-# 706 "data/maps/Route11/scripts.pory"
+# 702 "data/maps/Route11/scripts.pory"
 	applymovement 28, R11RivalLeaves
-# 707 "data/maps/Route11/scripts.pory"
+# 703 "data/maps/Route11/scripts.pory"
 	waitmovement 0
-# 708 "data/maps/Route11/scripts.pory"
+# 704 "data/maps/Route11/scripts.pory"
 	setvar VAR_GYM_TELEPORT, 1
-# 709 "data/maps/Route11/scripts.pory"
+# 705 "data/maps/Route11/scripts.pory"
 	setflag FLAG_HIDE_ROUTE_110_RIVAL_ON_BIKE
-# 710 "data/maps/Route11/scripts.pory"
+# 706 "data/maps/Route11/scripts.pory"
 	removeobject 9
-# 711 "data/maps/Route11/scripts.pory"
+# 707 "data/maps/Route11/scripts.pory"
 	removeobject 8
-# 712 "data/maps/Route11/scripts.pory"
+# 708 "data/maps/Route11/scripts.pory"
 	removeobject 28
-# 713 "data/maps/Route11/scripts.pory"
+# 709 "data/maps/Route11/scripts.pory"
 	savebgm MUS_DUMMY
-# 714 "data/maps/Route11/scripts.pory"
+# 710 "data/maps/Route11/scripts.pory"
 	fadedefaultbgm
-# 715 "data/maps/Route11/scripts.pory"
+# 711 "data/maps/Route11/scripts.pory"
 	delay 60
-# 716 "data/maps/Route11/scripts.pory"
+# 712 "data/maps/Route11/scripts.pory"
 	release
 	end
 
 R11_RivalExits_2:
-# 688 "data/maps/Route11/scripts.pory"
+# 684 "data/maps/Route11/scripts.pory"
 	msgbox R11MayChallengeKorrina, MSGBOX_DEFAULT
-# 689 "data/maps/Route11/scripts.pory"
+# 685 "data/maps/Route11/scripts.pory"
 	closemessage
-# 690 "data/maps/Route11/scripts.pory"
+# 686 "data/maps/Route11/scripts.pory"
 	delay 30
 	goto R11_RivalExits_1
 
 
 R11VarTest::
-# 906 "data/maps/Route11/scripts.pory"
+# 902 "data/maps/Route11/scripts.pory"
 	buffernumberstring STR_VAR_1, VAR_R11_TRAINERS
-# 907 "data/maps/Route11/scripts.pory"
+# 903 "data/maps/Route11/scripts.pory"
 	msgbox R11VarTest_Text_0, MSGBOX_NPC
 	end
 
@@ -909,7 +901,7 @@ RewardBP_Text_0:
 	.string "Earned {STR_VAR_1} BP!$"
 
 R11VarTest_Text_0:
-# 907 "data/maps/Route11/scripts.pory"
+# 903 "data/maps/Route11/scripts.pory"
 	.string "{STR_VAR_1}$"
 
 LeaveMeAlone_Torment::
@@ -1197,7 +1189,7 @@ R11_Ace_ExplainReward::
 	.string "as well.$"
 
 R11_BrendanDowsing::
-# 720 "data/maps/Route11/scripts.pory"
+# 716 "data/maps/Route11/scripts.pory"
 	.string "{RIVAL}: That's an Itemfinder.\p"
 	.string "You can use it to root around for items\n"
 	.string "that aren't usually visible.\p"
@@ -1205,13 +1197,13 @@ R11_BrendanDowsing::
 	.string "a sound.$"
 
 R11_MayDowsing::
-# 727 "data/maps/Route11/scripts.pory"
+# 723 "data/maps/Route11/scripts.pory"
 	.string "{RIVAL}: That's an Itemfinder.\p"
 	.string "Try it out. If there is an item that's\n"
 	.string "not visible, it emits a sound.\p$"
 
 MayAngryIntro::
-# 733 "data/maps/Route11/scripts.pory"
+# 729 "data/maps/Route11/scripts.pory"
 	.string "{RIVAL}: Well, well, well.\n"
 	.string "Look who finally showed up!\p"
 	.string "I waited for you at the Coralgrove\n"
@@ -1220,7 +1212,7 @@ MayAngryIntro::
 	.string "of something, I'd…$"
 
 BrendanAngryIntro::
-# 741 "data/maps/Route11/scripts.pory"
+# 737 "data/maps/Route11/scripts.pory"
 	.string "{RIVAL}: Oh? Look who just\n"
 	.string "waltzed in.\p"
 	.string "You know, I'm really disappointed\n"
@@ -1232,7 +1224,7 @@ BrendanAngryIntro::
 	.string "something, I'd…$"
 
 RivalAngry_Text::
-# 752 "data/maps/Route11/scripts.pory"
+# 748 "data/maps/Route11/scripts.pory"
 	.string "{RIVAL}: Don't think I forgot how you\n"
 	.string "just left me behind at Coralgrove.\p"
 	.string "We were meant to have a Pokémon battle,\n"
@@ -1243,7 +1235,7 @@ RivalAngry_Text::
 	.string "your training.$"
 
 MayNotAngryIntro::
-# 762 "data/maps/Route11/scripts.pory"
+# 758 "data/maps/Route11/scripts.pory"
 	.string "{RIVAL}: Oh, hi, {PLAYER}! Nice to see\n"
 	.string "you finally caught up!\p"
 	.string "I hope you've been working diligently,\n"
@@ -1253,7 +1245,7 @@ MayNotAngryIntro::
 	.string "chat with--$"
 
 BrendanNotAngryIntro::
-# 771 "data/maps/Route11/scripts.pory"
+# 767 "data/maps/Route11/scripts.pory"
 	.string "{RIVAL}: Oh, hey, {PLAYER}!\n"
 	.string "Long time no see!\p"
 	.string "I hope you've been working hard,\n"
@@ -1262,7 +1254,7 @@ BrendanNotAngryIntro::
 	.string "Anyway, we were just chatting with--$"
 
 RivalNotAngry_Text::
-# 779 "data/maps/Route11/scripts.pory"
+# 775 "data/maps/Route11/scripts.pory"
 	.string "{RIVAL}: Oh, I know!\n"
 	.string "It's been such a long time since our\l"
 	.string "last meeting, I want to see how much\l"
@@ -1272,19 +1264,19 @@ RivalNotAngry_Text::
 	.string "down as easy this time!$"
 
 ThisPersonIsAngry::
-# 788 "data/maps/Route11/scripts.pory"
+# 784 "data/maps/Route11/scripts.pory"
 	.string "{RIVAL}: Oh, I just realized how rude\n"
 	.string "I was being to our guest.\p"
 	.string "This person is--$"
 
 ThisPersonIs::
-# 793 "data/maps/Route11/scripts.pory"
+# 789 "data/maps/Route11/scripts.pory"
 	.string "{RIVAL}: Oh, that's right. You two\n"
 	.string "probably haven't met before.\p"
 	.string "This person is--$"
 
 KorrinaIntro_Text::
-# 798 "data/maps/Route11/scripts.pory"
+# 794 "data/maps/Route11/scripts.pory"
 	.string "Heyo! I'm Korrina!\p"
 	.string "I'm the leader of Sandstone City\n"
 	.string "Pokémon Gym!\l"
@@ -1299,33 +1291,33 @@ KorrinaIntro_Text::
 	.string "you two get caught up.$"
 
 KorrinaGiveRoom::
-# 812 "data/maps/Route11/scripts.pory"
+# 808 "data/maps/Route11/scripts.pory"
 	.string "Korrina: Oh, this sounds like fun!\n"
 	.string "I deffo want to see this!\p"
 	.string "I'll give you two some space so\n"
 	.string "you can go all out.$"
 
 R11_AngryBrendanDefeated::
-# 818 "data/maps/Route11/scripts.pory"
+# 814 "data/maps/Route11/scripts.pory"
 	.string "After all the extra practice\n"
 	.string "I still lost…$"
 
 R11_AngryMayDefeated::
-# 822 "data/maps/Route11/scripts.pory"
+# 818 "data/maps/Route11/scripts.pory"
 	.string "No! We practiced so hard!\n"
 	.string "We can't just lose like this!$"
 
 R11_MayDefeated::
-# 826 "data/maps/Route11/scripts.pory"
+# 822 "data/maps/Route11/scripts.pory"
 	.string "We lost again! How does this\n"
 	.string "keep happening!?$"
 
 R11_BrendanDefeated::
-# 830 "data/maps/Route11/scripts.pory"
+# 826 "data/maps/Route11/scripts.pory"
 	.string "I can't believe I lost again…$"
 
 R11_MayPostText::
-# 833 "data/maps/Route11/scripts.pory"
+# 829 "data/maps/Route11/scripts.pory"
 	.string "{RIVAL}: Wow, {PLAYER}!\p"
 	.string "I never imagined your team to have\n"
 	.string "grown so much!\p"
@@ -1333,14 +1325,14 @@ R11_MayPostText::
 	.string "of fun!$"
 
 R11_BrendanPostText::
-# 840 "data/maps/Route11/scripts.pory"
+# 836 "data/maps/Route11/scripts.pory"
 	.string "{RIVAL}: What an amazing display\n"
 	.string "of skill, {PLAYER}!\p"
 	.string "I was so sure that I had it there, but\n"
 	.string "look who turned out to be wrong.$"
 
 KorrinaComeChallenge::
-# 846 "data/maps/Route11/scripts.pory"
+# 842 "data/maps/Route11/scripts.pory"
 	.string "Korrina: From the way you two fought,\n"
 	.string "I can see both of you really care\l"
 	.string "for your Pokémon.\p"
@@ -1355,7 +1347,7 @@ KorrinaComeChallenge::
 	.string "Anyways, catch you guys later!$"
 
 R11_MayGiveDowsingMchn::
-# 860 "data/maps/Route11/scripts.pory"
+# 856 "data/maps/Route11/scripts.pory"
 	.string "{RIVAL}: Oh, that's right! There's\n"
 	.string "something I was going to give to you\l"
 	.string "back in Coralgrove before you bailed\l"
@@ -1364,7 +1356,7 @@ R11_MayGiveDowsingMchn::
 	.string "you now…$"
 
 R11_BrendanGiveDowsingMchn::
-# 868 "data/maps/Route11/scripts.pory"
+# 864 "data/maps/Route11/scripts.pory"
 	.string "{RIVAL}: Oh, that's right! There's\n"
 	.string "something I was going to give to you\l"
 	.string "before you left me behind at\l"
@@ -1373,7 +1365,7 @@ R11_BrendanGiveDowsingMchn::
 	.string "to give it…$"
 
 R11MayChallengeKorrina::
-# 876 "data/maps/Route11/scripts.pory"
+# 872 "data/maps/Route11/scripts.pory"
 	.string "{RIVAL}: I'm not going to lie,\n"
 	.string "that Korrina seemed awfully relaxed.\p"
 	.string "Do you think she realized watching our\n"
@@ -1387,7 +1379,7 @@ R11MayChallengeKorrina::
 	.string "See you again soon!$"
 
 R11BrendanChallengeKorrina::
-# 889 "data/maps/Route11/scripts.pory"
+# 885 "data/maps/Route11/scripts.pory"
 	.string "{RIVAL}: I'm not going to lie,\n"
 	.string "that Korrina seemed awfully relaxed.\p"
 	.string "Maybe our battle made her realize the\n"

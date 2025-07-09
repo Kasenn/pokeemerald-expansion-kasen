@@ -174,76 +174,72 @@ Office_PetrelFight::
 # 143 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	turnobject 3, DIR_WEST
 # 144 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
-	applymovement 3, ExclamationMark
+	exclamationmark 3
 # 145 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
-	waitmovement 0
-# 146 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
-	delay 48
-# 147 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	goto_if_set FLAG_TEMP_3, Office_PetrelFight_2
-# 151 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 149 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	applymovement 3, Office_PetrelFight_Movement_0
 Office_PetrelFight_1:
-# 153 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 151 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	waitmovement 0
-# 154 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 152 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	playbgm MUS_ENCOUNTER_AQUA, TRUE
-# 155 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 153 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	msgbox PetrelWelcomesPlayer
-# 156 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 154 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	trainerbattle_no_intro TRAINER_FACTORY_ROCKET_PETREL, Petrel_LoseText
 	checkplayergender
 # 0 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq Office_PetrelFight_6
-# 161 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 159 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	bufferstring STR_VAR_1, Office_PetrelFight_Text_1
 Office_PetrelFight_5:
-# 163 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 161 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	msgbox PetrelPostBat
-# 164 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 162 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	closemessage
-# 165 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 163 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	fadescreen FADE_TO_BLACK
-# 166 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 164 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	removeobjectbyflag FLAG_TEMP_1
-# 167 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 165 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	setvar VAR_AMBEROCK_STORY, STORY_AMBEROCK_FOUGHT_PETREL
-# 168 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 166 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	fadenewbgm MUS_AQUA_MAGMA_HIDEOUT
-# 169 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 167 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	fadescreen FADE_FROM_BLACK
-# 170 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 168 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	delay 20
-# 171 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 169 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	release
 	end
 
 Office_PetrelFight_2:
-# 148 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 146 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	applymovement 3, Walk1Left
 	goto Office_PetrelFight_1
 
 Office_PetrelFight_6:
-# 158 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 156 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	bufferstring STR_VAR_1, Office_PetrelFight_Text_0
 	goto Office_PetrelFight_5
 
 
-# 151 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 149 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 Office_PetrelFight_Movement_0:
-# 151 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 149 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	walk_down
-# 151 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 149 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	walk_left
 	step_end
 
 Office_PetrelFight_Text_0:
-# 158 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 156 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	.string "lad$"
 
 Office_PetrelFight_Text_1:
-# 161 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 159 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	.string "lass$"
 
 Factory_Office_Rocket1_Intro::
@@ -317,7 +313,7 @@ PapersOnTable::
 	.string "the scientist's research papers.$"
 
 PetrelWelcomesPlayer::
-# 175 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 173 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	.string "Petrel: Oh look, the little hero.\p"
 	.string "Let me guess, you're here for those\n"
 	.string "papers on the table?\p"
@@ -327,12 +323,12 @@ PetrelWelcomesPlayer::
 	.string "That is, if you can get past me!$"
 
 Petrel_LoseText::
-# 184 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 182 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	.string "Tsk!\n"
 	.string "What's with this kid...$"
 
 PetrelPostBat::
-# 188 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
+# 186 "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.pory"
 	.string "Petrel: Wahaha!\p"
 	.string "What an interesting {STR_VAR_1}!\n"
 	.string "Fine, take your papers.\p"

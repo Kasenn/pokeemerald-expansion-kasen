@@ -76,7 +76,7 @@ MartCounterHop1_1:
 	compare VAR_FACING, DIR_WEST
 	goto_if_eq MartCounterHop1_9
 # 49 "data/maps/Drisledge_Mart/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, HopOverLedgeToEast
+	applymovement LOCALID_PLAYER, HopOverLedgeToEast
 MartCounterHop1_8:
 # 51 "data/maps/Drisledge_Mart/scripts.pory"
 	waitmovement 0
@@ -96,7 +96,7 @@ MartCounterHop1_6:
 
 MartCounterHop1_9:
 # 46 "data/maps/Drisledge_Mart/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, HopOverLedgeToWest
+	applymovement LOCALID_PLAYER, HopOverLedgeToWest
 	goto MartCounterHop1_8
 
 
@@ -122,7 +122,7 @@ MartCounterHop2_1:
 	compare VAR_FACING, DIR_NORTH
 	goto_if_eq MartCounterHop2_9
 # 79 "data/maps/Drisledge_Mart/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, HopOverLedgeToSouth
+	applymovement LOCALID_PLAYER, HopOverLedgeToSouth
 # 80 "data/maps/Drisledge_Mart/scripts.pory"
 	delay 8
 # 81 "data/maps/Drisledge_Mart/scripts.pory"
@@ -160,7 +160,7 @@ MartCounterHop2_9:
 # 71 "data/maps/Drisledge_Mart/scripts.pory"
 	special DrawWholeMapView
 # 72 "data/maps/Drisledge_Mart/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, HopOverLedgeToNorthMart
+	applymovement LOCALID_PLAYER, HopOverLedgeToNorthMart
 # 73 "data/maps/Drisledge_Mart/scripts.pory"
 	delay 22
 # 74 "data/maps/Drisledge_Mart/scripts.pory"
@@ -194,7 +194,7 @@ MartCounterHop3_1:
 	compare VAR_FACING, DIR_NORTH
 	goto_if_eq MartCounterHop3_9
 # 116 "data/maps/Drisledge_Mart/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, HopOverLedgeToSouth
+	applymovement LOCALID_PLAYER, HopOverLedgeToSouth
 # 117 "data/maps/Drisledge_Mart/scripts.pory"
 	delay 8
 # 118 "data/maps/Drisledge_Mart/scripts.pory"
@@ -232,7 +232,7 @@ MartCounterHop3_9:
 # 108 "data/maps/Drisledge_Mart/scripts.pory"
 	special DrawWholeMapView
 # 109 "data/maps/Drisledge_Mart/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, HopOverLedgeToNorthMart
+	applymovement LOCALID_PLAYER, HopOverLedgeToNorthMart
 # 110 "data/maps/Drisledge_Mart/scripts.pory"
 	delay 22
 # 111 "data/maps/Drisledge_Mart/scripts.pory"

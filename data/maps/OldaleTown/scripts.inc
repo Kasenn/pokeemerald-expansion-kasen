@@ -4,7 +4,7 @@ OldaleTown_MapScripts::
 
 OldaleTown_OnTransition:
 	call SetupRivalGfxId
-	setflag FLAG_VISITED_OLDALE_TOWN
+	setflag FLAG_VISITED_PRIMROSE_TOWN
 	call_if_unset FLAG_RECEIVED_POTION_OLDALE, OldaleTown_EventScript_MoveMartEmployee
 	end
 

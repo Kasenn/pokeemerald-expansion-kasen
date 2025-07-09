@@ -308,7 +308,7 @@ WardrobeDoor::
 # 226 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	waitdooranim
 # 227 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, WardrobeUp
+	applymovement LOCALID_PLAYER, WardrobeUp
 # 228 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	waitmovement 0
 	return

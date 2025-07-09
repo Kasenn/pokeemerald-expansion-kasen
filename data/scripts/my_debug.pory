@@ -1754,7 +1754,7 @@ script SkipStory{
         if(var(VAR_MAIN_STORY_BITS) < STORY_RIVAL_DEFEATED_OR_BAILED_ON){
             setvar(VAR_MAIN_STORY_BITS, STORY_RIVAL_DEFEATED_OR_BAILED_ON)
         }
-        setflag(FLAG_VISITED_RUSTBORO_CITY)
+        setflag(FLAG_VISITED_CORALGROVE_CITY)
         defeattrainer(TRAINER_CHIP)
         defeattrainer(TRAINER_FOSTER)
         defeattrainer(TRAINER_DUSTY_2)

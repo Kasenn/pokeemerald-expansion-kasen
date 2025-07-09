@@ -46,17 +46,17 @@ WindyWoods_MapScripts_MAP_SCRIPT_ON_TRANSITION_8:
 
 WindyWoods_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE:
 # 15 "data/maps/WindyWoods/scripts.pory"
-	map_script_2 VAR_WINDYWOODS_STATE, 4, WindyWoods_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_0
+	map_script_2 VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_ROCKET_DEFEATED, WindyWoods_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_0
 	.2byte 0
 
 WindyWoods_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_0:
 # 15 "data/maps/WindyWoods/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject LOCALID_PLAYER, DIR_WEST
 	return
 
 WindyWoods_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 # 16 "data/maps/WindyWoods/scripts.pory"
-	map_script_2 VAR_WINDYWOODS_STATE, 4, WW_BridgeScene2
+	map_script_2 VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_ROCKET_DEFEATED, WW_BridgeScene2
 	.2byte 0
 
 
@@ -256,218 +256,198 @@ WW_CoolTrainerPostBattle_7:
 
 
 WW_HelpGirl::
-# 208 "data/maps/WindyWoods/scripts.pory"
+# 202 "data/maps/WindyWoods/scripts.pory"
 	lock
-# 209 "data/maps/WindyWoods/scripts.pory"
+# 203 "data/maps/WindyWoods/scripts.pory"
 	safefollow
-# 210 "data/maps/WindyWoods/scripts.pory"
+# 204 "data/maps/WindyWoods/scripts.pory"
 	turnobject 5, DIR_SOUTH
-# 211 "data/maps/WindyWoods/scripts.pory"
+# 205 "data/maps/WindyWoods/scripts.pory"
 	playse SE_PIN
-# 212 "data/maps/WindyWoods/scripts.pory"
-	applymovement 5, Common_Movement_ExclamationMark
-# 213 "data/maps/WindyWoods/scripts.pory"
-	waitmovement 0
-# 214 "data/maps/WindyWoods/scripts.pory"
-	delay 48
-# 215 "data/maps/WindyWoods/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-# 216 "data/maps/WindyWoods/scripts.pory"
+# 206 "data/maps/WindyWoods/scripts.pory"
+	exclamationmark 5
+# 207 "data/maps/WindyWoods/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_NORTH
+# 208 "data/maps/WindyWoods/scripts.pory"
 	clearflag FLAG_TEMP_2
-# 217 "data/maps/WindyWoods/scripts.pory"
+# 209 "data/maps/WindyWoods/scripts.pory"
 	setvar VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_TALKED_TO_GIRL
-# 218 "data/maps/WindyWoods/scripts.pory"
-	msgbox WW_Help
-# 219 "data/maps/WindyWoods/scripts.pory"
-	waitmessage
-# 220 "data/maps/WindyWoods/scripts.pory"
-	releaseall
+# 210 "data/maps/WindyWoods/scripts.pory"
+	msgbox WW_Help, MSGBOX_AUTOCLOSE
 	return
 
 
 WW_LittleGirl::
-# 224 "data/maps/WindyWoods/scripts.pory"
+# 214 "data/maps/WindyWoods/scripts.pory"
 	compare VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_NOT_STARTED
 	goto_if_eq WW_LittleGirl_1
-# 230 "data/maps/WindyWoods/scripts.pory"
+# 220 "data/maps/WindyWoods/scripts.pory"
 	msgbox WW_Help2, MSGBOX_NPC
 	return
 
 WW_LittleGirl_1:
-# 225 "data/maps/WindyWoods/scripts.pory"
+# 215 "data/maps/WindyWoods/scripts.pory"
 	setvar VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_TALKED_TO_GIRL
-# 226 "data/maps/WindyWoods/scripts.pory"
+# 216 "data/maps/WindyWoods/scripts.pory"
 	clearflag FLAG_TEMP_2
-# 227 "data/maps/WindyWoods/scripts.pory"
+# 217 "data/maps/WindyWoods/scripts.pory"
 	msgbox WW_Help, MSGBOX_NPC
 	return
 
 
 WW_RocketStop1::
-# 246 "data/maps/WindyWoods/scripts.pory"
+# 236 "data/maps/WindyWoods/scripts.pory"
 	lock
-# 247 "data/maps/WindyWoods/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
-# 248 "data/maps/WindyWoods/scripts.pory"
+# 237 "data/maps/WindyWoods/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_WEST
+# 238 "data/maps/WindyWoods/scripts.pory"
 	setvar VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_1ST_STEP_TAKEN
-# 249 "data/maps/WindyWoods/scripts.pory"
+# 239 "data/maps/WindyWoods/scripts.pory"
 	msgbox WW_RocketStop1_Text_0, MSGBOX_SIGN
 	return
 
 
 WW_RocketStop2::
-# 252 "data/maps/WindyWoods/scripts.pory"
+# 242 "data/maps/WindyWoods/scripts.pory"
 	lock
-# 253 "data/maps/WindyWoods/scripts.pory"
+# 243 "data/maps/WindyWoods/scripts.pory"
 	setvar VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_2ND_STEP_TAKEN
-# 254 "data/maps/WindyWoods/scripts.pory"
+# 244 "data/maps/WindyWoods/scripts.pory"
 	msgbox WW_RocketStop2_Text_0, MSGBOX_SIGN
 	return
 
 
 WW_RocketStop3::
-# 257 "data/maps/WindyWoods/scripts.pory"
+# 247 "data/maps/WindyWoods/scripts.pory"
 	lock
-# 258 "data/maps/WindyWoods/scripts.pory"
+# 248 "data/maps/WindyWoods/scripts.pory"
 	msgbox WW_RocketStop3_Text_0
-# 259 "data/maps/WindyWoods/scripts.pory"
+# 249 "data/maps/WindyWoods/scripts.pory"
 	trainerbattle_no_intro TRAINER_SHELLY_SEAFLOOR_CAVERN, WW_Text_RocketDefeated
-# 260 "data/maps/WindyWoods/scripts.pory"
+# 250 "data/maps/WindyWoods/scripts.pory"
 	goto WW_RockPostBattle
 	return
 
 
 WW_RockPostBattle::
-# 266 "data/maps/WindyWoods/scripts.pory"
+# 256 "data/maps/WindyWoods/scripts.pory"
 	lock
-# 267 "data/maps/WindyWoods/scripts.pory"
-	msgbox WW_RocketReward
-# 268 "data/maps/WindyWoods/scripts.pory"
-	closemessage
-# 269 "data/maps/WindyWoods/scripts.pory"
+# 257 "data/maps/WindyWoods/scripts.pory"
+	msgbox WW_RocketReward, MSGBOX_AUTOCLOSE
+# 258 "data/maps/WindyWoods/scripts.pory"
 	setvar VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_ROCKET_DEFEATED
-# 270 "data/maps/WindyWoods/scripts.pory"
+# 259 "data/maps/WindyWoods/scripts.pory"
 	warp MAP_WINDY_WOODS, 40, 13
-# 271 "data/maps/WindyWoods/scripts.pory"
+# 260 "data/maps/WindyWoods/scripts.pory"
 	waitstate
-# 272 "data/maps/WindyWoods/scripts.pory"
+# 261 "data/maps/WindyWoods/scripts.pory"
 	release
 	return
 
 
 WW_BridgeScene2::
-# 275 "data/maps/WindyWoods/scripts.pory"
+# 264 "data/maps/WindyWoods/scripts.pory"
 	delay 25
-# 276 "data/maps/WindyWoods/scripts.pory"
-	msgbox WW_LittleGirlReward
-# 277 "data/maps/WindyWoods/scripts.pory"
-	closemessage
-# 278 "data/maps/WindyWoods/scripts.pory"
+# 265 "data/maps/WindyWoods/scripts.pory"
+	msgbox WW_LittleGirlReward, MSGBOX_AUTOCLOSE
+# 266 "data/maps/WindyWoods/scripts.pory"
 	delay 40
-# 279 "data/maps/WindyWoods/scripts.pory"
+# 267 "data/maps/WindyWoods/scripts.pory"
 	applymovement 12, WW_DevonEnters
-# 280 "data/maps/WindyWoods/scripts.pory"
+# 268 "data/maps/WindyWoods/scripts.pory"
 	waitmovement 0
-# 281 "data/maps/WindyWoods/scripts.pory"
+# 269 "data/maps/WindyWoods/scripts.pory"
 	turnobject 5, DIR_SOUTH
-# 282 "data/maps/WindyWoods/scripts.pory"
+# 270 "data/maps/WindyWoods/scripts.pory"
 	msgbox DevonTalk1
-# 283 "data/maps/WindyWoods/scripts.pory"
+# 271 "data/maps/WindyWoods/scripts.pory"
 	turnobject 5, DIR_EAST
-# 284 "data/maps/WindyWoods/scripts.pory"
+# 272 "data/maps/WindyWoods/scripts.pory"
 	turnobject 12, DIR_EAST
 	checkplayergender
 # 0 "data/maps/WindyWoods/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq WW_BridgeScene2_2
-# 289 "data/maps/WindyWoods/scripts.pory"
+# 277 "data/maps/WindyWoods/scripts.pory"
 	msgbox WW_BridgeScene2_Text_1
 WW_BridgeScene2_1:
-# 291 "data/maps/WindyWoods/scripts.pory"
+# 279 "data/maps/WindyWoods/scripts.pory"
 	msgbox WW_DevonReward
-# 292 "data/maps/WindyWoods/scripts.pory"
+# 280 "data/maps/WindyWoods/scripts.pory"
 	giveitem ITEM_LETTER
-# 293 "data/maps/WindyWoods/scripts.pory"
-	msgbox WW_DevonTalk2
-# 294 "data/maps/WindyWoods/scripts.pory"
-	closemessage
-# 295 "data/maps/WindyWoods/scripts.pory"
+# 281 "data/maps/WindyWoods/scripts.pory"
+	msgbox WW_DevonTalk2, MSGBOX_AUTOCLOSE
+# 282 "data/maps/WindyWoods/scripts.pory"
 	fadescreenswapbuffers FADE_TO_BLACK
-# 296 "data/maps/WindyWoods/scripts.pory"
+# 283 "data/maps/WindyWoods/scripts.pory"
 	delay 25
-# 297 "data/maps/WindyWoods/scripts.pory"
+# 284 "data/maps/WindyWoods/scripts.pory"
 	removeobjectbyflag FLAG_TEMP_1
-# 298 "data/maps/WindyWoods/scripts.pory"
+# 285 "data/maps/WindyWoods/scripts.pory"
 	removeobjectbyflag FLAG_TEMP_2
-# 299 "data/maps/WindyWoods/scripts.pory"
+# 286 "data/maps/WindyWoods/scripts.pory"
 	removeobjectbyflag FLAG_TEMP_3
-# 300 "data/maps/WindyWoods/scripts.pory"
-	setvar VAR_WINDYWOODS_STATE, 5
-# 301 "data/maps/WindyWoods/scripts.pory"
+# 287 "data/maps/WindyWoods/scripts.pory"
+	setvar VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_EVENT_COMPLETED
+# 288 "data/maps/WindyWoods/scripts.pory"
 	fadescreenswapbuffers FADE_FROM_BLACK
-# 302 "data/maps/WindyWoods/scripts.pory"
+# 289 "data/maps/WindyWoods/scripts.pory"
 	delay 25
-# 303 "data/maps/WindyWoods/scripts.pory"
+# 290 "data/maps/WindyWoods/scripts.pory"
 	release
 	end
 
 WW_BridgeScene2_2:
-# 286 "data/maps/WindyWoods/scripts.pory"
+# 274 "data/maps/WindyWoods/scripts.pory"
 	msgbox WW_BridgeScene2_Text_0
 	goto WW_BridgeScene2_1
 
 
-# 313 "data/maps/WindyWoods/scripts.pory"
+# 300 "data/maps/WindyWoods/scripts.pory"
 WW_DevonEnters:
-# 314 "data/maps/WindyWoods/scripts.pory"
+# 301 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 314 "data/maps/WindyWoods/scripts.pory"
+# 301 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 314 "data/maps/WindyWoods/scripts.pory"
+# 301 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 314 "data/maps/WindyWoods/scripts.pory"
+# 301 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 314 "data/maps/WindyWoods/scripts.pory"
+# 301 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 314 "data/maps/WindyWoods/scripts.pory"
+# 301 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 314 "data/maps/WindyWoods/scripts.pory"
+# 301 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 314 "data/maps/WindyWoods/scripts.pory"
+# 301 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 314 "data/maps/WindyWoods/scripts.pory"
+# 301 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 315 "data/maps/WindyWoods/scripts.pory"
+# 302 "data/maps/WindyWoods/scripts.pory"
 	face_up
 	step_end
 
 WW_Grotto_Entrance::
-# 329 "data/maps/WindyWoods/scripts.pory"
+# 316 "data/maps/WindyWoods/scripts.pory"
 	lock
-# 330 "data/maps/WindyWoods/scripts.pory"
+# 317 "data/maps/WindyWoods/scripts.pory"
 	msgbox GoInsideGrotto, MSGBOX_YESNO
-# 331 "data/maps/WindyWoods/scripts.pory"
+# 318 "data/maps/WindyWoods/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq WW_Grotto_Entrance_2
-# 335 "data/maps/WindyWoods/scripts.pory"
+# 322 "data/maps/WindyWoods/scripts.pory"
 	warp MAP_WW_GROTTO, 6, 19
-# 336 "data/maps/WindyWoods/scripts.pory"
+# 323 "data/maps/WindyWoods/scripts.pory"
 	waitstate
-# 337 "data/maps/WindyWoods/scripts.pory"
+# 324 "data/maps/WindyWoods/scripts.pory"
 	release
 	return
 
 WW_Grotto_Entrance_2:
-# 332 "data/maps/WindyWoods/scripts.pory"
+# 319 "data/maps/WindyWoods/scripts.pory"
 	release
 	end
 
-
-# 345 "data/maps/WindyWoods/scripts.pory"
-FacePlayer:
-# 346 "data/maps/WindyWoods/scripts.pory"
-	face_player
-	step_end
 
 WW_CoolTrainer_Text_0:
 # 114 "data/maps/WindyWoods/scripts.pory"
@@ -490,23 +470,23 @@ WW_CoolTrainerPostBattle_Text_0:
 	.string "Give that item to your Pokémon to\nboost the power of their attacks.\pTake these as well.$"
 
 WW_RocketStop1_Text_0:
-# 249 "data/maps/WindyWoods/scripts.pory"
+# 239 "data/maps/WindyWoods/scripts.pory"
 	.string "That's far enough, pal.$"
 
 WW_RocketStop2_Text_0:
-# 254 "data/maps/WindyWoods/scripts.pory"
+# 244 "data/maps/WindyWoods/scripts.pory"
 	.string "I'm warning you!$"
 
 WW_RocketStop3_Text_0:
-# 258 "data/maps/WindyWoods/scripts.pory"
+# 248 "data/maps/WindyWoods/scripts.pory"
 	.string "Okay, now you're asking for trouble!$"
 
 WW_BridgeScene2_Text_0:
-# 286 "data/maps/WindyWoods/scripts.pory"
+# 274 "data/maps/WindyWoods/scripts.pory"
 	.string "Little girl: This brave boy saved me!$"
 
 WW_BridgeScene2_Text_1:
-# 289 "data/maps/WindyWoods/scripts.pory"
+# 277 "data/maps/WindyWoods/scripts.pory"
 	.string "Little girl: This brave girl saved me!$"
 
 WindyWoods_Bugcatcher1Intro::
@@ -598,20 +578,12 @@ WW_Text_CoolTrainerDefeated::
 	.string "Maybe it was I who wasn't worth\n"
 	.string "your time…$"
 
-WW_CoolTrainerExplainReward::
-# 190 "data/maps/WindyWoods/scripts.pory"
-	.string "Turning on that item will grant\n"
-	.string "all your Pokémon exp from battling,\l"
-	.string "even the ones that never participated\l"
-	.string "in the battle.\p"
-	.string "I want you to have these as well.$"
-
 WW_CoolTrainerReward::
-# 197 "data/maps/WindyWoods/scripts.pory"
+# 191 "data/maps/WindyWoods/scripts.pory"
 	.string "Well, looks like I got humbled there.\nHere, you deserve this.$"
 
 WW_Help::
-# 233 "data/maps/WindyWoods/scripts.pory"
+# 223 "data/maps/WindyWoods/scripts.pory"
 	.string "Please help!\p"
 	.string "I was taking my daddy's Poochyena for\n"
 	.string "a walk when some mean guy stole it!\p"
@@ -620,35 +592,35 @@ WW_Help::
 	.string "I'm too scared to follow…$"
 
 WW_Help2::
-# 241 "data/maps/WindyWoods/scripts.pory"
+# 231 "data/maps/WindyWoods/scripts.pory"
 	.string "Please help…$"
 
 WW_Text_RocketDefeated::
-# 262 "data/maps/WindyWoods/scripts.pory"
+# 252 "data/maps/WindyWoods/scripts.pory"
 	.string "Tch…!$"
 
 WW_RocketReward::
-# 306 "data/maps/WindyWoods/scripts.pory"
+# 293 "data/maps/WindyWoods/scripts.pory"
 	.string "You want the Poochyena?\nFine, take it.\pIt was too weak for me\nto care about it anyway.$"
 
 WW_LittleGirlReward::
-# 310 "data/maps/WindyWoods/scripts.pory"
+# 297 "data/maps/WindyWoods/scripts.pory"
 	.string "Little girl: Thank you for getting\nPoochie back!\pI wasn't sure if I would\never see him again…$"
 
 DevonTalk1::
-# 318 "data/maps/WindyWoods/scripts.pory"
+# 305 "data/maps/WindyWoods/scripts.pory"
 	.string "Father: Thank god you're safe, honey!$"
 
 WW_DevonReward::
-# 321 "data/maps/WindyWoods/scripts.pory"
+# 308 "data/maps/WindyWoods/scripts.pory"
 	.string "Father: Thank you for helping my\ndaughter and saving our family pet.\pI don't have much to offer you\nbut here, take this.$"
 
 WW_DevonTalk2::
-# 324 "data/maps/WindyWoods/scripts.pory"
+# 311 "data/maps/WindyWoods/scripts.pory"
 	.string "I work for the Devon Corp.\pShow that letter to the receptionist\nat our offices in Shoreslate City and\lI'm sure they'll reward you.\pThank you again for taking care\nof the situation.\pAlthough, I am a bit concerned about\nthis person clad in dark.\pThe way you described him sounded like\nhe could be a Team Rocket member.\pHowever, Team Rocket was disbanded\nyears ago…\pAnyway, we should head back home.$"
 
 GoInsideGrotto::
-# 339 "data/maps/WindyWoods/scripts.pory"
+# 326 "data/maps/WindyWoods/scripts.pory"
 	.string "There looks to be a narrow path\n"
 	.string "between the trees!\p"
 	.string "Follow the path?$"

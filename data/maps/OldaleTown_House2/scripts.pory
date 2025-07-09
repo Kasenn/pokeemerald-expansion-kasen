@@ -6,26 +6,22 @@ script NotMyNectar{
     turnobject(1, DIR_NORTH)
     delay(10)
     msgbox(NotMyNectar_Text, MSGBOX_NPC)
-    waitmessage
-    closemessage
-    applymovement(LOCALID_PLAYER, Walk1Down)
-    waitmovement(0)
+    waitmove(LOCALID_PLAYER, Walk1Down)
     delay(30)
     release
-    end
 }
 
 script NectarManiac{
     if(!flag(FLAG_ORICORIO_SHOWN_TO_MANIAC)){
         lock
         faceplayer
-	    msgbox(NectarManiac_Text)
+	    msgbox(NectarManiac_Text, MSGBOX_AUTOCLOSE)
         specialvar(VAR_RESULT, CheckOricorio)
         if(var(VAR_RESULT) == TRUE){
             safefollow
             playse(SE_PIN)
             exclamationmark(1)
-            msgbox(NectarManiac_OricorioFound, MSGBOX_NPC)
+            msgbox(NectarManiac_OricorioFound)
             setflag(FLAG_ORICORIO_SHOWN_TO_MANIAC)
             release
             if(flag(FLAG_Q01_PRIMROSE_ORICORIO_START)){

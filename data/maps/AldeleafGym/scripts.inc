@@ -428,7 +428,7 @@ Aldeleaf_Gym_EventScript_Volkner::
 # 222 "data/maps/AldeleafGym/scripts.pory"
 	delay 10
 # 223 "data/maps/AldeleafGym/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	turnobject LOCALID_PLAYER, DIR_EAST
 # 224 "data/maps/AldeleafGym/scripts.pory"
 	turnobject 18, DIR_WEST
 # 225 "data/maps/AldeleafGym/scripts.pory"
@@ -460,7 +460,7 @@ Aldeleaf_Gym_EventScript_VolknerDefeated::
 # 239 "data/maps/AldeleafGym/scripts.pory"
 	applymovement 18, Walk3Left
 # 240 "data/maps/AldeleafGym/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Walk3Right
+	applymovement LOCALID_PLAYER, Walk3Right
 # 241 "data/maps/AldeleafGym/scripts.pory"
 	waitmovement 0
 # 242 "data/maps/AldeleafGym/scripts.pory"

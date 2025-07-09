@@ -179,6 +179,11 @@
 #define DIR_NORTHEAST   8
 #define CARDINAL_DIRECTION_COUNT DIR_SOUTHWEST
 
+#define DIR_UP      DIR_NORTH
+#define DIR_LEFT    DIR_WEST
+#define DIR_RIGHT   DIR_EAST
+#define DIR_DOWN    DIR_SOUTH
+
 #define AXIS_X     0
 #define AXIS_Y     1
 #define AXIS_COUNT 2

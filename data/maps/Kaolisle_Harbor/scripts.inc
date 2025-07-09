@@ -219,7 +219,7 @@ Harbor_BoardFerryGoingEast::
 # 131 "data/maps/Kaolisle_Harbor/scripts.pory"
 	delay 30
 # 132 "data/maps/Kaolisle_Harbor/scripts.pory"
-	hideobjectat OBJ_EVENT_ID_PLAYER, 0
+	hideobjectat LOCALID_PLAYER, 0
 # 133 "data/maps/Kaolisle_Harbor/scripts.pory"
 	call FerryDepart_East
 	return
@@ -233,7 +233,7 @@ Harbor_ComeAgain::
 
 Harbor_BoardFerryEast::
 # 148 "data/maps/Kaolisle_Harbor/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Movement_BoardFerryEast
+	applymovement LOCALID_PLAYER, Movement_BoardFerryEast
 # 149 "data/maps/Kaolisle_Harbor/scripts.pory"
 	waitmovement 0
 	return
@@ -250,7 +250,7 @@ Movement_BoardFerryEast:
 
 Harbor_BoardFerryNorth::
 # 158 "data/maps/Kaolisle_Harbor/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Walk1Up
+	applymovement LOCALID_PLAYER, Walk1Up
 # 159 "data/maps/Kaolisle_Harbor/scripts.pory"
 	waitmovement 0
 	return

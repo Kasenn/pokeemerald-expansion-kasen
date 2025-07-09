@@ -277,7 +277,7 @@ LittlerootTown_EventScript_GoInsideWithMom::
 # 139 "data/maps/LittlerootTown/scripts.pory"
 	playse SE_LEDGE
 # 140 "data/maps/LittlerootTown/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_Movement_PlayerStepOffTruck
+	applymovement LOCALID_PLAYER, LittlerootTown_Movement_PlayerStepOffTruck
 # 141 "data/maps/LittlerootTown/scripts.pory"
 	waitmovement 0
 # 142 "data/maps/LittlerootTown/scripts.pory"
@@ -307,7 +307,7 @@ LittlerootTown_EventScript_GoInsideWithMom::
 # 154 "data/maps/LittlerootTown/scripts.pory"
 	applymovement LOCALID_MOM, LittlerootTown_Movement_MomApproachDoor
 # 155 "data/maps/LittlerootTown/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_Movement_PlayerApproachDoor
+	applymovement LOCALID_PLAYER, LittlerootTown_Movement_PlayerApproachDoor
 # 156 "data/maps/LittlerootTown/scripts.pory"
 	waitmovement 0
 # 157 "data/maps/LittlerootTown/scripts.pory"
@@ -317,7 +317,7 @@ LittlerootTown_EventScript_GoInsideWithMom::
 # 159 "data/maps/LittlerootTown/scripts.pory"
 	applymovement LOCALID_MOM, LittlerootTown_Movement_MomEnterHouse
 # 160 "data/maps/LittlerootTown/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_Movement_PlayerEnterHouse
+	applymovement LOCALID_PLAYER, LittlerootTown_Movement_PlayerEnterHouse
 # 161 "data/maps/LittlerootTown/scripts.pory"
 	waitmovement 0
 # 162 "data/maps/LittlerootTown/scripts.pory"
@@ -325,7 +325,7 @@ LittlerootTown_EventScript_GoInsideWithMom::
 # 163 "data/maps/LittlerootTown/scripts.pory"
 	setvar VAR_LITTLEROOT_INTRO_STATE, 3
 # 164 "data/maps/LittlerootTown/scripts.pory"
-	hideobjectat OBJ_EVENT_ID_PLAYER, 0
+	hideobjectat LOCALID_PLAYER, 0
 # 165 "data/maps/LittlerootTown/scripts.pory"
 	closedoor VAR_0x8004, VAR_0x8005
 # 166 "data/maps/LittlerootTown/scripts.pory"
@@ -599,7 +599,7 @@ LittlerootTown_EventScript_DangerousWithoutPokemon::
 # 300 "data/maps/LittlerootTown/scripts.pory"
 	applymovement LOCALID_TWIN, LittlerootTown_Movement_TwinPushPlayerFromRoute
 # 301 "data/maps/LittlerootTown/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_Movement_PushPlayerBackFromRoute
+	applymovement LOCALID_PLAYER, LittlerootTown_Movement_PushPlayerBackFromRoute
 # 302 "data/maps/LittlerootTown/scripts.pory"
 	waitmovement 0
 # 303 "data/maps/LittlerootTown/scripts.pory"
@@ -763,7 +763,7 @@ LittlerootTown_EventScript_GoSaveBirchTrigger::
 # 382 "data/maps/LittlerootTown/scripts.pory"
 	waitmovement 0
 # 383 "data/maps/LittlerootTown/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 # 384 "data/maps/LittlerootTown/scripts.pory"
 	waitmovement 0
 # 385 "data/maps/LittlerootTown/scripts.pory"
@@ -1057,7 +1057,7 @@ LittlerootTown_EventScript_MomApproachPlayerFemale::
 # 529 "data/maps/LittlerootTown/scripts.pory"
 LittlerootTown_EventScript_MomApproachPlayer0::
 # 530 "data/maps/LittlerootTown/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterDown
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterDown
 # 531 "data/maps/LittlerootTown/scripts.pory"
 	waitmovement 0
 # 532 "data/maps/LittlerootTown/scripts.pory"
@@ -1071,7 +1071,7 @@ LittlerootTown_EventScript_MomApproachPlayer0::
 # 536 "data/maps/LittlerootTown/scripts.pory"
 LittlerootTown_EventScript_MomApproachPlayer1::
 # 537 "data/maps/LittlerootTown/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterDown
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterDown
 # 538 "data/maps/LittlerootTown/scripts.pory"
 	waitmovement 0
 # 539 "data/maps/LittlerootTown/scripts.pory"
@@ -1085,7 +1085,7 @@ LittlerootTown_EventScript_MomApproachPlayer1::
 # 543 "data/maps/LittlerootTown/scripts.pory"
 LittlerootTown_EventScript_MomApproachPlayerMale2::
 # 544 "data/maps/LittlerootTown/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 # 545 "data/maps/LittlerootTown/scripts.pory"
 	waitmovement 0
 # 546 "data/maps/LittlerootTown/scripts.pory"
@@ -1099,7 +1099,7 @@ LittlerootTown_EventScript_MomApproachPlayerMale2::
 # 550 "data/maps/LittlerootTown/scripts.pory"
 LittlerootTown_EventScript_MomApproachPlayerMale3::
 # 551 "data/maps/LittlerootTown/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 # 552 "data/maps/LittlerootTown/scripts.pory"
 	waitmovement 0
 # 553 "data/maps/LittlerootTown/scripts.pory"
@@ -1113,7 +1113,7 @@ LittlerootTown_EventScript_MomApproachPlayerMale3::
 # 557 "data/maps/LittlerootTown/scripts.pory"
 LittlerootTown_EventScript_MomApproachPlayerMale4::
 # 558 "data/maps/LittlerootTown/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 # 559 "data/maps/LittlerootTown/scripts.pory"
 	waitmovement 0
 # 560 "data/maps/LittlerootTown/scripts.pory"
@@ -1127,7 +1127,7 @@ LittlerootTown_EventScript_MomApproachPlayerMale4::
 # 564 "data/maps/LittlerootTown/scripts.pory"
 LittlerootTown_EventScript_MomApproachPlayerMale5::
 # 565 "data/maps/LittlerootTown/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 # 566 "data/maps/LittlerootTown/scripts.pory"
 	waitmovement 0
 # 567 "data/maps/LittlerootTown/scripts.pory"
@@ -1141,7 +1141,7 @@ LittlerootTown_EventScript_MomApproachPlayerMale5::
 # 571 "data/maps/LittlerootTown/scripts.pory"
 LittlerootTown_EventScript_MomApproachPlayerFemale2::
 # 572 "data/maps/LittlerootTown/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
 # 573 "data/maps/LittlerootTown/scripts.pory"
 	waitmovement 0
 # 574 "data/maps/LittlerootTown/scripts.pory"
@@ -1155,7 +1155,7 @@ LittlerootTown_EventScript_MomApproachPlayerFemale2::
 # 578 "data/maps/LittlerootTown/scripts.pory"
 LittlerootTown_EventScript_MomApproachPlayerFemale3::
 # 579 "data/maps/LittlerootTown/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
 # 580 "data/maps/LittlerootTown/scripts.pory"
 	waitmovement 0
 # 581 "data/maps/LittlerootTown/scripts.pory"
@@ -1169,7 +1169,7 @@ LittlerootTown_EventScript_MomApproachPlayerFemale3::
 # 585 "data/maps/LittlerootTown/scripts.pory"
 LittlerootTown_EventScript_MomApproachPlayerFemale4::
 # 586 "data/maps/LittlerootTown/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
 # 587 "data/maps/LittlerootTown/scripts.pory"
 	waitmovement 0
 # 588 "data/maps/LittlerootTown/scripts.pory"
@@ -1183,7 +1183,7 @@ LittlerootTown_EventScript_MomApproachPlayerFemale4::
 # 592 "data/maps/LittlerootTown/scripts.pory"
 LittlerootTown_EventScript_MomApproachPlayerFemale5::
 # 593 "data/maps/LittlerootTown/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
 # 594 "data/maps/LittlerootTown/scripts.pory"
 	waitmovement 0
 # 595 "data/maps/LittlerootTown/scripts.pory"

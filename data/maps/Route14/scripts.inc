@@ -246,7 +246,7 @@ R14_BlockAccessToFacility_1:
 # 141 "data/maps/Route14/scripts.pory"
 	safefollow
 # 142 "data/maps/Route14/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Walk1Down
+	applymovement LOCALID_PLAYER, Walk1Down
 # 143 "data/maps/Route14/scripts.pory"
 	waitmovement 0
 # 144 "data/maps/Route14/scripts.pory"
@@ -316,27 +316,23 @@ R14_HelpScientist_1:
 # 197 "data/maps/Route14/scripts.pory"
 	playse SE_PIN
 # 198 "data/maps/Route14/scripts.pory"
-	applymovement 15, Common_Movement_ExclamationMark
+	exclamationmark 15
 # 199 "data/maps/Route14/scripts.pory"
-	waitmovement 0
-# 200 "data/maps/Route14/scripts.pory"
-	delay 48
-# 201 "data/maps/Route14/scripts.pory"
 	switch VAR_TEMP_1
-# 202 "data/maps/Route14/scripts.pory"
+# 200 "data/maps/Route14/scripts.pory"
 	case 1, R14_HelpScientist_8
-# 204 "data/maps/Route14/scripts.pory"
+# 202 "data/maps/Route14/scripts.pory"
 	case 2, R14_HelpScientist_9
-# 206 "data/maps/Route14/scripts.pory"
+# 204 "data/maps/Route14/scripts.pory"
 	case 3, R14_HelpScientist_10
 R14_HelpScientist_6:
-# 209 "data/maps/Route14/scripts.pory"
+# 207 "data/maps/Route14/scripts.pory"
 	delay 15
-# 210 "data/maps/Route14/scripts.pory"
+# 208 "data/maps/Route14/scripts.pory"
 	msgbox R14_Robbed
-# 211 "data/maps/Route14/scripts.pory"
+# 209 "data/maps/Route14/scripts.pory"
 	setvar VAR_ROUTE14_ROCKET_EVENT, 2
-# 212 "data/maps/Route14/scripts.pory"
+# 210 "data/maps/Route14/scripts.pory"
 	release
 	return
 
@@ -356,140 +352,136 @@ R14_HelpScientist_5:
 	goto R14_HelpScientist_1
 
 R14_HelpScientist_8:
-# 203 "data/maps/Route14/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+# 201 "data/maps/Route14/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_EAST
 	goto R14_HelpScientist_6
 
 R14_HelpScientist_9:
-# 205 "data/maps/Route14/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
+# 203 "data/maps/Route14/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_SOUTH
 	goto R14_HelpScientist_6
 
 R14_HelpScientist_10:
-# 207 "data/maps/Route14/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+# 205 "data/maps/Route14/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_WEST
 	goto R14_HelpScientist_6
 
 
 R14_ChaseAfterRocket1::
-# 216 "data/maps/Route14/scripts.pory"
+# 214 "data/maps/Route14/scripts.pory"
 	setvar VAR_TEMP_1, 1
-# 217 "data/maps/Route14/scripts.pory"
+# 215 "data/maps/Route14/scripts.pory"
 	goto R14_ChaseAfterRocket
 	return
 
 
 R14_ChaseAfterRocket2::
-# 220 "data/maps/Route14/scripts.pory"
+# 218 "data/maps/Route14/scripts.pory"
 	setvar VAR_TEMP_1, 2
-# 221 "data/maps/Route14/scripts.pory"
+# 219 "data/maps/Route14/scripts.pory"
 	goto R14_ChaseAfterRocket
 	return
 
 
 R14_ChaseAfterRocket::
-# 224 "data/maps/Route14/scripts.pory"
+# 222 "data/maps/Route14/scripts.pory"
 	lock
-# 225 "data/maps/Route14/scripts.pory"
+# 223 "data/maps/Route14/scripts.pory"
 	compare VAR_TEMP_1, 1
 	goto_if_eq R14_ChaseAfterRocket_2
-# 229 "data/maps/Route14/scripts.pory"
+# 227 "data/maps/Route14/scripts.pory"
 	turnobject 17, DIR_EAST
 R14_ChaseAfterRocket_1:
-# 231 "data/maps/Route14/scripts.pory"
+# 229 "data/maps/Route14/scripts.pory"
 	playse SE_PIN
-# 232 "data/maps/Route14/scripts.pory"
+# 230 "data/maps/Route14/scripts.pory"
 	safefollow
-# 233 "data/maps/Route14/scripts.pory"
-	applymovement 17, Common_Movement_ExclamationMark
-# 234 "data/maps/Route14/scripts.pory"
-	waitmovement 0
-# 235 "data/maps/Route14/scripts.pory"
-	delay 48
-# 236 "data/maps/Route14/scripts.pory"
+# 231 "data/maps/Route14/scripts.pory"
+	exclamationmark 17
+# 232 "data/maps/Route14/scripts.pory"
 	applymovement 17, R14_GruntEscapes2
-# 237 "data/maps/Route14/scripts.pory"
+# 233 "data/maps/Route14/scripts.pory"
 	waitmovement 0
-# 238 "data/maps/Route14/scripts.pory"
+# 234 "data/maps/Route14/scripts.pory"
 	removeobject 17
-# 239 "data/maps/Route14/scripts.pory"
+# 235 "data/maps/Route14/scripts.pory"
 	release
-# 240 "data/maps/Route14/scripts.pory"
+# 236 "data/maps/Route14/scripts.pory"
 	setvar VAR_ROUTE14_ROCKET_EVENT, 3
 	return
 
 R14_ChaseAfterRocket_2:
-# 226 "data/maps/Route14/scripts.pory"
+# 224 "data/maps/Route14/scripts.pory"
 	turnobject 17, DIR_NORTH
 	goto R14_ChaseAfterRocket_1
 
 
 Route14_Tr3_ParasolLady::
-# 258 "data/maps/Route14/scripts.pory"
+# 254 "data/maps/Route14/scripts.pory"
 	trainerbattle_single TRAINER_R14_TR3_PARASOLLADY, R14Tr3_Intro, R14Tr3_Lose
-# 259 "data/maps/Route14/scripts.pory"
+# 255 "data/maps/Route14/scripts.pory"
 	msgbox R14Tr3_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route14_Tr4_Fisher::
-# 276 "data/maps/Route14/scripts.pory"
+# 272 "data/maps/Route14/scripts.pory"
 	trainerbattle_single TRAINER_R14_TR4_FISHER, R14Tr4_Intro, R14Tr4_Lose
-# 277 "data/maps/Route14/scripts.pory"
+# 273 "data/maps/Route14/scripts.pory"
 	msgbox R14Tr4_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route14_Tr5_ParasolLady2::
-# 293 "data/maps/Route14/scripts.pory"
+# 289 "data/maps/Route14/scripts.pory"
 	trainerbattle_single TRAINER_R14_TR5_PARASOLLADY2, R14Tr5_Intro, R14Tr5_Lose
-# 294 "data/maps/Route14/scripts.pory"
+# 290 "data/maps/Route14/scripts.pory"
 	msgbox R14Tr5_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route14_Tr6_NinjaBoy::
-# 313 "data/maps/Route14/scripts.pory"
+# 309 "data/maps/Route14/scripts.pory"
 	trainerbattle_single TRAINER_R14_TR6_NINJABOY, R14Tr6_Intro, R14Tr6_Lose
-# 314 "data/maps/Route14/scripts.pory"
+# 310 "data/maps/Route14/scripts.pory"
 	msgbox R14Tr6_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route14_Tr7_Rocker::
-# 332 "data/maps/Route14/scripts.pory"
+# 328 "data/maps/Route14/scripts.pory"
 	trainerbattle_single TRAINER_R14_TR7_ROCKER, R14Tr7_Intro, R14Tr7_Lose
-# 333 "data/maps/Route14/scripts.pory"
+# 329 "data/maps/Route14/scripts.pory"
 	msgbox R14Tr7_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route14_Tr8_Maniac::
-# 351 "data/maps/Route14/scripts.pory"
+# 347 "data/maps/Route14/scripts.pory"
 	trainerbattle_single TRAINER_R14_TR8_MANIAC, R14Tr8_Intro, R14Tr8_Lose
-# 352 "data/maps/Route14/scripts.pory"
+# 348 "data/maps/Route14/scripts.pory"
 	msgbox R14Tr8_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route14_Grotto_Entrance::
-# 370 "data/maps/Route14/scripts.pory"
+# 366 "data/maps/Route14/scripts.pory"
 	lock
-# 371 "data/maps/Route14/scripts.pory"
+# 367 "data/maps/Route14/scripts.pory"
 	msgbox GoInsideGrotto, MSGBOX_YESNO
-# 372 "data/maps/Route14/scripts.pory"
+# 368 "data/maps/Route14/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq Route14_Grotto_Entrance_2
-# 376 "data/maps/Route14/scripts.pory"
+# 372 "data/maps/Route14/scripts.pory"
 	warp MAP_ROUTE14_GROTTO, 6, 19
-# 377 "data/maps/Route14/scripts.pory"
+# 373 "data/maps/Route14/scripts.pory"
 	waitstate
-# 378 "data/maps/Route14/scripts.pory"
+# 374 "data/maps/Route14/scripts.pory"
 	release
 	return
 
 Route14_Grotto_Entrance_2:
-# 373 "data/maps/Route14/scripts.pory"
+# 369 "data/maps/Route14/scripts.pory"
 	release
 	end
 
@@ -566,7 +558,7 @@ R14_Bouncer_Text::
 	.string "at this time.$"
 
 R14_Robbed::
-# 243 "data/maps/Route14/scripts.pory"
+# 239 "data/maps/Route14/scripts.pory"
 	.string "You! You look like a strong trainer!\p"
 	.string "Please! Our important research was\n"
 	.string "just stolen by Team Rocket!\p"
@@ -580,95 +572,95 @@ R14_Robbed::
 	.string "up with you as soon as I can.$"
 
 R14Tr3_Intro::
-# 262 "data/maps/Route14/scripts.pory"
+# 258 "data/maps/Route14/scripts.pory"
 	.string "Why am I carrying this parasol?\p"
 	.string "I'll tell you if you can win against me.$"
 
 R14Tr3_Lose::
-# 265 "data/maps/Route14/scripts.pory"
+# 261 "data/maps/Route14/scripts.pory"
 	.string "A parasol can't ward off Pokémon\n"
 	.string "attacks…$"
 
 R14Tr3_PostBattle::
-# 269 "data/maps/Route14/scripts.pory"
+# 265 "data/maps/Route14/scripts.pory"
 	.string "I don't think strong sunlight is good\n"
 	.string "for my Pokémon.\l"
 	.string "So I shield them with my parasol.$"
 
 R14Tr4_Intro::
-# 280 "data/maps/Route14/scripts.pory"
+# 276 "data/maps/Route14/scripts.pory"
 	.string "I like it when my opponents struggle!$"
 
 R14Tr4_Lose::
-# 283 "data/maps/Route14/scripts.pory"
+# 279 "data/maps/Route14/scripts.pory"
 	.string "Looks like I'm the one struggling…$"
 
 R14Tr4_PostBattle::
-# 286 "data/maps/Route14/scripts.pory"
+# 282 "data/maps/Route14/scripts.pory"
 	.string "Whether it's fishing or training your\n"
 	.string "Pokémon, the most important thing is\l"
 	.string "to have patience.$"
 
 R14Tr5_Intro::
-# 297 "data/maps/Route14/scripts.pory"
+# 293 "data/maps/Route14/scripts.pory"
 	.string "Splish splash splish splash!\p"
 	.string "Oh, a trainer! Let's see if your\n"
 	.string "Pokémon can make a splash!$"
 
 R14Tr5_Lose::
-# 302 "data/maps/Route14/scripts.pory"
+# 298 "data/maps/Route14/scripts.pory"
 	.string "You're no fun…$"
 
 R14Tr5_PostBattle::
-# 305 "data/maps/Route14/scripts.pory"
+# 301 "data/maps/Route14/scripts.pory"
 	.string "I love being in a rain with my\n"
 	.string "Pokémon!\p"
 	.string "The sound of rain can be so calming,\n"
 	.string "and my Pokémon likes it too!$"
 
 R14Tr6_Intro::
-# 317 "data/maps/Route14/scripts.pory"
+# 313 "data/maps/Route14/scripts.pory"
 	.string "My last target may have escaped,\n"
 	.string "but you won't!$"
 
 R14Tr6_Lose::
-# 321 "data/maps/Route14/scripts.pory"
+# 317 "data/maps/Route14/scripts.pory"
 	.string "Target too strong!\n"
 	.string "Retreat!$"
 
 R14Tr6_PostBattle::
-# 325 "data/maps/Route14/scripts.pory"
+# 321 "data/maps/Route14/scripts.pory"
 	.string "Please leave me be!\p"
 	.string "I promise I won't prey on the\n"
 	.string "weak again!$"
 
 R14Tr7_Intro::
-# 336 "data/maps/Route14/scripts.pory"
+# 332 "data/maps/Route14/scripts.pory"
 	.string "My bird is the strongest in the world!\n"
 	.string "Behold!$"
 
 R14Tr7_Lose::
-# 340 "data/maps/Route14/scripts.pory"
+# 336 "data/maps/Route14/scripts.pory"
 	.string "This failure is on me,\n"
 	.string "not on my Pokémon…$"
 
 R14Tr7_PostBattle::
-# 344 "data/maps/Route14/scripts.pory"
+# 340 "data/maps/Route14/scripts.pory"
 	.string "Most birds don't like flying in\n"
 	.string "the rain.\l"
 	.string "My bird isn't like most birds.$"
 
 R14Tr8_Intro::
-# 355 "data/maps/Route14/scripts.pory"
+# 351 "data/maps/Route14/scripts.pory"
 	.string "Ufufufufufu…\n"
 	.string "Want to battle against my Pokémon…?$"
 
 R14Tr8_Lose::
-# 359 "data/maps/Route14/scripts.pory"
+# 355 "data/maps/Route14/scripts.pory"
 	.string "M-My Pokémon…$"
 
 R14Tr8_PostBattle::
-# 362 "data/maps/Route14/scripts.pory"
+# 358 "data/maps/Route14/scripts.pory"
 	.string "A big body that's all lumpy and hard,\n"
 	.string "enormous horns, and vicious fangs…\p"
 	.string "Ufufufufu…\n"

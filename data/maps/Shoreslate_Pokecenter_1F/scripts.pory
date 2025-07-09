@@ -8,15 +8,6 @@ script ShoreslatePokeCenter1F_OnTransition{
 	end
 }
 
-script ShoreslatePokeCenter1F_EventScript_Nurse{
-	setvar(VAR_0x800B, 3)
-	call(Common_EventScript_PkmnCenterNurse)
-	waitmessage
-	waitbuttonpress
-	release
-	end
-}
-
 script ShoreslatePokeCenter1F_OldWoman{
 	msgbox(ShoreslatePokeCenter1F_OldWoman_Text, MSGBOX_NPC)
 	end

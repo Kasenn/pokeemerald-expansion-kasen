@@ -71,172 +71,160 @@ Tower_5F_Tr1_Battle::
 	switch VAR_TEMP_2
 # 41 "data/maps/SkyPillar_5F/scripts.pory"
 	case 1, Tower_5F_Tr1_Battle_3
-# 47 "data/maps/SkyPillar_5F/scripts.pory"
+# 44 "data/maps/SkyPillar_5F/scripts.pory"
 	case 2, Tower_5F_Tr1_Battle_4
 Tower_5F_Tr1_Battle_1:
-# 54 "data/maps/SkyPillar_5F/scripts.pory"
+# 48 "data/maps/SkyPillar_5F/scripts.pory"
 	closemessage
-# 55 "data/maps/SkyPillar_5F/scripts.pory"
+# 49 "data/maps/SkyPillar_5F/scripts.pory"
 	switch VAR_TOWER_PARTNER
-# 56 "data/maps/SkyPillar_5F/scripts.pory"
+# 50 "data/maps/SkyPillar_5F/scripts.pory"
 	case 0, Tower_5F_Tr1_Battle_7
-# 58 "data/maps/SkyPillar_5F/scripts.pory"
+# 52 "data/maps/SkyPillar_5F/scripts.pory"
 	case 1, Tower_5F_Tr1_Battle_8
-# 60 "data/maps/SkyPillar_5F/scripts.pory"
+# 54 "data/maps/SkyPillar_5F/scripts.pory"
 	case 2, Tower_5F_Tr1_Battle_9
-# 62 "data/maps/SkyPillar_5F/scripts.pory"
+# 56 "data/maps/SkyPillar_5F/scripts.pory"
 	case 3, Tower_5F_Tr1_Battle_10
-# 64 "data/maps/SkyPillar_5F/scripts.pory"
+# 58 "data/maps/SkyPillar_5F/scripts.pory"
 	case 4, Tower_5F_Tr1_Battle_11
-# 66 "data/maps/SkyPillar_5F/scripts.pory"
+# 60 "data/maps/SkyPillar_5F/scripts.pory"
 	case 5, Tower_5F_Tr1_Battle_12
-# 68 "data/maps/SkyPillar_5F/scripts.pory"
+# 62 "data/maps/SkyPillar_5F/scripts.pory"
 	case 6, Tower_5F_Tr1_Battle_13
-# 70 "data/maps/SkyPillar_5F/scripts.pory"
+# 64 "data/maps/SkyPillar_5F/scripts.pory"
 	case 7, Tower_5F_Tr1_Battle_14
-# 72 "data/maps/SkyPillar_5F/scripts.pory"
+# 66 "data/maps/SkyPillar_5F/scripts.pory"
 	case 8, Tower_5F_Tr1_Battle_15
-# 74 "data/maps/SkyPillar_5F/scripts.pory"
+# 68 "data/maps/SkyPillar_5F/scripts.pory"
 	case 9, Tower_5F_Tr1_Battle_16
-# 76 "data/maps/SkyPillar_5F/scripts.pory"
+# 70 "data/maps/SkyPillar_5F/scripts.pory"
 	case 10, Tower_5F_Tr1_Battle_17
-# 78 "data/maps/SkyPillar_5F/scripts.pory"
+# 72 "data/maps/SkyPillar_5F/scripts.pory"
 	case 11, Tower_5F_Tr1_Battle_18
 Tower_5F_Tr1_Battle_5:
-# 81 "data/maps/SkyPillar_5F/scripts.pory"
+# 75 "data/maps/SkyPillar_5F/scripts.pory"
 	switch VAR_RESULT
-# 82 "data/maps/SkyPillar_5F/scripts.pory"
+# 76 "data/maps/SkyPillar_5F/scripts.pory"
 	case 1, Tower_5F_Tr1_Battle_21
-# 88 "data/maps/SkyPillar_5F/scripts.pory"
+# 82 "data/maps/SkyPillar_5F/scripts.pory"
 	fadescreen FADE_TO_BLACK
-# 89 "data/maps/SkyPillar_5F/scripts.pory"
+# 83 "data/maps/SkyPillar_5F/scripts.pory"
 	special SetCB2WhiteOut
-# 90 "data/maps/SkyPillar_5F/scripts.pory"
+# 84 "data/maps/SkyPillar_5F/scripts.pory"
 	waitstate
 	return
 
 Tower_5F_Tr1_Battle_3:
 # 42 "data/maps/SkyPillar_5F/scripts.pory"
-	applymovement 2, Common_Movement_ExclamationMark
+	exclamationmark 2
 # 43 "data/maps/SkyPillar_5F/scripts.pory"
-	waitmovement 0
-# 44 "data/maps/SkyPillar_5F/scripts.pory"
-	applymovement 2, Common_Movement_Delay48
-# 45 "data/maps/SkyPillar_5F/scripts.pory"
-	waitmovement 0
-# 46 "data/maps/SkyPillar_5F/scripts.pory"
 	msgbox Tr1_5F_MaleIntro
 	goto Tower_5F_Tr1_Battle_1
 
 Tower_5F_Tr1_Battle_4:
-# 48 "data/maps/SkyPillar_5F/scripts.pory"
-	applymovement 1, Common_Movement_ExclamationMark
-# 49 "data/maps/SkyPillar_5F/scripts.pory"
-	waitmovement 0
-# 50 "data/maps/SkyPillar_5F/scripts.pory"
-	applymovement 1, Common_Movement_Delay48
-# 51 "data/maps/SkyPillar_5F/scripts.pory"
-	waitmovement 0
-# 52 "data/maps/SkyPillar_5F/scripts.pory"
+# 45 "data/maps/SkyPillar_5F/scripts.pory"
+	exclamationmark 1
+# 46 "data/maps/SkyPillar_5F/scripts.pory"
 	msgbox Tr1_5F_FemaleIntro
 	goto Tower_5F_Tr1_Battle_1
 
 Tower_5F_Tr1_Battle_7:
-# 57 "data/maps/SkyPillar_5F/scripts.pory"
+# 51 "data/maps/SkyPillar_5F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_5F_COOLTRAINER_M, Tr1_5F_Male_Lost, TRAINER_AT_5F_COOLTRAINER_F, Tr1_5F_Female_Lost, PARTNER_MAY_ORAS_TORCHIC
 	goto Tower_5F_Tr1_Battle_5
 
 Tower_5F_Tr1_Battle_8:
-# 59 "data/maps/SkyPillar_5F/scripts.pory"
+# 53 "data/maps/SkyPillar_5F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_5F_COOLTRAINER_M, Tr1_5F_Male_Lost, TRAINER_AT_5F_COOLTRAINER_F, Tr1_5F_Female_Lost, PARTNER_MAY_ORAS_PIPLUP
 	goto Tower_5F_Tr1_Battle_5
 
 Tower_5F_Tr1_Battle_9:
-# 61 "data/maps/SkyPillar_5F/scripts.pory"
+# 55 "data/maps/SkyPillar_5F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_5F_COOLTRAINER_M, Tr1_5F_Male_Lost, TRAINER_AT_5F_COOLTRAINER_F, Tr1_5F_Female_Lost, PARTNER_MAY_ORAS_ROWLET
 	goto Tower_5F_Tr1_Battle_5
 
 Tower_5F_Tr1_Battle_10:
-# 63 "data/maps/SkyPillar_5F/scripts.pory"
+# 57 "data/maps/SkyPillar_5F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_5F_COOLTRAINER_M, Tr1_5F_Male_Lost, TRAINER_AT_5F_COOLTRAINER_F, Tr1_5F_Female_Lost, PARTNER_MAY_TORCHIC
 	goto Tower_5F_Tr1_Battle_5
 
 Tower_5F_Tr1_Battle_11:
-# 65 "data/maps/SkyPillar_5F/scripts.pory"
+# 59 "data/maps/SkyPillar_5F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_5F_COOLTRAINER_M, Tr1_5F_Male_Lost, TRAINER_AT_5F_COOLTRAINER_F, Tr1_5F_Female_Lost, PARTNER_MAY_PIPLUP
 	goto Tower_5F_Tr1_Battle_5
 
 Tower_5F_Tr1_Battle_12:
-# 67 "data/maps/SkyPillar_5F/scripts.pory"
+# 61 "data/maps/SkyPillar_5F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_5F_COOLTRAINER_M, Tr1_5F_Male_Lost, TRAINER_AT_5F_COOLTRAINER_F, Tr1_5F_Female_Lost, PARTNER_MAY_ROWLET
 	goto Tower_5F_Tr1_Battle_5
 
 Tower_5F_Tr1_Battle_13:
-# 69 "data/maps/SkyPillar_5F/scripts.pory"
+# 63 "data/maps/SkyPillar_5F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_5F_COOLTRAINER_M, Tr1_5F_Male_Lost, TRAINER_AT_5F_COOLTRAINER_F, Tr1_5F_Female_Lost, PARTNER_BRENDAN_ORAS_TORCHIC
 	goto Tower_5F_Tr1_Battle_5
 
 Tower_5F_Tr1_Battle_14:
-# 71 "data/maps/SkyPillar_5F/scripts.pory"
+# 65 "data/maps/SkyPillar_5F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_5F_COOLTRAINER_M, Tr1_5F_Male_Lost, TRAINER_AT_5F_COOLTRAINER_F, Tr1_5F_Female_Lost, PARTNER_BRENDAN_ORAS_PIPLUP
 	goto Tower_5F_Tr1_Battle_5
 
 Tower_5F_Tr1_Battle_15:
-# 73 "data/maps/SkyPillar_5F/scripts.pory"
+# 67 "data/maps/SkyPillar_5F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_5F_COOLTRAINER_M, Tr1_5F_Male_Lost, TRAINER_AT_5F_COOLTRAINER_F, Tr1_5F_Female_Lost, PARTNER_BRENDAN_ORAS_ROWLET
 	goto Tower_5F_Tr1_Battle_5
 
 Tower_5F_Tr1_Battle_16:
-# 75 "data/maps/SkyPillar_5F/scripts.pory"
+# 69 "data/maps/SkyPillar_5F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_5F_COOLTRAINER_M, Tr1_5F_Male_Lost, TRAINER_AT_5F_COOLTRAINER_F, Tr1_5F_Female_Lost, PARTNER_BRENDAN_TORCHIC
 	goto Tower_5F_Tr1_Battle_5
 
 Tower_5F_Tr1_Battle_17:
-# 77 "data/maps/SkyPillar_5F/scripts.pory"
+# 71 "data/maps/SkyPillar_5F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_5F_COOLTRAINER_M, Tr1_5F_Male_Lost, TRAINER_AT_5F_COOLTRAINER_F, Tr1_5F_Female_Lost, PARTNER_BRENDAN_PIPLUP
 	goto Tower_5F_Tr1_Battle_5
 
 Tower_5F_Tr1_Battle_18:
-# 79 "data/maps/SkyPillar_5F/scripts.pory"
+# 73 "data/maps/SkyPillar_5F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_5F_COOLTRAINER_M, Tr1_5F_Male_Lost, TRAINER_AT_5F_COOLTRAINER_F, Tr1_5F_Female_Lost, PARTNER_BRENDAN_ROWLET
 	goto Tower_5F_Tr1_Battle_5
 
 Tower_5F_Tr1_Battle_21:
-# 83 "data/maps/SkyPillar_5F/scripts.pory"
+# 77 "data/maps/SkyPillar_5F/scripts.pory"
 	settrainerflag TRAINER_AT_5F_COOLTRAINER_M
-# 84 "data/maps/SkyPillar_5F/scripts.pory"
+# 78 "data/maps/SkyPillar_5F/scripts.pory"
 	settrainerflag TRAINER_AT_5F_COOLTRAINER_F
-# 85 "data/maps/SkyPillar_5F/scripts.pory"
+# 79 "data/maps/SkyPillar_5F/scripts.pory"
 	release
 	end
 
 
 AT_5F_PostBatMale::
-# 93 "data/maps/SkyPillar_5F/scripts.pory"
+# 87 "data/maps/SkyPillar_5F/scripts.pory"
 	.string "I never expected to battle anyone\n"
 	.string "as strong as you two.\p"
 	.string "Go, ascend the tower.$"
 
 AT_5F_PostBatFemale::
-# 98 "data/maps/SkyPillar_5F/scripts.pory"
+# 92 "data/maps/SkyPillar_5F/scripts.pory"
 	.string "Okay, I admit, you two are pretty good.\p"
 	.string "Now go, I believe Korrina is waiting\n"
 	.string "for you.$"
 
 Tr1_5F_MaleIntro::
-# 103 "data/maps/SkyPillar_5F/scripts.pory"
+# 97 "data/maps/SkyPillar_5F/scripts.pory"
 	.string "You're here to meet Korrina?\n"
 	.string "Not unless you can defeat us!$"
 
 Tr1_5F_FemaleIntro::
-# 107 "data/maps/SkyPillar_5F/scripts.pory"
+# 101 "data/maps/SkyPillar_5F/scripts.pory"
 	.string "You're here to meet Korrina?\n"
 	.string "Not unless you can defeat us!$"
 
 Tr1_5F_Male_Lost::
-# 111 "data/maps/SkyPillar_5F/scripts.pory"
+# 105 "data/maps/SkyPillar_5F/scripts.pory"
 	.string "Outstanding…$"
 
 Tr1_5F_Female_Lost::
-# 114 "data/maps/SkyPillar_5F/scripts.pory"
+# 108 "data/maps/SkyPillar_5F/scripts.pory"
 	.string "How is this possible?!$"

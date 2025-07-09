@@ -22,14 +22,6 @@ LilycoveCity_PokemonCenter_1F_EventScript_ShowContestLadyMon::
 	clearflag FLAG_HIDE_LILYCOVE_POKEMON_CENTER_CONTEST_LADY_MON
 	end
 
-LilycoveCity_PokemonCenter_1F_EventScript_Nurse::
-	setvar VAR_0x800B, LOCALID_LILYCOVE_NURSE
-	call Common_EventScript_PkmnCenterNurse
-	waitmessage
-	waitbuttonpress
-	release
-	end
-
 LilycoveCity_PokemonCenter_1F_EventScript_Boy::
 	msgbox LilycoveCity_PokemonCenter_1F_Text_HowManyKindsOfPokemon, MSGBOX_NPC
 	end

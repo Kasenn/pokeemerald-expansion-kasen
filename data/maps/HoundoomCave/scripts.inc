@@ -133,13 +133,13 @@ HoundoomTrigger::
 # 62 "data/maps/HoundoomCave/scripts.pory"
 	turnobject 3, DIR_SOUTH
 # 63 "data/maps/HoundoomCave/scripts.pory"
-	applymovement 1, ExclamationMark
+	applymovement 1, Common_Movement_ExclamationMark
 # 64 "data/maps/HoundoomCave/scripts.pory"
-	applymovement 2, ExclamationMark
+	applymovement 2, Common_Movement_ExclamationMark
 # 65 "data/maps/HoundoomCave/scripts.pory"
-	applymovement 3, ExclamationMark
+	applymovement 3, Common_Movement_ExclamationMark
 # 66 "data/maps/HoundoomCave/scripts.pory"
-	applymovement 4, ExclamationMark
+	applymovement 4, Common_Movement_ExclamationMark
 # 67 "data/maps/HoundoomCave/scripts.pory"
 	waitmovement 0
 # 68 "data/maps/HoundoomCave/scripts.pory"

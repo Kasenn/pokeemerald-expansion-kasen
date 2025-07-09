@@ -147,7 +147,7 @@ Ruins_OminousPresence::
 # 76 "data/maps/UndergroundRuins_5F/scripts.pory"
 	closemessage
 # 77 "data/maps/UndergroundRuins_5F/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Walk1Down
+	applymovement LOCALID_PLAYER, Walk1Down
 # 78 "data/maps/UndergroundRuins_5F/scripts.pory"
 	waitmovement 0
 # 79 "data/maps/UndergroundRuins_5F/scripts.pory"

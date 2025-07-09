@@ -4,7 +4,7 @@ RustboroCity_MapScripts::
 	.byte 0
 
 RustboroCity_OnTransition:
-	setflag FLAG_VISITED_RUSTBORO_CITY
+	setflag FLAG_VISITED_CORALGROVE_CITY
 	call SetupRivalGfxId
 	call_if_eq VAR_TEMP_0, 6, RustboroCity_EventScript_HideMapNamePopup
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1

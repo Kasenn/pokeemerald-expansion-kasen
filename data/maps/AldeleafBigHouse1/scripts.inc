@@ -206,7 +206,7 @@ AldeleafBigHouse3_3F_PokeBall::
 # 220 "data/maps/AldeleafBigHouse1/scripts.pory"
 	msgbox AldeleafBigHouse3_3F_PokeBall_Stop, MSGBOX_DEFAULT
 # 221 "data/maps/AldeleafBigHouse1/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
+	applymovement LOCALID_PLAYER, Common_Movement_QuestionMark
 # 222 "data/maps/AldeleafBigHouse1/scripts.pory"
 	closemessage
 # 223 "data/maps/AldeleafBigHouse1/scripts.pory"
@@ -291,7 +291,7 @@ AldeleafBigHouse3_3F_PokeBall_8:
 # 229 "data/maps/AldeleafBigHouse1/scripts.pory"
 	applymovement 2, AldeleafBigHouse3_3F_MoveLong, MAP_ALDELEAF_BIG_HOUSE3_3F
 # 230 "data/maps/AldeleafBigHouse1/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, PlayerLooksLeft
+	applymovement LOCALID_PLAYER, PlayerLooksLeft
 # 231 "data/maps/AldeleafBigHouse1/scripts.pory"
 	setvar VAR_TEMP_2, DIR_SOUTH
 	goto AldeleafBigHouse3_3F_PokeBall_7
@@ -300,7 +300,7 @@ AldeleafBigHouse3_3F_PokeBall_11:
 # 234 "data/maps/AldeleafBigHouse1/scripts.pory"
 	applymovement 2, AldeleafBigHouse3_3F_MoveShort, MAP_ALDELEAF_BIG_HOUSE3_3F
 # 235 "data/maps/AldeleafBigHouse1/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, PlayerLooksLeft
+	applymovement LOCALID_PLAYER, PlayerLooksLeft
 # 236 "data/maps/AldeleafBigHouse1/scripts.pory"
 	setvar VAR_TEMP_2, DIR_EAST
 	goto AldeleafBigHouse3_3F_PokeBall_10
@@ -316,7 +316,7 @@ AldeleafBigHouse3_3F_PokeBall_17:
 # 249 "data/maps/AldeleafBigHouse1/scripts.pory"
 	delay 20
 # 250 "data/maps/AldeleafBigHouse1/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	turnobject LOCALID_PLAYER, DIR_NORTH
 	goto AldeleafBigHouse3_3F_PokeBall_16
 
 AldeleafBigHouse3_3F_PokeBall_20:
@@ -440,7 +440,7 @@ AldeleafBigHouse3_2F_Hide3FMan_2:
 # 331 "data/maps/AldeleafBigHouse1/scripts.pory"
 	safefollow
 # 332 "data/maps/AldeleafBigHouse1/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Walk1Down
+	applymovement LOCALID_PLAYER, Walk1Down
 # 333 "data/maps/AldeleafBigHouse1/scripts.pory"
 	waitmovement 0
 	goto AldeleafBigHouse3_2F_Hide3FMan_1

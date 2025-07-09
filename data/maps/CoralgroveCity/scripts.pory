@@ -1,10 +1,8 @@
 mapscripts CoralgroveCity_MapScripts{
-    MAP_SCRIPT_ON_TRANSITION: Coralgrove_State
-}
-
-script Coralgrove_State{
-    setflag(FLAG_VISITED_RUSTBORO_CITY)
-    setflag(FLAG_TEMP_1)
+    MAP_SCRIPT_ON_TRANSITION{
+        setflag(FLAG_VISITED_CORALGROVE_CITY)
+        setflag(FLAG_TEMP_1)
+    }
 }
 
 script CoralHideGhost2{
@@ -14,15 +12,10 @@ script CoralHideGhost2{
 }
 
 script Coralgrove_HauntedHouse{
-    lock
     if(!flag(FLAG_0x267_CG_HIDEGHOST)){
         setflag(FLAG_TEMP_2)
     }
     msgbox("The door is nailed shut.\nLooks like nobody lives here.", MSGBOX_SIGN)
-    waitmessage
-    closemessage
-    release
-    end
 }
 
 script CoralShowGhost{
@@ -35,8 +28,7 @@ script CoralHideGhost{
     lock
     fadeoutbgm(0)
     delay(60)
-    msgbox("No, you're not the one…")
-    closemessage
+    msgbox("No, you're not the one…", MSGBOX_AUTOCLOSE)
     fadescreenswapbuffers(FADE_TO_WHITE)
     setflag(FLAG_0x267_CG_HIDEGHOST)
     clearflag(FLAG_TEMP_2)
@@ -86,24 +78,18 @@ script Coralgrove_BirdEvent{
     lock
     safefollow
     special(SpawnCameraObject)
-    applymovement(OBJ_EVENT_ID_CAMERA, Walk3Up)
-    waitmovement(0)
+    waitmove(OBJ_EVENT_ID_CAMERA, Walk3Up)
     if(var(VAR_TEMP_3) == 1){
-        applymovement(14, BirdFlyFromWest)
-        waitmovement(14)
+        waitmove(14, BirdFlyFromWest)
         playmoncry(SPECIES_PIDGEOT, CRY_MODE_NORMAL)
-        applymovement(14, BirdFlyFromWest)
-        waitmovement(14)
+        waitmove(14, BirdFlyFromWest)
     }
     else{
-        applymovement(13, BirdFlyFromEast)
-        waitmovement(13)
+        waitmove(13, BirdFlyFromEast)
         playmoncry(SPECIES_PIDGEOT, CRY_MODE_NORMAL)
-        applymovement(13, BirdFlyFromEast)
-        waitmovement(13)
+        waitmove(13, BirdFlyFromEast)
     }
-    applymovement(OBJ_EVENT_ID_CAMERA, Walk3Down)
-    waitmovement(0)
+    waitmove(OBJ_EVENT_ID_CAMERA, Walk3Down)
     special(RemoveCameraObject)
     delay(30)
     removeobject(13)
@@ -130,9 +116,7 @@ script CoralGrove_NINJA_BOY{
 
 script CoralGrove_OLD_WOMAN{
     lock
-    msgbox("Such pretty flowers…", MSGBOX_DEFAULT)
-    closemessage
-    release
+    msgbox("Such pretty flowers…", MSGBOX_AUTOCLOSE)
 }
 
 script Coralgrove_Old_Woman2{
@@ -181,10 +165,6 @@ script Coralgrove_Lifthouse{
 
 script CoralSign{
     msgbox("CORALGROVE CITY\n“Home of many aspiring trainers.”", MSGBOX_SIGN)
-}
-
-script CoralGreatBall{
-    finditem(ITEM_GREAT_BALL)
 }
 
 script CoralGrove_EventScript_GymSign{

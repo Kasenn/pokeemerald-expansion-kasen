@@ -4,7 +4,7 @@ OldaleTown_PokemonCenter_2F_MapScripts::
 
 EvTraining::
 # 4 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	goto_if_unset FLAG_VISITED_RUSTBORO_CITY, EvTraining_2
+	goto_if_unset FLAG_VISITED_CORALGROVE_CITY, EvTraining_2
 # 8 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	lock
 # 9 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
@@ -14,17 +14,22 @@ EvTraining::
 # 11 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	specialvar VAR_TEMP_1, GetFrontierBattlePoints
 # 12 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	goto_if_ge VAR_TEMP_1, VAR_0x8008, EvTraining_Setup
-# 13 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	msgbox Training_NotEnoughPoints
-# 14 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	release
-	end
+	compare VAR_TEMP_1, VAR_0x8008
+	goto_if_ge EvTraining_5
+EvTraining_4:
+# 15 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	msgbox Training_NotEnoughPoints, MSGBOX_AUTOCLOSE
+	return
 
 EvTraining_2:
 # 5 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	msgbox OldaleTown_PokemonCenter_1F_Text_Train, MSGBOX_NPC
 	end
+
+EvTraining_5:
+# 13 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	goto EvTraining_Setup
+	goto EvTraining_4
 
 
 EvTraining_Setup::
@@ -37,7 +42,7 @@ EvTraining_Setup::
 # 22 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	waitmessage
 # 23 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	multichoice 21, 0, 114, 0
+	multichoice 21, 0, MULTI_POKECENTER_IV_TRAINING, 0
 # 24 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	closemessage
 # 25 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
@@ -111,7 +116,7 @@ EvTraining_Setup_6:
 
 LevelTraining1::
 # 93 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	goto_if_unset FLAG_VISITED_RUSTBORO_CITY, LevelTraining1_2
+	goto_if_unset FLAG_VISITED_CORALGROVE_CITY, LevelTraining1_2
 # 97 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	setvar VAR_POKECENTER_TRAINING, 1
 # 98 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
@@ -491,7 +496,7 @@ LevelTrainingMain_40:
 
 IvTrainingIntro::
 # 249 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	goto_if_unset FLAG_VISITED_RUSTBORO_CITY, IvTrainingIntro_2
+	goto_if_unset FLAG_VISITED_CORALGROVE_CITY, IvTrainingIntro_2
 # 253 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	lock
 # 254 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"

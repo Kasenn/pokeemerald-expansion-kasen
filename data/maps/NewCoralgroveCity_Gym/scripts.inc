@@ -24,7 +24,7 @@ NewCoralgroveCity_Gym_EventScript_Aaron::
 # 16 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
 	delay 10
 # 17 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	turnobject LOCALID_PLAYER, DIR_EAST
 # 18 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
 	turnobject 1, DIR_WEST
 # 19 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
@@ -54,7 +54,7 @@ NewCoralgroveCity_Gym_EventScript_AaronDefeated::
 # 32 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
 	applymovement 1, Walk3Left
 # 33 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Walk3Right
+	applymovement LOCALID_PLAYER, Walk3Right
 # 34 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
 	waitmovement 0
 # 35 "data/maps/NewCoralgroveCity_Gym/scripts.pory"

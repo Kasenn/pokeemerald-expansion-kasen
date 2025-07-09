@@ -64,28 +64,24 @@ AdamantExterior_Man3::
 # 50 "data/maps/AdamantTowerExterior/scripts.pory"
 	playse SE_PIN
 # 51 "data/maps/AdamantTowerExterior/scripts.pory"
-	applymovement 1, Common_Movement_ExclamationMark
+	exclamationmark 1
 # 52 "data/maps/AdamantTowerExterior/scripts.pory"
-	waitmovement 0
-# 53 "data/maps/AdamantTowerExterior/scripts.pory"
-	delay 48
-# 54 "data/maps/AdamantTowerExterior/scripts.pory"
 	msgbox AdamantDidntSeeBadge
-# 55 "data/maps/AdamantTowerExterior/scripts.pory"
+# 53 "data/maps/AdamantTowerExterior/scripts.pory"
 	closemessage
-# 56 "data/maps/AdamantTowerExterior/scripts.pory"
+# 54 "data/maps/AdamantTowerExterior/scripts.pory"
 	compare VAR_FACING, DIR_WEST
 	goto_if_eq AdamantExterior_Man3_8
-# 61 "data/maps/AdamantTowerExterior/scripts.pory"
+# 59 "data/maps/AdamantTowerExterior/scripts.pory"
 	applymovement 1, AdamantGuardStepAway
-# 62 "data/maps/AdamantTowerExterior/scripts.pory"
+# 60 "data/maps/AdamantTowerExterior/scripts.pory"
 	setobjectxyperm 1, 14, 7
 AdamantExterior_Man3_7:
-# 64 "data/maps/AdamantTowerExterior/scripts.pory"
+# 62 "data/maps/AdamantTowerExterior/scripts.pory"
 	waitmovement 0
-# 65 "data/maps/AdamantTowerExterior/scripts.pory"
+# 63 "data/maps/AdamantTowerExterior/scripts.pory"
 	setflag FLAG_SHOWED_BADGE
-# 66 "data/maps/AdamantTowerExterior/scripts.pory"
+# 64 "data/maps/AdamantTowerExterior/scripts.pory"
 	release
 	end
 
@@ -100,26 +96,26 @@ AdamantExterior_Man3_5:
 	end
 
 AdamantExterior_Man3_8:
-# 57 "data/maps/AdamantTowerExterior/scripts.pory"
+# 55 "data/maps/AdamantTowerExterior/scripts.pory"
 	applymovement 1, AdamantGuardStepAway2
-# 58 "data/maps/AdamantTowerExterior/scripts.pory"
+# 56 "data/maps/AdamantTowerExterior/scripts.pory"
 	setobjectxyperm 1, 12, 7
 	goto AdamantExterior_Man3_7
 
 
-# 74 "data/maps/AdamantTowerExterior/scripts.pory"
+# 72 "data/maps/AdamantTowerExterior/scripts.pory"
 AdamantGuardStepAway:
-# 75 "data/maps/AdamantTowerExterior/scripts.pory"
+# 73 "data/maps/AdamantTowerExterior/scripts.pory"
 	walk_right
-# 76 "data/maps/AdamantTowerExterior/scripts.pory"
+# 74 "data/maps/AdamantTowerExterior/scripts.pory"
 	walk_in_place_down
 	step_end
 
-# 78 "data/maps/AdamantTowerExterior/scripts.pory"
+# 76 "data/maps/AdamantTowerExterior/scripts.pory"
 AdamantGuardStepAway2:
-# 79 "data/maps/AdamantTowerExterior/scripts.pory"
+# 77 "data/maps/AdamantTowerExterior/scripts.pory"
 	walk_left
-# 80 "data/maps/AdamantTowerExterior/scripts.pory"
+# 78 "data/maps/AdamantTowerExterior/scripts.pory"
 	walk_in_place_down
 	step_end
 
@@ -136,18 +132,18 @@ AdamantExterior_FatMan_Text::
 	.string "You just watch me!$"
 
 AdamantExterior_Man3_NoAccess::
-# 69 "data/maps/AdamantTowerExterior/scripts.pory"
+# 67 "data/maps/AdamantTowerExterior/scripts.pory"
 	.string "I'm sorry, but only people authorized\n"
 	.string "by the Sandstone Pokémon Gym Leader\l"
 	.string "are allowed to enter.$"
 
 AdamantGoIn::
-# 83 "data/maps/AdamantTowerExterior/scripts.pory"
+# 81 "data/maps/AdamantTowerExterior/scripts.pory"
 	.string "There are many strong trainers training\n"
 	.string "in the Adamant Tower.\p"
 	.string "I hope you are prepared.$"
 
 AdamantDidntSeeBadge::
-# 88 "data/maps/AdamantTowerExterior/scripts.pory"
+# 86 "data/maps/AdamantTowerExterior/scripts.pory"
 	.string "Oh, I'm sorry, I didn't notice your\n"
 	.string "Gym Badge. Please, go on in.$"

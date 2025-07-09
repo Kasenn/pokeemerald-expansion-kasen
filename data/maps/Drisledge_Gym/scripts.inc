@@ -408,7 +408,7 @@ EventScript_FallDownDrisledgeGym::
 # 185 "data/maps/Drisledge_Gym/scripts.pory"
 	delay 20
 # 186 "data/maps/Drisledge_Gym/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, SootopolisCity_Gym_1F_Movement_FallThroughIce
+	applymovement LOCALID_PLAYER, SootopolisCity_Gym_1F_Movement_FallThroughIce
 # 187 "data/maps/Drisledge_Gym/scripts.pory"
 	waitmovement 0
 # 188 "data/maps/Drisledge_Gym/scripts.pory"

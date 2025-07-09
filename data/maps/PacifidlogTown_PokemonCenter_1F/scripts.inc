@@ -7,14 +7,6 @@ PacifidlogTown_PokemonCenter_1F_OnTransition:
 	setrespawn HEAL_LOCATION_PACIFIDLOG_TOWN
 	end
 
-PacifidlogTown_PokemonCenter_1F_EventScript_Nurse::
-	setvar VAR_0x800B, LOCALID_PACIFIDLOG_NURSE
-	call Common_EventScript_PkmnCenterNurse
-	waitmessage
-	waitbuttonpress
-	release
-	end
-
 PacifidlogTown_PokemonCenter_1F_EventScript_Girl::
 	msgbox PacifidlogTown_PokemonCenter_1F_Text_WhatColorTrainerCard, MSGBOX_NPC
 	end

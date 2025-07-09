@@ -34,8 +34,8 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route2_Revive",
+      "trainer_sight_or_berry_tree_id": "ITEM_REVIVE",
+      "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE2_REVIVE"
     },
     {
@@ -47,8 +47,8 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route2_X_Attack",
+      "trainer_sight_or_berry_tree_id": "ITEM_X_ATTACK",
+      "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE2_X_ATTACK"
     },
     {
@@ -75,7 +75,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route2_Landslide",
-      "flag": "FLAG_VISITED_RUSTBORO_CITY"
+      "flag": "FLAG_VISITED_CORALGROVE_CITY"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN_SOUTH",
@@ -198,7 +198,7 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 10,
+      "x": 9,
       "y": 19,
       "elevation": 0,
       "dest_map": "MAP_ROUTE111_OLD_LADYS_REST_STOP",

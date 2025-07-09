@@ -39,7 +39,7 @@ EndScript::
 
 TurnR3Player::
 # 21 "data/maps/Route3/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	turnobject LOCALID_PLAYER, DIR_NORTH
 	end
 
 
@@ -241,7 +241,7 @@ TriggerGina::
 # 141 "data/maps/Route3/scripts.pory"
 	checktrainerflag TRAINER_R4_TWINS
 	goto_if 0, TriggerGina_1
-# 167 "data/maps/Route3/scripts.pory"
+# 163 "data/maps/Route3/scripts.pory"
 	release
 	end
 
@@ -251,7 +251,7 @@ TriggerGina_1:
 # 143 "data/maps/Route3/scripts.pory"
 	compare VAR_RESULT, PLAYER_HAS_TWO_USABLE_MONS
 	goto_if_eq TriggerGina_5
-# 163 "data/maps/Route3/scripts.pory"
+# 159 "data/maps/Route3/scripts.pory"
 	release
 	end
 
@@ -263,365 +263,349 @@ TriggerGina_5:
 # 146 "data/maps/Route3/scripts.pory"
 	safefollow
 # 147 "data/maps/Route3/scripts.pory"
-	applymovement 10, Common_Movement_ExclamationMark
+	exclamationmark 10, 11
 # 148 "data/maps/Route3/scripts.pory"
-	applymovement 11, Common_Movement_ExclamationMark
-# 149 "data/maps/Route3/scripts.pory"
-	waitmovement 10
-# 150 "data/maps/Route3/scripts.pory"
-	waitmovement 11
-# 151 "data/maps/Route3/scripts.pory"
-	delay 50
-# 152 "data/maps/Route3/scripts.pory"
 	applymovement 10, Walk1Down
-# 153 "data/maps/Route3/scripts.pory"
+# 149 "data/maps/Route3/scripts.pory"
 	applymovement 11, Walk1Down
-# 154 "data/maps/Route3/scripts.pory"
+# 150 "data/maps/Route3/scripts.pory"
 	waitmovement 10
-# 155 "data/maps/Route3/scripts.pory"
+# 151 "data/maps/Route3/scripts.pory"
 	waitmovement 11
-# 156 "data/maps/Route3/scripts.pory"
+# 152 "data/maps/Route3/scripts.pory"
 	delay 10
-# 157 "data/maps/Route3/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-# 158 "data/maps/Route3/scripts.pory"
+# 153 "data/maps/Route3/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_NORTH
+# 154 "data/maps/Route3/scripts.pory"
 	msgbox Route3_Twin1Intro, MSGBOX_DEFAULT
-# 159 "data/maps/Route3/scripts.pory"
+# 155 "data/maps/Route3/scripts.pory"
 	trainerbattle_no_intro TRAINER_R4_TWINS, Route3_Twin1Defeated
-# 160 "data/maps/Route3/scripts.pory"
+# 156 "data/maps/Route3/scripts.pory"
 	waitmessage
 	end
 
 
 TriggerMia::
-# 173 "data/maps/Route3/scripts.pory"
+# 169 "data/maps/Route3/scripts.pory"
 	checktrainerflag TRAINER_R4_TWINS
 	goto_if 0, TriggerMia_1
-# 199 "data/maps/Route3/scripts.pory"
+# 191 "data/maps/Route3/scripts.pory"
 	release
 	end
 
 TriggerMia_1:
-# 174 "data/maps/Route3/scripts.pory"
+# 170 "data/maps/Route3/scripts.pory"
 	special HasEnoughMonsForDoubleBattle
-# 175 "data/maps/Route3/scripts.pory"
+# 171 "data/maps/Route3/scripts.pory"
 	compare VAR_RESULT, PLAYER_HAS_TWO_USABLE_MONS
 	goto_if_eq TriggerMia_5
-# 195 "data/maps/Route3/scripts.pory"
+# 187 "data/maps/Route3/scripts.pory"
 	release
 	end
 
 TriggerMia_5:
-# 176 "data/maps/Route3/scripts.pory"
+# 172 "data/maps/Route3/scripts.pory"
 	lock
-# 177 "data/maps/Route3/scripts.pory"
+# 173 "data/maps/Route3/scripts.pory"
 	playbgm MUS_ENCOUNTER_TWINS, FALSE
-# 178 "data/maps/Route3/scripts.pory"
+# 174 "data/maps/Route3/scripts.pory"
 	safefollow
-# 179 "data/maps/Route3/scripts.pory"
-	applymovement 10, Common_Movement_ExclamationMark
-# 180 "data/maps/Route3/scripts.pory"
-	applymovement 11, Common_Movement_ExclamationMark
-# 181 "data/maps/Route3/scripts.pory"
-	waitmovement 10
-# 182 "data/maps/Route3/scripts.pory"
-	waitmovement 11
-# 183 "data/maps/Route3/scripts.pory"
-	delay 50
-# 184 "data/maps/Route3/scripts.pory"
+# 175 "data/maps/Route3/scripts.pory"
+	exclamationmark 10, 11
+# 176 "data/maps/Route3/scripts.pory"
 	applymovement 10, Walk1Down
-# 185 "data/maps/Route3/scripts.pory"
+# 177 "data/maps/Route3/scripts.pory"
 	applymovement 11, Walk1Down
-# 186 "data/maps/Route3/scripts.pory"
+# 178 "data/maps/Route3/scripts.pory"
 	waitmovement 10
-# 187 "data/maps/Route3/scripts.pory"
+# 179 "data/maps/Route3/scripts.pory"
 	waitmovement 11
-# 188 "data/maps/Route3/scripts.pory"
+# 180 "data/maps/Route3/scripts.pory"
 	delay 10
-# 189 "data/maps/Route3/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-# 190 "data/maps/Route3/scripts.pory"
+# 181 "data/maps/Route3/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_NORTH
+# 182 "data/maps/Route3/scripts.pory"
 	msgbox Route3_Twin2Intro, MSGBOX_DEFAULT
-# 191 "data/maps/Route3/scripts.pory"
+# 183 "data/maps/Route3/scripts.pory"
 	trainerbattle_no_intro TRAINER_R4_TWINS, Route3_Twin2Defeated
-# 192 "data/maps/Route3/scripts.pory"
+# 184 "data/maps/Route3/scripts.pory"
 	waitmessage
 	end
 
 
 Route3_Antidote::
-# 205 "data/maps/Route3/scripts.pory"
+# 197 "data/maps/Route3/scripts.pory"
 	finditem ITEM_ANTIDOTE
 	return
 
 
 Route3_GigaDrain::
-# 208 "data/maps/Route3/scripts.pory"
+# 200 "data/maps/Route3/scripts.pory"
 	finditem ITEM_TM_GRASS_KNOT
 	return
 
 
 MultiRegisterSign::
-# 431 "data/maps/Route3/scripts.pory"
+# 423 "data/maps/Route3/scripts.pory"
 	msgbox MultiRegisterSign_Text, MSGBOX_SIGN
 	return
 
 
 Route3_HikerIntro::
-# 211 "data/maps/Route3/scripts.pory"
+# 203 "data/maps/Route3/scripts.pory"
 	.string "Hahahaha!\n"
 	.string "How about we have a battle?\l"
 	.string "You and me!\l"
 	.string "Hahahaha!$"
 
 Route3_HikerDefeated::
-# 217 "data/maps/Route3/scripts.pory"
+# 209 "data/maps/Route3/scripts.pory"
 	.string "I lost!\n"
 	.string "Hahahaha!$"
 
 Route3_HikerPostBattle::
-# 221 "data/maps/Route3/scripts.pory"
+# 213 "data/maps/Route3/scripts.pory"
 	.string "Hahahahaha! Something flew up my nose!\n"
 	.string "Hahahaha-hatchoo!$"
 
 Route3_LassIntro::
-# 226 "data/maps/Route3/scripts.pory"
+# 218 "data/maps/Route3/scripts.pory"
 	.string "Should I…\n"
 	.string "Or shouldn't I?\p"
 	.string "Okay, sure, I will battle!$"
 
 Route3_LassDefeated::
-# 231 "data/maps/Route3/scripts.pory"
+# 223 "data/maps/Route3/scripts.pory"
 	.string "I shouldn't have battled…$"
 
 Route3_LassPostBattle::
-# 234 "data/maps/Route3/scripts.pory"
+# 226 "data/maps/Route3/scripts.pory"
 	.string "If you're faced with a decision and\n"
 	.string "you let someone else choose for you,\l"
 	.string "you will regret it, however things\l"
 	.string "turn out.$"
 
 Route3_ManiacIntro::
-# 241 "data/maps/Route3/scripts.pory"
+# 233 "data/maps/Route3/scripts.pory"
 	.string "Y-you want to battle with me?\n"
 	.string "Even though I just caught my Pokémon?$"
 
 Route3_ManiacDefeated::
-# 245 "data/maps/Route3/scripts.pory"
+# 237 "data/maps/Route3/scripts.pory"
 	.string "Y-you're all happy to win?\n"
 	.string "Even though it's only me?$"
 
 Route3_ManiacPostBattle::
-# 249 "data/maps/Route3/scripts.pory"
+# 241 "data/maps/Route3/scripts.pory"
 	.string "Oh, so now you want to say a word to\n"
 	.string "the loser?\p"
 	.string "Aren't you just the coolest?\n"
 	.string "Humph!$"
 
 Route3_BugCatcherIntro::
-# 256 "data/maps/Route3/scripts.pory"
+# 248 "data/maps/Route3/scripts.pory"
 	.string "My bug Pokémon are tough!\n"
 	.string "Let's battle!$"
 
 Route3_BugCatcherDefeated::
-# 260 "data/maps/Route3/scripts.pory"
+# 252 "data/maps/Route3/scripts.pory"
 	.string "I lost!\n"
 	.string "I thought I had you!$"
 
 Route3_BugCatcherPostBattle::
-# 264 "data/maps/Route3/scripts.pory"
+# 256 "data/maps/Route3/scripts.pory"
 	.string "Bug Pokémon evolve quickly.\n"
 	.string "So they get strong quickly, too.$"
 
 Route3_Twin1Intro::
-# 269 "data/maps/Route3/scripts.pory"
+# 261 "data/maps/Route3/scripts.pory"
 	.string "Gina: Okay, let's battle with our\n"
 	.string "Pokémon!$"
 
 Route3_Twin1Defeated::
-# 273 "data/maps/Route3/scripts.pory"
+# 265 "data/maps/Route3/scripts.pory"
 	.string "Gina: Losing upsets me!$"
 
 Route3_Twin1PostBattle::
-# 276 "data/maps/Route3/scripts.pory"
+# 268 "data/maps/Route3/scripts.pory"
 	.string "Gina: You are strong!\n"
 	.string "We have to train lots more!$"
 
 Route3_Twin2Intro::
-# 281 "data/maps/Route3/scripts.pory"
+# 273 "data/maps/Route3/scripts.pory"
 	.string "Mia: We are twins, so we battle\n"
 	.string "Pokémon together.$"
 
 Route3_Twin2Defeated::
-# 285 "data/maps/Route3/scripts.pory"
+# 277 "data/maps/Route3/scripts.pory"
 	.string "Mia: We battled together, but we\n"
 	.string "both lost…$"
 
 Route3_Twin2PostBattle::
-# 289 "data/maps/Route3/scripts.pory"
+# 281 "data/maps/Route3/scripts.pory"
 	.string "Mia: We will train our Pokémon more\n"
 	.string "and be strong like you.$"
 
 Route3_TriathleteIntro::
-# 294 "data/maps/Route3/scripts.pory"
+# 286 "data/maps/Route3/scripts.pory"
 	.string "The triathlon is hard in the extreme.\p"
 	.string "You have to complete the three events\n"
 	.string "of swimming, cycling, and running.$"
 
 Route3_TriathleteDefeated::
-# 299 "data/maps/Route3/scripts.pory"
+# 291 "data/maps/Route3/scripts.pory"
 	.string "Pokémon battles are hard, too!$"
 
 Route3_TriathletePostBattle::
-# 302 "data/maps/Route3/scripts.pory"
+# 294 "data/maps/Route3/scripts.pory"
 	.string "I'm exhausted, so I need a break.\n"
 	.string "It's important to get proper rest.$"
 
 Route3_CamperIntro::
-# 307 "data/maps/Route3/scripts.pory"
+# 299 "data/maps/Route3/scripts.pory"
 	.string "I'll give you some of my sandwich\n"
 	.string "if you'll lose.$"
 
 Route3_CamperDefeated::
-# 311 "data/maps/Route3/scripts.pory"
+# 303 "data/maps/Route3/scripts.pory"
 	.string "Tch! I thought a sandwich would be\n"
 	.string "enough of a bribe…$"
 
 Route3_CamperPostBattle::
-# 315 "data/maps/Route3/scripts.pory"
+# 307 "data/maps/Route3/scripts.pory"
 	.string "My Sandile loves eating\n"
 	.string "my sandwiches.$"
 
 Route3_CoolFIntro::
-# 320 "data/maps/Route3/scripts.pory"
+# 312 "data/maps/Route3/scripts.pory"
 	.string "Pokémon have many special abilities.\n"
 	.string "If you want to become a first-class\l"
 	.string "trainer, learn about them.$"
 
 Route3_CoolFDefeated::
-# 325 "data/maps/Route3/scripts.pory"
+# 317 "data/maps/Route3/scripts.pory"
 	.string "You're obviously thinking.$"
 
 Route3_CoolFPostBattle::
-# 328 "data/maps/Route3/scripts.pory"
+# 320 "data/maps/Route3/scripts.pory"
 	.string "The special abilities of Pokémon\n"
 	.string "will make battle styles change.$"
 
 Route3_CoolMIntro::
-# 333 "data/maps/Route3/scripts.pory"
+# 325 "data/maps/Route3/scripts.pory"
 	.string "Your party Pokémon…\n"
 	.string "Do you have different types?$"
 
 Route3_CoolMDefeated::
-# 337 "data/maps/Route3/scripts.pory"
+# 329 "data/maps/Route3/scripts.pory"
 	.string "I've seen your policy in action!$"
 
 Route3_CoolMPostBattle::
-# 340 "data/maps/Route3/scripts.pory"
+# 332 "data/maps/Route3/scripts.pory"
 	.string "I think it's awesome you're so strong\n"
 	.string "battling with your favorite Pokémon.$"
 
 Route3_Bird1Intro::
-# 345 "data/maps/Route3/scripts.pory"
+# 337 "data/maps/Route3/scripts.pory"
 	.string "My Pokémon are strong!\n"
 	.string "How about yours?$"
 
 Route3_Bird1Defeated::
-# 349 "data/maps/Route3/scripts.pory"
+# 341 "data/maps/Route3/scripts.pory"
 	.string "Your Pokémon were stronger…$"
 
 Route3_Bird1PostBattle::
-# 352 "data/maps/Route3/scripts.pory"
+# 344 "data/maps/Route3/scripts.pory"
 	.string "A Pokémon that grows steadily is one\n"
 	.string "you can count on.$"
 
 Route3_YoungsterIntro::
-# 357 "data/maps/Route3/scripts.pory"
+# 349 "data/maps/Route3/scripts.pory"
 	.string "There is no stronger trainer than I!$"
 
 Route3_YoungsterDefeated::
-# 360 "data/maps/Route3/scripts.pory"
+# 352 "data/maps/Route3/scripts.pory"
 	.string "This can't be!$"
 
 Route3_YoungsterPostBattle::
-# 363 "data/maps/Route3/scripts.pory"
+# 355 "data/maps/Route3/scripts.pory"
 	.string "There probably is no stronger trainer\n"
 	.string "than you!$"
 
 Route3_Bird2Intro::
-# 368 "data/maps/Route3/scripts.pory"
+# 360 "data/maps/Route3/scripts.pory"
 	.string "I'll show you the true potential of me\n"
 	.string "and my bird Pokémon!$"
 
 Route3_Bird2Defeated::
-# 372 "data/maps/Route3/scripts.pory"
+# 364 "data/maps/Route3/scripts.pory"
 	.string "We lacked potential…$"
 
 Route3_Bird2PostBattle::
-# 375 "data/maps/Route3/scripts.pory"
+# 367 "data/maps/Route3/scripts.pory"
 	.string "Ever since I was a little kid, I always\n"
 	.string "admired bird Pokémon…$"
 
 Route3_DoubleLassIntro::
-# 380 "data/maps/Route3/scripts.pory"
+# 372 "data/maps/Route3/scripts.pory"
 	.string "Let me teach you how strong my\n"
 	.string "adorable Pokémon are!$"
 
 Route3_DoubleLassDefeated::
-# 384 "data/maps/Route3/scripts.pory"
+# 376 "data/maps/Route3/scripts.pory"
 	.string "You're a notch above me…$"
 
 Route3_DoubleLassPostBattle::
-# 387 "data/maps/Route3/scripts.pory"
+# 379 "data/maps/Route3/scripts.pory"
 	.string "Pokémon that possess cuteness and\n"
 	.string "power, that's ideal, I think.$"
 
 Route3_DoubleBoyIntro::
-# 392 "data/maps/Route3/scripts.pory"
+# 384 "data/maps/Route3/scripts.pory"
 	.string "To train myself, I challenge all\n"
 	.string "whom I meet!$"
 
 Route3_DoubleBoyDefeated::
-# 396 "data/maps/Route3/scripts.pory"
+# 388 "data/maps/Route3/scripts.pory"
 	.string "Uncle! I give up!$"
 
 Route3_DoubleBoyPostBattle::
-# 399 "data/maps/Route3/scripts.pory"
+# 391 "data/maps/Route3/scripts.pory"
 	.string "All I can do is keep training until\n"
 	.string "I can defeat strong trainers such\l"
 	.string "as yourself.$"
 
 Route3_HedgeRunnerIntro::
-# 405 "data/maps/Route3/scripts.pory"
+# 397 "data/maps/Route3/scripts.pory"
 	.string "I'll battle while I'm running!\n"
 	.string "Try to keep up with me!$"
 
 Route3_HedgeRunnerDefeated::
-# 409 "data/maps/Route3/scripts.pory"
+# 401 "data/maps/Route3/scripts.pory"
 	.string "Gasp, gasp…$"
 
 Route3_HedgeRunnerPostBattle::
-# 412 "data/maps/Route3/scripts.pory"
+# 404 "data/maps/Route3/scripts.pory"
 	.string "I made the mistake of trying to battle\n"
 	.string "while running!\p"
 	.string "I should take a run to calm down…$"
 
 Route3_Twin1NotEnoughMons::
-# 418 "data/maps/Route3/scripts.pory"
+# 410 "data/maps/Route3/scripts.pory"
 	.string "Gina: Oh? Only one Pokémon?\n"
 	.string "Then, we don't battle with you.\p"
 	.string "If there's only one Pokémon, it will\n"
 	.string "be lonesome. That's not nice.$"
 
 Route3_Twin2NotEnoughMons::
-# 424 "data/maps/Route3/scripts.pory"
+# 416 "data/maps/Route3/scripts.pory"
 	.string "Mia: You want to battle with us?\p"
 	.string "It's a big no-no if you don't have two\n"
 	.string "Pokémon with you.\l"
 	.string "We're too strong for you!$"
 
 MultiRegisterSign_Text::
-# 433 "data/maps/Route3/scripts.pory"
+# 425 "data/maps/Route3/scripts.pory"
 	.string "Trainer Tips\p"
 	.string "Key Items in your bag can be\n"
 	.string "registered as SELECT for quick and\l"

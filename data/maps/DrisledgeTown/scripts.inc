@@ -844,41 +844,37 @@ AcerolaDanceTriggerMain::
 # 519 "data/maps/DrisledgeTown/scripts.pory"
 	playse SE_PIN
 # 520 "data/maps/DrisledgeTown/scripts.pory"
-	applymovement 6, ExclamationMark
+	exclamationmark 6
 # 521 "data/maps/DrisledgeTown/scripts.pory"
-	waitmovement 0
-# 522 "data/maps/DrisledgeTown/scripts.pory"
-	delay 48
-# 523 "data/maps/DrisledgeTown/scripts.pory"
 	switch VAR_TEMP_5
-# 524 "data/maps/DrisledgeTown/scripts.pory"
+# 522 "data/maps/DrisledgeTown/scripts.pory"
 	case 1, AcerolaDanceTriggerMain_9
-# 526 "data/maps/DrisledgeTown/scripts.pory"
+# 524 "data/maps/DrisledgeTown/scripts.pory"
 	case 2, AcerolaDanceTriggerMain_10
-# 528 "data/maps/DrisledgeTown/scripts.pory"
+# 526 "data/maps/DrisledgeTown/scripts.pory"
 	case 3, AcerolaDanceTriggerMain_11
-# 530 "data/maps/DrisledgeTown/scripts.pory"
+# 528 "data/maps/DrisledgeTown/scripts.pory"
 	case 4, AcerolaDanceTriggerMain_12
 AcerolaDanceTriggerMain_7:
-# 533 "data/maps/DrisledgeTown/scripts.pory"
+# 531 "data/maps/DrisledgeTown/scripts.pory"
 	delay 15
-# 534 "data/maps/DrisledgeTown/scripts.pory"
+# 532 "data/maps/DrisledgeTown/scripts.pory"
 	checkplayergender
-# 535 "data/maps/DrisledgeTown/scripts.pory"
+# 533 "data/maps/DrisledgeTown/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq AcerolaDanceTriggerMain_14
-# 539 "data/maps/DrisledgeTown/scripts.pory"
+# 537 "data/maps/DrisledgeTown/scripts.pory"
 	bufferstring STR_VAR_1, Drisledge_Acerola_Text_1
 AcerolaDanceTriggerMain_13:
-# 541 "data/maps/DrisledgeTown/scripts.pory"
+# 539 "data/maps/DrisledgeTown/scripts.pory"
 	msgbox AcerolaGoodDancer
-# 542 "data/maps/DrisledgeTown/scripts.pory"
+# 540 "data/maps/DrisledgeTown/scripts.pory"
 	giveitem ITEM_TM_CAPTIVATE
-# 543 "data/maps/DrisledgeTown/scripts.pory"
+# 541 "data/maps/DrisledgeTown/scripts.pory"
 	setflag FLAG_ACEROLA_ITEM
-# 544 "data/maps/DrisledgeTown/scripts.pory"
+# 542 "data/maps/DrisledgeTown/scripts.pory"
 	setvar VAR_TEMP_3, 0
-# 545 "data/maps/DrisledgeTown/scripts.pory"
+# 543 "data/maps/DrisledgeTown/scripts.pory"
 	release
 	return
 
@@ -893,87 +889,87 @@ AcerolaDanceTriggerMain_5:
 	end
 
 AcerolaDanceTriggerMain_9:
-# 525 "data/maps/DrisledgeTown/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+# 523 "data/maps/DrisledgeTown/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_EAST
 	goto AcerolaDanceTriggerMain_7
 
 AcerolaDanceTriggerMain_10:
-# 527 "data/maps/DrisledgeTown/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
+# 525 "data/maps/DrisledgeTown/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_SOUTH
 	goto AcerolaDanceTriggerMain_7
 
 AcerolaDanceTriggerMain_11:
-# 529 "data/maps/DrisledgeTown/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+# 527 "data/maps/DrisledgeTown/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_WEST
 	goto AcerolaDanceTriggerMain_7
 
 AcerolaDanceTriggerMain_12:
-# 531 "data/maps/DrisledgeTown/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+# 529 "data/maps/DrisledgeTown/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_NORTH
 	goto AcerolaDanceTriggerMain_7
 
 AcerolaDanceTriggerMain_14:
-# 536 "data/maps/DrisledgeTown/scripts.pory"
+# 534 "data/maps/DrisledgeTown/scripts.pory"
 	bufferstring STR_VAR_1, Drisledge_Acerola_Text_0
 	goto AcerolaDanceTriggerMain_13
 
 
 Drisledge_Gengar::
-# 575 "data/maps/DrisledgeTown/scripts.pory"
+# 573 "data/maps/DrisledgeTown/scripts.pory"
 	lock
-# 576 "data/maps/DrisledgeTown/scripts.pory"
+# 574 "data/maps/DrisledgeTown/scripts.pory"
 	faceplayer
-# 577 "data/maps/DrisledgeTown/scripts.pory"
+# 575 "data/maps/DrisledgeTown/scripts.pory"
 	waitse
-# 578 "data/maps/DrisledgeTown/scripts.pory"
+# 576 "data/maps/DrisledgeTown/scripts.pory"
 	playmoncry SPECIES_GENGAR, CRY_MODE_NORMAL
-# 579 "data/maps/DrisledgeTown/scripts.pory"
+# 577 "data/maps/DrisledgeTown/scripts.pory"
 	msgbox DrisledgeGengar_Text, MSGBOX_DEFAULT
-# 580 "data/maps/DrisledgeTown/scripts.pory"
+# 578 "data/maps/DrisledgeTown/scripts.pory"
 	waitmoncry
-# 581 "data/maps/DrisledgeTown/scripts.pory"
+# 579 "data/maps/DrisledgeTown/scripts.pory"
 	release
 	end
 
 
 Drisledge_Mismagius::
-# 588 "data/maps/DrisledgeTown/scripts.pory"
+# 586 "data/maps/DrisledgeTown/scripts.pory"
 	lock
-# 589 "data/maps/DrisledgeTown/scripts.pory"
+# 587 "data/maps/DrisledgeTown/scripts.pory"
 	faceplayer
-# 590 "data/maps/DrisledgeTown/scripts.pory"
+# 588 "data/maps/DrisledgeTown/scripts.pory"
 	waitse
-# 591 "data/maps/DrisledgeTown/scripts.pory"
+# 589 "data/maps/DrisledgeTown/scripts.pory"
 	playmoncry SPECIES_MISMAGIUS, CRY_MODE_NORMAL
-# 592 "data/maps/DrisledgeTown/scripts.pory"
+# 590 "data/maps/DrisledgeTown/scripts.pory"
 	msgbox DrisledgeMisdreavus_Text, MSGBOX_DEFAULT
-# 593 "data/maps/DrisledgeTown/scripts.pory"
+# 591 "data/maps/DrisledgeTown/scripts.pory"
 	waitmoncry
-# 594 "data/maps/DrisledgeTown/scripts.pory"
+# 592 "data/maps/DrisledgeTown/scripts.pory"
 	release
 	end
 
 
 Drisledge_Mimikyu::
-# 599 "data/maps/DrisledgeTown/scripts.pory"
+# 597 "data/maps/DrisledgeTown/scripts.pory"
 	lock
-# 600 "data/maps/DrisledgeTown/scripts.pory"
+# 598 "data/maps/DrisledgeTown/scripts.pory"
 	faceplayer
-# 601 "data/maps/DrisledgeTown/scripts.pory"
+# 599 "data/maps/DrisledgeTown/scripts.pory"
 	waitse
-# 602 "data/maps/DrisledgeTown/scripts.pory"
+# 600 "data/maps/DrisledgeTown/scripts.pory"
 	playmoncry SPECIES_MIMIKYU, CRY_MODE_NORMAL
-# 603 "data/maps/DrisledgeTown/scripts.pory"
+# 601 "data/maps/DrisledgeTown/scripts.pory"
 	msgbox DrisledgeMimikyu_Text, MSGBOX_DEFAULT
-# 604 "data/maps/DrisledgeTown/scripts.pory"
+# 602 "data/maps/DrisledgeTown/scripts.pory"
 	waitmoncry
-# 605 "data/maps/DrisledgeTown/scripts.pory"
+# 603 "data/maps/DrisledgeTown/scripts.pory"
 	release
 	end
 
 
 Drisledge_Hiker::
-# 614 "data/maps/DrisledgeTown/scripts.pory"
+# 612 "data/maps/DrisledgeTown/scripts.pory"
 	msgbox Drisledge_Hiker_Text, MSGBOX_NPC
 	return
 
@@ -1072,19 +1068,19 @@ AcerolaWithFriends::
 	.string "fun with friends!$"
 
 AcerolaLetsDance::
-# 547 "data/maps/DrisledgeTown/scripts.pory"
+# 545 "data/maps/DrisledgeTown/scripts.pory"
 	.string "Yay! Now we've got a real\n"
 	.string "dance party going!$"
 
 AcerolaGoodDancer::
-# 551 "data/maps/DrisledgeTown/scripts.pory"
+# 549 "data/maps/DrisledgeTown/scripts.pory"
 	.string "Wow, {STR_VAR_1}, you're\n"
 	.string "a really good dancer!\p"
 	.string "One of my friends was so impressed\n"
 	.string "that they wanted you to have this.$"
 
 AcerolaYoureBack::
-# 558 "data/maps/DrisledgeTown/scripts.pory"
+# 556 "data/maps/DrisledgeTown/scripts.pory"
 	.string "Hiya, {STR_VAR_1}!\p"
 	.string "I'm just having some fun with\n"
 	.string "my friends.\p"
@@ -1094,7 +1090,7 @@ AcerolaYoureBack::
 	.string "longer have the energy to carry us!$"
 
 AcerolaCheckWithScientist::
-# 567 "data/maps/DrisledgeTown/scripts.pory"
+# 565 "data/maps/DrisledgeTown/scripts.pory"
 	.string "Hiya, {STR_VAR_1}!\p"
 	.string "I'm just having some fun with\n"
 	.string "my friends.\p"
@@ -1102,15 +1098,15 @@ AcerolaCheckWithScientist::
 	.string "Amberock Town?$"
 
 DrisledgeGengar_Text::
-# 584 "data/maps/DrisledgeTown/scripts.pory"
+# 582 "data/maps/DrisledgeTown/scripts.pory"
 	.string "Gen gen!$"
 
 DrisledgeMimikyu_Text::
-# 609 "data/maps/DrisledgeTown/scripts.pory"
+# 607 "data/maps/DrisledgeTown/scripts.pory"
 	.string "Mii-mii!$"
 
 Drisledge_Hiker_Text::
-# 616 "data/maps/DrisledgeTown/scripts.pory"
+# 614 "data/maps/DrisledgeTown/scripts.pory"
 	.string "I heard this town has all sorts of\n"
 	.string "festivities going on during the night,\l"
 	.string "but how can that be?\p"

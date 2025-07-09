@@ -11,7 +11,7 @@ CoralgroveElevatorInt_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
 
 CGC_ElevatorUp::
 # 8 "data/maps/CoralgroveElevatorInt/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, ElevatorUp_MoveUp
+	applymovement LOCALID_PLAYER, ElevatorUp_MoveUp
 # 9 "data/maps/CoralgroveElevatorInt/scripts.pory"
 	waitmovement 0
 # 10 "data/maps/CoralgroveElevatorInt/scripts.pory"
@@ -25,7 +25,7 @@ CGC_ElevatorUp::
 # 14 "data/maps/CoralgroveElevatorInt/scripts.pory"
 	waitse
 # 15 "data/maps/CoralgroveElevatorInt/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Walk1Down
+	applymovement LOCALID_PLAYER, Walk1Down
 # 16 "data/maps/CoralgroveElevatorInt/scripts.pory"
 	waitmovement 0
 # 17 "data/maps/CoralgroveElevatorInt/scripts.pory"

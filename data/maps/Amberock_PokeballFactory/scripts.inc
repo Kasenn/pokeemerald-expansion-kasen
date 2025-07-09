@@ -151,187 +151,183 @@ Amberock_Factory_MainRocket::
 # 91 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	playse SE_PIN
 # 92 "data/maps/Amberock_PokeballFactory/scripts.pory"
-	applymovement VAR_LAST_TALKED, ExclamationMark
+	exclamationmark VAR_LAST_TALKED
 # 93 "data/maps/Amberock_PokeballFactory/scripts.pory"
-	waitmovement 0
-# 94 "data/maps/Amberock_PokeballFactory/scripts.pory"
-	delay 60
-# 95 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	msgbox GetBackToWork
-# 96 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 94 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	closemessage
-# 97 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 95 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	switch VAR_TEMP_3
-# 98 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 96 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	case 2, Amberock_Factory_MainRocket_3
-# 100 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 98 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	case 4, Amberock_Factory_MainRocket_4
-# 102 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 100 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	case 5, Amberock_Factory_MainRocket_5
-# 104 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 102 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	case 6, Amberock_Factory_MainRocket_6
-# 106 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 104 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	case 7, Amberock_Factory_MainRocket_7
-# 108 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 106 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	case 8, Amberock_Factory_MainRocket_8
 Amberock_Factory_MainRocket_1:
-# 111 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 109 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	waitstate
 	return
 
 Amberock_Factory_MainRocket_3:
-# 99 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 97 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	warpsilent MAP_AMBEROCK_POKEBALL_FACTORY, 2
 	goto Amberock_Factory_MainRocket_1
 
 Amberock_Factory_MainRocket_4:
-# 101 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 99 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	warpsilent MAP_AMBEROCK_POKEBALL_FACTORY, 4
 	goto Amberock_Factory_MainRocket_1
 
 Amberock_Factory_MainRocket_5:
-# 103 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 101 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	warpsilent MAP_AMBEROCK_POKEBALL_FACTORY, 5
 	goto Amberock_Factory_MainRocket_1
 
 Amberock_Factory_MainRocket_6:
-# 105 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 103 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	warpsilent MAP_AMBEROCK_POKEBALL_FACTORY, 6
 	goto Amberock_Factory_MainRocket_1
 
 Amberock_Factory_MainRocket_7:
-# 107 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 105 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	warpsilent MAP_AMBEROCK_POKEBALL_FACTORY, 7
 	goto Amberock_Factory_MainRocket_1
 
 Amberock_Factory_MainRocket_8:
-# 109 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 107 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	warpsilent MAP_AMBEROCK_POKEBALL_FACTORY, 8
 	goto Amberock_Factory_MainRocket_1
 
 
 FactoryEmployee_Basement::
-# 119 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 117 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	msgbox FactoryEmployee_Basement_Text, MSGBOX_SIGN
 	return
 
 
 TooCloseToProton::
-# 128 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 126 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	setvar VAR_TEMP_1, 4
-# 129 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 127 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	setvar VAR_TEMP_2, DIR_EAST
-# 130 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 128 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	setvar VAR_TEMP_3, 2
-# 131 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 129 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	goto Amberock_Factory_MainRocket
 	return
 
 
 Factory_KrokorokPetrelCutScene::
-# 135 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 133 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	lock
-# 136 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 134 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	delay 15
-# 137 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 135 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	addobject 39
-# 138 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 136 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	applymovement 39, Factory_KrokorokPetrelCutScene_Movement_0
+# 137 "data/maps/Amberock_PokeballFactory/scripts.pory"
+	waitmovement 0
+# 138 "data/maps/Amberock_PokeballFactory/scripts.pory"
+	delay 16
 # 139 "data/maps/Amberock_PokeballFactory/scripts.pory"
-	waitmovement 0
-# 140 "data/maps/Amberock_PokeballFactory/scripts.pory"
-	delay 16
-# 141 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	msgbox Petrel_MoveItGuys
-# 142 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 140 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	turnobject 38, DIR_WEST
-# 143 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 141 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	msgbox Sorry_Petrel
-# 144 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 142 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	closemessage
-# 145 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 143 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	delay 16
-# 146 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 144 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	applymovement 39, Factory_KrokorokPetrelCutScene_Movement_1
-# 147 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 145 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	applymovement 37, Factory_RocketGuardLeaves2
-# 148 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 146 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	applymovement 38, Factory_RocketGuardLeaves
-# 149 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 147 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	waitmovement 0
-# 150 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 148 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	removeobject 39
-# 151 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 149 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	removeobject 37
-# 152 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 150 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	removeobject 38
-# 153 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 151 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	delay 16
-# 154 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 152 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	msgbox ThatsPetrel
-# 155 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 153 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	msgbox AfterPapers
-# 156 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 154 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	release
-# 157 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 155 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	setvar VAR_AMBEROCK_STORY, STORY_AMBEROCK_FOUND_PETREL
 	return
 
 
-# 160 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 158 "data/maps/Amberock_PokeballFactory/scripts.pory"
 Factory_RocketGuardLeaves:
-# 161 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 159 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	delay_16
-# 162 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 160 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	walk_left
-# 162 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 160 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	walk_left
-# 162 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 160 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	walk_left
-# 162 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 160 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	walk_left
-# 163 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 161 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	walk_up
-# 164 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 162 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	delay_4
-# 165 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 163 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	set_invisible
 	step_end
 
-# 167 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 165 "data/maps/Amberock_PokeballFactory/scripts.pory"
 Factory_RocketGuardLeaves2:
-# 168 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 166 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	delay_16
-# 169 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 167 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	walk_left
-# 169 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 167 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	walk_left
-# 169 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 167 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	walk_left
-# 169 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 167 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	walk_left
-# 169 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 167 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	walk_left
-# 170 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 168 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	walk_up
-# 171 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 169 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	delay_4
-# 172 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 170 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	set_invisible
 	step_end
 
 Amberock_Factory_Generator::
-# 201 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 199 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	goto_if_set FLAG_DISGUISED_AS_KROKOROK, Amberock_Factory_Generator_1
-# 223 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 221 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	msgbox BustedGenerator, MSGBOX_SIGN
 	return
 
 Amberock_Factory_Generator_1:
-# 202 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 200 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	compare VAR_AMBEROCK_STORY, STORY_AMBEROCK_FOUND_GIOVANNI
 	goto_if_ge Amberock_Factory_Generator_4
-# 219 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 217 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	msgbox CompleteClaysObjective, MSGBOX_SIGN
 	return
 
@@ -341,98 +337,98 @@ Amberock_Factory_Generator_4:
 	compare VAR_RESULT, TRUE
 	goto_if_eq Amberock_Factory_Generator_8
 Amberock_Factory_Generator_7:
-# 215 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 213 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	release
 	end
 
 Amberock_Factory_Generator_8:
-# 204 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 202 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	msgbox KrokorokBeginsRampage
-# 205 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 203 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	closemessage
-# 206 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 204 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	fadescreen FADE_TO_BLACK
-# 207 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 205 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	msgbox KrokorokDestroysGenerator
-# 208 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 206 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	closemessage
-# 209 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 207 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	clearflag FLAG_DISGUISED_AS_KROKOROK
-# 210 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 208 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	setflag FLAG_SYS_B_DASH
-# 211 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 209 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	setvar VAR_AMBEROCK_STORY, STORY_AMBEROCK_CUT_ELECTRICITY
-# 212 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 210 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	warpsilentnofadeout MAP_AMBEROCK_TOWN, 30, 21
-# 213 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 211 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	waitstate
 	goto Amberock_Factory_Generator_7
 
 
 MsgFromClay::
-# 228 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 226 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	msgbox MsgFromClay_Text, MSGBOX_SIGN
-# 229 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 227 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	setflag FLAG_MSG_FROM_CLAY
-# 230 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 228 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	setvar VAR_TEMP_8, 0
-# 231 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 229 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	release
 	return
 
 
 Amberock_Crate::
-# 267 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 265 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	msgbox Amberock_Crate_Text, MSGBOX_SIGN
 	return
 
 
 KrokBall1::
-# 275 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 273 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	setvar VAR_TEMP_4, ITEM_MAX_ELIXIR
-# 276 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 274 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	goto KrokBallMain
 	return
 
 
 KrokBall2::
-# 279 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 277 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	setvar VAR_TEMP_4, ITEM_X_ATTACK
-# 280 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 278 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	goto KrokBallMain
 	return
 
 
 KrokBall3::
-# 283 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 281 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	setvar VAR_TEMP_4, ITEM_HYPER_POTION
-# 284 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 282 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	goto KrokBallMain
 	return
 
 
 KrokBallMain::
-# 287 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 285 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	lock
-# 288 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 286 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	waitse
-# 289 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 287 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 290 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 288 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	removeobject VAR_LAST_TALKED
-# 291 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 289 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	bufferitemname STR_VAR_2, VAR_TEMP_4
-# 292 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 290 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	message KrokorokFoundItem
-# 293 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 291 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	delay 10
-# 294 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 292 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	waitfanfare
-# 295 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 293 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	waitmessage
-# 296 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 294 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	msgbox KrokorokCarriesItem
-# 297 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 295 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	release
 	end
 
@@ -483,25 +479,25 @@ Factory_DoBoulderCheck_Movement_1:
 	walk_fast_left
 	step_end
 
-# 138 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 136 "data/maps/Amberock_PokeballFactory/scripts.pory"
 Factory_KrokorokPetrelCutScene_Movement_0:
-# 138 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 136 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	delay_16
-# 138 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 136 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	delay_16
-# 138 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 136 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	delay_16
-# 138 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 136 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	walk_down
-# 138 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 136 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	walk_in_place_fast_right
 	step_end
 
-# 146 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 144 "data/maps/Amberock_PokeballFactory/scripts.pory"
 Factory_KrokorokPetrelCutScene_Movement_1:
-# 146 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 144 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	walk_up
-# 146 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 144 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	set_invisible
 	step_end
 
@@ -511,30 +507,30 @@ Factory_BusyKrokorok_Text::
 	.string "through the boxes.$"
 
 GetBackToWork::
-# 113 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 111 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	.string "Where do you think you're going?\n"
 	.string "Get back to work!$"
 
 FactoryEmployee_Basement_Text::
-# 121 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 119 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	.string "These look to be employees\n"
 	.string "of the factory.\p"
 	.string "They seem unharmed.$"
 
 Petrel_MoveItGuys::
-# 175 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 173 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	.string "???: Hey, you two knuckleheads!\p"
 	.string "Come with me to the office and see\n"
 	.string "if you can figure out what these\l"
 	.string "fancy research papers say!$"
 
 Sorry_Petrel::
-# 181 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 179 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	.string "Yes boss!\n"
 	.string "Right away, boss!$"
 
 ThatsPetrel::
-# 185 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 183 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	.string "Clay: That's Petrel,\n"
 	.string "one of the Rocket Executives.\p"
 	.string "He stands above grunts, but I doubt\n"
@@ -542,7 +538,7 @@ ThatsPetrel::
 	.string "Let's keep looking.$"
 
 AfterPapers::
-# 192 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 190 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	.string "You're here because you were tasked\n"
 	.string "with retrieving those papers?\p"
 	.string "Don't worry, you can get them\n"
@@ -550,7 +546,7 @@ AfterPapers::
 	.string "I doubt they're going anywhere.$"
 
 MsgFromClay_Text::
-# 233 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 231 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	.string "Clay: Oh, while we're here,\n"
 	.string "you may wanna grab any items\l"
 	.string "you see lying around.\p"
@@ -559,22 +555,22 @@ MsgFromClay_Text::
 	.string "simply take them with 'em.$"
 
 OrderKrokorokDestroy::
-# 242 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 240 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	.string "Order the Krokorok to disable\n"
 	.string "the generator?$"
 
 KrokorokBeginsRampage::
-# 246 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 244 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	.string "The Krokorok starts gnawing\n"
 	.string "on the cables…$"
 
 KrokorokDestroysGenerator::
-# 250 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 248 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	.string "The entire facility goes dark, and\n"
 	.string "Krokorok returns back to the group.$"
 
 CompleteClaysObjective::
-# 254 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 252 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	.string "Volkner: This is the main\n"
 	.string "generator of the facility.\p"
 	.string "We can command the Krokorok to gnaw\n"
@@ -583,19 +579,19 @@ CompleteClaysObjective::
 	.string "objectives.$"
 
 BustedGenerator::
-# 262 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 260 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	.string "(UNUSED)its a busted gen$"
 
 Amberock_Crate_Text::
-# 269 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 267 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	.string "It's a light enough crate the\n"
 	.string "Krokorok can push around with ease.$"
 
 KrokorokFoundItem::
-# 301 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 299 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	.string "The Krokorok found one {STR_VAR_2}!$"
 
 KrokorokCarriesItem::
-# 304 "data/maps/Amberock_PokeballFactory/scripts.pory"
+# 302 "data/maps/Amberock_PokeballFactory/scripts.pory"
 	.string "The Krokorok is carrying the\n"
 	.string "{STR_VAR_2} in its hands for now.$"

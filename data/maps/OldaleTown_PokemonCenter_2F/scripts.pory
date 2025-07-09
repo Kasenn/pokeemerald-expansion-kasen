@@ -1,7 +1,7 @@
 mapscripts OldaleTown_PokemonCenter_2F_MapScripts{}
 
 script EvTraining{
-	if(!flag(FLAG_VISITED_RUSTBORO_CITY)){
+	if(!flag(FLAG_VISITED_CORALGROVE_CITY)){
 		msgbox(OldaleTown_PokemonCenter_1F_Text_Train, MSGBOX_NPC)
 		end
 	}
@@ -9,10 +9,10 @@ script EvTraining{
 	setvar(VAR_0x8008, 5) // BP Cost
 	buffernumberstring(STR_VAR_1, VAR_0x8008)
 	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
-	goto_if_ge(VAR_TEMP_1, VAR_0x8008, EvTraining_Setup)
-	msgbox(Training_NotEnoughPoints)
-	release
-	end
+	if(var(VAR_TEMP_1) >= VAR_0x8008){
+		goto(EvTraining_Setup)
+	}
+	msgbox(Training_NotEnoughPoints, MSGBOX_AUTOCLOSE)
 }
 
 script EvTraining_Setup{
@@ -20,7 +20,7 @@ script EvTraining_Setup{
 	special(ShowBattlePointsWindow)
     message(EVTraining_Type)
 	waitmessage
-    multichoice(21, 0, 114, 0)
+    multichoice(21, 0, MULTI_POKECENTER_IV_TRAINING, 0)
     closemessage
 	special(CloseBattlePointsWindow)
 	copyvar(VAR_0x8004, VAR_0x8008)
@@ -90,7 +90,7 @@ text YourPokemonIsAboveLevel{
 }
 
 script LevelTraining1{
-	if(!flag(FLAG_VISITED_RUSTBORO_CITY)){
+	if(!flag(FLAG_VISITED_CORALGROVE_CITY)){
 		msgbox(OldaleTown_PokemonCenter_1F_Text_Train, MSGBOX_NPC)
 		end
 	}
@@ -246,7 +246,7 @@ script LevelTrainingMain{
 }
 
 script IvTrainingIntro{
-	if(!flag(FLAG_VISITED_RUSTBORO_CITY)){
+	if(!flag(FLAG_VISITED_CORALGROVE_CITY)){
 		msgbox(OldaleTown_PokemonCenter_1F_Text_Train, MSGBOX_NPC)
 		end
 	}

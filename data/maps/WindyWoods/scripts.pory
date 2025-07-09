@@ -12,8 +12,8 @@ mapscripts WindyWoods_MapScripts{
             setvar(VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_TALKED_TO_GIRL)
         }
     }
-    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[VAR_WINDYWOODS_STATE, 4{turnobject(LOCALID_PLAYER, DIR_WEST)}]
-    MAP_SCRIPT_ON_FRAME_TABLE[VAR_WINDYWOODS_STATE, 4: WW_BridgeScene2]
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_ROCKET_DEFEATED{turnobject(LOCALID_PLAYER, DIR_WEST)}]
+    MAP_SCRIPT_ON_FRAME_TABLE[VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_ROCKET_DEFEATED: WW_BridgeScene2]
 }
 
 script WindyWoods_Bugcatcher1{
@@ -187,13 +187,7 @@ script WW_CoolTrainerPostBattle{
     call(BpReward)
     release
 }
-text WW_CoolTrainerExplainReward{
-    "Turning on that item will grant\n"
-    "all your Pokémon exp from battling,\l"
-    "even the ones that never participated\l"
-    "in the battle.\p"
-    "I want you to have these as well."
-}
+
 text WW_CoolTrainerReward{
     "Well, looks like I got humbled there.\nHere, you deserve this."
 }
@@ -213,9 +207,7 @@ script WW_HelpGirl{
     turnobject(LOCALID_PLAYER, DIR_NORTH)
     clearflag(FLAG_TEMP_2)
     setvar(VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_TALKED_TO_GIRL)
-    msgbox(WW_Help)
-    waitmessage
-    releaseall
+    msgbox(WW_Help, MSGBOX_AUTOCLOSE)
 }
 
 script WW_LittleGirl{
@@ -262,8 +254,7 @@ text WW_Text_RocketDefeated{
 }
 script WW_RockPostBattle{
     lock
-    msgbox(WW_RocketReward)
-    closemessage
+    msgbox(WW_RocketReward, MSGBOX_AUTOCLOSE)
     setvar(VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_ROCKET_DEFEATED)
     warp(MAP_WINDY_WOODS, 40, 13)
     waitstate
@@ -271,8 +262,7 @@ script WW_RockPostBattle{
 }
 script WW_BridgeScene2{
     delay(25)
-    msgbox(WW_LittleGirlReward)
-    closemessage
+    msgbox(WW_LittleGirlReward, MSGBOX_AUTOCLOSE)
     delay(40)
     applymovement(DEVON_DAD, WW_DevonEnters)
     waitmovement(0)
@@ -288,14 +278,13 @@ script WW_BridgeScene2{
     }
     msgbox(WW_DevonReward)
     giveitem(ITEM_LETTER)
-    msgbox(WW_DevonTalk2)
-    closemessage
+    msgbox(WW_DevonTalk2, MSGBOX_AUTOCLOSE)
     fadescreenswapbuffers(FADE_TO_BLACK)
     delay(25)
     removeobjectbyflag(FLAG_TEMP_1)
     removeobjectbyflag(FLAG_TEMP_2)
     removeobjectbyflag(FLAG_TEMP_3)
-    setvar(VAR_WINDYWOODS_STATE, 5)
+    setvar(VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_EVENT_COMPLETED)
     fadescreenswapbuffers(FADE_FROM_BLACK)
     delay(25)
     release
@@ -338,8 +327,4 @@ text GoInsideGrotto{
     "There looks to be a narrow path\n"
     "between the trees!\p"
     "Follow the path?"
-}
-
-movement FacePlayer{
-    face_player
 }

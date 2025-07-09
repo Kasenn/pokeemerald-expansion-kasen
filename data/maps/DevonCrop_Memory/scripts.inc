@@ -12,7 +12,7 @@ DevonCrop_Memory_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE:
 
 DevonCrop_Memory_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_0:
 # 4 "data/maps/DevonCrop_Memory/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	turnobject LOCALID_PLAYER, DIR_EAST
 # 5 "data/maps/DevonCrop_Memory/scripts.pory"
 	callnative TintWorld
 	return

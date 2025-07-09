@@ -13,14 +13,6 @@ EverGrandeCity_PokemonCenter_1F_EventScript_TryShowScott::
 	clearflag FLAG_HIDE_EVER_GRANDE_POKEMON_CENTER_1F_SCOTT
 	return
 
-EverGrandeCity_PokemonCenter_1F_EventScript_Nurse::
-	setvar VAR_0x800B, LOCALID_EVER_GRANDE_NURSE
-	call Common_EventScript_PkmnCenterNurse
-	waitmessage
-	waitbuttonpress
-	release
-	end
-
 EverGrandeCity_PokemonCenter_1F_EventScript_Woman::
 	msgbox EverGrandeCity_PokemonCenter_1F_Text_LeagueAfterVictoryRoad, MSGBOX_NPC
 	end

@@ -40,269 +40,259 @@ PlayerHouse1F_Intro::
 # 18 "data/maps/PlayerHouse1F/scripts.pory"
 	playse SE_PIN
 # 19 "data/maps/PlayerHouse1F/scripts.pory"
-	waitmove LOCALID_MOM, Common_Movement_ExclamationMark
+	exclamationmark LOCALID_MOM
 # 20 "data/maps/PlayerHouse1F/scripts.pory"
-	delay 48
-# 21 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox PlayerHouse1F_LookPlayer, MSGBOX_AUTOCLOSE
+# 21 "data/maps/PlayerHouse1F/scripts.pory"
+	turnobject LOCALID_MOM, DIR_WEST
 # 22 "data/maps/PlayerHouse1F/scripts.pory"
-	turnobject LOCALID_MOM, DIR_WEST
-# 23 "data/maps/PlayerHouse1F/scripts.pory"
 	waitmove LOCALID_PLAYER, PlayerHouse1F_PlayerSitTable
-# 24 "data/maps/PlayerHouse1F/scripts.pory"
+# 23 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox PlayerHouse1F_Disc1
+# 24 "data/maps/PlayerHouse1F/scripts.pory"
+	msgbox PlayerHouse1F_Disc1Part2, MSGBOX_AUTOCLOSE
 # 25 "data/maps/PlayerHouse1F/scripts.pory"
-	msgbox PlayerHouse1F_Disc1Part2
-# 26 "data/maps/PlayerHouse1F/scripts.pory"
-	closemessage
-# 27 "data/maps/PlayerHouse1F/scripts.pory"
 	fadescreen FADE_TO_BLACK
-# 28 "data/maps/PlayerHouse1F/scripts.pory"
+# 26 "data/maps/PlayerHouse1F/scripts.pory"
 	delay 80
-# 29 "data/maps/PlayerHouse1F/scripts.pory"
+# 27 "data/maps/PlayerHouse1F/scripts.pory"
 	fadescreen FADE_FROM_BLACK
-# 30 "data/maps/PlayerHouse1F/scripts.pory"
+# 28 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox PlayerHouse1F_Disc2
-# 31 "data/maps/PlayerHouse1F/scripts.pory"
+# 29 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox PlayerHouse1F_Disc2Part2
-# 32 "data/maps/PlayerHouse1F/scripts.pory"
-	msgbox PlayerHouse1F_Disc2Part3
-# 33 "data/maps/PlayerHouse1F/scripts.pory"
-	closemessage
-# 34 "data/maps/PlayerHouse1F/scripts.pory"
+# 30 "data/maps/PlayerHouse1F/scripts.pory"
+	msgbox PlayerHouse1F_Disc2Part3, MSGBOX_AUTOCLOSE
+# 31 "data/maps/PlayerHouse1F/scripts.pory"
 	playse SE_PIN
-# 35 "data/maps/PlayerHouse1F/scripts.pory"
-	applymovement LOCALID_MOM, Common_Movement_ExclamationMark
-# 36 "data/maps/PlayerHouse1F/scripts.pory"
-	waitmovement 0
-# 37 "data/maps/PlayerHouse1F/scripts.pory"
-	delay 48
-# 38 "data/maps/PlayerHouse1F/scripts.pory"
+# 32 "data/maps/PlayerHouse1F/scripts.pory"
+	exclamationmark LOCALID_MOM
+# 33 "data/maps/PlayerHouse1F/scripts.pory"
 	turnobject LOCALID_MOM, DIR_SOUTH
-# 39 "data/maps/PlayerHouse1F/scripts.pory"
+# 34 "data/maps/PlayerHouse1F/scripts.pory"
 	turnobject LOCALID_PLAYER, DIR_NORTH
-# 40 "data/maps/PlayerHouse1F/scripts.pory"
+# 35 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox PlayerHouse1F_Disc3
-# 41 "data/maps/PlayerHouse1F/scripts.pory"
+# 36 "data/maps/PlayerHouse1F/scripts.pory"
 	closemessage
-# 42 "data/maps/PlayerHouse1F/scripts.pory"
+# 37 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox PlayerHouse1F_Intro_Text_0
-# 43 "data/maps/PlayerHouse1F/scripts.pory"
+# 38 "data/maps/PlayerHouse1F/scripts.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 44 "data/maps/PlayerHouse1F/scripts.pory"
+# 39 "data/maps/PlayerHouse1F/scripts.pory"
 	message ObtainedWatch
-# 46 "data/maps/PlayerHouse1F/scripts.pory"
+# 41 "data/maps/PlayerHouse1F/scripts.pory"
 	waitfanfare
-# 47 "data/maps/PlayerHouse1F/scripts.pory"
+# 42 "data/maps/PlayerHouse1F/scripts.pory"
 	waitmessage
-# 48 "data/maps/PlayerHouse1F/scripts.pory"
+# 43 "data/maps/PlayerHouse1F/scripts.pory"
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_RECEIVED_RUNNING_SHOES
-# 49 "data/maps/PlayerHouse1F/scripts.pory"
+# 44 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox ViewClock
-# 51 "data/maps/PlayerHouse1F/scripts.pory"
+# 46 "data/maps/PlayerHouse1F/scripts.pory"
 	closemessage
-# 52 "data/maps/PlayerHouse1F/scripts.pory"
+# 47 "data/maps/PlayerHouse1F/scripts.pory"
 	delay 30
-# 53 "data/maps/PlayerHouse1F/scripts.pory"
+# 48 "data/maps/PlayerHouse1F/scripts.pory"
 	turnobject LOCALID_MOM, DIR_WEST
-# 54 "data/maps/PlayerHouse1F/scripts.pory"
+# 49 "data/maps/PlayerHouse1F/scripts.pory"
 	release
 	return
 
 
-# 102 "data/maps/PlayerHouse1F/scripts.pory"
+# 97 "data/maps/PlayerHouse1F/scripts.pory"
 PlayerHouse1F_PlayerSitTable:
-# 103 "data/maps/PlayerHouse1F/scripts.pory"
+# 98 "data/maps/PlayerHouse1F/scripts.pory"
 	walk_down
-# 103 "data/maps/PlayerHouse1F/scripts.pory"
+# 98 "data/maps/PlayerHouse1F/scripts.pory"
 	walk_down
-# 103 "data/maps/PlayerHouse1F/scripts.pory"
+# 98 "data/maps/PlayerHouse1F/scripts.pory"
 	walk_down
-# 103 "data/maps/PlayerHouse1F/scripts.pory"
+# 98 "data/maps/PlayerHouse1F/scripts.pory"
 	walk_down
-# 104 "data/maps/PlayerHouse1F/scripts.pory"
+# 99 "data/maps/PlayerHouse1F/scripts.pory"
 	walk_left
-# 104 "data/maps/PlayerHouse1F/scripts.pory"
+# 99 "data/maps/PlayerHouse1F/scripts.pory"
 	walk_left
-# 104 "data/maps/PlayerHouse1F/scripts.pory"
+# 99 "data/maps/PlayerHouse1F/scripts.pory"
 	walk_left
-# 105 "data/maps/PlayerHouse1F/scripts.pory"
+# 100 "data/maps/PlayerHouse1F/scripts.pory"
 	delay_16
 	step_end
 
 PlayerHouse1F_Brother::
-# 109 "data/maps/PlayerHouse1F/scripts.pory"
+# 104 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox PlayerHouse1F_BrotherGossip, MSGBOX_NPC
-# 110 "data/maps/PlayerHouse1F/scripts.pory"
+# 105 "data/maps/PlayerHouse1F/scripts.pory"
 	turnobject 2, DIR_EAST
 	return
 
 
 PlayerHouse1F_Mom::
-# 118 "data/maps/PlayerHouse1F/scripts.pory"
+# 113 "data/maps/PlayerHouse1F/scripts.pory"
 	lock
-# 119 "data/maps/PlayerHouse1F/scripts.pory"
+# 114 "data/maps/PlayerHouse1F/scripts.pory"
 	faceplayer
-# 120 "data/maps/PlayerHouse1F/scripts.pory"
+# 115 "data/maps/PlayerHouse1F/scripts.pory"
 	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_RECEIVED_RUNNING_SHOES
 	goto_if_eq PlayerHouse1F_Mom_1
-# 124 "data/maps/PlayerHouse1F/scripts.pory"
+# 119 "data/maps/PlayerHouse1F/scripts.pory"
 	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_BROTHER_FOUGHT
 	goto_if_eq PlayerHouse1F_Mom_2
-# 128 "data/maps/PlayerHouse1F/scripts.pory"
+# 123 "data/maps/PlayerHouse1F/scripts.pory"
 	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_RING_OBTAINED
 	goto_if_ge PlayerHouse1F_Mom_5
 PlayerHouse1F_Mom_4:
-# 144 "data/maps/PlayerHouse1F/scripts.pory"
+# 139 "data/maps/PlayerHouse1F/scripts.pory"
 	goto PlayersHouse_1F_EventScript_MomHealsParty
 	return
 
 PlayerHouse1F_Mom_1:
-# 121 "data/maps/PlayerHouse1F/scripts.pory"
+# 116 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox MomSeeYou, MSGBOX_NPC
-# 122 "data/maps/PlayerHouse1F/scripts.pory"
+# 117 "data/maps/PlayerHouse1F/scripts.pory"
 	turnobject 1, DIR_WEST
 	return
 
 PlayerHouse1F_Mom_2:
-# 125 "data/maps/PlayerHouse1F/scripts.pory"
+# 120 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox PlayerHouse1F_MomGoodbye_Text, MSGBOX_NPC
-# 126 "data/maps/PlayerHouse1F/scripts.pory"
+# 121 "data/maps/PlayerHouse1F/scripts.pory"
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_GIVEN_GOODBYE_TO_MOM
 	return
 
 PlayerHouse1F_Mom_3:
-# 130 "data/maps/PlayerHouse1F/scripts.pory"
+# 125 "data/maps/PlayerHouse1F/scripts.pory"
 	setflag FLAG_SPOKEN_TO_MOM_AFTER_MEGA_RING
-# 131 "data/maps/PlayerHouse1F/scripts.pory"
+# 126 "data/maps/PlayerHouse1F/scripts.pory"
 	goto_if_unset FLAG_RECEIVED_CAPSULE, PlayerHouse1F_Mom_10
-# 140 "data/maps/PlayerHouse1F/scripts.pory"
+# 135 "data/maps/PlayerHouse1F/scripts.pory"
 	goto PlayersHouse_1F_EventScript_MomHealsParty
 	return
 
 PlayerHouse1F_Mom_5:
-# 129 "data/maps/PlayerHouse1F/scripts.pory"
+# 124 "data/maps/PlayerHouse1F/scripts.pory"
 	goto_if_unset FLAG_SPOKEN_TO_MOM_AFTER_MEGA_RING, PlayerHouse1F_Mom_3
 	goto PlayerHouse1F_Mom_4
 
 PlayerHouse1F_Mom_10:
-# 132 "data/maps/PlayerHouse1F/scripts.pory"
+# 127 "data/maps/PlayerHouse1F/scripts.pory"
 	goto_if_set FLAG_HIDE_PLAYERS_HOUSE_DAD, PlayerHouse1F_Mom_13
-# 136 "data/maps/PlayerHouse1F/scripts.pory"
+# 131 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox MomLookWhosBack, MSGBOX_NPC
 	return
 
 PlayerHouse1F_Mom_13:
-# 133 "data/maps/PlayerHouse1F/scripts.pory"
+# 128 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox DadLeftAGift, MSGBOX_NPC
 	return
 
 
 PlayerHouse1F_Dad::
-# 178 "data/maps/PlayerHouse1F/scripts.pory"
+# 173 "data/maps/PlayerHouse1F/scripts.pory"
 	goto_if_set FLAG_RECEIVED_CAPSULE, PlayerHouse1F_Dad_2
-# 182 "data/maps/PlayerHouse1F/scripts.pory"
+# 177 "data/maps/PlayerHouse1F/scripts.pory"
 	lock
-# 183 "data/maps/PlayerHouse1F/scripts.pory"
+# 178 "data/maps/PlayerHouse1F/scripts.pory"
 	faceplayer
-# 184 "data/maps/PlayerHouse1F/scripts.pory"
+# 179 "data/maps/PlayerHouse1F/scripts.pory"
 	goto_if_set FLAG_TEMP_5, PlayerHouse1F_Dad_5
-# 188 "data/maps/PlayerHouse1F/scripts.pory"
+# 183 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox GiftFromDad
 PlayerHouse1F_Dad_4:
-# 190 "data/maps/PlayerHouse1F/scripts.pory"
+# 185 "data/maps/PlayerHouse1F/scripts.pory"
 	closemessage
 	checkitemspace ITEM_ABILITY_CAPSULE
 # 0 "data/maps/PlayerHouse1F/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq PlayerHouse1F_Dad_9
 PlayerHouse1F_Dad_8:
-# 195 "data/maps/PlayerHouse1F/scripts.pory"
+# 190 "data/maps/PlayerHouse1F/scripts.pory"
 	giveitem ITEM_ABILITY_CAPSULE
-# 196 "data/maps/PlayerHouse1F/scripts.pory"
+# 191 "data/maps/PlayerHouse1F/scripts.pory"
 	waitse
-# 197 "data/maps/PlayerHouse1F/scripts.pory"
+# 192 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox ExplainCapsule, MSGBOX_NPC
-# 198 "data/maps/PlayerHouse1F/scripts.pory"
+# 193 "data/maps/PlayerHouse1F/scripts.pory"
 	setflag FLAG_RECEIVED_CAPSULE
-# 199 "data/maps/PlayerHouse1F/scripts.pory"
+# 194 "data/maps/PlayerHouse1F/scripts.pory"
 	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED
 	goto_if_eq PlayerHouse1F_Dad_12
 PlayerHouse1F_Dad_11:
-# 202 "data/maps/PlayerHouse1F/scripts.pory"
+# 197 "data/maps/PlayerHouse1F/scripts.pory"
 	goto_if_set FLAG_Q34_DADS_HOME_START, PlayerHouse1F_Dad_15
 PlayerHouse1F_Dad_14:
 	end
 
 PlayerHouse1F_Dad_2:
-# 179 "data/maps/PlayerHouse1F/scripts.pory"
+# 174 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox WhereBrother, MSGBOX_NPC
 	end
 
 PlayerHouse1F_Dad_5:
-# 185 "data/maps/PlayerHouse1F/scripts.pory"
+# 180 "data/maps/PlayerHouse1F/scripts.pory"
 	msgbox GiftFromDadShort
 	goto PlayerHouse1F_Dad_4
 
 PlayerHouse1F_Dad_9:
-# 192 "data/maps/PlayerHouse1F/scripts.pory"
+# 187 "data/maps/PlayerHouse1F/scripts.pory"
 	setflag FLAG_TEMP_5
-# 193 "data/maps/PlayerHouse1F/scripts.pory"
+# 188 "data/maps/PlayerHouse1F/scripts.pory"
 	goto ZeBagIsFull
 	goto PlayerHouse1F_Dad_8
 
 PlayerHouse1F_Dad_12:
-# 200 "data/maps/PlayerHouse1F/scripts.pory"
+# 195 "data/maps/PlayerHouse1F/scripts.pory"
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED
 	goto PlayerHouse1F_Dad_11
 
 PlayerHouse1F_Dad_15:
-# 203 "data/maps/PlayerHouse1F/scripts.pory"
+# 198 "data/maps/PlayerHouse1F/scripts.pory"
 	completequest FLAG_Q34_DADS_HOME_COMPLETE
-# 204 "data/maps/PlayerHouse1F/scripts.pory"
+# 199 "data/maps/PlayerHouse1F/scripts.pory"
 	special ShowJournalPopupRemove
 	goto PlayerHouse1F_Dad_14
 
 
 PlayerHouse1F_Intro_Text_0:
-# 42 "data/maps/PlayerHouse1F/scripts.pory"
+# 37 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Oh, and one more thing.$"
 
 PlayerHouse1F_LookPlayer::
-# 57 "data/maps/PlayerHouse1F/scripts.pory"
+# 52 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Mom: Look, {PLAYER}!\n"
 	.string "Your brother is back from his trip!\p"
 	.string "Come, come sit by the table!$"
 
 PlayerHouse1F_Disc1::
-# 63 "data/maps/PlayerHouse1F/scripts.pory"
+# 58 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Mom: So, {BROTHER},\n"
 	.string "how was your trip to Kanto?\p"
 	.string "Go on, I want to hear everything!$"
 
 PlayerHouse1F_Disc1Part2::
-# 68 "data/maps/PlayerHouse1F/scripts.pory"
+# 63 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "{BROTHER}: …$"
 
 PlayerHouse1F_Disc2::
-# 72 "data/maps/PlayerHouse1F/scripts.pory"
+# 67 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "{BROTHER}: In the end, that Lance's\n"
 	.string "Dragonite was simply too strong…$"
 
 PlayerHouse1F_Disc2Part2::
-# 76 "data/maps/PlayerHouse1F/scripts.pory"
+# 71 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Mom: Well, at least you tried\n"
 	.string "your best.\p"
 	.string "It sounds like you still had fun\n"
 	.string "in the end!$"
 
 PlayerHouse1F_Disc2Part3::
-# 82 "data/maps/PlayerHouse1F/scripts.pory"
+# 77 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "{BROTHER}: Anyway mom, aren't you\n"
 	.string "forgetting something?$"
 
 PlayerHouse1F_Disc3::
-# 87 "data/maps/PlayerHouse1F/scripts.pory"
+# 82 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Mom: Oh, that's right!\p"
 	.string "This is supposed to be your special day,\n"
 	.string "{PLAYER}!\p"
@@ -317,15 +307,15 @@ PlayerHouse1F_Disc3::
 	.string "northwest from here.$"
 
 PlayerHouse1F_BrotherGossip::
-# 113 "data/maps/PlayerHouse1F/scripts.pory"
+# 108 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "{BROTHER}: Go get 'em, champ!$"
 
 MomSeeYou::
-# 148 "data/maps/PlayerHouse1F/scripts.pory"
+# 143 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Mom: See you, honey!$"
 
 PlayerHouse1F_MomGoodbye_Text::
-# 151 "data/maps/PlayerHouse1F/scripts.pory"
+# 146 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Mom: You're leaving on an adventure?\n"
 	.string "Well, can't say that I'm surprised.\p"
 	.string "Your father was like that as well\n"
@@ -339,12 +329,12 @@ PlayerHouse1F_MomGoodbye_Text::
 	.string "come see me and I'll help patch them up.$"
 
 MomLookWhosBack::
-# 164 "data/maps/PlayerHouse1F/scripts.pory"
+# 159 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Mom: Oh, great timing, honey!\n"
 	.string "Look who's back home!$"
 
 DadLeftAGift::
-# 168 "data/maps/PlayerHouse1F/scripts.pory"
+# 163 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Mom: Oh, hi honey!\p"
 	.string "It's a shame you two just missed each\n"
 	.string "other, but dad came to visit while\l"
@@ -353,7 +343,7 @@ DadLeftAGift::
 	.string "your room. You should go have a look!$"
 
 GiftFromDad::
-# 209 "data/maps/PlayerHouse1F/scripts.pory"
+# 204 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Dad: Hm?\p"
 	.string "Well, if it isn't {PLAYER}!\p"
 	.string "I had hoped I could see you and\n"
@@ -371,12 +361,12 @@ GiftFromDad::
 	.string "but you can still have yours.$"
 
 GiftFromDadShort::
-# 227 "data/maps/PlayerHouse1F/scripts.pory"
+# 222 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Dad: It's a shame {BROTHER} isn't here,\n"
 	.string "but you can still have yours.\p$"
 
 ExplainCapsule::
-# 231 "data/maps/PlayerHouse1F/scripts.pory"
+# 226 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Dad: That's an Ability Capsule.\p"
 	.string "Many Pokémon are born with one of two\n"
 	.string "different abilities.\p"
@@ -388,7 +378,7 @@ ExplainCapsule::
 	.string "Pokémon to use it on.$"
 
 WhereBrother::
-# 242 "data/maps/PlayerHouse1F/scripts.pory"
+# 237 "data/maps/PlayerHouse1F/scripts.pory"
 	.string "Dad: Have you seen {BROTHER} lately?\p"
 	.string "Seeing how well he managed during\n"
 	.string "the Kanto challenge, I hardly doubt\l"

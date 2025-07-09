@@ -1,389 +1,356 @@
 CoralgroveCity_MapScripts::
 # 2 "data/maps/CoralgroveCity/scripts.pory"
-	map_script MAP_SCRIPT_ON_TRANSITION, Coralgrove_State
+	map_script MAP_SCRIPT_ON_TRANSITION, CoralgroveCity_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
 
-
-Coralgrove_State::
-# 6 "data/maps/CoralgroveCity/scripts.pory"
-	setflag FLAG_VISITED_RUSTBORO_CITY
-# 7 "data/maps/CoralgroveCity/scripts.pory"
+CoralgroveCity_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+# 3 "data/maps/CoralgroveCity/scripts.pory"
+	setflag FLAG_VISITED_CORALGROVE_CITY
+# 4 "data/maps/CoralgroveCity/scripts.pory"
 	setflag FLAG_TEMP_1
 	return
 
 
 CoralHideGhost2::
-# 11 "data/maps/CoralgroveCity/scripts.pory"
+# 9 "data/maps/CoralgroveCity/scripts.pory"
 	removeobject 11
-# 12 "data/maps/CoralgroveCity/scripts.pory"
+# 10 "data/maps/CoralgroveCity/scripts.pory"
 	clearflag FLAG_TEMP_2
-# 13 "data/maps/CoralgroveCity/scripts.pory"
+# 11 "data/maps/CoralgroveCity/scripts.pory"
 	release
 	return
 
 
 Coralgrove_HauntedHouse::
-# 17 "data/maps/CoralgroveCity/scripts.pory"
-	lock
-# 18 "data/maps/CoralgroveCity/scripts.pory"
+# 15 "data/maps/CoralgroveCity/scripts.pory"
 	goto_if_unset FLAG_0x267_CG_HIDEGHOST, Coralgrove_HauntedHouse_2
 Coralgrove_HauntedHouse_1:
-# 21 "data/maps/CoralgroveCity/scripts.pory"
+# 18 "data/maps/CoralgroveCity/scripts.pory"
 	msgbox Coralgrove_HauntedHouse_Text_0, MSGBOX_SIGN
-# 22 "data/maps/CoralgroveCity/scripts.pory"
-	waitmessage
-# 23 "data/maps/CoralgroveCity/scripts.pory"
-	closemessage
-# 24 "data/maps/CoralgroveCity/scripts.pory"
-	release
-	end
+	return
 
 Coralgrove_HauntedHouse_2:
-# 19 "data/maps/CoralgroveCity/scripts.pory"
+# 16 "data/maps/CoralgroveCity/scripts.pory"
 	setflag FLAG_TEMP_2
 	goto Coralgrove_HauntedHouse_1
 
 
 CoralShowGhost::
-# 29 "data/maps/CoralgroveCity/scripts.pory"
+# 22 "data/maps/CoralgroveCity/scripts.pory"
 	clearflag FLAG_TEMP_1
-# 30 "data/maps/CoralgroveCity/scripts.pory"
+# 23 "data/maps/CoralgroveCity/scripts.pory"
 	addobject 11
-# 31 "data/maps/CoralgroveCity/scripts.pory"
+# 24 "data/maps/CoralgroveCity/scripts.pory"
 	release
 	return
 
 
 CoralHideGhost::
-# 35 "data/maps/CoralgroveCity/scripts.pory"
+# 28 "data/maps/CoralgroveCity/scripts.pory"
 	lock
-# 36 "data/maps/CoralgroveCity/scripts.pory"
+# 29 "data/maps/CoralgroveCity/scripts.pory"
 	fadeoutbgm 0
-# 37 "data/maps/CoralgroveCity/scripts.pory"
+# 30 "data/maps/CoralgroveCity/scripts.pory"
 	delay 60
-# 38 "data/maps/CoralgroveCity/scripts.pory"
-	msgbox CoralHideGhost_Text_0
-# 39 "data/maps/CoralgroveCity/scripts.pory"
-	closemessage
-# 40 "data/maps/CoralgroveCity/scripts.pory"
+# 31 "data/maps/CoralgroveCity/scripts.pory"
+	msgbox CoralHideGhost_Text_0, MSGBOX_AUTOCLOSE
+# 32 "data/maps/CoralgroveCity/scripts.pory"
 	fadescreenswapbuffers FADE_TO_WHITE
-# 41 "data/maps/CoralgroveCity/scripts.pory"
+# 33 "data/maps/CoralgroveCity/scripts.pory"
 	setflag FLAG_0x267_CG_HIDEGHOST
-# 42 "data/maps/CoralgroveCity/scripts.pory"
+# 34 "data/maps/CoralgroveCity/scripts.pory"
 	clearflag FLAG_TEMP_2
-# 43 "data/maps/CoralgroveCity/scripts.pory"
+# 35 "data/maps/CoralgroveCity/scripts.pory"
 	hideobjectat 11, MAP_CORALGROVE_CITY
-# 44 "data/maps/CoralgroveCity/scripts.pory"
+# 36 "data/maps/CoralgroveCity/scripts.pory"
 	delay 30
-# 45 "data/maps/CoralgroveCity/scripts.pory"
+# 37 "data/maps/CoralgroveCity/scripts.pory"
 	fadescreenswapbuffers FADE_FROM_WHITE
-# 46 "data/maps/CoralgroveCity/scripts.pory"
+# 38 "data/maps/CoralgroveCity/scripts.pory"
 	delay 90
-# 47 "data/maps/CoralgroveCity/scripts.pory"
+# 39 "data/maps/CoralgroveCity/scripts.pory"
 	fadeinbgm 0
-# 48 "data/maps/CoralgroveCity/scripts.pory"
+# 40 "data/maps/CoralgroveCity/scripts.pory"
 	delay 60
-# 49 "data/maps/CoralgroveCity/scripts.pory"
+# 41 "data/maps/CoralgroveCity/scripts.pory"
 	removeobject 11
-# 50 "data/maps/CoralgroveCity/scripts.pory"
+# 42 "data/maps/CoralgroveCity/scripts.pory"
 	release
 	return
 
 
 Coralgrove_MAN_3::
-# 54 "data/maps/CoralgroveCity/scripts.pory"
+# 46 "data/maps/CoralgroveCity/scripts.pory"
 	msgbox Coralgrove_MAN_3_Text_0, MSGBOX_NPC
 	return
 
 
 Coralgrove_GENTLEMAN::
-# 58 "data/maps/CoralgroveCity/scripts.pory"
+# 50 "data/maps/CoralgroveCity/scripts.pory"
 	goto_if_set FLAG_CORALGROVE_CUTSCENE, Coralgrove_GENTLEMAN_2
-# 62 "data/maps/CoralgroveCity/scripts.pory"
+# 54 "data/maps/CoralgroveCity/scripts.pory"
 	msgbox Coralgrove_GENTLEMAN_Text, MSGBOX_NPC
 Coralgrove_GENTLEMAN_1:
-# 64 "data/maps/CoralgroveCity/scripts.pory"
+# 56 "data/maps/CoralgroveCity/scripts.pory"
 	turnobject 12, DIR_NORTH
 	return
 
 Coralgrove_GENTLEMAN_2:
-# 59 "data/maps/CoralgroveCity/scripts.pory"
+# 51 "data/maps/CoralgroveCity/scripts.pory"
 	msgbox Coralgrove_DroppedSomething, MSGBOX_NPC
 	goto Coralgrove_GENTLEMAN_1
 
 
 Coralgrove_LeftBirds::
-# 77 "data/maps/CoralgroveCity/scripts.pory"
+# 69 "data/maps/CoralgroveCity/scripts.pory"
 	setvar VAR_TEMP_3, 1
-# 78 "data/maps/CoralgroveCity/scripts.pory"
+# 70 "data/maps/CoralgroveCity/scripts.pory"
 	goto Coralgrove_BirdEvent
 	return
 
 
 Coralgrove_RightBirds::
-# 81 "data/maps/CoralgroveCity/scripts.pory"
+# 73 "data/maps/CoralgroveCity/scripts.pory"
 	setvar VAR_TEMP_3, 2
-# 82 "data/maps/CoralgroveCity/scripts.pory"
+# 74 "data/maps/CoralgroveCity/scripts.pory"
 	goto Coralgrove_BirdEvent
 	return
 
 
 Coralgrove_BirdEvent::
-# 86 "data/maps/CoralgroveCity/scripts.pory"
+# 78 "data/maps/CoralgroveCity/scripts.pory"
 	lock
-# 87 "data/maps/CoralgroveCity/scripts.pory"
+# 79 "data/maps/CoralgroveCity/scripts.pory"
 	safefollow
-# 88 "data/maps/CoralgroveCity/scripts.pory"
+# 80 "data/maps/CoralgroveCity/scripts.pory"
 	special SpawnCameraObject
-# 89 "data/maps/CoralgroveCity/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, Walk3Up
-# 90 "data/maps/CoralgroveCity/scripts.pory"
-	waitmovement 0
-# 91 "data/maps/CoralgroveCity/scripts.pory"
+# 81 "data/maps/CoralgroveCity/scripts.pory"
+	waitmove OBJ_EVENT_ID_CAMERA, Walk3Up
+# 82 "data/maps/CoralgroveCity/scripts.pory"
 	compare VAR_TEMP_3, 1
 	goto_if_eq Coralgrove_BirdEvent_2
-# 99 "data/maps/CoralgroveCity/scripts.pory"
-	applymovement 13, BirdFlyFromEast
-# 100 "data/maps/CoralgroveCity/scripts.pory"
-	waitmovement 13
-# 101 "data/maps/CoralgroveCity/scripts.pory"
+# 88 "data/maps/CoralgroveCity/scripts.pory"
+	waitmove 13, BirdFlyFromEast
+# 89 "data/maps/CoralgroveCity/scripts.pory"
 	playmoncry SPECIES_PIDGEOT, CRY_MODE_NORMAL
-# 102 "data/maps/CoralgroveCity/scripts.pory"
-	applymovement 13, BirdFlyFromEast
-# 103 "data/maps/CoralgroveCity/scripts.pory"
-	waitmovement 13
+# 90 "data/maps/CoralgroveCity/scripts.pory"
+	waitmove 13, BirdFlyFromEast
 Coralgrove_BirdEvent_1:
-# 105 "data/maps/CoralgroveCity/scripts.pory"
-	applymovement OBJ_EVENT_ID_CAMERA, Walk3Down
-# 106 "data/maps/CoralgroveCity/scripts.pory"
-	waitmovement 0
-# 107 "data/maps/CoralgroveCity/scripts.pory"
+# 92 "data/maps/CoralgroveCity/scripts.pory"
+	waitmove OBJ_EVENT_ID_CAMERA, Walk3Down
+# 93 "data/maps/CoralgroveCity/scripts.pory"
 	special RemoveCameraObject
-# 108 "data/maps/CoralgroveCity/scripts.pory"
+# 94 "data/maps/CoralgroveCity/scripts.pory"
 	delay 30
-# 109 "data/maps/CoralgroveCity/scripts.pory"
+# 95 "data/maps/CoralgroveCity/scripts.pory"
 	removeobject 13
-# 110 "data/maps/CoralgroveCity/scripts.pory"
+# 96 "data/maps/CoralgroveCity/scripts.pory"
 	removeobject 14
-# 111 "data/maps/CoralgroveCity/scripts.pory"
+# 97 "data/maps/CoralgroveCity/scripts.pory"
 	setflag FLAG_CORALGROVE_CUTSCENE
-# 112 "data/maps/CoralgroveCity/scripts.pory"
+# 98 "data/maps/CoralgroveCity/scripts.pory"
 	clearflag FLAG_OBTAINED_PIDGEOTITE
-# 113 "data/maps/CoralgroveCity/scripts.pory"
+# 99 "data/maps/CoralgroveCity/scripts.pory"
 	release
 	end
 
 Coralgrove_BirdEvent_2:
-# 92 "data/maps/CoralgroveCity/scripts.pory"
-	applymovement 14, BirdFlyFromWest
-# 93 "data/maps/CoralgroveCity/scripts.pory"
-	waitmovement 14
-# 94 "data/maps/CoralgroveCity/scripts.pory"
+# 83 "data/maps/CoralgroveCity/scripts.pory"
+	waitmove 14, BirdFlyFromWest
+# 84 "data/maps/CoralgroveCity/scripts.pory"
 	playmoncry SPECIES_PIDGEOT, CRY_MODE_NORMAL
-# 95 "data/maps/CoralgroveCity/scripts.pory"
-	applymovement 14, BirdFlyFromWest
-# 96 "data/maps/CoralgroveCity/scripts.pory"
-	waitmovement 14
+# 85 "data/maps/CoralgroveCity/scripts.pory"
+	waitmove 14, BirdFlyFromWest
 	goto Coralgrove_BirdEvent_1
 
 
-# 116 "data/maps/CoralgroveCity/scripts.pory"
+# 102 "data/maps/CoralgroveCity/scripts.pory"
 BirdFlyFromWest:
-# 117 "data/maps/CoralgroveCity/scripts.pory"
+# 103 "data/maps/CoralgroveCity/scripts.pory"
 	walk_right
-# 117 "data/maps/CoralgroveCity/scripts.pory"
+# 103 "data/maps/CoralgroveCity/scripts.pory"
 	walk_right
-# 117 "data/maps/CoralgroveCity/scripts.pory"
+# 103 "data/maps/CoralgroveCity/scripts.pory"
 	walk_right
-# 117 "data/maps/CoralgroveCity/scripts.pory"
+# 103 "data/maps/CoralgroveCity/scripts.pory"
 	walk_right
-# 117 "data/maps/CoralgroveCity/scripts.pory"
+# 103 "data/maps/CoralgroveCity/scripts.pory"
 	walk_right
-# 117 "data/maps/CoralgroveCity/scripts.pory"
+# 103 "data/maps/CoralgroveCity/scripts.pory"
 	walk_right
-# 117 "data/maps/CoralgroveCity/scripts.pory"
+# 103 "data/maps/CoralgroveCity/scripts.pory"
 	walk_right
-# 117 "data/maps/CoralgroveCity/scripts.pory"
+# 103 "data/maps/CoralgroveCity/scripts.pory"
 	walk_right
-# 117 "data/maps/CoralgroveCity/scripts.pory"
+# 103 "data/maps/CoralgroveCity/scripts.pory"
 	walk_right
-# 117 "data/maps/CoralgroveCity/scripts.pory"
+# 103 "data/maps/CoralgroveCity/scripts.pory"
 	walk_right
 	step_end
 
-# 119 "data/maps/CoralgroveCity/scripts.pory"
+# 105 "data/maps/CoralgroveCity/scripts.pory"
 BirdFlyFromEast:
-# 120 "data/maps/CoralgroveCity/scripts.pory"
+# 106 "data/maps/CoralgroveCity/scripts.pory"
 	walk_left
-# 120 "data/maps/CoralgroveCity/scripts.pory"
+# 106 "data/maps/CoralgroveCity/scripts.pory"
 	walk_left
-# 120 "data/maps/CoralgroveCity/scripts.pory"
+# 106 "data/maps/CoralgroveCity/scripts.pory"
 	walk_left
-# 120 "data/maps/CoralgroveCity/scripts.pory"
+# 106 "data/maps/CoralgroveCity/scripts.pory"
 	walk_left
-# 120 "data/maps/CoralgroveCity/scripts.pory"
+# 106 "data/maps/CoralgroveCity/scripts.pory"
 	walk_left
-# 120 "data/maps/CoralgroveCity/scripts.pory"
+# 106 "data/maps/CoralgroveCity/scripts.pory"
 	walk_left
-# 120 "data/maps/CoralgroveCity/scripts.pory"
+# 106 "data/maps/CoralgroveCity/scripts.pory"
 	walk_left
-# 120 "data/maps/CoralgroveCity/scripts.pory"
+# 106 "data/maps/CoralgroveCity/scripts.pory"
 	walk_left
-# 120 "data/maps/CoralgroveCity/scripts.pory"
+# 106 "data/maps/CoralgroveCity/scripts.pory"
 	walk_left
-# 120 "data/maps/CoralgroveCity/scripts.pory"
+# 106 "data/maps/CoralgroveCity/scripts.pory"
 	walk_left
 	step_end
 
 Coralgrove_MartMan::
-# 124 "data/maps/CoralgroveCity/scripts.pory"
+# 110 "data/maps/CoralgroveCity/scripts.pory"
 	msgbox Coralgrove_MartMan_Text_0, MSGBOX_NPC
 	return
 
 
 CoralGrove_NINJA_BOY::
-# 128 "data/maps/CoralgroveCity/scripts.pory"
+# 114 "data/maps/CoralgroveCity/scripts.pory"
 	msgbox CoralGrove_NINJA_BOY_Text_0, MSGBOX_NPC
 	return
 
 
 CoralGrove_OLD_WOMAN::
-# 132 "data/maps/CoralgroveCity/scripts.pory"
+# 118 "data/maps/CoralgroveCity/scripts.pory"
 	lock
-# 133 "data/maps/CoralgroveCity/scripts.pory"
-	msgbox CoralGrove_OLD_WOMAN_Text_0, MSGBOX_DEFAULT
-# 134 "data/maps/CoralgroveCity/scripts.pory"
-	closemessage
-# 135 "data/maps/CoralgroveCity/scripts.pory"
-	release
+# 119 "data/maps/CoralgroveCity/scripts.pory"
+	msgbox CoralGrove_OLD_WOMAN_Text_0, MSGBOX_AUTOCLOSE
 	return
 
 
 Coralgrove_Old_Woman2::
-# 139 "data/maps/CoralgroveCity/scripts.pory"
+# 123 "data/maps/CoralgroveCity/scripts.pory"
 	msgbox Coralgrove_Old_Woman2_Text, MSGBOX_NPC
 	return
 
 
 CoralGrove_OLD_MAN::
-# 152 "data/maps/CoralgroveCity/scripts.pory"
+# 136 "data/maps/CoralgroveCity/scripts.pory"
 	msgbox CoralGrove_OLD_MAN_Text_0, MSGBOX_NPC
 	return
 
 
 Coralgrove_LASS::
-# 156 "data/maps/CoralgroveCity/scripts.pory"
+# 140 "data/maps/CoralgroveCity/scripts.pory"
 	msgbox Coralgrove_LASS_Text_0, MSGBOX_NPC
 	return
 
 
 Coralgrove_HIKER::
-# 160 "data/maps/CoralgroveCity/scripts.pory"
+# 144 "data/maps/CoralgroveCity/scripts.pory"
 	msgbox Coral_Hiker_Text, MSGBOX_NPC
 	return
 
 
 Coralgrove_Children::
-# 171 "data/maps/CoralgroveCity/scripts.pory"
+# 155 "data/maps/CoralgroveCity/scripts.pory"
 	msgbox Coralgrove_Children_Text_0, MSGBOX_NPC
 	return
 
 
 Coralgrove_school::
-# 175 "data/maps/CoralgroveCity/scripts.pory"
+# 159 "data/maps/CoralgroveCity/scripts.pory"
 	msgbox Coralgrove_school_Text_0, MSGBOX_SIGN
 	return
 
 
 Coralgrove_Lifthouse::
-# 179 "data/maps/CoralgroveCity/scripts.pory"
+# 163 "data/maps/CoralgroveCity/scripts.pory"
 	msgbox Coralgrove_Lifthouse_Text_0, MSGBOX_SIGN
 	return
 
 
 CoralSign::
-# 183 "data/maps/CoralgroveCity/scripts.pory"
+# 167 "data/maps/CoralgroveCity/scripts.pory"
 	msgbox CoralSign_Text_0, MSGBOX_SIGN
 	return
 
 
-CoralGreatBall::
-# 187 "data/maps/CoralgroveCity/scripts.pory"
-	finditem ITEM_GREAT_BALL
-	return
-
-
 CoralGrove_EventScript_GymSign::
-# 191 "data/maps/CoralgroveCity/scripts.pory"
+# 171 "data/maps/CoralgroveCity/scripts.pory"
 	msgbox CoralGrove_EventScript_GymSign_Text_0, MSGBOX_SIGN
 	return
 
 
 Coralgrove_HauntedHouse_Text_0:
-# 21 "data/maps/CoralgroveCity/scripts.pory"
+# 18 "data/maps/CoralgroveCity/scripts.pory"
 	.string "The door is nailed shut.\nLooks like nobody lives here.$"
 
 CoralHideGhost_Text_0:
-# 38 "data/maps/CoralgroveCity/scripts.pory"
+# 31 "data/maps/CoralgroveCity/scripts.pory"
 	.string "No, you're not the one…$"
 
 Coralgrove_MAN_3_Text_0:
-# 54 "data/maps/CoralgroveCity/scripts.pory"
+# 46 "data/maps/CoralgroveCity/scripts.pory"
 	.string "To the south lies Primrose Town.\pIf you want to go anywhere else,\nyou must take the elevator to\lthe north to access the harbor area.$"
 
 Coralgrove_MartMan_Text_0:
-# 124 "data/maps/CoralgroveCity/scripts.pory"
+# 110 "data/maps/CoralgroveCity/scripts.pory"
 	.string "Hello and welcome!\nThis is the Battle Shop.\pHere you can purchase useful\ncombat items and consumables.\pInstead of regular currency, everything\nin our shop is purchasable with\lBattle Points, or BP, instead!$"
 
 CoralGrove_NINJA_BOY_Text_0:
-# 128 "data/maps/CoralgroveCity/scripts.pory"
+# 114 "data/maps/CoralgroveCity/scripts.pory"
 	.string "I swear I saw this ghost girl flying\nabout but none of the adults believe me!$"
 
 CoralGrove_OLD_WOMAN_Text_0:
-# 133 "data/maps/CoralgroveCity/scripts.pory"
+# 119 "data/maps/CoralgroveCity/scripts.pory"
 	.string "Such pretty flowers…$"
 
 CoralGrove_OLD_MAN_Text_0:
-# 152 "data/maps/CoralgroveCity/scripts.pory"
+# 136 "data/maps/CoralgroveCity/scripts.pory"
 	.string "My wife often gets mesmerized\nby flowers.\pI don't really care about flowers\nbut better not let her catch on…$"
 
 Coralgrove_LASS_Text_0:
-# 156 "data/maps/CoralgroveCity/scripts.pory"
+# 140 "data/maps/CoralgroveCity/scripts.pory"
 	.string "Can you even call this place a city?\pThere's the Trainers' School and\nthe Pokémon Gym but apart from those\lthere's very little to do here.$"
 
 Coralgrove_Children_Text_0:
-# 171 "data/maps/CoralgroveCity/scripts.pory"
+# 155 "data/maps/CoralgroveCity/scripts.pory"
 	.string "We're on recess!$"
 
 Coralgrove_school_Text_0:
-# 175 "data/maps/CoralgroveCity/scripts.pory"
+# 159 "data/maps/CoralgroveCity/scripts.pory"
 	.string "Pokémon Trainers' School$"
 
 Coralgrove_Lifthouse_Text_0:
-# 179 "data/maps/CoralgroveCity/scripts.pory"
+# 163 "data/maps/CoralgroveCity/scripts.pory"
 	.string "Elevator access to harbor area$"
 
 CoralSign_Text_0:
-# 183 "data/maps/CoralgroveCity/scripts.pory"
+# 167 "data/maps/CoralgroveCity/scripts.pory"
 	.string "CORALGROVE CITY\n“Home of many aspiring trainers.”$"
 
 CoralGrove_EventScript_GymSign_Text_0:
-# 191 "data/maps/CoralgroveCity/scripts.pory"
+# 171 "data/maps/CoralgroveCity/scripts.pory"
 	.string "Coralgrove City Pokémon Gym\nLeader: Aaron$"
 
 Coralgrove_GENTLEMAN_Text::
-# 66 "data/maps/CoralgroveCity/scripts.pory"
+# 58 "data/maps/CoralgroveCity/scripts.pory"
 	.string "Do you ever look far into the horizon\n"
 	.string "and let your worries fade away?$"
 
 Coralgrove_DroppedSomething::
-# 70 "data/maps/CoralgroveCity/scripts.pory"
+# 62 "data/maps/CoralgroveCity/scripts.pory"
 	.string "Did you see that?\p"
 	.string "I think that Pidgeot dropped\n"
 	.string "something in the ocean.$"
 
 Coralgrove_Old_Woman2_Text::
-# 141 "data/maps/CoralgroveCity/scripts.pory"
+# 125 "data/maps/CoralgroveCity/scripts.pory"
 	.string "Coralgrove is built on a massive\n"
 	.string "cliff that overlooks the ocean.\p"
 	.string "In olden days, in order to get down\n"
@@ -393,7 +360,7 @@ Coralgrove_Old_Woman2_Text::
 	.string "Nowadays we just use the elevator.$"
 
 Coral_Hiker_Text::
-# 163 "data/maps/CoralgroveCity/scripts.pory"
+# 147 "data/maps/CoralgroveCity/scripts.pory"
 	.string "There was a landslide between\n"
 	.string "Coralgrove City and Primrose Town.\p"
 	.string "There's some rocks here and there but\n"

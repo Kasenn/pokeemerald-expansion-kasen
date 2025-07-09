@@ -11,15 +11,6 @@ script SandstonePokeCenter1F_OnTransition{
 	end
 }
 
-script SandstonePokeCenter1F_EventScript_Nurse{
-	setvar(VAR_0x800B, 1)
-	call(Common_EventScript_PkmnCenterNurse)
-	waitmessage
-	waitbuttonpress
-	release
-	end
-}
-
 script SandstoneCityPC_BunearyGirl{
     lock
     msgbox(SandstoneCityPC_BunearyGirl_Text)

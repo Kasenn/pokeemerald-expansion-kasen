@@ -38,7 +38,7 @@ BerryFields_Rocket::
 	compare VAR_FACING, DIR_EAST
 	goto_if_eq BerryFields_Rocket_3
 # 28 "data/maps/BerryFields/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, BerryFields_PushPlayerAsideForGrunt2
+	applymovement LOCALID_PLAYER, BerryFields_PushPlayerAsideForGrunt2
 # 29 "data/maps/BerryFields/scripts.pory"
 	applymovement 13, GruntEscapesNorth
 BerryFields_Rocket_1:
@@ -56,14 +56,14 @@ BerryFields_Rocket_1:
 
 BerryFields_Rocket_2:
 # 20 "data/maps/BerryFields/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, BerryFields_PushPlayerAsideForGrunt
+	applymovement LOCALID_PLAYER, BerryFields_PushPlayerAsideForGrunt
 # 21 "data/maps/BerryFields/scripts.pory"
 	applymovement 13, GruntEscapesNorth
 	goto BerryFields_Rocket_1
 
 BerryFields_Rocket_3:
 # 24 "data/maps/BerryFields/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, BerryFields_PushPlayerAsideForGrunt
+	applymovement LOCALID_PLAYER, BerryFields_PushPlayerAsideForGrunt
 # 25 "data/maps/BerryFields/scripts.pory"
 	applymovement 13, GruntEscapesNorth
 	goto BerryFields_Rocket_1
@@ -175,28 +175,24 @@ Berryfields_Blockade_1:
 # 116 "data/maps/BerryFields/scripts.pory"
 	safefollow
 # 117 "data/maps/BerryFields/scripts.pory"
-	applymovement 14, Common_Movement_ExclamationMark
+	exclamationmark 14
 # 118 "data/maps/BerryFields/scripts.pory"
-	waitmovement 0
-# 119 "data/maps/BerryFields/scripts.pory"
-	delay 48
-# 120 "data/maps/BerryFields/scripts.pory"
 	waitse
-# 121 "data/maps/BerryFields/scripts.pory"
+# 119 "data/maps/BerryFields/scripts.pory"
 	playmoncry SPECIES_POOCHYENA, CRY_MODE_NORMAL
-# 122 "data/maps/BerryFields/scripts.pory"
+# 120 "data/maps/BerryFields/scripts.pory"
 	msgbox BerryFields_Poochyena_Text, MSGBOX_DEFAULT
-# 123 "data/maps/BerryFields/scripts.pory"
+# 121 "data/maps/BerryFields/scripts.pory"
 	closemessage
-# 124 "data/maps/BerryFields/scripts.pory"
+# 122 "data/maps/BerryFields/scripts.pory"
 	waitmoncry
-# 125 "data/maps/BerryFields/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Walk1Up
-# 126 "data/maps/BerryFields/scripts.pory"
+# 123 "data/maps/BerryFields/scripts.pory"
+	applymovement LOCALID_PLAYER, Walk1Up
+# 124 "data/maps/BerryFields/scripts.pory"
 	waitmovement 0
-# 127 "data/maps/BerryFields/scripts.pory"
+# 125 "data/maps/BerryFields/scripts.pory"
 	turnobject 14, DIR_NORTH
-# 128 "data/maps/BerryFields/scripts.pory"
+# 126 "data/maps/BerryFields/scripts.pory"
 	release
 	end
 

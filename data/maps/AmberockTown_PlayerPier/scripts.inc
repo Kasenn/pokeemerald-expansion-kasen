@@ -51,7 +51,7 @@ GiovanniEscapesFactory::
 # 42 "data/maps/AmberockTown_PlayerPier/scripts.pory"
 	safefollow
 # 43 "data/maps/AmberockTown_PlayerPier/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, GiovanniEscapesFactory_Movement_0
+	applymovement LOCALID_PLAYER, GiovanniEscapesFactory_Movement_0
 # 44 "data/maps/AmberockTown_PlayerPier/scripts.pory"
 	applymovement 2, GiovanniEscapesFactory_Movement_1
 # 45 "data/maps/AmberockTown_PlayerPier/scripts.pory"
@@ -59,7 +59,7 @@ GiovanniEscapesFactory::
 # 46 "data/maps/AmberockTown_PlayerPier/scripts.pory"
 	applymovement 1, GiovanniEscapesFactory_Movement_1
 # 47 "data/maps/AmberockTown_PlayerPier/scripts.pory"
-	waitmovement OBJ_EVENT_ID_PLAYER
+	waitmovement LOCALID_PLAYER
 # 48 "data/maps/AmberockTown_PlayerPier/scripts.pory"
 	waitmovement 1
 # 49 "data/maps/AmberockTown_PlayerPier/scripts.pory"
@@ -67,7 +67,7 @@ GiovanniEscapesFactory::
 # 50 "data/maps/AmberockTown_PlayerPier/scripts.pory"
 	delay 8
 # 51 "data/maps/AmberockTown_PlayerPier/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
+	turnobject LOCALID_PLAYER, DIR_SOUTH
 # 52 "data/maps/AmberockTown_PlayerPier/scripts.pory"
 	turnobject 5, DIR_NORTH
 # 53 "data/maps/AmberockTown_PlayerPier/scripts.pory"

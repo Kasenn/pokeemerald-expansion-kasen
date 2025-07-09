@@ -41,149 +41,141 @@ CoralgroveElevator2_Trigger1::
 # 34 "data/maps/CoralgroveElevator2/scripts.pory"
 	playse SE_PIN
 # 35 "data/maps/CoralgroveElevator2/scripts.pory"
-	applymovement 1, Common_Movement_ExclamationMark
+	exclamationmark 1
 # 36 "data/maps/CoralgroveElevator2/scripts.pory"
-	waitmovement 0
+	turnobject LOCALID_PLAYER, DIR_EAST
 # 37 "data/maps/CoralgroveElevator2/scripts.pory"
-	delay 40
-# 38 "data/maps/CoralgroveElevator2/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
-# 39 "data/maps/CoralgroveElevator2/scripts.pory"
 	waitmovement 0
-# 40 "data/maps/CoralgroveElevator2/scripts.pory"
+# 38 "data/maps/CoralgroveElevator2/scripts.pory"
 	goto CoralgroveElevator2_Rival
 	return
 
 
 CoralgroveElevator2_Trigger2::
-# 43 "data/maps/CoralgroveElevator2/scripts.pory"
+# 41 "data/maps/CoralgroveElevator2/scripts.pory"
 	lock
-# 44 "data/maps/CoralgroveElevator2/scripts.pory"
+# 42 "data/maps/CoralgroveElevator2/scripts.pory"
 	safefollow
-# 45 "data/maps/CoralgroveElevator2/scripts.pory"
+# 43 "data/maps/CoralgroveElevator2/scripts.pory"
 	turnobject 1, DIR_EAST
-# 46 "data/maps/CoralgroveElevator2/scripts.pory"
+# 44 "data/maps/CoralgroveElevator2/scripts.pory"
 	playse SE_PIN
+# 45 "data/maps/CoralgroveElevator2/scripts.pory"
+	exclamationmark 1
+# 46 "data/maps/CoralgroveElevator2/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_WEST
 # 47 "data/maps/CoralgroveElevator2/scripts.pory"
-	applymovement 1, Common_Movement_ExclamationMark
+	waitmovement 0
 # 48 "data/maps/CoralgroveElevator2/scripts.pory"
-	waitmovement 0
-# 49 "data/maps/CoralgroveElevator2/scripts.pory"
-	delay 40
-# 50 "data/maps/CoralgroveElevator2/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
-# 51 "data/maps/CoralgroveElevator2/scripts.pory"
-	waitmovement 0
-# 52 "data/maps/CoralgroveElevator2/scripts.pory"
 	goto CoralgroveElevator2_Rival
 	return
 
 
 CoralgroveElevator2_Rival::
-# 55 "data/maps/CoralgroveElevator2/scripts.pory"
+# 51 "data/maps/CoralgroveElevator2/scripts.pory"
 	lock
-# 56 "data/maps/CoralgroveElevator2/scripts.pory"
+# 52 "data/maps/CoralgroveElevator2/scripts.pory"
 	safefollow
-# 57 "data/maps/CoralgroveElevator2/scripts.pory"
+# 53 "data/maps/CoralgroveElevator2/scripts.pory"
 	applymovement 1, FacePlayer
-# 58 "data/maps/CoralgroveElevator2/scripts.pory"
+# 54 "data/maps/CoralgroveElevator2/scripts.pory"
 	waitmovement 0
-# 59 "data/maps/CoralgroveElevator2/scripts.pory"
+# 55 "data/maps/CoralgroveElevator2/scripts.pory"
 	compare VAR_MAIN_STORY_BITS, STORY_DEFEATED_GYM_1
 	goto_if_eq CoralgroveElevator2_Rival_1
-# 69 "data/maps/CoralgroveElevator2/scripts.pory"
+# 65 "data/maps/CoralgroveElevator2/scripts.pory"
 	msgbox CoralgroveElevator2_Rival_Text_0, MSGBOX_YESNO
-# 70 "data/maps/CoralgroveElevator2/scripts.pory"
+# 66 "data/maps/CoralgroveElevator2/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq CoralgroveElevator2_Rival_7
-# 74 "data/maps/CoralgroveElevator2/scripts.pory"
+# 70 "data/maps/CoralgroveElevator2/scripts.pory"
 	msgbox CoralgroveElevator2_Rival_Text_1
-# 75 "data/maps/CoralgroveElevator2/scripts.pory"
+# 71 "data/maps/CoralgroveElevator2/scripts.pory"
 	waitmessage
-# 76 "data/maps/CoralgroveElevator2/scripts.pory"
+# 72 "data/maps/CoralgroveElevator2/scripts.pory"
 	closemessage
-# 77 "data/maps/CoralgroveElevator2/scripts.pory"
+# 73 "data/maps/CoralgroveElevator2/scripts.pory"
 	release
 	end
 
 CoralgroveElevator2_Rival_1:
-# 60 "data/maps/CoralgroveElevator2/scripts.pory"
+# 56 "data/maps/CoralgroveElevator2/scripts.pory"
 	setvar VAR_MAIN_STORY_BITS, STORY_RIVAL_MET_AT_CORALGROVE_ELEVATOR
 	checkplayergender
 # 0 "data/maps/CoralgroveElevator2/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq CoralgroveElevator2_Rival_4
-# 65 "data/maps/CoralgroveElevator2/scripts.pory"
+# 61 "data/maps/CoralgroveElevator2/scripts.pory"
 	goto CoralgroveElevator2_Rival_Brendan
 	return
 
 CoralgroveElevator2_Rival_4:
-# 62 "data/maps/CoralgroveElevator2/scripts.pory"
+# 58 "data/maps/CoralgroveElevator2/scripts.pory"
 	goto CoralgroveElevator2_Rival_May
 	return
 
 CoralgroveElevator2_Rival_7:
-# 71 "data/maps/CoralgroveElevator2/scripts.pory"
+# 67 "data/maps/CoralgroveElevator2/scripts.pory"
 	goto CoralgroveElevator2_Rival_BATTLECONFIG
 	return
 
 
 CoralgroveElevator2_Rival_May::
-# 88 "data/maps/CoralgroveElevator2/scripts.pory"
+# 84 "data/maps/CoralgroveElevator2/scripts.pory"
 	msgbox CoralgroveElevator2_Rival_May_Speech, MSGBOX_YESNO
-# 89 "data/maps/CoralgroveElevator2/scripts.pory"
+# 85 "data/maps/CoralgroveElevator2/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq CoralgroveElevator2_Rival_May_1
-# 94 "data/maps/CoralgroveElevator2/scripts.pory"
+# 90 "data/maps/CoralgroveElevator2/scripts.pory"
 	msgbox CoralgroveElevator2_Rival_May_Text_1
-# 95 "data/maps/CoralgroveElevator2/scripts.pory"
+# 91 "data/maps/CoralgroveElevator2/scripts.pory"
 	release
-# 96 "data/maps/CoralgroveElevator2/scripts.pory"
+# 92 "data/maps/CoralgroveElevator2/scripts.pory"
 	goto_if_unset FLAG_Q02_ELEVATOR_RIVAL_START, CoralgroveElevator2_Rival_May_5
 CoralgroveElevator2_Rival_May_4:
 	end
 
 CoralgroveElevator2_Rival_May_1:
-# 90 "data/maps/CoralgroveElevator2/scripts.pory"
+# 86 "data/maps/CoralgroveElevator2/scripts.pory"
 	msgbox CoralgroveElevator2_Rival_May_Text_0, MSGBOX_DEFAULT
-# 91 "data/maps/CoralgroveElevator2/scripts.pory"
+# 87 "data/maps/CoralgroveElevator2/scripts.pory"
 	goto CoralgroveElevator2_Rival_BATTLECONFIG
 	return
 
 CoralgroveElevator2_Rival_May_5:
-# 97 "data/maps/CoralgroveElevator2/scripts.pory"
+# 93 "data/maps/CoralgroveElevator2/scripts.pory"
 	startquest FLAG_Q02_ELEVATOR_RIVAL_START
-# 98 "data/maps/CoralgroveElevator2/scripts.pory"
+# 94 "data/maps/CoralgroveElevator2/scripts.pory"
 	special ShowJournalPopupAdd
 	goto CoralgroveElevator2_Rival_May_4
 
 
 CoralgroveElevator2_Rival_Brendan::
-# 123 "data/maps/CoralgroveElevator2/scripts.pory"
+# 119 "data/maps/CoralgroveElevator2/scripts.pory"
 	msgbox CoralgroveElevator2_Rival_Brendan_Speech, MSGBOX_YESNO
-# 124 "data/maps/CoralgroveElevator2/scripts.pory"
+# 120 "data/maps/CoralgroveElevator2/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq CoralgroveElevator2_Rival_Brendan_1
-# 129 "data/maps/CoralgroveElevator2/scripts.pory"
+# 125 "data/maps/CoralgroveElevator2/scripts.pory"
 	msgbox CoralgroveElevator2_Rival_Brendan_Text_0
-# 130 "data/maps/CoralgroveElevator2/scripts.pory"
+# 126 "data/maps/CoralgroveElevator2/scripts.pory"
 	release
-# 131 "data/maps/CoralgroveElevator2/scripts.pory"
+# 127 "data/maps/CoralgroveElevator2/scripts.pory"
 	goto_if_unset FLAG_Q02_ELEVATOR_RIVAL_START, CoralgroveElevator2_Rival_Brendan_5
 CoralgroveElevator2_Rival_Brendan_4:
 	end
 
 CoralgroveElevator2_Rival_Brendan_1:
-# 125 "data/maps/CoralgroveElevator2/scripts.pory"
+# 121 "data/maps/CoralgroveElevator2/scripts.pory"
 	msgbox CoralgroveElevator2_Rival_May_Text_0, MSGBOX_DEFAULT
-# 126 "data/maps/CoralgroveElevator2/scripts.pory"
+# 122 "data/maps/CoralgroveElevator2/scripts.pory"
 	goto CoralgroveElevator2_Rival_BATTLECONFIG
 	return
 
 CoralgroveElevator2_Rival_Brendan_5:
-# 132 "data/maps/CoralgroveElevator2/scripts.pory"
+# 128 "data/maps/CoralgroveElevator2/scripts.pory"
 	startquest FLAG_Q02_ELEVATOR_RIVAL_START
-# 133 "data/maps/CoralgroveElevator2/scripts.pory"
+# 129 "data/maps/CoralgroveElevator2/scripts.pory"
 	special ShowJournalPopupAdd
 	goto CoralgroveElevator2_Rival_Brendan_4
 
@@ -193,124 +185,124 @@ CoralgroveElevator2_Rival_BATTLECONFIG::
 # 0 "data/maps/CoralgroveElevator2/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq CoralgroveElevator2_Rival_BATTLECONFIG_1
-# 162 "data/maps/CoralgroveElevator2/scripts.pory"
+# 158 "data/maps/CoralgroveElevator2/scripts.pory"
 	trainerbattle_no_intro TRAINER_BRENDAN_CORALGROVE_ELEVATOR, CoralgroveElevator2_RivalDefeated
-# 163 "data/maps/CoralgroveElevator2/scripts.pory"
+# 159 "data/maps/CoralgroveElevator2/scripts.pory"
 	goto CoralgroveElevator2_AfterBrendanBattle
 	return
 
 CoralgroveElevator2_Rival_BATTLECONFIG_1:
-# 158 "data/maps/CoralgroveElevator2/scripts.pory"
+# 154 "data/maps/CoralgroveElevator2/scripts.pory"
 	trainerbattle_no_intro TRAINER_MAY_CORALGROVE_ELEVATOR, CoralgroveElevator2_RivalDefeated
-# 159 "data/maps/CoralgroveElevator2/scripts.pory"
+# 155 "data/maps/CoralgroveElevator2/scripts.pory"
 	goto CoralgroveElevator2_AfterMayBattle
 	return
 
 
 CoralgroveElevator2_AfterMayBattle::
-# 171 "data/maps/CoralgroveElevator2/scripts.pory"
+# 167 "data/maps/CoralgroveElevator2/scripts.pory"
 	msgbox CoralgroveElevator2_MayContinueOn, MSGBOX_DEFAULT
-# 172 "data/maps/CoralgroveElevator2/scripts.pory"
+# 168 "data/maps/CoralgroveElevator2/scripts.pory"
 	giveitem ITEM_DOWSING_MACHINE
-# 173 "data/maps/CoralgroveElevator2/scripts.pory"
+# 169 "data/maps/CoralgroveElevator2/scripts.pory"
 	setvar VAR_MAIN_STORY_BITS, STORY_RIVAL_DEFEATED_OR_BAILED_ON
-# 174 "data/maps/CoralgroveElevator2/scripts.pory"
+# 170 "data/maps/CoralgroveElevator2/scripts.pory"
 	msgbox CoralgroveElevator2_MayDowsing
-# 175 "data/maps/CoralgroveElevator2/scripts.pory"
+# 171 "data/maps/CoralgroveElevator2/scripts.pory"
 	goto CoralgroveElevator2_RivalExit
 	end
 
 
 CoralgroveElevator2_AfterBrendanBattle::
-# 179 "data/maps/CoralgroveElevator2/scripts.pory"
+# 175 "data/maps/CoralgroveElevator2/scripts.pory"
 	msgbox CoralgroveElevator2_BrendanContinueOn, MSGBOX_DEFAULT
-# 180 "data/maps/CoralgroveElevator2/scripts.pory"
+# 176 "data/maps/CoralgroveElevator2/scripts.pory"
 	giveitem ITEM_DOWSING_MACHINE
-# 181 "data/maps/CoralgroveElevator2/scripts.pory"
+# 177 "data/maps/CoralgroveElevator2/scripts.pory"
 	setvar VAR_MAIN_STORY_BITS, STORY_RIVAL_DEFEATED_OR_BAILED_ON
-# 182 "data/maps/CoralgroveElevator2/scripts.pory"
+# 178 "data/maps/CoralgroveElevator2/scripts.pory"
 	msgbox CoralgroveElevator2_BrendanDowsing
-# 183 "data/maps/CoralgroveElevator2/scripts.pory"
+# 179 "data/maps/CoralgroveElevator2/scripts.pory"
 	goto CoralgroveElevator2_RivalExit
 	end
 
 
 CoralgroveElevator2_RivalExit::
-# 233 "data/maps/CoralgroveElevator2/scripts.pory"
+# 229 "data/maps/CoralgroveElevator2/scripts.pory"
 	safefollow
-# 234 "data/maps/CoralgroveElevator2/scripts.pory"
+# 230 "data/maps/CoralgroveElevator2/scripts.pory"
 	closemessage
-# 235 "data/maps/CoralgroveElevator2/scripts.pory"
+# 231 "data/maps/CoralgroveElevator2/scripts.pory"
 	applymovement 1, Harbor_Movement_RivalExit1
-# 236 "data/maps/CoralgroveElevator2/scripts.pory"
+# 232 "data/maps/CoralgroveElevator2/scripts.pory"
 	waitmovement 0
-# 237 "data/maps/CoralgroveElevator2/scripts.pory"
+# 233 "data/maps/CoralgroveElevator2/scripts.pory"
 	goto CoralgroveElevator2_RivalEnd
 	end
 
 
 CoralgroveElevator2_RivalEnd::
-# 241 "data/maps/CoralgroveElevator2/scripts.pory"
+# 237 "data/maps/CoralgroveElevator2/scripts.pory"
 	removeobject 1
-# 242 "data/maps/CoralgroveElevator2/scripts.pory"
+# 238 "data/maps/CoralgroveElevator2/scripts.pory"
 	setflag FLAG_DEFEATED_RIVAL_HARBOR
-# 243 "data/maps/CoralgroveElevator2/scripts.pory"
+# 239 "data/maps/CoralgroveElevator2/scripts.pory"
 	savebgm MUS_DUMMY
-# 244 "data/maps/CoralgroveElevator2/scripts.pory"
+# 240 "data/maps/CoralgroveElevator2/scripts.pory"
 	fadedefaultbgm
-# 245 "data/maps/CoralgroveElevator2/scripts.pory"
+# 241 "data/maps/CoralgroveElevator2/scripts.pory"
 	releaseall
-# 246 "data/maps/CoralgroveElevator2/scripts.pory"
+# 242 "data/maps/CoralgroveElevator2/scripts.pory"
 	goto_if_set FLAG_Q02_ELEVATOR_RIVAL_START, CoralgroveElevator2_RivalEnd_2
 CoralgroveElevator2_RivalEnd_1:
 	end
 
 CoralgroveElevator2_RivalEnd_2:
-# 247 "data/maps/CoralgroveElevator2/scripts.pory"
+# 243 "data/maps/CoralgroveElevator2/scripts.pory"
 	completequest FLAG_Q02_ELEVATOR_RIVAL_COMPLETE
-# 248 "data/maps/CoralgroveElevator2/scripts.pory"
+# 244 "data/maps/CoralgroveElevator2/scripts.pory"
 	special ShowJournalPopupRemove
 	goto CoralgroveElevator2_RivalEnd_1
 
 
-# 252 "data/maps/CoralgroveElevator2/scripts.pory"
+# 248 "data/maps/CoralgroveElevator2/scripts.pory"
 Harbor_Movement_RivalExit1:
-# 253 "data/maps/CoralgroveElevator2/scripts.pory"
+# 249 "data/maps/CoralgroveElevator2/scripts.pory"
 	walk_up
-# 253 "data/maps/CoralgroveElevator2/scripts.pory"
+# 249 "data/maps/CoralgroveElevator2/scripts.pory"
 	walk_up
-# 253 "data/maps/CoralgroveElevator2/scripts.pory"
+# 249 "data/maps/CoralgroveElevator2/scripts.pory"
 	walk_up
-# 253 "data/maps/CoralgroveElevator2/scripts.pory"
+# 249 "data/maps/CoralgroveElevator2/scripts.pory"
 	walk_up
-# 254 "data/maps/CoralgroveElevator2/scripts.pory"
+# 250 "data/maps/CoralgroveElevator2/scripts.pory"
 	walk_right
-# 254 "data/maps/CoralgroveElevator2/scripts.pory"
+# 250 "data/maps/CoralgroveElevator2/scripts.pory"
 	walk_right
-# 254 "data/maps/CoralgroveElevator2/scripts.pory"
+# 250 "data/maps/CoralgroveElevator2/scripts.pory"
 	walk_right
-# 255 "data/maps/CoralgroveElevator2/scripts.pory"
+# 251 "data/maps/CoralgroveElevator2/scripts.pory"
 	walk_down
 	step_end
 
 CoralgroveElevator2_Rival_Text_0:
-# 69 "data/maps/CoralgroveElevator2/scripts.pory"
+# 65 "data/maps/CoralgroveElevator2/scripts.pory"
 	.string "{RIVAL}: Ready for a duel?$"
 
 CoralgroveElevator2_Rival_Text_1:
-# 74 "data/maps/CoralgroveElevator2/scripts.pory"
+# 70 "data/maps/CoralgroveElevator2/scripts.pory"
 	.string "Let me know when you're ready.$"
 
 CoralgroveElevator2_Rival_May_Text_0:
-# 90 "data/maps/CoralgroveElevator2/scripts.pory"
+# 86 "data/maps/CoralgroveElevator2/scripts.pory"
 	.string "Okay, let's go!$"
 
 CoralgroveElevator2_Rival_May_Text_1:
-# 94 "data/maps/CoralgroveElevator2/scripts.pory"
+# 90 "data/maps/CoralgroveElevator2/scripts.pory"
 	.string "I get it, you want to prepare.\pWell, don't leave me hanging!$"
 
 CoralgroveElevator2_Rival_Brendan_Text_0:
-# 129 "data/maps/CoralgroveElevator2/scripts.pory"
+# 125 "data/maps/CoralgroveElevator2/scripts.pory"
 	.string "It's okay, take your time.\pI'll be waiting here.$"
 
 CoralgroveElevator2_Bail_Male::
@@ -325,11 +317,11 @@ CoralgroveElevator2_Bail_Female::
 	.string "on me, are you?$"
 
 CoralgroveElevator2_Rival_PostBattleMessage::
-# 83 "data/maps/CoralgroveElevator2/scripts.pory"
+# 79 "data/maps/CoralgroveElevator2/scripts.pory"
 	.string "Next time I won't lose!$"
 
 CoralgroveElevator2_Rival_May_Speech::
-# 103 "data/maps/CoralgroveElevator2/scripts.pory"
+# 99 "data/maps/CoralgroveElevator2/scripts.pory"
 	.string "{RIVAL}: Hello {PLAYER}!\n"
 	.string "I knew you'd be here soon!\p"
 	.string "Luckily I didn't have to wait\n"
@@ -348,7 +340,7 @@ CoralgroveElevator2_Rival_May_Speech::
 	.string "is stronger?$"
 
 CoralgroveElevator2_Rival_Brendan_Speech::
-# 138 "data/maps/CoralgroveElevator2/scripts.pory"
+# 134 "data/maps/CoralgroveElevator2/scripts.pory"
 	.string "{RIVAL}: Hi neighbor!\n"
 	.string "I hoped you'd be here soon.\p"
 	.string "Luckily I didn't have to wait\n"
@@ -367,11 +359,11 @@ CoralgroveElevator2_Rival_Brendan_Speech::
 	.string "is stronger?$"
 
 CoralgroveElevator2_RivalDefeated::
-# 167 "data/maps/CoralgroveElevator2/scripts.pory"
+# 163 "data/maps/CoralgroveElevator2/scripts.pory"
 	.string "Still can't defeat you, huh…$"
 
 CoralgroveElevator2_MayContinueOn::
-# 187 "data/maps/CoralgroveElevator2/scripts.pory"
+# 183 "data/maps/CoralgroveElevator2/scripts.pory"
 	.string "I see what your brother meant by\n"
 	.string "you catching up to him.\p"
 	.string "You're making some serious\n"
@@ -385,7 +377,7 @@ CoralgroveElevator2_MayContinueOn::
 	.string "here you go!$"
 
 CoralgroveElevator2_BrendanContinueOn::
-# 200 "data/maps/CoralgroveElevator2/scripts.pory"
+# 196 "data/maps/CoralgroveElevator2/scripts.pory"
 	.string "I see what your brother meant by\n"
 	.string "you catching up to him.\p"
 	.string "You're quickly becoming\n"
@@ -399,7 +391,7 @@ CoralgroveElevator2_BrendanContinueOn::
 	.string "here, I want you to have this.$"
 
 CoralgroveElevator2_BrendanDowsing::
-# 213 "data/maps/CoralgroveElevator2/scripts.pory"
+# 209 "data/maps/CoralgroveElevator2/scripts.pory"
 	.string "{RIVAL}: That's an Itemfinder.\p"
 	.string "You can use it to root around for items\n"
 	.string "that aren't usually visible.\p"
@@ -409,7 +401,7 @@ CoralgroveElevator2_BrendanDowsing::
 	.string "to look for new Pokémon.$"
 
 CoralgroveElevator2_MayDowsing::
-# 222 "data/maps/CoralgroveElevator2/scripts.pory"
+# 218 "data/maps/CoralgroveElevator2/scripts.pory"
 	.string "{RIVAL}: That's an Itemfinder.\p"
 	.string "Try it out. If there is an item that's\n"
 	.string "not visible, it emits a sound.\p"

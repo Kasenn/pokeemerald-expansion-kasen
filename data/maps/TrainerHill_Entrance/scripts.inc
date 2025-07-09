@@ -96,14 +96,6 @@ TrainerHill_Entrance_EventScript_PlayerExitChallenge::
 TrainerHill_Entrance_EventScript_EndExitChallenge::
 	end
 
-TrainerHill_Entrance_EventScript_Nurse::
-	setvar VAR_0x800B, LOCALID_TRAINER_HILL_NURSE
-	call Common_EventScript_PkmnCenterNurse
-	waitmessage
-	waitbuttonpress
-	release
-	end
-
 TrainerHill_Entrance_EventScript_Attendant::
 	lock
 	faceplayer

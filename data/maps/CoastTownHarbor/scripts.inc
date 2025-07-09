@@ -178,7 +178,7 @@ CoastTownHarbor_EventScript_BoardFerry::
 # 81 "data/maps/CoastTownHarbor/scripts.pory"
 	delay 30
 # 82 "data/maps/CoastTownHarbor/scripts.pory"
-	hideobjectat OBJ_EVENT_ID_PLAYER, 0
+	hideobjectat LOCALID_PLAYER, 0
 # 83 "data/maps/CoastTownHarbor/scripts.pory"
 	call Common2_EventScript_FerryDepart3
 	return
@@ -200,7 +200,7 @@ CoastTownHarbor_EventScript_ComeAgain::
 
 CoastTownHarbor_EventScript_BoardFerryWest::
 # 97 "data/maps/CoastTownHarbor/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, CoastTownHarbor_Movement_BoardFerryWest
+	applymovement LOCALID_PLAYER, CoastTownHarbor_Movement_BoardFerryWest
 # 98 "data/maps/CoastTownHarbor/scripts.pory"
 	waitmovement 0
 	return
@@ -208,7 +208,7 @@ CoastTownHarbor_EventScript_BoardFerryWest::
 
 CoastTownHarbor_EventScript_BoardFerryNorth::
 # 102 "data/maps/CoastTownHarbor/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Walk1Up
+	applymovement LOCALID_PLAYER, Walk1Up
 # 103 "data/maps/CoastTownHarbor/scripts.pory"
 	waitmovement 0
 	return

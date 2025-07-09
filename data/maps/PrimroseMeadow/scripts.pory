@@ -4,10 +4,8 @@ mapscripts PrimroseMeadow_MapScripts{
 
 script PrimroseMeadow_EventScript_Rival{
     lock
-	msgbox(PrimroseMeadow_Text_RivalPokemon, MSGBOX_DEFAULT)
-	closemessage
-	checkplayergender
-	if(var(VAR_RESULT) == MALE){
+	msgbox(PrimroseMeadow_Text_RivalPokemon, MSGBOX_AUTOCLOSE)
+	if(checkplayergender == MALE){
 		playbgm(MUS_ENCOUNTER_BRENDAN, TRUE)
 	}
 	else{
@@ -18,14 +16,13 @@ script PrimroseMeadow_EventScript_Rival{
 	if(var(VAR_RESULT) == MALE){
 		msgbox(PRMeadow_Text_MayLetsBattle)
 		trainerbattle_no_intro(TRAINER_MAY_PRIMROSE_MEADOW, PRMeadow_MayDefeated)
-		msgbox(PRMeadow_MayTimeToHeadBack, MSGBOX_DEFAULT)
+		msgbox(PRMeadow_MayTimeToHeadBack, MSGBOX_AUTOCLOSE)
 	}
 	else{
 		msgbox(PRMeadow_Text_BrendanLetsBattle)
 		trainerbattle_no_intro(TRAINER_BRENDAN_PRIMROSE_MEADOW, PRMeadow_BrendanDefeated)
-		msgbox(PRMeadow_BrendanTimeToHeadBack, MSGBOX_DEFAULT)
+		msgbox(PRMeadow_BrendanTimeToHeadBack, MSGBOX_AUTOCLOSE)
 	}
-	closemessage
 	safefollow
 	setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_RIVAL_FOUGHT_IN_MEADOW)
 	switch(var(VAR_FACING)){

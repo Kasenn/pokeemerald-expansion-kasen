@@ -7,14 +7,6 @@ MossdeepCity_PokemonCenter_1F_OnTransition:
 	setrespawn HEAL_LOCATION_MOSSDEEP_CITY
 	end
 
-MossdeepCity_PokemonCenter_1F_EventScript_Nurse::
-	setvar VAR_0x800B, LOCALID_MOSSDEEP_NURSE
-	call Common_EventScript_PkmnCenterNurse
-	waitmessage
-	waitbuttonpress
-	release
-	end
-
 MossdeepCity_PokemonCenter_1F_EventScript_Woman::
 	msgbox MossdeepCity_PokemonCenter_1F_Text_GymLeaderDuoFormidable, MSGBOX_NPC
 	end

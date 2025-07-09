@@ -82,7 +82,7 @@ PlayerHouse2F_Intro::
 # 37 "data/maps/PlayerHouse2F/scripts.pory"
 	delay 30
 # 38 "data/maps/PlayerHouse2F/scripts.pory"
-	waitmove OBJ_EVENT_ID_PLAYER, Walk1Right
+	waitmove LOCALID_PLAYER, Walk1Right
 # 39 "data/maps/PlayerHouse2F/scripts.pory"
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_INTRO_COMPLETED
 # 40 "data/maps/PlayerHouse2F/scripts.pory"
@@ -98,7 +98,7 @@ PlayerHouse2F_ClockReminder::
 # 55 "data/maps/PlayerHouse2F/scripts.pory"
 	msgbox PlayerHouse2F_ClockReminder_Text, MSGBOX_AUTOCLOSE
 # 56 "data/maps/PlayerHouse2F/scripts.pory"
-	waitmove OBJ_EVENT_ID_PLAYER, Walk1Left
+	waitmove LOCALID_PLAYER, Walk1Left
 # 57 "data/maps/PlayerHouse2F/scripts.pory"
 	release
 	return
@@ -110,7 +110,7 @@ PlayerHouse2F_ShoesReminder::
 # 67 "data/maps/PlayerHouse2F/scripts.pory"
 	msgbox PlayerHouse2F_ShoesReminder_Text, MSGBOX_AUTOCLOSE
 # 68 "data/maps/PlayerHouse2F/scripts.pory"
-	waitmove OBJ_EVENT_ID_PLAYER, Walk1Left
+	waitmove LOCALID_PLAYER, Walk1Left
 # 69 "data/maps/PlayerHouse2F/scripts.pory"
 	release
 	return

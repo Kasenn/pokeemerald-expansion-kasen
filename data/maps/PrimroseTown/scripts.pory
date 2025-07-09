@@ -1,10 +1,7 @@
 mapscripts PrimroseTown_MapScripts{
-    MAP_SCRIPT_ON_TRANSITION: Primrose_Visited
-}
-
-script Primrose_Visited{
-    setflag(FLAG_VISITED_OLDALE_TOWN)
-    end
+    MAP_SCRIPT_ON_TRANSITION{
+        setflag(FLAG_VISITED_PRIMROSE_TOWN)
+    }
 }
 
 script PrimroseTown_Sign{
@@ -17,52 +14,27 @@ text PrimroseSign{
 
 script Primrose_FlowerGirl{
     msgbox("Look at all those pretty flowers!\pI'd like to pick a few of them but\nI'm scared I might get attacked\lby a bug Pokémon…", MSGBOX_NPC)
-    end
 }
 
 script Primrose_FatMan{
 	msgbox("This place is real pretty.\pWould be a real shame to be allergic\nto all this pollen though…\p…\psniff…", MSGBOX_NPC)
-	end
 }
 
 script Primrose_Hiker{
-    lock
-    msgbox("I don't like the look of that storm…", MSGBOX_DEFAULT)
-    waitmessage
-    closemessage
-    releaseall
-    end
+    msgbox("I don't like the look of that storm…", MSGBOX_AUTOCLOSE)
 }
 
 script PrimroseBlocked{
     lock
     safefollow
-    applymovement(3, Primrose_FaceRight)
-    waitmovement(0)
+    turnobject(3, DIR_EAST)
     playse(SE_PIN)
     exclamationmark(3)
-    applymovement(LOCALID_PLAYER, Primrose_FaceLeft)
-    waitmovement(0)
-    msgbox(Primrose_Storm, MSGBOX_DEFAULT)
-    waitmessage
-    closemessage
-    applymovement(LOCALID_PLAYER, Walk1Down)
-    waitmovement(0)
-    applymovement(3, Primrose_FaceUp)
-    waitmovement(0)
-    releaseall
-    end
-}
-
-movement Primrose_FaceUp{
-    face_up
-}
-
-movement Primrose_FaceRight{
-    face_right
-}
-movement Primrose_FaceLeft{
-    face_left
+    turnobject(LOCALID_PLAYER, DIR_WEST)
+    msgbox(Primrose_Storm, MSGBOX_AUTOCLOSE)
+    waitmove(LOCALID_PLAYER, Walk1Down)
+    turnobject(3, DIR_NORTH)
+    release
 }
 
 text Primrose_Storm{

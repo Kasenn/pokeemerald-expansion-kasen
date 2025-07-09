@@ -3612,7 +3612,7 @@ SkipStory_8:
 	goto_if_lt SkipStory_17
 SkipStory_16:
 # 1757 "data/scripts/my_debug.pory"
-	setflag FLAG_VISITED_RUSTBORO_CITY
+	setflag FLAG_VISITED_CORALGROVE_CITY
 # 1758 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_CHIP
 # 1759 "data/scripts/my_debug.pory"

@@ -1,32 +1,21 @@
 mapscripts Route2_MapScripts{
-    MAP_SCRIPT_ON_LOAD: R2ClearLandslide
-}
-
-script R2ClearLandslide{
-    if(flag(FLAG_VISITED_RUSTBORO_CITY)){
-        setmetatile(74,7,0x0AF,FALSE)
-        setmetatile(75,7,0x0CF,FALSE)
-        setmetatile(75,8,0x071,FALSE)
-        setmetatile(74,9,0x0AF,FALSE)
-        setmetatile(75,9,0x0CF,FALSE)
-        setmetatile(74,10,0x071,FALSE)
-        setmetatile(74,11,0x0AF,FALSE)
-        setmetatile(75,11,0x0CF,FALSE)
-        setmetatile(74,12,0x071,FALSE)
+    MAP_SCRIPT_ON_LOAD{
+        if(flag(FLAG_VISITED_CORALGROVE_CITY)){
+            setmetatile(74, 7, 0x0AF, FALSE)
+            setmetatile(75, 7, 0x0CF, FALSE)
+            setmetatile(75, 8, 0x071, FALSE)
+            setmetatile(74, 9, 0x0AF, FALSE)
+            setmetatile(75, 9, 0x0CF, FALSE)
+            setmetatile(74, 10, 0x071, FALSE)
+            setmetatile(74, 11, 0x0AF, FALSE)
+            setmetatile(75, 11, 0x0CF, FALSE)
+            setmetatile(74, 12, 0x071, FALSE)
+        }
     }
 }
 
 script Route2_Landslide{
     msgbox("Looks like the route to Coralgrove City\nis buried under a landslide.\pI guess I need to take the detour\nthrough Windy Woods…", MSGBOX_NPC)
-    end
-}
-
-script Route2_X_Attack{
-    finditem(ITEM_X_ATTACK)
-}
-
-script Route2_Revive{
-    finditem(ITEM_REVIVE)
 }
 
 script Route2_Fisher{

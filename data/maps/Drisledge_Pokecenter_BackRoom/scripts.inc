@@ -135,11 +135,11 @@ TriggerGengariteEvent::
 # 73 "data/maps/Drisledge_Pokecenter_BackRoom/scripts.pory"
 	safefollow
 # 74 "data/maps/Drisledge_Pokecenter_BackRoom/scripts.pory"
-	applymovement 2, ExclamationMark
+	applymovement 2, Common_Movement_ExclamationMark
 # 75 "data/maps/Drisledge_Pokecenter_BackRoom/scripts.pory"
-	applymovement 3, ExclamationMark
+	applymovement 3, Common_Movement_ExclamationMark
 # 76 "data/maps/Drisledge_Pokecenter_BackRoom/scripts.pory"
-	applymovement 4, ExclamationMark
+	applymovement 4, Common_Movement_ExclamationMark
 # 77 "data/maps/Drisledge_Pokecenter_BackRoom/scripts.pory"
 	waitmovement 0
 # 78 "data/maps/Drisledge_Pokecenter_BackRoom/scripts.pory"

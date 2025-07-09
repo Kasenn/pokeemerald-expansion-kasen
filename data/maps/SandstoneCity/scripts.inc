@@ -270,12 +270,12 @@ SandstoneRival_2:
 # 232 "data/maps/SandstoneCity/scripts.pory"
 	delay 10
 # 233 "data/maps/SandstoneCity/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	turnobject LOCALID_PLAYER, DIR_NORTH
 	goto SandstoneRival_1
 
 SandstoneRival_6:
 # 239 "data/maps/SandstoneCity/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Sandstone_PushPlayerDown
+	applymovement LOCALID_PLAYER, Sandstone_PushPlayerDown
 # 240 "data/maps/SandstoneCity/scripts.pory"
 	applymovement 13, Walk1Down
 # 241 "data/maps/SandstoneCity/scripts.pory"
@@ -292,7 +292,7 @@ SandstoneRival_7:
 # 246 "data/maps/SandstoneCity/scripts.pory"
 	applymovement 13, Walk1Down
 # 247 "data/maps/SandstoneCity/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	turnobject LOCALID_PLAYER, DIR_NORTH
 # 248 "data/maps/SandstoneCity/scripts.pory"
 	waitmovement 0
 # 249 "data/maps/SandstoneCity/scripts.pory"
@@ -313,7 +313,7 @@ SandstoneRival_8:
 # 256 "data/maps/SandstoneCity/scripts.pory"
 	waitdooranim
 # 257 "data/maps/SandstoneCity/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	turnobject LOCALID_PLAYER, DIR_NORTH
 # 258 "data/maps/SandstoneCity/scripts.pory"
 	applymovement 13, Walk1Down
 # 259 "data/maps/SandstoneCity/scripts.pory"
@@ -332,7 +332,7 @@ SandstoneRival_9:
 # 265 "data/maps/SandstoneCity/scripts.pory"
 	waitdooranim
 # 266 "data/maps/SandstoneCity/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	turnobject LOCALID_PLAYER, DIR_NORTH
 # 267 "data/maps/SandstoneCity/scripts.pory"
 	applymovement 13, Walk2Down
 # 268 "data/maps/SandstoneCity/scripts.pory"
@@ -356,7 +356,7 @@ SandstoneRival_16:
 # 293 "data/maps/SandstoneCity/scripts.pory"
 	delay 32
 # 294 "data/maps/SandstoneCity/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 	goto SandstoneRival_14
 
 SandstoneRival_17:
@@ -365,7 +365,7 @@ SandstoneRival_17:
 # 297 "data/maps/SandstoneCity/scripts.pory"
 	delay 16
 # 298 "data/maps/SandstoneCity/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 	goto SandstoneRival_14
 
 SandstoneRival_18:
@@ -374,7 +374,7 @@ SandstoneRival_18:
 # 301 "data/maps/SandstoneCity/scripts.pory"
 	delay 16
 # 302 "data/maps/SandstoneCity/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 	goto SandstoneRival_14
 
 SandstoneRival_19:

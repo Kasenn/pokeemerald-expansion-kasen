@@ -40,7 +40,7 @@ FlowerFields_MinaEvent_FrameTable::
 # 20 "data/maps/FlowerFields/scripts.pory"
 	turnobject 1, DIR_EAST
 # 21 "data/maps/FlowerFields/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject LOCALID_PLAYER, DIR_WEST
 # 22 "data/maps/FlowerFields/scripts.pory"
 	delay 5
 # 23 "data/maps/FlowerFields/scripts.pory"

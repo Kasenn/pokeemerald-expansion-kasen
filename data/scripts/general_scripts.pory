@@ -14,6 +14,16 @@ script Script_SinkOrRisePlayer{
 //
 // General stuff
 //
+movement FacePlayer{
+    face_player
+}
+
+script Common_EventScript_FindItem{
+    callnative(GetObjectEventTrainerRangeFromTemplate)
+	finditem(VAR_RESULT)
+	end
+}
+
 script SetupRivalGfxId{
     if(checkplayergender == MALE){
         if(flag(FLAG_RIVAL_COSTUME_CHANGE)){
@@ -169,9 +179,7 @@ script TradeSeedsForFertilizer{
     if (checkitem(ITEM_STRANGE_SEED) == TRUE){
         playse(SE_PIN)
         safefollow
-        applymovement(4, ExclamationMark)
-        waitmovement(0)
-        delay(48)
+        exclamationmark(4)
         setflag(FLAG_MET_STRANGE_SEED_TRADER)
         if(msgbox(CareToTradeSeeds, MSGBOX_YESNO) == TRUE){
             goto(TradeSeedsMain)
@@ -543,12 +551,7 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{              //
-    if(flag(FLAG_ALT_CONNECTION)){
-        clearflag(FLAG_ALT_CONNECTION)
-    }
-    else{
-        setflag(FLAG_ALT_CONNECTION)
-    }
+    playmoncry(SPECIES_RATTATA, CRY_MODE_NORMAL)
     release
     return
 }
@@ -806,7 +809,7 @@ script ClearWindyWoods{
 }
 script ClearCoralgrove{
     setvar(VAR_MAIN_STORY_BITS, STORY_RIVAL_DEFEATED_OR_BAILED_ON)
-    setflag(FLAG_VISITED_RUSTBORO_CITY)
+    setflag(FLAG_VISITED_CORALGROVE_CITY)
     setflag(FLAG_0x267_CG_HIDEGHOST)
     setflag(FLAG_CORALGROVE_CUTSCENE)
     clearflag(FLAG_OBTAINED_PIDGEOTITE)

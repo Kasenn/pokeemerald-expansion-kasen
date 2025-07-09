@@ -149,32 +149,28 @@ FollowerStaysBehind::
 # 82 "data/maps/SkyPillar_1F/scripts.pory"
 	playse SE_PIN
 # 83 "data/maps/SkyPillar_1F/scripts.pory"
-	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, Common_Movement_ExclamationMark
+	exclamationmark OBJ_EVENT_ID_NPC_FOLLOWER
 # 84 "data/maps/SkyPillar_1F/scripts.pory"
-	waitmovement 0
-# 85 "data/maps/SkyPillar_1F/scripts.pory"
-	delay 48
-# 86 "data/maps/SkyPillar_1F/scripts.pory"
 	facefollowernpc
-# 87 "data/maps/SkyPillar_1F/scripts.pory"
+# 85 "data/maps/SkyPillar_1F/scripts.pory"
 	delay 15
 	checkplayergender
 # 0 "data/maps/SkyPillar_1F/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq FollowerStaysBehind_2
-# 92 "data/maps/SkyPillar_1F/scripts.pory"
+# 90 "data/maps/SkyPillar_1F/scripts.pory"
 	msgbox BrendanStayHere
 FollowerStaysBehind_1:
-# 94 "data/maps/SkyPillar_1F/scripts.pory"
+# 92 "data/maps/SkyPillar_1F/scripts.pory"
 	closemessage
-# 95 "data/maps/SkyPillar_1F/scripts.pory"
+# 93 "data/maps/SkyPillar_1F/scripts.pory"
 	setflag FLAG_TEMP_1
-# 96 "data/maps/SkyPillar_1F/scripts.pory"
+# 94 "data/maps/SkyPillar_1F/scripts.pory"
 	release
 	end
 
 FollowerStaysBehind_2:
-# 89 "data/maps/SkyPillar_1F/scripts.pory"
+# 87 "data/maps/SkyPillar_1F/scripts.pory"
 	msgbox MaystayHere
 	goto FollowerStaysBehind_1
 
@@ -193,7 +189,7 @@ AdamantTower1F_Man4_Text::
 	.string "wrecked my team…$"
 
 MaystayHere::
-# 99 "data/maps/SkyPillar_1F/scripts.pory"
+# 97 "data/maps/SkyPillar_1F/scripts.pory"
 	.string "{RIVAL}: You're not planning to leave\n"
 	.string "me to tackle this tower alone,\l"
 	.string "are you?\p"
@@ -203,7 +199,7 @@ MaystayHere::
 	.string "and exciting Pokémon here!$"
 
 BrendanStayHere::
-# 108 "data/maps/SkyPillar_1F/scripts.pory"
+# 106 "data/maps/SkyPillar_1F/scripts.pory"
 	.string "{RIVAL}: Got something more important\n"
 	.string "to do?\p"
 	.string "I understand.\p"

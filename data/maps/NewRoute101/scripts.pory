@@ -5,9 +5,6 @@ mapscripts NewRoute101_MapScripts {
             setweather(WEATHER_RAIN)
             doweather
         }
-        else{
-            resetweather
-        }
     }
 }
 
@@ -151,6 +148,14 @@ script Route1_CoolTrainerPostBattle{
     addbp(10)
     call(BpReward)
     release
+}
+
+text WW_CoolTrainerExplainReward{
+    "Turning on that item will grant\n"
+    "all your Pokémon exp from battling,\l"
+    "even the ones that never participated\l"
+    "in the battle.\p"
+    "I want you to have these as well."
 }
 
 script BpReward{

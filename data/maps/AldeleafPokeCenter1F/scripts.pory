@@ -5,15 +5,6 @@ mapscripts AldeleafPokeCenter1F_MapScripts{
 	}
 }
 
-script AldeleafPokeCenter1F_EventScript_Nurse{
-	setvar(VAR_0x800B, 1)
-	call(Common_EventScript_PkmnCenterNurse)
-	waitmessage
-	waitbuttonpress
-	release
-	end
-}
-
 script AldeleafPokeCenter1F_EventScript_Man{
     if(flag(FLAG_VOLKNER_HELPED)){    
 	    msgbox(AldeleafPokeCenter1F_Text_PokemonHavePersonalities2, MSGBOX_NPC)

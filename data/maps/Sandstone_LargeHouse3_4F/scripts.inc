@@ -187,7 +187,7 @@ BerryWoman::
 	compare VAR_RESULT, TRUE
 	goto_if_eq BerryWoman_5
 BerryWoman_4:
-# 201 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 199 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	releaseall
 	end
 
@@ -200,92 +200,88 @@ BerryWoman_5:
 # 189 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	playse SE_PIN
 # 190 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
-	applymovement 1, ExclamationMark
+	exclamationmark 1
 # 191 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
-	waitmovement 0
-# 192 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
-	delay 48
-# 193 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	msgbox BerryLadyHaveABerry
 	checkitemspace ITEM_CHOPLE_BERRY
 # 0 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq BerryWoman_8
 BerryWoman_7:
-# 197 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 195 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	giveitem ITEM_CHOPLE_BERRY
-# 198 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 196 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	waitfanfare
-# 199 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 197 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	setflag FLAG_RECEIVED_SANDSTONE_BERRY
 	goto BerryWoman_4
 
 BerryWoman_8:
-# 195 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 193 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	goto ZeBagIsFull
 	goto BerryWoman_7
 
 
 SandstoneLargehouse3_Woman::
-# 225 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 223 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	msgbox SandstoneLargehouse3_Woman_Text, MSGBOX_NPC
 	end
 
 
 SandstoneLargehouse3_Man::
-# 230 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 228 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	msgbox SandstoneLargehouse3_Man_Text, MSGBOX_NPC
 	end
 
 
 SandstoneLargehouse3_Hiker::
-# 250 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 248 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	msgbox SandstoneLargehouse3_Hiker_Text, MSGBOX_NPC
 	end
 
 
 SandstoneLargehouse3_Book::
-# 265 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 263 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	lock
-# 266 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 264 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	msgbox SL3_Book_Intro, MSGBOX_YESNO
-# 267 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 265 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq SandstoneLargehouse3_Book_2
 SandstoneLargehouse3_Book_1:
-# 270 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 268 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq SandstoneLargehouse3_Book_5
 SandstoneLargehouse3_Book_4:
-# 273 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 271 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq SandstoneLargehouse3_Book_8
 SandstoneLargehouse3_Book_7:
-# 276 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 274 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq SandstoneLargehouse3_Book_11
 SandstoneLargehouse3_Book_10:
-# 279 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 277 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	releaseall
 	end
 
 SandstoneLargehouse3_Book_2:
-# 268 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 266 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	msgbox SL3_Book_Part1, MSGBOX_YESNO
 	goto SandstoneLargehouse3_Book_1
 
 SandstoneLargehouse3_Book_5:
-# 271 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 269 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	msgbox SL3_Book_Part2, MSGBOX_YESNO
 	goto SandstoneLargehouse3_Book_4
 
 SandstoneLargehouse3_Book_8:
-# 274 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 272 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	msgbox SL3_Book_Part3, MSGBOX_YESNO
 	goto SandstoneLargehouse3_Book_7
 
 SandstoneLargehouse3_Book_11:
-# 277 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 275 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	msgbox SL3_Book_Part4, MSGBOX_SIGN
 	goto SandstoneLargehouse3_Book_10
 
@@ -385,19 +381,19 @@ DevRoom_RightShelf_Text::
 	.string "on top.$"
 
 AlreadyGaveABerry::
-# 205 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 203 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	.string "Rejuvenate the planet,\n"
 	.string "one tree at a time.$"
 
 ImTheBerryLady::
-# 209 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 207 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	.string "Did you know that plants are the\n"
 	.string "lungs of this planet?\l"
 	.string "Keeping Mother Nature healthy\l"
 	.string "keeps us healthy.$"
 
 BerryLadyHaveABerry::
-# 215 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 213 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	.string "Oh!\p"
 	.string "I see you are carrying a Wailmer Pail.\p"
 	.string "You must really care about nature\n"
@@ -406,13 +402,13 @@ BerryLadyHaveABerry::
 	.string "a rich soil somewhere?$"
 
 SandstoneLargehouse3_Woman_Text::
-# 234 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 232 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	.string "We don't often get visitors here.\p"
 	.string "It's like people get lost\n"
 	.string "on the way here.$"
 
 SandstoneLargehouse3_Man_Text::
-# 239 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 237 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	.string "To the east of the city lies route 13,\n"
 	.string "and beyond that, Galewind City.\p"
 	.string "In the past, people used Pokémon to\n"
@@ -422,7 +418,7 @@ SandstoneLargehouse3_Man_Text::
 	.string "the route much easier to traverse.$"
 
 SandstoneLargehouse3_Hiker_Text::
-# 253 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 251 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	.string "Have you been to the desert?\p"
 	.string "In the past I was out there,\n"
 	.string "trying to uncover its secrets.\p"
@@ -433,13 +429,13 @@ SandstoneLargehouse3_Hiker_Text::
 	.string "progress.$"
 
 SL3_Book_Intro::
-# 283 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 281 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	.string "It looks to be a journal written by\n"
 	.string "a member of a desert expedition team.\l"
 	.string "Would you like to read it?$"
 
 SL3_Book_Part1::
-# 288 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 286 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	.string "“Day 3 of the expedition.”\p"
 	.string "“We stumbled upon a cave we swear\n"
 	.string "wasn't here when we first arrived.\p"
@@ -454,7 +450,7 @@ SL3_Book_Part1::
 	.string "Keep reading?$"
 
 SL3_Book_Part2::
-# 302 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 300 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	.string "“Day 4 of the expedition.”\p"
 	.string "“This is certainly peculiar.\p"
 	.string "Maybe it's the fatigue playing tricks\n"
@@ -470,7 +466,7 @@ SL3_Book_Part2::
 	.string "Keep reading?$"
 
 SL3_Book_Part3::
-# 317 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 315 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	.string "“Day 7 of the expedition.”\p"
 	.string "“We've been investigating the cave\n"
 	.string "for a few days now.\p"
@@ -486,7 +482,7 @@ SL3_Book_Part3::
 	.string "Keep reading?$"
 
 SL3_Book_Part4::
-# 332 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
+# 330 "data/maps/Sandstone_LargeHouse3_4F/scripts.pory"
 	.string "“Day 11 of the expedition.”\p"
 	.string "“We were so close,\n"
 	.string "I could sense it!\p"

@@ -443,7 +443,7 @@ Solo_HealPkmn::
 # 269 "data/maps/Drisledge_Pokecenter_1F/scripts.pory"
 	special DrawWholeMapView
 # 270 "data/maps/Drisledge_Pokecenter_1F/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, HopOverLedgeToNorth
+	applymovement LOCALID_PLAYER, HopOverLedgeToNorth
 # 271 "data/maps/Drisledge_Pokecenter_1F/scripts.pory"
 	delay 22
 # 272 "data/maps/Drisledge_Pokecenter_1F/scripts.pory"
@@ -471,7 +471,7 @@ Solo_HealPkmn::
 # 283 "data/maps/Drisledge_Pokecenter_1F/scripts.pory"
 	playse SE_LEDGE
 # 284 "data/maps/Drisledge_Pokecenter_1F/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, HopOverLedgeToSouth
+	applymovement LOCALID_PLAYER, HopOverLedgeToSouth
 # 285 "data/maps/Drisledge_Pokecenter_1F/scripts.pory"
 	delay 8
 # 286 "data/maps/Drisledge_Pokecenter_1F/scripts.pory"

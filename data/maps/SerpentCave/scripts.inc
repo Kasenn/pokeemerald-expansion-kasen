@@ -1203,62 +1203,58 @@ IrisGoodbye_1:
 # 651 "data/maps/SerpentCave/scripts.pory"
 	playse SE_PIN
 # 652 "data/maps/SerpentCave/scripts.pory"
-	applymovement 31, ExclamationMark
+	exclamationmark 31
 # 653 "data/maps/SerpentCave/scripts.pory"
-	waitmovement 0
-# 654 "data/maps/SerpentCave/scripts.pory"
-	delay 48
-# 655 "data/maps/SerpentCave/scripts.pory"
 	switch VAR_TEMP_1
-# 656 "data/maps/SerpentCave/scripts.pory"
+# 654 "data/maps/SerpentCave/scripts.pory"
 	case 0, IrisGoodbye_7
-# 657 "data/maps/SerpentCave/scripts.pory"
+# 655 "data/maps/SerpentCave/scripts.pory"
 	case 2, IrisGoodbye_7
-# 659 "data/maps/SerpentCave/scripts.pory"
+# 657 "data/maps/SerpentCave/scripts.pory"
 	case 1, IrisGoodbye_8
-# 661 "data/maps/SerpentCave/scripts.pory"
+# 659 "data/maps/SerpentCave/scripts.pory"
 	case 3, IrisGoodbye_9
-# 663 "data/maps/SerpentCave/scripts.pory"
+# 661 "data/maps/SerpentCave/scripts.pory"
 	case 4, IrisGoodbye_10
 IrisGoodbye_5:
-# 666 "data/maps/SerpentCave/scripts.pory"
+# 664 "data/maps/SerpentCave/scripts.pory"
 	waitmovement 0
-# 667 "data/maps/SerpentCave/scripts.pory"
+# 665 "data/maps/SerpentCave/scripts.pory"
 	delay 10
-# 668 "data/maps/SerpentCave/scripts.pory"
+# 666 "data/maps/SerpentCave/scripts.pory"
 	msgbox IrisIntroText
-# 669 "data/maps/SerpentCave/scripts.pory"
+# 667 "data/maps/SerpentCave/scripts.pory"
 	closemessage
-# 670 "data/maps/SerpentCave/scripts.pory"
+# 668 "data/maps/SerpentCave/scripts.pory"
 	delay 5
-# 671 "data/maps/SerpentCave/scripts.pory"
+# 669 "data/maps/SerpentCave/scripts.pory"
 	switch VAR_TEMP_1
-# 672 "data/maps/SerpentCave/scripts.pory"
+# 670 "data/maps/SerpentCave/scripts.pory"
 	case 2, IrisGoodbye_13
 IrisGoodbye_11:
-# 675 "data/maps/SerpentCave/scripts.pory"
+# 673 "data/maps/SerpentCave/scripts.pory"
 	delay 48
-# 676 "data/maps/SerpentCave/scripts.pory"
+# 674 "data/maps/SerpentCave/scripts.pory"
 	addobject 32
-# 677 "data/maps/SerpentCave/scripts.pory"
+# 675 "data/maps/SerpentCave/scripts.pory"
 	addobject 33
-# 678 "data/maps/SerpentCave/scripts.pory"
+# 676 "data/maps/SerpentCave/scripts.pory"
 	removeobject 31
-# 679 "data/maps/SerpentCave/scripts.pory"
+# 677 "data/maps/SerpentCave/scripts.pory"
 	delay 60
-# 680 "data/maps/SerpentCave/scripts.pory"
+# 678 "data/maps/SerpentCave/scripts.pory"
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
-# 681 "data/maps/SerpentCave/scripts.pory"
+# 679 "data/maps/SerpentCave/scripts.pory"
 	switch VAR_TEMP_1
-# 682 "data/maps/SerpentCave/scripts.pory"
+# 680 "data/maps/SerpentCave/scripts.pory"
 	case 0, IrisGoodbye_15
-# 684 "data/maps/SerpentCave/scripts.pory"
+# 682 "data/maps/SerpentCave/scripts.pory"
 	case 1, IrisGoodbye_16
-# 686 "data/maps/SerpentCave/scripts.pory"
+# 684 "data/maps/SerpentCave/scripts.pory"
 	case 2, IrisGoodbye_17
-# 688 "data/maps/SerpentCave/scripts.pory"
+# 686 "data/maps/SerpentCave/scripts.pory"
 	case 3, IrisGoodbye_18
-# 690 "data/maps/SerpentCave/scripts.pory"
+# 688 "data/maps/SerpentCave/scripts.pory"
 	case 4, IrisGoodbye_19
 	return
 
@@ -1268,78 +1264,82 @@ IrisGoodbye_3:
 	goto IrisGoodbye_1
 
 IrisGoodbye_7:
-# 658 "data/maps/SerpentCave/scripts.pory"
+# 656 "data/maps/SerpentCave/scripts.pory"
 	applymovement 31, Walk1Up
 	goto IrisGoodbye_5
 
 IrisGoodbye_8:
-# 660 "data/maps/SerpentCave/scripts.pory"
+# 658 "data/maps/SerpentCave/scripts.pory"
 	applymovement 31, Walk3Down
 	goto IrisGoodbye_5
 
 IrisGoodbye_9:
-# 662 "data/maps/SerpentCave/scripts.pory"
+# 660 "data/maps/SerpentCave/scripts.pory"
 	applymovement 31, Walk2Down
 	goto IrisGoodbye_5
 
 IrisGoodbye_10:
-# 664 "data/maps/SerpentCave/scripts.pory"
+# 662 "data/maps/SerpentCave/scripts.pory"
 	applymovement 31, Walk2Down
 	goto IrisGoodbye_5
 
 IrisGoodbye_13:
-# 673 "data/maps/SerpentCave/scripts.pory"
+# 671 "data/maps/SerpentCave/scripts.pory"
 	turnobject 31, DIR_EAST
 	goto IrisGoodbye_11
 
 IrisGoodbye_15:
-# 683 "data/maps/SerpentCave/scripts.pory"
+# 681 "data/maps/SerpentCave/scripts.pory"
 	goto IrisLeavesEntrance1
 	return
 
 IrisGoodbye_16:
-# 685 "data/maps/SerpentCave/scripts.pory"
+# 683 "data/maps/SerpentCave/scripts.pory"
 	goto IrisLeavesEntrance2
 	return
 
 IrisGoodbye_17:
-# 687 "data/maps/SerpentCave/scripts.pory"
+# 685 "data/maps/SerpentCave/scripts.pory"
 	goto IrisLeavesEntrance3
 	return
 
 IrisGoodbye_18:
-# 689 "data/maps/SerpentCave/scripts.pory"
+# 687 "data/maps/SerpentCave/scripts.pory"
 	goto IrisLeavesEntrance4
 	return
 
 IrisGoodbye_19:
-# 691 "data/maps/SerpentCave/scripts.pory"
+# 689 "data/maps/SerpentCave/scripts.pory"
 	goto IrisLeavesEntrance5
 	return
 
 
-# 695 "data/maps/SerpentCave/scripts.pory"
+# 693 "data/maps/SerpentCave/scripts.pory"
 IrisLeavesOnAggron1:
-# 696 "data/maps/SerpentCave/scripts.pory"
+# 694 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_up
-# 696 "data/maps/SerpentCave/scripts.pory"
+# 694 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_up
-# 696 "data/maps/SerpentCave/scripts.pory"
+# 694 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_up
-# 696 "data/maps/SerpentCave/scripts.pory"
+# 694 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_up
-# 696 "data/maps/SerpentCave/scripts.pory"
+# 694 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_up
-# 696 "data/maps/SerpentCave/scripts.pory"
+# 694 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_up
+# 695 "data/maps/SerpentCave/scripts.pory"
+	walk_down
+# 696 "data/maps/SerpentCave/scripts.pory"
+	walk_right
+# 696 "data/maps/SerpentCave/scripts.pory"
+	walk_right
 # 697 "data/maps/SerpentCave/scripts.pory"
 	walk_down
 # 698 "data/maps/SerpentCave/scripts.pory"
-	walk_right
-# 698 "data/maps/SerpentCave/scripts.pory"
-	walk_right
+	jump_special_down
 # 699 "data/maps/SerpentCave/scripts.pory"
-	walk_down
+	delay_16
 # 700 "data/maps/SerpentCave/scripts.pory"
 	jump_special_down
 # 701 "data/maps/SerpentCave/scripts.pory"
@@ -1356,36 +1356,38 @@ IrisLeavesOnAggron1:
 	jump_special_down
 # 707 "data/maps/SerpentCave/scripts.pory"
 	delay_16
-# 708 "data/maps/SerpentCave/scripts.pory"
-	jump_special_down
-# 709 "data/maps/SerpentCave/scripts.pory"
-	delay_16
 	step_end
 
-# 711 "data/maps/SerpentCave/scripts.pory"
+# 709 "data/maps/SerpentCave/scripts.pory"
 IrisLeavesOnAggron2:
-# 712 "data/maps/SerpentCave/scripts.pory"
+# 710 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
-# 712 "data/maps/SerpentCave/scripts.pory"
+# 710 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
-# 712 "data/maps/SerpentCave/scripts.pory"
+# 710 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
-# 712 "data/maps/SerpentCave/scripts.pory"
+# 710 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
-# 712 "data/maps/SerpentCave/scripts.pory"
+# 710 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
-# 712 "data/maps/SerpentCave/scripts.pory"
+# 710 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
-# 713 "data/maps/SerpentCave/scripts.pory"
+# 711 "data/maps/SerpentCave/scripts.pory"
 	walk_up
+# 711 "data/maps/SerpentCave/scripts.pory"
+	walk_up
+# 712 "data/maps/SerpentCave/scripts.pory"
+	walk_right
+# 712 "data/maps/SerpentCave/scripts.pory"
+	walk_right
 # 713 "data/maps/SerpentCave/scripts.pory"
 	walk_up
 # 714 "data/maps/SerpentCave/scripts.pory"
-	walk_right
-# 714 "data/maps/SerpentCave/scripts.pory"
-	walk_right
+	jump_up
 # 715 "data/maps/SerpentCave/scripts.pory"
-	walk_up
+	delay_16
+# 715 "data/maps/SerpentCave/scripts.pory"
+	delay_16
 # 716 "data/maps/SerpentCave/scripts.pory"
 	jump_up
 # 717 "data/maps/SerpentCave/scripts.pory"
@@ -1410,30 +1412,28 @@ IrisLeavesOnAggron2:
 	delay_16
 # 723 "data/maps/SerpentCave/scripts.pory"
 	delay_16
-# 724 "data/maps/SerpentCave/scripts.pory"
-	jump_up
-# 725 "data/maps/SerpentCave/scripts.pory"
-	delay_16
-# 725 "data/maps/SerpentCave/scripts.pory"
-	delay_16
 	step_end
 
-# 727 "data/maps/SerpentCave/scripts.pory"
+# 725 "data/maps/SerpentCave/scripts.pory"
 IrisLeavesOnAggron3:
-# 728 "data/maps/SerpentCave/scripts.pory"
+# 726 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_right
-# 728 "data/maps/SerpentCave/scripts.pory"
+# 726 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_right
-# 728 "data/maps/SerpentCave/scripts.pory"
+# 726 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_right
-# 728 "data/maps/SerpentCave/scripts.pory"
+# 726 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_right
-# 728 "data/maps/SerpentCave/scripts.pory"
+# 726 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_right
-# 728 "data/maps/SerpentCave/scripts.pory"
+# 726 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_right
-# 729 "data/maps/SerpentCave/scripts.pory"
+# 727 "data/maps/SerpentCave/scripts.pory"
 	walk_down
+# 728 "data/maps/SerpentCave/scripts.pory"
+	jump_special_down
+# 729 "data/maps/SerpentCave/scripts.pory"
+	delay_16
 # 730 "data/maps/SerpentCave/scripts.pory"
 	jump_special_down
 # 731 "data/maps/SerpentCave/scripts.pory"
@@ -1443,35 +1443,37 @@ IrisLeavesOnAggron3:
 # 733 "data/maps/SerpentCave/scripts.pory"
 	delay_16
 # 734 "data/maps/SerpentCave/scripts.pory"
-	jump_special_down
-# 735 "data/maps/SerpentCave/scripts.pory"
-	delay_16
-# 736 "data/maps/SerpentCave/scripts.pory"
 	walk_down
-# 736 "data/maps/SerpentCave/scripts.pory"
+# 734 "data/maps/SerpentCave/scripts.pory"
 	walk_down
-# 736 "data/maps/SerpentCave/scripts.pory"
+# 734 "data/maps/SerpentCave/scripts.pory"
 	walk_down
 	step_end
 
-# 738 "data/maps/SerpentCave/scripts.pory"
+# 736 "data/maps/SerpentCave/scripts.pory"
 IrisLeavesOnAggron4:
-# 739 "data/maps/SerpentCave/scripts.pory"
+# 737 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
-# 739 "data/maps/SerpentCave/scripts.pory"
+# 737 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
-# 739 "data/maps/SerpentCave/scripts.pory"
+# 737 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
-# 739 "data/maps/SerpentCave/scripts.pory"
+# 737 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
-# 739 "data/maps/SerpentCave/scripts.pory"
+# 737 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
-# 739 "data/maps/SerpentCave/scripts.pory"
+# 737 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
-# 740 "data/maps/SerpentCave/scripts.pory"
+# 738 "data/maps/SerpentCave/scripts.pory"
 	walk_up
-# 740 "data/maps/SerpentCave/scripts.pory"
+# 738 "data/maps/SerpentCave/scripts.pory"
 	walk_up
+# 739 "data/maps/SerpentCave/scripts.pory"
+	jump_up
+# 740 "data/maps/SerpentCave/scripts.pory"
+	delay_16
+# 740 "data/maps/SerpentCave/scripts.pory"
+	delay_16
 # 741 "data/maps/SerpentCave/scripts.pory"
 	jump_up
 # 742 "data/maps/SerpentCave/scripts.pory"
@@ -1496,36 +1498,36 @@ IrisLeavesOnAggron4:
 	delay_16
 # 748 "data/maps/SerpentCave/scripts.pory"
 	delay_16
-# 749 "data/maps/SerpentCave/scripts.pory"
-	jump_up
-# 750 "data/maps/SerpentCave/scripts.pory"
-	delay_16
-# 750 "data/maps/SerpentCave/scripts.pory"
-	delay_16
 	step_end
 
-# 752 "data/maps/SerpentCave/scripts.pory"
+# 750 "data/maps/SerpentCave/scripts.pory"
 IrisLeavesOnAggron5:
-# 753 "data/maps/SerpentCave/scripts.pory"
+# 751 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
-# 753 "data/maps/SerpentCave/scripts.pory"
+# 751 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
-# 753 "data/maps/SerpentCave/scripts.pory"
+# 751 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
-# 753 "data/maps/SerpentCave/scripts.pory"
+# 751 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
-# 753 "data/maps/SerpentCave/scripts.pory"
+# 751 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
-# 753 "data/maps/SerpentCave/scripts.pory"
+# 751 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
+# 752 "data/maps/SerpentCave/scripts.pory"
+	walk_up
+# 753 "data/maps/SerpentCave/scripts.pory"
+	walk_right
+# 753 "data/maps/SerpentCave/scripts.pory"
+	walk_right
 # 754 "data/maps/SerpentCave/scripts.pory"
 	walk_up
 # 755 "data/maps/SerpentCave/scripts.pory"
-	walk_right
-# 755 "data/maps/SerpentCave/scripts.pory"
-	walk_right
+	jump_up
 # 756 "data/maps/SerpentCave/scripts.pory"
-	walk_up
+	delay_16
+# 756 "data/maps/SerpentCave/scripts.pory"
+	delay_16
 # 757 "data/maps/SerpentCave/scripts.pory"
 	jump_up
 # 758 "data/maps/SerpentCave/scripts.pory"
@@ -1550,25 +1552,23 @@ IrisLeavesOnAggron5:
 	delay_16
 # 764 "data/maps/SerpentCave/scripts.pory"
 	delay_16
-# 765 "data/maps/SerpentCave/scripts.pory"
-	jump_up
-# 766 "data/maps/SerpentCave/scripts.pory"
-	delay_16
-# 766 "data/maps/SerpentCave/scripts.pory"
-	delay_16
 	step_end
 
 IrisLeavesEntrance1::
-# 770 "data/maps/SerpentCave/scripts.pory"
+# 768 "data/maps/SerpentCave/scripts.pory"
 	applymovement 32, IrisLeavesOnAggron1
-# 771 "data/maps/SerpentCave/scripts.pory"
+# 769 "data/maps/SerpentCave/scripts.pory"
 	applymovement 33, IrisLeavesOnAggron1
+# 770 "data/maps/SerpentCave/scripts.pory"
+	delay 72
+# 771 "data/maps/SerpentCave/scripts.pory"
+	message IrisLeavesEntrance1_Text_0
 # 772 "data/maps/SerpentCave/scripts.pory"
 	delay 72
 # 773 "data/maps/SerpentCave/scripts.pory"
-	message IrisLeavesEntrance1_Text_0
+	call CameraShakeFaster
 # 774 "data/maps/SerpentCave/scripts.pory"
-	delay 72
+	delay 48
 # 775 "data/maps/SerpentCave/scripts.pory"
 	call CameraShakeFaster
 # 776 "data/maps/SerpentCave/scripts.pory"
@@ -1584,25 +1584,25 @@ IrisLeavesEntrance1::
 # 781 "data/maps/SerpentCave/scripts.pory"
 	call CameraShakeFaster
 # 782 "data/maps/SerpentCave/scripts.pory"
-	delay 48
-# 783 "data/maps/SerpentCave/scripts.pory"
-	call CameraShakeFaster
-# 784 "data/maps/SerpentCave/scripts.pory"
 	goto IrisIntroEnd
 	return
 
 
 IrisLeavesEntrance2::
-# 787 "data/maps/SerpentCave/scripts.pory"
+# 785 "data/maps/SerpentCave/scripts.pory"
 	applymovement 32, IrisLeavesOnAggron2
-# 788 "data/maps/SerpentCave/scripts.pory"
+# 786 "data/maps/SerpentCave/scripts.pory"
 	applymovement 33, IrisLeavesOnAggron2
-# 789 "data/maps/SerpentCave/scripts.pory"
+# 787 "data/maps/SerpentCave/scripts.pory"
 	delay 56
-# 790 "data/maps/SerpentCave/scripts.pory"
+# 788 "data/maps/SerpentCave/scripts.pory"
 	message IrisLeavesEntrance1_Text_0
-# 791 "data/maps/SerpentCave/scripts.pory"
+# 789 "data/maps/SerpentCave/scripts.pory"
 	delay 88
+# 790 "data/maps/SerpentCave/scripts.pory"
+	call CameraShakeFaster
+# 791 "data/maps/SerpentCave/scripts.pory"
+	delay 48
 # 792 "data/maps/SerpentCave/scripts.pory"
 	call CameraShakeFaster
 # 793 "data/maps/SerpentCave/scripts.pory"
@@ -1618,27 +1618,27 @@ IrisLeavesEntrance2::
 # 798 "data/maps/SerpentCave/scripts.pory"
 	call CameraShakeFaster
 # 799 "data/maps/SerpentCave/scripts.pory"
-	delay 48
-# 800 "data/maps/SerpentCave/scripts.pory"
-	call CameraShakeFaster
-# 801 "data/maps/SerpentCave/scripts.pory"
 	goto IrisIntroEnd
 	return
 
 
 IrisLeavesEntrance3::
-# 804 "data/maps/SerpentCave/scripts.pory"
+# 802 "data/maps/SerpentCave/scripts.pory"
 	applymovement 32, IrisLeavesOnAggron3
-# 805 "data/maps/SerpentCave/scripts.pory"
+# 803 "data/maps/SerpentCave/scripts.pory"
 	applymovement 33, IrisLeavesOnAggron3
-# 806 "data/maps/SerpentCave/scripts.pory"
+# 804 "data/maps/SerpentCave/scripts.pory"
 	delay 48
-# 807 "data/maps/SerpentCave/scripts.pory"
+# 805 "data/maps/SerpentCave/scripts.pory"
 	delay 12
-# 808 "data/maps/SerpentCave/scripts.pory"
+# 806 "data/maps/SerpentCave/scripts.pory"
 	message IrisLeavesEntrance1_Text_0
-# 809 "data/maps/SerpentCave/scripts.pory"
+# 807 "data/maps/SerpentCave/scripts.pory"
 	delay 36
+# 808 "data/maps/SerpentCave/scripts.pory"
+	call CameraShakeFaster
+# 809 "data/maps/SerpentCave/scripts.pory"
+	delay 48
 # 810 "data/maps/SerpentCave/scripts.pory"
 	call CameraShakeFaster
 # 811 "data/maps/SerpentCave/scripts.pory"
@@ -1646,25 +1646,25 @@ IrisLeavesEntrance3::
 # 812 "data/maps/SerpentCave/scripts.pory"
 	call CameraShakeFaster
 # 813 "data/maps/SerpentCave/scripts.pory"
-	delay 48
-# 814 "data/maps/SerpentCave/scripts.pory"
-	call CameraShakeFaster
-# 815 "data/maps/SerpentCave/scripts.pory"
 	goto IrisIntroEnd
 	return
 
 
 IrisLeavesEntrance4::
-# 818 "data/maps/SerpentCave/scripts.pory"
+# 816 "data/maps/SerpentCave/scripts.pory"
 	applymovement 32, IrisLeavesOnAggron4
-# 819 "data/maps/SerpentCave/scripts.pory"
+# 817 "data/maps/SerpentCave/scripts.pory"
 	applymovement 33, IrisLeavesOnAggron4
-# 820 "data/maps/SerpentCave/scripts.pory"
+# 818 "data/maps/SerpentCave/scripts.pory"
 	delay 56
-# 821 "data/maps/SerpentCave/scripts.pory"
+# 819 "data/maps/SerpentCave/scripts.pory"
 	message IrisLeavesEntrance1_Text_0
-# 822 "data/maps/SerpentCave/scripts.pory"
+# 820 "data/maps/SerpentCave/scripts.pory"
 	delay 40
+# 821 "data/maps/SerpentCave/scripts.pory"
+	call CameraShakeFaster
+# 822 "data/maps/SerpentCave/scripts.pory"
+	delay 48
 # 823 "data/maps/SerpentCave/scripts.pory"
 	call CameraShakeFaster
 # 824 "data/maps/SerpentCave/scripts.pory"
@@ -1680,25 +1680,25 @@ IrisLeavesEntrance4::
 # 829 "data/maps/SerpentCave/scripts.pory"
 	call CameraShakeFaster
 # 830 "data/maps/SerpentCave/scripts.pory"
-	delay 48
-# 831 "data/maps/SerpentCave/scripts.pory"
-	call CameraShakeFaster
-# 832 "data/maps/SerpentCave/scripts.pory"
 	goto IrisIntroEnd
 	return
 
 
 IrisLeavesEntrance5::
-# 835 "data/maps/SerpentCave/scripts.pory"
+# 833 "data/maps/SerpentCave/scripts.pory"
 	applymovement 32, IrisLeavesOnAggron5
-# 836 "data/maps/SerpentCave/scripts.pory"
+# 834 "data/maps/SerpentCave/scripts.pory"
 	applymovement 33, IrisLeavesOnAggron5
+# 835 "data/maps/SerpentCave/scripts.pory"
+	delay 56
+# 836 "data/maps/SerpentCave/scripts.pory"
+	message IrisLeavesEntrance1_Text_0
 # 837 "data/maps/SerpentCave/scripts.pory"
 	delay 56
 # 838 "data/maps/SerpentCave/scripts.pory"
-	message IrisLeavesEntrance1_Text_0
+	call CameraShakeFaster
 # 839 "data/maps/SerpentCave/scripts.pory"
-	delay 56
+	delay 48
 # 840 "data/maps/SerpentCave/scripts.pory"
 	call CameraShakeFaster
 # 841 "data/maps/SerpentCave/scripts.pory"
@@ -1714,32 +1714,28 @@ IrisLeavesEntrance5::
 # 846 "data/maps/SerpentCave/scripts.pory"
 	call CameraShakeFaster
 # 847 "data/maps/SerpentCave/scripts.pory"
-	delay 48
-# 848 "data/maps/SerpentCave/scripts.pory"
-	call CameraShakeFaster
-# 849 "data/maps/SerpentCave/scripts.pory"
 	goto IrisIntroEnd
 	return
 
 
 IrisIntroEnd::
-# 852 "data/maps/SerpentCave/scripts.pory"
+# 850 "data/maps/SerpentCave/scripts.pory"
 	waitmovement 0
-# 853 "data/maps/SerpentCave/scripts.pory"
+# 851 "data/maps/SerpentCave/scripts.pory"
 	delay 30
-# 854 "data/maps/SerpentCave/scripts.pory"
+# 852 "data/maps/SerpentCave/scripts.pory"
 	removeobject 32
-# 855 "data/maps/SerpentCave/scripts.pory"
+# 853 "data/maps/SerpentCave/scripts.pory"
 	removeobject 33
-# 856 "data/maps/SerpentCave/scripts.pory"
+# 854 "data/maps/SerpentCave/scripts.pory"
 	setvar VAR_SERPENTCAVE_STORY, STORY_SERPENTCAVE_IRIS_INTRO
-# 857 "data/maps/SerpentCave/scripts.pory"
+# 855 "data/maps/SerpentCave/scripts.pory"
 	release
 	return
 
 
 IrisLeavesEntrance1_Text_0:
-# 773 "data/maps/SerpentCave/scripts.pory"
+# 771 "data/maps/SerpentCave/scripts.pory"
 	.string "NOT THAT WAYYY!$"
 
 PushBoulderAsideCant::

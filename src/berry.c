@@ -1840,6 +1840,22 @@ void ClearBerryTrees(void)
         gSaveBlock1Ptr->berryTrees[i] = gBlankBerryTree;
 }
 
+// void RandomizeBerryTrees(void)
+// {
+//     int i;
+
+//     for (i = 0; i < BERRY_TREES_COUNT; i++)
+//     {
+//         if (gSaveBlock1Ptr->berryTrees[i].berry != ITEM_NONE)
+//         {
+//             const struct Berry *berry = GetBerryInfo(gSaveBlock1Ptr->berryTrees[i].berry);
+//             u16 yield = berry->minYield + (Random() % (berry->maxYield - berry->minYield + 1));
+
+//             gSaveBlock1Ptr->berryTrees[i].berryYield = yield;
+//         }
+//     }
+// }
+
 bool32 BerryTreeGrow(struct BerryTree *tree)
 {
     if (tree->stopGrowth)

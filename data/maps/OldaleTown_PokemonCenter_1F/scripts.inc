@@ -9,9 +9,9 @@ OldaleTown_PokemonCenter_1F_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	return
 
 
-OldaleTown_PokemonCenter_1F_EventScript_Nurse::
+PokemonCenter_Nurse::
 # 10 "data/maps/OldaleTown_PokemonCenter_1F/scripts.pory"
-	setvar VAR_0x800B, 1
+	copyvar VAR_0x800B, VAR_LAST_TALKED
 # 11 "data/maps/OldaleTown_PokemonCenter_1F/scripts.pory"
 	call Common_EventScript_PkmnCenterNurse
 # 12 "data/maps/OldaleTown_PokemonCenter_1F/scripts.pory"

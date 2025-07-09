@@ -117,7 +117,7 @@ PokeRanch_Volkner::
 	compare VAR_POKERANCH, 0
 	goto_if_eq PokeRanch_Volkner_8
 PokeRanch_Volkner_7:
-# 133 "data/maps/PokeRanch/scripts.pory"
+# 131 "data/maps/PokeRanch/scripts.pory"
 	compare VAR_POKERANCH, 1
 	goto_if_eq PokeRanch_Volkner_13
 	return
@@ -178,39 +178,35 @@ PokeRanch_Volkner_8:
 # 104 "data/maps/PokeRanch/scripts.pory"
 	playse SE_PIN
 # 105 "data/maps/PokeRanch/scripts.pory"
-	applymovement 10, Common_Movement_ExclamationMark
+	exclamationmark 10
 # 106 "data/maps/PokeRanch/scripts.pory"
-	waitmovement 0
-# 107 "data/maps/PokeRanch/scripts.pory"
-	delay 40
-# 108 "data/maps/PokeRanch/scripts.pory"
 	msgbox PokeRanch_VolknerIntroContinued, MSGBOX_DEFAULT
-# 109 "data/maps/PokeRanch/scripts.pory"
+# 107 "data/maps/PokeRanch/scripts.pory"
 	waitmessage
-# 110 "data/maps/PokeRanch/scripts.pory"
+# 108 "data/maps/PokeRanch/scripts.pory"
 	closemessage
-# 111 "data/maps/PokeRanch/scripts.pory"
+# 109 "data/maps/PokeRanch/scripts.pory"
 	goto_if_set FLAG_JASMINE_HELPED, PokeRanch_Volkner_16
-# 116 "data/maps/PokeRanch/scripts.pory"
+# 114 "data/maps/PokeRanch/scripts.pory"
 	goto_if_set FLAG_JASMINE_TALKED_TO_FIRST, PokeRanch_Volkner_17
-# 122 "data/maps/PokeRanch/scripts.pory"
+# 120 "data/maps/PokeRanch/scripts.pory"
 	msgbox PokeRanch_JasmineNotTalkedTo, MSGBOX_DEFAULT
-# 123 "data/maps/PokeRanch/scripts.pory"
+# 121 "data/maps/PokeRanch/scripts.pory"
 	waitmessage
-# 124 "data/maps/PokeRanch/scripts.pory"
+# 122 "data/maps/PokeRanch/scripts.pory"
 	closemessage
 PokeRanch_Volkner_15:
-# 126 "data/maps/PokeRanch/scripts.pory"
+# 124 "data/maps/PokeRanch/scripts.pory"
 	msgbox PokeRanch_VolknerSecondIssue, MSGBOX_DEFAULT
-# 127 "data/maps/PokeRanch/scripts.pory"
+# 125 "data/maps/PokeRanch/scripts.pory"
 	waitmessage
-# 128 "data/maps/PokeRanch/scripts.pory"
+# 126 "data/maps/PokeRanch/scripts.pory"
 	closemessage
-# 129 "data/maps/PokeRanch/scripts.pory"
+# 127 "data/maps/PokeRanch/scripts.pory"
 	setvar VAR_POKERANCH, 1
-# 130 "data/maps/PokeRanch/scripts.pory"
+# 128 "data/maps/PokeRanch/scripts.pory"
 	setflag FLAG_VOLKNER_TALKED_TO_FIRST
-# 131 "data/maps/PokeRanch/scripts.pory"
+# 129 "data/maps/PokeRanch/scripts.pory"
 	goto PokeRanch_VolknerMoveAfterIntro
 	goto PokeRanch_Volkner_7
 
@@ -223,34 +219,34 @@ PokeRanch_Volkner_11:
 	goto PokeRanch_Volkner_10
 
 PokeRanch_Volkner_13:
-# 134 "data/maps/PokeRanch/scripts.pory"
+# 132 "data/maps/PokeRanch/scripts.pory"
 	msgbox PokeRanch_VolknerGossip, MSGBOX_DEFAULT
-# 135 "data/maps/PokeRanch/scripts.pory"
+# 133 "data/maps/PokeRanch/scripts.pory"
 	goto_if_set FLAG_JASMINE_HELPED, PokeRanch_Volkner_29
 PokeRanch_Volkner_27:
-# 139 "data/maps/PokeRanch/scripts.pory"
+# 137 "data/maps/PokeRanch/scripts.pory"
 	waitmessage
-# 140 "data/maps/PokeRanch/scripts.pory"
+# 138 "data/maps/PokeRanch/scripts.pory"
 	closemessage
-# 141 "data/maps/PokeRanch/scripts.pory"
+# 139 "data/maps/PokeRanch/scripts.pory"
 	release
 	end
 
 PokeRanch_Volkner_16:
-# 112 "data/maps/PokeRanch/scripts.pory"
+# 110 "data/maps/PokeRanch/scripts.pory"
 	msgbox PokeRanch_JasmineAlreadyHelped, MSGBOX_DEFAULT
-# 113 "data/maps/PokeRanch/scripts.pory"
+# 111 "data/maps/PokeRanch/scripts.pory"
 	waitmessage
-# 114 "data/maps/PokeRanch/scripts.pory"
+# 112 "data/maps/PokeRanch/scripts.pory"
 	closemessage
 	goto PokeRanch_Volkner_15
 
 PokeRanch_Volkner_17:
-# 117 "data/maps/PokeRanch/scripts.pory"
+# 115 "data/maps/PokeRanch/scripts.pory"
 	msgbox PokeRanch_JasmineTalkedToFirst, MSGBOX_DEFAULT
-# 118 "data/maps/PokeRanch/scripts.pory"
+# 116 "data/maps/PokeRanch/scripts.pory"
 	waitmessage
-# 119 "data/maps/PokeRanch/scripts.pory"
+# 117 "data/maps/PokeRanch/scripts.pory"
 	closemessage
 	goto PokeRanch_Volkner_15
 
@@ -265,14 +261,14 @@ PokeRanch_Volkner_24:
 	goto PokeRanch_Volkner_10
 
 PokeRanch_Volkner_28:
-# 136 "data/maps/PokeRanch/scripts.pory"
+# 134 "data/maps/PokeRanch/scripts.pory"
 	msgbox Volkner2_JasmineHelped, MSGBOX_DEFAULT
-# 137 "data/maps/PokeRanch/scripts.pory"
+# 135 "data/maps/PokeRanch/scripts.pory"
 	setflag FLAG_VOLKNER_INFORMED
 	goto PokeRanch_Volkner_27
 
 PokeRanch_Volkner_29:
-# 135 "data/maps/PokeRanch/scripts.pory"
+# 133 "data/maps/PokeRanch/scripts.pory"
 	goto_if_unset FLAG_VOLKNER_INFORMED, PokeRanch_Volkner_28
 	goto PokeRanch_Volkner_27
 
@@ -282,717 +278,717 @@ PokeRanch_Volkner_33:
 	goto PokeRanch_Volkner_32
 
 
-# 147 "data/maps/PokeRanch/scripts.pory"
+# 145 "data/maps/PokeRanch/scripts.pory"
 PokeRanch_VolknerExit2FacingNorth:
-# 148 "data/maps/PokeRanch/scripts.pory"
+# 146 "data/maps/PokeRanch/scripts.pory"
 	walk_right
-# 149 "data/maps/PokeRanch/scripts.pory"
+# 147 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 149 "data/maps/PokeRanch/scripts.pory"
+# 147 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 149 "data/maps/PokeRanch/scripts.pory"
+# 147 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 149 "data/maps/PokeRanch/scripts.pory"
+# 147 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 149 "data/maps/PokeRanch/scripts.pory"
+# 147 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 149 "data/maps/PokeRanch/scripts.pory"
+# 147 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 149 "data/maps/PokeRanch/scripts.pory"
+# 147 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 149 "data/maps/PokeRanch/scripts.pory"
+# 147 "data/maps/PokeRanch/scripts.pory"
 	walk_down
 	step_end
 
-# 151 "data/maps/PokeRanch/scripts.pory"
+# 149 "data/maps/PokeRanch/scripts.pory"
 PokeRanch_VolknerExit2FacingNorthAlt:
-# 152 "data/maps/PokeRanch/scripts.pory"
+# 150 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 153 "data/maps/PokeRanch/scripts.pory"
+# 151 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 153 "data/maps/PokeRanch/scripts.pory"
+# 151 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 153 "data/maps/PokeRanch/scripts.pory"
+# 151 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 153 "data/maps/PokeRanch/scripts.pory"
+# 151 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 153 "data/maps/PokeRanch/scripts.pory"
+# 151 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 153 "data/maps/PokeRanch/scripts.pory"
+# 151 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 153 "data/maps/PokeRanch/scripts.pory"
+# 151 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 153 "data/maps/PokeRanch/scripts.pory"
+# 151 "data/maps/PokeRanch/scripts.pory"
 	walk_down
 	step_end
 
-# 155 "data/maps/PokeRanch/scripts.pory"
+# 153 "data/maps/PokeRanch/scripts.pory"
 PokeRanch_VolknerExit2FacingSWE:
-# 156 "data/maps/PokeRanch/scripts.pory"
+# 154 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 156 "data/maps/PokeRanch/scripts.pory"
+# 154 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 156 "data/maps/PokeRanch/scripts.pory"
+# 154 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 156 "data/maps/PokeRanch/scripts.pory"
+# 154 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 156 "data/maps/PokeRanch/scripts.pory"
+# 154 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 156 "data/maps/PokeRanch/scripts.pory"
+# 154 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 156 "data/maps/PokeRanch/scripts.pory"
+# 154 "data/maps/PokeRanch/scripts.pory"
 	walk_down
 	step_end
 
 PokeRanch_VolknerMoveAfterIntro::
-# 193 "data/maps/PokeRanch/scripts.pory"
+# 191 "data/maps/PokeRanch/scripts.pory"
 	compare VAR_FACING, DIR_SOUTH
 	goto_if_eq PokeRanch_VolknerMoveAfterIntro_2
 PokeRanch_VolknerMoveAfterIntro_1:
-# 196 "data/maps/PokeRanch/scripts.pory"
+# 194 "data/maps/PokeRanch/scripts.pory"
 	compare VAR_FACING, DIR_NORTH
 	goto_if_eq PokeRanch_VolknerMoveAfterIntro_5
 PokeRanch_VolknerMoveAfterIntro_4:
-# 199 "data/maps/PokeRanch/scripts.pory"
+# 197 "data/maps/PokeRanch/scripts.pory"
 	compare VAR_FACING, DIR_WEST
 	goto_if_eq PokeRanch_VolknerMoveAfterIntro_8
 PokeRanch_VolknerMoveAfterIntro_7:
-# 202 "data/maps/PokeRanch/scripts.pory"
+# 200 "data/maps/PokeRanch/scripts.pory"
 	waitmovement 0
-# 203 "data/maps/PokeRanch/scripts.pory"
+# 201 "data/maps/PokeRanch/scripts.pory"
 	removeobject 10
-# 204 "data/maps/PokeRanch/scripts.pory"
+# 202 "data/maps/PokeRanch/scripts.pory"
 	setflag FLAG_HIDE_VOLKNER_1
-# 205 "data/maps/PokeRanch/scripts.pory"
+# 203 "data/maps/PokeRanch/scripts.pory"
 	clearflag FLAG_HIDE_VOLKNER_2
-# 206 "data/maps/PokeRanch/scripts.pory"
+# 204 "data/maps/PokeRanch/scripts.pory"
 	delay 40
-# 207 "data/maps/PokeRanch/scripts.pory"
+# 205 "data/maps/PokeRanch/scripts.pory"
 	release
 	end
 
 PokeRanch_VolknerMoveAfterIntro_2:
-# 194 "data/maps/PokeRanch/scripts.pory"
+# 192 "data/maps/PokeRanch/scripts.pory"
 	applymovement 10, PokeRanch_VolknerExitFacingSouth
 	goto PokeRanch_VolknerMoveAfterIntro_1
 
 PokeRanch_VolknerMoveAfterIntro_5:
-# 197 "data/maps/PokeRanch/scripts.pory"
+# 195 "data/maps/PokeRanch/scripts.pory"
 	applymovement 10, PokeRanch_VolknerExitFacingNorth
 	goto PokeRanch_VolknerMoveAfterIntro_4
 
 PokeRanch_VolknerMoveAfterIntro_8:
-# 200 "data/maps/PokeRanch/scripts.pory"
+# 198 "data/maps/PokeRanch/scripts.pory"
 	applymovement 10, PokeRanch_VolknerExitFacingSouth
 	goto PokeRanch_VolknerMoveAfterIntro_7
 
 
-# 211 "data/maps/PokeRanch/scripts.pory"
+# 209 "data/maps/PokeRanch/scripts.pory"
 PokeRanch_VolknerExitFacingSouth:
-# 212 "data/maps/PokeRanch/scripts.pory"
+# 210 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 213 "data/maps/PokeRanch/scripts.pory"
+# 211 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 213 "data/maps/PokeRanch/scripts.pory"
+# 211 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 213 "data/maps/PokeRanch/scripts.pory"
+# 211 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 213 "data/maps/PokeRanch/scripts.pory"
+# 211 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 213 "data/maps/PokeRanch/scripts.pory"
+# 211 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 213 "data/maps/PokeRanch/scripts.pory"
+# 211 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 213 "data/maps/PokeRanch/scripts.pory"
+# 211 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 213 "data/maps/PokeRanch/scripts.pory"
+# 211 "data/maps/PokeRanch/scripts.pory"
 	walk_left
 	step_end
 
-# 216 "data/maps/PokeRanch/scripts.pory"
+# 214 "data/maps/PokeRanch/scripts.pory"
 PokeRanch_VolknerExitFacingNorth:
-# 217 "data/maps/PokeRanch/scripts.pory"
+# 215 "data/maps/PokeRanch/scripts.pory"
 	walk_up
-# 218 "data/maps/PokeRanch/scripts.pory"
+# 216 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 218 "data/maps/PokeRanch/scripts.pory"
+# 216 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 218 "data/maps/PokeRanch/scripts.pory"
+# 216 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 218 "data/maps/PokeRanch/scripts.pory"
+# 216 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 218 "data/maps/PokeRanch/scripts.pory"
+# 216 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 218 "data/maps/PokeRanch/scripts.pory"
+# 216 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 218 "data/maps/PokeRanch/scripts.pory"
+# 216 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 218 "data/maps/PokeRanch/scripts.pory"
+# 216 "data/maps/PokeRanch/scripts.pory"
 	walk_left
 	step_end
 
 PokeRanch_MareepTrigger::
-# 292 "data/maps/PokeRanch/scripts.pory"
+# 290 "data/maps/PokeRanch/scripts.pory"
 	lock
-# 293 "data/maps/PokeRanch/scripts.pory"
+# 291 "data/maps/PokeRanch/scripts.pory"
 	safefollow
-# 294 "data/maps/PokeRanch/scripts.pory"
+# 292 "data/maps/PokeRanch/scripts.pory"
 	faceplayer
-# 295 "data/maps/PokeRanch/scripts.pory"
+# 293 "data/maps/PokeRanch/scripts.pory"
 	waitse
-# 296 "data/maps/PokeRanch/scripts.pory"
+# 294 "data/maps/PokeRanch/scripts.pory"
 	playmoncry SPECIES_MAREEP, CRY_MODE_NORMAL
-# 297 "data/maps/PokeRanch/scripts.pory"
+# 295 "data/maps/PokeRanch/scripts.pory"
 	msgbox PokeRanch_Mareep_Text_0, MSGBOX_DEFAULT
-# 298 "data/maps/PokeRanch/scripts.pory"
+# 296 "data/maps/PokeRanch/scripts.pory"
 	waitmoncry
-# 299 "data/maps/PokeRanch/scripts.pory"
+# 297 "data/maps/PokeRanch/scripts.pory"
 	msgbox PokeRanch_MareepTrigger_Text_0, MSGBOX_DEFAULT
+# 298 "data/maps/PokeRanch/scripts.pory"
+	waitmessage
+# 299 "data/maps/PokeRanch/scripts.pory"
+	closemessage
 # 300 "data/maps/PokeRanch/scripts.pory"
-	waitmessage
-# 301 "data/maps/PokeRanch/scripts.pory"
-	closemessage
-# 302 "data/maps/PokeRanch/scripts.pory"
 	clearflag FLAG_RANCH_EVENT_NPC
-# 303 "data/maps/PokeRanch/scripts.pory"
+# 301 "data/maps/PokeRanch/scripts.pory"
 	hideobjectat 19, MAP_POKE_RANCH
-# 304 "data/maps/PokeRanch/scripts.pory"
+# 302 "data/maps/PokeRanch/scripts.pory"
 	delay 40
-# 305 "data/maps/PokeRanch/scripts.pory"
+# 303 "data/maps/PokeRanch/scripts.pory"
 	msgbox PokeRanch_MareepTrigger_Text_1, MSGBOX_DEFAULT
-# 306 "data/maps/PokeRanch/scripts.pory"
+# 304 "data/maps/PokeRanch/scripts.pory"
 	waitmessage
-# 307 "data/maps/PokeRanch/scripts.pory"
+# 305 "data/maps/PokeRanch/scripts.pory"
 	closemessage
+# 306 "data/maps/PokeRanch/scripts.pory"
+	applymovement LOCALID_PLAYER, Common_Movement_QuestionMark
+# 307 "data/maps/PokeRanch/scripts.pory"
+	waitmovement 0
 # 308 "data/maps/PokeRanch/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark
-# 309 "data/maps/PokeRanch/scripts.pory"
-	waitmovement 0
-# 310 "data/maps/PokeRanch/scripts.pory"
 	delay 90
-# 311 "data/maps/PokeRanch/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, RanchMovePlayer
-# 312 "data/maps/PokeRanch/scripts.pory"
+# 309 "data/maps/PokeRanch/scripts.pory"
+	applymovement LOCALID_PLAYER, RanchMovePlayer
+# 310 "data/maps/PokeRanch/scripts.pory"
 	waitmovement 0
-# 313 "data/maps/PokeRanch/scripts.pory"
+# 311 "data/maps/PokeRanch/scripts.pory"
 	playbgm MUS_ENCOUNTER_MAGMA, TRUE
-# 314 "data/maps/PokeRanch/scripts.pory"
+# 312 "data/maps/PokeRanch/scripts.pory"
 	setobjectxy 19, 44, 8
-# 315 "data/maps/PokeRanch/scripts.pory"
+# 313 "data/maps/PokeRanch/scripts.pory"
 	showobjectat 19, MAP_POKE_RANCH
-# 316 "data/maps/PokeRanch/scripts.pory"
+# 314 "data/maps/PokeRanch/scripts.pory"
 	delay 50
-# 317 "data/maps/PokeRanch/scripts.pory"
+# 315 "data/maps/PokeRanch/scripts.pory"
 	checktrainerflag TRAINER_SHELLY_SEAFLOOR_CAVERN
 	goto_if 1, PokeRanch_MareepTrigger_2
-# 323 "data/maps/PokeRanch/scripts.pory"
+# 321 "data/maps/PokeRanch/scripts.pory"
 	msgbox RanchGrunt2, MSGBOX_DEFAULT
-# 324 "data/maps/PokeRanch/scripts.pory"
+# 322 "data/maps/PokeRanch/scripts.pory"
 	waitmessage
-# 325 "data/maps/PokeRanch/scripts.pory"
+# 323 "data/maps/PokeRanch/scripts.pory"
 	closemessage
 PokeRanch_MareepTrigger_1:
-# 327 "data/maps/PokeRanch/scripts.pory"
+# 325 "data/maps/PokeRanch/scripts.pory"
 	delay 40
-# 328 "data/maps/PokeRanch/scripts.pory"
+# 326 "data/maps/PokeRanch/scripts.pory"
 	fadeoutbgm 1
-# 329 "data/maps/PokeRanch/scripts.pory"
+# 327 "data/maps/PokeRanch/scripts.pory"
 	msgbox PokeRanch_MareepTrigger_Text_2, MSGBOX_DEFAULT
-# 330 "data/maps/PokeRanch/scripts.pory"
+# 328 "data/maps/PokeRanch/scripts.pory"
 	applymovement 13, Common_Movement_QuestionMark
-# 331 "data/maps/PokeRanch/scripts.pory"
+# 329 "data/maps/PokeRanch/scripts.pory"
 	delay 10
-# 332 "data/maps/PokeRanch/scripts.pory"
+# 330 "data/maps/PokeRanch/scripts.pory"
 	applymovement 16, Common_Movement_QuestionMark
-# 333 "data/maps/PokeRanch/scripts.pory"
+# 331 "data/maps/PokeRanch/scripts.pory"
 	applymovement 14, Common_Movement_QuestionMark
-# 334 "data/maps/PokeRanch/scripts.pory"
+# 332 "data/maps/PokeRanch/scripts.pory"
 	delay 20
-# 335 "data/maps/PokeRanch/scripts.pory"
+# 333 "data/maps/PokeRanch/scripts.pory"
 	applymovement 12, TurnGrunt12
+# 334 "data/maps/PokeRanch/scripts.pory"
+	delay 5
+# 335 "data/maps/PokeRanch/scripts.pory"
+	applymovement 13, TurnGrunt13
 # 336 "data/maps/PokeRanch/scripts.pory"
 	delay 5
 # 337 "data/maps/PokeRanch/scripts.pory"
-	applymovement 13, TurnGrunt13
-# 338 "data/maps/PokeRanch/scripts.pory"
-	delay 5
-# 339 "data/maps/PokeRanch/scripts.pory"
 	applymovement 14, TurnGrunt14
-# 340 "data/maps/PokeRanch/scripts.pory"
+# 338 "data/maps/PokeRanch/scripts.pory"
 	applymovement 15, TurnGrunt15
+# 339 "data/maps/PokeRanch/scripts.pory"
+	delay 5
+# 340 "data/maps/PokeRanch/scripts.pory"
+	applymovement 16, TurnGrunt16
 # 341 "data/maps/PokeRanch/scripts.pory"
 	delay 5
 # 342 "data/maps/PokeRanch/scripts.pory"
-	applymovement 16, TurnGrunt16
-# 343 "data/maps/PokeRanch/scripts.pory"
-	delay 5
-# 344 "data/maps/PokeRanch/scripts.pory"
 	applymovement 17, TurnGrunt17
-# 345 "data/maps/PokeRanch/scripts.pory"
+# 343 "data/maps/PokeRanch/scripts.pory"
 	waitmovement 0
-# 346 "data/maps/PokeRanch/scripts.pory"
+# 344 "data/maps/PokeRanch/scripts.pory"
 	delay 20
-# 347 "data/maps/PokeRanch/scripts.pory"
+# 345 "data/maps/PokeRanch/scripts.pory"
 	waitmessage
-# 348 "data/maps/PokeRanch/scripts.pory"
+# 346 "data/maps/PokeRanch/scripts.pory"
 	closemessage
-# 349 "data/maps/PokeRanch/scripts.pory"
+# 347 "data/maps/PokeRanch/scripts.pory"
 	playbgm MUS_ENCOUNTER_BRENDAN, FALSE
-# 350 "data/maps/PokeRanch/scripts.pory"
+# 348 "data/maps/PokeRanch/scripts.pory"
 	applymovement 18, VolknerArrive
-# 351 "data/maps/PokeRanch/scripts.pory"
+# 349 "data/maps/PokeRanch/scripts.pory"
 	applymovement 19, JasmineArrive
-# 352 "data/maps/PokeRanch/scripts.pory"
+# 350 "data/maps/PokeRanch/scripts.pory"
 	turnobject 12, DIR_WEST
-# 353 "data/maps/PokeRanch/scripts.pory"
+# 351 "data/maps/PokeRanch/scripts.pory"
 	turnobject 14, DIR_WEST
-# 354 "data/maps/PokeRanch/scripts.pory"
+# 352 "data/maps/PokeRanch/scripts.pory"
 	turnobject 16, DIR_WEST
-# 355 "data/maps/PokeRanch/scripts.pory"
+# 353 "data/maps/PokeRanch/scripts.pory"
 	turnobject 13, DIR_EAST
-# 356 "data/maps/PokeRanch/scripts.pory"
+# 354 "data/maps/PokeRanch/scripts.pory"
 	turnobject 15, DIR_EAST
-# 357 "data/maps/PokeRanch/scripts.pory"
+# 355 "data/maps/PokeRanch/scripts.pory"
 	turnobject 17, DIR_EAST
-# 358 "data/maps/PokeRanch/scripts.pory"
+# 356 "data/maps/PokeRanch/scripts.pory"
 	waitmovement 18
-# 359 "data/maps/PokeRanch/scripts.pory"
+# 357 "data/maps/PokeRanch/scripts.pory"
 	waitmovement 19
-# 360 "data/maps/PokeRanch/scripts.pory"
+# 358 "data/maps/PokeRanch/scripts.pory"
 	goto_if_set FLAG_JASMINE_MET, PokeRanch_MareepTrigger_6
-# 364 "data/maps/PokeRanch/scripts.pory"
+# 362 "data/maps/PokeRanch/scripts.pory"
 	bufferstring STR_VAR_1, PokeRanch_MareepTrigger_Text_4
 PokeRanch_MareepTrigger_5:
-# 366 "data/maps/PokeRanch/scripts.pory"
+# 364 "data/maps/PokeRanch/scripts.pory"
 	msgbox VolknerRantA
-# 367 "data/maps/PokeRanch/scripts.pory"
+# 365 "data/maps/PokeRanch/scripts.pory"
 	msgbox VolknerRantB
-# 368 "data/maps/PokeRanch/scripts.pory"
+# 366 "data/maps/PokeRanch/scripts.pory"
 	msgbox VolknerRantC
-# 369 "data/maps/PokeRanch/scripts.pory"
+# 367 "data/maps/PokeRanch/scripts.pory"
 	msgbox VolknerRantD
-# 370 "data/maps/PokeRanch/scripts.pory"
+# 368 "data/maps/PokeRanch/scripts.pory"
 	msgbox VolknerRantE
-# 371 "data/maps/PokeRanch/scripts.pory"
+# 369 "data/maps/PokeRanch/scripts.pory"
 	closemessage
-# 372 "data/maps/PokeRanch/scripts.pory"
+# 370 "data/maps/PokeRanch/scripts.pory"
 	applymovement 12, MoveGrunt12
-# 373 "data/maps/PokeRanch/scripts.pory"
+# 371 "data/maps/PokeRanch/scripts.pory"
 	applymovement 13, Walk2Down
-# 374 "data/maps/PokeRanch/scripts.pory"
+# 372 "data/maps/PokeRanch/scripts.pory"
 	applymovement 14, Walk2Left
-# 375 "data/maps/PokeRanch/scripts.pory"
+# 373 "data/maps/PokeRanch/scripts.pory"
 	applymovement 15, Walk2Right
-# 376 "data/maps/PokeRanch/scripts.pory"
+# 374 "data/maps/PokeRanch/scripts.pory"
 	applymovement 16, Walk1Left
-# 377 "data/maps/PokeRanch/scripts.pory"
+# 375 "data/maps/PokeRanch/scripts.pory"
 	applymovement 17, Walk1Right
-# 378 "data/maps/PokeRanch/scripts.pory"
+# 376 "data/maps/PokeRanch/scripts.pory"
 	waitmovement 12
-# 379 "data/maps/PokeRanch/scripts.pory"
+# 377 "data/maps/PokeRanch/scripts.pory"
 	delay 20
-# 380 "data/maps/PokeRanch/scripts.pory"
+# 378 "data/maps/PokeRanch/scripts.pory"
 	trainerbattle_no_intro TRAINER_RICKY_4, PokeRanchRocket1Defeat
-# 381 "data/maps/PokeRanch/scripts.pory"
+# 379 "data/maps/PokeRanch/scripts.pory"
 	goto Ranch_FirstRocketWon
 	end
 
 PokeRanch_MareepTrigger_2:
-# 318 "data/maps/PokeRanch/scripts.pory"
+# 316 "data/maps/PokeRanch/scripts.pory"
 	msgbox RanchGrunt1, MSGBOX_DEFAULT
-# 319 "data/maps/PokeRanch/scripts.pory"
+# 317 "data/maps/PokeRanch/scripts.pory"
 	waitmessage
-# 320 "data/maps/PokeRanch/scripts.pory"
+# 318 "data/maps/PokeRanch/scripts.pory"
 	closemessage
 	goto PokeRanch_MareepTrigger_1
 
 PokeRanch_MareepTrigger_6:
-# 361 "data/maps/PokeRanch/scripts.pory"
+# 359 "data/maps/PokeRanch/scripts.pory"
 	bufferstring STR_VAR_1, PokeRanch_MareepTrigger_Text_3
 	goto PokeRanch_MareepTrigger_5
 
 
-# 385 "data/maps/PokeRanch/scripts.pory"
+# 383 "data/maps/PokeRanch/scripts.pory"
 TurnGrunt12:
+# 384 "data/maps/PokeRanch/scripts.pory"
+	walk_in_place_left
+# 385 "data/maps/PokeRanch/scripts.pory"
+	walk_in_place_up
 # 386 "data/maps/PokeRanch/scripts.pory"
-	walk_in_place_left
+	walk_in_place_down
 # 387 "data/maps/PokeRanch/scripts.pory"
-	walk_in_place_up
-# 388 "data/maps/PokeRanch/scripts.pory"
-	walk_in_place_down
+	walk_in_place_right
+	step_end
+
 # 389 "data/maps/PokeRanch/scripts.pory"
-	walk_in_place_right
-	step_end
-
-# 391 "data/maps/PokeRanch/scripts.pory"
 TurnGrunt13:
+# 390 "data/maps/PokeRanch/scripts.pory"
+	walk_in_place_right
+# 391 "data/maps/PokeRanch/scripts.pory"
+	walk_in_place_down
 # 392 "data/maps/PokeRanch/scripts.pory"
-	walk_in_place_right
+	walk_in_place_up
 # 393 "data/maps/PokeRanch/scripts.pory"
-	walk_in_place_down
-# 394 "data/maps/PokeRanch/scripts.pory"
-	walk_in_place_up
+	walk_in_place_left
+	step_end
+
 # 395 "data/maps/PokeRanch/scripts.pory"
-	walk_in_place_left
-	step_end
-
-# 397 "data/maps/PokeRanch/scripts.pory"
 TurnGrunt14:
+# 396 "data/maps/PokeRanch/scripts.pory"
+	walk_in_place_left
+# 397 "data/maps/PokeRanch/scripts.pory"
+	walk_in_place_right
 # 398 "data/maps/PokeRanch/scripts.pory"
-	walk_in_place_left
+	walk_in_place_up
 # 399 "data/maps/PokeRanch/scripts.pory"
-	walk_in_place_right
-# 400 "data/maps/PokeRanch/scripts.pory"
-	walk_in_place_up
+	walk_in_place_down
+	step_end
+
 # 401 "data/maps/PokeRanch/scripts.pory"
-	walk_in_place_down
-	step_end
-
-# 403 "data/maps/PokeRanch/scripts.pory"
 TurnGrunt15:
+# 402 "data/maps/PokeRanch/scripts.pory"
+	walk_in_place_down
+# 403 "data/maps/PokeRanch/scripts.pory"
+	walk_in_place_left
 # 404 "data/maps/PokeRanch/scripts.pory"
-	walk_in_place_down
+	walk_in_place_right
 # 405 "data/maps/PokeRanch/scripts.pory"
-	walk_in_place_left
-# 406 "data/maps/PokeRanch/scripts.pory"
-	walk_in_place_right
+	walk_in_place_up
+	step_end
+
 # 407 "data/maps/PokeRanch/scripts.pory"
-	walk_in_place_up
-	step_end
-
-# 409 "data/maps/PokeRanch/scripts.pory"
 TurnGrunt16:
-# 410 "data/maps/PokeRanch/scripts.pory"
+# 408 "data/maps/PokeRanch/scripts.pory"
 	walk_in_place_right
-# 411 "data/maps/PokeRanch/scripts.pory"
+# 409 "data/maps/PokeRanch/scripts.pory"
 	walk_in_place_left
-# 412 "data/maps/PokeRanch/scripts.pory"
+# 410 "data/maps/PokeRanch/scripts.pory"
 	walk_in_place_down
-# 413 "data/maps/PokeRanch/scripts.pory"
+# 411 "data/maps/PokeRanch/scripts.pory"
 	walk_in_place_up
 	step_end
 
-# 415 "data/maps/PokeRanch/scripts.pory"
+# 413 "data/maps/PokeRanch/scripts.pory"
 TurnGrunt17:
-# 416 "data/maps/PokeRanch/scripts.pory"
+# 414 "data/maps/PokeRanch/scripts.pory"
 	walk_in_place_down
-# 417 "data/maps/PokeRanch/scripts.pory"
+# 415 "data/maps/PokeRanch/scripts.pory"
 	walk_in_place_up
-# 418 "data/maps/PokeRanch/scripts.pory"
+# 416 "data/maps/PokeRanch/scripts.pory"
 	walk_in_place_left
-# 419 "data/maps/PokeRanch/scripts.pory"
+# 417 "data/maps/PokeRanch/scripts.pory"
 	walk_in_place_right
 	step_end
 
 Ranch_FirstRocketWon::
+# 421 "data/maps/PokeRanch/scripts.pory"
+	delay 20
+# 422 "data/maps/PokeRanch/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_WEST
 # 423 "data/maps/PokeRanch/scripts.pory"
 	delay 20
 # 424 "data/maps/PokeRanch/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
-# 425 "data/maps/PokeRanch/scripts.pory"
-	delay 20
-# 426 "data/maps/PokeRanch/scripts.pory"
 	msgbox RanchRocket2Challenge, MSGBOX_DEFAULT
-# 427 "data/maps/PokeRanch/scripts.pory"
+# 425 "data/maps/PokeRanch/scripts.pory"
 	waitmessage
-# 428 "data/maps/PokeRanch/scripts.pory"
+# 426 "data/maps/PokeRanch/scripts.pory"
 	closemessage
-# 429 "data/maps/PokeRanch/scripts.pory"
+# 427 "data/maps/PokeRanch/scripts.pory"
 	trainerbattle_no_intro TRAINER_RICKY_5, PokeRanchRocket2Defeat
-# 430 "data/maps/PokeRanch/scripts.pory"
+# 428 "data/maps/PokeRanch/scripts.pory"
 	goto PokeRanch_SpecialBattleWon
 	end
 
 
 PokeRanch_SpecialBattleWon::
-# 443 "data/maps/PokeRanch/scripts.pory"
+# 441 "data/maps/PokeRanch/scripts.pory"
 	msgbox Ranch_RocketEscape
-# 444 "data/maps/PokeRanch/scripts.pory"
+# 442 "data/maps/PokeRanch/scripts.pory"
 	msgbox Ranch_RocketEscape2
-# 445 "data/maps/PokeRanch/scripts.pory"
+# 443 "data/maps/PokeRanch/scripts.pory"
 	closemessage
-# 446 "data/maps/PokeRanch/scripts.pory"
+# 444 "data/maps/PokeRanch/scripts.pory"
 	fadescreenswapbuffers FADE_TO_BLACK
-# 447 "data/maps/PokeRanch/scripts.pory"
+# 445 "data/maps/PokeRanch/scripts.pory"
 	fadenewbgm MUS_MUTED
-# 448 "data/maps/PokeRanch/scripts.pory"
+# 446 "data/maps/PokeRanch/scripts.pory"
 	removeobject 12
-# 449 "data/maps/PokeRanch/scripts.pory"
+# 447 "data/maps/PokeRanch/scripts.pory"
 	removeobject 14
-# 450 "data/maps/PokeRanch/scripts.pory"
+# 448 "data/maps/PokeRanch/scripts.pory"
 	removeobject 15
-# 451 "data/maps/PokeRanch/scripts.pory"
+# 449 "data/maps/PokeRanch/scripts.pory"
 	removeobject 16
-# 452 "data/maps/PokeRanch/scripts.pory"
+# 450 "data/maps/PokeRanch/scripts.pory"
 	removeobject 17
-# 453 "data/maps/PokeRanch/scripts.pory"
+# 451 "data/maps/PokeRanch/scripts.pory"
 	setobjectxy 18, 35, 6
-# 454 "data/maps/PokeRanch/scripts.pory"
+# 452 "data/maps/PokeRanch/scripts.pory"
 	setobjectxy 19, 36, 6
-# 455 "data/maps/PokeRanch/scripts.pory"
+# 453 "data/maps/PokeRanch/scripts.pory"
 	turnobject 18, DIR_SOUTH
-# 456 "data/maps/PokeRanch/scripts.pory"
+# 454 "data/maps/PokeRanch/scripts.pory"
 	turnobject 19, DIR_SOUTH
-# 457 "data/maps/PokeRanch/scripts.pory"
+# 455 "data/maps/PokeRanch/scripts.pory"
 	turnobject 13, DIR_NORTH
+# 456 "data/maps/PokeRanch/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_NORTH
+# 457 "data/maps/PokeRanch/scripts.pory"
+	delay 40
 # 458 "data/maps/PokeRanch/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	fadescreenswapbuffers FADE_FROM_BLACK
 # 459 "data/maps/PokeRanch/scripts.pory"
 	delay 40
 # 460 "data/maps/PokeRanch/scripts.pory"
-	fadescreenswapbuffers FADE_FROM_BLACK
-# 461 "data/maps/PokeRanch/scripts.pory"
-	delay 40
-# 462 "data/maps/PokeRanch/scripts.pory"
 	fadenewbgm MUS_VERDANTURF
-# 463 "data/maps/PokeRanch/scripts.pory"
+# 461 "data/maps/PokeRanch/scripts.pory"
 	savebgm MUS_VERDANTURF
-# 464 "data/maps/PokeRanch/scripts.pory"
+# 462 "data/maps/PokeRanch/scripts.pory"
 	goto_if_set FLAG_JASMINE_HELPED, PokeRanch_SpecialBattleWon_2
-# 469 "data/maps/PokeRanch/scripts.pory"
+# 467 "data/maps/PokeRanch/scripts.pory"
 	msgbox Ranch_RocketEscapeFail
-# 470 "data/maps/PokeRanch/scripts.pory"
+# 468 "data/maps/PokeRanch/scripts.pory"
 	msgbox Ranch_RocketEscapeFail2
 PokeRanch_SpecialBattleWon_1:
-# 472 "data/maps/PokeRanch/scripts.pory"
+# 470 "data/maps/PokeRanch/scripts.pory"
 	safefollow
-# 473 "data/maps/PokeRanch/scripts.pory"
+# 471 "data/maps/PokeRanch/scripts.pory"
 	closemessage
-# 474 "data/maps/PokeRanch/scripts.pory"
+# 472 "data/maps/PokeRanch/scripts.pory"
 	applymovement 18, AfterBattleVolkner1
+# 473 "data/maps/PokeRanch/scripts.pory"
+	waitmovement 0
+# 474 "data/maps/PokeRanch/scripts.pory"
+	applymovement 13, AfterBattleRocket1
 # 475 "data/maps/PokeRanch/scripts.pory"
 	waitmovement 0
 # 476 "data/maps/PokeRanch/scripts.pory"
-	applymovement 13, AfterBattleRocket1
-# 477 "data/maps/PokeRanch/scripts.pory"
-	waitmovement 0
-# 478 "data/maps/PokeRanch/scripts.pory"
 	applymovement 18, AfterBattleVolkner2
-# 479 "data/maps/PokeRanch/scripts.pory"
+# 477 "data/maps/PokeRanch/scripts.pory"
 	applymovement 13, AfterBattleRocket2
+# 478 "data/maps/PokeRanch/scripts.pory"
+	waitmovement 0
+# 479 "data/maps/PokeRanch/scripts.pory"
+	delay 10
 # 480 "data/maps/PokeRanch/scripts.pory"
-	waitmovement 0
-# 481 "data/maps/PokeRanch/scripts.pory"
-	delay 10
-# 482 "data/maps/PokeRanch/scripts.pory"
 	applymovement 19, Walk1Down
-# 483 "data/maps/PokeRanch/scripts.pory"
+# 481 "data/maps/PokeRanch/scripts.pory"
 	waitmovement 0
-# 484 "data/maps/PokeRanch/scripts.pory"
+# 482 "data/maps/PokeRanch/scripts.pory"
 	delay 10
-# 485 "data/maps/PokeRanch/scripts.pory"
+# 483 "data/maps/PokeRanch/scripts.pory"
 	goto_if_set FLAG_JASMINE_MET, PokeRanch_SpecialBattleWon_6
-# 489 "data/maps/PokeRanch/scripts.pory"
+# 487 "data/maps/PokeRanch/scripts.pory"
 	msgbox Ranch_JasmineHeadsBack2, MSGBOX_DEFAULT
 PokeRanch_SpecialBattleWon_5:
-# 491 "data/maps/PokeRanch/scripts.pory"
+# 489 "data/maps/PokeRanch/scripts.pory"
 	waitmessage
-# 492 "data/maps/PokeRanch/scripts.pory"
+# 490 "data/maps/PokeRanch/scripts.pory"
 	closemessage
-# 493 "data/maps/PokeRanch/scripts.pory"
+# 491 "data/maps/PokeRanch/scripts.pory"
 	fadescreenswapbuffers FADE_TO_BLACK
-# 494 "data/maps/PokeRanch/scripts.pory"
+# 492 "data/maps/PokeRanch/scripts.pory"
 	removeobject 18
-# 495 "data/maps/PokeRanch/scripts.pory"
+# 493 "data/maps/PokeRanch/scripts.pory"
 	removeobject 19
-# 496 "data/maps/PokeRanch/scripts.pory"
+# 494 "data/maps/PokeRanch/scripts.pory"
 	removeobject 13
-# 497 "data/maps/PokeRanch/scripts.pory"
+# 495 "data/maps/PokeRanch/scripts.pory"
 	removeobject 7
-# 498 "data/maps/PokeRanch/scripts.pory"
+# 496 "data/maps/PokeRanch/scripts.pory"
 	setflag FLAG_HIDE_VOLKNER_2
-# 499 "data/maps/PokeRanch/scripts.pory"
+# 497 "data/maps/PokeRanch/scripts.pory"
 	setflag FLAG_RANCH_EVENT_NPC
-# 500 "data/maps/PokeRanch/scripts.pory"
+# 498 "data/maps/PokeRanch/scripts.pory"
 	setflag FLAG_VOLKNER_HELPED
-# 501 "data/maps/PokeRanch/scripts.pory"
+# 499 "data/maps/PokeRanch/scripts.pory"
 	clearflag FLAG_MAREEP_NOT_RETURNED
-# 502 "data/maps/PokeRanch/scripts.pory"
+# 500 "data/maps/PokeRanch/scripts.pory"
 	goto_if_set FLAG_JASMINE_HELPED, PokeRanch_SpecialBattleWon_10
 PokeRanch_SpecialBattleWon_9:
-# 505 "data/maps/PokeRanch/scripts.pory"
+# 503 "data/maps/PokeRanch/scripts.pory"
 	fadescreenswapbuffers FADE_FROM_BLACK
-# 506 "data/maps/PokeRanch/scripts.pory"
+# 504 "data/maps/PokeRanch/scripts.pory"
 	delay 40
-# 507 "data/maps/PokeRanch/scripts.pory"
+# 505 "data/maps/PokeRanch/scripts.pory"
 	release
 	end
 
 PokeRanch_SpecialBattleWon_2:
-# 465 "data/maps/PokeRanch/scripts.pory"
+# 463 "data/maps/PokeRanch/scripts.pory"
 	msgbox Ranch_RocketEscapeFail
-# 466 "data/maps/PokeRanch/scripts.pory"
+# 464 "data/maps/PokeRanch/scripts.pory"
 	msgbox Ranch_RocketEscapeFailPart2
 	goto PokeRanch_SpecialBattleWon_1
 
 PokeRanch_SpecialBattleWon_6:
-# 486 "data/maps/PokeRanch/scripts.pory"
+# 484 "data/maps/PokeRanch/scripts.pory"
 	msgbox Ranch_JasmineHeadsBack, MSGBOX_DEFAULT
 	goto PokeRanch_SpecialBattleWon_5
 
 PokeRanch_SpecialBattleWon_10:
-# 503 "data/maps/PokeRanch/scripts.pory"
+# 501 "data/maps/PokeRanch/scripts.pory"
 	call Ranch_QuestFlagsComplete
 	goto PokeRanch_SpecialBattleWon_9
 
 
 Ranch_QuestFlagsComplete::
-# 512 "data/maps/PokeRanch/scripts.pory"
+# 510 "data/maps/PokeRanch/scripts.pory"
 	setflag FLAG_RANCH_HELPED
-# 513 "data/maps/PokeRanch/scripts.pory"
+# 511 "data/maps/PokeRanch/scripts.pory"
 	clearflag FLAG_HIDE_RANCH_OWNER
-# 514 "data/maps/PokeRanch/scripts.pory"
+# 512 "data/maps/PokeRanch/scripts.pory"
 	clearflag FLAG_HIDE_VOLKNER_1
-# 515 "data/maps/PokeRanch/scripts.pory"
+# 513 "data/maps/PokeRanch/scripts.pory"
 	setobjectmovementtype 10, MOVEMENT_TYPE_FACE_DOWN
 	return
 
 
-# 574 "data/maps/PokeRanch/scripts.pory"
+# 572 "data/maps/PokeRanch/scripts.pory"
 AfterBattleVolkner1:
-# 575 "data/maps/PokeRanch/scripts.pory"
+# 573 "data/maps/PokeRanch/scripts.pory"
 	walk_up
-# 576 "data/maps/PokeRanch/scripts.pory"
+# 574 "data/maps/PokeRanch/scripts.pory"
 	walk_in_place_down
 	step_end
 
-# 579 "data/maps/PokeRanch/scripts.pory"
+# 577 "data/maps/PokeRanch/scripts.pory"
 AfterBattleRocket1:
-# 580 "data/maps/PokeRanch/scripts.pory"
+# 578 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 581 "data/maps/PokeRanch/scripts.pory"
+# 579 "data/maps/PokeRanch/scripts.pory"
 	walk_up
 	step_end
 
-# 584 "data/maps/PokeRanch/scripts.pory"
+# 582 "data/maps/PokeRanch/scripts.pory"
 AfterBattleVolkner2:
+# 583 "data/maps/PokeRanch/scripts.pory"
+	walk_down
+# 584 "data/maps/PokeRanch/scripts.pory"
+	walk_left
+# 584 "data/maps/PokeRanch/scripts.pory"
+	walk_left
+# 584 "data/maps/PokeRanch/scripts.pory"
+	walk_left
+# 584 "data/maps/PokeRanch/scripts.pory"
+	walk_left
+# 584 "data/maps/PokeRanch/scripts.pory"
+	walk_left
+# 584 "data/maps/PokeRanch/scripts.pory"
+	walk_left
 # 585 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 586 "data/maps/PokeRanch/scripts.pory"
-	walk_left
-# 586 "data/maps/PokeRanch/scripts.pory"
-	walk_left
-# 586 "data/maps/PokeRanch/scripts.pory"
-	walk_left
-# 586 "data/maps/PokeRanch/scripts.pory"
-	walk_left
-# 586 "data/maps/PokeRanch/scripts.pory"
-	walk_left
-# 586 "data/maps/PokeRanch/scripts.pory"
-	walk_left
-# 587 "data/maps/PokeRanch/scripts.pory"
+# 585 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 587 "data/maps/PokeRanch/scripts.pory"
+# 585 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 587 "data/maps/PokeRanch/scripts.pory"
+# 585 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 587 "data/maps/PokeRanch/scripts.pory"
+# 585 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 587 "data/maps/PokeRanch/scripts.pory"
+# 585 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 587 "data/maps/PokeRanch/scripts.pory"
+# 585 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 587 "data/maps/PokeRanch/scripts.pory"
-	walk_down
-# 587 "data/maps/PokeRanch/scripts.pory"
+# 585 "data/maps/PokeRanch/scripts.pory"
 	walk_down
 	step_end
 
-# 591 "data/maps/PokeRanch/scripts.pory"
+# 589 "data/maps/PokeRanch/scripts.pory"
 AfterBattleRocket2:
-# 592 "data/maps/PokeRanch/scripts.pory"
+# 590 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 592 "data/maps/PokeRanch/scripts.pory"
+# 590 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 592 "data/maps/PokeRanch/scripts.pory"
+# 590 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 592 "data/maps/PokeRanch/scripts.pory"
+# 590 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 592 "data/maps/PokeRanch/scripts.pory"
+# 590 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 592 "data/maps/PokeRanch/scripts.pory"
+# 590 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 593 "data/maps/PokeRanch/scripts.pory"
+# 591 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 593 "data/maps/PokeRanch/scripts.pory"
+# 591 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 593 "data/maps/PokeRanch/scripts.pory"
+# 591 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 593 "data/maps/PokeRanch/scripts.pory"
+# 591 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 593 "data/maps/PokeRanch/scripts.pory"
+# 591 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 593 "data/maps/PokeRanch/scripts.pory"
+# 591 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 593 "data/maps/PokeRanch/scripts.pory"
+# 591 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 593 "data/maps/PokeRanch/scripts.pory"
+# 591 "data/maps/PokeRanch/scripts.pory"
 	walk_down
 	step_end
 
-# 596 "data/maps/PokeRanch/scripts.pory"
+# 594 "data/maps/PokeRanch/scripts.pory"
 MoveGrunt12:
-# 597 "data/maps/PokeRanch/scripts.pory"
+# 595 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 597 "data/maps/PokeRanch/scripts.pory"
+# 595 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 597 "data/maps/PokeRanch/scripts.pory"
+# 595 "data/maps/PokeRanch/scripts.pory"
 	walk_down
-# 598 "data/maps/PokeRanch/scripts.pory"
+# 596 "data/maps/PokeRanch/scripts.pory"
 	walk_in_place_right
 	step_end
 
-# 625 "data/maps/PokeRanch/scripts.pory"
+# 623 "data/maps/PokeRanch/scripts.pory"
 VolknerArrive:
+# 624 "data/maps/PokeRanch/scripts.pory"
+	walk_up
+# 625 "data/maps/PokeRanch/scripts.pory"
+	walk_right
+# 626 "data/maps/PokeRanch/scripts.pory"
+	walk_up
 # 626 "data/maps/PokeRanch/scripts.pory"
 	walk_up
 # 627 "data/maps/PokeRanch/scripts.pory"
 	walk_right
-# 628 "data/maps/PokeRanch/scripts.pory"
-	walk_up
+# 627 "data/maps/PokeRanch/scripts.pory"
+	walk_right
 # 628 "data/maps/PokeRanch/scripts.pory"
 	walk_up
 # 629 "data/maps/PokeRanch/scripts.pory"
-	walk_right
-# 629 "data/maps/PokeRanch/scripts.pory"
-	walk_right
-# 630 "data/maps/PokeRanch/scripts.pory"
-	walk_up
-# 631 "data/maps/PokeRanch/scripts.pory"
 	walk_right
 	step_end
 
-# 634 "data/maps/PokeRanch/scripts.pory"
+# 632 "data/maps/PokeRanch/scripts.pory"
 JasmineArrive:
+# 633 "data/maps/PokeRanch/scripts.pory"
+	walk_left
+# 633 "data/maps/PokeRanch/scripts.pory"
+	walk_left
+# 634 "data/maps/PokeRanch/scripts.pory"
+	walk_up
+# 634 "data/maps/PokeRanch/scripts.pory"
+	walk_up
 # 635 "data/maps/PokeRanch/scripts.pory"
 	walk_left
 # 635 "data/maps/PokeRanch/scripts.pory"
 	walk_left
 # 636 "data/maps/PokeRanch/scripts.pory"
 	walk_up
-# 636 "data/maps/PokeRanch/scripts.pory"
-	walk_up
 # 637 "data/maps/PokeRanch/scripts.pory"
-	walk_left
-# 637 "data/maps/PokeRanch/scripts.pory"
-	walk_left
-# 638 "data/maps/PokeRanch/scripts.pory"
-	walk_up
-# 639 "data/maps/PokeRanch/scripts.pory"
 	walk_left
 	step_end
 
-# 642 "data/maps/PokeRanch/scripts.pory"
+# 640 "data/maps/PokeRanch/scripts.pory"
 RanchMovePlayer:
-# 643 "data/maps/PokeRanch/scripts.pory"
+# 641 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 643 "data/maps/PokeRanch/scripts.pory"
+# 641 "data/maps/PokeRanch/scripts.pory"
 	walk_left
-# 644 "data/maps/PokeRanch/scripts.pory"
+# 642 "data/maps/PokeRanch/scripts.pory"
 	walk_up
-# 644 "data/maps/PokeRanch/scripts.pory"
+# 642 "data/maps/PokeRanch/scripts.pory"
 	walk_up
-# 644 "data/maps/PokeRanch/scripts.pory"
+# 642 "data/maps/PokeRanch/scripts.pory"
 	walk_up
 	step_end
 
@@ -1013,27 +1009,27 @@ PokeRanch_Owner_Text_0:
 	.string "Oh, what am I to do…$"
 
 PokeRanch_MareepTrigger_Text_0:
-# 299 "data/maps/PokeRanch/scripts.pory"
+# 297 "data/maps/PokeRanch/scripts.pory"
 	.string "This must be the missing Mareep…$"
 
 PokeRanch_MareepTrigger_Text_1:
-# 305 "data/maps/PokeRanch/scripts.pory"
+# 303 "data/maps/PokeRanch/scripts.pory"
 	.string "???: WE GOT YOU NOW!$"
 
 PokeRanch_MareepTrigger_Text_2:
-# 329 "data/maps/PokeRanch/scripts.pory"
+# 327 "data/maps/PokeRanch/scripts.pory"
 	.string "NOT SO FAST!!$"
 
 PokeRanch_MareepTrigger_Text_3:
-# 361 "data/maps/PokeRanch/scripts.pory"
+# 359 "data/maps/PokeRanch/scripts.pory"
 	.string "Jasmine$"
 
 PokeRanch_MareepTrigger_Text_4:
-# 364 "data/maps/PokeRanch/scripts.pory"
+# 362 "data/maps/PokeRanch/scripts.pory"
 	.string "???$"
 
 PokeRanch_VolknerReward::
-# 159 "data/maps/PokeRanch/scripts.pory"
+# 157 "data/maps/PokeRanch/scripts.pory"
 	.string "Volkner: You've been a great help\n"
 	.string "around the farm.\p"
 	.string "Honestly I'm not sure if Jasmine\n"
@@ -1043,7 +1039,7 @@ PokeRanch_VolknerReward::
 	.string "I want you to have this.$"
 
 Volkner2_JasmineHelped::
-# 169 "data/maps/PokeRanch/scripts.pory"
+# 167 "data/maps/PokeRanch/scripts.pory"
 	.string "You've already helped Jasmine\n"
 	.string "with her task?\l"
 	.string "That's great!\p"
@@ -1051,7 +1047,7 @@ Volkner2_JasmineHelped::
 	.string "of the missing Mareep.$"
 
 Ranch_ExplainCut::
-# 177 "data/maps/PokeRanch/scripts.pory"
+# 175 "data/maps/PokeRanch/scripts.pory"
 	.string "Volkner: That's a Hidden Machine,\n"
 	.string "or HM for short.\l"
 	.string "This specific HM contains the move Cut.\p"
@@ -1066,14 +1062,14 @@ Ranch_ExplainCut::
 	.string "come take on my gym challenge!$"
 
 PokeRanch_VolknerInitialIntro::
-# 221 "data/maps/PokeRanch/scripts.pory"
+# 219 "data/maps/PokeRanch/scripts.pory"
 	.string "Sorry, but we've got a bit of\n"
 	.string "a situation going on here.\p"
 	.string "We're going to have to ask\n"
 	.string "the public to leave…$"
 
 PokeRanch_VolknerIntroContinued::
-# 228 "data/maps/PokeRanch/scripts.pory"
+# 226 "data/maps/PokeRanch/scripts.pory"
 	.string "Oh but wait,\n"
 	.string "you seem to be a Pokémon trainer.\p"
 	.string "In that case,\n"
@@ -1085,7 +1081,7 @@ PokeRanch_VolknerIntroContinued::
 	.string "sorts of different problems.$"
 
 PokeRanch_JasmineAlreadyHelped::
-# 240 "data/maps/PokeRanch/scripts.pory"
+# 238 "data/maps/PokeRanch/scripts.pory"
 	.string "We're dealing with two\n"
 	.string "big issues here.\p"
 	.string "First…\p"
@@ -1095,7 +1091,7 @@ PokeRanch_JasmineAlreadyHelped::
 	.string "Wow, talk about a go-getter!$"
 
 PokeRanch_JasmineTalkedToFirst::
-# 250 "data/maps/PokeRanch/scripts.pory"
+# 248 "data/maps/PokeRanch/scripts.pory"
 	.string "We're dealing with two\n"
 	.string "big issues here.\p"
 	.string "I noticed you went inside the barn\n"
@@ -1105,7 +1101,7 @@ PokeRanch_JasmineTalkedToFirst::
 	.string "to explain that part to you.$"
 
 PokeRanch_JasmineNotTalkedTo::
-# 260 "data/maps/PokeRanch/scripts.pory"
+# 258 "data/maps/PokeRanch/scripts.pory"
 	.string "We're dealing with two\n"
 	.string "big issues here.\p"
 	.string "First, some of the Mareep around\n"
@@ -1119,7 +1115,7 @@ PokeRanch_JasmineNotTalkedTo::
 	.string "go look for her in the barn.$"
 
 PokeRanch_VolknerSecondIssue::
-# 274 "data/maps/PokeRanch/scripts.pory"
+# 272 "data/maps/PokeRanch/scripts.pory"
 	.string "The other issue we are dealing with\n"
 	.string "is a case of missing Mareep.\p"
 	.string "The ranch owner noticed earlier how\n"
@@ -1132,34 +1128,34 @@ PokeRanch_VolknerSecondIssue::
 	.string "would be greatly appreciated.$"
 
 PokeRanch_VolknerGossip::
-# 287 "data/maps/PokeRanch/scripts.pory"
+# 285 "data/maps/PokeRanch/scripts.pory"
 	.string "There must be some clues here…$"
 
 PokeRanchRocket1Defeat::
-# 434 "data/maps/PokeRanch/scripts.pory"
+# 432 "data/maps/PokeRanch/scripts.pory"
 	.string "Not again…$"
 
 PokeRanchRocket2Defeat::
-# 438 "data/maps/PokeRanch/scripts.pory"
+# 436 "data/maps/PokeRanch/scripts.pory"
 	.string "We lost!?$"
 
 Ranch_RocketEscape::
-# 518 "data/maps/PokeRanch/scripts.pory"
+# 516 "data/maps/PokeRanch/scripts.pory"
 	.string "Rocket Grunt 6: These guys are\n"
 	.string "way too strong!$"
 
 Ranch_RocketEscape2::
-# 522 "data/maps/PokeRanch/scripts.pory"
+# 520 "data/maps/PokeRanch/scripts.pory"
 	.string "Rocket Grunt 1: This calls for\n"
 	.string "a tactical retreat!\p"
 	.string "They can't catch all of us!$"
 
 Ranch_RocketEscapeFail::
-# 527 "data/maps/PokeRanch/scripts.pory"
+# 525 "data/maps/PokeRanch/scripts.pory"
 	.string "Rocket Grunt 1: Drats…$"
 
 Ranch_RocketEscapeFailPart2::
-# 530 "data/maps/PokeRanch/scripts.pory"
+# 528 "data/maps/PokeRanch/scripts.pory"
 	.string "Volkner: The others may have escaped\n"
 	.string "but at least we caught someone who\l"
 	.string "was seemingly calling the shots here.\p"
@@ -1171,7 +1167,7 @@ Ranch_RocketEscapeFailPart2::
 	.string "of the ranch.$"
 
 Ranch_RocketEscapeFail2::
-# 541 "data/maps/PokeRanch/scripts.pory"
+# 539 "data/maps/PokeRanch/scripts.pory"
 	.string "Volkner: The others may have escaped\n"
 	.string "but at least we caught someone who\l"
 	.string "was seemingly calling the shots here.\p"
@@ -1187,7 +1183,7 @@ Ranch_RocketEscapeFail2::
 	.string "barn would be greatly appreciated.$"
 
 Ranch_JasmineHeadsBack::
-# 556 "data/maps/PokeRanch/scripts.pory"
+# 554 "data/maps/PokeRanch/scripts.pory"
 	.string "Jasmine: I need to head back and\n"
 	.string "make sure the situation at the barn\l"
 	.string "is under control…\p"
@@ -1196,23 +1192,23 @@ Ranch_JasmineHeadsBack::
 	.string "hiding in the corner back to the barn…$"
 
 Ranch_JasmineHeadsBack2::
-# 564 "data/maps/PokeRanch/scripts.pory"
+# 562 "data/maps/PokeRanch/scripts.pory"
 	.string "???: Um, if you don't mind,\n"
 	.string "I'd like to take the little guy\l"
 	.string "hiding in the corner back to the barn…$"
 
 RanchRocket2Challenge::
-# 569 "data/maps/PokeRanch/scripts.pory"
+# 567 "data/maps/PokeRanch/scripts.pory"
 	.string "Don't think you're out\n"
 	.string "of the woods yet!$"
 
 VolknerRantA::
-# 601 "data/maps/PokeRanch/scripts.pory"
+# 599 "data/maps/PokeRanch/scripts.pory"
 	.string "{STR_VAR_1}: Looks like we arrived\n"
 	.string "just in time…$"
 
 VolknerRantB::
-# 605 "data/maps/PokeRanch/scripts.pory"
+# 603 "data/maps/PokeRanch/scripts.pory"
 	.string "Volkner: I saw some of these guys\n"
 	.string "skulking in the woods, so I knew\l"
 	.string "there was trouble about.\p"
@@ -1220,22 +1216,22 @@ VolknerRantB::
 	.string "Pokémon today!$"
 
 VolknerRantC::
-# 612 "data/maps/PokeRanch/scripts.pory"
+# 610 "data/maps/PokeRanch/scripts.pory"
 	.string "Rocket Grunt 3: There's two\n"
 	.string "gym leaders here!?$"
 
 VolknerRantD::
-# 616 "data/maps/PokeRanch/scripts.pory"
+# 614 "data/maps/PokeRanch/scripts.pory"
 	.string "Rocket Grunt 5: We're done for!$"
 
 VolknerRantE::
-# 619 "data/maps/PokeRanch/scripts.pory"
+# 617 "data/maps/PokeRanch/scripts.pory"
 	.string "Rocket Grunt 1: CALM YOURSELF!\p"
 	.string "We still outnumber them two-to-one!\n"
 	.string "Let's do this!$"
 
 RanchGrunt1::
-# 647 "data/maps/PokeRanch/scripts.pory"
+# 645 "data/maps/PokeRanch/scripts.pory"
 	.string "Rocket Grunt 1: Well well well,\n"
 	.string "looks like our trap worked perfectly!\p"
 	.string "Remember me from Windy Woods?\n"
@@ -1244,7 +1240,7 @@ RanchGrunt1::
 	.string "if you want to leave this place alive!$"
 
 RanchGrunt2::
-# 656 "data/maps/PokeRanch/scripts.pory"
+# 654 "data/maps/PokeRanch/scripts.pory"
 	.string "Rocket Grunt 1: Well well well,\n"
 	.string "looks like our trap worked perfectly!\p"
 	.string "You better hand over all your Pokémon\n"

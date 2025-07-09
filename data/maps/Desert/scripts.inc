@@ -186,7 +186,7 @@ ScorchedDesert_TriggerQuakes_12:
 # 91 "data/maps/Desert/scripts.pory"
 	setmetatile VAR_TEMP_1, VAR_TEMP_2, 0x2A3, FALSE
 # 92 "data/maps/Desert/scripts.pory"
-	setobjectxy OBJ_EVENT_ID_PLAYER, VAR_TEMP_1, VAR_TEMP_2
+	setobjectxy LOCALID_PLAYER, VAR_TEMP_1, VAR_TEMP_2
 # 93 "data/maps/Desert/scripts.pory"
 	special DrawWholeMapView
 # 94 "data/maps/Desert/scripts.pory"
@@ -200,7 +200,7 @@ ScorchedDesert_FallThroughFloor::
 # 102 "data/maps/Desert/scripts.pory"
 	delay 20
 # 103 "data/maps/Desert/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, ScorchedDesert_FallThroughFloorMovement
+	applymovement LOCALID_PLAYER, ScorchedDesert_FallThroughFloorMovement
 # 104 "data/maps/Desert/scripts.pory"
 	waitmovement 0
 # 105 "data/maps/Desert/scripts.pory"
@@ -573,7 +573,7 @@ BlockSouthernDesert::
 # 583 "data/maps/Desert/scripts.pory"
 	safefollow
 # 584 "data/maps/Desert/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Walk1Up
+	applymovement LOCALID_PLAYER, Walk1Up
 # 585 "data/maps/Desert/scripts.pory"
 	waitmovement 0
 # 586 "data/maps/Desert/scripts.pory"

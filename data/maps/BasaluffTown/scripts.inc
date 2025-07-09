@@ -51,7 +51,7 @@ BasaluffTown_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE:
 
 BasaluffTown_MapScripts_MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE_0:
 # 22 "data/maps/BasaluffTown/scripts.pory"
-	turnobject 0xFF, DIR_EAST
+	turnobject LOCALID_PLAYER, DIR_EAST
 	return
 
 BasaluffTown_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
@@ -343,7 +343,7 @@ BasalekTown_RivalScript_4:
 # 376 "data/maps/BasaluffTown/scripts.pory"
 	waitmovement 10
 # 377 "data/maps/BasaluffTown/scripts.pory"
-	waitmovement 0xFF
+	waitmovement LOCALID_PLAYER
 # 378 "data/maps/BasaluffTown/scripts.pory"
 	delay 24
 	checkplayergender
@@ -383,7 +383,7 @@ BasalekTown_RivalScript_13:
 # 435 "data/maps/BasaluffTown/scripts.pory"
 	waitmovement 10
 # 436 "data/maps/BasaluffTown/scripts.pory"
-	waitmovement 0xFF
+	waitmovement LOCALID_PLAYER
 # 437 "data/maps/BasaluffTown/scripts.pory"
 	setflag FLAG_RIVAL_MET_IN_BASALEK
 # 438 "data/maps/BasaluffTown/scripts.pory"
@@ -403,7 +403,7 @@ BasalekTown_RivalScript_6:
 # 347 "data/maps/BasaluffTown/scripts.pory"
 	delay 48
 # 348 "data/maps/BasaluffTown/scripts.pory"
-	applymovement 0xFF, BasalekTown_RivalScript_Movement_1
+	applymovement LOCALID_PLAYER, BasalekTown_RivalScript_Movement_1
 # 349 "data/maps/BasaluffTown/scripts.pory"
 	applymovement OBJ_EVENT_ID_FOLLOWER, BasalekTown_RivalScript_Movement_1
 # 350 "data/maps/BasaluffTown/scripts.pory"
@@ -411,7 +411,7 @@ BasalekTown_RivalScript_6:
 # 351 "data/maps/BasaluffTown/scripts.pory"
 	delay 64
 # 352 "data/maps/BasaluffTown/scripts.pory"
-	applymovement 0xFF, BasalekTown_RivalScript_Movement_2
+	applymovement LOCALID_PLAYER, BasalekTown_RivalScript_Movement_2
 # 353 "data/maps/BasaluffTown/scripts.pory"
 	applymovement OBJ_EVENT_ID_FOLLOWER, BasalekTown_RivalScript_Movement_2
 # 354 "data/maps/BasaluffTown/scripts.pory"
@@ -424,7 +424,7 @@ BasalekTown_RivalScript_7:
 # 357 "data/maps/BasaluffTown/scripts.pory"
 	delay 64
 # 358 "data/maps/BasaluffTown/scripts.pory"
-	applymovement 0xFF, BasalekTown_RivalScript_Movement_1
+	applymovement LOCALID_PLAYER, BasalekTown_RivalScript_Movement_1
 # 359 "data/maps/BasaluffTown/scripts.pory"
 	applymovement OBJ_EVENT_ID_FOLLOWER, BasalekTown_RivalScript_Movement_1
 # 360 "data/maps/BasaluffTown/scripts.pory"
@@ -432,7 +432,7 @@ BasalekTown_RivalScript_7:
 # 361 "data/maps/BasaluffTown/scripts.pory"
 	delay 64
 # 362 "data/maps/BasaluffTown/scripts.pory"
-	applymovement 0xFF, BasalekTown_RivalScript_Movement_2
+	applymovement LOCALID_PLAYER, BasalekTown_RivalScript_Movement_2
 # 363 "data/maps/BasaluffTown/scripts.pory"
 	applymovement OBJ_EVENT_ID_FOLLOWER, BasalekTown_RivalScript_Movement_2
 # 364 "data/maps/BasaluffTown/scripts.pory"
@@ -445,7 +445,7 @@ BasalekTown_RivalScript_8:
 # 367 "data/maps/BasaluffTown/scripts.pory"
 	delay 64
 # 368 "data/maps/BasaluffTown/scripts.pory"
-	applymovement 0xFF, BasalekTown_RivalScript_Movement_1
+	applymovement LOCALID_PLAYER, BasalekTown_RivalScript_Movement_1
 # 369 "data/maps/BasaluffTown/scripts.pory"
 	applymovement OBJ_EVENT_ID_FOLLOWER, BasalekTown_RivalScript_Movement_1
 # 370 "data/maps/BasaluffTown/scripts.pory"
@@ -453,7 +453,7 @@ BasalekTown_RivalScript_8:
 # 371 "data/maps/BasaluffTown/scripts.pory"
 	delay 48
 # 372 "data/maps/BasaluffTown/scripts.pory"
-	applymovement 0xFF, BasalekTown_RivalScript_Movement_5
+	applymovement LOCALID_PLAYER, BasalekTown_RivalScript_Movement_5
 # 373 "data/maps/BasaluffTown/scripts.pory"
 	applymovement OBJ_EVENT_ID_FOLLOWER, BasalekTown_RivalScript_Movement_5
 # 374 "data/maps/BasaluffTown/scripts.pory"
@@ -492,7 +492,7 @@ BasalekTown_RivalScript_17:
 # 432 "data/maps/BasaluffTown/scripts.pory"
 	applymovement 10, BasalekTown_RivalScript_Movement_8
 # 433 "data/maps/BasaluffTown/scripts.pory"
-	applymovement 0xFF, BasalekTown_RivalScript_Movement_9
+	applymovement LOCALID_PLAYER, BasalekTown_RivalScript_Movement_9
 	goto BasalekTown_RivalScript_13
 
 BasalekTown_RivalScript_19:

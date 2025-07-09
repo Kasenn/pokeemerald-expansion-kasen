@@ -8,15 +8,6 @@ script RockliffePokeCenter1F_OnTransition{
 	end
 }
 
-script RockliffePokeCenter1F_EventScript_Nurse{
-	setvar(VAR_0x800B, 1)
-	call(Common_EventScript_PkmnCenterNurse)
-	waitmessage
-	waitbuttonpress
-	release
-	end
-}
-
 script RockliffePokeCenter1F_Man{
     lock
     msgbox(RockliffePokeCenter1F_Man_Text, MSGBOX_DEFAULT)

@@ -176,56 +176,56 @@ PryceEscortedOutMain_11:
 # 90 "data/maps/BarrenWastes/scripts.pory"
 	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, PryceEscortedOutMain_Movement_0
 # 91 "data/maps/BarrenWastes/scripts.pory"
-	applymovement 0xFF, PryceEscortedOutMain_Movement_1
+	applymovement LOCALID_PLAYER, PryceEscortedOutMain_Movement_1
 	goto PryceEscortedOutMain_9
 
 PryceEscortedOutMain_12:
 # 93 "data/maps/BarrenWastes/scripts.pory"
 	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, PryceEscortedOutMain_Movement_0
 # 94 "data/maps/BarrenWastes/scripts.pory"
-	applymovement 0xFF, PryceEscortedOutMain_Movement_1
+	applymovement LOCALID_PLAYER, PryceEscortedOutMain_Movement_1
 	goto PryceEscortedOutMain_9
 
 PryceEscortedOutMain_13:
 # 96 "data/maps/BarrenWastes/scripts.pory"
 	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, PryceEscortedOutMain_Movement_2
 # 97 "data/maps/BarrenWastes/scripts.pory"
-	applymovement 0xFF, PryceEscortedOutMain_Movement_3
+	applymovement LOCALID_PLAYER, PryceEscortedOutMain_Movement_3
 	goto PryceEscortedOutMain_9
 
 PryceEscortedOutMain_14:
 # 99 "data/maps/BarrenWastes/scripts.pory"
 	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, PryceEscortedOutMain_Movement_2
 # 100 "data/maps/BarrenWastes/scripts.pory"
-	applymovement 0xFF, PryceEscortedOutMain_Movement_3
+	applymovement LOCALID_PLAYER, PryceEscortedOutMain_Movement_3
 	goto PryceEscortedOutMain_9
 
 PryceEscortedOutMain_15:
 # 102 "data/maps/BarrenWastes/scripts.pory"
 	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, PryceEscortedOutMain_Movement_4
 # 103 "data/maps/BarrenWastes/scripts.pory"
-	applymovement 0xFF, PryceEscortedOutMain_Movement_5
+	applymovement LOCALID_PLAYER, PryceEscortedOutMain_Movement_5
 	goto PryceEscortedOutMain_9
 
 PryceEscortedOutMain_16:
 # 105 "data/maps/BarrenWastes/scripts.pory"
 	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, PryceEscortedOutMain_Movement_4
 # 106 "data/maps/BarrenWastes/scripts.pory"
-	applymovement 0xFF, PryceEscortedOutMain_Movement_5
+	applymovement LOCALID_PLAYER, PryceEscortedOutMain_Movement_5
 	goto PryceEscortedOutMain_9
 
 PryceEscortedOutMain_17:
 # 108 "data/maps/BarrenWastes/scripts.pory"
 	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, PryceEscortedOutMain_Movement_6
 # 109 "data/maps/BarrenWastes/scripts.pory"
-	applymovement 0xFF, PryceEscortedOutMain_Movement_7
+	applymovement LOCALID_PLAYER, PryceEscortedOutMain_Movement_7
 	goto PryceEscortedOutMain_9
 
 PryceEscortedOutMain_18:
 # 111 "data/maps/BarrenWastes/scripts.pory"
 	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, PryceEscortedOutMain_Movement_6
 # 112 "data/maps/BarrenWastes/scripts.pory"
-	applymovement 0xFF, PryceEscortedOutMain_Movement_7
+	applymovement LOCALID_PLAYER, PryceEscortedOutMain_Movement_7
 	goto PryceEscortedOutMain_9
 
 

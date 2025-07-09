@@ -164,21 +164,15 @@ Aldeleaf_Artist_4:
 # 167 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
 	safefollow
 # 168 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
-	applymovement 4, Common_Movement_ExclamationMark
+	exclamationmark 4
 # 169 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
-	waitmovement 0
-# 170 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
-	applymovement 4, Common_Movement_Delay48
-# 171 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
-	waitmovement 0
-# 172 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
 	msgbox YouHaveSmeargle
 	checkitemspace ITEM_PAINTBRUSH
 # 0 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq Aldeleaf_Artist_11
 Aldeleaf_Artist_10:
-# 177 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
+# 174 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
 	goto GivePaintBrush
 	return
 
@@ -201,9 +195,9 @@ Aldeleaf_Artist_13:
 	end
 
 Aldeleaf_Artist_11:
-# 174 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
+# 171 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
 	setflag FLAG_TEMP_2
-# 175 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
+# 172 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
 	goto ZeBagIsFull
 	goto Aldeleaf_Artist_10
 
@@ -216,23 +210,23 @@ Aldeleaf_Artist_14:
 
 
 GivePaintBrush::
-# 180 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
+# 177 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
 	giveitem ITEM_PAINTBRUSH
-# 181 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
+# 178 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
 	waitfanfare
-# 182 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
+# 179 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
 	msgbox GiveToSmeargle, MSGBOX_NPC
-# 183 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
+# 180 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
 	setflag FLAG_OBTAINED_PAINTBRUSH
-# 184 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
+# 181 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
 	goto_if_set FLAG_Q06_MUSEUM_SMEARGLE_START, GivePaintBrush_2
 GivePaintBrush_1:
 	end
 
 GivePaintBrush_2:
-# 185 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
+# 182 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
 	completequest FLAG_Q06_MUSEUM_SMEARGLE_COMPLETE
-# 186 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
+# 183 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
 	special ShowJournalPopupRemove
 	goto GivePaintBrush_1
 
@@ -309,7 +303,7 @@ SmeargleWrongMonText::
 	.string "a {STR_VAR_1}.$"
 
 Aldeleaf_Artist_Text::
-# 191 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
+# 188 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
 	.string "Among artists like myself, this museum\n"
 	.string "is an inspiration.\p"
 	.string "I wonder, are there any Pokémon that\n"
@@ -317,20 +311,20 @@ Aldeleaf_Artist_Text::
 	.string "I would very much like to see one.$"
 
 GiveToSmeargle::
-# 198 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
+# 195 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
 	.string "If a Smeargle holds that Paintbrush,\n"
 	.string "both of its Attack stats will increase\l"
 	.string "massively, allowing its works of art to\l"
 	.string "really make an impact.$"
 
 YouHaveSmeargle::
-# 204 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
+# 201 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
 	.string "Why that Smeargle of yours is a\n"
 	.string "natural-born artist.\p"
 	.string "Here, try giving it this.$"
 
 ArtistAfterword::
-# 209 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
+# 206 "data/maps/Sandstone_LargeHouse1_1F/scripts.pory"
 	.string "A painter is nothing without their\n"
 	.string "tools.\p"
 	.string "Give that Paintbrush to a Smeargle\n"

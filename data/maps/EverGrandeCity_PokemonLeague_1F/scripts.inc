@@ -14,14 +14,6 @@ EverGrandeCity_PokemonLeague_1F_EventScript_GuardsBlockDoor::
 	setobjectxyperm LOCALID_LEAGUE_GUARD_2, 10, 2
 	return
 
-EverGrandeCity_PokemonLeague_1F_EventScript_Nurse::
-	setvar VAR_0x800B, LOCALID_LEAGUE_NURSE
-	call Common_EventScript_PkmnCenterNurse
-	waitmessage
-	waitbuttonpress
-	release
-	end
-
 EverGrandeCity_PokemonLeague_1F_EventScript_Clerk::
 	lock
 	faceplayer

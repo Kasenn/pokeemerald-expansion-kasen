@@ -78,7 +78,7 @@ PryceBlockCave::
 # 75 "data/maps/FrigidFrontier6/scripts.pory"
 	closemessage
 # 76 "data/maps/FrigidFrontier6/scripts.pory"
-	applymovement 0xFF, Walk1Down
+	applymovement LOCALID_PLAYER, Walk1Down
 # 77 "data/maps/FrigidFrontier6/scripts.pory"
 	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, PryceBlockCave_Movement_0
 # 78 "data/maps/FrigidFrontier6/scripts.pory"

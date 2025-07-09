@@ -26,12 +26,12 @@ Pearlwood_MaysHouse2F_Rival::
 # 16 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
 	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_RECEIVED_RUNNING_SHOES
 	goto_if_eq Pearlwood_MaysHouse2F_Rival_2
-# 40 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
+# 36 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
 	msgbox Pearlwood_MaysHouse2F_Gossip
 Pearlwood_MaysHouse2F_Rival_1:
-# 42 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
+# 38 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
 	turnobject 3, DIR_NORTH
-# 43 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
+# 39 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
 	release
 	return
 
@@ -43,65 +43,57 @@ Pearlwood_MaysHouse2F_Rival_2:
 # 19 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
 	safefollow
 # 20 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
-	applymovement 3, Common_Movement_ExclamationMark
+	exclamationmark 3
 # 21 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
-	waitmovement 0
-# 22 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
 	faceplayer
-# 23 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
-	delay 48
-# 24 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
+# 22 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
 	msgbox Pearlwood_MaysHouse2F_Intro
-# 25 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
+# 23 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
 	closemessage
-# 26 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
+# 24 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
 	delay 20
-# 27 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
+# 25 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
 	playse SE_PIN
-# 28 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
-	applymovement 3, Common_Movement_ExclamationMark
-# 29 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
-	waitmovement 0
-# 30 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
-	delay 48
-# 31 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
+# 26 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
+	exclamationmark 3
+# 27 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MET_RIVAL
 	checkplayergender
 # 0 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq Pearlwood_MaysHouse2F_Rival_5
-# 36 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
+# 32 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
 	msgbox Pearlwood_MaysHouse2F_Intro2_FemalePC
 	goto Pearlwood_MaysHouse2F_Rival_1
 
 Pearlwood_MaysHouse2F_Rival_5:
-# 33 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
+# 29 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
 	msgbox Pearlwood_MaysHouse2F_Intro2_MalePC
 	goto Pearlwood_MaysHouse2F_Rival_1
 
 
 WooperDoll::
-# 78 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
+# 74 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
 	msgbox WooperDoll_Text_0, MSGBOX_SIGN
 	return
 
 
 AzurillDoll::
-# 81 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
+# 77 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
 	msgbox AzurillDoll_Text_0, MSGBOX_SIGN
 	return
 
 
 WooperDoll_Text_0:
-# 78 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
+# 74 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
 	.string "It's a Wooper doll.$"
 
 AzurillDoll_Text_0:
-# 81 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
+# 77 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
 	.string "It's an Azurill doll.$"
 
 Pearlwood_MaysHouse2F_Intro::
-# 46 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
+# 42 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
 	.string "{RIVAL}: Oh, hi {PLAYER}!\p"
 	.string "Sorry, I'm a bit busy answering to\n"
 	.string "some e-mail.\p"
@@ -109,7 +101,7 @@ Pearlwood_MaysHouse2F_Intro::
 	.string "was looking for you.$"
 
 Pearlwood_MaysHouse2F_Intro2_MalePC::
-# 54 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
+# 50 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
 	.string "I get it now!\n"
 	.string "I bet it's time for you to finally\l"
 	.string "get your own Pokémon!\l"
@@ -118,7 +110,7 @@ Pearlwood_MaysHouse2F_Intro2_MalePC::
 	.string "in his lab to the northwest.$"
 
 Pearlwood_MaysHouse2F_Intro2_FemalePC::
-# 63 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
+# 59 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
 	.string "I get it now!\n"
 	.string "I bet it's time for you to finally\l"
 	.string "get your own Pokémon!\l"
@@ -127,6 +119,6 @@ Pearlwood_MaysHouse2F_Intro2_FemalePC::
 	.string "in his lab to the northwest.$"
 
 Pearlwood_MaysHouse2F_Gossip::
-# 72 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
+# 68 "data/maps/Pearlwood_MaysHouse2F/scripts.pory"
 	.string "{RIVAL}: Sorry, but I REALLY need to\n"
 	.string "finish writing this e-mail.$"

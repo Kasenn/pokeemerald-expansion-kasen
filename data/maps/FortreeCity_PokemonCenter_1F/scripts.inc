@@ -7,14 +7,6 @@ FortreeCity_PokemonCenter_1F_OnTransition:
 	setrespawn HEAL_LOCATION_FORTREE_CITY
 	end
 
-FortreeCity_PokemonCenter_1F_EventScript_Nurse::
-	setvar VAR_0x800B, LOCALID_FORTREE_NURSE
-	call Common_EventScript_PkmnCenterNurse
-	waitmessage
-	waitbuttonpress
-	release
-	end
-
 FortreeCity_PokemonCenter_1F_EventScript_Gentleman::
 	msgbox FortreeCity_PokemonCenter_1F_Text_GoToSafariZone, MSGBOX_NPC
 	end

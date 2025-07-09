@@ -7,14 +7,6 @@ BattleFrontier_PokemonCenter_1F_OnTransition:
 	setrespawn HEAL_LOCATION_BATTLE_FRONTIER_OUTSIDE_EAST
 	end
 
-BattleFrontier_PokemonCenter_1F_EventScript_Nurse::
-	setvar VAR_0x800B, LOCALID_FRONTIER_NURSE
-	call Common_EventScript_PkmnCenterNurse
-	waitmessage
-	waitbuttonpress
-	release
-	end
-
 BattleFrontier_PokemonCenter_1F_EventScript_SchoolKid::
 	msgbox BattleFrontier_PokemonCenter_1F_Text_NeverSeenPokemon, MSGBOX_NPC
 	end

@@ -14,7 +14,7 @@ ElevatorBlock_2:
 # 5 "data/maps/CoralgroveElevator1/scripts.pory"
 	lock
 # 6 "data/maps/CoralgroveElevator1/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	turnobject LOCALID_PLAYER, DIR_NORTH
 # 7 "data/maps/CoralgroveElevator1/scripts.pory"
 	msgbox ElevatorBlock_Text_0, MSGBOX_DEFAULT
 # 8 "data/maps/CoralgroveElevator1/scripts.pory"
@@ -24,7 +24,7 @@ ElevatorBlock_2:
 # 10 "data/maps/CoralgroveElevator1/scripts.pory"
 	safefollow
 # 11 "data/maps/CoralgroveElevator1/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Walk1Left
+	applymovement LOCALID_PLAYER, Walk1Left
 # 12 "data/maps/CoralgroveElevator1/scripts.pory"
 	waitmovement 0
 	goto ElevatorBlock_1

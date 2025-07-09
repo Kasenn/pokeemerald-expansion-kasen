@@ -59,105 +59,91 @@ Frosthearth_Mart_Bounsweet::
 	end
 
 
-FrosthearthPokeCenter_EventScript_Nurse::
-# 72 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
-	setvar VAR_0x800B, 3
-# 73 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
-	call Common_EventScript_PkmnCenterNurse
-# 74 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
-	waitmessage
-# 75 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
-	waitbuttonpress
-# 76 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
-	release
-	end
-
-
 FrosthearthPokeCenter_Lanette::
-# 81 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 72 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	lock
-# 82 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 73 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	faceplayer
-# 83 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 74 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	msgbox FrosthearthPokeCenter_Lanette_Text
-# 84 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 75 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	playfanfare MUS_OBTAIN_TMHM
-# 85 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 76 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	message CanNowUseIVChecker
-# 86 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 77 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	waitmessage
-# 87 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 78 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	waitfanfare
-# 88 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 79 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	delay 30
-# 89 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 80 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	msgbox FrosthearthPokeCenter_Lanette_ExplainIVFunction
-# 90 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 81 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	msgbox FrosthearthPokeCenter_Lanette_Goodbye
-# 91 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 82 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	closemessage
-# 92 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 83 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	applymovement 8, FrosthearthPokeCenter_Lanette_Movement_0
-# 93 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
-	applymovement 0xFF, FrosthearthPokeCenter_Lanette_Movement_1
-# 94 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 84 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+	applymovement LOCALID_PLAYER, FrosthearthPokeCenter_Lanette_Movement_1
+# 85 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	waitmovement 8
-# 95 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 86 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	playse SE_SLIDING_DOOR
-# 96 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 87 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	removeobject 8
-# 97 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 88 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	setflag FLAG_SYS_PC_LANETTE
-# 98 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 89 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	release
 	return
 
 
-# 92 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 83 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 FrosthearthPokeCenter_Lanette_Movement_0:
-# 92 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 83 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	delay_16
-# 92 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 83 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	delay_16
-# 92 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 83 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	walk_down
-# 92 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 83 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	walk_down
-# 92 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 83 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	walk_down
-# 92 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 83 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	walk_left
-# 92 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 83 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	walk_left
-# 92 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 83 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	walk_left
-# 92 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 83 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	walk_down
-# 92 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 83 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	walk_down
-# 92 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 83 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	walk_down
-# 92 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 83 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	walk_down
-# 92 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 83 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	delay_8
 	step_end
 
-# 93 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 84 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 FrosthearthPokeCenter_Lanette_Movement_1:
-# 93 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 84 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	lock_facing_direction
-# 93 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 84 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	walk_down
-# 93 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 84 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	unlock_facing_direction
-# 93 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 84 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	face_left
-# 93 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 84 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	lock_facing_direction
-# 93 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 84 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	walk_right
-# 93 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 84 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	unlock_facing_direction
 	step_end
 
@@ -203,7 +189,7 @@ Frosthearth_Mart_Lass_Text::
 	.string "letting it pick any treat it wants.$"
 
 FrosthearthPokeCenter_Lanette_Text::
-# 100 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 91 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	.string "Oh, hello.\n"
 	.string "You are?\p"
 	.string "Okay, your name's {PLAYER}.\n"
@@ -221,12 +207,12 @@ FrosthearthPokeCenter_Lanette_Text::
 	.string "machine with my latest update!$"
 
 CanNowUseIVChecker::
-# 117 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 108 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	.string "The Judge function has been added\n"
 	.string "to your PC boxes!$"
 
 FrosthearthPokeCenter_Lanette_ExplainIVFunction::
-# 121 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 112 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	.string "When accessing your PC boxes,\n"
 	.string "you can now use the Judge function\l"
 	.string "and analyze a chosen Pokémon to see\l"
@@ -238,7 +224,7 @@ FrosthearthPokeCenter_Lanette_ExplainIVFunction::
 	.string "when using the normal Button Mode.$"
 
 FrosthearthPokeCenter_Lanette_Goodbye::
-# 132 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
+# 123 "data/maps/FrosthearthCity_PokeCenter/scripts.pory"
 	.string "Anyway, I should be heading out now.\n"
 	.string "I've still got lots of PCs to update!\p"
 	.string "Honestly, I'm glad to meet you--it's\n"

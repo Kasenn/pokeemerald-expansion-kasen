@@ -546,7 +546,7 @@ GymStartingMovement::
 	compare VAR_TEMP_0, 5
 	goto_if_eq GymStartingMovement_4
 # 520 "data/maps/Kaolisle_Gym/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	turnobject LOCALID_PLAYER, DIR_EAST
 # 521 "data/maps/Kaolisle_Gym/scripts.pory"
 	turnobject 1, DIR_WEST
 # 522 "data/maps/Kaolisle_Gym/scripts.pory"
@@ -562,7 +562,7 @@ GymStartingMovement_1:
 
 GymStartingMovement_2:
 # 504 "data/maps/Kaolisle_Gym/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject LOCALID_PLAYER, DIR_WEST
 # 505 "data/maps/Kaolisle_Gym/scripts.pory"
 	turnobject 1, DIR_EAST
 # 506 "data/maps/Kaolisle_Gym/scripts.pory"
@@ -571,7 +571,7 @@ GymStartingMovement_2:
 
 GymStartingMovement_3:
 # 509 "data/maps/Kaolisle_Gym/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
+	turnobject LOCALID_PLAYER, DIR_WEST
 # 510 "data/maps/Kaolisle_Gym/scripts.pory"
 	turnobject 20, DIR_EAST
 # 511 "data/maps/Kaolisle_Gym/scripts.pory"
@@ -580,7 +580,7 @@ GymStartingMovement_3:
 
 GymStartingMovement_4:
 # 514 "data/maps/Kaolisle_Gym/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_EAST
+	turnobject LOCALID_PLAYER, DIR_EAST
 # 515 "data/maps/Kaolisle_Gym/scripts.pory"
 	turnobject 12, DIR_WEST
 # 516 "data/maps/Kaolisle_Gym/scripts.pory"
@@ -607,7 +607,7 @@ GymMovementAfter::
 # 547 "data/maps/Kaolisle_Gym/scripts.pory"
 	applymovement 1, Walk3Left
 # 548 "data/maps/Kaolisle_Gym/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Walk3Right
+	applymovement LOCALID_PLAYER, Walk3Right
 GymMovementAfter_1:
 # 550 "data/maps/Kaolisle_Gym/scripts.pory"
 	waitmovement 0
@@ -619,21 +619,21 @@ GymMovementAfter_2:
 # 534 "data/maps/Kaolisle_Gym/scripts.pory"
 	applymovement 1, Walk3Right
 # 535 "data/maps/Kaolisle_Gym/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Walk3Left
+	applymovement LOCALID_PLAYER, Walk3Left
 	goto GymMovementAfter_1
 
 GymMovementAfter_3:
 # 538 "data/maps/Kaolisle_Gym/scripts.pory"
 	applymovement 20, Walk3Right
 # 539 "data/maps/Kaolisle_Gym/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Walk3Left
+	applymovement LOCALID_PLAYER, Walk3Left
 	goto GymMovementAfter_1
 
 GymMovementAfter_4:
 # 542 "data/maps/Kaolisle_Gym/scripts.pory"
 	applymovement 13, Walk3Left
 # 543 "data/maps/Kaolisle_Gym/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Walk3Right
+	applymovement LOCALID_PLAYER, Walk3Right
 # 544 "data/maps/Kaolisle_Gym/scripts.pory"
 	applymovement 12, GymMovementAfter_Movement_0
 	goto GymMovementAfter_1

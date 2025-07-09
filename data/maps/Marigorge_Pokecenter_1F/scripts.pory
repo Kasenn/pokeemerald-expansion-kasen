@@ -8,15 +8,6 @@ script MarigorgePokeCenter1F_OnTransition{
 	end
 }
 
-script MarigorgePokeCenter1F_EventScript_Nurse{
-	setvar(VAR_0x800B, 2)
-	call(Common_EventScript_PkmnCenterNurse)
-	waitmessage
-	waitbuttonpress
-	release
-	end
-}
-
 script MarigorgePokeCenter1F_OldMan{
     setflag(FLAG_INTRODUCED_TO_TELEPORT)
     msgbox(MarigorgePokeCenter1F_OldMan_Text, MSGBOX_NPC)

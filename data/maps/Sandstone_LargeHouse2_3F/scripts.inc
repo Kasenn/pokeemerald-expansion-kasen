@@ -167,7 +167,7 @@ PCAftermath::
 # 84 "data/maps/Sandstone_LargeHouse2_3F/scripts.pory"
 	delay 15
 # 85 "data/maps/Sandstone_LargeHouse2_3F/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
+	turnobject LOCALID_PLAYER, DIR_SOUTH
 # 86 "data/maps/Sandstone_LargeHouse2_3F/scripts.pory"
 	delay 15
 # 87 "data/maps/Sandstone_LargeHouse2_3F/scripts.pory"
@@ -177,7 +177,7 @@ PCAftermath::
 # 89 "data/maps/Sandstone_LargeHouse2_3F/scripts.pory"
 	closemessage
 # 90 "data/maps/Sandstone_LargeHouse2_3F/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, StepAway
+	applymovement LOCALID_PLAYER, StepAway
 # 91 "data/maps/Sandstone_LargeHouse2_3F/scripts.pory"
 	waitmovement 0
 # 92 "data/maps/Sandstone_LargeHouse2_3F/scripts.pory"

@@ -124,24 +124,20 @@ Kaolisle_Karatemaster_7:
 # 101 "data/maps/Kaolisle_House1/scripts.pory"
 	safefollow
 # 102 "data/maps/Kaolisle_House1/scripts.pory"
-	applymovement 1, Common_Movement_ExclamationMark
+	exclamationmark 1
 # 103 "data/maps/Kaolisle_House1/scripts.pory"
-	waitmovement 0
-# 104 "data/maps/Kaolisle_House1/scripts.pory"
-	delay 40
-# 105 "data/maps/Kaolisle_House1/scripts.pory"
 	msgbox FoundMemento, MSGBOX_DEFAULT
-# 106 "data/maps/Kaolisle_House1/scripts.pory"
+# 104 "data/maps/Kaolisle_House1/scripts.pory"
 	giveitem ITEM_HM_ROCK_SMASH
-# 107 "data/maps/Kaolisle_House1/scripts.pory"
+# 105 "data/maps/Kaolisle_House1/scripts.pory"
 	setflag FLAG_RECEIVED_HM_ROCK_SMASH
-# 108 "data/maps/Kaolisle_House1/scripts.pory"
+# 106 "data/maps/Kaolisle_House1/scripts.pory"
 	removeitem ITEM_LOST_MEMENTO
-# 109 "data/maps/Kaolisle_House1/scripts.pory"
+# 107 "data/maps/Kaolisle_House1/scripts.pory"
 	msgbox ExplainRockSmash, MSGBOX_DEFAULT
-# 110 "data/maps/Kaolisle_House1/scripts.pory"
+# 108 "data/maps/Kaolisle_House1/scripts.pory"
 	release
-# 111 "data/maps/Kaolisle_House1/scripts.pory"
+# 109 "data/maps/Kaolisle_House1/scripts.pory"
 	goto_if_set FLAG_Q23_KAOLISLE_OLDPENDANT_START, Kaolisle_Karatemaster_13
 Kaolisle_Karatemaster_12:
 	end
@@ -154,31 +150,31 @@ Kaolisle_Karatemaster_10:
 	goto Kaolisle_Karatemaster_9
 
 Kaolisle_Karatemaster_13:
-# 112 "data/maps/Kaolisle_House1/scripts.pory"
+# 110 "data/maps/Kaolisle_House1/scripts.pory"
 	completequest FLAG_Q23_KAOLISLE_OLDPENDANT_COMPLETE
-# 113 "data/maps/Kaolisle_House1/scripts.pory"
+# 111 "data/maps/Kaolisle_House1/scripts.pory"
 	special ShowJournalPopupRemove
 	goto Kaolisle_Karatemaster_12
 
 
 Kaolisle_SphealHouseLady::
-# 163 "data/maps/Kaolisle_House1/scripts.pory"
+# 161 "data/maps/Kaolisle_House1/scripts.pory"
 	faceplayer
-# 164 "data/maps/Kaolisle_House1/scripts.pory"
+# 162 "data/maps/Kaolisle_House1/scripts.pory"
 	msgbox Kaolisle_SphealHouseLady_Text, MSGBOX_DEFAULT
-# 165 "data/maps/Kaolisle_House1/scripts.pory"
+# 163 "data/maps/Kaolisle_House1/scripts.pory"
 	release
 	end
 
 
 Kaolisle_House4_Man::
-# 176 "data/maps/Kaolisle_House1/scripts.pory"
+# 174 "data/maps/Kaolisle_House1/scripts.pory"
 	msgbox Kaolisle_House4_Man_Text, MSGBOX_NPC
 	end
 
 
 Kaolisle_House4_Woman::
-# 190 "data/maps/Kaolisle_House1/scripts.pory"
+# 188 "data/maps/Kaolisle_House1/scripts.pory"
 	msgbox Kaolisle_House4_Woman_Text, MSGBOX_NPC
 	end
 
@@ -221,7 +217,7 @@ ThankYouForListening2::
 	.string "Thanks again for the confidence boost.$"
 
 LostMemento::
-# 119 "data/maps/Kaolisle_House1/scripts.pory"
+# 117 "data/maps/Kaolisle_House1/scripts.pory"
 	.string "You look like a strong trainer.\p"
 	.string "That means you must have been to\n"
 	.string "numerous places.\p"
@@ -234,7 +230,7 @@ LostMemento::
 	.string "could you let me know?$"
 
 FoundMemento::
-# 131 "data/maps/Kaolisle_House1/scripts.pory"
+# 129 "data/maps/Kaolisle_House1/scripts.pory"
 	.string "That pendant…!\p"
 	.string "Yes, that's the pendant I “lost”!\p"
 	.string "I'm a retired karate master and\n"
@@ -252,7 +248,7 @@ FoundMemento::
 	.string "Here, have this Hidden Machine!$"
 
 ExplainRockSmash::
-# 148 "data/maps/Kaolisle_House1/scripts.pory"
+# 146 "data/maps/Kaolisle_House1/scripts.pory"
 	.string "That HM contains the move Rock Smash.\p"
 	.string "If you come across large boulders\n"
 	.string "that block your path…\p"
@@ -260,21 +256,21 @@ ExplainRockSmash::
 	.string "them right out of your way!$"
 
 RockSmashMonComesOut_Text::
-# 155 "data/maps/Kaolisle_House1/scripts.pory"
+# 153 "data/maps/Kaolisle_House1/scripts.pory"
 	.string "Oh, yes, when you smash a rock,\n"
 	.string "there's a chance a Pokémon could come\l"
 	.string "flying out of hiding!\l"
 	.string "Do make sure you're prepared!$"
 
 Kaolisle_SphealHouseLady_Text::
-# 168 "data/maps/Kaolisle_House1/scripts.pory"
+# 166 "data/maps/Kaolisle_House1/scripts.pory"
 	.string "Seeing the Spheal playing with each\n"
 	.string "other really soothes the soul.\p"
 	.string "I have places to be but I dare not\n"
 	.string "break up their play.$"
 
 Kaolisle_House4_Man_Text::
-# 179 "data/maps/Kaolisle_House1/scripts.pory"
+# 177 "data/maps/Kaolisle_House1/scripts.pory"
 	.string "Kaolisle is known for its holiday resort\n"
 	.string "as well as its mining operation.\p"
 	.string "The mining is handled by Pokémon and\n"
@@ -284,7 +280,7 @@ Kaolisle_House4_Man_Text::
 	.string "and the resort to co-exist peacefully.$"
 
 Kaolisle_House4_Woman_Text::
-# 193 "data/maps/Kaolisle_House1/scripts.pory"
+# 191 "data/maps/Kaolisle_House1/scripts.pory"
 	.string "Have you noticed the white cliffs of\n"
 	.string "Kaolisle City?\p"
 	.string "There are certain minerals in the\n"

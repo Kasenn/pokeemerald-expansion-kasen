@@ -100,7 +100,7 @@ TestBoundary::
 # 63 "data/maps/TestRoom/scripts.pory"
 	applymovement 16, Walk6Left
 # 64 "data/maps/TestRoom/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Walk6invis
+	applymovement LOCALID_PLAYER, Walk6invis
 # 65 "data/maps/TestRoom/scripts.pory"
 	waitmovement 0
 # 68 "data/maps/TestRoom/scripts.pory"
@@ -110,7 +110,7 @@ TestBoundary::
 # 70 "data/maps/TestRoom/scripts.pory"
 	applymovement 16, TurnInvisible, MAP_TEST_ROOM
 # 71 "data/maps/TestRoom/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, MakeVisible
+	applymovement LOCALID_PLAYER, MakeVisible
 # 72 "data/maps/TestRoom/scripts.pory"
 	waitmovement 0, MAP_TEST_ROOM
 # 73 "data/maps/TestRoom/scripts.pory"
@@ -160,7 +160,7 @@ TestMovementScript::
 	msgbox TestMovementScript_Text_1, MSGBOX_NPC
 TestMovementScript_1:
 # 99 "data/maps/TestRoom/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Walk3Up
+	applymovement LOCALID_PLAYER, Walk3Up
 # 100 "data/maps/TestRoom/scripts.pory"
 	waitmovement 0
 # 101 "data/maps/TestRoom/scripts.pory"
@@ -219,7 +219,7 @@ KrokorokPlayer_4:
 # 155 "data/maps/TestRoom/scripts.pory"
 	setkrokorokdisguise
 # 156 "data/maps/TestRoom/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, SetObjectVisible
+	applymovement LOCALID_PLAYER, SetObjectVisible
 # 157 "data/maps/TestRoom/scripts.pory"
 	waitmovement 0
 # 158 "data/maps/TestRoom/scripts.pory"
@@ -247,28 +247,28 @@ KrokorokPlayer_6:
 # 142 "data/maps/TestRoom/scripts.pory"
 	turnobject 1, DIR_NORTH
 # 143 "data/maps/TestRoom/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, MovePlayerToKrokorokNorth
+	applymovement LOCALID_PLAYER, MovePlayerToKrokorokNorth
 	goto KrokorokPlayer_4
 
 KrokorokPlayer_7:
 # 145 "data/maps/TestRoom/scripts.pory"
 	turnobject 1, DIR_EAST
 # 146 "data/maps/TestRoom/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, MovePlayerToKrokorokEast
+	applymovement LOCALID_PLAYER, MovePlayerToKrokorokEast
 	goto KrokorokPlayer_4
 
 KrokorokPlayer_8:
 # 148 "data/maps/TestRoom/scripts.pory"
 	turnobject 1, DIR_WEST
 # 149 "data/maps/TestRoom/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, MovePlayerToKrokorokWest
+	applymovement LOCALID_PLAYER, MovePlayerToKrokorokWest
 	goto KrokorokPlayer_4
 
 KrokorokPlayer_9:
 # 151 "data/maps/TestRoom/scripts.pory"
 	turnobject 1, DIR_SOUTH
 # 152 "data/maps/TestRoom/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, MovePlayerToKrokorokSouth
+	applymovement LOCALID_PLAYER, MovePlayerToKrokorokSouth
 	goto KrokorokPlayer_4
 
 
@@ -323,7 +323,7 @@ KrokorokScript_10:
 # 206 "data/maps/TestRoom/scripts.pory"
 	setkrokorokdisguise
 # 207 "data/maps/TestRoom/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, SetObjectVisible
+	applymovement LOCALID_PLAYER, SetObjectVisible
 # 208 "data/maps/TestRoom/scripts.pory"
 	waitmovement 0
 # 209 "data/maps/TestRoom/scripts.pory"
@@ -369,22 +369,22 @@ KrokorokScript_9:
 
 KrokorokScript_12:
 # 197 "data/maps/TestRoom/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, MovePlayerToKrokorokNorth
+	applymovement LOCALID_PLAYER, MovePlayerToKrokorokNorth
 	goto KrokorokScript_10
 
 KrokorokScript_13:
 # 199 "data/maps/TestRoom/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, MovePlayerToKrokorokEast
+	applymovement LOCALID_PLAYER, MovePlayerToKrokorokEast
 	goto KrokorokScript_10
 
 KrokorokScript_14:
 # 201 "data/maps/TestRoom/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, MovePlayerToKrokorokWest
+	applymovement LOCALID_PLAYER, MovePlayerToKrokorokWest
 	goto KrokorokScript_10
 
 KrokorokScript_15:
 # 203 "data/maps/TestRoom/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, MovePlayerToKrokorokSouth
+	applymovement LOCALID_PLAYER, MovePlayerToKrokorokSouth
 	goto KrokorokScript_10
 
 

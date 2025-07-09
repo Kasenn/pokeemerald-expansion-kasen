@@ -77,10 +77,10 @@ script Pearlwood_BrotherFightMain{
     }
     msgbox(BrotherFightIntro)
     setflag(FLAG_CONTINUE_AFTER_WHITEOUT)
-    playbgm(MUS_ENCOUNTER_MALE, FALSE)
-    msgbox(Pearlwood_Brother_Intro)
     setflag(FLAG_FIRST_BATTLE)
     setflag(FLAG_HEAL_AFTER_BATTLE)
+    playbgm(MUS_ENCOUNTER_MALE, FALSE)
+    msgbox(Pearlwood_Brother_Intro)
     trainerbattle_no_intro(TRAINER_BROTHER_1_PEARLWOOD, Pearlwood_Brother_Outro)
     goto(PearlwoodWon)
 }

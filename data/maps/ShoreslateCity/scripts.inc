@@ -494,7 +494,7 @@ Shoreslate_DevonExteriorTrigger::
 # 447 "data/maps/ShoreslateCity/scripts.pory"
 	delay 5
 # 448 "data/maps/ShoreslateCity/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	turnobject LOCALID_PLAYER, DIR_NORTH
 # 449 "data/maps/ShoreslateCity/scripts.pory"
 	msgbox ShoreSlate_NotGettingThrough, MSGBOX_DEFAULT
 # 450 "data/maps/ShoreslateCity/scripts.pory"
@@ -504,7 +504,7 @@ Shoreslate_DevonExteriorTrigger::
 # 452 "data/maps/ShoreslateCity/scripts.pory"
 	setvar VAR_TEMP_6, 1
 # 453 "data/maps/ShoreslateCity/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, Walk1Right
+	applymovement LOCALID_PLAYER, Walk1Right
 # 454 "data/maps/ShoreslateCity/scripts.pory"
 	waitmovement 0
 # 455 "data/maps/ShoreslateCity/scripts.pory"
@@ -523,7 +523,7 @@ Shoreslate_DevonExteriorTrigger_2:
 # 434 "data/maps/ShoreslateCity/scripts.pory"
 	delay 5
 # 435 "data/maps/ShoreslateCity/scripts.pory"
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	turnobject LOCALID_PLAYER, DIR_NORTH
 # 436 "data/maps/ShoreslateCity/scripts.pory"
 	msgbox ShoreSlate_YouDeaf, MSGBOX_DEFAULT
 # 437 "data/maps/ShoreslateCity/scripts.pory"
