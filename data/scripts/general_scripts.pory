@@ -551,8 +551,13 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{              //
-    playmoncry(SPECIES_RATTATA, CRY_MODE_NORMAL)
-    release
+    msgbox("Does This Work?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == TRUE){
+        goto(Debug_Script_3)
+    }
+    else{
+        msgbox("lol")
+    }
     return
 }
 script Debug_Script_4{
