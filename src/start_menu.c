@@ -108,7 +108,7 @@ EWRAM_DATA static u8 sIsClockOnScreen = 0;
 static bool8 StartMenuPokedexCallback(void);
 static bool8 StartMenuPokemonCallback(void);
 static bool8 StartMenuBagCallback(void);
-static bool8 StartMenuPokeNavCallback(void);
+void StartMenuPokeNavCallback(void);
 static bool8 StartMenuPlayerNameCallback(void);
 static bool8 StartMenuJournalCallback(void);
 static bool8 StartMenuSaveCallback(void);
@@ -916,19 +916,15 @@ static bool8 StartMenuBagCallback(void)
     return FALSE;
 }
 
-static bool8 UNUSED StartMenuPokeNavCallback(void)
+void StartMenuPokeNavCallback(void)
 {
     if (!gPaletteFade.active)
     {
         PlayRainStoppingSoundEffect();
-        RemoveExtraStartMenuWindows();
+        // RemoveExtraStartMenuWindows();
         CleanupOverworldWindowsAndTilemaps();
         SetMainCallback2(CB2_InitPokeNav);  // Display PokéNav
-
-        return TRUE;
     }
-
-    return FALSE;
 }
 
 static bool8 StartMenuPlayerNameCallback(void)

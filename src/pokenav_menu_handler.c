@@ -124,8 +124,8 @@ bool32 PokenavCallback_Init_MainMenuCursorOnRibbons(void)
         return FALSE;
 
     menu->menuType = GetPokenavMainMenuType();
-    menu->cursorPos = POKENAV_MENUITEM_RIBBONS;
-    menu->currMenuItem = POKENAV_MENUITEM_RIBBONS;
+    menu->cursorPos = POKENAV_MENUITEM_CONDITION;
+    menu->currMenuItem = POKENAV_MENUITEM_CONDITION;
     SetMenuInputHandler(menu);
     return TRUE;
 }
@@ -219,10 +219,6 @@ static u32 HandleMainMenuInput(struct Pokenav_Menu *menu)
         switch (sMenuItems[menu->menuType][menu->cursorPos])
         {
         case POKENAV_MENUITEM_MAP:
-            menu->helpBarIndex = gSaveBlock2Ptr->regionMapZoom ? HELPBAR_MAP_ZOOMED_IN : HELPBAR_MAP_ZOOMED_OUT;
-            SetMenuIdAndCB(menu, POKENAV_REGION_MAP);
-            return POKENAV_MENU_FUNC_OPEN_FEATURE;
-        case POKENAV_MENUITEM_CONDITION:
             menu->menuType = POKENAV_MENU_TYPE_CONDITION;
             menu->cursorPos = 0;
             menu->currMenuItem = sMenuItems[POKENAV_MENU_TYPE_CONDITION][0];
@@ -233,6 +229,7 @@ static u32 HandleMainMenuInput(struct Pokenav_Menu *menu)
             SetMenuIdAndCB(menu, POKENAV_MATCH_CALL);
             return POKENAV_MENU_FUNC_OPEN_FEATURE;
         case POKENAV_MENUITEM_RIBBONS:
+        case POKENAV_MENUITEM_CONDITION:
             if (CanViewRibbonsMenu())
             {
                 menu->helpBarIndex = HELPBAR_RIBBONS_MON_LIST;
@@ -457,7 +454,7 @@ static u32 GetMenuId(struct Pokenav_Menu *menu)
 static void ReturnToMainMenu(struct Pokenav_Menu *menu)
 {
     menu->menuType = GetPokenavMainMenuType();
-    menu->cursorPos = 1;
+    menu->cursorPos = 0;
     menu->currMenuItem = sMenuItems[menu->menuType][menu->cursorPos];
     menu->callback = HandleMainMenuInput;
 }

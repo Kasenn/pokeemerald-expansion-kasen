@@ -68,6 +68,7 @@
 #include "constants/metatile_labels.h"
 #include "tilesets.h"
 #include "field_camera.h"
+#include "start_menu.h"
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(struct ScriptContext *ctx);
@@ -4007,4 +4008,20 @@ bool8 ScrCmd_teleportcamera(struct ScriptContext *ctx)
 
     MoveCameraAndRedrawMap(x, y);
     return FALSE;
+}
+
+static void Task_OpenPokeNav(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        SetMainCallback2(StartMenuPokeNavCallback);
+        DestroyTask(taskId);
+    }
+}
+
+void ScrCmd_ActivatePokeNav(void)
+{
+    BeginTimeOfDayPaletteFade(PALETTES_ALL, 0, 0, 16, &gTimeBlend.startBlend, &gTimeBlend.endBlend, gTimeBlend.weight, 0);
+    LockPlayerFieldControls();
+    CreateTask(Task_OpenPokeNav, 1);
 }
