@@ -91,6 +91,9 @@ void SetBagItemsPointers(void)
 
     gBagPockets[MEDICINE_POCKET].itemSlots = gSaveBlock1Ptr->bagPocket_Medicine;
     gBagPockets[MEDICINE_POCKET].capacity = BAG_MEDICINE_COUNT;
+
+    gBagPockets[FREESPACE_POCKET].itemSlots = gSaveBlock1Ptr->pcItems;
+    gBagPockets[FREESPACE_POCKET].capacity = PC_ITEMS_COUNT;
 }
 
 u8 *CopyItemName(u16 itemId, u8 *dst)
@@ -226,6 +229,13 @@ u32 GetFreeSpaceForItemInBag(u16 itemId)
 bool8 AddBagItem(u16 itemId, u16 count)
 {
     u8 i;
+    bool8 override = FALSE;
+
+    if (CheckPCHasItem(itemId, 1) && gFreeSpaceFunc != MOVE_FROM_FREESPACE)
+    {
+        override = TRUE;
+        gFreeSpaceFunc = FREESPACE_NONE;
+    }
 
     if (GetItemPocket(itemId) == POCKET_NONE)
         return FALSE;
@@ -241,6 +251,12 @@ bool8 AddBagItem(u16 itemId, u16 count)
         struct ItemSlot *newItems;
         u16 ownedCount;
         u8 pocket = GetItemPocket(itemId) - 1;
+
+        if (gFreeSpaceFunc == MOVE_TO_FREESPACE || override)
+        {
+            pocket = FREESPACE_POCKET;
+            gFreeSpaceFunc = FREESPACE_NONE;
+        }
 
         itemPocket = &gBagPockets[pocket];
         newItems = AllocZeroed(itemPocket->capacity * sizeof(struct ItemSlot));
@@ -334,6 +350,18 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
 {
     u8 i;
     u16 totalQuantity = 0;
+    bool8 itemInFreeSpace = FALSE;
+
+    if (CheckPCHasItem(itemId, 1) && gFreeSpaceFunc != MOVE_TO_FREESPACE)
+    {
+        itemInFreeSpace = TRUE;
+        gFreeSpaceFunc = FREESPACE_NONE;
+    }
+    if (gFreeSpaceFunc == GIVE_FROM_FREESPACE)
+    {
+        itemInFreeSpace = TRUE;
+        gFreeSpaceFunc = FREESPACE_NONE;
+    }  
 
     if (GetItemPocket(itemId) == POCKET_POKE_BALLS && (gBattleTypeFlags & BATTLE_TYPE_GHOST))
         return FALSE;
@@ -354,6 +382,9 @@ bool8 RemoveBagItem(u16 itemId, u16 count)
         struct BagPocket *itemPocket;
 
         pocket = GetItemPocket(itemId) - 1;
+        if (itemInFreeSpace)
+            pocket = FREESPACE_POCKET;
+            
         itemPocket = &gBagPockets[pocket];
 
         for (i = 0; i < itemPocket->capacity; i++)
@@ -529,6 +560,20 @@ bool8 AddPCItem(u16 itemId, u16 count)
     memcpy(gSaveBlock1Ptr->pcItems, newItems, sizeof(gSaveBlock1Ptr->pcItems));
     Free(newItems);
     return TRUE;
+}
+
+u16 CountTotalItemQuantityInPC(u16 itemId)
+{
+    u16 i;
+    u16 totalCount = 0;
+
+    for (i = 0; i < PC_ITEMS_COUNT; i++)
+    {
+        if (gSaveBlock1Ptr->pcItems[i].itemId == itemId)
+            totalCount += GetPCItemQuantity(&gSaveBlock1Ptr->pcItems[i].quantity);
+    }
+
+    return totalCount ^ gSaveBlock2Ptr->encryptionKey;
 }
 
 void RemovePCItem(u8 index, u16 count)

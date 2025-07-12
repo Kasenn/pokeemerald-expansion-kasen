@@ -26,6 +26,7 @@ EventScript_BufferPocketNameAndTryFanfare::
 	case POCKET_TM_HM,      EventScript_BufferTMHMsPocket
 	case POCKET_BERRIES,    EventScript_BufferBerriesPocket
 	case POCKET_MEGA_STONES EventScript_BufferMegaStonesPocket
+	case POCKET_FREESPACE	EventScript_BufferFreeSpacePocket
 	end
 
 EventScript_BufferItemsPocket::

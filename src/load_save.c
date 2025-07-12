@@ -34,6 +34,7 @@ struct LoadedSaveData
  /*0x02E8*/ struct Mail mail[MAIL_COUNT];
  /*0x0230*/ struct ItemSlot medicine[BAG_MEDICINE_COUNT];
  /*0x0230*/ struct ItemSlot megaStones[BAG_MEGASTONE_COUNT];
+ /*0x0230*/ struct ItemSlot freeSpace[PC_ITEMS_COUNT];
 };
 
 // EWRAM DATA
@@ -329,6 +330,9 @@ void LoadPlayerBag(void)
     for (i = 0; i < BAG_MEDICINE_COUNT; i++)
         gLoadedSaveData.medicine[i] = gSaveBlock1Ptr->bagPocket_Medicine[i];
 
+    for (i = 0; i < PC_ITEMS_COUNT; i++)
+        gLoadedSaveData.freeSpace[i] = gSaveBlock1Ptr->pcItems[i];
+
     gLastEncryptionKey = gSaveBlock2Ptr->encryptionKey;
 }
 
@@ -360,6 +364,9 @@ void SavePlayerBag(void)
     // save player megastones.
     for (i = 0; i < BAG_MEGASTONE_COUNT; i++)
         gSaveBlock1Ptr->bagPocket_MegaStones[i] = gLoadedSaveData.megaStones[i];
+
+    for (i = 0; i < PC_ITEMS_COUNT; i++)
+        gSaveBlock1Ptr->pcItems[i] = gLoadedSaveData.freeSpace[i];
 
     // save mail.
     // for (i = 0; i < MAIL_COUNT; i++)

@@ -24,6 +24,12 @@ script Common_EventScript_FindItem{
 	end
 }
 
+script EventScript_BufferFreeSpacePocket{
+	bufferstring(STR_VAR_3, "Free Space")
+	call_if_eq(VAR_0x8007, TRUE, EventScript_PlayFanfareObtainedItem)
+	return
+}
+
 script SetupRivalGfxId{
     if(checkplayergender == MALE){
         if(flag(FLAG_RIVAL_COSTUME_CHANGE)){

@@ -169,6 +169,8 @@ const u8 gText_Var1CantBeHeld[] = _("The {STR_VAR_1} can't be held.");
 const u8 gText_TossHowManyVar1s[] = _("Toss out how many\n{STR_VAR_1}?");
 const u8 gText_ThrewAwayVar2Var1s[] = _("Threw away {STR_VAR_2}\n{STR_VAR_1}.");
 const u8 gText_ConfirmTossItems[] = _("Is it okay to\nthrow away {STR_VAR_2}\n{STR_VAR_1}?");
+const u8 gText_MovedToFreeSpace[] = _("Moved the\n{STR_VAR_1} to\nFree Space!");
+const u8 gText_MovedFromFreeSpace[] = _("Moved the\n{STR_VAR_1} back\nto original pocket!");
 const u8 gText_ZygardeCells[] = _("The Zygarde Cube currently contains\n{STR_VAR_1} Zygarde Cells and {STR_VAR_2} Zygarde Cores.{PAUSE_UNTIL_PRESS}");
 const u8 gText_SampleBox[] = _("The Sample Box currently contains\n{STR_VAR_1} sample(s) of mud.{PAUSE_UNTIL_PRESS}");
 const u8 gText_DadsAdvice[] = _("Dad's advice…\n{PLAYER}, there's a time and place for\leverything!{PAUSE_UNTIL_PRESS}");
@@ -217,7 +219,8 @@ const u8 *const gPocketNamesStringsTable[] =
     [BERRIES_POCKET] =  COMPOUND_STRING("Berries"),
     [KEYITEMS_POCKET] = COMPOUND_STRING("Key Items"),
     [MEDICINE_POCKET] = COMPOUND_STRING("Medicine"),
-    [MEGASTONE_POCKET] = COMPOUND_STRING("Mega Stones")
+    [MEGASTONE_POCKET] = COMPOUND_STRING("Mega Stones"),
+    [FREESPACE_POCKET] = COMPOUND_STRING("Free Space")
 };
 
 const u8 gText_NumberItem_TMBerry[] = _("{NO}{STR_VAR_1}{CLEAR 0x07}{STR_VAR_2}");

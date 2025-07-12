@@ -694,6 +694,15 @@ bool8 ScrCmd_checkitemtype(struct ScriptContext *ctx)
     Script_RequestEffects(SCREFF_V1);
 
     gSpecialVar_Result = GetPocketByItemId(itemId);
+
+    for (int i = 0; i < PC_ITEMS_COUNT; i++)
+    {
+        if (gSaveBlock1Ptr->pcItems[i].itemId == itemId)
+        {
+            gSpecialVar_Result = POCKET_FREESPACE;
+            break;
+        }
+    }
     return FALSE;
 }
 

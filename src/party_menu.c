@@ -3591,6 +3591,8 @@ static void CB2_GiveHoldItem(void)
         // Give mail
         else if (ItemIsMail(gSpecialVar_ItemId))
         {
+            if (gBagPosition.pocket == FREESPACE_POCKET)
+                gFreeSpaceFunc = GIVE_FROM_FREESPACE;
             RemoveBagItem(gSpecialVar_ItemId, 1);
             GiveItemToMon(&gPlayerParty[gPartyMenu.slotId], gSpecialVar_ItemId);
             CB2_WriteMailToGiveMon();
@@ -3612,6 +3614,8 @@ static void Task_GiveHoldItem(u8 taskId)
         item = gSpecialVar_ItemId;
         DisplayGaveHeldItemMessage(&gPlayerParty[gPartyMenu.slotId], item, FALSE, 0);
         GiveItemToMon(&gPlayerParty[gPartyMenu.slotId], item);
+        if (gBagPosition.pocket == FREESPACE_POCKET)
+            gFreeSpaceFunc = GIVE_FROM_FREESPACE;
         RemoveBagItem(item, 1);
         gTasks[taskId].func = Task_UpdateHeldItemSprite;
     }
@@ -3640,6 +3644,8 @@ static void Task_HandleSwitchItemsYesNoInput(u8 taskId)
     switch (Menu_ProcessInputNoWrapClearOnChoose())
     {
     case 0: // Yes, switch items
+        if (gBagPosition.pocket == FREESPACE_POCKET)
+            gFreeSpaceFunc = GIVE_FROM_FREESPACE;
         RemoveBagItem(gSpecialVar_ItemId, 1);
 
         // No room to return held item to bag
@@ -5021,7 +5027,11 @@ void ItemUseCB_BattleScript(u8 taskId, TaskFunc task)
         gPartyMenuUseExitCallback = TRUE;
         PlaySE(SE_SELECT);
         if (!IsItemFlute(gSpecialVar_ItemId))
+        {
+            if (gBagPosition.pocket == FREESPACE_POCKET)
+                gFreeSpaceFunc = GIVE_FROM_FREESPACE;
             RemoveBagItem(gSpecialVar_ItemId, 1);
+        }
         ScheduleBgCopyTilemapToVram(2);
         gTasks[taskId].func = task;
     }
@@ -5077,6 +5087,8 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
         if (!IsItemFlute(item))
         {
             PlaySE(SE_USE_ITEM);
+            if (gBagPosition.pocket == FREESPACE_POCKET)
+                gFreeSpaceFunc = GIVE_FROM_FREESPACE;
             RemoveBagItem(item, 1);
         }
         else
@@ -5184,6 +5196,8 @@ void Task_AbilityCapsule(u8 taskId)
         break;
     case 5:
         SetMonData(&gPlayerParty[tMonId], MON_DATA_ABILITY_NUM, &tAbilityNum);
+        if (gBagPosition.pocket == FREESPACE_POCKET)
+            gFreeSpaceFunc = GIVE_FROM_FREESPACE;
         RemoveBagItem(gSpecialVar_ItemId, 1);
         gTasks[taskId].func = Task_ClosePartyMenu;
         break;
@@ -5271,6 +5285,8 @@ void Task_AbilityPatch(u8 taskId)
         break;
     case 5:
         SetMonData(&gPlayerParty[tMonId], MON_DATA_ABILITY_NUM, &tAbilityNum);
+        if (gBagPosition.pocket == FREESPACE_POCKET)
+            gFreeSpaceFunc = GIVE_FROM_FREESPACE;
         RemoveBagItem(gSpecialVar_ItemId, 1);
         gTasks[taskId].func = Task_ClosePartyMenu;
         break;
@@ -5372,6 +5388,8 @@ void Task_Mint(u8 taskId)
     case 5:
         SetMonData(&gPlayerParty[tMonId], MON_DATA_HIDDEN_NATURE, &tNewNature);
         CalculateMonStats(&gPlayerParty[tMonId]);
+        if (gBagPosition.pocket == FREESPACE_POCKET)
+            gFreeSpaceFunc = GIVE_FROM_FREESPACE;
         RemoveBagItem(gSpecialVar_ItemId, 1);
         gTasks[taskId].func = Task_ClosePartyMenu;
         break;
@@ -5437,6 +5455,8 @@ void ItemUseCB_ResetEVs(u8 taskId, TaskFunc task)
     {
         gPartyMenuUseExitCallback = TRUE;
         PlaySE(SE_USE_ITEM);
+        if (gBagPosition.pocket == FREESPACE_POCKET)
+            gFreeSpaceFunc = GIVE_FROM_FREESPACE;
         RemoveBagItem(item, 1);
         GetMonNickname(mon, gStringVar1);
         StringExpandPlaceholders(gStringVar4, gText_BasePointsResetToZero);
@@ -5469,6 +5489,8 @@ void ItemUseCB_ReduceEV(u8 taskId, TaskFunc task)
     {
         gPartyMenuUseExitCallback = TRUE;
         PlaySE(SE_USE_ITEM);
+        if (gBagPosition.pocket == FREESPACE_POCKET)
+            gFreeSpaceFunc = GIVE_FROM_FREESPACE;
         RemoveBagItem(item, 1);
         GetMonNickname(mon, gStringVar1);
         ItemEffectToStatString(effectType, gStringVar2);
@@ -5627,6 +5649,8 @@ static void TryUseItemOnMove(u8 taskId)
             gBattleStruct->itemPartyIndex[gBattlerInMenuId] = GetPartyIdFromBattleSlot(gPartyMenu.slotId);
             gBattleStruct->itemMoveIndex[gBattlerInMenuId] = ptr->data1;
             gPartyMenuUseExitCallback = TRUE;
+                if (gBagPosition.pocket == FREESPACE_POCKET)
+            gFreeSpaceFunc = GIVE_FROM_FREESPACE;
             RemoveBagItem(gSpecialVar_ItemId, 1);
             ScheduleBgCopyTilemapToVram(2);
             gTasks[taskId].func = Task_ClosePartyMenuAfterText;
@@ -5651,6 +5675,8 @@ static void TryUseItemOnMove(u8 taskId)
         {
             gPartyMenuUseExitCallback = TRUE;
             PlaySE(SE_USE_ITEM);
+            if (gBagPosition.pocket == FREESPACE_POCKET)
+                gFreeSpaceFunc = GIVE_FROM_FREESPACE;
             RemoveBagItem(item, 1);
             move = GetMonData(mon, MON_DATA_MOVE1 + *moveSlot);
             StringCopy(gStringVar1, GetMoveName(move));
@@ -5784,6 +5810,8 @@ void ItemUseCB_IncreaseFriendship(u8 taskId, TaskFunc task)
     else{
         gPartyMenuUseExitCallback = TRUE;
         PlaySE(SE_USE_ITEM);
+        if (gBagPosition.pocket == FREESPACE_POCKET)
+            gFreeSpaceFunc = GIVE_FROM_FREESPACE;
         RemoveBagItem(item, 1);
         AdjustFriendship(mon, FRIENDSHIP_EVENT_SPECIAL_SOUP);
         GetMonNickname(mon, gStringVar1);
@@ -6013,6 +6041,8 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
         if (targetSpecies != SPECIES_NONE)
         {
             GetEvolutionTargetSpecies(mon, EVO_MODE_NORMAL, ITEM_NONE, NULL, &canStopEvo, DO_EVO);
+            if (gBagPosition.pocket == FREESPACE_POCKET)
+                gFreeSpaceFunc = GIVE_FROM_FREESPACE;
             RemoveBagItem(gSpecialVar_ItemId, 1);
             FreePartyPointers();
             gCB2_AfterEvolution = gPartyMenu.exitCallback;
@@ -6032,6 +6062,8 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
         sFinalLevel = GetMonData(mon, MON_DATA_LEVEL, NULL);
         gPartyMenuUseExitCallback = TRUE;
         UpdateMonDisplayInfoAfterRareCandy(gPartyMenu.slotId, mon);
+        if (gBagPosition.pocket == FREESPACE_POCKET)
+            gFreeSpaceFunc = GIVE_FROM_FREESPACE;
         RemoveBagItem(gSpecialVar_ItemId, 1);
         GetMonNickname(mon, gStringVar1);
         if (sFinalLevel > sInitialLevel)
@@ -6293,6 +6325,8 @@ void Task_DynamaxCandy(u8 taskId)
     case 3:
         tDynamaxLevel++;
         SetMonData(&gPlayerParty[tMonId], MON_DATA_DYNAMAX_LEVEL, &tDynamaxLevel);
+        if (gBagPosition.pocket == FREESPACE_POCKET)
+            gFreeSpaceFunc = GIVE_FROM_FREESPACE;
         RemoveBagItem(gSpecialVar_ItemId, 1);
         gTasks[taskId].func = Task_ClosePartyMenu;
         break;
@@ -6377,6 +6411,9 @@ static void Task_SacredAshLoop(u8 taskId)
             else
             {
                 gPartyMenuUseExitCallback = TRUE;
+                if (gBagPosition.pocket == FREESPACE_POCKET)
+                    gFreeSpaceFunc = GIVE_FROM_FREESPACE;
+
                 RemoveBagItem(gSpecialVar_ItemId, 1);
             }
             gTasks[taskId].func = Task_ClosePartyMenuAfterText;
@@ -6416,7 +6453,12 @@ void ItemUseCB_EvolutionStone(u8 taskId, TaskFunc task)
     else
     {
         if (GetItemPocket(gSpecialVar_ItemId) != POCKET_KEY_ITEMS)
+        {
+            if (gBagPosition.pocket == FREESPACE_POCKET)
+                gFreeSpaceFunc = GIVE_FROM_FREESPACE;
+
             RemoveBagItem(gSpecialVar_ItemId, 1);
+        }
         FreePartyPointers();
     }
 }
@@ -6928,7 +6970,12 @@ void ItemUseCB_FormChange(u8 taskId, TaskFunc task)
 void ItemUseCB_FormChange_ConsumedOnUse(u8 taskId, TaskFunc task)
 {
     if (TryItemUseFormChange(taskId, task))
+    {
+        if (gBagPosition.pocket == FREESPACE_POCKET)
+            gFreeSpaceFunc = GIVE_FROM_FREESPACE;
+
         RemoveBagItem(gSpecialVar_ItemId, 1);
+    }   
 }
 
 void ItemUseCB_RotomCatalog(u8 taskId, TaskFunc task)
@@ -7327,7 +7374,11 @@ static void RemoveItemToGiveFromBag(u16 item)
     if (gPartyMenu.action == PARTY_ACTION_GIVE_PC_ITEM) // Unused, never occurs
         RemovePCItem(item, 1);
     else
+    {
+        if (gBagPosition.pocket == FREESPACE_POCKET)
+            gFreeSpaceFunc = GIVE_FROM_FREESPACE;
         RemoveBagItem(item, 1);
+    }
 }
 
 // Returns FALSE if there was no space to return the item

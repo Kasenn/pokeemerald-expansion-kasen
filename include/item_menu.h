@@ -86,6 +86,13 @@ struct BagMenu
 extern struct BagMenu *gBagMenu;
 extern u16 gSpecialVar_ItemId;
 
+extern u8 gFreeSpaceFunc;
+
+#define FREESPACE_NONE  0
+#define MOVE_TO_FREESPACE 1
+#define MOVE_FROM_FREESPACE 2
+#define GIVE_FROM_FREESPACE 3
+
 void CB2_GoToItemDepositMenu(void);
 void FavorLadyOpenBagMenu(void);
 void QuizLadyOpenBagMenu(void);
