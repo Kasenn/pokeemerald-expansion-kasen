@@ -250,8 +250,7 @@ script BasalekTown_EggWoman{
         msgbox(BasalekTown_Text_AsYouWishThen, MSGBOX_AUTOCLOSE)
 	    end
     }
-	getpartysize
-    if(var(VAR_RESULT) == PARTY_SIZE){
+    if(getpartysize == PARTY_SIZE){
         msgbox(BasalekTown_Text_NoRoomForThisEgg, MSGBOX_AUTOCLOSE)
 	    end
     }

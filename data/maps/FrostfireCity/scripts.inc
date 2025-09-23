@@ -9,7 +9,7 @@ FrostfireCity_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 # 7 "data/maps/FrostfireCity/scripts.pory"
 	setflag FLAG_TEMP_3
 # 8 "data/maps/FrostfireCity/scripts.pory"
-	setflag FLAG_VISITED_FROSTFIRE
+	setflag FLAG_VISITED_FROSTHEARTH
 # 9 "data/maps/FrostfireCity/scripts.pory"
 	switch VAR_FROSTHEARTH_RUFFLET
 # 10 "data/maps/FrostfireCity/scripts.pory"

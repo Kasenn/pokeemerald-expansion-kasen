@@ -225,24 +225,23 @@ BasalekTown_EggWoman_1:
 # 0 "data/maps/BasaluffTown/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq BasalekTown_EggWoman_10
-# 253 "data/maps/BasaluffTown/scripts.pory"
 	getpartysize
-# 254 "data/maps/BasaluffTown/scripts.pory"
+# 0 "data/maps/BasaluffTown/scripts.pory"
 	compare VAR_RESULT, PARTY_SIZE
 	goto_if_eq BasalekTown_EggWoman_13
-# 258 "data/maps/BasaluffTown/scripts.pory"
+# 257 "data/maps/BasaluffTown/scripts.pory"
 	msgbox BasalekTown_Text_HopeYoullWalkPlentyWithEgg
-# 259 "data/maps/BasaluffTown/scripts.pory"
+# 258 "data/maps/BasaluffTown/scripts.pory"
 	setflag FLAG_RECEIVED_LAVARIDGE_EGG
-# 260 "data/maps/BasaluffTown/scripts.pory"
+# 259 "data/maps/BasaluffTown/scripts.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 261 "data/maps/BasaluffTown/scripts.pory"
+# 260 "data/maps/BasaluffTown/scripts.pory"
 	message BasalekTown_Text_ReceivedTheEgg
-# 262 "data/maps/BasaluffTown/scripts.pory"
+# 261 "data/maps/BasaluffTown/scripts.pory"
 	waitfanfare
-# 263 "data/maps/BasaluffTown/scripts.pory"
+# 262 "data/maps/BasaluffTown/scripts.pory"
 	giveegg SPECIES_EEVEE
-# 264 "data/maps/BasaluffTown/scripts.pory"
+# 263 "data/maps/BasaluffTown/scripts.pory"
 	release
 	return
 
@@ -269,423 +268,423 @@ BasalekTown_EggWoman_10:
 	end
 
 BasalekTown_EggWoman_13:
-# 255 "data/maps/BasaluffTown/scripts.pory"
+# 254 "data/maps/BasaluffTown/scripts.pory"
 	msgbox BasalekTown_Text_NoRoomForThisEgg, MSGBOX_AUTOCLOSE
 	end
 
 
 BasalekTown_RivalTrigger1::
-# 314 "data/maps/BasaluffTown/scripts.pory"
+# 313 "data/maps/BasaluffTown/scripts.pory"
 	setvar VAR_TEMP_2, 1
-# 315 "data/maps/BasaluffTown/scripts.pory"
+# 314 "data/maps/BasaluffTown/scripts.pory"
 	goto BasalekTown_RivalScript
 	return
 
 
 BasalekTown_RivalTrigger2::
-# 318 "data/maps/BasaluffTown/scripts.pory"
+# 317 "data/maps/BasaluffTown/scripts.pory"
 	setvar VAR_TEMP_2, 2
-# 319 "data/maps/BasaluffTown/scripts.pory"
+# 318 "data/maps/BasaluffTown/scripts.pory"
 	goto BasalekTown_RivalScript
 	return
 
 
 BasalekTown_RivalTrigger3::
-# 322 "data/maps/BasaluffTown/scripts.pory"
+# 321 "data/maps/BasaluffTown/scripts.pory"
 	setvar VAR_TEMP_2, 3
-# 323 "data/maps/BasaluffTown/scripts.pory"
+# 322 "data/maps/BasaluffTown/scripts.pory"
 	goto BasalekTown_RivalScript
 	return
 
 
 BasalekTown_RivalScript::
-# 327 "data/maps/BasaluffTown/scripts.pory"
+# 326 "data/maps/BasaluffTown/scripts.pory"
 	lock
-# 328 "data/maps/BasaluffTown/scripts.pory"
+# 327 "data/maps/BasaluffTown/scripts.pory"
 	safefollow
-# 329 "data/maps/BasaluffTown/scripts.pory"
+# 328 "data/maps/BasaluffTown/scripts.pory"
 	getfollowerxy VAR_TEMP_3, VAR_TEMP_4
-# 330 "data/maps/BasaluffTown/scripts.pory"
+# 329 "data/maps/BasaluffTown/scripts.pory"
 	compare VAR_TEMP_3, 0
 	goto_if_ne BasalekTown_RivalScript_2
 BasalekTown_RivalScript_1:
-# 333 "data/maps/BasaluffTown/scripts.pory"
+# 332 "data/maps/BasaluffTown/scripts.pory"
 	delay 5
-# 334 "data/maps/BasaluffTown/scripts.pory"
+# 333 "data/maps/BasaluffTown/scripts.pory"
 	opendoor 20, 15
+# 334 "data/maps/BasaluffTown/scripts.pory"
+	waitdooranim
 # 335 "data/maps/BasaluffTown/scripts.pory"
-	waitdooranim
-# 336 "data/maps/BasaluffTown/scripts.pory"
 	addobject 10
-# 337 "data/maps/BasaluffTown/scripts.pory"
+# 336 "data/maps/BasaluffTown/scripts.pory"
 	setobjectxy 10, 20, 15
-# 338 "data/maps/BasaluffTown/scripts.pory"
+# 337 "data/maps/BasaluffTown/scripts.pory"
 	turnobject 10, DIR_SOUTH
-# 339 "data/maps/BasaluffTown/scripts.pory"
+# 338 "data/maps/BasaluffTown/scripts.pory"
 	delay 16
-# 340 "data/maps/BasaluffTown/scripts.pory"
+# 339 "data/maps/BasaluffTown/scripts.pory"
 	applymovement 10, Walk1Down
-# 341 "data/maps/BasaluffTown/scripts.pory"
+# 340 "data/maps/BasaluffTown/scripts.pory"
 	waitmovement 0
-# 342 "data/maps/BasaluffTown/scripts.pory"
+# 341 "data/maps/BasaluffTown/scripts.pory"
 	closedoor 20, 15
-# 343 "data/maps/BasaluffTown/scripts.pory"
+# 342 "data/maps/BasaluffTown/scripts.pory"
 	waitdooranim
-# 344 "data/maps/BasaluffTown/scripts.pory"
+# 343 "data/maps/BasaluffTown/scripts.pory"
 	switch VAR_TEMP_2
-# 345 "data/maps/BasaluffTown/scripts.pory"
+# 344 "data/maps/BasaluffTown/scripts.pory"
 	case 1, BasalekTown_RivalScript_6
-# 355 "data/maps/BasaluffTown/scripts.pory"
+# 354 "data/maps/BasaluffTown/scripts.pory"
 	case 2, BasalekTown_RivalScript_7
-# 365 "data/maps/BasaluffTown/scripts.pory"
+# 364 "data/maps/BasaluffTown/scripts.pory"
 	case 3, BasalekTown_RivalScript_8
 BasalekTown_RivalScript_4:
-# 376 "data/maps/BasaluffTown/scripts.pory"
+# 375 "data/maps/BasaluffTown/scripts.pory"
 	waitmovement 10
-# 377 "data/maps/BasaluffTown/scripts.pory"
+# 376 "data/maps/BasaluffTown/scripts.pory"
 	waitmovement LOCALID_PLAYER
-# 378 "data/maps/BasaluffTown/scripts.pory"
+# 377 "data/maps/BasaluffTown/scripts.pory"
 	delay 24
 	checkplayergender
 # 0 "data/maps/BasaluffTown/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq BasalekTown_RivalScript_10
-# 403 "data/maps/BasaluffTown/scripts.pory"
+# 402 "data/maps/BasaluffTown/scripts.pory"
 	goto_if_set FLAG_RIVAL_MET_IN_BASALEK_MART, BasalekTown_RivalScript_23
-# 412 "data/maps/BasaluffTown/scripts.pory"
+# 411 "data/maps/BasaluffTown/scripts.pory"
 	msgbox BasaluffTown_Brendan_NoBails
 BasalekTown_RivalScript_22:
-# 414 "data/maps/BasaluffTown/scripts.pory"
+# 413 "data/maps/BasaluffTown/scripts.pory"
 	trainerbattle_no_intro TRAINER_BRENDAN_BASALEK_TOWN, BasalekBrendan_LostText
-# 415 "data/maps/BasaluffTown/scripts.pory"
+# 414 "data/maps/BasaluffTown/scripts.pory"
 	release
-# 416 "data/maps/BasaluffTown/scripts.pory"
+# 415 "data/maps/BasaluffTown/scripts.pory"
 	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, BasalekTown_RivalScript_33
-# 420 "data/maps/BasaluffTown/scripts.pory"
+# 419 "data/maps/BasaluffTown/scripts.pory"
 	msgbox BasaluffBrendan_NoMegaPostBattle
 BasalekTown_RivalScript_32:
-# 422 "data/maps/BasaluffTown/scripts.pory"
+# 421 "data/maps/BasaluffTown/scripts.pory"
 	msgbox BasaluffBrendan_Goodbye
 BasalekTown_RivalScript_9:
-# 424 "data/maps/BasaluffTown/scripts.pory"
+# 423 "data/maps/BasaluffTown/scripts.pory"
 	closemessage
-# 425 "data/maps/BasaluffTown/scripts.pory"
+# 424 "data/maps/BasaluffTown/scripts.pory"
 	safefollow
-# 426 "data/maps/BasaluffTown/scripts.pory"
+# 425 "data/maps/BasaluffTown/scripts.pory"
 	switch VAR_TEMP_2
-# 427 "data/maps/BasaluffTown/scripts.pory"
+# 426 "data/maps/BasaluffTown/scripts.pory"
 	case 1, BasalekTown_RivalScript_15
-# 429 "data/maps/BasaluffTown/scripts.pory"
+# 428 "data/maps/BasaluffTown/scripts.pory"
 	case 2, BasalekTown_RivalScript_16
-# 431 "data/maps/BasaluffTown/scripts.pory"
+# 430 "data/maps/BasaluffTown/scripts.pory"
 	case 3, BasalekTown_RivalScript_17
 BasalekTown_RivalScript_13:
-# 435 "data/maps/BasaluffTown/scripts.pory"
+# 434 "data/maps/BasaluffTown/scripts.pory"
 	waitmovement 10
-# 436 "data/maps/BasaluffTown/scripts.pory"
+# 435 "data/maps/BasaluffTown/scripts.pory"
 	waitmovement LOCALID_PLAYER
-# 437 "data/maps/BasaluffTown/scripts.pory"
+# 436 "data/maps/BasaluffTown/scripts.pory"
 	setflag FLAG_RIVAL_MET_IN_BASALEK
-# 438 "data/maps/BasaluffTown/scripts.pory"
+# 437 "data/maps/BasaluffTown/scripts.pory"
 	removeobject 10
-# 439 "data/maps/BasaluffTown/scripts.pory"
+# 438 "data/maps/BasaluffTown/scripts.pory"
 	release
 	return
 
 BasalekTown_RivalScript_2:
-# 331 "data/maps/BasaluffTown/scripts.pory"
+# 330 "data/maps/BasaluffTown/scripts.pory"
 	unlockfollowermovement
 	goto BasalekTown_RivalScript_1
 
 BasalekTown_RivalScript_6:
-# 346 "data/maps/BasaluffTown/scripts.pory"
+# 345 "data/maps/BasaluffTown/scripts.pory"
 	applymovement 10, BasalekTown_RivalScript_Movement_0
-# 347 "data/maps/BasaluffTown/scripts.pory"
+# 346 "data/maps/BasaluffTown/scripts.pory"
 	delay 48
-# 348 "data/maps/BasaluffTown/scripts.pory"
+# 347 "data/maps/BasaluffTown/scripts.pory"
 	applymovement LOCALID_PLAYER, BasalekTown_RivalScript_Movement_1
-# 349 "data/maps/BasaluffTown/scripts.pory"
+# 348 "data/maps/BasaluffTown/scripts.pory"
 	applymovement OBJ_EVENT_ID_FOLLOWER, BasalekTown_RivalScript_Movement_1
-# 350 "data/maps/BasaluffTown/scripts.pory"
+# 349 "data/maps/BasaluffTown/scripts.pory"
 	unlockfollowermovement
-# 351 "data/maps/BasaluffTown/scripts.pory"
+# 350 "data/maps/BasaluffTown/scripts.pory"
 	delay 64
-# 352 "data/maps/BasaluffTown/scripts.pory"
+# 351 "data/maps/BasaluffTown/scripts.pory"
 	applymovement LOCALID_PLAYER, BasalekTown_RivalScript_Movement_2
-# 353 "data/maps/BasaluffTown/scripts.pory"
+# 352 "data/maps/BasaluffTown/scripts.pory"
 	applymovement OBJ_EVENT_ID_FOLLOWER, BasalekTown_RivalScript_Movement_2
-# 354 "data/maps/BasaluffTown/scripts.pory"
+# 353 "data/maps/BasaluffTown/scripts.pory"
 	unlockfollowermovement
 	goto BasalekTown_RivalScript_4
 
 BasalekTown_RivalScript_7:
-# 356 "data/maps/BasaluffTown/scripts.pory"
+# 355 "data/maps/BasaluffTown/scripts.pory"
 	applymovement 10, BasalekTown_RivalScript_Movement_3
+# 356 "data/maps/BasaluffTown/scripts.pory"
+	delay 64
 # 357 "data/maps/BasaluffTown/scripts.pory"
-	delay 64
-# 358 "data/maps/BasaluffTown/scripts.pory"
 	applymovement LOCALID_PLAYER, BasalekTown_RivalScript_Movement_1
-# 359 "data/maps/BasaluffTown/scripts.pory"
+# 358 "data/maps/BasaluffTown/scripts.pory"
 	applymovement OBJ_EVENT_ID_FOLLOWER, BasalekTown_RivalScript_Movement_1
-# 360 "data/maps/BasaluffTown/scripts.pory"
+# 359 "data/maps/BasaluffTown/scripts.pory"
 	unlockfollowermovement
-# 361 "data/maps/BasaluffTown/scripts.pory"
+# 360 "data/maps/BasaluffTown/scripts.pory"
 	delay 64
-# 362 "data/maps/BasaluffTown/scripts.pory"
+# 361 "data/maps/BasaluffTown/scripts.pory"
 	applymovement LOCALID_PLAYER, BasalekTown_RivalScript_Movement_2
-# 363 "data/maps/BasaluffTown/scripts.pory"
+# 362 "data/maps/BasaluffTown/scripts.pory"
 	applymovement OBJ_EVENT_ID_FOLLOWER, BasalekTown_RivalScript_Movement_2
-# 364 "data/maps/BasaluffTown/scripts.pory"
+# 363 "data/maps/BasaluffTown/scripts.pory"
 	unlockfollowermovement
 	goto BasalekTown_RivalScript_4
 
 BasalekTown_RivalScript_8:
-# 366 "data/maps/BasaluffTown/scripts.pory"
+# 365 "data/maps/BasaluffTown/scripts.pory"
 	applymovement 10, BasalekTown_RivalScript_Movement_4
-# 367 "data/maps/BasaluffTown/scripts.pory"
+# 366 "data/maps/BasaluffTown/scripts.pory"
 	delay 64
-# 368 "data/maps/BasaluffTown/scripts.pory"
+# 367 "data/maps/BasaluffTown/scripts.pory"
 	applymovement LOCALID_PLAYER, BasalekTown_RivalScript_Movement_1
-# 369 "data/maps/BasaluffTown/scripts.pory"
+# 368 "data/maps/BasaluffTown/scripts.pory"
 	applymovement OBJ_EVENT_ID_FOLLOWER, BasalekTown_RivalScript_Movement_1
-# 370 "data/maps/BasaluffTown/scripts.pory"
+# 369 "data/maps/BasaluffTown/scripts.pory"
 	unlockfollowermovement
-# 371 "data/maps/BasaluffTown/scripts.pory"
+# 370 "data/maps/BasaluffTown/scripts.pory"
 	delay 48
-# 372 "data/maps/BasaluffTown/scripts.pory"
+# 371 "data/maps/BasaluffTown/scripts.pory"
 	applymovement LOCALID_PLAYER, BasalekTown_RivalScript_Movement_5
-# 373 "data/maps/BasaluffTown/scripts.pory"
+# 372 "data/maps/BasaluffTown/scripts.pory"
 	applymovement OBJ_EVENT_ID_FOLLOWER, BasalekTown_RivalScript_Movement_5
-# 374 "data/maps/BasaluffTown/scripts.pory"
+# 373 "data/maps/BasaluffTown/scripts.pory"
 	unlockfollowermovement
 	goto BasalekTown_RivalScript_4
 
 BasalekTown_RivalScript_10:
-# 380 "data/maps/BasaluffTown/scripts.pory"
+# 379 "data/maps/BasaluffTown/scripts.pory"
 	goto_if_set FLAG_RIVAL_MET_IN_BASALEK_MART, BasalekTown_RivalScript_19
-# 389 "data/maps/BasaluffTown/scripts.pory"
+# 388 "data/maps/BasaluffTown/scripts.pory"
 	msgbox BasaluffTown_May_NoBails
 BasalekTown_RivalScript_18:
-# 391 "data/maps/BasaluffTown/scripts.pory"
+# 390 "data/maps/BasaluffTown/scripts.pory"
 	trainerbattle_no_intro TRAINER_MAY_BASALEK_TOWN, BasalekMay_LostText
-# 392 "data/maps/BasaluffTown/scripts.pory"
+# 391 "data/maps/BasaluffTown/scripts.pory"
 	release
-# 393 "data/maps/BasaluffTown/scripts.pory"
+# 392 "data/maps/BasaluffTown/scripts.pory"
 	goto_if_set FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE, BasalekTown_RivalScript_26
-# 398 "data/maps/BasaluffTown/scripts.pory"
+# 397 "data/maps/BasaluffTown/scripts.pory"
 	msgbox BasaluffMay_NoMegaPostBattle
-# 399 "data/maps/BasaluffTown/scripts.pory"
+# 398 "data/maps/BasaluffTown/scripts.pory"
 	msgbox BasaluffMay_Goodbye2
 	goto BasalekTown_RivalScript_9
 
 BasalekTown_RivalScript_15:
-# 428 "data/maps/BasaluffTown/scripts.pory"
+# 427 "data/maps/BasaluffTown/scripts.pory"
 	applymovement 10, BasalekTown_RivalScript_Movement_6
 	goto BasalekTown_RivalScript_13
 
 BasalekTown_RivalScript_16:
-# 430 "data/maps/BasaluffTown/scripts.pory"
+# 429 "data/maps/BasaluffTown/scripts.pory"
 	applymovement 10, BasalekTown_RivalScript_Movement_7
 	goto BasalekTown_RivalScript_13
 
 BasalekTown_RivalScript_17:
-# 432 "data/maps/BasaluffTown/scripts.pory"
+# 431 "data/maps/BasaluffTown/scripts.pory"
 	applymovement 10, BasalekTown_RivalScript_Movement_8
-# 433 "data/maps/BasaluffTown/scripts.pory"
+# 432 "data/maps/BasaluffTown/scripts.pory"
 	applymovement LOCALID_PLAYER, BasalekTown_RivalScript_Movement_9
 	goto BasalekTown_RivalScript_13
 
 BasalekTown_RivalScript_19:
-# 381 "data/maps/BasaluffTown/scripts.pory"
+# 380 "data/maps/BasaluffTown/scripts.pory"
 	goto_if_set FLAG_RIVAL_HARBOR_ANGRY, BasalekTown_RivalScript_29
-# 385 "data/maps/BasaluffTown/scripts.pory"
+# 384 "data/maps/BasaluffTown/scripts.pory"
 	msgbox BasaluffTown_May_1Bail
 	goto BasalekTown_RivalScript_18
 
 BasalekTown_RivalScript_23:
-# 404 "data/maps/BasaluffTown/scripts.pory"
+# 403 "data/maps/BasaluffTown/scripts.pory"
 	goto_if_set FLAG_RIVAL_HARBOR_ANGRY, BasalekTown_RivalScript_36
-# 408 "data/maps/BasaluffTown/scripts.pory"
+# 407 "data/maps/BasaluffTown/scripts.pory"
 	msgbox BasaluffTown_Brendan_1Bail
 	goto BasalekTown_RivalScript_22
 
 BasalekTown_RivalScript_26:
-# 394 "data/maps/BasaluffTown/scripts.pory"
+# 393 "data/maps/BasaluffTown/scripts.pory"
 	msgbox BasaluffMay_PostBattle
-# 395 "data/maps/BasaluffTown/scripts.pory"
+# 394 "data/maps/BasaluffTown/scripts.pory"
 	msgbox BasaluffMay_Goodbye
 	goto BasalekTown_RivalScript_9
 
 BasalekTown_RivalScript_29:
-# 382 "data/maps/BasaluffTown/scripts.pory"
+# 381 "data/maps/BasaluffTown/scripts.pory"
 	msgbox BasaluffTown_May_2Bails
 	goto BasalekTown_RivalScript_18
 
 BasalekTown_RivalScript_33:
-# 417 "data/maps/BasaluffTown/scripts.pory"
+# 416 "data/maps/BasaluffTown/scripts.pory"
 	msgbox BasaluffBrendan_PostBattle
 	goto BasalekTown_RivalScript_32
 
 BasalekTown_RivalScript_36:
-# 405 "data/maps/BasaluffTown/scripts.pory"
+# 404 "data/maps/BasaluffTown/scripts.pory"
 	msgbox BasaluffTown_Brendan_2Bails
 	goto BasalekTown_RivalScript_22
 
 
-# 442 "data/maps/BasaluffTown/scripts.pory"
+# 441 "data/maps/BasaluffTown/scripts.pory"
 TurnPlayerAndFollowerRight:
-# 443 "data/maps/BasaluffTown/scripts.pory"
+# 442 "data/maps/BasaluffTown/scripts.pory"
+	delay_16
+# 442 "data/maps/BasaluffTown/scripts.pory"
 	delay_16
 # 443 "data/maps/BasaluffTown/scripts.pory"
-	delay_16
-# 444 "data/maps/BasaluffTown/scripts.pory"
 	walk_in_place_fast_right
 	step_end
 
 BasalekTown_LevelChecker::
-# 508 "data/maps/BasaluffTown/scripts.pory"
+# 507 "data/maps/BasaluffTown/scripts.pory"
 	goto_if_set FLAG_DAILY_BASALEK_CHECKER, BasalekTown_LevelChecker_2
-# 512 "data/maps/BasaluffTown/scripts.pory"
+# 511 "data/maps/BasaluffTown/scripts.pory"
 	lock
-# 513 "data/maps/BasaluffTown/scripts.pory"
+# 512 "data/maps/BasaluffTown/scripts.pory"
 	faceplayer
-# 514 "data/maps/BasaluffTown/scripts.pory"
+# 513 "data/maps/BasaluffTown/scripts.pory"
 	buffernumberstring STR_VAR_1, VAR_BASALEK_LEVEL_CHECK
-# 515 "data/maps/BasaluffTown/scripts.pory"
+# 514 "data/maps/BasaluffTown/scripts.pory"
 	msgbox BasalekTown_LevelChecker_NoMatch, MSGBOX_AUTOCLOSE
-# 516 "data/maps/BasaluffTown/scripts.pory"
+# 515 "data/maps/BasaluffTown/scripts.pory"
 	matchpartylevel VAR_BASALEK_LEVEL_CHECK
-# 517 "data/maps/BasaluffTown/scripts.pory"
+# 516 "data/maps/BasaluffTown/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq BasalekTown_LevelChecker_5
-# 524 "data/maps/BasaluffTown/scripts.pory"
+# 523 "data/maps/BasaluffTown/scripts.pory"
 	msgbox BasalekTown_LevelChecker_YesMatch
-# 525 "data/maps/BasaluffTown/scripts.pory"
+# 524 "data/maps/BasaluffTown/scripts.pory"
 	switch VAR_BASALEK_LEVEL_REWARD
-# 526 "data/maps/BasaluffTown/scripts.pory"
+# 525 "data/maps/BasaluffTown/scripts.pory"
 	case 0, BasalekTown_LevelChecker_9
-# 528 "data/maps/BasaluffTown/scripts.pory"
+# 527 "data/maps/BasaluffTown/scripts.pory"
 	case 1, BasalekTown_LevelChecker_10
-# 530 "data/maps/BasaluffTown/scripts.pory"
+# 529 "data/maps/BasaluffTown/scripts.pory"
 	case 2, BasalekTown_LevelChecker_11
-# 532 "data/maps/BasaluffTown/scripts.pory"
+# 531 "data/maps/BasaluffTown/scripts.pory"
 	case 3, BasalekTown_LevelChecker_12
 BasalekTown_LevelChecker_7:
-# 535 "data/maps/BasaluffTown/scripts.pory"
+# 534 "data/maps/BasaluffTown/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq BasalekTown_LevelChecker_17
 BasalekTown_LevelChecker_16:
-# 538 "data/maps/BasaluffTown/scripts.pory"
+# 537 "data/maps/BasaluffTown/scripts.pory"
 	setflag FLAG_DAILY_BASALEK_CHECKER
-# 539 "data/maps/BasaluffTown/scripts.pory"
+# 538 "data/maps/BasaluffTown/scripts.pory"
 	addvar VAR_BASALEK_LEVEL_REWARD, 1
-# 540 "data/maps/BasaluffTown/scripts.pory"
+# 539 "data/maps/BasaluffTown/scripts.pory"
 	compare VAR_BASALEK_LEVEL_REWARD, 4
 	goto_if_eq BasalekTown_LevelChecker_20
 BasalekTown_LevelChecker_19:
-# 543 "data/maps/BasaluffTown/scripts.pory"
+# 542 "data/maps/BasaluffTown/scripts.pory"
 	msgbox BasalekTown_LevelChecker_ComeAgain
-# 544 "data/maps/BasaluffTown/scripts.pory"
+# 543 "data/maps/BasaluffTown/scripts.pory"
 	goto_if_set FLAG_Q37_BASALEK_LEVELMON_START, BasalekTown_LevelChecker_24
 BasalekTown_LevelChecker_22:
-# 548 "data/maps/BasaluffTown/scripts.pory"
+# 547 "data/maps/BasaluffTown/scripts.pory"
 	release
 	return
 
 BasalekTown_LevelChecker_2:
-# 509 "data/maps/BasaluffTown/scripts.pory"
+# 508 "data/maps/BasaluffTown/scripts.pory"
 	msgbox BasalekTown_LevelChecker_ComeAgain, MSGBOX_NPC
 	end
 
 BasalekTown_LevelChecker_5:
-# 518 "data/maps/BasaluffTown/scripts.pory"
+# 517 "data/maps/BasaluffTown/scripts.pory"
 	goto_if_unset FLAG_Q37_BASALEK_LEVELMON_START, BasalekTown_LevelChecker_14
 BasalekTown_LevelChecker_13:
 	end
 
 BasalekTown_LevelChecker_9:
-# 527 "data/maps/BasaluffTown/scripts.pory"
+# 526 "data/maps/BasaluffTown/scripts.pory"
 	giveitem ITEM_MUSCLE_BAND
 	goto BasalekTown_LevelChecker_7
 
 BasalekTown_LevelChecker_10:
-# 529 "data/maps/BasaluffTown/scripts.pory"
+# 528 "data/maps/BasaluffTown/scripts.pory"
 	giveitem ITEM_BINDING_BAND
 	goto BasalekTown_LevelChecker_7
 
 BasalekTown_LevelChecker_11:
-# 531 "data/maps/BasaluffTown/scripts.pory"
+# 530 "data/maps/BasaluffTown/scripts.pory"
 	giveitem ITEM_FOCUS_BAND
 	goto BasalekTown_LevelChecker_7
 
 BasalekTown_LevelChecker_12:
-# 533 "data/maps/BasaluffTown/scripts.pory"
+# 532 "data/maps/BasaluffTown/scripts.pory"
 	giveitem ITEM_CHOICE_BAND
 	goto BasalekTown_LevelChecker_7
 
 BasalekTown_LevelChecker_14:
-# 519 "data/maps/BasaluffTown/scripts.pory"
+# 518 "data/maps/BasaluffTown/scripts.pory"
 	startquest FLAG_Q37_BASALEK_LEVELMON_START
-# 520 "data/maps/BasaluffTown/scripts.pory"
+# 519 "data/maps/BasaluffTown/scripts.pory"
 	special ShowJournalPopupAdd
 	goto BasalekTown_LevelChecker_13
 
 BasalekTown_LevelChecker_17:
-# 536 "data/maps/BasaluffTown/scripts.pory"
+# 535 "data/maps/BasaluffTown/scripts.pory"
 	goto ZeBagIsFull
 	goto BasalekTown_LevelChecker_16
 
 BasalekTown_LevelChecker_20:
-# 541 "data/maps/BasaluffTown/scripts.pory"
+# 540 "data/maps/BasaluffTown/scripts.pory"
 	setvar VAR_BASALEK_LEVEL_CHECK, 0
 	goto BasalekTown_LevelChecker_19
 
 BasalekTown_LevelChecker_23:
-# 545 "data/maps/BasaluffTown/scripts.pory"
+# 544 "data/maps/BasaluffTown/scripts.pory"
 	completequest FLAG_Q37_BASALEK_LEVELMON_COMPLETE
-# 546 "data/maps/BasaluffTown/scripts.pory"
+# 545 "data/maps/BasaluffTown/scripts.pory"
 	special ShowJournalPopupRemove
 	goto BasalekTown_LevelChecker_22
 
 BasalekTown_LevelChecker_24:
-# 544 "data/maps/BasaluffTown/scripts.pory"
+# 543 "data/maps/BasaluffTown/scripts.pory"
 	goto_if_unset FLAG_Q37_BASALEK_LEVELMON_COMPLETE, BasalekTown_LevelChecker_23
 	goto BasalekTown_LevelChecker_22
 
 
 BasalekHouse1_Woman::
-# 571 "data/maps/BasaluffTown/scripts.pory"
+# 570 "data/maps/BasaluffTown/scripts.pory"
 	lock
-# 572 "data/maps/BasaluffTown/scripts.pory"
+# 571 "data/maps/BasaluffTown/scripts.pory"
 	faceplayer
-# 573 "data/maps/BasaluffTown/scripts.pory"
+# 572 "data/maps/BasaluffTown/scripts.pory"
 	msgbox BasalekHouse1_Woman_Text
-# 574 "data/maps/BasaluffTown/scripts.pory"
+# 573 "data/maps/BasaluffTown/scripts.pory"
 	goto_if_set FLAG_BASALEK_WOMAN_LEMONADE, BasalekHouse1_Woman_2
-# 578 "data/maps/BasaluffTown/scripts.pory"
+# 577 "data/maps/BasaluffTown/scripts.pory"
 	giveitem ITEM_FRESH_WATER
-# 579 "data/maps/BasaluffTown/scripts.pory"
+# 578 "data/maps/BasaluffTown/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq BasalekHouse1_Woman_5
-# 583 "data/maps/BasaluffTown/scripts.pory"
+# 582 "data/maps/BasaluffTown/scripts.pory"
 	setflag FLAG_BASALEK_WOMAN_LEMONADE
-# 584 "data/maps/BasaluffTown/scripts.pory"
+# 583 "data/maps/BasaluffTown/scripts.pory"
 	release
 	return
 
 BasalekHouse1_Woman_2:
-# 575 "data/maps/BasaluffTown/scripts.pory"
+# 574 "data/maps/BasaluffTown/scripts.pory"
 	release
 	end
 
 BasalekHouse1_Woman_5:
-# 580 "data/maps/BasaluffTown/scripts.pory"
+# 579 "data/maps/BasaluffTown/scripts.pory"
 	release
 	end
 
 
 BasalekHouse1_Man::
-# 591 "data/maps/BasaluffTown/scripts.pory"
+# 590 "data/maps/BasaluffTown/scripts.pory"
 	msgbox BasalekHouse1_Man_Text, MSGBOX_NPC
 	return
 
@@ -714,183 +713,183 @@ BasaluffAutomaticRivalFight_Movement_0:
 	walk_right
 	step_end
 
-# 346 "data/maps/BasaluffTown/scripts.pory"
+# 345 "data/maps/BasaluffTown/scripts.pory"
 BasalekTown_RivalScript_Movement_0:
-# 346 "data/maps/BasaluffTown/scripts.pory"
+# 345 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 346 "data/maps/BasaluffTown/scripts.pory"
+# 345 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 346 "data/maps/BasaluffTown/scripts.pory"
+# 345 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 346 "data/maps/BasaluffTown/scripts.pory"
+# 345 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 346 "data/maps/BasaluffTown/scripts.pory"
+# 345 "data/maps/BasaluffTown/scripts.pory"
 	walk_up
-# 346 "data/maps/BasaluffTown/scripts.pory"
+# 345 "data/maps/BasaluffTown/scripts.pory"
 	walk_up
-# 346 "data/maps/BasaluffTown/scripts.pory"
+# 345 "data/maps/BasaluffTown/scripts.pory"
 	walk_up
-# 346 "data/maps/BasaluffTown/scripts.pory"
+# 345 "data/maps/BasaluffTown/scripts.pory"
 	walk_in_place_fast_left
 	step_end
 
-# 348 "data/maps/BasaluffTown/scripts.pory"
+# 347 "data/maps/BasaluffTown/scripts.pory"
 BasalekTown_RivalScript_Movement_1:
-# 348 "data/maps/BasaluffTown/scripts.pory"
+# 347 "data/maps/BasaluffTown/scripts.pory"
 	walk_in_place_fast_down
 	step_end
 
-# 352 "data/maps/BasaluffTown/scripts.pory"
+# 351 "data/maps/BasaluffTown/scripts.pory"
 BasalekTown_RivalScript_Movement_2:
-# 352 "data/maps/BasaluffTown/scripts.pory"
+# 351 "data/maps/BasaluffTown/scripts.pory"
 	walk_in_place_fast_right
 	step_end
 
-# 356 "data/maps/BasaluffTown/scripts.pory"
+# 355 "data/maps/BasaluffTown/scripts.pory"
 BasalekTown_RivalScript_Movement_3:
-# 356 "data/maps/BasaluffTown/scripts.pory"
+# 355 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 356 "data/maps/BasaluffTown/scripts.pory"
+# 355 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 356 "data/maps/BasaluffTown/scripts.pory"
+# 355 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 356 "data/maps/BasaluffTown/scripts.pory"
+# 355 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 356 "data/maps/BasaluffTown/scripts.pory"
+# 355 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 356 "data/maps/BasaluffTown/scripts.pory"
+# 355 "data/maps/BasaluffTown/scripts.pory"
 	walk_up
-# 356 "data/maps/BasaluffTown/scripts.pory"
+# 355 "data/maps/BasaluffTown/scripts.pory"
 	walk_up
-# 356 "data/maps/BasaluffTown/scripts.pory"
+# 355 "data/maps/BasaluffTown/scripts.pory"
 	walk_up
-# 356 "data/maps/BasaluffTown/scripts.pory"
+# 355 "data/maps/BasaluffTown/scripts.pory"
 	walk_in_place_fast_left
 	step_end
 
-# 366 "data/maps/BasaluffTown/scripts.pory"
+# 365 "data/maps/BasaluffTown/scripts.pory"
 BasalekTown_RivalScript_Movement_4:
-# 366 "data/maps/BasaluffTown/scripts.pory"
+# 365 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 366 "data/maps/BasaluffTown/scripts.pory"
+# 365 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 366 "data/maps/BasaluffTown/scripts.pory"
+# 365 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 366 "data/maps/BasaluffTown/scripts.pory"
+# 365 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 366 "data/maps/BasaluffTown/scripts.pory"
+# 365 "data/maps/BasaluffTown/scripts.pory"
 	walk_up
-# 366 "data/maps/BasaluffTown/scripts.pory"
+# 365 "data/maps/BasaluffTown/scripts.pory"
 	walk_up
-# 366 "data/maps/BasaluffTown/scripts.pory"
+# 365 "data/maps/BasaluffTown/scripts.pory"
 	walk_up
-# 366 "data/maps/BasaluffTown/scripts.pory"
+# 365 "data/maps/BasaluffTown/scripts.pory"
 	walk_in_place_fast_right
 	step_end
 
-# 372 "data/maps/BasaluffTown/scripts.pory"
+# 371 "data/maps/BasaluffTown/scripts.pory"
 BasalekTown_RivalScript_Movement_5:
-# 372 "data/maps/BasaluffTown/scripts.pory"
+# 371 "data/maps/BasaluffTown/scripts.pory"
 	walk_in_place_fast_left
 	step_end
 
-# 428 "data/maps/BasaluffTown/scripts.pory"
+# 427 "data/maps/BasaluffTown/scripts.pory"
 BasalekTown_RivalScript_Movement_6:
-# 428 "data/maps/BasaluffTown/scripts.pory"
+# 427 "data/maps/BasaluffTown/scripts.pory"
 	walk_up
-# 428 "data/maps/BasaluffTown/scripts.pory"
+# 427 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 428 "data/maps/BasaluffTown/scripts.pory"
+# 427 "data/maps/BasaluffTown/scripts.pory"
 	walk_up
-# 428 "data/maps/BasaluffTown/scripts.pory"
+# 427 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 428 "data/maps/BasaluffTown/scripts.pory"
+# 427 "data/maps/BasaluffTown/scripts.pory"
 	walk_up
-# 428 "data/maps/BasaluffTown/scripts.pory"
+# 427 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 428 "data/maps/BasaluffTown/scripts.pory"
+# 427 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 428 "data/maps/BasaluffTown/scripts.pory"
+# 427 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 428 "data/maps/BasaluffTown/scripts.pory"
+# 427 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 428 "data/maps/BasaluffTown/scripts.pory"
+# 427 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
 	step_end
 
-# 430 "data/maps/BasaluffTown/scripts.pory"
+# 429 "data/maps/BasaluffTown/scripts.pory"
 BasalekTown_RivalScript_Movement_7:
-# 430 "data/maps/BasaluffTown/scripts.pory"
+# 429 "data/maps/BasaluffTown/scripts.pory"
 	walk_up
-# 430 "data/maps/BasaluffTown/scripts.pory"
+# 429 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 430 "data/maps/BasaluffTown/scripts.pory"
+# 429 "data/maps/BasaluffTown/scripts.pory"
 	walk_up
-# 430 "data/maps/BasaluffTown/scripts.pory"
+# 429 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 430 "data/maps/BasaluffTown/scripts.pory"
+# 429 "data/maps/BasaluffTown/scripts.pory"
 	walk_up
-# 430 "data/maps/BasaluffTown/scripts.pory"
+# 429 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 430 "data/maps/BasaluffTown/scripts.pory"
+# 429 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 430 "data/maps/BasaluffTown/scripts.pory"
+# 429 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 430 "data/maps/BasaluffTown/scripts.pory"
+# 429 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 430 "data/maps/BasaluffTown/scripts.pory"
+# 429 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 430 "data/maps/BasaluffTown/scripts.pory"
+# 429 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
 	step_end
 
-# 432 "data/maps/BasaluffTown/scripts.pory"
+# 431 "data/maps/BasaluffTown/scripts.pory"
 BasalekTown_RivalScript_Movement_8:
-# 432 "data/maps/BasaluffTown/scripts.pory"
+# 431 "data/maps/BasaluffTown/scripts.pory"
 	walk_up
-# 432 "data/maps/BasaluffTown/scripts.pory"
+# 431 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 432 "data/maps/BasaluffTown/scripts.pory"
+# 431 "data/maps/BasaluffTown/scripts.pory"
 	walk_up
-# 432 "data/maps/BasaluffTown/scripts.pory"
+# 431 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 432 "data/maps/BasaluffTown/scripts.pory"
+# 431 "data/maps/BasaluffTown/scripts.pory"
 	walk_up
-# 432 "data/maps/BasaluffTown/scripts.pory"
+# 431 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 432 "data/maps/BasaluffTown/scripts.pory"
+# 431 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 432 "data/maps/BasaluffTown/scripts.pory"
+# 431 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 432 "data/maps/BasaluffTown/scripts.pory"
+# 431 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 432 "data/maps/BasaluffTown/scripts.pory"
+# 431 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 432 "data/maps/BasaluffTown/scripts.pory"
+# 431 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
-# 432 "data/maps/BasaluffTown/scripts.pory"
+# 431 "data/maps/BasaluffTown/scripts.pory"
 	walk_right
 	step_end
 
-# 433 "data/maps/BasaluffTown/scripts.pory"
+# 432 "data/maps/BasaluffTown/scripts.pory"
 BasalekTown_RivalScript_Movement_9:
-# 433 "data/maps/BasaluffTown/scripts.pory"
+# 432 "data/maps/BasaluffTown/scripts.pory"
 	delay_16
-# 433 "data/maps/BasaluffTown/scripts.pory"
+# 432 "data/maps/BasaluffTown/scripts.pory"
 	delay_16
-# 433 "data/maps/BasaluffTown/scripts.pory"
+# 432 "data/maps/BasaluffTown/scripts.pory"
 	delay_16
-# 433 "data/maps/BasaluffTown/scripts.pory"
+# 432 "data/maps/BasaluffTown/scripts.pory"
 	walk_in_place_fast_up
-# 433 "data/maps/BasaluffTown/scripts.pory"
+# 432 "data/maps/BasaluffTown/scripts.pory"
 	delay_16
-# 433 "data/maps/BasaluffTown/scripts.pory"
+# 432 "data/maps/BasaluffTown/scripts.pory"
 	delay_16
-# 433 "data/maps/BasaluffTown/scripts.pory"
+# 432 "data/maps/BasaluffTown/scripts.pory"
 	delay_16
-# 433 "data/maps/BasaluffTown/scripts.pory"
+# 432 "data/maps/BasaluffTown/scripts.pory"
 	delay_16
-# 433 "data/maps/BasaluffTown/scripts.pory"
+# 432 "data/maps/BasaluffTown/scripts.pory"
 	walk_in_place_fast_right
 	step_end
 
@@ -1045,7 +1044,7 @@ BasalekTown_Beauty_Text::
 	.string "another five minutes.$"
 
 BasalekTown_Text_HaveEggWillYouTakeIt::
-# 267 "data/maps/BasaluffTown/scripts.pory"
+# 266 "data/maps/BasaluffTown/scripts.pory"
 	.string "I recently found my Pokémon carrying\n"
 	.string "this egg.\p"
 	.string "In the past I would have been ecstatic,\n"
@@ -1059,34 +1058,34 @@ BasalekTown_Text_HaveEggWillYouTakeIt::
 	.string "Would you like to care for this egg?$"
 
 BasalekTown_Text_HopeYoullWalkPlentyWithEgg::
-# 281 "data/maps/BasaluffTown/scripts.pory"
+# 280 "data/maps/BasaluffTown/scripts.pory"
 	.string "Thank you!\n"
 	.string "It warms my heart, knowing it will have\l"
 	.string "someone caring for it.$"
 
 BasalekTown_Text_ReceivedTheEgg::
-# 287 "data/maps/BasaluffTown/scripts.pory"
+# 286 "data/maps/BasaluffTown/scripts.pory"
 	.string "{PLAYER} received the Pokémon egg.$"
 
 BasalekTown_Text_NoRoomForThisEgg::
-# 290 "data/maps/BasaluffTown/scripts.pory"
+# 289 "data/maps/BasaluffTown/scripts.pory"
 	.string "Oh? You've too many Pokémon.\n"
 	.string "There's no room for this egg…$"
 
 BasalekTown_Text_AsYouWishThen::
-# 294 "data/maps/BasaluffTown/scripts.pory"
+# 293 "data/maps/BasaluffTown/scripts.pory"
 	.string "As you wish, then…\p"
 	.string "If you have a change of heart about\n"
 	.string "hatching this egg, I will be here.$"
 
 BasalekTown_Text_EverySoOftenEggFoundAtDayCare::
-# 299 "data/maps/BasaluffTown/scripts.pory"
+# 298 "data/maps/BasaluffTown/scripts.pory"
 	.string "Every so often, an egg will be found at\n"
 	.string "the Pokémon Day Care.\p"
 	.string "Or at least that's how the rumor goes.$"
 
 BasalekTown_EggHatched::
-# 304 "data/maps/BasaluffTown/scripts.pory"
+# 303 "data/maps/BasaluffTown/scripts.pory"
 	.string "How is the egg doing?\p"
 	.string "… … …\p"
 	.string "It hatched already?\n"
@@ -1094,7 +1093,7 @@ BasalekTown_EggHatched::
 	.string "I knew I chose a caring trainer.$"
 
 BasaluffTown_Brendan_NoBails::
-# 447 "data/maps/BasaluffTown/scripts.pory"
+# 446 "data/maps/BasaluffTown/scripts.pory"
 	.string "{RIVAL}: Oh, hey {PLAYER}!\n"
 	.string "It's been a while, huh?\p"
 	.string "I was on my way to Route 17, but\n"
@@ -1109,7 +1108,7 @@ BasaluffTown_Brendan_NoBails::
 	.string "using the Mega Evolution technique.$"
 
 BasaluffTown_Brendan_1Bail::
-# 461 "data/maps/BasaluffTown/scripts.pory"
+# 460 "data/maps/BasaluffTown/scripts.pory"
 	.string "{RIVAL}: You weren't trying to\n"
 	.string "make a break for it while I was\l"
 	.string "patiently waiting inside the Mart,\l"
@@ -1118,7 +1117,7 @@ BasaluffTown_Brendan_1Bail::
 	.string "because here I come!$"
 
 BasaluffTown_Brendan_2Bails::
-# 469 "data/maps/BasaluffTown/scripts.pory"
+# 468 "data/maps/BasaluffTown/scripts.pory"
 	.string "{RIVAL}: I had a feeling you might\n"
 	.string "be walking out on me, just like you did\l"
 	.string "back at the Coralgrove Harbor.\p"
@@ -1126,7 +1125,7 @@ BasaluffTown_Brendan_2Bails::
 	.string "Get ready, because here I come!$"
 
 BasaluffTown_May_NoBails::
-# 476 "data/maps/BasaluffTown/scripts.pory"
+# 475 "data/maps/BasaluffTown/scripts.pory"
 	.string "{RIVAL}: Oh, hi {PLAYER}!\n"
 	.string "Long time no see!\p"
 	.string "I was on my way to Route 17,\n"
@@ -1142,7 +1141,7 @@ BasaluffTown_May_NoBails::
 	.string "using the Mega Evolution technique.$"
 
 BasaluffTown_May_1Bail::
-# 491 "data/maps/BasaluffTown/scripts.pory"
+# 490 "data/maps/BasaluffTown/scripts.pory"
 	.string "{RIVAL}: You weren't trying to\n"
 	.string "bail on me while I patiently waited\l"
 	.string "for you inside the Mart?\p"
@@ -1150,7 +1149,7 @@ BasaluffTown_May_1Bail::
 	.string "because here I come!$"
 
 BasaluffTown_May_2Bails::
-# 498 "data/maps/BasaluffTown/scripts.pory"
+# 497 "data/maps/BasaluffTown/scripts.pory"
 	.string "{RIVAL}: Aha!\n"
 	.string "I knew you'd try to bail on me!\p"
 	.string "I'm not going to let you fool me\n"
@@ -1159,14 +1158,14 @@ BasaluffTown_May_2Bails::
 	.string "Get ready, because here I come!$"
 
 BasalekTown_LevelChecker_NoMatch::
-# 551 "data/maps/BasaluffTown/scripts.pory"
+# 550 "data/maps/BasaluffTown/scripts.pory"
 	.string "…I saw it!\n"
 	.string "Today's number is {STR_VAR_1}!\p"
 	.string "Show me a Pokémon that's Lv. {STR_VAR_1}.\n"
 	.string "If you can, I'll reward you.$"
 
 BasalekTown_LevelChecker_YesMatch::
-# 557 "data/maps/BasaluffTown/scripts.pory"
+# 556 "data/maps/BasaluffTown/scripts.pory"
 	.string "…Oh, now, hunh?!\p"
 	.string "I see you have a Pokémon\n"
 	.string "that is Lv. {STR_VAR_1}.\p"
@@ -1175,16 +1174,16 @@ BasalekTown_LevelChecker_YesMatch::
 	.string "with this.$"
 
 BasalekTown_LevelChecker_ComeAgain::
-# 565 "data/maps/BasaluffTown/scripts.pory"
+# 564 "data/maps/BasaluffTown/scripts.pory"
 	.string "Come back another day for\n"
 	.string "another showcase!$"
 
 BasalekHouse1_Woman_Text::
-# 586 "data/maps/BasaluffTown/scripts.pory"
+# 585 "data/maps/BasaluffTown/scripts.pory"
 	.string "It's pretty warm out there.\n"
 	.string "Remember to hydrate!$"
 
 BasalekHouse1_Man_Text::
-# 593 "data/maps/BasaluffTown/scripts.pory"
+# 592 "data/maps/BasaluffTown/scripts.pory"
 	.string "Thanks to geothermal energy, we can\n"
 	.string "cool our houses for next to nothing.$"

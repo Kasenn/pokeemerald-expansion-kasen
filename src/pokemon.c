@@ -66,8 +66,11 @@
 #include "constants/union_room.h"
 #include "constants/weather.h"
 #include "wild_encounter.h"
+#include "fieldmap.h"
+#include "metatile_behavior.h"
 
 #define FRIENDSHIP_EVO_THRESHOLD ((P_FRIENDSHIP_EVO_THRESHOLD >= GEN_8) ? 160 : 220)
+#define EEVEE_ROCK_RADIUS   3
 
 struct SpeciesItem
 {
@@ -4860,6 +4863,27 @@ bool32 DoesMonMeetAdditionalConditions(struct Pokemon *mon, const struct Evoluti
                     currentCondition = TRUE;
                     break;
                 }
+            }
+            break;
+        case IF_NEAR_EEVEE_ROCK:
+            s16 x, y, x1, y1;
+            u16 behavior;
+            PlayerGetDestCoords(&x, &y);
+
+            for (y1 = -EEVEE_ROCK_RADIUS; y1 <= EEVEE_ROCK_RADIUS; y1++)
+            {
+                for (x1 = -EEVEE_ROCK_RADIUS; x1 <= EEVEE_ROCK_RADIUS; x1++)
+                {
+                    behavior = MapGridGetMetatileBehaviorAt(x + x1, y + y1);
+
+                    if (MetatileBehavior_IsEeveeRock(behavior) == params[i].arg1)
+                    {
+                        currentCondition = TRUE;
+                        break;
+                    }
+                }
+                if (currentCondition)
+                    break;
             }
             break;
         case IF_IN_MAP:

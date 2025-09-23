@@ -102,7 +102,7 @@ KaolisleHarbor_TakeAFerry::
 # 45 "data/maps/Kaolisle_Harbor/scripts.pory"
 	dynmultipush KaolisleHarbor_TakeAFerry_Text_3, 3
 # 46 "data/maps/Kaolisle_Harbor/scripts.pory"
-	goto_if_set FLAG_VISITED_FROSTFIRE, KaolisleHarbor_TakeAFerry_2
+	goto_if_set FLAG_VISITED_FROSTHEARTH, KaolisleHarbor_TakeAFerry_2
 KaolisleHarbor_TakeAFerry_1:
 # 49 "data/maps/Kaolisle_Harbor/scripts.pory"
 	dynmultipush KaolisleHarbor_TakeAFerry_Text_5, 5

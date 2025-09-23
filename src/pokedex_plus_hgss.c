@@ -6574,6 +6574,7 @@ static void PrintEvolutionTargetSpeciesAndMethod(u8 taskId, u16 species, u8 dept
             switch((enum EvolutionConditions)evolutions[i].params[j].condition)
             {
             // Gen 2
+            case IF_NEAR_EEVEE_ROCK:
             case IF_GENDER:
                 switch(evolutions[i].params[j].arg1)
                 {

@@ -2896,3 +2896,13 @@
 	.2byte \y
 	.endm
 
+	.macro drawtiles map:req, startingX:req, startingY:req, x1:req, x2:req, y1:req, y2:req
+	callnative ScrCmd_DrawTiles
+	.2byte \map
+	.2byte \startingX
+	.2byte \startingY
+	.2byte \x1
+	.2byte \x2
+	.2byte \y1
+	.2byte \y2
+	.endm

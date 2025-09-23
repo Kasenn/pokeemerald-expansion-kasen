@@ -1500,7 +1500,7 @@
 #define FLAG_AMBEROCK_ITEM2            (SYSTEM_FLAGS + 0x84)
 
 #define FLAG_VISITED_BASALEK                           (SYSTEM_FLAGS + 0x85) // 
-#define FLAG_VISITED_FROSTFIRE                          (SYSTEM_FLAGS + 0x86) // 
+#define FLAG_VISITED_FROSTHEARTH                          (SYSTEM_FLAGS + 0x86) // 
 #define FLAG_VISITED_CRYSTALPINE                           (SYSTEM_FLAGS + 0x87) // 
 #define FLAG_VISITED_EVERFROST                           (SYSTEM_FLAGS + 0x88) // 
 #define FLAG_VISITED_ICEPERCH                           (SYSTEM_FLAGS + 0x89) // 

@@ -114,7 +114,6 @@ static const u8 sTileBitAttributes[NUM_METATILE_BEHAVIORS] =
     [MB_BRIDGE_OVER_POND_MED_EDGE_2]     = TILE_FLAG_UNUSED,
     [MB_BRIDGE_OVER_POND_HIGH_EDGE_1]    = TILE_FLAG_UNUSED,
     [MB_BRIDGE_OVER_POND_HIGH_EDGE_2]    = TILE_FLAG_UNUSED,
-    [MB_UNUSED_BRIDGE]                   = TILE_FLAG_UNUSED,
     [MB_BIKE_BRIDGE_OVER_BARRIER]        = TILE_FLAG_UNUSED,
     [MB_SECRET_BASE_SCENERY]             = TILE_FLAG_UNUSED,
     [MB_SECRET_BASE_TRAINER_SPOT]        = TILE_FLAG_UNUSED,
@@ -349,6 +348,20 @@ bool8 MetatileBehavior_IsDeepSand(u8 metatileBehavior)
         return TRUE;
     else
         return FALSE;
+}
+
+u16 MetatileBehavior_IsEeveeRock(u8 metatileBehavior)
+{
+    switch (metatileBehavior)
+    {
+        case MB_JOLTEON_ROCK:     return SPECIES_JOLTEON;
+        case MB_VAPOREON_ROCK:    return SPECIES_VAPOREON;
+        case MB_FLAREON_ROCK:     return SPECIES_FLAREON;
+        case MB_LEAFEON_ROCK:     return SPECIES_LEAFEON;
+        case MB_GLACEON_ROCK:     return SPECIES_GLACEON;
+    }
+
+    return FALSE;
 }
 
 bool8 MetatileBehavior_IsMud(u8 metatileBehavior)
@@ -1019,7 +1032,6 @@ bool8 MetatileBehavior_IsBridgeOverWater(u8 metatileBehavior)
       || metatileBehavior == MB_BRIDGE_OVER_POND_HIGH)
       || (metatileBehavior == MB_BRIDGE_OVER_POND_HIGH_EDGE_1
        || metatileBehavior == MB_BRIDGE_OVER_POND_HIGH_EDGE_2
-       || metatileBehavior == MB_UNUSED_BRIDGE
        || metatileBehavior == MB_BIKE_BRIDGE_OVER_BARRIER))
         return TRUE;
     else

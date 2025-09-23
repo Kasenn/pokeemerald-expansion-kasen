@@ -122,7 +122,7 @@ ShoreslateHarbor_TakeAFerry::
 # 59 "data/maps/Shoreslate_Harbor/scripts.pory"
 	dynmultipush ShoreslateHarbor_TakeAFerry_Text_3, 3
 # 60 "data/maps/Shoreslate_Harbor/scripts.pory"
-	goto_if_set FLAG_VISITED_FROSTFIRE, ShoreslateHarbor_TakeAFerry_2
+	goto_if_set FLAG_VISITED_FROSTHEARTH, ShoreslateHarbor_TakeAFerry_2
 ShoreslateHarbor_TakeAFerry_1:
 # 63 "data/maps/Shoreslate_Harbor/scripts.pory"
 	dynmultipush ShoreslateHarbor_TakeAFerry_Text_5, 5

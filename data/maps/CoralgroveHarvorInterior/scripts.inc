@@ -44,7 +44,7 @@ CoralgroveHarbor_TakeAFerry::
 # 29 "data/maps/CoralgroveHarvorInterior/scripts.pory"
 	dynmultipush CoralgroveHarbor_TakeAFerry_Text_3, 3
 # 30 "data/maps/CoralgroveHarvorInterior/scripts.pory"
-	goto_if_set FLAG_VISITED_FROSTFIRE, CoralgroveHarbor_TakeAFerry_2
+	goto_if_set FLAG_VISITED_FROSTHEARTH, CoralgroveHarbor_TakeAFerry_2
 CoralgroveHarbor_TakeAFerry_1:
 # 33 "data/maps/CoralgroveHarvorInterior/scripts.pory"
 	dynmultipush CoralgroveHarbor_TakeAFerry_Text_5, 5

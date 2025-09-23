@@ -5094,7 +5094,7 @@
     {
       "id": "LAYOUT_TEST_ROOM",
       "name": "TestRoom_Layout",
-      "width": 60,
+      "width": 80,
       "height": 60,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
@@ -7066,8 +7066,8 @@
       "name": "TestWall_Layout",
       "width": 20,
       "height": 20,
-      "primary_tileset": "gTileset_Summer",
-      "secondary_tileset": "gTileset_Amberock",
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/TestWall/border.bin",
       "blockdata_filepath": "data/layouts/TestWall/map.bin"
     },

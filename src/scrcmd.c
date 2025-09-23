@@ -4025,3 +4025,35 @@ void ScrCmd_ActivatePokeNav(void)
     LockPlayerFieldControls();
     CreateTask(Task_OpenPokeNav, 1);
 }
+
+void ScrCmd_DrawTiles(struct ScriptContext *ctx)
+{
+    s16 map = VarGet(ScriptReadHalfword(ctx));
+	s16 startingX = VarGet(ScriptReadHalfword(ctx));
+    s16 startingY = VarGet(ScriptReadHalfword(ctx));
+	s16 x1 = VarGet(ScriptReadHalfword(ctx));
+	s16 x2 = VarGet(ScriptReadHalfword(ctx));
+	s16 y1 = VarGet(ScriptReadHalfword(ctx));
+	s16 y2 = VarGet(ScriptReadHalfword(ctx));
+
+    s16 i;
+    s16 j;
+    
+    const struct MapHeader *mapHeader = Overworld_GetMapHeaderByGroupAndId(MAP_GROUP(map), MAP_NUM(map));
+    const struct MapLayout *mapLayout = mapHeader->mapLayout;
+
+    for (i = x1; i <= x2; i++)
+    {
+        for (j = y1; j <= y2; j++)
+        {
+            u16 metatile = mapLayout->map[j * mapLayout->width + i];
+
+            s16 destX = i + startingX;
+            s16 destY = j + startingY;
+
+            MapGridSetMetatileIdAt(destX, destY, metatile);
+        }
+    }
+
+    DrawWholeMapView();
+}

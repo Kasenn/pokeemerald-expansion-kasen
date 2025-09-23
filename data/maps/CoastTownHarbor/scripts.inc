@@ -83,7 +83,7 @@ AzuretideHarbor_TakeAFerry::
 # 42 "data/maps/CoastTownHarbor/scripts.pory"
 	dynmultipush AzuretideHarbor_TakeAFerry_Text_3, 3
 # 43 "data/maps/CoastTownHarbor/scripts.pory"
-	goto_if_set FLAG_VISITED_FROSTFIRE, AzuretideHarbor_TakeAFerry_2
+	goto_if_set FLAG_VISITED_FROSTHEARTH, AzuretideHarbor_TakeAFerry_2
 AzuretideHarbor_TakeAFerry_1:
 # 46 "data/maps/CoastTownHarbor/scripts.pory"
 	dynmultipush AzuretideHarbor_TakeAFerry_Text_5, 5

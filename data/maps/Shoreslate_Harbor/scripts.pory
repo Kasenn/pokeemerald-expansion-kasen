@@ -57,7 +57,7 @@ script ShoreslateHarbor_TakeAFerry{
     dynmultipush("Azuretide Town", 1)
     dynmultipush("Kaolisle City", 2)
     dynmultipush("Rockliffe Town", 3)
-    if(flag(FLAG_VISITED_FROSTFIRE)){
+    if(flag(FLAG_VISITED_FROSTHEARTH)){
         dynmultipush("Frosthearth City", 4)
     }
     dynmultipush("Never mind", 5)

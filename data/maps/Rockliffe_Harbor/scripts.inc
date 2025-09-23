@@ -101,7 +101,7 @@ RockliffeHarbor_TakeAFerry::
 # 48 "data/maps/Rockliffe_Harbor/scripts.pory"
 	dynmultipush RockliffeHarbor_TakeAFerry_Text_3, 3
 # 49 "data/maps/Rockliffe_Harbor/scripts.pory"
-	goto_if_set FLAG_VISITED_FROSTFIRE, RockliffeHarbor_TakeAFerry_2
+	goto_if_set FLAG_VISITED_FROSTHEARTH, RockliffeHarbor_TakeAFerry_2
 RockliffeHarbor_TakeAFerry_1:
 # 52 "data/maps/Rockliffe_Harbor/scripts.pory"
 	dynmultipush RockliffeHarbor_TakeAFerry_Text_5, 5

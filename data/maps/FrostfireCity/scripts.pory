@@ -5,7 +5,7 @@ const OBJ_RUFFLET = 25
 mapscripts FrostfireCity_MapScripts {
     MAP_SCRIPT_ON_TRANSITION{
         setflag(FLAG_TEMP_3)
-        setflag(FLAG_VISITED_FROSTFIRE)
+        setflag(FLAG_VISITED_FROSTHEARTH)
         switch(var(VAR_FROSTHEARTH_RUFFLET)){
             case 2:
                 setobjectxyperm(OBJ_RUFFLET, 37, 11)
