@@ -1551,20 +1551,6 @@ static const union AnimCmd *const sAnimTable_RollingStone[] = {
     [ANIM_GET_ON_OFF_POKEMON_NORTH] = sAnim_BoulderJumpNorth,
 };
 
-static const union AnimCmd sAnim_AbraSpin[] =
-{
-    ANIMCMD_FRAME(0, 2),
-    ANIMCMD_FRAME(6, 2),
-    ANIMCMD_FRAME(7, 2),
-    ANIMCMD_FRAME(8, 2),
-    ANIMCMD_FRAME(9, 2),
-    ANIMCMD_FRAME(10, 2),
-    ANIMCMD_FRAME(11, 2),
-    ANIMCMD_FRAME(12, 2),
-    ANIMCMD_FRAME(0, 2),
-    ANIMCMD_END,
-};
-
 static const union AnimCmd *const sAnimTable_Abra[] = {
     [ANIM_STD_FACE_SOUTH] = sAnim_FaceSouth,
     [ANIM_STD_FACE_NORTH] = sAnim_FaceNorth,
@@ -1586,7 +1572,6 @@ static const union AnimCmd *const sAnimTable_Abra[] = {
     [ANIM_STD_GO_FASTEST_NORTH] = sAnim_GoFastestNorth,
     [ANIM_STD_GO_FASTEST_WEST] = sAnim_GoFastestWest,
     [ANIM_STD_GO_FASTEST_EAST] = sAnim_GoFastestEast,
-    [ANIM_ABRA_SPIN] = sAnim_AbraSpin,
 };
 
 static const union AnimCmd *const sAnimTable_FishermanWest[] = {

@@ -10406,34 +10406,6 @@ static void Cmd_various(void)
         }
         return;
     }
-    case VARIOUS_CHECK_IF_ROCKY_TERRAIN_DAMAGES:
-        {
-        VARIOUS_ARGS(const u8 *failInstr);
-        if ((gStatuses3[battler] & (STATUS3_SEMI_INVULNERABLE))
-            || !gBattleMons[battler].hp
-            || IS_BATTLER_OF_TYPE(battler, TYPE_ROCK)
-            || IS_BATTLER_OF_TYPE(battler, TYPE_GROUND)
-            || IS_BATTLER_OF_TYPE(battler, TYPE_STEEL)
-            || !(IsBattlerGrounded(battler)))
-        {
-            gBattlescriptCurrInstr = cmd->failInstr;
-        }
-        else
-        {   
-            // gBattleMoveDamage = GetNonDynamaxMaxHP(battler) / 16;
-            gBattleStruct->moveDamage[battler] = GetStealthHazardDamage(gMovesInfo[MOVE_STEALTH_ROCK].type, battler);
-            if (gBattleStruct->moveDamage[battler] > (GetNonDynamaxMaxHP(battler) / 6))
-            {
-                gBattleStruct->moveDamage[battler] = (GetNonDynamaxMaxHP(battler) / 6);
-            }
-            if (gBattleStruct->moveDamage[battler] == 0)
-            gBattleStruct->moveDamage[battler] = 1;
-
-            gBattlescriptCurrInstr = cmd->nextInstr;
-        }
-        return;
-    }
-
     case VARIOUS_GRAVITY_ON_AIRBORNE_MONS:
     {
         VARIOUS_ARGS();
@@ -14160,39 +14132,6 @@ static void Cmd_healpartystatus(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
-static void Cmd_forestscurse(void)
-{
-    CMD_ARGS(const u8 *failInstr);
-    u32 type = TYPE_GRASS;
-
-    if ((IS_BATTLER_OF_TYPE(gBattlerTarget, type) || GetActiveGimmick(gBattlerTarget) == GIMMICK_TERA)
-     && (gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED))
-    {
-        gBattlescriptCurrInstr = cmd->failInstr;
-    }
-    else
-    {
-        if (IS_BATTLER_OF_TYPE(gBattlerTarget, type) || GetActiveGimmick(gBattlerTarget) == GIMMICK_TERA){}
-        else
-        {
-            gBattleMons[gBattlerTarget].types[2] = type;
-            PREPARE_TYPE_BUFFER(gBattleTextBuff1, type);
-        }
-
-        if (gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED){}
-        else
-        {
-            gBattleMons[gBattlerTarget].status2 |= STATUS2_CURSED;
-            gBattleStruct->moveDamage[gBattlerAttacker] = GetNonDynamaxMaxHP(gBattlerAttacker) / 4;
-    
-            if (gBattleStruct->moveDamage[gBattlerAttacker] == 0)
-                gBattleStruct->moveDamage[gBattlerAttacker] = 1;
-        }    
-        
-        gBattlescriptCurrInstr = cmd->nextInstr;
-    }
-}
-
 static void Cmd_cursetarget(void)
 {
     CMD_ARGS(const u8 *failInstr);
@@ -15753,16 +15692,6 @@ bool32 DoesSubstituteBlockMove(u32 battlerAtk, u32 battlerDef, u32 move)
         return TRUE;
 }
 
-bool32 DoesBreachPierce(u32 battlerAtk, u32 battlerDef, u32 move)
-{
-    u32 moveType = GetMoveType(gCurrentMove);
-
-    if ((GetBattlerAbility(battlerAtk) == ABILITY_DATA_BREACH) && (moveType == TYPE_NORMAL))
-        return TRUE;
-    else
-        return FALSE;
-}
-
 bool32 DoesDisguiseBlockMove(u32 battler, u32 move)
 {
     if (!(gBattleMons[battler].species == SPECIES_MIMIKYU_DISGUISED || gBattleMons[battler].species == SPECIES_MIMIKYU_TOTEM_DISGUISED)
@@ -15780,16 +15709,6 @@ static void Cmd_jumpifsubstituteblocks(void)
     CMD_ARGS(const u8 *jumpInstr);
 
     if (DoesSubstituteBlockMove(gBattlerAttacker, gBattlerTarget, gCurrentMove))
-        gBattlescriptCurrInstr = cmd->jumpInstr;
-    else
-        gBattlescriptCurrInstr = cmd->nextInstr;
-}
-
-static void Cmd_jumpifbreachpierces(void)
-{
-    CMD_ARGS(const u8 *jumpInstr);
-
-    if (DoesBreachPierce(gBattlerAttacker, gBattlerTarget, gCurrentMove))
         gBattlescriptCurrInstr = cmd->jumpInstr;
     else
         gBattlescriptCurrInstr = cmd->nextInstr;
@@ -19052,6 +18971,46 @@ void BS_JumpIfAbilityCantBeSuppressed(void)
     u32 battler = GetBattlerForBattleScript(cmd->battler);
 
     if (gAbilitiesInfo[gBattleMons[battler].ability].cantBeSuppressed)
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    else
+        gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+static void Cmd_forestscurse(void)
+{
+    CMD_ARGS(const u8 *failInstr);
+    u32 type = TYPE_GRASS;
+
+    if (IS_BATTLER_OF_TYPE(gBattlerTarget, type) && (gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED))
+    {
+        gBattlescriptCurrInstr = cmd->failInstr;
+    }
+    else
+    {
+        if (!IS_BATTLER_OF_TYPE(gBattlerTarget, type))
+        {
+            gBattleMons[gBattlerTarget].types[2] = type;
+            PREPARE_TYPE_BUFFER(gBattleTextBuff1, type);
+        }
+
+        if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED))
+        {
+            gBattleMons[gBattlerTarget].status2 |= STATUS2_CURSED;
+            gBattleStruct->moveDamage[gBattlerAttacker] = GetNonDynamaxMaxHP(gBattlerAttacker) / 4;
+    
+            if (gBattleStruct->moveDamage[gBattlerAttacker] == 0)
+                gBattleStruct->moveDamage[gBattlerAttacker] = 1;
+        }    
+        
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+}
+
+static void Cmd_jumpifbreachpierces(void)
+{
+    CMD_ARGS(const u8 *jumpInstr);
+
+    if ((GetBattlerAbility(gBattlerAttacker) == ABILITY_DATA_BREACH) && (GetMoveType(gCurrentMove) == TYPE_NORMAL))
         gBattlescriptCurrInstr = cmd->jumpInstr;
     else
         gBattlescriptCurrInstr = cmd->nextInstr;

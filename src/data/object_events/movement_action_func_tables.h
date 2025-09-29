@@ -162,7 +162,6 @@ u8 MovementAction_JumpInPlaceRightLeft_Step0(struct ObjectEvent *, struct Sprite
 u8 MovementAction_JumpInPlaceRightLeft_Step1(struct ObjectEvent *, struct Sprite *);
 u8 MovementAction_FaceOriginalDirection_Step0(struct ObjectEvent *, struct Sprite *);
 u8 MovementAction_NurseJoyBowDown_Step0(struct ObjectEvent *, struct Sprite *);
-u8 MovementAction_AbraSpin_Step0(struct ObjectEvent *, struct Sprite *);
 u8 MovementAction_LatiBall_Step0(struct ObjectEvent *, struct Sprite *);
 u8 MovementAction_EnableJumpLandingGroundEffect_Step0(struct ObjectEvent *, struct Sprite *);
 u8 MovementAction_DisableJumpLandingGroundEffect_Step0(struct ObjectEvent *, struct Sprite *);
@@ -401,7 +400,6 @@ u8 (*const gMovementActionFuncs_JumpInPlaceLeftRight[])(struct ObjectEvent *, st
 u8 (*const gMovementActionFuncs_JumpInPlaceRightLeft[])(struct ObjectEvent *, struct Sprite *);
 u8 (*const gMovementActionFuncs_FaceOriginalDirection[])(struct ObjectEvent *, struct Sprite *);
 u8 (*const gMovementActionFuncs_NurseJoyBowDown[])(struct ObjectEvent *, struct Sprite *);
-u8 (*const gMovementActionFuncs_AbraSpin[])(struct ObjectEvent *, struct Sprite *);
 u8 (*const gMovementActionFuncs_LatiBall[])(struct ObjectEvent *, struct Sprite *);
 u8 (*const gMovementActionFuncs_EnableJumpLandingGroundEffect[])(struct ObjectEvent *, struct Sprite *);
 u8 (*const gMovementActionFuncs_DisableJumpLandingGroundEffect[])(struct ObjectEvent *, struct Sprite *);
@@ -592,7 +590,6 @@ u8 (*const *const gMovementActionFuncs[])(struct ObjectEvent *, struct Sprite *)
     [MOVEMENT_ACTION_JUMP_IN_PLACE_RIGHT_LEFT] = gMovementActionFuncs_JumpInPlaceRightLeft,
     [MOVEMENT_ACTION_FACE_ORIGINAL_DIRECTION] = gMovementActionFuncs_FaceOriginalDirection,
     [MOVEMENT_ACTION_NURSE_JOY_BOW_DOWN] = gMovementActionFuncs_NurseJoyBowDown,
-    [MOVEMENT_ACTION_ABRA_SPIN] = gMovementActionFuncs_AbraSpin,
     [MOVEMENT_ACTION_LATI_BALL] = gMovementActionFuncs_LatiBall,
     [MOVEMENT_ACTION_ENABLE_JUMP_LANDING_GROUND_EFFECT] = gMovementActionFuncs_EnableJumpLandingGroundEffect,
     [MOVEMENT_ACTION_DISABLE_JUMP_LANDING_GROUND_EFFECT] = gMovementActionFuncs_DisableJumpLandingGroundEffect,
@@ -1270,12 +1267,6 @@ u8 (*const gMovementActionFuncs_FaceOriginalDirection[])(struct ObjectEvent *, s
 
 u8 (*const gMovementActionFuncs_NurseJoyBowDown[])(struct ObjectEvent *, struct Sprite *) = {
     MovementAction_NurseJoyBowDown_Step0,
-    MovementAction_WaitSpriteAnim,
-    MovementAction_PauseSpriteAnim,
-};
-
-u8 (*const gMovementActionFuncs_AbraSpin[])(struct ObjectEvent *, struct Sprite *) = {
-    MovementAction_AbraSpin_Step0,
     MovementAction_WaitSpriteAnim,
     MovementAction_PauseSpriteAnim,
 };

@@ -8964,13 +8964,6 @@ bool8 MovementAction_NurseJoyBowDown_Step0(struct ObjectEvent *objectEvent, stru
     return FALSE;
 }
 
-bool8 MovementAction_AbraSpin_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
-{
-    StartSpriteAnimInDirection(objectEvent, sprite, DIR_SOUTH, ANIM_ABRA_SPIN);
-    return FALSE;
-}
-
-
 bool8 MovementAction_LatiBall_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     StartSpriteAnimInDirection(objectEvent, sprite, DIR_SOUTH, ANIM_LATI_BALL);
