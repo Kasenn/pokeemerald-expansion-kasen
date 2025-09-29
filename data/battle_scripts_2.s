@@ -29,11 +29,10 @@ gBattlescriptsForUsingItem::
 
 	.align 2
 gBattlescriptsForSafariActions::
-    .4byte BattleScript_ActionWatchesCarefully
-    .4byte BattleScript_ActionGetNear
-    .4byte BattleScript_ActionThrowPokeblock
-    .4byte BattleScript_ActionWallyThrow
-    .4byte BattleScript_ActionLayLow
+	.4byte BattleScript_ActionWatchesCarefully
+	.4byte BattleScript_ActionGetNear
+	.4byte BattleScript_ActionThrowPokeblock
+	.4byte BattleScript_ActionWallyThrow
 
 BattleScript_ItemEnd:
 	end
@@ -164,7 +163,7 @@ BattleScript_ItemIncreaseAllStats::
 	end
 
 BattleScript_BallThrow::
-	@ jumpifword CMP_COMMON_BITS, gBattleTypeFlags, BATTLE_TYPE_BROTHER_BATTLE, BattleScript_BallThrowByWally
+	jumpifword CMP_COMMON_BITS, gBattleTypeFlags, BATTLE_TYPE_WALLY_TUTORIAL, BattleScript_BallThrowByWally
 	printstring STRINGID_PLAYERUSEDITEM
 	handleballthrow
 
@@ -231,13 +230,6 @@ BattleScript_TrainerBallBlock::
 	waitmessage B_WAIT_TIME_LONG
 	finishaction
 
-BattleScript_GhostBallDodge::
-	waitmessage B_WAIT_TIME_LONG
-	printstring STRINGID_ITDODGEDBALL
-	waitmessage B_WAIT_TIME_LONG
-	finishaction
-
-
 BattleScript_RunByUsingItem::
 	playse SE_FLEE
 	setbyte gBattleOutcome, B_OUTCOME_RAN
@@ -271,11 +263,6 @@ BattleScript_ActionWallyThrow:
 	printstring STRINGID_YOUTHROWABALLNOWRIGHT
 	waitmessage B_WAIT_TIME_LONG
 	end2
-
-BattleScript_ActionLayLow:
-    printfromtable gSafariGetNearStringIds
-    waitmessage B_WAIT_TIME_LONG
-    end2
 
 BattleScript_TrainerASlideMsgRet::
 	trainerslidein BS_OPPONENT1

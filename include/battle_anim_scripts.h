@@ -1014,7 +1014,7 @@ extern const u8 gBattleAnimSpecial_BallThrowWithTrainer[];
 extern const u8 gBattleAnimSpecial_SubstituteToMon[];
 extern const u8 gBattleAnimSpecial_MonToSubstitute[];
 extern const u8 gBattleAnimSpecial_CriticalCaptureBallThrow[];
-extern const u8 Move_RAZOR_GALE[];
+extern const u8 gBattleAnimMove_RazorGale[];
 
 
 #endif // GUARD_BATTLE_ANIM_SCRIPTS_H

@@ -14627,7 +14627,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestCategory = CONTEST_CATEGORY_COOL,
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
-        .battleAnimScript = Move_RAZOR_GALE,
+        .battleAnimScript = gBattleAnimMove_RazorGale,
     },
 
     [MOVE_MAT_BLOCK] =

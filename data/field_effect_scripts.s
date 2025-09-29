@@ -76,26 +76,26 @@ gFieldEffectScriptPointers::
 	.4byte gFldEffScript_UseVsSeeker                    @ FLDEFF_USE_VS_SEEKER
 	.4byte gFldEffScript_XIcon                          @ FLDEFF_X_ICON
 	.4byte gFldEffScript_DoubleExclMarkIcon             @ FLDEFF_DOUBLE_EXCL_MARK_ICON
+	.4byte gFieldEffectScript_TracksSlither             @ FLDEFF_TRACKS_SLITHER
+	.4byte gFieldEffectScript_TracksBug                 @ FLDEFF_TRACKS_BUG
+	.4byte gFieldEffectScript_TracksSpot                @ FLDEFF_TRACKS_SPOT
+	.4byte gFieldEffectScript_CaveDust                  @ FLDEFF_CAVE_DUST
+	.4byte gFieldEffectScript_Defog                     @ FLDEFF_DEFOG
 	.4byte gFieldEffectScript_TallGrassAutumn           @ FLDEFF_TALL_GRASS_AUTUMN
 	.4byte gFieldEffectScript_MudFootprints             @ FLDEFF_MUD_FOOTPRINTS
 	.4byte gFieldEffectScript_MudPile                   @ FLDEFF_MUD_PILE
 	.4byte gFieldEffectScript_UseRockClimb              @ FLDEFF_USE_ROCK_CLIMB
-	.4byte gFieldEffectScript_TracksSlither             @ FLDEFF_TRACKS_SLITHER
-	.4byte gFieldEffectScript_TracksBug                 @ FLDEFF_TRACKS_BUG
-	.4byte gFieldEffectScript_TracksSpot                @ FLDEFF_TRACKS_SPOT
 	.4byte gFieldEffectScript_TallGrassMountain         @ FLDEFF_TALL_GRASS_MOUNTAIN
 	.4byte gFieldEffectScript_SnowFootprints            @ FLDEFF_SNOW_FOOTPRINTS
-	.4byte gFieldEffectScript_BikeTireTracksSnow        @ FLDEFF_BIKE_TIRE_TRACKS
-	.4byte gFieldEffectScript_TracksSlitherSnow         @ FLDEFF_TRACKS_SLITHER
+	.4byte gFieldEffectScript_BikeTireTracksSnow        @ FLDEFF_BIKE_TIRE_TRACKS_SNOW
+	.4byte gFieldEffectScript_TracksSlitherSnow         @ FLDEFF_TRACKS_SLITHER_SNOW
 	.4byte gFieldEffectScript_DeepSnowFootprints 		@ FLDEFF_DEEP_SNOW_FOOTPRINTS
 	.4byte gFieldEffectScript_TracksSpotSnow 			@ FLDEFF_TRACKS_SPOT_SNOW
 	.4byte gFieldEffectScript_TracksBugSnow 			@ FLDEFF_TRACKS_BUG_SNOW
 	.4byte gFieldEffectScript_TallGrassSnow         	@ FLDEFF_TALL_GRASS_SNOW
 	.4byte gFieldEffectScript_SnowPile                  @ FLDEFF_SNOW_PILE
-	.4byte gFieldEffectScript_CaveDust                  @ FLDEFF_CAVE_DUST
 	.4byte gFieldEffectScript_RidingGogoat              @ FLDEFF_RIDING_GOGOAT
 	.4byte gFieldEffectScript_RidingGogoatHead          @ FLDEFF_RIDING_GOGOAT_HEAD
-	.4byte gFieldEffectScript_Defog                     @ FLDEFF_DEFOG
 	.4byte gFieldEffectScript_TallGrassRed				@ FLDEFF_TALL_GRASS_RED
 
 gFieldEffectScript_ExclamationMarkIcon1::
@@ -198,10 +198,6 @@ gFieldEffectScript_DeepSandFootprints::
 	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect0, FldEff_DeepSandFootprints
 	field_eff_end
 
-gFieldEffectScript_MudFootprints::
-	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect3, FldEff_MudFootprints
-	field_eff_end
-
 gFieldEffectScript_PokeCenterHeal::
 	field_eff_loadfadedpal gSpritePalette_PokeballGlow
 	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect0, FldEff_PokecenterHeal
@@ -267,10 +263,6 @@ gFieldEffectScript_SandPile::
 	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect0, FldEff_SandPile
 	field_eff_end
 
-gFieldEffectScript_SnowPile::
-	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect5, FldEff_SandPile
-	field_eff_end
-
 gFieldEffectScript_ShortGrass::
 	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect1, FldEff_ShortGrass
 	field_eff_end
@@ -281,10 +273,6 @@ gFieldEffectScript_HotSpringsWater::
 
 gFieldEffectScript_UseWaterfall::
 	field_eff_callnative FldEff_UseWaterfall
-	field_eff_end
-
-gFieldEffectScript_UseRockClimb::
-	field_eff_callnative FldEff_UseRockClimb
 	field_eff_end
 
 gFieldEffectScript_UseDive::
@@ -381,21 +369,6 @@ gFieldEffectScript_MoveDeoxysRock::
 	field_eff_callnative FldEff_MoveDeoxysRock
 	field_eff_end
 
-gFieldEffectScript_TallGrassAutumn::
-	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect2, FldEff_TallGrass
-	field_eff_end
-
-gFieldEffectScript_TallGrassMountain::
-	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect4, FldEff_TallGrass
-	field_eff_end
-
-gFieldEffectScript_TallGrassSnow::
-	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect6, FldEff_TallGrass
-	field_eff_end
-
-gFieldEffectScript_MudPile::
-	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect3, FldEff_MudPile
-	field_eff_end
 gFldEffScript_UseVsSeeker::
 	field_eff_callnative FldEff_UseVsSeeker
 	field_eff_end
@@ -420,32 +393,64 @@ gFieldEffectScript_TracksSlither::
 	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect0, FldEff_TracksSlither
 	field_eff_end
 
-gFieldEffectScript_TracksSlitherSnow::
-	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect5, FldEff_TracksSlitherSnow
+gFieldEffectScript_CaveDust::
+	field_eff_loadfadedpal_callnative gSpritePalette_CaveDust FldEff_CaveDust
+	field_eff_end
+
+gFieldEffectScript_Defog::
+    field_eff_callnative FldEff_Defog
+    field_eff_end
+
+gFieldEffectScript_MudFootprints::
+	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect3, FldEff_MudFootprints
+	field_eff_end
+
+gFieldEffectScript_MudPile::
+	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect3, FldEff_MudPile
+	field_eff_end
+
+gFieldEffectScript_TallGrassAutumn::
+	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect2, FldEff_TallGrass
+	field_eff_end
+
+gFieldEffectScript_TallGrassMountain::
+	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect4, FldEff_TallGrass
+	field_eff_end
+
+gFieldEffectScript_TallGrassRed::
+	field_eff_loadfadedpal_callnative gFldEffPal_RedGrass, FldEff_TallGrass
+	field_eff_end
+
+gFieldEffectScript_TallGrassSnow::
+	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect6, FldEff_TallGrass
+	field_eff_end
+
+gFieldEffectScript_SnowPile::
+	field_eff_loadfadedpal_callnative gFldEFFPal_Snow, FldEff_SandPile
 	field_eff_end
 
 gFieldEffectScript_DeepSnowFootprints::
-	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect5, FldEff_DeepSnowFootprints
+	field_eff_loadfadedpal_callnative gFldEFFPal_Snow, FldEff_DeepSnowFootprints
+	field_eff_end
+
+gFieldEffectScript_TracksSlitherSnow::
+	field_eff_loadfadedpal_callnative gFldEFFPal_Snow, FldEff_TracksSlitherSnow
 	field_eff_end
 
 gFieldEffectScript_TracksBugSnow::
-	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect5, FldEff_TracksBugSnow
+	field_eff_loadfadedpal_callnative gFldEFFPal_Snow, FldEff_TracksBugSnow
 	field_eff_end
 
 gFieldEffectScript_TracksSpotSnow::
-	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect5, FldEff_TracksSpotSnow
+	field_eff_loadfadedpal_callnative gFldEFFPal_Snow, FldEff_TracksSpotSnow
 	field_eff_end
 
 gFieldEffectScript_BikeTireTracksSnow::
-	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect5, FldEff_BikeTireTracksSnow
+	field_eff_loadfadedpal_callnative gFldEFFPal_Snow, FldEff_BikeTireTracksSnow
 	field_eff_end
 
 gFieldEffectScript_SnowFootprints::
-	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect5, FldEff_SnowFootprints
-	field_eff_end
-
-gFieldEffectScript_CaveDust::
-	field_eff_loadfadedpal_callnative gSpritePalette_CaveDust FldEff_CaveDust
+	field_eff_loadfadedpal_callnative gFldEFFPal_Snow, FldEff_SnowFootprints
 	field_eff_end
 
 gFieldEffectScript_RidingGogoat::
@@ -456,10 +461,6 @@ gFieldEffectScript_RidingGogoatHead::
 	field_eff_callnative FldEff_RidingGogoatHead
 	field_eff_end
 	
-gFieldEffectScript_Defog::
-    field_eff_callnative FldEff_Defog
-    field_eff_end
-
-gFieldEffectScript_TallGrassRed::
-	field_eff_loadfadedpal_callnative gFldEffPal_RedGrass, FldEff_TallGrass
+gFieldEffectScript_UseRockClimb::
+	field_eff_callnative FldEff_UseRockClimb
 	field_eff_end

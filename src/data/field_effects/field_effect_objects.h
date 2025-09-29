@@ -3,7 +3,7 @@ const struct SpritePalette gSpritePalette_GeneralFieldEffect1 = {gFieldEffectObj
 const struct SpritePalette gSpritePalette_GeneralFieldEffect2 = {gFieldEffectObjectPalette2, FLDEFF_PAL_TAG_GENERAL_2};
 const struct SpritePalette gSpritePalette_GeneralFieldEffect4 = {gFieldEffectObjectPalette4, FLDEFF_PAL_TAG_GENERAL_2};
 const struct SpritePalette gSpritePalette_GeneralFieldEffect3 = {gFieldEffectObjectPalette3, FLDEFF_PAL_TAG_GENERAL_3};
-const struct SpritePalette gSpritePalette_GeneralFieldEffect5 = {gFieldEffectObjectPalette5, FLDEFF_PAL_TAG_GENERAL_3};
+const struct SpritePalette gFldEFFPal_Snow = {gFieldEffectObjectSnow, FLDEFF_PAL_TAG_GENERAL_3};
 const struct SpritePalette gSpritePalette_GeneralFieldEffect6 = {gFieldEffectObjectPalette6, FLDEFF_PAL_TAG_GENERAL_2};
 const struct SpritePalette gFldEffPal_RedGrass = {gFieldEffectObjectRedGrass, FLDEFF_PAL_TAG_GENERAL_2}; // Using this FLDEFF_PAL_TAG assumes that the red grass
                                                                                                          // will never be used in the same area as regular green grass
