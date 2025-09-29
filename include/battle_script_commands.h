@@ -66,9 +66,4 @@ void SetNonVolatileStatusCondition(u32 target, enum MoveEffects effect);
 extern void (*const gBattleScriptingCommandsTable[])(void);
 extern const struct StatFractions gAccuracyStageRatios[];
 
-static inline const u8 GetTrainerBpCapFromId(u16 trainerId)
-{
-    return gTrainers[1][SanitizeTrainerId(trainerId)].extendedBpCap;
-}
-
 #endif // GUARD_BATTLE_SCRIPT_COMMANDS_H

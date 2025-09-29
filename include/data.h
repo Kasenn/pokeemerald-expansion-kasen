@@ -214,6 +214,11 @@ static inline u16 SanitizeTrainerId(u16 trainerId)
     return trainerId;
 }
 
+static inline const u8 GetTrainerBpCapFromId(u16 trainerId)
+{
+    return gTrainers[GetCurrentDifficultyLevel()][SanitizeTrainerId(trainerId)].extendedBpCap;
+}
+
 static inline const struct Trainer *GetTrainerStructFromId(u16 trainerId)
 {
     u32 sanitizedTrainerId = SanitizeTrainerId(trainerId);
