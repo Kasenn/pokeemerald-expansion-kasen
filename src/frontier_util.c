@@ -1774,8 +1774,8 @@ void CopyFrontierTrainerText(u8 whichText, u16 trainerId)
         {
             if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
             {
-                trainerId = GetRecordedBattleApprenticeId();
-                FrontierSpeechToString(gApprentices[trainerId].speechLost);
+                // trainerId = GetRecordedBattleApprenticeId();
+                // FrontierSpeechToString(gApprentices[trainerId].speechLost);
             }
             // else
             // {

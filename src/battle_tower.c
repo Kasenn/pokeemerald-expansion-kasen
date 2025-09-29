@@ -1344,7 +1344,7 @@ u8 GetFrontierTrainerFrontSpriteId(u16 trainerId)
     }
     else
     {
-            return gFacilityClassToPicIndex[gApprentices[GetRecordedBattleApprenticeId()].facilityClass];
+            return gFacilityClassToPicIndex[gFacilityTrainers[trainerId].facilityClass];
         // else
         //     return gFacilityClassToPicIndex[gApprentices[gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id].facilityClass];
     }
@@ -1391,7 +1391,7 @@ u8 GetFrontierOpponentClass(u16 trainerId)
     {
         if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
         {
-            trainerClass = gFacilityClassToTrainerClass[gApprentices[GetRecordedBattleApprenticeId()].facilityClass];
+            trainerClass = gFacilityClassToTrainerClass[gFacilityTrainers[trainerId].facilityClass];
         }
         // else
         // {
@@ -1428,7 +1428,8 @@ static u8 GetFrontierTrainerFacilityClass(u16 trainerId)
     }
     else
     {
-        facilityClass = gApprentices[GetRecordedBattleApprenticeId()].facilityClass;
+        facilityClass = gFacilityTrainers[trainerId].facilityClass;
+        // facilityClass = gApprentices[GetRecordedBattleApprenticeId()].facilityClass;
         // else
         //     facilityClass = gApprentices[gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id].facilityClass;
     }

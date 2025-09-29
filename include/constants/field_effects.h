@@ -76,7 +76,7 @@
 #define FLDEFF_TRACKS_SPOT               71
 #define FLDEFF_TRACKS_BUG                72
 #define FLDEFF_CAVE_DUST                 73
-#define FLDEFF_TALL_GRASS_RED            74
+#define FLDEFF_DEFOG                     74
 #define FLDEFF_TALL_GRASS_AUTUMN         75
 #define FLDEFF_MUD_FOOTPRINTS            76
 #define FLDEFF_MUD_PILE                  77
