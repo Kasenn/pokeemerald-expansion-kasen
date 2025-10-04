@@ -21,38 +21,44 @@ Primrose_FlowerGirl::
 	return
 
 
-Primrose_FatMan::
+Primrose_FlowerBoy::
 # 20 "data/maps/PrimroseTown/scripts.pory"
+	msgbox Primrose_FlowerBoy_Text_0, MSGBOX_NPC
+	return
+
+
+Primrose_FatMan::
+# 24 "data/maps/PrimroseTown/scripts.pory"
 	msgbox Primrose_FatMan_Text_0, MSGBOX_NPC
 	return
 
 
 Primrose_Hiker::
-# 24 "data/maps/PrimroseTown/scripts.pory"
+# 28 "data/maps/PrimroseTown/scripts.pory"
 	msgbox Primrose_Hiker_Text_0, MSGBOX_AUTOCLOSE
 	return
 
 
 PrimroseBlocked::
-# 28 "data/maps/PrimroseTown/scripts.pory"
-	lock
-# 29 "data/maps/PrimroseTown/scripts.pory"
-	safefollow
-# 30 "data/maps/PrimroseTown/scripts.pory"
-	turnobject 3, DIR_EAST
-# 31 "data/maps/PrimroseTown/scripts.pory"
-	playse SE_PIN
 # 32 "data/maps/PrimroseTown/scripts.pory"
-	exclamationmark 3
+	lock
 # 33 "data/maps/PrimroseTown/scripts.pory"
-	turnobject LOCALID_PLAYER, DIR_WEST
+	safefollow
 # 34 "data/maps/PrimroseTown/scripts.pory"
-	msgbox Primrose_Storm, MSGBOX_AUTOCLOSE
+	turnobject 3, DIR_EAST
 # 35 "data/maps/PrimroseTown/scripts.pory"
-	waitmove LOCALID_PLAYER, Walk1Down
+	playse SE_PIN
 # 36 "data/maps/PrimroseTown/scripts.pory"
-	turnobject 3, DIR_NORTH
+	exclamationmark 3
 # 37 "data/maps/PrimroseTown/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_WEST
+# 38 "data/maps/PrimroseTown/scripts.pory"
+	msgbox Primrose_Storm, MSGBOX_AUTOCLOSE
+# 39 "data/maps/PrimroseTown/scripts.pory"
+	waitmove LOCALID_PLAYER, Walk1Down
+# 40 "data/maps/PrimroseTown/scripts.pory"
+	turnobject 3, DIR_NORTH
+# 41 "data/maps/PrimroseTown/scripts.pory"
 	release
 	return
 
@@ -61,12 +67,16 @@ Primrose_FlowerGirl_Text_0:
 # 16 "data/maps/PrimroseTown/scripts.pory"
 	.string "Look at all those pretty flowers!\pI'd like to pick a few of them but\nI'm scared I might get attacked\lby a bug Pokémon…$"
 
-Primrose_FatMan_Text_0:
+Primrose_FlowerBoy_Text_0:
 # 20 "data/maps/PrimroseTown/scripts.pory"
+	.string "Sometimes Pokémon that live within\nclose proximity to people will become\lmuch more skittish than those living\lin the wilds.\pIf you disturb them too much,\nthey might even attempt to flee!$"
+
+Primrose_FatMan_Text_0:
+# 24 "data/maps/PrimroseTown/scripts.pory"
 	.string "This place is real pretty.\pWould be a real shame to be allergic\nto all this pollen though…\p…\psniff…$"
 
 Primrose_Hiker_Text_0:
-# 24 "data/maps/PrimroseTown/scripts.pory"
+# 28 "data/maps/PrimroseTown/scripts.pory"
 	.string "I don't like the look of that storm…$"
 
 PrimroseSign::
@@ -74,5 +84,5 @@ PrimroseSign::
 	.string "PRIMROSE TOWN\n“The town where sweet nectar flows.”\p{UP_ARROW} Route 2\n{RIGHT_ARROW} PRIMROSE MEADOW$"
 
 Primrose_Storm::
-# 40 "data/maps/PrimroseTown/scripts.pory"
+# 44 "data/maps/PrimroseTown/scripts.pory"
 	.string "There's a massive storm raging\nabove the next island.\pIt's too dangerous to cross\nthe bridge at this moment.$"

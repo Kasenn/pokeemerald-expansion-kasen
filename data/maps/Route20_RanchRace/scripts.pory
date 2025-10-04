@@ -1,0 +1,244 @@
+const VAR_RACE_START = VAR_TEMP_1
+const VAR_RACE_FLAGS = VAR_TEMP_0
+const VAR_RACE_DIRECTION = VAR_TEMP_2
+
+mapscripts Route20_RanchRace_MapScripts {
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
+        VAR_RACE_START, 0{
+            turnobject(LOCALID_PLAYER, DIR_EAST)
+        }
+    ]
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_RACE_START, 0: Race1_Start
+    ] 
+}
+
+script Race1_Start{
+    delay(30)
+    if(msgbox(ReadyToRace1, MSGBOX_YESNO) == FALSE){
+        if(msgbox(ForfeitRace1, MSGBOX_YESNO) == FALSE){
+            goto(Race1_Start)
+        }
+        else{
+            clearflag(FLAG_GOGOAT_RIDING)
+            setvar(VAR_RACE_START, 1)
+            warp(MAP_ROUTE20, 1)
+            waitstate
+        }
+        release
+    }
+    message(GetSetReadyGo)
+    waitmessage
+    setvar(VAR_RACE_START, 1)
+    playbgm(MUS_CYCLING, TRUE)
+    callnative(StartRecordingRace)
+    release
+}
+
+script StartMenu_GiveUpGogoatRace{
+    if(msgbox(ForfeitGogoatRaceMenu, MSGBOX_YESNO) == TRUE){
+        if(iscurrentmap(MAP_ROUTE20_RANCH_RACE)){
+            if(var(VAR_GOGOAT_RACE) == STORY_GOGOAT_RACE_1_IN_PROGRESS){ setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_1_FAILED) }
+            warp(MAP_ROUTE20, 1)
+        }
+        else{
+            if(var(VAR_GOGOAT_RACE) == STORY_GOGOAT_RACE_2_IN_PROGRESS){ setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_2_FAILED) }
+            warp(MAP_ROUTE20, 2)
+        }
+        clearflag(FLAG_GOGOAT_RIDING)
+        waitstate
+    }
+    release
+}
+
+text ForfeitGogoatRaceMenu{
+    "wip"
+}
+
+script Race1_GiveUp{
+    lock
+    faceplayer
+    if(msgbox(Race1_InProgress, MSGBOX_YESNO) == TRUE){
+        msgbox(Race1_LetsGetYouOff)
+        if(var(VAR_GOGOAT_RACE) == STORY_GOGOAT_RACE_1_IN_PROGRESS){ setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_1_FAILED) }
+        warp(MAP_ROUTE20, 1)
+        clearflag(FLAG_GOGOAT_RIDING)
+        waitstate
+    }
+    release
+}
+
+text Race1_InProgress{
+    "wip"
+}
+text ReadyToRace1{
+    "wip"
+}
+text ForfeitRace1{
+    "wip"
+}
+
+script RanchRace_Flag1{
+    removeobject(LOCALID_FLAG_1)
+    goto(Race1_Flag_Main)}
+script RanchRace_Flag2{
+    removeobject(LOCALID_FLAG_2)
+    goto(Race1_Flag_Main)}
+script RanchRace_Flag3{
+    removeobject(LOCALID_FLAG_3)
+    goto(Race1_Flag_Main)}
+script RanchRace_Flag4{
+    removeobject(LOCALID_FLAG_4)
+    goto(Race1_Flag_Main)}
+script RanchRace_Flag5{
+    removeobject(LOCALID_FLAG_5)
+    goto(Race1_Flag_Main)}
+script RanchRace_Flag6{
+    removeobject(LOCALID_FLAG_6)
+    goto(Race1_Flag_Main)}
+script RanchRace_Flag7{
+    removeobject(LOCALID_FLAG_7)
+    goto(Race1_Flag_Main)}
+script RanchRace_Flag8{
+    removeobject(LOCALID_FLAG_8)
+    goto(Race1_Flag_Main)}
+script RanchRace_Flag9{
+    removeobject(LOCALID_FLAG_9)
+    goto(Race1_Flag_Main)}
+script RanchRace_Flag10{
+    removeobject(LOCALID_FLAG_10)
+    goto(Race1_Flag_Main)}
+script Race1_Flag_Main{
+    addvar(VAR_RACE_FLAGS, 1)
+    if(var(VAR_RACE_FLAGS) == 10){
+        playse(SE_SUCCESS)
+    }
+    else{
+        playse(SE_PIN)
+    }
+    release
+}
+
+script Race1_FinishNorth{
+    setvar(VAR_RACE_DIRECTION, DIR_NORTH)
+    goto(Race1_FinishMain)}
+script Race1_FinishEast{
+    setvar(VAR_RACE_DIRECTION, DIR_EAST)
+    goto(Race1_FinishMain)}
+script Race1_FinishSouth{
+    setvar(VAR_RACE_DIRECTION, DIR_SOUTH)
+    goto(Race1_FinishMain)}
+script Race1_FinishWest{
+    setvar(VAR_RACE_DIRECTION, DIR_WEST)
+    goto(Race1_FinishMain)}
+
+
+script Race1_FinishMain{
+    lock
+    callnative(FinishGogoatRace)
+    switch(var(VAR_RACE_DIRECTION)){
+        case DIR_NORTH: turnobject(1, DIR_SOUTH)
+        case DIR_EAST:  turnobject(1, DIR_WEST)
+        case DIR_WEST:  turnobject(1, DIR_EAST)
+        case DIR_SOUTH: turnobject(1, DIR_NORTH)
+    }
+    playse(SE_PIN)
+    exclamationmark(1)
+    switch(var(VAR_RACE_DIRECTION)){
+        case DIR_NORTH: turnobject(LOCALID_PLAYER, DIR_SOUTH)
+        case DIR_EAST:  turnobject(LOCALID_PLAYER, DIR_WEST)
+        case DIR_WEST:  turnobject(LOCALID_PLAYER, DIR_EAST)
+        case DIR_SOUTH: turnobject(LOCALID_PLAYER, DIR_NORTH)
+    }
+    msgbox(FinishRace1_CalculateScore)
+
+    // have finished the race before //
+    if(var(VAR_GOGOAT_RACE) >= STORY_GOGOAT_RACE_1_REWARD_EARNED){ 
+        if(flag(FLAG_TEMP_D)){ // broke personal record
+            msgbox(Race1_YouWonAgain)
+            clearflag(FLAG_GOGOAT_RIDING)
+            setvar(VAR_RACE_START, 1)
+            warp(MAP_ROUTE20, 1)
+            waitstate
+        }
+        else{ // did not break personal record, thus no record was broken
+            msgbox(Race1_FailedToImprove)
+            if(msgbox(Race1_TryAgain, MSGBOX_YESNO) == FALSE){
+                msgbox(Race1_LetsGetYouOff)
+                warp(MAP_ROUTE20, 1)
+                clearflag(FLAG_GOGOAT_RIDING)
+                waitstate
+                release
+                end
+            }
+            else{
+                msgbox(LetsGetGogoatRacing)
+                warp(MAP_ROUTE20_RANCH_RACE, 0)
+                setflag(FLAG_GOGOAT_RIDING)
+                waitstate
+            }
+        }
+    }
+
+    // have not finished the race before //
+    else{
+        if(flag(FLAG_TEMP_C)){ // finished in time and made a new record
+            setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_1_COMPLETE)
+            msgbox(Race1_YouWon)
+            clearflag(FLAG_GOGOAT_RIDING)
+            setvar(VAR_RACE_START, 1)
+            warp(MAP_ROUTE20, 1)
+            waitstate
+        }
+        else{ // did not finish in time
+            msgbox(Race1_YouLost)
+            if(msgbox(Race1_TryAgain, MSGBOX_YESNO) == FALSE){
+                msgbox(Race1_LetsGetYouOff)
+                if(var(VAR_GOGOAT_RACE) == STORY_GOGOAT_RACE_1_IN_PROGRESS){ setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_1_FAILED) }
+                warp(MAP_ROUTE20, 1)
+                clearflag(FLAG_GOGOAT_RIDING)
+                waitstate
+                release
+                end
+            }
+            else{
+                msgbox(LetsGetGogoatRacing)
+                setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_1_IN_PROGRESS)
+                warp(MAP_ROUTE20_RANCH_RACE, 0)
+                setflag(FLAG_GOGOAT_RIDING)
+                waitstate
+            }
+        }
+    }
+}
+
+text FinishRace1_CalculateScore{
+    "wip"
+}
+text Race1_YouWon{
+    "wip"
+}
+text Race1_YouLostTheRace{
+    "wip"
+}
+text Race1_GiveUsASecond{
+    "wip"
+}
+text Race1_TakingYouBack{
+    "wip"
+}
+text Race1_YouWonAgain{
+    "wip"
+}
+text Race1_FailedToImprove{
+    "wip"
+}
+text Race1_TryAgain{
+    "wip"
+}
+text Race1_LetsGetYouOff{
+    "wip"
+}
+text Race1_YouLost{
+    "wip"
+}

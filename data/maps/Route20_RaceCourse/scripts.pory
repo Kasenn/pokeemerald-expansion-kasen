@@ -1,0 +1,193 @@
+const VAR_RACE_START = VAR_TEMP_0
+
+mapscripts Route20_RaceCourse_MapScripts {
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
+        VAR_RACE_START, 0{
+            turnobject(LOCALID_PLAYER, DIR_EAST)
+        }
+    ]
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_RACE_START, 0: Route20RaceCourseStart
+    ] 
+}
+
+script Route20RaceCourseStart{
+    delay(30)
+    msgbox(ReadyToRace, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox(ForfeitRace, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == FALSE){
+            goto(Route20RaceCourseStart)
+        }
+        else{
+            clearflag(FLAG_GOGOAT_RIDING)
+            setvar(VAR_RACE_START, 1)
+            warp(MAP_ROUTE20, 0)
+            waitstate
+        }
+        release
+    }
+    setobjectxyperm(1, 11, 113)
+    turnobject(LOCALID_PLAYER, DIR_NORTH)
+    message(GetSetReadyGo)
+    waitmessage
+    setvar(VAR_RACE_START, 1)
+    playbgm(MUS_CYCLING, TRUE)
+    callnative(StartRecordingRace)
+    release
+}
+
+text ReadyToRace{
+    "wip"
+}
+text ForfeitRace{
+    "wip"
+}
+text GetSetReadyGo{
+    "Ready…{PAUSE 60} Set…{PAUSE 60}\n"
+    "GO!!{PAUSE 60}"
+}
+
+script Route20_RaceCourse_Finish1{
+    setvar(VAR_TEMP_1, 1)
+    goto(Route20_RaceCourse_Finish)
+}
+script Route20_RaceCourse_Finish2{
+    setvar(VAR_TEMP_1, 2)
+    goto(Route20_RaceCourse_Finish)
+}
+script Route20_RaceCourse_Finish3{
+    setvar(VAR_TEMP_1, 3)
+    goto(Route20_RaceCourse_Finish)
+}
+script Route20_RaceCourse_Finish4{
+    setvar(VAR_TEMP_1, 4)
+    goto(Route20_RaceCourse_Finish)
+}
+script Route20_RaceCourse_Finish5{
+    setvar(VAR_TEMP_1, 5)
+    goto(Route20_RaceCourse_Finish)
+}
+
+script Route20_RaceCourse_Finish{
+    lock
+    callnative(FinishGogoatRace)
+    playse(SE_PIN)
+    exclamationmark(1)
+    switch(var(VAR_TEMP_1)){
+        case 1:
+            waitmove(1, Walk4Left)
+        case 2:
+            waitmove(1, Walk3Left)
+        case 3:
+            waitmove(1, Walk2Left)
+        case 4:
+            waitmove(1, Walk1Left)
+    }
+    turnobject(LOCALID_PLAYER, DIR_EAST)
+    msgbox(BackFromRace)
+
+    // have finished the race before //
+    if(var(VAR_GOGOAT_RACE) >= STORY_GOGOAT_RACE_2_REWARD_EARNED){ 
+        if(flag(FLAG_TEMP_D)){ // broke personal record
+            msgbox(Race2_YouWonAgain)
+            clearflag(FLAG_GOGOAT_RIDING)
+            setvar(VAR_RACE_START, 1)
+            warp(MAP_ROUTE20, 2)
+            waitstate
+        }
+        else{ // did not break personal record, thus no record was broken
+            msgbox(Race2_FailedToImprove)
+            if(msgbox(Race2_TryAgain, MSGBOX_YESNO) == FALSE){
+                msgbox(Race2_LetsGetYouOff)
+                warp(MAP_ROUTE20, 2)
+                clearflag(FLAG_GOGOAT_RIDING)
+                waitstate
+                release
+                end
+            }
+            else{
+                msgbox(LetsGetGogoatRacing2)
+                warp(MAP_ROUTE20_RACE_COURSE, 0)
+                setflag(FLAG_GOGOAT_RIDING)
+                waitstate
+            }
+        }
+    }
+
+    // have not finished the race before //
+    else{
+        if(flag(FLAG_TEMP_C)){ // finished in time and made a new record
+            setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_2_COMPLETE)
+            msgbox(Race2_YouWon)
+            clearflag(FLAG_GOGOAT_RIDING)
+            setvar(VAR_RACE_START, 1)
+            warp(MAP_ROUTE20, 2)
+            waitstate
+        }
+        else{ // did not finish in time
+            msgbox(Race2_YouLost)
+            if(msgbox(Race2_TryAgain, MSGBOX_YESNO) == FALSE){
+                msgbox(Race2_LetsGetYouOff)
+                if(var(VAR_GOGOAT_RACE) == STORY_GOGOAT_RACE_2_IN_PROGRESS){ setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_2_FAILED) }
+                warp(MAP_ROUTE20, 2)
+                clearflag(FLAG_GOGOAT_RIDING)
+                waitstate
+                release
+                end
+            }
+            else{
+                msgbox(GiveUsASecond)
+                setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_2_IN_PROGRESS)
+                warp(MAP_ROUTE20_RACE_COURSE, 0)
+                setflag(FLAG_GOGOAT_RIDING)
+                waitstate
+            }
+        }
+    }
+}
+
+text BackFromRace{
+    "Back with the flag I see.\p"
+    "Let's see how fast you raced\n"
+    "through the course…"
+}
+text Race2_YouWon{
+    "{STR_VAR_3}?!\n"
+    "That's a new record!\p"
+    "wip"
+}
+text Race2_YouLost{
+    "{STR_VAR_1}{STR_VAR_2}{STR_VAR_3}.\n"
+    "I'm sorry, but that's not good enough\l"
+    "to beat the record.\p"
+    "Would you like to try again?"
+    "wip"
+}
+text GiveUsASecond{
+    "Sure thing. Give us a second so we\n"
+    "can get the flag back to its place."
+}
+text TakingYouBack{
+    "Understood. Follow me and\n"
+    "we'll get back to the farm."
+}
+
+script Route20_RaceCourse_Flag{
+    removeobject(2)
+    playse(SE_SUCCESS)
+    release
+}
+
+text Race2_YouWonAgain{
+    "wip"
+}
+text Race2_FailedToImprove{
+    "wip"
+}
+text Race2_TryAgain{
+    "wip"
+}
+text Race2_LetsGetYouOff{
+    "wip"
+}

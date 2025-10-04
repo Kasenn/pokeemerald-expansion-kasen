@@ -1169,6 +1169,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .baseSpAttack  = 27,                                                                \
         .baseSpDefense = 25,                                                                \
         .types = MON_TYPES(TYPE_BUG),                                                       \
+        .safariZoneFleeRate = 15,                                                          \
         .catchRate = 255,                                                                   \
         .expYield = 40,                                                                     \
         .evYield_Defense = 1,                                                               \

@@ -412,6 +412,7 @@ void Overworld_ResetStateAfterFly(void)
     VarSet(VAR_MINUTE_OVERRIDE, 0);
     VarSet(VAR_POKECENTER_TRAINING, 0);
     VarSet(VAR_SHINY_MULTIPLIER, 0);
+    FlagClear(FLAG_WILDS_CAN_FLEE);
 }
 
 void Overworld_ResetStateAfterTeleport(void)
@@ -435,6 +436,7 @@ void Overworld_ResetStateAfterTeleport(void)
     FlagClear(FLAG_DESERT_STEPS);
     VarSet(VAR_POKECENTER_TRAINING, 0);
     VarSet(VAR_SHINY_MULTIPLIER, 0);
+    FlagClear(FLAG_WILDS_CAN_FLEE);
     RunScriptImmediately(EventScript_ResetMrBriney);
 }
 
@@ -459,6 +461,7 @@ void Overworld_ResetStateAfterDigEscRope(void)
     FlagClear(FLAG_DESERT_STEPS);
     VarSet(VAR_POKECENTER_TRAINING, 0);
     VarSet(VAR_SHINY_MULTIPLIER, 0);
+    FlagClear(FLAG_WILDS_CAN_FLEE);
 }
 
 #if B_RESET_FLAGS_VARS_AFTER_WHITEOUT  == TRUE
@@ -476,6 +479,7 @@ void Overworld_ResetBattleFlagsAndVars(void)
         VarSet(B_VAR_WILD_AI_FLAGS,0);
     #endif
 
+    FlagClear(FLAG_WILDS_CAN_FLEE);
     FlagClear(B_FLAG_INVERSE_BATTLE);
     FlagClear(B_FLAG_FORCE_DOUBLE_WILD);
     FlagClear(B_SMART_WILD_AI_FLAG);
@@ -1015,6 +1019,11 @@ void ResetInitialPlayerAvatarState(void)
     sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_ON_FOOT;
     if(FlagGet(FLAG_SYS_CYCLING_ROAD)){
         sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_BIKE;
+    }
+    if(FlagGet(FLAG_GOGOAT_RIDING))
+    {
+        sInitialPlayerAvatarState.direction = DIR_EAST;
+        SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_BIKE | PLAYER_AVATAR_FLAG_GOGOAT);
     }
 }
 

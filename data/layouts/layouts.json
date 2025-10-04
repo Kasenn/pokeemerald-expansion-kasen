@@ -6554,7 +6554,7 @@
     {
       "id": "LAYOUT_ROUTE20",
       "name": "Route20_Layout",
-      "width": 52,
+      "width": 56,
       "height": 50,
       "primary_tileset": "gTileset_Winter",
       "secondary_tileset": "gTileset_Crystalpine",
@@ -7544,8 +7544,8 @@
     {
       "id": "LAYOUT_ROUTE20_FILLER",
       "name": "Route20_Filler_Layout",
-      "width": 4,
-      "height": 30,
+      "width": 10,
+      "height": 40,
       "primary_tileset": "gTileset_Winter",
       "secondary_tileset": "gTileset_Crystalpine",
       "border_filepath": "data/layouts/Route20_Filler/border.bin",
@@ -7690,6 +7690,46 @@
       "secondary_tileset": "gTileset_LatiIsles",
       "border_filepath": "data/layouts/LatiosIsland/border.bin",
       "blockdata_filepath": "data/layouts/LatiosIsland/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE20_FARM_HOUSE",
+      "name": "Route20_FarmHouse_Layout",
+      "width": 17,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Route20_FarmHouse/border.bin",
+      "blockdata_filepath": "data/layouts/Route20_FarmHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE20_RACE_COURSE",
+      "name": "Route20_RaceCourse_Layout",
+      "width": 40,
+      "height": 120,
+      "primary_tileset": "gTileset_Winter",
+      "secondary_tileset": "gTileset_Crystalpine",
+      "border_filepath": "data/layouts/Route20_RaceCourse/border.bin",
+      "blockdata_filepath": "data/layouts/Route20_RaceCourse/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE20_FILLER2",
+      "name": "Route20_Filler2_Layout",
+      "width": 56,
+      "height": 10,
+      "primary_tileset": "gTileset_Winter",
+      "secondary_tileset": "gTileset_Crystalpine",
+      "border_filepath": "data/layouts/Route20_Filler2/border.bin",
+      "blockdata_filepath": "data/layouts/Route20_Filler2/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE20_RANCH_RACE",
+      "name": "Route20_RanchRace_Layout",
+      "width": 56,
+      "height": 50,
+      "primary_tileset": "gTileset_Winter",
+      "secondary_tileset": "gTileset_Crystalpine",
+      "border_filepath": "data/layouts/Route20_RanchRace/border.bin",
+      "blockdata_filepath": "data/layouts/Route20_RanchRace/map.bin"
     }
   ]
 }

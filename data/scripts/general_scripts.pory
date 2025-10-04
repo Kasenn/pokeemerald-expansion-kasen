@@ -551,15 +551,12 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{              //
-    givemon(SPECIES_EEVEE, 5)
-    givemon(SPECIES_EEVEE, 5)
-    givemon(SPECIES_EEVEE, 5)
-    givemon(SPECIES_EEVEE, 5)
-    givemon(SPECIES_EEVEE, 5)
-    // getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
-    // subvar(VAR_TEMP_0, 7)
-    // subvar(VAR_TEMP_1, 4)
-    // drawtiles(MAP_PETALBURG_CITY, VAR_TEMP_0, VAR_TEMP_1, 10, 24, 7, 18)
+    // setvar(VAR_TEMP_0, 1 << 7)
+    // buffernumberstring(STR_VAR_1, VAR_TEMP_0)
+    msgbox("{STR_VAR_1}")
+    addvar(VAR_TEMP_0, 1 << 7)
+    buffernumberstring(STR_VAR_1, VAR_TEMP_0)
+    msgbox("{STR_VAR_1}")
     release
     return
 }

@@ -4610,3 +4610,88 @@ void GetCodeFeedback(void)
     else
         gSpecialVar_Result = 0;
 }
+
+void StartRecordingRace(void)
+{
+    sBikeCyclingTimer = gMain.vblankCounter1;
+}
+
+void FinishGogoatRace(void)
+{
+    const u32 totalSeconds = (gMain.vblankCounter1 - sBikeCyclingTimer + 59) / 60;
+    u32 seconds = totalSeconds % 60;
+    u32 minutes = (totalSeconds / 60) % 60;
+    u32 hours = totalSeconds / 3600;
+
+    u32 oldRecord = (MAP(MAP_ROUTE20_RANCH_RACE)) ? 0 : 40; //wip
+    u16 raceRecord = (MAP(MAP_ROUTE20_RANCH_RACE)) ? 0 : 1;
+
+    if (totalSeconds < gSaveBlock1Ptr->gogoatRaceRecord[raceRecord] && totalSeconds < oldRecord)
+    {
+        gSaveBlock1Ptr->gogoatRaceRecord[raceRecord] = totalSeconds;
+        FlagSet(FLAG_TEMP_D);
+    }
+
+    if (totalSeconds < oldRecord)
+        FlagSet(FLAG_TEMP_C);
+
+    if (hours)
+        ConvertIntToDecimalStringN(gStringVar1, hours, STR_CONV_MODE_LEFT_ALIGN, CountDigits(hours));
+    if (minutes)
+        ConvertIntToDecimalStringN(gStringVar2, minutes, STR_CONV_MODE_LEFT_ALIGN, CountDigits(minutes));
+
+    ConvertIntToDecimalStringN(gStringVar3, seconds, STR_CONV_MODE_LEFT_ALIGN, CountDigits(seconds));
+
+    switch (hours)
+    {
+    case 0:
+        switch (minutes)
+        {
+            case 0:
+                break;
+            case 1:
+                StringAppend(gStringVar2, COMPOUND_STRING(" minute and "));
+                break;
+            default:
+                StringAppend(gStringVar2, COMPOUND_STRING(" minutes and "));
+                break;
+        }
+        break;
+    case 1:
+        if (minutes == 0)
+        {
+            StringAppend(gStringVar1, COMPOUND_STRING(" hour and "));
+        }
+        else if (minutes == 1)
+        {
+            StringAppend(gStringVar1, COMPOUND_STRING(" hour, "));
+            StringAppend(gStringVar2, COMPOUND_STRING(" minute, and "));
+        }
+        else
+        {
+            StringAppend(gStringVar1, COMPOUND_STRING(" hour, "));
+            StringAppend(gStringVar2, COMPOUND_STRING(" minutes, and "));
+        }
+        break;
+    default:
+        if (minutes == 0)
+        {
+            StringAppend(gStringVar1, COMPOUND_STRING(" hours and "));
+        }
+        else if (minutes == 1)
+        {
+            StringAppend(gStringVar1, COMPOUND_STRING(" hours, "));
+            StringAppend(gStringVar2, COMPOUND_STRING(" minute, and "));
+        }
+        else
+        {
+            StringAppend(gStringVar1, COMPOUND_STRING(" hours, "));
+            StringAppend(gStringVar2, COMPOUND_STRING(" minutes, and "));
+        }
+        break;
+    }
+    if (seconds == 1)
+        StringAppend(gStringVar3, COMPOUND_STRING(" second"));
+    else
+        StringAppend(gStringVar3, COMPOUND_STRING(" seconds"));
+}

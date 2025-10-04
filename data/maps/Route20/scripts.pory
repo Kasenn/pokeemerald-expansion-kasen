@@ -1,35 +1,123 @@
-mapscripts Route20_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION{
-        if(defeated(TRAINER_BROTHER_6_ROUTE20)){
-            setflag(FLAG_TEMP_1)
-        }
-    }
-}
+const FLAG_BROTHER = FLAG_TEMP_1
+const FLAG_RACEBOY = FLAG_TEMP_2
+const FLAG_GOGOAT_INTRO = FLAG_TEMP_B
+const FLAG_GOGOAT_INTRO2 = FLAG_TEMP_C
+const VAR_BROTHER_STEPS = VAR_TEMP_0
+const VAR_X = VAR_TEMP_1
+const VAR_Y = VAR_TEMP_2
+const VAR_AUTOPLAY = VAR_TEMP_3
+
+const FAILED_GOGOAT_RANCH_RACE = 1
+const COMPLETED_GOGOAT_RANCH_RACE = 2
+const FAILED_GOGOAT_FOREST_RACE = 3
+const COMPLETED_GOGOAT_FOREST_RACE = 4
 
 const OBJ_BROTHER = 2
 
+mapscripts Route20_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        if(defeated(TRAINER_BROTHER_6_ROUTE20)){
+            setflag(FLAG_BROTHER)
+        }
+        if(var(VAR_GOGOAT_RACE) < STORY_GOGOAT_RACE_1_COMPLETE){
+            setflag(FLAG_RACEBOY)
+        }
+        getplayerxy(VAR_X, VAR_Y)
+        if(var(VAR_X) == 41 && var(VAR_Y) == 17){
+            if(var(VAR_GOGOAT_RACE) == STORY_GOGOAT_RACE_1_COMPLETE){
+                setvar(VAR_AUTOPLAY, COMPLETED_GOGOAT_RANCH_RACE)
+            }
+            elif(var(VAR_GOGOAT_RACE) == STORY_GOGOAT_RACE_1_FAILED){
+                setvar(VAR_AUTOPLAY, FAILED_GOGOAT_RANCH_RACE)
+            }
+            elif(var(VAR_GOGOAT_RACE) > STORY_GOGOAT_RACE_1_COMPLETE){
+                setvar(VAR_AUTOPLAY, FAILED_GOGOAT_RANCH_RACE)
+            }
+            setobjectmovementtype(5, MOVEMENT_TYPE_FACE_RIGHT)
+        }
+        elif(var(VAR_X) == 37 && var(VAR_Y) == 27){
+            if(var(VAR_GOGOAT_RACE) == STORY_GOGOAT_RACE_2_COMPLETE){
+                setvar(VAR_AUTOPLAY, COMPLETED_GOGOAT_FOREST_RACE)
+            }
+            elif(var(VAR_GOGOAT_RACE) == STORY_GOGOAT_RACE_2_FAILED){
+                setvar(VAR_AUTOPLAY, FAILED_GOGOAT_FOREST_RACE)
+            }
+            elif(var(VAR_GOGOAT_RACE) > STORY_GOGOAT_RACE_2_COMPLETE){
+                setvar(VAR_AUTOPLAY, FAILED_GOGOAT_FOREST_RACE)
+            }
+        }
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_AUTOPLAY, FAILED_GOGOAT_RANCH_RACE: GogoatRace1Failed
+        VAR_AUTOPLAY, COMPLETED_GOGOAT_RANCH_RACE: GogoatRace1RewardCeremony
+        VAR_AUTOPLAY, FAILED_GOGOAT_FOREST_RACE: GogoatRace2Failed
+        VAR_AUTOPLAY, COMPLETED_GOGOAT_FOREST_RACE: GogoatRace2RewardCeremony
+    ]
+}
+
+script GogoatRace1Failed{
+    msgbox(GogoatRace1Failed_Text, MSGBOX_AUTOCLOSE)
+}
+text GogoatRace1Failed_Text{
+    "wip"
+}
+script GogoatRace1RewardCeremony{
+    setvar(VAR_AUTOPLAY, 0)
+    msgbox(GogoatRace1RewardCeremony_Reward)
+    giveitem(ITEM_PP_UP)
+    if(var(VAR_RESULT) == FALSE){
+        goto(ZeBagIsFull)
+    }
+    setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_1_COMPLETE)
+    clearflag(FLAG_RACEBOY)
+    msgbox(GogoatRace1RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE)
+}
+text GogoatRace1RewardCeremony_Reward{
+    "wip"
+}
+text GogoatRace1RewardCeremony_WelcomeBackAnyTime{
+    "wip"
+}
+script GogoatRace2Failed{
+    msgbox(GogoatRace2Failed_Text, MSGBOX_AUTOCLOSE)
+}
+script GogoatRace2RewardCeremony{
+    setvar(VAR_AUTOPLAY, 0)
+    msgbox(GogoatRace2RewardCeremony_Reward)
+    giveitem(ITEM_BOND_ANKLET)
+    if(var(VAR_RESULT) == FALSE){
+        goto(ZeBagIsFull)
+    }
+    setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_2_COMPLETE)
+    msgbox(GogoatRace2RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE)
+
+}
+text GogoatRace2Failed_Text{
+    "wip"
+}
+
 script Route20_BrotherTrigger1{
-    setvar(VAR_TEMP_0, 1)
+    setvar(VAR_BROTHER_STEPS, 1)
     goto(Route20_BrotherTriggerMain)
 }
 script Route20_BrotherTrigger2{
-    setvar(VAR_TEMP_0, 2)
+    setvar(VAR_BROTHER_STEPS, 2)
     goto(Route20_BrotherTriggerMain)
 }
 script Route20_BrotherTrigger3{
-    setvar(VAR_TEMP_0, 3)
+    setvar(VAR_BROTHER_STEPS, 3)
     goto(Route20_BrotherTriggerMain)
 }
 script Route20_BrotherTrigger4{
-    setvar(VAR_TEMP_0, 4)
+    setvar(VAR_BROTHER_STEPS, 4)
     goto(Route20_BrotherTriggerMain)
 }
 script Route20_BrotherTrigger5{
-    setvar(VAR_TEMP_0, 5)
+    setvar(VAR_BROTHER_STEPS, 5)
     goto(Route20_BrotherTriggerMain)
 }
 script Route20_BrotherTrigger6{
-    setvar(VAR_TEMP_0, 6)
+    setvar(VAR_BROTHER_STEPS, 6)
     goto(Route20_BrotherTriggerMain)
 }
 
@@ -37,7 +125,7 @@ script Route20_BrotherTriggerMain{
     lockall
     safefollow
     playbgm(MUS_ENCOUNTER_BRENDAN, TRUE)
-    switch(var(VAR_TEMP_0)){
+    switch(var(VAR_BROTHER_STEPS)){
         case 1:
         case 2:
             applymovement(OBJ_BROTHER, moves(walk_in_place_faster_left, emote_exclamation_mark, delay_16 * 3))
@@ -50,7 +138,7 @@ script Route20_BrotherTriggerMain{
     }
     waitmovement(0)
     delay(30)
-        switch(var(VAR_TEMP_0)){
+        switch(var(VAR_BROTHER_STEPS)){
         case 1:
             applymovement(OBJ_BROTHER, moves(walk_left))
         case 2:
@@ -68,7 +156,7 @@ script Route20_BrotherTriggerMain{
     msgbox(Route20_BrotherIntro)
     trainerbattle_no_intro(TRAINER_BROTHER_6_ROUTE20, Route20_BrotherLost)
     msgbox(Route20_BrotherPostBat, MSGBOX_AUTOCLOSE)
-    switch(var(VAR_TEMP_0)){
+    switch(var(VAR_BROTHER_STEPS)){
         case 1:
         case 2:
         case 3:
@@ -88,16 +176,175 @@ script Route20_BrotherTriggerMain{
 
 text Route20_BrotherIntro{
     "{BROTHER}: Yo, {PLAYER}!\n"
-    "Long time no see!"
+    "wip"
 }
 text Route20_BrotherLost{
-    "I lost?!"
+    "wip"
 }
 text Route20_BrotherPostBat{
-    "That was great"
+    "wip"
 }
 
 script Mirrortestnpc{
     trainerbattle_single(TRAINER_CRISSY, "Saw you through the mirror!", "wip")
     msgbox("wip", MSGBOX_AUTOCLOSE)
+}
+
+script Route20_Gogoat{
+    lock
+	waitse
+	playmoncry(SPECIES_GOGOAT, CRY_MODE_NORMAL)
+	waitmoncry
+	release
+}
+
+script Route20_Sign{
+    msgbox(Route20_Sign_Text, MSGBOX_SIGN)
+}
+text Route20_Sign_Text{
+    "{LEFT_ARROW} Route 19\n"
+    "{DOWN_ARROW} Crystalpine Town"
+}
+
+script Route20_RanchRace{
+    lock
+    faceplayer
+    if(var(VAR_GOGOAT_RACE) == STORY_GOGOAT_RACE_1_COMPLETE){
+        msgbox(GogoatRace1RewardCeremony_Reward)
+        giveitem(ITEM_PP_UP)
+        if(var(VAR_RESULT) == FALSE){
+            goto(ZeBagIsFull)
+        }
+        setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_1_COMPLETE)
+        clearflag(FLAG_RACEBOY)
+        msgbox(GogoatRace1RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE)
+        end
+    }
+    if(var(VAR_GOGOAT_RACE) == 0){
+        msgbox(GogoatRaceIntro)
+        setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_1_INTRO)
+        callnative(ResetGogoatRaceRecords)
+    }
+    if(flag(FLAG_GOGOAT_INTRO)){
+        message(WannaGogoatRaceShort)
+    }
+    else{
+        message(WannaGogoatRace)
+    }
+    waitmessage
+    dynmultichoice(23, 0, FALSE, 4, 0, 0, "Count me in!", "Explain rules", "No thanks")
+    switch(var(VAR_RESULT)){
+        case 0:
+            goto(GogoatRaceStart)
+        case 1:
+            goto(GogoatRaceRules)
+        case 2:
+        case MULTI_B_PRESSED:
+            goto(GogoatRaceCancel)
+    }
+}
+
+script Route20_Race2{
+    lock
+    faceplayer
+    if(var(VAR_GOGOAT_RACE) == STORY_GOGOAT_RACE_2_COMPLETE){
+        msgbox(GogoatRace2RewardCeremony_Reward)
+        giveitem(ITEM_BOND_ANKLET)
+        if(var(VAR_RESULT) == FALSE){
+            goto(ZeBagIsFull)
+        }
+        setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_2_COMPLETE)
+        msgbox(GogoatRace2RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE)
+        end
+    }
+    if(var(VAR_GOGOAT_RACE) < STORY_GOGOAT_RACE_2_INTRO){
+        msgbox(GogoatRace2Intro)
+        setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_2_INTRO)
+    }
+    if(flag(FLAG_GOGOAT_INTRO2)){
+        message(WannaGogoatRace2Short)
+    }
+    else{
+        message(WannaGogoat2Race)
+    }
+    waitmessage
+    dynmultichoice(23, 0, FALSE, 4, 0, 0, "Count me in!", "Explain rules", "No thanks")
+    switch(var(VAR_RESULT)){
+        case 0:
+            goto(GogoatRace2Start)
+        case 1:
+            goto(GogoatRace2Rules)
+        case 2:
+        case MULTI_B_PRESSED:
+            goto(GogoatRaceCancel)
+    }
+}
+
+script GogoatRaceStart{
+    msgbox(LetsGetGogoatRacing)
+    setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_1_IN_PROGRESS)
+    warp(MAP_ROUTE20_RANCH_RACE, 0)
+    setflag(FLAG_GOGOAT_RIDING)
+    waitstate
+}
+script GogoatRaceRules{
+    msgbox(GogoatRaceRulesText)
+    setflag(FLAG_GOGOAT_INTRO)
+    goto(Route20_RanchRace)
+}
+script GogoatRaceCancel{
+    msgbox(ThatsAShame)
+    release
+    end
+}
+
+script GogoatRace2Start{
+    msgbox(LetsGetGogoatRacing2)
+    setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_2_IN_PROGRESS)
+    warp(MAP_ROUTE20_RACE_COURSE, 0)
+    setflag(FLAG_GOGOAT_RIDING)
+    waitstate
+}
+script GogoatRace2Rules{
+    msgbox(GogoatRaceRulesText2)
+    setflag(FLAG_GOGOAT_INTRO2)
+    goto(Route20_Race2)
+}
+
+text GogoatRace2RewardCeremony_Reward{
+    "wip"
+}
+text GogoatRace2RewardCeremony_WelcomeBackAnyTime{
+    "wip"
+}
+text GogoatRace2Intro{
+    "wip"
+}
+text WannaGogoatRace2Short{
+    "wip"
+}
+text WannaGogoat2Race{
+    "wip"
+}
+text LetsGetGogoatRacing2{
+    "wip"
+}
+text GogoatRaceRulesText2{
+    "wip"
+}
+
+text GogoatRaceIntro{
+    "wip"
+}
+text WannaGogoatRaceShort{
+    "wip"
+}
+text WannaGogoatRace{
+    "wip"
+}
+text LetsGetGogoatRacing{
+    "wip"
+}
+text GogoatRaceRulesText{
+    "wip"
 }

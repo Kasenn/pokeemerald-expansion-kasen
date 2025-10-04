@@ -286,6 +286,22 @@ CoralGrove_EventScript_GymSign::
 	return
 
 
+MonFleeOff::
+# 175 "data/maps/CoralgroveCity/scripts.pory"
+	clearflag FLAG_WILDS_CAN_FLEE
+# 176 "data/maps/CoralgroveCity/scripts.pory"
+	release
+	return
+
+
+MonFleeOn::
+# 180 "data/maps/CoralgroveCity/scripts.pory"
+	setflag FLAG_WILDS_CAN_FLEE
+# 181 "data/maps/CoralgroveCity/scripts.pory"
+	release
+	return
+
+
 Coralgrove_HauntedHouse_Text_0:
 # 18 "data/maps/CoralgroveCity/scripts.pory"
 	.string "The door is nailed shut.\nLooks like nobody lives here.$"

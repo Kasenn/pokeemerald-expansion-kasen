@@ -629,6 +629,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Crate,           OBJ_EVENT_PAL_CRATE},
     {gObjectEventPalette_BrendanRS,       OBJ_EVENT_PAL_BRENDAN_RS},
     {gObjectEventPalette_MayRS,       OBJ_EVENT_PAL_MAY_RS},
+    {gObjectEventPalette_Flag,          OBJ_EVENT_PAL_TAG_FLAG},
     
 #if OW_FOLLOWERS_POKEBALLS
     {gObjectEventPal_MasterBall,            OBJ_EVENT_PAL_TAG_BALL_MASTER},
@@ -6801,6 +6802,8 @@ u32 GetObjectObjectCollidesWith(struct ObjectEvent *objectEvent, s16 x, s16 y, b
     {
         curObject = &gObjectEvents[i];
         if (curObject->graphicsId >= OBJ_EVENT_GFX_SPECIAL_LATIAS && curObject->graphicsId <= OBJ_EVENT_GFX_LATI_BALL_UP)
+            return OBJECT_EVENTS_COUNT;
+        if (curObject->graphicsId == OBJ_EVENT_GFX_FLAG)
             return OBJECT_EVENTS_COUNT;
         // if (curObject->graphicsId > OBJ_EVENT_GFX_SPECIES(BULBASAUR) && curObject->graphicsId < OBJ_EVENT_GFX_SPECIES(MIRAIDON))
         //     return FALSE;

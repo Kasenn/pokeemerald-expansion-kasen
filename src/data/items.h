@@ -14982,4 +14982,22 @@ const struct Item gItemsInfo[] =
         .iconPic = gItemIcon_BrokenTM,
         .iconPalette = gItemIconPalette_PsychicTMHM,
     },
+
+    [ITEM_BOND_ANKLET] =
+    {
+        .name = _("Bond Anklet"),
+        .bpCost = (I_PRICE_BP == GEN_5) ? 24 : ((I_PRICE_BP >= GEN_8) ? 25 : 48),
+        .price = 10000,
+        .holdEffect = HOLD_EFFECT_BOND_ANKLET,
+        .description = COMPOUND_STRING(
+            "When held,\n"
+            "increases the Speed\n"
+            "of a traded Pokémon."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 10,
+        .iconPic = gItemIcon_BondAnklet,
+        .iconPalette = gItemIconPalette_BondAnklet,
+    },
 };

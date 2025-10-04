@@ -16,6 +16,10 @@ script Primrose_FlowerGirl{
     msgbox("Look at all those pretty flowers!\pI'd like to pick a few of them but\nI'm scared I might get attacked\lby a bug Pokémon…", MSGBOX_NPC)
 }
 
+script Primrose_FlowerBoy{
+    msgbox("Sometimes Pokémon that live within\nclose proximity to people will become\lmuch more skittish than those living\lin the wilds.\pIf you disturb them too much,\nthey might even attempt to flee!", MSGBOX_NPC)
+}
+
 script Primrose_FatMan{
 	msgbox("This place is real pretty.\pWould be a real shame to be allergic\nto all this pollen though…\p…\psniff…", MSGBOX_NPC)
 }

@@ -4057,3 +4057,24 @@ void ScrCmd_DrawTiles(struct ScriptContext *ctx)
 
     DrawWholeMapView();
 }
+
+void PrepPlayerForGogoatRacing(void)
+{
+    SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_BIKE | PLAYER_AVATAR_FLAG_GOGOAT);
+}
+
+void ResetGogoatRaceRecords(void)
+{
+    gSaveBlock1Ptr->gogoatRaceRecord[0] = 0xFFFFFFFF;
+    gSaveBlock1Ptr->gogoatRaceRecord[1] = 0xFFFFFFFF;
+}
+
+void ScrCmd_IsCurrentMap(struct ScriptContext *ctx)
+{
+    s16 map = VarGet(ScriptReadHalfword(ctx));
+
+    if (MAP(map))
+        gSpecialVar_Result = TRUE;
+    else
+        gSpecialVar_Result = FALSE;
+}

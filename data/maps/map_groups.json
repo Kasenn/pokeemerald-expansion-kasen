@@ -153,8 +153,7 @@
     "Route13_GateHouse",
     "Route119_WeatherInstitute_1F",
     "Route119_WeatherInstitute_2F",
-    "LatiasIsland",
-    "LatiosIsland"
+    "Route20_FarmHouse"
   ],
   "gMapGroup_Dungeons": [
     "WindyWoods",
@@ -200,7 +199,11 @@
     "FrigidFrontier_Cave",
     "FrigidFrontier_CaveDeeper",
     "DesertCliffs",
-    "SnowyRidge"
+    "SnowyRidge",
+    "LatiasIsland",
+    "LatiosIsland",
+    "Route20_RaceCourse",
+    "Route20_RanchRace"
   ],
   "gMapGroup_IndoorPearlwoodPoint": [
     "Lab2",
@@ -1003,6 +1006,7 @@
     "Route21_Filler",
     "Route26_Filler",
     "Windywoods_Filler",
-    "Route3_Copy"
+    "Route3_Copy",
+    "Route20_Filler2"
   ]
 }

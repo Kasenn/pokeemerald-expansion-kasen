@@ -2341,6 +2341,18 @@ static const struct SpriteFrameImage sPicTable_Drayden[] = {
     overworld_frame(gObjectEventPic_Drayden, 2, 4, 8),
 };
 
+static const struct SpriteFrameImage sPicTable_Flag[] = {
+    overworld_frame(gObjectEventPic_Flag, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Flag, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Flag, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Flag, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Flag, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Flag, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Flag, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Flag, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Flag, 4, 4, 2),
+};
+
 static const struct SpriteFrameImage sPicTable_SPIRIT_GREEN[] = {
     overworld_frame(gObjectEventPic_SPIRIT_GREEN, 2, 4, 0),
     overworld_frame(gObjectEventPic_SPIRIT_GREEN, 2, 4, 1),

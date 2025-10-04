@@ -302,140 +302,140 @@ Route19_Bergmite_8:
 
 R19Tr1_Intro::
 # 39 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr1_Lose::
 # 42 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr1_PostBattle::
 # 45 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr2_Intro::
 # 54 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr2_Lose::
 # 57 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr2_PostBattle::
 # 60 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr3_Intro::
 # 69 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr3_Lose::
 # 72 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr3_PostBattle::
 # 75 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 Route19_Tr4_SwimmerCoupleM_Intro::
 # 84 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 Route19_Tr4_SwimmerCoupleM_Defeat::
 # 87 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 Route19_Tr4_SwimmerCoupleM_NotEnoughMons::
 # 90 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 Route19_Tr4_SwimmerCoupleM_PostBattle::
 # 93 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 Route19_Tr4_SwimmerCoupleF_Intro::
 # 102 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 Route19_Tr4_SwimmerCoupleF_Defeat::
 # 105 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 Route19_Tr4_SwimmerCoupleF_NotEnoughMons::
 # 108 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 Route19_Tr4_SwimmerCoupleF_PostBattle::
 # 111 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr5_Intro::
 # 121 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr5_Lose::
 # 124 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr5_PostBattle::
 # 127 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr6_Intro::
 # 136 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr6_Lose::
 # 139 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr6_PostBattle::
 # 142 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr7_Intro::
 # 151 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr7_Lose::
 # 154 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr7_PostBattle::
 # 157 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr8_Intro::
 # 166 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr8_Lose::
 # 169 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr8_PostBattle::
 # 172 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr9_Intro::
 # 181 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr9_Lose::
 # 184 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr9_PostBattle::
 # 187 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr10_Intro::
 # 196 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr10_Lose::
 # 199 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"
 
 R19Tr10_PostBattle::
 # 202 "data/maps/Route19/scripts.pory"
-	.string "$"
+	.string "wip$"

@@ -247,6 +247,10 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     
     if (input->pressedSelectButton)
     {
+        if(FlagGet(FLAG_GOGOAT_RIDING))
+        {
+            return FALSE;
+        }
         if(FlagGet(FLAG_DISGUISED_AS_KROKOROK))
         {
             return FALSE;

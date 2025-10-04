@@ -4845,6 +4845,8 @@ u32 GetBattlerTotalSpeedStatArgs(u32 battler, u32 ability, enum ItemHoldEffect h
         speed /= 2;
     else if (holdEffect == HOLD_EFFECT_CHOICE_SCARF && GetActiveGimmick(battler) != GIMMICK_DYNAMAX)
         speed = (speed * 150) / 100;
+    else if (holdEffect == HOLD_EFFECT_BOND_ANKLET && IsTradedMon(GetBattlerMon(battler)))
+        speed = (speed * 120) / 100;
     else if (holdEffect == HOLD_EFFECT_QUICK_POWDER && gBattleMons[battler].species == SPECIES_DITTO && !(gBattleMons[battler].status2 & STATUS2_TRANSFORMED))
         speed *= 2;
 
@@ -6204,11 +6206,7 @@ void ScriptSetTotemBoost(struct ScriptContext *ctx)
 
 bool32 IsWildMonSmart(void)
 {
-#if B_SMART_WILD_AI_FLAG != 0
-    return (FlagGet(B_SMART_WILD_AI_FLAG));
-#else
-    return FALSE;
-#endif
+    return (FlagGet(FLAG_WILDS_CAN_FLEE));
 }
 
 static s32 Factorial(s32 n)

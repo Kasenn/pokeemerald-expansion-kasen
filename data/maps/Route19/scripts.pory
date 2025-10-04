@@ -37,13 +37,13 @@ script Route19_Tr1_SwimmerF {
     end
 }
 text R19Tr1_Intro {
-    ""
+    "wip"
 }
 text R19Tr1_Lose {
-    ""
+    "wip"
 }
 text R19Tr1_PostBattle {
-    ""
+    "wip"
 }
 
 script Route19_Tr2_SwimmerM {
@@ -52,13 +52,13 @@ script Route19_Tr2_SwimmerM {
     end
 }
 text R19Tr2_Intro {
-    ""
+    "wip"
 }
 text R19Tr2_Lose {
-    ""
+    "wip"
 }
 text R19Tr2_PostBattle {
-    ""
+    "wip"
 }
 
 script Route19_Tr3_SwimmerM {
@@ -67,13 +67,13 @@ script Route19_Tr3_SwimmerM {
     end
 }
 text R19Tr3_Intro {
-    ""
+    "wip"
 }
 text R19Tr3_Lose {
-    ""
+    "wip"
 }
 text R19Tr3_PostBattle {
-    ""
+    "wip"
 }
 
 script Route19_Tr4_SwimmerCoupleM{
@@ -82,16 +82,16 @@ script Route19_Tr4_SwimmerCoupleM{
 	end
 }
 text Route19_Tr4_SwimmerCoupleM_Intro{
-    ""
+    "wip"
 }
 text Route19_Tr4_SwimmerCoupleM_Defeat{
-    ""
+    "wip"
 }
 text Route19_Tr4_SwimmerCoupleM_NotEnoughMons{
-    ""
+    "wip"
 }
 text Route19_Tr4_SwimmerCoupleM_PostBattle{
-    ""
+    "wip"
 }
 
 script Route19_Tr4_SwimmerCoupleF{
@@ -100,16 +100,16 @@ script Route19_Tr4_SwimmerCoupleF{
 	end
 }
 text Route19_Tr4_SwimmerCoupleF_Intro{
-    ""
+    "wip"
 }
 text Route19_Tr4_SwimmerCoupleF_Defeat{
-    ""
+    "wip"
 }
 text Route19_Tr4_SwimmerCoupleF_NotEnoughMons{
-    ""
+    "wip"
 }
 text Route19_Tr4_SwimmerCoupleF_PostBattle{
-    ""
+    "wip"
 }
 
 
@@ -119,13 +119,13 @@ script Route19_Tr5_SwimmerF {
     end
 }
 text R19Tr5_Intro {
-    ""
+    "wip"
 }
 text R19Tr5_Lose {
-    ""
+    "wip"
 }
 text R19Tr5_PostBattle {
-    ""
+    "wip"
 }
 
 script Route19_Tr6_SwimmerM {
@@ -134,13 +134,13 @@ script Route19_Tr6_SwimmerM {
     end
 }
 text R19Tr6_Intro {
-    ""
+    "wip"
 }
 text R19Tr6_Lose {
-    ""
+    "wip"
 }
 text R19Tr6_PostBattle {
-    ""
+    "wip"
 }
 
 script Route19_Tr7_BlackBelt {
@@ -149,13 +149,13 @@ script Route19_Tr7_BlackBelt {
     end
 }
 text R19Tr7_Intro {
-    ""
+    "wip"
 }
 text R19Tr7_Lose {
-    ""
+    "wip"
 }
 text R19Tr7_PostBattle {
-    ""
+    "wip"
 }
 
 script Route19_Tr8_Hiker {
@@ -164,13 +164,13 @@ script Route19_Tr8_Hiker {
     end
 }
 text R19Tr8_Intro {
-    ""
+    "wip"
 }
 text R19Tr8_Lose {
-    ""
+    "wip"
 }
 text R19Tr8_PostBattle {
-    ""
+    "wip"
 }
 
 script Route19_Tr9_Picnicker {
@@ -179,13 +179,13 @@ script Route19_Tr9_Picnicker {
     end
 }
 text R19Tr9_Intro {
-    ""
+    "wip"
 }
 text R19Tr9_Lose {
-    ""
+    "wip"
 }
 text R19Tr9_PostBattle {
-    ""
+    "wip"
 }
 
 script Route19_Tr10_SwimmerM {
@@ -194,13 +194,13 @@ script Route19_Tr10_SwimmerM {
     end
 }
 text R19Tr10_Intro {
-    ""
+    "wip"
 }
 text R19Tr10_Lose {
-    ""
+    "wip"
 }
 text R19Tr10_PostBattle {
-    ""}
+    "wip"}
 
 script Route19_Bergmite{
     lock

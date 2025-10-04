@@ -59,6 +59,7 @@ static s32 AI_PowerfulStatus(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
 static s32 AI_DynamicFunc(u32 battlerAtk, u32 battlerDef, u32 move, s32 score);
 static s32 AI_PredictSwitch(u32 battlerAtk, u32 battlerDef, u32 move, s32 score);
 static s32 AI_CheckPpStall(u32 battlerAtk, u32 battlerDef, u32 move, s32 score);
+static s32 AI_WildCanFlee(u32 battlerAtk, u32 battlerDef, u32 move, s32 score);
 
 static s32 (*const sBattleAiFuncTable[])(u32, u32, u32, s32) =
 {
@@ -89,7 +90,7 @@ static s32 (*const sBattleAiFuncTable[])(u32, u32, u32, s32) =
     [24] = NULL,                     // AI_FLAG_PREDICT_INCOMING_MON
     [25] = AI_CheckPpStall,          // AI_FLAG_PP_STALL_PREVENTION
     [26] = NULL,                     // AI_FLAG_PREDICT_MOVE
-    [27] = NULL,                     // Unused
+    [27] = AI_WildCanFlee,           // AI_FLAG_WILD_CAN_FLEE
     [28] = NULL,                     // Unused
     [29] = NULL,                     // Unused
     [30] = NULL,                     // Unused
@@ -172,6 +173,11 @@ static u64 GetWildAiFlags(void)
         flags |= AI_FLAG_TRY_TO_2HKO;
     if (avgLevel >= 80)
         flags |= AI_FLAG_HP_AWARE;
+    if (FlagGet(FLAG_WILDS_CAN_FLEE))
+    {
+        flags = AI_FLAG_WILD_CAN_FLEE;
+        return flags;
+    }
 
     if (B_VAR_WILD_AI_FLAGS != 0 && VarGet(B_VAR_WILD_AI_FLAGS) != 0)
         flags |= VarGet(B_VAR_WILD_AI_FLAGS);
@@ -183,6 +189,11 @@ static u64 GetAiFlags(u16 trainerId)
 {
     u64 flags = 0;
 
+    if (FlagGet(FLAG_WILDS_CAN_FLEE))
+    {
+        flags = GetWildAiFlags();
+        return flags;
+    }
     if (!(gBattleTypeFlags & BATTLE_TYPE_HAS_AI) && !IsWildMonSmart())
         return 0;
     if (trainerId == 0xFFFF)
@@ -197,8 +208,6 @@ static u64 GetAiFlags(u16 trainerId)
             flags = AI_FLAG_SAFARI;
         else if (gBattleTypeFlags & BATTLE_TYPE_ROAMER)
             flags = AI_FLAG_ROAMING;
-        // else if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
-        //     flags = AI_FLAG_FIRST_BATTLE;
         else if (gBattleTypeFlags & BATTLE_TYPE_FACTORY)
             flags = GetAiScriptsInBattleFactory();
         else if (gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_TRAINER_HILL | BATTLE_TYPE_SECRET_BASE))
@@ -5310,6 +5319,7 @@ static u32 AI_CalcMoveEffectScore(u32 battlerAtk, u32 battlerDef, u32 move)
                             {
                             case HOLD_EFFECT_NONE:
                                 break;
+                            case HOLD_EFFECT_BOND_ANKLET:
                             case HOLD_EFFECT_CHOICE_BAND:
                             case HOLD_EFFECT_CHOICE_SCARF:
                             case HOLD_EFFECT_CHOICE_SPECS:
@@ -6185,6 +6195,28 @@ static s32 AI_Safari(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
 static s32 AI_FirstBattle(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
 {
     if (gAiLogicData->hpPercents[battlerDef] <= 20)
+        AI_Flee();
+
+    return score;
+}
+
+static s32 AI_WildCanFlee(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
+{
+    bool8 wildCanFlee = FALSE;
+    u32 species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);
+    u32 hpPercent = gAiLogicData->hpPercents[battlerAtk];
+
+    if (AI_CanBattlerEscape(battlerAtk))
+        wildCanFlee = TRUE;
+    else if (gAiLogicData->abilities[battlerAtk] == ABILITY_RUN_AWAY)
+        wildCanFlee = TRUE;
+    else if (gAiLogicData->holdEffects[battlerAtk] == HOLD_EFFECT_CAN_ALWAYS_RUN)
+        wildCanFlee = TRUE;
+
+    if ((!wildCanFlee && IsBattlerTrapped(battlerDef, battlerAtk)) || hpPercent >= 90)
+        return score;
+
+    if ((Random() % 100) < (gSpeciesInfo[species].safariZoneFleeRate * (200 - hpPercent) / 100))
         AI_Flee();
 
     return score;

@@ -1835,3 +1835,11 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/LatiasIsland/scripts.inc"
 
 	.include "data/maps/LatiosIsland/scripts.inc"
+
+	.include "data/maps/Route20_FarmHouse/scripts.inc"
+
+	.include "data/maps/Route20_RaceCourse/scripts.inc"
+
+	.include "data/maps/Route20_Filler2/scripts.inc"
+
+	.include "data/maps/Route20_RanchRace/scripts.inc"

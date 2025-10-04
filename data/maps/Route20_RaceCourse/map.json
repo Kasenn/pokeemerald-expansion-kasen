@@ -1,0 +1,119 @@
+{
+  "id": "MAP_ROUTE20_RACE_COURSE",
+  "name": "Route20_RaceCourse",
+  "layout": "LAYOUT_ROUTE20_RACE_COURSE",
+  "music": "MUS_ROUTE120",
+  "region_map_section": "MAPSEC_SINKO_ROUTE_20",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BOY_2",
+      "x": 9,
+      "y": 113,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_FLAG",
+      "x": 19,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_1"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 8,
+      "y": 113,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE20_RACE_COURSE",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 113,
+      "elevation": 0,
+      "var": "FLAG_TEMP_1",
+      "var_value": "1",
+      "script": "Route20_RaceCourse_Finish5"
+    },
+    {
+      "type": "trigger",
+      "x": 11,
+      "y": 113,
+      "elevation": 0,
+      "var": "FLAG_TEMP_1",
+      "var_value": "1",
+      "script": "Route20_RaceCourse_Finish"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 113,
+      "elevation": 0,
+      "var": "FLAG_TEMP_1",
+      "var_value": "1",
+      "script": "Route20_RaceCourse_Finish4"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 113,
+      "elevation": 0,
+      "var": "FLAG_TEMP_1",
+      "var_value": "1",
+      "script": "Route20_RaceCourse_Finish3"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 113,
+      "elevation": 0,
+      "var": "FLAG_TEMP_1",
+      "var_value": "1",
+      "script": "Route20_RaceCourse_Finish2"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 113,
+      "elevation": 0,
+      "var": "FLAG_TEMP_1",
+      "var_value": "1",
+      "script": "Route20_RaceCourse_Finish1"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 6,
+      "elevation": 0,
+      "var": "FLAG_TEMP_1",
+      "var_value": "0",
+      "script": "Route20_RaceCourse_Flag"
+    }
+  ],
+  "bg_events": []
+}

@@ -31,6 +31,8 @@ add more regular mons in grottos?
 add pc/mart/bpshop signs back once they're fixed
 research a fix for shade weathers?
 
+redo route 2, windy woods, route 3, pearlwood grass patch
+
 route 19
 	check layout
 	trainers

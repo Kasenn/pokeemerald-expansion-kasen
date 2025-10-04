@@ -107,8 +107,7 @@
 #define MAP_ROUTE13_GATE_HOUSE            (16 | (1 << 8))
 #define MAP_ROUTE119_WEATHER_INSTITUTE_1F (17 | (1 << 8))
 #define MAP_ROUTE119_WEATHER_INSTITUTE_2F (18 | (1 << 8))
-#define MAP_LATIAS_ISLAND                 (19 | (1 << 8))
-#define MAP_LATIOS_ISLAND                 (20 | (1 << 8))
+#define MAP_ROUTE20_FARM_HOUSE            (19 | (1 << 8))
 
 // gMapGroup_Dungeons
 #define MAP_WINDY_WOODS                      (0 | (2 << 8))
@@ -155,6 +154,10 @@
 #define MAP_FRIGID_FRONTIER_CAVE_DEEPER      (41 | (2 << 8))
 #define MAP_DESERT_CLIFFS                    (42 | (2 << 8))
 #define MAP_SNOWY_RIDGE                      (43 | (2 << 8))
+#define MAP_LATIAS_ISLAND                    (44 | (2 << 8))
+#define MAP_LATIOS_ISLAND                    (45 | (2 << 8))
+#define MAP_ROUTE20_RACE_COURSE              (46 | (2 << 8))
+#define MAP_ROUTE20_RANCH_RACE               (47 | (2 << 8))
 
 // gMapGroup_IndoorPearlwoodPoint
 #define MAP_LAB2                   (0 | (3 << 8))
@@ -961,6 +964,7 @@
 #define MAP_ROUTE26_FILLER              (24 | (53 << 8))
 #define MAP_WINDYWOODS_FILLER           (25 | (53 << 8))
 #define MAP_ROUTE3_COPY                 (26 | (53 << 8))
+#define MAP_ROUTE20_FILLER2             (27 | (53 << 8))
 
 #define MAP_GROUPS_COUNT 54
 

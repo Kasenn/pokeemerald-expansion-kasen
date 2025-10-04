@@ -72,6 +72,7 @@ enum
     MENU_ACTION_RETIRE_FRONTIER,
     MENU_ACTION_PYRAMID_BAG,
     MENU_ACTION_RETREAT,
+    MENU_ACTION_GIVE_UP,
     MENU_ACTION_DEBUG,
     MENU_ACTION_DEXNAV,
 };
@@ -116,6 +117,7 @@ static bool8 StartMenuOptionCallback(void);
 static bool8 StartMenuExitCallback(void);
 static bool8 StartMenuSafariZoneRetireCallback(void);
 static bool8 StartMenuRetreatCallback(void);
+static bool8 StartMenuGiveUpCallback(void);
 static bool8 StartMenuLinkModePlayerNameCallback(void);
 static bool8 StartMenuBattlePyramidRetireCallback(void);
 static bool8 StartMenuBattlePyramidBagCallback(void);
@@ -232,6 +234,7 @@ static const struct MenuAction sStartMenuItems[] =
     [MENU_ACTION_EXIT]            = {gText_MenuExit,    {.u8_void = StartMenuExitCallback}},
     [MENU_ACTION_RETIRE_SAFARI]   = {gText_MenuRetire,  {.u8_void = StartMenuSafariZoneRetireCallback}},
     [MENU_ACTION_RETREAT]         = {sText_MenuRetreat, {.u8_void = StartMenuRetreatCallback}},
+    [MENU_ACTION_GIVE_UP]         = {COMPOUND_STRING("Give up"), {.u8_void = StartMenuGiveUpCallback}},
     [MENU_ACTION_PLAYER_LINK]     = {gText_MenuPlayer,  {.u8_void = StartMenuLinkModePlayerNameCallback}},
     [MENU_ACTION_REST_FRONTIER]   = {gText_MenuRest,    {.u8_void = StartMenuSaveCallback}},
     [MENU_ACTION_RETIRE_FRONTIER] = {gText_MenuRetire,  {.u8_void = StartMenuBattlePyramidRetireCallback}},
@@ -284,6 +287,7 @@ static void BuildNormalStartMenu(void);
 static void BuildDebugStartMenu(void);
 static void BuildSafariZoneStartMenu(void);
 static void BuildKrokorokStartMenu(void);
+static void BuildGogoatRaceStartMenu(void);
 static void BuildLinkModeStartMenu(void);
 static void BuildUnionRoomStartMenu(void);
 static void BuildBattlePikeStartMenu(void);
@@ -348,6 +352,10 @@ static void BuildStartMenuActions(void)
     else if (InMultiPartnerRoom())
     {
         BuildMultiPartnerRoomStartMenu();
+    }
+    else if (FlagGet(FLAG_GOGOAT_RIDING))
+    {
+        BuildGogoatRaceStartMenu();
     }
     else if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_KROKOROK)
     {
@@ -420,6 +428,12 @@ static void BuildSafariZoneStartMenu(void)
     AddStartMenuAction(MENU_ACTION_PLAYER);
     AddStartMenuAction(MENU_ACTION_OPTION);
     AddStartMenuAction(MENU_ACTION_EXIT);
+}
+
+static void BuildGogoatRaceStartMenu(void)
+{
+    AddStartMenuAction(MENU_ACTION_GIVE_UP);
+    AddStartMenuAction(MENU_ACTION_EXIT); 
 }
 
 static void BuildKrokorokStartMenu(void)
@@ -851,6 +865,7 @@ static bool8 HandleStartMenuInput(void)
             && gMenuCallback != StartMenuExitCallback
             && gMenuCallback != StartMenuDebugCallback
             && gMenuCallback != StartMenuRetreatCallback
+            && gMenuCallback != StartMenuGiveUpCallback
             && gMenuCallback != StartMenuSafariZoneRetireCallback
             && gMenuCallback != StartMenuBattlePyramidRetireCallback)
         {
@@ -1029,6 +1044,15 @@ static bool8 StartMenuRetreatCallback(void)
     RemoveExtraStartMenuWindows();
     HideStartMenu();
     ScriptContext_SetupScript(Amberock_RetreatKrokorok);
+
+    return TRUE;
+}
+
+static bool8 StartMenuGiveUpCallback(void)
+{
+    RemoveExtraStartMenuWindows();
+    HideStartMenu();
+    ScriptContext_SetupScript(StartMenu_GiveUpGogoatRace);
 
     return TRUE;
 }

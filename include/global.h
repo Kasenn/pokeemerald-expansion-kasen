@@ -1125,6 +1125,7 @@ struct SaveBlock1
                u8 strangeSeedDrop[11];
                u8 questOrder[QUEST_COUNT];
                u8 questFlag[QUEST_COUNT];
+               u32 gogoatRaceRecord[2];
 };
 
 extern struct SaveBlock1 *gSaveBlock1Ptr;

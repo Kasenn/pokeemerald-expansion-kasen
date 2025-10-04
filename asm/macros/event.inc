@@ -2907,3 +2907,8 @@
 	.2byte \y1
 	.2byte \y2
 	.endm
+
+	.macro iscurrentmap map:req
+	callnative ScrCmd_IsCurrentMap
+	.2byte \map
+	.endm

@@ -364,8 +364,6 @@ static void Task_LatiRide(u8 taskId)
             s16 hours = minutes / 60;
             s16 minutes2 = minutes % 60;
 
-            DebugPrintf2("%d", minutes);
-
             VarSet(VAR_HOUR_OVERRIDE, hours);
             VarSet(VAR_MINUTE_OVERRIDE, minutes2);
 
