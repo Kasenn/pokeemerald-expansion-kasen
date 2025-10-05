@@ -14990,9 +14990,9 @@ const struct Item gItemsInfo[] =
         .price = 10000,
         .holdEffect = HOLD_EFFECT_BOND_ANKLET,
         .description = COMPOUND_STRING(
-            "When held,\n"
-            "increases the Speed\n"
-            "of a traded Pokémon."),
+            "increases the\n"
+            "speed of a traded\n"
+            "Pokémon when held."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
