@@ -51,6 +51,8 @@ newmagma.png
 Image71.png
 newmagma.bin
 tools/trainerproc/trainerproc
+tools/compresSmol/compresSmol
+tools/compresSmol/compresSmolTilemap
 *.Identifier
 Stitch_From_Route18.png
 Stitch_From_Route21.png

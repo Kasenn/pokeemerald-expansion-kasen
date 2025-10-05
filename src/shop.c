@@ -50,6 +50,7 @@
 #define MARTBP sMartInfo.martType == MART_TYPE_BP
 
 #define MAX_ITEMS_SHOWN 8
+#define SHOP_MENU_PALETTE_ID 12
 
 const u8 gTextSelect[] = _("{SELECT_BUTTON}");
 
@@ -1067,7 +1068,7 @@ static void BuyMenuDecompressBgGraphics(void)
         DecompressAndCopyTileDataToVram(1, gShopMenu_Gfx, 0x3A0, 0x3E3, 0);
         LZDecompressWram(gShopMenu_Tilemap, sShopData->tilemapBuffers[0]);
     }
-    LoadPalette(gShopMenu_Pal, BG_PLTT_ID(12), PLTT_SIZE_4BPP);
+    LoadPalette(gShopMenu_Pal, BG_PLTT_ID(SHOP_MENU_PALETTE_ID), PLTT_SIZE_4BPP);
 }
 
 static void BuyMenuInitWindows(void)
@@ -1332,7 +1333,7 @@ static void BuyMenuCopyMenuBgToBg1TilemapBuffer(void)
     for (i = 0; i < 1024; i++)
     {
         if (src[i] != 0)
-            dest[i] = src[i] + 0xC3E3;
+            dest[i] = src[i] + ((SHOP_MENU_PALETTE_ID << 12) | 0x3E3);
     }
 }
 
