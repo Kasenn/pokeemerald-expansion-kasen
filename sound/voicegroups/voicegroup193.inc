@@ -1,9 +1,9 @@
 	.align 2
 voicegroup193::
-	voice_keysplit voicegroup005, KeySplitTable1        @ piano
-    voice_keysplit voicegroup005, KeySplitTable1        @ piano
-    voice_keysplit voicegroup005, KeySplitTable1        @ piano
-    voice_keysplit voicegroup005, KeySplitTable1        @ piano
+	voice_keysplit voicegroup_piano_keysplit, keysplit_piano        @ piano
+    voice_keysplit voicegroup_piano_keysplit, keysplit_piano        @ piano
+    voice_keysplit voicegroup_piano_keysplit, keysplit_piano        @ piano
+    voice_keysplit voicegroup_piano_keysplit, keysplit_piano        @ piano
 	voice_directsound 60, 0, DirectSoundWaveData_steinway_b_piano, 128, 204, 51, 242
     voice_directsound 60, 0, DirectSoundWaveData_steinway_b_piano, 128, 204, 51, 242
     voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 242, 0, 204
@@ -40,27 +40,27 @@ voicegroup193::
     voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 235, 128, 99
     voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 252, 0, 115
     voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 252, 0, 115
-    voice_keysplit voicegroup006, KeySplitTable2            @ violin
-    voice_keysplit voicegroup006, KeySplitTable2            @ viola
-    voice_keysplit voicegroup006, KeySplitTable2            @ cello
-    voice_keysplit voicegroup006, KeySplitTable2            @ contrabass
-    voice_keysplit voicegroup006, KeySplitTable2            @ tremolo strings
+    voice_keysplit voicegroup_strings_keysplit, keysplit_strings            @ violin
+    voice_keysplit voicegroup_strings_keysplit, keysplit_strings            @ viola
+    voice_keysplit voicegroup_strings_keysplit, keysplit_strings            @ cello
+    voice_keysplit voicegroup_strings_keysplit, keysplit_strings            @ contrabass
+    voice_keysplit voicegroup_strings_keysplit, keysplit_strings            @ tremolo strings
     voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 216, 0, 165
-    voice_keysplit voicegroup006, KeySplitTable2            @orchestral strings
+    voice_keysplit voicegroup_strings_keysplit, keysplit_strings            @orchestral strings
     voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 246, 0, 226
-	voice_keysplit voicegroup006, KeySplitTable2            @string ensemble
-    voice_keysplit voicegroup006, KeySplitTable2            @string ensemble
-    voice_keysplit voicegroup006, KeySplitTable2            @synth strings 1
-    voice_keysplit voicegroup006, KeySplitTable2            @synth strings 2
+	voice_keysplit voicegroup_strings_keysplit, keysplit_strings            @string ensemble
+    voice_keysplit voicegroup_strings_keysplit, keysplit_strings            @string ensemble
+    voice_keysplit voicegroup_strings_keysplit, keysplit_strings            @synth strings 1
+    voice_keysplit voicegroup_strings_keysplit, keysplit_strings            @synth strings 2
     voice_directsound 60, 0, DirectSoundWaveData_classical_choir_voice_ahhs, 255, 0, 255, 0
     voice_directsound 60, 0, DirectSoundWaveData_unknown_female_voice, 128, 165, 128, 204
 	voice_directsound 60, 0, DirectSoundWaveData_unused_unknown_male_voice, 128, 165, 128, 188
     voice_directsound_no_resample 64, 80, DirectSoundWaveData_sc88pro_orchestra_snare, 255, 0, 255, 242
-    voice_keysplit voicegroup007, KeySplitTable5            @ trumpet
-    voice_keysplit voicegroup007, KeySplitTable3            @ trombone
-    voice_keysplit voicegroup008, KeySplitTable4            @ tuba
-    voice_keysplit voicegroup007, KeySplitTable3            @ muted trumpet
-    voice_keysplit voicegroup009, KeySplitTable5            @ french horn
+    voice_keysplit voicegroup_trumpet_keysplit, keysplit_french_horn            @ trumpet
+    voice_keysplit voicegroup_trumpet_keysplit, keysplit_trumpet            @ trombone
+    voice_keysplit voicegroup_tuba_keysplit, keysplit_tuba            @ tuba
+    voice_keysplit voicegroup_trumpet_keysplit, keysplit_trumpet            @ muted trumpet
+    voice_keysplit voicegroup_french_horn_keysplit, keysplit_french_horn            @ french horn
     voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 43, 188, 103, 165
     voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 43, 188, 103, 165
     voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 43, 188, 103, 165
@@ -69,7 +69,7 @@ voicegroup193::
     voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 43, 188, 103, 165
     voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 43, 188, 103, 165
     voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 43, 188, 103, 165
-    voice_keysplit voicegroup009, KeySplitTable5            @ french horn
+    voice_keysplit voicegroup_french_horn_keysplit, keysplit_french_horn            @ french horn
     voice_directsound 60, 0, DirectSoundWaveData_sc88pro_flute, 255, 127, 231, 127
     voice_directsound 60, 0, DirectSoundWaveData_sc88pro_flute, 255, 127, 231, 127
     voice_directsound 60, 0, DirectSoundWaveData_sc88pro_flute, 255, 127, 231, 127

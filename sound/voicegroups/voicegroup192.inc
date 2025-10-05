@@ -1,7 +1,7 @@
 	.align 2
 voicegroup192::
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 165, 154, 235
-	voice_keysplit voicegroup005, KeySplitTable1
+	voice_keysplit voicegroup_piano_keysplit, keysplit_piano
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_square_2 60, 0, 0, 0, 2, 4, 1
@@ -48,23 +48,23 @@ voicegroup192::
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 216, 0, 165
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 165, 154, 235
     voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 165, 154, 235
-	voice_keysplit voicegroup006, KeySplitTable2
+	voice_keysplit voicegroup_strings_keysplit, keysplit_strings
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
-	voice_keysplit voicegroup006, KeySplitTable2
-	voice_keysplit voicegroup006, KeySplitTable2
+	voice_keysplit voicegroup_strings_keysplit, keysplit_strings
+	voice_keysplit voicegroup_strings_keysplit, keysplit_strings
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
     voice_directsound 60, 0, orchestrahit72, 200, 255, 255, 255
     voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 165, 154, 235
-    voice_keysplit voicegroup007, KeySplitTable4
-    voice_keysplit voicegroup009, KeySplitTable5
-	voice_keysplit voicegroup007, KeySplitTable4
+    voice_keysplit voicegroup_trumpet_keysplit, keysplit_tuba
+    voice_keysplit voicegroup_french_horn_keysplit, keysplit_french_horn
+	voice_keysplit voicegroup_trumpet_keysplit, keysplit_tuba
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
-	voice_keysplit voicegroup009, KeySplitTable5
+	voice_keysplit voicegroup_french_horn_keysplit, keysplit_french_horn
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
-	voice_keysplit voicegroup007, KeySplitTable4
+	voice_keysplit voicegroup_trumpet_keysplit, keysplit_tuba
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
@@ -80,7 +80,7 @@ voicegroup192::
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 252, 0, 115
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
-	voice_keysplit voicegroup009, KeySplitTable5
+	voice_keysplit voicegroup_french_horn_keysplit, keysplit_french_horn
 	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_5, 0, 7, 15, 2
 	voice_square_1 60, 0, 0, 2, 0, 1, 7, 1
 	voice_square_2 60, 0, 1, 0, 1, 9, 1
@@ -95,5 +95,5 @@ voicegroup192::
     voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
     voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
     voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
-    voice_keysplit_all voicegroup002
+    voice_keysplit_all voicegroup_frlg_drumset
 

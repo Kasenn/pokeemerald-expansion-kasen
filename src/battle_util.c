@@ -9160,7 +9160,7 @@ static inline u32 CalcDefenseStat(struct DamageCalculationData *damageCalcData, 
     // pokemon with unaware ignore defense stat changes while dealing damage
     if (atkAbility == ABILITY_UNAWARE)
         defStage = DEFAULT_STAT_STAGE;
-    if (atkAbility == ABILITY_DATA_BREACH && moveType == TYPE_NORMAL)
+    if (atkAbility == ABILITY_DATA_BREACH && damageCalcData->moveType == TYPE_NORMAL)
         defStage = DEFAULT_STAT_STAGE;
     // certain moves also ignore stat changes
     if (MoveIgnoresDefenseEvasionStages(move))
