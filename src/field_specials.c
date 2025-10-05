@@ -4623,7 +4623,7 @@ void FinishGogoatRace(void)
     u32 minutes = (totalSeconds / 60) % 60;
     u32 hours = totalSeconds / 3600;
 
-    u32 oldRecord = (MAP(MAP_ROUTE20_RANCH_RACE)) ? 0 : 40; //wip
+    u32 oldRecord = (MAP(MAP_ROUTE20_RANCH_RACE)) ? 23 : 39;
     u16 raceRecord = (MAP(MAP_ROUTE20_RANCH_RACE)) ? 0 : 1;
 
     if (totalSeconds < gSaveBlock1Ptr->gogoatRaceRecord[raceRecord] && totalSeconds < oldRecord)

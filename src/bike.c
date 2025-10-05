@@ -1056,7 +1056,14 @@ static void Bike_SetBikeStill(void)
 
 s16 GetPlayerSpeed(void)
 {
-    if (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_BIKE | PLAYER_AVATAR_FLAG_GOGOAT))
+    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_GOGOAT)
+    {
+        // because the player pressed a direction, it won't ever return a speed of 0 since this function returns the player's current speed.
+        s16 machSpeeds[3];
+        memcpy(machSpeeds, sMachBikeSpeeds, sizeof(machSpeeds));
+        return machSpeeds[gPlayerAvatar.bikeFrameCounter];
+    }
+    else if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_BIKE)
     {
         if (gSaveBlock2Ptr->playerBike == MACH_BIKE)
         {

@@ -4078,3 +4078,23 @@ void ScrCmd_IsCurrentMap(struct ScriptContext *ctx)
     else
         gSpecialVar_Result = FALSE;
 }
+
+void TurnBikeToGogoat(void)
+{
+    FlagSet(FLAG_GOGOAT_RIDING);
+    if (gSaveBlock2Ptr->playerBike == ACRO_BIKE)
+    {
+        FlagSet(FLAG_DEFAULT_BIKE);
+    }
+    gSaveBlock2Ptr->playerBike = MACH_BIKE;
+}
+
+void TurnGogoatToBike(void)
+{
+    FlagClear(FLAG_GOGOAT_RIDING);
+    if (FlagGet(FLAG_DEFAULT_BIKE))
+    {
+        FlagClear(FLAG_DEFAULT_BIKE);
+        gSaveBlock2Ptr->playerBike = ACRO_BIKE;
+    }
+}

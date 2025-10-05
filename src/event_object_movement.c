@@ -6803,8 +6803,8 @@ u32 GetObjectObjectCollidesWith(struct ObjectEvent *objectEvent, s16 x, s16 y, b
         curObject = &gObjectEvents[i];
         if (curObject->graphicsId >= OBJ_EVENT_GFX_SPECIAL_LATIAS && curObject->graphicsId <= OBJ_EVENT_GFX_LATI_BALL_UP)
             return OBJECT_EVENTS_COUNT;
-        if (curObject->graphicsId == OBJ_EVENT_GFX_FLAG)
-            return OBJECT_EVENTS_COUNT;
+        // if (curObject->graphicsId == OBJ_EVENT_GFX_FLAG)
+        //     return i;
         // if (curObject->graphicsId > OBJ_EVENT_GFX_SPECIES(BULBASAUR) && curObject->graphicsId < OBJ_EVENT_GFX_SPECIES(MIRAIDON))
         //     return FALSE;
         // if (curObject->mapNum == MAP_NUM(KAOLISLE_CITY)
@@ -6819,7 +6819,11 @@ u32 GetObjectObjectCollidesWith(struct ObjectEvent *objectEvent, s16 x, s16 y, b
             if ((curObject->currentCoords.x == x && curObject->currentCoords.y == y) || (curObject->previousCoords.x == x && curObject->previousCoords.y == y))
             {
                 if (AreElevationsCompatible(objectEvent->currentElevation, curObject->currentElevation))
+                {
+                    if (curObject->graphicsId == OBJ_EVENT_GFX_FLAG)
+                        return OBJECT_EVENTS_COUNT;
                     return i;
+                }
             }
         }
     }

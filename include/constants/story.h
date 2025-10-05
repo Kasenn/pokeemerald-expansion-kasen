@@ -62,15 +62,15 @@
 #define STORY_AMBEROCK_STORY_COMPLETE                   11
 
 // VAR_GOGOAT_RACE
-#define STORY_GOGOAT_RACE_1_INTRO                       1
-#define STORY_GOGOAT_RACE_1_IN_PROGRESS                 2
-#define STORY_GOGOAT_RACE_1_FAILED                      3
-#define STORY_GOGOAT_RACE_1_COMPLETE                    4
-#define STORY_GOGOAT_RACE_1_REWARD_EARNED               5
-#define STORY_GOGOAT_RACE_2_INTRO                       6
-#define STORY_GOGOAT_RACE_2_IN_PROGRESS                 7
-#define STORY_GOGOAT_RACE_2_FAILED                      8
-#define STORY_GOGOAT_RACE_2_COMPLETE                    9
-#define STORY_GOGOAT_RACE_2_REWARD_EARNED               10
+#define STORY_RACE_1_INTRO                       1
+#define STORY_RACE_1_IN_PROGRESS                 2
+#define STORY_RACE_1_FAILED                      3
+#define STORY_RACE_1_COMPLETE                    4
+#define STORY_RACE_1_REWARD_EARNED               5
+#define STORY_RACE_2_INTRO                       6
+#define STORY_RACE_2_IN_PROGRESS                 7
+#define STORY_RACE_2_FAILED                      8
+#define STORY_RACE_2_COMPLETE                    9
+#define STORY_RACE_2_REWARD_EARNED               10
 
 #endif // GUARD_CONSTANTS_STORY_H

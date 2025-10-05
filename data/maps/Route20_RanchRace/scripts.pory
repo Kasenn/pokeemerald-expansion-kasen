@@ -20,7 +20,7 @@ script Race1_Start{
             goto(Race1_Start)
         }
         else{
-            clearflag(FLAG_GOGOAT_RIDING)
+            callnative(TurnGogoatToBike)
             setvar(VAR_RACE_START, 1)
             warp(MAP_ROUTE20, 1)
             waitstate
@@ -38,14 +38,14 @@ script Race1_Start{
 script StartMenu_GiveUpGogoatRace{
     if(msgbox(ForfeitGogoatRaceMenu, MSGBOX_YESNO) == TRUE){
         if(iscurrentmap(MAP_ROUTE20_RANCH_RACE)){
-            if(var(VAR_GOGOAT_RACE) == STORY_GOGOAT_RACE_1_IN_PROGRESS){ setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_1_FAILED) }
+            if(var(VAR_GOGOAT_RACE) == STORY_RACE_1_IN_PROGRESS){ setvar(VAR_GOGOAT_RACE, STORY_RACE_1_FAILED) }
             warp(MAP_ROUTE20, 1)
         }
         else{
-            if(var(VAR_GOGOAT_RACE) == STORY_GOGOAT_RACE_2_IN_PROGRESS){ setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_2_FAILED) }
+            if(var(VAR_GOGOAT_RACE) == STORY_RACE_2_IN_PROGRESS){ setvar(VAR_GOGOAT_RACE, STORY_RACE_2_FAILED) }
             warp(MAP_ROUTE20, 2)
         }
-        clearflag(FLAG_GOGOAT_RIDING)
+        callnative(TurnGogoatToBike)
         waitstate
     }
     release
@@ -60,9 +60,9 @@ script Race1_GiveUp{
     faceplayer
     if(msgbox(Race1_InProgress, MSGBOX_YESNO) == TRUE){
         msgbox(Race1_LetsGetYouOff)
-        if(var(VAR_GOGOAT_RACE) == STORY_GOGOAT_RACE_1_IN_PROGRESS){ setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_1_FAILED) }
+        if(var(VAR_GOGOAT_RACE) == STORY_RACE_1_IN_PROGRESS){ setvar(VAR_GOGOAT_RACE, STORY_RACE_1_FAILED) }
         warp(MAP_ROUTE20, 1)
-        clearflag(FLAG_GOGOAT_RIDING)
+        callnative(TurnGogoatToBike)
         waitstate
     }
     release
@@ -137,10 +137,10 @@ script Race1_FinishMain{
     lock
     callnative(FinishGogoatRace)
     switch(var(VAR_RACE_DIRECTION)){
-        case DIR_NORTH: turnobject(1, DIR_SOUTH)
-        case DIR_EAST:  turnobject(1, DIR_WEST)
-        case DIR_WEST:  turnobject(1, DIR_EAST)
-        case DIR_SOUTH: turnobject(1, DIR_NORTH)
+        case DIR_NORTH: turnobject(1, DIR_NORTH)
+        case DIR_EAST:  turnobject(1, DIR_EAST)
+        case DIR_WEST:  turnobject(1, DIR_WEST)
+        case DIR_SOUTH: turnobject(1, DIR_SOUTH)
     }
     playse(SE_PIN)
     exclamationmark(1)
@@ -153,10 +153,10 @@ script Race1_FinishMain{
     msgbox(FinishRace1_CalculateScore)
 
     // have finished the race before //
-    if(var(VAR_GOGOAT_RACE) >= STORY_GOGOAT_RACE_1_REWARD_EARNED){ 
+    if(var(VAR_GOGOAT_RACE) >= STORY_RACE_1_REWARD_EARNED){ 
         if(flag(FLAG_TEMP_D)){ // broke personal record
             msgbox(Race1_YouWonAgain)
-            clearflag(FLAG_GOGOAT_RIDING)
+            callnative(TurnGogoatToBike)
             setvar(VAR_RACE_START, 1)
             warp(MAP_ROUTE20, 1)
             waitstate
@@ -166,7 +166,7 @@ script Race1_FinishMain{
             if(msgbox(Race1_TryAgain, MSGBOX_YESNO) == FALSE){
                 msgbox(Race1_LetsGetYouOff)
                 warp(MAP_ROUTE20, 1)
-                clearflag(FLAG_GOGOAT_RIDING)
+                callnative(TurnGogoatToBike)
                 waitstate
                 release
                 end
@@ -174,7 +174,7 @@ script Race1_FinishMain{
             else{
                 msgbox(LetsGetGogoatRacing)
                 warp(MAP_ROUTE20_RANCH_RACE, 0)
-                setflag(FLAG_GOGOAT_RIDING)
+                callnative(TurnBikeToGogoat)
                 waitstate
             }
         }
@@ -183,9 +183,9 @@ script Race1_FinishMain{
     // have not finished the race before //
     else{
         if(flag(FLAG_TEMP_C)){ // finished in time and made a new record
-            setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_1_COMPLETE)
+            setvar(VAR_GOGOAT_RACE, STORY_RACE_1_COMPLETE)
             msgbox(Race1_YouWon)
-            clearflag(FLAG_GOGOAT_RIDING)
+            callnative(TurnGogoatToBike)
             setvar(VAR_RACE_START, 1)
             warp(MAP_ROUTE20, 1)
             waitstate
@@ -194,18 +194,18 @@ script Race1_FinishMain{
             msgbox(Race1_YouLost)
             if(msgbox(Race1_TryAgain, MSGBOX_YESNO) == FALSE){
                 msgbox(Race1_LetsGetYouOff)
-                if(var(VAR_GOGOAT_RACE) == STORY_GOGOAT_RACE_1_IN_PROGRESS){ setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_1_FAILED) }
+                if(var(VAR_GOGOAT_RACE) == STORY_RACE_1_IN_PROGRESS){ setvar(VAR_GOGOAT_RACE, STORY_RACE_1_FAILED) }
                 warp(MAP_ROUTE20, 1)
-                clearflag(FLAG_GOGOAT_RIDING)
+                callnative(TurnGogoatToBike)
                 waitstate
                 release
                 end
             }
             else{
                 msgbox(LetsGetGogoatRacing)
-                setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_1_IN_PROGRESS)
+                setvar(VAR_GOGOAT_RACE, STORY_RACE_1_IN_PROGRESS)
                 warp(MAP_ROUTE20_RANCH_RACE, 0)
-                setflag(FLAG_GOGOAT_RIDING)
+                callnative(TurnBikeToGogoat)
                 waitstate
             }
         }

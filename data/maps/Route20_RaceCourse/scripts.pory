@@ -20,7 +20,7 @@ script Route20RaceCourseStart{
             goto(Route20RaceCourseStart)
         }
         else{
-            clearflag(FLAG_GOGOAT_RIDING)
+            callnative(TurnGogoatToBike)
             setvar(VAR_RACE_START, 1)
             warp(MAP_ROUTE20, 0)
             waitstate
@@ -88,10 +88,10 @@ script Route20_RaceCourse_Finish{
     msgbox(BackFromRace)
 
     // have finished the race before //
-    if(var(VAR_GOGOAT_RACE) >= STORY_GOGOAT_RACE_2_REWARD_EARNED){ 
+    if(var(VAR_GOGOAT_RACE) >= STORY_RACE_2_REWARD_EARNED){ 
         if(flag(FLAG_TEMP_D)){ // broke personal record
             msgbox(Race2_YouWonAgain)
-            clearflag(FLAG_GOGOAT_RIDING)
+            callnative(TurnGogoatToBike)
             setvar(VAR_RACE_START, 1)
             warp(MAP_ROUTE20, 2)
             waitstate
@@ -101,7 +101,7 @@ script Route20_RaceCourse_Finish{
             if(msgbox(Race2_TryAgain, MSGBOX_YESNO) == FALSE){
                 msgbox(Race2_LetsGetYouOff)
                 warp(MAP_ROUTE20, 2)
-                clearflag(FLAG_GOGOAT_RIDING)
+                callnative(TurnGogoatToBike)
                 waitstate
                 release
                 end
@@ -109,7 +109,7 @@ script Route20_RaceCourse_Finish{
             else{
                 msgbox(LetsGetGogoatRacing2)
                 warp(MAP_ROUTE20_RACE_COURSE, 0)
-                setflag(FLAG_GOGOAT_RIDING)
+                callnative(TurnBikeToGogoat)
                 waitstate
             }
         }
@@ -118,9 +118,9 @@ script Route20_RaceCourse_Finish{
     // have not finished the race before //
     else{
         if(flag(FLAG_TEMP_C)){ // finished in time and made a new record
-            setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_2_COMPLETE)
+            setvar(VAR_GOGOAT_RACE, STORY_RACE_2_COMPLETE)
             msgbox(Race2_YouWon)
-            clearflag(FLAG_GOGOAT_RIDING)
+            callnative(TurnGogoatToBike)
             setvar(VAR_RACE_START, 1)
             warp(MAP_ROUTE20, 2)
             waitstate
@@ -129,18 +129,18 @@ script Route20_RaceCourse_Finish{
             msgbox(Race2_YouLost)
             if(msgbox(Race2_TryAgain, MSGBOX_YESNO) == FALSE){
                 msgbox(Race2_LetsGetYouOff)
-                if(var(VAR_GOGOAT_RACE) == STORY_GOGOAT_RACE_2_IN_PROGRESS){ setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_2_FAILED) }
+                if(var(VAR_GOGOAT_RACE) == STORY_RACE_2_IN_PROGRESS){ setvar(VAR_GOGOAT_RACE, STORY_RACE_2_FAILED) }
                 warp(MAP_ROUTE20, 2)
-                clearflag(FLAG_GOGOAT_RIDING)
+                callnative(TurnGogoatToBike)
                 waitstate
                 release
                 end
             }
             else{
                 msgbox(GiveUsASecond)
-                setvar(VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_2_IN_PROGRESS)
+                setvar(VAR_GOGOAT_RACE, STORY_RACE_2_IN_PROGRESS)
                 warp(MAP_ROUTE20_RACE_COURSE, 0)
-                setflag(FLAG_GOGOAT_RIDING)
+                callnative(TurnBikeToGogoat)
                 waitstate
             }
         }

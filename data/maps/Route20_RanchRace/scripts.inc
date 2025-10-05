@@ -49,7 +49,7 @@ Race1_Start_2:
 	compare VAR_RESULT, FALSE
 	goto_if_eq Race1_Start_5
 # 23 "data/maps/Route20_RanchRace/scripts.pory"
-	clearflag FLAG_GOGOAT_RIDING
+	callnative TurnGogoatToBike
 # 24 "data/maps/Route20_RanchRace/scripts.pory"
 	setvar VAR_TEMP_1, 1
 # 25 "data/maps/Route20_RanchRace/scripts.pory"
@@ -83,21 +83,21 @@ StartMenu_GiveUpGogoatRace_2:
 	compare VAR_RESULT, 0
 	goto_if_ne StartMenu_GiveUpGogoatRace_5
 # 45 "data/maps/Route20_RanchRace/scripts.pory"
-	compare VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_2_IN_PROGRESS
+	compare VAR_GOGOAT_RACE, STORY_RACE_2_IN_PROGRESS
 	goto_if_eq StartMenu_GiveUpGogoatRace_12
 StartMenu_GiveUpGogoatRace_11:
 # 46 "data/maps/Route20_RanchRace/scripts.pory"
 	warp MAP_ROUTE20, 2
 StartMenu_GiveUpGogoatRace_4:
 # 48 "data/maps/Route20_RanchRace/scripts.pory"
-	clearflag FLAG_GOGOAT_RIDING
+	callnative TurnGogoatToBike
 # 49 "data/maps/Route20_RanchRace/scripts.pory"
 	waitstate
 	goto StartMenu_GiveUpGogoatRace_1
 
 StartMenu_GiveUpGogoatRace_5:
 # 41 "data/maps/Route20_RanchRace/scripts.pory"
-	compare VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_1_IN_PROGRESS
+	compare VAR_GOGOAT_RACE, STORY_RACE_1_IN_PROGRESS
 	goto_if_eq StartMenu_GiveUpGogoatRace_9
 StartMenu_GiveUpGogoatRace_8:
 # 42 "data/maps/Route20_RanchRace/scripts.pory"
@@ -106,12 +106,12 @@ StartMenu_GiveUpGogoatRace_8:
 
 StartMenu_GiveUpGogoatRace_9:
 # 41 "data/maps/Route20_RanchRace/scripts.pory"
-	setvar VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_1_FAILED
+	setvar VAR_GOGOAT_RACE, STORY_RACE_1_FAILED
 	goto StartMenu_GiveUpGogoatRace_8
 
 StartMenu_GiveUpGogoatRace_12:
 # 45 "data/maps/Route20_RanchRace/scripts.pory"
-	setvar VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_2_FAILED
+	setvar VAR_GOGOAT_RACE, STORY_RACE_2_FAILED
 	goto StartMenu_GiveUpGogoatRace_11
 
 
@@ -133,20 +133,20 @@ Race1_GiveUp_2:
 # 62 "data/maps/Route20_RanchRace/scripts.pory"
 	msgbox Race1_LetsGetYouOff
 # 63 "data/maps/Route20_RanchRace/scripts.pory"
-	compare VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_1_IN_PROGRESS
+	compare VAR_GOGOAT_RACE, STORY_RACE_1_IN_PROGRESS
 	goto_if_eq Race1_GiveUp_5
 Race1_GiveUp_4:
 # 64 "data/maps/Route20_RanchRace/scripts.pory"
 	warp MAP_ROUTE20, 1
 # 65 "data/maps/Route20_RanchRace/scripts.pory"
-	clearflag FLAG_GOGOAT_RIDING
+	callnative TurnGogoatToBike
 # 66 "data/maps/Route20_RanchRace/scripts.pory"
 	waitstate
 	goto Race1_GiveUp_1
 
 Race1_GiveUp_5:
 # 63 "data/maps/Route20_RanchRace/scripts.pory"
-	setvar VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_1_FAILED
+	setvar VAR_GOGOAT_RACE, STORY_RACE_1_FAILED
 	goto Race1_GiveUp_4
 
 
@@ -315,7 +315,7 @@ Race1_FinishMain_7:
 # 153 "data/maps/Route20_RanchRace/scripts.pory"
 	msgbox FinishRace1_CalculateScore
 # 156 "data/maps/Route20_RanchRace/scripts.pory"
-	compare VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_1_REWARD_EARNED
+	compare VAR_GOGOAT_RACE, STORY_RACE_1_REWARD_EARNED
 	goto_if_ge Race1_FinishMain_13
 # 185 "data/maps/Route20_RanchRace/scripts.pory"
 	goto_if_set FLAG_TEMP_C, Race1_FinishMain_19
@@ -328,33 +328,33 @@ Race1_FinishMain_7:
 # 205 "data/maps/Route20_RanchRace/scripts.pory"
 	msgbox LetsGetGogoatRacing
 # 206 "data/maps/Route20_RanchRace/scripts.pory"
-	setvar VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_1_IN_PROGRESS
+	setvar VAR_GOGOAT_RACE, STORY_RACE_1_IN_PROGRESS
 # 207 "data/maps/Route20_RanchRace/scripts.pory"
 	warp MAP_ROUTE20_RANCH_RACE, 0
 # 208 "data/maps/Route20_RanchRace/scripts.pory"
-	setflag FLAG_GOGOAT_RIDING
+	callnative TurnBikeToGogoat
 # 209 "data/maps/Route20_RanchRace/scripts.pory"
 	waitstate
 	return
 
 Race1_FinishMain_3:
 # 140 "data/maps/Route20_RanchRace/scripts.pory"
-	turnobject 1, DIR_SOUTH
+	turnobject 1, DIR_NORTH
 	goto Race1_FinishMain_1
 
 Race1_FinishMain_4:
 # 141 "data/maps/Route20_RanchRace/scripts.pory"
-	turnobject 1, DIR_WEST
+	turnobject 1, DIR_EAST
 	goto Race1_FinishMain_1
 
 Race1_FinishMain_5:
 # 142 "data/maps/Route20_RanchRace/scripts.pory"
-	turnobject 1, DIR_EAST
+	turnobject 1, DIR_WEST
 	goto Race1_FinishMain_1
 
 Race1_FinishMain_6:
 # 143 "data/maps/Route20_RanchRace/scripts.pory"
-	turnobject 1, DIR_NORTH
+	turnobject 1, DIR_SOUTH
 	goto Race1_FinishMain_1
 
 Race1_FinishMain_9:
@@ -391,7 +391,7 @@ Race1_FinishMain_13:
 # 176 "data/maps/Route20_RanchRace/scripts.pory"
 	warp MAP_ROUTE20_RANCH_RACE, 0
 # 177 "data/maps/Route20_RanchRace/scripts.pory"
-	setflag FLAG_GOGOAT_RIDING
+	callnative TurnBikeToGogoat
 # 178 "data/maps/Route20_RanchRace/scripts.pory"
 	waitstate
 	return
@@ -400,7 +400,7 @@ Race1_FinishMain_16:
 # 158 "data/maps/Route20_RanchRace/scripts.pory"
 	msgbox Race1_YouWonAgain
 # 159 "data/maps/Route20_RanchRace/scripts.pory"
-	clearflag FLAG_GOGOAT_RIDING
+	callnative TurnGogoatToBike
 # 160 "data/maps/Route20_RanchRace/scripts.pory"
 	setvar VAR_TEMP_1, 1
 # 161 "data/maps/Route20_RanchRace/scripts.pory"
@@ -411,11 +411,11 @@ Race1_FinishMain_16:
 
 Race1_FinishMain_19:
 # 186 "data/maps/Route20_RanchRace/scripts.pory"
-	setvar VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_1_COMPLETE
+	setvar VAR_GOGOAT_RACE, STORY_RACE_1_COMPLETE
 # 187 "data/maps/Route20_RanchRace/scripts.pory"
 	msgbox Race1_YouWon
 # 188 "data/maps/Route20_RanchRace/scripts.pory"
-	clearflag FLAG_GOGOAT_RIDING
+	callnative TurnGogoatToBike
 # 189 "data/maps/Route20_RanchRace/scripts.pory"
 	setvar VAR_TEMP_1, 1
 # 190 "data/maps/Route20_RanchRace/scripts.pory"
@@ -430,7 +430,7 @@ Race1_FinishMain_22:
 # 168 "data/maps/Route20_RanchRace/scripts.pory"
 	warp MAP_ROUTE20, 1
 # 169 "data/maps/Route20_RanchRace/scripts.pory"
-	clearflag FLAG_GOGOAT_RIDING
+	callnative TurnGogoatToBike
 # 170 "data/maps/Route20_RanchRace/scripts.pory"
 	waitstate
 # 171 "data/maps/Route20_RanchRace/scripts.pory"
@@ -441,13 +441,13 @@ Race1_FinishMain_25:
 # 196 "data/maps/Route20_RanchRace/scripts.pory"
 	msgbox Race1_LetsGetYouOff
 # 197 "data/maps/Route20_RanchRace/scripts.pory"
-	compare VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_1_IN_PROGRESS
+	compare VAR_GOGOAT_RACE, STORY_RACE_1_IN_PROGRESS
 	goto_if_eq Race1_FinishMain_29
 Race1_FinishMain_28:
 # 198 "data/maps/Route20_RanchRace/scripts.pory"
 	warp MAP_ROUTE20, 1
 # 199 "data/maps/Route20_RanchRace/scripts.pory"
-	clearflag FLAG_GOGOAT_RIDING
+	callnative TurnGogoatToBike
 # 200 "data/maps/Route20_RanchRace/scripts.pory"
 	waitstate
 # 201 "data/maps/Route20_RanchRace/scripts.pory"
@@ -456,7 +456,7 @@ Race1_FinishMain_28:
 
 Race1_FinishMain_29:
 # 197 "data/maps/Route20_RanchRace/scripts.pory"
-	setvar VAR_GOGOAT_RACE, STORY_GOGOAT_RACE_1_FAILED
+	setvar VAR_GOGOAT_RACE, STORY_RACE_1_FAILED
 	goto Race1_FinishMain_28
 
 
