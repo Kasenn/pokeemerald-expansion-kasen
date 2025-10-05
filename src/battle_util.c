@@ -4605,21 +4605,20 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             break;
         case ABILITY_SPIKE_BODY:
             if (!(gBattleStruct->moveResultFlags[gBattlerTarget] & MOVE_RESULT_NO_EFFECT)
-                && gBattleMons[gBattlerAttacker].hp != 0
-                && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
-                && IsBattlerTurnDamaged(gBattlerTarget)
-                && GetBattlerHoldEffect(gBattlerAttacker, TRUE) != HOLD_EFFECT_PROTECTIVE_PADS
-                && IsMoveMakingContact(move, gBattlerAttacker))
-                {
-                        gBattleStruct->moveDamage[battler] = GetNonDynamaxMaxHP(gBattlerAttacker) / (B_ROUGH_SKIN_DMG >= GEN_4 ? 6 : 6);
-                    if (gBattleStruct->moveDamage[battler] == 0)
-                        gBattleStruct->moveDamage[battler] = 1;
-                    PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
-                    BattleScriptPushCursor();
-                    gBattlescriptCurrInstr = BattleScript_RoughSkinActivates;
-                    effect++;
-                }
-                break;
+             && IsBattlerAlive(gBattlerAttacker)
+             && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
+             && IsBattlerTurnDamaged(gBattlerTarget)
+             && !CanBattlerAvoidContactEffects(gBattlerAttacker, gBattlerTarget, GetBattlerAbility(gBattlerAttacker), GetBattlerHoldEffect(gBattlerAttacker, TRUE), move))
+            {
+                gBattleStruct->moveDamage[battler] = GetNonDynamaxMaxHP(gBattlerAttacker) / 6;
+                if (gBattleStruct->moveDamage[battler] == 0)
+                    gBattleStruct->moveDamage[battler] = 1;
+                PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_RoughSkinActivates;
+                effect++;
+            }
+            break;
         case ABILITY_ROUGH_SKIN:
         case ABILITY_IRON_BARBS:
             if (!(gBattleStruct->moveResultFlags[gBattlerTarget] & MOVE_RESULT_NO_EFFECT)
@@ -4807,8 +4806,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
              && IsBattlerTurnDamaged(gBattlerTarget)
              && IsBattlerAlive(gBattlerTarget)
              && !(gBattleMons[gBattlerAttacker].status2 & STATUS2_WRAPPED)
-             && GetBattlerHoldEffect(gBattlerAttacker, TRUE) != HOLD_EFFECT_PROTECTIVE_PADS
-             && IsMoveMakingContact(move, gBattlerAttacker))
+             && !CanBattlerAvoidContactEffects(gBattlerAttacker, gBattlerTarget, GetBattlerAbility(gBattlerAttacker), GetBattlerHoldEffect(gBattlerAttacker, TRUE), move))
             {
                 gBattleMons[gBattlerAttacker].status2 |= STATUS2_WRAPPED;
                 if (GetBattlerHoldEffect(gBattlerTarget, TRUE) == HOLD_EFFECT_GRIP_CLAW)
@@ -5025,8 +5023,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
              && IsBattlerAlive(gEffectBattler)
              && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
              && !(gBattleMons[gEffectBattler].status2 & STATUS2_WRAPPED)
-             && GetBattlerHoldEffect(gBattlerAttacker, TRUE) != HOLD_EFFECT_PROTECTIVE_PADS
-             && IsMoveMakingContact(move, gBattlerAttacker)
+             && !CanBattlerAvoidContactEffects(gBattlerAttacker, gBattlerTarget, GetBattlerAbility(gBattlerAttacker), GetBattlerHoldEffect(gBattlerAttacker, TRUE), move)
              && IsBattlerTurnDamaged(gBattlerTarget)) // Need to actually hit the target
             {
                 gBattleMons[gEffectBattler].status2 |= STATUS2_WRAPPED;
@@ -8608,7 +8605,7 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageCalculationData *
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
         break;
     case ABILITY_SPIKE_BODY:
-        if (IsMoveMakingContact(move, battlerAtk))
+        if (IsMoveMakingContact(battlerAtk, battlerDef, atkAbility, holdEffectAtk, move))
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
         break;
     case ABILITY_STRONG_JAW:
