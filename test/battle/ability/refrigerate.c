@@ -44,32 +44,33 @@ SINGLE_BATTLE_TEST("Refrigerate boosts power of affected moves by 20% (Gen7+) or
     }
 }
 
-// SINGLE_BATTLE_TEST("Refrigerate doesn't affect Weather Ball's type", s16 damage)
-// {
-//     u16 move, ability;
-//     PARAMETRIZE { move = MOVE_CELEBRATE; ability = ABILITY_SNOW_WARNING; }
-//     PARAMETRIZE { move = MOVE_SUNNY_DAY; ability = ABILITY_SNOW_WARNING; }
-//     PARAMETRIZE { move = MOVE_CELEBRATE; ability = ABILITY_REFRIGERATE; }
-//     PARAMETRIZE { move = MOVE_SUNNY_DAY; ability = ABILITY_REFRIGERATE; }
-//     GIVEN {
-//         ASSUME(GetMoveEffect(MOVE_WEATHER_BALL) == EFFECT_WEATHER_BALL);
-//         ASSUME(gSpeciesInfo[SPECIES_PINSIR].types[0] == TYPE_BUG);
-//         PLAYER(SPECIES_AMAURA) { Ability(ability); }
-//         OPPONENT(SPECIES_PINSIR);
-//     } WHEN {
-//         TURN { MOVE(player, move); }
-//         TURN { MOVE(player, MOVE_WEATHER_BALL); }
-//     } SCENE {
-//         HP_BAR(opponent, captureDamage: &results[i].damage);
-//         if (move == MOVE_SUNNY_DAY)
-//             MESSAGE("It's super effective!");
-//     } FINALLY {
-//         EXPECT_MUL_EQ(results[0].damage, Q_4_12(2.0), results[1].damage); // double base power + type effectiveness + sun 50% boost vs hail no type effectiveness
-//         EXPECT_MUL_EQ(results[2].damage, Q_4_12(6.0), results[3].damage); // double base power + type effectiveness + sun 50% boost
-//         EXPECT_MUL_EQ(results[2].damage, Q_4_12(3.0), results[0].damage); // type effectiveness + sun 50% boost, both have double base power
-//         EXPECT_EQ(results[1].damage, results[3].damage);
-//     }
-// }
+SINGLE_BATTLE_TEST("Refrigerate doesn't affect Weather Ball's type", s16 damage)
+{
+    u16 move, ability;
+    PARAMETRIZE { move = MOVE_CELEBRATE; ability = ABILITY_SNOW_WARNING; }
+    PARAMETRIZE { move = MOVE_SUNNY_DAY; ability = ABILITY_SNOW_WARNING; }
+    PARAMETRIZE { move = MOVE_CELEBRATE; ability = ABILITY_REFRIGERATE; }
+    PARAMETRIZE { move = MOVE_SUNNY_DAY; ability = ABILITY_REFRIGERATE; }
+    GIVEN {
+        WITH_CONFIG(GEN_SNOW_WARNING, GEN_9); //To prevent capturing hail damage
+        ASSUME(GetMoveEffect(MOVE_WEATHER_BALL) == EFFECT_WEATHER_BALL);
+        ASSUME(gSpeciesInfo[SPECIES_PINSIR].types[0] == TYPE_BUG);
+        PLAYER(SPECIES_AMAURA) { Ability(ability); }
+        OPPONENT(SPECIES_PINSIR);
+    } WHEN {
+        TURN { MOVE(player, move); }
+        TURN { MOVE(player, MOVE_WEATHER_BALL); }
+    } SCENE {
+        HP_BAR(opponent, captureDamage: &results[i].damage);
+        if (move == MOVE_SUNNY_DAY)
+            MESSAGE("It's super effective!");
+    } FINALLY {
+        EXPECT_MUL_EQ(results[0].damage, Q_4_12(2.0), results[1].damage); // double base power + type effectiveness + sun 50% boost vs hail no type effectiveness
+        EXPECT_MUL_EQ(results[2].damage, Q_4_12(6.0), results[3].damage); // double base power + type effectiveness + sun 50% boost
+        EXPECT_MUL_EQ(results[2].damage, Q_4_12(3.0), results[0].damage); // type effectiveness + sun 50% boost, both have double base power
+        EXPECT_EQ(results[1].damage, results[3].damage);
+    }
+}
 
 SINGLE_BATTLE_TEST("Refrigerate doesn't affect Natural Gift's type")
 {
