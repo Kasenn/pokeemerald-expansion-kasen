@@ -2096,7 +2096,7 @@ EWRAM_DATA u8 gCurDecorationIndex = 0;
 //     if (!AllocItemIconTemporaryBuffers())
 //         return MAX_SPRITES;
 
-//     LZDecompressWram(GetDecorationIconPicOrPalette(decor, 0), gItemIconDecompressionBuffer);
+//     DecompressDataWithHeaderWram(GetDecorationIconPicOrPalette(decor, 0), gItemIconDecompressionBuffer);
 //     CopyItemIconPicTo4x4Buffer(gItemIconDecompressionBuffer, gItemIcon4x4Buffer);
 //     sheet.data = gItemIcon4x4Buffer;
 //     sheet.size = 0x200;

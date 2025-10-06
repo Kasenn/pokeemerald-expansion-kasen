@@ -910,13 +910,13 @@ static bool8 LoadJournalGfxMale(void)
     switch (sData->gfxLoadState)
     {
     case 0:
-        LZ77UnCompWram(gJournal_TilemapPageFlip_Male, sData->bgTilemap);
+        DecompressDataWithHeaderWram(gJournal_TilemapPageFlip_Male, sData->bgTilemap);
         break;
     case 1:
-        LZ77UnCompWram(gJournal_Tilemap_Male, sData->frontTilemap);
+        DecompressDataWithHeaderWram(gJournal_Tilemap_Male, sData->frontTilemap);
         break;
     case 2:
-        LZ77UnCompWram(gJournal_Gfx_Male, sData->cardTiles);
+        DecompressDataWithHeaderWram(gJournal_Gfx_Male, sData->cardTiles);
         break;
     default:
         sData->gfxLoadState = 0;
@@ -931,13 +931,13 @@ static bool8 LoadJournalGfxFemale(void)
     switch (sData->gfxLoadState)
     {
     case 0:
-        LZ77UnCompWram(gJournal_TilemapPageFlip_Female, sData->bgTilemap);
+        DecompressDataWithHeaderWram(gJournal_TilemapPageFlip_Female, sData->bgTilemap);
         break;
     case 1:
-        LZ77UnCompWram(gJournal_Tilemap_Female, sData->frontTilemap);
+        DecompressDataWithHeaderWram(gJournal_Tilemap_Female, sData->frontTilemap);
         break;
     case 2:
-        LZ77UnCompWram(gJournal_Gfx_Female, sData->cardTiles);
+        DecompressDataWithHeaderWram(gJournal_Gfx_Female, sData->cardTiles);
         break;
     default:
         sData->gfxLoadState = 0;
