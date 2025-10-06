@@ -193,8 +193,8 @@ static void InitBtlControllersInternal(void)
                 gBattlerControllerFuncs[gBattlerPositions[B_BATTLER_0]] = SetControllerToRecordedPlayer;
             else if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
                 gBattlerControllerFuncs[gBattlerPositions[B_BATTLER_0]] = SetControllerToSafari;
-            else if (gBattleTypeFlags & BATTLE_TYPE_WALLY_TUTORIAL)
-                gBattlerControllerFuncs[gBattlerPositions[B_BATTLER_0]] = SetControllerToWally;
+            // else if (gBattleTypeFlags & BATTLE_TYPE_WALLY_TUTORIAL)
+            //     gBattlerControllerFuncs[gBattlerPositions[B_BATTLER_0]] = SetControllerToWally;
             else if (isAIvsAI)
                 gBattlerControllerFuncs[gBattlerPositions[B_BATTLER_0]] = SetControllerToPlayerPartner;
             else
@@ -2848,7 +2848,7 @@ void BtlController_HandleHidePartyStatusSummary(u32 battler)
 
 void BtlController_HandleBattleAnimation(u32 battler)
 {
-    if ((gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_WALLY_TUTORIAL))
+    if ((gBattleTypeFlags & BATTLE_TYPE_SAFARI)
         || !IsBattleSEPlaying(battler))
     {
         u8 animationId = gBattleResources->bufferA[battler][1];

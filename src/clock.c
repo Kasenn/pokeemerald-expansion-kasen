@@ -58,11 +58,11 @@ void UpdateVarsAndFlags(void)
         u16 i;
         struct BagPocket *itemPocket;
 
-        itemPocket = &gBagPockets[TMHM_POCKET];
+        itemPocket = &gBagPockets[POCKET_TM_HM];
     
         for (i = BAG_TMHM_COUNT - 3; i < BAG_TMHM_COUNT; i++)
         {
-            gBagPockets[TMHM_POCKET].itemSlots[i].itemId = ITEM_NONE;
+            gBagPockets[POCKET_TM_HM].itemSlots[i].itemId = ITEM_NONE;
             SetBagItemQuantity(&itemPocket->itemSlots[i].quantity, 0);
         }
 

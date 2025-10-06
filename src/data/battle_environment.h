@@ -75,6 +75,48 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
         .background = ENVIRONMENT_BACKGROUND(LongGrass),
     },
 
+    [BATTLE_ENVIRONMENT_SNOW] =
+    {
+        .secretPowerEffect = MOVE_EFFECT_FREEZE_OR_FROSTBITE,
+        .camouflageType = TYPE_ICE,
+        .naturePower = MOVE_ICE_BEAM,
+        .background = {
+            .tileset = gBattleEnvironmentTiles_Sand,
+            .tilemap = gBattleEnvironmentTilemap_Sand,
+            .entryTileset = gBattleEnvironmentAnimTiles_Sand,
+            .entryTilemap = gBattleEnvironmentAnimTilemap_Sand,
+            .palette = gBattleTerrainPalette_Snow,
+        }
+    },
+
+    [BATTLE_ENVIRONMENT_MUD] =
+    {
+        .secretPowerEffect = MOVE_EFFECT_ACC_MINUS_1,
+        .camouflageType = TYPE_GROUND,
+        .naturePower = MOVE_MUD_BOMB,
+        .background = {
+            .tileset = gBattleTerrainTiles_Mud,
+            .tilemap = gBattleTerrainTilemap_Mud,
+            .entryTileset = gBattleEnvironmentAnimTiles_Building,
+            .entryTilemap = gBattleEnvironmentAnimTilemap_Building,
+            .palette = gBattleTerrainPalette_Mud,
+        }
+    },
+
+    [BATTLE_ENVIRONMENT_LONG_GRASS_AUTUMN] =
+    {
+        .naturePower = MOVE_ENERGY_BALL,
+        .secretPowerEffect = MOVE_EFFECT_SLEEP,
+        .camouflageType = TYPE_GRASS,
+        .background = {
+            .tileset = gBattleTerrainTiles_LongGrassAutumn,
+            .tilemap = gBattleEnvironmentTilemap_LongGrass,
+            .entryTileset = gBattleEnvironmentAnimTiles_LongGrass,
+            .entryTilemap = gBattleEnvironmentAnimTilemap_LongGrass,
+            .palette = gBattlePalette_LongGrassAutumn,
+        }
+    },
+
     [BATTLE_ENVIRONMENT_SAND] =
     {
         .naturePower = B_NATURE_POWER_MOVES >= GEN_6 ? MOVE_EARTH_POWER : MOVE_EARTHQUAKE,
@@ -368,19 +410,6 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
         .naturePower = MOVE_MUD_BOMB,
         .secretPowerEffect = MOVE_EFFECT_SPD_MINUS_1,
         .camouflageType = TYPE_GROUND,
-    },
-
-    [BATTLE_ENVIRONMENT_SNOW] =
-    {
-    #if B_NATURE_POWER_MOVES >= GEN_7
-        .naturePower = MOVE_ICE_BEAM,
-    #elif B_NATURE_POWER_MOVES >= GEN_6
-        .naturePower = MOVE_FROST_BREATH,
-    #else
-        .naturePower = MOVE_BLIZZARD,
-    #endif
-        .secretPowerEffect = MOVE_EFFECT_FREEZE_OR_FROSTBITE,
-        .camouflageType = TYPE_ICE,
     },
 
     [BATTLE_ENVIRONMENT_ICE] =

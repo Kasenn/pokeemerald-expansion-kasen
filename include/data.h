@@ -331,9 +331,6 @@ static inline const u16 *GetTrainerItemsFromId(u16 trainerId)
 
 static inline const struct TrainerMon *GetTrainerPartyFromId(u16 trainerId)
 {
-    u32 sanitizedTrainerId = SanitizeTrainerId(trainerId);
-    enum DifficultyLevel difficulty = GetTrainerDifficultyLevel(sanitizedTrainerId);
-
     if (GetTrainerStructFromId(trainerId)->isRival)
     {
         if (GetTrainerStructFromId(trainerId)->trainerClass == TRAINER_CLASS_BROTHER)
@@ -341,16 +338,16 @@ static inline const struct TrainerMon *GetTrainerPartyFromId(u16 trainerId)
             switch(VarGet(VAR_STARTER_MON))
             {
             case SPECIES_ROWLET:
-                GetTrainerStructFromId(trainerId)->partyWater;
+                return GetTrainerStructFromId(trainerId)->partyWater;
                 break;
             case SPECIES_TORCHIC:
-                GetTrainerStructFromId(trainerId)->partyGrass;
+                return GetTrainerStructFromId(trainerId)->partyGrass;
                 break;
             case SPECIES_PIPLUP:
-                GetTrainerStructFromId(trainerId)->partyFire;
+                return GetTrainerStructFromId(trainerId)->partyFire;
                 break;
             default:
-                GetTrainerStructFromId(trainerId)->party;
+                return GetTrainerStructFromId(trainerId)->party;
                 break;
             }
         }
@@ -359,16 +356,16 @@ static inline const struct TrainerMon *GetTrainerPartyFromId(u16 trainerId)
             switch(VarGet(VAR_STARTER_MON))
             {
             case SPECIES_ROWLET:
-                GetTrainerStructFromId(trainerId)->partyFire;
+                return GetTrainerStructFromId(trainerId)->partyFire;
                 break;
             case SPECIES_TORCHIC:
-                GetTrainerStructFromId(trainerId)->partyWater;
+                return GetTrainerStructFromId(trainerId)->partyWater;
                 break;
             case SPECIES_PIPLUP:
-                GetTrainerStructFromId(trainerId)->partyGrass;
+                return GetTrainerStructFromId(trainerId)->partyGrass;
                 break;
             default:
-                GetTrainerStructFromId(trainerId)->party;
+                return GetTrainerStructFromId(trainerId)->party;
                 break;
             }
         }

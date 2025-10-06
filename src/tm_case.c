@@ -347,7 +347,7 @@ static bool8 DoSetUpTMCaseUI(void)
             gMain.state++;
         break;
     case 9:
-        UpdatePocketItemList(TMHM_POCKET);
+        UpdatePocketItemList(POCKET_TM_HM);
         gMain.state++;
         break;
     case 10:
@@ -641,7 +641,7 @@ static void TMCaseSetup_GetTMCount(void)
     u16 i;
 
     // BagPocketCompaction(pocket->itemSlots, pocket->capacity);
-    UpdatePocketItemList(TMHM_POCKET);
+    UpdatePocketItemList(POCKET_TM_HM);
     sTMCaseDynamicResources->numTMs = 0;
     for (i = 0; i < pocket->capacity; i++)
     {
