@@ -592,6 +592,7 @@ extern const u8 Script_SinkOrRisePlayer[];
 extern const u8 ChooseSpellRange[];
 extern const u8 ChooseSpellType[];
 extern const u8 EventScript_UseDiveUnderwater[];
+extern const u8 EventScript_UseRockClimb[];
 extern const u8 EventScript_FallDownHole[];
 extern const u8 EventScript_FallDownDrisledgeGym[];
 extern const u8 EventScript_FieldPoison[];

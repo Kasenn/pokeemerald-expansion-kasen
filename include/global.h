@@ -234,11 +234,11 @@ struct Time
     /*0x04*/ s8 seconds;
 };
 
-struct NPCFollowerMapData
+struct NPCFollowerPadding
 {
-    u8 id;
-    u8 number;
-    u8 group;
+    u8 padding1;
+    u8 padding2;
+    u8 padding3;
 };
 
 struct NPCFollower
@@ -251,7 +251,7 @@ struct NPCFollower
     u8 objId;
     u8 currentSprite;
     u8 delayedState;
-    struct NPCFollowerMapData map;
+    struct NPCFollowerPadding padding;
     struct Coords16 log;
     const u8 *script;
     u16 flag;
@@ -1063,6 +1063,18 @@ struct ExternalEventFlags
     u8 unknownFlag20;
 
 } __attribute__((packed));/*size = 0x15*/
+
+struct Bag
+{
+    struct ItemSlot items[BAG_ITEMS_COUNT];
+    struct ItemSlot pokeBalls[BAG_POKEBALLS_COUNT];
+    struct ItemSlot megaStones[BAG_MEGASTONE_COUNT];
+    struct ItemSlot keyItems[BAG_KEYITEMS_COUNT];
+    struct ItemSlot berries[BAG_BERRIES_COUNT];
+    struct ItemSlot medicine[BAG_MEDICINE_COUNT];
+    struct ItemSlot TMsHMs[BAG_TMHM_COUNT];
+};
+
 struct SaveBlock1
 {
     /*0x00*/ struct Coords16 pos;
@@ -1088,13 +1100,7 @@ struct SaveBlock1
     u8 registeredItemListCount:4;
     struct RegisteredItemSlot registeredItems[REGISTERED_ITEMS_MAX];
     /*0x498*/ struct ItemSlot pcItems[PC_ITEMS_COUNT];
-    /*0x21C*/ struct ItemSlot bagPocket_Items[BAG_ITEMS_COUNT];
-              struct ItemSlot bagPocket_PokeBalls[BAG_POKEBALLS_COUNT];
-              struct ItemSlot bagPocket_MegaStones[BAG_MEGASTONE_COUNT];
-    /*0x5D8*/ struct ItemSlot bagPocket_KeyItems[BAG_KEYITEMS_COUNT];
-    /*0x790*/ struct ItemSlot bagPocket_Berries[BAG_BERRIES_COUNT];
-    /*0x0B*/  struct ItemSlot bagPocket_Medicine[BAG_MEDICINE_COUNT];
-    /*0x690*/ struct ItemSlot bagPocket_TMHM[BAG_TMHM_COUNT];
+    /*0x560*/ struct Bag bag;
     /*0xA30*/ struct ObjectEvent objectEvents[OBJECT_EVENTS_COUNT];
     /*0xC70*/ struct ObjectEventTemplate objectEventTemplates[OBJECT_EVENT_TEMPLATES_COUNT];
     /*0x1270*/ u8 flags[NUM_FLAG_BYTES];

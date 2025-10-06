@@ -97,6 +97,7 @@ gFieldEffectScriptPointers::
 	.4byte gFieldEffectScript_RidingGogoat              @ FLDEFF_RIDING_GOGOAT
 	.4byte gFieldEffectScript_RidingGogoatHead          @ FLDEFF_RIDING_GOGOAT_HEAD
 	.4byte gFieldEffectScript_TallGrassRed				@ FLDEFF_TALL_GRASS_RED
+	.4byte gFieldEffectScript_RockClimbDust             @ FLDEFF_ROCK_CLIMB_DUST
 
 gFieldEffectScript_ExclamationMarkIcon1::
 	field_eff_callnative FldEff_ExclamationMarkIcon
@@ -464,3 +465,8 @@ gFieldEffectScript_RidingGogoatHead::
 gFieldEffectScript_UseRockClimb::
 	field_eff_callnative FldEff_UseRockClimb
 	field_eff_end
+
+gFieldEffectScript_RockClimbDust:: @ 82DBB28
+	field_eff_loadfadedpal_callnative gSpritePalette_BigDust, FldEff_RockClimbDust
+	field_eff_end
+

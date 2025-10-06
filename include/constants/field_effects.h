@@ -93,6 +93,7 @@
 #define FLDEFF_RIDING_GOGOAT             88
 #define FLDEFF_RIDING_GOGOAT_HEAD        89
 #define FLDEFF_TALL_GRASS_RED            90
+#define FLDEFF_ROCK_CLIMB_DUST           91
 
 #define FLDEFFOBJ_SHADOW_S              0
 #define FLDEFFOBJ_SHADOW_M              1
@@ -149,6 +150,8 @@
 #define FLDEFFOBJ_RIDING_GOGOAT         52
 #define FLDEFFOBJ_RIDING_GOGOAT_HEAD    53
 #define FLDEFFOBJ_TALL_GRASS_RED        54
+#define FLDEFFOBJ_ROCK_CLIMB_BLOB       55
+#define FLDEFFOBJ_ROCK_CLIMB_DUST       56
 
 #define FLDEFF_PAL_TAG_CUT_GRASS          0x1000
 #define FLDEFF_PAL_TAG_SECRET_POWER_TREE  0x1003
@@ -165,6 +168,7 @@
 #define FLDEFF_PAL_TAG_UNKNOWN            0x1011
 #define FLDEFF_PAL_TAG_GENERAL_2          0x1012
 #define FLDEFF_PAL_TAG_CAVE_DUST          0x1013
+#define FLDEFF_PAL_TAG_DUST_CLOUD         0x1014
 #define FLDEFF_PAL_TAG_FIELD_MOVE_MON     0x8400
 
 // tile tags, for field effects that may have many copies on screen at once

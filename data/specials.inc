@@ -486,3 +486,4 @@ gSpecials::
 	def_special GetCodeFeedback
 	def_special ShowJournalPopupAdd
 	def_special ShowJournalPopupRemove
+	def_special SetHiddenNature

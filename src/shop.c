@@ -1061,12 +1061,12 @@ static void BuyMenuDecompressBgGraphics(void)
     if (MARTMOVE)
     {
         DecompressAndCopyTileDataToVram(1, gShopMenu_Gfx_MoveTutor, 0x3A0, 0x3E3, 0);
-        LZDecompressWram(gShopMenu_Tilemap_MoveTutor, sShopData->tilemapBuffers[0]);
+        DecompressDataWithHeaderWram(gShopMenu_Tilemap_MoveTutor, sShopData->tilemapBuffers[0]);
     }
     else
     {
         DecompressAndCopyTileDataToVram(1, gShopMenu_Gfx, 0x3A0, 0x3E3, 0);
-        LZDecompressWram(gShopMenu_Tilemap, sShopData->tilemapBuffers[0]);
+        DecompressDataWithHeaderWram(gShopMenu_Tilemap, sShopData->tilemapBuffers[0]);
     }
     LoadPalette(gShopMenu_Pal, BG_PLTT_ID(SHOP_MENU_PALETTE_ID), PLTT_SIZE_4BPP);
 }
