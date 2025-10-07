@@ -597,7 +597,7 @@ BattleScript_AffectionBasedEndurance::
 	waitstate
 	printstring STRINGID_TARGETTOUGHEDITOUT
 	waitmessage B_WAIT_TIME_LONG
-	setoutcomeonteleport BS_ATTACKER
+	setteleportoutcome BS_ATTACKER
 	finishaction
 
 BattleScript_AffectionBasedStatusHeal::
@@ -3392,8 +3392,8 @@ BattleScript_EffectTwoTurnsAttack::
 	goto BattleScript_MoveEnd
 
 BattleScript_CheckWindEffect:
-	jumpifweatheraffected BS_ATTACKER, B_WEATHER_STRONG_WINDS, BattleScript_WindActivates
-	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_POWER_HERB, BattleScript_TwoTurnMovesSecondPowerHerbActivates
+	jumpifweatheraffected B_WEATHER_STRONG_WINDS, BattleScript_WindActivates
+	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_POWER_HERB, BattleScript_TwoTurnMovesSecondPowerHerbActivates, TRUE
 	goto BattleScript_MoveEnd
 
 BattleScript_WindActivates:
@@ -3888,7 +3888,7 @@ BattleScript_EffectForestCurse::
 	goto BattleScript_ButItFailed
 BattleScript_ForestsCurseEqualByte::
 	jumpifbytenotequal gBattlerAttacker, gBattlerTarget, BattleScript_DoForestsCurse
-	getmovetarget BS_ATTACKER
+	getmovetarget
 BattleScript_DoForestsCurse::
 	attackcanceler
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
@@ -5222,7 +5222,7 @@ BattleScript_AmphyInterrupts::
 	trainerslideout BS_ATTACKER
 	waitstate
 	atknameinbuff1
-	resetswitchinabilitybits BS_TARGET
+	resetswitchinabilitybits
 	hpthresholds2 BS_TARGET
 	switchoutabilities BS_TARGET
 	waitstate
@@ -8283,14 +8283,14 @@ BattleScript_CuteCharmActivates::
 
 BattleScript_HiveLeaderActivates::
 	call BattleScript_AbilityPopUp
-	status2animation BS_ATTACKER, STATUS2_WRAPPED
+	volatileanimation BS_ATTACKER, VOLATILE_WRAPPED
 	printstring STRINGID_HIVE_LEADER
 	waitmessage B_WAIT_TIME_LONG
 	return
 
 BattleScript_HiveLeaderActivatesOffense::
 	call BattleScript_AbilityPopUp
-	status2animation BS_EFFECT_BATTLER, STATUS2_WRAPPED
+	volatileanimation BS_EFFECT_BATTLER, VOLATILE_WRAPPED
 	printstring STRINGID_INFESTATION
 	waitmessage B_WAIT_TIME_LONG
 	return
@@ -8717,8 +8717,7 @@ BattleScript_BerrySleepHealEnd2_Anim:
 	datahpupdate BS_SCRIPTING
 	printstring STRINGID_SLEEPBERRY
 	waitmessage B_WAIT_TIME_LONG
-	setmoveeffect MOVE_EFFECT_SLEEP | MOVE_EFFECT_AFFECTS_USER
-	seteffectprimary
+	seteffectprimary BS_SCRIPTING, BS_SCRIPTING, MOVE_EFFECT_SLEEP
 	removeitem BS_SCRIPTING
 	end2
 
@@ -8749,8 +8748,7 @@ BattleScript_BerrySleepHealRet_Anim:
 	datahpupdate BS_SCRIPTING
 	printstring STRINGID_SLEEPBERRY
 	waitmessage B_WAIT_TIME_LONG
-	setmoveeffect MOVE_EFFECT_SLEEP | MOVE_EFFECT_CERTAIN
-	seteffectprimary
+	seteffectprimary BS_SCRIPTING, BS_SCRIPTING, MOVE_EFFECT_SLEEP
 	removeitem BS_TARGET
 	return
 
@@ -9881,17 +9879,14 @@ BattleScript_FlashDoMoveAnim::
 	attackanimation
 	waitanimation
 	setbyte sSTAT_ANIM_PLAYED, FALSE
-	playstatchangeanimation BS_TARGET, BIT_ACC | BIT_SPEED, STAT_CHANGE_NEGATIVE | STAT_CHANGE_MULTIPLE_STATS
-	playstatchangeanimation BS_TARGET, BIT_ACC, STAT_CHANGE_NEGATIVE
 	setstatchanger STAT_ACC, 1, TRUE
-	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_FlashTryLowerSpeed
+	statbuffchange BS_ATTACKER, STAT_CHANGE_ALLOW_PTR, BattleScript_FlashTryLowerSpeed, BIT_ACC | BIT_SPEED
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_FlashTryLowerSpeed
 	printfromtable gStatDownStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_FlashTryLowerSpeed::
-	playstatchangeanimation BS_TARGET, BIT_SPEED, STAT_CHANGE_NEGATIVE
 	setstatchanger STAT_SPEED, 1, TRUE
-	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_FlashEnd
+	statbuffchange BS_ATTACKER, STAT_CHANGE_ALLOW_PTR, BattleScript_FlashEnd, BIT_SPEED
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_FlashEnd
 	printfromtable gStatDownStringIds
 	waitmessage B_WAIT_TIME_LONG

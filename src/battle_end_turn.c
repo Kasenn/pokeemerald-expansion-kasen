@@ -528,16 +528,17 @@ static bool32 HandleEndTurnFirstEventBlock(u32 battler)
         {
             gBattlerTarget = battler;
 
-            struct DamageCalculationData damageCalcData;
-            damageCalcData.battlerAtk = damageCalcData.battlerDef = gBattlerAttacker;
-            damageCalcData.move = MOVE_NONE;
-            damageCalcData.moveType = TYPE_MYSTERY;
-            damageCalcData.isCrit = FALSE;
-            damageCalcData.randomFactor = FALSE;
-            damageCalcData.updateFlags = TRUE;
-            u16 physAttack = CalculateMoveDamage(&damageCalcData, 40);
-            damageCalcData.move = MOVE_NONE_SPECIAL;
-            u16 speAttack = CalculateMoveDamage(&damageCalcData, 40);
+            struct DamageContext ctx;
+            ctx.battlerAtk = ctx.battlerDef = gBattlerAttacker;
+            ctx.move = MOVE_NONE;
+            ctx.moveType = TYPE_MYSTERY;
+            ctx.isCrit = FALSE;
+            ctx.randomFactor = FALSE;
+            ctx.updateFlags = TRUE;
+            ctx.fixedBasePower = 40;
+            u16 physAttack = CalculateMoveDamage(&ctx);
+            ctx.move = MOVE_NONE_SPECIAL;
+            u16 speAttack = CalculateMoveDamage(&ctx);
 
             if (speAttack > physAttack)
                 gBattleStruct->moveDamage[battler] = speAttack;

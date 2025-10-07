@@ -380,7 +380,7 @@ static bool8 DoSetUpTMCaseUI(void)
         gMain.state++;
         break;
     case 16:
-        // sTMCaseDynamicResources->tmSpriteId = CreateTMSprite(BagGetItemIdByPocketPosition(POCKET_TM_HM, sTMCaseStaticResources.scrollOffset + sTMCaseStaticResources.selectedRow));
+        // sTMCaseDynamicResources->tmSpriteId = CreateTMSprite(GetBagItemId(POCKET_TM_HM, sTMCaseStaticResources.scrollOffset + sTMCaseStaticResources.selectedRow));
         gMain.state++;
         break;
     case 17:
@@ -536,7 +536,7 @@ static void TMCase_MoveCursorFunc(s32 itemIndex, bool8 onInit, struct ListMenu *
     if (itemIndex == -2)
         itemId = 0;
     else
-        itemId = BagGetItemIdByPocketPosition(POCKET_TM_HM, itemIndex);
+        itemId = GetBagItemId(POCKET_TM_HM, itemIndex);
 
     if (onInit != TRUE)
     {
@@ -551,7 +551,7 @@ static void TMCase_ItemPrintFunc(u8 windowId, u32 itemId, u8 y)
 {
     if (itemId != -2)
     {
-        if (!GetItemImportance(BagGetItemIdByPocketPosition(POCKET_TM_HM, itemId)))
+        if (!GetItemImportance(GetBagItemId(POCKET_TM_HM, itemId)))
         {
             // ConvertIntToDecimalStringN(gStringVar1, BagGetQuantityByPocketPosition(POCKET_TM_HM, itemId), STR_CONV_MODE_RIGHT_ALIGN, 3);
             // StringExpandPlaceholders(gStringVar4, gText_xVar1);
@@ -559,7 +559,7 @@ static void TMCase_ItemPrintFunc(u8 windowId, u32 itemId, u8 y)
         }
         else
         {   
-            if (BagGetItemIdByPocketPosition(POCKET_TM_HM, itemId) >= ITEM_HM01){
+            if (GetBagItemId(POCKET_TM_HM, itemId) >= ITEM_HM01){
                 PlaceHMTileInWindow(windowId, 8, y);
             }
         }
@@ -569,7 +569,7 @@ static void TMCase_ItemPrintFunc(u8 windowId, u32 itemId, u8 y)
 static void TMCase_MoveCursor_UpdatePrintedDescription(s32 itemIndex)
 {
     const u8 * str;
-    u16 itemId = BagGetItemIdByPocketPosition(POCKET_TM_HM, itemIndex);
+    u16 itemId = GetBagItemId(POCKET_TM_HM, itemIndex);
     if (itemIndex != -2)
     {
         str = GetItemDescription(itemId);
@@ -754,8 +754,8 @@ static void Task_TMCaseMain(u8 taskId)
                     RemoveTMCaseScrollIndicatorArrowPair();
                     PrintListMenuCursorByID_WithColorIdx(data[0], 2);
                     data[1] = input;
-                    data[2] = BagGetQuantityByPocketPosition(POCKET_TM_HM, input);
-                    gSpecialVar_ItemId = BagGetItemIdByPocketPosition(POCKET_TM_HM, input);
+                    data[2] = GetBagItemQuantity(POCKET_TM_HM, input);
+                    gSpecialVar_ItemId = GetBagItemId(POCKET_TM_HM, input);
                     gTasks[taskId].func = sSelectTMActionTasks[sTMCaseStaticResources.tmCaseMenuType];
                     break;
                 }
@@ -921,7 +921,7 @@ static void Task_SelectTMAction_Type3(u8 taskId)
 {
     s16 * data = gTasks[taskId].data;
 
-    if (!GetItemImportance(BagGetItemIdByPocketPosition(POCKET_TM_HM, data[1])))
+    if (!GetItemImportance(GetBagItemId(POCKET_TM_HM, data[1])))
     {
         sTMCaseDynamicResources->savedCallback = CB2_ReturnToPokeStorage;
         Task_BeginFadeOutFromTMCase(taskId);

@@ -274,8 +274,8 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         FreezeObjectEvents();
         if (FlagGet(FLAG_ENABLE_DEBUG))
             Debug_ShowMainMenu();
-        else
-            Debug_ShowMainMenuLimited();
+        // else //wip
+        //     Debug_ShowMainMenuLimited();
         return TRUE;
     }
 
@@ -582,7 +582,7 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
         SetMsgSignPostAndVarFacing(direction);
         return Common_EventScript_ShowPokemonCenterSign;
     }
-    if (MetatileBehavior_IsRockClimbable(metatileBehavior) == TRUE && !IsRockClimbActive())
+    if (MetatileBehavior_IsRockClimbable(metatileBehavior) == TRUE && !IsRockClimbRHHActive())
         return EventScript_UseRockClimb;
 
     elevation = position->elevation;

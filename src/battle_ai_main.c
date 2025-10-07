@@ -1627,9 +1627,9 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 ADJUST_SCORE(-8);
             break;
         case EFFECT_FLASH:
-            if (!ShouldLowerStat(battlerAtk, battlerDef, aiData->abilities[battlerDef], STAT_ACC))
+            if (!CanLowerStat(battlerAtk, battlerDef, aiData, STAT_ACC))
                 ADJUST_SCORE(-10);
-            else if (!ShouldLowerStat(battlerAtk, battlerDef, aiData->abilities[battlerDef], STAT_SPEED))
+            else if (!CanLowerStat(battlerAtk, battlerDef, aiData, STAT_SPEED))
                 ADJUST_SCORE(-8);
             break;
         case EFFECT_VENOM_DRENCH:
@@ -2582,7 +2582,8 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 ADJUST_SCORE(-10);
             break;
         case EFFECT_ROCKY_TERRAIN:
-            if (PartnerMoveEffectIsTerrain(BATTLE_PARTNER(battlerAtk), aiData->partnerMove) || gFieldStatuses & STATUS_FIELD_ROCKY_TERRAIN)
+            if (gFieldStatuses & STATUS_FIELD_ROCKY_TERRAIN
+             || (HasPartner(battlerAtk) && AreMovesEquivalent(battlerAtk, BATTLE_PARTNER(battlerAtk), move, aiData->partnerMove)))
                 ADJUST_SCORE(-10);
             break;
         case EFFECT_PSYCHIC_TERRAIN:
@@ -2723,7 +2724,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                     ADJUST_SCORE(-10);
                 break;
             case MOVE_FORESTS_CURSE:
-                if (gBattleMons[battlerDef].status2 & STATUS2_CURSED
+                if (gBattleMons[battlerDef].volatiles.cursed
                   || DoesPartnerHaveSameMoveEffect(BATTLE_PARTNER(battlerAtk), battlerDef, move, aiData->partnerMove))
                     ADJUST_SCORE(-10);
                 else if (aiData->hpPercents[battlerAtk] <= 25)
@@ -5055,11 +5056,8 @@ static u32 AI_CalcMoveEffectScore(u32 battlerAtk, u32 battlerDef, u32 move)
             ADJUST_SCORE(WEAK_EFFECT);
         break;
     case EFFECT_FLASH:
-        if (gBattleMons[battlerDef].statStages[STAT_ACC] > 4
-         && aiData->abilities[battlerDef] != ABILITY_CONTRARY && ShouldLowerAccuracy(battlerAtk, battlerDef, aiData->abilities[battlerDef]))
-            ADJUST_SCORE(DECENT_EFFECT);
-        else if (ShouldLowerSpeed(battlerAtk, battlerDef, aiData->abilities[battlerDef]))
-            ADJUST_SCORE(DECENT_EFFECT);
+        ADJUST_SCORE(IncreaseStatDownScore(battlerAtk, battlerDef, STAT_ACC));
+        ADJUST_SCORE(IncreaseStatDownScore(battlerAtk, battlerDef, STAT_SPEED));
         break;
     case EFFECT_TICKLE:
         ADJUST_SCORE(IncreaseStatDownScore(battlerAtk, battlerDef, STAT_ATK));

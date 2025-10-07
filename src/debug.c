@@ -3063,7 +3063,7 @@ static void DebugAction_Give_Decoration(u8 taskId)
     gTasks[taskId].tSubWindowId = windowId;
     gTasks[taskId].tInput = 1;
     gTasks[taskId].tDigit = 0;
-    gTasks[taskId].tSpriteId = AddDecorationIconObject(gTasks[taskId].tInput, DEBUG_NUMBER_ICON_X+8, DEBUG_NUMBER_ICON_Y+10, 0, ITEM_TAG, ITEM_TAG);
+    // gTasks[taskId].tSpriteId = AddDecorationIconObject(gTasks[taskId].tInput, DEBUG_NUMBER_ICON_X+8, DEBUG_NUMBER_ICON_Y+10, 0, ITEM_TAG, ITEM_TAG);
 }
 
 static void DestroyDecorationIcon(u8 taskId)
@@ -3082,7 +3082,7 @@ static void DebugAction_Give_Decoration_SelectId(u8 taskId)
         Debug_HandleInput_Numeric(taskId, 1, NUM_DECORATIONS, DEBUG_NUMBER_DIGITS_ITEMS);
         Debug_Display_DecorationInfo(gTasks[taskId].tInput, gTasks[taskId].tDigit, gTasks[taskId].tSubWindowId);
         DestroyDecorationIcon(taskId);
-        gTasks[taskId].tSpriteId = AddDecorationIconObject(gTasks[taskId].tInput, DEBUG_NUMBER_ICON_X+8, DEBUG_NUMBER_ICON_Y+10, 0, ITEM_TAG, ITEM_TAG);
+        // gTasks[taskId].tSpriteId = AddDecorationIconObject(gTasks[taskId].tInput, DEBUG_NUMBER_ICON_X+8, DEBUG_NUMBER_ICON_Y+10, 0, ITEM_TAG, ITEM_TAG);
     }
 
     if (JOY_NEW(A_BUTTON))
@@ -3463,9 +3463,9 @@ static const u32 gDebugFollowerNPCGraphics[] =
     OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL,
     OBJ_EVENT_GFX_RIVAL_MAY_NORMAL,
     OBJ_EVENT_GFX_STEVEN,
-    OBJ_EVENT_GFX_WALLY,
+    OBJ_EVENT_GFX_STEVEN,
     OBJ_EVENT_GFX_RED,
-    OBJ_EVENT_GFX_LEAF,
+    OBJ_EVENT_GFX_RED,
 };
 
 static void DebugAction_CreateFollowerNPC(u8 taskId)

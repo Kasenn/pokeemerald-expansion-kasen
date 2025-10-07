@@ -2927,3 +2927,11 @@
 	callnative ScrCmd_IsCurrentMap
 	.2byte \map
 	.endm
+
+	@ Checks if at least one Pokemon in the player's party knows the specified move. If so, VAR_RESULT is set to the
+	@ (zero-indexed) slot number of the first Pokemon that knows the move. If not, VAR_RESULT is set to PARTY_SIZE.
+	@ VAR_0x8004 is also set to this Pokemon's species.
+	.macro checkpartymove move:req
+	callnative ScrCmd_checkpartymove
+	.2byte \move
+	.endm

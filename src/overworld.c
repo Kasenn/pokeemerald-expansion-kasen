@@ -183,7 +183,7 @@ static void SetFieldVBlankCallback(void);
 static void FieldClearVBlankHBlankCallbacks(void);
 static void TransitionMapMusic(void);
 static u32 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *playerStruct, u16 metatileBehavior, enum MapType mapType);
-static u8 GetAdjustedInitialDirection(struct InitialPlayerAvatarState *playerStruct, u16 transitionFlags, u16 metatileBehavior, enum MapType mapType);
+static u8 GetAdjustedInitialDirection(struct InitialPlayerAvatarState *playerStruct, u32 transitionFlags, u16 metatileBehavior, enum MapType mapType);
 static u16 GetCenterScreenMetatileBehavior(void);
 
 static void *sUnusedOverworldCallback;

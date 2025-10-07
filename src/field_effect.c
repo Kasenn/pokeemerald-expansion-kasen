@@ -256,18 +256,18 @@ static void UseVsSeeker_DoPlayerAnimation(struct Task *task);
 static void UseVsSeeker_ResetPlayerGraphics(struct Task *task);
 static void UseVsSeeker_CleanUpFieldEffect(struct Task *task);
 
-static void Task_UseRockClimb(u8);
-static bool8 RockClimb_Init(struct Task *, struct ObjectEvent *);
-static bool8 RockClimb_FieldMovePose(struct Task *, struct ObjectEvent *);
-static bool8 RockClimb_ShowMon(struct Task *, struct ObjectEvent *);
-static bool8 RockClimb_JumpOnRockClimbBlob(struct Task *task, struct ObjectEvent *objectEvent);
-static bool8 RockClimb_WaitJumpOnRockClimbBlob(struct Task *task, struct ObjectEvent *objectEvent);
-static bool8 RockClimb_Ride(struct Task *task, struct ObjectEvent *objectEvent);
-//static bool8 RockClimb_RideUp(struct Task *, struct ObjectEvent *);
-//static bool8 RockClimb_RideDown(struct Task *, struct ObjectEvent *);
-static bool8 RockClimb_ContinueRideOrEnd(struct Task *, struct ObjectEvent *);
-static bool8 RockClimb_WaitStopRockClimb(struct Task *task, struct ObjectEvent *objectEvent);
-static bool8 RockClimb_StopRockClimbInit(struct Task *task, struct ObjectEvent *objectEvent);
+static void Task_UseRockClimbRHH(u8);
+static bool8 RockClimbRHH_Init(struct Task *, struct ObjectEvent *);
+static bool8 RockClimbRHH_FieldMovePose(struct Task *, struct ObjectEvent *);
+static bool8 RockClimbRHH_ShowMon(struct Task *, struct ObjectEvent *);
+static bool8 RockClimbRHH_JumpOnRockClimbRHHBlob(struct Task *task, struct ObjectEvent *objectEvent);
+static bool8 RockClimbRHH_WaitJumpOnRockClimbRHHBlob(struct Task *task, struct ObjectEvent *objectEvent);
+static bool8 RockClimbRHH_Ride(struct Task *task, struct ObjectEvent *objectEvent);
+//static bool8 RockClimbRHH_RideUp(struct Task *, struct ObjectEvent *);
+//static bool8 RockClimbRHH_RideDown(struct Task *, struct ObjectEvent *);
+static bool8 RockClimbRHH_ContinueRideOrEnd(struct Task *, struct ObjectEvent *);
+static bool8 RockClimbRHH_WaitStopRockClimbRHH(struct Task *task, struct ObjectEvent *objectEvent);
+static bool8 RockClimbRHH_StopRockClimbRHHInit(struct Task *task, struct ObjectEvent *objectEvent);
 // Static RAM declarations
 
 static u8 sActiveList[32];
@@ -4397,34 +4397,34 @@ static u8 CreateRockClimbBlob(void)
     return spriteId;
 }
 
-bool8 (*const sRockClimbFieldEffectFuncs[])(struct Task *, struct ObjectEvent *) =
+bool8 (*const sRockClimbFieldEffectFuncsRHH[])(struct Task *, struct ObjectEvent *) =
 {
-    [STATE_ROCK_CLIMB_INIT]          = RockClimb_Init,
-    [STATE_ROCK_CLIMB_POSE]          = RockClimb_FieldMovePose,
-    [STATE_ROCK_CLIMB_SHOW_MON]      = RockClimb_ShowMon,
-    [STATE_ROCK_CLIMB_JUMP_ON]       = RockClimb_JumpOnRockClimbBlob,
-    [STATE_ROCK_CLIMB_WAIT_JUMP]     = RockClimb_WaitJumpOnRockClimbBlob,
-    [STATE_ROCK_CLIMB_RIDE]          = RockClimb_Ride,
-    [STATE_ROCK_CLIMB_CONTINUE_RIDE] = RockClimb_ContinueRideOrEnd,
-    [STATE_ROCK_CLIMB_STOP_INIT]     = RockClimb_StopRockClimbInit,
-    [STATE_ROCK_CLIMB_WAIT_STOP]     = RockClimb_WaitStopRockClimb
+    [STATE_ROCK_CLIMB_INIT]          = RockClimbRHH_Init,
+    [STATE_ROCK_CLIMB_POSE]          = RockClimbRHH_FieldMovePose,
+    [STATE_ROCK_CLIMB_SHOW_MON]      = RockClimbRHH_ShowMon,
+    [STATE_ROCK_CLIMB_JUMP_ON]       = RockClimbRHH_JumpOnRockClimbRHHBlob,
+    [STATE_ROCK_CLIMB_WAIT_JUMP]     = RockClimbRHH_WaitJumpOnRockClimbRHHBlob,
+    [STATE_ROCK_CLIMB_RIDE]          = RockClimbRHH_Ride,
+    [STATE_ROCK_CLIMB_CONTINUE_RIDE] = RockClimbRHH_ContinueRideOrEnd,
+    [STATE_ROCK_CLIMB_STOP_INIT]     = RockClimbRHH_StopRockClimbRHHInit,
+    [STATE_ROCK_CLIMB_WAIT_STOP]     = RockClimbRHH_WaitStopRockClimbRHH
 };
 
-bool8 FldEff_UseRockClimb(void)
+bool8 FldEff_UseRockClimbRHH(void)
 {
     u8 taskId;
-    taskId = CreateTask(Task_UseRockClimb, 0xff);
+    taskId = CreateTask(Task_UseRockClimbRHH, 0xff);
     gTasks[taskId].tMonId = gFieldEffectArguments[0];
-    Task_UseRockClimb(taskId);
+    Task_UseRockClimbRHH(taskId);
     return FALSE;
 }
 
-static void Task_UseRockClimb(u8 taskId)
+static void Task_UseRockClimbRHH(u8 taskId)
 {
-    while (sRockClimbFieldEffectFuncs[gTasks[taskId].tState](&gTasks[taskId], &gObjectEvents[gPlayerAvatar.objectEventId]));
+    while (sRockClimbFieldEffectFuncsRHH[gTasks[taskId].tState](&gTasks[taskId], &gObjectEvents[gPlayerAvatar.objectEventId]));
 }
 
-static bool8 RockClimb_Init(struct Task *task, struct ObjectEvent *objectEvent)
+static bool8 RockClimbRHH_Init(struct Task *task, struct ObjectEvent *objectEvent)
 {
     LockPlayerFieldControls();
     FreezeObjectEvents();
@@ -4438,7 +4438,7 @@ static bool8 RockClimb_Init(struct Task *task, struct ObjectEvent *objectEvent)
     return FALSE;
 }
 
-static bool8 RockClimb_FieldMovePose(struct Task *task, struct ObjectEvent *objectEvent)
+static bool8 RockClimbRHH_FieldMovePose(struct Task *task, struct ObjectEvent *objectEvent)
 {
     if (!ObjectEventIsMovementOverridden(objectEvent) || ObjectEventClearHeldMovementIfFinished(objectEvent))
     {
@@ -4449,7 +4449,7 @@ static bool8 RockClimb_FieldMovePose(struct Task *task, struct ObjectEvent *obje
     return FALSE;
 }
 
-static bool8 RockClimb_ShowMon(struct Task *task, struct ObjectEvent *objectEvent)
+static bool8 RockClimbRHH_ShowMon(struct Task *task, struct ObjectEvent *objectEvent)
 {
     if (ObjectEventCheckHeldMovementStatus(objectEvent))
     {
@@ -4461,7 +4461,7 @@ static bool8 RockClimb_ShowMon(struct Task *task, struct ObjectEvent *objectEven
     return FALSE;
 }
 
-static bool8 RockClimb_JumpOnRockClimbBlob(struct Task *task, struct ObjectEvent *objectEvent)
+static bool8 RockClimbRHH_JumpOnRockClimbRHHBlob(struct Task *task, struct ObjectEvent *objectEvent)
 {
     if (!FieldEffectActiveListContains(FLDEFF_FIELD_MOVE_SHOW_MON))
     {
@@ -4479,7 +4479,7 @@ static bool8 RockClimb_JumpOnRockClimbBlob(struct Task *task, struct ObjectEvent
     return FALSE;
 }
 
-static bool8 RockClimb_WaitJumpOnRockClimbBlob(struct Task *task, struct ObjectEvent *objectEvent)
+static bool8 RockClimbRHH_WaitJumpOnRockClimbRHHBlob(struct Task *task, struct ObjectEvent *objectEvent)
 {
     if (ObjectEventClearHeldMovementIfFinished(objectEvent))
     {
@@ -4508,14 +4508,14 @@ static bool8 RockClimb_WaitJumpOnRockClimbBlob(struct Task *task, struct ObjectE
     return FALSE;
 }
 
-struct RockClimbRide
+struct RockClimbRHHRide
 {
     u8 action;
     s8 dx;
     s8 dy;
     u8 jumpDir;
 };
-static const struct RockClimbRide sRockClimbMovement[] =
+static const struct RockClimbRHHRide sRockClimbRHHMovement[] =
 {
     [DIR_NONE] = {MOVEMENT_ACTION_WALK_FAST_DOWN, 0, 0, DIR_NONE},
     [DIR_SOUTH] = {MOVEMENT_ACTION_WALK_FAST_DOWN, 0, -1, DIR_SOUTH},
@@ -4528,10 +4528,10 @@ static const struct RockClimbRide sRockClimbMovement[] =
     [DIR_NORTHEAST] = {MOVEMENT_ACTION_WALK_FAST_DIAGONAL_UP_RIGHT, -1, 1, DIR_EAST},
 };
 
-static void RockClimbDust(struct ObjectEvent *objectEvent, u8 direction)
+static void RockClimbRHHDust(struct ObjectEvent *objectEvent, u8 direction)
 {
-    s8 dx = sRockClimbMovement[direction].dx;
-    s8 dy = sRockClimbMovement[direction].dy;
+    s8 dx = sRockClimbRHHMovement[direction].dx;
+    s8 dy = sRockClimbRHHMovement[direction].dy;
 
     gFieldEffectArguments[0] = objectEvent->currentCoords.x + dx;
     gFieldEffectArguments[1] = objectEvent->currentCoords.y + dy;
@@ -4540,16 +4540,16 @@ static void RockClimbDust(struct ObjectEvent *objectEvent, u8 direction)
     FieldEffectStart(FLDEFF_ROCK_CLIMB_DUST);
 }
 
-static bool8 RockClimb_Ride(struct Task *task, struct ObjectEvent *objectEvent)
+static bool8 RockClimbRHH_Ride(struct Task *task, struct ObjectEvent *objectEvent)
 {
-    ObjectEventSetHeldMovement(objectEvent, sRockClimbMovement[objectEvent->movementDirection].action);
+    ObjectEventSetHeldMovement(objectEvent, sRockClimbRHHMovement[objectEvent->movementDirection].action);
     PlaySE(SE_M_ROCK_THROW);
-    RockClimbDust(objectEvent, objectEvent->movementDirection);
+    RockClimbRHHDust(objectEvent, objectEvent->movementDirection);
     task->tState++;
     return FALSE;
 }
 
-static bool8 RockClimb_ContinueRideOrEnd(struct Task *task, struct ObjectEvent *objectEvent)
+static bool8 RockClimbRHH_ContinueRideOrEnd(struct Task *task, struct ObjectEvent *objectEvent)
 {
     if (!ObjectEventClearHeldMovementIfFinished(objectEvent))
         return FALSE;
@@ -4569,7 +4569,7 @@ static bool8 RockClimb_ContinueRideOrEnd(struct Task *task, struct ObjectEvent *
     return FALSE;
 }
 
-static bool8 RockClimb_StopRockClimbInit(struct Task *task, struct ObjectEvent *objectEvent)
+static bool8 RockClimbRHH_StopRockClimbRHHInit(struct Task *task, struct ObjectEvent *objectEvent)
 {
     if (ObjectEventIsMovementOverridden(objectEvent))
     {
@@ -4577,14 +4577,14 @@ static bool8 RockClimb_StopRockClimbInit(struct Task *task, struct ObjectEvent *
             return FALSE;
     }
 
-    RockClimbDust(objectEvent, DIR_NONE);   //dust on final spot
-    ObjectEventSetHeldMovement(objectEvent, GetJumpSpecialMovementAction(sRockClimbMovement[objectEvent->movementDirection].jumpDir));
+    RockClimbRHHDust(objectEvent, DIR_NONE);   //dust on final spot
+    ObjectEventSetHeldMovement(objectEvent, GetJumpSpecialMovementAction(sRockClimbRHHMovement[objectEvent->movementDirection].jumpDir));
     SetSurfBlob_BobState(objectEvent->fieldEffectSpriteId, BOB_NONE);
     task->tState++;
     return TRUE;
 }
 
-static bool8 RockClimb_WaitStopRockClimb(struct Task *task, struct ObjectEvent *objectEvent)
+static bool8 RockClimbRHH_WaitStopRockClimbRHH(struct Task *task, struct ObjectEvent *objectEvent)
 {
     struct ObjectEvent *followerObject = GetFollowerObject();
     if (ObjectEventClearHeldMovementIfFinished(objectEvent))
@@ -4600,13 +4600,13 @@ static bool8 RockClimb_WaitStopRockClimb(struct Task *task, struct ObjectEvent *
         DestroySprite(&gSprites[objectEvent->fieldEffectSpriteId]);
         FieldEffectActiveListRemove(FLDEFF_USE_ROCK_CLIMB);
         objectEvent->triggerGroundEffectsOnMove = TRUE; // e.g. if dismount on grass
-        DestroyTask(FindTaskIdByFunc(Task_UseRockClimb));
+        DestroyTask(FindTaskIdByFunc(Task_UseRockClimbRHH));
     }
 
     return FALSE;
 }
 
-bool8 IsRockClimbActive(void)
+bool8 IsRockClimbRHHActive(void)
 {
     if (FieldEffectActiveListContains(FLDEFF_USE_ROCK_CLIMB))
         return TRUE;

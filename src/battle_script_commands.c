@@ -498,7 +498,6 @@ static void Cmd_transformdataexecution(void);
 static void Cmd_setsubstitute(void);
 static void Cmd_mimicattackcopy(void);
 static void Cmd_metronome(void);
-static void Cmd_unused_0x9f(void);
 static void Cmd_unused_0xA0(void);
 static void Cmd_counterdamagecalculator(void);
 static void Cmd_mirrorcoatdamagecalculator(void);
@@ -11418,10 +11417,6 @@ static void Cmd_metronome(void)
     ResetValuesForCalledMove();
 }
 
-static void Cmd_unused_0x9f(void)
-{
-}
-
 static void Cmd_unused_0xA0(void)
 {
 }
@@ -16860,7 +16855,7 @@ static void Cmd_forestscurse(void)
     CMD_ARGS(const u8 *failInstr);
     u32 type = TYPE_GRASS;
 
-    if (IS_BATTLER_OF_TYPE(gBattlerTarget, type) && (gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED))
+    if (IS_BATTLER_OF_TYPE(gBattlerTarget, type) && (gBattleMons[gBattlerTarget].volatiles.cursed))
     {
         gBattlescriptCurrInstr = cmd->failInstr;
     }
@@ -16872,9 +16867,9 @@ static void Cmd_forestscurse(void)
             PREPARE_TYPE_BUFFER(gBattleTextBuff1, type);
         }
 
-        if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_CURSED))
+        if (!(gBattleMons[gBattlerTarget].volatiles.cursed))
         {
-            gBattleMons[gBattlerTarget].status2 |= STATUS2_CURSED;
+            gBattleMons[gBattlerTarget].volatiles.cursed = TRUE;
             gBattleStruct->moveDamage[gBattlerAttacker] = GetNonDynamaxMaxHP(gBattlerAttacker) / 4;
     
             if (gBattleStruct->moveDamage[gBattlerAttacker] == 0)
@@ -18388,6 +18383,18 @@ void BS_JumpIfWeatherAffected(void)
         gBattlescriptCurrInstr = cmd->jumpInstr;
     else
         gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_JumpIfAmphyInterrupts(void)
+{
+    NATIVE_ARGS(u8 battler, const u8 *jumpInstr);
+    u32 battler = GetBattlerForBattleScript(cmd->battler);
+
+    if (gBattleTypeFlags & BATTLE_TYPE_JASMINE && !CanBattlerSwitch(battler))
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    else
+        gBattlescriptCurrInstr = cmd->nextInstr;
+
 }
 
 void BS_JumpIfSpecies(void)

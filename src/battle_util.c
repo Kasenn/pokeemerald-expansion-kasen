@@ -4858,10 +4858,10 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
              && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
              && IsBattlerTurnDamaged(gBattlerTarget)
              && IsBattlerAlive(gBattlerTarget)
-             && !(gBattleMons[gBattlerAttacker].status2 & STATUS2_WRAPPED)
+             && !(gBattleMons[gBattlerAttacker].volatiles.wrapped)
              && !CanBattlerAvoidContactEffects(gBattlerAttacker, gBattlerTarget, GetBattlerAbility(gBattlerAttacker), GetBattlerHoldEffect(gBattlerAttacker, TRUE), move))
             {
-                gBattleMons[gBattlerAttacker].status2 |= STATUS2_WRAPPED;
+                gBattleMons[gBattlerAttacker].volatiles.wrapped = TRUE;
                 if (GetBattlerHoldEffect(gBattlerTarget, TRUE) == HOLD_EFFECT_GRIP_CLAW)
                     gDisableStructs[gEffectBattler].wrapTurns = B_BINDING_TURNS >= GEN_5 ? 7 : 5;
                 else
@@ -5051,11 +5051,11 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
         if (!(gBattleStruct->moveResultFlags[gBattlerTarget] & MOVE_RESULT_NO_EFFECT)
              && IsBattlerAlive(gEffectBattler)
              && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
-             && !(gBattleMons[gEffectBattler].status2 & STATUS2_WRAPPED)
+             && !(gBattleMons[gEffectBattler].volatiles.wrapped)
              && !CanBattlerAvoidContactEffects(gBattlerAttacker, gBattlerTarget, GetBattlerAbility(gBattlerAttacker), GetBattlerHoldEffect(gBattlerAttacker, TRUE), move)
              && IsBattlerTurnDamaged(gBattlerTarget)) // Need to actually hit the target
             {
-                gBattleMons[gEffectBattler].status2 |= STATUS2_WRAPPED;
+                gBattleMons[gEffectBattler].volatiles.wrapped = TRUE;
                 if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_GRIP_CLAW)
                     gDisableStructs[gEffectBattler].wrapTurns = B_BINDING_TURNS >= GEN_5 ? 7 : 5;
                 else
@@ -6031,7 +6031,7 @@ static u8 HealSleepBerry(u32 battler, u32 itemId, bool32 end2)
 {
     if (HasEnoughHpToEatBerry(battler, CONFUSE_BERRY_HP_FRACTION, itemId)
 #if B_HEAL_BLOCKING >= GEN_5
-     && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK)
+     && !(gBattleMons[battler].volatiles.healBlock)
 #endif
     )
     {
@@ -6969,8 +6969,7 @@ u32 ItemBattleEffects(enum ItemCaseId caseID, u32 battler)
                 effect = HealConfuseBerry(battler, gLastUsedItem, FLAVOR_SOUR, caseID);
                 break;
             case HOLD_EFFECT_SLEEP_BERRY:
-                if (!moveTurn)
-                    effect = HealSleepBerry(battler, gLastUsedItem, TRUE);
+                effect = HealSleepBerry(battler, gLastUsedItem, TRUE);
                 break;
             case HOLD_EFFECT_ATTACK_UP:
                 effect = StatRaiseBerry(battler, gLastUsedItem, STAT_ATK, caseID);
@@ -8524,7 +8523,7 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageContext *ctx)
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
         break;
     case ABILITY_SPIKE_BODY:
-        if (IsMoveMakingContact(battlerAtk, battlerDef, atkAbility, holdEffectAtk, move))
+        if (IsMoveMakingContact(battlerAtk, battlerDef, ctx->abilityAtk, ctx->holdEffectAtk, ctx->move))
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
         break;
     case ABILITY_STRONG_JAW:
@@ -8935,7 +8934,7 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
         if (moveType == TYPE_FIRE)
         {
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(0.5));
-            if (damageCalcData->updateFlags)
+            if (ctx->updateFlags)
                 RecordAbilityBattle(battlerDef, ABILITY_HIVE_LEADER);
         }
         break;
@@ -9078,7 +9077,7 @@ static inline u32 CalcDefenseStat(struct DamageContext *ctx)
     // pokemon with unaware ignore defense stat changes while dealing damage
     if (ctx->abilityAtk == ABILITY_UNAWARE)
         defStage = DEFAULT_STAT_STAGE;
-    if (atkAbility == ABILITY_DATA_BREACH && damageCalcData->moveType == TYPE_NORMAL)
+    if (ctx->abilityAtk == ABILITY_DATA_BREACH && ctx->moveType == TYPE_NORMAL)
         defStage = DEFAULT_STAT_STAGE;
     // certain moves also ignore stat changes
     if (MoveIgnoresDefenseEvasionStages(move))
@@ -9787,12 +9786,12 @@ static inline void MulByTypeEffectiveness(struct DamageContext *ctx, uq4_12_t *m
         if (ctx->updateFlags)
             RecordAbilityBattle(ctx->battlerAtk, ctx->abilityAtk);
     }
-    else if (moveType == TYPE_NORMAL && defType == TYPE_GHOST
-        && abilityAtk == ABILITY_DATA_BREACH && mod == UQ_4_12(0.0))
+    else if (ctx->moveType == TYPE_NORMAL && defType == TYPE_GHOST
+        && ctx->abilityAtk == ABILITY_DATA_BREACH && mod == UQ_4_12(0.0))
     {
         mod = UQ_4_12(1.0);
-        if (recordAbilities)
-            RecordAbilityBattle(battlerAtk, abilityAtk);
+        if (ctx->updateFlags)
+            RecordAbilityBattle(ctx->battlerAtk, ctx->abilityAtk);
     }
 
     if (ctx->moveType == TYPE_PSYCHIC && defType == TYPE_DARK && gBattleMons[ctx->battlerDef].volatiles.miracleEye && mod == UQ_4_12(0.0))

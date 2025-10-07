@@ -11436,7 +11436,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .description = COMPOUND_STRING(
             "Spins the body at high\n"
             "speed to strike the foe."),
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_RAPID_SPIN,
         .power = 50,
         .type = TYPE_ROCK,
         .accuracy = 100,
@@ -11446,10 +11446,6 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
         .additionalEffects = ADDITIONAL_EFFECTS(
-        {
-            .moveEffect = EFFECT_RAPID_SPIN,
-            .self = TRUE,
-        },
         {
             .moveEffect = MOVE_EFFECT_SPD_PLUS_1,
             .self = TRUE,

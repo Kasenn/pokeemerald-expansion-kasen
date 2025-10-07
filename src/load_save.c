@@ -290,45 +290,18 @@ void CopyPartyAndObjectsFromSave(void)
 
 void LoadPlayerBag(void)
 {
-    int i;
-
     // load player bag.
     memcpy(&gLoadedSaveData.bag, &gSaveBlock1Ptr->bag, sizeof(struct Bag));
-
-    // load player megastones.
-    for (i = 0; i < BAG_MEGASTONE_COUNT; i++)
-        gLoadedSaveData.megaStones[i] = gSaveBlock1Ptr->bagPocket_MegaStones[i];
-
-    // load mail.
-    // for (i = 0; i < MAIL_COUNT; i++)
-    //     gLoadedSaveData.mail[i] = gSaveBlock1Ptr->mail[i];
-
-    // load player medicine.
-    for (i = 0; i < BAG_MEDICINE_COUNT; i++)
-        gLoadedSaveData.medicine[i] = gSaveBlock1Ptr->bagPocket_Medicine[i];
 
     gLastEncryptionKey = gSaveBlock2Ptr->encryptionKey;
 }
 
 void SavePlayerBag(void)
 {
-    int i;
     u32 encryptionKeyBackup;
 
     // save player bag.
     memcpy(&gSaveBlock1Ptr->bag, &gLoadedSaveData.bag, sizeof(struct Bag));
-
-    // save player megastones.
-    for (i = 0; i < BAG_MEGASTONE_COUNT; i++)
-        gSaveBlock1Ptr->bagPocket_MegaStones[i] = gLoadedSaveData.megaStones[i];
-
-    // save mail.
-    // for (i = 0; i < MAIL_COUNT; i++)
-    //     gSaveBlock1Ptr->mail[i] = gLoadedSaveData.mail[i];
-
-    // save player medicine.
-    for (i = 0; i < BAG_MEDICINE_COUNT; i++)
-        gSaveBlock1Ptr->bagPocket_Medicine[i] = gLoadedSaveData.medicine[i];
 
     encryptionKeyBackup = gSaveBlock2Ptr->encryptionKey;
     gSaveBlock2Ptr->encryptionKey = gLastEncryptionKey;

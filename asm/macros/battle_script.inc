@@ -2403,6 +2403,12 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro jumpifamphy battler:req, jumpInstr:req
+	callnative BS_JumpIfAmphyInterrupts
+	.byte \battler
+	.4byte \jumpInstr
+	.endm
+
 	.macro jumpifspecies species:req, jumpInstr:req
 	callnative BS_JumpIfSpecies
 	.2byte \species

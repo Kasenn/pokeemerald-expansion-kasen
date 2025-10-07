@@ -218,19 +218,6 @@ static void ConfirmSell(u8);
 static void CancelSell(u8);
 static void Task_FadeAndCloseBagMenuIfMulch(u8 taskId);
 
-//bag sort
-static void Task_LoadBagSortOptions(u8 taskId);
-static void ItemMenu_SortByName(u8 taskId);
-static void ItemMenu_SortByType(u8 taskId);
-static void ItemMenu_SortByAmount(u8 taskId);
-static void SortBagItems(u8 taskId);
-static void Task_SortFinish(u8 taskId);
-static void SortItemsInBag(u8 pocket, u8 type);
-static void MergeSort(struct ItemSlot* array, u32 low, u32 high, s8 (*comparator)(struct ItemSlot*, struct ItemSlot*));
-static void Merge(struct ItemSlot* array, u32 low, u32 mid, u32 high, s8 (*comparator)(struct ItemSlot*, struct ItemSlot*));
-static s8 CompareItemsAlphabetically(struct ItemSlot* itemSlot1, struct ItemSlot* itemSlot2);
-static s8 CompareItemsByMost(struct ItemSlot* itemSlot1, struct ItemSlot* itemSlot2);
-static s8 CompareItemsByType(struct ItemSlot* itemSlot1, struct ItemSlot* itemSlot2);
 //tx_registered_items_menu
 //static void ItemMenu_RegisterSelect(u8 taskId);
 static void ItemMenu_RegisterList(u8 taskId);
@@ -1061,10 +1048,10 @@ static void BagMenu_ItemPrintCallback(u8 windowId, u32 itemIndex, u8 y)
             offset = GetStringRightAlignXOffset(FONT_NARROW, gStringVar4, 119);
             BagMenu_Print(windowId, FONT_NARROW, gStringVar4, offset, y, 0, 0, TEXT_SKIP_DRAW, COLORID_NORMAL);
         }
-        else if (gBagPosition.pocket == KEYITEMS_POCKET && itemQuantity >= 2)
+        else if (gBagPosition.pocket == POCKET_KEY_ITEMS && itemSlot.quantity >= 2)
         {
             // Print item quantity
-            ConvertIntToDecimalStringN(gStringVar1, itemQuantity, STR_CONV_MODE_RIGHT_ALIGN, MAX_ITEM_DIGITS);
+            ConvertIntToDecimalStringN(gStringVar1, itemSlot.quantity, STR_CONV_MODE_RIGHT_ALIGN, MAX_ITEM_DIGITS);
             StringExpandPlaceholders(gStringVar4, gText_xVar1);
             offset = GetStringRightAlignXOffset(FONT_NARROW, gStringVar4, 119);
             BagMenu_Print(windowId, FONT_NARROW, gStringVar4, offset, y, 0, 0, TEXT_SKIP_DRAW, COLORID_NORMAL);
@@ -1072,7 +1059,7 @@ static void BagMenu_ItemPrintCallback(u8 windowId, u32 itemIndex, u8 y)
         else
         {
             // Print registered icon
-            if (TxRegItemsMenu_CheckRegisteredHasItem(itemId))
+            if (TxRegItemsMenu_CheckRegisteredHasItem(itemSlot.itemId))
                 BlitBitmapToWindow(windowId, sRegisteredSelect_Gfx, 96, y - 1, 24, 16);
         }
     }
@@ -1790,11 +1777,11 @@ static void OpenContextMenu(u8 taskId)
                 gBagMenu->contextMenuItemsPtr = sContextMenuItems_BerriesPocket;
                 gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_BerriesPocket);
                 break;
-            case MEDICINE_POCKET:
+            case POCKET_MEDICINE:
                 gBagMenu->contextMenuItemsPtr = sContextMenuItems_ItemsPocket;
                 gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_ItemsPocket);
                 break;
-            case MEGASTONE_POCKET:
+            case POCKET_MEGA_STONES:
                 gBagMenu->contextMenuItemsPtr = sContextMenuItems_Give;
                 gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_Give);
                 break;
@@ -2522,7 +2509,7 @@ void DoWallyTutorialBagMenu(void)
     PrepareBagForWallyTutorial();
     AddBagItem(ITEM_POTION, 1);
     AddBagItem(ITEM_POKE_BALL, 1);
-    GoToBagMenu(ITEMMENULOCATION_WALLY, MEDICINE_POCKET, CB2_SetUpReshowBattleScreenAfterMenu2);
+    GoToBagMenu(ITEMMENULOCATION_WALLY, POCKET_MEDICINE, CB2_SetUpReshowBattleScreenAfterMenu2);
 }
 
 #define tTimer data[8]
@@ -3151,8 +3138,8 @@ void UNUSED ItemMenu_Register(u8 taskId)
     BagDestroyPocketScrollArrowPair();
     BagMenu_PrintCursor(tListTaskId, COLORID_GRAY_CURSOR);
     tListPosition = listPosition;
-    tQuantity = BagGetQuantityByPocketPosition(gBagPosition.pocket + 1, listPosition);
-    gSpecialVar_ItemId = BagGetItemIdByPocketPosition(gBagPosition.pocket + 1, listPosition);
+    tQuantity = GetBagItemQuantity(gBagPosition.pocket, listPosition);
+    gSpecialVar_ItemId = GetBagItemId(gBagPosition.pocket, listPosition);
     sContextMenuFuncs[gBagPosition.location](taskId);
 }
 
@@ -3168,7 +3155,7 @@ static void UNUSED ItemMenu_Deselect(u8 taskId)
 {
     s16* data = gTasks[taskId].data;
     int listPosition = ListMenu_ProcessInput(tListTaskId);
-    u16 itemId = BagGetItemIdByPocketPosition(gBagPosition.pocket + 1, listPosition);
+    u16 itemId = GetBagItemId(gBagPosition.pocket + 1, listPosition);
 
     ResetRegisteredItem(itemId);
 

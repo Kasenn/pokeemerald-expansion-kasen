@@ -461,7 +461,7 @@ EventScript_UseDefog::
 	releaseall
 	end
 
-EventScript_UseRockClimb::
+EventScript_UseRockClimbRHH::
 	lockall
 	checkfieldmove FIELD_MOVE_ROCK_CLIMB
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantRockClimb
@@ -476,20 +476,20 @@ EventScript_UseRockClimb::
 	goto EventScript_EndRockClimb
 	end
 
-EventScript_CantRockClimb::
+EventScript_CantRockClimbRHH::
 	msgbox Text_CantRockClimb, MSGBOX_DEFAULT
 
-EventScript_EndRockClimb::
+EventScript_EndRockClimbRHH::
 	releaseall
 	end
 
-Text_WantToRockClimb:
+Text_WantToRockClimbRHH:
     .string "The cliff is steep.\n"
     .string "Would you like to use Rock Climb?$"
 
-Text_MonUsedRockClimb:
+Text_MonUsedRockClimbRHH:
     .string "{STR_VAR_1} used Rock Climb!$"
 
-Text_CantRockClimb:
+Text_CantRockClimbRHH:
     .string "The cliff is steep.\n"
     .string "A Pokémon may be able to climb it.$"
