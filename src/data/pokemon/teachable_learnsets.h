@@ -52602,7 +52602,8 @@ static const u16 sDipplinTeachableLearnset[] = {
 static const u16 sHydrappleTeachableLearnset[] = {
     MOVE_BODY_SLAM,
     MOVE_BULLET_SEED,
-    MOVE_DRAGON_TAIL,
+    MOVE_DEFENSE_CURL,
+    MOVE_DOUBLE_EDGE,
     MOVE_EARTHQUAKE,
     MOVE_ENERGY_BALL,
     MOVE_FACADE,
@@ -52616,6 +52617,7 @@ static const u16 sHydrappleTeachableLearnset[] = {
     MOVE_RECYCLE,
     MOVE_REFLECT,
     MOVE_REST,
+    MOVE_ROLLOUT,
     MOVE_SLEEP_TALK,
     MOVE_SOLAR_BEAM,
     MOVE_SUNNY_DAY,
