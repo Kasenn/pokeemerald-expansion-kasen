@@ -27,7 +27,6 @@ SecretBase_Text_DiscoveredSmallEntrance:
 SecretBase_EventScript_CheckEntrance::
 	@special CheckPlayerHasSecretBase
 	goto_if_eq VAR_RESULT, TRUE, SecretBase_EventScript_AlreadyHasSecretBase
-	checkfieldmove FIELD_MOVE_SECRET_POWER
 	setfieldeffectargument 0, VAR_RESULT
 	buffermovename STR_VAR_2, MOVE_SECRET_POWER
 	goto_if_eq VAR_0x8007, SECRET_BASE_RED_CAVE, SecretBase_EventScript_Cave
@@ -182,7 +181,6 @@ SecretBase_EventScript_EnterPlayersBase::
 	end
 
 SecretBase_EventScript_AlreadyHasSecretBase::
-	checkfieldmove FIELD_MOVE_SECRET_POWER
 	goto_if_eq VAR_RESULT, PARTY_SIZE, SecretBase_EventScript_NoSecretPower
 	setfieldeffectargument 0, VAR_RESULT
 	setorcopyvar VAR_0x8004, VAR_RESULT

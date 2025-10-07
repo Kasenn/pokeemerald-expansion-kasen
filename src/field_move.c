@@ -10,7 +10,7 @@
 
 static bool32 IsFieldMoveUnlocked_Cut(void)
 {
-    return FlagGet(FLAG_BADGE01_GET);
+    return FlagGet(FLAG_BADGE02_GET);
 }
 
 static bool32 IsFieldMoveUnlocked_Flash(void)
@@ -35,7 +35,7 @@ static bool32 IsFieldMoveUnlocked_Surf(void)
 
 static bool32 IsFieldMoveUnlocked_Fly(void)
 {
-    return FlagGet(FLAG_BADGE06_GET);
+    return FlagGet(FLAG_BADGE02_GET);
 }
 
 static bool32 IsFieldMoveUnlocked_Dive(void)
@@ -65,7 +65,7 @@ static bool32 IsFieldMoveUnlocked_Dig(void)
     return TRUE;
 }
 
-static bool32 IsFieldMoveUnlocked_SecretPower(void)
+static bool32 UNUSED IsFieldMoveUnlocked_SecretPower(void)
 {
     return TRUE;
 }
@@ -171,14 +171,6 @@ const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
         .fieldMoveFunc = SetUpFieldMove_Dig,
         .isUnlockedFunc = IsFieldMoveUnlocked_Dig,
         .moveID = MOVE_DIG,
-        .partyMsgID = PARTY_MSG_CANT_USE_HERE,
-    },
-
-    [FIELD_MOVE_SECRET_POWER] =
-    {
-        .fieldMoveFunc = SetUpFieldMove_SecretPower,
-        .isUnlockedFunc = IsFieldMoveUnlocked_SecretPower,
-        .moveID = MOVE_SECRET_POWER,
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
     },
 

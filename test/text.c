@@ -227,7 +227,7 @@ TEST("Item descriptions fit on Bag and Shop Screen")
     u32 item = ITEM_NONE;
     for (i = 1; i < ITEMS_COUNT; i++)
     {
-        if (GetPocketByItemId(item) == POCKET_TM_HM)
+        if (GetItemPocket(item) == POCKET_TM_HM)
         {
             PARAMETRIZE_LABEL("%S", gItemsInfo[i].name) { item = i; }
         }
@@ -236,7 +236,7 @@ TEST("Item descriptions fit on Bag and Shop Screen")
             PARAMETRIZE_LABEL("%S", gItemsInfo[i].description) { item = i; }
         }
     }
-    if (GetPocketByItemId(item) == POCKET_TM_HM)
+    if (GetItemPocket(item) == POCKET_TM_HM)
     {
         EXPECT_LE(GetStringWidth(fontId, gItemsInfo[item].name, 0), widthPx);
     }

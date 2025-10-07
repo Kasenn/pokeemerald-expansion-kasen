@@ -331,6 +331,10 @@ static bool32 NONNULL BagPocket_AddItem(struct BagPocket *pocket, u16 itemId, u1
     switch (pocket->id)
     {
         case POCKET_TM_HM:
+            if (!CheckBagHasItem(ITEM_TM_CASE, 1))
+            {
+                AddBagItem(ITEM_TM_CASE, 1);
+            }
         case POCKET_BERRIES:
             for (itemLookupIndex = 0; itemLookupIndex < pocket->capacity && count > 0; itemLookupIndex++)
             {

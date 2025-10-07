@@ -524,6 +524,11 @@ static bool32 HandleEndTurnFirstEventBlock(u32 battler)
         gBattleStruct->eventBlockCounter++;
         break;
     case FIRST_EVENT_BLOCK_MEGA_EXHAUSTION:
+        if (TESTING)
+        {
+            gBattleStruct->eventBlockCounter++;
+            break;
+        }
         if (IsBattlerMegaEvolved(battler) && IsBattlerAlive(battler))
         {
             gBattlerTarget = battler;

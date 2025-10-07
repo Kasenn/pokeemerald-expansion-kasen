@@ -9,13 +9,12 @@ TRAINERS
 ABILITY POP-UP
 RIVAL COSTUME CHANGE
 RIVAL PARTY CHANGES CORRECTLY
-GRASS AUTUMN, SNOW AND MUD BATTLE ENVIRONMENTS
-ROCKY TERRAIN VISUAL AND BATTLE EFFECT
-VARIOUS_AMPHY_INTERRUPTS
-BATTLE INTERFACE
-FIELD_MOVE_SECRET_POWER
+<!-- GRASS AUTUMN, SNOW AND MUD BATTLE ENVIRONMENTS -->
+<!-- ROCKY TERRAIN VISUAL AND BATTLE EFFECT -->
+<!-- BATTLE INTERFACE -->
+<!-- FIELD_MOVE_SECRET_POWER -->
 FIELD_MOVE_ROCK_CLIMB
-TMS
+TMS		DestroyTMCaseBuffers
 DEBUG MENU (BOTH CHEAT AND NON-CHEAT)
 DATA BREACH
 FORESTS CURSE
@@ -31,6 +30,11 @@ FLASH AI
 ANYTHING WITH B_SCR_ABILITY
 ESCAPE FROM 1ST FIGHT
 SLEEP BERRY
+
+  FAILED tests:
+  - test/battle/ability/aerilate.c:98: EXPECT_MUL_EQ(45, 6.0, 45) failed: 270 not in [39..51] - Aerilate doesn't affect Weather Ball's type 4/4.
+  - test/battle/ai/ai_switching.c:101: Expected 1.0 passes/successes, observed 0.0 - AI will not try to switch for the same Pokémon for 2 spots in a double battle (Wonder Guard) (1/?).
+  - test/battle/ai/can_use_all_moves.c:497: Unmatched EXPECT_MOVE Forest�s Curse, got Splash - AI can use all moves, 501-600 50/68.
 
 wild encounter changes
 honey tree mons now have 20% chance to have a hidden ability
