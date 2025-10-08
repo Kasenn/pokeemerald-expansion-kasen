@@ -694,7 +694,7 @@ static void DestroyTMCaseBuffers(void)
         Free(sListMenuStringsBuffer);
     if (sTMSpritePaletteBuffer != NULL)
         Free(sTMSpritePaletteBuffer);
-    FreeAllWindowBuffers();
+    // FreeAllWindowBuffers();//wip
 }
 
 static void Task_BeginFadeOutFromTMCase(u8 taskId)

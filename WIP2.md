@@ -126,26 +126,6 @@ void Debug_ShowMainMenuLimited(void)
             func(taskId);
         }
 
-        static void DebugAction_PCBag_Fill_PocketMedicine(u8 taskId)
-{
-    u16 itemId;
-
-    for (itemId = 1; itemId < ITEMS_COUNT; itemId++)
-    {
-        if (GetItemPocket(itemId) == POCKET_MEDICINE && CheckBagHasSpace(itemId, 1))
-            AddBagItem(itemId, 1);
-    }
-}
-static void DebugAction_PCBag_Fill_PocketMegaStone(u8 taskId)
-{
-    u16 itemId;
-
-    for (itemId = 1; itemId < ITEMS_COUNT; itemId++)
-    {
-        if (GetItemPocket(itemId) == POCKET_MEGA_STONES && CheckBagHasSpace(itemId, 1))
-            AddBagItem(itemId, 1);
-    }
-}
 
     if (atkAbility == ABILITY_UNAWARE || atkAbility == ABILITY_KEEN_EYE || atkAbility == ABILITY_MINDS_EYE
             || (GetGenConfig(GEN_ILLUMINATE_EFFECT) >= GEN_9 && atkAbility == ABILITY_ILLUMINATE))

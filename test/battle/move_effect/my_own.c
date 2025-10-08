@@ -174,3 +174,90 @@ SINGLE_BATTLE_TEST("My own Data Breach ignores target's defense and damage reduc
         EXPECT_GT(damage2, damage3);
     }
 }
+
+SINGLE_BATTLE_TEST("My own Hive Leader activates properly on contact 1")
+{
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET) {Ability(ABILITY_HIVE_LEADER); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_TACKLE); }
+    } SCENE {
+        ABILITY_POPUP(player, ABILITY_HIVE_LEADER);
+    }
+}
+SINGLE_BATTLE_TEST("My own Hive Leader activates properly on contact 2")
+{
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET) {Ability(ABILITY_HIVE_LEADER); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_TACKLE); }
+    } SCENE {
+        ABILITY_POPUP(player, ABILITY_HIVE_LEADER);
+    }
+}
+SINGLE_BATTLE_TEST("My own Hive Leader activates properly on contact 3")
+{
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET) {Ability(ABILITY_HIVE_LEADER); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_SWIFT); }
+    } SCENE {
+        NONE_OF{ ABILITY_POPUP(player, ABILITY_HIVE_LEADER); }
+    }
+}
+SINGLE_BATTLE_TEST("My own Hive Leader activates properly on contact 4")
+{
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET) {Ability(ABILITY_HIVE_LEADER); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_SWIFT); }
+    } SCENE {
+        NONE_OF{ ABILITY_POPUP(player, ABILITY_HIVE_LEADER); }
+    }
+}
+SINGLE_BATTLE_TEST("My own Hive Leader does not activate if the target is wearing Protective Pads 1")
+{
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET) {Ability(ABILITY_HIVE_LEADER);}
+        OPPONENT(SPECIES_WOBBUFFET) {Item(ITEM_PROTECTIVE_PADS);}
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_TACKLE); }
+    } SCENE {
+        NONE_OF{ ABILITY_POPUP(player, ABILITY_HIVE_LEADER); }
+    }
+}
+SINGLE_BATTLE_TEST("My own Hive Leader does not activate if the target is wearing Protective Pads 2")
+{
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET) {Ability(ABILITY_HIVE_LEADER);}
+        OPPONENT(SPECIES_WOBBUFFET) {Item(ITEM_PROTECTIVE_PADS);}
+    } WHEN {
+        TURN { MOVE(player, MOVE_TACKLE); }
+    } SCENE {
+        ABILITY_POPUP(player, ABILITY_HIVE_LEADER);
+    }
+}
+SINGLE_BATTLE_TEST("My own Hive Leader reduces damage taken from Fire-type moves")
+{
+    s16 damage1;
+    s16 damage2;
+
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET) {Speed(1); }
+        OPPONENT(SPECIES_WOBBUFFET) {Ability(ABILITY_HIVE_LEADER); Speed(2); }
+    } WHEN {
+        // player attacks with no defenses up
+        TURN { MOVE(opponent, MOVE_FLAME_CHARGE); MOVE(player, MOVE_SKILL_SWAP); }
+        // player attacks against +2 Def/Sp.Def
+        TURN { MOVE(opponent, MOVE_FLAME_CHARGE); }
+    } SCENE {
+        HP_BAR(player, captureDamage: &damage1);
+        HP_BAR(player, captureDamage: &damage2);
+    } THEN {
+        EXPECT_GT(damage1, damage2);
+    }
+}

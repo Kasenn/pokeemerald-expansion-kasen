@@ -67,7 +67,7 @@
         {
             {
 #line 39
-            .species = SPECIES_METANG,
+            .species = SPECIES_ARIADOS_MEGA,
             .gender = TRAINER_MON_RANDOM_GENDER,
 #line 43
             .ev = TRAINER_PARTY_EVS(0, 252, 252, 0, 6, 0),

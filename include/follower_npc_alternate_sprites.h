@@ -29,7 +29,22 @@ static const struct FollowerNPCSpriteGraphics gFollowerNPCAlternateSprites[] =
         .underwaterId = OBJ_EVENT_GFX_BRENDAN_UNDERWATER,
         .hasRunningFrames = TRUE,
     },
-
+    {
+        .normalId = OBJ_EVENT_GFX_MAY_NORMAL_ORAS,
+        .machBikeId = OBJ_EVENT_GFX_MAY_ACRO_BIKE_ORAS,
+        .acroBikeId = OBJ_EVENT_GFX_MAY_ACRO_BIKE_ORAS,
+        .surfId = OBJ_EVENT_GFX_MAY_SURFING_ORAS,
+        .underwaterId = OBJ_EVENT_GFX_MAY_UNDERWATER_ORAS,
+        .hasRunningFrames = TRUE,
+    },
+    {
+        .normalId = OBJ_EVENT_GFX_BRENDAN_NORMAL_ORAS,
+        .machBikeId = OBJ_EVENT_GFX_BRENDAN_ACRO_BIKE_ORAS,
+        .acroBikeId = OBJ_EVENT_GFX_BRENDAN_ACRO_BIKE_ORAS,
+        .surfId = OBJ_EVENT_GFX_BRENDAN_SURFING_ORAS,
+        .underwaterId = OBJ_EVENT_GFX_BRENDAN_UNDERWATER,
+        .hasRunningFrames = TRUE,
+    },
 };
 
 #endif // GUARD_FOLLOWER_NPC_ALTERNATE_SPRITES_H

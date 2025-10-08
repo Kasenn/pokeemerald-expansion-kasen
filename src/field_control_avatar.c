@@ -274,8 +274,8 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         FreezeObjectEvents();
         if (FlagGet(FLAG_ENABLE_DEBUG))
             Debug_ShowMainMenu();
-        // else //wip
-        //     Debug_ShowMainMenuLimited();
+        else
+            Debug_ShowMainMenuLimited();
         return TRUE;
     }
 

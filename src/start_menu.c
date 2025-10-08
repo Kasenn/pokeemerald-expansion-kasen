@@ -1021,8 +1021,7 @@ static bool8 StartMenuDebugCallback(void)
     if (DEBUG_OVERWORLD_MENU)
     {
         FreezeObjectEvents();
-        if (FlagGet(FLAG_ENABLE_DEBUG))
-            Debug_ShowMainMenu();
+        Debug_ShowMainMenu();
         // else //wip
         //     Debug_ShowMainMenuLimited();
     }
