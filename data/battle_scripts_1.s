@@ -8767,7 +8767,10 @@ BattleScript_BerryConfuseHealEnd2_Anim:
 	end2
 	
 BattleScript_BerrySleepHealEnd2::
+	jumpifability BS_SCRIPTING, ABILITY_RIPEN, BattleScript_BerrySleepHealEnd2_AbilityPopup
 	goto BattleScript_BerrySleepHealEnd2_Anim
+BattleScript_BerrySleepHealEnd2_AbilityPopup:
+	call BattleScript_AbilityPopUp
 BattleScript_BerrySleepHealEnd2_Anim:
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
 	printstring STRINGID_PKMNSITEMRESTOREDHEALTH
@@ -8798,7 +8801,10 @@ BattleScript_BerryConfuseHealRet_Anim:
 	return
 
 BattleScript_BerrySleepHealRet::
+	jumpifability BS_SCRIPTING, ABILITY_RIPEN, BattleScript_BerrySleepHealRet_AbilityPopup
 	goto BattleScript_BerrySleepHealRet_Anim
+BattleScript_BerrySleepHealRet_AbilityPopup:
+	call BattleScript_AbilityPopUp
 BattleScript_BerrySleepHealRet_Anim:
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
 	printstring STRINGID_PKMNSITEMRESTOREDHEALTH
@@ -9897,13 +9903,13 @@ BattleScript_FlashDoMoveAnim::
 	waitanimation
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	setstatchanger STAT_ACC, 1, TRUE
-	statbuffchange BS_ATTACKER, STAT_CHANGE_ALLOW_PTR, BattleScript_FlashTryLowerSpeed, BIT_ACC | BIT_SPEED
+	statbuffchange BS_TARGET, STAT_CHANGE_ALLOW_PTR, BattleScript_FlashTryLowerSpeed, BIT_ACC | BIT_SPEED
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_FlashTryLowerSpeed
 	printfromtable gStatDownStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_FlashTryLowerSpeed::
 	setstatchanger STAT_SPEED, 1, TRUE
-	statbuffchange BS_ATTACKER, STAT_CHANGE_ALLOW_PTR, BattleScript_FlashEnd, BIT_SPEED
+	statbuffchange BS_TARGET, STAT_CHANGE_ALLOW_PTR, BattleScript_FlashEnd, BIT_SPEED
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_FlashEnd
 	printfromtable gStatDownStringIds
 	waitmessage B_WAIT_TIME_LONG

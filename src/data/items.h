@@ -14678,7 +14678,6 @@ const struct Item gItemsInfo[] =
         .name = ITEM_NAME("Roste Berry"),
         .price = 20,
         .holdEffect = HOLD_EFFECT_SLEEP_BERRY,
-        .holdEffectParam = SLEEP_BERRY_HEAL_FULL,
         .description = COMPOUND_STRING(
             "A hold item that\n"
             "restores HP but\n"
