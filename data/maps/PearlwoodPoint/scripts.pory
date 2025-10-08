@@ -111,6 +111,7 @@ script PearlwoodWon{
     safefollow
     if(checkplayergender == MALE){bufferstring(STR_VAR_1, "she")}
     else{bufferstring(STR_VAR_1, "he")}
+    specialvar(VAR_RESULT, GetBattleOutcome)
     if(var(VAR_RESULT) == B_OUTCOME_WON){
         msgbox(PearlwoodBrotherPrize, MSGBOX_AUTOCLOSE)
     }

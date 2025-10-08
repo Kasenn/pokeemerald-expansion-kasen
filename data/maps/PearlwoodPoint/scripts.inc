@@ -140,44 +140,46 @@ PearlwoodWon::
 	bufferstring STR_VAR_1, PearlwoodWon_Text_1
 PearlwoodWon_1:
 # 114 "data/maps/PearlwoodPoint/scripts.pory"
+	specialvar VAR_RESULT, GetBattleOutcome
+# 115 "data/maps/PearlwoodPoint/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq PearlwoodWon_6
-# 118 "data/maps/PearlwoodPoint/scripts.pory"
+# 119 "data/maps/PearlwoodPoint/scripts.pory"
 	msgbox PlayerHouse1F_Apology, MSGBOX_AUTOCLOSE
 PearlwoodWon_5:
-# 120 "data/maps/PearlwoodPoint/scripts.pory"
-	playse SE_PIN
 # 121 "data/maps/PearlwoodPoint/scripts.pory"
-	exclamationmark LOCALID_PEARLWOOD_BROTHER
+	playse SE_PIN
 # 122 "data/maps/PearlwoodPoint/scripts.pory"
-	msgbox BrotherWatch
+	exclamationmark LOCALID_PEARLWOOD_BROTHER
 # 123 "data/maps/PearlwoodPoint/scripts.pory"
-	playfanfare MUS_OBTAIN_ITEM
+	msgbox BrotherWatch
 # 124 "data/maps/PearlwoodPoint/scripts.pory"
-	setflag FLAG_SYS_JOURNAL_GET
+	playfanfare MUS_OBTAIN_ITEM
 # 125 "data/maps/PearlwoodPoint/scripts.pory"
-	message PearlwoodWon_Text_2
+	setflag FLAG_SYS_JOURNAL_GET
 # 126 "data/maps/PearlwoodPoint/scripts.pory"
-	waitfanfare
+	message PearlwoodWon_Text_2
 # 127 "data/maps/PearlwoodPoint/scripts.pory"
-	msgbox ViewJournal
+	waitfanfare
 # 128 "data/maps/PearlwoodPoint/scripts.pory"
-	msgbox BrotherGoodbye, MSGBOX_AUTOCLOSE
+	msgbox ViewJournal
 # 129 "data/maps/PearlwoodPoint/scripts.pory"
-	waitmove LOCALID_PEARLWOOD_BROTHER, Walk5Down
+	msgbox BrotherGoodbye, MSGBOX_AUTOCLOSE
 # 130 "data/maps/PearlwoodPoint/scripts.pory"
-	removeobject LOCALID_PEARLWOOD_BROTHER
+	waitmove LOCALID_PEARLWOOD_BROTHER, Walk5Down
 # 131 "data/maps/PearlwoodPoint/scripts.pory"
-	clearflag FLAG_CONTINUE_AFTER_WHITEOUT
+	removeobject LOCALID_PEARLWOOD_BROTHER
 # 132 "data/maps/PearlwoodPoint/scripts.pory"
-	clearflag FLAG_FIRST_BATTLE
+	clearflag FLAG_CONTINUE_AFTER_WHITEOUT
 # 133 "data/maps/PearlwoodPoint/scripts.pory"
-	clearflag FLAG_HEAL_AFTER_BATTLE
+	clearflag FLAG_FIRST_BATTLE
 # 134 "data/maps/PearlwoodPoint/scripts.pory"
-	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_BROTHER_FOUGHT
+	clearflag FLAG_HEAL_AFTER_BATTLE
 # 135 "data/maps/PearlwoodPoint/scripts.pory"
-	delay 30
+	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_BROTHER_FOUGHT
 # 136 "data/maps/PearlwoodPoint/scripts.pory"
+	delay 30
+# 137 "data/maps/PearlwoodPoint/scripts.pory"
 	release
 	return
 
@@ -187,27 +189,27 @@ PearlwoodWon_2:
 	goto PearlwoodWon_1
 
 PearlwoodWon_6:
-# 115 "data/maps/PearlwoodPoint/scripts.pory"
+# 116 "data/maps/PearlwoodPoint/scripts.pory"
 	msgbox PearlwoodBrotherPrize, MSGBOX_AUTOCLOSE
 	goto PearlwoodWon_5
 
 
 Pearlwood_Point_FatMan::
-# 202 "data/maps/PearlwoodPoint/scripts.pory"
+# 203 "data/maps/PearlwoodPoint/scripts.pory"
 	msgbox Pearlwood_Point_FatMan_Text, MSGBOX_NPC
 	return
 
 
 Pearlwood_Point_LittleGirl::
-# 212 "data/maps/PearlwoodPoint/scripts.pory"
-	msgbox Pearlwood_Point_LittleGirl_Text, MSGBOX_NPC
 # 213 "data/maps/PearlwoodPoint/scripts.pory"
+	msgbox Pearlwood_Point_LittleGirl_Text, MSGBOX_NPC
+# 214 "data/maps/PearlwoodPoint/scripts.pory"
 	turnobject LOCALID_PEARLWOOD_LITTLE_BOY, DIR_NORTH
 	return
 
 
 Pearlwood_Sign::
-# 222 "data/maps/PearlwoodPoint/scripts.pory"
+# 223 "data/maps/PearlwoodPoint/scripts.pory"
 	msgbox Pearlwood_Sign_Text, MSGBOX_SIGN
 	return
 
@@ -241,7 +243,7 @@ PearlwoodWon_Text_1:
 	.string "he$"
 
 PearlwoodWon_Text_2:
-# 125 "data/maps/PearlwoodPoint/scripts.pory"
+# 126 "data/maps/PearlwoodPoint/scripts.pory"
 	.string "{PLAYER} obtained the Journal!$"
 
 Pearlwood_Point_WatchOut::
@@ -283,33 +285,33 @@ Pearlwood_Brother_Outro::
 	.string "Of course you picked THAT one!$"
 
 ViewJournal::
-# 139 "data/maps/PearlwoodPoint/scripts.pory"
+# 140 "data/maps/PearlwoodPoint/scripts.pory"
 	.string "{COLOR RED}{SHADOW LIGHT_RED}Certain events may be recorded in the\n"
 	.string "Journal when they are discovered.\p"
 	.string "The Journal can be accessed through\n"
 	.string "the Start Menu.$"
 
 BrotherWatch::
-# 146 "data/maps/PearlwoodPoint/scripts.pory"
+# 147 "data/maps/PearlwoodPoint/scripts.pory"
 	.string "Oh!\p"
 	.string "Before I leave, there's something\n"
 	.string "I meant to give you.$"
 
 ObtainedWatch::
-# 151 "data/maps/PearlwoodPoint/scripts.pory"
+# 152 "data/maps/PearlwoodPoint/scripts.pory"
 	.string "{PLAYER} obtained a wristwatch!$"
 
 ViewClock::
-# 154 "data/maps/PearlwoodPoint/scripts.pory"
+# 155 "data/maps/PearlwoodPoint/scripts.pory"
 	.string "{COLOR RED}{SHADOW LIGHT_RED}You can now view the time by\n"
 	.string "pressing the START button!$"
 
 BrotherGoodbye::
-# 158 "data/maps/PearlwoodPoint/scripts.pory"
+# 159 "data/maps/PearlwoodPoint/scripts.pory"
 	.string "{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}{BROTHER}: Catch ya later!$"
 
 PlayerHouse1F_Apology::
-# 162 "data/maps/PearlwoodPoint/scripts.pory"
+# 163 "data/maps/PearlwoodPoint/scripts.pory"
 	.string "{BROTHER}: Not a bad attempt\n"
 	.string "for a rookie.\p"
 	.string "But, with my experience as\n"
@@ -330,7 +332,7 @@ PlayerHouse1F_Apology::
 	.string "content with a second place.$"
 
 PearlwoodBrotherPrize::
-# 183 "data/maps/PearlwoodPoint/scripts.pory"
+# 184 "data/maps/PearlwoodPoint/scripts.pory"
 	.string "Hmph… I guess I should not\n"
 	.string "have underestimated you.\p"
 	.string "Anyway, have you thought about\n"
@@ -348,20 +350,20 @@ PearlwoodBrotherPrize::
 	.string "content with a second place.$"
 
 Pearlwood_Point_FatMan_Text::
-# 204 "data/maps/PearlwoodPoint/scripts.pory"
+# 205 "data/maps/PearlwoodPoint/scripts.pory"
 	.string "The weather is so calm here despite\n"
 	.string "the close proximity to the sea.\p"
 	.string "Must be all the trees blocking\n"
 	.string "the sea breeze.$"
 
 Pearlwood_Point_LittleGirl_Text::
-# 215 "data/maps/PearlwoodPoint/scripts.pory"
+# 216 "data/maps/PearlwoodPoint/scripts.pory"
 	.string "Shh!\p"
 	.string "I think I hear the cry of a wild\n"
 	.string "Pokémon coming from over there.$"
 
 Pearlwood_Sign_Text::
-# 224 "data/maps/PearlwoodPoint/scripts.pory"
+# 225 "data/maps/PearlwoodPoint/scripts.pory"
 	.string "PEARLWOOD POINT\n"
 	.string "“A town of new beginnings.”\p"
 	.string "{LEFT_ARROW} Prof. Birch's Pokémon lab\n"
