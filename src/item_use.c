@@ -840,6 +840,10 @@ void ItemUseOutOfBattle_CoinCase(u8 taskId)
 void ItemUseOutOfBattle_SampleBox(u8 taskId)
 {
     ConvertIntToDecimalStringN(gStringVar1, VarGet(VAR_MUD_SAMPLES), STR_CONV_MODE_LEFT_ALIGN, 4);
+    if (VarGet(VAR_MUD_SAMPLES) == 1)
+        StringAppend(gStringVar1, COMPOUND_STRING(" sample "));
+    else
+        StringAppend(gStringVar1, COMPOUND_STRING(" samples "));
     StringExpandPlaceholders(gStringVar4, gText_SampleBox);
 
     if (!gTasks[taskId].tUsingRegisteredKeyItem)
