@@ -551,13 +551,7 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{              //
-    // setvar(VAR_TEMP_0, 1 << 7)
-    // buffernumberstring(STR_VAR_1, VAR_TEMP_0)
-    msgbox("{STR_VAR_1}")
-    addvar(VAR_TEMP_0, 1 << 7)
-    buffernumberstring(STR_VAR_1, VAR_TEMP_0)
-    msgbox("{STR_VAR_1}")
-    release
+    trainerbattle_single(TRAINER_LEADER_JASMINE, "a", "a")
     return
 }
 script Debug_Script_4{
