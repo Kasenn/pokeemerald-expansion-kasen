@@ -425,6 +425,9 @@ static bool32 NONNULL BagPocket_RemoveItem(struct BagPocket *pocket, u16 itemId,
 
 bool32 RemoveBagItem(u16 itemId, u16 count)
 {
+    if (GetItemPocket(itemId) == POCKET_POKE_BALLS && (gBattleTypeFlags & BATTLE_TYPE_GHOST))
+        return FALSE;
+
     if (GetItemPocket(itemId) >= POCKETS_COUNT || itemId == ITEM_NONE)
         return FALSE;
 
