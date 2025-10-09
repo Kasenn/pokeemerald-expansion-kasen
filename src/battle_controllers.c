@@ -2430,7 +2430,8 @@ void BtlController_HandleFaintAnimation(u32 battler)
             }
             else
             {
-                PlaySE12WithPanning(SE_FAINT, SOUND_PAN_TARGET);
+                if (gCustomBattleFlags != B_FLAG_JASMINE_SWITCH)
+                    PlaySE12WithPanning(SE_FAINT, SOUND_PAN_TARGET);
                 gSprites[gBattlerSpriteIds[battler]].callback = SpriteCB_FaintOpponentMon;
                 gBattlerControllerFuncs[battler] = Controller_FaintOpponentMon;
             }

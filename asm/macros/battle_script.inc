@@ -2409,6 +2409,10 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro setcustomjasmineflag
+	callnative BS_setcustomjasmineflag
+	.endm
+
 	.macro jumpifspecies species:req, jumpInstr:req
 	callnative BS_JumpIfSpecies
 	.2byte \species

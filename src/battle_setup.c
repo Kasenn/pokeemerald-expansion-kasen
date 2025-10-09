@@ -1197,9 +1197,6 @@ void ClearTrainerFlag(u16 trainerId)
 
 void BattleSetup_StartTrainerBattle(void)
 {
-    if (GetTrainerPicFromId(TRAINER_BATTLE_PARAM.opponentA) == TRAINER_PIC_JASMINE)
-        gBattleTypeFlags |= BATTLE_TYPE_JASMINE;     
-
     if (gNoOfApproachingTrainers == 2)
     {
         if (FollowerNPCIsBattlePartner())
@@ -1217,6 +1214,10 @@ void BattleSetup_StartTrainerBattle(void)
         {
             gBattleTypeFlags = (BATTLE_TYPE_MULTI | BATTLE_TYPE_INGAME_PARTNER | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TRAINER);
             TRAINER_BATTLE_PARAM.opponentB = 0xFFFF;
+        }
+        else if (GetTrainerPicFromId(TRAINER_BATTLE_PARAM.opponentA) == TRAINER_PIC_JASMINE)
+        {
+            gBattleTypeFlags = (BATTLE_TYPE_TRAINER | BATTLE_TYPE_JASMINE);
         }
         else
         {

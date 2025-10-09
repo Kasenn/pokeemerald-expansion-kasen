@@ -99,6 +99,7 @@ static void SpriteCB_MoveWildMonToRight(struct Sprite *sprite);
 static void SpriteCB_WildMonShowHealthbox(struct Sprite *sprite);
 static void SpriteCB_WildMonAnimate(struct Sprite *sprite);
 static void SpriteCB_AnimFaintOpponent(struct Sprite *sprite);
+static void SpriteCB_AnimSlideAwayOpponent(struct Sprite *sprite);
 static void SpriteCB_BlinkVisible(struct Sprite *sprite);
 static void SpriteCB_Idle(struct Sprite *sprite);
 static void SpriteCB_BattleSpriteSlideLeft(struct Sprite *sprite);
@@ -2096,7 +2097,7 @@ u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 firstTrain
     if (trainerNum == TRAINER_MAY_PLACEHOLDER)
         return 0;
     if (trainerNum == TRAINER_LEADER_JASMINE && FlagGet(FLAG_TEMP_1))
-        trainerNum++;
+        trainerNum = TRAINER_LEADER_JASMINE_2;
     if (GetTrainerStructFromId(trainerNum)->overrideTrainer)
     {
         struct Trainer tempTrainer;
@@ -2789,7 +2790,10 @@ void SpriteCB_FaintOpponentMon(struct Sprite *sprite)
 
     sprite->data[3] = 8 - yOffset / 8;
     sprite->data[4] = 1;
-    sprite->callback = SpriteCB_AnimFaintOpponent;
+    if (gCustomBattleFlags == B_FLAG_JASMINE_SWITCH)
+        sprite->callback = SpriteCB_AnimSlideAwayOpponent;
+    else
+        sprite->callback = SpriteCB_AnimFaintOpponent;
 }
 
 static void SpriteCB_AnimFaintOpponent(struct Sprite *sprite)
@@ -2813,6 +2817,21 @@ static void SpriteCB_AnimFaintOpponent(struct Sprite *sprite)
                 *(dst++) = 0;
 
             StartSpriteAnim(sprite, 0);
+        }
+    }
+}
+
+static void SpriteCB_AnimSlideAwayOpponent(struct Sprite *sprite)
+{
+    if (--sprite->data[4] == 0)
+    {
+        sprite->data[4] = 1;
+        sprite->x2 += 4; // Move the sprite right.
+        if (sprite->x + sprite->x2 - sprite->centerToCornerVecX >= DISPLAY_WIDTH + 64)
+        {
+            FreeSpriteOamMatrix(sprite);
+            DestroySprite(sprite);
+            gCustomBattleFlags = 0;
         }
     }
 }

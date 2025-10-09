@@ -7139,19 +7139,18 @@ static void Cmd_getswitchedmondata(void)
     if (gBattleControllerExecFlags)
         return;
 
-    if (gBattleTypeFlags & BATTLE_TYPE_JASMINE && !CanBattlerSwitch(battler))
-    {
-        FlagSet(FLAG_TEMP_1);
-        CreateNPCTrainerParty(&(gEnemyParty + 1)[0 + 1], TRAINER_BATTLE_PARAM.opponentA, TRUE);
-        gBattleMons[gBattlerAttacker].species = SPECIES_GRENINJA_ASH;
-    }
-
     if (TESTING
      && gBattlerPartyIndexes[battler] == gBattleStruct->monToSwitchIntoId[battler]
      && gBattleStruct->hpBefore[battler] != 0) // battler is alive
         Test_ExitWithResult(TEST_RESULT_ERROR, 0, ":L:%s:%d: battler is trying to switch to themself", __FILE__, __LINE__);
 
-    gBattlerPartyIndexes[battler] = gBattleStruct->monToSwitchIntoId[battler];
+    if (gBattleTypeFlags & BATTLE_TYPE_JASMINE && CountUsablePartyMons(battler) == 0)
+    {
+        FlagSet(FLAG_TEMP_1);
+        CreateNPCTrainerParty(&gEnemyParty[0], TRAINER_BATTLE_PARAM.opponentA, TRUE);
+    }
+    else
+        gBattlerPartyIndexes[battler] = gBattleStruct->monToSwitchIntoId[battler];
 
     BtlController_EmitGetMonData(battler, B_COMM_TO_CONTROLLER, REQUEST_ALL_BATTLE, 1u << gBattlerPartyIndexes[battler]);
     MarkBattlerForControllerExec(battler);
@@ -18418,18 +18417,6 @@ void BS_JumpIfWeatherAffected(void)
         gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
-void BS_JumpIfAmphyInterrupts(void)
-{
-    NATIVE_ARGS(u8 battler, const u8 *jumpInstr);
-    u32 battler = GetBattlerForBattleScript(cmd->battler);
-
-    if (gBattleTypeFlags & BATTLE_TYPE_JASMINE && !CanBattlerSwitch(battler))
-        gBattlescriptCurrInstr = cmd->jumpInstr;
-    else
-        gBattlescriptCurrInstr = cmd->nextInstr;
-
-}
-
 void BS_JumpIfSpecies(void)
 {
     NATIVE_ARGS(u16 species, const u8 *jumpInstr);
@@ -18616,4 +18603,27 @@ void BS_JumpIfGenConfigLowerThan(void)
         gBattlescriptCurrInstr = cmd->jumpInstr;
     else
         gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void BS_JumpIfAmphyInterrupts(void)
+{
+    NATIVE_ARGS(u8 battler, const u8 *jumpInstr);
+    u32 battler = GetBattlerForBattleScript(cmd->battler);
+
+    if (gBattleTypeFlags & BATTLE_TYPE_JASMINE && CountUsablePartyMons(battler) == 0)
+    {   
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    }
+    else
+    {
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+}
+
+void BS_setcustomjasmineflag(void)
+{
+    NATIVE_ARGS();
+    
+    gCustomBattleFlags = B_FLAG_JASMINE_SWITCH;
+    gBattlescriptCurrInstr = cmd->nextInstr;
 }

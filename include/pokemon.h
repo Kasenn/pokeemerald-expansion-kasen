@@ -664,6 +664,10 @@ extern bool32 consumeItem;
 extern u32 removeBagItem;
 extern u32 removeBagItemCount;
 
+extern u8 gCustomBattleFlags;
+
+#define B_FLAG_JASMINE_SWITCH   1
+
 extern const u16 gFacilityClassToPicIndex[];
 extern const enum TrainerClassID gFacilityClassToTrainerClass[];
 extern const struct SpeciesInfo gSpeciesInfo[];

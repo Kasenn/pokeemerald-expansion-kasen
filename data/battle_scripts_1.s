@@ -5266,24 +5266,27 @@ BattleScript_FaintedMonShiftSwitched:
 
 BattleScript_AmphyInterrupts::
 	pause B_WAIT_TIME_MED
-	trainerslideout BS_ATTACKER
+	setcustomjasmineflag
+	dofaintanimation BS_OPPONENT1
+	cleareffectsonfaint BS_OPPONENT1
+	waitanimation
+	resetswitchinabilitybits
+	hpthresholds2 BS_OPPONENT1
+	switchoutabilities BS_OPPONENT1
 	waitstate
 	atknameinbuff1
-	resetswitchinabilitybits
-	hpthresholds2 BS_TARGET
-	switchoutabilities BS_TARGET
-	waitstate
-	getswitchedmondata BS_TARGET
-	switchindataupdate BS_TARGET
-	hpthresholds BS_TARGET
+	getswitchedmondata BS_FAINTED
+	switchindataupdate BS_FAINTED
+	hpthresholds BS_FAINTED
 	trytoclearprimalweather
 	flushtextbox
-	switchinanim BS_TARGET, 0, FALSE
+	switchinanim BS_OPPONENT1, FALSE, FALSE
 	waitstate
 	setbyte sSHIFT_SWITCHED, 1
+	switchineffects BS_FAINTED
 	printstring STRINGID_JASMINE_AMPHY
-	jumpifbytenotequal sSHIFT_SWITCHED, sZero, BattleScript_FaintedMonSendOutNewEnd
-	jumpifbyteequal sSHIFT_SWITCHED, sZero, BattleScript_FaintedMonSendOutNewEnd
+	cancelallactions
+	end2
 
 BattleScript_HandleFaintedMonMultiple::
 	openpartyscreen BS_FAINTED_MULTIPLE_1, BattleScript_HandleFaintedMonMultipleStart

@@ -5467,25 +5467,21 @@ static const struct TrainerMon sParty_LeaderJasmine[] = {
     },
     {
     .lvl = 40,
-    .species = SPECIES_STEELIX,
+    .species = SPECIES_MAGNEMITE,
     },
     {
-    .lvl = 40,
+    .lvl = 10,
     .species = SPECIES_STEELIX,
-    },
-    {
-    .lvl = 40,
-    .species = SPECIES_AMPHAROS,
-    .heldItem = ITEM_AMPHAROSITE,
-    },
+    }
 };
 
 static const struct TrainerMon sParty_LeaderJasmine2[] = {
     {
-    .lvl = 30,
+    .lvl = 70,
+    .heldItem = ITEM_AMPHAROSITE,
     .species = SPECIES_AMPHAROS,
     .moves = {MOVE_GRASS_KNOT, MOVE_THUNDER_PUNCH, MOVE_SIGNAL_BEAM, MOVE_POWER_GEM},
-    }
+    },
 };
 
 static const struct TrainerMon sParty_Kasen[] = {
