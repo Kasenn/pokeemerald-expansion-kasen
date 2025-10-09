@@ -131,7 +131,8 @@ struct MoveInfo
     bool32 dampBanned:1;
     //Other
     bool32 validApprenticeMove:1;
-    u32 padding:6;
+    bool32 rapidFistsBanned:1;
+    u32 padding:5;
     // end of word
 
     union {
@@ -461,6 +462,11 @@ static inline bool32 IsMoveEncoreBanned(u32 moveId)
 static inline bool32 IsMoveParentalBondBanned(u32 moveId)
 {
     return gMovesInfo[SanitizeMoveId(moveId)].parentalBondBanned;
+}
+
+static inline bool32 IsMoveRapidFistsBanned(u32 moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].rapidFistsBanned;
 }
 
 static inline bool32 IsMoveSkyBattleBanned(u32 moveId)

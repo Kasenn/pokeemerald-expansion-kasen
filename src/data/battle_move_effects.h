@@ -573,7 +573,7 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
 
     [EFFECT_FORESTS_CURSE] =
     {
-        .battleScript = BattleScript_EffectForestCurse,
+        .battleScript = BattleScript_Effect_Forests_Curse,
         .battleTvScore = 2,
         .encourageEncore = TRUE,
     },

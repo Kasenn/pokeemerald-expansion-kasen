@@ -3924,7 +3924,8 @@ BattleScript_DoGhostCurse::
 	tryfaintmon BS_ATTACKER
 	goto BattleScript_MoveEnd
 
-BattleScript_EffectForestCurse::
+BattleScript_Effect_Forests_Curse::
+	jumpifnottype BS_ATTACKER, TYPE_GHOST, BattleScript_EffectThirdType
 	jumpiftype BS_ATTACKER, TYPE_GHOST, BattleScript_ForestsCurseEqualByte
 	attackcanceler
 	jumpiftype BS_ATTACKER, TYPE_GHOST, BattleScript_DoForestsCurse
@@ -5265,28 +5266,33 @@ BattleScript_FaintedMonShiftSwitched:
 	goto BattleScript_FaintedMonSendOutNewEnd
 
 BattleScript_AmphyInterrupts::
+@ Steelix faints
 	pause B_WAIT_TIME_MED
 	setcustomjasmineflag
 	dofaintanimation BS_OPPONENT1
 	cleareffectsonfaint BS_OPPONENT1
 	waitanimation
-	resetswitchinabilitybits
-	hpthresholds2 BS_OPPONENT1
-	switchoutabilities BS_OPPONENT1
-	waitstate
-	atknameinbuff1
+@ No mon on the field
 	getswitchedmondata BS_FAINTED
 	switchindataupdate BS_FAINTED
 	hpthresholds BS_FAINTED
 	trytoclearprimalweather
 	flushtextbox
+@ Amphy enters
 	switchinanim BS_OPPONENT1, FALSE, FALSE
 	waitstate
-	setbyte sSHIFT_SWITCHED, 1
-	switchineffects BS_FAINTED
 	printstring STRINGID_JASMINE_AMPHY
+	jumpifbytenotequal sSHIFT_SWITCHED, sZero, BattleScript_FaintedMonShiftSwitched2
+BattleScript_FaintedMonSendOutNewEnd2:
+	switchineffects BS_FAINTED
 	cancelallactions
 	end2
+BattleScript_FaintedMonShiftSwitched2:
+	copybyte sSAVED_BATTLER, gBattlerTarget
+	switchineffects BS_ATTACKER
+	resetsentmonsvalue
+	copybyte gBattlerTarget, sSAVED_BATTLER
+	goto BattleScript_FaintedMonSendOutNewEnd2
 
 BattleScript_HandleFaintedMonMultiple::
 	openpartyscreen BS_FAINTED_MULTIPLE_1, BattleScript_HandleFaintedMonMultipleStart

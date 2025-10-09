@@ -665,7 +665,7 @@ extern const u8 BattleScript_EffectMeanLook[];
 extern const u8 BattleScript_EffectNightmare[];
 extern const u8 BattleScript_EffectMinimize[];
 extern const u8 BattleScript_EffectCurse[];
-extern const u8 BattleScript_EffectForestCurse[];
+extern const u8 BattleScript_Effect_Forests_Curse[];
 extern const u8 BattleScript_EffectHealingWish[];
 extern const u8 BattleScript_EffectProtect[];
 extern const u8 BattleScript_EffectSpikes[];
