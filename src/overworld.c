@@ -1750,8 +1750,8 @@ void UpdateTimeOfDay(void)
     s32 minuteOverride = VarGet(VAR_MINUTE_OVERRIDE);
     s32 hours, minutes;
     RtcCalcLocalTime();
-    hours = sHoursOverride ? sHoursOverride : gLocalTime.hours;
-    minutes = sHoursOverride ? 0 : gLocalTime.minutes;
+    hours = hourOverride ? hourOverride : gLocalTime.hours;
+    minutes = minuteOverride ? minuteOverride : gLocalTime.minutes;
 
     if (FlagGet(FLAG_PERMA_NIGHT))
     {

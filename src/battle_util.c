@@ -4861,8 +4861,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_HIVE_LEADER:
-            if (!(gBattleStruct->moveResultFlags[gBattlerTarget] & MOVE_RESULT_NO_EFFECT)
-             && IsBattlerAlive(gBattlerAttacker)
+            if (IsBattlerAlive(gBattlerAttacker)
              && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
              && IsBattlerTurnDamaged(gBattlerTarget)
              && IsBattlerAlive(gBattlerTarget)
@@ -4876,8 +4875,8 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     gDisableStructs[gEffectBattler].wrapTurns = B_BINDING_TURNS >= GEN_5 ? (Random() % 2) + 4 : (Random() % 4) + 2;
                 gBattleStruct->wrappedMove[gEffectBattler] = MOVE_INFESTATION;
                 gBattleStruct->wrappedBy[gEffectBattler] = gBattlerTarget;
-                BattleScriptPushCursor();
-                gBattlescriptCurrInstr = BattleScript_HiveLeaderActivates;
+
+                BattleScriptCall(BattleScript_HiveLeaderGotHit);
                 effect++;
             }
             break;
@@ -5056,10 +5055,9 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_HIVE_LEADER:
-        if (!(gBattleStruct->moveResultFlags[gBattlerTarget] & MOVE_RESULT_NO_EFFECT)
-             && IsBattlerAlive(gEffectBattler)
+            if (IsBattlerAlive(gBattlerTarget)
              && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
-             && !(gBattleMons[gEffectBattler].volatiles.wrapped)
+             && !(gBattleMons[gBattlerTarget].volatiles.wrapped)
              && !CanBattlerAvoidContactEffects(gBattlerAttacker, gBattlerTarget, GetBattlerAbility(gBattlerAttacker), GetBattlerHoldEffect(gBattlerAttacker, TRUE), move)
              && IsBattlerTurnDamaged(gBattlerTarget)) // Need to actually hit the target
             {
@@ -5070,8 +5068,8 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     gDisableStructs[gEffectBattler].wrapTurns = B_BINDING_TURNS >= GEN_5 ? (Random() % 2) + 4 : (Random() % 4) + 2;
                 gBattleStruct->wrappedMove[gEffectBattler] = MOVE_INFESTATION;
                 gBattleStruct->wrappedBy[gEffectBattler] = gBattlerAttacker;
-                BattleScriptPushCursor();
-                gBattlescriptCurrInstr = BattleScript_HiveLeaderActivatesOffense;
+
+                BattleScriptCall(BattleScript_HiveLeaderAttacks);
                 effect++;
             }
             break;

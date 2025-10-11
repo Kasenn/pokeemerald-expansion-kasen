@@ -8344,14 +8344,14 @@ BattleScript_CuteCharmActivates::
 	call BattleScript_TryDestinyKnotTarget
 	return
 
-BattleScript_HiveLeaderActivates::
+BattleScript_HiveLeaderGotHit::
 	call BattleScript_AbilityPopUp
 	volatileanimation BS_ATTACKER, VOLATILE_WRAPPED
-	printstring STRINGID_HIVE_LEADER
+	printstring STRINGID_HIVE_LEADER_GOT_HIT
 	waitmessage B_WAIT_TIME_LONG
 	return
 
-BattleScript_HiveLeaderActivatesOffense::
+BattleScript_HiveLeaderAttacks::
 	call BattleScript_AbilityPopUp
 	volatileanimation BS_EFFECT_BATTLER, VOLATILE_WRAPPED
 	printstring STRINGID_INFESTATION

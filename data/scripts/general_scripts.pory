@@ -582,6 +582,10 @@ script Debug_Script_5{
     return
 }
 script Debug_Script_6{
+    setvar(VAR_0x8005, 999)
+    msgbox("a", MSGBOX_HOWMANY)
+    copyvar(VAR_TIME_CONTROL, VAR_RESULT)
+    release
     return
 }
 script Debug_Script_7{
