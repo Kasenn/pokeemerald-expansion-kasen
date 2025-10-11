@@ -211,7 +211,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_PLAYERGOTMONEY]                       = COMPOUND_STRING("{B_PLAYER_NAME} got ¥{B_BUFF1}\nfor winning!\p"),
     [STRINGID_PLAYERWHITEOUT]                       = COMPOUND_STRING("{B_PLAYER_NAME} is out of\nusable Pokémon!\p"),
 #if B_WHITEOUT_MONEY >= GEN_4
-    [STRINGID_PLAYERWHITEOUT3]                      = COMPOUND_STRING("{B_PLAYER_NAME} panicked and lost ¥{B_BUFF1}…\p… … … …\p{B_PLAYER_NAME} whited out!{PAUSE_UNTIL_PRESS}"),
+    [STRINGID_PLAYERWHITEOUT3]                      = COMPOUND_STRING("{B_PLAYER_NAME} panicked and lost ¥{B_BUFF1}…\p{B_PLAYER_NAME} whited out!{PAUSE_UNTIL_PRESS}"),
 #else
     [STRINGID_PLAYERWHITEOUT3]                      = COMPOUND_STRING("You were overwhelmed by your defeat!{PAUSE_UNTIL_PRESS}"),
 #endif
@@ -795,7 +795,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_METEORBEAMCHARGING]                   = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} is overflowing\nwith space energy!"),
     [STRINGID_HEATUPBEAK]                           = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} started\nheating up its beak!"),
     [STRINGID_COURTCHANGE]                          = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} swapped the battle\neffects affecting each side!"),
-    [STRINGID_PLAYERWHITEOUT2_TRAINER]             = COMPOUND_STRING("{B_PLAYER_NAME} is out of\nusable Pokémon!\pPlayer lost against\n{B_TRAINER1_CLASS} {B_TRAINER1_NAME}!{PAUSE_UNTIL_PRESS}"),
+    [STRINGID_PLAYERWHITEOUT2_TRAINER]              = COMPOUND_STRING("{B_PLAYER_NAME} paid out ¥{B_BUFF1}\nto the winner…\p{B_PLAYER_NAME} whited out!{PAUSE_UNTIL_PRESS}"),
     [STRINGID_ZPOWERSURROUNDS]                      = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} surrounded itself with its Z-Power!"),
     [STRINGID_ZMOVEUNLEASHED]                       = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} unleashes its full-force Z-Move!"),
     [STRINGID_ZMOVERESETSSTATS]                     = COMPOUND_STRING("{B_SCR_NAME_WITH_PREFIX} returned its decreased stats to normal using its Z-Power!"),

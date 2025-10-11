@@ -551,17 +551,34 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{              //
-    trainerbattle_single(TRAINER_LEADER_JASMINE, "a", "a")
+    setvar(VAR_HOUR_OVERRIDE, 12)
+    setwildbattle(SPECIES_PIDGEOT, 5)
+    waitbuttonpress
+    dowildbattle
+    release
     return
 }
 script Debug_Script_4{
-    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
-    subvar(VAR_TEMP_0, 1)
-    addvar(VAR_TEMP_1, 3)
-    teleportcamera(VAR_TEMP_0, VAR_TEMP_1)
+    setvar(VAR_HOUR_OVERRIDE, 22)
+    setwildbattle(SPECIES_PIDGEOT, 5)
+    waitbuttonpress
+    dowildbattle
+    release
     return
 }
 script Debug_Script_5{
+    setvar(VAR_HOUR_OVERRIDE, 2)
+    setwildbattle(SPECIES_PIDGEOT, 5)
+    waitbuttonpress
+    msgbox("Darken sprites?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == TRUE){
+        setflag(FLAG_TEMP_1F)
+    }
+    else{
+        clearflag(FLAG_TEMP_1F)
+    }
+    dowildbattle
+    release
     return
 }
 script Debug_Script_6{

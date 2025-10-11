@@ -5350,6 +5350,7 @@ BattleScript_LocalBattleLost2::
 	printstring STRINGID_NOWHITEOUT
 	waitmessage B_WAIT_TIME_LONG
 	end2
+
 BattleScript_LocalBattleLost::
 	jumpifbattletype BATTLE_TYPE_DOME, BattleScript_CheckDomeDrew
 	jumpifbattletype BATTLE_TYPE_FRONTIER, BattleScript_LocalBattleLostPrintTrainersWinText
@@ -5362,19 +5363,19 @@ BattleScript_LocalBattleLostPrintWhiteOut::
 	getmoneyreward BattleScript_LocalBattleLostPrintWhiteOut2
 BattleScript_LocalBattleLostPrintWhiteOut2::
 	printstring STRINGID_PLAYERWHITEOUT
-	waitmessage B_WAIT_TIME_LONG
+	@waitmessage B_WAIT_TIME_LONG
 .if B_WHITEOUT_MONEY >= GEN_4
 	jumpifbattletype BATTLE_TYPE_TRAINER, BattleScript_LocalBattleLostEnd
-	printstring STRINGID_PLAYERWHITEOUT2_WILD
-	waitmessage B_WAIT_TIME_LONG
+	@printstring STRINGID_PLAYERWHITEOUT2_WILD
+	@waitmessage B_WAIT_TIME_LONG
 	printstring STRINGID_PLAYERWHITEOUT3
-	waitmessage B_WAIT_TIME_LONG
+	@waitmessage B_WAIT_TIME_LONG
 	end2
 BattleScript_LocalBattleLostEnd::
 	printstring STRINGID_PLAYERWHITEOUT2_TRAINER
-	waitmessage B_WAIT_TIME_LONG
-	printstring STRINGID_PLAYERWHITEOUT3
-	waitmessage B_WAIT_TIME_LONG
+	@waitmessage B_WAIT_TIME_LONG
+	@printstring STRINGID_PLAYERWHITEOUT3
+	@waitmessage B_WAIT_TIME_LONG
 	end2
 .else
 	printstring STRINGID_PLAYERWHITEOUT3
