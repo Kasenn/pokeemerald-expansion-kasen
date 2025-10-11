@@ -686,6 +686,7 @@ void BattleLoadMonSpriteGfx(struct Pokemon *mon, u32 battler)
 
     LoadPalette(paletteData, paletteOffset, PLTT_SIZE_4BPP);
     LoadPalette(paletteData, BG_PLTT_ID(8) + BG_PLTT_ID(battler), PLTT_SIZE_4BPP);
+    TimeMixBattleSpritePalette(paletteOffset);
 
     // transform's pink color
     if (gBattleSpritesDataPtr->battlerData[battler].transformSpecies != SPECIES_NONE)
@@ -723,6 +724,7 @@ void DecompressTrainerFrontPic(u16 frontPicId, u8 battler)
     DecompressPicFromTable(&gTrainerSprites[frontPicId].frontPic,
                            gMonSpritesGfxPtr->spritesGfx[position]);
     LoadSpritePalette(&gTrainerSprites[frontPicId].palette);
+    TimeMixBattleSpritePalette(OBJ_PLTT_ID(LoadSpritePalette(&gTrainerSprites[frontPicId].palette)));
 }
 
 void DecompressTrainerBackPic(u16 backPicId, u8 battler)
@@ -731,6 +733,7 @@ void DecompressTrainerBackPic(u16 backPicId, u8 battler)
     CopyTrainerBackspriteFramesToDest(backPicId, gMonSpritesGfxPtr->spritesGfx[position]);
     LoadPalette(gTrainerBacksprites[backPicId].palette.data,
                           OBJ_PLTT_ID(battler), PLTT_SIZE_4BPP);
+    TimeMixBattleSpritePalette(OBJ_PLTT_ID(battler));
 }
 
 void FreeTrainerFrontPicPalette(u16 frontPicId)
@@ -747,6 +750,7 @@ void BattleLoadAllHealthBoxesGfxAtOnce(void)
 
     LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[color][0]);
     LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[color][1]);
+    TimeMixBattleBgPalette(TRUE);
     if (!IsDoubleBattle())
     {
         LoadCompressedSpriteSheet(&sSpriteSheet_SinglesPlayerHealthbox);
@@ -776,6 +780,7 @@ bool8 BattleLoadAllHealthBoxesGfx(u8 state)
         {
             LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[color][0]);
             LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[color][1]);
+            TimeMixBattleBgPalette(TRUE);
             LoadIndicatorSpritesGfx();
             CategoryIcons_LoadSpritesGfx();
         }
@@ -1006,6 +1011,7 @@ void HandleSpeciesGfxDataChange(u8 battlerAtk, u8 battlerDef, bool32 megaEvo, bo
     paletteOffset = OBJ_PLTT_ID(battlerAtk);
     paletteData = GetMonSpritePalFromSpeciesAndPersonality(targetSpecies, isShiny, personalityValue);
     LoadPalette(paletteData, paletteOffset, PLTT_SIZE_4BPP);
+    TimeMixBattleSpritePalette(paletteOffset);
 
     if (!megaEvo)
     {
