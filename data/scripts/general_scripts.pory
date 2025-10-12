@@ -589,6 +589,7 @@ script Debug_Script_6{
     return
 }
 script Debug_Script_7{
+    trainerbattle_two_trainers(TRAINER_LEADER_BLAINE, BlaineLoseText, TRAINER_LEADER_PRYCE, PryceLoseText)
     return
 }
 script Debug_Script_8{

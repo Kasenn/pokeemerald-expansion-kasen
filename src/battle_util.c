@@ -11948,6 +11948,8 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     if (atkAbility == ABILITY_UNAWARE || atkAbility == ABILITY_KEEN_EYE || atkAbility == ABILITY_MINDS_EYE
             || (GetGenConfig(GEN_ILLUMINATE_EFFECT) >= GEN_9 && atkAbility == ABILITY_ILLUMINATE))
         evasionStage = DEFAULT_STAT_STAGE;
+    if (atkAbility == ABILITY_DATA_BREACH && GetBattleMoveType(move) == TYPE_NORMAL)
+        evasionStage = DEFAULT_STAT_STAGE;
     if (MoveIgnoresDefenseEvasionStages(move))
         evasionStage = DEFAULT_STAT_STAGE;
     if (defAbility == ABILITY_UNAWARE)

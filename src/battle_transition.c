@@ -2632,18 +2632,20 @@ static void Mugshots_CreateTrainerPics(struct Task *task)
     u8 trainerAPicId = GetTrainerPicFromId(TRAINER_BATTLE_PARAM.opponentA);
     u8 trainerBPicId = GetTrainerPicFromId(TRAINER_BATTLE_PARAM.opponentB);
     u8 partnerPicId = GetTrainerPicFromId(gPartnerTrainerId);
+    u8 addX = 0;
 
     if (TRAINER_BATTLE_PARAM.opponentA == TRAINER_LEADER_PRYCE || TRAINER_BATTLE_PARAM.opponentA == TRAINER_LEADER_BLAINE)
     {
         trainerAPicId = TRAINER_PIC_LEADER_TATE_AND_LIZA;
         trainerBPicId = TRAINER_PIC_LEADER_TATE_AND_LIZA;
+        addX = 208;
     }
 
     s16 opponentARotationScales = 0;
     s16 opponentBRotationScales = 0;
 
     gReservedSpritePaletteCount = 10;
-    if (TRAINER_BATTLE_PARAM.opponentB != TRAINER_NONE && gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
+    if (TRAINER_BATTLE_PARAM.opponentB != TRAINER_NONE && gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS && trainerAPicId != TRAINER_PIC_LEADER_TATE_AND_LIZA)
     {
         task->tOpponentSpriteBId = CreateTrainerSprite(trainerBPicId,
                                                     gTrainerSprites[trainerBPicId].mugshotCoords.x - 240,
@@ -2661,7 +2663,7 @@ static void Mugshots_CreateTrainerPics(struct Task *task)
     }
 
     task->tOpponentSpriteAId = CreateTrainerSprite(trainerAPicId,
-                                                  gTrainerSprites[trainerAPicId].mugshotCoords.x - 32,
+                                                  gTrainerSprites[trainerAPicId].mugshotCoords.x - 32 - addX,
                                                   gTrainerSprites[trainerAPicId].mugshotCoords.y + 42,
                                                   0, NULL);
 
