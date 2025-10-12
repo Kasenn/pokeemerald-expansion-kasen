@@ -177,9 +177,9 @@ static const u8 sText_SingleSpace[] = _(" ");
 static ALIGNED(4) const u16 sPal3Override[] = {RGB(8, 8, 8), RGB(30, 16, 6)};
 
 static const u8 sTextColors[][3] = {
-    [COLOR_LIGHT] = {0, 1, 2},
-    [COLOR_DARK] = {0, 2, 3},
-    [COLOR_CURSOR_SELECTED] = {0, 3, 6},
+    [COLOR_LIGHT] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHITE, TEXT_COLOR_DARK_GRAY},
+    [COLOR_DARK] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY},
+    [COLOR_CURSOR_SELECTED] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_LIGHT_GRAY, TEXT_COLOR_GREEN},
     [COLOR_MOVE_INFO] = {0, 14, 10},
 };
 
@@ -316,6 +316,7 @@ static bool8 DoSetUpTMCaseUI(void)
     {
     case 0:
         SetVBlankHBlankCallbacksToNull();
+        ResetVramOamAndBgCntRegs();
         ClearScheduledBgCopiesToVram();
         gMain.state++;
         break;
@@ -626,7 +627,7 @@ static void PrintDescription(s32 itemIndex)
         str = GetItemDescription(GetBagItemId(POCKET_TM_HM, itemIndex));
     else
         str = gText_TMCaseWillBePutAway;
-    FillWindowPixelBuffer(WIN_DESCRIPTION, 0);
+    FillWindowPixelBuffer(WIN_DESCRIPTION, PIXEL_FILL(0));
     TMCase_Print(WIN_DESCRIPTION, FONT_NORMAL, str, 2, 3, 1, 0, 0, COLOR_LIGHT);
 
     TintPartyMonIcons(itemId);
@@ -964,7 +965,7 @@ static void InitWindowTemplatesAndPals(void)
     LoadPalette(sPal3Override, BG_PLTT_ID(13) + 6, sizeof(sPal3Override));
     ListMenuLoadStdPalAt(BG_PLTT_ID(12), 1);
     for (i = 0; i < ARRAY_COUNT(sWindowTemplates) - 1; i++)
-        FillWindowPixelBuffer(i, 0x00);
+        FillWindowPixelBuffer(i, PIXEL_FILL(0));
     PutWindowTilemap(WIN_LIST);
     PutWindowTilemap(WIN_DESCRIPTION);
     PutWindowTilemap(WIN_TITLE);
