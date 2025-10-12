@@ -988,8 +988,12 @@ static void GetItemNameFromPocket(u8 *dest, u16 itemId)
     default:
         if (itemId == ITEM_TM_CASE)
         {
+            if (gSaveBlock2Ptr->playerGender == MALE)
+                StringExpandPlaceholders(dest, COMPOUND_STRING("{COLOR_HIGHLIGHT_SHADOW 13 TRANSPARENT 3}"));
+            else
+                StringExpandPlaceholders(dest, COMPOUND_STRING("{COLOR_HIGHLIGHT_SHADOW 14 TRANSPARENT 3}"));
             CopyItemName(itemId, gStringVar2);
-            StringExpandPlaceholders(dest, gText_TMCase);
+            StringAppend(dest, gText_TMCase);
         }
         else{
             end = CopyItemName(itemId, dest);
