@@ -1388,7 +1388,10 @@ void TimeMixBattleSpritePalette(u16 paletteOffset)
         return;
 
     u32 paletteMask = 1 << (16 + ((paletteOffset - OBJ_PLTT_OFFSET) / 16));
-    s16 brightnessFactor = 100 + ((B_SPRITE_BRIGHTNESS - 100) * gTimeOfDayBlend[gTimeOfDay].coeff / 10);
+    s16 brightnessFactorStart = 100 + ((B_SPRITE_BRIGHTNESS - 100) * gTimeBlend.startBlend.coeff / 10);
+    s16 brightnessFactorEnd   = 100 + ((B_SPRITE_BRIGHTNESS - 100) * gTimeBlend.endBlend.coeff / 10);
+
+    s16 brightnessFactor = brightnessFactorStart + ((brightnessFactorEnd - brightnessFactorStart) * gTimeBlend.weight / 256);
 
     TimeMixPalettes(paletteMask, gPlttBufferUnfaded, gPlttBufferFaded, &gTimeBlend.startBlend, &gTimeBlend.endBlend, gTimeBlend.weight, brightnessFactor);
 
