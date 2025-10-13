@@ -17,31 +17,29 @@
 #include "data.h"
 #include "scanline_effect.h"
 #include "strings.h"
-#include "constants/items.h"
-#include "constants/songs.h"
 #include "palette.h"
 #include "pokemon_icon.h"
-#include "constants/rgb.h"
 #include "malloc.h"
 #include "bg.h"
 #include "move.h"
 #include "gpu_regs.h"
 #include "sound.h"
-#include "shop.h"
+#include "constants/items.h"
+#include "constants/songs.h"
+#include "constants/rgb.h"
 
 // Any item in the TM Case with nonzero importance is considered an HM
-#define IS_HM(itemId) (itemId >= ITEM_TM_DRAGON_DANCE)
+#define IS_HM(itemId) (itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
 
 #define TAG_SCROLL_ARROW 110
 
 enum {
-    WIN_LIST,
-    WIN_DESCRIPTION,
-    WIN_SELECTED_MSG,
-    WIN_TITLE,
-    WIN_MOVE_INFO_LABELS,
-    WIN_MOVE_INFO,
-    WIN_MESSAGE,
+    WIN_LIST,               // Main list of TMs
+    WIN_DESCRIPTION,        // Move description
+    WIN_SELECTED_MSG,       // After pressing A
+    WIN_TITLE,              // "TM Case" title
+    WIN_MOVE_INFO_LABELS,   // Power/Accuracy/PP/Type icons
+    WIN_MOVE_INFO,          // Power/Accuracy/PP/Type info
 };
 
 // IDs for the actions in the context menu
@@ -55,7 +53,6 @@ enum {
     COLOR_DARK,
     COLOR_CURSOR_SELECTED,
     COLOR_MOVE_INFO,
-    COLOR_CURSOR_ERASE = 0xFF
 };
 
 // The "static" resources are preserved even if the TM case is exited. This is
@@ -99,7 +96,6 @@ static void List_MoveCursorFunc(s32 itemIndex, bool8 onInit, struct ListMenu *li
 static void List_ItemPrintFunc(u8 windowId, u32 itemId, u8 y);
 static void PrintDescription(s32 itemIndex);
 static void PrintMoveInfo(u16 itemId);
-static void PrintListCursorAtRow(u8 y, u8 colorIdx);
 static void CreateListScrollArrows(void);
 static void TMCaseSetup_GetTMCount(void);
 static void TMCaseSetup_InitListMenuPositions(void);
@@ -109,21 +105,16 @@ static void Task_HandleListInput(u8 taskId);
 static void Task_SelectedTMHM_Field(u8 taskId);
 static void Task_ContextMenu_HandleInput(u8 taskId);
 static void Action_Use(u8 taskId);
-static void PrintError_ThereIsNoPokemon(u8 taskId);
-static void Task_WaitButtonAfterErrorPrint(u8 taskId);
-static void CloseMessageAndReturnToList(u8 taskId);
 static void Action_Exit(u8 taskId);
 static void InitWindowTemplatesAndPals(void);
 static void TMCase_Print(u8 windowId, u8 fontId, const u8 * str, u8 x, u8 y, u8 letterSpacing, u8 lineSpacing, u8 speed, u8 colorIdx);
 static void TMCase_SetWindowBorder1(u8 windowId);
 static void TMCase_SetWindowBorder2(u8 windowId);
-static void PrintMessageWithFollowupTask(u8 taskId, u8 fontId, const u8 * str, TaskFunc func);
 static void PrintTitle(void);
 static void DrawMoveInfoLabels(void);
 static void PlaceHMTileInWindow(u8 windowId, u8 x, u8 y);
 static u8 AddContextMenu(u8 * windowId);
 static void RemoveContextMenu(u8 * windowId);
-
 static void DrawPartyMonIcons(void);
 static void TintPartyMonIcons(u16 tm);
 
@@ -231,15 +222,6 @@ static const struct WindowTemplate sWindowTemplates[] = {
         .paletteNum = 12,
         .baseBlock = 0x267
     },
-    [WIN_MESSAGE] = {
-        .bg = 1,
-        .tilemapLeft = 2,
-        .tilemapTop = 15,
-        .width = 26,
-        .height = 4,
-        .paletteNum = 11,
-        .baseBlock = 0x285
-    },
     DUMMY_WIN_TEMPLATE
 };
 
@@ -307,7 +289,6 @@ static bool8 DoSetUpTMCaseUI(void)
     {
     case 0:
         SetVBlankHBlankCallbacksToNull();
-        ResetVramOamAndBgCntRegs();
         ClearScheduledBgCopiesToVram();
         gMain.state++;
         break;
@@ -634,21 +615,7 @@ static void SetDescriptionWindowShade(s32 shade)
 
 static void PrintListCursor(u8 listTaskId, u8 colorIdx)
 {
-    PrintListCursorAtRow(ListMenuGetYCoordForPrintingArrowCursor(listTaskId), colorIdx);
-}
-
-static void PrintListCursorAtRow(u8 y, u8 colorIdx)
-{
-    if (colorIdx == COLOR_CURSOR_ERASE)
-    {
-        // Never used. Would erase cursor (but also a portion of the list text)
-        FillWindowPixelRect(WIN_LIST, 0, 0, y, GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_WIDTH), GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_HEIGHT));
-        CopyWindowToVram(WIN_LIST, COPYWIN_GFX);
-    }
-    else
-    {
-        TMCase_Print(WIN_LIST, FONT_NORMAL, gText_SelectorArrow2, 0, y, 0, 0, 0, colorIdx);
-    }
+    TMCase_Print(WIN_LIST, FONT_NORMAL, gText_SelectorArrow2, 0, ListMenuGetYCoordForPrintingArrowCursor(listTaskId), 0, 0, 0, colorIdx);
 }
 
 static void CreateListScrollArrows(void)
@@ -881,47 +848,9 @@ static void Action_Use(u8 taskId)
     PutWindowTilemap(WIN_LIST);
     ScheduleBgCopyTilemapToVram(0);
     ScheduleBgCopyTilemapToVram(1);
-    if (CalculatePlayerPartyCount() == 0)
-    {
-        PrintError_ThereIsNoPokemon(taskId);
-    }
-    else
-    {
-        gItemUseCB = ItemUseCB_TMHM;
-        sTMCaseDynamicResources->nextScreenCallback = CB2_ShowPartyMenuForItemUse;
-        Task_BeginFadeOutFromTMCase(taskId);
-    }
-}
-
-static void PrintError_ThereIsNoPokemon(u8 taskId)
-{
-    PrintMessageWithFollowupTask(taskId, FONT_NORMAL, gText_NoPokemon, Task_WaitButtonAfterErrorPrint);
-}
-
-static void Task_WaitButtonAfterErrorPrint(u8 taskId)
-{
-    if (JOY_NEW(A_BUTTON))
-    {
-        PlaySE(SE_SELECT);
-        CloseMessageAndReturnToList(taskId);
-    }
-}
-
-static void CloseMessageAndReturnToList(u8 taskId)
-{
-    s16 * data = gTasks[taskId].data;
-
-    DestroyListMenuTask(tListTaskId, &sTMCaseStaticResources.scrollOffset, &sTMCaseStaticResources.selectedRow);
-    tListTaskId = ListMenuInit(&gMultiuseListMenuTemplate, sTMCaseStaticResources.scrollOffset, sTMCaseStaticResources.selectedRow);
-    PrintListCursor(tListTaskId, COLOR_DARK);
-    ClearDialogWindowAndFrameToTransparent(WIN_MESSAGE, FALSE);
-    ClearWindowTilemap(WIN_MESSAGE);
-    PutWindowTilemap(WIN_DESCRIPTION);
-    PutWindowTilemap(WIN_MOVE_INFO_LABELS);
-    PutWindowTilemap(WIN_MOVE_INFO);
-    ScheduleBgCopyTilemapToVram(0);
-    ScheduleBgCopyTilemapToVram(1);
-    ReturnToList(taskId);
+    gItemUseCB = ItemUseCB_TMHM;
+    sTMCaseDynamicResources->nextScreenCallback = CB2_ShowPartyMenuForItemUse;
+    Task_BeginFadeOutFromTMCase(taskId);
 }
 
 static void Action_Exit(u8 taskId)
@@ -978,12 +907,6 @@ static void TMCase_SetWindowBorder1(u8 windowId)
 static void TMCase_SetWindowBorder2(u8 windowId)
 {
     DrawStdFrameWithCustomTileAndPalette(windowId, FALSE, 0x78, 13);
-}
-
-static void PrintMessageWithFollowupTask(u8 taskId, u8 fontId, const u8 * str, TaskFunc func)
-{
-    DisplayMessageAndContinueTask(taskId, WIN_MESSAGE, 0x64, 0x0B, fontId, GetPlayerTextSpeedDelay(), str, func);
-    ScheduleBgCopyTilemapToVram(1);
 }
 
 static void PrintTitle(void)
