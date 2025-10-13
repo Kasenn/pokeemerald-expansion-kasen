@@ -1071,7 +1071,7 @@ static void UseTMHM(u8 taskId)
 
 static void CB2_OpenTMCaseOnField(void)
 {
-    InitTMCase(0, CB2_BagMenuFromStartMenu);
+    InitTMCase(CB2_BagMenuFromStartMenu);
 }
 
 static void Task_InitTMCaseFromField(u8 taskId)
@@ -1080,7 +1080,7 @@ static void Task_InitTMCaseFromField(u8 taskId)
     {
         CleanupOverworldWindowsAndTilemaps();
         // sub_80A1184();
-        InitTMCase(0, CB2_ReturnToField);
+        InitTMCase(CB2_ReturnToField);
         DestroyTask(taskId);
     }
 }

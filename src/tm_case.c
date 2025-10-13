@@ -30,7 +30,7 @@
 #include "shop.h"
 
 // Any item in the TM Case with nonzero importance is considered an HM
-#define IS_HM(itemId) (GetItemImportance(itemId) != 0)
+#define IS_HM(itemId) (itemId >= ITEM_TM_DRAGON_DANCE)
 
 #define TAG_SCROLL_ARROW 110
 
@@ -58,18 +58,11 @@ enum {
     COLOR_CURSOR_ERASE = 0xFF
 };
 
-enum {
-    TMCASE_FIELD,
-    TMCASE_REOPENING,
-};
-
 // The "static" resources are preserved even if the TM case is exited. This is
 // useful for when its left temporarily (e.g. going to the party menu to teach a TM)
 // but also to preserve the selected item when the TM case is fully closed.
 static EWRAM_DATA struct {
     void (* exitCallback)(void);
-    u8 menuType;
-    u8 unused;
     u16 selectedRow;
     u16 scrollOffset;
 } sTMCaseStaticResources = {};
@@ -166,7 +159,7 @@ static const struct BgTemplate sBGTemplates[] = {
 
 static const struct MenuAction sMenuActions[] = {
     [ACTION_USE]  = {COMPOUND_STRING("Use"),  {Action_Use }},
-    [ACTION_EXIT] = {COMPOUND_STRING("Exit"), {Action_Exit}},
+    [ACTION_EXIT] = {COMPOUND_STRING("Cancel"), {Action_Exit}},
 };
 
 static const u8 sMenuActionIndices_Field[] = {ACTION_USE, ACTION_EXIT};
@@ -260,15 +253,13 @@ static const struct WindowTemplate sWindowTemplates_ContextMenu = {
     .baseBlock = 0x1cf
 };
 
-void InitTMCase(u8 type, void (* exitCallback)(void))
+void InitTMCase(void (* exitCallback)(void))
 {
     ResetBufferPointers_NoFree();
     sTMCaseDynamicResources = Alloc(sizeof(*sTMCaseDynamicResources));
     sTMCaseDynamicResources->nextScreenCallback = NULL;
     sTMCaseDynamicResources->scrollArrowsTaskId = TASK_NONE;
     sTMCaseDynamicResources->contextMenuWindowId = WINDOW_NONE;
-    if (type != TMCASE_REOPENING)
-        sTMCaseStaticResources.menuType = type;
     if (exitCallback != NULL)
         sTMCaseStaticResources.exitCallback = exitCallback;
     gTextFlags.autoScroll = FALSE;
@@ -628,7 +619,7 @@ static void PrintDescription(s32 itemIndex)
     else
         str = gText_TMCaseWillBePutAway;
     FillWindowPixelBuffer(WIN_DESCRIPTION, PIXEL_FILL(0));
-    TMCase_Print(WIN_DESCRIPTION, FONT_NORMAL, str, 2, 3, 1, 0, 0, COLOR_LIGHT);
+    TMCase_Print(WIN_DESCRIPTION, FONT_SHORT, str, 2, 3, 1, 0, 0, COLOR_LIGHT);
 
     TintPartyMonIcons(itemId);
 }

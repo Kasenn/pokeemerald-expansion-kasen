@@ -11,7 +11,7 @@ enum TmCaseType
     TMCASE_NA
 };
 
-void InitTMCase(u8 a0, void (* a1)(void));
+void InitTMCase(void (* a1)(void));
 void ResetTMCaseCursorPos(void);
 void Pokedude_InitTMCase(void);
 

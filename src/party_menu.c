@@ -4822,7 +4822,7 @@ void CB2_ShowPartyMenuForItemUse(void)
 
 static void CB2_OpenTMCaseOnField(void)
 {
-    InitTMCase(0, CB2_BagMenuFromStartMenu);
+    InitTMCase(CB2_BagMenuFromStartMenu);
 }
 void CB2_ShowPartyMenuForItemUseTMCase(void)
 {
