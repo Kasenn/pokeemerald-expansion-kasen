@@ -140,7 +140,7 @@ static const struct BgTemplate sBGTemplates[] = {
         .mapBaseIndex = 30,
         .screenSize = 0,
         .paletteMode = 0,
-        .priority = 1,
+        .priority = 2,
         .baseTile = 0x000
     },
     [BGID_2] = {
@@ -149,7 +149,7 @@ static const struct BgTemplate sBGTemplates[] = {
         .mapBaseIndex = 29,
         .screenSize = 0,
         .paletteMode = 0,
-        .priority = 1,
+        .priority = 2,
         .baseTile = 0x000
     }
 };
@@ -175,7 +175,7 @@ static const u8 sTextColors[][3] = {
 
 static const struct WindowTemplate sWindowTemplates[] = {
     [WIN_LIST] = {
-        .bg = BGID_0,
+        .bg = BGID_1,
         .tilemapLeft = 14,
         .tilemapTop = 1,
         .width = 15,
@@ -184,7 +184,7 @@ static const struct WindowTemplate sWindowTemplates[] = {
         .baseBlock = 0x081
     },
     [WIN_DESCRIPTION] = {
-        .bg = BGID_0,
+        .bg = BGID_1,
         .tilemapLeft = 12,
         .tilemapTop = 12,
         .width = 18,
@@ -202,7 +202,7 @@ static const struct WindowTemplate sWindowTemplates[] = {
         .baseBlock = 0x1f9
     },
     [WIN_TITLE] = {
-        .bg = BGID_0,
+        .bg = BGID_1,
         .tilemapLeft = 0,
         .tilemapTop = 1,
         .width = 10,
@@ -211,7 +211,7 @@ static const struct WindowTemplate sWindowTemplates[] = {
         .baseBlock = 0x235
     },
     [WIN_MOVE_INFO_LABELS] = {
-        .bg = BGID_0,
+        .bg = BGID_1,
         .tilemapLeft = 1,
         .tilemapTop = 13,
         .width = 5,
@@ -220,7 +220,7 @@ static const struct WindowTemplate sWindowTemplates[] = {
         .baseBlock = 0x249
     },
     [WIN_MOVE_INFO] = {
-        .bg = BGID_0,
+        .bg = BGID_1,
         .tilemapLeft = 7,
         .tilemapTop = 13,
         .width = 5,
@@ -285,7 +285,6 @@ static void CB2_SetUpTMCaseUI_Blocking(void)
 
 #define tListTaskId       data[0]
 #define tSelection        data[1]
-#define tQuantitySelected data[8]
 
 static bool8 DoSetUpTMCaseUI(void)
 {
@@ -365,6 +364,9 @@ static bool8 DoSetUpTMCaseUI(void)
         gMain.state++;
         break;
     case 16:
+        PutWindowTilemap(WIN_DESCRIPTION);
+        PutWindowTilemap(WIN_MOVE_INFO_LABELS);
+        PutWindowTilemap(WIN_MOVE_INFO);
         gMain.state++;
         break;
     case 17:
@@ -561,10 +563,19 @@ static void PrintDescription(s32 itemIndex)
 
 // Darkens (or subsequently lightens) the blue bg tiles around the description window when a TM/HM is selected.
 // shade=0: lighten, shade=1: darken
-static void SetDescriptionWindowShade(s32 shade)
+static void SetDescriptionWindowShade(s32 shade, u8 taskId)
 {
-    SetBgTilemapPalette(BGID_2, 0, 12, 30, 8, 2 * shade + 1);
-    ScheduleBgCopyTilemapToVram(BGID_2);
+    u32 i;
+
+    if (shade)
+    {
+        for (i = 0; i < 4; i++)
+            gTasks[taskId].data[2 + i] = gPlttBufferFaded[BG_PLTT_ID(1) + 12 + i];
+
+        LoadPalette(&gPlttBufferFaded[BG_PLTT_ID(3) + 12], BG_PLTT_ID(1) + 12, PLTT_SIZEOF(4));
+    }
+    else
+        LoadPalette(&gTasks[taskId].data[2], BG_PLTT_ID(1) + 12, PLTT_SIZEOF(4));
 }
 
 static void PrintListCursor(u8 listTaskId, u8 colorIdx)
@@ -701,7 +712,7 @@ static void Task_HandleListInput(u8 taskId)
                 break;
             default:
                 PlaySE(SE_SELECT);
-                SetDescriptionWindowShade(1);
+                SetDescriptionWindowShade(1, taskId);
                 RemoveScrollArrows();
                 PrintListCursor(tListTaskId, COLOR_CURSOR_SELECTED);
                 tSelection = input;
@@ -716,7 +727,7 @@ static void Task_HandleListInput(u8 taskId)
 
 static void ReturnToList(u8 taskId)
 {
-    SetDescriptionWindowShade(0);
+    SetDescriptionWindowShade(0, taskId);
     CreateListScrollArrows();
     gTasks[taskId].func = Task_HandleListInput;
 }

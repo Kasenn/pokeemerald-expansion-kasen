@@ -595,6 +595,8 @@ EWRAM_DATA u16 gSpecialVar_ItemId = 0;
 //tx_registered_items_menu
 extern const u8 EventScript_SelectWithoutRegisteredItem[];
 
+EWRAM_DATA bool8 gOpenTMCaseFromBag = FALSE;
+
 void ResetBagScrollPositions(void)
 {
     gBagPosition.pocket = POCKET_ITEMS;

@@ -1093,11 +1093,13 @@ void ItemUseOutOfBattle_TmCase(u8 taskId)
     }
     else if (gTasks[taskId].tUsingRegisteredKeyItem != TRUE)
     {
+        gOpenTMCaseFromBag = TRUE;
         gBagMenu->newScreenCallback = CB2_OpenTMCaseOnField;
         Task_FadeAndCloseBagMenu(taskId);
     }
     else
     {
+        gOpenTMCaseFromBag = FALSE;
         gFieldCallback = FieldCB_ReturnToFieldNoScript; //FieldCB_ReturnToFieldNoScript
         FadeScreen(FADE_TO_BLACK, 0);
         gTasks[taskId].func = Task_InitTMCaseFromField;
