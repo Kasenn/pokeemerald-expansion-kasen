@@ -134,34 +134,42 @@ Debug_EventScript_Text_DefensiveIVs:
 
 Debug_EventScript_Script_1::
 	call Debug_Script_1
+	release
 	end
 
 Debug_EventScript_Script_2::
 	call Debug_Script_2
+	release
 	end
 
 Debug_EventScript_Script_3::
 	call Debug_Script_3
+	release
 	end
 
 Debug_EventScript_Script_4::
 	call Debug_Script_4
+	release
 	end
 
 Debug_EventScript_Script_5::
 	call Debug_Script_5
+	release
 	end
 
 Debug_EventScript_Script_6::
 	call Debug_Script_6
+	release
 	end
 
 Debug_EventScript_Script_7::
 	call Debug_Script_7
+	release
 	end
 
 Debug_EventScript_Script_8::
 	call Debug_Script_8
+	release
 	end
 
 Debug_CheckSaveBlock::

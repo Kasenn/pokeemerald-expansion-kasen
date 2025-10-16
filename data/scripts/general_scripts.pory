@@ -550,46 +550,19 @@ script Debug_Script_2{              //
     release
     return
 }
-script Debug_Script_3{              //
-    setvar(VAR_HOUR_OVERRIDE, 12)
-    setwildbattle(SPECIES_PIDGEOT, 5)
-    waitbuttonpress
-    dowildbattle
-    release
+script Debug_Script_3{
     return
 }
 script Debug_Script_4{
-    setvar(VAR_HOUR_OVERRIDE, 22)
-    setwildbattle(SPECIES_PIDGEOT, 5)
-    waitbuttonpress
-    dowildbattle
-    release
     return
 }
 script Debug_Script_5{
-    setvar(VAR_HOUR_OVERRIDE, 2)
-    setwildbattle(SPECIES_PIDGEOT, 5)
-    waitbuttonpress
-    msgbox("Darken sprites?", MSGBOX_YESNO)
-    if(var(VAR_RESULT) == TRUE){
-        setflag(FLAG_TEMP_1F)
-    }
-    else{
-        clearflag(FLAG_TEMP_1F)
-    }
-    dowildbattle
-    release
     return
 }
 script Debug_Script_6{
-    setvar(VAR_0x8005, 999)
-    msgbox("a", MSGBOX_HOWMANY)
-    copyvar(VAR_TIME_CONTROL, VAR_RESULT)
-    release
     return
 }
 script Debug_Script_7{
-    trainerbattle_two_trainers(TRAINER_LEADER_BLAINE, BlaineLoseText, TRAINER_LEADER_PRYCE, PryceLoseText)
     return
 }
 script Debug_Script_8{
