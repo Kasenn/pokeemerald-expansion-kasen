@@ -3351,7 +3351,6 @@ static void DebugAction_PCBag_Fill_PocketMegaStone(u8 taskId)
     }
 }
 
-
 static void DebugAction_PCBag_ClearBag(u8 taskId)
 {
     PlaySE(MUS_LEVEL_UP);
