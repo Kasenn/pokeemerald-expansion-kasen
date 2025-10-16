@@ -99,6 +99,7 @@ struct ItemSlot NONNULL BagPocket_GetSlotData(struct BagPocket *pocket, u32 pock
 {
     switch (pocket->id)
     {
+    case POCKET_FREESPACE:
     case POCKET_MEDICINE:
     case POCKET_MEGA_STONES:
     case POCKET_ITEMS:
@@ -124,6 +125,7 @@ void NONNULL BagPocket_SetSlotData(struct BagPocket *pocket, u32 pocketPos, stru
 
     switch (pocket->id)
     {
+    case POCKET_FREESPACE:
     case POCKET_MEDICINE:
     case POCKET_MEGA_STONES:
     case POCKET_ITEMS:
@@ -180,6 +182,9 @@ void SetBagItemsPointers(void)
     gBagPockets[POCKET_MEDICINE].capacity = BAG_MEDICINE_COUNT;
     gBagPockets[POCKET_MEDICINE].id = POCKET_MEDICINE;
 
+    gBagPockets[POCKET_FREESPACE].itemSlots = gSaveBlock1Ptr->freeSpaceItems;
+    gBagPockets[POCKET_FREESPACE].capacity = BAG_FREESPACE_COUNT;
+    gBagPockets[POCKET_FREESPACE].id = POCKET_FREESPACE;
 }
 
 u8 *CopyItemName(u16 itemId, u8 *dst)
@@ -425,7 +430,7 @@ static bool32 NONNULL BagPocket_RemoveItem(struct BagPocket *pocket, u16 itemId,
 
 bool32 RemoveBagItem(u16 itemId, u16 count)
 {
-    if (GetItemPocket(itemId) == POCKET_POKE_BALLS && (gBattleTypeFlags & BATTLE_TYPE_GHOST))
+    if (GetItemBattleUsage(itemId) == EFFECT_ITEM_THROW_BALL && (gBattleTypeFlags & BATTLE_TYPE_GHOST))
         return FALSE;
 
     if (GetItemPocket(itemId) >= POCKETS_COUNT || itemId == ITEM_NONE)
@@ -872,6 +877,11 @@ u8 GetItemConsumability(u16 itemId)
 
 enum Pocket GetItemPocket(u16 itemId)
 {
+    for (int i = 0; i < BAG_FREESPACE_COUNT; i++)
+    {
+        if (gSaveBlock1Ptr->freeSpaceFlags[i] == itemId)
+            return POCKET_FREESPACE;
+    }
     return gItemsInfo[SanitizeItemId(itemId)].pocket;
 }
 
@@ -973,4 +983,50 @@ bool32 IsHoldEffectChoice(enum ItemHoldEffect holdEffect)
     return holdEffect == HOLD_EFFECT_CHOICE_BAND
         || holdEffect == HOLD_EFFECT_CHOICE_SCARF
         || holdEffect == HOLD_EFFECT_CHOICE_SPECS;
+}
+
+#define MOVE_FROM_FREESPACE 0
+#define MOVE_TO_FREESPACE   1
+
+bool32 FreeSpace_RemoveBagItem(u16 itemId, u16 count, u16 direction)
+{
+    if (GetItemBattleUsage(itemId) == EFFECT_ITEM_THROW_BALL && (gBattleTypeFlags & BATTLE_TYPE_GHOST))
+        return FALSE;
+
+    if (direction == MOVE_TO_FREESPACE)
+        return BagPocket_RemoveItem(&gBagPockets[FreeSpace_GetItemPocket(itemId)], itemId, count);
+    else
+        return BagPocket_RemoveItem(&gBagPockets[POCKET_FREESPACE], itemId, count);
+}
+
+bool32 FreeSpace_AddBagItem(u16 itemId, u16 count, u16 direction)
+{
+    if (direction == MOVE_TO_FREESPACE)
+        return BagPocket_AddItem(&gBagPockets[POCKET_FREESPACE], itemId, count);
+    else
+        return BagPocket_AddItem(&gBagPockets[FreeSpace_GetItemPocket(itemId)], itemId, count);
+}
+
+bool32 FreeSpace_CheckBagHasSpace(u16 itemId, u16 count)
+{
+    if (GetItemPocket(itemId) >= POCKETS_COUNT)
+        return FALSE;
+
+    if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || FlagGet(FLAG_STORING_ITEMS_IN_PYRAMID_BAG) == TRUE)
+        return CheckPyramidBagHasSpace(itemId, count);
+
+    return FreeSpace_GetFreeSpaceForItemInBag(itemId) >= count;
+}
+
+u32 FreeSpace_GetFreeSpaceForItemInBag(u16 itemId)
+{
+    if (FreeSpace_GetItemPocket(itemId) >= POCKETS_COUNT)
+        return 0;
+
+    return BagPocket_GetFreeSpaceForItem(&gBagPockets[FreeSpace_GetItemPocket(itemId)], itemId);
+}
+
+enum Pocket FreeSpace_GetItemPocket(u16 itemId)
+{
+    return gItemsInfo[SanitizeItemId(itemId)].pocket;
 }

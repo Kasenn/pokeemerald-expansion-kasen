@@ -177,6 +177,7 @@
 #define STDSTRING_BATTLE_PYRAMID   29
 #define STDSTRING_MEDICINE         30
 #define STDSTRING_MEGA_STONES      31
+#define STDSTRING_FREESPACE        32
 
 // Dynamic Multichoice Callbacks
 

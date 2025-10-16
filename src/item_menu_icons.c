@@ -102,6 +102,7 @@ static const union AnimCmd sSpriteAnim_Bag_MegaPocket[] =
 
 static const union AnimCmd *const sBagSpriteAnimTable[] =
 {
+    [POCKET_FREESPACE]  = sSpriteAnim_Bag_Closed,
     [POCKET_ITEMS]      = sSpriteAnim_Bag_Items,
     [POCKET_MEDICINE]   = sSpriteAnim_Bag_Pokeballs,
     [POCKET_POKE_BALLS] = sSpriteAnim_Bag_TMsHMs,

@@ -211,6 +211,7 @@ const u8 gText_ReturnToVar1[] = _("Return to\n{STR_VAR_1}.");
 
 const u8 *const gPocketNamesStringsTable[] =
 {
+    [POCKET_FREESPACE] =    gText_FreeSpace,
     [POCKET_ITEMS] =        COMPOUND_STRING("Items"),
     [POCKET_POKE_BALLS] =   COMPOUND_STRING("Poké Balls"),
     [POCKET_TM_HM]  =       COMPOUND_STRING("TMs & HMs"),
@@ -537,6 +538,7 @@ const u8 gText_MegaStones[] = _("Mega Stones");
 const u8 gText_TMs_Hms[] = _("TMs & HMs");
 const u8 gText_Berries2[] = _("Berries");
 const u8 gText_Medicine[] = _("Medicine");
+const u8 gText_FreeSpace[] = _("Free Space");
 const u8 gText_SomeonesPC[] = _("Someone's PC");
 const u8 gText_LanettesPC[] = _("Lanette's PC");
 const u8 gText_PlayersPC[] = _("{PLAYER}'s PC");

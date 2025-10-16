@@ -3,6 +3,7 @@
 
 enum Pocket
 {
+    POCKET_FREESPACE,
     POCKET_ITEMS,
     POCKET_MEDICINE,
     POCKET_POKE_BALLS,

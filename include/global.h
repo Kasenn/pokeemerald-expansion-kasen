@@ -1136,6 +1136,8 @@ struct SaveBlock1
                u8 questOrder[QUEST_COUNT];
                u8 questFlag[QUEST_COUNT];
                u32 gogoatRaceRecord[2];
+               struct ItemSlot freeSpaceItems[BAG_FREESPACE_COUNT];
+               u16 freeSpaceFlags[BAG_FREESPACE_COUNT];
 };
 
 extern struct SaveBlock1 *gSaveBlock1Ptr;

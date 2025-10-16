@@ -72,6 +72,7 @@
 #define BAG_BERRIES_COUNT 69    // can contain all
 #define BAG_MEDICINE_COUNT 80   // 9 more than currently planned
 #define BAG_MEGASTONE_COUNT 50  // should be able to contain all
+#define BAG_FREESPACE_COUNT 100
 
 #define OBJECT_EVENT_TEMPLATES_COUNT 64
 #define DECOR_MAX_SECRET_BASE 1

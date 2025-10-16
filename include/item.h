@@ -52,6 +52,7 @@ enum PACKED ItemSortType
     ITEM_TYPE_HEALTH_RECOVERY,
     ITEM_TYPE_STATUS_RECOVERY,
     ITEM_TYPE_PP_RECOVERY,
+    ITEM_TYPE_BERRY,
     ITEM_TYPE_NATURE_MINT,
     ITEM_TYPE_STAT_BOOST_DRINK,
     ITEM_TYPE_STAT_BOOST_FEATHER,
@@ -249,5 +250,12 @@ void SetBagItemQuantity(u16 *quantity, u16 newValue);
 bool32 ItemHasVolatileFlag(u16 itemId, enum Volatile volatile);
 u32 GetItemSellPrice(u32 itemId);
 bool32 IsHoldEffectChoice(enum ItemHoldEffect holdEffect);
+
+// Free Space Pocket
+enum Pocket FreeSpace_GetItemPocket(u16 itemId);
+bool32 FreeSpace_CheckBagHasSpace(u16 itemId, u16 count);
+u32 FreeSpace_GetFreeSpaceForItemInBag(u16 itemId);
+bool32 FreeSpace_RemoveBagItem(u16 itemId, u16 count, u16 direction);
+bool32 FreeSpace_AddBagItem(u16 itemId, u16 count, u16 direction);
 
 #endif // GUARD_ITEM_H
