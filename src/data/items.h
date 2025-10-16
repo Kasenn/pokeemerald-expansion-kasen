@@ -12591,7 +12591,11 @@ const struct Item gItemsInfo[] =
         .name = ITEM_NAME("TM97"),
         .bpCost = 32,
         .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .description = COMPOUND_STRING(
+            "The user releases a\n"
+            "horrible aura imbued with\n"
+            "ill intent. It may also\n"
+            "make the target flinch."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,

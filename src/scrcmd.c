@@ -4128,3 +4128,13 @@ bool8 ScrCmd_checkpartymove(struct ScriptContext *ctx)
     }
     return FALSE;
 }
+
+void ResetFreeSpace(void)
+{
+    for (int i = 0; i < BAG_FREESPACE_COUNT; i++)
+    {
+        SetBagItemQuantity(&gSaveBlock1Ptr->freeSpaceItems[i].quantity, 0);
+        gSaveBlock1Ptr->freeSpaceItems[i].itemId = ITEM_NONE;
+        gSaveBlock1Ptr->freeSpaceFlags[i] = 0;
+    }
+}
