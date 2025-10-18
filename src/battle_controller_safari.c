@@ -429,6 +429,9 @@ static void SafariHandleDrawTrainerPic(u32 battler)
     case OUTFIT_ORAS:
         trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN_ORAS;
         break;
+    case OUTFIT_CONTEST:
+        trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN_CONTEST;
+        break;
     }    
 
     BtlController_HandleDrawTrainerPic(battler, trainerPicId, FALSE,

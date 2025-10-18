@@ -340,6 +340,11 @@ static const u8 sTrainerPicFacilityClass[][GENDER_COUNT] =
     {
         [MALE]   = FACILITY_CLASS_BRENDAN_2,
         [FEMALE] = FACILITY_CLASS_MAY_2
+    },
+    [CARD_TYPE_CONTEST] =
+    {
+        [MALE]   = FACILITY_CLASS_CONTEST_BRENDAN,
+        [FEMALE] = FACILITY_CLASS_CONTEST_MAY
     }
 };
 
@@ -2916,6 +2921,9 @@ static void CreateTrainerCardTrainerPic(void)
                 break;
             case OUTFIT_ORAS:
                 cardType = CARD_TYPE_ORAS;
+                break;
+            case OUTFIT_CONTEST:
+                cardType = CARD_TYPE_CONTEST;
                 break;
         }
         CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(sTrainerPicFacilityClass[cardType][sData->trainerCard.gender]),

@@ -123,6 +123,9 @@ script PlayerWardrobe{
         if(flag(FLAG_PURCHASED_OUTFIT)){
             dynmultipush("Option 3", SPECIES_BRENDAN_ORAS)
         }
+        if(flag(FLAG_OBTAIN_CONTEST_OUTFIT)){
+            dynmultipush("Option 4", SPECIES_BRENDAN_CONTEST)
+        }
         dynmultipush("Exit", SPECIES_EMPTY)
         dynmultistack(23, 0, FALSE, 5, FALSE, 98, DYN_MULTICHOICE_CB_SHOW_MON)
         switch(var(VAR_RESULT)){
@@ -134,6 +137,9 @@ script PlayerWardrobe{
                 goto(ChangePlayerOutfit)
             case SPECIES_BRENDAN_ORAS:
                 setvar(VAR_CHOSEN_OUTFIT, 2)
+                goto(ChangePlayerOutfit)
+            case SPECIES_BRENDAN_CONTEST:
+                setvar(VAR_CHOSEN_OUTFIT, 3)
                 goto(ChangePlayerOutfit)
             case SPECIES_EMPTY:
             case MULTI_B_PRESSED:
@@ -147,6 +153,9 @@ script PlayerWardrobe{
         if(flag(FLAG_PURCHASED_OUTFIT)){
             dynmultipush("Option 3", SPECIES_MAY_ORAS)
         }
+        if(flag(FLAG_OBTAIN_CONTEST_OUTFIT)){
+            dynmultipush("Option 4", SPECIES_MAY_CONTEST)
+        }
         dynmultipush("Exit", SPECIES_EMPTY)
         dynmultistack(23, 0, FALSE, 5, FALSE, 98, DYN_MULTICHOICE_CB_SHOW_MON)
 	    switch(var(VAR_RESULT)){
@@ -158,6 +167,9 @@ script PlayerWardrobe{
                 goto(ChangePlayerOutfit)
             case SPECIES_MAY_ORAS:
                 setvar(VAR_CHOSEN_OUTFIT, 2)
+                goto(ChangePlayerOutfit)
+            case SPECIES_MAY_CONTEST:
+                setvar(VAR_CHOSEN_OUTFIT, 3)
                 goto(ChangePlayerOutfit)
             case SPECIES_EMPTY:
             case MULTI_B_PRESSED:

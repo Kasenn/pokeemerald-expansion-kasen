@@ -196,29 +196,34 @@ PlayerWardrobe::
 # 0 "data/maps/PlayerHouse2F/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq PlayerWardrobe_4
-# 145 "data/maps/PlayerHouse2F/scripts.pory"
+# 151 "data/maps/PlayerHouse2F/scripts.pory"
 	dynmultipush PlayerWardrobe_Text_1, SPECIES_MAY_RUBY
-# 146 "data/maps/PlayerHouse2F/scripts.pory"
+# 152 "data/maps/PlayerHouse2F/scripts.pory"
 	dynmultipush PlayerWardrobe_Text_2, SPECIES_MAY_EMERALD
-# 147 "data/maps/PlayerHouse2F/scripts.pory"
+# 153 "data/maps/PlayerHouse2F/scripts.pory"
 	goto_if_set FLAG_PURCHASED_OUTFIT, PlayerWardrobe_11
 PlayerWardrobe_10:
-# 150 "data/maps/PlayerHouse2F/scripts.pory"
-	dynmultipush PlayerWardrobe_Text_4, SPECIES_EMPTY
-# 151 "data/maps/PlayerHouse2F/scripts.pory"
-	dynmultistack 23, 0, FALSE, 5, FALSE, 98, DYN_MULTICHOICE_CB_SHOW_MON
-# 152 "data/maps/PlayerHouse2F/scripts.pory"
-	switch VAR_RESULT
-# 153 "data/maps/PlayerHouse2F/scripts.pory"
-	case SPECIES_MAY_RUBY, PlayerWardrobe_19
 # 156 "data/maps/PlayerHouse2F/scripts.pory"
-	case SPECIES_MAY_EMERALD, PlayerWardrobe_20
+	goto_if_set FLAG_OBTAIN_CONTEST_OUTFIT, PlayerWardrobe_17
+PlayerWardrobe_16:
 # 159 "data/maps/PlayerHouse2F/scripts.pory"
-	case SPECIES_MAY_ORAS, PlayerWardrobe_21
+	dynmultipush PlayerWardrobe_Text_5, SPECIES_EMPTY
+# 160 "data/maps/PlayerHouse2F/scripts.pory"
+	dynmultistack 23, 0, FALSE, 5, FALSE, 98, DYN_MULTICHOICE_CB_SHOW_MON
+# 161 "data/maps/PlayerHouse2F/scripts.pory"
+	switch VAR_RESULT
 # 162 "data/maps/PlayerHouse2F/scripts.pory"
-	case SPECIES_EMPTY, PlayerWardrobe_22
-# 163 "data/maps/PlayerHouse2F/scripts.pory"
-	case MULTI_B_PRESSED, PlayerWardrobe_22
+	case SPECIES_MAY_RUBY, PlayerWardrobe_26
+# 165 "data/maps/PlayerHouse2F/scripts.pory"
+	case SPECIES_MAY_EMERALD, PlayerWardrobe_27
+# 168 "data/maps/PlayerHouse2F/scripts.pory"
+	case SPECIES_MAY_ORAS, PlayerWardrobe_28
+# 171 "data/maps/PlayerHouse2F/scripts.pory"
+	case SPECIES_MAY_CONTEST, PlayerWardrobe_29
+# 174 "data/maps/PlayerHouse2F/scripts.pory"
+	case SPECIES_EMPTY, PlayerWardrobe_30
+# 175 "data/maps/PlayerHouse2F/scripts.pory"
+	case MULTI_B_PRESSED, PlayerWardrobe_30
 	return
 
 PlayerWardrobe_2:
@@ -237,21 +242,26 @@ PlayerWardrobe_4:
 	goto_if_set FLAG_PURCHASED_OUTFIT, PlayerWardrobe_8
 PlayerWardrobe_7:
 # 126 "data/maps/PlayerHouse2F/scripts.pory"
-	dynmultipush PlayerWardrobe_Text_4, SPECIES_EMPTY
-# 127 "data/maps/PlayerHouse2F/scripts.pory"
-	dynmultistack 23, 0, FALSE, 5, FALSE, 98, DYN_MULTICHOICE_CB_SHOW_MON
-# 128 "data/maps/PlayerHouse2F/scripts.pory"
-	switch VAR_RESULT
+	goto_if_set FLAG_OBTAIN_CONTEST_OUTFIT, PlayerWardrobe_14
+PlayerWardrobe_13:
 # 129 "data/maps/PlayerHouse2F/scripts.pory"
-	case SPECIES_BRENDAN_RUBY, PlayerWardrobe_14
+	dynmultipush PlayerWardrobe_Text_5, SPECIES_EMPTY
+# 130 "data/maps/PlayerHouse2F/scripts.pory"
+	dynmultistack 23, 0, FALSE, 5, FALSE, 98, DYN_MULTICHOICE_CB_SHOW_MON
+# 131 "data/maps/PlayerHouse2F/scripts.pory"
+	switch VAR_RESULT
 # 132 "data/maps/PlayerHouse2F/scripts.pory"
-	case SPECIES_BRENDAN_EMERALD, PlayerWardrobe_15
+	case SPECIES_BRENDAN_RUBY, PlayerWardrobe_20
 # 135 "data/maps/PlayerHouse2F/scripts.pory"
-	case SPECIES_BRENDAN_ORAS, PlayerWardrobe_16
+	case SPECIES_BRENDAN_EMERALD, PlayerWardrobe_21
 # 138 "data/maps/PlayerHouse2F/scripts.pory"
-	case SPECIES_EMPTY, PlayerWardrobe_17
-# 139 "data/maps/PlayerHouse2F/scripts.pory"
-	case MULTI_B_PRESSED, PlayerWardrobe_17
+	case SPECIES_BRENDAN_ORAS, PlayerWardrobe_22
+# 141 "data/maps/PlayerHouse2F/scripts.pory"
+	case SPECIES_BRENDAN_CONTEST, PlayerWardrobe_23
+# 144 "data/maps/PlayerHouse2F/scripts.pory"
+	case SPECIES_EMPTY, PlayerWardrobe_24
+# 145 "data/maps/PlayerHouse2F/scripts.pory"
+	case MULTI_B_PRESSED, PlayerWardrobe_24
 	return
 
 PlayerWardrobe_8:
@@ -260,95 +270,119 @@ PlayerWardrobe_8:
 	goto PlayerWardrobe_7
 
 PlayerWardrobe_11:
-# 148 "data/maps/PlayerHouse2F/scripts.pory"
+# 154 "data/maps/PlayerHouse2F/scripts.pory"
 	dynmultipush PlayerWardrobe_Text_3, SPECIES_MAY_ORAS
 	goto PlayerWardrobe_10
 
 PlayerWardrobe_14:
-# 130 "data/maps/PlayerHouse2F/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 0
-# 131 "data/maps/PlayerHouse2F/scripts.pory"
-	goto ChangePlayerOutfit
-	return
+# 127 "data/maps/PlayerHouse2F/scripts.pory"
+	dynmultipush PlayerWardrobe_Text_4, SPECIES_BRENDAN_CONTEST
+	goto PlayerWardrobe_13
 
-PlayerWardrobe_15:
+PlayerWardrobe_17:
+# 157 "data/maps/PlayerHouse2F/scripts.pory"
+	dynmultipush PlayerWardrobe_Text_4, SPECIES_MAY_CONTEST
+	goto PlayerWardrobe_16
+
+PlayerWardrobe_20:
 # 133 "data/maps/PlayerHouse2F/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 1
+	setvar VAR_CHOSEN_OUTFIT, 0
 # 134 "data/maps/PlayerHouse2F/scripts.pory"
 	goto ChangePlayerOutfit
 	return
 
-PlayerWardrobe_16:
+PlayerWardrobe_21:
 # 136 "data/maps/PlayerHouse2F/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 2
+	setvar VAR_CHOSEN_OUTFIT, 1
 # 137 "data/maps/PlayerHouse2F/scripts.pory"
 	goto ChangePlayerOutfit
 	return
 
-PlayerWardrobe_17:
+PlayerWardrobe_22:
+# 139 "data/maps/PlayerHouse2F/scripts.pory"
+	setvar VAR_CHOSEN_OUTFIT, 2
 # 140 "data/maps/PlayerHouse2F/scripts.pory"
+	goto ChangePlayerOutfit
+	return
+
+PlayerWardrobe_23:
+# 142 "data/maps/PlayerHouse2F/scripts.pory"
+	setvar VAR_CHOSEN_OUTFIT, 3
+# 143 "data/maps/PlayerHouse2F/scripts.pory"
+	goto ChangePlayerOutfit
+	return
+
+PlayerWardrobe_24:
+# 146 "data/maps/PlayerHouse2F/scripts.pory"
 	release
 	end
 
-PlayerWardrobe_19:
-# 154 "data/maps/PlayerHouse2F/scripts.pory"
+PlayerWardrobe_26:
+# 163 "data/maps/PlayerHouse2F/scripts.pory"
 	setvar VAR_CHOSEN_OUTFIT, 0
-# 155 "data/maps/PlayerHouse2F/scripts.pory"
-	goto ChangePlayerOutfit
-	return
-
-PlayerWardrobe_20:
-# 157 "data/maps/PlayerHouse2F/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 1
-# 158 "data/maps/PlayerHouse2F/scripts.pory"
-	goto ChangePlayerOutfit
-	return
-
-PlayerWardrobe_21:
-# 160 "data/maps/PlayerHouse2F/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 2
-# 161 "data/maps/PlayerHouse2F/scripts.pory"
-	goto ChangePlayerOutfit
-	return
-
-PlayerWardrobe_22:
 # 164 "data/maps/PlayerHouse2F/scripts.pory"
+	goto ChangePlayerOutfit
+	return
+
+PlayerWardrobe_27:
+# 166 "data/maps/PlayerHouse2F/scripts.pory"
+	setvar VAR_CHOSEN_OUTFIT, 1
+# 167 "data/maps/PlayerHouse2F/scripts.pory"
+	goto ChangePlayerOutfit
+	return
+
+PlayerWardrobe_28:
+# 169 "data/maps/PlayerHouse2F/scripts.pory"
+	setvar VAR_CHOSEN_OUTFIT, 2
+# 170 "data/maps/PlayerHouse2F/scripts.pory"
+	goto ChangePlayerOutfit
+	return
+
+PlayerWardrobe_29:
+# 172 "data/maps/PlayerHouse2F/scripts.pory"
+	setvar VAR_CHOSEN_OUTFIT, 3
+# 173 "data/maps/PlayerHouse2F/scripts.pory"
+	goto ChangePlayerOutfit
+	return
+
+PlayerWardrobe_30:
+# 176 "data/maps/PlayerHouse2F/scripts.pory"
 	release
 	end
 
 
 ChangePlayerOutfit::
-# 181 "data/maps/PlayerHouse2F/scripts.pory"
+# 193 "data/maps/PlayerHouse2F/scripts.pory"
 	closemessage
-# 182 "data/maps/PlayerHouse2F/scripts.pory"
+# 194 "data/maps/PlayerHouse2F/scripts.pory"
 	getplayerxy VAR_TEMP_1, VAR_TEMP_2
-# 183 "data/maps/PlayerHouse2F/scripts.pory"
+# 195 "data/maps/PlayerHouse2F/scripts.pory"
 	warpsilent MAP_PLAYER_HOUSE2F, VAR_TEMP_1, VAR_TEMP_2
-# 184 "data/maps/PlayerHouse2F/scripts.pory"
+# 196 "data/maps/PlayerHouse2F/scripts.pory"
 	waitstate
 	end
 
 
 PlayerHouse_Shoes::
-# 189 "data/maps/PlayerHouse2F/scripts.pory"
+# 201 "data/maps/PlayerHouse2F/scripts.pory"
 	lock
-# 190 "data/maps/PlayerHouse2F/scripts.pory"
+# 202 "data/maps/PlayerHouse2F/scripts.pory"
 	waitse
-# 191 "data/maps/PlayerHouse2F/scripts.pory"
+# 203 "data/maps/PlayerHouse2F/scripts.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 192 "data/maps/PlayerHouse2F/scripts.pory"
+# 204 "data/maps/PlayerHouse2F/scripts.pory"
 	removeobject VAR_LAST_TALKED
-# 193 "data/maps/PlayerHouse2F/scripts.pory"
+# 205 "data/maps/PlayerHouse2F/scripts.pory"
 	setmetatile 5, 7, 0x295, FALSE
-# 194 "data/maps/PlayerHouse2F/scripts.pory"
+# 206 "data/maps/PlayerHouse2F/scripts.pory"
 	special DrawWholeMapView
-# 195 "data/maps/PlayerHouse2F/scripts.pory"
+# 207 "data/maps/PlayerHouse2F/scripts.pory"
 	message PlayerFoundShoes
-# 196 "data/maps/PlayerHouse2F/scripts.pory"
+# 208 "data/maps/PlayerHouse2F/scripts.pory"
 	waitfanfare
-# 197 "data/maps/PlayerHouse2F/scripts.pory"
+# 209 "data/maps/PlayerHouse2F/scripts.pory"
 	waitmessage
-# 198 "data/maps/PlayerHouse2F/scripts.pory"
+# 210 "data/maps/PlayerHouse2F/scripts.pory"
 	msgbox ShoesIntroText, MSGBOX_AUTOCLOSE
 	end
 
@@ -370,7 +404,11 @@ PlayerWardrobe_Text_3:
 	.string "Option 3$"
 
 PlayerWardrobe_Text_4:
-# 126 "data/maps/PlayerHouse2F/scripts.pory"
+# 127 "data/maps/PlayerHouse2F/scripts.pory"
+	.string "Option 4$"
+
+PlayerWardrobe_Text_5:
+# 129 "data/maps/PlayerHouse2F/scripts.pory"
 	.string "Exit$"
 
 PlayerHouse2F_Intro_Text::
@@ -394,21 +432,21 @@ PlayerHouse2F_ShoesReminder_Text::
 	.string "heading downstairs.$"
 
 ChangeOutfit2::
-# 170 "data/maps/PlayerHouse2F/scripts.pory"
+# 182 "data/maps/PlayerHouse2F/scripts.pory"
 	.string "It's a clothes rack used for\n"
 	.string "storing outfits.\p"
 	.string "Would you like to change your outfit?$"
 
 SteppedAway::
-# 175 "data/maps/PlayerHouse2F/scripts.pory"
+# 187 "data/maps/PlayerHouse2F/scripts.pory"
 	.string "{PLAYER} stepped away from the\n"
 	.string "clothes rack.$"
 
 PlayerFoundShoes::
-# 202 "data/maps/PlayerHouse2F/scripts.pory"
+# 214 "data/maps/PlayerHouse2F/scripts.pory"
 	.string "{PLAYER} obtained the running shoes!$"
 
 ShoesIntroText::
-# 204 "data/maps/PlayerHouse2F/scripts.pory"
+# 216 "data/maps/PlayerHouse2F/scripts.pory"
 	.string "{COLOR RED}{SHADOW LIGHT_RED}Press the B Button while wearing these\n"
 	.string "running shoes to run extra-fast!$"

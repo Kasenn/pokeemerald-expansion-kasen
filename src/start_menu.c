@@ -1022,8 +1022,6 @@ static bool8 StartMenuDebugCallback(void)
     {
         FreezeObjectEvents();
         Debug_ShowMainMenu();
-        // else //wip
-        //     Debug_ShowMainMenuLimited();
     }
 
 return TRUE;

@@ -178,29 +178,34 @@ WardrobeMain::
 # 0 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq WardrobeMain_5
-# 187 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 193 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	dynmultipush WardrobeMain_Text_1, SPECIES_MAY_RUBY
-# 188 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 194 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	dynmultipush WardrobeMain_Text_2, SPECIES_MAY_EMERALD
-# 189 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 195 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	goto_if_set FLAG_PURCHASED_OUTFIT, WardrobeMain_12
 WardrobeMain_11:
-# 192 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	dynmultipush WardrobeMain_Text_4, SPECIES_EMPTY
-# 193 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	dynmultistack 23, 0, FALSE, 5, FALSE, 98, DYN_MULTICHOICE_CB_SHOW_MON
-# 194 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	switch VAR_RESULT
-# 195 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	case SPECIES_MAY_RUBY, WardrobeMain_20
 # 198 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	case SPECIES_MAY_EMERALD, WardrobeMain_21
+	goto_if_set FLAG_OBTAIN_CONTEST_OUTFIT, WardrobeMain_18
+WardrobeMain_17:
 # 201 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	case SPECIES_MAY_ORAS, WardrobeMain_22
+	dynmultipush WardrobeMain_Text_5, SPECIES_EMPTY
+# 202 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	dynmultistack 23, 0, FALSE, 5, FALSE, 98, DYN_MULTICHOICE_CB_SHOW_MON
+# 203 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	switch VAR_RESULT
 # 204 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	case MULTI_B_PRESSED, WardrobeMain_23
-# 205 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	case SPECIES_EMPTY, WardrobeMain_23
+	case SPECIES_MAY_RUBY, WardrobeMain_27
+# 207 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	case SPECIES_MAY_EMERALD, WardrobeMain_28
+# 210 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	case SPECIES_MAY_ORAS, WardrobeMain_29
+# 213 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	case SPECIES_MAY_CONTEST, WardrobeMain_30
+# 216 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	case MULTI_B_PRESSED, WardrobeMain_31
+# 217 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	case SPECIES_EMPTY, WardrobeMain_31
 WardrobeMain_4:
 	return
 
@@ -220,21 +225,26 @@ WardrobeMain_5:
 	goto_if_set FLAG_PURCHASED_OUTFIT, WardrobeMain_9
 WardrobeMain_8:
 # 167 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	dynmultipush WardrobeMain_Text_4, SPECIES_EMPTY
-# 168 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	dynmultistack 23, 0, FALSE, 5, FALSE, 98, DYN_MULTICHOICE_CB_SHOW_MON
-# 169 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	switch VAR_RESULT
+	goto_if_set FLAG_OBTAIN_CONTEST_OUTFIT, WardrobeMain_15
+WardrobeMain_14:
 # 170 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	case SPECIES_BRENDAN_RUBY, WardrobeMain_15
+	dynmultipush WardrobeMain_Text_5, SPECIES_EMPTY
+# 171 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	dynmultistack 23, 0, FALSE, 5, FALSE, 98, DYN_MULTICHOICE_CB_SHOW_MON
+# 172 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	switch VAR_RESULT
 # 173 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	case SPECIES_BRENDAN_EMERALD, WardrobeMain_16
+	case SPECIES_BRENDAN_RUBY, WardrobeMain_21
 # 176 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	case SPECIES_BRENDAN_ORAS, WardrobeMain_17
+	case SPECIES_BRENDAN_EMERALD, WardrobeMain_22
 # 179 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	case MULTI_B_PRESSED, WardrobeMain_18
-# 180 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	case SPECIES_EMPTY, WardrobeMain_18
+	case SPECIES_BRENDAN_ORAS, WardrobeMain_23
+# 182 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	case SPECIES_BRENDAN_CONTEST, WardrobeMain_24
+# 185 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	case MULTI_B_PRESSED, WardrobeMain_25
+# 186 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	case SPECIES_EMPTY, WardrobeMain_25
 	goto WardrobeMain_4
 
 WardrobeMain_9:
@@ -243,218 +253,242 @@ WardrobeMain_9:
 	goto WardrobeMain_8
 
 WardrobeMain_12:
-# 190 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 196 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	dynmultipush WardrobeMain_Text_3, SPECIES_MAY_ORAS
 	goto WardrobeMain_11
 
 WardrobeMain_15:
-# 171 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 0
-# 172 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	closemessage
-	goto WardrobeMain_4
+# 168 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	dynmultipush WardrobeMain_Text_4, SPECIES_BRENDAN_CONTEST
+	goto WardrobeMain_14
 
-WardrobeMain_16:
+WardrobeMain_18:
+# 199 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	dynmultipush WardrobeMain_Text_4, SPECIES_MAY_CONTEST
+	goto WardrobeMain_17
+
+WardrobeMain_21:
 # 174 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 1
+	setvar VAR_CHOSEN_OUTFIT, 0
 # 175 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	closemessage
 	goto WardrobeMain_4
 
-WardrobeMain_17:
+WardrobeMain_22:
 # 177 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 2
+	setvar VAR_CHOSEN_OUTFIT, 1
 # 178 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	closemessage
 	goto WardrobeMain_4
 
-WardrobeMain_18:
+WardrobeMain_23:
+# 180 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	setvar VAR_CHOSEN_OUTFIT, 2
 # 181 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	closemessage
-# 182 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	goto WardrobeMain_4
+
+WardrobeMain_24:
+# 183 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	setvar VAR_CHOSEN_OUTFIT, 3
+# 184 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	closemessage
+	goto WardrobeMain_4
+
+WardrobeMain_25:
+# 187 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	closemessage
+# 188 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	release
 	end
 
-WardrobeMain_20:
-# 196 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+WardrobeMain_27:
+# 205 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	setvar VAR_CHOSEN_OUTFIT, 0
-# 197 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	closemessage
-	goto WardrobeMain_4
-
-WardrobeMain_21:
-# 199 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 1
-# 200 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	closemessage
-	goto WardrobeMain_4
-
-WardrobeMain_22:
-# 202 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 2
-# 203 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	closemessage
-	goto WardrobeMain_4
-
-WardrobeMain_23:
 # 206 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	closemessage
-# 207 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	goto WardrobeMain_4
+
+WardrobeMain_28:
+# 208 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	setvar VAR_CHOSEN_OUTFIT, 1
+# 209 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	closemessage
+	goto WardrobeMain_4
+
+WardrobeMain_29:
+# 211 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	setvar VAR_CHOSEN_OUTFIT, 2
+# 212 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	closemessage
+	goto WardrobeMain_4
+
+WardrobeMain_30:
+# 214 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	setvar VAR_CHOSEN_OUTFIT, 3
+# 215 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	closemessage
+	goto WardrobeMain_4
+
+WardrobeMain_31:
+# 218 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	closemessage
+# 219 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	release
 	end
 
 
 WardrobeDoor::
-# 226 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 238 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	waitdooranim
-# 227 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 239 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	applymovement LOCALID_PLAYER, WardrobeUp
-# 228 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 240 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	waitmovement 0
 	return
 
 
-# 232 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 244 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 WardrobeUp:
-# 233 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 245 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	walk_up
-# 234 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 246 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	set_invisible
 	step_end
 
 LilycoveCity_Clothier::
-# 238 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 250 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	goto_if_set FLAG_PURCHASED_OUTFIT, LilycoveCity_Clothier_2
-# 242 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 254 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	lock
-# 243 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 255 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	faceplayer
-# 244 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 256 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	msgbox InNeedOfOutfit, MSGBOX_DEFAULT
-# 245 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 257 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	goto ClothierMain
 	return
 
 LilycoveCity_Clothier_2:
-# 239 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 251 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	msgbox UseRoomToChange, MSGBOX_NPC
 	end
 
 
 ClothierMain::
-# 249 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 261 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	message ClothierMain_Text_0
-# 250 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 262 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	waitmessage
-# 251 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 263 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	multichoice 23, 0, MULTI_OUTFIT, 0
-# 252 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 264 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	switch VAR_RESULT
-# 253 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 265 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	case 0, ClothierMain_2
-# 255 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 267 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	case 1, ClothierMain_3
-# 257 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 269 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	case 2, ClothierMain_4
-# 259 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 271 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	case MULTI_B_PRESSED, ClothierMain_5
 	return
 
 ClothierMain_2:
-# 254 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 266 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	goto PurchaseOutfit
 	return
 
 ClothierMain_3:
-# 256 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 268 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	goto PreviewOutfit
 	return
 
 ClothierMain_4:
-# 258 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 270 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	goto ThanksForShopping
 	return
 
 ClothierMain_5:
-# 260 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 272 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	goto ThanksForShopping
 	return
 
 
 PreviewOutfit::
-# 265 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 277 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	checkplayergender
-# 266 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 278 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq PreviewOutfit_2
-# 270 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 282 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	showmonpic SPECIES_MAY_ORAS, 10, 3
 PreviewOutfit_1:
-# 272 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 284 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	msgbox LooksGoodOnYou, MSGBOX_DEFAULT
-# 273 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 285 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	closemessage
-# 274 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 286 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	hidemonpic
-# 275 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 287 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	goto ClothierMain
 	return
 
 PreviewOutfit_2:
-# 267 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 279 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	showmonpic SPECIES_BRENDAN_ORAS, 10, 3
 	goto PreviewOutfit_1
 
 
 ThanksForShopping::
-# 279 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 291 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-# 280 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 292 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	closemessage
-# 281 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 293 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	release
 	end
 
 
 PurchaseOutfit::
-# 286 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 298 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	showmoneybox 0, 0
-# 287 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 299 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	msgbox TotalIs25k, MSGBOX_YESNO
-# 288 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 300 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq PurchaseOutfit_2
 PurchaseOutfit_1:
-# 292 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 304 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	checkmoney 25000
-# 293 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 305 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq PurchaseOutfit_5
-# 298 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 310 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	playse SE_SHOP
-# 299 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 311 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	removemoney 25000
-# 300 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 312 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	updatemoneybox
-# 301 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 313 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	msgbox UseDressingRoom, MSGBOX_NPC
-# 302 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 314 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	hidemoneybox
-# 303 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 315 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	setflag FLAG_PURCHASED_OUTFIT
 	end
 
 PurchaseOutfit_2:
-# 289 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 301 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	hidemoneybox
-# 290 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 302 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	goto ThanksForShopping
 	goto PurchaseOutfit_1
 
 PurchaseOutfit_5:
-# 294 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 306 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	msgbox NotEnoughMoney, MSGBOX_NPC
-# 295 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 307 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	hidemoneybox
 	end
 
@@ -476,11 +510,15 @@ WardrobeMain_Text_3:
 	.string "Option 3$"
 
 WardrobeMain_Text_4:
-# 167 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 168 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+	.string "Option 4$"
+
+WardrobeMain_Text_5:
+# 170 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	.string "Exit$"
 
 ClothierMain_Text_0:
-# 249 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 261 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	.string "What would you like to do?$"
 
 Sandstone_SmallHouse_Woman_Text::
@@ -552,18 +590,18 @@ HowIsClancy::
 	.string "that he even forgets to eat!$"
 
 ItsaChangingRoom::
-# 214 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 226 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	.string "It's a dressing room for trying on and\n"
 	.string "changing clothes.$"
 
 ChangeOutfit::
-# 219 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 231 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	.string "It's a dressing room for trying on and\n"
 	.string "changing clothes.\p"
 	.string "Would you like to change your outfit?$"
 
 InNeedOfOutfit::
-# 307 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 319 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	.string "Welcome!\p"
 	.string "This is the Sandstone Department Store\n"
 	.string "clothing section.\p"
@@ -571,25 +609,25 @@ InNeedOfOutfit::
 	.string "clothing and clothing apparel.$"
 
 LooksGoodOnYou::
-# 314 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 326 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	.string "Ooh!\p"
 	.string "You look absolutely dashing in that\n"
 	.string "outfit! Wouldn't you agree?$"
 
 TotalIs25k::
-# 319 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 331 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	.string "With the clothing and the apparel, your\n"
 	.string "total comes to ¥25,000.\p"
 	.string "Would you like to purchase a new\n"
 	.string "outfit?$"
 
 NotEnoughMoney::
-# 325 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 337 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	.string "Oh, I'm sorry, but you can't afford\n"
 	.string "that outfit…$"
 
 UseDressingRoom::
-# 329 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 341 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	.string "Thank you for your purchase!\p"
 	.string "You can switch between your outfits by\n"
 	.string "accessing the dressing rooms located\l"
@@ -597,7 +635,7 @@ UseDressingRoom::
 	.string "Please come again!$"
 
 UseRoomToChange::
-# 336 "data/maps/Sandstone_SmallHouse1/scripts.pory"
+# 348 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	.string "You can switch between your outfits by\n"
 	.string "accessing the dressing rooms located\l"
 	.string "right next to the elevator.\p"

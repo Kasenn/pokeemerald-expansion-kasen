@@ -22,10 +22,13 @@
 #include "config/save.h"
 #include "trainer_card.h"
 
-#define OUTFIT_RUBYSAPPHIRE 0
-#define OUTFIT_EMERALD      1
-#define OUTFIT_ORAS         2
-#define OUTFIT_CONTEST      3
+enum {
+    OUTFIT_RUBYSAPPHIRE,
+    OUTFIT_EMERALD,
+    OUTFIT_ORAS,
+    OUTFIT_CONTEST,
+    OUTFIT_COUNT,
+};
 
 #define QUEST_COUNT     80
 

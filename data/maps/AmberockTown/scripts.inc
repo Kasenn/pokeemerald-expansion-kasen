@@ -1698,7 +1698,7 @@ Amberock_SetPlayerModel_2:
 
 Amberock_SetPlayerModel_6:
 # 1035 "data/maps/AmberockTown/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_NORMAL_RS
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RS_BRENDAN_NORMAL
 	goto Amberock_SetPlayerModel_1
 
 Amberock_SetPlayerModel_7:
@@ -1708,12 +1708,12 @@ Amberock_SetPlayerModel_7:
 
 Amberock_SetPlayerModel_8:
 # 1039 "data/maps/AmberockTown/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_NORMAL_ORAS
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_ORAS_BRENDAN_NORMAL
 	goto Amberock_SetPlayerModel_1
 
 Amberock_SetPlayerModel_10:
 # 1045 "data/maps/AmberockTown/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_NORMAL_RS
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RS_MAY_NORMAL
 	goto Amberock_SetPlayerModel_1
 
 Amberock_SetPlayerModel_11:
@@ -1723,7 +1723,7 @@ Amberock_SetPlayerModel_11:
 
 Amberock_SetPlayerModel_12:
 # 1049 "data/maps/AmberockTown/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_NORMAL_ORAS
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_ORAS_MAY_NORMAL
 	goto Amberock_SetPlayerModel_1
 
 
@@ -1746,14 +1746,16 @@ SetSittingPlayerModel::
 # 0 "data/maps/AmberockTown/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq SetSittingPlayerModel_2
-# 1074 "data/maps/AmberockTown/scripts.pory"
+# 1076 "data/maps/AmberockTown/scripts.pory"
 	switch VAR_CHOSEN_OUTFIT
-# 1075 "data/maps/AmberockTown/scripts.pory"
-	case 0, SetSittingPlayerModel_10
 # 1077 "data/maps/AmberockTown/scripts.pory"
-	case 1, SetSittingPlayerModel_11
+	case 0, SetSittingPlayerModel_11
 # 1079 "data/maps/AmberockTown/scripts.pory"
-	case 2, SetSittingPlayerModel_12
+	case 1, SetSittingPlayerModel_12
+# 1081 "data/maps/AmberockTown/scripts.pory"
+	case 2, SetSittingPlayerModel_13
+# 1083 "data/maps/AmberockTown/scripts.pory"
+	case 3, SetSittingPlayerModel_14
 SetSittingPlayerModel_1:
 	return
 
@@ -1766,11 +1768,13 @@ SetSittingPlayerModel_2:
 	case 1, SetSittingPlayerModel_7
 # 1069 "data/maps/AmberockTown/scripts.pory"
 	case 2, SetSittingPlayerModel_8
+# 1071 "data/maps/AmberockTown/scripts.pory"
+	case 3, SetSittingPlayerModel_9
 	goto SetSittingPlayerModel_1
 
 SetSittingPlayerModel_6:
 # 1066 "data/maps/AmberockTown/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_SURFING_RS
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RS_BRENDAN_SURFING
 	goto SetSittingPlayerModel_1
 
 SetSittingPlayerModel_7:
@@ -1780,22 +1784,32 @@ SetSittingPlayerModel_7:
 
 SetSittingPlayerModel_8:
 # 1070 "data/maps/AmberockTown/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_SURFING_ORAS
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_ORAS_BRENDAN_SURFING
 	goto SetSittingPlayerModel_1
 
-SetSittingPlayerModel_10:
-# 1076 "data/maps/AmberockTown/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_SURFING_RS
+SetSittingPlayerModel_9:
+# 1072 "data/maps/AmberockTown/scripts.pory"
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_CONTEST_BRENDAN_SURFING
 	goto SetSittingPlayerModel_1
 
 SetSittingPlayerModel_11:
 # 1078 "data/maps/AmberockTown/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_MAY_SURFING
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RS_MAY_SURFING
 	goto SetSittingPlayerModel_1
 
 SetSittingPlayerModel_12:
 # 1080 "data/maps/AmberockTown/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_SURFING_ORAS
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_MAY_SURFING
+	goto SetSittingPlayerModel_1
+
+SetSittingPlayerModel_13:
+# 1082 "data/maps/AmberockTown/scripts.pory"
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_ORAS_MAY_SURFING
+	goto SetSittingPlayerModel_1
+
+SetSittingPlayerModel_14:
+# 1084 "data/maps/AmberockTown/scripts.pory"
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_CONTEST_MAY_SURFING
 	goto SetSittingPlayerModel_1
 
 

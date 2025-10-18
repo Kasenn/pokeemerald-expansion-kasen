@@ -634,16 +634,16 @@ static void LoadLinkPartnerObjectEventSpritePalette(u16 graphicsId, u8 localEven
             switch (graphicsId)
             {
             case OBJ_EVENT_GFX_LINK_RS_BRENDAN:
-                LoadPalette(gObjectEventPal_RubySapphireBrendan, OBJ_PLTT_ID(adjustedPaletteNum), PLTT_SIZE_4BPP);
+                LoadPalette(gObjectEventPalette_Brendan_Unused, OBJ_PLTT_ID(adjustedPaletteNum), PLTT_SIZE_4BPP);
                 break;
             case OBJ_EVENT_GFX_LINK_RS_MAY:
-                LoadPalette(gObjectEventPal_RubySapphireMay, OBJ_PLTT_ID(adjustedPaletteNum), PLTT_SIZE_4BPP);
+                LoadPalette(gObjectEventPalette_May_Unused, OBJ_PLTT_ID(adjustedPaletteNum), PLTT_SIZE_4BPP);
                 break;
             case OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL:
-                LoadPalette(gObjectEventPal_Brendan, OBJ_PLTT_ID(adjustedPaletteNum), PLTT_SIZE_4BPP);
+                LoadPalette(gObjectEventPalette_Brendan, OBJ_PLTT_ID(adjustedPaletteNum), PLTT_SIZE_4BPP);
                 break;
             case OBJ_EVENT_GFX_RIVAL_MAY_NORMAL:
-                LoadPalette(gObjectEventPal_May, OBJ_PLTT_ID(adjustedPaletteNum), PLTT_SIZE_4BPP);
+                LoadPalette(gObjectEventPalette_May, OBJ_PLTT_ID(adjustedPaletteNum), PLTT_SIZE_4BPP);
                 break;
             }
         }

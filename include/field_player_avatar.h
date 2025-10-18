@@ -5,7 +5,6 @@ void PlayerStep(u8 direction, u16 newKeys, u16 heldKeys);
 bool8 TryDoMetatileBehaviorForcedMovement();
 void ClearPlayerAvatarInfo(void);
 void SetPlayerAvatarExtraStateTransition(u16 graphicsId, u32 transitionFlag);
-u8 GetPlayerAvatarGenderByGraphicsId(u16 gfxId);
 u32 TestPlayerAvatarFlags(u32 flag);
 u32 GetPlayerAvatarSpriteId(void);
 void PlayerGetDestCoords(s16 *x, s16 *y);

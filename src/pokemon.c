@@ -6677,6 +6677,12 @@ u16 PlayerGenderToFrontTrainerPicId(u8 playerGender)
         else
             trainerPic = FACILITY_CLASS_BRENDAN_2;
         break;
+    case OUTFIT_CONTEST:
+        if (playerGender != MALE)
+            trainerPic = FACILITY_CLASS_CONTEST_MAY;
+        else
+            trainerPic = FACILITY_CLASS_CONTEST_BRENDAN;
+        break;
     }
 
     return FacilityClassToPicIndex(trainerPic);

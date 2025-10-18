@@ -133,7 +133,9 @@
 #define TRAINER_PIC_SENIOR            115
 #define TRAINER_PIC_JUNIOR             116
 #define TRAINER_PIC_SWIMMERS            117
-#define TRAINER_PIC_COUNT                 118
+#define TRAINER_PIC_BRENDAN_CONTEST          118
+#define TRAINER_PIC_MAY_CONTEST              119
+#define TRAINER_PIC_COUNT                 120
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0
@@ -146,6 +148,8 @@
 #define TRAINER_BACK_PIC_STEVEN                 7
 #define TRAINER_BACK_PIC_BRENDAN_ORAS           8
 #define TRAINER_BACK_PIC_MAY_ORAS               9
+#define TRAINER_BACK_PIC_MAY_CONTEST            10
+#define TRAINER_BACK_PIC_BRENDAN_CONTEST        11
 
 #define FACILITY_CLASS_HIKER                 0x0
 #define FACILITY_CLASS_AQUA_GRUNT_M          0x1
@@ -230,8 +234,10 @@
 #define FACILITY_CLASS_RS_BRENDAN            0x50
 #define FACILITY_CLASS_RS_MAY                0x51
 #define FACILITY_CLASS_BROTHER               0x52
+#define FACILITY_CLASS_CONTEST_BRENDAN       0x53
+#define FACILITY_CLASS_CONTEST_MAY           0x54
 
-#define FACILITY_CLASSES_COUNT               0x53
+#define FACILITY_CLASSES_COUNT               0x55
 
 #define RS_FACILITY_CLASS_AQUA_LEADER_ARCHIE    0x0
 #define RS_FACILITY_CLASS_AQUA_GRUNT_M          0x1

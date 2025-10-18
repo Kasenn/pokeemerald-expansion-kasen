@@ -1,3 +1,7 @@
+ENSURE THAT ALL ROCK CLIMB MODELS WORK!!!
+CONTEST SPRITES
+RESIZE ALL EXISTING PLAYER SPRITES
+
 wild encounter changes
 honey tree mons now have 20% chance to have a hidden ability
 general change: bidoof/lillipup and pidgey/starly are day encounters, while alolan rattata and hoothoot are night encounters. there may be some cross-over, but it's rare.

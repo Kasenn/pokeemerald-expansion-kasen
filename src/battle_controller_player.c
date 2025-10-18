@@ -2027,6 +2027,9 @@ static u32 PlayerGetTrainerBackPicId(void)
         case OUTFIT_ORAS:
             trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN_ORAS;
             break;
+        case OUTFIT_CONTEST:
+            trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN_CONTEST;
+            break;
         default:
             trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN;
             break;

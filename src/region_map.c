@@ -151,6 +151,12 @@ static const u8 sRegionMapRoamerIcon_LatiasGfx[] = INCBIN_U8("graphics/pokenav/r
 static const u16 sRegionMapRoamerIcon_LatiosPal[] = INCBIN_U16("graphics/pokenav/region_map/latios_icon.gbapal");
 static const u8 sRegionMapRoamerIcon_LatiosGfx[] = INCBIN_U8("graphics/pokenav/region_map/latios_icon.4bpp");
 
+static const u16 sRegionMapPlayerIcon_BrendanContestPal[] = INCBIN_U16("graphics/pokenav/region_map/brendan_icon_contest.gbapal");
+static const u8 sRegionMapPlayerIcon_BrendanContestGfx[] = INCBIN_U8("graphics/pokenav/region_map/brendan_icon_contest.4bpp");
+static const u16 sRegionMapPlayerIcon_MayContestPal[] = INCBIN_U16("graphics/pokenav/region_map/may_icon_contest.gbapal");
+static const u8 sRegionMapPlayerIcon_MayContestGfx[] = INCBIN_U8("graphics/pokenav/region_map/may_icon_contest.4bpp");//wip
+
+
 #include "data/region_map/region_map_layout.h"
 #include "data/region_map/region_map_entries.h"
 
@@ -1646,6 +1652,10 @@ void CreateRegionMapPlayerIcon(u16 tileTag, u16 paletteTag)
                 sheet.data = sRegionMapPlayerIcon_MayOrasGfx;
                 palette.data = sRegionMapPlayerIcon_MayOrasPal;
                 break;
+            case OUTFIT_CONTEST:
+                sheet.data = sRegionMapPlayerIcon_MayContestGfx;
+                palette.data = sRegionMapPlayerIcon_MayContestPal;
+                break;
         }
     }
     else{
@@ -1661,6 +1671,10 @@ void CreateRegionMapPlayerIcon(u16 tileTag, u16 paletteTag)
             case OUTFIT_ORAS:
                 sheet.data = sRegionMapPlayerIcon_BrendanOrasGfx;
                 palette.data = sRegionMapPlayerIcon_BrendanOrasPal;
+                break;
+            case OUTFIT_CONTEST:
+                sheet.data = sRegionMapPlayerIcon_BrendanContestGfx;
+                palette.data = sRegionMapPlayerIcon_BrendanContestPal;
                 break;
         }
     }

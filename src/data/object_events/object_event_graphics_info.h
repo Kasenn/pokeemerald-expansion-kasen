@@ -38,14 +38,194 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_##name = {    \
     .affineAnims = gDummySpriteAffineAnimTable,                             \
 };
 
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanNormal = {
+
+#define PLAYER_OBJECT_BIKE(palette, picTable)   \
+.tileTag = TAG_NONE,                            \
+.paletteTag = palette,                          \
+.reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE, \
+.size = 512,                                    \
+.width = 32,                                    \
+.height = 32,                                   \
+.paletteSlot = PALSLOT_PLAYER,                  \
+.shadowSize = SHADOW_SIZE_M,                    \
+.inanimate = FALSE,                             \
+.compressed = FALSE,                            \
+.tracks = TRACKS_BIKE_TIRE,                     \
+.oam = &gObjectEventBaseOam_32x32,              \
+.subspriteTables = sOamTables_32x32,            \
+.anims = sAnimTable_Bike,                       \
+.images = picTable,                             \
+.affineAnims = gDummySpriteAffineAnimTable,
+
+#define PLAYER_OBJECT_SURF(palette, picTable)   \
+.tileTag = TAG_NONE,                            \
+.paletteTag = palette,                          \
+.reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE, \
+.size = 512,                                    \
+.width = 32,                                    \
+.height = 32,                                   \
+.paletteSlot = PALSLOT_PLAYER,                  \
+.shadowSize = SHADOW_SIZE_M,                    \
+.inanimate = FALSE,                             \
+.compressed = FALSE,                            \
+.tracks = TRACKS_FOOT,                          \
+.oam = &gObjectEventBaseOam_32x32,              \
+.subspriteTables = sOamTables_32x32,            \
+.anims = sAnimTable_Surfing,                    \
+.images = picTable,                             \
+.affineAnims = gDummySpriteAffineAnimTable,
+
+#define PLAYER_OBJECT_INFO(palette, picTable, animation) \
+.tileTag = TAG_NONE,                                     \
+.paletteTag = palette,                                   \
+.reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,          \
+.size = 512,                                             \
+.width = 32,                                             \
+.height = 32,                                            \
+.paletteSlot = PALSLOT_PLAYER,                           \
+.shadowSize = SHADOW_SIZE_M,                             \
+.inanimate = FALSE,                                      \
+.compressed = FALSE,                                     \
+.tracks = TRACKS_FOOT,                                   \
+.oam = &gObjectEventBaseOam_32x32,                       \
+.subspriteTables = sOamTables_32x32,                     \
+.anims = animation,                                      \
+.images = picTable,                                      \
+.affineAnims = gDummySpriteAffineAnimTable,
+
+///////////////////
+///   BRENDAN   ///
+///////////////////
+
+// OUTFIT_RS
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRS_Normal =      {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_RS, sPicTable_BrendanRS_Normal, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRS_Bike =        {PLAYER_OBJECT_BIKE(OBJ_EVENT_PAL_TAG_BRENDAN_RS, sPicTable_BrendanRS_Bike)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRS_Surf =        {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_BRENDAN_RS, sPicTable_BrendanRS_Surf)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRS_FieldMove =   {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_RS, sPicTable_BrendanRS_FieldMove, sAnimTable_FieldMove)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRS_Fishing =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_RS, sPicTable_BrendanRS_Fishing, sAnimTable_Fishing)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRS_Watering =    {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_RS, sPicTable_BrendanRS_Watering, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRS_Fertilizing = {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_RS, sPicTable_BrendanRS_Fertilizing, sAnimTable_BrendanMayNormal)};
+
+// OUTFIT_EMERALD
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanEM_Normal =      {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN, sPicTable_BrendanEM_Normal, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanEM_Bike =        {PLAYER_OBJECT_BIKE(OBJ_EVENT_PAL_TAG_BRENDAN, sPicTable_BrendanEM_Bike)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanEM_Surfing =     {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_BRENDAN, sPicTable_BrendanEM_Surf)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanEM_FieldMove =   {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN, sPicTable_BrendanEM_FieldMove, sAnimTable_FieldMove)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanEM_Fishing =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN, sPicTable_BrendanEM_Fishing, sAnimTable_Fishing)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanEM_Watering =    {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN, sPicTable_BrendanEM_Watering, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanEM_Fertilizing = {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN, sPicTable_BrendanEM_Fertilizing, sAnimTable_BrendanMayNormal)};
+
+// OUTFIT_ORAS
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanORAS_Normal =      {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_ORAS, sPicTable_BrendanORAS_Normal, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanORAS_Bike =        {PLAYER_OBJECT_BIKE(OBJ_EVENT_PAL_TAG_BRENDAN_ORAS, sPicTable_BrendanORAS_Bike)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanORAS_Surf =        {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_BRENDAN_ORAS, sPicTable_BrendanORAS_Surf)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanORAS_FieldMove =   {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_ORAS, sPicTable_BrendanORAS_FieldMove, sAnimTable_FieldMove)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanORAS_Fishing =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_ORAS, sPicTable_BrendanORAS_Fishing, sAnimTable_Fishing)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanORAS_Watering =    {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_ORAS, sPicTable_BrendanORAS_Watering, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanORAS_Fertilizing = {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_ORAS, sPicTable_BrendanORAS_Fertilizing, sAnimTable_BrendanMayNormal)};
+
+// OUTFIT_CONTEST
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_Normal =      {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_Normal, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_Bike =        {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_Bike, sAnimTable_Bike)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_Surf =        {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_Surf)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_FieldMove =   {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_FieldMove, sAnimTable_FieldMove)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_Fishing =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_Fishing, sAnimTable_Fishing)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_Watering =    {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_Watering, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_Fertilizing = {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_Fertilizing, sAnimTable_BrendanMayNormal)};
+
+///////////////////
+///     MAY     ///
+///////////////////
+
+// OUTFIT_RS
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRS_Normal =      {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_RS, sPicTable_MayRS_Normal, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRS_Bike =        {PLAYER_OBJECT_BIKE(OBJ_EVENT_PAL_TAG_MAY_RS, sPicTable_MayRS_Bike)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRS_Surf =        {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_MAY_RS, sPicTable_MayRS_Surf)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRS_FieldMove =   {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_RS, sPicTable_MayRS_FieldMove, sAnimTable_FieldMove)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRS_Fishing =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_RS, sPicTable_MayRS_Fishing, sAnimTable_Fishing)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRS_Watering =    {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_RS, sPicTable_MayRS_Watering, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRS_Fertilizing = {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_RS, sPicTable_MayRS_Fertilizing, sAnimTable_BrendanMayNormal)};
+
+// OUTFIT_EMERALD
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayEM_Normal =      {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY, sPicTable_MayNormal, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayEM_Bike =        {PLAYER_OBJECT_BIKE(OBJ_EVENT_PAL_TAG_MAY, sPicTable_MayAcroBike)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayEM_Surfing =     {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_MAY, sPicTable_MaySurfing)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayEM_FieldMove =   {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY, sPicTable_MayFieldMove, sAnimTable_FieldMove)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayEM_Fishing =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY, sPicTable_MayFishing, sAnimTable_Fishing)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayEM_Watering =    {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY, sPicTable_MayWatering, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayEM_Fertilizing = {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY, sPicTable_MayFertilizing, sAnimTable_BrendanMayNormal)};
+
+// OUTFIT_ORAS
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayORAS_Normal =      {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_ORAS, sPicTable_MayNormalOras, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayORAS_Bike =        {PLAYER_OBJECT_BIKE(OBJ_EVENT_PAL_TAG_MAY_ORAS, sPicTable_MayAcroBikeOras)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayORAS_Surf =        {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_MAY_ORAS, sPicTable_MaySurfingOras)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayORAS_FieldMove =   {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_ORAS, sPicTable_MayFieldMoveOras, sAnimTable_FieldMove)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayORAS_Fishing =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_ORAS, sPicTable_MayFishingOras, sAnimTable_Fishing)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayORAS_Watering =    {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_ORAS, sPicTable_MayWateringOras, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayORAS_Fertilizing = {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_ORAS, sPicTable_MayFertilizingOras, sAnimTable_BrendanMayNormal)};
+
+// OUTFIT_CONTEST
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_NORMAL =          {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MayNormalContest, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_BIKE =            {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MayBikeContest, sAnimTable_Bike)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_SURFING =         {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MaySurfingContest)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_FIELD_MOVE =      {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MayFieldMoveContest, sAnimTable_FieldMove)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_FISHING =         {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MayFishingContest, sAnimTable_Fishing)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_WATERING =        {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MayWateringContest, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_FERTILIZING =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MayFertilizingContest, sAnimTable_BrendanMayNormal)};
+
+/* SNOW SPRITES */
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRS_4pxSnow =         {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_RS, sPicTable_BrendanRS_Snow4Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRS_6pxSnow =         {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_RS, sPicTable_BrendanRS_Snow6Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRS_8pxSnow =         {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_RS, sPicTable_BrendanRS_Snow8Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRS_10pxSnow =        {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_RS, sPicTable_BrendanRS_Snow10Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BRENDAN_4PX_SNOW =          {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN, sPicTable_BrendanSnow4Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BRENDAN_6PX_SNOW =          {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN, sPicTable_BrendanSnow6Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BRENDAN_8PX_SNOW =          {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN, sPicTable_BrendanSnow8Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BRENDAN_10PX_SNOW =         {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN, sPicTable_BrendanSnow10Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ORAS_BRENDAN_4PX_SNOW =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_ORAS, sPicTable_BrendanORAS_Snow4Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ORAS_BRENDAN_6PX_SNOW =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_ORAS, sPicTable_BrendanORAS_Snow6Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ORAS_BRENDAN_8PX_SNOW =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_ORAS, sPicTable_BrendanORAS_Snow8Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ORAS_BRENDAN_10PX_SNOW =    {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_ORAS, sPicTable_BrendanORAS_Snow10Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_4PX_SNOW =  {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_Snow4Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_6PX_SNOW =  {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_Snow6Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_8PX_SNOW =  {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_Snow8Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_10PX_SNOW = {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_Snow10Px, sAnimTable_BrendanMayNormal)};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRS_4pxSnow =         {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_RS, sPicTable_MayRSSnow4Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRS_6pxSnow =         {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_RS, sPicTable_MayRSSnow6Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRS_8pxSnow =         {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_RS, sPicTable_MayRSSnow8Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRS_10pxSnow =        {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_RS, sPicTable_MayRSSnow10Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MAY_4PX_SNOW =          {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY,  sPicTable_MaySnow4Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MAY_6PX_SNOW =          {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY,  sPicTable_MaySnow6Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MAY_8PX_SNOW =          {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY,  sPicTable_MaySnow8Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MAY_10PX_SNOW =         {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY,  sPicTable_MaySnow10Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ORAS_MAY_4PX_SNOW =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_ORAS, sPicTable_MayOrasSnow4Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ORAS_MAY_6PX_SNOW =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_ORAS, sPicTable_MayOrasSnow6Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ORAS_MAY_8PX_SNOW =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_ORAS, sPicTable_MayOrasSnow8Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ORAS_MAY_10PX_SNOW =    {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_ORAS, sPicTable_MayOrasSnow10Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_4PX_SNOW =  {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MayContest_Snow4Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_6PX_SNOW =  {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MayContest_Snow6Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_8PX_SNOW =  {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MayContest_Snow8Px, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_10PX_SNOW = {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MayContest_Snow10Px, sAnimTable_BrendanMayNormal)};
+
+/* MAYBE UNUSED */
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalBrendanRockClimbing = {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_BRENDAN, sPicTable_BrendanEM_RockClimb)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalMayRockClimbing =     {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_MAY, sPicTable_BrendanEM_RockClimb)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRS_RockClimb =   {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_BRENDAN_RS, sPicTable_BrendanRS_RockClimb)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRS_RockClimb =   {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_MAY_RS, sPicTable_MayRS_RockClimb)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRockClimbing = {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_BRENDAN, sPicTable_BrendanEM_RockClimb)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRockClimbing = {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_MAY, sPicTable_BrendanEM_RockClimb)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRockClimbingOras = {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_BRENDAN_ORAS, sPicTable_BrendanORAS_RockClimb)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRockClimbingOras = {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_MAY_ORAS, sPicTable_MayRockClimbingOras)};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalBrendanNormal = {
     .tileTag = TAG_NONE,
     .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
+    .size = 256,
     .width = 16,
     .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
     .compressed = FALSE,
@@ -53,18 +233,18 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanNormal = {
     .oam = &gObjectEventBaseOam_16x32,
     .subspriteTables = sOamTables_16x32,
     .anims = sAnimTable_BrendanMayNormal,
-    .images = sPicTable_BrendanNormal,
+    .images = sPicTable_BrendanEM_Normal,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanMachBike = {
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalBrendanMachBike = {
     .tileTag = TAG_NONE,
     .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 512,
     .width = 32,
     .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
     .compressed = FALSE,
@@ -76,28 +256,161 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanMachBike = 
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanAcroBike = {
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalBrendanAcroBike = {
     .tileTag = TAG_NONE,
     .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
     .size = 512,
     .width = 32,
     .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
     .compressed = FALSE,
     .tracks = TRACKS_BIKE_TIRE,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_AcroBike,
-    .images = sPicTable_BrendanAcroBike,
+    .anims = sAnimTable_Bike,
+    .images = sPicTable_BrendanEM_Bike,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanSurfing = {
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalBrendanSurfing = {
     .tileTag = TAG_NONE,
     .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_Surfing,
+    .images = sPicTable_BrendanEM_Surf,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalBrendanFieldMove = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_FieldMove,
+    .images = sPicTable_BrendanEM_FieldMove,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalMayNormal = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 256,
+    .width = 16,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x32,
+    .subspriteTables = sOamTables_16x32,
+    .anims = sAnimTable_BrendanMayNormal,
+    .images = sPicTable_MayNormal,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalMayMachBike = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_BIKE_TIRE,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_MayMachBike,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalMayAcroBike = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_BIKE_TIRE,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_Bike,
+    .images = sPicTable_MayAcroBike,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalMaySurfing = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_Surfing,
+    .images = sPicTable_MaySurfing,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalMayFieldMove = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_FieldMove,
+    .images = sPicTable_MayFieldMove,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanUnderwater = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_UNDERWATER,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 32,
@@ -109,27 +422,198 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanSurfing = {
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Surfing,
-    .images = sPicTable_BrendanSurfing,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_BrendanUnderwater,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFieldMove = {
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayUnderwater = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_UNDERWATER,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 512,
     .width = 32,
     .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
     .shadowSize = SHADOW_SIZE_M,
     .inanimate = FALSE,
     .compressed = FALSE,
     .tracks = TRACKS_FOOT,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_FieldMove,
-    .images = sPicTable_BrendanFieldMove,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_MayUnderwater,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayUnderwaterOras = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_UNDERWATER,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_MayUnderwaterOras,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanDecorating = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 256,
+    .width = 16,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = TRUE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x32,
+    .subspriteTables = sOamTables_16x32,
+    .anims = sAnimTable_Inanimate,
+    .images = sPicTable_BrendanDecorating,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayDecorating = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 256,
+    .width = 16,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = TRUE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x32,
+    .subspriteTables = sOamTables_16x32,
+    .anims = sAnimTable_Inanimate,
+    .images = sPicTable_MayDecorating,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LinkBrendan = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 256,
+    .width = 16,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x32,
+    .subspriteTables = sOamTables_16x32,
+    .anims = sAnimTable_BrendanMayNormal,
+    .images = sPicTable_BrendanEM_Normal,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LinkMay = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 256,
+    .width = 16,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x32,
+    .subspriteTables = sOamTables_16x32,
+    .anims = sAnimTable_BrendanMayNormal,
+    .images = sPicTable_MayNormal,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RubySapphireBrendan = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_RS_BRENDAN,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 256,
+    .width = 16,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x32,
+    .subspriteTables = sOamTables_16x32,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_RubySapphireBrendan,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RubySapphireMay = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_RS_MAY,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 256,
+    .width = 16,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x32,
+    .subspriteTables = sOamTables_16x32,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_RubySapphireMay,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayOras = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_MAY_ORAS,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 256,
+    .width = 16,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x32,
+    .subspriteTables = sOamTables_16x32,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_Unused_MayOras,
+    .affineAnims = gDummySpriteAffineAnimTable,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanOras = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN_ORAS,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x32,
+    .subspriteTables = sOamTables_16x32,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_Unused_BrendanOras,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
@@ -1284,7 +1768,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CyclingTriathleteM
     .tracks = TRACKS_BIKE_TIRE,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_AcroBike,
+    .anims = sAnimTable_Bike,
     .images = sPicTable_CyclingTriathleteM,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
@@ -1303,7 +1787,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CyclingTriathleteF
     .tracks = TRACKS_BIKE_TIRE,
     .oam = &gObjectEventBaseOam_32x32,
     .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_AcroBike,
+    .anims = sAnimTable_Bike,
     .images = sPicTable_CyclingTriathleteF,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
@@ -1897,101 +2381,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MrBrineysBoat = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayNormal = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 16,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_16x32,
-    .subspriteTables = sOamTables_16x32,
-    .anims = sAnimTable_BrendanMayNormal,
-    .images = sPicTable_MayNormal,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayMachBike = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_BIKE_TIRE,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_MayMachBike,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayAcroBike = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_BIKE_TIRE,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_AcroBike,
-    .images = sPicTable_MayAcroBike,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MaySurfing = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Surfing,
-    .images = sPicTable_MaySurfing,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFieldMove = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_FieldMove,
-    .images = sPicTable_MayFieldMove,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Truck = {
     .tileTag = TAG_NONE,
     .paletteTag = OBJ_EVENT_PAL_TAG_TRUCK,
@@ -2125,311 +2514,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Artist = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalBrendanNormal = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 256,
-    .width = 16,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_16x32,
-    .subspriteTables = sOamTables_16x32,
-    .anims = sAnimTable_BrendanMayNormal,
-    .images = sPicTable_BrendanNormal,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalBrendanMachBike = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_BIKE_TIRE,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_BrendanMachBike,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalBrendanAcroBike = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_BIKE_TIRE,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_AcroBike,
-    .images = sPicTable_BrendanAcroBike,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalBrendanSurfing = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Surfing,
-    .images = sPicTable_BrendanSurfing,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-/////////////////////////////////////////////
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalBrendanRockClimbing = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Surfing,
-    .images = sPicTable_BrendanRockClimbing,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalMayRockClimbing = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Surfing,
-    .images = sPicTable_BrendanRockClimbing,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRockClimbing = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Surfing,
-    .images = sPicTable_BrendanRockClimbing,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRockClimbing = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Surfing,
-    .images = sPicTable_BrendanRockClimbing,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRockClimbingOras = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_ORAS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Surfing,
-    .images = sPicTable_BrendanRockClimbingOras,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRockClimbingOras = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_MAY_ORAS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Surfing,
-    .images = sPicTable_MayRockClimbingOras,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalBrendanFieldMove = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_FieldMove,
-    .images = sPicTable_BrendanFieldMove,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalMayNormal = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 256,
-    .width = 16,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_16x32,
-    .subspriteTables = sOamTables_16x32,
-    .anims = sAnimTable_BrendanMayNormal,
-    .images = sPicTable_MayNormal,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalMayMachBike = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_BIKE_TIRE,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_MayMachBike,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalMayAcroBike = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_BIKE_TIRE,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_AcroBike,
-    .images = sPicTable_MayAcroBike,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalMaySurfing = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Surfing,
-    .images = sPicTable_MaySurfing,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalMayFieldMove = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_FieldMove,
-    .images = sPicTable_MayFieldMove,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Cameraman = {
     .tileTag = TAG_NONE,
     .paletteTag = OBJ_EVENT_PAL_TAG_NPC_4,
@@ -2446,63 +2530,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Cameraman = {
     .subspriteTables = sOamTables_16x32,
     .anims = sAnimTable_Standard,
     .images = sPicTable_Cameraman,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanUnderwater = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_UNDERWATER,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_BrendanUnderwater,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayUnderwater = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_UNDERWATER,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_MayUnderwater,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayUnderwaterOras = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_PLAYER_UNDERWATER,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_MayUnderwaterOras,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
@@ -2997,44 +3024,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RubySapphireLittle
     .subspriteTables = sOamTables_16x16,
     .anims = sAnimTable_Standard,
     .images = sPicTable_RubySapphireLittleBoy,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFishing = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Fishing,
-    .images = sPicTable_BrendanFishing,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFishing = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Fishing,
-    .images = sPicTable_MayFishing,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
@@ -4026,158 +4015,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ContestJudge = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanWatering = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_BrendanWatering,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayWatering = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_MayWatering,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanDecorating = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 256,
-    .width = 16,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = TRUE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_16x32,
-    .subspriteTables = sOamTables_16x32,
-    .anims = sAnimTable_Inanimate,
-    .images = sPicTable_BrendanDecorating,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFertilizing = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_BrendanFertilizing,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFertilizing = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_MayFertilizing,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFertilizingOras = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_ORAS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_BrendanFertilizingOras,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFertilizingOras = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_MAY_ORAS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_MayFertilizingOras,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayDecorating = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 256,
-    .width = 16,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = TRUE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_16x32,
-    .subspriteTables = sOamTables_16x32,
-    .anims = sAnimTable_Inanimate,
-    .images = sPicTable_MayDecorating,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Archie = {
     .tileTag = TAG_NONE,
     .paletteTag = OBJ_EVENT_PAL_TAG_NPC_1,
@@ -4615,44 +4452,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Mom = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LinkBrendan = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 256,
-    .width = 16,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_16x32,
-    .subspriteTables = sOamTables_16x32,
-    .anims = sAnimTable_BrendanMayNormal,
-    .images = sPicTable_BrendanNormal,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LinkMay = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 256,
-    .width = 16,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_16x32,
-    .subspriteTables = sOamTables_16x32,
-    .anims = sAnimTable_BrendanMayNormal,
-    .images = sPicTable_MayNormal,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Juan = {
     .tileTag = TAG_NONE,
     .paletteTag = OBJ_EVENT_PAL_TAG_NPC_4,
@@ -5030,44 +4829,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Brandon = {
     .subspriteTables = sOamTables_16x32,
     .anims = sAnimTable_Standard,
     .images = sPicTable_Brandon,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RubySapphireBrendan = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_RS_BRENDAN,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 256,
-    .width = 16,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_16x32,
-    .subspriteTables = sOamTables_16x32,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_RubySapphireBrendan,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RubySapphireMay = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_RS_MAY,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 256,
-    .width = 16,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_16x32,
-    .subspriteTables = sOamTables_16x32,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_RubySapphireMay,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
@@ -5926,44 +5687,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Korrina = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayOras = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_MAY_ORAS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 256,
-    .width = 16,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_16x32,
-    .subspriteTables = sOamTables_16x32,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_MayOras,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanOras = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_ORAS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_NPC_SPECIAL,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_16x32,
-    .subspriteTables = sOamTables_16x32,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_BrendanOras,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Iris = {
     .tileTag = TAG_NONE,
     .paletteTag = OBJ_EVENT_PAL_IRIS,
@@ -6281,25 +6004,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Crustle = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Example6 = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 16,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_16x32,
-    .subspriteTables = sOamTables_16x32,
-    .anims = sAnimTable_Korrina,
-    .images = sPicTable_Example6,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RocketF = {
     .tileTag = TAG_NONE,
     .paletteTag = OBJ_EVENT_PAL_ROCKET_F,
@@ -6357,196 +6061,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Skyla = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanNormalOras = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_ORAS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 16,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_16x32,
-    .subspriteTables = sOamTables_16x32,
-    .anims = sAnimTable_BrendanMayNormal,
-    .images = sPicTable_BrendanNormalOras,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanAcroBikeOras = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_ORAS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_BIKE_TIRE,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_AcroBike,
-    .images = sPicTable_BrendanAcroBikeOras,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanSurfingOras = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_ORAS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Surfing,
-    .images = sPicTable_BrendanSurfingOras,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFieldMoveOras = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_ORAS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_FieldMove,
-    .images = sPicTable_BrendanFieldMoveOras,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFishingOras = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_ORAS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Fishing,
-    .images = sPicTable_BrendanFishingOras,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanWateringOras = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_ORAS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_BrendanWateringOras,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayNormalOras = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_MAY_ORAS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 16,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_16x32,
-    .subspriteTables = sOamTables_16x32,
-    .anims = sAnimTable_BrendanMayNormal,
-    .images = sPicTable_MayNormalOras,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayAcroBikeOras = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_MAY_ORAS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_BIKE_TIRE,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_AcroBike,
-    .images = sPicTable_MayAcroBikeOras,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MaySurfingOras = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_MAY_ORAS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Surfing,
-    .images = sPicTable_MaySurfingOras,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFieldMoveOras = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_MAY_ORAS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_FieldMove,
-    .images = sPicTable_MayFieldMoveOras,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Krokorok = {
     .tileTag = TAG_NONE,
     .paletteTag = OBJ_EVENT_PAL_KROKOROK,
@@ -6563,44 +6077,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Krokorok = {
     .subspriteTables = sOamTables_32x32,
     .anims = sAnimTable_BrendanMayNormal,
     .images = sPicTable_Krokorok,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFishingOras = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_MAY_ORAS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Fishing,
-    .images = sPicTable_MayFishingOras,
-    .affineAnims = gDummySpriteAffineAnimTable,
-};
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayWateringOras = {
-    .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_MAY_ORAS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .size = 512,
-    .width = 32,
-    .height = 32,
-    .paletteSlot = PALSLOT_PLAYER,
-    .shadowSize = SHADOW_SIZE_M,
-    .inanimate = FALSE,
-    .compressed = FALSE,
-    .tracks = TRACKS_FOOT,
-    .oam = &gObjectEventBaseOam_32x32,
-    .subspriteTables = sOamTables_32x32,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_MayWateringOras,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
@@ -6677,287 +6153,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Crate = {
     .affineAnims = gDummySpriteAffineAnimTable,
 };
 
-#define PLAYER_OBJ_INFO                             \
-    .tileTag = TAG_NONE,                            \
-    .size = 512,                                    \
-    .width = 32,                                    \
-    .height = 32,                                   \
-    .paletteSlot = PALSLOT_PLAYER,                  \
-    .shadowSize = SHADOW_SIZE_M,                    \
-    .inanimate = FALSE,                             \
-    .compressed = FALSE,                            \
-    .oam = &gObjectEventBaseOam_32x32,              \
-    .subspriteTables = sOamTables_32x32,            \
-    .affineAnims = gDummySpriteAffineAnimTable,     \
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanNormalRS = {
-    PLAYER_OBJ_INFO
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .tracks = TRACKS_FOOT,
-    .anims = sAnimTable_BrendanMayNormal,
-    .images = sPicTable_BrendanNormalRS,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanAcroBikeRS = {
-    PLAYER_OBJ_INFO
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .tracks = TRACKS_BIKE_TIRE,
-    .anims = sAnimTable_AcroBike,
-    .images = sPicTable_BrendanAcroBikeRS,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanSurfingRS = {
-    PLAYER_OBJ_INFO
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .tracks = TRACKS_FOOT,
-    .anims = sAnimTable_Surfing,
-    .images = sPicTable_BrendanSurfingRS,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFieldMoveRS = {
-    PLAYER_OBJ_INFO
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .tracks = TRACKS_FOOT,
-    .anims = sAnimTable_FieldMove,
-    .images = sPicTable_BrendanFieldMoveRS,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFishingRS = {
-    PLAYER_OBJ_INFO
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .tracks = TRACKS_FOOT,
-    .anims = sAnimTable_Fishing,
-    .images = sPicTable_BrendanFishingRS,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanWateringRS = {
-    PLAYER_OBJ_INFO
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .tracks = TRACKS_FOOT,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_BrendanWateringRS,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRockClimbingRS = {
-    PLAYER_OBJ_INFO
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .tracks = TRACKS_FOOT,
-    .anims = sAnimTable_Surfing,
-    .images = sPicTable_BrendanRockClimbingRS,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFertilizingRS = {
-    PLAYER_OBJ_INFO
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .tracks = TRACKS_FOOT,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_BrendanFertilizingRS,
-};
-/////////////////////////////////////////////////
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayNormalRS = {
-    PLAYER_OBJ_INFO
-    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .tracks = TRACKS_FOOT,
-    .anims = sAnimTable_BrendanMayNormal,
-    .images = sPicTable_MayNormalRS,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayAcroBikeRS = {
-    PLAYER_OBJ_INFO
-    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .tracks = TRACKS_BIKE_TIRE,
-    .anims = sAnimTable_AcroBike,
-    .images = sPicTable_MayAcroBikeRS,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MaySurfingRS = {
-    PLAYER_OBJ_INFO
-    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .tracks = TRACKS_FOOT,
-    .anims = sAnimTable_Surfing,
-    .images = sPicTable_MaySurfingRS,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFieldMoveRS = {
-    PLAYER_OBJ_INFO
-    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .tracks = TRACKS_FOOT,
-    .anims = sAnimTable_FieldMove,
-    .images = sPicTable_MayFieldMoveRS,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFishingRS = {
-    PLAYER_OBJ_INFO
-    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .tracks = TRACKS_FOOT,
-    .anims = sAnimTable_Fishing,
-    .images = sPicTable_MayFishingRS,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayWateringRS = {
-    PLAYER_OBJ_INFO
-    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .tracks = TRACKS_FOOT,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_MayWateringRS,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRockClimbingRS = {
-    PLAYER_OBJ_INFO
-    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
-    .tracks = TRACKS_FOOT,
-    .anims = sAnimTable_Surfing,
-    .images = sPicTable_MayRockClimbingRS,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayFertilizingRS = {
-    PLAYER_OBJ_INFO
-    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
-    .tracks = TRACKS_FOOT,
-    .anims = sAnimTable_Standard,
-    .images = sPicTable_MayFertilizingRS,
-};
-
-#define PLAYER_OBJ_INFO_SNOW                        \
-    .tileTag = TAG_NONE,                            \
-    .size = 512,                                    \
-    .width = 16,                                    \
-    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE, \
-    .height = 32,                                   \
-    .paletteSlot = PALSLOT_PLAYER,                  \
-    .shadowSize = SHADOW_SIZE_M,                    \
-    .inanimate = FALSE,                             \
-    .compressed = FALSE,                            \
-    .oam = &gObjectEventBaseOam_16x32,              \
-    .subspriteTables = sOamTables_16x32,            \
-    .affineAnims = gDummySpriteAffineAnimTable,     \
-    .tracks = TRACKS_FOOT,                          \
-    .anims = sAnimTable_Standard,                   \
-
-
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_4PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
-    .images = sPicTable_BrendanSnow4Px,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_6PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
-    .images = sPicTable_BrendanSnow6Px,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_8PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
-    .images = sPicTable_BrendanSnow8Px,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_10PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,
-    .images = sPicTable_BrendanSnow10Px,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_ORAS_4PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_ORAS,
-    .images = sPicTable_BrendanOrasSnow4Px,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_ORAS_6PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_ORAS,
-    .images = sPicTable_BrendanOrasSnow6Px,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_ORAS_8PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_ORAS,
-    .images = sPicTable_BrendanOrasSnow8Px,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_ORAS_10PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_ORAS,
-    .images = sPicTable_BrendanOrasSnow10Px,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_RS_4PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
-    .images = sPicTable_BrendanRSSnow4Px,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_RS_6PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
-    .images = sPicTable_BrendanRSSnow6Px,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_RS_8PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
-    .images = sPicTable_BrendanRSSnow8Px,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_BRENDAN_RS_10PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_BRENDAN_RS,
-    .images = sPicTable_BrendanRSSnow10Px,
-};
-/////////////////
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_4PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
-    .images = sPicTable_MaySnow4Px,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_6PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
-    .images = sPicTable_MaySnow6Px,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_8PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
-    .images = sPicTable_MaySnow8Px,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_10PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_TAG_MAY,
-    .images = sPicTable_MaySnow10Px,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_ORAS_4PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_MAY_ORAS,
-    .images = sPicTable_MayOrasSnow4Px,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_ORAS_6PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_MAY_ORAS,
-    .images = sPicTable_MayOrasSnow6Px,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_ORAS_8PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_MAY_ORAS,
-    .images = sPicTable_MayOrasSnow8Px,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_ORAS_10PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_MAY_ORAS,
-    .images = sPicTable_MayOrasSnow10Px,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_RS_4PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
-    .images = sPicTable_MayRSSnow4Px,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_RS_6PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
-    .images = sPicTable_MayRSSnow6Px,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_RS_8PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
-    .images = sPicTable_MayRSSnow8Px,
-};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OBJ_EVENT_GFX_MAY_RS_10PX_SNOW = {
-    PLAYER_OBJ_INFO_SNOW
-    .paletteTag = OBJ_EVENT_PAL_MAY_RS,
-    .images = sPicTable_MayRSSnow10Px,
-};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BallLight = {
     .tileTag = TAG_NONE,
     .paletteTag = OBJ_EVENT_PAL_TAG_LIGHT,

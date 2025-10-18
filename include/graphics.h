@@ -29,6 +29,11 @@ extern const u16 gTrainerPalette_MayOras[];
 extern const u16 gTrainerPalette_Leaf[];
 extern const u32 gTrainerFrontPic_Empty[];
 
+extern const u16 gTrainerPalette_BrendanContest[];
+extern const u16 gTrainerPalette_MayContest[];
+extern const u32 gTrainerFrontPic_MayContest[];
+extern const u32 gTrainerFrontPic_BrendanContest[];
+
 // pokeballs
 extern const u32 gBallGfx_Strange[];
 extern const u16 gBallPal_Strange[];
@@ -3480,10 +3485,10 @@ extern const u16 gFrontierFactoryMenu_Tilemap[];
 extern const u16 gFrontierFactoryMenu_Pal[];
 
 // Object event pals
-extern const u16 gObjectEventPal_Brendan[];
-extern const u16 gObjectEventPal_May[];
-extern const u16 gObjectEventPal_RubySapphireBrendan[];
-extern const u16 gObjectEventPal_RubySapphireMay[];
+extern const u16 gObjectEventPalette_Brendan[];
+extern const u16 gObjectEventPalette_May[];
+extern const u16 gObjectEventPalette_Brendan_Unused[];
+extern const u16 gObjectEventPalette_May_Unused[];
 
 // Mail
 extern const u16 gMailPalette_Orange[];
